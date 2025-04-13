@@ -1,11 +1,11 @@
-# How to install my own software in CSC supercomputer
+# Kuinka asentaa oma ohjelmisto CSC-supertietokoneeseen {#how-to-install-my-own-software-in-csc-supercomputer}
 
-It is possible to install your own software but the instructions from the
-web rarely work _as is_. For example, you can't install in the typical
-default locations. Instead, the recommended location is your 
-`/projappl/project_xxxx` folder.
+On mahdollista asentaa oma ohjelmisto, mutta ohjeet internetistä
+harvoin toimivat _sellaisenaan_. Esimerkiksi et voi asentaa tavallisiin
+oletussijainteihin. Sen sijaan suositeltu sijainti on oma 
+`/projappl/project_xxxx`-kansiosi.
 
-For details, please consult the
-[Installing own software chapter](https://a3s.fi/CSC_training/09_installing.html#/installing-own-software)
-of our CSC Computing Environment course materials and follow the related
-[hands-on tutorials](https://csc-training.github.io/csc-env-eff/part-2/installing/).
+Lisätietoja varten, tutustu kurssimateriaalimme
+[Asentaminen oma ohjelmisto -lukuun](https://a3s.fi/CSC_training/09_installing.html#/installing-own-software)
+CSC-laskenta ympäristö -kurssissamme ja seuraa asiaankuuluvia
+[käytännön harjoituksia](https://csc-training.github.io/csc-env-eff/part-2/installing/).

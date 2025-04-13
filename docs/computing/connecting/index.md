@@ -1,84 +1,68 @@
-# Connecting to CSC supercomputers
+# Yhdistäminen CSC:n supertietokoneisiin {#connecting-to-csc-supercomputers}
 
 --8<-- "auth-update-ssh.md"
 
-There are two main ways of connecting to CSC supercomputers.
+CSC:n supertietokoneisiin voi yhdistää kahdella pääasiallisella tavalla.
 
-1. The traditional way to connect to a supercomputer is
-   [using an SSH client](#using-an-ssh-client).
-2. We also offer a [web interface](#using-the-web-interface) to our systems,
-   which enables running both graphical applications and command-line shells.
+1. Perinteinen tapa yhdistää supertietokoneeseen on
+   [käyttämällä SSH-asiakasohjelmaa](#using-an-ssh-client).
+2. Tarjoamme myös [verkkokäyttöliittymän](#using-the-web-interface) järjestelmiimme,
+   joka mahdollistaa sekä graafisten sovellusten ajamisen että komentorivishelmeiden käytön.
 
-For instructions on connecting to the LUMI supercomputer, please see the
-[Get Started page in the LUMI user guide](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
+Ohjeet yhdistämisestä LUMI-supertietokoneeseen löytyvät
+[LUMIn käyttäjän oppaan get started -sivulta](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
 
-!!! note "Login node usage policy"
-    When you connect to a supercomputer using an SSH client or the
-    [*Login node shell*](../webinterface/shell.md) app, you are directed to a
-    login node. Login nodes are **not meant for long or heavy processing**.
-    The accepted uses for login nodes are defined in our
-    [login node usage policy](../usage-policy.md#login-nodes).
+!!! note "Kirjautumissolmun käyttöpolitiikka"
+    Kun yhdistät supertietokoneeseen SSH-asiakasohjelmalla tai 
+    [*Kirjautumissolmun shell*](../webinterface/shell.md) -sovelluksella, ohjataan sinut
+    kirjautumissolmuun. Kirjautumissolmut **eivät ole tarkoitettu pitkiin tai raskaisiin prosessointeihin**.
+    Hyväksytyt käyttötavat kirjautumissolmuihin on määritelty meidän
+    [kirjautumissolmujen käyttöpolitiikassa](../usage-policy.md#login-nodes).
 
-## Using the web interface
+## Verkkokäyttöliittymän käyttäminen {#using-the-web-interface}
 
-The [web interface](../webinterface/index.md) is a good platform
-for using graphical applications on the Puhti and Mahti supercomputers.
-It hosts
-[interactive applications for select programs](../webinterface/apps.md)
-like Jupyter and RStudio, and for other GUI programs you can use the
-[remote desktop](../webinterface/desktop.md) interface.
+[Verkkokäyttöliittymä](../webinterface/index.md) on hyvä alusta
+graafisten sovellusten käyttämiseen Puhti- ja Mahti-supertietokoneilla.
+Se isännöi
+[vuorovaikutteisia sovelluksia valikoiduille ohjelmille](../webinterface/apps.md),
+kuten Jupyter ja RStudio, ja muihin GUI-sovelluksiin voit käyttää
+[etätyöpöytä](../webinterface/desktop.md) -käyttöliittymää.
 
-It is also possible to [open a shell program](../webinterface/shell.md) on a
-login node or compute node. The compute node shell is persistent, meaning it
-will keep running even if you close your browser or lose your internet
-connection. The shell applications are especially convenient for users whose
-workstation has a Windows operating system, since Windows does not
-typically come with a pre-installed SSH client. See the instructions for
-[connecting to Puhti and Mahti web interfaces](../webinterface/connecting.md).
+On myös mahdollista [avata shell-ohjelma](../webinterface/shell.md)
+kirjautumissolmulla tai laskentasolmulla. Laskentasolmun shell on pysyvä, mikä tarkoittaa, että se jatkaa toimimista, vaikka sulkisit selaimen tai menettäisit internet-yhteyden. Shell-sovellukset ovat erityisen käteviä käyttäjille, joiden työasema toimii Windows-käyttöjärjestelmällä, koska Windowsissa ei yleensä ole esiasennettua SSH-asiakasohjelmaa. Katso ohjeet [yhdistämiselle Puhtin ja Mahtin verkkokäyttöliittymiin](../webinterface/connecting.md).
 
-## Using an SSH client
+## SSH-asiakasohjelman käyttäminen {#using-an-ssh-client}
 
-Logging in to Puhti and Mahti using an SSH client requires that you have
-[set up SSH keys](ssh-keys.md) and
-[added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc).
-Traditional password-based authentication and public keys stored in your
-personal `~/.ssh/authorized_keys` file will **not** work.
+Kirjautuminen Puhtiin ja Mahtiin SSH-asiakasohjelmalla edellyttää, että olet
+[määrittänyt SSH-avaimet](ssh-keys.md) ja
+[lisännyt julkisen avaimesi MyCSCi:iin](ssh-keys.md#adding-public-key-in-mycsc).
+Perinteinen salasanapohjainen tunnistautuminen ja henkilökohtaiseen
+`~/.ssh/authorized_keys` -tiedostoosi tallennetut julkiset avaimet eivät **toimi**.
 
-Unix-based systems like macOS and Linux typically come with a pre-installed
-terminal program called simply *Terminal*. The instructions for using an
-[SSH client on macOS and Linux](ssh-unix.md) show how to connect to a CSC
-supercomputer using the terminal program.
+Unix-pohjaisissa järjestelmissä, kuten macOS ja Linux, on yleensä esiasennettu
+päätelmäohjelma nimeltä yksinkertaisesti *Terminal*. Ohjeet [SSH-asiakasohjelman käyttämiseen macOS- ja Linux-järjestelmissä](ssh-unix.md) näyttävät, kuinka yhdistää CSC:n supertietokoneeseen käyttämällä päätelmäohjelmaa.
 
-While Windows systems do not have a similar pre-existing solution for connecting
-over SSH, there are multiple programs that can be used for this. The
-instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
-popular options.
+Windows-järjestelmissä ei ole vastaavaa esiasennettua ratkaisua SSH-yhteyttä varten, mutta on olemassa useita ohjelmia, joita voi käyttää tähän tarkoitukseen. Ohjeet [SSH-asiakasohjelman käyttämiseen Windowsissa](ssh-windows.md) listaavat muutamia suosittuja vaihtoehtoja.
 
-Once you have set up SSH keys and added your public key to MyCSC, use a
-command like below to connect over SSH:
+Kun olet määrittänyt SSH-avaimet ja lisännyt julkisen avaimen MyCSCi:iin, käytä alla olevaa komentoa yhdistääksesi SSH:n kautta:
 
 ```bash
-# Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
+# Korvaa <username> CSC:n käyttäjätilisi nimellä ja
+# <host> "puhti" tai "mahti"
 
 ssh <username>@<host>.csc.fi
 ```
 
 !!! note
-    It might take up to one hour for your new key to become active after adding
-    it to MyCSC.
+    Uuden avaimen aktivoituminen voi kestää jopa tunnin sen jälkeen, kun se on lisätty MyCSCi:iin.
 
-Once the SSH connection to the supercomputer is open, you can interact with it
-by issuing Linux commands using the Bash shell program. An introduction to
-working on the Linux command-line can be found in our
-[Linux basics tutorial for CSC](../../support/tutorials/env-guide/index.md).
-You can have several connections to CSC supercomputers open at the same time.
+Kun SSH-yhteys supertietokoneeseen on auki, voit olla vuorovaikutuksessa sen kanssa antamalla Linux-komentoja Bash shell -ohjelman avulla. Johdanto työskentelyyn Linux-komentorivillä löytyy oppaastamme
+[Linuxin perusteet CSC:lle](../../support/tutorials/env-guide/index.md).
+Voit pitää useita CSC supertietokoneen yhteyksiä auki samanaikaisesti.
 
-### First connection
+### Ensimmäinen yhteys {#first-connection}
 
-When connecting to a given supercomputer for the first time, the SSH client
-may notify you that the host is unknown, and ask you to confirm the connection.
-With the OpenSSH client, the message looks like this:
+Kun muodostat yhteyden tiettyyn supertietokoneeseen ensimmäistä kertaa, SSH-asiakasohjelma saattaa ilmoittaa, että isäntä on tuntematon, ja pyytää sinua vahvistamaan yhteyden. OpenSSH-asiakasohjelmassa viesti näyttää tältä:
 
 ```text
 The authenticity of host 'puhti.csc.fi' can't be established.
@@ -86,52 +70,45 @@ ECDSA key fingerprint is SHA256:kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
-In order to continue, you should confirm that the displayed key fingerprint is
-found in the [table below](#host-key-fingerprints), and then enter `yes`. You
-will not be asked again unless the server key changes, in which case you
-should again verify the new key against fingerprints provided by CSC.
+Jatkaaksesi sinun tulee varmistaa, että näytetty avaimen sormenjälki löytyy [alla olevasta taulukosta](#host-key-fingerprints), ja sitten syöttää `yes`. Sinulta ei kysytä tätä uudelleen, ellei palvelimen avain muutu, jolloin sinun tulee jälleen varmistaa uusi avain CSC:n tarjoamista sormenjäljistä.
 
-#### Host key fingerprints
+#### Isäntäavaimen sormenjäljet {#host-key-fingerprints}
 
 === "Puhti"
-    | SHA256 checksum                             | Key                                |
+    | SHA256-tarkistussumma                       | Avain                              |
     |---------------------------------------------|------------------------------------|
     | kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c | ssh_host_ecdsa_key.pub (ECDSA)     |
     | Q2lpykI43ffs4PrRODZ/qncjUo3eyrRHc5T9yjJEwWY | ssh_host_ed25519_key.pub (ED25519) |
     | WH1Ag2OQtMPZb+hj3YeH9uVMMetXpCvyNUbsdk0Qcpk | ssh_host_rsa_key.pub (RSA)         |
 
 === "Mahti"
-    | SHA256 checksum                             | Key                                |
+    | SHA256-tarkistussumma                       | Avain                              |
     |---------------------------------------------|------------------------------------|
     | WC9Lb5tmKDzUJqsQjaZLvp9T7LTs3aMUYSIy2OCdtgg | ssh_host_ecdsa_key.pub (ECDSA)     |
     | tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
     | 0CxM3ECpD2LhAnMfHnm3YaXresvHrhW4cevvcPb+HNw | ssh_host_rsa_key.pub (RSA)         |
 
-### Graphical connection
+### Graafinen yhteys {#graphical-connection}
 
-We recommend using the web interfaces for running applications with graphical
-user interfaces. Alternatively, graphics can also be displayed over an SSH
-connection using X11 forwarding. See the operating system-specific instructions:
+Suosittelemme verkkokäyttöliittymien käyttöä sovellusten ajamiseen graafisilla käyttöliittymillä. Vaihtoehtoisesti grafiikkaa voidaan myös näyttää SSH-yhteyden kautta käyttämällä X11-siirtoa. Katso käyttöjärjestelmäkohtaiset ohjeet:
 
-* [X11 forwarding on Linux and macOS](ssh-unix.md#graphical-connection)
-* X11 forwarding on Windows:
+* [X11-siirto Linux- ja macOS-järjestelmissä](ssh-unix.md#graphical-connection)
+* X11-siirto Windowsissa:
     * [PowerShell](ssh-windows.md#graphical-connection-powershell)
     * [PuTTY](ssh-windows.md#graphical-connection-putty)
     * [MobaXterm](ssh-windows.md#graphical-connection-mobaxterm)
 
-### Advanced usage
+### Kehittyneempi käyttö {#advanced-usage}
 
-#### Connecting to a specific node
+#### Yhteyden muodostaminen tiettyyn solmuun {#connecting-to-a-specific-node}
 
-When you connect to a supercomputer, you are automatically directed to one of
-the login nodes on the system. However, you can also use your SSH client to
-connect to a specific login node:
+Kun muodostat yhteyden supertietokoneeseen, sinut ohjataan automaattisesti johonkin järjestelmän kirjautumissolmuista. Voit kuitenkin käyttää SSH-asiakasohjelmaasi myös yhdistääksesi tiettyyn kirjautumissolmuun:
 
 ```bash
-ssh <username>@<host>-login<id>.csc.fi  # e.g. 'puhti-login11.csc.fi'
+ssh <username>@<host>-login<id>.csc.fi  # esim. 'puhti-login11.csc.fi'
 ```
 
-The available login nodes are:
+Saatavilla olevat kirjautumissolmut ovat:
 
 | Puhti | Mahti |
 |-|-|
@@ -140,13 +117,11 @@ The available login nodes are:
 | `puhti-login14` | `mahti-login14` |
 | `puhti-login15` | `mahti-login15` |
 
-This also applies to compute nodes, although just the ones where you have a
-job running. Use the `squeue` command to see which node(s) your job is on, and
-then connect to a node using `ssh`.
+Tämä pätee myös laskentasolmuihin, tosin vain niihin, joissa sinulla on ajossa oleva tehtävä. Käytä `squeue`-komentoa nähdäksesi, millä solmuilla tehtäväsi on ajossa, ja yhdistä solmuun käyttämällä `ssh`-komentoa.
 
 ```bash
-# The nodes hosting the job are
-# displayed in the "NODELIST(REASON)" column.
+# Solmut, joilla tehtävä on ajossa,
+# näkyvät sarakkeessa "NODELIST(REASON)".
 
 [username@puhti-login11 ~]$ squeue --me
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
@@ -156,30 +131,26 @@ then connect to a node using `ssh`.
 r07c01.bullx
 ```
 
-If you try to connect to a node where you have no active jobs, you will
-receive the following error message: `Access denied by pam_slurm_adopt: you
-have no active jobs on this node`.
+Jos yrität yhdistää solmuun, jossa sinulla ei ole aktiivista tehtävää, saat seuraavan virheilmoituksen: `Access denied by pam_slurm_adopt: you have no active jobs on this node`.
 
-#### Configuring SSH client
+#### SSH-asiakasohjelman konfigurointi {#configuring-ssh-client}
 
-You can save yourself some time by adding host-specific options for CSC
-supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
-(e.g. `~/.ssh/config`).
+Voit säästää aikaa lisäämällä isäntäkohtaisia asetuksia CSC:n supertietokoneille [SSH config -tiedostoon](https://www.ssh.com/academy/ssh/config) (esim. `~/.ssh/config`).
 
 ```bash
-Host <host>  # e.g. "puhti"
+Host <host>  # esim. "puhti"
     HostName <host>.csc.fi
     User <csc-username>
 ```
 
-Now you can connect to the host simply by running:
+Nyt voit yhdistää isäntään yksinkertaisesti ajamalla:
 
 ```bash
 ssh <host>
 ```
 
-#### Remote development
+#### Etäkehitys {#remote-development}
 
-Some editors like Visual Studio Code and Notepad++ can be used to
-[work on files remotely](../../support/tutorials/remote-dev.md)
-using an appropriate plugin. **However, this is not recommended.**
+Joitakin editoreita, kuten Visual Studio Code ja Notepad++, voidaan käyttää
+[työskentelemään tiedostojen kanssa etänä](../../support/tutorials/remote-dev.md)
+sopivan liitännäisen avulla. **Tätä ei kuitenkaan suositella.**

@@ -1,23 +1,20 @@
-# Performance Analysis
 
-## Quick Start: Efficiency Report with seff
+# Suorituskyvyn Analysointi
 
-Slurm job efficiency report (command: `seff`) gives a quick summary of
-requested and used resources for both running and finished batch jobs.
+## Nopean Aloituksen Oppaasta: Tehokkuusraportti `seff` {#quick-start-efficiency-report-with-seff}
+
+Slurm-työn tehokkuusraportti (komento: `seff`) antaa nopean yhteenvedon pyydetyistä ja käytetyistä resursseista sekä käynnissä oleville että päättyneille erätehtäville.
 
 ```bash
 seff <JOBID>
 ```
 
-It is an easy way to get an overall picture of how efficiently the CPUs were
-used (CPU Efficiency) and how much of the allocated memory was actually used
-(Memory Efficiency).
+Se on helppo tapa saada yleiskuva siitä, kuinka tehokkaasti suorittimia käytettiin (CPU-tehokkuus) ja kuinka paljon varatusta muistista käytettiin todellisuudessa (muistitehokkuus).
 
-!!! note "Hint"
-    you may add the `seff` command to the end of your batch job script to
-    always get an efficiency report for your jobs: `seff $SLURM_JOBID`
+!!! note "Vihje"
+    Voit lisätä `seff`-komennon erätehtäväskriptisi loppuun, jotta saat aina tehokkuusraportin tehtävillesi: `seff $SLURM_JOBID`
 
-Example output for a single node job:
+Esimerkkiulostulo yhden solmun tehtävästä:
 ```bash
 puhti-login12:~$ seff 366910
 Job ID: 366910
@@ -36,26 +33,16 @@ CPU BU: 1.30
 Mem BU: 0.51
 ```
 
-To get more detailed information about the performance of your program, you
-should use one of the profiling tools available (see below).
+Saadaksesi tarkempaa tietoa ohjelman suorituskyvystä, sinun tulisi käyttää jotain saatavilla olevista profilointityökaluista (katso alla).
 
+## Profilointityökalut {#profiling-tools}
 
-## Profiling tools
+Hyvät profilointityökalut voivat auttaa saamaan täyden kuvan ohjelman laskennallisista ja viestintämalleista ja tunnistamaan mahdollisia suorituskyvyn pullonkauloja. CSC:lla on saatavilla useita profilointityökaluja:
 
-Good profiling tools may help one to get a full picture of the computational
-and communication patterns of a program and to identify potential performance
-bottlenecks. At CSC, several profiling tools are available:
-
-* [Intel VTune Profiler](../apps/vtune.md) is a powerful profiler that can be
-  used to collect performance data of your application and is suited for both
-  serial and multithreaded codes
-* [Scalasca](../apps/scalasca.md) is trace-based parallel performance analysis tool for MPI,
-  OpenMP and hybrid MPI+OpenMP programs
-* [Intel Trace Analyzer and Collector](../apps/itac.md) is a MPI profiling and
-  tracing tool for parallel programs
-* [cProfile](../apps/cProfile.md) is the recommended, in-built profiling tool
-  for Python programs
-* [nvprof](../apps/nvprof.md) is a command-line CUDA profiler and tracing tool
-  for CUDA programs
-* [nsys](../apps/nsys.md) is the command-line interface of Nsight Systems a system-wide performance analysis tool designed to visualize an application’s algorithms
-* [ncu](../apps/ncu.md) is the command-line interface of Nsight Compute, a tool to debug and optimize CUDA kernels
+* [Intel VTune Profiler](../apps/vtune.md) on tehokas profilointityökalu, jota voidaan käyttää suorituskykytietojen keräämiseen sovelluksesta ja se soveltuu sekä sarja- että monisäikeisille koodeille
+* [Scalasca](../apps/scalasca.md) on jälkiperusteinen rinnakkaisen suorituskyvyn analyysityökalu MPI-, OpenMP- ja hybridiohjelmille MPI+OpenMP
+* [Intel Trace Analyzer and Collector](../apps/itac.md) on MPI-profilointi- ja jäljitystyökalu rinnakkaisille ohjelmille
+* [cProfile](../apps/cProfile.md) on suositeltu, sisäänrakennettu profilointityökalu Python-ohjelmille
+* [nvprof](../apps/nvprof.md) on komentorivillä käytettävä CUDA-profilointi- ja jäljitystyökalu CUDA-ohjelmille
+* [nsys](../apps/nsys.md) on Nsight Systems -ohjelmiston komentorajapinta, järjestelmätason suorituskykyanalyysityökalu, joka on suunniteltu visualisoimaan sovelluksen algoritmeja
+* [ncu](../apps/ncu.md) on Nsight Compute -ohjelman komentorajapinta, työkalu alla koodien virheenkorjaukseen ja optimointiin.

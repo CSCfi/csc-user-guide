@@ -1,61 +1,63 @@
-# Technical details about Roihu
+# Tekniset tiedot Roihusta
 
-!!! note
-    This page contains preliminary information about CSC's next national
-    supercomputer Roihu, which is projected to be in researchers' use early
-    2026. Please note that the details may evolve over time.
+!!! huomio
+    Tämä sivu sisältää alustavaa tietoa CSC:n seuraavasta kansallisesta
+    supertietokoneesta Roihusta, jonka arvioidaan olevan tutkijoiden käytössä
+    alkuvuodesta 2026. Huomioithan, että yksityiskohdat voivat muuttua ajan myötä.
 
-## Compute
+## Laskenta {#compute}
 
-**Roihu** will have a total of 486 CPU nodes and 132 GPU nodes. The
-high-performance LINPACK (HPL) performance is estimated to be 10.5 PFlop/s for
-the CPU nodes and 23.4 PFlop/s for the GPU nodes, resulting in an aggregate HPL
-performance of 33.9 PFlop/s for the full system.
+**Roihussa** tulee olemaan yhteensä 486 CPU-solmua ja 132 GPU-solmua.
+Korkean suorituskyvyn LINPACK (HPL) -suorituskyky arvioidaan olevan 10,5 PFlop/s
+CPU-solmuille ja 23,4 PFlop/s GPU-solmuille, mikä tarkoittaa, että koko
+järjestelmän HPL-suorituskyky on yhteensä 33,9 PFlop/s.
 
-The CPU nodes will have two 192-core AMD Turin 9965 CPUs each, amounting to
-186 624 CPU cores altogether. The CPUs are based on the AMD Zen 5 architecture,
-which supports the AVX-512 vector instruction set. 414 of the CPU nodes will
-have 768 GiB of memory, while the remaining 72 nodes will have an extended
-memory of 1 536 GiB each.
+CPU-solmuissa on kukin kaksi 192-ytimistä AMD Turin 9965 -prosessoria, mikä
+tarkoittaa yhteensä 186 624 CPU-ydintä. Prosessorit perustuvat AMD Zen 5
+-arkkitehtuuriin, joka tukee AVX-512 vektorikomentosarjaa. 414 CPU-solmussa on
+768 GiB muistia, kun taas jäljelle jäävissä 72 solmussa on laajennettu 1 536 GiB
+muisti kutakin.
 
-Each GPU node will be equipped with 4 Nvidia GH200 Grace Hopper superchips. 
-Each GH200 superchip comprises one Hopper GPU and one Grace CPU with 
-72 ARM CPU cores which are connected with a very fast interface. Each 
-GH200 superchip has 120 GiB CPU memory and 96 GiB GPU memory, providing 
-a total of 480 GiB CPU memory per node. This gives a total of 528 GPUs and 
-38 016 CPU cores in the whole GPU partition. 
+Jokainen GPU-solmu varustetaan neljällä Nvidia GH200 Grace Hopper
+-superchippillä. Jokainen GH200-superchipp sisältää yhden Hopper-GPU:n ja yhden
+Grace-CPU:n, jossa on 72 ARM CPU-ydintä, jotka on yhdistetty erittäin nopealla
+liitännällä. Jokaisessa GH200-superchippissä on 120 GiB CPU-muistia ja 96 GiB
+GPU-muistia, mikä takaa 480 GiB CPU-muistia per solmu. Tämä antaa yhteensä
+528 GPU:ta ja 38 016 CPU-ydintä koko GPU-osiossa.
 
-The system will also provide four visualization nodes with two Nvidia L40 GPUs
-each, as well as four high-memory CPU nodes with 3 TiB memory and higher
-single-thread performance.
+Järjestelmä tarjoaa myös neljä visualisointisolmua, joissa on kaksi Nvidia L40
+GPU:ta kummassakin, sekä neljä suuren muistin CPU-solmua, joissa on 3 TiB muistia
+ja korkeampi yksisäikeinen suorituskyky.
 
-### Nodes
+### Solmut {#nodes}
 
-| Name | Number of nodes | Compute        | Cores                          | Memory (GiB) | Local disk (TB) |
-|:-----|----------------:|---------------:|-------------------------------:|-------------:|----------------:|
-| M    | 414             | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 768          | 0.96            |
-| L    | 72              | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 1536         | 0.96            |
-| XL   | 4               | AMD Turin 9555 | 2 x 64 cores (x86) @ 3.20 GHz  | 3072         | 15.36           |
-| V    | 4               | AMD Turin 9335<br>Nvidia L40 | 2 x 32 cores (x86) @ 3.40 GHz<br>2 x GPUs | 384<br>2 x 48 | 0.96 |
-| GPU  | 132             | Nvidia GH200   | 4 x 72 cores (ARM)<br>4 x GPUs | 4 x 120<br>4 x 96 | 0.96 |
+| Nimi | Solmujen lukumäärä | Laskenta         | Ytimet                          | Muisti (GiB) | Paikallinen levy (TB) |
+|:-----|-------------------:|-----------------:|--------------------------------:|-------------:|----------------------:|
+| M    | 414                | AMD Turin 9965   | 2 x 192 ydintä (x86) @ 2.25 GHz | 768          | 0.96                  |
+| L    | 72                 | AMD Turin 9965   | 2 x 192 ydintä (x86) @ 2.25 GHz | 1536         | 0.96                  |
+| XL   | 4                  | AMD Turin 9555   | 2 x 64 ydintä (x86) @ 3.20 GHz  | 3072         | 15.36                 |
+| V    | 4                  | AMD Turin 9335<br>Nvidia L40 | 2 x 32 ydintä (x86) @ 3.40 GHz<br>2 x GPU:ta | 384<br>2 x 48 | 0.96 |
+| GPU  | 132                | Nvidia GH200     | 4 x 72 ydintä (ARM)<br>4 x GPU:ta | 4 x 120<br>4 x 96 | 0.96 |
 
-## Storage
+## Tallennus {#storage}
 
-Roihu will have two independent flash-based DDN EXAScaler Lustre file systems –
-a 6.0 PiB scratch space and a 0.5 PiB storage system for project applications
-and users' personal home directories. Separate file systems will ensure
-responsiveness of home and projappl even under heavy scratch usage.
+Roihussa tulee olemaan kaksi itsenäistä flash-pohjaista DDN EXAScaler Lustre
+-tiedostojärjestelmää – 6,0 PiB tilapäistila ja 0,5 PiB tallennusjärjestelmä
+projektisovelluksille ja käyttäjien henkilökohtaisille kotihakemistoille.
+Erilliset tiedostojärjestelmät varmistavat kotihakemistojen ja projappl:n
+vastaavuuden myös raskaassa tilapäiskäytössä.
 
-The peak I/O performance of Roihu scratch space is expected to be around 200
-GB/s for read and 170 GB/s for write. The home and projappl will have read and
-write bandwidths of 120 GB/s and 100 GB/s, respectively.
+Roihun tilapäistilan huippu I/O-suorituskyky on arvioitu olevan noin 200 GB/s
+lukemiseen ja 170 GB/s kirjoittamiseen. Kotihakemisto ja projappl:n luku- ja
+kirjoituskaistat ovat vastaavasti 120 GB/s ja 100 GB/s.
 
-Contrary to Puhti and Mahti, all Roihu CPU and GPU nodes will have a small 960
-GB fast NVMe disk for efficient storage of, for example, temporary files. The
-high-memory nodes will include 2 x 7.68 TB fast disks each.
+Päinvastoin kuin Puhtissa ja Mahtissa, kaikissa Roihun CPU- ja GPU-solmuissa on
+pieni 960 GB nopea NVMe-levy esimerkiksi väliaikaisten tiedostojen tehokkaaseen
+tallentamiseen. Suuren muistin solmut sisältävät kukin 2 x 7,68 TB nopeita
+levyjä.
 
-## Network
+## Verkko {#network}
 
-The network of Roihu is based on Infiniband NDR interconnect. Each CPU node
-will be connected to the network with one 200 Gb/s link, while in the GPU
-partition there will be four 200 Gb/s links per node, one for each GPU.
+Roihun verkko perustuu Infiniband NDR -väylään. Jokainen CPU-solmu liitetään
+verkkoon yhdellä 200 Gb/s yhteydellä, kun taas GPU-osiossa on neljä 200 Gb/s
+yhteyttä solmua kohden, yksi kutakin GPU:ta varten.

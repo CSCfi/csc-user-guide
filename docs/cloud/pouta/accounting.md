@@ -1,94 +1,60 @@
-# Accounting principles and quotas
+# Kirjanpitoperiaatteet ja kiintiöt {#accounting-principles-and-quotas}
 
-This document describes how resource usage in Pouta is calculated as Billing Units (BUs).
+Tämä asiakirja kuvaa, kuinka Pouta-palveluiden resurssien käyttö lasketaan laskentayksiköinä (BU).
 
-Academic research customers can have their resource use paid for by
-the Ministry of Education and Culture. For commercial customers and
-academic customers who require more than what is granted from the
-ministry's paid-for allocation, CSC has billing unit packages for
-purchase.
+Akatemiallisen tutkimuksen asiakkaat voivat saada resurssikäyttönsä maksettua Opetus- ja kulttuuriministeriön toimesta. Kaupallisille asiakkaille ja akateemisille asiakkaille, jotka tarvitsevat ministeriön maksamaa siirtoa enemmän, CSC:llä on myynnissä laskentayksikköpaketteja.
 
-For more information about which category your project falls into,
-please see
-[Accounts and projects](https://research.csc.fi/accounts-and-projects){ target="_blank" }.
+Lisätietoja siitä, mihin kategoriaan projektisi kuuluu, löydät kohdasta
+[Tilien ja projektien hallinta](https://research.csc.fi/accounts-and-projects){ target="_blank" }.
 
 [TOC]
 
-## Accounting for resources
+## Resurssien laskenta {#accounting-for-resources}
 
-Currently, we account for virtual machines, volume storage, object
-storage and floating IPs.
+Tällä hetkellä laskemme virtuaalikoneet, tallennusvolyymit, objektitallennuksen ja kelluvat IP-osoitteet.
 
-| Resource | Cost |
-|------------------|--------------------|
-| Virtual machines | See [Flavors](vm-flavors-and-billing.md) |
-| Storage volumes | 3,5 BU / TiB hour |
-| Floating IPs | 0,2 BU / hour |
+| Resurssi | Kustannus |
+|-----------------|---------------------|
+| Virtuaalikoneet | Katso [Tyypit](vm-flavors-and-billing.md) |
+| Tallennusvolyymit | 3,5 BU / TiB tunti |
+| Kelluvat IP:t | 0,2 BU / tunti |
 
-Please note that virtual machines consume BUs regardless whether you are using
-them or not. This means that a shut down or suspended virtual machine
-still consumes BUs. You can find more information about the different
-states of virtual machines and their BU consumption in
-[Virtual machine lifecycle](vm-lifecycle.md). The minimum accounting time for a
-virtual machine is one hour. Another source for estimating usage is the
-[Resource calculator](https://research.csc.fi/billing-units/#buc).
+Huomaa, että virtuaalikoneet kuluttavat laskentayksiköitä riippumatta siitä, käytätkö niitä vai et. Tämä tarkoittaa, että sammutettuna tai keskeytettynä oleva virtuaalikone kuluttaa edelleen laskentayksiköitä. Lisätietoa virtuaalikoneiden eri tiloista ja niiden laskentayksiköiden kulutuksesta löydät kohdasta
+[Virtuaalikoneen elinkaari](vm-lifecycle.md). Virtuaalikoneen vähimmäislaskenta-aika on yksi tunti. Toinen resurssikäytön arviointilähde on
+[Resurssilaskuri](https://research.csc.fi/billing-units/#buc).
 
-Storage volumes consume billing units based on their size. The unit of
-measure is [TebiByte](https://en.wikipedia.org/wiki/Tebibyte) hours. Storage
-volumes consume BUs even if they are not attached to virtual machines.
+Tallennusvolyymit kuluttavat laskentayksiköitä koon perusteella. Mittayksikkö on [TebiTavua](https://en.wikipedia.org/wiki/Tebibyte) tunteja. Tallennusvolyymit kuluttavat laskentayksiköitä myös silloin, kun ne eivät ole kiinnitettyinä virtuaalikoneisiin.
 
-Objects storage consumes billing units based on the stored data
-amounts. The billing units are consumed until the data is removed.
+Objektitallennus kuluttaa laskentayksiköitä tallennetun datamäärän perusteella. Laskentayksiköitä kuluu siihen asti, kunnes data poistetaan.
 
-Floating IPs are billed if they are allocated to a project or
-assigned to a virtual machine. Any extra routers you create and
-connect to the external network will be also billed for one floating
-IP. The default router included in the project does not consume
-billing units.
+Kelluvat IP-osoitteet laskutetaan, jos ne on allokoitu projektille tai liitetty virtuaalikoneeseen. Kaikki ylimääräiset reitittimet, jotka luot ja yhdistät ulkoiseen verkkoon, laskutetaan myös yhdestä kelluvasta IP:stä. Projektin oletusreititin ei kuluta laskentayksiköitä.
 
-## Other costs
+## Muut kustannukset {#other-costs}
 
-If you have a contract with CSC, you will always be billed according
-to the contract even if it differs from these practices. Commercial
-customers are usually also billed a fee for each member of the
-project.
+Jos sinulla on sopimus CSC:n kanssa, sinut laskutetaan aina sopimuksen mukaan, vaikka se poikkeaisi näistä käytännöistä. Kaupallisia asiakkaita laskutetaan yleensä myös maksulla projektin jokaisesta jäsenestä.
 
-## Quotas
+## Kiintiöt {#quotas}
 
-Each cPouta and ePouta project has a cloud computing quota that
-limits the use of simultaneous cloud resources. There is a default
-cPouta project quota which is quite small, but users can apply for
-extensions by sending email to [CSC Service Desk](../../support/contact.md).
+Jokaisella cPouta- ja ePouta-projektilla on pilvilaskennan kiintiö, joka rajoittaa samanaikaisten pilviresurssien käyttöä. On olemassa oletus cPouta-projektin kiintiö, joka on varsin pieni, mutta käyttäjät voivat hakea laajennuksia lähettämällä sähköpostia [CSC Service Desk](../../support/contact.md).
 
-**Default size of the cPouta project quota.**
+**cPouta-projektin oletuskiintiön koko.**
 
-| Resource type | default |
-|----------------|:-------:|
-| Instances | 8 |
-| Cores | 8 |
-| Memory | 32 GB |
-| Floating IPs | 2 |
-| Storage | 1 TB |
+| Resurssityyppi | oletus |
+|-----------------|:-------:|
+| Instanssit | 8 |
+| Ytimet | 8 |
+| Muisti | 32 GB |
+| Kelluvat IP:t | 2 |
+| Tallennus | 1 TB |
 
-With the default resources, a cPouta user could launch eight
-*standard.tiny* instances or two *standard.large* instances or one
-*hpc-gen1.8core* instance. The purpose of the quota is to prevent
-individual users from reserving the entire cluster and thus preventing
-other users from accessing it.
+Oletusresurssien avulla cPouta-käyttäjä voi käynnistää kahdeksan *standard.tiny*-instanssia tai kaksi *standard.large*-instanssia tai yhden *hpc-gen1.8core*-instanssin. Kiintiön tarkoituksena on estää yksittäisiä käyttäjiä varaamasta koko klusteria ja siten estämästä muita käyttäjiä pääsemästä siihen käsiksi.
 
-Storage is also limited by a quota. The default quota for new projects
-is 1 TB. Additional allocations can be requested by sending email
-to [CSC Service Desk](../../support/contact.md).
+Myös tallennusta rajoittaa kiintiö. Uusien projektien oletuskiintiö on 1 TB. Lisäallokointeja voi pyytää lähettämällä sähköpostia [CSC Service Desk](../../support/contact.md).
 
-The initial quotas for ePouta projects are agreed upon when starting a new project.
+ePouta-projektien alkuperäiset kiintiöt sovitaan uuden projektin alussa.
 
-Please note that having free quota does not guarantee that specific
-resources are available.
+Huomaa, että vapaa kiintiö ei takaa, että tietyt resurssit ovat saatavilla.
 
-Specific virtual machine flavors may be full, so you cannot provision
-them even if you have the quota to do so. We always strive to have
-free computing resources in some flavors. We are planning to improve the
-visibility of which flavors are available in the future.
+Tietyt virtuaalikonetyypit voivat olla täysiä, joten et voi provisioida niitä, vaikka sinulla olisi niiden kiintiö käytettävissäsi. Pyrimme aina siihen, että joitakin tyyppejä on saatavilla vapaana. Suunnittelemme parantavamme saatavilla olevien tyyppien näkyvyyttä tulevaisuudessa.
 
-We try to always have free storage and floating IP resources, if quota
-for them has been allocated.
+Pyrimme aina siihen, että varastointiresurssit ja kelluvat IP-resurssit ovat vapaita, jos niille on allokoitu kiintiö.

@@ -1,86 +1,41 @@
-# Systems
+# Järjestelmät {#systems}
 
-CSC's computing environment consists of supercomputers Puhti and
-Mahti, and the quantum learning machine Kvasi. Puhti and Mahti have a
-fairly similar compute environment, and there is a wide range of
-workloads that can utilize both efficiently. At the same time their
-hardware is different, and this makes some worklods uniquely suitable
-for either Puhti or Mahti.
+CSC:n laskentaympäristö koostuu supertietokoneista Puhti ja Mahti sekä kvanttista oppimista varten tarkoitetusta koneesta Kvasi. Puhtilla ja Mahtilla on melko samanlainen laskentaympäristö, ja laaja valikoima työkuormia voi hyödyntää molempia tehokkaasti. Samalla niiden laitteisto on erilainen, ja tämä tekee joistakin työkuormista erityisen sopivia joko Puhtille tai Mahtille.
 
-In addition to the national resources, CSC's data center in Kajaani hosts the
-pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has
-been available since early 2022, while the largest partition of the system
-consisting of GPU-accelerated nodes became available in 2023.
+Kansallisten resurssien lisäksi CSC:n datakeskus Kajaanissa isännöi pan-Eurooppalaista pre-eksaskaalaista supertietokonetta LUMI. LUMIn CPU-osio on ollut käytettävissä vuoden 2022 alusta lähtien, kun taas järjestelmän suurin osio, joka koostuu GPU-kiihdytetyistä solmuista, tuli saataville vuonna 2023.
 
-CSC's national supercomputers Puhti and Mahti will be replaced in 2026 by a new
-system, Roihu.
+CSC:n kansalliset supertietokoneet Puhti ja Mahti korvataan vuonna 2026 uudella järjestelmällä, Roihu.
 
-## LUMI
+## LUMI {#lumi}
 
-LUMI is one of the three European pre-exascale supercomputers. It's an HPE Cray
-EX supercomputer consisting of several partitions targeted for different use
-cases. The largest partition of the system is the "LUMI-G" partition consisting
-of GPU accelerated nodes using a future-generation AMD Instinct GPUs. In
-addition to this, there is a smaller CPU-only partition, "LUMI-C" that features
-AMD EPYC "Milan" CPUs and an auxiliary partition for data analytics with large
-memory nodes and some GPUs for data visualization. Besides partitions dedicated
-to computation, LUMI also offers several storage partitions for a total of 117
-PB of storage space.
+LUMI on yksi kolmesta Euroopan pre-eksaskaalaisesta supertietokoneesta. Se on HPE Cray EX supertietokone, joka koostuu useista eri käyttötarkoituksiin suunnatuista osioista. Järjestelmän suurin osio on "LUMI-G" osio, joka koostuu GPU-kiihdytetyistä solmuista käyttäen tulevaisuuden sukupolven AMD Instinct GPU:ta. Tämän lisäksi on pienempi CPU-osio, "LUMI-C", jossa on AMD EPYC "Milan" CPU:t sekä aputietokanta data-analytiikkaa varten suurilla muistisolmuilla ja joillakin GPU:illa datan visualisointiin. Laskentaan omistettujen osioiden lisäksi LUMI tarjoaa myös useita tallennusosioita yhteensä 117 PB tallennustilaa.
 
-- [LUMI user documentation](https://docs.lumi-supercomputer.eu/)
-- [A more technical description of LUMI](https://docs.lumi-supercomputer.eu/hardware/)
-- [How does LUMI-C differ from Mahti?](lumi-vs-mahti.md)
+- [LUMIn käyttäjädokumentaatio](https://docs.lumi-supercomputer.eu/)
+- [Teknisempi kuvaus LUMIsta](https://docs.lumi-supercomputer.eu/hardware/)
+- [Miten LUMI-C eroaa Mahtista?](lumi-vs-mahti.md)
 
-## Puhti
+## Puhti {#puhti}
 
-The Puhti supercomputer, Atos BullSequana X400 cluster based on Intel
-CPUs, was launched on September 2, 2019. It has a powerful CPU
-partition with almost 700 nodes with a range of memory sizes and local
-storage options, all connected with a fast interconnect. Puhti allows
-the user to reserve compute and memory resources flexibly, and the
-user can run anything from interactive single core data processing to
-medium scale simulations spanning multiple nodes.
+Puhti supertietokone, Atos BullSequana X400 klusteriin perustuva Intel CPU:illa, otettiin käyttöön syyskuun 2, 2019. Siinä on voimakas CPU-osio, jossa on lähes 700 solmua erilaisilla muistimäärillä ja paikallisilla tallennusvaihtoehdoilla, kaikki yhdistettynä nopealla yhteenliitännällä. Puhti sallii käyttäjän varata laskenta- ja muistiresursseja joustavasti, ja käyttäjä voi suorittaa kaikkea vuorovaikutteisesta yksittäisen ytimen tietojenkäsittelystä keskikokoisiin simulointeihin, jotka laajenevat useisiin solmuihin.
 
-There are also 80 GPU nodes, with total of 320 Nvidia Volta V100 GPUs. This
-partition is suitable for all kinds workloads capable of utilizing GPUs, even
-heavy AI models that span multiple nodes.
+Lisäksi on 80 GPU-solmua, joiden yhteensä 320 Nvidia Volta V100 GPU:ta. Tämä osio soveltuu kaikille työkuormille, jotka pystyvät hyödyntämään GPU:ita, jopa raskaille tekoälymalleille, jotka laajenevat useisiin solmuihin.
 
-Puhti has a wide selection of [scientific software](../apps/by_system.md#puhti)
-installed.
+Puhtilla on laaja valikoima asennettua [tieteellistä ohjelmistoa](../apps/by_system.md#puhti).
 
-- [A more technical description of Puhti](systems-puhti.md)
+- [Teknisempi kuvaus Puhtista](systems-puhti.md)
 
-## Mahti
+## Mahti {#mahti}
 
-The Mahti supercomputer, Atos BullSequana XH2000 system based on AMD
-CPUs, was launched on August 26, 2020. Mahti is designed for
-massively parallel jobs requiring high floating point performance and
-a fast interconnect. The system has in total 1404 nodes equipped with
-powerful AMD Rome CPUs. These are connected with a fast interconnect,
-allowing jobs to scale across the full system. In Mahti user reserves
-full nodes so that the jobs can extract full performance from each
-node. Mahti is in particular geared towards medium to large scale
-simulations requiring Petaflops of compute power. Also smaller
-parellel workloads that are able to use full nodes efficiently can
-utilize Mahti.
+Mahti supertietokone, Atos BullSequana XH2000 järjestelmä, joka perustuu AMD CPU:ihin, otettiin käyttöön elokuun 26, 2020. Mahti on suunniteltu laajasti rinnakkaisille tehtäville, jotka vaativat korkeaa liukulukusuorituskykyä ja nopeaa yhdistettä. Järjestelmässä on yhteensä 1404 solmua varustettuna tehokkailla AMD Rome CPU:illa. Nämä on yhdistetty nopealla yhteenliitännällä, mikä mahdollistaa tehtävien skaalautumisen koko järjestelmässä. Mahtissa käyttäjä varaa kokonaisia solmuja, jotta tehtävät voivat hyödyntää kunkin solmun täyden suorituskyvyn. Mahti sopii erityisesti keskikokoisiin ja suuriin simulointeihin, jotka vaativat Petaflops-luokan laskentatehoa. Myös pienemmät rinnakkaiset työkuormat, jotka pystyvät käyttämään solmuja tehokkaasti, voivat hyödyntää Mahtia.
 
-There are also 24 GPU nodes, with total of 96 Nvidia Ampere A100 GPUs. This
-partition is suitable for all kinds workloads capable of utilizing GPUs, even
-heavy AI models that span multiple nodes. A subset of the A100 GPUs are sliced
-into smaller GPUs with one seventh of the compute and memory capacity of a full
-A100 GPU. These can be used for interactive workloads, courses and code
-development.
+Lisäksi on 24 GPU-solmua, joiden yhteensä 96 Nvidia Ampere A100 GPU:ta. Tämä osio soveltuu kaikille työkuormille, jotka pystyvät hyödyntämään GPU:ita, jopa raskaille tekoälymalleille, jotka laajenevat useisiin solmuihin. Osa A100 GPU:ista on jaettu pienemmiksi GPU:iksi, joiden laskenta- ja muistikapasiteetti on yksi seitsemäsosa täydestä A100 GPU:sta. Näitä voidaan käyttää vuorovaikutteisiin työkuormiin, kursseihin ja koodin kehittämiseen.
 
-The selection of installed [scientific software](../apps/by_system.md#mahti) in
-Mahti is more limited than in Puhti.
+Mahtin valikoima asennettua [tieteellistä ohjelmistoa](../apps/by_system.md#mahti) on rajoitetumpi kuin Puhtilla.
 
-- [A more technical description of Mahti](systems-mahti.md)
+- [Teknisempi kuvaus Mahtista](systems-mahti.md)
 
-## Roihu (coming soon)
+## Roihu (tulossa pian) {#roihu-coming-soon}
 
-CSC's next national supercomputer Roihu, a BullSequana XH3000 hybrid system,
-will replace the Puhti and Mahti supercomputers. Roihu will be located in
-CSC's Kajaani data center, and it is projected to be in researchers' use early
-2026.
+CSC:n seuraava kansallinen supertietokone Roihu, BullSequana XH3000 hybridijärjestelmä, korvaa Puhti ja Mahti supertietokoneet. Roihu sijoitetaan CSC:n Kajaanin datakeskukseen, ja sen odotetaan olevan tutkijoiden käytössä vuoden 2026 alussa.
 
-- [More information about Roihu](systems-roihu.md)
+- [Lisätietoa Roihusta](systems-roihu.md)

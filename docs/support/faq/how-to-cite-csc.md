@@ -1,10 +1,9 @@
-# How to cite CSC in a paper
 
-A good place is the acknowledgements at the end of the manuscript. A typical 
-statement is:
+# Kuinka viitata CSC:hen julkaisussa {#how-to-cite-csc-in-a-paper}
 
-> The authors wish to acknowledge CSC – IT Center for Science, Finland, for
-> computational resources.
+Hyvä paikka on kiitokset käsikirjoituksen lopussa. Tyypillinen lausuma on:
 
-This wording covers both computing time and licenses, and if you've used
-**a lot** of resources, you can add: *for generous computational resources.*
+> Kirjoittajat haluavat kiittää CSC:tä – Tieteen tietotekniikan keskusta, Suomi, laskentaresursseista.
+
+Tämä sanamuoto kattaa sekä laskenta-ajan että lisenssit, ja jos olet käyttänyt
+**paljon** resursseja, voit lisätä: *runsaista laskentaresursseista.*

@@ -1,13 +1,14 @@
-# Overview
 
-Here is a short video explaining how to run a virtual machine with the Pouta service.
+# Yleiskatsaus {#overview}
+
+Tässä on lyhyt video, joka selittää, kuinka ajaa virtuaalikonetta Pouta-palvelun avulla.
 
 <center>
-[![Pouta - Creating a virtual machine](../img/pouta_getting_started_video_poster.png){ width=400px }](https://video.csc.fi/id/0_qilcsiyp?width=608&height=402&playerId=14971191){ target="_blank" }
+[![Pouta - Virtuaalikoneen luominen](../img/pouta_getting_started_video_poster.png){ width=400px }](https://video.csc.fi/id/0_qilcsiyp?width=608&height=402&playerId=14971191){ target="_blank" }
 </center>
 
-Please visit also [Creating a virtual machine](launch-vm-from-web-gui.md) and [Connecting the virtual machine](connecting-to-vm.md) for more detailed instructions.
+Käy myös sivuilla [Virtuaalikoneen luominen](launch-vm-from-web-gui.md) ja [Yhdistäminen virtuaalikoneeseen](connecting-to-vm.md) saadaksesi yksityiskohtaisempia ohjeita.
 
-It is also worth to check out this 21 minute video from our specialist [Webinar: Creating a Virtual Machine in cPouta](https://www.youtube.com/watch?v=CIO8KRbgDoI){ target="_blank" }.
+Kannattaa myös katsoa asiantuntijamme 21 minuutin video [Webinaari: Virtuaalikoneen luominen cPoutassa](https://www.youtube.com/watch?v=CIO8KRbgDoI){ target="_blank" }.
 
-Once the virtual machine is up and running, continue with [the configuration](configuration.md).
+Kun virtuaalikone on toimintavalmis, jatka [kokoonpanon](configuration.md) kanssa.

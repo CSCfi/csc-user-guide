@@ -1,105 +1,99 @@
-# Data management
+# Datanhallinta
 
+## Herkkien tietojen (SD) Connect: uudet komentorivityökalut automaattiseen avainten hallintaan, 02.2025 {#sensitive-data-sd-connect-new-command-line-tools}
 
-## Sensitive Data (SD) Connect: new command line tools for automated key management, 02.2025
+Olemme innoissamme ilmoittaessamme, että helmikuusta 2025 alkaen on saatavilla uusia komentorivityökaluja SD Connectin automaattiseen avainten hallintaan. Nämä työkalut mahdollistavat tiedostojen lataamisen ja lataamisen (käyttäen a-komentoja) ja salausavainten hallinnan automaattisesti (käyttäen lock-unlock-komentoja). Kun olet salannut ja ladannut tiedot ohjelmallisesti, voit käyttää niitä SD Connect:in käyttöliittymän tai SD Desktopin kautta. Huomaa, että nämä työkalut vaativat ohjelmointitaitoja. Alla on esitetty askel askeleelta ohjeet, jotka auttavat sinua alkuun.
 
-We are excited to announce that, starting February 2025, new command line tools are available for automated key management with SD Connect. These tools allow you to upload and download files (using a-commands) and manage encryption keys automatically (using lock-unlock commands). After encrypting and uploading data programmatically, you can access it via the SD Connect user interface or SD Desktop. Please note that these tools require coding skills. A step-by-step guide is provided below to help you get started.
+Tärkeää: ohjelmallisesti ladatut tiedostot ennen helmikuuta 2025 ovat salattu manuaalisesti omalla salausavaimellasi ja ne vaativat manuaalisen purkamisen latauksen jälkeen.
 
-Important: files uploaded programmratically before February 2025 were manually encrypted with your encryption key and will require manual decryption after download.
+Jatka lukemista: [käyttöopas](../../data/sensitive-data/sd-connect-command-line-interface.md)
 
-Contiure reading: [user guide](../../data/sensitive-data/sd-connect-command-line-interface.md)
+Kysymyksissä, tuessa tai koulutuksessa älä epäröi ottaa yhteyttä meihin osoitteessa servicedesk@csc.fi (aihe: SD Connect)
 
-For questions, support or traning, don't hesitate to conact us at servicedesk@csc.fi (subject: SD Connect)
+## SD Desktop, raskas laskentavaihtoehdon päivitys, 15.01.2025 {#sd-desktop-upgrade-heavy-computation-option}
 
+Olemme päivittäneet raskaan laskennan virtuaalityöpöytä-vaihtoehdon seuraavilla tiedoilla:
 
-## SD Desktop, upgrade Heavy Computation option, 15.01.2025
+- Ytimet: 28 (aiemmin 32)
 
-We have updated the Heavy Computation virtual desktop option with the following specifications:
+- Muisti: 176 GB (aiemmin 116)
 
-- Cores: 28 (previously 32)
+- Juuri Levy: 80 GB
 
-- Memory: 176 GB (previously 116)
+- Tunniste: hpc.6.28 ydin (aiemmin 5.32)
 
-- Root Disk: 80 GB 
+- Kustannus: 65 laskutusyksikköä/tunti (aiemmin 52)
 
-- Identifier: hpc.6.28 core (previously 5.32)
+Tämä muutos koskee vain uusia virtuaalityöpöytiä, jotka on luotu 15. tammikuuta jälkeen. Olemassa oleviin virtuaalityöpöytiin tämä ei vaikuta ja ne jatkavat toimintaansa normaalisti.
 
-- Cost: 65 billing units/hour (previously 52)
+## SD Connect suuri päivitys, 7.10.2024 {#sd-connect-major-upgrade}
 
-This change only affects new virtual desktops created after January 15. 
+Maanantaina 7. lokakuuta SD Connect -palvelua on päivitetty. Huomaa, että tämä päivitys ei vaikuta tietoihisi. SD Connectiin tallennetut tiedostot pysyvät käytettävissä palvelukatkon jälkeen, mutta uusi salausprotokolla otetaan käyttöön uusille latauksille. Uusi versio on yhteensopiva nykyisen kanssa, mutta **neljä toimenpidettä vaaditaan** ​​sinun osaltasi:
 
-Existing virtual desktops are not affected and will continue to operate as usual.
+1. Palvelun käyttö: [Hae SD Connect -palvelun käyttöä](../../accounts/how-to-add-service-access-for-project.md) [MyCSC-portaalista](https://my.csc.fi/) ja hyväksy käyttöehdot. _Huom: Vain projektin PI voi ottaa palvelun käyttöön, mutta kaikkien projektin jäsenten on hyväksyttävä käyttöehdot._
+2. MFA: Varmista, että monivaiheinen tunnistautuminen (MFA) on [otettu käyttöön](../../accounts/mfa.md) CSC-profiilissasi. _Huom: Jos käytät SD Desktopia, MFA on jo käytössä eikä lisätoimenpiteitä tarvita_.
+3. Synkronointi: Kun palvelukatko on päättynyt, kirjaudu palveluun ja pidä käyttöliittymä auki 5 minuutin ajan sallien synkronointi. Tämän jälkeen sinulla on pääsy kaikkiin SD Connectiin tallennettuihin tiedostoihin.
+4. Jaetut kansiot: Tietojen lataaminen tai lataaminen kansioista, joita on jaettu aiemmassa palveluversiossa, ei ole enää mahdollista. Uudelleen mahdollistamiseksi päivitä jakamisoikeudet seuraamalla [näitä ohjeita](../../data/sensitive-data/sd-connect-share.md).
 
+**Uudet avainominaisuudet:**
 
+* **Uusi käyttöliittymä**: intuitiivisempi muotoilu helpompaan navigointiin.
+* **Automaattinen salaus ja purku**: automaattinen salaus latausten aikana ja purku latausten aikana, avainten hallinta saatavilla käyttöliittymän kautta (tiedostoille < 100 GB) tai ohjelmallisesti käyttäen SD-lock SD-unlock -työkaluja.
+* **Parannettu tietoturva**: Monivaiheinen tunnistautuminen (MFA) lisäturvallisuutena.
+* **Joustavat jakamisoikeudet**: Saatavilla kolme tasoa jakamisoikeuksissa.
 
-## SD Connect major upgrade, 7.10.2024
+[Päivitetty käyttöopas ja videotutoriaalit](../../data/sensitive-data/sd_connect.md).
 
-On Monday October 7 SD Connect service has been upgraded. Please note, this upgrade will not affect your data. Files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part: ​​
+**Rajoitukset:**
 
-1. Service access: [Apply for SD Connect service access](../../accounts/how-to-add-service-access-for-project.md) at [MyCSC portal](https://my.csc.fi/) and accept the terms of use. _Note: Only the project PI can enable the service, but all project members must accept the terms of use._
-2. MFA: Ensure that Multifactor Authentication (MFA) is [enabled](../../accounts/mfa.md) on your CSC profile. _Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed_.
-3. Syncing: Once the service break is over, log in to the service and keep the user interface open for 5 minutes to allow for syncing. After this, you will have access to all files stored in SD Connect.
-4. Shared folders: Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable it, please update the sharing permissions by following [these steps](../../data/sensitive-data/sd-connect-share.md).
+* **Kaksoiskirjautuminen vaaditaan**: Jatkuvien teknisten haasteiden vuoksi [kaksoiskirjautuminen](../../data/sensitive-data/sd-connect-login.md) on tarpeen päästäksesi palveluun. Pahoittelemme mahdollisesti aiheutuvaa haittaa.
+* **Manuaalinen purku**: Aiemman version SD Connectilla ladatut tiedot eivät purkaudu automaattisesti latauksen aikana versiolla 2
+* **Selaimen suositus**: Parhaan suorituskyvyn saavuttamiseksi suosittelemme käyttämään Google Chromea. Myös Firefoxia tuetaan.
 
-**New Key Features:**
+**Tuki:**
 
-* **New user interface**:  more intuitive design for easier navigation.
-* **Automated encryption and decryption**: automatic encryption during uploads and decryption during downloads, with key management available through the user interface (for files up to 100 GB) or programmatically using SD-lock SD-unlock tools.
-* **Enhanced security**: Multifactor Authentication (MFA) for added security.
-* **Flexible sharing permissions**: Three levels of sharing permissions available.
+* Jos sinulla on kysymyksiä tai tarvitset apua, ole hyvä ja [ota yhteyttä CSC Service Deskiin](../contact.md) (aihe: Herkät tiedot).
+* Liity joka keskiviikko CSC-tutkimustuen kahvitilaisuuteen klo 14:00 Suomen aikaa kysymyksiin ja tukeen: [Zoom-linkki](https://cscfi.zoom.us/j/65059161807#success). Lisätietoja löydät [koulutuskalenteristamme](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
 
-[Updated user guide and video tutorials](../../data/sensitive-data/sd_connect.md).
+## SD Desktop: CentOS 7 ei ole enää tuettu kesäkuun 2024 jälkeen {#sd-desktop-centos7-no-longer-supported}
 
-**Limitations:**
+Olemme toteuttamassa tietoturvapäivityksen virtuaalityöpöydän käyttöjärjestelmälle. Osana tätä päivitystä vanhaa käyttöjärjestelmää, joka tunnetaan nimellä Linux CentOS 7, ei enää tueta kesäkuun 2024 jälkeen. Sen sijaan siirrymme yksinomaan käyttöjärjestelmään nimeltä Ubuntu virtuaalityöpöytiimme.
 
-* **Double login required**: Due to ongoing technical challenges, a [double login](../../data/sensitive-data/sd-connect-login.md) is necessary to access the service. We apologize for the inconvenience.
-* **Manual decryption**: Data uploaded with the previous version of SD Connect will not be automatically decrypted during download with version 2
-* **Browser Recommendation**: For optimal performance, we recommend using Google Chrome. Firefox is also supported.
+Jos olet nykyisin käyttämässä virtuaalityöpöytää CentOS 7:llä ja odotat analyysiesi jatkuvan kesäkuun jälkeen, ota meihin yhteyttä osoitteessa **servicedesk@csc.fi *aihe: Herkät tiedot***. Autamme arvioimaan, onko tarpeen siirtyä uuteen virtuaalityöpöytään ja tarjoamme apua datan ja tulosten siirtosuunnitelman luomisessa.
 
-**Support:**
+## SD Desktop -kopiointitoiminto Leikepöydän kautta nyt saatavilla, 7.3.2024 {#sd-desktop-copy-paste-clipboard-feature}
 
-* If you have any questions or need assistance, please [contact CSC Service Desk](../contact.md) (subject: Sensitive Data).
-* Join us every Wednesday for the CSC Research Support Coffee session at 14:00 Finnish time for questions and support: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success). For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
+Kopiointitoiminto **Leikepöytä-ominaisuuden** kautta on nyt saatavilla virtuaalityöpöydässäsi, mahdollistaen helpon tekstisiirron tietokoneeltasi turvalliseen ympäristöön: [Kopiointiohjeet SD Desktopille](../../data/sensitive-data/sd-desktop-working.md).
 
-## SD Desktop: CentOS 7 will no longer be supported after June 2024
+* Leikepöytä toimii turvallisena välivaiheena, helpottaen yksisuuntaista tiedonsiirtoa tietokoneeltasi virtuaalityöpöytään, taaten, että kopioitu teksti pysyy eristettynä muista prosesseista ja estää luvattoman pääsyn arkaluonteisiin tietoihin.
 
-We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops.
+* Muistutuksena, datan viennit virtuaalityöpöydältä ovat mahdollisia Dataportin kautta, ja ne hallinnoi projektipäällikkö tai CSC:n tukipalvelu. Lisätietoja saat kohdasta [Vie dataa SD Desktopilta](../../data/sensitive-data/sd-desktop-export.md).
 
-If you're currently using a virtual desktop with CentOS 7 and anticipate running your analyses beyond June, please reach out to us at **servicedesk@csc.fi *subject: Sensitive data***. We will assist you in evaluating whether there is a need to transition to a new virtual desktop and provide assistance with creating a plan for transferring your data and results accordingly.
+## SD Connect (Beta) nyt saatavilla, 13.12.2023 {#sd-connect-beta-now-available}
 
-## SD Desktop copy-paste functionality via Clipboard is now available, 7.3.2024
+SD Connectin uusi versio on nyt käytettävissä testikäyttöön. Päivitetty käyttöliittymä tarjoaa automaattista tiedostojen salausta ja purkua (enintään 100 GB) sekä avainten hallintaa. Lisäksi kolmelle tasolle jakamisoikeuksia on saatavilla CSC-projektien kesken. Tämä versio on Open Beta. Käytä sitä testiskenaarioissa äläkä luota siihen kriittisten tietojen tallentamisessa, ennen kuin se siirtyy vakaaseen julkaisuun. Anna palautetta [ottamalla yhteyttä CSC Service Deskiin](../contact.md) (aihe: Herkät tiedot) edistääksesi palvelun parantamista.
 
-Copy-paste functionality via **Clipboard -feature** is now available in your virtual desktop, enabling easy transfer of text from your computer to your secure environment: [Copy-paste instructions for SD Desktop](../../data/sensitive-data/sd-desktop-working.md).
+Käyttöopas on saatavilla [tästä](../../data/sensitive-data/sd_connect.md)
 
-* The Clipboard acts as a secure intermediary, facilitating the one-way transfer of data from your laptop to the virtual desktop, guaranteeing that copied text remains isolated from other processes and preventing unauthorized access to sensitive information.
+## SD Desktop ja SD Connect: palvelunkäyttörajoitukset ja CSC-projektin sulkeminen, 8.9.2023 {#sd-desktop-and-sd-connect-service-usage-restrictions}
 
-* As a reminder, data exports from the virtual desktop are possible via the Data Gateway, and they are managed by the project manager or CSC's helpdesk. For more information please see [Export data from SD Desktop](../../data/sensitive-data/sd-desktop-export.md).
+Syyskuun 6. päivästä 2023 lähtien olemme ottaneet käyttöön kaksi merkittävää muutosta palvelumme käyttämiseen CSC:n tietojen säilytyskäytännön mukaisesti, joka on nyt voimassa:
 
-## SD Connect (Beta) now available, 13.12.2023
+* Laskutusyksiköiden kulutus: Kun kaikki CSC-projektille kohdennetut laskutusyksiköt on kulutettu, pääsy SD Desktop -palveluun rajoitetaan ja projektiin liittyvät virtuaalityöpöydät pysäytetään automaattisesti. Tämä tarkoittaa sitä, että käyttäjät menettävät tilapäisesti pääsyn SD Desktop -palveluun, kunnes projektiin kohdennetaan lisää laskutusyksiköitä.
 
-A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback by [contacting CSC Service Desk](../contact.md) (subject: Sensitive Data) to contribute to service improvement.
+* CSC-projektin sulkeminen: SD Desktop- ja SD Connect -palveluiden sisällöt poistetaan pysyvästi 90 päivän kuluttua CSC-projektin sulkemisesta. **On tärkeää huomata, että kun tiedot poistetaan, niitä ei voi palauttaa.**
 
-User guide is available [here](../../data/sensitive-data/sd_connect.md)
+Varmistaaksesi, että olet hyvin tietoinen näistä muutoksista ja tilisi tilasta, kaikki projektin jäsenet saavat sähköposti-ilmoituksia, kun laskutusyksiköt on kulutettu ja kun CSC-projekti suunnitellaan suljettavaksi.
 
-## SD Desktop and SD Connect: service usage restrictions and CSC project closure, 8.9.2023
+## SD Desktop: Ubuntu OS nyt saatavilla, 8.9.2023 {#sd-desktop-ubuntu-os-now-available}
 
-As of September 6, 2023, we have introduced two significant changes to our service usage according to CSC's data retention policies, which are currently in effect:
+Voit nyt valita Ubuntu-virtuaalityöpöytäympäristön, kun luot virtuaalityöpöydän, rinnalla CentOS 7:n.
 
-* Billing Unit consumption: when all billing units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional billing units are allocated to the project.
+## Tekniset ongelmat SD Connectissa: seuranta 2.2.2023 {#technical-issues-on-sd-connect}
 
-* CSC Project closure: content stored within the SD Desktop and SD Connect services is subject to permanent deletion 90 days after the closure of a CSC project. **It is important to note that once data is deleted, it cannot be restored.**
+SD Connectin automaattisen salausvaihtoehdon avulla 2. marraskuuta 2022 ja 20. joulukuuta 2022 välisenä aikana ladatut tiedostot saattavat olla korruptoituneita.
+Latausvaiheessa tiedostot jaetaan lyhyisiin osiin, ja joissakin tapauksissa teknisen vian vuoksi oikea osien järjestys on kadonnut, tehden tiedostoista lukukelvottomia. Siksi, jos olet käyttänyt tätä toimintoa, suosittelemme lataamaan uuden kopion tiedostoista. Jos tämä ei ole mahdollista, älä epäröi ottaa yhteyttä meihin osoitteessa servicedesk@csc.fi. Arvioimme yksittäisiä tapauksia selvittääksemme, voidaan tiedostoja palauttaa. Tällä hetkellä SD Connect automatisoitu salaus on tuettu vain tiedostoille < 1GB.
 
-To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when billing units have been consumed and when a  CSC project is scheduled for closure.
+## Herkkien tietojen palvelut nyt auditoidussa laskentaympäristössä sosiaali- ja terveystietojen toissijaiseen käyttöön, 8.6.2022 {#sensitive-data-services-audited-computing-environment}
 
-## SD Desktop: Ubuntu OS now available, 8.9.2023
-
-You can now select the Ubuntu virtual desktop environment when creating a virtual desktop, alongside CentOS 7.
-
-## Technical issues on SD Connect: follow up 2.2.2023
-
-Files uploaded using the SD Connect automated encryption option between November 2, 2022, and December 20, 2022, might be corrupted.
-During the upload phase files are split into short segments, and in some cases, due to a technical issue, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function, we advise you to upload a new copy of the files. If this is not possible, don't hesitate to contact us at servicedesk@csc.fi. We will evaluate individual cases to determine if the files can be retrieved. Currently, SD Connect automated encryption is supported only for files < 1GB.
-
-## Sensitive Data services now have an audited computing environment for secondary use of social and health data 8.6.2022
-
-SD Desktop is a certified environment for data processing under the Act on the Secondary Use of Health and Social Data. However, the services provided for this purpose have specific limitations compared to the standard service.
+SD Desktop on sertifioitu ympäristö tietojen käsittelyyn sosiaali- ja terveystietojen toissijaisesta käytöstä annetun lain nojalla. Kuitenkin, näitä palveluja varten tarjotuilla palveluilla on erityiset rajoitukset verrattuna vakiopalveluun.

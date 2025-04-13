@@ -1,192 +1,187 @@
+# Kuinka saada pääsy SD-palveluihin: Projektipäällikkö {#how-to-get-access-to-sd-services-project-manager}
 
-# How to get access to SD Services: Project manager
+**[Ohjeet suomeksi (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**
+## Käyttötapaus {#use-case}
 
+Tarvitset pääsyn SD-palveluihin tutkimusdatan käsittelyä varten. Olitpa tutkimusryhmän johtaja tai työskentelit itsenäisesti, voit käyttää SD Connectia tutkimusdatan tallentamiseen, jakamiseen ja siirtämiseen. Vaihtoehtoisesti tiimisi voi myös analysoida SD Connectiin tallennettua dataa SD Desktopin avulla.
 
-## Use case
+## Ratkaisu {#solution}
 
-You need access to SD services for processing research data. Whether you are the manager of a research team or working independently, you can use SD Connect to store, share, and transfer research data. Optionally, your team can also analyse the data stored in SD Connect using SD Desktop.
+1. [Luo CSC-tili](#1-luo-csc-tili)
+2. [Luo uusi CSC-projekti](#2-luo-uusi-csc-projekti)
+3. [Tietosuoja](#3-tietosuoja)
+4. [Aktivoi SD-palvelut projektilesi](#4-aktivoi-sd-palvelut-projektilesi)
+5. [Hae resursseja (laskutusyksiköitä) projektilesi](#5-hae-resursseja-laskutusyksikoita-projektilesi)
+6. [Aktivoi MFA-todennus](#6-aktivoi-mfa-todennus)
+7. [Jos sinulla on tutkimusryhmä, lisää heidät projektisi jäseniksi](#7-jos-sinulla-on-tutkimusryhma-lisaa-heidat-projektisi-jaseniksi)
+8. [Projektisi sulkeminen ja datan säilytys](#8-projektisi-sulkeminen-ja-datan-sailytys)
+9. [Kirjaudu SD-palveluihin](#9-kirjaudu-sd-palveluihin)
 
-## Solution
+![Kuinka aloittaa projektipäällikkönä.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
-1. [Create a CSC account](#1-create-a-csc-account)
-2. [Create new CSC project](#2-create-new-csc-project)
-3. [Data protection](#3-data-protection)
-4. [Activate SD Services for your project](#4-activate-sd-services-for-your-project)
-5. [Apply resources (billing units) for your project](#5-apply-billing-units-for-your-project)
-6. [Activate MFA Authentication](#6-activate-mfa-authentication)
-7. [If you have a research team, add them to be your project members](#7-if-you-have-a-research-team-add-them-to-be-your-project-members)
-8. [Closing your project and data retention](#8-closing-your-project-and-data-retention)
-9. [Log into SD Services](#9-log-into-sd-services)
+!!! Huomio
+    CSC-projektin oletuselinkaari on yksi vuosi. Kaikki SD Connectissa tai SD Desktopissa tallennettu data, mukaan lukien tiedostot, virtuaalityöpöydät ja levyt, poistetaan pysyvästi 90 päivää projektin sulkemisen/vanhenemisen jälkeen.
 
-![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
+## Askeltava opas {#step-by-step-tutorial}
 
-!!! Note
-    The default lifetime of a CSC project is one year. All data stored in SD Connect or SD Desktop, including files, virtual desktops and volumes, will be permanently deleted 90 days after the project closure/ expiration.
+### 1. Luo CSC-tili {#1-create-a-csc-account}
 
-## Step by step tutorial
+- **Siirry [MyCSC-portaaliin](https://my.csc.fi){ target="_blank" }**
+- Kirjaudu sisään virtun tai Hakan avulla, kotiorganisaatiosi federoinnin perusteella. Valitse kotiorganisaatiosi ja kirjaudu sisään heidän identiteettipalvelunsa kautta. [Kuinka saada tili ilman Hakaa tai Virtua](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+- Täytä tietosi Kirjaudu-sivulla.
+- Luo salasana, jossa on vähintään 12 merkkiä, mukaan lukien isoja ja pieniä kirjaimia sekä vähintään yksi numero. Erikoismerkkejä ei sallita.
+- Saat CSC-käyttäjätilin vahvistuksen sähköpostitse.
 
-### 1. Create a CSC account
+### 2. Luo uusi CSC-projekti {#2-create-new-csc-project}
 
-- **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
-- Fill in your information on the Sign up page.
-- Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
-- You will get your CSC user account confirmation via email.
+- Siirry **Projektit**-sivulle (vasemman reunan valikosta tai yläoikealla olevasta hampurilaisvalikosta).
+- Valitse sivun yläreunassa **Uusi projekti**.
+- Täytä projektin nimi ja projektin kuvaus. Voit muokata näitä myöhemmin tarvittaessa.
+- Valitse Projektikategoria, joka on **Tieteellinen** (jos olet tutkija ja Suomen korkeakoululaitoksen jäsen).
+- Jos projektisi käsittelee henkilötietoja, valitse "Kyllä" kohdassa: **Käsittelemme tässä projektissa henkilötietoja**.
+- Seuraavaksi, Käyttöehdot-osiossa, varmista, että täytät **Edellytykset ja vastuut** ollaksesi CSC-projektin johtaja. Tutkimusprojekteissa projektipäällikön tulisi olla kokenut tutkija (esim. tohtorintutkinnon suorittanut, ryhmänjohtaja, professori tai tohtorikoulutettava, joka on tutkimusorganisaation palveluksessa). **Huomio opiskelijat:** Jos olet opiskelija, pyydä ohjaajaasi luomaan CSC-projekti tai [ota yhteyttä CSC-palveludesk](../../support/contact.md) (aihe: arkaluonteiset tiedot) saadaksesi apua. Opiskelijatunnuksella ei ole mahdollista päästä SD-palveluihin.
+- Lopuksi lue ja hyväksy käyttöehdot.
+- Klikkaa **Luo uusi projekti**.
 
-### 2. Create new CSC project
+![Luo uusi projekti.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
 
-- Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
-- On the top of the page choose **New project**
-- Fill in the project name and project description. You can edit these later if needed.
-- Choose the Project category to be **Academic** (if you are a researcher and a member of Finnish higher education institution)
-- If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
-- Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
-- Finally, read and accept the terms of use.
-- Click **Create new project**.
+### 3. Tietosuoja {#3-data-protection}
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
+#### 3.1 Käsittelytoimien kuvaus (GDPR) -lomake {#3-1-description-of-processing-activity-gdpr-form}
 
-### 3. Data protection
+Kun pääset ensimmäistä kertaa projektiisi, sinua kehotetaan täyttämään Käsittelytoimien kuvaus (GDPR) -lomake, jos projektisi käsittelee henkilötietoja. Tämä lomake vaatii keskeisiä tietoja, kuten kerättyjen tietojen tyyppiä (esim. arkaluonteisia henkilötietoja), niiden käyttöä ja turvaamista sekä rekisterinpitäjää (yleensä kotiorganisaatiosi). Lomake liitetään CSC-projektiisi ja se opastaa CSC:tä tiedon hallinnassa. Voit muokata asiakirjaa myöhemmin tarvittaessa.
 
-#### 3.1 Description of Processing Activity (GDPR) form
+#### 3.2 Tietojen siirto EAA:n ulkopuolelle {#3-2-data-transfer-outside-the-eea}
 
-When you first access your project, you’ll be prompted to complete the Description of Processing Activity (GDPR) form if your project handles personal data. This form requires key details such as the types of data collected (e.g. sensitive personal data), how it is used and secured, and the data controller (usually your home organization). The form will be linked to your CSC project and guide CSC in managing the data. You can edit the document later if needed.
+Kun henkilötietoja tai arkaluonteisia tietoja siirretään EAA:n ulkopuolelle, varmista, että sinulla on laillinen peruste ja noudatat soveltuvaa tietosuojalainsäädäntöä. Ole varovainen jakessasi arkaluonteisia tietoja yhteistyökumppaneiden kanssa SD Connectin tai SD Desktopin kautta.
 
-#### 3.1 Data Transfer Outside the EEA
+#### 3.3 Ota yhteyttä organisaatiosi oikeudelliseen toimistoon {#3-2-contact-your-organization-legal-office}
 
-When transferring personal or sensitive data outside the EEA, ensure you have the appropriate legal basis and comply with relevant data protection legislation. Be mindful of this when sharing sensitive data with collaborators via SD Connect or SD Desktop.
+Jos tarvitset apua edellä mainittuihin kohtiin tai tukea varmistaaksesi, ovatko SD-palvelut sopivia tutkimusdatan käsittelyyn, ota yhteyttä organisaatiosi [tietosuojavastaavaan tai oikeudelliseen palveluun](../../accounts/when-your-project-handles-personal-data.md#contact-information-of-finnish-universities-data-protection-legal-offices). Voit tarjota heille lisädokumentteja, kuten:
 
-#### 3.2 Contact your organization’s legal office
+1. [Tekniset ja organisatoriset toimenpiteet (TOMS)](../../data/sensitive-data/technical-organisational-sec-measures.pdf)
+2. [SD Connectin ja SD Desktopin palvelukuvaukset](https://research.csc.fi/-/sd-connect)
+3. [CSC:n tietojenkäsittelysopimus (DPA)](https://research.csc.fi/data-processing-agreement)
+4. GDPR-lomake (käsittelytoiminnan kuvaus), joka voidaan ladata CSC-projektistasi
+5. [CSC:n tietopoliittinen asiakirja](https://www.csc.fi/en/data-policy)
 
-If you need assistance with the above points or support to verify if SD service are suitable for processing your research data, contact your organization's [data protection officer or legal service](../../accounts/when-your-project-handles-personal-data.md#contact-information-of-finnish-universities-data-protection-legal-offices). You can provide them with supporting documents such as:
+![Käsittelytoimien kuvaus.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
-1. [Technical and Organizational Measures (TOMS)](../../data/sensitive-data/technical-organisational-sec-measures.pdf)
-2. Service descriptions of [SD Connect](https://research.csc.fi/-/sd-connect)and [SD Desktop](https://research.csc.fi/en/-/sd-desktop)
-3. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
-4. The GDPR form (Description of processing activity ) that can be downloaded from your CSC project
-5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+### 4. Aktivoi SD-palvelut projektilesi {#4-activate-sd-services-for-your-project}
 
-![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
+- Palvelut lisätään projektisivun oikeassa alakulmassa olevasta **Palvelut**-ikkunasta. Klikkaa **Lisää palveluita**.
+- Valitse **SD Connect**. Allas lisätään automaattisesti, koska se on taustalla oleva tallennusratkaisu.
+- Valitse **SD Desktop**.
+- Klikkaa **Lisää valitut palvelut**.
 
-### 4. Activate SD Services for your project
+![Lisää uusia palveluita -painike.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices1.png)
 
-- Services are added through **Services** window in the bottom right of the project page. Click **Add services**.
-- Select **SD Connect**. Allas will be added automatically as it is the underlying storage solution.
-- Select **SD Desktop**.
-- Click **Add selected services**.
+### 5. Hae resursseja projektilesi {#5-apply-billing-units-for-your-project}
 
-![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices1.png)
+Billing Unit (BU) on CSC:n mittari resurssien kulutuksen seuraamiseen kullekin CSC-projektille. Kuten palvelut, myös laskutusyksiköt kuluvat. Kun aloitat projektin, arvioi resurssitarpeesi, mukaan lukien tallennus ja laskutusyksiköiden kulutus. Jokainen projekti alkaa 10 000 laskutusyksiköllä, mikä on yleensä riittävästi alkuvaiheen testaamiseen.
 
+Sinun tulisi arvioida, kuinka monta BU:ta projektisi kuluttaa **vuoden aikana** ja hakea lisää tarpeen mukaan. Kun aloitat uuden projektin, sinun on suunniteltava etukäteen projektin laskutusyksikköjen ja tallennustilan käyttö.
 
-### 5. Apply billing units for your project
+- Katso alla oleva taulukko arvioidaksesi laskutusyksiköiden kulutusta.
+- Hae lisää laskutusyksiköitä CSC-projektiisi klikkaamalla **"Hae resursseja"** Resurssit-ikkunassa.
+- Saat lisätietoja hakemuksesi jälkeen MyCSC-postilaatikkoosi.
+- Voit aina kysyä apua palveludeskistä _aihe: SD-palvelut_
 
-The Billing Unit (BU) is CSC’s metric for tracking resource consumption for each CSC projects. As each service consumes billing units. When starting a project, consider your resource needs, including storage and billing units consumption. Each project starts with 10,000 billing units, typically enough for initial testing.
+#### Mitä tapahtuu, jos projektisi laskutusyksiköt loppuvat? {#what-happens-if-your-project-runs-out-of-billing-units}
 
-You should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
+Kun kaikki projektisi laskutusyksiköt on käytetty, **pääsy SD Desktop -palveluun rajoitetaan**. Tämä tarkoittaa, että:
 
-- See the table below for estimating your billing unit consumption.
-- Apply more billing units for your CSC project by clicking **"Apply for resources"** in Resources window.
-- You will get more info after your application to your MyCSC inbox.
-- You can always ask help from Service Desk _Subject: SD Services_
+- kaikki parhaillaan käytössä olevat virtuaalityöpöydät keskeytetään automaattisesti
+- et pysty pääsemään virtuaalityöpöytien sisältöön tai aktivoimaan niitä, ennen kuin olet hakenut lisää resursseja
+- tietojasi ei poisteta eikä niitä vaikuteta, vaikka kokonaislaskutusyksiköt olisivat nolla tai negatiivisia.
 
-#### What happens if your project runs out of billing units?
+!!! Huomio
+    Jokainen projektin jäsen saa ilmoituksen sähköpostitse MyCSC-portaalista, kun projektisi laskutusyksiköt ovat loppumassa.
 
-Once all the billing units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
+#### SD Connect BU -kulutus {#sd-connect-bu-consumption}
 
-- all virtual desktops currently running will automatically be paused
-- you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
-- your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
+SD Connect tallentaa dataa Allakseen. SD Connectin/Allaksen oletustallennustila on 10 TB, jota voit laajentaa tarpeen mukaan jopa 200 TB:iin. Jos tarvitset vielä enemmän tallennuskapasiteettia, ota yhteyttä palveludeskiin _(aihe: Allaksen kiintiön kasvattaminen)_. Tietojen tallentaminen SD Connectiin/Allakseen kuluttaa laskutusyksiköitä nopeudella **1 laskutusyksikkö per TB per tunti**. Tämä tarkoittaa, että 1 TB datan tallentaminen SD Connectiin/Allakseen kuluttaa 24 laskutusyksikköä päivässä ja 8760 laskutusyksikköä vuodessa.
 
-!!! Note
-    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
+Tässä on taulukko, joka tiivistää laskutusyksiköiden tarpeen datan tallentamiseen **SD Connectiin** **6 kuukauden** ja **1 vuoden** aikana eri tallennusmäärille:
 
-#### SD Connect BU consumption
-
-SD Connect stores data to Allas. Default storage space for SD Connect/Allas is 10 TB, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_. Storing data in SD Connect/Allas consumes billing units at a rate of **1 billing unit per TB per hour**. This means that storing 1 TB of data in SD Connect/Allas consumes 24 billing units daily and 8760 billing units annually.
-
-Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
-
-| **Storage Size** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
+| **Tallennuskoot** | **Laskutusyksiköt (6 kk)** | **Laskutusyksiköt (1 vuosi)** |
 |------------------|------------------------------|----------------------------|
-| 500 GB (0.5 TB) | 2,160 units | 4,320 units |
-| 1 TB | 4,320 units | 8,640 units |
-| 10 TB | 43,200 units | 86,400 units |
-| 100 TB | 432,000 units | 864,000 units |
+| 500 GB (0.5 TB) | 2 160 yksikköä | 4 320 yksikköä |
+| 1 TB | 4 320 yksikköä | 8 640 yksikköä |
+| 10 TB | 43 200 yksikköä | 86 400 yksikköä |
+| 100 TB | 432 000 yksikköä | 864 000 yksikköä |
 
-#### SD Desktop BU consumption
+#### SD Desktop BU -kulutus {#sd-desktop-bu-consumption}
 
-Analysing data in SD Desktop consumes billing units based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
+Datan analysoiminen SD Desktopissa kuluttaa laskutusyksiköitä virtuaalityöpöydän tyypin mukaan. Jokaisella virtuaalityöpöydällä voi olla myös osio (kutsutaan myös levytilaksi), johon tiedostoja voidaan tuoda SD Connectista/SD Applysta. Osio voidaan lisätä vain työpöydän luomisen aikana (enintään 200 GB). Jos tarvitset laajempaa osiota, ota yhteyttä palveludeskiin _(aihe: Arkaluonteiset tiedot)_.
 
-Here’s a table summarizing the billing units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
+Tässä on taulukko, joka tiivistää laskutusyksiköiden tarpeen **SD desktopin** käyttämiseen **6 kuukauden** ja **1 vuoden** aikana eri työpöytäasetuksille:
 
-| Desktop Option | Billing Rate (units/hour) | Billing Units (6 Months) | Billing Units (1 Year) |
+| Työpöytäasetus | Laskutustaso (yksikköä/tunti) | Laskutusyksiköt (6 kk) | Laskutusyksiköt (1 vuosi) |
 |----------------|---------------------------|--------------------------|------------------------|
-| Small Computation | 5.2 | 22,464 | 44,928 |
-| Medium Computation | 10.4 | 44,928 | 89,856 |
-| Heavy Computation | 65 | 280,800 |  561,600 |
-| Small GPU Computation | 78 | 341,640 | 683,748 |
-| Big Picture project | 195 | 854,100 | 1,708,770 |
+| Pieni laskenta | 5,2 | 22 464 | 44 928 |
+| Keskikokoinen laskenta | 10,4 | 44 928 | 89 856 |
+| Raskas laskenta | 65 | 280 800 | 561 600 |
+| Pieni GPU-laskenta | 78 | 341 640 | 683 748 |
+| Suuri proj c | 195 | 854 100 | 1 708 770 |
 
-![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
+![Klikkaa hae resursseja.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
 
-### 6. Activate MFA Authentication
+### 6. Aktivoi MFA-todennus {#6-activate-mfa-authentication}
 
-You need to activate MFA (multi-factor authentication) to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
+Sinun täytyy aktivoida MFA (monivaiheinen todennus) kirjautuaksesi Arkaluontoisiin Tietopalveluihin. [Lisätietoa monivaiheisesta tunnistautumisesta](../../accounts/mfa.md).
 
-- Install an authentication app (e.g., Google Authenticator or Microsoft Authenticator) on your mobile before activating MFA.
-- Click **Enable MFA** in the **Project notifications** window (top right corner) or go to the Profile page (left navigation or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking **Activate**.
-- A QR code will be created. Scan it with your authentication app (e.g., Google Authenticator).
-- Your app will generate a verification code. Enter this code in the **Verification code** field on MyCSC and click **Verify**.
+- Asenna tunnistussovellus (esim. Google Authenticator tai Microsoft Authenticator) mobiililaitteeseesi ennen MFA:n aktivointia.
+- Klikkaa **Ota MFA käyttöön** **Projektin ilmoitukset** -ikkunassa (yläoikea nurkka) tai siirry Profiilisivulle (vasen navigaatio tai yläoikealla oleva hampurilaisvalikko).
+- Ota monivaiheinen todennus käyttöön klikkaamalla **Aktivoi**.
+- QR-koodi luodaan. Skannaa se tunnistussovelluksellasi (esim. Google Authenticator).
+- Sovelluksesi tuottaa vahvistuskoodin. Syötä tämä koodi **Vahvistuskoodi**-kenttään MyCSC:ssä ja klikkaa **Vahvista**.
 
-![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
+![Monivaiheinen todennus.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 
-### 7. If you have a research team, add them to be your project members
+### 7. Jos sinulla on tutkimusryhmä, lisää heidät projektisi jäseniksi {#7-if-you-have-a-research-team-add-them-to-be-your-project-members}
 
-- Go to project page and select the correct project (Left side menu or hamburger menu).
-- Add members from **Members** window. Click **Add members**.
-- In the new window you can search and add members from your own organization.
-- If you need to add members from other organizations you can create a invitation link by clicking **Invitation link**. 
-    - Generate link and use it in email or webpage. 
-    - People can apply a membership for your project by clicking the invite link. 
-    - After that you have to approve them to be member of your project in MyCSC through **Members** window in **Membership applications** tab.
+- Mene projektisivulle ja valitse oikea projekti (Vasemman puolen valikko tai hampurilaisvalikko).
+- Lisää jäseniä **Jäsenet**-ikkunasta. Klikkaa **Lisää jäseniä**.
+- Uudessa ikkunassa voit hakea ja lisätä jäseniä omasta organisaatiostasi.
+- Jos tarvitset jäseniä muista organisaatioista, voit luoda kutsulinkin klikkaamalla **Kutsulinkki**. 
+    - Generoi linkki ja käytä sitä sähköpostissa tai verkkosivulla. 
+    - Henkilöt voivat hakea jäsenyyttä projektiisi klikkaamalla kutsulinkkiä. 
+    - Tämän jälkeen sinun täytyy hyväksyä heidät projektisi jäseniksi MyCSC:ssa **Jäsenhakemukset**-välilehdellä.
 
-![Add project members button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers1.png)
+![Lisää projektin jäseniä -painike.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers1.png)
 
-![Search and add members.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers2.png)
+![Hae ja lisää jäseniä.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers2.png)
 
-![Generate invitation link.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers3.png)
+![Luo kutsulinkki.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers3.png)
 
+!!! Huomio
+    Jokaisen CSC-projektin jäsenen on myös luotava MyCSC-käyttäjätili (tämä tapahtuu, kun he hakevat jäsenyyttä projektiisi) ja aktivoitava MFA.
 
-!!! Note
-    Each CSC project members must also create a MyCSC user account (this happens when they apply membership to your project) and activate the MFA.
+### 8. Projektin sulkeminen ja tietojen säilytys {#8-closing-your-project-and-data-retention}
 
-### 8. Closing your project and data retention
+CSC-projektin oletuselinkaari on yksi vuosi, jonka jälkeen se suljetaan automaattisesti ja kaikki tiedot poistetaan. Projektipäällikkönä voit joko pidentää projektin kestoa tai sulkea projektin suoraan tutkimuksesi valmistuttua. Projektipäällikkönä sinun tulisi tutustua siihen, kuinka [sulkea CSC-projekti](../../accounts/how-to-manage-your-project.md#project-closure) MyCSC-portaalin kautta.
 
-The default lifetime of a CSC project is one year, after which it will be automatically closed and all data deleted. As a project manager, you can either extend the project duration or directly close your project after completing your research.  As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure) via the MyCSC portal.
+- Saat sähköposti-ilmoituksen MyCSC-portaalista, kun projektisi on päättymässä. Pidä yhteystietosi ajan tasalla MyCSC:ssa varmistaaksesi, että saat tämän ilmoituksen.
+- Projektin sulkemisen jälkeen pääsy SD Connect- ja SD Desktop -palveluihin poistuu käytöstä.
+- Kaikki SD Connectiin tai SD Desktopiin tallennettu data, mukaan lukien tiedostot, virtuaalityöpöydät ja levyt, **poistetaan pysyvästi 90 päivää projektin sulkemisen/vanhenemisen jälkeen**.
 
-- You will receive an email notification from the MyCSC portal when your project is about to expire. Please keep your contact information up to date in MyCSC to ensure you receive this notification.
-- After the project is closed, access to SD Connect and SD Desktop services will be disabled.
-- All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
+!!! Huomio
+    Kun data on poistettu CSC:n tietojen säilytyspolitiikan mukaisesti, sitä ei voi palauttaa tai palautua.
 
-!!! Note
-    Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
+![Sulje projekti.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_CloseProject.png)
 
+### 9. Kirjaudu SD-palveluihin {#9-log-into-sd-services}
 
-![Close project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_CloseProject.png)
-
-### 9. Log into SD Services
-
-- Now all the preparations are ready and you can start using the services (links to related user guides):
+- Nyt kaikki valmisteet ovat valmiit, ja voit aloittaa palveluiden käytön (linkit liittyviin käyttöohjeisiin):
 
 SD Connect:
 
-- [SD Connect overview and key features](./sd_connect.md)
-- [SD Connect login instructions](./sd-connect-login.md)
-  
+- [SD Connectin esittely ja avainominaisuudet](./sd_connect.md)
+- [SD Connectin kirjautumisohjeet](./sd-connect-login.md)
+
 SD Desktop:
 
-- [SD Desktop overwvire and key features](./sd_desktop.md)
-- [SD Desktop login instructions](sd-desktop-login.md)
+- [SD Desktopin esittely ja avainominaisuudet](./sd_desktop.md)
+- [SD Desktopin kirjautumisohjeet](sd-desktop-login.md)

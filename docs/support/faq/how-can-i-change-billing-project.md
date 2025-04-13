@@ -1,16 +1,10 @@
-# How can I change which project is billed for my usage?
 
-This depends on which CSC service you are using. In each service, you start by
-selecting the project first.
+# Kuinka voin muuttaa, mikä projekti laskutetaan käytöstäni? {#how-can-i-change-which-project-is-billed-for-my-usage}
 
-* In supercomputer batch jobs, you specify the billing project in the batch job
-  script. There is a separate documentation for
-  [**Puhti**](../../computing/running/creating-job-scripts-puhti.md) and
-  [**Mahti**](../../computing/running/creating-job-scripts-mahti.md).
-* In **Allas**, the project to use is specified using the
-  [`allas-conf` command](../../data/Allas/accessing_allas.md).
-* In **cPouta** or **ePouta**, you
-  [select the project from the dropdown menu of the OpenStack Horizon UI](../../cloud/pouta/launch-vm-from-web-gui.md#preparatory-steps).
-* In **Rahti**,
-  [OpenShift projects are mapped to CSC projects using the *Description* field](../../cloud/rahti/usage/projects_and_quota.md)
-  of the OpenShift project.
+Tämä riippuu siitä, mitä CSC-palvelua käytät. Kussakin palvelussa aloitat valitsemalla projektin ensin.
+
+* Supertietokoneen eräajossa määrittelet laskutusprojektin eräajon skriptissä. On erillinen dokumentaatio sekä [**Puhti**](../../computing/running/creating-job-scripts-puhti.md) että [**Mahti**](../../computing/running/creating-job-scripts-mahti.md) varten.
+* **Allas**-palvelussa käytettävä projekti määritetään käyttämällä [`allas-conf`-komentoa](../../data/Allas/accessing_allas.md).
+* **cPouta** tai **ePouta** -palveluissa [valitset projektin OpenStack Horizon -käyttöliittymän valikosta](../../cloud/pouta/launch-vm-from-web-gui.md#preparatory-steps).
+* **Rahti**-palvelussa [OpenShift-projektit yhdistetään CSC-projekteihin *Description*-kentän](../../cloud/rahti/usage/projects_and_quota.md) avulla OpenShift-projektissa.
+

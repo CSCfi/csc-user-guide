@@ -1,60 +1,54 @@
+
 # SD Desktop 
 
-## Can I access/analyse encrypted data stored in SD Connect using SD Desktop?
-Yes. Encrypted data stored in SD Connect can be analised in SD Desktop. Once you have logged in to Sd Desktop, use the data gateway application to access the files stored in SD Connect and make a copy of it in your virtual desktop. 
+## Voinko käyttää/analysoida salattuja tietoja SD Connectissa SD Desktopin avulla? {#can-i-access-analyse-encrypted-data-stored-in-sd-connect-using-sd-desktop}
+Kyllä. Salattuja tietoja, jotka on tallennettu SD Connectiin, voidaan analysoida SD Desktopissa. Kun olet kirjautunut SD Desktopiin, käytä tietoyhteyssovellusta päästäksesi käsiksi SD Connectiin tallennettuihin tiedostoihin ja tehdäksesi niistä kopion virtuaaliselle työpöydällesi.
 
-## Can I edit/annotate data using SD Desktop?
-Yes. You can edit or annotate data in SD Desktop. However, you need to make a full copy of it in the Desktop environment. If your data is larger than  280 GB, contact us at servicedesk@csc.fi. We can provide additional storage space. The default volume space in SD Desktop is about 280 GB. 
+## Voinko muokata/merkitä tietoja SD Desktopissa? {#can-i-edit-annotate-data-using-sd-desktop}
+Kyllä. Voit muokata tai merkitä tietoja SD Desktopissa. Sinun on kuitenkin tehtävä siitä täydellinen kopio työpöytäympäristössä. Jos tietosi ovat suurempia kuin 280 GB, ota yhteyttä osoitteeseen servicedesk@csc.fi. Voimme tarjota lisäsäilytystilaa. Oletustilavuus SD Desktopissa on noin 280 GB.
 
-## Does CSC provide SD Desktop operating system, software, and security updates?
-Yes, every SD Desktop is built on a predefined virtual machine defined by our team. CSC provides the operating system, software, and updates. CSC also takes care of the security of all the service components and network connections.
+## Tarjoaako CSC SD Desktopille käyttöjärjestelmän, ohjelmiston ja tietoturvapäivityksiä? {#does-csc-provide-sd-desktop-operating-system-software-and-security-updates}
+Kyllä, jokainen SD Desktop rakennetaan ennalta määriteltyyn virtuaalikoneeseen, jonka tiimimme määrittelee. CSC tarjoaa käyttöjärjestelmän, ohjelmistot ja päivitykset. CSC huolehtii myös kaikkien palvelukomponenttien ja verkkoyhteyksien turvallisuudesta.
 
-## What are the technical specifications of the service?
+## Mitkä ovat palvelun tekniset ominaisuudet? {#what-are-the-technical-specifications-of-the-service}
 
-* Accessible directly from a modern web browser (e.g., Google Chrome, Firefox). from any computer /laptop (Windows, Mac, or Linux).
+* Käytettävissä suoraan modernista verkkoselaimesta (esim. Google Chrome, Firefox) millä tahansa tietokoneella / kannettavalla (Windows, Mac tai Linux).
 
-* Disk space: 80GB (possibility to add an external disk up to 200GB)
+* Levytila: 80 GB (mahdollisuus lisätä ulkoinen levy jopa 200 GB:hen)
 
-* Computing environment provided via web browser: currently only Linux OS.
+* Laskentaympäristö tarjotaan verkkoselaimen kautta: tällä hetkellä vain Linux OS.
 
-* Copy-paste function disabled for security reasons, but coping text to SD Desktop available via clipboard. 
+* Kopioi-liitä-toiminto on poistettu käytöstä turvallisuussyistä, mutta tekstin kopioiminen SD Desktopiin on käytettävissä leikepöydän kautta.
 
-* Default pre-installed software (additional software can be installed via SD-Software installer by contacting servicedesk@csc.fi (subject: sensitive data)
+* Oletuksena esiasennettu ohjelmisto (lisäohjelmistoja voidaan asentaa SD-Software-asentajan kautta ottamalla yhteyttä servicedesk@csc.fi (aihe: arkaluontoinen data)
 
-* The computing environment is isolated from the Internet.
+* Laskentaympäristö on eristetty Internetistä.
 
-* Data import only via SD Connect.
+* Datan tuonti vain SD Connectin kautta.
 
-* Only the CSC project manager can export files outside SD Desktop.
+* Vain CSC-projektipäällikkö voi viedä tiedostoja SD Desktopin ulkopuolelle.
 
-If you need help choosing a suitable computing environment, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
+Jos tarvitset apua sopivan laskentaympäristön valintaan, älä epäröi ottaa yhteyttä meihin osoitteessa servicedesk@csc.fi (sähköpostin aihe: Arkaluontoinen Data).
 
-## What type of file can I analyze using SD Desktop?
-Any type: text, video, audio, images, genetic data, questionnaires.
+## Millaisia tiedostoja voin analysoida SD Desktopin avulla? {#what-type-of-file-can-i-analyze-using-sd-desktop}
+Minkä tyyppisiä tahansa: teksti, video, ääni, kuvat, geneettiset tiedot, kyselyt.
 
-## What software is available on SD Desktop?
+## Mitä ohjelmistoja on saatavilla SD Desktopissa? {#what-software-is-available-on-sd-desktop}
 
-We currently provide only Linux Ubuntu22 computing environments with a limited amount of open-source software installed, including Libre Office (with LibreOffice Calc, a spreadsheet program similar to Microsoft Excel, and LibreOffice Writer,  a word processor similar to Microsoft Word), R Studio and Python. We are not providing proprietary software, but we could help you install on your private desktop an open-source version. 
-For further information and for desktop customisation see: [Default programs available on SD Desktop](../../data/sensitive-data/sd-desktop-software.md).  
-Don't hesitate to get in touch with us at servicedesk@csc.fi for specific technical support.
+Tarjoamme tällä hetkellä vain Linux Ubuntu22 -laskentaympäristöjä rajoitetulla määrällä asennettua avoimen lähdekoodin ohjelmistoa, mukaan lukien Libre Office (mukana LibreOffice Calc, laskentataulukko-ohjelma, joka on samanlainen kuin Microsoft Excel, ja LibreOffice Writer, tekstinkäsittelyohjelma, joka on samanlainen kuin Microsoft Word), R Studio ja Python. Emme tarjoa kaupallisia ohjelmistoja, mutta voimme auttaa sinua asentamaan avoimen lähdekoodin version yksityiselle työpöydällesi. Lisätietoja ja työpöydän kustomointia varten katso: [Oletusohjelmat saatavilla SD Desktopissa](../../data/sensitive-data/sd-desktop-software.md).  
+Älä epäröi ottaa yhteyttä meihin osoitteessa servicedesk@csc.fi saadaksesi erityistä teknistä tukea.
 
-## Who can access my private computing environment in SD Desktop?
-Only your CSC project members can directly access the private Desktop. Furthermore, as the computing environment is isolated from the Internet, no one can export files from SD Desktop without CSC project manager approval. 
+## Kuka voi käyttää yksityistä laskentaympäristöäni SD Desktopissa? {#who-can-access-my-private-computing-environment-in-sd-desktop}
+Vain CSC-projektisi jäsenet voivat suoraan käyttää yksityistä työpöytääsi. Lisäksi, koska laskentaympäristö on eristetty Internetistä, kukaan ei voi viedä tiedostoja SD Desktopista ilman CSC-projektipäällikön hyväksyntää.
 
-## What is the difference between SD Desktop and ePouta?
-SD Desktop is a web-user interface that allows you to connect to your virtual computing environment securely. CSC manages SD Desktop: we manage the connection, access, and security. 
-SD Desktop is suitable for collaborative projects across Finnish organizations and provides the computational capability to research organizations that do not have an ePouta tenant. 
+## Mikä on ero SD Desktopin ja ePoutan välillä? {#what-is-the-difference-between-sd-desktop-and-epouta}
+SD Desktop on web-käyttöliittymä, jonka avulla voit turvallisesti yhdistää virtuaaliseen laskentaympäristöön. CSC hallitsee SD Desktopia: hallitsemme yhteyksiä, pääsyjä ja tietoturvaa.
+SD Desktop soveltuu yhteistyöprojekteihin suomalaisten organisaatioiden välillä ja tarjoaa laskentatehoa tutkimusorganisaatioille, joilla ei ole ePouta-tausta.
 
-ePouta is an infrastructure provided to research organizations, and the organization's own IT unit manages its access and network. ePouta works on extending an academic organization infrastructure and provides all the flexibility and requirements decided by the organization. 
+ePouta on infrastruktuuri, joka on tarjottu tutkimusorganisaatioille, ja organisaation oma IT-yksikkö hallitsee sen pääsyä ja verkkoa. ePouta toimii akateemisen organisaation infrastruktuurin laajennuksena ja tarjoaa kaiken organisaation päättämät joustavuus- ja vaatimukset.
 
-## Can I have root or sudo access to a virtual machine running in SD Desktop?
-No. Your account has only normal user level priviledges. Providing sudo rights to a user would compromise the secutity of you SD Desktop environmenyt. 
+## Voinko saada root- tai sudo-oikeudet virtuaalikoneeseen, joka toimii SD Desktopissa? {#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop}
+Ei. Tililläsi on vain normaalin käyttäjän käyttöoikeudet. Sudo-oikeuksien antaminen käyttäjälle vaarantaisi SD Desktop -ympäristösi turvallisuuden.
 
-## Why do I see the word guacamole in the URL next to sd-desktop.csc.fi?
-Guacamole is a technical component (Open source)  of the services and allows you to access SD Desktop via a web browser. Especially if you are using a Windows laptop, the term may appear in your URL while accessing the service as in this example: https://sd-desktop.csc.fi/guacamole/#/
-
-
-   
-
-
-
+## Miksi näen sanan guacamole URL-osoitteessa sd-desktop.csc.fi vieressä? {#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktop-csc-fi}
+Guacamole on palveluiden tekninen komponentti (Avoimen lähdekoodin), joka sallii sinun käyttää SD Desktopia verkkoselaimen kautta. Erityisesti, jos käytät Windows-kannettavaa, termi voi näkyä URL-osoitteessasi, kun käytät palvelua, kuten tässä esimerkissä: https://sd-desktop.csc.fi/guacamole/#/

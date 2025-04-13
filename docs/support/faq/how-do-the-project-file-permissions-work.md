@@ -1,28 +1,26 @@
-# How do the project and scratch file permissions work?
+# Kuinka projektin ja väliaikaistiedostojen oikeudet toimivat? {#how-do-the-project-and-scratch-file-permissions-work}
 
-CSC sets the permissions of project and scratch directories so that
-all project members have access to the folders. More specifically, the
-folders are owned by the system administrator account, but the associated
-Unix group has read and write rights. In addition, the set GID
-permission is also enabled so that any new files and folders are owned
-by the project group by default. Note that also the set GID permissions is
-inherited to all new folders.
+CSC asettaa projektien ja väliaikaiskansioiden oikeudet siten, että
+kaikilla projektin jäsenillä on pääsy kansioihin. Tarkemmin sanottuna,
+kansiot omistaa järjestelmänvalvojan tili, mutta niihin liittyvällä
+Unix-ryhmällä on luku- ja kirjoitusoikeudet. Lisäksi, GID-oikeus
+asetetaan käytettäväksi, jolloin uudet tiedostot ja kansiot ovat
+oletusarvoisesti projektiryhmän omistamia. Huomaa, että myös uusiin
+kansioihin periytyy GID-oikeus.
 
-You can check the permissions using `ls -l` command. Correct default
-permissions for a subfolder are `drwxrws---`. Note the small `s`
-letter instead of `x` in the group permissions. If you see a capital `S`
-instead, the directory doesn't have execute permissions which are
-needed for group-level access.
+Voit tarkistaa oikeudet komennolla `ls -l`. Oikeita oletusoikeuksia
+alikansiolle ovat `drwxrws---`. Huomaa pieni `s`-kirjain ryhmän
+oikeuksissa x:n sijaan. Jos näet ison `S`-kirjaimen, kansiolla ei ole
+suoritusoikeuksia, jotka ovat tarpeen ryhmätason pääsyyn.
 
-If the set GID permission of any subdirectory
-is removed on purpose or by accident, all new files and folders within
-that subdirectory will be owned by the user's default personal group
-and other group members can't access them. If the access is needed,
-then the owner of those files and folders should change the group and
-fix the permissions. Note that many tools and installation scripts do
-modify the default permissions.
+Jos alikansion GID-oikeus poistetaan tahallisesti tai vahingossa, kaikki
+uudessa alikansiossa olevat tiedostot ja kansiot omistaa käyttäjän
+oletushenkilökohtainen ryhmä, eikä muut ryhmän jäsenet voi käyttää niitä.
+Jos pääsyä tarvitaan, näiden tiedostojen ja kansioiden omistajan tulee
+muuttaa ryhmä ja korjata oikeudet. Huomaa, että monet työkalut ja asennusskriptit
+muokkaa oletusoikeuksia.
 
-Example of missing SGID permission:
+Esimerkki puuttuvasta SGID-oikeudesta:
 
 ```bash
 [maijam@puhti project_2009999]$ mkdir -m 00770 demofolder
@@ -44,7 +42,7 @@ total 0
 -rw-rw----. 1 maijam project_2009999 0 Feb 15 14:53 my-other-file
 ```
 
-Example of fixing the permissions:
+Esimerkki oikeuksien korjaamisesta:
 
 ```bash
 [maijam@puhti project_2009999]$ chgrp -R project_2009999 demofolder/
@@ -52,5 +50,5 @@ Example of fixing the permissions:
 [maijam@puhti project_2009999]$ lfs find demofolder -type f -0 | xargs -0 chmod g+rwX
 ```
 
-More about Linux file permissions at RedHat documentation:
-[Linux permissions: SUID, SGID, and sticky bit](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit).
+Lisätietoja Linux-tiedosto-oikeuksista RedHatin dokumentaatiossa:
+[Linux-oikeudet: SUID, SGID ja sticky bit](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit).

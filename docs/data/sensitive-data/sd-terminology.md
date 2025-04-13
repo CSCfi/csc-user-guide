@@ -1,43 +1,36 @@
-## Useful terminology: services and technical aspects
+## Hyödyllinen terminologia: palvelut ja tekniset näkökohdat {#useful-terminology-services-and-technical-aspects}
 
-**Allas**: CSC's cloud storage service. SD Connect is an interface that facilitates sensitive data encryption and storage in Allas. Users can also access Allas programmatically with interfaces for non-sensitive data.
+**Allas**: CSC:n pilvitallennuspalvelu. SD Connect on käyttöliittymä, joka helpottaa arkaluonteisten tietojen salauksen ja tallennuksen Allakseen. Käyttäjät voivat myös käyttää Allasta ohjelmallisesti rajapintojen avulla ei-arkaluontoisille tiedoille.  
 
-**Billing units**: billing units are used to monitor the resource. SD Connect and SD Desktop usage consume billing units. 
+**Laskentayksiköt**: laskentayksiköitä käytetään resurssien seurantaan. SD Connectin ja SD Desktopin käyttö kuluttaa laskentayksiköitä.  
 
-**Bucket/Container**: These terms refer to the main folder (technically called root folder) where encrypted files are stored in SD Connect/Allas. The bucket/container name is visible on the internet. You can have multiple buckets in the same project (up to 1000), but each bucket must have a unique name throughout the storage system (including other projects). By default, the data in a bucket is accessible just to the project members. However, you can share and grant access to other CSC projects or users with SD Connect.
+**Bucket/Kontti**: Nämä termit viittaavat pääkansioon (teknisesti kutsutaan juurikansioksi), jossa salatut tiedostot tallennetaan SD Connectiin/Allakseen. Sangon/kontin nimi on näkyvissä internetissä. Voit luoda samassa projektissa useita sangoja (enintään 1000), mutta jokaisen sangon on oltava nimeltään uniikki koko tallennusjärjestelmässä (mukaan lukien muut projektit). Oletusarvoisesti sangon tiedot ovat vain projektin jäsenille. Voit kuitenkin jakaa ja antaa pääsyn muihin CSC-projekteihin tai käyttäjille SD Connectin kautta.  
 
-**CSC Project**: using CSC services is based on projects: all your data in CSC belong to a project. Each project has a primary user, the CSC project manager, who can add members and manages access to the services. A project manager is responsible for the project's activities and acts as the data controller (or academic organization) representative. They, for example, need to describe which type of sensitive data the project is processing.
+**CSC-projekti**: CSC:n palveluiden käyttö perustuu projekteihin: kaikki CSC:ssä olevat tietosi kuuluvat projektiin. Jokaisella projektilla on pääkäyttäjä, CSC-projektipäällikkö, joka voi lisätä jäseniä ja hallinnoida pääsyä palveluihin. Projektipäällikkö vastaa projektin toiminnasta ja toimii tietojen käsittelijänä (tai akateemisen organisaation) edustajana. Heidän on esimerkiksi kuvattava, minkä tyyppisiä arkaluonteisia tietoja projekti käsittelee.
 
-**Disk quota**: storage space available to CSC's services users. SD Connect has a default quota of 10 TB. You can apply for more storage space by writing to [CSC Service Desk](../../support/contact.md). 
+**Levykiintiö**: CSC:n palveluiden käyttäjille saatavilla oleva tallennuskapasiteetti. SD Connectilla on oletuskiintiö 10 TB. Voit hakea lisää tallennustilaa kirjoittamalla [CSC Service Deskille](../../support/contact.md). 
 
+**Monivaiheinen todentaminen**: Kun kirjaudut SD Desktop -palveluun, sinun on suoritettava ylimääräinen varmistusvaihe käyttäjätunnuksen ja salasanan antamisen lisäksi. Näin tilisi on turvallisempi. Lisätarkistusvaihetta kutsutaan "kahden askeleen varmennukseksi" tai "monivaiheiseksi tunnistautumiseksi", koska todistat henkilöllisyytesi eri menetelmällä. Tässä tapauksessa sinun on kirjoitettava kuusinumeroisen koodi, joka saadaan avaamalla mobiilisovellus. Koodi on ainutlaatuinen ja se on voimassa vain rajoitetun ajan.
 
-**Multi-factor Authentication**: When you log in to the SD Desktop service, you must undergo an extra verification step next to provide a username and password. In this way, your account is more secure. The extra verification step is called: "Two-Step Verification" or "Multifactor Authentication", because you are proving your identity via a different method. In this case, you need to type in a one-time code (6 digits) obtained by opening a mobile app. The code is unique and valid for a limited amount of time.
+**Objekti**: tekninen termi tiedostosta, joka on tallennettu pilviobjektitallennukseen, kuten Allas (tai ladattu CSC:hen SD Connectin kautta). Tämä määritelmä korostaa, että SD Connectiin / Allakseen tallennettuja tiedostoja ei voi suoraan muokata, ellei niitä siirretä tai kopioida tietojenkäsittely-ympäristöön. Niitä voidaan kuitenkin käyttää vain luku -muodossa pilvilaskentaympäristöstä (esim. SD Desktop).  
 
-**Object**: the technical name for a file stored in a cloud object storage like Allas (or uploaded to CSC via SD Connect). This definition underlines that files stored in SD Connect / Allas can not be directly modified unless transferred or copied into a computing environment. Still, they can be accessed in read-only mode from a cloud computing environment (e.g. SD Desktop). 
+**Projektitunniste**: synonyymi CSC-projektin tunnukselle komentorivityökalun käytössä. SD Connect -käyttöliittymä näytetään kohdassa Käyttäjätiedot > Projektin käyttö ja esitetään 32 numeron ja kirjaimen sarjana: esim. `AUTH_3a66dbf90b2940dc9c651362af595b23`.
 
-**Project Identifier**: a synonym of CSC Project ID when using the command-line tool. The SD Connect user interface is displayed under User Information> Project usage and displayed as a series of 32 numbers and letters: e.g. `AUTH_3a66dbf90b2940dc9c651362af595b23`.
+**Virtuaalikone (VM) tai virtuaalipöytäkone**: virtuaalinen tietojenkäsittely-ympäristö (tai virtuaalinen tietokone), joka toimii fyysisenä tietokoneena. Sillä on prosessori, muisti ja käyttöjärjestelmä, mutta se on olemassa vain koodina tai osana isäntätietokonetta CSC:n datakeskuksessa. Arkaluontoisten tietojen palvelujen virtuaalikoneet ovat täysin eristettyjä internetistä turvallisuussyistä.  
 
+**Virtuaalikoneen maku (VM-flavor) tai valmiiksi rakennettu pöytäoptio**: maku määrittelee pilvilaskentaympäristön resurssit ja kokoonpanot. Se määrittää laskentatehon, muistin ja tallennuskapasiteetin, joka voidaan osoittaa virtuaalikoneelle.
 
-**Virtual machine (VM) or virtual desktop**: a virtual computing environment (or virtual computer) that works as a physical computer. It has a processor, memory, and operating system but exists only as a code or a partition of the host computer in CSC's data center. The virtual machines used for Sensitive Data services are entirely isolated from the internet for security reasons.
+## Hyödyllinen terminologia: tietosuoja {#useful-terminology-data-protection}
 
-**Virtual machine flavor (VM flavor) or pre-built desktop option**: a flavor defines the resources and configurations of a cloud computing environment. It specifies the computing, memory, and storage capacity that can be assigned to the virtual machine.
+**Rekisterinpitäjä ja tietojen käsittelijä**: GDPR:n mukaan rekisterinpitäjä on henkilö tai organisaatio, joka määrittelee henkilötietojen käsittelyn tarkoituksen ja keinot, ja se on yleensä akateeminen organisaatio. Tietojen käsittelijä puolestaan on henkilö tai organisaatio, joka käsittelee henkilötietoja rekisterinpitäjän puolesta, kuten IT-palveluntarjoaja, tässä tapauksessa CSC. 
 
+**Tietojenkäsittelysopimus (DPA)**: tietojenkäsittelysopimus (DPA) on rekisterinpitäjän ja tietojen käsittelijän välinen sopimus. Se säätelee tietojenkäsittelyn erityispiirteitä – kuten sen laajuutta ja tarkoitusta – sekä rekisterinpitäjän ja tietojen käsittelijän suhdetta. Lisätietoja löytyy kohdasta [kun projektisi käsittelee henkilötietoja](../../accounts/when-your-project-handles-personal-data.md#data-processing-agreement) tämän käyttöoppaan alussa ja [CSC Yleiset käyttöehdot](https://research.csc.fi/general-terms-of-use) ja [CSC Tietojenkäsittelysopimus](https://research.csc.fi/data-processing-agreement) research.csc.fi-sivustolla. 
 
-## Useful terminology: data protection
+**Tietosuojavaikutusten arviointi (DPIA):** Tietosuojavaikutusten arviointi (DPIA) vaaditaan GDPR:n mukaan toimille, jotka "todennäköisesti aiheuttavat korkean riskin luonnollisten henkilöiden oikeuksille ja vapauksille". Lisätietoja löytyy [täältä](https://tietosuoja.fi/en/list-of-processing-operations-which-require-dpia) Suomen tietosuojavaltuutetun toimisto ja erityinen tuki kotiorganisaatiosi oikeustoimistolta. 
 
-**Data Controller and Data Processor** According to the GDPR, a data controller is an individual or organization that determines the purposes and means of processing sensitive personal data, and it is usually an academic organization. On the other hand, a data processor is an individual or organization that processes personal data on the controller's behalf, for example, an IT service provider, in this case, CSC.
+**Arkaluontoiset tiedot**: Arkaluontoiset tiedot ovat tietoja, jotka on suojattava luvattomalta käytöltä. Tietosuoja voi olla tarpeen oikeudellisista tai eettisistä syistä, henkilökohtaisen yksityisyyden ja yksinomaisuuden vuoksi. Arkaluontoiset tiedot voivat sisältää esimerkiksi:
 
-
-**Data Processing Agreement (DPA)**: a data processing agreement (DPA) is a contract between the Data Controller and the Data Processor. It regulates the particularities of data processing – such as its scope and purpose – as well as the relationship between the controller and the processor. For more information, see the section [when your project handles personal data](../../accounts/when-your-project-handles-personal-data.md#data-processing-agreement) at the beginning of this user guide and [CSC General terms of use](https://research.csc.fi/general-terms-of-use) and [CSC Data Processing Agreement](https://research.csc.fi/data-processing-agreement) in research.csc.fi. 
-
-
-**Data Protection Impact Assessment (DPIA)**: A Data Protection Impact Assessment (DPIA) is required under the GDPR for operations that are 'likely to result in a high risk to the rights and freedoms of natural persons'. More information is provided [here](https://tietosuoja.fi/en/list-of-processing-operations-which-require-dpia) by the Finnish Office of the Data Protection Ombudsman and specific support by your home organization's legal office. 
-
-
-**Sensitive Data**: Sensitive data is data that needs to be protected against unauthorized access. Data protection may be required due to legal or ethical reasons, personal privacy, and proprietary considerations. Sensitive data can include for example:
-
-* Personal sensitive data (e.g. health, genetic and personal information, racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, data concerning a natural person's sex life or sexual orientation, data relating to criminal convictions and offenses or related security measures, data that may identify a person)
-* Ecological data (e.g. location of endangered species or other conservation efforts)
-* Confidential data (e.g. trade secrets)
-* Data that is otherwise deemed sensitive
-
+* Henkilökohtaisia arkaluontoisia tietoja (esim. terveys, geneettiset ja henkilökohtaiset tiedot, rotu tai etninen alkuperä, poliittiset mielipiteet, uskonnolliset tai filosofiset uskomukset tai ammattiliittojen jäsenyys, geneettiset tiedot, biometriset tiedot luonnollisen henkilön yksilölliseen tunnistamiseen, terveyttä koskevat tiedot, seksielämää tai seksuaalista suuntautumista koskevat tiedot, rikostuomioita ja rikkomuksia tai niihin liittyviä turvallisuustoimenpiteitä koskevat tiedot, tunnistettavissa olevan henkilön tiedot)
+* Ekologiset tiedot (esim. uhanalaisten lajien sijainti tai muut säilyttämistoimet)
+* Luottamukselliset tiedot (esim. liikesalaisuudet)
+* Tiedot, joita muuten pidetään arkaluontoisina

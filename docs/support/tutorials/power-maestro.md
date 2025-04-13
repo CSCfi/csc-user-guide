@@ -1,102 +1,71 @@
-# Extended instructions for using Maestro at CSC
+# Laajennetut ohjeet CSC Maestro -sovelluksen käyttämiseksi
 
-Please first read the actual [CSC Maestro page](../../apps/maestro.md)
-and then consult the power user and special case instructions below.
-Further down there are steps to help solving or diagnosing issues
-and to prepare data for support requests.
+Lue ensin [CSC Maestro -sivu](../../apps/maestro.md) ja tutustu sitten voima- ja erikoistapausohjeisiin alla. Alempaa löydät vaiheita, jotka auttavat ratkaisemaan tai diagnosoimaan ongelmia ja valmistamaan tietoja tukipyyntöjä varten.
 
 [TOC]
 
-## Standalone jobs on Puhti
+## Itsenäiset työt Puhtilla {#standalone-jobs-on-puhti}
 
-!!! warning "Note"
-    All Maestro jobs must be run on compute nodes via the queuing system.
-    Don't run any Maestro jobs, including the GUI, on the login nodes.
-    Maestro jobs on the login node will be terminated without warning.
+!!! varoitus "Huomaa"
+    Kaikki Maestro-työn on suoritettava laskentayksiköissä jonotusjärjestelmän kautta.
+    Älä aja mitään Maestro-töitä, mukaan lukien GUI, kirjautumissolmulla.
+    Maestro-työt kirjautumissolmulla lopetetaan ilman varoitusta.
 
-The recommended way to run Maestro jobs on Puhti is to create the input files on
-your local computer and instead of running them, write them to disk. The procedure
-is shown in [a video](../../apps/maestro.md#standalone-usage-on-puhti) on our
-main Maestro page. Use e.g. `scp` on your local machine to copy the inputs to
-Puhti (edit your username and project accordingly):
+Suositeltava tapa suorittaa Maestro-työt Puhtilla on luoda syötetiedostot paikallisella tietokoneellasi ja sen sijaan, että suorittaisit ne, tallentaa ne levylle. Menettely näytetään [videolla](../../apps/maestro.md#standalone-usage-on-puhti) pääasiallisella Maestro-sivullamme. Käytä esimerkiksi `scp` paikallisella koneellasi kopioidaksesi syötteet Puhtiin (muokkaa käyttäjänimeäsi ja projektiasi vastaavasti):
 
 ```bash
-scp -r my_job <your username>@puhti.csc.fi:/scratch/<your project>
+scp -r my_job <käyttäjänimesi>@puhti.csc.fi:/scratch/<projektisi>
 ```
 
-Note that `scp` works also in Windows PowerShell. See
-[Moving data between CSC and local workstation](../../data/moving/index.md) for
-other alternatives.
+Huomaa, että `scp` toimii myös Windows PowerShellissä. Katso vaihtoehtoja osiosta [Tiedon siirto CSC:n ja paikallisen työaseman välillä](../../data/moving/index.md).
 
-Once the folder `my_job` containing all input files has been copied:
+Kun `my_job`-kansio, joka sisältää kaikki syötteet, on kopioitu:
 
-1. SSH to Puhti.
-2. Load the Maestro module.
-3. Go to the input directory.
+1. SSH-yhteys Puhtiin.
+2. Lataa Maestro-moduuli.
+3. Siirry syötekansioon.
 
 ```bash
-ssh <your username>@puhti.csc.fi
+ssh <käyttäjänimesi>@puhti.csc.fi
 module load maestro
-cd /scratch/<your project>/my_job
+cd /scratch/<projektisi>/my_job
 ```
 
-The job is submitted to a compute node(s) by running the `job_name.sh` script
-written out by Maestro. It will formulate the task(s) as Slurm batch job(s) and
-ask resources according to the selected HOST in your `schrodinger.hosts` file in
-your Puhti `$HOME` directory.
+Työ lähetetään suoritettavaksi laskentayksikö(ide)llä Maestro-työstä generoidun `job_name.sh` -skriptin avulla, joka muodostaa tehtävät Slurm-batch-työksi ja pyytää resursseja valitun HOSTin mukaisesti Puhti-ympäristössä olevasta `schrodinger.hosts`-tiedostostasi:
 
 ```bash
-bash job_name.sh  # note the usage of `bash`, not `sbatch`!
+bash job_name.sh  # Huomaa `bash`:n käyttö, ei `sbatch`!
 ```
 
-Once the simulation has finished, copy the outputs back to your local computer
-for analysis. On your local machine, run e.g. `scp` again:
+Kun simulointi on päättynyt, kopioi tulokset takaisin paikalliselle tietokoneellesi analysointia varten. Paikallisesti, suorita esimerkiksi `scp`:
 
 ```bash
-scp -r <your username>@puhti.csc.fi:/scratch/<your project>/my_job .
+scp -r <käyttäjänimesi>@puhti.csc.fi:/scratch/<projektisi>/my_job .
 ```
 
-Note that you can also use e.g. the [Puhti web interface](../../data/moving/web-interface.md)
-for copying files between Puhti and your local computer.
+Huomaa, että voit käyttää myös esimerkiksi [Puhti-verkkoliittymää](../../data/moving/web-interface.md) tiedostojen kopioimiseen Puhtin ja paikallisen tietokoneesi välillä.
 
-Another more advanced version is to use e.g. the `pipeline` tool which allows
-you to bypass some of the Schrödinger jobcontrol machinery, but requires you to
-write the job script yourself. This may be useful in case some of your subjobs
-terminate unexpectedly. In this case, please make note of those JobIds and
-[contact us](../contact.md).
+Toinen kehittyneempi versio on käyttää esim. `pipeline`-työkalua, jonka avulla voit ohittaa osan Schrödingerin työnhallintamekanismista, mutta se edellyttää, että kirjoitat työn skriptin itse. Tämä voi olla hyödyllistä, jos jokin alatyösi päättyy odottamattomasti. Kirjaa tässä tilanteessa ylös näiden työiden JobIds ja [ota yhteyttä meihin](../contact.md).
 
-The remainder of this article explains some implementation details on Puhti
-and helps setting up efficient simulation workflows.
+Loput tästä artikkelista selittävät joitakin Puhti-ympäristön toteutusyksityiskohtia ja auttavat tehokkaiden simulointityönkulkujen luomisessa.
 
-## Maestro `schrodinger.hosts` file
+## Maestro `schrodinger.hosts` -tiedosto {#maestro-schrodinger-hosts-file}
 
-This file specifies the resources your jobs can get either locally
-or from the queuing system. To use the recommended procedure
-you need to edit the local (on your computer) `schrodinger.hosts` file to
-include the same HOSTs that you want to use on Puhti. On Windows, this will
-require admin privileges.
+Tämä tiedosto määrittelee resurssit, joita työt voivat saada joko paikallisesti tai jonotusjärjestelmästä. Suositellun menettelyn käyttämiseksi sinun täytyy muokata paikallisesti (tietokoneellasi) olevaa `schrodinger.hosts` -tiedostoa sisällyttämään samat HOSTit, joita haluat käyttää Puhtilla. Windowsissa tämä vaatii järjestelmänvalvojan oikeudet.
 
-On Puhti, Maestro complains about the location of this file, but ignore it,
-it's ok. The file is created by a script (echoed on your screen when you give
-`module load maestro`) that you need to run if the file does not exist.
+Puhtilla Maestro valittaa tämän tiedoston sijainnista, mutta älä välitä siitä, se on ok. Tiedosto luodaan skriptiä ("echoaminen" näytöllesi, kun suoritat `module load maestro`) käyttämällä, joka sinun täytyy suorittaa, jos tiedostoa ei ole.
 
-As the script requests, select the computing project that will be used for
-CPU/GPU usage and scratch storage. You can find the actual Slurm options
-in the HOST descriptions in the `schrodinger.hosts` file. If your jobs require
-resources that are not satisfied by any of the predefined HOST descriptions,
-feel free to edit the file.
+Skriptiä suoritettaessa sinun tulee valita laskentaprojekti, jota käytetään CPU/GPU-käytössä ja tilapäistallennus. Löydät todelliset Slurm-optioiden kuvaukset `schrodinger.hosts` -tiedoston HOST-kuvauksista. Jos työsi vaativat resursseja, jotka eivät täyty yhdelläkään valmiiksi määritellyllä HOST-kuvauksella, voit muokata tiedostoa.
 
-On Puhti, you can take a look at the `schrodinger.hosts` file with:
+Puhtilla voit tarkastella `schrodinger.hosts` -tiedostoa seuraavasti:
 
 ```bash
 less $HOME/schrodinger.hosts
 ```
 
-On your local computer this file will be in the Maestro installation directory,
-e.g. on Windows in `C:\Program Files\Schrodinger-version\schrodinger.hosts`
+Paikallisella tietokoneellasi tämä tiedosto on Maestro-asennushakemistossa, esim. Windowsissa `C:\Program Files\Schrodinger-version\schrodinger.hosts`
 
-After the longish header and the `localhost` entry, you should see the
-Puhti HOST entries as something like:
+Pitkän otsikon ja `localhost`-merkinnän jälkeen näet Puhti HOSTit jotain seuraavanlaista:
 
 ```bash
 name:        test
@@ -106,345 +75,210 @@ host:        puhti-login11
 processors:  4
 ```
 
-For example, this HOST entry, available for Schrödinger jobs as _test_ (from `name: test`),
-will use the Slurm partition _test_ (from `-p test`), allocate a maximum of 10 minutes of time,
-2 GB of memory and consume resources from Project_2042424. If you need different resources you
-can edit this file e.g. by adding a new entry. The requests must be within the
-[partition limits](../../computing/running/batch-job-partitions.md).
+Esimerkiksi tämä HOST-merkintä, joka on saatavana Schrödinger-töihin nimellä _test_ (`name: test`), käyttää Slurm-osastoa _test_ (`-p test`), määrittää enintään 10 minuutin käyttöajan, 2 GB muistia ja kuluttaa resursseja Projektista_2042424. Jos tarvitset erilaisia resursseja, voit muokata tätä tiedostoa esimerkiksi lisäämällä uuden merkinnän. Pyynnöt on oltava [osaston rajojen](../../computing/running/batch-job-partitions.md) sisällä.
 
-If your `schrodinger.hosts` file **on Puhti** does not have the `--account=<project>` defined,
-delete the file and rerun the script to create it (`module load maestro` will print out the
-path to the script, copy/paste it to the command line). You don't need to have the
-`--account=` option set in your **local** `schrodinger.hosts` file. In your local file,
-it's enough that the different HOST entries exist (and the GPU-ones have GPUs specified).
+Jos `schrodinger.hosts` -tiedostossasi **Puhtilla** ei ole määritetty `--account=<projekti>`, poista tiedosto ja suorita skripti sen luomiseksi (`module load maestro` tulostaa skriptin polun, kopioi/liitä se komentoriviin). Sinun ei tarvitse asettaa `--account=`-vaihtoehtoa **paikallisessa** `schrodinger.hosts` -tiedostossasi. Paikallisessa tiedostossasi riittää, että eri HOST-merkinnät ovat olemassa (ja GPU-merkinnöissä on määritelty GPU:t).
 
-Note that the HOST entries and Slurm partitions (or queues) are two
-different things. The HOST entries define resources using Slurm partitions.
+Huomaa, että HOST-merkinnät ja Slurm-osastot (tai jonot) ovat kaksi eri asiaa. HOST-merkinnät määrittelevät resurssit käyttämällä Slurm-osastoja.
 
-## How to speed up simulations?
+## Miten nopeuttaa simulointeja? {#how-to-speed-up-simulations}
 
-All other Maestro modules run serial jobs, except Jaguar and Quantum Espresso, which can run
-"real" parallel jobs. Don't choose a "parallel" HOST for any other job type. Instead of
-MPI-parallel jobs, Maestro modules typically split the workload into multiple parts, each
-of which can be run independent of the others.
-[The Maestro documentation has an excellent section on this topic](https://www.schrodinger.com/documentation).
-In the documentation, go to "Getting started" > "Running Schrödinger Jobs" >
+Kaikki muut Maestro-moduulit suorittavat sarjatöitä, paitsi Jaguar ja Quantum Espresso, jotka voivat suorittaa "oikeita" rinnakkaistöitä. Älä valitse "rinnakkais" HOSTia mihinkään muuhun työn tyyppiin. MPI-rinnakkaistöiden sijaan Maestro-moduulit jakavat yleensä työmäärän useisiin osiin, joista kukin voidaan suorittaa itsenäisesti muista.
+[Maestro-dokumentaatiossa](https://www.schrodinger.com/documentation) on erinomainen osio tästä aiheesta.
+
+Dokumentaatiossa siirry kohtaan "Getting started" > "Running Schrödinger Jobs" >
 "Running Distributed Schrödinger Jobs".
 
-It is typical to process a lot of molecules as part of a particular workload.
-If you have enough molecules, you can split the full set into smaller subsets
-and process each of the subsets as a separate job. The Maestro modules have
-easy-to-use options for defining the number of subjobs. However, you must know
-in advance how many subjobs to launch. In principle, this requires knowing
-how long one molecule takes, or testing for each different use case.
+On tyypillistä käsitellä useita molekyylejä tietyn työmäärän osana. Jos sinulla on riittävästi molekyylejä, voit jakaa koko joukon pienempiin osajoukkoihin ja käsitellä kukin osajoukko erillisenä työnä. Maestro-moduuleilla on helppokäyttöisiä vaihtoehtoja alatyön määrän määrittämiseen. Sinun on kuitenkin tiedettävä etukäteen, kuinka monta alatöitä käynnistetään. Periaatteessa tämä edellyttää tietämistä, kuinka kauan yksi molekyyli vie, tai testausta kunkin eri käyttötapauksen osalta.
 
-!!! warning "Important note"
-    When you start working with a new system/dataset, don't test if you got the
-    syntax right with 1 000 000 molecules and 1000 subjobs. Instead, start out with e.g.
-    50 molecules and 2 subjobs. Learn how long it takes per molecule, confirm that your
-    submit syntax is correct, adjust your parameters if needed and only then scale up.
+!!! varoitus "Tärkeä huomautus"
+    Kun alat työskennellä uuden järjestelmän/datasetsin kanssa, älä testaa, jos sait syntaksin oikein 1 000 000 molekyylillä ja 1000 alatyöllä. Aloita sen sijaan esim. 50 molekyylillä ja 2 alatyöllä. Opi, kuinka kauan se vie molekyyliltä, varmista, että lähetetty syntaksi on oikein, säädä parametrejasi tarvittaessa ja vasta sitten skaalaa ylöspäin.
 
-If you're using the GUI to set up your job script, specify how many (sub)jobs
-(processors) you want to use. You can easily edit this later in the submit
-script if you change your mind.
+Jos käytät GUI:ta luodessasi työn skriptiä, määritä kuinka monta (ala)työtä (suorittajaa) haluat käyttää. Voit helposti muokata tätä myöhemmin lähetysskriptissä, jos muutat mieltäsi.
 
-The "default" submit script will work "as is" for small jobs. Just make
-sure you don't ask for too many (sub)jobs. As a rule of thumb, each subjob
-should last at least 1 hour, and for very large jobs preferably 24 hours.
-Running a lot of very short jobs is inefficient in many ways and may degrade
-the performance of the system for all users, see our [high-throughput computing
-guidelines](../../computing/running/throughput.md). For large workflows, you'll
-need to edit your scripts, see below.
+"oletusarvoinen" lähetysskripti toimii "as is" pienille töille. Varmista vain, ettet pyydä liian monta (ala)työtä. Yleissääntönä on, että kunkin alatöin tulisi kestää vähintään 1 tunti, ja erittäin suurille töille mieluiten 24 tuntia. Paljon erittäin lyhyitä töitä on monella tapaa tehotonta ja voi heikentää järjestelmän suorituskykyä kaikille käyttäjille, katso [suorituskyvyn ohjeet](../../computing/running/throughput.md). Suurille työmäärille sinun tulee muokata skriptejäsi, katso alla.
 
-### Quantum ESPRESSO
+### Quantum ESPRESSO {#quantum-espresso}
 
-Running multi-node jobs using the "parallel" HOST works well with Quantum ESPRESSO when appropriate
-parallelization flags are carefully specified. The default parallelization is over plane waves if
-no other options are specified. To improve on this, k-points (if more than one) can be partitioned
-into "pools" using the `-npools` flag. Also, when running on several hundred cores, the scalability
-can be further extended by dividing each pool into "task groups" which distributes the workload
-associated with Fast Fourier Transforms (FFTs) on the Kohn-Sham states. This is done using the
-`-ntg` flag. In order to have good load balancing among MPI processes, the number of k-point pools
-should be an integer divisor of the number of k-points and the number of processors for FFT
-parallelization should be an integer divisor of the third dimension of the smooth FFT grid (this
-can be checked from the output file, `grep "Smooth grid" *.out`). Further parallelization levels are
-presented in the [QE documentation](https://www.quantum-espresso.org/Doc/user_guide/node20.html).
+Rinnakkaistyöt monisolmutyöasemilla toimivat hyvin Quantum ESPRESSOn kanssa, kun parallelisointilippuja on määritetty huolellisesti. Jos muita vaihtoehtoja ei ole määritetty, oletusparallelisointi on tehty suorakaideaaltojen yli. Tätä voidaan parantaa jakamalla k-pisteet (jos niitä on useampia) "pools" -osuuksiin `-npools`-lipun avulla. Lisäksi kun suoritetaan useilla sadoilla ytimillä, skaalautuvuutta voidaan edelleen laajentaa jakamalla jokainen pool "tehtäväryhmiin", jotka koskevat Kohn-Sham-tilojen nopeiden Fourier-muunnosten (FFTs) työmäärää. Tämä tehdään käyttämällä `-ntg`-lippua. Jotta MPI-prosessien välille saadaan hyvä kuormituksen tasapainotus, k-pistepoolien määrän tulisi olla k-pisteiden lukumäärän ja FFT-parallelisointiin tarkoitettujen prosessorien määrän kokonaisjaollinen jakaja kolmannen dimensiota koskevan FFT-ruudukon (tarkistettavissa tulostiedostosta, esim. `grep "Smooth grid" *.out`) kanssa. Lisää parallelisointitasoja esitellään QE-dokumentaatiossa.
 
-The QE parallelization options can be specified in the Job Settings dialog of the QE calculations
-panel of the Maestro GUI. Running a job using 160 cores on Puhti (4 nodes) could be parallelized
-for example with `-npools 4 -ntg 4` so that each k-point pool is given 40 cores, which are further
-divided into 4 task groups of 10 cores each.
+QE-parallelisointivaihtoehdot voidaan määrittää Job Settings -valintaikkunassa QE-laskentapaneelista Maestro GUI:ssa. Rinnakkaistyön suorittaminen 160:llä ytimellä Puhtilla (4 solmua) voidaan esimerkiksi rinnakkaistaa käyttämällä `-npools 4 -ntg 4` niin, että jokaiselle k-pistepoolille annetaan 40 ydintä, jotka on jaettu edelleen 4 tehtäväryhmään, joista jokaisessa on 10 ydintä.
 
-!!! info "Using full nodes"
-    When running Maestro modules such as Quantum ESPRESSO on multiple nodes, remember to explicitly
-    request the appropriate number of nodes by editing the `schrodinger.hosts` file with the
-    `--nodes=<number of nodes>` flag. Requesting full nodes prevents fragmenting of the job and
-    decreases the amount of unnecessary communication between surplus nodes. For large subjobs you
-    may also need to tune the time and memory requested in the `schrodinger.hosts` file to suit your
-    needs.
+!!! huomautus "Täydellisten solmujen käyttö"
+    Kun suoritat Maestro-moduuleita, kuten Quantum ESPRESSOa useilla solmuilla, muista pyytää nimenomaisesti tarvittavat määrätää solmuja muokkaamalla `schrodinger.hosts`-tiedostoa `--nodes=<solmujen määrä>` -lipulla. Täydellisten solmujen pyytäminen estää töiden hajautumisen ja vähentää ylimääräisten solmujen välistä tarpeetonta viestintää. Suurten alatöiden kohdalla saatat myös joutua säätämään tiedostossa määritettyä aikaa ja muistia tarpeidesi mukaan.
 
-!!! info "Host selection"
-    A single core job as required by the driver process cannot be run on the `large` partition on
-    Puhti. To run multi-node subjobs you need to modify the submission script generated by the GUI
-    by specifying a separate driver HOST (e.g. `-DRIVERHOST interactive -SUBHOST parallel`, see also
-    [below](#advanced-host-selection)).
+!!! huomautus "HOST-valinta"
+    Ainoa ydinprosessi, jonka ohjausprosessin vaatii, ei voi pyöriä Puhtin `large`-osastossa. Jotta voisit ajaa monisolmujen alatöitä, sinun tulee muokata käyttöliittymän generoimaa lähetysskriptiä määrittämällä erillinen ohjaussolmu (esim. `-DRIVERHOST interactive -SUBHOST parallel`, katso myös [alla](#advanced-host-selection)).
 
-The following figures show the time to solution and scaling of the [PSIWAT
-benchmark](https://github.com/QEF/benchmarks/tree/master/PSIWAT) (2552 electrons,
-4 k-points, Maestro 2021.3, pure MPI).
+Seuraavat kuvat esittävät PSIWAT-testin (2552 elektronia, 4 k-pistettä, Maestro 2021.3, puhdas MPI) ratkaisuaikaa ja skaalautuvuutta.
 
-![QE scaling](../../img/qe-scaling.svg)
+![QE-skaalautuvuus](../../img/qe-scaling.svg)
 
-* Scaling is almost ideal up to 4 nodes when using `-npools 4 -ntg 4` .
-* For this system and QE binary the performance does not scale beyond 320 cores.
-* Always confirm the appropriate scaling of your system before running large multi-node jobs
-  (minimum 1.5 times speedup when doubling the number of cores).
+* Skaalautuvuus on lähes ideaalinen jopa 4 solmulle käytettäessä `-npools 4 -ntg 4`.
+* Tämän järjestelmän ja QE-binaarin suorituskyky ei skaalaa yli 320 ytimen.
+* Vahvista aina järjestelmäsi asianmukainen skaalautuvuus ennen suurten monisolmutöiden suorittamista (vähintään 1,5-kertainen nopeutus ytimien määrän kaksinkertaistamisella).
 
-## Additional flags for Maestro modules
+## Lisälippuja Maestro-moduuleille {#additional-flags-for-maestro-modules}
 
-Different modules have different options. You can set some of them in
-the GUI, but you may find more options with the `-h` flag, e.g.
+Eri moduuleilla on erilaisia vaihtoehtoja. Voit ehkä määrittää joitakin niistä käyttöliittymässä, mutta saatat löytää lisää vaihtoehtoja `-h`-lipulla, esim.
 
 ```bash
 glide -h
 ```
 
-where `glide` would be the Maestro module you want to run, like
-`qsite`, `pipeline`, `bmin`, `ligprep`, etc.
+missä `glide` olisi käyttämäsi Maestro-moduuli, kuten `qsite`, `pipeline`, `bmin`, `ligprep` jne.
 
-[The Maestro documentation](https://www.schrodinger.com/documentation) has a nice summary
-of the different options for different modules. In the documentation, go to
-"Getting started" > "Running Schrödinger Jobs" > "Running Distributed Schrödinger Jobs".
+[Maestro-dokumentaatiossa](https://www.schrodinger.com/documentation) on hyvä yhteenveto eri moduulien vaihtoehdoista. Dokumentaatiossa siirryt kohtaan "Getting started" > "Running Schrödinger Jobs" > "Running Distributed Schrödinger Jobs".
 
-### Simple HOST selection
+### Yksinkertainen HOST-valinta {#simple-host-selection}
 
-For jobs that finish within about two days and run 10 subjobs, just use:
+Töille, jotka valmistuvat noin kahdessa päivässä ja joissa on 10 alatötä, käytä yksinkertaisesti:
 
 ```bash
 -HOST normal_72h:10
 ```
 
-or if they all finish within 14 days, use:
+tai jos ne kaikki valmistuvat 14 päivän kuluessa, käytä:
 
 ```bash
 -HOST longrun:10
 ```
 
-If you have a workflow that will last longer, read on.
+Jos sinulla on työnkulku, joka kestää kauemmin, jatka lukemista.
 
-### Advanced HOST selection
+### Edistynyt HOST-valinta {#advanced-host-selection}
 
-The general aim is to have the "driver process" running on a "HOST"
-that will be alive for the whole duration of the workflow. Good
-options are _interactive_ and _longrun_ if you estimate the complete
-workflow to take more than 3 days (queuing included). A "driver process"
-that is not using a lot of CPU is also allowed on a login node, but
-a subjob is not. Never submit jobs on Puhti _login nodes_ with
-`-HOST localhost`. It's ok if you create your own batch script or
-[interactive session](../../computing/running/interactive-usage.md) _and_ use
-localhost on a compute node, but that's for special cases only and not
-discussed on this page.
+Yleinen tavoite on, että "ohjausprosessia" suoritetaan "HOSTissa", joka on aktiivinen koko työnkulun keston ajan. Hyviä vaihtoehtoja ovat _interactive_ ja _longrun_, jos arvioit työn kokonaiskestoksi yli 3 päivää (jonotus mukaan lukien). "Ohjausprosessi", joka ei käytä paljon prosessoriaikaa, sallitaan myös kirjautumissolmussa, mutta ei alatöitä. Älä koskaan käynnistä töitä Puhtin _kirjautumissolmuilla_ käyttämällä `-HOST localhost`. Käytä localhostia vain, jos luot omia batch-skriptejä tai [interaktiivisia istuntoja](../../computing/running/interactive-usage.md), mutta tämä on vain erityisille tapauksille eikä sitä käsitellä tällä sivulla.
 
-Set the "driver" or "master" to run on a HOST that allows for long
-run times (if it's a big calculation). The driver needs to be alive
-for the whole duration of the workflow, otherwise your subjob
-likely ends up fizzled. You can use "interactive" which allows
-for 7 days for one core, or "longrun" which allows for 14 days.
-If you need to run multiple workflows at the same time, choose
-"longrun" for the next drivers. In both cases select some "normal"
-HOST (i.e. "small" Slurm partition) for the (sub)jobs. Suitable
-splitting will reduce your queuing time. Asking for the longrun HOST
-"just in case" is not forbidden, but may lead to unnecessary queuing.
+Aseta "ohjaus" tai "master" sellaiselle HOSTille, joka sallii pitkät käyttöajat (jos kyseessä on suuri laskenta). Ohjauksen on oltava aktiivinen työnkulun koko keston ajan, muuten alatöitetesi päättyvät todennäköisesti epäonnistumiseen. Voit käyttää "interaktiivista", joka sallii 7 päivää yhdelle ytimelle, tai "longrun", joka sallii 14 päivää. Jos sinun täytyy ajaa useita työnkulkuja samanaikaisesti, valitse seuraaville ohjauksille "longrun". Kummassakin tapauksessa valitse "normaali" HOST (esim. "small" Slurm-osasto) alatöille. Asianmukainen työjärjestely vähentää jonotusaikaasi. Pitkiä HOST-pyyntöjä "vain varmuuden vuoksi" ei ole kielletä, mutta se saattaa johtaa tarpeettomaan jonotukseen.
 
-You may be able to set the number of subjobs already in the GUI.
-Typically, it would set the "number of processors", which in many drivers
-will be equal to the number of subjobs. Alternatively, you may be able
-to set also the number of subjobs. This enables you to limit the number
-of simultaneous jobs with the "processor count" (so that you and others
-won't run out of licenses) but keep a single subjob at a suitable size.
-Please have a look at the help text of your driver via the Help path
-described above.
+Voit ehkä asettaa alatöiden määrän käyttöliittymässä. Usein se määrittäisi "suorittajien lukumäärän", mikä monissa ohjaimissa on yhtä kuin alatöiden määrä. Vaihtoehtoisesti voit myös määrittää alatöiden määrän. Tämä mahdollistaa samanaikaisten töiden rajoittamisen "suorittajamäärällä" (jotta sinä ja muut ette lopu lisensseistä), mutta pitää yksittäisen alatön sopivana kokona. Tarkista ohjaimen apuohjeet Help-polun kautta edellä.
 
-In summary, for a large workflow, edit the GUI-generated script along the
-lines: `-HOST "normal_72h:10"` to `-HOST "longrun:1 normal_72h:9"` or e.g.
-`-HOST "normal_72h"` to `-HOST "interactive:1 normal_72h:9"`. Another
-alternative is to use explicit flags, `-DRIVERHOST interactive -SUBHOST normal_72h`.
+Yhteenvetona suurelle työnkululle, muokkaa GUI:lla generoitu skripti seuraavasti: `-HOST "normal_72h:10"` tai `-HOST "longrun:1 normal_72h:9"` tai esim. `-HOST "normal_72h"` tai `-HOST "interactive:1 normal_72h:9"`. Toinen vaihtoehto on käyttää nimenomaisia lippuja, `-DRIVERHOST interactive -SUBHOST normal_72h`.
 
-Note that you can only have two jobs running in the interactive HOST at the same time.
+Huomaa, että voit ajaa enintään kaksi työtä samanaikaisesti interaktiivisessa HOSTissa.
 
-Desmond jobs can have the `-HOST gpu` flag as set by the GUI, but Windows users
-need to change the forward slash "/" to backward slash "\" in the binary name.
+Desmond-työt voivat käyttää `-HOST gpu` -lippua, jonka käyttöliittymä määrittää, mutta Windows-käyttäjien tulee muuttaa vinoviiva "/" kenoviiva "\" binäärinimessä.
 
-### Authoritative job control instructions from the manual
+### Autoritatiiviset työnhallintaohjeet käyttöoppaasta {#authoritative-job-control-instructions}
 
-A more detailed discussion on advanced jobs can be found in the Maestro documentation
-via the GUI or the [Schrödinger website](https://www.schrodinger.com/documentation):
+Tarkempi keskustelu edistyneistä töistä löytyy Maestro-dokumentaatiosta GUI:n kautta tai [Schrödingerin verkkosivustolta](https://www.schrodinger.com/documentation):
 
 * "Getting Started" > "Running Schrödinger Jobs" > "Running Schrödinger Applications from the Command Line" >
   "The HOST, DRIVERHOST, and SUBHOST Options"
 
-and a table of driver process conventions from:
+ja kuljettajaprosessin konventioista:
 
 * "Getting started" > "Running Schrödinger Jobs" > "Running Distributed Schrödinger Jobs"
 
-## Setting number of subjobs or molecules per subjob
+## Alatyön tai molekyylien määrän per alatyö asettaminen {#setting-number-of-subjobs-or-molecules-per-subjob}
 
-!!! info "Tip"
-    If you don't know how long your full workflow will take, don't ask
-    for more than 10 subjobs and/or `NJOBS`. More is not always better!
-    If you have very large cases, don't exceed 50 simultaneous (sub)jobs.
+!!! vinkki "Vinkki"
+    Jos et tiedä, kuinka kauan koko työnkulku vie, älä pyydä yli 10 alatötä ja/tai `NJOBS`. Enemmän ei ole aina parempi!
+    Jos sinulla on erittäin suuria tapauksia, älä ylitä 50 samanaikaista (ala)työtä.
 
-As an example, the "run settings dialog" of `glide` offers three options:
+Esimerkkinä, "ajon asetukset" -valintaikkunassa `glide`:ssä on kolme vaihtoehtoa:
 
-* Recommended number of subjobs.
-* Exactly (fill in here) subjobs.
-* Subjobs with no more than (fill in here) ligands each.
+* Suositeltu alatöiden määrä.
+* Täsmälleen (täytä tähän) alatöitä.
+* Alatöitä, joissa ei ole enemmän kuin (täytä tähän) ligandeja kukin.
 
-Aim for such numbers that an average subjob takes 1-24 hours to run. This
-ensures that the overhead per subjob remains small while offering efficient
-parallelization, i.e. you get your results quickly and each subjob (as well as
-the master job) has time to finish.
+Pyrki numeroihin, joissa yksi alatyo kestää keskimäärin 1-24 tuntia suorittaa. Tämä varmistaa, että alatyön suhteen yleiskustannukset pysyvät alhaisina, samalla kun ne tarjoavat tehokasta parallelisointia, eli saat tulokset nopeasti ja kukin alatyo (kuten myös päätyö) ehtii valmistua.
 
-Don't run subjobs that complete faster than 15 minutes. You can check the
-subjob duration afterwards with [seff](../faq/how-much-memory-my-job-needs.md)
-and use this info in your following jobs: `seff <slurm jobid>`.
+Älä aja alatöitä, jotka valmistuvat alle 15 minuutissa. Tarkista myöhemmin alatyön kesto [seff](../faq/how-much-memory-my-job-needs.md) -komennolla ja käytä tätä tietoa seuraavissa töissäsi: `seff <slurm-jobid>`.
 
-If time runs out for a subjob, search for "restart" in the
-[Schrödinger Knowledge Base](https://support.schrodinger.com/s/)
-for your module, and/or look again for the options of your driver with
-the `-h` flag. Most jobs are restartable, so you don't lose completed
-work or used resources.
+Jos aika loppuu alatyöstä, etsi "restart" [Schrödingerin Knowledge Basesta](https://support.schrodinger.com/s/) moduuliltasi ja/tai katso ohjaimesi `-h`-valitsimen vaihtoehdot uudelleen. Useimmat työt ovat uudelleenkäynnistettäviä, joten et menetä suoritettuja töitä tai käytettyjä resursseja.
 
-If you choose too many subjobs, Maestro may get confused with the Slurm
-messages and sorting out the issue can be difficult. Also, running too
-many subjobs at a time can lead to the [license tokens running out](#availability-of-licenses),
-and the time spent waiting in the queue will be wasted.
+Jos valitset liian monta alatötä, Maestro saattaa hämmentyä Slurm-viesteistä ja asian selvittämisestä voi tulla hankalaa. Lisäksi liian monen alatön ajaminen kerralla voi johtaa [lisenssimerkkien loppumiseen](#availability-of-licenses), ja jonotuksessa käytetty aika menee hukkaan.
 
-## Optimal disk usage
+## Optimaalinen levyn käyttö {#optimal-disk-usage}
 
-The Schrödinger HOSTs in Puhti have not been configured to use the
-[local NVMe disk](../../computing/running/creating-job-scripts-puhti.md#local-storage),
-which is available only on some of the compute nodes. Since most jobs don't
-gain speed advantage from NVMe disk, you'll likely queue less by not asking
-for it. If your job performs a lot of I/O operations, please contact
-[CSC Service Desk](../contact.md) on how to request fast disk. The only disk available
-for the jobs is the same where your input files already are. Hence, it does not make
-sense to copy the files to a "temporary" location at the start of the job.
+Schrödinger HOSTit Puhtilla eivät ole konfiguroitu käytettäväksi [paikallisella NVMe-levyllä](../../computing/running/creating-job-scripts-puhti.md#local-storage), joka on saatavilla vain joissakin laskentayksiköissä. Koska useimmat työt eivät hyödy NVMe-levystä nopeusmielessä, on todennäköisesti parempi olla pyytämättä sitä ja välttää jonotusta. Jos työsi tekee paljon I/O-toimenpiteitä, ota yhteyttä [CSC Service Deskiin](../contact.md) tiedustellaksesi, miten pyytää nopeaa levyä. Työn saatavilla oleva levy on sama, jossa syöttötiedostosi jo ovat. Siksi ei ole järkevää kopioida tiedostoja "tilapäiseen" sijaintiin työn alussa.
 
-## Running the Maestro GUI on Puhti
+## Maestro-käyttöliittymän suorittaminen Puhtilla {#running-the-maestro-gui-on-puhti}
 
-[The _Desktop_ app in the Puhti web interface](../../computing/webinterface/desktop.md)
-can be used to run the Maestro GUI on Puhti. The performance may, however, be
-slower than running the GUI locally (recommended). Running the GUI on Puhti over
-SSH using X11 forwarding over SSH is **not recommended** as it performs extremely
-poorly.
+[_Desktop_ sovellus Puhtin verkkoliittymässä](../../computing/webinterface/desktop.md) voi käyttää Maestro GUI:n suorittamiseen Puhtilla. Suorituskyky voi kuitenkin olla hitaampaa verrattuna GUI:n suorittamiseen paikallisesti (suositeltavaa). GUI:n suorittaminen Puhtilla SSH:n yli X11-siirron käytöllä on **ei suositeltavaa**, koska se toimii erittäin huonosti.
 
-## Availability of licenses
+## Lisenssien saatavuus {#availability-of-licenses}
 
-The CSC Maestro license has a fixed amount of tokens that are available for everyone.
-First, Maestro uses _module specific_ tokens, of which there are many for each module.
-If they run out, then more jobs (of that same type) can be run with _general tokens_,
-but when they run out, no more jobs of that type (or any new jobs which need a
-general token) can be run by anyone. Therefore, this situation should be avoided.
-Once a job ends, the tokens are released, and are available for everyone.
+CSC Maestro -lisenssillä on rajallinen määrä merkkejä, jotka ovat kaikkien saatavilla. Ensimmäiseksi Maestro käyttää _moduulikohtaisia_ merkkejä, joita on monta kutakin moduulia varten. Jos ne loppuvat, lisää (samaa tyyppiä) töitä voidaan suorittaa _yleisillä merkeillä_, mutta kun ne loppuvat, uusia töitä sitä tyyppiä (tai mitkä tahansa uudet työt, jotka tarvitsevat yleisen merkin) ei voi suorittaa kenenkään toimesta. Siksi tätä tilannetta tulisi välttää. Kun työ päättyy, merkit vapautuvat ja ovat jälleen kaikkien saatavilla.
 
-You can check the currently available licenses (tokens) with:
+Voit tarkistaa tällä hetkellä saatavilla olevat lisenssit (merkit) seuraavasti:
 
 ```bash
 $SCHRODINGER/run lictool status
 ```
 
-Note that some Maestro tools or workflows use multiple modules and hence licenses
-or tokens from multiple modules. Typically, one running instance of a module (a job or
-a subjob) requires several tokens. For example, Desmond and Glide jobs take 8 tokens each.
+Huomaa, että jotkut Maestro-työkalut tai työnkulut käyttävät useita moduuleja ja siten lisenssejä tai merkkejä useista moduuleista. Tyypillisesti yksi käynnissä oleva moduuli (työ tai alatyo) vaatii useita merkkejä. Esimerkiksi Desmond- ja Glide-työt tarvitsevat 8 merkkiä kummatkin.
 
-CPU time (billing units) is a different resource and has nothing to do with license tokens.
-When you run out of billing units, you or your project manager can
-[apply for more via the MyCSC portal](../../accounts/how-to-apply-for-billing-units.md).
+CPU-aika (laskutettavat yksiköt) on eri resurssi eikä sillä ole mitään tekemistä lisenssimerkkien kanssa. Kun laskutettavat yksiköt loppuvat, sinä tai projektipäällikkösi voitte [hakaan niitä lisää MyCSC-portaalin kautta](../../accounts/how-to-apply-for-billing-units.md).
 
-## Fizzled jobs
+## Epäonnistuneet työt {#fizzled-jobs}
 
-Sometimes the jobs are launched, but don't finish. The state of the job as
-reported by `jobcontrol` (see below) is _fizzled_. This might be due to a
-number of reasons, but cleaning up and restarting the jobcontrol service
-might help. When you don't have any Maestro jobs running (in Puhti), give:
+Joskus työt käynnistyvät, mutta eivät valmistu. Työn tila, kuten `jobcontrol` (katso alla) ilmoittaa, on _fizzled_. Tämä voi johtua useasta syystä, mutta siivoaminen ja jobcontrol-palvelun uudelleenkäynnistäminen saattaa auttaa. Kun sinulla ei ole Maestro-töitä käynnissä (Puhtilla), anna:
 
 ```bash
 $SCHRODINGER/utilities/jserver -cleanall
 $SCHRODINGER/utilities/jserver -shutdown
 ```
 
-Sometimes the `jserver -cleanall` command will not work because the program thinks
-some jobs are still running. To force purge these jobs, run:
+Joskus `jserver -cleanall` -komento ei toimi, koska ohjelma olettaa, että osa töistä on yhä käynnissä. Näiden työiden poistamiseen pakolla, aja:
 
 ```bash
 $SCHRODINGER/jobcontrol -delete -force <jobid>
 ```
 
-before running the above `jserver` commands. `<jobid>` should be replaced by the
-ID of your stranded job, for example `puhti-login11-0-626be035`.
+ennen yllä olevia `jserver`-komentoja. `<jobid>` tulee olla jumittuneen työn ID, esimerkiksi `puhti-login11-0-626be035`.
 
-Another reason for jobs ending up fizzled is too many simultaneous jobs. Please have a look at the
-error files for suggestions, and if this is the case, ask for less subjobs.
+Toinen syy töiden joutumiselle fizzled-tilaan on liian monta samanaikaista työtä. Tarkista virhetiedostot ehdotuksista, ja jos näin on, pyydä vähemmän alatöitä.
 
-## Run a test job to help diagnosing problems
+## Suorita testityö ongelmien diagnosoimiseksi {#run-a-test-job-to-help-diagnosing-problems}
 
-Run one of the test jobs that come with Maestro to narrow down
-potential issues. In your scratch directory on Puhti, give
+Suorita yksi Maestro:n mukana tulevista testitöistä mahdollisten ongelmien selvittämiseksi. Puhtilla hakemistossasi, anna:
 
 ```bash
 installation_check -test test
 ```
 
-to try running a test job using the `test` HOST. If the test succeeds,
-the problem is likely in your input. In this case, please proceed to the
-_postmortem_ step below.
+jaselain testityön suorittamista `test` HOST:in avulla. Jos testi onnistuu, ongelma on todennäköisesti syötteessäsi. Tässä tapauksessa jatka _postmortem_-askeleeseen alla.
 
-## Asking for support
+## Tuen pyytäminen {#asking-for-support}
 
-Maestro has a tool called _postmortem_ that can be used to create a zip file
-containing the details of a failed job and the Maestro environment. Please add
-that to your support request to help us analyze your issue. On Puhti, first run:
+Schrödinger:llä on työkalu nimeltä _postmortem_, jota voidaan käyttää luomaan zip-tiedosto sisältäen tietoja epäonnistuneesta työstä ja Maestro-ympäristöstä. Lisää tämä tukipyyntöösi auttaaksesi meitä analysoimaan ongelmaasi. Puhtilla, aja ensin:
 
 ```bash
 jobcontrol -list 
 ```
 
-to find the right JobId (something like `puhti-login11-0-4d34ce08`). Then,
-check the right flags for `postmortem` with:
+löytääksesi oikean JobId:n (jotain kuten `puhti-login11-0-4d34ce08`). Tarkista sitten `postmortem`-komennon oikeat liput:
 
 ```bash
 $SCHRODINGER/utilities/postmortem -h
 ```
 
-and create the postmortem file with:
+ja luo postmortem-tiedosto:
 
 ```bash
 $SCHRODINGER/utilities/postmortem <your schrodinger jobid>
 ```
 
-The file may be large, so instead of sending it as an email attachment, consider
-using [a-flip](../../data/Allas/using_allas/a_commands.md#a-flip) and just sending
-a link instead. Also, see the previous recommendation to first start
-[testing with small systems](#how-to-speed-up-simulations), as this will also enable
-you to use the `test` HOST and avoid queueing.
+Tiedosto voi olla suuri, joten sen lähettäminen sähköpostiliitteenä saattaa olla hankalaa. Harkitse sen sijaan [a-flipin](../../data/Allas/using_allas/a_commands.md#a-flip) käyttöä ja lähetä linkki. Katso myös aikaisempi suositus aloittamisesta [pienillä järjestelmillä](#how-to-speed-up-simulations), sillä tämä mahdollistaa myös `test` HOSTin käytön ja jonotuksen välttämisen.
 
-Please have a look at our [instructions on writing support requests](../support-howto.md).
-An efficient support request will help us to solve your issue faster.
+Tutustu myös [ohjeisiimme tukipyyntöjen kirjoittamisesta](../support-howto.md). Tehokas tukipyyntö auttaa meitä ratkaisemaan ongelmasi nopeammin.
 
-## Recap of Maestro usage on Puhti
+## Yhteenveto Maestro:n käytöstä Puhtilla {#recap-of-maestro-usage-on-puhti}
 
-1. Always test your workflow first with a **small** sample.
-      * Please mind the [Slurm partition limits](../../computing/running/batch-job-partitions.md).
-2. Don't run the Maestro GUI on a login node.
-      * If you _must_ run the GUI on Puhti, use the Puhti web interface _Desktop_ app.
-3. Don't specify too many subjobs – an optimal subjob takes 1-24 hours.
-4. Don't specify too many subjobs – there are many researchers using the same license.
-5. Don't run a heavy "driver process" on the login node
-      * If the driver process is heavy, use e.g. `-HOST "longrun:1 normal_72h:9"` for 10 subjobs.
-6. Never run anything in parallel on the login node.
-      * Do not use `localhost` in your script unless you write your own batch script or run
-        Maestro in an [interactive session](../../computing/running/interactive-usage.md).
-7. Submit all jobs from your `/scratch` area.
-8. If your local computer uses Windows, edit `\` to `/` in your script.
-9. Use the same version of Maestro locally and on Puhti.
+1. Testaa aina työnkulkusi ensin **pienellä** esimerkillä.
+      * Huomioi [Slurm-osastojen rajat](../../computing/running/batch-job-partitions.md).
+2. Älä käytä Maestro GUI:ta kirjautumissolmussa.
+      * Jos **sinun täytyy** suorittaa GUI Puhtilla, käytä Puhti-verkkoliittymän _Desktop_-sovellusta.
+3. Älä määritä liian monta alatötä – optimaalinen alatyö kestää 1-24 tuntia.
+4. Älä määritä liian monta alatötä – samaa lisenssiä käyttää useita tutkijoita.
+5. Älä suorita raskasta "ohjausprosessia" kirjautumissolmussa
+      * Jos ohjausprosessi on raskas, käytä esimerkiksi `-HOST "longrun:1 normal_72h:9"` 10 alatölle.
+6. Älä koskaan suorita mitään rinnakkaisesti kirjautumissolmussa.
+      * Älä käytä `localhost` skriptissäsi, ellei sinulla ole omaa batch-skriptiäsi tai käytä
+        Maestro:ta [interaktiivisessa istunnossa](../../computing/running/interactive-usage.md).
+7. Lähetä kaikki työt `/scratch`-alueeltasi.
+8. Jos paikallinen tietokoneesi käyttää Windowsia, muokkaa `\` `/`:ksi skriptissäsi.
+9. Käytä samaa Maestro-versiota paikallisesti ja Puhtilla.

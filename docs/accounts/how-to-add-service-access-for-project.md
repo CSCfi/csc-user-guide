@@ -1,50 +1,43 @@
-# Adding service access for a project
 
-Access can be granted to the following services: supercomputers **Puhti** and
-**Mahti**; cloud services **cPouta** and **Rahti**; storage services **Allas**
-and **IDA**; sensitive data services **SD Services**; and database service **Kaivos**.
+# Projektille palveluoikeuksien lisääminen {#adding-service-access-for-a-project}
 
-Service access has a two-step approval: (1) The project manager approves
-the service for the project and (2) members approve it for themselves.
+Seuraaville palveluille voidaan myöntää käyttöoikeus: supertietokoneet **Puhti** ja
+**Mahti**; pilvipalvelut **cPouta** ja **Rahti**; tallennuspalvelut **Allas**
+ja **IDA**; arkaluontoisten tietojen palvelut **SD Services**; ja
+tietokantapalvelu **Kaivos**.
 
-!!! Note
+Palveluoikeuksien hyväksyntäprosessi on kaksivaiheinen: (1) Projektipäällikkö
+hyväksyy palvelun projektille ja (2) jäsenet hyväksyvät sen itselleen.
 
-    The rights to access the language resources of Kielipankki (the
-    Language Bank of Finland) are obtained from
-    [Kielipankki](https://www.kielipankki.fi/access/) directly.
+!!! Huomio
 
-## Project manager
+    Oikeudet Kielipankin kielen resurssien käyttöön saadaan
+    [Kielipankki](https://www.kielipankki.fi/access/) suoraan.
 
-1. Login to [MyCSC](http://my.csc.fi).
-1. Choose _Projects_ in the navigation menu on the left.
-1. Click the project you want to use with the service.
-1. Under _Services_, choose the service.
-1. Read and accept the terms of service.
-Click _Apply for Access_.
-1. A message will be sent to the email address associated with your CSC
-user account when the service access has been granted.
+## Projektipäällikkö {#project-manager}
 
-## Member
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi).
+1. Valitse _Projektit_ vasemmanpuoleisesta navigointivalikosta.
+1. Klikkaa projektia, jota haluat käyttää palvelun kanssa.
+1. Valitse _Palvelut_ -kohdasta palvelu.
+1. Lue ja hyväksy palvelun ehdot.
+Klikkaa _Hae käyttöoikeutta_.
+1. Viesti lähetetään sähköpostiosoitteeseen, joka on liitetty CSC-käyttäjätiliisi, kun palveluoikeus on myönnetty.
 
-When a project manager is granted service access, other
-members receive a message that their service access awaits their
-approval.
+## Jäsen {#member}
 
-1. Login to [MyCSC](http://my.csc.fi).
-1. Choose _Projects_ in the navigation menu on the left.
-1. Click the project that has been added with the new service.
-1. Under _Services_, choose the service. It has a bell symbol next to
-it.
-1. Read and accept the terms of service.
-Click _Accept_.
-1. A message will be sent to the e-mail address associated with your CSC
-user account when the service access has been granted.
+Kun projektipäällikölle on myönnetty palveluoikeus, muut jäsenet saavat viestin,
+jossa kerrotaan, että heidän palveluoikeutensa odottaa heidän hyväksyntäänsä.
 
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi).
+1. Valitse _Projektit_ vasemmanpuoleisesta navigointivalikosta.
+1. Klikkaa projektia, johon uusi palvelu on lisätty.
+1. Valitse _Palvelut_ -kohdasta palvelu. Sen vieressä on kellosymboli.
+1. Lue ja hyväksy palvelun ehdot.
+Klikkaa _Hyväksy_.
+1. Viesti lähetetään sähköpostiosoitteeseen, joka on liitetty CSC-käyttäjätiliisi, kun palveluoikeus on myönnetty.
 
-!!! Note
+!!! Huomio
 
-    Project manager is the only person who can add or remove services of
-    a project. If you want to stop using the service, contact us at
-    servicedesk@csc.fi.
-    
-    
+    Projektipäällikkö on ainoa henkilö, joka voi lisätä tai poistaa projektin palveluja. Jos haluat lopettaa palvelun käytön, ota yhteyttä meihin osoitteessa servicedesk@csc.fi.
+

@@ -1,131 +1,132 @@
-# Graphical file transfer tools
 
-There are plenty of graphical file transfer tools that you can install on your
-local computer to transfer data to/from CSC servers. Here, we shortly introduce
-two of them: **FileZilla** that is available for Windows, macOS and Linux
-machines, and **WinSCP** that is available for windows. **Cyberduck**, which is
-discussed in the [Allas user guide](../Allas/using_allas/cyberduck.md), can be
-used for this purpose too.
+# Graafiset tiedostonsiirtotyökalut {#graphical-file-transfer-tools}
 
-## FileZilla – a general file transfer tool
+On olemassa runsaasti graafisia tiedostonsiirtotyökaluja, joita voit asentaa
+paikalliselle tietokoneellesi siirtääksesi dataa CSC:n palvelimille tai sieltä pois.
+Tässä esittelemme lyhyesti kaksi niistä: **FileZilla**, joka on saatavilla Windowsille,
+macOS:lle ja Linuxille, sekä **WinSCP**, joka on saatavilla Windowsille. **Cyberduck**,
+josta keskustellaan [Allas-käyttöohjeessa](../Allas/using_allas/cyberduck.md), voi myös
+käyttää tähän tarkoitukseen.
 
-FileZilla is a file transfer tool that you can install on all common operating
-systems (Windows, macOS, Linux). You can download FileZilla client from the
-FileZilla home page (server is not needed):
+## FileZilla – yleinen tiedostonsiirtotyökalu {#filezilla-a-general-file-transfer-tool}
 
-- [FileZilla downloads](https://filezilla-project.org/download.php?show_all=1)
+FileZilla on tiedostonsiirtotyökalu, jonka voit asentaa kaikille yleisille käyttöjärjestelmille
+(Windows, macOS, Linux). Voit ladata FileZilla-asiakkaan FileZilla-kotisivulta
+(palvelinta ei tarvita):
 
-When you start FileZilla, a graphical file transfer interface opens to your
-screen. To open a connection to CSC, open the _Site Manager_ panel (click the
-icon or select _File_ > _Site Manager_).
+- [FileZilla ladattavat](https://filezilla-project.org/download.php?show_all=1)
 
-For example, use the following settings for connecting to Puhti:
+Kun käynnistät FileZillan, graafinen tiedostonsiirtonäkymä avautuu näytöllesi.
+Yhteyden avaaminen CSC:hen tapahtuu avaamalla _Sivun hallinta_ -paneeli
+(napsauta kuvaketta tai valitse _Tiedosto_ > _Sivun hallinta_).
 
-- Protocol: SFTP - SSH File Transfer Protocol
-- Host: `puhti.csc.fi`
-- Port: `22`
-- Logon type: Key file
-- User: your CSC username
-- Key file: Path to your
-  [SSH private key](../../computing/connecting/ssh-keys.md) on your local
-  machine
+Esimerkiksi, käytä seuraavia asetuksia yhdistääksesi Puhtiin:
 
-![FileZilla interface](../../img/filezilla.png 'FileZilla interface')
+- Protokolla: SFTP - SSH tiedostonsiirtoprotokolla
+- Isäntä: `puhti.csc.fi`
+- Portti: `22`
+- Kirjautumistyyppi: Avaintiedosto
+- Käyttäjä: CSC-käyttäjätunnuksesi
+- Avaintiedosto: Polku
+  [SSH-yksityisavaimeesi](../../computing/connecting/ssh-keys.md) paikallisella
+  koneellasi
 
-Click _Connect_. If it is the first time you're connecting, FileZilla will ask
-if you trust the host, and then prompt you for your SSH key passphrase.
+![FileZilla käyttöliittymä](../../img/filezilla.png 'FileZilla käyttöliittymä')
 
-Once the connection is opened, FileZilla shows two interactive file listings
-side by side. On the left side you have your local file system and on the right
-site the remote file system (e.g. files on Puhti). You can change your location
-by interactive browsing or by typing a directory path to the _Local site_ or
-_Remote site_ fields.
+Klikkaa _Yhdistä_. Jos yhdistät ensimmäistä kertaa, FileZilla kysyy luotatko isäntään,
+ja sen jälkeen kysyy SSH-avaimen salasanaa.
 
-Once you have the right directories open on both the local and remote site, you
-can copy files or directories between the sites simply by selecting a file or
-folder with your mouse and dragging it to the other site. For other operations,
-try right-clicking a file or a folder.
+Kun yhteys on avattu, FileZilla näyttää kaksi interaktiivista tiedostolistausta
+vierekkäin. Vasemmalla puolella on paikallinen tiedostojärjestelmäsi ja oikealla puolella
+etätiedostojärjestelmä (esim. tiedostot Puhtissa). Voit vaihtaa sijaintia interaktiivisella
+selaamisella tai kirjoittamalla hakemistopolun _Paikallinen sijainti_ tai _Etäsijainti_
+kenttään.
 
-## WinSCP - file transfer and more on Windows
+Kun olet saanut oikeat hakemistot auki sekä paikallisella että etäsijainnilla, voit kopioida
+tiedostoja tai hakemistoja paikkojen välillä valitsemalla tiedoston tai kansion hiirellä ja
+vetämällä sen toiseen sijaintiin. Muiden toimintojen osalta kokeile napsauttaa hiiren
+oikeaa painiketta tiedoston tai kansion päällä.
 
-WinSCP is a free open source program for Windows. It provides secure file
-transfer between a local and remote computer. WinSCP supports SFTP, FTP and SCP
-transfer protocols. In addition to transfers, WinSCP has many features that make
-operating with files
-simple. The installation documentation for WinSCP is available at the
-[official website](https://winscp.net/eng/docs/installation).
+## WinSCP - tiedostonsiirto ja paljon muuta Windowsissa {#winscp-file-transfer-and-more-on-windows}
 
-There are two graphical user interfaces in WinSCP: _Explorer_ and _Commander_.
-You select your default interface during the installation of WinSCP, but you
-can change it later in the preferences dialogue. The Explorer interface looks
-and works similar to Windows Explorer. If you are familiar with Windows
-Explorer, you will probably find using WinSCP Explorer interface easier.
+WinSCP on ilmainen avoimen lähdekoodin ohjelma Windowsille. Se tarjoaa turvallisen
+tiedostonsiirron paikallisen ja etäkoneen välillä. WinSCP tukee SFTP-, FTP- ja SCP-siirtoprotokollia.
+Siirtojen lisäksi WinSCP:ssä on monia ominaisuuksia, jotka tekevät tiedostojen
+käsittelystä yksinkertaista. WinSCP:n asennusdokumentaatio on saatavilla
+[viralliselta sivustolta](https://winscp.net/eng/docs/installation).
 
-Start WinSCP and enter your login information, for example:
+WinSCP:ssä on kaksi graafista käyttöliittymää: _Explorer_ ja _Commander_.
+Voit valita oletuskäyttöliittymän WinSCP:n asennuksen yhteydessä, mutta voit
+myöhemmin muuttaa sen asetuskeskustelussa. Explorer-käyttöliittymä näyttää ja
+toimii kuin Windowsin Resurssienhallinta. Jos olet tottunut Windowsin
+Resurssienhallintaan, saatat pitää WinSCP Explorer -käyttöliittymää helpompana käyttää.
 
-- File protocol: SFTP
-- Host name: `puhti.csc.fi`
-- Port number: 22
-- User name: your CSC username
-- Password: leave empty, as you will be using your
-  [SSH key](../../computing/connecting/ssh-keys.md)
+Aloita WinSCP ja anna kirjautumistietosi, esimerkiksi:
 
-![WinSCP site settings without password but use ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add-1.png 'No password to WinSCP')
+- Tiedostoprotokolla: SFTP
+- Isäntänimi: `puhti.csc.fi`
+- Porttinumero: 22
+- Käyttäjänimi: CSC-käyttäjätunnuksesi
+- Salasana: jätä tyhjäksi, sillä käytät
+  [SSH-avainta](../../computing/connecting/ssh-keys.md)
 
-Click the _Advanced_ button and open the _SSH_ > _Authentication_ tab. Enter
-the path to your SSH private key in the _Private key file_ field and click
-_OK_.
+![WinSCP-sivun asetukset ilman salasanaa mutta ssh-yksityisavain käytössä](https://a3s.fi/docs-files/winscp-ssh-key-add-1.png 'Ei salasanaa WinSCP:lle')
 
-![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
+Klikkaa _Advanced_ (Lisäasetukset) -painiketta ja avaa _SSH_ > _Authentication_
+(Todennus)-välilehti. Kirjoita polku SSH-yksityisavaimeesi _Private key file_
+(Yksityisen avaimen tiedosto) -kenttään ja klikkaa _OK_.
 
-Click _Login_ to connect. If it is the first time you're connecting, WinSCP
-will ask if you trust the host, and then prompt you for your SSH key
-passphrase.
+![WinSCP lisäasetukset ssh-yksityisavaimen lisäämiseksi](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Lisää SSH-avain WinSCP:hen')
 
-### Uploading files to CSC environment
+Klikkaa _Login_ (Kirjaudu) yhdistääksesi. Jos yhdistät ensimmäistä kertaa, WinSCP
+kysyy luotatko isäntään, ja sen jälkeen kysyy SSH-avaimen salasanaa.
 
-You can use the different tools of WinSCP to upload files to CSC's computing
-environment. The easiest methods are drag and drop with your mouse, using copy
-and paste, or using Windows Explorer's _Send To_ feature.
+### Tiedostojen lataaminen CSC-ympäristöön {#uploading-files-to-csc-environment}
 
-When using drag and drop, select the local files you want to upload e.g.
-inside Windows Explorer. Then, drag selected files with your mouse and drop
-them to the remote panel in the WinSCP interface.
+Voit käyttää monia WinSCP:n työkaluja ladataksesi tiedostoja CSC:n laskenta-
+ympäristöön. Helpompia menetelmiä ovat hiirellä raahaaminen, kopioiminen ja
+liittäminen tai Windows Explorerin _Lähetä kohteeseen_-toiminto.
 
-When using copy and paste, select the local files you want to upload e.g.
-inside Windows Explorer and copy them to the clipboard. Then, move to the
-WinSCP interface and select _File|Paste_ from the menu (or _Ctrl+V_). Note: if
-your clipboard content is a plain text string only, _File|Paste_ operation will
-work differently. In this case it will open the path stored on the clipboard
-instead of pasting the files.
+Kun käytät vetämistä ja pudottamista, valitse paikalliset tiedostot, jotka
+haluat ladata esim. Windows Exploreriin. Vedä sitten valitut tiedostot hiirelläsi
+ja pudota ne WinSCP:n käyttöliittymän etäpaneeliin.
 
-You can use Windows Explorer's _"Send To"_ feature to upload files to a server.
-To enable this feature, use the installer or select the feature in preferences
-("add upload short cut to Explorer's 'sent to' context menu").
+Kopioimalla ja liittämällä, valitse paikalliset tiedostot, jotka
+haluat ladata esim. Windows Explorerissa ja kopioi ne leikepöydälle.
+Siirry sitten WinSCP:n käyttöliittymään ja valitse _File|Paste_ (Tiedosto|Liitä)
+valikosta (tai _Ctrl+V_). Huomaa: jos leikepöydän sisältö on pelkkä tekstimerkki,
+_File|Paste_-operaatio toimii eri tavalla. Tässä tapauksessa se avaa
+leikepöydällä tallennetun polun, eikä liitä tiedostoja.
 
-### Downloading files from CSC environment
+Voit käyttää Windows Explorerin _"Lähetä kohteeseen"_ -toimintoa ladataksesi
+tiedostoja palvelimelle. Ottaaksesi tämän ominaisuuden käyttöön, käytä asennusohjelmaa
+tai valitse ominaisuus asetuksissa ("lisää latauksen oikotie Exploreriin 'lähetä
+kohteeseen' kontekstivalikkoon").
 
-The easiest ways to download files are drag and drop with a mouse and using URL
-addresses. When using drag and drop, first select the remote files you want to
-download in the remote panel of the WinSCP interface. Then, drag the selected
-files with your mouse and drop them to the local directory e.g. in Windows
-Explorer.
+### Tiedostojen lataaminen CSC-ympäristöstä {#downloading-files-from-csc-environment}
 
-You can register WinSCP to handle SFTP and SCP protocol URL addresses. To
-register this feature, use the installer or select the feature in preferences
-("Register to handle sftp:// and scp:// addresses"). Now you can type a URL in
-your web browser and WinSCP allows you to download the file.
+Helpoimmat tavat ladata tiedostoja ovat hiirellä raahaaminen ja URL-osoitteiden
+käyttäminen. Kun käytät vetämistä ja pudottamista, valitse ensin etätiedostot,
+jotka haluat ladata WinSCP:n käyttöliittymän etäpaneelista. Vedä sitten
+valitut tiedostot hiirelläsi ja pudota ne paikalliseen hakemistoon esim.
+Windows Explorerissa.
 
-![WinSCP interface](/img/Winscp2.jpg 'WinSCP interface')
+Voit rekisteröidä WinSCP:n käsittelemään SFTP- ja SCP-protokollan URL-osoitteita.
+Rekisteröidäksesi tämän ominaisuuden, käytä asennusohjelmaa tai valitse ominaisuus
+asetuksista ("Rekisteröidy käsittelemään sftp:// ja scp:// osoitteita"). Nyt voit
+kirjoittaa URL-osoitteen verkkoselaimeesi ja WinSCP antaa sinun ladata tiedoston.
 
-### Other WinSCP operations
+![WinSCP käyttöliittymä](/img/Winscp2.jpg 'WinSCP käyttöliittymä')
 
-WinSCP offers many additional file and folder operations in addition to transfers.
-Access these via right-clicking
-any object in the interface and selecting the operation from the pop-up menu. It
-is also possible to right-click a file or a directory, and e.g. drag it to another
-location.
+### Muita WinSCP:n toimintoja {#other-winscp-operations}
 
-### Further documentation
+WinSCP tarjoaa monia lisätiedosto- ja hakemistotoimintoja siirtojen
+lisäksi. Näihin pääse käsiksi napsauttamalla mitä tahansa objektia hiiren
+oikealla painikkeella käyttöliittymässä ja valitsemalla toimenpide
+ponnahdusvalikosta. On myös mahdollista napsauttaa hiiren oikeaa painiketta
+tiedoston tai hakemiston päällä, ja esim. vetää se toiseen sijaintiin.
 
-- [Extensive WinSCP documentation](https://winscp.net/eng/docs/start)
+### Lisädokumentaatio {#further-documentation}
+
+- [Laaja WinSCP dokumentaatio](https://winscp.net/eng/docs/start)
+

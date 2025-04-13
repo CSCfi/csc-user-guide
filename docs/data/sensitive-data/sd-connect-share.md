@@ -1,69 +1,64 @@
-# Sharing folders
 
-!!! info "Share ID"
+# Kansiotten jakaminen {#sharing-folders}
 
-    With SD Connect, you can share folders across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a folder with multiple CSC projects and use different permission levels. 
+!!! info "Jaa ID"
 
-SD Connects provides you multiple ways to share your files. Please read about permission rights and example use cases which demonstrate how the different permissions:
+    SD Connectin avulla voit jakaa kansioita eri CSC-projektien välillä. Tämä tehdään käyttämällä Jaa ID:tä, joka on ainutlaatuinen 32-numeroinen koodi, joka liittyy CSC-projektiin. Voit jakaa kansion useiden CSC-projektien kanssa ja käyttää eri käyttöoikeustasoja.
 
-* [Transfer data](#transfer-data)
-* [Collaborate](#collaborate)
-* [Read to SD Desktop](#read-to-sd-desktop)
+SD Connect tarjoaa useita tapoja jakaa tiedostoja. Lue käyttöoikeuksista ja esimerkkikäyttötapauksista, jotka havainnollistavat eri käyttöoikeuksien käyttöä:
 
+* [Tietojen siirto](#transfer-data)
+* [Yhteistyö](#collaborate)
+* [Luku SD Desktopilla](#read-to-sd-desktop)
 
-## Share folder to another project
+## Jaa kansio toiseen projektiin {#share-folder-to-another-project}
 
+1. Pyydä vastaanottajalta heidän projektinsa Jaa ID. Vastaanottaja löytää sen SD Connectista. Vastaanottajan pitäisi valita oikea CSC-projekti vasemmasta yläkulmasta, sitten klikata **Kopioi Jaa ID** projektin numeron vierestä ja lähettää se sinulle sähköpostitse.
+![(kuvakaappaus)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
+2. Klikkaa "**Jaa**" jakamasi kansion vieressä.
+![kuvakaappaus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton.png)
+3. Lisää vastaanottajan projektin **Jaa ID** kenttään.
+![kuvakaappaus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID.png)
+4. Valitse sopiva jakamisoikeus. Klikkaa "**Jaa**".
+![kuvakaappaus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission.png)
 
-1. Ask from recipient for their project Share ID. They find it from their SD Connect. The recipient should select correct CSC project from the top left corner, then click **Copy Share ID** next to the project number) and provide it to you via email. 
-![(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
-2. Click “**Share**” next to the folder you wish to share.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton.png)
-3. Add the recipient project's **Share ID** to the field.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID.png)
-4. Select suitable sharing permission. Click “**Share**”.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission.png)
+### Muuta jakamisoikeus {#change-share-permission}
 
-### Change share permission
+1. Klikkaa "**Jaa**" jakamasi kansion vieressä.
+2. Vieritä alas ja kohdassa "Tämä projekti on jaettu" valitse oikea Jaa ID ja muuta oikeusvalinta "Oikeudet" pudotusvalikosta.
+![kuvakaappaus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ChangePermissions.png)
 
-1. Click “**Share**” next to the folder you wish to share.
-2. Scroll down and under "This project is shared to" title select correct Share ID and then change permission from "Permissions" dropdown. 
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ChangePermissions.png)
+## Käyttöoikeudet ja esimerkkikäyttötapaukset {#permission-rights-and-example-use-cases}
 
-## Permission rights and example use cases
+Lue käyttöoikeuksista ja esimerkkikäyttötapauksista, jotka havainnollistavat, miten eri oikeuksia voidaan soveltaa tietynlaisissa yhteistyö- ja tietojenjakotarpeissa.
 
- Please read about permission rights and example use cases which demonstrate how the different permissions can be applied based on specific collaboration requirements and data sharing needs.
+### Tietojen siirto {#transfer-data}
 
-### Transfer data
+Vastaanottajaprojektin jäsenet voivat kopioida kansion SD Connectissa ja ladata tiedostoja purettuna. Tiedostot ovat myös saatavilla SD Desktopissa. Käytä tätä, kun haluat siirtää dataa toiseen projektiin.
 
-The recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
+[Lue esimerkkitapauksesta: Siirrä tietosi toiseen projektiin](./sd-connect-share-tranfer-data.md)
 
-[Read about use case: Transfer your data to another project](./sd-connect-share-tranfer-data.md)
+### Yhteistyö {#collaborate}
 
+Tietojen siirto -oikeuden lisäksi vastaanottajaprojektin jäsenet voivat ladata uusia tiedostoja tai poistaa olemassa olevia tiedostoja kansion SD Connectissa. Käytä tätä, kun haluat kansion olevan jaettu työtila.
 
-### Collaborate
+[Lue esimerkkitapauksesta: Käytä kansiota jaettuna työtilana](./sd-connect-share-workspace.md)
 
-In addition to Transfer data permission, the recipient project’s members can upload new files or delete existing files from your folder in SD Connect. Use this when you want the folder to be your shared workspace.
+### Luku SD Desktopilla {#read-to-sd-desktop}
 
-[Read about use case: Use folder as your shared workspace](./sd-connect-share-workspace.md)
-
-
-
-### Read to SD Desktop
-
-The recipient project's members can only access the folder content in SD Desktop. Use this when you need maximum certainty that your files are not distributed further.
+Vastaanottajaprojektin jäsenet voivat vain lukea kansion sisältöä SD Desktopilla. Käytä tätä, kun on tärkeää varmistaa, ettei tiedostojasi jaeta eteenpäin.
 
 !!! warning
-    Note that you also have to be the project manager of the recipient project. Please [contact CSC Service Desk](../../support/contact.md) to discuss this option before proceeding.
+    Huomaa, että sinun täytyy myös olla vastaanottajaprojektin projektipäällikkö. Ole hyvä ja [ota yhteyttä CSC Service Deskiin](../../support/contact.md) keskustellaksesi tästä vaihtoehdosta ennen jatkamista.
 
-[Read about use case: Give access to folder content only in SD Desktop](./sd-connect-share-read-to-sd-desktop.md)
+[Lue esimerkkitapauksesta: Anna pääsy kansion sisältöön vain SD Desktopilla](./sd-connect-share-read-to-sd-desktop.md)
 
-## Features in SD Connect
+## Ominaisuudet SD Connectissa {#features-in-sd-connect}
 
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
-* [Command line interface](./sd-connect-command-line-interface.md)
-* [Troubleshooting](./sd-connect-troubleshooting.md)
-
+* [Lataa](./sd-connect-upload.md)
+* [Jaa](./sd-connect-share.md)
+* [Lataa alas](./sd-connect-download.md)
+* [Poista](./sd-connect-delete.md)
+* [Komentoriviliittymä](./sd-connect-command-line-interface.md)
+* [Vianmääritys](./sd-connect-troubleshooting.md)
 

@@ -1,40 +1,38 @@
-# Helmi Projects on LUMI 
 
-Helmi is accessed through the LUMI environment. Users accessing Helmi need to be part of a 
-LUMI project with allocated quantum computing resources. The first step is to create a 
-LUMI project. All LUMI projects require a Principal Investigator serving as the Project Manager. 
-A LUMI Project Manager is typically a leader of a research team or other senior researcher. 
+# Helmi-projektit LUMIssa {#helmi-projects-on-lumi}
 
-**The connection to Helmi through LUMI is now accepting pilot phase projects**. 
+Helmiin pääsee LUMI-ympäristön kautta. Helmiin pääsy edellyttää, että käyttäjät ovat osa 
+LUMI-projektia, jolle on osoitettu kvanttilaskennan resursseja. Ensimmäinen askel on luoda 
+LUMI-projekti. Kaikissa LUMI-projekteissa tarvitaan vastaava tutkija, joka toimii projektipäällikkönä. 
+LUMI-projektipäällikkö on tyypillisesti tutkimusryhmän johtaja tai muu vanhempi tutkija.
 
-!!! info "Open Call for pilot phase projects"
-	Pilot phase projects for researchers in Finnish higher-education institutions and research organisations is now open.
-	[See the Call text here](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/)
+**Yhteys Helmiin LUMIn kautta hyväksyy nyt pilottivaiheen projekteja**.
 
-* During the pilot phase, approved projects will get 24 hours of access to the FiQCI Quantum Partition, `q_fiqci`. 
-* Max run time for a single job is 15 minutes.
-* You will need to read and accept the Helmi General Terms of Use and adhere to export restrictions.
-* More details in the [Call text](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/).
+!!! info "Avoin haku pilottivaiheen projekteille"
+	Pilottivaiheen projektit suomalaisissa korkeakouluissa ja tutkimusorganisaatioissa ovat nyt avoinna.
+	[Tutustu hakutekstiin täältä](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/)
 
+* Pilottivaiheen aikana hyväksytyt projektit saavat 24 tuntia käyttöaikaa FiQCI Kvanttiosioon, `q_fiqci`.
+* Yhden työn enimmäisaika on 15 minuuttia.
+* Sinun tulee lukea ja hyväksyä Helmin yleiset käyttöehdot ja noudattaa vientirajoituksia.
+* Lisää tietoa [hakutekstissä](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/).
 
-Detailed instructions on the process of creating a general LUMI project via MyCSC are here:
+Yksityiskohtaiset ohjeet yleisen LUMI-projektin luomisesta MyCSC:n kautta löydät täältä:
 
-* [Creating a LUMI project and applying for resources](../../../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
+* [LUMI-projektin luominen ja resurssien hakeminen](../../../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
 
+Huomaa, että pilottivaiheessa pääsy annetaan "sellaisenaan", ilman takeita tietystä toiminnallisuudesta.
+Pilottivaiheen tavoitteena on kehittää palvelua yhdessä käyttäjien kanssa sekä tehdä siitä
+mahdollisimman käytettävä ja tehokas. **Kaikki palaute on erittäin arvokasta**, kommentoi kokemuksiasi
+lähettämällä sähköpostia osoitteeseen [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
 
-Note that during the pilot phase, access is provided "as is", without guarantees of any specific functionality.
-One aim of the pilot phase is to, together with the users, develop the service further and make it
-as usable and powerful as possible. **All feedback is highly appreciated**, please comment on your
-experience to [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
+!!! info "Alkuun pääseminen"
+	Päästäksesi alkuun Helmin kanssa, katso
+	[Pääsy Helmiin LUMIn kautta](helmi-from-lumi.md).
 
-!!! info "Getting Started"
-	To get started with Helmi see
-	[Access Helmi through LUMI](helmi-from-lumi.md). 
+## Lisälukemista: {#further-reading}
 
-## Further reading:
-
-* [Description of Helmi's Topology](helmi-specs.md).
-* [Specific instructions for the LUMI Helmi partition](fiqci-partition.md)
-* [Running jobs on Helmi](running-on-helmi.md)
-* [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
-
+* [Kuvaus Helmin topologiasta](helmi-specs.md).
+* [Erityisohjeita LUMIn Helmiosioon](fiqci-partition.md)
+* [Tehtävien ajaminen Helmillä](running-on-helmi.md)
+* [LUMIn dokumentaatiosivu](https://docs.lumi-supercomputer.eu/)

@@ -1,107 +1,50 @@
-# Lustre file system
+# Lustre-tiedostojärjestelmä
 
-CSC supercomputers use [Lustre](https://www.lustre.org/) as the parallel distributed file system.
-This article provides a brief technical description of Lustre.
+CSC:n supertietokoneet käyttävät [Lustre](https://www.lustre.org/)-järjestelmää rinnakkaisena hajautettuna tiedostojärjestelmänä. Tämä artikkeli tarjoaa lyhyen teknisen kuvauksen Lustresta.
 
-## Lustre architecture
+## Lustren arkkitehtuuri {#lustre-architecture}
 
-Lustre separates file data and metadata into separate
-services. **Data** is the actual contents of the file, while
-**metadata** includes information like file size, permissions, access
-date etc.
+Lustre erottaa tiedostodatat ja metadatat eri palveluiksi. **Data** on tiedoston varsinaista sisältöä, kun taas **metadata** sisältää tietoa kuten tiedoston koko, käyttöoikeudet, viimeisin käyttöpäivä jne.
 
-The Lustre file system consists of a set of I/O servers called Object
-Storage Servers (OSSs) and disks called Object Storage Targets (OSTs)
-which store the actual data. The metadata of a file are controlled by
-Metadata Servers (MDSs) and stored on Metadata Targets
-(MDTs). Basically, the servers handle the requests for accessing the
-file contents and metadata; the applications do not access disks
-directly. Lustre systems use typically multiple OSSs/MDSs together
-with multiple OSTs/MDTs to provide parallel I/O capabilities.
+Lustre-tiedostojärjestelmä koostuu joukosta I/O-palvelimia, joita kutsutaan objektivarastopalvelimiksi (Object Storage Servers, OSSs) ja levyistä, joita kutsutaan objektivarastokohteiksi (Object Storage Targets, OSTs), jotka tallentavat varsinaisen tiedon. Tiedoston metadataa ohjaavat metadatapalvelimet (Metadata Servers, MDSs) ja ne tallennetaan metadatakohteisiin (Metadata Targets, MDTs). Käytännössä palvelimet käsittelevät pyyntöjä tiedostosisältöjen ja metadatan saatavuudesta; sovellukset eivät pääse levyihin suoraan. Lustre-järjestelmissä käytetään tavallisesti useita OSS- ja MDS-palvelimia yhdistettynä useisiin OST- ja MDT-kohteisiin rinnakkaisen I/O-kyvykkyyden tarjoamiseksi.
 
-* *Object Storage Servers* (OSSs): They handle requests from the clients
-  in order to access the storage. Moreover, they manage a set of OSTs;
-  each OSS can have more than one OST to improve the I/O parallelism.
-* *Object Storage Targets* (OSTs): Usually, an OST consists of a block of
-  storage devices under RAID configuration. The data is stored in one or more
-  objects, and each object is stored on a separate OST.
-* *Metadata Server* (MDS): A server that tracks the locations for all the
-  data so it can decide which OSS and OST will be used. For example, once a
-  file is opened, the MDS is not involved any more.
-* *Metadata Target* (MDT): The storage contains information about
-  the files and directories such as file sizes, permissions, access
-  dates. For each file MDT includes information about the layout of
-  data in the OSTs such as the OST numbers and object identifiers.
+* *Objektivarastopalvelimet* (OSSs): Ne käsittelevät asiakkaiden pyyntöjä tiedonsiirtoa varten. Lisäksi ne hallinnoivat joukkoa OST-kohteita; jokainen OSS voi käsitellä useampaa kuin yhtä OST-kohdetta parantaakseen I/O-rinnakkaisuutta.
+* *Objektivarastokohteet* (OSTs): Yleensä OST koostuu joukosta tallennuslaitteita RAID-konfiguraatiossa. Tieto tallennetaan yhteen tai useampaan objektiin, ja jokainen objekti tallennetaan erilliseen OST-kohteeseen.
+* *Metadatapalvelin* (MDS): Palvelin, joka seuraa kaikkien tietojen sijainteja, jotta se voi päättää, mitä OSS- ja OST-kohteita käytetään. Esimerkiksi tiedoston avaamisen jälkeen MDS ei enää osallistu prosessiin.
+* *Metadatakohde* (MDT): Tallennus sisältää tiedostojen ja hakemistojen tietoja, kuten tiedostojen koon, käyttöoikeudet ja viimeisimmät käyttöpäivät. Jokaiselle tiedostolle MDT sisältää tietoa datan sijoittelusta OST-kohteissa, kuten OST-numeroista ja objekti-identifioijista.
 
-!["Schematic picture of compute nodes accessing OSTs and MDTs via OSS and DST servers via network. The acronyms and relations are explained also in the text."](../img/lustre.png 'Lustre file system view')
+!["Laskentasolmujen kaaviokuva, jotka pääsevät OST- ja MDT-kohteisiin OSS- ja DST-palvelimien kautta verkon välityksellä. Lyhenteet ja suhteet selitetään myös tekstissä."](../img/lustre.png 'Lustre-tiedostojärjestelmän näkymä')
 
-*Lustre file system view*
+*Lustre-tiedostojärjestelmän näkymä*
 
-Lustre is designed for efficient parallel I/O for large
-files. However, when dealing with small files and intensive metadata
-operations, the MDS/MDT can become a bottleneck. For example, when a
-user opens/closes a file many times in a loop, the workload on
-MDT increases. When several users do similar operations, the metadata
-operations can slow down the whole system and influence many users. As login
-and compute nodes share the file system, this can show up even as slow
-editing of files in a login node. Also, if in a parallel application
-the different processes perform a lot of operations on the same small
-files, metadata operations can slow down. Innocent looking Linux
-commands can also increase metadata workload: for example `ls -l`
-prints out file metadata, and giving the command in a directory with
-lots of files causes many requests to MDS.
+Lustre on suunniteltu tehokkaaseen rinnakkaiseen I/O-käyttöön suurille tiedostoille. Kuitenkin, kun käsitellään pieniä tiedostoja ja intensiivisiä metadatatoimintoja, MDS/MDT voi muodostua pullonkaulaksi. Esimerkiksi käyttäjän avattessa/sulkiessa tiedoston monta kertaa silmukassa, MDT:n työmäärä kasvaa. Jos useat käyttäjät tekevät samanlaisia operaatioita, metadatatoiminnot voivat hidastaa koko järjestelmää ja vaikuttaa moniin käyttäjiin. Koska kirjautumis- ja laskentasolmut jakavat tiedostojärjestelmän, tämä voi ilmetä jopa hitautena tiedostojen muokkauksessa kirjautumissolmua käyttäen. Myös, jos rinnakkaissovelluksessa eri prosessit suorittavat paljon operaatioita samoille pienille tiedostoille, metadatatoiminnot voivat hidastua. Viattoman näköiset Linux-komennot voivat myös kasvattaa metadatan työkuormaa: esimerkiksi `ls -l` tulostaa tiedostojen metadataa, ja komennon antaminen hakemistossa, jossa on paljon tiedostoja, aiheuttaa monia pyyntöjä MDS:lle.
 
-## File striping and alignment
+## Tiedostojen jakaminen ja optimointi {#file-striping-and-alignment}
 
-In order to gain from parallel I/O with Lustre, the data should be
-distributed across many OSTs. The distribution across many OSTs is
-called **file striping**. Logically, a file is a linear sequence of
-bytes. In file striping, the file is split in chunks
-of bytes that are located on different OSTs, so that the read/write
-operations can be performed concurrently.
+Jotta Lustren rinnakkaisesta I/O:sta hyötyisi, tiedot pitäisi jakaa monille OST-kohteille. Tietojen jakaminen monille OST-kohteille tunnetaan nimellä **file striping**. Loogisesti tiedosto on lineaarinen bittijonon jakso. Tiedostojen jakaminen tarkoittaa, että tiedosto jaetaan bittilohkoihin, jotka sijaitsevat eri OST-kohteissa, jolloin luku- ja kirjoitusoperaatiot voidaan suorittaa rinnakkain.
 
-Striping can increase the bandwidth available for accessing files,
-however, there is also an overhead due to increase in network
-operations and possible server contention. Thus, striping is normally
-beneficial only for large files.
+Jakaminen voi lisätä käytettävissä olevaa kaistanleveyttä tiedostojen käyttöön, mutta siinä on myös ylimääräistä viivettä, joka johtuu verkko-operaatioiden lisääntymisestä ja mahdollisesta palvelinkilpailusta. Näin ollen jakaminen on yleensä hyödyksi vain suurille tiedostoille.
 
-As the supercomputers have many more nodes than OSSs/OSTs, the I/O
-performance can vary a lot depending on the I/O workload of the whole
-supercomputer.
+Koska supertietokoneet sisältävät paljon enemmän solmuja kuin OSS-/OST-kohteet, I/O-suorituskyky voi vaihdella paljon koko supertietokoneen I/O-työkuorman mukaan.
 
-In a parallel program, performance is improved when each parallel process
-accesses a different stripe of a file during parallel I/O. Moreover, in order
-to avoid network contention each process should access as few OSTs/OSSs as
-possible. This can be achieved through stripe alignment. Best
-performance is obtained when the data is distributed uniformly to
-OSTs, and the parallel processes access the file at offsets that
-correspond to stripe boundaries.
+Rinnakkaisohjelmassa suorituskyky paranee, kun jokainen rinnakkainen prosessi käyttää eri jonoa tiedostosta rinnakkaisen I/O:n aikana. Lisäksi verkkojen kilpailun välttämiseksi kunkin prosessin pitäisi käyttää mahdollisimman harvoja OST-/OSS-kohteita. Tämä voidaan saavuttaa kaistan tasauksella. Paras suorituskyky saavutetaan, kun tiedot jakautuvat tasaisesti OST-kohteisiin ja rinnakkaisprosessit käyttävät tiedostoa alueilla, jotka vastaavat jono-rajapintoja.
 
-!["Schematic showing a file split into chunks and each stored in a different OST."](../img/file_striping.png 'Lustre file striping and alignment')
+!["Kaavio, joka näyttää tiedoston jaettuna lohkoihin, joista kukin on tallennettu eri OST-kohteeseen."](../img/file_striping.png 'Lustre-tiedostojen jakaminen ja tasapainotus')
 
-*Lustre file striping and alignment*
+*Lustre-tiedostojen jakaminen ja tasapainotus*
 
-If in the above example, we had a file of 5 MB, then the OST 0 would
-have an extra 1 MB of data. If the data would be distributed evenly
-between four processes, each process would have 1.5 MB and the access
-would not be stripe aligned: first process needs to access OST 0 and
-1, next process OST 1 and 2, *etc.* processes are not aligned. This
-could now cause network contention issues.
+Jos edellisessä esimerkissä meillä olisi ollut 5 MB:n kokoinen tiedosto, niin OST 0:lla olisi ollut ylimääräinen 1 MB tietoa. Jos data jaettaisiin tasaisesti neljän prosessin kesken, jokaisella prosessilla olisi 1.5 MB ja käyttö ei olisi kaistan tasaukseen määrittynyt: ensimmäinen prosessi tarvitsee käyttää OST 0 ja 1, seuraava prosessi OST 1 ja 2, *jne.* prosessit eivät ole tasattuja. Tämä voisi nyt aiheuttaa verkon kilpailuongelmia.
 
-### Controlling striping
+### Kaistan hallinta {#controlling-striping}
 
-The default stripe size in CSC's Lustre is 1 MB and stripe count is 1,
-i.e. by default the files are not striped. Stripe settings can be,
-however, changed by user which can at best improve the I/O performance
-a lot.
+CSC:n Lustren oletuskaistankoko on 1 MB ja kaistaluku on 1, eli oletuksena tiedostoja ei ole jaettu kaistaksi. Käyttäjä voi kuitenkin vaihtaa kaista-asetuksia, mikä voi parhaimmillaan parantaa I/O-suorituskykyä huomattavasti.
 
-The stripe settings for a file or directory can be queried with the
-`lfs getstripe` command
+Kaista-asetukset tiedostolle tai hakemistolle voidaan kysellä `lfs getstripe` -komennolla
 
 ```
 lfs getstripe my_file
 ```
-which prints out:
+joka tulostaa:
 ```
 my_file
 lmm_stripe_count:  2
@@ -114,24 +57,18 @@ lmm_stripe_offset: 11
         20      29922615    0x1c89537             0
 
 ```
-The output shows that the file is distributed over two OSTs (stripe
-count 2), output also shows that the particular OSTs are 11 and 20.
+Tuloste osoittaa, että tiedosto on jaettu kahdelle OST-kohteelle (kaistaluku 2), tuloste myös osoittaa, että kyseiset OST-kohteet ovat 11 ja 20.
 
-For a directory, the output shows the settings that will be used for
-any files to be created in the directory.
+Hakemiston kohdalla tuloste näyttää asetukset, joita käytetään kaikille hakemistossa luotaville tiedostoille.
 
-Stripe configuration can be set with the `lfs setstripe` command. In
-most cases, it is enough to set the stripe count with the `-c`
-option, however, also other options can be set, see e.g. `man
-lfs-setstripe` or [Lustre
-wiki](https://wiki.lustre.org/Configuring_Lustre_File_Striping).
+Kaistakonfiguraation voi asettaa `lfs setstripe` -komennolla. Useimmissa tapauksissa riittää asettaa kaistaluku `-c`-valinnalla, mutta myös muita vaihtoehtoja voidaan asettaa, katso esim. `man lfs-setstripe` tai [Lustre wiki](https://wiki.lustre.org/Configuring_Lustre_File_Striping).
 
 ```
 mkdir experiments
 lfs setstripe -c 4 experiments
 touch experiments/new_file
 ```
-Executing now `lfs getstripe experiments/new_file` outputs:
+Suorittamalla nyt `lfs getstripe experiments/new_file` tulostuu:
 ```
 experiments/new_file
 lmm_stripe_count:  4
@@ -147,70 +84,43 @@ lmm_stripe_offset: 6
 
 ```
 
-!!!! Note If the file is already created with a specific stripe, you
-     can not change it. Also, if you move a file, its stripe settings will not
-     change. In order to change striping, file needs to be copied:
+!!!! Huomio Jos tiedosto on jo luotu tietyllä kaistalla, sitä ei voi 
+muuttaa. Myös jos siirrät tiedoston, sen kaista-asetukset eivät muutu. Kaistan muuttamiseksi tiedosto 
+tarvitsee kopioida:
 
-* using `setstripe`, create a new, empty file with the desired stripe settings
-  and then copy the old file to the new file, or
-* setup a directory with the desired configuration and copy (not move) the
-  file into the directory.
+* käyttämällä `setstripe`, luo uusi, tyhjä tiedosto halutuilla kaista-asetuksilla ja kopioi sitten vanha tiedosto uuteen tiedostoon, tai
+* aseta hakemisto halutuilla konfiguraatioilla ja kopioi (ei siirrä) tiedosto hakemistoon.
 
-## Differences between Puhti and Mahti
+## Erot Puhti ja Mahti tuoleilla {#differences-between-puhti-and-mahti}
 
-Puhti and Mahti have similar storage areas
-[home](disk.md#home-directory), [project](disk.md#projappl-directory)
-and [scratch](disk.md#scratch-directory), however, their the Lustre
-configuration is not the same.
+Puhti ja Mahti sisältävät samanlaisia tallennusalueita [kotihakemisto](disk.md#home-directory), [projektihakemisto](disk.md#projappl-directory) ja [työhakemisto](disk.md#scratch-directory), mutta niiden Lustre-konfiguraatio ei ole sama.
 
-|  Name       | Puhti  |        | Mahti  |        |
-|-------------|--------|--------|--------|--------|
-|**Disk area** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
-| home        |  24    |   4    |    8    |   1    |
-| projappl    |  24    |   4    |    8    |   1    |
-| scratch     |  24    |   4    |   24    |   2    |
+|  Nimi         | Puhti  |        | Mahti  |        |
+|---------------|--------|--------|--------|--------|
+|**Levyn alue** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
+| koti         |  24    |   4    |    8    |   1    |
+| projappl     |  24    |   4    |    8    |   1    |
+| työhakemisto |  24    |   4    |   24    |   2    |
 
+Yksi merkittävä ero on se, että Mahtilla on erilliset MDT:t välissä `työhakemisto`, `koti`, ja `projekti`, tällöin metadatasuorituskyky ei häiritse eri tiedostojärjestelmien välillä. Lisäksi Mahtin `työhakemisto` voi tarjota parempaa suorituskykyä kuin muut tallennusalueet, jos sovelluksesi ja datan koko on tarpeeksi suuri johtuen enemmän OST:sta ja MDT:ista. Puhdilla, kaikki OST:t ja MDT:t ovat jaetut tallennusalueiden kesken, jolloin suorituskyvyn pitäisi olla samanlainen niiden kesken.
 
-One main difference is that for Mahti there are separate MDTs between
-`scratch`, `home`, and `project`, thus the metadata performance does
-not interfere from the different file systems. Moreover, the `scratch` on
-Mahti can have better performance than the other storage areas if your
-application and the data size is big enough because of more OSTs and MDTs. On
-Puhti, all the OSTs and MDTs are shared across the storage areas, thus the
-performance should be similar between them.
+Mahtin huippu I/O-suorituskyky on noin 100 GB/s kirjoitusta ja 115 GB/s lukemista varten. Tämä suorituskyky saavutettiin dedikoidulla järjestelmällä, jossa on 64 laskentasolmua, mikä tarkoittaa noin 1.5 GB/s kutakin laskentasolmua kohden. Mikäli enemmän solmuja käytetään tai monet työt tekevät merkittävää I/O:ta, niin et saavuta 1.5 GB/s, sisältäen myös sen, että ehkä sovelluksen I/O-kaava ei ole tehokas. Vastaava suorituskyky Puhdilla on puolet Mahtin suorituskyvystä.
 
-The peak I/O performance for Mahti is around to 100 GB/sec for write
-and 115 GB/sec for read. However, this performance was achieved on
-dedicated system with 64 compute nodes, which means around to 1.5
-GB/sec per compute node. If more nodes are used or many jobs do
-significant I/O, then you will not achieve 1.5 GB/sec, including also
-that maybe the I/O pattern of an application is not efficient. The
-corresponding performance for Puhti is half of that of Mahti.
+## Parhaat käytännöt {#best-practices}
 
-## Best practices
+* Vältä `ls -l` käyttöä, mikäli mahdollista, koska omistajuus ja käyttöoikeusmetadata on tallennettu MDT:lle, tiedoston kokometadata on saatavilla OST:istä. Käytä `ls`-komentoa, jos et tarvitse ylimääräistä tietoa.
 
-* If possible, avoid using `ls -l` as the information on ownership and
-  permission metadata is stored on MDTs, the file size metadata is available
-  from OSTs. Use `ls` instead if you do not need the extra information.
+* Vältä suuren tiedostomäärän tallentamista yhteen hakemistoon, on parempi jakaa ne useampiin hakemistoihin.
 
-* Avoid saving a large number of files in a single directory, better to split
-  in more directories.
+* Vältä mahdollisuuksien mukaan suuren määrän pienten tiedostojen käyttöä Lustrella.
 
-* If possible, avoid accessing a large number of small files on Lustre.
+* Varmista, että pienten tiedostojen kaistaluku on 1.
 
-* Make sure that the stripe count for small files is 1.
+* Jos sovellus avaa tiedoston lukemista varten, avaa tiedosto pelkästään lukumoodissa.
 
-* If an application opens a file for reading, then open the file in read mode
-  only.
+* Nosta kaistalukua rinnakkaiskäyttäytymiselle, erityisesti suurille tiedostoille:
+    * Kaistatekijän tulisi olla rinnakkaisen I/O:n suorittavien prosessien lukumäärän tekijä
+    * Nyrkkisääntönä on käyttää kaistana tiedoston koon neliöjuurta GB:ssa. Jos tiedosto on 90 GB, neliöjuuri on 9.5, joten käytä vähintään 9 OST:ta.
+    * Jos käytät, esimerkiksi, 16 MPI-prosessia rinnakkaiseen I/O:hon, käytettävien OST:jen lukumäärän tulisi olla enintään 16.
 
-* Increase striping count for parallel access, especially on large files:
-    * The striping factor should be a factor of the number of used processes
-      performing parallel I/O
-    * A rule of thumb is to use as striping the square root of the file size
-      in GB. If the file is 90 GB, the square root is 9.5, so use at least 9
-      OSTs.
-    * If you use, for example, 16 MPI processes for parallel I/O, the number
-      of the used OSTs should be less or equal to 16.
-
-For more details, please consult our [Lustre performance
-optimization tutorial](../support/tutorials/lustre_performance.md).
+Lisätietoja saat tarkastelemalla [Lustre-suorituskyvyn optimointia käsittelevää opetusmateriaaliamme](../support/tutorials/lustre_performance.md).

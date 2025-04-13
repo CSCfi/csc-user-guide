@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Other
@@ -5,14 +6,14 @@ system:
   - www-puhti
 ---
 
-# RStudio IDE
+# RStudio IDE {#rstudio-ide}
 
-RStudio is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/). 
+RStudio on integroitu kehitysympäristö (IDE) R:lle. Lisätietoja RStudiosta löytyy [RStudio-verkkosivustolta](https://rstudio.com/).
 
-## Available
+## Saatavilla {#available}
 
-For running R and RStudio on Puhti, please see the user documentation for [`r-env`](r-env.md).
+R:n ja RStudion käyttöön Puhdilla, katso käyttäjädokumentaatio [`r-env`](r-env.md).
 
-## License
+## Lisenssi {#license}
 
-See [the Licenses section of `r-env`](r-env.md#licenses).
+Katso [`r-env`:n lisenssit-osio](r-env.md#licenses).

@@ -1,107 +1,102 @@
+
 ---
-title: GPU-accelerated machine learning
+title: GPU-luotettu koneoppiminen
 ---
 
-# GPU-accelerated machine learning
+# GPU-luotettu koneoppiminen
 
-This guide explains the basics of using GPUs in CSC's supercomputers. It is part
-of our [Machine learning guide](ml-guide.md).
-
-
-## Puhti, Mahti or LUMI?
-
-Puhti and Mahti are CSC's two national supercomputers. Of the two,
-Puhti has the larger number of GPUs (NVIDIA V100) and offers the
-widest selection of installed software, while Mahti has a smaller
-number of faster newer generation NVIDIA A100 GPUs. The CSC-hosted
-European supercomputer
-[LUMI](https://docs.lumi-supercomputer.eu/hardware/) provides a
-massive GPU resource based on AMD GPUs.
-
-The main GPU-related statistics are summarized in the table below.
-
-|       | GPU type           | GPU memory  | GPU nodes | GPUs/node | Total GPUs    |
-|-------|--------------------|-------------|-----------|-----------|---------------|
-| Puhti | NVIDIA Volta V100  | 32 GB       | 80        | 4         | 320           |
-| Mahti | NVIDIA Ampere A100 | 40 GB       | 24        | 4         | 96            |
-| LUMI  | AMD MI250x         | 64 (128) GB | 2978      | 8 (4)     | 23824 (11912) |
-
-!!! info "Note"
-
-    Each LUMI node has 4 MI250x GPUs, however 8 GPUs will be available
-    through Slurm as the MI250x card features 2 GPU dies (GCDs). The table
-    above shows the GPU die specific numbers, MI250x card specific numbers
-    are shown in parenthesis.
-
-Please read our [usage policy for the GPU
-nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that
-the Slurm queuing situation may vary between the different
-supercomputers at different times, so it may be worth checking out all
-the options. For example LUMI has a huge number of GPUs available, and
-queuing times are very short (as of summer 2023).
-
-Note that all supercomputers have distinct file systems, so you need
-to manually copy your files if you wish to change the system. **In
-case you are unsure which supercomputer to use, Puhti is a good
-default** as it has a wider set of software supported.
+Tämä opas selittää GPU:iden käytön perusteet CSC:n supertietokoneissa. Se on osa
+[Machine learning guide](ml-guide.md) -opastamme.
 
 
-## Available machine learning software
+## Puhti, Mahti vai LUMI? {#puhti-mahti-or-lumi}
 
-We support [a number of
-applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
-for GPU-accelerated machine learning on CSC's supercomputers,
-including [TensorFlow](../../apps/tensorflow.md) and
-[PyTorch](../../apps/pytorch.md).  Please read the detailed
-instructions for the specific application that you are interested in.
+Puhti ja Mahti ovat CSC:n kaksi kansallista supertietokonetta. Puhtissa on
+enemmän GPU:ita (NVIDIA V100) ja laajin valikoima asennettua ohjelmistoa, kun
+taas Mahti sisältää pienemmän määrän nopeampia uuden sukupolven NVIDIA A100
+GPU:ita. CSC:n isännöimä Eurooppalainen supertietokone
+[LUMI](https://docs.lumi-supercomputer.eu/hardware/) tarjoaa valtavan GPU-
+resurssin, joka perustuu AMD GPU:ihin.
 
-You need to use the [module system](../../computing/modules.md) to
-load the application you want, for example:
+Pääasialliset GPU-aiheiset tilastot on kerätty alla olevaan taulukkoon.
+
+|       | GPU-tyyppi         | GPU-muisti | GPU-solmut | GPU:ta/solmu | Yhteensä GPU:ta |
+|-------|--------------------|------------|------------|--------------|-----------------|
+| Puhti | NVIDIA Volta V100  | 32 GB      | 80         | 4            | 320             |
+| Mahti | NVIDIA Ampere A100 | 40 GB      | 24         | 4            | 96              |
+| LUMI  | AMD MI250x         | 64 (128) GB| 2978       | 8 (4)        | 23824 (11912)   |
+
+!!! info "Huomio"
+
+    Jokaisessa LUMI-solmussa on 4 MI250x GPU:ta, mutta Slurmin
+    kautta saatavilla on 8 GPU:ta, koska MI250x kortissa on 2 GPU-sirua
+    (GCD). Taulukko näyttää GPU-siruun liittyvät numerot, MI250x korttinumerot
+    on merkitty suluilla.
+
+Lue [GPU-solmujen käyttöpolitiikkamme](../../computing/usage-policy.md#gpu-nodes).
+Huomioi myös, että eri supertietokoneiden välillä on erilaisia jonotustilanteita. 
+Ota siis huomioon kaikki vaihtoehdot. Esimerkiksi LUMI:ssa on paljon GPU:ita, 
+ja jonotusajat ovat lyhyitä (kesällä 2023).
+
+Huomaa, että kaikissa supertietokoneissa on erilliset tiedostojärjestelmät, 
+joten sinun on kopioitava tiedostosi manuaalisesti, jos haluat vaihtaa järjestelmää. 
+***Jos et ole varma, mitä supertietokonetta käyttää, Puhti on hyvä oletus***, 
+koska siinä on laajempi ohjelmistotuki.
+
+## Saatavilla oleva koneoppimisohjelmisto {#available-machine-learning-software}
+
+Tuemme [useita
+sovelluksia](../../apps/by_discipline.md#data-analytics-and-machine-learning)
+GPU-luotetulle koneoppimiselle CSC:n supertietokoneissa, mukaan lukien [TensorFlow](../../apps/tensorflow.md)
+ja [PyTorch](../../apps/pytorch.md). Lue tarkemmat ohjeet haluamasi sovelluksen
+kohdalla.
+
+Sinun on käytettävä [moduulijärjestelmää](../../computing/modules.md) ladataksesi
+haluamasi sovellus, esimerkiksi:
 
 ```bash
 module load tensorflow/2.12
 ```
 
-Please note that our modules already include CUDA and cuDNN libraries, so there
-is no need to load cuda and cudnn modules separately!
+Huomioithan, että moduuleihimme sisältyvät jo CUDA- ja cuDNN-kirjastot, joten 
+cuda- ja cudnn-moduuleita ei tarvitse ladata erikseen!
 
-On LUMI you need to first enable the module repository for CSC's installations:
+LUMI:ssa sinun on ensin otettava käyttöön CSC:n asennusten moduulivarasto:
 
 ```bash
 module use /appl/local/csc/modulefiles/
 ```
 
-Finally, on Puhti, we provide some special applications which are not shown by
-default in the module system. These have been made available due to user
-requests, but with limited support. You can enable them by running:
+Lopuksi, Puhtissa tarjoamme joitakin erityissovelluksia, jotka eivät oletuksena 
+näy moduulijärjestelmässä. Nämä on otettu käyttöön käyttäjien pyynnöstä, mutta niillä
+on rajallinen tuki. Ne voidaan ottaa käyttöön suorittamalla:
 
 ```bash
 module use /appl/soft/ai/singularity/modulefiles/
 ```
 
-### Installing your own software
+### Oman ohjelmiston asentaminen {#installing-your-own-software}
 
-In many cases, our existing modules provide the required framework, but some
-packages are missing. In this case you can often load the appropriate module and
-then [install additional packages for personal use with the `pip` package
-manager](./python-usage-guide.md#installing-python-packages-to-existing-modules).
+Monissa tapauksissa olemassa olevat moduulit tarjoavat tarvittavan kehyksen, mutta 
+jotkut paketit puuttuvat. Tässä tapauksessa voit usein ladata oikean moduulin ja 
+sitten [asentaa lisäpaketteja henkilökohtaiseen käyttöön `pip`-paketinhallinnan avulla](./python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-For more complex software requirements, we recommend using
-[tykky](../../computing/containers/tykky.md) or [creating your own
-Apptainer container](../../computing/containers/creating.md).
+Monimutkaisempia ohjelmistovaatimuksia varten suosittelemme käyttämään 
+[tykkyä](../../computing/containers/tykky.md) tai [luomaan oman
+Apptainer-kontin](../../computing/containers/creating.md).
 
 
-## Running GPU jobs
+## GPU-tehtävien suorittaminen {#running-gpu-jobs}
 
-To submit a GPU job to the Slurm workload manager, you need to use the `gpu`
-partition on Puhti or `gpusmall` or `gpumedium` on Mahti, and specify the type
-and number of GPUs required using the `--gres` flag. 
+Lähettääksesi GPU-tehtävän Slurm-työkuorman hallintaan, sinun on käytettävä
+`gpu`-osuutta Puhtissa tai `gpusmall` tai `gpumedium` osuutta Mahtissa, ja määritä
+tarvittavien GPU:iden tyyppi ja määrä `--gres`-lipulla.
 
-On LUMI you need to use one of the GPU-partitions such as `dev-g`,
-`small-g` or `standard-g`.
+LUMI:ssa sinun on käytettävä yksi GPU-osuuksista, kuten `dev-g`,
+`small-g` tai `standard-g`.
 
-Below are example batch scripts for reserving one GPU and a
-corresponding proportion of the CPU cores and memory of a single node:
+Alla on esimerkki eräskripteistä yhden GPU:n ja vastaavan määrän CPU-ytimiä 
+ja muistia varaamiseen yhdellä solmulla:
 
 === "Puhti"
     ```bash
@@ -146,52 +141,50 @@ corresponding proportion of the CPU cores and memory of a single node:
     srun python3 myprog.py <options>
     ```
 
+Mahtin `gpusmall`-osuus tukee vain tehtäviä 1-2 GPU:lla. Jos tarvitset 
+lisää GPU:ita, käytä `gpumedium`-jonoa. Voit lukea lisää 
+[moni-GPU ja moni-solmu-tehtävistä opastamme](ml-multi.md).
 
-Mahti's `gpusmall` partition supports only jobs with 1-2 GPUs. If you need more
-GPUs, use the `gpumedium` queue. You can read more about [multi-GPU and
-multi-node jobs in our separate tutorial](ml-multi.md).
+Lisätietoja eri osuuksista löytyy sivuiltamme
+[saatavilla olevista erätehtäväosuuksista CSC:n supertietokoneilla](../../computing/running/batch-job-partitions.md) ja [Slurm- osuudet LUMI:ssa](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 
-For more detailed information about the different partitions, see our page about
-[the available batch job partitions on CSC's
-supercomputers](../../computing/running/batch-job-partitions.md) and [Slurm partitions on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
+## GPU-käyttöaste {#gpu-utilization}
 
-## GPU utilization
+GPU:t ovat erittäin kallis resurssi verrattuna suorittimiin, joten 
+GPU:ita tulisi hyödyntää mahdollisimman paljon, kun ne on varattu. Tarjoamme 
+jotakin työkaluja suorittamaan GPU-työkuorman
+seuraamiseksi eri supertietokoneissa. GPU-käyttöasteen tulisi 
+ihanteellisesti olla lähellä 100%. Jos käyttöasteesi on jatkuvasti alhainen 
+(esimerkiksi alle 50%) se voi johtua useista syistä:
 
-GPUs are a very expensive resource compared to CPUs, hence, GPUs
-should be maximally utilized once they have been allocated. We provide
-some tools to monitor the utilization of GPU jobs on different
-supercomputers. The GPU utilization, should ideally be close to
-100%. If your utilization is consistently low (for example under 50%)
-it might because of several reasons:
+- Sinulla saattaa olla pullonkaula prosessoinnissa, esimerkiksi sinun pitäisi
+  käyttää tiedon latauskehystä (ja varata tarpeeksi CPU-ytimiä siihen)
+  voidaksesi syöttää GPU:lle tietoa tarpeeksi nopeasti. [Katso
+  dokumentaatiomme moniytimisten CPU:iden käytöstä tiedon
+  esikäsittelyyn](#using-multiple-cpus-for-data-pre-processing).
 
-- You may have have a processing bottle-neck, for example you should
-  use a data loading framework (and reserve enough CPU cores for it)
-  to be able to feed the GPU with data fast enough. [See our
-  documentation on using multiple CPU cores for data
-  loading](#using-multiple-cpus-for-data-pre-processing).
-  
-- Alternatively, it might simply be the case that the computational
-  problem is "too small" for the GPU, for example if the neural
-  network is relatively simple. This is not a problem as such, but if
-  your utilization is really low, you might consider if using CPUs
-  would be more cost efficient.
+- Vaihtoehtoisesti voi yksinkertaisesti olla, että laskentaongelma 
+  on "liian pieni" GPU:lle, esimerkiksi jos
+  hermoverkko on suhteellisen yksinkertainen. Tämä ei ole ongelma sinänsä, mutta 
+  jos käyttöasteesi on todella alhainen, voit harkita, olisiko CPU:iden käyttäminen
+  kustannustehokkaampi ratkaisu.
 
-As always, don't hesitate to [contact our service desk](../contact.md)
-if you have any questions regarding GPU utilization.
+Kuten aina, älä epäröi [ottaa yhteyttä palvelupisteeseemme](../contact.md)
+jos sinulla on kysymyksiä koskien GPU-käyttöä.
 
-### Tools for monitoring GPU utilization
+### Työkalut GPU-käyttäytymisen seurantaan {#tools-for-monitoring-gpu-utilization}
 
-#### `seff` command for a completed job (Puhti and Mahti)
+#### `seff`-komento suoritetulle työlle (Puhti ja Mahti) {#seff-command-for-a-completed-job}
 
-The easiest way to check the GPU utilization on a completed job is to
-use the `seff` command:
+Helpoin tapa tarkistaa suoritetun työn GPU-käyttöaste on
+`seff`-komento:
 
 ```bash
 seff <job_id>
 ```
 
-In this example we can see that maximum utilization is 100%, but
-average is 92% (this is a good level):
+Tässä esimerkissä voimme nähdä, että maksimi käyttöaste on 100%, mutta
+keskimääräinen on 92% (tämä on hyvä taso):
 
 ```
 GPU load 
@@ -203,26 +196,26 @@ GPU memory
        r01g07             0         16.72          1.74         16.91 
 ```
 
-#### `nvidia-smi` for a running job (Puhti and Mahti)
+#### `nvidia-smi` käynnissä olevalle työlle (Puhti ja Mahti) {#nvidia-smi-for-a-running-job}
 
-When the job is running you can run `nvidia-smi` over `ssh` on the
-node where it is running. You can check the node's hostname with the
-`squeue --me` command. The output can look something like this:
+Kun työ on käynnissä voit suorittaa `nvidia-smi`-komennon `ssh`:n 
+kautta solmulla, jossa se on käynnissä. Näet solmun isäntänimen 
+`squeue --me`-komennolla. Tuloste voi näyttää tältä:
 
 ```
    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 17273947       gpu puhti-gp mvsjober  R       0:07      1 r01g06
 ```
 
-You can see the node's hostname from the `NODELIST` column, in this
-case it's `r01g06`. You can now check the GPU utilization with
-(replace `<nodename>` with the actual node's hostname in your case):
+Näet solmun isäntänimen `NODELIST`-sarakkeesta, tässä tapauksessa se on
+`r01g06`. Voit nyt tarkistaa GPU-käytön seuraavasti
+(korvaa `<nodename>` oikealla solmun isäntänimelläsi):
 
 ```bash
 ssh <nodename> nvidia-smi
 ```
 
-The output will look something like this:
+Tuloste näyttää tältä:
 
 ```
 Wed Jun 14 09:53:11 2023
@@ -247,120 +240,123 @@ Wed Jun 14 09:53:11 2023
 +-----------------------------------------------------------------------------+
 ```
 
-From this we can see that our process is using around 5GB (out of 32GB) of GPU memory, and the current GPU utilization is 100% (which is very good).
+Tästä näemme, että prosessimme käyttää noin 5GB (32GB:sta) GPU-muistista, ja nykyinen
+GPU-käyttöaste on 100% (mikä on erittäin hyvä).
 
-
-If you want a continually updating view:
+Jos haluat jatkuvasti päivittyvän näkymän:
 
 ```bash
 ssh r01g06 -t watch nvidia-smi
 ```
 
-This will update every 2 seconds, press Ctrl-C to exit.
+Tämä päivittyy joka toinen sekunti, poistu painamalla Ctrl-C.
 
+#### `rocm-smi` käynnissä olevalle työlle (LUMI) {#rocm-smi-for-a-running-job}
 
-#### `rocm-smi` for a running job (LUMI)
-
-The LUMI supercomputer uses AMD GPUs, and hence the command is a bit
-different: `rocm-smi`. On [LUMI you need to use `srun` to log in to a node where you have a running job](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/interactive/#using-srun-to-check-running-jobs):
+LUMI:ssä käytetään AMD GPU:ita, joten komento on hieman
+eri: `rocm-smi`. [LUMI:ssä sinun on käytettävä `srun`-komentoa kirjautuaksesi solmuun, jossa sinulla on käynnissä oleva työ](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/interactive/#using-srun-to-check-running-jobs):
 
 ```bash
 srun --interactive --pty --jobid=<jobid> rocm-smi
 ```
 
-Replace `<jobid>` with the actual Slurm job ID. You can also use
-`watch rocm-smi` to get the continually updated view.
+Korvaa `<jobid>` oikealla Slurm tehtävän tunnuksella. Voit myös käyttää 
+`watch rocm-smi` saadaksesi jatkuvasti päivittyvän näkymän.
 
    
-### Using multiple CPUs for data pre-processing
+### Usean CPU:n käyttäminen datan esikäsittelyyn {#using-multiple-cpus-for-data-pre-processing}
 
-One common reason for the GPU utilization being low is when the CPU
-cannot load and pre-process the data fast enough, and the GPU has to
-wait for the next batch to process. It is then a common practice to
-reserve more CPUs to perform data loading and pre-processing in
-several parallel threads or processes. A good rule of thumb in Puhti
-is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40 CPUs on
-each node). On Mahti you can reserve up to 32 cores, as that
-corresponds to 1/4 of the node. On LUMI we recommend using 7 CPU
-cores, as there are 63 cores for 8 GPUs. **Remember that CPUs are a
-much cheaper resource than the GPU!**
+Yksi yleinen syy GPU-käytön alhaisuuteen on silloin, kun
+CPU ei voi ladata ja esikäsitellä tietoja tarpeeksi nopeasti, ja GPU:n on
+odotettava seuraavaa erää käsiteltäväksi. On tällöin yleistä
+käytäntöä varata enemmän CPU:ita suorittamaan tietojen lataus ja
+esikäsittely useissa rinnakkaisissa säikeissä tai prosesseissa. Hyvä nyrkkisääntö 
+Puhtissa on **varata 10 CPU:ta per GPU** (koska jokaisessa solmussa on 4 GPU:ta 
+ja 40 CPU:ta). Mahtissa voit varata enintään 32 ydintä, sillä se
+vastaa 1/4 solmusta. LUMI:ssa suosittelemme varaamaan 7 CPU-ydintä, koska 
+siellä on 63 ydintä 8 GPU:lle. **Muista, että CPU:t ovat paljon halvempia 
+resursseja kuin GPU!**
 
-You might have noticed that we have already followed this advice in our example
-job scripts:
+Saatat huomata, että olemme jo noudattaneet tätä neuvoa esimerkissämme
+työskriptit:
 
 ```bash
 #SBATCH --cpus-per-task=10
 ```
 
-Your code also has to support parallel pre-processing. However, most high-level
-machine learning frameworks support this out of the box. For example in
-[TensorFlow you can use `tf.data`](https://www.tensorflow.org/guide/data) and
-set `num_parallel_calls` to the number of CPUs reserved and utilize `prefetch`:
+Ohjelmakoodisi on myös
+tuettava esikäsittelyä usealla säikeellä.
+Useimmat korkean tason koneoppimiskehykset tukevat tätä valmiiksi. Esimerkiksi
+[TensorFlow:ssä voit käyttää `tf.data`](https://www.tensorflow.org/guide/data) ja asettaa `num_parallel_calls`
+CPU:iden määrälle ja hyödyntää `prefetch`:
 
 ```python
 dataset = dataset.map(..., num_parallel_calls=10)
 dataset = dataset.prefetch(buffer_size)
 ```
 
-In [PyTorch, you can use
-`torch.utils.DataLoader`](https://pytorch.org/docs/stable/data.html), which
-supports data loading with multiple processes:
+[PyTorch:ssa voit käyttää
+`torch.utils.DataLoader`](https://pytorch.org/docs/stable/data.html), 
+joka tukee tietojen lataamista useilla prosesseilla:
 
 ```python
 train_loader = torch.utils.data.DataLoader(..., num_workers=10)
 ```
 
-If you are using multiple data loaders, but data loading is still slow, it is
-also possible that you are using the shared file system inefficiently. A common
-error is to read a huge number of small files. You can read more about [how to
-store and load data in the most efficient way for machine learning in our
-separate tutorial](ml-data.md).
+Jos käytät useita tietolatureita, mutta datan lataus on edelleen hidasta, 
+on myös mahdollista, että käytät jaettua tiedostojärjestelmää 
+tehottomasti. Yleinen virhe on lukea valtava määrä pieniä tiedostoja. 
+Voit lukea lisää [miten tallentaa ja ladata tietoja 
+tehokkaimmin koneoppimiseen erillisestä opastamme](ml-data.md).
 
-### Profilers
+### Profilointityökalut {#profilers}
 
-[TensorFlow Profiler](https://www.tensorflow.org/guide/profiler) and
+[TensorFlow Profiler](https://www.tensorflow.org/guide/profiler) ja
 [PyTorch
 Profiler](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html)
-are available as TensorBoard plugins. The profilers can be found at
-the *PROFILE* and *PYTORCH_PROFILER* tabs in TensorBoard,
-respectively. Note that the tabs may not be visible by default but can
-be found at the pull-down menu on the right-hand side of the
-interface.  The profilers can be used to identify resource consumption
-and to resolve performance bottlenecks, in particular the data input
-pipeline.
+ovat saatavilla TensorBoard-liitännäisinä. Profiilit löytyvät 
+*PROFILE* ja *PYTORCH_PROFILER* välilehdillä TensorBoardissa,
+vastaavasti. Huomaa, että välilehdet eivät välttämättä ole
+näkyvissä oletuksena, mutta ne löytyvät pudotusvalikosta
+käyttöliittymän oikeasta yläkulmasta. Profiilityökalut voidaan
+käyttää tunnistamaan resurssien kulutusta ja ratkomaan
+suorituskykyongelmia, erityisesti tiedonsyöttöputken osalta.
 
-See also:
+Katso myös:
 
-- [How to launch TensorBoard using the Puhti web interface](../../computing/webinterface/apps.md)
-- [PyTorch profiler tutorial](../../apps/pytorch.md#pytorch-profiler)
+- [Kuinka käynnistää TensorBoard käyttäen Puhdin verkkokäyttöliittymää](../../computing/webinterface/apps.md)
+- [PyTorch profiler -opastus](../../apps/pytorch.md#pytorch-profiler)
 
-## GPU energy usage
+## GPU-energiankulutus {#gpu-energy-usage}
 
-For ecological and economical reasons it is often needed to monitor
-the energy usage of machine learning jobs. Measuring the full energy
-usage of a single job, including CPU and GPU processing, networking
-and cooling is quite difficult to do in the general case as those
-resources are shared over many jobs and can depend on various factors
-independent of the monitored job. Fortunately, measuring the energy
-usage of just the GPUs is easier, as they are typically not shared
-among many jobs. As the GPU is by far the biggest energy user it
-provides a good approximation of the total energy usage.
+Ekologisista ja taloudellisista syistä on usein tarpeellista seurata
+koneoppimistehtävien energiankulutusta. Yksittäisen tehtävän, mukaan
+lukien CPU- ja GPU-prosessointi, verkkoyhteydet ja jäähdytys, 
+kokonaisenergiankulutuksen mittaaminen on melko vaikeaa
+yleisesti, koska ne resurssit jaetaan monen tehtävän kesken ja
+voivat riippua useista tekijöistä, jotka eivät liity
+seurattavaan työhön. Onneksi vain GPU-iden energiankulutuksen
+mittaaminen on helpompaa, koska niitä ei yleensä jaeta
+monen tehtävän kesken. Koska GPU on ylivoimaisesti suurin
+energiankuluttaja, se antaa hyvän arvion kokonaisenergiankulutuksesta.
 
-### Tools for monitoring GPU energy usage
+### Työkalut GPU-energiankulutuksen seuraamiseen {#tools-for-monitoring-gpu-energy-usage}
 
-#### `seff` command for a completed job (Puhti and Mahti)
+#### `seff`-komento suoritetulle työlle (Puhti ja Mahti) {#seff-command-for-a-completed-job}
 
-On Puhti and Mahti you can use the `seff` tool for a completed job:
+Puhti- ja Mahti-järjestelmissä voit käyttää `seff` työkalua
+suoritetulle työlle:
 
 ```bash
 seff <job_id>
 ```
 
-Note that the GPU energy usage is counted only after the job has
-completed, so there is no intermediate value printed while it's
-running.
+Huomaa, että GPU-energiankulutus lasketaan vain työn
+suorituksen jälkeen, joten ajon aikana ei tulosteta
+välivaiheita.
 
-Example output where we have used a single node with 4 GPUs:
+Esimerkki tulosteesta, jossa olemme käyttäneet yhtä solmua neljällä
+GPU:lla:
 
 ```
 GPU energy
@@ -371,27 +367,27 @@ GPU energy
         r01g01             3         62.21
 ```
 
+### `gpu-energy`-työkalu (LUMI) {#gpu-energy-tool}
 
-### `gpu-energy` tool (LUMI)
+LUMI:lla ei ole `seff`-komentoa, mutta siellä on kokeellinen
+työkalu, jota voidaan käyttää lukemaan AMD GPU-kortin
+löytymät energiankulutusmittarit. Työkalu ja dokumentointi
+löytyvät täältä: <https://github.com/mvsjober/gpu-energy-amd>.
 
-LUMI does not have the `seff` command, but there is a preliminary tool
-that can be used to read the GPU energy counters found in the AMD GPU
-card. The tool and its documentation can be found here:
-<https://github.com/mvsjober/gpu-energy-amd>.
+Se on esiasennettu LUMI-järjestelmään
+polkuun `/appl/local/csc/soft/ai/bin/gpu-energy`.
 
-It has been pre-installed on LUMI in the path `/appl/local/csc/soft/ai/bin/gpu-energy`.
-
-Typical usage in a Slurm script:
+Tyypillinen käyttö Slurm-skriptissä:
 
 ```
 gpu-energy --save
 
-# run job here
+# suoritettavan tehtävän koodi tähän
 
 gpu-energy --diff
 ```
 
-Example output:
+Esimerkki tulosteesta:
 
 ```
 GPU 0: 46.64 Wh, avg power: 377.81 W (444.43 s)
@@ -401,16 +397,16 @@ GPU 6: 46.62 Wh, avg power: 377.62 W (444.43 s)
 TOTAL: 185.91 Wh
 ```
 
-Note that it prints the energy only for even-numbered GCDs, this is because the AMD GPU energy counter only produces a single value for the whole MI250x card.
+Huomaa, että se tulostaa energian vain parillisilla GCD-numeroilla, 
+sillä AMD GPU-energiankulutusmittari antaa yhden luvun koko MI250x-kortille.
 
-!!! warning "Always measure GPU usage for a full node on LUMI!"
+!!! warning "Mittaa aina GPU:n käyttö täyden solmun ajan LUMI:ssa!"
 
-    Measuring the GPU energy on LUMI has to be done on a full node to get
-    accurate results. The reason is that the MI250x GPU has 2 GPU dies
-    (GCDs), but the energy counter gives a single number for the whole
-    MI250x. If you reserve a single GCD, another run may be using the
-    other GCD. Reserving 2 GCDs, it's not possible to guarantee that you
-    get them from the same card.
+    GPU-energian mittaaminen LUMI:ssa on tehtävä täydellä solmulla, jotta tulokset
+    saadaan tarkkoina. Syynä on, että MI250x GPU:ssa on 2 GPU-sirua
+    (GCD), mutta energiankulutusmittari antaa yhden luvun koko
+    MI250x:lle. Jos varaat yhden GCD:n, toinen ajo saattaa käyttää
+    toista GCD:ta. Varaamalla 2 GCD:tä ei voida taata, että saat ne
+    samalta kortilta.
 
-See the [README.md file for more usage examples](https://github.com/mvsjober/gpu-energy-amd/blob/master/README.md).
-
+Katso [README.md-tiedostosta lisäkäyttöesimerkkejä](https://github.com/mvsjober/gpu-energy-amd/blob/master/README.md).

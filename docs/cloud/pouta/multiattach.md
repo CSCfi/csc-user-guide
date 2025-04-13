@@ -1,69 +1,69 @@
-# Multi-attach Cinder volumes
+# Multi-attach Cinder -levyt {#multi-attach-cinder-volumes}
 
-!!! warning    
-    By default the quota is set to 0, you must request it by sending an email to servicedesk@csc.fi
+!!! varoitus    
+    Oletusarvoisesti kiintiö on asetettu 0:ksi, sinun tulee pyytää sitä lähettämällä sähköpostia osoitteeseen servicedesk@csc.fi
 
-It is possible to attach and mount the same _cinder_ volume into more that one VM at the same time. This means that each of the VMs will be able to read and write to the same block device. This is similar to what a SAN will allow you to achieve.
+On mahdollista liittää ja liittää sama _cinder_ -levy useampaan kuin yhteen virtuaalikoneeseen samanaikaisesti. Tämä tarkoittaa, että kukin virtuaalikone voi lukea ja kirjoittaa samaan lohkolaitteeseen. Tämä on samanlaista kuin mitä SAN mahdollistaa.
 
-![Multi attach](../img/multi-attach.drawio.svg)
+![Moniliitäntä](../img/multi-attach.drawio.svg)
 
-This feature has several advantages and disadvantages. On one hand it allows to share files among VMs without any kind of intermediary server that you will need with solutions like `NFS` or `GlusterFS`. This reduces the number of VMs needed, thus less maintenance and less single points of failure. On the other hand, it is necessary to run what is called a [clustered file system](https://en.wikipedia.org/wiki/Clustered_file_system#SHARED-DISK) like [Oracle Cluster File System 2 (ocfs2)](https://en.wikipedia.org/wiki/OCFS2), or Red Hat [Global File System (GFS2)](https://en.wikipedia.org/wiki/GFS2). These systems need a cluster of connected daemons that will coordinate the read and write operations of the files. Other file systems like **ext4** or **xfs** do not support this use case and their use might lead to read errors or even data corruption, their use is unadvised. Each VM runs a copy of the daemon and there is no master, but a quorum based system. The choice between the two file systems depends on the use case and preferences based on vendors. In our tests GFS2 seems to be more suitable to Redhat based systems and OCFS2 to Debian ones, but your mileage might vary.
+Tällä ominaisuudella on useita etuja ja haittoja. Toisaalta se mahdollistaa tiedostojen jakamisen virtuaalikoneiden kesken ilman mitään välikäsiä, joita tarvitaan ratkaisuissa kuten `NFS` tai `GlusterFS`. Tämä vähentää tarvittavien virtuaalikoneiden määrää, jolloin ylläpitoa on vähemmän ja yksittäisiä virhekohta ei ole niin paljon. Toisaalta on välttämätöntä käyttää niin kutsuttua [klusteroitua tiedostojärjestelmää](https://en.wikipedia.org/wiki/Clustered_file_system#SHARED-DISK) kuten [Oracle Cluster File System 2 (ocfs2)](https://en.wikipedia.org/wiki/OCFS2) tai Red Hat [Global File System (GFS2)](https://en.wikipedia.org/wiki/GFS2). Näissä järjestelmissä tarvitaan klusteri yhteydessä olevia demoneita, jotka koordinoivat tiedostojen luku- ja kirjoitusoperaatioita. Muut tiedostojärjestelmät kuten **ext4** tai **xfs** eivät tue tätä käyttötapausta ja niiden käyttö voi johtaa lukuvirheisiin tai jopa tietojen korruptoitumiseen, niiden käyttöä ei suositella. Kukin virtuaalikone käyttää demoni kopion eikä ole isäntädemonia vaan järjestelmä perustuu äänestykseen. Valinta kahden tiedostojärjestelmän välillä riippuu käyttötapauksesta ja käytettävistä toimittajien mieltymyksistä. Testeissämme GFS2 näyttää olevan sopivampi Redhat-pohjaisille järjestelmille ja OCFS2 Debianille, mutta kokemuksesi saattaa vaihdella.
 
-!!! Warning
-    The configuration, maintenance and operations of these file systems are **not a trivial task**. The guides below are as a **starting point** and do not cover all possibilities, for more comprehensive information, please check the upstream documentation.
+!!! Varoitus
+    Näiden tiedostojärjestelmien konfigurointi, ylläpito ja käyttö eivät ole **triviaali tehtävä**. Alla olevat oppaat ovat **lähtökohta** eivätkä kata kaikkia mahdollisuuksia. Laajemman tiedon saamiseksi tarkista alkuperäinen dokumentaatio.
 
-## Create and attach a volume
+## Luodaan ja liitetään levy {#create-and-attach-a-volume}
 
-!!! Info "quota"
-    Make sure that you have available quota for this kind of Volume
+!!! Tieto "kiintiö"
+    Varmista, että sinulla on saatavilla olevaa kiintiötä tämän tyyppiselle levylle.
 
 ### WebUI
 
-1. Go to the [Volume page](https://pouta.csc.fi/dashboard/project/volumes/) of Pouta.
+1. Mene [Levyjen sivulle](https://pouta.csc.fi/dashboard/project/volumes/) Poutassa.
 
-1. Click in "+Create Volume"
+2. Klikkaa "+Luo Levy"
 
-1. Create a volume as you would do for any other **Type** of volume. Set the **Volume Name** and **Size (GiB)** as desired.
+3. Luo levy kuten tekisit normaalistikin jokaiselle **Tyypille**. Aseta **Levy Nimi** ja **Koko (GiB)** haluamallasi tavalla.
 
-1. Change the **Type** to `standard.multiattach`.
+4. Vaihda **Tyyppi** `standard.multiattach`.
 
-1. Click in "Create Volume".
+5. Klikkaa "Luo Levy".
 
-![Create Volume Multiattach](../img/create-volume-multiattach.png)
+![Luo Moniliitäntä Levy](../img/create-volume-multiattach.png)
 
-!!! Warning "not supported"
-    You cannot attach a volume to multiple VMs from the WebUI, only see its status. You can only attach a volume to multiple VMs using the CLI.
+!!! Varoitus "ei tueta"
+    Et voi liittää levyä useaan virtuaalikoneeseen verkkokäyttöliittymästä, voit vain tarkistaa sen tilan. Voit liittää levyn useaan virtuaalikoneeseen vain komentoriviltä (CLI).
 
 ### CLI
 
-Before doing this, you need to [install the openstack client](install-client.md):
+Ennen tämän tekemistä, sinun täytyy [asentaa openstack-asiakas](install-client.md):
 
-1. Create a multi attach volume:
+1. Luo moniliitäntälevy:
 
     ```sh
     openstack volume create --size <size_in_GB> --type standard.multiattach <volume_name>
     ```
-    You need to replace `<volume_name>` by the name you want to give to the volume, and the `<size_in_GB>` by the size in Gigabytes you want the volume to have.
+    Sinun täytyy korvata `<volume_name>` haluamallasi nimen volyymille, ja `<size_in_GB>` haluamallasi gigatavujen määrällä, jonka haluat volyymille.
 
-1. Attach the volume to a VM node:
+2. Liitä levy VM-solmulle:
 
     ```sh
-    openstack --os-compute-api-version 2.60 server add volume "<VM_name>" <volume_name>
+    openstack --os-compute-api-version 2.60 server add volume "<VM_nimi>" <volume_name>
     ```
-    You need to replace the `<volume_name>` by the name of the volume you created in the previous step, and the `<VM_name>` by the name of the VM node. When doing this for a cluster of VMs, you need to run the command once per VM.
+    Sinun täytyy korvata `<volume_name>` luomasi levyn nimellä edellisessä vaiheessa ja `<VM_nimi>` VM-solmun nimellä. Kun teet tämän VM:den klusterille, sinun täytyy suorittaa komento kerran per VM.
 
-## GFS2 as an example
+## GFS2 esimerkkinä {#gfs2-as-an-example}
 
-The Global file system or (GFS2 in short) is a file system currently developed by Red Hat. It uses [dlm](https://en.wikipedia.org/wiki/Distributed_lock_manager) to coordinate file system operations among the nodes in the cluster. The actual data is read and written directly to the shared block device.
+Global file system tai (GFS2 lyhyesti) on tiedostojärjestelmä, jota Red Hat parhaillaan kehittää. Se käyttää [dlm](https://en.wikipedia.org/wiki/Distributed_lock_manager) tiedostojärjestelmäoperaatioiden koordinoimiseksi klusterin solmujen välillä. Varsinaiset tiedot luetaan ja kirjoitetaan suoraan jaetulle lohkolaitteelle.
 
-!!! Warning
-    GFS2 supports up to 16 nodes connected to the same volume. 
+!!! Varoitus
+    GFS2 tukee jopa 16 solmua yhdistettynä samaan levyyn. 
 
-![GFS2 with DLM](../img/GFS2.drawio.svg)
+![GFS2 DLM:llä](../img/GFS2.drawio.svg)
 
-### GFS2 ansible install
+### GFS2 ansible asennus
 
-We have written a small ansible [cinder-multiattach](https://github.com/lvarin/cinder-multiattach/) playbook, that installs a cluster of nodes and installs a shared GFS2 file system on them. The playbook is intended as a guide and demo, it is not production ready. For example, there is a manual step, attach the volume in each node. The Ansible playbook will create a cluster of VMs and install the requested file system on them. The end result will be the same volume mounted in every VM. The quick start commands are these:  
+Olemme kirjoittaneet pienen ansible [cinder-multiattach](https://github.com/lvarin/cinder-multiattach/) playbookin, joka asentaa solmuista koostuvan klusterin ja niihin jaetun GFS2 tiedostojärjestelmän. Playbook on tarkoitettu oppaaksi ja esittelyksi, se ei ole tuotantokäyttöön valmis. Esimerkiksi on olemassa manuaalinen vaihe, liitä levy joka solmussa. Ansible playbook luo klusterin VM:stä ja asentaa pyydetyn tiedostojärjestelmän niihin. Lopputuloksena on sama levy asennettuna joka VM:ssa. Nopean aloituksen komennot ovat nämä:  
 
 ```sh
 $> source ~/Downloads/project_XXXXXXX-openrc.sh
@@ -79,28 +79,28 @@ done
 $> ansible-playbook main.yml -e fs='gfs2'
 ```
 
-*`csc_username` and `csc_password` can also be added in the `all.yaml`* file.  
-*It can be a [robot account](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account)*
+*`csc_username` ja `csc_password` voidaan myös lisätä tiedostoon `all.yaml`*  
+*Se voi olla [robottitili](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account)*
 
-You need to run Ansible twice due to a bug in the `openstack.cloud.server_volume` which can only attach the volume to a single VM and fails with the other ones.
+Ansible täytyy suorittaa kahdesti johtuen bugista `openstack.cloud.server_volume`, joka pystyy liittämään levyn vain yhteen virtuaalikoneeseen ja epäonnistuu muiden kanssa.
 
-If you already have a cluster of VMs, or want to manually create them, it is still possible to use the `gfs2` Ansible role. The steps are simple:
+Jos sinulla on jo VM-klusteri tai haluat luoda ne manuaalisesti, on silti mahdollista käyttää `gfs2` ansible roolia. Vaiheet ovat yksinkertaiset:
 
-1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
+1. Luo ja liitä levy. Katso manuaalista [Luo ja liitä levy](#create-and-attach-a-volume) yllä.
 
-1. Create a standard Ansible inventory like this one:
+2. Luo standardi Ansible -inventaario, kuten tämä:
 
     ```ini
     [all]
-    <VM_name> ansible_host=192.168.1.XXX ansible_user=<user>
+    <VM_nimi> ansible_host=192.168.1.XXX ansible_user=<user>
     # ...
     [all:vars]
     ansible_ssh_common_args='-J <jumphost>'
     ```
 
-    In the example above you need to replace `<VM_name>` by the name of the VM, the IP `192.168.1.XXX` must be the correct IP of the VM, and finally the `<user>` has to also be replaced by the corresponding one. You need to have a line per VM node that you want to include in the cluster. Finally, if you are using a Jump Host, you need to replace `<jumphost>` by its connection information, like `ubuntu@177.51.170.99` 
+    Esimerkin yllä sinun tulisi korvata `<VM_nimi>` virtuaalikoneen nimellä, IP `192.168.1.XXX` tulee olla oikea IP-osoite ja lopuksi `<user>` korvataan asianmukaisella käyttäjänimellä. Sinun täytyy lisätä yksi rivi per virtuaalikone, jonka haluat sisällyttää klusteriin. Lopuksi, jos käytät kyynärisolmua (Jump Host), sinun on korvattava `<jumphost>` sen yhteystiedoilla, kuten `ubuntu@177.51.170.99`
 
-1. Create a playbook like this one:
+3. Luo playbook, kuten tämä:
 
     ```yaml
     ---
@@ -114,96 +114,96 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
         - role: gfs2
     ```
 
-    This will run two roles, the `hosts` one if to create a `/etc/hosts` file in every VM with the IPs and names of every VM. The `gfs2` role installs and configures the cluster.
+    Se suorittaa kaksi roolia: `hosts` luo `/etc/hosts` tiedoston jokaisessa VM:ssä IP-osoitteilla ja nimillä jokaiselle VM:lle. `gfs2` rooli asentaa ja konfiguroi klusterin.
 
-1. And run it:
+4. Suorita se:
 
     ```sh
     $> ansible-playbook main-gfs2.yml -i inventory.ini
     ```
 
-### GFS2 manual install
+### GFS2 manuaalinen asennus
 
-In order to install GFS2, you need to follow few steps:
+Jotta voit asentaa GFS2, sinun täytyy noudattaa muutamia vaiheita:
 
-1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them.
+1. Asenna VM solmut. Tässä vaiheessa ei ole erityistä huomioitavaa, kunhan varmistat, että solmut voivat nähdä toisensa verkossa (se on oletusasetuksena VM-soluissa, jotka on luotu samassa Pouta-projektissa) ja että ne on asennettu samalla jakeluversiolla. Olemme testanneet tämän `AlmaLinux-9`-versiolla, mutta muut jakelut ja versiot saattavat myös toimia, mutta niitä emme ole testanneet.
 
-1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
+2. Luo ja liitä levy. Katso manuaalista [Luo ja liitä levy](#create-and-attach-a-volume) yllä.
 
-1. For AlmaLinux and other RedHat based distributions you just need enable two collections and install few packages **on every node:**
+3. AlmaLinuxin ja muiden RedHat-pohjaisten jakeluiden kohdalla sinun täytyy vain ottaa käyttöön kaksi hallintaryhmää ja asentaa muutama paketti **jokaisella solmulla:**
 
     ```sh
     $> dnf config-manager --enable  highavailability resilientstorage
     $> dnf install pacemaker corosync pcs dlm gfs2-utils lvm2-lockd
     ```
 
-#### Cluster setup
-!!! warning "root user"
-    The following commands are executed as the root user  
-    It will be specified throughout this tutorial if the commands must be run on a single or every node.
+#### Klusterin asennus
+!!! varoitus "root käyttäjä"
+    Seuraavat komennot suoritetaan root-käyttäjänä  
+    Kerrotaan koko opetusohjelman ajan, jos komennot täytyy suorittaa yhdellä tai jokaisella solmulla.
 
-1. Run the following commands **on every node:**
+1. Suorita seuraavat komennot **jokaisella solmulla:**
 
     ```sh
     $> systemctl start pcsd.service
     $> systemctl enable pcsd.service
     ```
 
-1. When you install `pacemaker`, it creates a user named `hacluster`. You need to set a password to this user:
+1. Kun asennat `pacemaker`-ohjelman, se luo käyttäjän nimeltä `hacluster`. Sinun täytyy asettaa tälle käyttäjälle salasana:
    
     ```sh
     $> passwd hacluster
     ```
 
-1. Make sure that every node **domain name** can be resolved in every other node. In Pouta, the simplest way is to use [/etc/hosts](https://en.wikipedia.org/wiki/Hosts_(file)), where each host has a line similar to:
+1. Varmista, että jokaisen solmun **domain nimi** voidaan ratkaista jokaisessa muussa solmussa. Poutassa, yksinkertaisin tapa on käyttää [ /etc/hosts ](https://en.wikipedia.org/wiki/Hosts_(file)), jossa jokaisella isännällä on rivi, joka on samankaltainen kuin:
 
     ```sh
-    <ip> <vm_name>
+    <ip> <vm_nimi>
     ```
 
-1. Run the following commands **only on one node**:
+1. Suorita seuraavat komennot **vain yhdellä solmulla**:
 
-    ```
+    ```sh
     $> pcs host auth node1 node2 node3 ...
     Username: hacluster
     Password: *******
-    $> pcs cluster setup <cluster_name> node1 node2 node3 ...
+    $> pcs cluster setup <cluster_nimi> node1 node2 node3 ...
     $> pcs cluster start --all
     ```
 
-1. You can check the status by running the commands:
+1. Voit tarkistaa tilan suorittamalla komennot:
 
     ```sh
     $> pcs cluster status
     $> pcs status corosync
     ```
 
-By default, `corosync` and `pacemaker` services are disabled:
+Oletusarvoisesti `corosync` ja `pacemaker` palvelut on poistettu käytöstä:
 
     $> pcs status
     Daemon Status:
       corosync: active/disabled
       pacemaker: active/disabled
       pcsd: active/enabled
-    
-According to [pacemaker docs](https://clusterlabs.org/projects/pacemaker/doc/2.1/Clusters_from_Scratch/html/verification.html):
 
-    requiring a manual start of cluster services gives you the opportunity 
-    to do a post-mortem investigation of a node failure 
-    before returning it to the cluster.
+Pacemaker-dokumentointien mukaan:
 
-That means, if a node crash and restart, you have to run the command `pcs cluster start [<NODENAME> | --all]` to start the cluster on it.  
-You can enable them if you wish with `pcs`:
+    vaativat manuaalista klusteripalveluiden aloittamista antaa sinulle mahdollisuuden
+    tehdä post-mortem tutkimus solmun virheestä
+    ennen kuin se palautetaan klusteriin.
+
+Mikä tarkoittaa, jos solmu kaatuu ja käynnistyy uudelleen, sinun täytyy suorittaa komento `pcs cluster start [ <NODENAME> | --all]` aloittaaksesi klusteri siinä.  
+Voit ottaa ne käyttöön, jos haluat käyttää `pcs`:
 
     $> pcs cluster enable [<NODENAME> | --all]
     
 
-#### Fencing setup
-!!! warning "root user"
-    The following commands are executed as the root user.  
-    It will be specified throughout this tutorial if the commands must be run on a single or every node.
+#### Fencing asennus
+!!! varoitus "root käyttäjä"
+    Seuraavat komennot suoritetaan root-käyttäjänä.  
+    Kerrotaan koko opetusohjelman ajan, jos komennot täytyy suorittaa yhdellä tai jokaisella solmulla.
 
-1. Run the following commands **on every node:**
+1. Suorita seuraavat komennot **jokaisella solmulla:**
 
     ```sh
     $> setenforce 0
@@ -212,18 +212,18 @@ You can enable them if you wish with `pcs`:
     $> pip install python-openstackclient python-novaclient
     ```
 
-1. Since we install `python-openstackclient` with the root user, you must add `/usr/local/bin` in the PATH:
+1. Koska asennamme `python-openstackclient`-ohjelman root-käyttäjän avulla, sinun täytyy lisätä `/usr/local/bin` PATH:iin:
 
     ```sh
     $> vim ~/.bashrc
     export PATH=/usr/local/bin:$PATH
     ```
 
-1. Create a folder named `openstack` in `/etc`. Then, create a file named `clouds.yaml` in `/etc/openstack`. The YAML file must be like this:
+1. Luo kansio nimeltä `openstack` hakemistoon `/etc`. Luo sitten tiedosto nimeltä `clouds.yaml` hakemistossa `/etc/openstack`. YAML-tiedosto tulee olla kuten:
 
     ```yaml
     clouds:
-      ha-example:
+      ha-esimerkki:
         auth:
           auth_url: https://pouta.csc.fi:5001/v3
           project_name: project_xxxxxxx
@@ -231,43 +231,43 @@ You can enable them if you wish with `pcs`:
           password: <password>
           user_domain_name: Default
           project_domain_name: Default
-    <. . . additional options . . .>
+    <. . . lisäasetukset . . .>
       region_name: regionOne
       verify: False
     ```
 
-1. Run the following commands **only on one node:**
+1. Suorita seuraavat komennot **vain yhdellä solmulla:**
 
     ```sh
     $> pcs property set stonith-enabled=true
     ```
 
-1. Check the value:
+1. Tarkista arvo:
    
     ```sh
     $> pcs property
     ```
 
-1. Create fencing for the HA cluster. First, you have to determine the UUID for each node in your cluster. You can run the command:
+1. Luo fencing HA-klusterille. Ensin sinun täytyy määrittää UUID jokaiselle solmulle klusterissasi. Voit suorittaa komennon:
    
     ```sh
     $> openstack server list
     ```
 
-    Then:
+    Sitten:
 
     ```
-    $> pcs stonith create <fence_name> fence_openstack pcmk_host_map="node1:node1_UUID;node2:node2_UUID;node3:node3_UUID" power_timeout="240" pcmk_reboot_timeout="480" pcmk_reboot_retries="4" cloud="ha-example"
+    $> pcs stonith create <fence_nimi> fence_openstack pcmk_host_map="node1:node1_UUID;node2:node2_UUID;node3:node3_UUID" power_timeout="240" pcmk_reboot_timeout="480" pcmk_reboot_retries="4" cloud="ha-esimerkki"
     ```
-    Substitute `cloud="ha-example"` with the name of the cloud you specified in the `clouds.yaml` file.
+    Korvaa `cloud="ha-esimerkki"` pilven nimellä, jonka määrittelit `clouds.yaml` tiedostossa.
 
-1. You can view the available options with the following command:
+1. Voit nähdä käytettävissä olevat vaihtoehdot seuraavalla komennolla:
 
     ```sh
     $> pcs stonith describe fence_openstack
     ```
 
-1. You can test fencing by running these commands:
+1. Voit testata fencingia suorittamalla nämä komennot:
    
     ```sh
     $> pcs stonith fence node2
@@ -275,108 +275,108 @@ You can enable them if you wish with `pcs`:
     $> pcs cluster start node2
     ```
 
-!!! info "Tip"  
-    If you want to start (or restart) the fence, you can use this command:
+!!! tieto "Vihje"  
+    Jos haluat käynnistää (tai käynnistää uudelleen) aidan, voit käyttää tätä komentoa:
     ```sh
-    $> pcs stonith cleanup <fence_name>
+    $> pcs stonith cleanup <fence_nimi>
     ```
-    Useful if you apply a new `clouds.yaml` configuration for example.
+    Kätevä, jos esimerkiksi sovellat uutta `clouds.yaml` asetusta.
 
 
-#### GFS2 setup
-!!! warning "root user"
-    The following commands are executed as the root user.  
-    It will be specified throughout this tutorial if the commands must be run on a single or every node.
+#### GFS2 asennus
+!!! varoitus "root käyttäjä"
+    Seuraavat komennot suoritetaan root-käyttäjänä.  
+    Kerrotaan koko opetusohjelman ajan, jos komennot täytyy suorittaa yhdellä tai jokaisella solmulla.
 
-1. Run the following command **on every node:**
+1. Suorita seuraava komento **jokaisella solmulla:**
 
     ```sh
     $> sed -i.bak "s/# use_lvmlockd = 0/use_lvmlockd = 1/g" /etc/lvm/lvm.conf
     ```
 
-1. Run the following commands **only on one node:**
+1. Suorita seuraavat komennot **vain yhdellä solmulla:**
 
     ```sh
     $> pcs property set no-quorum-policy=freeze
     ```
 
-1. Set up a dlm (Distributed Lock Manager) resource:
+1. Aseta dlm (Distributed Lock Manager) resurssi:
 
     ```sh
     $> pcs resource create dlm --group locking ocf:pacemaker:controld op monitor interval=30s on-fail=fence
     ```
 
-1. Clone the resource for the others nodes:
+1. Kopioi resurssi muille solmuille:
 
     ```sh
     $> pcs resource clone locking interleave=true
     ```
 
-1. Set up a lvmlockd resource part of the locking resource group:
+1. Aseta lvmlockd resursseja varten sisällytettäväksi locking resurssiryhmään:
 
     ```sh
     $> pcs resource create lvmlockd --group locking ocf:heartbeat:lvmlockd op monitor interval=30s on-fail=fence
     ```
 
-1. Check the status:
+1. Tarkista tila:
 
     ```sh
     $> pcs status --full
     ```
 
-1. Still **only on one node**, create one shared volume groups:
+1. Edelleen **vain yhdellä solmulla**, luo yksi jaettu volyymiryhmä:
 
     ```sh
     $> vgcreate --shared shared_vg1 /dev/vdb
     ```
 
-1. **On the other nodes**, add the shared device to the device file:
+1. **Muille solmuille**, lisää jaettu laite laitetiedostoon:
 
     ```sh
     $> lvmdevices --adddev /dev/vdb
     ```
 
-1. Start the lock manager:
+1. Käynnistä luontihallinta:
 
     ```sh
     $> vgchange --lockstart shared_vg1
     ```
 
-1. **On one node**, run:
+1. **Yhdellä solmulla** suorita:
 
     ```sh
     $> lvcreate --activate sy -L <size>G -n shared_lv1 shared_vg1
     $> mkfs.gfs2 -j <number_of_nodes> -p lock_dlm -t ClusterName:FSName /dev/shared_vg1/shared_lv1
     ```
-    ClusterName is the name of the cluster (you can retrieve the information with the command `pcs status`)  
-    FSName is the file system name (i.e: gfs2-demo)
+    ClusterName on klusterin nimi (voit hakea tiedon komennolla `pcs status`)  
+    FSName on tiedostojärjestelmän nimi (eli: gfs2-demo)
 
-1. Create an LVM-activate resource to automatically activate that logical volume on all nodes:
+1. Luo LVM-activate resurssi, jotta logiikkamääritys aktivoidaan kaikilla solmuilla:
 
     ```sh
     $> pcs resource create sharedlv1 --group shared_vg1 ocf:heartbeat:LVM-activate lvname=shared_lv1 vgname=shared_vg1 \
         activation_mode=shared vg_access_mode=lvmlockd
     ```
 
-1. Clone the new resource group:
+1. Kopioi uusi resurssiryhmä:
 
     ```sh
     $> pcs resource clone shared_vg1 interleave=true
     ```
 
-1. Configure ordering constraints to ensure that the locking resource group that includes the dlm and lvmlockd resources starts first:
+1. Määritä ordering constraints varmistaa, että locking resurssiryhmää, joka sisältää dlm:n ja lvmlockd:n, käynnistyy ensin:
 
     ```sh
     $> pcs constraint order start locking-clone then shared_vg1-clone
     ```
 
-1. Configure a colocation constraints to ensure that the vg1 resource groups start on the same node as the locking resource group:
+1. Määritä sijainti rajoittaa varmistaakseen, että vg1-resurssiryhmät käynnistyvät samalla solmulla kuin locking resurssiryhmät:
 
     ```sh
     $> pcs constraint colocation add shared_vg1-clone with locking-clone
     ```
 
-1. Verify on the nodes in the cluster that the logical volume is active. There may be a delay of a few seconds:
+1. Varmista solmujen klusterissa, että logiikkamääritys on aktiivinen. Saattaa olla muutaman sekunnin viive ennen tätä:
 
     ```sh
     $> lvs
@@ -384,35 +384,34 @@ You can enable them if you wish with `pcs`:
         shared_lv1 shared_vg1 -wi-a----- <size>g
     ```
 
-1. Create a file system resource to automatically mount the GFS2 file system.  
-   Do not add it to the /etc/fstab file because it will be managed as a Pacemaker cluster resource:
+1. Luo tiedostojärjestelmäresurssi, jotta GFS2 tiedostojärjestelmä asennetaan automaattisesti.  
+   Älä lisää sitä tiedostoon /etc/fstab, koska se hallitaan Pacemaker-klusteriresurssina.:
 
     ```sh
     $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" \
         directory="/mnt/gfs" fstype="gfs2" options=noatime op monitor interval=10s on-fail=fence
     ```
 
-1. You can verify if the GFS2 file system is mounted:
+1. Voit tarkistaa, onko GFS2 tiedostojärjestelmä asennettu:
 
     ```sh
     $> mount | grep gfs2
     $> pcs status --full
     ```
 
+### GFS2 UKK {#gfs2-faq}
 
-### GFS2 FAQ
+* **Kuinka lisätä lisää solmuja?**
 
-* **How to add more nodes?**
+    On mahdollista lisätä uusia solmuja GFS2-klusteriin. Tuettu **raja** on **16** solmua.
 
-    It is possible to add new nodes to a GFS2 cluster. The supported **limit** is **16** nodes.
-
-    First you need to make sure there are enough journal entries. Use `gfs2_edit` to get the total number of journals:
+    Ensin sinun täytyy varmistaa, että journal-päivityksiä on tarpeeksi. Käytä `gfs2_edit`-kohtaa saadaksesi journalien kokonaismäärän:
 
     ```sh
     sudo gfs2_edit -p jindex /dev/vdb | grep journal
     ```
 
-    If it is not enough, you can easily add more with `gfs2_jadd`: 
+    Jos se ei ole riittävä, voit helposti lisätä niitä `gfs2_jadd`-komennolla: 
 
     ```sh
     $> sudo gfs2_jadd -j 1 /mnt
@@ -421,9 +420,9 @@ You can enable them if you wish with `pcs`:
     New journals: 16
     ```
 
-    Secondly, create the new node, install the required software and attach the volume using openstack API. The process is described above.
+    Toiseksi, luo uusi solmu, asenna vaadittu ohjelmisto ja liitä levy openstack API:n avulla. Prosessi on kuvattu yllä.
 
-    Then you need to edit the file `/etc/corosync/corosync.conf` in every node and add an entry for the new one:
+    Sitten sinun täytyy muokata tiedostoa `/etc/corosync/corosync.conf` jokaisessa solmussa ja lisätä kirjaus uudelle:
 
     ```json
     node {
@@ -432,115 +431,114 @@ You can enable them if you wish with `pcs`:
     }
     ```
 
-    Once the file is updated, you need to stop the mount and restart the dlm and corosync daemons in every node in the cluster.
+    Kun tiedosto on päivitetty, sinun täytyy pysäyttää asennus ja käynnistää dlm ja corosync-daemonit uudelleen jokaisessa solmussa klusterissa.
 
-    Finally, you just need to mount the volume:
+    Lopuksi, sinun täytyy vain asentaa levy:
 
     ```sh
     $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" directory="/mnt/gfs" fstype="gfs2" options=noatime op monitor interval=10s on-fail=fence
     ```
 
-* **How to extend my GFS2 volume?**
+* **Kuinka laajentaa GFS2 levyn kokoa?**
 
-    The GFS2 volume was configured using LVM ([Logical Volume Manager](https://en.wikipedia.org/wiki/Logical_volume_management)) that enhance the management and flexibility of physical storage.
+    GFS2-levy on konfiguroitu LVM:n ([Logical Volume Manager](https://en.wikipedia.org/wiki/Logical_volume_management)) avulla, joka parantaa fyysisen tallennustilan hallintaa ja joustavuutta.
 
-    a. Create a new multiattach volume and attach it to your instances. Check that the volume is well attached by running the command `sudo parted -l`
+    a. Luo uusi multiattah-levy ja liitä se instansseihisi. Tarkista että levy on hyvin liitetty suorittamalla komento `sudo parted -l`
 
-    b. On one node, add the new volume in the Volume Group:
+    b. Yhdellä solmulla, lisää uusi levy Volyymiryhmään:
 
     ```sh
     sudo vgextend VolumeGroupName /dev/vdX
     ```
 
-    c. Still on one node, extend the Logical Volume:
+    c. Edelleen yhdellä solmulla, laajenna Logiikkamääritystä:
 
     ```sh
     sudo lvextend -l +100%FREE /dev/VolumeGroupName/LogicalVolumeName
     ```
 
-    d. Check that the Logical Volume has been extended by running the command `sudo lvs`
+    d. Tarkista, että Logiikkamääritys on laajennettu suorittamalla komento `sudo lvs`
 
-    e. Before extending the GFS2 volume, check on the other nodes that you don't have error messages. Run `sudo pvs`. If you see something like:
+    e. Ennen GFS2 volyymin laajentamista, tarkista muilta solmuilta, että sinulla ei ole virheilmoituksia. Suorita `sudo pvs`. Jos näet jotain tällaista:
 
     ```
     WARNING: Couldn't find device with uuid JuoyG2-ftdd-U9xm-LLei-VrY7-4GZz-FgC2dr.
     WARNING: VG shared_vg1 is missing PV JuoyG2-ftdd-U9xm-LLei-VrY7-4GZz-FgC2dr (last written to /dev/vdX)
     ```
-    You must add the device by running the command:
+    Sinun pitää lisätä laite suorittamalla komento:
 
     ```
     sudo lvmdevices --adddev /dev/vdX
     ```
 
-    Check again with the command `sudo pvs`. The warning message shouldn't appear.
+    Tarkista uudelleen `sudo pvs`-komennolla. Varoitusviestin ei pitäisi ilmestyä.
 
-    f. If everything's ok, you can grow your GFS2 volume by typing:
+    f. Jos kaikki on kunnossa, voit kasvattaa GFS2 volyymia kirjoittamalla:
 
     ```sh
     sudo gfs2_grow <YourGFS2MountVolume>
     ```
 
-    !!! warning
-        You cannot decrease the size of a GFS2 file system
+    !!! varoitus
+        Et voi pienentää GFS2 tiedostojärjestelmää
     
-* **What happens if a VM gets disconnected?**
+* **Mitä tapahtuu, jos VM irrotetaan?**
 
-    This covers two different use cases, a temporal and/or unexpected disconnection, and a permanent one.
+    Tämä kattaa kaksi eri käyttötapausta, ajallisen ja/tai odottamattoman katkaisun sekä pysyvän katkaisun.
 
-    For a temporal and unexpected disconnection, the cluster should be able to deal with this kind of issues automatically. After the node is back, you need to check that all came back to normal. In some cases the automatic mount of the volume can fail, if so mount the volume as explained above.
+    Ajallisen ja odottamattoman katkaisun tapauksessa klusterin pitäisi olla kykenevä selviämään tämäntyyppisistä ongelmista automaattisesti. Kun solmu on takaisin-verkossa, sinun täytyy tarkistaa, että kaikki palautui normaaliksi. Joissain tapauksissa automaattinen asennus voi epäonnistua, jos näin käy, asenna levy yllä selitetyllä tavalla.
 
-    If it is temporal but expected, like to update the kernel version. Umount the volume in the node before rebooting the node. It is not required, but recommended.
+    Jos se on ajallinen mutta odotettu, kuten ytimen päivittäminen. Irroita levy solmusta ennen solmun uudelleenkäynnistystä. Tätä ei vaadita mutta se on suositeltavaa.
 
-    For a permanent disconnection of a VM, one need to do the inverse process of adding a new node. Umount the volume, remove the entry for this VM in the `/etc/corosync/corosync.conf` file of every node, and finally restart the daemons in every node. This needs to be done as it affects the quorum count for the cluster.
+    Pysyvän katkaisun kohdalla, yksi tarvitsee tehdä päinvastainen prosessin lisäämiselle uudelle solmulle. Irroita levy, poista merkintä tälle virtuaalikoneelle `/etc/corosync/corosync.conf` -tiedostosta jokaisesta solmusta ja lopuksi käynnistä daemonit uudelleen jokaisessa solmussa. Tämä täytyy tehdä koska se vaikuttaa klusterin äänestyslaskentaan.
 
-* **Is it possible to mount a node as read-only?**
+* **Onko mahdollista asentaa solmu vain luku -moodissa?**
 
-    Yes, GFS2 has the "spectator mode":
+    Kyllä, GFS2:lla on "katselutila":
 
     ```
     spectator
-       Mount  this filesystem using a special form of read-only mount.  The mount does not
-       use one of the filesystem's journals. The node is unable to  recover  journals  for
-       other nodes.
+       Asenna tämä tiedostojärjestelmä käyttäen erityistä muoto luku-moodissa. Asennus ei
+       käytä tiedostojärjestelmän journaleja. Solmu ei pysty palauttamaan journaleja muille solmuille.
 
     norecovery
-       A synonym for spectator
+       Synonymi spectator:ille
     ```
 
-    So, just run this command:
+    Joten yksinkertaisesti suorita tämä komento:
 
     ```sh
     $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" directory="/mnt/gfs" fstype="gfs2" options=noatime,spectator op monitor interval=10s on-fail=fence
     ```
-    `fstype="gfs2"` is not strictly necessary, as mount can detect the file system type, but it is recommended to avoid mounting the wrong file system.
-    Then double check that the mount went as expected by:
+    `fstype="gfs2"` ei ole tiukasti ottaen välttämätön, koska mount voi havaita tiedostojärjestelmätyypin, mutta se on suositeltavaa vältettävän väärän tiedostojärjestelmän asentamista.
+    Tarkista vielä, että asennus meni kuten odotettiin seuraavalla tavalla:
 
     ```sh
     $ mount | grep /mnt
     /dev/vdb on /mnt type gfs2 (ro,relatime,spectator,rgrplvb)
     ```
 
-### GFS2 Links
+### GFS2 Linkit
 
-- [Pacemaker docs](https://clusterlabs.org/projects/pacemaker/doc/2.1/Clusters_from_Scratch/html/cluster-setup.html)
-- [GFS2 on Amazon EBS Multi-Attach](https://aws.amazon.com/blogs/storage/clustered-storage-simplified-gfs2-on-amazon-ebs-multi-attach-enabled-volumes/)
-- [Getting start with Pacamaker](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/assembly_getting-started-with-pacemaker-configuring-and-managing-high-availability-clusters#proc_learning-to-use-pacemaker-getting-started-with-pacemaker)
-- [Configuring a Red Hat High Availability cluster on Red Hat OpenStack Platform](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_a_red_hat_high_availability_cluster_on_red_hat_openstack_platform/index)
-- [GFS2 file systems in a cluster](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/assembly_configuring-gfs2-in-a-cluster-configuring-gfs2-file-systems#proc_configuring-gfs2-in-a-cluster.adoc-configuring-gfs2-cluster)
-- [Growing a GFS2 file system](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/assembly_creating-mounting-gfs2-configuring-gfs2-file-systems#proc_growing-gfs2-filesystem-creating-mounting-gfs2)
-- [Managing LVM volume groups](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_logical_volumes/managing-lvm-volume-groups_configuring-and-managing-logical-volumes#managing-lvm-volume-groups_configuring-and-managing-logical-volumes)
+- [Pacemaker dokumentaatio](https://clusterlabs.org/projects/pacemaker/doc/2.1/Clusters_from_Scratch/html/cluster-setup.html)
+- [GFS2 Amazon EBS Moniliitos levyissä](https://aws.amazon.com/blogs/storage/clustered-storage-simplified-gfs2-on-amazon-ebs-multi-attach-enabled-volumes/)
+- [Aloitetaan Pacemakerin kanssa](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/assembly_getting-started-with-pacemaker-configuring-and-managing-high-availability-clusters#proc_learning-to-use-pacemaker-getting-started-with-pacemaker)
+- [Red Hat Korkean saatavuuden klusterin konfigurointi Red Hat OpenStack alustalla](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_a_red_hat_high_availability_cluster_on_red_hat_openstack_platform/index)
+- [GFS2 tiedostojärjestelmät klusterissa](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/assembly_configuring-gfs2-in-a-cluster-configuring-gfs2-file-systems#proc_configuring-gfs2-in-a-cluster.adoc-configuring-gfs2-cluster)
+- [GFS2 tiedostojärjestelmän laajentaminen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/assembly_creating-mounting-gfs2-configuring-gfs2-file-systems#proc_growing-gfs2-filesystem-creating-mounting-gfs2)
+- [LVM tilavuusryhmien hallinta](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_logical_volumes/managing-lvm-volume-groups_configuring-and-managing-logical-volumes#managing-lvm-volume-groups_configuring-and-managing-logical-volumes)
 
-## OCFS2 as a second example
+## OCFS2 toisena esimerkkinä {#ocfs2-as-a-second-example}
 
-The [Oracle Cluster File System](https://en.wikipedia.org/wiki/OCFS2) version 2 is a shared disk file system developed by Oracle Corporation and released under the GNU General Public License. Meanwhile it is a different code base developed by a different vendor. The approach is the same as GFS2:
+[Oracle Cluster File System](https://en.wikipedia.org/wiki/OCFS2) versio 2 on jaettu levytiedostojärjestelmä, jonka on kehittänyt Oracle Corporation ja julkaistu GNU General Public License alla. Samaan aikaan se on erilainen koodipohja, jonka on kehittänyt toinen toimittaja. Lähestymistapa on sama kuin GFS2:
 
 ![OCFS2](../img/OCFS2.drawio.svg)
 
-A single volume attached to a cluster of VM nodes, allowing the data reads and writes to be done directly, and a daemon running in each VM node that coordinates the read and write operations.
+Yksi levy on liitetty klusteriin VM solmuista, mikä mahdollistaa datan luku- ja kirjoitusoperaatiot suoraan ja jokaisessa VM-solmussa on demoni, joka koordinoi luku- ja kirjoitusoperaatioita.
 
-### OCFS2 ansible install
+### OCFS2 ansible asennus
 
-Like with GFS2, the Ansible playbook will create a cluster of VMs and install the requested file system on them. The end result will be the same volume mounted in every VM. It is very similar than the instructions for GFS2. The quick start commands are these:
+Kuten GFS2:n kanssa, Ansible playbook luo klusterin VM:iä ja asentaa pyydetyn tiedostojärjestelmän niille. Lopputuloksena on sama levy asennettuna joka VM:ssä. Se on hyvin samanlainen kuin GFS2:n ohjeet. Pikakäynnistyksen komennot näyttävät tältä:
 
 ```sh
 $ source ~/Downloads/project_XXXXXXX-openrc.sh
@@ -556,25 +554,25 @@ done
 $ ansible-playbook main.yml -e fs='ocfs2'
 ```
 
-You need to run Ansible twice due to a bug in the `openstack.cloud.server_volume` which can only attach the volume to a single VM and fails with the other ones.
+Ansible täytyy suorittaa kahdesti johtuen bugista `openstack.cloud.server_volume`, joka pystyy liittämään levyn vain yhteen virtuaalikoneeseen ja epäonnistuu muiden kanssa.
 
-If you already have a cluster of VMs, or want to manually create them, it is still possible to use the ocfs2 Ansible role. The steps are simple:
+Jos sinulla on jo klusteri VM:istä tai haluat luoda ne manuaalisesti, on silti mahdollista käyttää `ocfs2` Ansible roolia. Vaiheet ovat yksinkertaiset:
 
-1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
+1. Luo ja liitä levy. Katso manuaalista [Luo ja liitä levy](#create-and-attach-a-volume) yllä.
 
-1. Create a standard Ansible inventory like this one:
+1. Luo standardi Ansible -inventaario, tällainen:
 
     ```ini
     [all]
-    <VM_name> ansible_host=192.168.1.XXX ansible_user=<user>
+    <VM_nimi> ansible_host=192.168.1.XXX ansible_user=<user>
     # ...
     [all:vars]
     ansible_ssh_common_args='-J <jumphost>'
     ```
 
-    In the example above you need to replace `<VM_name>` by the name of the VM, the IP `192.168.1.XXX` must be the correct IP of the VM, and finally the `<user>` has to also be replaced by the corresponding one. You need to have a line per VM node that you want to include in the cluster. Finally, if you are using a Jump Host, you need to replace `<jumphost>` by its connection information, like `ubuntu@177.51.170.99`
+    Esimerkin yllä sinun tulisi korvata `<VM_nimi>` virtuaalikoneen nimellä, IP `192.168.1.XXX` tulee olla oikea IP-osoite ja lopuksi `<user>` korvataan asianmukaisella käyttäjänimellä. Sinun täytyy lisätä yksi rivi per virtuaalikone, jonka haluat sisällyttää klusteriin. Lopuksi, jos käytät kyynärisolmua (Jump Host), sinun on korvattava `<jumphost>` sen yhteystiedoilla, kuten `ubuntu@177.51.170.99`
 
-1. Create a playbook (`main-ocfs2.yml` in this example) like this one:
+1. Luo playbook (tässä esimerkissä `main-ocfs2.yml`), kuten tämä:
 
     ```yaml
     ---
@@ -588,159 +586,46 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
         - role: ocfs2
     ```
 
-    This will run two roles, the hosts one if to create a `/etc/hosts` file in every VM with the IPs and names of every VM. The `ocfs2` role installs and configures the cluster.
+    Tämä suorittaa kaksi roolia: `hosts` luo `/etc/hosts` tiedoston jokaisessa VM:ssä IP-osoitteilla ja nimillä jokaiselle VM:lle. `ocfs2` rooli asentaa ja konfiguroi klusterin.
 
-1. And run it:
+1. Suorita se:
 
     ```sh
     $ ansible-playbook main-ocfs2.yml -i inventory.ini
-
     ```
 
-### OCFS2 manual install
+### OCFS2 manuaalinen asennus
 
-In order to install OCFS2, you need to follow few steps:
+Jotta voit asentaa OCFS2, sinun täytyy noudattaa muutamia vaiheita:
 
-1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use **Ubuntu** as an example.  
-AlmaLinux requires to install an specific [Oracle kernel](https://support.oracle.com/knowledge/Oracle%20Linux%20and%20Virtualization/1253272_1.html). More information in the [FAQ](#ocfs2-faq)
+1. Asenna VM solmut. Tässä vaiheessa ei ole erityistä huomioitavaa, kunhan varmistat, että solmut voivat nähdä toisensa verkossa (se on oletusasetuksena VM-soluissa, jotka on luotu samassa Pouta-projektissa) ja että ne on asennettu samalla jakeluversiolla. Olemme testanneet tämän `Ubuntu v22.04` ja `AlmaLinux-9`-versioilla, mutta muut jakelut ja versiot saattavat myös toimia, mutta niitä emme ole testanneet. Tämä opas käyttää **Ubuntua** esimerkkinä.  
+AlmaLinux vaatii tietyn [Oracle-ytimen](https://support.oracle.com/knowledge/Oracle%20Linux%20and%20Virtualization/1253272_1.html) asennuksen. Lisätietoja [UKK](#ocfs2-faq)
 
-1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
+1. Luo ja liitä levy. Katso manuaalista [Luo ja liitä levy](#create-and-attach-a-volume) yllä.
 
-1. Install the OCFS2 software:
+1. Asenna OCFS2 ohjelmisto:
 
     ```sh
     ocfs2-tools linux-modules-extra-<kernel_version> linux-image-$(uname -r)
     ```
-    We have tested this with `<kernel_version>` == `6.5.0-21-generic`, but newer versions should work as well or better.
+    Olemme testanneet tämän version kanssa `<kernel_version>` == `6.5.0-21-generic`, mutta uudemmat versiot saattavat työskennellä myös tai paremmin.
 
-1. Make sure that every node domain name can be resolved in every other node. In Pouta, the simplest way is to use [/etc/hosts](https://en.wikipedia.org/wiki/Hosts_(file)), where each host has a line similar to:
+1. Varmista, että jokaisen solmun domain nimi voidaan ratkaista jokaisessa muussa solmussa. Poutassa, yksinkertaisin tapa on käyttää [ /etc/hosts ](https://en.wikipedia.org/wiki/Hosts_(file)), jossa jokaisella isännällä on rivi, joka on samankaltainen kuin:
 
     ```sh
-    <ip> <vm_name>
+    <ip> <vm_nimi>
     ```
 
-1. Enable ocfs2 in every node using:
+1. Ota ocfs2 käyttöön jokaisessa solmussa käyttämällä:
 
     ```sh
     sudo dpkg-reconfigure ocfs2-tools
     ```
 
-1. Create the file system. You need to do this in **only one** of the VM nodes.
+1. Luo tiedostojärjestelmä. Sinun tulee tehdä tämä **vain yhdellä** VM solmujen kohdalla.
 
     ```sh
-    mkfs.ocfs2 -N <number_instances> /dev/vdb
+    mkfs.ocfs2 -N <numero_instanssia> /dev/vdb
     ```
 
-    Replace `<number_instances>` by the number of VM nodes in the cluster. Pay also attention and double check that `/dev/vdb` is the proper volume name. In principle `vdb` is going to be the first attached volume to a VM, but this might not be true in all cases.
-
-1. Generate the file `/etc/ocfs2/cluster.conf`. A minimal working example would follow this template:
-
-    ```
-    {% for host in groups['all'] %}
-    node:
-      ip_port = 7777
-      ip_address = {{ hostvars[host]['ansible_host'] }}
-      number = {{ groups['all'].index(host)+1 }}
-      name = {{ host }}
-      cluster = ocfs2
-    {% endfor %}
-    cluster:
-      node_count = {{ number_instances }}
-      name = ocfs2
-    ```
-
-1. Reboot so the kernel you installed is taken into use. Make sure that the `ocfs2` service is up and running (`systemctl status ocfs2`).
-
-1. Finally mount the volume in each node:
-
-    ```sh
-    sudo mount /dev/vdb /mnt
-    ```
-    As the device may change in any moment, it is recommended to use the `UUID` for any serious deployment. You can get the `UUID` by using the command `blkid`:
-
-    ```sh
-    $ sudo blkid /dev/vdb
-    /dev/vdb: UUID="785134b8-4782-4a1f-8f2a-40bbe7b7b5d2" BLOCK_SIZE="4096" TYPE="ocfs2"
-    ```
-    In this case the command will be `sudo mount -U 785134b8-4782-4a1f-8f2a-40bbe7b7b5d2 /mnt`
-
-
-### OCFS2 FAQ
-
-- **How to add more nodes?**
-
-    It is possible to add more nodes to a ocfs2 cluster, but it requires a downtime.
-
-    First you need to increase the number of slots, using `tunefs.ocfs2`. Before that, you need to umount the volume in every VM node. These are the two commands you need to run. The second one only needs to be executed in a single node:
-
-    ```sh
-    sudo umount /mnt
-    sudo tunefs.ocfs2 -N 25 /dev/vdb
-    ```
-
-    Secondly, create the new node, install the required software and attach the volume using openstack API. The process is described above.
-
-    Then you need to edit the file `/etc/ocfs2/cluster.conf` in every node and add an entry for the new one:
-
-    ```yaml
-    node:
-      ip_port = 7777
-      ip_address = <ip_address>
-      number = <number>
-      name = <vm_name>
-      cluster = ocfs2
-    ```
-
-    Replace `<ip_address>` by the address of the new server, `<vm_name>` by its name, and finally `<number>` is the node id number. It has to be unique for every node, ideally consecutive numbers.
-
-    Once the file is updated, you need to stop the mount and restart the `ocfs2` in every node in the cluster. Lastly, remount the volume in every VM node.
-
-* **What happens if a VM gets disconnected?**
-
-    This covers two different use cases, a temporal and/or unexpected disconnection, and a permanent one. It is very similar to the GFS2 situation.
-
-    For a temporal and unexpected disconnection, the cluster should be able to deal with this kind of issues automatically. After the node is back, you need to check that all came back to normal. In some cases the automatic mount of the volume can fail, if so mount the volume as explained above.
-
-    If it is temporal but expected, like to update the kernel version. Umount the volume in the node (`sudo umount /mnt`) before rebooting the node. It is not required, but recommended.
-
-    For a permanent disconnection of a VM, one need to do the inverse process of adding a new node. Umount the volume (`sudo umount /mnt`), remove the entry for this VM in the `/etc/ocfs2/cluster.conf` file of every node, and finally restart the daemons in every node. This needs to be done as it affects the quorum count for the cluster.
-
-* **Is it possible to mount a node as read-only?**
-
-    Yes, it is possible to mount the volume as read-only. It is as simple as:
-
-    ```sh
-    sudo mount /dev/vdb /mnt -o ro
-    ```
-
-    After that, you can check that it was indeed mounted as read-only by:
-
-    ```sh
-    mount | grep /mnt
-    /dev/vdb on /mnt type ocfs2 (ro,relatime,_netdev,heartbeat=local,nointr,data=ordered,errors=remount-ro,atime_quantum=60,coherency=full,user_xattr,acl)
-    ```
-    Also, as you can see in the output above, the default behaviour is that when any error occurs, to remount it as read only (`errors-remount-ro`). See `mount.ocfs2` for more options.
-
-* **I want to install Oracle Kernel on a RedHat 9 distro**  
-
-    You can find more information [here](https://yum.oracle.com/getting-started.html#red-hat-enterprise-linux-centos) on how to install the Oracle Linux repo. Once set, you can install the Oracle UEK kernel with these commands:
-
-    First
-    ```sh
-    sudo dnf install oraclelinux-release-el9
-    ```
-
-    And then
-    ```sh
-    sudo dnf install kernel-uek
-    ```
-
-## Upstream documentation
-
-- GFS2: 
-    - <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/index>
-- OCFS2: 
-    - <https://ocfs2.wiki.kernel.org/>
-    - <https://public-yum.oracle.com/>
-    - <https://docs.oracle.com/en/operating-systems/oracle-linux/9/shareadmin/shareadmin-ManagingtheOracleClusterFileSystemVersion2inOracleLinux.html#about-ocfs2>
-    - <https://docs.oracle.com//en/learn/ocfs2_cluster_linux_8/#introduction>
+    Korvaa `<numero_instanssia>` klusterin solmujen lukumäärällä. Kiinnitä huomiota ja varmista, että `/dev/vdb` on oikein levyn nimi. Periaatteessa `vdb` on ensimmäinen liitetty levy

@@ -1,134 +1,134 @@
-# Common use cases
 
-## Processing data in CSC supercomputers
+# Yleiset käyttötilanteet
 
-The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. For example in the _scratch_ area of Puhti the un-used files are automatically removed after 180 days. 
+## Datan käsittely CSC:n supertietokoneilla {#processing-data-in-csc-supercomputers}
 
-One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start
-working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
+CSC:n supertietokoneet tarjoavat levyympäristöjä suurten tietoaineistojen käsittelyyn. Nämä tallennusalueet eivät kuitenkaan ole tarkoitettu tietojen säilyttämiseen, jos niitä ei aktiivisesti käytetä. Esimerkiksi Puhti-järjestelmän _scratch_-alueella käyttämättömät tiedostot poistetaan automaattisesti 180 päivän jälkeen.
 
-In CSC supercomputers, connection to Allas can be established with commands:
+Eräs Allaksen pääkäyttötilanteista on tallentaa dataa silloin, kun sitä ei aktiivisesti käytetä CSC:n supertietokoneilla. Työskentelyn alkaessa data siirretään Allaksesta, ja kun dataa ei enää aktiivisesti käytetä, se voidaan siirtää takaisin Allakseen.
+
+CSC:n supertietokoneilla yhteys Allakseen voidaan muodostaa seuraavilla komennoilla:
 ```text
 module load allas
 allas-conf
 ```
-After that you can:
+Tämän jälkeen voit:
 
-**List the data buckets and objects in Allas:** For listing we recommend [a-list](./a_commands.md#a-list).
+**Luetteloida datakaukalot ja objektit Allaksessa:** Luettelointiin suosittelemme [a-list](./a_commands.md#a-list). 
 ```text
 a-list
 ```
-The command above lists available data buckets in Allas. To list data objects in a bucket give command:
+Yllä oleva komento listaa käytettävissä olevat datakaukalot Allaksessa. Luetteloidaksesi datan objektit kaukalossa, anna komento:
 ```text
 a-list bucket_name
 ```
-alternatively you can use [rclone](./rclone.md) commands:
+vaihtoehtoisesti voit käyttää [rclone](./rclone.md) komentoja:
 ```text
 rclone lsd allas:
 rclone ls allas:bucket_name
 ```
-**Copy data from Allas to a supercomputer (Puhti or Mahti) (stage in):** For downloading we recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) 
+**Kopioi data Allaksesta supertietokoneelle (Puhti tai Mahti) (stage in):** Lataamiseen suosittelemme [a-get](./a_commands.md#a-get-retrieves-stored-data)
 ```text
 a-get bucket/object_name
 ```
-or [rclone copy](./rclone.md):
+tai [rclone copy](./rclone.md):
 ```text
 rclone copy allas:bucket/object_name ./
 ```
 
-**Copy data from a Supercomputer to Allas (stage out):** For uploading we recommend [a-put](./a_commands.md#a-put-uploads-data-to-allas) 
+**Kopioi data supertietokoneelta Allakseen (stage out):** Lataamiseen suosittelemme [a-put](./a_commands.md#a-put-uploads-data-to-allas)
 ```text
 a-put filename
 ```
-or [rclone copy](./rclone.md):
+tai [rclone copy](./rclone.md):
 ```test
 rclone copy file.dat allas:/bucket_name 
 ```
 
-!!! note
-    Both a-put/a-get and rclone use Swift protocol on Allas. It is important not to mix Swift and S3, as these protocols are not fully mutually compatible.
+!!! huomio
+    Sekä a-put/a-get että rclone käyttävät Swift-protokollaa Allaksessa. On tärkeää olla sekoittamatta Swift- ja S3-protokollia, sillä ne eivät ole täysin yhteensopivia.
 
-## Sharing data
+## Datan jakaminen {#sharing-data}
 
-Sharing data, e.g. datasets or research results, is easy in the object storage. You can share these either with a limited audience, e.g. other projects, or allow access for everybody by making the data public.
+Datan, esimerkiksi tietoaineistojen tai tutkimustulosten, jakaminen on helppoa objektitallennuksessa. Voit jakaa niitä joko rajoitetulle yleisölle, kuten muille projekteille, tai antaa pääsyn kaikille tekemällä datasta julkista.
 
-The data can be accessed and shared in a variety of ways:
+Dataan pääsee käsiksi ja sitä voi jakaa monin tavoin:
 
-* **Private – default:** By default, if you do not specify anything else, the contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
+* **Yksityinen – oletus:** Oletuksena, jos et määrittele muuta, kaukaloiden sisältöä voivat käyttää vain projektisi todentautuneet jäsenet. **Yksityinen**/**Julkinen** asetuksia voi hallita:
 
-    * [swift client](./swift_client.md#giving-another-project-read-and-write-access-to-a-bucket) Use this for buckets created/used by `a-put/a-get` or `rclone`.
+    * [swift client](./swift_client.md#giving-another-project-read-and-write-access-to-a-bucket) Käytä tätä kaukaloille, jotka on luotu/käytetty `a-put/a-get` tai `rclone` avulla.
     * [Web client](./web_client.md#view-objects-via-the-internet)
     * [S3 client](./s3_client.md#s3cmd-and-public-objects)
 
-* **Access control lists:** Access control lists (ACLs) work on buckets, not objects. With ACLs, you can share your data in a limited manner to other projects. You can e.g. grant a collaboration project authenticated read access to your datasets.
+* **Pääsynvalvontalistat (Access control lists, ACLs):** Pääsynvalvontalistat toimivat kaukaloilla, ei objekteilla. ACL:ien avulla voit rajata datan jakamista muille projekteille. Voit esimerkiksi antaa yhteistyöprojektille todentautuneen lukuoikeuden tietoaineistoihisi.
 
- * **Temporary signed links** can be created with [s3cmd](./s3_client.md#publishing-objects-temporarily-with-signed-urls) . This kind of links can be used in cases where the data needs to be accessed over the internet without credentials, but is not supposed to remain publicly accessible.
- 
- * **Public:** You can also have ACLs granting public read access to data, which is useful e.g. for permanently sharing public scientific results or public datasets.
+* **Väliaikaiset allekirjoitetut linkit** voi luoda [s3cmd](./s3_client.md#publishing-objects-temporarily-with-signed-urls) avulla. Tällaisia linkkejä voi käyttää tilanteissa, joissa dataan pitää päästä käsiksi internetissä ilman tunnuksia, mutta sen ei ole tarkoitus jäädä julkisesti saataville.
 
-## Static web content
+* **Julkinen:** Voit myös luoda ACL:jä, jotka antavat julkisen lukuoikeuden dataan, mikä on hyödyllistä esimerkiksi tieteellisten tulosten tai tietoaineistojen pysyvää jakamista varten.
 
-A common way to use the object storage is storing static web content, such as images, videos, audio, pdfs or other downloadable content, and adding links to it on a web page, which can run either inside Allas or somewhere else, [like this example](https://a3s.fi/my_fishbucket/my_fish).
+## Staattinen verkkosisältö {#static-web-content}
 
-Uploading data to Allas can be done with any of the following clients: [web client](./web_client.md#upload-an-object), [a-commands](./a_commands.md#a-put-uploads-data-to-allas),[rclone](./rclone.md#create-buckets-and-upload-objects), [Swift](./swift_client.md#create-buckets-and-upload-objects) or [S3](./s3_client.md#create-buckets-and-upload-objects).
+Yleinen tapa käyttää objektitallennusta on tallentaa staattista verkkosisältöä, kuten kuvia, videoita, ääntä, PDF-tiedostoja tai muuta ladattavaa sisältöä, ja lisätä siihen linkit verkkosivulle, joka voi toimia joko Allaksen sisällä tai muualla, [kuten tämä esimerkki](https://a3s.fi/my_fishbucket/my_fish).
 
-## Storing data for distributed use
+Datan lataaminen Allakseen voidaan tehdä millä tahansa seuraavista asiakkaista: [web client](./web_client.md#upload-an-object), [a-commands](./a_commands.md#a-put-uploads-data-to-allas), [rclone](./rclone.md#create-buckets-and-upload-objects), [Swift](./swift_client.md#create-buckets-and-upload-objects) tai [S3](./s3_client.md#create-buckets-and-upload-objects).
 
-There are several cases where you need to access data in several locations. In these cases, the practice of staging in the data to individual servers or computers from the object storage can be used instead of a shared file storage.
+## Datan tallentaminen hajautettuun käyttöön {#storing-data-for-distributed-use}
 
-## Accessing the same data via multiple CSC platforms
+On useita tilanteita, joissa tarvitset pääsyn dataan useissa paikoissa. Näissä tapauksissa datan tuominen yksittäisille palvelimille tai tietokoneille objektitallennuksesta voi korvata jaetun tiedostotallennuksen käytön.
 
-Since the data in the object storage is available anywhere, you can access the data via both the CSC clusters and cloud services. This makes the object storage a good place to store data as well as intermediate and final results in cases where the workflow requires the use of e.g. both Allas and Puhti.
+## Pääsy samaan dataan useilla CSC-alustoilla {#accessing-the-same-data-via-multiple-csc-platforms}
 
-## Collecting data from different sources
+Koska data objektitallennuksessa on saatavilla kaikkialla, voit käyttää sitä sekä CSC-klustereilla että pilvipalveluissa. Tämä tekee objektitallennuksesta hyvän paikan tallentaa sekä väli- että lopputuloksia tapauksissa, joissa työnkulku edellyttää esimerkiksi sekä Allaksen että Puhtin käyttöä.
 
-It is easy to push data to the object storage from several different sources. This data can then later be processed as needed.
+## Datan kerääminen eri lähteistä {#collecting-data-from-different-sources}
 
-For example, several data collectors may push data to be processed, e.g. scientific instruments, meters, or software that harvests social media streams for scientific analysis. They can push their data into the object storage, and later virtual machines and computing jobs on Puhti can process the data.
- 
-## Self-service backups of data
+On helppoa siirtää dataa objektitallennukseen useista eri lähteistä. Tämä data voidaan sitten myöhemmin käsitellä tarpeen mukaan.
 
-The object storage is also often used as a location for storing backups. It is a convenient place to push copies of database dumps.
+Esimerkiksi useat datankerääjät voivat siirtää käsittelyyn tarkoitettua dataa, kuten tieteellisiä instrumentteja, mittareita tai ohjelmistoja, jotka keräävät sosiaalisen median virtoja tieteellistä analyysiä varten. Ne voivat siirtää datansa objektitallennukseen, ja myöhemmin Puhti-järjestelmän virtuaalikoneet ja laskentatehtävät voivat käsitellä dataa.
 
-[allas-backup](./a_backup.md) is a part of *a-commands*. It works as a tool for creating backup copies of files in Allas.
-!!! note 
-    Allas-backup is not a real backup service.
-    It only copies the data to another bucket in Allas which can 
-    be easily removed or overwrited by any authenticated user.
+## Omatoimiset tietojen varmuuskopiot {#self-service-backups-of-data}
 
-## Files larger than 5 GB
+Objektitallennusta käytetään myös usein varmuuskopioiden säilyttämispaikkana. Se on kätevä paikka viedä tietokantadumppien kopioita.
 
-Files larger than 5 GB are divided into smaller segments during upload. 
+[allas-backup](./a_backup.md) on osa *a-commands*-ohjelmistoa. Se toimii työkaluna varmuuskopioiden luomiseksi tiedostoista Allaksessa.
+!!! huomio
+    Allas-backup ei ole oikea varmuuskopiointipalvelu.
+    Se vain kopioi tiedot toiseen kaukaloon Allaksessa, joka voi 
+    helposti poistaa tai ylikirjoittaa kuka tahansa todentautunut käyttäjä.
 
-* *a-put* and *rclone*  split large files automatically: [a-put](./a_commands.md#a-put-uploads-data-to-allas)
+## Yli 5 GB:n tiedostot {#files-larger-than-5-gb}
 
-* Using _Swift_, you can use the _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
+Yli 5 GB:n tiedostot jaetaan pienempiin segmentteihin latauksen aikana.
 
-* _s3cmd_ splits large files automatically: [s3cmd put](./s3_client.md#create-buckets-and-upload-objects)
+* *a-put* ja *rclone* jakavat suuret tiedostot automaattisesti: [a-put](./a_commands.md#a-put-uploads-data-to-allas)
 
+* Käyttäessäsi _Swiftiä_, voit käyttää _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
 
-After upload, s3cmd connects these segments into one large object, but in case of swift based uploads (a-put, rclone , swift) the large files are also stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would use _a-put_ to upload a large file to bucket _123-dataset_ the actual data would be stored as several pieces into bucket _123-dataset_segments_. The target bucket _123_dataset_ would contain just a front object that contains information what segments make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the _segments_ buckets at all and objects inside these buckets should not be deleted or modified. 
+* _s3cmd_ jakaa suuret tiedostot automaattisesti: [s3cmd put](./s3_client.md#create-buckets-and-upload-objects)
 
-## Viewing
+Lataamisen jälkeen s3cmd yhdistää nämä segmentit yhdeksi suureksi objektiksi, mutta swift-pohjaisissa latauksissa (a-put, rclone, swift) suuret tiedostot tallennetaan myös useiksi objekteiksi. Tämä tehdään automaattisesti kaukaloon, joka nimetään lisäämällä jatkoksi `_segments` alkuperäisen kaukalon nimeen. Esimerkiksi, jos käytät _a-put_:ia ladataksesi suuren tiedoston kaukaloon _123-dataset_, todelliset tiedot tallennetaan useiksi paloiksi kaukaloon _123-dataset_segments_. Kohdekaukalo _123_dataset_ sisältää vain etuobjektin, joka sisältää tiedon siitä, mitkä segmentit muodostavat tallennetut tiedoston. Etuobjektiin kohdistuvat toimenpiteet heijastuvat automaattisesti segmentteihin. Käyttäjien ei yleensä tarvitse käsitellä _segments_-kaukaloita ollenkaan, eikä niissä olevia objekteja tulisi poistaa tai muokata.
 
-In CSC supercomputers you can check the number of objects and the amount of stored data in your current Allas project with command:
+## Katselu {#viewing}
+
+CSC:n supertietokoneilla voit tarkistaa projektisi nykyisen Allas-objektien ja tallennettujen tietojen määrän komennolla:
 ```text
 a-info
 ```
 
-If you are using the _s3cmd client_, check your project's object storage usage:
+Jos käytät _s3cmd client_:ia, tarkista projektisi objektitallennustilan käyttö:
 ```bash
 s3cmd du -H
 ```
 
-If you use the _Swift client_:
+Jos käytät _Swift client_:ia:
 ```bash 
 swift stat
 ```
 
-Display how much space a bucket has used:
+Näytä kuinka paljon tilaa kaukalo on käyttänyt:
 ```bash
 swift stat $bucketname
 ```
 
-Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) if you have questions.
+Ota yhteyttä [servicedesk@csc.fi](mailto:servicedesk@csc.fi), jos sinulla on kysyttävää.
+

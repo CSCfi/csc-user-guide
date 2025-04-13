@@ -1,101 +1,99 @@
-# Using Allas to host a data set for a research project #
 
-An example scenario of an Allas use case.
+# Allaksen käyttäminen tutkimushankkeen tietoaineiston isännöintiin #
 
-### Roles of the play ###
+Esimerkki Allaksen käyttöskenaariosta.
 
-**Saara**:   A professor coordinating an inspiring research project.
+### Roolijako ###
 
-**Pekka**:  A researcher that takes care of the data management of the project.
+**Saara**:   Inspiroivan tutkimushankkeen koordinaattori, professori.
 
-**Mats**:    A technician working at Analysis Service Center.
+**Pekka**:  Tutkimushankkeen tietohallinnosta vastaava tutkija.
 
-**Xi and Laura**:   Researchers working in the research project. 
- 
+**Mats**:    Analyysipalvelukeskuksessa työskentelevä teknikko.
 
-## Act 1. Professor Saara opens CSC projects ##
+**Xi ja Laura**:   Tutkimushankkeessa työskentelevät tutkijat.
 
-Professor Saara is running a large research project called _HiaNo_ in a Finnish university. 
-The project has just sent a set of samples to Analysis Service Center to be processed and analyzed. 
-The analysis takes some weeks and produces 80 TB of data that the research group will use in the actual research.
 
-Saara and Pekka, who is taking care of the data management, study the [storage options provided by CSC](https://research.csc.fi/data-management). They decide to use the Allas service for storing and sharing the data during the research project. The data is not sensitive personal data, so Allas is suitable.
+## Näytös 1. Professori Saara avaa CSC-projektit {#act-1-professor-saara-opens-csc-projects} ##
 
-As a first step, Saara and Pekka login to the [MyCSC portal](https://my.csc.fi) and [register as CSC users](../../accounts/how-to-create-new-user-account.md).
+Professori Saara johtaa suurta tutkimushanketta nimeltä _HiaNo_ eräässä suomalaisessa yliopistossa. Projekti on juuri lähettänyt joukon näytteitä analysoitavaksi Analyysipalvelukeskukseen, ja analyysin tuloksena syntyy 80 teratavua dataa, jota tutkimusryhmä käyttää varsinaiseen tutkimukseen.
 
-Then Saara [creates two research projects](../../accounts/how-to-create-new-project.md) at CSC: one called _Data management of the HiaNo project_ (project ID: project_2000444) and another called _HiaNo research project_ (project ID: project_2000333).
+Saara ja tietohallinnosta vastaava Pekka tutkivat [CSC:n tarjoamia tallennusvaihtoehtoja](https://research.csc.fi/data-management). He päättävät käyttää Allas-palvelua datan tallennukseen ja jakamiseen tutkimushankkeen aikana. Data ei ole arkaluonteista henkilötietoa, joten Allas on sopiva vaihtoehto.
 
-Once the CSC projects are established, Saara [activates the Allas, Puhti and cPouta services](../../accounts/how-to-add-service-access-for-project.md) for both projects. As Saara knows that the default storage space of Allas (10 TB) will not be enough for the incoming data set, she sends a request for 90 TB of Allas quota for the project _Data management of the HiaNo project_ to servicedesk@csc.fi.
+Ensimmäiseksi Saara ja Pekka kirjautuvat [MyCSC-portaaliin](https://my.csc.fi) ja [rekisteröityvät CSC:n käyttäjiksi](../../accounts/how-to-create-new-user-account.md).
 
-Finally, Saara [adds Pekka to both CSC projects](../../accounts/how-to-add-members-to-project.md) and asks him to take care of the details of the incoming data.  
+Saara [luo kaksi tutkimusprojektia](../../accounts/how-to-create-new-project.md) CSC:ssa: toinen nimeltään _HiaNo-projektin tietohallinta_ (projektitunnus: project_2000444) ja toinen nimeltään _HiaNo-tutkimusprojekti_ (projektitunnus: project_2000333).
 
-## Act 2. Creating a shared bucket ##
+CSC-projektien perustamisen jälkeen Saara [aktivoi Allas-, Puhti- ja cPouta-palvelut](../../accounts/how-to-add-service-access-for-project.md) molemmille projekteille. Koska Saara tietää, että Allaksen oletustallennustila (10 TB) ei riitä tulevalle tietoaineistolle, hän lähettää pyynnön 90 TB:n Allas-kiintiön saamiseksi projektille _HiaNo-projektin tietohallinta_ osoitteeseen servicedesk@csc.fi.
 
-Mats from Analysis Service Center contacts Pekka and tells that the results are available, and asks how he should deliver the data. Mats has an account at CSC (_msundber_ in the project _project_2000111_) with Allas enabled, so Pekka proposes that data be uploaded to Allas. For that purpose, Pekka creates a bucket in Allas and allows Mats to use it.
+Lopuksi Saara [lisää Pekan molempiin CSC-projekteihin](../../accounts/how-to-add-members-to-project.md) ja pyytää häntä huolehtimaan saapuvan datan yksityiskohdista. 
 
-Pekka logs in to Puhti
+## Näytös 2. Jaetun bucketin luominen {#act-2-creating-a-shared-bucket} ##
+
+Analyysipalvelukeskuksen Mats ottaa yhteyttä Pekkaan ja kertoo, että tulokset ovat saatavilla, ja kysyy, miten hän voisi toimittaa datan. Matsilla on CSC:n tili (_msundber_ projektissa _project_2000111_), jossa on Allas käytössä, joten Pekka ehdottaa, että data ladataan Allakseen. Tätä varten Pekka luo Allakseen bucketin ja sallii Matsin käyttää sitä.
+
+Pekka kirjautuu Puhdille
 ```text
 ssh puhti.csc.fi   
 ```
-and opens a connection to the data management project in Allas:
+ja avaa yhteyden tietohallintaprojektiin Allaksessa:
 ```text
 module load allas
 allas-conf project_2000444
 ```
-Then he creates a new bucket in Allas. There are many ways to do this but this time, Pekka does this by importing a new file to Allas with _a-put_:
+Sitten hän luo uuden bucketin Allakseen. Tämä voidaan tehdä monella tavalla, mutta tällä kertaa Pekka tekee sen tuomalla uuden tiedoston Allakseen _a-put_-komennolla:
 ```text
-echo “This bucket is used to host the original data of HiaNo project sample1” > README.txt
+echo “Tämä bucket isännöi HiaNo-projektin alkuperäistä tietoaineistoa sample1” > README.txt
 a-put -b hiano-project-sample001 README.txt
 a-list hiano-project-sample001 
 ```
-Pekka included the project name in the bucket name (_hiano-project-sample001_) to make sure that the bucket name is unique in the whole Allas service. The _a-list_ command shows that the bucket was successfully created.
+Pekka sisällytti projektin nimen bucketin nimeen (_hiano-project-sample001_), jotta bucketin nimi on uniikki koko Allas-palvelussa. _a-list_-komento osoittaa, että bucket luotiin onnistuneesti.
 
-Next Pekka uses the _a-access_ command to [modify the access rights of the new bucket](./using_allas/swift_client.md#giving-another-project-read-and-write-access-to-a-bucket) so that Mats (user _msundber_ from Allas _project_2000111_) is able so use it.
+Seuraavaksi Pekka käyttää _a-access_-komentoa [mukaillakseen uuden bucketin käyttöoikeuksia](./using_allas/swift_client.md#giving-another-project-read-and-write-access-to-a-bucket), jotta Mats (käyttäjä _msundber_ Allas-projektista _project_2000111_) voi sitä käyttää.
 ```text
 a-access +rw project_2000111 hiano-project-sample001
 ```
-Pekka still needs to send the name of the shared bucket to Mats, as normal Allas listing commands do not display the name for Mats who is not a member in the project that owns the bucket.
+Pekka joutuu vielä lähettämään jaetun bucketin nimen Matsille, sillä tavalliset Allas-listauskomennot eivät näytä nimeä Matsille, joka ei ole projektin jäsen, joka omistaa bucketin.
 
-## Act 3. Uploading data
+## Näytös 3. Datan lataaminen {#act-3-uploading-data} ##
 
-Mats has [Allas tools](https://github.com/CSCfi/allas-cli-utils) installed in the front-end server of the measurement device at Analysis Service Center. Thus he can upload the data directly from the front-end server to the _hiano-project-sample1_ bucket in Allas:
+Matilla on [Allas-työkalut](https://github.com/CSCfi/allas-cli-utils) asennettuna mittalaitteen käyttöliittymäpalvelimeen Analyysipalvelukeskuksessa. Näin hän voi ladata datan suoraan käyttöliittymäpalvelimelta _hiano-project-sample1_-bucketiin Allaksessa:
 ```text
-rclone copy sample1/cannel43/aa_3278830.dat  allas:hiano-project-sample001/sample1/cannel43/aa_3278830.dat
+rclone copy sample1/cannel43/aa_3278830.dat allas:hiano-project-sample001/sample1/cannel43/aa_3278830.dat
 ```
-As there is a large amount of data to be transported, the upload takes few days and needs to be done in several batches. When Mats tells that he is ready with the data uploads, Pekka closes the shared bucket:
+Koska siirrettävää dataa on paljon, lataus kestää useita päiviä ja se on tehtävä useissa erissä. Kun Mats kertoo Pekalle datan siirron olevan valmis, Pekka sulkee jaetun bucketin:
 ```text
 a-access -rw project_2000111 hiano-project-sample001
 ```
 
-## Act 4. Using the data in research ##
+## Näytös 4. Datan käyttö tutkimuksessa {#act-4-using-the-data-in-research} ##
 
-Once the data is available, the actual analysis work begins. There will be several users using the data set during the research project. Pekka knows that if all users use the data with full access rights (read and write), there is a danger that somebody accidentally deletes or overwrites some part of the data. Thus, it is agreed that while the data is hosted by the data management project (project_2000444), the researchers access the data through the _HiaNo research project_ (project_2000333).
+Kun data on saatavilla, varsinainen analyysityö alkaa. Useat käyttäjät tulevat käyttämään tietoaineistoa tutkimushankkeen aikana. Pekka tietää, että jos kaikki käyttäjät käyttävät dataa täysillä käyttöoikeuksilla (luku ja kirjoitus), on vaarana, että joku poistaa tai korvaa vahingossa osan tiedoista. Siksi on sovittu, että kun dataa hallinnoi projektin tietohallinta (project_2000444), tutkijat pääsevät dataan _HiaNo-tutkimusprojektin_ (project_2000333) kautta.
 
-Pekka gives read access to the _hiano-project-sample001_ bucket for the project _project_2000333_ but no write access.
+Pekka antaa _hiano-project-sample001_-bucketille lukuoikeuden projektille _project_2000333_, mutta ei kirjoitusoikeutta.
 ```text
 module load allas
 allas-conf project_2000444
 a-access +r project_2000333 hiano-project-sample001
 ```
-Xi and Laura can now start working with the data. They register using the MyCSC portal, after which Saara, who is the Principal Investigator, adds them to the CSC project _HiaNo research project_ (project_2000333).
+Xi ja Laura voivat nyt aloittaa työn datan kanssa. He rekisteröityvät MyCSC-portaalin kautta, jonka jälkeen vastuututkija Saara lisää heidät CSC-projektiin _HiaNo-tutkimusprojekti_ (project_2000333).
 
-Xi and Laura need to revisit MyCSC and accept the services of the research project. After that, they can download the research data they need to any environment that is able to connect to Allas: Puhti, a virtual machine in cPouta, or their own laptop. As new researchers join the project, Saara adds them in project_2000333, so that they can access the data.
+Xi ja Laura käyvät uudelleen MyCSC:ssä ja hyväksyvät tutkimusprojektin palvelut. Tämän jälkeen he voivat ladata tarvitsemaansa tutkimusdataa mihin tahansa ympäristöön, joka voi muodostaa yhteyden Allakseen: Puhtiin, virtuaalikoneelle cPoutassa tai omaan kannettavaan tietokoneeseensa. Kun uusia tutkijoita liittyy projektiin, Saara lisää heidät projektiin_2000333, jotta heillä on pääsy dataan.
 
-Because storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC from time to time, and if needed, [apply for more billing units](../../accounts/how-to-apply-for-billing-units.md) (80 TB consumes 700 800 Bu in year). Fortunately, HiaNo is an academic research project, so Saara does not need to pay for the billing units.
+Koska datan tallentaminen Allakseen kuluttaa laskentayksiköitä, Saara joutuu tarkistamaan saldon MyCSC:stä säännöllisesti ja tarvittaessa [hakemaan lisää laskentayksiköitä](../../accounts/how-to-apply-for-billing-units.md) (80 TB kuluttaa 700 800 Bu vuodessa). Onneksi HiaNo on akateeminen tutkimushanke, joten Saaraan ei tarvitse maksaa laskentayksiköistä.
 
-Allas storage is only for research project's duration, but Saara thinks it would be beneficial to have the preliminary data made publicly available and easier to be found. This is supported by the [Fairdata Services](https://www.fairdata.fi/en/) produced by CSC.
+Allaksen tallennustila on vain tutkimusprojektin keston ajan, mutta Saara ajattelee, että olisi hyödyllistä, jos alustavaa dataa tehtäisiin julkisesti saatavilla ja helpommin löydettäväksi. Tähän on tukea CSC:n tuottamista [Fairdata-palveluista](https://www.fairdata.fi/en/).
 
-Pekka creates a new bucket with public access and uploads the data to the bucket. Command _a-publish_ creates the bucket and uploads the selected files into it. Parameter `-b` is used to define the name for the bucket, in this case `hiano-project-public001`.
+Pekka luo uuden bucketin, jossa on julkinen pääsy ja lataa datan bucketille. Komento _a-publish_ luo bucketin ja lataa valitut tiedostot sinne. Parametria `-b` käytetään bucketin nimen määrittämiseen, tässä tapauksessa `hiano-project-public001`.
 ```text
 a-publish -b hiano-project-public001 zz_364872.dat zz_242165.dat
 ```
-Next, Pekka creates a basic description of the data using the [Fairdata Qvain Tool](https://www.fairdata.fi/en/qvain/) and provides the two URLs (one for each file in Allas) as a Remote Resource in Qvain. After this, the data can be published as a dataset with a landing page and a persistent identifier. This way the preliminary data can be shared among colleagues using the persistent identifier. The dataset can also be explored via [Fairdata Etsin Service](https://www.fairdata.fi/en/etsin/) with structured information and direct access to download the files in Allas.
+Seuraavaksi Pekka luo perustiedot datasta [Fairdata Qvain -työkalun](https://www.fairdata.fi/en/qvain/) avulla ja antaa kaksi URL-osoitetta (yksi kullekin Allas-tiedostolle) etäresurssina Qvainissa. Tämän jälkeen data voidaan julkaista tietoaineistona avautumisivulla ja pysyvällä tunnisteella. Näin alustavaa dataa voidaan jakaa kollegoille pysyvän tunnisteen avulla. Tietoaineistoon voi myös tutustua [Fairdata Etsin -palvelussa](https://www.fairdata.fi/en/etsin/) jäsennetyn tiedon avulla ja ladata tiedostoja suoraan Allaksesta.
 
+## Näytös 5. Loppu {#act-5-the-end} ##
 
-## Act 5. The end ##
+Neljän vuoden intensiivisen tutkimuksen jälkeen, joka on laajentunut useisiin laitoksiin Suomessa ja ulkomailla, HiaNo-projekti on tuottanut muutaman opinnäytetyön ja monia korkealaatuisia julkaisuja (joissa kaikissa on tunnustettu CSC:n resurssien käyttö).
 
-After four years of intensive research that has expanded to several institutes in Finland and abroad, the HiaNo project has produced a few theses and many high quality publications (all acknowledging the use of CSC resources).  
+Tällä hetkellä dataa ei enää käytetä aktiivisesti. Osa Allakseen tuodusta datasta on julkaistu kansainvälisissä tutkimustietokannoissa. Jotkin datasetit on siirretty [IDA-palveluun](https://ida.fairdata.fi) (IDA), jotta dataan voidaan liittää DOI-tunniste ja metatieto, jotta muut tutkijat voivat käyttää sitä uudelleen. Näihin datasettiin voi myös tutustua [Fairdata Etsin -palvelun](https://www.fairdata.fi/en/etsin/) kautta. Osa datoista voidaan nyt poistaa ja osa jäljellä olevista osista siirtää uuteen _HiaNo2_-projektin bucketeihin.
 
-The data is no longer actively used presently. A part of the data that was imported to Allas has been published in international research databases. Some datasets have been moved to [IDA](https://ida.fairdata.fi), so that a DOI identifier and metadata can be linked to the data to make it reusable by other researchers. These datasets can also be explored via [Fairdata Etsin](https://www.fairdata.fi/en/etsin/). Some data can now be deleted and some remaining parts be moved to the buckets of the new _HiaNo2_ project.
-
-At this stage, Pekka cleans the remaining data objects from Allas, after which Saara informs CSC that the project can be closed.
+Tässä vaiheessa Pekka puhdistaa jäljellä olevat dataobjektit Allaksesta, minkä jälkeen Saara ilmoittaa CSC:lle, että projekti voidaan sulkea.

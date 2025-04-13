@@ -1,7 +1,8 @@
-# Desktop
-The desktop enables using graphical applications on a Puhti or Mahti compute node.
+# Työpöytä {#desktop}
 
-In the Puhti web interface, the following applications are available in the desktop:
+Työpöytä mahdollistaa graafisten sovellusten käytön Puhti- tai Mahti-laskentasolmussa.
+
+Puhtin verkkokäyttöliittymässä seuraavat sovellukset ovat saatavilla työpöydällä:
 
 * [CloudCompare](../../apps/cloudcompare.md)
 * [COMSOL](../../apps/comsol.md)
@@ -14,40 +15,35 @@ In the Puhti web interface, the following applications are available in the desk
 * [SNAP](../../apps/snap.md)
 * [VMD](../../apps/vmd.md)
 
-On Mahti, the following applications are available:
+Mahtissa ovat saatavilla seuraavat sovellukset:
 
 * [Maestro](../../apps/maestro.md)
 * [VMD](../../apps/vmd.md)
 
-Only CPU rendering is supported in the graphical applications launched from the desktop.
-See [here how to enable GPU-accelerated visualization](accelerated-visualization.md)
-for selected applications on Puhti.
+Vain CPU-renderointi on tuettuna työpöydältä käynnistetyissä graafisissa sovelluksissa. Katso [täältä, miten GPU-kiihdytetty visualisointi otetaan käyttöön](accelerated-visualization.md) valituissa Puhti-sovelluksissa.
 
+## Käynnistäminen {#launching}
 
-## Launching
-1. Open `Desktop` page under Apps 
-2. Specify the needed resources. Desktop is run as [batch job](../running/getting-started.md) as anything else on the supercomputers, so the required resources need to be defined before launching the desktop. The recommended partition is [interactive](../running/interactive-usage.md), so that the job could start as soon as possible, but if more resources are needed also other partitions are available.
+1. Avaa `Työpöytä`-sivu Sovellukset-alavalikosta
+2. Määritä tarvittavat resurssit. Työpöytä ajetaan [eräajona](../running/getting-started.md) kuten kaikki muutkin suurkoneilla, joten vaaditut resurssit tulee määritellä ennen työpöydän käynnistämistä. Suositeltava osio on [interaktiivinen](../running/interactive-usage.md), jotta työ voisi alkaa mahdollisimman pian, mutta jos tarvitaan enemmän resursseja, myös muita osioita on saatavilla.
 
+## Yhdistäminen {#connecting}
 
-## Connecting
-There are two options for connecting to the remote desktop:
+Etätyöpöytään yhdistämiseen on kaksi vaihtoehtoa:
 
-1. **With web-browser**. The noVNC Connection tab can be used to connect to the remote desktop using a web browser by selecting wanted compression and quality and then clicking `Launch Desktop`. Using the browser to connect is recommended for most users.
+1. **Verkkoselaimella**. noVNC-yhteyspaneelia voidaan käyttää etätyöpöytään yhdistämiseen verkkoselaimella valitsemalla haluttu pakkaus ja laatu ja sitten klikkaamalla `Käynnistä työpöytä`. Selaimen käyttö yhdistämiseen on suositeltavaa useimmille käyttäjille.
 ![](../../img/ood-vnc-connect.png)
-2. **With VNC client**. For better performance you can use a native VNC client, such as RealVNC or TigerVNC. Native VNC client may also be a good alternative if experiencing issues with clipboard integration between remote desktop and local host with the browser connection. Instructions for native VNC clients can be found in the Native instructions tab. This requires installing the VNC client on your local machine.
+2. **VNC-asiakasohjelmalla**. Parempaa suorituskykyä varten voit käyttää natiivia VNC-asiakasohjelmaa, kuten RealVNC:ta tai TigerVNC:ta. Natiivi VNC-asiakasohjelma voi olla hyvä vaihtoehto, jos selainten leikepöytäintegraation kanssa esiintyy ongelmia etätyöpöydän ja paikallisen isännän välillä. Ohjeet natiiville VNC-asiakasohjelmille löytyvät Native instructions -välilehdeltä. Tämä vaatii VNC-asiakasohjelman asentamisen paikalliselle koneellesi.
 
-## Using the desktop
-The available applications can be found in the applications menu, found in the top-left corner, or
-by right-clicking the desktop. Application shortcuts directly on the desktop can also be generated
-or reset to the defaults by enabling the *Reset desktop icons* option in the Desktop app launch form
-on Mahti. To add additional desktop shortcuts, you can drag desired applications from the
-applications menu to the desktop.
+## Työpöydän käyttäminen {#using-the-desktop}
 
+Saatavilla olevat sovellukset löytyvät sovellusvalikosta, joka löytyy vasemmasta ylänurkasta, tai
+hiiren oikealla näppäimellä työpöydän klikkaamalla. Sovellusten pikakuvakkeita suoraan työpöydälle voi myös luoda
+tai palauttaa oletusasetuksiin valitsemalla *Resetoi työpöydän kuvakkeet* -vaihtoehdon Mahti-työpöytäsovelluksen avaamislomakkeessa. Lisätäksesi lisää työpöydän pikakuvakkeita, voit vetää halutut sovellukset sovellusvalikosta työpöydälle.
 
-For starting any other software available on the supercomputers:
+Muun ohjelmiston käynnistämiseksi, joka on saatavilla suurkoneilla:
 
-1. Open terminal
-2. Start the software as described in [Applications section](../../apps/index.md), usually `module load XX` and `<start_command_for_XX>`.
+1. Avaa terminaali
+2. Käynnistä ohjelmisto kuten [Sovellukset-osiossa](../../apps/index.md) on kuvattu, yleensä komennolla `module load XX` ja `<start_command_for_XX>`.
 
-(The applications menu in desktop does not include all Puhti or Mahti scientific applications.)
-
+(Työpöydän sovellusvalikko ei sisällä kaikkia Puhtin tai Mahtin tieteellisiä sovelluksia.)

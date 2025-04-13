@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,36 +6,35 @@ tags:
 
 # Megahit
 
-Megahit is an ultra-fast assembly tool for metagenomics data.
+Megahit on erittäin nopea kokoamistyökalu metagenomiikka-aineistolle.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttää ja avoimen lähdekoodin ohjelma [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) lisenssillä.
 
-## Available
+## Saatavilla {#available}
 
 * Puhti: 1.2.9
 
-## Usage
+## Käyttö {#usage}
 
-On Puhti, Megahit is activated by loading the `biokit` environment:
+Puhtissa Megahit aktivoidaan lataamalla `biokit`-ympäristö:
 
 ```bash
 module load biokit
 ```
 
-For usage help, use command:
+Käyttöohjeen saat komennolla:
 
 ```bash
 megahit -h
 ```
 
-Assembling metagenomic data can be very resource demanding. Note that you should not run Megahit on the login nodes of Puhti.
-For any real analysis task, we recommend running Megahit as a batch job.
+Metagenomiikka-aineiston kokoaminen voi olla erittäin resurssivaatimuksista. Huomaa, ettei Meghitä tule ajaa Puhtin kirjautumissolmuilla. Suosittelemme ajamaan Megahitin erätyönä todellisia analyysitehtäviä varten.
 
-Sample Megahit batch job:
+Esimerkki Megahit-erätyöstä:
 
 ```bash
 #!/bin/bash
@@ -53,20 +53,16 @@ module load biokit
 srun megahit -1 reads_1.fastq -2 reads_2.fastq -t $SLURM_CPUS_PER_TASK --m 32000000000 -o result_directory
 ```
 
-In the example above `<project>` should be replaced with your project name. You can use `csc-projects` to check your CSC projects. Maximum running time is 
-set to 12 hours (`--time=12:00:00`). As Megahit uses thread-based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores (`--cpus-per-task=8`) that can use in total up to 32 GB of memory (` --mem=32G`). Note that the number of cores to be used needs to be defined in actual Megahit command
-too. That is done with Megahit option `-t`. In this case we use `$SLURM_CPUS_PER_TASK` variable that contains the `--cpus-per-task` 
-value (we could as well use `-t 8`, but then we have to remember to change the value if the number of the reserved CPUs is changed).
+Yllä olevassa esimerkissä `<project>` pitäisi korvata projektisi nimellä. Voit käyttää `csc-projects` tarkistaaksesi CSC-projektisi. Maksimiaika on asetettu 12 tunniksi (`--time=12:00:00`). Koska Megahit käyttää rinnakkaistusta säikeiden avulla, se käsitellään yhtenä työjoukkona, joka pitäisi suorittaa yhdellä solmulla (`--ntasks=1`, `--nodes=1`). Työ varaa kahdeksan ydintä (`--cpus-per-task=8`), jotka voivat käyttää yhteensä enintään 32 GB muistia (`--mem=32G`). Huomaa, että käytettävien ytimien määrä tulee määritellä myös varsinaisessa Megahit-komennossa. Tämä tehdään Megahit-vaihtoehdolla `-t`. Tässä tapauksessa käytämme `$SLURM_CPUS_PER_TASK`-muuttujaa, joka sisältää `--cpus-per-task` arvon (voisimme yhtä hyvin käyttää `-t 8`, mutta silloin meidän on muistettava muuttaa arvoa, jos varattujen suorittimien määrä muuttuu).
 
-The job is submitted to the batch job system with `sbatch` command. For example, if the batch job
-file is named as `megahit_job.sh`, then the submission command is:
+Työ lähetetään erätehtäväjärjestelmään `sbatch`-komennolla. Esimerkiksi, jos erätiedoston nimi on `megahit_job.sh`, lähetyskomento on:
 
 ```bash
 sbatch megahit_job.sh 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+Lisätietoja erätehtävien ajamisesta löytyy [Puhtin käyttäjäoppaan erätehtäväosiosta](../computing/running/getting-started.md).
 
-## More information
+## Lisätietoa {#more-information}
 
-* [Megahit home page](https://github.com/voutcn/megahit)
+* [Megahit kotisivu](https://github.com/voutcn/megahit)

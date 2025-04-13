@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,67 +6,67 @@ tags:
 
 # RAxML
 
-RAxML is a fast program for the inference of phylogenies with maximum likelihood method. RAxML offers several evolutionary models for both DNA and amino acid sequences.
+RAxML on nopea ohjelma filogeneesien määrittämiseen suurimman todennäköisyyden menetelmällä. RAxML tarjoaa useita evoluutiomalleja sekä DNA- että aminohapposekvensseille.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttää ja avoimen lähdekoodin alla [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
-## Available
+## Saatavilla {#available}
 
 - Puhti: 8.2.12
 
-## Usage
+## Käyttö {#usage}
 
-To see the installed RAxML versions, use the command:
+Asennettujen RAxML-versioiden näkemiseksi käytä komentoa:
 
 ```bash
 module spider raxml
 ```
 
-To see the requirements for a specific version, use:
+Tietyn version vaatimusten näkemiseksi käytä:
 
 ```bash
 module spider raxml/<version>
 ```
 
-e.g:
+esim.:
 
 ```bash
 module spider raxml/8.2.12
 ```
 
-Then load the required modules. For example, for version 8.2.12:
+Lataa tarvittavat moduulit. Esimerkiksi versiolle 8.2.12:
 
 ```bash
 module load raxml/8.2.12
 ```
 
-### Which version to use?
+### Minkä version valita? {#which-version-to-use}
 
-RAxML comes in a serial version and three different parallel versions.
+RAxML on saatavilla yksittäis-versiona ja kolmena eri rinnakkaisversiona.
 
-The serial version (**raxmlHPC**) is intended for small to medium datasets and for initial experiments to determine appropriate search parameters.
+Sarjaversio (**raxmlHPC**) on tarkoitettu pienille tai keskikokoisille tietoaineistoille ja alkuvaiheen kokeiluille sopivien hakuehtojen määrittämiseksi.
 
-The PThreads version (`raxmlHPC-PTHREADS`) will work well for very long alignments. Make sure to specify the number of threads with the ­`-T` option. This should match the number of cores you request in the batch job script.
+PThreads-versio (`raxmlHPC-PTHREADS`) toimii hyvin erittäin pitkille kohdistuksille. Muista määrittää säikeiden määrä ­`-T` -optiolla. Tämä tulisi vastata eräajojärjestelmän käyttöön vaadittujen ydinten määrää.
 
-To choose the number of threads to use, please see section "How many Threads shall I use?" in the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf). Using too many threads can cause the program to run slower.
+Säikeiden lukumäärän valintaa varten tarkista kohta "Kuinka monta säiettä käyttää?" [RAxML-käsikirjassa](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf). Liian monien säikeiden käyttö voi hidastaa ohjelman toimintaa.
 
-The MPI version (`raxmlHPC-MPI`) is for executing really large production runs (i.e. 100 or 1,000 bootstraps). You can also perform multiple inferences on larger data sets in parallel to find a best-known ML tree for your data set. Finally, the rapid BS algorithm and the associated ML search have also been parallelized with MPI.
- 
-The current MPI version only works properly if you specify the number of runs in the command line, since it has been designed to do multiple inferences or rapid/standard BS (bootstrap) searches in parallel. For all remaining options, the usage of this type of coarse-grained parallelism does not make much sense. Please use the `-N` option instead of the `-#` option as the latter can be mistaken for a start of a comment by the batch job system.
+MPI-versio (`raxmlHPC-MPI`) on tarkoitettu erittäin suurien tuotantoajoiden suoritukseen (esim. 100 tai 1,000 bootstrapia). Voit myös suorittaa useita määrityksiä isommista tietoaineistoista rinnakkain löytääksesi parhaan tunnetun ML-puun aineistollesi. Lopulta, nopea BS-algoritmi ja siihen liittyvä ML-haku on myös rinnakkaistettu MPI:llä.
 
-For versions 8.2.12 and newer there is also a hybrid MPI/threaded version (`raxmlHPC-HYBRID`)
+Nykyinen MPI-versio toimii oikein vain, jos määrität ajojen lukumäärän komentorivillä, koska se on suunniteltu suorittamaan useita määrityksiä tai nopeita/standardi BS (bootstrap) hakuja rinnakkain. Muissa vaihtoehdoissa tämän karkean rinnakkaisuuden käytöllä ei ole paljon järkeä. Käytä `-N`-vaihtoehtoa `-#`-vaihtoehdon sijaan, koska jälkimmäinen voidaan erehdyksessä luulla kommentin aloitukseksi eräajojärjestelmälle.
 
-For versions 8.2.12 and newer there are also AVX-optimized binaries available (` raxmlHPC-AVX`, `raxmlHPC-PTHREADS-AVX`, `raxmlHPC-MPI-AVX`, `raxmlHPC-HYBRID-AVX`). These can run faster that non-optimized versions, but can cause problems on some datasets. Try the non-optimized versions in case of problems.
+Versioissa 8.2.12 ja uudemmissa on myös hybridi MPI/säieversio (`raxmlHPC-HYBRID`).
 
-For details, please refer to the chapter "When to use which Version?" in the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf).
+Versioissa 8.2.12 ja uudemmissa on myös saatavilla AVX-optimoituja binäärejä (`raxmlHPC-AVX`, `raxmlHPC-PTHREADS-AVX`, `raxmlHPC-MPI-AVX`, `raxmlHPC-HYBRID-AVX`). Nämä voivat toimia nopeammin kuin optimoimattomat versiot, mutta ne voivat aiheuttaa ongelmia joissain tietoaineistoissa. Kokeile optimoimattomia versioita ongelmien ilmetessä.
 
-### Example batch job scripts
+Lisätietoja löydät "Milloin käyttää mitä versiota?" kappaleessa [RAxML-käsikirjasta](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf).
 
-=== "PThreads version for Puhti"
+### Esimerkkierätyöskriptit {#example-batch-job-scripts}
+
+=== "PThreads-versio Puhdille"
 
     ```bash
     #!/bin/bash
@@ -81,7 +82,7 @@ For details, please refer to the chapter "When to use which Version?" in the [RA
     raxmlHPC-PTHREADS -T $SLURM_CPUS_PER_TASK ­-s alg -­m GTRGAMMA ­-p 12345 ­-n test1
     ```
 
-=== "MPI version for Puhti"
+=== "MPI-versio Puhdille"
 
     ```bash
     #!/bin/bash
@@ -97,7 +98,8 @@ For details, please refer to the chapter "When to use which Version?" in the [RA
     srun raxmlHPC-MPI -N 100 -s cox1.phy -m GTRGAMMAI -p 12345 -n test2
     ```
 
-## More information
+## Lisätietoa {#more-information}
 
-* [RAxML home page](http://www.exelixis-lab.org/)
-* [RAxML Manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf)
+* [RAxML kotisivu](http://www.exelixis-lab.org/)
+* [RAxML Käsikirja](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf)
+

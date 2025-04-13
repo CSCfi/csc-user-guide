@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,70 +6,69 @@ tags:
 
 # Nextflow
 
-Nextflow is a scientific workflow management system for creating scalable,
-portable, and reproducible workflows. It is a groovy-based language for expressing the entire workflow in a single script and also supports running scripts (via script/run/shell directive of Snakemake rule) from other languages such as R, bash and Python. 
-
+Nextflow on tieteellinen työnkulun hallintajärjestelmä, jolla luodaan skaalautuvia,
+kannettavia ja toistettavia työnkulkuja. Se on groovy-pohjainen kieli, jolla ilmaistaan koko työnkulku yhdessä skriptissä, ja se tukee myös muiden kielten kuten R, bash ja Python skriptien ajoa (Snakemake-säännön script/run/shell-ohjeen kautta).
 
 [TOC]
 
-## Available 
+## Saatavilla {#available}
 
-Versions available on CSC's servers
+CSC:n palvelimilla saatavilla olevat versiot
 
 * Puhti: 21.10.6, 22.04.5, 22.10.1, 23.04.3, 24.01.0-edge.5903, 24.10.0
 * Mahti: 22.05.0-edge, 24.04.4
 * LUMI: 22.10.4
 
-!!! info "Pay attention to usage of Nextflow version"
-    Please note that the nextflow version starting from 23.04.3 can only be
-    used for pipelines built with DSL2. You can downgrade to lower versions
-    for DSL1-compliant pipelines.
+!!! info "Kiinnitä huomiota Nextflow-version käyttöön"
+    Huomioi, että versio 23.04.3 alkaen tukee vain DSL2:lle rakennettuja
+    putkia. Voit palata aiempiin versioihin DSL1-yhteensopiville putkille.
 
-## License
+## Lisenssi {#license}
 
-Nextflow is released under the
-[Apache 2.0 license](https://github.com/nextflow-io/nextflow/blob/master/COPYING).
+Nextflow on julkaistu
+[Apache 2.0 -lisenssillä](https://github.com/nextflow-io/nextflow/blob/master/COPYING).
 
-## Usage
+## Käyttö {#usage}
 
-!!! info "Nextflow on LUMI"
-    To access CSC modules on LUMI, remember to first load the CSC module tree
-    into use with
+!!! info "Nextflow LUMIssa"
+    Päästäksesi käsiksi CSC:n moduuleihin LUMIssa, muista ensin ottaa
+    käyttöön CSC:moduulipuu komennolla
 
     ```bash
     module use /appl/local/csc/modulefiles
     ```
 
-Nextflow is activated by loading `nextflow` module:
+Nextflow aktivoidaan lataamalla `nextflow`-moduuli:
 
 ```bash
 module load nextflow
 ```
 
-The default version is usually the latest. Choose the version of the Nextflow depending on the requirements of your own pipeline. It is recommended to load Nextflow module with a version, for the reproducibility point of view.  To load `nextflow` module with a specific version:
+Oletusversio on yleensä uusin. Valitse Nextflow-versio oman putkesi vaatimusten mukaisesti. Suositellaan, että Nextflow-moduuli ladataan version kanssa toistettavuuden vuoksi. Jotta saat ladattua `nextflow`-moduulin tiettyyn versioon:
 
 ```bash
 module load nextflow/22.04.5
 ```
 
-For usage help, use command:
+Käyttöohjeita varten käytä komentoa:
 
 ```bash
 nextflow -h
 ```
 
-More detailed instructions can be found in
-[CSC's Nextflow tutorial](../support/tutorials/nextflow-tutorial.md).
+Lisätietoja löytyy
+[CSC:n Nextflow-oppaasta](../support/tutorials/nextflow-tutorial.md).
 
-## References
+## Viittaukset {#references}
 
-If you use Nextflow in your work, please cite:
+Jos käytät Nextflow'ta työssäsi, viittaa seuraavasti:
 
-Di Tommaso, P., Chatzou, M., Floden, E. et al. Nextflow enables reproducible
-computational workflows. Nat. Biotechnol. 35, 316–319 (2017).
+Di Tommaso, P., Chatzou, M., Floden, E. et al. Nextflow mahdollistaa toistettavat
+laskennalliset työnkulut. Nat. Biotechnol. 35, 316–319 (2017).
 <https://doi.org/10.1038/nbt.3820>
 
-## More information
+## Lisätietoa {#more-information}
 
-* [Nextflow official documentation](https://www.nextflow.io/docs/latest/index.html)
-* [CSC Nextflow tutorial](../support/tutorials/nextflow-tutorial.md)
+* [Nextflow-virallinen dokumentaatio](https://www.nextflow.io/docs/latest/index.html)
+* [CSC Nextflow-opas](../support/tutorials/nextflow-tutorial.md)
+

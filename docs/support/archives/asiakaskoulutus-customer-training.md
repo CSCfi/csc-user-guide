@@ -1,7 +1,8 @@
+
 ---
 archive_feed: https://newsletter.csc.fi/archive/asiakaskoulutus-customer-training/rss
 ---
 
-# Newsletter
+# Uutiskirje {#newsletter}
 
 --8<-- "placeholders/archive.md"

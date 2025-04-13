@@ -1,40 +1,41 @@
-# Allas storage in Rahti
 
-More information about [Allas](../../../data/Allas/index.md)
+# Allas-tallennus Rahtissa
 
-## Backup to Allas
+Lisätietoja [Allaksesta](../../../data/Allas/index.md)
 
-There are different ways to backup to Allas from Rahti. We will show you two examples:
-  - The first one is using another pod to copy the content of your persistent volume to Allas.
-  - The second one is a bash script that you have to execute from your local machine.
+## Varmuuskopiointi Allakseen {#backup-to-allas}
 
-For this first example, we will deploy a `nginx` deployment running with a `PersistentVolumeClaim`. We provide the files for testing purposes.
+On olemassa erilaisia tapoja varmuuskopioida Allakseen Rahtista. Näytämme teille kaksi esimerkkiä:
+  - Ensimmäinen tapa on käyttää toista podia kopioimaan pysyvän volyymin sisältö Allakseen.
+  - Toinen esimerkki on bash-skripti, joka sinun on suoritettava paikalliselta koneeltasi.
 
-### Preparing a NGINX deployment
+Tässä ensimmäisessä esimerkissä lisäämme `nginx`-jakelun, joka toimii `PersistentVolumeClaim`-hakulausekkeella. Tarjoamme tiedostot testitarkoituksia varten.
 
-First, for our tutorial, we will build and deploy a NGINX server.
+### NGINX-jakelun valmistelu {#preparing-a-nginx-deployment}
 
-We [build](../images/creating.md) our nginx image with this Dockerfile: (since it's not possible to use the regular `nginx` image in OpenShift)
+Ensiksi, tutoriaaliamme varten rakennamme ja julkaisemme NGINX-palvelimen.
+
+Rakennamme [nginx-kuvamme](../images/creating.md) tällä Dockerfile-tiedostolla: (koska ei ole mahdollista käyttää tavallista `nginx`-kuvaa OpenShiftissa)
 
 ```Dockerfile
 FROM nginx:stable
 
 ENV LISTEN_PORT=8080
 
-# support running as arbitrary user which belongs to the root group
+# tukee käyttöoikeutta juuriryhmään kuuluvana satunnaiskäyttäjänä
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
-# users are not allowed to listen on privileged ports
+# käyttäjien ei ole sallittua kuunnella etuoikeutetuilla porteilla
 RUN sed -i.bak "s/listen\(.*\)80;/listen ${LISTEN_PORT};/" /etc/nginx/conf.d/default.conf
 
-# comment user directive as master process is run as user in OpenShift anyhow
+# kommentoi käyttäjädirektiivi, koska master-prosessi toimii käyttäjänä OpenShiftissa
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 EXPOSE 8080
 ```
 
-If you build your image locally, don't forget to [push](../../rahti/images/Using_Rahti_integrated_registry.md) it to your project.
-You can deploy this `nginx` server with this Deployment:
+Jos rakennat kuvasi paikallisesti, älä unohda [puskemista](../../rahti/images/Using_Rahti_integrated_registry.md) projektiisi.
+Voit julkaista tämän `nginx`-palvelimen tällä Jakelulla:
 
 ```yaml
 apiVersion: apps/v1
@@ -110,22 +111,22 @@ spec:
   storageClassName: standard-csi
 ```
 
-Save the file and use this command to deploy it: `oc apply -f {name_of_yaml_file}`
-The deployment is using a `PersistentVolumeClaim` for our example.
+Tallenna tiedosto ja käytä tätä komentoa: `oc apply -f {name_of_yaml_file}`
+Jakelussa käytetään esimerkissä `PersistentVolumeClaimia`.
 
-Now we have our running `nginx` pod, we want want to copy the content of the PVC to Allas. We will use a new deployment with a `rclone` Docker image.
+Nyt kun meillä on toimiva `nginx`-pod, haluamme kopioida PVC:n sisällön Allakseen. Käytämme uutta jakelua `rclone` Docker-kuvan kanssa.
 
-### First example: using another pod
+### Ensimmäinen esimerkki: toisen podin käyttö {#first-example-using-another-pod}
 
-Create a `rclone.conf` with your `access_key_id` and `secret_access_key`.
+Luo `rclone.conf` omalla `access_key_id` ja `secret_access_key`.
 
-If you don't have `access_key_id` and `secret_access_key`, you need to source your Pouta project and then use this command to create credentials:
+Jos sinulla ei ole `access_key_id` ja `secret_access_key`, sinun täytyy käyttää Pouta-projektiasi ja sitten käyttää tätä komentoa luodaksesi tunnistetiedot:
 
 ```sh
 openstack ec2 credentials create
 ```
 
-Once created, create your `rclone.conf` file:
+Kun olet luonut, luo `rclone.conf` tiedosto:
 
 ```ini
 [default]
@@ -138,21 +139,21 @@ endpoint = a3s.fi
 acl = private
 ```
 
-_Replace `{ACCESS_KEY_ID}` and `{SECRET_ACCESS_KEY}` by your own credentilas._
+_Vaihda `{ACCESS_KEY_ID}` ja `{SECRET_ACCESS_KEY}` omiin tietoihisi._
 
-Create a `rclone.sh` script:
+Luo `rclone.sh` skripti:
 
 ```sh
 #!/bin/sh -e
 
 rclone copy "/mnt/" "default:{BUCKET}"
 
-echo "Done!"
+echo "Valmis!"
 ```
 
-_Replace `{BUCKET}` by the target bucket where you want to backup your files._
+_Vaihda `{BUCKET}` haluamaasi kohdeämpäriin, johon haluat varmuuskopioida tiedostosi._
 
-Then, you have to create your own custom `rclone` Docker image:
+Sitten, sinun on luotava oma mukautettu `rclone`-Docker-kuva:
 
 ```Dockerfile
 FROM rclone/rclone
@@ -162,10 +163,10 @@ COPY rclone.sh /usr/local/bin/
 RUN chmod 755 /.rclone.conf
 RUN chmod +x /usr/local/bin/rclone.sh
 ```
-If you create your image locally, don't forget to [push](../../rahti/images/Using_Rahti_integrated_registry.md) it to your project.
+Jos luot kuvasi paikallisesti, älä unohda [puskemista](../../rahti/images/Using_Rahti_integrated_registry.md) projektiisi.
 
-Once all this done, you can deploy your `rclone` pod.
-You can use this example:
+Kun kaikki on tehty, voit julkaista `rclone`-podisi.
+Voit käyttää tätä esimerkkiä:
 
 ```yaml
 apiVersion: v1
@@ -187,130 +188,127 @@ spec:
   volumes:
   - name: vol-to-backup
     persistentVolumeClaim:
-      claimName: nginx-pvc # Must match the PVC name that you want to backup
+      claimName: nginx-pvc # Täytyy vastata sitä PVC-nimeä, jonka haluat varmuuskopioida
 ```
 
-Save the file and use this command: `oc apply -f {name_of_yaml_file}`.
+Tallenna tiedosto ja käytä tätä komentoa: `oc apply -f {name_of_yaml_file}`.
 
-!!! Warning
-    If your `PersistentVolumeClaim` is `ReadWriteOnce`, you have to scale down the `nginx` deployment to let the pod running rclone mount the volume.
-    Use this command to proceed: `oc scale --replicas=0 deploy/nginx`
-    If your `PersistentVolumeClaim` is `ReadWriteMany`, there is no need to scale down your deployment.
-    You can verify with this command: `oc get pvc`. You should see either `RWO` or `RWX`.
+!!! Varoitus
+    Jos `PersistentVolumeClaim` on `ReadWriteOnce`, sinun on vähennettävä `nginx`-jakelun skaalaa, jotta rclone voipodi voi kiinnittää volyymin.
+    Käytä tätä komentoa: `oc scale --replicas=0 deploy/nginx`
+    Jos `PersistentVolumeClaim` on `ReadWriteMany`, sinun ei tarvitse pienentää jakeluasi.
+    Voit tarkistaa tämän komennolla: `oc get pvc`. Näet joko `RWO` tai `RWX`.
 
-The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`) after the copy finished.
+Pod ajaa ja varmuuskopioi PVC:n sisältöä Allakseen. Älä unohda skaalata alkuperäistä jakeluasi (`oc scale --replicas=1 deploy/nginx`) kopioinnin jälkeen.
 
-There are PROS and CONS with this solution:  
-Pros: 
+Tässä ratkaisussa on FOR ja VASTA-argumentteja:  
+Etuja:
 
-  - You run the pod in your Rahti project
+  - Pod toimii Rahti-projektissasi
 
-Cons: 
+Haittoja:
 
-  - The PVC is `ReadWriteOnce` hence a downtime is necessary.
+  - PVC on `ReadWriteOnce`, joten käyttökatko on välttämätön.
 
-### Second example: using bash script
+### Toinen esimerkki: bash-skriptin käyttäminen {#second-example-using-bash-script}
 
-For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../data/Allas/using_allas/rclone.md). This script will backup an application deployed in Rahti. The application has, for example the name `/backup`, as the `volumeMounts` `mountPath`.
-
+Seuraavan skriptin toimimiseksi oletamme, että sinulla on asennettuna `rclone` komentoriviohjelma ja Allas-ämpäri on luotu. `rclone.conf` pitäisi olla määritetty paikallisessa järjestelmässäsi, kuten yllä kuvatussa esimerkissä. Esimerkiksi `rclone.conf`-reitti voisi olla `~/.config/rclone/rclone.conf`. Lisätietoja Allas-ämpärin luomisesta löytyy [täältä](../../../data/Allas/using_allas/rclone.md). Tämä skripti varmuuskopioi Rahtissa olevan sovelluksen. Sovelluksella on esimerkiksi nimi `/backup`, kuten `volumeMounts` `mountPath`.
 
 ```bash
 #!/bin/env bash
 
-# Set your pod name, source directory, and destination directory
+# Aseta podin nimi, lähdehakemisto ja kohdehakemisto
 if [[ -z $1 ]];
 then
-    echo "No Podname parameter passed."
+    echo "Podin nimeä ei annettu parametrina."
     exit 22
 else
-     echo "The POD_NAME = $1 is set."
+     echo "POD_NAME = $1 on asetettu."
 fi
 
 POD_NAME=$1
 SOURCE_DIR="/backup"
-TIMESTAMP=$(date '+%Y%m%d%H%M%S') # Generate a timestamp
-DEST_DIR="/tmp/pvc_backup_$TIMESTAMP.tar.gz" # Include the timestamp in the filename
+TIMESTAMP=$(date '+%Y%m%d%H%M%S') # Generoi aikaleima
+DEST_DIR="/tmp/pvc_backup_$TIMESTAMP.tar.gz" # Sisällytä aikaleima tiedostonimeen
 RCLONE_CONFIG_PATH="your/path/to/rclone.conf"
-S3_BUCKET="pvc-test-allas" # Your bucket name
+S3_BUCKET="pvc-test-allas" # Ämpärin nimi
 
-# Echo function to display task messages
+# Kaiku funktio näyttämään tehtäväviestejä
 echo_task() {
   echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
 }
 
-# Function to handle errors
+# Funktio virheiden käsittelyyn
 handle_error() {
-  echo_task "Error: $1"
+  echo_task "Virhe: $1"
   exit 1
 }
 
-# Check if the pod exists
+# Tarkista, onko pod olemassa
 oc get pod "$POD_NAME" &>/dev/null
 if [ $? -ne 0 ]; then
-  echo_task "Pod $POD_NAME not found. Aborting backup."
+  echo_task "Podia $POD_NAME ei löytynyt. Varmuuskopiointi keskeytetään."
   exit 1
 fi
 
-# Create a tar archive within the pod
-echo_task "Creating a tar archive within the pod..."
+# Luo tar-arkisto podin sisällä
+echo_task "Luodaan tar-arkisto podin sisällä..."
 oc exec "$POD_NAME" -- /bin/sh -c "tar -czf /tmp/pvc_backup.tar.gz -C $SOURCE_DIR ."
 if [ $? -ne 0 ]; then
-  handle_error "Failed to create a tar archive in the pod. Aborting backup."
+  handle_error "Tar-arkiston luominen epäonnistui podissa. Varmuuskopiointi keskeytetään."
 fi
 
-# Copy the tar archive to the local machine
-echo_task "Copying the tar archive to the local machine..."
+# Kopioi tar-arkisto paikalliselle koneelle
+echo_task "Kopioidaan tar-arkisto paikalliselle koneelle..."
 oc cp "$POD_NAME:/tmp/pvc_backup.tar.gz" "$DEST_DIR"
 if [ $? -ne 0 ]; then
-  handle_error "Failed to copy the tar archive to the local machine. Aborting backup."
+  handle_error "Tar-arkiston kopioiminen paikalliselle koneelle epäonnistui. Varmuuskopiointi keskeytetään."
 fi
-echo_task "Backup completed successfully. The archive is stored in $DEST_DIR."
+echo_task "Varmuuskopiointi onnistui. Arkisto tallennettiin osoitteeseen $DEST_DIR."
 
-# Use Rclone to sync the tarball to S3
-echo_task "Syncing the tarball to S3..."
+# Käytä Rclone-ohjelmaa synkronoimaan tar-arkisto S3:een
+echo_task "Synkronoidaan tar-arkisto S3:een..."
 rclone --config "$RCLONE_CONFIG_PATH" sync "$DEST_DIR" default:"$S3_BUCKET"
 if [ $? -ne 0 ]; then
-  handle_error "Failed to upload tarball to S3"
+  handle_error "Tar-arkiston lataaminen S3:een epäonnistui"
 fi
-echo_task "Backup completed successfully. The archive is stored in $S3_BUCKET$DEST_DIR"
+echo_task "Varmuuskopiointi onnistui. Arkisto tallennettiin osoitteeseen $S3_BUCKET$DEST_DIR"
 
 exit 0
-
 ```
 
-If you need to clean up the tar archive files, you can add the following script after storing to Allas.
+Jos haluat poistaa tar-arkistotiedostot, voit lisätä seuraavan skriptin Allakseen tallentamisen jälkeen.
 
 ```bash
-# Clean up the tar archive in the pod
+# Poista tar-arkisto podista
 oc exec "$POD_NAME" -- /bin/sh -c "rm /tmp/pvc_backup.tar.gz"
 
-# Clean up temporary files
+# Poista väliaikaiset tiedostot
 rm -rf /tmp/pvc_backup*
 or
 rm "$DEST_DIR"
-
 ```
-The script can be run as follows, assuming the script name is `push_to_allas.sh` and it is executable:
+Skriptiä voidaan käyttää seuraavasti, olettaen että skriptin nimi on `push_to_allas.sh` ja se on suoritettavissa:
 
 ```bash
 ./push_to_allas.sh "mypod-vol"
 ```
 
-There are PROS and CONS with this solution:
+Tässä ratkaisussa on FOR ja VASTA-argumentteja:
 
-Pros:
+Etuja:
 
-  - Simplicity: You're essentially treating the volume just like any other directory. It's straightforward to copy data from a directory to Allas.
-  - Flexibility: You can select specific files or directories within the mount to copy to Allas and ideal for small size files.
+  - Yksinkertaisuus: Juuri käsittele volyymia kuten mitä tahansa muuta hakemistoa. On suoraviivaista kopioida tiedot hakemistosta Allakseen.
+  - Joustavuus: Voit valita erityisiä tiedostoja tai hakemistoja kiinnityksestä kopioitavaksi Allakseen ja se on ihanteellinen pienikokoisille tiedostoille.
 
-Cons:
+Haittoja:
 
-  - Performance: This method can be slower, especially if the volume has a large number files.
+  - Suorituskyky: Tämä menetelmä voi olla hitaampi, erityisesti jos volyymilla on suuri määrä tiedostoja.
 
-!!! Warning "Storage performance"
-    There are several things to take into account when using Allas regarding performance:
+!!! Varoitus "Tallennustilan suorituskyky"
+    On useita seikkoja, jotka on otettava huomioon Allaksen käytössä suorituskyvyn suhteen:
 
-    - Small io kill storage performance. Given the same total size, a single big file will be faster than a bunch of small ones. A solution might be to collect all the small files into one archive file, like a `tar` file.
-    - As the storage pool is shared, latency might vary. Shared hardware means shared performance among different users.
-    - Single threaded io is slow, it is advisable to use multi threaded io when possible.
+    - Pienet I/O-operaatiot heikentävät tallennustilan suorituskykyä. Samansuuruinen iso tiedosto on nopeampi kuin joukko pieniä tiedostoja. Ratkaisu saattaa olla kerätä pienet tiedostot yhteen arkistoon, kuten `tar`-tiedostoon.
+    - Koska tallennusallas on jaettu, viive voi vaihdella. Jaettu laitteisto tarkoittaa, että suorituskyvyn jakavat eri käyttäjät.
+    - Yksisäikeinen I/O on hidas, on suositeltavaa käyttää monisäikeistä I/O:ta kun mahdollista.
 

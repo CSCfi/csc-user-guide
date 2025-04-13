@@ -1,67 +1,67 @@
-# Security Guidelines for Pouta
+# Turvaohjeet Poutaa varten {#security-guidelines-for-pouta}
 
-!!! warning "Security responsibility"
+!!! warning "Turvavastuu"
 
-    Users are responsible of the security of the resources and infrastructure under their control. This includes, but it is not limited to: **virtual machines**, **network configuration**, **user accounts**, ...
+    Käyttäjät ovat vastuussa hallinnassaan olevien resurssien ja infrastruktuurin turvallisuudesta. Tähän kuuluu, mutta ei rajoitu: **virtuaalikoneet**, **verkkokonfiguraatio**, **käyttäjätilit**, ...
 
-!!! info "Security reports"
+!!! info "Tietoturvaraportit"
 
-    If you have discovered a critical security flaw or believe your machine has been compromised, please contact us immediately at <servicedesk@csc.fi>.
+    Jos olet löytänyt kriittisen tietoturva-aukon tai epäilet, että koneesi on vaarantunut, ota meihin heti yhteyttä osoitteessa <servicedesk@csc.fi>.
 
-This list of security guidelines is not meant to cover all the possible cases and scenarios, but to serve as a starting point for keeping everyone secure. 
+Tämä lista turvaohjeista ei ole tarkoitettu kattamaan kaikkia mahdollisia tapauksia ja skenaarioita, vaan toimimaan lähtökohtana kaikkien turvallisuuden säilyttämiseksi.
 
-## Network
+## Verkkoyhteydet {#network}
 
-It is very important to keep your network configuration as secure as possible, as it is the gate any intruder will use to enter in your system. It is relatively simple to apply some good practises that will give a good extra security layer. Few strategies are advisable. 
+On erittäin tärkeää pitää verkkokonfiguraatiosi mahdollisimman turvallisena, koska se on portti, jota mikä tahansa tunkeilija käyttää järjestelmääsi sisäänpääsemiseen. On suhteellisen helppoa soveltaa joitain hyviä käytäntöjä, jotka antavat ylimääräisen turvakerroksen. Muutamia strategioita on suositeltavaa.
 
-### Restrictive firewall (white listing)
+### Rajoittava palomuuri (luettelointi) {#restrictive-firewall-white-listing}
 
-Your virtual machine instances should be configured so that they allow the minimum required access to run your application. By default, virtual machines have no external access, this means no single port is opened by default to the public Internet. In order to connect to them, or to provide any kind of service, access has to be explicitly added. It is important to only open the ports that need to be opened and only open it for the least amount of IPs possible.
+Virtuaalikoneesi pitäisi olla konfiguroitu siten, että ne sallivat vain sovelluksesi vaatimat vähimmäiskäytöt. Oletusarvoisesti virtuaalikoneilla ei ole ulkoista pääsyä, eli yksikään portti ei ole avoinna oletusarvoisesti julkiselle Internetille. Jotta niihin voisi yhdistää tai tarjota minkäänlaista palvelua, pääsy on lisättävä nimenomaisesti. On tärkeää avata vain ne portit, jotka on avattava, ja avata ne vain mahdollisimman vähille IP-osoitteille.
 
-Every virtual machine running in Pouta comes with two firewalls: the firewall of the virtual machine itself (netfilter/iptables) and Pouta Security groups. We are only going to focus on Pouta security groups, as they are the easiest way to apply a set of complex firewall rules to a set of virtual machines. This is an example of a security group that gives access to port 22/SSH to only 4 subnets:
+Jokaisessa Poutassa toimivassa virtuaalikoneessa on kaksi palomuuria: virtuaalikoneen oma palomuuri (netfilter/iptables) ja Poutan turvaryhmät. Keskitymme vain Poutan turvaryhmiin, koska ne ovat helpoin tapa soveltaa joukko monimutkaisia palomuurisääntöjä joukkoon virtuaalisia koneita. Tässä on esimerkki turvaryhmästä, joka antaa pääsyn porttiin 22/SSH vain neljälle aliverkolle:
 
-![Restricted-SSH](../../img/restricted-ssh-security-group.png)
+![Rajattu-SSH](../../img/restricted-ssh-security-group.png)
 
-These 4 subnets could be the 4 public ranges that your organization uses in its office network.
+Nämä neljä aliverkkoa voisivat olla neljä julkista verkkoaluetta, joita organisaatiosi käyttää toimistoverkossaan.
 
-Security groups are easy to configure and easy to visualize. This is the view from a virtual machine's instance page:
+Turvaryhmät ovat helppoja konfiguroida ja helppoja visualisoida. Tämä on näkymä virtuaalikoneen yksikkösivulta:
 
-![Restricted API SSH](../../img/restricted-api-ssh.png)
+![Rajattu API SSH](../../img/restricted-api-ssh.png)
 
-you can see that every single opening is shown there. 
+näet, että jokainen avaus on siellä näytetty.
 
-### Disable unneeded services
+### Tarpeettomien palveluiden poistaminen käytöstä {#disable-unneeded-services}
 
-Do not run unnecessary services on your VM, even if they are not accessible from the outside. The more services you run, the more attack surface you will have top intruders to exploit. For example, do not deploy your own mail server. If you need to send email from cPouta, use [Pouta's SMTP server](additional-services.md#sending-e-mail-from-cpouta). If this SMTP server does not cover your use case, please contact <servicedesk@csc.fi>.
+Älä aja tarpeettomia palveluita virtuaalikoneellasi, vaikka ne eivät olekaan ulkopuolelle saavutettavissa. Mitä enemmän palveluita ajat, sitä suurempi on hyökkäyspinta, jota tunkeilijat voivat hyödyntää. Älä esimerkiksi ota käyttöön omaa sähköpostipalvelinta. Jos sinun tarvitsee lähettää sähköpostia cPoutasta, käytä [Poutan SMTP-palvelinta](additional-services.md#sending-e-mail-from-cpouta). Jos tämä SMTP-palvelin ei kata käyttötapaustasi, ota yhteyttä osoitteeseen <servicedesk@csc.fi>.
 
-### Use secure protocols
+### Käytä turvallisia protokollia {#use-secure-protocols}
 
-Wherever possible, use encrypted and secure communication protocols to avoid man in the middle attacks, this is when someone get access to your communications and can read the data going through like in a public WIFI. For example: Do not use HTTP, use instead HTTPS. Do not use FTP to transfer files, use instead FTPS, SFTP or S3.
+Käytä aina, kun mahdollista, salattuja ja turvallisia viestintäprotokollia välttääksesi man-in-the-middle -hyökkäykset; nämä ovat tapauksia, joissa joku saa pääsyn viestintääsi ja voi lukea menevät tiedot, kuten julkisessa WIFI:ssä. Esimerkiksi: älä käytä HTTP:tä, käytä sen sijaan HTTPS:ää. Älä käytä FTP:tä tiedostojen siirtoon, käytä sen sijaan FTPS:ää, SFTP:tä tai S3:a.
 
-### Use intrusion detection software
+### Käytä tunkeutumisen havaitsemisohjelmistoja {#use-intrusion-detection-software}
 
-Tools such as [denyhosts](https://github.com/denyhosts/denyhosts) or [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban) will analyse log files and ban IP addresses that are attempting to make brute-force attacks to your application. They are very powerful tools, but they have to be used used with care as they can lead to false positives, i.e. Banning IPs that should not be banned. 
+Työkalut kuten [denyhosts](https://github.com/denyhosts/denyhosts) tai [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban) analysoivat lokitiedostoja ja estävät IP-osoitteet, jotka yrittävät tehdä bruteforce-hyökkäyksiä sovellukseesi. Ne ovat erittäin tehokkaita työkaluja, mutta niitä on käytettävä huolellisesti, sillä ne voivat johtaa vääriin positiivisiin, eli estää IP-osoitteet, joita ei pitäisi estää.
 
-## Software
+## Ohjelmisto {#software}
 
-Running secure software is also very important. It is not a trivial task to develop fully secure software, but there are some simple strategies that will help with the task. 
+Turvallisen ohjelmiston ajaminen on myös erittäin tärkeää. Täysin turvallisten ohjelmistojen kehittäminen ei ole triviaalitehtävä, mutta on olemassa yksinkertaisia strategioita, jotka auttavat tässä tehtävässä.
 
-### Only install from reputable sources
+### Asenna vain tunnetuista lähteistä {#only-install-from-reputable-sources}
 
-Be mindful of the sources for the software you install. Only install software from reputable sources. If possible, use the distribution's package manager (`yum`, `dnf`, `apt`, ...). Packages managers make it easy to install software, keep it updated, and uninstall it. If the desired software it not available in the distribution package manager repository, an official source must be used. Follow the instructions on the official website of the software you need. If more than one source is offered, think about using the one that provides an easier life-cycle (install/update/uninstall/...), like [snap](https://en.wikipedia.org/wiki/Snap_(software)) or [flatpak](https://en.wikipedia.org/wiki/Flatpak).
+Ole tarkkana ohjelmiston asennuslähteiden suhteen. Asenna vain ohjelmistoa tunnetuista lähteistä. Jos mahdollista, käytä jakelun pakettienhallintaa (`yum`, `dnf`, `apt`, ...). Pakettienhallinta tekee ohjelmistojen asennuksen, päivittämisen ja poistamisen helpoksi. Jos haluttua ohjelmistoa ei ole saatavilla jakelun pakettienhallinnan varastossa, on käytettävä virallista lähdettä. Seuraa tarvitsemasi ohjelmiston virallisella verkkosivulla annettuja ohjeita. Jos tarjolla on useampi lähde, harkitse sellaista, joka tarjoaa helpomman elinkaaren (asukas/päivitys/poisto/...), kuten [snap](https://en.wikipedia.org/wiki/Snap_(software)) tai [flatpak](https://en.wikipedia.org/wiki/Flatpak).
 
-### Automatic software updates
+### Automaattiset ohjelmistopäivitykset {#automatic-software-updates}
 
-All operating systems have the ability to apply updates automatically. If you run regular updates, you are less exposed to known security problems. It is common that the fix is available before the security problem is published.
+Kaikissa käyttöjärjestelmissä on mahdollisuus tehdä päivityksiä automaattisesti. Jos suoritat säännöllisiä päivityksiä, altistut vähemmän tunnetuille tietoturvaongelmille. On yleistä, että korjaus on saatavilla ennen tietoturvaongelman julkistamista.
 
-In Centos 8 and newer, you have `dnf-automatic`:
+Centos 8:ssa ja uudemmissa käytössä on `dnf-automatic`:
 
 ```yaml
 sudo yum install dnf-automatic -y
 systemctl enable --now dnf-automatic-install.timer
 ```
 
-`yum-cron` for Centos 7:
+`yum-cron` Centos 7:lle:
 
 ```yaml
 sudo yum install yum-cron -y
@@ -69,44 +69,44 @@ sudo systemctl enable yum-cron.service
 sudo systemctl start yum-cron.service
 ```
 
-`unattended-upgrades` for Ubuntu:
+`unattended-upgrades` Ubuntulle:
 
-```yml
+```yaml
 sudo apt install unattended-upgrades
 ```
 
-Each OS version will have its own way to activate this.
+Jokaisella käyttöjärjestelmäversiona on oma tapa aktivoida tämä.
 
-!!! info "Kernel updates" 
+!!! info "Ydinpäivitykset" {#kernel-updates}
 
-    Some updates, such as kernel upgrades, require rebooting the virtual machines. Please schedule this into your regular maintenance.
+    Jotkut päivitykset, kuten ydinpäivitykset, vaativat virtuaalikoneiden uudelleenkäynnistämisen. Suunnittele tämä osaksi säännöllistä ylläpitoa.
 
-If your use case does not support automatic updates, which is common for highly available setups, please make sure to schedule regular maintenance windows where the software upgrade is scheduled.
+Jos käyttötapauksesi ei tue automaattisia päivityksiä, mikä on yleistä erittäin saatavilla olevissa kokoonpanoissa, varmista, että aikataulutat säännöllisesti kunnossapitot aikoja, joissa ohjelmistopäivitys on aikataulutettu.
 
-* **Subscribe to security announcements for your OS**, if there is a security problem in your operating system, you need to find it out as soon as possible. You can subscribe to an appropriate mailing list, RSS feed, ... to keep an eye out for anything that requires urgent action.
+* **Tilaa käyttöjärjestelmäsi tietoturvailmoitukset**, jos käyttöjärjestelmässäsi ilmenee tietoturvaongelma, sinun on saatava selville se mahdollisimman pian. Voit tilata asiaankuuluvan postituslistan, RSS-syötteen, ... seurata kaikkea, mikä vaatii kiireellisiä toimenpiteitä.
 
-### Be mindful about the user accounts in the VM
+### Ole tarkkana virtuaalikoneen käyttäjätilien suhteen {#be-mindful-about-the-user-accounts-in-the-vm}
 
-Keep an eye on the user accounts enabled in your system. Some applications create default accounts which are unnecessary or even directly insecure. An ideal scenario might be three accounts:
+Pidä silmällä järjestelmäsi käytössä olevia käyttäjätilejä. Jotkin sovellukset luovat oletustilejä, jotka ovat tarpeettomia tai jopa suoraan turvattomia. Ihannetapauksessa tilejä voisi olla kolme:
 
-* `root` with ssh disabled and no password. This is the default in [Pouta VM images](images.md).
-* A user account for a sysadmin that can only be accessed via ssh keys and has sudo access. Pouta VM images provide this user preconfigured as well, the name of the user depends on the distribution (`cloud-user`, `centos` or `ubuntu`), see the documentation above for more reference.
-* and add user-level accounts that run a single service and have no login possible, neither remote nor local access. 
+* `root`, jolla on ssh pois käytöstä ja ei salasanaa. Tämä on oletus [Pouta VM -kuvissa](images.md).
+* Käyttäjätili, jolla on sysadminin pääsyoikeus, johon voi päästä vain ssh-avainten kautta ja jolla on sudo-oikeudet. Pouta VM -kuvat tarjoavat tämän käyttäjän esikonfiguroituna, käyttäjän nimi riippuu jakelusta (`cloud-user`, `centos` tai `ubuntu`), katso yllä olevaa dokumentaatiota lisätietojen saamiseksi.
+* ja lisää palvelutasoiset tilit, jotka suorittavat vain yhden palvelun eikä niillä ole kirjautumismahdollisuutta, ei etä- eikä paikalliskäyttö.
 
-Do not enable password login, **use SSH keys** instead. Passwords can be, with enough time and compute power, guessed with brute force. The average SSH server deals with thousands of such attacks every week. When using SSH keys, challenge-response authentication is used instead. This means that for each login a different challenge is asked and a different response is the correct one. No secret (password or key) ever travels across the network 
+Älä aktivoi salasanalla kirjautumista, **käytä SSH-avaimia** sen sijaan. Salasanat voidaan, riittävällä ajalla ja laskentateholla, arvata brutaalivoimatoimien avulla. Keskimääräinen SSH-palvelin käsittelee tuhansia tällaisia hyökkäyksiä joka viikko. Kun käytät SSH-avaimia, käytetään haaste-vastaus-autentikointia. Tämä tarkoittaa sitä, että jokaisessa kirjautumisessa kysytään erilainen haaste ja oikea vastaus on erilainen. Mitään salaisuutta (salasanaa tai avainta) ei koskaan matkusteta verkon ylitse.
 
-Password protect your SSH keys and make sure your key never leaves the hardware where it was created.
+Suoja salasanalla SSH-avaimesi ja varmista, ettei avaimesi koskaan poistu laitteesta, jossa se luotiin.
 
-* Do not store public keys (much less private) on the image used to create the VM. Pouta clouds provide a metadata service so that you can download public keys on boot. This is recommended as it ensures that if your key is compromised, access from that key can be removed from all running instances and no new one will ever have this public key.
+* Älä tallenna julkisia avaimia (saati yksityisiä) kuvassa, jota käytetään VM:n luomiseen. Pouta clouds tarjoaa metatietopalvelun, jotta voit ladata julkisia avaimia käynnistyksen yhteydessä. Tämä on suositeltavaa, koska se varmistaa, että jos avaimesi vaarantuu, pääsy kyseisestä avaimesta voidaan poistaa kaikista käynnissä olevista instansseista eikä yhdelläkään uudella instanssilla ole koskaan tätä julkista avainta.
 
-### Keep logs of your applications
+### Pidä kirjaa sovellustesi lokitiedostoista {#keep-logs-of-your-applications}
 
-Use the best practices for logging:
+Käytä kirjauskäytännön parhaita käytäntöjä:
 
-- Make sure that the services are logging to a secure location, that is as tamper-proof as possible.
-- Keep the logs for a reasonably long amount of time.
-- Consider logging to a remote server as well.
+- Varmista, että palvelut kirjaavat turvalliseen sijaintiin, joka on mahdollisimman väärinkäytönkestävä.
+- Säilytä lokit kohtuullisen pitkän aikaa.
+- Harkitse myös kirjautumista etäpalvelimelle.
 
-*Reused with kind permission from <a
+*Toistettu ystävällisellä luvalla <a
 href="https://support.ehelp.edu.au/support/solutions"
 class="external-link">NeCTAR</a>.*

@@ -1,46 +1,48 @@
-# Working with Data
 
-!!! note "Note"
-    The old Dataset section content can be found here: [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#specific-datasets-hosted-in-csc-computing-environment)
+# Työskentely Datan Kanssa {#working-with-data}
 
-## [Tips for Data Management](datamanagement.md)
+!!! note "Huomautus"
+    Vanhan Dataset-osuuden sisältö löytyy täältä: [Tietyt CSC:n laskentaympäristössä isännöidyt datasetit](sourcing-datasets.md#specific-datasets-hosted-in-csc-computing-environment)
 
-  - [Overview](datamanagement.md#overview)
-  - [Best practices](datamanagement.md#best-practices)
-  - [Budgeting Research Data Management](datamanagement.md#budgeting-research-data-management)
-  - [How to manage sensitive data](datamanagement.md#how-to-manage-sensitive-data)
-  - [Best Practices for Client Side Encryption](best-encryption-practices.md)
+## [Vinkkejä Datan Hallintaan](datamanagement.md) {#tips-for-data-management}
 
-## [Metadata and Data Documentation](metadata-and-documentation.md)
+  - [Yleiskatsaus](datamanagement.md#overview)
+  - [Parhaat käytännöt](datamanagement.md#best-practices)
+  - [Tutkimusdatan hallinnan budjetointi](datamanagement.md#budgeting-research-data-management)
+  - [Kuinka hallita arkaluontoisia tietoja](datamanagement.md#how-to-manage-sensitive-data)
+  - [Parhaat käytännöt asiakaspuolen salaukseen](best-encryption-practices.md)
 
-  - [Overview](metadata-and-documentation.md#overview)
-  - [Metadata types](metadata-and-documentation.md#metadata-types)
-  - [Semantic interoperability and machine readability](metadata-and-documentation.md#semantic-interoperability-and-machine-readability)
-  - [Data organization](metadata-and-documentation.md#data-organization)
+## [Metatiedot ja Datan Dokumentointi](metadata-and-documentation.md) {#metadata-and-data-documentation}
 
-## [Dataset Sources](sourcing-datasets.md)
+  - [Yleiskatsaus](metadata-and-documentation.md#overview)
+  - [Metatietojen tyypit](metadata-and-documentation.md#metadata-types)
+  - [Semanttinen yhteentoimivuus ja koneellisesti luettavuus](metadata-and-documentation.md#semantic-interoperability-and-machine-readability)
+  - [Datan organisointi](metadata-and-documentation.md#data-organization)
 
-  - [Overview](sourcing-datasets.md#overview)
-  - [Gathering datasets](sourcing-datasets.md#gathering-datasets)
-  - [Discover research data](sourcing-datasets.md#discover-research-data)
-  - [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#specific-datasets-hosted-in-csc-computing-environment)
-  - [Processing and analysing data](sourcing-datasets.md#processing-and-analyzing-data)
+## [Datasettien Lähteet](sourcing-datasets.md) {#dataset-sources}
 
-## [Storing Data at CSC](hosting-datasets-at-CSC.md)
+  - [Yleiskatsaus](sourcing-datasets.md#overview)
+  - [Datasettien kerääminen](sourcing-datasets.md#gathering-datasets)
+  - [Tutkimusdatan löytäminen](sourcing-datasets.md#discover-research-data)
+  - [Tietyt CSC:n laskentaympäristössä isännöidyt datasetit](sourcing-datasets.md#specific-datasets-hosted-in-csc-computing-environment)
+  - [Datan prosessointi ja analysointi](sourcing-datasets.md#processing-and-analyzing-data)
 
-  - [Overview](hosting-datasets-at-CSC.md#overview)
-  - [CSC's services for storing data](hosting-datasets-at-CSC.md#cscs-services-for-storing-data)
-  - [What to consider when choosing a suitable storage solution](hosting-datasets-at-CSC.md#what-to-consider-when-choosing-a-suitable-storage-solution)
-  - [When the research project ends](hosting-datasets-at-CSC.md#when-the-research-project-ends)
-  - [Preservation](hosting-datasets-at-CSC.md#preservation)
-  - [How much storage space is needed](hosting-datasets-at-CSC.md#how-much-storage-space-is-needed)
-  - [Storage comparison table](hosting-datasets-at-CSC.md#storage-comparison-table)
+## [Datan Säilyttäminen CSC:ssä](hosting-datasets-at-CSC.md) {#storing-data-at-csc}
 
-## [Publishing Datasets](publishing-datasets.md)
+  - [Yleiskatsaus](hosting-datasets-at-CSC.md#overview)
+  - [CSC:n palvelut datan säilytykseen](hosting-datasets-at-CSC.md#cscs-services-for-storing-data)
+  - [Mitä ottaa huomioon valittaessa sopivaa säilytysratkaisua](hosting-datasets-at-CSC.md#what-to-consider-when-choosing-a-suitable-storage-solution)
+  - [Kun tutkimusprojekti päättyy](hosting-datasets-at-CSC.md#when-the-research-project-ends)
+  - [Säilyttäminen](hosting-datasets-at-CSC.md#preservation)
+  - [Paljonko säilytystilaa tarvitaan](hosting-datasets-at-CSC.md#how-much-storage-space-is-needed)
+  - [Säilytysratkaisujen vertailutaulukko](hosting-datasets-at-CSC.md#storage-comparison-table)
 
-  - [Overview](publishing-datasets.md#overview)
-  - [Where to host and publish data](publishing-datasets.md#where-to-host-and-publish-datasets)
-  - [Data types](publishing-datasets.md#data-types)
-  - [Persistent identifiers](publishing-datasets.md#persistent-identifiers)
-  - [Licensing & rights](publishing-datasets.md#licensing-rights)
-  - [Access restrictions](publishing-datasets.md#access-restrictions)
+## [Datasettien Julkaiseminen](publishing-datasets.md) {#publishing-datasets}
+
+  - [Yleiskatsaus](publishing-datasets.md#overview)
+  - [Missä isännöidä ja julkaista dataa](publishing-datasets.md#where-to-host-and-publish-datasets)
+  - [Datatyypit](publishing-datasets.md#data-types)
+  - [Pysyvät tunnisteet](publishing-datasets.md#persistent-identifiers)
+  - [Lisensointi ja oikeudet](publishing-datasets.md#licensing-rights)
+  - [Pääsyn rajoitukset](publishing-datasets.md#access-restrictions)
+

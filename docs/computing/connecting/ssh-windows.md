@@ -1,211 +1,147 @@
-# SSH client on Windows
+
+# SSH-asiakasohjelma Windowsissa {#ssh-client-on-windows}
 
 --8<-- "auth-update-ssh.md"
 
-There are various programs that can be used for creating a remote SSH
-connection on a Windows system. This page provides instructions for three
-popular alternatives: [PowerShell](#powershell), [PuTTY](#putty) and
-[MobaXterm](#mobaxterm).
+Windows-järjestelmässä on useita ohjelmia etä-SSH-yhteyden luomiseen. Tämä sivu tarjoaa ohjeet kolmelle suositulle vaihtoehdolle: [PowerShell](#powershell), [PuTTY](#putty) ja [MobaXterm](#mobaxterm).
 
-## PowerShell
+## PowerShell {#powershell}
 
-You can use the
-[Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/security/remoting/ssh-remoting-in-powershell)
-command-line shell to connect to a CSC supercomputer using the
-[Win32 OpenSSH client](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse).
-To install OpenSSH on a Windows device, follow
-[these installation instructions](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui#install-openssh-for-windows).
+Voit käyttää [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/security/remoting/ssh-remoting-in-powershell) komentoriviä yhdistääksesi CSC:n supertietokoneeseen käyttäen [Win32 OpenSSH -asiakasohjelmaa](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse).
+Asentaaksesi OpenSSH:n Windows-laitteeseen seuraa [näitä asennusohjeita](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui#install-openssh-for-windows).
 
-### Generating SSH keys (PowerShell)
+### SSH-avaimien luominen (PowerShell) {#generating-ssh-keys-powershell}
 
-Connecting to CSC supercomputers using an SSH client requires setting up SSH
-keys. After installing OpenSSH, you can generate SSH keys using PowerShell by
-running:
+SSH-asiakasohjelman käyttö CSC:n supertietokoneilla edellyttää SSH-avainten asettamista. Kun olet asentanut OpenSSH:n, voit luoda SSH-avaimia PowerShellillä suorittamalla:
 
 ```bash
 ssh-keygen -a 100 -t ed25519
 ```
 
-Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
-recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
+Tuetut avaintyypit ovat Ed25519 ja RSA 2048–16384. **Suosittelemme vahvasti Ed25519-avaimia**. Jos valitset RSA:n, käytä vähintään 4096 bittiä.
 
-After you have generated an SSH key pair, you need to add the **public key** to
-the MyCSC portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+Kun olet luonut SSH-avainparin, sinun on lisättävä **julkinen avain** MyCSC-portaaliin.
+[Lue ohjeet täältä](ssh-keys.md#adding-public-key-in-mycsc).
 
-You may also wish to configure
-[authentication agent](#authentication-agent-powershell) to make using SSH keys
-more convenient.
+Saatat myös haluta konfiguroida [autentikointipääte](#authentication-agent-powershell) tekemään SSH-avaimien käytöstä kätevämpää.
 
-!!! note "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication. Please note that it is
-    mandatory to add your public key to MyCSC – copying it directly to a CSC
-    supercomputer does not work!
+!!! note "SSH-avainten käyttö"
+    Katso sivu [SSH-avainten asettaminen](ssh-keys.md) saadaksesi yleistä tietoa SSH-avainten käytöstä autentikointiin. Huomioi, että sinun on pakko lisätä julkinen avain MyCSC:hen – sen kopioiminen suoraan CSC supertietokoneeseen ei toimi!
 
-### Basic usage (PowerShell)
+### Peruskäyttö (PowerShell) {#basic-usage-powershell}
 
-After setting up SSH keys and adding your public key to MyCSC, you can connect
-to a CSC supercomputer by opening PowerShell and running:
+Kun olet asentanut SSH-avaimet ja lisännyt julkisen avaimesi MyCSC:hen, voit yhdistää CSC:n supertietokoneeseen avaamalla PowerShellin ja suorittamalla:
 
 ```bash
-# Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
+# Korvaa <username> CSC-käyttäjätilisi nimellä ja <host> "puhti" tai "mahti"
 
 ssh <username>@<host>.csc.fi
 ```
 
-### Graphical connection (PowerShell)
+### Graafinen yhteys (PowerShell) {#graphical-connection-powershell}
 
-If you want to create a connection with graphical support,
-you can use, for example, the
-[Xming X server](http://www.straightrunning.com/XmingNotes/). To enable displaying
-graphics remotely, run:
+Jos haluat luoda yhteyden graafisella tuella, voit käyttää esimerkiksi [Xming X -palvelinta](http://www.straightrunning.com/XmingNotes/). Etänä näytettävien grafiikoiden mahdollistamiseksi suorita:
 
 ```bash
 $env:DISPLAY="localhost:0.0"
 ```
 
-Then, use the `-X` (X11 forwarding) or `-Y` (trusted X11 forwarding) option when
-creating the connection:
+Käytä sitten `-X` (X11-välitys) tai `-Y` (luotettu X11-välitys) -vaihtoehtoa luodessasi yhteyttä:
 
 ```bash
 ssh -X <username>@<host>.csc.fi
 ```
 
-### Authentication agent (PowerShell)
+### Autentikointipääte (PowerShell) {#authentication-agent-powershell}
 
-To avoid having to type your passphrase every time you connect,
-you can
-[configure the Windows SSH agent](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement?source=recommendations#user-key-generation)
-to store your keys in memory for the duration of your local login session.
+Välttääksesi salasanasi kirjoittamisen joka kerta yhdistäessäsi, voit
+[konfiguroida Windowsin SSH-päätteen](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement?source=recommendations#user-key-generation)
+säilyttämään avaimiasi muistissa paikallisen kirjautumissession ajan.
 
-!!! warning "Corrupted MAC on input"
-    When connecting using the OpenSSH client software on Windows, you might
-    encounter an error stating "Corrupted MAC on input". This is a known
-    issue, and can be avoided by explicitly choosing a different MAC
-    algorithm. For details, please see
-    [our FAQ page on the topic](../../support/faq/i-cannot-login.md#why-is-my-ssh-client-saying-corrupted-mac-on-input).
+!!! warning "Syöte virheellinen MAC"
+    Kun yhdistät OpenSSH-asiakasohjelmalla Windowsissa, saatat kohdata virheen "Syöte virheellinen MAC". Tämä on tunnettu ongelma, ja sen voi välttää valitsemalla nimenomaisesti toisen MAC-algoritmin. Katso yksityiskohdat [meidän FAQ-sivulta aiheesta](../../support/faq/i-cannot-login.md#why-is-my-ssh-client-saying-corrupted-mac-on-input).
 
-## PuTTY
+## PuTTY {#putty}
 
-The [PuTTY SSH client](https://putty.org/) is an alternative to using OpenSSH.
+[PuTTY SSH -asiakasohjelma](https://putty.org/) on vaihtoehto OpenSSH:n käytölle.
 
-### Generating SSH keys (PuTTY)
+### SSH-avainten luominen (PuTTY) {#generating-ssh-keys-putty}
 
-Connecting to CSC supercomputers using an SSH client requires setting up SSH
-keys. To generate SSH keys for connecting with PuTTY, use the
-[PuTTYgen key generator](https://www.puttygen.com/). The PuTTY documentation
-provides
-[instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
+SSH-asiakasohjelman käyttö CSC:n supertietokoneilla vaatii SSH-avainten asettamista. Luodaksesi SSH-avaimia PuTTY:lle käytä [PuTTYgen-avaingeneraattoria](https://www.puttygen.com/). PuTTY-dokumentaatio tarjoaa [ohjeet PuTTYgenin käyttöön](https://www.putty.be/0.76/htmldoc/Chapter8.html).
 
-Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
-recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
+Tuetut avaintyypit ovat Ed25519 ja RSA 2048–16384. **Suosittelemme vahvasti Ed25519-avaimia**. Jos valitset RSA:n, käytä vähintään 4096 bittiä.
 
-After you have generated an SSH key pair, you need to add the **public key** to
-the MyCSC portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+Kun olet luonut SSH-avainparin, sinun on lisättävä **julkinen avain** MyCSC-portaaliin.
+[Lue ohjeet täältä](ssh-keys.md#adding-public-key-in-mycsc).
 
-You may also wish to configure
-[authentication agent](#authentication-agent-putty) to make using SSH keys more
-convenient.
+Saatat myös haluta konfiguroida [autentikointipääte](#authentication-agent-putty) tekemään SSH-avaimien käytöstä kätevämpää.
 
-!!! note "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication. Please note that it is
-    mandatory to add your public key to MyCSC – copying it directly to a CSC
-    supercomputer does not work!
+!!! note "SSH-avainten käyttö"
+    Katso sivu [SSH-avainten asettaminen](ssh-keys.md) saadaksesi yleistä tietoa SSH-avainten käytöstä autentikointiin. Huomioi, että sinun on pakko lisätä julkinen avain MyCSC:hen – sen kopioiminen suoraan CSC supertietokoneeseen ei toimi!
 
-### Basic usage (PuTTY)
+### Peruskäyttö (PuTTY) {#basic-usage-putty}
 
-After setting up SSH keys and adding your public key to MyCSC, you can connect
-to a CSC supercomputer using PuTTY. When you launch PuTTY, you are asked to
-configure your SSH session. Do so according to the table below:
+Kun olet asentanut SSH-avaimet ja lisännyt julkisen avaimesi MyCSC:hen, voit yhdistää CSC:n supertietokoneeseen käyttäen PuTTY:a. Kun avaat PuTTY:n, sinua pyydetään konfiguroimaan SSH-istuntosi. Tee se alla olevan taulukon mukaisesti:
 
-| Option | Value |
+| Asetus | Arvo |
 |-|-|
-| **Host Name** | `puhti.csc.fi` or `mahti.csc.fi` |
-| **Port** | `22` |
-| **Connection type** | `SSH` |
+| **Kohdekoneen nimi** | `puhti.csc.fi` tai `mahti.csc.fi` |
+| **Portti** | `22` |
+| **Yhteyden tyyppi** | `SSH` |
 
-When creating a remote connection using PuTTY, select the private key file
-under `Connection --> SSH --> Auth`. If you want the private key to be
-used each time you connect, save your session to store your choice. Finally,
-click `Open`.
+Kun luot etäyhteyttä PuTTY:llä, valitse yksityisavain tiedosto kohdasta `Connection --> SSH --> Auth`. Jos haluat, että yksityisavain käytetään joka kerta yhdistäessäsi, tallenna istuntosi tallentaaksesi valintasi. Lopuksi, napsauta `Open`.
 
-### Graphical connection (PuTTY)
+### Graafinen yhteys (PuTTY) {#graphical-connection-putty}
 
-If you want to create a connection with graphical support,
-you can use, for example, the
-[Xming X server](http://www.straightrunning.com/XmingNotes/). To enable displaying
-graphics remotely, select `Enable X11 forwarding` in the PuTTY program settings
-(`Connection --> SSH --> X11`).
+Jos haluat luoda yhteyden graafisella tuella, voit käyttää esim. [Xming X -palvelinta](http://www.straightrunning.com/XmingNotes/). Käyttääksesi graafista näyttöä etänä, valitse `Enable X11 forwarding` PuTTY:n ohjelma-asetuksista (`Connection --> SSH --> X11`).
 
-### Authentication agent (PuTTY)
+### Autentikointipääte (PuTTY) {#authentication-agent-putty}
 
-To avoid having to type your passphrase every time you connect, you can
-use the [Pageant authentication agent](https://www.putty.be/0.76/htmldoc/Chapter9.html)
-to store your private keys in memory.
+Välttääksesi salasanasi kirjoittamisen joka kerta yhdistäessäsi, voit käyttää [Pageant-autentikointipäätettä](https://www.putty.be/0.76/htmldoc/Chapter9.html) säilyttääksesi yksityisavaimet muistissa.
 
-## MobaXterm
+## MobaXterm {#mobaxterm}
 
-[MobaXterm](https://mobaxterm.mobatek.net/) is an SSH client with an embedded X
-server, which means that it can be used to display graphics.
+[MobaXterm](https://mobaxterm.mobatek.net/) on SSH-asiakasohjelma, jossa on sisäänrakennettu X-palvelin, mikä tarkoittaa, että sitä voidaan käyttää grafiikoiden näyttöön.
 
-### Generating SSH keys (MobaXterm)
+### SSH-avainten luominen (MobaXterm) {#generating-ssh-keys-mobaxterm}
 
-Connecting to CSC supercomputers using an SSH client requires setting up SSH
-keys. You can generate SSH keys using MobaXterm by running:
+SSH-asiakasohjelman käyttö CSC:n supertietokoneilla vaatii SSH-avainten asettamista. Voit luoda SSH-avaimia MobaXtermillä suorittamalla:
 
 ```bash
 ssh-keygen -a 100 -t ed25519
 ```
 
-Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
-recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
+Tuetut avaintyypit ovat Ed25519 ja RSA 2048–16384. **Suosittelemme vahvasti Ed25519-avaimia**. Jos valitset RSA:n, käytä vähintään 4096 bittiä.
 
-If you want your generated keys to persist through MobaXterm restarts,
-set a persistent home directory for MobaXterm in the program settings
-(`Settings --> Configuration --> General`).
+Jos haluat, että luodut avaimet säilyvät MobaXtermin uudelleenkäynnistysten läpi, määritä pysyvä kotihakemisto MobaXtermille ohjelman asetuksissa (`Settings --> Configuration --> General`).
 
-After you have generated an SSH key pair, you need to add the **public key** to
-the MyCSC portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+Kun olet luonut SSH-avainparin, sinun on lisättävä **julkinen avain** MyCSC-portaaliin.
+[Lue ohjeet täältä](ssh-keys.md#adding-public-key-in-mycsc).
 
-You may also wish to configure
-[authentication agent](#authentication-agent-mobaxterm) to make using SSH keys
-more convenient.
+Saatat myös haluta konfiguroida [autentikointipääte](#authentication-agent-mobaxterm) tekemään SSH-avaimien käytöstä kätevämpää.
 
-!!! note "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication. Please note that it is
-    mandatory to add your public key to MyCSC – copying it directly to a CSC
-    supercomputer does not work!
+!!! note "SSH-avainten käyttö"
+    Katso sivu [SSH-avainten asettaminen](ssh-keys.md) saadaksesi yleistä tietoa SSH-avainten käytöstä autentikointiin. Huomioi, että sinun on pakko lisätä julkinen avain MyCSC:hen – sen kopioiminen suoraan CSC supertietokoneeseen ei toimi!
 
-### Basic usage (MobaXterm)
+### Peruskäyttö (MobaXterm) {#basic-usage-mobaxterm}
 
-After setting up SSH keys and adding your public key to MyCSC, you can connect
-to a CSC supercomputer using MobaXterm. To connect using MobaXterm, open the
-terminal and run:
+Kun olet asentanut SSH-avaimet ja lisännyt julkisen avaimesi MyCSC:hen, voit yhdistää CSC:n supertietokoneeseen käyttäen MobaXtermia. Yhdistyäksesi MobaXtermilla, avaa terminaali ja suorita:
 
 ```bash
-# Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
+# Korvaa <username> CSC-käyttäjätilisi nimellä ja <host> "puhti" tai "mahti"
 
 ssh <username>@<host>.csc.fi
 ```
 
-### Graphical connection (MobaXterm)
+### Graafinen yhteys (MobaXterm) {#graphical-connection-mobaxterm}
 
-To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
-(trusted X11 forwarding) option when creating the connection:
+Mahdollistaaksesi grafiikoiden näyttämisen SSH:n yli, käytä `-X` (X11 forwarding) tai `-Y` (trusted X11 forwarding) -vaihtoehtoa yhteyttä luodessasi:
 
 ```bash
 ssh -X <username>@<host>.csc.fi
 ```
 
-### Authentication agent (MobaXterm)
+### Autentikointipääte (MobaXterm) {#authentication-agent-mobaxterm}
 
-To avoid having to type your passphrase every time you connect, enable the
-MobAgent authentication agent in the program settings (`Settings -->
-Configuration --> SSH`).
+Välttääksesi salasanasi kirjoittamisen joka kerta yhdistäessäsi, ota käyttöön MobAgent-autentikointipääte ohjelman asetuksista (`Settings --> Configuration --> SSH`).
+

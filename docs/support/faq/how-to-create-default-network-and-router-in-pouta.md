@@ -1,5 +1,5 @@
-# How to create default network and router in a Pouta project
+# Kuinka luoda oletusverkko ja -reititin Pouta-projektissa {#how-to-create-default-network-and-router-in-a-pouta-project}
 
-If your project doesn't come with a default network and router configuration, here is the link where you find information about creating a default network and router:    
+Jos projektissasi ei ole oletusverkon ja -reitittimen määritystä, tässä on linkki, josta löydät tietoa oletusverkon ja -reitittimen luomisesta:    
 
 [Networking in Pouta](../../cloud/pouta/networking.md)

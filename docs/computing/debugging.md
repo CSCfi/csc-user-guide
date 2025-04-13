@@ -1,33 +1,22 @@
-# Debugging
+# Virheenkorjaus {#debugging}
 
-## Prepare code for debugging
+## Valmistele koodi virheenkorjausta varten {#prepare-code-for-debugging}
 
-In order to get full debugging information, one needs to usually re-compile
-the program of interest with the debug flag (`-g`) enabled. For example, with
-the GNU compiler:
+Jotta saadaan kaikki virheenkorjaustiedot, ohjelma täytyy yleensä kääntää uudelleen virheenkorjauslipun (`-g`) kanssa aktivoituna. Esimerkiksi GNU-kääntäjällä:
 
 ```
 gcc -g -o example example.c
 ```
 
+## Muistivuodot {#memory-leaks}
 
-## Memory leaks
+Hyvä paikka aloittaa, on tarkistaa muistivuodot [Valgrindilla](https://valgrind.org/). Se on monipuolinen työkalu, jota käytetään yleisimmin koodin muistivuotojen havaitsemiseen, mutta sitä voidaan käyttää myös esim. säikeitysvirheiden tai kasan ja välimuistin käytön tutkimiseen.
 
-A good place to start is to check for memory leaks with
-[Valgrind](https://valgrind.org/). It is a versatile tool that is most
-commonly used to detect memory leaks in the code, but can also be used e.g. to
-detect errors in threading or to investigate heap and cache usage.
+Jotta voit käyttää Valgrindia, aseta ympäristö tarvittavaksi koodillesi normaalisti ja käännä koodi uudelleen virheenkorjauslipun (`-g`) lisättynä.
 
-In order to use Valgrind, set up the environment as needed normally by your
-code and re-compile the code with the debug flag (`-g`) added.
+Valgrind-analyysin suorittaminen on yksinkertaista ja sen voi tehdä joko [interaktiivisessa istunnossa](running/interactive-usage.md) tai [lähetettynä työnä](running/submitting-jobs.md). Interaktiivisessa istunnossa käytettävä komento on `valgrind ./myprogram`, kun taas lähetetyssä työssä komento on `srun valgrind ./myprogram`.
 
-Running an analysis with Valgrind is simple and can be done either in an
-[interactive session](running/interactive-usage.md) or as a
-[submitted job](running/submitting-jobs.md). In an interactive session the
-command to use is `valgrind ./myprogram`, while in a submitted job the
-command is `srun valgrind ./myprogram`.
-
-For example, to check for memory leaks in an interactive session:
+Esimerkiksi, tarkistaaksesi muistivuodot interaktiivisessa istunnossa:
 
 ```bash
 module load valgrind
@@ -35,19 +24,14 @@ module load valgrind
 valgrind ./example
 ```
 
-To run the same analysis as a normal non-interactive job, e.g. when debugging
-a parallel program, the command to use is `srun valgrind ./example`.
+Jotta saman analyysin voi suorittaa normaalina ei-interaktiivisena työnä, esim. debuggattaessa rinnakkaisohjelmaa, käytettävä komento on `srun valgrind ./example`.
 
+## Debuggerit {#debuggers}
 
-## Debuggers
+Täysimittaisia debuggaustyökaluja tarvitaan usein koodin suorittamisen tarkkaan tutkimiseen ja suoritusajan virheiden ratkaisemiseen. CSC:llä on saatavilla useita debuggaustyökaluja:
 
-Fully-fledged debuggers are often needed to really dig into the code execution
-and to resolve runtime errors. At CSC, several debuggers are available:
-
-* [Arm DDT](../apps/ddt.md) is a debugger for serial and parallel programs
-  (MPI, OpenMP, CUDA) with both graphical and command-line interfaces
-* [GDB](../apps/gdb.md) is a command-line debugger for compiled programs (C, C++,
-  Fortran, etc.)
-* [PDB](../apps/pdb.md) is an interactive debugger for Python programs
-* [CUDA-GDB](../apps/cuda-gdb.md) is a command-line debugger for CUDA programs
-* [compute-sanitizer](../apps/compute-san.md) is a command-line functional correctness checking suite
+* [Arm DDT](../apps/ddt.md) on debuggertyökalu sarjallisia ja rinnakkaisohjelmia (MPI, OpenMP, CUDA) varten ja siinä on sekä graafinen että komentoriviliittymä
+* [GDB](../apps/gdb.md) on komentorividebuggertyökalu käännetyille ohjelmille (C, C++, Fortran, jne.)
+* [PDB](../apps/pdb.md) on interaktiivinen debuggertyökalu Python-ohjelmille
+* [CUDA-GDB](../apps/cuda-gdb.md) on komentorividebuggertyökalu CUDA-ohjelmille
+* [compute-sanitizer](../apps/compute-san.md) on komentorivitoiminnallisuuden tarkistustyökalupaketti

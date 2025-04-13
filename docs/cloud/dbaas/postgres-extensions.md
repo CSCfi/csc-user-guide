@@ -1,125 +1,121 @@
-# PostgreSQL extensions
+# PostgreSQL-laajennukset {#postgresql-extensions}
 
-## Enabling extensions
+## Laajennusten ottaminen käyttöön {#enabling-extensions}
 
-  1. [Enable the root user](operations.md#enable-root).
-  2. [Log in to the database as root](postgres-accessing.md#command-line).
-  3. Use the following command to enable extensions:
-    ```
-    CREATE EXTENSION $EXTENSION_NAME ;
-    ```
-  4. Disable root once you're done enabling extensions.
+1. [Ota root-käyttäjä käyttöön](operations.md#enable-root).
+2. [Kirjaudu tietokantaan root-käyttäjänä](postgres-accessing.md#command-line).
+3. Käytä seuraavaa komentoa laajennusten ottamiseksi käyttöön:
+   ```
+   CREATE EXTENSION $EXTENSION_NAME ;
+   ```
+4. Poista root käytöstä, kun olet ottanut laajennukset käyttöön.
 
-## Currently available extensions
+## Tällä hetkellä saatavilla olevat laajennukset {#currently-available-extensions}
 
-If there are extensions missing here that you would like to see available in Pukki, please contact the [CSC Service Desk](../../support/contact.md).
-Note that the extension list is based on the latest PostgreSQL version, the available extensions might differ in older versions.
+Jos tästä puuttuu laajennuksia, joita haluaisit nähdä Pukissa käytettävissä, ota yhteyttä [CSC Service Deskiin](../../support/contact.md).
+Huomioi, että laajennuslista perustuu uusimpaan PostgreSQL-versioon, ja saatavilla olevat laajennukset saattavat poiketa vanhemmissa versioissa.
 
-<!-- This extension list can easily be generated with the following command:
+<!-- Tämän laajennuslistan voi helposti luoda seuraavalla komennolla:
 SELECT '| ' || name  AS name, comment || ' |' as comment FROM pg_available_extensions ORDER BY name;
 --->
-| Extension name  | Extension description |
+| Laajennuksen nimi  | Laajennuksen kuvaus |
 |:--- |:--- |
- | address_standardizer           | Used to parse an address into constituent elements. Generally used to support geocoding address normalization step. |
- | address_standardizer-3         | Used to parse an address into constituent elements. Generally used to support geocoding address normalization step. |
- | address_standardizer_data_us   | Address Standardizer US dataset example |
- | address_standardizer_data_us-3 | Address Standardizer US dataset example |
- | amcheck                        | functions for verifying relation integrity |
- | autoinc                        | functions for autoincrementing fields |
- | bloom                          | bloom access method - signature file based index |
- | btree_gin                      | support for indexing common datatypes in GIN |
- | btree_gist                     | support for indexing common datatypes in GiST |
- | citext                         | data type for case-insensitive character strings |
- | cube                           | data type for multidimensional cubes |
- | dblink                         | connect to other PostgreSQL databases from within a database |
- | dict_int                       | text search dictionary template for integers |
- | dict_xsyn                      | text search dictionary template for extended synonym processing |
- | earthdistance                  | calculate great-circle distances on the surface of the Earth |
- | file_fdw                       | foreign-data wrapper for flat file access |
- | fuzzystrmatch                  | determine similarities and distance between strings |
- | h3                             | H3 bindings for PostgreSQL |
- | h3_postgis                     | H3 PostGIS integration |
- | hstore                         | data type for storing sets of (key, value) pairs |
- | insert_username                | functions for tracking who changed a table |
- | intagg                         | integer aggregator and enumerator (obsolete) |
- | intarray                       | functions, operators, and index support for 1-D arrays of integers |
- | isn                            | data types for international product numbering standards |
- | lo                             | Large Object maintenance |
- | ltree                          | data type for hierarchical tree-like structures |
- | moddatetime                    | functions for tracking last modification time |
- | pageinspect                    | inspect the contents of database pages at a low level |
- | pg_buffercache                 | examine the shared buffer cache |
- | pg_freespacemap                | examine the free space map (FSM) |
- | pg_prewarm                     | prewarm relation data |
- | pg_stat_statements             | track planning and execution statistics of all SQL statements executed |
- | pg_surgery                     | extension to perform surgery on a damaged relation |
- | pg_trgm                        | text similarity measurement and index searching based on trigrams |
- | pg_visibility                  | examine the visibility map (VM) and page-level visibility info |
- | pg_walinspect                  | functions to inspect contents of PostgreSQL Write-Ahead Log |
- | pgcrypto                       | cryptographic functions |
- | pgrowlocks                     | show row-level locking information |
- | pgstattuple                    | show tuple-level statistics |
- | plpgsql                        | PL/pgSQL procedural language |
- | postgis                        | PostGIS geometry and geography spatial types and functions |
- | postgis-3                      | PostGIS geometry and geography spatial types and functions |
- | postgis_raster                 | PostGIS raster types and functions |
- | postgis_raster-3               | PostGIS raster types and functions |
- | postgis_sfcgal                 | PostGIS SFCGAL functions |
- | postgis_sfcgal-3               | PostGIS SFCGAL functions |
- | postgis_tiger_geocoder         | PostGIS tiger geocoder and reverse geocoder |
- | postgis_tiger_geocoder-3       | PostGIS tiger geocoder and reverse geocoder |
- | postgis_topology               | PostGIS topology spatial types and functions |
- | postgis_topology-3             | PostGIS topology spatial types and functions |
- | postgres_fdw                   | foreign-data wrapper for remote PostgreSQL servers |
- | refint                         | functions for implementing referential integrity (obsolete) |
- | seg                            | data type for representing line segments or floating-point intervals |
- | sslinfo                        | information about SSL certificates |
- | tablefunc                      | functions that manipulate whole tables, including crosstab |
- | tcn                            | Triggered change notifications |
- | tsm_system_rows                | TABLESAMPLE method which accepts number of rows as a limit |
- | tsm_system_time                | TABLESAMPLE method which accepts time in milliseconds as a limit |
- | unaccent                       | text search dictionary that removes accents |
- | uuid-ossp                      | generate universally unique identifiers (UUIDs) |
- | xml2                           | XPath querying and XSLT |
+| address_standardizer           | Käytetään osoitteen jäsentämiseen sen osatekijöihin. Yleisesti käytetty geokoodauksen osoitenormitointivaiheessa. |
+| address_standardizer-3         | Käytetään osoitteen jäsentämiseen sen osatekijöihin. Yleisesti käytetty geokoodauksen osoitenormitointivaiheessa. |
+| address_standardizer_data_us   | Address Standardizer US dataset example |
+| address_standardizer_data_us-3 | Address Standardizer US dataset example |
+| amcheck                        | funktiot suhteen eheyden tarkistamiseksi |
+| autoinc                        | funktiot automaattisesti lisättävissä kentissä |
+| bloom                          | bloom-hakumetodi - allekirjoitustiedostoon perustuva indeksi |
+| btree_gin                      | Tuetaan yleisten tietotyyppien indeksointia GIN:ssä |
+| btree_gist                     | Tuetaan yleisten tietotyyppien indeksointia GiST:ssä |
+| citext                         | tietotyyppi kirjainkoolla erotukselle immuuneille merkkijonoille |
+| cube                           | tietotyyppi moniulotteisille kuutioille |
+| dblink                         | yhdistä muihin PostgreSQL-tietokantoihin tietokannan sisällä |
+| dict_int                       | tekstinhakukirjaston sanakirjamalli kokonaisluvuille |
+| dict_xsyn                      | tekstinhakukirjaston laajennettujen synonyymien prosessoinnin sanakirjamalli |
+| earthdistance                  | suuren ympyrän välimatkojen laskeminen Maan pinnalla |
+| file_fdw                       | vieraan tietoaineiston kansio tasotiedoston pääsyyn |
+| fuzzystrmatch                  | määritä samankaltaisuus ja etäisyys merkkijonojen välillä |
+| h3                             | H3-sidonnat PostgreSQL:lle |
+| h3_postgis                     | H3 PostGIS-integraatio |
+| hstore                         | tietotyyppi (avain, arvo) -parien tallentamiseen |
+| insert_username                | funktioita muuttajaiden seuraamiseksi taulukossa |
+| intagg                         | kokonaislukujen aggregaattori ja luetteloija (vanhentunut) |
+| intarray                       | funktiot, operaattorit ja indeksituki kokonaislukutaulukoille |
+| isn                            | tietotyypit kansainvälisille tuotenumerointisäännöille |
+| lo                             | Suurten objektien ylläpito |
+| ltree                          | tietotyyppi hierarkkisille puurakenteille |
+| moddatetime                    | funktioita viimeisen muokkausajan seuraamiseen |
+| pageinspect                    | tutki tietokantasivujen sisältöä alapinnalla |
+| pg_buffercache                 | tutki jaettua välimuistia |
+| pg_freespacemap                | tutki vapaata tilakarttaa (FSM) |
+| pg_prewarm                     | esilämmittää suhdetiedot |
+| pg_stat_statements             | seuraa kaikkien SQL-lausekkeiden suunnittelu- ja suoritustilastoja |
+| pg_surgery                     | laajennus, jolla korjat mullistettua suhdetta |
+| pg_trgm                        | tekstisamankaltaisuuden mittaus ja trigrammeihin perustuva hakemisto |
+| pg_visibility                  | tutki näkyvyyskarttaa (VM) ja sivutason näkyvyystietoja |
+| pg_walinspect                  | funktiot PostgreSQL:n Write-Ahead Log -sisältöjen tarkasteluun |
+| pgcrypto                       | kryptografiset funktiot |
+| pgrowlocks                     | näyttää rivitason lukitustiedot |
+| pgstattuple                    | näyttää tuple-tason tilastoja |
+| plpgsql                        | PL/pgSQL proseduurikieli |
+| postgis                        | PostGIS-geometria- ja maantieteelliset tietotyypit ja funktiot |
+| postgis-3                      | PostGIS-geometria- ja maantieteelliset tietotyypit ja funktiot |
+| postgis_raster                 | PostGIS rasterityypit ja funktiot |
+| postgis_raster-3               | PostGIS rasterityypit ja funktiot |
+| postgis_sfcgal                 | PostGIS SFCGAL-funktiot |
+| postgis_sfcgal-3               | PostGIS SFCGAL-funktiot |
+| postgis_tiger_geocoder         | PostGIS tiger-paikannus- ja vastapaaikannustoiminnot |
+| postgis_tiger_geocoder-3       | PostGIS tiger-paikannus- ja vastapaaikannustoiminnot |
+| postgis_topology               | PostGIS topologiset tilarakenne- ja -funktiot |
+| postgis_topology-3             | PostGIS topologiset tilarakenne- ja -funktiot |
+| postgres_fdw                   | vieraan tietoaineiston kansio kauko-PostgreSQL-palvelimille |
+| refint                         | funktiot viite-eheyden toteuttamiseen (vanhentunut) |
+| seg                            | tietotyyppi viivasegmenttien tai liukulukualueiden esittämiseen |
+| sslinfo                        | tietoja SSL-sertifikaateista |
+| tablefunc                      | funktiot, jotka käsittelevät kokonaisia taulukoita, mukaan lukien crosstab |
+| tcn                            | kytketyt muutosilmoitukset |
+| tsm_system_rows                | TABLESAMPLE-menetelmä, joka hyväksyy rivien määrän rajaksi |
+| tsm_system_time                | TABLESAMPLE-menetelmä, joka hyväksyy ajan millisekunteina rajaksi |
+| unaccent                       | tekstinhakukirjasto, joka poistaa aksentit |
+| uuid-ossp                      | luo universaalisti uniikit tunnisteet (UUID:t) |
+| xml2                           | XPath-kyselyt ja XSLT |
 
+## Parametrit, joita käyttäjät voivat muokata {#parameters-that-users-can-modify}
 
-## Parameters that users can modify
+DBaS sallii käyttäjien muokata joitakin parametreja.
+Jos on joitakin parametreja, joita mielestäsi pitäisi voida muokata, [ota yhteyttä](../../support/contact.md) ja katsomme, voimmeko tehdä sen mahdolliseksi.
+Oletuksena oletamme, että oletusparametrit ovat järkeviä, eivätkä käyttäjät tavanomaisissa olosuhteissa saisi muokata mitään näistä parametreista.
 
-The DBaaS allows users to modify some of the parameters.
-If there are some parameters that you think you should be able to modify, [please contact us](../../support/contact.md) and we'll see if we can make it possible.
-By default, we assume that default parameters are sane and that users should not, under normal circumstances, modify any of these parameters.
-
-| Parameters           | Default | Requires restart | Comments |
+| Parametrit           | Oletus | Vaatii uudelleenkäynnistyksen | Kommentit |
 |:--- |:---:|:---|:---|
-| maintenance_work_mem | 64MB  | No  | |
-| max_connections      | 100   | Yes |It is usually recommended to use connection pools instead of modifying this value |
-| work_mem             | 4MB   | No  | |
-| log_statement        | false | No  | This is useful if you want to figure out more how your database is utilized |
-| log_statement_stats  | false | No  |This will also collect stats from your database, this is recommended to keep as false since it might affect performance |
+| maintenance_work_mem | 64MB  | Ei  | |
+| max_connections      | 100   | Kyllä | Yleensä suositellaan käytettäviksi yhteyspuoleja tämän arvon muuttamisen sijaan |
+| work_mem             | 4MB   | Ei  | |
+| log_statement        | false | Ei  | Tämä on hyödyllinen, jos haluat selvittää lisää, miten tietokantaasi käytetään |
+| log_statement_stats  | false | Ei  | Tämä kerää myös tilastoja tietokannastasi, tämän suositellaan pidettävän väärässä, koska se saattaa vaikuttaa suorituskykyyn |
 
+## Joitain hyödyllisiä komentoja {#some-useful-commands}
 
-
-## Some useful commands
-
-**List available extensions**
+**Saatavilla olevien laajennusten listaaminen**
 
 ```sql
 SELECT name, default_version, comment FROM pg_available_extensions ORDER BY name;
 ```
 
-**List enabled extensions**
+**Käytössä olevien laajennusten listaaminen**
 
 ```sql
 SELECT * from pg_extension ORDER BY extname;
 ```
 
-**Create extension**
+**Laajennuksen luominen**
 
 ```sql
 CREATE EXTENSION ${EXTENSION_NAME};
 ```
 
-**Disable extension**
+**Laajennuksen poistaminen käytöstä**
 ```sql
 SELECT * FROM table1 LIMIT 1 \gx
-```

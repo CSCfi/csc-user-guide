@@ -1,41 +1,42 @@
-# Common error messages
 
-You have reached your Allas quota limit (default 10 TiB) or bucket specific limit of maximum 500 000 objects.
+# Yleiset virheilmoitukset
+
+Olet saavuttanut Allas-kiintiösi rajan (oletus 10 TiB) tai kohdekohtaisten enintään 500 000 objektin rajan.
 ```bash
 Too Large Object. 
 ```
 
-### HTTP status code 409 
+### HTTP-tilakoodi 409 {#http-status-code-409}
 
-A bucket with that name already exists:
+Samanniminen ämpäri on jo olemassa:
 ```bash
 Conflict
 ```
 
-### HTTP status code 404
+### HTTP-tilakoodi 404 {#http-status-code-404}
 
-The bucket does not exist:
+Ämpäriä ei ole olemassa:
 ```bash
 NoSuchBucket
 ```
 
-### HTTP status code 403
+### HTTP-tilakoodi 403 {#http-status-code-403}
 
-Your credentials are not allowed to view the bucket:
+Tunnistetietosi eivät oikeuta ämpärin katseluun:
 ```bash
 AccessDenied
 ```
 
-### HTTP status code 403
+### HTTP-tilakoodi 403 {#http-status-code-403-1}
 
-You have reached a quota limit. Contact `servicedesk@csc.fi` and request a quota increase. Please specify the project name, bucket name and size of the file in the request.
+Olet saavuttanut kiintiörajan. Ota yhteyttä osoitteeseen `servicedesk@csc.fi` ja pyydä kiintiön korotusta. Ilmoita pyynnössä projektin nimi, ämpärin nimi ja tiedoston koko.
 ```bash
 QuotaExceeded
 ```
 
-### HTTP status code 400
+### HTTP-tilakoodi 400 {#http-status-code-400}
 
-The file is too large. See [Swift client – Files larger than 5 GB](./swift_client.md#files-larger-than-5-gb).
+Tiedosto on liian suuri. Katso [Swift client – Tiedostot, jotka ovat suurempia kuin 5 GB](./swift_client.md#files-larger-than-5-gb).
 ```bash
 EntityTooLarge
 ```

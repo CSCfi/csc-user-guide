@@ -1,16 +1,17 @@
-# How to get started as a new user at CSC?
 
-You are now browsing through our service guides.
-We have collected some useful materials in the following locations:
+# Kuinka aloittaa uutena käyttäjänä CSC:llä? {#how-to-get-started-as-a-new-user-at-csc}
 
-* [CSC accounts and projects](../../accounts/index.md)
-* [CSC customer portal MyCSC](https://my.csc.fi)
-* [Free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases)
-* [Services for research](https://research.csc.fi)
-* [Services by discipline](https://research.csc.fi/sciences)
-* [Tutorials](../../support/tutorials/index.md)
-* [Frequently Asked Questions](index.md)
-* [Collection of training materials](../training-material/index.md)
-* [CSC training calendar](https://csc.fi/en/trainings/training-calendar/)
+Olet nyt selaamassa palveluoppaitamme.
+Olemme koonneet hyödyllisiä materiaaleja seuraaviin paikkoihin:
 
-Need direct support? [Contact CSC Service Desk](../contact.md)!
+* [CSC-tilit ja -projektit](../../accounts/index.md)
+* [CSC:n asiakasportaali MyCSC](https://my.csc.fi)
+* [Maksuttomat käyttötapaukset](https://research.csc.fi/free-of-charge-use-cases)
+* [Palvelut tutkimukselle](https://research.csc.fi)
+* [Palvelut tieteenaloittain](https://research.csc.fi/sciences)
+* [Opastus](../../support/tutorials/index.md)
+* [Usein kysytyt kysymykset](index.md)
+* [Kokoelma koulutusmateriaaleja](../training-material/index.md)
+* [CSC:n koulutuskalenteri](https://csc.fi/en/trainings/training-calendar/)
+
+Tarvitsetko suoraa tukea? [Ota yhteyttä CSC:n Service Deskiin](../contact.md)!

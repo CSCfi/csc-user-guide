@@ -1,43 +1,43 @@
-# High performance libraries
 
-Various high performance libraries for dense linear algebra, fast
-fourier transforms *etc.* are available via the module system. Many
-libraries are provided both as single threaded and multithreaded
-versions, multithreaded modules are designated with `omp` in the
-module version. For pure MPI applications and applications calling
-libraries from multiple threads it is recommended to use a single
-threaded library.
+# Suorituskykyiset kirjastot {#high-performance-libraries}
 
-Availibility of libraries may depend on the loaded compiler suite and
-MPI environment, use `module avail` for finding out available
-libraries. See the documentation of library for
-instructions on how to build against that particular library. Note
-that most modules set `LIBRARY_PATH` and `LD_LIBRARY_PATH` environment
-variables so that `-llibrary` linker flag is often enough. Most
-modules set also `<library>_INSTALL_ROOT` environment variables that
-can be utilized in custom build scripts. As an example, `fftw`
-library can be used as follows:
+Eri suorituskykyisiä kirjastoja tiheään lineaarialgebraan, nopeisiin
+Fourier-muunnoksiin *jne.* on saatavilla modulesysteemin kautta. Monet
+kirjastot ovat saatavilla sekä yksisäikeisinä että monisäikeisinä
+versioina, monisäikeiset moduulit on merkitty `omp` moduuliversiossa.
+Puhtaissa MPI-sovelluksissa ja sovelluksissa, joissa kutsutaan kirjastoja
+useista säikeistä, suositellaan käyttämään yksisäikeistä kirjastoa.
+
+Kirjastojen saatavuus voi riippua ladatusta kääntäjäpaketista ja
+MPI-ympäristöstä, käytä `module avail` nähdäksesi saatavilla olevat
+kirjastot. Katso kirjaston dokumentaatiosta ohjeet kuinka rakentaa
+tietylle kirjastolle. Huomaa, että useimmat moduulit asettavat
+`LIBRARY_PATH` ja `LD_LIBRARY_PATH` ympäristömuuttujat, joten
+`-llibrary` linkkauslippu on usein riittävä. Useimmat moduulit asettavat
+myös `<library>_INSTALL_ROOT` ympäristömuuttujat, joita voidaan
+hyödyntää räätälöidyissä rakennusskripteissä. Esimerkiksi `fftw`
+kirjastoa voidaan käyttää seuraavasti:
 
 ```bash
 module load fftw
 <compiler_command> -o myprog myprog.o -lfftw3
 ```
 
-and the directory containing `include`, `lib`, *etc.* are found under
-`FFTW_INSTALL_ROOT` environment variable.
+ja hakemisto, joka sisältää `include`, `lib`, *jne.*, löytyy
+`FFTW_INSTALL_ROOT` ympäristömuuttujan alta.
 
-## Libraries in Puhti
+## Kirjastot Puhtissa {#libraries-in-puhti}
 
-Selected libraries available in Puhti:
+Puhtissa saatavilla olevat valitut kirjastot:
 
-- Dense linear algebra: `intel-oneapi-mkl`
-- Dense distributed linear algebra: `intel-oneapi-mkl`, `netlib-scalapack`
-- Fast fourier transforms: `fftw`
+- Tiheä lineaarialgebra: `intel-oneapi-mkl`
+- Tiheä jaettu lineaarialgebra: `intel-oneapi-mkl`, `netlib-scalapack`
+- Nopeat Fourier-muunnokset: `fftw`
 
-## Libraries in Mahti
+## Kirjastot Mahtissa {#libraries-in-mahti}
 
-Selected libraries available in Mahti:
+Mahtissa saatavilla olevat valitut kirjastot:
 
-- Dense linear algebra: `openblas`, `amdblis`, `amdlibflame`
-- Dense distributed linear algebra: `netlib-scalapack`, `amdscalapack`
-- Fast fourier transforms: `fftw`
+- Tiheä lineaarialgebra: `openblas`, `amdblis`, `amdlibflame`
+- Tiheä jaettu lineaarialgebra: `netlib-scalapack`, `amdscalapack`
+- Nopeat Fourier-muunnokset: `fftw`

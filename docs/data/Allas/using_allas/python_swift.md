@@ -1,26 +1,27 @@
-# Using Allas with Python and SWIFT protocol
 
-CSC's instructions for [Installing OpenStack and other required Python libraries](../../../cloud/pouta/install-client.md).
+# Allaksen käyttö Pythonin ja SWIFT-protokollan kanssa {#using-allas-with-python-and-swift-protocol}
 
-Download the **OpenStack RC File v3** as instructed in the last section [*Configure your terminal environment for OpenStack*](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack).
+CSC:n ohjeet [OpenStackin ja muiden tarvittavien Python-kirjastojen asentamiseen](../../../cloud/pouta/install-client.md).
 
-The **Python pip libraries** required in the examples:  
- *python-keystoneclient* and *python-swiftclient*.
+Lataa **OpenStack RC File v3** viimeisessä osiossa annettujen ohjeiden mukaan [*Configure your terminal environment for OpenStack*](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack).
 
-This page includes Python scripts for the following operations:
+Esimerkeissä tarvittavat **Python pip -kirjastot**:  
+*python-keystoneclient* ja *python-swiftclient*.
 
-| Function |
+Tämä sivu sisältää Python-skriptit seuraaville toiminnoille:
+
+| Toiminto |
 | :--- |
-| Create a connection to server |
-| Create a bucket |
-| Upload an object |
-| List buckets and objects |
-| Download an object |
-| Remove buckets and objects |
+| Luo yhteys palvelimeen |
+| Luo bucket |
+| Lataa objekti |
+| Listaa bucketit ja objektit |
+| Lataa objekti palvelimelta |
+| Poista bucketit ja objektit |
 
-## Create a connection
+## Luo yhteys {#create-a-connection}
 
-This Python script creates a connection to the server:
+Tämä Python-skripti luo yhteyden palvelimeen:
 ```python
 from keystoneauth1 import session
 from keystoneauth1.identity import v3
@@ -49,7 +50,7 @@ conn = swiftclient.Connection(
 )
 ```
 
-Alternatively, you can enter the information directly in the script from the downloaded RC file:
+Vaihtoehtoisesti voit syöttää tiedot suoraan skriptiin ladatusta RC-tiedostosta:
 
 ```python
 import swiftclient
@@ -72,8 +73,8 @@ conn = swiftclient.Connection(
     auth_version=_auth_version
 )
 ```
-  
-In the above example:
+
+Ylläolevassa esimerkissä:
 
 | | | |
 |-|-|-|
@@ -83,21 +84,21 @@ In the above example:
 | OS_PASSWORD | = _key | = *John1234* |  
 | OS_PROJECT_NAME | = project_name | = *project_123456* |
 
-Further information of the _Keystone authentication_:  
+Lisätietoa _Keystone autentikoinnista_:  
 [https://docs.openstack.org/python-swiftclient/newton/client-api.html](https://docs.openstack.org/python-swiftclient/newton/client-api.html) 
 
-## Create a bucket
+## Luo bucket {#create-a-bucket}
 
-Create a new bucket using the following script:
+Luo uusi bucket seuraavalla skriptillä:
 
 ```python
 bucket_name='snakebucket'
 conn.put_container(bucket_name)
 ```
 
-## Upload an object
+## Lataa objekti {#upload-an-object}
 
-Upload a small file called `my_snake.txt` to the bucket `snakebucket`:
+Lataa pieni tiedosto nimeltä `my_snake.txt` bucketiin `snakebucket`:
 
 ```python
 object_name='my_snake.txt'
@@ -106,12 +107,12 @@ with open(object_name, 'r') as f:
                     contents=f.read(),
                     content_type='text/plain')
 ```
-The upload process above works only for files that are smaller than 5 GB. 
-In the case of larger files, you should use _SwiftService_.
+Ylläoleva latausprosessi toimii vain tiedostoille, jotka ovat pienempiä kuin 5 GB. 
+Suurempien tiedostojen tapauksessa sinun pitäisi käyttää _SwiftService_-palvelua.
 
 ```python
 object_list = [ 'my_snake.txt' ]
-# limit upload threads to 4
+# rajaa lataus säikeitä neljään
 opts = {'object_uu_threads': 4}
 
 with SwiftService(options=opts) as swift:
@@ -133,10 +134,9 @@ with SwiftService(options=opts) as swift:
 ```
 
 
+## Listaa bucketit ja objektit {#list-buckets-and-objects}
 
-## List buckets and objects
-
-List all buckets belonging to a project:
+Listaa kaikki projektiin kuuluvat bucketit:
 ```python
 resp_headers, containers = conn.get_account()
 
@@ -144,43 +144,42 @@ for container in containers:
    print(container)
 ```
 
-And all objects belonging to a bucket:
+Ja kaikki buckettiin kuuluvat objektit:
 ```python
 for info in conn.get_container('snakebucket')[1]:
     print('{0}\t{1}\t{2}'.format(info['name'], info['bytes'], info['last_modified']))
 ```
 
-## Download an object
+## Lataa objekti palvelimelta {#download-an-object}
 
-Download an object:
+Lataa objekti:
 ```python
 my_obj = conn.get_object(bucket_name, object_name)[1]
 with open('new_name_for_file.txt', 'w') as f:
     f.write(my_obj)
 ```
 
-**Please note:** If you get the error
+**Huomaa:** Jos saat virheen
 ```python
 TypeError: write() argument must be str, not bytes
 ```
-open the file in the binary mode
+avaa tiedosto binääritilassa
 ```python
 with open('new_name_for_file.txt', 'bw') as f:
     f.write(my_obj)
 ```
-instead of the text mode.
+sen sijaan, että käyttäisit tekstitilaa.
 
+## Poista bucketit ja objektit {#remove-buckets-and-objects}
 
-## Remove buckets and objects
-
-Delete a bucket:
+Poista bucket:
 ```python
 conn.delete_container(bucket_name)
 ```
 
-**Note:** Only empty buckets can be removed.
+**Huom:** Vain tyhjät bucketit voidaan poistaa.
 
-Remove an object:
+Poista objekti:
 ```python
 conn.delete_object(bucket_name, 'my_snake.txt')
 ```

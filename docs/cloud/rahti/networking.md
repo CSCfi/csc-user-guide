@@ -1,70 +1,70 @@
-# Networking
+# Verkkotoiminta
 
-## Ipv4
+## Ipv4 {#ipv4}
 
-All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs in this document and Rahti's system itself are ipv4 only, no ipv6 IP is used.
+Kaikki Rahti-verkkotoiminta käyttää [IPv4:tä](https://en.wikipedia.org/wiki/IPv4). Kaikki dokumentissa ja Rahtin järjestelmässä olevat IP:t ovat vain IPv4, eikä IPv6-osoitteita käytetä.
 
-## Namespaces
+## Nimitilat {#namespaces}
 
-Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace.
+Rahti on jaettu **nimitiloihin**. Riippuen kontekstista, nimitiloihin voidaan viitata myös nimellä **projektit**. Jokaisen objektin Rahtissa tulee kuulua ja toimia nimitilan sisällä.
 
-## NetworkPolicy
+## Verkkopolitiikka {#networkpolicy}
 
-From a networking point of view, namespaces are configured by default to provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod) and [Services](concepts.md#service). Traffic to any `Pod` or `Service` coming from outside the namespace (even from other namespaces in Rahti) will be blocked. The only traffic that will be able to pass from outside the namespace will be the one going through the `Route`. This isolation is obtained via [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/). It is possible to change this by editing the two `NetworkPolicy` objects that are created by default in Rahti.
+Verkkonäkökulmasta nimitilat on oletusarvoisesti konfiguroitu tarjoamaan eristetty **VLAN** kaikelle sisällään olevalle, erityisesti [podeille](concepts.md#pod) ja [palveluille](concepts.md#service). Kaikki nimitilan ulkopuolelta (jopa muista Rahtin nimitiloista) tuleva liikenne `Podiin` tai `Palveluun` tukitaan. Ainoa liikenne, joka voi tulla nimitilan ulkopuolelta, kulkee `Reitin` kautta. Tämä eristys saavutetaan [verkkopolitiikoiden](https://kubernetes.io/docs/concepts/services-networking/network-policies/) avulla. Tätä on mahdollista muuttaa muokkaamalla kahta `Verkkopolitiikka`-objektia, jotka luodaan oletusarvoisesti Rahtissa.
 
 ![Rahti Networking](../img/rahti-network.drawio.svg)
 
-!!! Note "Advanced networking"
-    In the Administrator menu, under `Networking > NetworkPolicies` it is possible to browse and edit the default network policies, but only in YAML format. Only change the [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) if you are really sure of what you are doing.
+!!! Huom "Edistynyt verkkokäyttö"
+    Ylläpitäjän valikossa, kohdassa `Verkot > Verkkopolitiikat`, on mahdollista selata ja muokata oletusarvoisia verkkopolitiikoita, mutta vain YAML-muodossa. Muuta [verkkopolitiikoita](https://kubernetes.io/docs/concepts/services-networking/network-policies/) vain, jos olet varma mitä teet.
 
-## Pods
+## Podit {#pods}
 
-**Pods** are the basic unit in Kubernetes. They accommodate one or more containers that contain the software and the environment needed to run an application. Each Pod has a [**private** IP](https://en.wikipedia.org/wiki/Private_network), which is only reachable from inside the namespace/VLAN. It is not advisable to use these Pod IPs directly in applications, they are meant to be used by **Services**. This is because not only other Pods in other namespaces may share this private IP, but more importantly, when a Pod is recreated it will get a new IP.
+**Podit** ovat Kubernetesin perusyksikkö. Ne sisältävät yhden tai useamman kontin, joissa on sovelluksen ajamiseen tarvittava ohjelmisto ja ympäristö. Jokaisella Podilla on [**yksityinen** IP](https://en.wikipedia.org/wiki/Private_network), joka on saavutettavissa vain nimitilan/VLANin sisällä. Ei ole suositeltavaa käyttää näitä Pod-osoitteita suoraan sovelluksissa, koska niitä käytetään **palveluiden** kautta. Tämä johtuu siitä, että paitsi muut nimetilat saattavat jakaa tämän yksityisen IP:n, myös siksi, että Podin uudelleenluonti antaa sille uuden IP:n.
 
-For example, if we deploy the `nginx` image in a Pod. This Pod will get a random private IP like `10.1.1.200`. Any unprivileged port (`>=1024`) that the image exports, like for example `8081`, will be reachable in that IP. A Pod will fail to start if it tries to export a privileged port (`[0-1023]`). If the Pod is killed, normally due to a change in its configuration, but also possibly due to unexpected reasons like hardware failure, a new Pod with a different IP will be created, like for example `10.1.1.140`. These IPs will respond to traffic from within the namespace only. If we set up a Pod that will query the first IP (`10.1.1.200`), it will obviously stop working at the moment of the recreation of the Pod associated with it. This is why we use **services**.
+Esimerkiksi, jos otamme käyttöön `nginx`-kuvan Podissa. Tämä Pod saa satunnaisen yksityisen IP:n, kuten `10.1.1.200`. Kaikki ei-etuoikeutetut portit (≥1024), jotka kuva vie, kuten esimerkiksi `8081`, ovat saavutettavissa tuossa IP:ssä. Podin käynnistys epäonnistuu, jos se yrittää käyttää etuoikeutettua porttia ([0-1023]). Jos Pod tapetaan, tavallisesti konfiguraation muuttuessa, mutta myös mahdollisesti odottamattomista syistä kuten laitteistovika, luodaan uusi Pod, jossa on eri IP, kuten esimerkiksi `10.1.1.140`. Nämä IP:t vastaavat vain nimitilan sisäisestä liikenteestä. Jos asetamme Podin, joka kysyy ensimmäistä IP:tä (`10.1.1.200`), se lakkaa toimimasta, kun siihen liittyvä Pod luodaan uudelleen. Tästä syystä käytämme **palveluita**.
 
-## Services
+## Palvelut {#services}
 
-**Services** (also abbreviated `svc`) provide a _stable_ [private IP](https://en.wikipedia.org/wiki/Private_network) to one or more Pods. This IP will act as a load balancer, distributing the traffic load between the Pods behind it. For this, the service will make sure to keep an updated list of IPs so requests are only sent to valid ones.
+**Palvelut** (myös lyhennetty `svc`) tarjoavat _vakaan_ [yksityisen IP:n](https://en.wikipedia.org/wiki/Private_network) yhdelle tai useammalle Podille. Tämä IP toimii kuormantasaajana, jakamalla liikennekuorman niiden Podi'en välillä, jotka ovat sen takana. Palvelun tulee pitää ajan tasalla oleva luettelo IP:stä, jotta pyyntöjä lähetetään vain kelvollisille IP:ille.
 
-Services are built to export one or more ports, and they also provide an internal DNS name. Any of these names are valid and will resolve to the same service IP:
+Palvelut on rakennettu tuomaan esiin yksi tai useampi portti, ja ne tarjoavat myös sisäisen DNS-nimen. Mitä tahansa näistä nimistä on pätevä ja ne palautuvat samaan palvelu-IP:hen:
 
-* `<service_name>`, e.g., nginx.
-* `<service_name>.<namespace>`, e.g., ngin.fenic
-* and `<service_name>.<namespace>.svc.cluster.local`, e.g., nginx.fenic.svc.cluster.local.
+* `<palvelun_nimi>`, esim., nginx.
+* `<palvelun_nimi>.<nimitila>`, esim., nginx.fenic
+* ja `<palvelun_nimi>.<nimitila>.svc.cluster.local`, esim., nginx.fenic.svc.cluster.local.
 
-In the same manner as Pods, Rahti Services can only be reached from inside the namespace they run, any request from another namespace will be able to resolve the DNS into an IP, but it will never connect. Another feature of services is that they can forward requests from one port to another target port (ex: 80 to 8080). This is useful in Rahti as Pods cannot listen on privileged ports (`<1024`).
+Aivan kuten Podit, Rahdin palveluita voi saavuttaa vain siitä nimitilasta, jossa ne toimivat; toinen nimitila voi ratkaista DNS:n IP:ksi, mutta ei ikinä yhdisty siihen. Toinen palveluiden ominaisuus on se, että ne voivat ohjata pyyntöjä yhdeltä portilta toiselle kohdeportille (esim. 80 -> 8080). Tämä on kätevää Rahdissa, sillä Podit eivät voi kuunnella etuoikeutetuilla porteilla (<1024).
 
-Services can be used for internal connections. For example, if we have one or more MongoDB database replicas running in the `fenic` namespace, each in a different pod, and they export port `27017`. We can create a service called `mongo` associated with the pods under the same name. Then we can launch `nginx` Pods that run a Python application which will use the URL `<mongo:27017` to connect to the database. When connections to the service are attempted, one of the mongo pods will be selected to serve the data request.
+Palveluita voidaan käyttää sisäisiin yhteyksiin. Esimerkiksi, jos meillä on yksi tai useampi MongoDB-tietokantakopio ajettuna `fenic` -nimitilassa, jokainen eri Podissa, ja ne tuovat esille portin `27017`. Voimme luoda palvelun nimeltä `mongo`, joka liittyy kyseisiin Podi'eihin samassa nimessä. Sitten voimme käynnistää `nginx`-Podi'a, jotka ajavat Python-sovellusta, joka käyttää URL:ia `<mongo:27017>` yhdistyäkseen tietokantaan. Kun palveluun kohdistuu yhteyspyyntöjä, yksi mongo-Podista valitaan palvelupyynnön käsittelijäksi.
 
-![nginx and Mongo](../img/mongo-nginx-app.drawio.svg)
+![nginx ja Mongo](../img/mongo-nginx-app.drawio.svg)
 
-## Routes
+## Reitit {#routes}
 
-**Routes** are the OpenShift equivalent of _Ingress_ in vanilla Kubernetes, they expose a single port of a single Service object to traffic from outside the namespace and the Internet, via HTTP/HTTPS only. If the route is configured to provide no encrypted HTTP traffic, the pods associated should talk in HTTP non encrypted traffic. If the route is configured to provide TLS/HTTPS secure traffic, several options are available regarding the Route encryption:
+**Reitit** ovat OpenShiftin vastine _Ingressille_ jälleen Kubernetesissa, ne avaavat yhden palveluobjektin yksittäisen portin liikenteelle nimitilan ulkopuolelta ja internetistä, vain HTTP/HTTPS:n kautta. Jos reitti on konfiguroitu tarjoamaan salaamatonta HTTP-liikennettä, Podien tulisi keskustella salaamattomalla HTTP-liikenteellä. Jos reitti on konfiguroitu tarjoamaan TLS/HTTPS-suojattua liikennettä, useita vaihtoehtoja on saatavilla reitin salausta varten:
 
-* **Edge**, this is the default and the simplest to configure. The Route provides the certificate, which is stored in the Route object itself. The traffic is decrypted and the Pod is contacted using plain text un-encrypted HTTPD traffic.
-* **Passthrough** is when the encryption is delegated to the pod, which must listen for TLS/HTTPS traffic and provide the certificate the client will receive.
-* **Re-encrypt**, this is a mixture of two previous options, the Route will provide a certificate, but it will connect to the Pod using TLS/HTTPS and expect a valid certificate for the domain name of the service. The client will still get the certificate stored by the Route. This is for example used when the internal network between nodes in the cluster is not considered secure enough and we still want the Route to control the certificates that the client will get. Also in some rare applications is not possible to disable TLS in the Pods.
+* **Edge**, tämä on oletus ja helpoin konfiguroida. Reitti tarjoaa todistuksen, joka on tallennettu reittiobjektiin itse. Liikenne puretaan ja Podiin otetaan yhteys salaamattoman HTTP:n avulla.
+* **Passthrough** on silloin, kun salaus delegoidaan Podille, jonka pitää kuunnella TLS/HTTPS-liikennettä ja tarjota asiakasohjelman saama sertifikaatti.
+* **Re-encrypt**, tämä on sekoitus kahdesta edellisestä vaihtoehdosta. Reitti tarjoaa sertifikaatin, mutta yhdistää Podiin TLS/HTTPS:n avulla ja odottaa pätevän sertifikaatin palvelun verkkotunnukselle. Asiakkaan saama sertifikaatti on yhä reitillä tallennettu. Tätä käytetään esimerkiksi silloin, kun solmujen välistä verkkoa ei pidetä tarpeeksi turvallisena, ja haluamme edelleen reitin hallitsevan asiakasohjelman saamia sertifikaatteja. Myös joissain harvinaisissa sovelluksissa ei voida poistaa TLS:ää Podeista.
 
-![Route Options](../img/route-modes.drawio.svg)
+![Reittivaihtoehdot](../img/route-modes.drawio.svg)
 
-!!! warning "Re-encrypt"
-    For Re-encrypt to work, it is necessary to provide your own certificate. There are 3 steps: (1) You must have a certificate/key pair in PEM-encoded files, where the certificate is valid for the route host. (2) You may have a separate CA certificate in a PEM-encoded file that completes the certificate chain. (3) You must have a separate destination CA certificate in a PEM-encoded file. If one of these steps is not followed correctly, the route will not work.
+!!! Varoitus "Uudelleensalaus"
+    Uudelleensalauksen toimimiseksi tulee tarjota oma sertifikaatti. On kolme vaihetta: (1) Sinulla tulee olla sertifikaatti/avainpari PEM-koodatuissa tiedostoissa, jossa sertifikaatti on pätevä reitin isäntänä. (2) Sinulla voi olla erillinen CA-sertifikaatti PEM-koodatussa tiedostossa, joka täydentää sertifikaattiketjun. (3) Sinulla pitää olla erillinen kohde CA-sertifikaatti PEM-koodatussa tiedostossa. Jos joku näistä vaiheista ei ole oikein suoritettu, reitti ei toimi.
 
-A Route can also be configured to (1) provide a HTTP/302 redirection from port `80` to `443`. It is also possible to (2) serve the same content in both ports, or to (3) not serve anything at all in the un secure `80` port.
+Reitti voidaan myös konfiguroida (1) tarjoamaan HTTP/302-uudelleenohjaus portista `80` porttiin `443`. On myös mahdollista (2) tarjota sama sisältö molemmilla porteilla tai (3) olla tarjoamatta mitään lainkaan turvattomassa `80`-portissa.
 
-An important limitation for Rahti is that **only the HTTP/80 and HTTPS/443 ports are exposed for incoming traffic**, and they only can serve **HTTPD protocol requests**. Internally to a namespace, any port and protocol is supported, this means we can connect an application to a database with no issues, but we will never be able to expose that database to outside traffic. This is due to the fact that the same incoming virtual IP is shared with all the incoming traffic in Rahti's HAProxy load balancers. [Name-based virtual hosts](https://en.wikipedia.org/wiki/Virtual_hosting#Name-based) are used to redirect the traffic to the correct Route. Other protocols that are not HTTPD, do not have this feature and will need a dedicated IP/port pair to work.
+Tärkeä rajoitus Rahdille on, että **vain HTTP/80 ja HTTPS/443 portit avataan sisääntulevalle liikenteelle**, ja ne voivat käsitellä vain **HTTPD-protokollapyyntöjä**. Nimitilan sisällä mikä tahansa portti ja protokolla on tuettuna, mikä tarkoittaa, että voimme yhdistää sovelluksen tietokantaan ilman ongelmia, mutta emme koskaan kykene paljastamaan kyseistä tietokantaa ulospäin. Tämä johtuu siitä, että sama tuleva virtuaalinen IP jaetaan kaikkien Rahtin HAProxy-kuormantasaimien liikenteen kesken. [Nimiperusteisia virtuaalipalvelimia](https://en.wikipedia.org/wiki/Virtual_hosting#Name-based) käytetään liikenteen ohjaamiseen oikeaan reittiin. Muita kuin HTTPD-protokollia ei ole tälle ominaisuudelle ja ne edellyttävät omaa IP/porttiparia toimiakseen.
 
-Rahti provides a range of pre-created domain names, `XXXX.2.rahtiapp.fi` where `XXXX` can be any combination of letters, numbers and dashes. These pre-created domain names also come with a valid TLS certificate.
+Rahti tarjoaa valikoiman etukäteen luotuja verkkotunnuksia, `XXXX.2.rahtiapp.fi`, missä `XXXX` voi olla mikä tahansa yhdistelmä kirjaimia, numeroita ja viivoja. Näihin etukäteen luotuihin verkkotunnuksiin tulee myös pätevä TLS-sertifikaatti.
 
-Every single pre-created domain name is configured to point to the HAProxy load balancers.
+Jokainen etukäteen luotu verkkotunnus on konfiguroitu osoittamaan HAProxy-kuormantasaimiin.
 
-### Custom domains
+### Omat verkkotunnukset {#custom-domains}
 
-Any existing possible domain name could potentially be used in Rahti, but the DNS configuration and the certificates must be managed by the customer:
+Mikä tahansa mahdollinen olemassa oleva verkkotunnus voitaisiin käyttää Rahdissa, mutta DNS-konfigurointi ja sertifikaatit on hallittava asiakaskohtaisesti:
 
-* For the DNS configuration, you need to configure a `CNAME` pointing to `router-default.apps.2.rahti.csc.fi` or in cases that this is not possible, another possibility is to configure an `A` record containing the IP of `router-default.apps.2.rahti.csc.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
+* DNS-konfigurointia varten sinun on konfiguroitava `CNAME`, joka osoittaa `router-default.apps.2.rahti.csc.fi` tai, tapauksissa jossa tämä ei ole mahdollista, toinen mahdollisuus on konfiguroida `A`-tietue, joka sisältää `router-default.apps.2.rahti.csc.fi:n` IP-osoitteen. Tapa, jolla tämä on konfiguroitava, riippuu DNS-tietueen rekisteristä.
 
     ```console
     $ host ?????.??
@@ -72,51 +72,50 @@ Any existing possible domain name could potentially be used in Rahti, but the DN
     router-default.apps.2.rahti.csc.fi has address 195.148.21.61
     ```
 
-* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](./tutorials/custom-domain.md#acme-protocol-automatic-certificates).
+* Mikä tahansa sertifikaattipalvelu voidaan käyttää, kuten esimerkiksi käyttää Let's Encrypt -järjestelmän tarjoamia ilmaisia sertifikaatteja [Let's Encrypt -ohjaimen](./tutorials/custom-domain.md#acme-protokolla-automaattiset-sertifikaatit) kautta.
 
-Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
+Toinen reittien ominaisuus on IP-valkoinen listaustoiminto, eli: sallia vain tietty IP-alue pääsemään reitille. Tämä hallitaan luomalla anotaatio Reitti-objektiin avaimella `haproxy.router.openshift.io/ip_whitelist` ja määrittämällä arvo IP:n ja/tai IP-alueiden välilyönneillä erotetuksi luetteloksi. Jos oletamme muuttujan `route_name` sisältävän reitin nimen
 
-* This first example will white list a range of IPs (`193.166.[0-255].[1-254]`):
+* Tämä ensimmäinen esimerkki valkoistaa IP-alueen (`193.166.[0-255].[1-254]`):
 
     ```bash
     oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='193.166.0.0/16'
     ```
 
-* This other example will white list only a specific IP:
+* Tämä toinen esimerkki valkoistaa vain tietyn IP:n:
 
     ```bash
     oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='188.184.9.236'
     ```
 
-* And this example will combine both:
+* Ja tämä esimerkki yhdistää molemmat:
 
     ```bash
     oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='193.166.0.0/15 193.167.189.25'
     ```
 
-## Egress IPs
+## Lähtevät IP:t {#egress-ips}
 
-The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs in Rahti will use by default this IP to reach anything located outside Rahti or a Route. It is possible, for selected namespaces that need it, to configure a dedicated IP. Each request is reviewed individually due to the fact that there is a limited pool of virtual IPs available.
+Kaikki ulospäin suuntautuvan asiakasliikenteen IP on `86.50.229.150`. Mikä tahansa Rahtissa toimiva pod käyttää oletuksena tätä IP:tä päästäkseen mihin tahansa, joka sijaitsee Rahtin ulkopuolella tai reitin ulkopuolella. On mahdollista, että tietyillä nimitiloilla, jotka tarvitsevat sitä, voidaan konfiguroida oma IP. Jokainen pyyntö tarkastellaan erikseen, koska saatavilla olevan virtuaalisen IP-poolin kapasiteetti on rajallinen.
 
-!!! warning "Egress IP may change"
+!!! Varoitus "Lähtevät IP:t saattavat muuttua"
 
-    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
+    Rahtin lähtevät IP:t voivat muuttua tulevaisuudessa. Esimerkiksi, jos useita Rahti-versioita ajetaan rinnakkain, jokaisella on eri IP. Tai jos verkon perusrakenteessa tapahtuu suuri muutos.
 
+## LoadBalancer-palvelutyypin käyttäminen omilla IP-osoitteilla {#using-loadbalancer-service-type-with-dedicated-ips}
 
-## Using LoadBalancer Service Type with Dedicated IPs
+Toisin kuin reitit, `LoadBalancer`-palvelutyyppi mahdollistaa palveluiden altistamisen internetille ilman rajoitusta HTTP/HTTPS:ään. Tämä ominaisuus sallii palveluiden altistamisen saapuvan ulkoisen liikenteen vastaanottamiseksi omalla julkisella IP-osoitteella varmistaen, että ulkoiset käyttäjät tai palvelut voivat kommunikoida sovellustesi kanssa. LoadBalancer-palveluiden käyttämiseksi Rahti-projektissa täytyy tehdä pyyntöpalvelu ulkoiseen palvelunumeroon `servicedesk@csc.fi`. Pyyntö tulee sisältää seuraavat tiedot:
 
-Unlike routes, the `LoadBalancer` service type makes it possible to expose services to the internet without being limited to HTTP/HTTPS. This feature allows you to expose services to receive external inbound traffic on a dedicated public IP address, ensuring that external users or services can interact with your applications. To enable and use LoadBalancer services within your Rahti project, you must submit a request to the service desk (`servicedesk@csc.fi`). The request must include the following details:
+- **Projektin nimi**: Anna täsmällinen Rahti-projektin nimi, jolle haluat mahdollistaa LoadBalancer-palvelut.
 
-- **Project Name**: Provide the exact name of the Rahti project for which you want to enable LoadBalancer services.
+- **CSC-projektin numero**: `csc_project`-numero, jota käytetään Rahti-projektiin.
 
-- **CSC Project Number**: The `csc_project` number that is used for Rahti Project.
-
-- **Use Case**: Clearly describe the use case, including:
-    - The type of services you plan to expose (e.g., web applications, APIs).
-    - Any specific requirements or considerations. (e.g., how many ips)
-
-When your request is approved by the admins, you will receive the public IP address that can be used to access your services, and you can then proceed with the creation of the ```LoadBalancer``` service.
-Alternatively, you can use the following command to check the IP addresses that are assigned to your project. The information will be visible under `annotations.ip_pairs` field.
+- **Käyttötapaus**: Kuvaa selvästi käyttötapaus, mukaan lukien:
+    - Palvelutyyppi, jota suunnittelet altistavasi (esim. verkkosovellukset, API:t).
+    - Mahdolliset erityisvaatimukset tai huomiot. (esim. kuinka monta IP: tä)
+    
+Kun pyyntösi hyväksytään ylläpitäjien toimesta, saat julkisen IP-osoitteen, jota voidaan käyttää palveluidesi saavuttamiseen, ja voit sitten aloittaa `LoadBalancer`-palvelun luomisen.
+Vaihtoehtoisesti voit käyttää seuraavaa komentoa tarkistaaksesi projektiisi osoitetut IP-osoitteet. Tieto näkyy `annotations.ip_pairs`-kentässä.
 
 ```bash
 oc get ipaddresspools.metallb.io -n metallb-system <project_name> -o yaml
@@ -149,7 +148,7 @@ spec:
 
 ```
 
-For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306.
+Esimerkiksi, seuraava palvelumääritys altistaa MySQL-palvelun osoitettuun julkiseen IP:hen portissa 33306.
 
 
 ```yaml
@@ -169,21 +168,21 @@ spec:
     app: mysql
 ```
 
-**You can find detailed explanation about `Service` [here](./concepts.md#service)**
+**Voit löytää yksityiskohtaisen selityksen `Palvelusta` [täältä](./concepts.md#service)**
 
-Ensure that the service type is set to `LoadBalancer`, and that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (`30000-32767`) is already allocated.
+Varmista, että palvelutyyppi on asetettu `LoadBalancer`-koodiin, ja että `allocateLoadBalancerNodePorts`-kenttä on asetettu falseksi (oletus on true), koska NodePortseja ei ole käytössä Rahdissa. Jos tämä kenttä ei ole asetettu oikein, allokoitu solmupiste ei ole käytettävissä ja palvelun luominen saattaa epäonnistua, jos koko oletus solmupistealue (30000-32767) on jo allokoitu.
 
-Additionally, the port field in the service definition (e.g., `33306` in the previous example) must be within the range of `30000-35000`.
+Lisäksi palvelun määritelmässä oleva porttikenttä (esim. `33306` edellisessä esimerkissä) täytyy olla alueella `30000-35000`.
 
-#### How to retrieve the selector
+#### Of how to retrieve the selector
 
-##### **Using CLI**
+##### **CLIn käyttö**
 
- on your CLI run `oc describe pod <pod-name> -n <namespace>`. After running the oc command, you will see an output that includes a section labeled `Labels`, Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**. For example under the `Labels` we are using the first one:
+CLI-ympäristössä aja `oc describe pod <pod-name> -n <namespace>`. Komennon suorittamisen jälkeen näet tulosteen, jossa on osio nimeltä `Labels`. Kopioi jokin merkinnöistä ja liitä se `yaml`-tiedoston `selector`-kohtaan. **Muista noudattaa `yaml` syntaksia ja muuta `=` muotoon `:`**. Esimerkiksi alla `Labels` osiossa käytetään ensimmäistä:
 
 ```bash
 Name:           mysql-pod
-Namespace:      my-namespace
+Namespace:      oma-nimitila
 Priority:       0
 Node:           worker-node-1/10.0.0.1
 Start Time:     Mon, 23 Oct 2024 10:00:00 +0000
@@ -193,34 +192,34 @@ Labels:         app=mysql
 (...)
 ```
 
-##### **Using the Web Interface**
+##### **Web-käyttöliittymän käyttö**
 
-On the web interface under `Developer`, go to the `Project` tab, press on `pods` and then choose the pod you want. You can see all the labels under `Labels`. Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
+Web-käyttöliittymässä valitse `Kehittäjä` välilehti, siirry `Projekti` välilehdelle, paina `podes` ja valitse Podi, jonka haluat. Näet kaikki merkinnät kohdassa `Labels`. Kopioi mikä tahansa merkinnöistä ja liitä se `yaml`-tiedoston kohtaan `selector`. **Muista noudattaa `yaml` syntaksia ja muuta `=` muotoon `:`**.
 
 ![rahti1](https://github.com/user-attachments/assets/75babfd9-12a1-498a-b7e7-c6e8f8ec72dc)
 
 
-#### How to make sure your service is pointing to the right pod
+#### Miten varmistaa palvelusi kohdistuvan oikeaan Podiin
 
-##### **Using CLI**
+##### **Käyttämällä CLI:a**
 
- On your CLI run `oc get endpoints <service-name> -n <namespace>`. You should see the name of the Service and the IP addresses and ports of the Pods that are currently targeted by the Service. For example:
+ CLI:ssa aja `oc get endpoints <service-name> -n <namespace>`. Sinun pitäisi nähdä palvelun nimi sekä Podien IP-osoitteet ja portit, joita palvelu tällä hetkellä kohdistaa. Esimerkiksi:
 
 ```bash
-NAME       ENDPOINTS           AGE
+NAME       ENDPOINTS           IKÄ
 mysqllb   10.0.0.1:3306        10m
 ```
 
-##### **Using the Web Interface**
+##### **Web-käyttöliittymän kautta**
 
-On the web interface under `Developer`, go to the `Project` tab, press on `Services` and choose the LoadBalancer service you just created. Under the `Pods` tab you should see the targeted pod. 
+Web-käyttöliittymässä `Kehittäjä` osiossa, mene `Projekti` välilehdelle, paina `Palvelut` ja valitse juuri luomasi LoadBalancer-palvelu. Kohdan `Podit` alla sinun pitäisi nähdä kohdistettu Podi. 
 
 ![rahti](https://github.com/user-attachments/assets/3651fc81-682d-40d4-8a2e-bae639c1c81b)
 
 
-### Share the same LoadBalancer IP among Services
+### Jaa sama LoadBalancer-IP palveluiden kesken {#share-the-same-loadbalancer-ip-among-services}
 
-It is also possible to expose multiple `LoadBalancer` services on the same public IP but on different ports, you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same IP address:
+On myös mahdollista altistaa useita `LoadBalancer`-palveluita samalla julkisella IP:llä mutta erilaisilla porteilla. Voit ottaa IP-jakamisen käyttöön lisäämällä `metallb.universe.tf/allow-shared-ip`-anotaation palveluihin. Anotaatioarvo on valitsemasi etiketti. Samalla etiketillä anotetut palvelut jakavat saman IP:n. Tässä esimerkki kahden palvelun konfiguraatiosta, jotka jakavat saman IP-osoitteen:
 
 ```yaml
 kind: Service
@@ -229,7 +228,7 @@ metadata:
   name: mysqllb
   namespace: my-namespace
   annotations:
-     metallb.universe.tf/allow-shared-ip: "label-to-share-1.2.3.4"
+     metallb.universe.tf/allow-shared-ip: "etiketti-jotta-jaetaan-1.2.3.4"
 spec:
   ports:
     - protocol: TCP
@@ -249,7 +248,7 @@ metadata:
   name: httplb
   namespace: my-namespace
   annotations:
-     metallb.universe.tf/allow-shared-ip: "label-to-share-1.2.3.4"
+     metallb.universe.tf/allow-shared-ip: "etiketti-jotta-jaetaan-1.2.3.4"
 spec:
   ports:
     - protocol: TCP
@@ -261,14 +260,13 @@ spec:
     app: httpd
 ```
 
-### Add firewall IP blocking to a LoadBalancer Service
+### Lisää palomuuri-IP-esto LoadBalancer-palveluun {#add-firewall-ip-blocking-to-a-loadbalancer-service}
 
-It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that we can add a whitelist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`)
-that will be the only ones that will be able to access the service. This added to using secure protocols and safe password practises, can be a good improvement in security.
+On mahdollista lisätä palomuuri-IP-esto `LoadBalancer`-palveluun. Tämä tarkoittaa sitä, että voimme lisätä sallittujen IP:iden (`188.184.77.250`) ja/tai IP-maskien (`188.184.0.0/16`) valkoisen listauksen, jotka ovat ainoita, jotka voivat käyttää palvelua. Tämä, yhdessä turvallisten protokollien ja turvallisten salasanojen käytäntöjen kanssa, voi olla erinomainen parannus turvallisuuteen.
 
-The procedure to achieve this is the following:
+Menettely tämän saavuttamiseksi on seuraava:
 
-1. Activate the `Local` external traffic policy in the service. To do so add `externalTrafficPolicy: Local` under `spec` like this:
+1. Aktivoi `Paikallinen` ulkoisen liikenteen politiikka palvelussa. Tee niin lisäämällä `externalTrafficPolicy: Paikallinen` kohdan `spec` alle seuraavasti:
 
     ```yaml
     kind: Service                                       kind: Service
@@ -289,14 +287,14 @@ The procedure to achieve this is the following:
 
     ```
 
-    !!! Warning "Local Traffic Policy Limitations"
-        Rahti uses `L2Advertisement` mode in metallb. Fore more information please refer to ['Layer 2'](https://metallb.universe.tf/usage/#traffic-policies).
+    !!! Varoitus "Paikallisen liikenteen politiikan rajoitukset"
+        Rahti käyttää `L2Advertisement`-tilaa Metallb:ssä. Lisätietoja löydät ['Kerros 2'](https://metallb.universe.tf/usage/#traffic-policies).
    
-        Also note that, when `externalTrafficPolicy` is set to `Local`, only one service can be exposed using the external IP; i.e., the load balancer IP can not be shared among multiple services.
+        Huomioi myös, että kun `externalTrafficPolicy` on asetettu `Local`, vain yksi palvelu voidaan altistaa käyttämällä ulkoista IP:tä; eli kuormantasaimen IP:tä ei voida jakaa useiden palveluiden kesken.
 
-        For more information refer to the official article: [Understanding Openshift `externalTrafficPolicy: local` and Source IP Preservation](https://access.redhat.com/solutions/7028639)
+        Lisätietoja löydät virallisesta artikkelista: [Ymmärrä Openshiftin `externalTrafficPolicy: local` ja Lähde-IP:n säilyttäminen](https://access.redhat.com/solutions/7028639)
 
-1. Add a `NetworkPolicy` to open access to selected IPs:
+1. Lisää `NetworkPolicy`, joka avaa pääsyn valituille IP:ille:
 
     ```yaml
     apiVersion: networking.k8s.io/v1
@@ -321,15 +319,15 @@ The procedure to achieve this is the following:
       - Ingress
     ```
 
-    The above example of `NetworkPolicy` allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
+    Yllä olevassa `NetworkPolicy`-esimerkissä sallitaan saapuva liikenne [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16`, joka kääntyy matkaluokkaan [`188.184.0.0` - `188.184.255.255`], ja yksittäiseltä IP:ltä `137.138.6.31`. Liikenteen kohdetta rajoitetaan `matchLabels` osiolla. Etiketti pitää olla sama kuin käytetty `LoadBalancer`-palveluun.
 
-### Differences between a Route and a LoadBalancer service during deployment roll outs
+### Ero reitin ja LoadBalancer-palvelun välillä käyttöönottorollouttien aikana {#differences-between-a-route-and-a-loadbalancer-service-during-deployment-roll-outs}
 
-In Rahti, the way `Route`s and `LoadBalancer` services manage traffic during deployment rollouts work differently.
+Rahtissa tapa, jolla `Reitit` ja `LoadBalancer`-palvelut hallitsevat liikennettä käyttöönottojen aikana, toimii eri tavalla.
 
-`Routes`, managed by OpenShift's HAProxy integraged load blanacer, are designed to quickly adjust and direct traffic as soon as a new pod starts and simultaneously cease routing to the old or terminating pods, ensuring rapid response to changes and minimizing service disruption.
+`Reitit`, jotka OpenShiftin HAProxy integroitu kuormantasaaja hallitsee, on suunniteltu muokkaamaan ja ohjaamaan liikennettä nopeasti heti kun uusi pod käynnistyy, ja samalla lopettavat reitittämisen vanhoihin tai päättyviin podeihin varmistaen nopean reaktion muutokseen ja minimoimalla palvelukatkokset.
 
-In contrast, `LoadBalancer` services distribute traffic not only to new pods but also continue to send requests to old or terminating pods. This behavior occurs because these services rely on periodic updates from [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/), which can delay the exclusion of terminating pods from traffic distribution. This difference in handling traffic can be useful to understand, as it affects how deployment strategies should be handled for application updates.
+Toisaalta `LoadBalancer`-palvelut jakavat liikennettä paitsi uusille podeille, myös jatkavat pyyntöjen lähettämistä vanhoille tai päättyville podeille. Tämä käytös tapahtuu, koska nämä palvelut ovat riippuvaisia säännöllisistä [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/) -päivityksistä, mikä voi viivyttää päättyvien podejen poissulkemista liikenteen jakelusta. Tämä erilaista liikenteen hoitamisessa voi olla hyödyllistä ymmärtää, koska se vaikuttaa siihen, miten käyttöönotto-strategioita pitäisi käsitellä sovelluspäivitysten osalta.
 
-For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.openshift.com/container-platform/4.15/applications/deployments/route-based-deployment-strategies.html#deployments-proxy-shard_route-based-deployment-strategies).
-To avoid disruptions when using external load balancer services, you can adopt the principle of a [blue-green deployment](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)
+Lisätiedot löytyvät OpenShiftin dokumentaatiosta liittyen [reitti perustaisiin käyttöönotto-strategioihin](https://docs.openshift.com/container-platform/4.15/applications/deployments/route-based-deployment-strategies.html#deployments-proxy-shard_route-based-deployment-strategies).
+Välttääkssesi keskeytyksiä käyttäessäsi ulkoisia kuormantasaajapalveluita, voit käyttää [sininen-vihreä käyttöönottoperiaatetta](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)

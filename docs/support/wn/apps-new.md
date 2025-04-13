@@ -1,128 +1,84 @@
-# Applications
+# Sovellukset {#applications}
 
-## PyTorch 2.6.0 available on Puhti and Mahti, 10.4.2025
+## PyTorch 2.6.0 saatavana Puhtissa ja Mahtissa, 10.4.2025 {#pytorch-2-6-0-available-on-puhti-and-mahti-10-4-2025}
 
-PyTorch 2.6.0 is now available on Puhti and Mahti, and set as the
-default version. It includes the most recent versions of popular packages
-such as Hugging Face transformers, vLLM and FAISS. PyTorch geometric
-and related packages are no longer included, as they do not support
-newer versions of PyTorch. See our [PyTorch module documentation for
-more information](../../apps/pytorch.md#available).
+PyTorch 2.6.0 on nyt saatavilla Puhtissa ja Mahtissa ja asetettu oletusversioksi. Se sisältää uusimmat versiot suosituista paketeista kuten Hugging Face transformers, vLLM ja FAISS. PyTorch geometric ja siihen liittyvät paketit eivät enää sisälly, koska ne eivät tue uudempia PyTorchin versioita. Katso [PyTorch-moduulin dokumentaatiosta lisätietoja](../../apps/pytorch.md#available).
 
-## R in Mahti, 7.4.2025
+## R Mahtissa, 7.4.2025 {#r-in-mahti-7-4-2025}
 
-R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The [new small partition on Mahti](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
+R on nyt saatavilla myös Mahtissa, mukaan lukien RStudio [Mahti-verkkokäyttöliittymässä](../../computing/webinterface/index.md). [r-env-moduuli](../../apps/r-env.md) Mahtissa toimii samoin kuin r-env Puhtissa ja siinä on tällä hetkellä R-versio 4.4.2. [Uusi pieni osio Mahtissa](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) sopii monenlaisiin R- ja RStudio-työhön, lukuun ottamatta kaikkein muistia vaativimpia tehtäviä. Puhtiin tuttujen käyttäjien on hyvä huomioida, että Mahtissa ei ole erillistä muistivarausta, ja ainut tapa saada lisää muistia on varata lisää ytimiä.
 
-## Tykky 0.4.2, 27.2.2025
+## Tykky 0.4.2, 27.2.2025 {#tykky-0-4-2-27-2-2025}
 
-The newest version of Tykky (0.4.2) installed and set as default
-version on Puhti and Mahti. See the [Tykky releases page to see what's
-new](https://github.com/CSCfi/hpc-container-wrapper/releases/tag/v0.4.2).
+Tykyn uusinta versiota (0.4.2) asennettu ja asetettu oletusversioksi Puhtissa ja Mahtissa. Katso [Tykyn julkaisusivulta, mitä uutta](https://github.com/CSCfi/hpc-container-wrapper/releases/tag/v0.4.2).
 
-## R 4.4.2 in r-env, 25.2.2025
+## R 4.4.2 r-envissa, 25.2.2025 {#r-4-4-2-in-r-env-25-2-2025}
 
-R version 4.4.2 is now available in [r-env](../../apps/r-env.md) in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
+R-versio 4.4.2 on nyt saatavilla [r-envissa](../../apps/r-env.md) Puhtissa ja asetettu oletusversioksi. Uusi versio tulee pian saataville RStudiossa Puhtin verkkokäyttöliittymässä.
 
-## JAX 0.4.38 available on Puhti, Mahti and LUMI, 0.5.0 available on Puhti and Mahti, 19.02.2025
+## JAX 0.4.38 saatavana Puhtissa, Mahtissa ja LUMIssa, 0.5.0 saatavana Puhtissa ja Mahtissa, 19.02.2025 {#jax-0-4-38-available-on-puhti-mahti-and-lumi-0-5-0-available-on-puhti-and-mahti-19-02-2025}
 
-[JAX](../../apps/jax.md) 0.4.38 has now been installed on Puhti,
-Mahti and LUMI. This has been made the default version on LUMI.
+[JAX](../../apps/jax.md) 0.4.38 on nyt asennettu Puhtiin, Mahtiin ja LUMIin. Tämä on asetettu oletusversioksi LUMIssa.
 
-Additionally, JAX 0.5.0 has been installed on Puhti and Mahti
-and made the default version there. There is currently no support
-for ROCm for this JAX version and it has not been installed to LUMI.
-JAX 0.5.0 comes with [breaking changes](https://github.com/jax-ml/jax/releases/tag/jax-v0.5.0).
-If your code is incompatible, you can consider upgrading it or falling back to 0.4.38.
+Lisäksi JAX 0.5.0 on asennettu Puhtiin ja Mahtiin ja se on asetettu oletusversioksi siellä. Tällä hetkellä ROCm:ille ei ole tukea tälle JAX-versiolle, eikä sitä ole asennettu LUMIin. JAX 0.5.0 sisältää [yhteensopimattomia muutoksia](https://github.com/jax-ml/jax/releases/tag/jax-v0.5.0). Jos koodisi ei ole yhteensopiva, voit harkita sen päivittämistä tai paluuta versioon 0.4.38.
 
-On LUMI, the 0.4.38 module fixes memory allocation instabilities that were present in 0.4.30.
+LUMIssa 0.4.38-moduuli korjaa muistiallokaatio-epävakaudet, jotka esiintyivät versiossa 0.4.30.
 
-## Snakemake and Nextflow tutorials significantly improved
+## Snakemake- ja Nextflow-oppaat merkittävästi parannetut {#snakemake-and-nextflow-tutorials-significantly-improved}
 
-Tutorials with major updates available for workflow tools: [Snakemake](../tutorials/snakemake-puhti.md) and [Nextflow](../tutorials/nextflow-tutorial.md). The tutorial describe different options for the installing and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
+Oppaat, joissa suuret päivitykset, ovat saatavilla työnkulkuvälineille: [Snakemake](../tutorials/snakemake-puhti.md) ja [Nextflow](../tutorials/nextflow-tutorial.md). Opas kuvaa eri vaihtoehtoja työkalujen asentamiseen ja käyttämiseen. Huomaa myös uusi [Antoni Gołośin diplomityö, jossa vertaillaan automatisoituja työnkulkutapoja supertietokoneilla](https://urn.fi/URN:NBN:fi:aalto-202406164397).
 
-## Schrödinger Maestro 2025.1, 6.2.2025
+## Schrödinger Maestro 2025.1, 6.2.2025 {#schrodinger-maestro-2025-1-6-2-2025}
 
-[Schrödinger Maestro](../../apps/maestro.md) version 2025.1 has been installed
-and set as the default module on Puhti and Mahti. See
-[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
-for a list of new features and improvements.
+[Schrödinger Maestro](../../apps/maestro.md) versio 2025.1 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Katso [julkaisumuistiot](https://www.schrodinger.com/life-science/download/release-notes/) uusien ominaisuuksien ja parannusten listalle.
 
-## Molpro 2024.3 is available on Puhti and Mahti, 3.2.2025
+## Molpro 2024.3 on saatavana Puhtissa ja Mahtissa, 3.2.2025 {#molpro-2024-3-is-available-on-puhti-and-mahti-3-2-2025}
 
-Molpro has been updated to version [2024.3](../../apps/molpro.md). Previously available only on Puhti, this latest version is now also on Mahti. See the [Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes) for details on new features, bug fixes, and improvements.
+Molpro on päivitetty versioon [2024.3](../../apps/molpro.md). Aiemmin vain Puhtissa saatavilla ollut viimeisin versio on nyt myös Mahtissa. Katso [Viimeaikaiset muutokset](https://www.molpro.net/manual/doku.php?id=recent_changes) uusien ominaisuuksien, virheenkorjausten ja parannusten yksityiskohtiin.
 
-## PyTorch 2.5.1 available on Puhti, Mahti and LUMI, 20.12.2024
+## PyTorch 2.5.1 saatavana Puhtissa, Mahtissa ja LUMIssa, 20.12.2024 {#pytorch-2-5-1-available-on-puhti-mahti-and-lumi-20-12-2024}
 
-PyTorch 2.5.1 is now available on Puhti, Mahti and LUMI. All the
-regular packages are included. The LUMI module now has experimental
-support for FAISS. See our [PyTorch module documentation for more
-information](../../apps/pytorch.md#available).
+PyTorch 2.5.1 on nyt saatavilla Puhtissa, Mahtissa ja LUMIssa. Kaikki tavanomaiset paketit sisältyvät. LUMI-moduulissa on nyt kokeellista tukea FAISSlle. Katso [PyTorch-moduulin dokumentaatiostamme lisätietoja](../../apps/pytorch.md#available).
 
-## Maestro versions older than 2023.1 will not work after 13.3.2025
+## Maestro-versiot vanhempia kuin 2023.1 eivät toimi 13.3.2025 jälkeen {#maestro-versions-older-than-2023-1-will-not-work-after-13-3-2025}
 
-Schrödinger has taken into use a
-[new license manager](https://www.schrodinger.com/life-science/learn/white-paper/new-schrodinger-license-manager/),
-which does not support [Maestro](../../apps/maestro.md) versions older than 2023.1. Consequently, **CSC
-will no longer be able to provide a license for Maestro versions 2022.4 and
-older after 13th of March 2025**. If not done already, please migrate to using
-versions 2023.1 or later as soon as possible! See our Maestro page for details on
-[how to configure licensing for your local Maestro installation](../../apps/maestro.md#local-installation).
+Schrödinger on ottanut käyttöön [uuden lisenssinhallinnan](https://www.schrodinger.com/life-science/learn/white-paper/new-schrodinger-license-manager/), joka ei tue [Maestro](../../apps/maestro.md) -versioita, vanhempia kuin 2023.1. Tämän seurauksena **CSC ei enää voi tarjota lisenssiä Maestro-versioille 2022.4 ja vanhemmille 13. maaliskuuta 2025 jälkeen**. Jos et ole vielä tehnyt sitä, siirry käyttämään versioita 2023.1 tai uudemmat mahdollisimman pian! Katso Maestro-sivultamme lisätietoa [kuinka konfiguroida lisensointi paikalliselle Maestro-asennukselle](../../apps/maestro.md#local-installation).
 
-## GROMACS 2024.4, 7.11.2024
+## GROMACS 2024.4, 7.11.2024 {#gromacs-2024-4-7-11-2024}
 
-[GROMACS](../../apps/gromacs.md) 2024.4 is now available on Puhti, Mahti and LUMI.
-See [release notes](https://manual.gromacs.org/2024.4/release-notes/2024/2024.4.html)
-for a list of all new features and improvements.
+[GROMACS](../../apps/gromacs.md) 2024.4 on nyt saatavilla Puhtissa, Mahtissa ja LUMIssa.
+Katso [julkaisumuistiot](https://manual.gromacs.org/2024.4/release-notes/2024/2024.4.html)
+kaikkien uusien ominaisuuksien ja parannusten listalle.
 
-## Schrödinger Maestro 2024.4, 5.11.2024
+## Schrödinger Maestro 2024.4, 5.11.2024 {#schrodinger-maestro-2024-4-5-11-2024}
 
-[Schrödinger Maestro](../../apps/maestro.md) version 2024.4 has been installed
-and set as the default module on Puhti and Mahti. See
-[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
-for a list of new features and improvements.
+[Schrödinger Maestro](../../apps/maestro.md) versio 2024.4 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Katso [julkaisumuistiot](https://www.schrodinger.com/life-science/download/release-notes/) uusien ominaisuuksien ja parannusten listalle.
 
-## JAX 0.4.30 available on LUMI, 23.10.2024
+## JAX 0.4.30 saatavana LUMIssa, 23.10.2024 {#jax-0-4-30-available-on-lumi-23-10-2024}
 
-[JAX](../../apps/jax.md) 0.4.30 has now been installed on LUMI
-and set as the default version, after previously being made
-available on Puhti and Mahti. The installation on LUMI now
-makes use of the new AMD drivers and ROCM 6.0.3 installed with
-the LUMI system upgrade during September.
+[JAX](../../apps/jax.md) 0.4.30 on nyt asennettu LUMIin ja asetettu oletusversioksi, aiemmin ollessaan saatavilla Puhtissa ja Mahtissa. Asennus LUMIssa hyödyntää nyt AMD:n uusia ajureita ja ROCM 6.0.3:ia, joka asennettiin LUMI-järjestelmän päivityksen yhteydessä syyskuussa.
 
-The `transformers` package is no longer included since it
-officially only supports JAX up to version 0.4.13.
+`transformers`-paketti ei enää sisälly, koska se tukee virallisesti vain JAX-versiota 0.4.13 asti.
 
-From this version on, there will be "small" and "full"
-flavours of JAX, where the "full" flavour includes JAX ML
-ecosystem packages as before while the "small" flavour
-includes only JAX with GPU support as well as CPU-only
-versions of Tensorflow and PyTorch for their data loading and
-processing utilities but no additional packages. You can use
-the latter if you want a cleaner base to install additional
-packages on.
+Tästä versiosta eteenpäin, JAXilla on "pieni" ja "täydellinen" versio. "Täydellinen" versio sisältää JAX ML-ekosysteemipaketit kuten aiemmin, kun taas "pieni" versio sisältää vain JAXin GPU-tuella sekä vain CPU-versiot Tensorflowsta ja PyTorchista tiedonlataus- ja käsittelytyökaluille, mutta ei muita lisäpaketteja. Voit käyttää jälkimmäistä, jos haluat puhtaamman pohjan lisäpakettien asentamiseen.
 
-## NAMD 3.0 available on Puhti and Mahti, 11.10.2024
+## NAMD 3.0 saatavana Puhtissa ja Mahtissa, 11.10.2024 {#namd-3-0-available-on-puhti-and-mahti-11-10-2024}
 
-[NAMD](../../apps/namd.md) 3.0 has been installed and set as the default
-module on Puhti and Mahti.
-[See here for a list of new and improved features](https://www.ks.uiuc.edu/Research/namd/3.0/features.html).
-Notably, the GPU performance has improved significantly compared to NAMD 2.14.
-However, for large-scale GPU simulations, we recommend running NAMD3 on LUMI-G
-due to the better availability of GPUs compared to Puhti and Mahti.
-[See batch script examples here](../../apps/namd.md#batch-script-examples).
+[NAMD](../../apps/namd.md) 3.0 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin.
+[Katso täältä uusien ja parannettujen ominaisuuksien lista](https://www.ks.uiuc.edu/Research/namd/3.0/features.html).
+Huomattavaa on GPU-suorituskyvyn merkittävä parannus verrattuna NAMD 2.14:een.
+Kuitenkin, suuria GPU-simulaatioita varten suosittelemme NAMD3:n suorittamista LUMI-G:llä,
+koska GPU:ita on paremmin saatavilla kuin Puhtissa ja Mahtissa.
+[Katso eräajon esimerkkejä täältä](../../apps/namd.md#batch-script-examples).
 
-## Amber24 available on Puhti and Mahti, 8.10.2024
+## Amber24 saatavana Puhtissa ja Mahtissa, 8.10.2024 {#amber24-available-on-puhti-and-mahti-8-10-2024}
 
-[Amber](../../apps/amber.md) version 24 (including AmberTools24) has been
-installed and set as the default module on Puhti and Mahti.
-[See here for a list of major new features](https://ambermd.org/AmberMD.php).
+[Amber](../../apps/amber.md) versio 24 (mukaan lukien AmberTools24) on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin.
+[Katso täältä merkittävien uusien ominaisuuksien lista](https://ambermd.org/AmberMD.php).
 
-## CSC chemistry software stack on LUMI updated, 26.9.2024
+## CSC:n kemian ohjelmistokokoelma LUMI:ssa päivitetty, 26.9.2024 {#csc-chemistry-software-stack-on-lumi-updated-26-9-2024}
 
-The chemistry software stack maintained by CSC on LUMI
-(`/appl/local/csc/soft/chem`) has been recompiled following the recent major
-LUMI upgrade. Modules and instructions for the following software have been
-updated:
+Kemian ohjelmistokokoelma, jota CSC ylläpitää LUMI:ssa (`/appl/local/csc/soft/chem`), on käännetty uudelleen viimeisimmän LUMI:n suuren päivityksen jälkeen. Seuraavien ohjelmistojen moduulit ja ohjeet on päivitetty:
 
 * [Amber](../../apps/amber.md)
 * [CP2K](../../apps/cp2k.md)
@@ -130,650 +86,171 @@ updated:
 * [LAMMPS](../../apps/lammps.md)
 * [NAMD](../../apps/namd.md)
 
-At the same time, some old module versions have been deprecated. In general, we
-recommend using the most recent software versions as they tend to have better
-performance and less bugs than older releases.
+Samalla joitakin vanhoja moduuliversioita on poistettu käytöstä. Yleisesti ottaen suosittelemme käyttämään uusimpia ohjelmistoversioita, koska ne yleensä tarjoavat paremman suorituskyvyn ja vähemmän virheitä kuin vanhemmat julkaisut.
 
-## PyTorch 2.4.1 available on LUMI, 19.9.2024
+## PyTorch 2.4.1 saatavana LUMIssa, 19.9.2024 {#pytorch-2-4-1-available-on-lumi-19-9-2024}
 
-PyTorch 2.4.1 with ROCm 6.1 is now available on LUMI. The LUMI PyTorch
-module now includes [vLLM version 0.5.5](https://docs.vllm.ai/en/latest/)
-in addition to FlashAttention-2, bitsandbytes and many other frequently
-requested packages already added included in earlier installations.  See our
-[PyTorch module documentation for more information](../../apps/pytorch.md#available).
+PyTorch 2.4.1 ROCm 6.1:llä on nyt saatavilla LUMI:ssa. LUMIn PyTorch-moduuli sisältää nyt [vLLM version 0.5.5](https://docs.vllm.ai/en/latest/) FlashAttention-2:n, bitsandbytesin ja monia muita usein pyydettyjä paketteja, jotka on jo lisätty aiempiin asennuksiin. Katso [PyTorch-moduulin dokumentaatiostamme lisätietoja](../../apps/pytorch.md#available).
 
-## GROMACS 2024.3, 12.9.2024
+## GROMACS 2024.3, 12.9.2024 {#gromacs-2024-3-12-9-2024}
 
-[GROMACS](../../apps/gromacs.md) 2024.3 is now available on Puhti and Mahti. See
-[release notes](https://manual.gromacs.org/2024.3/release-notes/2024/2024.3.html)
-for a list of all new features and improvements.
+[GROMACS](../../apps/gromacs.md) 2024.3 on nyt saatavilla Puhtissa ja Mahtissa. Katso [julkaisumuistiot](https://manual.gromacs.org/2024.3/release-notes/2024/2024.3.html) uusien ominaisuuksien ja parannusten listalle.
 
-## JAX 0.4.30 available on Puhti and Mahti, 5.9.2024
+## JAX 0.4.30 saatavana Puhtissa ja Mahtissa, 5.9.2024 {#jax-0-4-30-available-on-puhti-and-mahti-5-9-2024}
 
-[JAX](../../apps/jax.md) 0.4.30 has been installed on Puhti and Mahti
-and set as the default version.
+[JAX](../../apps/jax.md) 0.4.30 on asennettu Puhtiin ja Mahtiin ja asetettu oletusversioksi.
 
-The `transformers` package is no longer included since it officially
-only supports JAX up to version 0.4.13.
+`transformers`-paketti ei enää sisälly, koska se tukee virallisesti vain JAX-versiota 0.4.13 asti.
 
-From this version on, there will be "small" and "full" flavours of JAX,
-where the "full" flavour includes JAX ML ecosystem packages as before
-while the "small" flavour includes only JAX with GPU support as well as
-CPU-only versions of Tensorflow and PyTorch for their data loading and
-processing utilities but no additional packages. You can use the latter
-if you want a cleaner base to install additional packages on.
+Tästä versiosta eteenpäin, JAXilla on "pieni" ja "täydellinen" versio. "Täydellinen" versio sisältää JAX ML-ekosysteemipaketit kuten aiemmin, kun taas "pieni" versio sisältää vain JAXin GPU-tuella sekä vain CPU-versiot Tensorflowsta ja PyTorchista tiedonlataus- ja käsittelytyökaluille, mutta ei muita lisäpaketteja. Voit käyttää jälkimmäistä, jos haluat puhtaamman pohjan lisäpakettien asentamiseen.
 
-The LUMI installation will be delayed until early autumn due to the
-ongoing system update and changes to the relevant system driver versions.
+LUMIn asennus viivästyy syksyn alkuun asti jatkuvan järjestelmän päivityksen ja asiaankuuluvien järjestelmäajuriversioiden muutosten vuoksi.
 
-## CP2K 2024.2 available on Puhti and Mahti, 27.8.2024
+## CP2K 2024.2 saatavana Puhtissa ja Mahtissa, 27.8.2024 {#cp2k-2024-2-available-on-puhti-and-mahti-27-8-2024}
 
-[CP2K](../../apps/cp2k.md) 2024.2 has been installed and set as the default
-module on Puhti and Mahti. See
-[release notes](https://github.com/cp2k/cp2k/releases/tag/v2024.2)
-for a list of new features, fixes and breaking changes.
+[CP2K](../../apps/cp2k.md) 2024.2 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Katso [julkaisumuistiot](https://github.com/cp2k/cp2k/releases/tag/v2024.2) uusien ominaisuuksien, korjausten ja yhteensopimattomien muutosten listalle.
 
-## ORCA 6.0.0, 22.8.2024
+## ORCA 6.0.0, 22.8.2024 {#orca-6-0-0-22-8-2024}
 
-[ORCA](../../apps/orca.md) 6.0.0 is now available on Puhti and Mahti. This major
-release brings numerous new features and enhancements. For full details, check out
-the [ORCA 6 Changes](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html).
+[ORCA](../../apps/orca.md) 6.0.0 on nyt saatavilla Puhtissa ja Mahtissa. Tämä merkittävä julkaisu tuo mukanaan lukuisia uusia ominaisuuksia ja parannuksia. Katso täydelliset tiedot [ORCA 6:n muutoksista](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html).
 
-## PyTorch 2.4.0, 21.8.2024
+## PyTorch 2.4.0, 21.8.2024 {#pytorch-2-4-0-21-8-2024}
 
-[PyTorch](../../apps/pytorch.md) 2.4.0 added to Puhti and Mahti. The
-LUMI installation will be delayed until after the current service
-break. The torchtext package is no longer included as it has been
-deprecated and no longer works with PyTorch 2.4. See our [PyTorch
-module documentation for more information](../../apps/pytorch.md#available).
+[PyTorch](../../apps/pytorch.md) 2.4.0 lisätty Puhtiin ja Mahtiin. LUMIn asennus viivästyy nykyiseen huoltokatkoon nähden. torchtext-paketti ei enää sisälly, koska se on vanhentunut ja ei enää toimi PyTorch 2.4:n kanssa. Katso [PyTorch-moduulin dokumentaatiosta lisätietoja](../../apps/pytorch.md#available).
 
-## AMS 2024 available on Puhti and Mahti, 20.8.2024
+## AMS 2024 saatavana Puhtissa ja Mahtissa, 20.8.2024 {#ams-2024-available-on-puhti-and-mahti-20-8-2024}
 
-[AMS](../../apps/ams.md) has been updated to version 2024.102 on both Mahti and Puhti
-and set as the default module. The [AMS2024 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/)
-summarize major changes and improvements since AMS2023.
+[AMS](../../apps/ams.md) on päivitetty versioon 2024.102 sekä Mahtissa että Puhtissa ja asetettu oletusmoduuliksi. [AMS2024:n julkaisumuistiot](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/) tiivistävät tärkeimmät muutokset ja parannukset AMS2023:sta lähtien.
 
-## Geoconda 3.11.9, 7.8.2024
+## Geoconda 3.11.9, 7.8.2024 {#geoconda-3-11-9-7-8-2024}
 
-[geoconda](../../apps/geoconda.md) version 3.11.9 has been added
-and set as the default module on Puhti and Mahti. Besides package updates, it includes a few new packages: `geo2ml`, `h3pandas`, `openeo`, `pcraster` and `r5py`. From packages available in previous geoconda, `copc-lib` and `osmnx` unfortunately could not be added this time.
+[geoconda](../../apps/geoconda.md) versio 3.11.9 on lisätty ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Paketipäivitysten lisäksi siihen sisältyy muutama uusi paketti: `geo2ml`, `h3pandas`, `openeo`, `pcraster` ja `r5py`. Aiemmin geocondassa olleista paketeista `copc-lib` ja `osmnx` eivät valitettavasti voineet tulla lisätyiksi tällä kertaa.
 
-## Schrödinger Maestro 2024.3, 5.8.2024
+## Schrödinger Maestro 2024.3, 5.8.2024 {#schrodinger-maestro-2024-3-5-8-2024}
 
-[Schrödinger Maestro](../../apps/maestro.md) version 2024.3 has been installed
-and set as the default module on Puhti and Mahti. As a major highlight, this
-release includes the new OPLS5 polarizable force field. See
-[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
-for the full list of new features and improvements.
+[Schrödinger Maestro](../../apps/maestro.md) versio 2024.3 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Merkittävänä kohokohtana tämä julkaisu sisältää uuden OPLS5-polarisoituvan voikentän. Katso [julkaisumuistiot](https://www.schrodinger.com/life-science/download/release-notes/) täydelliseen uusien ominaisuuksien ja parannusten listaan.
 
-## PyTorch 2.3.1, 13.6.2024
+## PyTorch 2.3.1, 13.6.2024 {#pytorch-2-3-1-13-6-2024}
 
-[PyTorch](../../apps/pytorch.md) 2.3.1 added to Puhti and Mahti. The
-LUMI installation will be delayed until early autumn due to an
-incompatible ROCm driver version. This version has also updated how
-Python commands are wrapped, as this solves several problems with
-using virtual environments and Jupyter Notebooks. Due to this
-`apptainer` and `apptainer_wrapper` commands will no longer work, but
-otherwise the change should be invisible to users. See our [PyTorch
-module documentation for more
-information](../../apps/pytorch.md#available).
+[PyTorch](../../apps/pytorch.md) 2.3.1 lisätty Puhtiin ja Mahtiin. LUMIn asennus viivästyy syksyn alkuun, koska ROCm-ohjainversio on yhteensopimaton. Tämä versio on myös päivittänyt, kuinka Python-komentoja kääritään, sillä se ratkaisee useita ongelmia virtuaaliympäristöjen ja Jupyter Notebooksien käytössä. Tämän vuoksi `apptainer` ja `apptainer_wrapper` -komennot eivät enää toimi, mutta muutos on käyttäjille muuten näkymätön. Katso [PyTorch-moduulin dokumentaatiosta lisätietoja](../../apps/pytorch.md#available).
 
-## Python Data 3.10-24.04 now the default version
+## Python Data 3.10-24.04 nyt oletusversio {#python-data-3-10-24-04-now-the-default-version}
 
-The recently installed `python-data/3.10-24.04` has been set as the
-default version for [Python Data](../../apps/python-data.md).
+Äskettäin asennettu `python-data/3.10-24.04` on asetettu oletusversioksi [Python Data](../../apps/python-data.md).
 
-## R 4.4.0 in r-env, 7.6.2024
+## R 4.4.0 r-envissa, 7.6.2024 {#r-4-4-0-in-r-env-7-6-2024}
 
-R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
+R-versio 4.4.0 on nyt saatavilla `r-envissä` Puhtissa ja asetettu oletusversioksi. Uusi versio tulee pian saataville RStudiossa Puhtin verkkokäyttöliittymässä.
 
-## Molpro 2024.1 is available on Puhti, 5.6.2024
+## Molpro 2024.1 on saatavana Puhtissa, 5.6.2024 {#molpro-2024-1-is-available-on-puhti-5-6-2024}
 
-The new [Molpro 2024.1](../../apps/molpro.md) includes new features like
-a CAS(2,2) version of icMRCCSD. Check the
-[Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes)
-for a detailed list of new features, bug fixes and improvements.
+Uusi [Molpro 2024.1](../../apps/molpro.md) sisältää uusia ominaisuuksia kuten CAS(2,2) version icMRCCSD:stä. Katso [Viimeaikaiset muutokset](https://www.molpro.net/manual/doku.php?id=recent_changes) uusien ominaisuuksien, virheenkorjausten ja parannusten yksityiskohtiin.
 
-## GROMACS 2024.2, 22.5.2024
+## GROMACS 2024.2, 22.5.2024 {#gromacs-2024-2-22-5-2024}
 
-[GROMACS](../../apps/gromacs.md) 2024.2 is now available on Puhti, Mahti and LUMI.
-New GPU versions on LUMI have been compiled to use the instant submission mode of
-AdaptiveCpp, which can improve performance and scalability in some cases by more
-than 10%. See [release notes](https://manual.gromacs.org/2024.2/release-notes/2024/2024.2.html)
-for a list of all new features and improvements.
+[GROMACS](../../apps/gromacs.md) 2024.2 on nyt saatavilla Puhtissa, Mahtissa ja LUMIssa. LUMIn uudet GPU-versiot on käännetty käyttämään AdaptiveCpp:n välitöntä lähetysmoodia, mikä voi parantaa suorituskykyä ja laajennettavuutta joissain tapauksissa yli 10 %. Katso [julkaisumuistiot](https://manual.gromacs.org/2024.2/release-notes/2024/2024.2.html) uusien ominaisuuksien ja parannusten listalle.
 
-## Schrödinger Maestro 2024.2, 3.5.2024
+## Schrödinger Maestro 2024.2, 3.5.2024 {#schrodinger-maestro-2024-2-3-5-2024}
 
-[Schrödinger Maestro](../../apps/maestro.md) version 2024.2 has been installed
-and set as the default module on Puhti and Mahti. See
-[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
-for a list of new features and improvements.
+[Schrödinger Maestro](../../apps/maestro.md) versio 2024.2 on asennettu ja asetettu oletusmoduuliksi Puigalle ja Mahtille. Katso [julkaisumuistiot](https://www.schrodinger.com/life-science/download/release-notes/) uusien ominaisuuksien ja parannusten listalle.
 
-## AMS 2023 available on Puhti and Mahti, 21.3.2024
+## AMS 2023 saatavana Puhtissa ja Mahtissa, 21.3.2024 {#ams-2023-available-on-puhti-and-mahti-21-3-2024}
 
-[AMS](../../apps/ams.md) has been updated to version 2023.104 on both Mahti and Puhti
-and set as the default module. The corresponding [AMS-GUI](../../apps/ams-gui.md)
-is also updated.
+[AMS](../../apps/ams.md) on päivitetty versioon 2023.104 sekä Mahtissa että Puhtissa ja asetettu oletusmoduuliksi. Vastaava [AMS-GUI](../../apps/ams-gui.md) on myös päivitetty.
 
-## GROMACS 2024.1, 21.3.2024
+## GROMACS 2024.1, 21.3.2024 {#gromacs-2024-1-21-3-2024}
 
-[GROMACS](../../apps/gromacs.md) 2024.1 is now available on Puhti, Mahti and LUMI.
-See [release notes](https://manual.gromacs.org/2024.1/release-notes/2024/2024.1.html)
-for a list of new features and improvements.
+[GROMACS](../../apps/gromacs.md) 2024.1 on nyt saatavilla Puhtissa, Mahtissa ja LUMIssa. Katso [julkaisumuistiot](https://manual.gromacs.org/2024.1/release-notes/2024/2024.1.html) uusien ominaisuuksien ja parannusten listalle.
 
-## CP2K 2024.1 available on Puhti, Mahti and LUMI, 20.3.2024
+## CP2K 2024.1 saatavana Puhtissa, Mahtissa ja LUMIssa, 20.3.2024 {#cp2k-2024-1-available-on-puhti-mahti-and-lumi-20-3-2024}
 
-[CP2K](../../apps/cp2k.md) 2024.1 has been installed and set as the default
-module on Puhti, Mahti and LUMI. See
-[release notes](https://github.com/cp2k/cp2k/releases/tag/v2024.1)
-for a list of new features, fixes and breaking changes. As a notable change,
-calculations will now abort instead of just issuing a warning if the SCF cycle
-fails to converge. Add `IGNORE_CONVERGENCE_FAILURE` keyword in the `&SCF`
-section to enable the old behavior.
+[CP2K](../../apps/cp2k.md) 2024.1 on asennettu ja asetettu oletusmoduuliksi Puhtissa, Mahtissa ja LUMIssa. Katso [julkaisumuistiot](https://github.com/cp2k/cp2k/releases/tag/v2024.1) uusien ominaisuuksien, korjausten ja yhteensopimattomien muutosten listalle. Huomionarvoisena muutoksena laskennat nyt keskeytyvät pelkän varoituksen sijaan, jos SCF-sykli ei konvergoidu. Lisää `IGNORE_CONVERGENCE_FAILURE`-avainsana `&SCF`-osioon ottaaksesi vanhan käyttäytymisen käyttöön.
 
-## NAMD 3.0b6 available on LUMI, 12.3.2024
+## NAMD 3.0b6 saatavana LUMIssa, 12.3.2024 {#namd-3-0b6-available-on-lumi-12-3-2024}
 
-The latest AMD GPU-enabled version of NAMD is now available pre-installed
-on LUMI. See our [NAMD page](../../apps/namd.md) for batch script examples
-and performance notes, as well as the
-[NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
-for a list of new features that improve the performance of single-node
-multi-GPU simulations.
+Viimeisin AMD GPU-tuellinen NAMD-versio on nyt ennakkoasennettu LUMIssa. Katso meidän [NAMD-sivulta](../../apps/namd.md) eräajoesimerkkejä ja suorituskykymuistiinpanoja, sekä [NAMD-verkkosivulta](https://www.ks.uiuc.edu/Research/namd/3.0/features.html) lista uusista ominaisuuksista, jotka parantavat yksisolmusimulaatioiden suorituskykyä.
 
-## JAX 0.4.23, 6.3.2024
+## JAX 0.4.23, 6.3.2024 {#jax-0-4-23-6-3-2024}
 
-[JAX](../../apps/jax.md) 0.4.23 was added to Puhti, Mahti and LUMI.
-JAX modules now also include a CPU-only installation of PyTorch,
-which sometimes used together with JAX for its data loading capabilities,
-as well as relevant updates to all Python packages already bundled in the
-previous JAX modules.
+[JAX](../../apps/jax.md) 0.4.23 on lisätty Puhtiin, Mahtiin ja LUMIin. JAX-moduulit sisältävät nyt myös PyTorchin vain CPU-asennuksen, jota toisinaan käytetään yhdessä JAXin kanssa datan latausominaisuuksiensa vuoksi, sekä asiaankuuluvat päivitykset kaikille edellisissä JAX-moduuleissa mukana olleille Python-paketeille.
 
-## PyTorch 2.2.1, 1.3.2024
+## PyTorch 2.2.1, 1.3.2024 {#pytorch-2-2-1-1-3-2024}
 
-[PyTorch](../../apps/pytorch.md) 2.2.1 added to Puhti, Mahti and
-LUMI. The LUMI module includes ROCm versions of
-[FlashAttention-2](https://github.com/ROCm/flash-attention) and
-[bitsandbytes](https://github.com/ROCm/bitsandbytes) as these are
-difficult for users to add themselves.
-[xFormers](https://github.com/facebookresearch/xformers) has been
-added to all three systems in addition to new versions of all
-previously supported packages (e.g., DeepSpeed and Transformers).
+[PyTorch](../../apps/pytorch.md) 2.2.1 lisätty Puhtiin, Mahtiin ja LUMIin. LUMI-moduuli sisältää ROCm-versiot [FlashAttention-2:sta](https://github.com/ROCm/flash-attention) ja [bitsandbytes:sta](https://github.com/ROCm/bitsandbytes), koska näitä on vaikea lisätä itse. [xFormers](https://github.com/facebookresearch/xformers) on lisätty kaikille kolmelle järjestelmälle aiemmin tuettujen pakettien (esim. DeepSpeed ja Transformers) lisäksi.
 
-## Snakemake, 23.2.2024
+## Snakemake, 23.2.2024 {#snakemake-23-2-2024}
 
-An [application page for the Snakemake workflow tool](../../apps/snakemake.md)
-has been added to Docs CSC. Check it out, as well as the accompanying tutorial
-on [how to use Snakemake efficiently on Puhti](../tutorials/snakemake-puhti.md).
+[Snakemake-työnkulkuvälineen sovellussivu](../../apps/snakemake.md) on lisätty Docs CSC:hen. Tutustu siihen sekä liitännäiseen oppaaseen siitä, [kuinka käyttää Snakemakea tehokkaasti Puhtissa](../tutorials/snakemake-puhti.md).
 
-## GROMACS 2024.0, 16.2.2024
+## GROMACS 2024.0, 16.2.2024 {#gromacs-2024-0-16-2-2024}
 
-[GROMACS](../../apps/gromacs.md) 2024.0 is now available on Puhti, Mahti and LUMI. See
-[release notes](https://manual.gromacs.org/2024.0/release-notes/2024/major/highlights.html)
-for a list of new features and improvements. Notably, the GPU-enabled module on LUMI
-now uses a more recent version of ROCm (5.6.1) and AdaptiveCPP (23.10.0) with improved
-performance.
+[GROMACS](../../apps/gromacs.md) 2024.0 on nyt saatavilla Puhtissa, Mahtissa ja LUMIssa. Katso [julkaisumuistiot](https://manual.gromacs.org/2024.0/release-notes/2024/major/highlights.html) uusien ominaisuuksien ja parannusten listalle. Huomionarvoisesti, GPU-tuellinen moduuli LUMIssa käyttää nyt uudempaa ROCm-version (5.6.1) ja AdaptiveCPP(23.10.0) parantunutta suorituskykyä.
 
-## TmoleX 2024, 9.2.2024
+## TmoleX 2024, 9.2.2024 {#tmolex-2024-9-2-2024}
 
-[TmoleX](../../apps/tmolex.md) has been updated and is now also available via
-the web interface on Puhti.
+[TmoleX](../../apps/tmolex.md) on päivitetty ja se on nyt saatavilla myös verkossa Puhtin kautta.
 
-## TURBOMOLE 7.8, 8.2.2024
+## TURBOMOLE 7.8, 8.2.2024 {#turbomole-7-8-8-2-2024}
 
-[TURBOMOLE](../../apps/turbomole.md) version 7.8 has been installed
-and set as the default module on Puhti and Mahti. See
-[release notes](https://www.turbomole.org/turbomole/release-notes-turbomole-7-8/)
-for a list of new features and improvements.
+[TURBOMOLE](../../apps/turbomole.md) version 7.8 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Katso [julkaisumuistiot](https://www.turbomole.org/turbomole/release-notes-turbomole-7-8/) uusien ominaisuuksien ja parannusten listalle.
 
-## Schrödinger Maestro 2024.1, 8.2.2024
+## Schrödinger Maestro 2024.1, 8.2.2024 {#schrodinger-maestro-2024-1-8-2-2024}
 
-[Schrödinger Maestro](../../apps/maestro.md) version 2024.1 has been installed
-and set as the default module on Puhti and Mahti. See
-[release notes](https://newsite.schrodinger.com/life-science/download/release-notes/)
-for a list of new features and improvements.
+[Schrödinger Maestro](../../apps/maestro.md) versio 2024.1 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Katso [julkaisumuistiot](https://newsite.schrodinger.com/life-science/download/release-notes/) uusien ominaisuuksien ja parannusten listalle.
 
-## ORCA 5.0.4, 7.2.2024
+## ORCA 5.0.4, 7.2.2024 {#orca-5-0-4-7-2-2024}
 
-[ORCA](../../apps/orca.md) 5.0.4 is now available on Puhti and Mahti. It's a bugfix release including corrections for the bug in the D4 implementation.
-Please note the change in how it's launched in a batch script.
+[ORCA](../../apps/orca.md) 5.0.4 on nyt saatavilla Puhtissa ja Mahtissa. Se on bugikorjausjulkaisu, joka sisältää korjauksia D4-toteutuksen virheeseen. Huomaa muutos, kuinka se käynnistetään eräskriptissä.
 
-## R 4.3.2 in r-env, 2.2.2024
+## R 4.3.2 r-envissa, 2.2.2024 {#r-4-3-2-in-r-env-2-2-2024}
 
-R version 4.3.2 is now available in [r-env](../../apps/r-env.md) and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
+R-versio 4.3.2 on nyt saatavilla [r-envissä](../../apps/r-env.md) ja asetettu oletusversioksi. Uusi versio tulee myös saataville RStudiossa Puhtin verkkokäyttöliittymässä pian.
 
-## COSMO-RS, 30.1.2024
+## COSMO-RS, 30.1.2024 {#cosmo-rs-30-1-2024}
 
-[COSMO-RS](../../apps/cosmors.md) is a new tool for modelling fluid phase properties,
-based on quantum chemistry derived properties.
-It consists of the BIOVIA COSMOsuite toolbox and can be utilized in combination with
-[TURBOMOLE](../../apps/turbomole.md).
+[COSMO-RS](../../apps/cosmors.md) on uusi työkalu fluidifaasin ominaisuuksien mallintamiseen, ja se perustuu kvanttikuvausperusteisiin ominaisuuksiin. Se koostuu BIOVIA COSMOsuite-työkaluista ja voidaan käyttää yhdessä [TURBOMOLEN](../../apps/turbomole.md) kanssa.
 
-## Python Data 3.10-23.11, 28.11.2023
+## Python Data 3.10-23.11, 28.11.2023 {#python-data-3-10-23-11-28-11-2023}
 
-A new version of [Python Data](../../apps/python-data.md)
-`python-data/3.10-23.11` has been installed, with the newest versions
-of popular data analytics packages.
+Uusi versio [Python Datasta](../../apps/python-data.md) `python-data/3.10-23.11` on asennettu, uusimpien versioiden kanssa suosituista data-analytiikkapaketista.
 
-## Gromacs 2023.3, 17.11.2023
+## Gromacs 2023.3, 17.11.2023 {#gromacs-2023-3-17-11-2023}
 
-[Gromacs](../../apps/gromacs.md) 2023.3 is now available on Puhti, Mahti and
-LUMI. See [release notes](https://manual.gromacs.org/current/release-notes/2023/2023.3.html)
-for a list of new features and improvements. The naming of Gromacs modules on
-LUMI has also been changed due to hipSYCL changing its name to
-[AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp). Henceforth,
-GPU-enabled modules on LUMI are simply suffixed with `-gpu` to avoid confusion.
+[Gromacs](../../apps/gromacs.md) 2023.3 on nyt saatavilla Puhtissa, Mahtissa ja LUMIssa. Katso [julkaisumuistiot](https://manual.gromacs.org/current/release-notes/2023/2023.3.html) uusien ominaisuuksien ja parannusten listalle. Gromacs-moduulien nimeäminen LUMIssa on myös muuttunut AdaptiveCpp:n muutettua nimensä. Tästä eteenpäin LUMIn GPU-yhteensopivat moduulit nimetään pelkällä `-gpu`-päätteellä sekaannusten välttämiseksi.
 
-## PyTorch 2.1 and TensorFlow 2.14, 13.11.2023
+## PyTorch 2.1 ja TensorFlow 2.14, 13.11.2023 {#pytorch-2-1-and-tensorflow-2-14-13-11-2023}
 
-[PyTorch](../../apps/pytorch.md) 2.1 and
-[TensorFlow](../../apps/tensorflow.md) 2.14 are now available on Puhti and Mahti.
-See [PyTorch 2.1 blog post](https://pytorch.org/blog/pytorch-2-1/) or the
-[TensorFlow 2.14 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.14.0).
+[PyTorch](../../apps/pytorch.md) 2.1 ja [TensorFlow](../../apps/tensorflow.md) 2.14 ovat nyt saatavilla Puhtissa ja Mahtissa. Katso [PyTorch 2.1 -blogiviesti](https://pytorch.org/blog/pytorch-2-1/) tai [TensorFlow 2.14 -julkaisumuistiot](https://github.com/tensorflow/tensorflow/releases/tag/v2.14.0).
 
-## Schrödinger Maestro 2023.4, 10.11.2023
+## Schrödinger Maestro 2023.4, 10.11.2023 {#schrodinger-maestro-2023-4-10-11-2023}
 
-[Schrödinger Maestro](../../apps/maestro.md) version 2023.4 has been installed
-and set as the default module on Puhti and Mahti. See
-[release notes](https://www.schrodinger.com/releases/new-features/) for a list
-of new features and improvements.
+[Schrödinger Maestro](../../apps/maestro.md) versio 2023.4 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Katso [julkaisumuistiot](https://www.schrodinger.com/releases/new-features/) uusien ominaisuuksien ja parannusten listalle.
 
-## Molpro 2023.2 is available on Puhti, 31.10.2023
+## Molpro 2023.2 on saatavana Puhtissa, 31.10.2023 {#molpro-2023-2-is-available-on-puhti-31-10-2023}
 
-The new [Molpro 2023.2](../../apps/molpro.md) includes new features like
-unrestricted coupled cluster and the PQS geometry optimizer. Check the
-[Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes)
-for a detailed list of new features and improvements.
+Uusi [Molpro 2023.2](../../apps/molpro.md) sisältää uusia ominaisuuksia, kuten rajoittamattomat sidotun klusterin optimoinnin ja PQS-geometrisen optimointityökalun. Katso [Viimeaikaiset muutokset](https://www.molpro.net/manual/doku.php?id=recent_changes) uusien ominaisuuksien ja parannusten yksityiskohtiin.
 
-## AlphaFold Genetic databases available on Puhti, 20.10.2023
+## AlphaFold Geneettiset tietokannat saatavilla Puhtissa, 20.10.2023 {#alphafold-genetic-databases-available-on-puhti-20-10-2023}
 
-Genetic databases for AlphaFold 2.3.2-1 now available on Puhti. See
-[AlphaFold application page](../../apps/alphafold.md) for details.
+Geneettisiä tietokantoja AlphaFold 2.3.2-1 varten on nyt saatavilla Puhtissa. Katso [AlphaFoldin sovellussivulta](../../apps/alphafold.md) lisätietoja.
 
-## Schrödinger Maestro 2023.3, 8.9.2023
+## Schrödinger Maestro 2023.3, 8.9.2023 {#schrodinger-maestro-2023-3-8-9-2023}
 
-Schrödinger Maestro version 2023.3 has been installed and set as the default module on
-Puhti and Mahti. See [release notes](https://www.schrodinger.com/releases/new-features/)
-for a list of new features and improvements.
+Schrödinger Maestro versio 2023.3 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Katso [julkaisumuistiot](https://www.schrodinger.com/releases/new-features/) uusien ominaisuuksien ja parannusten listalle.
 
-## CP2K 2023.2 available on Puhti and Mahti, 1.9.2023
+## CP2K 2023.2 saatavana Puhtissa ja Mahtissa, 1.9.2023 {#cp2k-2023-2-available-on-puhti-and-mahti-1-9-2023}
 
-[CP2K](../../apps/cp2k.md) 2023.2 has been installed and set as the default
-module on Puhti and Mahti. For release notes and more details about the version,
-see [the CP2K website](https://www.cp2k.org/version_history#section20232).
+[CP2K](../../apps/cp2k.md) 2023.2 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin. Katso [julkaisumuistiot ja lisätiedot](https://www.cp2k.org/version_history#section20232).
 
-## CSD 2023.2 available on Puhti, 22.8.2023
+## CSD 2023.2 saatavana Puhtissa, 22.8.2023 {#csd-2023-2-available-on-puhti-22-8-2023}
 
-Version 2023.2 of the [Cambridge Structural Database (CSD)](../../apps/csd.md) software
-suite (including [GOLD](../../apps/gold.md)) has been installed and set as the default
-module on Puhti. [See release notes here](https://www.ccdc.cam.ac.uk/solutions/whats-new/).
+Versio 2023.2 [Cambridge Structural Database (CSD)](../../apps/csd.md) -ohjelmistopaketista (mukaan lukien [GOLD](../../apps/gold.md)) on asennettu ja asetettu oletusmoduuliksi Puhtiin. [Katso julkaisumuistiot täältä](https://www.ccdc.cam.ac.uk/solutions/whats-new/).
 
-## Gromacs 2023.2 available on Puhti and Mahti, 21.8.2023
+## Gromacs 2023.2 saatavana Puhtissa ja Mahtissa, 21.8.2023 {#gromacs-2023-2-available-on-puhti-and-mahti-21-8-2023}
 
-[Gromacs](../../apps/gromacs.md) 2023.2 has been installed and set as the default module on
-Puhti and Mahti.
-[See release notes here](https://manual.gromacs.org/2023.2/release-notes/2023/2023.2.html).
+[Gromacs](../../apps/gromacs.md) 2023.2 on asennettu ja asetettu oletusmoduuliksi Puhtiin ja Mahtiin.
+[Katso julkaisumuistiot täältä](https://manual.gromacs.org/2023.2/release-notes/2023/2023.2.html).
 
-## Gromacs 2023.2 and CP2K 2023.2 available on LUMI, 4.8.2023
+## Gromacs 2023.2 ja CP2K 2023.2 saatavana LUMIssa, 4.8.2023 {#gromacs-2023-2-and-cp2k-2023-2-available-on-lumi-4-8-2023}
 
-CPU and GPU versions of [Gromacs](../../apps/gromacs.md) 2023.2 and [CP2K](../../apps/cp2k.md)
-2023.2 have been installed on LUMI. For release notes and more details about the version, see
-the [GROMACS manual](https://manual.gromacs.org/2023.2/release-notes/2023/2023.2.html) and
-[the CP2K website](https://www.cp2k.org/version_history#section20232).
-
-## R 4.3.0 in r-env, 20.6.2023
-
-R version 4.3.0 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
-
-## Gromacs 2023.1 available on LUMI, 7.6.2023
-
-CPU and GPU versions of Gromacs 2023.1 have been installed on LUMI. Notably, the
-GPU-enabled module is the official hipSYCL version, which has improved significantly
-in terms of performance since the previous releases. The LUMI-G instructions on the
-[Gromacs application page](../../apps/gromacs.md#lumi)
-have also been updated and the
-[tutorial on running multi-simulations](../tutorials/gromacs-throughput.md)
-using the built-in `multidir` feature extended and adapted for LUMI-G.
-
-## R 4.2.2 in r-env, 26.5.2023
-
-R version 4.2.2 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
-
-## Schrödinger Maestro 2023.2, 25.5.2023
-
-Schrödinger Maestro version 2023.2 has been installed and set as the default module on
-Puhti and Mahti. See [release notes](https://www.schrodinger.com/releases/new-features/)
-for a list of new features and improvements.
-
-## NoMachine will no longer be available on CSC's supercomputers, 9.5.2023
-
-The NoMachine remote desktop service will be discontinued on 25th May 2023, at the end of the
-current licensing period. The service is superseded by web interfaces on CSC's supercomputers. The
-first of them, [Puhti web interface](../../computing/webinterface/index.md), has been liked by the
-researchers, the number of users is still rapidly increasing and now represents 36% of all users.
-Similar web interfaces will be opened for both Mahti and LUMI, in the near future. For replacements
-in specific use cases, please see
-[the application page for NoMachine](../../apps/nomachine.md#replacements).
-
-## Gromacs and CP2K now available on LUMI, 19.4.2023
-
-CPU and GPU-enabled versions of [Gromacs](../../apps/gromacs.md) and [CP2K](../../apps/cp2k.md)
-have been installed on LUMI. Before loading the modules, first take the CSC module tree into
-use with `module use /appl/local/csc/modulefiles`. Note that the GPU-enabled Gromacs version
-is an unofficial HIPified fork of the software by AMD and hence unsupported by the upstream
-developers.
-
-## PyTorch 2.0 and TensorFlow 2.12, 27.3.2023
-
-[PyTorch](../../apps/pytorch.md) 2.0 and
-[TensorFlow](../../apps/tensorflow.md) 2.12 are now available on Puhti and Mahti.
-See [PyTorch 2.0 blog post](https://pytorch.org/blog/pytorch-2.0-release/) or the
-[TensorFlow 2.12 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.12.0).
-
-## Turbomole 7.7, 3.3.2023
-
-[Turbomole](../../apps/turbomole.md) 7.7 has been installed and set as the default module on Puhti
-and Mahti. [See release notes here](https://www.turbomole.org/turbomole/release-notes-turbomole-7-7/).
-
-## Schrödinger Maestro 2023.1 and module removal policy, 10.2.2023
-
-* The latest version of [Schrödinger Maestro](../../apps/maestro.md) (v2023.1)
-  has been installed and set as the default module on CSC supercomputers.
-  See [release notes](https://www.schrodinger.com/releases/new-features/)
-  for a list of new features and improvements.
-* Henceforth, a two-year cleaning cycle is applied on the Maestro modules on CSC
-  supercomputers. Specifically, module versions older than two years will be removed
-  in order to free up disk space and encourage use of the latest versions which tend
-  to be more performant and have less bugs.
-
-## CSC software collection on LUMI, 31.1.2023
-
-Applications pre-installed by CSC on the LUMI supercomputer can now be viewed in the
-[application list grouped by availability](../../apps/by_system.md). For a comprehensive
-list of available EasyBuild recipes for personal or project-specific installations, see
-the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
-
-## CP2K 2023.1, 30.1.2023
-
-[CP2K](../../apps/cp2k.md) 2023.1 has been installed and set as the default module on Puhti
-and Mahti. [See release notes here](https://www.cp2k.org/version_history).
-
-## Gromacs 2022.4, 16.1.2023
-
-[Gromacs](../../apps/gromacs.md) 2022.4 has been installed and set as the default module on Puhti
-and Mahti. [See release notes here](https://manual.gromacs.org/2022.4/release-notes/2022/2022.4.html).
-
-## License for Materials and Discovery Studio no longer available, 3.1.2023
-
-The national [Materials Studio](../../apps/materialsstudio.md) and
-[Discovery Studio](../../apps/discovery-studio.md) licenses provided by CSC ended at the end of 2022.
-Please consider using, e.g., [Maestro](../../apps/maestro.md) or [AMS](../../apps/ams.md)
-instead.
-
-## sbatch-hq, 19.12.2022
-
-A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
-task farming, *i.e.* high-throughput computing workflows where the intention is to run many
-similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
-details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq-tool).
-
-## PyTorch 1.13, 9.12.2022
-
-PyTorch 1.13.0 is now available in the `pytorch/1.13` module on Puhti
-and Mahti, and has been set as the default version. See the [PyTorch
-1.13 release blog
-post](https://pytorch.org/blog/PyTorch-1.13-release/), and [CSC's
-PyTorch module documentation](../../apps/pytorch.md).
-
-## Amber22 installed on Puhti, 16.11.2022
-
-[Amber](../../apps/amber.md) version 22 has been installed on Puhti and set as the default
-module. [See here for a list of major new features](https://ambermd.org/AmberMD.php).
-
-## Maestro 2022.3 and 2022.4 installed on Puhti, 15.11.2022
-
-[Schrödinger Maestro](../../apps/maestro.md) 2022.3 and 2022.4 have been
-installed on Puhti and the latter version set as the default module. [See
-release notes here](https://www.schrodinger.com/releases/new-features/).
-
-## CP2K 2022.2, 10.11.2022
-
-[CP2K](../../apps/cp2k.md) 2022.2 has been installed and set as the default module on Puhti
-and Mahti. [See release notes here](https://www.cp2k.org/version_history).
-
-## Gromacs 2022.3, 7.11.2022
-
-[Gromacs](../../apps/gromacs.md) 2022.3 has been installed and set as the default module on Puhti
-and Mahti. [See release notes here](https://manual.gromacs.org/2022.3/release-notes/2022/2022.3.html).
-
-## Installing software with Spack, 28.10.2022
-
-Users can now install software on CSC supercomputers using the Spack package
-manager. [See here for a short tutorial on how to use the user Spack module at
-CSC](../tutorials/user-spack.md).
-
-## Installing packages from Bioconda using Tykky, 10.10.2022
-
-A [new tutorial](../tutorials/bioconda-tutorial.md) on how to install packages from the Bioconda
-channel using the [Tykky container wrapper tool](../../computing/containers/tykky.md) has been
-published. This tutorial outlines the recommended way to install software packages related to
-bioinformatics and biomedical research. Note that CSC has deprecated the *direct* (non-containerized)
-usage of Conda installations on our supercomputers due to file system performance issues.
-
-## Available applications can now be viewed as grouped by license type, 7.10.2022
-
-In addition to alphabetical ordering, grouped by discipline or by availability, applications can now be
-viewed as grouped by license type. Some information about each of the license categories is
-provided. See [Applications by license](../../apps/by_license.md). (The page can also be reached from
-the side navigation: Applications > By license)
-
-## Python Data 3.10-22.09, 7.10.2022
-
-Coinciding with the Red Hat 8 update of Puhti, a new [Python Data](../../apps/python-data.md)
-module has been installed (on both Puhti and Mahti). In addition, old conda-based modules have
-been removed, and the naming of modules has changed. Modules are now named according to the Python
-version (PV) and the year (YY) and month (MM) of the installation, as PV-YY.MM. Typically the
-module will include the newest versions of libraries at installation time, to the extent software
-dependencies allow. Modules can also be loaded simply with the Python version, and you will get
-the most recent installation with that version of Python, for example: `module load python-data/3.9`.
-
-## `r-env-singularity` renamed to `r-env` and update to R 4.2.1 coinciding with RHEL8 update, 14.9.2022
-
-Following the RHEL8 update on Puhti, the `r-env-singularity` module has been renamed to
-[`r-env`](../../apps/r-env.md). The R version has been updated to 4.2.1, along with several
-other version updates for installations included in the module. Due to the RHEL8 update requiring
-modifications to the `r-env` module setup, older R versions are currently unavailable.
-
-## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
-
-CSC has been providing a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
-and [Materials Studio](../../apps/materialsstudio.md). Due to small usage and the availability of
-overlapping tools ([Maestro](../../apps/maestro.md)), the license will not be continued after this
-year. This means that in 2023 these molecular modeling tools can't be used any more at CSC nor on
-users' own computers. Please contact [Service Desk](../contact.md) if you need help in moving your
-molecular modeling work to other modeling environments.
-
-## PyTorch 1.12, 8.7.2022
-
-PyTorch 1.12.0 is now available in the `pytorch/1.12` module on Puhti
-and Mahti. See the [official PyTorch 1.12 release
-notes](https://pytorch.org/blog/pytorch-1.12-released/), and [CSC's
-PyTorch module documentation](../../apps/pytorch.md).
-
-## CP2K modules on Mahti recompiled, 5.7.2022
-
-Due to an issue related to OpenBLAS, the CP2K modules on Mahti have been
-recompiled and linked to another linear algebra library (AMD BLIS). The old
-versions were in some cases using up to seven times as much memory as before,
-while matrix diagonalizations were not benefiting from the ELPA library as
-expected.
-
-## Python Data 3.9-3 and RAPIDS 22.04, 5.5.2022
-
-New versions of [Python Data](../../apps/python-data.md) and
-[RAPIDS](../../apps/rapids.md) are now available on both Puhti and Mahti. The
-default versions have been changed to these new versions.
-
-## CP2K 9.1 linked to Gromacs 2022, 19.4.2022
-
-[CP2K](../../apps/cp2k.md) 9.1 has been linked to [Gromacs](../../apps/gromacs.md) 2022 for QM/MM
-in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the
-CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for
-QM/MM simulations from now on.
-
-## PyTorch 1.11, 8.4.2022
-
-PyTorch 1.11.0 is now available in the `pytorch/1.11` module on Puhti and Mahti,
-and has been set as the default module. See the [official PyTorch 1.11 release
-notes](https://pytorch.org/blog/pytorch-1.11-released/), and [CSC's PyTorch
-module documentation](../../apps/pytorch.md).
-
-## LUE released on Puhti, 5.4.2022
-
-An approximate tool called [LUE](../tutorials/lue.md) (Lustre Usage Explorer) for reporting amount
-of data in folders has been released on Puhti. LUE is significantly faster than standard tools like
-`stat` or `du` while being nicer on the file system. Please use LUE to keep track of how much
-data/files you have on the disk and perform clean-ups in a timely manner to ensure a more
-performant filesystem for all users.
-
-## Tykky 0.2.2, 31.3.2022
-
-[Tykky](../../computing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments
-inside a Singularity container, has been released. Containerization will considerably improve
-startup times and decrease IO load with less files on the shared parallel filesystem. We recommend
-wrapping all existing Conda environments within containers using Tykky as the [direct usage of
-Conda on CSC supercomputers has been deprecated](../tutorials/conda.md).
-
-## TensorFlow 2.8, 17.3.2022
-
-TensorFlow 2.8.0 is now available in the `tensorflow/2.8` module on Puhti and
-Mahti, and has been set as the default module. See the [TensorFlow 2.8 release
-notes on GitHub](https://github.com/tensorflow/tensorflow/releases/tag/v2.8.0/)
-for more details.
-
-## Gromacs 2022, 9.3.2022
-
-[Gromacs 2022](../../apps/gromacs.md) has been installed on Puhti and Mahti and is available on
-both systems with `module load gromacs-env/2022`. A list of new features and changes is found in the
-[Gromacs manual](https://manual.gromacs.org/documentation/current/release-notes/index.html#gromacs-2022-series).
-`gromacs-env/2021` is now the default.
-
-## CP2K 9.1, 4.3.2022
-
-[CP2K](../../apps/cp2k.md) version 9.1 has been installed on Mahti and is available with
-`module load cp2k/9.1-omp`, given that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded.
-A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history#section91).
-
-## Schrödinger Maestro 2022.1, 25.2.2022
-
-Schrödinger Maestro 2022.1 has been installed on Puhti and set as the default module. For a list
-of new features, see the [Schrödinger website](https://www.schrodinger.com/releases/new-features).
-
-## Gromacs 2021 now default version, 7.2.2022
-
-[Gromacs 2021.5](../../apps/gromacs.md) has been installed on Puhti and Mahti and set as the
-default module (gromacs-env).
-
-## Direct usage of Conda deprecated, 4.2.2022
-
-CSC has [deprecated the direct usage of Conda
-installations](../tutorials/conda.md) on our supercomputers' (Puhti and Mahti)
-shared file systems.
-
-## Python Data 3.9-2, 20.1.2022
-
-A new version of [Python Data](../../apps/python-data.md) is now available with
-`module load python-data/3.9-2` on both Puhti and Mahti. It includes the most
-recent versions of Scikit-learn, SciPy, Pandas, JupyterLab and many other
-popular data analytics and machine learning packages for Python 3.9.
-
-## Python Data default module now uses Singularity, 26.11.2021
-
-The default version of the `python-data` module has been changed to `3.9-1`.
-This means that if you have been simply doing `module load python-data` you will
-now get this new version automatically. This version has been installed using
-Singularity which should make loading times much faster. Thanks to wrapper
-scripts this change should be mostly invisible to users. If you still encounter
-any problems, don't hesitate to report them to [CSC's service
-desk](../contact.md).
-
-## Schrödinger Maestro 2021.4, 24.11.2021
-
-Schrödinger Maestro 2021.4 has been installed on Puhti and set as the default module.
-
-## PyTorch 1.10, 10.11.2021
-
-PyTorch 1.10.0 is now available in the `pytorch/1.10` module on Puhti and Mahti,
-and has been set as the default module. See the [official PyTorch 1.10 release
-notes](https://pytorch.org/blog/pytorch-1.10-released/) for more details. CSC's
-module has the following improvements:
-
-- Jupyter Lab now works (previously only regular Jupyter Notebook UI worked)
-- [DeepSpeed](https://www.deepspeed.ai/) support built in (experimental support)
-
-## TensorFlow 2.7, 9.11.2021
-
-TensorFlow 2.7.0 is now available in the `tensorflow/2.7` module on Puhti and
-Mahti, and has been set as the default module. See the [TensorFlow 2.7 release
-notes on GitHub](https://github.com/tensorflow/tensorflow/releases/tag/v2.7.0/)
-for more details. CSC's module has the following improvements:
-
-- Jupyter Lab now works (previously only regular Jupyter Notebook UI worked)
-
-## Schrödinger Maestro 2021.3, 30.8.2021
-
-Schrödinger Maestro 2021.3 has been installed on Puhti and set as the default module. The [extended
-Maestro instructions](../tutorials/power-maestro.md#quantum-espresso) have been appended with a
-section on how to speed up Quantum Espresso jobs. A bug in the script that generates the
-`schrodinger.hosts` file has also been fixed by setting the `parallel` HOST entry to use the
-`large` Slurm partition as intended.
-
-## Turbomole 7.5.1, 25.8.2021
-
-Turbomole 7.5.1 is now available and the default module on Puhti. The most important change
-with this version is that the `ricc2` module for performing 2nd order approximate coupled
-cluster calculations works appropriately, while older versions on Puhti have been recently
-reported to suffer from numerical instabilities. These issues do not apply to TM v7.5 installed
-on Mahti.
-
-## CP2K 8.2, 13.8.2021
-
-CP2K version 8.2 has been installed on Mahti and is available with `module load cp2k/8.2-omp`.
-This requires that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. Version `7.1-elpa` will
-remain the default module for now, but will be changed to `8.2-omp` in the near future (despite
-the name, the ELPA diagonalization library is also linked to the new 8.2 version). The `cp2k.psmp`
-binary of version `8.2-omp` has been tested and is roughly as efficient as `7.1-elpa`.
-
-A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history).
-Note that some keywords, such as `MAP_CONSISTENT` in the `QS` section, have been deprecated.
-
-## AMS 2021.102, 13.8.2021
-
-AMS has been updated to version 2021.102 on both Mahti and Puhti and set as the default module. The
-[AMS documentation](../../apps/ams.md) has been updated accordingly to cover version 2021.102.
-
-## Molpro 2021.2, 10.8.2021
-
-Molpro 2021.2 is now available and the default version on Puhti. List of recent
-changes are available on [Molpro website](https://www.molpro.net/manual/doku.php?id=recent_changes).
-Our [Molpro page](../../apps/molpro.md) also contains new scalability information and an example
-on how to use NVMe.
-
-## PyTorch 1.9, 2.7.2021
-
-PyTorch 1.9.0 is now available in the `pytorch/1.9` module on Puhti and Mahti.
-The module also includes the most recent versions of TorchVision, TorchAudio and
-TorchText. See the [official release
-notes](https://pytorch.org/blog/pytorch-1.9-released/) for more details.
-
-## Python Data 3.9, 22.6.2021
-
-A new version of [Python Data](../../apps/python-data.md) is now available with
-`module load python-data/3.9-1` on Puhti. It includes the most recent versions
-of Scikit-learn, Pandas, JupyterLab and many other popular data analytics and
-machine learning packages for Python 3.9.
-
-This is the first version of Python Data that has been installed using
-Singularity which should make loading times much faster. Thanks to wrapper
-scripts this change should be mostly invisible to users. If you still encounter
-any problems, don't hesitate to report them to [CSC's service
-desk](../contact.md).
+[Gromacs](../../apps/gromacs.md) 2023.

@@ -1,18 +1,16 @@
-# Encryption
+# Salaus
 
-## Why do I need to encrypt my data?
-According to the GDPR, the data controller and the data processor need to implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk. Encryption is one of the required security measures that protect sensitive data. See: [Best practices for client-side encryption](https://research.csc.fi/best-practices-for-client-side-encryption).
-SD Connect provides automated data encryption and decryption, via a web user interface or programmatically. 
+## Miksi minun on salattava tietoni? {#why-do-i-need-to-encrypt-my-data}
+GDPR:n mukaan rekisterinpitäjän ja henkilötietojen käsittelijän on toteutettava asianmukaiset tekniset ja organisatoriset toimenpiteet varmistaakseen riskin mukaisen tietoturvatason. Salaus on yksi vaadituista tietoturvatoimenpiteistä, jotka suojaavat arkaluonteisia tietoja. Katso: [Asiakaspuolen salauksen parhaat käytännöt](https://research.csc.fi/best-practices-for-client-side-encryption). SD Connect tarjoaa automaattisen datan salauksen ja purkamisen verkkokäyttöliittymän tai ohjelmallisen rajapinnan kautta.
 
-## Do sensitive data always need to be encrypted during upload or data transfer (e.g., using an  SSH connection)?
-Yes. According to CSC's [General terms of use](https://research.csc.fi/general-terms-of-use), sensitive data must be encrypted when stored in CSC services or transferred to CSC. Therefore, data needs to be encrypted if, for example, you are using an SSH connection for data transfer. 
+## Pitääkö arkaluonteiset tiedot aina salata latauksen tai tiedonsiirron aikana (esim. SSH-yhteyttä käytettäessä)? {#do-sensitive-data-always-need-to-be-encrypted-during-upload-or-data-transfer-eg-using-an-ssh-connection}
+Kyllä. CSC:n [Yleisten käyttöehtojen](https://research.csc.fi/general-terms-of-use) mukaan arkaluonteiset tiedot on salattava, kun ne tallennetaan CSC:n palveluihin tai siirretään CSC:lle. Tästä syystä tiedot on salattava, jos esimerkiksi käytät SSH-yhteyttä tietojen siirtoon.
 
-## What data formats can be encrypted using SD Connect?
-You can encrypt data in any format (e.g., video, images, text files, etc.). 
+## Mitä tiedostoformaatteja voi salata SD Connectilla? {#what-data-formats-can-be-encrypted-using-sd-connect}
+Voit salata tietoja missä tahansa formaatissa (esim. video, kuvat, tekstitiedostot jne.).
 
-## What is the new extension added to my files after upload with SD Connect?
-When encryption with SD Connect is successful, the file extension ends with .c4gh. The extension will be removed when once the file is decrypted. 
+## Mikä uusi tiedostopääte lisätään tiedostoihini SD Connectin avulla tehdyssä latauksessa? {#what-is-the-new-extension-added-to-my-files-after-upload-with-sd-connect}
+Kun salaus SD Connectilla on onnistunut, tiedostopääte on .c4gh. Pääte poistetaan, kun tiedosto puretaan.
 
-## Do CSC Sensitive Data services allow the use of customers' encryption keys?
-Yes. You can encrypt the data with multiple encryption keys. Plese contac us at servciedesk@csc.fi (Subject: Sensitive data) for support.
-
+## Sallivatko CSC:n arkaluonteisten tietojen palvelut asiakkaiden omien salausavainten käytön? {#do-csc-sensitive-data-services-allow-the-use-of-customers-encryption-keys}
+Kyllä. Voit salata tiedot useilla salausavaimilla. Otathan meihin yhteyttä osoitteeseen servicedesk@csc.fi (Aihe: Arkaluonteiset tiedot) saadaksesi tukea.

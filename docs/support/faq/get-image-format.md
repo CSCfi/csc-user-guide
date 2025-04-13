@@ -1,14 +1,15 @@
-# Why Rahti cannot find this docker image?
+
+# Miksi Rahti ei löydä tätä docker-kuvaa? {#why-rahti-cannot-find-this-docker-image}
 
 ![Could not load image](img/Could_not_load_image_metadata.png)
 
-Often there are simple causes for this problem. Maybe there is a typo in the image name, or the image might have been removed since the last time it was successfully pulled. These two problems are common, and as such, it is worth double-checking the image source.
+Usein tälle ongelmalle on yksinkertaisia syitä. Ehkä kuvassa on kirjoitusvirhe, tai kuva on saatettu poistaa sen jälkeen, kun se viimeksi vedettiin onnistuneesti. Nämä kaksi ongelmaa ovat yleisiä, ja siksi on syytä tarkistaa kuvalähde kaksoiskuittauksella.
 
 ![Failed to pull image](img/Failed_to_pull_image.png)
 
-## Private image
+## Yksityinen kuva {#private-image}
 
-Another cause is that maybe the image is private. In this case, it is necessary to set up a `docker-registry` secret with an account credential having the required permissions to pull the image. For example, for an image stored in docker hub:
+Toinen syy voi olla se, että kuva on yksityinen. Tässä tapauksessa on tarpeen määrittää `docker-registry`-salaisuus käyttäjätilillä, jolla on tarvittavat oikeudet vetää kuva. Esimerkiksi, kun kuva on tallennettu Docker-hubiin:
 
 ```bash
 oc create secret docker-registry <SECRET-NAME> \
@@ -22,33 +23,34 @@ oc create secret docker-registry <SECRET-NAME> \
 oc secrets link default <SECRET-NAME> --for=pull
 ```
 
-**Note**: Substitute placeholders with actual username, password, email, and an appropriate name for the secret (without <>).
+**Huom**: Korvaa paikkamerkit oikealla käyttäjänimellä, salasanalla, sähköpostilla ja sopivalla nimellä salaisuudelle (ilman <>).
 
-You can find more information in the [How to add docker hub credentials to a project](docker_hub_login.md) article.
+Löydät lisätietoja artikkelista [How to add docker hub credentials to a project](docker_hub_login.md).
 
-## Unsupported image format
+## Ei tuettu kuvamuoto {#unsupported-image-format}
 
-A more obscure problem is when the format of the image is not supported by the current version of Rahti (v3.11), which uses an old version of the docker client. Currently there are two docker image formats, docker (`application/vnd.docker.container.image.v1+json`) and OCI (`application/vnd.oci.image.manifest.v1+json`), the current version of Rahti only supports `docker`.
+Tavallista harvinaisempi ongelma on, kun kuvan muoto ei ole tuettu Rahtin nykyisessä versiossa (v3.11), joka käyttää vanhentunutta Docker-clienttä. Tällä hetkellä on kaksi Docker-kuvamuotoa, docker (`application/vnd.docker.container.image.v1+json`) ja OCI (`application/vnd.oci.image.manifest.v1+json`), joista Rahtin nykyinen versio tukee vain `docker`-muotoa.
 
-When an old client is used to try to pull an image with the newer format, the client cannot find it and returns a `repository does not exist` or `Error response from daemon: missing signature key` error. The easiest way to check the `mediaType` of an image is to use `docker manifest inspect <image>:<tag>`. This command will show the media type of the image and each of its layers.
+Kun vanhaa clienttiä käytetään yrittäen vetää uudempaa muotoa olevaa kuvaa, ei clientti löydä sitä ja palauttaa virheen `repository does not exist` tai `Error response from daemon: missing signature key`. Helpoin tapa tarkistaa kuvan `mediaType` on käyttää komentoa `docker manifest inspect <image>:<tag>`. Tämä komento näyttää kuvan mediatyypin ja kunkin sen kerroksen tyypin.
 
+## Kierratysratkaisut {#workarounds}
 
-## Workarounds
+* Yksinkertainen ratkaisu on vetää kuva yhteensopivaa clienttiä käyttäen, uudelleen-tägätä se ja puskea Rahtin sisäiseen rekisteriin. Tämä äsken pushaettu kuva käyttää vanhaa docker-muotoa. Seuraa linkkiä saadaksesi ohjeen [How to manually cache images in Rahti's registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md).
 
-* A trivial fix is to pull the image using a compatible client, re-tag it, and push it to Rahti's internal registry. This newly pushed image will be using the old docker format. Follow the link for a guide on [How to manually cache images in Rahti's registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md).
-
-* If the image was built by your team, the [buildah](https://buildah.io) tool can be used. It allows to build docker images without the extra privileges the `docker build` requires, and even though by default it will build an image using the `OCI` format, it has an option to use the `docker` format instead:
+* Jos kuva on tiimisi rakentama, voit käyttää [buildah](https://buildah.io)-työkalua. Sen avulla voi rakentaa docker-kuvia ilman ylimääräisiä oikeuksia, joita `docker build` vaatii, ja vaikka oletuksena se rakentaa OCI-muotoisen kuvan, sillä on vaihtoehto käyttää docker-muotoa:
 
 ```bash
 buildah bud -t image/name:tag --format=docker
 ```
 
-* [Skopeo](https://github.com/containers/skopeo) is an utility that performs various operations on container images and image repositories.
-You can use it to copy from DockerHub to Rahti internal registry and it will automatically convert the image in the `docker` format. Here is an example:  
+* [Skopeo](https://github.com/containers/skopeo) on työkalu, joka suorittaa erilaisia toimintoja konttikuville ja kuva-rekistereille.
+Voit käyttää sitä kopioimaan DockerHubista Rahtin sisäiseen rekisteriin, ja se muuntaa kuvan automaattisesti `docker`-muotoon. Tässä on esimerkki:
 
-First, you need to be connected to Rahti. After being connected, type this command to copy a Docker image from DockerHub to Rahti internal registry:    
+Ensin sinun täytyy olla yhteydessä Rahtiin. Kun olet yhteydessä, kirjoita tämä komento kopioidaksesi Docker-kuva DockerHubista Rahtin sisäiseen rekisteriin:
 
 ```
 skopeo copy docker://publisher/image:tag --dest-creds $(oc whoami):$(oc whoami -t) docker://docker-registry.rahti.csc.fi/project/image:tag
 ```
-_Replace 'project' by your Rahti project, 'image' by the desired name for the image and 'tag' by the desired tag_
+
+_Vaihda 'project' Rahti-projektillasi, 'image' haluamallasi kuvalla ja 'tag' haluamallasi tägillä_
+

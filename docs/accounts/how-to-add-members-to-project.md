@@ -1,59 +1,50 @@
-# How to add members to project
 
-Project manager is the only person who can add project members. There are two ways to add users to a project. You can either add them directly
-or give them an invitation link. Invited users are added automatically to projects, but
-they need to [select services](how-to-add-service-access-for-project.md) they want to use within the
-selected project.
+# Kuinka lisätä jäseniä projektiin {#how-to-add-members-to-project}
 
-## Adding members directly
+Projektipäällikkö on ainoa henkilö, joka voi lisätä jäseniä projektiin. On kaksi tapaa lisätä käyttäjiä projektiin. Voit joko lisätä heidät suoraan tai antaa heille kutsulinkin. Kutsutut käyttäjät lisätään automaattisesti projekteihin, mutta heidän täytyy [valita palvelut](how-to-add-service-access-for-project.md), joita he haluavat käyttää valitussa projektissa.
 
-Direct addition is the best method if you have a small number of users to add.
-Only existing users **from your own home organization** can be added this way.
+## Jäsenten lisääminen suoraan {#adding-members-directly}
 
-1. Login to [MyCSC](http://my.csc.fi).
-1. Choose _Projects_ in the navigation menu on the left.
-1. Choose the project you want new persons to join.
-1. Under _Members_, in the _Current_ tab, click Manage.
-1. Search users by name or username and click Add. 
-1. Repeat the last steps for each new member.
+Suora lisäys on paras menetelmä, jos sinun täytyy lisätä vain muutamia käyttäjiä. Vain olemassa olevia käyttäjiä **omasta kotiorganisaatiostasi** voidaan lisätä tällä tavalla.
 
-If you need to remove a member go to Manage and Remove members.
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi).
+1. Valitse _Projektit_ navigaatiovalikosta vasemmalta.
+1. Valitse projekti, johon haluat uusia henkilöitä liittyvän.
+1. _Jäsenet_-osion _Nykyiset_-välilehdellä, klikkaa Hallitse.
+1. Etsi käyttäjiä nimellä tai käyttäjänimellä ja klikkaa Lisää.
+1. Toista viimeiset askeleet jokaiselle uudelle jäsenelle.
 
-!!! Note
+Jos sinun täytyy poistaa jäsen, mene Hallitse-kohtaan ja poista jäsen.
 
-    Project members receive notifications when they are added to projects,
-    and also when they are removed.
+!!! Huom
 
-## Using invitation link
+    Projektin jäsenet saavat ilmoituksia, kun heidät lisätään projekteihin, ja myös kun heidät poistetaan.
 
-This method is useful if you have tens of users to add, because you do not have
-to type in account names. You do not need to know the users' account names.
-They do not even have to be registered yet.
+## Kutsulinkin käyttö {#using-invitation-link}
 
-### Project manager
+Tämä menetelmä on hyödyllinen, jos sinun täytyy lisätä kymmeniä käyttäjiä, koska sinun ei tarvitse syöttää käyttäjätunnuksia. Sinun ei tarvitse tietää käyttäjien käyttäjätunnuksia. Heidän ei tarvitse olla edes vielä rekisteröityneitä.
 
-1. Login to [MyCSC](http://my.csc.fi).
-1. Choose _Projects_ in the navigation menu on the left.
-1. Choose the project you want new persons to join.
-1. Under _Members_ click on the Invite.
-1. Copy the invitation link and send it to the members.
+### Projektipäällikkö {#project-manager}
 
-### Member
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi).
+1. Valitse _Projektit_ navigaatiovalikosta vasemmalta.
+1. Valitse projekti, johon haluat uusia henkilöitä liittyvän.
+1. _Jäsenet_-osiossa klikkaa Kutsu.
+1. Kopioi kutsulinkki ja lähetä se jäsenille.
 
-1. [Register for CSC](how-to-create-new-user-account.md) if you have not
-   already done so.
-1. Login to [MyCSC](http://my.csc.fi).
-1. Click _Apply project membership_.
+### Jäsen {#member}
 
-### Project manager again
+1. [Rekisteröidy CSC:hen](how-to-create-new-user-account.md), jos et ole vielä tehnyt niin.
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi).
+1. Klikkaa _Hae projektijäsenyyttä_.
 
-1. Login to MyCSC if you have logged out.
-1. Choose _Projects_ in the navigation menu on the left.
-1. Choose the project to which you have invited new members.
-1. Under Members, click on the Waiting approval. Accept or deny new users. 
+### Projektipäällikkö uudelleen {#project-manager-again}
 
-!!! Note
+1. Kirjaudu sisään MyCSC:hen, jos olet kirjautunut ulos.
+1. Valitse _Projektit_ navigaatiovalikosta vasemmalta.
+1. Valitse projekti, johon olet kutsunut uusia jäseniä.
+1. _Jäsenet_-osiossa, klikkaa Odottaa hyväksyntää. Hyväksy tai hylkää uudet käyttäjät.
 
-    No email is sent when a user clicks _Apply project membership_, so it is
-    advisable to remind the project manager if approving the membership
-    takes long.
+!!! Huom
+
+    Sähköpostia ei lähetetä, kun käyttäjä klikkaa _Hae projektijäsenyyttä_, joten on suositeltavaa muistuttaa projektipäällikköä, jos jäsenyyden hyväksyminen kestää kauan.

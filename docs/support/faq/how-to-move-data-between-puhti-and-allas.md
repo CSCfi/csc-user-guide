@@ -1,32 +1,27 @@
-# How to move data from Puhti to Allas and vice versa?
 
-There are several options for moving data between Puhti and Allas. This page
-summarizes how to move data using _a-commands_, _Swift_, _Rclone_ and _S3cmd_
-clients.
+# Kuinka siirtää tietoja Puhtista Allakseen ja päinvastoin? {#how-to-move-data-from-puhti-to-allas-and-vice-versa}
 
-All the required packages and software needed for the clients are already
-installed on Puhti. To activate Allas and authenticate to a project you need to
-run the commands:
+Puhtin ja Allaksen välillä on useita vaihtoehtoja tietojen siirtämiseen. Tämä sivu tiivistää, miten tietoja voidaan siirtää käyttämällä _a-komentoja_, _Swiftiä_, _Rclonea_ ja _S3cmd_-asiakkaita.
+
+Kaikki tarvittavat paketit ja ohjelmistot on jo asennettu Puhtille. Allaksen aktivoimiseksi ja projektiin kirjautumiseksi sinun tulee suorittaa komennot:
 
 ```bash
 module load allas
 allas-conf
 ```
 
-## Move data with a-commands
+## Siirrä tietoja a-komennoilla {#move-data-with-a-commands}
 
-[a-commands](../../data/Allas/using_allas/a_commands.md) are easy-to-use tools
-for basic usage of Allas. The main commands to use for moving data between
-Puhti and Allas are:
+[a-komennot](../../data/Allas/using_allas/a_commands.md) ovat helppokäyttöisiä työkaluja Allaksen peruskäyttöön. Tärkeimmät komennot tietojen siirtämiseen Puhtin ja Allaksen välillä ovat:
 
 * [`a-put`](../../data/Allas/using_allas/a_commands.md#a-put-uploads-data-to-allas):
-  Move data from Puhti to Allas
+  Siirrä tietoja Puhtista Allakseen
 * [`a-get`](../../data/Allas/using_allas/a_commands.md#a-get-retrieves-stored-data):
-  Move data from Allas to Puhti 
+  Siirrä tietoja Allaksesta Puhtiin 
 
-## Move data with Swift
+## Siirrä tietoja Swiftillä {#move-data-with-swift}
 
-The Swift client provides the options `upload` and `download` for moving data:
+Swift-asiakasohjelma tarjoaa vaihtoehdot `upload` ja `download` tietojen siirtämiseen:
 
 ```bash
 swift upload <bucket name> <file name>
@@ -36,53 +31,49 @@ swift upload <bucket name> <file name>
 swift download <bucket name> <file name>
 ```
 
-For more information, see
-[Swift client](../../data/Allas/using_allas/swift_client.md).
+Lisätietoja löytyy
+[Swift-asiakasohjelma](../../data/Allas/using_allas/swift_client.md):sta.
 
-## Move data with Rclone
+## Siirrä tietoja Rclonea käyttäen {#move-data-with-rclone}
 
-Rclone is another client using which you can move data between Puhti and
-Allas. For example, you could create a bucket called `2000620-raw-data` in
-Allas using the command:
+Rclone on toinen asiakasohjelma, jolla voit siirtää tietoja Puhtin ja Allaksen välillä. Voit esimerkiksi luoda kauhan nimeltä `2000620-raw-data` Allakseen käyttämällä komentoa:
 
 ```bash
 rclone mkdir allas:2000620-raw-data
 ```
 
-Uploading a file called `file.dat` to that bucket can be done using the
-`rclone copy` command:
+Tiedoston nimeltä `file.dat` lataaminen tuohon kauhaan voidaan tehdä `rclone copy` -komennolla:
 
 ```bash
 rclone copy file.dat allas:2000620-raw-data/
 ```
 
-Downloading the file back to Puhti is done with the same `rclone copy` command:
+Tiedoston lataaminen takaisin Puhtiin tehdään samalla `rclone copy` -komennolla:
 
 ```bash
 rclone copy allas:2000620-raw-data/file.dat .
 ```
 
-!!! info "Note"
-    Another destination directory can be specified in the `rclone copy` command
-    as well. If this directory does not exist, Rclone will create it for you.
+!!! info "Huom"
+    Toinen kohdehakemisto voidaan myös määrittää `rclone copy` -komennossa. Jos tätä hakemistoa ei ole olemassa, Rclone luo sen sinulle.
 
     ```bash
     rclone copy allas:2000620-raw-data/file.dat my-new-folder
     ```
 
-For more information, see
-[Using Allas with Rclone from Puhti](../../data/Allas/using_allas/rclone.md).
+Lisätietoja löytyy
+[Allaksen käyttäminen Rclonella Puhtista](../../data/Allas/using_allas/rclone.md).
 
-## Move data with S3cmd
+## Siirrä tietoja S3cmd:llä {#move-data-with-s3cmd}
 
-For moving data between Puhti and Allas,
-[S3cmd](../../data/Allas/using_allas/s3_client.md) provides the functions:
+Tietojen siirtämiseen Puhtin ja Allaksen välillä,
+[S3cmd](../../data/Allas/using_allas/s3_client.md) tarjoaa seuraavat toiminnot:
 
 * [`s3cmd put`](../../data/Allas/using_allas/s3_client.md#create-buckets-and-upload-objects):
-  Move data from Puhti to Allas
+  Siirrä tietoja Puhtista Allakseen
 
 * [`s3cmd get`](../../data/Allas/using_allas/s3_client.md#download-objects-and-buckets):
-  Move data from Allas to Puhti
+  Siirrä tietoja Allaksesta Puhtiin
 
-For more information, see
-[S3 client](../../data/Allas/using_allas/s3_client.md).
+Lisätietoja löytyy
+[S3-asiakasohjelma](../../data/Allas/using_allas/s3_client.md):sta.

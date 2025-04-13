@@ -1,56 +1,55 @@
-# The Swift client
+# Swift-asiakas {#the-swift-client}
 
-The Python Swift client is a command line tool for using object storage systems such as Allas. If you use Allas on Puhti or Mahti, all required packages and software are already installed.
+Python Swift -asiakas on komentorivityökalu kohteena olevien tallennusjärjestelmien, kuten Allas, käyttöön. Jos käytät Allasta Puhtilla tai Mahtilla, kaikki tarvittavat paketit ja ohjelmistot on jo asennettu.
 ```text
 module load allas
-
 ```
-Open a connection to Allas:
+Avaa yhteys Allakseen:
 ```text
 allas-conf
 ```
 
-The _allas-conf_ command above asks for your CSC password (the same that you use to login to CSC servers). It lists your projects in Allas and asks you to define the project that will be used. _allas-conf_ generates and authenticates the connection to the selected project in Allas. The authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session. If you open another session, you need to authenticate again to access Allas.
+Yllä oleva _allas-conf_-komento pyytää CSC-salasanaasi (samaa, jota käytät kirjautuessasi CSC:n palvelimille). Se listaa projektisi Allaksessa ja pyytää sinua määrittelemään käytettävän projektin. _allas-conf_ luo ja todentaa yhteyden valittuun projektiin Allaksessa. Autentikointitiedot tallennetaan shellin muuttujiin *OS_AUTH_TOKEN* ja *OS_STORAGE_URL*, jotka ovat voimassa jopa kahdeksan tuntia. Kuitenkin voit päivittää autentikoinnin milloin tahansa ajamalla _allas-conf_ uudelleen. Ympäristömuuttujat ovat käytettävissä vain kyseiselle kirjautumiskerralle. Jos avaat toisen istunnon, sinun on autentikoitava uudelleen päästäksesi Allakseen.
 
-This chapter includes instructions for the following operations:
+Tämä luku sisältää ohjeet seuraaville toiminnoille:
 
-| Swift command | Function |
+| Swift-komento | Toiminto |
 | :---- | :---- |
-| post | Create a bucket |
-| upload | Upload an object |
-| list | List objects and buckets |
-| download | Download objects and buckets |
-| copy | Move object |
-| delete | Remove objects or bucket |
-| download --all | Download whole project |
-| delete --all | Remove whole project |
-| md5sum | Get the checksum |
-| stat | View metadata |
-| stat --meta | Add metadata |
-| tempurl | Create a temporary URL |
-| post -r, -w, --read-acl | Manage access rights |
-| upload --use-slo | Upload files larger than 5 GB |
+| post | Luo säilö |
+| upload | Lataa objekti |
+| list | Listaa objektit ja säilöt |
+| download | Lataa objektit ja säilöt |
+| copy | Siirrä objekti |
+| delete | Poista objektit tai säilö |
+| download --all | Lataa koko projekti |
+| delete --all | Poista koko projekti |
+| md5sum | Hanki tarkistussumma |
+| stat | Näytä metadata |
+| stat --meta | Lisää metadata |
+| tempurl | Luo tilapäinen URL |
+| post -r, -w, --read-acl | Hallitse käyttöoikeuksia |
+| upload --use-slo | Lataa yli 5 GB:n tiedostot |
 
-You can also install and use Swift outside the CSC computing environment. Make sure that your Swift version is not outdated, since the older Swift versions might not work with Allas.
+Voit myös asentaa ja käyttää Swiftiä CSC:n laskentaympäristön ulkopuolella. Varmista, ettei Swift-versiosi ole vanhentunut, sillä vanhemmat Swift-versiot eivät välttämättä toimi Allaksen kanssa.
 
-## Create buckets and upload objects
+## Luo säilöjä ja lataa objekteja {#create-buckets-and-upload-objects}
 
-Create a new empty bucket:
+Luo uusi tyhjä säilö:
 ```text
 swift post <new_bucket_name>
 ```
 
-Create a new bucket and add a file to it:
+Luo uusi säilö ja lisää siihen tiedosto:
 ```text
 swift upload <new_bucket_name> <file_name>
 ```
 
-Add a file to an existing bucket:
+Lisää tiedosto olemassa olevaan säilöön:
 ```text
 swift upload <old_bucket_name> <file_name>
 ```
-**Note:** This might trigger the warning  "_409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload has failed. 
-If the next line displays the file name, the file was successfully uploaded to the existing bucket.
+**Huom:** Tämä voi laukaista varoituksen "_409 Conflict: BucketAlreadyExists_", mutta se ei välttämättä tarkoita, että lataus epäonnistui.
+Jos seuraavalla rivillä näkyy tiedostonimi, tiedosto ladattiin onnistuneesti olemassa olevaan säilöön.
 
 ```text
 $ swift upload my_fishbucket my_fish.jpg
@@ -58,15 +57,15 @@ Warning: failed to create container 'my_fishbucket': 409 Conflict: BucketAlready
 my_fish.jpg
 ```
 
-## List objects and buckets
+## Listaa objektit ja säilöt {#list-objects-and-buckets}
 
-List all buckets belonging to a project:
+Listaa kaikki projektiin kuuluvat säilöt:
 ```text
 $ swift list
 my_fishbucket
 my_bigfishes
 ```
-List the content of a bucket:
+Listaa säilön sisältö:
 ```text
 $ swift list my_fishbucket
 my_fish.jpg
@@ -74,28 +73,28 @@ salmon.jpg
 bass.png
 ```
 
-## Download objects and buckets
+## Lataa objektit ja säilöt {#download-objects-and-buckets}
 
-Download an object:
+Lataa objekti:
 ```text
 swift download <bucket_name> <file_name>
 ```
-If you want to rename the object as you download it, you can include *-o new_name* in the end of the command:
+Jos haluat nimetä objektin uudelleen latauksen yhteydessä, voit lisätä *-o new_name* komennon loppuun:
 ```text
 swift download <bucket_name> <file_name> -o <new_name>
 ```
-Download an entire bucket:
+Lataa kokonainen säilö:
 ```text
 swift download <bucket_name>
 ```
 
-## Move objects
+## Siirrä objekteja {#move-objects}
 
-You can copy data from one bucket to another using the command `swift copy`. The command below copies _file.txt_ from _bucket1_ to _bucket2_.
+Voit kopioida tietoa säilöstä toiseen käyttämällä komentoa `swift copy`. Alla oleva komento kopioi _file.txt_:n _bucket1_:stä _bucket2_:een.
 ```text
 swift copy --destination /bucket2 bucket1 file.txt
 ```
-**Note:** If there is no bucket called _bucket2_, Swift creates a new bucket with that name. However, even if there is a bucket called _bucket2_, Swift claims that it created a new one, even though it simply copied the file to the existing bucket:
+**Huom:** Jos säilöä nimeltä _bucket2_ ei ole, Swift luo uuden säilön sillä nimellä. Kuitenkin, vaikka säilö nimeltä _bucket2_ olisi olemassa, Swift väittää luoneensa uuden, vaikka se vain kopioi tiedoston olemassa olevaan säilöön:
 ```text
 $ swift copy --destination /other_bucket my_bigfishes bigfish.jpg
 created container other_bucket
@@ -105,32 +104,32 @@ bigfish.jpg
 other_file.txt
 ```
 
-Rename a file while copying it:
+Nimeä tiedosto uudelleen kopion yhteydessä:
 ```text
 $ swift copy --destination /new_bucket/newname.jpg my_fishbucket my_fish.jpg
 created container new_bucket
 my_fishbucket/my_fish.jpg copied to /new_bucket/newname.jpg
 ```
 
-For further information about the command _swift copy_, see the [OpenStack documentation](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy).
+Lisätietoa komennosta _swift copy_ löydät [OpenStackin dokumentaatiosta](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy).
 
-## Remove objects and buckets
+## Poista objektit ja säilöt {#remove-objects-and-buckets}
 
-Remove objects and buckets using the command `swift delete`:
+Poista objekteja ja säilöjä komennolla `swift delete`:
 ```text 
 swift delete <bucket_name> <object_name>
 ```
-For example:
+Esimerkiksi:
 ```bash
 $ swift delete my_fishbucket useless_fish.jpg
 useless_fish.jpg
 ```
 
-Unlike with the web client and s3cmd, with Swift, you can **delete an entire bucket at once**:
+Toisin kuin verkkokäyttöliittymässä ja s3cmd:ssä, Swiftillä voit **poistaa koko säilön kerralla**:
 ```text
 swift delete <my_old_bucket>
 ```
-For example:
+Esimerkiksi:
 ```text
 $ swift delete old_fishbucket
 old_fish.png
@@ -139,34 +138,34 @@ too_tiny_bass.jpg
 $ swift list old_fishbucket
 Container u'old_fishbucket' not found
 ```
-**Please note:** This deletes the bucket permanently, and the data is lost. Before using this command, make sure you do not need the data anymore or that you have a copy of the data.
+**Huomio:** Tämä poistaa säilön pysyvästi ja data häviää. Varmista ennen tämän komennon käyttöä, ettet tarvitse dataa enää tai että sinulla on siitä kopio.
 
-## Download or delete projects
+## Lataa tai poista projekteja {#download-or-delete-projects}
 
-Download the entire project:
+Lataa koko projekti:
 ```text
 swift download --all
 ```
 
-Delete the entire project:
+Poista koko projekti:
 ```text
 swift delete --all
 ```
-**Please note:** Be careful with this command since it deletes the entire content of the project. Before using this command, make sure you do not need the data anymore or that you have a copy of the data.
+**Huomio:** Ole varovainen tämän komennon kanssa, sillä se poistaa koko projektin sisällön. Varmista ennen tämän komennon käyttöä, ettet tarvitse dataa enää tai että sinulla on siitä kopio.
 
-## Pseudo folders and checksums
+## Pseudokansiot ja tarkistussummat {#pseudo-folders-and-checksums}
 
-In case you want to observe whether an object has changed, use [checksum](../terms_and_concepts.md#checksum) with the command ```md5sum```.
+Jos haluat seurata, onko objekti muuttunut, käytä [tarkistussummaa](../terms_and_concepts.md#checksum) komennolla ```md5sum```.
 
-Pseudo folders can be handled by adding the name of the pseudo folder in front of the file name: <i>my_pseudo_folder_name/my_file</i>
+Pseudokansioita voidaan käsitellä lisäämällä pseudokansion nimi tiedostonimen eteen: <i>my_pseudo_folder_name/my_file</i>
 
-Create a pseudo folder named _pictures_ in the bucket <i>my_bigfishes</i> and add the object _bass.png_ to it:
+Luo pseudokansio nimeltä _pictures_ säilöön <i>my_bigfishes</i> ja lisää siihen objekti _bass.png_:
 ```text
 $ swift upload my_bigfishes/pictures bass.png
 pictures/bass.png
 ```
 
-The example below uploads a file called _salmon.jpg_ to the pseudo folder called _fishes_ inside the bucket _my_fishbucket_. The file is then downloaded.
+Alla oleva esimerkki lataa tiedoston nimeltä _salmon.jpg_ pseudokansioon nimeltä _fishes_ säilön _my_fishbucket_ sisällä. Tiedosto ladataan sitten.
 ```text
 $ md5sum salmon.jpg
 22e44aa2b856e4df892b43c63d15138a  salmon.jpg
@@ -180,16 +179,16 @@ fishes/salmon.jpg [auth 0.664s, headers 0.925s, total 0.969s, 3.605 MB/s]
 $ md5sum my_renamed_salmon.jpg
 22e44aa2b856e4df892b43c63d15138a  my_renamed_salmon.jpg
 ```
-**Note:** The checksums of the object <i>salmon.jpg</i> and the renamed version <i>my_renamed_salmon.jpg</i> are the same since the file is the same and has not changed. 
+**Huom:** Objektin <i>salmon.jpg</i> ja uudelleennimetyn version <i>my_renamed_salmon.jpg</i> tarkistussummat ovat samat, koska tiedosto on sama eikä ole muuttunut.
 
-## Managing metadata
+## Metadatan hallinta {#managing-metadata}
 
-Define metadata for an object:
+Määrittele metatietoja objektille:
 ```text
 swift post my_fishbucket my_fish.jpg --meta foo:bar
 ```
 
-Display details about a bucket:
+Näytä tiedot säilöstä:
 ```text
 $ swift stat my_fishbucket
                       Account: AUTH_$PROJECT_UUID
@@ -207,14 +206,14 @@ X-Container-Bytes-Used-Actual: 1167360
                   X-Timestamp: 1516776076.95812
 ```
 
-Set a bucket as read-only to the world (make the content visible at the URL: <i>a3s.fi/bucket_name/object_name</i>) instead of the default (private to the project):
+Aseta säilö vain luku -tilaan koko maailmalle (tee sisältö näkyväksi URL:lla <i>a3s.fi/bucket_name/object_name</i>) oletustoiminnan (yksityinen projektille) sijaan:
 ```text
 swift post my_fishbucket --read-acl ".r:*"
 ```
 
-Find more information about access management in the section [Giving another project read and write access to a bucket](#giving-another-project-read-and-write-access-to-a-bucket).
+Lisätietoja käyttöoikeuksien hallinnasta löytyy kohdasta [Toisen projektin luku- ja kirjoitusoikeuksien antaminen säilöön](#giving-another-project-read-and-write-access-to-a-bucket).
 
-More details about a file:
+Tarkempia tietoja tiedostosta:
 ```text
 $ swift stat my_fishbucket fishes/salmon.jpg
          Account: AUTH_$PROJECT_ID
@@ -230,51 +229,48 @@ Meta S3Cmd-Attrs: atime:1516788402/ctime:1513681753/gid:$LOCALGID/gname:$LOCALGR
       X-Trans-Id: tx0000000000000000001d6-q-q-cpouta-production-kaj
 ```
 
-Note that the above file was uploaded with the _s3cmd client_, and therefore there is the additional metadata _S3Cmd-Attrs_ compared to a file uploaded with Swift or S3. _ETag_ is the _hash_ when viewing the file details in the Pouta dashboard.
+Huomaa, että yllä oleva tiedosto ladattiin _s3cmd_-asiakkaan avulla, ja siksi siinä on lisämetatietoa _S3Cmd-Attrs_ verrattuna tiedostoon, joka on ladattu Swiftillä tai S3:lla. _ETag_ on _hash_, kun tarkastelet tiedostotietoja Pouta-hallintapaneelissa.
 
-## Giving another project read and write access to a bucket
+## Toisen projektin luku- ja kirjoitusoikeuksien antaminen säilöön {#giving-another-project-read-and-write-access-to-a-bucket}
 
-Give the project _project1_ read rights to the bucket <i>my_fishbucket</i>:
+Anna projektille _project1_ lukuoikeudet säilöön <i>my_fishbucket</i>:
 ```text
 swift post my_fishbucket -r "project1:*"
 ```
 
-Write access can be given similarly by replacing _-r_ (_read_) with _-w_ (_write_):
+Kirjoitusoikeudet voidaan antaa samalla tavalla korvaamalla _-r_ (_read_) _-w_:llä (_write_):
 ```text
 swift post my_fishbucket -w "project1:*"
 ```
 
-The character _*_ after the project name defines that all project members in the project gain the rights.
+Merkki _*_ projektin nimen jälkeen määrittelee, että kaikki projektin jäsenet saavat oikeudet.
 
-Alternatively, you can give read and write access only to certain members of another project:
+Vaihtoehtoisesti voit antaa luku- ja kirjoitusoikeudet vain tietyille toisen projektin jäsenille:
 ```text
 swift post my_fishbucket -r "project2:member1"
 swift post my_fishbucket -w \
    "project3:member1,project3:member2,project5:member1,project6:*"
 ```
 
-**Please note:** If you have granted access for specific projects, making the shared project public and private again will remove any previous access permissions.
+**Huomio:** Jos olet myöntänyt pääsyn tietyille projekteille, jaat projektin julkiseksi ja muutat sen sitten jälleen yksityiseksi, kaikki aiemmat käyttöoikeudet poistetaan.
 
-In case you allow _-w_ access for another project, the members of the other project can upload files to your bucket and remove your files. However, you do not have access to the uploaded files until either you or the sender shares the bucket with your project:
+Jos annat _-w_ käyttöoikeuden toiselle projektille, toisen projektin jäsenet voivat ladata tiedostoja säilöösi ja poistaa tiedostojasi. Sinulla ei kuitenkaan ole pääsyä ladattuihin tiedostoihin, ennen kuin joko sinä tai lähettäjä jakaa säilön projektillesi:
 ```text
 swift post <your_bucket_name> -r "your_project:*"
 ```
 
-For example:
+Esimerkiksi:
 ```text
 swift post my_fishbucket -r "project_1234:*,project_4567:*"
 ```
 
-Alternatively, you can set the project public and then access the file.
+Vaihtoehtoisesti voit asettaa projektin julkiseksi ja sitten käyttää tiedostoa.
 
-## Files larger than 5 GB
+## Yli 5 GB:n tiedostot {#files-larger-than-5-gb}
 
-Swift has a single-object size limit of 5 GiB. In order to upload files
-larger than this, you must create a large object that consists of
-smaller segments. To achieve this, you can use Swift to upload a
-so-called _Static Large Object_ (SLO).
+Swiftillä on yksittäisen objektin kokorajoitus 5 GiB. Jotta voisit ladata tätä suurempia tiedostoja, sinun on luotava suuri objekti, joka koostuu pienemmistä segmenteistä. Tämän saavuttamiseksi voit käyttää Swiftiä ladataksesi niin kutsutun _Static Large Object_:n (SLO).
 
-Try to upload a large file:
+Kokeile ladata suuri tiedosto:
 ```text
 $ md5sum /tmp/6GB.zero
 9e6a77a2d5650b2e2a710a08e9e61a81  /tmp/6GB.zero
@@ -286,7 +282,7 @@ $ swift upload my_bigfishes /tmp/6GB.zero
 Object PUT failed: https://a3s.fi:443/swift/v1/my_bigfishes/tmp/6GB.zero 400 Bad Request   EntityTooLarge
 ```
 
-It fails with the message `EntityTooLarge`, so instead:
+Se epäonnistuu viestillä `EntityTooLarge`, joten sen sijaan:
 ```text
 $ swift upload my_bigfishes --use-slo --segment-size 1G /tmp/6GB.zero
 tmp/6GB.zero segment 3
@@ -298,20 +294,20 @@ tmp/6GB.zero segment 2
 tmp/6GB.zero
 ```
 
-This creates a new bucket:
+Tämä luo uuden säilön:
 ```text
 $ swift list |grep my_bigfishes
 my_bigfishes
 my_bigfishes_segments
 ```
 
-In this case the target bucket (my_bigfishes) contains just a front object that contains information what segments, stored in the segments bucket (my_bigfishes_segments) make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
+Tässä tapauksessa kohdesäilö (my_bigfishes) sisältää vain etuobjektin, joka sisältää tiedon siitä, mitkä segmentit, tallennettuna segmenttien säilössä (my_bigfishes_segments), muodostavat tallennetun tiedoston. Etuobjektille tehdyt toiminnot heijastuvat automaattisesti segmentteihin. Yleensä käyttäjien ei tarvitse käsitellä segmenttisäilöitä lainkaan, eikä näiden säilöjen objekteja pitäisi poistaa tai muokata.
 
-Download the entire 6GB.zero:
+Lataa koko 6GB.zero:
 
 ```text
 $ swift download my_bigfishes tmp/6GB.zero -o /tmp/6GB.zero
 tmp/6GB.zero [auth 0.594s, headers 0.881s, total 74.467s, 86.969 MB/s]
 $ md5sum 6GB.zero
 9e6a77a2d5650b2e2a710a08e9e61a81  6GB.zero
-```
+

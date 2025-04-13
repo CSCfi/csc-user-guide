@@ -1,88 +1,82 @@
-# Database operations
+# Tietokantaoperaatiot
 
-## Minor version database upgrades
+## Pienten versioiden tietokantapäivitykset {#minor-version-database-upgrades}
 
-Pukki DBaaS provides tools for you to upgrade your database yourself. Before you do an upgrade you need to be aware of the risks and implications. Upgrading the database will cause a short downtime, the length of which depends on the datastore versions involved and the size of the database. It's advisable to create a new database instance from a recent backup to test the upgrade on first.
+Pukki DBaaS tarjoaa työkaluja, joiden avulla voit itse päivittää tietokantasi. Ennen päivitystä sinun on oltava tietoinen riskeistä ja vaikutuksista. Tietokannan päivittäminen aiheuttaa lyhyen käyttökatkon, jonka pituus riippuu käytetyistä tietokantaversioista ja tietokannan koosta. On suositeltavaa luoda uusi tietokantaesiintymä viimeaikaisesta varmuuskopiosta testataksesi päivitystä ensin.
 
-When you do a minor database upgrade,
+Kun teet pienen tietokantapäivityksen,
 
-1. Your database instance will pull the new database version.
-2. Your database instance will stop your database.
-3. Your database instance will start the new database version.
+1. Tietokantaesiintymäsi hakee uuden tietokantaversion.
+2. Tietokantaesiintymäsi pysäyttää tietokantasi.
+3. Tietokantaesiintymäsi käynnistää uuden tietokantaversion.
 
-The commands to use:
+Käytettävät komennot:
 
-1. Figure out which database you want to upgrade, take note of the `Datastore` and `Datastore Version`:
+1. Selvitä, mikä tietokanta haluat päivittää, ja ota huomioon `Datastore` ja `Datastore Version`:
 
     ```
     openstack database instance list
     ```
 
-2. With your preferred tool make sure that your database is working as expected. Take note of what command you used so that you can use the same command/process to verify that everything works after the upgrade.
-3. Find out what datastore versions are available:
+2. Varmista suosikkityökalullasi, että tietokantasi toimii odotetusti. Ota huomioon, mitä komentoa käytit, jotta voit käyttää samaa komentoa/prosessia varmistaaksesi, että kaikki toimii päivityksen jälkeen.
+3. Selvitä, mitkä tietokantaversiot ovat saatavilla:
 
     ```
     openstack datastore version list $Datastore
     ```
 
-4. You most likely want to choose the latest version:
+4. Todennäköisesti haluat valita uusimman version:
 
     ```
     openstack database instance upgrade $Instance $Datastore_version
     ```
 
-5. Verify with your preferred tool that your database is working as expected.
+5. Varmista suosikkityökalullasi, että tietokantasi toimii odotetusti.
 
-## Major database upgrades
+## Suuret tietokantapäivitykset {#major-database-upgrades}
 
-Major version upgrades are no different from the user's point of view, but there's a bit more happening in the background, which creates more possible points of failure.
+Suuret version päivitykset eivät eroaa käyttäjän näkökulmasta, mutta taustalla tapahtuu enemmän, mikä voi aiheuttaa enemmän virhemahdollisuuksia.
 
-Things that you need to take into account when doing a major database version upgrade:
-1. You have a recent enough backup that you can use if the upgrade fails.
-2. You have tested doing the upgrade on a database instance restored from a backup.
-3. You have reserved plenty of time for the upgrade.
-4. You have considered if you'd benefit from using a larger instance flavor while upgrading.
-5. You have checked that your database instance has enough free disk space before starting the upgrade - we recommend having around twice as much free space as is being used.
+Tietoja, jotka sinun tulee ottaa huomioon, kun teet suuren tietokantaversion päivityksen:
+1. Sinulla on riittävän uusi varmuuskopio, jota voit käyttää, jos päivitys epäonnistuu.
+2. Olet testannut päivityksen tekemistä varmuuskopiosta palautetulla tietokantaesiintymällä.
+3. Olet varannut runsaasti aikaa päivitykselle.
+4. Olet harkinnut, olisiko hyötyä käyttää suurempaa esiintymäversiota päivityksen aikana.
+5. Olet tarkistanut, että tietokantaesiintymälläsi on riittävästi vapaata levytilaa ennen päivityksen aloittamista - suosittelemme, että tilaa on noin kaksinkertaisesti enemmän kuin käytössä.
 
-We recommend creating a new database instance from a recent backup and upgrading that instance to the desired database version, as you can then switch over to using the new database instance with the new database version at your leisure after making sure no problems cropped up. Drawbacks include having to switch to using a new IP address to connect to the database, though, and any changes made to the original database after the backup was taken will be lost.
+Suosittelemme luomaan uuden tietokantaesiintymän viimeaikaisesta varmuuskopiosta ja päivittämään kyseisen esiintymän haluttuun tietokantaversioon, koska voit sitten siirtyä käyttämään uutta tietokantaesiintymää uudella tietokantaversiolla omalla aikataulullasi sen jälkeen, kun olet varmistunut ongelmien puuttumisesta. Haittoihin kuuluu se, että sinun on vaihdettava uuteen IP-osoitteeseen tietokantaan yhdistämiseksi, ja kaikki alkuperäiseen tietokantaan tehdyt muutokset varmuuskopion ottamisen jälkeen menetetään.
 
-## Deleting a database in your database instance
+## Tietokannan poistaminen tietokantaesiintymästäsi {#deleting-a-database-in-your-database-instance}
 
-By default, your database user account does not have permissions to delete databases. If you want to delete a database in your database instance you need to use the web-GUI or the OpenStack CLI:
+Oletuksena tietokantakäyttäjätunnuksellasi ei ole oikeuksia poistaa tietokantoja. Jos haluat poistaa tietokannan tietokantaesiintymästäsi, sinun on käytettävä web-käyttöliittymää tai OpenStack CLI:ta:
 
 ```
 openstack database db delete $INSTANCE_UUID $DATABASE_NAME
 ```
 
+## Pääkäyttäjän käyttöönottaminen {#enable-root}
 
-## Enable root
+Joihinkin muutoksiin, kuten laajennusten käyttöönotto tai edistyneempien käyttäjäoikeuksien muokkaaminen, ei päästä web-käyttöliittymän tai OpenStack-komentorivityökalujen kautta. Kannattaa pitää mielessä, että pääkäyttäjätunnuksella aktiivisena voit tehdä tietokantaan muutoksia, jotka voivat rikkoa sen toimintaa. On suositeltavaa käyttää pääkäyttäjää vain silloin, kun se on todellisuudessa tarpeellista.
 
-Some changes, such as enabling extensions or modifying more advanced user permissions,
-aren't accessible via the web interface or the OpenStack command line tools.
-It's worth keeping in mind that with the root credentials enabled you can make
-breaking changes to your database. It's recommended to only use the root user when
-you need to make changes that actually require it.
+### Kuinka ottaa pääkäyttäjä käyttöön web-käyttöliittymässä {#how-to-enable-root-from-the-web-interface}
 
-### How to enable root from the Web interface
+1. Kirjaudu sisään web-käyttöliittymään, jossa näet kaikki olemassa olevat esiintymäsi.
+2. Etsi 'Toiminnot'-valikko oikeimmasta sarakkeesta ja valitse `Hallitse pääkäyttäjän käyttöoikeuksia`. ![Hallitse pääkäyttäjän käyttöoikeuksia](../../img/dbaas-enable-root.png)
+3. Hallitse pääkäyttäjän käyttöoikeuksia -sivulla paina oikeimman sarakkeen `Ota pääkäyttäjä käyttöön` -painiketta esiintymätaulukosta.
+4. Pääkäyttäjän salasana on nyt näkyvissä samalla Hallitse pääkäyttäjän käyttöoikeuksia -sivulla. Voit käyttää tietokantaa näytetyllä salasanalla ja `root`-tunnuksella.
+5. Kun et enää tarvitse pääkäyttäjän käyttöoikeuksia, paina `Poista pääkäyttäjä` hallitse pääkäyttäjän käyttöoikeuksia -sivulla.
 
-1. Log in to the web interface where you can see all your existing instances.
-2. Find the 'Actions' dropdown in the rightmost column, and choose `Manage Root Access`. ![Manage root access](../../img/dbaas-enable-root.png)
-3. On the Manage Root Access page, press the `Enable Root` button in the rightmost column of the instances table.
-4. The root password is now visible on that same Manage Root Access page. You can access the database with the password shown, and with `root` as username.
-5. Once you no longer need root access, press `Disable Root` on the Manage Root Access page.
+### Kuinka ottaa pääkäyttäjä käyttöön komentorivillä {#how-to-enable-root-from-the-cli}
 
-### How to enable root from the CLI
-
-
-1. Enable root
+1. Ota pääkäyttäjä käyttöön
     ```
     openstack database root enable $INSTANCE_ID
     ```
 
-2. Use the password shown with the username `root` to access the database.
+2. Käytä salasanana pääkäyttäjän käyttöoikeuksia, ja käytä käyttäjätunnuksena `root` päästäksesi tietokantaan.
 
-3. Once you no longer need root access, run the following command to disable it:
+3. Kun et enää tarvitse pääkäyttäjän käyttöoikeuksia, suorita seuraava komento poistaaksesi sen:
 
     ```
     openstack database root disable $INSTANCE_ID
-    ```
+    

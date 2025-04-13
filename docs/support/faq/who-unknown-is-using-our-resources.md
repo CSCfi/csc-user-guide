@@ -1,16 +1,17 @@
-# Who 'unknown' is using our resources
 
-In the
-[billing unit usage statistics displayed at MyCSC](../../accounts/how-to-view-billing-unit-usage.md)
-you can often see resources used by an 'unknown' user. You and other project
-members have also used these billing units.
+# Kuka 'tuntematon' käyttää resurssejamme {#who-unknown-is-using-our-resources}
 
-There are two reasons why the usage is not associated with any particular user.
-   
-1. The resource belongs to the entire project, not to an individual user. Such
-   resources are scratch directory quotas in Puhti and NetApp quotas in ePouta.
-   Floating IP addresses in cPouta and ePouta are also shared resources.
-1. The reporting database used by MyCSC loses information about who the real
-   user is. Currently the user may remain unknown with shortlived virtual
-   machines in cPouta and ePouta. In the case of Rahti, all use is currently
-   recorded without user information.
+[billing unit käyttötilastot, joita näytetään MyCSC:ssä](../../accounts/how-to-view-billing-unit-usage.md)
+näet usein resursseja, joita käyttää 'tuntematon' käyttäjä. Sinä ja muut projektin
+jäsenet olette myös käyttäneet näitä laskutusyksiköitä.
+
+Käytölle on kaksi syytä, miksi se ei ole yhdistetty tiettyyn käyttäjään.
+
+1. Resurssi kuuluu koko projektille, ei yksittäiselle käyttäjälle. Tällaisia
+   resursseja ovat Puhti'n scratch-hakemiston kiintiöt ja ePouta'n NetApp-kiintiöt.
+   Kelluvat IP-osoitteet cPouta:ssa ja ePouta:ssa ovat myös jaettuja resursseja.
+1. MyCSC:n käyttämä raportointitietokanta menettää tiedot siitä, kuka käyttäjä
+   todella on. Tällä hetkellä käyttäjä saattaa jäädä tuntemattomaksi lyhytikäisillä
+   virtuaalikoneilla cPouta:ssa ja ePouta:ssa. Rahti:n tapauksessa kaikki käyttö
+   rekisteröidään tällä hetkellä ilman käyttäjätietoja.
+

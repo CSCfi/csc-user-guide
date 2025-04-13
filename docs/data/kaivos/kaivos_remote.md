@@ -1,40 +1,40 @@
-# Using kaivos.csc.fi directly from your local computer
 
-The MySQL databases in `kaivos.csc.fi` can be directly accessed only from the computing servers of CSC (Puhti and Mahti). However, you can make the database visible to your own computer using your CSC user account and port forwarding through an _ssh tunnel_.
+# Suorayhteyden käyttö kaivos.csc.fi:tä tietokoneeltasi {#using-kaivos-csc-fi-directly-from-your-local-computer}
 
-!!! note "SSH keys"
-    Please note that connecting to CSC computing servers over SSH requires you
-    to set up SSH keys and add your public key to MyCSC portal.
-    [Read the instructions here](../../computing/connecting/ssh-keys.md).
+MySQL-tietokantoihin `kaivos.csc.fi`:ssä voidaan suoraan päästä ainoastaan CSC:n laskentapalvelimilta (Puhti ja Mahti). Voit kuitenkin tehdä tietokannan näkyväksi omalle tietokoneellesi käyttämällä CSC:n käyttäjätiliäsi ja porttiohjausta _ssh tunnelin_ kautta.
 
-In linux and MacOSX machines an ssh tunnel from your local computer to `kaivos.csc.fi` via `puhti.csc.fi` can be done for example with the command:
+!!! note "SSH-avaimet"
+    Huomaa, että CSC:n laskentapalvelimille SSH-yhteyden ottaminen edellyttää SSH-avainten luomista ja julkisen avaimen lisäämistä MyCSC-portaaliin.
+    [Lue ohjeet täältä](../../computing/connecting/ssh-keys.md).
 
-```bash
-ssh -l csc_username -L 3306:kaivos.csc.fi:3306 puhti.csc.fi -N
-```
-
-The `-N` option in the end of the connection command blocks the command shell after the connection is established. Once the connection is closed also the port forwarding becomes disabled. Note that the ssh command above uses your CSC user account name, not the database user account.
-
-In Windows machines you can use e.g. plink program to open the tunnel. [Plink](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) can only be used through the command prompt. Below is a sample command for using plink:
+Linux- ja MacOSX-koneilla ssh-tunnelin luominen omalta tietokoneeltasi `kaivos.csc.fi`:hin `puhti.csc.fi`:n kautta voidaan tehdä esimerkiksi komennolla:
 
 ```bash
-plink -L 3306:kaivos.csc.fi:3306 csc_username@puhti.csc.fi
+ssh -l csc_käyttäjänimi -L 3306:kaivos.csc.fi:3306 puhti.csc.fi -N
 ```
 
-The tunneling commands above define that the communication to port 3306 (the default port of MySQL) in you local computer is transported to the MySQL port of `kaivos.csc.fi` through `puhti.csc.fi` server. As long as the connection to puhti.csc.fi is active the database in `kaivos.csc.fi` can be accessed from your local computer using the same MySQL commands as described above for Puhti (assuming that you have the MySQL client program installed in your local computer). The only difference compared to previous command examples is that the host section (`-h`) should now point to host `127.0.0.1` that refers to your local host, instead of `kaivos.csc.fi`.
+Yhteyden komennon lopussa oleva `-N`-vaihtoehto estää komentorivin käytön yhteyden avaamisen jälkeen. Kun yhteys suljetaan, myös porttiohjaus lakkaa toimimasta. Huomaa, että yllä olevassa ssh-komennossa käytetään CSC-käyttäjätilisi nimeä, ei tietokannan käyttäjätiliä.
 
-So for example the syntax to open an interactive MySQL session would now be:
+Windows-koneilla voit käyttää esimerkiksi plink-ohjelmaa tunnelin avaamiseen. [Plink](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) voidaan käyttää vain komentokehotteen kautta. Alla on esimerkki plink-komennosta:
 
 ```bash
-mysql -u db_user_account -p -h 127.0.0.1 --local database_name
+plink -L 3306:kaivos.csc.fi:3306 csc_käyttäjänimi@puhti.csc.fi
 ```
 
-And the syntax for `mysqlimport`:
+Yllä olevat tunnelointikomennot määrittävät, että viestintä porttiin 3306 (MySQL:n oletusportti) omassa tietokoneessasi siirretään `kaivos.csc.fi`:n MySQL-porttiin `puhti.csc.fi`-palvelimen kautta. Niin kauan kuin yhteys puhti.csc.fi:hin on aktiivinen, `kaivos.csc.fi`:n tietokantaan pääsee käsiksi omalta tietokoneeltasi käyttämällä samoja MySQL-komentoja kuin yllä on kuvattu Puhtille (olettaen, että MySQL-asiakasohjelma on asennettu omalle koneellesi). Ainoa ero aikaisempiin komentoesimerkkeihin verrattuna on, että isäntäosio (`-h`) tulisi nyt osoittaa isäntään `127.0.0.1`, joka viittaa paikalliseen isäntään, `kaivos.csc.fi`:n sijaan.
+
+Esimerkiksi MySQL:n interaktiivisen istunnon avaamisen syntaksi olisi nyt:
 
 ```bash
-mysqlimport -h 127.0.0.1 -u db_user_account --local --compress --password database_name input_file.table
+mysql -u db_käyttäjätili -p -h 127.0.0.1 --local tietokannan_nimi
 ```
 
-In the same way, you can make your databases visible in your local computer using locally installed graphical MySQL interfaces, like [MySQL Workbench](https://www.mysql.com/products/workbench/). The only major limitation with the port forwarding is that normally ssh tunnels are not very stable. You may need to reopen the ssh connection every now and then and you should not trust that the tunnel remains usable for several hours.
+Ja `mysqlimport`-syntaksi:
 
-For the security reasons we recommend that you always close the ssh connection when you stop using the database.
+```bash
+mysqlimport -h 127.0.0.1 -u db_käyttäjätili --local --compress --password tietokannan_nimi syötetiedosto.tiedosto
+```
+
+Samalla tavoin voit tehdä tietokantojesi näkyviksi paikallisella tietokoneellasi käyttämällä paikallisesti asennettuja graafisia MySQL-rajapintoja, kuten [MySQL Workbench](https://www.mysql.com/products/workbench/). Ainoa merkittävä rajoitus porttiohjauksella on, että normaalisti ssh-tunnelit eivät ole kovin vakaita. Saatat joutua avaamaan ssh-yhteyden uudelleen silloin tällöin, eikä tule luottaa siihen, että tunneli pysyy käytettävissä useita tunteja.
+
+Tietoturvasyistä suosittelemme, että suljet ssh-yhteyden aina, kun lopetat tietokannan käytön.

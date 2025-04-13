@@ -1,34 +1,32 @@
-# Cloud services
 
-## Pukki now supports MariaDB, 7.1.2025
-Pukki now supports MariaDB as well as PostgreSQL. The MariaDB version we are support in Pukki is
-MariaDB 11.4. More information can be found in the
-[Pukki MariaDB documentation](../../cloud/dbaas/mariadb.md)
+# Pilvipalvelut
 
+## Pukki tukee nyt MariaDB:ta, 7.1.2025 {#pukki-now-supports-mariadb-7.1.2025}
+Pukki tukee nyt MariaDB:ta sekä PostgreSQL:ää. MariaDB-versio, jota tuemme Pukissa, on
+MariaDB 11.4. Lisätietoja löytyy
+[Pukin MariaDB-dokumentaatiosta](../../cloud/dbaas/mariadb.md)
 
-## Pukki now supports PostgreSQL 17, 9.10.2024
-The default database in Pukki is now PostgreSQL 17 instead of the previous PostgreSQL 14. You can
-still use PostgreSQL 14 but we recommend that if you are creating a new database you start using
-PostgreSQL 17. More information can be found in the
-[Pukki PostgreSQL documentation](../../cloud/dbaas/postgresql.md)
+## Pukki tukee nyt PostgreSQL 17:ta, 9.10.2024 {#pukki-now-supports-postgresql-17-9.10.2024}
+Pukin oletustietokanta on nyt PostgreSQL 17, edellisen PostgreSQL 14:n sijaan. Voit
+kuitenkin edelleen käyttää PostgreSQL 14:ää, mutta suosittelemme, että jos luot uuden tietokannan, alat käyttää
+PostgreSQL 17:ää. Lisätietoja löytyy
+[Pukin PostgreSQL-dokumentaatiosta](../../cloud/dbaas/postgresql.md)
 
+## Pukki DBaaS tukee nyt PostGIS-laajennuksia, 28.08.2024 {#pukki-dbaas-now-supports-postgis-extensions-28.08.2024}
+PostGIS-laajennukset voidaan nyt ottaa käyttöön uusissa PostgreSQL 14.13 -tietokannoissa.
+[PostgreSQL-dokumentaatio](../../cloud/dbaas/postgresql.md)
 
-## Pukki DBaaS now supports PostGIS extensions, 28.08.2024
-It is now possible to enable PostGIS extensions in the new PostgreSQL 14.13 databases.
-[PostgreSQL documentation](../../cloud/dbaas/postgresql.md)
+## CSC Notebooks -palvelun nimi on nyt Noppe, 21.8.2024 {#csc-notebooks-service-renamed-as-noppe-21.8.2024}
 
-## CSC Notebooks service renamed as Noppe, 21.8.2024
+CSC Notebooks -palvelu on nimetty uudelleen Noppeksi.
+[Noppe](https://noppe.csc.fi) tarjoaa verkkosovelluksia itseoppimiseen,
+kurssien järjestämiseen ja yhteistyöhön. Sovellukset avataan verkkoselaimen
+kautta ja ne toimivat CSC:n pilvessä.
+[Lue dokumentaatiosta lisätietoja](../../cloud/noppe/index.md)!
 
-CSC Notebooks service has been renamed as Noppe.
-[Noppe](https://noppe.csc.fi) offers web applications for self-learning,
-hosting courses and collaboration. The applications are accessed through a web
-browser and run in CSC cloud.
-[Read the documentation for more information](../../cloud/noppe/index.md)!
+## Pukki DBaaS on nyt saatavilla kaikille käyttäjille, 28.3.2024 {#pukki-dbaas-now-available-for-all-users-28.3.2024}
 
-## Pukki DBaaS now available for all users, 28.3.2024
-
-[Pukki](../../cloud/dbaas/index.md) is a Database as a Service (DBaaS),
-suitable for most database use cases. With Pukki you can easily and
-effortlessly set up a database with a few clicks and manage it as a
-self-service, instead of manually setting up and maintaining your own database
-environment.
+[Pukki](../../cloud/dbaas/index.md) on Database as a Service (DBaaS),
+joka sopii useimpiin tietokantakäyttötarkoituksiin. Pukilla voit helposti ja
+vaivattomasti perustaa tietokannan muutamalla napsautuksella ja hallita sitä
+itsepalveluna sen sijaan, että perustaisit ja ylläpitäisit oman tietokantaympäristösi manuaalisesti.

@@ -1,33 +1,32 @@
-# Strong identification - Raising the assurance level for CSC's services
+# Vahva tunnistautuminen - CSC:n palveluiden varmuustason nostaminen {#strong-identification---raising-the-assurance-level-for-cscs-services}
 
-Using strong identification means that you prove your identity. After you have been authenticated using a strong authentication method, 
-your assurance level is raised from low to medium. Some of CSC's services require a higher level of assurance. 
+Vahva tunnistautuminen tarkoittaa henkilöllisyytesi todistamista. Kun olet vahvan tunnistautumismenetelmän avulla tunnistautunut, varmuustasosi nousee matalalta keskitasolle. Jotkut CSC:n palvelut vaativat korkeamman varmuustason.
 
-Sensitive Data service is one of them:
-[Sensitive Data](../data/sensitive-data/findata-permit.md)
+Yksi näistä palveluista on Herkkä data:
+[Herkkä data](../data/sensitive-data/findata-permit.md)
 
-To raise the assurance level, you need to login to our customer portal MyCSC and download the Candour ID app. 
+Varmuustason nostamiseksi sinun täytyy kirjautua asiakasportaaliimme MyCSC ja ladata Candour ID -sovellus.
 
-Please follow our instructions precisely. The identity vetting service provider is [Candour Ltd.](https://candour.fi/)
+Noudata ohjeitamme tarkasti. Henkilöllisyyden tarkistuspalvelun tarjoaja on [Candour Ltd.](https://candour.fi/)
 
-1. Login to [MyCSC](http://my.csc.fi).
-1. Download Candour ID app from App Store or Google Play.
-1. Make sure you have your passport with you. Make sure your passport is NFC enabled.
-1. Go to MyCSC Profile page.
-1. On the bottom right you'll find a box for **LEVEL OF IDENTITY ASSURANCE**.
-1. Click on the Raise identity assurance level.
-1. The pop-up window will tell you everything that is needed to continue.
-1. Read and accept the Candour Privacy notice.
-1. Click Start process.
-1. Please go through the following steps slowly and with patience.
-1. Your browser is redirected to portal.candour.fi. Keep the Candour web page open during the following process.
-1. Note: The first QR code which is displayed on the Candour web page is leading you to the App Store or Google Play. Do not scan this QR code with the Candour ID mobile app.
-1. On the Candour web page: Accept the Terms of Service and **click on the BLUE button labeled "Candour ID installed"**.
-1. Take your phone and scan the QR code with the Candour ID mobile app and follow the instructions the app is giving you.
-1. The app says: CSC- Tieteen tietotekniikan keskus Oy has invited you to verify your identity.
-1. The app is guiding you to take a picture of your passport and to read the chip on your passport. Make sure your passport is NFC enabled.
-1. Follow the instructions of the app until it says Success: You can now continue to your web browser that required you to complete this verification.
-1. Your browser is redirected back to MyCSC.
-1. If you are facing problems, try to follow the process with the tutorial videos.
+1. Kirjaudu sisään [MyCSC:hen](http://my.csc.fi).
+1. Lataa Candour ID -sovellus App Storesta tai Google Playsta.
+1. Varmista, että sinulla on passi mukanasi. Varmista, että passissasi on NFC.
+1. Mene MyCSC-profiilisivulle.
+1. Oikeassa alakulmassa näet laatikon **IDENTITEETTIVARMUUDEN TASO**.
+1. Klikkaa Nosta identiteettivarmuuden tasoa.
+1. Näkyviin tulevassa ponnahdusikkunassa kerrotaan kaikki tarvittava jatkamiseen.
+1. Lue ja hyväksy Candourin tietosuojailmoitus.
+1. Klikkaa Aloita prosessi.
+1. Käy seuraavat vaiheet läpi hitaasti ja kärsivällisesti.
+1. Selaimesi uudelleenohjataan osoitteeseen portal.candour.fi. Pidä Candourin verkkosivu auki prosessin aikana.
+1. Huomio: Ensimmäinen QR-koodi, joka näkyy Candourin verkkosivulla, vie sinut App Storeen tai Google Playhin. Älä skannaa tätä QR-koodia Candour ID -mobiilisovelluksella.
+1. Candourin verkkosivulla: Hyväksy käyttöehdot ja **klikkaa SINISESSÄ painikkeessa, jossa lukee "Candour ID asennettu"**.
+1. Ota puhelimesi ja skannaa QR-koodi Candour ID -mobiilisovelluksella ja noudata sovelluksen ohjeita.
+1. Sovellus sanoo: CSC- Tieteen tietotekniikan keskus Oy on kutsunut sinut todentamaan henkilöllisyytesi.
+1. Sovellus ohjaa sinua ottamaan kuvan passistasi ja lukemaan passin sirun. Varmista, että passissasi on NFC.
+1. Noudata sovelluksen ohjeita, kunnes se sanoo: Onnistui: Voit nyt jatkaa selaimessa, joka vaati tämän vahvistuksen suorittamista.
+1. Selaimesi uudelleenohjataan takaisin MyCSC:hen.
+1. Jos kohtaat ongelmia, yritä seurata prosessia opastusvideoiden kanssa.
 
-You can find our Privacy Notice [here](https://research.csc.fi/privacy-notice-for-remote-identification-service).
+Tietosuojailmoituksemme löytyy [täältä](https://research.csc.fi/privacy-notice-for-remote-identification-service).

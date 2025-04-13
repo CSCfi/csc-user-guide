@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,26 +6,22 @@ tags:
 
 # Qiskit
 
-Qiskit is an open-source software for working with quantum computers at the level of circuits, pulses, and algorithms. 
-This page contains information in regard to running Quantum simulations using qiskit inside of a singularity container.
-For information pertaining to running jobs on Helmi using qiskit please refer to this documentation: 
-[Running on Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
+Qiskit on avoimen lähdekoodin ohjelmisto, joka on suunniteltu kvanttitietokoneiden käyttöön piirien, pulssejen ja algoritmien tasolla.
+Tämä sivu sisältää tietoa kvanttisimulaatioiden suorittamisesta qiskit-ympäristössä singularity-kontissa. Lisätietoa qiskit:n avulla suoritettavista työajoista Helmillä: [Ajo Helmillä](../computing/quantum-computing/helmi/running-on-helmi.md).
 
-!!! info "News"
-     **19.02.2025** Installed `qiskit/1.3.2` in a singularity container on LUMI with all major Qiskit packages and
-     added support for multi-node Native Cray MPI GPU-acceleration allowing for performant multi node simulations. 
-     for up to 44* qubits. Qiskit-aer has also been upgraded to 0.16
+!!! info "Uutiset"
+     **19.02.2025** Asennettu `qiskit/1.3.2` singularity-konttiin LUMI:lle sisältäen kaikki merkittävät Qiskit-paketit, sekä lisätty tuki monisolmuisille Native Cray MPI GPU-kiihdytyksellä mahdollistaen tehokkaat monisolmusimulaatiot jopa 44* kubitille. Qiskit-aer on myös päivitetty versioon 0.16.
 
-## Available
+## Saatavilla olevat {#available}
 
-Currently supported Qiskit versions:
+Tällä hetkellä tuetut Qiskit-versiot:
 
-| Version | Module          | Puhti | Mahti | LUMI  | Notes                            |
-| :------ | :-------------- | :---: | :---: | :---: | -------------------------------- |
-| 1.1.1   | `qiskit/1.1.1`  |   X   |   X   |       |                                  |
-| 1.3.2   |                 |       |       |   X   | Native Cray MPI with GPU support |
+| Versio | Moduuli          | Puhti | Mahti | LUMI | Huomiot                              |
+| :----- | :--------------- | :---: | :---: | :---:| ------------------------------------- |
+| 1.1.1  | `qiskit/1.1.1`   |  X    |  X    |      |                                       |
+| 1.3.2  |                  |       |       |  X   | Native Cray MPI GPU-tuella           |
 
-Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.1.1` and `qiskit/1.3.2` packages include the following qiskit plugins:
+Sisältää kaikki merkittävät Qiskit-paketit (Terra, Nature, Aer, jne.) ja GPU-kiihdytyksen. `qiskit/1.1.1` ja `qiskit/1.3.2` paketit sisältävät seuraavat qiskit-lisäosat:
 
 === "Puhti"
     ```bash
@@ -39,7 +36,7 @@ Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU accele
     qiskit-nature==0.7.2
     qiskit-optimization==0.6.1
     ```
-    
+
 === "Mahti"
     ```bash
     qiskit=1.1.1
@@ -53,7 +50,7 @@ Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU accele
     qiskit-nature==0.7.2
     qiskit-optimization==0.6.1
     ```
-    
+
 === "LUMI"
     ```bash
     qiskit==1.3.2
@@ -69,42 +66,35 @@ Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU accele
     qiskit_qasm3_import==0.5.1
     ```
 
+Jos huomaat jonkin paketin puuttuvan, voit usein asentaa sen itse komennolla `pip install --user`.
+Katso [Python käyttöoppaamme](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules) saadaksesi lisää tietoa pakettien asentamisesta. Jos uskot, että jokin tärkeä Qiskit-aiheinen paketti tulisi sisällyttää CSC:n tarjoamiin moduuleihin, ole hyvä ja [ota yhteyttä palvelupisteeseemme](../support/contact.md).
 
-If you find that some package is missing, you can often install it yourself with `pip install --user`.
-Please see our [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules) for
-more information on how to install packages yourself. If you think that some important
-Qiskit-related package should be included in the module provided by CSC, please
-[contact our servicedesk](../support/contact.md).
+Kaikki moduulit perustuvat Apptainer-containereihin (aiemmin tunnettiin nimellä Singularity).
+Skriptejä on tarjottu niin, että normaalit komennot kuten `python`, `python3`, `pip` ja `pip3` toimivat kuten tavallista. Lisätietoja [CSC:n yleisestä ohjeistuksesta Apptainer-konttien käyttöön](../computing/containers/run-existing.md).
 
-All modules are based on containers using Apptainer (previously known as Singularity).
-Wrapper scripts have been provided so that common commands such as `python`,
-`python3`, `pip` and `pip3` should work as normal. For more information, see
-[CSC's general instructions on how to run Apptainer containers](../computing/containers/run-existing.md).
+## Lisenssi {#license}
 
-## License
+Qiskit on lisensoitu
+[Apache License 2.0:lla](https://github.com/Qiskit/qiskit-metapackage/blob/master/LICENSE.txt).
 
-Qiskit is licensed under
-[Apache License 2.0](https://github.com/Qiskit/qiskit-metapackage/blob/master/LICENSE.txt).
+## Käyttö {#usage}
 
-## Usage
-
-To use the default version of Qiskit, initialize
-it with:
+Oletusversion Qiskitistä käyttääksesi, lataa se komennolla:
 
 ```text
 module load qiskit
 ```
 
-If you wish to have a specific version ([see above for available
-versions](#available)), use:
+Jos haluat tietyn version ([katso yllä olevat saatavilla olevat
+versiot](#available)), käytä:
 
 ```text
 module load qiskit/1.1.1
 ```
 
-### Example sbatch and python script - Single-node simulations on Puhti, Mahti, and LUMI
+### Esimerkkisbatch ja Python-skripti - Yksisolmuksen simulaatiot Puhtilla, Mahtilla ja LUMIllä {#example-sbatch-and-python-script---single-node-simulations-on-puhti-mahti-and-lumi}
 
-Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores in a single node for Puhti and Mahti and all CPU/GPU resources on a single node using the LUMI standard-g partition:
+Esimerkki `<sbatch_script_name>.sh` skripti yhden GPU:n ja kahden CPU-ytimen varaamiseen yksisolmulla Puhtilla ja Mahtilla, sekä kaikille CPU/GPU- resursseille yhdellä solmulla LUMI:n standard-g osiossa:
 
 === "Puhti"
     ```bash
@@ -119,7 +109,7 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     #SBATCH --mem=8G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
-        
+
     module load qiskit
     srun python myprog.py <options>
     ```
@@ -136,7 +126,7 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     #SBATCH --cpus-per-task=2
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
-    
+
     module load qiskit
     srun python myprog.py <options>
     ```
@@ -154,47 +144,47 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     #SBATCH --gpus-per-node=8
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=56
-    
+
     export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.3.2_csc.sif
     export WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity
-    
+
     echo "NODES                   : ${SLURM_NNODES}"
     echo "TASKS PER NODE          : ${SLURM_NTASKS_PER_NODE}"
     echo "CPUS PER TASK           : ${SLURM_CPUS_PER_TASK}"
     echo "GPUS PER NODE           : ${SLURM_GPUS_PER_NODE}"
     echo "GPUS PER TASK           : ${SLURM_GPUS_PER_TASK}"
-    
+
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
     export MPICH_GPU_SUPPORT_ENABLED=1
-    
+
     srun --cpu-bind=$mask $WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog.py
     ```
 
-Example `<myprog>.py` python script for single node simulations. Do note that this code is just to highlight the syntax and only works on a single node. For LUMI simulations, reference the table below for resource requirements relative to the amount of qubits you wish to simulate.
+Esimerkki `<myprog>.py` Python-skriptistä yksisolmuksille simulaatioille. Huomaa, että tämä koodi on vain syntaksin esilletuontia ja toimii vain yhdellä solmulla. LUMI-simulaatioissa katso alla oleva taulukko resurrsivaatimuksista suhteessa simuloitavien kubittien lukumäärään.
 
 === "Puhti"
     ```Python
     from qiskit import QuantumCircuit
     from qiskit_aer import AerSimulator
-    
-    ## CHOOSE PARAMETERS
-    num_qubits = 5              # Number of qubits in the circuit
-    num_shots = 1000            # How many times we sample the circuit
-    
-    ## CREATE CIRCUIT FOR N-QUBIT GHZ-STATE
+
+    ## VALITSE PARAMETRIT
+    num_qubits = 5              # Piirissä olevien kubittien määrä
+    num_shots = 1000            # Kuinka monta kertaa simulaatiota toistetaan
+
+    ## LUO N-KUBITTI GHZ-TILA PIIRI
     circuit = QuantumCircuit(num_qubits)
     circuit.h(0)
     for i in range(1,num_qubits):
         circuit.cx(0,i)
     circuit.measure_all()
-    
-    ## INITIALIZE SIMULATOR BACKEND THAT RUNS ON GPU
+
+    ## INIITOI SIMULAATTORIN TAUSTAMOOTTORI JOKA TOIMII GPU:lla
     simulator = AerSimulator(method="statevector", device="GPU")
-    
-    ## RUN THE CIRCUIT WITH CUSTATEVEC ENABLED
+
+    ## AJA TAJOUKSET CUSTATEVEC AKTIVOITUNA
     result_statevec = simulator.run(circuit, shots=num_shots, seed_simulator=12345, cuStateVec_enable=True).result()
-    
-    ## PRINT RESULTS
+
+    ## TULOSTA TULOKSET
     counts = result_statevec.get_counts()
     print(f"Counts:, {counts}")
     ```
@@ -203,25 +193,25 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
     ```Python
     from qiskit import QuantumCircuit
     from qiskit_aer import AerSimulator
-    
-    ## CHOOSE PARAMETERS
-    num_qubits = 5              # Number of qubits in the circuit
-    num_shots = 1000            # How many times we sample the circuit
-    
-    ## CREATE CIRCUIT FOR N-QUBIT GHZ-STATE
+
+    ## VALITSE PARAMETRIT
+    num_qubits = 5              # Piirissä olevien kubittien määrä
+    num_shots = 1000            # Kuinka monta kertaa simulaatiota toistetaan
+
+    ## LUO N-KUBITTI GHZ-TILA PIIRI
     circuit = QuantumCircuit(num_qubits)
     circuit.h(0)
     for i in range(1,num_qubits):
         circuit.cx(0,i)
     circuit.measure_all()
-    
-    ## INITIALIZE SIMULATOR BACKEND THAT RUNS ON GPU
+
+    ## INIITOI SIMULAATTORIN TAUSTAMOOTTORI JOKA TOIMII GPU:lla
     simulator = AerSimulator(method="statevector", device="GPU")
-    
-    ## RUN THE CIRCUIT WITH CUSTATEVEC ENABLED
+
+    ## AJA TAJOUKSET CUSTATEVEC AKTIVOITUNA
     result_statevec = simulator.run(circuit, shots=num_shots, seed_simulator=12345, cuStateVec_enable=True).result()
-    
-    ## PRINT RESULTS
+
+    ## TULOSTA TULOKSET
     counts = result_statevec.get_counts()
     print(f"Counts:, {counts}")
     ```
@@ -232,67 +222,67 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
     from qiskit.transpiler import CouplingMap
     from qiskit_aer import AerSimulator
     from qiskit.circuit.library import QuantumVolume
-    
-    ## CHOOSE PARAMETERS
-    num_qubits = 34                       # Number of qubits in the circuit
-    circuit_depth = 30                    # Layers in quantum volume circuit
-    num_shots = 1000                      # How many times we sample the circuit
-    sim_method = 'statevector'            # Choosing simulation method
-    sim_device = 'GPU'                    # Choose whether simulation is run on CPUs or GPUs
-    use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
-    num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)"
-    use_batched_shots = True              # Distributing shots to multiple processess
-    num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
-    
-    ## INITIALIZE SIMULATOR BACKEND
+
+    ## VALITSE PARAMETRIT
+    num_qubits = 34                       # Piirissä olevien kubittien määrä
+    circuit_depth = 30                    # Kvanttitilavuuspiirin syvyys
+    num_shots = 1000                      # Kuinka monta kertaa simulaatiota toistetaan
+    sim_method = 'statevector'            # Valitse simulaatiomenetelmä
+    sim_device = 'GPU'                    # Valitse, ajetaanko simulointi CPU:illa tai GPU:illa
+    use_cache_blocking = True             # Cache Blocking tekniikka jakaa yhtenäiset tilat hajautettuun muistialueeseen
+    num_blocking_qubits = 29              # Määrittelee lohkokoon cache blockingille. On oltava pienempi kuin "kubitteja-log2(prosessien määrä)"
+    use_batched_shots = True              # Jakaa näytteitä useille prosesseille
+    num_parallel_experiments = 1          # Ei tunnu vaikuttavan kenttään MPI kanssa, ilmeisesti tarkoitettu käytettäväksi monisäikeistyksessä
+
+    ## INIITOI SIMULAATTORIN TAUSTAMOOTTORI
     simulator = AerSimulator(method=sim_method, device=sim_device, batched_shots_gpu=use_batched_shots)
-    
-    ## CREATE QUANTUM VOLUME CIRCUIT
+
+    ## LUO KVANTTITILAVUUSPIIRI
     circuit = QuantumVolume(num_qubits, circuit_depth, seed=0)
     circuit.measure_all()
-    
-    ## TRANSPILE THE CIRCUIT FOR SPECIFIC COUPLING MAP
+
+    ## KÄÄNNÄ PIIRI SPESIFILLE YHDISTÄVÄSELLE KARTALLE
     coupling_map = CouplingMap.from_full(num_qubits)
     transpiled_circuit = transpile(circuit, simulator, coupling_map=coupling_map, optimization_level=0)
-    
-    ## RUN THE SIMULATION
+
+    ## AJA SIMULAATIO
     result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enabled=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
-    
-    ## GATHER THE RESULTS AND SOME ADDITIONAL METADATA
+
+    ## KÄYTÄ YHTENÄISET TULOKSET JA JOTAKIN LISÄÄ METATIEDOT
     counts = result_statevec.get_counts()
     result_dict = result_statevec.to_dict()
     metadata = result_dict['metadata']
-    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots , 'Device' : sim_device, 'Simulation Method' : sim_method}
+    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots, 'Device' : sim_device, 'Simulation Method' : sim_method}
     if (use_cache_blocking):
         num_chunks = 2**(num_qubits - num_blocking_qubits)
         input_data['Blocking Qubits'] = num_blocking_qubits
         input_data['Number of Chunks'] = num_chunks
     
     
-    ## PRINT FOR ONE MPI RANK
+    ## TULOSTYÄ YHDEKSI MPI-TIEDOSTO
     if (metadata['mpi_rank'] == 0):
         print()
         print(f"Input data: {input_data}")
         print(f"Metadata: {metadata}")
         #print(f"Results: {counts}")
         print(f"-------------------- \n")
-    
-    ## PRINT ALL MPI PROCESSES
+
+    ## TULOSTA KAIKKI MPI PROSESSIT
     #print(f"Input data: {input_data}")
     #print(f"Metadata: {metadata}")
     #print(f"-------------------- \n")
     ```
 
-Submit the script with `sbatch <sbatch_script_name>.sh`
+Lähetä skripti komennolla `sbatch <sbatch_script_name>.sh`
 
-### Example sbatch and python script - Multi-node simulations which leverage Native HPE Cray MPI with GPU acceleration on LUMI
+### Esimerkkisbatch ja Python-skripti - Monisolmuksiset simulaatiot, jotka hyödyntävät Native HPE Cray MPI:tä GPU-kiihdytyksellä LUMIlla {#example-sbatch-and-python-script---multi-node-simulations-which-leverage-native-hpe-cray-mpi-with-gpu-acceleration-on-lumi}
 
-Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multiple LUMI nodes in the standard-g partition using all GPUs and all CPU cores on a node. This is for simulations involving 35 qubits or more (up to a maximum 45* qubits - see table below for recommended resource allocations based on amount of qubits you wish to simulate ):
+Esimerkki `<sbatch_MPI_script_name>.sh` skripti simulaation suorittamiseen monella LUMI-solmulla standard-g osassa käyttäen kaikkia GPU:ja ja kaikki CPU ytimiä solmussa. Tämä koskee simulaatioita, joissa on 35 kubittia tai enemmän (enintään 45* kubittiin - katso alla oleva taulukko suositelluista resurssien allokaatiosta simuloitaessa haluttua qubittien määrää):
 
 === "LUMI"
     ```bash
     #!/bin/bash
-    ## Here is an example sbatch script for a 38 qubit quantum volume simulation (myprog_MPI.py) using 16 nodes 
+    ## Täällä on esimerkkisbatch skripti 38 kubitin kvanttitilavuus simulaatiolle (myprog_MPI.py) käyttäen 16 solmua 
     #SBATCH --job-name=aer_job
     #SBATCH --output=aer_job.o%j
     #SBATCH --error=aer_job.e%j
@@ -313,8 +303,8 @@ Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multipl
     srun --cpu-bind=$mask $GPU_WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog_MPI.py
     ```
 
-Small code example of `<myprog_MPI>.py` python script using 38 qubits which we recommend running on 16 nodes 
-*reference recommended resource allocation table below
+Pieni koodiesimerkki `<myprog_MPI>.py` Python-skriptistä käyttäen 38 qubittia, jota suosittelemme ajamaan 16 solmussa 
+*katso alla oleva taulukko suositelluista resurssien allokoinneista
 
 === "LUMI"
     ```Python
@@ -323,43 +313,42 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
     from qiskit_aer import AerSimulator
     from qiskit.circuit.library import QuantumVolume
     
-    ## CHOOSE PARAMETERS
-    num_qubits = 38                       # Number of qubits in the circuit
-    circuit_depth = 30                    # Layers in quantum volume circuit
-    num_shots = 1000                      # How many times we sample the circuit
-    sim_method = 'statevector'            # Choosing simulation method
-    sim_device = 'GPU'                    # Choose whether simulation is run on CPUs or GPUs
-    use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
-    num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)"
-    use_batched_shots = True              # Distributing shots to multiple processess
-    num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
+    ## VALITSE PARAMETRIT
+    num_qubits = 38                       # Piirissä olevien kubittien määrä
+    circuit_depth = 30                    # Kvanttitilavuuspiirin syvyys
+    num_shots = 1000                      # Kuinka monta kertaa simulaatiota toistetaan
+    sim_method = 'statevector'            # Valitse simulaatiomenetelmä
+    sim_device = 'GPU'                    # Valitse, ajetaanko simulointi CPU:illa tai GPU:illa
+    use_cache_blocking = True             # Cache Blocking tekniikka jakaa yhtenäiset tilat hajautettuun muistialueeseen
+    num_blocking_qubits = 29              # Määrittelee lohkokoon cache blockingille. On oltava pienempi kuin "kubitteja-log2(prosessien määrä)"
+    use_batched_shots = True              # Jakaa näytteitä useille prosesseille
+    num_parallel_experiments = 1          # Ei tunnu vaikuttavan kenttään MPI kanssa, ilmeisesti tarkoitettu käytettäväksi monisäikeistyksessä
     
-    ## INITIALIZE SIMULATOR BACKEND
+    ## INIITOI SIMULAATTORIN TAUSTAMOOTTORI
     simulator = AerSimulator(method=sim_method, device=sim_device, batched_shots_gpu=use_batched_shots)
     
-    ## CREATE QUANTUM VOLUME CIRCUIT
+    ## LUO KVANTTITILAVUUSPIIRI
     circuit = QuantumVolume(num_qubits, circuit_depth, seed=0)
     circuit.measure_all()
     
-    ## TRANSPILE THE CIRCUIT FOR SPECIFIC COUPLING MAP
+    ## KÄÄNNÄ PIIRI SPESIFILLE YHDISTÄVÄSELLE KARTALLE
     coupling_map = CouplingMap.from_full(num_qubits)
     transpiled_circuit = transpile(circuit, simulator, coupling_map=coupling_map, optimization_level=0)
     
-    ## RUN THE SIMULATION
+    ## AJA SIMULAATIO
     result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enabled=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
     
-    ## GATHER THE RESULTS AND SOME ADDITIONAL METADATA
+    ## KÄYTÄ YHTENÄISET TULOKSET JA JOTAKIN LISÄÄ METATIEDOT
     counts = result_statevec.get_counts()
     result_dict = result_statevec.to_dict()
     metadata = result_dict['metadata']
-    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots , 'Device' : sim_device, 'Simulation Method' : sim_method}
+    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots, 'Device' : sim_device, 'Simulation Method' : sim_method}
     if (use_cache_blocking):
         num_chunks = 2**(num_qubits - num_blocking_qubits)
         input_data['Blocking Qubits'] = num_blocking_qubits
         input_data['Number of Chunks'] = num_chunks
     
-    
-    ## PRINT FOR ONE MPI RANK
+    ## TULOSTYÄ YHDEKSI MPI-TIEDOSTO
     if (metadata['mpi_rank'] == 0):
         print()
         print(f"Input data: {input_data}")
@@ -367,93 +356,95 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
         #print(f"Results: {counts}")
         print(f"-------------------- \n")
 
-    ## PRINT ALL MPI PROCESSES
+    ## TULOSTA KAIKKI MPI PROSESSIT
     #print(f"Input data: {input_data}")
     #print(f"Metadata: {metadata}")
     #print(f"-------------------- \n")
     ```
 
-Submit the script with `sbatch <sbatch_MPI_script_name>.sh`
+Lähetä skripti komennolla `sbatch <sbatch_MPI_script_name>.sh`
 
-### Guidelines for LUMI resource allocation
+### Ohjeet LUMI:n resurssien allokointiin {#guidelines-for-lumi-resource-allocation}
 
-The required memory for running statevector simulation is doubled for every qubit added. Using 16-byte precision (default for qiskit-aer), LUMI supports statevector simulations up to 34 qubits using a single node, and up to 44* qubits using 1024 nodes with cache blocking technique. Cache blocking utilizes distributed memory spaces of GPU memory to parallelize the simulation. The size of distributed processes is defined by blocking qubits parameters, which cannot be larger than the size of a single cache. In LUMI, the cache should correspond to the memory of a single GPU, and blocking qubits should not be larger than 29.
+Valtiovektorisimulaatioiden muistivaatimukset kaksinkertaistuvat jokaiselle lisättävälle kubitille. Käyttäen 16-tavun tarkkuutta (qiskit-aer:in oletusasetus), LUMI tukee valtiovektorisimulaatioita jopa 34 kubittia yksisolmulla, ja jopa 44* kubittia käyttäen 1024 solmua cache blocking-tekniikalla. Cache blocking hyödyntää hajautettujen prosessien jakamisesta kertyvää muistia kiihdyttämisen parantamiseksi. Cache blockingin lohkokoko määrätään lohkottavilla kubiteilla, joiden tulee olla pienempi kuin yksittäisen cachen koko. LUMIn tapauksessa, cachen tulisi vastata yhden GPU:n muistikokoa, ja lohkottavien kubittien kannattaa olla alle 29.
 
-The table below showcases example parameters for simulating a Quantum Volume circuit of depth 30 with different numbers of qubits on a LUMI standard-g partition. The statevector required memory is calculated for 16-byte precision. The amount of nodes used corresponds to twice the amount of memory required by the statevector, which results in optimal performance by reserving additional memory for cache blocking to handle data exchange between distributed processes. Please take note that these parameters were tested for a specific circuit. Changing the number of nodes or simulating different circuits might require specifying different amounts of blocking qubits.
+Alla olevassa taulukossa esitetään esimerkkiparametrejä kvanttilohtimuuspiirin simulointiin syvyydellä 30 ja eri määrä kubitteja. Valtiovektorimuistin vaatimukset lasketaan käyttäen 16-tavun tarkkuutta. Solmujen määrä vastaa kahta kertaa valtiovektorin muistivaatimusta, mikä tarjoaa optimaalisen suorituskyvyn varaamalla ylimääräistä muistia cache blockingin käsittelyyn hajautettujen prosessien välisten tietojenvaihtojen hallitsemiseksi. Huomaa, että näitä parametrejä testattiin tietyssä piirissä. Solmujen määrän muuttaminen tai erilaisten piirien simulointi saattaa edellyttää erilaisten lohkoittuvien kubittien määrittelemistä.
 
-### Memory requirements and example parameters for statevector simulation of quantum volume with circuit depth 30 and 16 byte precision
+### Muistivaatimukset ja esimerkkiparametrit valtiovektorisimulaatiolle kvanttiloivuudella syvyydellä 30 ja 16-tavun tarkkuudella
 
-| # of Qubits | # of Blocking Qubits | Recommended # of nodes | # gpus-per-node | # tasks-per-node | # gpus-per-task | # cpus-per-task | Qubit memory requirements | 
-| :-----------| :------------------: | :--------------------: | --------------- | ---------------- | --------------- | --------------- | ------------------------- |
-| 1           | 0                    | 1                      | 8               | 1                | 8               | 56              | 32 Bytes                  |
-| 2           | 0                    | 1                      | 8               | 1                | 8               | 56              | 64                        |
-| 3           | 0                    | 1                      | 8               | 1                | 8               | 56              | 128                       |
-| 4           | 0                    | 1                      | 8               | 1                | 8               | 56              | 256                       |
-| 5           | 0                    | 1                      | 8               | 1                | 8               | 56              | 512                       |
-| 6           | 0                    | 1                      | 8               | 1                | 8               | 56              | 1024                      |
-| 7           | 0                    | 1                      | 8               | 1                | 8               | 56              | 2 Kilobytes               |
-| 8           | 0                    | 1                      | 8               | 1                | 8               | 56              | 4                         |
-| 9           | 0                    | 1                      | 8               | 1                | 8               | 56              | 8                         |
-| 10          | 0                    | 1                      | 8               | 1                | 8               | 56              | 16                        |
-| 11          | 0                    | 1                      | 8               | 1                | 8               | 56              | 32                        |
-| 12          | 0                    | 1                      | 8               | 1                | 8               | 56              | 64                        |
-| 13          | 0                    | 1                      | 8               | 1                | 8               | 56              | 128                       |
-| 14          | 0                    | 1                      | 8               | 1                | 8               | 56              | 256                       |
-| 15          | 0                    | 1                      | 8               | 1                | 8               | 56              | 512                       |
-| 16          | 0                    | 1                      | 8               | 1                | 8               | 56              | 1024                      |
-| 17          | 0                    | 1                      | 8               | 1                | 8               | 56              | 2 Megabytes               |
-| 18          | 0                    | 1                      | 8               | 1                | 8               | 56              | 4                         |
-| 19          | 0                    | 1                      | 8               | 1                | 8               | 56              | 8                         |
-| 20          | 0                    | 1                      | 8               | 1                | 8               | 56              | 16                        |
-| 21          | 0                    | 1                      | 8               | 1                | 8               | 56              | 32                        |
-| 22          | 0                    | 1                      | 8               | 1                | 8               | 56              | 64                        |
-| 23          | 0                    | 1                      | 8               | 1                | 8               | 56              | 128                       |
-| 24          | 0                    | 1                      | 8               | 1                | 8               | 56              | 256                       |
-| 25          | 0                    | 1                      | 8               | 1                | 8               | 56              | 512                       |
-| 26          | 0                    | 1                      | 8               | 1                | 8               | 56              | 1024                      |
-| 27          | 0                    | 1                      | 8               | 1                | 8               | 56              | 2 Gigabytes               |
-| 28          | 0                    | 1                      | 8               | 1                | 8               | 56              | 4                         |
-| 29          | 0                    | 1                      | 8               | 1                | 8               | 56              | 8                         |
-| 30          | 29                   | 1                      | 8               | 1                | 8               | 56              | 16                        |
-| 31          | 29                   | 1                      | 8               | 1                | 8               | 56              | 32                        |
-| 32          | 29                   | 1                      | 8               | 1                | 8               | 56              | 64                        |
-| 33          | 29                   | 1                      | 8               | 1                | 8               | 56              | 128                       |
-| 34          | 29                   | 1                      | 8               | 1                | 8               | 56              | 256                       |
-| 35          | 29                   | 2                      | 8               | 8                | 1               | 7               | 512                       |
-| 36          | 29                   | 4                      | 8               | 8                | 1               | 7               | 1024                      |
-| 37          | 29                   | 8                      | 8               | 8                | 1               | 7               | 2 Terabytes               |
-| 38          | 29                   | 16                     | 8               | 8                | 1               | 7               | 4                         |
-| 39          | 29                   | 32                     | 8               | 8                | 1               | 7               | 8                         |
-| 40          | 29                   | 64                     | 8               | 8                | 1               | 7               | 16                        |
-| 41          | 29                   | 128                    | 8               | 8                | 1               | 7               | 32                        |
-| 42          | 29                   | 256                    | 8               | 8                | 1               | 7               | 64                        |
-| 43          | 29                   | 512                    | 8               | 8                | 1               | 7               | 128                       |
-| 44          | 29                   | 1024                   | 8               | 8                | 1               | 7               | 256                       |
+| # Kubitteja | # Lohkoittuvia kubitteja | Suositeltu # solmuja | # gpu per solmu | # tehtäviä per solmu | # gpu per tehtävä | # cpu per tehtävä | Kubittien muistivaatimukset | 
+| :---------- | :-----------------------: | :------------------: | --------------- | -------------------- | ---------------- | ---------------- | ----------------------------- |
+| 1           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 32 Tavua                    |
+| 2           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 64                           |
+| 3           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 128                          |
+| 4           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 256                          |
+| 5           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 512                          |
+| 6           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 1024                         |
+| 7           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 2 Kilotavua                  |
+| 8           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 4                             |
+| 9           | 0                         | 1                    | 8               | 1                    | 8                | 56               | 8                             |
+| 10          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 16                            |
+| 11          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 32                            |
+| 12          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 64                            |
+| 13          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 128                          |
+| 14          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 256                          |
+| 15          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 512                          |
+| 16          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 1024                         |
+| 17          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 2 Megatavua                  |
+| 18          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 4                             |
+| 19          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 8                             |
+| 20          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 16                            |
+| 21          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 32                            |
+| 22          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 64                            |
+| 23          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 128                          |
+| 24          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 256                          |
+| 25          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 512                          |
+| 26          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 1024                         |
+| 27          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 2 Gigatavua                  |
+| 28          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 4                             |
+| 29          | 0                         | 1                    | 8               | 1                    | 8                | 56               | 8                             |
+| 30          | 29                        | 1                    | 8               | 1                    | 8                | 56               | 16                            |
+| 31          | 29                        | 1                    | 8               | 1                    | 8                | 56               | 32                            |
+| 32          | 29                        | 1                    | 8               | 1                    | 8                | 56               | 64                            |
+| 33          | 29                        | 1                    | 8               | 1                    | 8                | 56               | 128                          |
+| 34          | 29                        | 1                    | 8               | 1                    | 8                | 56               | 256                          |
+| 35          | 29                        | 2                    | 8               | 8                    | 1                | 7               | 512                           |
+| 36          | 29                        | 4                    | 8               | 8                    | 1                | 7               | 1024                          |
+| 37          | 29                        | 8                    | 8               | 8                    | 1                | 7               | 2 Teratavua                  |
+| 38          | 29                        | 16                   | 8               | 8                    | 1                | 7               | 4                             |
+| 39          | 29                        | 32                   | 8               | 8                    | 1                | 7               | 8                             |
+| 40          | 29                        | 64                   | 8               | 8                    | 1                | 7               | 16                            |
+| 41          | 29                        | 128                  | 8               | 8                    | 1                | 7               | 32                            |
+| 42          | 29                        | 256                  | 8               | 8                    | 1                | 7               | 64                            |
+| 43          | 29                        | 512                  | 8               | 8                    | 1                | 7               | 128                          |
+| 44          | 29                        | 1024                 | 8               | 8                    | 1                | 7               | 256                          |
 
-* For a job submitted to LUMI where more than 1024 nodes are required, a special petition for a hero run must be filed to request the allocation of such resources.
+* Yli 1024 solmun vaativassa ajossa LUMI:ssa on etsittävä erityistä sankarisuoritushakemusta, jotta tällaiset resurssit voidaan varata.
 
-### Using more than the effective minimum LUMI resources for a simulation
+### Enemmän kuin LUMI:n vähimmäisresursseja simulaatiolle käyttäminen {#using-more-than-the-effective-minimum-lumi-resources-for-a-simulation}
 
-It is possible to speed up the execution time for a simulation by increasing the number of resources beyond the effective minimum number of nodes, which corresponds to double the statevector memory requirements. In such cases, the number of distributed processes (MPI_Ranks) and allocated resources should be carefully considered. Blocking qubits should be specified so that there are no more MPI ranks than there are caches. In order to obtain an estimate of the max # of nodes for a job, we have the below formulas as a guideline.
+Simulaation suoritusaika voidaan nopeuttaa lisäämällä resursseja tehokkaiden vähimmäissolmuvaatimusten ohi, mikä vastaa valtiovektorin muistivaatimusten kaksinkertaista määrää. Tällaisissa tapauksissa hajautettujen prosessien (MPI_Ranks) ja varattujen resurssien määrää tulisi harkita huolellisesti. Lohkoittuvat kubitit tulisi määrittää siten, ettei MPI-tekijöitä ole enemmän kuin cachea. Jotta voisimme arvioida työn maksimimäärä solmuista, alle on annettu kaavat oppaana.
 
-=== "Number of nodes for multi-node simulation with Cache Blocking Qubits"
+=== "Monisolmuksisen simulaation solmumäärä Cache Blocking Kubitteilla"
     ```bash
     
-                Statevector memory required for n-qubits = precision*2^n
-      Cache memory required for nc-cache-blocking-qubits = precision*2^nc
-      
-                                           Max MPI-ranks = (Statevector Memory)/(Cache Memory)
-                                           Max MPI-ranks = (precision*2^n)/(precision*2^nc) = 2^(n-nc)
+                Valtion vector muisti vaaditaan n-qubittille = precision X 2^n
+               Cache muisti vaaditaan nc-cache blocking qubittille = precision X 2^nc
+
+                                       Max MPI-arvot = (Valtion vektrorimuisti)/(Cache muisti)
+                                       Max MPI-arvot = (precision X 2^n)/(precision X 2^nc) = 2^(n-nc)
                                            
-                                               Max Nodes = (Max MPI-Ranks)/(Tasks Per Node)
+                                           Max Solmut = (Max MPI-jaot)/(Tehtävät Per Solmu)
     ```
 
 
-## More information
+## Lisätiedot {#more-information}
 
 - [* LUMI Full Machine Runs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/hero-runs)
-- [LUMI Slurm binding options for MPI jobs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#slurm-binding-options)
-- [Qiskit-Aer Running with multiple-GPUs and/or multiple nodes](https://qiskit.github.io/qiskit-aer/howtos/running_gpu.html)
-- [Cache Blocking Technique to Large Scale Quantum Computing Simulation on Supercomputers](https://arxiv.org/abs/2102.02957)
-- [Qiskit documentation](https://qiskit.org/documentation/getting_started.html)
-- [Qiskit-aer documentation](https://qiskit.org/ecosystem/aer/tutorials/index.html)
+- [LUMI Slurm sitoutumisvaihtoehdot MPI-töille](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#slurm-binding-options)
+- [qiskit-aer monen GPU:n ja/tai monen solmujen käyttö](https://qiskit.github.io/qiskit-aer/howtos/running_gpu.html)
+- [Cache Blocking Tekniikka Laajamittaiseen kvanttilaskennan simulaatioon supertietokoneilla](https://arxiv.org/abs/2102.02957)
+- [Qiskit dokumentaatio](https://qiskit.org/documentation/getting_started.html)
+- [Qiskit-aer dokumentaatio](https://qiskit.org/ecosystem/aer/tutorials/index.html)
+
+

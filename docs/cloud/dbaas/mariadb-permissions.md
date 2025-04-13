@@ -1,51 +1,48 @@
-# MariaDB permissions and privileges
-!!! warning "MariaDB in Pukki is still in beta"
-    This means that it hasn't been tested as extensively as PostgreSQL, and there might still be
-    large changes to how Pukki manages MariaDB database instances. We hope to move out of beta in
-    April 2025.
 
+# MariaDB-oikeudet ja -käyttöoikeudet {#mariadb-permissions-and-privileges}
+!!! warning "MariaDB Pukissa on vielä beta-vaiheessa"
+    Tämä tarkoittaa, että sitä ei ole testattu yhtä laajasti kuin PostgreSQL:ää, ja voi olla, että
+    Pukki-tietokanta-instanssien hallintaan tulee vielä suuria muutoksia. Toivomme pääsevämme
+    pois beta-vaiheesta huhtikuussa 2025.
 
-## About privileges
+## Käyttöoikeuksista {#about-privileges}
 
-When creating a user through the web interface or via openstack cli, you can define which databases
-it has access to. By default, a freshly created user doesn't have access to any databases.
+Kun luot käyttäjän verkkokäyttöliittymän kautta tai openstack CLI:n avulla, voit määrittää, mihin tietokantoihin
+sillä on pääsy. Oletuksena juuri luodulla käyttäjällä ei ole pääsyä mihinkään tietokantoihin.
 
-When creating a new user:
+Kun luot uuden käyttäjän:
 ```sql
 openstack database user create $INSTANCE_ID my_user my_password --databases my_database
 ```
 
-When updating an existing user:
+Kun päivität olemassa olevan käyttäjän:
 ```sql
 openstack database user grant access $INSTANCE_ID my_user my_database
 ```
-You can either specify a single database or a list of databases to these commands. The commands
-also accept the database instance's name in place of the ID.
+Näihin komentoihin voi määrittää joko yhden tietokannan tai listan tietokannoista. Komennot
+hyväksyvät myös tietokanta-instanssin nimen ID:n sijasta.
 
-Giving a user access to a database via openstack cli or the web interface means it gets
-`ALL PRIVILEGES` to that database.
+Kun annat käyttäjälle pääsyn tietokantaan openstack CLI:n tai verkkokäyttöliittymän avulla, hän saa
+`ALL PRIVILEGES` kyseiseen tietokantaan.
 
-If you want more control over a user's privileges, you have to enable root access (through
-the web interface, or with `openstack database enable root` with the CLI client) and manually
-modify user privileges.
+Jos haluat enemmän hallintaa käyttäjän käyttöoikeuksiin, sinun on otettava root-pääsy käyttöön (verkkokäyttöliittymän kautta tai `openstack database enable root` CLI-asiakasohjelmassa) ja muokattava käyttöoikeuksia manuaalisesti.
 
+## Esimerkki read-only pääsyn antamisesta käyttäjälle tietokantaan {#example-of-giving-a-user-read-only-access-to-a-database}
 
-## Example of giving a user read-only access to a database
-
-1. Enable the root user:
+1. Ota root-käyttäjä käyttöön:
 ```sh
 openstack database root enable $DATABASE_ID
 ```
 
-2. Access the database using the root user and password.
+2. Yhdistä tietokantaan käyttämällä root-käyttäjää ja salasanaa.
 
-3. Grant `SELECT` privileges on a database to a user:
+3. Myönnä `SELECT`-oikeudet tietokannassa käyttäjälle:
 ```sql
 GRANT SELECT ON database_name.* TO 'reader'@'%';
 FLUSH PRIVILEGES;
 ```
 
-You can view the grant with:
+Voit tarkastella myönnettyä oikeutta komennolla:
 ```
 SHOW GRANTS FOR 'reader'@'%';
 +-------------------------------------------------------------------------------------------------------+
@@ -56,9 +53,9 @@ SHOW GRANTS FOR 'reader'@'%';
 +-------------------------------------------------------------------------------------------------------+
 ```
 
-You can also grant table-specific access:
+Voit myös myöntää taulukon tietyn käyttöoikeuden:
 ```sql
 GRANT SELECT ON database_name.table_name TO 'reader'@'%';
 ```
 
-Be aware that the openstack cli tool or the the web interface will not display grants given through root access. For more information on MariaDB's grants, refer to [the official MariaDB documentation](https://mariadb.com/kb/en/grant/).
+Huomaa, että openstack CLI-työkalu tai verkkokäyttöliittymä ei näytä root-pääsyn kautta myönnettyjä oikeuksia. Lisätietoja MariaDB:n käyttöoikeuksista löydät [virallisesta MariaDB-dokumentaatiosta](https://mariadb.com/kb/en/grant/).

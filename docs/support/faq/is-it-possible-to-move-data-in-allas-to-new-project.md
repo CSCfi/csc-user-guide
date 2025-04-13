@@ -1,18 +1,14 @@
-# Is it possible to move data in Allas to new project?
 
-In Allas, data movement between projects can be done by giving the receiving
-project read or write access to the bucket containing the data. The other
-project can then either read the data directly from the shared bucket or copy
-the data to its own bucket.
+# Onko mahdollista siirtää dataa Allas-palvelussa uuteen projektiin? {#is-it-possible-to-move-data-in-allas-to-new-project}
 
-You can give read access to a bucket for another project with
-[S3cmd](../../data/Allas/using_allas/s3_client.md#giving-another-project-read-access-to-a-bucket),
-or read and write access with
+Allas-palvelussa datan siirto projektien välillä voidaan tehdä antamalla vastaanottavalle projektille luku- tai kirjoitusoikeus dataa sisältävään ämpäriin. Toinen projekti voi sitten joko lukea dataa suoraan jaetusta ämpäristä tai kopioida datan omaan ämpäriinsä.
+
+Voit antaa lukuoikeuden ämpäriin toiselle projektille
+[S3cmd](../../data/Allas/using_allas/s3_client.md#giving-another-project-read-access-to-a-bucket)-
+komennolla tai luku- ja kirjoitusoikeuden komennolla
 [Swift](../../data/Allas/using_allas/swift_client.md#giving-another-project-read-and-write-access-to-a-bucket).
 
-Another way of moving data between projects could be to first download the data
-from the original project and then uploading it to the new project. Please see
-[instructions for moving data between Puhti and Allas](how-to-move-data-between-puhti-and-allas.md).
-Instead of Puhti, you could also use another supercomputer, cloud environment,
-virtual machine, or your local computer as the intermediate host. See
-[Accessing Allas](../../data/Allas/accessing_allas.md).
+Toinen tapa siirtää dataa projektien välillä voisi olla datan lataaminen alkuperäisestä projektista ja sitten sen lataaminen uuteen projektiin. Katso
+[ohjeet datan siirtämiseksi Puhtin ja Allaksen välillä](how-to-move-data-between-puhti-and-allas.md).
+Puhtin sijasta voit myös käyttää toista supertietokonetta, pilviympäristöä, virtuaalikonetta tai paikallista tietokonettasi välivaiheena. Katso
+[Allas-palvelun käyttäminen](../../data/Allas/accessing_allas.md).

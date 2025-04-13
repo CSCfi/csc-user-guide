@@ -1,91 +1,91 @@
-# Adding missing Python libraries to Pythion in SD Desktop
 
-By default, SD Desktop virtual machines based on Ubuntu 22.04 have Python 3.10.12 (`python3`) installed.
+# Python-kirjastojen lisääminen SD Desktopin Python-ympäristöön {#adding-missing-python-libraries-to-pythion-in-sd-desktop}
 
-The Python3 in SD Desktop includes over 300 commonly used libraries like _pandas_, _numpy_ and _scipy_.
-You can check the full list of installed libraries with command:
+Oletuksena SD Desktop -virtuaalikoneissa, jotka perustuvat Ubuntu 22.04:ään, on asennettuna Python 3.10.12 (`python3`).
+
+SD Desktopin Python3 sisältää yli 300 yleisesti käytettyä kirjastoa, kuten _pandas_, _numpy_ ja _scipy_.
+Voit tarkistaa asennettujen kirjastojen täydellisen luettelon komennolla:
 
 ```text
 pip list
 ```
 
-As there is huge amount of python libraries available, you quite often would like to use a library that is not available in SD Desktop.
+Koska saatavilla on valtava määrä python-kirjastoja, haluat usein käyttää kirjastoa, jota ei ole saatavilla SD Desktopissa.
 
-In normal computers, the problem can be easily solved by adding the missing library using `pip install` command. However, 
-as SD Desktop virtual machines don't have internet connection, you can't run `pip install` command in the way it is normally used.
+Normaaleissa tietokoneissa ongelma voidaan helposti ratkaista lisäämällä puuttuva kirjasto `pip install` -komennolla. Kuitenkin,
+koska SD Desktop -virtuaalikoneilla ei ole internet-yhteyttä, et voi suorittaa `pip install` -komentoa sillä tavalla kuin sitä tavallisesti käytetään.
 
-**If you plan to use a complex python environment in SD Desktop, the best solution is to build an Apptainer container that 
-includes all the Python libraries you need, and import the container to SD Desktop**.
+**Jos suunnittelet käyttäväsi monimutkaista python-ympäristöä SD Desktopissa, paras ratkaisu on rakentaa Apptainer-kontti, joka
+sisältää kaikki tarvitsemasi Python-kirjastot, ja tuoda kontti SD Desktopiin**.
 
-However, if you need to add just few missing libraries, you could create a Python virtual environment
-to add the missing libraries. This tutorial demonstrates two ways to add missing Python libraries to the existing Python environment in SD desktop. As an example Python library we use [SciKit-Optimize library](https://scikit-optimize.github.io).
+Kuitenkin, jos sinun tarvitsee lisätä vain muutamia puuttuvia kirjastoja, voit luoda Python-virtuaaliympäristön
+lisätäksesi puuttuvat kirjastot. Tämä opas esittelee kaksi tapaa lisätä puuttuvia Python-kirjastoja olemassa olevaan Python-ympäristöön SD Desktopissa. Esimerkkinä Python-kirjastosta käytämme [SciKit-Optimize-kirjastoa](https://scikit-optimize.github.io).
 
-## Option 1: add-python-lib tool
+## Vaihtoehto 1: add-python-lib -työkalu {#option-1-add-python-lib-tool}
 
-_Add-python-lib_ is a help tool tha can be used to add python libraries to
-a Python virtual environment in a SD Desktop virtual machine.
-This tool can be added to your virtual machine with the [SD Sotware installer tool](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
+_Add-python-lib_ on apuväline, jota voidaan käyttää Python-kirjastojen lisäämiseen
+Python-virtuaaliympäristöön SD Desktop -virtuaalikoneessa.
+Tämän työkalun voi lisätä virtuaalikoneeseen [SD-ohjelmiston asennustyökalulla](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer).
 
-Basic syntax of the command is:
+Komennon perussyntaksi on:
 
 ```text
 add-python-lib search_term 
 ```
 
-The command looks for matching packages from the set of Python libraries that CSC has preloaded to SD Connect.
-Note that the preloaded set of libraries is very small (some hundreds) compared to the over 300 000 libraries available through pip.
-Please send a request to [CSC Service Desk](../../../support/contact.md) if you would need to have a library to be added to the selection.
-Note that all python libraries are not compatible with this approach.
+Komento etsii vastaavia paketteja CSC:n esilataamasta Python-kirjastojen joukosta SD Connectissa.
+Huomaa, että esiladattu kirjastojoukko on hyvin pieni (joitakin satoja) verrattuna yli 300 000 kirjastoon, jotka ovat saatavilla pipin kautta.
+Lähetä pyyntö [CSC Service Deskille](../../../support/contact.md), jos haluat lisätä kirjaston valikoimaan.
+Huomaa, että kaikki Python-kirjastot eivät ole yhteensopivia tämän lähestymistavan kanssa.
 
-The selected library will added to a Python virtual environment that locates in _/shared-directory/sd-tools/python3-venv_.
-This virtual environment is automatically created when _add-python-lib_ is used for the first time.
+Valittu kirjasto lisätään Python-virtuaaliympäristöön, joka sijaitsee _/shared-directory/sd-tools/python3-venv_-hakemistossa.
+Tämä virtuaaliympäristö luodaan automaattisesti, kun _add-python-lib_ -työkalua käytetään ensimmäisen kerran.
 
-In the case of SciKit-Optimize, you could do the installation with command:
+SciKit-Optimize-tapauksessa voit tehdä asennuksen komennolla:
 
 ```text
 add-python-lib scikit 
 ```
 
-or 
+tai
 
 ```text
 add-python-lib scikit_optimize 
 ```
 
-Note that search term _SciKit-Optimize_ would not find any matching libraries as the search process is based on
-the names of pip installation files, that use only small case letters and where dashes (-) are replaced with under scores (_).
+Huomaa, että hakutermi _SciKit-Optimize_ ei löydä vastaavia kirjastoja, koska hakuprosessi perustuu
+pipin asennustiedostojen nimiin, jotka käyttävät vain pieniä kirjaimia ja joissa väliviivat (-) korvataan alaviivoilla (_).
 
-If the search term you used, matches several Python libraries, the tool shows you a list of libraries from which you can
-choose the library to be installed. 
+Jos käytetty hakutermi vastaa useita Python-kirjastoja, työkalu näyttää sinulle kirjastojen listan, josta voit
+valita asennettavan kirjaston.
 
-After that, the tool asks, if also the dependencies of the selected library should be installed.
-Normally you should try to install the dependencies too. 
+Sen jälkeen työkalu kysyy, tulisiko myös valitun kirjaston riippuvuudet asentaa.
+Yleensä sinun tulisi yrittää asentaa myös riippuvuudet.
 
-Once the installation is ready, you can switch to use the Python virtual environment with commands:
+Kun asennus on valmis, voit siirtyä käyttämään Python-virtuaaliympäristöä komennoilla:
 
 ```text
 source /shared-directory/sd-tools/python3-venv/bin/activate
 export PYTHONPATH=/usr/lib/python3/dist-packages:/usr/local/lib/python3.10/dist-packages
 ```
 
+## Vaihtoehto 2: Moduulin tuonti SD Connectin kautta {#option-2-importing-the-module-through-sd-connect}
 
-## Option 2: Importing the module through SD Connect
+### 1. Asennustiedoston lataaminen SD Desktopille {#1-downloading-installation-file-for-sd-desktop}
 
-### 1. Downloading installation file for SD Desktop
+Ensimmäiseksi on ladattava pipin asennuspakettitiedosto kirjastolle, jota haluat käyttää.
+Tämä on tehtävä SD Desktopin ulkopuolella. Voit etsiä pakettia [Pypi-repositorysta](https://pypi.org/)
+tai käyttää _pip download_ -komentoa, jos sinulla on python3 asennettuna koneellesi (jos mahdollista, käytä Python-versiota, joka vastaa SD Desktopin Python-versiota).
 
-The first thing to do is to download a pip installation package file for the library you want to use.
-This you must do outside SD Desktop. You can search for the package from the [Pypi repository](https://pypi.org/)
-or use _pip download_ command if you have python3 installed in your machine (if possible, use Python version that matches with the Python version in SD Desktop).
+#### 1.1 Pypi-repositorio {#1-1-pypi-repository}
 
-#### 1.1 Pypi repository 
+SciKit-Optimize-tapauksessa Pypi-repositorion haku antaa sinulle projektiluettelon. SciKit-Optimize on listan ensimmäinen kohde. Voit jatkaa SciKit-Optimize-projektisivulle, jossa _download_-linkki tarjoaa luettelon ladattavista tiedostoista. Tältä voisimme ladata esikootun kirjastotiedoston (scikit_optimize-0.10.2-py2.py3-none-any.whl).
 
-In the case of SciKit-Optimize, search in the Pypi repository gives you a project list. SciKit-Optimize is the first item  on the list. You can continue to the  SciKit-Optimize project page, where the _download_ link provides a list of downloadable files. Here we could download the pre-build library file (scikit_optimize-0.10.2-py2.py3-none-any.whl ).
+#### 1.2 pip komentorivillä {#1-2-pip-in-command-line}
 
-#### 1.2  pip in command line
-
-In your local machine, create a new directory, use `pip download` to download the installation files and then package 
-this directory for transportation. In the case of user _asund_ in a Linux or Mac, _SciKit-Optimize_ library could be packaged 
-with commands:
+Paikallisella koneellasi, luo uusi hakemisto, käytä `pip download` -komentoa ladataksesi asennustiedostot ja pakkaa sitten 
+tämä hakemisto kuljetusta varten. Käyttäjän _asund_ tapauksessa Linux- tai Mac-koneella _SciKit-Optimize_-kirjasto voidaan pakata 
+komennoilla:
 
 ```bash
 mkdir scikit-optimize
@@ -93,50 +93,51 @@ pip download scikit-optimize -d "/home/asund/scikit-optimize"
 tar cvfz scikit-optimize.tgz scikit-optimize
 ```
 
-#### 1.3 Upload 
+#### 1.3 Lataus {#1-3-upload}
 
-Next you should upload the installation package (`scikit_optimize-0.10.2-py2.py3-none-any.whl` or `scikit-optimize.tgz`) to one of 
-your data buckets in [SD Connect](https://sd-connect.csc.fi).
+Seuraavaksi sinun tulee ladata asennuspaketti (`scikit_optimize-0.10.2-py2.py3-none-any.whl` tai `scikit-optimize.tgz`) yhteen
+datalokeroistasi [SD Connectissa](https://sd-connect.csc.fi).
 
-### 2. Installing the library
+### 2. Kirjaston asentaminen {#2-installing-the-library}
 
-After uploading the installation package to SD Connect, you will do rest of the installation steps
-in your SD Desktop environment.
+Kun olet ladannut asennuspaketin SD Connectiin, suoritat asennuksen loput vaiheet
+SD Desktop -ympäristössäsi.
 
-1. Open terminal session and create a Python virtual environment with command
-(this needs to be done only once):
+1. Avaa pääteistunto ja luo Python-virtuaaliympäristö komennolla
+(tämä täytyy tehdä vain kerran):
 
     ```bash
     python3 -m venv $HOME/my-python
     ```
 
-2. Activate your Python virtual environment and add the location of default python libraries to `PYTHONPATH` environment variable: 
-(this you must do each time you start a new terminal session)
+2. Aktivoi Python-virtuaaliympäristösi ja lisää oletuskirjastojen sijainti `PYTHONPATH`-ympäristömuuttujaan: 
+(tämä täytyy tehdä aina, kun aloitat uuden päätelaitteen istunnon)
 
     ```bash
     source $HOME/my-python/bin/activate
     export PYTHONPATH=/usr/local/lib/python3.10/site-packages
     ```
 
-3. Open or refresh your DataGateway connection and copy `scikit-optimize.tgz` to your local disk.
+3. Avaa tai päivitä DataGateway-yhteytesi ja kopioi `scikit-optimize.tgz` paikalliselle levyllesi.
 
-4. Uncompress the package
+4. Pura paketti
 
     ```bash
     tar zxvf scikit-optimize.tgz
     ```
 
-5. Move to the new directory:
+5. Siirry uuteen hakemistoon:
 
     ```bash
     cd scikit-optimize
     ```
 
-6. Install the package:
+6. Asenna paketti:
 
     ```bash
     pip install scikit_optimize-0.9.0-py2.py3-none -any-whl -f ./ --no-index --no-deps
     ```
 
-Now python (pointing to `$HOME/my-python/bin/python`) should contain
-_scikit_optimize_ library.
+Nyt python (osoittaa `$HOME/my-python/bin/python`) pitäisi sisältää
+_scikit_optimize_-kirjaston.
+

@@ -1,129 +1,128 @@
-# Multi-Factor Authentication (MFA) Guide
 
-## Overview
+# Monivaiheinen tunnistautumisopas (MFA Guide) {#multi-factor-authentication-mfa-guide}
 
-This guide explains how to activate and use multi-factor authentication (MFA) for CSC customer accounts. CSC’s MFA system integrates with the authentication solutions provided by universities for Haka accounts. If you have multiple CSC accounts, MFA can be assigned to all of them.
+## Yleiskatsaus {#overview}
 
-CSC’s MFA uses a time-based one-time passcode (TOTP) system, which works with standard mobile phones with an authentication app. The authentication app is free for users, and multiple app options are available for different mobile devices. You can choose any compatible authentication app.
+Tässä oppaassa selitetään, miten aktivoida ja käyttää monivaiheista tunnistautumista (MFA) CSC:n asiakastileille. CSC:n MFA-järjestelmä integroituu yliopistojen Haka-tunnistautumisratkaisuihin. Jos sinulla on useita CSC-tilejä, MFA voidaan liittää niihin kaikkiin.
 
-* Compatible apps are those that use a time-based one-time passcode system. Most of the widely used authentication apps, such as Google Authenticator and Microsoft Authenticator, support this method.
+CSC:n MFA käyttää aikapohjaista kertakäyttökoodijärjestelmää (TOTP), joka toimii standardien mukaisten mobiililaitteiden tunnistautumissovelluksen kanssa. Tunnistautumissovellus on käyttäjille ilmainen, ja useita sovellusvaihtoehtoja on saatavilla eri mobiililaitteille. Voit valita minkä tahansa yhteensopivan tunnistautumissovelluksen.
 
-## When is MFA required?
+* Yhteensopivat sovellukset ovat niitä, jotka käyttävät aikapohjaista kertakäyttökoodijärjestelmää. Useimmat laajalti käytössä olevat tunnistautumissovellukset, kuten Google Authenticator ja Microsoft Authenticator, tukevat tätä menetelmää.
 
-If your home organization has enabled multi-factor authentication for Haka login, you do not need to activate it separately for CSC services. **It is recommended to use your home organization’s Haka authentication if available.**
+## Milloin MFA on vaadittu? {#when-is-mfa-required}
 
-Otherwise, you must activate MFA once to access CSC research services.
+Jos kotiorganisaatiosi on ottanut käyttöön monivaiheisen tunnistautumisen Haka-kirjautumiselle, sinun ei tarvitse aktivoida sitä erikseen CSC-palveluille. **Suositeltavaa on käyttää kotiorganisaation Haka-tunnistautumista, jos se on saatavilla.**
 
-CSC is gradually rolling out MFA across all of our services. Currently, the following CSC services utilize multi-factor authentication:
+Muussa tapauksessa sinun on aktivoitava MFA kerran, jotta pääset CSC:n tutkimuspalveluihin.
+
+CSC ottaa vähitellen käyttöön MFA:n kaikissa palveluissamme. Tällä hetkellä seuraavat CSC-palvelut hyödyntävät monivaiheista tunnistautumista:
 
 * **SD Connect**  
 * **SD Desktop**  
-* Coming soon:
-    * **Puhti web interface**  
-    * **Mahti web interface**  
+* Tulossa pian:
+    * **Puhti-verkkoliittymä**  
+    * **Mahti-verkkoliittymä**  
     * **MyCSC**
   
-## MFA Instructions for users logging in with Haka credentials
+## MFA-ohjeet käyttäjille, jotka kirjautuvat sisään Haka-tunnuksilla {#mfa-instructions-for-users-logging-in-with-haka-credentials}
 
-Your home organization may already offer multi-factor authentication during the Haka login process (Haka MFA). We recommend using your home organization's multi-factor authentication, if available. Note that when logging in with CSC user name and password in the web interface, the MyCSC MFA will always be used. Both home organization MFA and the MyCSC MFA can be set up at the same time.
+Kotiorganisaatiosi saattaa jo tarjota monivaiheista tunnistautumista Haka-kirjautumisprosessin aikana (Haka MFA). Suosittelemme käyttämään kotiorganisaatiosi monivaiheista tunnistautumista, jos se on saatavilla. Huomaa, että kun kirjaudut sisään CSC:n käyttäjänimellä ja salasanalla verkkoliittymässä, MyCSC:n MFA otetaan aina käyttöön. Sekä kotiorganisaation MFA että MyCSC:n MFA voidaan määrittää samanaikaisesti.
 
-Please first check if you already have functioning Haka MFA. To check:
+Tarkista ensin, onko sinulla jo toimiva Haka MFA. Tarkista näin:
 
-1. Visit the 'Profile' section of the [MyCSC portal](https://my.csc.fi/)
-2. Use the 'Test your Multi-Factor Authentication capabilities' function on the right-hand side by pressing 'Test'. **Remember to log in with Haka during the test**.
+1. Käy [MyCSC-portaalin](https://my.csc.fi/) 'Profiili'-osiossa
+2. Käytä 'Test your Multi-Factor Authentication capabilities' -toimintoa oikealla puolella painamalla 'Test'. **Muista kirjautua sisään Hakalla testin aikana**.
 
-### Possible outcomes
+### Mahdolliset tulokset {#possible-outcomes}
 
-* Haka MFA is working. In that case no further action is required from you.
-* Haka MFA is **not** working, and you receive an error message indicating that you need to activate Haka MFA following your home organization's instructions. CSC doesn't handle issues related to Haka MFA, for this matter, please contact your **home organization**.
-* Haka MFA is not working, and you receive a message stating that Haka MFA is not enabled in your organization. In that case you should activate CSC multi-factor authentication (CSC MFA). [See instructions below](#how-to-activate-mfa).
+* Haka MFA toimii. Tässä tapauksessa sinulta ei vaadita lisää toimia.
+* Haka MFA **ei** toimi ja saat virheilmoituksen, jossa kerrotaan, että sinun on aktivoitava Haka MFA noudattamalla kotiorganisaatiosi ohjeita. CSC ei käsittele Haka MFA:an liittyviä ongelmia; ottakaa tässä tapauksessa yhteyttä **kotiorganisaatioonne**.
+* Haka MFA ei toimi ja saat viestin, joka kertoo, että Haka MFA:ta ei ole otettu käyttöön organisaatiossasi. Tässä tapauksessa sinun tulisi aktivoida CSC:n monivaiheinen tunnistautuminen (CSC MFA). [Katso ohjeet alla](#how-to-activate-mfa).
 
-## Users logging in with Virtu credentials, CSC login or Lifescience login
+## Käyttäjät, jotka kirjautuvat sisään Virtu-, CSC- tai Lifescience-tunnuksilla {#users-logging-in-with-virtu-credentials-csc-login-or-lifescience-login}
 
-Activate CSC's multi-factor authentication (CSC MFA) in MyCSC. [See instructions below](#how-to-activate-mfa).
+Aktivoi CSC:n monivaiheinen tunnistautuminen (CSC MFA) MyCSC:ssä. [Katso ohjeet alla](#how-to-activate-mfa).
 
-## What you need before setting up CSC MFA
+## Mitä tarvitset ennen CSC:n MFA:n asettamista {#what-you-need-before-setting-up-csc-mfa}
 
-Before enabling MFA, make sure you have:
+Ennen MFA:n aktivoimista varmista, että sinulla on:
 
-* A CSC user account and password. If you don’t have an account yet, register through the MyCSC customer portal. [Read the instructions here](how-to-create-new-user-account.md).
-* A mobile device that is compatible with an authentication app (essentially any modern smartphone).
+* CSC:n käyttäjätili ja salasana. Jos sinulla ei vielä ole tiliä, rekisteröidy MyCSC-asiakasportaalin kautta. [Lue ohjeet täältä](how-to-create-new-user-account.md).
+* Mobiililaite, joka on yhteensopiva tunnistautumissovelluksen kanssa (käytännössä mikä tahansa moderni älypuhelin).
 
-## How to activate MFA
+## Kuinka aktivoida MFA {#how-to-activate-mfa}
 
-### Step 1: Install authentication app
+### Vaihe 1: Asenna tunnistautumissovellus {#step-1-install-authentication-app}
 
-To use MFA, install **an authentication app** on your mobile phone. **If you already have an authentication app on your phone, [skip to step 2](#step-2-log-in-to-mycsc).**
+Käyttääksesi MFA:ta, asenna **tunnistautumissovellus** matkapuhelimeesi. **Jos sinulla jo on tunnistautumissovellus puhelimessasi, [siirry vaiheeseen 2](#step-2-log-in-to-mycsc).**
 
-Some commonly used apps include:
+Joihinkin yleisesti käytettyihin sovelluksiin kuuluvat:
 
 * **Google Authenticator**  
 * **Microsoft Authenticator**  
-* **Other compatible authentication apps (that are TOTP protocol based)**
+* **Muut yhteensopivat tunnistautumissovellukset (jotka perustuvat TOTP-protokollaan)**
 
-Follow the installation instructions provided by your chosen app.
+Noudata valitsemasi sovelluksen asennusohjeita.
 
-### Step 2: Log in to MyCSC
+### Vaihe 2: Kirjaudu sisään MyCSC:hen {#step-2-log-in-to-mycsc}
 
-Log in to the [**MyCSC**](https://my.csc.fi/) website with your username and password, and click the **Profile** icon in the top right corner of the page. A dropdown menu will open, allowing you to select **Profile** (highlighted in the image below).
+Kirjaudu [**MyCSC**](https://my.csc.fi/) verkkosivustolle käyttäjätunnuksellasi ja salasanallasi ja klikkaa **Profiili**-kuvaketta sivun oikeassa yläkulmassa. Aukeaa pudotusvalikko, josta voit valita **Profiili** (korostettu alla olevassa kuvassa).
 
-![Profile view in MyCSC](images/small/mfa-profile-banner.png 'Profile view banner')
+![Profiilinäkymä MyCSC:ssä](images/small/mfa-profile-banner.png 'Profiilinäkymä banneri')
 
-If you have forgotten your CSC user account password, [**here's how you can change it**](../accounts/how-to-change-password.md).
+Jos olet unohtanut CSC:n käyttäjätilisi salasanan, [**näin voit vaihtaa sen**](../accounts/how-to-change-password.md).
 
-### Step 3: Start the activation of multi-factor authentication
+### Vaihe 3: Aloita monivaiheisen tunnistautumisen aktivointi {#step-3-start-the-activation-of-multi-factor-authentication}
 
-In the **Profile** section, click **Enable** in the Multi-Factor Authentication banner.
+**Profiili**-osiossa klikkaa **Enable** monivaiheisen tunnistautumisen bannerissa.
 
-![enable MFA banner](images/small/mfa-enable-mfa-banner.png 'Multi-factor authentication banner')
+![aktivoi MFA banneri](images/small/mfa-enable-mfa-banner.png 'Monivaiheinen tunnistautuminen banneri')
 
-### Step 4: Scan QR code
+### Vaihe 4: Skannaa QR-koodi {#step-4-scan-qr-code}
 
-Scan the QR code displayed on the screen using your authentication app.
+Skannaa näytöllä näkyvä QR-koodi tunnistautumissovelluksellasi.
 
-![read QR code](images/small/mfa-scan-qr-code.png 'Read the QR.code')
+![skannaa QR-koodi](images/small/mfa-scan-qr-code.png 'Lue QR-koodi')
 
-### Step 5: Enter verification code
+### Vaihe 5: Syötä vahvistuskoodi {#step-5-enter-verification-code}
 
-After scanning the QR code, press **Continue**.  Complete the task that your authentication app requires. Once the task is completed, **your MFA setup is complete.**
+QR-koodin skannauksen jälkeen paina **Continue**. Suorita tehtävä, jonka tunnistautumissovellus vaatii. Kun tehtävä on suoritettu, **MFA-asetuksesi on valmis.**
 
-![type in 6-digit code](images/small/mfa-enter-verification-code.png 'Type in 6-digit code')
+![syötä 6-numeroinen koodi](images/small/mfa-enter-verification-code.png 'Syötä 6-numeroinen koodi')
 
-![authentication app screen](images/small/haka-one-time-code.jpeg 'The 6-digit code on your phone')
+![tunnistautumissovelluksen näyttö](images/small/haka-one-time-code.jpeg '6-numeroinen koodi puhelimellasi')
 
-### Step 6: Finish
+### Vaihe 6: Viimeistele {#step-6-finish}
 
-Your CSC account is now secured with multi-factor authentication!
+CSC-tilisi on nyt turvattu monivaiheisella tunnistautumisella!
 
-![MFA activated](images/small/mfa-enabled.png 'Your account is now secured with Multi-factor authentication')
+![MFA aktivoitu](images/small/mfa-enabled.png 'Tilisi on nyt suojattu monivaiheisella tunnistautumisella')
 
-## Problems with MFA
+## Ongelmat MFA:n kanssa {#problems-with-mfa}
 
-If you are experiencing problems or want to disable your MFA authentication, please contact the [CSC Service Desk](../support/contact.md).
+Jos kohtaat ongelmia tai haluat poistaa MFA-tunnistautumisen, ota yhteyttä [CSC Service Deskiin](../support/contact.md).
 
-!!! note "Reminder"
-    If you know you'll be switching to a new phone, remember to disable
-    MFA before making the switch. Also, keep your contact information up to date
-    in MyCSC in case your account needs to be recovered.
+!!! note "Muistutus"
+    Jos tiedät vaihtavasi uuteen puhelimeen, muista poistaa MFA ennen vaihtoa. Pidä myös yhteystietosi ajan tasalla MyCSC:ssä siltä varalta, että tilisi tarvitsee palauttaa.
 
-## Logging in with MFA
+## Kirjautuminen monivaiheisella tunnistautumisella {#logging-in-with-mfa}
 
-### Haka users with home organization MFA
+### Haka-käyttäjät, joilla on kotiorganisaation MFA {#haka-users-with-home-organization-mfa}
 
-1. Choose Haka as your authentication method.
-2. Authenticate through your home organization, typically by entering your username and password and providing your multi-factor authentication data.
-3. You are in!
+1. Valitse Haka tunnistautumismenetelmäksi.
+2. Tunnistaudu kotiorganisaatiosi kautta, yleensä syöttämällä käyttäjätunnuksesi ja salasanasi sekä monivaiheisen tunnistautumisesi tiedot.
+3. Olet kirjautunut sisään!
 
-### Haka users using CSC MFA
+### Haka-käyttäjät, jotka käyttävät CSC MFA:ta {#haka-users-using-csc-mfa}
 
-1. Choose Haka as your authentication method.
-2. Authenticate through your home organization, typically by entering your username and password.
-3. You are sent back to CSC and asked to provide the six-digit code shown in your authentication app
-4. You are in!
+1. Valitse Haka tunnistautumismenetelmäksi.
+2. Tunnistaudu kotiorganisaatiosi kautta, yleensä syöttämällä käyttäjätunnuksesi ja salasanasi.
+3. Sinut palautetaan CSC:lle, ja sinulta pyydetään tunnistautumissovelluksessasi näkyvää kuusinumeroista koodia
+4. Olet kirjautunut sisään!
 
-### Virtu users, CSC login users and Lifescience login users
+### Virtu-käyttäjät, CSC-kirjautumiskäyttäjät ja Lifescience-kirjautumiskäyttäjät {#virtu-users-csc-login-users-and-lifescience-login-users}
 
-1. Choose your authentication method (Virtu, CSC login or Lifescience login)
-2. Authenticate with the chosen method.
-3. CSC asks you to provide the six-digit code shown in your authentication app
-4. You are in!
+1. Valitse tunnistautumismenetelmäsi (Virtu, CSC-kirjautuminen tai Lifescience-kirjautuminen)
+2. Tunnistaudu valitsemallasi menetelmällä.
+3. CSC pyytää sinulta tunnistautumissovelluksessasi näkyvää kuusinumeroista koodia
+4. Olet kirjautunut sisään!

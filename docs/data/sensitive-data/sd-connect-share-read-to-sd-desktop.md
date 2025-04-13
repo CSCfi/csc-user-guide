@@ -1,44 +1,42 @@
-# How to give access to folder content only in SD Desktop
+# Kuinka antaa pääsy kansioihin vain SD Desktopissa {#how-to-give-access-to-folder-content-only-in-sd-desktop}
 
-## Use case
+## Käyttötapaus {#use-case}
 
-You (Team A) have data that other team (Team B) needs access to. They wish to view and analyse your data, but you want to restrict their ability to download a copy of the data directly.
+Teillä (Tiimi A) on dataa, johon toinen tiimi (Tiimi B) tarvitsee pääsyn. He haluavat tarkastella ja analysoida dataanne, mutta te haluatte rajoittaa heidän mahdollisuuksiaan ladata kopion datasta suoraan.
 
-## Solution
+## Ratkaisu {#solution}
 
-In this case you can share your data folder to Team B with **Read to SD Desktop** -permission. That way Team B members can view and analyse the data via SD Desktop, without downloading a copy of the original data.
+Tässä tapauksessa voitte jakaa datakansionne Tiimille B **Read to SD Desktop** -luvalla. Näin Tiimi B:n jäsenet voivat tarkastella ja analysoida dataa SD Desktopin kautta ilman, että he lataavat kopion alkuperäisestä datasta.
 
-You also don’t want Team B to export your original data from SD Desktop. That is why you need to create a project where they (Team B) are project members and you are the project manager - since only project manager can export data from SD Desktop.
-
+Ette myöskään halua, että Tiimi B vie alkuperäistä dataanne SD Desktopista. Siksi teidän tulee luoda projekti, jossa he (Tiimi B) ovat projektin jäseniä ja te olette projektipäällikkö - koska vain projektipäällikkö voi viedä dataa SD Desktopista.
 
 ![Transfer Data Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ReadToDesktop.png)
 
 !!! warning
-    Note that you have to be the project manager of the both projects. Please [contact CSC Service Desk](../../support/contact.md) (subject: *Sensitive data*) to discuss this share option before proceeding.
+    Huomioikaa, että teidän tulee olla projektipäällikkö kummassakin projektissa. Olkaa hyvä ja [ottakaa yhteyttä CSC Service Deskiin](../../support/contact.md) (aihe: *Sensitive data*) keskustellaksenne tästä jakovaihtoehdosta ennen etenemistä.
 
-## Step by step tutorial
+## Vaiheittainen opetusohjelma {#step-by-step-tutorial}
 
-1. Log in to [MyCSC](https://my.csc.fi/login){ target="_blank" }.
-2. Create two new projects: ***Project 1*** and ***Project 2***.
-3. Manage ***Project 1***: enable service access for SD Connect. Do not add any project members. [See instructions](./sd-access.md)
-4. Manage ***Project 2***: enable service access for SD Connect and SD Desktop. Add Team B to be the **project members.** [See instructions](./sd-access.md)
-5. Log in to [SD Connect](./sd-connect-login.md).
-6. Select ***Project 2*** and copy the **Share ID**. 
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID2.png)
-7. Select ***Project 1*** and upload your data folder there: [See upload instructions](./sd-connect-upload.md).
-8. Click “**Share**” next to the folder you just uploaded.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton2.png)
-9. Add the **Share ID** of Project 2 to the field.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID2.png)
-10. Select sharing permission: “**Read to SD Desktop**”. Click “**Share**”.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission2.png)
+1. Kirjaudu [MyCSC:hen](https://my.csc.fi/login){ target="_blank" }.
+2. Luo kaksi uutta projektia: ***Projekti 1*** ja ***Projekti 2***.
+3. Hallinnoi ***Projektia 1***: ota palvelupääsy käyttöön SD Connectille. Älä lisää yhtään projektin jäsentä. [Katso ohjeet](./sd-access.md)
+4. Hallinnoi ***Projektia 2***: ota palvelupääsy käyttöön SD Connectille ja SD Desktopille. Lisää Tiimi B **projektin jäseniksi.** [Katso ohjeet](./sd-access.md)
+5. Kirjaudu sisään [SD Connectiin](./sd-connect-login.md).
+6. Valitse ***Projekti 2*** ja kopioi **Share ID**.
+![kuvakaappaus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID2.png)
+7. Valitse ***Projekti 1*** ja lataa datakansio sinne: [Katso latausohjeet](./sd-connect-upload.md).
+8. Klikkaa "**Share**" juuri lataamasi kansion vieressä.
+![kuvakaappaus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton2.png)
+9. Lisää Projektin 2 **Share ID** kenttään.
+![kuvakaappaus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID2.png)
+10. Valitse jakolupa: "**Read to SD Desktop**". Klikkaa "**Share**".
+![kuvakaappaus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission2.png)
 
-Now, all the content in the folder is visible to Project 2 (Team B) and accessible only through SD Desktop. Project 2 members can access and analyse the shared folder content via SD desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager - and you are the project manager of both projects.
+Nyt kaikki kansion sisältö on näkyvissä Projekti 2:ssa (Tiimi B) ja käytettävissä vain SD Desktopin kautta. Projekti 2:n jäsenet voivat käyttää ja analysoida jaettua kansion sisältöä SD Desktopin kautta. He eivät kuitenkaan voi viedä tai ladata tiedostoja, sillä kaikki datan vientiä hallinnoi suoraan projektipäällikkö - ja sinä olet kummankin projektin projektipäällikkö.
 
+## Toiminnot SD Connectissa {#features-in-sd-connect}
 
-## Features in SD Connect 
-
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
+* [Lataa](./sd-connect-upload.md)
+* [Jaa](./sd-connect-share.md)
+* [Lataa alas](./sd-connect-download.md)
+* [Poista](./sd-connect-delete.md)

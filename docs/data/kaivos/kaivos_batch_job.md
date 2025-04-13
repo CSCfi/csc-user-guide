@@ -1,29 +1,18 @@
-# Using MySQL client through batch job system
 
-The MySQL client program can be used in the batch job systems
-in the same way as in interactive client usage. The only
-difference is that in the batch jobs, the database password
-can't be given interactively. Instead it should be given by
-using MySQL configuration file (`.my.cnf`) in the home directory.
+# MySQL-asiakasohjelman käyttäminen eräajojärjestelmän kautta {#using-mysql-client-through-batch-job-system}
 
-Below is a sample MySQL script for Puhti. First we need to create
-a MySQL connection configuration file that locates in the home
-directory.  In this case we use user account `mydb1_admin`,
-whose password is `abc123`.  The file, named as `.my.cnf`,
-would now look like following:
+MySQL-asiakasohjelmaa voidaan käyttää eräajojärjestelmissä samalla tavalla kuin interaktiivisessa asiakaskäytössä. Ainoa ero on, että eräajoissa tietokannan salasanaa ei voi antaa interaktiivisesti. Sen sijaan se tulisi antaa käyttämällä MySQL-konfiguraatiotiedostoa (`.my.cnf`) kotihakemistossa.
+
+Alla on esimerkki MySQL-skriptistä Puhtille. Ensin meidän on luotava MySQL-yhteyskonfiguraatiotiedosto, joka sijaitsee kotihakemistossa. Tässä tapauksessa käytämme käyttäjätiliä `mydb1_admin`, jonka salasana on `abc123`. Tiedosto, nimeltä `.my.cnf`, näyttäisi nyt seuraavalta:
 
 ```text
 [client]
-user =  mydb1_admin
+user = mydb1_admin
 password = abc123
 host = kaivos.csc.fi
 ```
 
-Then we create the actual batch job script. The script below
-reserves 12 h time and 1 GB memory to run the MySQL query that
-is defined in the file `query_commands.sql`. The query is made
-to database `mydb1` and the connection parameters are read from
-file `.my.cnf` . The results are written to the `results.txt` file.
+Sitten luomme varsinaisen eräajon skriptin. Alla oleva skripti varaa 12 h aikaa ja 1 GB muistia MySQL-kyselyn suorittamiseen, joka on määritelty tiedostossa `query_commands.sql`. Kysely tehdään tietokantaan `mydb1`, ja yhteysparametrit luetaan tiedostosta `.my.cnf`. Tulokset kirjoitetaan tiedostoon `results.txt`.
 
 ```bash
 #!/bin/bash -l
@@ -42,29 +31,20 @@ cd /path/to/my_data
 mysql --local mydb1 <query_commands.sql > results.txt
 ```
 
-## Example: Using MySQL database from a batch job script in Puhti
+## Esimerkki: MySQL-tietokannan käyttäminen eräajoskriptistä Puhdissa {#example-using-mysql-database-from-a-batch-job-script-in-puhti}
 
-The MySQL database in `kaivos.csc.fi` is intended for cases where
-computing servers of CSC use the MySQL database to store and
-analyze data. In these cases the database is normally not used
-interactively, but the MySQL client is used automatically from
-a shell or program script.
+MySQL-tietokanta `kaivos.csc.fi` on tarkoitettu tilanteisiin, joissa CSC:n laskentapalvelimet käyttävät MySQL-tietokantaa datan tallentamiseen ja analysoimiseen. Näissä tapauksissa tietokantaa ei yleensä käytetä interaktiivisesti, vaan MySQL-asiakasta käytetään automaattisesti shell- tai ohjelmointiskriptistä.
 
-Below is a a sample mysql session where database called `DB_A`
-is accessed using the database user account `DB_A_admin`  and
-password `abc123`.  
-In Puhti the command is run under project: project_2000136. The
-database user account information is first stored into `.my.cnf` in home directory:
+Alla on esimerkki mysql-istunnosta, jossa tietokantaa nimeltä `DB_A` käytetään tietokannan käyttäjätilillä `DB_A_admin` ja salasanalla `abc123`. Puhdissa komento suoritetaan projektin nimissä: project_2000136. Tietokannan käyttäjätilitiedot tallennetaan ensin `.my.cnf`-tiedostoon kotihakemistoon:
 
 ```text
 [client]
-user =  DB_A_admin
+user = DB_A_admin
 password = abc123
 host = kaivos.csc.fi
 ```
 
-Below is a sample batch job script, called as `kaivos.bash`,
-that utilizes `kaivos.csc.fi` within the batch queue system.
+Alla on esimerkki eräajon skriptistä, nimeltään `kaivos.bash`, joka hyödyntää `kaivos.csc.fi` eräjonojärjestelmässä.
 
 ```bash
 #!/bin/bash -l
@@ -98,21 +78,11 @@ EOF
 rm -f results.30
 ```
 
-The sample script above first analyzes a file called `inputfile30.data`
-with program `my_program`. The results are first written to file called
-`results.30` . The data in this file is then imported to a database with
-`mysqlimport` command. Note that the script assumes that a table called
-`results` already exists in the database `DB_A` and that the columns in
-the results file are in the same order as in the database table.
+Yllä oleva esimerkkiskripti analysoi ensin tiedoston nimeltä `inputfile30.data` ohjelmalla `my_program`. Tulokset kirjoitetaan ensin tiedostoon nimeltä `results.30`. Tiedoston data tuodaan sitten tietokantaan `mysqlimport`-komennolla. Huomaa, että skripti olettaa, että tietokannassa `DB_A` on jo olemassa taulukko nimeltä `results` ja että tulostiedoston sarakkeet ovat samassa järjestyksessä kuin tietokannan taulukossa.
 
-After importing the data to the database the script launches another
-MySQL command. The second command modifies an existing table called
-`dataset_table`. The mysql command changes the status value in this
-table so that in the row where the `name` column contains the value
-`inputfile30.data`, the `status` column gets the value: `done`.
+Kun data on tuotu tietokantaan, skripti käynnistää toisen MySQL-komennon. Toinen komento muokkaa olemassa olevaa taulukkoa nimeltä `dataset_table`. MySQL-komento muuttaa status-arvon tässä taulukossa niin, että rivillä, jossa `name`-sarake sisältää arvon `inputfile30.data`, `status`-sarake saa arvon: `done`.
 
-The `kaivos.bash` script, described above, can be submitted to the
-batch job system of Puhti with command
+Yllä kuvattu `kaivos.bash`-skripti voidaan lähettää Puhti-eräajojärjestelmään komennolla
 
 ```bash
 sbatch kaivos.bash

@@ -1,39 +1,34 @@
-!!! success "Basic level"
-    This is a simple tutorial to show how to deploy a web server using the Rahti [web interface](../usage/getting_started.md) as
-    the same as the one using the CLI that you can find [here](./deploy_static_webserver_cli.md)
+!!! success "Perustaso"
 
-# Static web server
+Tämä on yksinkertainen opas, joka näyttää, kuinka ottaa käyttöön verkkopalvelin Rahti [web-käyttöliittymän](../usage/getting_started.md) kautta, samalla tavalla kuin komentoriviliittymää käyttäen, jonka löydät [täältä](./deploy_static_webserver_cli.md).
 
-How to set up a static web server in Rahti.
+# Staattinen verkkopalvelin {#static-web-server}
 
-1. Create a project. [Instructions](../usage/projects_and_quota.md)
+Kuinka määrittää staattinen verkkopalvelin Rahtiin.
 
-2. In the Openshift web console, switch to the Developer perspective. Select _Add_ from the navigation panel. To create an application, under Developer Catalog list Select _All services_ and then search for _Apache HTTP Server_, Click the _Apache HTTP Server_, and Select _Instantiate Template_ on the pop-up window on the right.
-    ![Select-httpd](../../img/select-http.png)
-    ![Instantiate-template](../../img/click-template.png)
+1. Luo projekti. [Ohjeet](../usage/projects_and_quota.md)
 
-3. Type in the source Git repository containing the content to be
-    served. Click _Create_ . Here, the sample content is used, and the application is created in the project _http-test-project_.
-    ![type-in-git](../../img/type-git.png)
+2. Vaihda Openshiftin verkkokonsolissa Kehittäjän näkökulmaan. Valitse _Lisää_ navigointipaneelista. Sovelluksen luomiseksi, Kehittäjäkatalogi-luettelossa valitse _Kaikki palvelut_ ja etsi _Apache HTTP Server_, napsauta _Apache HTTP Server_ ja valitse _Instantiate Template_ oikealla puolella olevassa ponnahtusikkunassa.
+   ![Select-httpd](../../img/select-http.png)
+   ![Instantiate-template](../../img/click-template.png)
 
-4. Select _Topology_ from the navigation panel to Navigate to the newly created project and Click name of the project from the graphical map of running applications. Select _Details_ on the pop-up window on the right. Now, the OpenShift dashboard should display information about the application.
-    ![new-project-deployment-config](../../img/click-deploymentConfig.png)
+3. Syötä lähteenä olevan Git-repositorion, joka sisältää palvelimelle toimitettavan sisällön. Napsauta _Luo_. Tässä käytetään esimerkkisisältöä, ja sovellus luodaan projektiin _http-test-project_.
+   ![type-in-git](../../img/type-git.png)
 
- This application is available at Select _Resources_ on the pop-up window on the right under the _Routes_ list.
- [httpd-example-http-test-project.2.rahtiapp.fi](http://httpd-example-http-test-project.2.rahtiapp.fi)
- ![new-app-info](../../img/new-app-info.png)
+4. Valitse _Topologia_ navigointipaneelista siirtyäksesi vastikään luotuun projektiin ja napsauta projektin nimeä käynnissä olevien sovellusten graafisesta kartasta. Valitse _Tiedot_ oikealla olevassa ponnahtusikkunassa. Nyt OpenShift-hallintapaneelin pitäisi näyttää sovellusta koskevia tietoja.
+   ![new-project-deployment-config](../../img/click-deploymentConfig.png)
+
+Tämä sovellus on käytettävissä oikealla olevassa ponnahtusikkunassa kohdassa _Resurssit_ kohdan _Reitit_ -listauksessa.
+[httpd-example-http-test-project.2.rahtiapp.fi](http://httpd-example-http-test-project.2.rahtiapp.fi)
+![new-app-info](../../img/new-app-info.png)
 
 !!! info ""
 
-    If the link did not work, make sure that the browser did not change the address to use `https` instead of intended `http`.
+    Jos linkki ei toimi, varmista, ettei selain muuttanut osoitetta käyttämään `https` sijasta tarkoitettua `http`.
 
-OpenShift processed a template that provisioned
-various objects, such as _Pods_, _Services_, _Routes_, _Deployment_, and
-_Builds_ into the container cloud, and as a result, a web server emerged.
+OpenShift käsitteli mallin, joka toimitti useita objekteja, kuten _Podit_, _Palvelut_, _Reitit_, _Tietojen levitys_ ja _Rakenna_ konttipilveen, ja tämän seurauksena verkkopalvelin luotiin.
 
-For deeper insight in to the created objects, please see:
+Syvempää tietoa luoduista objekteista saat:
 
-* [Core objects](deploy_static_webserver_cli.md) for introduction to the fundamental objects on
-  which OpenShift/Kubernetes applications are built upon.
-* Kubernetes and OpenShift [Concepts](../concepts.md) for how managing applications in
-  OpenShift/Kubernetes is further streamlined using higher abstraction level objects.
+* [Perus-objekteista](deploy_static_webserver_cli.md), johdatus OpenShift/Kubernetes-sovellusten rakentamiseen käytetyistä perustavanlaatuisista objekteista.
+* Kubernetes ja OpenShift [Konseptit](../concepts.md), kuinka sovellusten hallintaa OpenShift/Kuberentesissa yksinkertaistetaan edelleen abstraktiotasolla.

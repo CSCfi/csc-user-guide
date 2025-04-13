@@ -1,39 +1,37 @@
-# Auto-apptainer
 
-Auto-apptainer is a help tool that can be used to add software to a SD Desktop virtual machine. It utilizes a library
-of Apptainer-based software containers, pre-loaded by CSC. You can suggest a container to be added to the library.
+# Auto-apptainer {#auto-apptainer}
 
-Auto-apptainer is not available by default, but you must install it first using [SD Software installer](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
+Auto-apptainer on apuväline, jota voidaan käyttää ohjelmistojen lisäämiseen SD Desktop -virtuaalikoneeseen. Se hyödyntää Apptainer-pohjaisia ohjelmistokontteja sisältävää kirjastoa, jonka CSC on esiladannut. Voit ehdottaa konttia lisättäväksi kirjastoon.
 
-After that you can launch the tool with command:
+Auto-apptainer ei ole käytettävissä oletuksena, vaan sinun täytyy ensin asentaa se käyttämällä [SD-ohjelmiston asentajaa](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
+
+Tämän jälkeen voit käynnistää työkalun komennolla:
 
 ```text
 auto-apptainer
 ```
 
-By default, this lists all the Apptainer packages available for auto-apptainer. From the list you can select the package to be installed.
+Oletuksena tämä listaa kaikki auto-apptainerille saatavilla olevat Apptainer-paketit. Listalta voit valita asennettavan paketin.
 
-Alternatively you can add a filtering criteria to the command. In this case only those containers whose name or one 
-of commands that the container provides, matches the search criteria, are listed.
+Vaihtoehtoisesti voit lisätä suodatuskriteerin komentoon. Tässä tapauksessa listataan vain ne kontit, joiden nimi tai jokin konttien tarjoamista komennoista täsmää hakukriteerien kanssa.
 
-For example command:
+Esimerkiksi komento:
 
 ```test
 auto-apptainer bam
 ```
 
-asks the user to choose from two containers: _bamtools_ and _bedtools_. Bedtools is included as it provides commands `bamToBed` and `bamToFasta` that match the search criteria in this case.
+pyytää käyttäjää valitsemaan kahdesta kontista: _bamtools_ ja _bedtools_. Bedtools sisältyy, koska se tarjoaa komennot `bamToBed` ja `bamToFasta`, jotka täsmäävät hakukriteereihin tässä tapauksessa.
 
-Once a container is selected, one or more Apptainer wrapper-based commands are created to drectory: `/shared-directory/sd-tools/bin`.
-These commands can mostly be used like natively installed commands. For example after installing the Bamtools container, 
-Bamtools can be started with command:
+Kun kontti on valittu, yksi tai useampi Apptainer-käärinpohjainen komento luodaan hakemistoon: `/shared-directory/sd-tools/bin`.
+Näitä komentoja voidaan yleensä käyttää kuin natiiveja asennettuja komentoja. Esimerkiksi Bamtools-kontin asentamisen jälkeen,
+Bamtools voidaan käynnistää komennolla:
 
 ```text
 bamtools
 ```
 
-Below you can find a list of software that can be installed with auto-apptainer. The list can be outdated. You can get an up-to-date
-list by running command `auto-apptainer` in SD Desktop.
+Alta löydät listan ohjelmistoista, jotka voidaan asentaa auto-apptainerilla. Lista voi olla vanhentunut. Voit saada ajan tasalla olevan listan suorittamalla komennon `auto-apptainer` SD Desktopissa.
 
 *  bamtools_2.5.2--hd03093a_1
 *  bcftools_1.20
@@ -51,7 +49,3 @@ list by running command `auto-apptainer` in SD Desktop.
 *  vcftools_v0.1.16-1
 *  vsearch_2.23.0--h6a68c12_0
 *  weeder_2.0--h9f5acd7_7
-
-
-
-

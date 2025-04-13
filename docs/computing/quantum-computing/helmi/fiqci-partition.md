@@ -1,52 +1,48 @@
-# Specific instructions for the FiQCI partition on LUMI
 
-The FiQCI partition of LUMI provides access to the Helmi quantum computer. Access is granted for users belonging to projects that have been granted QPU resources. In addition to running jobs on Helmi via LUMI, users can also use the general LUMI system and software stack including using simulators. 
+# Erityisohjeet LUMIn FiQCI-osioon
 
-!!! info "View status of Helmi"
-	You can check the status of the connection here: [https://fiqci.fi/status](https://fiqci.fi/status)
+LUMIn FiQCI-osio tarjoaa pääsyn Helmi-kvantaalitietokoneeseen. Pääsy myönnetään käyttäjille, jotka kuuluvat projekteihin, joille on myönnetty QPU-resursseja. LUMIn kautta Helmi-laitteella suoritettavien tehtävien lisäksi käyttäjät voivat käyttää yleistä LUMI-järjestelmää ja ohjelmistopinoa, mukaan lukien simulaattoreiden käyttäminen.
 
+!!! info "Helmin tilan tarkistaminen"
+    Voit tarkistaa yhteyden tilan täältä: [https://fiqci.fi/status](https://fiqci.fi/status)
 
-## LUMI Helmi projects vs. regular LUMI projects
+## LUMI Helmi -projektit vs. tavalliset LUMI-projektit {#lumi-helmi-projects-vs-regular-lumi-projects}
 
-Helmi projects are slightly different from standard LUMI projects. The main difference is, that you will
-need to apply for quantum resources in addition to CPU, GPU, and storage.
+Helmi-projektit eroavat hieman tavallisista LUMI-projekteista. Suurin ero on siinä, että sinun tulee hakea kvanttiresursseja CPU-, GPU- ja varastointiresurssien lisäksi.
 
-!!! info "Pilot Phase"
-	During the pilot phase, approved projects will get 24 hours of access to the FiQCI Partition.
-	[See the Call text for details](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/). 
+!!! info "Pilottivaihe"
+    Pilottivaiheen aikana hyväksytyt projektit saavat 24 tuntia pääsyä FiQCI-osioon.
+    [Katso kutsuteksti yksityiskohtia varten](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/).
 
-## The FiQCI partition `q_fiqci`
+## FiQCI-osio `q_fiqci` {#the-fiqci-partition}
 
-Access to Helmi is only available through the FiQCI partition on LUMI, which provides a direct connection between a [LUMI-C
-node](https://docs.lumi-supercomputer.eu/hardware/lumic/) and Helmi.
+Pääsy Helmiin on saatavilla vain LUMIn FiQCI-osion kautta, joka tarjoaa suoran yhteyden [LUMI-C-solmun](https://docs.lumi-supercomputer.eu/hardware/lumic/) ja Helmin välille.
 
-* [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/)
+* [Lisätietoja LUMI-solmuista](https://docs.lumi-supercomputer.eu/hardware/)
 
-There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fiqci`. 
-Currently, the maximum run time of a quantum job is 2 hours.
+Helmin osiossa on yksi jono joka vastaa FiQCI-projekteja: `q_fiqci`.
+Tällä hetkellä kvanttilaskentatehtävän enimmäiskäyttöaika on 2 tuntia.
 
-| Name      | Max walltime | Max jobs |
-| --------- | ------------ | -------- |
-| _q_fiqci_ | _2 hours_    | _64_      |
+| Nimi      | Enimmäisaika | Enimmäistehtävät |
+| --------- | ------------ | ---------------- |
+| _q_fiqci_ | _2 tuntia_   | _64_             |
 
+## Tallennusalueet {#storage-areas}
 
-## Storage areas
+Helmin osiossa käytetään samoja tallennuspolitiikkoja kuin LUMIlla. Katso [lisätietoja LUMI-tallennuksesta täältä](https://docs.lumi-supercomputer.eu/storage/).
 
-The Helmi partition uses the same storage policies as LUMI. You can find [further details on LUMI Storage here](https://docs.lumi-supercomputer.eu/storage/).
+## Käyttö ja laskutus {#usage-and-billing}
 
-## Usage and Billing
+Kvanttijärjestelmäprojektit toimivat samankaltaisesti kuin tavallinen LUMI-järjestelmä. Tärkeimmät erot ovat:
 
-Quantum computing projects work similarly to the regular LUMI system. The main differences are:
+1. FiQCI-projekteissa käytetään `--partition=q_fiqci` osiota tavanomaisen LUMI-C `--partition=standard` ja `--partition=small` sijasta.
+2. Enimmäistöksen käyttöaika on **2 tuntia**.
+3. Käyttö laskutetaan QPU-sekunteina **QPUs**:na `q_fiqci` osiossa.
+4. LUMI-Helmi laskentaympäristö on ladattava erikseen. Katso [Suorittaminen Helmissä](./running-on-helmi.md) yksityiskohtia varten.
 
-1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C `--partition=standard` and `--partition=small`.
-2. The maximum job walltime is **2 hours**.
-3. Usage is billed as QPU seconds **QPUs** in `q_fiqci`. 
-4. The LUMI-Helmi computing environment has to be loaded separately. See [Running on Helmi](./running-on-helmi.md) for details.
+Tällä hetkellä `q_fiqci` jonon kautta suoritettavat tehtävät kuluttavat QPU-sekunteja sen mukaan, kuinka paljon käyttöaikaa kuluu `q_fiqci` jonossa.
 
-Presently, running through the `q_fiqci` queue will consume QPU seconds for the amount of wall-time spent running in the `q_fiqci` queue.
+!!! success "Käytettyjen QPUsien kysely"
+    Voit tarkistaa käytetyt QPUsit käyttämällä `lumi-allocations` työkalua.
 
-!!! success "Querying your used QPUs"
-    You can check your used QPUs using the `lumi-allocations` tool. 
-
-
-Helmi-specific support can be reached via the [CSC Service Desk](../../../support/contact.md). Note that presently, user support is limited to technical issues.
+Helmi-spesifiseen tukeen pääsee [CSC Service Deskin](../../../support/contact.md) kautta. Huomaa, että tällä hetkellä käyttäjätuki on rajoitettu teknisiin kysymyksiin.

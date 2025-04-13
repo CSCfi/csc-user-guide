@@ -1,144 +1,100 @@
-# Training & tutorials
+# Koulutus ja ohjeet {#training-tutorials}
 
-## Renewed research.csc.fi website launched, 26.02.2025
+## Uudistunut research.csc.fi-sivusto julkistettu, 26.02.2025 {#renewed-research-csc-fi-website-launched-26-02-2025}
 
-In addition to a fresh new look, the _Services for research_ website has been restructured based on feedback from our users and following best User Interface and User Experience (UI/UX) design practices. The content has also been streamlined in a way which we hope will make finding information about CSC’s services easier. One of the new features&mdash;a pre-header for navigating between different CSC websites&mdash;has also been introduced to Docs CSC. [Read the blog at research.csc.fi to learn more.](https://research.csc.fi/2025/01/23/renewed-research-csc-fi-website-aims-to-clarify-cscs-service-offering-and-improve-end-user-communication/){ target=_blank }
+Palautteen perusteella ja parhaita käyttöliittymä- ja käyttäjäkokemussuunnittelun käytäntöjä noudattaen, _Palvelut tutkijoille_ -sivusto on uudistettu antaen sille raikkaan ulkoasun. Sisältöä on virtaviivaistettu tavoitteenamme helpottaa tietojen löytämistä CSC:n palveluista. Yksi uusista ominaisuuksista—esiväliotsikko, joka auttaa navigoimaan eri CSC-sivustojen välillä—on otettu käyttöön myös Docs CSC:ssä. [Lue lisää uudistuksista blogista research.csc.fi-sivustolla.](https://research.csc.fi/2025/01/23/renewed-research-csc-fi-website-aims-to-clarify-cscs-service-offering-and-improve-end-user-communication/){ target=_blank }
 
-## Visual changes for Docs CSC, 17.10.2024
+## Docs CSC:n visuaaliset muutokset, 17.10.2024 {#visual-changes-for-docs-csc-17-10-2024}
 
-In order to streamline technical development for the Docs CSC platform, some visual customizations have been rolled back. Most notably, the styling of the navigation sidebars. This change does not affect the content nor the structure of the site and will allow new features from the underlying technology&mdash;i.e. _Material for MkDocs_&mdash;to be enabled with less effort.
+Docs CSC -alustan teknisen kehityksen virtaviivaistamiseksi osa visuaalisista mukautuksista on poistettu käytöstä, merkittävin muutos koskee navigointisivupalkkien tyylejä. Tämä muutos ei vaikuta sivuston sisältöön eikä rakenteeseen, ja se mahdollistaa uusien ominaisuuksien käyttöönoton _Material for MkDocs_ -teknologian avulla pienemmällä vaivalla.
 
-## New guide for working with large language models on CSC's supercomputers, 6.9.2024
+## Uusi opas suurten kielimallien kanssa työskentelyyn CSC:n supertietokoneilla, 6.9.2024 {#new-guide-for-working-with-large-language-models-on-cscs-supercomputers-6-9-2024}
 
-We have created a new [guide for working with large language models
-(LLMs) on CSC's supercomputers](../tutorials/ml-llm.md). The guide
-discusses LLMs and GPU memory, fine-tuning and inference. The linked
-GitHub repository has examples for fine-tuning popular models on Puhti
-and Mahti. LUMI examples and more in-depth topics will be added later.
+Olemme luoneet uuden [oppaan suurten kielimallien (LLMs) kanssa työskentelyyn CSC:n supertietokoneilla](../tutorials/ml-llm.md). Oppaassa käsitellään LLM:ien ja GPU-muistin käyttöä, hienosäätöä sekä ennustamista. Liitetyssä GitHub-repossa on esimerkkejä suosittujen mallien hienosäätöön Puhti- ja Mahti-koneilla. LUMI-esimerkit ja syvällisemmät aiheet lisätään myöhemmin.
 
-## New guide for getting started with supercomputing at CSC, 24.7.2024
+## Uusi opas CSC:n superlaskennan aloittamiseen, 24.7.2024 {#new-guide-for-getting-started-with-supercomputing-at-csc-24-7-2024}
 
-We wrote a brand new guide for
-[getting started with supercomputing at CSC](../tutorials/hpc-quick.md),
-in which we help users find the most suitable resources for their needs and
-the most effective way of using them. The guide is useful for both total HPC
-beginners as well as more experienced practitioners who are nonetheless new to
-the CSC computing environment.
+Olemme kirjoittaneet uuden oppaan [CSC:n superlaskennan aloittamiseen](../tutorials/hpc-quick.md), jossa autamme käyttäjiä löytämään heidän tarpeisiinsa parhaiten soveltuvat resurssit ja tehokkaimman tavan käyttää niitä. Opas on hyödyllinen sekä täysin uusille HPC-käyttäjille että kokeneille ammattilaisille, jotka ovat kuitenkin uusia CSC:n tietojenkäsittely-ympäristössä.
 
-## New guide for using Python effectively on CSC supercomputers, 27.6.2024
+## Uusi opas Pythonin tehokkaaseen käyttöön CSC:n supertietokoneilla, 27.6.2024 {#new-guide-for-using-python-effectively-on-csc-supercomputers-27-6-2024}
 
-We have reworked our Python documentation. Instructions on installing packages,
-using different development environments and running parallel jobs have been
-updated and are now found under a guide called
-[*Using Python on CSC supercomputers*](../tutorials/python-usage-guide.md).
+Olemme uudistaneet Python-dokumentaatiotamme. Ohjeet pakettien asentamiseen, eri kehitysympäristöjen käyttöön ja rinnakkaisten tehtävien suorittamiseen on päivitetty ja ne löytyvät nyt oppaasta nimeltä [*Using Python on CSC supercomputers*](../tutorials/python-usage-guide.md).
 
-The [Python application page](../../apps/python.md) has been simplified
-to purely describe the different Python implementations in our computing
-environment. As a new addition there is a [list of our pre-made Python
-environment modules](../../apps/python.md#pre-installed-python-environments)
-along with their intended purposes and included packages.
+[Python-sovellussivu](../../apps/python.md) on yksinkertaistettu kuvaamaan vain eri Python-toteutuksia tietojenkäsittely-ympäristössämme. Uutena lisäyksenä siellä on [luettelo valmiista Python-ympäristömoduuleistamme](../../apps/python.md#pre-installed-python-environments), sekä niiden käyttötarkoitukset ja sisäänrakennetut paketit.
 
-## Spring School on Computational Chemistry materials available for self learning, 10.5.2024
+## Computaatiokemian kevätkoulun materiaalit saatavilla omatoimiseen opiskeluun, 10.5.2024 {#spring-school-on-computational-chemistry-materials-available-for-self-learning-10-5-2024}
 
-The [School materials](https://zenodo.org/records/11172973) cover intro to molecular
-dynamics and electronic structure theory lectures and hands-on exercises, and machine
-learning for molecular and material use cases. You can also access the Notebooks directly
-via the [Puhti web interface](https://www.puhti.csc.fi) (once logged in, select "Jupyter for
-courses" and the desired course module.)
+[Koulun materiaalit](https://zenodo.org/records/11172973) kattavat johdannon molekyylidynamiikkaan ja elektronirakenteen teoriaan liittyvät luennot ja harjoitukset sekä koneoppimisen molekyyli- ja materiaalitieteisiin liittyvissä sovelluksissa. Voit myös käyttää Notepadia suoraan [Puhtin verkkoliittymän kautta](https://www.puhti.csc.fi) (kirjauduttuasi valitse "Jupyter for courses" ja haluamasi kurssimoduuli).
 
-## How to run GROMACS efficiently on LUMI training materials published, 6.2.2024
+## Kuinka ajaa GROMACSia tehokkaasti LUMI-materiaalit julkaistu, 6.2.2024 {#how-to-run-gromacs-efficiently-on-lumi-training-materials-published-6-2-2024}
 
-The materials from the workshop "How to run GROMACS efficiently on LUMI" are
-now [available in the Zenodo repository](https://zenodo.org/records/10610643).
+Työpajan "Kuinka ajaa GROMACSia tehokkaasti LUMI:lla" materiaalit ovat nyt [saatavilla Zenodo-repossa](https://zenodo.org/records/10610643).
 
-## Access CSC newsletter and mailing list archives from Docs CSC, 13.12.2023
+## CSC:n uutiskirjeen ja postituslistan arkistot saatavilla Docs CSC:stä, 13.12.2023 {#access-csc-newsletter-and-mailing-list-archives-from-docs-csc-13-12-2023}
 
-The _Contact_ page has been updated to include a selection of [CSC newsletter and mailing list archives](../contact.md#archives).
-Look here if you're having trouble finding an email or a newsletter sent to you by CSC!
+_Yhteyssivu_ on päivitetty ja se sisältää valikoiman [CSC:n uutiskirjeen ja postituslistan arkistoja](../contact.md#archives). Katso täältä, jos sinulla on vaikeuksia löytää sähköpostia tai sinulle lähetettyä uutiskirjettä CSC:ltä!
 
-## New way to provide feedback on pages in Docs CSC, 30.10.2023
+## Uusi tapa antaa palautetta Docs CSC sivujen kautta, 30.10.2023 {#new-way-to-provide-feedback-on-pages-in-docs-csc-30-10-2023}
 
-Docs CSC now features feedback buttons at the bottom of every page.
+Docs CSC:ssa on nyt palautepainikkeet jokaisen sivun alareunassa.
 
->![Feedback buttons](../../img/whats-new/feedback-buttons.png)
+>![Palautepainikkeet](../../img/whats-new/feedback-buttons.png)
 
-The buttons present a quick and easy way of providing feedback on a particular page.
+Painikkeet tarjoavat nopean ja helpon tavan antaa palautetta tietystä sivusta.
 
-## Changes in navigation on Docs CSC, 22.02.2023
+## Muutoksia Docs CSC:n navigoinnissa, 22.02.2023 {#changes-in-navigation-on-docs-csc-22-02-2023}
 
-Some changes have been made to how the sidebar navigation works on Docs CSC. Many of the sections
-have had pages like _Overview_, _Contents_ or other index-like pages moved under the section
-headings themselves, which are now links:
+Docs CSC:n sivupalkkinavigoinnissa on tehty muutoksia. Monet osiot, kuten _Yleiskatsaus_, _Sisältö_ tai muut indeksin kaltaiset sivut ovat siirtyneet itse osioiden otsikoiden alle, joista on nyt tehty linkkejä:
 
-| Before | After |
+| Ennen | Jälkeen |
 |-|-|
-| ![Navigation before changes](../../img/whats-new/nav-before.png) | ![Navigation after changes](../../img/whats-new/nav-after.png) |
+| ![Navigointi ennen muutoksia](../../img/whats-new/nav-before.png) | ![Navigointi muutosten jälkeen](../../img/whats-new/nav-after.png) |
 
-## New guide for working with Earth Observation data, 19.01.2023
+## Uusi opas kaukokartoitusdatan kanssa työskentelyyn, 19.01.2023 {#new-guide-for-working-with-earth-observation-data-19-01-2023}
 
-The [Earth Observation guide](../tutorials/gis/eo_guide.md) aims to help researchers to work with Earth Observation (EO) data by giving an overview of available data and tools for raster data based EO tasks. The focus of the guide is on using CSC computing resources for EO data processing and analysis. However, it also includes some information of non CSC related options for processing and download of EO data.
+[Maanhavainnointidata-opas](../tutorials/gis/eo_guide.md) on suunniteltu auttamaan tutkijoita työskennellessä Maan havainnointidatan (EO) kanssa antamalla yleiskatsauksen käytettävissä olevista datalähteistä ja työkaluista rasteripohjaisiin EO-tehtäviin. Oppaan keskiössä on CSC:n tietojenkäsittelyresurssien käyttö EO-datan käsittelyssä ja analysoinnissa. Lisäksi se sisältää tietoa CSC:n ulkopuolisista vaihtoehdoista EO-datan prosessointiin ja lataamiseen.
 
-## Training materials and sources from CSC and partners, 12.12.2022
+## Koulutusmateriaalit ja lähteet CSC:ltä ja partnereilta, 12.12.2022 {#training-materials-and-sources-from-csc-and-partners-12-12-2022}
 
-Check out this [concise table of training materials](../training-material/index.md#training-materials-and-sources-from-csc-and-partners)
-available from us and our partners on many topics related to doing science
-with computers.
+Tutustu tähän [tiiviiseen taulukkoon koulutusmateriaaleista](../training-material/index.md#training-materials-and-sources-from-csc-and-partners), jotka ovat saatavilla meiltä ja kumppaneiltamme liittyen moniin tietokoneavusteisen tieteen aiheisiin.
 
-## A new visual appearance for Docs CSC, 18.8.2022
+## Uusi ulkoasu Docs CSC:lle, 18.8.2022 {#a-new-visual-appearance-for-docs-csc-18-8-2022}
 
-In an effort to maintain a coherent style across CSC websites, Docs CSC has gained a
-refreshed visual appearance.
+Pyrkimyksenä ylläpitää yhtenäistä tyyliä CSC:n verkkosivustoilla, Docs CSC on saanut päivitetyn visuaalisen ilmeen.
 
-## Documentation on custom Jupyter notebooks for your courses, 13.6.2022
+## Dokumentaatio räätälöidyistä Jupyter Notepadeista kursseillesi, 13.6.2022 {#documentation-on-custom-jupyter-notebooks-for-your-courses-13-6-2022}
 
-Our documentation on [custom Jupyter notebooks for your courses](https://github.com/CSCfi/Jupyter_www_puhti)
-has been extended. Trainers or course organisers can leverage the power
-of supercomputers for their courses in easy-to-use Jupyter notebooks at CSC.
-Using custom notebooks in courses is very user-friendly and scalable for remote
-or onsite courses.
+Dokumentaatiomme [räätälöidyistä Jupyter Notepadeista kursseillesi](https://github.com/CSCfi/Jupyter_www_puhti) on laajennettu. Kouluttajat tai kurssijärjestäjät voivat hyödyntää supertietokoneiden voimaa kursseillaan helppokäyttöisissä Jupyter-notebookeissa CSC:llä. Räätälöityjen jukaisujen käyttö kursseilla on erittäin käyttäjäystävällistä ja skaalautuu sekä etä- että lähikursseille.
 
-## Documentation on High-throughput computing and workflows updated, 6.6.2022
+## Dokumentaatio korkean läpimenon laskennasta ja työnkuluista päivitetty, 6.6.2022 {#documentation-on-high-throughput-computing-and-workflows-updated-6-6-2022}
 
-Our documentation on [high-throughput computing and workflows](../../computing/running/throughput.md)
-has been updated and extended. The page contains important instructions and
-guidelines on how to run workflows and tasks with heavy IO patterns in CSC's
-computing environment. By carefully selecting the most appropriate technology
-stack, your jobs will idle less in the queue, IO-operations will be more
-efficient and the performance of the whole HPC system will remain stable and
-fast for all users. To this end, the page presents flow charts that will help
-you narrow down the most appropriate tools for your use case.
+Dokumentaatiomme [korkean läpimenon laskennasta ja työnkuluista](../../computing/running/throughput.md) on päivitetty ja laajennettu. Sivulla on tärkeitä ohjeita kuinka suorittaa maskimalaiset tulokastrategiat painavaa IO-kuormitusta sisältävissä työnkuluissa CSC:n tietojenkäsittely-ympäristössä. Oikean teknologiapinon valinnalla työsi jonoutuvat vähemmän, IO-operaatiot tehostuvat ja koko HPC-järjestelmän suorituskyky säilyy vakaana ja nopeana kaikille käyttäjille. Tältä osin sivulla esitellään vuokaavioita, jotka auttavat sinua rajaamaan käyttöösi parhaiten soveltuvan työkalun.
 
-## New guide for getting started with machine learning at CSC, 8.4.2022
+## Uusi opas koneoppimisen aloittamiseen CSC:llä, 8.4.2022 {#new-guide-for-getting-started-with-machine-learning-at-csc-8-4-2022}
 
-Even experienced machine learning users might have a hard time taking the leap
-into the supercomputer environment as things work a bit differently than in the
-personal computing environment. We have now created [a guide to help people get
-started with doing machine learning at CSC](../tutorials/ml-starting.md). The
-guide shows, step by step, how to get your codes and data to Puhti and running
-on GPUs.
+Jopa kokeneilla koneoppimiskäyttäjillä saattaa olla vaikeuksia astua supertietokoneympäristöön, sillä asiat toimivat hiukan eri tavalla kuin henkilökohtaisessa tietojenkäsittelyssä. Olemme nyt luoneet [oppaan auttamaan koneoppimisen aloittamisessa CSC:llä](../tutorials/ml-starting.md). Opas näyttää vaihe vaiheelta kuinka saat koodisi ja datasi Puhtiin ja käynnistät GPU:illa.
 
-## How does LUMI-C differ from Mahti? 6.4.2022
+## Kuinka LUMI-C eroaa Mahtista? 6.4.2022 {#how-does-lumi-c-differ-from-mahti-6-4-2022}
 
-[A brief overview of key differences between LUMI-C and CSC supercomputers](../../computing/lumi-vs-mahti.md), notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!
+[Tiivis katsaus keskeisiin eroihin LUMI-C:n ja CSC:n supertietokoneiden välillä](../../computing/lumi-vs-mahti.md), erityisesti Mahti, on julkaistu. Katso tämä sivu saadaksesi nopeasti käsityksen, mihin seikkoihin uusien LUMI-käyttäjien tulisi kiinnittää huomiota ja mistä saat lisätietoa!
 
-## Tutorial on managing data on scratch disks, 5.4.2022
+## Opetusohjelma datan hallinnasta `scratch`-levyillä, 5.4.2022 {#tutorial-on-managing-data-on-scratch-disks-5-4-2022}
 
-A [best practice guide on managing data on Puhti and Mahti `scratch` disks](../tutorials/clean-up-data.md) has been published. The tutorial explains why it's important to keep your project's `scratch` disk free from inactive data and gives recommendations on what you should do with data that is not currently in active use. Tips on how to identify where you have large amounts of data are also provided, along with a note on the future automatic removal of files.
+[Paras käytöntiä opas siitä, kuinka hallita dataa Puhtin ja Mahtin `scratch`-levyillä](../tutorials/clean-up-data.md) on julkaistu. Oppaassa selitetään, miksi on tärkeää pitää projektisi `scratch`-levy vapaana passiivisesta datasta ja annetaan suosituksia, mitä tehdä datalla, joka ei ole aktiivisessa käytössä. Opit myös tunnistamaan, missä sinulla on suuria määriä dataa sekä saamaan tietoa tulevasta automaattisesta tiedostojen poistamisesta.
 
-## FireWorks workflow tool, 15.2.2022
+## FireWorks työnkulkuväline, 15.2.2022 {#fireworks-workflow-tool-15-2-2022}
 
-A [guide on using FireWorks](../../computing/running/fireworks.md) in CSC's computing environment has been released. The guide explains how to use an external MongoDB on Rahti as a backend database for FireWorks and how to launch workflows running parallel jobs through the batch queue system.
+Opas [FireWorks välineen käytöstä](../../computing/running/fireworks.md) CSC:n tietojenkäsittely-ympäristössä on julkaistu. Opas selittää, kuinka käyttää ulkoista MongoDB-tietokantaa Rahti-alustalla FireWorks-työnkulun taustatietokantana ja kuinka käynnistää rinnakkaisia ajoja batch-työjonoa käyttämällä.
 
-## Accessing databases on Rahti from CSC supercomputers, 8.2.2022
+## Tietokantojen käyttö Rahti-alustalla CSC:n supertietokoneilta, 8.2.2022 {#accessing-databases-on-rahti-from-csc-supercomputers-8-2-2022}
 
-A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md) has been published. The tutorial describes the process of setting up MongoDB on Rahti and how to establish an HTTP-compatible connection between the database and Puhti/Mahti using the WebSocat tool.
+[Opetusohjelma siitä, kuinka yhdistää tietokantoihin Rahti-alustalla CSC:n supertietokoneilta](../../cloud/rahti/tutorials/connect-database-hpc.md) on julkaistu. Opetusohjelma kuvaa prosessin MongoDB:n asettamista Rahti-alustalla ja kuinka luoda HTTP-yhteensopiva yhteys tietokannan ja Puhtin/Mahtin välille käyttämällä WebSocat-työkalua.
 
-## New machine learning guide released, 20.12.2021
+## Uusi koneoppimisen opas julkaistu, 20.12.2021 {#new-machine-learning-guide-released-20-12-2021}
 
-Our [Machine learning guide](../tutorials/ml-guide.md) has been updated and
-expanded. It now includes subsections on:
+Koneoppimisoppaamme [Machine learning guide](../tutorials/ml-guide.md) on päivitetty ja laajennettu. Se sisältää nyt alaluvut:
 
-* [GPU-accelerated machine learning](../tutorials/gpu-ml.md)
-* [Data storage for machine learning](../tutorials/ml-data.md)
-* [Multi-GPU and multi-node machine learning](../tutorials/ml-multi.md)
-* [Hyperparameter search](../tutorials/hyperparameter_search.md)
+* [GPU-kiihdytetty koneoppiminen](../tutorials/gpu-ml.md)
+* [Koneoppimiseen liittyvä datan tallennus](../tutorials/ml-data.md)
+* [Moni-GPU ja moni-nodi koneoppiminen](../tutorials/ml-multi.md)
+* [Hyperparametrien haku](../tutorials/hyperparameter_search.md)

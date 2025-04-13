@@ -1,38 +1,40 @@
-!!! error "Advanced level"
-    You need to have Linux, Docker, Docker Compose and Kompose knowledge. Python knowledge is a plus.  
-    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../usage/cli.md)
+Here is the translated content from English to Finnish, applying the requested guidelines:
 
-# How to deploy 4cat in Rahti
+```markdown
+!!! error "Edistynyt taso"
+    Sinun on hallittava Linux, Docker, Docker Compose ja Kompose. Python-osaaminen on plussaa. 
+    Rahtin osalta suosimme OpenShift CLI -työkalun [oc](../usage/cli.md) käyttöä.
 
-This tutorial is a long format one, it explains all the different steps that were necessary to deploy the [4cat_fi](https://github.com/uh-dcm/4cat_fi) application into Rahti. The idea is to explain the story of how the different issues were found and solved. Each issue will have its own chapter and hopefully the solution will be easy to apply to any other application with similar symptoms. We will omit some of the false solutions and leads that I followed when I originally tried to deploy this application for the sake of keeping this tutorial from growing exponentially. But keep in mind that these kind of processes are rarely straight forward and that to find the solution you normally find a lot of non solutions.
+# Kuinka käyttää 4catia Rahtissa {#how-to-deploy-4cat-in-rahti}
 
-4Cat is a capture and analysis toolkit. From the Github page linked above, we learnt that the tool is used for analysing social media platforms and that one of the installation methods is docker compose. This is good news because:
+Tässä opetusohjelmassa on kyse pitkästä muodosta: se selittää kaikki eri vaiheet, jotka tarvittiin [4cat_fi](https://github.com/uh-dcm/4cat_fi) -sovelluksen käyttöönottoon Rahtissa. Ideana on selittää, miten eri ongelmat löydettiin ja ratkaistiin. Jokaisella ongelmalla on oma kappaleensa ja toivottavasti ratkaisu on helppo soveltaa mihin tahansa muuhun sovellukseen samanlaisin oirein. Jätämme pois joitakin vääriä ratkaisuja ja johtolankoja, joita seurasin, kun yritin alun perin asentaa sovelluksen, jotta tämä opetusohjelma ei kasvaisi eksponentiaalisesti. Mutta pidä mielessä, että tällaiset prosessit ovat harvoin suoraviivaisia ja että ratkaisun löytämiseksi löydät yleensä paljon ei-ratkaisuja.
 
-1. We can test the application deployment using docker compose and see how it looks.
-1. We do not need to create a docker container from scratch.
-1. We can use the docker compose deployment as a base and adapt it to Kubernetes deployment using [kompose](https://kompose.io). This tool is specifically designed to make these conversions. From their website: "Our conversions are not always 1:1 from Docker Compose to Kubernetes, but we will help get you 99% of the way there!". And it indeed will save us a lot of tedious conversion time, but it will not be the end of it.
+4Cat on tallennus- ja analyysityökalu. Yllä linkitetyn GitHub-sivun mukaan opimme, että työkalua käytetään sosiaalisen median alustojen analysointiin ja että yksi asennusmenetelmistä on docker compose. Tämä on hyvä uutinen, koska:
 
-!!! warning "Linux 🐧 is used for all the examples"
-    We have prepared this tutorial using a Linux machine. In principle, with a bit of adapting all these commands run also in Windows and Mac, but if confused I recommend you to [install a tiny VM in Pouta](../../pouta/launch-vm-from-web-gui.md) and use it for following the tutorial instead. This is useful even for Linux users, as you will be able to install, uninstall or change software without risking corrupting your local installation.
+1. Voimme testata sovelluksen käyttöönottoa docker compose avulla ja nähdä miltä se näyttää.
+1. Meidän ei tarvitse luoda docker-konttia alusta alkaen.
+1. Voimme käyttää docker compose käyttöönottoa pohjana ja mukauttaa sen Kubernetes-käyttöön [kompose](https://kompose.io)-työkalun avulla. Tämä työkalu on erityisesti suunniteltu tekemään nämä muunnokset. Heidän verkkosivustoltaan: "Muunnot eivät aina ole 1:1 Docker Composesta Kubernetesiin, mutta autamme pääsemään 99% sinne!". Ja se todella säästää meille paljon vaivalloista muunnosaikaa, mutta ei lopettaa sitä tähän.
 
+!!! warning "Linux 🐧 käytetään kaikissa esimerkeissä"
+    Olemme valmistaneet tämän opetusohjelman käyttämällä Linux-konetta. Periaatteessa, pienellä mukautuksella kaikki nämä komennot toimivat myös Windowsissa ja Macissä, mutta jos olet ymmällä, suosittelen asentamaan pienen VM:n Poutaan](../../pouta/launch-vm-from-web-gui.md) ja käyttämään sitä opetusohjelman seuraamisessa. Tämä on hyödyllistä jopa Linux-käyttäjille, sillä pystyt asentamaan, poistamaan tai muuttamaan ohjelmistoa vaarantamatta paikallista asennustasi.
 
-## Docker compose
+## Docker compose {#docker-compose}
 
-1. Before continuing, we will need to have docker and the docker compose plugin installed. You can find instructions on how to install docker compose here:
+1. Ennen jatkamista tarvitsemme dockerin ja docker compose pluginin asennettuna. Löydät ohjeet docker composen asentamiseen täältä:
 
     - <https://docs.docker.com/compose/install/>
 
-    For Debian and Ubuntu you can install it by:
+    Debian- ja Ubuntu-käyttöjärjestelmiin voit asentaa sen seuraavasti:
 
     ```sh
     sudo apt-get update
     sudo apt-get install docker.io docker-compose
     ```
 
-    !!! Info "Alternatives to docker 🐋"
-        You can instead use podman compose or similar, but we will use docker as it is the most common tool.
+    !!! Info "Vaihtoehdot dockerille 🐋"
+        Voit käyttää myös podman composea tai vastaavaa, mutta me käytämme dockeria, sillä se on yleisin työkalu.
 
-1. Once docker compose is installed, let's deploy 4cat and see how the it looks and works. You will need to clone the repository and run docker-compose inside the cloned folder:
+1. Kun docker compose on asennettu, otetaan 4cat käyttöön ja katsotaan, miltä se näyttää ja miten se toimii. Sinun tulee kloonata arkisto ja ajaa docker-compose kloonatussa kansiossa:
 
     ```sh
     git clone https://github.com/uh-dcm/4cat_fi
@@ -40,17 +42,17 @@ This tutorial is a long format one, it explains all the different steps that wer
     sudo docker compose up
     ```
 
-    This will start the process for deploying the application in the machine. It can take some time to pull the images and configure the application. If you `Ctrl+C` the application will exit. If you want to run it on the background, you just need to add `-d` or  `--detach` to the docker-compose command.
+    Tämä käynnistää sovelluksen käyttöönoton koneella. Voi viedä jonkin aikaa ladattavaksi kuvat ja konfiguroitava sovellus. Jos painat `Ctrl+C`, sovellus sulkeutuu. Jos haluat käyttää sitä taustalla, sinun on vain lisättävä `-d` tai `--detach` docker-compose-komentoon.
 
-    ![docker-compose output](../../img/4cat-docker-compose.png)
+    ![docker-compose tuloste](../../img/4cat-docker-compose.png)
 
-    After a while the application will be available on port `80` (The `PUBLIC_PORT`):
+    Jonkin ajan kuluttua sovellus on käytettävissä portissa `80` (`PUBLIC_PORT`):
 
-    ![4cat first run](../../img/4cat.png)
+    ![4cat ensimmäinen ajo](../../img/4cat.png)
 
-### Analysis
+### Analyysi {#analysis}
 
-The [docker-compose.yml](https://github.com/digitalmethodsinitiative/4cat/blob/master/docker-compose.yml) file is the following:
+[docker-compose.yml](https://github.com/digitalmethodsinitiative/4cat/blob/master/docker-compose.yml) tiedosto on seuraava:
 
 ```yaml
 services:
@@ -98,7 +100,7 @@ services:
       - db
       - backend
     ports:
-      - ${PUBLIC_PORT}:500
+      - ${PUBLIC_PORT}:5000
       - ${TELEGRAM_PORT}:443
     volumes:
       - 4cat_data:/usr/src/app/data/
@@ -117,45 +119,45 @@ volumes:
     name: ${DOCKER_LOGS_VOL}
 ```
 
-Also let's check the [.env](https://github.com/uh-dcm/4cat_fi/blob/master/.env) file:
+Käydään myös läpi [.env](https://github.com/uh-dcm/4cat_fi/blob/master/.env) tiedosto:
 
 ```ini
-# 4CAT Version: Update with latest release tag or 'latest'
+# 4CAT Versio: Päivitä viimeisimmällä julkaisusivutäkillä tai 'latest'
 # https://hub.docker.com/repository/docker/digitalmethodsinitiative/4cat/tags?page=1&ordering=last_updated
 DOCKER_TAG=stable
-# You can select Postrgres Docker image tags here to suit your needs: https://hub.docker.com/_/postgres
+# Voit valita Postrgres Docker-kuvamerkinnät täältä tarpeidesi mukaan: https://hub.docker.com/_/postgres
 POSTGRES_TAG=latest
 
-# Database setup
+# Tietokannan asetus
 POSTGRES_USER=fourcat
 POSTGRES_PASSWORD=supers3cr3t
 POSTGRES_DB=fourcat
 POSTGRES_HOST_AUTH_METHOD=trust
-# POSTGRES_HOST should correspond with the database container name set in docker-compose.yml
+# POSTGRES_HOST tule olla tietokantapalvelimen nimi, joka on asetettu docker-compose.yml-tiedostossa
 POSTGRES_HOST=db
-POSTGRES_PORT=5432  # Docker postgres image uses port 5432
+POSTGRES_PORT=5432  # Docker postgres-kuva käyttää porttia 5432
 
-# Server information
-# SERVER_NAME is only used on first run; afterwards it can be set in the frontend
+# Palvelininformaatio
+# SERVER_NAME käytetään vain ensimmäisellä käynnistyksellä; sen jälkeen sen voi asettaa frontendissä
 SERVER_NAME=localhost
 PUBLIC_PORT=80
 
 # Backend API
-# API_HOST is used by the frontend; in Docker it should be the backend container name
-# (or "localhost" if front and backend are running together in one container
+# API_HOST käyttää frontend; Dockerissa sen tulisi olla backend-palvelimen nimi
+# (tai "localhost", jos front- ja backend toimivat yhdessä yksi kontissa)
 API_HOST=backend
 PUBLIC_API_PORT=4444
 
-# Telegram apparently needs its own port
+# Telegram tarvitsee ilmeisesti oman porttinsa
 TELEGRAM_PORT=443
 
-# Docker Volume Names
+# Docker-tilauksen nimiä
 DOCKER_DB_VOL=4cat_4cat_db
 DOCKER_DATA_VOL=4cat_4cat_data
 DOCKER_CONFIG_VOL=4cat_4cat_config
 DOCKER_LOGS_VOL=4cat_4cat_logs
 
-# Gunicorn settings
+# Gunicorn-asetukset
 worker_tmp_dir=/dev/shm
 workers=4
 threads=4
@@ -163,33 +165,33 @@ worker_class=gthread
 log_level=debug
 ```
 
-As you can see this `docker-compose.yml` file is a [YAML](https://en.wikipedia.org/wiki/YAML) file with two main sections: `services` and `volumes`. There are 3 `services` and 4 `volumes`. In Kubernetes this will mean 3 `Deployments` and 4 `PersistentVolumeClaim`s (PVC). The most important fields of a service are:
+Kuten näette, tämä `docker-compose.yml`-tiedosto on [YAML](https://en.wikipedia.org/wiki/YAML) -tiedosto, joka sisältää kaksi pääosaa: `services` ja `volumes`. Palveluita on 3 ja volyymia 4. Kubernetesissa tämä tarkoittaa 3 `Deployments` -sovellusta ja 4 `PersistentVolumeClaim`-ratkaisua (PVC). Palvelun tärkeimmät kentät ovat:
 
-- `image` is the image that docker will need to pull and run for every service. In our case, we have two different images, the `postgres` image (a well known database) and the `4cat_fi` one. `Frontend` and `backend` use the same image, but have a different command/entry point. As docker compose is working we know that both images exists and can be pulled with no issue.
-- `environment` and `env_file` define the environment variables that will configure the services. For example `POSTGRES_PASSWORD` is used to pass the password to the database.
-- `volumes` is where we tell docker which volumes we need to be attached to the service and in which folder they need to be mounted.
-- `ports` tells us the public ports, the internal ports, and the mapping between themselves. The notation is `<external_port>:<internal_port>`.
-- `entrypoint` and `command` are the commands to be executed when the image is launched. Postgres does not have either due to the fact that we will use the default `command`/`entrypoint` defined in the image.
+- `image` on kuva, joka dockerin täytyy ladata ja ajaa jokaiselle palvelulle. Meidän tapauksessa meillä on kaksi erilaista kuvaa, `postgres` (tunnettu tietokanta) ja `4cat_fi`. `Frontend` ja `backend` käyttävät samaa kuvaa, mutta niillä on eri komento/käynnistyskohta. Koska docker compose toimii, tiedämme, että molemmat kuvat ovat olemassa ja voidaan ladata ilman ongelmia.
+- `environment` ja `env_file` määrittelevät ympäristömuuttujat, jotka konfiguroivat palvelut. Esimerkiksi `POSTGRES_PASSWORD` käytetään tietokannan salasanan välittämiseen.
+- `volumes`-kohta kertoo dockerille, mitkä volyymit tulee liittää palveluun ja mihin kansioon ne pitää kiinnittää.
+- `ports` kertoo meille julkiset portit, sisäiset portit ja kartoituksen niiden välillä. Merkintä on `<ulkoportti>:<sisäportti>`.
+- `entrypoint` ja `command` ovat komennot, jotka suoritetaan, kun kuva käynnistetään. Postgres ei ole esitteen niiden puuttuessa, koska käytämme oletus `commands`/`entrypoints` joka on määritelty kuvaan.
 
-The volumes section is simpler and only contains a list of names. A docker compose "volume" is a normal docker volume and does not include a size. This is because it will be using the local disk, and the size will be the limit of the local disk itself. Volumes in Kubernetes do have a size and we will need to account for that when we do the conversion.
+Volyymit-osio on yksinkertaisempi ja sisältää vain nimiä. Docker compose `volume` on normaali docker-volyymi eikä sisällä kokoa. Tämä johtuu siitä, että se käyttää paikallista levyä, ja koko on paikallisen levyn rajoitus. Kubernetesissa volyymit ovat määritelty kokoa ja meidän täytyy ottaa se huomioon, kun teemme muunnoksia.
 
-The `.env` file has the default values to properly deploy the application. Like `PUBLIC_PORT` that is set to `80`.
+`env`-tiedosto sisältää oletusarvot sovelluksen käyttöönotolle. Esimerkiksi `PUBLIC_PORT` on asetettu `80`:lle.
 
-## Kompose
+## Kompose {#kompose}
 
-Kompose will allow us to translate the `docker-compose.yaml` file into a set of Kubernetes YAML files.
+Kompose sallii meille `docker-compose.yaml`-tiedoston kääntämisen joukkoon Kubernetes-YAML-tiedostoja.
 
-1. We need to have [kompose](https://kompose.io/) installed. You can follow the instruction here:
+1. Meidän täytyy asentaa [kompose](https://kompose.io/). Seuraa ohjeita täältä:
 
     - <https://kompose.io/installation/>
 
-    As we have docker already installed, we can follow the docker method that will build the image from source:
+    Koska meillä on jo docker asennettuna, voimme seurata docker-metodia, joka rakentaa kuvan lähdekoodista:
 
     ```sh
     sudo docker build -t kompose https://github.com/kubernetes/kompose.git\#main
     ```
 
-1. Run kompose (while still being in the 4cat_fi folder):
+1. Aja kompose (ollessasi edelleen 4cat_fi-kansiossa):
 
     ```sh
     $ docker run --rm -it -v $PWD:/opt kompose sh -c "cd /opt && kompose convert"
@@ -230,7 +232,7 @@ Kompose will allow us to translate the `docker-compose.yaml` file into a set of 
     INFO Kubernetes file "frontend-deployment.yaml" created
     ```
 
-1. You should have few new files created:
+1. Sinulla pitäisi olla muutamia uusia tiedostoja luotuna:
 
     - "backend-service.yaml"
     - "frontend-service.yaml"
@@ -243,11 +245,11 @@ Kompose will allow us to translate the `docker-compose.yaml` file into a set of 
     - "4cat-db-persistentvolumeclaim.yaml"
     - "frontend-deployment.yaml"
 
-### Analysis
+### Analyysi {#analysis-kompose}
 
-The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` and `persistentvolumeclaim`. Let's start with the simpler ones:
+Työkalu on luonut neljäntyyppisiä tiedostoja: `service`, `deployment`, `configmap` ja `persistentvolumeclaim`. Aloitetaan yksinkertaisimmista:
 
-- `persistentvolumeclaim` files are the definitions of volumes. There is one file per `volume` definition in the docker compose file. Let's see an example and the meaning of the relevant lines:
+- `persistentvolumeclaim`-tiedostot ovat volyymien määritelmiä. Jokaiselle `docker-compose.yml`-tiedoston määrittelylle on olemassa yksi tiedosto. Katsotaanpa esimerkkiä ja merkityksellisiä rivejä:
 
     ```yaml
     apiVersion: v1
@@ -264,11 +266,11 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
           storage: 100Mi
     ```
 
-    We can see that the `name` has been kept from the compose definition (Found in `metadata > name`). The `accessMode` is set to `ReadWriteOnce`, which means that the volume can only be mounted once. Finally the size is set to `100Mi` by default (Found in `spec > resources > request > storage`).
+    Voimme nähdä, että `name` on pidetty samanlaisena kuin compose-määritelmässä (löytyy `metadata > name`). `accessMode` on asetettu arvolle `ReadWriteOnce`, mikä tarkoittaa, että volyymi voidaan kiinnittää vain kerran. Lopuksi koko on asetettu oletukselle `100Mi` (löytyy `spec > resources > request > storage`).
 
-- The `configmap` file(s) store configuration. In our case the (non docker-compose specific) variables defined in `.env` have been translated to `env-configmap.yaml`. The `name` is set to `env` and the variables are defined under `data`.
+- `configmap`-tiedosto(t) säilyttävät konfiguraation. Meidän tapauksessamme (ei docker compose -spesifiset) .env-määritellyt muuttujat on käännetty `env-configmap.yaml`-tiedostoksi. `name` on asetettu arvoon `env` ja muuttujat on määritelty kohdassa `data`.
 
-- The `service` files define "stable network identities" that act as a load balancer. A service is created for each `deployment` and it exports every port that the deployment provides. For example in `frontend-service.yaml`:
+- `service`-tiedostot määrittelevät "vakaita verkkotunnisteita", jotka toimivat kuormantasaajana. Palvelu luodaan jokaiselle `deployment`-sovellukselle, ja se julkaisee kaikki portit, jotka käyttöön otettu sovellus tarjoaa. Esimerkiksi tiedostossa `frontend-service.yaml`:
 
     ```yaml
     apiVersion: v1
@@ -292,9 +294,9 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
         io.kompose.service: frontend
     ```
 
-    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` and the second lists the ports this service export. See more information about [Services](../networking.md#services).
+    Kaksi tärkeää osaa ovat `selector` ja `ports`. Ensimmäinen yhdistää palvelun käyttöönottotiedostoon ja toinen listaa, mitkä portit tämä palvelu julkaisee. Lisätietoa [palveluista](../networking.md#services).
 
-- `deployment` is the most complex configuration generated. We can try to map the con figuration of `docker-compose.yaml` into these files. For example using the shortest one generated:
+- `deployment` on monimutkaisin luotu kokoonpano. Voimme yrittää kartoittaa `docker-compose.yaml`-tiedoston kokoonpanoa näihin tiedostoihin. Esimerkiksi lyhimmän luodun:
 
     ```yaml
     apiVersion: apps/v1
@@ -346,23 +348,23 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
                 claimName: 4cat-db
     ```
 
-    - The `image` is defined at `spec > template > spec > containers > image`, and in this case is `postgres:`. This is a mistake as the tag `latest` is missing, we will fix this later.
-    - The `environment` is defined at `spec > template > spec > containers > env`, values are also missing.
-    - The `volumes` are defined at `spec > template > spec > volumes` and `spec > template > spec > containers > volumeMounts`.
-    - The `ports` are defined in `spec > template > spec > containers > ports` and in the already mentioned corresponding `service` files.
-    - Finally the `command` is defined in `spec > template > spec > containers > command` (you can see the example in `backend-deployment.yaml`).
+    - `image` on määritelty kohdassa `spec > template > spec > containers > image`, tässä tapauksessa `postgres:`. Tämä on virhe, sillä tunniste `latest` puuttuu, korjaamme tämän myöhemmin.
+    - `environment` on määritelty kohdassa `spec > template > spec > containers > env`, arvot myös puuttuvat.
+    - `volumes` on määritelty kohdassa `spec > template > spec > volumes` ja `spec > template > spec > containers > volumeMounts`.
+    - `ports` ovat määritettyinä vastaavissa `service`-tiedostoissa ja `spec > template > spec > containers > ports`.
+    - Lopuksi `command` on määritelty kohdassa `spec > template > spec > containers > command` (näet sen esimerkiksi kohdassa `backend-deployment.yaml`).
 
-    As you can see the generated YAML files sare not perfect, but will be fine as a base for continuing the deployment.
+    Kuten huomaat, luodut YAML-tiedostot eivät ole täydellisiä, mutta soveltuvat pohjaksi käytön jatkamiseen.
 
-## Deployment to Rahti
+## Käyttöönotto Rahtiin {#deployment-to-rahti}
 
-We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](../usage/cli.md#how-to-install-the-oc-tool) and [login into Rahti](../usage/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../usage/projects_and_quota.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
+Käytämme kaikkia nykyisiä muuttumattomia YAML-tiedostoja ja otamme ne käyttöön yksi kerrallaan. Ensinnäkin sinun pitäisi [asentaa oc](../usage/cli.md#how-to-install-the-oc-tool) ja [kirjautua Rahtiin](../usage/cli.md#how-to-login-with-oc). Sitten sinun täytyy [luoda Rahti-projekti](../usage/projects_and_quota.md#creating-a-project). Varmista lopuksi, että olet oikeassa projektissa: `oc project <project_name>`.
 
-### Volumes, ConfigMaps and Services
+### Volyymit, ConfigMaps ja Palvelut {#volumes-configmaps-and-services}
 
-These 3 types are going to be straight forward and should cause no issue.
+Nämä 3 tyyppiä ovat suoraviivaisia ja niiden ei pitäisi aiheuttaa ongelmia.
 
-1. We can start creating the `volumes` one by one:
+1. Voimme aloittaa luomalla `volumes` yksi kerrallaan:
 
      ```sh
      $ oc create -f 4cat-config-persistentvolumeclaim.yaml
@@ -378,9 +380,9 @@ These 3 types are going to be straight forward and should cause no issue.
      persistentvolumeclaim/4cat-logs created
      ```
 
-    This will create 4 volumes in `Pending` status. They will remain in `Pending` till we deploy the `deployments`. This is expected.
+    Tämä luo 4 volyymiä tilassa `Pending`. Ne pysyvät `Pending`-tilassa, kunnes otamme käyttöön `deployments`. Tämä on odotettua.
 
-1. We will also create the `configMap`:
+1. Luomme myös `configMap`-ohjelman:
 
     ```sh
     $ oc create -f env-configmap.yaml
@@ -393,9 +395,9 @@ These 3 types are going to be straight forward and should cause no issue.
     openshift-service-ca.crt   1      5m45s
     ```
 
-    The other two entries (`kube-root-cs.crt` and `openshift-service-ca.crt`) are pre-created Kubernetes and Openshift base config maps.
+    Muut kaksi merkintää (`kube-root-cs.crt` ja `openshift-service-ca.crt`) ovat valmiiksi luotuja Kubernetes- ja Openshift-pohjaisia config-map:ja.
 
-1. We do not expect any error while creating the `services` (db service is missing because the docker cmpose file did not mention any ports, and we will need to create it ourselves manually later):
+1. Emme odota mitään virheitä luodessamme `services`-tiedostoja (db-palvelu puuttuu, koska docker compose -tiedostossa ei mainittu mitään portteja, ja meidän täytyy luoda se manuaalisesti myöhemmin):
 
     ```sh
     $ oc create -f frontend-service.yaml
@@ -410,13 +412,13 @@ These 3 types are going to be straight forward and should cause no issue.
     frontend   ClusterIP   172.30.139.56    <none>        5000/TCP,443/TCP   21h
     ```
 
-    The result is the expected for the backend, the mapping was `4444:4444`. But not for the frontend, which was `80:5000`. This is not a big deal, as in order to access the service from outside Rahti, we will use a `Route`, and the `Route` allows us to translate and expose any port to the standard 80/443 ports. We will leave it as it is.
+    Tulos on odotettu backendille, kartoitus oli `4444:4444`. Kuitenkin frontendille se oli `80:5000`. Tämä ei ole iso asia, koska Rahtista ulospääsyyn käytämme `Route`-ohjelmaa, ja `Route` sallii minkä tahansa portin muuttamisen standardiksi 80/443-portiksi. Annamme sen olla sellaisenaan.
 
-### DB Deployments
+### DB-käyttöönpanot {#db-deployments}
 
-Finally we will create the deployments. We have 3 deployments and we will start with the DB deployment.
+Lopulta luomme käyttöönpanot. Meillä on 3 käyttöönpanoa ja aloitamme DB-käyttöönpanolla.
 
-1. Let's create what we currently have:
+1. Luodaan nykyinen mitä meillä on:
 
     ```sh
     $ oc create -f db-deployment.yaml
@@ -427,7 +429,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     db-66db46fb89-vzqrz   0/1     InvalidImageName   0          26s
     ```
 
-1. This is expected as the tag `latest` was missing in the image name. Let's fix it and try again. So we will edit the file `db-deployment.yaml`, add `latest` to the image value so it looks like: `postgres:latest`,
+1. Tämä on odotettua, sillä tunniste `latest` puuttui kuvan nimestä. Korjataan se ja yritetään uudelleen. Muokataan `db-deployment.yaml`-tiedostoa ja lisätään `latest` kuvan arvoon niin, että se näyttää seuraavalta: `postgres:latest`,
 
     ```diff
                  - name: POSTGRES_USER
@@ -437,7 +439,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
                  exec:
     ```
 
-    and recreate/replace the deployment:
+    ja luodaan/korvataan käyttöönotto:
 
     ```sh
     $ oc replace -f db-deployment.yaml
@@ -448,10 +450,10 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     db-76fcbdc9d8-dgmqr   0/1     CrashLoopBackOff    1 (1s ago)   24s
     ```
 
-    !!! Info "YAML files"
-        We are making the modifications into the `YAML` files so we can re-create the whole deployment afterwards. You can also add the files to a Git repository and commit every change so later the history and reasons of modifications are clear in the commit history.
+    !!! Info "YAML-tiedostot"
+        Teemme muutoksia `YAML`-tiedostoihin, jotta voimme luoda koko käyttöönoton jälkeenpäin uudelleen. Voit myös lisätä tiedostot Git-arkistoon ja liittää jokaista muutosta, jotta myöhemmin muutokset ja niiden syyt ovat historian ja syiden suhteen selkeitä.
 
-1. The deployment is not working, but for a different reason. Let's see why:
+1. Käyttöönotto ei toimi, mutta eri syystä. Katsotaan miksi:
 
     ```sh
     $ oc logs db-76fcbdc9d8-dgmqr
@@ -468,7 +470,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
            https://www.postgresql.org/docs/current/auth-trust.html
     ```
 
-    This shows two kind of errors: folder permission errors and missing variables errors. Let's to reproduce the error localy on our machine. The command will be:
+    Tämä osoittaa kahdenlaista virhettä: kansion käyttöoikeusvirheet ja puuttuvat muuttujat. Yritetään toistaa virhe omalla koneellamme. Komento tulee olemaan:
 
     ```sh
     docker run -it --rm -u 1000 postgres:latest
@@ -485,7 +487,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
            https://www.postgresql.org/docs/current/auth-trust.html
     ```
 
-    In our example above, we added `-u 1000` to change the UID to a non root UID, so we can reproduce the same error Rahti is showing us. Any random UID can be used, this is the way Rahti runs images (running then with random UIDs). Let's repeat it with the `POSTGRES_PASSWORD` variable defined as suggested:
+    Esimerkissä lisäsimme `-u 1000` muuttaaksemme käyttäjätunnusta satunnaiseksi, ja samalla jäljittelemme samaa virhettä, jota Rahti näyttää meille. Mikä tahansa satunnaistunnus voi toimia, sillä Rahti ajaa kuvia (ajaen ne satunnaisilla tunnuksilla). Kokeillaan uudelleen määrittämällä muuttuja `POSTGRES_PASSWORD` esitettynä:
 
     ```sh
     $ podman run -it --rm -u 1000 -e  POSTGRES_PASSWORD=password postgres:latest
@@ -504,13 +506,13 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     fixing permissions on existing directory /var/lib/postgresql/data ... initdb: error: could not change permissions of directory "/var/lib/postgresql/data": Operation not permitted
     ```
 
-    In this case we can see that this container image will never work in Rahti, as it needs to be able to change folder permissions. Luckily Rahti/Openshift provides a PostgreSQL template that is available in the developer catalog.
+    Tässä tapauksessa näemme, että tämä konttikuvan ei koskaan tule toimimaan Rahtissa, koska sen täytyy pystyä muuttamaan kansio-oikeuksia. Onneksi Rahti/Openshift tarjoaa PostgreSQL-mallin, joka on saatavilla kehittäjäkatalogista.
 
-    ![Developer Catalog](../../img/db-developer-catalog.png)
+    ![Kehittäjäkatalogi](../../img/db-developer-catalog.png)
 
-    In the description of the template we can see a link to a Github page <https://github.com/sclorg/postgresql-container/>. On the page we can see the list of all the available images. We will choose [quay.io/sclorg/postgresql-15-c9s](https://quay.io/repository/sclorg/postgresql-15-c9s) as it is the newest available version and uses Centos 9 as a base.
+    Kuvauksen perusteella näemme linkin sivustolle <https://github.com/sclorg/postgresql-container/>. Sivulta saatavilla olevien kuvien listalukemisella valitsemme [quay.io/sclorg/postgresql-15-c9s](https://quay.io/repository/sclorg/postgresql-15-c9s), sillä se on uusin saatavilla oleva versio ja käyttää Centos 9 ohjelmapohjana.
 
-1. After replacing the image (`postgres:latest` to `quay.io/sclorg/postgresql-15-c9s:latest`) the logs are:
+1. Kuvan korvaamisen jälkeen (`postgres:latest` korvataan `quay.io/sclorg/postgresql-15-c9s:latest`) lokit ovat seuraavat:
 
     ```sh
     $ oc logs db-747df6885c-sh289
@@ -536,7 +538,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     within the container or visit https://github.com/sclorg/postgresql-container.
     ```
 
-    The variable names are different, but easy to translate. We will also take the values from the `env` `configMap`:
+    Muuttujanimet ovat erilaiset, mutta helppo kääntää. Käytämme myös `env` `configMap`-arvoja:
 
     ```diff
            containers:
@@ -566,7 +568,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
                  exec:
     ```
 
-    This last change made the trick and the Pod now it running as expected:
+    Tämä viimeinen muutos toimi ja Pod on nyt käynnissä odotetusti:
 
     ```sh
     $ oc get pods
@@ -574,11 +576,11 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     db-58947cf497-p4vnq   1/1     Running   0          66s
     ```
 
-### Backend deployment
+### Backend-käyttöönotto {#backend-deployment}
 
-This deployment also needs few changes. Let's go through them in hopefully a more agile way:
+Tämä käyttöönotto tarvitsee myös muutamia muutoksia. Käydään läpi ne toivottavasti nopeammin:
 
-1. Fix the image name. The error:
+1. Korjaus kuvan nimelle. Virhe:
 
     ```sh
     $ oc get pods
@@ -586,7 +588,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     backend-7f47d4c5d4-zrxjp   0/1     InvalidImageName   0          41s
     ```
 
-    The solution:
+    Ratkaisu:
 
     ```diff
                        key: workers
@@ -597,27 +599,27 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
                ports:
     ```
 
-1. Add the DB service to solve this issue:
+1. Lisää DB-palvelu tämän ongelman ratkaisemiseksi:
 
     ```sh
     db: forward host lookup failed: Unknown host
     ```
 
-    This requires us to create the db service:
+    Tämä vaatii meitä luomaan db-palvelun:
 
     ```sh
     $ oc expose deploy/db --port 5432
     service/db exposed
     ```
 
-1. The next error is about password authentication:
+1. Seuraava virhe liittyy salasanan käyttöön:
 
     ```
     Password for user fourcat:
     psql: error: connection to server at "db" (172.30.154.239), port 5432 failed: fe_sendauth: no password supplied
     ```
 
-    This is due to the fact that meanwhile we are defining `POSTGRESQL_PASSWORD` the application is expecting `PGPASSWPRD`. This means that the fix is:
+    Tämä johtuu siitä, että samalla kun määrittelemme `POSTGRESQL_PASSWORD`, sovellus odottaa `PGPASSWPRD`:ia. Tämä tarkoittaa, että ratkaisu on:
 
     ```diff
                        key: POSTGRES_HOST_AUTH_METHOD
@@ -628,7 +630,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
                      configMapKeyRef:
     ```
 
-1. The output of the backend Pod is now much longer but it ends with this error:
+1. Backend-podin tulostus on nyt paljon pidempi, mutta se päätyy tähän virheeseen:
 
     ```py
     During handling of the above exception, another exception occurred:
@@ -651,546 +653,4 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     PermissionError: [Errno 13] Permission denied: '/nltk_data'
     ```
 
-    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. As containers are stateless, this means that any data written on the folder, will not survive the restart of the container. The easiest way to accomplish this is to mount an [ephemeral storage](../storage/ephemeral.md) folder (or `emptyDir`). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
-
-    ```diff
-                   protocol: TCP
-               volumeMounts:
-    +            - mountPath: /nltk_data
-    +              name: nltk-data
-                 - mountPath: /usr/src/app/data
-                   name: 4cat-data
-    @@ -151,4 +153,6 @@
-           restartPolicy: Always
-           volumes:
-    +        - name: nltk-data
-    +          emptyDir: {}
-             - name: 4cat-data
-               persistentVolumeClaim:
-    ```
-
-1. The next error is again about environment variables:
-
-    ```py
-    Creating config/config.ini file
-    Traceback (most recent call last):
-      File "/usr/local/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-        return _run_code(code, main_globals, None,
-      File "/usr/local/lib/python3.8/runpy.py", line 87, in _run_code
-        exec(code, run_globals)
-      File "/usr/src/app/docker/docker_setup.py", line 88, in <module>
-        update_config_from_environment(CONFIG_FILE, config_parser)
-      File "/usr/src/app/docker/docker_setup.py", line 35, in update_config_from_environment
-        config_parser['DATABASE']['db_password'] = os.environ['POSTGRES_PASSWORD']
-      File "/usr/local/lib/python3.8/os.py", line 675, in __getitem__
-        raise KeyError(key) from None
-    KeyError: 'POSTGRES_PASSWORD'
-    ```
-
-    This environment variable is hardwired on the application's code. We could patch the code, but this means to rebuild the image and keep patching the code for every new version of the image. The most cost effecive solution is to define the variable twice. If you remember, in step 3 of this chapter we changed the variable's name to satisfy other part of the code.
-
-    ```diff
-                       key: POSTGRES_PASSWORD
-                       name: env
-    +            - name: POSTGRES_PASSWORD
-    +              valueFrom:
-    +                configMapKeyRef:
-    +                  key: POSTGRES_PASSWORD
-    +                  name: env
-                 - name: POSTGRES_PORT
-                   valueFrom:
-    ```
-
-1. We are progressing, but we are not over. The new error is:
-
-    ```sh
-    $ oc logs backend-7f9c9dbfbb-78sh8 -f
-    Waiting for postgres...
-    PostgreSQL started
-    Database already created
-
-               4CAT migration agent
-    ------------------------------------------
-    Interactive:             no
-    Pull latest release:     no
-    Pull branch:             no
-    Restart after migration: no
-    Repository URL:          https://github.com/digitalmethodsinitiative/4cat.git
-    .current-version path:   config/.current-version
-    Current Datetime:        2024-12-12 07:00:22
-
-    WARNING: Migration can take quite a while. 4CAT will not be available during migration.
-    If 4CAT is still running, it will be shut down now (forcibly if necessary).
-
-    - No PID file found, assuming 4CAT is not running
-    - Version last migrated to: 1.46
-    - Code version: 1.46
-      ...already up to date.
-
-    Migration finished. You can now safely restart 4CAT.
-
-    Creating config/config.ini file
-    Created config/config.ini file
-
-    Starting app
-    4CAT is accessible at:
-    http://localhost
-
-    Starting 4CAT Backend Daemon...
-    ...error while starting 4CAT Backend Daemon (pidfile not found).
-    tail: cannot open 'logs/backend_4cat.log' for reading: No such file or directory
-    tail: no files remaining
-
-    ```
-
-    For solving this issue we again have two paths: we can guess or we can use the `oc debug` tool. The `oc debug` tool allows you to launch a failed pod in an interactive session without launching the initial command of the Pod.
-
-    ```sh
-    $ oc debug backend-7f9c9dbfbb-78sh8
-    Starting pod/backend-7f9c9dbfbb-78sh8-debug-vcb6f, command was: docker/docker-entrypoint.sh
-    Pod IP: 10.129.12.120
-    If you don't see a command prompt, try pressing enter.
-
-    $ ls logs
-    4cat.stderr  lost+found  migrate-backend.log
-    $ df -h
-    Filesystem      Size  Used Avail Use% Mounted on
-    overlay         1.2T  435G  766G  37% /
-    tmpfs            64M     0   64M   0% /dev
-    shm              64M     0   64M   0% /dev/shm
-    tmpfs            22G   91M   22G   1% /etc/passwd
-    /dev/sda4        90G   17G   73G  19% /nltk_data
-    /dev/sdr        974M   24K  958M   1% /usr/src/app/data
-    /dev/sds        974M   36K  958M   1% /usr/src/app/config
-    /dev/sdq        974M  168K  958M   1% /usr/src/app/logs
-    tmpfs           1.0G   24K  1.0G   1% /run/secrets/kubernetes.io/serviceaccount
-    devtmpfs        4.0M     0  4.0M   0% /proc/keys
-    $
-    ```
-
-    So we can see that the `logs` folder is a persistent volume and indeed does not have the log file there. The solution might be to just create the file meanwhile we are still on the debug interactive session:
-
-    ```sh
-    $ touch logs/backend_4cat.log
-    ```
-
-    It is strange that the application does not create the file itself and that this was not an issue for the compose approach. It is suspicious but we will continue and see if this becomes a problem later. To see if the fix made the trick, we need to delete the Pod, so a new one is created:
-
-    ```sh
-    $ oc get pods
-    NAME                       READY   STATUS    RESTARTS        AGE
-    backend-7f9c9dbfbb-78sh8   1/1     Running   7 (7m49s ago)   21m
-    db-545945c9b8-tkbwc        1/1     Running   0               17h
-
-    $ oc delete pod backend-7f9c9dbfbb-78sh8
-    pod "backend-7f9c9dbfbb-78sh8" deleted
-
-    ```
-
-1. And then see if the Pod still fails:
-
-    ```sh
-    $ oc get pods
-    NAME                       READY   STATUS    RESTARTS   AGE
-    backend-7f9c9dbfbb-sznxl   1/1     Running   0          3m22s
-    db-545945c9b8-tkbwc        1/1     Running   0          17h
-    ```
-
-    It has been running for few minutes without crashing, which is good. But the log shows now a new error, which is not so good:
-
-    ```sh
-    $ oc logs backend-7f9c9dbfbb-sznxl
-    [...]
-    Starting 4CAT Backend Daemon...
-    ...error while starting 4CAT Backend Daemon (pidfile not found).
-    ```
-
-    We are assuming that the application is trying to write the PID file (a file with the process number on it, common practise in Unix) to a folder that you can only write to if you are `root`. This is a typical error with these kind of coversions. The log does not tell us where the PID file should be, so we need to investigate it for ourselves. As the Pod is running, we can use `oc rsh`, which is a tool used to open a remote shell, this works only with to running Pods:
-
-    ```sh
-    $ oc rsh deploy/backend
-        $ grep 'pidfile not' -C 4 -nR *
-        4cat-daemon.py-144-            else:
-        4cat-daemon.py-145-                time.sleep(0.1)
-        4cat-daemon.py-146-
-        4cat-daemon.py-147-        if not pidfile.is_file():
-        4cat-daemon.py:148:            print("...error while starting 4CAT Backend Daemon (pidfile not found).")
-        4cat-daemon.py-149-            return False
-        4cat-daemon.py-150-
-        4cat-daemon.py-151-        else:
-        4cat-daemon.py-152-            with pidfile.open() as infile:
-
-        $ grep pidfile 4cat-daemon.py
-        pidfile = config.get('PATH_ROOT').joinpath(config.get('PATH_LOCKFILE'), "4cat.pid")  # pid file location
-        if pidfile.is_file():
-            with pidfile.open() as infile:
-    ```
-
-    !!! Info "Grep tool"
-        We used the `grep` tool to find the error message in the code, and then again to see where and how the `pidfile` variable was defined. We could have used a local text editor, or directly use GitHub search. I just think `grep` is a great tool and that everyone can benefit by knowing how to use it.
-
-    So now we know that the PID file is stored on a folder configured with the `PATH_LOCKFILE` variable. We will check if we can find it on the `config.ini` file:
-
-    ```sh
-    $ oc rsh deploy/backend
-        $ grep path -i config/config.ini
-        [PATHS]
-        path_images = data
-        path_data = data
-        path_lockfile = backend
-        path_sessions = config/sessions
-        path_logs = logs/
-        $ ls -alh backend
-        total 24K
-        drwxr-xr-x. 1 root root  108 Oct 14 10:52 .
-        drwxr-xr-x. 1 root root   30 Dec 12 07:22 ..
-        -rw-r--r--. 1 root root  919 Oct 14 10:52 README.md
-        -rw-r--r--. 1 root root   92 Oct 14 10:52 __init__.py
-        -rw-r--r--. 1 root root 3.4K Oct 14 10:52 bootstrap.py
-        -rw-r--r--. 1 root root 4.7K Oct 14 10:52 database.sql
-        drwxr-xr-x. 2 root root  157 Oct 14 10:52 lib
-        drwxr-xr-x. 2 root root 4.0K Oct 14 10:52 workers
-    ```
-
-    This one was probably one of the most complicated ones to fix, and the one that required more guessing. The solution we will follow is to first change the config `path_lockfile` to a different value. For example to `pid`, which I think that it is a good descriptive name for the folder. As the `config.ini` file is in a volume, we can change the value directly on the Pod (`sed -i 's#path_lockfile = backend#path_lockfile = pid#' config/config.ini`) or copy the file to the local machine (see `oc cp`) edit it with a text editor and copy it back. Secondly add a `pid` folder as an `emptyDir`:
-
-    ```diff
-    @@ -150,4 +150,6 @@
-                 - mountPath: /nltk_data
-                   name: nltk-data
-    +            - mountPath: /usr/src/app/pid
-    +              name: pid
-                 - mountPath: /usr/src/app/data
-                   name: 4cat-data
-    @@ -160,4 +162,6 @@
-             - name: nltk-data
-               emptyDir: {}
-    +        - name: pid
-    +          emptyDir: {}
-             - name: 4cat-data
-               persistentVolumeClaim:
-    ```
-
-1. Our next error is the following:
-
-    ```sh
-    $ oc logs backend-65cb8dc8dd-8thwg
-
-    12-12-2024 12:40:44 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
-    12-12-2024 12:40:54 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
-    12-12-2024 12:41:04 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
-    12-12-2024 12:41:14 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
-    12-12-2024 12:41:24 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
-    12-12-2024 12:41:34 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
-    ```
-
-    In this case we get the file and line where the error is happening `app.py` line 54. The relevant parts of [app.py](https://github.com/uh-dcm/4cat_fi/blob/master/backend/workers/api.py#L50) are these:
-
-    ```py linenums="18"
-      host = config.get('API_HOST')
-      port = config.get('API_PORT')
-    ```
-
-    ```py linenums="47"
-    while has_time:
-			has_time = start_trying > time.time() - 300  # stop trying after 5 minutes
-			try:
-				server.bind((self.host, self.port))
-				break
-			except OSError as e:
-				if has_time and not self.interrupted:
-					self.manager.log.info("Could not open port %i yet (%s), retrying in 10 seconds" % (self.port, e))
-					time.sleep(10.0)  # wait a few seconds before retrying
-					continue
-				self.manager.log.error("Port %s is already in use! Local API not available. Check if a residual 4CAT process may still be listening at the port." % self.port)
-				return
-			except ConnectionRefusedError:
-				self.manager.log.error("OS refused listening at port %i! Local API not available." % self.port)
-				return
-    ```
-
-    The function on line `50` is trying to bind the port to a given hostname. In the case of the compose approach, the hostname is `backend` but this is not true in the case of Kubernetes where the Pods have a (partly) random name. We could change the config from `backend` to `0.0.0.0`, this will make the backend to work. Sadly the same config file is also used by the frontend, they share the same volume.
-
-    !!! Error "Configuration in volumes"
-        Storing configurations on a volume and share it in between deployments is a bad practise. You should no change the configuration files on the fly. And you might need to use different configuration for different deployments.
-
-    In the case of these kind of application deployments, sadly the best is to change as little as possible so we can still get updates from upstream. For this case, we will try to duplicate the config volume, one for the frontend one for the backend (and "we will pretend we never saw that"):
-
-    ```sh
-    $ cp 4cat-config-persistentvolumeclaim.yaml 4cat-config-front-persistentvolumeclaim.yaml
-
-    $ diff 4cat-config-persistentvolumeclaim.yaml 4cat-config-front-persistentvolumeclaim.yaml -U 2
-    --- 4cat-config-persistentvolumeclaim.yaml	2024-12-10 15:48:29.123813479 +0200
-    +++ 4cat-config-front-persistentvolumeclaim.yaml	2024-12-12 15:55:41.207227320 +0200
-    @@ -4,5 +4,5 @@
-       labels:
-         io.kompose.service: 4cat-config
-    -  name: 4cat-config
-    +  name: 4cat-config-front
-     spec:
-       accessModes:
-
-    $ oc create -f 4cat-config-front-persistentvolumeclaim.yaml
-    persistentvolumeclaim/4cat-config-front created
-    ```
-
-    We also need to edit the `env` `configMap` because the backend overwrites the `config.ini` file with the configMap on start up (another thing I am not a fan of):
-
-    ```diff
-     apiVersion: v1
-     data:
-    -  API_HOST: backend
-    +  API_HOST: 0.0.0.0
-       DOCKER_CONFIG_VOL: 4cat_4cat_config
-       DOCKER_DATA_VOL: 4cat_4cat_data
-    ```
-
-    ```sh
-    $ oc replace -f env-configmap.yaml
-    configmap/env replaced
-
-    ```
-
-This should be all the changes needed on the backend:
-
-  ```sh
-  12-12-2024 14:03:30 | INFO at api.py:65: Local API listening for requests at 0.0.0.0:4444
-  ```
-
-### Frontend deployment
-
-This is our last piece to fix.
-
-1. Before deploying the frontend, we need to change the deployment file to use the new volume:
-
-    ```diff
-    @@ -158,5 +168,5 @@
-             - name: 4cat-config
-               persistentVolumeClaim:
-    -            claimName: 4cat-config
-    +            claimName: 4cat-config-front
-             - name: 4cat-logs
-               persistentVolumeClaim:
-    ```
-
-1. We will now deploy the frontend and see what is the result:
-
-    ```sh
-    $ oc create -f frontend-deployment.yaml
-    deployment.apps/frontend created
-
-    $ oc get pods
-    NAME                        READY   STATUS             RESTARTS   AGE
-    backend-7f9c9dbfbb-sznxl    1/1     Running            0          125m
-    db-545945c9b8-tkbwc         1/1     Running            0          19h
-    frontend-6b99c94fff-fv5wd   0/1     InvalidImageName   0          2s
-    ```
-
-    ... we get a familiar error, with a known solution:
-
-    ```diff
-                       key: workers
-                       name: env
-    -          image: 'digitalmethodsinitiative/4cat:'
-    +          image: 'digitalmethodsinitiative/4cat:stable'
-               name: 4cat-frontend
-               ports:
-    ```
-
-1. Now the Pods finally starts, but it fails to connect to the backend:
-
-    ```sh
-    $ oc replace -f frontend-deployment.yaml
-    deployment.apps/frontend replaced
-
-    $ oc get pods
-    NAME                       READY   STATUS    RESTARTS   AGE
-    backend-7f9c9dbfbb-sznxl   1/1     Running   0          127m
-    db-545945c9b8-tkbwc        1/1     Running   0          19h
-    frontend-9ffbcf6b-wfg98    1/1     Running   0          4s
-
-    $ oc logs frontend-9ffbcf6b-wfg98 -f
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    Backend has not started - sleeping
-    ```
-
-    If we look into the frontend config folder (`/usr/src/app/config/`), it is empty. This is easy to solve, we will copy the config file in the backend folder using `oc cp`:
-
-    ```sh
-    $ oc cp backend-65cb8dc8dd-nxq6p:config/config.ini config.ini
-    ```
-
-    Edit the file, replacing the `api_host` by the name of the service:
-
-    ```diff
-         [API]
-     api_port = 4444
-    -api_host = 0.0.0.0
-    +api_host = backend
-
-     [PATHS]
-    ```
-
-    Copy the edited file to the new folder:
-
-    ```sh
-    $ oc cp config.ini frontend-79864b8548-pvh8z:config/
-    ```
-
-1. After applying the solution we get an error we also got on the backend:
-
-    ```py
-    During handling of the above exception, another exception occurred:
-
-    Traceback (most recent call last):
-      File "/usr/local/lib/python3.8/runpy.py", line 185, in _run_module_as_main
-        mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
-      File "/usr/local/lib/python3.8/runpy.py", line 111, in _get_module_details
-        __import__(pkg_name)
-      File "/usr/src/app/helper-scripts/migrate.py", line 336, in <module>
-        finish(args, logger, no_pip=pip_ran)
-      File "/usr/src/app/helper-scripts/migrate.py", line 122, in finish
-        check_for_nltk()
-      File "/usr/src/app/helper-scripts/migrate.py", line 74, in check_for_nltk
-        nltk.download('punkt_tab', quiet=True)
-      File "/usr/local/lib/python3.8/site-packages/nltk/downloader.py", line 774, in download
-        for msg in self.incr_download(info_or_id, download_dir, force):
-      File "/usr/local/lib/python3.8/site-packages/nltk/downloader.py", line 642, in incr_download
-        yield from self._download_package(info, download_dir, force)
-      File "/usr/local/lib/python3.8/site-packages/nltk/downloader.py", line 698, in _download_package
-        os.makedirs(download_dir, exist_ok=True)
-      File "/usr/local/lib/python3.8/os.py", line 223, in makedirs
-        mkdir(name, mode)
-    PermissionError: [Errno 13] Permission denied: '/nltk_data'
-    ```
-
-    That gets solved in the same way:
-
-    ```diff
-    @@ -145,4 +155,6 @@
-                   protocol: TCP
-               volumeMounts:
-    +            - mountPath: /nltk_data
-    +              name: nltk-data
-                 - mountPath: /usr/src/app/data
-                   name: 4cat-data
-    @@ -153,4 +165,6 @@
-           restartPolicy: Always
-           volumes:
-    +        - name: nltk-data
-    +          emptyDir: {}
-             - name: 4cat-data
-               persistentVolumeClaim:
-    ```
-
-1. Finally the frontend starts. We can see that it is listening to port `5000`, as expected:
-
-    ```sh
-    [2024-12-13 05:53:41 +0000] [35] [INFO] Starting gunicorn 23.0.0
-    [2024-12-13 05:53:41 +0000] [35] [DEBUG] Arbiter booted
-    [2024-12-13 05:53:41 +0000] [35] [INFO] Listening at: http://0.0.0.0:5000 (35)
-    [2024-12-13 05:53:41 +0000] [35] [INFO] Using worker: gthread
-    [2024-12-13 05:53:41 +0000] [37] [INFO] Booting worker with pid: 37
-    [2024-12-13 05:53:41 +0000] [39] [INFO] Booting worker with pid: 39
-    [2024-12-13 05:53:41 +0000] [41] [INFO] Booting worker with pid: 41
-    [2024-12-13 05:53:41 +0000] [43] [INFO] Booting worker with pid: 43
-    [2024-12-13 05:53:41 +0000] [35] [DEBUG] 4 workers
-    ```
-
-1. But shortly after we have a permission denied error:
-
-    ```py
-    PermissionError: [Errno 13] Permission denied: '/usr/src/app/webtool/static/css/colours.css'
-    ```
-
-    The folder `/usr/src/app/webtool/static/css/` has `drwxr-xr-x` permissions. This means that only the owner `(root`) can _w_rite to it. We can not use the emptyDir trick this time, because the folder is not empty in the original image:
-
-    ```sh
-    root@5878384231b9:/usr/src/app# ls webtool/static/css/ -alh
-    total 160K
-    drwxr-xr-x 2 root root 4.0K Oct 14 10:52 .
-    drwxr-xr-x 7 root root 4.0K Oct 14 10:52 ..
-    -rw-r--r-- 1 root root  569 Oct 14 10:52 colours.css.template
-    -rw-r--r-- 1 root root 4.6K Oct 14 10:52 control-panel.css
-    -rw-r--r-- 1 root root  13K Oct 14 10:52 dataset-page.css
-    -rw-r--r-- 1 root root 8.7K Oct 14 10:52 explorer.css
-    -rw-r--r-- 1 root root  13K Oct 14 10:52 flags.css
-    -rw-r--r-- 1 root root  428 Oct 14 10:52 flowchart.css
-    -rw-r--r-- 1 root root 1.2K Oct 14 10:52 jquery-jsonviewer.css
-    -rw-r--r-- 1 root root  50K Oct 14 10:52 progress.css
-    -rw-r--r-- 1 root root 1.1K Oct 14 10:52 reset.css
-    -rw-r--r-- 1 root root 4.6K Oct 14 10:52 sigma_network.css
-    -rw-r--r-- 1 root root  21K Oct 14 10:52 stylesheet.css
-    ```
-
-    So the simplest solution available is to create our own image by patching the current one. We will use this `Dockerfile`:
-
-    ```Dockerfile
-    FROM docker.io/digitalmethodsinitiative/4cat:stable
-
-    RUN chmod g+w /usr/src/app/webtool/static/css/
-    RUN chmod g+w /usr/src/app/webtool/static/img/favicon/
-    ```
-
-    Rahti can build it for us if we run this command:
-
-    ```sh
-    $ oc new-build -D $'FROM docker.io/digitalmethodsinitiative/4cat:stable
-    RUN chmod g+w /usr/src/app/webtool/static/css/\
-    RUN chmod g+w /usr/src/app/webtool/static/img/favicon/' \
-    --to 4cat
-      --> Found container image ca4511d (8 weeks old) from docker.io for "docker.io/digitalmethodsinitiative/4cat:stable"
-
-          * An image stream tag will be created as "4cat:stable" that will track the source image
-          * A Docker build using a predefined Dockerfile will be created
-            * The resulting image will be pushed to image stream tag "4cat:latest"
-            * Every time "4cat:stable" changes a new build will be triggered
-
-      --> Creating resources with label build=4cat ...
-          imagestream.image.openshift.io "4cat" created
-          imagestreamtag.image.openshift.io "4cat:latest" created
-          buildconfig.build.openshift.io "4cat" created
-      --> Success
-    ```
-
-    We used the [inline Dockerfile method](../images/creating.md#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`. Where `4cat-2` is the name of the project I am using to write this documentation.
-
-    ```diff
-                       key: workers
-                       name: env
-    -          image: 'digitalmethodsinitiative/4cat:'
-    +          image: 'image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest'
-               name: 4cat-frontend
-               ports:
-    ```
-
-1. After replacing the URL all looks good 🤞. We just need to expose the frontend service to the Internet:
-
-    ```sh
-    $ oc expose svc/frontend
-    route/frontend exposed
-
-    $ oc get route
-    NAME       HOST/PORT                       PATH   SERVICES   PORT   TERMINATION   WILDCARD
-    frontend   frontend-4cat-2.2.rahtiapp.fi          frontend   5000                 None
-    ```
-
-If we visit the URL <http://frontend-4cat-2.2.rahtiapp.fi> we can finally see the application.
-
-![4cat in Rahti](../../img/4cat-rahti.png)
-
-## Conclusion
-
-As you can see deploying this application into Rahti was a long process. We used every trick in the book, but we managed to make it run on Rahti. I hope all the techniques and rationalizations are clear to you at this moment. We made some leaps of faith, based on intuition and experience, but leaps of faith and experience are hard to write down on paper. If you follow this tutorial with your own application and have any question, do not hesitate to contact us at <servicedesk@csc.fi>. Also reach out to us if you use some other technique that we are not covering here, we will add it to this tutorial.
-
-At the end of the tutorial you should have the deployment YAML files with all the necessary changes. One way to continue the learning experience and to consolidate these YAML files is to package them in a Helm chart following our [Helm chart tutorial](../../../support/faq/helm.md). This way you will be able to deploy the application multiple times in multiple projects (production, test, development, ...) with a single command and consistently.
+    Meidän on tehtävä kansio `/nltk_data` kirjoitettavaksi käyttäjälle, joka ajaa sovellusta. Jos palaamme tarkastamaan docker compose -tiedoston, tätä kansiota ei mainittu. Koska kontit ovat tilattomia, tämä tarkoittaa, että kaikki tiedot, jotka kirjoitetaan kansioon, eivät selviä kontin uudelleenkäynnisty

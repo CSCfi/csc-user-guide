@@ -1,3 +1,4 @@
+
 ---
 search:
   boost: 2
@@ -5,33 +6,29 @@ search:
 
 # Noppe
 
-[Noppe](https://noppe.csc.fi){target="_blank"} (previously CSC Notebooks) offers web applications for self-learning, hosting courses 
-and collaboration. The applications are accessed through a web browser and run in CSC cloud. You can log
-in with your Haka/Virtu/CSC customer account. We support Jupyter and RStudio based applications, with more options to 
-come in the future.
+[Noppe](https://noppe.csc.fi){target="_blank"} (aikaisemmin CSC Notebooks) tarjoaa verkkosovelluksia itseopiskeluun, kurssien ylläpitoon ja yhteistyöhön. Sovellukset ovat käytettävissä verkkoselaimen kautta ja ne toimivat CSC:n pilvessä. Voit kirjautua sisään Haka/Virtu/CSC-asiakastililläsi. Tuemme Jupyter ja RStudio -pohjaisia sovelluksia, ja lisää vaihtoehtoja tulee jatkossa.
 
-## Who and how can Noppe be used?
+## Kenelle ja miten Noppea voi käyttää? {#who-and-how-can-noppe-be-used}
 
-1. [As student](guide_for_students.md): participating to a self-learning or a tutored course.
-2. [As teacher](guide_for_teachers.md): hosting a course
-3. As researcher: [participating to a course or collaboration project](guide_for_students.md) or [setting up Noppe as collaboration platform](guide_for_teachers.md)
+1. [Opiskelijana](guide_for_students.md): osallistuminen itseopiskeluun tai ohjatulle kurssille.
+2. [Opettajana](guide_for_teachers.md): kurssin ylläpito
+3. Tutkijana: [osallistuminen kurssille tai yhteistyöprojektiin](guide_for_students.md) tai [Noppen käyttö yhteistyöalustana](guide_for_teachers.md)
 
-## Concepts
+## Käsitteet {#concepts}
 
-To better understand the Noppe environment, we have collected all terms and concepts in 
-a separate [concepts](concepts.md) document.
+Ymmärtääksemme paremmin Noppen ympäristöä, olemme keränneet kaikki termit ja käsitteet erilliseen [käsitteet](concepts.md) dokumenttiin.
 
-## Data persistence
+## Datan pysyvyys {#data-persistence}
 
-Noppe provides different ways of sharing (e.g. course contents) and storing (e.g. students own progress) data. For an explanation of the different possibilities, see the separate document on [data persistence](data_persistence.md).
+Noppe tarjoaa eri tapoja jakaa (esim. kurssisisällöt) ja tallentaa (esim. opiskelijoiden oma kehitys) dataa. Selityksen eri mahdollisuuksista löydät erillisestä dokumentista [datan pysyvyys](data_persistence.md).
 
-## Summary of changes and improvements since previous major version
+## Yhteenveto muutoksista ja parannuksista edellisestä suuresta versiosta {#summary-of-changes-and-improvements-since-previous-major-version}
 
-See the ["What's new" section for cloud services](../../support/whats-new.md).
+Katso ["Mitä uutta" osio pilvipalveluille](../../support/whats-new.md).
 
-## References
+## Viitteet {#references}
 
-* [Project Jupyter homepage](https://jupyter.org/){target="_blank"}
-* [Rocker RStudio GitHub repository](https://github.com/rocker-org/rocker){target="_blank"}
-* [CSC Rahti container cloud](../rahti/index.md){target="_blank"}
-* [CSC Pouta IaaS cloud service](../pouta/index.md){target="_blank"}
+* [Projektin Jupyter kotisivu](https://jupyter.org/){target="_blank"}
+* [Rocker RStudio GitHub -arkisto](https://github.com/rocker-org/rocker){target="_blank"}
+* [CSC Rahti konttipilvi](../rahti/index.md){target="_blank"}
+* [CSC Pouta IaaS pilvipalvelu](../pouta/index.md){target="_blank"}

@@ -1,81 +1,80 @@
-# How to resize an instance or volume in Pouta
-## Resize an instance
-### Using a snapshot
-You might face performance issue with your initial instance and you'd like to run your instance with a bigger flavor?  
-It's possible to proceed by taking a snapshot of your instance and then boot the new instance with the new flavor using the snapshot.  
-You can find more information about snapshot [here](../../cloud/pouta/snapshots.md) and how to proceed.
 
-### Using the resize functionality 
-!!! Warning    
-    [I/O flavors](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) and [GPU flavors](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) cannot be resized to a different family flavors. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-an-instance-from-a-volume-snapshot).
+# Kuinka muuttaa instanssin tai levyn kokoa Poutassa
+## Muuta instanssin kokoa {#resize-an-instance}
+### Käyttämällä tilannevedosta {#using-a-snapshot}
+Kohtaatko suorituskykyongelmia alkuperäisellä instanssillasi ja haluaisit ajaa instanssisi suuremmalla maulla?  
+On mahdollista edetä ottamalla tilannevedos instanssistasi ja sitten käynnistämällä uusi instanssi uudella maulla tilannevedosta käyttäen.  
+Voit löytää enemmän tietoa tilannevedoksista [täältä](../../cloud/pouta/snapshots.md) ja miten edetä.
+
+### Käyttämällä koonmuutos-toimintoa {#using-the-resize-functionality}
+!!! Warning
+    [I/O maut](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) ja [GPU maut](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) eivät voi vaihtaa eri makuperheeseen. Suosittelemme käyttämään [tilannevedoksia](../../cloud/pouta/snapshots.md#launching-an-instance-from-a-volume-snapshot).
 
 !!! Warning  
-    It's possible to resize from a `standard` flavor *family* to a `hpc` flavor *family*. Nothing will prevent you to do that but it's **highly not recommended!**  
-    You may lose data during the process and CSC is not responsible. We recommend to only resize to the flavors of the same *family* (except for I/O flavors, see above).
+    On mahdollista muuttaa kokoa `standard` makuperheestä `hpc` makuperheeseen. Mikään ei estä sinua tekemästä tätä, mutta se on **erittäin epäsuositeltavaa!**  
+    Voit menettää tietoja prosessin aikana ja CSC ei ole vastuussa. Suosittelemme muuttamaan kokoa vain saman makuperheen makuihin (paitsi I/O maut, katso yllä).
 
-In the **Actions** menu of your instance, choose **Resize** to begin the process:  
+Instanssisi **Toimintovalikossa** valitse **Muuta kokoa** aloittaaksesi prosessin:
 
-![resize-button](img/resize_button.png)
+![muuta-kokoa-nappi](img/resize_button.png)
 
-A window will open. Select the new flavor:
+Ikkuna avautuu. Valitse uusi maku:
 
-![resize-windows](img/resize_window.png)
+![muuta-kokoa-ikkuna](img/resize_window.png)
 
-Click **Resize**
+Klikkaa **Muuta kokoa**
 
-Wait few minutes and during the process, it will ask you to confirm the resize:
+Odota muutama minuutti ja prosessin aikana sinua pyydetään vahvistamaan koonmuutos:
 
-![confirm-resize](img/confirm_resize.png)
+![vahvista-koko](img/confirm_resize.png)
 
-
-When your instance is in `Confirm Resize/Migrate` it means that you can connect to your instance to check if everything is working fine because it's already converted into the new flavor.  
-In the case that you spot something wrong, you can revert to the previous state with the `Revert Resize/Migrate` button in the drop menu.  
+Kun instanssisi on tilassa `Vahvista koonmuutos/Siirrä`, voit yhdistää instanssiisi tarkistaaksesi, että kaikki toimii hienosti, koska se on jo muunnettu uuteen makuun.  
+Jos huomaat jotain vialla, voit palauttaa edelliseen tilaan `Palauta koonmuutos/Siirrä` -napilla pudotusvalikosta.
 
 !!! error-label  
-    Be aware that an automatic confirm process will be triggered after three days of pending `Confirm or Revert Resize/Migrate` status
+    Huomaa, että automaattinen vahvistusprosessi käynnistetään kolmen päivän kuluttua tilasta `Vahvista tai palauta koonmuutos/Siirrä`.
 
-After the process finished, you should have your instance with a new flavor.
+Kun prosessi on päättynyt, sinun pitäisi olla instanssisi uuden maun kanssa.
 
-
-## Resize a volume
+## Muuta levyn kokoa {#resize-a-volume}
 !!! Notes  
-    You can only extend a volume. Currently, shrink a volume is not supported in Openstack.
+    Voit ainoastaan laajentaa levyä. Tällä hetkellä levyn kutistamista ei tueta Openstackissa.
 
-Pouta let you create [external volumes](../../cloud/pouta/storage.md). If your initial volume is too small, you can resize it.
+Pouta antaa sinun luoda [ulkoisia levyjä](../../cloud/pouta/storage.md). Jos alkuperäinen levysi on liian pieni, voit muuttaa sen kokoa.
 
 !!! Note
-    If your volume is attached to your instance, you must detach it to be able to resize
+    Jos levysi on kytketty instanssiisi, sinun täytyy irrottaa se voidaksesi muuttaa kokoa
 
-From the Volumes page, in the **Actions** menu, click **Extend Volume**:
+Levyt-sivulta, **Toimintavalikossa** klikkaa **Laajenna levyä**:
 
-![resize-volume](img/resize_volume.png)
+![muuta-levyn-kokoa](img/resize_volume.png)
 
-A window will open. Enter the new amount of your volume:
+Ikkuna avautuu. Syötä uusi levysi määrä:
 
-![resize-volume-window](img/resize_volume_window.png)
+![muuta-levyn-kokoa-ikkuna](img/resize_volume_window.png)
 
-Click **Extend Volume**
+Klikkaa **Laajenna levyä**
 
-You should see the new size of your volume.
+Sinun pitäisi nähdä levysi uusi koko.
 
-You can now attach the new volume back to your instance.
+Voit nyt liittää uuden levyn takaisin instanssiisi.
 
-## Customize disk size when creating the instance
+## Mukauta levyn kokoa luotaessa instanssia {#customize-disk-size-when-creating-the-instance}
 
-To customize the root disk size during instance creation (instead of using a snapshot), follow these steps:
+Mukauttaaksesi juurilevyn kokoa instanssin luomisen aikana (tilannevedoksen sijaan), noudata näitä vaiheita:
 
-1. Go to **Project > Compute > Instances** and click on **Launch Instance**.
-2. In the **Details** section:
-   - **Instance Name**: Enter a name for your instance.
-   - **Flavor**: Choose the appropriate flavor, such as `standard.tiny` (with default 80 GB disk space).
-   - **Instance Boot Source**: Choose **Boot from image (creates a new volume)**.
-   - **Image Name**: Select the image you want to use (e.g., AlmaLinux-8).
-   - **Device Size**: Adjust the size of the root volume to your desired size, as shown in the image (e.g., 200 GB instead of the default 80 GB).
+1. Mene kohtaan **Projekti > Laskenta > Instanssit** ja klikkaa **Käynnistä Instanssi**.
+2. **Yksityiskohdat**-osiossa:
+   - **Instanssin nimi**: Syötä nimi instanssillesi.
+   - **Maku**: Valitse sopiva maku, kuten `standard.tiny` (oletus 80 GB levytilalla).
+   - **Instanssin käynnistyslähde**: Valitse **Käynnistä kuvasta (luo uusi volyymi)**.
+   - **Kuvan nimi**: Valitse kuva, jota haluat käyttää (esim. AlmaLinux-8).
+   - **Laitteen koko**: Säädä juuriosion kokoa haluamaasi kokoon, kuten kuvassa (esim. 200 GB oletus 80 GB:n sijaan).
    
-   - This field allows you to customize the root volume size beyond the flavor's default disk size as shown in figure below.
+   - Tämä kenttä antaa sinulle mahdollisuuden mukauttaa juuriosion kokoa makun oletuslevykokoa suuremmaksi, kuten alla olevassa kuvassa.
 
-3. After configuring the rest of the options (security, networking, etc.), click **Launch**.
+3. Kun olet konfiguroinut loput asetusvaihtoehdot (turvallisuus, verkotus jne.), klikkaa **Käynnistä**.
 
-![cloud_pouta_resize_custome_disk](img/cloud_pouta_resize_custome_disk.png)
+![cloud_pouta_koosta_muokattu_levy](img/cloud_pouta_resize_custome_disk.png)
 
-If you'd like to extend the volume using a snapshot instead, please visit [Volume snapshots](../../cloud/pouta/snapshots.md#volume-snapshots) for more detailed instructions.
+Jos haluat mieluummin laajentaa levyä tilannevedosta käyttäen, vieraile [Levyn tilannevedokset](../../cloud/pouta/snapshots.md#volume-snapshots) saadaksesi tarkempia ohjeita.

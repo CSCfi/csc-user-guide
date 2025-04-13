@@ -1,45 +1,37 @@
 
-# Getting access to Rahti
+# Pääsy Rahtiin
 
-## Login using a CSC account
+## Kirjautuminen CSC-tilillä {#login-using-a-csc-account}
 
-In order to use the Rahti container cloud with a CSC account, you need:
+CSC-tilin käyttäminen Rahti-säiliöpilvessä edellyttää seuraavaa:
 
-1. A CSC user account. You can check which is your "CSC username" in [MyCSC profile page](https://my.csc.fi/profile). You can also change the password from there.
-2. A computing project with access to Rahti
+1. CSC-käyttäjätili. Voit tarkistaa "CSC käyttäjätunnuksesi" [MyCSC-profiilisivulta](https://my.csc.fi/profile). Voit myös muuttää salasanan siellä.
+2. Laskentaprojekti, jolla on pääsy Rahtiin
 
-Access to another CSC computing system such as cPouta, Mahti or Puhti counts as a valid computing project. The same 
-project can be used in to access Rahti after adding this later to the list of enabled services.
+Pääsy toiseen CSC-laskentajärjestelmään, kuten cPouta, Mahti tai Puhti, lasketaan päteväksi laskentaprojektiksi. Sama projekti voidaan sisällyttää Rahtin käyttöön lisäämällä se luetteloon käytettävissä olevista palveluista.
 
-### Applying for access
+### Pääsyn hakeminen {#applying-for-access}
 
-Apply for Rahti access for a computing project in the
-MyCSC customer portal:
+Hae Rahti-pääsyä laskentaprojektille MyCSC-asiakasportaalissa:
 
-1. Login to [MyCSC](https://my.csc.fi) with your CSC account.
-2. Go to the [My Projects](https://my.csc.fi/projects) page.
-3. Select the project you want to add Rahti access for in the
-   project list.
-4. In the list of CSC services, click Rahti's dropdown menu.
-5. Read and accept the *Terms of Use* and press *Apply for access*.
-6. CSC will contact you once your application has been accepted.
-7. Wait up to 30 min for your profile and privileges to sync in Rahti.
+1. Kirjaudu [MyCSC:hen](https://my.csc.fi) CSC-tililläsi.
+2. Mene [Omat projektit](https://my.csc.fi/projects) -sivulle.
+3. Valitse projektiluettelosta projekti, johon haluat lisätä Rahti-pääsyn.
+4. CSC-palveluiden luettelosta klikkaa Rahtin avattavaa valikkoa.
+5. Lue ja hyväksy *Käyttöehdot* ja paina *Hae pääsyä*.
+6. CSC ottaa sinuun yhteyttä, kun hakemuksesi on hyväksytty.
+7. Odota, että profiilisi ja oikeutesi synkronoidaan Rahtissa, tämä voi kestää jopa 30 minuuttia.
 
-If you don't have a suitable computing project for Rahti
-you can create one in the the MyCSC customer portal.
+Jos sinulla ei ole sopivaa laskentaprojektia Rahtille, voit luoda uuden MyCSC-asiakasportaalissa.
 
-### Creating a new computing project
+### Uuden laskentaprojektin luominen {#creating-a-new-computing-project}
 
-Create a new computing project in the MyCSC customer portal:
+Luo uusi laskentaprojekti MyCSC-asiakasportaalissa:
 
-1. Login to [MyCSC](https://my.csc.fi) with your CSC account.
-2. Go to the [My Projects](https://my.csc.fi/projects) page.
-3. Scroll to the bottom of the page and click the
-[Create a new project](https://my.csc.fi/projects/create) button.
-4. Give your project a name, description and project type, and click
- *Create project*.
-5. CSC will contact you once your project has been successfully created.
+1. Kirjaudu [MyCSC:hen](https://my.csc.fi) CSC-tililläsi.
+2. Mene [Omat projektit](https://my.csc.fi/projects) -sivulle.
+3. Selaa sivun alareunaan ja klikkaa [Luo uusi projekti](https://my.csc.fi/projects/create) -painiketta.
+4. Anna projektille nimi, kuvaus ja projektityyppi ja klikkaa *Luo projekti*.
+5. CSC ottaa sinuun yhteyttä, kun projektisi on onnistuneesti luotu.
 
-
-Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) in case you
-need assistance.
+Ota yhteyttä [servicedesk@csc.fi](mailto:servicedesk@csc.fi) jos tarvitset apua.

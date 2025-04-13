@@ -1,12 +1,13 @@
-# Advanced
 
-- [Additional services (email, dns)](./additional-services.md)
-- [API Access](./api-access.md)
-- [Application credentials](./application-credentials.md)
-- [Application Development Practises](./application-dev.md)
-- [Command line](./command-line-tools.md)
-- [Images](./images.md)
-- [Install](./install-client.md)
-- [Known problems and limitations](./known-problems.md)
-- [Orchestration with Heat](tutorials/heat-orchestration.md)
-- [Security Guidelines for Pouta](./security.md)
+# Edistynyt {#advanced}
+
+- [Lisäpalvelut (sähköposti, dns)](./additional-services.md)
+- [API-käyttö](./api-access.md)
+- [Sovelluksen tunnistetiedot](./application-credentials.md)
+- [Sovelluskehityskäytännöt](./application-dev.md)
+- [Komentorivi](./command-line-tools.md)
+- [Kuvat](./images.md)
+- [Asennus](./install-client.md)
+- [Tunnetut ongelmat ja rajoitukset](./known-problems.md)
+- [Orkestrointi Heatilla](tutorials/heat-orchestration.md)
+- [Poutan tietoturvaohjeet](./security.md)

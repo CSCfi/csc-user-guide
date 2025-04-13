@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,40 +6,40 @@ tags:
 
 # Mothur
 
-Mothur is a bioinformatics toolkit for the needs of the microbial ecology related data analysis.
+Mothur on bioinformatiikkatyökalu mikrobiekologiaan liittyvän data-analyysin tarpeisiin.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttää ja avoimen lähdekoodin GNU GPLv3 -lisenssin alla [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
-## Available
+## Saatavilla {#available}
 
 - Puhti: 1.39.5, 1.44.0, 1.48.0, 1.48.2
-- [Chipster](https://chipster.csc.fi) graphical user interface
+- [Chipster](https://chipster.csc.fi) graafinen käyttöliittymä
 
-## Usage
+## Käyttö {#usage}
 
-To initialize the default version of Mothur on Puhti, use:
+Mothurin oletusversion alustaminen Puhtilla:
 
 ```bash
 module load mothur
 ```
 
-To see all the available versions:
+Kaikkien saatavilla olevien versioiden näkeminen:
 
 ```bash
 module spider mothur
 ```
 
-To load a specific version:
+Tietyn version lataaminen:
 
 ```bash
 module load mothur/1.48.0
 ```
 
-To run Mothur in interactive mode, use [sinteractive](../computing/running/interactive-usage.md).
+Mothurin ajaminen interaktiivisessa tilassa, käytä [sinteractive](../computing/running/interactive-usage.md).
 
 ```bash
 sinteractive --account=project_1234567 -m 8000
@@ -46,13 +47,13 @@ module load mothur
 mothur
 ```
 
-If your analyses take a long time, or you wish to use multiple cores, you should run Mothur as a batch job.
+Jos analyysisi vie paljon aikaa tai haluat käyttää useampia ytimiä, sinun tulisi ajaa Mothur erätehtävänä.
 
-Start by collecting your Mothur commands into a command file to use Mothur in [batch mode](http://www.mothur.org/wiki/Batch_mode).
+Aloita keräämällä Mothur-komennot komennotiedostoon käyttääksesi Mothuria [erätilassa](http://www.mothur.org/wiki/Batch_mode).
 
-Once you have a working Mothur command file, you can launch Mothur jobs that take several days for completion, if needed.
+Kun sinulla on toimiva Mothur-komennotiedosto, voit tarvittaessa käynnistää Mothur-töitä, joiden suoritus kestää useita päiviä.
 
-Below is a sample Mothur batch job file. In this example, we assume that the Mothur commands are in the file `my_mothur_task.txt`.
+Alla on esimerkki Mothur-erätehtävätiedostosta. Tässä esimerkissä oletamme, että Mothur-komennot ovat tiedostossa `my_mothur_task.txt`.
 
 ```bash
 #!/bin/bash
@@ -70,24 +71,23 @@ module load mothur
 mothur my_mothur_task.txt
 ```
 
-If you want to use multiple cores, adjust parameter `--cpus_per_task`. You must also adjust the `processors` parameter for each command in the Mothur command file accordingly. Note that only some [Mothur commands](https://mothur.org/wiki/tags/#commands) can use multiple cores. Check the 
-documentation to check if the options for the command include `processors`.
+Jos haluat käyttää useampia ytimiä, säädä parametriä `--cpus_per_task`. Sinun on myös säädettävä `processors`-parametria jokaisessa Mothur-komennotiedoston komennossa vastaavasti. Huomaa, että vain osa [Mothur-komennoista](https://mothur.org/wiki/tags/#commands) voi käyttää useampia ytimiä. Tarkista dokumentaatiosta, sisältääkö komento `processors`-asetuksen.
 
-Mothur jobs need to run inside a single node, so the maximum number of cores you can use on Puhti is 40. You should check the scalability before submitting large jobs. Many Mothur tasks won't scale well beyond a few cores. Using too many cores may even make your job run slower.
+Mothur-töiden on määrä ajaa yhdellä solmulla, joten Puhtin maksimiydinmäärä on 40. Tarkista skaalautuvuus ennen suurten töiden lähettämistä. Monet Mothur-tehtävät eivät skaalaudu kovin hyvin muutamaa ydintä pidemmälle. Liian monen ytimen käyttäminen voi jopa hidastaa työsi suoritusta.
 
-The batch job script described above (in this case named as `mothur_batch_job.sh`) can be submitted to the batch job system
-with the command:
+Yllä kuvattu erätehtäväskenaario (tässä tapauksessa nimettynä `mothur_batch_job.sh`) voidaan lähettää erätehtäväjärjestelmään komennolla:
 
 ```bash
 sbatch mothur_batch_job.sh
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Katso lisätietoja erätehtävien ajamisesta [Puhti-käyttäjän oppaasta](../computing/running/getting-started.md).
 
-## Support
+## Tuki {#support}
 
 [CSC Service Desk](../support/contact.md)
 
-## More information
+## Lisätietoja {#more-information}
 
-- [Mothur Homepage](https://www.mothur.org/)
+- [Mothur-etusivu](https://www.mothur.org/)
+

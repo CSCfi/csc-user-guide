@@ -1,101 +1,106 @@
-# Sensitive data and GDPR 
+# Arkaluonteiset tiedot ja GDPR {#sensitive-data-and-gdpr}
 
-## What type of data is sensitive?
+## Minkä tyyppiset tiedot ovat arkaluonteisia? {#what-type-of-data-is-sensitive}
 
-Sensitive data is classified information that must be protected from unauthorized access. Sensitive data can be accessible to outside parties **ONLY with expressly granted permissions**. 
-The main types of sensitive data are human, ecological (e.g. location of endangered species), and confidential data.
+Arkaluonteiset tiedot ovat luokiteltua tietoa, joka on suojattava luvattomalta pääsyltä. Arkaluonteiset tiedot voivat olla ulkopuolisten saatavilla **AINOASTAAN nimenomaisesti myönnetyin luvin**. Päätyypit arkaluonteisia tietoja ovat ihmisiin liittyvät tiedot, ekologiset tiedot (esim. uhanalaisten lajien sijainti) ja luottamukselliset tiedot.
 
-**Sensitive personal** data is any data that reveals:
+**Arkaluonteiset henkilötiedot** ovat tietoja, jotka paljastavat:
 
-* personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs,
-    
-* trade-union membership,
-    
-* genetic data, biometric data processed solely to identify a human being,
-    
-* health-related data,
-    
-* data concerning a person’s sex life or sexual orientation.
+* henkilötiedot, jotka paljastavat rodullisen tai etnisen alkuperän, poliittiset mielipiteet, uskonnolliset tai filosofiset vakaumukset,
 
-Sensitive personal data is subject to specific processing conditions according to the GDPR.
+* ammattiliittojen jäsenyyden,
 
-To learn more, see: [Definition of Sensitive Data](https://research.csc.fi/definition-of-sensitive-data) 
+* geneettiset tiedot, biometriset tiedot, joita käsitellään yksinomaan ihmisen tunnistamiseksi,
 
-## What is personal data?
+* terveystiedot,
 
-Personal data is any information related to an identified or identifiable living individual. Personal data can also be different information that can lead to the identification of one person when collected together.
+* tiedot henkilön sukupuolielämästä tai seksuaalisesta suuntautumisesta.
 
-Examples of personal data are:
+GDPR:n mukaan arkaluonteisia henkilötietoja koskee erityiset käsittelyehdot.
 
-- a name and surname;
-    
-- a home address;
-    
-- email address;
-    
-- social security number;
-    
-- location data (for example, the location data function on a mobile phone);
-    
-- (IP) address;
-    
-- a cookie ID.
-    
- 
+Lisätietoja: [Arkaluonteisten tietojen määritelmä](https://research.csc.fi/definition-of-sensitive-data)
 
-## What is the difference between sensitive personal data and personal data?
-Sensitive personal data is a specific set of “special categories” of personal data that must be treated with extra security. 
-To learn more see: [Definition of Sensitive Data](https://research.csc.fi/definition-of-sensitive-data).
-    
-## What is the GDPR?
-The General Data Protection Regulation is a European Union (EU) data privacy and security law that regulates the management and processing of personal data. 
+## Mitä ovat henkilötiedot? {#what-is-personal-data}
 
-It defines:    
+Henkilötiedot ovat mitä tahansa tietoa, joka liittyy tunnistettuun tai tunnistettavissa olevaan elävään yksilöön. Henkilötiedot voivat myös olla erilaisia tietoja, jotka yhdessä kerättyinä voivat johtaa yhden henkilön tunnistamiseen.
 
-- what is personal data
+Esimerkkejä henkilötiedoista ovat:
 
-- what is data processing
+- nimi ja sukunimi;
 
-- what are the roles of all the parties involved (Data Controller, Data Processor, Data Subject)
+- kotiosoite;
 
-- key principles that regulate EU data protection
+- sähköpostiosoite;
 
-Any organization that stores or processes personal information regarding EU citizens is obliged to comply with the GDPR. 
+- sosiaaliturvatunnus;
 
-## What are the roles of CSC and its service users under GDPR?  
-In GDPR terms, CSC is always a data processor acting on behalf of a data controller. GDPR also requires that this relationship be done in writing. Therefore, the data controller (a group leader, researcher, research organization or their legal representative) needs to sign the Data Processing Agreement with the CSC, a legal contract. CSC never acts as a data controller, but our services give CSC users all the instruments necessary to manage the access to sensitive data. The CSC service user remains fully responsible for the data and is required to choose a service that complies with the security level needed for the data. 
+- sijaintitiedot (esimerkiksi matkapuhelimen sijaintitietotoiminto);
 
-## I am not sure if the data I am working with is sensitive or not. Where can I find support?
-If you need assistance to verify if SD service are suitable for processing your research data, contact your organization's data protection officer or legal office. You can provide them with supporting documents such as:
+- (IP) osoite;
 
-1. Service descriptions of [SD Connect ](https://research.csc.fi/-/sd-connect)and [SD Desktop](https://research.csc.fi/en/-/sd-desktop) and technical and organizational measures document. 
-2. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
-3. the GDPR (Description of processing activity form) that can be downloaded from your CSC project
-4. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+- evästeen tunnus.
 
-For suppoer don't hesitate to contac us at servicedesk@csc.fi (subject: Sensitive Data).
+## Mikä eroa on arkaluonteisilla henkilötiedoilla ja henkilötiedoilla? {#what-is-the-difference-between-sensitive-personal-data-and-personal-data}
 
-Contact information of Finnish universities data protection / legal offices
+Arkaluonteiset henkilötiedot ovat erityinen joukko "erityisiä kategorioita" henkilötietoja, joita on käsiteltävä erityisellä turvallisuudella.
 
-| **University**  | **Contact information**  |
+Lisätietoja: [Arkaluonteisten tietojen määritelmä](https://research.csc.fi/definition-of-sensitive-data).
+
+## Mitä on GDPR? {#what-is-the-gdpr}
+
+Yleinen tietosuoja-asetus on Euroopan unionin (EU) tietosuoja- ja turvallisuuslaki, joka säätelee henkilötietojen hallintaa ja käsittelyä.
+
+Se määrittelee:
+
+- mitä ovat henkilötiedot
+
+- mitä on tietojenkäsittely
+
+- mitä ovat kaikkien osapuolten tehtävät (rekisterinpitäjä, tietojen käsittelijä, rekisteröity)
+
+- EU:n tietosuojaa säätelevät keskeiset periaatteet
+
+Jokaisen organisaation, joka tallentaa tai käsittelee henkilötietoja EU:n kansalaisista, on noudatettava GDPR:ää.
+
+## Mitä rooleja CSC:llä ja sen palvelukäyttäjillä on GDPR:n mukaan? {#what-are-the-roles-of-csc-and-its-service-users-under-gdpr}
+
+GDPR:n mukaan CSC on aina tietojen käsittelijä, joka toimii rekisterinpitäjän puolesta. GDPR myös edellyttää, että tämä suhde on kirjallisesti. Täten rekisterinpitäjän (ryhmän johtaja, tutkija, tutkimusorganisaatio tai heidän oikeudellinen edustajansa) on allekirjoitettava Tietojenkäsittelysopimus CSC:n kanssa, joka on laillinen sopimus. CSC ei koskaan toimi rekisterinpitäjänä, mutta palvelumme antavat CSC:n käyttäjille kaikki tarvittavat välineet hallita pääsyä arkaluonteisiin tietoihin. CSC:n palvelukäyttäjä on täysin vastuussa tiedoista ja hänen on valittava palvelu, joka vastaa tarvittavaa tietoturvatasoa.
+
+## En ole varma, onko käsittelemäni data arkaluonteista vai ei. Mistä voin löytää tukea? {#i-am-not-sure-if-the-data-i-am-working-with-is-sensitive-or-not.-where-can-i-find-support}
+
+Jos tarvitset apua SD-palvelujen sopivuuden arvioinnissa tutkimustietojesi käsittelylle, ota yhteyttä organisaatiosi tietosuojavastaavaan tai lakitoimistoon. Voit antaa heille seuraavat tukidokumentit:
+
+1. [SD Connect](https://research.csc.fi/-/sd-connect)in ja [SD Desktop](https://research.csc.fi/en/-/sd-desktop)in palvelukuvaukset sekä tekniset ja organisatoriset toimenpiteet -dokumentti.
+
+2. [CSC:n tietojenkäsittelysopimus (DPA)](https://research.csc.fi/data-processing-agreement)
+
+3. GDPR (kuvaus käsittelytoimista -lomake), joka voidaan ladata CSC-projektistasi
+
+4. [CSC:n tietopolitiikka](https://www.csc.fi/en/data-policy)
+
+Tuen saamiseksi älä epäröi ottaa yhteyttä osoitteessa servicedesk@csc.fi (aihe: Arkaluonteinen data).
+
+Suomalaisten yliopistojen tietosuojan / lakiasioiden toimistojen yhteystiedot
+
+| **Yliopisto**  | **Yhteystiedot**  |
 |---|---|
-| Aalto University  | tietosuojavastaava@aalto.fi <br />[Data Protection Policy](https://www.aalto.fi/en/services/aalto-university-data-protection-policy) |
-| LUT University  | dataprotection@lut.fi <br />tietosuoja@lut.fi <br />[Data protection policy](https://www.lut.fi/en/data-protection)  |
-| University of Eastern Finland  | tietosuoja@uef.fi <br />[Data protection policy](https://www.uef.fi/en/data-protection)  |
-| University of Helsinki  | tietosuoja@helsinki.fi <br />[Data protection policy](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
-| University of Jyväskylä  | tietosuoja@jyu.fi <br />[Data protection policy](https://www.jyu.fi/en/data-privacy-at-the-university-of-jyvaskyla) |
-| University of Lapland  | tietosuoja@ulapland.fi <br />[Data protection policy](https://www.ulapland.fi/EN/About-us/Our-principles/Data-protection) |
-| University of Oulu  | dpo@oulu.fi <br />[Data protection policy](https://www.oulu.fi/en/data-privacy-notice) |
-| University of Tampere  | dpo@tuni.fi <br />[Data protection policy](https://www.tuni.fi/en/research/responsible-science-and-research/data-protection) |
-| University of Turku  | dpo@utu.fi <br />tietosuoja@utu.fi <br />[Data protection policy](https://www.utu.fi/en/privacy/notice) |
-| University of Vaasa  | tietosuojavastaava@uwasa.fi <br />[Data protection policy](https://www.uwasa.fi/en/data-protection) |
+| Aalto-yliopisto  | tietosuojavastaava@aalto.fi <br />[Tietosuojapolitiikka](https://www.aalto.fi/en/services/aalto-university-data-protection-policy) |
+| LUT-yliopisto  | dataprotection@lut.fi <br />tietosuoja@lut.fi <br />[Tietosuojapolitiikka](https://www.lut.fi/en/data-protection)  |
+| Itä-Suomen yliopisto  | tietosuoja@uef.fi <br />[Tietosuojapolitiikka](https://www.uef.fi/en/data-protection)  |
+| Helsingin yliopisto  | tietosuoja@helsinki.fi <br />[Tietosuojapolitiikka](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
+| Jyväskylän yliopisto  | tietosuoja@jyu.fi <br />[Tietosuojapolitiikka](https://www.jyu.fi/en/data-privacy-at-the-university-of-jyvaskyla) |
+| Lapin yliopisto  | tietosuoja@ulapland.fi <br />[Tietosuojapolitiikka](https://www.ulapland.fi/EN/About-us/Our-principles/Data-protection) |
+| Oulun yliopisto  | dpo@oulu.fi <br />[Tietosuojapolitiikka](https://www.oulu.fi/en/data-privacy-notice) |
+| Tampereen yliopisto  | dpo@tuni.fi <br />[Tietosuojapolitiikka](https://www.tuni.fi/en/research/responsible-science-and-research/data-protection) |
+| Turun yliopisto  | dpo@utu.fi <br />tietosuoja@utu.fi <br />[Tietosuojapolitiikka](https://www.utu.fi/en/privacy/notice) |
+| Vaasan yliopisto  | tietosuojavastaava@uwasa.fi <br />[Tietosuojapolitiikka](https://www.uwasa.fi/en/data-protection) |
 
-## What type of sensitive data can I process with CSC Sensitive Data Services?
-Any type of sensitive data consented for research. Processing register data under the Act on Secondary us of Health and Social data is possible only with a Findata permit or register permit and using a restricted version of the SD Desktop service (see: Sd Desktop for secondary use).
+## Minkä tyyppistä arkaluonteista tietoa voin käsitellä CSC:n arkaluonteisten tietojen palveluissa? {#what-type-of-sensitive-data-can-i-process-with-csc-sensitive-data-services}
 
-## What type of documentation do I need to provide to use CSC Sensitive Data Services?
+Kaiken tyyppinen tutkimukseen suostuttu arkaluonteinen tieto. Henkilörekisterin tietojen käsittely toissijaisessa käytössä terveys- ja sosiaalitietojen tietosuojalain mukaisesti on mahdollista vain Findatan sallimalla tai rekisteriluvalla ja käyttäen SD Desktop -palvelun rajoitettua versiota (katso: Sd Desktop toissijaiseen käyttöön).
 
-When creating a CSC account and CSC project in MyCSC, you are guided to view and accept CSC's Data Processing Agreement (DPA) and describe the type of data you are processing in the description of processing activities form. 
-If you have any questions about these documents or addittional legal agreements are needed between your organization and CSC, write to servicedesk@csc.fi (email subject: Sensitive Data).
+## Minkä tyyppistä dokumentaatiota tarvitsen käyttääkseni CSC:n arkaluonteisten tietojen palveluita? {#what-type-of-documentation-do-i-need-to-provide-to-use-csc-sensitive-data-services}
 
+Kun luot CSC-tilin ja CSC-projektin MyCSC:ssä, sinua opastetaan tarkastelemaan ja hyväksymään CSC:n tietojenkäsittelysopimus (DPA) sekä kuvaamaan käsittelemiesi tietojen tyyppi käsittelytoimien kuvaus -lomakkeessa.
 
+Jos sinulla on kysyttävää näistä asiakirjoista tai tarvitset lisälaillisia sopimuksia organisaatiosi ja CSC:n välillä, kirjoita osoitteeseen servicedesk@csc.fi (sähköpostin aihe: Arkaluonteinen data).

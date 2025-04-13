@@ -1,29 +1,30 @@
-# Troubleshooting
 
-| Problem | Description | Solution |
-|---------|-------------|----------|
-|Service access|I can not access SD Connect|1. Verify in the MyCSC portal if your CSC project has service access to SD Connect and accepted CSC’s terms of use.<br>2. Link your Haka account to your CSC account.<br>3. SD Connect is not supported during private browsing with Firefox (incognito mode).|
-||I can not access SD Connect, an error tells me that it was not possible to perform elevation/authentication|Activate multi-factor authentication (MFA) on your CSC profile in the MyCSC portal (necessary since October 2024). [See more details here](../../accounts/mfa.md).|
-||I end up in a loop of login requests|We suggest you to use Chrome as better supported browser. If you are using Firefox, login will be again successful if you clear history and cookies.|
-|Data access|I no longer can see my CSC project|CSC projects created before 2013 are not supproted by the user interface. Please contact us for support|
-||I can not see files uploaded via an older version of SD Connect|Unencrypted files are no longer visible using SD Connect 2.0 since October 2024.|
-||I can not access files stored in SD Connect using SD Desktop|Unencrypted files are not accessible via the SD Desktop service (you can use a Allas user interfaces for managing non encrypted data). Only files encrypted using the SD service encryption key are visible in the secure computing environment (or encrypted using SD Connect default option). Refresh the Data Gateway application.|
-|Folder creation|I can not create a new folder|Try using a unique folder name that doesn’t contain special characters. Select the correct CSC project in the SD Connect user interface.|
-|Folder not visible|I cannot find my folder|Check if the folder is stored under a different project. If someone has shared the folder with you, you can find it under the Shared to section and copy it. If someone shared the folder with you, they could have revoked the sharing permissions.|
-|Folder deletion|I can not delete an empty folder|If the folder has been created in November or December 2022, [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data).|
-|Manual decryption with Crypt4gh|Cannot open or decrypt files downloaded from SD Connect|1. You can not decrypt files that have been encrypted with the SD Connect user interface and default option before October 2024. In this case, the files have been encrypted with the service-specific encryption key and are automatically decrypted when accessed using the SD Desktop service. Please [contact CSC Service Desk](../../support/contact.md) for support.<br>2. Add the extension `.c4gh` to the downloaded files if it is missing and decrypt it using your private encryption key.|
-|Data upload - dowload|I am trying to upload a large file/folder with the user interface, and the upload is not responding|Files or folders larger than 100 GB should be uploaded programmatically. SD Connect user interface supports only data uploads that last up to 8 hours.|
-||I cannot upload data into my folder|Check if your CSC project has storage space left and apply for more quota. [See more details here](../../accounts/how-to-increase-disk-quotas.md).|
-||Low upload speed (programmatically)|Upload and download speed depends on the local network.|
-|Shared folder|I cannot upload data into a shared folder|Only folders shared with 'collect' permissions allow data uploads.|
-||I cannot download the content of a shared folder|Only folders shared with 'transfer' or 'collect' permissions allows you to download a copy of the content.|
-|Tags|Adding tag does not work|Currently tag feature is not supported|
+# Vianmääritys {#troubleshooting}
 
-## Features in SD Connect
+| Ongelma | Kuvaus | Ratkaisu |
+|---------|--------|----------|
+|Palvelun käyttö|En pääse SD Connect -palveluun|1. Varmista MyCSC-portaalissa, että CSC-projektillasi on palvelupääsy SD Connectiin ja että olet hyväksynyt CSC:n käyttöehdot.<br>2. Liitä Haka-tilisi CSC-tiliisi.<br>3. SD Connectia ei tueta Firefoxin yksityisessä selaustilassa (incognito-tila).|
+||En pääse SD Connect -palveluun, virhe kertoo, että elevointi/autentikointi ei onnistunut|Ota monivaiheinen tunnistautuminen (MFA) käyttöön CSC-profiilissasi MyCSC-portaalissa (tarvitaan lokakuusta 2024 alkaen). [Katso lisätietoja täältä](../../accounts/mfa.md).|
+||Joudun jatkuvaan kirjautumiskyselyjen vaiheeseen|Suosittelemme käyttämään Chromea paremmin tuettuna selaimena. Jos käytät Firefoxia, kirjautuminen onnistuu, kun tyhjennät selaushistorian ja evästeet.|
+|Tietojen käyttö|En näe enää CSC-projektiani|Vuoden 2013 ennen luotuja CSC-projekteja ei tueta käyttöliittymässä. Ota yhteyttä saadaksesi tukea.|
+||En näe SD Connectin vanhemmalla versiolla ladattuja tiedostoja|Salaamattomat tiedostot eivät enää ole näkyvissä SD Connect 2.0:ssa lokakuusta 2024 alkaen.|
+||En pääse SD Connectiin tallennettuihin tiedostoihin SD Desktopilla|Salaamattomat tiedostot eivät ole SD Desktop -palvelun kautta saatavilla (voit käyttää Allas-käyttöliittymiä hallitsemaan salaamatonta dataa). Ainoastaan tiedostot, jotka on salattu SD-palvelun salausavaimella, ovat näkyvissä turvallisessa laskentaympäristössä (tai salattu SD Connectin oletusasetuksella). Päivitä Data Gateway -sovellus.|
+|Kansion luonti|En voi luoda uutta kansiota|Kokeile käyttää yksilöllistä kansion nimeä, joka ei sisällä erikoismerkkejä. Valitse oikea CSC-projekti SD Connect -käyttöliittymässä.|
+|Kansio ei näy|En löydä kansiota|Tarkista, onko kansio tallennettu eri projektin alle. Jos joku on jakanut kansiosi kanssasi, löydät sen Jaettu osio -osiosta ja voit kopioida sen. Jos joku jakoi kansiosi kanssasi, hän on voinut peruuttaa jakamisoikeudet.|
+|Kansion poistaminen|En voi poistaa tyhjää kansiota|Jos kansio on luotu marras- tai joulukuussa 2022, [ota yhteyttä CSC Service Deskiin](../../support/contact.md) (aihe: arkaluonteiset tiedot).|
+|Manuaalinen purku Crypt4gh:lla|En voi avata tai purkaa SD Connectista ladattuja tiedostoja|1. Et voi purkaa tiedostoja, jotka on salattu SD Connect -käyttöliittymän ja oletusasetuksen avulla ennen lokakuuta 2024. Tässä tapauksessa tiedostot on salattu palvelukohtaisella salausavaimella ja ne purkautuvat automaattisesti, kun niitä käytetään SD Desktop -palvelun avulla. Ole hyvä ja [ota yhteyttä CSC Service Deskiin](../../support/contact.md) saadaksesi tukea.<br>2. Lisää ladattuihin tiedostoihin `.c4gh`-laajennus, jos se puuttuu, ja pura se käyttämällä yksityistä salausavainta.|
+|Datansiirto|Yritän ladata suuren tiedoston/kansion käyttöliittymän avulla, eikä lataus vastaa|Tiedostot tai kansiot, jotka ovat suurempia kuin 100 GB, tulisi ladata ohjelmallisesti. SD Connect -käyttöliittymä tukee vain enintään 8 tunnin kestoisia latauksia.|
+||En voi ladata dataa kansiooni|Tarkista, onko CSC-projektillasi tallennustilaa jäljellä ja hae lisätilaa. [Katso lisätietoja täältä](../../accounts/how-to-increase-disk-quotas.md).|
+||Hidas latausnopeus (ohjelmallisesti)|Lataus- ja purkunopeus riippuu paikallisesta verkosta.|
+|Jaettu kansio|En voi ladata dataa jaettuun kansioon|Vain kansiot, jotka on jaettu keräysoikeuksilla, sallivat datan latauksen.|
+||En voi ladata jaetun kansion sisältöä|Vain kansiot, jotka on jaettu siirto- tai keräysoikeuksilla, antavat mahdollisuuden ladata sisällön kopion.|
+|Tunnisteet|Tunnisteen lisääminen ei toimi|Tällä hetkellä tunnisteominaisuutta ei tueta|
 
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
-* [Command line interface](./sd-connect-command-line-interface.md)
-* [Troubleshooting](./sd-connect-troubleshooting.md)
+## SD Connectin ominaisuudet {#features-in-SD-Connect}
+
+* [Lataaminen](./sd-connect-upload.md)
+* [Jakaminen](./sd-connect-share.md)
+* [Lataaminen](./sd-connect-download.md)
+* [Poistaminen](./sd-connect-delete.md)
+* [Komentorivi](./sd-connect-command-line-interface.md)
+* [Vianmääritys](./sd-connect-troubleshooting.md)

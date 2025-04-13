@@ -1,20 +1,20 @@
-# How to automatically scale up and down replicas
+# Kuinka automaattisesti skaalata replikoita ylös ja alas
 
-Rahti allows automatic Horizontal auto-scaling based on CPU and Memory consumption. This means that the platform can be configured to add more copies of an application (scale up) when the current copies are consuming too much CPU and/or Memory, and to remove copies of the application (scale down) when the consumption of CPU and/or memory is too low and a lower amount of copies can cope with the current load. 
+Rahti mahdollistaa automaattisen horisontaalisen skaalauksen CPU- ja muistin kulutuksen perusteella. Tämä tarkoittaa, että alusta voidaan määrittää lisäämään sovelluksesta enemmän kopioita (skaalata ylös), kun nykyiset kopiot kuluttavat liikaa CPU:ta ja/tai muistia, ja poistamaan sovelluksen kopioita (skaalata alas), kun CPU:n ja/tai muistin kulutus on liian alhainen, ja pienempi määrä kopioita riittää nykyiselle kuormalle.
 
-!!! info "Horizontal/Vertical scaling"
+!!! info "Horisontaalinen/Vertikaalinen skaalaminen"
 
-    Horizontal scaling is when more copies or replicas of an application are added. For Kubernetes this means more Pods running with the same container and parameters. For virtual machines this means to add more virtual machines with the same flavor and image.
+    Horisontaalinen skaalaminen tarkoittaa, että sovelluksesta lisätään enemmän kopioita tai replikoita. Kubernetesissa tämä tarkoittaa, että enemmän palkeleita (Pods) suoritetaan samalla säilöllä ja parametreilla. Virtuaalikoneissa tämä tarkoittaa, että lisätään enemmän virtuaalikoneita samalla mallilla ja kuvalla.
 
-    Vertical scaling is when more resources are added to the current copy. For Kubernetes this means setting higher CPU or memory limits. For virtual machines it means to recreate the machine with a bigger flavor with more CPU or memory.
+    Vertikaalinen skaalaminen on, kun nykyiseen kopioon lisätään enemmän resursseja. Kubernetesissa tämä tarkoittaa, että asetetaan korkeammat CPU- tai muistirajat. Virtuaalikoneissa se tarkoittaa koneen uudelleenluontia suuremmalla mallilla, jossa on enemmän CPU:ta tai muistia.
 
-The obvious utility of this is to allow automatically and dynamically optimize the resources consumed. It lowers the cost of maintaining an application that will only have occasionally high load. The response time for scaling up is in the realm of seconds, and when tuned in properly, it can allow a seamless experience for the users of the application. 
+Tämän selvä hyöty on, että se mahdollistaa resurssien kulutuksen automaattisen ja dynaamisen optimoinnin. Se alentaa sovelluksen ylläpitäjän kustannuksia, koska sovelluksella on vain satunnaisesti korkea kuorma. Skaalautumisajan vasteaika on sekunneissa, ja kun se on oikein säädetty, se voi tarjota saumattoman kokemuksen sovelluksen käyttäjille.
 
-## Setup
+## Määritykset {#setup}
 
-For doing this, first we need a `Deployment`. Any deployment will work, but you can use this example that deploys a dummy application: 
+Tätä varten tarvitsemme ensin `Deploymentin`. Mikä tahansa käyttöönotto toimii, mutta voit käyttää tätä esimerkkiä, joka ottaa käyttöön kuvitteellisen sovelluksen:
 
-**Note:** Remember to [login in Rahti](../../cloud/rahti/usage/cli.md#how-to-login-with-oc) first
+**Huom:** Muista ensin [kirjautua Rahiin](../../cloud/rahti/usage/cli.md#how-to-login-with-oc)
 
 ```sh
 echo "apiVersion: apps/v1
@@ -42,79 +42,77 @@ spec:
 " | oc create -f -
 ```
 
-The deployment should now spin up 4 copies of the same `Pod`. We will later configure it to lower or increase the number of Pods based on resource consuption.
+Tämän käyttöönoton tulisi nyt pyörittää 4 kopiota samasta `Podista`. Myöhemmin määritämme sen vähentämään tai lisäämään Podien määrää resurssienkulutuksen perusteella.
 
-### Add resources limits
+### Lisää resurssirajoja {#add-resources-limits}
 
-![Actions>EditResourceLimits](../../cloud/img/editResourceLimits.png){ align=right }
+![Toiminnot>MuokkaaResurssirajoja](../../cloud/img/editResourceLimits.png){ align=right }
 
-The next step is to set resource limits for CPU and Memory. This is the maximum amount of CPU and memory that each Pod will be able to use. From the Deployment page, go to **Actions > Edit resource limits**
+Seuraava askel on asettaa resurssirajoituksia CPU:lle ja muistille. Tämä on se CPU:n ja muistin enimmäismäärä, jota kukin Pod pystyy käyttämään. Deployment-sivulta mene **Toiminnot > Muokkaa resurssirajoja**
 
-You have to set a limit (per Pod) for CPU and memory. It is not necessary to fill up the "Request" field.
+Sinun on asetettava rajoitus (per Pod) CPU:lle ja muistille. "Pyynnön" kenttää ei tarvitse täyttää.
 
+Tässä esimerkissä asetamme:
 
-For this example, we will set:
+* `1` CPU-rajoitus.
+* `1` Gi muistirajaksi.
 
-* `1` CPU limit.
-* `1` Gi memory limit.
+![Muokkaa Resurssirajoja](../../cloud/img/editResourceLimitsDialog.png)
 
-![Edit ResourceLimits](../../cloud/img/editResourceLimitsDialog.png)
+### Lisää HorisontaalinenSkaalaaja {#add-the-horizontalautoscaler}
 
-### Add the HorizontalAutoscaler
+Kun Pod-rajat on asetettu, voit nyt lisätä horisontaalisen automaattisäätäjän. Deployment-sivulta mene **Toiminnot > Lisää horisontaalinen Pod-automaattisäätäjä**.
 
-Once the Pod limits are set, you can now add the Horizontal auto-scaler. From the Deployment page, go to **Actions > Add HorizontalPodAutoscaler**.
+![Toiminnot>LisääHorisontaalinenSkaalaaja](../../cloud/img/addHorizontalAutoscaler.png){ align=right }
 
-![Actions>AddHorizontalAutoscaler](../../cloud/img/addHorizontalAutoscaler.png){ align=right }
+Aseta ensin replikoinnin **maksimi** ja **minimi** määrä. Yleensä minimimääräksi jätetään 1 ja maksimimääräksi asetetaan arvo, joka on "reilu osuus" kokonaiskiintiöstä. Esimerkiksi, jos kiintiö on yhteensä 20 Podille ja on yksittäinen käyttöönotto, enimmäismääräksi tulisi asettaa 20, jotta käytetään kaikki saatavilla olevat kiintiö. Mutta jos jakaa saman nimisen tilan kahden käyttöönoton välillä, maksimi pitäisi asettaa arvoon 10 kummallekin.
 
-First set the **maximum** and **minimum** number of replicas. In general, one will leave the minimum to 1, and set the maximum to a value to a "fair share" of the total quota. For example, if you have a total quota of 20 Pods, and one single Deployment, the maximum should be set to 20, to use all the quota available. But if you have two deployments sharing the same name space, the maximum should be set to 10 each.
+Kun vähimmäis- ja enimmäisarvot on asetettu, meidän tulee konfiguroida se % resurssikäytöstä, joka käynnistää skaalaamisen ylös. Voidaan asettaa yksi tai molemmat kahdesta resurssista (CPU ja muisti). Mikä raja ja mihin resurssiin riippuu ajamastasi sovelluksesta. Jotkin sovellukset ovat enemmän CPU-käyttäjäintensiivisiä, toiset muistintensiivisiä, ja jotkut ovat molempia. Käytännössä se on iteratiivinen prosessi parametrien säätämiseksi.
 
-After the minimum and maximum are set, we need to setup the % of resource usage that will be needed to trigger an scale up. One or both of the two resources (CPU and memory) can be set. What limit and of what resource depends on ghe application you are running. Some applications are more CPU usage intensive, some are memory usage intensive, others are both. In practise, it is an iterative process for tunning the parameters. 
+Kun konfiguroitujen resurssien käyttö ylittyy, luodaan uusi kopio. Esimerkiksi asetamme 50% muistista 1 Gi:n rajalla. Kun muistin käyttö saavuttaa ja ylittää 500MB, luodaan uusi kopio, joka kaksinkertaistaa käytettävissä olevan muistin. Tämä skaalaus jatkuu, kunnes kokonaismuistin käyttö ylittää 50% käytettävissä olevasta muistista.
 
-When the usage of the resources configured is surpassed, a new replica will be created. For example, we setup a 50% of memory with a limit of 1Gi. When the usage of memory reaches and surpasses the 500MB mark, a new replica will be created, doubling the total memory available. This scale up will continue meanwhile the total memory usage is more than 50% of the memory available.
+Toisaalta, skaalaus alaspäin tapahtuu, kun lisäkapasiteettia ei enää tarvitse, esim.: Kun yhden kopion poistamisen jälkeen käytetyn muistin määrä ei ylitä 50% saatavilla olevasta muistista skaalaus alaspäin tapahtumisen jälkeen.
 
-On the hand, an scale down will happen when the extra capacity is no longer needed, i.e.: When by removing one replica, the total memory used will not be more that 50% of the total available after the scale down.
+![Lisää Horisontaalinen Pod Automaattisäätäjä -dialogi](../../cloud/img/addHorizontalPodAutoscalerDialog.png)
 
-![Add Horizontal Pod Autoscaler dialog](../../cloud/img/addHorizontalPodAutoscalerDialog.png)
+Tässä esimerkissä asetamme:
 
-For this example we will setup:
+* `1` Podien vähimmäismääräksi.
+* `4` Podien enimmäismääräksi.
+* `50`% muistinkäytöstä.
 
-* `1` as the Minimum number of Pods.
-* `4` as the Maximum number of Pods.
-* `50`% of memory utilization.
+Emme koske CPU:n käyttöön. 
 
-We will not touch the CPU utilization. 
+## Testaa ja seuraa {#test-and-monitor}
 
-## Test and monitor
+Muutaman minuutin kuluttua pitäisi olla vain yksi Pod, jossa on lähes nolla CPU:n käyttöä ja 100MB muistinkäyttöä. Automaattisäätäjä odottaa jopa 10 minuuttia poistaakseen Podeja välttääkseen räpyttelyä, lisätietoja alla. Voit tarkistaa tämän `Podit`-sivulta (**Projekti > Podit** kehittäjäsivulla).
 
-After some minutes, we should have only one single Pod with almost zero CPU usage and 100MB of memory usage. The autoscaler waits up to 10 minutes to delete Pods to avoid flapping, see below for more information. You can check this in the `Pods` page (**Project > Pods** in the Developer page).
+![Podit](../../cloud/img/podsAutoscaler.png)
 
-![Pods](../../cloud/img/podsAutoscaler.png)
+!!! info "CLI:n käyttäminen"
 
-!!! info "Using the CLI"
-
-    You can use the command line interface to get the current status of the autoscaler:
+    Voit käyttää komentorivikäyttöliittymää saadaksesi nykyisen automaattisäätäjän tilan:
     ```
     $ oc get HorizontalPodAutoscaler example   
     NAME      REFERENCE            TARGETS          MINPODS   MAXPODS   REPLICAS   AGE
     example   Deployment/example   9%/50%, 0%/50%   1         4         1          1h
     ```
 
-There is only need for a single Pod because only ~100MB is used out of 1Gi of total memory. This is less than the 50% of memory we configured. We will now artificially raise the memory usage. We will enter in a terminal of the single Pod that is running (Click in the Pod name and then in the "Terminal" tab), and run the following command:
+Tähän tarvitaan vain yksi Pod, koska käytetään vain ~100MB yhteensä 1 Gi muistin kapasiteetista. Tämä on vähemmän kuin 50% muistissa, jonka olemme konfiguroineet. Nyt nostamme muistin käyttöä keinotekoisesti. Menemme sillä hetkellä käynnissä olevan yksittäisen Podin terminaaliin (Klickaa Podin nimeä ja sitten "Terminaali"-välilehteä), ja suoritamme seuraavan komennon:
 
 ```sh
 /app/app.py 5 100
 ```
 
-This will create a new process that will reserve 5 chunks of 100MB of RAM. As 100+500 MB is more than 50% of the total 1Gi of memory, a new Pod will be created by the auto scaler. 
+Tämä käynnistää uuden prosessin, joka varaa 5 kpl 100MB RAM:ia. Koska 100+500 MB on yli 50% yhteensä 1 Gi muistista, uusi Pod luodaan automaattisäätäjän toimesta. 
 
-![2 Pods](../../cloud/img/pods2Autoscaler.png)
+![2 Podia](../../cloud/img/pods2Autoscaler.png)
 
-Monitor the situation and wait for the second Pod to be created. The resources can be monitored from the main project page, this gives a general view of the whole project, including the quota usage. Alternatively you can enter in the page of the deployment we created (from the **Project** page, go to **Deployment**, click in **example**, and finally in the Metrics tab. 
+Seuraa tilannetta ja odota toisen Podin luomista. Resurssit voidaan seurata projektin pääsivulta, tämä antaa yleisen näkemyksen koko projektista, mukaan lukien kiintiön käyttö. Vaihtoehtoisesti voit siirtyä luodun käyttöönoton sivulle (Projektista, mene **Deployment**, klikkaa **example**, ja lopuksi Metrics-välilehteä.
 
-Afterwards, you can kill the process you created and see how the application is scaled down by killing the second Pod.
+Tämän jälkeen voit lopettaa luomasi prosessin ja nähdä, kuinka sovellus skaalautuu alas tappamalla toisen Podin.
 
-!!! Info "Scale down delay"
-    Meanwhile the scale up is designed to be as fast as possible, the scale down will take up to 10 minutes. This is due to the stabilization window, from the [upstream kubernetes documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#stabilization-wind):
+!!! Info "Skaalaus alaspäin viive"
+    Tarkoituksena on, että skaalaus ylös on mahdollisimman nopeaa, mutta skaalaus alaspäin voi kestää jopa 10 minuuttia. Tämä johtuu vakautusikkunasta, [kuluuvan Kubernetes dokumentaation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#stabilization-window) mukaan:
 
-    > The stabilization window is used to restrict the flapping of replica count when the metrics used for scaling keep fluctuating. The autoscaling algorithm uses this window to infer a previous desired state and avoid unwanted changes to workload scale.
-
+    > Vakautusikkunaa käytetään rajoittamaan säätelyä replikoiden määrässä, kun skaalautumiseen käytettävät mittarit vaihtelevat. Autoskaalausalgoritmi käyttää tätä ikkunaa havaitakseen aiemman toivotun tilan ja välttääkseen ei-toivottuja muutoksia työkuorman skaalaamisessa.

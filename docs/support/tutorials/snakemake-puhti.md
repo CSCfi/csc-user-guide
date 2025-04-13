@@ -1,82 +1,82 @@
-# Running Snakemake workflow on Puhti
+# Snakemake-työnkulun suorittaminen Puhtilla {#running-snakemake-workflow-on-puhti}
 
-[Snakemake workflow](https://snakemake.readthedocs.io/en/latest/index.html) is one of the popular scientific workflows in the bioinformatics community, although the workflow manager itself can be used in other scientific disciplines as well. Snakemake enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. 
+[Snakemake-työnkulku](https://snakemake.readthedocs.io/en/latest/index.html) on yksi bioinformatiikkayhteisön suosituista tieteellisistä työnkuluista, vaikka työnkulkumanageria voidaan käyttää myös muilla tieteellisillä aloilla. Snakemake mahdollistaa skaalautuvat ja toistettavat tieteelliset putket yhdistämällä sarjan sääntöjä täysin määritellyssä ohjelmistoympäristössä. 
 
-If you are still wondering about workflows at more general level or which workflow tool to use, see also [High-throughput computing and workflows page](../../computing/running/throughput.md).
+Jos olet edelleen epävarma työkulkujen yleisestä käytöstä tai siitä, mitä työkaluja käyttää, katso myös [Suorituskykyinen laskenta ja työnkulut -sivu](../../computing/running/throughput.md).
 
-## Installation
-Snakemake is available as a module in Puhti supercomputer. This options suits well, if the workflow includes commandline-tools from other modules or Apptainer containers. If the workflow includes Python scripts that require custom Python packages, make own Snakemake installation with Tykky. 
+## Asennus {#installation}
+Snakemake on saatavilla moduulina Puhti-supertietokoneessa. Tämä vaihtoehto sopii hyvin, jos työkulkuihin kuuluu komentorivityökaluja muista moduuleista tai Apptainer-säilöistä. Jos työkulkuun kuuluu Python-skriptejä, jotka vaativat räätälöityjä Python-paketteja, tee oma Snakemake-asennus Tykkyä käyttäen.
 
-### Snakemake module
-Snakemake module is the easiest option. The available version are listed on the [Snakemake app page](../../apps/snakemake.md#available).
+### Snakemake-moduuli {#snakemake-module}
+Snakemake-moduuli on helpoin vaihtoehto. Saatavilla olevat versiot löytyvät [Snakemaken sovellussivulta](../../apps/snakemake.md#available).
 
 ```
 module load snakemake
-snakemake --help   #  to get information on more options.
+snakemake --help   # lisätietoa valinnoista.
 ```
 
-!!! info "Note"
-    Please pay attention to the version of Snakemake you are using. If you are using earlier versions of Snakemake (e.g., v7.xx.x) the syntax might be different.
- 
-### Installation of tools used in the the workflow
-The tools used in the workflow can be installed in following ways:
+!!! info "Huomautus"
+    Kiinnitä huomiota käyttämääsi Snakemaken versioon. Jos käytät vanhempia versioita (esim. v7.xx.x), syntaksimuutoksia saattaa olla.
 
-1. Tools available in other [Puhti modules](../../apps/by_discipline.md) or [own custom module](../../computing/modules.md#using-your-own-module-files).
-    * If all Snakemake rules use the same module(s), load it before running snakemake commands.
-    * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
-2. Own custom installations as Apptainer containers:
-    * Apptainer container can be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
-    * See Snakemake's [Running jobs in containers](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) for changes required in Snakemake file and command.
-    * For binding folders or using other Apptainer flags, use [--apptainer-args option](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) of `snakemake` command.
-    * Sometimes it might be necessary to [define the shell inside the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#handling-shell-executable). 
+### Työkulun työkalujen asennus {#installation-of-tools-used-in-the-the-workflow}
+Työkulun työkalut voidaan asentaa seuraavilla tavoilla:
+
+1. Muut [Puhti-moduulit](../../apps/by_discipline.md) tai [oma räätälöity moduuli](../../computing/modules.md#using-your-own-module-files).
+    * Jos kaikki Snakemake-säännöt käyttävät samoja moduuleja, lataa ne ennen Snakemake-komentojen suorittamista.
+    * Jos eri säännöt käyttävät eri moduuleja, sisällytä [moduulitiedot Snakefileen](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
+2. Omat räätälöidyt asennukset Apptainer-säilöinä:
+    * Apptainer-säilö voidaan ladata jostakin arkistosta tai rakentaa paikallisesti. Oman Apptainer-säilön rakentamista varten katso [Säilöjen luominen -sivu](../../computing/containers/creating.md).
+    * Katso Snakemaken [Työpaikkojen suorittaminen säilöissä](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) tarvittaviin muutoksiin.
+    * Kansiovirtojen sitomiseen tai muihin Apptainer-ohjaukseen käytä `--apptainer-args` -valintaa `snakemake`-käskystä.
+    * Joskus voi olla tarpeen [määritellä kuoren sisällä oleva kuori](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#handling-shell-executable).
 
 ```
-# If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image":
+# Jos Apptainer-kuva tutorial.sif on tallennettu paikallisesti Puhtilla kansioon "image":
 container: "image/tutorial.sif"
-# If you would like to covert a Docker iamge to Apptainer container image on-the-fly:
+# Jos haluat muuntaa Docker-kuvan Apptainer-säilökuvaksi lennossa:
 container: "docker://<repository>/<image_name>"
 ```
 
-### Snakemake Tykky installation for Python
-To install Snakemake with custom Python packages, use [Tykky container wrapper tool with conda](../../computing/containers/tykky.md#conda-based-installation). Follow the guidelines on Tykky page, the conda environment should include package `snakemake`. If you plan to use Snakemake with SLURM or HyperQueue integration (explained below), install also `snakemake-executor-plugin-slurm` for SLURM or `snakemake-executor-plugin-cluster-generic` for HyperQueue. These packages are part of `bioconda` repository, so add it to the channels list in the conda environment file.
+### Snakemake Tykky -asennus Pythonille {#snakemake-tykky-installation-for-python}
+Asentaaksesi Snakemaken mukautetuilla Python-paketeilla, käytä [Tykky-säilösuojaustyökalua conda kanssa](../../computing/containers/tykky.md#conda-based-installation). Noudata Tykky-sivun ohjeita, conda-ympäristön tulee sisältää paketti `snakemake`. Jos aiot käyttää Snakemakea SLURM- tai HyperQueue-integraation kanssa (selitetty alhaalla), asenna myös `snakemake-executor-plugin-slurm` SLURMille tai `snakemake-executor-plugin-cluster-generic` HyperQueuelle. Nämä paketit ovat osa `bioconda`-arkistoa, joten lisää se kanavien listalle conda-ympäristötiedostossa.
 
-For SLURM integration, you have to also fix the Python path of Snakemake executable:
+SLURM-integraatiota varten sinun täytyy myös korjata Snakemake-suoritettavan tiedoston Python-polku:
 
-* Find out your Tykky installation's Python path. You can check it with `which python` command after you have given the `export PATH ...` from Tykky printout.
-* Create a file `post.sh`. Change `/projappl/project_200xxx/tykky_installation_folder/bin/python` to your own Tykky installation's Python path.
-   
+* Selvitä Tykky-asennuksesi Python-polku. Voit tarkistaa sen `which python` -komennolla sen jälkeen, kun olet antanut Tykky-tulostuksen `export PATH ...`.
+* Luo tiedosto `post.sh`. Muuta `/projappl/project_200xxx/tykky_installation_folder/bin/python` omaan Tykky-asennuksesi Python-polkuun.
+
 ```bash title="post.sh"
 sed -i 's@#!.*@#!/projappl/project_200xxx/tykky_installation_folder/bin/python@g' $env_root/bin/snakemake
 ```
 
-* Update the installation:
-   
+* Päivitä asennus:
+
 ```
 conda-containerize update <path to installation> --post-install post.sh
 ```
 
-If you use own Tykky installation, then in the examples below, replace `module load snakemake` with the export commant printed out by Tykky, something like: `export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"`
+Jos käytät omaa Tykky-asennusta, vaihda alla olevissa esimerkeissä `module load snakemake` Tykyn tulostamana `export`-komentoon, esimerkiksi: `export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"`
 
-!!! info "Note"
-        Please note, create one Tykky installation for the whole workflow, not individual installations for each Snakemake rule.
+!!! info "Huomautus"
+    Huomaa, että luodaksesi yhden Tykky-asennuksen koko työnkululle, älä yksittäisiä asennuksia jokaiselle Snakemake-säännölle.
 
-## Usage
-Snakemake can be run in 4 different ways in supercomputers:
+## Käyttö {#usage}
+Snakemaken voi suorittaa neljällä eri tavalla supertietokoneissa:
 
-1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
-2. With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this, if unsure.
-3. With batch job and SLURM executor. Can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
-4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
+1. [Interaktiivisessa tilassa](../../computing/running/interactive-usage.md) paikallisella tehtävä-suorittimella, rajallisilla resursseilla. Hyödyllinen lähinnä debuggingiin tai hyvin pienille työnkuluille.
+2. Erätyönä ja paikallisella tehtävä-suorittimella. Resurssin käyttö rajoittuu yhteen täyteen solmuun. Käytännöllinen pienille ja keskikokoisille työnkuluille, yksinkertaisempi kuin seuraavat vaihtoehdot, aloita tästä, jos olet epävarma.
+3. Erätyönä ja SLURM-tehtävä-suorittimella. Voi käyttää useampaa solmua ja eri SLURM-osastoja (CPU ja GPU), mutta voi aiheuttaa huomattavaa ylimääräistä kuormitusta, jos monta pientä työpaikkaa. Voidaan käyttää, jos kustakin tiedostosta jokainen työvaihe kestää vähintään 30 minuuttia.
+4. Erätyönä ja HyperQueue alityön ajastimena. Voi käyttää useita solmuja samassa erätyön jaossa, monimutkaisin asetus. Sopii hyvin tapauksiin, kun työnkulku sisältää paljon pieniä työvaiheita monilla syöttötiedostoilla (suorituskykyinen laskenta).
 
-!!! info "Note"
-        Please do not launch heavy Snakemake workflows on **login nodes**.
+!!! info "Huomautus"
+    Ethän käynnistä raskaita Snakemake-työnkulkuja **kirjautumissolmuille**.
 
-The following toy example illustrates how a Snakemake workflow can be deployed at CSC. 
+Seuraava esimerkki havainnollistaa, kuinka Snakemake-työnkulku voidaan ottaa käyttöön CSC:ssä.
 
-### Snakefile
-Snakefile describes the contents of the workflow. Further information is available from [Snakemake Snakefile documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html)
+### Snakefile {#snakefile}
+Snakefile kuvaa työnkulun sisällön. Lisätietoja löytyy [Snakemaken Snakefile-dokumentaatiosta](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html).
 
-Let's use the following toy Snakemake script, `Snakefile` (with a capital S and no file extension), for the illustration:
+Käytämme seuraavaa leikkiesimerkin Snakemake-skriptiä, `Snakefile` (isolla S), havainnollistuksena:
 
 ```bash title="Snakefile"
 rule all:
@@ -97,23 +97,23 @@ rule capitalise:
                 """
 ```
 
-For more complicated workflows, you can do argument parsing and transformations programmatically using Snakemake's
-[job properties file](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties).
+Monimutkaisempia työnkulkuja varten voit tehdä argumenttien jäsentämistä ja muunnetta ohjelmallisesti käyttäen Snakemaken
+[tehtävän ominaisuustiedostoa](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties).
 
-### Running Snakemake workflow with local executor interactively
-The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for [interactive partition](../../computing/running/batch-job-partitions.md).
+### Snakemake-työnkulun suorittaminen paikallisella tehtävä-suorittimella interaktiivisesti {#running-snakemake-workflow-with-local-executor-interactively}
+Resurssit varataan etukäteen, sekä Snakemakelle että työnkulun tehtäväille **yksi interaktiivinen istunto**. Interaktiivisessa istunnossa työnkulku voidaan käynnistää useita kertoja virheenkorjausta varten niin kauan kuin varatut resurssit ovat käytettävissä. Katso resurssirajoitukset [interaktiivisesta osastosta](../../computing/running/batch-job-partitions.md).
 
 ```
-sinteractive --cores 4 --mem 10000 # start an interactive session with 2 CPU cores and 10 Gb of memory
+sinteractive --cores 4 --mem 10000 # käynnistä interaktiivinen istunto, jossa on 2 CPU ydintä ja 10 Gt muistia
 module load snakemake
 cd <to_folder_with_snakefile>
 snakemake -s Snakefile --jobs 4
 ```
 
-* `--jobs` - maximum number of jobs run in parallel
+* `--jobs` - paras rinnakkain ajettavien tehtävien määrä
 
-### Running Snakemake workflow with local executor and batch job
-The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. The job will run as long as the snakemake command is running and stop automatically when it finishes. Local executor is limited to one node of supercomputer. The number of cores can be extended depending on the system - 40 in Puhti and 128 in Mahti.
+### Snakemake-työnkulun suorittaminen paikallisella tehtävä-suorittimella ja erätyöllä {#running-snakemake-workflow-with-local-executor-and-batch-job}
+Resurssit varataan etukäteen, sekä Snakemakelle että työnkululle **yhdeksi erätyöksi**. Tehtävä jatkuu niin kauan kuin snakemake-komento on käynnissä ja pysähtyy automaattisesti, kun se valmistuu. Paikallinen tehtävä-suoritin on rajoitettu yhteen supertietokoneen solmuun. Käytettävissä olevien ydinten määrä voi vaihdella järjestelmän mukaan - 40 Puhdissa ja 128 Mahtissa.
 
 ```bash title="snakemake-local-executor.sh"
 #!/bin/bash
@@ -127,16 +127,16 @@ The resources are reserved in advance, both for Snakemake and the workflow as **
 module load snakemake
 snakemake -s Snakefile --jobs 4
 ```
-Finally, you can submit the batch job from the login node:
+Lopuksi voit lähettää erätyön kirjautumissolmusta:
 
 ```bash
 sbatch snakemake-local-executor.sh
 ```
 
-### Running Snakemake workflow with SLURM executor
-The first batch job file reserves resources only for Snakemake itself. Snakemake then creates further SLURM jobs for workflow's rules. The SLURM jobs created by Snakemake may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise the it could overload SLURM.
+### Snakemake-työnkulun suorittaminen SLURM-tehtävä-suorittimella {#running-snakemake-workflow-with-slurm-executor}
+Ensimmäinen erätyötiedosto varaa resursseja vain Snakemakelle itselleen. Snakemake luo sitten lisää SLURM-tehtäviä työnkulun säännöille. Snakemaken luomat SLURM-tehtävät voidaan jakaa useille supertietokoneen solmuille ja käyttää myös eri osastoja eri työnkulku-säännöille, kuten CPU ja GPU. SLURM-tehtävä-suoritinta pitäisi käyttää vain, jos työvaiheet kestävät vähintään 20-30 minuuttia, muuten se saattaisi ylikuormittaa SLURM:ia.
 
-Here is a bash script for running the above toy example with SLURM executor:
+Tässä on bash-skripti, jolla yllä oleva esimerkki suoritetaan SLURM-tehtävä-suorittimella:
 
 ```bash title="snakemake-slurm-executor.sh"
 #!/bin/bash
@@ -152,15 +152,15 @@ Here is a bash script for running the above toy example with SLURM executor:
 module load snakemake
 snakemake --jobs 4  -s Snakefile --executor slurm --default-resources slurm_account=project_xxxx slurm_partition=small
 ```
-!!! info "Note"
-        Make sure that the Snakemake own reservation is long enough to include also waiting time for other processes to get processed, including queueing time. Rather use too long time for the Snakemake own batch job.
+!!! info "Huomautus"
+    Varmista, että Snakemaken oma varaus on tarpeeksi pitkä kattamaan myös muiden prosessien käsittelyyn kuluvan odotteluajan, mukaan lukien jonotusaika. Pikeminkin varaa liian pitkä aika Snakemaken omalle erätyölle.
 
-Default resources for each SLURM job are rather limited, to increase (or change) define the resource needs for each rule in the Snakefile:
+Oletusresurssit jokaiselle SLURM-tehtävälle ovat melko rajalliset, kasvattaaksesi (tai muuttaaksesi) määrittele resurssitarpeet jokaiselle säännölle Snakefileessa:
 ```
 rule say_hello:
         output: "smaller_case.txt"
         resources:
-                runtime = 5, # minutes
+                runtime = 5, # minuuttia
                 cpus_per_task = 1,
                 mem_mb = 20000
         shell:
@@ -169,22 +169,22 @@ rule say_hello:
                 """
 ```
 
-Finally, you can submit the batch job from the login node:
+Lopuksi voit lähettää erätyön kirjautumissolmusta:
 
 ```bash
 sbatch snakemake-slurm-executor.sh
 ```
 
-Further information about [Snakemake SLURM executor](https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html)
+Lisätietoja [Snakemake SLURM -tehtävä-suorittimesta](https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html)
 
-!!! info "Note"
-    Scaling up your jobs using Slurm should be done carefully to
-    avoid unnecessarily overloading the Slurm accounting database with a large number of small jobs.
-    Consider either using [grouping](https://snakemake.readthedocs.io/en/latest/executing/grouping.html), [localrules](https://snakemake.readthedocs.io/en/latest/snakefiles/rules.html#local-rules) or Hyperqueue executor.
+!!! info "Huomautus"
+    Työtehtävien ajaminen SLURM:lla on tehtävä huolella, jotta
+    vältetään turhaa SLURM:n kirjanpitojärjestelmän kuormitusta suurella määrällä pieniä tehtäviä.
+    Suositellaan joko [ryhmittelyä](https://snakemake.readthedocs.io/en/latest/executing/grouping.html), [lokaalisääntöjä](https://snakemake.readthedocs.io/en/latest/snakefiles/rules.html#local-rules) tai HyperQueue-tehtävä-suoritinta.
 
 
-### Running Snakemake with HyperQueue executor
-The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. It is possible to use several nodes on a supercomputer, but not to use different partitions for different workflow rules, for example CPU and GPU. HyperQueue executor fits well to workflows, which have a lot of short job steps, because it "hides" them from SLURM. Job step resources can be defined in the Snakefile as in SLURM job.
+### Snakemaken suorittaminen HyperQueue-tehtävä-suorittimella {#running-snakemake-with-hyperqueue-executor}
+Resurssit varataan etukäteen, sekä Snakemakelle että työnkululle **yhdeksi erätyöksi**. On mahdollista käyttää useita solmuja supertietokoneella, mutta ei käyttää eri osastoja eri työnkulkusäännöille, esimerkiksi CPU ja GPU. HyperQueue fits hyvin työnkulkuille, joissa on paljon lyhyitä työvaiheita, koska se "piilottaa" ne SLURM:lta. Työvaiheiden resurssit voidaan määritellä Snakefileessa kuten SLURM-tehtävissä.
 
 ```bash title="snakemake-hyperqueue.sh"
 #!/bin/bash
@@ -213,20 +213,19 @@ snakemake --keep-going -s Snakefile --jobs 4 --executor cluster-generic --cluste
 # snakemake version 7.xx.x
 # snakemake --cluster "hq submit  ..."  
 ```
-Finally, you can submit the batch job from the login node:
+Lopuksi voit lähettää erätyön kirjautumissolmusta:
 
 ```bash
 sbatch snakemake-hyperqueue.sh
 ```
 
-See [CSC HyperQueue page](../../apps/hyperqueue.md#using-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
+Katso [CSC HyperQueue -sivulta](../../apps/hyperqueue.md#using-hyperqueue-in-a-slurm-batch-job) lisävalintoja ja lisätietoja HyperQueuesta.
 
-!!! info "Note"
-    HyperQueue creates task-specific folders (`job-<n>`) in the same directory
-    from where you submitted the batch script. These are sometimes useful for
-    debugging. However, if your code is working fine, the creation of many folders
-    may be annoying besides causing some load on the Lustre parallel file system.
-    You can prevent the creation of such task-specific folders by setting `stdout`
-    and `stderr` HyperQueue flags to `none` ( i.e., `hq submit --stdout=none --stderr=none ...`)
+!!! info "Huomautus"
+    HyperQueue luo tehtäväkohtaisia kansioita (`job-<n>`) samassa hakemistossa,
+    josta lähetit eräskriptin. Nämä ovat joskus hyödyllisiä virheenkorjaukseen. Jos
+    koodi kuitenkin toimii hyvin, useiden kansioiden luonti voi olla ärsyttävää ja aiheuttaa kuormitusta Lustre-paralleellitiedostojärjestelmälle.
+    Voit estää tällaisten tehtäväkohtaisten kansioiden luomisen asettamalla `stdout`-
+    ja `stderr`-HyperQueue-vihjeet `none` (eli `hq submit --stdout=none --stderr=none ...`).
 
-If you have any questions or problems regarding Snakemake, contact CSC servicedesk.
+Jos sinulla on kysyttävää tai ongelmia Snakemaken suhteen, ota yhteyttä CSC:n palvelupisteeseen.

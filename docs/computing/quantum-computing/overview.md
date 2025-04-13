@@ -1,46 +1,35 @@
+
 ---
 search:
   boost: 4
 ---
 
-# Overview
+# Yleiskatsaus {#overview}
 
-Quantum computers differ from their classical counterparts when it comes to the basic 
-computational operators. Before QPUs can be utilized, they require tailor-made programs 
-and algorithms. The [Finnish Quantum-Computing Infrastructure](https://fiqci.fi) FiQCI provides access to
-quantum computing resources through CSC's service portals.
+Kvanttitietokoneet eroavat klassisista vastineistaan peruslaskentaoperaattoreiden osalta. Ennen kuin QPU:t voidaan ottaa käyttöön, ne vaativat räätälöityjä ohjelmia ja algoritmeja. [Finnish Quantum-Computing Infrastructure](https://fiqci.fi) FiQCI tarjoaa pääsyn kvanttitietokoneiden resursseihin CSC:n palveluportaalien kautta.
 
-## Helmi
+## Helmi {#helmi}
 
-**5 Qubit Quantum Computer**
+**5 Qubitin Kvanttitietokone**
 
-Helmi, the first Finnish quantum computer, is co-developed by VTT and IQM Quantum Computers. Presently, Helmi provides 5 qubits. With Helmi, users can run quantum programs and algorithms on a real, physical device.
+Helmi, Suomen ensimmäinen kvanttitietokone, on VTT:n ja IQM Quantum Computersin yhteiskehittämä. Tällä hetkellä Helmillä on 5 kubittia. Helmillä käyttäjät voivat suorittaa kvanttiohjelmia ja -algoritmeja todellisella, fyysisellä laitteella.
 
-Access to Helmi is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Helmi through the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project.md).
+Pääsy Helmiin tapahtuu LUMI-supertietokoneympäristön kautta. Käyttäjien on haettava kvanttitietoprojektia LUMIssa, joka mahdollistaa pääsyn Helmiin LUMIn työnhallintajärjestelmän (SLURM) kautta. Projektihakemus tehdään [MyCSC:n](../../accounts/how-to-create-new-project.md) kautta.
 
-For further reading:
+Lisätietoa lukemalla:
 
-* [A more technical description about Helmi](./helmi/helmi-specs.md).
-* [Specific instructions for the LUMI Helmi partition](./helmi/fiqci-partition.md)
-* [Getting started with Helmi](./helmi/helmi-from-lumi.md)
-* [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
+* [Teknisempi kuvaus Helmistä](./helmi/helmi-specs.md).
+* [Erityiset ohjeet LUMI Helmi -osio](./helmi/fiqci-partition.md)
+* [Helmin käytön aloittaminen](./helmi/helmi-from-lumi.md)
+* [LUMI-dokumentaatiosivu](https://docs.lumi-supercomputer.eu/)
 
 
-## Kvasi
+## Kvasi {#kvasi}
 
-**The Quantum Learning Machine**
+**Kvanttioppimiskone**
 
-Kvasi is an advanced quantum computer simulator/emulator. With Kvasi, the user can explore and develop algorithms 
-for quantum computers. Read here [detailed instructions on how to access](../quantum-computing/kvasi/kvasi.md)
+Kvasi on edistynyt kvanttitietokonesimulaattori/emulaattori. Kvasin avulla käyttäjä voi tutkia ja kehittää algoritmeja kvanttitietokoneita varten. Lue täältä [yksityiskohtaiset ohjeet käyttöön](../quantum-computing/kvasi/kvasi.md).
 
-Kvasi provides an ecosystem for developing and simulating quantum algorithms in both 
-ideal and realistic, noisy conditions. With Kvasi, you can optimize your algorithm 
-for a specific hardware (QPU), with specific qubit connectivity and basic gate operations.
+Kvasi tarjoaa ekosysteemin kvanttialgoritmien kehittämiseen ja simuloimiseen sekä ideaalissa että realistisessa, meluisassa tilanteessa. Kvasin avulla voit optimoida algoritmisi tiettyä laitteistokokoonpanoa (QPU) varten, jossa on tietty kubittiyhteys ja tietyt perusporttioperaatiot.
 
-The algorithms can be developed either at a level close to the hardware, using 
-the Atos Quantum Assembler (AQASM) language, or using a higher level, Python based 
-language and ready-made libraries. The QLM comes with several ready-made examples.
-You can also download and run locally [myQLM](../quantum-computing/kvasi/kvasi.md#myqlm) - a light-weight version of the 
-QLM ecosystem.
-
-
+Algoritmit voidaan kehittää joko laitteistotasoa lähellä käyttäen Atos Quantum Assembler (AQASM) -kieltä tai korkeammalla tasolla Python-pohjaisen kielen ja käyttövalmiiden kirjastojen avulla. QLM sisältää useita valmiita esimerkkejä. Voit myös ladata ja suorittaa paikallisesti [myQLM](../quantum-computing/kvasi/kvasi.md#myqlm) - kevyemmän version QLM-ekosysteemistä.

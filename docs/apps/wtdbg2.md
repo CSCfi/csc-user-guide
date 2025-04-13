@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,50 +6,49 @@ tags:
 
 # wtdbg2
 
-wtdbg2 is a fast _de novo_ assembly tool for long-read sequence data produced by PacBio or Oxford Nanopore Technologies sequencers.
+wtdbg2 on nopea _de novo_ kokoamistyökalu pitkäkestoiseen sekvenssidataan, jota tuottaa PacBio tai Oxford Nanopore Technologies -sekvensserit.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaasti käytettävä ja avoin lähdekoodi [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Available
+## Saatavuus {#available}
 
 - Puhti: 2.5
 
-## Usage
+## Käyttö {#usage}
 
-On Puhti, wtdbg2 is activated by loading the biokit module:
+Puhtilla wtdbg2 aktivoidaan lataamalla biokit-moduuli:
 
 ```bash
 module load biokit
 ```
 
-After that, you can use commands `wtdbg2` assembler and `wrpoa-cns` consenser commands. `wtdbg2` assembles raw reads and generates the contig layout and edge sequences in a file `prefix.ctg.lay.gz`. Executable `wtpoa-cns` takes this file as input and produces the final consensus in FASTA. 
+Tämän jälkeen voit käyttää `wtdbg2` assembleria ja `wrpoa-cns` konsensointikomentoja. `wtdbg2` kokoaa raakatiedot ja luo contig-mallin ja reunan sekvenssit tiedostossa `prefix.ctg.lay.gz`. Suoritettava `wtpoa-cns` käyttää tätä tiedostoa ja tuottaa lopullisen konsensuksen FASTA-muodossa.
 
-
-A typical workflow looks like this:
+Tyypillinen työnkulku näyttää tältä:
 
 ```bash 
 wtdbg2 -x rs -g 4.6m -t 16 -i reads.fa.gz -fo prefix
 wtpoa-cns -t 16 -i prefix.ctg.lay.gz -fo prefix.ctg.fa
 ```
 
-In the `wtdbg2` command, `-g` is the estimated genome size and `-x` specifies the sequencing technology, which could take value `rs` for PacBio RSII, `sq` for PacBio Sequel, `ccs` for PacBio CCS reads and `ont` for Oxford Nanopore. This option sets multiple parameters and should be applied before other parameters. When you are unable to get a good assembly, you may need to tune other parameters as described in the wtdbg2 manual.
+`wtdbg2`-komennossa `-g` on arvioitu genomin koko ja `-x` määrää sekvensointiteknologian, joka voi olla arvoltaan `rs` PacBio RSII:lle, `sq` PacBio Sequelille, `ccs` PacBio CCS-lukemille ja `ont` Oxford Nanoporelle. Tämä optio asettaa useita parametreja ja se tulisi soveltaa ennen muita parametreja. Jos et saa hyvää kokoamista, saatat tarvita muiden parametrien hienosäätöä wtdbg2-manuaalin kuvaamalla tavalla.
 
-In the case of any large (more than 10 Mb) genomes, wtdbg2 assembly process can take several hours or days. On Puhti, such large tasks should always be executed as batch jobs.
+Mikäli genomi on suuri (yli 10 Mb), wtdbg2:n kokoamisprosessi voi kestää useita tunteja tai päiviä. Puhtilla tällaiset suuret tehtävät tulisi aina suorittaa erätehtävinä.
 
-Below is a sample batch job file for assembling _C. elegans_ genome. 
+Alla on esimerkki erätehtävätiedostosta _C. elegans_ genomin kokoamiseen.
 
-The sample dataset was downloaded from ENA database with commands:
+Esimerkkiaineisto ladattiin ENA-tietokannasta komennoilla:
 
 ```bash
 enaDataGet SRR5439404 -f fastq
 mv SRR5439404/SRR5439404_subreads.fastq.gz ./
 ```
 
-The actual assembly task was executed with the batch job below:
+Varsinainen kokoamistehtävä suoritettiin alla olevalla erätehtävällä:
 
 ```bash
 #!/bin/bash
@@ -57,7 +57,7 @@ The actual assembly task was executed with the batch job below:
 #SBATCH --time=12:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
-#SBATCH --output==wtdbg2_out_32_%j
+#SBATCH --output=wtdbg2_out_32_%j
 #SBATCH --error=wtdbg2_err_32_%j
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=64G
@@ -69,17 +69,17 @@ wtdbg2 -x rs -g100m -t $SLURM_CPUS_PER_TASK -i SRR5439404_subreads.fastq.gz -fo 
 wtpoa-cns -t $SLURM_CPUS_PER_TASK -i c_elegas_test.ctg.lay.gz -fo c_elegabs.ctg.fa
 ```
 
-In the example above `<project>` should be replaced with your project name. You can use `csc-projects` to check your CSC projects. Maximum running time is set to 12 hours (`--time=12:00:00`). As wtdbg2 uses thread-based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--ntasks=1`). The job reserves 32 cores `--cpus-per-task=32` that can use in total up to 64 GB of memory (`--mem=64G`). Note that the number of cores to be used needs to be defined in `wtdbg2` and `wtpoa-cns` commands too. This can be set with the option `-t`. In this case, we use `$SLURM_CPUS_PER_TASK` variable that contains the `--cpus-per-task` value (we could as well use `-t 32`, but then we have to remember to change the value if the number of the reserved CPUs is changed later.
+Yllä olevassa esimerkissä `<project>` tulisi korvata projektisi nimellä. Voit käyttää `csc-projects` tarkistaaksesi CSC-projektisi. Maksimiaika on asetettu 12 tunniksi (`--time=12:00:00`). Koska wtdbg2 käyttää säiepohjaista rinnakkaisuutta, prosessi katsotaan yhdeksi tehtäväksi, joka tulisi suorittaa yhdellä solmulla (`--ntasks=1`). Tehtävä varaa 32 ydintä `--cpus-per-task=32`, jotka voivat käyttää yhteensä enintään 64 Gt muistia (`--mem=64G`). Huomaa, että käytettävien ytimien määrä on määriteltävä myös `wtdbg2` ja `wtpoa-cns` komennoissa. Tämä voidaan asettaa optiolla `-t`. Tässä tapauksessa käytämme `$SLURM_CPUS_PER_TASK` muuttujaa, joka sisältää `--cpus-per-task` arvon (voimme myös käyttää `-t 32`, mutta silloin meidän täytyy muistaa muuttaa arvoa, jos varattujen suorittimien määrä muuttuu myöhemmin).
 
-The job is submitted to the batch job system with `sbatch` command. For example, if the batch job
-file is named `wtdbg2_job.sh`, then the submission command is: 
+Tehtävä lähetetään erätehtävien järjestelmään `sbatch` komennolla. Esimerkiksi, jos erätehtävä tiedosto on nimeltään `wtdbg2_job.sh`, niin lähetyskomento on: 
 
 ```bash
 sbatch wtdbg2_job.sh 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+Lisätietoja erätehtävien suorittamisesta löytyy [Puhtin käyttäjän oppaan erätehtäväosiosta](../computing/running/getting-started.md).
 
-## More information
+## Lisätietoa {#more-information}
 
-* [wtdbg2 home page](https://github.com/ruanjue/wtdbg2)
+* [wtdbg2 kotisivu](https://github.com/ruanjue/wtdbg2)
+

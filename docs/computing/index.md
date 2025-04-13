@@ -1,144 +1,141 @@
-# Overview
 
-!!! Note
-    For an overview of the LUMI supercomputer, see [the LUMI
-    documentation](https://docs.lumi-supercomputer.eu/hardware/).
+# Yleiskatsaus
 
-Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users
-since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is
-one of the pan-European pre-exascale supercomputers, located in CSC's data
-center in Kajaani. The CPU partition of LUMI (LUMI-C) has been available since
-early 2022, and the full system with the large LUMI-G partition has been available since early 2023.
+!!! Huom
+    Katso [LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/hardware/)
+    yleiskatsaus LUMI-supertietokoneesta.
 
-Puhti contains CPU nodes with a range of memory sizes as well as a large GPU
-partition (Puhti AI), while Mahti contains homogeneous CPU nodes and is meant
-for larger jobs (minimum 128 CPU-cores). Mahti also contains a GPU partition
-since 2021 (Mahti AI) with Nvidia Ampere GPUs. See [specifications](available-systems.md)
-for details on the systems and [this page for an outline of differences between LUMI-C and
-Mahti](lumi-vs-mahti.md).
+Puhti ja Mahti ovat CSC:n supertietokoneita. Puhti on ollut CSC:n käyttäjien
+käytettävissä 2. syyskuuta 2019 lähtien ja Mahti 26. elokuuta 2020 lähtien. LUMI on
+yksi pan-eurooppalaisista pre-eksaskaala-suupertietokoneista, ja se sijaitsee CSC:n
+datakeskuksessa Kajaanissa. LUMIn prosessori-osa (LUMI-C) on ollut saatavilla
+vuoden 2022 alusta lähtien, ja koko järjestelmä suuremman LUMI-G-osion kanssa
+on ollut saatavilla vuoden 2023 alusta lähtien.
 
-CSC supercomputers use the Linux operating system and we recommend that you are familiar with
-basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
+Puhti sisältää prosessorisolmuja eri muistimäärillä sekä suuren GPU-osion (Puhti AI),
+kun taas Mahti sisältää homogeenisia prosessorisolmuja ja on tarkoitettu suuremmille
+töille (vähintään 128 suoritinydintä). Mahtiin sisältyy myös GPU-osio vuodesta 2021
+lähtien (Mahti AI) Nvidia Ampeere GPU:illa. Katso [järjestelmien tarkemmat tiedot](available-systems.md)
+ja [erot LUMI-C:n ja Mahtin välillä](lumi-vs-mahti.md).
 
-## Accessing Puhti and Mahti
+CSC:n supertietokoneet käyttävät Linux-käyttöjärjestelmää ja suosittelemme
+tutustumaan [Linux-käyttöjärjestelmän perusteisiin](../support/tutorials/env-guide/index.md)
+ennen aloitusta.
 
-To be able to use CSC's supercomputers, you need to have a CSC user account that
-belongs to a computing project which has access to the respective supercomputers.
-CSC user accounts and projects are managed in the [MyCSC portal](https://my.csc.fi).
-Further instructions are provided in the [Accounts section](../accounts/index.md)
-of this user guide.
+## Puhtin ja Mahtin käyttö {#accessing-puhti-and-mahti}
 
-!!! Note
-    To access the LUMI supercomputer, you need to [create a LUMI-specific
-    project](../accounts/how-to-create-new-project.md#creating-a-lumi-project-and-applying-for-resources).
-    For more details on getting started with LUMI, see the [LUMI
-    documentation](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
+Jotta voit käyttää CSC:n supertietokoneita, sinulla täytyy olla CSC-käyttäjätili,
+joka kuuluu laskentahankkeeseen, jolla on pääsy kyseisiin supertietokoneisiin.
+CSC-käyttäjätilit ja hankkeet hallitaan [MyCSC-portaalissa](https://my.csc.fi).
+Lisäohjeita löytyy tästä käyttäjäoppaasta kohdasta [Tilien hallinta](../accounts/index.md).
 
-## Connecting to the supercomputers
+!!! Huom
+    LUMI-supertietokoneen käyttöoikeuden saamiseksi sinun täytyy [luoda LUMI-spesifinen
+    projekti](../accounts/how-to-create-new-project.md#creating-a-lumi-project-and-applying-for-resources).
+    Lisätietoja LUMIn käytön aloittamisesta löytyy [LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
+
+## Yhteyden muodostaminen supertietokoneisiin {#connecting-to-the-supercomputers}
 
 --8<-- "auth-update-ssh.md"
 
-Connect using an SSH client:
+Yhdistä SSH-asiakkaan avulla:
 
 ```bash
 ssh yourcscusername@puhti.csc.fi
 ```
 
-or
+tai
 
 ```bash
 ssh yourcscusername@mahti.csc.fi
 ```
 
-This will connect you to one of the login nodes. If you need to connect
-to a specific login node, use the command:
+Tämä yhdistää sinut johonkin kirjautumissolmuista. Jos tarvitset yhteyden
+tiettyyn kirjautumissolmuun, käytä komentoa:
 
 ```bash
 ssh yourcscusername@puhti-login[11-12,14-15].csc.fi
 ```
 
-or
+tai
 
 ```bash
 ssh yourcscusername@mahti-login[11-12,14-15].csc.fi
 ```
 
-Where `yourcscusername` is the username you get from CSC.
+Missä `yourcscusername` on CSC:ltä saamasi käyttäjänimi.
 
-For more details, see the [connecting](connecting/index.md) page.
+Lisätietoja löytyy [yhteydenotto](connecting/index.md) sivulta.
 
-Puhti and Mahti can also be accessed via their respective
-[web interfaces](webinterface/index.md) available at
-[www.puhti.csc.fi](https://www.puhti.csc.fi) and
+Puhtiin ja Mahtiin voi myös liittyä niiden omien
+[verkkorajapintojen](webinterface/index.md) kautta, jotka ovat saatavilla osoitteissa
+[www.puhti.csc.fi](https://www.puhti.csc.fi) ja
 [www.mahti.csc.fi](https://www.mahti.csc.fi).
 
-### Scalability
+### Skaalautuvuus {#scalability}
 
-Don't allocate more resources to your job than it can use efficiently. This
-needs to be verified for each new code and job type (different input) by a
-scaling test. The policy is that the job should be **at least 1.5 times faster**
-when you double the resources (cores). [Instructions for performing a scalability
-test](../support/tutorials/cmdline-handson.md#scaling-test-for-an-mpi-parallel-job).
-Please also consider [other important factors related to performance.](performance.md)
+Älä varaa työhaullesi enemmän resursseja kuin se voi tehokkaasti käyttää.
+Tämä täytyy varmistaa jokaisen uuden koodin ja työn tyypin (eri syötteen)
+kohdalla skaalautuvuustestillä. Käytäntö on, että työn pitäisi olla **vähintään
+1,5 kertaa nopeampi**, kun kaksinkertaistat resurssit (ytimet). [Ohjeet skaalautuvuustestin
+suorittamiseen](../support/tutorials/cmdline-handson.md#scaling-test-for-an-mpi-parallel-job).
+Huomioi myös [muut tärkeät suorituskykyyn liittyvät tekijät.](performance.md)
 
-## Projects and quotas
+## Projektit ja kiintiöt {#projects-and-quotas}
 
-Working in CSC supercomputers is based on projects. The computing and storage
-resources are allocated to projects and when you start a batch job, you must
-always define the project that the job belongs to.
+Työskentely CSC:n supertietokoneilla perustuu projekteihin. Laskenta- ja tallennusresurssit
+kohdennetaan projekteille, ja kun aloitat eräajon, sinun täytyy aina määritellä projekti,
+jonka osa työ on.
 
-Projects are managed in the [MyCSC portal](https://my.csc.fi), where you can add
-services, resources and users to your CSC projects.
+Projektit hallitaan [MyCSC-portaalissa](https://my.csc.fi), missä voit lisätä
+palveluita, resursseja ja käyttäjiä CSC-projekteihisi.
 
-In CSC supercomputers, you can check your currently active projects with the
-command:
+CSC:n supertietokoneilla voit tarkistaa tällä hetkellä aktiiviset projektisi komennolla:
 
 ```text
 csc-projects
 ```
 
-This command shows information for all your CSC projects. You can select just
-one project to be reported with the `-p` option. For example:
+Tämä komento näyttää tiedot kaikista CSC-projekteistasi. Voit valita vain yhden projektin
+raportoimaan `-p` optiolla. Esimerkiksi:
 
 ```bash
 [kkayttaj@puhti ~]$ csc-projects -p project_2012345
 -----------------------------------------------------------------
 Project: project_2012345    Owner: Kalle Käyttäjä
-Title: "Ortotopology modeling"
+Title: "Ortotopolgian mallintaminen"
 Start: 2015-12-17 End: 2022-03-16 Status: open
 Budget:   1174188  Used   1115284 Remain:      58904
 Latest resource grant: 2019-03-04
 -----------------------------------------------------------------
 ```
 
-The command reports the owner of the project, title, start and end dates. In
-addition the command prints out the budgeting information for the project: how
-many billing units have been granted to your project, how many have been used
-and how many still remain.
+Komento raportoi projektin omistajan, otsikon, aloitus- ja päättymispäivät. Lisäksi
+komento tulostaa projektin budjetointitiedot: kuinka monta laskentayksikköä
+projektiisi on myönnetty, kuinka monta niistä on käytetty ja kuinka monta on
+jäljellä.
 
-The [disk areas](disk.md) of your projects can be checked with the command:
+Projektiisi liitetyt [levytilat](disk.md) voi tarkistaa komennolla:
 
 ```text
 csc-workspaces
 ```
 
-## Using Puhti and Mahti
+## Puhtin ja Mahtin käyttö {#using-puhti-and-mahti}
 
-* [Systems](available-systems.md): What computational resources are available
-* [Usage policy](usage-policy.md): Usage policy of CSC supercomputers
-* [Connecting](connecting/index.md): How to connect to  CSC supercomputers
-* [Puhti web interface](webinterface/index.md): How to connect to Puhti using the web
-  interface
-* [Disk areas](disk.md): What places are there for storing data on CSC
-  supercomputers
-* [Modules](modules.md): How to find the programs you need
-* [Applications](../apps/index.md): Application specific instructions.
-* [Running jobs](running/getting-started.md): How to run programs on the
-  supercomputers
-* Installing and compiling your applications:
-    * [Installing software](installing.md)
-    * [Compiling on Puhti](compiling-puhti.md)
-    * [Compiling on Mahti](compiling-mahti.md)
-* [Debugging applications](debugging.md): How to debug your applications
-* [Performance analysis](performance.md): How to understand the performance of
-  your applications
+* [Järjestelmät](available-systems.md): Mitä laskentaresursseja on saatavilla
+* [Käyttöpolitiikka](usage-policy.md): CSC:n supertietokoneiden käyttöpolitiikka
+* [Yhteyden muodostaminen](connecting/index.md): Miten muodostaa yhteys CSC:n supertietokoneisiin
+* [Puhti verkkorajapinta](webinterface/index.md): Miten yhdistää Puhtiin
+  verkkorajapinnan avulla
+* [Levyalueet](disk.md): Missä säilyttää dataa CSC:n supertietokoneilla
+* [Moduulit](modules.md): Miten löytää tarvitsemasi ohjelmat
+* [Sovellukset](../apps/index.md): Sovelluskohtaiset ohjeet.
+* [Ajotehtävien suorittaminen](running/getting-started.md): Miten suorittaa ohjelmia
+  supertietokoneilla
+* Ohjelmistojen asennus ja kääntäminen:
+    * [Ohjelmistojen asennus](installing.md)
+    * [Kääntäminen Puhtissa](compiling-puhti.md)
+    * [Kääntäminen Mahtissa](compiling-mahti.md)
+* [Sovellusten virheenkorjaus](debugging.md): Miten virheenkorjata sovelluksia
+* [Suorituskyvyn analysointi](performance.md): Miten ymmärtää sovellustesi suorituskykyä

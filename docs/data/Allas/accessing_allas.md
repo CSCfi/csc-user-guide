@@ -1,109 +1,96 @@
-# Accessing Allas
+# Allasin käyttäminen {#accessing-allas}
 
-## Gaining access
+## Pääsyn saaminen {#gaining-access}
 
-**Allas** access is based on CSC's customer projects. To be able to use Allas, you need to be a member of 
-a CSC project that has the permission to use Allas. If you do not have a CSC account, you must first register as a CSC user
-and join or start a computing project for which Allas has been enabled. This can be done in the
-MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi).
+**Allas**-käyttö perustuu CSC:n asiakasprojekteihin. Jotta voit käyttää Allasta, sinun tulee olla jäsenenä CSC-projektissa, jolla on lupa käyttää Allasta. Jos sinulla ei ole CSC-tunnusta, sinun tulee ensin rekisteröityä CSC-käyttäjäksi ja liittyä sellaiseen laskentaprojektiin, johon on kytketty Allas. Tämä voidaan tehdä MyCSC-käyttäjäportaalissa: [https://my.csc.fi](https://my.csc.fi).
 
-Once you have Allas enabled you can access it from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
+Kun sinulle on aktivoitu Allas, voit käyttää sitä mistä tahansa internetiin kytketystä laitteesta tai palvelimesta. Tämä voi olla esimerkiksi oma kannettava tietokoneesi, supertietokone CSC:llä, virtuaalikone pilvessä tai jopa puhelimesi.
 
+## Allasin käyttäminen verkkoselaimella {#accessing-allas-from-the-web-browser}
 
-## Accessing Allas from the web browser
+Tällä hetkellä CSC tarjoaa useita verkkoselainliittymiä Allasiin:
 
-At the moment CSC provides several web browser interfaces for Allas:
+**Allas Web UI** on selainpohjainen käyttöliittymä, joka on suunniteltu helpottamaan objektitallennuksen hallintaa Allasissa. Se tarjoaa intuitiivisen tavan käsitellä dataa ilman tarvetta komentorivityökaluille.  
+Se on ihanteellinen vaihtoehto käyttäjille, jotka suosivat graafista käyttöliittymää komentorivityökalujen sijaan perusobjektitallennustehtävissä.  
 
-**Allas Web UI** is a web-based interface designed to simplify the management of object storage in Allas. It provides an intuitive way to interact with your data without needing command-line tools.  
-It is an ideal option for users who prefer a visual interface over command-line tools for basic object storage operations.  
+* [Allas Web UI -opas](./using_allas/allas-ui.md)  
+* [Käytä Allas Web UI:ta](https://allas.csc.fi)  
 
-* [Allas Web UI Guide](./using_allas/allas-ui.md)  
-* [Access Allas Web UI](https://allas.csc.fi)  
+**Puhtin ja Mahtin WWW-liittymät** ovat yhteydessä Allasiin. 
+Näiden avulla voit siirtää tiedostoja ja kansioita paikallisen tietokoneesi ja Allasin sekä CSC:n supertietokoneiden ja Allasin välillä.
 
+* [Ohjeet Allasin käytöstä Puhtin ja Mahtin verkkoliittymissä](../../computing/webinterface/file-browser.md)
+* [Puhti-verkkoliittymä](https://www.puhti.csc.fi)
+* [Mahti-verkkoliittymä](https://www.mahti.csc.fi)
 
-The **WWW interfaces of Puhti and Mahti** are connected to Allas. 
-These interfaces allow you to transfer files and directories between your local computer and Allas as well as
-between CSC supercomputers and Allas.
+**cPoutan OpenStack Horizon** -verkkoliittymä tarjoaa helppokäyttöisiä perustoimintoja datanhallintaan Allasissa. Tämä käyttöliittymä toimii vain alle 5 GB kokoisille tiedostoille.
 
-* [Instructions for using Allas in Puhti and Mahti web interfaces](../../computing/webinterface/file-browser.md)
-* [Puhti web interface](https://www.puhti.csc.fi)
-* [Mahti web interface](https://www.mahti.csc.fi)
+* [Verkkoklientti – OpenStack Horizon Dashboard](./using_allas/web_client.md)
+* [cPouta-verkkoliittymä](https://pouta.csc.fi)
 
+**SD Connect** tarjoaa liittymän herkän datan tallentamiseen ja jakamiseen. 
+Tämä palvelu perustuu Allasiin, mutta emme suosittele sitä muuhun kuin herkän datan käsittelyyn.
 
-The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic functions for data management in Allas. This interface can only be used for files smaller than 5 GB.
+* [SD Connect -ohjeet](../sensitive-data/sd_connect.md)
+* [SD Connect -liittymä](https://sd-connect.csc.fi)
 
-* [Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
-* [cPouta Web Interface](https://pouta.csc.fi)
+## Allasin käyttäminen CSC:n laskentaympäristössä ja muilla Linux-alustoilla {#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms}
 
+CSC:n supertietokoneet Puhti ja Mahti tukevat useita erilaisia komentorivityökaluja Allasin käyttöön, mukaan lukien:
 
-**SD Connect** provides an interface for storing and sharing sensitive data. 
-This service is based on Allas but we don't recommend it for other than sensitive data.
+* [**a-tools**](./using_allas/a_commands.md) peruskäyttöön: (Swift, valinnaisesti S3)
+* [**rclone**](./using_allas/rclone.md) kehittyneempiin toimintoihin: (Swift, valinnaisesti S3) 
+* [**swift**](./using_allas/swift_client.md) Python-käyttäjä, joka tarjoaa laajan valikoiman toimintoja (Swift)
+* [**s3cmd**](./using_allas/s3_client.md) S3-asiakas ja pysyvät Allas-yhteydet: (S3)
 
-* [SD Connect instructions](../sensitive-data/sd_connect.md)
-* [SD Connect interface](https://sd-connect.csc.fi)
+Huomaa, että yllä listatut työkalut käyttävät kahta eri protokollaa: _Swift_ ja _S3_. Yhdellä protokollalla ladattu data ei välttämättä ole yhteensopivaa toisen protokollan kanssa.
 
+Edellä mainittuja ohjelmistoja voidaan käyttää myös muilla laitteilla, esimerkiksi cPoutassa pyörivällä virtuaalikoneella tai omalla kannettavalla tietokoneellasi.
 
-
-## Accessing Allas in the CSC computing environment and other Linux platforms
-
-CSC supercomputers Puhti and Mahti support many different command line tools for using Allas, These include
-
-* [**a-tools**](./using_allas/a_commands.md) for basic use: (Swift, optionally S3)
-* [**rclone**](./using_allas/rclone.md) providing some advanced functions:** (Swift, optionally S3) 
-* [**swift**](./using_allas/swift_client.md) python client that provides wide range of functionalities (Swift)
-* [**s3cmd**](./using_allas/s3_client.md) an S3 client and persistent Allas connections:** (S3)
-
-Note that the tools listed above utilize two different protocols: _Swift_ and _S3_. Data uploaded using one protocol is not necessary compatible with another protocol. 
-
-The software listed above can also be used on other devices, for example a virtual machine running in cPouta or your own laptop.
-
-In Puhti and Mahti the Allas tools listed above are installed by CSC and provided through _allas_ module.
-In order to use Allas in Puhti or Mahti, first load the Allas module:
+Puhtissa ja Mahtissa yllämainitut Allas-työkalut on asennettu CSC:n toimesta ja ne ovat käytettävissä _allas_-moduulin kautta. 
+Jotta voit käyttää Allasta Puhtissa tai Mahtissa, lataa ensin Allas-moduuli:
 ```text
 module load allas
 ```
-Allas access for a specific project using swift protocol can then be enabled:
+Allekirjoittajaprotokollalle pääsy voidaan aktivoida:
 ```text
 allas-conf
 ```
-To enable S3 protocol, use option `-m S3`
+S3-protokollan aktivoimiseen käytä vaihtoehtoa `-m S3`:
 ```text
 allas-conf -m S3
 ```
-The `allas-conf` command prompts for your CSC password (the same that you use to login to CSC servers). It lists your Allas projects and asks you to define a project (if not already defined as an argument). `allas-conf` generates an `rclone` configuration file for the Allas service and authenticates the connection to the selected project. `allas-conf` enables you to use only one Allas project at a time in one session. The project you are using in Allas does not need to match the project you are using in Puhti or Mahti, and you can switch to another project by running `allas-conf` again.
+Komento `allas-conf` kysyy CSC-salasanaasi (sama, jota käytät kirjautuessasi CSC-palvelimille). Se listaa Allas-projektisi ja pyytää määrittelemään projektin (ellei sitä ole jo määritelty argumenttina). `allas-conf` luo `rclone`-konfiguraatiotiedoston Allas-palvelulle ja todentaa yhteyden valittuun projektiin. `allas-conf` mahdollistaa vain yhden Allas-projektin käytön kerrallaan yhdessä sessiossa. Allasissa käytettävän projektin ei tarvitse olla sama kuin Puhtissa tai Mahtissa käytettävä projekti, ja voit vaihtaa toiseen projektiin suorittamalla `allas-conf` uudelleen.
 
-In the case of the Swift protocol, the authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables and is valid for up to eight hours. However, you can refresh the authentication at any time by running `allas-conf` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
+Swift-protokollan tapauksessa autentikointitiedot tallennetaan ympäristömuuttujiin `OS_AUTH_TOKEN` ja `OS_STORAGE_URL` ja ne ovat voimassa enintään kahdeksan tuntia. Voit kuitenkin päivittää autentikoinnin milloin tahansa suorittamalla `allas-conf` uudelleen. Ympäristömuuttujat asetetaan vain nykyiselle kirjautumissessiolla, joten sinun tulee määritellä autentikointi erikseen jokaiselle skallille, jolla haluat käyttää Allasia.
 
-In the case of the S3 protocol, the authentication information is stored in configuration files located in your home directory on the device. The same authentication is used for all login sessions and it does not have an expiration time.
+S3-protokollan tapauksessa autentikointitiedot tallennetaan laitteesi kotikansion konfiguraatiotiedostoihin. Sama autentikointi käytetään kaikissa kirjautumissessioissa eikä sillä ole voimassaoloaikaa.
 
-Once an Allas connection is configured, you can start using the object storage with the tools listed above. 
+Kun Allas-yhteys on konfiguroitu, voit aloittaa objektitallennuksen käytön yllä mainittujen työkalujen avulla. 
 
-Basic Allas operations with different tools.
+Erilaiset Allas-toiminnot eri työkaluilla.
 
-| Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	Download file _data1.txt_ from bucket _buck_123_ |
-|-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
-| [a-commands](using_allas/a_commands.md) |`a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
-| [rclone (swift)](using_allas/rclone.md) |`rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`|
-| [rclone (S3)](using_allas/rclone.md) |`rclone ls s3allas:buck_123` | `rclone copy data1.txt s3allas:buck_123/` |	`rclone copy s3allas:buck_123/data1.txt ./`|
-| [Swift](using_allas/swift_client.md) |`swift list buck_123` | `swift upload buck_123 data1.txt` |	`swift download buck_123 data1.txt` |
-| [s3cmd](using_allas/s3_client.md)\*	 |`s3cmd ls s3://buck_123` |	`s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
+| Työkalu | Listaa objektit ämpärissä _buck_123_ | Lataa tiedosto _data1.txt_ ämpäriin _buck_123_ | Lataa tiedosto _data1.txt_ ämpäristä _buck_123_ |
+| ------- | ----------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| [a-commands](using_allas/a_commands.md) | `a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
+| [rclone (swift)](using_allas/rclone.md) | `rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` | `rclone copy allas:buck_123/data1.txt ./` |
+| [rclone (S3)](using_allas/rclone.md) | `rclone ls s3allas:buck_123` | `rclone copy data1.txt s3allas:buck_123/` | `rclone copy s3allas:buck_123/data1.txt ./` |
+| [Swift](using_allas/swift_client.md) | `swift list buck_123` | `swift upload buck_123 data1.txt` | `swift download buck_123 data1.txt` |
+| [s3cmd](using_allas/s3_client.md)\* | `s3cmd ls s3://buck_123` | `s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
 
+## Allasin käyttäminen Windows- tai Mac-laitteilla {#accessing-allas-with-windows-or-mac}
 
+Edellä mainittujen verkkoliittymien lisäksi voit käyttää Allasta Windows- tai Mac-tietokoneelta paikallisesti asennetun asiakasohjelmiston avulla. Esimerkkeinä seuraavat työkalut:
 
-## Accessing Allas with Windows or Mac
+* [Cyberduck](./using_allas/cyberduck.md) tarjoaa helppokäyttöisen graafisen liittymän datan siirtoon paikallisen tietokoneen ja Allasin välillä.
+* [Rclone](./using_allas/rclone_local.md) on komentorivityökalu, joka tarjoaa erittäin tehokkaan tavan käyttää Allasta missä tahansa käyttöjärjestelmässä.
+* [a-tools](./using_allas/a_commands.md) ovat Allas-spesifisiä komentoja, jotka voidaan asentaa macOS- ja Linux-laitteille, mutta eivät Windows-käyttöjärjestelmään.
 
-In addition to the Web interfaces listed above, you can access Allas from you Windows or Mac computer with locally installed client software. 
-For example following tools can be used:
+Lista ei ole täydellinen tai poissulkeva. Mikä tahansa työkalu, joka tukee Swift- tai S3-protokollia, voi periaatteessa käyttää Allasia.
 
-* [Cyberduck](./using_allas/cyberduck.md) provides easy to use graphical interface for moving data between local computer and Allas.
-* [Rclone](./using_allas/rclone_local.md) is a command line tool that provides a very effective way to use Allas on any operating system.
-* [a-tools](./using_allas/a_commands.md) are Allas-specific commands that can be installed on macOS and Linux devices, but not ones running a Windows operating system.
+## Tiedostojen kopioiminen suoraan objektitallennusten välillä {#copying-files-directly-between-object-storages}
 
-The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
-
-## Copying files directly between object storages
-
-Rclone can also be used to directly copy files from another object storage (e.g. [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), [Google cloud](https://cloud.google.com/learn/what-is-object-storage), [CREODIAS](https://creodias.eu/cloud/cloudferro-cloud/storage-2/object-storage/),...) to Allas. For this both credentials need to be stored in a Rclone configuration file in the users home directory (`.config/rclone/rclone.conf`). An example is shown below:
+Rclonea voidaan käyttää myös tiedostojen suoraan kopioimiseen toisesta objektitallennuksesta (esim. [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), [Google cloud](https://cloud.google.com/learn/what-is-object-storage), [CREODIAS](https://creodias.eu/cloud/cloudferro-cloud/storage-2/object-storage/),...) Allasiin. Tätä varten molemmat käyttöoikeudet on tallennettava Rclone-konfiguraatiotiedostoon käyttäjän kotihakemistoon (`.config/rclone/rclone.conf`). Alla on esimerkki:
 
 ```
 [s3allas]
@@ -124,29 +111,26 @@ secret_access_key = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 endpoint = yourotherendpoint.com
 acl = private
 ```
-The configuration for Allas is added automatically when configuring Allas in s3 mode 
+Konfiguraatio Allasille lisätään automaattisesti, kun konfiguroidaan Allas S3-tilassa
 
-`source allas_conf --mode s3cmd` .
+`source allas_conf --mode s3cmd`.
 
-After creating/updating this file, Rclone can be used to copy files
+Tämän tiedoston luomisen/päivittämisen jälkeen Rclonea voidaan käyttää tiedostojen kopioimiseen
 
-`rclone copy otherobjectstorage:bucket-x/object-y  s3allas:bucket-z/object-a`
+`rclone copy otherobjectstorage:bucket-x/object-y s3allas:bucket-z/object-a`
 
-or list files from either Allas or the other object storage by using the respective name
+tai listoimaan tiedostot joko Allasista tai toisesta objektitallennuksesta käyttämällä tiettyä nimeä
 
-`rclone lsf otherobjectstorage: `.
+`rclone lsf otherobjectstorage:`.
 
-## Other ways of accessing Allas
+## Muut tavat käyttää Allasia {#other-ways-of-accessing-allas}
 
 * Python:
-   * [Python with SWIFT](using_allas/python_swift.md)
-   * [Python with S3 with `boto3`](using_allas/python_boto3.md).
-   * [Geoscience related examples how Allas can be used in Python scripts](https://github.com/csc-training/geocomputing/tree/master/python/allas)
-* [Nextcloud front end](allas-nextcloud.md) Can be set up in Pouta to get additional functionality.
+  * [Python SWIFT:lla](using_allas/python_swift.md)
+  * [Python S3:lla `boto3`](using_allas/python_boto3.md).
+  * [Geotieteellisiä esimerkkejä siitä, miten Allasia voidaan käyttää Python-skripteissä](https://github.com/csc-training/geocomputing/tree/master/python/allas)
+* [Nextcloud-käyttöliittymä](allas-nextcloud.md) voidaan asentaa Poutaan lisäämään toiminnallisuutta.
 * R
-  * [aws.s3 R package](https://cloud.r-project.org/web/packages/aws.s3/index.html) can be used for working with Allas with S3 protocol
-  * [Geoscience related example how Allas can be used in R scripts](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R), inc. aws.s3 set up.
-
-
-
+  * [aws.s3 R-paketti](https://cloud.r-project.org/web/packages/aws.s3/index.html) voidaan käyttää Allas S3-protokollan kanssa
+  * [Geotieteellinen esimerkki siitä, miten Allasia voidaan käyttää R-skripteissä](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R), sis. aws.s3:n määrityksen.
 

@@ -1,99 +1,71 @@
+# Kaikkien tiedostojen purkaminen kansiossa {#decrypting-all-files-in-a-directory}
 
-# Decrypting all files in a directory
+Graafinen Crypt4gh-käyttöliittymä tarjoaa helpon tavan salata ja purkaa yksittäisiä tiedostoja. Kuitenkin, salatut tietoaineistot saattavat sisältää suuria määriä tiedostoja, ja näissä tapauksissa tiedostokohtainen salaus tai purku voi olla liian työlästä.
 
-The graphical Crypt4gh interface provides an easy way to encrypt and decrypt
-individual files. However, the encrypted datasets may contain large amounts
-of files and in those cases doing encryption or decryption file-by-file
-can be too laborious.
+Tämä asiakirja tarjoaa yksinkertaisia skriptausesimerkkejä, jotka havainnollistavat, kuinka purkuprosessi voidaan automatisoida. Käytännössä automatisoitu purkuprosessi vaatii kahta toimintoa:
 
-This document provides simple scripting examples to
-illustrate how decryption process can be automatized.
-In practice automatized decryption process requires two
-functionalities:
+1. Silmukan rakentaminen, joka löytää salatut tiedostot ja suorittaa purkukomennon.
 
-  1. Constructing a loop that finds encrypted files
-  and executes decryption command.
+2. Menetelmän, joka tarjoaa automaattisesti purkulausekkeen purkukomennolle.
 
-  2. A method that automatically provides the decryption password to
-  decryption commands.
+Alla olevissa esimerkeissä oletamme, että meillä on hakemisto nimeltä _data1_. Hakemisto sisältää satoja tiedostoja, joista salatut tiedostot ovat _.c4gh_-päätteisiä. Salaus on tehty niin, että purkaminen voidaan suorittaa salaisella avaimella _my-key.sec_, joka on suojattu salasanalla: _badpasswd_.
 
-In the examples below we assume that we have a directory
-named as _data1_. The directory contains hundreds of files
-of which the encrypted files have _.c4gh_ suffix. The encryption
-is done so that decryption can be done with secret key _my-key.sec_
-that is protected with password: _badpasswd_.
+## Purku bash-skriptillä Macissa ja Linuxissa {#decryption-using-bash-script-in-mac-and-linux}
 
-
-## Decryption using bash script in Mac and Linux
-
-In Linux and Mac machines `crypt4gh`command line tool is able
-to read the password of the private key from environment variable
-C4GH_PASSPHRASE. Thus the first step is set this variable. In bash shell
-this could in this case be done with commands:
+Linux- ja Mac-koneissa `crypt4gh`-komentorivityökalu pystyy lukemaan yksityisavaimen salasanan ympäristömuuttujasta C4GH_PASSPHRASE. Siksi ensimmäinen askel on asettaa tämä muuttuja. Bash-kuoressa tämä voidaan tehdä seuraavilla komennoilla:
 
 ```bash
 read C4GH_PASSPHRASE
 export C4GH_PASSPHRASE
 ```
 
-Find command can be used to list all files that end with
-_.c4gh_ in a given directory (_data1_) and its' subdirectories.
-This list can be used as an input for a _for loop_.
+Find-komentoa voidaan käyttää listaamaan kaikki tiedostot, jotka päättyvät _.c4gh_ annetussa hakemistossa (_data1_) ja sen alihakemistoissa. Tätä listaa voidaan käyttää syötteenä _for-silmukalle_.
 
 ```bash
 find data1 -name *.c4gh
 ```
 
-Inside the loop  we need to define a name for the decrypted file. I this case
-we use command pipeline _rev | cut -c6- | rev_  to cut away the five last
-character of the encrypted filename ( i.e .c4gh ) to define a filename
-for decrypted data.
+Silmukan sisällä meidän täytyy määritellä nimi puretulle tiedostolle. Tässä tapauksessa käytämme komentoputkea _rev | cut -c6- | rev_ leikkaamaan pois salatun tiedostonimen viimeiset viisi merkkiä (eli .c4gh), jotta määritämme puretun datan tiedostonimen.
 
-The actual decryption is done with command:
+Varsinainen purku suoritetaan komennolla:
 
 ```bash
 crypt4gh decrypt --sk my-key.sec < encrypted-file > decrypted-file
 ```
 
-With these steps, the complete script could look like following:
+Näillä askelilla koko skripti voisi näyttää seuraavalta:
 
 ```bash
 #!/bin/bash
 
-echo "Give the password of my-key.sec"
+echo "Anna salasanan my-key.sec:lle"
 read C4GH_PASSPHRASE
 export C4GH_PASSPHRASE
 
 for f_encrypted in $(find data1 -name *.c4gh)
 do
-  echo "Decrypting $f_encrypted"
-  #define the file name for the decrypted data
+  echo "Purkaa $f_encrypted"
+  # määrittele tiedoston nimi puretulle datalle
   f_decrypted=$(echo $f_encrypted | rev | cut -c6- | rev)
   crypt4gh decrypt --sk my-key.sec < "$f_encrypted" > $f_decrypted
 done
 ```
 
-The script could be executed with commands:
+Skripti voitaisiin suorittaa komentoina:
 
 ```bash
   chmod u+x decryption_script
   ./chmod u+x decryption_script
 ```
 
+## Purku Windows PowerShellin avulla {#decryption-using-windows-powershell}
 
-## Decryption using windows PowerShell
+Cryp4gh on saatavilla myös Windows-koneille, mutta Windows-versio ei pysty lukemaan salaisen avaimen salasanaa ympäristömuuttujasta. Tämän vuoksi meidän täytyy käyttää _sda-cli.exe_-komentoa sen sijaan. Tässä tapauksessa salasana voidaan tallentaa muuttujaan C4GH_PASSWORD.
 
-Cryp4gh is available for Windows machines too, but the windows version
-is not able read the secret key password from environment variable.
-Because  of that  we need to use _sda-cli.exe_ command instead.
-In this case the password can be stored in variable C4GH_PASSWORD.
-
-Sda-cli.exe command can be downloaded from:
+Sda-cli.exe-komennon voi ladata osoitteesta:
 [https://github.com/NBISweden/sda-cli/releases](https://github.com/NBISweden/sda-cli/releases)
 
-Once the command is available, the decryption can be done with following
-PowerShell commands. Here we assume that the data to be decrypted is in
-directory _E:\data1_.
+Kun komento on saatavilla, purku voidaan suorittaa seuraavilla PowerShell-komennoilla. Tässä oletamme, että purettavat tiedot ovat hakemistossa _E:\data1_.
 
 ```powershell
 $env:C4GH_PASSWORD = "badpasswd"
@@ -101,4 +73,3 @@ $files = (Get-ChildItem -Path 'E:\data1\'*.c4gh -Recurse).fullname
 
 foreach ($f in $files) {
 .\sda-cli decrypt -key .\my-key.sec $f  }
-```

@@ -1,6 +1,6 @@
-# Expand a volume
+# Laajenna volyymi {#expand-a-volume}
 
-As dynamic volume expansion is not activated, if one edits directly in the `YAML` object the size of the volume, an error like this will be returned:
+Koska dynaaminen volyymilaajennus ei ole aktivoitu, jos muokataan suoraan `YAML`-objektissa volyymin kokoa, syntyy virhe kuten tämä:
 
 ```sh
 (...)
@@ -8,17 +8,17 @@ As dynamic volume expansion is not activated, if one edits directly in the `YAML
 (...)
 ```
 
-Then a more artisanal procedure must be followed:
+Tällöin on noudatettava hieman käsityöläismäisempää menettelyä:
 
-* Create a new volume with the desired size
+* Luo uusi volyymi halutulla koolla
 
-![Create a new volume](../../img/Create-new-volume.png)
+![Luo uusi volyymi](../../img/Create-new-volume.png)
 
-* Scale down the deployment that mounts the volume that is being resized.
+* Skaalaa alas se käyttöönotto, johon uudelleen koottava volyymi on liitetty.
 
-![Scale down](../../img/Scale-down.png)
+![Pienennä skaalaa](../../img/Scale-down.png)
 
-* Mount the old and new volume in another Pod. The best option is to create a new deployment, create a file called `two-volumes.yaml` and replace the names of both volumes:
+* Liitä vanha ja uusi volyymi toiseen Pod-konttiin. Paras vaihtoehto on luoda uusi käyttöönotto, luoda tiedosto nimeltä `two-volumes.yaml` ja korvata molempien volyymien nimet:
 
 ```yaml
 apiVersion: apps/v1
@@ -59,24 +59,24 @@ spec:
 oc create -f two-volumes.yaml
 ```
 
-* Sync the data
+* Synkronoi tiedot
 
 ```sh
 oc rsh deploy/two-volumes rsync -vrlpD /old/ /new/
 ```
 
-* Delete that new Pod
+* Poista tämä uusi Pod
 
 ```sh
 oc delete deploy/two-volumes
 ```
 
-* Exchange volumes in the deployment that was mounting the volume, it is at **template > spec > volumes** under `claimName`.
+* Vaihda volyymi siinä käyttöönotossa, jossa volyymi on liitetty, se on kohdassa **template > spec > volumes** kohdassa `claimName`.
 
 ```sh
-oc edit deploy/<name of deployment>
+oc edit deploy/<käyttöönoton nimi>
 ```
 
-* Finally scale up the deployment.
+* Lopuksi skaalaa käyttöönotto takaisin ylös.
 
-In order to check the procedure worked, you may enter in a `Pod` that is mounting the volume and check the new size.
+Tarkistaaksesi, että toimenpide onnistui, voit siirtyä siihen `Pod`-konttiin, johon volyymi on liitetty, ja tarkistaa uuden koon.

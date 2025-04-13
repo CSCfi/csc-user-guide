@@ -1,171 +1,166 @@
-# Command Line Interface and automated key management
+# Komentorajapinta ja automatisoitu avainhallinta {#command-line-interface-and-automated-key-management}
 
-The new SD Connect command line tools, available from February 2025, support file upload, download (with a-commands) and automated key management (with lock-unlock) during encryption and decryption. After programmatic encryption and upload, data can be viewed through the SD Connect user interface and SD Desktop. Coding skills are required to use the tools effectively, below is a step by step guide to get started. In contrast, files have been uploaded before February 2025, were manually encrypted using your encryption key and will need to be decrypted manually after download.
+Uudet SD Connect -komentorivityökalut, saatavilla helmikuusta 2025 alkaen, tukevat tiedostojen lataamista, lataamista (a-komentojen avulla) ja automatisoitua avainhallintaa (lukitse-avauksella) salauksen ja salauksen purkamisen aikana. Ohjelmallisen salauksen ja lataamisen jälkeen dataa voidaan tarkastella SD Connect -käyttöliittymän ja SD Desktopin kautta. Työkalujen tehokas käyttö vaatii koodaustaitoja, ja alla on vaiheittainen opas aloitukseen. Toisin kuin tiedostot, jotka on ladattu ennen helmikuuta 2025, ne on salattu manuaalisesti käyttämällä omaa salausavaintasi ja ne on purettava manuaalisesti lataamisen jälkeen.
 
-- [Background information](#background-information)
-- [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
-- [Command line tools and manual encryption](#command-line-tools-and-manual-encryption)
-- [Tutorials](#tutorials)
+- [Taustatietoa](#background-information)
+- [Komentorivityökalut ja automatisoitu avainhallinta](#command-line-tools-and-automated-key-management)
+- [Komentorivityökalut ja manuaalinen salaus](#command-line-tools-and-manual-encryption)
+- [Opetusohjelmat](#tutorials)
 
-## Background information
+## Taustatietoa {#background-information}
 
-SD Connect is part of CSC's Sensitive Data Services, offering a free and secure data processing environment for academic research projects at Finnish universities and research institutes. SD Connect enhances the Allas object storage system by adding an automatic encryption layer, enabling secure storage of sensitive data. Data stored in SD Connect can also be accessed through SD Desktop for secure virtual desktops. While SD Connect is typically accessed via the SD Connect Web interface, command-line tools may offer a more efficient way to manage data in certain situations.
+SD Connect on osa CSC:n herkkien tietojen palveluita, tarjoten ilmaisen ja turvallisen tietojen käsittely-ympäristön Suomen yliopistojen ja tutkimuslaitosten akateemisille tutkimusprojekteille. SD Connect parantaa Allas-objektisäilytysjärjestelmää lisäämällä automaattisen salauskerroksen, mahdollistaen herkkien tietojen turvallisen säilytyksen. SD Connectiin tallennettuihin tietoihin pääsee myös SD Desktopin kautta turvallisille virtuaalityöpöydille. Vaikka SD Connectiin pääsee tyypillisesti SD Connectin verkkokäyttöliittymän kautta, komentorivityökalut voivat joskus tarjota tehokkaamman tavan hallita dataa.
 
-This document provides instructions on how you can install on your local environment (Linux, Mac) and how you can use the a-commands from the allas-cli-utils package to upload and download with automated key management via command line with SD Connect.
+Tämä dokumentti sisältää ohjeet, miten voit asentaa paikalliseen ympäristöösi (Linux, Mac) ja miten voit käyttää allas-cli-utils-paketin a-komentoja tiedostojen lataamiseen ja lataamiseen automatisoidun avainhallinnan kautta komentorivillä SD Connectin avulla.
 
-!!! Note
-    Allas itself does not differentiate between data uploaded via SD Connect (user interface or commandline tools) and data uploaded to Allas using different methods. Data buckets may contain a mix of SD Connect data, other encrypted data, and regular data. It is the user's responsibility to manage data types within the buckets. However, it is recommended to store SD Connect data in separate buckets and folders to avoid mixing different data types.
+!!! Huomautus
+    Allas itsessään ei erottele SD Connectin kautta (käyttöliittymän tai komentorivityökalujen kautta) ladattuja tietoja ja muilla menetelmillä Allasiin ladattuja tietoja. Datakoriin voi sisältyä SD Connectin dataa, muuta salattua dataa ja tavallista dataa. Käyttäjän vastuulla on hallita datatyyppejä koreissa. On kuitenkin suositeltavaa säilyttää SD Connectin data erillisissä koreissa ja kansioissa, jotta eri datatyypit eivät sekoitu.
 
-## Command line tools and automated key management
+## Komentorivityökalut ja automatisoitu avainhallinta {#command-line-tools-and-automated-key-management}
 
-### Step 1: Installing a-tools on your local environment
+### Vaihe 1: a-työkalujen asentaminen paikalliseen ympäristöön {#step-1-installing-a-tools-on-your-local-environment}
 
-To upload and automatically encrypt sensitive data to SD Connect programmatically, you need to install the command-line tools, which require root access to your laptop or local environment (Mac or Linux). For this reason, you might need support from your organization’s IT unit.
+Jotta voit ohjelmallisesti ladata ja automaattisesti salata herkkiä tietoja SD Connectiin, sinun on asennettava komentorivityökalut, jotka vaativat järjestelmänvalvojan oikeudet kannettavaan tietokoneeseesi tai paikalliseen ympäristöösi (Mac tai Linux). Tästä syystä saatat tarvita organisaatiosi IT-yksikön tukea.
 
-[Here you can find step-by-step instructions](https://github.com/CSCfi/allas-cli-utils). This guide provides installation instructions for the a-commands (used to upload and download files) as well as the lock and unlock commands (used to automatically encrypt and decrypt files via automated key management).
+[Täältä löydät vaiheittaiset ohjeet](https://github.com/CSCfi/allas-cli-utils). Tämä opas tarjoaa asennusohjeet a-komennoille (käytetään tiedostojen lataamiseen ja lataamiseen) sekä lukitsemis- ja avaamis komennoille (käytetään tiedostojen automaattiseen salaamiseen ja salauksen purkamiseen automatisoidun avainhallinnan kautta).
 
-!!! Note
-    If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and Lumi). However, these systems are restricted to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
+!!! Huomautus
+    Jos sinun tarvitsee ladata ei-herkkiä tietoja (kuten skriptejä, säilöjä tai ohjelmistoja SD Desktopin käyttöön), huomaa, että nämä työkalut ovat saatavilla myös CSC:n supertietokoneilla (Puhti, Mahti ja Lumi). Kuitenkin, nämä järjestelmät on rajoitettu vain ei-herkälle datalle. Herkät tiedot on ladattava SD Connectiin asianmukaisten kanavien kautta.
 
-### Step 2: Opening connection to SD Connect
+### Vaihe 2: Yhteyden avaaminen SD Connectiin {#step-2-opening-connection-to-sd-connect}
 
-To open SD Connect compatible Allas connection you must add option *--sdc* the configuration command. In CSC supercomputers the connection is opened with commands:
+Jotta voit avata SD Connect -yhteensopivan Allas-yhteyden, sinun on lisättävä vaihtoehto *--sdc* asetuksen komennolle. CSC:n supertietokoneilla yhteys avataan komennoilla:
 
 ```bash
 module load allas
 allas-conf --sdc
 ```
 
-In local installations the connection is typically opened with commands like
+Paikallisissa asennuksissa yhteys avataan tyypillisesti tähän tapaan:
 
 ```bash
 export PATH=/some-local-path/allas-cli-utils:$PATH
 source /some-local-path/allas-cli-utils/allas_conf -u your-csc-account --sdc
 ```
 
-- The set up process asks first your CSC passwords (Haka or Virtu passwords can't be used here). After that you will select the CSC project to be used. This is the normal login process for Allas.
-- However, when SD Connect is enabled, the process asks you to give the *SD Connect API token*.
+- Asennusprosessi kysyy ensin CSC-salasanojasi (Haka- tai Virtu-salasanoja ei voi tässä käyttää). Tämän jälkeen valitset käytettävän CSC-projektin. Tämä on normaali Allasin kirjautumisprosessi.
+- Kun SD Connect on käytössä, prosessi pyytää antamaan *SD Connect API -tokkenin*.
 
-To retrieve the temporary SD Connect API token:
+Tilapäisen SD Connect API -tokkenin hakeminen:
 
-- Login to the [SD Connect web interface](https://sd-connect.csc.fi). If you have multiple CSC projects, make sure you have selected the same SD Connect project in both the command line and the web interface (top left corner).  
-- In the top right corner of the web interface, click on Support, then select Select API Token from the dropdown menu.
-- In the new dialog, enter a name for your temporary token. Note: Tokens are project-specific, so the name must be unique. Avoid using special characters in the name.
-- Click on Create Token. The token will be displayed only once. Once you see the token, copy it (click the icon to the left of the token). Important: make sure to store it securely, as it will not be retrievable later.
+- Kirjaudu [SD Connectin verkkokäyttöliittymään](https://sd-connect.csc.fi). Jos sinulla on useita CSC-projekteja, varmista, että olet valinnut saman SD Connect -projektin sekä komentorivillä että verkkokäyttöliittymässä (vasen yläkulma).
+- Verkkokäyttöliittymän oikeassa yläkulmassa, klikkaa Tuki, valitse sitten Valitse API Token avattavasta valikosta.
+- Uudessa ikkunassa kirjoita väliaikaisen tokkenin nimi. Huomaa: Tokkenit ovat projektikohtaisia, joten nimen on oltava uniikki. Vältä erikoismerkkien käyttöä nimen yhteydessä.
+- Klikkaa Luo Token. Tokken näytetään vain kerran. Kun näet tokkenin, kopioi se (klikkaamalla tokkenin vasemmalla puolella olevaa kuvaketta). Tärkeää: varmista, että säilytät sen turvallisesti, sillä sitä ei myöhemmin voi hakea.
 
     ![API token](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_APItoken.png)
 
-- The token will be valid for 24 hours and will be automatically deleted after this period. Paste the token into the command line and press Enter to use it.
+- Tokken on voimassa 24 tuntia ja se poistetaan automaattisesti tämän ajan jälkeen. Liitä tokken komentoriville ja paina Enter käyttääksesi sitä.
 
-The SD Connect compatible Allas connection is now valid for next eight hours. And you can use commands like *a-list* and *a-delete* to manage both normal Allas objects and SD Connect objects.
+SD Connect -yhteensopiva Allas-yhteys on nyt voimassa seuraavat kahdeksan tuntia. Ja voit käyttää a-listia ja a-deletia hallitsemaan sekä normaaleja Allas-objekteja että SD Connect -objekteja.
 
-### Step 3: Data upload and automated encryption
+### Vaihe 3: Datan lataus ja automatisoitu salaus {#step-3-data-upload-and-automated-encryption}
 
-Data can be uploaded to SD Connect by using command *a-put* with option *--sdc*.
-For example to upload file *my-secret-table.csv" to location *2000123-sens/dataset2* in Allas use command:
+Tietoja voidaan ladata SD Connectiin käyttämällä komentoa *a-put* valinnalla *--sdc*. Esimerkiksi ladataksesi tiedoston *my-secret-table.csv* sijaintiin *2000123-sens/dataset2* Allasiin käytä komentoa:
 
 ```bash
 a-put --sdc my-secret-table.csv -b 2000123-sens/dataset2
 ```
 
-This will produce SD Connect object: 2000123-sens/dataset2/my-secret-table.csv.c4gh
+Tämä luo SD Connect -objektin: 2000123-sens/dataset2/my-secret-table.csv.c4gh
 
-All other a-put options and features can be used too. For example directories are
-stored as tar files, if --asis option is not used.
+Kaikkia muita a-put -valintoja ja -ominaisuuksia voidaan käyttää myös. Esimerkiksi hakemistot tallennetaan tar-tiedostoina, jos --asis-valintaa ei käytetä.
 
-Command:
+Komento:
 
 ```bash
 a-put --sdc my-secret-directory -b 2000123-sens/dataset2
 ```
 
-Will produce SD connect object: 2000123-sens/dataset2/my-secret-directory.tar.c4gh
+Luo SD Connect -objektin: 2000123-sens/dataset2/my-secret-directory.tar.c4gh
 
-For massive data uploads, you can use *allas-dir-to-bucket* in combination with option *--sdc*.
+Massiivisiin datan latauksiin voi käyttää *allas-dir-to-bucket* yhdessä valinnan *--sdc* kanssa.
 
 ```bash
-allas-dir-to-bucket --sdc my-secret-directory  2000123-new-sens
+allas-dir-to-bucket --sdc my-secret-directory 2000123-new-sens
 ```
 
-The command above will copy all the files from directory my-secret-directory to bucket 2000123-new-sens in SD Connect compatible format.
+Yllä oleva komento kopioi kaikki tiedostot hakemistosta my-secret-directory kauppaan 2000123-new-sens SD Connect -yhteensopivassa muodossa.
 
-!!! Note
-    Do not use special characters or spaces in the folder name.
+!!! Huomautus
+    Älä käytä erikoismerkkejä tai välilyöntejä kansion nimessä.
 
-!!! Note
-    Since SD Connect was updated in October 2024, it is no longer straightforward to determine which encryption method was used for an encrypted .c4gh file stored in Allas/SD Connect. If you are now using a new encryption method to upload files to an existing CSC project, please ensure you add a note to your folders indicating that the encryption protocol has changed. You can either share this information with your colleagues or clearly include it in the folder name. As a good practice, we advise creating a new folder and avoiding mixing files encrypted with different methods.
+!!! Huomautus
+    Koska SD Connect päivitettiin lokakuussa 2024, ei ole yksinkertaista tapaa määrittää, mitä salausmenetelmää on käytetty salatussa .c4gh-tiedostossa Allas/SD Connectissa. Jos nyt käytät uutta salausmenetelmää tiedostojen lataamiseen olemassa olevaan CSC-projektiin, varmista, että lisäät kansioihin huomautuksen siitä, että salausprotokolla on muuttunut. Voit joko jakaa tämän tiedon kollegoidesi kanssa tai sisällyttää sen selkeästi kansioon nimeämällä. Hyvä käytäntö on luoda uusi kansio ja välttää eri menetelmillä salattujen tiedostojen sekoittamista.
 
-### Step 4: Data download and automated decryption
+### Vaihe 4: Datan lataus ja automatisoitu salauksen purku {#step-4-data-download-and-automated-decryption}
 
-Data can be downloaded from Allas with command a-get. If SD Connect connection is enabled, a-get will automatically try to decrypt objects with suffix *.c4gh*.
+Allasista voidaan ladata tietoja a-get-komennolla. Jos SD Connect -yhteys on aktivoitu, a-get yrittää automaattisesti purkaa objektit, joilla on pääte *.c4gh*.
 
-So for example command:
+Esimerkiksi komento:
 
 ```bash
 a-get 2000123-sens/dataset2/my-secret-table.csv.c4gh
 ```
 
-Will produce local file: my-secret-table.csv
+Tuottaa paikallisen tiedoston: my-secret-table.csv
 
-And similarly command:
+Ja vastaavasti komento:
 
 ```bash
 a-get 2000123-sens/dataset2/my-secret-directory.tar.c4gh
 ```
 
-Will produce local directory: my-secret-directory
+Tuottaa paikallisen hakemiston: my-secret-directory
 
-Note that this automatic decryption works only for the files that have
-been stored using the new SD Connect that was taken in use in October 2024.
+Huomaa, että tämä automaattinen salauksen purku toimii vain tiedostoille, jotka on tallennettu uuden SD Connectin avulla, joka otettiin käyttöön lokakuussa 2024.
 
-For the older SD Connect files and other Crypt4gh encrypted files you still must
-provide the matching secret key with option *--sk*
+Vanhemmille SD Connect -tiedostoille ja muille Crypt4gh-salauksella salatuille tiedostoille sinun on edelleen annettava vastaava salainen avain valinnalla *--sk*
 
 ```bash
-a-get --sk my-key.sec  2000123-sens/old-date/sample1.txt.c4gh
+a-get --sk my-key.sec 2000123-sens/old-date/sample1.txt.c4gh
 ```
 
-Unfortunately there is no easy way to know, which encryption method has been used in
-a .c4gh file stored in Allas.
+Valitettavasti ei ole helppoa tapaa tietää, mitä salausmenetelmää on käytetty Alasin tallennetussa .c4gh-tiedostossa.
 
-## Command line tools and manual encryption
+## Komentorivityökalut ja manuaalinen salaus {#command-line-tools-and-manual-encryption}
 
-### 2.1 Preparation
+### 2.1 Valmistelu {#2-1-valmistelu}
 
-Several command line tools can be used to upload encrypted files to Allas, where they will be visible from SD Connect.
+Useita komentorivityökaluja voidaan käyttää salattujen tiedostojen lataamiseen Allasiin, jossa ne ovat näkyvissä SD Connectissä.
 
-Examples are:
+Esimerkkejä ovat:
 
 - R-clone
-- a-tools
+- a-työkalut
 
-You can find more information in [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
+Lisätietoja löydät [Asiakaspuolen salaus Allasille -työkaluista](../Allas/allas_encryption.md).
 
-Download and decryption of files uploaded with CLI and own encryption key pair is discussed in this section. To encrypt and upload files via command line, please check [this tutorial](../sensitive-data/tutorials/decrypt-directory.md)illustrating how to use the crypt4GH tool to upload files in Allas (visible from SD Connect). Below is also more information about the crypt4GH CLI. For documentation and more information, you can also check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
+Tiedostojen lataamista ja purkamista CLI:n ja oman salausavainparisi avulla käsitellään tässä osassa. Salaamiseksi ja tiedostojen lataamiseksi komentorivillä, tarkista [tämä opetusohjelma](../sensitive-data/tutorials/decrypt-directory.md), joka havainnollistaa, miten käyttää crypt4GH-työkalua tiedostojen lataamiseen Allasiin (näkyvissä SD Connectissä). Alla on myös lisää tietoa crypt4GH CLI:stä. Dokumentaation ja lisätietojen saamiseksi voit myös tarkistaa [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) -sivun.
 
-In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
+Tässä esimerkissä, luomme ensin sinun avainparisi (salasanalla suojattu yksityinen avain ja julkinen avain, jota voi jakaa yhteistyökumppaneiden kanssa). Seuraavaksi salataan tiedosto kahden eri yhteistyökumppanin (tutkimusryhmä A ja tutkimusryhmä B) julkisilla avaimilla.
 
-**Python 3.6+ is required** to use the Crypt4GH encryption utility. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
+**Python 3.6+ vaaditaan** Crypt4GH-salaustyökalun käyttämiseen. Jos tarvitset apua Pythonin asennuksessa, seuraa [näitä ohjeita](https://www.python.org/downloads/release/python-3810/).
 
-1. Install the Crypt4GH encryption CLI tool. You can install Crypt4GH directly with pip tool:
+1. Asenna Crypt4GH-salaus CLI-työkalu. Voit asentaa Crypt4GH:n suoraan pip-työkalulla:
 
       ```bash
       pip install crypt4gh
       ```
 
-      or, if you prefer the latest sources from GitHub:
+      tai, jos haluat uusimmat lähteet GitHubista:
 
       ```bash
       pip install -r crypt4gh/requirements.txt pip install ./crypt4gh
       ```
 
-      or even:
+      tai jopa:
 
       ```bash
       pip install git+https://github.com/EGA-archive/crypt4gh.git
       ```
 
-2. The usual `-h` flag shows you the different options that the tool accepts:
+2. Tavanomainen `-h` -lippu näyttää sinulle eri vaihtoehdot, joita työkalu hyväksyy:
 
       ```console
       $ crypt4gh -h
@@ -193,37 +188,38 @@ In this example, we first generate your key pair (a password-protected private k
       Environment variables:
          C4GH_LOG         If defined, it will be used as the default logger
          C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
+
       ```
 
-      You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently, crypt4gh uses term *secure key* for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
+      Saatat huomata, että crypt4gh käyttää `--sk` -vaihtoehtoa yksityiselle avaimelle. Tämä voi vaikuttaa oudolta, mutta ilmeisesti crypt4gh käyttää termiä *secure key* yksityiselle avaimelle, joten `sk`, ja vastaavasti `pk` viittaa julkiseen avaimiseen yksityisen avaimen sijaan.
 
-### 2.2 Decrypt a file
+### 2.2 Tiedoston purku {#2-2-decrypt-a-file}
 
-To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
+Tiedoston purkamiseksi tarvitset yksityisen avaimen, joka vastaa yhtä salausvaiheessa käytetyistä julkisista avaimista. Oletetaan esimerkissämme, että tutkimusryhmä A purkaa lähettämäsi tiedoston. Tiedoston purkamiseksi he käyttävät `crypt4gh decrypt`-komentoa:
 
 ```bash
-crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg Passphrase for groupA.sec:
+crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg
 ```
 
-where `--sk groupA.sec` is a corresponding private key to one of the public keys used in the encryption. The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg.c4gh` reads in an encrypted file called `dog.jpg.c4gh` and `>dog.jpg` writes out a decrypted file named `dog.jpg`.
+missä `--sk groupA.sec` on vastaava yksityinen avain, joka kuuluu yhteen salausvaiheen julkisista avaimista. `crypt4gh`-komento käyttää vain standardituloa (stdin) ja -tulostusta (stdout), joten sinun on käytettävä shellin uudelleenohjauksia: `<` merkitsee syöttötiedoston ja `>` merkitsee tulostustiedoston, joten `<dog.jpg.c4gh` lukee salatun tiedoston nimeltä `dog.jpg.c4gh` ja `>dog.jpg` kirjoittaa puretun tiedoston nimeltä `dog.jpg`.
 
-The command will ask the user to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
+Komento pyytää käyttäjää syöttämään yksityisavaimen salasanan (salauslauseke). Turvallisuussyistä salasana ei näy kirjoittaessasi sitä.
 
-!!! Note
-    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys. If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](tutorials/decrypt-directory.md).
+!!! Huomautus
+    Jos purat tiedoston SD Desktopissa ja CSC Sensitive Data -julkista avainta on käytetty salauksessa, purku tapahtuu automaattisesti eikä sinun tarvitse antaa mitään purkuavaimia. Jos sinun tarvitsee purkaa suuri määrä tiedostoja, tutustu opetusohjelmaan [Kaikkien tiedostojen purkaminen hakemistossa](tutorials/decrypt-directory.md).
 
-Additional information about [data encryption](./sd-connect-introduction-to-data-encryption.md).
+Lisätietoja [tietojen salauksesta](./sd-connect-introduction-to-data-encryption.md).
 
-## Tutorials
+## Opetusohjelmat {#tutorials}
 
-- [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
-- [Decrypting all files in a directory](../sensitive-data/tutorials/decrypt-directory.md)
-- [Using Allas storage service to receive sensitive research data](../sensitive-data/sequencing_center_tutorial.md)
+- [Asiakaspuolen salaus Allasille](../Allas/allas_encryption.md)
+- [Kaikkien tiedostojen purkaminen hakemistossa](../sensitive-data/tutorials/decrypt-directory.md)
+- [Allas-säilytyspalvelun käyttö herkkien tutkimustietojen vastaanottamiseksi](../sensitive-data/sequencing_center_tutorial.md)
 
-## Features in SD Connect
+## Ominaisuudet SD Connectissa {#features-in-sd-connect}
 
-- [Upload](./sd-connect-upload.md)
-- [Share](./sd-connect-share.md)
-- [Download](./sd-connect-download.md)
-- [Delete](./sd-connect-delete.md)
-- [Troubleshooting](./sd-connect-troubleshooting.md)
+- [Lataus](./sd-connect-upload.md)
+- [Jakaminen](./sd-connect-share.md)
+- [Lataaminen](./sd-connect-download.md)
+- [Poistaminen](./sd-connect-delete.md)
+- [Vianmääritys](./sd-connect-troubleshooting.md)

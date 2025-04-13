@@ -1,68 +1,50 @@
-# Using Allas object storage service from CSC Supercomputing environment
+# CSC:n suurkoneympäristön Allas-objektitallennuspalvelun käyttö {#using-allas-object-storage-service-from-csc-supercomputing-environment}
 
-The disk environments of CSC supercomputers, Puhti and Mahti, are not intended for storing research data that is 
-not actively used for computing. The data that needs to be stored for a longer time than just few weeks should be copied to Allas object storage service. 
+CSC:n suurkoneiden, Puhtin ja Mahtin, levytilaympäristöjä ei ole tarkoitettu tutkimusdatan pitkäaikaiseen säilytykseen, mikäli dataa ei aktiivisesti käytetä laskentaan. Pidemmäksi ajaksi kuin muutamaksi viikoksi säilytettävä data tulisi kopioida Allas-objektitallennuspalveluun.
 
-Allas provides a platform that you can use to store your data as long as your CSC project is active. 
-In addition to storing, Allas can be used for transporting data between different servers and sharing data
-with other users.
+Allas tarjoaa alustan, jossa voit säilyttää dataasi niin kauan kuin CSC-projektisi on aktiivinen. Tietojen säilytyksen lisäksi Allas voi toimia tietojen kuljetusalustana eri palvelimien välillä ja tietojen jakamisessa muiden käyttäjien kanssa.
 
-## Getting access to Allas
+## Allaksen käyttöoikeuden hankkiminen {#getting-access-to-allas}
 
-By default, CSC computing projects do not have access to Allas. Thus, the first thing is to make sure that your project has access to Allas.
-This can be done in the [MyCSC interface](https://my.csc.fi). Note that only the project manager can 
-add new services for a project. Once Allas access is activated, all project members must visit the MyCSC and accept the terms 
-of use for Allas before they can use the Allas storage area.
+Oletusarvoisesti CSC-laskentaprojekteilla ei ole pääsyä Allakseen. Ensimmäinen askel on varmistaa, että projektillasi on pääsy Allakseen. Tämä voidaan tehdä [MyCSC-palvelussa](https://my.csc.fi). Huomaa, että vain projektipäällikkö voi lisätä uusia palveluita projektille. Kun Allas-käyttöoikeus on aktivoitu, kaikkien projekti jäsenten tulee käydä MyCSC:ssä hyväksymässä Allaksen käyttöehdot ennen kuin he voivat käyttää Allas-tilaa.
 
-The default storage quota in Allas is 10 TB. As this space is shared with all project members, it is
-possible that the space is not sufficient. In that case, you should estimate how much space is needed 
-and request more space. The request should be sent to servicedesk@csc.fi.
+Allekirjoitettu tallennuskiintiö Allaksessa on 10 TB. Koska tämä tila on jaettu kaikkien projektin jäsenten kesken, tila ei välttämättä riitä. Tässä tapauksessa sinun tulisi arvioida tarvittava tila ja pyytää lisää tilaa. Pyyntö tulisi lähettää osoitteeseen servicedesk@csc.fi.
 
-## Connecting Allas 
+## Yhteys Allakseen {#connecting-allas}
 
-In order to use Allas in Puhti or Mahti, first load the module _allas_:
+Voidaksesi käyttää Allasta Puhtissa tai Mahtissa, lataa ensin _allas_-moduuli:
 ```text
 module load allas
 ```
-Allas access for a specific project can then be enabled with command:
+Allas-käyttöoikeuden tietylle projektille voi aktivoida komennolla:
 ```text
 allas-conf
 ```
-or 
+tai 
 ```text
 allas-conf project_name
 ```
-The _allas-conf_ command prompts for your CSC password. It lists your Allas projects and asks you to define a project (if not already defined as an argument). After that _allas-conf_ generates configuration files for several Allas clients and authenticates connection to Allas for the selected project. 
+Komento _allas-conf_ kysyy CSC-salasanaasi. Se listaa Allas-projektisi ja pyytää määrittelemään projektin (jos sitä ei vielä ole annettu argumenttina). Tämän jälkeen _allas-conf_ luo konfiguraatiotiedostot useille Allas-asiakasohjelmille ja todentaa yhteyden Allakseen valitulle projektille.
 
-By default the _allas-conf_ activates tools that use Allas with **swift protocol**. 
-You can alternatively use S3 protocol too, however in this document we 
-discuss only _swift_ based Allas usage. 
+Oletuksena _allas-conf_ aktivoi työkalut, jotka käyttävät Allasta **swift-protokollan** kautta. Voit vaihtoehtoisesti käyttää myös S3-protokollaa, mutta tässä dokumentissa käsitellään vain _swift_-pohjaista Allas-käyttöä.
 
-Authentication is session specific and valid for eight hours at a time.
-You can be connected to only one Allas project at a time in one terminal session. However, simutaneous terminal sessions
-can use different Allas projects. The project you are using in Allas does not need to match the project you are using in 
-Puhti or Mahti. You can refresh the authentication or change the target project at any time my running _allas-conf_ again. 
+Autentikointi on istuntokohtainen ja voimassa kahdeksan tuntia kerrallaan. Voit olla yhteydessä vain yhteen Allas-projektiin kerrallaan yhdessä istunnossa. Eri istunnot voivat kuitenkin käyttää eri Allas-projekteja. Käytettävän Allas-projektin ei tarvitse vastata Puhtissa tai Mahtissa käytettävää projektia. Voit päivittää autentikoinnin tai vaihtaa projektia milloin tahansa suorittamalla _allas-conf_ uudelleen.
 
+**Allas-asiakkaan ohjelmistovaihtoehdot Puhtille, Mahtille ja muille Linux-palvelimille** {#allas-client-software-options-for-puhti-and-mahti-and-other-linux-servers}
 
-**Allas client software options for Puhti and Mahti and other linux servers**
+_moduuli allas_ tarjoaa useita työkaluja, joilla voit siirtää dataa Allaksen ja laskentapalvelimen välillä. Voit käyttää ristiin Allas-asiakasohjelmia, kunhan käytät Allasta samalla protokollalla (swift tai S3). Alla on luettelo Allas-asiakasohjelmista, joita käytetään yleisimmin Puhtissa ja Mahtissa:
 
-The _allas_ module provides several tools that you can use to move data between Allas and the computing server.
-You can cross-use the Allas clients as long as you access Allas with the same protocol (swift or S3).
-Below is a list of the Allas clients that are most commonly used in Puhti and Mahti:
+* **a-komennot:** (Swift, valinnaisesti S3) [Helppo ja turvallinen: a-komennot](../data/Allas/using_allas/a_commands.md)
+* **rclone:** (Swift, valinnaisesti S3) [Edistynyt työkalu: rclone](../data/Allas/using_allas/rclone.md)
+* **swift python -asiakasohjelma:** (Swift) [Natiivi Swift-asiakasohjelma](../data/Allas/using_allas/swift_client.md)
+* **s3cmd:** (S3) [S3-asiakasohjelma](../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
 
-* **a-commands:** (Swift, optionally S3) [Easy and safe: a-commands](../data/Allas/using_allas/a_commands.md)
-* **rclone:** (Swift, optionally S3) [Advanced tool: rclone](../data/Allas/using_allas/rclone.md)
-* **swift python client:** (Swift) [Native Swift client](../data/Allas/using_allas/swift_client.md)
-* **s3cmd:** (S3) [S3 client](../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
-
-More information about using Allas can be found from the Allas documentation:
+Lisätietoja Allaksen käytöstä löytyy Allas-dokumentaatiosta:
 
 * [Allas](../data/Allas/index.md)
 
-The Allas documentation includes two tutorials that are especially designed for Puhti and Mahti users:
+Allas-dokumentaatio sisältää kaksi tutoriaalia, jotka on erityisesti suunniteltu Puhtin ja Mahtin käyttäjille:
 
-* [Examples for using Allas in CSC supercomputers](../data/Allas/allas-examples.md)
+* [Esimerkkejä Allaksen käytöstä CSC:n suurkoneilla](../data/Allas/allas-examples.md)
 
-* [Using Allas in batch jobs](../data/Allas/allas_batchjobs.md)
-
-
+* [Allaksen käyttö eräajotehtävissä](../data/Allas/allas_batchjobs.md)

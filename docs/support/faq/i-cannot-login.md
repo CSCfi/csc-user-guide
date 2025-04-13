@@ -1,105 +1,72 @@
-# I cannot login. What to do?
+# En voi kirjautua sisään. Mitä tehdä? {#i-cannot-login-what-to-do}
 
-The first thing to do when you encounter login problems is to find out which
-services you can login and which you cannot.
+Ensimmäinen asia, kun kohtaat kirjautumisongelmia, on selvittää, mihin palveluihin voit kirjautua ja mihin et.
 
-## I can login to MyCSC but not the system I want to use
+## Voin kirjautua MyCSC:hen mutta en siihen järjestelmään, jota haluan käyttää {#i-can-login-to-mycsc-but-not-the-system-i-want-to-use}
 
-If you can login to [MyCSC](https://my.csc.fi), there are three common reasons
-for login problems affecting other services, like Puhti:
+Jos voit kirjautua [MyCSC:hen](https://my.csc.fi), on kolme yleistä syytä, miksi kirjautumisongelmat vaikuttavat muihin palveluihin, kuten Puhtiin:
 
-1. You're trying to login to Puhti, Mahti or LUMI using an SSH client, but
-   have not set up SSH keys and/or uploaded your public key to MyCSC. This is
-   a requirement starting 14 April 2025. Please read the
-   [instructions on how to create an SSH key pair and add the public key to MyCSC](../../computing/connecting/ssh-keys.md).
-   If you're still facing issues, [see this FAQ](ssh-keys-not-working.md).
-2. The service you are trying to login is down or has issues. See notifications
-   in your mailbox or at [research.csc.fi](https://research.csc.fi). Wait until
-   the maintenance is completed or the issue is resolved.
-3. You have no projects enabled in the service that you are trying to login.
-   Check the services linked to your projects at MyCSC.
-   [Add service access for your project](../../accounts/how-to-add-service-access-for-project.md)
-   if you have a suitable project, or [create a new project](../../accounts/how-to-create-new-project.md),
-   and for it, add the access to the service.
-4. You just changed your password and it has not yet been updated on the system
-   you try to access. Please allow for up to one hour and retry. Too many
-   repeated failed attempts will (temporarily) block your IP address or account.
+1. Yrität kirjautua Puhtiin, Mahtiin tai LUMI:iin SSH-asiakkaalla, mutta et ole määrittänyt SSH-avaimia ja/tai ladannut julkista avaintasi MyCSC:hen. Tämä on vaatimus alkaen 14. huhtikuuta 2025. Ole hyvä ja lue [ohjeet, kuinka luodaan SSH-avainpari ja lisätään julkinen avain MyCSC:hen](../../computing/connecting/ssh-keys.md). Jos ongelmat jatkuvat, [katso tämä FAQ](ssh-keys-not-working.md).
+2. Palvelu, johon yrität kirjautua, on alas tai siinä on ongelmia. Katso ilmoituksia postilaatikossasi tai osoitteessa [research.csc.fi](https://research.csc.fi). Odota, kunnes huolto on suoritettu tai ongelma ratkaistu.
+3. Sinulla ei ole projekteja käytössä palvelussa, johon yrität kirjautua. Tarkista MyCSC:ssä projektiesi linkitetyt palvelut. [Lisää palvelun käyttöoikeus projektiisi](../../accounts/how-to-add-service-access-for-project.md) jos sinulla on sopiva projekti, tai [luo uusi projekti](../../accounts/how-to-create-new-project.md) ja sille lisää palvelun käyttölupa.
+4. Olet juuri vaihtanut salasanasi, eikä sitä ole vielä päivitetty järjestelmään, johon yrität päästä. Ole hyvä ja odota jopa tunnin ja yritä uudelleen. Liian monet epäonnistuneet yritykset estävät (tilapäisesti) IP-osoitteesi tai tilisi.
 
-## I cannot login to MyCSC
+## En voi kirjautua MyCSC:hen {#i-cannot-login-to-mycsc}
 
-If you cannot login to MyCSC, there is one problem that is more common than
-others:
+Jos et voi kirjautua MyCSC:hen, on yksi ongelma, joka on yleisempi kuin muut:
 
-1. Your account is locked. The most common reasons are:
+1. Tilisi on lukittu. Yleisimmät syyt ovat:
 
-* You have not changed your password for a year.
-* We have sent email to you but it bounces back.
-* Your account was granted for a fixed period and the time is up.
+* Et ole vaihtanut salasanaa vuoteen.
+* Olemme lähettäneet sinulle sähköpostia, mutta se palautuu.
+* Tilisi sekä oikeudet myönnettiin määräajaksi ja aika on loppunut.
 
-You need to [contact CSC Service Desk](../contact.md) to get your account
-unlocked.
+Sinun täytyy [ottaa yhteyttä CSC Service Deskiin](../contact.md) saadaksesi tilisi avatuksi.
 
-## Why is my SSH client saying "Corrupted MAC on input"?
+## Miksi SSH-asiakasohjelmani sanoo "Corrupted MAC on input"? {#why-is-my-ssh-client-saying-corrupted-mac-on-input}
 
-There is a known issue of **Windows OpenSSH clients**, which are using the LibreSSL library for
-cryptography. The bug happens when the combination of cipher `aes128-ctr` and either the
-`umac-128-etm@openssh.com` or `umac-128@openssh.com` MAC algorithm is used.
-The client will show an error saying `Corrupted MAC on input`.
+**Windows OpenSSH -asiakasohjelmissa** on tunnettu ongelma, joissa käytetään LibreSSL-kirjastoa salaukseen. Virhe ilmenee, kun käytetään yhdistelmää, jossa on salaus `aes128-ctr` ja joko `umac-128-etm@openssh.com` tai `umac-128@openssh.com` MAC-algoritmia. Asiakasohjelma näyttää virheen `Corrupted MAC on input`.
 
-Here are some links to relevant bug reports:
+Tässä on joitakin linkkejä asiaankuuluviin virheraportteihin:
 
 * [https://github.com/libressl/portable/issues/603](https://github.com/libressl/portable/issues/603)
 * [https://github.com/PowerShell/Win32-OpenSSH/issues/1359](https://github.com/PowerShell/Win32-OpenSSH/issues/1359)
 * [https://github.com/PowerShell/Win32-OpenSSH/issues/2078](https://github.com/PowerShell/Win32-OpenSSH/issues/2078)
 
-If you encounter this issue while trying to log in via SSH, you can try to add an explicit choice
-of MAC algorithm to your SSH client, instead of using the automatically chosen algorithms.
-This is achieved with the `-m <MAC algorithm>` option.
-To find out what MAC algorithms your client technically supports, you can run the `ssh -Q mac` command.
+Jos kohtaat tämän ongelman yrittäessäsi kirjautua sisään SSH:n kautta, voit yrittää lisätä MAC-algoritmin valinnan SSH-asiakasohjelmaasi, sen sijaan että käytät automaattisesti valittuja algoritmeja. Tämä saavutetaan `-m <MAC-algoritmi>` -vaihtoehdolla. Selvittääksesi, mitä MAC-algoritmeja asiakasohjelmasi teknisesti tukee, voit suorittaa `ssh -Q mac` -komennon.
 
-At the moment of writing, "hmac-sha2-512" is a suitable alternative, for example.
-This may change in the future, so it may be a good idea to not take it for granted that this
-workaround will be good forever.
+Kirjoitushetkellä "hmac-sha2-512" on sopiva vaihtoehto esimerkiksi. Tämä voi muuttua tulevaisuudessa, joten voi olla hyvä idea olla ottamatta itsestäänselvyytenä, että tämä kiertotapa toimii ikuisesti.
 
-The `-o MACS=-<algorithms>` option will also work. This syntax prevents the use of the given
-algorithms. This is preferable over the `-m <MAC algorithm>`, since it will rely on the system
-defaults to choose the most suitable algorithm for you, also in the future.
+`-o MACS=-<algoritmit>` -vaihtoehto toimii myös. Tämä syntaksi estää annettujen algoritmien käytön. Tämä on suositeltavampi kuin `-m <MAC-algoritmi>`, koska se luottaa järjestelmän oletuksiin valitakseen sinulle sopivimman algoritmin myös tulevaisuudessa.
 
 ```bash
-# (Preferred way:) Tell SSH not to use the broken algorithms:
+# (Suositeltu tapa:) Kerro SSH:lle, ettei se käytä viallisia algoritmeja:
 ssh -o MACS="-umac-128-etm@openssh.com,umac-128@openssh.com" yourcscusername@mahti.csc.fi
 
-# Or override the default MAC algorithm:
+# Tai ohita oletus MAC-algoritmi:
 ssh -m hmac-sha2-512 yourcscusername@puhti.csc.fi
-# Show what MAC algorithms your SSH client supports:
+# Näytä, mitä MAC-algoritmeja SSH-asiakasohjelmasi tukee:
 ssh -Q mac
 ```
 
-Please note that all the `*-etm` variants are disallowed by the SSH servers on the CSC supercomputers
-for the time being, due to a newly discovered security weakness in them from December 2023,
-called "Terrapin".
-If you use an unsupported algorithm, the server will tell you:
+Huomaa, että kaikki `*-etm` versiot on tällä kertaa kielletty CSC:n supertietokoneiden SSH-palvelimilla, koska niistä löytyi uusi tietoturvaheikkous joulukuussa 2023, nimeltään "Terrapin". Jos käytät tuettua algoritmia, palvelin ilmoittaa sinulle:
 
 ```text
-Unable to negotiate with <server's IP> port 22: no matching MAC found.
+Unable to negotiate with <palvelimen IP>:n portti 22: no matching MAC found.
 ```
 
-If you experience this issue, and you find a working solution with a different MAC algorithm,
-you might want to add a line to your `ssh_config` which would enable the workaround automatically.
-For example, to tell SSH that the `umac-128` algorithm should be disallowed, use a configuration
-like the one below:
+Jos kohtaat tämän ongelman ja löydät toimivan ratkaisun toisen MAC-algoritmin avulla, saatat haluta lisätä rivin `ssh_config` -tiedostoosi, joka mahdollistaisi kiertotavan automaattisesti. Esimerkiksi, jos haluat kertoa SSH:lle, että `umac-128` -algoritmi tulisi hylätä, käytä alla olevan kaltaista asetusta:
 
 ```text
-# Place this in your home directory's ssh\config file:
+# Aseta tämä kotihakemistosi ssh\config-tiedostoon:
 
 Host *
     MACs -umac-128-etm@openssh.com,umac-128@openssh.com
 
-# Note the minus in front of the listed algorithms, which indicates
-# that these algorithms should be removed from the accepted ones.
+# Huomioi miinus merkkinä listattujen algoritmien edessä, mikä tarkoittaa,
+# että nämä algoritmit tulisi poistaa hyväksyttyjen joukosta.
 ```
 
-## The SSH server says "Unable to negotiate ... no matching MAC found"
+## SSH-palvelin sanoo "Unable to negotiate ... no matching MAC found" {#the-ssh-server-says-unable-to-negotiate-no-matching-mac-found}
 
-Please see the [section above](#why-is-my-ssh-client-saying-corrupted-mac-on-input)
-about choosing a different MAC algorithm for your client.
+Katso [kohta ylempänä](#why-is-my-ssh-client-saying-corrupted-mac-on-input) liittyen eri MAC-algoritmin valintaan asiakasohjelmallesi.

@@ -1,14 +1,9 @@
-# Project view
 
-The _Project view_ tool visualizes info of your current Puhti or Mahti
-projects. It contains also a _Disk quotas_ tab, which shows you your Lustre
-quotas. 
+# Projektinäkymä {#project-view}
+
+_Työkalussa **Projektinäkymä**_ visualisoidaan tietoa nykyisistä Puhti- tai Mahti-projekteistasi. Se sisältää myös _Levykiintiöt_-välilehden, joka näyttää Lustre-kiintiösi.
 
 !!! info-label
-    Note that you can only view your projects in the Project view. To modify
-    your projects or quotas, please use [MyCSC](https://my.csc.fi/).
+    Huomaa, että voit vain tarkastella projektejasi Projektinäkymässä. Projektiesi tai kiintiöidesi muokkaamiseen käytä [MyCSC](https://my.csc.fi/).
 
-Besides listing your Puhti or Mahti Lustre quotas, the Disk quotas tab can
-group quotas together based on project or by disk area. The quotas can also be
-sorted by clicking the column headers and there is a search function available
-as well.
+Levykiintiöt-välilehti listaa Puhti- tai Mahti Lustre -kiintiösi ja voi ryhmitellä kiintiöt projektin tai levyalueen perusteella. Kiintiöt voidaan myös lajitella klikkaamalla sarakeotsikoita, ja käytettävissä on hakutoiminto.

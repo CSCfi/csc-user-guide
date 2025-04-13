@@ -1,41 +1,38 @@
-# How to use folder as your shared workspace with SD Connect
+# Kuinka käyttää kansiota jaettuna työtilana SD Connectin kanssa {#how-to-use-folder-as-your-shared-workspace-with-sd-connect}
 
 <iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+## Käyttötapaus {#use-case}
 
-## Use case
+Sinä (Tiimi A) ja toinen tiimi (Tiimi B) teette aktiivista yhteistyötä. Haluatte molemmat ladata dataa samaan kansioon ja pystyä muokkaamaan kansion sisältöä.
 
-You (Team A) and other team (Team B) are actively collaborating. You both want to upload data to the same folder and be able to modify folder content.
+## Ratkaisu {#solution}
 
-## Solution
+Tässä tapauksessa voit jakaa datakansiosi Tiimille B **Yhteistyö** -oikeudella. Tällä tavalla molemmilla tiimeillä on yhtäläiset oikeudet muokata jaetun kansion tiedostoja.
 
-In this case you can share your data folder to Team B with **Collaborate** -permission. That way both teams have equal rights to modify files inside the shared folder.
+![Yhteistyö Infografiikka](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_Collaborate.png)
 
-![Collaborate Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_Collaborate.png)
+## Askela askeleelta -ohje {#step-by-step-tutorial}
 
+Molemmilla tiimeillä tulisi olla oma CSC-projektinsa ja SD Connect aktivoituna. Jos sinulla ei ole vielä sellaista, seuraa ohjeita kohdasta [Aloita tästä](sd-access.md) ja palaa tähän ohjeeseen, kun olet luonut CSC-projektin.
 
+1. Pyydä Tiimiltä B heidän Jakotunnustaan. He löytävät sen SD Connectistaan.
+![Näyttökuva](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)  
+2. Kirjaudu [SD Connectiin](./sd-connect-login.md).
+3. Lataa datakansiosi SD Connectiin: [Katso latausohjeet](./sd-connect-upload.md). Tai luo tyhjä kansio klikkaamalla "**Luo kansio**".
+![näyttökuva](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_CreateFolder.png)
+4. Klikkaa "**Jaa**" haluamasi kansion vierestä.
+![näyttökuva](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton.png)
+5. Lisää Projektin B **Jakotunnus** kenttään.
+![näyttökuva](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID.png)
+6. Valitse jakolupa: "**Yhteistyö**". Klikkaa "**Jaa**".
+![näyttökuva](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission.png)
 
-## Step by step tutorial
+Nyt kansion sisältö on saatavilla molemmille projekteille (Projekti A ja Projekti B). Kaikki jäsenet molemmissa projekteissa voivat muokata kansion sisältöä SD Connectin kautta; Kaikki voivat ladata, kopioida ja poistaa sisältöä haluamallaan tavalla. He voivat myös käyttää sitä analysointia varten SD Desktopin kautta.
 
-Both teams should have their own CSC project and SD Connect activated. If you don't have one yet, please follow instructions from [Start here](sd-access.md) and return to this tutorial after you have set up the CSC project.
+## Ominaisuudet SD Connectissa {#features-in-sd-connect}
 
-1. Ask from Team B for their Share ID. They find it from their SD Connect.
-![Screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
-2. Log in to [SD Connect](./sd-connect-login.md).
-3. Upload your data folder to SD Connect: [See upload instructions](./sd-connect-upload.md). Or create an empty folder by clicking "**Create folder**".
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_CreateFolder.png)
-4. Click “**Share**” next to the folder you wish to share.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton.png)
-5. Add the Project B’s **Share ID** to the field.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID.png)
-6. Select sharing permission: “**Collaborate**”. Click “**Share**”.
-![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission.png)
-
-Now all the content of the folder is accessible for both projects (Project A and Project B). All members in both projects can modify the content of the folder via SD Connect; Everyone can upload, download, copy and delete the content as they wish. They can also access it via SD Desktop for analysis.
-
-## Features in SD Connect 
-
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
+* [Lataa](./sd-connect-upload.md)
+* [Jaa](./sd-connect-share.md)
+* [Lataa alas](./sd-connect-download.md)
+* [Poista](./sd-connect-delete.md)

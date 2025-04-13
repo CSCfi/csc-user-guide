@@ -1,59 +1,61 @@
-# Geocomputing seminars
 
-## Machine Learning with spatial data seminar (2024)
+# Geolaskentaseminaarit
 
-* Samantha Wittke, CSC: [Intro & Welcome](https://gis-seminars.a3s.fi/2024-02-27/GeoML_seminar_intro.pdf)
-* Mats Sjöberg, CSC: [Intro to ML at CSC](https://a3s.fi/mats/ml-tools-csc.pdf)
-* Janne Mäyrä, SYKE: [geo2ml: python package for converting geospatial data to ML](https://gis-seminars.a3s.fi/2024-02-27/JanneMayra_SYKE.html)
-* Mohammad Imangholiloo, UHEL: [A New Approach for Feeding Multispectral Imagery into Convolutional Neural Networks Improved Classification of Seedlings](https://gis-seminars.a3s.fi/2024-02-27/Imangholiloo_UHEL.pdf)
-* Parvez Rana, LUKE: [3-D modeling of biodiversity and ecosystem services](https://gis-seminars.a3s.fi/2024-02-27/RanaParvez_LUKE.pdf)
-* Pyry Kettunen, FGI: [Vector ML - case Gaze-Aware Interactive Map System](https://gis-seminars.a3s.fi/2024-02-27/PyryKettunen_FGI.pdf)
-* Jorma Laaksonen, Aalto: [Hyperspectral superresolution and multi-image fusion for remote sensing forest studies](https://gis-seminars.a3s.fi/2024-02-27/JormaLaaksonen_Aalto.pdf)
-* Emma Turkulainen, FGI: [Monitoring Bark Beetle Damage: Technical Insights into UAS Image Classification with Deep Neural Networks](https://gis-seminars.a3s.fi/2024-02-27/EmmaTurkulainen_FGI.pdf)
-* Andras Balazs, LUKE: [Predicting tree species specific growing stock using ALS point clouds and a 3D-Convolutional Neural Network](https://gis-seminars.a3s.fi/2024-02-27/AndrasBalazs_LUKE.pdf)
-* Jere Raninen, FGI: [Building detection from Lidar data using 3DUNet](https://gis-seminars.a3s.fi/2024-02-27/JereRaninen_NLS.pdf)
-* Emilia Hattula, FGI: [How the diversity of training data improves the 2D UNet building detection](https://gis-seminars.a3s.fi/2024-02-27/EmiliaHattula_NLS.pdf)
-* [Questions and discussion](https://gis-seminars.a3s.fi/2024-02-27/GeoML_seminar_2024_questions_discussion.pdf)
+## Koneoppiminen paikkatietojen avulla -seminaari (2024) {#machine-learning-with-spatial-data-seminar-2024}
 
-## LUMI supercomputer for geospatial companies (2023)
+* Samantha Wittke, CSC: [Esittely ja Tervetuloa](https://gis-seminars.a3s.fi/2024-02-27/GeoML_seminar_intro.pdf)
+* Mats Sjöberg, CSC: [Johdatus koneoppimiseen CSC:llä](https://a3s.fi/mats/ml-tools-csc.pdf)
+* Janne Mäyrä, SYKE: [geo2ml: python-paketti paikkatietojen muuntamiseen ML-muotoon](https://gis-seminars.a3s.fi/2024-02-27/JanneMayra_SYKE.html)
+* Mohammad Imangholiloo, UHEL: [Uusi lähestymistapa monikanavaisten kuvien syöttämiseen konvoluutioneuroverkoissa taimien luokittelun parantamiseksi](https://gis-seminars.a3s.fi/2024-02-27/Imangholiloo_UHEL.pdf)
+* Parvez Rana, LUKE: [3D-mallinnus biodiversiteetin ja ekosysteemipalveluiden osalta](https://gis-seminars.a3s.fi/2024-02-27/RanaParvez_LUKE.pdf)
+* Pyry Kettunen, FGI: [Vektori-MO - tapaus Gaze-Aware Interactive Map System](https://gis-seminars.a3s.fi/2024-02-27/PyryKettunen_FGI.pdf)
+* Jorma Laaksonen, Aalto: [Hyperspektrinen superresoluutio ja monikuvan fuusio kaukokartoituksen metsätutkimuksissa](https://gis-seminars.a3s.fi/2024-02-27/JormaLaaksonen_Aalto.pdf)
+* Emma Turkulainen, FGI: [Kaarnakuoriaisen aiheuttamien vahinkojen valvonta: tekniset näkökohdat UAS-kuvien luokittelussa syvineuroverkkojen avulla](https://gis-seminars.a3s.fi/2024-02-27/EmmaTurkulainen_FGI.pdf)
+* Andras Balazs, LUKE: [Puiden lajikohtaisen runkoaineksen ennustaminen ALS-pistetiheysdatalla ja 3D-konvoluutioneuroverkolla](https://gis-seminars.a3s.fi/2024-02-27/AndrasBalazs_LUKE.pdf)
+* Jere Raninen, FGI: [Rakennusten tunnistus Lidar-datasta 3DUNetin avulla](https://gis-seminars.a3s.fi/2024-02-27/JereRaninen_NLS.pdf)
+* Emilia Hattula, FGI: [Miten koulutusdatan monimuotoisuus parantaa 2D UNet -rakennustunnistusta](https://gis-seminars.a3s.fi/2024-02-27/EmiliaHattula_NLS.pdf)
+* [Kysymykset ja keskustelu](https://gis-seminars.a3s.fi/2024-02-27/GeoML_seminar_2024_questions_discussion.pdf)
 
-* Samantha Wittke, Markus Koskela, Juhani Huttunune, CSC, [Geocomputing in LUMI and access options for companies](https://gis-seminars.a3s.fi/2023-06-08-lumi-for-gis.pdf)
-* Tapio Friberg, ICEYE, [ICEYE LUMI usecase](https://gis-seminars.a3s.fi/2023-06-08-lumi-for-gis-iceye-use-case.pdf)
+## LUMI-supertietokone paikkatietoalan yrityksille (2023) {#lumi-supercomputer-for-geospatial-companies-2023}
 
-## CSC and GeoPortti services for research using spatial data (2022)
+* Samantha Wittke, Markus Koskela, Juhani Huttunen, CSC: [Geolaskenta LUMIssa ja yrityksille tarjottavat pääsyvaihtoehdot](https://gis-seminars.a3s.fi/2023-06-08-lumi-for-gis.pdf)
+* Tapio Friberg, ICEYE: [ICEYE LUMI -käyttötapaus](https://gis-seminars.a3s.fi/2023-06-08-lumi-for-gis-iceye-use-case.pdf)
 
-* Samantha Wittke, CSC: [CSC services introduction for new users](http://a3s.fi/gis-workshops/spatial_puhti_2022/Viikki_22.html).
-* Lassi Lehto, MML/FGI: [What data is available from GeoPortti Geocubes and how can I use it?](https://a3s.fi/gis-workshops/spatial_puhti_2022/GeoCubes-Lehto-20221214.pdf)
-* Arttu Kivimäki, MML/FGI: [How to utilize Sentinel-2 data of Finland from CSC Allas object storage](https://a3s.fi/gis-workshops/spatial_puhti_2022/Sentinel2_Data_Allas.pdf)
-* Kylli Ek, CSC: [Using Paituli data in Puhti supercomputer](https://a3s.fi/gis-workshops/spatial_puhti_2022/Paituli_eng_221207.pdf).
-* Kylli Ek, CSC: [Finding data of specific time and area using STAC](https://github.com/csc-training/geocomputing/tree/master/python/STAC)
-* Hands-on/demo Puhti web interface
-    * What is the [Puhti web interface](https://www.puhti.csc.fi/) and what can I use it for?
-    * R usecase: RStudio
-        * [Using Paituli data and a basic batch job](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
-        * [Using virtual rasters with R](https://github.com/csc-training/geocomputing/blob/master/R/virtual_rasters.R)
-    * Python usecase: Jupyter
-        * [Using data from STAC with Python](https://github.com/csc-training/geocomputing/tree/master/python/STAC)
-* [Archived questions and answers from the workshop](https://a3s.fi/gis-workshops/spatial_puhti_2022/HedgeDoc_spatialCSC22.html)
+## CSC ja GeoPortti palvelut tutkimuksessa paikkatietojen avulla (2022) {#csc-and-geoportti-services-for-research-using-spatial-data-2022}
 
-## Earth observationin CSC computing environment (2022)
+* Samantha Wittke, CSC: [CSC-palveluiden esittely uusille käyttäjille](http://a3s.fi/gis-workshops/spatial_puhti_2022/Viikki_22.html).
+* Lassi Lehto, MML/FGI: [Mitä dataa GeoPortti Geocubet sisältävät ja miten voin käyttää niitä?](https://a3s.fi/gis-workshops/spatial_puhti_2022/GeoCubes-Lehto-20221214.pdf)
+* Arttu Kivimäki, MML/FGI: [Kuinka hyödyntää CSC Allas -objektivarastossa olevaa Sentinel-2-dataa Suomesta](https://a3s.fi/gis-workshops/spatial_puhti_2022/Sentinel2_Data_Allas.pdf)
+* Kylli Ek, CSC: [Paituli-datan käyttö Puhti-supertietokoneella](https://a3s.fi/gis-workshops/spatial_puhti_2022/Paituli_eng_221207.pdf).
+* Kylli Ek, CSC: [Ajallisesti ja alueellisesti rajatun datan haku STACin avulla](https://github.com/csc-training/geocomputing/tree/master/python/STAC)
+* Käytännön harjoitus: Puhti web-käyttöliittymä
+    * Mikä on [Puhti web-käyttöliittymä](https://www.puhti.csc.fi/) ja mihin voin sitä käyttää?
+    * R-käyttötapaus: RStudio
+        * [Paituli-datan käyttö ja perus eräajotehtävä](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
+        * [Virtuaalisten rastereiden käyttö R:llä](https://github.com/csc-training/geocomputing/blob/master/R/virtual_rasters.R)
+    * Python-käyttötapaus: Jupyter
+        * [Datan käyttö STACin kautta Pythonilla](https://github.com/csc-training/geocomputing/tree/master/python/STAC)
+* [Tallennetut kysymykset ja vastaukset työpajasta](https://a3s.fi/gis-workshops/spatial_puhti_2022/HedgeDoc_spatialCSC22.html)
 
-* Eetu Jutila, SYKE: Samantha Wittke (CSC: [Getting started using EO data](https://a3s.fi/gis-workshops/22_EO_workshop/eo_workshop_intro.pdf)
-* Mwaba Hiltunen, FMI: [Access to Copernicus data from the Finnish Data Hub](https://a3s.fi/gis-workshops/22_EO_workshop/hiltunen_finhub.pdf)
-* Markus Törmä, SYKE: [Availability of (almost) analysis ready satellite image mosaics](https://a3s.fi/gis-workshops/22_EO_workshop/torma_s2_mosaics.pdf)
-* Lassi Lehto, FGI/NLS: [GeoCubes Finland - a multiresolution datacube for cloud-based provision of raster geodata](https://a3s.fi/gis-workshops/22_EO_workshop/lehto_geocubes.pdf)
-* Samantha Wittke, CSC: [CSC resources for EO data processing and storage](https://a3s.fi/gis-workshops/22_EO_workshop/wittke_eo_at_csc.pdf)
-* Arttu Kivimäki, FGI/NLS: [Mosaicking Sentinel-2 data in Puhti](https://a3s.fi/gis-workshops/22_EO_workshop/kivimaki_sen2mosaic.pdf)
-* Eetu Jutila, SYKE: [Experiences in processing Sentinel-1 data with SNAP and analyzing land cover changes in Puhti](https://a3s.fi/gis-workshops/22_EO_workshop/jutila_sentinel1_and_land_cover_changes.pdf)
-* Maria Yli-Heikkilä, LUKE: [EO for agricultural statistics](https://a3s.fi/gis-workshops/22_EO_workshop/yli-heikkila-eo-for-agri-statistics.pdf)
-* Mikko Impiö, SYKE: [Modern machine learning for land cover classification](https://a3s.fi/gis-workshops/22_EO_workshop/impio_ml_in_land_cover_classification.pdf)
+## Maankuu:ssa havainto CSC:n laskentaympäristössä (2022) {#earth-observationin-csc-computing-environment-2022}
 
-## Point cloud research in CSC computing environment (2022)
+* Eetu Jutila, SYKE; Samantha Wittke, CSC: [Aloitus EO-datan käytössä](https://a3s.fi/gis-workshops/22_EO_workshop/eo_workshop_intro.pdf)
+* Mwaba Hiltunen, FMI: [Käyttöoikeus Copernicus-dataan Suomen Data Hubin kautta](https://a3s.fi/gis-workshops/22_EO_workshop/hiltunen_finhub.pdf)
+* Markus Törmä, SYKE: [Miltei valmiiden satelliittikuva-mosaiikkien saatavuus](https://a3s.fi/gis-workshops/22_EO_workshop/torma_s2_mosaics.pdf)
+* Lassi Lehto, FGI/NLS: [GeoCubes Finland - moniresoluutioinen datakuutio pilvipohjaiseen rasterigeodatan tarjontaan](https://a3s.fi/gis-workshops/22_EO_workshop/lehto_geocubes.pdf)
+* Samantha Wittke, CSC: [CSC:n resurssit EO-datan käsittelyyn ja tallennukseen](https://a3s.fi/gis-workshops/22_EO_workshop/wittke_eo_at_csc.pdf)
+* Arttu Kivimäki, FGI/NLS: [Sentinel-2-datan mosaiikointi Puhtissa](https://a3s.fi/gis-workshops/22_EO_workshop/kivimaki_sen2mosaic.pdf)
+* Eetu Jutila, SYKE: [Kokemuksia Sentinel-1-datan käsittelystä SNAP:illa ja maankäytön muutosten analysoinnista Puhtissa](https://a3s.fi/gis-workshops/22_EO_workshop/jutila_sentinel1_and_land_cover_changes.pdf)
+* Maria Yli-Heikkilä, LUKE: [EO maatalousstatistiikassa](https://a3s.fi/gis-workshops/22_EO_workshop/yli-heikkila-eo-for-agri-statistics.pdf)
+* Mikko Impiö, SYKE: [Moderni koneoppiminen maankäytön luokittelussa](https://a3s.fi/gis-workshops/22_EO_workshop/impio_ml_in_land_cover_classification.pdf)
 
-* Kylli Ek, Samantha Wittke, CSC: [Introduction to CSC computing environments and point cloud data and software available at CSC supercomputer Puhti](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/csc_point_cloud_seminar_intro.pdf)
-* Tuomas Yrttimaa, UEF: [Matlab and Puhti as tools for processing terrestrial laser scanning data](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/yrttimaa_tls_matlab.pdf)
-* Jon Atherton, University of Helsinki: [Optical sensing and 4D modelling of plant ecophysiological traits](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/atherton_4d_modeling_odm.pdf)
-* Jiri Pyörälä, University of Helsinki, NLS/FGI: [Experiences with PCLpy on Puhti](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/pyorala_pclpy.pdf)
-* Timo Pitkänen, LUKE: [Constructing forest trees from laser scanning points - automatized analyses using Matlab and R](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/pitkanen_r_matlab.pdf)
-* Ville Tuominen, LUKE: [Using Agisoft Metashape in cPouta virtual machine](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/tuominen_agisoft_metashape_in_cpouta.pdf)
-* [Discussion notes](https://hackmd.io/@GeospatialCSC/pointcloud_workshop)
+## Pistetiedon tutkimus CSC:n laskentaympäristössä (2022) {#point-cloud-research-in-csc-computing-environment-2022}
+
+* Kylli Ek, Samantha Wittke, CSC: [Johdatus CSC:n laskentaympäristöihin ja pistetietoihin sekä ohjelmistoihin CSC:n supertietokone Puhtissa](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/csc_point_cloud_seminar_intro.pdf)
+* Tuomas Yrttimaa, UEF: [Matlab ja Puhti maa-laserkeilausdatan käsittelyn työkaluna](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/yrttimaa_tls_matlab.pdf)
+* Jon Atherton, Helsingin yliopisto: [Optinen havainnointi ja 4D-mallinnus kasvien ekofysiologisista piirteistä](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/atherton_4d_modeling_odm.pdf)
+* Jiri Pyörälä, Helsingin yliopisto, NLS/FGI: [Kokemuksia PCLpy:n käytöstä Puhtissa](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/pyorala_pclpy.pdf)
+* Timo Pitkänen, LUKE: [Metsäpuiden muodostaminen laserkeilauspisteistä - automatisoidut analyysit käyttäen Matlabia ja R:ää](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/pitkanen_r_matlab.pdf)
+* Ville Tuominen, LUKE: [Agisoft Metashape -ohjelman käyttö cPouta virtual-koneessa](https://a3s.fi/gis-workshops/2022_point_cloud_workshop/tuominen_agisoft_metashape_in_cpouta.pdf)
+* [Keskustelumuistiinpanot](https://hackmd.io/@GeospatialCSC/pointcloud_workshop)
+

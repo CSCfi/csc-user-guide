@@ -1,38 +1,27 @@
-# Using Allas in batch jobs
 
-The Allas initiation command `allas-conf` opens an Allas connection that is valid for eight hours.
-In the case of interactive usage this eight-hour limit is not problematic as _allas-conf_ can be 
-executed again to extend the validity of the connection.
+# Allaksen käyttö eräajoissa {#using-allas-in-batch-jobs}
 
-In the case of batch jobs, the situation is different, as the execution of a batch job can take several days, and in some cases, 
-it may take more than eight hours before the job even starts. In these cases, you should open Allas connection 
-with command:
+Allas-yhteyden avaava `allas-conf`-komento tarjoaa kahdeksan tunnin voimassa olevan yhteyden. Interaktiivisessa käytössä tämä kahdeksan tunnin rajoitus ei ole ongelmallinen, koska _allas-conf_ voidaan suorittaa uudelleen yhteyden voimassaolon pidentämiseksi.
+
+Eräajoissa tilanne on kuitenkin erilainen, sillä eräajon suorittaminen voi kestää useita päiviä, ja joissakin tapauksissa saattaa kestää yli kahdeksan tuntia ennen kuin työ edes alkaa. Näissä tapauksissa Allas-yhteys tulisi avata komennolla:
 ```text
 allas-conf -k 
 ```
-The above command should be executed in the shell session that you intend to use to launch your batch job.
-In the command, the option `-k` indicates that the password, entered for _allas-conf_, will be 
-stored in the environment variable `$OS_PASSWORD`. With this variable defined, you no longer need to 
-define the password when you re-execute _allas-conf_ with the _-k_ option and the Allas project name. 
-You can define the project name either explicitly:
+Yllä oleva komento tulisi suorittaa siinä shell-istunnossa, jota aiot käyttää eräajon käynnistämiseen. Komennossa valinta `-k` tarkoittaa, että _allas-conf_ varten syötetty salasana tallennetaan ympäristömuuttujaan `$OS_PASSWORD`. Tämän muuttujan ollessa määritettynä ei salasanaa tarvitse määritellä uudelleen suoritettaessa _allas-conf_ uudelleen _-k_ valinnalla ja Allakseen liittyvällä projektinimellä. Projektinimen voi määritellä joko eksplisiittisesti:
 ```text  
 allas-conf -k project_2012345
 ```
-Or use the $OS_PROJECT_NAME variable that was assigned when the connection was first opened:
+Tai käyttää muuttujaa $OS_PROJECT_NAME, joka määritettiin, kun yhteys avattiin ensimmäisen kerran:
 ```text
 allas-conf -k $OS_PROJECT_NAME
 ```
-The two commands above now set up the Allas connection for eight hours without prompting the user.
+Yllä olevat kaksi komentoa luovat nyt Allas-yhteyden kahdeksaksi tunniksi ilman käyttäjän kehotepyyntöjä.
 
-Note that if you mistype your password when using the _-k_ option, you must use  `unset` command to reset the *OS_PASSWORD* variable before 
-you can try again:
+Huomaa, että jos kirjoitat salasanasi väärin käytettäessä _-k_ valintaa, sinun on käytettävä `unset` komentoa *OS_PASSWORD* muuttujan nollaamiseksi ennen kuin voit yrittää uudelleen:
 ```text
 unset OS_PASSWORD
 ```
-To be able to use the automatized connection creation in batch jobs, you need to add the option `-f` to the 
-command, to skip certain internal checks that are not compatible with batch jobs. 
-Further, _allas-conf_ is just an alias of a _source_ command that reads the Allas configuration script `allas_conf`.
-This aliased command is not available in batch jobs, so instead of _allas-conf_, you must use the command:
+Jotta automatisoitu yhteyden muodostaminen eräajoissa onnistuisi, sinun on lisättävä `-f` valinta komentoon tiettyjen sisäisten tarkastusten ohittamiseksi, jotka eivät ole yhteensopivia eräajojen kanssa. Lisäksi _allas-conf_ on vain aliaksena olevalle _source_-komennolle, joka lukee Allas-konfiguraatioskriptiä `allas_conf`. Tämä aliaskomento ei ole käytettävissä eräajoissa, joten _allas-conf_:n sijasta sinun on käytettävä komentoa:
 
 Puhti:
 ```text
@@ -43,22 +32,20 @@ Mahti:
 source /appl/opt/csc-tools/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 ```
 
-Thus after opening an Allas connection with the commands
+Näin ollen, kun avaat Allas-yhteyden komennolla
 ```text
 module load allas
 allas-conf -k
 ```
-You can add the above mentioned source commands to your batch job script to make sure that the Allas connection is valid when needed. 
+Voit lisätä yllä mainitut source-komennot eräajosi skriptiin varmistaaksesi, että Allas-yhteys on voimassa tarvittaessa.
 
-In *a-commands* (_a-put_, _a-get_, _a-list_, _a-delete_), this feature is included, so you do not need to add the 
-configuration commands to the batch job script, but you must still remember to run `allas-conf -k` before 
-submitting the job:
+*A-komentoihin* (_a-put_, _a-get_, _a-list_, _a-delete_) tämä ominaisuus on sisällytetty, joten konfiguraatiokomentoja ei tarvitse lisätä eräsuoritusskriptiin, mutta on silti muistettava suorittaa `allas-conf -k` ennen työn lähettämistä:
 ```text
 module load allas
 allas-conf -k
 sbatch my_long_job.sh
 ```
-Where the _my_long_job.sh_ could look like:
+Missä _my_long_job.sh_ voisi näyttää tältä:
 
 ```text
 #!/bin/bash
@@ -70,18 +57,17 @@ Where the _my_long_job.sh_ could look like:
 #SBATCH --output=allas_output_%j.txt
 #SBATCH --error=allas_errors_%j.txt
 
-#download data
+#lataa data
 a-get 178-data-bucket/dataset34/data2.txt.zst
 
-#do the analysis
+#tee analyysi
 my_analysis_command -in dataset34/data2.txt   -outdir results34
 
-#upload results
+#lataa tulokset
 a-put -b 178-data-bucket results34
 ```
 
-If you use _rclone_ or _swift_ instead of the a-commands, you need to add the _source_ commands to your script. In this case, 
-the batch job script for Puhti could look like:
+Jos käytät _rclone_ tai _swift_ a-komentojen sijasta, sinun on lisättävä _source_-komennot skriptiisi. Tällöin eräajon skripti Puhtissa voisi näyttää tältä:
 ```text
 #!/bin/bash
 #SBATCH --job-name=my_allas_job
@@ -92,20 +78,19 @@ the batch job script for Puhti could look like:
 #SBATCH --output=allas_output_%j.txt
 #SBATCH --error=allas_errors_%j.txt
 
-#make sure connection to Allas is open
+#varmista, että yhteys Allakseen on auki
 source /appl/opt/csc-cli-utils/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 
-#download input data
+#lataa syötteet
 rclone copy allas:178-data-bucket/dataset34/data2.txt ./
 
-#do the actual analysis
+#tee varsinainen analyysi
 my_analysis_command -in dataset34/data2.txt   -outdir results34
 
-#make sure connection to Allas is open
+#varmista, että yhteys Allakseen on auki
 source /appl/opt/csc-cli-utils/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 
-#upload results to allas
+#palauta tulokset allakseen
 rclone copyto results34 allas:178-data-bucket/
 ```
-For Mahti, remember to source `/appl/opt/csc-tools/allas-cli-utils/allas_conf` instead of `/appl/opt/csc-cli-utils/allas-cli-utils/allas_conf` in all places where you need to make sure the connection is open.
-
+Mahdissa muista käyttää lähteenä `/appl/opt/csc-tools/allas-cli-utils/allas_conf` sen sijaan, että käyttäisit `/appl/opt/csc-cli-utils/allas-cli-utils/allas_conf` kaikissa paikoissa, joissa sinun on varmistettava yhteyden avautuminen.

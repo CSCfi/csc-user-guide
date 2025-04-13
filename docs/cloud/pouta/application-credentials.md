@@ -1,43 +1,36 @@
-# Application credentials
+# Sovelluksen tunnisteet {#application-credentials}
 
-Application credentials allow you to interact with Pouta via the [OpenStack command-line tools](command-line-tools.md) or directly via the API, by allowing you to create a **role specific** and **time limited** _TOKEN_ that can be revoked at any time. The most immediate advantage is that you no longer need to use or write your CSC password while using Pouta's API.
+Sovelluksen tunnisteet mahdollistavat Poutan käyttämisen [OpenStackin komentorivityökaluilla](command-line-tools.md) tai suoraan API:n kautta, jolloin voit luoda **roolikohtaisen** ja **ajallisesti rajatun** _TOKENin_, joka voidaan peruuttaa milloin tahansa. Välittömin etu on, että sinun ei enää tarvitse käyttää tai kirjoittaa CSC:n salasanaasi käyttäessäsi Poutan API:tä.
 
-* **Role specific** means that the credentials can be created with limited permissions. You can create credentials that are only allowed to get data of your project, but not modify it. You can also create credentials that can only modify a specific resource. It is also possible to create credentials that can do everything that you can.
+* **Roolikohtainen** tarkoittaa, että tunnisteet voidaan luoda rajoitetuin oikeuksin. Voit luoda tunnisteita, jotka saavat vain hakea tietoja projektistasi, mutta eivät muokata niitä. Voit myös luoda tunnisteita, jotka voivat muokata vain tiettyä resurssia. On myös mahdollista luoda tunnisteita, jotka voivat tehdä kaiken mitä sinäkin.
 
-* **Time limited** means that the credentials can have a much shorter life than the password of the account that created it. This is useful to limit the repercussion of a credential leak.
+* **Ajallisesti rajoitettu** tarkoittaa, että tunnisteilla voi olla huomattavasti lyhyempi käyttöikä kuin sitä luoneen tilin salasanalla. Tämä on hyödyllistä, jotta tunnistuksen vuotamisen vaikutukset voidaan rajoittaa.
 
-* Other advantages are that credentials can be revoked at any time, and that you cannot change or obtain the password if you have only the application credential that created it.
+* Muita etuja ovat, että tunnisteet voidaan peruuttaa milloin tahansa, eikä salasanaa voi muuttaa tai saada, jos sinulla on vain sovelluksen tunnisteen luonut tunniste.
 
-!!! info "Application credentials are linked to the personal account"
+!!! info "Sovelluksen tunnisteet ovat sidottu henkilökohtaiseen tiliin"
 
-    It is important to remember that the application credentials are personal, which means that the application credentials are owned by a user account and all operations that the credentials do is on behalf of the user that created the credentials. This means that if a user is removed from the project the user's credentials will stop working.
+    On tärkeää muistaa, että sovelluksen tunnisteet ovat henkilökohtaisia, mikä tarkoittaa, että sovelluksen tunnisteet omistaa käyttäjätili ja kaikki tunnisteiden suorittamat toiminnot tehdään tunnisteet luoneen käyttäjän puolesta. Tämä tarkoittaa, että jos käyttäjä poistetaan projektista, käyttäjän tunnisteet lakkaavat toimimasta.
 
-In general Application credentials give the power and flexibility to allow a safer interaction with Pouta's API.
+Yleisesti ottaen sovelluksen tunnisteet antavat mahdollisuuden ja joustavuutta turvallisempaan vuorovaikutukseen Poutan API:n kanssa.
 
-## Creating application credential
+## Sovellustunnisteen luominen {#creating-application-credential}
 
-1. Go to [Pouta's web-interface](https://pouta.csc.fi/).
-2. Choose which project you want to use. (You will only see the projects that have cPouta activated in [my.csc.fi](https://my.csc.fi).)
-3. Go to `Identitiy` -> `Application Credentials`.
-4. Press `Create Application Credential`. A dialog will open.
+1. Mene [Poutan verkkoliittymään](https://pouta.csc.fi/).
+2. Valitse, mitä projektia haluat käyttää. (Näet vain ne projektit, joissa cPouta on aktivoitu [my.csc.fi:ssa](https://my.csc.fi).)
+3. Mene kohtaan `Identitiy` -> `Sovellustunnisteet`.
+4. Paina `Luo sovellustunniste`. Dialogi avautuu.
 
     ![Create Application Credential cPouta](../../img/create-application-credential-cpouta.png)
 
-5. It is a good idea to choose a descriptive `name` and `description`. Otherwise you might get confused
-in the future why the application credentials exist. It might be a good idea to name your first 
-credentials `Testing application credentials $TODAYS_DATE`.
-6. `Secret` should be a long random string that you should keep secret. If you leave this empty the
-service will create a secret for you, this is probably the preferred method.
-7. It is a good idea to put an `expiration date` especially if you are testing the credentials only
-for today.
-8. There are four roles in cPouta, `member`, `heat_stack_owner`, `object_store_user` and `creator`. Usually you want to use the `member` role. You can find
-out more in the [Using roles sections](#using-roles).
-9. The `Unrestricted (dangerous)` check-box will allow your application credentials to
-create new application credentials. You should never give an application or automation any credentials that have this permission.
-10.  Once you have created the application credentials you can either download the credentials as a
-file that you can source, a YAML file that can be used directly by the CLI, or alternatively add the secret to your secret manager. This is the **first and last time** that you will be able to get access to this secret. If you lose it, you will need to revoke it and create a new one.
+5. On hyvä idea valita kuvaava `nimi` ja `kuvaus`. Muuten saatat tulevaisuudessa hämmentyä, miksi sovellustunnisteet on luotu. Ensimmäisen tunnisteesi nimeäminen `Testaussovellustunnisteet $TÄMÄN_PÄIVÄN_PVM` voi olla hyvä idea.
+6. `Salaisuus` tulee olla pitkä satunnaismerkkijono, jota sinun pitäisi pitää salassa. Jos jätät tämän tyhjäksi, palvelu luo sinulle salaisuuden, mikä on todennäköisesti suositeltavin menetelmä.
+7. On hyvä asettaa `vanhentumispäivä`, erityisesti jos testaat tunnisteita vain tänään.
+8. cPoutassa on neljä roolia, `jäsen`, `heat_stack_owner`, `object_store_user` ja `luoja`. Yleensä haluat käyttää `jäsen`-roolia. Lisää tietoa löytyy [roolien käyttämisestä](#using-roles).
+9. `Rajoittamaton (vaarallinen)` -valintaruutu sallii sovellustunnisteittesi luoda uusia sovellustunnisteita. Sinun ei koskaan pitäisi antaa sovellukselle tai automaatiolle mitään tunnisteita, joilla on tämä lupa.
+10. Kun olet luonut sovellustunnisteet, voit joko ladata tunnisteet tiedostona, jonka voit soveltaa, YAML-tiedostona, jota CLI voi käyttää suoraan, tai vaihtoehtoisesti lisätä salaisuuden salaisuuksien hallintaasi. Tämä on **ensimmäinen ja viimeinen kerta**, kun pääset käsiksi tähän salaisuuteen. Jos kadotat sen, sinun tulee peruuttaa se ja luoda uusi.
 
-    If you downloaded the `openrc file` you will get a file that contains something like this:
+    Jos latasit `openrc-tiedoston`, saat tiedoston, joka sisältää jotain tällaista:
 
     ```bash
     #!/usr/bin/env bash
@@ -45,25 +38,25 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
     export OS_AUTH_TYPE=v3applicationcredential
     export OS_AUTH_URL=https://pouta.csc.fi:5001/v3
     export OS_IDENTITY_API_VERSION=3
-    export OS_REGION_NAME="regionOne" # Depends if you are using cPouta or ePouta
+    export OS_REGION_NAME="regionOne" # Riippuen käytätkö cPoutaa vai ePoutaa
     export OS_INTERFACE=public
     export OS_APPLICATION_CREDENTIAL_ID=xxxxxxxxxxxxxxxxxxxxxx
     export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
     ```
 
-    If you source that file, you can use it together with with [OpenStack command-line tools](command-line-tools.md).
+    Jos sovellat kyseisen tiedoston, voit käyttää sitä yhdessä [OpenStackin komentorivityökalujen](command-line-tools.md) kanssa.
 
-    You can also download the `cloud.yaml` file that will look like this:
+    Voit myös ladata `cloud.yaml` -tiedoston, joka näyttää tältä:
 
     ```yaml
-    # This is a clouds.yaml file, which can be used by OpenStack tools as a source
-    # of configuration on how to connect to a cloud. If this is your only cloud,
-    # just put this file in ~/.config/openstack/clouds.yaml and tools like
-    # python-openstackclient will just work with no further config. (You will need
-    # to add your password to the auth section)
-    # If you have more than one cloud account, add the cloud entry to the clouds
-    # section of your existing file and you can refer to them by name with
-    # OS_CLOUD=openstack or --os-cloud=openstack
+    # Tämä on clouds.yaml-tiedosto, jota OpenStack-työkalut voivat käyttää
+    # pilven yhdistämiseen tarvittavan konfiguraation lähteenä. Jos tämä on
+    # ainoa pilvesi, sijoita tiedosto ~/.config/openstack/clouds.yaml ja
+    # työkalut kuten python-openstackclient toimivat ilman lisäkonfiguraatiota.
+    # (Sinun tulee lisätä salasanasi auth-kohtaan)
+    # Jos sinulla on useampia pilvitilejä, lisää pilvikirjauksen clouds-
+    # osioon olemassaolevassa tiedostossasi ja voit viitata niihin nimellä
+    # OS_CLOUD=openstack tai --os-cloud=openstack
     clouds:
       openstack:
         
@@ -77,7 +70,7 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
           
         regions:
             
-        - regionOne # Depends if you are using cPouta or ePouta
+        - regionOne # Riippuen käytätkö cPoutaa vai ePoutaa
             
           
         interface: "public"
@@ -85,31 +78,31 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
         auth_type: "v3applicationcredential"
     ```
 
-    See the comment on the file itself on how to use it.
+    Katso kommentit tiedostossa itsessään, kuinka voit käyttää sitä.
 
-!!! info "Verify the credentials"
+!!! info "Varmista tunnisteet"
 
-    It is a good idea to test that the application credentials are allowed to do what you expect them to be able to do. It is also a good idea to verify that they are **NOT** allowed to do what you expect them not to be allowed to do.
+    On hyvä idea testata, että sovellustunnisteet saavat tehdä, mitä odotat niiden pystyvän tekemään. On myös hyvä idea varmistaa, että niitä **EI** sallita tehdä sitä, mitä et odota niiden pystyvän tekemään.
 
-## Using roles
+## Roolien käyttö {#using-roles}
 
-!!! warning "Temporary Unavailability of Role Restrictions for Application Credentials"
-    The usage of role restrictions for Application Credentials is temporarily unavailable.
-
-
-<del> In cPouta, there are four roles available: `member`, `heat_stack_owner`, `object_store_user` and `creator`.
+!!! warning "Sovellustunnisteiden roolirajoitusten väliaikainen poissaolo"
+    Sovellustunnisteiden roolirajoitusten käyttö on väliaikaisesti poissa käytöstä.
 
 
-* <del> `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the `member` role enabled.
+<del> cPoutassa on saatavilla neljä roolia: `jäsen`, `heat_stack_owner`, `object_store_user` ja `luoja`.
 
-* <del> `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
 
-* <del> `object_store_user` can operate over Allas and Objects Store.
+* <del> `jäsen` rooli on normaali käyttäjärooli. Se voi tehdä muutoksia järjestelmään. Kun kirjaudut verkkoliittymään, `jäsen` rooli on käytössä.
 
-* <del> `creator` can create secrets such as passwords, encryption keys.
+* <del> `heat_stack_owner` voi hallita Heat-pinoja, eli luoda, muokata ja poistaa infrastruktuuria. Tämä on hyödyllistä käytettäessä `IaC` asetuksena. 
 
-<del> If you are using Applications credentials in ePouta, it's slightly different. There are two roles available: `member` and `heat_stack_owner`.
+* <del> `object_store_user` voi hallita Allasta ja Object Storea.
 
-* <del> `member` role is the normal user role. When you login into the web-interface you have the `member` role enabled.
+* <del> `luoja` voi luoda salaisuuksia kuten salasanoja, salausavaimia.
 
-* <del> `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
+<del> Jos käytät Sovellustunnisteita ePoutassa, se on hieman erilainen. Saatavilla on kaksi roolia: `jäsen` ja `heat_stack_owner`.
+
+* <del> `jäsen` rooli on normaali käyttäjärooli. Kun kirjaudut verkkoliittymään, `jäsen` rooli on käytössä.
+
+* <del> `heat_stack_owner` voi hallita Heat-pinoja, eli luoda, muokata ja poistaa infrastruktuuria. Tämä on hyödyllistä käytettäessä `IaC` asetuksena.

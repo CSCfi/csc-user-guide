@@ -1,57 +1,44 @@
-# Ephemeral storage
+# Katoava tallennustila {#ephemeral-storage}
 
-Some Pouta virtual machine [flavors](vm-flavors-and-billing.md) have an *ephemeral storage* in
-addition to the root disk. This works as additional storage for the
-duration of the instance. 
+Joillakin Pouta-virtuaalikoneen [mauilla](vm-flavors-and-billing.md) on *katoava tallennustila* juurilevyn lisäksi. Tämä toimii lisätallennustilana
+instanssin keston ajan.
 
-!!! Warning "Warning"
-    This storage is not saved with the instance. This storage **does not** get saved when you create a snapshot of an
-    image. It is not copied along with resizes or migrations.
+!!! Warning "Varoitus"
+    Tämä tallennustila ei tallennu instanssin mukana. Tämä tallennustila **ei** tallennu, kun luot kuvan tilannevedoksen. Sitä ei kopioida, kun suoritetaan koon muutoksia tai siirtoja.
 
-It is especially important to note regarding the io.\* flavors that the
-storage is based on RAID0 arrays optimized for performance, providing
-no redundancy whatsoever. Regarding io.2.\* flavors, the storage is based on RAID1, offering
-more safety, avoiding the loss of files.
+On erityisen tärkeää huomata, että io.\* maut perustuvat suuritehoisiin RAID0-asemaryhmiin, jotka eivät tarjoa mitään redundanssia. Io.2.\* maissa tallennus perustuu RAID1-järjestelmiin, mikä tarjoaa enemmän turvallisuutta ja ehkäisee tiedostojen menettämistä.
 
-The ephemeral storage is visible as an additional disk to the virtual
-machine (usually /dev/vdb). Depending on the image and metadata chosen
-when creating the virtual machine, the disk might be already formated
-as `vfat` and mounted in `/mnt`. If this is case and this fits your use
-case, you can just start to use the disk.
+Katoava tallennustila näkyy virtuaalikoneelle lisälevynä (yleensä /dev/vdb). Valitusta kuvasta ja metatiedoista riippuen virtuaalikonetta luodessa levy saattaa olla jo alustettuna `vfat`-tiedostojärjestelmään ja liitettynä `/mnt`-hakemistoon. Jos tämä sopii käyttötarkoitukseesi, voit alkaa käyttää levyä välittömästi.
 
-If you need to format the disk with a different filesystem (or it is not
-formatted nor mounted), you can follow this procedure:
+Jos tarvitset levyn alustamisen eri tiedostojärjestelmällä (tai jos levyä ei ole alustettu eikä liitetty), voit noudattaa tätä menettelyä:
 
-First make sure that the volume is not mounted:
+Varmista ensin, että osio ei ole liitetty:
 
     sudo umount /dev/vdb
 
-and that there is no entry in `/etc/fstab` for this disk:
+ja ettei `/etc/fstab`-tiedostossa ole tällä levyllä merkintää:
 
     cat /etc/fstab
 
-Look for a line containing `/dev/vdb` or `LABEL=EPHEMERAL`,
-and comment it out (adding `#` at the beginning of the line).
+Etsi rivi, joka sisältää `/dev/vdb` tai `LABEL=EPHEMERAL`,
+ja kommentoi se (lisäämällä `#` rivin alkuun).
 
-Now you can continue to format and mount it. We are using ext4 in the example below:
+Nyt voit jatkaa levyn alustamista ja liittämistä. Alla olevassa esimerkissä käytämme ext4:ää:
 
     sudo mkfs.ext4 /dev/vdb
     sudo mkdir /mnt/myephdisk
     sudo mount /dev/vdb /mnt/myephdisk
 
-You also need to add an entry in the /etc/fstab file on the
-machine to make sure the disk gets mounted after a reboot:
+Sinun täytyy myös lisätä merkintä koneen /etc/fstab-tiedostoon varmistaaksesi, että levy liitetään uudelleenkäynnistyksen jälkeen:
 
     sudo umount /mnt/myephdisk/
     sudo e2label /dev/vdb EPHEMERAL
     sudo bash -c 'echo "LABEL=EPHEMERAL   /mnt/myephdisk   ext4  defaults,nofail 0 2 " >> /etc/fstab'
     sudo mount /mnt/myephdisk
 
-After the storage has been mounted, you need to change the ownership to be able to read and write data in it.
-In the following command, we are assuming the username is cloud-user.
+Kun tallennustila on liitetty, sinun täytyy vaihtaa omistajuus, jotta voit lukea ja kirjoittaa dataa siihen.
+Seuraavassa komennossa oletamme, että käyttäjänimi on cloud-user.
 
     sudo chown cloud-user:cloud-user /mnt/myephdisk
 
-Please note that some legacy flavors (tiny, mini, small, medium, large, fullnode) also
-contained an ephemeral disk which was preformatted and mounted
-automatically.
+Huomaa, että joillakin vanhoilla mauilla (tiny, mini, small, medium, large, fullnode) oli myös katoava levy, joka oli esialustettu ja liitetty automaattisesti.

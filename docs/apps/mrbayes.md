@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,61 +6,58 @@ tags:
 
 # MrBayes
 
-
-
-MrBayes is a program for Bayesian inference on phylogenies.
+MrBayes on ohjelma Bayesiläiseen päättelyyn fylogenetiikan alalla.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttö ja avoin lähdekoodi [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Available
+## Saatavuus {#available}
 
 - Puhti: 3.2.7a
 
-## Usage
+## Käyttö {#usage}
 
-To check the available versions, use:
+Tarkistaaksesi saatavilla olevat versiot, käytä:
 
 ```bash
 module spider mrbayes
 ```
 
-To load a specific version:
+Ladataksesi tietyn version:
 
 ```bash
 module load mrbayes/3.2.7a
 ```
 
-After loading the module, the serial (i.e. single processor) version starts with the command:
+Kun moduuli on ladattu, sarjaversio (eli yksiprosessorinen) käynnistyy komennolla:
 
 ```bash
 mb
 ```
 
-Parallel version starts with the command:
+Rinnakkainen versio käynnistyy komennolla:
 
 ```bash
 mb-mpi 
 ```
 
-When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 4 * 2 = 8 cores.
+Kun käytät rinnakkaisversiota, sinun tulisi huomioida, että MrBayes jakaa yhden ketjun yhdelle ytimelle, joten optimaalista suorituskykyä varten sinun tulisi käyttää yhtä monta ydintä kuin työsi kokonaisketjumäärä. Jos esimerkiksi olet määritellyt `nchains=4`, `nruns=2`, sinun tulisi käyttää 4 * 2 = 8 ydintä.
 
-## Batch jobs
+## Eräajot {#batch-jobs}
 
-Running MrBayes analysis might take considerable amount of CPU time and memory. It is, therefore, recommended running it through the batch job system on Puhti. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
+MrBayes-analyysin suorittaminen saattaa viedä runsaasti suorituskykyaikaa ja muistia. On suositeltavaa ajaa se erätyöjärjestelmän kautta Puhtissa. Lyhyemmät testiajoit voidaan ajaa interaktiivisessa tilassa käyttäen [sinteractive](../computing/running/interactive-usage.md). Sarjaversiota suositellaan interaktiiviseen käyttöön.
 
-To run a batch job you need to:
+Eräajon suorittamiseksi sinun pitää:
 
-1. Write a MrBayes command file (here `mb_com.nex`) or include a MrBayes command block in your `.nex` file. For details, see [Chapter 5.5.1 of the MrBayes manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
-2. Write a batch job script (here `mb_batch`)
-3. Make sure you have all your input files (here `primates.nex`)
-4. Submit your job into the queue
+1. Kirjoittaa MrBayes-komentotiedosto (tässä `mb_com.nex`) tai sisällyttää MrBayes-komentolohko `.nex`-tiedostoon. Lisätietoja saat [MrBayesin käsikirjan kappaleesta 5.5.1](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
+2. Kirjoittaa eräajotiedosto (tässä `mb_batch`)
+3. Varmistaa, että sinulla on kaikki syötetiedostot (tässä `primates.nex`)
+4. Lähettää työsi jonoon
 
-MrBayes command file should include the commands you would type in MrBayes in interactive mode. This example 
-runs the analysis mentioned in [Chapter 2 of the MrBayes 3.2 manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
+MrBayes-komentotiedoston tulisi sisältää komennot, jotka kirjoittaisit MrBayesissa interaktiivisessa tilassa. Tämä esimerkki suorittaa analyysin, joka mainitaan [MrBayes 3.2 käsikirjan kappaleessa 2](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
 
 ```text
 begin mrbayes;
@@ -72,7 +70,7 @@ begin mrbayes;
 end;
 ```
 
-Below is an example batch job script for Puhti using 8 cores. We are using 8 cores since our example uses `nchains=4`, `nruns=2`, so 4 * 2 = 8.
+Alla on esimerkki eräajotiedostosta Puhtille 8 ytimen käytöllä. Käytämme 8 ydintä, koska esimerkissämme on `nchains=4`, `nruns=2`, eli 4 * 2 = 8.
 
 ```bash
 #!/bin/bash
@@ -89,13 +87,14 @@ Below is an example batch job script for Puhti using 8 cores. We are using 8 cor
 srun mb-mpi mb_com.nex >log.txt
 ```
 
-To submit the job on Puhti:
+Lähettääksesi työn Puhtiin:
 
 ```bash
 sbatch mb_batch 
 ```
 
-## More information
+## Lisätietoa {#more-information}
 
-* [MrBayes home page](https://nbisweden.github.io/MrBayes/index.html)
-* [Manual and other resources](https://nbisweden.github.io/MrBayes/manual.html)
+* [MrBayes kotisivu](https://nbisweden.github.io/MrBayes/index.html)
+* [Käsikirja ja muut resurssit](https://nbisweden.github.io/MrBayes/manual.html)
+

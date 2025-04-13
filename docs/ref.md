@@ -1,58 +1,54 @@
+
 ---
 search:
   boost: 0.1
 ---
 
-# Reference card
+# Viitekortti
 
-!!! default "Documentation"
+!!! default "Dokumentaatio"
 
-    Docs CSC is based on [_Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/){ target=_blank }. Note that some features might not be available on Docs CSC ([see below](#available-features)).
+    Docs CSC perustuu [_Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/){ target=_blank }. Huomaa, että jotkin ominaisuudet eivät välttämättä ole käytettävissä Docs CSC:ssä ([katso alla](#available-features)).
 
-!!! info "Pro tip"
+!!! info "Vinkki pro-tason käyttäjille"
 
-    As the [reference documentation of Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/){ target=_blank } is itself implemented using Material for MkDocs, you can browse it for ideas on how to present your documentation on Docs CSC. To view the Markdown source for a particular page of the documentation, click the "view" icon :material-file-eye-outline: in the top-right corner of a page (the same goes for Docs CSC, except here we currently only have the "edit" icon :material-pencil:). Additionally, you can, for example
+    Koska [Material for MkDocs -ohjeistus](https://squidfunk.github.io/mkdocs-material/reference/){ target=_blank } on itsessään toteutettu Material for MkDocsilla, voit selailla sitä ideoiden saamiseksi siihen, miten esittää dokumentaatiosi Docs CSC:ssä. Näet tietyn dokumentaation sivun Markdown-lähdekoodin napsauttamalla "view" -ikonia :material-file-eye-outline: sivun oikeassa yläkulmassa (sama koskee Docs CSC:tä, paitsi että täällä meillä on nykyisin vain "edit" -ikoni :material-pencil:). Lisäksi voit esimerkiksi
 
-    - [Search for available icons and emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
-    - See how they present the result of using a feature or a piece of configuration. For example, a [tabbed comparison of the result when changing the `align` property for images](https://squidfunk.github.io/mkdocs-material/reference/images/#image-alignment) (click on :material-file-eye-outline: to see the source)
-    - Get an idea whether some feature is available on Docs CSC by comparing the current configuration in [_mkdocs.yml_](https://github.com/CSCfi/csc-user-guide/blob/master/mkdocs.yml) with the [documentation on enabling a feature](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#configuration)
+    - [Etsiä käytettävissä olevia ikoneita ja emojeita](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
+    - Katsoa, kuinka he esittävät ominaisuuden tai konfiguraatiokohdan käytön tuloksen. Esimerkiksi, [välilehtivertailu kuvan "align"-ominaisuuden muuttamisen tuloksen osalta](https://squidfunk.github.io/mkdocs-material/reference/images/#image-alignment) (napsauta :material-file-eye-outline: nähdäksesi lähteen)
+    - Saada käsityksen siitä, onko jokin ominaisuus käytettävissä Docs CSC:ssä vertaamalla nykyistä konfiguraatiota [_mkdocs.yml_](https://github.com/CSCfi/csc-user-guide/blob/master/mkdocs.yml) asiakirjaan, joka käsittelee ominaisuuden käyttöön ottoa](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#configuration)
     { id=available-features }
 
-This page contains some elements that are available in Docs CSC. For example, here we have some
-body text [with an external link](https://example.com){ target=_blank }. **Some of it is
-boldfaced**, *some italicized*. `Some might be monospaced`. Some acronyms, like HPC, are
-defined automatically (see: [Glossary](#glossary)). One small addition: <small>Some small text.</small>
+Tämä sivu sisältää joitakin elementtejä, jotka ovat käytettävissä Docs CSC:ssä. Esimerkiksi täällä on jonkin verran rungon tekstiä [ulkoinen linkki](https://example.com){ target=_blank }. **Osa siitä on lihavoitua**, *osa kursivoitua*. `Osa saattaa olla monospacea`. Joitain lyhenteitä, kuten HPC, määritellään automaattisesti (katso: [Sanasto](#glossary)). Yksi pieni lisäys: <small>Pientä tekstiä.</small>
 
-As you can see here:
-in some cases [external links](https://example.com){ target=_blank } followed by text _italicized_
-using underscores will produce unwanted results. *Italicize* with asterisks instead.
+Kuten tässä näkyy:
+joissain tapauksissa [ulkoiset linkit](https://example.com){ target=_blank } tekstin jälkeen _kursivoituna_
+käyttäen alaviivoja tuottavat ei-toivottuja tuloksia. Kursivoi *kursiivilla* sen sijaan.
 
-> Now, there's even text in a blockquote. The blockquote has some filler text after an empty line. I
-like to imagine it's what a typewriter would dream.
+> Nyt on jopa tekstiä blockquotessa. Blockquotea seuraa vähän täytetekstiä tyhjän rivin jälkeen. Kutsun sitä mielikuvituksessani kirjoituskoneen uneksi.
 >
 > Vel suscipit quia voluptates quis. Rerum sequi voluptatem in non ipsam tempora quod natus. Soluta
 perferendis illo saepe sint ipsa vitae provident non. Et qui quaerat et rerum libero officia omnis
 enim. Laboriosam autem vel vel aut quod.
 
-Here's a reference to a footnote:[^1]
+Tässä viitataan alaviitteeseen:[^1]
 
-And there's a reference to a second footnote:[^2]
+Ja tässä viitataan toiseen alaviitteeseen:[^2]
 
-Then&mdash;as a rule&mdash;a horizontal rule:
+Sitten&mdash;yleisenä sääntönä&mdash;vaakasuora viiva:
 
 ---
 
+## Bannerit {#banners}
 
-## Banners
+Etusivulle voidaan lisätä banneri esimerkiksi kurssin mainostamiseksi. Banneraan hallitaan `extra.landing_banner`-määritteen kautta _mkdocs.yml_-tiedostossa. Kuva tiedostossa _docs-files_ Allas korissa tulisi sijoittaa _banners/_ alle.
 
-The front page can be fitted with a banner to promote a course for example. The banner is controlled via the `extra.landing_banner` mapping in _mkdocs.yml_. The image file named in `extra.landing_banner.image` should be placed in the _docs-files_ Allas bucket, under _banners/_.
-
-- `path:` _Don't touch!_
-- `image:` The image filename in _docs-files/banners/_ Allas bucket.
-- `title:` Shown, e.g. as a tooltip when pointing the image with a mouse cursor.
-- `link:` The URL for more information, an enrolment page for a course etc.
-- `description:` A short description of the banner rendered as alternative text. Provided mainly for accessibility, i.e. screen readers.
-- `visible:` Set to `true` or `false` to show or hide the banner.
+- `path:` _Älä koske!_
+- `image:` Kuvan tiedostonimi _docs-files/banners/_ Allas korissa.
+- `title:` Näkyy esimerkiksi työkaluvihjeenä, kun osoittaa kuvaa hiiren osoittimella.
+- `link:` URL, lisätietoja tai esimerkiksi kurssi-ilmoittautumissivu.
+- `description:` Lyhyt kuvaus bannerista. Tärkein esteettömyyden vuoksi, kuten ruudunlukuohjelmille.
+- `visible:` Aseta `true` tai `false`, jotta banneri näkyy tai ei.
 
 === "mkdocs.yml"
 
@@ -60,25 +56,25 @@ The front page can be fitted with a banner to promote a course for example. The 
     extra:
       # ...
       landing_banner:
-        path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
+        path: https://a3s.fi/docs-files/banners/ # Sijoita kuvatiedosto tähän koriin; älä koske tähän arvoon.
         image: example-banner.png
-        title: Example banner now up on landing page
+        title: Esimerkki banneri nyt näkyy laskeutumissivulla
         link: https://example.org/courses/example-course/
         description: |-
-          Banner for upcoming example course.
-          Second line for example description.
+          Banneri tulevaa esimerkkikurssia varten.
+          Toisen rivin esimerkkikuvaus.
         visible: true
     ```
 
     <div class="result" markdown>
 
-    ![Screenshot of the landing page with a banner](https://a3s.fi/docs-files/reference-card/screenshot-of-landing-page-with-banner.png)
+    ![Näyttökuva laskeutumissivulla bannerilla](https://a3s.fi/docs-files/reference-card/screenshot-of-landing-page-with-banner.png)
 
     </div>
 
-=== "Show/hide"
+=== "Näytä/piilota"
 
-    To show/hide the banner, just flip `extra.landing_banner.visible` from `false` to `true` (and _vice versa_):
+    Näyttääksesi/piilottaaksesi bannerin, käännä `extra.landing_banner.visible` `false`-tilasta `true`-tilaan (ja _päinvastoin_):
 
     ```yaml
     extra:
@@ -90,22 +86,21 @@ The front page can be fitted with a banner to promote a course for example. The 
 
     <div class="result" markdown>
 
-    ![Screenshot of the landing page without the banner](https://a3s.fi/docs-files/reference-card/screenshot-of-landing-page-without-banner.png)
+    ![Näyttökuva laskeutumissivusta ilman banneria](https://a3s.fi/docs-files/reference-card/screenshot-of-landing-page-without-banner.png)
 
     </div>
 
-## Glossary
+## Sanasto
 
-There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
-GPU, QPU, etc. The acronyms are defined in the markdown file
-_csc-overrides/assets/snippets/glossaries/hpc.md_. More acronyms (case-sensitive) can be added there or into another
-markdown file, like so:
+HPC:hen liittyvä sanasto, jossa lyhenteet korostetaan automaattisesti. Esimerkiksi: CPU, GPU, QPU jne. Lyhenteet määritellään markdown-tiedostossa
+_csc-overrides/assets/snippets/glossaries/hpc.md_. Lisää lyhenteitä (kirjainkokoherkkiä) voidaan lisätä sinne tai toiseen
+markdown-tiedostoon, esimerkiksi näin:
 
-=== "another_glossary.md"
+=== "toinen_sanasto.md"
 
     ```markdown
     *[GNU]: GNU's not Unix!
-    *[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
+    *[DFT]: 1. Diskreetti Fourier-muunnos, 2. Tiheysfunktionaaliteoria
     ```
 
 === "mkdocs.yml"
@@ -121,60 +116,59 @@ markdown file, like so:
     - ...
     ```
 
-The glossary is also viewable as a page at [docs.csc.fi/glossary](support/glossary.md).
+Sanasto on myös katseltavissa sivuna osoitteessa [docs.csc.fi/sanasto](support/glossary.md).
 
 
-## Headings
+## Otsikot {#headings}
 
-The heading for Headings is a heading of a heading level 2. Remember to only use one heading level
-1 heading on your page and to keep the heading hierarchy intact. So no skipping levels.
+Otsikko Otsikoihin liittyen on tason 2 otsikko. Muista käyttää vain yhtä tason 1 -otsikkoa sivullasi ja säilytä otsikkohierarkia ehjänä. Älä ohita tasoja.
 
 ```markdown
-### This is a heading level 3 heading
+### Tämä on tason 3 otsikko
 
-That one's a level 3. Here is some text under it.
-
-
-#### Now for a level 4 heading
-
-Some text _four_ it here.
+Tämä on tason 3. Tässä on tekstiä sen alla.
 
 
-##### Level 5 heading: `now with added monospace`
+#### Nyt tason 4 otsikko
 
-No text this time.
+Jotain tekstiä _täällä_.
 
 
-###### Level 6
+##### Tasolla 5 otsikko: `nyt lisätty monospace`
 
-More text coming up next in Text.
+Ei tekstiä tällä kertaa.
+
+
+###### Taso 6
+
+Lisää tekstiä tulossa seuraavassa Tekstissä.
 ```
 
 <div class="result" markdown>
 
-### This is a heading level 3 heading
+### Tämä on tason 3 otsikko
 
-That one's a level 3. Here is some text under it.
-
-
-#### Now for a level 4 heading
-
-Some text _four_ it here.
+Tämä on tason 3. Tässä on tekstiä sen alla.
 
 
-##### Level 5 heading: `now with added monospace`
+#### Nyt tason 4 otsikko
 
-No text this time.
+Jotain tekstiä _täällä_.
 
 
-###### Level 6
+##### Tasolla 5 otsikko: `nyt lisätty monospace`
 
-More text coming up next in Text.
+Ei tekstiä tällä kertaa.
+
+
+###### Taso 6
+
+Lisää tekstiä tulossa seuraavassa Tekstissä.
 
 </div>
 
 
-## Text
+## Teksti {#text}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla ex, elementum ultrices
 tempor quis, commodo sit amet quam. Sed accumsan placerat nunc. Suspendisse elementum augue et est
@@ -217,55 +211,54 @@ Mauris turpis felis, molestie eget ipsum ac, fringilla euismod risus. Phasellus 
 eu enim dui. Quisque eu hendrerit magna. Donec ac elit laoreet, mattis tortor et, feugiat nisl.
 Duis maximus ultrices elit, quis hendrerit orci.
 
-
-## Lists
+## Luettelot {#lists}
 
 ```markdown
-### Unordered list
+### Järjestämätön luettelo
 
-Here is an unordered list:
+Tässä on järjestämätön luettelo:
 
-- It has an item
-- Another item
-- And yet another item
+- Siinä on yksi kohta
+- Toinen kohta
+- Ja vielä yksi kohta
 
 
-### Ordered list
+### Järjestetty luettelo
 
-Let's make an ordered list:
+Tehdään järjestetty luettelo:
 
-1. An item on a list
-1. Another item
-1. Even a third item
+1. Kohta luettelosta
+1. Toinen kohta
+1. Vielä kolmas kohta
 ```
 
 <div class="result" markdown>
 
-### Unordered list
+### Järjestämätön luettelo
 
-Here is an unordered list:
+Tässä on järjestämätön luettelo:
 
-- It has an item
-- Another item
-- And yet another item
+- Siinä on yksi kohta
+- Toinen kohta
+- Ja vielä yksi kohta
 
 
-### Ordered list
+### Järjestetty luettelo
 
-Let's make an ordered list:
+Tehdään järjestetty luettelo:
 
-1. An item on a list
-1. Another item
-1. Even a third item
+1. Kohta luettelosta
+1. Toinen kohta
+1. Vielä kolmas kohta
 
 </div>
 
 
-## Source code
+## Lähdekoodi {#source-code}
 
 ````text
 ```python hl_lines="2 3"
-# Here is a box with some syntax highlighted Python
+# Tässä on laatikko, jossa on syntaksivalaistusta Pythonia
 
 from somewhere import some_code
 
@@ -295,7 +288,7 @@ def main():
 <div class="result" markdown>
 
 ```python hl_lines="2 3"
-# Here is a box with some syntax highlighted Python
+# Tässä on laatikko, jossa on syntaksivalaistusta Pythonia
 
 from somewhere import some_code
 
@@ -323,80 +316,78 @@ def main():
 
 </div>
 
-Notice the line highlighting (on lines 2 and 3). Additionally, the code boxes can have a title:
+Huomaa linjan korostaminen (riveillä 2 ja 3). Lisäksi koodilaatikoilla voi olla otsikko:
 
 ````text
 ```javascript title="looong_comment.js"
-// Here's a JavaScript comment with a loooooooooooooooooooooooooooooooong line. You know, for testing purposes. Tell you what, let's make it just a bit longer still.
+// Tässä on JavaScript-kommentti, joka sisältää erittäin pitkiä rivejä. Tiedätkö, testitarkoituksiin. Kerrotaanpa se vielä hieman pidemmäksi.
 ```
 ````
 
 <div class="result" markdown>
 
 ```javascript title="looong_comment.js"
-// Here's a JavaScript comment with a loooooooooooooooooooooooooooooooong line. You know, for testing purposes. Tell you what, let's make it just a bit longer still.
+// Tässä on JavaScript-kommentti, joka sisältää erittäin pitkiä rivejä. Tiedätkö, testitarkoituksiin. Kerrotaanpa se vielä hieman pidemmäksi.
 ```
 
 </div>
 
-Diff works too:
+Diff toimii myös:
 
 ````text
 ```diff
--Departing
-+Arriving
+-Lähtemässä
++Saapumassa
 ```
 ````
 
 <div class="result" markdown>
 
 ```diff
--Departing
-+Arriving
+-Lähtemässä
++Saapumassa
 ```
 
 </div>
 
-Remember to leave an empty line after the ` ``` ` in a source code box. Failing to do so can leave
-any immediately following text as "loose", i.e., outside of an HTML paragraph (`<p>`).
+Muista jättää tyhjä rivi ` ``` `-merkin jälkeen lähdekoodilaatikkoon. Jos et tee niin, mikä tahansa välittömästi seuraava teksti saattaa jäädä "löyhän", eli HTML-kappaleen (`<p>`) ulkopuoliseksi tekstiksi.
 
 
-## Tables
+## Taulukot {#tables}
 
 ```markdown
-| This | Table | Has | Five | Columns |
+| Tämä | Taulukko | Sisältää | Viisi | Saraketta |
 |-|-|-|-|-|
-| and | | | | |
-| | it | | | |
-| | | has | | |
-| | | | five | |
-| | | | | rows |
+| ja | | | | |
+| | se | | | |
+| | | sisältää | | |
+| | | | viisi | |
+| | | | | riviä |
 ```
 
 <div class="result" markdown>
 
-| This | Table | Has | Five | Columns |
+| Tämä | Taulukko | Sisältää | Viisi | Saraketta |
 |-|-|-|-|-|
-| and | | | | |
-| | it | | | |
-| | | has | | |
-| | | | five | |
-| | | | | rows |
+| ja | | | | |
+| | se | | | |
+| | | sisältää | | |
+| | | | viisi | |
+| | | | | riviä |
 
 </div>
 
 
-## Admonitions
+## Huomautukset {#admonitions}
 
-### The fallback style
+### Varmuuskopiointityyli
 
 ```markdown
-!!! note "Here we have an important announcement"
+!!! note "Tässä on tärkeä ilmoitus"
 
-    Make sure you read this note inside this very important-looking
-    box as this is the fallback for unknown type qualifiers.
+    Varmista, että luet tämän huomautuksen tärkeän näköisestä laatikosta, sillä tämä on varmuuskopio tuntemattomille tyyppimaakareille.
 
-    Type qualifier can be anything, as long as it's not
+    Tyyppimaakari voi olla mitä tahansa, kunhan se ei ole
     `default`,
     `default-label`,
     `info`,
@@ -405,23 +396,22 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     `warning-label`,
     `error`,
     `error-label`,
-    `success` or
+    `success` tai
     `success-label`.
-    Perhaps a suitable one would just simply be: `note`.
+    Ehkä sopiva voisi yksinkertaisesti olla: `note`.
 
 !!! note ""
 
-    Title may be removed with `note ""`.
+    Otsikko voidaan poistaa `note ""`-komennolla.
 ```
 
 <div class="result" markdown>
 
-!!! note "Here we have an important announcement"
+!!! note "Tässä on tärkeä ilmoitus"
 
-    Make sure you read this note inside this very important-looking
-    box as this is the fallback for unknown type qualifiers.
+    Varmista, että luet tämän huomautuksen tärkeän näköisestä laatikosta, sillä tämä on varmuuskopio tuntemattomille tyyppimaakareille.
 
-    Type qualifier can be anything, as long as it's not
+    Tyyppimaakari voi olla mitä tahansa, kunhan se ei ole
     `default`,
     `default-label`,
     `info`,
@@ -430,253 +420,252 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     `warning-label`,
     `error`,
     `error-label`,
-    `success` or
+    `success` tai
     `success-label`.
-    Perhaps a suitable one would just simply be: `note`.
+    Ehkä sopiva voisi yksinkertaisesti olla: `note`.
 
 !!! note ""
 
-    Title may be removed with `note ""`.
+    Otsikko voidaan poistaa `note ""`-komennolla.
 
 </div>
 
 
-### Styles available with type qualifiers
+### Tyyppimaakareilla saatavilla olevat tyylit
 
-#### Alert style
+#### Hälytys tyyli
 
 ```markdown
-!!! default "Nothing special"
+!!! default "Ei mitään erityistä"
 
-    Type qualifier: `default`.
+    Tyyppimaakari: `default`.
 
     !!! default-label
 
-        This isn't the actual default (fallback) admonition for legacy reasons.
+        Tämä ei ole varsinainen kehotus (varmuuskopiona) vanhentunut syistä.
 
-!!! info "Information available"
+!!! info "Saatavilla oleva tieto"
 
-    Type qualifier: `info`
+    Tyyppimaakari: `info`
 
-!!! success "You've got it!"
+!!! success "Olet onnistunut!"
 
-    Type qualifier: `success`
+    Tyyppimaakari: `success`
 
-!!! warning "You're on thin ice!"
+!!! warning "Olet vaarassa!"
 
-    Type qualifier: `warning`
+    Tyyppimaakari: `warning`
 
-!!! error "Oopsie!"
+!!! error "Oho!"
 
-    Type qualifier: `error`
+    Tyyppimaakari: `error`
 ```
 
 <div class="result" markdown>
 
-!!! default "Nothing special"
+!!! default "Ei mitään erityistä"
 
-    Type qualifier: `default`.
+    Tyyppimaakari: `default`.
     
     !!! default-label
     
-        This isn't the actual default (fallback) admonition for legacy reasons.
+        Tämä ei ole varsinainen kehotus (varmuuskopiona) vanhentunut syistä.
 
-!!! info "Information available"
+!!! info "Saatavilla oleva tieto"
 
-    Type qualifier: `info`
+    Tyyppimaakari: `info`
 
-!!! success "You've got it!"
+!!! success "Olet onnistunut!"
 
-    Type qualifier: `success`
+    Tyyppimaakari: `success`
 
-!!! warning "You're on thin ice!"
+!!! warning "Olet vaarassa!"
 
-    Type qualifier: `warning`
+    Tyyppimaakari: `warning`
 
-!!! error "Oopsie!"
+!!! error "Oho!"
 
-    Type qualifier: `error`
+    Tyyppimaakari: `error`
 
 </div>
 
 
-#### Collapsible
+#### Romahtava
 
 ```markdown
-???+ default "Collapsible default"
+???+ default "Romahtava oletus"
 
-    Some content shown by default (click on title to hide).
+    Jotain sisältöä näkyvissä oletuksena (napsauta otsikkoa piilottaaksesi).
 
-??? default "Collapsible default (click to reveal content)"
+??? default "Romahtava oletus (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
-??? info "Collapsible info (click to reveal content)"
+??? info "Romahtava tieto (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
-??? success "Collapsible success (click to reveal content)"
+??? success "Romahtava menestys (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
-??? warning "Collapsible warning (click to reveal content)"
+??? warning "Romahtava varoitus (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
-??? error "Collapsible error  (click to reveal content)"
+??? error "Romahtava virhe (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 ```
 
 <div class="result" markdown>
 
-???+ default "Collapsible default"
+???+ default "Romahtava oletus"
 
-    Some content shown by default (click on title to hide).
+    Jotain sisältöä näkyvissä oletuksena (napsauta otsikkoa piilottaaksesi).
 
-??? default "Collapsible default (click to reveal content)"
+??? default "Romahtava oletus (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
-??? info "Collapsible info (click to reveal content)"
+??? info "Romahtava tieto (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
-??? success "Collapsible success (click to reveal content)"
+??? success "Romahtava menestys (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
-??? warning "Collapsible warning (click to reveal content)"
+??? warning "Romahtava varoitus (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
-??? error "Collapsible error  (click to reveal content)"
+??? error "Romahtava virhe (napsauta paljastaaksesi sisältöä)"
 
-    Some content hidden by default.
+    Jotain sisältöä piilotettuna oletuksena.
 
 </div>
 
 
-#### With the title removed
+#### Otsikosta poistettu tyyli
 
 ```markdown
 !!! default ""
 
-    Type qualifier: `default ""`
+    Tyyppimaakari: `default ""`
 
 !!! info ""
 
-    Type qualifier: `info ""`
+    Tyyppimaakari: `info ""`
 
 !!! success ""
 
-    Type qualifier: `success ""`
+    Tyyppimaakari: `success ""`
 
 !!! warning ""
 
-    Type qualifier: `warning ""`
+    Tyyppimaakari: `warning ""`
 
 !!! error ""
 
-    Type qualifier: `error ""`
+    Tyyppimaakari: `error ""`
 ```
 
 <div class="result" markdown>
 
 !!! default ""
 
-    Type qualifier: `default ""`
+    Tyyppimaakari: `default ""`
 
 !!! info ""
 
-    Type qualifier: `info ""`
+    Tyyppimaakari: `info ""`
 
 !!! success ""
 
-    Type qualifier: `success ""`
+    Tyyppimaakari: `success ""`
 
 !!! warning ""
 
-    Type qualifier: `warning ""`
+    Tyyppimaakari: `warning ""`
 
 !!! error ""
 
-    Type qualifier: `error ""`
+    Tyyppimaakari: `error ""`
 
 </div>
 
 
-#### Label style
+#### Etikettityyli
 
 ```markdown
 !!! default-label
 
-    Label type available with type qualifier `default-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `default-label`.
 
 !!! info-label
 
-    Label type available with type qualifier `info-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `info-label`.
 
 !!! success-label
 
-    Label type available with type qualifier `success-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `success-label`.
 
 !!! warning-label
 
-    Label type available with type qualifier `warning-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `warning-label`.
 
 !!! error-label
 
-    Label type available with type qualifier `error-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `error-label`.
 ```
 
 <div class="result" markdown>
 
 !!! default-label
 
-    Label type available with type qualifier `default-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `default-label`.
 
 !!! info-label
 
-    Label type available with type qualifier `info-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `info-label`.
 
 !!! success-label
 
-    Label type available with type qualifier `success-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `success-label`.
 
 !!! warning-label
 
-    Label type available with type qualifier `warning-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `warning-label`.
 
 !!! error-label
 
-    Label type available with type qualifier `error-label`.
+    Etikettityyppi saatavilla tyyppimaakarilla `error-label`.
 
 </div>
 
 
-#### Inline admonitions
+#### Rivin sisäiset huomautukset
 
 ````markdown
-For inline admonitions, you first define the admonition as either
-`inline` or `inline end`. Then, you define the content.
+Rivin sisäisissä huomautuksissa määrittelet ensin huomautuksen joko `inline` tai `inline end`. Sitten määrittelet sisällön.
 
-!!! warning inline "Hold on!"
+!!! warning inline "Pidä kiinni!"
 
-    This script might give unexpected results!
+    Tämä skripti saattaa tuottaa odottamattomia tuloksia!
 
-    `warning inline "Hold on!"`
+    `warning inline "Pidä kiinni!"`
 
 !!! info inline end ""
 
-    Then again, it might not.
+    Toisaalta se saattaa olla, että ei.
 
     `info inline end`
 
 
 ```bash
-a="unexpected"
-b="results"
+a="odottamattomia"
+b="tuloksia"
 if [ $RANDOM -eq $RANDOM ];
 then
     echo $a $b
@@ -688,25 +677,24 @@ fi
 
 <div class="result" markdown>
 
-For inline admonitions, you first define the admonition as either `inline` or `inline end`. Then,
-you define the content.
+Rivin sisäisissä huomautuksissa määrittelet ensin huomautuksen joko `inline` tai `inline end`. Sitten määrittelet sisällön.
 
-!!! warning inline "Hold on!"
+!!! warning inline "Pidä kiinni!"
 
-    This script might give unexpected results!
+    Tämä skripti saattaa tuottaa odottamattomia tuloksia!
 
-    `warning inline "Hold on!"`
+    `warning inline "Pidä kiinni!"`
 
 !!! info inline end ""
 
-    Then again, it might not.
+    Toisaalta se saattaa olla, että ei.
 
     `info inline end`
 
 
 ```bash
-a="unexpected"
-b="results"
+a="odottamattomia"
+b="tuloksia"
 if [ $RANDOM -eq $RANDOM ];
 then
     echo "${a} ${b}"
@@ -717,45 +705,42 @@ fi
 
 </div>
 
-Try adding a `&nbsp;`, like on the last line of the example above, if inline admonitions give you trouble.
+Kokeile lisätä `&nbsp;`, kuten edellä olevan esimerkin viimeisellä rivillä, jos rivin sisäiset huomautukset aiheuttavat sinulle ongelmia.
 
 
-## Images
+## Kuvia {#images}
 
-Images can be added by just using the Markdown syntax for an image
+Kuvat voidaan lisätä Markdownin kuvan lisäämiseen tarkoitetulla syntaksilla
 
 ```markdown
-![Alternative text](https://example.org/image.png "Optional title")
+![Vaihtoehtoinen teksti](https://example.org/image.png "Valinnainen otsikko")
 ```
 
-or with caption by wrapping it in some HTML tags like so
+tai kuvatekstin kanssa käyttämällä joitakin HTML-tägejä seuraavasti
 
 ```markdown
 <figure markdown="span">
-  ![image of an image of an image...](https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png "Now with added tooltip!")
-  <figcaption>Here's an image of the Reference card with an image of the Reference card with...</figcaption>
+  ![kuva kuvasta kuvasta...](https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png "Nyt lisätty työkaluvihje!")
+  <figcaption>Tässä on kuva Viitekortista, jossa on kuva Viitekortista, jossa...</figcaption>
 </figure>
 ```
 
 <div class="result" markdown>
 
 <figure>
-  <img alt="image of an image of an image..."
+  <img alt="kuva kuvasta kuvasta..."
        src="https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png"
-       title="Now with added tooltip!"
+       title="Nyt lisätty työkaluvihje!"
   />
-    <figcaption>Here's an image of the Reference card with an image of the Reference card with...</figcaption>
+    <figcaption>Tässä on kuva Viitekortista, jossa on kuva Viitekortista, jossa...</figcaption>
 </figure>
 
 </div>
 
 
-## Embedded videos
+## Upotetut videot {#embedded-videos}
 
-At the moment, to avoid setting cookies, embedded videos are rendered only as an image with a link
-to the video in question. For example: Behold! Here is a video of a horse kicking a tree, farting
-on some dogs, and then running away:
-
+Tällä hetkellä, välttääksemme evästeiden asettamisen, upotetut videot renderöidään vain kuvana, jossa on linkki kyseiseen videoon. Esimerkiksi: Katso! Tässä on video hevosesta, joka potkaisee puuta, piereskelee koirien päälle ja sitten juoksee pois:
 
 ```html
 <iframe
@@ -784,58 +769,52 @@ on some dogs, and then running away:
 </div>
 
 
-### Animations
+### Animaatiot {#animations}
 
-If you don't need sound (or controls), you can use animations as an alternative for embedded videos. They are
-used just like [static images](#images). Both _.gif_ and _.png_ files work.
+Jos et tarvitse ääntä (tai säätimiä), voit käyttää animaatioita vaihtoehtona upotetuille videoille. Niitä
+käytetään samalla tavalla kuin [staattisia kuvia](#images). Sekä _.gif_- että _.png_-tiedostot toimivat.
 
 
-## Diagrams
+## Kaaviot {#diagrams}
 
 ### Mermaid
 
-Documented here: <https://mermaid.js.org/intro/>, but for example a fenced block like this:
+Dokumentoitu täällä: <https://mermaid.js.org/intro/>, mutta esimerkiksi aidattu lohko, kuten tämä:
 
 ````markdown
 ```mermaid
 flowchart TD
-    A{"`Does your
-        reference card
-        include a _Mermaid_
-        diagram?`"}
-    B(Yes, it does.)
-    C([Good])
+    A{"`Sisältääkö
+        viitekorttisi
+        _Mermaid_-kaavion?`"}
+    B(Kyllä, sisältää.)
+    C([Hyvä])
 
-    A-->|Yes| C
-    A -->|No| B
-    B --> |"`What?! No, you
-             can't just... Oh.`"| C
+    A-->|Kyllä| C
+    A -->|Ei| B
+    B --> |"`Mitä?! Ei, et voi vain... Oh.`"| C
 ```
 ````
 
-produces a flowchart like that:
+tuottaa virtauskaavion, kuten tämä:
 
 ```mermaid
 flowchart TD
-    A{"`Does your
-        reference card
-        include a _Mermaid_
-        diagram?`"}
-    B(Yes, it does.)
-    C([Good])
+    A{"`Sisältääkö
+        viitekorttisi
+        _Mermaid_-kaavion?`"}
+    B(Kyllä, sisältää.)
+    C([Hyvä])
 
-    A-->|Yes| C
-    A -->|No| B
-    B --> |"`What?! No, you
-             can't just... Oh.`"| C
+    A-->|Kyllä| C
+    A -->|Ei| B
+    B --> |"`Mitä?! Ei, et voi vain... Oh.`"| C
 ```
-
 
 ### Draw.io
 
-Diagrams (including a toolbar) from [draw.io](https://draw.io) can be embedded as iframes by selecting _File ->
-Embed -> IFrame..._. With line breaks added for illustration, the resulting piece of HTML could
-look something like this:
+Kaaviot (mukaan lukien työkalupalkki) [draw.io:sta](https://draw.io) voidaan upottaa iframes:iksi valitsemalla _File -> Embed -> IFrame..._. Rivinvaihtojen lisäämisen jälkeen tuloksena oleva HTML-kappale voi
+näyttää tältä:
 
 ```html
 <iframe
@@ -847,7 +826,7 @@ look something like this:
 ></iframe>
 ```
 
-**The `src` attribute needs to be renamed to `srcdoc`:**
+**`src`-attribuutti on nimettävä uudelleen `srcdoc`:iksi:**
 
 ```html
 <iframe
@@ -857,243 +836,21 @@ look something like this:
 ></iframe>
 ```
 
-The size can be controlled by changing the value of the _style_ attribute. Note the units: _%_ for
-width and _px_ for height. Here's an example with a width of 100 percent and a height of 500 pixels:
+Kokoa voidaan hallita muuttamalla _style_-attribuutin arvoa. Huomaa yksiköt: _%_ leveydelle ja _px_ korkeudelle. Tässä on esimerkki, jossa leveys on 100 prosenttia ja korkeus 500 pikseliä:
 
 <iframe frameborder="0" style="width:100%;height:500px;" srcdoc="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22ftzXAFIqJNWyvfU7Nhta%22%3E7Zpbc9o4FMc%2FDY%2FxGN9wHgMk6UN2lllmJ7tPHWELW8W2WFmOIZ9%2BJUsy8gUwKWnSaZtkgo4uls7%2Fp%2BMjpSN7lu4eCdjGf%2BAQJiPLDHcjez6yrLFp2uwXt%2ByF5dZxhCEiKJSNDoYleoWqp7QWKIR5oyHFOKFo2zQGOMtgQBs2QAgum83WOGk%2BdQsi2DEsA5B0rc8opLGw%2Bq55sH%2BBKIrVk9mKRU0KVGNpyGMQ4lIz2fcje0YwpuJTupvBhDtP%2BUX0ezhSW0%2BMwIz2dPg7h%2BTP1TfuE8tMwIrpUjUS3RKUbUQ5ppS78o53tB5CHORGkAfGGrFSgNNtQVEW8RqUb6o2doxTeBMiwobGZC%2FGU7Pal%2BvNX8%2Fea%2Fa4%2BM83X2dP4fL5ZuzWy62XkdO9cjHBRRZCPsB4ZE%2FLGFG43IKA15YMKmaLaZrI6hS%2FgFXVk5cIzNGrXsYUUK3MaIR6GYZILyY42FQPNllBEqRVdz0snf4CCYU7zSTX9giZayj3ialqbam%2BxN9R5VKDSZpijaOafyD5jeqhDxKzD9KfqqiJfhKCRRFTxGcBV1y8jEKy5h4%2FyUZZlsaWd6wBOau8dVL4fANpEEv3axqDfCu28hrtuDzTnBK8gTOcYMKsGc4gN6r9xHuvUZKoeoaoPfXnD3worhRiu%2FkuQVHG6ijmPFWeWOAcUYS5NYDcA1rzp1aDFaYUp%2BKhWz77dBfxeGdEwdYyogSv4NcSExZbvh8ZxxqAjGOogXVq%2FHeFZrac8UCOgyJlqwOVa4YHk7Os2CdZ0fA4KxKQYteyVouYgmATVbFGA2Vd%2FTsKigBPBX6rg2II16BIaJvGEORxHVfayCCcTwzEok1uKF8yl023GFUf5iN3yr5NgwXNGdN4Zsofyx65c%2F59lcDktShz3S5lrmtMbruUeVehrPNC64XCk%2BsCSQH199exKIILymhk%2BqhsoAoOOKOa5uzrgU9hyvQIETzUycDSiiVV8%2FmxKNSQ%2BiyZ%2FZR1eNVg53OXWdHYUmW5eLMvVlYcQXL%2FIriqBmkjCMrcMYq8etZVIpZXhyOJk9eD08TvsqRsF7A0DJxJhxMYssROFjGhMY5wBpL7g3V6SEQqlOo2T5jLVHnyG6R0L%2FUABcVNsZgLyf4f3t9w7Yky%2FMtrDctV5flOPkGU9nppAQliDuDKVMaj6uS4IAE8v3MoIBGk517Rlsm9c1JrAhMW8l%2BaafHVZRt7H6rbWNeMh%2BDTkr1dHX%2BgOiJ1%2FjTy%2BBeG46HR6cirU5OoN%2Fi%2BPY8bGIhbrwLTHPv%2BvC%2BgvhYEGuK4xDp%2Bf0itUzn1evZ7Xs895wbHfSflbz86njai6ecMpf4P2qvHj%2FZelYuyM50X8Q%2FL5RdlY0PU5guy9sYVgDwhi8KAjH6sr7%2Bb0nM%2FPYnZN05%2F7U3Y3qspCkPBl3b6NzspdH%2BifAruzvasr5XkQ0b6zU3ftr0xDdN37cbWlfddg0WXgy%2F4Yg6j3DjNHni9zhmMbUjqKV01C1eXEZ9%2F97ND0odtf%2Fva279FgmTMHTdfDd5t6zwmFiR76TeIrYE812kO5LQGEivuDHRHCNhrzeS2Ozphz%2FF7J3zgVow4kOKByFoXpirXzUxaiYNr8q93yFh6z7udCNpOV1jwQAE0QvjCfuVGDEj4tbrf%2FfnuV93WZZljd%2FIkpydPclvh9HoHGPs3d78gd3VQ%2FjDunN%2Fc%2FYrcTVzD%2FWDyJj3ktQ4iC0BAklR%2FGmakwHyfU5geP5pozDK%2F0Av5k6bh54i%2BPzk2s9efjRKnlSL23MZ6PYzYb7rZP%2FwJWyRvh%2F8IYN%2F%2FDw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe>
 
 
-## Buttons
+## Napit {#buttons}
 
-Markdown links may have the classes `.md-button` and `.md-button--primary` added to them to produce links that look like buttons. In the following example, the buttons have their corresponding headings/anchors (`#button` for `### Button` and `#primary-button` for `### Primary button`) as the link target.
-
-```markdown
-### Button
-
-[Button](#button){ .md-button }
-
-
-### Primary button
-
-[Primary](#primary-button){ .md-button .md-button--primary }
-```
-
-<div class="result" markdown>
-
-### Button
-
-[Button](#button){ .md-button }
-
-
-### Primary button
-
-[Primary](#primary-button){ .md-button .md-button--primary }
-
-</div>
-
-
-## Tabbed content
+Markdown-linkkeihin voidaan lisätä luokat .md-button ja .md-button--primary, jotta saadaan linkit, jotka näyttävät napeilta. Seuraavassa esimerkissä napeilla on vastaavat otsikot/ankkurit (esim. `#button` kohdalle `### Button` ja `#primary-button` kohdalle `### Primary button`) linkkikohteena.
 
 ```markdown
-=== "First tab"
-    Content can be divided into tabs. The first one is visible by default.
+### Nappi
 
-    !!! default ""
-        There can be any content, like this admonition, under tabs.
+[Nappi](#button){ .md-button }
 
-=== "Second tab"
-    | Tables | work | fine | too |
-    |-|-|-|-|
-    | just  | as | an | example |
 
-=== "And so on..."
-    It can get quite messy:
+### Ensisijainen nappi
 
-    !!! warning ""
-
-        === "Probably not what you want"
-            You can even have nested tabs under admonition under tabs.
-
-        === "But possible, nonetheless"
-            I would recommend against it, though.
-```
-
-<div class="result" markdown>
-
-=== "First tab"
-    Content can be divided into tabs. The first one is visible by default.
-
-    !!! default ""
-        There can be any content, like this admonition, under tabs.
-
-=== "Second tab"
-    | Tables | work | fine | too |
-    |-|-|-|-|
-    | just  | as | an | example |
-
-=== "And so on..."
-    It can get quite messy:
-
-    !!! warning ""
-
-        === "Probably not what you want"
-            You can even have nested tabs under admonition under tabs.
-
-        === "But possible, nonetheless"
-            I would recommend against it, though.
-
-</div>
-
-
-## Snippets
-
-Files under _csc-overrides/assets/snippets/_ may be added as snippets on the current page.
-
-Suppose we have two Markdown files, _a.md_ and _b.md_ with the content
-
-```markdown title="a.md"
-Yes, this is _a.md_.
-```
-
-and
-
-```markdown title="b.md"
-Hello from _b.md_!
-```
-
-The file _ref/a.md_ (relative to the base path above) added as a snippet with
-
-```markdown
-;--8<-- "ref/a.md"
-```
-
-would look like this:
-
---8<-- "ref/a.md"
-
-Adding _ref/a.md_ and _ref/b.md_ using
-
-```markdown
-;--8<--
-ref/a.md
-ref/b.md
-;--8<--
-```
-
-would look like this:
-
---8<--
-ref/a.md
-ref/b.md
---8<--
-
-Snippets also work from inside the source code boxes. For example
-
-````markdown
-```markdown
-;--8<-- "ref/a.md"
-```
-````
-
-would produce
-
-````markdown
-```markdown
---8<-- "ref/a.md"
-```
-````
-
-More examples (untested in Docs CSC) can be found in [PyMdown Extensions Documentation](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/).
-
-
-## Hiding the sidebars
-
-The sidebars on a particular page can be hidden by adding a `hide` property to the YAML front matter in the page Markdown source.
-
-```yaml
----
-hide:
-  - toc
-  - navigation
----
-
-# Title of the page
-
-...
-```
-
-Here's a preview screenshot for each case:
-
-!!! warning ""
-
-    Make sure that the breadcrumbs navigation at the top of the page is working correctly if hiding the navigation sidebar!
-
-=== "Hide table of contents"
-    ![Hide TOC](https://a3s.fi/docs-files/reference-card/screenshot-of-hidden-toc.png){ width=60% style="margin: 0 10%; border: var(--csc-border);" }
-
-=== "Hide navigation"
-    ![Hide nav](https://a3s.fi/docs-files/reference-card/screenshot-of-hidden-nav.png){ width=60% style="margin: 0 10%; border: var(--csc-border);" }
-
-=== "Hide TOC and navigation"
-    ![Hide both enabled](https://a3s.fi/docs-files/reference-card/screenshot-of-hidden-sidebars.png){ width=60% style="margin: 0 10%; border: var(--csc-border);" }
-
-The table of contents may also be inserted arbitrarily on the page by simply adding the marker `[TOC]` in the Markdown source:
-
-```markdown
-# Title of the page
-
-## The table of contents
-
-[TOC]
-
-
-## The following heading
-
-...
-```
-
-
-## Grids
-
-The [Grids feature from _Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/reference/grids/) is available in Docs CSC.
-
-```html title="Grid"
-<div class="grid cards" markdown>
-
-- :material-view-grid:{ .lg .middle } **Grids on Docs CSC**
-
-    ---
-
-    Here we go!
-
-- :material-view-grid-plus:{ .lg .middle } **Another one**
-
-    ---
-
-    Yay!
-
-</div>
-```
-
-<div class="result" markdown>
-  <div class="grid cards" markdown>
-
-  - :material-view-grid:{ .lg .middle } **Grids on Docs CSC**
-
-      ---
-
-      Here we go!
-
-  - :material-view-grid-plus:{ .lg .middle } **Another one**
-
-      ---
-
-      Yay!
-
-  </div>
-</div>
-
-[^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
-[^2]:
-    Here's another footnote. Though, this one's a _barefootnote_!  
-    Get it? 'Cause it's got no shoenote! Ahuehuehuehue!
+[Ensisijainen](#primary-button){ .md

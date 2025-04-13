@@ -1,10 +1,11 @@
-!!! warning "Middle level"
-    You need to familiarize yourself with the kubernetes [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/) API.  
-    In this tutorial, we will use the OpenShift CLI tool [oc](../usage/cli.md)
 
-# Advanced NetworkPolicies
+!!! varoitus "Keskitaso"
+Sinun on tutustuttava Kubernetes [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/) API:iin.  
+Tässä ohjeessa käytämme OpenShift CLI -työkalua [oc](../usage/cli.md)
 
-In this YAML example below there is a `NetworkPolicy` that will allow communication **initiated from** another namespace `<NAME OF ANOTHER NAMESPACE>` to the current namespace:
+# Edistyneet NetworkPoliciet {#advanced-networkpolicies}
+
+Alla olevassa YAML-esimerkissä on `NetworkPolicy`, joka sallii yhteyden muodostamisen **aloitettuna toisesta** nimialueesta `<TOISEN NIMIALUEEN NIMI>` nykyiseen nimialueeseen:
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -20,18 +21,18 @@ spec:
         - podSelector: {}
           namespaceSelector:
             matchLabels:
-              kubernetes.io/metadata.name: <NAME OF ANOTHER NAMESPACE>
+              kubernetes.io/metadata.name: <TOISEN NIMIALUEEN NIMI>
 ```
 
-This NetworkPolicy needs to be created in the current namespace.
+Tämä NetworkPolicy tulee luoda nykyisessä nimialueessa.
 
-In order to apply it, you just need to create a file with the contents above, remember to replace the value of the namespace. Once the file is created:
+Sen soveltamiseksi sinun tarvitsee vain luoda tiedosto yllä olevilla sisällöillä, muista vaihtaa nimialueen arvo. Kun tiedosto on luotu:
 
 ```sh
 oc create -f file.yaml
 ```
 
-You can check that the NetworkPolicy was created correctly by:
+Voit tarkistaa, että NetworkPolicy luotiin oikein seuraavasti:
 
 ```sh
 $ oc describe NetworkPolicy namespacelink
@@ -51,4 +52,4 @@ Spec:
   Policy Types: Ingress
 ```
 
-For more information check our [Network](../networking.md) information page
+Lisätietoja saat verkkosivultamme [Network](../networking.md) tietosivulta.

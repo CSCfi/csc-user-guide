@@ -1,181 +1,165 @@
-# Compiling applications in Puhti
+# Sovellusten kääntäminen Puhtissa {#compiling-applications-in-puhti}
 
-## General instructions
+## Yleiset ohjeet {#general-instructions}
 
-- Whenever possible, use the [local disk](disk.md#login-nodes) on the login node for compiling software.
-    - Compiling on the local disk is much faster and shifts load from the shared file system.
-    - The local disk is cleaned frequently, so please move your files elsewhere after compiling.
+- Perehdy aina mahdollisuuksien mukaan ohjelmiston kääntämiseen [paikallisella levyllä](disk.md#login-nodes) kirjautumissolmussa.
+    - Kääntäminen paikallisella levyllä on huomattavasti nopeampaa ja vähentää kuormitusta jaetulta tiedostojärjestelmältä.
+    - Paikallinen levy puhdistetaan usein, joten siirrä tiedostosi muualle kääntämisen jälkeen.
 
-## Building CPU applications
+## CPU-sovellusten kääntäminen {#building-cpu-applications}
 
 !!! info
-    Intel reorganized their compiler suites and names of Intel compilers have changed following the Red Hat Enterprise Linux 8 (RHEL8) update on Puhti. In addition, Intel changed the underlying technology of their compilers and renamed the old compilers as Intel Compilers Classic.
+    Intel on uudelleenjärjestänyt kääntäjäpakettinsa, ja Intel-kääntäjien nimet ovat muuttuneet Puhtin Red Hat Enterprise Linux 8 (RHEL8) -päivityksen myötä. Lisäksi Intel muutti kääntäjiensä taustateknologiaa ja nimesi vanhat kääntäjät Intel Compilers Classiciksi.
 
-C/C++ and Fortran applications can be built with Intel or GNU
-compiler suites. The compiler suite is selected via the [Modules](modules.md)
-system, i.e.
+C/C++- ja Fortran-sovelluksia voidaan rakentaa Intelin tai GNU:n
+kääntäjäpaketeilla. Kääntäjäpaketti valitaan [Moduulit](modules.md)
+-järjestelmän kautta, esim.
 
 ```bash
-# New Intel compilers 
+# Uudet Intel-kääntäjät 
 module load intel-oneapi-compilers
 ```
 
-or
+tai
 
 ```bash
-# Old Intel compilers
+# Vanhat Intel-kääntäjät
 module load intel-oneapi-compilers-classic
 ```
 
-or
+tai
 
 ```bash
 module load gcc
 ```
 
-Different applications function better with different suites, so the selection
-needs to be done on a case-by-case basis.
+Eri sovellukset toimivat paremmin eri paketeilla, joten valinta
+on tehtävä tapauskohtaisesti.
 
-The actual compiler commands for building a serial application with these
-suites:
+Aktuaaliset kääntäjäkomennot sarjasovelluksen rakentamiseksi näillä
+paketeilla:
 
-| Compiler suite | C  | C++ | Fortran |
-| :------------- | :- | :-- | :------ |
-| [Intel, new](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started) | icx | icpx | ifx |
+| Kääntäjäpaketti | C   | C++ | Fortran |
+| :-------------- | :-  | :-- | :------ |
+| [Intel, uusi](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started) | icx | icpx | ifx |
 | [Intel, classic](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started) | icc | icpc | ifort |
 | [GNU](https://gcc.gnu.org) | gcc | g++ | gfortran |
 
-Intel and GNU compilers use different compiler options. The recommended basic optimization
-flags are listed in the table below. It is recommended to start from the safe level
-and then move up to intermediate or even aggressive, while making sure the results are
-correct and the program's performance has improved.
+Intel- ja GNU-kääntäjät käyttävät erilaisia kääntäjäoptiota. Suositellut perusoptimointilippuja on listattu alla olevassa taulukossa. On suositeltavaa aloittaa turvallisesta tasosta ja siirtyä sitten kohti keskitason tai jopa aggressiivista optimointia varmistaen, että tulokset ovat oikein ja ohjelman suorituskyky on parantunut.
 
-| Optimisation level | Intel                        | GNU               |
-| :----------------- | :--------------------------- | :---------------- |
-| **Safe**           | -O2 -xHost -fp-model precise | -O2 -march=native |
-| **Intermediate**   | -O2 -xHost                   | -O3 -march=native |
-| **Aggressive**     | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true -qopt-zmm-usage=high| -O3 -march=native -ffast-math -funroll-loops -mprefer-vector-width=512|
+| Optimointitaso   | Intel                        | GNU               |
+| :--------------- | :--------------------------- | :---------------- |
+| **Turvallinen**  | -O2 -xHost -fp-model precise | -O2 -march=native |
+| **Keskitaso**    | -O2 -xHost                   | -O3 -march=native |
+| **Aggressiivinen** | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true -qopt-zmm-usage=high| -O3 -march=native -ffast-math -funroll-loops -mprefer-vector-width=512|
 
-A detailed list of options for the Intel and GNU compilers can be found on the _man_
-pages (`man icc/ifort`, `man gcc/gfortran` when the corresponding programming
-environment is loaded, or in the compiler manuals (see the links above).
+Tarkempi luettelo Intel- ja GNU-kääntäjien optioista on löydettävissä _man_ -sivuilta (`man icc/ifort`, `man gcc/gfortran` kun vastaava ohjelmointiympäristö on ladattu) tai kääntäjäkäyttöoppaista (linkit yllä).
 
-Please note that some flags, for example `-no-prec-div` and `-qopt-zmm-usage`, are currently supported only by the intel classic compilers (`icc`/`icpx`/`ifort`). More information about the current and planned flags support for the intel compilers can be checked with `icx -qnextgen-diag` or in the manuals.
+Huomioi, että jotkut liput, kuten `-no-prec-div` ja `-qopt-zmm-usage`, ovat tällä hetkellä tuettuina vain Intelin classic-kääntäjissä (`icc`/`icpx`/`ifort`). Lisää tietoa nykyisten ja suunniteltujen lippujen tuesta Intel-kääntäjille löytyy `icx -qnextgen-diag` -komennolla tai käyttöoppaista.
 
-Also, not all applications benefit from the AVX-512 vector set
-(`-xHost` or `-march=native`). It may be a good idea to also test AVX2
-(`-xCORE-AVX2` or `-mavx2`) and compare the performance.
+Kaikki sovellukset eivät hyödy AVX-512 vektorijoukosta
+(`-xHost` tai `-march=native`). Kannattaa myös testata AVX2
+(`-xCORE-AVX2` tai `-mavx2`) ja vertailla suorituskykyä.
 
-
-List all available versions of the compiler suites:
+Luettele kaikki saatavilla olevat kääntäjäpakettiversiot:
 
 ```bash
 module spider intel-oneapi-compilers
 module spider gcc
 ```
 
-## Building GPU Applications
+## GPU-sovellusten kääntäminen {#building-gpu-applications}
 
-GPU support in Puhti is provided through NVIDIA compilers:
+GPU-tuki Puhtissa tarjotaan NVIDIA-kääntäjien kautta:
 
-- The `nvc` compiler is a C11 compiler that supports OpenACC for NVIDIA GPUs, and OpenACC and OpenMP for multicore CPUs.
+- `nvc`-kääntäjä on C11-kääntäjä, joka tukee OpenACC:ta NVIDIA:n GPU:ille ja OpenACC:ta ja OpenMP:tä moniydinsovittimille.
+  
+- `nvc++`-kääntäjä on C++17-kääntäjä, joka tukee GPU-ohjelmointia C++17-paralleelialgoritmeilla, OpenACC:lla ja OpenMP-siirroilla NVIDIA:n GPU:ille. Se ei kuitenkaan tällä hetkellä tue C++ CUDA-koodia.
 
-- The `nvc++` compiler is a C++17 compiler that supports GPU programming with C++17 parallel algorithms, OpenACC, and OpenMP offloading on NVIDIA GPUs. However, it does not currently support C++ CUDA codes.
+- `nvcc`-kääntäjä on CUDA C ja CUDA C++ -kääntäjäajuri NVIDIA:n GPU:ille.
 
-- The `nvcc` compiler is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
+- `nvfortran`-kääntäjä on CUDA Fortran -kääntäjäajuri NVIDIA:n GPU:ille, joka tukee sekä OpenACC:ta että moniytimen OpenACC- ja OpenMP-prosessointia.
 
-- The `nvfortran` compiler is the CUDA Fortran compiler driver for NVIDIA GPUs, supporting both OpenACC and multicore processing for OpenACC and OpenMP.
+Tarkemmat ohjeet näiden kääntäjien lataamiseen ja käyttöön on annettu seuraavissa osioissa.
 
-Specific instructions on how to load and use these compilers are provided in the following sections.
+### CUDA {#cuda}
 
-### CUDA
-
-The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for the target
-GPU device and passing on the rest to a non-CUDA compiler (i.e. `gcc`). For example, to load the CUDA 11.7 environment together with the GNU compiler:
+CUDA-kääntäjä (`nvcc`) huolehtii CUDA-koodin kääntämisestä kohde-GPU-laitteelle ja välittää loput ei-CUDA-kääntäjälle (esim. `gcc`). Esimerkiksi CUDA 11.7 -ympäristön lataaminen yhdessä GNU-kääntäjän kanssa:
 
 ```bash
 module load gcc/11.3.0 cuda/11.7.0
 ```
 
-To generate code for a given target device, tell the CUDA
-compiler what compute capability the target device supports. On Puhti, the
-GPUs (Volta V100) support compute capability 7.0. Specify this using
+Luodaksesi koodia tietylle kohdelaitteelle, anna CUDA-kääntäjälle tieto kohdelaitteen tukemasta laskentatehokkuudesta. Puhtissa GPU:t (Volta V100) tukevat laskentatehokkuutta 7.0. Tämä määritellään käyttämällä
 `-gencode arch=compute_70,code=sm_70`.
 
-For example, compiling a CUDA kernel (`example.cu`) on Puhti:
+Esimerkiksi CUDA-kerneli (`example.cu`) Puhtissa:
 
 ```bash
 nvcc -gencode arch=compute_70,code=sm_70 example.cu
 ```
 
-In principle, it is also possible to target multiple GPU architectures by repeating
-`-gencode` multiple times for different compute capabilities. However, this is
-not necessary on Puhti, since there is only one type of GPU.
+Periaatteessa on myös mahdollista kohdistaa useisiin GPU-arkkitehtuureihin toistamalla `-gencode` eri laskentatehokkuuksille. Tämä ei kuitenkaan ole tarpeen Puhtissa, koska on vain yksi GPU-tyyppi.
 
-### OpenACC
+### OpenACC {#openacc}
 
 !!! warning
-    OpenACC support is provided through the NVIDIA `nvc` and `nvc++` compilers.
-    However, it is important to note that the support can be somewhat 
-    limited and may lack certain functionalities, such as MPI 
-    parallelization. For additional information about OpenACC support, 
-    the CSC service desk should be contacted.
-    
-The compilers can be accessed through the NVIDIA HPC SDK module:
+    OpenACC-tuki tarjotaan NVIDIA:n `nvc`- ja `nvc++`-kääntäjien kautta. 
+    On kuitenkin tärkeää huomata, että tuki voi olla jossain määrin 
+    rajoitettua ja saattaa puuttua tiettyjä toimintoja, kuten MPI 
+    rinnakkaistusta. Lisää tietoa OpenACC-tuesta kannattaa kysyä CSC 
+    palvelupisteeltä.
+
+Kääntäjät ovat saatavilla NVIDIA HPC SDK -moduulin kautta:
 
 ```
 module load .unsupported
 module load nvhpc/22.7
 ```
 
-Enabling OpenACC support requires providing the `-acc` flag to the compiler. For Fortran codes, this can be achieved as follows:
+OpenACC-tuen aktivoiminen vaatii `-acc`-lipun antamisen kääntäjälle. Fortran-koodien kohdalla tämä voidaan tehdä seuraavasti:
 
 ```
 nvfortran -acc example.F90 -gpu=cc70
 ```
 
-For information about what the compiler actually does with the OpenACC directives, use `-Minfo=all`.
+Tietoa siitä, mitä kääntäjä tekee OpenACC-direktiiveillä, voi saada käyttämällä `-Minfo=all`.
 
-## Building MPI applications
+## MPI-sovellusten kääntäminen {#building-mpi-applications}
 
-There are currently two MPI environments available: `openmpi` and `intel-oneapi-mpi`. The default is `openmpi`, which is
-also recommended to begin with.
+Tällä hetkellä on saatavilla kaksi MPI-ympäristöä: `openmpi` ja `intel-oneapi-mpi`. Oletus on `openmpi`, jota suositellaan aluksi käytettäväksi.
 
-If `openmpi` is incompatible with your application or delivers insufficient performance,
-please try another environment. The MPI environments can be used
-via `module load`, i.e.
+Jos `openmpi` ei ole yhteensopiva sovelluksesi kanssa tai ei tuota riittävää suorituskykyä,
+kokeile toista ympäristöä. MPI-ympäristöjä voidaan käyttää
+`module load` -komennon kautta, esim.
 
 ```bash
 module load openmpi
 ```
 
-When building MPI applications, use _mpixxx_ compiler wrappers
-that differ depending on the compiler suite and the MPI environment:
+Kun käännetään MPI-sovelluksia, käytä _mpixxx_-kääntäjä 
+ajureita, jotka eroavat riippuen kääntäjäpaketista ja MPI-ympäristöstä:
 
-| Compiler suite | openmpi               | intel-oneapi-mpi                 |
-| :------------- | :--------------------- | :------------------------ |
-| Intel          | mpifort, mpicc, mpicxx | mpiifort, mpiicc, mpiicpc |
-| GNU            | mpif90, mpicc, mpicxx  | incompatible    |
+| Kääntäjäpaketti | openmpi               | intel-oneapi-mpi                 |
+| :-------------- | :--------------------- | :------------------------ |
+| Intel           | mpifort, mpicc, mpicxx | mpiifort, mpiicc, mpiicpc |
+| GNU             | mpif90, mpicc, mpicxx  | yhteensopimaton    |
 
-## Building OpenMP and hybrid applications
+## OpenMP- ja hybridisovellusten kääntäminen {#building-openmp-and-hybrid-applications}
 
-Additional compiler and linker flags are needed when building OpenMP or
-MPI/OpenMP hybrid applications:
+Lisäkääntäjä- ja linkkeriliput ovat tarpeen, kun rakennetaan OpenMP- tai
+MPI/OpenMP-hybridi-sovelluksia:
 
-| Compiler suite | OpenMP flag |
-| :------------- | :---------- |
-| Intel          | -qopenmp    |
-| GNU            | -fopenmp    |
+| Kääntäjäpaketti | OpenMP-lippu |
+| :-------------- | :----------- |
+| Intel           | -qopenmp     |
+| GNU             | -fopenmp     |
 
-## Building software using Spack
+## Ohjelmiston kääntäminen Spackilla {#building-software-using-spack}
 
-[Spack](https://spack.io) is a flexible package manager that can be used to
-install software on supercomputers and Linux and macOS systems. The basic
-module tree including compilers, MPI libraries and many of the available
-software on CSC supercomputers have been installed using Spack.
+[Spack](https://spack.io) on joustava pakettienhallintajärjestelmä, jota voidaan käyttää ohjelmistojen asentamiseen supertietokoneisiin sekä Linux- ja macOS-järjestelmiin. Perus
+moduulipuu, joka sisältää kääntäjät, MPI-kirjastot ja monia saatavilla olevia
+ohjelmistoja CSC:n supertietokoneilla, on asennettu Spackilla.
 
-CSC provides a module `spack/v0.18-user` on Puhti that can be used by users to
-build software on top of the available compilers and libraries using Spack. It
-is also possible to install different customized versions of packages available
-in the module tree for special use cases. [See here for a short tutorial on how
-to install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md).
+CSC tarjoaa `spack/v0.18-user` -moduulin Puhtissa, jota käyttäjät voivat käyttää
+ohjelmiston rakentamiseen saatavilla olevien kääntäjien ja kirjastojen päälle käyttäen Spackia. On myös mahdollista asentaa erilaisia räätälöityjä versioita moduulipuussa olevista paketeista erityistilanteisiin. [Katso tästä lyhyt opetusvideo ohjelmistojen asentamisesta CSC:n supertietokoneille käyttäen Spackia](../support/tutorials/user-spack.md).

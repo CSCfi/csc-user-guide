@@ -1,42 +1,43 @@
-# Contact
 
-## Technical service support requests
+# Yhteystiedot {#contact}
 
-* Contact us through email or phone or come to our weekly user support session on Zoom
-* Email: <mailto:servicedesk@csc.fi>
-* Phone: +358 9 457 2821
-* Open Monday to Friday from 8.30 a.m. to 4 p.m.
+## Teknisen asiakastuen pyynnöt {#technical-service-support-requests}
 
-!!! info "Weekly research support coffees"
-    Does formulating your support request in writing feel cumbersome? Please consider
-    joining our weekly research support coffee sessions on Wednesdays at 2 p.m. where
-    you can directly discuss with our specialists!
+* Ota meihin yhteyttä sähköpostitse, puhelimitse tai tule viikoittaisiin käyttäjätuki-istuntoihimme Zoomissa
+* Sähköposti: <mailto:servicedesk@csc.fi>
+* Puhelin: +358 9 457 2821
+* Avoinna maanantaista perjantaihin klo 8.30–16
+
+!!! info "Viikoittaiset tutkimustuen kahvit"
+    Tuntuuko tukipyyntöjen muotoileminen kirjalliseksi hankalalta? Harkitse liittymistä
+    viikoittaisiin tutkimustuen kahvitilaisuuksiimme keskiviikkoisin klo 14, jolloin
+    voit keskustella asiantuntijoidemme kanssa suoraan!
 
     !!! info-label
-        [See here for more information and connection details](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
+        [Katso täältä lisätietoja ja yhteystiedot](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
 
-!!! info "LUMI User Support Team"
-    If you have any questions or issues related to using LUMI, please
-    [contact the LUMI User Support Team](https://lumi-supercomputer.eu/user-support/need-help/).
+!!! info "LUMI-käyttäjätukitiimi"
+    Jos sinulla on kysyttävää tai ongelmia liittyen LUMIn käyttöön, ota
+    [yhteyttä LUMI-käyttäjätukitiimiin](https://lumi-supercomputer.eu/user-support/need-help/).
 
-## How to write good support requests
+## Kuinka kirjoittaa hyviä tukipyyntöjä {#how-to-write-good-support-requests}
 
-* [13 point list to speed up resolving your issue](./support-howto.md)
+* [13 kohdan lista ongelmasi ratkaisemisen nopeuttamiseksi](./support-howto.md)
 
-## Archives
+## Arkistot {#archives}
 
-Having trouble finding an email or a newsletter sent to you by CSC? Browse the archives!
+Onko sinulla vaikeuksia löytää CSC:n sinulle lähettämää sähköpostia tai uutiskirjettä? Selaa arkistoja!
 
-### Newsletters
+### Uutiskirjeet {#newsletters}
 
 * [Tutkimus / Research](archives/tutkimus-research.md)
-  ([subscribe](https://csc.fi/en/subscribe-to-newsletters/))
+  ([tilaa](https://csc.fi/en/subscribe-to-newsletters/))
 * [Asiakaskoulutus / Customer training](archives/asiakaskoulutus-customer-training.md)
-  ([subscribe](https://csc.fi/en/subscribe-to-newsletters/))
-* [LUMI newsletter](https://www.lumi-supercomputer.eu/newsletter/newsletter-archive/)
-  ([subscribe](https://www.lumi-supercomputer.eu/newsletter/))
+  ([tilaa](https://csc.fi/en/subscribe-to-newsletters/))
+* [LUMI-uutiskirje](https://www.lumi-supercomputer.eu/newsletter/newsletter-archive/)
+  ([tilaa](https://www.lumi-supercomputer.eu/newsletter/))
 
-### Mailing lists
+### Sähköpostilistat {#mailing-lists}
 
 * [puhti-users](archives/puhti-users.md)
 * [mahti-users](archives/mahti-users.md)

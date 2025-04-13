@@ -1,83 +1,83 @@
-# Training material
 
-Get the basics right! In addition the the [Tutorials](../tutorials/index.md)
-and [FAQ](../faq/index.md) collections, this page links to a selection of
-additional training material useful for self study. At the bottom of the
-page, you can also find a summary of trainings and training material sources
-and platforms by CSC and partners!
+# Koulutusmateriaali
 
-## Linux & HPC basics
+Opi perusteet oikein! [Opetusohjelmien](../tutorials/index.md) ja [FAQ](../faq/index.md) kokoelmien lisäksi tämä sivu sisältää linkkejä lisäkoulutusmateriaaliin, joka on hyödyllistä itseopiskeluun. Sivun alaosasta löydät myös yhteenvedon CSC:n ja kumppaneiden koulutuksista ja koulutusmateriaalilähteistä sekä -alustoista!
 
-* [Linux 101 guide](../tutorials/env-guide/index.md)
-* [Linux 1: Introduction to Linux course material (GitHub source)](https://github.com/csc-training/linux-1) and [related lecture videos](https://video.csc.fi/channel/Introduction+to+Linux+-course/514985)
-* [Linux 2: Intermediate Linux course materials (GitHub source)](https://github.com/csc-training/linux-2)
-* [MPI: A Short Introduction to One-sided Communication](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
-* [Using CSC HPC Environment Efficiently](https://a3s.fi/CSC_training/csc-env.html) Slides, tutorials and exercises about the CSC environment
-* [HPC Glossary](../glossary.md) All of the tooltipped acronyms (such as "HPC") as a single page.
+## Linuxin & HPC:n perusteet {#linux-hpc-basics}
 
-## CSC cloud resources, cPouta, ePouta and Rahti
+* [Linux 101 opas](../tutorials/env-guide/index.md)
+* [Linux 1: Johdanto Linuxiin kurssimateriaali (GitHub lähde)](https://github.com/csc-training/linux-1) ja [liittyvät luentovideot](https://video.csc.fi/channel/Introduction+to+Linux+-course/514985)
+* [Linux 2: Keskivaiheen Linux-kurssimateriaalit (GitHub lähde)](https://github.com/csc-training/linux-2)
+* [MPI: Lyhyt johdatus yksisuuntaiseen viestintään](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
+* [CSC HPC-ympäristön tehokas käyttö](https://a3s.fi/CSC_training/csc-env.html) Esitykset, opetusohjelmat ja harjoitukset CSC-ympäristöstä
+* [HPC-sanasto](../glossary.md) Kaikki työkaluvihjeiset lyhenteet (kuten "HPC") yhtenä sivuna.
 
-* [cPouta and ePouta related videos](../../cloud/pouta/tutorials/pouta-videos.md)
-* [Pouta cloud course materials](https://pouta-course.a3s.fi/index.html)
-* [Container clouds fundamentals](https://rahti-course.a3s.fi/index.html) (with Rahti OpenShift OKD)
+## CSC:n pilviresurssit, cPouta, ePouta ja Rahti {#csc-cloud-resources-cpouta-epouta-rahti}
 
-## Learn R and Python
+* [cPouta ja ePouta aiheiset videot](../../cloud/pouta/tutorials/pouta-videos.md)
+* [Pouta Cloud kurssimateriaalit](https://pouta-course.a3s.fi/index.html)
+* [Container clouds perusteet](https://rahti-course.a3s.fi/index.html) (jossa Rahti OpenShift OKD)
 
-* [R for Beginners](https://github.com/csc-training/R-for-beginners)
-* [Data Analysis with R](https://github.com/csc-training/da-with-r-remote)
-* [Practical Machine Learning (using Python)](https://e-learn.csc.fi/course/view.php?id=14)
-* [Python basic course for geoscientists](https://geo-python.github.io/site/)
-* [Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc) PRACE MOOC
+## Opi R ja Python {#learn-r-and-python}
 
-## Data analytics and machine learning
+* [R aloittelijoille](https://github.com/csc-training/R-for-beginners)
+* [Data-analyysi R:llä](https://github.com/csc-training/da-with-r-remote)
+* [Käytännön koneoppiminen (Pythonilla)](https://e-learn.csc.fi/course/view.php?id=14)
+* [Python peruskurssi geotieteilijöille](https://geo-python.github.io/site/)
+* [Python korkeatehoisessa laskennassa](https://www.futurelearn.com/courses/python-in-hpc) PRACE MOOC
 
-* [Data analysis guide](../tutorials/da-guide.md)
-* [Practical machine learning](https://e-learn.csc.fi/course/view.php?id=14) MOOC
+## Data-analytiikka ja koneoppiminen {#data-analytics-and-machine-learning}
 
-## Language bank
+* [Data-analyysi opas](../tutorials/da-guide.md)
+* [Käytännön koneoppiminen](https://e-learn.csc.fi/course/view.php?id=14) MOOC
 
-* [Kielipankki - The Language Bank of Finland](https://www.kielipankki.fi/language-bank/) offers a wide range of [language resources](https://www.kielipankki.fi/corpora/) and [tools](https://www.kielipankki.fi/tools/)
+## Kielipankki {#language-bank}
 
-## Bioscience
+* [Kielipankki - Suomen Kielipankki](https://www.kielipankki.fi/language-bank/) tarjoaa laajan valikoiman [kieliaineistoja](https://www.kielipankki.fi/corpora/) ja [työkaluja](https://www.kielipankki.fi/tools/)
 
-* [Bioscience learning material](https://research.csc.fi/bioscience-learning-materials)
-* [Chipster YouTube channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ/playlists) and [Chipster course material](https://chipster.csc.fi/manual/courses.html)
-* [Hands-on tutorial for analysing RNA-seq data using command line tools and R](https://research.csc.fi/rnaseq-tutorial)
-* [Training material](https://github.com/NBISweden/excelerate-scRNAseq) and [video lectures](https://www.youtube.com/playlist?list=PLjiXAZO27elC_xnk7gVNM85I2IQl5BEJN) for single-cell RNA-seq data analysis
+## Biotiede {#bioscience}
 
-## Geoscience
+* [Biotieteen oppimateriaali](https://research.csc.fi/bioscience-learning-materials)
+* [Chipster YouTube-kanava](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ/playlists) ja [Chipster kurssimateriaali](https://chipster.csc.fi/manual/courses.html)
+* [Hands-on opetusohjelma RNA-seq-datan analysointiin komentorivityökaluilla ja R:llä](https://research.csc.fi/rnaseq-tutorial)
+* [Koulutusmateriaali](https://github.com/NBISweden/excelerate-scRNAseq) ja [videoluennot](https://www.youtube.com/playlist?list=PLjiXAZO27elC_xnk7gVNM85I2IQl5BEJN) yksisolun RNA-seq-datan analysoinnista
 
-* [CSC geoinformatics courses and workshops](geocomputing-learning-materials.md)
-* [CSC geoinformatics seminars](geocomputing-seminars.md)
-* [Skills development resources at Geoportti portal](https://www.geoportti.fi/services/skills-development/)
-* For tools specific training materials see also References sections of each [geocomputing tool](../../apps/by_discipline.md#geosciences) available at CSC computing environment.
+## Geotiede {#geoscience}
 
-## Chemistry
+* [CSC geoinformatiikan kurssit ja työpajat](geocomputing-learning-materials.md)
+* [CSC geoinformatiikan seminaarit](geocomputing-seminars.md)
+* [Taitojen kehittämisresurssit Geoportti-portaalissa](https://www.geoportti.fi/services/skills-development/)
+* Erityisten työkalujen koulutusmateriaalit löytyvät myös CSC:n laskentaympäristön [geolaskennan työkalujen](../../apps/by_discipline.md#geosciences) viitteistä.
 
-* [Spring School in Computational Chemistry 2024 course materials](https://zenodo.org/records/11172973)
-* [Spring School in Computational Chemistry 2023 course materials](https://a3s.fi/sscc/sscc-notes-2023.html)
-* [How to run GROMACS efficiently on LUMI workshop materials (2024)](https://zenodo.org/records/10610643)
-* [Advanced GROMACS workshop materials (2022)](https://enccs.github.io/gromacs-gpu-performance/)
-* [Advanced GROMACS workshop materials (2021)](https://a3s.fi/advanced_gmx/PRACE_CSC_BioExcelWorkshop-GROMACS_workflows_and_advanced_topics.html)
+## Kemia {#chemistry}
 
-## Data management
+* [Laskennallisen kemian kevätkoulun 2024 kurssimateriaalit](https://zenodo.org/records/11172973)
+* [Laskennallisen kemian kevätkoulun 2023 kurssimateriaalit](https://a3s.fi/sscc/sscc-notes-2023.html)
+* [Kuinka ajaa GROMACSia tehokkaasti LUMI:lla työpajamateriaalit (2024)](https://zenodo.org/records/10610643)
+* [Edistyneet GROMACS-työpajamateriaalit (2022)](https://enccs.github.io/gromacs-gpu-performance/)
+* [Edistyneet GROMACS-työpajamateriaalit (2021)](https://a3s.fi/advanced_gmx/PRACE_CSC_BioExcelWorkshop-GROMACS_workflows_and_advanced_topics.html)
 
-* [Fairdata service training material](https://www.fairdata.fi/en/training/materials/)
-* [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) find tips on how to take care of your research data.
+## Datanhallinta {#data-management}
 
-## Training materials and sources from CSC and partners
+* [Fairdata-palvelun koulutusmateriaali](https://www.fairdata.fi/en/training/materials/)
+* [Datanhallinnan tarkistuslista](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) tarjoaa vinkkejä tutkimusdataasi huolehtimiseen.
 
-| Source | Example content |
+## CSC:n ja kumppanien koulutusmateriaalit ja -lähteet {#training-materials-and-sources-from-csc-and-partners}
+
+| Lähde | Esimerkkisisältö |
 | -------- | -------- |
-| **[CSC training calendar](https://www.csc.fi/en/trainings/training-calendar)** | Upcoming courses <br> Links to self-learning materials, e.g. [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing) |
-| **[eLena](https://e-learn.csc.fi) (Moodle environment)** | [Research Data Management](https://e-learn.csc.fi/course/view.php?id=63) <br> [CSC Computing Environment](https://e-learn.csc.fi/course/view.php?id=76) |
-| **[Tutorials at Docs CSC](../tutorials/index.md)** | [Getting started with supercomputing at CSC](../tutorials/hpc-quick.md) <br> [Machine learning guide](../tutorials/ml-guide.md) |
-| **[Docs CSC training materials collection](index.md) (this page)** | Links to thematically collected materials |
-| **[CSC Noppe](https://noppe.csc.fi)** |  Introduction to Python <br> Introduction to R <br> 2h Intro to Quantum Computing |
-| **[VideoCSC](https://video.csc.fi)** | [Introductions to topics](https://video.csc.fi/category/Training%3EIntroductions+to+Topics/455249) <br> Recordings of weekly user support coffee talks |
-| **[CSC's YouTube channel](https://www.youtube.com/c/CscFi)** | See also [Chipster channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ) <br> [Elmer channel](https://www.youtube.com/user/elmerfem) |
-| **[CSC Training GitHub](https://github.com/csc-training)** | Repositories of course materials (some are old) |
-|**[LUMI training events](https://www.lumi-supercomputer.eu/events/)** | [Workshop on Quantum Computing](https://www.lumi-supercomputer.eu/events/workshop-on-quantum-computing-hybrid-systems/) <br> [LUMI-C environment](https://www.lumi-supercomputer.eu/events/detailed-introduction-to-the-lumi-c-environment-and-architecture/) |
-| **[LUMI training materials archive](https://lumi-supercomputer.github.io/LUMI-training-materials/)** | Materials of past LUMI courses |
-| **[CodeRefinery lessons](https://coderefinery.org/lessons/)** | Version control <br> open and collaborative coding |
-| **[Aalto SciComp trainings](https://scicomp.aalto.fi/training/)** | [Python for Scientific Computing](https://aaltoscicomp.github.io/python-for-scicomp/) <br> [Linux shell](https://aaltoscicomp.github.io/linux-shell/) <br> [Data analysis in Python and R](https://aaltoscicomp.github.io/data-analysis-workflows-course/) |
+| **[CSC koulutuskalenteri](https://www.csc.fi/en/trainings/training-calendar)** | Tulevat kurssit <br> Linkit itseopiskelumateriaaleihin, esim. [Superlaskennan perusteet](https://edukamu.fi/elements-of-supercomputing) |
+| **[eLena](https://e-learn.csc.fi) (Moodle-ympäristö)** | [Tutkimusdatan hallinta](https://e-learn.csc.fi/course/view.php?id=63) <br> [CSC laskentaympäristö](https://e-learn.csc.fi/course/view.php?id=76) |
+| **[Opetusohjelmat Docs CSC:ssa](../tutorials/index.md)** | [Aloittaminen CSC:n superlaskennassa](../tutorials/hpc-quick.md) <br> [Koneoppimisen opas](../tutorials/ml-guide.md) |
+| **[Docs CSC koulutusmateriaalien kokoelma](index.md) (tämä sivu)** | Linkkejä temaattisesti koottuihin materiaaleihin |
+| **[CSC Noppe](https://noppe.csc.fi)** | Johdanto Python-ohjelmointiin <br> Johdanto R-ohjelmointiin <br> 2h Johdatus kvanttilaskentaan |
+| **[VideoCSC](https://video.csc.fi)** | [Aiheiden johdannot](https://video.csc.fi/category/Training%3EIntroductions+to+Topics/455249) <br> Viikoittain pidettävät käyttäjätuen kahvitallenteet |
+| **[CSC:n YouTube-kanava](https://www.youtube.com/c/CscFi)** | Katso myös [Chipster kanava](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ) <br> [Elmer kanava](https://www.youtube.com/user/elmerfem) |
+| **[CSC Training GitHub](https://github.com/csc-training)** | Kurssimateriaalien repositoriyot (jotkut vanhoja) |
+| **[LUMI koulutustapahtumat](https://www.lumi-supercomputer.eu/events/)** | [Työpaja kvanttilaskennasta](https://www.lumi-supercomputer.eu/events/workshop-on-quantum-computing-hybrid-systems/) <br> [LUMI-C-ympäristö](https://www.lumi-supercomputer.eu/events/detailed-introduction-to-the-lumi-c-environment-and-architecture/) |
+| **[LUMI koulutusmateriaalien arkisto](https://lumi-supercomputer.github.io/LUMI-training-materials/)** | Menneiden LUMI-kurssien materiaalit |
+| **[CodeRefinery oppitunnit](https://coderefinery.org/lessons/)** | Versionhallinta <br> avoin ja yhteistyöllinen koodaus |
+| **[Aalto SciComp koulutukset](https://scicomp.aalto.fi/training/)** | [Python tieteelliseen laskentaan](https://aaltoscicomp.github.io/python-for-scicomp/) <br> [Linux-kuori](https://aaltoscicomp.github.io/linux-shell/) <br> [Datan analysointi Pythonilla ja R:llä](https://aaltoscicomp.github.io/data-analysis-workflows-course/) |
+```
+
+Please ensure to retain the structure and format as described in the original document for any translations involving technical content.

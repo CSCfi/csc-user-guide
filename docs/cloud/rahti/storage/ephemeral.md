@@ -1,6 +1,7 @@
-# Ephemeral storage
 
-When local ephemeral (temporal) storage is needed, an `emptyDir` should be issued. It is local to the node, on Rahti this is RAID-1 SSD storage. It can be shared across several containers in the same Pod, and it the *fastest* filesystem available in Rahti but it will be **lost when the Pod is killed or restarted**. It is declared directly in the Pod definition:
+# Lyhytaikainen tallennustila {#ephemeral-storage}
+
+Kun paikallista lyhytaikaista (väliaikaista) tallennustilaa tarvitaan, tulee käyttää `emptyDir`:ia. Se on solmulle paikallista, Rahdissa tämä on RAID-1 SSD-tallennustilaa. Sitä voidaan jakaa useiden konttien kesken samassa Podissa, ja se on Rahdin *nopein* käytettävissä oleva tiedostojärjestelmä, mutta se **menetetään, kun Podi tapetaan tai käynnistetään uudelleen**. Se määritetään suoraan Podin määritelmässä:
 
 *`podWithEmptydDir.yaml`*:
 
@@ -30,9 +31,9 @@ spec:
 
 ![emptyDir](../../img/pods-and-storage-emptydir.drawio.svg)
 
-## Using memory as medium
+## Muistin käyttäminen tallennusalustana {#using-memory-as-medium}
 
-It is possible to make an `emptyDir` even faster by using memory as storage medium, i.e.: use `tmpfs`. The two drawbacks of this approach compared with a standard `emptyDir` is (1) the memory is shared with all the processes of the Pod, so its maximum size will be the same as the memory limit of the `Pod`, and (2) if the `emptyDir` (together with the processes of the Pod) uses all the available memory, the Pod will be killed. You can create one by adding `medium: Memory` under `emptyDir`. It is recommended to configure the `sizeLimit` to something lower than the Pod memory limit.
+`emptyDir` voidaan tehdä vielä nopeammaksi käyttämällä muistia tallennusalustana, ts. käyttämällä `tmpfs`:ää. Tämän lähestymistavan kaksi haittaa verrattuna tavanomaiseen `emptyDir`:iin on, että (1) muisti on jaettu kaikkien Podin prosessien kanssa, joten suurin mahdollinen koko on sama kuin Podin muistiraja, ja (2) jos `emptyDir` (yhdessä Podin prosessien kanssa) käyttää kaiken saatavilla olevan muistin, Podi tapetaan. Tämä voidaan luoda lisäämällä `medium: Memory` `emptyDir`-kohdan alle. On suositeltavaa asetettaa `sizeLimit` pienemmäksi kuin Podin muistiraja.
 
 * `podWithEmptyDirMemory.yaml`
 

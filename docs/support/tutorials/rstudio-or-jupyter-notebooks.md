@@ -1,54 +1,51 @@
-# Using RStudio or Jupyter Notebook in Puhti 
+# RStudion tai Jupyter Notebookin käyttäminen Puhtissa {#using-rstudio-or-jupyter-notebook-in-puhti}
 
-[RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convenient options for developing and running R or Python code. 
-The R or Python code is run on a compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools themselves are used via a local web browser.
+[RStudio](https://www.rstudio.com/) ja [Jupyter-notebookit](https://jupyter.org/) ovat käteviä vaihtoehtoja R- tai Python-koodin kehittämiseen ja suorittamiseen. R- tai Python-koodi ajetaan laskentasolmussa [interaktiivisen istunnon](../../computing/running/interactive-usage.md) aikana, mutta itse työkalut käytetään paikallisen verkkoselaimen kautta.
 
-There are two ways to use RStudio Server or Jupyter Notebook on Puhti.
+RStudio Serveria tai Jupyter Notebookia voi Puhtissa käyttää kahdella tavalla.
 
-1. The first (and easiest) option is to use [the Puhti web interface](../../computing/webinterface/index.md).
+1. Ensimmäinen (ja helpoin) vaihtoehto on käyttää [Puhtin verkkoliittymää](../../computing/webinterface/index.md).
 
-2. The second option is to create a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
-the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it is 
-not suitable for RStudio or Jupyter Notebook in Puhti. 
-SSH tunnelling requires that you have [set up SSH keys](../../computing/connecting/ssh-keys.md). 
+2. Toinen vaihtoehto on luoda SSH-tunneli paikalliselta tietokoneelta laskentasolmuun. Koska laskentasolmut eivät ole saavutettavissa Internetin kautta, tunneli täytyy ohjata sisään kirjautumissolmun kautta. Tämä ei ole mahdollista Windows PowerShellillä (koska se ei tue siirtymäpalvelimia), ja siksi se ei ole sovellettavissa RStudioon tai Jupyter Notebookiin Puhtissa.
+SSH-tunneloiminen edellyttää, että olet [määrittänyt SSH-avaimet](../../computing/connecting/ssh-keys.md).
 
-With Linux, macOS and MobaXterm the SSH tunnelling works by default. PuTTy requires filling in the settings to PuTTy tabs, so it is slower and more complicated, but possible.
+Linuxissa, macOS:ssa ja MobaXtermissä SSH-tunnelointi toimii oletuksena. PuTTy edellyttää asetusten täyttämistä PuTTyn välilehdille, joten se on hitaampi ja monimutkaisempi, mutta silti mahdollinen.
 
-## Workflow for using RStudio or Jupyter Notebook in Puhti
+## Työskentelytapa RStudion tai Jupyter Notebookin käyttämiseen Puhtissa {#workflow-for-using-rstudio-or-jupyter-notebook-in-puhti}
 
-**Using the Puhti Web Interface**
+**Puhtin verkkoliittymän käyttö**
 
-* For instructions on this, [see the Puhti web interface documentation.](../../computing/webinterface/index.md)
+* Ohjeet tähän [löydät Puhtin verkkoliittymän dokumentaatiosta.](../../computing/webinterface/index.md)
 
-**Using SSH tunneling**
+**SSH-tunneloinnin käyttö**
 
-* Start interactive session
-* Load suitable modules and start RStudio or Jupyter Notebook server
-* Create SSH tunnel from your PC to Puhti compute node
-* Open RStudio or Jupyter Notebook in local web browser
+* Aloita interaktiivinen istunto
+* Lataa sopivat moduulit ja käynnistä RStudio tai Jupyter Notebook -palvelin
+* Luo SSH-tunneli tietokoneeltasi Puhtin laskentasolmulle
+* Avaa RStudio tai Jupyter Notebook paikallisessa verkkoselaimessa
 
-More detailed information on the different steps to launch RStudio or Jupyter Notebook using SSH tunneling is provided in the following. 
+Lisätietoa SSH-tunneloinnin avulla RStudion tai Jupyter Notebookin käynnistämisen eri vaiheista löytyy seuraavasta.
 
-## Instructions for SSH tunneling
+## Ohjeet SSH-tunneloinnille {#instructions-for-ssh-tunneling}
 
-### 1. Start interactive session
-Start an interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usage page.](../../computing/running/interactive-usage.md)
+### 1. Aloita interaktiivinen istunto {#start-interactive-session}
+Aloita interaktiivinen istunto esimerkiksi komennolla `sinteractive -i`. Lisää vaihtoehtoja ja maksimirajoja löydät [interaktiivisen käytön sivulta.](../../computing/running/interactive-usage.md)
 
-### 2. Load module and start RStudio or Jupyter Notebook server
-In the interactive session run:
+### 2. Lataa moduuli ja käynnistä RStudio tai Jupyter Notebook -palvelin {#Load-module-and-start-rstudio-or-jupyter-notebook-server}
+Interaktiivisessa istunnossa suorita:
 
 **RStudio**
 ```text
 module load r-env
 start-rstudio-server
 ```
-This set up works with any [r-env module](../../apps/r-env.md).
-It is also possible to launch a multi-threaded RStudio session using `start-rstudio-server-multithread`, if you have specified multiple cores when starting an interactive session. 
-Details on using threading with R can be found on the [r-env main page](../../apps/r-env.md#improving-performance-using-threading).
+Tämä kokoonpano toimii minkä tahansa [r-env-moduulin](../../apps/r-env.md) kanssa.
+On myös mahdollista käynnistää monisäikeinen RStudio-istunto käyttämällä `start-rstudio-server-multithread`, jos olet määrittänyt useita ytimiä interaktiivisen istunnon aloituksessa.
+Tietoja säikeistämisen käytöstä R:ssä löytyy [r-env-pääsivulta](../../apps/r-env.md#improving-performance-using-threading).
 
 **Jupyter**
 
-Jupyter notebooks can be used with the traditional Jupyter Notebook or the more advanced JupyterLab server.
+Jupyter-notebookeja voidaan käyttää perinteisellä Jupyter Notebookilla tai kehittyneemmällä JupyterLab-palvelimella.
 
 Jupyter Notebook:
 
@@ -63,49 +60,47 @@ module load python-data
 start-jupyterlab-server
 ```
 
-It is also possible to use some other pre-installed [Python module](../../apps/python.md) than `python-data`, if it includes Jupyter.
+On myös mahdollista käyttää jotain muuta esiasennettua [Python-moduulia](../../apps/python.md) kuin `python-data`, jos se sisältää Jupytern.
 
 ***
 
-This will start the RStudio, Jupyter Notebook or JupyterLab server on the compute node and print out the instructions for next steps. 
+Tämä käynnistää RStudio-, Jupyter Notebook- tai JupyterLab-palvelimen laskentasolmussa ja tulostaa ohjeet seuraaviin vaiheisiin.
 
-Keep this terminal open as long as you are working, to keep the RStudio or Jupyter Notebook server running.
+Pidä tämä pääte avoinna niin kauan kuin työskentelet, jotta RStudio- tai Jupyter Notebook -palvelin pysyy käynnissä.
 
-### 3. Create SSH tunnel from your PC to Puhti compute node
-* With Linux, MacOS and MobaXterm, open a second SSH terminal on your local machine (do not connect to Puhti yet) and 
-run the SSH tunnelling command printed out by the RStudio or Jupyter Notebook start-up script. 
-For example `ssh -N -L 8787:localhost:42896 -J john@puhti.csc.fi john@r07c49.bullx`
-* With PuTTy see the [SSH tunnelling with PuTTy](#ssh-tunnelling-with-putty) instructions.
-* The command does not print out anything specific, unless you get some error, you likely succeeded.
+### 3. Luo SSH-tunneli tietokoneeltasi Puhtin laskentasolmulle {#create-ssh-tunnel-from-your-pc-to-puhti-compute-node}
+* Linuxissa, MacOS:ssa ja MobaXtermissä avaa toinen SSH-pääte paikallisessa koneessasi (älä vielä yhdistä Puhteen) ja suorita RStudion tai Jupyter Notebookin käynnistysskriptin tulostama SSH-tunnelointikomento. Esimerkiksi `ssh -N -L 8787:localhost:42896 -J john@puhti.csc.fi john@r07c49.bullx`
+* PuTTyssä katso [SSH-tunnelointi PuTTylla](#ssh-tunnelling-with-putty) -ohjeet.
+* Komento ei tulosta mitään erityistä, ellei ilmene virhettä, olet todennäköisesti onnistunut.
 
-Also keep this terminal open for as long as you are working to have remote access to RStudio.
+Pidä myös tämä pääte avoinna niin kauan kuin työskentelet, jotta saat etäyhteyden RStudioon.
 
-### 4. Open RStudio or Jupyter Notebook in local web browser 
-* Open a web browser on your local machine and copy the URL printed out by the start-up script. For example: `http://localhost:8787/`  
-* For RStudio, insert the credentials printed out by the start-up script.
+### 4. Avaa RStudio tai Jupyter Notebook paikallisessa verkkoselaimessa {#open-rstudio-or-jupyter-notebook-in-local-web-browser}
+* Avaa selaimesi paikallisesta koneesta ja kopioi käynnistysskriptin tulostama URL-osoite. Esimerkiksi: `http://localhost:8787/`
+* RStudion tapauksessa anna käynnistysskriptin tulostama käyttäjätunnus ja salasana.
 
-### 5. Close the session
-Once you have finished: 
+### 5. Sulje istunto {#close-the-session}
+Kun olet valmis:
 
-* Exit RStudio or Jupyter Notebook server by entering `Ctrl + C` in the interactive terminal session on Puhti. 
-* Close (`exit`) also the interactive session. 
-* Close SSH tunnel with `Ctrl + C`.
+* Poistu RStudio- tai Jupyter Notebook -palvelimesta painamalla `Ctrl + C` interaktiivisessa päätetilassa Puhtissa.
+* Sulje (`exit`) myös interaktiivinen istunto.
+* Sulje SSH-tunneli painamalla `Ctrl + C`.
 
-## SSH tunnelling with PuTTy
-Both RStudio and Jupyter Notebook also print out PuTTy instructions that have to be copied to PuTTy settings. The port numbers and compute node name may change from session to session.
+## SSH-tunnelointi PuTTylla {#ssh-tunnelling-with-putty}
+Sekä RStudio että Jupyter Notebook tulostavat myös PuTTy-ohjeet, jotka täytyy kopioida PuTTyn asetuksiin. Porttinumerot ja laskentasolmun nimi saattavat muuttua istunnosta toiseen.
 
 ```
     PuTTy:
     ssh -N -L 8889:localhost:8889 john@r07c49.bullx
-    Set Source (8889) and Destination (localhost:8889) in:
-    PuTTy -> Connection -> SSH -> Tunnels
+    Aseta Lähde (8889) ja Kohde (localhost:8889) seuraavasti:
+    PuTTy -> Yhteys -> SSH -> Tunnelit
 ```
 
-1. Set up SSH tunneling to a login node with PuTTy. Add port forwarding in **PuTTy -> Connection -> SSH -> Tunnels** : 
-    - Source port: `8889`. 
-    - Destination: `localhost:8889` 
-    - Keep the type as 'Local'.
-    - Click 'Add'.
-2. Set up SSH tunneling from login node to compute node in **PuTTy -> Connection -> SSH**: 
-    - Remote command: `ssh -N -L 8889:localhost:8889 john@r07c49.bullx`
-3: `Open` to start connection.
+1. Määritä SSH-tunnelointi kirjautumissolmulle PuTTylla. Lisää portin uudelleenohjaus kohtaan **PuTTy -> Yhteys -> SSH -> Tunnelit**:
+   - Lähdeportti: `8889`.
+   - Kohde: `localhost:8889`
+   - Pidä tyyppinä 'Paikallinen'.
+   - Napsauta 'Lisää'.
+2. Määritä SSH-tunnelointi kirjautumissolmusta laskentasolmulle kohtaan **PuTTy -> Yhteys -> SSH**:
+   - Etäkomento: `ssh -N -L 8889:localhost:8889 john@r07c49.bullx`
+3. Napsauta `Avaa` aloittaaksesi yhteyden.

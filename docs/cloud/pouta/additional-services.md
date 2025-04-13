@@ -1,29 +1,22 @@
-# Additional services
+# Lisäpalvelut
 
-This article gives two examples on how to access some additional supporting services
-in Pouta. These services are not strictly part of cPouta, but they provide extra
-functionality to make the service more useful.
+Tämä artikkeli antaa kaksi esimerkkiä siitä, kuinka pääset käsiksi joihinkin lisätuki­palveluihin Poudassa. Nämä palvelut eivät ole välttämättä osa cPoutaa, mutta ne tarjoavat lisätoiminnallisuuksia palvelun hyödyllisyyden lisäämiseksi.
 
 [TOC]
 
-## Sending e-mail from cPouta
+## Sähköpostin lähettäminen cPoudasta {#sending-e-mail-from-cpouta}
 
-Sometimes you need to be able to send e-mail from a cPouta virtual
-machine. This might be notifications when something happens or
-registration confirmation e-mails.
+Joskus sinun täytyy pystyä lähettämään sähköpostia cPoudan virtuaalikoneesta. Tämä voi olla ilmoituksia, kun jotain tapahtuu tai rekisteröinnin vahvistussähköposteja.
 
-We're now providing a service to do this. It is provided as-is. The service is still in the
-evaluation stages, and we might make changes to the service based on
-our experience and any feedback we get.
+Tarjoamme nyt palvelun tämän tekemiseksi. Palvelu tarjotaan sellaisena kuin se on. Palvelu on edelleen arviointivaiheessa, ja voimme tehdä muutoksia palveluun kokemuksemme ja saamamme palautteen perusteella.
 
-To use this service, you need to configure your mail transfer agent
-(MTA) to use the following SMTP relay server (a.k.a. smarthost):
+Tämän palvelun käyttämiseksi sinun täytyy konfiguroida sähköpostivälityspalvelimesi (MTA) käyttämään seuraavia SMTP-välitys­palvelimen (alias smarthost):
 
 ```
 smtp.pouta.csc.fi:25
 ```
 
-The server does not require authentication.
+Palvelin ei vaadi todennusta.
 
 ```python
 import smtplib
@@ -46,37 +39,31 @@ except SMTPException:
    print("Error: unable to send email")
 ```
 
-When sending e-mail, you need a valid _Sender_ address in your e-mails,
-such as your university e-mail address, since this will be validated by
-the SMTP server.
+Kun lähetät sähköpostia, tarvitset voimassa olevan _Lähettäjä_-osoitteen sähköposteissasi, kuten yliopistosi sähköpostiosoite, sillä SMTP-palvelin vahvistaa sen.
 
-If you want to set up any services on cPouta that generate a large
-amount of SMTP traffic (e.g. public mailing lists), please contact
-the CSC Service Desk to coordinate this.
+Jos haluat ottaa käyttöön palveluita cPoudassa, jotka tuottavat suuren määrän SMTP-liikennettä (esim. julkiset postituslistat), ota yhteyttä CSC Service Deskiin koordinoidaksesi tämän.
 
-### About Sender Policy Framework (SPF) and others
+### Sender Policy Frameworkistä (SPF) ja muista {#about-sender-policy-framework-spf-and-others}
 
-You might need to add CSC's SPF record to your own domain existing DNS record, if SPF is already configured in use. 
-Even if SPF is not configured, it should be anyway considered because some email domains reject emails from email domains where SPF is not configured.
+Saatat joutua lisäämään CSC:n SPF-tietueen omaan domainisi olemassa olevaan DNS-tietueeseen, jos SPF on jo käytössä. Jopa jos SPF ei ole käytössä, sitä tulisi harkita, koska jotkin sähköpostidomainit hylkäävät sähköposteja sähköpostidomaineilta, joissa SPF ei ole käytössä.
 
-!!! info "Authenticated SMTP server"
-    In some situation, instead of configuring the SPF record, it is better to simply use an external authenticated SMTP server. Preferably the SMTP server provided by your email provider.
+!!! info "Todennettu SMTP-palvelin"
+    Joissain tilanteissa, sen sijaan että konfiguroitaisiin SPF-tietue, voi olla parempi yksinkertaisesti käyttää ulkopuolista todennettua SMTP-palvelinta. Mieluiten sähköpostipalveluntarjoajasi tarjoamaa SMTP-palvelinta.
 
-    Also it's good to understand that you may only add/edit SPF record of a domain for which your organization manages its DNS records.
+    On myös hyvä ymmärtää, että voit lisätä/muokata SPF-tietueen vain domainille, jonka DNS-tietueet organisaatiosi hallinnoi.
 
-!!! warning "Silent email discards"
-    A badly configured SPF record might have the effect that emails are silently discarded by some email providers. 
+!!! warning "Hiljaiset sähköpostien hylkäykset"
+    Huonosti konfiguroitu SPF-tietue voi aiheuttaa sen, että sähköpostit hylätään hiljaa joillakin sähköpostitarjoajilla.
 
-    Please note that taking SPF in use, or just by modifying existing record incorrectly, affects the whole domain email traffic functionality.
+    Huomioithan, että SPF:n käyttöönotto tai vain olemassa olevan tietueen virheellinen muokkaaminen vaikuttaa koko domainin sähköpostiliikenteen toimivuuteen.
 
-The part which should be added to SPF record is "include:hosted-at.csc.fi".
-Your domain SPF record should look then something like this:
+Osa, joka tulisi lisätä SPF-tietueeseen, on "include:hosted-at.csc.fi". Domainisi SPF-tietueen tulisi näyttää sitten joltakin tältä:
 
 ```
 domain.of.the.sending.email.address.    IN    TXT    "v=spf1 include:hosted-at.csc.fi ~all"
 ```
 
-You can use the `dig` command to check if the entry already exists in your domain existing DNS record:
+Voit käyttää `dig`-komentoa tarkistaaksesi, onko merkintä jo olemassa domainisi olemassa olevassa DNS-tietueessa:
 ```
 dig domain.of.the.sending.email.address TXT
 
@@ -84,36 +71,36 @@ dig domain.of.the.sending.email.address TXT
 domain.of.the.sending.email.address.    IN    TXT    "v=spf1 include:hosted-at.csc.fi ~all"
 ```
 
-There are other protocols to take into account, like Domain-based Message Authentication, Reporting and Conformance [DMARC](https://en.wikipedia.org/wiki/DMARC) and DomainKeys Identified Mail [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail), but the details are out of scope for this document.
+On myös muita protokollia, jotka tulee ottaa huomioon, kuten Domain-based Message Authentication, Reporting and Conformance [DMARC](https://en.wikipedia.org/wiki/DMARC) ja DomainKeys Identified Mail [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail), mutta yksityiskohdat eivät kuulu tämän dokumentin piiriin.
 
-Here is a simplified summary of the different DNS records for a domain sending emails:  
-  - SPF tells from where you can send emails using a "SMTP Sender" in that domain  
-  - DKIM signature records specify public keys that are used to sign the email messages with a "From" in that domain  
-  - DMARC specifies how messages that fail any of the above should be handled  
+Tässä on yksinkertaistettu yhteenveto eri DNS-tietueista domainille, joka lähettää sähköposteja:  
+  - SPF kertoo, mistä voit lähettää sähköposteja "SMTP-lähettäjänä" siinä domainissa  
+  - DKIM-allekirjoituksen tietueet määrittelevät julkiset avaimet, joita käytetään sähköpostien allekirjoittamiseen "From"-kentässä siinä domainissa  
+  - DMARC määrittelee, miten viestejä, jotka epäonnistuvat jossain edellisistä, pitäisi käsitellä  
 
-If you are using `smtp.pouta.csc.fi`, the SPF record specifies that emails with an "SMTP sender" in csc.fi can be sent. The messages with a "From" in csc.fi are signed with our key and the DMARC record for csc.fi specifies that the messages that fail any of the above should be quarantined.
+Jos käytät `smtp.pouta.csc.fi`, SPF-tietue määrittelee, että sähköpostit, joissa on "SMTP-lähettäjä" muodossa csc.fi, voidaan lähettää. Viestit, joissa on "From" muodossa csc.fi, allekirjoitetaan avaimellamme, ja csc.fi:n DMARC-tietue määrittelee, että viestit, jotka epäonnistuvat jossakin edellä mainituista, pitäisi karanteenoida.
 
-If you want the services such as Google, Microsoft, etc to check and identify your emails, you can register a new domain for this purpose, host email services with appropriate forwarding, create SPF/DKIM/DMARC records for it and use this domain in the email headers.
+Jos haluat palvelujen, kuten Googlen, Microsoftin jne., tarkistavan ja tunnistavan sähköpostisi, voit rekisteröidä uuden domainin tätä tarkoitusta varten, isännöidä sähköpostipalveluita asianmukaisella edelleenlähetyksellä, luoda sen SPF/DKIM/DMARC-tietueet ja käyttää tätä domainia sähköpostien otsikoissa.
 
-## DNS services in cPouta
+## DNS-palvelut cPoudassa {#dns-services-in-cpouta}
 
-cPouta does not currently offer integrated name service management.
+cPouta ei tällä hetkellä tarjoa integroituja nimipalveluiden hallintaa.
 
-### Predefined DNS names
+### Ennalta määritellyt DNS-nimet {#predefined-dns-names}
 
-All our floating IPs are by default mapped to a hostname, for example:
+Kaikki kelluvat IP-mme on oletuksena kartoitettu isäntänimeen, esimerkiksi:
 
 ```
-vm0120.kaj.pouta.csc.fi has address 86.50.168.120
+vm0120.kaj.pouta.csc.fi osoitteella 86.50.168.120
 ```
 
-These default DNS records do also have the reverse DNS entry. To find the hostname of a floating IP, you can use `host` command:
+Myös näillä oletus-DNS-tietueilla on käänteinen DNS-merkintä. Löytääksesi kelluvan IP:n isäntänimen, voit käyttää `host`-komentoa:
 
 ```sh
 host -a <floating IP address>
 ```
 
-And the result is `vmXXXX.kaj.pouta.csc.fi` listed in the output:
+Ja tulos on `vmXXXX.kaj.pouta.csc.fi`, joka on listattu tulosteessa:
 
 ```
 ...
@@ -121,25 +108,23 @@ And the result is `vmXXXX.kaj.pouta.csc.fi` listed in the output:
 x.x.x.x.in-addr.arpa. xxx IN     PTR     vmXXXX.kaj.pouta.csc.fi.
 ```
 
-### Custom DNS name
+### Mukautettu DNS-nimi {#custom-dns-name}
 
-In some cases you would like to use your own DNS name, a different one to the predefined one explained above, for example `mywesite.myuniversity.fi`. To create this new DNS name, you need to contact your DNS provider (in the example the administrators of `myuniversity.fi`) and request the new DNS record to point to your floating IP. Once created, the DNs record will take few minutes to propagate through the internet and will be visible globally.
+Joissain tapauksissa haluat ehkä käyttää omaa DNS-nimeäsi, joka eroaa yllä selitetystä ennalta määritellystä, esimerkiksi `mywebsite.myuniversity.fi`. Luodaksesi tämän uuden DNS-nimen, sinun on otettava yhteyttä DNS-palveluntarjoajaasi (esimerkissämme `myuniversity.fi`:n ylläpitäjiin) ja pyydettävä uutta DNS-merkintää osoittamaan kelluvaan IP:hen. Kun se on luotu, DNS-tietueen levittäminen internetissä kestää muutaman minuutin ja tulee näkyväksi globaalisti.
 
+Useimmissa tapauksissa nämä eteenpäin menevät DNS-tietueet (`nimi -> IP`) riittävät. Mutta jotkin palvelut vaativat myös käänteisiä DNS-hakulauseita (`IP -> nimi`) toimiakseen. Tämä tarkoittaa, että meidän on
+konfiguroitava Poudan DNS-palvelin sanomaan, että käyttämäsi kelluva IP ratkaisee taaksepäin määrittämääsi domain-nimeen (`mywebsite.myuniversity.fi`).
 
-In most cases, these forward DNS records (`name -> IP`) are enough.But some services will also require the reverse DNS lookups (`IP -> name`) to work. This means that we have to
-configure Pouta's DNS server to say that the floating IP you are using
-resolves back to the domain name you set up (`mywebsite.myuniversity.fi`).
+Voit pyytää käänteistä DNS-kartoitusta lähettämällä sähköpostin osoitteeseen <servicedesk@csc.fi> seuraavin tiedoin:
 
-You can request a reverse DNS mapping by sending an email to <servicedesk@csc.fi> with this information:
-
-1. The DNS name that you already configured to point to the desired floating IP.
-1. The Project name where the Virtual machine is.
-1. A short description of the use case that creates the need for this reverse record.
+1. DNS-nimi, jonka olet jo konfiguroinut osoittamaan haluttuun kelluvaan IP:hen.
+1. Projektin nimi, jossa virtuaalikone sijaitsee.
+1. Lyhyt kuvaus, miksi tarvitset tätä käänteistä tietuetta.
 
 !!! info ""
-    You do not need to let us know if the floating IP is moved to another machine within the same project. The reverse DNS record will stay as it is.
+    Ei tarvitse ilmoittaa meille, jos kelluva IP siirretään toiseen koneeseen saman projektin sisällä. Käänteinen DNS-merkintä pysyy ennallaan.
 
-When you no longer need the mapping, please contact us again in <servicedesk@csc.fi> so we can remove the reverse DNS entry.
+Kun et enää tarvitse kartoitusta, ota uudelleen yhteyttä <servicedesk@csc.fi>, jotta voimme poistaa käänteisen DNS-merkinnän.
 
-!!! warning "Obsolete records will be purged"
-    We reserve the right to clean up old reverse DNS records where the forward DNS records do not match anymore, or when the project is closed.
+!!! warning "Vanhat tietueet poistetaan"
+    Varaamme oikeuden puhdistaa vanhoja käänteisiä DNS-merkintöjä, joissa eteenpäin menevät DNS-tietueet eivät enää vastaa toisiaan tai kun projekti suljetaan.

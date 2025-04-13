@@ -1,29 +1,30 @@
-# How to reset your password
 
-You will receive notifications from CSC when the password of your user account is about to expire. 
-If you need to reset the password follow the instructions below.
-There are two ways to request a link. 
+# Kuinka nollata salasanasi {#how-to-reset-your-password}
 
-## Password reset link from your user profile
+Saat ilmoituksia CSC:ltä, kun käyttäjätilisi salasana on vanhentumassa. 
+Jos sinun tarvitsee nollata salasana, noudata alla olevia ohjeita.
+On kaksi tapaa pyytää linkkiä.
 
-1. Login to [MyCSC](http://my.csc.fi).
-2. Go to _Profile_ and click _Reset password_.
-3. Click _Request a reset link_. Instructions are sent to the email address associated with your CSC user account.
+## Salasanan palautuslinkki käyttäjäprofiilistasi {#password-reset-link-from-your-user-profile}
 
-## Password reset link before you log in
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi).
+2. Mene kohtaan _Profiili_ ja napsauta _Nollaa salasana_.
+3. Napsauta _Pyydä palautuslinkki_. Ohjeet lähetetään CSC-käyttäjätiliisi liitettyyn sähköpostiosoitteeseen.
 
-1. Go to [MyCSC](http://my.csc.fi). Click _Log in_.
-2. Choose _CSC Login_.
-3. Click _Forgot password?_
-4. Enter your CSC username and click _Request a reset link_. Instructions are sent to the email address associated with your CSC user account.
+## Salasanan palautuslinkki ennen sisäänkirjautumista {#password-reset-link-before-you-log-in}
 
-## Password requirements
+1. Mene [MyCSC](http://my.csc.fi). Napsauta _Kirjaudu sisään_.
+2. Valitse _CSC-kirjautuminen_.
+3. Napsauta _Unohditko salasanan?_
+4. Syötä CSC-käyttäjänimesi ja napsauta _Pyydä palautuslinkki_. Ohjeet lähetetään CSC-käyttäjätiliisi liitettyyn sähköpostiosoitteeseen.
 
-* Must contain at least 12 characters
-* Must contain at least one lowercase letter (a–z)
-* Must contain at least one uppercase letter (A–Z)
-* Must contain at least one number (0–9)
-* May contain special characters ( !#$%&()*+,-./:;=>?@[\\]^_{|}~)
-* Learn what makes a strong password and don't use weak passwords
-* Reusing the old password will not stop your account from expiring
-* Never use the same password on multiple sites
+## Salasanavaatimukset {#password-requirements}
+
+* On oltava vähintään 12 merkkiä pitkä
+* On sisällettävä vähintään yksi pieni kirjain (a–z)
+* On sisällettävä vähintään yksi iso kirjain (A–Z)
+* On sisällettävä vähintään yksi numero (0–9)
+* Voi sisältää erikoismerkkejä ( !#$%&()*+,-./:;=>?@[\\]^_{|}~)
+* Opi, mikä tekee vahvasta salasanasta äläkä käytä heikkoja salasanoja
+* Vanhan salasanan uudelleenkäyttö ei estä tiliäsi vanhenemasta
+* Älä koskaan käytä samaa salasanaa useilla sivustoilla

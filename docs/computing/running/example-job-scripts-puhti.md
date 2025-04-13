@@ -1,18 +1,15 @@
-# Example batch job scripts for Puhti
 
-Example batch job scripts for running different types of applications/programs
-on Puhti.
+# Esimerkki eräajojärjestelmistä Puhti {#example-batch-job-scripts-for-puhti}
+
+Esimerkki eräajojärjestelmistä erilaisten sovellusten/ohjelmien ajamiseen
+Puhtilla.
 
 [TOC]
 
-!!! info "Edit placeholders as needed"
-    When using these scripts, remember to change the resources (runtime, tasks,
-    etc.) to match your needs, and to replace `myprog <options>` with the
-    executable (and options) of the program you intend to run. Also, do not
-    forget to replace `<project>` with the name of your billing project (see
-    [MyCSC](https://my.csc.fi) or `csc-projects` command).
+!!! info "Muokkaa paikkamerkkejä tarvittaessa"
+    Kun käytät näitä skriptejä, muista muuttaa resurssit (ajoaika, tehtävät jne.) niin, että ne sopivat tarpeisiisi, ja korvaa `myprog <options>` suoritettavalla ohjelmalla (ja optioilla), jota aiot käyttää. Älä myöskään unohda korvata `<project>`-kohtaa laskutusprojektisi nimellä (katso [MyCSC](https://my.csc.fi) tai `csc-projects`-komennolla).
 
-## Serial
+## Sarja {#serial}
 
 ```bash
 #!/bin/bash
@@ -26,7 +23,7 @@ on Puhti.
 srun myprog <options>
 ```
 
-## OpenMP
+## OpenMP {#openmp}
 
 ```bash
 #!/bin/bash
@@ -38,13 +35,13 @@ srun myprog <options>
 #SBATCH --cpus-per-task=6
 #SBATCH --mem-per-cpu=4000
 
-# set the number of threads based on --cpus-per-task
+# aseta säikeiden määrä --cpus-per-task perusteella
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
 
-## MPI
+## MPI {#mpi}
 
 ```bash
 #!/bin/bash
@@ -58,7 +55,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## Large MPI
+## Suuri MPI {#large-mpi}
 
 ```bash
 #!/bin/bash
@@ -73,7 +70,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## MPI + OpenMP
+## MPI + OpenMP {#mpi-openmp}
 
 ```bash
 #!/bin/bash
@@ -85,13 +82,13 @@ srun myprog <options>
 #SBATCH --cpus-per-task=10
 #SBATCH --mem-per-cpu=4000
 
-# set the number of threads based on --cpus-per-task
+# aseta säikeiden määrä --cpus-per-task perusteella
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
 
-## Single GPU
+## Yksittäinen GPU {#single-gpu}
 
 ```bash
 #!/bin/bash
@@ -107,7 +104,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## Multiple GPUs
+## Useita GPU:ita {#multiple-gpus}
 
 ```bash
 #!/bin/bash
@@ -123,11 +120,11 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## Interactive with X11 graphics
- 
-Give this directly on the command-line instead of using a batch job script and
-`sbatch`. Note, as you may need to queue, it's convenient to ask for an email
-notification once the resources have been granted (`--mail-type=BEGIN`).
+## Interaktiivinen X11-grafiikalla {#interactive-with-x11-graphics}
+
+Anna tämä suoraan komennolla eikä käyttämällä eräajojärjestelmää tai
+`sbatch`ia. Huomaa, että sinun saattaa joutua jonottamaan, joten on kätevää
+pyytää sähköpostivahvistus resurssien myöntämisestä (`--mail-type=BEGIN`).
 
 ```bash
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
@@ -135,9 +132,9 @@ srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
      myprog
 ```
 
-See also [Interactive usage](interactive-usage.md).
+Katso myös [Interaktiivinen käyttö](interactive-usage.md).
 
-## Local storage
+## Paikallinen tallennustila {#local-storage}
 
 ```bash
 #!/bin/bash
@@ -149,16 +146,15 @@ See also [Interactive usage](interactive-usage.md).
 #SBATCH --mem-per-cpu=4000
 #SBATCH --gres=nvme:10
 
-# access the local storage using $LOCAL_SCRATCH environment variable, e.g.
+# käytä paikallista tallennustilaa muuttujan $LOCAL_SCRATCH avulla, esim.
 cd $LOCAL_SCRATCH
 
 srun myprog <options>
 
-# move important data to the directory from which the job was submitted, e.g.
+# siirrä tärkeät tiedot hakemistoon, josta työ lähetettiin, esim.
 mv mydata $SLURM_SUBMIT_DIR
 ```
 
-!!! warning "Remember to recover your data"
-    The local storage is purged after each batch job. Do not forget to move
-    the data you want to preserve from the local disk back to a shared disk
-    area (e.g. `/scratch`).
+!!! warning "Muista palauttaa tietosi"
+    Paikallinen tallennustila tyhjennetään jokaisen eräajon jälkeen. Älä unohda siirtää tietoja, jotka haluat säilyttää, paikalliselta levyltä takaisin jaettuun levyalustaan (esim. `/scratch`).
+

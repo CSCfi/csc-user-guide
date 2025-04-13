@@ -1,23 +1,21 @@
-# Technical details about Helmi
 
-## Architecture and Topology
+# Tekniset yksityiskohdat Helmistä
 
-Helmi is a 5-qubit quantum computer co-developed by VTT and IQM using superconducting qubits. 
-The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. 
-This means that any two-qubit gate will work between QB3 and any other qubit, 
-whereas one-qubit gates can be mapped to any of the 4 surrounding qubits. 
+## Arkkitehtuuri ja Topologia {#architecture-and-topology}
+
+Helmi on 5-kubit kvanttitietokone, jonka VTT ja IQM ovat kehittäneet yhdessä käyttäen suprajohtavia kubitteja. Kubitit on järjestetty **tähtimäiseen** topologiaan, jossa keskuskubitti Qubit 3 (QB3) on yhdistetty neljään muuhun kubittiin. Tämä tarkoittaa, että mikä tahansa kahden kubitin portti toimii QB3:n ja minkä tahansa muun kubitin välillä, kun taas yhden kubitin portit voidaan kohdistaa mihin tahansa ympäröivistä neljästä kubitista. 
 
 <p align="center">
-    <img src="../../../../img/helmi_mapping.png" alt="Helmi's node mapping">
+    <img src="../../../../img/helmi_mapping.png" alt="Helmin solmukartta">
 </p>
 
-### Native Gates
+### Alkuperäiset portit {#native-gates}
 
-Helmi's native gates are the two-qubit controlled-z gate and the one-qubit phased rx gate.
+Helmin alkuperäiset portit ovat kahden kubitin ohjattu-z-portti ja yhden kubitin vaiheittainen rx-portti.
 
-### Defining topology and gates in Qiskit and Cirq
+### Topologian ja porttien määrittely Qiskitissa ja Cirqissa {#defining-topology-and-gates-in-qiskit-and-cirq}
 
-The topology, supported instructions and backend specific metadata can be queried directly with [Qiskit on IQM](https://iqm-finland.github.io/qiskit-on-iqm/) or [Cirq on IQM](https://iqm-finland.github.io/cirq-on-iqm/). For example:
+Topologia, tuetut ohjeet ja backend-spesifiset metatiedot voidaan tiedustella suoraan [Qiskitilla IQM:llä](https://iqm-finland.github.io/qiskit-on-iqm/) tai [Cirqilla IQM:llä](https://iqm-finland.github.io/cirq-on-iqm/). Esimerkiksi:
 
 ```python
 # Qiskit
@@ -37,13 +35,8 @@ print(adonis.metadata.gateset)
 print(adonis.metadata.nx_graph)
 ```
 
+## Lisälukemista {#further-reading}
 
-## Further Reading
-
-* [Specific instructions for the LUMI Helmi partition](fiqci-partition.md)
-* [Qiskit adapter for IQM devices](https://iqm-finland.github.io/qiskit-on-iqm/)
-* [Cirq adapter for IQM devices](https://iqm-finland.github.io/cirq-on-iqm/)
-
-
-
-
+* [Erityiset ohjeet LUMI Helmi -osiolle](fiqci-partition.md)
+* [Qiskit-sovitin IQM-laitteille](https://iqm-finland.github.io/qiskit-on-iqm/)
+* [Cirq-sovitin IQM-laitteille](https://iqm-finland.github.io/cirq-on-iqm/)

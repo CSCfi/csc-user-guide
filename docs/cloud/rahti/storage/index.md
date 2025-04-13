@@ -1,40 +1,39 @@
-# Storage in Rahti
+# Tallennus Rahtissa {#storage-in-rahti}
 
-This article introduces the storage options available in CSC's Rahti environment. Using the storage requires an account, a CSC project, a Rahti Project, and at least a Pod. In Rahti a project is a Kubernetes namespace with additional annotations.
+Tässä artikkelissa esitellään CSC:n Rahti-ympäristön tarjoamat tallennusvaihtoehdot. Tallennuksen käyttö edellyttää tiliä, CSC-projektia, Rahti-projektia ja vähintään yhtä Podeja. Rahtissa projekti on Kubernetes-nimiavaruus lisämerkinnöillä.
 
-One of the pillars of Docker is the immutability of images, once they are built, docker images never change. The issue for most of the applications is that it is necessary to store, update and later retrieve application data. In docker, this is solved by the concept of volumes, an external filesystem (to docker) that is mounted in the internal filesystem of a container. In Kubernetes, and by extension OpenShift, this problem can be solved in several ways.
+Yksi Dockerin perusperiaatteista on kuvausten muuttumattomuus; kerran luodut docker-kuvat eivät muutu. Useimmille sovelluksille tarvitaan kuitenkin tapa tallentaa, päivittää ja myöhemmin hakea sovellustietoja. Dockerissa tämä ratkaistaan volyymien konseptilla, ulkoinen tiedostojärjestelmä (dockerille), joka liitetään kontin sisäiseen tiedostojärjestelmään. Kubernetesissa, ja laajennettuna OpenShiftissa, tämä ongelma voidaan ratkaista useilla tavoilla.
 
-![Storage options](../../img/storage-options.drawio.svg)
+![Tallennusvaihtoehdot](../../img/storage-options.drawio.svg)
 
-## Persistent storage
+## Pysyvä säilytys {#persistent-storage}
 
-The solution more similar to Docker volumes is a [Persistent volume](persistent.md). This is a volume located in an external storage, that is mounted directly into the filesystem of the container like an additional hard disk would. This is the best solution for a seamless storage solution. You can also unmount it from the Pods it is attached to and attach it to another set of Pods. Moreover, persistent volumes represent a reliable storage option as the data in them is replicated.
+Ratkaisu, joka on samanlainen kuin Dockerin volyymit, on [Pysyvä volyymi](persistent.md). Tämä on volume, joka sijaitsee ulkoisessa tallennuksessa ja liitetään suoraan kontin tiedostojärjestelmään kuten lisäkiintolevy. Tämä on paras ratkaisu saumattomaan tallennusratkaisuun. Voit myös irrottaa sen Podeista, joihin se on liitetty, ja liittää sen toiseen Podi-sarjaan. Lisäksi pysyvät volyymit edustavat luotettavaa tallennusvaihtoehtoa, koska niiden tiedot on replikoitu.
 
-You can find additional information on the [Persistent volume](persistent.md) page.
+Lisätietoja löytyy [Pysyvän volyymin](persistent.md) sivulta.
 
-## Ephemeral storage
+## Lyhytkestoinen säilytys {#ephemeral-storage}
 
-Other solution is to use ephemeral storage, called in Kubernetes an _Empty dir_. This is only meant for storing intermediate or temporal data, that needs fast read write access by the applications running inside the containers. The same _Empty dir_ can be mounted in every container inside a Pod. The data in the ephemeral storage is lost when the Pod is deleted. Given that the data in the ephemeral you should not store any persistent data there, and the ephemeral storage should not be considered reliable.
+Toinen ratkaisu on käyttää lyhytkestoista tallennusta, joka Kubernetesissa tunnetaan _Empty dir_ nimisenä. Tämä on tarkoitettu vain väliaikaisten tai tilapäisten tietojen tallentamiseen, joihin sovellusten tarvitsee nopeaa luku- ja kirjoitusoikeutta säiliöissä. Sama _Empty dir_ voidaan liittää jokaiseen kontin sisällä olevaan Podiin. Tiedot lyhytkestoisessa tallennuksessa menetetään, kun Podi poistetaan. Koska lyhytkestoisissa tallennuksissa tietoja ei pitäisi säilyttää pysyvästi, sitä ei tulisi pitää luotettavana.
 
-You can find additional information on the [Ephemeral storage](ephemeral.md) page.
+Lisätietoja löytyy [Lyhytkestoisen säilytyksen](ephemeral.md) sivulta.
 
-## Object storage
+## Objektien tallennus {#object-storage}
 
-In case you need to store large volumes of data, or you need that your data can be easily accessed over the Internet, e.g., using URLs, object storage is the storage solution you are looking for. By using object storage, you are free to create and delete your Pods as the object storage is not tied to any Pod. Moreover, your data is replicated, thus object storage represents a reliable long-term storage option.
+Jos sinun täytyy tallentaa suuria tietomääriä tai haluat, että tietosi ovat helposti saatavilla Internetin kautta, esimerkiksi URL-osoitteiden avulla, objektien tallennus on etsimäsi tallennusratkaisu. Objektien tallennusta käytettäessä voit vapaasti luoda ja poistaa Podejasi, koska objektien tallennus ei ole sidottu mihinkään Pod-malliin. Lisäksi tietosi on replikoitu, joten objektien tallennus edustaa luotettavaa pitkäaikaista tallennusratkaisua.
 
-At CSC, we offer Allas as our object storage solution. You can find additional information on the [Allas page](../../../data/Allas/index.md).
+CSC:llä tarjoamme Allas-nimistä objektien tallennusratkaisua. Lisätietoja on saatavilla [Allas-sivulla](../../../data/Allas/index.md).
 
-You can find additional examples on how to backup to Allas [here](objectstorage.md).
+Esimerkkejä Allakselle varmuuskopioinnista löytyy [täältä](objectstorage.md).
 
-## Volume snapshots
+## Volyymien tilannekuvat {#volume-snapshots}
 
-A snapshot represents the state of the storage volume within a cluster at a specific point in time. Volume snapshots can be used to provision a new volume and help protect against data loss in OKD. Rahti support Container Storage Interface (CSI) volume snapshots by default and the default volume snapshot class name is standard-csi.
+Tilannekuva edustaa tallennettavan volyymin tilaa klusterissa tiettynä ajankohtana. Volyymien tilannekuvia voidaan käyttää uuden volyymin provisiointiin ja auttavat suojaamaan tietojen häviämiseltä OKD:ssa. Rahti tukee Container Storage Interface (CSI) volyymien tilannekuvia oletuksena, ja oletus volyymin tilannekuvan luokan nimi on standard-csi.
 
-With CSI volume snapshots, an app developer can:
+CSI volyymien tilannekuvien avulla sovelluskehittäjä voi:
 
-- Use volume snapshots as building blocks for developing application-level or cluster-level storage backup solutions.
-- Rapidly rollback to a previous development version during development.
-- Use storage more efficiently by avoiding the need to create a full copy each time.
+- Käyttää volyymitilannekuvia sovellustason tai klusteritason tallennuksen varmuuskopiointiratkaisujen kehittämiseen.
+- Palauttaa nopeasti aiempaan kehitysversioon kehityksen aikana.
+- Käyttää tallennusta tehokkaammin välttämällä tarpeen luoda täydellistä kopiota joka kerta.
 
-You can find additional information on the [Volume snapshot](volume-snapshot.md) page.
-
+Lisätietoja löytyy [Volyymien tilannekuvan](volume-snapshot.md) sivulta.

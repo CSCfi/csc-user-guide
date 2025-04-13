@@ -1,36 +1,33 @@
-# Start here: Accessing secondary use health or social data via Sensitive Data services 
 
-## CSC project enables service usage
+# Aloita tästä: Toissijaisen käytön terveys- tai sosiaalidatan käyttö Sensitive Data -palveluiden kautta
 
-Using CSC services is based on CSC projects managed in MyCSC customer portal. Every CSC project has a primary user i.e. **project manager** who creates the project and manages its resources and lifetime. A project manager is usually the leader of the research team. He also acts as a contact person between CSC and the research team. When a project processes dataset for which a permit has been granted by Findata or a single register, CSC adds project members and activates the SD Desktop service.
+## CSC-projekti mahdollistaa palvelun käytön {#csc-project-enables-service-usage}
 
+CSC-palveluiden käyttö perustuu CSC-projekteihin, joita hallinnoidaan MyCSC-asiakasportaalissa. Jokaisella CSC-projektilla on ensisijainen käyttäjä eli **projektipäällikkö**, joka luo projektin ja hallinnoi sen resursseja ja elinkaarta. Projektipäällikkö on yleensä tutkimusryhmän johtaja. Hän toimii myös yhteyshenkilönä CSC:n ja tutkimusryhmän välillä. Kun projekti käsittelee datasettiä, johon Findata tai yksittäinen rekisteri on myöntänyt luvan, CSC lisää projektin jäseniä ja aktivoi SD Desktop -palvelun.
 
-### 1. Test regular SD Desktop 
+### 1. Testaa tavallinen SD Desktop {#test-regular-sd-desktop}
 
-You can create a test project and test regular SD Desktop independently to make sure that SD Desktop is suitable for your needs. [Instructions how to access regular SD Desktop](sd-use-case-new-user-project-manager.md). 
+Voit luoda testiprojektin ja testata tavallista SD Desktop -ympäristöä itsenäisesti varmistaaksesi, että SD Desktop sopii tarpeisiisi. [Ohjeet tavalliseen SD Desktop -ympäristöön pääsystä](sd-use-case-new-user-project-manager.md).
 
-If you need software that is not available on the SD Desktop by default, please contact [Service Desk](../../support/contact.md) (*Subject: Sensitive Data, Secondary use*) well in advance - even before applying for a data permit.
+Jos tarvitset ohjelmistoa, joka ei ole oletuksena saatavilla SD Desktopissa, ota yhteyttä [Service Deskiin](../../support/contact.md) (*Aihe: Sensitive Data, Secondary use*) hyvissä ajoin - jopa ennen dataluvan hakemista.
 
-!!! Note
-    * [SD Connect](sd_connect.md), a service used for storing sensitive research data, is **not accessible for registry data processing**. It is not possible to directly import any additional data, script, or software into the virtual desktop. 
+!!! Huomio
+    * [SD Connect](sd_connect.md), palvelu jota käytetään arkaluontoisen tutkimusdatan tallentamiseen, on **ei käytettävissä rekisteridatan käsittelyyn**. Virtuaalisessa työpöydässä ei ole mahdollista tuoda suoraan mitään lisädataa, skriptejä tai ohjelmistoja.
 
+### 2. Hae lupaa {#apply-for-permit}
 
+#### Findata-luvan hakeminen {#applying-for-findata-permit}
 
-### 2. Apply for permit 
+Pääsy toissijaiseen käyttöön tarkoitettuun terveys- tai sosiaalidataan julkisista rekistereistä vaatii luvan **Findata**-viranomaiselta. Ohjeet dataluvan hakemiseen löydät [Findatan verkkosivuilta](https://findata.fi/en/permits/){ target="_blank" }.
 
-#### Applying for Findata permit
+Luvan saamisen jälkeen voit aloittaa palveluiden käyttöönoton prosessin CSC:n kanssa. Seuraavaksi käymme läpi vaiheet, jotka tulee suorittaa datasetin käyttämiseksi SD Desktopissa:
 
-Accessing secondary use health or social data from public registries requires a permit from the **Findata** authority. Instructions for applying for the data permit can be found on [Findata's website](https://findata.fi/en/permits/){ target="_blank" }.
+[Askeltarkka opas Findatan datasetin käyttämiseen SD Desktopissa](findata-permit.md)
 
-After acquiring the permit, you can start the service access process with CSC. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop:
+#### Yksittäisen rekisteriluvan hakeminen {#applying-single-register-permit}
 
-[Step by step tutorial for accessing datasets from Findata on SD Desktop](findata-permit.md)
+Pääsy toissijaiseen käyttöön tarkoitettuun terveys- tai sosiaalidataan yksittäisistä rekistereistä vaatii luvan kyseiseltä rekisteriltä. Voit saada lisää tietoa rekistereiltä.
 
-#### Applying single register permit
+Luvan saamisen jälkeen voit aloittaa palveluiden käyttöönoton prosessin CSC:n kanssa. Tämä prosessi eroaa hieman Findata-luvan prosessista. Seuraavaksi käymme läpi vaiheet, jotka tulee suorittaa datasetin käyttämiseksi SD Desktopissa:
 
-Accessing secondary use health or social data from single registries requires a permit from the register in question. You can get more information from registers.
-
-After acquiring the permit, you can start the service access process with CSC. This process differs slightly from access process with Findata permit. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop:
-
-[Step by step tutorial for accessing datasets from single register on SD Desktop](single-register-permit.md)
-
+[Askeltarkka opas datasetin käyttämiseen yksittäisestä rekisteristä SD Desktopissa](single-register-permit.md)

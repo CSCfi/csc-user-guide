@@ -1,11 +1,8 @@
-# I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?
 
-Yes, you can. Doing this is actually mandatory so that the user statistics will
-go right, and so that your account will not be closed when your old email
-address expires.
+# Olen siirtynyt uuteen yliopistoon/organisaatioon. Voinko säilyttää nykyisen käyttäjätilini ja liittyä johonkin uuteen projektiin uuden organisaation alla? {#i-have-moved-to-a-new-university-organization-can-i-keep-my-present-user-account-and-join-it-to-some-new-project-under-the-new-organization}
 
-[Please contact CSC Service Desk](../contact.md), and we will update your
-organization for you. After this, you may
-[apply for a new project](../../accounts/how-to-create-new-project.md), or your
-project manager in the new organization can
-[add you to the relevant project(s)](../../accounts/how-to-add-members-to-project.md).
+Kyllä, voit. Tämän tekeminen on itse asiassa pakollista, jotta käyttäjätilastot menevät oikein, eikä tiliäsi suljeta, kun vanha sähköpostisi vanhenee.
+
+[Ota yhteyttä CSC Service Deskiin](../contact.md), ja me päivitämme organisaatiosi puolestasi. Tämän jälkeen voit
+[hakea uutta projektia](../../accounts/how-to-create-new-project.md), tai uuden organisaation projektipäällikkö voi
+[lisätä sinut asiaankuuluvaan projektiin/projekteihin](../../accounts/how-to-add-members-to-project.md).

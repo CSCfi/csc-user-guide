@@ -1,101 +1,103 @@
-# Tutorials
 
-## General
+# Opetusohjelmat {#tutorials}
 
-* [Getting started with supercomputing at CSC](hpc-quick.md)
-* [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
-* [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
-* [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
-* [Linux basics for CSC](env-guide/index.md)
-* [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
-* [Using csc-env command](using_csc_env.md)
-* [Developing scripts remotely](remote-dev.md)
-* [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
-* [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
-* [Getting disk usage using Lue](lue.md)
-* [Running Julia jobs on Puhti and Mahti clusters](julia.md)
-* [Using Python on CSC supercomputers](python-usage-guide.md)
-* [Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+## Yleiset {#general}
 
-## Installation of tools on supercomputers
+* [Superlaskennan aloittaminen CSC:llä](hpc-quick.md)
+* [Helmiin tutustuminen](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
+* [Datan hallinta Puhti- ja Mahti-työlevyillä](clean-up-data.md)
+* [CSC pikaopas (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
+* [Linuxin perusteet CSC:lle](env-guide/index.md)
+* [Interaktiivinen ja erätöiden käytännön harjoittelu Puhtissa](cmdline-handson.md)
+* [csc-env-komennon käyttö](using_csc_env.md)
+* [Skriptaaminen etänä](remote-dev.md)
+* [CSC:n HPC-ympäristön tehokas käyttö](https://csc-training.github.io/csc-env-eff/)
+* [Konttien ajo Puhdissa](../../computing/containers/run-existing.md)
+* [Levytilan käyttö Lue-työkalulla](lue.md)
+* [Julia-töiden suorittaminen Puhti- ja Mahti-klustereilla](julia.md)
+* [Pythonin käyttö CSC:n supertietokoneilla](python-usage-guide.md)
+* [SSH-avainten asettaminen CSC:llä](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
 
-* [Installing software with Spack](user-spack.md)
-* [Building Singularity containers from scratch](singularity-scratch.md)
-* [Conda best practices](conda.md)
+## Työkalujen asentaminen supertietokoneille {#installation-of-tools-on-supercomputers}
 
-## Performance and high-throughput workflows
+* [Ohjelmiston asentaminen Spackilla](user-spack.md)
+* [Singularity-konttien rakentaminen tyhjästä](singularity-scratch.md)
+* [Conda parhaat käytännöt](conda.md)
 
-* [General high-throughput guidelines](../../computing/running/throughput.md)
-* [Optimising parallel I/O](lustre_performance.md)
-* [Dask & parallel Python](dask-python.md)
-* [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
-* [FireWorks workflow manager](../../computing/running/fireworks.md)
-* [How to run many short jobs with GNU Parallel](many.md)
-* [Running Nextflow pipelines](nextflow-tutorial.md)
-* [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
+## Suorituskyky ja korkean läpäisyn työnkulut {#performance-and-high-throughput-workflows}
 
-## Allas
+* [Yleiset korkean läpäisyn ohjeet](../../computing/running/throughput.md)
+* [Rinnakkaisen I/O:n optimointi](lustre_performance.md)
+* [Dask & rinnakkainen Python](dask-python.md)
+* [HyperQueue meta-ajoitus](../../apps/hyperqueue.md)
+* [FireWorks työnkulkumalli](../../computing/running/fireworks.md)
+* [Kuinka ajaa monia lyhyitä tehtäviä GNU Parallelilla](many.md)
+* [Nextflow-putkistojen suorittaminen](nextflow-tutorial.md)
+* [Snakemake-putkistojen ajaminen Puhdissa](snakemake-puhti.md)
 
-* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
-* [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
-* [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
-* [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
-* [Using Allas from LUMI supercomputer](../../data/Allas/allas_lumi.md)
+## Allas {#allas}
 
-## Bioinformatics
+* [Allaksen käyttö interaktiivisesti Puhdissa ja Mahtissa](../../data/Allas/allas-examples.md)
+* [Allaksen käyttö erätöissä](../../data/Allas/allas_batchjobs.md)
+* [Allas datasetin isännöiminen tutkimusprojektille](../../data/Allas/allas_project_example.md)
+* [Työkalut asiakaspuolen salaukseen Allakselle](../../data/Allas/allas_encryption.md)
+* [Allaksen käyttö LUMI-supertietokoneelta](../../data/Allas/allas_lumi.md)
 
-* [Installing packages from Bioconda using Tykky](bioconda-tutorial.md)
-* [Singularity applications on Puhti](bioapplications-puhti.md)
-* [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
-* [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
-* [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
-* [Running your first job on Puhti](biojobs-on-puhti.md)
+## Bioinformatiikka {#bioinformatics}
 
-## Chemistry
+* [Pakettien asentaminen Biocondasta Tykkyllä](bioconda-tutorial.md)
+* [Singularityn sovellukset Puhdissa](bioapplications-puhti.md)
+* [MaxQuantin suorittaminen Puhdissa](MaxQuant-tutorial.md)
+* [Schrödinger Maestro Puhti edistynyt opetusohjelma](power-maestro.md)
+* [Schrödingerin GPU-tehostettu Molport-tietokannan seulonta](gpu-shape.md)
+* [Ensimmäisen työsi ajaminen Puhdissa](biojobs-on-puhti.md)
 
-* [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
-* [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
-* [High-throughput computing with GROMACS](gromacs-throughput.md)
-* [Spring School on Computational Chemistry](https://zenodo.org/records/11172973)
+## Kemia {#chemistry}
 
-## Data analysis and machine learning
+* [Kvanttikemian töiden viljely HyperQueue:lla](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
+* [Gabeditin käyttö Gaussian-töille Puhdissa](gabedit_gaussian.md)
+* [Korkean läpäisyn laskenta GROMACS:lla](gromacs-throughput.md)
+* [Laskennallisen kemian kevätkoulu](https://zenodo.org/records/11172973)
 
-* [Data analysis guide](da-guide.md)
-* [Machine learning guide](ml-guide.md)
-* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
-* [Starting with parallel R](parallel-r.md)
+## Datanalyysi ja koneoppiminen {#data-analysis-and-machine-learning}
 
-## Geoinformatics
+* [Datanalyysiopas](da-guide.md)
+* [Koneoppimisopas](ml-guide.md)
+* [RStudion tai Jupyter-muistikirjojen käyttö Puhdissa](rstudio-or-jupyter-notebooks.md)
+* [Parallel R:n aloittaminen](parallel-r.md)
 
-* [Introduction to geocomputing in CSC computing environment](https://research.csc.fi/geocomputing)
-* [Earth Observation (EO) guide](gis/eo_guide.md)
-* [Using geospatial files directly from cloud, inc Allas](gis/gdal_cloud.md)
-* [GDAL tutorial](gis/gdal.md)
-* [Virtual rasters](gis/virtual-rasters.md)
-* For software specific tutorials and examples, see [the respective software pages](../../apps/by_discipline.md#geosciences)
+## Geoinformatiikka {#geoinformatics}
 
-## Pouta - cloud
+* [Johdatus geolaskentaan CSC:n laskentaympäristössä](https://research.csc.fi/geocomputing)
+* [Earth Observation (EO) opas](gis/eo_guide.md)
+* [Geospatiaalisten tiedostojen käyttö pilvestä, mukaan lukien Allas](gis/gdal_cloud.md)
+* [GDAL opetusohjelma](gis/gdal.md)
+* [Virtuaaliset rasterit](gis/virtual-rasters.md)
+* Ohjelmakohtaiset opetusohjelmat ja esimerkit löydät [vastaavilta ohjelmistosivuilta](../../apps/by_discipline.md#geosciences)
 
-You can find Pouta tutorials in [Cloud Services > Pouta > Tutorials](../../cloud/pouta/tutorials/index.md)
+## Pouta - pilvipalvelu {#pouta-cloud}
 
-## Pukki - database cloud
+Poutan opetusohjelmat löydät kohdasta [Pilvipalvelut > Pouta > Opetusohjelmat](../../cloud/pouta/tutorials/index.md)
 
-* [How to migrate a PostgreSQL database to Pukki](./pukki_data_migration.md)
+## Pukki - tietokantapilvi {#pukki-database-cloud}
 
-## Rahti - container cloud
+* [PostgreSQL-tietokannan siirtäminen Pukkiin](./pukki_data_migration.md)
 
-You can find Rahti tutorials in [Cloud Services > Rahti > Tutorials](../../cloud/rahti/tutorials/index.md)
+## Rahti - konttipilvi {#rahti-container-cloud}
 
-## Sensitive Data
+Rahtin opetusohjelmat löydät kohdasta [Pilvipalvelut > Rahti > Opetusohjelmat](../../cloud/rahti/tutorials/index.md)
 
-* [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
-* [Running temporary PostgreSQL database in SD Desktop](../../data/sensitive-data/tutorials/postgresql.md)
+## Herkät tiedot {#sensitive-data}
 
-## Visualisation
+* [Herkän datan kuljettaminen Allaksella](../../data/sensitive-data/sequencing_center_tutorial.md)
+* [Tilapäisen PostgreSQL-tietokannan ajaminen SD Desktopissa](../../data/sensitive-data/tutorials/postgresql.md)
 
-* [Blender tutorial](blender-tutorial.md)
+## Visualisointi {#visualisation}
 
-## CSC Resources for Courses
+* [Blenderin opetusohjelma](blender-tutorial.md)
 
-* [A Puhti webinterface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
-* [Noppe environment for creating custom notebooks](../../cloud/noppe/guide_for_teachers.md#creating-custom-docker-images)
+## CSC Resurssit Kursseille {#csc-resources-for-courses}
+
+* [Puhti-verkkoliittymädemo kurssinjärjestäjille](https://github.com/CSCfi/Jupyter_www_puhti)
+* [Noppe-ympäristö mukautettujen muistikirjojen luomiseen](../../cloud/noppe/guide_for_teachers.md#creating-custom-docker-images)
+

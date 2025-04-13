@@ -1,64 +1,66 @@
+
 ---
 template: home.html
 ---
 
 <div class="grid cards csc-quick-links csc-quick-links--landing" markdown>
 
-- ## Overview
+- ## Yleiskatsaus {#overview}
 
     ---
 
-    Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials/index.md) related to CSC services.
+    Docs CSC sisältää käyttäjäoppaita, [FAQ:t](support/faq/index.md) ja [opetusohjelmat](support/tutorials/index.md) liittyen CSC-palveluihin.
 
-    * In order to navigate across the CSC user guide, click on the topics on the left hand side of the navigation bar
-    * Or use the search functionality
+    * Navigoidaksesi CSC:n käyttäjäoppaan kautta, klikkaa navigointipalkin vasemmalla puolella olevia aiheita
+    * Tai käytä hakutoimintoa
 
-- ## Getting started
-
-    ---
-
-    [CSC Accounts and Projects :material-arrow-right:](accounts/index.md)
-
-    [Getting started with supercomputing :material-arrow-right:](support/tutorials/hpc-quick.md)
-
-    [Puhti and Mahti Overview :material-arrow-right:](computing/index.md)
-
-    [Getting started with LUMI :material-open-in-new:](https://docs.lumi-supercomputer.eu/firststeps/getstarted/){ target=_blank }
-
-    [How to get support :material-arrow-right:](support/contact.md)
-
-- ## User guides
+- ## Aloittaminen {#getting-started}
 
     ---
 
-    [Quantum Computing Guide :material-arrow-right:](computing/quantum-computing/overview.md)
+    [CSC-tunnukset ja -projektit :material-arrow-right:](accounts/index.md)
 
-    [LUMI User Guide :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
+    [Aloittaminen suurteholaskennan kanssa :material-arrow-right:](support/tutorials/hpc-quick.md)
 
-    [Allas User Guide :material-arrow-right:](data/Allas/index.md)
+    [Puhti ja Mahti Yleiskatsaus :material-arrow-right:](computing/index.md)
 
-    [Machine Learning Guide :material-arrow-right:](support/tutorials/ml-guide.md)
+    [Aloittaminen LUMI:n kanssa :material-open-in-new:](https://docs.lumi-supercomputer.eu/firststeps/getstarted/){ target=_blank }
 
-    [Sensitive Data Services Guide :material-arrow-right:](data/sensitive-data/index.md)
+    [Kuinka saada tukea :material-arrow-right:](support/contact.md)
 
-    [Fairdata Services Guides :material-open-in-new:](https://www.fairdata.fi/en/fairdata-quick-guide/){ target=_blank }
-
-- ## Tutorials & courses
+- ## Käyttäjäoppaat {#user-guides}
 
     ---
 
-    [CSC Computing Environment :material-open-in-new:](https://csc-training.github.io/csc-env-eff/){ target=_blank }
+    [Kvanttilaskennan opas :material-arrow-right:](computing/quantum-computing/overview.md)
 
-    [Elements of Supercomputing :material-open-in-new:](https://edukamu.fi/elements-of-supercomputing/){ target=_blank }
+    [LUMI-käyttäjäopas :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
 
-    [Linux basics for CSC :material-arrow-right:](support/tutorials/env-guide/index.md)
+    [Allas-käyttäjäopas :material-arrow-right:](data/Allas/index.md)
 
-    [Managing data on scratch :material-arrow-right:](support/tutorials/clean-up-data.md)
+    [Koneoppimisen opas :material-arrow-right:](support/tutorials/ml-guide.md)
 
-    [High-throughput computing :material-arrow-right:](computing/running/throughput.md)
+    [Arkaluonteisten tietojen palveluiden opas :material-arrow-right:](data/sensitive-data/index.md)
+
+    [Fairdata-palveluiden oppaat :material-open-in-new:](https://www.fairdata.fi/en/fairdata-quick-guide/){ target=_blank }
+
+- ## Opetusohjelmat ja kurssit {#tutorials-courses}
+
+    ---
+
+    [CSC:n laskentaympäristö :material-open-in-new:](https://csc-training.github.io/csc-env-eff/){ target=_blank }
+
+    [Suurteholaskennan elementit :material-open-in-new:](https://edukamu.fi/elements-of-supercomputing/){ target=_blank }
+
+    [Linuxin perusteet CSC:lle :material-arrow-right:](support/tutorials/env-guide/index.md)
+
+    [Tietojen hallinta raakatilassa :material-arrow-right:](support/tutorials/clean-up-data.md)
+
+    [Suurnopeuslaskenta :material-arrow-right:](computing/running/throughput.md)
 
 </div>
 
-## What's new
+## Mitä uutta {#whats-new}
 
-<!-- Content will be generated here, do not EDIT manually -->  
+<!-- Content will be generated here, do not EDIT manually -->
+

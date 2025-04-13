@@ -1,19 +1,38 @@
-This tutorial page  provides step-by-step instructions on how to run Singularity containers of selected bio-applications in Puhti supercomputer. The selected examples shown below would serve as recipe for building your own customised singularity jobs.  
+TÄRKEITÄ OHJEITA SISÄISTEN LINKKIEN SÄILYTTÄMISESTÄ:
+1. Dokumentin otsikoiden linkkien on toimittava myös käännettyinä
+2. Jokaiselle käännetylle otsikolle lisätään alkuperäinen englanninkielinen otsikko ankkuriksi
+3. Esimerkki:
+   Alkuperäinen: ## Installation Guide
+   Käännetty: ## Asennusopas {#installation-guide}
+4. ID-muodon tulisi olla alkuperäisen englanninkielisen otsikon pieniä kirjaimia, ja välilyönnit korvataan yhdysmerkeillä
+5. Huomaa, että ei tulisi koskaan olla kahta yhdysmerkkiä peräkkäin, esim. otsikko "A & B" on ankkurina englanniksi A-B (ei A--B, vaikka olisi kaksi välilyöntiä).
 
-   - [DeepVariant pipeline](#deepvariant-pipeline)
-   - ...
+Lisäohjeet:
+4. Säilytä kaikki Markdown-muotoilu ja -rakenne
+5. Säilytä kaikki linkit ja niiden URL-osoitteet
+6. Jätä koodilohkot ja niiden sisältö kääntämättä
+7. Säilytä kaikki HTML-tagit ja niiden attribuutit
+8. Älä käännä muuttujanimiä tai koodinpätkiä
+9. Älä käännä kuvatiedostojen nimiä tai polkuja
 
-### DeepVariant pipeline  ###
+Tässä sisältö käännettäväksi:
 
-DeepVariant pipeline (Poplin et al., Nature biotechnology, 2018) is used  to perform variant calling on WGS and WES data sets. More information about the deepvariant programmes can be found [here](https://github.com/google/deepvariant) 
+Tämä opetusosio tarjoaa vaiheittaiset ohjeet tiettyjen bio-sovellusten Singularity-konttien suorittamiseen Puhti-supertietokoneessa. Alla esitetyt valitut esimerkit toimivat reseptinä, josta voit rakentaa oman mukautetun singularity-työn.
 
-One needs to get DeepVariant docker image, models and test data in order to run the pipeline. Additionally, other prerequisites for running deepvariant method includes 1) obtaining a reference genome in [FASTA](https://en.wikipedia.org/wiki/FASTA_format) format and its corresponding index file (.fai). 2) An aligned reads file in [BAM](http://genome.sph.umich.edu/wiki/BAM) format and its corresponding index file (.bai).
+- [DeepVariant-pipeline](#deepvariant-pipeline)
+- ...
 
-#### Convert docker image into Singularity image on your local machine ####
+### DeepVariant-pipeline {#deepvariant-pipeline} ###
 
-One way to build a Singularity image is to download the deepvariant docker image to local registry and then convert it to singularity one to avoid any possible erros with docker images pulled directly with singularity build command from google registry. Please note that one has to do these image conversions in your local machine or virtual machine in cPouta as Puhti does not grant root access to users.
+DeepVariant-pipeline (Poplin et al., Nature biotechnology, 2018) käytetään varianttihauille WGS- ja WES-datasetissä. Lisätietoa deepvariant-ohjelmista löytyy [täältä](https://github.com/google/deepvariant)
 
-Pull DeepVariant image and push it into local registry as below:
+Pipelinea suorittaakseen tarvitsee DeepVariant Docker-kuvan, mallit ja testidatan. Lisäksi muitakin edellytyksiä deepvariant-menetelmän suorittamiseen ovat 1) referenssigenomin hankkiminen [FASTA](https://en.wikipedia.org/wiki/FASTA_format)-muodossa ja sen vastaava indeksitiedosto (.fai). 2) Kohdistettujen lukematiedostojen saaminen [BAM](http://genome.sph.umich.edu/wiki/BAM)-muodossa ja sen vastaava indeksitiedosto (.bai).
+
+#### Muunna Docker-kuva Singularity-kuvaan omalla tietokoneellasi {#muunna-docker-kuva-singularity-kuvaan-omalla-tietokoneellasi} ####
+
+Yksi tapa rakentaa Singularity-kuva on ladata deepvariant Docker-kuva paikalliseen rekisteriin ja sitten muuntaa se singularity-kuvaksi välttääkseen mahdolliset virheet Docker-kuvia suoraan Googlen rekisteristä singularity build -komennolla vedettäessä. Huomaa, että nämä kuvamuunnokset täytyy tehdä omalla tietokoneellasi tai virtuaalikoneella cPoutassa, sillä Puhti ei myönnä käyttäjille juuripääsyä.
+
+Vedä DeepVariant-kuva ja puske se paikalliseen rekisteriin seuraavasti:
 
 ```
 sudo docker pull gcr.io/deepvariant-docker/deepvariant:0.8.0
@@ -22,7 +41,7 @@ sudo docker run -d -p 5000:5000 --restart=always --name registry registry:2
 sudo docker push localhost:5000/deepvariant:latest
 ```
 
-then create a definition file (deffile) as follows:
+luo sitten määrittelytiedosto (deffile) seuraavasti:
 
 ```
 Bootstrap: docker
@@ -30,19 +49,18 @@ Registry: http://localhost:5000
 Namespace:
 From:deepvariant:latest
 ```
-and finally create a Singularity image as below:
+ja lopuksi luo Singularity-kuva seuraavasti:
 
 ```
-sudo SINGULARITY_NOHTTPS=1 singularity build deepvariant.simg  deffile
+sudo SINGULARITY_NOHTTPS=1 singularity build deepvariant.simg deffile
 ```
-Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's [Allas](../../data/Allas/index.md) object storage as below:
+Vaihtoehtoisesti voit ladata valmiiksi muunnettuja singularity-kuvia (sekä CPU- että GPU-versiot) yhdessä testidatan kanssa CSC:n [Allas](../../data/Allas/index.md) objektitallennustilasta seuraavasti:
 
 ```
 wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip
 ```
 
-
-### Prepare a batch script to run deepvariant pipeline on Puhti (file: deepvariant_puhti.sh)
+### Valmistele eräsarja-ajotiedosto suorittamaan deepvariant-pipeline Puhtissa (tiedosto: deepvariant_puhti.sh) {#valmistele-eräsarja-ajotiedosto-suorittamaan-deepvariant-pipeline-puhtissa} ###
 
 ```
 #!/bin/bash
@@ -52,24 +70,24 @@ wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip
 
 export TMPDIR=$PWD 
 
-singularity -s exec -B $PWD:/data  \
+singularity -s exec -B $PWD:/data \
 deepvariant.simg \
 /opt/deepvariant/bin/run_deepvariant \
 --model_type=WGS \
 --ref=/data/testdata/ucsc.hg19.chr20.unittest.fasta \
 --reads=/data/testdata/NA12878_S1.chr20.10_10p1mb.bam \
 --regions "chr20:10,000,000-10,010,000" \
---output_vcf=output.vcf.gz  \
+--output_vcf=output.vcf.gz \
 --output_gvcf=output.g.vcf.gz
 ```
 
-### Submit job using sbatch command
+### Luo työtehtävä käyttäen sbatch-komentoa {#luo-työtehtävä-käyttäen-sbatch-komentoa} ###
 
 ```
-sbatch  deepvariant_puhti.sh
+sbatch deepvariant_puhti.sh
 ```
 
-Please **note** that one can use gpu version of deepvariant with the following sbatch script 
+Huomaa, että voit käyttää deepvariantin GPU-versiota seuraavalla sbatch-skriptillä
 
 ```
 #!/bin/bash
@@ -85,40 +103,40 @@ deepvariant_gpu.simg \
 /opt/deepvariant/bin/run_deepvariant \
 --model_type=WGS \
 --ref=/data/testdata/ucsc.hg19.chr20.unittest.fasta \
---reads=/data/testdata/NA12878_S1.chr20.10_10p1mb.bam  \
+--reads=/data/testdata/NA12878_S1.chr20.10_10p1mb.bam \
 --regions "chr20:10,000,000-10,010,000" \
---output_vcf=output.vcf.gz  \
+--output_vcf=output.vcf.gz \
 --output_gvcf=output.g.vcf.gz
 ```
-### Deepvariant as an interactive job in Puhti
-One can run singularity containers also in the [interactive](../../computing/running/interactive-usage.md) mode.
-For example, deepvariant can be run as follows: 
 
-Download and unzip the deepvariant folder with data and singularity images in the login node
+### Deepvariant interaktiivisena työnä Puhtissa {#deepvariant-interaktiivisena-työnä-puhtissa} ###
+
+Voit ajaa singularity-kontteja myös [interaktiivisessa](../../computing/running/interactive-usage.md) tilassa. Esimerkiksi deepvariant voidaan ajaa seuraavasti:
+
+Lataa ja pura deepvariant-kansio datan ja singularity-kuvien kanssa sisäänkirjautumissolmussa
 ```
- wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip   
- unzip Deepvariant_singularity.zip
+wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip
+unzip Deepvariant_singularity.zip
 ```
-Then start interactive shell and provide requested parameters as prompted in terminal
+Aloita sitten interaktiivinen shell-tila ja anna vaaditut parametrit, kun niitä kysytään terminaalissa
 ```
 sinteractive -i
 ```
-Start interactive singularity session
+Aloita interaktiivinen singularity-istunto
 ```
 cd Deepvariant_singularity
 export TMPDIR=$PWD
 singularity shell -B $PWD:/data deepvariant.simg
 ```
-Execute the actual workflow commands in the singularity session
+Suorita varsinainen työnkulun komennot singularity-istunnossa
 
 ```
 export PATH=/opt/deepvariant/bin:$PATH
 cd /data/testdata/
 run_deepvariant --model_type=WGS --ref=ucsc.hg19.chr20.unittest.fasta --reads=NA12878_S1.chr20.10_10p1mb.bam --regions "chr20:10,000,000-10,010,000" --output_vcf=output.vcf.gz --output_gvcf=output.g.vcf.gz
 ```
-Exit from the singularity session _and_ interactive batch job
+Poistu singularity-istunnosta _ja_ interaktiivisesta erätyöstä
 
 ```
 exit
 exit
-```

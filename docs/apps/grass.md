@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -8,50 +9,49 @@ system:
 
 # GRASS GIS
 
-[GRASS](https://grass.osgeo.org/) (Geographic Resources Analysis Support System) is a free Geographic Information System (GIS) software used for geospatial data management and analysis, image processing, graphics/maps production, spatial modeling, and visualization.
+[GRASS](https://grass.osgeo.org/) (Geographic Resources Analysis Support System) on ilmainen paikkatietojärjestelmän (GIS) ohjelmisto, jota käytetään geospatiaaliseen tietojen hallintaan ja analysointiin, kuvankäsittelyyn, grafiikan/karttojen tuottamiseen, spatiaaliseen mallintamiseen ja visualisointiin.
 
-## Available
+## Saatavilla {#available}
 
-__GRASS__ is available with following versions:
+__GRASS__ on saatavilla seuraavilla versioilla:
 
-* 8.3 with grassgis module in Puhti
-* 7.8.7 with [qgis/3.31 module](qgis.md) in Puhti and LUMI
-* 7.8.5 with [qgis/3.22 module](qgis.md) in Puhti
+* 8.3 grassgis-moduulilla Puhtissa
+* 7.8.7 [qgis/3.31 moduulilla](qgis.md) Puhtissa ja LUMIssa
+* 7.8.5 [qgis/3.22 moduulilla](qgis.md) Puhtissa
 
+## Käyttö {#usage}
 
-## Usage
+### GRASS GIS komentorajapinta {#grass-gis-command-line-interface}
 
-### GRASS GIS Command Line Interface 
+GRASS GIS komentorivityökaluja voidaan käyttää [interaktiivisessa istunnossa](../computing/running/interactive-usage.md) tai [erätehtävissä](../computing/running/getting-started.md). Katso [esimerkkejä GRASS GIS komentojen käytöstä Puhtissa, GRASS bash skriptauksella, Python skriptauksella tai PyGRASSilla](https://github.com/csc-training/geocomputing/tree/master/grass). Katso myös viittaukset tämän sivun lopusta.
 
-GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [examples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
+### GRASS GIS graafinen käyttöliittymä {#grass-gis-graphical-user-interface}
 
-### GRASS GIS Graphical User Interface
+#### GRASS Puhtissa {#grass-in-puhti}
 
-#### GRASS in Puhti
+Helpoin tapa käyttää GRASS GIS:ää on avata se Puhti-verkkokäyttöliittymässä.
 
-The easiest option for using GRASS GIS is to open it in Puhti web interface.
+1. Kirjaudu sisään [Puhti-verkkokäyttöliittymään](https://puhti.csc.fi).
+2. Avaa [Työpöytäsovellus](../computing/webinterface/desktop.md).
+3. Työpöydän käynnistämisen jälkeen kaksoisnapsauta GRASS-GIS-kuvaketta uusimmalle versiolle.
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launching the Desktop, double-click GRASS-GIS icon for the newest version.
- 
-If you want to use older version, open `Terminal` (Desktop icon) and start GRASS GIS:
+Jos haluat käyttää vanhempaa versiota, avaa `Terminal` (Työpöytäsovelluksen kuvake) ja käynnistä GRASS GIS:
 
 ```
 module load qgis/3.22
 grass
 ```
 
-#### GRASS in LUMI
+#### GRASS LUMIssa {#grass-in-lumi}
 
-For using GRASS GIS, open it in LUMI web interface:
+GRASS GIS:n käyttöön avaa se LUMI-verkkokäyttöliittymässä:
 
-1. Log in to [LUMI web interface](https://lumi.csc.fi). 
-2. Open [Desktop app](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/). 
-3. After launching the Desktop, open the newest version of GRASS GIS from the Menu in the bottom left corner (under Other).
-    * You can drag-and-drop the icon to your desktop for easier access in the future
+1. Kirjaudu sisään [LUMI-verkkokäyttöliittymään](https://lumi.csc.fi).
+2. Avaa [Työpöytäsovellus](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/).
+3. Työpöydän käynnistämisen jälkeen avaa uusin GRASS GIS -versio valikosta vasemmasta alakulmasta (kohdassa Muu).
+   * Voit raahata ja pudottaa kuvakkeen työpöydällesi helpottamaan tulevaa käyttöä
 
-If you want to use the CLI, open `Terminal Emulator` from the Menu in the bottom left corner and start GRASS GIS:
+Jos haluat käyttää CLI:tä, avaa `Terminal Emulator` valikosta vasemmassa alakulmassa ja käynnistä GRASS GIS:
 
 ```
 module use /appl/local/csc/modulefiles
@@ -59,34 +59,28 @@ module load qgis
 grass
 ```
 
-## License 
+## Lisenssi {#license}
 
-Geographic Resources Analysis Support System (GRASS) is Copyright, 1999-2020 GRASS Development Team, and licensed under the terms of the GNU General Public License (GPL). This includes all software, documentation, and associated materials. [Full GRASS GIS license](https://grass.osgeo.org/about/license/)
+Geographic Resources Analysis Support System (GRASS) on Copyright, 1999-2020 GRASS Development Team, ja se on lisensoitu GNU General Public License (GPL) -ehdoin. Tämä koskee kaikkea ohjelmistoa, dokumentaatiota ja siihen liittyviä materiaaleja. [GRASS GIS:n täydellinen lisenssi](https://grass.osgeo.org/about/license/)
 
+## Viittaus {#citation}
 
-## Citation
+Tätä ohjelmistoa voidaan siteerata valitsemalla sopiva viittaus [GRASS-viitevarastosta](https://grasswiki.osgeo.org/wiki/GRASS_Citation_Repository).
 
-This software can be cited by chosing the appropriate citation from the [GRASS citation repository](https://grasswiki.osgeo.org/wiki/GRASS_Citation_Repository). 
+## Tunnustus {#acknowledgement}
 
+Pyydämme tunnustusta CSC:lle ja Geoportille julkaisuissanne, sillä se on tärkeää projektin jatkuvuudelle ja rahoitusraporteille. Esimerkiksi voit kirjoittaa: "Tekijät haluavat kiittää CSC - IT Center for Science, Finlandia (urn:nbn:fi:research-infras-2016072531) ja Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
-## Acknowledgement
+## Asennus {#installation}
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+* GRASS 8.3 asennettiin Puhtiin [Tykky-wrap-container-toiminnallisuudella](../computing/containers/tykky.md#container-based-installations) käyttäen [GRASS Docker -kuvaa Dockerhubista OSGEO:n tarjoamana](https://hub.docker.com/r/osgeo/grass-gis): `wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui --prefix 8.3`
+* GRASS 7.x asennettiin Puhtiin ja LUMIin osana [QGIS-asennusta](qgis.md#installation).
 
+## Viitteet {#references}
 
-## Installation
-
-* GRASS 8.3 was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [GRASS Docker image from Dockerhub provided by OSGEO](https://hub.docker.com/r/osgeo/grass-gis): `wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui --prefix 8.3`
-* GRASS 7.x was installed to Puhti and LUMI as part of [QGIS installation](qgis.md#installation).
-
-
-## References
-
-* [GRASS GIS homepage](https://grass.osgeo.org/)
-* [GRASS GIS manuals](https://grass.osgeo.org/learn/manuals/)
-  * [Parellel GRASS jobs](https://grasswiki.osgeo.org/wiki/Parallel_GRASS_jobs)
-* [GRASS GIS tutorials](https://grass.osgeo.org/learn/tutorials/)
-* [GRASS database, location, mapset and region](https://grass.osgeo.org/grass79/manuals/grass_database.html), the basic concepts always needed with GRASS GIS. 
-In case of using parallel computation, be extra careful with `region`.
-* [Anna Petrasova, GRASS GIS workshop at FOSS4G, part 5: parallelization](https://github.com/ncsu-geoforall-lab/grass-gis-workshop-foss4g-2022/blob/main/workshop_part_5_parallelization.ipynb)
+* [GRASS GIS kotisivu](https://grass.osgeo.org/)
+* [GRASS GIS manuaalit](https://grass.osgeo.org/learn/manuals/)
+  * [Rinnakkaiset GRASS-tehtävät](https://grasswiki.osgeo.org/wiki/Parallel_GRASS_jobs)
+* [GRASS GIS -oppaat](https://grass.osgeo.org/learn/tutorials/)
+* [GRASS-tietokanta, sijainti, karttasarja ja alue](https://grass.osgeo.org/grass79/manuals/grass_database.html), peruskonseptit, jotka ovat aina tarpeen GRASS GIS:n kanssa. Jos käytetään rinnakkaislaskentaa, ole erityisen tarkka `regionin` kanssa.
+* [Anna Petrasova, GRASS GIS -workshop FOSS4G:ssä, osa 5: parallelisointi](https://github.com/ncsu-geoforall-lab/grass-gis-workshop-foss4g-2022/blob/main/workshop_part_5_parallelization.ipynb)

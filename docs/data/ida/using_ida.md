@@ -1,94 +1,53 @@
-# Moving data between IDA and CSC computing environment
 
-IDA is a general storage service for research data. It is part of the
-[Fairdata.fi]( https://www.fairdata.fi/) research data management environment
-and not directly linked to the CSC computing environment. Use of the IDA
-service requires that the stored data is described as a research dataset with
-Fairdata Qvain tool for others to discover. Even though CSC produces and hosts
-the IDA service and the IDA storage space is applied to a CSC project, the
-storage space is granted by the home organization of the user (Finnish higher
-education institution or state research institute). IDA users can use the
-storage space from both their own computers and from the servers hosted by CSC.
-More information about applying for IDA storage space can be found at the
-[IDA website](https://www.fairdata.fi/en/ida/).
+# Tietojen siirtäminen IDA:n ja CSC:n laskentaympäristön välillä {#moving-data-between-ida-and-csc-computing-environment}
 
-IDA can be used with a web browser user interface, as well as with a
-command-line client tool `ida` that is available on the computing servers
-hosted by CSC (Puhti and Mahti). IDA client can also be downloaded from
-[GitHub](https://github.com/CSCfi/ida2-command-line-tools).
+IDA on yleinen tutkimusdatan tallennuspalvelu. Se on osa
+[Fairdata.fi](https://www.fairdata.fi/) -tutkimusdatan hallintaympäristöä, eikä se ole suoraan yhteydessä CSC:n laskentaympäristöön. IDA-palvelun käyttö edellyttää, että tallennettu data on kuvattu tutkimusaineistoksi Fairdatan Qvain-työkalulla, jotta muut voivat sen löytää. Vaikka CSC tuottaa ja ylläpitää IDA-palvelua ja IDA-tallennustilaa haetaan CSC-projektille, tallennustilan myöntää käyttäjän kotiorganisaatio (suomalainen korkeakoulu tai valtion tutkimuslaitos). IDA:n käyttäjät voivat käyttää tallennustilaa sekä omilta tietokoneiltaan että CSC:n isännöimiltä palvelimilta. Lisää tietoa IDA-tilan hakemisesta löytyy [IDA-verkkosivuilta](https://www.fairdata.fi/fi/ida/).
 
-The storage of files in IDA can be managed using the web and command-line
-client interfaces. However, the contents of the stored files can't be modified
-directly. Instead, a stored file must be first retrieved from IDA to either CSC
-supercomputers or some other computer in order to analyze or modify the data.
-In this sense IDA resembles very much the
-[Allas object storage service](../Allas/introduction.md). However, IDA and
-Allas are designed to serve different use cases:
+IDA:ta voidaan käyttää verkkoselaimen käyttöliittymällä sekä komentorivityökalulla `ida`, joka on saatavilla CSC:n laskentapalvelimilla (Puhti ja Mahti). IDA-asiakasohjelma voidaan myös ladata [GitHubista](https://github.com/CSCfi/ida2-command-line-tools).
 
-* Allas is low-level and high-capacity storage service for utilizing research
-  data at CSC and other computing environments.
-* IDA is designed for storing and sharing well-defined and stable datasets that
-  are not used or modified on a daily basis.
+Tiedostojen tallennusta IDA:han voidaan hallita verkko- ja komentorivi-asiakasliittymien avulla. Kuitenkin tallennettujen tiedostojen sisältöjä ei voi muokata suoraan. Sen sijaan tallennettu tiedosto pitää ensin noutaa IDA:sta joko CSC:n supertietokoneille tai jollekin muulle tietokoneelle aineiston analysointia tai muokkausta varten. Tässä suhteessa IDA muistuttaa paljon [Allas-objektivarastopalvelua](../Allas/introduction.md). Kuitenkin IDA ja Allas on suunniteltu palvelemaan eri käyttötapauksia:
 
-In a typical research project the raw data is first stored in Allas. When the
-research work has produced a more refined dataset from the original data, it
-can be stored in IDA so that metadata and persistent identifiers can be
-associated with the data via additional services.
+* Allas on matalan tason ja suuren kapasiteetin tallennuspalvelu tutkimusdatan hyödyntämiseen sekä CSC:n että muiden laskentaympäristöjen kanssa.
+* IDA on suunniteltu hyvin määriteltyjen ja vakioitujen aineistojen tallentamiseen ja jakamiseen, joita ei käytetä tai muuteta päivittäin.
 
-Each IDA project has two storage areas: _staging area_ and _frozen area_. The
-staging area is intended for collecting and organizing data in preparation for
-longer term storage and publication. Data files that will not change anymore
-can be moved to the frozen area to be stored in an _immutable_ state.
+Tyypillisessä tutkimusprojektissa raakadata tallennetaan ensin Allakseen. Kun tutkimustyössä on tuotettu alkuperäisestä aineistosta tarkempi datasetti, se voidaan tallentaa IDA:an, jotta dataan voidaan liittää metatietoja ja pysyviä tunnisteita lisäpalveluiden avulla.
 
-Files in the frozen area are visible to other Fairdata services and can be
-included in datasets using the
-[Qvain metadata tool](https://www.fairdata.fi/en/qvain/). Files in the staging
-area are not visible to other services and cannot be included in datasets.
+Jokaisella IDA-projektilla on kaksi tallennusaluetta: _staging-alue_ ja _frozen-alue_. Staging-alue on tarkoitettu tietojen keräämiseen ja järjestämiseen pitkäaikaista tallennusta ja julkaisua varten. Tiedostot, jotka eivät enää muutu, voidaan siirtää frozen-alueelle säilytettäväksi _muuttumattomassa_ tilassa.
 
-## Configuring and using IDA in CSC supercomputers
+Frozen-alueen tiedostot ovat näkyvissä muille Fairdata-palveluille, ja ne voidaan sisällyttää aineistoihin [Qvain-metatietotyökalun](https://www.fairdata.fi/fi/qvain/) avulla. Staging-alueen tiedostot eivät ole näkyvissä muille palveluille, eikä niitä voi sisällyttää aineistoihin.
 
-The IDA client and configuration tools are activated with the command:
+## IDA:n konfigurointi ja käyttö CSC:n supertietokoneilla {#configuring-and-using-ida-in-csc-supercomputers}
+
+IDA-asiakasohjelma ja konfigurointityökalut aktivoidaan komennolla:
 
 ```bash
 module load ida
 ```
 
-When you start using the IDA client in CSC supercomputers for the first time,
-you must set up your IDA connection by running the following command:
+Kun aloitat IDA-asiakasohjelman käytön CSC:n supertietokoneilla ensimmäistä kertaa, sinun täytyy määrittää IDA-yhteytesi seuraavalla komennolla:
 
 ```bash
 ida_configure
 ```
 
-The configuration process asks for your CSC project number, username and
-[application password](https://www.fairdata.fi/en/ida/user-guide/#app-passwords).
-This information can be obtained from the
-[security settings page of the IDA web interface](https://ida.fairdata.fi/settings/user/security).
-The configuration is stored in your home directory, so you need to do it only
-once.
+Konfigurointiprosessissa kysytään CSC-projektinumerosi, käyttäjätunnuksesi ja [sovellussalasana](https://www.fairdata.fi/fi/ida/user-guide/#app-passwords). Tiedot löytyvät [IDA-verkkoliittymän tietoturva-asetusten sivulta](https://ida.fairdata.fi/settings/user/security). Määrittely tallennetaan kotihakemistoosi, joten se tarvitsee tehdä vain kerran.
 
-Once you have configured the connection, you can start using the `ida`
-command-line client that enables data transport between the supercomputer and
-IDA. Data can be uploaded and downloaded from the IDA staging area. From the
-frozen area only download is possible. Note that some key features of IDA, like
-moving data from staging area to the frozen area, is possible only through the
-[IDA web interface](https://ida.fairdata.fi).
+Kun olet määrittänyt yhteyden, voit alkaa käyttää `ida` komentoriviasiakasohjelmaa, joka mahdollistaa tietojen siirtämisen supertietokoneen ja IDA:n välillä. Tietoja voidaan ladata ja siirtää IDA:n staging-alueelle. Frozen-alueelta on mahdollista vain tiedostojen lataaminen. Huomaa, että joitain IDA:n keskeisiä ominaisuuksia, kuten tietojen siirtäminen staging-alueelta frozen-alueelle, on mahdollista tehdä vain [IDA-verkkoliittymän](https://ida.fairdata.fi) kautta.
 
-The basic syntax of the `ida` commands is:
+`ida`-komentojen perussyntaksi on:
 
 ```bash
-ida <task> [options] <target_in_ida> <target_in_puhti>
+ida <tehtävä> [valinnat] <kohde_ida:ssa> <kohde_puhti:ssa>
 ```
 
-To check the contents of your staging area in IDA, use the command:
+Tarkistaaksesi staging-alueesi sisällön IDA:ssa, käytä komentoa:
 
 ```bash
 ida info /
 ```
 
-Adding option `-f` to the `ida` command makes the command reference the frozen
-area instead of the staging area. For example, the following command would give
-you information about the file `test2` in the root of the frozen area:
+Lisäämällä `-f` valinnan `ida`-komentoon komento viittaa frozen-alueeseen staging-alueen sijasta. Esimerkiksi, seuraava komento antaisi tietoa tiedostosta `test2` frozen-alueen juuresta:
 
 ```bash
 [kkayttaj@puhti-login12 ~] ida info -f /test2
@@ -103,36 +62,27 @@ modified:   2018-10-15T08:17:53Z
 frozen:     2018-10-15T08:58:15Z
 ```
 
-Uploading and downloading files and directories between Puhti and IDA is done
-with the commands:
+Tiedostojen ja hakemistojen lataus ja siirto Puhtin ja IDA:n välillä tapahtuu komennoilla:
 
 ```bash
-ida upload <target_in_ida> <local_file>
-ida download <target_in_ida> <local_file> 
+ida upload <kohde_ida:ssa> <paikallinen_tiedosto>
+ida download <kohde_ida:ssa> <paikallinen_tiedosto>
 ```
 
-For example in Puhti, the command:
+Esimerkiksi Puhtissa komento:
 
 ```bash
 ida upload /test123/data1 test_data
 ```
 
-will upload file `test_data` from Puhti to the IDA staging area and store the
-data in the directory `test123` with the name `data1`. The directory `test123`
-will be automatically created in the staging area if it does not already exist.
+lataa tiedoston `test_data` Puhdista IDA:n staging-alueelle ja tallentaa datan hakemistoon `test123` nimellä `data1`. Hakemisto `test123` luodaan automaattisesti staging-alueelle, jos sitä ei vielä ole olemassa.
 
-If you download a directory, the downloaded files are stored as a zip archive
-file. Thus, you should define the local target file to have the name extension
-`.zip`. For example:
+Jos lataat hakemiston, ladatut tiedostot tallennetaan zip-arkistotiedostona. Tästä syystä sinun tulee määritellä paikallinen kohdetiedosto siten, että sillä on päätteenä `.zip`. Esimerkiksi:
 
 ```bash
 ida download /project1 project1_data.zip
 ```
 
-The command above would download all the data from the IDA staging area
-directory `project1` and store it as a zip archive file `project1_data.zip` in
-your current directory.
+Yllä oleva komento lataisi kaikki tiedot IDA:n staging-alueen hakemistosta `project1` ja tallentaisi ne zip-arkistotiedostona `project1_data.zip` nykyiseen hakemistoosi.
 
-More information about using and configuring the IDA client, including
-additional examples, can be found in
-[GitHub](https://github.com/CSCfi/ida2-command-line-tools).
+Lisää tietoa IDA-asiakasohjelman käytöstä ja konfiguroinnista, sisältäen lisäesimerkkejä, löytyy [GitHubista](https://github.com/CSCfi/ida2-command-line-tools).

@@ -1,19 +1,20 @@
-# Why my private SSH key does not work in Rahti?
 
-You may need a SSH key pair for the case of a build from a private GitHub repository.  
-This article can help you to debug why your keys are not working.
+# Miksi yksityinen SSH-avaimeni ei toimi Rahtissa? {#why-my-private-ssh-key-does-not-work-in-rahti}
 
-For a comprehensive guide of the whole process of using SSH keys to clone a private repository in Rahti, please follow: [Repository SSH Keys](https://cloud.redhat.com/blog/private-git-repositories-part-2a-repository-ssh-keys) guide.
+Saatat tarvita SSH-avainparia, jos rakennat yksityisestä GitHub-repositoriosta.  
+Tämä artikkeli voi auttaa sinua selvittämään, miksi avaimet eivät toimi.
 
-## Mismatched keys
+Kattavan oppaan koko prosessista käyttää SSH-avaimia yksityisen repositorion kloonaamiseen Rahtissa löydät täältä: [Repository SSH Keys](https://cloud.redhat.com/blog/private-git-repositories-part-2a-repository-ssh-keys) opas.
 
-There are few reasons why a SSH key may not work, the simplest one is when the **private key** does not match the **public key**. In order to check this, you can re-generate the public key from the private one by doing:
+## Yhteensopimattomat avaimet {#mismatched-keys}
+
+On muutamia syitä, miksi SSH-avain ei toimi, yksinkertaisin on silloin, kun **yksityinen avain** ei vastaa **julkista avainta**. Tarkistaaksesi tämän, voit luoda julkisen avaimen uudestaan yksityisestä seuraavasti:
 
 ```bash
 ssh-keygen -y -f private_key_file
 ```
 
-Please check that the generated public key matches the one used. Some servers also generate a key fingerprint, you may generate this fingerprint from the public or private keys, the fingerprint must match. The command to use is:
+Tarkista, että luotu julkinen avain vastaa käytettyä. Jotkut palvelimet myös luovat avaimen sormenjäljen, voit luoda tämän sormenjäljen joko julkisista tai yksityisistä avaimista, sormenjäljen on täsmättävä. Komento, jota käytetään, on:
 
 ```bash
 $ ssh-keygen -l -f repo-openshift-builder
@@ -23,15 +24,15 @@ $ ssh-keygen -l -f repo-openshift-builder.pub
 2048 SHA256:ijP8/1P3ZSOBrJDD2PoCWmJceKd5JwDAmzmEqsH1itk openshift-source-builder/repo (RSA)
 ```
 
-## Passphrase protected key
+## Salasanalla suojattu avain {#passphrase-protected-key}
 
-Another common reason for failure is when the private key is protected by a passphrase. Even though it is generally recommended to protect a private key with a passphrase when storing the key in a workstation, Rahti does not have any mechanism to store the passphrase and will then fail to use the key. To check if a private key is protected with a passphrase, you may use the same command above to generate the public key, If the key is protected, the command will ask for the password.
+Toinen yleinen syy epäonnistumiseen on, kun yksityinen avain on suojattu salasanalla. Vaikka yleensä suositellaan suojaamaan yksityinen avain salasanalla, kun se tallennetaan työasemaan, Rahtilla ei ole mahdollisuutta tallentaa salasanaa ja se ei silloin pysty käyttämään avainta. Tarkistaaksesi, onko yksityinen avain suojattu salasanalla, voit käyttää yllä olevaa komentoa julkisen avaimen luomiseen. Jos avain on suojattu, komento kysyy salasanaa.
 
-## Miscellaneous format errors
+## Erinäisiä formaattivirheitä {#miscellaneous-format-errors}
 
-The SSH key format is strict. A private SSH key can be considered invalid in the following cases:
+SSH-avaimen formaatti on tiukka. Yksityinen SSH-avain voidaan katsoa virheelliseksi seuraavissa tapauksissa:
 
-* The key is encoded using DOS format line endings. Text files created on DOS/Windows machines have different line endings than files created on Unix/Linux. DOS uses carriage return and line feed (`\r\n`) as a line ending, which Unix uses just line feed (`\n`). The **solution** is to use a tool like `dos2unix` or recreate the key in Linux.
-* The header (`-----BEGIN OPENSSH PRIVATE KEY-----`) or the footer (`-----END OPENSSH PRIVATE KEY-----`) of the key is not copied correctly. There must be 5 `-` characters in both ends of both the header and the footer, and there must be an end of line after the footer, i.e.: the last character of the file is not a '-' but a newline('\n'). This problem is created normally by copy paste errors when the end or beginning of the key file are not copied correctly, and it is the source of most common "format errors".
+* Avain on koodattu DOS-formaatin rivinvaihdoilla. DOS/Windows-koneilla luodut tekstitiedostot sisältävät eri rivinvaihdot kuin Unix/Linux-käyttöjärjestelmissä luodut tiedostot. DOS käyttää rivin lopetuksena CR ja LF merkkiparia (`\r\n`), kun Unix käyttää vain rivinvaihtoa (`\n`). **Ratkaisu** on käyttää työkalua kuten `dos2unix` tai luoda avain uudelleen Linuxilla.
+* Avaimen otsikko (`-----BEGIN OPENSSH PRIVATE KEY-----`) tai lopputeksti (`-----END OPENSSH PRIVATE KEY-----`) ei ole kopioitu oikein. Molemmissa päissä sekä otsikossa että lopputekstissä on oltava 5 `-` merkkiä, ja lopputekstin jälkeen on oltava rivinvaihto(end of line), eli tiedoston viimeinen merkki ei ole '-' vaan uusi rivi ('\n'). Tämä ongelma syntyy normaalisti kopiointivirheistä, kun avaimen tiedoston alku tai loppu ei ole kopioitu oikein, ja se on yleisin "formaattivirheiden" lähde.
 
-As a general rule, use `ssh-keygen -l -f <file>` to check the formatting of the key is correct.
+Yleisenä ohjeena käytä `ssh-keygen -l -f <file>` tarkistaaksesi, että avaimen formaatti on oikea.

@@ -1,17 +1,17 @@
 
-# Directory object error
+# Hakemisto-objektivirhe {#directory-object-error}
 
-There are no actual directories in Allas. Some client software may incorrectly create zero-sized objects and metadata or add a slash character at the end of the name.
-``` bash
+Allaksessa ei ole varsinaisia hakemistoja. Jotkin asiakasohjelmistot saattavat virheellisesti luoda nollakokoisia objekteja ja metatietoja tai lisätä kauttaviivan nimen loppuun.
+```bash
 Content Type: application/directory
 Content Type: application/x-directory
 Content Type: binary/octet-stream
 ```
-**That does not make it a directory.**
+**Se ei tee siitä hakemistoa.**
 
-Such software is e.g. Cyberduck, Nextcloud and s3fuse. This makes sense only when all users using that data use similar tools and especially do not use _s3cmd_.
+Tällaisia ohjelmistoja ovat esim. Cyberduck, Nextcloud ja s3fuse. Tämä on järkevää vain, jos kaikki dataa käyttävät käyttäjät käyttävät samanlaisia työkaluja ja erityisesti eivät käytä _s3cmd_:tä.
 
-For instance, a Cyberduck-uploaded directory structure
+Esimerkiksi Cyberduckin lataama hakemistorakenne
 ```
 data4.dat
 mydata
@@ -20,9 +20,9 @@ mydata
 └── subdir
     └── data3.dat
 ```
-listed with s3cmd:
+listattuna s3cmd:llä:
 
-``` bash
+```bash
 $ s3cmd ls -r s3://idev1clitest/
 ls -r s3://idev1clitest/
 2019-08-20 07:25   1048576   s3://idev1clitest/data4.dat
@@ -33,9 +33,9 @@ ls -r s3://idev1clitest/
 2019-08-20 07:22     10240   s3://idev1clitest/mydata/subdir/data3.dat
 ```
 
-There are zero-sized objects mydata and _mydata/subdir_. The problem this kind of extra objects cause is that when trying to download the structure with s3cmd, the zero-sized object is downloaded to a file, preventing the creation of a directory with the same name, and subsequently also preventing downloading the files inside the directory:
+On olemassa nollakokoisia objekteja kuten mydata ja _mydata/subdir_. Ongelma, jonka tämäntyyppiset ylimääräiset objektit aiheuttavat, on se, että kun yritetään ladata rakennetta s3cmd:llä, nollakokoinen objekti ladataan tiedostoksi, mikä estää samannimisen hakemiston luonnin ja siten estää myös hakemiston sisällä olevien tiedostojen lataamisen:
 
-``` bash
+```bash
 $ s3cmd get -r s3://idev1clitest/
 get -r s3://idev1clitest/
 download: 's3://idev1clitest/data4.dat' -> './data4.dat'  [1 of 6]
@@ -49,4 +49,4 @@ ERROR: Skipping ./mydata/subdir/data3.dat: Not a directory
 $
 ```
 
-You can download a hierarchy of this kind with _s3_ by first creating each local directory and then downloading the files by the directory level.
+Tällaisen hierarkian voi ladata _s3_:lla luomalla ensin jokaisen paikallisen hakemiston ja lataamalla sitten tiedostot hakemistotasolla.

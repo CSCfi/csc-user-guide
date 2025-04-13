@@ -1,6 +1,7 @@
-# Advanced
 
-- [Images](images/overview.md)
-- [Networking](networking.md)
-- [Security guide](security-guide.md)
-- [Storage in Rahti](storage/index.md)
+# Edistyneet {#advanced}
+
+- [Kuvat](images/overview.md)
+- [Verkottuminen](networking.md)
+- [Turvaopas](security-guide.md)
+- [Tallennus Rahtissa](storage/index.md)

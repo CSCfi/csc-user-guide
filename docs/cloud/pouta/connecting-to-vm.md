@@ -1,64 +1,64 @@
-# Connecting to your virtual machine
+# Yhteyden muodostaminen virtuaalikoneeseesi {#connecting-to-your-virtual-machine}
 
-This article describes several ways to connect to a running virtual machine. In order to create a Virtual Machine, check out [Creating a virtual machine in Pouta](launch-vm-from-web-gui.md).
+Tässä artikkelissa kuvataan useita tapoja muodostaa yhteys käynnissä olevaan virtuaalikoneeseen. Virtuaalikoneen luomiseksi tutustu artikkeliin [Creating a virtual machine in Pouta](launch-vm-from-web-gui.md).
 
-!!! info "Password access disabled"
+!!! info "Salasanojensa käyttö on estetty"
 
-    None of the accounts in the default images provided by Pouta CSC have password login enabled by default. Only SSH keypair access is possible by default. This is done to improve security.
+    Pouta CSC:n tarjoamien oletuskuvien tileillä ei ole salasanaa kirjautuessa oletuksena edes käytössä. Vain SSH-avainparin käyttö on oletuksena mahdollista. Tämä on tehty parantamaan turvallisuutta.
 
-## Keypair-based SSH connection
+## SSH-yhteys avainparin avulla {#keypair-based-ssh-connection}
 
-First, you need to check the Virtual Machine status in the **Compute > Instances** view of the Pouta web interface.
+Ensiksi sinun täytyy tarkistaa virtuaalikoneen tila Poutan verkkokäyttöliittymän **Laskenta > Instanssit** -näkymässä.
 
-![VM Status check](../../img/pouta-instance-details.png)
+![VM-tilan tarkistus](../../img/pouta-instance-details.png)
 
-**Figure** The Instances view of the cPouta web interface.
+**Kuva** cPoutan verkkokäyttöliittymän instanssit-näkymä.
 
-Find, under **Instance name**, the Virtual Machine that you want to connect to.
+Löydä kohta **Instanssin nimi**, ja valitse virtuaalikone, johon haluat muodostaa yhteyden.
 
-* The **Power State** must be `Running`
+* **Virrankäyttötila** (Power State) on `Running`
 
-* It must have a `Floating IP` attached, write it down.
+* Siihen on yhdistetty `Floating IP`, kirjoita se ylös.
 
 !!! info
-    To access an ePouta instance, you can ssh on the private IP (ssh cloud-user@private-ip).
+    ePouta-instanssille voit muodostaa yhteyden ssh-yhteyden avulla yksityisen IP:n avulla (ssh cloud-user@private-ip).
 
-* Check the name of the key under **Key Pair**. You will need the corresponding SSH secret key installed in your computer.
+* Tarkista avaimen nimi kohdasta **Avainpari**. Tarvitset vastaavan SSH-salaisen avaimen asennettuna tietokoneellesi.
 
-    !!! Info "Generate SSH public key from a SSH private key"
+    !!! Info "Luo SSH-julkinen avain SSH-yksityisestä avaimesta"
 
-        If you have access to a SSH private key, it is possible to generate the corresponding public key by:
+        Jos sinulla on pääsy SSH-yksityiseen avaimeen, voit luoda vastaavan julkisen avaimen seuraavalla komennolla:
 
         `ssh-keygen -y -f ~/.ssh/id_rsa`
 
-        This is useful to be sure which private key corresponds to which public one configured in Pouta.
+        Tämä on hyödyllistä varmistaaksesi, mikä yksityinen avain vastaa mitäkin julkista, joka on konfiguroitu Poutassa.
 
-* Click in the machine name and check that there is a security group that allow SSH connections from your current IP. See the [security group](launch-vm-from-web-gui.md#firewalls-and-security-groups) article for more information on how to create a SSH security group.
+* Napsauta koneen nimeä ja tarkista, että olemassa on tietoturvaryhmä, joka sallii SSH-yhteydet nykyisestä IP-osoitteestasi. Katso artikkeli [tietoturvaryhmä](launch-vm-from-web-gui.md#firewalls-and-security-groups) lisätietoja, kuinka luoda SSH-tietoturvaryhmä.
 
-* Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. Different distributions/images have different user names. Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, have a look to the [Images](./images.md#images) documentation article, the information there is kept up to date with any addition or change.
+* Nyt sinun on tiedettävä, mikä käyttäjänimi on konfiguroitu virtuaalikoneessa, jotta SSH-avainparisi voi kirjautua sisään. Eri jakeluilla/kuvilla on erilaisia käyttäjätunnuksia. Kolmannen osapuolen kuvat voivat käyttää mitä käyttäjätunnusta tahansa, tarkista kyseinen dokumentaatio. Pouta CSC:n tarjoamien oletuskuvien osalta katso [Kuvat](./images.md#images) -dokumentaatioartikkeli, jossa oleva tieto pidetään ajan tasalla kaikista lisäyksistä tai muutoksista.
 
 !!! Info
 
-    It is a common practise for images, when you try to login as `root`, to get a message back telling you which username to use instead.
+    On yleinen käytäntö, että kuvat, kun yrität kirjautua sisään käyttäjänä `root`, antavat palautteena viestin, joka kertoo, mitä käyttäjätunnusta tulisi käyttää sen sijaan.
 
     ```sh
     $ ssh root@86.xxx.xxx.xxx
-    Please login as the user "cloud-user" rather than the user "root".
+    Kirjaudu käyttäjänä "cloud-user" sen sijaan käyttäjänä "root".
     ```
 
-With all the information ready you can now connect to the instance.
+Kun sinulla on kaikki tarvittava tieto, voit nyt yhdistää instanssiin.
 
-### Linux, Mac and PowerShell
+### Linux, Mac ja PowerShell {#linux-mac-and-powershell}
 
-In Linux, Mac and most modern Windows, it is possible to use `ssh`:
+Linuxilla, Macilla ja useimmilla moderneilla Windows-versioilla on mahdollista käyttää `ssh`-komentoa:
 
 ```sh
 ssh <user_name>@<floating-ip> -i <secretkey>
 ```
 
-#### ssh_config
+#### ssh_config {#ssh-config}
 
-Instead of specifying the path, IP and user name each time you want to connect to the same Virtual Machine, you can write this formation in your ssh config file. Edit (or create if it is not there) the `~/.ssh/config` file, and add this content:
+Sen sijaan, että määrittäisit polun, IP:n ja käyttäjänimen joka kerta, kun haluat muodostaa yhteyden samaan virtuaalikoneeseen, voit kirjoittaa tämän tiedon ssh-konfiguraatiotiedostoosi. Muokkaa (tai luo, jos sitä ei ole siellä) `~/.ssh/config` -tiedosto, ja lisää tämä sisältö:
 
 ```ini
 Host <machine_name>
@@ -67,89 +67,84 @@ User <user_name>
 IdentityFile <private_key_with_path>
 ```
 
-* In **Host** you should write the machine name (to later use it to connect using `ssh machine_name`).
+* Kohdassa **Host** sinun tulisi kirjoittaa koneen nimi (jotta voit käyttää sitä myöhemmin yhdistääksesi `ssh machine_name` -komennolla).
 
-* In **Hostname** write the floating of the Virtual Machine.
+* Kohdassa **Hostname** kirjoita virtuaalikoneen kelluva IP.
 
-* In **User** the user name must be specified.
+* Kohdassa **User** käyttäjänimi on ilmoitettava.
 
-* In **IdentityFile** the full path to the private key must be written, for example `IdentityFile ~/.ssh/id_rsa`.
+* Kohdassa **IdentityFile** koko polku yksityiseen avaimeen on kirjoitettava, esimerkiksi `IdentityFile ~/.ssh/id_rsa`.
 
-Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) for more information.
+Tarkista [ssh_config](https://linux.die.net/man/5/ssh_config) -manuaalisivulta lisätietoja.
 
-!!! Info "Agent forwarding"
-    You can enable *agent forwarding* when connecting through SSH to a virtual machine by using the *-A* flag.
+!!! Info "Edustajansiirto"
+    Voit ottaa käyttöön *agentin edustajan* siirtämisen, kun yhdistät SSH-yhteydellä virtuaalikoneeseen käyttämällä *-A* -merkintää.
 
         ssh -A cloud-user@public-ip
 
-By enabling agent forwarding, you enable the ssh agent running on the remote Virtual Machine to make use of the keys which are loaded in the ssh agent of your local workstation. You can use this feature to use the "Bastion host model", where only one single machine, the bastion host, in the cluster has Floating IP and outside access, and the rest of the machines are accessed through the bastion.
+Aktivoimalla agentin edustajansiirron, sallit etävirtuaalikoneessa toimivan ssh-agentin käyttää paikallisessa työasemassasi ladattuja avaimia. Voit käyttää tätä ominaisuutta "Bastion host model" -mallin kanssa, jossa vain yhdellä ainoalla koneella, bastion host, klusterissa on kelluva IP ja ulkoinen pääsy, ja loput koneista saavutetaan bastionin kautta.
 
-    1. Assign a floating IP to one of your instances
-    1. ssh to the instance enabling agent forwarding
-    1. ssh from this instance to the other instances in the network using their private IP
+1. Määritä kelluva IP yhdelle instansseistasi
+2. ssh instanssiin aktivoimalla agentin edustajansiirto
+3. ssh tästä instanssista muihin verkon instansseihin käyttämättä heidän yksityistä IP:tään
 
-    Using these steps, you need only a single public IP instead of one public IP for each of the instances.
+Näitä askelia noudattamalla tarvitset vain yhden julkisen IP:n jokaisen instanssin julkisen IP:n sijaan.
 
-    **Warning**: using agent forwarding has some [security implications](https://wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#the-vulnerability)
+    **Varoitus**: agentin edustajansiirrolla on joitakin [turvallisuusvaikutuksia](https://wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#the-vulnerability)
 
-### Putty
+### Putty {#putty}
 
-Open Putty, after following the instructions at [windows-putty](./launch-vm-from-web-gui.md#windows-putty) you should have a saved session with the private key stored on it.
+Avaa Putty. Kun olet noudattanut ohjeita [windows-putty](./launch-vm-from-web-gui.md#windows-putty), sinulla pitäisi olla tallennettu istunto, jossa on tallennettu yksityinen avain.
 
-* Load the saved session.
+* Lataa tallennettu istunto.
 
-* Under **Host Name (or IP address)**, write the user name an `@` symbol and the floating IP of the instance like: `cloud@89.14.89.14`
+* Kohdassa **Host Name (or IP address)** kirjoita käyttäjänimi ja `@`-symboli ja instanssin kelluva IP kuten: `cloud@89.14.89.14`
 
-* Write a new name (like the machine name) under **Saved Sessions** and click save.
+* Kirjoita uusi nimi (koneen nimi) kohtaan **Saved Sessions** ja napsauta tallenna.
 
-* Click **Open**, a new window to the instance will be opened
+* Napsauta **Open**, uusi ikkuna instanssiin avautuu.
 
-Next time you need to use Putty to connect this instance, you will just need to **Load** the corresponding saved session and click **Open**.
+Seuraavan kerran kun sinun täytyy käyttää Puttya muodostaa yhteys tähän instanssiin, sinun tarvitsee vain ladata vastaava tallennettu istunto ja napsauttaa **Open**.
 
-## `root` administrator access on a virtual machine
+## `root`-hallintaoikeudet virtuaalikoneessa {#root-administrator-access-on-a-virtual-machine}
 
-If you are using an image provided by Pouta, and logged in using the default user account, you will be able to run commands as root with `sudo` with no password. If other accounts are created, they will not have `root` administrator access by default.
+Jos käytät Poutan tarjoamaa kuvaa ja olet kirjautunut oletuskäyttäjätilillä, voit suorittaa komentoja root-oikeuksin `sudo`-komennolla ilman salasanaa. Jos muita tilejä luodaan, niillä ei ole root-hallintaoikeuksia oletuksena.
 
 ```sh
 sudo <some command>
 ```
 
-You can also get an interactive root shell:
+Voit myös avata interaktiivisen root-terminaalin:
 
 ```sh
 sudo -i
 ```
 
-## Connect to a machine using the Pouta virtual console
+## Yhteyden muodostaminen koneeseen Poutan virtuaalikonsolin avulla {#connect-to-a-machine-using-the-pouta-virtual-console}
 
-It is possible to access a machine using the Pouta Virtual console. This is only advisable **when SSH access is impossible**, for example when the network access of the Virtual Machine is broken.
+Koneeseen on mahdollista saada yhteys Pouta-virtuaalikonsolin avulla. Tätä suositellaan vain **kun SSH-yhteyden muodostaminen on mahdotonta**, esimerkiksi kun virtuaalikoneen verkkoyhteys on poikki.
 
-In order to be able to use the console, **you need to set up a password-based user account first**:
+Jotta voit käyttää konsolia, **sinun täytyy ensin luoda salasanaan perustuva käyttäjätili**:
 
-* Connected through SSH to your Virtual Machine instance
-* You can use [useradd](https://linux.die.net/man/8/useradd) and or [passwd](https://linux.die.net/man/1/passwd) to set up the account.
-* As indicated in our [security guidelines](security.md#be-mindful-about-the-user-accounts-in-the-vm), please **do not enable remote login** for this **password-based account**, but rather use it only in case you need to access the instance though the console.
+* Yhdistä virtuaalikoneeseesi SSH:n kautta
+* Voit käyttää [useradd](https://linux.die.net/man/8/useradd) ja/ tai [passwd](https://linux.die.net/man/1/passwd) tilin luomiseen.
+* Kuten turvallisuusohjeissamme on neuvottu [turvallisuusohjeet](security.md#be-mindful-about-the-user-accounts-in-the-vm), **älä salli etäkirjautumista** tälle **salasanaan perustuvalle tilille**, vaan käytä sitä vain jos tarvitset konsolia saavuttaaksesi instanssin.
 
-Once there is a password based account, with no remote login allowed:
+Kun salasanaan perustuva tili on luotu, poissallitun etäkirjautumisen kera:
 
-* From the instance page at **Compute > Instances**, open a console session by clicking **Console** in the instance dropdown menu:
+* Instanssisivulta kohdasta **Laskenta > Instanssit**, avaa konsoli-istunto napsauttamalla **Konsoli** instanssin avattavassa valikossa.
 
-![Open a console in the web GUI](../../img/console-button-horizon.png)
+![Konsolin avaaminen verkkoliittymässä](../../img/console-button-horizon.png)
 
-* To input text in the console, click the grey bar:
+* Kirjoita tekstiä konsoliin napsauttamalla harmaata palkkia:
 
-![Input text to web console](../../img/pouta-instances-terminal.png)
+![Tekstin syöttäminen verkkokonsoliin](../../img/pouta-instances-terminal.png)
 
-* Log in with the user account and password you have created.
+* Kirjaudu sisään luomasi käyttäjätilin ja salasanan avulla.
 
-!!! warning "Non ASCII characters problems"
-    *Umlaut* characters, such as *ä* or *ö*, do not work in the virtual
-    console for most keymaps.
+!!! warning "Ei ASCII-merkkien ongelmia"
+    *Umlaut*-merkit, kuten *ä* tai *ö*, eivät toimi virtuaalikonsolissa useimmille näppäimistökartoille.
 
+## Vianetsintä {#troubleshooting}
 
-## Troubleshooting
-
-If you have any issue connecting to your new Pouta Virtual Machine, please check out our [Why can't I connect to my virtual machine in Pouta?](../../support/faq/why-cant-i-connect-to-my-vm-in-pouta.md) article.
-
-
-
+Jos sinulla on ongelmia yhteyden muodostamisessa uuteen Pouta-virtuaalikoneeseesi, katso artikkeli [Miksi en voi yhdistää virtuaalikoneeseeni Poutassa?](../../support/faq/why-cant-i-connect-to-my-vm-in-pouta.md)

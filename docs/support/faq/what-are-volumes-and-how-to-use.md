@@ -1,9 +1,11 @@
-# What are volumes? How do I use them?
 
-Volumes are virtual block devices exported from a central storage backend to
-virtual machines. A volume can be attached to one virtual machine at a time.
-These volumes can be further used to provide different storage options, such as
-NFS through a virtual machine running an NFS server.
+# Mitä ovat volyymit? Kuinka käytän niitä? {#what-are-volumes-how-do-i-use-them}
 
-For how to use volumes on Pouta, see
-[Persistent volumes](../../cloud/pouta/persistent-volumes.md).
+Volyymit ovat virtuaalisia lohkoalustoja, jotka ovat jaettu keskitetystä
+tallennustakentästä virtuaalikoneille. Yksi volyymi voidaan liittää yhdelle
+virtuaalikoneelle kerrallaan. Näitä volyymeja voidaan käyttää erilaisten
+tallennusvaihtoehtojen tarjoamiseen, kuten NFS:n tarjoamiseen NFS-palvelinta
+ajavan virtuaalikoneen kautta.
+
+Kuinka käyttää volyymeja Poutassa, katso
+[Suorassa olevat volyymit](../../cloud/pouta/persistent-volumes.md).

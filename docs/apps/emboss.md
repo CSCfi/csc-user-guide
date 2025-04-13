@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,56 +6,58 @@ tags:
 
 # EMBOSS
 
-EMBOSS (European Molecular Biology Open Software Suite) package contains over 200 programs for sequence analysis. 
-EMBOSS is designed for classical sequence analysis where the amount of sequences is less than 100 000. Because of that, 
-most of the tools are not effective for raw NGS datasets where you have millions of sequences (reads).
-Examples of application areas of EMBOSS tools are given below.
+EMBOSS (European Molecular Biology Open Software Suite) -paketti sisältää yli 200 ohjelmaa sekvenssianalyysiin. 
+EMBOSS on suunniteltu klassiseen sekvenssianalyysiin, jossa sekvenssien määrä on alle 100 000. Tämän vuoksi suurin osa työkaluista 
+ei ole tehokkaita raakamuotoisten NGS-datasettien analysointiin, joissa on miljoonia sekvenssejä (lukemia). Alla on esimerkkejä 
+EMBOSS-työkalujen sovellusalueista.
 
-* Sequence alignment
-* Phylogeny
-* Hidden Markow models
-* Rapid database searching with sequence patterns
-* Protein motif identification, including domain analysis
-* EST analysis
-* Nucleotide sequence pattern analysis, for example to identify CpG islands.
-* Simple and species-specific repeat identification
-* Codon usage analysis for small genomes
-* Rapid identification of sequence patterns in large scale sequence sets.
-* Presentation tools for publication
-* RNA secondary structure prediction
+* Sekvenssien kohdistaminen
+* Fylogenia
+* Piilotetut Markowin mallit
+* Nopeiden tietokantahakujen tekeminen sekvenssimalleilla
+* Proteiinimotiivien tunnistaminen, mukaan lukien domaanianalyysi
+* EST-analyysi
+* Nukleotidisekvenssien mallianalyysi, esimerkiksi CpG-saarekkeiden tunnistamiseksi
+* Yksinkertaisten ja lajikohtaisten toistojen tunnistaminen
+* Kodonin käytön analyysi pienille genomeille
+* Sekvenssimallien nopea tunnistaminen laajamittaisissa sekvenssijoukoissa
+* Esityökalut julkaisua varten
+* RNA:n toissijaisen rakenteen ennustaminen
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+Vapaa käyttää ja avoin lähdekoodi [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) -lisenssin alaisuudessa.
 
-## Available
+## Saatavilla {#available}
 
 - Puhti: 6.5.7
-- [Chipster](https://chipster.csc.fi) provides a graphical interface to many EMBOSS tools.
+- [Chipster](https://chipster.csc.fi) tarjoaa graafisen käyttöliittymän monille EMBOSS-työkaluille.
 
-## Usage
+## Käyttö {#usage}
 
-EMBOSS programs are available on Puhti as part of the collection in biokit module. To use it, load the biokit module by running the command:
+EMBOSS-ohjelmat ovat saatavilla Puhti-laitteistolla osana biokit-moduulin kokoelmaa. Käyttääksesi sitä, lataa biokit-moduuli komennolla:
 
 ```bash
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including EMBOSS.
-Note however that there are other bioinformatics tools on Puhti that have separate setup commands.
+Biokit-moduuli asettaa käyttöön joukon yleisesti käytettyjä bioinformatiikan työkaluja, mukaan lukien EMBOSS. 
+Huomaa kuitenkin, että Puhdilla on muita bioinformatiikan työkaluja, joilla on erilliset asetukset.
 
-After loading biokit, you can start any of the EMBOSS programs by typing its name. For example:
+Kun biokit on ladattu, voit käynnistää minkä tahansa EMBOSS-ohjelman kirjoittamalla sen nimen. Esimerkiksi:
 
 ```bash
 wossname
 ```
 
-The `wossname` command is a help tool that you can use to see what EMBOSS commands are available. You can also use it to search EMBOSS tools using keywords.
+`wossname`-komento on apuväline, jonka avulla voit nähdä, mitkä EMBOSS-komennot ovat saatavilla. Voit myös käyttää sitä 
+EMBOSS-työkalujen hakemiseen avainsanojen avulla.
 
-## More information
+## Lisätietoa {#more-information}
 
-* [Homepage of EMBOSS project](http://emboss.open-bio.org/)
-* [EMBOSS programs sorted alphabetically](https://extras.csc.fi/emboss/doc/programs/html/index.html)
-* [EMBOSS programs sorted by function](https://extras.csc.fi/emboss/doc/programs/html/groups.html)
-* [EMBOSS Quick Guide](https://extras.csc.fi/emboss/emboss_qg.pdf)
-* [Getting started with EMBOSS -tutorial](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
+* [EMBOSS-projektin kotisivu](http://emboss.open-bio.org/)
+* [Aakkosjärjestyksessä lajitellut EMBOSS-ohjelmat](https://extras.csc.fi/emboss/doc/programs/html/index.html)
+* [Toiminnon mukaan lajitellut EMBOSS-ohjelmat](https://extras.csc.fi/emboss/doc/programs/html/groups.html)
+* [EMBOSS-pikaopas](https://extras.csc.fi/emboss/emboss_qg.pdf)
+* [Aloittaminen EMBOSS:lla -tutoriaali](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
+

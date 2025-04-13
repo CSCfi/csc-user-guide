@@ -1,28 +1,29 @@
-# Kvasi billing
 
-Kvasi use is free of cost for, _e.g._, academic use, according to the general
-[free of charge use cases](https://research.csc.fi/free-of-charge-use-cases) policy.
+# Kvasi-laskutus
 
-For commercial use, the following options are available; to purchase services and expert support, contact CSC's Service Desk: servicedesk@csc.fi.
+Kvasin käyttö on ilmaista esimerkiksi akateemisessa käytössä yleisten
+[käyttötapausten](https://research.csc.fi/free-of-charge-use-cases) ehtojen mukaisesti.
 
-## Basic package
+Kaupalliseen käyttöön ovat saatavilla seuraavat vaihtoehdot; ostaaksesi palveluja ja asiantuntijatukea, ota yhteyttä CSC:n palvelupisteeseen: servicedesk@csc.fi.
 
-Full features of Kvasi available for use, limits on memory consumption. Corresponds to a simulation capacity of roughly 25 qubits.
+## Peruspaketti {#basic-package}
 
-1. Memory restricted to 64 GB / project
+Kvasin kaikki ominaisuudet ovat käytettävissä, mutta muistin käyttö on rajoitettua. Vastaa simulaatiokapasiteetiltaan noin 25 kubittia.
 
-2. Core count restricted to 64 cores / project
+1. Muisti rajoitettu 64 GB / projekti
 
-Cost: 1.500 € / 3 months (VAT 0%)
+2. Ydinmäärä rajoitettu 64 ydintä / projekti
 
-## Power package
+Hinta: 1.500 € / 3 kuukautta (ALV 0%)
 
-Full features of Kvasi available for use, without memory restrictions for 72 h / month. Corresponds to a simulation capacity of up to 30 qubits _part of the time_ and roughly 25 qubits the rest of the time.
+## Tehopaketti {#power-package}
 
-Cost: 4.500 € / 3 months (VAT 0%)
+Kvasin kaikki ominaisuudet ovat käytettävissä ilman muistirajoituksia 72 tuntia / kuukausi. Vastaa simulaatiokapasiteetiltaan jopa 30 kubittia osan ajasta ja noin 25 kubittia loppuajan.
 
-## Booster package
+Hinta: 4.500 € / 3 kuukautta (ALV 0%)
 
-Upgrade simulation capacity of the Basic package to correspond to the Power package for the duration of one month.
+## Booster-paketti {#booster-package}
 
-Cost: 1.000 € / month (VAT 0%)
+Päivitä Peruspaketin simulaatiokapasiteetti vastaamaan Tehopakettia yhden kuukauden ajaksi.
+
+Hinta: 1.000 € / kuukausi (ALV 0%)

@@ -1,22 +1,24 @@
-# How to make a bucket public?
 
-By default Allas buckets are only accessible using authentication (See [Accessing Allas](../../data/Allas/accessing_allas.md) ), but it is possible to make a bucket public. Making a bucket public means that every file and directory on the bucket will be accessible without any kind of authentication from anywhere on the internet using the HTTPS protocol.
+# Kuinka tehdä ämpäristä julkinen? {#how-to-make-a-bucket-public}
 
-!!! Info "Allas UI does not support public buckets (yet)"
-    At this moment it is not possible to make buckets public from <allas.csc.fi>. The plans are to add this feature in the future.
+Oletuksena Allas-ämpärit ovat vain todennuksen kautta käytettävissä (ks. [Allaksen käyttäminen](../../data/Allas/accessing_allas.md)), mutta on mahdollista tehdä ämpäristä julkinen. Tekemällä ämpäristä julkisen, kaikki tiedostot ja hakemistot ämpärissä ovat käytettävissä ilman minkäänlaista todennusta mistä tahansa internetistä HTTPS-protokollan kautta.
 
-To do this, we need to go to [Pouta's web interface](https://pouta.csc.fi) and:
+!!! Info "Allas-käyttöliittymä ei vielä tue julkisia ämpäreitä"
+    Tällä hetkellä ämpäreitä ei voi tehdä julkisiksi osoitteesta <allas.csc.fi>. Tavoitteena on lisätä tämä ominaisuus tulevaisuudessa.
 
-1. Navigate to **Object Store** > **Containers**. This will open the "Containers" page with a list of every bucket on the selected CSC Project.
-1. Click on the bucket name, the bucket information will appear:
+Tämän tekemiseksi meidän täytyy mennä [Poudan web-käyttöliittymään](https://pouta.csc.fi) ja:
 
-    ![Bucket information](../../img/bucket_information.png)
+1. Siirry kohtaan **Object Store** > **Containers**. Tämä avaa "Containers"-sivun, jossa on luettelo kaikista valitun CSC-projektin ämpäreistä.
+2. Klikkaa ämpärin nimeä, jolloin ämpärin tiedot tulevat näkyviin:
 
-1. Click in the checkbox near "Public Access".
-1. Check if there is a "segments" bucket, if so the name will be the same as the "main" bucket but with a `_segments` suffix, for example:
+    ![Ämpäritiedot](../../img/bucket_information.png)
 
-  * If the name is `musel-photos`, the segments bucket will be `musel-photos_segments`
+3. Klikkaa "Public Access" -ruutua.
+4. Tarkista, onko olemassa "segments"-ämpäri, ja niin ollen sen nimi on sama kuin "pää"-ämpäri, mutta `_segments`-päätteellä, esimerkiksi:
 
-1. If there is a "segments" bucket, click also in the "Public Access" checkbox.
+  * Jos nimi on `musel-photos`, segmenttiämpäri on `musel-photos_segments`
 
-Now the bucket is public and its contents will be available throw the URL: `https://$BUCKETNAME.a3s.fi/`. Where `$BUCKETNAME` is the name of the bucket (so the bucket named `musel-photos` will be available in `https://musel-photos.a3s.fi/`).
+5. Jos on olemassa "segments"-ämpäri, klikkaa myös sen "Public Access" -ruutua.
+
+Nyt ämpäri on julkinen ja sen sisältö on saatavilla URL:n kautta: `https://$BUCKETNAME.a3s.fi/`. Missä `$BUCKETNAME` on ämpärin nimi (joten ämpäri nimeltä `musel-photos` on saatavilla osoitteessa `https://musel-photos.a3s.fi/`).
+

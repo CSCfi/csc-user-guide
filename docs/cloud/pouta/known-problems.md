@@ -1,39 +1,39 @@
-# Known problems and limitations
 
-## Instances
+# Known problems and limitations {#known-problems-and-limitations}
 
--   **Instance snapshots sometimes fail. This leaves the instance in
-    the suspended state. To work around this issue, we recommend the users
-    power off their VM before taking a snapshot.**
--   Child instances launched using the snapshot of an existing parent
-    instance do not have a security group predefined. 
-    Please select the appropriate security group for
-    child instances before launching them.
--   Resizing inside a flavor family (within standard.\*) is
-    possible  except for IO flavors. Resizing between flavor
-    families mostly does not work because of the different storage
-    backends. If you use a volume for the root disk, some resizes
-    between flavor families do work. If you use a image for the root disk,
-    it is possibly dangerous. Always test resizes with an expendable VM you
-    first. If your virtual machines end up in an "error"
-    state, please contact us.
--   Network: It is possible to add the same floating IP to multiple
-    instances using the API. There is no warning or error. The last
-    API call is the one which takes effect.
--   Volumes: There is no guarantee that device names will get the same
-    name after a rebuild or reboot. If you want to be sure that the
-    correct device gets mounted to the same path every time it is a good
-    idea to use UUIDs instead of paths.
--   Ubuntu-20.04 images and hpc.6 flavor are unable to boot. A bug prevents
-    instances with Ubuntu 20.04 (created or updated) and flavor hpc.6.*
-    from booting. We expect a future update to fix this, but in the meantime
-    avoid this combination.
+## Instances {#instances}
 
-## EC2 tools (euca2ools)
+-   **Instance-kuvat saattavat joskus epäonnistua. Tämä jättää
+    instanssin keskeytettyyn tilaan. Tämän ongelman välttämiseksi suosittelemme,
+    että käyttäjät sammuttavat VM:nsä ennen kuvan ottamista.**
+-   Käytettäessä olemassa olevan emoinstanssin kuvasnapshottia luodut
+    lapsi-instanssit eivät sisällä ennalta määriteltyä
+    tietoturvaryhmää. Valitse sopiva tietoturvaryhmä
+    lapsi-instansseille ennen niiden käynnistämistä.
+-   Lajiperheiden sisäinen koon muuttaminen (standard.*) on
+    mahdollista, paitsi IO-mauille. Muuttaminen lajiperheiden
+    välillä toimii harvoin erilaisten tallennusalustojen vuoksi.
+    Jos käytät levyä juurilevynä, jotkin lajiperheiden
+    väliset muutokset toimivat. Jos käytät kuvaa juurilevynä,
+    se saattaa olla vaarallista. Testaa aina muutokset ensin
+    väliaikaisella VM:llä. Jos virtuaalikoneesi päätyvät "virhe"
+    tilaan, ota meihin yhteyttä.
+-   Verkko: Saman kelluvan IP-osoitteen lisääminen
+    useisiin instansseihin API:n kautta on mahdollista. Ei
+    varoitusta tai virhettä ilmene. Viimeinen API-kutsu
+    on se, joka vaikuttaa.
+-   Levyt: Laitteiden nimien säilyminen uudelleenrakennuksen tai
+    uudelleenkäynnistyksen jälkeen ei ole taattua. Jos haluat
+    varmistaa, että oikea laite liitetään aina samaan
+    polkuun, on hyvä idea käyttää UUID:eja polkujen sijaan.
+-   Ubuntu-20.04-kuvat ja hpc.6-maut eivät pysty käynnistymään. 
+    Bug aiheuttaa, että Ubuntu 20.04 -instanssit (luodut tai päivitetyt) 
+    ja maku hpc.6.* eivät pysty käynnistymään. Odotamme tulevan
+    päivityksen korjaavan tämän, mutta vältä toistaiseksi tätä yhdistelmää.
 
+## EC2 tools (euca2ools) {#ec2-tools-euca2ools}
 
--   EC2 is presently not supported. EC2 credentials can, however, be
-    used with the object storage.
+-   EC2 ei ole tällä hetkellä tuettu. EC2-tunnuksia voi kuitenkin käyttää
+    objektitallennuksen kanssa.
 
-## [Pouta FAQ entries](../../support/faq/index.md#pouta)
-
+## [Pouta FAQ entries](../../support/faq/index.md#pouta) {#pouta-faq-entries}

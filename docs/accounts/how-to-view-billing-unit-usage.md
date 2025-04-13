@@ -1,30 +1,25 @@
-# How to view billing unit usage
 
-Consumption of CSC's resources is mainly measured in billing units. IDA and
-Kaivos do not consume billing units; they only have quota limits for each
-project.
+# Kuinka tarkastella laskentayksikköjen käyttöä {#how-to-view-billing-unit-usage}
 
-Check your BU consumption:
+CSC:n resurssien käyttö mitataan pääasiassa laskentayksiköissä. IDA ja Kaivos eivät kuluta laskentayksiköitä; niillä on vain kiintiörajoitukset jokaiselle projektille.
 
-1. Login to [MyCSC](http://my.csc.fi).
-1. Choose _Projects_ in the navigation menu on the left.
-1. Choose a project.
-1. The usage is shown under _Resource Usage_.
+Tarkista laskentayksiköiden käyttösi:
 
-In the usage plot, you can:
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi).
+1. Valitse _Projektit_ vasemman navigointivalikon kohdassa.
+1. Valitse projekti.
+1. Käyttö näytetään kohdassa _Resurssien käyttö_.
 
-* View the monthly usage by user by hovering the mouse over the bars
-* Select or unselect certain users by clicking their username
-* Switch between cumulative and regular view
+Käyttökaaviossa voit:
 
-!!! Note
+* Tarkastella kuukausittaista käyttöä käyttäjän mukaan viemällä hiiren palkkien päälle
+* Valita tai poistaa valinta tietyiltä käyttäjiltä klikkaamalla heidän käyttäjänimeään
+* Vaihtaa kumulatiivisen ja tavallisen näkymän välillä
 
-    Do not confuse quotas with billing units. Quotas are service-specific
-    limits to keep the usage within limits. See the instructions under
-    Computing, Cloud and Data for instructions how the remaining quotas
-    can be followed up in each service.
+!!! Huom
 
-You can often see usage information of an 'other' user. See the explanation
-in FAQ:
+    Älä sekoita kiintiöitä ja laskentayksiköitä. Kiintiöt ovat palvelukohtaisia rajoituksia, jotka pitävät käytön rajoissa. Katso ohjeet kohdasta Laskenta, Pilvi ja Data, kuinka jäljellä olevia kiintiöitä voi seurata kussakin palvelussa.
 
-* [Who 'unknown' is using our resources](../support/faq/who-unknown-is-using-our-resources.md)
+Voit usein nähdä käyttöinformaation "muista" käyttäjistä. Katso selitys UKK-osiosta:
+
+* [Kuka 'tuntematon' käyttää resurssejamme](../support/faq/who-unknown-is-using-our-resources.md)

@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,36 +6,33 @@ tags:
 
 # SageMath
 
-SageMath is a free open-source mathematics software system licensed
-under the GPL. It builds on top of many existing open-source packages:
-NumPy, SciPy, matplotlib, Sympy, Maxima, GAP, FLINT, R and many more.
-Access their combined power through a common, Python-based language or
-directly via interfaces or wrappers.
+SageMath on ilmainen avoimen lähdekoodin matematiikkaohjelmisto, joka on lisensoitu GPL-lisenssillä. Se rakentuu monien olemassa olevien avoimen lähdekoodin pakettien päälle: NumPy, SciPy, matplotlib, Sympy, Maxima, GAP, FLINT, R ja monet muut. Käytä niiden yhdistettyä voimaa yhteisen, Python-pohjaisen kielen kautta tai suoraan rajapintojen tai kääreiden kautta.
 
 [TOC]
 
-## Available
+## Saatavilla {#available}
 
 - Puhti: 9.7, 10.0
 
-## License
+## Lisenssi {#license}
 
 [GNU General Public License (GPL)](https://doc.sagemath.org/html/en/reference/history_and_license/index.html)
 
-## Usage
+## Käyttö {#usage}
 
-On Puhti, load the SageMath module using the command:
+Puhtissa lataa SageMath-moduuli käyttämällä komentoa:
 
 ```bash
 module load sagemath
 ```
 
-For usage options, run the command:
+Käyttöasetuksia varten suorita komento:
 
 ```bash
 sage -h
 ```
 
-## More information
+## Lisätietoja {#more-information}
 
 - [SageMath documentation](https://doc.sagemath.org/)
+

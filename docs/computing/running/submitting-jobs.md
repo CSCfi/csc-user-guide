@@ -1,74 +1,71 @@
-# Submitting a batch job
 
-Submit a job to the queue with command `sbatch`:
+# Eräajon lähettäminen {#submitting-a-batch-job}
+
+Lähetä työ jonoon komennolla `sbatch`:
 
 ```bash
 sbatch <batch_job_file>
 ```
 
-For example:
+Esimerkiksi:
 
 ```bash
 sbatch job.sh
 ```
 
-When the job is successfully submitted, the command prints out the ID number of
-the submitted job. For example, `Submitted batch job 3609650`.
+Kun työ on lähetetty onnistuneesti, komento tulostaa lähetetyn työn ID-numeron.
+Esimerkiksi `Submitted batch job 3609650`.
 
-To check if your job is running correctly:
+Tarkistaaksesi, onko työsi suorituksessa oikein:
 
 ```bash
 squeue -u $USER
 ```
 
-or
+tai
 
 ```bash
 squeue --me
 ```
 
-You should see your job ID and other details displayed in the terminal.
+Sinun pitäisi nähdä työsi ID ja muita tietoja näkyvissä päätteessä.
 
-To cancel a submitted batch job:
+Peruuttaaksesi lähetetyn erätyön:
 
 ```bash
 scancel <jobid>
 ```
 
-For example,
+Esimerkiksi,
 
 ```bash
 scancel 3609650
 ```
 
-To find out more about your jobs:
+Saadaksesi lisätietoa töistäsi:
 
 ```bash
 sacct
 ```
 
-The information includes the state of the jobs (`PENDING`, `RUNNING`,
-`COMPLETED`, `FAILED`, etc.) and the job ID. By default, the `sacct` command
-displays information about a user's own jobs that have been submitted to the
-queue on the current date. It also has a wide selection of options and
-parameters that can be used to select which data is displayed. 
-[See all `sacct` options and parameters](https://slurm.schedmd.com/sacct.html).
+Tiedot sisältävät työn tilan (`PENDING`, `RUNNING`, `COMPLETED`, `FAILED`, jne.) ja työn ID:n. Oletusarvoisesti `sacct`-komento
+näyttää tietoa käyttäjän omista töistä, jotka on lähetetty jonoon kuluvana päivänä. Komennolla on myös laaja valikoima vaihtoehtoja ja
+parametreja, joita voi käyttää valitsemaan, mitä tietoja näytetään. 
+[Katso kaikki `sacct`-vaihtoehdot ja -parametrit](https://slurm.schedmd.com/sacct.html).
 
-!!! warning "Avoid querying too much data with `sacct`"
-    Do not query job data from a long time period with `sacct`. `sacct` fetches
-    its data from the Slurm accounting database, and with large queries the
-    operation can be heavy on the system. In particular, avoid running the
-    command many times in a row. Instead, you can redirect the output data to a
-    file and then search that for whatever information you want to analyze.
-    For example, to save the data from the past 7 days in a file
-    `sacct-output.txt`:
+!!! varoitus "Vältä liiallista datan kyselyä `sacct`:llä"
+    Älä kysy työn tietoja pitkältä aikaväliltä `sacct`:llä. `sacct` hakee tietonsa Slurm-kirjanpito tietokannasta, ja suurilla kyselyillä
+    operaatio voi olla raskas järjestelmälle. Erityisesti vältä komennon suorittamista nopeasti monta kertaa peräkkäin. Voit ohjata
+    tuotosdatan tiedostoon ja etsiä siitä tarvitsemasi tiedot analysoitavaksi.
+    Esimerkiksi, tallentaaksesi edellisten 7 päivän tiedot tiedostoon `sacct-output.txt`:
 
     ```bash
     sacct --starttime now-7days > sacct-output.txt
     ```
 
-## More information
+## Lisätietoa {#more-information}
 
-- [Creating Puhti batch jobs](creating-job-scripts-puhti.md)
-- [Creating Mahti batch jobs](creating-job-scripts-mahti.md)
-- [Available batch job partitions](batch-job-partitions.md)
+- [Puhti-erätöiden luominen](creating-job-scripts-puhti.md)
+- [Mahti-erätöiden luominen](creating-job-scripts-mahti.md)
+- [Saatavilla olevat erätyöosastot](batch-job-partitions.md)
+

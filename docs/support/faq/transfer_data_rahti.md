@@ -1,10 +1,11 @@
-# How to transfer data to Rahti?
 
-As discussed in the [available storage options](../../cloud/rahti/storage/index.md) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](../../data/Allas/index.md).
+# Kuinka siirtää tietoja Rahtiin? {#how-to-transfer-data-to-rahti}
 
-## to a Persistent Volume
+Kuten [saatavilla olevissa tallennusvaihtoehdoissa](../../cloud/rahti/storage/index.md) -artikkelissa keskusteltiin, on mahdollista tallentaa tietoja käyttäen pysyvää voluumia tai esimerkiksi objektitallennuspalvelua, kuten [Allas](../../data/Allas/index.md).
 
-In order to move data to Rahti, the best method is to use the command line tool `oc rsync`. From its manual:
+## pysyvään volyymiin {#to-a-persistent-volume}
+
+Jotta tietoja voidaan siirtää Rahtiin, paras menetelmä on käyttää komentorivityökalua `oc rsync`. Ohjeistosta:
 
 ```bash
 $ oc rsync
@@ -15,11 +16,11 @@ using the rsync command from your OS. To ensure optimum performance, install rsy
 systems, use your package manager. In Windows, install cwRsync from https://www.itefix.net/cwrsync.
 ```
 
-First of all, it is required to [install oc](../../cloud/rahti/usage/cli.md).
+Ensinnäkin, on [asennettava oc](../../cloud/rahti/usage/cli.md).
 
-Once `oc` is installed, the process is:
+Kun `oc` on asennettu, prosessi on seuraava:
 
-* Create the `PersistentVolumeClaim` (PVC) to store the data in Rahti. You may use the web interface or directly the command line. In this example we will use the command line. A simple way to create a `1Gi` volume called `testing-pvc` is:
+* Luo `PersistentVolumeClaim` (PVC) tietojen tallentamiseksi Rahtiin. Voit käyttää web-käyttöliittymää tai suoraan komentoriviä. Tässä esimerkissä käytämme komentoriviä. Yksinkertainen tapa luoda `1Gi` volyymi nimeltään `testing-pvc` on:
 
 ```bash
 $ echo 'apiVersion: v1
@@ -34,17 +35,16 @@ spec:
       storage: 1Gi' | oc create -f -
 ```
 
-* Mount the PVC into a POD with `rsync` installed. It is possible to use any image that has the command `rsync` installed. If you have no access to such an image, `oc rsync` will work also with an image with `tar` installed (`centos` and `ubuntu ` images come with `tar installed).
+* Liitä PVC PODiin, jossa `rsync` on asennettuna. On mahdollista käyttää mitä tahansa kuvaa, jossa `rsync`-komento on asennettuna. Jos tällaiseen kuvaan ei ole pääsyä, `oc rsync` toimii myös kuvan kanssa, jossa `tar` on asennettuna (`centos` ja `ubuntu` kuvat sisältävät `tar`:in).
 
-* Finally, use `oc rsync` to synchronize a local directory with a directory in the pod:
+* Käytä lopuksi `oc rsync`-komentoa synkronoidaksesi paikallisen hakemiston ja PODin hakemiston:
 
 ```bash
 oc rsync ./local/dir/ POD:/remote/dir
 ```
 
-If the local data changes, you may just run the same command again. If the image has `rsync` installed, only the data that has changed will be copied over to the PVC.
+Jos paikallinen data muuttuu, voit yksinkertaisesti ajaa saman komennon uudelleen. Jos kuvassa on `rsync` asennettuna, vain muuttuneet tiedot kopioidaan PVC:hen.
 
-## to Allas object storage
+## Allakseen objektitallennukseen {#to-allas-object-storage}
 
-See [using Allas with Rclone](../../data/Allas/using_allas/rclone.md) for a guide on how to copy the data to Allas. Once the data is in Allas, you can use any *Swift* or *S3* compatible client or library, like `rclone`, to use the data in you application.
-
+Katso [Allaksen käyttäminen Rclone:n kanssa](../../data/Allas/using_allas/rclone.md) saadaksesi ohjeet tietojen kopioimiseen Allakseen. Kun tiedot ovat Allaksessa, voit käyttää mitä tahansa *Swift*- tai *S3*-yhteensopivaa asiakasta tai kirjastoa, kuten `rclone`, sovelluksessasi.

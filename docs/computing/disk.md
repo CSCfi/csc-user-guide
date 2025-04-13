@@ -1,247 +1,157 @@
-# Disk areas
 
-CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**.
-In addition to these disk areas visible to all compute and login nodes, each node has a
-**local temporary disk area** that is visible to the particular compute node during a batch
-job or shell session, only. Please familiarize yourself with the areas and their specific
-purposes. The disk areas for different supercomputers are separate, *i.e.* **home**,
-**projappl** and **scratch** in Puhti cannot be directly accessed from Mahti. Also
-[a more technical description of the Lustre filesystem](lustre.md) used in these directories
-is available.
+# Levyalueet {#disk-areas}
 
-!!! warning "CSC does not backup your data!"
-    None of the disk areas are automatically backed up by CSC! This means that data accidentally
-    deleted by the user cannot be recovered in any way. To avoid unintended data loss, make sure
-    to perform regular backups to, for example, [Allas](../data/Allas/index.md). See also the
-    [allas-backup tool](../data/Allas/using_allas/a_backup.md).
+CSC:n supertietokoneissa on kolme pääasiallista levyaluetta: **home**, **projappl** ja **scratch**. Näiden laskenta- ja kirjautumissolmuille näkyvien levyalueiden lisäksi jokaisella solmulla on **paikallinen väliaikainen levyalue**, joka on näkyvissä ainoastaan kyseisessä laskentasolmussa eräajon tai shell-istunnon aikana. Tutustu alueisiin ja niiden erityisiin käyttötarkoituksiin. Eri supertietokoneiden levyalueet ovat erillisiä, *eli* Puhtissa olevia **home**, **projappl** ja **scratch** -alueita ei voi käyttää suoraan Mahtista. Myös [teknisempi kuvaus Lustre-tiedostojärjestelmästä](lustre.md), jota käytetään näissä hakemistoissa, on saatavilla.
 
-|            |Owner   |Environment variable|Path                 |Cleaning                 |Automatic backup|
-|------------|--------|--------------------|---------------------|-------------------------|----------------|
-|**home**    |Personal|`${HOME}`           |`/users/<user-name>` |No                       |No              |
-|**projappl**|Project |Not available       |`/projappl/<project>`|No                       |No              |
-|**scratch** |Project |Not available       |`/scratch/<project>` |180 days on Puhti        |No              |
+!!! warning "CSC ei varmuuskopioi tietojasi!"
+    Yksikään levyalueista ei ole automaattisesti varmuuskopioitu CSC:llä! Tämä tarkoittaa, että käyttäjän vahingossa poistamia tietoja ei voi palauttaa millään tavalla. Välttääksesi tahattoman tietojen menetyksen, tee säännöllisesti varmuuskopioita esimerkiksi [Allakseen](../data/Allas/index.md). Katso myös [allas-backup työkalu](../data/Allas/using_allas/a_backup.md).
 
-These disk areas have quotas for both the amount of data and total number of files:
+|            |Omistaja|Ympäristömuuttuja|Polku                 |Siivous                    |Automaattinen varmuuskopio|
+|------------|--------|-----------------|----------------------|---------------------------|--------------------------|
+|**home**    |Henkilökohtainen|`${HOME}`          |`/users/<user-name>` |Ei                         |Ei                        |
+|**projappl**|Projekti |Ei saatavilla    |`/projappl/<project>`|Ei                         |Ei                        |
+|**scratch** |Projekti |Ei saatavilla    |`/scratch/<project>` |180 päivää Puhtissa       |Ei                        |
 
-|            |Capacity|Number of files|
-|------------|--------|---------------|
-|**home**    |10 GiB  |100 000 files  |
-|**projappl**|50 GiB  |100 000 files  |
-|**scratch** |1 TiB   |1 000 000 files|
+Näillä levyalueilla on kiintiöt sekä datan määrälle että tiedostojen kokonaismäärälle:
+
+|            |Kapasiteetti|Tiedostojen määrä|
+|------------|------------|-----------------|
+|**home**    |10 GiB      |100 000 tiedostoa|
+|**projappl**|50 GiB      |100 000 tiedostoa|
+|**scratch** |1 TiB       |1 000 000 tiedostoa|
 
 !!! info "LUE"
-    To easily check the amount of data and number of files within a given folder on
-    the parallel file system, please consider using the [LUE](../support/tutorials/lue.md)
-    tool. This tool is significantly faster than tools like `stat` or `du` and causes
-    much less load on the file system.
+    Jos haluat helposti tarkistaa tietyn kansion datamäärän ja tiedostojen lukumäärän rinnakkaisessa tiedostojärjestelmässä, harkitse [LUE](../support/tutorials/lue.md) työkalun käyttöä. Tämä työkalu on huomattavasti nopeampi kuin työkalut kuten `stat` tai `du` ja aiheuttaa paljon vähemmän kuormitusta tiedostojärjestelmälle.
 
-!!! info "Quotas and cleaning"
-    While it is possible to [apply for increased quotas](#increasing-quotas), we
-    recommend that you always first ensure that the data you have stored on the
-    shared file system is really needed and in active use. Unused data should be
-    moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
-    and cleaning data on Puhti and Mahti disks](../support/tutorials/clean-up-data.md)
-    is also available.
+!!! info "Kiintiöt ja siivous"
+    Vaikka on mahdollista [hakea suurempia kiintiöitä](#increasing-quotas), suosittelemme aina varmistamaan ensin, että sinulla on tallennettuna vain todella tarvittavaa ja aktiivisessa käytössä olevaa dataa jakotiedostojärjestelmässä. Käyttämätön data tulisi siirtää esimerkiksi [Allakseen](../data/Allas/index.md). Yleinen opas [Puhti ja Mahti -levyjen datan hallintaan ja siivoukseen](../support/tutorials/clean-up-data.md) on myös saatavilla.
 
-## Home directory
+## Kotihakemisto {#home-directory}
 
-Each user has a home directory (`$HOME`) that can contain up to 10 GB of data.
+Jokaisella käyttäjällä on kotihakemisto (`$HOME`), johon mahtuu korkeintaan 10 GB dataa.
 
-The home directory is the default directory where you begin after logging in to CSC supercomputers.
-However, typically you should change to your project's `scratch` directory when working because
-the **home directory is not intended for data analysis or computing**. Its purpose is to store
-configuration files and other minor personal data. A home directory exceeding its capacity
-causes various account problems.
+Kotihakemisto on oletushakemisto, jossa aloitat kirjautuessasi CSC:n supertietokoneisiin. Tyypillisesti sinun tulisi kuitenkin siirtyä projektisi `scratch`-hakemistoon työskennellessäsi, koska **kotihakemisto ei ole tarkoitettu data-analyysiin tai laskentaan**. Sen tehtävänä on säilyttää asetustiedostoja ja muita pieniä henkilökohtaisia tietoja. Kotihakemiston kapasiteetin ylittäminen aiheuttaa ongelmia tilin käytössä.
 
-The home directory is the only user-specific directory in supercomputers. All other directories
-are project-specific. If you are a member of several projects, you also have access to several
-`scratch` or `projappl` directories, but still have only one home directory.
+Kotihakemisto on ainoa käyttäjäkohtainen hakemisto supertietokoneissa. Kaikki muut hakemistot ovat projektikohtaisia. Jos olet useiden projektien jäsen, sinulla on pääsy useisiin `scratch`- tai `projappl`-hakemistoihin, mutta vain yksi kotihakemisto.
 
-## Scratch directory
+## Scratch-hakemisto {#scratch-directory}
 
-Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
+Jokaisella projektilla on oletuksena 1 TB scratch-levytilaa hakemistossa `/scratch/<project>`.
 
+Tämä nopea rinnakkainen scratch-tila on tarkoitettu väliaikaiseksi säilytystilaksi datalle, jota käytetään supertietokoneessa. Scratch-hakemisto ei ole tarkoitettu pitkäaikaiseen datan säilytykseen. Varmistaakseen, etteivät levyt täyty, CSC poistaa säännöllisesti tiedostoja, joihin ei ole pitkään aikaan koskettu. Puhtissa nykyinen käytäntö on poistaa tiedostot, joihin ei ole koskettu yli 6 kuukauteen. Mahtissa vastaavaa siivousprosessia ollaan ottamassa käyttöön, mutta se ei ole vielä toiminnassa. Katso yksityiskohdat nykyisestä käytännöstä [Käyttöpolitiikka](./usage-policy.md) sivulta.
 
-This fast parallel scratch space is intended as temporary storage
-space for the data that is used in the supercomputer. The scratch
-directory is not intended for long-term data storage. To ensure that
-the disks do not fill up CSC will regularly delete files that have not
-been accessed in a long time. In Puhti the current policy is to remove
-files that have not been accessed for more than 6 months. In Mahti a
-similar cleaning procedure will be introduced, but is not yet
-active. See [Usage policy](./usage-policy.md) page for details on the current
-policy.
+Varmista, että tutustut meidän oppaaseemme [vinkkeihin ja ohjeisiin datan hallinnasta `scratch`-alueella](../support/tutorials/clean-up-data.md).
 
+## Projappl-hakemisto {#projappl-directory}
 
-Make sure to consult our tutorial for [tips and guidelines on how to
-manage your data on `scratch`](../support/tutorials/clean-up-data.md).
+Jokaisella projektilla on myös 50 GB projektisovellustilaa hakemistossa `/projappl/<project>`.
 
+Se on tarkoitettu tallentamaan itse käännettyjä sovelluksia, kirjastoja jne., joita jaetaan projektin kesken. Se ei ole henkilökohtainen tallennustila, vaan se on yhteinen projektiryhmän jäsenille. Huomaa, että mitään tiedostoja tässä kansiossa ei poisteta automaattisesti.
 
+Sitä ei ole tarkoitettu sovellusten suorittamiseen, joten suorita ne mieluummin `scratch`-kansiossa.
 
-## Projappl directory
+## Scratch- ja projappl-hakemistojen käyttö {#using-scratch-and-projappl-directories}
 
-Each project has also a 50 GB project application disk space in the directory
-`/projappl/<project>`.
-
-It is intended for storing applications you have compiled yourself, libraries etc. that you
-are sharing within the project. It is not a personal storage space but it is shared with
-all members of the project team. Note that no files in this folder will be removed automatically.
-
-It is not intended for running applications, so please run them in `scratch` instead.
-
-## Using scratch and projappl directories
-
-An overview of your directories in the supercomputer you are currently logged on can be
-displayed with:
+Yleisnäkymän nykyisen supertietokoneen hakemistoistasi voi näyttää komennolla:
 
 ```bash
-csc-workspaces 
+csc-workspaces
 ```
 
-The above command displays all `scratch` and `projappl` directories you have access to.
+Yllä oleva komento näyttää kaikki `scratch`- ja `projappl`-hakemistot, joihin sinulla on pääsy.
 
-For example, if you are a member in two projects, with unix groups `project_2012345`
-and `project_3587167`, then you have access to two `scratch` and `projappl` directories:
+Esimerkiksi, jos olet jäsenenä kahdessa projektissa, joiden unix-ryhmät ovat `project_2012345` ja `project_3587167`, sinulla on pääsy kahteen `scratch`- ja `projappl`-hakemistoon:
 
 ```text
-[kkayttaj@puhti ~]$ csc-workspaces 
-Disk area               Capacity(used/max)  Files(used/max)  Project description  
+[kkayttaj@puhti ~]$ csc-workspaces
+Levyalue                Kapasiteetti(käytetty/enintään)  Tiedostot(käytetty/enintään)  Projektikuvaus  
 ----------------------------------------------------------------------------------
-Personal home folder
+Henkilökohtainen kotihakemisto
 ----------------------------------------------------------------------------------
 /users/kkayttaj                2.05G/10G       23.24k/100k
 
-Project applications 
+Projekti sovellukset 
 ----------------------------------------------------------------------------------
-/projappl/project_2012345     3.056G/50G       23.99k/100k   Ortotopology modeling
-/projappl/project_3587167     10.34G/50G       2.45/100k     Metaphysics methods
+/projappl/project_2012345     3.056G/50G       23.99k/100k   Ortotopologian mallinnus
+/projappl/project_3587167     10.34G/50G       2.45/100k     Metafyysiset menetelmät
 
-Project scratch 
+Projekti scratch 
 ----------------------------------------------------------------------------------
-/scratch/project_2012345        56G/1T         150.53k/1000k Ortotopology modeling
-/scratch/project_3587167       324G/1T         5.53k/1000k   Metaphysics methods
+/scratch/project_2012345        56G/1T         150.53k/1000k Ortotopologian mallinnus
+/scratch/project_3587167       324G/1T         5.53k/1000k   Metafyysiset menetelmät
 ```
 
-Moving to the scratch directory of `project_2012345`:
+Siirtyminen `project_2012345` scratch-hakemistoon:
 
 ```bash
 cd /scratch/project_2012345
 ```
 
-Please note that not all CSC projects have Puhti/Mahti access, so you may not
-necessarily find a `scratch` or `projappl` directory for all your CSC projects.
+Huomaa, että kaikki CSC-projektit eivät välttämättä ole saaneet Puhti/Mahti-käyttöä, joten et välttämättä löydä `scratch`- tai `projappl`-hakemistoa kaikille CSC-projekteillesi.
 
 !!! Note
-    The `scratch` and `projappl` directories are shared by all the members of the
-    project. All new files and directories are also fully accessible for other
-    group members (including read, write and execution permissions).
+    `Scratch`- ja `projappl`-hakemistot ovat jaettuja kaikkien projektisi jäsenten kanssa. Kaikki uudet tiedostot ja hakemistot ovat täysin muiden ryhmän jäsenten saatavilla (mukaan lukien luku-, kirjoitus- ja suoritusoikeudet).
 
-If you want to restrict access from your group members, you can reset the permissions
-with the `chmod` command. Setting read-only permissions for your group members for
-the directory `my_directory`:
+Jos haluat rajoittaa pääsyä ryhmän jäseniltäsi, voit muuttaa oikeuksia `chmod`-komennolla. Asettamalla vain lukuoikeudet ryhmän jäsenille hakemisto `my_directory`:
 
 ```bash
 chmod -R g-w my_directory
 ```
 
-As mentioned earlier, the `scratch` directory is only intended for processing data.
-Any data that should be preserved for a longer time should be copied to the *Allas*
-object storage server. Instructions for backing up files from CSC supercomputers to
-Allas can be found in the [Allas guide](../data/Allas/index.md).
+Kuten aiemmin mainittiin, `scratch`-hakemisto on tarkoitettu ainoastaan datan käsittelyyn. Kaikki data, joka halutaan säilyttää pitempään, tulisi kopioida *Allas* objekteiden tallennuspalvelimelle. Ohjeet tietojen varmuuskopiointiin CSC:n supertietokoneista Allasiin löytyvät [Allas-oppaasta](../data/Allas/index.md).
 
-## Moving data between supercomputers
+## Datan siirtäminen supertietokoneiden välillä {#moving-data-between-supercomputers}
 
-Data can be moved between supercomputers via Allas by first uploading the data in
-one supercomputer and then downloading in another supercomputer. This is the
-recommended approach if the data should also be preserved for a longer time.
+Dataa voi siirtää supertietokoneiden välillä Allaksen kautta lataamalla ensin data toisessa supertietokoneessa ja sitten lataamalla toisella supertietokoneella. Tämä on suositeltava tapa, jos dataa halutaan säilyttää myös pidemmän aikaa.
 
-Data can also be moved directly between the supercomputers with the `rsync` command.
-For example, in order to copy `my_results` (which can be either file or directory)
-from Puhti to the directory `/scratch/project_2002291` in Mahti, one can issue in
-Puhti the command:
+Data voidaan siirtää suoraan supertietokoneiden välillä `rsync`-komennolla. Esimerkiksi, kopioidaksesi `my_results` (joka voi olla joko tiedosto tai hakemisto) Puhtista hakemistoon `/scratch/project_2002291` Mahtissa, voi Puhtissa suorittaa komennon:
 
 ```bash
 rsync -azP my_results yourcscusername@mahti.csc.fi:/scratch/project_2002291
 ```
 
-See [Using rsync](../data/moving/rsync.md) for more detailed instructions for `rsync`.
+Katso [rsyncin käyttö](../data/moving/rsync.md) tarkempia ohjeita `rsyncin` käyttämisestä.
 
-## Increasing quotas
+## Kiintiöiden kasvattaminen {#increasing-quotas}
 
-You can use the **MyCSC portal** to [manage quotas of the `scratch` and `projappl`
-directories](../accounts/how-to-increase-disk-quotas.md).
+Voit käyttää **MyCSC-portaalia** [hallinnoidaksesi `scratch` ja `projappl`-hakemistojen kiintiöitä](../accounts/how-to-increase-disk-quotas.md).
 
-Remember that even after the quota is increased, the planned automatic cleaning process
-will continue removing idle files from the `scratch` directory. Data that is not under
-active computing should be stored in the Allas storage service.
+Muista, että vaikka kiintiöitä on kasvatettu, suunniteltu automaattinen siivousprosessi jatkaa käyttämättömien tiedostojen poistamista `scratch`-hakemistosta. Data, joka ei ole aktiivisessa laskennassa, tulisi tallentaa Allaksen tallennuspalveluun.
 
-Remember also that you can increase these values only to some extent. Especially regarding
-the number of files, you should reconsider your data workflow if it requires that tens
-of millions of files are stored in the `scratch` area.
+Muista myös, että voit kasvattaa näitä arvoja vain tiettyyn rajaan asti. Erityisesti tiedostojen lukumäärän kohdalla sinun tulisi harkita datatyövirtaasi, jos se edellyttää, että `scratch`-alueella säilytetään kymmeniä miljoonia tiedostoja.
 
 !!! info
-    To find out how much data/files you have on the disk, please use our [LUE
-    tool](../support/tutorials/lue.md) which is much more performant than standard
-    tools such as `stat` or `du`.
+    Tullaksesi tietoiseksi siitä, kuinka paljon dataa/tiedostoja sinulla on levyllä, käytä hyväksi [LUE-työkalua](../support/tutorials/lue.md), joka on paljon suorituskykyisempi kuin vakiotyövälineet, kuten `stat` tai `du`.
 
-## Temporary local disk areas
+## Väliaikaiset paikalliset levyalueet {#temporary-local-disk-areas}
 
-If the application depends on the use of temporary files, the suitability of
-the filesystem may have a large effect on the performance of the application,
-see section *Mind your I/O - it can make a big difference* in the [Performance
-checklist](running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference).
+Jos sovellus riippuu väliaikaistiedostojen käytöstä, tiedostojärjestelmän sopivuudella voi olla suuri vaikutus sovelluksen suorituskykyyn, katso osio *Pidä huolta I/O:sta - se voi tehdä suuren eron* [Suorituskykyluettelossa](running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference).
 
-Please note that some applications use temporary files "behind the scenes". Usually these
-applications read some environment variable that points to a suitable disk area, such as
-`$TMPDIR`.
+Huomaa, että jotkin sovellukset käyttävät väliaikaistiedostoja "kulissien takana". Yleensä nämä sovellukset lukevat ympäristömuuttujaa, joka osoittaa sopivan levyalueen, kuten `$TMPDIR`.
 
-Some nodes have local disks that can be used to speed up your work when the temporary files
-are only needed within a single login- or compute node.
+Jotkut solmut omaavat paikallisia levyjä, joita voidaan käyttää nopeuttamaan työtäsi, kun väliaikaistiedostoja tarvitaan vain yhdessä kirjautumis- tai laskentasolmussa.
 
-### Login nodes
+### Kirjautumissolmut {#login-nodes}
 
-Each of the login nodes have 2900 GiB of fast local storage. The storage is located under
-`$TMPDIR` and is separate for each login node.  
+Jokaisella kirjautumissolmulla on 2900 GiB nopeaa paikallista tallennustilaa. Tallennustila sijaitsee hakemistossa `$TMPDIR` ja on erillinen jokaiselle kirjautumissolmulle.
 
-The local storage is good for compiling applications and performing pre- and post-processing
-that require heavy I/O operations, for example packing and unpacking archive files.
+Paikallinen tallennustila sopii sovellusten kääntämiseen ja esikäsittely- tai jälkikäsittelyyn, jotka vaativat intensiivisiä I/O-toimintoja, kuten arkistotiedostojen pakkaus ja purku.
 
 !!! Note
-    The local storage is meant for **temporary** storage and is cleaned frequently.
-    Remember to move your data to a shared disk area after completing your task.
+    Paikallinen tallennustila on tarkoitettu **väliaikaiseen** säilytykseen ja se siivotaan usein. Muista siirtää tietosi yhteiselle levyalueelle tehtävän suorittamisen jälkeen.
 
-### Compute nodes with local SSD (NVMe) disks
+### Laskentasolmut paikallisilla SSD- (NVMe) levyillä {#compute-nodes-with-local-ssd-nvme-disks}
 
-Jobs running in the I/O- and GPU-nodes in Puhti and Mahti have local fast storage
-available. In interactive batch jobs launched with [sinteractive](running/interactive-usage.md),
-this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs
-with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request.
-Different nodes have different amounts of disks, see [Puhti technical details](systems-puhti.md)
-for a detailed list of all node types in Puhti. In normal compute nodes, there are 1490 GiB and 3600 GiB
-disks. In big memory nodes there are 1490 GiB and 5960 GiB disks, and in GPU-nodes there are
-3600 GiB disks. To save resources, and to ensure your jobs do not queue for resources for too
-long, it is a good idea to only reserve what you actually need. In Mahti there are 60 CPU nodes with 3500 GiB
-local disks in the `small` and `interactive` partitions. The GPU nodes have 3600 GiB local disks.
+Puhtin ja Mahtin I/O- ja GPU-solmuissa suoritettavilla töillä on käytettävissään nopeaa paikallista tallennustilaa. Interaktiivisissa erätöissä, jotka aloitetaan [sinteractive](running/interactive-usage.md), tämä paikallinen levyalue määritetään ympäristömuuttujalla `$TMPDIR` ja normaalissa erätöissä ` $LOCAL_SCRATCH`. Tämän tallennustilan koko määritellään erätyön resurssipyynnössä. Eri solmuilla on erilaisia levyjen määriä, katso [Puhtin tekniset yksityiskohdat](systems-puhti.md) yksityiskohtainen lista kaikista Puhtin solmutyypeistä. Tavallisilla laskentasolmuilla on 1490 GiB:n ja 3600 GiB:n levyt. Suurimuistisilla solmuilla on 1490 GiB:n ja 5960 GiB:n levyt, ja GPU-solmuilla on 3600 GiB:n levyt. Säästääksesi resursseja ja varmistaaksesi, että työsi eivät jonota liian kauan, on hyvä idea varata vain sitä, mitä todella tarvitset. Mahtissa on 60 CPU-solmua 3500 GiB:n paikallisilla levyillä `small` ja `interactive` osastoissa. GPU-solmuilla on 3600 GiB:n paikalliset levyt.
 
-These local disk areas are designed to support I/O intensive computing tasks and cases where you
-need to process large amounts (over 100 000) of small files. These directories are cleaned once
-the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want
-to preserve from these temporary disk areas to `scratch` directory or to Allas.
+Nämä paikalliset levyalueet on suunniteltu tukemaan I/O-intensiivisiä laskentatehtäviä ja tilanteita, joissa tarvitset käsitellä suuria määriä (yli 100 000) pieniä tiedostoja. Näitä hakemistoja siivotaan, kun erätyö valmistuu. Näin ollen erätyön lopussa sinun on kopioitava kaikki tiedot, jotka haluat säilyttää, näiltä väliaikaisilta levyalueilta `scratch` -hakemistoon tai Allakseen.
 
-For more information see [creating job scripts](running/creating-job-scripts-puhti.md#local-storage).
+Lisätietoja saat [työskriptien luominen](running/creating-job-scripts-puhti.md#local-storage).
 
-### Compute nodes without local SSD (NVMe) disks
+### Laskentasolmut ilman paikallisia SSD- (NVMe) levyjä {#compute-nodes-without-local-ssd-nvme-disks}
 
-In Puhti we simply recommend using compute nodes with NVMe disks (`$LOCAL_SCRATCH`) for the
-applications that require temporary local storage.
+Puhtissa suosittelemme yksinkertaisesti käyttämään NVMe levyjä (`$LOCAL_SCRATCH`) omaavia laskentasolmuja sovelluksissa, jotka vaativat väliaikaista paikallista tallennusta.
 
-In Mahti, where only some compute nodes have local NVMe disks, it is also possible to store a relatively
-small amount of temporary files in memory. In practice, the applications can use the directory
-`/dev/shm` for this, for example by setting `export TMPDIR=/dev/shm`. Please note that the use
-of `/dev/shm` consumes memory, so less is left available for the applications. This may lead to
-applications running out of memory sooner than expected and failing in the compute node, but
-this usually does no other harm. The plus side is that if it works, it should be fast.
+Mahtissa, jossa vain osa laskentasolmuista omaa paikallisia NVMe-levyjä, on myös mahdollista säilyttää suhteellisen pieni määrä väliaikaistiedostoja muistissa. Käytännössä sovellukset voivat käyttää hakemistoa `/dev/shm` tähän, esimerkiksi asettamalla `export TMPDIR=/dev/shm`. Huomaa, että `/dev/shm` käyttö kuluttaa muistia, joten sitä jää vähemmän sovelluksille. Tämä saattaa johtaa siihen, että sovellukset loppuvat muistista aiemmin kuin odotettiin ja epäonnistuvat laskentasolmussa, mutta tämä yleensä ei aiheuta muuta vahinkoa. Etuna on, että jos se toimii, sen pitäisi olla nopeaa.
 
-However, in Puhti, as well as Mahti `small`, `interactive` and GPU partitions, where applications
-from multiple users can share the same node, running out of memory by filling up `/dev/shm` will
-crash other users applications, too! **In these cases it is not recommended to use `/dev/shm` at all.**
+Kuitenkin, sekä Puhtin että Mahtissa `small`-, `interactive`- ja GPU-osastoissa, joissa useiden käyttäjien sovellukset voivat jakaa saman solmun, `/dev/shm` täyttäminen aiheuttaa myös muiden käyttäjien sovellusten kaatumisen! **Näissä tapauksissa ei suositella käyttämään `/dev/shm` ollenkaan.**

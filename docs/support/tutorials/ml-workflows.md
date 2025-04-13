@@ -1,47 +1,26 @@
-# Managing machine learning workflows on CSC's supercomputers
+# Koneoppimistyönkulkujen hallinta CSC:n supertietokoneilla {#managing-machine-learning-workflows-on-cscs-supercomputers}
 
-This guide discusses various ways for managing your machine learning
-workflows on CSC's supercomputers. It is part of our [Machine learning
-guide](ml-guide.md).
+Tämä opas käsittelee erilaisia tapoja hallita koneoppimistyönkulkujasi CSC:n supertietokoneilla. Se on osa [koneoppimisopastamme](ml-guide.md).
 
-Instead of providing a single integrated machine learning workflow
-system, our approach is to support a wide range of ML workflow tools
-so that users can pick and choose what fits their needs best.
+Sen sijaan, että tarjoaisimme yhden integroidun koneoppimistyönkulun hallintajärjestelmän, lähestymistapamme on tukea laajaa valikoimaa ML-työnkulkuvälineitä, jotta käyttäjät voivat valita ja yhdistää itselleen parhaiten sopivat.
 
-## MLflow
+## MLflow {#mlflow}
 
-[MLflow][MLflow] is an open source tool for tracking experiments and
-models in machine learning projects. It is included in most of [our
-pre-installed modules for machine learning][ml-apps], such as
-`pytorch`, `tensorflow` and `python-data`. You can also easily install
-MLflow yourself with `pip` (see [our documentation on how to install
-Python packages][own-install]).
+[MLflow][MLflow] on avoimen lähdekoodin työkalu kokeiden ja mallien seurannalle koneoppimisprojekteissa. Se sisältyy suurimpaan osaan [esiasennetuista koneoppimismoduuleistamme][ml-apps], kuten `pytorch`, `tensorflow` ja `python-data`. Voit myös helposti asentaa MLflow:n itse käyttäen `pip`:iä (katso [dokumentaatiomme Python-pakettien asentamisesta][own-install]).
 
-We document **two ways to use MLflow on CSC's supercomputers**:
+Dokumentoimme **kaksi tapaa käyttää MLflow:ta CSC:n supertietokoneilla**:
 
-1. Storing the tracking data on the supercomputer's filesystem (e.g.,
-   on `/scratch/`) and viewing the results via the [MLflow tracking
-   UI](#mlflow-tracking-ui) in the web interface. (This is currently
-   only supported on Puhti.)
-   
-2. Using your own [MLflow tracking server](#mlflow-tracking-server),
-   for example running on [CSC's Rahti
-   service](../../cloud/rahti/index.md).
-   
-Option 1 is simpler to get started with - just add a few lines in
-your code and open the MLflow UI in the web interface - however it may
-not scale up very well to hundreds of runs or multiple users. For more
-advanced use cases we recommend Option 2.
+1. Seurannan tietojen tallentaminen supertietokoneen tiedostojärjestelmään (esim. `/scratch/`) ja tulosten katselu verkkokäyttöliittymässä [MLflow:n seurannan käyttöliittymän](#mlflow-tracking-ui) kautta. (Tämä on tällä hetkellä tuettu vain Puhtissa.)
 
-First we'll explain how to modify your code to enable MLflow tracking.
+2. Oman [MLflow-seurantapalvelimen](#mlflow-tracking-server) käyttäminen, esimerkiksi [CSC:n Rahti-palvelussa](../../cloud/rahti/index.md).
 
+Vaihtoehto 1 on yksinkertaisempi aloittaa - lisää vain muutama rivi koodiin ja avaa MLflow:n käyttöliittymä verkkoliittymässä - mutta se ei välttämättä skaalaudu hyvin satoihin ajoihin tai useille käyttäjille. Edistyneempiin käyttötapauksiin suosittelemme vaihtoehtoa 2.
 
-### Tracking runs
+Ensiksi selitämme, miten voit muokata koodiasi MLflow-seurannan mahdollistamiseksi.
 
-Enabling MLflow tracking in your Python code is easy. Some libraries
-support [automatic logging with MLflow][autolog], but even if the
-library you are using does not, logging can be added with just a few
-lines of code. For example:
+### Ajojen seuranta {#tracking-runs}
+
+MLflow-seurannan mahdollistaminen Python-koodissasi on helppoa. Jotkut kirjastot tukevat [automaattista MLflow-lokin kirjausta][autolog], mutta vaikka käyttämässäsi kirjastossa tätä tukea ei olisikaan, lokin kirjaus voidaan lisätä vain muutamalla koodirivillä. Esimerkiksi:
 
 ```python
 import mlflow
@@ -49,104 +28,68 @@ mlflow.set_tracking_uri("/scratch/project_2001234/mlruns")
 mlflow.start_run(run_name=os.getenv("SLURM_JOB_ID"))
 ```
 
-With `mlflow.set_tracking_uri()` we set the location where the MLflow
-files should be stored, replace with the appropriate path for your own
-project in the example. If you don't set a location it will create a
-directory called `mlruns` in you current working directory.
+Funktiolla `mlflow.set_tracking_uri()` asetamme sijainnin, johon MLflow-tiedostojen tulisi tallentua. Korvaa esimerkin sopivalla polulla omaa projektiasi varten. Jos et aseta sijaintia, se luo hakemiston nimeltä `mlruns` nykyiseen työskentelyhakemistoosi.
 
-Instead of a directory, you can also use an SQLite database, just
-start the tracking location with `sqlite://`, for example:
+Hakemiston sijaan voit myös käyttää SQLite-tietokantaa. Aloita seurantapaikka `sqlite://`:llä, esimerkiksi:
 
 ```python
 mlflow.set_tracking_uri("sqlite:////scratch/project_2001234/mlruns.db")
 ```
 
-Instead of setting the tracking URI in the Python code, you can also
-set it using an environment variable, for example in the Slurm job
-script:
+Tracking URI:n asettamisen Python-koodista sijaan voit myös asettaa sen ympäristömuuttujan avulla, esimerkiksi Slurm-työskriptissä:
 
 ```bash
 export MLFLOW_TRACKING_URI=/scratch/project_2001234/mlruns
 ```
 
-It is not mandatory to set a name for the run, but in the example
-above we show how to use the Slurm job id for the name.
+Ei ole pakollista asettaa ajon nimeä, mutta yllä olevassa esimerkissä näytämme miten Slurm-työ ID:tä voidaan käyttää nimeämiseen.
 
-Finally in the code where you calculate metrics that you wish to track
-you need to add a line to track it with MLflow:
+Lopuksi, kohdassa, jossa laskemme metriikoita, jotka haluat kirjata, täytyy lisätä rivi niiden kirjaamiseksi MLflow:lla:
 
 ```python
 mlflow.log_metric("loss", loss)
 ```
 
-For a full example for PyTorch see [mnist_ddp_mlflow.py][pytorch-ex]
-or [mnist_lightning_ddp.py][lightning-ex] for PyTorch Lightning.
+Täydellisen esimerkin PyTorchille löydät [mnist_ddp_mlflow.py][pytorch-ex]- tai PyTorch Lightningille [mnist_lightning_ddp.py][lightning-ex] -tiedostosta.
 
-In addition to metrics you can also log parameters and artifacts. See
-the [MLflow documentation for a list of logging functions][log-func].
+Metriikoiden lisäksi voit myös kirjata parametreja ja artefakteja. Katso [MLflow-dokumentaatio lokitoimintojen listasta][log-func].
 
-### MLflow tracking UI
+### MLflow seurannan käyttöliittymä {#mlflow-tracking-ui}
 
-To visualize and monitor your runs you can start the [MLflow tracking
-UI][mlflow-app] using the [Puhti web user interface][webui].
+Visualisoidaksesi ja seurataksesi ajojesi tuloksia voit käynnistää [MLflow:n seurannan käyttöliittymän][mlflow-app] käyttäen [Puhtin verkkokäyttöliittymää][webui].
 
-To launch it, log in to the web interface at
-<https://www.puhti.csc.fi/> and select "MLflow" from the "Apps"
-menu. In the submission form you need to select where the MLflow files
-are stored. This is the same path that you used for the
-`mlflow.set_tracking_uri()` method, i.e., typically:
+Käynnistääksesi sen, kirjaudu verkkoliittymään osoitteessa <https://www.puhti.csc.fi/> ja valitse "MLflow" "Apps"-valikosta. Lähetyslomakkeessa sinun täytyy valita, missä MLflow-tiedostot ovat tallennettuina. Tämä on sama polku, jota käytit `mlflow.set_tracking_uri()`-menetelmässä, eli tavallisesti:
 
-- a directory like `/scratch/<project>/mlruns/`, or
-- an SQLite database like `sqlite:////scratch/<project>/mlruns.db`
+- hakemisto kuten `/scratch/<project>/mlruns/`, tai
+- SQLite-tietokanta kuten `sqlite:////scratch/<project>/mlruns.db`
 
-The default resource settings should be fine for most cases.
+Oletusresurssiasetukset ovat hyvät useimmissa tapauksissa.
 
-Once the session has started you should see a list of your runs similar to this screenshot:
+Kun sessio on alkanut, sinun pitäisi nähdä lista ajoista, joka on samankaltainen kuin tämä kuvakaappaus:
 
-![MLflow front page with list of runs](../../img/mlflow-front.png)
+![MLflow-etuhaarake-sivullinen lista ajoista](../../img/mlflow-front.png)
 
-If you select a run (here named based on the Slurm id), you can for
-example click on the "Metrics" field and select "loss" to see a plot
-of that metric over time:
+Jos valitset ajon (tässä nimetty Slurm ID:n perusteella), voit esimerkiksi klikata "Metrics"-kenttää ja valita "loss" nähdäksesi kuvaajan kyseisestä metriikasta ajan kuluessa:
 
-![MLflow plot showing the loss metric over time](../../img/mlflow-metrics.png)
+![MLflow kuvaaja, joka näyttää loss-metriikan ajan kuluessa](../../img/mlflow-metrics.png)
 
+### MLflow seurannan palvelin {#mlflow-tracking-server}
 
-### MLflow tracking server
+Edistyneempiin käyttötapauksiin saatat haluta käyttää [MLflow etäseurannan palvelinta][tracking-server]. Tähän Puhtin verkkokäyttöliittymä ei sovi, sillä sitä ei voida käyttää verkon yli, eikä se yleensä olisi päällä koko ajan, kun tietoa pitää tallentaa siihen.
 
-For more advanced use cases you may want to use an [MLflow remote
-tracking server][tracking-server]. For this the tracking UI in the
-Puhti web interface is not suitable, as it cannot be accessed over the
-network, and it would typically not be running all the time when you
-need to store data to it.
+Sopivampi alusta MLflow seurannan palvelimen ajamiselle on CSC:n Rahti-palvelu. Olemme tarjonneet valmiin MLflow-mallin Rahtin palveluluettelossa, mikä tekee MLflow seurannan palvelimen aloituksesta helppoa. Katso [käyttäjän oppaamme MLflow-seurannan palvelimen aloitukseen Rahtissa][mlflow-rahti]. Mukana on myös [mukava video!](https://video.csc.fi/media/t/0_2frjyzz9).
 
-A more suitable platform for running an MLflow tracking server is
-CSC's Rahti service.  We have provided a ready-made MLflow template in
-Rahti's service catalog which makes starting an MLflow tracking server
-easy. See our [user guide on how to start your own MLflow tracking
-server on Rahti][mlflow-rahti]. There's even a [nice
-video!](https://video.csc.fi/media/t/0_2frjyzz9).
+Voit myös asettaa sen käyttämään Allasta artefaktien tallennukseen.
 
-You can also set it up to use Allas for storing artifacts.
+Kun sinulla on palvelimesi käynnissä Rahtissa, voit käyttää verkkokäyttöliittymää. Osoite löytyy Rahtista (Sovellukset → Reitit → mlflow-ui-route) ja se on jotain vastaavaa kuin `https://your-mlflow-app.rahtiapp.fi`, riippuen siitä, millaisen nimen annoit sovellukselle asennusvaiheessa. Myös käyttäjänimi ja salasana ovat samoja, jotka annoit asennusvaiheessa.
 
-Once you have your server running on Rahti you can access the web user
-interface. The address can be found from Rahti (Applications → Routes
-→ mlflow-ui-route) and will be something similar to
-`https://your-mlflow-app.rahtiapp.fi`, depending on what name you gave
-the application in the setup. Also the username and password will be
-the same ones given in the setup phase.
-
-Next, change your Python script to point to the new MLflow tracking
-server:
+Seuraavaksi muuta Python-skriptisi osoittamaan uuteen MLflow seurantapalvelimeen:
 
 ```python
 mlflow.set_tracking_uri("https://your-mlflow-app.rahtiapp.fi/")
 ```
 
-Again, the URL depends on what name you gave to the application in
-Rahti. In addition, you need to set two environment variables with the
-username and password that you gave when creating the Rahti
-application, for example:
+Jälleen, URL-osoite riippuu Rahtissa antamastasi sovelluksen nimestä. Lisäksi sinun tulee asettaa kaksi ympäristömuuttujaa sillä käyttäjänimellä ja salasanalla, jotka annoit Rahti-sovellusta luodessasi, esimerkiksi:
 
 ```bash
  export MLFLOW_TRACKING_USERNAME=mlflow
@@ -155,12 +98,7 @@ application, for example:
 
 !!! warning ""
 
-    It is not very secure to store the password in a plain text file such as
-    the Slurm job script. One option is to give the password on the
-    command line before launching the job. If you **prefix the export
-    command with a single space** (as above) the bash shell will not store
-    the command (including the password) in its history.
-
+    Ei ole kovin turvallista tallentaa salasanaa tavalliseen tekstitiedostoon, kuten Slurm-työskriptiin. Yksi vaihtoehto on antaa salasana komennolla ennen työn käynnistämistä. Jos **lisäät komennon eteen vain yhden välilyönnin** (kuten yllä), bash-kuori ei tallenna komentoa (mukaan lukien salasanaa) historiaansa.
 
 [MLflow]: https://www.mlflow.org/
 [ml-apps]: ../../apps/by_discipline.md#data-analytics-and-machine-learning

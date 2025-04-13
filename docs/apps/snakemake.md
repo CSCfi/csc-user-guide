@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,64 +6,60 @@ tags:
 
 # Snakemake
 
-Snakemake is a Python-based scientific workflow management system for creating scalable, portable, and reproducible workflows. It is one of 
-the popular workflow managers within the bioinformatics community, but
-is not specific to bioinformatics. Like in [Nextflow](../apps/nextflow.md), Snakemake also supports running scripts (via script/run/shell directive of Snakemake rule) from other languages such as R, bash and Python.
+Snakemake on Python-pohjainen tieteellinen työnkulun hallintajärjestelmä skaalautuvien, siirrettävien ja toistettavien työnkulkujen luomiseen. Se on yksi suosituista työnkulun hallinnoijista bioinformatiikan yhteisössä, mutta ei ole rajoittunut vain bioinformatiikan alalle. Kuten [Nextflow'ssa](../apps/nextflow.md), myös Snakemakessa tuetaan muiden kielten, kuten R, bash ja Python, skriptien suorittamista (Snakemake-säännön script/run/shell -direktiivin kautta).
 
 [TOC]
 
-## Available 
+## Available {#available}
 
-Versions available at CSC:
+CSC:llä saatavilla olevat versiot:
 
 * Puhti: 7.15.2, 7.17.1, 8.4.6
 
-## License
+## License {#license}
 
-Snakemake is released under the
-[MIT License](https://snakemake.readthedocs.io/en/stable/project_info/license.html).
+Snakemake on julkaistu [MIT-lisenssillä](https://snakemake.readthedocs.io/en/stable/project_info/license.html).
 
-## Usage
+## Usage {#usage}
 
-Snakemake is activated by loading `snakemake` module as below:
+Snakemake aktivoidaan lataamalla `snakemake`-moduuli seuraavasti:
 
 ```bash
 module load snakemake
 ```
 
-Example of loading `snakemake` module with a specific version:
+Esimerkki `snakemake`-moduulin lataamisesta tietyllä versiolla:
 
 ```bash
 module load snakemake/8.4.6
 ```
 
-For usage help, use command:
+Käyttöönottoapua varten käytä komentoa:
 
 ```bash
 snakemake --help
 ```
 
-Please refer to our tutorial on [running Snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md) for more details.
+Katso lisätietoja tutoriaalistamme [Snakemake työnkulun suoritus Puhtilla](../support/tutorials/snakemake-puhti.md).
 
-## Installation
+## Installation {#installation}
 
-The latest version of snakemake (v8.4.6) was installed on Puhti using virtual environment *via* pip3. See a [list of the python packages used in this module ](https://github.com/yetulaxman/containers-workflows/blob/master/snakemake_pip_hpc.yaml).
+Viimeisin snakemaken versio (v8.4.6) asennettiin Puhtille virtual environmentin kautta pip3:n avulla. Katso [luettelo tässä moduulissa käytetyistä python-paketeista](https://github.com/yetulaxman/containers-workflows/blob/master/snakemake_pip_hpc.yaml).
 
+## References {#references}
 
-## References
-
-If you use Snakemake in your work, please cite:
+Jos käytät Snakemakea työssäsi, viittaa siihen seuraavasti:
 
 > Mölder, F., Jablonski, K.P., Letcher, B., Hall, M.B., Tomkins-Tinch, C.H., Sochat, V.,
   Forster, J., Lee, S., Twardziok, S.O., Kanitz, A., Wilm, A., Holtgrewe, M., Rahmann, S.,
   Nahnsen, S., Köster, J. Sustainable data analysis with Snakemake. F1000Research 2021,
   <https://doi.org/10.12688/f1000research.29032.1>.
 
-## More information
+## More information {#more-information}
 
-* [Snakemake official documentation](https://snakemake.readthedocs.io/en/stable/index.html)
-* [How to run Snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md)
+* [Snakemaken virallinen dokumentaatio](https://snakemake.readthedocs.io/en/stable/index.html)
+* [Kuinka suorittaa Snakemake työnkulku Puhtilla](../support/tutorials/snakemake-puhti.md)
 * [CSC Snakemake Hackathon 2024](https://coderefinery.github.io/snakemake_hackathon/)
-* [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
-* [Contact CSC Service Desk for technical support](../support/contact.md)
+* [Antoni Gołośin pro gradu -tutkielma automatisoitujen työnkulkulähestymistapojen vertailusta supertietokoneilla](https://urn.fi/URN:NBN:fi:aalto-202406164397)
+* [Ota yhteyttä CSC:n Service Deskiin teknisen tuen saamiseksi](../support/contact.md)
 

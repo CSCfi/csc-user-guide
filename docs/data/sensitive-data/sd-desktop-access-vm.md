@@ -1,51 +1,48 @@
-# Accessing virtual desktop
+# Virtuaalisen työpöydän käyttäminen {#accessing-virtual-desktop}
 
+* [Virtuaalisen työpöydän käyttöönotto](#access-virtual-desktop)
+* [Kirjaudu ulos virtuaalisesta työpöydästä](#log-out-from-virtual-desktop)
+* [Yhteyden muodostaminen uudelleen analyysisessioon](#reconnecting-to-an-analysis-session)
 
-* [Access virtual desktop](#access-virtual-desktop)
-* [Log out from virtual desktop](#log-out-from-virtual-desktop)
-* [Reconnecting to an analysis session](#reconnecting-to-an-analysis-session)
+## Virtuaalisen työpöydän käyttöönotto {#access-virtual-desktop}
 
+1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Kaikki virtuaaliset työpöytäsi on esitetty etusivulla kohdan **Kaikki yhteydet** alla.
 
-## Access virtual desktop
-
-1. [Login](./sd-desktop-login.md) to SD Desktop. All your virtual desktops are listed at the home page under **All connections**.
-
-2. Select project (e.g. `project_NNNNN`) and click **plus icon**.
+2. Valitse projekti (esim. `project_NNNNN`) ja napsauta **plus-ikonia**.
   
-3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
+3. Nyt voit nähdä kaikki tähän projektiin kuuluvat työpöydät (`desktopname-NNNNNNNNNN`). Käytä virtuaalista työpöytää napsauttamalla nimeä.
 
-When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
+Kun avaat yhteyden, virtuaalinen laskentaympäristö avautuu selaimeesi. Jos käytät virtuaalista työpöytää ensimmäistä kertaa, näet aloituspaneelin, josta voit esimerkiksi säätää näytön tarkkuutta.
 
-![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
+![Kaikki yhteydet](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
 
+## Kirjaudu ulos virtuaalisesta työpöydästä {#log-out-from-virtual-desktop}
 
-## Log out from virtual desktop
+1. Napsauta **virta-ikonia** työpöydän oikeassa yläkulmassa.
+2. Valitse **Virta pois/pieni** ja sitten **Kirjaudu ulos**.
+3. Valitse **Kirjaudu ulos** uudessa ikkunassa.
+4. Valitse **Koti** palataksesi SD Desktopin etusivulle.
 
-1. Click **Power icon** in top right corner of the desktop. 
-2. Select **Power Off/Log out**, then select **Log Ou**t.
-3. Select **Log Out** in the new window.
-4. Select **Home** to return to SD Desktop home page. 
+Tämä sulkee kaikki sovellukset ja katkaisee istunnon. Voit käyttää samaa työpöytää milloin tahansa kirjautumalla palveluun uudelleen.
 
-This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+![Kirjaudu ulos työpöydältä](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
 
-![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
+![Palaa päänäkymään](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
 
-![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
+## Yhteyden muodostaminen uudelleen analyysisessioon {#reconnecting-to-an-analysis-session}
 
-## Reconnecting to an analysis session
+* **Selaimen ikkunan sulkeminen:** Jos aloitit analyysin ohjelmallisesti (esim. suorittamalla skriptin), voit sulkea selainikkunan keskeyttämättä meneillään olevia prosesseja. Työkalut ja käyttöliittymät pysyvät avoinna, kun muodostat yhteyden työpöytääsi uudelleen, jolloin voit jatkaa työskentelyä.
+* **Yhteyden muodostaminen vanhaan istuntoon:** Voit muodostaa yhteyden aiempaan istuntoon vain, jos selainikkuna on täsmälleen saman kokoinen kuin silloin, kun alkuperäinen istunto oli käytössä. Tämä on yleensä mahdollista vain, jos käytät SD Desktopia koko näytön tilassa samalla koneella. Jos ikkunan koko on muuttunut, et todennäköisesti voi muodostaa yhteyttä vanhaan istuntoon.
 
-* **Closing the browser window:** If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-* **Reconnecting to an old session:** You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
+!!! Huom
+    Yhteysrajoitus: jokainen virtuaalinen työpöytä sallii enintään 10 samanaikaista yhteyttä. Tämä tarkoittaa, että enintään 10 CSC-projektin jäsentä voi olla kirjautuneena ja käyttää järjestelmää samaan aikaan. Jos yli 10 CSC-projektin jäsentä yrittää muodostaa yhteyttä samaan virtuaaliseen työpöytään, muut käyttäjät eivät voi käyttää järjestelmää ennen kuin jokin aktiivisista istunnoista katkaistaan.
+    Jos yhteys pysyy epäaktiivisena kaksi peräkkäistä päivää, järjestelmä kirjautuu automaattisesti ulos käyttäjästä vapauttaakseen resursseja. Varmista, että kirjaudut ulos manuaalisesti, kun olet valmis, jotta tämä ei tapahdu.
 
-!!! Note
-    Connection limit: each virtual desktop allows a maximum of 10 simultaneous connections. This means that up to 10 CSC project members can be logged in and using the system at the same time. If more than 10 CSC project members attempt to connect to the same virtual desktop, additional users will not be able to access the system until one of the active sessions is disconnected.
-    If a connection remains inactive for two consecutive days, the system will automatically log the user out to free up resources. Please ensure you log out manually when you're finished to avoid this.
+## Seuraavat vaiheet tässä oppaassa {#your-next-steps-in-this-guide}
 
-## Your next steps in this guide
-
-* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
-* [Customisation - software & tools](./sd-desktop-software.md)
-* [Importing data ](./sd-desktop-access.md)
-* [Exporting data  via user interface](./sd-desktop-export.md)
-* [Export data programmatically](./sd-desktop-export-commandline.md)
-* [Troubleshooting](./sd-desktop-troubleshooting.md)
+* [Työpöydän käyttäminen: vinkit ja perusteet](./sd-desktop-working.md)
+* [Mukauttaminen - ohjelmisto ja työkalut](./sd-desktop-software.md)
+* [Tietojen tuonti](./sd-desktop-access.md)
+* [Tietojen vieminen käyttöliittymän kautta](./sd-desktop-export.md)
+* [Tietojen vieminen ohjelmallisesti](./sd-desktop-export-commandline.md)
+* [Vianmääritys](./sd-desktop-troubleshooting.md)

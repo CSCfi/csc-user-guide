@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,68 +6,67 @@ tags:
 
 # Cirq-on-iqm
 
-Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is
-installed as `helmi_cirq` on LUMI. It is used for running quantum circuits on
-[Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
+Cirq on IQM on avoimen lähdekoodin cirq-sovitin IQM-kvannietokoneille. Se 
+asennetaan nimellä `helmi_cirq` LUMI:in. Sitä käytetään kvanttipiirien suorittamiseen 
+[Helmissä](../computing/quantum-computing/helmi/running-on-helmi.md).
 
-## Available
+## Saatavilla {#available}
 
-Currently supported [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) versions:
+Tällä hetkellä tuetut [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) versiot:
 
-| Version | Module                               | LUMI  | Notes           |
-|:--------|:-------------------------------------|:-----:|-----------------|
-| 15.2    | `helmi_cirq/15.2`                    | X     |                 |
+| Versio  | Moduuli                               | LUMI  | Huomautuksia    |
+|:--------|:--------------------------------------|:-----:|-----------------|
+| 15.2    | `helmi_cirq/15.2`                     | X     |                 |
 
-
-All modules are based on Tykky using LUMI-container-wrapper.
-Wrapper scripts have been provided so that common commands such as `python`,
-`python3`, `pip` and `pip3` should work as normal. For more information, see
+Kaikki moduulit pohjautuvat Tykkyyn LUMI-container-wrapperin avulla.
+Käärintäskriptejä on tarjottu niin, että yleiset komennot kuten `python`,
+`python3`, `pip` ja `pip3` toimivat normaalisti. Lisätietoja on saatavilla 
 [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
-The module includes python packages that are often used with cirq, such as matplotlib,
-numpy, and jupyterlab.
+Moduuli sisältää Python-paketteja, joita käytetään usein cirq:n kanssa, kuten matplotlib, 
+numpy ja jupyterlab.
 
-## License
+## Lisenssi {#license}
 
-cirq-on-iqm is licensed under
-[Apache License 2.0](https://github.com/iqm-finland/cirq-on-iqm/blob/main/LICENSE).
+Cirq-on-iqm on lisensoitu
+[Apache License 2.0](https://github.com/iqm-finland/cirq-on-iqm/blob/main/LICENSE) -lisenssillä.
 
-## Usage
+## Käyttö {#usage}
 
-To use `helmi_cirq` on LUMI, initialize it with:
+Käyttääksesi `helmi_cirq` LUMI:lla, alustaa se näin:
 
 ```bash
 module use /appl/local/quantum/modulefiles
 ```
 
-and 
+ja
 
 ```bash
 module load helmi_cirq
 ```
 
-This command will also show how to load `helmi_cirq`:
+Tämä komento näyttää myös kuinka `helmi_cirq` ladataan:
 
 ```bash
 module avail helmi_cirq
 ```
 
-### Example batch script
+### Esimerkkieräskripti {#example-batch-script}
 
-Example batch script for running a quantum job on Helmi:
+Esimerkki eräskriptistä kvanttilaskentatehtävän suorittamiseen Helmillä:
 
 ```bash title="LUMI"
 #!/bin/bash -l
 
-#SBATCH --job-name=helmijob     # Job name
-#SBATCH --output=helmijob.o%j   # Name of stdout output file
-#SBATCH --error=helmijob.e%j    # Name of stderr error file
-#SBATCH --partition=q_fiqci     # Partition (queue) name
-#SBATCH --ntasks=1              # One task (process)
-#SBATCH --cpus-per-task=1       # Number of cores (threads)
-#SBATCH --mem-per-cpu=1G        # Memory allocation
-#SBATCH --time=00:15:00         # Run time (hh:mm:ss)
-#SBATCH --account=project_xxx   # Project for billing
+#SBATCH --job-name=helmijob     # Työn nimi
+#SBATCH --output=helmijob.o%j   # Stdout-tiedoston nimi
+#SBATCH --error=helmijob.e%j    # Stderr-tiedoston nimi
+#SBATCH --partition=q_fiqci     # Osio (jono) nimi
+#SBATCH --ntasks=1              # Yksi tehtävä (prosessi)
+#SBATCH --cpus-per-task=1       # Ytimien (säikeiden) määrä
+#SBATCH --mem-per-cpu=1G        # Muistin jakaminen
+#SBATCH --time=00:15:00         # Suoritusaika (hh:mm:ss)
+#SBATCH --account=project_xxx   # Projekti laskutusta varten
 
 module use /appl/local/quantum/modulefiles
 module load helmi_cirq
@@ -74,9 +74,10 @@ module load helmi_cirq
 python -u quantum_job.py
 ```
 
-Submit the script with `sbatch <script_name>.sh`.
+Lähetä skripti `sbatch <script_name>.sh` komennolla.
 
-## More information
+## Lisätietoa {#more-information}
 
-- [Cirq-IQM documentation](https://iqm-finland.github.io/cirq-on-iqm/user_guide.html)
-- [Quantum-Computing](../computing/quantum-computing/helmi/running-on-helmi.md)
+- [Cirq-IQM dokumentaatio](https://iqm-finland.github.io/cirq-on-iqm/user_guide.html)
+- [Kvanttitietokoneet](../computing/quantum-computing/helmi/running-on-helmi.md)
+

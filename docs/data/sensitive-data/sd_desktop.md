@@ -1,57 +1,50 @@
+# Analysointi ja laskenta Arkaluontoista Dataa Pöytäkoneella {#analyze-and-compute-with-sensitive-data-desktop}
 
-# Analyze and compute with Sensitive Data Desktop
+- [Yleiskatsaus](#overview)
+- [Keskeiset ominaisuudet](#key-features)
+- [Rajoitukset](#limitations)
+- [Seuraavat vaiheet tässä oppaassa](#your-next-steps-in-this-guide)
 
+## Yleiskatsaus {#overview}
 
-- [Overview](#overview)
-- [Key features](#key-features)
-- [Limitations](#limitations)
-- [Your next steps in this guide](#your-next-steps-in-this-guide)
+Arkaluontoinen Data (SD) Desktopin avulla voit analysoida arkaluontoista tutkimusaineistoa turvallisesti verkkoselaimella. Tämän käyttöliittymän avulla voit helposti hallita (aloittaa, käyttää, poistaa) virtuaalitietokoneita (tässä kutsutaan työpöydäksi, teknisesti määriteltynä virtuaalikoneeksi). Lisäksi SD Desktop tarjoaa turvallisen työtilan yhteisille tutkimushankkeille.
 
+[![Työpöytäyleiskatsaus](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
-## Overview
+Voit selata tämän osion pääaiheita käyttämällä sivun oikealla puolella olevaa navigointipalkkia tai hakutoimintoa.
 
-Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
+### Keskeiset ominaisuudet {#key-features}
 
-[![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
+* Saatavilla mistä tahansa käyttöjärjestelmästä (Mac, Linux tai Windows) verkkoselaimen (esim. Google Chrome, Firefox) kautta julkisesta internetistä (ilman tarvetta asentaa asiakasohjelmaa tai käyttää VPN:ää).
 
-You can browse the main topics of this section using the navigation bar on the right side of this page or the search function.
+* Vain saman CSC-projektin jäsenet voivat käyttää virtuaalista työpöytää. Yksi CSC-projekti voi luoda enintään kolme työpöytää.
 
+* Neljä valmiiksi rakennettua laskentaoptiota (Linux Ubuntu OS) ovat saatavilla (yksinkertaiseen tilastolliseen analyysiin ja koneoppimiseen). Tukee minkä tahansa tietotyyppien analysointia: tekstiedostot, kuvat, äänitiedostot, videot ja geneettinen data. Lisämuokkaus on mahdollista ottamalla yhteyttä [CSC Service Desk](../../support/contact.md) (aihe: Sensitive data);
 
-### Key features
+* Turvallinen analysointiympäristö on eristetty internetistä: ainoa tapa tuoda ja viedä dataa on SD Connect -palvelun kautta.
 
-* Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
+### Rajoitukset {#limitations}
 
-* Only members of the same CSC project can access the virtual desktop. One CSC project can create up to three desktops. 
+* Projektipäällikön tai ryhmänjohtajan vastuulla on säännöllisesti tarkistaa MyCSC:ssä projektiin kuuluvien jäsenten lista ja varmistaa, ketkä pääsevät käyttämään SD Desktopia tai SD Connectia. Poista projektin jäsenet, joilla ei enää ole tarvetta päästä käsiksi aineistoon heidän osuutensa valmistuttua.
 
-* Four pre-built computing options (Linux Ubuntu OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customization is possible by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data);
+* Vain avoimen lähdekoodin ohjelmisto on saatavilla.
 
-* The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
+* Emme tarjoa virtuaalipöytiä, joissa on GPU:ta tai Windows-käyttöjärjestelmää.
 
+!!! Huomio 
+    Tavanomainen SD Desktop -palvelu ei sovellu tietojen käsittelyyn Sosiaali- ja terveydenhuollon tietojen toissijaisen käytön lain mukaan. Tutustu tähän ohjeeseen: [SD Desktop for secondary use](./sd-desktop-audited.md) saadaksesi tietoa tarkista vaatimuksista ja datasetit, joita Findata-viranomainen on hyväksynyt.
 
-### Limitations
+## Seuraavat vaiheet tässä oppaassa {#your-next-steps-in-this-guide}
 
-* The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
+Jos olet jo luonut CSC-tilin ja olet osa CSC-projektia, voit jatkaa seuraavilla vaiheilla:
 
-* Only open-source software is available.
-
-* We do not provide virtual desktops with GPUs or Windows operating systems. 
-
-!!! Note 
-    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
-
-
-## Your next steps in this guide
-
-If you have already created a CSC account and are part of a CSC project, you can proceed with the following steps:
-
-* [Login to SD Desktop](./sd-desktop-login.md)
-* [Create virtual desktops](./sd-desktop-create.md)
-* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
-* [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
-* [Customisation - software & tools](./sd-desktop-software.md)
-* [Importing data ](./sd-desktop-access.md)
-* [Exporting data  via user interface](./sd-desktop-export.md)
-* [Export data programmatically](./sd-desktop-export-commandline.md)
-* [Troubleshooting](./sd-desktop-troubleshooting.md)
-
+* [Kirjaudu SD Desktopiin](./sd-desktop-login.md)
+* [Luo virtuaalipöytiä](./sd-desktop-create.md)
+* [Volyymien ja virtuaalipöytien hallinta](./sd-desktop-manage.md)
+* [Pääsy virtuaalipöytään](./sd-desktop-access-vm.md)
+* [Työpöydän käyttö: vinkit ja perusasiat](./sd-desktop-working.md)
+* [Mukauttaminen - ohjelmisto ja työkalut](./sd-desktop-software.md)
+* [Datan tuonti](./sd-desktop-access.md)
+* [Datavienti käyttöliittymän kautta](./sd-desktop-export.md)
+* [Datan vienti ohjelmallisesti](./sd-desktop-export-commandline.md)
+* [Vianmääritys](./sd-desktop-troubleshooting.md)

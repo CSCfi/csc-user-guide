@@ -1,11 +1,12 @@
-# Tutorials
 
-* [cPouta and ePouta related videos](pouta-videos.md)
-* [Create a fixed IP for a VM](create-fixed-ip-for-Vm.md)
-* [Create a jumphost in cPouta](create-jumphost.md)
-* [Learn cloud computing by developing and deploying a web application](web-app-dev-cloud.md)
-* [Orchestration with Heat](heat-orchestration.md)
-* [SSH Key-pair](ssh-key.md)
-* [Setting up a pipeline for pictures](picture-pipeline.md)
+# Opetusohjelmat
 
-We also have an [FAQ](../../../support/faq/index.md#pouta) for Pouta. Take a look at it.
+* [cPouta- ja ePouta-aiheisia videoita](pouta-videos.md)
+* [Luo kiinteä IP VM:lle](create-fixed-ip-for-Vm.md)
+* [Luo väliyhteyspalvelin cPoutassa](create-jumphost.md)
+* [Opettele pilvipalveluiden käyttöä kehittämällä ja julkaisemalla verkkosovellus](web-app-dev-cloud.md)
+* [Orkestrointi Heatilla](heat-orchestration.md)
+* [SSH-avainpari](ssh-key.md)
+* [Kuvien työnkulun määrittäminen](picture-pipeline.md)
+
+Meillä on myös [UKK](../../../support/faq/index.md#pouta) Poutalle. Tutustu siihen.

@@ -1,297 +1,225 @@
-# Using Python on CSC supercomputers
+# Pythonin käyttäminen CSC:n supertietokoneilla {#using-python-on-csc-supercomputers}
 
-Some important aspects of working with the Python programming language
-are notably different on CSC supercomputers compared to usage on a personal
-device or in other HPC environments. To make the most of the computational
-resources available to you, it is helpful to be aware of the differences.
+Jotkut tärkeät Python-ohjelmointikielen käytön näkökohdat eroavat merkittävästi CSC:n supertietokoneilla verrattuna käyttöön henkilökohtaisella laitteella tai muissa HPC-ympäristöissä. Hyödyntääksesi käytössäsi olevia laskentaresursseja tehokkaasti, on hyödyllistä olla tietoinen näistä eroista.
 
-See the
-[Python application page](../../apps/python.md)
-for general information on the Python language and
-pre-installed Python environments on CSC supercomputers.
+Katso [Python-sovellussivulta](../../apps/python.md) yleistä tietoa Python-kielestä ja valmiiksi asennetuista Python-ympäristöistä CSC:n supertietokoneilla.
 
-## Creating and managing Python environments
+## Python-ympäristöjen luominen ja hallinta {#creating-and-managing-python-environments}
 
-See also our [FAQ section with common questions related to Python
-environments on supercomputers](../faq/index.md#python-on-supercomputers).
+Katso myös [FAQ-osastomme tavallisilla kysymyksillä, jotka liittyvät Python-ympäristöihin supertietokoneilla](../faq/index.md#python-on-supercomputers).
 
-### Installing Python packages to existing modules
+### Python-pakettien asentaminen olemassa oleviin moduuleihin {#installing-python-packages-to-existing-modules}
 
-If there is a CSC-provided module that covers _almost_ everything you
-need, but it is missing a few Python packages, you can try installing
-those yourself with the pip package manager.
+Jos on CSC:n tarjoama moduuli, joka kattaa _melkein_ kaiken tarvitsemasi, mutta siinä puuttuu muutama Python-paketti, voit yrittää asentaa ne itse pip-pakettien hallintatyökalulla.
 
-See the
-[package lists on our Python application page](../../apps/python.md#pre-installed-python-environments)
-to find out which packages are installed in existing modules.
-If you think that some important package should be included by default
-in a module provided by CSC, do not hesitate to contact our
-[Service Desk](../contact.md).
+Katso [pakettiluettelot Python-sovellussivultamme](../../apps/python.md#pre-installed-python-environments) saadaksesi selville, mitkä paketit on jo asennettu olemassa oleviin moduuleihin.
+Jos mielestäsi jokin tärkeä paketti pitäisi sisällyttää oletusarvoisesti CSC:n tarjoamaan moduuliin, älä epäröi ottaa yhteyttä [palvelupisteeseemme](../contact.md).
 
-=== "Using `venv`"
-    The recommended way to add packages on top of an existing environment
-    is to use [venv](https://docs.python.org/3/tutorial/venv.html), which
-    is a standard Python module for creating a lightweight "virtual
-    environment". You can have multiple virtual environments, for example
-    one for each project.
+=== "Venvin käyttäminen" {#using-venv}
+   Suositeluin tapa lisätä paketteja olemassa olevaan ympäristöön on käyttää [venviä](https://docs.python.org/3/tutorial/venv.html), joka on standardi Python-moduuli kevyen "virtuaalisen ympäristön" luomiseen. Voit olla useita virtuaaliympäristöjä, esimerkiksi yksi kullekin projektille.
 
-    For example to install a package called `whatshap` on top of the
-    CSC-provided [python-data](../../apps/python-data.md) module:
+   Esimerkiksi asentaaksesi paketin nimeltä `whatshap` CSC:n tarjoaman [python-data](../../apps/python-data.md) moduulin päälle:
 
-    ```bash
-    cd /projappl/<your_project>  # change this to the appropriate path for your project
-    module load python-data
-    python3 -m venv --system-site-packages <venv_name>
-    source <venv_name>/bin/activate
-    pip install whatshap
-    ```
+   ```bash
+   cd /projappl/<your_project>  # muuta tämä projektillesi sopivaksi poluksi
+   module load python-data
+   python3 -m venv --system-site-packages <venv_name>
+   source <venv_name>/bin/activate
+   pip install whatshap
+   ```
 
-    Unlike for example Tykky, `venv` creates a new directory for the
-    environment, so there is no need for you to create one beforehand.
-    Do not forget to use the `--system-site-packages` flag when creating
-    the virtual environment, otherwise the environment will not find the
-    pre-installed packages from the base module (for example `numpy` from
-    `python-data`).
+   Toisin kuin esimerkiksi Tykkyssä, `venv` luo uuden hakemiston ympäristölle, joten sinun ei tarvitse luoda sellaista etukäteen.
+   Älä unohda käyttää `--system-site-packages`-lippua luodessasi virtuaaliympäristöä, muuten ympäristö ei löydä ennakkoon asennettuja paketteja perusmoduulista (esimerkiksi `numpy` `python-data`sta).
 
-    Later when you wish to use the virtual environment you only need to
-    load the module and activate the environment:
+   Myöhemmin, kun haluat käyttää virtuaaliympäristöä, sinun tarvitsee vain ladata moduuli ja aktivoida ympäristö:
 
-    ```bash
-    module load python-data
-    source /projappl/<your_project>/<venv_name>/bin/activate
-    ```
+   ```bash
+   module load python-data
+   source /projappl/<your_project>/<venv_name>/bin/activate
+   ```
 
-    Likewise, when using the virtual environment, make sure
-    to actually have the base module loaded.
-    Naturally, this also applies to Slurm job scripts.
+   Vastaavasti, kun käytät virtuaaliympäristöä, varmista, että perusmoduuli on ladattu.
+   Toisaalta tämä koskee myös Slurm-työskriptejä.
 
-    !!! info "Problems with virtual environments"
-        In some specific cases CSC modules may not work properly with Python virtual environments. Try first to run `export CW_FORCE_CONDA_ACTIVATE=1` before activating the venv. If that does not help, try to use the `pip install --user` approach described on
-        the other tab. 
-    ---
+   !!! info "Ongelmia virtuaaliympäristöjen kanssa" {#problems-with-virtual-environments}
+       Joissakin erityistapauksissa CSC-moduulit eivät välttämättä toimi kunnolla Python-virtuaaliympäristöjen kanssa. Kokeile ensin suorittaa `export CW_FORCE_CONDA_ACTIVATE=1` ennen kuin aktivoit venvin. Jos se ei auta, kokeile käyttää `pip install --user`-lähestymistapaa, joka on kuvattu toisella välilehdellä.
+   ---
 
-=== "Using `pip install --user`"
-    Another approach to installing additional packages is to do a "user
-    installation" with the command `pip install --user`. This approach is
-    easy to use in principle, as it doesn't require setting up a
-    virtual environment. However, package-provided commands may not
-    work out-of-the-box (see the Info box at the end of this section).
+=== "`pip install --user`in käyttäminen" {#using-pip-install-user}
+   Toinen lähestymistapa ylimääräisten pakettien asentamiseen on suorittaa "käyttäjäasennus" komennolla `pip install --user`. Tämä lähestymistapa on alustavasti helppokäyttöinen, koska se ei vaadi virtuaaliympäristön perustamista. Pakettien tarjoamat komennot eivät kuitenkaan välttämättä toimi heti käyttökelpoisina (katso lisätietoa tämän osion lopussa olevasta Info-laatikosta).
 
-    Packages are by default installed to your home
-    directory under `.local/lib/pythonx.y/site-packages` (where `x.y` is
-    the version of Python being used). **Please note that if you install a lot of
-    packages, your home directory can easily run out of space.**
-    This can be avoided by changing the installation folder to make
-    a project-wide installation instead of a personal one. This is
-    done by setting the `PYTHONUSERBASE` environment variable to
-    refer to the new installation directory.
+   Pakettilähtöiset komennot asennetaan oletuksena kotihakemistoosi `.local/lib/pythonx.y/site-packages` alle (missä `x.y` on käytössä olevan Pythonin versio). **Huomaa, että jos asennat runsaasti paketteja, kotihakemistosi tilaa voi loppua nopeasti.** Tämän voi välttää muuttamalla asennuskansiota siten, että projektilaajuinen asennus tehdään henkilökohtaisen sijasta. Tämä tehdään asettamalla `PYTHONUSERBASE`-ympäristömuuttuja viittaamaan uuteen asennuskansioon.
 
-    For example, to add the package `whatshap` on top of the `python-data` module:
+   Esimerkiksi lisääksesi paketin `whatshap` `python-data`-moduulin päälle:
 
-    ```bash
-    module load python-data
-    export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
-    pip install --user whatshap
-    ```
+   ```bash
+   module load python-data
+   export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
+   pip install --user whatshap
+   ```
 
-    In the above example, the package is now installed inside the
-    `my-python-env` directory in the project's `projappl` directory. Run  
-    `unset PYTHONUSERBASE` if you wish to install packages into your home
-    directory again.
+   Yllä olevassa esimerkissä paketti on nyt asennettu projektin `projappl`-hakemiston `my-python-env`-hakemiston sisälle. Suorita `unset PYTHONUSERBASE` jos haluat asentaa paketteja takaisin kotihakemistoon.
 
-    When using the libraries later, you need to define `PYTHONUSERBASE`
-    again. Naturally, this also applies to Slurm job scripts. For example:
+   Kun käytät kirjastoja myöhemmin, sinun täytyy jälleen määrittää `PYTHONUSERBASE`. Tämä tietenkin koskee myös Slurm-työskriptejä. Esimerkiksi:
 
-    ```bash
-    module load python-data
-    export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
-    ```
+   ```bash
+   module load python-data
+   export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
+   ```
 
-    !!! info "Packages containing executable files"
-        Most of our Python modules are implemented as containers.
-        If a package you install also contains executable files,
-        they may not work out of the box, since the executable
-        may look for the Python interpreter using a path that is
-        internal to the container.
-        You might see an error message like this:
+   !!! info "Paketit, jotka sisältävät suoritettavia tiedostoja" {#packages-containing-executable-files}
+       Useimmat Python-moduulimme on toteutettu kontteina.
+       Jos asentamasi paketti sisältää suoritettavia tiedostoja,
+       ne eivät välttämättä toimi heti käyttökelpoisina, koska suoritettava tiedosto
+       voi etsiä Python-tulkinta polkua käyttäen, joka on konttiin sisäinen.
+       Saatat nähdä virheilmoituksen, kuten:
 
-        ```bash
-        whatshap: /CSC_CONTAINER/miniconda/envs/env1/bin/python3.9: bad interpreter: No such file or directory
-        ```
+       ```bash
+       whatshap: /CSC_CONTAINER/miniconda/envs/env1/bin/python3.9: bad interpreter: No such file or directory
+       ```
 
-        You can fix this by editing the first line of the executable
-        (which in our example is located using `which whatshap`) to point
-        to the real Python interpreter (can be found with `which python3`).
-        In our example we would edit the file `~/.local/bin/whatshap`
-        to have the following as its first line:
+       Voit korjata tämän muokkaamalla suoritettavan tiedoston ensimmäistä riviä
+       (joka meidän esimerkissämme löytyy käyttämällä `which whatshap`) osoittaakseen
+       oikeaan Python-tulkintaan (löytyy käyttämällä `which python3`).
+       Esimerkissämme muokkaisimme tiedostoa `~/.local/bin/whatshap`
+       niin, että sen ensimmäinen rivi olisi seuraava:
 
-        ```bash
-        #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
-        ```
+       ```bash
+       #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
+       ```
 
-    ---
+   ---
 
-### Creating your own Python environments
+### Oman Python-ympäristön luominen {#creating-your-own-python-environments}
 
-It is also possible to create your own Python environments.
+On myös mahdollista luoda omia Python-ympäristöjä.
 
-=== "pip"
-    Pip is a good choice for managing Python environments that do not
-    rely on complex dependency relationships.
+=== "pip" {#pip}
+   Pip on hyvä valinta Python-ympäristöjen hallintaan, jotka eivät perustu monimutkaisiin riippuvuussuhteisiin.
     
-    1. The easiest way to create a custom pip environment is by using the `venv`
-       module discussed in the
-       [previous section](python-usage-guide.md#installing-python-packages-to-existing-modules),
-       which actually shows precisely how to do this. If you do not wish to use
-       packages from one of the existing modules, simply do not include
-       the  
-       `--system-site-packages` flag when creating the virtual environment.
+   1. Helpoin tapa luoda mukautettu pip-ympäristö on käyttää `venv`-moduulia, jota käsiteltiin
+      [edellisessä osiossa](python-usage-guide.md#installing-python-packages-to-existing-modules),
+      ja joka itse asiassa näyttää tarkasti, kuinka tämä tehdään. Jos et halua käyttää
+      paketteja yhdestä olemassa olevasta moduulista, älä yksinkertaisesti sisällytä
+      `--system-site-packages`-lippu, kun luot virtuaaliympäristöä.
 
-    2. Another option is to create a pip environment inside a
-       [container](../../computing/containers/overview.md).
-       The most straightforward way to do so is by using the
-       [Tykky container wrapper](../../computing/containers/tykky.md).
-       To find out how to easily containerize your environment,
-       see the
-       [Tykky instructions for pip-based installations](../../computing/containers/tykky.md#pip-based-installations).
+   2. Toinen vaihtoehto on luoda pip-ympäristö
+      [kontissa](../../computing/containers/overview.md).
+      Suoraviivaisin tapa tehdä niin on käyttämällä
+      [Tykky konttikäärettä](../../computing/containers/tykky.md).
+      Selvitäksesi, kuinka helposti kon 
 
-    3. An alternative to using Tykky is creating a pip environment
-       inside a custom Apptainer container. This is a practical choice if, for
-       example, you know of a suitable ready-made Apptainer or Docker container.
-       For more information about using Apptainer containers, please see the
-       related documentation:
+ iederioso prostinsi te moijisivon ormoso juntevoky poretot, katso
+      [Tykky-ohjeet pip-pohjaisille asennuksille](../../computing/containers/tykky.md#pip-based-installations).
 
-        * [Running Apptainer containers](../../computing/containers/run-existing.md)
-        * [Creating Apptainer containers](../../computing/containers/creating.md),
-        including how to convert Docker containers to Apptainer containers.
+   3. Vaihtoehtona Tykyn käytölle on luoda pip-ympäristö
+      mukautetun Apptainer-kontin sisällä. Tämä on käytännöllinen valinta, jos esimerkiksi tunnet valmiin Apptainer- tai Docker-kontin.
+      Lisätietoja Apptainer-konttien käytöstä löydät seuraavasta dokumentaatiosta:
 
-    ---
+        * [Apptainer-konttien käyttäminen](../../computing/containers/run-existing.md)
+        * [Apptainer-konttien luominen](../../computing/containers/creating.md),
+        mukaan lukien kuinka muuntaa Docker-kontteja Apptainer-konteiksi.
 
-=== "conda"
-    Conda is easy to use and flexible, but it usually creates a huge number of files which
-    is incompatible with shared file systems. The excess of files can cause
-    very slow library imports and,
-    in the worst case, slows down the whole file system. Because of this,
-    [**CSC has deprecated the use of conda**](conda.md)
-    for direct installations on supercomputers.
-    However, you can still create and use
-    [containerized](../../computing/containers/overview.md)
-    conda environments.
+   ---
 
-    1. The most straightforward way to create a containerized conda
-       environment is by using the
-       [Tykky container wrapper](../../computing/containers/tykky.md).
-       To find out how to easily containerize your environment,
-       see the
-       [Tykky instructions for conda-based installations](../../computing/containers/tykky.md#conda-based-installation).
+=== "conda" {#conda}
+   Conda on helppokäyttöinen ja joustava, mutta se yleensä luo valtavan määrän tiedostoja, mikä ei ole yhteensopiva jaettujen tiedostojärjestelmien kanssa. Liiallinen tiedostojen määrä voi aiheuttaa erittäin hitaita kirjastojen tuontia ja
+   pahimmassa tapauksessa hidastaa koko tiedostojärjestelmää. Tämän vuoksi [**CSC on poistanut kekäyttöön condaa**](conda.md)
+   suoraan asennuksiin supertietokoneilla.
+   Voit kuitenkin silti luoda ja käyttää
+   [konteitettua](../../computing/containers/overview.md)
+   conda-ympäristöjä.
 
-    2. An alternative to using Tykky is creating a conda environment
-       inside a custom Apptainer container. This is a practical choice if, for
-       example, you know of a suitable ready-made Apptainer or Docker container.
-       For more information about using Apptainer containers, please see the
-       related documentation:
+   1. Suoraviivaisin tapa luoda konteitettu conda-ympäristö on käyttämällä
+      [Tykky konttikäärettä](../../computing/containers/tykky.md).
+      Selvitäksesi, kuinka helposti konteinisoida ympäristösi,
+      katso
+      [Tykky-ohjeet conda-pohjaisille asennuksille](../../computing/containers/tykky.md#conda-based-installation).
 
-        * [Running Apptainer containers](../../computing/containers/run-existing.md)
-        * [Creating Apptainer containers](../../computing/containers/creating.md),
-        including how to convert Docker containers to Apptainer containers.
+   2. Vaihtoehtona Tykyn käytölle on luoda conda-ympäristö
+      mukautetun Apptainer-kontin sisällä. Tämä on käytännöllinen valinta, jos esimerkiksi tunnet valmiin Apptainer- tai Docker-kontin.
+      Lisätietoja Apptainer-konttien käytöstä löydät seuraavasta dokumentaatiosta:
 
-    ---
+        * [Apptainer-konttien käyttäminen](../../computing/containers/run-existing.md)
+        * [Apptainer-konttien luominen](../../computing/containers/creating.md),
+        mukaan lukien kuinka muuntaa Docker-kontteja Apptainer-konteiksi.
 
-## Python development environments
+   ---
 
-Python scripts can be edited directly on a CSC supercomputer using a
-[console-based text editor](./env-guide/text-and-image-processing.md)
-like `vim` or `emacs`. In addition to these terminal-based editors,
-several graphical programming environments,
-such as Jupyter notebooks, Visual Studio Code and Spyder,
-can be used on a supercomputer through
-[our web interface](../../computing/webinterface/index.md).
+## Python-kehitysympäristöt {#python-development-environments}
 
-In addition to editing code directly on a supercomputer, it is also
-possible to [develop code remotely](./remote-dev.md) using some
-locally installable editors like Visual Studio Code. Please note,
-however, that this way of connecting to CSC supercomputers is prone
-to issues and thus not fully supported.
+Python-skriptejä voidaan muokata suoraan CSC:n supertietokoneella käyttäen [konsolipohjaista tekstieditoria](./env-guide/text-and-image-processing.md), kuten `vim` tai `emacs`. Näiden terminaalipohjaisten editointiohjelmien lisäksi useita graafisia ohjelmointiympäristöjä, kuten Jupyter-muistikirjat, Visual Studio Code ja Spyder, voidaan käyttää supertietokoneella [verkkoalustamme](../../computing/webinterface/index.md) kautta.
 
-Finally, one can of course edit code on a local device
-and copy it to a supercomputer with command-line tools like
-[`scp`](../../data/moving/scp.md) and
-[`rsync`](../../data/moving/rsync.md),
-or by using
-[graphical file transfer tools](../../data/moving/graphical_transfer.md).
+Koodin muokkaamisen lisäksi suoraan supertietokoneella on myös mahdollista [kehittää koodia etänä](./remote-dev.md) käyttämällä joitakin paikallisesti asennettavia editoreita, kuten Visual Studio Code. Huomaa kuitenkin, että tämä tapa yhdistää CSC:n supertietokoneisiin on alttiina ongelmille ja siksi sitä ei ole täysin tuettu.
 
-### Jupyter
+Lopuksi, koodia voi tietysti muokata paikallisella laitteella ja kopioida supertietokoneelle komentorivityökalujen, kuten [`scp`](../../data/moving/scp.md) ja
+[`rsync`](../../data/moving/rsync.md), tai [graafisten tiedostonsiirto-ohjelmien](../../data/moving/graphical_transfer.md) avulla.
 
-[Jupyter notebooks](../../apps/jupyter.md) provide an interactive
-programming environment where one can
-write and run Python code in individual cells.
-The notebooks combine code, equations, visualizations and narrative text
-in a single document. 
+### Jupyter {#jupyter}
 
-The [Jupyter interactive application](../../computing/webinterface/jupyter.md)
-on our web interface allows using Jupyter on CSC supercomputers.
-Many of our Python environments, including
+[Jupyter-muistikirjat](../../apps/jupyter.md) tarjoavat interaktiivisen ohjelmointiympäristön, jossa voidaan
+kirjoittaa ja suorittaa Python-koodia yksittäisissä soluissa.
+Muistikirjat yhdistävät koodin, yhtälöt, visualisoinnit ja kerronnallisen tekstin yhdeksi dokumentiksi.
+
+[Interaktiivinen Jupyter-sovellus](../../computing/webinterface/jupyter.md)
+verkkoalustallamme mahdollistaa Jupyterin käytön CSC:n supertietokoneilla.
+Monet Python-ympäristöistämme, mukaan lukien
 [`python-data`](../../apps/python-data.md), [`geoconda`](../../apps/geoconda.md)
-as well as deep learning modules like [`pytorch`](../../apps/pytorch.md)
-include the main Jupyter packages, so they can be used in the application.
-The documentation page for the application includes a
-[list of supported environments](../../computing/webinterface/jupyter.md#currently-supported-python-environments).
+sekä syväoppimismoduulit, kuten [`pytorch`](../../apps/pytorch.md)
+sisältävät tärkeimmät Jupyter-paketit, joten niitä voi käyttää sovelluksessa.
+Sovelluksen dokumentaatiosivulla on
+[lista tuetuista ympäristöistä](../../computing/webinterface/jupyter.md#currently-supported-python-environments).
 
-### Visual Studio Code
+### Visual Studio Code {#visual-studio-code}
 
 [Visual Studio Code](../../apps/vscode.md) (VSCode)
-is a widely-used source code editor developed by Microsoft.
-Unlike the other two development environments introduced here,
-it does not rely on any Python packages, so it can be used by
-default with all CSC- and custom-made Python environments.
+on Microsoftin kehittämä laajalti käytetty lähdekoodieditori.
+Toisin kuin muut täällä esitellyt kehitysympäristöt,
+se ei ole riippuvainen mistään Python-paketeista, joten sitä voi käyttää oletuksena
+kaikkien CSC- ja mukautettujen Python-ympäristöjen kanssa.
 
-There are two ways to run VSCode on CSC supercomputers:
+VSCodea on kaksi tapaa käyttää CSC:n supertietokoneilla:
 
-1. [As an interactive app on our web interface](../../computing/webinterface/vscode.md)
-2. [Remotely using the Remote-SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin) (unsupported)
+1. [Interaktiivisena sovelluksena verkkoalustallamme](../../computing/webinterface/vscode.md)
+2. [Etänä käyttämällä Remote-SSH-liitännäistä](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin) (ei tuettu)
 
-!!! info "Using custom environments in VSCode"
-    Since only CSC modules are offered in the VSCode session launch form,
-    using custom Python environments with built-in VSCode functions like
-    debugging requires changing the path of the Python interpreter
-    after the session has launched. This can be done by clicking on
-    the Python version information displayed in the lower right corner
-    of the VSCode window.
+!!! info "Mukautettujen ympäristöjen käyttäminen VSCode:ssä" {#using-custom-environments-in-vscode}
+    Koska vain CSC-moduulit tarjotaan VSCode-istunnon käynnistyslomakkeessa,
+    mukautettujen Python-ympäristöjen käyttö sisäänrakennettujen VSCode-toimintojen kanssa, kuten
+    vianetsintä, edellyttää Python-tulkin polun muuttamista istunnon käynnistyttyä. Tämä voidaan tehdä klikkaamalla VSCode-ikkunan oikeassa alakulmassa näkyvää Python-version tietoa.
 
-### Spyder
+### Spyder {#spyder}
 
-[Spyder](https://www.spyder-ide.org/) is a scientific Python development
-environment. The [python-data](../../apps/python-data.md) and
-[geoconda](../../apps/geoconda.md) modules
-have Spyder included. The best option for using it is through the
-[Puhti web interface remote desktop](../../computing/webinterface/desktop.md).
+[Spyder](https://www.spyder-ide.org/) on tieteellinen Python-kehitysympäristö.
+[python-data](../../apps/python-data.md) ja
+[geoconda](../../apps/geoconda.md) moduulit
+sisältävät Spyderin. Paras vaihtoehto sen käyttämiseen on
+[Puhti verkkoalustan etätyöpöytä](../../computing/webinterface/desktop.md).
 
-## Python parallel jobs
+## Python-paralleelityöt {#python-parallel-jobs}
 
-There are several Python libraries for parallel computing. Below are a few suggestions:
+Pythonille on olemassa useita kirjastoja rinnakkaislaskentaan. Alla on muutamia ehdotuksia:
 
-* [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) – process-based parallelism
-* [joblib](https://joblib.readthedocs.io/en/latest/) – running Python functions as pipeline jobs
-* [dask](https://docs.dask.org) – general purpose parallel programming solution
-* [mpi4py](https://mpi4py.readthedocs.io) – MPI bindings for Python
+* [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) – prosessipohjainen rinnakkaisuus
+* [joblib](https://joblib.readthedocs.io/en/latest/) – Python-funktioiden suoritusputki
+* [dask](https://docs.dask.org) – yleiskäyttöinen rinnakkaisohjelmointiratkaisu
+* [mpi4py](https://mpi4py.readthedocs.io) – MPI-sidokset Pythonille
 
-The `multiprocessing` package is likely the easiest to use. Being part of the
-Python standard library, it is included in all Python installations by default.
-`joblib` provides some more flexibility in comparison. These two packages are suitable for
-single-node parallelization (max. 40 cores).
+`multiprocessing`-paketti on todennäköisesti helpoin käyttää. Koska se kuuluu
+Pythonin vakio kirjastoon, se on valmiiksi sisällytetty kaikkiin Python-asennuksiin.
+`joblib` tarjoaa hieman enemmän joustavuutta vastaavasti. Nämä kaksi pakettia soveltuvat yhden solmun rinnakkaistamiseen (maks. 40 ydintä).
 
-`dask` is the most versatile of the bunch and has several options for
-parallelization. Please see the [CSC Dask tutorial](./dask-python.md) for
-examples of both single-node (max. 40 cores) and multi-node parallelization.
+`dask` on joustavin näistä vaihtoehdoista ja sillä on useita vaihtoehtoja
+rinnakkaistamiseen. Katso [CSC Dask -tutorial](./dask-python.md) esimerkeistä sekä yhden solmun (maks. 40 ydintä) että monen solmun rinnakkaistamiseen.
 
-In addition, there are examples of
-[using different parallelization options on Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
-on our CSC Training GitHub organization. Of the above four packages, examples are
-provided for `multiprocessing`, `joblib` and `dask`.
+Lisäksi on esimerkkejä
+[eri rinnakkaistusvaihtoehtojen käytöstä Puhtilla](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+CSC:n koulutus-GitHub-organisaatiossamme. Yllä mainituista neljästä paketista esimerkkejä on
+annettu `multiprocessing`, `joblib` ja `dask` kanssa.
 
-The `mpi4py` package is included in our [PyTorch environment](../../apps/pytorch.md).
-It is generally the most efficient option for multinode jobs with non-trivial parallelization.
-For a short tutorial on `mpi4py`, along with other approaches for improving the
-performance of Python programs, please see the free
-[Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc)
-online course.
+`mpi4py`-paketti sisältyy [PyTorch-ympäristöömme](../../apps/pytorch.md).
+Se on yleensä tehokkain vaihtoehto monisolmutöihin, joissa on epätriviaalia rinnakkaistusta.
+Lyhyen `mpi4py`-opetuksen, sekä muiden lähestymistapojen Python-ohjelmien suorituskyvyn parantamiseen,
+löytää ilmaisesta
+[Pythonin High Performance Computingissa](https://www.futurelearn.com/courses/python-in-hpc)
+verkkokurssista.

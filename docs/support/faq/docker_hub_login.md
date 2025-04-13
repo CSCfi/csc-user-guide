@@ -1,57 +1,57 @@
-# How to add docker hub credentials to a project
 
-Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti this means a
-limit of 200 pulls every 6 hours. This limit can be easily reached and it prevents new applications to be deployed if the image is in docker hub.
+# Kuinka lisätä Docker Hub -tunnistetiedot projektiin {#how-to-add-docker-hub-credentials-to-a-project}
 
-The error looks like this:
+2. marraskuuta 2020 alkaen Docker Hub on asettanut rajoituksia kuvien latausmäärille. Rahdin osalta tämä tarkoittaa 200 latausta 6 tunnin välein. Tämä raja voidaan helposti saavuttaa ja se estää uusien sovellusten käyttöönoton, jos kuva sijaitsee Docker Hubissa.
+
+Virhe näyttää tältä:
 
 ```
 Pulling image "docker.io/centos/python-38-centos7@sha256:da83741689a8d7fe1548fefe7e001c45bcc56a08bc03fd3b29a5636163ca0353" ...
 pulling image error : toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit
 ```
 
-The solution involves using both the Web UI and the client:
+Ratkaisu sisältää sekä Web-käyttöliittymän että asiakasohjelman käytön:
 
-* First, you need a docker hub account. It can be a free account. In this case you will still have rate limits, but only the pulls you have done using your credential will be taken into account for the rate limit. Paid accounts have no limit.
-    * You will need a TOKEN, go to <https://hub.docker.com/settings/security> and create a token. You will be able to see when the token was last used. Also you can create several tokens, and use them in different projects, increasing security.
+* Ensinnäkin tarvitset Docker Hub -tilin. Se voi olla maksuton tili. Tässä tapauksessa rajoitukset ovat voimassa, mutta vain omien tunnistetietojesi avulla tekemäsi lataukset otetaan huomioon rajoja laskettaessa. Maksullisilla tileillä ei ole rajoituksia.
+    * Tarvitset TOKENin, mene osoitteeseen <https://hub.docker.com/settings/security> ja luo token. Näet, milloin tokenia on viimeksi käytetty. Voit myös luoda useita tokeneja ja käyttää niitä eri projekteissa turvallisuuden lisäämiseksi.
 
-* Secondly, navigate to the Web UI and select developer view. On the left navigation, select **Secrets**.
+* Toiseksi, siirry Web-käyttöliittymään ja valitse kehittäjänäkymä. Vasemmasta valikosta, valitse **Secrets**.
 
-* On upper right, click "Create" menu, and select "Image pull secret". Set the following values:
-    * Secret name = give it a clear name, this will be used later
+* Yläoikealla, klikkaa "Create"-valikkoa ja valitse "Image pull secret". Aseta seuraavat arvot:
+    * Secret name = anna selkeä nimi, tätä käytetään myöhemmin
     * Authentication type = "Image Registry Credentials"
     * Registry server address = "docker.io"
-    * Username = your docker user name
-    * Password = your docker **token**
-    * Email = your docker email
+    * Username = Docker-käyttäjänimesi
+    * Password = Docker-**tokenisi**
+    * Email = Dockeriin rekisteröity sähköpostiosoitteesi
 
 ![create secret](../../cloud/img/create_docker_hub_secret.png)
 
-* Verify values are correct and select "Create".
+* Varmista, että arvot ovat oikein, ja valitse "Create".
 
-* Next we'll go to command line. Log in and use following commands to link credentials to service accounts:
+* Seuraavaksi siirrymme komentoriviin. Kirjaudu sisään ja käytä seuraavia komentoja tietojen linkittämiseen palvelutilien kanssa:
 
 ```sh
 $ oc -n <project-name> secrets link builder <secret-name>
 ```
 
-**Note**: Substitute <project-name> place holder with actual project name (without <>) and <secret-name> with actual secret-name.
+**Huom**: Korvaa <project-name> paikkamerkki oikealla projektin nimellä (ilman <>) ja <secret-name> oikealla secret-nimellä.
 
-## Troubleshooting
+## Vianmääritys {#troubleshooting}
 
-If the error persists, you may check two things:
+Jos virhe jatkuu, voit tarkistaa kaksi asiaa:
 
-1. From <https://hub.docker.com/settings/security> you will be able to see when the token was last used. Please check that if the time there matches the last time it should have been used.
+1. Osoitteesta <https://hub.docker.com/settings/security> voit nähdä, milloin tokenia on viimeksi käytetty. Tarkista, vastaako se viimeisintä käyttöajankohtaa.
 
-1. Check that the links between the secret and the service accounts are there:
+1. Tarkista, että linkitykset salaisuuden ja palvelutilien välillä ovat kunnossa:
 
     ```sh
     $ oc -n <project-name> describe sa builder
     ```
 
-    **Note**: Substitute <project-name> place holder with actual project name (without <>).
+    **Huom**: Korvaa <project-name> paikkamerkki oikealla projektin nimellä (ilman <>).
 
-1. Check the Pod used for the build and double check that the secret you created is indeed used:
+1. Tarkista rakennukseen käytetty Pod ja varmista, että luomasi secret on käytössä:
 
   ```sh
   $ oc get pod
@@ -60,13 +60,13 @@ If the error persists, you may check two things:
   my-hello-2-build                   0/1       Error       0          1h
   ```
 
-  Both Pods above are failed builds. Their are named in the following way:
+  Ylläolevat Podit ovat epäonnistuneita rakennuksia. Ne nimetään seuraavasti:
 
   ```sh
   <buildname>-<number>-build
   ```
 
-  Take the last build, in this case `my-hello-2-build`. describe its status and look for the Volume mounts:
+  Ota viimeisin rakenne, tässä tapauksessa `my-hello-2-build`. Kuvaile sen tila ja etsi Volume mounts:
 
   ```sh
   $ oc describe pod my-hello-2-build
@@ -80,13 +80,14 @@ If the error persists, you may check two things:
       /var/run/secrets/openshift.io/push from builder-dockercfg-kn8h6-push (ro)
   ```
 
-  In the code above we can see that the pull secret used was `estivadores-secreto2-pull`. We can double check that the path was used for pulling by:
+  Yllä olevassa koodissa näemme, että käytetty `pull secret` oli `estivadores-secreto2-pull`. Varmistamme, että polkua käytettiin hakemiseen seuraavasti:
 
   ```sh
   $  oc describe pod my-hello-2-build | grep PULL_DOCKERCFG_PATH
         PULL_DOCKERCFG_PATH:  /var/run/secrets/openshift.io/pull
   ```
 
-  and see that our secret was mounted in that path.
+  ja näemme, että secretimme on asennettu kyseiseen polkuun.
 
-In case you need more information, please consult the [upstream image pull secrets](https://docs.openshift.com/container-platform/3.11/dev_guide/managing_images.html#using-image-pull-secrets) upstream documentation.
+Jos tarvitset lisää tietoa, tutustu [upstream image pull secrets](https://docs.openshift.com/container-platform/3.11/dev_guide/managing_images.html#using-image-pull-secrets) dokumentaatioon.
+

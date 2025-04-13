@@ -1,136 +1,128 @@
-# Submitting secondary use health and social data for research use via SD Apply
+# Terveys- ja sosiaalidatan toissijainen käyttö tutkimuksessa SD Applyn kautta
 
-These instructions are for data controllers who have issued a data permit for a research project and need to make their data available on SD Desktop.
+Nämä ohjeet on tarkoitettu rekisterinpitäjille, jotka ovat myöntäneet tutkimusluvan ja tarvitsevat saattaa tietonsa saataville SD Desktopilla.
 
-!!! Note 
-    Before any data can be made available for researchers in the Sensitive Data services, you need to confirm that the necessary legal agreements are in place between the data controller and CSC. The first register data set must always be submitted in collaboration with the CSC Sensitive Data (SD) services team. You can start a conversation with the SD services team by sending a message to the [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
+!!! Huomio   
+    Ennen kuin aineisto voi olla tutkijoiden käytettävissä Sensitive Data -palveluissa, sinun on vahvistettava, että rekisterinpitäjän ja CSC:n väliset tarvittavat sopimukset ovat kunnossa. Ensimmäinen rekisteriaineisto on aina toimitettava yhteistyössä CSC:n Sensitive Data -tiimin kanssa. Voit aloittaa keskustelun SD-tiimin kanssa lähettämällä viestin [CSC Service Deskiin](../../support/contact.md) (aihe: Sensitiivinen Data).
 
-After the process is established for the first time, the representative of the data controller can manage the following data submissions on their own. Help is always available via the service desk. Below are the instructions for the data submission and access control.
+Kun prosessi on ensimmäisen kerran luotu, rekisterinpitäjän edustaja voi hallita seuraavia aineistotoimituksia itsenäisesti. Apua on aina saatavilla palvelupisteestä. Alla on ohjeet aineistotoimitukseen ja käyttöoikeuksien hallintaan.
 
+## Datan toimittaminen {#data-submission}
 
-## Data submission
+!!! Huomio
+    Rekisterinpitäjän ja aineistonsiirrosta vastaavien henkilöiden on luotava CSC-tunnukset kirjautumalla Hakan tai Virtun tunnuksilla [MyCSC-portaaliin](https://my.csc.fi/). Jos sinulla ei ole Hakan tai Virtun tunnuksia, sinun on pyydettävä tunnusta [CSC Service Deskiltä](../../support/contact.md) (aihe: Sensitive Data).
 
-!!! Note
-    Data controller and the persons responsible for the data transfer need to create CSC accounts by logging in with Haka or Virtu credentials at the [MyCSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
+### Vaihe 1: Organisaatioprofiili SD Applyssä {#step-1-organizational-profile-in-sd-apply}
 
-### Step 1: Organizational profile in SD Apply
+Rekisterinpitäjän edustajan on tehtävä aineisto saataville tutkimusryhmälle SD Apply -palvelussa. Tutkijat käyttävät SD Applytä hakeakseen pääsyä aineistoon, johon heillä on tutkimuslupa, ja rekisterinpitäjän edustaja hyväksyy tai hylkää heidän hakemuksensa.
 
-A representative of the data controller has to make the data available for the research group in SD Apply service. Researchers use SD Apply to apply for access to the dataset they have the data permit for and the representative of the data controller will approve or reject their application.
+Kun olet luonut CSC-tunnuksen, voit kirjautua [SD Apply -palveluun](https://sd-apply.csc.fi/).
 
-After you have created an CSC account, you can log in to [SD Apply service](https://sd-apply.csc.fi/).
+[![SD Apply kirjautumissivu](images/apply/apply_login.png)](images/apply/apply_login.png)
 
-[![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
+!!! huom
+    Käytä aina samaa identiteettipalveluntarjoajaa, kun kirjaudut SD Applyyn, koska kaikki toimintosi liittyvät kirjautumistunnukseesi (eli käytä aina vain Haka/Virtu-kirjautumista tai CSC-kirjautumista).
 
-!!! note
-    Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity (i.e. use always only Haka/Virtu login or the CSC login).
+Ensimmäisen kirjautumisen jälkeen CSC Service Desk voi luoda rekisterinpitäjälle organisaatioprofiilin, jota käytetään kaikissa organisaatiosta tulevissa aineistotoimituksissa, ja asettaa sinut organisaatioprofiilin omistajaksi. Yhdellä organisaatiolla voi olla myös useita omistajia.
 
-After the first log in, CSC service desk can create an organizational profile for the data controller, which will be used for all the data submissions coming from this organization, and assign you as an owner of the organizational profile. There can also be multiple owners for one organization.
+### Vaihe 2: Objektien luominen SD Applyssä {#step-2-creating-objects-in-sd-apply}
 
-### Step 2: Creating objects in SD Apply
+Kun sinut on asetettu organisaatioprofiilin omistajaksi, sinun tulisi luoda lisenssi ja työnkulku organisaatiolle SD Applyissä. Voit myös luoda hakulomakkeen, joka hakijan on täytettävä aineiston käyttöoikeuden hakemista varten. Lomakkeet eivät ole pakollisia, joten jos et tarvitse hakijalta lisätietoja, esimerkiksi vahvistusta lehtinumerosta käyttöoikeushakemuksen yhteydessä, sinun ei tarvitse luoda lomaketta.
 
-After you have been set as the owner of the organization profile, you should create a license and a workflow for the organization in SD Apply. You can also create an application form that the applicant has to fill in when they submit a data access request. Forms are optional so if you don't need to ask applicant to provide more information, e.g. to confirm the journal number when they send the access request, you don't need to create one. 
+1. Navigoi SD Apply Administration -välilehdelle
+2. Valitse Licenses-välilehti ja sitten **create license**. Lisenssi määrittää käyttöehdot aineistolle, jotka hakijoiden on hyväksyttävä lähettäessään aineiston käyttöpyynnön. Koska tässä tapauksessa ehdot on jo määritelty aineistoluvassa, voit esimerkiksi viitata lisenssitekstissä aineistolupaan. Voit käyttää inline-tekstiä lisenssityypinä lyhyille teksteille.  
+3. Siirry seuraavaksi Workflows-välilehdelle ja **create workflow**. Työnkulku määrittää, kuka hallinnoi organisaation aineistokäyttöpyyntöjä SD-palveluissa. Nimetyt käyttäjät saavat aina uuden käyttöoikeuspyynnön sähköpostilla ilmoituksen ja voivat hyväksyä tai hylätä hakemuksia SD Applyssä.
 
-1. Navigate to SD Apply Administration tab
-2. Select Licenses tab and then **create license**. License specifies the terms of use for the data, which the applicants need to approve when they send the data access application. Since in this case, the terms have already been defined in the data permit, you can for example refer to the data permit in the license text. You can use the inline text as license type for short texts.  
-3. Next, navigate to Workflows tab and **create workflow**. Workflow defines who will manage the data access applications of the organization in SD services. These named users will always receive a notification via email about new access applications and can approve or reject the applications in SD Apply.  
+Lomakkeet ja lisenssit ovat julkisia SD Apply -palvelussa, joten niiden ei tulisi sisältää arkaluonteista tietoa. Näitä objekteja käytetään kaikille organisaatiostasi tuleville toissijaisille aineistoille, joten niiden tulisi myös olla mahdollisimman yleisiä. **Resource** ja **Catalogue item** luodaan automaattisesti jokaiselle aineistolle, kun tieto siirretään SFTP:n kautta.
 
-The forms and licenses are public in SD Apply, so these should not include any sensitive information. These objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Resource** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
+### Vaihe 3: Turvallisen SSH-yhteyden luominen CSC:hen {#step-3-establishing-a-secure-ssh-connection-with-csc}
 
-### Step 3: Establishing a secure SSH connection with CSC
+Valmistautuaksesi tietojen siirtoon, meidän on ensin luotava turvallinen ssh-yhteys tietokoneesi ja CSC:n välille. Noudata näitä ohjeita:
 
-To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
+1. Luo SSH-avaintunnuspainike **RSA**-muodossa komentorivin kautta. [Katso yksityiskohtaiset ohjeet](../../cloud/pouta/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Älä käytä salasanaa SSH-avaimellesi, jätä tämä kenttä tyhjäksi.
+2. Kirjaudu [Sensitive Data -käyttäjien hallintaportaaliin](https://admin.sd.csc.fi/). Jos sinulla ei ole HAKA- tai Virtu-tunnuksia, ota yhteyttä palvelupisteeseemme CSC-tunnuksen pyytämiseksi. Tunnuksen luominen kestää muutaman päivän.
 
-1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/pouta/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
-2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
+[![Sensitive Data käyttäjäportaalin kirjautuminen](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)
 
-[![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)
+3. Lisää hallintaportaalissa julkinen SSH-avaimesi ja määritelty nimi (esim. organisaatiosi ja päivämäärä) sille. 
+4. Lisää IP-osoite, josta tiedot siirretään, ja sille määritelty nimi (esim.: organisaatio-päivämäärä). IP-osoitteen voit tarkistaa [CSC:n My IP -sovelluksesta](https://apps.csc.fi/myip/).
 
+5. Seuraavaksi, kirjoita palvelupisteelle (vastaa samaan sähköpostiketjuun), että nämä vaiheet on suoritettu.
 
-3. In the administration portal, you add your public SSH key and a defined name (example: your organization and date) for it. 
-4. Add the IP address from which the data will be transferred and a defined name for it (e.g.: organization-date). IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/).
-
-
-5. Next, please write to service desk (reply to same email thread) informing that these steps have been completed.
-
-We will approve your account access to the secure connection and confirm it to you via email. Only at this point, you can test if is it is possible establishing a secure SSH connection with CSC by using this command and your SSH key:
+Hyväksymme tilisi pääsyn turvalliseen yhteyteen ja vahvistamme sen sinulle sähköpostitse. Vasta tämän jälkeen voit testata, onko mahdollista muodostaa turvallinen SSH-yhteys CSC:hen käyttämällä tätä komentoa ja SSH-avaintasi:
 
 ```
 sftp -i X:\folder\privateshhfilename.key -P 50527 username@org.fi@porin.lega.csc.fi
 exit
 ```
 
-Where:
+Missä:
 
 ```
--X:\folder\privateshhfilename.key is the path to the correspondent private shh key
+-X:\folder\privateshhfilename.key on vastaavan yksityisen ssh-avaimen polku
 ```
 
-`username` is the username visible in [the user administration portal](https://admin.sd.csc.fi/) and `org.fi` is the same as in your email address.
+`username` on käyttäjätunnus näkyvissä [käyttäjien hallintaportaalissa](https://admin.sd.csc.fi/) ja `org.fi` on sama kuin sähköpostiosoitteessasi.
 
+[![SDS Käyttäjien hallinta](images/apply/SUP.png)](images/apply/SUP.png)
 
-[![SDS User administration](images/apply/SUP.png)](images/apply/SUP.png)
+### Vaihe 4: Tiedostojen salaaminen ja lataaminen turvallisen yhteyden kautta {#step-4-encrypt-and-upload-the-files-via-the-secure-connection}
 
+Voit nyt salata ja siirtää aineiston turvallisesti. Vaikka käytettävissä on useita menetelmiä, suosittelemme käyttämään graafista käyttöliittymää SDA (Sensitive Data Archive) Uploader -työkalua. Tämän yksinkertaisen sovelluksen asentamiseen voi tarvita järjestelmäylläpitäjän erityislupaa, mutta se mahdollistaa työkalulle kätevästi turvallisen yhteyden käyttämisen aiemmin testaamillasi SSH-avaimilla, salaa tiedostot [CSC julkisen salausavaimen rekistereille](https://admin.sd.csc.fi/publickey/?instance=single%20registry) avulla ja lataa ne.
 
-### Step 4: Encrypt and upload the files via the secure connection
+#### 4.1 Uploader-työkalun käyttö SDA:ssa {#4-1-upload-with-the-sda-uploader-tool}
 
+Uploader-työkalulla sinun täytyy ensin kerätä kaikki siirrettävät aineistot yhteen kansioon tietokoneellasi.
 
-You can now encrypt and transfer the dataset securely. While there are multiple methods available for this task, we recommend utilising the graphical user interface SDA (Sensitive Data Archive) Uploader tool. Installing this simple application may require special permission from your system administration, but it will conveniently enable the tool to establish the secure connection using the SSH keys you've already tested, encrypt the files with [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry), and upload them. 
+!!! Huomio   
+    Nimeä kansio lyhyellä nimellä (max. 64 merkkiä), joka ei sisällä välilyöntejä tai henkilötietoja, kuten nimiä. Kansion nimi näkyy julkisesti SD Applyssä. On hyvä käytäntö käyttää lehtinumeroa tai muuta yksilöllistä tunnistetta kansion nimissä. Tämä varmistaa, että oikeat tiedot lähetetään aina oikealle hakijalle, vaikka tiedonsiirtoja olisi useampia. 
 
-#### 4.1 Upload with the SDA Uploader tool
-
-With the SDA Uploader tool, you need to collect all the data to one folder on your computer before transfer.
-
-!!! Note 
-    Name the folder with a short name (max. 64 characters) that does not include spaces or personal information, such us person's names. The folder name will become publicly visible in SD Apply. Therefore, it is a good practice to use the journal number or other unique identifier for the folder name. This ensures that the correct data are always sent to the correct applicant, even in additional data transfers. 
-      
-1. Create a folder on your computer and name it with the journal number or other suitable short unique identifier that doesn't contain spaces. Add all the files belonging to the dataset to that folder.
-2. Download the SDA (Sensitive Data Archive) Uploader tool available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), for Linux, Mac and or Windows. You might need permissions from your administrators to install the SDA Uploader tool on your laptop.
+1. Luo tietokoneellasi kansio ja nimeä se lehtinumerolla tai muulla sopivalla lyhyellä yksilöllisellä tunnisteella, joka ei sisällä välilyöntejä. Lisää kaikki aineistoon kuuluvat tiedostot tähän kansioon.
+2. Lataa SDA (Sensitive Data Archive) Uploader -työkalu, joka on saatavilla [GitHubissa](https://github.com/CSCfi/sda-uploader/releases) Linuxille, Macille ja Windowsille. Saatat tarvita järjestelmänvalvojiesi käyttöluvat SDA Uploader -työkalun asentamiseksi tietokoneellesi.
     * Windows (sdagui-python3.11-windows-amd64.zip )
     * Mac (sdagui-python3.11-macos-amd64.zip)
     * Linux (sdagui-python3.11-linux-amd64.zip)
 
+3. Lataa [CSC julkinen salausavain rekistereille](https://admin.sd.csc.fi/publickey/?instance=single%20registry).
+4. Avaa SDA Uploader GUI -työkalu ja suorita seuraavat toimet:
+    * Lisää CSC julkinen avain rekistereille `Load Recipient Public Key` -painikkeella.
+    * Valitse kansio, jonka haluat ladata `Select Directory to Upload` -painikkeella.
+    * Lisää yksityinen SSH-avaimesi (RSA-muoto) `Load SSH Key`.
+    * Täytä käyttäjätunnuksesi (username@org.fi) `SFTP Username` -tekstikenttään.
+    * Täytä SFTP-palvelin: porin.lega.csc.fi:50527 `SFTP Server` -tekstikenttään.
 
-3. Download the [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry).
-4. Open the SDA Uploader GUI tool and complete these steps:
-    * Add CSC public key for registers using `Load Recipient Public Key` button.
-    * Select the folder you want to upload with the `Select Directory to Upload` button.
-    * Add your private SSH key (RSA format) with the `Load SSH Key`.
-    * Fill in your username (username@org.fi) to the `SFTP Username` text field.
-    * Fill in the SFTP server: porin.lega.csc.fi:50527 to the `SFTP Server` text field.
-    
-5. Finally, click on upload and encrypt. All the files will be encrypted, uploaded to CSC and assigned to the same identifier in SD Apply. If the tool requests a password for your SSH key, just leave the field empty. The data will become automatically discoverable in SD Apply with the folder name.
+5. Lopuksi, napsauta upload and encrypt. Kaikki tiedostot salataan, ladataan CSC:lle ja liitetään samaan tunnukseen SD Applyssä. Jos työkalu pyytää salasanaa SSH-avaimellesi, jätä kenttä tyhjäksi. Tiedot tulevat automaattisesti löydettäviksi SD Applyssä kansion nimellä.
 
-[![SDA Uploader tool.](images/apply/SDA_Uploader.png)](images/apply/SDA_Uploader.png)
+[![SDA Uploader -työkalu.](images/apply/SDA_Uploader.png)](images/apply/SDA_Uploader.png)
 
+#### 4.2 Edistyneet vaihtoehdot {#4-2-advanced-options}
 
-#### 4.2 Advanced options
+Tämä SDA (Sensitive Data Archive) -Uploader-työkalu on saatavilla GitHubissa komentorivivaihtoehtoina (CLI, vaihtoehto 2 alla) Linuxille, Macille ja Windowsille. Lisätietoja työkalusta GitHub-repositoriossa. Vaihtoehtoisesti voit salata tiedot Crypt4GH:lla (myös GUI saatavilla, vaihtoehto 3 alla) ja lähettää tiedot suoraan SFTP:llä komentorivin kautta. Jokaisessa vaihtoehdossa sinun on käytettävä CSC:n julkista avainta salaukseen.
 
-This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  command line (CLI, option 2 below) options for Linux, Mac and Windows. More information about the tool in the GitHub repository. Alternatively, you can encrypt the data with Crypt4GH (also GUI available, option 3 below) and send the data directly with SFTP on command line. With each option, you need to use CSC public key for encryption.
+##### Edistynyt vaihtoehto 1 {#advanced-option-1}
 
-##### Advanced option 1
-
-With the SDA CLI tool, you also first create a folder on your computer and name it with the journal number or other short unique identifier that does not contain spaces. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace example_dataset_123 with the directory name, username@org.fi with your credentials, and X:\folder\filename.key (or ~/.ssh/filename for Linux/macOS) with the location of your SSH key):
+SDA CLI -työkalulla luot ensin kansio tietokoneellesi ja nimeä se lehtinumerolla tai muulla lyhyellä yksilöllisellä tunnisteella, joka ei sisällä välilyöntejä. Lisää kaikki aineistoon kuuluvat tiedostot tähän kansioon. Sitten lisäät seuraavan komennon komentoriville (korvaa example_dataset_123 hakemiston nimellä, username@org.fi tunnuksillasi ja X:\folder\filename.key (tai ~/.ssh/filename Linuxilla/macOS:llä) SSH-avaimesi sijainnilla):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
 ```
 
-##### Advanced option 2
+##### Edistynyt vaihtoehto 2 {#advanced-option-2}
 
-With Crypt4GH and SFTP, you first encrypt the data with CSC public key with either Crypt4GH python module or GUI version. Then you open the SFTP connection with the following command (replace username@org.fi with your credentials and X:\folder\filename.key (or ~/.ssh/filename for Linux/macOS) with the location of your private SSH key):
+Crypt4GH:n ja SFTP:n kanssa salaat tiedot ensin CSC:n julkisella avaimella joko Crypt4GH python-moduulilla tai graafisella käyttöliittymällä. Sitten avaat SFTP-yhteyden seuraavalla komennolla (korvaa username@org.fi tunnuksillasi ja X:\folder\filename.key (tai ~/.ssh/filename Linuxilla/macOS:llä) yksityisen SSH-avaimesi sijainnilla):
 
 ```
 sftp -i X:\folder\filename.key -P 50527 username@org.fi@porin.lega.csc.fi
 ```
 
-Then create a directory for the dataset you are going to transfer:
+Luo sitten hakemisto siirrettävälle aineistolle:
 
 ```
 mkdir example_dataset_123
 cd example_dataset_123
 ```
 
-Then you put all of the files belonging to that dataset to the folder:
+Laita sitten kaikki tähän aineistoon kuuluvat tiedostot kansioon:
 
 ```
 put example_dataset_123_file-1
@@ -139,68 +131,67 @@ put example_dataset_123_file-3
 exit
 ```
 
-After a successful upload, the dataset is visible in SD Apply. With the direct SFTP transfer, you can wait a moment after putting the first file to the folder for the directory to become visible in SD Apply, so the system doesn't create multiple entries for single directory. This might happen, if the files are sent too quickly one after the other. The files are not visible in the SFTP directory after transfer, as they are immediately ingested.
+Onnistuneen latauksen jälkeen aineisto näkyy SD Applyssä. Suoran SFTP-siirron yhteydessä voit odottaa hetken ensimmäisen tiedoston siirtämisen jälkeen, jotta hakemisto tulee näkyväksi SD Applyssä, jotta järjestelmä ei luo useita merkintöjä yhdelle hakemistolle. Tämä voi tapahtua, jos tiedostot lähetetään liian nopeasti yksi toisen jälkeen. Tiedostot eivät ole näkyvissä SFTP-hakemistossa siirron jälkeen, sillä ne otetaan heti käyttöön.
 
-!!! Note 
-    You can always transfer more data for the same project/data permit by using the same directory. The data will become visible for the user in SD Desktop when they log in again. If you send multiple files with the same file name, the files are not replaced, but instead, both versions are kept and will be available for the user.
-    If you need to delete files after transfer, for example when the data permit expires, please contact CSC Service Desk. Access to the data can be restricted after the expiration or in any point of the project, if needed (see below), but deletion of the data from CSC needs to be done manually by our administrators.
+!!! Huomio   
+    Voit aina siirtää enemmän tietoja samalle projektille/aineistoluville käyttämällä samaa hakemistoa. Tiedot tulevat käyttäjän nähtäviksi SD Desktopissa, kun he kirjautuvat uudelleen. Jos lähetät useita tiedostoja samalla tiedostonimellä, tiedostoja ei korvata, vaan molemmat versiot säilytetään ja ovat käyttäjän saatavilla. Jos sinun on poistettava tiedostoja siirron jälkeen, esimerkiksi kun aineistolupa vanhenee, ota yhteyttä CSC Service Deskiin. Pääsyä tietoihin voidaan rajoittaa luvan vanhentumisen tai projektin missä tahansa vaiheessa tarvittaessa (katso alla), mutta tiedostojen poistaminen CSC:ltä on manuaalinen toimenpide, joka tehdään ylläpitäjiemme toimesta.
 
-## Data access management
+## Datan käyttöoikeuksien hallinta {#data-access-management}
 
-After the data has been submitted, it is discoverable in SD Apply with the dataset ID (organization's identifier + the journal number). 
+Kun aineisto on toimitettu, se on löydettävissä SD Apply -palvelussa aineiston tunnuksella (organisaation tunniste + lehtinumero).
 
-The researcher who has received the data permit should create a secondary use CSC project and send the data permit to CSC service desk to be validated. The data permit issuer should tell the researcher what is the dataset identifier in SD Apply they should apply access to.
+Tutkijan, joka on saanut tutkimusluvan, tulisi luoda toissijainen CSC-projekti ja lähettää tutkimuslupa CSC:n palvelupisteeseen tarkistettavaksi. Aineistoluvan myöntäjän tulisi kertoa tutkijalle, mikä on aineiston tunniste SD Applyssä, johon heidän tulisi hakea käyttöoikeutta.
 
-The assigned representatives of the data controller will receive a notification of new applications via email. They can review and approve the application and set an end date for the data access in SD Apply. The access right can also be cancelled manually in the future, but automated end date is preferred to avoid unauthorised access after the data permit has expired.
+Rekisterinpitäjän nimetyt edustajat saavat ilmoituksen uusista hakemuksista sähköpostitse. He voivat tarkastella ja hyväksyä hakemuksen ja asettaa päättymispäivän käyttöoikeudelle SD Applyssä. Käyttöoikeus voidaan myös peruuttaa manuaalisesti myöhemmin, mutta automaattinen päättymispäivä on toivottava, ettei valtuuttamatonta pääsyä tapahdu aineistoluvan vanhenemisen jälkeen.
 
-### Step 1: Login
+### Vaihe 1: Kirjautuminen {#step-1-login}
 
-As a data access controller, you receive email notifications each time when an applicant applies for data access to the dataset you are associated with.
+Tietojen käyttöoikeuksien hallitsijana saat sähköposti-ilmoituksen aina, kun hakija hakee käyttöoikeutta aineistoon, johon sinut on liitetty.
 
-To start processing applications, follow the link in your email or log in directly to [SD Apply](https://sd-apply.csc.fi/). Login to SD Apply is possible either with user identity federation systems (Haka or Virtu login) or with CSC account.
+Aloittaaksesi hakemusten käsittelyn, seuraa sähköpostin linkkiä tai kirjaudu suoraan [SD Apply -palveluun](https://sd-apply.csc.fi/). Kirjautuminen SD Applyyn on mahdollista käyttäjäidentiteettifederaatiojärjestelmien (Haka tai Virtu-kirjautuminen) tai CSC-tunnuksen avulla.
 
-[![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
+[![SD Apply kirjautumissivu](images/apply/apply_login.png)](images/apply/apply_login.png)
 
-!!! note
-    Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
+!!! huom
+    Käytä aina samaa identiteettipalveluntarjoajaa, kun kirjaudut SD Applyyn, koska kaikki toimintosi liittyvät kirjautumistunnukseesi.
 
-### Step 2: Process the application
+### Vaihe 2: Hakemuksen käsittely {#step-2-process-the-application}
 
-In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
+SD Applyssä, siirry "Actions" -välilehdelle nähdäksesi kaikki hakemukset, jotka odottavat hyväksyntää. Valitse *View* avataksesi käsiteltävän hakemuksen. Hakemuksia ei tarvitse käsitellä tietyssä järjestyksessä. Hyväksymisprosessi on täysin dynaaminen.
 
-[![SD Apply "Actions" tab and application](images/apply/apply_dac.png)](images/apply/apply_dac.png)
+[![SD Apply "Actions" -välilehti ja hakemus](images/apply/apply_dac.png)](images/apply/apply_dac.png)
 
-#### Approve or reject the application
+#### Hyväksy tai hylkää hakemus {#approve-or-reject-the-application}
 
-You can approve or reject the application right away if the applicant has provided all the needed information. Select *Approve or reject application* under "Actions". If you reject an application, we recommend telling the applicant why the application was rejected by writing a comment.
+Voit hyväksyä tai hylätä hakemuksen heti, jos hakija on antanut kaikki tarvittavat tiedot. Valitse *Approve or reject application* "Actions" -kohdasta. Jos hylkäät hakemuksen, suosittelemme kertomaan hakijalle, miksi hakemus hylättiin, kirjoittamalla kommentti.
 
-When approving the application, you can also set an end date for the access right, e.g. the expiration date of the data permit. If no end date is set, the access right needs to be cancelled manually when the data permit expires by closing the application (see [Step 4](./single-register-submission.md#step-4-after-processing-the-application)).
+Kun hyväksyt hakemuksen, voit myös asettaa päättymispäivän käyttöoikeudelle, esimerkiksi aineistoluvan voimassaolon päättymispäivän. Jos päättymispäivää ei aseteta, käyttöoikeus on peruutettava manuaalisesti, kun aineistolupa päättyy sulkemalla hakemus (katso [Vaihe 4](./single-register-submission.md#step-4-after-processing-the-application)).
 
-The applicant will receive an email notification about the decision. Once you approve or reject the application, the decision is final. You cannot edit it later. If the applicant has added members to their application, the members will get access rights too when the application is approved, if they have accepted the terms of use. Any member not having accepted the terms of use by that time will get access rights after they log in to SD Apply and accept the terms of use.
+Hakija saa sähköpostiviestin päätöksestä. Kun hyväksyt tai hylkäät hakemuksen, päätös on lopullinen. Et voi muokata sitä myöhemmin. Jos hakija on lisännyt jäseniä hakemukseensa, jäsenet saavat myös käyttöoikeudet hakemuksen hyväksymisen jälkeen, jos he ovat hyväksyneet käyttöehdot. Jokainen jäsen, joka ei ole hyväksynyt käyttöehtoja siihen mennessä, saa käyttöoikeudet vasta, kun he kirjautuvat SD Applyhin ja hyväksyvät käyttöehdot.
 
-CSC Service Desk will add access to the data to the researchers after they send a pdf file of the approved application to the CSC Service Desk. 
+CSC Service Desk lisää tutkijoille pääsyn aineistoon sen jälkeen, kun he lähettävät hyväksytyn hakemuksen pdf-tiedoston CSC Service Deskiin.
 
-!!! note
-    If the dataset that applicant is applying for access has been taken out of use, SD Apply will give a warning to application handlers, but you can still approve or reject the application. 
+!!! huom
+    Jos aineisto, johon hakija hakee käyttöoikeutta, on poistettu käytöstä, SD Apply antaa varoituksen hakemusten käsittelijöille, mutta hakemuksen voi silti hyväksyä tai hylätä.
 
-#### Close the application
-You can close the application at any stage of the process by selecting *Close application*. Closing means that the application process is cancelled and that the application cannot be modified or opened again. Write a comment on the comment field to explain why did you close the application.
+#### Sulje hakemus {#close-the-application}
+Voit sulkea hakemuksen missä tahansa prosessin vaiheessa valitsemalla *Close application*. Sulkeminen tarkoittaa, että hakemusprosessi peruutetaan ja hakemusta ei voi muokata tai avata uudelleen. Kirjoita kommenttikenttään kommentti selittääksesi, miksi suljit hakemuksen.
 
-We recommend closing the application, if it is somehow inappropriate. Deleting applications is not possible because we want to always provide a full history of the application process. You can find closed applications in the "Actions" tab under "Processed applications".
+Suosittelemme hakemuksen sulkemista, jos se on jollain tavalla epäasianmukainen. Hakemusten poistaminen ei ole mahdollista, koska haluamme aina tarjota täydellisen historian hakemusprosessista. Löydät suljetut hakemukset "Actions" -välilehdellä kohdasta "Processed applications".
 
-### Step 4: After processing the application
+### Vaihe 4: Hakemuksen käsittelyn jälkeen {#step-4-after-processing-the-application}
 
-You are able to manage the access rights of the applicant even after you have processed the application. You can find the processed applications from the "Actions" tab under "Processed applications". "Processed applications" view shows all the applications that have been approved, rejected, closed, or returned to the applicant. Select *View* to open a specific application.
+Voit hallita hakijan käyttöoikeuksia jopa käsiteltyäsi hakemuksen. Löydät käsitellyt hakemukset "Actions" -välilehdeltä kohdasta "Processed applications". "Processed applications" -näkymä näyttää kaikki hakemukset, jotka on hyväksytty, hylätty, suljettu tai palautettu hakijalle. Valitse *View* avataksesi tietyn hakemuksen.
 
-#### Close the application
-Closing the application cancels the access rights of the applicant and other application members. When the applicant and the application members do not need the access rights anymore, for example because the data permit has expired, you can cancel their access rights by selecting *Close application*.
+#### Sulje hakemus {#close-the-application-2}
+Hakemuksen sulkeminen peruuttaa hakijan ja muiden hakemuksen jäsenten käyttöoikeudet. Kun hakija ja hakemuksen jäsenet eivät enää tarvitse käyttöoikeuksia, esimerkiksi koska aineistolupa on vanhentunut, voit peruuttaa heidän käyttöoikeutensa valitsemalla *Close application*.
 
-#### Revoke access rights
-If the applicant has been granted access rights but they misuse them, you can revoke their rights by selecting *Revoke entitlement*. Revoking will add the applicant and all the application members to a blacklist. This means that if any of them tries to apply for access rights to the same dataset again, SD Apply will warn the application handlers. The owner of the dataset can edit the blacklist. You can find the blacklist from the "Administration" tab. 
+#### Peruuta käyttöoikeudet {#revoke-access-rights}
+Jos hakijalle on myönnetty käyttöoikeudet, mutta he väärinkäyttävät niitä, voit peruuttaa heidän oikeutensa valitsemalla *Revoke entitlement*. Peruutus lisää hakijan ja kaikki hakemuksen jäsenet mustalle listalle. Tämä tarkoittaa, että jos kukaan heistä yrittää hakea käyttöoikeuksia samalle aineistolle uudelleen, SD Apply varoittaa hakemusten käsittelijöitä. Aineiston omistaja voi muokata mustaa listaa. Löydät mustan listan "Administration" -välilehdeltä.
 
-### Email notifications
-You will receive email notifications about the actions of other SD Apply users. There might be more than one data access controller in one organization. Therefore, all the controllers who have been assigned to a certain dataset, receive an email notification when one of them has processed an application.
+### Sähköposti-ilmoitukset {#email-notifications}
+Saat sähköposti-ilmoituksia SD Apply -käyttäjien toimista. Yhdellä organisaatiolla voi olla useampi kuin yksi tietojen käyttöoikeuksien hallitsija. Siksi kaikki niistä hallitsijoista, jotka on osoitettu tietylle aineistolle, saavat sähköposti-ilmoituksen, kun joku heistä on käsitellyt hakemuksen.
 
-You can see and edit your email address from the "Settings" tab in the top right corner of the page.
+Voit nähdä ja muokata sähköpostiosoitettasi "Settings" -välilehdellä sivun oikeassa yläkulmassa.
 
-You will also receive notifications when an applicant has submitted or resubmitted an application.
+Saat myös ilmoituksia, kun hakija on lähettänyt tai lähettänyt hakemuksen uudelleen.

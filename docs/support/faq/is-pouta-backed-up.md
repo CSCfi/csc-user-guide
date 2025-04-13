@@ -1,6 +1,6 @@
-# Is Pouta backed up?
+# Onko Pouta varmuuskopioitu? {#is-pouta-backed-up}
 
-User data is not backed up. It's the user's responsibility to make backups of
-data as needed. Depending on the type and amount of data, users can consider
-making another copy at, or using in parallel, one of the other CSC data
-services. Please have a look at the [Data section](../../data/index.md).
+Käyttäjän dataa ei varmuuskopioida. On käyttäjän vastuulla tehdä tarvittavat
+varmuuskopiot datastaan. Datan tyypistä ja määrästä riippuen käyttäjät voivat
+harkita toisen kopion tekemistä tai jonkin muun CSC:n datapalvelun rinnakkaiskäyttöä.
+Katsothan [Data-osio](../../data/index.md).

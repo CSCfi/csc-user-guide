@@ -1,121 +1,77 @@
-# File browser and accessing storage services from the web interfaces
 
-The file browser can be opened from the _Files_ section on the top navbar
-(this displays a list of all project disk areas), or using the shortcut to your
-home folder in the _Pinned Apps_ view on the landing page (dashboard). In the
-file browser, you can upload/download files, create new files and directories,
-or open a shell in the current directory. You can also use it to move data
-between Allas, LUMI-O, IDA and the supercomputer.
+# Tiedostoselain ja tallennuspalveluiden käyttäminen verkkoliittymistä {#file-browser-and-accessing-storage-services-from-the-web-interfaces}
 
-!!! warning "Important"
-    Keep the tab with the file browser open while the file transfer is in
-    progress to ensure that it completes successfully. Also note that uploaded
-    files will overwrite existing files with the same name _without prompting_!
-    Currently, the maximum size for individual file uploads is **10 GB**.
+Tiedostoselain voidaan avata _Tiedostot_-osiosta ylävalikossa (tämä näyttää luettelon kaikista projektin levyaluesista) tai käyttämällä kotikansion pikakuvaketta aloitussivun (koontinäytön) _Kiinnitetyt sovellukset_ -näkymässä. Tiedostoselaimessa voit ladata/siirtää tiedostoja, luoda uusia tiedostoja ja kansioita tai avata komentokehotteen nykyisessä kansiossa. Sitä voidaan käyttää myös datan siirtämiseen Allas-palveluiden, LUMI-O:n, IDA:n ja supertietokoneen välillä.
 
-Clicking on a file will open it in view-only mode. For more options like
-editing, renaming and deleting, use the button with three dots next to the
-filename. 
+!!! warning "Tärkeää"
+    Pidä tiedostoselainta auki, kunnes tiedostonsiirto on valmis, jotta varmistetaan, että se onnistuu. Huomaa myös, että ladatut tiedostot korvaavat olemassa olevat samannimiset tiedostot _ilman erillistä kyselyä_! Tällä hetkellä yksittäisten tiedostojen maksimikoko on **10 GB**.
 
-The file browser comes with a basic text editor. Some important notes about the
-editor:
+Tiedostoon napsauttamalla sitä avataan vain katselutilassa. Lisää vaihtoehtoja, kuten muokkaaminen, nimetäminen ja poistaminen, saa painikkeella, jossa on kolme pistettä tiedostonimen vieressä.
 
-- If no changes have been made, the _save_ button is grayed out.
-- There is no _save-as_ feature.
-- The user is not notified if a read-only file is opened using the editor.
-  Accordingly, no changes will be applied to the file.
+Tiedostoselaimeen kuuluu yksinkertainen tekstieditori. Muutamia tärkeitä huomioita editorista:
 
-## Accessing Allas and LUMI-O
+- Jos muutoksia ei ole tehty, _tallenna_-painike on harmaana.
+- _Tallenna nimellä_ -toimintoa ei ole.
+- Käyttäjää ei varoiteta, jos lukuoikeudellinen tiedosto avataan editorissa. Täten muutokset eivät tule voimaan tiedostossa.
 
-The **[Allas object storage service](../../computing/allas.md)** can also be
-accessed from the web interfaces using the file browser.
+## Allas ja LUMI-O pääsy {#accessing-allas-and-lumi-o}
 
-To configure authentication for Allas: 
+Verkkoliittymien tiedostoselaimesta pääsee myös käyttämään **[Allas-objektitallennuspalvelua](../../computing/allas.md)**.
 
-1. Open the _Cloud storage configuration_ app either from the _Pinned Apps_ or
-   the _Tools_ dropdown in the navbar.
-2. Once you open the app, you will be prompted to enter your CSC password at
-   the bottom of the page.
-3. After you have authenticated using your password, you will be able to create 
-   both S3 and Swift connections, also known as remotes, to Allas. Each remote
-   is only valid for a single project, but you can create multiple remotes to
-   cover different projects.
-4. The created remotes will be visible in the _Files_ dropdown in the navbar,
-   as well as in the file browser (e.g. `s3allas-project_2001234`).
+Autentikoinnin määrittäminen Alttaa varten:
 
-!!! info "Note"
-    The Swift and S3 protocols are not fully compatible with each other,
-    particularly for files larger than 5 GB. For more details about the
-    differences between the protocols, see
-    [Allas protocols](../../data/Allas/introduction.md#protocols).
+1. Avaa _Pilvitallennuskonfiguraatio_-sovellus joko _Kiinnitetyt sovellukset_-osiossa tai työkalut-pudotusvalikossa.
+2. Kun avaat sovelluksen, sinulta kysytään CSC-salasana sivun alareunassa.
+3. Kun olet tunnistautunut salasanallasi, voit luoda sekä S3- että Swift-yhteyksiä, joita kutsutaan myös remotes, Allakseen. Jokainen remote on voimassa vain yhden projektin ajan, mutta voit luoda useita remotes, jotka kattavat eri projektit.
+4. Luodut remotes ovat näkyvissä _Tiedostot_-pudotusvalikossa sekä tiedostoselaimessa (esim. `s3allas-project_2001234`).
 
-**[LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/)** can also be
-used through the file browser.
+!!! info "Huomaa"
+    Swift- ja S3-protokollat eivät ole täysin yhteensopivia keskenään, erityisesti yli 5 GB kokoisissa tiedostoissa. Lisätietoja protokollien eroista löytyy [Allas-protokollat](../../data/Allas/introduction.md#protocols).
 
-To configure authentication for LUMI-O:
+**[LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/)** on myös käytettävissä tiedostoselaimen kautta.
 
-1. Open the _Cloud storage configuration_ app either from the _Pinned Apps_ or
-   the _Tools_ dropdown in the navbar.
-2. Select the LUMI-O tab in the _Configure new remotes_ section.
-3. Select the project to create authentication for, as well as whether or not
-   you want s3cmd configuration and a public remote.
+LUMI-O:n autentikoinnin määrittäminen:
 
-!!! warning "Public LUMI-O remotes"
-    Files uploaded to the public LUMI-O remotes (e.g. `lumi-462001234-public`)
-    can be accessed by anyone using the URL
-    `https://<project-number>.lumidata.eu/<bucket_name>`. Be careful to not
-    upload private data there.
+1. Avaa _Pilvitallennuskonfiguraatio_-sovellus joko _Kiinnitetyt sovellukset_-osiossa tai _Työkalut_-pudotusvalikossa.
+2. Valitse _Configure new remotes_-osiossa LUMI-O-välilehti.
+3. Valitse projekti, johon autentikointi luodaan, sekä haluatko s3cmd-konfiguraatiota ja julkista remotea.
 
-Once you've set up a connection to Allas/LUMI-O from a web interface, you can
-use the file browser to access Allas/LUMI-O in the same way as when accessing
-the shared file system on the supercomputers.
+!!! warning "Julkiset LUMI-O-remotet"
+    Julkisesti LUMI-O-remotelle ladatut tiedostot (esim. `lumi-462001234-public`) voivat olla kenen tahansa saatavilla URL-osoitteella `https://<project-number>.lumidata.eu/<bucket_name>`. Ole varovainen, ettet lataa yksityisiä tietoja sinne.
 
-Note that configured remotes that are not accessible due to, for example,
-expired authentication or network connection issues, will not be visible in the
-_Files_ dropdown menu.
+Kun olet määrittänyt yhteyden Alttaan/LUMI-O-on verkkoliittymässä, voit käyttää tiedostoselainta päästäksesi Alttaan/LUMI-O-on samalla tavalla kuin pääsy jaettuun tiedostojärjestelmään supertietokoneissa.
 
-!!! warning "Large files"
-    Uploading large files from your local computer to Allas via the web
-    interfaces is currently not recommended due to technical limitations.
+Huomaa, että määritetyt remotet, jotka eivät ole saavutettavissa esimerkiksi vanhentuneen autentikoinnin tai verkkoyhteysongelmien vuoksi, eivät näy _Tiedostot_-pudotusvalikossa.
 
-If you no longer need a configured remote, you can revoke the access token for
-it in the list of remotes, or delete the remote from the configuration. Remotes
-not configured using the Cloud storage configuration app will also be visible
-and can be deleted, but the access tokens for those can not be revoked.
-![Cloud storage configuration tool remote list](../../img/ood_cloud_storage_conf_table.png)
+!!! warning "Suuria tiedostoja"
+    Suurten tiedostojen lataaminen paikalliselta tietokoneeltasi Alttaan verkkoliittymien kautta ei ole tällä hetkellä suositeltavaa teknisten rajoitusten vuoksi.
 
-## Accessing IDA
+Jos et enää tarvitse määritettyä remotea, voit perua sen pääsytunnuksen remoteluettelosta tai poistaa remoten konfiguraatiosta. Remotet, joita ei ole konfiguroitu Pilvitallennuskonfiguraatio-sovelluksen kautta, ovat myös näkyvissä ja ne voidaan poistaa, mutta niiden pääsytunnuksia ei voi peruuttaa.
+![Pilvitallennuskonfiguraatio-ohjelman remote-lista](../../img/ood_cloud_storage_conf_table.png)
 
-The [IDA storage service](../../data/ida/using_ida.md) can also be used from
-the web interfaces. However, some key features, such as moving data from the
-staging area to the frozen area, are only possible though the
-[IDA web interface](https://ida.fairdata.fi).
+## IDA:n käyttäminen {#accessing-ida}
 
-To use IDA from the Puhti/Mahti web interfaces, it must first be configured for
-use with Rclone in a login node shell as follows:
+[IDA-tallennuspalvelua](../../data/ida/using_ida.md) voidaan myös käyttää verkkoliittymistä. Kuitenkin, jotkut keskeiset ominaisuudet, kuten datan siirtäminen valmistelualueelta lukitusalueelle, ovat mahdollisia vain [IDA:n verkkoliittymän](https://ida.fairdata.fi) kautta.
+
+IDA:n käyttö Puhti/Mahti-verkkoliittymistä edellyttää, että se konfiguroidaan käytettäväksi Rclonella kirjautumisnodessa seuraavasti:
 
 ```
 module load allas
 rclone config
 ```
 
-In the Rclone configuration interface, create a new remote with the following
-settings:
+Rclone-konfiguraatioiden käyttöliittymässä, luo uusi remote seuraavilla asetuksilla:
 
-1. Storage: WebDAV (#45)
+1. Tallennus: WebDAV (#45)
 2. URL: <https://ida.fairdata.fi/remote.php/webdav/>
-3. Vendor: Nextcloud (#1)
-4. Username: Your CSC username
-5. Password:
-      1. Login to the [IDA web interface](https://ida.fairdata.fi).
-      2. Go to the settings in the top right corner.
-      3. Go to the _Security_ tab and create a new app password.
-      4. Copy the password and paste it in the Rclone configuration interface.
-6. Bearer token: Leave empty
-7. Advanced config: No
+3. Toimittaja: Nextcloud (#1)
+4. Käyttäjätunnus: CSC-käyttäjätunnuksesi
+5. Salasana:
+     1. Kirjaudu sisään [IDA:n verkkoliittymään](https://ida.fairdata.fi).
+     2. Siirry oikeassa yläkulmassa asetuksiin.
+     3. Siirry _Tietoturva_-välilehteen ja luo uusi sovellussalasana.
+     4. Kopioi salasana ja liitä se Rclone-konfiguraation käyttöliittymään.
+6. Pääsytunnus: Jätä tyhjäksi
+7. Laajennettu konfiguraatio: Ei
 
-After completing the Rclone configuration, restart the Puhti/Mahti web
-interface by clicking _Restart web server_ in the _Help_ menu in the top-right
-section of the navbar. IDA can now be accessed in the file browser, where you
-will be able to upload, download, transfer and edit files in the staging area,
-as well as view and download files in the frozen area.
+Kun Rclone-konfiguraatio on valmis, käynnistä Puhti/Mahti-verkkoliittymä uudelleen valitsemalla _Käynnistä verkkopalvelin uudelleen_ apuvalikosta ylävalikon oikealla puolella. IDA:n tiedostoselaimeen voi nyt päästä, jossa voit ladata/siirtää, siirtää ja muokata tiedostoja valmistelualueella, sekä katsoa ja ladata tiedostoja jäädytetyltä alueelta.

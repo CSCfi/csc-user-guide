@@ -1,86 +1,49 @@
-# How to get access to Mahti large partition
+# Kuinka saada käyttöoikeus Mahti:n suureen osioon {#how-to-get-access-to-mahti-large-partition}
 
-Projects running well-scaling codes can get access to the large partition
-(20-200 nodes) on Mahti in three steps. First, a 30-day test period for the
-large partition is requested. Second, during the test period, the scalability
-and parallel performance of the code is demonstrated with appropriate test
-runs. Finally, the results are submitted for evaluation by the project manager.
+Hyvin skaalautuvia koodeja käyttävät projektit voivat saada pääsyn Mahti:n suureen osioon (20-200 solmua) kolmessa vaiheessa. Ensin pyydetään 30 päivän testijakso suurelle osiolle. Toiseksi, testijakson aikana, koodin skaalautuvuus ja rinnakkaisesta suorituskyvystä näytetään sopivilla testiajoilla. Lopuksi tulokset toimitetaan projektipäällikön arvioitaviksi.
 
-The process is described in detail below.
+Prosessi kuvataan yksityiskohtaisesti alla.
 
-## Test access to the large partition on Mahti
+## Testipääsy Mahti:n suureen osioon {#test-access-to-the-large-partition-on-mahti}
 
-To request the 30-day test period, proceed as follows:
+30 päivän testijakson pyytämiseen jatka seuraavasti:
 
-1. Login to [MyCSC](https://my.csc.fi) and in the _Projects_ menu select the
-   project you want to modify.
-2. In the _Services_ list, click open the settings for **Mahti** service
-   (_Configure_). This opens a page where the project manager can modify the
-   settings for disk quotas (_Quota settings_) and request access to the large
-   partition (_Large partition settings_). Click open
-   _Large partition settings_.
-3. Click the _Apply for trial access_ button. After the access has been
-   granted, you will be able to submit jobs to the large partition.
+1. Kirjaudu sisään [MyCSC](https://my.csc.fi):hen ja valitse _Projektit_-valikosta projekti, jota haluat muokata.
+2. _Palvelut_-listalla klikkaa auki **Mahti**-palvelun asetukset (_Määritä_). Tämä avaa sivun, jossa projektipäällikkö voi muokata levykiintiöiden asetuksia (_Kiintiöasetukset_) ja pyytää pääsyä suureen osioon (_Suuri osioasetukset_). Klikkaa auki _Suuri osioasetukset_.
+3. Klikkaa _Hae kokeiluoikeutta_ -painiketta. Kun pääsy on myönnetty, voit lähettää työnsuorituksia suureen osioon.
 
-## Scalability testing
+## Skaalautuvuustestaus {#scalability-testing}
 
-In the second phase, test runs demonstrating the scalability are to be
-performed. Here are some general guidelines for scalability testing.
+Toisessa vaiheessa suoritettavat testiajot, jotka osoittavat koodin skaalautuvuutta, tulee tehdä. Tässä on joitakin yleisiä ohjeita skaalautuvuustestaukseen.
 
-* Testing should be done for at least three different node counts up to the
-  target in production (for example with 20, 40, 60, and 80 nodes).
-* Tests are run through the batch job system.
-* The test runs should reflect real production runs, i.e. the number of atoms,
-  number of grid points, disk I/O load etc. should be similar.
-* The input data set must be the same for each run.
-* The running time in tests should be reduced as much possible, for example, by
-  running only few time steps, iterations etc.
-* The running time should still be long enough that initialization does not
-  affect results. Typically, a few minutes for the shortest run time (largest
-  node count) is fine.
-* Parameters affecting the scalability can, and are encouraged to be, changed.
-  Note also the
-  [performance checklist](../computing/running/performance-checklist.md).
-* Minimum requirement is 75 % parallel efficiency (i.e. speedup of 1.5 when
-  doubling the number of nodes).
+* Testaus tulisi tehdä vähintään kolmella eri solmumäärällä aina tuotantotavoitteeseen saakka (esimerkiksi 20, 40, 60 ja 80 solmua).
+* Testejä ajetaan erätyöajojärjestelmän kautta.
+* Testiajojen tulisi kuvastaa todellisia tuotantoajoja, eli atomien määrä, ruutupisteiden määrä, levy-I/O-kuormitus jne. tulisi olla samankaltaisia.
+* Syöttödatasetin tulee olla sama jokaiselle ajolla.
+* Ajoaikoja tulisi pienentää mahdollisimman paljon, esimerkiksi ajamalla vain muutamia aikasteppejä, iterointeja jne.
+* Ajoajan tulee silti olla riittävän pitkä, jotta alkuvaiheen asetuksiin menevä aika ei vaikuta tuloksiin. Tyypillisesti muutama minuutti lyhimmälle ajoajalle (suurin solmumäärä) on riittävä.
+* Skaalautuvuuteen vaikuttavia parametreja voi, ja on suositeltavaa, muuttaa. Huomioi myös [suorituskykychecklista](../computing/running/performance-checklist.md).
+* Vähimmäisvaatimuksena on 75 % rinnakkaistehokkuus (eli nopeutus 1.5, kun solmumäärä kaksinkertaistetaan).
 
-## Reporting
+## Raportointi {#reporting}
 
-The scalability report should contain a short description of the software and
-the test case, as well as wall-times for each node count. If the software is
-not pre-installed by CSC, describe briefly also the parallelization strategy
-used in the software and include details about the I/O implementation and load.
+Skaalautuvuusselvityksen tulee sisältää lyhyt kuvaus ohjelmistosta ja testitapauksesta sekä seinäajat jokaiselle solmumäärälle. Jos ohjelmisto ei ole CSC:n esiasentama, kuvaa myös lyhyesti ohjelmistossa käytetty rinnakkaisstrategia ja anna yksityiskohtia I/O-toteutuksesta ja kuormasta.
 
-Attach to the report a representative batch job script, and if the application
-was run with hybrid MPI/OpenMP parallelization, attach also the `stderr` of a
-single run where the following settings are applied:
+Liitä raporttiin edustava erätyöskripti ja jos sovellusta ajettiin hybridillä MPI/OpenMP-rinnakkaisoinnilla, liitä myös yksittäisen ajon `stderr`, jossa seuraavia asetuksia käytettiin:
 
 ```bash
 export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.3n affinity %A"
 export OMP_DISPLAY_AFFINITY=true
 ```
 
-Reporting the results of the test runs or applicable previous scalability data
-is done through [MyCSC portal](https://my.csc.fi) as follows:
+Testiajojen tulosten tai soveltuvien aikaisempien skaalautuvuustietojen raportointi tehdään [MyCSC-portaalin](https://my.csc.fi) kautta seuraavasti:
 
-1. Login to [MyCSC](https://my.csc.fi) and in the _Projects_ menu select the
-   project you want to modify.
-2. In the _Services_ list, click open the settings for **Mahti** service
-   (_Configure_). This opens a page where the project manager can modify the
-   settings for disk quotas (_Quota settings_) and request access to the large
-   partition (_Large partition settings_). Click open
-   _Large partition settings_.
-3. For the results and justification, there is a text box and possibility to
-   attach documents (please remember to upload the documents after you have
-   selected them). Multiple documents can be attached. Finally, submit the
-   justification.
-4. CSC experts will evaluate the results and grant production access to the
-   large partition. If there is a problem with the code performance, the
-   project manager will be contacted.
+1. Kirjaudu sisään [MyCSC](https://my.csc.fi):hen ja valitse _Projektit_-valikosta projekti, jota haluat muokata.
+2. _Palvelut_-listalla klikkaa auki **Mahti**-palvelun asetukset (_Määritä_). Tämä avaa sivun, jossa projektipäällikkö voi muokata levykiintiöiden asetuksia (_Kiintiöasetukset_) ja pyytää pääsyä suureen osioon (_Suuri osioasetukset_). Klikkaa auki _Suuri osioasetukset_.
+3. Tuloksia ja perusteluita varten on tekstikenttä ja mahdollisuus liittää asiakirjoja (muista ladata asiakirjat niiden valitsemisen jälkeen). Useita asiakirjoja voi liittää. Lopuksi lähetä perustelu.
+4. CSC:n asiantuntijat arvioivat tulokset ja myöntävät tuotantopääsyn suureen osioon. Jos koodin suorituskyvyssä on ongelma, projektipäällikköön otetaan yhteyttä.
 
-## Assistance
+## Apu {#assistance}
 
-CSC's experts can help users in performing scalability tests if needed and also
-provide hints for improving the performance of their software.
-[Contact CSC Service Desk](../support/contact.md) if you need assistance with
-your software.
+CSC:n asiantuntijat voivat auttaa käyttäjiä skaalautuvuustestien suorittamisessa tarvittaessa ja antaa vinkkejä ohjelmiston suorituskyvyn parantamiseksi.
+[Ota yhteyttä CSC:n asiakaspalveluun](../support/contact.md), jos tarvitset apua ohjelmistosi kanssa.

@@ -1,47 +1,42 @@
-# Using wget to download data from websites to CSC
+# Wgetin käyttäminen datan lataamiseen verkkosivuilta CSC:lle {#using-wget-to-download-data-from-websites-to-csc}
 
-`wget` is a command for downloading files from  WWW-sites and FTP servers. Once
-you have resolved the URL of the file, just give it as an argument to the
-`wget` command to download the file to your current directory.
+`wget` on komento, jolla voidaan ladata tiedostoja WWW-sivustoilta ja FTP-palvelimilta. Kun olet selvittänyt tiedoston URL-osoitteen, anna se `wget`-komennon argumenttina ladataksesi tiedoston nykyiseen hakemistoosi.
 
 ```bash
 wget URL
 ```
 
-For example:
+Esimerkiksi:
 
 ```bash
 wget ftp://ftp.gromacs.org/gromacs/gromacs-2024.2.tar.gz
 ```
 
-would download a file called `gromacs-2024.2.tar.gz` to your current directory.
-Pattern matching in the URL is possible when using FTP, i.e. the URL starts
-with `ftp://`:
+tämä komento lataa tiedoston nimeltä `gromacs-2024.2.tar.gz` nykyiseen hakemistoosi. URL-osoitteen mallintaminen on mahdollista FTP:n yhteydessä, ts. URL alkaa `ftp://`:
 
 ```bash
 wget ftp://ftp.gromacs.org/gromacs/gromacs-2024.*.tar.gz
 ```
 
-This command would retrieve all the files, whose name start with
-`gromacs-2024.` and end with `.tar.gz`.
+Tämä komento hakee kaikki tiedostot, joiden nimi alkaa `gromacs-2024.` ja päättyy `.tar.gz`.
 
-You can fine tune the behavior of the `wget` command with several options. You
-can see the full list of available command options with the command:
+Voit hienosäätää `wget`-komennon käyttäytymistä useilla optioilla. Saat näkyviin käytettävissä olevien komentojen optioiden täydellisen listan komennolla:
 
 ```bash
 man wget
 ```
 
-Below are listed some of the most commonly used options.
+Alla on lueteltu joitakin yleisimmin käytettyjä optioita.
 
-|Option      |Argument |Description  |
-|------------|---------|-------------|
-|`-i`        |URL      |Read a file containing the URLs to retrieve.|
-|`-O`        |file name|Name of the output file.|
-|`-o`        |file name|Name of the download log file.|
-|`-p`        |directory|Defines the directory where the downloaded data will be saved to. The default is the current directory.|
-|`-c`        |         |Continue getting a partially-downloaded file.|
-|`--user`    |username |Specify the username for file retrieval.|
-|`--password`|password |Specify the password for file retrieval.|
-|`-N`        |         |Use time-stamping. Download the file only if it is newer that the file in the target directory.|
-|`-m`        |         |Turn on options suitable for mirroring. This option turns on recursion and time-stamping, sets infinite recursion depth and keeps FTP directory listings.|
+|Optio       |Argumentti |Kuvaus         |
+|------------|-----------|---------------|
+|`-i`        |URL        |Lue tiedosto, joka sisältää haettavien URL-osoitteiden listan.|
+|`-O`        |tiedoston nimi|Lähtötiedoston nimi.|
+|`-o`        |tiedoston nimi|Latauksen lokitiedoston nimi.|
+|`-p`        |hakemisto  |Määrittelee hakemiston, johon ladattu data tallennetaan. Oletuksena on nykyinen hakemisto.|
+|`-c`        |           |Jatka osittain ladatun tiedoston hakemista.|
+|`--user`    |käyttäjänimi|Määritä käyttäjänimi tiedoston hakua varten.|
+|`--password`|salasana   |Määritä salasana tiedoston hakua varten.|
+|`-N`        |           |Käytä aikaleimoja. Lataa tiedosto vain, jos se on uudempi kuin kohdehakemistossa oleva tiedosto.|
+|`-m`        |           |Ota käyttöön peilaukseen sopivat optiot. Tämä optio ottaa käyttöön rekursion ja aikaleiman, asettaa rekursion syvyyden loputtomaksi ja säilyttää FTP-hakemistolistaukset.|
+

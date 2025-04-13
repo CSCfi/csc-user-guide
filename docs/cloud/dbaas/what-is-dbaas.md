@@ -1,11 +1,11 @@
-# What is DBaaS
+# Mitä on DBaaS {#what-is-dbaas}
 
-Database as a Service (DBaaS) is a self service on-demand database service, that means you can launch a new database "with a simple click". The goal of the DBaaS is to automate away the database maintenance and administrative tasks of other services so that the developers/administrators can focus on the stuff that actually brings "value" to the services.
+Tietokanta palveluna (DBaaS) on itsepalvelu, tilauspohjainen tietokantapalvelu, mikä tarkoittaa, että voit käynnistää uuden tietokannan "yksinkertaisella klikkauksella". DBaaS:n tavoitteena on automatisoida tietokantojen ylläpito ja hallintatehtävät muiden palveluiden osalta, jotta kehittäjät/hallinnoijat voivat keskittyä asioihin, jotka tuovat todellista "arvoa" palveluille.
 
-Instead of manually setting up your own database that you have to maintain yourself, you can use DBaaS to manage the tedious tasks of provisioning, configuring, maintaining, updating, documenting and backing up your database.
+Sen sijaan, että asettaisit oman tietokannan manuaalisesti ja joutuisit ylläpitämään sitä itse, voit käyttää DBaaS:ia hallitsemaan työläitä tehtäviä, kuten varaaminen, konfigurointi, ylläpito, päivitys, dokumentointi ja tietokannan varmuuskopiointi.
 
-The DBaaS service is based on OpenStack. DBaaS service is running on top of cPouta, which means any issue that affects cPouta might also affect DBaaS.
+DBaaS käyttää OpenStack-pohjaista palvelua. DBaaS-palvelu toimii cPoutan päällä, mikä tarkoittaa, että mikä tahansa ongelma, joka vaikuttaa cPoutaan, saattaa vaikuttaa myös DBaaS:iin.
 
-Each database instance is running in its own virtual machine, which means that all database instances are segregated from each other through virtualization. All database instances also have their own public IP that is accessible over the internet and its own firewall configuration that the user can define. It is the users responsibility to make sure that their database instances have strict firewall rules and following good password policies.
+Jokainen tietokanta-instanssi toimii omassa virtuaalikoneessaan, mikä merkitsee, että kaikki tietokanta-instanssit on eristetty toisistaan virtualisoinnin kautta. Kaikilla tietokanta-instansseilla on myös oma julkinen IP-osoite, joka on saavutettavissa internetin kautta, ja oma palomuurikonfiguraationsa, jonka käyttäjä voi määritellä. On käyttäjän vastuulla varmistaa, että heidän tietokanta-instansseillaan on tiukat palomuurisäännöt ja että he noudattavat hyviä salasanakäytäntöjä.
 
-DBaaS is a generic database service, which means that it should be suitable for most use cases. The added value of a DBaaS service is the greatest for homepages, small services, research projects and development projects. The DBaaS is not "database-admin as a service", which means the DBaaS does not provide support, whether how to optimize your database queries or how to structure your database.
+DBaaS on geneerinen tietokantapalvelu, mikä tarkoittaa, että sen pitäisi sopia suurimpaan osaan käyttötapauksista. DBaaS-palvelun lisäarvo on suurin kotisivuilla, pienissä palveluissa, tutkimusprojekteissa ja kehitysprojekteissa. DBaaS ei ole "tietokannan hallintaa palveluna", mikä tarkoittaa, että DBaaS ei tarjoa tukea, esimerkiksi kuinka optimoida tietokantakyselysi tai miten rakentaa tietokantaasi.

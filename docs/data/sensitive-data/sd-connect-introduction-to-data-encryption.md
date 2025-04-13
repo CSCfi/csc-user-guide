@@ -1,38 +1,32 @@
-# Introduction to data encryption compatible with Sensitive Data services
-
+# Johdanto tietojen salaukseen yhteensopivana Herkkä tieto -palvelujen kanssa {#introduction-to-data-encryption-compatible-with-sensitive-data-services}
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/dI1Py_1gA-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+CSC:n pilvipalveluihin SD Connectin kautta tai ohjelmallisesti siirrettävä herkkä tieto on salattava. Tämän luvun ohjeiden mukaisesti salatut tiedostot ovat yhteensopivia ja käytettävissä kaikkien Herkkä tieto (SD) -palvelukomponenttien kautta. Näin salatut tiedostot, jotka tallennetaan SD Connect -palveluun, ovat saatavilla analysointia varten (SD Desktop -palvelun avulla) tai julkaisua ja uudelleenkäyttöä varten hallitun pääsyn alaisina (SD Submitin, Federated EGA:n tai SD Applyn kautta).
 
-Sensitive data uploaded to CSC's cloud services using SD Connect or programmatically must be encrypted. Files encrypted following the guidelines provided in this chapter will be compatible and accessible via all Sensitive Data (SD) Service components. This way, encrypted files stored in the SD Connect service will be available for analysis (using the SD Desktop service) or publishing and reuse under controlled access (via SD Submit, Federated EGA, or SD Apply). 
+!!! Huom
+    Tietojen salaaminen ei vaadi teknistä osaamista, mutta se edellyttää tutustumista seuraavaan käyttäjän oppaaseen ja video-oppaisiin. Tarjoamme myös askel-askeleelta ohjeistusta verkossa tai asiakaspalvelun kautta. Jos sinulla on kysyttävää tai tarvitset ohjeiden alla selvennystä, älä epäröi [ottaa yhteyttä](../../support/contact.md) (aihe: Herkkä tieto).
 
-!!! Note
-    Data encryption does not require technical expertise but requires you to become familiar with the following user guide and video tutorials. We also provide step-by-step guidance online or via the help desk. If you have any questions or the instructions below need clarification, don't hesitate to [contact us](../../support/contact.md) (subject: Sensitive Data). 
+Olemme integroineet salauksen automatisoituna askeleena SD Connect -käyttöliittymässä, erityisesti alle 1 Gt:n kokoisia tiedostoja varten. Kaikki SD Connectin kautta ladatut tiedot salataan automaattisesti Herkkä tieto -palvelujen julkisella salausavaimella. Voit kuitenkin valita erilaisia vaihtoehtoja tietojen salaamiseen analysointia tai jakamista varten.
 
-We integrated the encryption as an automated step in the SD Connect user interface, specifically for files smaller than 1 GB. All the data uploaded using SD Connect are automatically encrypted with the Sensitive Data services public encryption key. However, you can choose different options to encrypt your data for analysis or sharing. 
+Palvelut käyttävät lyhyesti sanottuna _epäsymmetristä salausta_, joka perustuu kahteen toisiinsa liitettyyn salausavaimeen:
 
-Briefly, the services use an encryption method called _asymmetric encryption_, based on two interlinked encryption keys:
+   * Julkista avainta käytetään tietojen salaukseen. Julkista avainta ei voi käyttää tietojen purkamiseen. Voit jakaa julkisen avaimesi muiden kanssa, esim. yhteistyökumppaniesi kanssa, jolloin he voivat salata tietoja julkisella avaimesi.
 
-   * A public key is used for data encryption. A public can not be used to decrypt the data. You can share your public key with others, e.g. your collaborators, and they will then be able to encrypt data with your public key. 
+   * Salainen avain (tunnetaan myös yksityisenä avaimena) käytetään tiedoston purkamiseen, joka on salattu vastaavalla julkisella avaimella. Tämä avain on suojattu salasanalla, eikä sitä saa jakaa muille.
 
-   * A secret key (also called a private key) is used to decrypt a file encrypted with the corresponding public key. This key is password protected and can not be shared with others. 
+Kun käytät SD Connectia tietojen lataamiseen CSC:hen, sinulla on useita mahdollisuuksia salaukseen:
 
+1. Oletusvaihtoehto data-analyysille:
 
-When using SD Connect to upload your data to CSC, you have several possibilities for encryption:
+      * Oletuksena olevilla salausvaihtoehdoilla voit ladata tiedot SD Connectin kautta verkkoselaimellasi data-analyysia varten. Tiedostot salataan automaattisesti ja ovat käytettävissä analyysissä SD Desktopin kautta. Voit kuitenkin purkaa tiedostot ladattuasi ne takaisin kannettavaasi tai organisaatiosi tietojenkäsittely-ympäristöön. Kehitämme uutta ominaisuutta, joka tarjoaa automaattista purkamista SD Connectin kautta. Lisätietoja varten [ota yhteyttä](../../support/contact.md) (Herkkä tieto).
 
-1. Default option for data analysis:
-
-      * With the default encryption options, you can upload the data using SD Connect via your web browser for data analysis. The files will be automatically encrypted and accessible for analysis via SD Desktop. However, you cannot decrypt the files after downloading them to your laptop or organization's computing environment. Therefore, we are developing a new feature that provides automated decryption via SD Connect. For more information, [contact us](../../support/contact.md) (Sensitive Data).
-
-2. Adding multiple encryption keys for data storage, sharing and transfer:
+2. Useiden salausavainten lisääminen tietojen tallennukseen, jakamiseen ja siirtoon:
    
-      *  You can upload the data using SD Connect via a web browser and add your public encryption key. The files will be encrypted with the SD services by default, but you can also add your encryption key. In this manner,  you will also be able to download and decrypt the data when necessary
-         
-      *  You can upload the data using SD Connect via your web browser and add several encryption keys. For example, your public encryption key and your collaborator's public encryption key. Also, in this case, the files will be encrypted with the SD services encryption key by default and available for data analysis via SD Desktop. Moreover, you and your collaborator can also download and decrypt the data when necessary.
+      * Voit ladata tiedot SD Connectin kautta verkkoselaimen avulla ja lisätä julkisen salausavaimesi. Tiedostot salataan oletuksena SD-palveluiden avulla, mutta voit myös lisätä oman salausavaimesi. Tällä tavoin voit myös ladata ja purkaa tiedot tarvittaessa.
 
-   
-This encryption method is based on Crypt4GH, a tool initially designed to encrypt and share human genetic data according to the [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) standard. Crypt4GH can be used to encrypt any file (images, audio, video, text files, etc.).
-CSC has developed a simple application that will allow you to **generate your encryption keys**. 
+      * Voit ladata tiedot SD Connectin kautta verkkoselaimellasi ja lisätä useita salausavaimia. Esimerkiksi, julkinen salausavaimesi ja yhteistyökumppanisi julkinen salausavain. Myös tässä tapauksessa tiedostot salataan oletuksena SD-palveluiden salausavaimella ja ovat saatavilla data-analyysiin SD Desktopin kautta. Lisäksi sinä ja yhteistyökumppanisi voitte myös ladata ja purkaa tiedot tarvittaessa.
 
-The following paragraphs illustrate all the necessary steps to generate encryption keys, upload and encrypt your data using SD Connect, and decrypt the files once downloaded back to your computer. Of course, you can also execute each of these steps programmatically.
+Tämä salausmenetelmä perustuu Crypt4GH:ään, työkaluun, joka on alun perin suunniteltu ihmisen geneettisten tietojen salaamiseen ja jakamiseen [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) -standardin mukaisesti. Crypt4GH:ta voidaan käyttää minkä tahansa tiedoston (kuva, ääni, video, tekstitiedostot jne.) salaamiseen. CSC on kehittänyt yksinkertaisen sovelluksen, jonka avulla voit **luoda salausavaimesi**.
 
+Seuraavissa kappaleissa kuvataan kaikki tarvittavat askeleet salausavainten luomiseen, tietojen lataamiseen ja salaamiseen SD Connectin avulla sekä tiedostojen purkamiseen, kun ne on ladattu takaisin tietokoneellesi. Tietenkin voit myös suorittaa jokaisen näistä vaiheista ohjelmallisesti.

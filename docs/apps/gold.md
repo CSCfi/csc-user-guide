@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Academic
@@ -5,44 +6,32 @@ tags:
 
 # GOLD
 
-GOLD is a docking program for predicting how flexible molecules will
-bind to proteins. GOLD uses a genetic algorithm methodology for
-protein-ligand docking and allows full ligand and partial protein
-flexibility.
+GOLD on telakointiohjelma, joka ennustaa, miten joustavat molekyylit sitoutuvat proteiineihin. GOLD käyttää geneettistä algoritmimenetelmää proteiini-ligandi-telakointiin ja mahdollistaa sekä ligandien että proteiinien osittaisen joustavuuden.
 
-## Available
+## Available {#available}
 
 - Puhti: 2022.2, 2023.2
-- Download and install locally
+- Lataa ja asenna paikallisesti
 
-Run `module spider ccdc` to see module versions and how to load them.
+Suorita `module spider ccdc` nähdäksesi moduuliversiot ja kuinka ne ladataan.
 
-## License
+## License {#license}
 
-License covers **academic usage** at universities
-and non-profit research institutes. See our [CSD page](csd.md)
-for details.
+Lisenssi kattaa **akateemisen käytön** yliopistoissa ja voittoa tavoittelemattomissa tutkimuslaitoksissa. Katso lisätietoja [CSD-sivultamme](csd.md).
 
-## Usage
+## Usage {#usage}
 
-GOLD is a part of the Cambridge Crystallographic Database System.
-See our [CSD page](csd.md) for installation and activation instructions.
+GOLD on osa Cambridgen kiteytystietokantajärjestelmää. Katso [CSD-sivultamme](csd.md) asennus- ja aktivointiohjeet.
 
-GOLD can be used either from the command-line or via a graphical user interface
-(GUI) called Hermes. The best way to run a GUI remotely on Puhti is to use the
-[Puhti web interface desktop](../computing/webinterface/desktop.md). To set up
-the GOLD interactive environment, open a terminal and run:
+GOLDia voidaan käyttää joko komentoriviltä tai graafisen käyttöliittymän (GUI) kautta, jota kutsutaan nimellä Hermes. Paras tapa suorittaa GUI etänä Puhti-järjestelmässä on käyttää [Puhti web-käyttöliittymää työpöydällä](../computing/webinterface/desktop.md). GOLD-interaktiivisen ympäristön asettamiseksi avaa terminaali ja suorita:
 
 ```bash
 module load ccdc
 ```
 
-This will load the latest version of CSD and GOLD. To run GOLD you can either
-enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which
-opens the GOLD wizard of Hermes directly. Note that the GUI performance can be
-somewhat slow compared to a local installation.
+Tämä lataa uusimman version CSD:stä ja GOLDista. Voit suorittaa GOLDin kirjoittamalla joko `hermes` ja siirtymällä GOLD-välilehteen tai vaihtoehtoisesti suorittamalla `gold`, joka avaa suoraan Hermeksen GOLD-opastajan. Huomaa, että GUI:n suorituskyky voi olla hieman hitaampi verrattuna paikalliseen asennukseen.
 
-Longer (non-interactive) jobs are best run as batch jobs:
+Pidemmät (ei-interaktiiviset) työt on parasta suorittaa eräajoina:
 
 ```bash
 #!/bin/bash -l
@@ -56,13 +45,11 @@ module load ccdc
 gold_auto gold.conf
 ```
 
-!!! Note
-    For docking several ligands in parallel, please have a look at the Python
-    script `gold_multi` in the
-    [CSD Python API scripts repository](https://github.com/ccdc-opensource/csd-python-api-scripts).
+!!! Huom
+    Useiden ligandien telakointiin rinnakkain, tutustu Python-skriptiin `gold_multi` [CSD Python API skriptivarastossa](https://github.com/ccdc-opensource/csd-python-api-scripts).
 
-## More information
+## More information {#more-information}
 
-- [CSC CSD Page](csd.md)
-- [The GOLD homepage](https://www.ccdc.cam.ac.uk/solutions/software/gold/)
-- [GOLD online documentation](https://www.ccdc.cam.ac.uk/support-and-resources/documentation-and-resources/?category=All%20Categories&product=GOLD&type=All%20Types)
+- [CSC CSD -Sivu](csd.md)
+- [GOLD kotisivu](https://www.ccdc.cam.ac.uk/solutions/software/gold/)
+- [GOLD verkko-dokumentaatio](https://www.ccdc.cam.ac.uk/support-and-resources/documentation-and-resources/?category=All%20Categories&product=GOLD&type=All%20Types)

@@ -1,214 +1,203 @@
-# Guide for teachers and collaborators
+# Opas opettajille ja yhteistyökumppaneille {#guide-for-teachers-and-collaborators}
 
-Instructions on using the Noppe environment as a teacher or for collaboration.
+Ohjeita Noppe-ympäristön käyttöön opettajana tai yhteistyöhön.
 
-## How to host a course or use Noppe for collaboration?
+## Kuinka isännöidä kurssia tai käyttää Noppea yhteistyöhön? {#how-to-host-a-course-or-use-noppe-for-collaboration}
 
-Noppe is built for hosting online courses. We support currently Jupyter and RStudio based content, with more
-options to come in the future. The intended workflow is that you create one workspace per course, and arrange your 
-exercises in one or more applications in that workspace.
-Instead of a course you can also use Noppe for collaboration. The workflow is similar to creating a course environment and is described below.
+Noppe on suunniteltu verkkokurssien isännöintiin. Tällä hetkellä tuemme Jupyter- ja RStudio-pohjaista sisältöä, ja lisää vaihtoehtoja on tulossa. Suositeltu työnkulku on luoda yksi työtila per kurssi ja järjestää tehtävät yhdessä tai useammassa sovelluksessa siinä työtilassa.
+Kurssin sijasta voit käyttää Noppea myös yhteistyöhön. Työnkulku on samanlainen kuin kurssiympäristön luomisessa, ja se on kuvattu alla.
 
-### 1. Become a workspace owner and create a workspace
-* Login to Noppe using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
-  If you don't have a CSC account yet, [see the instructions on how to create new user account](../../accounts/how-to-create-new-user-account.md).
-* Open `Manage workspaces` from the left panel and create a new workspace.
-    * Workspace type:
-      * Fixed-time course with limited lifetime: Valid for limited months.
-      * Long-running course with time-limited membership: Can be extended 13 months at a time. Intended for workspaces that offer continuous learning environment.
-* If you don't see `Manage workspaces` option, please
-    * Check that you logged in using your CSC account. Your user account on the bottom of the left navigation
-      should look like 'csc/youraccountname'
-    * Reload your browser
-    * If the issue persists, contact Noppe support at servicedesk@csc.fi
- 
-### 2. Find or create custom images
+### 1. Tule työtilan omistajaksi ja luo työtila {#become-a-workspace-owner-and-create-a-workspace}
 
-* The easiest is to use an existing Docker image, look these repositories for suitable images:
-    * [Docker image sources in noppe-public-images repository.](https://github.com/CSCfi/noppe-public-images)
-    * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
-    * If you would need a few R/Python packages extra compared to existing images, it likely is easiest to add them run-time by the user.
-* To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
+* Kirjaudu Noppeen CSC-tililläsi valitsemalla 'CSC Login' -vaihtoehto klikkaamalla 'Kirjaudu'. 
+  Jos sinulla ei vielä ole CSC-tiliä, [katso ohjeet uuden käyttäjätilin luomiseksi](../../accounts/how-to-create-new-user-account.md).
+* Avaa `Hallitse työtiloja` vasemman paneelin kautta ja luo uusi työtila.
+    * Työtilan tyyppi:
+      * Määräaikainen kurssi rajatulla eliniällä: Voimassa rajallisen ajan.
+      * Pitkäkestoinen kurssi ajallisesti rajatulla jäsenyydellä: Voidaan jatkaa 13 kuukautta kerrallaan. Tarkoitettu työtiloille, jotka tarjoavat jatkuvaa oppimisympäristöä.
+* Jos et näe `Hallitse työtiloja` -vaihtoehtoa, varmista,
+    * että olet kirjautunut CSC-tililläsi. Käyttäjätilisi vasemman navigaation alareunassa tulisi näyttää 'csc/käyttäjätilinimi'.
+    * Lataa selaimesi uudelleen
+    * Jos ongelma jatkuu, ota yhteyttä Noppe-tukeen servicedesk@csc.fi
 
-### 3. Create an application in the workspace
+### 2. Etsi tai luo mukautetut kuvat {#find-or-create-custom-images}
 
-Open `Manage workspaces` in the left navigation and select the workspace you want to work on. Create a new application 
-through `Application wizard` or `Application form`-buttons.
+* Helpoin tapa on käyttää olemassa olevaa Docker-kuvaa, tarkista nämä tietovarastot sopivien kuvien löytämiseksi:
+    * [Docker-kuvan lähteet noppe-public-images-tietovarastossa.](https://github.com/CSCfi/noppe-public-images)
+    * [Rocker-kuvat](https://hub.docker.com/u/rocker) erilaisille RStudio-asetuksille.
+    * Jos tarvitset muutamia lisä R/Python-paketteja olemassa oleviin kuviin verrattuna, on todennäköisesti helpointa lisätä ne ajonaikaisesti käyttäjän toimesta.
+* Oman mukautetun kuvan luomiseksi, katso [Mukautettujen Docker-kuvien luominen](#creating-custom-docker-images) alla.
 
-**Application template** Template provides the base features for your application. Most of the templates are based on
-container images maintained by Noppe team. Take a look at the 
-[image sources in noppe-public-images repository](https://github.com/CSCfi/noppe-public-images). 
-If you intend to use your own custom image, you can choose any template that matches your application type (Jupyter/RStudio).
+### 3. Luo sovellus työtilassa {#create-an-application-in-the-workspace}
 
-**Application name** Give a valid meaningful name. This is the name under which participants will see the application.
+Avaa `Hallitse työtiloja` vasemmassa navigaatiossa ja valitse työtila, johon haluat työskennellä. Luo uusi sovellus `Sovelluksien ohjattu toiminto`- tai `Sovelluslomake`-painikkeiden kautta.
 
-**Application description** Fill a detailed description to helps users to understand more about the application.
+**Sovelluspohja** Pohja tarjoaa sovelluksesi perusominaisuudet. Useimmat pohjat perustuvat Noppe-tiimin ylläpitämiin konttikuviin. Tarkista 
+[kuvien lähteet noppe-public-images-tietovarastossa](https://github.com/CSCfi/noppe-public-images). 
+Jos aiot käyttää omaa mukautettua kuvaa, voit valita minkä tahansa pohjan, joka vastaa sovellustyyppiäsi (Jupyter/RStudio).
 
-**Container image** 
-* If using existing image, then pre-filled based on chosen Application template.
-* If using own custom image, then URL of the Docker image. 
+**Sovelluksen nimi** Anna kelvollinen merkityksellinen nimi. Tämä on nimi, jonka alla osallistujat näkevät sovelluksen.
 
-**Session lifetime** The maximum lifetime for a single session. Sessions are deleted when they expire, thus making room 
-for other users.
+**Sovelluksen kuvaus** Täytä yksityiskohtainen kuvaus, jotta käyttäjät ymmärtäisivät sovelluksesta enemmän.
 
-**Session memory** RAM memory reserved for each session. Workspaces have a limit for total memory for concurrent
-sessions. Choosing a higher value here will affect the maximum number of concurrent sessions.
+**Kontin kuva** 
+* Jos käytät olemassa olevaa kuvaa, se täytetään valitun sovelluspohjan perusteella.
+* Jos käytät omaa mukautettua kuvaa, sitten Docker-kuvan URL.
 
-**Labels** Select the default labels or create custom labels. Labels are useful in searching applications. The icon for
-the application is also selected based on assigned labels.
+**Istunnon elinikä** Yksittäisen istunnon maksimielinikä. Istunnot poistetaan niiden umpeuduttua, mikä tekee tilaa muille käyttäjille.
 
-**Download Method** The location to download the course contents from. Choose `git clone` if you wish to clone a git
-repository. Choose `Download from url` if you have contents hosted in Allas or other HTTP accessible location and provide the url. Content is downloaded to $HOME folder of any instance by default.
+**Istunnon muisti** RAM-muisti, joka on varattu kullekin istunnolle. Työtiloissa on raja kokonaismuistille samanaikaisesti
+käynnissä oleville istunnoille. Suurempi arvo täällä vaikuttaa samanaikaisten istuntojen maksimimäärään.
 
-!!!Note
+**Tunnisteet** Valitse oletustunnisteet tai luo mukautettuja tunnisteita. Tunnisteet ovat hyödyllisiä sovellusten haussa. Sovelluksen kuvake valitaan myös annettujen tunnisteiden perusteella.
 
-    The external location needs to be publicly accessible. For example git repositories should be public.
+**Latausmenetelmä** Kurssin sisällön latauspaikka. Valitse `git clone`, jos haluat kloonata git-tietovaraston. Valitse `Lataa URL:stä`, jos sinulla on sisältöä Allassa tai muussa HTTP-yhteensopivassa sijainnissa ja anna URL. Sisältö ladataan oletusarvoisesti mihin tahansa esiintymään $HOME-kansioon.
 
-As an alternative, the course material can be provided through `shared` folder. The workspace owner can prepare the
-shared folder in advance. The folder is visible for everyone, but is read-only for course participants.
-[See data persistence document for more information](data_persistence.md).
+!!!Huomio
 
-**Work folder per user** Whether persistent user-based `my-work` folder is available for users in this application. 
-This is enabled by default.
+    Ulkoinen sijainti on oltava julkisesti saatavilla. Esimerkiksi git-tietovarastojen tulisi olla julkisia.
 
-**Publication** Choose `save as draft` if you still need to test/change things in your application. Only after publication, which can be done here by choosing `publish immediately` or from the application menu (Manage workspaces > your workspace > your Application > 3 bars on right end of application > `publish`) later. Publication means that people with the join code can find the application. Your application will never appear for everyone. Only Noppe team can add self-learning and public-for-all applications.
+Vaihtoehtoisesti kurssimateriaali voidaan tarjota `yhteinen` kansion kautta. Työtilan omistaja voi valmistella
+yhteisen kansion etukäteen. Kansio on näkyvissä kaikille, mutta on vain luku -oikeudellinen kurssin osallistujille.
+[Katso tietojen pysyvyyden dokumentti lisätietoja varten](data_persistence.md).
 
-### 4. Invite users
+**Työkansio per käyttäjä** Onko pysyvä käyttäjäkohtainen `my-work`-kansio käytettävissä käyttäjille tässä sovelluksessa. 
+Tämä on oletuksena käytössä.
 
-Once the content is ready, you can invite course participants / collaborators by sharing a workspace specific join code. The code can be found in
-`Manage workspaces` view, in workspace list or on the Info tab of each workspace.
+**Julkaisu** Valitse `tallenna luonnoksena`, jos tarvitset vielä testata/muuttaa jotain sovelluksessasi. Vasta julkaisun jälkeen, joka voidaan tehdä tässä valitsemalla `julkaise välittömästi` tai sovellusvalikosta (Hallitse työtiloja > oma työtilasi > oma Sovelluksesi > 3 palkkia sovelluksen oikeassa päädyssä > `julkaise`) myöhemmin. Julkaiseminen tarkoittaa, että ihmiset, joilla on liitoskoodi, voivat löytää sovelluksen. Sovelluksesi ei koskaan tule näkyviin kaikille. Vain Noppe-tiimi voi lisätä itseoppimis- ja julkisille kaikille avoimia sovelluksia.
 
-### 5. Promote users
+### 4. Kutsu käyttäjiä {#invite-users}
 
-Once the co-instructors/co-organizers/collaborators have signed in, you can find their name in the `members` tab (under `manage workspaces`), to give them rights to change things and see other participants sessions, `promote to co-owner` from the Menu column next to the members name.
-Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. For collaboration purposes, all collaborators should have co-owner rights, to be able to write to the shared folder in the workspace.
+Kun sisältö on valmis, voit kutsua kurssin osallistujat / yhteistyökumppanit jakamalla työtilakohtaista liittymiskoodia. Koodi löytyy `Hallitse työtiloja` näkymästä, työtilaluettelosta tai jokaisen työtilan Tiedot-välilehdeltä.
 
-## Creating custom Docker images
-If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Noppe. Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
+### 5. Korota käyttäjiä {#promote-users}
 
-Requirements: 
+Kun yhteisohjaajat/yhteisjärjestäjät/yhteistyökumppanit ovat kirjautuneet sisään, voit löytää heidän nimensä `jäsenet` välilehdestä (kohdasta `hallitse työtiloja`), antaaksesi heille oikeuden muuttaa asioita ja nähdä muiden osallistujien istuntoja, valitse `korota yhteisomistajaksi` valikosta jäsenen nimen vieressä.
+Yhteisomistajat voivat tehdä kaiken, mitä omistaja voi, paitsi alentaa omistajaa tai poistaa työtilan. Yhteistyötarkoituksissa kaikkien yhteistyökumppaneiden tulisi olla yhteisomistajan oikeuksilla, jotta he voivat kirjoittaa työtilan jaettuun kansioon.
 
-* A computer to create the Docker image, it should have [Docker](https://www.docker.com/) installed. In general Linux/Mac computer is recommended. In Windows likely admin rights are needed and using Docker might be challenging.
-* A place to upload the Docker image, for example DockerHub or Quay.io. 
+## Mukautettujen Docker-kuvien luominen {#creating-custom-docker-images}
 
-Steps to create your own custom Docker image:
+Jos et löydä sopivaa kuvaa aiottuun sovellukseen, sinun täytyy luoda ja julkaista oma mukautettu kuvasi Noppea varten. Kuvan voi luoda omalla tietokoneellasi tai esimerkiksi [cPouta](../pouta/index.md)-instanssilla.
 
-### Create a Dockerfile  
-   
-Dockerfile contains a set of instructions to build a docker image. If unfamiliar with Dockerfile, see for example [Docker 101](https://www.paigeniedringhaus.com/blog/docker-101-fundamentals-the-dockerfile) and [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
-   
-#### Jupyter notebook example
-For JupyterLab with some conda packages use the following as minimal example:
+Vaaditaan: 
 
- ``` 
- # use jupyter minimal notebook as base for your image
- # it has eg conda already installed
+* Tietokone Docker-kuvan luomiseen, siinä tulisi olla [Docker](https://www.docker.com/) asennettuna. Yleisesti Linux/Mac-tietokonetta suositellaan. Windowsissa todennäköisesti tarvitaan ylläpitäjän oikeuksia ja Dockerin käyttö saattaa olla haastavaa.
+* Paikka Docker-kuvan lataamiselle, esimerkiksi DockerHub tai Quay.io.
+
+Vaiheet oman mukautetun Docker-kuvan luomiseen:
+
+### Luo Dockerfile {#create-a-dockerfile}
+
+Dockerfile sisältää joukon ohjeita docker-kuvan rakentamiseksi. Jos Dockerfile ei ole tuttu, katso esimerkiksi [Docker 101](https://www.paigeniedringhaus.com/blog/docker-101-fundamentals-the-dockerfile) ja [Dockerfile-viite](https://docs.docker.com/engine/reference/builder/).
+
+#### Jupyter notebook -esimerkki {#jupyter-notebook-example}
+
+JupyterLab:n kanssa ja joitain conda-paketteja käyttämällä, käytä seuraavaa minimiesimerkkinä:
+
+```
+ # käytä jupyter minimal notebookia kuvan pohjana
+ # siinä on mm. conda jo asennettuna
  FROM jupyter/minimal-notebook
 
- #some first setup steps need to be run as root user
- USER root
+#jotkut alustavat asennusvaiheet täytyy suorittaa root-käyttäjänä
+USER root
 
- # set home environment variable to point to user directory
+ # aseta koti-ympäristömuuttuja osoittamaan käyttäjän hakemistoon
  ENV HOME /home/$NB_USER
 
- # install needed extra tools, eg ssh-client and less
+ # asenna tarvittavat lisätyökalut, esim. ssh-client ja less
  RUN apt-get update \
      && apt-get install -y ssh-client less \
      && apt-get clean
 
- # the user set here will be the user that students will use 
+ # tässä asetettu käyttäjä on se käyttäjä, jota opiskelijat käyttävät 
  USER $NB_USER
 
- ### Installing the needed conda packages and jupyter lab extensions. 
- # Run conda clean afterwards in same layer to keep image size lower
+ ### Asenna tarvittavat conda-paketit ja jupyter lab -laajennukset. 
+ # Suorita conda clean saman kerroksen lopussa pitämään kuvan koko pienempänä
  RUN conda install --yes -c conda-forge <your-packages-here> \
    && conda clean -afy
 
- ```
+```
 
-For other package management systems, adjust the last `RUN` command accordingly. Make sure the package management system is available in `jupyter/minimal-notebook` base image or install it yourself (same way as ssh-client and less are installed in above example).
-    
-#### RStudio example
-    
-To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images. 
+Muiden pakettienhallintajärjestelmien kohdalla säädä viimeistä `RUN`-komentoa vastaavasti. Varmista, että pakettienhallintajärjestelmä on saatavilla `jupyter/minimal-notebook`-pohjakuvasta tai asenna se itse (sama tapa kuin ssh-client ja less on asennettu yllä).
 
-For adding packages or configurations you can use [scripts provided by Rocker on their github page](https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), edit them or write your own from scratch and copy them into the docker file system. These scripts usually contain system dependencies and required packages for your needs.
+#### RStudio-esimerkki {#rstudio-example}
 
-For RStudio with some packages, use the following Dockerfile as minimum example:
+Mukautettujen R-kuvien rakentamiseksi sinun ei tarvitse aloittaa alusta. Monet valmiiksi rakennetut R-kuvat ovat jo saatavilla docker-rekistereissä. Erityisesti [rocker-projekti](https://github.com/rocker-org/rocker-versioned2) sisältää suuren joukon kuvia erilaisilla kokoonpanoilla, jotka on tarjottu [DockerHub](https://hub.docker.com/u/rocker). Voit siis aloittaa yhdellä näistä olemassa olevista kuvista. 
+
+Pakettien tai kokoonpanojen lisäämiseksi voit käyttää [Rockerin github-sivullaan tarjoamia skriptejä](https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), muokata niitä tai kirjoittaa omasi alusta alkaen ja kopioida ne docker-tiedostojärjestelmään. Nämä skriptit sisältävät yleensä järjestelmäriippuvuudet ja tarpeisiisi tarvittavat paketit.
+
+RStudion kanssa ja joitain paketteja, käytä seuraavaa Dockerfile-minimiesimerkkinä:
 
 ```bash
-# Use Rocker RStudio as base for your image
+# Käytä Rocker RStudio:ta kuvan pohjana
 FROM rocker/rstudio
 
-# copy the desired installation script into docker file system, make sure that you have execute rights to the script
+# kopioi haluttu asennusskripti docker-tiedostojärjestelmään, varmista, että sinulla on suoritusoikeudet skriptiin
 COPY install_xx.sh /rocker_scripts/
 
-# install the custom packages and system dependencies by running the script
+# asenna mukautetut paketit ja järjestelmäriippuvuudet suorittamalla skripti
 RUN /rocker_scripts/install_xx.sh
 ```
   
-Below a few useful commands to install R packages from the command line or script, which can be used to write your own install script or edit the scripts provided by rocker:
+Alla muutama hyödyllinen komento R-pakettien asentamiseksi komentoriviltä tai skriptistä, jota voidaan käyttää oman asennuskripin kirjoittamiseen tai rocker:n tarjoamien skriptien muokkaamiseen:
 
 ```bash
-# install a package with install2.r script
+# asenna paketti install2.r-skriptillä
 install2.r --error --deps TRUE packagename  
-# Install R packages from CRAN
+# Asenna R-paketit CRAN:sta
 R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" 
-# Install R packages from Github using package managers like devtools and BiocManager. 
+# Asenna R-paketit Githubista käyttämällä pakettienhallitsijoita kuten devtools ja BiocManager. 
 R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)'
-# Install R packages while specifying a specific version
+# Asenna R-paketit tiettyä versiota asettamalla
 R --no-restore --no-save -e 'packagemanager::install_version("packagename", version="version")'
-# Script execution
+# Skripin suoritus
 R -e "source('/path/of/myscript.R')"  
 ```
 
-### Build the image and test it 
+### Rakenna kuva ja testaa se {#build-the-image-and-test-it}
 
-* Build the image from dockerfile to current directory `.`
+* Rakenna kuva dockerfile:stä nykyiseen hakemistoon `.`
 
 ```
 docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 ```
 
-Note that with Mac, or on any ARM host, you need to tell docker to build x64 images so that they are compatible
-with our cloud hosts. This can be done using "docker buildx".
+Huomaa, että Macillä tai millä tahansa ARM-isännällä sinun täytyy kertoa dockerille rakentaa x64-kuvia, jotta ne ovat yhteensopivia pilvipalveluidemme kanssa. Tämä voidaan tehdä käyttämällä "docker buildx".
 
 ```
 docker buildx build --platform linux/amd64 ....
 ```
 
-Note also that with Mac you might need to disable Rosetta.
+Huomaa myös, että Macillä saatat joutua poistamaan Rosetta käytöstä.
 
-Another alternative is to build the image on an x64 VM, for example on pouta.csc.fi.
+Toinen vaihtoehto on rakentaa kuva x64-virtuaalikoneella, esimerkiksi pouta.csc.fi:ssä.
 
-* Test your image. 
-    * `-p 8888:8787` means bind Docker port 8787 to host port 8888.
-    * If using cPouta, you need to open the host port also from Security groups. 
-    * Open Jupyter/RStudio with web-browser: `localhost:8888` or `<cPouta-IP>:8888`
+* Testaa kuvaasi. 
+    * `-p 8888:8787` tarkoittaa Dockerin portin 8787 sitomista isännän porttiin 8888.
+    * Jos käytät cPoutaa, sinun täytyy avata isännän portti myös turvaryhmistä.
+    * Avaa Jupyter/RStudio verkkoselaimella: `localhost:8888` tai `<cPouta-IP>:8888`
 
 ```
 docker run -p 8888:8787 <yourimagename>
 ```
 
-### Upload and link the image to your application
+### Lataa ja liitä kuva sovellukseesi {#upload-and-link-the-image-to-your-application}
 
-For the docker image to be used in your application. You need to host it somewhere, e.g. DockerHub or Rahti registry. 
-Once you have it hosted somewhere, provide the link to your image in the application : `Manage Workspaces` > `Applications` > `Edit application` > `Container image`.
+Jotta docker-kuvaa voidaan käyttää sovelluksessasi, sinun täytyy isännöidä se jossain, esim. DockerHubissa tai Rahti-rekisterissä. 
+Kun se on isännöity jossain, anna linkki kuvaasi hallinnoimalla työtiloja sovelluksessa: `Hallitse Työtiloja` > `Sovellukset` > `Muokkaa sovellusta` > `Kontin kuva`.
 
-## Adding Python packages to an existing workspace 
+## Python-pakettien lisääminen olemassa olevaan työtilaan {#adding-python-packages-to-an-existing-workspace}
 
-You can add pip packages to existing Python applications without building a new image by installing them to your 
-`my-work` or `shared` folders. The process is slightly tedious, because by principle Docker images are designed to be 
-immutable, and building a new image with the needed installations is preferred.
+Voit lisätä pip-paketteja olemassa oleviin Python-sovelluksiin rakentamatta uutta kuvaa asentamalla ne `my-work` tai `shared` -kansioihin. Prosessi on hieman hankala, koska periaatteen mukaan Docker-kuvat on suunniteltu muuttumattomiksi, ja uuden kuvan rakentaminen tarvittavilla asennuksilla on suositeltavaa.
 
-The following steps are for `my-work` installation. Note that `my-work` is user specific and not shared with your course 
-participants. If your course participants need to access the installed packages, use the `shared` folder, to which only 
-the workspace owner has write permissions.
+Seuraavat vaiheet ovat `my-work`-asennukseen. Huomaa, että `my-work` on käyttäjäkohtainen eikä jaeta kurssin osallistujien kanssa. Jos kurssin osallistujien täytyy käyttää asennettuja paketteja, käytä `shared`-kansiota, johon vain työtilan omistajalla on kirjoitusoikeudet.
 
-1. Open Terminal in JupyterLab.
-2. Create a new folder for installation files in my-work.
-3. Set `PYTHONUSERBASE` to direct to the new folder.
-4. Add the new packages with pip.
+1. Avaa terminaali JupyterLab:ssa.
+2. Luo uusi kansio asennustiedostoja varten my-work:ssa.
+3. Aseta `PYTHONUSERBASE` osoitettavaksi uuteen kansioon.
+4. Lisää uudet paketit pipillä.
 
 ```
 mkdir -p /home/jovyan/my-work/<your_subdir>
@@ -216,63 +205,58 @@ export PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>
 pip install --user the_new_package_name
 ```
 
-Finally, exit and delete the existing session and open application settings under "Edit application".
-Add `PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>` to Environment variables. Use the name of the folder you
-created earlier. After this, new application sessions will have the installed packages available.
+Lopuksi, poistu ja poista nykyinen istunto ja avaa sovelluksen asetukset kohdasta "Muokkaa sovellusta".
+Lisää `PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>` Ympäristömuuttujiin. Käytä aiemmin luomasi kansion nimeä. Tämän jälkeen uudet sovellusistunnot saavat käyttöönsä asennetut paketit.
 
-## Adding R packages to an existing RStudio application
+## R-pakettien lisääminen olemassa olevaan RStudio-sovellukseen {#adding-r-packages-to-an-existing-rstudio-application}
 
-You can add R packages to existing RStudio applications without building a new image by installing them to your 
-`my-work` or `shared` folders. The process is slightly tedious, because by principle Docker images are designed to be 
-immutable, and building a new image with the needed installations is preferred.
+Voit lisätä R-paketteja olemassa oleviin RStudio-sovelluksiin rakentamatta uutta kuvaa asentamalla ne `my-work` tai `shared` -kansioihin. Prosessi on hieman hankala, koska periaatteen mukaan Docker-kuvat on suunniteltu muuttumattomiksi, ja uuden kuvan rakentaminen tarvittavilla asennuksilla on suositeltavaa.
 
-The process is as follows (detailed instructions below):
+Prosessi on seuraava (yksityiskohtaiset ohjeet alla):
 
-1. Open terminal in RStudio
-2. Create a new folder for installation files in `my-work` or `shared`
-3. Set the environment variable `R_LIBS_USER` to point to your newly created folder in application settings
-4. Install the package to the newly created folder in `my-work` or `shared`
+1. Avaa terminaali RStudiossa
+2. Luo uusi kansio asennustiedostoja varten `my-work` tai `shared`
+3. Aseta ympäristömuuttuja `R_LIBS_USER` osoittamaan uuteen luomaasi kansioon sovelluksen asetuksissa
+4. Asenna paketti uuteen `my-work` tai `shared` kansioon
 
-### Installation process in detail
+### Asennusprosessi yksityiskohtaisesti {#installation-process-in-detail}
 
-The following steps are for `my-work` installation. Note that `my-work` is user specific and not shared with your course 
-participants. If your course participants need to access the installed packages, use the `shared` folder, to which only 
-the workspace owner has write permissions.
+Seuraavat vaiheet ovat `my-work`-asennukseen. Huomaa, että `my-work` on käyttäjäkohtainen eikä jaeta kurssin osallistujien kanssa. Jos kurssin osallistujien täytyy käyttää asennettuja paketteja, käytä `shared`-kansiota, johon vain 
+työtilan omistajalla on kirjoitusoikeudet.
 
-Start a session for your RStudio application, open the terminal and create a new folder for the installations (here 
-named `R-packages`, but you can use a different name):
+Käynnistä istunto RStudio-sovelluksessa, avaa terminaali ja luo uusi kansio asennuksia varten (tässä 
+nimeltään `R-paketteja`, mutta voit käyttää eri nimeä):
 ```
-mkdir /home/rstudio/my-work/R-packages
+mkdir /home/rstudio/my-work/R-paketteja
 ```
 
-Next, exit and delete the session. Open `Edit application` and set the following to "Environment variables":
+Seuraavaksi, poistu ja poista istunto. Avaa `Muokkaa sovellusta` ja aseta seuraava "Ympäristömuuttujiin":
 
 ```
-R_LIBS_USER=/home/rstudio/my-work/R-packages
+R_LIBS_USER=/home/rstudio/my-work/R-paketteja
 ```
 
-If you used a different name for your folder, remember to change it.
+Jos käytit eri nimeä kansiollesi, muista vaihtaa se.
 
-Open a new session for the application. The path set in the environment variable should be visible in `.libPaths()`:
+Avaa uusi istunto sovellukselle. Ympäristömuuttujassa asetetun polun pitäisi näkyä `.libPaths()`:
 
 ```
 > .libPaths()
-[1] "/usr/local/lib/R/site-library" "/usr/local/lib/R/library" "/home/rstudio/my-work/R-packages"
+[1] "/usr/local/lib/R/site-library" "/usr/local/lib/R/library" "/home/rstudio/my-work/R-paketteja"
 ```
 
-Now you can install packages to the new folder, e.g.:
+Nyt voit asentaa paketteja uuteen kansioon, esim.:
 
 ```
-install.packages("jsonlite", lib="/home/rstudio/my-work/R-packages")
+install.packages("jsonlite", lib="/home/rstudio/my-work/R-paketteja")
 library(jsonlite)
 ```
 
-The installed packages are available in all new sessions.
+Asennetut paketit ovat saatavilla kaikissa uusissa istunnoissa.
 
+## Turvaohjeet työn omistajille {#security-guidelines-for-workspace-owners}
 
-## Security guidelines for Workspace owners
-
-- Noppe is not audited for sensitive data.
-- Share join code only with users you wish to join your workspace.
-- If you are creating custom images for your course, do not store any keys or sensitive data in the image.
-- Delete the workspace as soon as the course is over.
+- Noppea ei ole auditoitu arkaluontoisille tiedoille.
+- Jaa liitoskoodi vain niiden käyttäjien kanssa, jotka haluat liittyvän työtilaasi.
+- Jos luot mukautettuja kuvia kurssiasi varten, älä tallenna kuviin mitään avaimia tai arkaluonteisia tietoja.
+- Poista työtila heti, kun kurssi päättyy.

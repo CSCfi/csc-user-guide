@@ -1,21 +1,18 @@
 # SD Connect
 
-## What are the technical specifications of the service?
+## Mitkä ovat palvelun tekniset ominaisuudet? {#what-are-the-technical-specifications-of-the-service}
 
-* Storage space: default 10 TiB. Additional quota, up to 200 TB, can be required at: servicedesk@csc.fi.
+* Tallennustila: oletus 10 TiB. Lisäkiintiö, enintään 200 TB, voidaan pyytää: servicedesk@csc.fi.
 
-* Sensitive data uploaded to SD Connect mare automatically encrypted according to [CSC General Terms of Use](https://research.csc.fi/general-terms-of-use). 
+* SD Connectiin ladatut arkaluonteiset tiedot salataan automaattisesti [CSC:n yleisten käyttöehtojen](https://research.csc.fi/general-terms-of-use) mukaisesti.
 
-* Encrypted data stored in SD Connect can be accessed and analyzed using SD Desktop.
+* SD Connectiin tallennettuun salattuun dataan voi päästä käsiksi ja sitä voi analysoida SD Desktopin avulla.
 
+## Kuinka kauan voin säilyttää tietoja SD Connectissa? {#how-long-can-i-store-data-in-sd-connect}
+Voit säilyttää tietoja SD Connect/Allas-palvelussa tutkimuksesi aktiivisissa vaiheissa (datan analysointi ja datan keräys) ja CSC-projektisi keston ajan. Tyypillinen tutkimusprojekti, joka käyttää CSC:n palveluja, kestää useita viikkoja tai 1–2 vuotta. Projektille myönnettävä resurssivaraukset ovat maksimissaan yhdeksi vuodeksi kerrallaan.
 
-## How long can I store data in SD Connect? 
-You can store data in SD Connect/Allas during the active phases of your research (data analysis and data collection) and for the duration of your CSC project. 
-A typical research project using CSC services has a lifespan of several weeks to 1–2 years. A resource allocation for a project is for a maximum of one year at a time.
+## Mikä on ero SD Connectin ja Allaksen välillä? {#what-is-the-difference-between-sd-connect-and-allas}
+SD Connect on erityinen käyttöliittymä, joka helpottaa Allaksen käyttöä arkaluonteisen datan hallinnassa. Toisaalta Allas on yleinen pilvitallennusratkaisu ei-arkaluonteiselle ja salatulle arkaluonteiselle datalle. Se on saavutettavissa eri asiakasohjelmien tai käyttöliittymien kautta. SD Connect tarjoaa automatisoidun salauksen, salauksen purkamisen ja avainten hallinnan käyttöliittymän kautta (enintään 100 GB) tai komentorivin kautta (SD-lock, SD-unlock työkalut). SD Connect helpottaa myös yhteistyöprojekteja datan jakamisen kautta: siirto, kokoaminen, analysointi vain turvallisessa ympäristössä (SD Desktopin kautta).
 
-## What is the difference between SD Connect and Allas?
-SD Connect is a specific user interface that facilitates the use of Allas during sensitive data management. In contrast, Allas is a general cloud storage solution for non-sensitive and encrypted sensitive data. It is accessible through various clients or user interfaces. 
-SD Connect provides automated encryption, decryption and key management, via user interface (up to 100 GB) or command line (SD-lock, SD-unlock tools). SD Connect facilitaes also collabortive projects via data sharing for: tansfer, collection, analysis via secure environment only (via Sd Desktop). 
-
-## Can I use SD Connect from command line?
-Yes, you can use the SD-lock, SD-unlock tools to upload, download, delte files, with automated encryption, decryptiona and key management. 
+## Voinko käyttää SD Connectia komentoriviltä? {#can-i-use-sd-connect-from-command-line}
+Kyllä, voit käyttää SD-lock ja SD-unlock työkaluja tiedostojen lataamiseen, lataamiseen ja poistamiseen, automatisoidulla salauksella, salauksen purkamisella ja avainten hallinnalla.

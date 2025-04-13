@@ -1,66 +1,57 @@
-# Pouta storage
 
-There is at least one type of storage available on every virtual machine, which
-is the file system defined by the virtual machine image. This is the primary
-disk of the virtual machine, also called root disk. Nevertheless, the space
-available is typically limited and the lifetime of the data in it is limited by
-the virtual machine, i.e., the data is erased once the virtual machine is
-deleted. This article introduces the storage options available in CSC's cloud
-environment. Using the storage requires an account, a project, and a virtual
-machine.
+# Pouta-tallennus
 
-## Ephemeral storage
+Jokaisessa virtuaalikoneessa on saatavilla vähintään yksi tallennustyyppi, joka
+on virtuaalikonekuvan määrittämä tiedostojärjestelmä. Tämä on virtuaalikoneen
+ensisijainen levy, jota kutsutaan myös juurilevyksi. Kuitenkin käytettävissä oleva tila on
+tyypillisesti rajallinen ja siellä olevan datan elinikä on rajallista virtuaalikoneen mukaan, 
+eli data pyyhitään, kun virtuaalikone poistetaan. Tässä artikkelissa esitellään 
+CSC:n pilviympäristön tallennusvaihtoehdot. Tallennuksen käyttö edellyttää tiliä, projektia 
+ja virtuaalikonetta.
 
-Depending on the chosen flavor, a virtual machine may have a certain amount of
-additional local disk space, called **ephemeral storage** in the OpenStack
-terminology. This storage is visible on the virtual machine as a second hard
-disk.
+## Lyhytikäinen tallennus {#ephemeral-storage}
 
-The main advantage of the ephemeral storage is performance, as the data is
-stored in the hard disk of the server where the virtual machine is running.
-Nevertheless, the ephemeral storage is available only when the virtual machine
-is running. In addition, similarly to the data in the primary disk, the data in
-the ephemeral storage is lost too when you delete the virtual machine. Given
-that the data in the ephemeral storage is not replicated, you should not store
-any persistent data there, and the ephemeral storage should not be considered
-reliable.
+Riippuen valitusta tyypistä, virtuaalikoneessa voi olla tietty määrä
+lisättyä paikallista levytilaa, jota kutsutaan **lyhytikäiseksi tallennukseksi**
+OpenStack-terminologiassa. Tämä tallennus näkyy virtuaalikoneessa toisena kiintolevynä.
 
-You can find additional information on the
-[ephemeral storage page](ephemeral-storage.md).
+Lyhytikäisen tallennuksen pääetu on suorituskyky, koska data tallennetaan palvelimen
+kiintolevylle, jossa virtuaalikone toimii. Kuitenkin lyhytikäinen tallennus on
+saatavilla vain kun virtuaalikone on käynnissä. Lisäksi, samalla tavoin kuin
+ensisijaisen levyn data, myös lyhytikäisen tallennuksen data katoaa, kun poistat
+virtuaalikoneen. Koska lyhytikäisen tallennuksen dataa ei replikoida, ei sinne tulisi
+tallentaa pysyvää dataa, eikä lyhytikäistä tallennusta tulisi pitää luotettavana.
 
-## Persistent volumes
+Lisätietoa löytyy [lyhytikäisen tallennuksen sivulta](ephemeral-storage.md).
 
-If you are looking for a storage space which can be accessed like an additional
-hard disk, and which is not tied to a single virtual machine, you are looking
-for **persistent volumes**. You can attach a persistent volume to a virtual
-machine, and use it as you would use the ephemeral storage. Nevertheless, you
-can also detach it from the virtual machine and attach it to another virtual
-machine. In other words, you are free of deleting and recreating your virtual
-machines using the persistent volume, as a persistent volume is not tied to the
-lifetime of a single virtual machine. Moreover, persistent volumes represent a
-reliable storage option as the data in them is replicated.
+## Pysyvät volyymit {#persistent-volumes}
 
-You can find additional information on the
-[persistent volumes page](persistent-volumes.md).
+Jos etsit tallennustilaa, jota voidaan käyttää kuten lisäkiintolevyä ja joka ei ole
+sidottu yhteen virtuaalikoneeseen, etsit **pysyviä volyymeja**. Voit liittää pysyvän
+volyymin virtuaalikoneeseen ja käyttää sitä kuten käyttäisit lyhytikäistä tallennusta.
+Kuitenkin voit myös irrottaa sen virtuaalikoneesta ja liittää sen toiseen virtuaalikoneeseen.
+Toisin sanoen, voit vapaasti poistaa ja luoda uudelleen virtuaalikoneitasi käyttämällä 
+pysyviä volyymejä, sillä pysyvä volyymi ei ole sidottu yhden virtuaalikoneen elinikään. 
+Lisäksi, pysyvät volyymit ovat luotettava tallennusvaihtoehto, sillä niiden data on replikoitu.
 
-## Object storage
+Lisätietoa löytyy [pysyvien volyymien sivulta](persistent-volumes.md).
 
-In case you need a storage space where your data can be easily accessed over
-the Internet, e.g., using URLs, **object storage** is the storage solution you
-are looking for. By using object storage, you are free to create and delete
-your virtual machines as the object storage is not tied to any virtual machine.
-Moreover, your data is replicated, thus object storage represent a reliable
-storage option.
+## Objektitallennus {#object-storage}
 
-At CSC, we offer Allas as our object storage solution.
-You can find additional information on the
-[Allas page](../../data/Allas/index.md).
+Mikäli tarvitset tallennustilaa, jossa dataasi on helposti käytettävissä Internetin kautta,
+esim. URL-osoitteiden avulla, **objektitallennus** on etsimäsi tallennusratkaisu. 
+Käyttämällä objektitallennusta, voit vapaasti luoda ja poistaa virtuaalikoneita, 
+koska objektitallennus ei ole sidottu mihinkään virtuaalikoneeseen. Lisäksi datasi on replikoitu,
+joten objektitallennus on luotettava tallennusvaihtoehto.
 
-## Snapshots
+CSC:ssä tarjoamme Allasta objektitallennusratkaisuna.
+Lisätietoa löytyy [Allas-sivulta](../../data/Allas/index.md).
 
-Sometimes you just want to have a backup copy of the data in a virtual machine
-or in a persistent volume. Alternatively, you might be interested to save the
-current state of a virtual machine, so that you can start other virtual
-machines cloning the same state. In these cases, you can use **snapshots**.
+## Tilannevedokset {#snapshots}
 
-You can find additional information on the [snapshots page](snapshots.md).
+Joskus haluat vain tehdä varmuuskopion virtuaalikoneen tai pysyvän volyymin datasta. 
+Vaihtoehtoisesti saatat haluta tallentaa nykyisen virtuaalikoneen tilan, jotta voit 
+aloittaa muita virtuaalikoneita kloonaamalla sama tila. Näissä tapauksissa voit käyttää 
+**tilannevedoksia**.
+
+Lisätietoa löytyy [tilannevedosten sivulta](snapshots.md).

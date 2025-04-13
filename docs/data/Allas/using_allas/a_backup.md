@@ -1,47 +1,47 @@
-# allas-backup: nearly a self-service backup
 
-CSC does not provide a backup service as a free service for its customers. In this chapter, we describe a tool called _allas-backup_ that can be used to make backup copies of files and directories, locating at CSC supercomputers or at users own computer, to Allas. 
+# allas-backup: melkein itsepalveluvarmuuskopio {#allas-backup-nearly-a-self-service-backup}
 
-However, this tool does not provide an actual backup service – the data is stored in only one location and one bucket in Allas. This bucket can be removed by an authenticated user with a single command, irreversibly erasing all backups.
+CSC ei tarjoa varmuuskopiointipalvelua asiakkailleen ilmaisena palveluna. Tässä luvussa kuvaamme työkalun nimeltä _allas-backup_, jota voidaan käyttää varmuuskopiotiedostojen ja hakemistojen luomiseen, jotka sijaitsevat CSC:n supertietokoneilla tai käyttäjän omalla tietokoneella, Allasiin.
 
-The _allas-backup_ tool provides an easy-to-use command line interface for the [restic](https://restic.readthedocs.io/) backup tool. _allas-backup_ automatically creates a project-specific backup repository in the Allas storage service at CSC and uses it for cumulative backups.
+Tämä työkalu ei kuitenkaan tarjoa varsinaista varmuuskopiointipalvelua – data tallennetaan vain yhteen paikkaan ja yhteen buckettiin Allasissa. Tämän bucketin voi poistaa todennettu käyttäjä yhdellä komennolla, mikä poistaa kaikki varmuuskopiot peruuttamattomasti.
 
-Unlike data upload tools such as `a-put`, `s3cmd put` or `rclone copy`, allas-backup (or actually, the _restic_ program) stores the imported data as a collection hash. This feature enables effective storage of datasets that include small changes. Thus different versions of a dataset can be stored so that in the case of a new dataset version, only the changes copared to the previous version needs to be stored.
+_allas-backup_-työkalu tarjoaa helppokäyttöisen komentoriviliittymän [restic](https://restic.readthedocs.io/)-varmuuskopiointityökalulle. _allas-backup_ luo automaattisesti projektilähtöisen varmuuskopiorepositorion CSC:n Allas-tallennuspalveluun ja käyttää sitä kumulatiivisiin varmuuskopioihin.
 
-In order to use this tool, first open a connection to Allas:
+Toisin kuin datan lataustyökalut, kuten `a-put`, `s3cmd put` tai `rclone copy`, allas-backup (tai oikeastaan _restic_-ohjelma) tallentaa tuodun datan kokoelmatiivisteenä. Tämä ominaisuus mahdollistaa tehokkaan tallennuksen dataseteille, joihin sisältyy pieniä muutoksia. Näin datasetin eri versiot voidaan tallentaa niin, että uuden datasetin version tapauksessa vain edelliseen versioon verrattuna muuttuneet osat tarvitsevat tallentamista.
+
+Käyttääksesi tätä työkalua, avaa ensin yhteys Allasiin:
 ```text
 module load allas
 allas-conf
 ```
-A connection remains open for eight hours.
+Yhteys pysyy auki kahdeksan tuntia.
 
-**BACKUP OPERATIONS**
+**VARMUUSKOPIOINNIN TOIMINNOT** {#backup-operations}
 
-Operations `allas-backup` can be used for:
+Toiminnot, joihin `allas-backup`-työkalua voidaan käyttää:
 
- - `allas-backup <file_or_directory>`  or `allas-backup add <file_or_directory>`   
- 	Adds a new backup version (snapshot) of a file or directory in the backup repository.
+- `allas-backup <tiedosto_tai_hakemisto>` tai `allas-backup add <tiedosto_tai_hakemisto>`
+  Lisää uuden varmuuskopioversion (snapshot) tiedostosta tai hakemistosta varmuuskopiorepositioon.
 
- - `allas-backup list`   
- 	Lists the snapshots saved in the repository. The option _-last_ lists only the latest versions of snapshots.
- 
- - `allas-backup files <snapshot_id>`   
- 	Lists the files the snapshot includes.
+- `allas-backup list`
+  Listaa varmuuskopiorepositioon tallennetut snapshotit. Optio _-last_ listaa vain snapshotien viimeisimmät versiot.
 
- - `allas-backup find <query>`          
- 	Finds the snapshots that contain a file or directory matching the query term.
+- `allas-backup files <snapshot_id>`
+  Listaa snapshotin sisältämät tiedostot.
 
- - `allas-backup restore <snapshot_id>`  
- 	Retrieves the data of the snapshot in the local environment. 
-	By default, stored data is restored to the local directory. Other locations can be defined with the _-target_ option.
+- `allas-backup find <kysely>`
+  Etsii snapshotit, jotka sisältävät kyselytermille vastaavan tiedoston tai hakemiston.
 
- - `allas-backup dump <snapshot_id> -f <file>`  
-    Retrieve contents of a file in the snapshot.
+- `allas-backup restore <snapshot_id>`
+  Hakee snapshotin tiedot paikalliseen ympäristöön.
+  Oletuksena tallennetut tiedot palautetaan paikalliseen hakemistoon. Muita sijainteja voidaan määritellä _-target_-optiolla.
 
- - `allas-backup delete <snapshot_id>`  
- 	Deletes a snapshot in the backup repository.
+- `allas-backup dump <snapshot_id> -f <tiedosto>`
+  Palauttaa tiedoston sisällön snapshotista.
 
- -	`allas-backup unlock`                
-    Remove Restic lock files.
+- `allas-backup delete <snapshot_id>`
+  Poistaa snapshotin varmuuskopiorepositoriosta.
 
+- `allas-backup unlock`
+  Poistaa Restic-lukitustiedostot.
 

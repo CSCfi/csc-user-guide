@@ -1,24 +1,24 @@
-# Setting up a LUMI project and accounts for accessing Helmi
 
-This page goes through the steps required for setting up an account on LUMI for accessing the Helmi quantum computer. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../computing/index.md).
+# LUMI-projektin ja käyttäjätilien perustaminen Helmin käyttöä varten
 
-## Access to Helmi through LUMI
+Tällä sivulla käydään läpi vaiheet, jotka tarvitaan LUMI-tilin perustamiseen Helmi-kvanttitietokoneen käyttöä varten. Oletetaan, että sinulla on jonkin verran tietoa supertietokonejärjestelmistä. Jos ei, voit aloittaa tutustumalla [CSC:n supertietokoneiden yleiskatsaukseen](../../../computing/index.md).
 
-You first need to create a Helmi project according to the instructions here: [Helmi Projects on LUMI](helmi-projects.md).
+## Pääsy Helmiin LUMIn kautta {#access-to-helmi-through-lumi}
 
-After creation of a project, the PI can invite additional standard users to the project:
+Ensimmäiseksi sinun täytyy luoda Helmi-projekti tämän ohjeen mukaan: [Helmi-projektit LUMIssa](helmi-projects.md).
 
-* [How to add members to project](../../../accounts/how-to-add-members-to-project.md)
+Projektin luomisen jälkeen vastuullinen tutkija voi kutsua projektiin lisää tavallisia käyttäjiä:
 
-The project PI is responsible for ensuring that the [Helmi Terms of Use](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) are followed.
+* [Kuinka lisätä jäseniä projektiin](../../../accounts/how-to-add-members-to-project.md)
 
-## Connecting to LUMI
+Projektin vastuullinen tutkija on vastuussa siitä, että [Helmin käyttöehdot](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) tulevat noudatetuiksi.
 
-Details for connecting to LUMI can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/).
+## Yhteyden muodostaminen LUMIin {#connecting-to-lumi}
 
-Details for running jobs on Helmi through lumi can found in the [Running on Helmi](running-on-helmi.md) page.
+Tarkemmat tiedot LUMIin yhdistämisestä löytyvät [LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/firststeps/).
 
-## Support channels
+Tietoja Helmillä suoritettavista töistä LUMIn kautta löydät [Ajossa Helmillä](running-on-helmi.md) -sivulta.
 
-The main channel for support for Helmi use through LUMI is the [CSC Service Desk](../../../support/contact.md), reachable at servicedesk@csc.fi. 
+## Tuki ja yhteydenotot {#support-channels}
 
+Pääasiallinen tukikanava Helmin käyttöön LUMIn kautta on [CSC:n palvelupiste](../../../support/contact.md), joka on tavoitettavissa osoitteessa servicedesk@csc.fi.

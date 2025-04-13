@@ -1,41 +1,40 @@
-# Volume snapshot
+# Volyymin tilannevedos {#volume-snapshot}
 
-## Volume snapshot provisioning
+## Volyymin tilannevedoksen käyttöönotto {#volume-snapshot-provisioning}
 
-Rahti offers two methods for provisioning snapshots: through web interface and by using the CLI.
+Rahti tarjoaa kaksi menetelmää tilannevedosten käyttöönottoon: verkkokäyttöliittymän kautta ja käyttämällä CLI:ta.
 
-### Prerequisites
+### Esivaatimukset {#prerequisites}
 
-- An active project in Rahti
-- Ensure no pods are using persistent volume claim (PVC) that you want to take a snapshot of.
+- Aktiivinen projekti Rahtissa
+- Varmista, ettei mikään pod käytä pysyvää volyymivaatimusta (PVC), josta haluat ottaa tilannevedoksen.
 
-### Procedure
+### Menettelytapa {#procedure}
 
-1. Create a deployment
-2. Create a PVC
-3. Mount the PVC to deployment (in Rahti PVC is only created after that is mount to a deployment)
-4. Unmount the PVC from deployment
-5. Create a volume snapshot
-6. Attach the PVC to volume snapshot
+1. Luo käyttöönotto
+2. Luo PVC
+3. Kiinnitä PVC käyttöönottoon (Rahtissa PVC luodaan vasta, kun se kiinnitetään käyttöönottoon)
+4. Irrota PVC käyttöönotosta
+5. Luo volyymin tilannevedos
+6. Liitä PVC volyymin tilannevedokseen
 
-### Through web interface
+### Verkkokäyttöliittymän kautta {#through-web-interface}
 
-After making sure that PVC is not attached to any pod, Navigate to the 'VolumeSnapshot' section and click on 'Create VolumeSnapshot' to create a snapshot of your PVC. 
+Varmistettuasi, että PVC ei ole kiinnitetty mihinkään podiin, siirry 'VolumeSnapshot'-osioon ja napsauta 'Create VolumeSnapshot' luodaksesi tilannevedoksen PVC:stäsi.
 
-![Create Snap Shot](../../img/CreateSnapshot.png)
+![Luo tilannevedos](../../img/CreateSnapshot.png)
 
-To find volume snapshot, select 'Developer' view, click 'Project' in left hand side menu, in 'Invertory' section of 'Overview' tab last option is VolumeSnapshot. 
+Tilannevedoksen löytämiseksi, valitse 'Developer'-näkymä, napsauta 'Project' vasemman puolen valikossa, 'Invertory'-osiossa 'Overview'-välilehden viimeinen vaihtoehto on VolumeSnapshot.
 
-![Volume Snap Shot](../../img/Volumesnapshot.png)
+![Volyymin tilannevedos](../../img/Volumesnapshot.png)
 
-Fill the required details. In PersistentVolumeClaim, select the PVC you want to attach, provide a name to volume snapshot, select the default snapshot class 'standard-csi' and click on 'create'.
+Täytä tarvittavat tiedot. Valitse PersistentVolumeClaim-kohdassa PVC, jonka haluat liittää, anna nimi volyymin tilannevedokselle, valitse oletuksena tilannevedosluokka 'standard-csi' ja napsauta 'luo'.
 
-![Enter the details of Snap Shot](../../img/EnterSnapshotDetails.png)
+![Syötä tilannevedoksen tiedot](../../img/EnterSnapshotDetails.png)
 
+### CLI:n avulla {#using-cli}
 
-### Using CLI
-
-Create `snapshot.yaml` file to attach PVC to volume snapshot
+Luo `snapshot.yaml`-tiedosto liittääksesi PVC volyymin tilannevedokseen
 
 ```
 apiVersion: snapshot.storage.k8s.io/v1
@@ -47,23 +46,24 @@ spec:
     persistentVolumeClaimName: <name_of_PVC>
   volumeSnapshotClassName: standard-csi
 ```
-Run `oc apply -f  snapshot.yaml` to deploy the `snapshot.yaml`.
 
-To list all the volume snapshots, use the command:
+Suorita `oc apply -f snapshot.yaml` käyttöönottaaksesi `snapshot.yaml`.
+
+Listataksesi kaikki volyymin tilannevedokset, käytä komentoa:
 
 `oc get volumesnapshot`
 
-To get the details of the volume snapshot that was created, enter the following command:
+Saadaksesi tietoja luodusta volyymin tilannevedoksesta, suorita seuraava komento:
 
 `oc describe volumesnapshot <your-volume-snapshot>`
 
-Delete the volume snapshot by entering the following command:
+Poista volyymin tilannevedos syöttämällä seuraava komento:
 
 `oc delete volumesnapshot <volumesnapshot_name>`
 
-## Restore a volume snapshot
+## Volyymin tilannevedoksen palautus {#restore-a-volume-snapshot}
 
-CSI Snapshot Controller Operator creates the following snapshot custom resource definitions (CRDs) in the snapshot.storage.k8s.io/v1 API group. The VolumeSnapshot CRD content can be used to restore the existing volume to a previous state. Create a `pvc-restore.yaml` file.
+CSI Snapshot Controller Operator luo seuraavat tilannevedoksen mukautetut resurssimääritelmät (CRD:t) snapshot.storage.k8s.io/v1 API-ryhmässä. VolumeSnapshot CRD -sisältöä voidaan käyttää nykyisen volyymin palauttamiseksi aikaisempaan tilaan. Luo `pvc-restore.yaml`-tiedosto.
 
 ``` 
 apiVersion: v1
@@ -82,20 +82,21 @@ spec:
     requests:
       storage: 1Gi
 ```
-Run `oc apply -f pvc-restore.yaml` to deploy the `pvc-restore.yaml`.
 
-Here, in `spec.dataSource.name`, the name of the snapshot to use as source is provided.
+Suorita `oc apply -f pvc-restore.yaml` käyttöönottaaksesi `pvc-restore.yaml`.
 
-## Use Case
+Tässä, `spec.dataSource.name`-kohdassa, annetaan käytettävän tilannevedoksen nimi.
 
-Here, we are taking snapshot of the content for nginx deployment and bucking up the data by the restore script. Follow the steps:
+## Käyttötapaus {#use-case}
 
-1. Create an nginx deployment `nginx-deployment.yaml`.
-2. Create a PVC name `nginx-pvc.yaml`.
-3. Attach this PVC to the ngninx deployment.
-4. Go to the pod created for this deployment and create a file name test.txt and add static content to the it. This content will be stored on the PVC created earlier.
-5. Save the snapshot definition in a file named `nginx-snapshot.yaml`. This file should reference the PVC used by Nginx (as specified in `nginx-pvc.yaml`).
-6. Delete the PVC.
-7. Create a new PVC from the snapshot by saving the new PVC configuration in `nginx-restore-pvc.yaml`. This file should specify that the data source is the snapshot created in the previous step.
-8. Deploy a new instance of Nginx using the restored PVC with a modified deployment configuration saved in `nginx-restored-deployment.yaml`. This new deployment will use the PVC created from the snapshot, allowing it to serve the previously added static content.
-9. You can see that the data is restored. 
+Tässä otamme tilannevedoksen nginx-käyttöönoton sisällöstä ja varmuuskopioimme tiedot palautusskriptillä. Seuraa ohjeita:
+
+1. Luo nginx-käyttöönotto `nginx-deployment.yaml`.
+2. Luo PVC nimeltään `nginx-pvc.yaml`.
+3. Liitä tämä PVC nginx-käyttöönottoon.
+4. Mene tähän käyttöön luotuun podiin ja luo tiedosto nimeltä test.txt sekä lisää siihen staattista sisältöä. Tämä sisältö tallennetaan aikaisemmin luotuun PVC:hen.
+5. Tallenna tilannevedoksen määritelmä tiedostoon nimeltä `nginx-snapshot.yaml`. Tämä tiedosto viittaa Nginxin käyttämään PVC:hen (kuten määritelty `nginx-pvc.yaml`-tiedostossa).
+6. Poista PVC.
+7. Luo uusi PVC tilannevedoksesta tallentamalla uusi PVC-konfiguraatio `nginx-restore-pvc.yaml`-tiedostoon. Tämä tiedosto määrittää, että tietolähde on edellisessä vaiheessa luotu tilannevedos.
+8. Ota käyttöön uusi Nginxin instance palautetulla PVC:llä muokatun käyttöönottomäärityksen mukaisesti, tallennettuna `nginx-restored-deployment.yaml`-tiedostoon. Tämä uusi käyttöönotto käyttää tilannevedoksesta luotua PVC:tä, jolloin se voi palvella aiemmin lisättyä staattista sisältöä.
+9. Voit nähdä, että tiedot on palautettu.

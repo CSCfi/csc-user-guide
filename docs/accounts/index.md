@@ -1,46 +1,37 @@
-# Accounts
+# Tilit {#accounts}
 
-## Overview
+## Yleiskatsaus {#overview}
 
-The use of the computing and storage services of CSC is based on _user accounts_ and _projects_:
+CSC:n laskenta- ja tallennuspalveluiden käyttö perustuu _käyttäjätileihin_ ja _projekteihin_:
 
-*   **User accounts** are used to authenticate and manage users. Each user should have just one user account at CSC.  User accounts are always personal. It is forbidden to share the credentials of an account with other persons or allow other persons to use the account.
+*   **Käyttäjätilit** ovat käyttäjien tunnistamiseen ja hallintaan. Jokaisella käyttäjällä tulisi olla vain yksi henkilökohtainen käyttäjätili CSC:llä. Käyttäjätilit ovat aina henkilökohtaisia. Tiliä ei saa jakaa muiden kanssa tai antaa muiden henkilöiden käyttää tiliä.
 
-*   **CSC projects** are used to manage access to CSC services and the resources provided by CSC. Access to CSC services like, Puhti, Allas or cPouta 
-is granted to CSC projects. The same applies to the billing units that are consumed when these services are used.
-A CSC project can include one or several CSC user accounts and one user account can be a member in several projects. Each CSC project must have a Project Manager, who creates the project, manages the user accounts and services that belong to the project and is responsible of the resource usage.
-The Project Manager is typically a leader of a research team or other senior researcher. See more detailed [project manager prerequisites](https://research.csc.fi/en/prerequisites-for-a-project-manager){:target="_blank"}.
+*   **CSC-projektit** hallinnoivat pääsyä CSC:n palveluihin ja CSC:n tarjoamiin resursseihin. CSC-palveluihin, kuten Puhti, Allas tai cPouta, myönnetään pääsy CSC-projekteille. Sama koskee laskentayksiköitä, joita käytetään näitä palveluja käytettäessä. CSC-projekti voi sisältää yhden tai useita CSC-käyttäjätilejä ja yksi käyttäjätili voi kuulua useisiin projekteihin. Jokaiseen CSC-projektiin on nimettävä projektipäällikkö, joka luo projektin, hallinnoi siihen kuuluvia käyttäjätilejä ja palveluita sekä vastaa resurssien käytöstä. Projektipäällikkö on tyypillisesti tutkimusryhmän johtaja tai muu vanhempi tutkija. Katso tarkemmat [projektipäällikön vaatimukset](https://research.csc.fi/en/prerequisites-for-a-project-manager){:target="_blank"}.
 
-*   **Billing Units** (BUs) are used to allocate resources to users' projects. You can apply for Billing Units in [MyCSC](https://my.csc.fi) portal and CSC grants BUs to projects. [Usage consumes billing units](billing.md) but **no actual payment** is required.
-However, the amount of billing units must always remain positive.
+*   **Laskentayksiköitä** (BUs) käytetään osoittamaan resursseja käyttäjien projekteihin. Voit hakea laskentayksiköitä [MyCSC](https://my.csc.fi) -portaalista ja CSC myöntää BUs projekteille. [Käyttö kuluttaa laskentayksiköitä](billing.md), mutta **todellista maksua** ei vaadita. Laskentayksiköiden määrän on kuitenkin aina pysyttävä positiivisena.
 
-*   **LUMI projects** used to manage access to LUMI and the resources provided by it. LUMI projects are restricted to LUMI environment only (LUMI-C, LUMI-G etc.). Finnish LUMI projects are fixed in time and resources, and the total resources must be defined already in the project application. Lumi projects are also used for [Helmi quantum computer](../computing/quantum-computing/helmi/helmi-from-lumi.md). For further information please see [these instructions](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}. 
+*   **LUMI-projekteja** käytetään hallinnoimaan pääsyä LUMI:in ja sen tarjoamiin resursseihin. LUMI-projektit rajoittuvat ainoastaan LUMI-ympäristöön (LUMI-C, LUMI-G jne.). Suomalaiset LUMI-projektit ovat ajallisesti ja resurssien suhteen kiinteitä, ja kokonaisresurssien on oltava määritelty jo projektihakemuksessa. LUMI-projekteja käytetään myös [Helmi kvanttitietokoneelle](../computing/quantum-computing/helmi/helmi-from-lumi.md). Lisätietoa löydät [näistä ohjeista](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}.
 
-*   **My.csc.fi portal** MyCSC is the self-service CSC customer portal for research and education customers and end-users. MyCSC is also available for any other CSC customer or end-user, if they have CSC user accounts according to the CSCID policies.
-MyCSC portal offers users the functionality for registering CSC user accounts, creating computing or data projects, adding members to projects, and applying resources for projects. Users can also manage their projects and project lifecycles through MyCSC, and they can see the resources consumption and amount of stored data there.
+*   **My.csc.fi-portaali** MyCSC on itsepalveluportaali tutkimus- ja koulutusasiakkaille sekä loppukäyttäjille. MyCSC on saatavilla myös muille CSC:n asiakkaille tai loppukäyttäjille, jos heillä on CSC-käyttäjätilejä CSCID-politiikkojen mukaisesti. MyCSC-portaali tarjoaa käyttäjille mahdollisuuden rekisteröidä CSC-käyttäjätilejä, luoda laskenta- tai dataprojekteja, lisätä jäsenet projekteihin ja hakea resursseja projekteihin. Käyttäjät voivat myös hallinnoida projektejaan ja niiden elinkaarta MyCSC:ssä ja nähdä resurssien kulutuksen ja käytetyn datan määrän.
 
-*   **FMI user accounts** The Puhti supercomputer has a separate partition for the Finnish Meteorological Institute. FMI users are also allowed to use the general partition of Puhti for normal projects. [See the specific instructions for FMI users](fmi.md).
+*   **FMI-käyttäjätilit** Puhti-supertietokoneessa on erillinen osio Ilmatieteen laitokselle. FMI-käyttäjät voivat käyttää myös Puhti:n yleistä osiota normaaleihin projekteihin. [Katso erityiset ohjeet FMI-käyttäjille](fmi.md).
 
+CSC:n palvelut ovat maksuttomia akateemiselle tutkimukselle, opetukselle tai koulutukselle suomalaisen korkea-asteen koulutuksen
+ja valtion tutkimuslaitosten jäsenille.
 
-CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education
-institutions and state research institutes.
+## Pääsyn saaminen {#getting-access}
 
-## Getting access
+Ohjeet käyttäjätilin ja projektin luomiseen CSC:n palveluihin pääsemiseksi:
 
-Instructions to get user account and a project to access CSC's services:
+1. [Luo käyttäjätili](how-to-create-new-user-account.md)
+1. [Luo](how-to-create-new-project.md) tai
+   [liity projektiin](how-to-add-members-to-project.md)
+1. [Lisää palvelujen käyttöoikeus projektiisi](how-to-add-service-access-for-project.md)
+1. [Hae laskentayksiköitä](how-to-apply-for-billing-units.md) tai
+   [levykiintiön korottamista](how-to-increase-disk-quotas.md), tarpeen mukaan
+1. [Uusi salasanasi](how-to-change-password.md) vuosittain
 
-1. [Create a user account](how-to-create-new-user-account.md)
-1. [Create](how-to-create-new-project.md) or
-   [join a project](how-to-add-members-to-project.md)
-1. [Add service access for your project](how-to-add-service-access-for-project.md)
-1. [Apply for billing units](how-to-apply-for-billing-units.md) or
-   [disk quota](how-to-increase-disk-quotas.md), if needed
-1. [Renew your password](how-to-change-password.md) annually
+Katso erityinen ohjeistus [LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) supertietokoneelle.
 
-Please see a separate set of instructions for [LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) supercomputer.
-
-All these tasks can be performed in the
-[self-service portal MyCSC](https://my.csc.fi).
-
-
-
+Kaikki nämä tehtävät voidaan suorittaa
+[itsepaveluportaalissa MyCSC](https://my.csc.fi).

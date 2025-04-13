@@ -1,59 +1,62 @@
-!!! error "Advanced level"
-    This tutorial requires a good knowledge of Kubernetes environment. It also explains how to use an in-built feature with the command line 
-    to deploy different environments of a project (Test, Staging, Prod, ...)
 
-# Kustomize
+!!! error "Edistynyt taso"
+Tämä opas edellyttää hyvää tuntemusta Kubernetes-ympäristöstä. Se selittää myös, miten käyttää sisäänrakennettua ominaisuutta komentoriviltä projektin eri ympäristöjen (Test, Staging, Prod, ...) käyttöönottoon.
 
-[Kustomize](https://kustomize.io) is similar to [Helm](../../../support/faq/helm.md), both are good for bundling kubernetes elements such as services, deployments, etc...  
-Helm can act as a package manager for kubernetes/oc as well as apt or yum can do for Debian, RedHat.  
-The main difference is Helm uses **Templates** whereas Kustomize uses **Overlays**. Kustomize is also developed by the Kubernetes teams and it is built in recent version of `oc` and `kubectl`. You can build a project using this command:
+# Kustomize {#kustomize}
+
+[Kustomize](https://kustomize.io) on samanlainen kuin [Helm](../../../support/faq/helm.md), ja molemmat ovat hyviä kubernetes-elementtien, kuten palveluiden ja sovellusten, niputtamiseen.  
+Helm voi toimia pakettien hallintaohjelmana kubernetes/oc:lle, kuten apt tai yum tekevät Debianille tai RedHatille.  
+Pääasiallinen ero on, että Helm käyttää **mallipohjia**, kun taas Kustomize käyttää **ylikohteita**. Kustomize on myös Kubernetes-tiimien kehittämä ja se on sisäänrakennettu `oc`:n ja `kubectl`:n nykyaikaisiin versioihin. Voit rakentaa projektin käyttämällä tätä komentoa:
 
 ```sh
 oc kustomize build FOLDER
 ```
 
-However some features are missing with the built-in tool, here is a list of the commands available with `kustomize`:  
+Kuitenkin jotkin ominaisuudet puuttuvat sisäänrakennetusta työkalusta, ja tässä on luettelo `kustomize`:n käytettävissä olevista komennoista:
 
--  **build**                     Build a kustomization target from a directory or URL
--  **cfg**                       Commands for reading and writing configuration
--  **completion**                Generate shell completion script
--  **create**                    Create a new kustomization in the current directory
--  **edit**                      Edits a kustomization file
--  **fn**                        Commands for running functions against configuration
--  **help**                      Help about any command
--  **localize**                  [Alpha] Creates localized copy of target kustomization root at destination
--  **version**                   Prints the kustomize version
+-  **build**                     Rakenna kustomointi kohteesta, joka on hakemistossa tai URL:issa
+-  **cfg**                       Komennot konfiguraation lukemiseen ja kirjoittamiseen
+-  **completion**                Luo shellin täydennyskäsikirjoituksen
+-  **create**                    Luo uusi kustomointi nykyiseen hakemistoon
+-  **edit**                      Muokkaa kustomointitiedostoa
+-  **fn**                        Komennot toimintojen suorittamiseen konfiguraatiota vastaan
+-  **help**                      Apua mille tahansa komennolle
+-  **localize**                  [Alpha] Luo lokalisoidun kopion kohteen kustomoinnin juuresta määränpäähän
+-  **version**                   Tulostaa kustomizen version
 
-You can install the [tool](https://kubectl.docs.kubernetes.io/installation/kustomize/) separately. The command to build with `kustomize` is:
+Voit asentaa [työkalun](https://kubectl.docs.kubernetes.io/installation/kustomize/) erikseen. Komento rakentaa `kustomize`:lla on:
 
 ```sh
 kustomize build FOLDER
 ```
 
-A build won't apply, it will only output to `stdout`.  
-If you want to apply your kustomize build, you can use this command:  
+Rakennus ei vie vaikutusta, se tulostuu vain `stdout`:hen.  
+Jos haluat soveltaa kustomointiisi rakennusta, voit käyttää tätä komentoa:
 
 ```sh
 kustomize build FOLDER | oc apply -f -
 ```
 
-Here is a table that compares both solutions:
+Tässä on taulukko, joka vertailee molempia ratkaisuja:
 
 |   	| Helm | Kustomize |
 |---	|--- | --- |
-|Pros   |- Template functions are powerful <br>- Helm is a package manager, like apt or yum does, but for kubernetes <br>- Large amount of existing charts already out that can boost productivity |- Native in from kubectl v1.14 <br>- Uses of plain YAML <br>- Not a templating system but a yaml patching system |
-|Cons   |- More abstraction layers <br>- Less readable templates <br>- Require an external dependency <br>- Folder structure |- The strength of Helm is to be used as a package manager <br>- Does not follow the [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle |
+|Edut   |- Mallitoiminnot ovat tehokkaita <br>- Helm on pakettien hallintaohjelma, kuten apt tai yum, mutta kubernetesille <br>- Suuri määrä olemassa olevia kaavioita saatavilla, jotka voivat boostata tuottavuutta |- Sisäänrakennettu kubectl v1.14:ssä <br>- Käyttää tavallista YAML:ia <br>- Ei mallintamisjärjestelmä vaan yaml-patch-järjestelmä |
+|Haitat   |- Lisää abstraktiotasoja <br>- Vähemmän luettavat mallit <br>- Vaatii ulkoisen riippuvuuden <br>- Kansiotyyli |- Helmin vahvuus on toimia pakettien hallintaohjelmana <br>- Ei noudata [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) periaatetta |
 
-## When using Kustomize?
-It can be harsh to use Helm in a way that your applications will contains more curly brackets than nouns in your YAML files.  Kustomize allows you to work with a bunch of YAML files. It can be a good alternative by using **overlays** instead of **templates**.
+## Milloin käyttää Kustomizea? {#when-using-kustomize}
 
-## What are overlays?
-Overlays are a kustomization (*kustomization.yaml*) that can depend on another kustomization. They can include new resource manifests, or patches for existing ones.
+Helm on voinut olla monimutkainen käyttää, sillä sovelluksesi sisältävät enemmän kaarisulkeita kuin substantiiveja YAML-tiedostoissasi. Kustomize sallii sinun työskennellä joukon YAML-tiedostojen kanssa. Se voi olla hyvä vaihtoehto käyttämällä **ylikohteita** mallipohjien sijaan.
 
-## Example
-Let's see an example on how kustomize works. We'll take this repo: [https://github.com/CSCfi/kustomize-openshift](https://github.com/CSCfi/kustomize-openshift)
+## Mitä ovat ylikohteet? {#what-are-overlays}
 
-If we look at the directory, this is what we have:
+Ylikohteet ovat kustomointi (kustomization.yaml), joka voi riippua toisesta kustomoinnista. Ne voivat sisältää uusia resurssimanifesteja tai korjauksia olemassa oleville.
+
+## Esimerkki {#example}
+
+Katsotaanpa esimerkkiä siitä, miten kustomize toimii. Otamme tämän repositori: [https://github.com/CSCfi/kustomize-openshift](https://github.com/CSCfi/kustomize-openshift)
+
+Jos katsomme hakemistoa, tämä on mitä meillä on:
 
 ```sh
 ├── base
@@ -75,14 +78,14 @@ If we look at the directory, this is what we have:
 3 directories, 12 files
 ```
 
-We have a **base** and an **overlays** folder. Inside the overlays folder, we can find another folder called **production**.
-To start using kustomize, you need to create a kustomization.yaml file. Use this command to create a kustomization file (optional):  
+Meillä on **base** ja **overlays** kansiot. Overlays-kansiossa voimme löytää toisen kansion nimeltään **production**.
+Aloittaaksesi kustomizen käytön, sinun täytyy luoda kustomization.yaml-tiedosto. Käytä tätä komentoa luodaksesi kustomointitiedoston (vapaaehtoinen):
 
 ```sh
 kustomize create
 ``` 
 
-Here is the content of the kustomization file inside the base folder:
+Tässä on base-kansion kustomointitiedoston sisältö:
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -98,8 +101,8 @@ resources:
 - route.yaml
 ```
 
-You will notice a **resources** key, with different yaml files as values. A resource is a root relative path to a YAML or JSON file describing a k8s API object.  
-And now, let's have a look to the content of the `kustomization.yaml` file inside `overlays/production`:
+Huomaat **resources**-avaimen, jolla on eri yaml-tiedostoja arvona. resurssi on juuresta suhteellinen polku YAML- tai JSON-tiedostoon, joka kuvaa k8s API-objektia.
+Ja nyt, katsotaanpa `kustomization.yaml`-tiedoston sisältöä `overlays/production` sisällä:
 
 ```yaml
 resources:
@@ -115,9 +118,9 @@ configMapGenerator:
   - db.yaml
 ```
 
-Basically, if you run the command `oc kustomize base` or `kustomize build base`, you will have the output of `pvc.yaml, deployment.yaml, service.yaml` and `route.yaml`.  
+Periaatteessa, jos ajat komennon `oc kustomize base` tai `kustomize build base`, saat `pvc.yaml, deployment.yaml, service.yaml` ja `route.yaml` tulosteen.  
 
-Now, if you run the same command as above but with `overlays/production` instead of `base`, you will have the same output but with some new stuff, like a configMap and modifications in `pvc.yaml` and `route.yaml`:
+Nyt, jos suoritat saman komennon kuin yllä mutta `overlays/production` sijaan `base`, saat saman tulosteen mutta joitain uusia juttuja, kuten configMapin ja muutoksia `pvc.yaml` ja `route.yaml`:
 
 ```diff
 +apiVersion: v1
@@ -179,18 +182,20 @@ metadata:
 spec:
 +  host: t-test-kustomize.2.rahtiapp.fi
 ```
-What does this mean?  
-You can see by applying **overlays** you'll patch your files without editing the originals. The only thing to do is to add different values on what you want to be changed and apply the overlays.  
-With **overlays** you can have several files ordered into folders. For example, if you need to modify some values inside a yaml file for a production environment, you can easily do it by using **overlays** without affecting your main files. You can also create another folder `nightly` for beta testing and put there different values.  
 
-To apply an overlay, use this command:
+Mitä tämä tarkoittaa?  
+Näet, että soveltamalla **ylikohteita** voit korjata tiedostosi muokkaamatta alkuperäisiä. Ainoa asia, joka tarvitsee tehdä, on lisätä erilaisia arvoja siihen, mitä haluat muuttaa, ja soveltaa ylikohteita.  
+Ylikohteiden avulla voit pitää useita tiedostoja järjestettynä kansioihin. Esimerkiksi, jos tarvitset muokata joitain arvoja yaml-tiedostossa tuotantoympäristöä varten, voit tehdä sen helposti käyttäen **ylikohteita** vaikuttamatta pääasiallisiin tiedostoihisi. Voit myös luoda toisen kansion `nightly` beeta-testaukseen ja laittaa sinne eri arvot.
+
+Ylikohteen soveltamiseen käytä tätä komentoa:
 
 ```sh
 oc apply -k overlays/production
 ```
 
-It also possible to delete everything created by an overlay using this command:
+On myös mahdollista poistaa kaikki luodut ylikohteet tällä komennolla:
 
 ```sh
 oc delete -k overlays/production
 ```
+

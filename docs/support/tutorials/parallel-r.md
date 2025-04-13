@@ -1,93 +1,93 @@
-# Parallel jobs using R
+# Rinnakkaiset työt käyttäen R:ää {#parallel-jobs-using-r}
 
-The term *parallelisation* is a broad one and there are many ways to parallelise an analysis. For example, one could:
+Termi *rinnakkaistaminen* on laaja ja analyysin rinnakkaistamiseen on monia tapoja. Esimerkiksi voi:
 
-- Leverage many CPU cores to speed up an R function
-- Submit several concurrently running Slurm jobs
-- Split jobs over many compute nodes
+- Hyödyntää monia CPU-ytimiä R-funktion nopeuttamiseksi
+- Lähettää useita samanaikaisesti ajettavia Slurm-töitä
+- Jakaa tehtävät useille laskentasolmunille
 
-This tutorial aims to discuss some of the key concepts and terms behind parallelising an analysis in R, and to offer practical tips for planning parallel R analyses on CSC's Puhti. Links are also provided for further reading.
+Tämä opas pyrkii käsittelemään joitakin keskeisiä käsitteitä ja termejä analyysin rinnakkaistamisesta R:ssä sekä tarjoamaan käytännön vinkkejä suunnitellessa rinnakkaisia R-analyyseja CSC:n Puhtilla. Linkkejä on myös tarjolla jatkolukemista varten.
 
-## Using multiple cores
+## Useamman ytimen käyttö {#using-multiple-cores}
 
-Parallel R analyses can make use of *multiprocessing*, *multithreading* or both. Many R packages mention support for *multicore* parallelism - this is a general term encompassing both multiprocessing and multithreading. The exact way in which multiple cores are used depends on the R package.
+Rinnakkaisissa R-analyyseissä voidaan hyödyntää *moniprosessointia*, *monisäikeistystä* tai molempia. Useat R-paketit mainitsevat tukevansa *moniydin*-rinnakkaisuutta - tämä on yleiskäsite, joka kattaa sekä moniprosessoinnin että monisäikeistämisen. Se, miten tarkalleen useita ytimiä käytetään, riippuu R-paketista.
 
-**Multiprocessing**
+**Moniprosessointi** {#multiprocessing}
 
-Multiprocessing refers to analyses involving several independent R processes. In other words, multiple copies of R are launched that collectively execute the job. In multiprocessing, each R process is allocated to a separate CPU core. This is perhaps the most common way to parallelise an analysis in R.
+Moniprosessointi viittaa analyyseihin, joissa on mukana useita itsenäisiä R-prosesseja. Toisin sanoen, useita R-kopioita käynnistetään suorittamaan tehtävä yhteisesti. Moniprosessoinnissa jokainen R-prosessi on kohdistettu erilliselle CPU-ytimelle. Tämä on ehkä tavallisin tapa rinnakkaistaa analyysiä R:ssä.
 
-Analyses relying on multiprocessing often involve setting up a cluster within the R script. In this context, the term **cluster** denotes a group of R processes: 
+Analyyseissä, jotka luottavat moniprosessointiin, sisältyy usein klusterin pystyttäminen R-skriptiin. Tässä yhteydessä termi **klusteri** tarkoittaa R-prosessien ryhmää: 
 
-- For example, `cl <- getMPIcluster()` in the package `snow`
-    - Other examples of R packages using clusters include `parallel`, `doMPI` and `future`
+- Esimerkiksi, `cl <- getMPIcluster()` paketissa `snow`
+    - Muita esimerkkejä R-paketeista, jotka käyttävät klustereita, ovat `parallel`, `doMPI` ja `future`
 
-When setting up a cluster, one can specify how the indendent R processes should communicate with one another. There are two cluster types:
+Kun klusteria pystytetään, voidaan määrittää, miten itsenäisten R-prosessien tulisi kommunikoida keskenään. Klustereita on kahta tyyppiä:
 
-- In a **fork** cluster, the current R process is copied and allocated to a new core. Analyses using fork clusters are often faster than those using socket clusters, but support for them is limited to POSIX systems (including Linux and Mac). 
-- In a **socket** cluster, an entirely new R process is allocated to each core, with each process starting with an empty environment. While slower than fork clusters, socket clusters are also supported by Windows.
+- **Fork**-klusterissa nykyinen R-prosessi kopioidaan ja kohdistetaan uuteen ytimeen. Fork-klustereita käyttävät analyysit ovat usein nopeampia kuin socket-klustereita käyttäviä, mutta niiden tuki rajoittuu POSIX-järjestelmiin (mukaan lukien Linux ja Mac).
+- **Socket**-klusterissa täysin uusi R-prosessi kohdistetaan jokaiseen ytimeen, ja jokainen prosessi aloitetaan tyhjällä ympäristöllä. Vaikka ne ovat hitaampia kuin fork-klusterit, socket-klusterit ovat myös Windowsin tukemia.
 
-Moreover, R processes are often split into a **master** process and **worker** processes. In the master-worker paradigm, the master process is responsible for assigning and post-processing of the work, while the actual execution is handled by worker processes.
+Lisäksi R-prosessit jaetaan usein **pää**prosessiin ja **työntekijä**prosesseihin. Master-worker-paradigmassa pääprosessi on vastuussa tehtävien jakamisesta ja jälkikäsittelystä, kun taas varsinainen suoritus hoidetaan työntekijäprosessien toimesta.
 
-**Multithreading**
+**Monisäikeistäminen** {#multithreading}
 
-The default behaviour of R is to use a single thread at a time. However, R can be separately configured to use BLAS/LAPACK libraries that can utilise multiple cores via *multithreading*. Multithreading can help speed up certain (e.g. linear algebra) routines. The R installation in `r-env` has been linked with [Intel® OneMKL](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html) to enable support for multithreading.
+Oletusarvoisesti R käyttää vain yhtä säiettä kerrallaan. Kuitenkin R voidaan erikseen konfiguroida käyttämään BLAS/LAPACK-kirjastoja, jotka voivat hyödyntää useita ytimä monisäikeistämisen kautta. Monisäikeistäminen voi auttaa nopeuttamaan tiettyjä (esim. lineaarialgebra) rutiineja. R-asennus `r-env`:ssä on linkitetty [Intel® OneMKL](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html):iin mahdollistamaan tuki monisäikeistämiselle.
 
-While `r-env` is linked with OneMKL, the module is configured to use a single thread unless the user specifies otherwise. In multithreaded analyses, the number of threads is typically matched with the number of cores using the environment variable `OMP_NUM_THREADS`. More information can be found in the [`r-env` documentation](../../apps/r-env.md#improving-performance-using-threading).
+Vaikka `r-env` on linkitetty OneMKL:ään, moduuli on konfiguroitu käyttämään vain yhtä säiettä, ellei käyttäjä toisin määritä. Monisäikeistetyissä analyyseissä säikeiden lukumäärä yleensä vastaa ytimien määrää käyttäen ympäristömuuttujaa `OMP_NUM_THREADS`. Lisätietoa löytyy [`r-env`-dokumentaatiosta](../../apps/r-env.md#improving-performance-using-threading).
 
-Certain R packages (such as [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) and [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf)) offer direct support for multithreading. Jobs using other types of R packages could also benefit from multithreading, depending on the analysis. However, **it is always recommended** to check your job using a single *versus* multiple threads to confirm whether any speed-up is obtained and that the results remain correct when using multithreading.
+Tietyt R-paketit (kuten [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) ja [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf)) tarjoavat suoranaisen tuen monisäikeistämiselle. Muita R-paketteja käyttävät työt voivat myös hyötyä monisäikeistämisestä, analyysistä riippuen. Kuitenkin, **aina suositellaan** tarkistaa työsi käyttäen yksittäistä *verrattuna* useaan säikeeseen varmistaaksesi, onko saavutettavaa nopeutusta saatu ja että tulokset pysyvät oikein monisäikeistämistä käytettäessä.
 
-**Combining multiprocessing and multithreading**
+**Moniprosessoinnin ja monisäikeistämisen yhdistäminen** {#combining-multiprocessing-and-multithreading}
 
-It is also possible to run jobs that combine multiprocessing and multithreading. Here, several cores are allocated to each process. Each process can then run several threads, so that each thread runs on a single core. The number of processes times the number of threads per process should equal the number of cores used by the job. For example, a job using a single node in Puhti (40 cores) could use 10 processes and four threads per process.
+On myös mahdollista ajaa töitä, jotka yhdistävät moniprosessoinnin ja monisäikeistämisen. Tässä useita ytimiä kohdistetaan kullekin prosessille. Jokainen prosessi voi sitten ajaa useita säikeitä siten, että kukin säie käyttää yhtä ydintä. Prosessien lukumäärän kerrottuna säikeiden määrällä kutakin prosessia kohti tulisi vastata ytimien määrää, joita työ käyttää. Esimerkiksi yksi noden ainoa työ Puhtilla (40 ydintä) voisi käyttää 10 prosessia ja neljää säiettä prosessia kohti.
 
-## Submitting concurrent jobs
+## Samanaikaisten töiden lähettäminen {#submitting-concurrent-jobs}
 
-For this purpose, the recommended way is to submit an [array job](../../computing/running/array-jobs.md). Example batch job files can be found in the [`r-env` documentation](../../apps/r-env.md#parallel-batch-jobs) and [on GitHub](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_array). Array jobs are suitable for executing the same code using different parameters, or any other situation where the parallel tasks are independent (i.e. they do not need to communicate with one another).
+Tätä tarkoitusta varten suositeltava tapa on lähettää [array-työ](../../computing/running/array-jobs.md). Esimerkkiajojansioita löytyy [`r-env`-dokumentaatiosta](../../apps/r-env.md#parallel-batch-jobs) ja [GitHubista](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_array). Array-työt soveltuvat saman koodin suorittamiseen eri parametreilla tai mihinkään muuhun tilanteeseen, jossa rinnakkaistehtävät ovat riippumattomia (eli ne eivät tarvitse kommunikoida keskenään).
 
-## Multinode analyses
+## Monisolmuanalyysit {#multinode-analyses}
 
-Regardless of whether you are running a serial, multiprocess or multithreaded R job, it is possible to distribute your analysis over multiple Puhti nodes. To do so, your batch job file and R script will require some modifications, compared to an analysis running on a single node. You will also need to use R packages that are compatible with multinode jobs, such as `snow` or `future`. 
+Riippumatta siitä, ajatko sarjallista, moniprosessoitua tai monisäikeistettyä R-työtä, on mahdollista jakaa analyysisi useille Puhti-solmuille. Tällöin ajoansiotiedostoasi ja R-skriptiäsi on verrattava yksisolmuiseen analyysiin, ja niiden asetuksia on muutettava. Sinä myös tarvitset R-paketteja, jotka ovat yhteensopivia monisolmuisten töiden kanssa, kuten `snow` tai `future`.  
 
-A number of practical examples can be found under the [parallel batch jobs section of the `r-env` documentation](../../apps/r-env.md#parallel-batch-jobs). Multinode R examples using raster data can also be found [on GitHub](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
+Useita käytännön esimerkkejä löytyy [`r-env`-dokumentaation](../../apps/r-env.md#parallel-batch-jobs) rinnakkaisten sarja-ajoesimerkkien osiosta. Monisolmu R-esimerkkejä rasteridatan käytöstä löytyy myös [GitHubista](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
 
-One topic of note is that setting up multiprocess and/or multithread jobs on multiple nodes (so-called hybrid jobs) is a special case of its own. Even if you have successfully set up a parallel R job on a single node, it will be necessary to rethink your setup when scaling up to several nodes. Tips on how to approach this can be found in the [`r-env` documentation](../../apps/r-env.md#openmp-mpi-hybrid-jobs) and as part of [CSC's general documentation on hybrid batch jobs](../../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs).
+Yksi huomionarvoinen aihe on, että moniprosessoitujen ja/tai monisäikeistettyjen töiden pystyttäminen useille solmuille (ns. hybriditööt) on oma erikoistapauksensa. Jopa jos olet onnistuneesti pystyttänyt rinnakkaisen R-työn yhdellä solmulla, on välttämätöntä pohtia kokoonpanoasi uudestaan kun skaalaat usealle solmulle. Vinkkejä lähestymiseen löytyy [`r-env`-dokumentaatiosta](../../apps/r-env.md#openmp-mpi-hybrid-jobs) ja osana [CSC:n yleistä dokumentaatiota hybridisarjatöistä](../../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs).
 
-## Some practical tips
+## Joitakin käytännön vinkkeja {#some-practical-tips}
 
-**1. Think about your parallelisation strategy.** The way in which your analysis can be parallelised will depend on the analysis you intend to run. Some key questions include:
+**1. Mieti rinnakkaistrategiaasi.** Tapa, jolla analyysisi voidaan rinnakkaistaa, riippuu analyysistä, jonka aiot suorittaa. Joitakin keskeisiä kysymyksiä ovat:
 
-- Do the R packages you're using support parallelisation?
-- Are the parallel tasks fully independent (or do they need to communicate with one another)?
-- Is a single node sufficient or are several needed?
+- Tukevatko käyttämäsi R-paketit rinnakkaistamista?
+- Ovatko rinnakkaistehtävät täysin riippumattomia (tai tarvitsevatko ne kommunikoida keskenään)?
+- Riittääkö yksi solmu vai tarvitaanko useita solmuja?
 
-Multinode analyses will give you access to more resources than a single-node analysis, but it is important to weigh this against the costs (overhead and longer queue times) of running a multinode analysis. If you can run it on a single node, this is always best.
+Monisolmuanalyysit antavat mahdollisuuden käyttää enemmän resursseja kuin yksisolmuanalyysit, mutta on tärkeää punnita tämä monisolmuanalyysin ajamisen kustannuksia (ylikustannukset ja pidemmät jonotusajat) vastaan. Jos voit ajaa sen yhdellä solmulla, tämä on aina paras.
 
-**2. Start with a minimal proof of concept.** Begin with a single node to make sure that your parallelisation strategy is working. Use a small set of test data first and compare the execution time of your parallel analysis with that of a serial (non-parallel) analysis, for example using the R package `tictoc`. Once your parallel analysis works on a single node, troubleshooting multinode setups becomes much easier.
+**2. Aloita pienestä esipäätteestä.** Aloita yhdellä solmulla varmistaaksesi, että rinnakkaisstrategiasi toimii. Käytä ensin pientä testidataa ja vertaa rinnakkaisanalyysisi suorituskykyä sarjalliseen (ei-rinnakkaiseen) analyysiin, esimerkiksi käyttämällä R-pakettia `tictoc`. Kun rinnakkaisanalyysi toimii yhdellä solmulla, tulee monisolmujärjestelyjen vianmäärityksestä huomattavasti helpompaa.
 
-**3. Become close friends with batch job files and your R packages.** To help with this, consult existing tutorials and R package documentation. Useful CSC Docs pages include examples of [serial and parallel R batch jobs](../../apps/r-env.md#serial-batch-jobs), our [basic batch job documentation](../../computing/running/creating-job-scripts-puhti.md) and details on [available batch job partitions](../../computing/running/batch-job-partitions.md). The `r-env` user documentation provides many examples of parallel R jobs and how to launch them on Puhti.
+**3. Ystävysty sarjaan lyöjätiedostojen ja R-pakettiesi kanssa.** Avuksi tässä, käytä olemassa olevia oppaita ja R-pakettien dokumentaatiota. Hyödyllisiin CSC Docs -sivuihin kuuluvat esimerkit [sarjallisista ja rinnakkaisista R-sarjatöistä](../../apps/r-env.md#serial-batch-jobs), [perussarjatyöjen dokumentaatio](../../computing/running/creating-job-scripts-puhti.md) ja tiedot [saatavilla olevista sarjatyöosioista](../../computing/running/batch-job-partitions.md). `r-env`-käyttäjädokumentaatio tarjoaa monia esimerkkejä rinnakkaisista R-töistä ja miten käynnistää ne Puhtilla.
 
-**4. Reserving more resources does not necessarily mean faster analyses.** Finding an optimal number of cores and/or threads is usually a case of trial and error. Often there is a threshold after which only marginal benefits are obtained in relation to the resources you reserve. Also, the more resources one reserves, the longer the wait until they become available.
+**4. Enemmän resurssien varaaminen ei välttämättä tarkoita nopeampaa analyysiä.** Lamentit imevät ytimet tai säikeet voi havaitaa case trial and error -tapauksena. Sekataa ärgårta, kauden jälkeen optoria miava etuinda yindexetään johon varaat. Myös tarkempaa responsáveis varattuasti resursseista, mitä kallimet miehen pitävyyden.
 
-**5. Make use of `parallelly::availableCores()`**. There are a couple of ways to detect the number of available cores using R. On Puhti, using `parallel::detectCores()` will always give 40 as the result. That is, the function detects how many cores are present on the node, regardless of how many you have reserved. Much more often, the goal is to detect the number of reserved cores. To do this, one can use the package `parallelly` (or the package `future` that imports `parallelly`):
+**5. Hyödynnä `parallelly::availableCores()`.** On muutamia tapoja havaita käytettävissä olevien ytimien määrä R:ssä. Puhtilla käyttö `parallel::detectCores()` antaa aina tuloksena 40. Toisin sanoen, funktio havaitsee, kuinka monta ydintä solmussa on, huolehtimatta siitä, kuinka monta on varattu. Usein tavoite on havaita varattujen ytimien määrä. Tähän voi käyttää `parallelly`-pakettia (tai `future`-pakettia, joka tuo `parallelly`:n):
 
 ```r
 parallelly::availableCores()
 ```
-**6. Remember that parallelisation support is limited in RStudio**. Forked processes are considered unstable when running R from RStudio. Because of this, certain options for parallelisation (e.g. `plan(multicore)` in the package `future`) are unavailable when using RStudio. If you wish to use multiprocessing while working with RStudio, socket clusters are a more stable option. However, heavier parallel scripts are best submitted as non-interactive batch jobs.
+**6. Muista, että rinnakkaistamistuki on rajoitettua RStudiossa.** Forkkitöitä pidetään epävakaina, jos R:ää ajetaan RStudiosta. Tämän vuoksi tietyt rinnakkaistamisvaihtoehdot (esim. `plan(multicore)` paketissa `future`) eivät ole käytettävissä, kun käytetään RStudioa. Jos haluat käyttää moniprosessointia samalla kun työskentelet RStudion kanssa, ovat socket-klusterit vakaampia vaihtoehtoja. Kuitenkin raskaammat rinnakkaisskriptit on parasta lähettää ei-interaktiivisina eräjaksoina.
 
-## Briefly about standards
+## Lyhyesti standardeista {#briefly-about-standards}
 
-When reading about parallel R and parallel batch jobs, you are likely to come across two terms: OpenMP and Message Passing Interface (MPI). Both are widely used standards for writing software with support for parallelism. As an R user these details might be useful to remember:
+Kun luet rinnakkaisista R:stä ja rinnakkaisista sarjatöistä, saatat kohdata kaksi termiä: OpenMP ja Message Passing Interface (MPI). Molemmat ovat laajalti käytettyjä standardeja rinnakkaisuutta tukevien ohjelmistojen kirjoittamiseen. R-käyttäjänä nämä yksityiskohdat voivat olla hyödyllisiä muistaa:
 
-- Multiprocess and multithread R jobs often rely on OpenMP
-- Multinode R jobs rely on MPI
-- So-called "hybrid jobs" are called that because they use both OpenMP and MPI
+- Moniprosessointi- ja monisäikeistämis-R-työt luottavat usein OpenMP:hen
+- Monisolmuisten R-töiden luottavat MPI:hen
+- Ns. "hybriditöitä" kutsutaan siksi, koska ne käyttävät sekä OpenMP:tä että MPI:tä
 
-## Further resources
+## Mahdollisia lisäresursseja {#further-resources}
 
-If you would like to dive beyond the `r-env` user documentation, the following links contain further information that may be of interest: 
+Jos haluat syventyä `r-env`-käyttäjädokumentaation ulkopuolelle, seuraavat linkit sisältävät lisätietoa, joka saattaa kiinnostaa:
 
-- [Lecture slides on `r-env`](https://csc-training.github.io/puhti-r-workshop/slides/html/05_r-env.html#/r-env-singularity-on-puhti)
-    - In particular, see: [R jobs come in many guises (and from there onward)](https://csc-training.github.io/puhti-r-workshop/slides/html/05_r-env.html#/r-jobs-come-in-many-guises)
-- [Teaching materials for Using CSC HPC Environment Efficiently](https://csc-training.github.io/csc-env-eff/)
-- [CRAN Task View on high-performance computing](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
+- [Luentokalvot `r-env`:stä](https://csc-training.github.io/puhti-r-workshop/slides/html/05_r-env.html#/r-env-singularity-on-puhti)
+    - Erityisesti katso: [R-tehtävät tulevat monissa muodoissa (ja siitä eteenpäin)](https://csc-training.github.io/puhti-r-workshop/slides/html/05_r-env.html#/r-jobs-come-in-many-guises)
+- [Opetusmateriaalit CSC:n HPC-ympäristön tehokkaalle käytölle](https://csc-training.github.io/csc-env-eff/)
+- [CRAN Task View suuresta suorituskyvystä laskennassa](https://cran.r-project.org/web/views/HighPerformanceComputing.html)

@@ -1,68 +1,40 @@
-# Examples for using Allas in CSC supercomputers 
+# Esimerkkejä Allaksen käytöstä CSC:n supertietokoneissa {#examples-for-using-allas-in-csc-supercomputers}
 
-CSC supercomputers, Puhti and Mahti, do not provide permanent storage space for
-research data. Data that needs to be stored for a longer time than just a few
-weeks should be copied to Allas object storage service. Allas provides a
-platform that you can use to store your data as long as your CSC project is
-active. In addition to storage, Allas can be used for transporting data between
-different servers and sharing data with other users.
+CSC:n supertietokoneet, Puhti ja Mahti, eivät tarjoa pysyvää tallennustilaa tutkimusdatalle. Data, joka tarvitsee säilyttämistä pidemmäksi aikaa kuin vain muutamaksi viikoksi, tulisi kopioida Allas-objektitallennuspalveluun. Allas tarjoaa alustan, jota voi käyttää datan säilyttämiseen niin kauan kuin CSC-projekti on aktiivinen. Tallennuksen lisäksi Allasta voidaan käyttää datan siirtoon eri palvelimien välillä ja datan jakamiseen muiden käyttäjien kanssa.
 
-* [Allas user guide](index.md)
+* [Allaksen käyttöohje](index.md)
 
-This tutorial provides four examples for using Allas on Puhti and Mahti. The
-examples are based on interactively executed commands, and thus apply only for
-relatively small datasets (max. some hundreds of GBs).
+Tämä opas tarjoaa neljä esimerkkiä Allaksen käytöstä Puhti- ja Mahti-supertietokoneissa. Esimerkit perustuvat interaktiivisesti suoritettaviin komentoihin ja soveltuvat näin ollen vain suhteellisen pieniin datamääriin (max. muutamia satoja gigatavuja).
 
-1. [The first example](#example-1-using-allas-with-a-commands) uses the
-   *a-commands* (`a-put`, `a-get`) for uploading data from Mahti to Allas, and
-   then downloading the data to Puhti.
-2. [The second example](#example-2-using-allas-with-rclone) transfers the same
-   data using *Rclone*.
-3. [The third example](#example-3-uploading-large-files-to-allas) focuses on
-   uploading large files to Allas.
-4. [The fourth example](#example-4-uploading-complex-directory-structures-to-allas)
-   handles the case in which the dataset to be copied includes a large amount
-   of files.
+1. [Ensimmäisessä esimerkissä](#example-1-using-allas-with-a-commands) käytetään *a-komentoja* (`a-put`, `a-get`) datan lataamiseen Mahtista Allakseen ja sen jälkeen Puhtiin.
+2. [Toisessa esimerkissä](#example-2-using-allas-with-rclone) siirretään sama data *Rclonea* käyttäen.
+3. [Kolmas esimerkki](#example-3-uploading-large-files-to-allas) keskittyy suurten tiedostojen lataamiseen Allakseen.
+4. [Neljässä esimerkissä](#example-4-uploading-complex-directory-structures-to-allas) käsitellään tilannetta, jossa kopioitava data sisältää suuren määrän tiedostoja.
 
-The a-commands are better suited for cases where the data is mainly used within
-the CSC computing environment (Puhti, Mahti). The second option, Rclone, is
-good for cases when the data will be used outside CSC too.
+A-komennot soveltuvat paremmin tapauksissa, joissa dataa käytetään pääasiassa CSC:n laskentaympäristössä (Puhti, Mahti). Toinen vaihtoehto, Rclone, on hyvä valinta silloin, kun dataa käytetään myös CSC:n ulkopuolella.
 
-## Getting access to Allas
+## Allas-palvelun käyttöönotto {#getting-access-to-allas}
 
-By default, CSC computing projects do not have access to Allas. Thus, the first
-thing is to
-[add the Allas service to your project](../../accounts/how-to-add-service-access-for-project.md).
-This is done in the [MyCSC](https://my.csc.fi) portal. Note that only the
-project manager can apply for access.
+Oletuksena CSC:n laskentaprojekteilla ei ole pääsyä Allakseen. Siksi ensimmäinen asia on 
+[lisätä Allas-palvelu projektiin](../../accounts/how-to-add-service-access-for-project.md).
+Tämä tehdään [MyCSC](https://my.csc.fi) portaalissa. Huomaa, että vain projektipäällikkö voi hakea pääsyoikeutta.
 
-The default storage quota in Allas is 10 TB. As this space is shared with all
-project members, it is possible that the space is not sufficient. In that case,
-you should estimate how much space is needed and request more space. The
-request should be sent to [CSC Service Desk](../../support/contact.md). Please
-include in your quota request:
+Allaksen oletustallennuskiintiö on 10 TB. Koska tätä tilaa jakavat kaikki projektin jäsenet, on mahdollista, että tila ei riitä. Tällöin tulee arvioida, kuinka paljon lisätilaa tarvitaan, ja pyytää lisätilaa. Pyyntö tulee lähettää [CSC Service Deskille](../../support/contact.md). Muista sisällyttää tallennuspyyntöösi:
 
-1. The ID/name of your project
-2. The amount of Allas space needed
-3. A short description of the data to be stored 
+1. Projektin ID/nimi
+2. Tarvittavan Allas-tilan määrä
+3. Lyhyt kuvaus säilytettävästä datasta
 
-Note that the data stored in Allas
-[consume billing units of the project](../../accounts/billing.md).
+Huomaa, että Allakseen tallennettu data
+[kuluttaa projektin laskutusyksiköitä](../../accounts/billing.md).
 
-## Example 1: Using Allas with a-commands
+## Esimerkki 1: Allaksen käyttö a-komennoilla {#example-1-using-allas-with-a-commands}
 
-### A. Uploading data from Mahti to Allas
+### A. Datan lataaminen Mahtista Allakseen
 
-The a-commands are Allas-specific tools that allow an easy start with Allas.
-The a-commands archive and move data automatically. You can also compress your
-data before storage. For example, for text-formatted data compression reduces
-the storage space needed, but on the other hand makes the transfer process
-slightly slower. The a-commands are a good option for miscellaneous data that
-is mostly used in the CSC environment.
+A-komennot ovat Allas-spesifisiä työkaluja, jotka mahdollistavat helpon alun Allaksen käyttöön. A-komennot arkistoivat ja siirtävät dataa automaattisesti. Voit myös pakata datasi ennen tallennusta. Esimerkiksi tekstimuotoisen datan pakkaus vähentää tarvittavaa tallennustilaa, mutta tekee siirtoprosessista hieman hitaamman. A-komennot ovat hyvä vaihtoehto monenlaiselle datalle, jota käytetään pääasiassa CSC:n ympäristössä.
 
-In this example, we have a subdirectory `genomes/zebrafish` in the scratch
-directory of a project in Mahti (`/scratch/project_2001659`). The `zebrafish`
-directory contains eight files listed below:
+Tässä esimerkissä meillä on aliarkisto `genomes/zebrafish` projektin työkansiossa Mahtissa (`/scratch/project_2001659`). `Zebrafish`-kansio sisältää kahdeksan tiedostoa, jotka on lueteltu alla:
 
 ```bash
 [kkayttaj@mahti-login11 ~]$ ls /scratch/project_2001659/genomes/zebrafish
@@ -72,16 +44,13 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.fa            Danio_rerio.GRCz10.fa.fai
 ```
 
-To copy the content of this directory to Allas, we first set up the Allas
-environment:
+Kopioidaksemme tämän kansion sisällön Allakseen, me ensin asetamme Allaksen ympäristön:
 
 ```bash
 module load allas
 ```
 
-Then, we open a connection to Allas using the command `allas-conf`. The command
-asks for the user's CSC password and then lists the Allas projects that are
-accessible. In this case, we select `project_2001659`.
+Sitten avaamme yhteyden Allakseen komennolla `allas-conf`. Komento pyytää käyttäjän CSC-salasanaa ja sitten listaa ne Allas-projektit, joihin on pääsy. Tässä tapauksessa valitsemme `project_2001659`.
 
 ```bash
 [kkayttaj@mahti-login11 ~]$ allas-conf
@@ -97,25 +66,21 @@ Protocols:
 Connection stays active for eight hours.
 ```
 
-`allas-conf` opens a connection to the specified Allas project for eight hours.
-If we want to start using another project, we need to run `allas-conf` again.
-However, in a single shell session `allas-conf` enables only one Allas project
-to be active at a time. Note that certain tools, for example `rclone`, can
-nonetheless be set up to use several Allas projects at the same time.
+`allas-conf` avaa yhteyden määritettyyn Allas-projektiin kahdeksaksi tunniksi. Jos haluamme aloittaa toisen projektin käytön, meidän tulee suorittaa `allas-conf` uudelleen. Muista kuitenkin, että tietyt työkalut, esimerkiksi `rclone`, voidaan silti määrittää käyttämään useita Allas-projekteja samanaikaisesti.
 
-Next, we enter the `zebrafish` directory:
+Seuraavaksi siirrymme `zebrafish`-kansioon:
 
 ```bash
 cd /scratch/project_2001659/genomes/zebrafish
 ```
 
-We can now upload files one by one to Allas using the `a-put` command:
+Voimme nyt ladata tiedostoja yksi kerrallaan Allakseen käyttäen `a-put` komentoa:
 
 ```bash
 a-put Danio_rerio.GRCz10.fa
 ```
 
-At the end of the upload process, the command reports:
+Latausprosessin lopuksi komento raportoi:
 
 ```text
 -------------------------------------------------------------------------------
@@ -130,23 +95,19 @@ Upload summary:
 OK
 ```
 
-Moving data to Allas file by file is slow and produces a large amount of
-objects. It is often more efficient to upload data to Allas one directory at a
-time and store the data in bigger chunks. For example, to upload the
-`zebrafish` directory, we first enter the parent directory `genomes`:
+Datan siirtäminen Allakseen tiedosto kerrallaan on hidasta ja tuottaa suuren määrän objekteja. Usein onkin tehokkaampaa ladata data Allakseen koko hakemisto kerrallaan ja tallentaa data suurempina kokonaisuuksina. Esimerkiksi lataamaan `zebrafish`-kansio, me ensin siirrymme yläkansioon `genomes`:
 
 ```bash
 cd /scratch/project_2001659/genomes/
 ```
 
-Then, we use `a-put` to upload the whole `zebrafish` directory to Allas as a
-single object:
+Sitten käytämme `a-put` komentoa, jotta voimme ladata koko `zebrafish`-kansion Allakseen yhtenä objektina:
 
 ```bash
 a-put zebrafish/
 ```
 
-At the end of the upload process, the command reports:
+Latauksen lopuksi komento raportoi:
 
 ```text
 -------------------------------------------------------------------------------
@@ -161,7 +122,7 @@ Upload summary:
 OK
 ```
 
-After this, we have another object in the `2001659-mahti-SCRATCH` bucket:
+Tämän jälkeen meillä on toinen objekti `2001659-mahti-SCRATCH` nimisessä bucketissa:
 
 ```bash
 [kkayttaj@mahti-login11 genomes]$ a-list 2001659-mahti-SCRATCH
@@ -169,39 +130,31 @@ After this, we have another object in the `2001659-mahti-SCRATCH` bucket:
 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 ```
 
-Note that the file `Danio_rerio.GRCz10.fa` is in fact now stored in Allas
-twice; both as an individual object (`genomes/zebrafish/Danio_rerio.GRCz10.fa`)
-and as part of the `genomes/zebrafish.tar` object.
+Huomaa, että tiedosto `Danio_rerio.GRCz10.fa` on nyt tallennettu Allakseen kahdesti; sekä yksittäisenä objektina (`genomes/zebrafish/Danio_rerio.GRCz10.fa`) että osana `genomes/zebrafish.tar` objektia.
 
-### B. Downloading to Puhti
+### B. Lataaminen Puhti-supertietokoneeseen
 
-Next, we download the same data to Puhti. After connecting to Puhti, we go to
-the scratch directory of project 2001659 and load the `allas` module:
+Seuraavaksi lataamme saman datan Puhtiin. Yhdistämisen jälkeen Puhtiin siirrymme projektin 2001659 työkansioon ja lataamme `allas` moduulin:
 
 ```bash
 cd /scratch/project_2001659
 module load allas
 ```
 
-In this case, we want to use Allas with the project `project_2001659`, so we
-can give the project name as an argument for the `allas-conf` command:
+Tässä tapauksessa haluamme käyttää Allasta projektin `project_2001659` kanssa, joten voimme antaa projektin nimen argumenttina `allas-conf` komennolle:
 
 ```bash
 allas-conf project_2001659
 ```
 
-Now the configuration process asks only for the CSC password and then sets up
-the connection to Allas for project 2001659. As the Puhti scratch directory is
-shared by all project members, we create a user-specific subdirectory
-`kkayttaj`:
+Nyt konfigurointiprosessi kysyy vain CSC-salasanaa ja asettaa Allas-yhteyden projektille 2001659. Koska Puhti-työkansio on jaettu kaikille projektin jäsenille, luomme käyttäjäkohtaisen alikansion `kkayttaj`:
 
 ```bash
 mkdir -p kkayttaj
 cd kkayttaj/
 ```
 
-With the command `a-list`, we can now see the objects that were just uploaded
-from Mahti to Allas:
+Komennolla `a-list` voimme nyt nähdä objektit, jotka juuri ladattiin Mahtista Allakseen:
 
 ```bash
 [kkayttaj@puhti-login12 kkayttaj]$ a-list
@@ -211,11 +164,7 @@ from Mahti to Allas:
 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 ```
 
-Locating data is easy as there are only two objects in the bucket, but as more
-data is added to Allas, locating a specific file among dozens of buckets
-containing hundreds of objects may be difficult. In that case, you can search
-for a specific file using the command `a-find`. In this example, we can check
-if an object contains the file `Danio_rerio.GRCz10.fa`:
+Datansijainnin löytäminen on helppoa, koska bucketissa on vain kaksi objektia, mutta kun Allakseen lisätään lisää dataa, tietyn tiedoston löytäminen kymmenistä bucketeista, joissa on satoja objekteja, voi olla vaikeaa. Tällöin voit etsiä tiettyä tiedostoa komennolla `a-find`. Tässä esimerkissä voimme tarkistaa, sisältääkö objekti tiedoston `Danio_rerio.GRCz10.fa`:
 
 ```bash
 [kkayttaj@puhti-login12 kkayttaj]$ a-find -a Danio_rerio.GRCz10.fa
@@ -231,13 +180,10 @@ Total of 3 hits were found in 2 objects
 -------------------------------------------------
 ```
 
-The `a-find` report above tells, for example, that the object
-`2001659-mahti-SCRATCH/genomes/zebrafish.tar` contains two files whose names
-match `Danio_rerio.GRCz10.fa` (the other file is `Danio_rerio.GRCz10.fa.fai`).
-Note that `a-find` finds matches only among objects that were uploaded with
-`a-put`.
+`a-find` raportti yllä kertoo esimerkiksi, että objekti 
+`2001659-mahti-SCRATCH/genomes/zebrafish.tar` sisältää kaksi tiedostoa, joiden nimet vastaavat `Danio_rerio.GRCz10.fa` (toinen tiedosto on `Danio_rerio.GRCz10.fa.fai`). Huomaa, että `a-find` löytää osumat vain niiden objektien joukosta, jotka on ladattu `a-put` komennolla.
 
-Next, we download the data to Puhti using the `a-get` command:
+Seuraavaksi lataamme datan Puhtiin käyttämällä `a-get` komentoa:
 
 ```bash
 [kkayttaj@puhti-login12 kkayttaj]$ a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar
@@ -248,9 +194,7 @@ copied and uncompressed from allas into:
   zebrafish
 ```
 
-After this, the current working directory in Puhti has a new directory
-`zebrafish` that contains the files that were previously uploaded from Mahti to
-Allas:
+Tämän jälkeen nykyisessä työkansiossa Puhtissa on uusi `zebrafish`-kansio, joka sisältää tiedostot, jotka aiemmin ladattiin Mahtista Allakseen:
 
 ```bash
 [kkayttaj@puhti-login12 kkayttaj]$ ls zebrafish/
@@ -260,24 +204,18 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 ```
 
-## Example 2: Using Allas with Rclone
+## Esimerkki 2: Allaksen käyttö Rclone-työkalulla {#example-2-using-allas-with-rclone}
 
-### A. Uploading data with Rclone
+### A. Datan lataaminen Rclone-työkalulla
 
-Rclone is the power-user tool for Allas. It is good in cases where the data
-must be stored such that each file is a separate object.
+Rclone on Allaksen tehokäyttäjätyökalu. Se on hyvä tapauksissa, joissa data täytyy tallentaa siten, että jokainen tiedosto on erillinen objekti.
 
 !!! warning
-    Rclone provides a fast and efficient way to use Allas, but you should use
-    it carefully as Rclone operations can **overwrite** and **remove** data
-    both in Allas and in the local disk environment without notifying or asking
-    for confirmation.
+    Rclone tarjoaa nopean ja tehokkaan tavan käyttää Allasta, mutta sitä pitäisi käyttää varoen, sillä Rclone-toiminnot voivat **ylikirjoittaa** ja **poistaa** dataa sekä Allaksessa että paikallisessa levyjärjestelmässä ilman ilmoitusta tai vahvistusta.
 
-    * [Using Allas with Rclone from Puhti and Mahti](./using_allas/rclone.md)
+    * [Allaksen käyttö Rclone-työkalulla Puhtista ja Mahtista](./using_allas/rclone.md)
 
-This example uses the same data as the previous case: in the scratch directory
-of Mahti, we have a subdirectory `genomes/zebrafish` that contains the eight
-files listed below:
+Tässä esimerkissä käytetään samaa dataa kuin aiemmassa tapauksessa: Mahtin työkansiossa meillä on aliarkisto `genomes/zebrafish`, joka sisältää kahdeksan tiedostoa, jotka on lueteltu alla:
 
 ```bash
 [kkayttaj@mahti-login11 ~]$ ls /scratch/project_2001659/genomes/zebrafish
@@ -287,16 +225,13 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.fa            Danio_rerio.GRCz10.fa.fai
 ```
 
-To copy the content of this directory to Allas, we first set up the Allas
-environment:
+Kopioidaksemme tämän kansion sisällön Allakseen, me ensin asetamme Allaksen ympäristön:
 
 ```bash
 module load allas
 ```
 
-Then, we open a connection to Allas using the command `allas-conf`. The command
-asks for the user's CSC password and then lists the Allas projects that the
-user can access. In this case, we select `project_2001659`:
+Sitten avaamme yhteyden Allakseen komennolla `allas-conf`. Komento pyytää käyttäjän CSC-salasanaa ja sitten listaa ne Allas-projektit, joihin käyttäjällä on pääsy. Tässä tapauksessa valitsemme `project_2001659`:
 
 ```bash
 [kkayttaj@mahti-login11 ~]$ allas-conf
@@ -311,25 +246,19 @@ Protocols:
 Connection stays active for eight hours.
 ```
 
-The `allas-conf` procedure above defines an Allas connection that is valid for
-eight hours. Next, we go to the `genomes` directory:
+Yllä kuvattu `allas-conf` määrittelee Allas-yhteyden, joka on voimassa kahdeksan tuntia. Seuraavaksi siirrymme `genomes`-kansioon:
 
 ```bash
 cd /scratch/project_2001659/genomes
 ```
 
-Instead of `a-put` that was used in the previous example, we use command
-`rclone copyto` to copy all files from the given directory to Allas. In the
-case of `rclone`, there is no default bucket. Instead, we have to define a
-bucket. In this example, we use the bucket name `2001659-genomes` and define
-each object name to have the prefix `zebrafish`.
+Käyttäen `a-put` komennon sijaan edellisessä esimerkissä, käytämme komentoa `rclone copyto` kopioimaan kaikki tiedostot annetusta hakemistosta Allakseen. Rclone tapauksessa ei ole oletusarvoista buckettia. Sen sijaan, meidän on määritettävä bucketin nimi. Tässä esimerkissä käytämme bucketin nimeä `2001659-genomes` ja jokaisen objektin nimen alkuun tulee lisätä prefiksi `zebrafish`.
 
 ```text
 rclone copyto zebrafish/ allas:2001659-genomes/zebrafish
 ```
 
-After copying the files, we can use `rclone ls` to see what has been uploaded
-to Allas:
+Kun tiedostot on kopioitu, voimme käyttää `rclone ls` tarkistaaksemme, mitä on ladattu Allakseen:
 
 ```bash
 [kkayttaj@mahti-login11 genomes] rclone ls allas:2001659-genomes/zebrafish
@@ -343,35 +272,29 @@ to Allas:
       715 Danio_rerio.GRCz10.fa.fai
 ```
 
-### B. Downloading the data to Puhti
+### B. Datan lataaminen Puhtiin
 
-Next, we download the same data to Puhti. After connecting to Puhti, we go to
-the scratch directory of `project_2001659` and load the `allas` module:
+Seuraavaksi lataamme saman datan Puhtiin. Yhdistämisen jälkeen Puhtiin siirrymme projektin 2001659 työkansioon ja lataamme `allas` moduulin:
 
 ```bash
 cd /scratch/project_2001659
 module load allas
 ```
 
-In this case, we want to use Allas with the project 2001659, so we can give the
-project name as an argument for the `allas-conf` command:
+Tässä tapauksessa haluamme käyttää Allasta projektin 2001659 kanssa, joten voimme antaa projektin nimen argumenttina `allas-conf` komennolle:
 
 ```bash
 allas-conf project_2001659
 ```
 
-Now the configuration process asks only for the CSC password and then sets up
-the connection to Allas for project 2001659. As the Puhti scratch directory is
-shared by all project members, we create a user-specific subdirectory
-`kkayttaj` and go there:
+Nyt konfigurointiprosessi kysyy vain CSC-salasanaa ja asettaa Allas-yhteyden projektille 2001659. Koska Puhti-työkansio on jaettu kaikille projektin jäsenille, luomme käyttäjäkohtaisen alikansion `kkayttaj` ja menemme sinne:
 
 ```bash
 mkdir -p kkayttaj
 cd kkayttaj/
 ```
 
-We can now use the command `rclone lsd` to check the available buckets in
-Allas:
+Voimme nyt käyttää komentoa `rclone lsd` tarkistaaksemme saatavilla olevat bucketit Allaksessa:
 
 ```bash
 [kkayttaj@puhti-login12 kkayttaj]$ rclone lsd allas:
@@ -379,9 +302,7 @@ Allas:
   2576778428 2020-10-03 10:01:42         4 2001659-mahti-SCRATCH
 ```
 
-Now we see two buckets. `2001659-genomes` is the one that was just created in
-this example, while `2001659-mahti-SCRATCH` originates from the previous
-a-command example. Next, we list the objects in the `2001659-genomes` bucket:
+Nyt näemme kaksi buckettia. `2001659-genomes` on juuri tässä esimerkissä luotu, kun taas `2001659-mahti-SCRATCH` on peräisin edellisestä a-komento esimerkistä. Seuraavaksi listaamme objektit `2001659-genomes` bucketissa:
 
 ```bash
 [kkayttaj@puhti-login12 kkayttaj]$ rclone ls allas:2001659-genomes
@@ -395,8 +316,7 @@ a-command example. Next, we list the objects in the `2001659-genomes` bucket:
       715 zebrafish/Danio_rerio.GRCz10.fa.fa
 ```
 
-Finally, we use the `rclone copyto` command to copy the data from Allas to
-Puhti into a new directory `zebrafish2`: 
+Lopuksi käytämme `rclone copyto` komentoa kopioidaksemme datan Allaksesta Puhtiin uuteen `zebrafish2` kansioon:
 
 ```bash
 [kkayttaj@puhti-login12 kkayttaj]$ rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2
@@ -411,46 +331,31 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 ```
 
-## Example 3: Uploading large files to Allas
+## Esimerkki 3: Suurten tiedostojen lataaminen Allakseen {#example-3-uploading-large-files-to-allas}
 
-In the previous two examples, the actual amount of data was rather moderate,
-only a few gigabytes. If the size of an individual data file is hundreds of
-gigabytes or more, transporting only a few files may take longer than the
-duration of the token-based Allas authentication.
+Edellisissä kahdessa esimerkissä todellisen datan määrä oli melko maltillinen, vain muutama gigatavu. Jos yksittäisen tiedoston koko on satoja gigatavuja tai enemmän, muutaman tiedoston siirtäminen voi viedä kauemmin kuin Allaksen todennointiin perustuva yhteyttäminen kestää.
 
-In this example, we use `a-put` to upload a set of large files from Mahti to
-Allas.
+Tässä esimerkissä käytämme `a-put` komennolla suurten tiedostojen lataamiseen Mahtista Allakseen.
 
-The first thing to do is to open a Mahti connection that can remain running for
-a long time. In this example, we use `screen` command to open a session that
-can be left running in the background:
+Ensimmäinen asia on avata Mahti-yhteys, joka voi pysyä auki pitkään. Tässä esimerkissä käytämme `screen` komentoa avaamaan istunnon, joka voidaan jättää taustalle:
 
 ```bash
 ssh <username>@mahti.csc.fi
 screen
 ```
 
-The `screen` command starts a virtual session on the login node of Mahti. You
-can leave this virtual `screen` session running in the background and log out
-from Mahti, but you should check which login node (`mahti-login[11,12,14,15]`) 
-your session is running on because you need to log in to the same node to
-reconnect to your `screen` session later on.
+`screen` komento käynnistää virtuaali-istunnon Mahtin kirjautumissolmussa. Voit jättää tämän virtuaalisen `screen`-istunnon taustalle ja kirjautua ulos Mahtista, mutta sinun kannattaa tarkistaa, millä kirjautumissolmulla (`mahti-login[11,12,14,15]`) istuntosi on käynnissä, koska sinun on kirjauduttava samaan solmuun voidaksesi jälleenyhdistää `screen`-istuntoosi myöhemmin.
 
-In the `screen` session, first load the `allas` module and use `allas-conf` to
-establish a connection to Allas.
+`screen`-istunnossa ensin ladataan `allas` moduuli ja käytetään `allas-conf` avaamaan yhteyttä Allakseen.
 
 ```bash
 module load allas
 allas-conf -k
 ```
 
-Here, `allas-conf` is used with the option `-k` that saves your CSC password in
-an environment variable (`$OS_PASSWORD`) so that the connection to Allas can
-later be automatically reconfigured without needing to give the password again.
+Tässä `allas-conf` käytetään `-k` optiolla, joka tallentaa CSC-salasanasi ympäristömuuttujaan (`$OS_PASSWORD`), jotta Allas-yhteys voidaan myöhemmin määrittää automaattisesti antamatta salasanaa uudelleen.
 
-After opening the Allas connection, we move to a directory `my_data` where we
-have three subdirectories (`50`, `90`, `100`). We list the gzip-compressed
-files in these directories:
+Avasimme Allas-yhteyden jälkeen siirrymme `my_data` hakemistoon, jossa meillä on kolme alihakemistoa (`50`, `90`, `100`). Listataan gzip-pakatut tiedostot näissä hakemistoissa:
 
 ```bash
 [kkayttaj@mahti-login11 ~] cd /scratch/project_2001659/my_data
@@ -463,15 +368,13 @@ files in these directories:
 -rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
 ```
 
-Next, we launch the upload process. In this case, we do not use the default
-bucket name, but assign the name to be `2001659-uniref`:
+Seuraavaksi käynnistämme latausprosessin. Tässä tapauksessa emme käytä oletusarvoista buckettia vaan annamme nimen `2001659-uniref`:
 
 ```bash
 a-put -b 2001659-uniref */*.gz
 ```
 
-This command uploads the files listed above to Allas. Alternatively, we could
-launch the same upload with `rclone copy`:
+Tämä komento lataa yllä luetellut tiedostot Allakseen. Vaihtoehtoisesti voisimme aloittaa saman latauksen käyttäen `rclone copy`:
 
 ```bash
 for f in */*.gz
@@ -479,61 +382,42 @@ do
     rclone copy $f allas:2001659-uniref
 done
 ```
- 
-We can leave the session running in the background by pressing `Ctrl-A D`. Now,
-we can log out from Mahti with the `screen` session remaining active in the
-Mahti login node we used (in this case, `mahti-login11`).
 
-To re-connect to this session, we first connect to the Mahti node where the
-`screen` session is running:
+Voimme jättää istunnon taustalle painamalla `Ctrl-A D`. Nyt voimme kirjautua ulos Mahtista jättäen `screen`-istunnon aktiiviseksi käytetyllä kirjautumissolmulla (tässä tapauksessa `mahti-login11`).
+
+Jälleenyhdistääksesi tähän istuntoon, yhdistämme ensin siihen Mahti-solmuun, jossa `screen`-istunto on käynnissä:
 
 ```bash
 ssh <username>@mahti-login11.csc.fi
 ```
 
-Then, we reattach the `screen` session:
+Sitten attachoimme `screen`-istunnon:
 
 ```bash
 screen -r
-``` 
+```
 
-Once the `a-put` command is finished, we will run `a-check` command to check if
-all the data objects have been created. `a-check` needs to be executed with the
-exact same options that were used with the `a-put` command. So in this case the
-command would be:
+Kun `a-put` komento on valmis, suoritetaan `a-check` komento tarkistaaksemme, onko kaikki dataobjektit luotu. `a-check` täytyy suorittaa täsmälleen samoilla asetuksilla kuin `a-put` komennossa käytettiin. Joten tässä tapauksessa komento olisi:
 
 ```bash
 a-check -b 2001659-uniref */*.gz
 ```
 
-The `a-check` command compares the item names to be uploaded to the matching
-objects in Allas. The files or directories that don't have a target object in
-Allas are reported and stored in a file. In this case, if some objects in the
-`a-put` command above would be missing, then `a-check` would list the missing
-files and directories in a file `missing_2001659-uniref_63449` (the number at
-the end is just a random number).
+`a-check` komento vertaa ladattavien kohteiden nimiä vastaaviin objekteihin Allaksessa. Tiedostot tai hakemistot, joilla ei ole kohdeobjektia Allaksessa, raportoidaan ja tallennetaan tiedostoon. Tässä tapauksessa, jos joitakin objekteja `a-put` komennossa olisi puuttuva, `a-check` luettelisi puuttuvat tiedostot ja alihakemistot tiedostoon `missing_2001659-uniref_63449` (lopussa oleva numero on vain satunnainen numero).
 
-The file of missing items can then be used with `a-put` option `--input-list`
-to continue the failed upload process:
+Puuttuvien kohteiden tiedostoa voidaan sitten käyttää `a-put` vaihtoehdon `--input-list` kanssa jatkamaan epäonnistunutta latausprosessia:
 
 ```bash
 a-put -b 2001659-uniref --nc --input-list missing_2001659-uniref_63449
 ```
 
-You should note that `a-check` does not check if the actual contents of the
-object is correct. It checks only the object names, which might as well
-originate from some other sources.
+Huomaa, että `a-check` ei tarkista onko objektin todellinen sisältö oikein. Se tarkistaa vain objektien nimet, jotka saattavat yhtä hyvin olla peräisin muista lähteistä.
 
-## Example 4: Uploading complex directory structures to Allas
+## Esimerkki 4: Monimutkaisten hakemistorakenteiden lataaminen Allakseen {#example-4-uploading-complex-directory-structures-to-allas}
 
-Some workflows and software create complex directory structures to store and
-manage data. You might have directories that have thousands or even millions of
-individual files. Copying such datasets to Allas takes time and is not always
-straightforward. The most reasonable way to upload this kind of data depends on
-the case. This example introduces a few alternatives.
+Jotkin työprosessit ja ohjelmistot luovat monimutkaisia hakemistorakenteita datan tallentamiseen ja hallintaan. Saatat omistaa hakemistoja, joissa on tuhansia tai jopa miljoonia yksittäisiä tiedostoja. Tällaisen datan kopiointi Allakseen vie aikaa eikä ole aina yksinkertaista. Tällaisten datojen lataamiseen paras tapa riippuu tilanteesta. Tämä esimerkki esittelee muutamia vaihtoehtoja.
 
-First, we open a `screen` session on Puhti and set up an Allas connection just
-like in the previous example:
+Ensin avaamme `screen`-istunnon Puhtissa ja asetamme Allas-yhteyden aivan kuten edellisessä esimerkissä:
 
 ```bash
 ssh <username>@puhti.csc.fi
@@ -542,103 +426,61 @@ module load allas
 allas-conf -k
 ```
 
-Suppose we have a directory structure that contains images from road condition
-cameras from ten locations with an interval of ten minutes from the years
-2014–2018. The data is located in the directory `road_cameras` where each
-location has its own subdirectory (ten directories). Inside each subdirectory,
-there is another layer of subdirectories, one for each year (five
-subdirectories), each containing subdirectories for every day of the year
-(further 365 subdirectories), each containing 144 small image files.
+Oletetaan, että meillä on hakemistorakenne, joka sisältää kuvia tieolosuhdekameroista kymmenestä kohteesta kymmenen minuutin välein vuosilta 2014–2018. Data sijaitsee hakemistossa `road_cameras`, jossa jokainen sijainti on oma alihakemistonsa (kymmenen hakemistoa). Jokaisen alihakemiston sisällä on toinen kerros alihakemistoja, yksi jokaiselle vuodelle (viisi alihakemistoa), joista jokainen sisältää alihakemistoja jokaiselle sen vuoden päivälle (365 alihakemistoa lisää), joista jokainen sisältää 144 pientä kuvatiedostoa.
 
-For example:
+Esimerkiksi:
 
 ```bash
 road_cameras/site_7/2017/day211/image_654887.jpg
 ```
 
-Thus, the total number of files in the `road_cameras` directory is
+Näin ollen tiedostojen kokonaismäärä `road_cameras` hakemistossa on 
 `10 * 5 * 365 * 144 = 2 628 000`.
 
-In principle, we could copy all 2.6 million files as separate objects to Allas,
-but in that case, we should split the data into multiple buckets as one bucket
-can have at most 0.5 million objects. You could, for example, run a separate
-`rclone` command for each `site_*` directory and put the data from each site to
-a site-specific bucket. For example:
+Periaatteessa voisimme kopioida kaikki 2,6 miljoonaa tiedostoa erillisinä objekteina Allakseen, mutta siinä tapauksessa meidän pitäisi jakaa data useisiin bucketteihin, sillä yksi bucket voi sisältää enintään 0,5 miljoonaa objektia. Voisit esimerkiksi ajaa erillisen `rclone` komennon jokaiselle `site_*` hakemistolta ja sijoittaa data site-kohtaiseen bucketiin. Esimerkiksi:
 
 ```bash
 rclone copyto road_cameras/site_1 allas:2001659_road_cameras_site_1/
 ```
 
-This way, you would end up creating ten buckets each containing 262 800
-objects. This approach could be the most efficient way for storing and reusing
-the data if you know that you will need to access individual images randomly.
+Näin päädyttäisiin luomaan kymmenen buckettia, jotka sisältävät kukin 262 800 objektia. Tämä lähestymistapa voi olla tehokkain tapa tallentaa ja hyödyntää dataa, jos tiedät tarvitsevasi pääsyä yksittäisiin kuviin satunnaisesti.
 
-As another extreme option, we could use `a-put` and collect all data into a
-single archive object. In order to do that, you must add the option
-`--skip-filelist` to the `a-put` command. By default, `a-put` collects detailed
-metadata of **each** file in an `ameta` file. However, if you have millions of
-files, collecting this information takes a long time. If you need to know the
-file names, you can use the `--simple-fileslist` option to collect the names –
-but **no** other information – of the files in the metadata file. This already
-speeds up the preprocessing significantly. However, as in this case the naming
-has been systematic, storing the file names to the metadata files can be just
-ignored altogether (`--skip-filelist`), which is the fastest option.
+Toisena äärimmäisenä vaihtoehtona voisimme käyttää `a-put` komentoa ja kerätä koko datan yhdeksi arkisto-objektiksi. Jotta tämä onnistuisi, sinun täytyy lisätä `--skip-filelist` vaihtoehto `a-put` komennon. Oletuksena `a-put` kerää yksityiskohtaisia metatietoja **jokaisesta** tiedostosta `ameta` tiedostossa. Kuitenkin, jos sinulla on miljoonia tiedostoja, tämän tiedon kokoaminen kestää pitkään. Jos sinun täytyy tietää tiedostojen nimet, voit käyttää `--simple-fileslist` vaihtoehtoa kerätäksesi ainoastaan nimet – mutta **ei** muuta tietoa – tiedostoista metatietotiedostossa. Tämä nopeuttaa esikäsittelyä huomattavasti. Kuitenkin, koska tässä tapauksessa nimeäminen on ollut järjestelmällistä, tiedostojen nimien tallentaminen metatietotiedostoihin voidaan yksinkertaisesti ohittaa kokonaan (`--skip-filelist`), mikä on nopein vaihtoehto.
 
 ```bash
 a-put --skip-filelist road_cameras/
 ```
 
-This approach would store all 2,6 million files as a single object.
+Tämä lähestyminen tallentaisi kaikki 2,6 miljoonaa tiedostoa yhdeksi objektiksi.
 
-In practice, however, the optimal way of storing the data is often something
-between these two extremes. As a compromise, you could apply packing at a
-higher level in the hierarchy. For example:
+Käytännössä kuitenkin, datan optimaalinen tallennustapa on usein jotain näiden kahden ääripään välillä. Kompromissina voitaisiin soveltaa pakkausta korkeammassa hierarkian tasolla. Esimerkiksi:
 
 ```bash
 a-put --skip-filelist road_cameras/site_*
 ```
 
-This would produce ten objects, each containing all information from a single
-camera site. Alternatively, you could do the archiving so that data from each
-year from each camera is collected as a single object:
+Tämä tuottaisi kymmenen objektia, joista jokainen sisältää koko tiedon yhdestä kamerapaikasta. Vaihtoehtoisesti voit suorittaa arkistoinnin siten, että kunkin kameran kutakin vuotta koskeva data kootaan yhdeksi objektiksi:
 
 ```bash
 a-put --skip-filelist road_cameras/site_*/20*
 ```
 
-This option would store the data as 50 objects. Day-based objects for each
-camera might be the most practical option for using the data later on, but as a
-downside, preprocessing the data into `10 * 5 * 365 = 18250` objects probably
-takes quite a long time.
+Tämä vaihtoehto tallentaisi datan 50 objektina. Päiväkohtaiset objektit jokaisesta kamerasta saattavat olla käytännöllisin vaihtoehto datan myöhempää käyttöä ajatellen, mutta haittapuolena esikäsittelydatan muokkaaminen `10 * 5 * 365 = 18250` objektiksi todennäköisesti vie melko pitkään.
 
-Copying millions of files to Allas takes a long time regardless of the method.
-If we have started the `a-put` command inside a `screen` session, we can detach
-from the virtual session by pressing `Ctrl-A D`, log out from Puhti and leave
-the upload process running for days.
+Miljoonien tiedostojen kopiointi Allakseen ottaa aikaa riippumatta menetelmästä. Jos olemme aloittaneet `a-put` komennon `screen`-istunnon sisällä, voimme irrottaa virtuaali-istunnon painamalla `Ctrl-A D`, kirjautua ulos Puhtista ja jättää latausprosessin käynnissä päiviksi.
 
-Once the `a-put` command is finished, we will run `a-check` command to check if
-all the data objects have been created. `a-check` needs to be executed with the
-exact same options that were used with the `a-put` command. So in this case the
-command would be:
+Kun `a-put` komento on valmis, ajetaan `a-check` komento tarkistaaksemme, onko kaikki dataobjektit luotu. `a-check` täytyy suorittaa täsmälleen samoilla asetuksilla kuin `a-put` komennossa käytettiin. Näin ollen tässä tapauksessa komento olisi:
 
 ```bash
 a-check --skip-filelist road_cameras/site_*/20*
 ```
 
-The `a-check` command compares the item names to be uploaded to the matching
-objects in Allas. The files or directories that don't have a target object in
-Allas are reported and stored in a file. In this case, if some objects in the
-`a-put` command above would be missing, then `a-check` would list the missing
-files and directories in a file `missing_<bucket_name>_<number>` (the number at
-the end is just a random number).
+`a-check` komento vertaa ladattavien nimien kohteita vastaaviin objekteihin Allaksessa. Tiedostot tai hakemistot, joilla ei ole kohdeobjektia Allaksessa, raportoidaan ja tallennetaan tiedostoon. Tässä tapauksessa, jos joitakin objekteja `a-put` komennossa olisi puuttuva, `a-check` luettelisi puuttuvat tiedostot ja hakemistot tiedostoon `missing_<bucket_name>_<number>` (lopussa oleva numero on vain satunnainen numero).
 
-The file of missing items can then be used with `a-put` option `--input-list`
-to continue the failed upload process:
+Puuttuvien kohteiden tiedostoa voidaan sitten käyttää `a-put` vaihtกำ절เพิ่มtion `--input-list` kanssa jatkamaan epäonnistunutta latausprosessia:
 
 ```bash
 a-put -b 2001659-uniref --nc --input-list missing_<bucket_name>_<number>
 ```
 
-You should note that `a-check` does not check if the actual contents of the
-object is correct. It checks only the object names, which might as well
-originate from some other sources.
+Huomaa, että `a-check` ei tarkista, onko objektin todellinen sisältö oikein. Se tarkistaa vain objektinimet, jotka saattavat aivan yhtä hyvin olla peräisin muista lähteistä.

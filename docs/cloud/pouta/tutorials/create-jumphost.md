@@ -1,24 +1,25 @@
-# Jumphost in cPouta
-## Introduction
-The purpose of a jumphost in an infrastructure is to allow access from the external to several machines without giving them a public IP (Floating IP).  
-You can configure one machine with a public IP and access the other machines from the jumphost. This unique machine with a public IP is a gateway to the internal network.  
 
-Here is a schema:  
-![jumphost-schema](../../img/jumphost_schema.png)
+# Hyppypalvelin cPoutassa {#jumphost-in-cpouta}
 
+## Johdanto {#introduction}
+Hyppypalvelimen tarkoitus infrastruktuurissa on mahdollistaa pääsy ulkoiselta verkolta useille koneille antamatta niille julkista IP-osoitetta (kelluva IP).  
+Voit konfiguroida yhden koneen julkisella IP-osoitteella ja käyttää muita koneita hyppypalvelimen kautta. Tämä ainutlaatuinen julkisen IP:n omaava kone toimii porttina sisäverkkoon.  
 
-## How to create a jumphost?
-You can find a template in our GitHub repo: [jumphost CSC](https://github.com/CSCfi/openshift-jumphost-example). Read carefully the instructions provided in the repo.  
-Keep in mind that we provide a basic template. You can clone and edit it for fulfilling your needs.
+Tässä on kaavio:  
+![hyppypalvelimen-kaavio](../../img/jumphost_schema.png)
 
-## Explanations  
-Two extra folders need to be created: `files` and `keys`.  
+## Kuinka luoda hyppypalvelin? {#how-to-create-a-jumphost}
+Voit löytää mallin GitHub-repostamme: [jumphost CSC](https://github.com/CSCfi/openshift-jumphost-example). Lue huolellisesti repossa annetut ohjeet.  
+Muista, että tarjoamme perusmallin. Voit kloonata ja muokata sen tarpeidesi mukaan.
 
-In the `files` folder, you need to copy your public key used to connect to the instances. It can be the public key you use every time in cPouta or it can be a new key. Don't forget to upload it to your cPouta project.  
+## Selitykset {#explanations}
+Kaksi lisäkansiota täytyy luoda: `files` ja `keys`.  
 
-In the `keys` folder, you need to copy all the public keys of the users you want to authorize to connect to the different instances. Ansible will look to the `keys` folder.  
+`files`-kansiossa sinun tulee kopioida julkinen avain, jota käytät yhteyden muodostamiseksi instansseihin. Se voi olla julkinen avain, jota käytät aina cPoutassa, tai se voi olla uusi avain. Älä unohda ladata sitä cPouta-projektiisi.  
 
-Here is the part of the code:  
+`keys`-kansiossa sinun tulee kopioida kaikkien niiden käyttäjien julkiset avaimet, joille haluat antaa oikeuden muodostaa yhteyden eri instansseihin. Ansible etsii `keys`-kansiosta.  
+
+Tässä on osa koodista:  
 ```yaml
 - name: Set authorized key taken from files
   authorized_key:
@@ -30,12 +31,12 @@ Here is the part of the code:
     - keys
 ```
 
-It means to deploy `Ubuntu` images. If you want to use it with `CentOS` machines, don't forget to edit the file `all.yaml` and the values of `os_image` and `user`.  
+Tämä tarkoittaa `Ubuntu`-kuvien käyttöönottoa. Jos haluat käyttää sitä `CentOS`-koneiden kanssa, älä unohda muokata tiedostoa `all.yaml` sekä `os_image` ja `user` arvoja.  
 
-To run the playbook, type this command:  
+Ajaaksesi playbookin, kirjoita tämä komento:  
 ```sh
 ansible-playbook main.yaml
 ```
-It will prompt you to enter the name of the network you want to use.  
+Se kehottaa sinua syöttämään käytettävän verkon nimen.  
 
-Look at the `README.md` file in the GitHub repository for more details.
+Katso lisätietoja GitHub-repon `README.md`-tiedostosta.

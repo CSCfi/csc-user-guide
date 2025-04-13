@@ -1,51 +1,46 @@
+# Terveyden ja sosiaalialan tietojen toissijaisen käytön Sensitiivinen Data -työpöytä {#sensitive-data-desktop-for-secondary-use-of-health-and-social-data}
 
-# Sensitive Data Desktop for secondary use of health and social data 
+Sensitiivinen Data (SD) -työpöytä on rekisteröity ympäristö terveyden ja sosiaalialan tietojen (rekisteritiedot) toissijaiseen käyttöön. Pääsy palveluun vaatii luvan tietojen käsittelijältä, joka voi olla Findata tai yksittäinen rekisteri. SD-työpöytä on verkkokäyttöliittymä, jonka avulla voit hallita (aloittaa, käyttää, poistaa) virtuaalista työpöytää (teknisesti määriteltynä virtuaalikoneena) suoraan web-selaimeltasi. Virtuaalisen työpöydän avulla voit käyttää luvan saaneita tietoaineistoja. Palvelun käyttö ei vaadi aikaisempaa tietämystä pilvilaskennasta tai ohjelmointitaitoja.
 
-Sensitive Data (SD) Desktop is a registered environment for secondary use of health and social data (register data). Access to the service requires a permit from data controller which can be Findata or single register. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual desktop (technically defined as a virtual machine) from your web browser. With the virtual desktop, you can access the authorised datasets. No previous knowledge of cloud computing or programming expertise is required to use the service.
+Sisältö:
 
-Contents:
+* [Keskeiset ominaisuudet](./sd-desktop-audited.md#key-features)
+* [Rajoitukset](./sd-desktop-audited.md#limitations)
+* [Ennen aloittamista](./sd-desktop-audited.md#before-you-start)
 
- * [Key features](./sd-desktop-audited.md#key-features)
+## Keskeiset ominaisuudet {#key-features}
 
- * [Limitations](./sd-desktop-audited.md#limitations)
+* Auditointi suoritettu Findata-säädösten mukaisesti.
 
- * [Before you start](./sd-desktop-audited.md#before-you-start) 
+* Käytettävissä mistä tahansa käyttöjärjestelmästä (Mac, Linux tai Windows) verkon yli (esim. Google Chrome, Firefox) julkisesta internetistä (ilman tarvetta asentaa asiakasohjelmaa tai käyttää VPN:ää).
 
-    
-## Key features
+* Vain saman CSC-projektin jäsenet voivat käyttää samaa virtuaalista työpöytää.
 
-* Audited against Findata regulation.
+* Kirjautumisen jälkeen SD-työpöydälle käyttäjä voi aloittaa valmiiksi rakennetun laskentaympäristön (Linux Ubuntu OS) tarvittaessa; tarjolla olevat vaihtoehdot tukevat yksinkertaisten tilastollisten analyysien tekemistä sekä koneoppimista.
 
-* Accessible from any operating system (Mac, Linux or Windows) via web-browser (e.g., Google Chrome, Firefox) from the public internet (without the need of installing a client or using a VPN).
+* Säädösten noudattamiseksi toissijaiseen käyttöön tarkoitettuja virtuaalipöytiä on täysin eristetty internetistä ja muista palveluista: voit käyttää vain tietoja, joita olet pyytänyt tietojen käsittelijältä;
 
-* Only the members of the same CSC project can access the same virtual desktop.
+* SD-työpöytää voidaan käyttää kaikenlaisten tietojen käsittelyyn: tekstitiedostot, kuvat, äänitiedostot, video ja geneettiset tiedot. Virtuaalinen työpöytä sisältää kuitenkin [rajallisen joukon etukäteen asennettua ohjelmistoa](../../data/sensitive-data/sd-desktop-secondary-working.md#default-software-available-in-sd-desktop) (avoimen lähdekoodin). Lisäohjelmistojen asentaminen virtuaaliseen työpöytään on rajoitettua. Ota aina yhteyttä servicedesk@csc.fi ohjelmistotarpeistasi ennen kuin aloitat tietojen kanssa työskentelyn.
 
-* After login to SD Desktop, the user can start a pre-built computing environment (Linux Ubuntu OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning.
+## Rajoitukset {#limitations}
 
-* To comply with the regulation, virtual desktops for secondary use are completely isolated from the internet and other services: you can only access the data you have requested from the data controller;
+* Säädösten noudattamiseksi toissijaiseen käyttöön tarkoitettu SD-työpöytä on **täysin eristetty internetistä ja muista palveluista**. Voit esimerkiksi avata Firefox-verkkoselaimen, mutta et pysty päästä millekään internetin sivustolle.
 
-* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd-desktop-secondary-working.md#default-software-available-in-sd-desktop) (open source). Installing additional software to the virtual desktop is limited. Always contact servicedesk@csc.fi about software needs before starting to work with the data.
+* **Datan ja ohjelmiston tuonti on rajoitettua SD-työpöydässä**. Et voi turvallisuussyistä tuoda mitään dataa tai ohjelmistoa itse. Jos työskentelet tietoaineiston kanssa, johon olet saanut luvan tietojen käsittelijältä, ainoa tapa päästä käsiksi dataan analysointia varten on käyttää erityistä sovellusta nimeltä **Data Gateway**.
 
-## Limitations
+* **Datan vienti SD-työpöydältä on myös rajoitettua**. Vain *ei-herkkiä* tuloksia voidaan viedä työtilasta, ja ne voi viedä vain CSC-projektin johtaja. Ohjeet tulostesi viemiseen annetaan seuraavassa kappaleessa.
 
-* To comply with the regulation, SD Desktop for secondary use is **completely isolated from the internet and other services**. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet.
+* Lopuksi, emme vielä tarjoa virtuaalista työpöytää Windows-käyttöjärjestelmällä tai GPU:illa.
 
-* **The import of data and software is restricted in SD Desktop**. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from the data controller, the only way to access the data for analysis is by utilizing a specific application called **Data Gateway**. 
+## Ennen aloittamista {#before-you-start}
 
-* **Data export from SD Desktop is also restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided in the next paragraph.
+* Sinulla on oltava Findatan tai yksittäisen rekisterin myöntämä tietolupa ennen kuin aloitat palvelun käyttöprosessin CSC:llä.
 
+* Kaikki tietyn CSC-projektin jäsenet voivat käyttää samaa laskentaympäristöä. Tällä hetkellä on mahdollista käynnistää 3 virtuaalista työpöytää (tai laskentaympäristöä) kullekin CSC-projektille. Jokaisella CSC-projektilla on oma yksityinen työpöytä, ja kukin työpöytä on eristetty muista CSC-projekteista tai CSC-tileistä.
 
-* Lastly, we are not yet providing a virtual Desktop with Windows operating system or with GPUs. 
+* Auditoinnin SD-työpöydällä on muutamia tärkeitä rajoituksia: CSC-projektia hallinnoi palvelupiste ja tiedonsiirto on rajoitettua (mukaan lukien käyttäjän omat skriptit ja ohjelmat).
 
-## Before you start
+* Kun tietolupasi vanhenee, et voi enää käyttää virtuaalista työpöytääsi. Jatkaaksesi työskentelyä saman projektin kanssa, sinun on lähetettävä muutoshakemus tietojen käsittelijälle. Muussa tapauksessa varmista, että pyydät kaikkien tuloksiesi vientiä ennen tietolupasi voimassaoloajan päättymistä. Vanhenneen projektin ja kaikki tiedot poistetaan 90 päivän kuluttua CSC:n tietojen säilytyskäytännön mukaisesti.
 
-* You need to have a data permit issued by Findata or a single register before starting the service access process at CSC.
-
-* All the members belonging to a specific CSC project can access the same computing virtual desktop. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private desktop, and each desktop is isolated from other CSC projects or CSC accounts.
-
-* Audited SD Desktop has few important limitations: the CSC project will be managed by the service desk and the data transfer will be restricted (including user’s own script and programs).
-
-* After your data permit expires, you will no longer have access to your virtual desktop. To continue working with the same project, you need to send an amendment application to the data controller. Otherwise, make sure to request to export all your results before the validity period of your data permit ends. The expired project and all the data will be deleted after 90 days according to CSC's data retention policy.
-
-!!! Note
-    We recommend you to **[contact CSC Service Desk](../../support/contact.md) well in advance**, even before applying for a data permit, if you need **software that is not available** on the Desktop as a default.
+!!! Huomio
+    Suosittelemme, että **[otat yhteyttä CSC:n palvelupisteeseen](../../support/contact.md) hyvissä ajoin etukäteen**, jopa ennen tietoluvan hakemista, jos tarvitset **työpöydällä ei oletuksena olevia ohjelmistoja**.

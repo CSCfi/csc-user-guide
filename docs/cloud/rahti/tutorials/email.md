@@ -1,27 +1,28 @@
-!!! warning "Medium level"
-    A knowledge of Python is a plus.
-   
-    This tutorial implies that you have a running [Pod](../concepts.md#pod) and you want to add a SMTP configuration.
 
-# Sending e-mail from Rahti
+!!! varoitus "Keskitaso"
+    Pythonin tuntemus on etu.
 
-The procedure is the same as for [sending an e-mail from cPouta](../../pouta/additional-services.md).
+    Tässä ohjeessa oletetaan, että sinulla on käynnissä oleva [Pod](../concepts.md#pod) ja haluat lisätä SMTP-määrityksen.
 
-you need to configure your mail transfer agent (MTA) to use the following SMTP relay server (a.k.a. smarthost):
+# Sähköpostin lähettäminen Rahtista {#sending-e-mail-from-rahti}
+
+Menettelytapa on sama kuin [sähköpostin lähettäminen cPoutasta](../../pouta/additional-services.md).
+
+Sinun täytyy konfiguroida sähköpostinsiirtoagenttisi (MTA) käyttämään seuraavaa SMTP-välityspalvelinta (tunnetaan myös nimellä smarthost):
 
 ```
 smtp.pouta.csc.fi:25
 ```
 
-The server does not require authentication.
+Palvelin ei vaadi autentikointia.
 
-When sending e-mail, you need a valid `Sender` address in your e-mails, such as your university e-mail address, since this will be validated by the SMTP server. Please note that this is a different e-mail header attribute from the `From` attribute.
+Kun lähetät sähköpostia, sinun tulee käyttää kelvollista `Sender`-osoitetta sähköpostissasi, esimerkiksi yliopiston sähköpostiosoitetta, koska SMTP-palvelin vahvistaa tämän. Huomaa, että tämä on eri sähköpostin otsikoiden määre kuin `From`.
 
-If you want to set up any services on _Rahti_ that generate a large amount of SMTP traffic (e.g. public mailing lists), please contact the CSC Service Desk to coordinate this.
+Jos haluat perustaa Rahtiin palveluita, jotka tuottavat suuren määrän SMTP-liikennettä (esim. julkiset postituslistat), ota yhteyttä CSC:n palvelupisteeseen koordinoidaksesi tämän.
 
-## Example
+## Esimerkki {#example}
 
-This python script could be used:
+Tätä Python-skriptiä voisi käyttää:
 
 ```python
 #!/usr/bin/env python
@@ -46,6 +47,6 @@ except SMTPException:
    print("Error: unable to send email")
 ```
 
-* You should replace `sender@domain.com` with your email, or the email you want to receive replies to.
-* You should replace as well `destination@domain.com` with the destination email.
-* The relay SMTP server will only allow to send emails from clients from certain IPs, like from Rahti nodes. In other words, the script above will not work from your desktop/laptop.
+* Sinun tulisi korvata `sender@domain.com` omalla sähköpostiosoitteellasi tai sähköpostilla, johon haluat saada vastauksia.
+* Sinun tulisi myös korvata `destination@domain.com` kohdesähköpostilla.
+* Välityspalvelin SMTP sallii sähköpostien lähettämisen vain tietyiltä IP-osoitteilta, kuten Rahti-solmuista. Toisin sanoen, yllä oleva skripti ei toimi työpöydälläsi/kannettavalla tietokoneellasi.

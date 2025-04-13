@@ -1,49 +1,48 @@
-# How to manage user information
 
-Edit profile information:
+# Kuinka hallita käyttäjätietoja {#how-to-manage-user-information}
 
-1. Login to [MyCSC](http://my.csc.fi).
-1. Choose _Profile_ in the navigation menu on the left.
-1. Select and edit the information you wish to change.
-1. Click _Save_.
+Muokkaa profiilitietoja:
 
-!!! Note
+1. Kirjaudu [MyCSC](http://my.csc.fi).
+1. Valitse vasemmanpuoleisesta valikosta _Profiili_.
+1. Valitse ja muokkaa tietoja, joita haluat muuttaa.
+1. Klikkaa _Tallenna_.
 
-    You cannot change your username or primary email address. If your email
-    address changes, please contact us at _servicedesk@csc.fi_.
-    
-### When you change your organisation
+!!! Huomio
 
-When you are changing your organisation please send us the email address of your new organisation to servicedesk@csc.fi.
-We will reply and send you the instructions on how to link the new Haka or Virtu-ID with your user account. 
+    Et voi muuttaa käyttäjätunnustasi tai ensisijaista sähköpostiosoitettasi. Jos sähköpostiosoitteesi muuttuu, ota yhteyttä meihin osoitteessa _servicedesk@csc.fi_.
 
+### Kun vaihdat organisaatiotasi {#when-you-change-your-organisation}
 
-## How to link your CSC user account to external authentication sources
+Kun vaihdat organisaatiotasi, lähetä meille uuden organisaatiosi sähköpostiosoite osoitteeseen servicedesk@csc.fi.
+Vastaamme ja lähetämme sinulle ohjeet, miten linkittää uusi Haka- tai Virtu-ID käyttäjätiliisi.
 
-You can link your CSC user account to external authentication mechanisms which can be used side by side on several CSC services.
-In our example we will link CSC user account to MyAccessID but this method is similar to other methods. It's vital that you use the exact same email address you're using in CSC services. This ensures that both services (CSC + MyAccessId) recognize you as the same individual. 
+## Kuinka linkittää CSC-käyttäjätilisi ulkoisiin tunnistautumislähteisiin {#how-to-link-your-csc-user-account-to-external-authentication-sources}
 
-### You already have a MyAccessID available
+Voit linkittää CSC-käyttäjätilisi ulkoisiin tunnistautumismekanismeihin, joita voidaan käyttää rinnakkain useissa CSC-palveluissa.
+Esimerkissä linkitämme CSC-käyttäjätilin MyAccessID:hen, mutta tämä menetelmä on samanlainen kuin muutkin menetelmät. On tärkeää, että käytät täsmälleen samaa sähköpostiosoitetta kuin CSC-palveluissa. Tämä varmistaa, että molemmat palvelut (CSC + MyAccessID) tunnistavat sinut samaksi henkilöksi.
 
-1. Login to [MyCSC](http://my.csc.fi) with your CSC user account.
-1. Choose _Profile_ in the navigation menu on the left.
-1. Select 'MyAccessID' on the 'Login Methods' panel
-1. When asked for confirmation to do the linking, click 'Confirm'
-1. You're now transferred to MyAccessID login page and you must provide your home organization to the search field
-1. When you've selected your home organization you're transferred to your login page and need authenticate
-1. After successful authentication your CSC user account is now linked with MyAccessID
+### Sinulla on jo MyAccessID käytettävissäsi {#you-already-have-a-myaccessid-available}
 
-### You do not have a MyAccessID available
+1. Kirjaudu [MyCSC](http://my.csc.fi) CSC-käyttäjätililläsi.
+1. Valitse vasemmanpuoleisesta valikosta _Profiili_.
+1. Valitse 'MyAccessID' 'Kirjautumistavat' -paneelista.
+1. Kun sinulta pyydetään vahvistusta linkittämiseen, napsauta 'Vahvista'.
+1. Sinut ohjataan MyAccessID-kirjautumissivulle ja sinun tulee antaa kotiorganisaatiosi hakukenttään.
+1. Kun olet valinnut kotiorganisaatiosi, sinut ohjataan kirjautumissivullesi ja sinun täytyy tunnistautua.
+1. Onnistuneen tunnistautumisen jälkeen CSC-käyttäjätilisi on nyt linkitetty MyAccessID:hen.
 
-1. Login to [MyCSC](http://my.csc.fi) with your CSC user account.
-1. Choose _Profile_ in the navigation menu on the left.
-1. Select 'MyAccessID' on the 'Login Methods' panel
-1. When asked for confirmation to do the linking, click 'Confirm'
-1. Review and accept the information release document
-1. Review and accept the policies for MyAccessID and terms of use for LUMI
-1. You've now registered your MyAccessID. Unfortunately MyAccessID portal does not redirect you back to [MyCSC](http://my.csc.fi) but you still need to perform the tasks in [You already have a MyAccessID available](../accounts/how-to-manage-user-information.md#you-already-have-a-myaccessid-available)
+### Sinulla ei ole MyAccessID käytettävissäsi {#you-do-not-have-a-myaccessid-available}
 
-!!! Note
+1. Kirjaudu [MyCSC](http://my.csc.fi) CSC-käyttäjätililläsi.
+1. Valitse vasemmanpuoleisesta valikosta _Profiili_.
+1. Valitse 'MyAccessID' 'Kirjautumistavat' -paneelista.
+1. Kun sinulta pyydetään vahvistusta linkittämiseen, napsauta 'Vahvista'.
+1. Tarkista ja hyväksy tietojen luovutusehdot.
+1. Tarkista ja hyväksy MyAccessID:n käytön ehdot ja LUMI:n käyttöehdot.
+1. Olet nyt rekisteröinyt MyAccessID:si. Valitettavasti MyAccessID-portaali ei ohjaa sinua takaisin [MyCSC](http://my.csc.fi), mutta sinun on vielä suoritettava tehtävät kohdassa [Sinulla on jo MyAccessID käytettävissäsi](../accounts/how-to-manage-user-information.md#you-already-have-a-myaccessid-available).
 
-    If you're invited to a Euro HPC LUMI project or you're a a Euro HPC Project manager you must link your CSC user account with MyAccessID.
-    Otherwise you might end up with 2 separate CSC user accounts.
+!!! Huomio
+
+    Jos olet kutsuttu Euro HPC LUMI -projektiin tai olet Euro HPC -projektipäällikkö, sinun on linkitettävä CSC-käyttäjätilisi MyAccessID:hen.
+    Muuten saatat päätyä kahteen erilliseen CSC-käyttäjätiliin.

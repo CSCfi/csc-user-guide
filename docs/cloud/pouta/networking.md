@@ -1,76 +1,73 @@
-# Networking in Pouta
-Every cPouta project comes with a default network and router configuration enough for most purposes. Most often, you don't need to worry about the network or router configuration and you can create virtual machines using the defaults.
+# Verkottuminen Poudassa {#networking-in-pouta}
+Jokaisessa cPouta-projektissa on oletusverkon ja reitittimen määritys, joka riittää useimpiin tarkoituksiin. Useimmiten sinun ei tarvitse huolehtia verkon tai reitittimen asetuksista, ja voit luoda virtuaalikoneita oletuksilla.
 
-In the situation that your project is missing a default network you will not be able to create a virtual machine. And if you are missing a router, you will not be able to assign ports* in your machine for example to a floating IP.
+Mikäli projektistasi puuttuu oletusverkko, et voi luoda virtuaalikonetta. Ja jos sinulta puuttuu reititin, et voi esimerkiksi määrittää portteja koneessasi kelluvaa IP-osoitetta varten.
 
-If you find you in the need of creating a network and or router, you can recreate the default settings via the web interface with the following instructions.
+Jos huomaat, että sinun on luotava verkko tai reititin, voit palauttaa oletusasetukset verkon käyttöliittymän kautta seuraavien ohjeiden avulla.
 
-*A port is a connection point for attaching a single device to a network.*
+*Portti on liitäntäpiste, johon voidaan liittää yksi laite verkkoon.*
 
-## Create a network
+## Luo verkko {#create-a-network}
 
-1. Open [cPouta](https://pouta.csc.fi) and navigate to **Network > Networks**. Click on **Create Network** button on the upper right. A new window will open.
+1. Avaa [cPouta](https://pouta.csc.fi) ja siirry kohtaan **Verkko > Verkot**. Napsauta oikeassa yläkulmassa olevaa **Luo verkko** -painiketta. Avautuu uusi ikkuna.
 
-    ![Create network on Pouta](../../img/pouta-network-1.png)
+    ![Luo verkko Poudassa](../../img/pouta-network-1.png)
 
-    - **Network Name** - Specify a name for your network.
-    - **Enable Admin State** - Enable the network.
-    - **Create Subnet** - Leave check if you want to create a subnet.
-    - **Availabity Zone Hints** - Leave "nova" by default.
+    - **Verkon nimi** - Määritä verkollesi nimi.
+    - **Ota hallintatila käyttöön** - Ota verkko käyttöön.
+    - **Luo aliverkko** - Jätä valituksi, jos haluat luoda aliverkon.
+    - **Saavutettavuusvyöhykkeen vihjeet** - Jätä oletuksena "nova".
 
-1. When done, click on **Next**. It will open the next tab regarding the subnet.
+1. Kun olet valmis, napsauta **Seuraava**. Tämä avaa aliverkkoon liittyvän seuraavan välilehden.
 
-    ![Create subnet on Pouta](../../img/pouta-network-2.png)
+    ![Luo aliverkko Poudassa](../../img/pouta-network-2.png)
 
-    - **Subnet Name** - Specify a name for your subnet
-    - **Network Address** - Specify a network in CIDR format. Here a [link](https://www.calculator.net/ip-subnet-calculator.html) that could help you to calculate the network address.
-    - **IP Version** - You can leave IPv4
-    - **Gateway IP** - Optionally you can choose the gateway IP. If it's not filled in, one will be chosen automatically.
+    - **Aliverkon nimi** - Määritä aliverkkosi nimi
+    - **Verkon osoite** - Määritä verkko CIDR-muodossa. Tässä on [linkki](https://www.calculator.net/ip-subnet-calculator.html), joka voi auttaa sinua laskemaan verkon osoitteen.
+    - **IP-versio** - Voit jättää IPv4:n
+    - **Reitittimen IP-osoite** - Halutessasi voit valita reitittimen IP-osoitteen. Jos sitä ei täytetä, se valitaan automaattisesti.
 
-1. You can click on **Next**.
+1. Voit napsauttaa **Seuraava**.
 
-    ![Subnet details on Pouta](../../img/pouta-network-3.png)
+    ![Aliverkon tiedot Poudassa](../../img/pouta-network-3.png)
 
-    By default, **Enable DHCP** is activated.
-    - **Allocation Pools** - Choose the IP range that will deliver the IP for the DHCP
-    - **DNS Name Server** - Enter 193.166.4.24 and 193.166.4.25 (See screenshot above)
+    Oletuksena **Ota DHCP käyttöön** on aktivoitu.
+    - **Kohdentamisaltaat** - Valitse IP-alue, joka toimittaa IP:n DHCP:lle
+    - **DNS-nimipalvelin** - Syötä 193.166.4.24 ja 193.166.4.25 (katso yllä oleva kuvakaappaus)
 
-1. In the end, you can click **Create** and you should see your network in the list.
+1. Lopuksi voit napsauttaa **Luo**, ja sinun pitäisi nähdä verkko listalla.
 
-## Create a router
-A router will bridge the connection from **external** to the **private network**
+## Luo reititin {#create-a-router}
+Reititin yhdistää **ulkoisen** ja **yksityisen verkon**
 
-1. Navigate to **Network > Routers**. Click on **Create Router** on the upper right. A new window will open.
+1. Siirry kohtaan **Verkko > Reitittimet**. Napsauta oikeassa yläkulmassa **Luo reititin** -painiketta. Avautuu uusi ikkuna.
 
-    ![Create a router on Pouta](../../img/pouta-router-1.png)
+    ![Luo reititin Poudassa](../../img/pouta-router-1.png)
 
-    - **Router Name** - Specify a name for your router
-    - **Enable Admin State** - Enable the router
-    - **External Network** - Choose which external you want to use for the router
-    - **Availability Zone Hints** - Select your availability zone.
+    - **Reitittimen nimi** - Määritä reitittimen nimi
+    - **Ota hallintatila käyttöön** - Ota reititin käyttöön
+    - **Ulkoinen verkko** - Valitse, mitä ulkoista verkkoa haluat käyttää reitittimelle
+    - **Saavutettavuusvyöhykkeen vihjeet** - Valitse käytettävyyden vyöhyke.
 
-1. After filling in the necessary fields, you can click on **Create Router**
+1. Kun olet täyttänyt tarvittavat kentät, voit napsauttaa **Luo reititin**
 
-1. Now that you have the **router** created, you need to attach it to your internal network to allow communication with the external. Click on your router newly created and go to the tab **Interfaces**.
-Click on **Add Interface**
+1. Nyt kun olet luonut **reitittimen**, sinun täytyy liittää se sisäiseen verkkoon, jotta se voi kommunikoida ulkoisen verkon kanssa. Klikkaa juuri luomaasi reititintä ja siirry välilehdelle **Liitännät**.
+Napsauta **Lisää liitäntä**
 
-    ![Add interface to router in Pouta](../../img/pouta-router-2.png)
+    ![Lisää liitäntä reitittimeen Poudassa](../../img/pouta-router-2.png)
 
-    - **Subnet** - Select the network you want to attach.
-    - **IP Address** - This option is not mandatory, if you don't add an IP address, the gateway IP will be selected.
+    - **Aliverkko** - Valitse verkko, johon haluat liittää.
+    - **IP-osoite** - Tämä vaihtoehto ei ole pakollinen, jos et lisää IP-osoitetta, valitaan reitittimen IP.
 
-1. Now you attached your interface to the router and able to connect to the external network. You can see a graph by clicking on **Network > Network Topology** and select the tab **Graph**
-![Network topology in Pouta](../../img/pouta-network-topo-1.png)
-
+1. Nyt olet liittänyt liitännän reitittimeen ja voit muodostaa yhteyden ulkoiseen verkkoon. Voit nähdä kaavion napsauttamalla **Verkko > Verkon topologia** ja valitsemalla välilehden **Kaavio**
+![Verkon topologia Poudassa](../../img/pouta-network-topo-1.png)
 
 !!! info
 
-    If you want to access your instances from an external network, you need to associate a [floating IP](launch-vm-from-web-gui.md#post-creation-step).  
-    A floating IP sticks with your instance until you decide to release it.
+    Jos haluat käyttää instanssejasi ulkoisesta verkosta, sinun on yhdistettävä siihen [kelluva IP](launch-vm-from-web-gui.md#post-creation-step).  
+    Kelluva IP säilyy instanssissasi kunnes päätät vapauttaa sen.
 
-
-* If you want to use the CLI command:
-
+* Jos haluat käyttää CLI-komentoa:
 
 ```sh
 $ openstack network create test-network
@@ -82,60 +79,58 @@ $ openstack router set --external-gateway public test-router
 $ openstack router add subnet test-router test-network
 ```
 
+## Turvallisuusryhmät {#security-groups}
 
-## Security groups
+Turvallisuusryhmät ovat joukko palomuurisääntöjä, jotka rajoittavat pääsyä koneillesi. Virtuaalikone voi käyttää yhtä tai useampaa turvallisuusryhmää. Ja yksi turvallisuusryhmä voidaan määrittää yhdelle tai useammalle virtuaalikoneelle. Turvallisuusryhmä voi sisältää yhden tai useamman säännön. Nämä palomuurisäännöt tehdään OpenStack-tasolla ja sinulla voi olla lisäpalomuurisääntöjä virtuaalikoneessasi. Yhteysongelmien tapauksessa sinun tulee varmistaa, että sekä turvallisuusryhmä että virtuaalikoneen sisäinen palomuuri on konfiguroitu oikein.
 
-Security groups are sets of firewall rules which limit access to your machines. A virtual machine can use one or more security groups. And one security group can be assigned to one or more Virtual Machines. A security group can hold one or more Rules. These firewall rules are made on the OpenStack layer and you may have additional firewall rules within your virtual machine. In case of connectivity problems, you should make sure both the security group and the virtual machine's internal firewall are correctly configured.
+![Turvallisuusryhmät](../../img/security_group.drawio.png)
 
-![Security Groups](../../img/security_group.drawio.png)
+Turvallisuusryhmää voidaan muokata tai luoda milloin tahansa virtuaalisen koneen elinkaaren aikana. Kaikki muutokset, jotka tehdään virtuaalikoneeseen määritettyyn turvallisuusryhmään, toteutetaan välittömästi virtuaalikoneelle. Turvallisuusryhmiin ei liity kustannuksia.
 
-A security group can be edited or created in any moment of the Virtual Machine life-cycle. Any change applied to a security group assigned to a Virtual Machine, will be applied instantly to the Virtual Machine. There is no cost associated to security groups.
+* **Suositus** on pyrkiä sarjaan ryhmiä ja sääntöjä, jotka ovat _järjestettyjä_ niin, että niiden tavoite on helposti ymmärrettävissä. Jokaisella palvelulla tulisi olla oma turvallisuusryhmä ja sekä nimen että kuvauksen tulisi selkeästi ilmaista, mitä tämä ryhmä tarjoaa ja mihin se avaa pääsyn (kohdeportit) ja mistä (lähde-IP:t).
 
-* The **recommendation** is to aim for a set of Groups and Rules that are _organized_ in a way that helps understanding the objective of each of them. Each service should have its own security group and both the name and description should be clear of what this Group provides and opens access to (destination ports) and from (source IPs).
+    ![Turvallisuusryhmien lista](../../img/security_group_list.png)
 
-    ![Security Groups List](../../img/security_group_list.png)
+    Yllä olevassa esimerkissä meillä on 3 turvallisuusryhmää lukuun ottamatta `oletusta`, kaksi sisäistä valvontaa ja hallintaa varten sekä yksi julkinen palvelua varten, jota tarjoamme käyttäjillemme.
 
-    In the example above we have 3 security groups other than the  `default` one, two internal for monitoring and management, and one public for the service we offer to our users.
+    !!! Info "Instanssinäkymä"
+        Instanssinäkymä näyttää kaikki VM:n kokoonpanot, mukaan lukien kaikki siihen lisätyt turvallisuusryhmät ja kunkin niiden konfiguraation. Se on erittäin hyödyllinen verkko-ongelmien vianmäärityksessä ja VM:n turvallisuuden varmistamisessa.
 
-    !!! Info "Instance view"
-        The instance view shows all the configurations of a VM, including all the securitity groups added to it, and the configuration of each of them. It is very useful to debug network connections issues and confirm the security of a VM.
+* `Oletus` turvallisuusryhmässä on sääntöjä, jotka mahdollistavat sisäisen viestinnän turvallisuusryhmän jäsenten välillä:
 
-* The `Default` security group comes with rules that allow internal communication between virtual machines that are members of the security group:
+    ![Oletus turvallisuusryhmä](../../img/default-security-group.png)
 
-    ![Default security group](../../img/default-security-group.png)
+    !!! Warning "Älä muuta oletus turvallisuusryhmää"
+        Vaikka oletus turvallisuusryhmää saa muokata, sitä ei suositella. Jotkin alustusmenetelmät luottavat oletus turvallisuusryhmän kokoonpanoon.
 
-    !!! Warning "Do not modify the default security group"
-        Meanwhile it is allowed to edit the default security group, it is not advisable. Some of the initialization procedures rely on the default security group configuration.
+    `Oletus` turvallisuusryhmässä kaksi ensimmäistä sääntöä sallii liikenteen ulos (`Egress`) mihin tahansa `IP` tai `Port`. Kaksi viimeistä sääntöä sallii viestinnän kaikkien `oletus` turvallisuusryhmän jäsenten välillä myös mille tahansa `IP` tai `Port`. Tämä tarkoittaa, että oletuksena jokainen VM voi ottaa yhteyttä mihin tahansa julkiseen Internet-osoitteeseen ja toisiinsa. Tämä voidaan rajoittaa keskimääräistä turvallisemmille ympäristöille, mutta se tulisi tehdä ymmärtäen vaatimukset.
 
-    In the `default` security group, the first two rules allow for traffic to exit (`Egress`) to Any `IP` or `Port`. The last two rules, allow communications among any member of the `default` security group also for any `IP` or `Port`. This means that by default any VM is able to contact anywhere in the public internet and among themselves. This can be restricted for more secure than average environments, but it should be done with the understanding of the requirements.
+### Luo turvallisuusryhmä {#create-a-security-group}
 
-### Create a security group
+1. Mene ensin Poudassa [Turvallisuusryhmät](https://pouta.csc.fi/dashboard/project/security_groups/) hallintasivulle. Uudessa tyhjässä projektissa on vain oletus turvallisuusryhmä.
 
-1.First go to the [Security Groups](https://pouta.csc.fi/dashboard/project/security_groups/) management page in Pouta. For a new empty project, only the default security group will be there.
+1. Napsauta **+ Luo turvallisuusryhmä**
 
-1. Click in **+ Create Security Group**
+    ![luo_turvallisuusryhmä.png](../../img/create_security_group.png)
 
-    ![create_security_group.png](../../img/create_security_group.png)
+1. "Luo turvallisuusryhmä" sivu ilmestyy. Anna **Nimi** ja **Kuvaus**.
 
-1. The "Create Security Group" page will appear. Provide a **Name** and a **Description**.
+1. Napsauta sitten **Hallinnoi sääntöjä**, ja näytössä, joka näytetään, napsauta **Lisää sääntö**.
 
-1. Then click in **Manage Rules**, and in the view that is displayed, click **Add Rule**.
+    ![Lisää sääntö](../../img/pouta-add-rules-secgroup.png)
 
-    ![Add Rule](../../img/pouta-add-rules-secgroup.png)
+    - **Sääntö** tarjoaa useita vaihtoehtoja:
+        - On olemassa luettelo protokollista (DNS, HTTP, IMAP, ...), ne tarjoavat jonkin verran yksinkertaisuuden luoda sääntö. Esimerkiksi `SSH`-protokollalle tarvitsee vain syöttää CIDR, joka sallitaan tällä säännöllä.
+        - Kolme yleisintä ja eniten hallittavaa vaihtoehtoa ovat **Mukautettu TCP-sääntö**, **Mukautettu UDP-sääntö** ja **Mukautettu ICMP-sääntö**, ne ovat niitä, jotka sallivat palomuuri-asetusten hienosäätämisen.
+        - Lopuksi **Kaikki ICMP/TCP/UDP** avaavat kaikki portit tietyssä protokollassa tiettyyn CIDR-osoitteeseen. Ne ovat suositeltavia vain testeissä ja kun sallittujen IP-osoitteiden lista on rajoitettu ja hallittu.
+    - **Kuvaus** ei ole pakollinen, mutta suositeltava monimutkaille turvallisuusryhmille, joissa on useita sääntöjä. Esimerkiksi kun lisätään useita IP-alueita, kuvauksen tulisi kertoa, mihin nämä IP:t liittyvät (toimistoverkko, VPN, ...).
+    - **Suunta** voi olla Saapuva tai Lähtevä. Periaatteessa useimmat säännöt ovat Saapuva-sääntöjä, koska Lähtevä on oletuksena auki.
+    - **Avaa portti** voi olla yksittäinen **Portti**, **Porttialue** tai **Kaikki portit**.
+    - **Portti** tai **Porttialue** on itsestään selvä. Jos et tiedä, mikä portti avata, vaihtoehtoinen vaihtoehto on käyttää yhtä ennalta määritetyistä protokollista **Sääntö** kohdassa.
+    - **CIDR** tai luokaton verkkotunnusreititys on tapa määrittää IP-osoitteiden alueita. Voit määrittää yksittäisen IP:n lisäämällä `/32` loppuliitteen (`188.184.77.250/32`) tai kokonaisen C-luokan aliverkon loppuliitteellä `/16` (`188.184.77.250/16`).
 
-    - **Rule** has several options:
-        - There is a list of protocols (DNS, HTTP, IMAP, ...), they provide an somewhat simpler way to create a rule. For example the `SSH` protocol only requires to input the CIDR that will be allowed by this rule.
-        - The 3 more generic and configurable options are **Custom TCP Rule**, **Custom UDP Rule** and **Custom ICMP Rule**, they are the ones that allow the most fine tuning of the firewall options.
-        - Finally the **All ICMP/TCP/UDP** open all ports for a given protocol to a given CIDR. They are only advisable for tests and when the list of allowed IPs is restricted and controlled.
-    - **Description** is not compulsory, but advisable for complex Security Groups with several Rules. For example, when adding several IP ranges, the description should state what are these IPs associated with (office network, VPN, ...).
-    - **Direction** can be Ingress or Egress. In principle , most rules will be Ingress rules as by default Egress is open.
-    - **Open Port** can be single **Port**, **Port Range**, or **All ports**.
-    - **Port** or **Port Range** is self explanatory. If you do not know which port to open, an alternative option is to use one of the predefined protocols in **Rule**.
-    - **CIDR** or Classless Inter-Domain Routing is a way to specify ranges of IPs. You can specify a single IP by adding the `/32` suffix (`188.184.77.250/32`), or a whole Class C subnet with the suffix `/16` (`188.184.77.250/16`).
+Turvallisuusryhmä voi sisältää niin monta sääntöä kuin tarvitaan.
 
-A security group can hold as many rules as needed.
+![Esimerkki turvallisuusryhmästä](../../img/security_group_example.png)
 
-
-![Example security group](../../img/security_group_example.png)
-
-In the example above we have the opening of ports `80` (http) and `443` (https) to the subnet `188.184.0.0/16` ([`188.184.0.0` to `188.184.255.255`]).
+Yllä olevassa esimerkissä olemme avanneet portit `80` (http) ja `443` (https) aliverkossa `188.184.0.0/16` ([`188.184.0.0` - `188.184.255.255`]).

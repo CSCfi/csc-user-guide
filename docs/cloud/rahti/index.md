@@ -1,29 +1,21 @@
 # Rahti
 
-Welcome to the Rahti container cloud! Rahti offers several features out of the box. It has an
-integrated and configurable **health monitoring** system that allows for fast and automatic **scaling**
-and **failover**. Deployment of new versions can be done easily and transparently with the provided
-**rolling updates** feature that uses the integrated **load balancing** system. Rahti also provides
-default **DNS** names (with the pattern `<something>.rahtiapp.fi`). These domain names have TLS certificates
-already installed and always valid. If you are not yet familiar with container technology or container orchestration systems such as
-Kubernetes or OpenShift, you could start by reading a generic introduction to
-the topic:
+Tervetuloa Rahti-konttipilveen! Rahti tarjoaa useita ominaisuuksia suoraan käyttöön. Sillä on integroitu ja konfiguroitava **terveysseuranta**-järjestelmä, joka mahdollistaa nopean ja automaattisen **skaalauksen** sekä **vikasiirron**. Uusien versioiden käyttöönotto onnistuu helposti ja läpinäkyvästi mukana tulevan **rullaavien päivitysten** ominaisuuden avulla, joka käyttää integroituja **kuormituksen tasaus** -järjestelmiä. Rahti tarjoaa myös oletusarvoisia **DNS**-nimiä (muodossa `<jotakin>.rahtiapp.fi`). Näillä verkkotunnuksilla on valmiiksi asennetut ja aina voimassa olevat TLS-varmenteet. Jos et ole vielä perehtynyt konttiteknologiaan tai konttien orkestrointijärjestelmiin, kuten Kubernetes tai OpenShift, voit aloittaa lukemalla yleisen johdannon aiheeseen:
 
-  * [What is Rahti?](rahti-what-is.md)
-  * [Containers and their Orchestration](containers.md)
-  * [Kubernetes and OpenShift concepts](concepts.md)
-  * [Security guide](security-guide.md)
-  * [Rahti Tutorials](tutorials/index.md)
-  * [External documentation ](ext_docs.md)
+  * [Mikä on Rahti?](rahti-what-is.md)
+  * [Kontit ja niiden orkestrointi](containers.md)
+  * [Kubernetes ja OpenShift -konseptit](concepts.md)
+  * [Tietoturvaopas](security-guide.md)
+  * [Rahti-ohjeet](tutorials/index.md)
+  * [Ulkoinen dokumentaatio](ext_docs.md)
 
-If you are already familiar with container technology and Kubernetes/OpenShift concepts,
-you could move directly to the instructions for getting started with Rahti & its usage :
+Jos olet jo perehtynyt konttiteknologiaan ja Kubernetes/OpenShift -konsepteihin, voit siirtyä suoraan Rahdin käyttöönottamisen ohjeisiin:
 
-  * [Getting access](access.md)
-  * [Storage](storage/index.md)
-  * [Images](images/overview.md)
-  * [Rahti Templates](catalog-docs.md)
-  * [Project and Quota](usage/projects_and_quota.md)
-  * [Billing](billing.md)
+  * [Käyttöoikeuden saaminen](access.md)
+  * [Tallennus](storage/index.md)
+  * [Kuvat](images/overview.md)
+  * [Rahti-mallipohjat](catalog-docs.md)
+  * [Projekti ja kiintiö](usage/projects_and_quota.md)
+  * [Laskutus](billing.md)
 
-Still have queries? Checkout our [Rahti FAQs](../../support/faq/index.md#rahti) page or contact <servicedesk@csc.fi> for more info.
+Onko sinulla vielä kysyttävää? Tarkista [Rahdin usein kysytyt kysymykset](../../support/faq/index.md#rahti) -sivumme tai ota yhteyttä <servicedesk@csc.fi> saadaksesi lisätietoa.

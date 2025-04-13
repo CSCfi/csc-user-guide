@@ -1,23 +1,23 @@
+
 # Jupyter
 
-The Jupyter interactive app launches a
-[Jupyter computational notebook](../../apps/jupyter.md)
-with the [IPython](https://ipython.readthedocs.io/en/stable/index.html)
-kernel that is accessible through the [supercomputer web interface](./index.md).
+Jupyter-interaktiivinen sovellus käynnistää 
+[Jupyter-laskentavihkon](../../apps/jupyter.md) 
+[IPython](https://ipython.readthedocs.io/en/stable/index.html) 
+ytimellä, joka on saavutettavissa [superkoneen verkkoliittymän](./index.md) kautta.
 
-In the app launch form you can define the Python environment,
-Jupyter interface type (Jupyter Notebook or JupyterLab),
-working directory as well as some more advanced settings.
+Sovelluksen käynnistyslomakkeessa voit määrittää Python-ympäristön,
+Jupyter-käyttöliittymätyypin (Jupyter Notebook tai JupyterLab),
+työskentelyhakemiston sekä joitakin lisäasetuksia.
 
-For more information about working with different Python environments on Puhti
-and Mahti, see our [Python application page](../../apps/python.md)
-and [Python usage guide](../../support/tutorials/python-usage-guide.md).
-Note that all the modules listed on the Python app page are not guaranteed to
-work with the Jupyter interactive app. Additionally, installation of
-Python packages works differently from the general instructions in
-the usage guide.
+Lisätietoja työskentelystä eri Python-ympäristöjen kanssa Puhtissa
+ja Mahtissa löydät meidän [Python-sovellussivulta](../../apps/python.md)
+ja [Pythonin käyttöoppaasta](../../support/tutorials/python-usage-guide.md).
+Huomaa, että kaikki Python-sovellussivulla listatut moduulit eivät välttämättä
+toimi Jupyter-interaktiivisen sovelluksen kanssa. Lisäksi Python-pakettien asennus
+toimii eri tavoin kuin käyttöoppaan yleisohjeissa.
 
-### Currently supported Python environments
+### Tällä hetkellä tuetut Python-ympäristöt
 
  - geoconda
  - python-data
@@ -25,78 +25,72 @@ the usage guide.
  - qiskit
  - tensorflow
 
-## Installing packages
+## Installing packages {#installing-packages}
 
-It is possible to install Python packages with `pip` inside an interactive Jupyter session. To do
-this, you must enable either the *User packages* or the *Virtual environment* option under
-*Additional packages*, and provide the desired installation path before launching the session. These
-options are shown after enabling the *Enable advanced settings* option at the end of the form.
+On mahdollista asentaa Python-paketteja `pip`-komennolla Jupyterin interaktiivisen istunnon sisällä. Tätä varten sinun on otettava käyttöön joko *User packages* tai *Virtual environment* -vaihtoehto kohdassa *Additional packages* ja annettava toivottu asennuspolku ennen istunnon aloittamista. Nämä vaihtoehdot näkyvät, kun *Enable advanced settings* -asetus otetaan käyttöön lomakkeen lopussa.
 
-If you do not define an installation path, the packages will be installed under
-`$HOME/.local/lib`. However, **this is not recommended** as the home directory
-storage quota is limited.
+Jos et määrittele asennuspolkua, paketit asennetaan
+kansioon `$HOME/.local/lib`. Kuitenkaan tämä **ei ole suositeltavaa**, sillä kotihakemiston
+tallennuskiintiö on rajallinen.
 
 ![Jupyter additional packages settings](../../img/ood_jupyter_additional_packages.png)
 
-To install packages to the defined user packages directory, use the following command in the notebook:  
+Asentaaksesi paketit määriteltyyn käyttäjäpakettihakemistoon, käytä seuraavaa komentoa vihkossa:  
 
 ```python
 import sys 
 !{sys.executable} -m pip install --user <package>
 ```
 
-To install packages to a virtual environment you can use the command:  
+Paketin asentaminen virtuaaliseen ympäristöön onnistuu komennolla:  
 `!{sys.executable} -m pip install <package>`
 
-It is recommended to either use a virtual environment or set the Python user packages path to a directory under `/scratch` or `/projappl` when launching the app if you need to install packages.
+On suositeltavaa käyttää joko virtuaalista ympäristöä tai määrittää Pythonin käyttäjäpakettien polku hakemistoon `/scratch` tai `/projappl`, jos tarvitset pakettien asennusta.
 
+## Customizing the environment {#customizing-the-environment}
 
-## Customizing the environment
-Custom Python environments can be created based on the Python modules or the system installed python.
-The settings for customizing the Python environment are in the advanced settings in the app form.
+Mukautettuja Python-ympäristöjä voidaan luoda perustuen Python-moduuleihin tai järjestelmään asennettuun Pythoniin.
+Asetukset Python-ympäristön mukauttamiseen löytyvät sovelluksen lomakkeen lisäasetuksista.
 
-To use a Python installation from a module that is not provided in the app form you can select
-*Custom module* and enter your own modules in the *Custom Python module* field in the form.
-If the *Custom Python module* field is left blank, the system Python will be used. Note that this
-requires using virtual environments.
+Käyttääksesi moduulin Python-asennusta, joka ei ole sovelluslomakkeessa tarjottu vaihtoehto, voit valita
+*Custom module* ja syöttää omat moduulisi *Custom Python module* -kenttään lomakkeessa.
+Jos *Custom Python module* -kenttä jätetään tyhjäksi, käytetään järjestelmän Pythonia. Huomaa, että tämä
+vaatii virtuaalisten ympäristöjen käyttöä.
 
+### Tykky installations {#tykky-installations}
 
-### Tykky installations
-
-
-To use a Tykky installation with Jupyter, first [include Jupyter packages in your Tykky
-installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then, open the Puhti
-or Mahti web interface and navigate to the Jupyter app page. In the form, select the `Custom path`
-option from the Python dropdown. Then, enter the full path to the Python interpreter of your Tykky
-installation. So, if you created an installation with the command `conda-containerize new
---prefix=/scratch/proj/myInst env.yml` then the path to enter would be
+Käyttääksesi Tykky-asennusta Jupyterin kanssa, ensin [lisää Jupyter-paketit Tykky-asennukseesi](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Avaa sitten Puhti
+tai Mahti verkko-rajapinta ja siirry Jupyter-sovellussivulle. Lomakkeessa valitse `Custom path`
+Python-valikosta. Syötä sitten Tykky-asennuksen Python-tulkinnan täydellinen polku. Jos loit asennuksen komennolla `conda-containerize new
+--prefix=/scratch/proj/myInst env.yml`, polku, joka syötetään, olisi
 `/scratch/proj/myInst/bin/python`.
 
 ![Custom path selected in the menu](../../img/tykky_selection_jupyter.png)
 
-### Virtual environment
+### Virtual environment {#virtual-environment}
 
-You can create a virtual environment by enabling the *Virtual environment* option in the app form,
-as seen in the [Installing packages section](#installing-packages), and providing desired path of
-your virtual environment in the *Virtual environment path* field. The path should be under either
-`/scratch` or `/projappl`. For example, `/scratch/<project>/<username>/<venv>`.
+Voit luoda virtuaalisen ympäristön ottamalla käyttöön *Virtual environment* -valinnan sovelluslomakkeessa,
+kuten nähtiin [pakettien asennusosiossa](#installing-packages), ja ilmoittamalla toivotun
+virtuaalisen ympäristön polun *Virtual environment path* -kentässä. Polku tulisi olla joko
+`/scratch` tai `/projappl`. Esimerkiksi, `/scratch/<project>/<username>/<venv>`.
 
-You can also create the virtual environment with your terminal by navigating to either `/scratch` or `/projappl` folder and then creating the environment with a command:   
+Voit myös luoda virtuaalisen ympäristön terminaalisi avulla siirtymällä joko `/scratch`
+tai `/projappl`-kansioon ja sitten luoda ympäristön komennolla:   
 `python -m venv --system-site-packages <venv>`      
-Make sure to load the module you are planning to use before creating the virtual environment.
+Varmista, että lataat moduulin, jota aiot käyttää ennen virtuaalisen ympäristön luomista.
 
-To launch a created virtual environment later you need to select the same Python module and provide the same virtual environment path as when creating the environment. In Jupyter you can check the virtual environment you are currently using by running a command `!echo $VIRTUAL_ENV` in your notebook.
+Käynnistääksesi luodun virtuaalisen ympäristön myöhemmin sinun on valittava sama Python-moduuli ja annettava sama virtuaalisen ympäristön polku kuin ympäristön luomisessa. Jupyterissa voit tarkistaa parhaillaan käytössä olevan virtuaalisen ympäristön ajamalla komennon `!echo $VIRTUAL_ENV` vihkossasi.
 
-To install packages in your virtual environment you can run the command `!{sys.executable} -m pip install <package>` in your Jupyter notebook.
-The virtual environments are currently not completely isolated as they use packages from the loaded modules.
+Asentaaksesi paketteja virtuaaliseen ympäristöösi voit ajaa komennon `!{sys.executable} -m pip install <package>` Jupyter-vihkossasi.
+Virtuaaliset ympäristöt eivät tällä hetkellä ole täysin eristettyjä, koska ne käyttävät ladattujen moduulien paketteja.
 
+### Useful Jupyter commands {#useful-jupyter-commands}
 
+Muista ajaa `import sys` ensin.
 
-### Useful Jupyter commands
-Remember to run `import sys` first.
-
-| Functionality    | Command |
+| Toiminnallisuus    | Komento |
 | -------- | ------- |
-| Install package to user directory  | `!{sys.executable} -m pip install --user <package>`    |
-| Install package to virtual environment | `!{sys.executable} -m pip install <package>`     |
-| Check current venv    | `!echo $VIRTUAL_ENV`    |
+| Asenna paketti käyttäjähakemistoon  | `!{sys.executable} -m pip install --user <package>`    |
+| Asenna paketti virtuaaliympäristöön | `!{sys.executable} -m pip install <package>`     |
+| Tarkista nykyinen venv    | `!echo $VIRTUAL_ENV`    |
+

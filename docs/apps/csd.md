@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Academic
@@ -5,112 +6,111 @@ tags:
 
 # CSD
 
-The Cambridge Structural Database is a collection of small-molecule
-organic and organometallic crystal structures determined by X-ray and
-neutron diffraction techniques.
+Cambridge Structural Database on kokoelma pienimolekyylisiä orgaanisia
+ja organometallisia kiteisiä rakenteita, jotka on määritetty röntgen- ja
+neutrodiffraktiotekniikoilla.
 
-## License
+## Lisenssi {#license}
 
-CSC provides a national license
-which allows unlimited installations for **academic usage** at universities
-and non-profit research institutes, as well as,
-access to WebCSD from institutional IP address ranges. Currently, the
-following universities have access to CSD: Aalto, Helsinki, Oulu,
-Eastern-Finland, Jyväskylä, Turku, Åbo Akademi, Lappeenranta University
-of Technology, Finnish Defence Forces University. If you want your
-university or research institute added, fill in the 
-[License agreement](../img/CSDLicenseAgreementTemplateNAC.pdf) 
-and [contact us via Service Desk](../support/contact.md)
+CSC tarjoaa kansallisen lisenssin, joka sallii rajattomat asennukset yliopistoissa
+ja voittoa tavoittelemattomissa tutkimuslaitoksissa **akateemiseen käyttöön**, sekä
+pääsyn WebCSD:hen laitoksen IP-osoitealueilta. Tällä hetkellä
+seuraavilla yliopistoilla on pääsy CSD:hen: Aalto, Helsinki, Oulu,
+Itä-Suomi, Jyväskylä, Turku, Åbo Akademi, Lappeenrannan teknillinen
+yliopisto, Puolustusvoimien teknikoryhmä. Jos haluat lisätä
+yliopistosi tai tutkimuslaitoksesi, täytä
+[Lisenssisopimus](../img/CSDLicenseAgreementTemplateNAC.pdf) ja
+[ota yhteyttä palvelupisteeseen](../support/contact.md)
 
-Using the CSD components requires adhering
-[to these conditions](../img/CSDLicenseAgreementTemplateNAC.pdf).
+CSD-komponenttien käyttö edellyttää 
+[noudattamaan näitä ehtoja](../img/CSDLicenseAgreementTemplateNAC.pdf).
 
-## Available
+## Saatavilla {#available}
 
 - Puhti: 2022.2, 2023.2
-- Download and install locally
+- Lataa ja asenna paikallisesti
 
-Run `module spider ccdc` to see module versions and how to load them.
+Suorita `module spider ccdc` nähdäksesi moduuliversiot ja miten ne
+ladataan.
 
-## Usage
+## Käyttö {#usage}
 
-The **Cambridge Structural Database System** has two major components:
+**Cambridge Structural Database System** sisältää kaksi pääkomponenttia:
 
-- The Cambridge Structural *Database* ([CSD])
-- *Software* for search, retrieval, display and analysis of CSD
-  contents: ConQuest, VISTA, PreQuest, Superstar, Mercury, GOLD, and
-  CSD-CrossMiner.
+- Cambridge Structural *Database* ([CSD])
+- *Ohjelmisto* hakua, hakua, näyttöä ja CSD:n sisällön analysointia varten: ConQuest, VISTA, PreQuest, Superstar, Mercury, GOLD ja CSD-CrossMiner.
 
-Software to access and analyse CSD entries:
+Ohjelmisto CSD-merkintöjen käyttöön ja analysointiin:
 
-- [ConQuest] search and retrieval software
-- [Mercury] graphical display, analysis and visualisation of data
-- [Hermes] Main graphical interface to analysis tools
-- [CSD-Editor] In-house database creation tools (previously PreQuest)
-- [IsoStar] A Knowledge Base of Intermolecular Interactions
-- [Mogul] A Knowledge Base of Molecular Geometry
-- [SuperStar] Predicting Protein-Ligand interactions using experimental knowledge-base data
-- [WebCSD] browser access to the CSD database
-- [CrossMiner] interactive versatile pharmacophore query tool
-- [DASH] Solving crystal structures from powder diffraction data interactively (only for Windows)
+- [ConQuest] haku- ja nouto-ohjelmisto
+- [Mercury] graafinen tiedon näyttö, analyysi ja visualisointi
+- [Hermes] Päägraafinen käyttöliittymä analyysityökaluille
+- [CSD-Editor] Oman tietokannan luontityökalut (aiemmin PreQuest)
+- [IsoStar] Välivuorovaikutusten tietokanta
+- [Mogul] Molekyyligeometrian tietokanta
+- [SuperStar] Ennustaa proteiini-ligandi -vuorovaikutuksia käyttämällä kokeellista tietokantaa
+- [WebCSD] selaimen pääsy CSD-tietokantaan
+- [CrossMiner] monipuolinen vuorovaikutteinen farmakoforikyselytyökalu
+- [DASH] Kideaineen rakenteiden ratkaisu pulveridiffraatiotiedosta vuorovaikut­teisesti (vain Windowsille)
 
-There are three ways to access the CSD System:
+On kolme tapaa käyttää CSD-järjestelmää:
 
-- Local installation (Windows or Linux, takes up a lot of disk space)
-- Using the CSD System via the [Puhti web interface](../computing/webinterface/index.md)
-- WebCSD (limited functionality), point your browser to
-  [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
+- Paikallinen asennus (Windows tai Linux, vie paljon levytilaa)
+- CSD-järjestelmän käyttö [Puhtin verkkokäyttöliittymän kautta](../computing/webinterface/index.md)
+- WebCSD (rajoitettu toiminnallisuus), ohjaa selaimesi
+  [CCDC:n palvelimelle](http://webcsd.ccdc.cam.ac.uk/)
 
-### Using CSD as a local installation
+### CSD:n käyttö paikallisena asennuksena {#using-csd-as-a-local-installation}
 
-The installation media can be downloaded from the CCDC website, but
-needs the site number and confirmation code of your university. After
-installation, you need to activate the product. To obtain the required
-codes, contact either [CSC Service Desk](../support/contact.md)
-or the local CSD administrator at your university. This is the
-recommended way for power users. The full installation requires ~18 GB of disk space.
+Asennusmedia voidaan ladata CCDC:n verkkosivustolta, mutta
+vaatii laitoksen numeron ja yliopiston vahvistuskoodin. Asennuksen
+jälkeen sinun täytyy aktivoida tuote. Saadaksesi tarvittavat
+koodit, ota yhteyttä joko [CSC:n palvelupisteeseen](../support/contact.md)
+tai paikalliseen CSD:n ylläpitäjään yliopistossasi. Tämä on suositeltu
+tapa tehokäyttäjille. Täysimittainen asennus vie noin 18 GB 
+levytilaa.
 
-### Using CSD on Puhti
+### CSD:n käyttäminen Puhtissa {#using-csd-on-puhti}
 
-[Open the Puhti web interface](https://puhti.csc.fi/) using a web browser and login
-using your CSC user account.
+[Avaa Puhtin verkkokäyttöliittymä](https://puhti.csc.fi/) verkkoselaimella ja kirjaudu
+sisään CSC-käyttäjätililläsi.
 
-1. From there, [launch a Desktop](../computing/webinterface/desktop.md#launching).
-2. Open a terminal and move to a suitable working directory.
-3. Load the CSD module with `module load ccdc`.
+1. Sieltä [käynnistä Työpöytä](../computing/webinterface/desktop.md#launching).
+2. Avaa pääte ja siirry sopivaan työhakemistoon.
+3. Lataa CSD-moduuli komennolla `module load ccdc`.
 
-Now you have access to CSD programs, e.g. ConQuest, Hermes, Mercury and Mogul. Run them
-by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. Note that
-the GUI performance can be somewhat slow compared to a local installation.
+Nyt sinulla on pääsy CSD-ohjelmiin, kuten ConQuest, Hermes, Mercury ja Mogul. Suorita ne
+kirjoittamalla terminaaliin `cq`, `hermes`, `mercury` tai `mogul`. Huomaa, että
+graafisen käyttöliittymän suorituskyky voi olla jonkin verran hitaampi verrattuna paikalliseen asennukseen.
 
-[GOLD](gold.md) has its own entry in Docs CSC.
+[GOLD](gold.md) on oma kohtansa Docs CSC:ssa.
 
-### Using WebCSD directly with a browser
+### WebCSD:n käyttäminen suoraan selaimella {#using-webcsd-directly-with-a-browser}
 
-The [WebCSD service](https://www.ccdc.cam.ac.uk/structures) 
-provides most of the search capabilities directly via a browser from
-computers within the licensed university's IP range. Access does not need
-further authentication. If there are problems, [contact CSC
-Service Desk](../support/contact.md).
+[WebCSD-palvelu](https://www.ccdc.cam.ac.uk/structures) 
+tarjoaa suurimman osan hakutoiminnoista suoraan selaimen kautta
+lisensoidun yliopiston IP-alueelta. Pääsy ei vaadi
+lisäautentikointia. Jos ongelmia ilmenee, [ota yhteyttä CSC:n
+palvelupisteeseen](../support/contact.md).
 
-## References
+## Viitteet {#references}
 
-New software for searching the Cambridge Structural Database and
-visualising crystal structures  
+Uusia ohjelmistoja Cambridge Structural Database -tietokannan hakuun ja
+kiderakenteiden visualisointiin  
 I. J. Bruno, J. C. Cole, P. R. Edgington, M. Kessler, C. F. Macrae, P.
-McCabe, J. Pearson and R. Taylor, *Acta Crystallogr.*, **B58**, 389-397,
+McCabe, J. Pearson ja R. Taylor, *Acta Crystallogr.*, **B58**, 389-397,
 2002
 
-Program specific references can be found in each of the
-[online Documentation and Resources](https://www.ccdc.cam.ac.uk/support-and-resources/ccdcresources/)
+Ohjelmakohtaiset viitteet löytyvät jokaisesta osasta 
+[online-dokumentaatio ja resurssit](https://www.ccdc.cam.ac.uk/support-and-resources/ccdcresources/)
 
-## More information
+## Lisätietoa {#more-information}
 
-Product specific [FAQs](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference) and 
-[useful manuals, tutorials etc.](https://www.ccdc.cam.ac.uk/support-and-resources) available at CSD website.
+Tuotekohtaiset [UKK](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference) ja 
+[hyödyllisiä ohjekirjoja, tutoriaaleja ym.](https://www.ccdc.cam.ac.uk/support-and-resources) ovat saatavilla CSD-verkkosivustolla.
 
   [CSD]: https://www.ccdc.cam.ac.uk/solutions/software/csd/
-  [License agreement]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361
+  [Lisenssisopimus]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361
   [ConQuest]: https://www.ccdc.cam.ac.uk/solutions/software/conquest/
   [Mercury]: https://www.ccdc.cam.ac.uk/solutions/software/mercury/
   [Hermes]: https://www.ccdc.cam.ac.uk/solutions/software/hermes/
@@ -121,3 +121,4 @@ Product specific [FAQs](https://www.ccdc.cam.ac.uk/support-and-resources/Support
   [WebCSD]: https://www.ccdc.cam.ac.uk/solutions/software/webcsd/
   [CrossMiner]: https://www.ccdc.cam.ac.uk/solutions/software/csd-crossminer/
   [DASH]: https://www.ccdc.cam.ac.uk/open-source-products/dash-software/
+

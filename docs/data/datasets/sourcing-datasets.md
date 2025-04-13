@@ -1,96 +1,56 @@
-# Dataset sources
+# Datanlähteet
 
-## Overview
+## Yleiskatsaus {#overview}
 
-Data are observations or measurements (unprocessed or processed) represented as
-text, numbers, or multimedia. A **dataset** (also spelled *data set*) is *a
-structured and stable collection of data generally associated with a unique
-body of work (for example a research study)*. In order for a dataset to be
-reusable for research purposes, the dataset needs to be FAIR (findable,
-accessible, interoperable, reusable). This means that it needs to, e.g., have a
-unique [identifier](publishing-datasets.md#persistent-identifiers) such as a
-DOI or URN, sufficient [metadata](metadata-and-documentation.md#metadata-types)
-including provenance and creator information, and a
-[license](publishing-datasets.md#licensing-rights) enabling reuse. Datasets
-also need to fulfill discipline-specific requirements and standards. More about
-the difference between data and dataset in
-[Data types](publishing-datasets.md#data-types).
+Data ovat havaintoja tai mittauksia (käsittelemättömiä tai käsiteltyjä), jotka on esitetty tekstinä, numeroina tai multimediassa. **Datasetti** (myös kirjoitettuna *data set*) on *rakennettu ja vakaa kokoelma dataa, joka liittyy yleensä ainutlaatuiseen työhön (esimerkiksi tutkimukseen)*. Jotta datasetti olisi uudelleenkäytettävissä tutkimustarkoituksiin, sen on oltava FAIR (Findable, Accessible, Interoperable, Reusable). Tämä tarkoittaa, että sillä on oltava esimerkiksi uniikki [tunniste](publishing-datasets.md#persistent-identifiers) kuten DOI tai URN, riittävät [metatiedot](metadata-and-documentation.md#metadata-types) mukaan lukien alkuperätiedot ja tekijätiedot, sekä [lisenssi](publishing-datasets.md#licensing-rights), joka mahdollistaa uudelleenkäytön. Datasettien on myös täytettävä alakohtaisia vaatimuksia ja standardeja. Lisätietoa datan ja datasetin eroista
+[kohdassa](publishing-datasets.md#data-types).
 
-Datasets are the cornerstone of data-driven computing and data analysis.
-Datasets allow focusing on the origin, life cycle and ethical use of data
-resources instead of the technicalities of single data files or computing
-methods. CSC provides services for dataset-oriented research and develops
-future services to better support datasets and other higher-level aspects of
-data.
+Datasetit ovat datavetoisen laskennallisuuden ja data-analyysin kulmakivi. Datasetit mahdollistavat keskittymisen datan alkuperään, elinkaareen ja eettiseen käyttöön, sen sijaan että keskityttäisiin yksittäisten tiedostojen tai laskentamenetelmien teknisiin yksityiskohtiin. CSC tarjoaa palveluita dataset-orientoituneelle tutkimukselle ja kehittää tulevaisuuden palveluita tukemaan paremmin datasettejä ja muita datan korkeampia näkökulmia.
 
-!!! note "Note"
-    The ownership, copyrights and license of data is often best defined for the
-    whole dataset, though, in some cases finer-grained definitions might be
-    needed. In scientific writing a dataset is usually cited as a single
-    entity.
+!!! note "Huomio"
+    Datan omistajuus, tekijänoikeudet ja lisenssi määritellään usein parhaiten koko datasetille, vaikka joissain tapauksissa saatetaan tarvita tarkempia määritelmiä. Tieteellisessä kirjoittamisessa datasettia yleensä siteerataan yhtenä kokonaisuutena.
 
-## Gathering datasets
+## Datasettien kerääminen {#gathering-datasets}
 
-The first phase of dataset-driven work is where datasets are gathered. It is
-possible to locate and take into use existing, well-defined datasets, or to
-create new datasets by sourcing data and organizing it into datasets. The
-gathering phase lays the foundation on which data-driven computing and analysis
-is built on. During this phase, the focus should be on making sure licenses and
-terms of use for data are known and match the intended use, asserting that the
-origin for data is known for good provenance and that data is organized and
-documented well.
+Dataset-orientoituneen työn ensimmäinen vaihe on datasettien kerääminen. On mahdollista etsiä ja ottaa käyttöön olemassa olevia, hyvin määriteltyjä datasettejä tai luoda uusia datasettejä kokoamalla dataa ja järjestämällä se datasetiksi. Keräämisvaihe muodostaa perustan, jolle datavetoiset laskentamenetelmät ja analyysit rakentuvat. Tämän vaiheen aikana tulisi keskittyä varmistamaan, että datan lisenssit ja käyttöehdot ovat tiedossa ja vastaavat aiottua käyttöä, varmistamaan että datan alkuperä on tiedossa hyvän alkuperätiedon varmistamiseksi, ja että data on hyvin järjestetty ja dokumentoitu.
 
-**What if the dataset terms of use are made by the producers themselves?**  
-The dataset creator reserves the right to specify the terms of use for their
-dataset, even without ready-made licenses. In such cases, the terms of use
-specified must be observed, but you can also negotiate the terms of use by
-contacting the owner of the dataset.
+**Entä jos datasetin käyttöehdot ovat datan tuottajien itse määrittämiä?**  
+Datasetin luoja varaa oikeuden määritellä oman datasetinsä käyttöehdot, vaikka valmiita lisenssejä ei olisikaan. Tällöin määritettyjä käyttöehtoja on noudatettava, mutta voidaan myös neuvotella käyttöehdoista ottamalla yhteys datasetin omistajaan.
 
-**What if no terms of use have been specified for data?**  
-If there are no terms of use or the terms of use given are unclear, you should
-always contact the owner of the dataset in question.
+**Entä jos datalle ei ole määritetty käyttöehtoja?**  
+Jos käyttöehtoja ei ole tai annettujen käyttöehtojen sisältö on epäselvä, tulisi aina ottaa yhteys kyseisen datasetin omistajaan.
 
-## Discover research data
+## Tutkimusaineiston löytäminen {#discover-research-data}
 
-When utilizing and re-using data collected or produced by others, the origin,
-content, location, license, restrictions of use, and other necessary
-information are needed. Search services include descriptive information
-(metadata) on research datasets. The better the description of the dataset is,
-the easier it is to find and use it. Existing research datasets may be
-available for reuse.
+Kun hyödynnetään ja käytetään uudelleen muiden keräämää tai tuottamaa dataa, tarvitaan tiedot alkuperästä, sisällöstä, sijainnista, lisenssistä, käyttörajoituksista ja muista tarvittavista tiedoista. Hakupalvelut sisältävät kuvailevaa tietoa (metatietoja) tutkimusdatasetista. Mitä paremmin datasetti on kuvattu, sitä helpompi se on löytää ja käyttää. Olemassa olevat tutkimusdatarakenteet saattavat olla saatavilla uudelleenkäytettäviksi.
 
-[See CSC's services for discovering datasets](https://research.csc.fi/service-catalog#open)
+[Katso CSC:n palvelut datasettien löytämisessä](https://research.csc.fi/service-catalog#open)
 
-## Specific datasets hosted in CSC computing environment
+## Erityiset datasetit CSC:n laskentaympäristössä {#specific-datasets-hosted-in-csc-computing-environment}
 
-CSC also hosts or provides access to several datasets on different platforms.
+CSC isännöi myös tai tarjoaa pääsyn useisiin datasetteihin eri alustoilla.
 
-### Biosciences
+### Biotieteet {#biosciences}
 
-- [Chipster_genomes](../../apps/chipster_genomes.md) Tool to download aligner
-  indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml)
-  to Puhti
-- [AlphaFold databases are available on Puhti](../../apps/alphafold.md)
+- [Chipster_genomes](../../apps/chipster_genomes.md) Työkalu ladattaviksi kohdistusindekseiksi, joita käytetään [Chipster-ohjelmistossa](https://chipster.csc.fi/index.shtml) Puhti-palvelussa
+- [AlphaFold-tietokannat ovat saatavilla Puhtissa](../../apps/alphafold.md)
 
-### Chemistry
+### Kemia {#chemistry}
 
-- [CSD - Cambridge Crystallographic Database](../../apps/csd.md) – organic and
-  metallo-organic crystal structures and tools
-- [Molport 6M molecule database](../../support/tutorials/gpu-shape.md)
-  preprocessed for fast GPU screening with Schrödinger Shape
+- [CSD - Cambridge Crystallographic Database](../../apps/csd.md) – orgaaniset ja metallo-orgaaniset kiderakenteet ja työkalut
+- [Molport 6M molekyylitietokanta](../../support/tutorials/gpu-shape.md) esikäsitelty nopeaa GPU-seulontaa varten Schrödinger Shape -sovelluksella
 
-### Geosciences
+### Geotieteet {#geosciences}
 
-- [Open Finnish spatial datasets are available in Puhti or in Allas](spatial-data-in-csc-computing-env.md).
+- [Avoimet suomalaiset paikkatietoaineistot saatavilla Puhtissa tai Allasissa](spatial-data-in-csc-computing-env.md).
 
-### Language research and other digital humanities and social sciences
+### Kielentutkimus ja muut digitaalinen humanistinen ja yhteiskuntatieteellinen tutkimus {#language-research-and-other-digital-humanities-and-social-sciences}
 
-- The latest versions of
-  [CLARIN PUB or ACA licensed corpora](https://www.kielipankki.fi/corpora/) are
-  available unpacked on Puhti in `/appl/data/kielipankki/`
+- Viimeisimmät versiot
+  [CLARIN PUB tai ACA lisensoiduista korpuksista](https://www.kielipankki.fi/corpora/) ovat saatavilla purettuina Puhtissa hakemistopolussa `/appl/data/kielipankki/`
 
-## Processing and analyzing data
+## Datan käsittely ja analysointi {#processing-and-analyzing-data}
 
-Read more in [CSC's Data analysis guide](../../support/tutorials/da-guide.md)
+Lue lisää [CSC:n data-analyysiohjeesta](../../support/tutorials/da-guide.md)
 
-[CSC's services for processing and analyzing data](https://research.csc.fi/en/service-catalog#compute)
+[CSC:n palvelut datan käsittelyyn ja analysointiin](https://research.csc.fi/en/service-catalog#compute)

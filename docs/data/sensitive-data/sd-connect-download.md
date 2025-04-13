@@ -1,118 +1,118 @@
-# Downloading folders and files
 
-You can easily download folders or individual files from SD Connect user interface.
+# Kansioiden ja tiedostojen lataaminen {#downloading-folders-and-files}
 
-**Automated decryption is available only for files uploaded and automatically encrypted via the user interface after October 1, 2024**. In contrast, files have been uplaoded before October 1 2024, were manually encrypted using your encryption key and will need to be decrypted manually after download. Although both file types use the same .c4h extension, if you see the message "Requested files could not be decrypted" during download, it indicates that the file was encrypted manually and its decryption will require an extra step. If you need any assistance, don't hesitate to contact us.
+Voit helposti ladata kansioita tai yksittäisiä tiedostoja SD Connect -käyttöliittymästä.
 
-1. [Download and automated decryption](#download-and-automated-decryption)
-2. [Download and manual decryption](#download-and-manual-decryption)
+**Automaattinen salauksen purku on saatavilla vain tiedostoille, jotka on ladattu ja automaattisesti salattu käyttöliittymän kautta 1. lokakuuta 2024 jälkeen**. Sitä vastoin tiedostot, jotka on ladattu ennen 1. lokakuuta 2024, on salattu manuaalisesti salausavaimellasi ja ne on purettava manuaalisesti latauksen jälkeen. Vaikka molemmat tiedostotyypit käyttävät samaa .c4h-päätettä, jos latauksen aikana näet viestin "Pyydettyjä tiedostoja ei voitu purkaa", se osoittaa, että tiedosto on salattu manuaalisesti ja sen purkaminen vaatii lisävaiheen. Jos tarvitset apua, älä epäröi ottaa meihin yhteyttä.
 
-!!! Note
-    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to start.
+1. [Lataus ja automaattinen salauksen purku](#download-and-automated-decryption)
+2. [Lataus ja manuaalinen salauksen purku](#download-and-manual-decryption)
 
-## Download and automated decryption
+!!! Huom
+    Jos käytät palvelua ensimmäistä kertaa, selaimesi voi näyttää ponnahdusikkunan, jossa pyydetään hyväksymään evästeet. Klikkaa Hyväksy saadaksesi latauksen alkamaan.
+
+## Lataus ja automaattinen salauksen purku {#download-and-automated-decryption}
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-For files and folders uploaded using SD Connect user interface after October 1, 2024.
+Koskee tiedostoja ja kansioita, jotka on ladattu SD Connect -käyttöliittymän kautta 1. lokakuuta 2024 jälkeen.
 
-### Downloading folder
+### Kansion lataaminen {#downloading-folder}
 
-1. Find correct folder from All folders tab.
-2. Click **Download** on right side of the folder you want to download.
-3. Files are decrypted automatically. Locate downloaded files from your computer (for example Downloads folder).
+1. Löydä oikea kansio Kaikki kansiot -välilehdeltä.
+2. Klikkaa **Lataa** haluamasi kansion oikealla puolella.
+3. Tiedostot puretaan automaattisesti. Etsi ladatut tiedostot tietokoneeltasi (esimerkiksi Lataukset-kansio).
 
-### Downloading individual files
+### Yksittäisten tiedostojen lataaminen {#downloading-individual-files}
 
-1. Find correct folder from All folders tab and click to view files.
-2. Find corrects files.
-3. Click **Download** on right side of each file you want to download.
-4. Files are decrypted automatically. Files will download and decrypt automatically, usually to downloads folder. Do not open the folder until the download is complete to avoid errors. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
+1. Löydä oikea kansio Kaikki kansiot -välilehdeltä ja klikkaa nähdäksesi tiedostot.
+2. Etsi oikeat tiedostot.
+3. Klikkaa **Lataa** kunkin tiedoston oikealla puolella, jonka haluat ladata.
+4. Tiedostot puretaan automaattisesti. Tiedostot ladataan ja puretaan automaattisesti, yleensä lataukset-kansioon. Älä avaa kansiota ennen kuin lataus on valmis välttääksesi virheitä. Ladatulla kansiolla on .tar-pääte, kaksoisklikkaa avataksesi sisällön uuteen kansioon.
 
-!!! Warning
-    If you encounter the message 'Some downloaded files need manual decryption.' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
+!!! Varoitus
+    Jos kohtaat viestin 'Jotkin ladatut tiedostot vaativat manuaalista purkamista.' latauksen aikana, se tarkoittaa, että joitain kansiosi tiedostoja on ladattu SD Connectin vanhemmalla versiolla, jolloin automaattinen purku ei ole käytettävissä. Ratkaistaksesi tämän, seuraa näitä [ohjeita](#download-and-manual-decryption). Lisäavuksi, [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
 
+### Lataaminen Firefoxilla: vianetsintä {#downloading-via-firefox-troubleshooting}
 
-### Downloading via Firefox: troubleshooting
+Firefox on tuettu selain; kuitenkin voit törmätä ongelmiin, joissa lataus ei ala.
 
-Firefox is a supported browser; however you might encounter issues where the download does not start.
+Jos käytät palvelua ensimmäistä kertaa tai olet tyhjentänyt selaimen historia- ja evästeet, voi ilmestyä ponnahdusikkuna, jossa pyydetään hyväksymään evästeet. Tämä ponnahdusikkuna ilmestyy vain, kun klikkaat Lataa, eikä välttämättä ole heti näkyvissä, koska se ilmestyy selaimen yläriville. Klikkaa Hyväksy saadaksesi latauksen alkamaan.
 
-If this is your first time using the service, or if you have cleared your browser history and cookies, a pop-up may appear asking you to accept cookies. This pop-up only appears when you click on Download and may not be immediately visible, as it appears on the top bar of the browser. Please click Accept to enable the download to start." 
+Jos olet käyttänyt palvelua aiemmin, mutta lataus ei yhtäkkiä ala, noudata näitä ohjeita (tämä prosessi on tehtävä vain kerran):
 
-If you have used the service before, but the download suddenly no longer starts, follow these steps (this process only needs to be done once):
+1. Selaimessasi, klikkaa **Työkalut** > **Selaimen työkalut** > **Web Developers -työkalut** (tai paina näppäimistölläsi F12 Windowsissa tai Fn+F12 Macilla).
+2. Uusi ikkuna aukeaa selaimesi alareunaan. Klikkaa **Sovellus**-välilehteä.
+3. Kohdassa **Service Worker**, klikkaa **Poista rekisteröinti**.
+4. Voit sulkea **Web Developers -työkalut** ikkunan.
+5. Päivitä selaimesi ja lataa tiedostot näiden [ohjeiden](#downloading-individual-files) mukaan.
 
-1. In your browser, click **Tools** > **Browser Tools** > **Web Developer Tools** (or on your keyboard press F12 for Windows or Fn+F12 on your Mac).
-2. A new window will open at the bottom of your browser. Click **Application** tab.
-3. Next to **Service Worker**, click **Unregister**.
-4. You can close **Web Developer Tools** window.
-5. Refresh your browser and download files following these [instructions](#downloading-individual-files).
+![SD Connect lataus Firefoxilla](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
 
+![SD Connect lataus Firefoxilla](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
 
-![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
+## Lataus ja manuaalinen salauksen purku {#download-and-manual-decryption}
 
-![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
+Koskee tiedostoja, jotka on ladattu SD Connect -käyttöliittymän kautta ennen lokakuuta 2024. Nämä tiedostot pysyvät salattuina latauksen jälkeen, ja sinun täytyy purkaa ne manuaalisesti tietokoneellasi Crypt4GH-sovelluksella noudattamalla annettuja ohjeita:
 
-## Download and manual decryption
+Huomioi, että voit purkaa vain yhden tiedoston kerralla. Jos sinun täytyy purkaa useita tiedostoja kerralla, komentorivi-optio on saatavilla. Lisäavuksi, [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
 
-For files uploaded vis SD Connect user interface before October 2024. These files will remain encrypted after dowlaod, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
+### 1.1 Valmistelu
 
-Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, [contact CSC Service Desk](../../support/contact.md).
+- **Pidä yksityinen salausavaimesi saatavilla.** Jos et muista käytettyä avainta, ole hyvä ja [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
 
-### 1.1 Preparation
-
-- **Have your private encryption key available.** If you don’t remember the key used, please [contact CSC Service Desk](../../support/contact.md).
-
-- **Download the Crypt4GH graphical user interface on your laptop.** This tool is necessary for decrypting the files. If you experience any issues installing the tool, especially on a laptop provided by your IT department, please [contact us for assistance](../../support/contact.md).
-- Install the Crypt4GH application: CSC has developed a simple application that will allow you to generate your encryption keys and decrypt data when necessary. Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui): <!-- (links need to be updated) -->
+- **Lataa Crypt4GH-graffinen käyttöliittymä tietokoneellesi.** Tämä työkalu on tarpeen tiedostojen purkamista varten. Jos kohtaat ongelmia työkalun asentamisessa, erityisesti IT-osaston tarjoamalla tietokoneella, [ota yhteyttä meihin saadaksesi apua](../../support/contact.md).
+- Asenna Crypt4GH-sovellus: CSC on kehittänyt yksinkertaisen sovelluksen, joka sallii sinun luoda salausavaimia ja purkaa dataa tarvittaessa. Lataa käyttöjärjestelmällesi sopiva versio [GitHub-repositorista](https://github.com/CSCfi/crypt4gh-gui): <!-- (linkkejä tulee päivittää) -->
       - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
       - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
       - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
 
-      Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder. When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+      Tarkista, että Windows-työkalu on digitaalisti allekirjoitettu CSC - IT Center for Science toimesta. Latauksen jälkeen löydät Crypt4GH-sovelluksen lataukset-kansiostasi. Kun avaat sovelluksen ensimmäistä kertaa, saatat kohdata virheilmoituksen. Tällöin klikkaa _Lisätietoja_ ja vahvista, että julkaisija on CSC-IT Center for Science (tai suomeksi CSC-Tieteen tietotekniikan keskus Oy) ja klikkaa sitten _Suorita silti_.
 
-### 1.2 Download the files from SD Connect
+### 1.2 Lataa tiedostot SD Connectista {#download-the-files-from-sd-connect}
 
-Access SD Connect and locate the files you need. You can download either the entire bucket or individual files. At the end of the download, the user interface will display the message: "Some downloaded files need manual decryption."
-   ![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
+Pääsy SD Connectiin ja etsi tarvitsemasi tiedostot. Voit ladata joko koko säiliön tai yksittäisiä tiedostoja. Latauksen lopussa käyttöliittymä näyttää viestin: "Joillakin ladatuista tiedostoista tarvitaan manuaalista purkamista."
+   ![Joillakin pyydetyistä tiedostoista ei voitu purkaa.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
 
-### 1.3 Change the file extension
+### 1.3 Tiedoston päätteen vaihtaminen {#change-the-file-extension}
 
-After downloading the files, you need to adjust their extensions. Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted.
-   ![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
+Tiedostojen lataamisen jälkeen sinun täytyy muokata niiden päätettä. Napsauta hiiren oikealla painikkeella tiedostoa, valitse "Nimeä uudelleen" ja lisää `.c4gh` tiedostonimen loppuun. Jos avataan tekstieditorilla, tiedostot ovat edelleen salattuja.
+   ![Tiedostojen lataamisen jälkeen sinun täytyy muokata niiden päätettä.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
 
-### 1.4 Decrypt the files with the Crypt4gh application
+### 1.4 Tiedostojen purkaminen Crypt4gh-sovelluksella {#decrypt-the-files-with-the-crypt4gh-application}
 
 [Video](https://youtu.be/SQJ8QEKV7BE)
 
- Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
-      1. Open the Crypt4GH application and click on _load Your Private Key_.
-      2. Click on _Select File_ and upload the file you want to decrypt.
-      3. Click on _Open_.
-      4. Next, click on _Decrypt File_.
-      5. The tool will ask you to write the secret key's password. Press _ok_.
+Seuraavaksi voit purkaa tiedoston Crypt4GH-sovelluksella ja salaisella salausavaimellasi. Valitettavasti tällä hetkellä ainoastaan yksittäisiä tiedostoja voidaan purkaa.
+      1. Avaa Crypt4GH-sovellus ja klikkaa _Lataa yksityinen avain_.
+      2. Klikkaa _Valitse tiedosto_ ja lataa tiedosto, jonka haluat purkaa.
+      3. Klikkaa _Avaa_.
+      4. Seuraavaksi klikkaa _Pura tiedosto_.
+      5. Työkalu pyytää sinua kirjoittamaan salaisen avaimen salasanan. Paina _ok_.
 
-      The secret key must match the public key used to encrypt the data.
+      Salaisen avaimen täytyy vastata avointa avainta, jota käytettiin datan salaamiseen.
 
-!!! Note
-    In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
+!!! Huom
+    Salauksen purkamisen tapauksessa julkisen avaimen lisääminen ei ole pakollista, mutta jos sinulla on yksityisen avaimen haltijan, joka on salannut tiedoston, voit käyttää sitä varmistaaksesi salausallekirjoituksen. Jos et valitse julkista avainta, aktiviteettiloki näyttää seuraavan (purkaus suoritetaan joka tapauksessa):
 
     ```text
-    Sender public key has not been set, authenticity will not be verified.
+    Lähettäjän julkista avainta ei ole asetettu, aitoutta ei vahvisteta.
     ```
 
-If your decryption runs successfully, the activity log will display the following:
+Jos salauksen purkaminen onnistuu, aktiviteettiloki näyttää seuraavan:
 
 ```text
-Decrypting..... Decryption has finished Decrypted file: C:/users/username/exampledirectory/examplefile
+Purkaminen..... Purku on valmis Purettu tiedosto: C:/users/käyttäjänimi/esimerkkikansio/esimerkkitiedosto
 ```
 
-The decrypted file will no longer display the `.c4gh` extension and will be saved in the same folder from which the original file was uploaded.
+Purettu tiedosto ei enää näytä `.c4gh` päätettä ja se tallennetaan samaan kansioon, josta alkuperäinen tiedosto ladattiin.
 
-## Features in SD Connect
+## Ominaisuudet SD Connectissa {#features-in-sd-connect}
 
-- [Upload](./sd-connect-upload.md)
-- [Share](./sd-connect-share.md)
-- [Download](./sd-connect-download.md)
-- [Delete](./sd-connect-delete.md)
-- [Command line interface](./sd-connect-command-line-interface.md)
-- [Troubleshooting](./sd-connect-troubleshooting.md)
+- [Lähetys](./sd-connect-upload.md)
+- [Jakaminen](./sd-connect-share.md)
+- [Lataaminen](./sd-connect-download.md)
+- [Poistaminen](./sd-connect-delete.md)
+- [Komentoriviliittymä](./sd-connect-command-line-interface.md)
+- [Vianetsintä](./sd-connect-troubleshooting.md)
+

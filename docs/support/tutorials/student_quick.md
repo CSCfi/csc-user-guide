@@ -1,70 +1,72 @@
-# Getting started with CSC services for students
+
+# Csc-palveluiden käyttöönotto opiskelijoille {#getting-started-with-csc-services-for-students}
 
 !!! warning-label
 
-    Please read this page carefully!
+    Lue tämä sivu huolellisesti!
 
 <center>
-[![MyCSC - Getting started with CSC services for students](../../img/mycsc-getting-started-with-csc-services-for-students-video-poster.png){ width=400px }](https://video.csc.fi/id/0_oesbi3v1?width=608&height=402&playerId=14971191){ target="_blank" }
+[![MyCSC - Csc-palveluiden käyttöönotto opiskelijoille](../../img/mycsc-getting-started-with-csc-services-for-students-video-poster.png){ width=400px }](https://video.csc.fi/id/0_oesbi3v1?width=608&height=402&playerId=14971191){ target="_blank" }
 </center>
 
-This tutorial gathers all the information you, as a student, need to get started with using CSC services.
+Tämä opastus kokoaa kaiken tarvitsemasi tiedon CSC-palveluiden käyttöön ottopisteessä opiskelijana.
 
-The easiest way is to **create a student project**.
+Helpoin tapa on **luoda opiskelijahanke**.
 
-## Project Details
+## Projektin tiedot {#project-details}
 
-- The student may have **one project** at a time but be a member of many.
-- The student project is access to **a fixed amount of resources** for **a fixed period of time** for [selected CSC services](#available-services). *The quota of services cannot be increased and the end date of the project cannot be extended.*
-- Its purpose is to help students with their studies **free of charge**[^1].
-- The services are provided through **the same infrastructure** used by researchers, teachers and other students at Finnish higher education institutions.[^2]
+- Opiskelijalla voi olla **yksi projekti** kerrallaan, mutta hän voi olla jäsenenä useissa projekteissa.
+- Opiskelijaprojekti antaa pääsyn **rajalliseen määrään resursseja** **määritellyksi ajanjaksoksi** [valikoituihin CSC-palveluihin](#available-services). *Palveluiden kiintiötä ei voi nostaa eikä projektin päättymispäivää pidentää.*
+- Sen tarkoitus on auttaa opiskelijoita opinnoissaan **ilman eri veloitusta**[^1].
+- Palvelut tarjotaan **saman infrastruktuurin** kautta, jota myös tutkijat, opettajat ja muut opiskelijat suomalaisissa korkeakouluissa käyttävät.[^2]
 
 !!! warning ""
 
-    So - please **be mindful** of your use of resources. Respect infrastructure and other users.[^3]
+    Ole siis **tietoista** resurssien käytöstäsi. Kunnioita infrastruktuuria ja muita käyttäjiä.[^3]
 
-## Managing Project
+## Projektin hallinta {#managing-project}
 
-- Thanks to our updated terms and conditions, you - the student - can now be **the project manager** of the student project.
-- You will have **the same responsibilities** as any other CSC Project Manager.[^4]
-- As a project manager, you can **invite other members** of Finnish higher education institutions to your project[^5]. _(but you're also responsible for their actions in the project)_
-- Student projects are **not intended for sensitive data**[^6] and cannot store such data.
+- Päivitettyjen ehtojemme ansiosta voit nyt opiskelijana olla **projektipäällikkö** opiskelijahankkeessasi.
+- Sinulla tulee olemaan **samankaltaiset vastuut** kuin muillakin CSC-projektipäälliköillä.[^4]
+- Projektipäällikkönä voit **kutsua muita jäseniä** suomalaisista korkeakouluista projektiisi[^5]. _(mutta olet myös vastuussa heidän toimistaan projektissa)_
+- Opiskelijaprojektit **eivät ole tarkoitettu arkaluontoisille tiedoille**[^6] eikä tällaista dataa voi säilyttää.
 
-## Available Services
+## Saatavilla olevat palvelut {#available-services}
 
 !!! info-label
 
-    If you need other services, ask someone at the university to create a different type of project and add you as a member.
+    Jos tarvitset muita palveluja, pyydä jotakuta yliopistossa luomaan toisentyyppinen projekti ja lisäämään sinut jäseneksi.
 
-- [Allas](../../data/Allas/index.md){:target="_blank"} storage service
-- [Pouta](../../cloud/pouta/index.md){:target="_blank"} cloud service
-- [Puhti](hpc-quick.md){:target="_blank"} computing service
-- [Pukki](../../cloud/dbaas/index.md){:target="_blank"} database service
-- [Rahti](../../cloud/rahti/index.md){:target="_blank"} container service
+- [Allas](../../data/Allas/index.md){:target="_blank"} tallennuspalvelu
+- [Pouta](../../cloud/pouta/index.md){:target="_blank"} pilvipalvelu
+- [Puhti](hpc-quick.md){:target="_blank"} laskentapalvelu
+- [Pukki](../../cloud/dbaas/index.md){:target="_blank"} tietokantapalvelu
+- [Rahti](../../cloud/rahti/index.md){:target="_blank"} konttipalvelu
 
 !!! success-label
 
-    That's it! Now you know your rights and responsibilities in the student project.
+    Siinä kaikki! Nyt tiedät oikeutesi ja vastuusi opiskelijahankkeessa.
 
-## Student Project 1-2-3
+## Opiskelijaprojekti 1-2-3 {#student-project-1-2-3}
 
-Below's the life cycle of a student project:
+Alla on esitetty opiskelijahankkeen elinkaaren vaiheet:
 
-0. [Create a new user account](../../accounts/how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu) _(done once at first login)_
-1. [Create a student project](../../accounts/how-to-create-new-project.md#student)
-2. [Add members to your project](../../accounts/how-to-add-members-to-project.md) _(optional)_
-3. [Add access to services](../../accounts/how-to-add-service-access-for-project.md)
-4. [Use the services](#available-services).
-5. Manage your data across multiple services and plan to **back it up** before the project ends.
-6. [Project ends](../../accounts/how-to-manage-your-project.md#when-the-project-is-closed)
+0. [Luo uusi käyttäjätili](../../accounts/how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu) _(tehdään kerran ensimmäisen kirjautumisen yhteydessä)_
+1. [Luo opiskelijaprojekti](../../accounts/how-to-create-new-project.md#student)
+2. [Lisää jäseniä projektiisi](../../accounts/how-to-add-members-to-project.md) _(valinnainen)_
+3. [Lisää pääsy palveluihin](../../accounts/how-to-add-service-access-for-project.md)
+4. [Käytä palveluja](#available-services).
+5. Hallitse dataasi useiden palveluiden välillä ja suunnittele sen **varmuuskopiointi** ennen projektin päättymistä.
+6. [Projekti päättyy](../../accounts/how-to-manage-your-project.md#when-the-project-is-closed)
 
-You can be a project manager for **one student project** at a time, but a member for many.
+Voit olla projektipäällikkö **yhden opiskelijaprojektin** kerrallaan, mutta jäsen monissa.
 
-You can create a new project (step 2) when your project ends.
+Voit luoda uuden projektin (vaihe 2) kun edellinen projektisi päättyy.
 
-[^1]: [Free-of-charge use cases for students](https://research.csc.fi/free-of-charge-use-cases#2){:target="_blank"}
-[^2]: [Computing](https://research.csc.fi/computing){:target="_blank"}
-[^3]: [General Terms of Use](https://research.csc.fi/general-terms-of-use){:target="_blank"}
-[^4]: [Prerequisites and Responsibilities for a Project Manager](https://research.csc.fi/prerequisites-for-a-project-manager){:target="_blank"}
-[^5]: [How to add members to project](../../accounts/how-to-add-members-to-project.md){:target="_blank"}
-[^6]: [Sensitive data](https://research.csc.fi/sensitive-data){:target="_blank"}
+[^1]: [Opiskelijoiden maksuttomat käyttötapaukset](https://research.csc.fi/free-of-charge-use-cases#2){:target="_blank"}
+[^2]: [Laskentapalvelut](https://research.csc.fi/computing){:target="_blank"}
+[^3]: [Käyttöehdot](https://research.csc.fi/general-terms-of-use){:target="_blank"}
+[^4]: [Projektipäällikön edellytykset ja vastuut](https://research.csc.fi/prerequisites-for-a-project-manager){:target="_blank"}
+[^5]: [Kuinka lisätä jäseniä projektiin](../../accounts/how-to-add-members-to-project.md){:target="_blank"}
+[^6]: [Arkaluontoiset tiedot](https://research.csc.fi/sensitive-data){:target="_blank"}
+

@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,39 +6,39 @@ tags:
 
 # NWChem
 
-NWChem provides many different methods to compute the properties of molecular and
-periodic systems using standard quantum mechanical descriptions of the electronic
-wavefunction or density. In addition, NWChem has the capability to perform classical
-molecular dynamics and free energy simulations. These approaches may be combined to
-perform mixed quantum-mechanics and molecular-mechanics simulations.
+NWChem tarjoaa monia eri menetelmiä molekyylien ja jaksollisten järjestelmien
+ominaisuuksien laskemiseen käyttämällä elektronisen aaltotoiminnon tai tiheyden
+standardikvanttimekaanista kuvausta. Lisäksi NWChem kykenee suorittamaan klassista
+molekyylidynamiikkaa ja vapaan energian simulointeja. Näitä lähestymistapoja voidaan
+yhdistää suorittamaan seka kvanttiteknisiä ja molekyylitekniikan simulointeja.
 
-## Available
+## Saatavilla {#available}
 
 -   Puhti: 7.0.0
 -   Mahti: 7.0.0
 
-## License
+## Lisenssi {#license}
 
-- The code is distributed as open-source under the terms of the
+- Koodi jaetaan avoimen lähdekoodin ehtojen mukaisesti 
 [Educational Community License version 2.0 (ECL 2.0)](https://opensource.org/license/ecl-2-0/).
 
-## Usage
+## Käyttö {#usage}
 
-Check which versions are recommended:
+Tarkista, mitkä versiot ovat suositeltuja:
 
 ```bash
 module avail nwchem
 ```
 
-### Batch script example for Puhti
+### Eräajon esimerkki Puhti {#batch-script-example-for-puhti}
 
 ```bash
 #!/bin/bash
 #SBATCH --partition=test
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=40 # MPI tasks per node
-#SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH --time=00:10:00           # time as `hh:mm:ss`
+#SBATCH --ntasks-per-node=40 # MPI tehtävät per kone
+#SBATCH --account=<project>  # lisää tähän laskutettava projekti 
+#SBATCH --time=00:10:00           # aika `hh:mm:ss`
 
 module load nwchem/7.0.0
 export NWCHEM_RUN=$PWD/NWCHEM_RUN_$SLURM_JOB_ID
@@ -47,22 +48,22 @@ srun $NWCHEM_EXE test.nw > test_$SLURM_NPROCS.out
 seff $SLURM_JOBID
 ```
 
-!!! note
-    Particularly some of the more advanced electron correlation calculations can
-    be very disk I/O intensive. Such jobs benefit from using the fast local storage
-    on Puhti. Using local disk for such jobs will also reduce the load on the
-    Lustre parallel file system.
+!!! huom
+    Erityisesti jotkut edistyneemmistä elektronikorrelaatiolaskuista voivat olla
+    hyvin levy I/O intensiivisiä. Tällaiset työt hyötyvät Puhti-nopeasta
+    paikallisesta tallennustilasta. Paikallisen levyn käyttäminen tällaisissa töissä
+    vähentää myös kuormitusta Lustre rinnakkaistiedostojärjestelmään.
 
-### Batch script example for Puhti using local disk
+### Eräajon esimerkki Puhti paikallista levyä käyttäen {#batch-script-example-for-puhti-using-local-disk}
 
 ```bash
 #!/bin/bash
 #SBATCH --partition=large
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=40 # MPI tasks per node
-#SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH --time=00:10:00      # time as `hh:mm:ss`
-#SBATCH --gres=nvme:100      # requested local disk space in GB 
+#SBATCH --ntasks-per-node=40 # MPI tehtävät per kone
+#SBATCH --account=<project>  # lisää tähän laskutettava projekti
+#SBATCH --time=00:10:00      # aika `hh:mm:ss`
+#SBATCH --gres=nvme:100      # pyydetty paikallinen levytallinen tila GB
 
 module load nwchem/7.0.0
 export NWCHEM_RUN=$LOCAL_SCRATCH
@@ -72,15 +73,15 @@ srun $NWCHEM_EXE test.nw > test_$SLURM_NPROCS.out
 seff $SLURM_JOBID
 ```
 
-### Batch script example for Mahti
+### Eräajon esimerkki Mahti {#batch-script-example-for-mahti}
 
 ```bash
 #!/bin/bash -l
 #SBATCH --partition=test
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=128
-#SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH --time=00:10:00      # time as `hh:mm:ss`
+#SBATCH --account=<project>  # lisää tähän laskutettava projekti
+#SBATCH --time=00:10:00      # aika `hh:mm:ss`
 
 module load nwchem/7.0.0
 export NWCHEM_RUN=$PWD/NWCHEM_RUN_$SLURM_JOB_ID
@@ -89,15 +90,15 @@ export SCRATCH_DIR=$NWCHEM_RUN
 srun $NWCHEM_EXE test.nw > test_$SLURM_NPROCS.out
 ```
 
-Submit the batch job with:
+Lähetä eräajo käyttäen:
 
 ```bash
 sbatch nwchem_job.bash
 ```
 
-## References
+## Viitteet {#references}
 
-Please cite the following reference when publishing results obtained with NWChem:
+Ole hyvä ja viittaa seuraavaa lähdettä, kun julkistat NWChemillä saatuja tuloksia:
 
 E. Aprà, E. J. Bylaska, W. A. de Jong, N. Govind, K. Kowalski, T. P. Straatsma, M. Valiev,
 H. J. J. van Dam, Y. Alexeev, J. Anchell, V. Anisimov, F. W. Aquino, R. Atta-Fynn, J. Autschbach,
@@ -115,11 +116,12 @@ G. C. Schatz, W. A. Shelton, D. W. Silverstein, D. M. A. Smith, T. A. Soares, D.
 M. Swart, H. L. Taylor, G. S. Thomas, V. Tipparaju, D. G. Truhlar, K. Tsemekhman, T. Van Voorhis,
 Á. Vázquez-Mayagoitia, P. Verma, O. Villa, A. Vishnu, K. D. Vogiatzis, D. Wang, J. H. Weare,
 M. J. Williamson, T. L. Windus, K. Woliński, A. T. Wong, Q. Wu, C. Yang, Q. Yu, M. Zacharias,
-Z. Zhang, Y. Zhao, and R. J. Harrison, "NWChem: Past, present, and future",
+Z. Zhang, Y. Zhao, ja R. J. Harrison, "NWChem: Past, present, and future",
 The Journal of Chemical Physics 152, 184102 (2020). DOI: 10.1063/5.0004997
 
-## More information
+## Lisätietoja {#more-information}
 
--   [NWChem:Main Page](https://nwchemgit.github.io/)
--   [NWChem User Documentation](https://nwchemgit.github.io/Home.html)
--   [NWChem Community Forum (requires registration)](https://nwchemgit.github.io/Forum.html)
+-   [NWChem: Pääsivu](https://nwchemgit.github.io/)
+-   [NWChem Käyttöohjeet](https://nwchemgit.github.io/Home.html)
+-   [NWChem Yhteisöfoorumi (edellyttää rekisteröitymisen)](https://nwchemgit.github.io/Forum.html)
+

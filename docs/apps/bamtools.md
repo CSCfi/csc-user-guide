@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,63 +6,61 @@ tags:
 
 # BamTools
 
-BamTools provides both a programmer's API and an end-user's toolkit for handling
-BAM files.
+BamTools tarjoaa sekä ohjelmoijan API:n että loppukäyttäjän työkalupaketin BAM-tiedostojen käsittelyyn.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [MIT License](https://raw.githubusercontent.com/pezmaster31/bamtools/master/LICENSE)
+Vapaa käyttää ja avoimen lähdekoodin [MIT-lisenssillä](https://raw.githubusercontent.com/pezmaster31/bamtools/master/LICENSE)
 
-## Available
+## Saatavuus {#available}
 
 -   Puhti: 2.5.2
--   Chipster graphical user interface
+-   Chipster graafinen käyttöliittymä
 
-## Usage
+## Käyttö {#usage}
 
-On Puhti, BamTools can be taken in use as a part of biokit module collection:
+Puhtilla BamTools voidaan ottaa käyttöön osana biokit-moduulikokoelmaa:
 
 ```bash
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools. Note however that there are other bioinformatics tools on Puhti,
-that have a separate setup commands.
+Biokit-moduuli määrittää joukon yleisesti käytettyjä bioinformatiikan työkaluja. Huomaa kuitenkin, että Puhtilla on muita bioinformatiikan työkaluja, joilla on erillisiä asetuskomentoja.
 
-The syntax of BamTools is:
+BamToolsin syntaksi on:
 
 ```
 bamtools COMMAND ARGUMENTS
 ```
 
-Available bamtools commands:
+Saatavilla olevat bamtools-komennot:
 
-- `convert`         Converts between BAM and a number of other formats
-- `count`           Prints number of alignments in BAM file(s)
-- `coverage`        Prints coverage statistics from the input BAM file
-- `filter`          Filters BAM file(s) by user-specified criteria
-- `header`          Prints BAM header information
-- `index`           Generates index for BAM file
-- `merge`           Merge multiple BAM files into single file
-- `random`          Select random alignments from existing BAM file(s), intended more as a testing tool.
-- `resolve`         Resolves paired-end reads (marking the IsProperPair flag as needed)
-- `revert`          Removes duplicate marks and restores original base qualities
-- `sort`            Sorts the BAM file according to some criteria
-- `split`           Splits a BAM file on user-specified property, creating a new BAM output file for each value found
-- `stats`           Prints some basic statistics from input BAM file(s)
+- `convert`         Muuntaa BAM:in ja useiden muiden formaattien välillä
+- `count`           Tulostaa kohdistusten lukumäärän BAM-tiedostossa
+- `coverage`        Tulostaa peitto-tilastot syötteenä olevasta BAM-tiedostosta
+- `filter`          Suodattaa BAM-tiedostoja käyttäjän määrittelemien kriteerien mukaan
+- `header`          Tulostaa BAM-otsikkotiedot
+- `index`           Luo indeksi BAM-tiedostolle
+- `merge`           Yhdistää useita BAM-tiedostoja yhdeksi tiedostoksi
+- `random`          Valitsee satunnaisia kohdistuksia olemassa olevista BAM-tiedostoista, tarkoitettu enemmän testaustyökaluiksi.
+- `resolve`         Ratkaisee parittain luetut kohdistukset (merkitsee IsProperPair-lipun tarpeen mukaan)
+- `revert`          Poistaa kaksoiskappaleiden merkit ja palauttaa alkuperäiset emäslaadut
+- `sort`            Lajittelee BAM-tiedoston tiettyjen kriteerien mukaan
+- `split`           Jakaa BAM-tiedoston käyttäjän määrittelemän ominaisuuden perusteella, luoden uuden BAM-tulostetiedoston jokaiselle löydetylle arvolle
+- `stats`           Tulostaa perustilastoja syötteenä olevista BAM-tiedostoista
 
-For more information on a specific command, run command:
+Lisätietoja tietystä komennosta saa suorittamalla käskyn:
 
 ```
 bamtools help COMMAND
 ```
 
-## Support
+## Tuki {#support}
 
 [CSC Service Desk](../support/contact.md)
 
-## More information
+## Lisätietoja {#more-information}
 
-More information about BamTools can be found from the [BamTools home page](https://github.com/pezmaster31/bamtools).
+Lisätietoja BamToolsista löytyy [BamToolsin kotisivulta](https://github.com/pezmaster31/bamtools).

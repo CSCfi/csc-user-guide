@@ -1,21 +1,21 @@
-# Pukki - Database as a Service
+# Pukki - Tietokanta palveluna
 
-* [What is Database as a Service](what-is-dbaas.md)
+* [Mikä on tietokanta palveluna](what-is-dbaas.md)
 
-## Getting access to DBaaS
+## DBaaS:n käyttöön pääsy {#getting-access-to-dbaas}
 
-* [Applying for DBaaS access](../../accounts/how-to-add-service-access-for-project.md)
-* [Security guide for DBaaS](security-guides.md)
-* [What does DBaaS cost](flavors.md)
+* [DBaaS-käyttöoikeuden hakeminen](../../accounts/how-to-add-service-access-for-project.md)
+* [DBaaS:n turvallisuusopas](security-guides.md)
+* [Mitä DBaaS maksaa](flavors.md)
 
-## Using DBaaS
+## DBaaS:n käyttäminen {#using-dbaas}
 
-* [Web interface](web-interface.md)
-* [Command Line tools](cli.md)
-* [Using backups](backups.md)
-* [Database operations](operations.md)
+* [Verkkokäyttöliittymä](web-interface.md)
+* [Komentorivityökalut](cli.md)
+* [Varmuuskopioiden käyttäminen](backups.md)
+* [Tietokantatoiminnot](operations.md)
 
-## Database types
+## Tietokantatyypit {#database-types}
 
 * [PostgreSQL](postgresql.md)
 * [MariaDB](mariadb.md)

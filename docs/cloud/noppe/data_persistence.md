@@ -1,56 +1,47 @@
-# Data persistence
+# Tiedon pysyvyys {#data-persistence}
 
-There are three types of storage in Noppe.
+Nopessa on kolme säilytystyyppiä.
 
-* **Workspace shared folder**: persisted for workspace lifetime
-* **My-work folder**: persisted for workspace lifetime per user
-* **Home directory**: persisted only for session lifetime, survives application restarts in error situations
+* **Työtilan jaettu kansio**: säilyy työtilan eliniän
+* **Oma työ -kansio**: säilyy käyttäjäkohtaisesti työtilan eliniän
+* **Kotihakemisto**: säilyy vain istunnon eliniän, kestää sovelluksen uudelleenkäynnistykset virhetilanteissa
 
-!!!Note
+!!!Huomio
 
-    `home` or `$HOME` folder refers to `home/jovyan` for Jupyter based applications and `/home/rstudio` for RStudio based 
-    applications.
+    `home` tai `$HOME` kansio viittaa Jupyter-pohjaisissa sovelluksissa `home/jovyan` ja RStudio-pohjaisissa sovelluksissa `/home/rstudio`.
 
-!!!Note
+!!!Huomio
 
-    None of the persistent storage options are backed up. Always make sure you (and your users) make a copy outside 
-    Noppe of any data you cannot afford to lose. 
+    Yksikään pysyvistä tallennusvaihtoehdoista ei ole varmuuskopioitu. Varmista aina, että sinä (ja käyttäjäsi) teet kopion Noppen ulkopuolelle mistä tahansa datasta, jota et voi menettää.
 
-## Workspace shared folder 
+## Työtilan jaettu kansio {#workspace-shared-folder}
 
-* A shared volume is created per workspace. This volume is mounted in `$HOME/shared` for each session.
-* The default size of the volume is 20 GB.
-* Workspace owner and managers/co-owners will have full access to this folder. Every other user in the workspace will
-  have read-only access to this folder.
-* Shared folder is directly linked to the lifetime of workspace. When the workspace is deleted, shared folder will be
-  automatically deleted.
-* The backing volume for shared folder lives on NFS, thus the storage is not as fast as home directory.
+* Jokaiselle työtilalle luodaan jaettu levyasema. Tämä levyasema on asennettu polkuun `$HOME/shared` jokaiseen istuntoon.
+* Levyn oletuskoko on 20 GB.
+* Työtilan omistajalla ja hallinnoijilla/yhteisomistajilla on täydet käyttöoikeudet tähän kansioon. Kaikilla muilla työtilan käyttäjillä on vain lukuoikeudet tähän kansioon.
+* Jaettu kansio on suoraan linkitetty työtilan eliniän kanssa. Kun työtila poistetaan, jaettu kansio poistetaan automaattisesti.
+* Jaetun kansion takalevy sijaitsee NFS:ssä, joten tallennus ei ole yhtä nopeaa kuin kotihakemistossa.
 
-### Intended use
+### Tarkoitettu käyttö {#intended-use-1}
 
-Workspace owner and co-owners can create, modify and save course contents in the shared folder and workspace members 
-can directly read from them.
+Työtilan omistaja ja yhteisomistajat voivat luoda, muokata ja tallentaa kurssisisältöjä jaetussa kansiossa, ja työtilan jäsenet voivat lukea niitä suoraan.
 
-## My-work folder
+## Oma työ -kansio {#my-work-folder}
 
-* My-work folder is a workspace specific folder for each user, mounted to `$HOME/my-work`.
-* Workspace owner can enable or disable `my-work` folder per application.
-* If enabled, a volume will be automatically created for the user during the launch of the first session.
-  Other users or workspace owners in the workspace will not have any access to the individual users volume.
-* The default volume size is 1 GB.
-* My-work folder is persisted until the workspace expires.
-* The backing volume for my-work folder lives on NFS, thus the storage is not as fast as home directory.
+* Oma työ -kansio on työtilakohtainen kansio jokaiselle käyttäjälle, joka on asennettu polkuun `$HOME/my-work`.
+* Työtilan omistaja voi ottaa käyttöön tai poistaa käytöstä `my-work` kansion sovelluskohtaisesti.
+* Jos se on otettu käyttöön, levy luodaan automaattisesti käyttäjälle ensimmäisen istunnon käynnistyessä.
+  Muilla käyttäjillä tai työtilan omistajilla ei ole pääsyä yksittäisten käyttäjien levyihin.
+* Levyn oletuskoko on 1 GB.
+* Oma työ -kansio säilyy, kunnes työtila umpeutuu.
+* Oma työ -kansion takalevy sijaitsee NFS:ssä, joten tallennus ei ole yhtä nopeaa kuin kotihakemistossa.
 
-### Intended use
+### Tarkoitettu käyttö {#intended-use-2}
 
-Individual users can store and save their course data in this volume until the end of the workspace lifetime. Unlike
-session volume, this is not deleted when the session expires. The contents from the previous session are available when
-starting a new session. If the workspace has multiple applications, this folder will be mounted simultaneously to
-parallel sessions and thus can be also used for data transfer between for example Jupyter and RStudio.
+Yksittäiset käyttäjät voivat tallentaa ja säilyttää kurssidatansa tässä levyssä työtilan eliniän ajan. Toisin kuin istuntokohtainen levy, tämä ei poistu, kun istunto umpeutuu. Edellisen istunnon sisältö on käytettävissä aloittaessa uutta istuntoa. Jos työtilassa on useita sovelluksia, tämä kansio asennetaan samanaikaisesti rinnakkaisiin istuntoihin ja sitä voidaan siten käyttää myös tiedonsiirtoon esimerkiksi Jupyterin ja RStudion välillä.
 
-## Home directory
+## Kotihakemisto {#home-directory}
 
-* Data is preserved over session container restarts, for example in out-of-memory situations. In practice, a volume is
-  created and mounted on `$HOME` when the session is launched.
-* Data is hosted on a local, fast disk. The disk does not have any redundancy for hardware failures.
-* Data is deleted when the session is deleted by user or when the lifetime of session ends.
+* Tiedot säilyvät istuntoastian uudelleenkäynnistysten yli, esimerkiksi muistin ylitystilanteissa. Käytännössä levy luodaan ja asennetaan polkuun `$HOME` istunnon käynnistyessä.
+* Tiedot sijaitsevat paikallisella, nopealla levyllä. Levylle ei ole mitään redundanssia laitteistovirheiden varalta.
+* Tiedot poistetaan, kun käyttäjä poistaa istunnon tai kun istunnon elinikä päättyy.

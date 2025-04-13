@@ -1,399 +1,298 @@
-# Using Allas storage service to receive sensitive research data
+# Allas-tallennuspalvelun käyttäminen arkaluontoisen tutkimusdatan vastaanottamiseen
 
-This document provides an example of how a research group can use Allas service to receive **sensitive data** from external 
-data provider like a sequencing center. In many cases [SD Connect](sd-connect-sharing-for-import.md), provides you a more easy way to receive sensitive data but in some cases, SD Connect can't be used. For example, SD Connect is not able to provide you an encrypted file that you could later on decrypt in an environment that does not have internet connection.
+Tässä dokumentissa annetaan esimerkki siitä, miten tutkimusryhmä voi käyttää Allas-palvelua vastaanottaakseen **arkaluontoista dataa** ulkoiselta datan tarjoajalta, kuten sekvenointikeskukselta. Monissa tapauksissa [SD Connect](sd-connect-sharing-for-import.md) tarjoaa helpomman tavan vastaanottaa arkaluontoista dataa, mutta joskus SD Connectia ei voi käyttää. Esimerkiksi SD Connect ei voi toimittaa sinulle salattua tiedostoa, jota voisit myöhemmin purkaa ympäristössä, jossa ei ole internet-yhteyttä.
 
-## Allas
+## Allas {#allas}
 
-Allas storage service is a general purpose data storage service maintained by CSC. 
-It provides free-of-charge storage space for academic research projects at Finnish universities and research institutes. 
-Allas can be used for storing any kind of research data during the active working phase of a research project. 
-Allas is however not intended for data archiving. You must remove your data from Allas when the research project ends.
+Allas-tallennuspalvelu on CSC:n ylläpitämä yleiskäyttöinen datan tallennuspalvelu. Se tarjoaa maksutonta tallennustilaa akateemisille tutkimusprojekteille Suomen yliopistoissa ja tutkimuslaitoksissa. Allasta voidaan käyttää minkä tahansa tyyppisen tutkimusdatan säilyttämiseen tutkimusprojektin aktiivisen työskentelyvaiheen aikana. Allasta ei kuitenkaan ole tarkoitettu datan arkistointiin. Sinun täytyy poistaa datasi Allaksesta, kun tutkimusprojekti päättyy.
 
-There is no automatic backup processes in Allas. In technical level Allas is very reliable and fault-tolerant, 
-but if you, or some of your project members, remove or overwrite some data in Allas, 
-it is permanently lost. Thus, you might consider making a backup copy of your data to some other location.
+Allaksessa ei ole automaattisia varmuuskopioprosesseja. Allas on teknisesti hyvin luotettava ja vikaturvallinen, mutta jos sinä tai jokin projektisi jäsenistä poistaa tai ylikirjoittaa jotain dataa Allaksessa, se häviää pysyvästi. Siksi saatat harkita varmuuskopion tekemistä datasta johonkin toiseen paikkaan.
 
-The steps 1 (Obtaining storage space in Allas), and 2 (Generating encryption keys) require some work, 
-but they need to be done only once. Once you have the keys in place you can move directly to step 3 when you 
-need to prepare a new shared bucket. 
+Vaiheet 1 (Tallennustilan hankkiminen Allaksessa) ja 2 (Salausavainten luominen) vaativat hieman työskentelyä, mutta ne on tehtävä vain kerran. Kun avaimet ovat paikoillaan, voit siirtyä suoraan vaiheeseen 3, kun sinun tulee valmistella uusi jaettu bucket.
 
+## 1. Tallennustilan hankkiminen Allaksessa {#1-obtaining-a-storage-space-in-allas}
 
-## 1. Obtaining a storage space in Allas
+Jos käytät jo Allas-palvelua, voit ohittaa tämän luvun ja aloittaa [luvusta 2](#2-generating-keys-for-encrypting-sensitive-data). Muussa tapauksessa tee seuraavat askeleet saadaksesi pääsyn Allakseen.
 
-If you are already using Allas service, you can skip this chapter and start from [chapter 2](#2-generating-keys-for-encrypting-sensitive-data).
-Otherwise, do following steps to get access to Allas.
+### Vaihe 1.1. Luo käyttäjätili {#step-1-1-create-a-user-account}
 
+Jos et ole vielä CSC:n asiakas, rekisteröidy CSC:hen. Voit tehdä nämä vaiheet CSC:n asiakasportaalissa [MyCSC](https://my.csc.fi).
 
-### Step 1.1. Create a user account
+Luo CSC-tili kirjautumalla MyCSC:hen Haka- tai Virtu-tunnuksilla.
 
-If you are not yet CSC customer, register yourself to CSC. You can do these steps in the 
-CSC’s customer portal [MyCSC](https://my.csc.fi). 
+### Vaihe 1.2. Luo tai liity projektiin {#step-1-2-create-or-join-a-project}
 
-Create a CSC account by logging in to MyCSC with Haka or Virtu. 
+CSC:n käyttäjätilin lisäksi käyttäjien on joko liityttävä olemassa olevaan CSC:n laskentaprojektiin tai perustettava uusi laskentaprojekti. Voit käyttää samaa projektia pääsyyn muihin CSC-palveluihin, kuten SD työpöytä, SD Connect ja Puhti.
 
+Jos olet kelvollinen toimimaan [projektipäällikkönä](https://research.csc.fi/prerequisites-for-a-project-manager), voit luoda uuden CSC-projektin MyCSC:ssä ja hakea pääsyä Allakseen. Valitse ’Akateeminen’ projektityypiksi. Projektipäällikkönä voit kutsua muita käyttäjiä jäseniksi projektiisi.
 
-### Step 1.2. Create or join a project
+Jos haluat liittyä olemassa olevaan projektiin, pyydä projektipäällikköä lisäämään CSC-käyttäjätilisi projektin jäsenlistaan.
 
+### Vaihe 1.3. Lisää Allas-projektisi {#step-1-3-add-allas-access-for-your-project}
 
-In addition to CSC user account, users must either join an existing CSC computing project 
-or set up a new computing project. You can use the same project to access other 
-CSC services too like SD Desktop, SD Connect pt Puhti.
+Lisää _Allas_-palvelu projektiisi MyCSC:ssä. Vain projektipäällikkö voi lisätä palveluita. Kun olet lisännyt Allaksen projektiin, muiden projektin jäsenten on kirjauduttava MyCSC:hen ja hyväksyttävä palvelun käyttöehdot ennen kuin he saavat pääsyn Allakseen.
 
-If you are eligible to act as a [project manager](https://research.csc.fi/prerequisites-for-a-project-manager), you can create a new CSC project in MyCSC and apply access to Allas.
-Select 'Academic' as the project type.  As a project manager, you can invite other users as members to your project. 
+Näiden vaiheiden jälkeen projektillasi on 10 TB tallennustilaa Allaksessa. Ole hyvä ja [ota yhteyttä CSC Service Deskiin](../../support/contact.md), jos tarvitset enemmän tallennustilaa. Allaksessa olevaa dataa voidaan ladata paikalliseen ympäristöösi tai CSC:n koneille. Lisätietoa eri tavoista päästä dataan Allaksessa löytyy [Allas-käyttäjän oppaasta](../Allas/index.md).
 
-If you wish to be joined to an existing project, please ask the project manager to add your CSC user account to the 
-project member list.
+## 2. Säilyttäjien avainten generointi arkaluontoisen datan salaamiseen {#2-generating-keys-for-encrypting-sensitive-data}
 
+### 2.1 Mitä ovat salaustoiminnot? {#2-1-what-are-encryption-keys-for}
 
-### Step 1.3. Add Allas access for your project
+Arkaluontoisen tutkimusdatan, esim. ihmisen nukleotidisekvenssidatan, tapauksessa data on asianmukaisesti salattava ennen kuin se voidaan ladata Allakseen. CSC Sensitive Data Services salaa datan oletuksena CSC:n erityisellä avaimella, jota voi käyttää vain CSC-ympäristössä. Jos haluat käyttää arkaluontoista dataasi myös muissa paikoissa, sinun täytyy luoda _Crypt4GH_-yhteensopiva avainpari, joka koostuu _salaisesta avaimesta_ ja _julkisesta avaimesta_ henkilökohtaiseen käyttöön. Voit käyttää samaa avainparia useita kertoja ja yleensä on käytännöllistä käyttää samaa avainta koko projektin datan kohdalla, jotta avainten hallinnasta ei tule liian monimutkaista.
 
-Add _Allas_ service to your project in MyCSC. Only the project manager can add services. 
-After you have added Allas to the project, the other project members need to login to 
-MyCSC and approve the terms of use for the service before getting access to Allas. 
+Alta löydät askel askeleelta ohjeet salausavainten luomiseen käyttämällä Cryp4GH-graafista käyttöliittymää tai komentoriviä. Kun avaimet on luotu, voit lähettää julkisen avaimen kaikille datan tuottajille, jotta he voivat salata sinulle lähetettävät datat. Tämän jälkeen vain yksityisen avaimen omistajat eli projektin jäsenet voivat purkaa datan.
 
-After these steps, your project has 10 TB storage space available in Allas. 
-Please [contact CSC Service Desk](../../support/contact.md) if you need more storage space. 
-The data in Allas can be downloaded to your local environment or to CSC computers. 
-More information about different ways to access data in Allas can be found from [Allas user guide](../Allas/index.md).
+Datan salauksen mahdollinen vaara on, että jos salainen avain tai sen salasana katoaa, dataa ei voida enää purkaa millään keinoilla. Siksi sinun tulisi säilyttää avaimet ja salasana niin, että tieto säilyy myös siinä tapauksessa, kun palvelimet ja projektin jäsenet vaihtuvat. Toisaalta salainen avain tulisi siirtää vain sinne, missä purkaminen suoritetaan, ja salasanan tulisi pysyä projektin ulkopuolisten henkilöiden ulottumattomissa.
 
+CSC ei tällä hetkellä tarjoa salausavainten hallintajärjestelmää. Jos sinulla ei ole pääsyä asianmukaiseen avainten hallintajärjestelmään, yksi ratkaisu on tallentaa salainen avain ja tekstitiedosto, joka sisältää salasanan, _CSC Sensitive Data environment_:iin käyttäen _SD Connect_-rajapintaa. Rajapinta salaa tämä tieto CSC:n julkisella avaimella, minkä jälkeen vain projektin jäsenet voivat käyttää SD Työpöydän palvelua tarkistaakseen, mitä avaimia ja salasanoja projekti käyttää.
 
-## 2. Generating keys for encrypting sensitive data
+CSC Sensitive Data environment käyttää _Crypt4GH_-salaustyökalua, joka mahdollistaa salauksen useilla julkisilla avaimilla. Tällä tavalla salattu data voidaan avata useilla turva-avainpohjilla. Jos hyödynnät CSC:n arkaluontoisten datapalveluiden turvatiedon, on kätevä käyttää sekä projektin julkista avainta että CSC:n julkista avainta salaukseen. Näin dataa voidaan käyttää sekä käyttäjän paikallisessa ympäristössä että CSC:n arkaluontoisten tietojen palveluissa.
 
-### 2.1 What are encryption keys for?
+#### _crypt4gh_-yhteensopivien avainten luominen graafisen käyttöliittymän kautta {#creating-crypt4gh-compatible-keys-via-grafical-user-interface}
 
-In case of sensitive research data, for example human nucleotide sequence data, 
-the data needs to be properly encrypted before it can be uploaded to Allas. 
-The CSC Sensitive Data Services encrypts data by default with CSC specific 
-key that can be used only in the CSC environment. If you want to use your 
-sensitive data in other locations too you need to create a _Crypt4GH_ compatible key pair 
-consisting of _secret key_ and _public key_ for your own use. You can use the same key pair 
-several times, and normally it is practical to use the same keys for all data of a project so that 
-key management does not get too complicated. 
+1. Generoi salausavaimesi (salainen avain ja julkinen avain) Crypt4GH-sovelluksella (voit ohittaa tämän kohdan, jos sinulla on jo avainpari).
 
-Below you can find step-by-step instructions to create encryption keys using the Cryp4GH graphical user interface or via the command line.
-
-Once the keys have been generated, you can send the public key to all data producers, 
-so that they can then encrypt the data that they will send for you. After that, only the owners 
-of the private key, i.e. project members, can decrypt the data.  
-
-The potential danger with data encryption is that if the secret key or 
-its password is lost, the data can’t be decrypted by any means anymore. 
-Thus, you should store the keys and password so that the information will 
-be preserved also when servers and project members change. On the other hand, 
-the secret key should be moved only to those places where decryption is done,
-and the password should remain unreachable for non-project members.
-
-CSC does not provide an encryption key management system at the moment. If you
-don't have access to a proper key management system, one solution is to 
-store the secret key and a text file containing the password to _CSC Sensitive 
-Data environment_ using _SD Connect_ interface. 
-The interface encrypts this data with CSC public key, after which the project members, 
-and only them, can use SD Desktop service to check, what were the keys and 
-passwords the project uses. 
-
-CSC Sensitive Data environment uses _Crypt4GH_ encryption tool that allows 
-encryption with several public keys. Data encrypted with this way can be 
-opened with several secure keys. If you utilize sensitive data services of 
-CSC it is handy to use both project's public key and CSC public key in encryption. 
-This way the data can be used both in users local environment and in the 
-sensitive data services of CSC.
-
-#### Creating _crypt4gh_ compatible keys via grafical user interface
-
-
-1. Generate your encryption key pair (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
-
-      * Install the Crypt4GH application:
-
-      CSC has developed a simple application that will allow you to generate your encryption keys and decrypt data when necessary. 
-      Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
+   * Asenna Crypt4GH-sovellus:
+     
+      CSC on kehittänyt yksinkertaisen sovelluksen, joka mahdollistaa salausavaimiesi luomisen ja datan purkamisen tarvittaessa. Lataa käyttöjärjestelmällesi sopiva versio [GitHub-repositorysta](https://github.com/CSCfi/crypt4gh-gui):
 
       * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
       * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
       * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
 
-    Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
+      Tarkista, että Windows-työkalu on digitaalisesti allekirjoitettu CSC – Tieteen tietotekniikan keskuksen toimesta. Lataamisen jälkeen löydät Crypt4GH-sovelluksen latauskansiostasi.
 
-    * When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+   * Kun avaat sovelluksen ensimmäisen kerran, saatat kohdata virheilmoituksen. Tässä tapauksessa napsauta _Lisätietoja_-valintaa ja varmista, että julkaisija on CSC – Tieteen tietotekniikan keskus Oy (tai suomeksi CSC – IT Center for Science) ja napsauta sitten _Suorita joka tapauksessa_.
 
-    * Generate your encryption keys:
+   * Generoi salausavaimesi:
 
-        - Open the Crypt4GH application and click on _Generate Keys_ (in the top right corner).
-        - The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secret key. Please, use a strong password.
-        - When you click on _OK_, the tool will generate a key pair consisting of a secret key (`username_crypt4gh.key`) and a public key (`username_crypt4gh.pub`).
-        - The keys/file names will be displayed in the Activity Log with the following message:
+     - Avaa Crypt4GH-sovellus ja napsauta _Generate Keys_ (oikeassa yläkulmassa).
+     - Työkalu avaa uuden ikkunan ja pyytää sinua syöttämään salasanan (_Private Key Passphrase_). Tämä salasana liitetään salaiseseen avaimeseesi. Käytäthän vahvaa salasanaa.
+     - Kun napsautat _OK_, työkalu generoi avainparin, joka koostuu salaisesta avaimesta (`username_crypt4gh.key`) ja julkisesta avaimesta (`username_crypt4gh.pub`).
+     - Avaimet/tiedostonimet näytetään Toimintaloki-viestissä seuraavalla viestillä:
 
-            ```
-            Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
-            Private key: username_crypt4gh.key
-            Public key: username_crypt4gh.pub
-            All the fields must be filled before file encryption will be started
-            ```
+         ```
+         Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
+         Private key: username_crypt4gh.key
+         Public key: username_crypt4gh.pub
+         All the fields must be filled before file encryption will be started
+         ```
 
-            The keys will be generated and saved to the same folder in which the application resides.
+         Avaimet luodaan ja tallennetaan samaan kansioon, jossa sovellus sijaitsee.
 
-        !!! Note
-            * If you lose or forget your secret key, or the password, you will be unable to decrypt the files.
-            * Do not share your secret key or your password.
-            * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
+   !!! Huomautus
+       * Jos kadotat tai unohdat salaisen avaimen tai salasanan, et voi enää purkaa tiedostoja.
+       * Älä jaa salaisia avaimiasi tai salasanoja.
+       * Sinun tarvitsee **luoda avaimet vain kerran** ja käyttää niitä kaikkiin salauksiin, mutta voit tietysti halutessasi luoda erilliset avaimet eri salaustarpeisiin.
 
+#### Salausavainten luominen komentorivityökaluilla {#cretating-encryption-keys-via-command-line-tools}
 
-#### Cretating encryption keys via command line tools
+Tässä esimerkissä ensin luomme avainparin (salasanalla suojattu yksityinen avain ja julkinen avain, joka voidaan jakaa yhteistyökumppaneille). Sitten salaamme tiedoston kahden eri yhteistyökumppanin (tutkimusryhmä A ja tutkimusryhmä B) julkisilla avaimilla.
 
-In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
+**Python 3.6+ vaaditaan** Crypt4GH-salaussovelluksen käyttöön. Asennusapua Pythonille voi tarvittaessa katsoa [näistä ohjeista](https://www.python.org/downloads/release/python-3810/).
 
-**Python 3.6+ is required** to use the Crypt4GH encryption utility. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
+1. Asenna Crypt4GH-salauskaikkius
 
-1. Install the Crypt4GH encryption CLI tool
+   Voit asentaa Crypt4GH:n suoraan pip-työkalulla:
 
-      You can install Crypt4GH directly with pip tool:
+   ```bash
+   pip install crypt4gh     
+   ```
 
-      ```bash
-      pip install crypt4gh     
-      ```
+   tai, jos haluat viimeisimmät versiot GitHubista:
 
-      or, if you prefer the latest sources from GitHub:
+   ```bash
+   pip install -r crypt4gh/requirements.txt
+   pip install ./crypt4gh
+   ```
 
-      ```bash
-      pip install -r crypt4gh/requirements.txt
-      pip install ./crypt4gh
-      ```
+   tai jopa:
 
-      or even:
+   ```bash
+   pip install git+https://github.com/EGA-archive/crypt4gh.git
+   ```
 
-      ```bash
-      pip install git+https://github.com/EGA-archive/crypt4gh.git
-      ```
+   Tavallinen `-h` -joka näyttää sinulle eri vaihtoehdot, mitä työkalu tarjoaa:
 
-      The usual `-h` flag shows you the different options that the tool accepts:
+   ```bash
+   $ crypt4gh -h
 
-      ```bash
-      $ crypt4gh -h
+   Utility for the cryptographic GA4GH standard, reading from stdin and outputting to stdout.
 
-      Utility for the cryptographic GA4GH standard, reading from stdin and outputting to stdout.
+   Usage:
+      {PROG} [-hv] [--log <file>] encrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--range <start-end>]
+      {PROG} [-hv] [--log <file>] decrypt [--sk <path>] [--sender_pk <path>] [--range <start-end>]
+      {PROG} [-hv] [--log <file>] rearrange [--sk <path>] --range <start-end>
+      {PROG} [-hv] [--log <file>] reencrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--trim]
 
-      Usage:
-         {PROG} [-hv] [--log <file>] encrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--range <start-end>]
-         {PROG} [-hv] [--log <file>] decrypt [--sk <path>] [--sender_pk <path>] [--range <start-end>]
-         {PROG} [-hv] [--log <file>] rearrange [--sk <path>] --range <start-end>
-         {PROG} [-hv] [--log <file>] reencrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--trim]
+   Options:
+      -h, --help             Prints this help and exit
+      -v, --version          Prints the version and exits
+      --log <file>           Path to the logger file (in YML format)
+      --sk <keyfile>         Curve25519-based Private key.
+                          When encrypting, if neither the private key nor C4GH_SECRET_KEY are specified, we generate a new key
+      --recipient_pk <path>  Recipient's Curve25519-based Public key
+      --sender_pk <path>     Peer's Curve25519-based Public key to verify provenance (akin to signature)
+      --range <start-end>    Byte-range either as  <start-end> or just <start> (Start included, End excluded)
+      -t, --trim             Keep only header packets that you can decrypt
 
-      Options:
-         -h, --help             Prints this help and exit
-         -v, --version          Prints the version and exits
-         --log <file>           Path to the logger file (in YML format)
-         --sk <keyfile>         Curve25519-based Private key.
-                              When encrypting, if neither the private key nor C4GH_SECRET_KEY are specified, we generate a new key
-         --recipient_pk <path>  Recipient's Curve25519-based Public key
-         --sender_pk <path>     Peer's Curve25519-based Public key to verify provenance (akin to signature)
-         --range <start-end>    Byte-range either as  <start-end> or just <start> (Start included, End excluded)
-         -t, --trim             Keep only header packets that you can decrypt
+   Environment variables:
+      C4GH_LOG         If defined, it will be used as the default logger
+      C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
+   ```
 
-      Environment variables:
-         C4GH_LOG         If defined, it will be used as the default logger
-         C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
-      ```
+   Voit huomata, että crypt4gh käyttää vaihtoehtoa `--sk` yksityiselle avaimelle. Tämä voi vaikuttaa oudolta, mutta ilmeisesti crypt4gh käyttää termiä _secure key_ yksityiselle avaimelle, siksi `sk`, ja siksi `pk` viittaa julkiseen avaimeen eikä yksityiseen avaimeen.
 
-      You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently, crypt4gh uses term _secure key_ for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
+2. Generoi julkinen-yksityinen avainparisi {#2-generate-your-public-private-key-pair}
 
-2. Generate your public-private key pair
+   Suoritat `crypt4gh-keygen`-komennon luomaan yksityisen ja julkisen avaimet:
 
-      You use `crypt4gh-keygen` command to create your private and public keys:
+   ```bash
+   $ crypt4gh-keygen --sk mykey.sec --pk mykey.pub
+   Generating public/private Crypt4GH key pair.
+   Enter passphrase for mykey.sec (empty for no passphrase): 
+   Enter passphrase for mykey.sec (again): 
+   Your private key has been saved in mykey.sec
+   Your public key has been saved in mykey.pub
+   ```
 
-      ```bash
-      $ crypt4gh-keygen --sk mykey.sec --pk mykey.pub
-      Generating public/private Crypt4GH key pair.
-      Enter passphrase for meykey.sec (empty for no passphrase): 
-      Enter passphrase for mykey.sec (again): 
-      Your private key has been saved in mykey.sec
-      Your public key has been saved in mykey.pub
-      ```
+   missä `--sk mykey.sec` on yksityinen (salainen, sk) avain ja `--pk mykey.pub` on julkinen avain (pk). Työkalu pyytää sinua syöttämään salasanan (passphrase) yksityiselle avaimellesi. Turvallisuussyistä salasana ei näy, kun kirjoitat sen, joten työkalu pyytää sinua kirjoittamaan sen toisen kerran varmistaakseen, että et tehnyt kirjoitusvirheitä (tai, teet samat virheet kahdesti). Käytäthän vahvaa salasanaa!
 
-      where `--sk mykey.sec` is your private (secret, sk) key and `--pk mykey.pub` is your public key (pk). The tool will ask you to enter a password (passphrase) for your private key. For security reasons, the password is not shown when you type it, so the tool will ask you to enter it a second time to make sure you made no typing errors (or, you make the same errors twice). Please, use a strong password!
+   !!! Huomautus
+       Jos kadotat tai unohdat yksityisen avaintesi tai sen salasanan, et voi enää purkaa tiedostoja. Älä jaa yksityistä avaimiasi tai salasanoja.
 
-    !!! Note
-        If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
+   !!! Huomautus
+       Sinun tarvitsee luoda avaintesi vain yksi kerta ja niitä voi käyttää kaikkiin salauskohteisiisi, mutta voit tietysti päättää luoda erilliset avaimet salaukseen halutessasi.
 
-    !!! Note
-        You need to create your keys only once and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
+## 3. Projektin avainluontiesimerkki {#3-project-key-generation-example}
 
+### 3.1 Avainten luominen {#3-1-generating-keys}
 
-## 3. Project key generation example
+Alla olevassa esimerkissä tutkija _Tiina Tutkija_ haluaa käyttää Allasta vastaanottaakseen ja säilyttääkseen ihmisen sekvenssidataa, jota hän käyttää uudessa tutkimusprojektissaan. Projekti on nimeltään _AniMINE_. Se kestää useita vuosia, ja siihen osallistuu useita tutkijoita ja datalähteitä. Tiina Tutkijalla on jo asiakasprojekti, jossa on Allas-oikeudet CSC:ssä.
 
-### 3.1 Generating keys
+Nyt hän luo ja tallentaa salausavaimet projektille. Tiinalla on asennettuna _[crypt4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ -salausohjelma kannettavassa tietokoneessaan. Hän käyttää _Generate Keys_ -vaihtoehtoa luodakseen uuden avainparin, joka on suojattu salasanalla (tässä tapauksessa `H8koGN3lzkke`). Avainparin nimi on sellainen, joka muistetaan käyttäjätilin mukaan (salainen avain: `ttutkija_crypt4gh.key`, julkinen avain: `ttutkija_crypt4gh.pub`). Koska avaimia käyttää useat projektin jäsenet, Tiina nimeää avaintiedostot uudelleen: `animine_crypt4gh.key` ja `animine_crypt4gh.pub`.
 
-In the example below, researcher _Tiina Tutkija_ wants to use Allas to receive and store human sequence 
-data that she will use in her new research project. The project is called _AniMINE_. It
-will last several years, and it will include several researchers and data sources. 
-Tiina Tutkija already has a customer project with Allas access at CSC.   
+### 3.2 Avainten tallentaminen SD Connectilla {#3-2-storing-keys-with-sd-connect}
 
-Now she creates and stores encryption keys for the project. Tiina has _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ 
-encryption program installed on her laptop. She uses the _Generate Keys_ option to 
-create a new key pair that is protected with password (in this case `H8koGN3lzkke`).  
-The key files generated are named based on the user account of the creator 
-(secret key: `ttutkija_crypt4gh.key`, public key: `ttutkija_crypt4gh.pub`). 
-As the keys will be used by several members of the project, Tiina renames the key 
-files accordingly: `animine_crypt4gh.key` and `animine_crypt4gh.pub`.
+Seuraavaksi Tiina Tutkija kirjautuu sisään [SD Connect -verkkokäyttöliittymään](https://sd-connect.csc.fi). Tiina käyttää parasta käyttökokemusta varten Chromea.
 
-### 3.2 Storing keys with SD Connect
+Kirjauduttuaan hänellä on **Valitse projekti** -pudotusvalikossa ylhäällä vasemmalla se CSC-projekti, jota AniMINE-projekti hyödyntää. Tämän jälkeen hän napsauttaa **Luo kansio** (käyttöliittymässä bucketit kutsutaan kansioiksi) -painiketta luodakseen uuden kansion `animine_keys`. Sitten hän käyttää samaa painiketta luodakseen toisen kansion `animine_pub`.
 
-Next, Tiina Tutkija logs in to [SD Connect web user interface](https://sd-connect.csc.fi). Tiina uses Chrome for best experience.
+Nyt SD Connect sisältää kaksi uutta tyhjää kansiota. Tiina avaa kansion `animine_keys` ja käyttää **Tiedostot** -painiketta. Sitten hän käyttää **Valitse tiedostot** valitakseen molemmat avaimet, jotka ladataan ja aloitetaan latausprosessi napsauttamalla **Lataa**-painiketta.
 
-After connecting she checks that **Select project** dropdown at the top left refers to the CSC project 
-that AniMINE project will be using. After that she clicks the **Create folder** (in the UI buckets are called folders) button to 
-create a new folder called `animine_keys`. Then she uses the same button to create another 
-folder called `animine_pub`.
+Kun lataus on valmis, Tiina navigoi toiseen kansioon `animine_pub`. Hän napsauttaa **Lataa**-painiketta ja lataa **VAIN** julkisen avaimen (`animine_crypt4gh.pub`) tähän kansioon.
 
-Now SD Connect contains two new empty folders. Tiina opens the folder `amimine_keys` and uses **Upload** 
-button. Then she uses **Select files** to select both keys
-to be uploaded and starts the upload process by clicking button **Upload**.
-
-When the upload is ready, Tiina navigates to the other folder `animine_pub`. 
-She clicks the **Upload** button and she uploads **ONLY** 
-the public key (`animine_crypt4gh.pub`) to this folder.
-
-Finally, she opens a simple text editor to create short instructions file about the keys. 
-The content of the file, named as `animine_key_instructions.txt`, is as follows:
+Lopuksi, hän avaa yksinkertaisen tekstieditorin luodakseen lyhyet ohjeet avaimille. Tiedoston nimeltä `animine_key_instructions.txt` sisältö on seuraavanlainen:
 
 ```text
 ---------------------------------------------------------------------------------------------------------
-AniMINE  encryption keys created on 16.3. 2022 by project manager Tiina Tutkija.
-Following key files are used to encrypt sensitive data used by AniMINE project.
-Keys are used with crypt4gh encryption tool.
-Public key:   animine_crypt4gh.pub
-Secret key:   animine_crypt4gh.key
-The password of the secret key is:  H8koGN3lzkke
-Note that the secret key and password should never be given or shown to 
-users that are not members of this project.
+AniMINE salausavaimet luotu 16.3. 2022 projektipäällikkö Tiina Tutkijan toimesta.
+Seuraavia avaintiedostoja käytetään salaamaan AniMINE-projektin käyttämät arkaluontoiset tiedot.
+Avaimia käytetään crypt4gh-salaustyökalulla.
+Julkinen avain:   animine_crypt4gh.pub
+Salainen avain:   animine_crypt4gh.key
+Salaisen avaimen salasana on:  H8koGN3lzkke
+Muista, että salainen avain ja salasana ei tule antaa tai näyttää käyttäjille, jotka eivät ole tämän projektin jäseniä.
 
-You can find a readable copy of the public key in SD Connect in location
+Voit löytää luettavissa olevan kopion julkisesta avaime
+
+sta SD Connectista sijainnista
     animine_pub/animine_crypt4gh.pub
 
-You can freely download and send this public key to persons and organizations 
-that provide data for AniMINE project. If you want to use data, that has 
-been protected using this key pair, locally, please contact project manager 
-Tiina Tutkija to get your own copy of the secret key and instructions for 
-local decryption. Please use this document, that is readable only in the 
-SD Desktop environment of this project, as the only written reference 
-for the password. 
+Voit vapaasti ladata ja lähettää tämän julkisen avaimen henkilöille ja organisaatioille, jotka toimittavat AniMINE-projektille dataa. Jos haluat käyttää tätä avainparilla suojattua dataa paikallisesti, ota yhteyttä projektipäällikkö Tiina Tutkijaan saadaksesi oman kopion salaisesta avaimesta ja ohjeita paikalliseen purkamiseen. Käytä tätä asiakirjaa, joka on luettavissa vain projektin SD Desktop -ympäristössä, ainoana kirjallisena viitteenä salasanalle.
 
-Delete the local copy of the secret key when it is no longer actively used. 
-------------------------------------------------
+Poista salaisen avaimen paikallinen kopio, kun sitä ei enää käytetä aktiivisesti.
+---------------------------------------------------------------------------------------------------------
 ```
 
-She uploads this text file to the `animine_keys` folder on and then deletes the file from her local computer.
+Hän lataa tämän tekstitiedoston `animine_keys`-kansioon ja poistaa sitten tiedoston paikalliselta tietokoneeltaan.
 
-Now the folders `animine_keys` contain files:
+Nyt `animine_keys` -kansiossa on seuraavat tiedostot:
 
    * `data/animine_crypt4gh.pub.c4gh`
    * `data/animine_crypt4gh.key.c4gh`
    * `data/animine_key_instructions.txt.c4gh`
 
-And folder `animine_pub` contains files:
+Ja kansiossa `animine_pub` on tiedostot:
 
    * `data/animine_crypt4gh.pub`
 
 
-## 4. Opening a storage bucket for importing data from data producer
+## 4. Tallennustilan avaaminen datan tuottajalta saadun tiedon tuontia varten {#4-opening-a-storage-bucket-for-importing-data-from-data-producer}
 
-Once you have access to Allas, you can create a new data bucket there and share this bucket with the data producer. 
-This approach requires that the data producer too has a project at CSC. Usually the Finnish academic data producers, 
-like sequencing centers, have a CSC project. You can copy the public key of your project to the shared bucket or 
-sent the public key to the data producer by some other means.
+Kun sinulla on pääsy Allakseen, voit luoda uuden datakauün ja jakaa sen datan tuottajan kanssa. Tämä lähestymistapa vaatii, että datan tuottajalla on myös projekti CSC:ssä. Yleensä suomalaiset akateemiset datan tuottajat, kuten sekvenointikeskukset, omistavat CSC-projektin. Voit kopioida projektisi julkisen avaimen jaettuun rétro-kauïsakappaleeseen tai lähettää julkisen avaimen muiden keinojen avulla.
 
-We recommend that you ask the data producer to encrypt your data with _CSC public key_ and 
-with the _key of your project_. This way you can use the data both in your local secure environment 
-and in CSC Sensitive Data Services.
+On suositeltavaa pyytää datan tuottajaa salaamaan data _CSC:n julkisella avaimella_ ja _projektisi avaimella_. Tällä tavalla voit käyttää dataa sekä paikallisessa turvallisessa ympäristössäsi että CSC Sensitive Data Servicesissä.
 
-### 4.1 Using Puhti to create a shared bucket
+### 4.1 Kanta-andamisen käyttö puhtissa jaetun kauïsakapanvection luomiseen {#4-1-using-puhti-to-create-a-shared-bucket}
 
-If you know the project number of the data producer, you can easily create a shared Allas 
-bucket using `a-tools` commands in _Puhti_. First open terminal connection to `puhti.csc.fi`
-(use SSH, PuTTY, or terminal connection from [Puhti web interface](https://puhti.csc.fi)).
+Jos tiedät datan tuottajan projektin numeron, voit helposti luoda jaetun Alłakaušn `a-tools` komennoilla Puhti. Avaa ensin terminaaliyhteys `puhti.csc.fi` (käytä SSH:ta, PuTTY:ä tai terminaaliyhteyttä [Puhti-verkkokäyttöliittymästä](https://puhti.csc.fi))
 
-In chapter 2.2 we had researcher Tiina Tutkija who created encryption keys and stored them to Allas. 
-In her case a shared bucket could be created with following commands.
+Luvussa 3.1 meillä oli tutkija Tiina Tutkija, joka loi salausavaimet ja tallensi ne Allakseen. Hänen tapauksessaan jaettu kaušakaušn voitaisiin luoda seuraavilla komennoilla.
 
-First Tiina Tutkija opens a connection to Puhti. In a browser, she moves to URL
-[https://puhti.csc.fi](https://puhti.csc.fi) and logs in with her CSC account. Once the web interface of Puhti is open she opens a terminal with tool:
+Ensimmäiseksi Tiina Tutkija avaa yhteyden Puhtiin. Selaimessa hän siirtyy URL-osoitteeseen [https://puhti.csc.fi](https://puhti.csc.fi) ja kirjautuu sisään CSC-tilillään. Kun Puhtin verkkokäyttöliittymä on auki, hän avaa terminaalin työkalulla:
 
-**Tools/Login node shell**
+**Työkalut/Kirjautumissolmukohtaa**
 
-This tool provides terminal connection to Puhti.
+Tämä työkalu tarjoaa terminaaliyhteyden Puhti.
 
-In the terminal, Tiina activates connection to Allas:
+Terminalissa Tiina aktivoi yhteyden Allakseen:
 
 ```text
 module load allas
 allas-conf
 ```
 
-Then she creates a new shared bucket with command:
+Sitten hän luo uuden jaetun kaušn seuraavalla komennolla:
 
 ```text
 make-shared-bucket
 ```
 
-This tool creates a new bucket and shares it with the collaborator.
-The command asks first for the name of the bucket to be created. In this
-case Tiina uses bucket name `animine_data_import_1`.        
+Tämä työkalu luo uuden kaušn ja jakaa sen yhteistyökumppanin kanssa. Komento kysyy ensin luotavan kauïän nimen. Tässä tapauksessa Tiina käyttää kaušnin nimeä `animine_data_import_1`.        
 
-Then the command asks for the project that should have access to the bucket.
-The project name of data producer is in this example `project_2000111`.
+Sitten komento kysyy, mikä projekti pitäisi saada pääsyn kaušn. Datan tuottajan projektin nimi on tässä esimerkissä `project_2000111`.
 
-Then she downloads the public key to Puhti:
+Sitten hän lataa julkisen avaimen Puhtiin:
 
 ```text
 a-get animine_pub/data/animine_crypt4gh.pub
 ```
 
-And uploads the key to the shared bucket:
-
+Ja lataa avaimen jaettuun kaušn:
+  
 ```text
 a-put animine_crypt4gh.pub -b animine_data_import_1
 ```
 
-Finally, Tiina sends the name of the shared bucket to the data producer 
-and ask them to encrypt the data to be uploaded with both the public key 
-that they can find from the bucket and the CSC public key.
+Lopuksi, Tiina lähettää jaetun kaušn nimen datan tuottajalle ja pyytää heitä salaamaan ladattavat datat sekä jaetun k	GUI-kansisaenätadoudaettä CSC:n julkisella avaimella.
 
-### 4.2 Revoke bucket sharing after data transport
+### 4.2 Kauïän jakamisen peruuttaminen tiedonsiirron jälkeenavenianceperence
 
-Moving large datasets (several terabytes) of data to Allas can take a long time. 
-After few days, data producer tells Tiina that all data has been imported to the shared `animine_data_import_1` bucket in Allas. 
-Tiina can now remove the external access rights from the bucket with command:
+Suurten datakokonaisuuksien (useita teratavuja) siirtäminen Allakseen voi viedä aikaa. Muutamien päivien kuluttua datan tuottaja kertoo Tiinalle, että kaikki datat on tuotu jaettuun kauïäвн `animine_data_import_1` Alłakseқ. Tiina voi nyt poistaa ulkoiset pääsyoikeudet kauïän seuraavan komennon avulla:
 
 ```text
 a-access -rw project_2000111 animine_data_import_1
 ```
 
-## 5. Using encrypted data 
+## 5. Salaus datan käyttäminen {#5-using-encrypted-data}
 
-The data stored to CSC using the procedure above is accessible only to the members of the research group.
-The data is encrypted with both CSC public key and research group's own public key. If the data is accessed 
-through [SD Desktop](https://sd-desktop.csc.fi) the decryption of data is done automatically by the _Data Gateway_ 
-tool when data is used in the working environment.
+Suoritetun prosessin kautta CSC:hen tallennettuun dataan pääsevät käsiksi vain tutkimusryhmän jäsenet. Datan salaamiseen käytetään sekä CSC:n julkista avainta että tutkimusryhmän omaa julkista avainta. Jos dataan pääsee käsiksi [SD Desktop](https://sd-desktop.csc.fi) -palvelun kautta, datan purku suoritetaan automaattisesti _Data Gateway_ -työkalun avulla, kun dataa käytetään käyttöympäristössä.
 
-If the data is used in other environments, decryption must be done by the user.
+Jos dataa käytetään muissa ympäristöissä, purku on suoritettava käyttäjän toimesta.
 
-In SD Connect service the shared bucket, in this example `animine_data_import_1`, needs some preparations before the uploaded data 
-can be downloaded. 
+SD Connect -palvelussa jaettu kauïän, tässä esimerkissä `animine_data_import_1`, tarvitsee joitakin valmisteita ennen ladatun datan latausta.
 
-First, user must share the bucket to her own project too. After that the uploaded data can be accessed, not through the normal data _Browser_ view, but through the _Shared_ view of SD Connect.
+Ensiksikin käyttäjän on jaettava kauša omaan projektiin myös. Tämän jälkeen ladattuun dataan voidaan päästä, ei normaalin datakatselunäkymän kautta, mutta _Shared_-näkymän (Jaettu näkökulma) kautta SD Connectissa.
 
-In the example above, researcher _Tiina Tutkija_ shared a data bucket `animine_data_import_1` in Allas service 
-to receive data from sequencing center. The sequencing center uploaded file `run_12_R1.fastq.c4gh` to the bucket. 
-Tiina can now use [SD Connect](https://sd-connect.csc.fi) to download this file to her local computer. 
+Esimerkissä yllä tutkija _Tiina Tutkija_ jakoi datakaušn `animine_data_import_1` Alłakpalvelussa vastaanottaakseen dataa sekvensointikeskuksesta. Sekvensointikeskus upotti tiedoton `run_12_R1.fastq.c4gh` kaušaTiinayäkäytkti [SD Connect](https://sd-connect.csc.fi) ladatakseen tätä tiedustoa paikalliseen tietokoneeseensa.
 
-   * First, Tiina checks the _Project Identifier_ string of her project and copies it to the clip board.
-   * Then, on the _Browser_ view of SD Connect she presses the _Share_ button of the bucket (`animine_data_import_1`). This opens the Bucket sharing page. Here, Tiina turns on _read_ and _write_ permissions and adds her Project Identifier (shown in the user information page of SD Connect) to the field: Project Identifiers to share with. The sharing is activated by clicking the Share button.
-   * Next, Tiina moves to the _Shared to the project_ view which now includes bucket `animine_data_import_1`. 
+   * Ensiksi, Tiina tarkistaa _Projektin tunnisteen_ ketjun projektistaan ja tallentaa sen leikepöydälle.
+   * Sitten, SD Connect -tarjolla olevan _Tiedostonkäynnistimen_ näkymässä hän painaa kaušn (`animine_data_import_1`) _Share_-painiketta. Tämä avaa Kauïän jakamisen reformaatio. Tässä Tiina kytkee _luku_- ja _palaute_-oikeudet päälle ja lisää Project Identifier (käyttäjätiedotantona SD Connectin pääsivulta) hakukenttään. Jakaminen aktivoidaan napsauttamalla Jaa-painiketta.
+   * Sitten, Tiina siirtyy _Jaettu projektille_-näkymään, joka nyt sisältää kauïän `animine_data_import_1`.
 
-She can now open the bucket and start downloading the data.
+Hän voi nyt avata kauïän ja aloittaa datan lataamisen.
 
-However, after downloading the file is still in encrypted format. To decrypt the file Tiina opens the _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ encryption tool that she previously installed to her computer to create the encryption keys. 
+Kuitenkin, latauksen jälkeen tiedosto on edelleen salausmuodossa. Datan purkamiseen Tiina avaa _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ salausohjelman, jonka hän oli aiemmin asentanut tietokoneelleen salausavainten luontiin.
 
-Now she uses this tool to decrypt the data. In crypt4gh interface she first clicks _Load My Private Key_ and the selects the `animine_crypt4gh.key` that is the secret key used by her research project. Then she uses _Select File_ to select the file `run_12_R1.fastq.c4gh` she just downloaded to her computer. Next she clicks _Decrypt File_ boutton. _crypt4gh-gui_ will now
-ask the password of the secret key (`H8koGN3lzkke` in this case) after which a decrypted version of the file, `run_12_R1.fastq`, is created next to the encryprted file. Tiina can now remove `run_12_R1.fastq.c4gh` from her local computer and start working with the `run_12_R1.fastq` file.
+Käyttäjä käyttää tätä työkalua datoiden purkamiseen. Kryptallisen käyttöliittymän kautta hän valitsee ensin _Load My Private Key_-painikapitalnmasta ja valitsee secret key -tiedoston`animine_crypt4gh.key`, joka on projektiin kuuluva salassapitokoe. Sitten hän käyttää _Select File_ -valintaa valitakseen tiedoston `run_12_R1.fastq.c4gh`, jonka hän juuri latasi tietokoneelleen. Seuraavaksi hän napsauttaa _Decrypt File_ -painiketta. Ohjelma pyytää salassapito-avainoitteisen salasanan (tässä tapauksessa `H8koGN3lzkke`), jonka jälkeen purkamaton tiedosto `run_12_R1.fastq` luodaan salatun tiedoston viereen. Tiina voi nyt poistaa `run_12_R1.fastq.c4gh`-tiedoston paikalliselta tietokoneeltaan ja aloittaa työskentelyn `run_12_R1.fastq`-tiedoston kanssa.

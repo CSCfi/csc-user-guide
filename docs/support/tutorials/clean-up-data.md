@@ -1,90 +1,45 @@
-# Managing data on Puhti and Mahti scratch disks
+# Puhti ja Mahti scratch-levyjen datan hallinta {#managing-data-on-puhti-and-mahti-scratch-disks}
 
-An important task for all users on Puhti and Mahti is to manage what data resides in project
-folders in `scratch`. These are only intended as temporary storage space for data that is in
-active use. All other data should be removed, or stored in other more suitable storage systems.
-Users are not expected to use all of their quota, the maximum quota is only meant for
-short-term bursts.
+Tärkeä tehtävä kaikille Puhti ja Mahti -käyttäjille on hallinnoida, mitä dataa säilytetään projektikansioissa `scratch`:ssä. Nämä ovat tarkoitettu vain väliaikaiseksi säilytystilaksi aktiiviselle datalle. Kaikki muu data tulisi poistaa tai siirtää muihin sopivampiin tallennusjärjestelmiin. Käyttäjien ei odoteta käyttävän koko kiintiötään, maksimikiintiö on tarkoitettu vain lyhytaikaisiin tarpeisiin.
 
-Also note that:
+Huomioi myös, että:
 
-* A Lustre parallel file system starts to lose performance when more than approximately 70% of
-  disk space is used, and the more the disks fill up, the slower the performance will get.
-  CSC has allocated more quota than there is space, hence it is not even possible for all users
-  to use their `scratch` folders for longer term storage.
-* There are **no backups** of `scratch` disk area. Do not trust it to store all of your research data.
-* Removing files may decrease the BU consumption of your project, since you are billed for excess disk usage beyond 1 TiB.
+* Lustre-rinnakkaistiedostojärjestelmän suorituskyky alkaa laskea, kun yli noin 70 % levystilasta on käytössä, ja levyjen täyttyessä enemmän suorituskyky laskee. CSC on varannut enemmän kiintiöitä kuin tilaa on, joten kaikilla käyttäjillä ei ole edes mahdollista käyttää `scratch`-kansioitaan pidemmän aikavälin tallennukseen.
+* `scratch`-levyalueella **ei ole varmuuskopioita**. Älä luota siihen, että se tallentaisi kaikki tutkimusdatanne.
+* Tiedostojen poistaminen saattaa vähentää projektinne BU-kulutusta, sillä ylimääräisestä yli 1 TiB:n levykäytöstä laskutetaan.
 
-We kindly ask all users to help to keep disk usage manageable, and performance reasonable.
-Please do the following tasks:
+Pyydämme kaikkia käyttäjiä auttamaan pitämään levyn käyttö hallittavissa ja suorituskyky kohtuullisena. Ole hyvä ja suorita seuraavat tehtävät:
 
-* **Remove files** that are not needed anymore in your project's `scratch` folder.
-  Note that we cannot bring back files that you delete by mistake so do these operations carefully!
-* **Compress files** if it reduces file size. Ascii text files usually compress very well.
-  Test with one file first. If the file size drops by 50%, go ahead and compress all similar files.
-  [See here for available compression tools](env-guide/packing-and-compression-tools.md).
-* **Move files** not in active use now, but that need to be available later during the project.
-  The typical model is to move the files to [Allas](../../data/Allas/index.md).
-  We recommend to use [a-tools](../../data/Allas/using_allas/a_commands.md) for small to
-  medium sized data transfers, in particular when you have a large amount of small files.
-  These tools make the usage of Allas safer, and can make your data management easier.
-  For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md).
-  A tutorial for data transfer is available at [allas-examples](../../data/Allas/allas-examples.md).
-* **Archive files** that should be available longer than the lifetime of compute projects.
-  Options for this can be for example your organizations own storage systems, or
-  [IDA safe storage for research data](https://www.fairdata.fi/en/).
+* **Poista tiedostoja**, jotka eivät ole enää tarpeellisia projektinne `scratch`-kansiossa. Huomaa, että emme voi palauttaa vahingossa poistamiasi tiedostoja, joten ole varovainen näitä toimintoja suorittaessasi!
+* **Pakkaa tiedostoja**, jos se pienentää tiedostokokoa. Ascii-tekstiedostot pakkaantuvat yleensä hyvin. Testaa ensin yhdellä tiedostolla. Jos tiedostokoko pienenee 50 %, jatka kaikkien samankaltaisten tiedostojen pakkaamista. [Katso täältä saatavilla olevat pakkaustyökalut](env-guide/packing-and-compression-tools.md).
+* **Siirrä tiedostoja**, joita ei käytetä aktiivisesti nyt, mutta joita tarvitaan myöhemmin projektin aikana. Tyypillinen malli on siirtää tiedostot [Allakseen](../../data/Allas/index.md). Suosittelemme käyttämään [a-tools](../../data/Allas/using_allas/a_commands.md) pienten ja keskikokoisten datasiirtojen tekemiseen, erityisesti kun sinulla on suuri määrä pieniä tiedostoja. Nämä työkalut tekevät Allaksen käytöstä turvallisempaa ja voivat helpottaa datanhallintaasi. Hyvin suurille datasiirroille suosittelemme käyttämään [rclone](../../data/Allas/using_allas/rclone.md). Datan siirtämiseen löytyy [allas-esimerkit](../../data/Allas/allas-examples.md) -tutoriaali.
+* **Arkistoi tiedostot**, jotka pitäisi olla saatavilla pidempään kuin laskentaprojektien elinaika. Vaihtoehtoina voivat olla esimerkiksi organisaatiosi omat tallennusjärjestelmät tai [IDA-turvasäilytys tutkimusaineistoille](https://www.fairdata.fi/en/).
 
-## Identifying where you have data
+## Datan sijainnin tunnistaminen {#identifying-where-you-have-data}
 
-If you have a large amount of files, analyzing how much data you have in different folders can
-be time consuming and also heavy on the file system. Our recommendations for tools that can
-show the amount of data in folders:
+Jos sinulla on suuri määrä tiedostoja, datan analysointi eri kansioissa voi olla aikaa vievää ja myös raskasta tiedostojärjestelmälle. Suosituksemme työkaluista, jotka voivat näyttää kuinka paljon dataa on kansioissa:
 
-* **Avoid** using `find` options like `-size` or similar
-* **Avoid** using `du`
-* **Do** use `lue` or `lfs find --lazy`
+* Vältä käyttämästä `find`-valintoja kuten `-size` tai vastaavia
+* Vältä käyttämästä `du`
+* Käytä `lue` tai `lfs find --lazy`
 
-CSC has developed an approximate tool called LUE (Lustre usage explorer) for reporting amount of
-data in folders. [Read the documentation at LUE](../../support/tutorials/lue.md) before using it.
-`lfs find --lazy` has some edge-case where it can be as bad as `du` or silently fail to get correct
-size information. Run `man lfs-find` for further instructions and information on its limitations.
+CSC on kehittänyt karkean työkalun nimeltä LUE (Lustre usage explorer) kansioiden datamäärän raportointiin. [Lue dokumentaatio LUE:sta](../../support/tutorials/lue.md) ennen sen käyttöä. `lfs find --lazy` saattaa joissain tapauksissa käyttäytyä samalla tavalla kuin `du` tai epäonnistua hiljaisesti oikean koon saamisessa. Suorita `man lfs-find` saadaksesi lisäohjeita ja tietoa sen rajoituksista.
 
-!!! Note
-    No matter what tool you use you should never try to list or process all files in your project
-    or `scratch` folder with a single command. Instead you should run commands on specific
-    subdirectories with limited amount of files and data. The total amount of used data is
-    available from the `csc-workspaces` command.
+!!! Huomio
+    Riippumatta siitä, mitä työkalua käytät, sinun ei tulisi koskaan yrittää listata tai käsitellä kaikkia tiedostoja projektisi tai `scratch`-kansiossasi yhdellä komennolla. Sen sijaan sinun tulisi suorittaa komennot tietyissä alikansioissa, joissa on rajattu määrä tiedostoja ja dataa. Käytetyn datan kokonaismäärä on saatavilla `csc-workspaces`-komennolla.
 
-## Automatic removal of files
+## Tiedostojen automaattinen poistaminen {#automatic-removal-of-files}
 
-There is a policy of removing files older than 180 days from `scratch` (not `projappl`) to ensure
-that only actively used data resides on the disk (currently implemented only on Puhti).
+Vanhempien kuin 180 päivää vanhojen tiedostojen poistamisesta `scratch`-alueelta (ei `projappl`) on sääntö, jotta levyllä säilytetään vain aktiivisesti käytössä olevaa dataa (tällä hetkellä toteutettu vain Puhtissa).
 
-Files that will be deleted in the next clean up are listed in so called "purge lists" files.
-These are split up by project, and can be found on Lustre at one of the locations below.
-Only members of the project groups can access the project directories.
-If your project is newly created, your project might not yet have its own subdirectory in
-the `purge_lists` directory, in which case it won't participate in the automatic cleaning.
+Seuraavassa siivouksessa poistettavat tiedostot on listattu niin sanotuissa "purkulistoissa". Nämä on jaettu projekteittain ja ne löytyvät Lustresta alla olevista sijainneista. Vain projektiryhmien jäsenet voivat päästä projektihakemistoihin. Jos projektinne on vasta luotu, projektillanne ei ehkä ole vielä omaa alihakemistoa `purge_lists`-hakemistossa, jolloin se ei osallistu automaattiseen siivoukseen.
 
-* `/scratch/purge_lists/<PROJECT NAME>/path_summary.txt`
-* `/fmi/scratch/purge_lists/<PROJECT NAME>/path_summary.txt` (only on Puhti, for FMI projects)
+* `/scratch/purge_lists/<PROJEKTIN_NIMI>/path_summary.txt`
+* `/fmi/scratch/purge_lists/<PROJEKTIN_NIMI>/path_summary.txt` (vain Puhti, FMI-projekteille)
 
-In case the `path_summary.txt` file does not exist, your project did not have any files that matched
-the clean-up criteria, and thus nothing will be deleted from it. To indicate that the file is
-intentionally missing, CSC will place a file named `nothing-to-remove-for-your-project` in your
-project's purge_lists subdirectory, so check for the existence of this file as well.
+Jos `path_summary.txt`-tiedostoa ei ole, projektillanne ei ollut siivouskriteerit täyttäviä tiedostoja, eikä mitään tulla poistamaan. Jos tiedosto puuttuu tarkoituksella, CSC asettaa projektille tiedoston nimeltä `nothing-to-remove-for-your-project` projektinne purge_lists-alihakemistoon, joten tarkista tämän tiedoston olemassaolo.
 
-As part of the automated cleaning process, the files will change names. Before the cleaning has
-begun, each project that is part of the clean-up will have a file named `path_summary.txt`.
-In special cases where a project is exempt from the upcoming cleaning, or requires more time to
-transfer files, the administrators will rename the file to something else, usually
-`path_summary.txt-later-delete`. Once a project has been processed by the automated cleaning,
-the file will be renamed to `path_summary.txt-stashed`. These files are still readable to projects,
-so that it is possible to refer to the list also after the cleaning is performed.
-The previous round's files will be archived when the next round of cleaning is about to begin.
-You can check whether your project's purge list has been updated recently by checking its last
-modification date. In the example below, the file is a few months old, so it is clearly from
-the prior round of cleaning:
+Ohjelmoidun siivousprosessin yhteydessä tiedostojen nimet muuttuvat. Ennen siivouksen alkamista jokaisella suursiivoukseen osallistuvalla projektilla on tiedosto nimeltä `path_summary.txt`. Erityistapauksissa, joissa projekti on vapautettu tulevasta siivouksesta tai tarvitsee enemmän aikaa tiedostojen siirtämiseen, järjestelmänvalvojat nimeävät tiedoston uudelleen, yleensä muotoon `path_summary.txt-later-delete`. Kun projekti on käsitelty automaattisessa siivouksessa, tiedosto nimetään muotoon `path_summary.txt-stashed`. Nämä tiedostot ovat edelleen luettavissa projekteille, jotta listaa voi käyttää referenssinä myös siivouksen jälkeen. Edellisen kierroksen tiedostot arkistoidaan, kun uusi siivouskierros on alkamassa. Voit tarkistaa, onko projektinne purkulista päivitetty hiljattain tarkistamalla sen viimeisen muokkauspäivämäärän. Alla olevassa esimerkissä tiedosto on muutaman kuukauden vanha, joten se on selvästi edellisen siivouskierroksen ajalta:
 
 ```bash
 $ stat -c %y /scratch/purge_lists/project_2001659/path_summary.txt-stashed
@@ -93,53 +48,42 @@ $ date +%F
 2023-08-04
 ```
 
-Another file which is put into each project's `purge_lists` directory is the `total_size.txt` file.
-This file contains a precalculated size estimate based on the numbers inside the `path_summary.txt`
-files. This file exists for every project, and is created automatically when the purge lists are
-generated. The file might look like this:
+Toinen tiedosto, joka on lisätty jokaiseen projektin `purge_lists`-hakemistoon, on `total_size.txt`-tiedosto. Tämä tiedosto sisältää ennalta lasketun kokoarvion, joka perustuu `path_summary.txt`-tiedostojen sisältöön. Tämä tiedosto on olemassa jokaiselle projektille, ja se luodaan automaattisesti, kun purkulistat luodaan. Tiedosto voi näyttää tältä:
 
 ```bash
 $ cat /scratch/purge_lists/project_2001659/total_size.txt
 Total size: 798343125192 bytes = 743.515 GiB = 0.726 TiB
 ```
 
-With this information, you are able to estimate how much time might be required to back up the
-data elsewhere, if you want to keep everything on the purge list outside of Puhti's `scratch` file
-system.
-The file system tools which CSC uses to generate the list of files to remove will output files
-which are quite verbose and difficult to read. By using the LCleaner tool described in the next section,
-users can get the relevant information in a more user-friendly format.
+Tällä tiedolla voit arvioida, kuinka paljon aikaa voisi tarvita datan varmuuskopioimiseen muualle, jos haluat säilyttää kaiken puhtilistan ulkopuolella Puhti `scratch`-tiedostojärjestelmästä.
+Tiedostojärjestelmätyökalut, joita CSC käyttää poistettavien tiedostojen listan luomiseksi, tuottavat melko yksityiskohtaisia ja vaikealukuisia tiedostoja. Käyttämällä seuraavassa osassa kuvattua LCleaner-työkalua, käyttäjät voivat saada asiaankuuluvaa tietoa helpommin luettavassa muodossa.
 
-## Using LCleaner to check which files will be automatically removed
+## LCleaner:in käyttö tiedostojen tarkistamiseen, jotka poistetaan automaattisesti {#using-lcleaner-to-check-which-files-will-be-automatically-removed}
 
-LCleaner is a tool developed by CSC, which is intended to help you to discover what files your
-project has that have been targeted for automatic removal.
+LCleaner on CSC:n kehittämä työkalu, jonka tarkoitus on auttaa sinua selvittämään, mitkä projektisi tiedostot on tarkoitettu automaattisesti poistettaviksi.
 
-Run `lcleaner --help` on the login nodes to see what options LCleaner supports.
+Suorita `lcleaner --help` login-solmukoilla nähdäksesi, mitä vaihtoehtoja LCleaner tukee.
 
-### LCleaner examples
+### LCleaner-esimerkkejä {#lcleaner-examples}
 
-#### Check if your project has a path_summary.txt file
+#### Tarkista, onko projektillasi path_summary.txt-tiedostoa {#check-if-your-project-has-a-path-summary-txt-file}
 
-The first thing to check, is whether your project indeed has a `path_summary.txt` file.
-All projects don't automatically have one, only the ones which have something to clean up.
+Ensimmäinen asia, joka kannattaa tarkistaa, on, onko projektillasi todella `path_summary.txt`-tiedosto. Kaikilla projekteilla ei ole automaattisesti sellaista, vain niillä, joilla on jotain siivottavaa.
 
 ```bash
-# Check if your project has a path_summary.txt file
-my_project="project_2001659" # Replace with your own project name
+# Tarkista, onko projektillasi path_summary.txt-tiedosto
+my_project="project_2001659" # Korvaa omalla projektin nimelläsi
 ls "/scratch/purge_lists/${my_project:?}/"
-# Or if you are in an FMI project on Puhti:
+# Tai jos olet FMI-projektissa Puhtissa:
 ls "/fmi/scratch/purge_lists/${my_project:?}/"
 ```
 
-If you see a `path_summary.txt` file in the directory, read ahead to discover what files
-are on the list. However, if you find a file named `nothing-to-remove-for-your-project`,
-your project doesn't have anything that will be automatically removed.
+Jos näet `path_summary.txt`-tiedoston hakemistossa, lue eteenpäin selvittääksesi, mitkä tiedostot ovat listassa. Jos kuitenkin löydät tiedoston nimeltä `nothing-to-remove-for-your-project`, projektillasi ei ole mitään, mikä tulee automaattisesti poistettavaksi.
 
-If you want a quick, copy-pasteable solution, use the small script below:
+Jos haluat nopean, kopioitavan ratkaisun, käytä alla olevaa pientä skriptiä:
 
 ```bash
-# Check all of the projects you belong to in one go:
+# Tarkista kaikki projektit, joihin kuulut, yhdellä kertaa:
 
 for g in $(/usr/bin/groups) ; do
   if [ -d "/scratch/$g" -a ! -L "/scratch/$g" ]; then
@@ -151,145 +95,126 @@ for g in $(/usr/bin/groups) ; do
   fi ;
   echo -n "- Project '$g': ";
   if [ ! -d "${dir:?}" ]; then
-    echo "doesn't have a purge_lists subdirectory. No files will be removed.";
+    echo "ei ole purge_lists-alihakemistoa. Tiedostoja ei poisteta.";
     continue;
   fi ;
   if [ -f "${dir:?}/path_summary.txt" ]; then
-    echo "has files that will be removed." ;
+    echo "on tiedostoja, jotka poistetaan." ;
   elif [ -f "${dir:?}/nothing-to-remove-for-your-project" ]; then
-    echo "is not included in the automatic cleaning.";
+    echo "ei kuulu automaattiseen siivoukseen.";
   else
-    echo "is unclear, based on this script. Check with Service desk what to do.";
+    echo "tilanne on epäselvä tämän skriptin perusteella. Tarkista Service deskin kanssa, mitä tehdä.";
   fi ;
 done
 ```
 
-#### List your files
+#### Listaa tiedostosi {#list-your-files}
 
-To get a simple list of all file paths in your purge list, simply give the `path_summary.txt` file
-path as an argument:
+Jos haluat yksinkertaisen listan kaikista tiedostopolkuista purkulistassasi, anna yksinkertaisesti `path_summary.txt`-tiedoston polku LCleanerille argumentiksi:
 
 ```bash
-# List all files in your purge list:
+# Listaa kaikki tiedostot purkulistassasi:
 lcleaner "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 ```
 
-If your `path_summary.txt` is big (over 100 MB in size), it may take some time to execute the tool.
-You can save time and resources by saving the result into an output file:
+Jos `path_summary.txt`-tiedostosi on suuri (yli 100 MB kokoinen), työkalun suorittaminen saattaa kestää jonkin aikaa. Voit säästää aikaa ja resursseja tallentamalla tuloksen tiedostoon:
 
 ```bash
-# List all files in your purge list into an output file in your home folder:
+# Listaa kaikki tiedostot purkulistassasi tulostiedostoon kotihakemistoosi:
 lcleaner --out-file ~/purge_list "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
-# Alternatively, you can redirect the standard output with the bash shell:
+# Vaihtoehtoisesti voit ohjata standardilähdön bash-komentotulkin avulla:
 lcleaner "/scratch/purge_lists/${my_project:?}/path_summary.txt" > ~/purge_list
 
-# Check the output with less, or your preferred text editor
+# Tarkista tulos less-ohjelmalla tai suosikkitekstieditorillasi
 less ~/purge_list
 ```
 
-If you want to search for a specific file or directory, you can use `grep` to achieve that.
-You can either search the `path_summary.txt` file directly, or if you saved the output of `lcleaner`
-somewhere, using the commands above, you can use that file.
+Jos haluat etsiä tiettyä tiedostoa tai hakemistoa, voit käyttää `grep`-komentoa saavuttaaksesi tämän. Voit joko etsiä suoraan `path_summary.txt`-tiedostosta tai, jos tallensit LCleanerin tulostuksen jonnekin yllä olevien komentojen avulla, voit käyttää tuota tiedostoa.
 
 ```bash
-# Search for directories to check if they are included in the purge list
-my_project="project_2001659" # Replace with your own project name!
+# Etsi hakemistoja tarkistaaksesi, ovatko ne mukana listassa
+my_project="project_2001659" # Korvaa omalla projektin nimelläsi!
 grep "/scratch/${my_project:?}/important-dir" "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-# Or search the purge_list if you saved it:
+# Tai etsi purge_list-tiedostosta, jos talletit sen:
 grep "/scratch/${my_project:?}/important-dir" ~/purge_list
 
-# If there are no matches, grep will not print anything.
+# Jos osumia ei löydy, grep ei tulosta mitään.
 ```
 
-#### Find the biggest files on the list
+#### Löydä suurimmat tiedostot listassa {#find-the-biggest-files-on-the-list}
 
-LCleaner has an option to sort the files by size. This option is called `--sort-by-size` and always
-sorts in a decending order (i.e., biggest files first). If you want to see the size of the files
-when they are printed, use the `--csv` option. By default, only the file paths are printed.
-You can also limit the output to include a given number of files with the `--limit N` parameter,
-where `N` is the number of lines you want to see.
+LCleanerilla on vaihtoehto lajitella tiedostot koon mukaan. Tähän vaihtoehtoon viitataan nimellä `--sort-by-size`, ja se lajitellaan aina laskevaan järjestykseen (eli suurimmat tiedostot ensin). Jos haluat nähdä tiedostojen koot, kun ne tulostetaan, käytä vaihtoehtoa `--csv`. Oletuksena tulostetaan vain tiedostopolut. Voit myös rajoittaa tulosteen tiettyyn tiedostojen lukumäärään `--limit N` -parametrilla, missä N on näytettävien rivien lukumäärä.
 
 ```bash
-# Print the file paths to be purged in size order:
+# Tulosta poistettavien tiedostojen polut kokojärjestyksessä:
 lcleaner --sort-by-size "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
-# Print the 10 biggest files:
+# Tulosta 10 suurinta tiedostoa:
 lcleaner --sort-by-size --limit 10 "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
-# Print the 10 biggest files, and their sizes in bytes:
+# Tulosta 10 suurinta tiedostoa, sekä niiden koot tavuina:
 lcleaner --sort-by-size --limit 10 --csv "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 ```
 
-#### Delete your purge list files
+#### Poista purkulistasi tiedostot {#delete-your-purge-list-files}
 
-We encourage you to delete the files you do not need, instead of waiting for the automatic cleaning
-to take place. If you are happy with purging all of the files that were listed in the
-`path_summary.txt` file, you can run the following command:
+Suosittelemme sinua poistamaan tarpeettomat tiedostot sen sijaan, että odottaisit automaattisen siivouksen tapahtumista. Jos olet tyytyväinen poistamaan kaikki `path_summary.txt`-tiedostossa listatut tiedostot, voit suorittaa seuraavan komennon:
 
-!!! warning-label
-    **The commands in this section will delete your files!** Be sure that you have reviewed the
-    list of files to remove carefully! Also make sure that you have backed up the files you
-    wish to save (outside the cluster) prior to running the commands. This operation is
-    irreversible.
+!!! varoitus-label
+    **Tämän osion komennot poistavat tiedostosi!** Varmista, että olet tarkistanut huolellisesti poistettavien tiedostojen listan! Varmista myös, että olet varmuuskopioinut säilytettävät tiedostot (klusterin ulkopuolella) ennen komentojen suorittamista. Tämä toimenpide on peruuttamaton.
 
-!!! Note
-    The deletion process may take a considerable amount of time (several hours, depending on the
-    amount of files), so it is best to start it within a `screen` or `tmux` session, so that you
-    can disconnect from your SSH session while the deletion keeps running.
+!!! Huomio
+    Poistamisprosessi voi kestää huomattavan kauan (useita tunteja riippuen tiedostojen määrästä), joten on parasta aloittaa se `screen`- tai `tmux`-istunnossa, jotta voit irrottautua SSH-istunnostasi, kun poistaminen jatkuu taustalla.
 
 ```bash
-# Start a screen session
+# Käynnistä screen-istunto
 screen
-# Delete all of the files on your purge list:
-# Replace the "/path/to/my/path_summary.txt" with the path to your project's path_summary.txt
+# Poista kaikki tiedostosi purkulistalla:
+# Korvaa "/path/to/my/path_summary.txt" oman projektisi path_summary.txt-tiedoston polulla
 lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf --
-# Then you can press "Ctrl + a" and then "d" to disconnect from the screen and keep
-# the deletion running in the background.
-# Run "screen -r" to reattach your screen.
-# Close the screen session by typing "exit" in the shell.
+# Tämän jälkeen voit painaa "Ctrl + a" ja sitten "d" irrottautuaksesi screen:stä ja pitääksesi
+# poistamisen käynnissä taustalla.
+# Suorita "screen -r" muodostaaksesi yhteyden takaisin screeniin.
+# Sulje screen-istunto kirjoittamalla "exit" shellissä.
 ```
 
-If you want to delete only a part of the files, e.g., inside a certain directory, you can for
-example use a command like this:
+Jos haluat poistaa vain osan tiedostoista, esimerkiksi tietyn hakemiston sisällä olevat tiedostot, voit käyttää esimerkiksi seuraavaa komentoa:
 
 ```bash
-# Delete only files on the list which are inside /scratch/$my_project/delete-this-dir/
+# Poista vain purkulistalla olevat tiedostot, jotka ovat hakemistossa /scratch/$my_project/delete-this-dir/
 screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
-# Ctrl + a, d to detach from the screen.
+# Ctrl + a, d screenin irrottamiseen.
 ```
 
-#### LCleaner output formats
+#### LCleaner-tulostusformaatit {#lcleaner-output-formats}
 
-If you want to see the size of the files that are about to be purged, you can use either the JSON
-or the CSV formats. Be aware that if you want to run multiple output formats at the same time,
-you need to specify an output file path as well.
-Using the `-0` or `--nullbyte` parameters will output the file paths separated by a null byte,
-which may be useful to avoid problems with whitespace in the file paths.
+Jos haluat nähdä poistettavien tiedostojen koot, voit käyttää joko JSON- tai CSV-formaatteja. Huomaa, että jos haluat käyttää useita tulostusformaatteja samanaikaisesti, sinun on myös määritettävä tulostetiedostopolku.
+Käyttämällä `-0` tai `--nullbyte` -parametreja, tiedostopolut erotellaan null-byte -merkilla, mikä voi olla hyödyllistä välittämään ongelmia tiedostopolkujen välilyönnin kanssa.
 
 ```bash
-# Print your purge list as CSV output with file paths and sizes.
-# Note that the CSV format also prints a header row.
+# Tulosta purkulistasi CSV-muodossa tiedostopolkujen ja kokojen kanssa.
+# Huomaa, että CSV-formaatti tulostaa myös otsikkorivin.
 lcleaner --csv "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
-# Print your purge list as JSON output with file paths and sizes:
+# Tulosta purkulistasi JSON-muodossa tiedostopolkujen ja kokojen kanssa:
 lcleaner --json "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-# TIP: You can pipe the output into the jq program to prettify the output.
-# The dot at the end is a mandatory argument to jq.
+# VINKKI: Voit välitellä tuloksen jq-ohjelmaan prettify-taakse valmisteluun.
+# Piste lopputuloksen jälkeen on pakollinen argumentti jq:lle.
 lcleaner --json "/scratch/purge_lists/${my_project:?}/path_summary.txt" | jq .
 
-# Output both JSON and CSV into purge_list.json and purge_list.csv:
+# Tulosta sekä JSON- että CSV-tiedostot purge_list.json ja purge_list.csv:
 lcleaner --json --csv --out-file purge_list "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
-# Output file paths separated by null bytes:
+# Tulosta tiedostopolut eritettyinä null-merkeillä:
 lcleaner -0 "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-# Usually you will want to pipe null-byte-separated output into "xargs -0" and do some
-# further processing with it. For example like this:
+# Tavallisesti haluat putkittaa null-merkeillä-erotetun tuloksen "xargs -0"-komentoon ja tehdä jotain
+# lisäkäsittelyä sillä. Esimerkiksi näin:
 lcleaner -0 --limit 3 "/scratch/purge_lists/${my_project:?}/path_summary.txt" \
-  | xargs -0 -Ifilepath echo "I should run: rm -vf 'filepath'"
+  | xargs -0 -Ifilepath echo "Minun pitäisi suorittaa: rm -vf 'filepath'"
 ```
 
-Output examples:
+Tulostus esimerkkejä:
 
 ```
 # Plain text:
@@ -305,7 +230,7 @@ Output examples:
 "/scratch/westersu/my-old-files/file2","452"
 "/scratch/westersu/my-old-files/file3","4951"
 
-# JSON, piped into jq:
+# JSON, putkitetuna jq:lle:
 [westersu@puhti-login11 ~]$ lcleaner --json path_summary.txt | jq .
 {
   "lustre_files": [
@@ -317,37 +242,27 @@ Output examples:
   ]
 }
 
-# Null byte xargs:
+# Null-bytets args:
 [westersu@puhti-login11 ~]$ lcleaner -0 --limit 3 path_summary.txt \
->   | xargs -0 -Ifilepath echo "I should run: rm -vf 'filepath'"
-I should run: rm -vf '/scratch/westersu/my-old-files/file1'
-I should run: rm -vf '/scratch/westersu/my-old-files/file2'
-I should run: rm -vf '/scratch/westersu/my-old-files/file3'
+>   | xargs -0 -Ifilepath echo "Minun pitäisi suorittaa: rm -vf 'filepath'"
+Minun pitäisi suorittaa: rm -vf '/scratch/westersu/my-old-files/file1'
+Minun pitäisi suorittaa: rm -vf '/scratch/westersu/my-old-files/file2'
+Minun pitäisi suorittaa: rm -vf '/scratch/westersu/my-old-files/file3'
 ```
 
-### Notes on LCleaner usage
+### Huomioita LCleaner-käytöstä {#notes-on-lcleaner-usage}
 
-This section details some things that may be good to know about how LCleaner behaves, or
-why the command examples above are architected the way they are.
+Tämä osio sisältää muutamia huomioita, jotka saattavat olla hyvä tietää siitä, miten LCleaner käyttäytyy, tai miksi yllä olevat komentoesimerkit on muokattu tavalla, jolla ne ovat.
 
-- Sometimes `lcleaner` prints errors about lines it wasn't able to parse.
-  If there are errors, a warning will be printed at the end, indicating that there was at least
-  one error. The warnings will say something like: "We detected N errors during the execution.
-  Please check the logs, for more information!"
-  The errors indicate which line number the problematic text was on, so you can go
-  and check it manually.
-    - Tip: To print only a specific line, e.g., line 123 of the `path_summary.txt`, you can use
-      this command: `sed -n 123p /path/to/path_summary.txt`
-- To capture the logging of `lcleaner`, you can redirect the standard error output stream into
-  a file. This may be useful if you experience problems, and would like help to troubleshoot
-  the situation.
+- Joskus `lcleaner` tulostaa virheitä riveistä, joita se ei pystynyt jäsentämään.
+  Jos virheitä on, varoitus tulostetaan lopussa, joka osoittaa, että oli ainakin yksi virhe. Varoitukset sanovat esimerkiksi näin: "Tunnistimme N virhettä komennon suorituksen aikana. Ole hyvä ja tarkista lokit lisätietoa varten!"
+  Virheet osoittavat, mihin rivinumeroon ongelmallinen teksti liittyi, jotta voit tarkistaa sen manuaalisesti.
+    - Vinkki: Tulosta vain tietty rivi, esimerkiksi rivi 123 `path_summary.txt`-tiedostossa, voit käyttää tätä komentoa: `sed -n 123p /path/to/path_summary.txt`
+- Jotta `lcleaner`:in lokitus tallentuu, voit ohjata vakiovirran tiedostoon. Tämä saattaa olla hyödyllistä, jos kohtaat ongelmia ja haluat apua tilanteen ratkaisemiseksi.
     - `lcleaner --log-level debug path_summary.txt 2> ~/lcleaner-debug-$(date +%s).log`
-- The use of `-0` both with `lcleaner` and `xargs` in the example commands on this page is
-  recommended in order to avoid problems with file names that include whitespace.
-- LCleaner also has some administrative functionality, which is not intended and in some cases
-  will not work for unprivileged users. Anything which mentions the `--admin-mode` flag can safely
-  be ignored.
+- Esimerkkikomennoissa tällä sivulla `-0` sekä `lcleaner`:in että `xargs`:in käyttö on suositeltavaa, jotta vältetään ongelmia tiedostonimien kanssa, jotka sisältävät välilyöntejä.
+- LCleanerilla on myös joitain hallinnollisia toimintoja, jotka eivät ole tarkoitettu ja joissain tapauksissa eivät toimi tavallisille käyttäjille. Mikäli ohjeissa viitataan `--admin-mode`-lippuun, se voidaan jättää huomiotta turvallisesti.
 
-### Troubleshooting LCleaner
+### LCleaner vianmääritys {#troubleshooting-lcleaner}
 
-If you notice any bugs, please report them to [CSC Service Desk](../contact.md).
+Jos huomaat virheitä, ilmoita niistä [CSC Service deskiin](../contact.md).

@@ -1,14 +1,15 @@
-# Moving data between CSC and local workstation
 
-There are many ways to move data, please select
-below the one that suits your needs best.
+# Datan siirtäminen CSC:n ja paikallisen työaseman välillä {#moving-data-between-csc-and-local-workstation}
 
-* [Copying files using scp](scp.md)
-* [Moving files using the HPC web interfaces](web-interface.md)
-* [Graphical file transfer tools](graphical_transfer.md)
-* [Using rsync for data transfer and synchronization](rsync.md)
-* [Using tar and SSH to transfer many small files efficiently](tar_ssh.md)
-* [Using wget to download data from web sites to CSC](wget.md)
-* [Sharing and transporting files using Funet FileSender](funet.md)
-* [Moving data between IDA and CSC computing environment](../ida/using_ida.md)
-* [Remote disk mounts](disk_mount.md)
+Datan siirtämiseen on monia tapoja, valitse
+alta se, joka sopii tarpeisiisi parhaiten.
+
+* [Tiedostojen kopioiminen scp:n avulla](scp.md)
+* [Tiedostojen siirtäminen HPC:n verkkoliittymien kautta](web-interface.md)
+* [Graafiset tiedostonsiirtotyökalut](graphical_transfer.md)
+* [Datan siirto ja synkronointi rsyncin avulla](rsync.md)
+* [Useiden pienten tiedostojen tehokas siirto käyttämällä tar ja SSH](tar_ssh.md)
+* [Datan lataaminen verkkosivuilta CSC:lle käyttäen wgetiä](wget.md)
+* [Tiedostojen jakaminen ja siirtäminen Funet FileSenderilla](funet.md)
+* [Datan siirtäminen IDA:n ja CSC:n laskentaympäristön välillä](../ida/using_ida.md)
+* [Etälevyasemat](disk_mount.md)

@@ -1,26 +1,45 @@
-There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
+TÄRKEITÄ OHJEITA SISÄISTEN LINKKIEN SÄILYTTÄMISEKS:
+1. Asiakirjan otsikoihin viittaavien linkkien on toimittava, vaikka teksti on käännetty.
+2. Jokaiselle käännetylle otsikolle lisätään alkuperäinen englanninkielinen ankkuri ID, joka on lisättävä.
+3. Esimerkki:
+   Alkuperäinen: ## Installation Guide
+   Käännetty: ## Asennusopas {#installation-guide}
+4. ID-muodon tulisi olla alkuperäisen englanninkielisen otsikon teksti pienillä kirjaimilla, korvaten välilyönnit tavuviivoilla.
+5. Huomaa, että tavuviivoja ei koskaan pidä olla kahta peräkkäin, esimerkiksi otsikolla "A & B" on ankkuri englanniksi A-B (ei A--B, vaikka siinä olisi kaksi välilyöntiä).
 
-Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](keeping_docker_images_small.md)
+Lisäohjeet:
+4. Säilytä kaikki Markdown-muotoilu ja rakenne
+5. Säilytä kaikki linkit ja niiden URL-osoitteet
+6. Jätä koodilohkot ja niiden sisältö kääntämättä
+7. Säilytä kaikki HTML-tagit ja niiden attribuutit
+8. Älä käännä muuttujien nimiä tai koodikatkelmia
+9. Älä käännä kuvien tiedostonimiä tai polkuja
 
-## Building images locally
+Tässä sisältö, joka käännetään:
 
-In this example we are going to use the [official nginx image](https://hub.docker.com/_/nginx) built over the [Alpine Linux](https://www.alpinelinux.org/) distribution, and make the necessary changes to make it work in OpenShift.
+On useita syitä luoda oma docker-kuva, mutta yleensä niitä on kaksi. Sovellukselle, jonka haluat suorittaa, ei ole saatavilla docker-kuvaa, tai käytettävissä oleva kuva ei toimi OpenShiftissä. Koska OpenShift on suunniteltu jaetuksi klusteriksi, jossa eri tiimien käyttäjät suorittavat sovelluksia samalla laitteistolla, OpenShiftin on lisättävä rajoituksia ja suoritettava asioita eri tavalla kuin tavallisessa Kubernetes-klusterissa.
 
-Three steps are needed to run build an image locally in a computer.
+Rahti-rekisterin kuvakoko on rajoitettu 5 Gt:n. Mitä suurempi kuva on, sitä huonompi kokemus sen kanssa työskentelystä on. Sen hakemisessa kestää kauemmin, ja se täyttää solmun kuvan välimuistin nopeammin. Yli 1 Gt:n kuvaa pidetään jo erittäin suurena. Katso artikkeli [pienien docker-kuvien ylläpitämisestä](keeping_docker_images_small.md).
 
-* First a `Dockerfile` must be written, for example this:
+## Kuvien rakentaminen paikallisesti {#building-images-locally}
+
+Tässä esimerkissä käytämme [virallista nginx-kuvaa](https://hub.docker.com/_/nginx), joka on rakennettu [Alpine Linux](https://www.alpinelinux.org/) -jakelun päälle, ja teemme tarvittavat muutokset, jotta se toimisi OpenShiftissä.
+
+Kolme vaihetta tarvitaan kuvan rakentamiseen paikallisesti tietokoneella.
+
+* Ensiksi kirjoitetaan `Dockerfile`, esimerkiksi näin:
 
 ```Dockerfile
 FROM nginx:alpine
 
-# support running as arbitrary user which belongs to the root group
+# tuki mielivaltaiselle käyttäjälle, joka kuuluu root-ryhmään
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx && \
     chown nginx.root /var/cache/nginx /var/run /var/log/nginx && \
-    # users are not allowed to listen on privileged ports
+    # käyttäjät eivät saa kuunnella privilegoiduilla porteilla
     sed -i.bak 's/listen\(.*\)80;/listen 8081;/' /etc/nginx/conf.d/default.conf && \
-    # Make /etc/nginx/html/ available to use
+    # Tee /etc/nginx/html/ käyttöön
     mkdir -p /etc/nginx/html/ && chmod 777 /etc/nginx/html/ && \
-    # comment user directive as master process is run as user in OpenShift anyhow
+    # kommentoi käyttäjädirektiivi, sillä pääprosessi ajetaan joka tapauksessa käyttäjänä OpenShiftissä
     sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 WORKDIR /usr/share/nginx/html/
@@ -29,15 +48,15 @@ EXPOSE 8081
 USER nginx:root
 ```
 
-The `Dockerfile` is:
+`Dockerfile` on:
 
- 1. Giving write permissions to the `root` group (not the `root` user) to several folders that nginx needs to write to (/var/cache/nginx, /var/run, /var/log/nginx, and /etc/nginx/html/). Applications are run using a random user and the `root` group.
- 2. Changing the port where nginx listens to, as only root is allowed to listen on privileged ports (<1024).
- 3. And finally comment out the `user` configuration directive.
+1. Antaa kirjoitusoikeudet `root`-ryhmälle (ei `root`-käyttäjälle) useille kansioille, joihin nginxin täytyy kirjoittaa (/var/cache/nginx, /var/run, /var/log/nginx ja /etc/nginx/html/). Sovellukset ajetaan satunnaisena käyttäjänä ja `root`-ryhmänä.
+2. Muuttaa portin, jolla nginx kuuntelee, koska vain root saa kuunnella privilegoiduilla porteilla (<1024).
+3. Ja lopuksi kommentoida käyttäjän konfiguraatiodirektiivi.
 
- The original `nginx:alpine` image has 5 layers, and we will adding a new one (`RUN`).
+Alkuperäisellä `nginx:alpine`-kuvalla on 5 kerrosta, ja lisäämme uuden (`RUN`).
 
-A simpler example of `Dockerfile` could be:
+Yksinkertaisempi esimerkki `Dockerfilesta` voisi olla:
 
 ```Dockerfile
 FROM alpine
@@ -45,274 +64,264 @@ FROM alpine
 RUN apk add git
 ```
 
-This is just installing git over `alpine`, and add also a new layer.
+Tämä vain asentaa gitin `alpineen` ja lisää myös uuden kerroksen.
 
-See the [Dockerfile](https://docs.docker.com/engine/reference/builder/) reference docs.
+Katso [Dockerfileen](https://docs.docker.com/engine/reference/builder/) liittyvät viiteasiakirjat.
 
-Then, the following command must be used to build the image `docker.io/user/name:tag`:
+Seuraavaksi käytetään seuraavaa komentoa kuvan rakentamiseen `docker.io/user/name:tag`:
 
 ```bash
 docker build . -t docker.io/user/name:tag
 ```
 
-And finally, to publish the image:
+Ja lopuksi kuvan julkaisuun:
 
 ```bash
 docker push docker.io/user/name:tag
 ```
 
-## Using Rahti to build container images
+## Konttikuvien rakentaminen Rahdissa {#using-rahti-to-build-container-images}
 
-The methods below use Rahti to build the images.
+Alla olevat menetelmät käyttävät Rahtia kuvien rakentamiseen.
 
-### Using a local folder for building
+### Rakentaminen paikallisesta kansiosta {#using-a-local-folder-for-building}
 
-This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti to clone a repository directly.
+Tämä menetelmä mahdollistaa kuvan rakentamisen paikallisesta kansiosta, joka sisältää Dockerfilen ja muut tarvittavat projektitiedostot. Se on hyödyllinen, kun ei ole mahdollista tai ei ole tarkoituksenmukaista sallia Rahdin kopioida repositoriota suoraan.
 
-This assumes that you have authorized a Rahti command line session and created
-a project in Rahti. Instructions for that are shown in Chapter [Command line
-tool usage](../usage/cli.md#cli-cheat-sheet).
+Tämä edellyttää, että olet valtuuttanut Rahti-komentorivisession ja luonut projektin Rahdissa. Ohjeet tähän löytyvät luvusta [Komentorivityökalun käyttö](../usage/cli.md#cli-cheat-sheet).
 
-**Steps:**
+**Vaiheet:**
 
-Create Rahti specific definitions with `oc new-build` command. Be sure
-not to be in a directory under git version control:
+Luo Rahti-spesifiset määritelmät komennolla `oc new-build`. Ole varovainen, ettet ole kansiossa, joka on git-versionhallinnan alaisuudessa:
 
 ```bash
-$ oc new-build --to=my-hello-image:devel --name=my-hello --binary
-    * A Docker build using binary input will be created
-      * The resulting image will be pushed to image stream tag "my-hello-image:devel"
-      * A binary build was created, use 'start-build --from-dir' to trigger a new build
+$ oc new-build --to=oma-hello-kuva:devel --name=oma-hello --binary
+    * Docker-rakennus, joka käyttää binaarisyötettä, luodaan
+      * Tuloksena oleva kuva työnnetään kuva-virtatagiin "oma-hello-kuva:devel"
+      * Binaarinen rakennus luotiin, käytä 'start-build --from-dir' laukaistaksesi uuden rakennuksen
 
---> Creating resources with label build=my-hello ...
-    imagestream.image.openshift.io "my-hello-image" created
-    buildconfig.build.openshift.io "my-hello" created
---> Success
+--> Luodaan resursseja tunnisteella build=oma-hello ...
+    imagestream.image.openshift.io "oma-hello-kuva" luotu
+    buildconfig.build.openshift.io "oma-hello" luotu
+--> Onnistuminen
 ```
 
-Then you need a `Dockerfile`, you can use any of the previous `Dockerfile` in the previous example, or any other one you may have around. In order to tell OpenShift to build the image, just `cd` to the folder where the `Dockerfile` is, and start build with the `oc start-build` command, it will take any file in the current directory and output the build process to local terminal:
+Tarvitset sitten `Dockerfile`:n, voit käyttää mitä tahansa aiemman esimerkin `Dockerfilea` tai jotain muuta, mikä sinulla on. Kertoaksesi OpenShiftille rakentamaan kuvan, siirry kansioon, jossa `Dockerfile` sijaitsee, ja käynnistä rakennus komennolla `oc start-build`, se ottaa kaikki tiedostot nykyisestä hakemistosta ja tulostaa rakennusprosessin paikalliseen päätelaitteeseen:
 
 ```bash
-oc start-build my-hello --from-dir=./ -F
+oc start-build oma-hello --from-dir=./ -F
 ```
 
-The image will be visible to internet at
-`image-registry.apps.2.rahti.csc.fi/<project-name>/my-hello-image:devel` for docker
-compatible clients but you will first need to authenticate in order to pull it. 
+Kuva on internetissä näkyvissä osoitteessa `image-registry.apps.2.rahti.csc.fi/<project-name>/oma-hello-kuva:devel` docker-yhteensopiville asiakkaille, mutta sinun on ensin todistettava henkilöllisyytesi saadaksesi sen.
 
-For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
+Komentorivin käyttö docker-yhteensopivilla asiakkailla, docker-rekisteri-salasana on käyttöoikeustunnus, joka näytetään valtuuttaessasi Rahti-komentorivisession ja käyttäjänimeksi voi laittaa `unused`.
 
 ```sh
 docker login -u g -p $(oc whoami -t) image-registry.apps.2.rahti.csc.fi
 ```
 
-### Using the Source to Image mechanism
+### Source to Image -mekanismin käyttö {#using-the-source-to-image-mechanism}
 
-OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. It is used by running `oc new-app URL#branch`, the `#branch` is optional. For example, use the official python sample code:
+OpenShift mahdollistaa koodin rakentamisen ja käyttöönoton ilman `Dockerfile`:n kirjoittamista. Tätä kutsutaan Source to Image:ksi tai `s2i`:ksi. Se tehdään suorittamalla `oc new-app URL#branch`, jossa `#branch` on optionalinen. Esimerkiksi, käytä virallista python-esimerkkikoodia:
 
 ```bash
 $ oc new-app https://github.com/CSCfi/nodejs-16-rahti-example.git
---> Found Docker image 9d200cd (7 weeks old) from Docker Hub for "node:16.15.0"
+--> Löydettiin Docker-kuva 9d200cd (7 viikkoa vanha) Docker Hubista "node:16.15.0":lle
 
-    * An image stream tag will be created as "node:16.15.0" that will track the source image
-    * A Docker build using source code from https://github.com/CSCfi/nodejs-16-rahti-example.git will be created
-      * The resulting image will be pushed to image stream tag "nodejs-16-rahti-example:latest"
-      * Every time "node:16.15.0" changes a new build will be triggered
-    * This image will be deployed in deployment config "nodejs-16-rahti-example"
-    * Port 8080/tcp will be load balanced by service "nodejs-16-rahti-example"
-      * Other containers can access this service through the hostname "nodejs-16-rahti-example"
-    * WARNING: Image "node:16.15.0" runs as the 'root' user which may not be permitted by your cluster administrator
+    * Luodaan kuvan virtatagi "node:16.15.0", joka seuraa lähdekuvaa
+    * Docker-rakennus käyttäen lähdekoodia osoitteesta https://github.com/CSCfi/nodejs-16-rahti-example.git luodaan
+      * Tuloksena oleva kuva työnnetään kuva-virtatagiin "nodejs-16-rahti-example:latest"
+      * Joka kerta kun "node:16.15.0" muuttuu, uusi rakennus laukaistaan
+    * Tämä kuva otetaan käyttöön käyttöönoton konfiguraatiossa "nodejs-16-rahti-example"
+    * Portti 8080/tcp tasapainotetaan palvelimen "nodejs-16-rahti-example" kautta
+      * Muut säiliöt voivat käyttää tätä palvelua isäntänimen "nodejs-16-rahti-example" kautta
+    * VAROITUS: Kuva "node:16.15.0" toimii 'root'-käyttäjänä, mikä ei ehkä ole sallittua klusterin valvojan toimesta
 
---> Creating resources ...
-    imagestream.image.openshift.io "node" created
-    imagestream.image.openshift.io "nodejs-16-rahti-example" created
-    buildconfig.build.openshift.io "nodejs-16-rahti-example" created
-    deploymentconfig.apps.openshift.io "nodejs-16-rahti-example" created
-    service "nodejs-16-rahti-example" created
---> Success
-    Build scheduled, use 'oc logs -f bc/nodejs-16-rahti-example' to track its progress.
-    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
-     'oc expose svc/nodejs-16-rahti-example' 
-    Run 'oc status' to view your app.
+--> Resurssien luominen ...
+    imagestream.image.openshift.io "node" luotu
+    imagestream.image.openshift.io "nodejs-16-rahti-example" luotu
+    buildconfig.build.openshift.io "nodejs-16-rahti-example" luotu
+    deploymentconfig.apps.openshift.io "nodejs-16-rahti-example" luotu
+    service "nodejs-16-rahti-example" luotu
+--> Onnistuminen
+    Rakennuksen määritys tehty, käytä 'oc logs -f bc/nodejs-16-rahti-example' seuraa sen etenemistä.
+    Sovellusta ei ole julkaistu. Voit julkaista palveluja ulkomaailmaan suorittamalla yhden tai useamman seuraavista komennoista:
+     'oc expose svc/nodejs-16-rahti-example'
+    Suorita 'oc status' nähdäksesi sovelluksesi.
 ```
 
-Then do as suggested and expose the new application to the outside world:
+Tee sitten ehdotetun mukaisesti ja paljasta uusi sovellus ulkomaailmaan:
 
 ```bash
 $ oc expose svc/nodejs-16-rahti-example
-route.route.openshift.io/nodejs-16-rahti-example exposed
+route.route.openshift.io/nodejs-16-rahti-example paljastettu
 ```
 
-In order to get the new route hostname do:
+Hanki uuden reitin isäntänimi seuraavasti:
 
 ```bash
 oc get route nodejs-16-rahti-example
 ```
 
-If you enter the hostname in a browser, you will see the "Hello World!" message.
+Jos syötät isäntänimen selaimeen, näet "Hello World!" -viestin.
 
-A new build can be triggered in the command line:
+Uuden rakennuksen voi laukaista komentoriviltä:
 
 ```bash
 oc start-build nodejs-16-rahti-example
 ```
 
-Or using [webhooks](../tutorials/webhooks.md)
+Tai käyttämällä [webhookkeja](../tutorials/webhooks.md).
 
-### Using the inline Dockerfile method
+### Inline Dockerfile -menetelmän käyttö {#using-the-inline-dockerfile-method}
 
-It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Git repository.
+On mahdollista luoda uusi rakennus käyttäen Dockerfilea, joka on annettu komentorivillä. Tällöin itse `Dockerfile` liitetään rakenteessa olevaan Build-objektiin, joten ulkoista Git-repositoriota ei tarvita.
 
 ```bash
 oc new-build -D $'FROM centos:7'
 ```
 
-In this example, we will build an image that is a copy of `CentOS 7`.
+Tässä esimerkissä rakennamme kuvaa, joka on kopio `CentOS 7`:stä.
 
-It is also possible to create a build from a given `Dockerfile`:
+On myös mahdollista luoda rakennus olemassa olevasta `Dockerfile`:stä:
 
 ```bash
 cat Dockerfile | oc new-build -D -
 ```
 
-### Import from Git (Private Repositories) using the Web GUI
+### Tuonti Gitistä (yksityiset tietovarastot) käyttämällä Web GUI:ta {#import-from-git-private-repositories-using-the-web-gui}
 
-Deploying a private Git repository to Rahti involves setting up the necessary authentication to access your private repository. Without proper authentication, you will see the error "URL is valid but cannot be reached" (seen in the pictures below). Here's how to resolve this using two authentication methods:
-
+Yksityisen Git-repositorion käyttöönotto Rahdille edellyttää tarvittavien todennusten asettamista yksityiseen repositorioosi pääsemiseksi. Ilman asianmukaista todennusta saat virheilmoituksen "URL on kelvollinen mutta ei saavutettavissa" (näkyvä alla olevissa kuvissa). Tässä on kaksi ratkaisematapaa:
 
 ![oie_1671443U3OLpFT1](https://github.com/user-attachments/assets/a844e224-769e-4d9f-bba2-043ad5c9b258)
 
+#### Vaihtoehto 1: Tokenin käyttö Git-todennukseen {#option-1-using-a-token-for-git-authentication}
 
-#### Option 1: Using a Token for Git Authentication
-
-1. **Generate a Personal Access Token:**
+1. **Luo henkilökohtainen käyttöoikeustoken:**
 
     - **GitHub:**
-         - Go to your GitHub account settings.
-         - Navigate to "Developer settings" > "Personal access tokens".
-         - Click on "Generate new token".
-         - Select the scopes you need (typically, you'll need `repo` scope for private repositories).
-         - Generate the token and copy it.
+         - Siirry GitHub-tilisi asetuksiin.
+         - Mene kohtaan "Developer settings" > "Personal access tokens".
+         - Klikkaa "Generate new token".
+         - Valitse tarpeelliset käyttöoikeudet (tyypillisesti `repo` yksityisille repositorioille).
+         - Luo token ja kopioi se.
 
     - **GitLab:**
-         - Go to your GitLab profile settings.
-         - Navigate to "Access Tokens".
-         - Give your token a name, select the required scopes (e.g., `api`, `read_repository`), and create the token.
-         - Copy the token.
+         - Siirry GitLab-profiilin asetuksiin.
+         - Siirry kohtaan "Access Tokens".
+         - Anna tokenille nimi, valitse tarvittavat käyttöoikeudet (esim. `api`, `read_repository`) ja luo token.
+         - Kopioi token.
 
-3. **Add the Token to Rahti:**
-    - Under "Source Secret" choose "Create new Secret"
-    - Name the secret, under "Authentication type" choose "Basic Authentication"
-    - Paste the token and create
+3. **Lisää Token Rahdille:**
+    - Kohdassa "Source Secret" valitse "Create new Secret"
+    - Nimeä salaisuus, valitse "Authentication type" kohdasta "Basic Authentication"
+    - Liitä token ja luo
 
 ![oie_1672121lETtYQ6J](https://github.com/user-attachments/assets/4bd9450f-170b-4a9e-ae8c-df4700fb0be4)
 
+#### Vaihtoehto 2: Yksityisen SSH-avaimen käyttö Git-todennukseen {#option-2-using-a-private-ssh-key-for-git-authentication}
 
-#### Option 2: Using a Private SSH Key for Git Authentication
+1. **Luo SSH-avainpari (jos sinulla ei ole vielä):**
 
-1. **Generate an SSH Key Pair (if you don't have one already):**
-
-    - Open a terminal and run the following command to generate a new SSH key pair:
+    - Avaa terminaali ja suorita seuraava komento luodaksesi uuden SSH-avainparin:
          ```sh
          ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
          ```
-    - This will create two files: a private key (`id_rsa`) and a public key (`id_rsa.pub`).
+    - Tämä luo kaksi tiedostoa: yksityisen avaimen (`id_rsa`) ja julkisen avaimen (`id_rsa.pub`).
 
-2. **Add Your Public Key to Your Git Hosting Service:**
+2. **Lisää julkinen avaimesi Git-hosting palveluun:**
 
     - **GitHub:**
-        - Go to your GitHub account settings.
-        - Navigate to "SSH and GPG keys".
-        - Click "New SSH key" and paste the contents of your `id_rsa.pub` file.
+        - Mene GitHub-tilisi asetuksiin.
+        - Siirry kohtaan "SSH and GPG keys".
+        - Klikkaa "New SSH key" ja liitä `id_rsa.pub`-tiedostosi sisältö.
 
     - **GitLab:**
-        - Go to your GitLab profile settings.
-        - Navigate to "SSH Keys".
-        - Add a new SSH key and paste the contents of your `id_rsa.pub` file.
+        - Siirry GitLab-profiilin asetuksiin.
+        - Mene kohtaan "SSH Keys".
+        - Lisää uusi SSH-avain ja liitä `id_rsa.pub`-tiedostosi sisältö.
 
-4. **Add the Private SSH Key to Rahti:**
-    - Under "Source Secret" choose "Create new Secret"
-    - Name the secret, under "Authentication type" choose "SSH Key"
-    - Paste the contents of your private SSH key (`id_rsa`) and create
+4. **Lisää yksityinen SSH-avaimesi Rahdille:**
+    - Kohdassa "Source Secret" valitse "Create new Secret"
+    - Nimeä salaisuus, valitse "Authentication type" kohdasta "SSH Key"
+    - Liitä yksityisen SSH-avaimesi (`id_rsa`) sisältö ja luo 
     - 
 ![oie_16720584BbbOspb](https://github.com/user-attachments/assets/b1d47511-0ce6-4980-a732-895193895780)
 
+### Tuonti Gitistä (yksityiset tietovarastot) käyttämällä CLI {#import-from-git-private-repositories-using-the-cli}
 
-### Import from Git (Private Repositories) using the CLI
+Tämä edellyttää, että käyttäjät ovat luoneet SSH-avaimia ja rekisterineet julkisen avaimen GitHubiin.
 
-This assumes that the users has generated SSH keys and registered their public key with GitHub.
-
-
-**[Log into OpenShift CLI (`oc`)](../usage/cli.md#how-to-login-with-oc)**:
+**[Kirjaudu sisään OpenShift CLI:hin (`oc`)](../usage/cli.md#how-to-login-with-oc)**:
 
 ```bash
 oc login <cluster-url>
 ```
 
-**[Create a New Project](../usage/projects_and_quota.md#creating-a-project)**:
+**[Luo uusi projekti](../usage/projects_and_quota.md#creating-a-project)**:
 
 ```bash
 oc new-project <project-name> --display-name=<display-name> --description="csc_project:<project-id>"
 ```
 
-**Create SSH Key Secret**:
+**Luo SSH-avaimen salaisuus**:
 
 ```bash
 oc create secret generic <secret-name> --from-file=ssh-privatekey=<path-to-private-key> --type=kubernetes.io/ssh-auth
 ```
 
-**Link the Secret to the Builder Service Account**:
+**Linkitä salaisuus Builder Service Accountiin**:
 
 ```bash
 oc secrets link builder <secret-name>
 ```
 
-
-**Deploy the Application**:
+**Käytä sovellusta**:
 
 ```bash
 oc new-app <repository-url> --name=<application-name>
 ```
 
-**Monitor the Build**:
+**Seuraa rakennusta**:
 
-- monitor logs
+- seuraa lokit
   ```bash
   oc logs -f buildconfig.build.openshift.io/<application-name>
   ```
 
-- The initial build will probably fail due to authentication issues, set the build secret explicitly:
+- Alkurakennus todennäköisesti epäonnistuu todennusongelmien vuoksi, aseta rakennussalaisuus nimenomaisesti:
   ```bash
   oc set build-secret --source bc/<application-name> <secret-name>
   ```
 
-- Trigger a new build:
+- Käynnistä uusi rakennus:
   ```bash
   oc start-build <application-name> --follow
   ```
 
-**Expose the Application**:
+**Julkaise sovellus**:
 
 ```bash
 oc expose deployment <application-name> --name=<service-name> --port=<port> --target-port=<target-port>
 oc expose svc/<service-name>
 ```
 
-**Access the Application**:
+**Käytä sovellusta**:
 
-- Use the URL provided by:
+- Käytä URL-osoitetta, joka on annettu:
     ```bash
     oc get route <application-name>
     ```
 
-## Troubleshooting
+## Vianetsintä {#troubleshooting}
 
-If your build fails in Rahti, it could mean that your application needs more memory than is provided by default. Unfortunately, it's not possible to set resource limits and requests directly from the CLI when deploying the app. You will need to use a YAML configuration file or the web UI to specify these settings.
+Jos rakennuksesi epäonnistuu Rahdissa, se voi tarkoittaa, että sovelluksesi tarvitsisi enemmän muistia kuin oletusarvoisesti on tarjolla. Valitettavasti resurssirajojen ja -pyyntöjen asettaminen suoraan CLI:stä ei ole mahdollista, kun sovellus otetaan käyttöön. Sinun tulee käyttää YAML-määritystiedostoa tai web-käyttöliittymää näiden asetusten määrittämiseen.
 
-You can create a yaml file and then apply it with the command `oc apply -f {your_yaml_file}.yaml` or edit your current `BuildConfig` in the Rahti webUI.
-In the Administrator view, navigate to `Builds > BuildConfigs` and click on your BuildConfig. Select the `YAML` tab.
+Voit luoda yaml-tiedoston ja sitten soveltaa sitä komennolla `oc apply -f {your_yaml_file}.yaml` tai muokata nykyistä `BuildConfig`:ia Rahti-web-käyttöliittymässä.
+Ylläpitäjänäkymässä navigoi kohtaan `Rakennukset > BuildConfigs` ja klikkaa BuildConfigiasi. Valitse `YAML`-välilehti.
 
-Under `spec` you should see `resources: {}`. From here, add `limits.cpu`, `limits.memory`, `requests.cpu` and `requests.memory`:
+`spec`-kohdan alla sinun pitäisi nähdä `resources: {}`. Täältä lisää `limits.cpu`, `limits.memory`, `requests.cpu` ja `requests.memory`:
+
 ```yaml
 resources:
   limits:
@@ -323,6 +332,6 @@ resources:
     memory: 1600Mi
 ```
 
-Note that they cannot be more than 5x apart (default ratio, more information [here](../usage/projects_and_quota.md#default-pod-resource-limits)).
+Huomaa, että ne eivät voi olla yli viisikertaisia toisistaan (oletusarvoinen suhde, enemmän tietoa [täältä](../usage/projects_and_quota.md#default-pod-resource-limits)).
 
-Save and run the build again, and if it succeeds, check the metrics and see how much memory was used. You can adjust the memory limit to 10-20% more than what it was used.
+Tallenna ja suorita rakennus uudelleen, ja jos se onnistuu, tarkista metrikkat ja katso, kuinka paljon muistia käytettiin. Voit säätää muistirajaa 10-20% enemmän kuin mitä käytettiin.

@@ -1,74 +1,75 @@
+
 ---
-description: Things to include in your CSC servicedesk support request
+description: Asiat, jotka tulee sisällyttää CSC:n ServiceDesk-tukipyyntöön
 ---
 
-# How to write good support requests
+# Kuinka kirjoittaa hyviä tukipyyntöjä
 
-Writing a good support request will enable us to resolve your issue faster. Below is a list of good practices.
+Hyvin kirjoitettu tukipyyntö auttaa meitä ratkaisemaan ongelmasi nopeammin. Alla on luettelo hyvistä käytännöistä.
 
-## Specify your environment
+## Määritä ympäristösi {#specify-your-environment}
 
-On which system are running? Have you or your colleague compiled the code? Which modules were loaded? If you use non-default modules or e.g. Conda environments and you do not tell us about it, time will be wasted when we try to debug your issue in a different environment.
+Missä järjestelmässä suoritat ohjelmaa? Oletko sinä tai kollegasi koonnut koodin? Mitkä moduulit olivat ladattuna? Jos käytät muita kuin oletusmoduuleja tai esimerkiksi Conda-ympäristöjä etkä kerro niistä meille, aikaa kuluu turhaan, kun yritämme löytää ongelmaa toisessa ympäristössä.
 
-## Include actual commands and error messages
+## Sisällytä todelliset komennot ja virheilmoitukset {#include-actual-commands-and-error-messages}
 
-We cover this below, but it’s so important it needs to be mentioned at the top, too: include the actual commands you run and the actual error messages (also Slurm error and output). Copy and paste.
+Käsittelemme tätä alla, mutta se on niin tärkeää, että se on mainittava myös ylhäällä: sisällytä käyttämäsi todelliset komennot ja todelliset virheilmoitukset (myös Slurm-virheilmoitus ja -tuloste). Kopioi ja liitä.
 
-## Give a descriptive subject
+## Anna kuvaileva otsikko {#give-a-descriptive-subject}
 
-Your subject line should be descriptive. "Problem on Mahti" is not a good subject line since it could be valid for many of the support emails we get. The support staff is a team. The subjects are the first thing that we see and a good subject will speed up the issue going to the right specialist.
+Otsikkosi tulisi olla kuvaileva. "Ongelma Mahtissa" ei ole hyvä otsikko, sillä se voisi sopia moniin saamiimme tukipyyntöihin. Tukitiimi on ryhmä. Otsikot ovat ensimmäinen asia, jonka näemme, ja hyvä otsikko nopeuttaa asian ohjaamista oikealle asiantuntijalle.
 
-## Be specific
+## Ole tarkka {#be-specific}
 
-Whatever you do, don’t say that “X didn’t work”. Give the exact commands you ran, environment (see above), and output error messages. The actual error messages mean a lot - include all the output, it is easy to copy and paste it.
+Mitä tahansa teetkin, älä sano "X ei toiminut". Anna tarkat komennot, joita käytit, ympäristö (katso yllä) ja virheilmoitukset. Todelliset virheilmoitukset merkitsevät paljon - sisällytä koko tuloste, se on helppo kopioida ja liittää.
 
-The better you describe the problem the less we have to guess and ask. Make the problem reproducible. See also next point.
+Mitä paremmin kuvailet ongelman, sitä vähemmän meidän tarvitsee arvailla ja kysyä. Tee ongelmasta toistettavissa oleva. Katso myös seuraava kohta.
 
-## Tell us which documentation you have already read
+## Kerro, mitä dokumentaatiota olet jo lukenut {#tell-us-which-documentation-you-have-already-read}
 
-If you are asking for advice on e.g. how to use a particular software package, then please explain in detail what documentation you have already read and why this hasn't yet fully answered your question. This allows us to answer your specific question instead of simply referring you to the existing documentation.
+Jos pyydät neuvoa esimerkiksi tietyn ohjelmistopaketin käyttöön, selitä yksityiskohtaisesti, mitä dokumentaatiota olet jo lukenut ja miksi se ei ole vielä täysin vastannut kysymykseesi. Tämä antaa meille mahdollisuuden vastata tarkemmin kysymykseesi sen sijaan, että vain viittaisimme olemassa olevaan dokumentaatioon.
 
-## Send your requests to ServiceDesk
+## Lähetä pyyntösi ServiceDeskiin {#send-your-requests-to-servicedesk}
 
-Always send requests to [CSC Service Desk](contact.md) instead of staff members directly. In the Service Desk they get tracked, have higher visibility and will get picked up by the correct specialist. Some staff members work for the support requests only part time and we are also on holiday sometimes.
+Lähetä pyynnöt aina [CSC ServiceDeskiin](contact.md) sen sijaan, että lähettäisit ne suoraan työntekijöille. ServiceDeskissä ne seurataan, niillä on suurempi näkyvyys ja ne ohjataan oikealle asiantuntijalle. Jotkut työntekijät tekevät tukiikkunoita vain osa-aikaisesti ja olemme joskus myös lomalla.
 
-## Tell us also what worked
+## Kerro myös, mikä toimi {#tell-us-also-what-worked}
 
-Rather often we get requests of the type "I cannot get X to run on two nodes". The request then does not mention whether it worked on one node or on one core or whether it never worked and that this was the first attempt. Perhaps the problem has even nothing to do with one or two nodes. In order to better isolate the problem and avoid losing time with many back and forth emails, please tell us what actually worked so far. Tell us how you have tried to isolate the problem. This requires some effort from you but it will help us to resolve your issue faster.
+Melko usein saamme pyyntöjä tyyliin "En saa X:ää toimimaan kahdella solmulla". Pyynnössä ei sitten mainita, toimiko se yhdellä solmulla tai yhdellä ytimellä, tai toimiiko se ensikerrallakaan ollenkaan. Ehkä ongelma ei edes liity mitenkään yhteen tai kahteen solmuun. Jotta ongelma voitaisiin rajata paremmin ja vältyttäisiin monilta edestakaisilta sähköposteilta, kerro meille, mikä todellisuudessa toimi tähän mennessä. Kerro meille, kuinka olet yrittänyt rajata ongelmaa. Tämä vaatii sinulta jonkin verran vaivaa, mutta se auttaa meitä ratkaisemaan ongelmasi nopeammin.
 
-## Identify yourself
+## Tunnista itsesi {#identify-yourself}
 
-Give your CSC username and professional affiliation (if using non-professional email account like gmail).
+Anna CSC-käyttäjätunnuksesi ja ammatillinen yhteytesi (jos käytät ei-ammatillista sähköpostiosoitetta, kuten Gmailia).
 
-## New problem, new email
+## Uusi ongelma, uusi sähköposti {#new-problem-new-email}
 
-Please do not send support requests by replying to old tickets, which probably concern unrelated issues. Every issue gets a number and this is the number that you see in the subject line.
+Älä lähetä tukipyyntöjä vastaamalla vanhoihin lippuihin, jotka todennäköisesti koskevat asiattomia ongelmia. Jokainen asia saa numeron, ja tämä on se numero, jonka näet otsikkorivillä.
 
-## The XY problem
+## XY-ongelma {#the-xy-problem}
 
-This is a classic problem. Please read [more about the XY problem here](https://xyproblem.info/). Often we know the solution but sometimes we don't know the problem.
+Tämä on klassinen ongelma. Lue [lisää XY-ongelmasta täältä](https://xyproblem.info/). Usein tiedämme ratkaisun, mutta joskus emme tiedä ongelmaa.
 
-In short (quoting from the previous website):
+Lyhyesti (lainaus edelliseltä verkkosivulta):
 
-*   User wants to do X.
-*   User doesn't know how to do X, but thinks it can be done via Y.
-*   User doesn't know how to do Y either.
-*   User asks for help with Y.
-*   Others try to help user with Y, but are confused because Y seems like a strange problem to want to solve.
-*   Finally, the issue is solved by doing X without Y.
+* Käyttäjä haluaa tehdä tehtävän X.
+* Käyttäjä ei tiedä, miten tehdä X, mutta ajattelee sen onnistuvan Y:n kautta.
+* Käyttäjä ei myöskään tiedä, miten tehdä Y.
+* Käyttäjä pyytää apua Y:n kanssa.
+* Muut yrittävät auttaa käyttäjää Y:ssä, mutta hämmentyvät, koska Y vaikuttaa oudolta ongelmalta ratkaistavaksi.
+* Lopulta ongelma ratkaistaan tekemällä X ilman Y:tä.
 
-To avoid the XY problem, if you struggle with Y but really what you are after is X, please also tell us about X. Tell us what you really want to achieve. Solving Y can take a long time.
+Välttääksemme XY-ongelman, jos käsittelet Y:tä mutta todellisuudessa tavoitteesi on X, kerro meille myös X:stä. Kerro mitä todella haluat saavuttaa. Y:n ratkaiseminen voi viedä kauan.
 
-## Create an example which reproduces the problem
+## Luo esimerkki, joka toistaa ongelman {#create-an-example-which-reproduces-the-problem}
 
-Create an example that we can ideally just copy/paste and run and which demonstrates the problem. It is otherwise very time consuming if the support team needs to write input files and run scripts based on your possibly incomplete description. See also next point. Make this example available to us. We do not search and read read-protected files without your permission (and only very few even can).
+Luo esimerkki, jonka voimme mielellään kopioida ja liittää ja joka osoittaa ongelman. Muuten on hyvin aikaavievää, jos tuki henkilöstö joutuu kirjoittamaan syöttötiedostoja ja ajamaan ohjelmistoja todennäköisesti epätäydellisten kuvausten perusteella. Katso myös seuraava kohta. Tee tämä esimerkki meille saataville. Emme etsi emmekä lue lukuoikeudella suojattuja tiedostoja ilman lupaasi (ja vain harvat pystyvät).
 
-## Make the example as small and fast as possible
+## Tee esimerkistä mahdollisimman pieni ja nopea {#make-the-example-as-small-and-fast-as-possible}
 
-You run a calculation which crashes after running for one week. You are tempted to write to support right away with this example but this is not a good idea. Before you send a support request with this example, first try to reduce it. Possibly and probably the crash can be reproduced with a much smaller example (smaller system size or grid or basis set). It is much easier to schedule and debug a problem which crashes after a few seconds compared to a run which crashes after hours. Of course this requires some effort from you but this will help us to resolve your issue faster. Often when isolating the problem, the problem and solution crystallize before even writing the support request.
+Suoritat laskelman, joka kaatuu viikon suorittamisen jälkeen. Olet taipuvainen kirjoittamaan tukipyynnön heti tämän esimerkin kanssa, mutta tämä ei ole hyvä idea. Ennen kuin lähetät tukipyyntön tämän esimerkin kanssa, yritä ensin pienentää sitä. On mahdollista ja todennäköistä, että kaatuminen voidaan toistaan paljon pienemmällä esimerkillä (pienempi järjestelmäkoko tai ristikko tai perusjoukko). On paljon helpompaa ajoittaa ja selvittää ongelma, joka kaatuu muutamassa sekunnissa verrattuna ajona, joka kaatuu useiden tuntien jälkeen. Tämä vaatii tietysti jonkin verran vaivaa sinulta, mutta se auttaa meitä ratkaisemaan ongelmasi nopeammin. Usein ongelman eristämisen aikana ongelma ja ratkaisu kiteytyvät ennen edes tukipyynnön kirjoittamista.
 
-## If you can't create an example, explain what you've done
+## Jos et voi luoda esimerkkiä, selitä mitä olet tehnyt {#if-you-cant-create-an-example-explain-what-youve-done}
 
-Explain the steps and commands you've given before the problem and all output and errors that are produced. If the amount of data is large (more than 1MB) you can use [FUNET FileSender](https://filesender.funet.fi/) or [a-flip](../data/Allas/using_allas/a_commands.md#a-flip) to deliver files. Be specific, see above.
+Selitä vaiheet ja komennot, jotka olet syöttänyt ennen ongelmaa, sekä tuotettu koko tuloste ja mahdolliset virheet. Jos datan määrä on suuri (yli 1MB), voit käyttää [FUNET FileSenderia](https://filesender.funet.fi/) tai [a-flipiä](../data/Allas/using_allas/a_commands.md#a-flip) lähettääksesi tiedostoja. Ole tarkka, katso yllä.
 
-[_"How to" reused by permission from HPC group - UiT The Arctic University of Norway._](https://hpc-uit.readthedocs.io/en/latest/help/writing-support-requests.html)
+[_"Kuinka tehdä" käytetty HPC-ryhmän luvalla - UiT: The Arctic University of Norway._](https://hpc-uit.readthedocs.io/en/latest/help/writing-support-requests.html)

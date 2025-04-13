@@ -1,111 +1,73 @@
-# Using SD Connect to receive sensitive research data
+# SD Connect -palvelun käyttäminen arkaluonteisten tutkimusdatan vastaanottamiseksi {#using-sd-connect-to-receive-sensitive-research-data}
 
-This document provides instructions of how a research group can use SD Connect to receive **sensitive data** from external 
-data provider like a sequencing center. The procedure presented here is applicable in cases where the data will analyzed in
-SD Desktop or in a computer that has internet connection.
+Tämä dokumentti tarjoaa ohjeet siitä, kuinka tutkimusryhmä voi käyttää SD Connectia vastaanottaakseen **arkaluonteista dataa** ulkoiselta datan toimittajalta, kuten sekvensointikeskukselta. Tässä esitetty menettely koskee tilanteita, joissa data analysoidaan SD Desktopissa tai tietokoneessa, jolla on internetyhteys.
 
-In some sensitive data environments internet connection is not available. In those cases, please check the alternative 
-approach, defined in:
+Joissakin arkaluonteisen datan ympäristöissä ei ole käytettävissä internetyhteyttä. Näissä tapauksissa tarkista vaihtoehtoinen lähestymistapa, joka on määritelty:
 
-   * [Using Allas to receive sensitive research data](./sequencing_center_tutorial.md)
+* [Arkaluonteisen tutkimusdatan vastaanottaminen Allas-palvelun kautta](./sequencing_center_tutorial.md)
 
+## SD Connect {#sd-connect}
 
-## SD Connect
+SD Connect on osa CSC:n arkaluonteisen datan palveluita, jotka tarjoavat maksuttoman arkaluonteisen datankäsittelyn ympäristön suomalaisille yliopistoille ja tutkimuslaitoksille. SD Connect lisää automaattisen salauskerroksen CSC:n Allas-objektivarastojärjestelmään, jotta sitä voidaan käyttää turvalliseen arkaluonteisen datan tallentamiseen. SD Connectia voidaan käyttää minkä tahansa arkaluonteisen tutkimusdatan tallentamiseen tutkimusprojektin aktiivisen työvaiheen aikana. SD Connect ei kuitenkaan ole tarkoitettu datan arkistointiin. Sinun on poistettava datasi SD Connectista, kun tutkimusprojekti päättyy.
 
-SD Connect is part of the CSC sensitive data services that provide free-of-charge sensitive data processing environment for 
-academic research projects at Finnish universities and research institutes. SD Connect adds an automatic encryption layer to the Allas object storage system of CSC, so that it can be used for securely storing sensitive data. SD Connect can be used for storing any kind of sensitive research data during the active working phase of a research project. 
-SD Connect is however not intended for data archiving. You must remove your data from SD Connect when the research project ends.
+SD Connectissa ei ole automaattisia varmuuskopiointiprosesseja. Teknisellä tasolla SD Connect on erittäin luotettava ja vikakestävä, mutta jos sinä tai joku projektiisi osallistuvista henkilöistä poistaa tai korvaa dataa SD Connectissa, se menetetään pysyvästi. Siksi saatat harkita varmuuskopion tekemistä datastasi jonnekin muualle.
 
-There is no automatic backup processes in SD Connect. In technical level SD Connect is very reliable and fault-tolerant, 
-but if you, or some of your project members, remove or overwrite some data in SD Connect, 
-it is permanently lost. Thus, you might consider making a backup copy of your data to some other location.
+Tutustu tarkemmin [SD Connect dokumentaatioon](./sd_connect.md).
 
-Please check the [SD Connect documentation](./sd_connect.md) for more details about SD Connect.
+## 1. Tallennustilan hankkiminen SD Connectista {#1-obtaining-a-storage-space-in-sd-connect}
 
+Jos käytät jo SD Connect -palvelua, voit ohittaa tämän luvun ja siirtyä lukuun 2.
+Muussa tapauksessa tee seuraavat vaiheet saadaksesi pääsyn SD Connectiin.
 
-## 1. Obtaining a storage space in SD Connect
+### 1.1. Luo käyttäjätili {#1-1-create-a-user-account}
 
-If you are already using SD Connect service, you can skip this chapter and start from chapter 2.
-Otherwise, do following steps to get access to SD Connect.
+Jos et ole vielä CSC:n asiakas, rekisteröidy CSC:lle. Voit tehdä nämä vaiheet CSC:n asiakasportaalissa [MyCSC](https://my.csc.fi).
 
+Luo CSC-tili kirjautumalla MyCSCi:in Hakan tai Virtun kautta. Muista aktivoida kaksivaiheinen tunnistautuminen CSC-tilillesi, jotta voit käyttää SD Connectia.
 
-### 1.1. Create a user account
+### 1.2. Luo tai liity projektiin {#1-2-create-or-join-a-project}
 
-If you are not yet CSC customer, register yourself to CSC. You can do these steps in the 
-CSC’s customer portal [MyCSC](https://my.csc.fi). 
+CSC:n käyttäjätilin lisäksi käyttäjien on joko liityttävä olemassa olevaan CSC-laskentaprojektiin tai luotava uusi laskentaprojekti. Voit käyttää samaa projektia myös muiden CSC:n palveluiden, kuten SD Desktopin, Puhtin tai Allaksen, käyttöön.
 
-Create a CSC account by logging in to MyCSC with Haka or Virtu. Remember to activate multi factor 
-authentication for your CSC account in order to be able to use SD Connect-
+Jos olet oikeutettu toimimaan [projektipäällikkönä](https://research.csc.fi/prerequisites-for-a-project-manager), voit luoda uuden CSC-projektin MyCSC:ssä ja hakea pääsyä SD Connectiin. Valitse projektityypiksi 'Akateeminen'. Projektipäällikkönä voit kutsua muita käyttäjiä projektiisi jäseniksi.
 
+Jos haluat liittyä olemassa olevaan projektiin, pyydä projektipäällikköä lisäämään CSC-käyttäjätilisi projektin jäsenlistalle.
 
-### 1.2. Create or join a project
+### 1.3. Lisää SD Connect -pääsy projektiisi {#1-3-add-sd-connect-access-for-your-project}
 
-In addition to CSC user account, users must either join an existing CSC computing project 
-or set up a new computing project. You can use the same project to access other 
-CSC services too like SD Desktop, Puhti, or Allas.
+Lisää _SD Connect_ -palvelu projektiisi MyCSC:ssä. Vain projektipäällikkö voi lisätä palveluita. Kun olet lisännyt SD Connectin projektiin, muiden projektin jäsenten täytyy kirjautua MyCSCi:in ja hyväksyä palvelun käyttöehdot ennen kuin he saavat pääsyn SD Connectiin.
 
-If you are eligible to act as a [project manager](https://research.csc.fi/prerequisites-for-a-project-manager), you can create a new CSC project in MyCSC and apply access to SD Connect.
-Select 'Academic' as the project type.  As a project manager, you can invite other users as members to your project. 
+Nämä vaiheet tehtyäsi projektillasi on 10 TB tallennustilaa käytettävissä SD Connectissa. Ole hyvä ja [ota yhteyttä CSC:n palvelupisteeseen](../../support/contact.md), jos tarvitset enemmän tallennustilaa.
 
-If you wish to be joined to an existing project, please ask the project manager to add your CSC user account to the 
-project member list.
+## 2. Jakokansion luominen {#2-creating-a-shared-folder}
 
-### 1.3. Add SD Connect access for your project
+### 2.1. Uuden juurikansion luominen SD Connectissa {#2-1-creating-a-new-root-folder-in-sd-connect}
 
-Add _SD Connect_ service to your project in MyCSC. Only the project manager can add services. 
-After you have added SD Connect, to the project, the other project members need to login to 
-MyCSC and approve the terms of use for the service before getting access to SD Connect. 
+Kun palvelu on aktivoitu, voit kirjautua [SD Connect -käyttöliittymään](https://sd-connect.csc.fi).
+Yhdistämisen jälkeen tarkista, että **Nykyinen projekti** -asetus viittaa CSC-projektiin, jota haluat käyttää. Tämän jälkeen voit napsauttaa **Luo kansio** -painiketta luodaksesi uuden kansion, joka jaetaan datan toimittajalle.
 
-After these steps, your project has 10 TB storage space available in SD Connect. 
-Please [contact CSC Service Desk](../../support/contact.md) if you need more storage space. 
+Vältä välilyöntien (käytä _ sen sijasta) ja erikoismerkkien käyttöä kansion nimissä, sillä ne voivat aiheuttaa ongelmia joissakin tapauksissa. Lisäksi lisää projektikohtainen tunniste, kuten projektin lyhenne, nimeen, koska juurikansiolla tulee olla ainutlaatuinen nimi kaikkien SD Connect - ja Allas-projektien juurikansioiden joukossa.
 
+### 2.2 Kansion jakaminen {#2-2-sharing-the-folder}
 
-## 2. Creating a shared folder
+Jakamista varten sinun täytyy tietää datantuottajan _Jako ID_ -merkkijono. Pyydä tätä 32 merkin pituista satunnaista merkkijonoa datantuottajalta sähköpostitse.
 
-### 2.1. Creating a new root folder in SD Connect
+Jakamisen suorittamiseksi siirry SD Connectin kansiolistaan ja paina sen kansion jakoikonia, jonka haluat jakaa. Kopioi sitten projektin ID jakotyökalun ensimmäiseen kenttään ja valitse jakolupatyypiksi **Yhteistyö**.
 
-Once the service is enabled, you can login to [SD Connect interface](https://sd-connect.csc.fi). 
-After connecting, check that **Current project** setting refers to the CSC project 
-that you want to use. After that you can click the **Create folder** button to 
-create a new folder to be shared with the data provider.
+Nyt jakaminen on valmis ja voit lähettää jaetun osion nimen datan tuottajalle sähköpostitse.
 
-Avoid using spaces (use _ instead) and special characters in the folder names as they may cause problems in some cases. 
-Further, add some project specific feature, like project acronym, to the name, as the root folder needs to have an unique name 
-among all root folders of all SD Connect and Allas projects.
+### 2.3 Kansion jakamisen peruuttaminen datan siirron jälkeen {#2-3-revoke-bucket-sharing-after-data-transport}
 
-### 2.2 Sharing the folder
+Suurten (useiden teratavujen) datakokonaisuuksien siirtäminen SD Connectiin voi kestää kauan. Kun tuottaja ilmoittaa, että kaikki data on tuotu jaettuun kansioon Allaksessa, sinun tulee poistaa ulkoiset käyttöoikeudet SD Connect -käyttöliittymässä. Klikkaa jaetun kansion _jako_ -ikonia ja paina **Poista** datantuottajan projektin tunnuksen vierestä.
 
-For sharing you need to know the _Sharing ID_ string of the data producer. You should request this 32 characters long 
-random string form the data producer by email. 
+## 3. Salatun datan käyttäminen {#3-using-encrypted-data}
 
-Do to the sharing, go to the folder list in SD Connect and press the share icon of the folder you wish to share.
-Then copy the project ID to the first field of the sharing tool and select **Collaborate** as the sharing permission type.
+Oletusarvoisesti SD Connectiin tallennettu data on käytettävissä vain CSC-projektin jäsenille. Projektijäsenet voivat kuitenkin jakaa kansion muille CSC-projekteille.
 
-Now sharing is done and you can send the name of the shared bucket to the data producer by email.
+Projektin jäsenet voivat ladata datan omille tietokoneilleen SD Connect WWW-käyttöliittymän kautta, joka purkaa datan automaattisesti lataamisen jälkeen.
 
+Data on käytettävissä myös [SD Desktopissa](https://sd-desktop.csc.fi) käyttämällä _Data Gateway_ -työkalua.
 
-### 2.3 Revoke bucket sharing after data transport
+Linux- ja Mac-tietokoneissa voit asentaa _allas-cli-utils_ -työkalujen paikalliskopion, joka tarjoaa komentorivityökaluja datan lataamiseen (_a-get_) ja lähettämiseen (a-put --sdc) SD Connectista ja -Connectiin.
 
-Moving large datasets (several terabytes) of data to SD Connect can take a long time. 
-Once the producer tells that all data has been imported to the shared folder in Allas, you remove the external 
-access rights in SD Connect interface. Click the _share_ icon of the shared 
-folder and press **Delete** next to the project ID of the data producer.
-
-
-## 3. Using encrypted data 
-
-By default data stored to SD Connect is accessible only to the members of the CSC project. However project members can
-share the folder to other CSC projects.
-
-The project members can download the data to their own computers using the SD Connect WWW interface
-that automatically decrypts the data after downloading.
-
-The data can be accessed in [SD Desktop](https://sd-desktop.csc.fi) too, using the _Data Gateway_ 
-tool.
-
-In Linux and Mac computers, you can install a local copy of _allas-cli-utils_ tools that provides command line 
-tools to download (_a-get_) and upload ( a-put --sdc ) data from and to SD Connect.
-
-* [Using SD Connect data with a-commands](sd-connect-and-a-commands.md)
-
-
+* [SD Connectin datan käyttäminen a-komentojen kanssa](sd-connect-and-a-commands.md)

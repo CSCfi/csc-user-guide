@@ -1,261 +1,199 @@
-# Persistent volumes
 
-This article describes one of the options to store data in Pouta which
-survive turning off the virtual machine.
+# Pysyvät levyt {#persistent-volumes}
 
-Persistent volumes, as the name says, remain even when instances are
-removed. They can be attached to or detached from virtual machines
-while they are running.
+Tässä artikkelissa kuvataan yksi vaihtoehto tallentaa dataa Poutassa, joka säilyy, vaikka virtuaalikone sammutetaan.
 
-Persistent volumes use a CEPH cluster. If I/O performance is critical,
-you should not use this kind of volume - it will access your data via
-the network, which inherently causes some latency.
+Pysyvät levyt, kuten nimi viittaa, säilyvät vaikka instanssit poistettaisiin. Ne voidaan liittää tai irrottaa virtuaalikoneista niiden ollessa käynnissä.
 
-## Creating and attaching a volume in the Pouta web interface
+Pysyvät levyt käyttävät CEPH-klusteria. Jos I/O-suorituskyky on kriittistä, älä käytä tämän tyyppistä levyä - tiedot haetaan verkon kautta, mikä aiheuttaa jonkin verran viivettä.
 
-Persistent volumes can be created using either the web interface or
-through the command line interface.
+## Levyn luominen ja liittäminen Poutan verkkokäyttöliittymässä {#creating-and-attaching-a-volume-in-the-pouta-web-interface}
 
-In the web interface, use the **Create volume** button on the
-*Volumes* page to create a new volume. You may then give a name and a
-size for the volume (1 GB is the minimum). The only mandatory argument
-is the size of the volume.
+Pysyviä levyjä voidaan luoda joko verkkokäyttöliittymässä tai komentorivikäyttöliittymässä.
 
-![Create persistent Volmume](../../img/create-volume-horizon.png)
+Verkkokäyttöliittymässä käytä **Luo levy** -painiketta *Levyt* -sivulla luodaksesi uuden levyn. Voit sitten antaa nimen ja koon levylle (1 Gt on vähimmäiskoko). Ainoa pakollinen argumentti on levyn koko.
 
-!!! Warning "Avoid non-ASCII character in name or description"
-    This is a know bug in the volume system. Volume creation will fail
-    if its name or description contains any non-ASCII characters (e.g., ä, ö, å, é, à, ñ, [CJK characters](https://en.wikipedia.org/wiki/CJK_characters), ...):
+![Luo pysyvä levy](../../img/create-volume-horizon.png)
 
-    ![Unable to create volume](../img/Unable-to-create-volume.png)
+!!! Varoitus "Vältä muita kuin ASCII-merkkejä nimessä tai kuvauksessa"
+    Tämä on tunnettu virhe levysysteemissä. Levyn luonti epäonnistuu, jos nimi tai kuvaus sisältää muita kuin ASCII-merkkejä (esim. ä, ö, å, é, à, ñ, [CJK-merkit](https://en.wikipedia.org/wiki/CJK_characters), ...):
 
-    And the volume will be stuck in "Creating":
+    ![Ei voida luoda levyä](../img/Unable-to-create-volume.png)
 
-    ![Creating](../img/Creating.png)
+    Levy jää tilaan "Luodaan":
 
-    The only way to delete a volume created with a non-ASCII character is
-    using the command line (see below).
+    ![Luodaan](../img/Creating.png)
 
-Once the volume has been created, it can be attached to a running
-virtual machine. One volume can be attached to only one virtual
-machine at a time.
+    Ainoa tapa poistaa levy, joka on luotu muiden kuin ASCII-merkkien avulla, on käyttää komentoriviä (katso alla).
 
-To attach a volume, first select the *Volumes* view in the Pouta web
-interface. Click the arrow symbol next to the **Edit Volume** button
-for the volume you want to attach and select **Manage
-attachments**. Select the instance (i.e. virtual machine) you want to
-attach the volume to in the **Attach to Instance** selector.
+Kun levy on luotu, se voidaan liittää käynnissä olevaan virtuaalikoneeseen. Yksi levy voidaan liittää vain yhteen virtuaalikoneeseen kerrallaan.
 
-![Attach persistent volume](../../img/volume-attach-horizon2.png)
+Liittääksesi levyn, valitse ensin *Levyt* näkymä Poutan verkkokäyttöliittymässä. Klikkaa nuolisymbolia **Muokkaa levyä** -painikkeen vierestä sen levyn kohdalla, jonka haluat liittää, ja valitse **Hallitse liitoksia**. Valitse instanssi (eli virtuaalikone), johon haluat liittää levyn **Liitä instanssiin** -valikosta.
 
-## Creating and attaching a volume with command line interface
+![Liitä pysyvä levy](../../img/volume-attach-horizon2.png)
 
-Persistent volumes can also be created and attached using the command
-line interface:
+## Levyn luominen ja liittäminen komentorivillä {#creating-and-attaching-a-volume-with-command-line-interface}
+
+Pysyviä levyjä voidaan myös luoda ja liittää käyttämällä komentorivikäyttöliittymää:
 
 ```
-openstack volume create --description "<description>" --size <size> <name>
+openstack volume create --description "<kuvaus>" --size <koko> <nimi>
 ```
 
-!!! Warning "Avoid non-ASCII characters in name or description"
-    This is a know bug in the volume system. Volume creation will fail
-    if its name or description contains any non-ASCII characters, this
-    includes ääköset and any non-standard characters.
+!!! Varoitus "Vältä muita kuin ASCII-merkkejä nimessä tai kuvauksessa"
+    Tämä on tunnettu virhe levysysteemissä. Levyn luonti epäonnistuu, jos nimi tai kuvaus sisältää muita kuin ASCII-merkkejä, mukaan lukien ääkköset ja ei-standardit merkit.
 
     ```sh
     $ openstack volume create --description='Déjà vu' --size 1 matrice
-    Error decoding your request. Either the URL or the request body contained characters that could not be decoded by Cinder. (HTTP 400) (Request-ID: req-7dc59e6f-eb29-4a5f-9cdc-4a44b177e3f2)
+    Virhe pyyntösi purkamisessa. Joko URL tai pyynnön runko sisälsi merkkejä, joita Cinder ei voinut purkaa. (HTTP 400) (Request-ID: req-7dc59e6f-eb29-4a5f-9cdc-4a44b177e3f2)
     ```
 
-    The only way to delete a volume created with a non ASCII character is
-    using the command line (see below).
+    Ainoa tapa poistaa levy, joka on luotu muiden kuin ASCII-merkkin avulla, on käyttää komentoriviä (katso alla).
 
-List existing volumes:
+Listaa olemassa olevat levyt:
 
 ```
 openstack volume list
 ```
 
-List existing virtual machines to find the one to which you
-want to attach a volume:
+Listaa olemassa olevat virtuaalikoneet löytääksesi sen, johon haluat liittää levyn:
 
 ```
 openstack server list
 ```
 
-When a volume's status is "available", you can attach it to a virtual
-machine (you can use either names or IDs to refer to the VM and the
-volume):
+Kun levyn tila on "saatavilla", voit liittää sen virtuaalikoneeseen (voit käyttää joko nimiä tai ID:tä viitataksesi VM:ään ja levyyn):
 
 ```
-openstack server add volume <virtual machine> <volume>
+openstack server add volume <virtuaalikone> <levy>
 ```
 
 !!! info
 
-    Most volume types can only be attached to one virtual machine at a time.
+    Useimmat levytyypit voidaan liittää vain yhteen virtuaalikoneeseen kerrallaan.
 
-## Using attached volumes
+## Liitettyjen levyjen käyttö {#using-attached-volumes}
 
-The first time you use a attached volume it needs to be initialized.
-**This should ONLY be done the FIRST time you use it**, otherwise you
-overwrite all your data on the volume. First determine which device is
-your volume.
+Kun liitettyä levyä käytetään ensimmäistä kertaa, se tulee alustaa. **Tämä tulisi tehdä VAIN ensimmäisellä käyttökerralla**, muuten kaikki datasi levyllä ylikirjoitetaan. Selvitä ensin, mikä laite on levysi.
 
-The following is a simple usage example for creating a filesystem
-on a volume and mounting the filesystem automatically after a
-reboot. Note that this is a simple example and there are many
-cooler ways to manage your file systems.
+Seuraava on yksinkertainen esimerkki tiedostojärjestelmän luomisesta levylle ja sen automaattisesta liitännästä uudelleenkäynnistyksen jälkeen. Huomaa, että tämä on yksinkertainen esimerkki ja tiedostojärjestelmien hallintaan on monia tehokkaampia tapoja.
 
-Once you have logged in to your virtual machine, you can list the
-volumes:
+Kun olet kirjautunut sisään virtuaalikoneeseesi, voit listata levyt:
 
     sudo parted -l
 
-You should be able to identify the volume based on its size. For this
-exercise, let us say it is `/dev/vdb`. First, we create a file
-system on it. We are going to
-use *xfs* because we know it works well in Pouta:
+Sinun pitäisi pystyä tunnistamaan levy sen koon perusteella. Tässä harjoituksessa oletamme sen olevan `/dev/vdb`. Luodaan ensin tiedostojärjestelmä sille. Käytämme *xfs*:ää, koska tiedämme sen toimivan hyvin Poutassa:
 
     sudo mkfs.xfs /dev/vdb
 
-Now you can start using it. For example, to mount it under
-`/media/volume`, you first need to make sure that the path exists:
+Nyt voit alkaa käyttää sitä. Voit esimerkiksi liittää sen polkuun `/media/volume`, varmista ensin, että polku on olemassa:
 
     sudo mkdir -p /media/volume
 
-Then you can mount it:
+Sitten voit liittää sen:
 
     sudo mount /dev/vdb /media/volume
 
-Finally, you need to change the ownership to be able to read and write data in it.
-In the following command, we are assuming the username is cloud-user.
+Lopuksi sinun on muutettava omistajuutta voidaksesi lukea ja kirjoittaa dataa siihen. Oletamme seuraavassa komennossa, että käyttäjänimi on cloud-user.
 
     sudo chown cloud-user:cloud-user /media/volume
 
-After this step, you should be able to use your volume normally. If you want the volume to be available after rebooting the virtual machine, you need to add it in the `/etc/fstab` configuration file.
-You can use the label you previously created for the partition:
+Tämän vaiheen jälkeen sinun pitäisi pystyä käyttämään levyäsi normaalisti. Jos haluat, että levy on käytettävissä virtuaalikoneen uudelleenkäynnistyksen jälkeen, sinun on lisättävä se `/etc/fstab`-konfiguraatiotiedostoon. Voit käyttää aiemmin luomasi osion etikettiä:
 
     sudo sh -c 'echo "/dev/vdb     /media/volume    xfs    defaults,nofail    0    2" >> /etc/fstab'
 
-## Detaching the volume using web interface
+## Levyn irrottaminen verkkokäyttöliittymässä {#detaching-the-volume-using-web-interface}
 
-Once you are done with your operations and you want to detach the volume, please remember to unmount the volume before detaching it!
-
-    sudo umount /dev/vdb
-
-## Detaching the volume using CLI
-
-When you no longer need the volume to be attached, you can detach
-it. **Before detaching, remember to unmount the volume's filesystem on
-the virtual machine to avoid data loss!**
-
-```
-openstack server remove volume <server> <volume>
-```
-
-If you want to delete a volume and the data contained on it, you can execute:
-
-```
-openstack volume delete <volume> # Name or ID of volume
-```
-
-**The data will be deleted forever, it cannot be recovered**.
-
-## Transferring volumes between two Pouta projects using web interface
-
-Occasionally, you may need to transfer your persistent
-volumes between two Pouta projects. For example, you may need to transfer
-large data sets or bootable volumes to colleagues in another Pouta
-project. This can be done using volume transfers. Volume transfers
-between projects in Pouta are fast, avoid data duplication and
-unnecessary data transfers over the network. Transferring a volume to
-another project means that your project will no longer have access to it.
-Please note Pouta volume transfer works within the same cloud environment
-i.e. you can transfer a volume from one cPouta project to another but
-not between a cPouta project and ePouta project or vice versa.
-
-To transfer a volume, you must first make sure its status
-is **Available**. You can do so by detaching it from the instance
-to which it was initially attached. Once your volume is in the available
-status, you can initiate volume transfer either using Pouta Web or
-the command line interface.
-
-For the Pouta Web interface, go to the *Volumes* view and click the arrow symbol
-next to the **Edit Volume** button of the volume you want to transfer and
-select **Create Transfer.** Name this transfer request and
-click on **Create Volume Transfer.** You will then get the volume transfer
-credentials (transfer ID & authorization key).
-
-![Transfer a volume to another project](../../img/pouta-volume-transfer-creation.png)
-
-You need to provide these credentials to your colleague to whom you
-want to transfer this volume.
-
-Your colleague can accept this volume transfer in his project by going
-to his *Volumes* view of the web interface and clicking the **Accept
-Transfer** button. They need to then provide the transfer credentials
-you generated in the previous step and **Accept Volume Transfer.**
-This will transfer the volume to your colleague's project.
-
-![Accept volume transfer](../../img/pouta-accept-volume-transfer.png)
-
-## Transferring volumes between two Pouta projects using CLI
-
-Volume transfers can be also done using the command line interface:
-
-    openstack volume transfer request create <name or UUID of volume to transfer>
-
-The output of this command will have the volume transfer credentials
-(transfer ID  & Authorization key), note these down and pass these to your
-colleague to whom you want to transfer the volume.
-
-Your colleague can accept the transfer request of this volume:
-
-    openstack volume transfer request accept <transferID> <authKey>
-
-## Expanding size of the attached volume in the Pouta web interface
-
-Previously you have created and attached a volume. In this section you are going to enlarge the size of the volume attached to the instance. Before you attempt for volume expansion you have to detach the volume from the instance, please remember to unmount the volume before detaching it!
+Kun olet valmis toimiesi kanssa ja haluat irrottaa levyn, muista irrottaa levy ennen sen irrottamista!
 
     sudo umount /dev/vdb
 
-To expand the volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you want to enlarge and select **Extend Volume**. Input the volume amount you want in "GiB" in the field **New Size (GiB)**. Finally, click the **Extend Volume** button.
-To attach an expanded volume similar to the previous attach persistent volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you expanded and select **Manage attachments**. Select the instance (i.e. virtual machine) you want to attach the volume to in the **Attach to Instance** selector.
+## Levyn irrottaminen komentoriviltä {#detaching-the-volume-using-cli}
 
-![Expand persistent volume](../../img/volume-expand-horizon1.png)
+Kun et enää tarvitse levyä liitettynä, voit irrottaa sen. **Ennen irrottamista muista irrottaa levyn tiedostojärjestelmä virtuaalikoneessa estääksesi tietojen menetyksen!**
 
-Once you have logged in to your virtual machine, you can list the
-volumes:
+```
+openstack server remove volume <palvelin> <levy>
+```
+
+Jos haluat poistaa levyn ja siinä olevan datan, voit suorittaa seuraavan komennon:
+
+```
+openstack volume delete <levy> # Levyn nimi tai ID
+```
+
+**Data poistetaan pysyvästi, eikä sitä voida palauttaa.**
+
+## Volyymien siirtäminen kahden Pouta-projektin välillä verkkokäyttöliittymällä {#transferring-volumes-between-two-pouta-projects-using-web-interface}
+
+Ajoittain saatat tarvita pysyvien volyymiesi siirtämistä kahden Pouta-projektin välillä. Esimerkiksi saatat tarvita suurten tietoaineistojen tai käynnistysvolyymien siirtämistä kollegoille toisessa Pouta-projektissa. Tämä voidaan tehdä volyymisiirroilla. Volyymien siirrot projektien välillä Poutassa ovat nopeita, välttävät tiedon monistamisen ja tarpeettomat tiedonsiirrot verkon kautta. Volyymin siirtäminen toiseen projektiin tarkoittaa, että projektisi ei enää pääse siihen käsiksi. Huomaa, että Poutan volyymisiirrot toimivat saman pilviympäristön sisällä, eli voit siirtää volyymin yhdestä cPouta-projektista toiseen, mutta et cPouta-projektista ePouta-projektiin tai päinvastoin.
+
+Siirtääksesi volyymin, varmista ensin, että sen tila on **Saatavilla**. Voit tehdä näin irrottamalla sen instanssista, johon se oli alun perin liitetty. Kun volyymisi on saatavilla-tilassa, voit aloittaa volyymisiirron joko Pouta Webissä tai komentorivikäyttöliittymässä.
+
+Pouta Web -käyttöliittymässä mene *Levyt* -näkymään ja klikkaa nuolipainiketta **Muokkaa levyä** -painikkeen vieressä siirrettävän volyymin kohdalla ja valitse **Luo siirto.** Nimeä tämä siirtopyyntö ja klikkaa **Luo volyymisiirto.** Saat sitten volyymisiirtotunnistautumistiedot (siirto-ID & valtuutusavain).
+
+![Siirrä volyymi toiseen projektiin](../../img/pouta-volume-transfer-creation.png)
+
+Sinun on annettava nämä tunnistustiedot kollegallesi, jolle haluat siirtää tämän volyymin.
+
+Kollegasi voi hyväksyä tämän volyymisiirron hänen projektissaan menemällä omaan *Levyt* -näkymäänsä verkkokäyttöliittymässä ja klikkaamalla **Hyväksy siirto** -painiketta. Hänen tulee sitten antaa siirtotunnistustiedot, jotka loit edellisessä vaiheessa, ja **Hyväksy volyymisiirto.** Tämä siirtää volyymin kollegasi projektille.
+
+![Hyväksy volyymisiirto](../../img/pouta-accept-volume-transfer.png)
+
+## Volyymien siirtäminen kahden Pouta-projektin välillä komentoriviltä {#transferring-volumes-between-two-pouta-projects-using-cli}
+
+Volyymisiirrot voidaan tehdä myös komentorivikäyttöliittymän kautta:
+
+    openstack volume transfer request create <siirrettävän volyymin nimi tai UUID>
+
+Tämän komennon tulos sisältää volyymisiirtotunnistautumistiedot (siirto-ID & valtuutusavain), merkitse nämä muistiin ja anna kollegalle, jolle haluat siirtää volyymin.
+
+Kollegasi voi hyväksyä tämän volyymin siirtopyynnön:
+
+    openstack volume transfer request accept <siirtoID> <valtuutusAvain>
+
+## Liitetyn volyymin koon laajentaminen Poutan verkkokäyttöliittymässä {#expanding-size-of-the-attached-volume-in-the-pouta-web-interface}
+
+Aiemmin olet luonut ja liittänyt volyymin. Tässä osiossa laajennat instanssiin liitetyn volyymin kokoa. Ennen kuin yrität laajentaa volyymiä, sinun on irrotettava se instanssista, muista irrottaa levy ennen sen irrottamista!
+
+    sudo umount /dev/vdb
+
+Laajentaaksesi volyymiä valitse ensin *Levyt* näkymä Poutan verkkokäyttöliittymässä. Klikkaa nuolipainiketta **Muokkaa levyä** -painikkeen vieressä, sen volyymin kohdalla, jonka haluat laajentaa, ja valitse **Laajenna volyymi**. Syötä haluamasi volyymin koko "GiB"-kenttään **Uusi koko (GiB)**. Lopuksi klikkaa **Laajenna volyymi** -painiketta.
+Liittääksesi laajennetun volyymin samalla tavalla kuin aiemman pysyvän volyymin, valitse ensin *Levyt* näkymä Poutan verkkokäyttöliittymässä. Klikkaa nuolipainiketta **Muokkaa levyä** -painikkeen vieressä siitä volyymistä, jonka laajensit, ja valitse **Hallitse liitoksia**. Valitse instanssi (eli virtuaalikone), johon haluat liittää volyymin **Liitä instanssiin** -valinnalta.
+
+![Laajenna pysyvä volyymi](../../img/volume-expand-horizon1.png)
+
+Kun olet kirjautunut sisään virtuaalikoneeseesi, voit listata levyt:
 
     sudo parted -l
 
-Similar to the previous persistent volume creation you can identify the volume based on its size. First mount the volume at the usual path:
+Samoin kuin edellisessä pysyvässä volyymin luonnissa, voit tunnistaa levyn sen koon perusteella. Kiinnitä levy ensin tavalliseen polkuun:
 
     sudo mount /dev/vdb /media/volume
 
-Finally we need to grow the filesystem of the volume, so that the additional space can be used. Assuming that the filesystem in the volume is xfs, we can grow the filesystem with the following command:
+Lopuksi meidän on kasvatettava levyn tiedostojärjestelmää, jotta lisätila voidaan käyttää. Oletetaan, että volyymin tiedostojärjestelmä on xfs, voimme kasvattaa tiedostojärjestelmää seuraavalla komennolla:
 
     sudo xfs_growfs /dev/vdb
     
-To verify that the filesystem has now the expected size, you can use the following command:
+Vahvistaaksesi, että tiedostojärjestelmän koko on nyt odotetusti, voit käyttää seuraavaa komentoa:
 
     sudo xfs_info /dev/vdb
 
-By multiplying the block size (_bs_) by the number of blocks in the filesystem (_blocks_), you will obtain the size of the filesystem in bytes.
+Kertomalla lohkojen koko (_bs_) tiedostojärjestelmän lohkojen määrällä (_blocks_), saat tiedostojärjestelmän koon tavuina.
 
-## Expanding size of the attached volume using CLI
+## Liitetyn volyymin koon laajentaminen komentorivillä {#expanding-size-of-the-attached-volume-using-cli}
 
-To expand your volume, detach it from the server with following command:
+Laajentaaksesi volyymiäsi, irrota se palvelimesta seuraavalla komennolla:
 
 ```
 openstack server remove volume <server-id> <volume-id>
 ```
-Now, check if the volume is available to expand, list the volumes:
+Tarkista nyt, onko volyymi saatavilla laajentamiseen, listaa levyt:
 ```
 openstack volume list
 ```
-You can now expand the volume by passing the volume ID and the new size:
+Voit nyt laajentaa volyymiä antamalla volyymin ID:n ja uuden koon:
 ```
 openstack volume set <volume-id> --size <volume-size>
+```
 ```

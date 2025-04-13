@@ -1,77 +1,64 @@
+
 ---
 search:
   boost: 2
 ---
 
-# How to create new CSC user account
+# Miten luoda uusi CSC-käyttäjätili {#how-to-create-new-csc-user-account}
 
-There are two different types of CSC user accounts: ordinary accounts for general use (which you can get with or
-without Haka or Virtu) and machine-to-machine robot accounts for managing services.
+CSC-käyttäjätilejä on kahdenlaisia: tavalliset tilit yleiskäyttöön (jonka voi saada joko Hakan tai Virtun kautta tai ilman)
+ja kone-kone-robottilit palveluiden hallintaan.
 
 !!! Note
 
-    **Haka** is the identity federation of the Finnish universities, polytechnics and research institutions. Users are able to access federation services using a single user account and password. User identities are provided by the users home organizations.
+    **Haka** on Suomen yliopistojen, ammattikorkeakoulujen ja tutkimuslaitosten identiteettifederaatio. Käyttäjät voivat päästä federaation palveluihin yhdellä käyttäjätilillä ja salasanalla. Käyttäjäidentiteetit myöntää käyttäjien kotiorganisaatiot.
     
-    **Virtu** is a convenient and fast single sign-on for browser-enabled systems across organisational boundaries. Virtu is used by Finnish government agencies.
+    **Virtu** on helppokäyttöinen ja nopea kertakirjautuminen selainpohjaisiin järjestelmiin organisatoristen rajojen yli. Virtua käyttää Suomen valtion virastot.
 
-## Getting an account with Haka or Virtu
+## Tilin saaminen Hakan tai Virtun kautta {#getting-an-account-with-haka-or-virtu}
 
 !!! Note 
-    If you are trying to access the [LUMI web interface](https://www.lumi.csc.fi) or [LUMI-O](https://www.auth.lumidata.eu),
-    please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/) on how to get an account.
+    Jos yrität päästä [LUMI-verkkokäyttöliittymään](https://www.lumi.csc.fi) tai [LUMI-O:hon](https://www.auth.lumidata.eu),
+    katso [LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/), kuinka saada tili.
 
-If your home organization is a member of the Haka or Virtu federation, you
-can create an account yourself.
+Jos kotiorganisaatiosi kuuluu Haka- tai Virtu-federaatioon, voit luoda tilin itse.
 
-1. Go to [MyCSC](http://my.csc.fi).
-1. Click _Log in_ or _Getting started_.
-1. Click _Virtu_ or _Haka_ depending on which federation your home
-organization is a member of.
-1. Select your home organization and log in to their identity service.
-1. Fill in your information on the _Sign up_ page.
-1. You will receive an email message containing a link to MyCSC where you can set your CSC account password.
-1. You will receive your CSC user account information via email.
+1. Mene [MyCSC:hen](http://my.csc.fi).
+1. Napsauta _Kirjaudu sisään_ tai _Aloita_.
+1. Napsauta _Virtu_ tai _Haka_ riippuen siitä, kumpaan federaatioon kotiorganisaatiosi kuuluu.
+1. Valitse kotiorganisaatiosi ja kirjaudu heidän identiteettipalveluunsa.
+1. Täytä tietosi _Rekisteröidy_-sivulla.
+1. Saat sähköpostiviestin, joka sisältää linkin MyCSC:hen, missä voit asettaa CSC-tilin salasanan.
+1. Saat CSC-käyttäjätilin tiedot sähköpostitse.
 
-## Getting an account without Haka or Virtu
+## Tilin saaminen ilman Hakaa tai Virtua {#getting-an-account-without-haka-or-virtu}
 
-The preferred registration method is to log in using Haka or Virtu. If you do not have this option available, please ask your project manager to [contact CSC Service Desk](../support/contact.md).
+Ensisijainen rekisteröintitapa on kirjautuminen Hakan tai Virtun avulla. Jos tämä vaihtoehto ei ole käytettävissä, pyydä projektipäällikköäsi [ottamaan yhteyttä CSC:n Service Deskiin](../support/contact.md).
 
-This mostly applies to foreign collaborators of Finland-based research
-groups, but ask your project manager to contact CSC and provide details about your use case and we will check your eligibility.
+Tämä koskee pääasiassa ulkomaisia yhteistyökumppaneita Suomessa toimivissa tutkimusryhmissä, mutta pyydä projektipäällikköäsi ottamaan yhteyttä CSC:hen ja antamaan tietoa käyttötapauksestasi, ja tarkistamme kelpoisuutesi.
 
 !!! Note
 
-    If you cannot use Haka or Virtu, and do not have a project to
-    join, you can get an account if your home organization has a
-    contract with CSC or you have been granted resources in a
-    program. Contact servicedesk@csc.fi and provide details
-    about your use case, and we will check your eligibility.
+    Jos et voi käyttää Hakaa tai Virtua, etkä voi liittyä projektiin, voit saada tilin, jos kotiorganisaatiollasi on sopimus CSC:n kanssa tai sinulle on myönnetty resursseja ohjelmassa. Ota yhteyttä servicedesk@csc.fi ja ilmoita käyttötapauksesi yksityiskohdat, ja tarkistamme kelpoisuutesi.
 
-## User accounts for courses
+## Käyttäjätilit kursseille {#user-accounts-for-courses}
 
-### For participants
+### Osallistujille {#for-participants}
 
-If you are attending a course which is utilising CSC's services you need to create your own CSC user account with Haka or Virtu if you don't yet have one. Please see instructions above. 
+Jos osallistut kurssille, joka hyödyntää CSC:n palveluja, sinun on luotava oma CSC-käyttäjätili Hakan tai Virtun avulla, ellei sinulla vielä ole sellaista. Katso ohjeet yllä. 
 
-### For organisers/teachers
+### Järjestäjille/opettajille {#for-organisers-teachers}
 
-CSC does not provide temporary training specific user accounts for courses anymore. If the participant does not yet have a user account, it needs to be created. The course organiser can then invite participants to the course project. If you're not able to create CSC user accounts, please [contact CSC Service Desk](../support/contact.md).
+CSC ei enää tarjoa tilapäisiä koulutukseen erikoistuneita käyttäjätilejä kursseille. Jos osallistujalla ei vielä ole käyttäjätunnusta, se on luotava. Kurssin järjestäjä voi kutsua osallistujat kurssin projektiin. Jos et pysty luomaan CSC-käyttäjätilejä, ota [yhteyttä CSC:n Service Deskiin](../support/contact.md).
 
-Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance as soon as you have the list of the participants. And when the project is ready you are able to start sending out the invitations to your participants. 
+Lue ohjeemme tarkasti, jos haluat järjestää kurssin opiskelijoillesi käyttäen CSC:n palveluja. Pyydämme, että luot projektin hyvissä ajoin heti, kun sinulla on osallistujaluettelo. Kun projekti on valmis, voit aloittaa kutsujen lähettämisen osallistujillesi.
 
-Please see instructions on [how to create the course project](how-to-create-new-project.md#course)
+Katso ohjeet [projektin luomisesta kurssille](how-to-create-new-project.md#course).
 
+## Kone-kone-robottitilin saaminen {#getting-a-machine-to-machine-robot-account}
 
-## Getting a machine-to-machine robot account
+Jos olet rekisteröity CSC-käyttäjä ja tarvitset toisen tilin hallinnoidaksesi palveluja, joita käytät CSC:n palveluissa, voimme luoda sinulle kone-kone-robottitilin. Huomioi, että jokainen palvelu vaatii oman ainutlaatuisen robottitilin. Lähetä seuraavat tiedot osoitteeseen servicedesk@csc.fi.
 
-If you are a registered CSC user and need another account for managing
-services that you run in the CSC services, we can create a
-machine-to-machine robot account for you. Please note that each service requires it's own unique robot account. Send the following
-information to servicedesk@csc.fi.
-
-* Project identifier (e.g. 2001679, uef4713) of the project your
-  service uses
-* The CSC service your service uses (e.g. cPouta, Rahti)
-* Your mobile number (to which the password are sent via SMS)
-
-
+* Palvelun käyttämän projektin tunniste (esim. 2001679, uef4713)
+* CSC-palvelu, jota palvelusi käyttää (esim. cPouta, Rahti)
+* Matkapuhelinnumerosi (johon salasana lähetetään tekstiviestillä)

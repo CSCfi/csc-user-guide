@@ -1,13 +1,14 @@
-# How to store data on Pouta?
 
-Pouta provides two choices
-**[which are not backed up by CSC](is-pouta-backed-up.md)**:
+# Kuinka tallentaa dataa Poutassa? {#how-to-store-data-on-pouta}
 
-* Temporary storage via local disks attached to virtual machines. OpenStack
-  calls this ephemeral (meaning *lasting for a very short time*) storage.
-* Longer term storage via _Volumes_. Volumes appear as raw disks attached to
-  virtual machines. See:
-    * [What are volumes? How to use them?](what-are-volumes-and-how-to-use.md)
+Pouta tarjoaa kaksi vaihtoehtoa
+**[joita CSC ei varmuuskopioi](is-pouta-backed-up.md)**:
 
-Alternatively, you can access data in
-[Allas object storage](../../data/Allas/index.md).
+* Väliaikaista tallennustilaa virtuaalikoneisiin liitetyillä paikallisilla levyillä. OpenStack
+  kutsuu tätä hetkelliseksi (eli *hyvin lyhytaikaiseksi*) tallennustilaksi.
+* Pitkäaikaisempaa tallennustilaa _Volyymien_ kautta. Volyymit näkyvät raakalevyinä liitetyinä
+  virtuaalikoneisiin. Katso:
+    * [Mitä volyymit ovat? Kuinka niitä käytetään?](what-are-volumes-and-how-to-use.md)
+
+Vaihtoehtoisesti voit käyttää dataa
+[Allas-objektitallennustilassa](../../data/Allas/index.md).

@@ -1,12 +1,13 @@
-# How do I know how much computing resources I have left?
 
-By logging in to our customer portal [MyCSC](https://my.csc.fi). 
-You can see your projects, their project numbers, managers and billing 
-unit status on the [*Projects* page](https://my.csc.fi/projects).
+# Miten voin selvittää, kuinka paljon laskentaresursseja minulla on jäljellä? {#how-do-i-know-how-much-computing-resources-i-have-left}
 
-On CSC supercomputers, `csc-projects` command will provide information on your
-[active projects](../../computing/index.md#projects-and-quotas) directly on the
-command-line. For more information about usage, run:
+Kirjautumalla asiakasportaaliimme [MyCSC](https://my.csc.fi).
+Voit nähdä projektisi, niiden projektinumerot, johtajat ja laskentayksikköjen
+tilan [*Projektit* sivulla](https://my.csc.fi/projects).
+
+CSC:n supertietokoneilla `csc-projects`-komento antaa tietoa
+[aktiivisista projekteistasi](../../computing/index.md#projects-and-quotas) suoraan
+komentorivillä. Lisätietoja käytöstä saat ajamalla:
 
 ```bash
 csc-projects --help

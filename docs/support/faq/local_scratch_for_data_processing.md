@@ -1,92 +1,61 @@
-# Which directory should I use to analyze many small files?
-                   
-An [interactive batch job](../../computing/running/interactive-usage.md) on
-Puhti allows you to start a shell session on a compute node with up to:
 
-* 8 cores
-* 76 GB of memory
-* 7 days of run time
-* 720 GB of *fast local scratch disk*
+# Minkä hakemiston minun tulisi käyttää analysoidessani useita pieniä tiedostoja? {#which-directory-should-i-use-to-analyze-many-small-files}
 
-To launch an interactive session on Puhti, execute the command:
+[Vuorovaikutteinen erätöiden ajo](../../computing/running/interactive-usage.md) Puhti-palvelussa sallii sinun aloittaa shell-istunnon laskentasolmulla enintään:
+
+* 8 ydintä
+* 76 GB muistia
+* 7 päivää ajoaikaa
+* 720 GB *nopeaa paikallista työsarakkoa*
+
+Käynnistäksesi vuorovaikutteisen istunnon Puhti-palvelussa, suorita komento:
 
 ```bash
 sinteractive -i
 ```
 
-One of the useful features of interactive batch jobs on Puhti is the NVMe-based
-[fast local scratch area](../../computing/disk.md#temporary-local-disk-areas)
-(`$LOCAL_SCRATCH`) that you may request. The "normal" Lustre-based
-project-specific directories *scratch* and *projappl* can store large amounts
-of data and are accessible to all nodes of Puhti. However, these directories
-are
-[inefficient for managing thousands of files](../../computing/running/throughput.md#inputoutput-efficiency).
+Yksi hyödyllisistä ominaisuuksista vuorovaikutteisissa erätöissä Puhti-palvelussa on NVMe-pohjainen [nopea paikallinen työsarja](../../computing/disk.md#temporary-local-disk-areas) (`$LOCAL_SCRATCH`), jota voit pyytää. "Normaalit" Lustre-pohjaiset, projektikohtaiset hakemistot *scratch* ja *projappl* voivat tallentaa suuria datamääriä ja ovat kaikkien Puhti-solmujen käytettävissä. Kuitenkin nämä hakemistot ovat [tehottomia hallitessaan tuhansia tiedostoja](../../computing/running/throughput.md#inputoutput-efficiency).
 
-Generally, you should avoid workflows that require creating large amounts of
-small files. If you anyhow need to work with thousands of files, you should
-consider using the NVMe-based temporary local disk areas, either through normal
-or interactive batch jobs. The local scratch area is node-specific and visible
-only to the batch job that requests it. After the job ends, the local scratch
-is purged. Because of this, you need to always first import your dataset to the
-local disk, and when you finish, copy the data you want to preserve back to
-some more permanent storage place such as scratch or Allas.
+Yleensä sinun tulisi välttää työnkulkuja, jotka edellyttävät suuren määrän pienten tiedostojen luomista. Jos sinun kuitenkin täytyy työskennellä tuhansien tiedostojen parissa, sinun tulisi harkita NVMe-pohjaisten väliaikaisten paikallisten levyalueiden käyttöä, joko normaalien tai vuorovaikutteisten erätöiden kautta. Paikallinen työsara on solmukohtainen ja näkyy vain työtehtävälle, joka sitä pyytää. Kun työ päättyy, paikallinen työsara tyhjennetään. Tämän vuoksi sinun on aina ensin tuotava tietoaineistosi paikalliselle levylle, ja kun olet valmis, kopioitava tiedot, jotka haluat säilyttää, jonnekin pysyvämpään tallennustilaan, kuten scratch tai Allas.
 
-To demonstrate the efficiency of the local scratch area, let's study a sample
-directory called `big_data`. The directory contains about 100 GB of data in
-120 000 files. Initially, the data is packaged as a single tar archive in the
-scratch directory of project 2001234 (`/scratch/project_2001234/big_data.tar`)
+Demonstroidaksesi paikallisen työsaran tehokkuutta, tutkitaan esimerkkihakemistoa nimeltä `big_data`. Hakemisto sisältää noin 100 GB dataa 120 000 tiedostossa. Aluksi data on pakattu yhdeksi tar-arkistoksi projektihakemiston työsarkaan 2001234 (`/scratch/project_2001234/big_data.tar`).
 
-First, we launch an interactive batch job with 2 cores, 4000 MB of memory and
-250 GB of fast local temporary disk space.
+Ensimmäiseksi käynnistämme vuorovaikutteisen erätyön, jossa on 2 ydintä, 4000 MB muistia ja 250 GB nopeaa paikallista väliaikaista levytilaa.
 
 ```bash
 sinteractive --cores 2 --mem 4000 --tmp 250
 ```
 
-The analysis is then done in three steps:
+Analyysi tapahtuu sitten kolmessa vaiheessa:
 
-1. Move to the local scratch area using the environment variable
-   `$LOCAL_SCRATCH` and extract the tar package:
+1. Siirry paikalliseen työsaraan käyttäen ympäristömuuttujaa `$LOCAL_SCRATCH` ja pura tar-paketti:
    ```bash
    cd $LOCAL_SCRATCH
    tar xf /scratch/project_2001234/big_data.tar
    ```
 
-2. Run the analysis. This time we run a `for` loop that uses a command
-   `transeq` to translate all fasta files found in the `big_data` directory
-   into new protein sequence files:
+2. Suorita analyysi. Tällä kertaa suoritamme `for`-silmukan, joka käyttää komentoa `transeq` kääntääkseen kaikki `big_data`-hakemistosta löytyvät fasta-tiedostot uusiksi proteiinisekvenssitiedostoiksi:
    ```bash
    for ffile in $(find ./ | grep fasta)
    do
        transeq ${ffile} ${ffile}.pep
    done 
    ```
-   In this example, about 52 000 fasta files were found. Thus, after the
-   processing, the `big_data` directory now contains 52 000 more small files.
-   The actual translation is a computationally light task, so most time is used
-   just to open and close files (I/O).
+   Tässä esimerkissä löydettiin noin 52 000 fasta-tiedostoa. Siten käsittelyn jälkeen `big_data`-hakemisto sisältää nyt 52 000 lisää pieniä tiedostoja. Varsinainen käännös on laskennallisesti kevyt tehtävä, joten suurin osa ajasta kuluu vain tiedostojen avaamiseen ja sulkemiseen (I/O).
 
-3. When the processing is finished, we store the results back to the scratch
-   directory as a new tar file:
+3. Kun käsittely on päättynyt, tallennamme tulokset takaisin työsarakkaan uutena tar-tiedostona:
    ```bash
    tar cf /scratch/project_2001234/big_data.pep.tar ./
    ```
-   Now the results are safe in one file on scratch, and we can exit the
-   interactive session.
+   Nyt tulokset ovat turvallisesti yhdessä tiedostossa työsarakassa, ja voimme poistua vuorovaikutteisesta istunnosta.
 
-The same analysis procedure could be done in the scratch directory too.
-However, it is slow and may degrade the performance of the shared file system
-for all users. To demonstrate the difference, below is an execution time
-comparison for running the three steps above in `$LOCAL_SCRATCH` and in a
-regular Lustre-based scratch directory. The response times of `$LOCAL_SCRATCH`
-are rather stable, but in the scratch directory the execution times will vary
-a lot based on the current total load on the Lustre file system.
+Sama analyysimenetelmä voitaisiin suorittaa myös työsarkahakemistossa. Se on kuitenkin hidasta ja saattaa heikentää jaetun tiedostojärjestelmän suorituskykyä kaikille käyttäjille. Näyttääksemme eron, alapuolella on suoritusaikavertailu yllä olevien kolmen vaiheen suorittamiseksi `$LOCAL_SCRATCH`- ja tavallisessa Lustre-pohjaisessa työsarkahakemistossa. `$LOCAL_SCRATCH`:n vasteajat ovat melko vakaita, mutta työsarkahakemistossa suoritusajat vaihtelevat paljon nykyisen Lustre-tiedostojärjestelmän kokonaiskuormituksen perusteella.
 
-| Step                    | `$LOCAL_SCRATCH` | `/scratch` |
+| Vaihe                   | `$LOCAL_SCRATCH` | `/scratch` |
 |-------------------------|-----------------:|-----------:|
-|1. Opening tar file      | 2m 8s            | 4m 12s     |
-|2. Processing            | 9m 42s           | 21m 58s    |
-|3. Creating new tar file | 2m 25s           | 42m 21s    |
-|Total                    | 14m 15s          | 1h 8m 31s  |
+|1. Tar-tiedoston avaus   | 2m 8s            | 4m 12s     |
+|2. Käsittely             | 9m 42s           | 21m 58s    |
+|3. Uuden tar-tiedoston luonti | 2m 25s    | 42m 21s    |
+|Yhteensä                 | 14m 15s          | 1h 8m 31s  |
 
-[More information about temporary local disk areas](../../computing/disk.md#temporary-local-disk-areas).
+[Lue lisää väliaikaisista paikallisista levyalueista](../../computing/disk.md#temporary-local-disk-areas).

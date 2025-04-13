@@ -1,154 +1,152 @@
-# Installing packages from Bioconda using Tykky
 
-[Bioconda](https://bioconda.github.io/index.html) is a popular
-Conda channel for bioinformatics software. It provides an easy
-method to install thousands of software packages related to biomedical
-research.
+# Pakettien asentaminen Biocondasta Tykkyä käyttäen {#installing-packages-from-bioconda-using-tykky}
 
-CSC has deprecated the direct usage of Conda installations on shared file systems
-of supercomputers (Puhti and Mahti) due to performance
-issues, but you can easily install packages from Bioconda using the
-[Tykky](../../computing/containers/tykky.md) tool instead.
+[Bioconda](https://bioconda.github.io/index.html) on suosittu
+Conda-kanava bioinformatiikan ohjelmistolle. Se tarjoaa helpon tavan asentaa
+tuhansia biolääketieteelliseen tutkimukseen liittyviä ohjelmistopaketteja.
 
-All packages in Bioconda have a ready-made Docker container image available. While
-those images could be pulled and used directly, Tykky provides an easy method to
-install them in a way that they are usable without any special container commands.
+CSC on poistanut käytöstä suoraan Conda-asennusten käytön superstietokoneiden
+(Puhti ja Mahti) jaetuilla tiedostojärjestelmillä suorituskykyongelmien
+vuoksi, mutta voit helposti asentaa paketteja Biocondasta käyttämällä
+[Tykky](../../computing/containers/tykky.md) -työkalua.
 
-## Example: Installing MetaBAT2 from Bioconda
+Kaikilla Biocondan paketeilla on valmiiksi tehty Docker-konttikuva saatavilla. Vaikka
+näitä kuvia voisi suoraan ladata ja käyttää, Tykky tarjoaa helpon tavan
+asentaa ne siten, että niitä voi käyttää ilman erityisiä konttikomentoja.
 
-In this example we install MetaBAT2 package from Bioconda. To find a software in
-Bioconda you can
-[browse them alphabetically](https://bioconda.github.io/conda-package_index.html)
-or use the search. For our example we choose
-[MetaBAT2 package](https://bioconda.github.io/recipes/metabat2/README.html).
+## Esimerkki: MetaBAT2:n asentaminen Biocondasta {#example-installing-metabat2-from-bioconda}
 
-In the page find the command to use Docker. In this case:
+Tässä esimerkissä asennetaan MetaBAT2-paketti Biocondasta. Löytääksesi ohjelmiston
+Biocondasta, voit
+[selailla niitä aakkosjärjestyksessä](https://bioconda.github.io/conda-package_index.html)
+tai käyttää hakutoimintoa. Esimerkkinämme valitsemme
+[MetaBAT2-paketin](https://bioconda.github.io/recipes/metabat2/README.html).
+
+Sivulta löytyy Dockerin käyttämiseen tarvittava komento. Tässä tapauksessa:
 
 ```bash
 docker pull quay.io/biocontainers/metabat2:<tag>
 ```
 
-From the command we need the Docker address:
+Käskystä tarvitsemme Docker-osoitteen:
 
 ```bash
 quay.io/biocontainers/metabat2
 ```
 
-We will also need a tag for the version we want to install. Open the address above in web browser:
+Tarvitsemme myös tunnisteen haluamallemme asennusversiolle. Avaa yllä oleva osoite verkkoselaimessa:
 
 ```text
 https://quay.io/biocontainers/metabat2
 ```
 
-From the Tags page select the desired version. In this case we choose the latest
-(the topmost) version:
+Valitse haluttu versio Tags-sivulta. Tässä tapauksessa valitsemme viimeisimmän
+(ylimmän) version:
 
 ```bash
 2.17--h6f16272_1
 ```
 
-Combine the address and tag to form Docker URL:
+Yhdistä osoite ja tunniste Docker-URL:ksi:
 
 ```bash
 docker://quay.io/biocontainers/metabat2:2.17--h6f16272_1
 ```
 
-Load the Tykky module:
+Lataa Tykky-moduuli:
 
 ```bash
 module load tykky
 ```
 
-We will use the Tykky
+Käytämme Tykkyä
 [wrap-container](../../computing/containers/tykky.md#container-based-installations)
-command.
+-käskyllä.
 
-The `-w` parameter is needed to specify the installation directory inside the
-container. For containers from Bioconda this is always `/usr/local/bin`. For
-containers from other sources, please see below.
+`-w` -parametriä tarvitaan, jotta voidaan määrittää kontissa olevan
+asennushakemiston sijainti. Biocondan konteissa tämä on aina `/usr/local/bin`. Muiden
+lähteiden konteissa katso alempaa.
 
-The `--prefix` parameter indicates the directory where we want to install the
-environment on the shared file system (outside the container). The directory
-needs to exist, so we we need to create it first. For example:
+`--prefix` -parametri osoittaa hakemiston, johon ympäristö asennetaan jaetulle
+tiedostojärjestelmälle (kontin ulkopuolelle). Hakemiston on oltava olemassa, joten se on
+luotava ensin. Esimerkiksi:
 
 ```bash
 mkdir -p /projappl/project_2001234/metabat-2.17
 ```
 
-We can now install the software with:
+Voimme nyt asentaa ohjelmiston komennolla:
 
 ```bash
 wrap-container -w /usr/local/bin docker://quay.io/biocontainers/metabat2:2.17--h6f16272_1 --prefix /projappl/project_2001234/metabat-2.17
 ```
 
-After the installations finishes, the executables for the program will be in directory
-`metabat-2.17/bin`. It should be noted that these are not the actual commands, but
-rather wrapper scripts for the commands inside the container. You can, however, use
-them as if they were the actual commands. For example:
+Kun asennus on valmis, ohjelman suoritustiedostot löytyvät hakemistosta
+`metabat-2.17/bin`. On huomattava, että nämä eivät ole varsinaiset komennot, vaan
+kuoriskriptit kontin sisällä oleville komennoille. Niitä voi kuitenkin käyttää ikään kuin
+ne olisivat varsinaiset komennot. Esimerkiksi:
 
 ```bash
 /projappl/project_2001234/metabat-2.17/bin/metabat --help
 ```
 
-Adding the `bin` directory to your `$PATH` will work similarly as activating the
-Conda environment in case of a direct Conda installation. When the `wrap-container`
-command finishes, it will show you the `export` command to do this. The actual command
-will depend on the installation directory, but will be something like:
+`bin` -hakemiston lisääminen `$PATH` -ympäristömuuttujaan toimii samalla tavalla kuin
+kondaympäristön aktivointi suoran Conda-asennuksen tapauksessa. Kun `wrap-container`
+-komento valmistuu, se näyttää `export` -komennon tämän tekemiseen. Varsinainen komento
+riippuu asennushakemistosta, mutta on muotoa:
 
 ```bash
 export PATH="/projappl/project_2001234/metabat-2.17/bin:$PATH"
 ```
 
-After this you can simply do:
+Tämän jälkeen voit yksinkertaisesti tehdä seuraavasti:
 
 ```bash
 metabat --help
 ```
 
-!!! note
-    It is generally a bad idea to add Tykky installations permanently to your `$PATH`
-    by e.g. editing your `.bashrc` file. The installation directories often contain
-    common commands like `python` or `perl`. These are specific for each installation,
-    and having them in your default `$PATH` will cause problems with running other
-    software. It's best to add the installation directory to your `$PATH` only when
-    you are using the program. You can e.g. add the `export` command to your
-    [batch job script](../../computing/running/creating-job-scripts-puhti.md).
+!!! huomaa
+    On yleensä huono idea lisätä Tykky-asennuksia pysyvästi `$PATH` -ympäristömuuttujaan
+    esimerkiksi muokkaamalla `.bashrc` -tiedostoa. Asennushakemistoissa on usein
+    yleisiä komentoja kuten `python` tai `perl`. Nämä ovat asennuskohtaisia, ja niiden
+    lisääminen oletus `$PATH`:iin aiheuttaa ongelmia muiden ohjelmistojen käyttämisessä.
+    On parasta lisätä asennushakemisto `$PATH`:iin vain sitä käytettäessä. Voit esim.
+    lisätä `export` -komennon
+    [eräajojobisi skriptiin](../../computing/running/creating-job-scripts-puhti.md).
 
-## Containers from other source
+## Kontit muista lähteistä {#containers-from-other-source}
 
-You can use similar steps to create wrappers for containers from other sources, such
-as the [BioContainer registry](https://biocontainers.pro/) or local image files.
-The software installation location inside the container may vary, so it should be
-checked in order to set `-w` parameter correctly. In this example we'll use a container
-for `mono`.
+Voit käyttää samoja askeleita luodaksesi kuoriskriptejä muiden lähteiden konteille, kuten
+[BioContainer-rekisteristä](https://biocontainers.pro/) tai paikallisista kuvista.
+Ohjelmiston asennuspaikka kontissa voi vaihdella, joten se tulisi tarkistaa, jotta
+`-w` -parametri voidaan asettaa oikein. Tässä esimerkissä käytetään konttia ohjelmistolle
+`mono`.
 
-First build a local container image:
+Ensin rakenna paikallinen konttikuva:
 
 ```bash
 apptainer build mono.sif docker://mono:6.12.0.182-slim
 ```
 
-You can now run command `which` inside the container to find out the installation
-location.
+Voit nyt suorittaa `which` -komennon kontissa selvittääksesi asennuspaikan.
 
 ```bash
 apptainer exec mono.sif which mono
 ```
 
-In this case the directory is `/usr/bin`. To install you could use the Docker address
-above or specify the local image file just created (`mono.sif`).
+Tässä tapauksessa hakemisto on `/usr/bin`. Voit joko käyttää Docker-osoitetta
+yllä tai määrittää juuri luodun paikallisen kuvatiedoston (`mono.sif`).
 
 ```bash
 wrap-container -w /usr/bin mono.sif --prefix mono
 ```
 
-In some cases the installation location is not in `$PATH` inside the container, so
-`which` won't work. In those cases you could try running `find` inside the container
-instead:
+Joissakin tapauksissa asennuspaikka ei ole kontissa olevassa `$PATH` -muuttujassa, joten
+`which` ei toimi. Näissä tapauksissa voit yrittää suorittaa `find` -komennon kontissa:
 
 ```bash
 apptainer exec mono.sif find / \( -type f -o -type l \) -name mono 2> /dev/null
 ```
 
-In this case we search starting from the root directory(`/`) for either a file
-(`-type f`) or (`-o`) a symbolic link (`-type l`) named `mono` (`-name mono`).
+Tässä tapauksessa etsitään juurihakemistosta (`/`) joko tiedostoa
+(`-type f`) tai (`-o`) symbolista linkkiä (`-type l`) nimeltään `mono` (`-name mono`).

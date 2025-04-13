@@ -1,28 +1,27 @@
-# VS Code
 
-VS Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
+# VS Code {#vs-code}
 
-VS Code 1.90.2 can be installed to a SD Desktop virtual machine with [SD Software installer](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
+VS Code on koodieditori, joka on määritelty uudelleen ja optimoitu nykyaikaisten web- ja pilvisovellusten rakentamiseen ja virheenkorjaukseen.
 
-The installation creates a desktop button for VS Code.
+VS Code 1.90.2 voidaan asentaa SD Desktop -virtuaalikoneeseen [SD Software installer](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer).
 
-The VS Code installation does not include any extensions.
+Asennus luo työpöydälle VS Code -painikkeen.
 
-Some extensions are available in SD Connect directory _tools-for-sd-desktop/apps/vscode-extensions_ .
-If you don't find the extension you  need from this location, you can import them yourself.
+VS Code -asennus ei sisällä laajennuksia.
 
-On your own computer, open VS Code extensions library:
+Joitakin laajennuksia on saatavilla SD Connect -hakemistossa _tools-for-sd-desktop/apps/vscode-extensions_.
+Jos et löydä tarvitsemaasi laajennusta tästä sijainnista, voit tuoda ne itse.
+
+Oman tietokoneesi VS Code -laajennuskirjastosta:
 
 *   [https://marketplace.visualstudio.com/VSCode](https://marketplace.visualstudio.com/VSCode)
 
-Once you have found the right extension, use the _Download Extension_ function to
-download the extension to your local computer as a `.vsix` file.
+Kun olet löytänyt oikean laajennuksen, käytä toimintoa _Download Extension_ ladataksesi laajennuksen paikalliselle tietokoneellesi `.vsix`-tiedostona.
 
-Then use [SD Connect](https://sd-connect.csc.fi) to encrypt and upload the `.vsix` file to SD Connect.
+Käytä sitten [SD Connect](https://sd-connect.csc.fi) salataksesi ja ladataksesi `.vsix`-tiedoston SD Connectiin.
 
-In SD Desktop, refresh the Data Gateway connection and copy the `.vsix` file to your
-SD Desktop environment.
+SD Desktopissa päivitä Data Gateway -yhteys ja kopioi `.vsix`-tiedosto SD Desktop -ympäristöösi.
 
-Finally, open VS Code. Open the _Extensions Manager_ (lowest icon, in the first column of the interface).
-In the Extensions Manager, click the three dots `...` to open the menu that contains function _Install from VSIX_
-Use that function to read in the `.vsix` file you imported.
+Lopuksi avaa VS Code. Avaa _Extensions Manager_ (alin kuvake, ensimmäinen sarake käyttöliittymässä).
+Laajennusten hallinnassa napsauta kolmea pistettä `...` avataksesi valikon, joka sisältää toiminnon _Install from VSIX_.
+Käytä kyseistä toimintoa lukeaksesi tuomasi `.vsix`-tiedosto.

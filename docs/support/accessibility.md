@@ -1,122 +1,120 @@
-# docs.csc.fi - Accessibility statement
 
-This accessibility statement applies to docs.csc.fi and was made on 13.02.2025. The service is owned by CSC – IT Center for Science Ltd. The service is subject to the Act on the provision of digital services 306/2019, which requires that public online services must be accessible.
+# docs.csc.fi - Saavutettavuusseloste {#docs-csc-fi-accessibility-statement}
 
-The accessibility of the service has been evaluated by an external organization. This accessibility statement was last updated on 06.03.2025.
+Tämä saavutettavuusseloste koskee docs.csc.fi-sivustoa ja se on tehty 13.02.2025. Palvelun omistaa CSC – Tieteen tietotekniikan keskus Oy. Palvelua koskee laki digitaalisten palvelujen tarjoamisesta 306/2019, joka edellyttää, että julkisten verkkopalvelujen on oltava saavutettavia.
 
-## Compliance status
+Palvelun saavutettavuuden on arvioinut ulkopuolinen organisaatio. Tätä saavutettavuusselostetta on viimeksi päivitetty 06.03.2025.
 
-Does not meet all critical accessibility requirements.
+## Yhdenmukaisuuden tila {#compliance-status}
 
-## Non-accessible content
+Ei vastaa kaikkia kriittisiä saavutettavuusvaatimuksia.
 
-The website is not yet fully compliant with requirements (WCAG 2.1).
+## Ei-saavutettava sisältö {#non-accessible-content}
 
-### Perceivable: Missing text-alternatives
+Verkkosivusto ei vielä täytä kaikkia vaatimuksia (WCAG 2.1).
 
-#### Non-accessible content and its shortcomings
+### Havaittava: Tekstivaihtoehtojen puute {#perceivable-missing-text-alternatives}
 
-There are non-text content with missing text alternatives.
+#### Ei-saavutettava sisältö ja sen puutteet {#non-accessible-content-and-its-shortcomings}
 
-#### Accessibility requirements that are not met
+On olemassa ei-tekstisisältöä, jolta puuttuu tekstivaihtoehdot.
 
-- 1.1.1 Non-text Content
+#### Saavutettavuusvaatimukset, jotka eivät täyty {#accessibility-requirements-that-are-not-met}
 
-### Perceivable: Deficiencies in information and relationships
+- 1.1.1 Ei-tekstimuotoinen sisältö
 
-#### Non-accessible content and its shortcomings
+### Havaittava: Tietojen ja suhteiden puutteet {#perceivable-deficiencies-in-information-and-relationships}
 
-Service has parts where information and structure cannot be programmatically determined.
+#### Ei-saavutettava sisältö ja sen puutteet {#non-accessible-content-and-its-shortcomings-2}
 
-#### Accessibility requirements that are not met
+Palvelussa on osia, joissa tietoja ja rakennetta ei voida määrittää ohjelmallisesti.
 
-- 1.3.1 Info and Relationships
+#### Saavutettavuusvaatimukset, jotka eivät täyty {#accessibility-requirements-that-are-not-met-2}
 
-### Perceivable: Deficiencies in contrast
+- 1.3.1 Tiedot ja suhteet
 
-#### Non-accessible content and its shortcomings
+### Havaittava: Kontrastin puutteet {#perceivable-deficiencies-in-contrast}
 
-Service has parts which don't meet minimum contrast requirements.
+#### Ei-saavutettava sisältö ja sen puutteet {#non-accessible-content-and-its-shortcomings-3}
 
-#### Accessibility requirements that are not met
+Palvelussa on osia, jotka eivät täytä vähimmäiskontrastivaatimuksia.
 
-- 1.4.3 Contrast (minimum)
+#### Saavutettavuusvaatimukset, jotka eivät täyty {#accessibility-requirements-that-are-not-met-3}
 
-### Perceivable: Deficiencies in reflow
+- 1.4.3 Kontrasti (minimi)
 
-#### Non-accessible content and its shortcomings
+### Havaittava: Virheet uudelleenvirtauksessa {#perceivable-deficiencies-in-reflow}
 
-Service has parts which don't meet requirements for reflow.
+#### Ei-saavutettava sisältö ja sen puutteet {#non-accessible-content-and-its-shortcomings-4}
 
-#### Accessibility requirements that are not met
+Palvelussa on osia, jotka eivät täytä uudelleenvirtauksen vaatimuksia.
 
-- 1.4.10 Reflow
+#### Saavutettavuusvaatimukset, jotka eivät täyty {#accessibility-requirements-that-are-not-met-4}
 
-### Operable: Deficiencies with keyboard, screen reader and mobile use
+- 1.4.10 Uudelleenvirtaus
 
-#### Non-accessible content and its shortcomings
+### Toiminnallinen: Näppäimistön, ruudunlukijan ja mobiilikäytön puutteet {#operable-deficiencies-with-keyboard-screen-reader-and-mobile-use}
 
-The accessibility audit revealed some functions and elements that were difficult or impossible to use especially with assistive technology.
+#### Ei-saavutettava sisältö ja sen puutteet {#non-accessible-content-and-its-shortcomings-5}
 
-#### Accessibility requirements that are not met
+Saavutettavuustarkastus paljasti joitakin toimintoja ja elementtejä, joita oli vaikea tai mahdoton käyttää, erityisesti apuvälineillä.
 
-- 2.4.3 Focus Order
-- 2.4.4 Link Purpose (in Context)
-- 2.4.6 Headings and Labels
-- 2.4.7 Focus Visible
+#### Saavutettavuusvaatimukset, jotka eivät täyty {#accessibility-requirements-that-are-not-met-5}
 
-### Robust: Deficiencies in the code and status messages
+- 2.4.3 Tarkennusjärjestys
+- 2.4.4 Linkin tarkoitus (kontekstissa)
+- 2.4.6 Otsikot ja etiketit
+- 2.4.7 Tarkennus näkyvä
 
-#### Non-accessible content and its shortcomings
+### Kestävä: Koodin ja tilaviestien puutteet {#robust-deficiencies-in-the-code-and-status-messages}
 
-The site has some accessibility-related deficiencies in terms of ARIA markup and status messages.  
+#### Ei-saavutettava sisältö ja sen puutteet {#non-accessible-content-and-its-shortcomings-6}
 
-#### Accessibility requirements that are not met
+Sivustolla on joitakin saavutettavuuteen liittyviä puutteita ARIA-merkinnöissä ja tilaviesteissä.  
 
-- 4.1.2 Name, Role, Value
-- 4.1.3 Status Messages
+#### Saavutettavuusvaatimukset, jotka eivät täyty {#accessibility-requirements-that-are-not-met-6}
 
-## Did you notice an accessibility issue in our digital service?
+- 4.1.2 Nimi, rooli, arvo
+- 4.1.3 Tilaviestit
 
-Let us know and we will do our best to correct the shortcoming.
+## Huomasitko saavutettavuusongelman digitaalisessa palvelussamme? {#did-you-notice-an-accessibility-issue-in-our-digital-service}
+
+Kerro siitä meille, ja teemme parhaamme korjataksemme puutteet.
   
-### By email
+### Sähköpostitse {#by-email}
 
-Did you notice an accessibility issue on our website? Please send us an
-email to <servicedesk@csc.fi>.
+Huomasitko saavutettavuusongelman verkkosivustollamme? Lähetä meille
+sähköpostia osoitteeseen <servicedesk@csc.fi>.
 
-## Supervision authority
+## Valvova viranomainen {#supervision-authority}
 
-If you notice accessibility issues on the website, first give feedback to the website administrator. Receiving a response may take 14 days. If you are not satisfied with the response or you receive no response within two weeks, you can provide feedback to Traficom. [The Agency's accessibility requirements website](https://saavutettavuusvaatimukset.fi/en) explains how you can lodge a complaint and how the matter will be processed.
+Jos huomaat verkkosivustolla saavutettavuusongelmia, anna ensin palautetta verkkosivuston ylläpitäjälle. Vastauksen saaminen voi kestää 14 päivää. Jos et ole tyytyväinen saamaasi vastaukseen tai et saa vastausta kahden viikon kuluessa, voit antaa palautetta Traficomille. [Viranomaisen saavutettavuusvaatimusten verkkosivu](https://saavutettavuusvaatimukset.fi/en) selittää, kuinka voit tehdä valituksen ja kuinka asia käsitellään.
 
-### Supervisory authority's contact information
+### Valvontaviranomaisen yhteystiedot {#supervisory-authoritys-contact-information}
 
-Finnish Transport and Communications Agency Traficom  
-Digital Accessibility Supervision Unit  
-[www.webaccessibility.fi](https://www.webaccessibility.fi) (External link)  
+Liikenne- ja viestintävirasto Traficom  
+Digitaalisten palvelujen saavutettavuuden valvontayksikkö  
+[www.webaccessibility.fi](https://www.webaccessibility.fi) (Ulkoisessa linkissä)  
 <saavutettavuus@traficom.fi>  
-telephone switchboard 029 534 5000
+puhelinvaihde 029 534 5000
 
-## We are constantly working to improve accessibility
+## Parannamme jatkuvasti saavutettavuutta {#we-are-constantly-working-to-improve-accessibility}
 
-### We are committed to improve the accessibility of our digital services
+### Olemme sitoutuneet parantamaan digitaalisten palveluidemme saavutettavuutta {#we-are-committed-to-improve-the-accessibility-of-our-digital-services}
 
-We will update this statement as we fix the deficiencies. The goal has
-been set that the accessibility deficiencies have been fixed by
-30.05.2025. Accessibility issues caused by the CMS and
-other integrated data systems are reported to the suppliers.
+Päivitämme tätä selostetta, kun korjaamme puutteet. Tavoitteena on, että saavutettavuuspuutteet on korjattu 30.05.2025 mennessä. CMS:n ja muiden integroitujen tietojärjestelmien aiheuttamat saavutettavuusongelmat raportoidaan toimittajille.
 
-We are committed to improve the accessibility of our services. We ensure
-accessibility with, among other things, the following measures:
+Olemme sitoutuneet parantamaan palveluidemme saavutettavuutta. Varmistamme
+saavutettavuuden muun muassa seuraavilla toimenpiteillä:
 
-- We develop the site's accessibility in the first phase by prioritizing
-  the repair order based on the accessibility audit report.
-- We take accessibility requirements into account when we develop
-  services.
-- We already take accessibility requirements into account when we make
-  purchases.
-- We support our staff in producing accessible content.
+- Kehitämme sivuston saavutettavuutta ensimmäisessä vaiheessa priorisoimalla
+  korjausjärjestyksen saavutettavuustarkastusraportin perusteella.
+- Huomioimme saavutettavuusvaatimukset, kun kehitämme
+  palveluita.
+- Huomioimme jo saavutettavuusvaatimukset, kun teemme
+  hankintoja.
+- Tuemme henkilöstöämme tuottamaan saavutettavaa sisältöä.
 
-## This service has been published
+## Tämä palvelu on julkaistu {#this-service-has-been-published}
 
 27.11.2020

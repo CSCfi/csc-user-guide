@@ -1,44 +1,44 @@
-# Running your first quantum computing job on Helmi through LUMI
+# Ensimmäisen kvanttitietokoneajosi suorittaminen Helmillä LUMIn kautta
 
-If you've applied for a project, been accepted, setup your ssh keys and gained access to LUMI, then the next step is to run your first quantum computing job on a real quantum computer! This is a guide for exactly how to do that. The only thing you need to know is your project number! 
+Jos olet hakenut projektia, sinut on hyväksytty, olet asentanut ssh-avaimet ja saanut pääsyn LUMIin, seuraava askel on suorittaa ensimmäinen kvanttitietokoneajosi oikealla kvanttitietokoneella! Tämä on opas siihen, kuinka se tehdään. Ainoa asia, joka sinun tarvitsee tietää, on projektinumerosi!
 
-## Configuring the environment
+## Ympäristön konfigurointi {#configuring-the-environment}
 
-The first step after you have logged into LUMI (via `ssh lumi` on your terminal) is to configure the environment. The base environment when first logging into LUMI does not provide the necessary tools to submit quantum jobs, therefore a quantum software stack has been created which sets up the correct python virtual environments and the correct environment variables. This is accessed through the LMOD system on LUMI using *modules*.
+Ensimmäinen askel, kun olet kirjautunut LUMIin (`ssh lumi` päätelaitteellasi), on ympäristön konfigurointi. LUMIin ensimmäistä kertaa kirjauduessa perusympäristö ei sisällä tarvittavia työkaluja kvanttiajojen lähettämiseen, joten kvanttiohjelmistopino on luotu asettamaan oikea Python-virtuaaliympäristö ja tarvittavat ympäristömuuttujat. Tämä haetaan LUMIn LMOD-järjestelmästä käyttäen *moduleita*.
 
-To use the quantum software stack you first need to load the Quantum module tree. 
+Kvanttiohjelmistopinoa käyttääksesi sinun täytyy ensin ladata Kvanttimodulipuu.
 
 ```bash
 module use /appl/local/quantum/modulefiles
 ```
 
-Alternatively, you can achieve the same result by loading the Local-quantum module.
+Vaihtoehtoisesti voit saavuttaa saman tuloksen lataamalla Local-quantum-modulin.
 
 ```bash
 module load Local-quantum
 ```
 
-You can then see the list of available *modules* with `module avail`. The quantum modules should be at the top! In this walkthrough Qiskit will be used, therefore the next step is to load the module into our current environment with
+Tämän jälkeen voit nähdä listan saatavilla olevista *moduleista* komennolla `module avail`. Kvanttiohjelmistopinojen tulisi olla ylimpänä! Tässä läpikäynnissä käytetään Qiskit-ohjelmistoa, joten seuraava askel on ladata moduli nykyiseen ympäristöön
 
 ```bash
 module load helmi_qiskit
 ```
 
-## Creating your first quantum program
+## Ensimmäisen kvanttiohjelman luominen {#creating-your-first-quantum-program}
 
-The next step is to create your quantum circuit! Here a simple bell state will be created between two qubits, demonstrating entanglement between them! For this we will be using Qiskit but the steps are very similar for Cirq. It is good practice to work in your projects scratch directory, which you can navigate to with `cd /scratch/project_xxx`, inserting your project number.
+Seuraava askel on luoda kvanttireaktio! Tässä luodaan yksinkertainen bell-tila kahden kubitin välillä, osoittaen niiden keskinäisen lomittumisen! Tässä käytetään Qiskitiä, mutta askeleet ovat hyvin samanlaisia Cirqille. On suositeltavaa työskennellä projektisi väliaikaisessa hakemistossa, johon voit siirtyä komennolla `cd /scratch/project_xxx`, syöttäen oma projektinumerosi.
 
-!!! info "Tip!"
+!!! info "Vinkki!"
 	
-	You can quickly see your LUMI workspaces with
-	`module load lumi-workspaces` and
+	Voit nopeasti nähdä LUMI-työtilasi komennolla
+	`module load lumi-workspaces` ja
 	`lumi-workspaces`
 
-Let us first create our python file with `nano first_quantum_job.py`. Here we use `nano` but if you are comfortable you can also use `vim` or `emacs`. This will bring up the `nano` text editor, the useful commands are at the bottom, to save and exit CTRL-X + Y.
+Luodaan ensin Python-tiedosto komennolla `nano first_quantum_job.py`. Tässä käytämme `nano`, mutta jos olet tottuneempi, voit käyttää `vim` tai `emacs`. Tämä avaa `nano`-tekstieditorin, hyödylliset komennot ovat alhaalla; tallenna ja poistu painamalla CTRL+X + Y.
 
-### Importing the libraries
+### Kirjastojen tuonti {#importing-the-libraries}
 
-First let's import the right python libraries
+Aloitetaan tuomalla oikeat Python-kirjastot
 
 ```python
 import os
@@ -46,32 +46,32 @@ from qiskit import QuantumCircuit, QuantumRegister, transpile
 from iqm.qiskit_iqm import IQMProvider
 ```
 
-### Creating the circuit
+### Piirin luominen {#creating-the-circuit}
 
-The quantum circuit is created by defining a `QuantumRegister` which hold our qubits and classical bits respectively. As this circuit only requires 2 qubits we only create a `QuantumRegister` of size 2. The number of shots is also defined here. The number of shots is the number of times a quantum circuit is executed. We do this because quantum computers are probabilistic machines and by repeating the experiment many times we can get close to a deterministic result to be able to draw conclusions from. A good number of shots for your first quantum job is `shots = 1000`. Increasing the shots will increase the precision of your results. 
+Kvanttipiiri luodaan määrittelemällä `QuantumRegister`, joka pitää kubitit ja klassiset bitit vastaavasti. Koska tämä piiri vaatii vain 2 kubittia, luomme vain `QuantumRegister`-nimikkeen kooltaan 2. Myös laukaisu määrä määritellään täällä. Laukaisumäärä tarkoittaa kvanttipiirin suoritusmäärää. Teemme tämän, koska kvanttitietokoneet ovat todennäköisyysperäisiä koneita ja toistamalla kokeen monta kertaa voimme päästä lähelle determinististä tulosta, jotta voimme vetää johtopäätöksiä. Hyvä laukaisumäärä ensimmäiselle kvanttile tuotetulle kvanttityölle on `shots = 1000`. Laukaisujen lisääminen lisää tulostesi tarkkuutta. 
 
 ```python
-shots = 1000  # Number of repetitions of the Quantum Circuit
+shots = 1000  # Quantum Circuitin toistojen määrä
 
 qreg = QuantumRegister(2, "qB")
 circuit = QuantumCircuit(qreg, name='Bell pair circuit')
 ```
 
-Now we actually add some gates to the circuit. Here a Hadamard gate is added to the first qubit or the first qubit in the quantum register. Then a controlled-x gate is added with two arguments as it is a two qubit gate. 
+Nyt lisätään joitain portteja piiriin. Tässä lisätään Hadamard-portti ensimmäiseen kubittiin tai kvanttirekisterin ensimmäiseen kubittiin. Sitten lisätään kontrolloitu-x-portti kahdella argumentilla, koska se on kahden kubitin portti. 
 
 ```python
-circuit.h(qreg[0])  # Hadamard gate on the first qubit in the Quantum Register
-circuit.cx(qreg[1], qreg[0])  # Controlled-X gate between the second qubit and first qubit
-circuit.measure_all()  # Measure all qubits in the Quantum Register.
+circuit.h(qreg[0])  # Hadamard-portti kvanttirekisterin ensimmäiseen kubittiin
+circuit.cx(qreg[1], qreg[0])  # Kontrolloitu-X-portti toisen ja ensimmäisen kubittien välille
+circuit.measure_all()  # Mittaa kaikki kvanttirekisterin kubitit.
 ```
 
-Note that [`measure_all()`](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit.measure_all) creates it's own [`ClassicalRegister`](https://qiskit.org/documentation/stubs/qiskit.circuit.ClassicalRegister.html)!
+Huomaa, että [`measure_all()`](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit.measure_all) luo oman [`ClassicalRegister`](https://qiskit.org/documentation/stubs/qiskit.circuit.ClassicalRegister.html)!
 
-Now the circuit is created! If you wish you can see what your circuit looks like by adding a print statement `print(circuit.draw())` and quickly running the python script. 
+Nyt piiri on luotu! Jos haluat, voit nähdä miltä piiriki näyttää lisäämällä print-komennon `print(circuit.draw())` ja nopeasti suorittamalla python-skriptin. 
 
-## Setting the backend
+## Taustajärjestelmän asettaminen {#setting-the-backend}
 
-First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi and is only reachable inside the `q_fiqci` partition. This environment variable is set automatically when loading any of the `helmi_*` modules such as the `helmi_qiskit` module. 
+Ensin meidän on asetettava palveluntarjoajamme ja taustajärjestelmämme. Palveluntarjoaja tarjoaa käyttöliittymän kvanttitietokoneelle ja taustajärjestelmä tarjoaa työkalut kvanttityön lähettämiseksi. `HELMI_CORTEX_URL` on päätepiste, jolla saavutetaan Helmi ja se on tavoitettavissa vain `q_fiqci` -osiosta. Tämä ympäristömuuttuja asetetaan automaattisesti lataamalla mikä tahansa `helmi_*` -moduli, kuten `helmi_qiskit` -moduli.
 
 ```python
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
@@ -79,18 +79,18 @@ HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 provider = IQMProvider(HELMI_CORTEX_URL)
 backend = provider.get_backend()
 ```
-### Decomposing the circuit (*Optional*)
+### Piirin purkaminen (*Valinnainen*) {#decomposing-the-circuit}
 
-The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. Helmi's basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. 
+Seuraava askel on valinnainen, jossa juuri luotu kvanttipiiri muutetaan sen *perusporteiksi*. Nämä perusportit ovat todellisia kvanttiportteja kvanttitietokoneessa. Purkuprosessi tarkoittaa yllä olevien Hadamard- ja kontrolloitu-x-porttien muuntamista sellaiseen muotoon, joka voidaan fyysisesti suorittaa kvanttitietokoneella. Helmin perusportit ovat lomittumisporttiin kontrolloitu-z ja yhden kubitin phased-rx portti. Qiskitissä nämä määritellään taustajärjestelmässä ja ne voidaan tulostaa komennolla `backend.operation_names`. 
 
 ```python
 circuit_decomposed = transpile(circuit, backend=backend)
 ```
-You can also print your circuit like before with `print(circuit_decomposed.draw())` to see what it looks like! 
+Voit myös tulostaa piirin kuten aiemmin `print(circuit_decomposed.draw())` nähdäksesi miltä se näyttää! 
 
-### *Optional* Qubit Mapping
+### *Valinnainen* Kubittien kartoittaminen {#optional-qubit-mapping}
 
-This is an optional step but may be useful to extracting the best out of the quantum computer. This is a python dictionary which simply states which qubits in the Quantum register should be mapped to which *physical* qubit.
+Tämä on valinnainen askel mutta voi olla hyödyllinen saavuttaaksesi parhaan mahdollisen tuloksen kvanttitietokoneelta. Tämä on Python-sanakirja, joka yksinkertaisesti määrittelee, mitkä kvanttirekisterin kubitit tulee kartoittaa mihin *fyysisiin* kubitteihin.
 
 ```python
 qubit_mapping = {
@@ -99,13 +99,12 @@ qubit_mapping = {
             }
 ```
 
-Here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. 
+Tässä kartoitamme ensimmäisen kvanttirekisterin kubitin ensimmäiseen Helmin kubittiin, QB1, joka sijaitsee nollasijainnissa Qiskitin nollaperusteisen numeroinnin vuoksi. Toinen kubitti sitten kartoitetaan QB3:een. Tässä käytimme Helmin topologiaa.
+стоящего работать в поле quantum.
+transfernentа la click, etablishent и также чтобы wasser, jdроекции, sieveый для предоставления, входский корансылки. node'selectron the || обза ménage- 기`.
+ukro-модек-фракции/
 
-<p align="center">
-    <img src="../../../../img/helmi_mapping.png" alt="Helmi's node mapping">
-</p>
-
-
+----------------------
 The two qubit Controlled-X gate we implemented in our circuit is currently on the second of our two qubits in the Quantum register, `qreg[1]`. Due to Helmi's topology this needs to be mapped to QB3 on Helmi. The 1 qubit Hadamard gate can be mapped to any of the *outer* qubits, QB1, QB2, QB4, QB5, here we choose QB1. 
 
 Note that this step is entirely optional. Using the `execute` function automatically does the mapping based on the information stored in the backend. Inputting the qubit mapping simply gives more control to the user. 
@@ -116,78 +115,76 @@ To transpile a circuit using the specified qubit mapping you can do the followin
 circuit_decomposed = transpile(circuit, backend=backend, initial_layout=qubit_mapping)
 ```
 
-### Submitting the job
+### Työn lähettäminen {#submitting-the-job}
 
-Now we can run our quantum job!
+Nyt voimme suorittaa kvanttityömme!
 
 ```python
 job = backend.run(circuit_decomposed, shots=shots)
 ```
 
-### Viewing the status of your job
+### Työn tilan tarkastelu {#viewing-the-status-of-your-job}
 
-You can view the status of your job with 
+Voit nähdä työsi tilan komennolla 
 
 ```python
 job.status()
 ```
 
-### Results
+### Tulokset {#results}
 
-Before submitting we need to ensure we can get some results! The quantum job will return what are called **counts**. Counts are the accumulation of results from the 1000 times the circuit is submitted to the QPU. Each time the circuit is submitted a binary *state* is returned, this is then added to the tally.  In this case as we are submitting a 2 qubit circuit there are 4 possible resulting states: `00, 11, 01, 10`.  The expected results should be that approximately 50% of the counts should be in state `00` and 50% in state `11`. The states of the qubits are thus entangled: if one of the qubits is measured to be in state |0>, the other one will immediately also collapse to the same state, and vice versa. As real quantum computers are not perfect, you will most likely also see that some measurements find the states |01> and |10>.
+Ennen lähettämistä meidän on varmistettava, että saamme tuloksia! Kvanttityö palauttaa niin kutsutut **laskurit**. Laskurit ovat tulosten kertyminen niistä 1000 kerrasta, kun piiri lähetetään QPU:lle. Joka kerta kun piiri lähetetään, palautetaan binaarinen *tila*, joka sitten lisätään laskuriin. Tässä tapauksessa, kun lähetämme 2 kubitin piirin, on neljä mahdollista tulostustilaa: `00, 11, 01, 10`. Odotettujen tulosten pitäisi olla, että noin 50 % laskureista on tilassa `00` ja 50 % tilassa `11`. Kubittien tilat ovat siten lomittuneet: jos yksi kubitti mitataan olevan tilassa |0>, toinen kubitti romahtaa välittömästi samaan tilaan, ja päinvastoin. Koska todelliset kvanttitietokoneet eivät ole täydellisiä, näet todennäköisesti myös, että jotkut mittaukset löytävät tilat |01> ja |10>.
 
-To print your results add:
+Tulosten tulostamiseksi lisää:
 
 ```python
 counts = job.result().get_counts()
 print(counts)
 ```
 
-You can also print the entirety of `job.result()` which will contain all the information about your jobs results. 
+Voit myös tulostaa `job.result()` kokonaisuudessaan, joka sisältää kaikki tiedot työsi tuloksista.
 
-## Save your file
+## Tallenna tiedostosi {#save-your-file}
 
-Once you've made your first quantum program remember to save! CTRL+X then Y to save your file. 
+Kun olet tehnyt ensimmäisen kvanttiohjelmasi, muista tallentaa se! CTRL+X, sitten Y tallentaaksesi tiedoston.
 
-## Running the job through LUMI
+## Ajon suorittaminen LUMIn kautta {#running-the-job-through-lumi}
 
-To run your quantum programme on LUMI you will need to submit the job through the SLURM batch scheduler on LUMI. Accessing Helmi is done through the `q_fiqci` partition. In the same directory where you have saved your quantum program, you can submit the job to SLURM using:
+Suorittaaksesi kvanttiohjelmasi LUMIn kautta sinun tulee lähettää työ SLURM-eräajosuunnittelijan kautta LUMIin. Helmin käyttö tapahtuu `q_fiqci` -osasta. Samassa hakemistossa, johon olet tallentanut kvanttiohjelmasi, voit lähettää työn SLURMille käyttäen:
 
 ```bash
 srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci python -u first_quantum_job.py
 ```
 
-Remember to add your own project account!
+Muista lisätä oma projektitilisi!
 
-This submits the job *interactively* meaning that the output will be printed straight to the terminal screen. If you wish you can also submit it using `sbatch` using this skeleton batch script. Using `nano` as before create the script `batch_script.sh`. 
-
+Tämä lähettää työn *interaktiivisesti* tarkoittaen, että tulos tulostuu suoraan päätelaitteen näytölle. Jos haluat, voit myös lähettää sen käyttäen `sbatch` seuraavan rungon eräskriptillä. Käyttäen `nano`, kuten aiemmin, luo skripti `batch_script.sh`.
 
 ```bash
 #!/bin/bash -l
 
-#SBATCH --job-name=helmijob   # Job name
-#SBATCH --output=helmijob.o%j # Name of stdout output file
-#SBATCH --error=helmijob.e%j  # Name of stderr error file
-#SBATCH --partition=q_fiqci   # Partition (queue) name
-#SBATCH --ntasks=1              # One task (process)
-#SBATCH --mem-per-cpu=2G       # memory allocation
-#SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:15:00         # Run time (hh:mm:ss)
-#SBATCH --account=project_xxx  # Project for billing
+#SBATCH --job-name=helmijob   # Työn nimi
+#SBATCH --output=helmijob.o%j # stdout tulostiedoston nimi
+#SBATCH --error=helmijob.e%j  # stderr virhetiedoston nimi
+#SBATCH --partition=q_fiqci   # Osion nimi
+#SBATCH --ntasks=1              # Yksi tehtävä (prosessi)
+#SBATCH --mem-per-cpu=2G       # Muistivaraus
+#SBATCH --cpus-per-task=1     # Ytimien (säikeiden) määrä
+#SBATCH --time=00:15:00         # Suoritusaika (hh:mm:ss)
+#SBATCH --account=project_xxx  # Laskutusprojekti
 
 module use /appl/local/quantum/modulefiles
 module load helmi_qiskit
 
 python -u first_quantum_job.py
 ```
-This can be submitted with `sbatch batch_script.sh` in the same directory as your python file. Jobs in the SLURM queue can be monitored through `squeue -u username` and after the job has completed your results can be found in the `helmijob.oxxxxx` file. This can be printed to the terminal with `cat`. 
+Tämä voidaan lähettää `sbatch batch_script.sh` komennolla samassa hakemistossa kuin Python-tiedostosi. Työjonossaan olevien SLURM-töiden tilaa voidaan seurata komennolla `squeue -u käyttäjänimi` ja työn valmistuttua tulokset löytyvät `helmijob.oxxxxx` tiedostosta. Tämän voi tulostaa päätelaitteelle komennolla `cat`. 
 
+## Onnittelut! {#congratulations}
 
-## Congratulations!
+Onnittelut! Olet juuri suorittanut ensimmäisen ajosi Helmillä.
 
-Congratulations! You have just run your first job on Helmi. 
-
-The full python script can be found below. 
+Koko Python-skripti löytyy alta.
 
 ```python
 import os
@@ -204,7 +201,7 @@ circuit.h(qreg[0])
 circuit.cx(qreg[0], qreg[1])
 circuit.measure_all()
 
-# Uncomment if you wish to print the circuit
+# Poista kommentti, jos haluat tulostaa piirin
 # print(circuit.draw())
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
@@ -212,23 +209,22 @@ HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 provider = IQMProvider(HELMI_CORTEX_URL)
 backend = provider.get_backend()
 
-# Retrieving backend information
-# print(f'Native operations: {backend.operation_names}')
-# print(f'Number of qubits: {backend.num_qubits}')
-# print(f'Coupling map: {backend.coupling_map}')
+# Taustajärjestelmän tietojen hakeminen
+# print(f'Natiivitoiminnot: {backend.operation_names}')
+# print(f'Kubitit: {backend.num_qubits}')
+# print(f'Kytkentäkartta: {backend.coupling_map}')
 
 transpiled_circuit = transpile(circuit, backend)
 job = backend.run(transpiled_circuit, shots=shots)
 result = job.result()
 exp_result = job.result()._get_experiment(circuit)
-# You can retrieve the job at a later date with backend.retrieve_job(job_id)
-# Uncomment the following lines to get more information about your submitted job
-# print("Job ID: ", job.job_id())
+# Voit hakea työn myöhemmin backend.retrieve_job(job_id)
+# Poista seuraavat rivit kommentista saadaksesi lisätietoja lähetetystä työstäsi
+# print("Työn ID: ", job.job_id())
 # print(result.request.circuits)
-# print("Calibration Set ID: ", exp_result.calibration_set_id)
+# print("Kalibrointijoukko ID: ", exp_result.calibration_set_id)
 # print(result.request.qubit_mapping)
 # print(result.request.shots)
 
 counts = result.get_counts()
 print(counts)
-```

@@ -1,15 +1,14 @@
+
 ---
 tags:
-  - Free
+  - Ilmainen
 ---
 
 # InterProScan
 
 
 
-InterProScan is a tool that compares protein or nucleotide sequence against a set of protein signature databases.
-The results obtained from different databases are given in uniform format. The InterProScan5 installation at CSC can
-be used to search protein signatures from following databases:
+InterProScan on työkalu, joka vertaa proteiini- tai nukleotidisekvenssejä joukkoon proteiinisignatuureja sisältäviä tietokantoja. Saatuja tuloksia eri tietokannoista annetaan yhtenäisessä muodossa. CSC:n InterProScan5-asennusta voidaan käyttää seuraavien tietokantojen proteiinisignatuurien etsintään:
 
    * TIGRFAM (15.0)
    * SFLD (4)
@@ -30,51 +29,46 @@ be used to search protein signatures from following databases:
    * PIRSF (3.10)
 
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+Vapaa ja avoimen lähdekoodin ohjelma [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) alaisuudessa.
 
-## Available
+## Saatavilla {#available}
 
 *   Puhti: 5.55-88.0, 5.67-90.0
 
-## Usage
+## Käyttö {#usage}
 
-In Puhti, first load interproscan module with commands:
+Puhti-järjestelmässä ladataan ensin interproscan-moduuli komennolla:
 
 ```bash
 module load biokit
 module load interproscan
 ```
 
-After that you can submit  InterProScan jobs using command `cluster_interproscan`. Cluster_interproscan
-is a help tool that automatically runs your InterProScan task using the batch job system of Puhti.
-If your query file contains several sequences the cluster_interproscan tool also automatically splits
-the InterProScan tasks to several subtasks that are run simultaneously in Puhti.
+Tämän jälkeen voit lähettää InterProScan-tehtävät käyttäen komentoa `cluster_interproscan`. Cluster_interproscan on apuväline, joka suorittaa automaattisesti InterProScan-tehtäväsi Puhtin erätehtäväjärjestelmän avulla. Jos kyselytiedostosi sisältää useita sekvenssejä, cluster_interproscan-työkalu jakaa automaattisesti InterProScan-tehtävät useisiin alatehtäviin, jotka suoritetaan samanaikaisesti Puhtissa.
 
-cluster_interproscan accepts all the normal InterProScan options. To check the available options, give command:
+cluster_interproscan hyväksyy kaikki normaalit InterProScan-vaihtoehdot. Tarkista käytettävissä olevat vaihtoehdot antamalla komento:
 
 ```bash
 cluster_interproscan -h
 ```
 
-Below is two sample InterProScan commands
+Alla on kaksi esimerkkikomentoa InterProScan-ohjelmasta
 
-1. Running InterProScan search for a nucleotide sequence set  against all InterProScan databases.
-Results are reported in XML format.
+1. Suorittamalla InterProScan-hakua nukleotidisekvenssijoukolla kaikkia InterProScan-tietokantoja vastaan. Tulokset raportoidaan XML-muodossa.
 
 ```bash
 cluster_interproscan -i nucleotides.fasta -o results.xml -f XML -t n
 ```
 
-2. Running InterProScan search for protein sequence set against PfamA databases. Results are reported in GFF3 format. GFF3 conversion needs more memory that what is available in the login nodes of Puhti. Because of that you should submit the interporosacn task from an interactive batch job with least 4 GiB of memory reserved.
+2. Suorittamalla InterProScan-hakua proteiinisekvenssijoukolla PfamA-tietokantoja vastaan. Tulokset raportoidaan GFF3-muodossa. GFF3-muunnos vaatii enemmän muistia kuin mitä Puhtin kirjautumissolmuilla on saatavilla, joten sinun tulisi lähettää interporosacn-tehtävä interaktiivisesta erätehtävästä vähintään 4 GiB muistilla.
 
 ```bash
 sinteractive -m 4000
 cluster_interproscan -i proteins.fasta -o results.gff3 -f GFF3 -appl PfamA
 ```
 
+## Lisätietoja {#more-information}
 
-## More information
-
-*   [InterPro home page](https://www.ebi.ac.uk/interpro/)
+*   [InterPro kotisivu](https://www.ebi.ac.uk/interpro/)

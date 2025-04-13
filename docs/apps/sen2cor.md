@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,61 +6,56 @@ tags:
 
 # Sen2Cor
 
-[Sen2Cor](https://step.esa.int/main/snap-supported-plugins/sen2cor/) is a stand-alone processor for Sentinel-2 Level 2A product generation and formatting.
+[Sen2Cor](https://step.esa.int/main/snap-supported-plugins/sen2cor/) on itsenäinen prosessori Sentinel-2 Taso 2A -tuotteen luomiseen ja muotoiluun.
 
-## Available
+## Saatavilla {#available}
 
-__Sen2Cor__ is available in Puhti with following versions:
+__Sen2Cor__ on saatavilla Puhtissa seuraavilla versioilla:
 
-* 2.10 (pre-release)
+* 2.10 (esijulkaisu)
 * 2.9
 
-## Usage
+## Käyttö {#usage}
 
-Sen2Cor is included in the __sen2cor__ module and can be loaded with
+Sen2Cor sisältyy __sen2cor__-moduuliin ja sen voi ladata komennolla
 
 `module load sen2cor`
 
-You run the program with the command
+Ohjelman suoritat komennolla
 
 `L2A_Process <arguments>`
 
-More information on the available arguments can be displayed with
+Lisätietoja käytettävissä olevista argumenteista voit saada komennolla
 
 `L2A_Process --help`
 
-or from [the Sen2Cor user manual](https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf).
+tai [Sen2Corin käyttöohjeesta](https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf).
 
-## Advanced usage
+## Edistynyt käyttö {#advanced-usage}
 
-Further configuration of `L2A_Process` can be done via the `L2A_GIPP.xml` file. 
-After running `L2A_Process` for the first time, you can find the default GIPP file in your `$HOME/sen2cor/2.10/cfg` directory. 
-Here you can adjust it to your needs using any editor and add it to the call: `L2A_Process --GIP_L2A $HOME/sen2cor/2.10/cfg/L2A_GIPP.xml <other arguments>` .
+`L2A_Process`-ohjelman lisäasetuksia voidaan tehdä `L2A_GIPP.xml`-tiedoston kautta. 
+Suoritettuasi `L2A_Process`-ohjelman ensimmäistä kertaa, voit löytää oletus GIPP-tiedoston hakemistostasi `$HOME/sen2cor/2.10/cfg`. 
+Täällä voit muokata sitä tarpeidesi mukaan käyttäen mitä tahansa editoria ja lisätä sen kutsuun: `L2A_Process --GIP_L2A $HOME/sen2cor/2.10/cfg/L2A_GIPP.xml <muut argumentit>`.
 
-## License 
+## Lisenssi {#license}
 
-Sen2Cor is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license.
+Sen2Cor on julkaistu [GPL-3](https://www.gnu.org/licenses/gpl.html) -lisenssillä.
 
-
-## Citation
+## Viittaus {#citation}
 
 ` M. Main-Knorn, B. Pflug, J. Louis, V. Debaecker, U. Müller-Wilm, F. Gascon, "Sen2Cor for Sentinel-2", Proc. SPIE 10427, Image and Signal Processing for Remote Sensing XXIII, 1042704 (2017)`
 
+## Tunnustus {#acknowledgement}
 
-## Acknowledgement
+Ystävällisesti tunnustakaa CSC ja Geoportti julkaisuissanne, se on tärkeää projektin jatkumisen ja rahoitusraporttien kannalta.
+Esimerkiksi voitte kirjoittaa "Kirjoittajat haluavat kiittää CSC - Tieteen tietotekniikkakeskusta, Suomi (urn:nbn:fi:research-infras-2016072531) ja Avoimet paikkatietoinfrastruktuurit tutkimukselle (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+## Asennus {#installation}
 
+Sen2cor asennettiin Puhtiin käyttäen [ESAn itsenäistä Sen2cor-asentajaa Linuxille](https://step.esa.int/main/snap-supported-plugins/sen2cor/).
 
-## Installation
+## Viitteet {#references}
 
-Sen2cor was installed on Puhti using [ESAs standalone Sen2cor installer for Linux](https://step.esa.int/main/snap-supported-plugins/sen2cor/).
-
-
-## References
-
-* [Sen2Cor user manual](https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf)
-* [Sen2Cor v2.10 release notes ](http://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf)
-* [Sen2Cor user forum](https://forum.step.esa.int/c/optical-toolbox/sen2cor)
-
+* [Sen2Cor käyttäjän käsikirja](https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf)
+* [Sen2Cor v2.10 julkaisuhuomautukset](http://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf)
+* [Sen2Cor käyttäjäfoorumi](https://forum.step.esa.int/c/optical-toolbox/sen2cor)

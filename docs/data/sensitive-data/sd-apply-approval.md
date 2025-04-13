@@ -1,87 +1,89 @@
-# Data approval for Data Access Committee (DAC)
+# Tietojen hyväksyntä Data Access Committeelle (DAC) {#data-approval-for-data-access-committee-dac}
 
-Data Access Committee (DAC) is established during the FEGA data submission process. After the service agreement between CSC and the data controller is in place, the data controller will designate the DAC members in the SD Apply service. The DAC is responsible for processing data access applications and managing access rights to different datasets. All the communication between DAC and the data applicant is managed using SD Apply. Each DAC is associated with specific datasets in the SD Apply catalogue. DAC members can process data access applications independently, thus only one DAC member needs to approve or reject the application. 
+Data Access Committee (DAC) perustetaan FEGA:n tietojen lähetysprosessin aikana. Kun palvelusopimus CSC:n ja tietojen hallinnoijan välillä on tehty, tietojen hallinnoija nimeää DAC-jäsenet SD Apply -palvelussa. DAC on vastuussa tietojen käyttöoikeushakemusten käsittelystä ja käyttöoikeuksien hallinnoinnista eri tietokokonaisuuksiin. Kaikki viestintä DAC:n ja tietojen hakijan välillä hoidetaan SD Apply -palvelun kautta. Jokainen DAC liittyy tiettyihin tietokokonaisuuksiin SD Apply -luettelossa. DAC-jäsenet voivat käsitellä tietojen käyttöoikeushakemuksia itsenäisesti, joten vain yhden DAC-jäsenen tarvitsee hyväksyä tai hylätä hakemus.
 
-Please note that these are general instructions for how to use SD Apply service as a DAC member. Instructions on how to process the applications should be provided by your home organisation or the data controller.
- 
-## Step 1: Login
+Huomaa, että nämä ovat yleisiä ohjeita SD Apply -palvelun käyttöön DAC-jäsenenä. Ohjeet hakemusten käsittelyyn tulee tarjota kotiorganisaatiosi tai tietojen hallinnoijan toimesta.
 
-When you have been designated as a DAC member for a dataset that is uploaded to Finnish FEGA, the data controller should ask you to login to SD Apply. You will receive email notifications from SD Apply, when an applicant applies for data access.  
+## Vaihe 1: Kirjaudu sisään {#step-1-login}
 
-Login to [SD Apply](https://sd-apply.csc.fi/) by using your identity provider (Haka, Virtu and ELIXIR login) or with CSC account credentials.
+Kun sinut on nimetty DAC-jäseneksi tietokokonaisuudelle, joka on ladattu Suomen FEGA:an, tietojen hallinnoijan tulisi pyytää sinua kirjautumaan SD Apply -palveluun. Saat sähköposti-ilmoituksia SD Apply -palvelusta, kun hakija hakee tietojen käyttöoikeutta.
 
-[![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
+Kirjaudu sisään [SD Apply](https://sd-apply.csc.fi/) -palveluun käyttämällä identiteetin tarjoajaa (Haka, Virtu ja ELIXIR login) tai CSC-tilin kirjautumistietoja.
 
-!!! note Always use the same identity provider (e.g. Haka, Virtu) when you log in to SD Apply because all your actions are connected to your login identity.
-
-## Step 2: Process applications
-
-In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for your approval. Select *View* to open the application you want to process. 
-
-[![SD Apply "Actions" tab and application](images/apply/apply_dac.png)](images/apply/apply_dac.png)
-
-On the application page, you can check 
-
-- **Applicants field**: Shows the applicant's and possible additional research group members' name and affiliation by clicking show more. All research group members should be added to the application. 
-- **Terms of use**: Shows the terms of use and agreements (e.g. Data Access Agreement) the applicant and research group members have accepted. The applicant cannot send the application without accepting the terms of use. The added members will not get access to the data before they have accepted the terms of use.
-- **Resources**: Shows the dataset the applicant is applying access to.
-- **Application**: Application form has all the information applicant has provided. This could include summary of their research, duration of the research project etc. depending on what information the data controller requires applicant to provide.
-
-### Return the application to the applicant
-
-If the application is missing necessary information, you can return it back to the applicant. Write a comment on the application or attach a file of the changes you want the applicant to make. Select *Return to applicant* under "Actions" to return the application. Note that the applicants are not able to respond to the comment.  
-
-The applicant will receive an email notification about a returned application. They can resubmit the application after editing it. Resubmitted applications will show up in the "Actions" tab. The changes the applicant has made will show as highlighted on the application form.
-
-### Request a decision or a review
-
-Only one DAC member needs to process (approve or reject) the application. Depending on the practices of your organisation, it might be needed to request a decision on the application or request an additional person to review the application. To request for a decision or a review, choose *Request review* or *Request decision* under "Actions" and locate the user in the drop-down list or use the search function. You can add one or more users. 
-
-The requested user will receive an email notification about a review or a decision request. You can still approve or reject the application even if the requested user has not reviewed the application. You will receive an email after a decision or a review has been made. 
-
-### Close the application
-
-You can close the application at any stage of the process by selecting *Close application*. Closing means that the application process is cancelled and that the application cannot be modified or opened again. Write a comment on the comment field to explain why did you close the application. Deleting applications is not possible because we want to always provide a full history of the application process. You can find closed applications in the "Actions" tab under "Processed applications".
-
-### Edit the application
-
-You can also edit applications by the following ways:
-
-- **Add terms of use**. The applicant will receive an email notification about the change in terms of use and has to accept the added policies before they will be granted access rights.
-
-- **Add or remove members**. If you do not want to grant access to all members in the application, you can remove additional members. Adding members is also possible.
-
-- **Change the applicant**. You can change the applicant to another member of the application. This can be useful if, for example, the original applicant has left the applying organisation.
-
-- **Change the resources of the application**. If the applicant is applying for access rights to multiple datasets, and you do not want to grant access to all of them, you can remove some of the datasets. It is also possible to add new resources if they have the same DAC. These will show as available in the drop-down list.
+[![SD Apply -kirjautumissivu](images/apply/apply_login.png)](images/apply/apply_login.png)
 
 !!! note
-    You can comment on the application throughout the application process by selecting *Remark* and choosing if you want to show the comment to the applicant or not. Applicants will receive a notification about new public comments. Sometimes it is useful for the applicant to see the comments so that they know how the approval process is proceeding. Note that the applicant cannot respond to the comments.
+    Käytä aina samaa identiteetin tarjoajaa (esim. Haka, Virtu) kirjautuessasi SD Apply -palveluun, sillä kaikki toimintosi yhdistetään kirjautumistunnukseesi.
 
-## Step 3: Approve or reject 
-When you have all the necessary information, you can grant or deny access to the data by selecting *Approve or reject application* under "Actions". Please give a motivation for the decision in the "Add comments" field. You can also define a date when the access rights will be automatically cancelled so that data access does not have to be manually discontinued. Once you approve or reject the application, the decision is final. You cannot edit it later.
+## Vaihe 2: Käsittele hakemuksia {#step-2-process-applications}
 
-The final decision is sent to the applicant with information on how the dataset can be accessed using SD Desktop. If you grant access rights to the dataset, the applicant will be able to access the data in SD Desktop automatically. If the applicant has added members to their application, the members will get access rights too when the application is approved, if they have accepted the terms of use. Any member not having accepted the terms of use by that time will get access rights after they log in to SD Apply and accept the terms of use.
+Siirry SD Apply -palvelussa "Toiminnot" -välilehteen nähdäksesi kaikki hyväksyntääsi odottavat hakemukset. Valitse *Näytä* avataaksesi hakemuksen, jonka haluat käsitellä.
 
-[![SD Apply processing applications](images/fega/fega_dac.png)](images/fega/fega_dac.png)
+[![SD Apply "Toiminnot" -välilehti ja hakemus](images/apply/apply_dac.png)](images/apply/apply_dac.png)
+
+Hakemussivulta voit tarkistaa:
+
+- **Hakijoiden kenttä**: Näyttää hakijan ja mahdollisten tutkimusryhmän jäsenten nimet ja yhteystiedot klikkaamalla näytä lisää. Kaikki tutkimusryhmän jäsenet tulee lisätä hakemukseen.
+- **Käyttöehdot**: Näyttää käyttöehdot ja sopimukset (esim. Data Access Agreement), jotka hakija ja tutkimusryhmän jäsenet ovat hyväksyneet. Hakija ei voi lähettää hakemusta hyväksymättä käyttöehtoja. Lisätyt jäsenet eivät saa pääsyä tietoihin ennen kuin he ovat hyväksyneet käyttöehdot.
+- **Resurssit**: Näyttää tietokokonaisuuden, johon hakija hakee pääsyä.
+- **Hakemus**: Hakemuslomakkeessa on kaikki hakijan antamat tiedot. Tämä voi sisältää yhteenvedon heidän tutkimuksestaan, tutkimusprojektin keston jne. riippuen siitä, mitä tietoja tietojen hallinnoija vaatii hakijalta.
+
+### Palauta hakemus hakijalle {#return-the-application-to-the-applicant}
+
+Jos hakemuksesta puuttuu tarpeellisia tietoja, voit palauttaa sen hakijalle. Kirjoita kommentti hakemukseen tai liitä tiedosto muutoksista, joita haluat hakijan tekevän. Valitse *Palauta hakijalle* "Toiminnot" -kohdasta palataksesi hakemuksen. Huomaa, että hakijat eivät voi vastata kommenttiin.
+
+Hakija saa sähköposti-ilmoituksen palautetusta hakemuksesta. He voivat lähettää hakemuksen uudelleen muokattuaan sitä. Uudelleen lähetetyt hakemukset näkyvät "Toiminnot" -välilehdellä. Hakijan tekemät muutokset näkyvät korostettuina hakemuslomakkeessa.
+
+### Pyydä päätös tai arvio {#request-a-decision-or-a-review}
+
+Vain yhden DAC-jäsenen tarvitsee käsitellä (hyväksyä tai hylätä) hakemus. Organisaatiosi käytännöistä riippuen voi olla tarpeen pyytää päätöstä hakemuksesta tai pyytää toista henkilöä tarkistamaan hakemus. Pyytääksesi päätöstä tai arviota valitse *Pyydä arvio* tai *Pyydä päätös* "Toiminnot" -kohdasta ja etsi käyttäjä avattavasta luettelosta tai käytä hakutoimintoa. Voit lisätä yhden tai useamman käyttäjän.
+
+Pyydetty käyttäjä saa sähköposti-ilmoituksen arvio- tai päätöspyynnöstä. Voit silti hyväksyä tai hylätä hakemuksen, vaikka pyydetty käyttäjä ei olisi tarkistanut hakemusta. Saat sähköpostin, kun päätös tai arvio on tehty.
+
+### Sulje hakemus {#close-the-application}
+
+Voit sulkea hakemuksen missä tahansa prosessin vaiheessa valitsemalla *Sulje hakemus*. Sulkeminen tarkoittaa, että hakemusprosessi perutaan ja hakemusta ei voi enää muokata tai avata uudelleen. Kirjoita kommenttikenttään selitys sille, miksi suljit hakemuksen. Hakemuksia ei voi poistaa, koska haluamme aina tarjota täydellisen historiallisen katsauksen hakemusprosessiin. Löydät suljetut hakemukset "Toiminnot" -välilehdeltä "Käsitellyt hakemukset" -kohdassa.
+
+### Muokkaa hakemusta {#edit-the-application}
+
+Voit myös muokata hakemuksia seuraavilla tavoilla:
+
+- **Lisää käyttöehdot**. Hakija saa sähköposti-ilmoituksen käyttöehtojen muutoksesta ja hänen on hyväksyttävä lisätyt käytännöt ennen kuin hänelle myönnetään käyttöoikeudet.
+
+- **Lisää tai poista jäseniä**. Jos et halua myöntää käyttöoikeuksia kaikille hakemuksen jäsenille, voit poistaa ylimääräisiä jäseniä. Jäsenten lisääminen on myös mahdollista.
+
+- **Vaihda hakijaa**. Voit vaihtaa hakijaa hakemuksen toiseksi jäseneksi. Tämä voi olla hyödyllistä, jos esimerkiksi alkuperäinen hakija on jättänyt hakijaorganisaation.
+
+- **Muuta hakemuksen resursseja**. Jos hakija hakee käyttöoikeuksia useisiin tietokokonaisuuksiin etkä halua myöntää pääsyä kaikille, voit poistaa joitakin tietokokonaisuuksia. On myös mahdollista lisätä uusia resursseja, jos niillä on sama DAC. Nämä näkyvät saatavilla olevina avattavassa luettelossa.
 
 !!! note
-    Every action is recorded in SD Apply (e.g. previous applications from the same applicant are available).
+    Voit kommentoida hakemusta koko hakemusprosessin ajan valitsemalla *Huomautus* ja valitsemalla, haluatko näyttää kommentin hakijalle vai et. Hakijat saavat ilmoituksen uusista julkisista kommenteista. Joskus on hyödyllistä, että hakija näkee kommentit, jotta hän tietää, kuinka hyväksymisprosessi etenee. Huomaa, että hakija ei voi vastata kommentteihin.
 
-## Step 3: After processing the application
+## Vaihe 3: Hyväksy tai hylkää {#step-3-approve-or-reject}
 
-You are able to manage the access rights of the applicant even after you have processed the application. You can find the processed applications from the "Actions" tab under "Processed applications". "Processed applications" view shows all the applications that have been approved, rejected, closed, or returned to the applicant. Select *View* to open a specific application.
+Kun sinulla on kaikki tarvittavat tiedot, voit myöntää tai evätä pääsyn tietoihin valitsemalla *Hyväksy tai hylkää hakemus* "Toiminnot" -kohdasta. Anna perustelut päätökselle "Lisää kommentit" -kentässä. Voit myös määrittää päivämäärän, jolloin käyttöoikeudet perutaan automaattisesti, jotta pääsy tietoihin ei tarvitse manuaalisesti lopettaa. Kun hyväksyt tai hylkäät hakemuksen, päätös on lopullinen. Et voi muokata sitä myöhemmin.
 
-### Close the application
+Lopullinen päätös lähetetään hakijalle tiedon kanssa siitä, miten tietokokonaisuutta voi käyttää SD Desktop -palvelun kautta. Jos myönnät käyttöoikeudet tietokokonaisuuteen, hakija pääsee tietoihin SD Desktop -palvelussa automaattisesti. Jos hakija on lisännyt jäseniä hakemukseensa, jäsenet saavat käyttöoikeudet myös, kun hakemus hyväksytään, jos he ovat hyväksyneet käyttöehdot. Kaikille jäsenille, jotka eivät ole hyväksyneet käyttöehtoja siihen mennessä, myönnetään käyttöoikeudet sen jälkeen, kun he kirjautuvat SD Apply -palveluun ja hyväksyvät käyttöehdot.
 
-Closing the application cancels the access rights of the applicant and other application members. When the applicant and the application members do not need the access rights anymore, for example because their research period has ended, you can cancel their access rights by selecting *Close application*.
+[![SD Apply -hakemusten käsittely](images/fega/fega_dac.png)](images/fega/fega_dac.png)
 
-### Revoke access rights
+!!! note
+    Kaikki toiminnot tallennetaan SD Apply -palveluun (esim. samalta hakijalta tulleet aiemmat hakemukset ovat saatavilla).
 
-If the applicant has been granted access rights, but they misuse them, you can revoke the rights by selecting *Revoke entitlement*. 
+## Vaihe 4: Hakemuksen käsittelyn jälkeen {#step-3-after-processing-the-application}
 
-## Support
+Voit hallita hakijan käyttöoikeuksia myös sen jälkeen, kun olet käsitellyt hakemuksen. Löydät käsitellyt hakemukset "Toiminnot" -välilehdeltä "Käsitellyt hakemukset" -kohdasta. "Käsitellyt hakemukset" -näkymä näyttää kaikki hakemukset, jotka on hyväksytty, hylätty, suljettu tai palautettu hakijalle. Valitse *Näytä*, jos haluat avata tietyn hakemuksen.
 
-If you have questions about using SD Apply, please contact [CSC Service Desk](../../support/contact.md) (subject: SD Apply).  
+### Sulje hakemus {#close-the-application}
 
-If you have questions regarding the applications or the datasets, please contact the data controller.
+Hakemuksen sulkeminen peruuttaa hakijan ja muiden hakemuksen jäsenten käyttöoikeudet. Kun hakija ja hakemuksen jäsenet eivät enää tarvitse käyttöoikeuksia, esimerkiksi koska heidän tutkimuskautensa on päättynyt, voit peruuttaa heidän käyttöoikeutensa valitsemalla *Sulje hakemus*.
+
+### Peru käyttöoikeudet {#revoke-access-rights}
+
+Jos hakijalle on myönnetty käyttöoikeudet, mutta hän käyttää niitä väärin, voit peruuttaa oikeudet valitsemalla *Peru oikeudet*.
+
+## Tuki {#support}
+
+Jos sinulla on kysymyksiä SD Apply -palvelun käytöstä, ota yhteyttä [CSC Service Desk](../../support/contact.md) (aihe: SD Apply).
+
+Jos sinulla on kysymyksiä hakemuksiin tai tietokokonaisuuksiin liittyen, ota yhteyttä tietojen hallinnoijaan.

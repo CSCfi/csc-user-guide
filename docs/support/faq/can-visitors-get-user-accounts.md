@@ -1,15 +1,16 @@
-# Can (foreign) visitors in research groups get academic CSC user accounts?
 
-Visitors can apply for a CSC user account normally for their academic work.
-Please see our
-[Free-of-charge use cases policy](https://research.csc.fi/free-of-charge-use-cases).  
+# Voivatko (ulkomaalaiset) vierailijat tutkimusryhmissä saada akateemisia CSC-käyttäjätilejä? {#can-foreign-visitors-in-research-groups-get-academic-csc-user-accounts}
 
-* If they have a Haka or Virtu account, they can
-  [create a CSC account by themselves](../../accounts/how-to-create-new-user-account.md).
-* If they don't have a Haka or Virtu account, please see
-  [Getting an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+Vierailijat voivat hakea CSC-käyttäjätiliä normaalisti akateemista työtään varten.
+Katso meidän
+[Ilmaiset käyttötapaukset -käytäntö](https://research.csc.fi/free-of-charge-use-cases).
 
-Please see the
-[Accounts section](../../accounts/index.md) and
-[general information about getting started with CSC's services](https://research.csc.fi/accounts-and-projects)
-for more information.
+* Jos heillä on Haka- tai Virtu-tili, he voivat
+  [luoda CSC-tilin itse](../../accounts/how-to-create-new-user-account.md).
+* Jos heillä ei ole Haka- tai Virtu-tiliä, katso
+  [tilin hankkiminen ilman Haka- tai Virtu-tiliä](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+
+Katso
+[Tilit-osio](../../accounts/index.md) ja
+[yleistä tietoa CSC:n palveluiden aloittamisesta](https://research.csc.fi/accounts-and-projects)
+saadaksesi lisätietoja.

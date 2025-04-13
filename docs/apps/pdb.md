@@ -1,38 +1,40 @@
+
 ---
 tags:
   - Free
 ---
 
-# pdb: Python debugger
+# pdb: Python-virheenjäljitin
 
-## Available
+## Saatavilla {#available}
 
-- Mahti: Any Python version
-- Puhti: Any Python version
+- Mahti: mikä tahansa Python-versio
+- Puhti: mikä tahansa Python-versio
 
-## License
+## Lisenssi {#license}
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Usage
+## Käyttö {#usage}
 
-[pdb](https://docs.python.org/3/library/pdb.html) is an in-built Python
-debugger that supports breakpoints, stepping through the source line by line,
-inspection of stack frames, source code listing, etc.
+[pdb](https://docs.python.org/3/library/pdb.html) on sisäänrakennettu Python
+virheenjäljitin, joka tukee katkaisupisteitä, lähdekoodin askeltamista rivi
+kerrallaan, pinokehysten tarkastelua, lähdekoodin listausta jne.
 
-There are two ways to use the debugger. Within the code (or from the
-interpreter):
+Virheenjäljitin voidaan käyttää kahdella tavalla. Koodin sisällä (tai
+tulkin kautta):
 
 ```
 import pdb
 pdb.run('functbd(list_parameters)')
 ```
 
-Alternatively pdb can also be invoked as a script to profile another script:
+Vaihtoehtoisesti pdb voidaan käynnistää myös skriptinä toisen skriptin
+profiilin tekemiseksi:
 
 ```
 python -m pdb myscript.py
 ```
 
-Running `pdb` will open the prompt which supports various commands such as
-`where`, `down`, `up`, `up`, `break`, `step`, `next`, `jump`, `list`.
+Suorittamalla `pdb` avautuu kehote, joka tukee eri komentoja kuten
+`where`, `down`, `up`, `break`, `step`, `next`, `jump`, `list`.

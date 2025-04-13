@@ -1,71 +1,23 @@
-# Working with containers in CSC's computing environment
+# Työskentely CSC:n laskentaympäristön konttien kanssa
 
-The use of containers in HPC environments is increasing due to advances in HPC-friendly
-technologies such as [Singularity/Apptainer](https://apptainer.org/), which can be
-launched from a [Lustre parallel file system](../lustre.md) without root privileges.
-Here are a few benefits that one can get by using containerized applications:
+Konttien käyttö HPC-ympäristöissä lisääntyy HPC-ystävällisten teknologioiden kehittymisen myötä, kuten [Singularity/Apptainer](https://apptainer.org/), joita voidaan käynnistää [Lustre-rinnakkaistiedostojärjestelmästä](../lustre.md) ilman root-oikeuksia. Tässä on joitain etuja, joita konttil-sovellusten käytöstä voi saada:
 
-- **Shorter startup times:** As containers have less overhead (no need to load OS!),
-  they can be launched quite quickly. For example, when working with large Python
-  environments, you can easily see a difference in start-up times between a containerized
-  environment and the application installed directly on the shared file system using
-  Conda. This applies especially when running at scale on an HPC system.
-- **File I/O throughput:**  Deploying I/O intensive jobs on HPC systems is a major
-  issue for Lustre file systems. While containers might not provide a full solution,
-  the fact that containerized applications start from a single image file results in
-  significantly fewer requests to the Lustre server nodes (OSS and MDS) compared to
-  Conda-based installations, which read an excessive number of files each time an
-  application is launched. [SquashFS images](run-existing.md#mounting-datasets-with-squashfs)
-  can also be used together with Apptainer containers to create compact images
-  of your dataset that are interpreted as a single file by Lustre.
-- **Portability and reproducibility:** Containerized applications can be deployed
-  easily in different computing environments and they run the same way regardless
-  of where they are deployed.
-- **Greater efficiency:** As containers are lightweight in nature, CPU and memory
-  utilization is not an issue. Thus, containerized applications are easy to scale
-  up across the cluster.
-- **Easy installation:** Once you have an apptainer image, launching a container
-  from the image is very easy. No real installation is needed.
+- **Lyhyemmät käynnistysajat:** Koska konteilta puuttuu ylimääräinen kuormitus (ei tarvitse ladata käyttöjärjestelmää!), ne voidaan käynnistää melko nopeasti. Esimerkiksi suurien Python-ympäristöjen kanssa työskennellessä voi helposti nähdä eron käynnistysajoissa kontillotun ympäristön ja suoraan jaetulle tiedostojärjestelmälle Condalla asennetun sovelluksen välillä. Tämä koskee erityisesti HPC-järjestelmässä ajettaessa laajamittaisesti.
+- **Tiedosto I/O-läpäisevyys:** I/O-intensiivisten töiden sijoittaminen HPC-järjestelmiin on suuri haaste Lustre-tiedostojärjestelmille. Vaikka kontei ei välttämättä tarjoa täydellistä ratkaisua, se, että konteilta käynnistyvät sovellukset alkavat yhdestä kuva-tiedostosta, johtaa huomattavasti vähempiin pyyntöihin Lustre-palvelinsolmuille (OSS ja MDS) verrattuna Conda-asennuksiin, jotka lukevat liiallisen määrän tiedostoja aina, kun sovellus käynnistetään. [SquashFS-imaget](run-existing.md#mounting-datasets-with-squashfs) voidaan myös käyttää yhdessä Apptainer-konttien kanssa, jotta datasetistä luodaan tiiviitä kuva-tiedostoja, jotka Lustre tulkitsee yhdeksi tiedostoksi.
+- **Siirrettävyys ja toistettavuus:** Kontti-sovellukset voidaan ottaa helposti käyttöön eri laskentaympäristöissä, ja ne toimivat samalla tavalla riippumatta niiden sijoituspaikasta.
+- **Parempi tehokkuus:** Koska konteilta ovat luonteeltaan kevyitä, CPU- ja muistinkäyttö ei ole ongelma. Siksi konteilta-sovellukset on helppo laajentaa klusterin yli.
+- **Helppo asennus:** Kun sinulla on apptainer-kuva, kontin käynnistäminen kuvasta on erittäin helppoa. Yhtään varsinaista asennusta ei tarvita.
 
-To make working with containers in CSC's environment as transparent and easy as
-possible, a [container wrapper tool](tykky.md) for packaging installations has
-been made available.
+Jotta työskentely konttien kanssa CSC:n ympäristössä olisi mahdollisimman läpinäkyvää ja helppoa, on tarjolla [konttikääreettyökalu](tykky.md) asennuspakettien pakkaamiseen.
 
-## A non-technical description
+## Epätekninen kuvaus {#a-non-technical-description}
 
-As a beginner-friendly introduction to containers, let's use the analogy of packaging
-a pet in a cage before traveling. A pet essentially needs a living environment (food,
-water, etc.) and a cage to contain the living environment. Once a pet is packaged,
-a traveler can take it (e.g. by car, train, flight, etc...) wherever without affecting
-the function of the pet by the external environment. Similarly, imagine how a developer
-could ensure the same functionality of an application independent of the host environment.
-One solution is to run the application in an isolated environment (just like caging).
-In other words, packaging up the whole application (process) along with its dependencies
-ensures the same runtime environment for the application independent of the host
-computing environment. This is essentially the basic idea behind containers.
+Aloittelijaystävällisenä johdatuksena kontteihin käytetään analogiaa lemmikin pakkaamisesta häkkiin ennen matkaa. Lemmikkieläin tarvitsee olennaisesti elinympäristön (ruokaa, vettä jne.) ja häkin elinympäristön sisällä pitämiseen. Kun lemmikki on lyöty häkkiin, matkustaja voi kuljettaa sen (esim. autolla, junalla, lentäen jne.) minne tahansa ilman, että ulkoinen ympäristö vaikuttaa lemmikin toimintaan. Tällä tavalla myös kehittäjä voi varmistaa sovelluksen samanlaisen toiminnan ympäristövaihtelusta riippumatta. Yksi ratkaisu on ajaa sovellusta eristetyssä ympäristössä (kuten häkittämällä). Toisin sanoen koko sovelluksen (prosessin) pakkaaminen riippuvuuksineen varmistaa samanlaisen ajo-ympäristön sovellukselle riippumatta isännöivästä laskentaympäristöstä. Tämä on olennaisesti konttien perusidea.
 
-Let's now understand how an application runs in an isolated environment at a slightly
-more technical level. The Linux kernel process controls access to the computer hardware.
-All other processes rely on the kernel to interact with the environment, memory, disks,
-network, etc. One could say that all processes, except the kernel, live inside a bubble
-(i.e, host environment), created by the kernel. Normally, when you start new processes,
-the kernel copies the environment from the parent process to the new child processes.
-The child processes live inside the same bubble. However, when starting a new process,
-you can ask the kernel to show a completely different environment to the child process.
-This is called "running the application in a container". In particular, you can ask the
-kernel to show a completely different root file system to the new process. The file
-system can come from a single file, "a container image", that the kernel just shows
-to the new process as a regular file system. This file system image can contain
-completely different files from the file system of the parent process. Effectively,
-this allows packaging all the necessary components of a given Linux distribution and
-all the software dependencies for an application into a single file, which can be run
-in any Linux machine with a suitable kernel and virtualization support. In cloud
-environments, this makes it possible to run applications transparently irrespective
-of the Linux distribution. In HPC environments this can also mitigate the above outlined
-parallel file system performance issues.
+Ymmärretään nyt, miten sovellus toimii eristetyssä ympäristössä hieman teknisemmällä tasolla. Linux-ytimen prosessi hallitsee pääsyä tietokoneen laitteistoon. Kaikki muut prosessit luottavat ytimeen vuorovaikutuksessa ympäristön, muistin, levyjen, verkon ja muiden kanssa. Voidaan sanoa, että kaikki prosessit, paitsi ydin, elävät kuplassa (isäntäympäristö), jonka ydin luo. Normaalisti, kun aloitat uusia prosesseja, ydin kopioi ympäristön yläprosessista uusiin ali-prosesseihin. Näin ali-prosessit elävät samassa kuplassa. Kun kuitenkin aloitat uuden prosessin, voit pyytää ydintä näyttämään täysin erilaisen ympäristön ali-prosessille. Tätä kutsutaan "sovelluksen ajaksi kontin sisällä". Erityisesti voit pyytää ydintä näyttämään täysin erilaisen juuritiedostojärjestelmän uudelle prosessille. Tiedostojärjestelmä voi tulla yhdestä tiedostosta, "konttikuva", jota ydin näyttää uudelle prosessille normaalina tiedostojärjestelmänä. Tämä tiedostojärjestelmäkuva voi sisältää täysin erilaisia tiedostoja kuin yläprosessin tiedostojärjestelmä. Käytännössä tämä mahdollistaa kaikki tarvittavat komponentit tietystä Linux-jakelusta ja kaikki sovelluksen ohjelmistoriippuvuudet pakattuna yhdeksi tiedostoksi, jota voidaan ajaa millä tahansa Linux-koneella, jossa on sopiva ydin ja virtualisointituki. Pilviympäristöissä tämä mahdollistaa sovellusten ajamisen läpinäkyvästi riippumatta Linux-jakelusta. HPC-ympäristöissä tämä voi myös lieventää edellä mainittuja rinnakkaistiedostojärjestelmän suorituskykyyn liittyviä ongelmia.
 
-## More information on creating and running containers at CSC
+## Lisätietoa konttien luomisesta ja ajamisesta CSC:ssä {#more-information-on-creating-and-running-containers-at-csc}
 
-- [Creating HPC-friendly containers](creating.md)
-- [Running existing containers](run-existing.md)
-- [Easy-to-use container wrapper tool](tykky.md)
+- [HPC-ystävällisten konttien luominen](creating.md)
+- [Olemassa olevien konttien ajaminen](run-existing.md)
+- [Helppokäyttöinen konttikääreettyökalu](tykky.md)

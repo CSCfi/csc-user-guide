@@ -1,10 +1,12 @@
-# Learn cloud computing by developing and deploying a web application
-This tutorial will teach you how to use CSC's [Cloud](../index.md) services by developing a web application and deploying it on the cloud. The tutorial assumes basic knowledge of the Linux operating system, Git version control system, Julia language, and SQL databases. We recommend reading the Linux basics tutorial for understanding basic [Linux command line usage](../../../support/tutorials/env-guide/index.md).
 
-You can find the web application from the [csc-training/GenieWebApp.jl](https://github.com/csc-training/GenieWebApp.jl) repository. You can start by cloning the GitHub repository.
+# Opi pilvilaskentaa kehittämällä ja ottamalla käyttöön verkkosovelluksen {#learn-cloud-computing-by-developing-and-deploying-a-web-application}
+Tässä oppaassa opit käyttämään CSC:n [pilvipalveluita](../index.md) kehittämällä verkkosovelluksen ja ottamalla sen käyttöön pilvessä. Opas edellyttää perustietämystä Linux-käyttöjärjestelmästä, Git-versionhallintajärjestelmästä, Julia-kielestä ja SQL-tietokannoista. Suosittelemme tutustumaan Linuxin perusteisiin opastavaan [Linux-komentorivin käyttöoppaaseen](../../../support/tutorials/env-guide/index.md).
+
+Verkkosovelluksen löydät [csc-training/GenieWebApp.jl](https://github.com/csc-training/GenieWebApp.jl) -tietovarastosta. Voit aloittaa kloonaamalla GitHub-repositorion.
 
 ```bash
 git clone https://github.com/csc-training/GenieWebApp.jl.git
 ```
 
-Then, you can continue by reading the [GenieWebApp.jl's documentation](https://csc-training.github.io/GenieWebApp.jl/dev/), which contains in-depth instruction on developing and deploying the application using a web user interface and command-line interface to a virtual machine on [Pouta](../index.md) with OpenStack and OpenShift container platform on [Rahti](../../rahti/index.md). By following the instructions, you will learn the basic usage of both services.
+Sen jälkeen voit jatkaa lukemalla [GenieWebApp.jl:n dokumentaation](https://csc-training.github.io/GenieWebApp.jl/dev/), joka sisältää yksityiskohtaiset ohjeet sovelluksen kehittämiseen ja käyttöönottoon verkkokäyttöliittymän ja komentoriviliittymän avulla virtuaalikoneessa [Pouta](../index.md):ssa OpenStack- ja OpenShift-konttialustalla [Rahti](../../rahti/index.md). Noudattamalla ohjeita opit molempien palveluiden peruskäytön.
+

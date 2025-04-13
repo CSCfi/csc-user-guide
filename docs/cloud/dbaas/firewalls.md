@@ -1,96 +1,93 @@
-# Using Firewalls in Pukki
 
-All database instances have their own firewalls. Users are responsible for making sure that the firewall rules are strict. The firewall rules should only be open to those IP-addresses that is needed. Relaxed firewall rules are probably some of the largest security risks and you need to take it seriously. Even if you don't have any "secret" data in your database, you are not allowed to have it open to the world. If you want to share your data, you should do it through a proxy or other services that might use the database as a backend. Leaving a database port open on the internet is an sure-fire way to attract malicious actors to target your database.
+# Palomuurien käyttö Pukissa {#using-firewalls-in-pukki}
 
-## How to manage firewalls
+Kaikilla tietokantaesiintymillä on omat palomuurinsa. Käyttäjien vastuulla on varmistaa, että palomuurisäännöt ovat tiukat. Palomuurisääntöjen tulisi olla auki vain niille IP-osoitteille, joita tarvitaan. Löyhät palomuurisäännöt ovat todennäköisesti yksi suurimmista tietoturvariskeistä, ja ne tulee ottaa vakavasti. Vaikka tietokannassasi ei olisi mitään "salaista" tietoa, sitä ei silti saa jättää avoimeksi maailmalle. Jos haluat jakaa tietojasi, sinun tulisi tehdä se välityspalvelimen tai muiden palveluiden kautta, jotka voivat käyttää tietokantaa taustajärjestelmänä. Tietokantaportin jättäminen auki internetissä on varma tapa houkutella pahantahtoisia toimijoita kohdistamaan hyökkäyksiä tietokantaasi.
 
-You can change the firewalls from the [web interface](https://pukki.dbaas.csc.fi) on existing
-instances by pressing the "Update Instance".
+## Palomuurien hallinta {#how-to-manage-firewalls}
 
-With the [openstack CLI](cli.md) tool you can use the `opsenstack database instance update --help` command.
-Note that the command override the existing firewalls rules which means that you need to set all
-the firewall opening each time you update the firewalls for an instance with `--allowed-cidr` flag.
+Voit muuttaa palomuureja [verkkokäyttöliittymässä](https://pukki.dbaas.csc.fi) olemassa olevissa
+esiintymissä painamalla "Päivitä esiintymä".
 
-## Single IP or subnet
+[openstack CLI](cli.md) -työkalulla voit käyttää `opsenstack database instance update --help` -komentoa.
+Huomaa, että komento korvaa olemassa olevat palomuurisäännöt, mikä tarkoittaa, että sinun on määritettävä
+kaikki palomuurin avaukset joka kerta, kun päivität palomuurit esiintymälle `--allowed-cidr` -lipulla.
 
-By adding the "CIDR notion" `/32` to the end of an IP like `192.168.0.1/32` it means that you only
-allow that specific IP.
+## Yksittäinen IP tai verkko-osa {#single-ip-or-subnet}
 
-It is also possible to allow a subnet for example `/24` if you want to allow a whole network e.g.
-your office network. The smallest mask that is allowed is `/22` that is 1024 IP addresses.
-Pukki does not allow `0.0.0.0/0` since it would be too easy to set this value and forget that your
-database instance is accessible from the whole internet.
+Lisäämällä "CIDR-ilmaisun" `/32` IP:n loppuun, kuten `192.168.0.1/32`, tarkoittaa, että sallitaan vain kyseinen IP.
 
-## Firewall openings from other CSC-services
+On myös mahdollista sallia verkko-osa esimerkiksi `/24`, jos halutaan sallia koko verkko esim.
+toimistoverkko. Pienin sallittu maski on `/22`, mikä on 1024 IP-osoitteelle.
+Pukki ei salli `0.0.0.0/0`, koska olisi liian helppoa asettaa tämä arvo ja unohtaa, että tietokantaesiintymään pääsee käsiksi koko internetistä.
 
-To be able to access your database from other CSC services you need to allow some ingress traffic.
-This is done by allowing subnets.
+## Palomuurin avaukset muista CSC-palveluista {#firewall-openings-from-other-csc-services}
 
-### cPouta
+Jotta voit käyttää tietokantaasi muista CSC-palveluista, sinun on sallittava jonkin verran saapuvaa liikennettä.
+Tämä tehdään sallimalla verkko-osa.
 
-* If your server from where you want to connect to your database instances have a "floating IP"
-(public IP) you want to allow that IP in Pukki.
-* If your server does not have a floating IP you need to allow the routers "External Fixed IPs".
-You can find the IP from the Pouta web interface under Network -> Routers -> The specific router ->
-"External Fixed IPs"
+### cPouta {#cpouta}
 
+* Jos palvelimellasi, josta haluat yhdistää tietokantaesiintymiin, on "kelluva IP"
+(julkinen IP), sinun on sallittava se IP Pukissa.
+* Jos palvelimellasi ei ole kelluvaa IP:tä, sinun on sallittava reitittimien "Ulkoiset kiinteät IP:t".
+Voit löytää IP:n Pouta-verkkokäyttöliittymästä kohdasta Verkko -> Reitittimet -> Tietty reititin ->
+"Ulkoiset kiinteät IP:t"
 
-### ePouta
+### ePouta {#epouta}
 
-It is important to remember that all traffic from ePouta to Pukki will be going over "the internet"
-which might be in conflict with why you have chosen to use ePouta in first place.
+On tärkeää muistaa, että kaikki liikenne ePoudasta Pukkiin kulkee "internetin yli",
+mikä saattaa olla ristiriidassa sen kanssa miksi valitsit ePoudan käyttääksesi alunperin.
 
-1. If you still want to allow access to Pukki. You must ensure that your home organization firewalls
-will allow traffic to your database instance in Pukki.
-2. If you are using a "public IP range" in ePouta then you can just update your database instance
-with the new IP address with the "CIDR notation" (suffix) `/32`.
+1. Jos haluat silti sallia pääsyn Pukkiin, sinun on varmistettava, että organisaatiosi palomuurit
+sallivat liikenteen tietokantaesiintymääsi Pukissa.
+2. Jos käytät "julkista IP-aluetta" ePoudassa, voit yksinkertaisesti päivittää tietokantaesiintymäsi
+uudella IP-osoitteella "CIDR-ilmaisun" (liite) `/32` kanssa.
 
-### Rahti
+### Rahti {#rahti}
 
-Rahti is using a `86.50.229.150/32` as a shared outgoing IP address. Note that if you are using
-Rahti with the shared outgoing IP-address all other Rahti customers can access to your database
-which makes it even more important to use a strong username and password for your database.
+Rahti käyttää `86.50.229.150/32` yhteisenä lähtevänä IP-osoitteena. Huomaa, että jos käytät
+Rahtia yhteisellä lähtevällä IP-osoitteella, kaikki muut Rahti-asiakkaat voivat päästä käsiksi tietokantaasi,
+mikä tekee entistä tärkeämmäksi käyttää vahvaa käyttäjätunnusta ja salasanaa tietokantaasi.
 
-More information can be found in [Rahti security guide](../rahti/security-guide.md)
+Lisätietoa löytyy [Rahtin turvallisuusoppaasta](../rahti/security-guide.md)
 
+### Noppe {#noppe}
+Jos sinun on päästävä käsiksi Pukkisi tietokantaesiintymään Noppesta, sinun on sallittava tämä IP
+`193.167.189.137/32`. Huomaa, että myös kaikki muut Notebook-käyttäjät pääsevät tietokantaesiintymiin,
+joten on tärkeää käyttää vahvoja salasanoja tietokantakäyttäjissäsi.
 
+### Puhti {#puhti}
 
-### Noppe
-If you need to access your Pukki database instance from Noppe then you need to allow this IP
-`193.167.189.137/32` . Note that all other Notebook users will be able to access your database
-instances as well so it is important to use strong passwords for your database user.
-
-### Puhti
-
-Accessing your Pukki database from login and compute nodes you can allow this:
+Päästäksesi Pukkisi tietokantaan kirjautumis- ja laskentasolmuisista voit sallia tämän:
 
 ```
 86.50.164.176/28
 ```
 
 <!--
-If one would like to have even strictre rules one could limit it only these
-puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
+Jos haluat vieläkin tiukempia sääntöjä, voit rajoittaa sen vain näihin
+puhti-nat-[1,2].csc.fi ja puhti-login[11-15].csc.fi
 -->
 
-### Mahti
+### Mahti {#mahti}
 
-Accessing your Pukki database from Mahti from both login nodes and compute node you can allow this:
+Päästäksesi Pukkisi tietokantaan Mahdilta kirjautumis- ja laskentasolmuisista voit sallia tämän:
 
 ```
 86.50.165.192/27
 ```
 
 <!--
-Some alternatives:
+Vaihtoehdoista:
 86.50.165.192/27
 86.50.165.200/30 + 86.50.165.208/28
 86.50.165.200/30 + 86.50.165.208/29 + 86.50.165.216/32
 86.50.165.200/30 + 86.50.165.211/32 + 86.50.165.212/30 + 86.50.165.216/32
 -->
-### LUMI
 
-Accessing your Pukki database from LUMI you need to allow the follow CIDR:
+### LUMI {#lumi}
+
+Päästäksesi Pukkisi tietokantaan LUMI:sta sinun on sallittava seuraava CIDR:
 
 ```
 193.167.209.160/28

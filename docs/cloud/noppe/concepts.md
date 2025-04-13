@@ -1,94 +1,93 @@
-# Concepts
+# Konseptit
 
-This document defines terminology in Noppe service.
+Tämä asiakirja määrittelee terminologian Noppe-palvelussa.
 
-Noppe is a CSC cloud service for interactive web based applications
+Noppe on CSC:n pilvipalvelu interaktiivisille verkkopohjaisille sovelluksille
 
-## Application template
+## Sovelluspohja {#application-template}
 
-- Created by Admin
-- Defines Application container image and configuration
-- Defines resource limits (such as memory)
-- See [the source code for images](https://github.com/CSCfi/noppe-public-images/tree/master/builds){target="_blank"} 
-  for technical details
+- Luo ylläpitäjä
+- Määrittää sovelluskonteinerikuvan ja konfiguraation
+- Määrittää resurssirajat (kuten muisti)
+- Katso [kuvien lähdekoodi](https://github.com/CSCfi/noppe-public-images/tree/master/builds){target="_blank"} teknisiä yksityiskohtia varten
 
-## Application
+## Sovellus {#application}
 
-- Predefined content for one learning session
-- Based on a Docker container - either JupyterLab or RStudio
-- Created by Workspace manager based on Application template
+- Esimääritelty sisältö yhdelle oppimistuokiolle
+- Perustuu Docker-konttiin - joko JupyterLab tai RStudio
+- Työpajapäällikön luoma sovelluspohjan perusteella
 
-## Application session aka Session
+## Sovellussessio eli Sessio {#application-session-aka-session}
 
-- One running copy of an Application
-- Started and managed by User
-- Has lifetime set by Application
+- Yksi käynnissä oleva kopio sovelluksesta
+- Käyttäjä käynnistää ja hallitsee
+- Sovellus määrittää eliniän
 
-## Workspace
+## Työtila {#workspace}
 
-- A container for Applications and Users
-- Tied to a Cluster
-- Has an Owner
-- May have Co-owners
-- Has a lifetime
-- May contain persistent folders (Workspace `shared`, Users' `my-work`). See [Storage in Noppe](data_persistence.md)
-- Has a maximum number of Applications (10 by default)
-- Has a limit for total memory for concurrent sessions
+- Kontti sovelluksille ja käyttäjille
+- Sidottu klusteriin
+- Omistajalla
+- Voi olla yhteisomistajia
+- On elinikä
+- Voi sisältää pysyviä kansioita (Työtilan `shared`, käyttäjien `my-work`). Katso [Tietojen pysyvyys Noppessa](data_persistence.md)
+- Enimmäismäärä sovelluksia (oletusarvoisesti 10)
+- Muistin kokonaismääräraja yhtäaikaisille sessioille
 
-## My Work folder
+## Oma työkansio {#my-work-folder}
 
-- Private directory per user per workspace, storing data between Application session launches
-- Available in the Application session (if enabled by Owner) as `$HOME/my-work`
-- Is tied to a Workspace
-- Has lifetime tied to a Workspace
+- Yksityinen hakemisto käyttäjää kohden työtilassa, joka tallentaa tietoja sovellussession käynnistysten välillä
+- Käytettävissä sovellussessiossa (jos omistaja sen sallii) nimellä `$HOME/my-work`
+- Sidottu työtilaan
+- Elinikä sidottu työtilaan
 
-## Workspace shared folder
+## Työtilan jaettu kansio {#workspace-shared-folder}
 
-- Shared directory available to all users in a Workspace
-- Is writable only by Workspace manager
-- Is tied to a workspace
-- Has lifetime tied to a Workspace
-- Note that notebook files should not be executed within "shared" but rather moved to "my-work" folder
+- Jaettu hakemisto, joka on saatavilla kaikille työtilan käyttäjille
+- Kirjoitusoikeus vain työpajapäälliköllä
+- Sidottu työtilaan
+- Elinikä sidottu työtilaan
+- Huomaa, että muistikirjatiedostoja ei tulisi suorittaa "shared"-kansiossa vaan siirtää "my-work"-kansioon
 
-## Join code
+## Liittymiskoodi {#join-code}
 
-- Unique Code generated for each workspace
-- Workspace owner distributes this code for users to join the workspace
+- Yksilöllinen koodi, joka luodaan jokaiselle työtilalle
+- Työtilan omistaja jakaa tämän koodin, jotta käyttäjät voivat liittyä työtilaan
 
-## End user
+## Loppukäyttäjä {#end-user}
 
-- A Workspace member or a user of public Applications
-- Is authenticated
-- May launch Application sessions
-- Has access to public Applications
-- May be part of Workspaces
-- Has access to Workspace Applications through membership
+- Työtilan jäsen tai julkisten sovellusten käyttäjä
+- Todennettu
+- Voi käynnistää sovellussessioita
+- Pääsy julkisiin sovelluksiin
+- Voi kuulua työtiloihin
+- Pääsy työtilan sovelluksiin jäsenyyden kautta
 
-## Workspace owner
+## Työtilan omistaja {#workspace-owner}
 
-- User that owns Workspaces or has been assigned Quota to create Workspaces 
-- Principal of the Workspace
-- Creates Workspace and the content in the Workspace for the workspace members
-- May invite Users to become members in a workspace by sharing the Join code
-- May promote members to Co-owners
-- May demote Co-owners to members
-- May add Applications based on Applications templates
+- Käyttäjä, joka omistaa työtilat tai jolle on annettu kiintiö työtilojen luomiseen
+- Työtilan johtaja
+- Luo työtilan ja sisällön työtilan jäsenille
+- Voi kutsua käyttäjiä jäseniksi jakamalla liittymiskoodin
+- Voi ylentää jäseniä yhteisomistajiksi
+- Voi alentaa yhteisomistajia jäseniksi
+- Voi lisätä sovelluksia sovelluspohjien perusteella
 
-## Workspace co-owner
+## Työtilan yhteisomistaja {#workspace-co-owner}
 
-- Can create content in the Workspace
-- May promote members to Co-owners
-- May demote Co-owners to members
-- May invite users to become members in a workspace by sharing the join code
-- May add Applications based on Applications templates
+- Voi luoda sisältöä työtilassa
+- Voi ylentää jäseniä yhteisomistajiksi
+- Voi alentaa yhteisomistajia jäseniksi
+- Voi kutsua käyttäjiä jäseniksi jakamalla liittymiskoodin
+- Voi lisätä sovelluksia sovelluspohjien perusteella
 
-## Admin
+## Ylläpitäjä {#admin}
 
-- System administrator at CSC
-- Has full rights in the system
+- Järjestelmänvalvoja CSC:ssä
+- Täydet oikeudet järjestelmässä
 
-## Cluster
+## Klusteri {#cluster}
 
-- A resource for executing the Application sessions
-- In practice: some sort of Kubernetes cluster in CSC cloud
-- Configured by Admin
+- Resurssi sovellussessioiden suorittamiseen
+- Käytännössä: jonkinlainen Kubernetes-klusteri CSC:n pilvessä
+- Ylläpitäjän konfiguroima

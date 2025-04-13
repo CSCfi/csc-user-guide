@@ -1,18 +1,16 @@
-# Access and authentication
+# Pääsy ja tunnistautuminen {#access-and-authentication}
 
-## Are CSC Sensitive Data Services accessible through the public internet?
-Yes, SD Connect and SD Desktop are directly accessible through the public internet with any modern web browser (e.g., Google Chrome or Firefox), without installing any software or using a VPN.
+## Ovatko CSC:n Herkkädatan palvelut käytettävissä julkisen internetin kautta? {#are-csc-sensitive-data-services-accessible-through-the-public-internet}
+Kyllä, SD Connect ja SD Desktop ovat suoraan käytettävissä julkisen internetin kautta millä tahansa nykyaikaisella verkkoselaimella (esim. Google Chrome tai Firefox), ilman ohjelmistojen asentamista tai VPN:n käyttämistä.
 
-## How can I start using CSC Sensitive Data Services?
+## Miten voin alkaa käyttää CSC:n Herkkädatan palveluita? {#how-can-i-start-using-csc-sensitive-data-services}
 
-If you are processing research data, you can set up a CSC account and a CSC project (see: user guide or video tutorials). You can then access the services at any time.
+Jos käsittelet tutkimusdatan, voit perustaa CSC-tilin ja CSC-projektin (katso: käyttäjän opas tai videotutoriaalit). Voit sitten käyttää palveluita milloin tahansa.
 
-To access register data under the Act on Secondary Use, contact us at servicedes@csc.fi (subject: Sensitive Data) and provide a Findata permit. Then, we will guide you through the following steps. 
+Päästäksesi käyttämään rekisteridataa Toissijaisen käytön lain nojalla ota yhteyttä sähköpostitse servicedes@csc.fi (aihe: Herkkädata) ja toimita Findata-lupa. Opastamme sinua tämän jälkeen seuraavissa vaiheissa.
 
-SD Submit and Federated EGA, the services for submitting sensitive data to a national repository for re-use, are in the pilot phase. Contact us at servicedesk@csc.fi (subject: Sensitive Data) for more information.
+SD Submit ja Federated EGA, palvelut herkän datan lähettämiseen kansalliseen tietovarastoon uudelleenkäyttöä varten, ovat pilottivaiheessa. Ota yhteyttä sähköpostitse servicedesk@csc.fi (aihe: Herkkädata) saadaksesi lisätietoja.
 
+## Tarjoaako CSC monivaiheisen tunnistautumisen (MFA)? {#does-csc-provide-multi-factor-authentication-mfa}
 
-
-## Does CSC provide Multi-Factor Authentication (MFA)?
-
-Yes, a second verification step (MFA) is enabled on SD Desktop and SD Connect. For specific guidance regarding the MFA activation on your CSC account, see the [Multi-factor Authentication paragraph](../../accounts/mfa.md).
+Kyllä, toinen varmennusvaihe (MFA) on käytössä SD Desktopissa ja SD Connectissa. Tarkempia ohjeita CSC-tilisi MFA-aktivoinnista löydät kohdasta [Monivaiheinen Tunnistautuminen](../../accounts/mfa.md).

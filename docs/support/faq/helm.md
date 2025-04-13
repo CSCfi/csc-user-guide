@@ -1,25 +1,25 @@
-# How to package a Kubernetes application with Helm
+# Kuinka paketoida Kubernetes-sovellus Helmillä {#how-to-package-a-kubernetes-application-with-helm}
 
-[Helm](https://helm.sh/) is the "The package manager for Kubernetes", it allows the management of the life-cycle of a Kubernetes application (deploy, configure, upgrade, retire, ...). It is an **Infrastructure as Code** (IaC) tool, so it allows us to version control an application and follow its evolution along time, make identical copies (prod, preprod, dev, ...) and predictable upgrades, and of course share and publish the application. It is one of the main tools used upstream, if a tool has a "Kubernetes deployment" it is most likely going to be using Helm.
+[Helm](https://helm.sh/) on "Kubernetesin pakettien hallintatyökalu", joka mahdollistaa Kubernetes-sovelluksen elinkaaren hallinnan (kuten julkaisemisen, konfiguroinnin, päivityksen, poistamisen jne.). Se on **Infrastructure as Code** (IaC) työkalu, joten sen avulla voimme versionhallita sovelluksen, seurata sen kehitystä ajan myötä, luoda identtisiä kopioita (tuotanto, esituotanto, kehitys jne.), toteuttaa ennakoitavia päivityksiä sekä jakaa ja julkaista sovelluksen. Se on yksi tärkeimmistä työkaluista ylävirrassa, ja jos jollakin työkalulla on "Kubernetes-implementointi", se todennäköisesti käyttää Helmiä.
 
-## Introduction
+## Esittely {#introduction}
 
-Helm packages applications into Charts. A Helm chart is a collection of `YAML` templates. In order to create a chart, one must first [install the Helm](https://helm.sh/docs/intro/install/) command line tool and install the [oc command line](../../cloud/rahti/usage/cli.md) tool. Once done, to continue:
+Helm paketoi sovelluksia kartoiksi (Charts). Helm-kartta on kokoelma `YAML`-malleja. Kartan luomiseksi sinun täytyy ensin [asentaa Helm](https://helm.sh/docs/intro/install/) komentorivityökalu ja asentaa [oc komentorivityökalu](../../cloud/rahti/usage/cli.md). Kun tämä on tehty, voit jatkaa seuraavasti:
 
-Make sure you are logged in:
+Varmista, että olet kirjautunut sisään:
 
 ```sh
 oc whoami
 ```
 
-this should return your Rahti username. Then create an example chart:
+Tämän pitäisi palauttaa Rahti-käyttäjätunnuksesi. Luo sitten esimerkki-kartta:
 
 ```sh
 $ helm create example
 Creating example
 ```
 
-the result will be:
+Tulos on:
 
 ```sh
 $ find example
@@ -40,27 +40,27 @@ example/charts
 example/.helmignore
 ```
 
-It creates a mostly self-explanatory skeleton of a Chart. The structure is:
+Se luo pääosin itsestään selvän karttarakenteen. Rakenne on:
 
-* The `Chart.yaml` file contains basic description values: `name`, `description`, `version`, ...
-* The `values.yaml` file contains default values for the Chart and shows which parameters can be configured.
-* The `.helmignore` contains the patterns to ignore, it is similar to `gitignore`. WE will not change this file.
-* The `charts` folder contains the other charts that this one depends on. We will not use this feature.
-* Finally the `templates` folder contains the different API Kubernetes objects to be deployed. The [templates engine syntax](https://helm.sh/docs/chart_template_guide/) allows for a great deal of configurability. It supports [Built-in Objects](https://helm.sh/docs/chart_template_guide/builtin_objects/) that for example show the current cluster capabilities, it supports external [values files](https://helm.sh/docs/chart_template_guide/values_files/) where each deployment of the application can have its own separate value file, it has an extensive list of [template functions](https://helm.sh/docs/chart_template_guide/function_list/), [flow control](https://helm.sh/docs/chart_template_guide/control_structures/), and more.
+* `Chart.yaml`-tiedosto sisältää peruskuvauksen arvot: `name`, `description`, `version`, ...
+* `values.yaml`-tiedosto sisältää oletusarvot kartalle ja näyttää, mitkä parametrit ovat konfiguroitavissa.
+* `.helmignore` sisältää mallit, jotka tulee jättää huomioimatta, se on samanlainen kuin `gitignore`. Emme muuta tätä tiedostoa.
+* `charts`-kansio sisältää muut kartat, joista tämä riippuu. Emme käytä tätä ominaisuutta.
+* Lopuksi `templates`-kansio sisältää eri Kubernetes API -objektit, jotka otetaan käyttöön. [Mallimoottorin syntaksi](https://helm.sh/docs/chart_template_guide/) mahdollistaa suuren joustavuuden. Se tukee [sisäänrakennettuja objekteja](https://helm.sh/docs/chart_template_guide/builtin_objects/), jotka esimerkiksi osoittavat nykyiset kyläännän kyvyt, tukee ulkoisia [arvotiedostoja](https://helm.sh/docs/chart_template_guide/values_files/), joissa jokaisella sovelluksen käyttöönotolla voi olla oma erillinen arvotiedosto, siinä on laaja luettelo [mallifunktioita](https://helm.sh/docs/chart_template_guide/function_list/), [ohjausrakenteita](https://helm.sh/docs/chart_template_guide/control_structures/) ja muuta.
 
-## Package a deployed application
+## Paketoi käytössä oleva sovellus {#package-a-deployed-application}
 
-Before we can start the process, we need to "clean up" the current Helm example chart.
+Ennen kuin voimme aloittaa prosessin, meidän on "siivottava" nykyinen Helm-esimerkki-kartta.
 
-1. Delete (or move anywhere else) all files inside the `templates` folder.
+1. Poista (tai siirrä muualle) kaikki tiedostot `templates`-kansiossa.
 
-1. Empty the `values.yaml` file.
+1. Tyhjennä `values.yaml`-tiedosto.
 
-1. Edit `Chart.yaml` and fill up the values as needed.
+1. Muokkaa `Chart.yaml`-tiedostoa ja täytä arvot tarpeen mukaan.
 
 !!! info "helm lint"
 
-    The helm tool provides a `lint` command that will report any syntaxt issue with the current template.
+    Helm-työkalu tarjoaa `lint`-komennon, joka ilmoittaa kaikista syntaksiongelmista nykyisessä mallissa.
     ```sh
     $ helm lint example
     ==> Linting example
@@ -69,9 +69,9 @@ Before we can start the process, we need to "clean up" the current Helm example 
     1 chart(s) linted, 0 chart(s) failed
     ```
 
-Now we can create the `YAML` files that contain the different parts of the application. As an example we will use a simple webserver with a volume attached to it. We will use an iterative process to create a copy of our current deployment. It is iterative because we will first create a simple, not configurable, and probably not working version, test it, come back and make it more complete and configurable, test it again, and so on.
+Nyt voimme luoda `YAML`-tiedostot, jotka sisältävät sovelluksen eri osat. Esimerkkinä käytämme yksinkertaista verkkopalvelinta, johon on liitetty volyymi. Käytämme iteratiivista prosessia luodaksemme kopion nykyisestä käyttöönotostamme. Se on iteratiivinen, koska luomme ensin yksinkertaisen, ei-konfiguroitavan ja todennäköisesti ei-toimivan version, testaamme sen, palaamme takaisin ja teemme siitä täydellisemmän ja konfiguroitavamman, testaamme sen uudelleen, ja niin edelleen.
 
-1. List all the API Objects to get an idea of the different parts that it consists of:
+1. Listaa kaikki API-objektit saadaksesi käsityksen eri osista, joista se koostuu:
 
 	```sh
 	$ oc get dc,deployment,pvc,secret,configmaps,service,route -o name
@@ -91,23 +91,23 @@ Now we can create the `YAML` files that contain the different parts of the appli
 	route.route.openshift.io/nginx
 	```
 
-1. From the list above, we are only interested in `deployment.apps`, `persistentvolumeclaim/html`, `service/nginx` and `route.route.openshift.io/nginx`. The rest are auto-generated like the `secret/` tokens or created by other objects like the `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841` object was created as a result of the creation of the `persistentvolumeclaim/` (PVC) creation.
+1. Yllä olevasta listasta olemme kiinnostuneita vain `deployment.apps`, `persistentvolumeclaim/html`, `service/nginx` ja `route.route.openshift.io/nginx`. Loput ovat automaattisesti generoituja, kuten `secret/`-tokenit tai ne, jotka muut objektit, kuten `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841`, ovat luoneet osana `persistentvolumeclaim/` (PVC) -luomista.
 
-We will write templates one by one, starting with the Volume. There are two simple approaches to accomplish this task, "get and clean" or "recreate from template". We will first try the "get and clean" method.
+Kirjoitamme mallit yksi kerrallaan, alkaen Volyymin kanssa. On kaksi yksinkertaista lähestymistapaa tämän tehtävän suorittamiseksi: "hanki ja siivoa" tai "luo uudelleen mallista". Kokeilemme ensin "hanki ja siivoa" -menetelmää.
 
-### Get and clean
+### Hanki ja siivoa {#get-and-clean}
 
-The idea of get and clean is simple, we will retrieve a `yaml` representation of an object running in the Kubernetes cluster and then delete all unnecessary information, like status and default configuration options.
+"Hanki ja siivoa" -idean ajatus on yksinkertainen: haemme objektin `yaml`-esityksen, joka on käynnissä Kubernetes-klusterissa, ja sitten poistamme kaikki tarpeettomat tiedot, kuten tilan ja oletusasetukset.
 
-#### Persistent Volume Claim
+#### Pysyvä volyymivaatimus {#persistent-volume-claim}
 
-Get the PVC object in YAML format into the file `pvc.yaml`:
+Hae PVC-objekti YAML-muodossa tiedostoon `pvc.yaml`:
 
 ```sh
 oc get persistentvolumeclaim/html -o yaml > pvc.yaml
 ```
 
-Most of the information in the `YAML` retrieved is status information generated by OpenShift and can be deleted:
+Suurin osa haetusta `YAML`:sta on OpenShiftin tuottamia tilatietoja ja ne voidaan poistaa:
 
 ```diff
 @@ -1,18 +1,7 @@
@@ -143,7 +143,7 @@ Most of the information in the `YAML` retrieved is status information generated 
 +status: {}
 ```
 
-The main fields are **metadata > name**, **spec > resources > requests > storage**, and **spec > storageClassName**, and the result will be:
+Tärkeimmät kentät ovat **metadata > name**, **spec > resources > requests > storage** ja **spec > storageClassName**, ja tulos on:
 
 ```yaml
 apiVersion: v1
@@ -160,17 +160,17 @@ spec:
 status: {}
 ```
 
-#### Deployment
+#### Käyttöönotto {#deployment}
 
-The same process can be repeated for `deployment.apps/nginx`:
+Sama prosessi voidaan toistaa `deployment.apps/nginx` kanssa:
 
 ```sh
 oc get deployment.apps/nginx -o yaml >deploy.yaml
 ```
 
-* First, for the `image` used, we need to replace the `@sha256` hash by `:latest`. This way we will always get the actual latest version of the image. It is also possible to replace it by a specific version like `:1.23.3`.
-* Then we will delete the status information. An example of "status" entries are `lastTransitionTime` and `creationTimestamp`. This has no place to be in a template as it is information 100% generated by Kubernetes about the current running object, not the one we want to create.
-* Finally we will delete the auto-generated configuration options. An example of "configuration options" are the `rollingParams`. These configuration options are generated from the defaults of the Kubernetes cluster. It is also possible to keep these default options, so the user of the chart can change them before the creation is started, for example it could be necessary to increase the `timeoutSeconds` because the application takes more than 10 minutes to start.
+* Ensinnäkin käytetyn `image` osalta meidän on korvattava `@sha256` hash arvolla `:latest`. Näin saamme aina uusimman kuvan version. Mahdollista on myös korvata se tietyllä versiolla, kuten `:1.23.3`.
+* Sitten poistamme tilan tiedot. Esimerkiksi "tilan" merkintöjä ovat `lastTransitionTime` ja `creationTimestamp`. Niillä ei ole paikkaa mallissa, koska ne ovat täysin Kubernetesin tuottamia tietoja nykyisestä käynnissä olevasta objektista, eivät siitä, mitä haluamme luoda.
+* Lopuksi poistamme automaattisesti tuotetut konfiguraatioasetukset. Esimerkki "konfiguraatioasetuksista" ovat `rollingParams`. Nämä konfiguraatioasetukset generoidaan Kubernetes-klusterin oletusasetuksista. Ne voidaan myös säilyttää, jotta kaavion käyttäjä voi muuttaa niitä ennen kuin luominen aloitetaan, esimerkiksi saatetaan tarvita enemmän `timeoutSeconds`, koska sovelluksen käynnistyminen kestää yli 10 minuuttia.
 
 ```diff
 @@ -1,44 +1,24 @@
@@ -241,7 +241,7 @@ oc get deployment.apps/nginx -o yaml >deploy.yaml
 -     type: ImageChange
 ```
 
-The result being:
+Tuloksena on:
 
 ```yaml
 apiVersion: apps.openshift.io/v1
@@ -280,13 +280,13 @@ spec:
           claimName: html
 ```
 
-### Recreate from template
+### Luo uudelleen mallista {#recreate-from-template}
 
-For the two remaining objects: `service` and `route`, we will use the "recreate from template" method, where we start from a simple object and fill up the blanks with the configuration we need.
+Kahdelle jäljellä olevalle objektille: `service` ja `route`, käytämme "luo uudelleen mallista" -menetelmää, jossa aloitamme yksinkertaisesta objektista ja täytämme aukkoja tarvitsemallamme konfiguraatiolla.
 
-#### Route
+#### Reititys {#route}
 
-This is a minimal route:
+Tässä on minimaalinen reitti:
 
 ```yaml
 apiVersion: v1
@@ -300,11 +300,11 @@ spec:
     name: ZZZZ
 ```
 
-Where `XXXX` is the name of the route, `YYYY` is the host where the application will be configured to listen, and `ZZZZ` is the Service connected to it.
+Missä `XXXX` on reitin nimi, `YYYY` on isäntä, johon sovellus konfiguroidaan kuuntelemaan, ja `ZZZZ` on siihen liitetty palvelu (Service).
 
-#### Service
+#### Palvelu {#service}
 
-A minimal possible service is:
+Mahdollisimman minimaalinen palvelu on:
 
 ```yaml
 apiVersion: v1
@@ -321,37 +321,37 @@ spec:
     targetPort: NNNN
 ```
 
-Where `XXXX` is the name of the service we filled up in the Route, `YYYY` is the name of the deployment, and `NNNN` is the port the deployment is listening to.
+Missä `XXXX` on reitissä täyttämämme palvelun nimi, `YYYY` on käyttöönoton nimi, ja `NNNN` on portti, johon käyttöönotto kuuntelee.
 
-### Test
+### Testaus {#test}
 
-The tests should be done in a separate namespace, and there are two approaches:
+Testit tulisi tehdä erillisessä nimialueessa, ja siinä on kaksi lähestymistapaa:
 
-* Test them individually by:
+* Testaa yksittäin näin:
 
     ```sh
     oc create -f pvc.yaml
     ```
 
-    The command above will create a PVC object in the selected namespace. You should check that it works as expected. You can destroy it by:
+    Yllä oleva komento luo PVC-objektin valittuun nimialueeseen. Sinun pitäisi tarkistaa, että se toimii odotusten mukaisesti. Voit tuhota sen näin:
 
     ```sh
     oc delete pvc/XXXX
     ```
 
-    where `XXXX` is the name of the volume.
+    missä `XXXX` on volyymin nimi.
 
-* Or all together in the Helm chart, by copying all the `yaml` files we created into the `templates` folder.
+* Tai kaikki yhdessä Helm-kartassa, kopioimalla kaikki luomasi `yaml`-tiedostot `templates`-kansioon.
 
-    * We can then install it:
+    * Voimme sitten asentaa sen:
 
     ```sh
     helm install test-name example/
     ```
 
-    **Note:** With `--dry-run` you can preview what helm will deploy without making any change.
+    **Huomautus:** Käyttäen `--dry-run` voit esikatsella, mitä helm aikoo ottaa käyttöön tekemättä muutoksia.
 
-    * We can see the status of the installed chart by:
+    * Näemme asennetun kartan tilan näin:
 
     ```sh
     $ helm ls
@@ -359,7 +359,7 @@ The tests should be done in a separate namespace, and there are two approaches:
     test-name	test    	1       	2023-01-03 14:59:04.026623633 +0200 EET	deployed	example-0.1.0	1.16.0
     ```
 
-    * After making a change in the chart templates we can upgrade it:
+    * Muutoksen tekemisen jälkeen karttamalisen parannuksiin voimme päivittää sen:
 
     ```sh
     $ helm upgrade test-name example
@@ -372,23 +372,23 @@ The tests should be done in a separate namespace, and there are two approaches:
     TEST SUITE: None
     ```
 
-    * And finally to destroy it:
+    * Ja lopuksi tuhota sen:
 
     ```sh
     $ helm uninstall test-name
     release "test-name" uninstalled
     ```
 
-### Configuration
+### Konfigurointi {#configuration}
 
-One of the powerful aspects of Helm is the possibility to, instead of using hardwired values, parametrize them, or to use provided [built-in](https://helm.sh/docs/chart_template_guide/builtin_objects/) values. By removing hardwired values, we provide easy customization that will allow to use the template in more circumstances and for a longer period of time, for example by changing the template image. A user of the template just needs to worry about the `values.yaml` file and not how these values fit into the complexities of the Chart. Helm uses _Go templates_ to accomplish this.
+Yksi Helmin vahvuuksista on mahdollisuus parametrisoida koodia sen sijaan, että käytettäisiin kiinteitä arvoja, tai käyttää tarjottuja [sisäänrakennettuja](https://helm.sh/docs/chart_template_guide/builtin_objects/) arvoja. Kiinteiden arvojen poistaminen tarjoaa helpon mukauttamisen, joka sallii mallin käytön moninaisemmissa tilanteissa ja pidemmän aikaa, esimerkiksi muuttamalla mallikuvaa. Mallin käyttäjän tarvitsee vain huolehtia `values.yaml`-tiedostosta eikä siitä, miten nämä arvot sovitellaan kartan monimutkaisuuksien halki. Helm käyttää _Go-malleja_ tämän saavuttamiseen.
 
-The [built-in](https://helm.sh/docs/chart_template_guide/builtin_objects/) values can be very handy, but we will mention only two of sets of them:
+[Sisäänrakennetut](https://helm.sh/docs/chart_template_guide/builtin_objects/) arvot voivat olla erittäin hyödyllisiä, mutta mainitsemme niistä vain kaksi sarjaa:
 
-* `Release` variables offer the basic information of this chart deployment. Information like the `Namespace` we are deploying this template to, or the `Name` of the Chart.
-* `Capabilities` is a more advance feature that provides information about what API objects and that version the Kubernetes cluster supports. For example the version of Kubernetes, or if `Ingress` or `Route` are supported. These two pieces of information allow us to make more widely compatible templates, as different versions of Kubernetes will need slightly different options.
+* `Release`-muuttujat tarjoavat perusinformaatio tämän kaavion käyttöönotosta. Informaatio, kuten `Namespace`, johon käytämme tätä mallia, tai kaavion `Name`.
+* `Capabilities` on kehittyneempi ominaisuus, joka tarjoaa tietoa siitä, mitä API-objekteja ja versioita Kubernetes-klusteri tukee. Esimerkiksi Kubernetesin versio tai jos `Ingress` tai `Route` ovat tuettuja. Nämä kaksi tietopalaa mahdollistavat laajemmin yhteensopivien mallien tekemisen, koska eri versiot Kubernetesista tarvitsevat hieman erilaisia asetuksia.
 
-We can also define our own configuration variables. We will set up a default value and at the same time allow the `values.yaml` file to override it. Let's start with the Volume `yaml` file from previous steps:
+Voimme myös määritellä omia konfiguraatiovariabelejämme. Asetamme niille oletusarvon ja samalla sallimme `values.yaml`-tiedoston ohittaa ne. Aloittakaamme aikaisempien steppien koppikuvion `yaml`-tiedostolla:
 
 ```yaml
 apiVersion: v1
@@ -405,7 +405,7 @@ spec:
 status: {}
 ```
 
-In this template we would like to parametrize at least two of the values: the `storage` size and the `storage class`. One allows the user to use more or less disk space, and the second allows to change the driver used for the storage. The resulting file would be something like this:
+Tässä mallissa haluaisimme parametrisoida ainakin kaksi arvoa: `storage`-koko ja `storage`-luokka. Toinen sallii käyttäjän käyttää enemmän tai vähemmän levytilaa, ja toinen mahdollistaa käytetyn tallennusohjaimen muuttamisen. Seuraava tiedosto olisi jotakuinkin tämä:
 
 ```yaml
 apiVersion: v1
@@ -422,7 +422,7 @@ spec:
 status: {}
 ```
 
-And then a `values.yaml` file like:
+Sitten `values.yaml`-tiedoston tulisi näyttää tältä:
 
 ```yaml
 storage:
@@ -430,17 +430,17 @@ storage:
   class: glusterfs-storage
 ```
 
-As you can see all variables in the `values.yaml` file can be found from `{{ .Values }}`. We have also set up a default of `500Mi` in the template itself using the `default` function, and configured a value of `1Gi` at `values.yaml`. In this example the storage of `1Gi` will be used, but if we removed the line `size: 1Gi`, the storage will be the default of `500Mi`.
+Kuten näet, kaikki `values.yaml`-tiedoston muuttujat voidaan löytää `{{ .Values }}` kautta. Olemme myös asettaneet oletuksena `500Mi` mallissa itsessään käyttäen `default`-funktiota ja konfiguroineet arvon `1Gi` `values.yaml`-tiedostoon. Tässä esimerkissä käytetään 1 Gi:n tallennustilaa, mutta jos poistaisimme rivin `size: 1Gi`, tallennuksen oletus olisi `500Mi`.
 
-Other values that might be interesting to configure:
+Muut arvot, jotka voivat olla kiinnostavia konfiguroida:
 
-* The `host` which the application will be available at.
-* The `image` to use.
-* The number of `replicas` for the application.
+* Isäntä (`host`), jossa sovellus on saatavilla.
+* Käytettävä `image`.
+* Sovelluksen `replicas`-määrä.
 
-### Conditionals
+### Ehtolauseet {#conditionals}
 
-It is possible to have conditionals in the templates, based on capabilities of the cluster, or in a configuration option. For example to activate `tls` or not
+On mahdollista lisätä ehtolauseita malleihin, perustuen klusterin kykyihin tai konfiguraatioasetuksissa. Esimerkiksi `tls`:n aktivoiminen tai ei
 
 ```yaml
 apiVersion: route.openshift.io/v1
@@ -462,15 +462,15 @@ status:
   ingress: []
 ```
 
-Which needs to have an option in `values.yaml` like:
+Tämä vaatii vaihtoehdon `values.yaml`-tiedostossa, kuten:
 
 ```yaml
 tls: active
 ```
 
-## Final product
+## Lopputuote {#final-product}
 
-The final chart will be:
+Lopullinen kartta on:
 
 ```sh
 $ find
@@ -606,41 +606,40 @@ storage:
   class: glusterfs-storage
 ```
 
-## Using online Helm Repo  
-### Adding a repo
-It's also possible to install `repository` and then use them for deploying applications.  
-For example [JupyterHub](https://z2jh.jupyter.org/en/stable/jupyterhub/installation.html), you can install the `repo` with this command:  
+## Online Helm Repo -käyttö {#using-online-helm-repo}  
+### Repon lisääminen {#adding-a-repo}
+On myös mahdollista asentaa `repository` ja käyttää niitä sovellusten käyttöönottoon.  
+Esimerkiksi [JupyterHub](https://z2jh.jupyter.org/en/stable/jupyterhub/installation.html), voit asentaa `repo` tämän komennon avulla:  
 ```sh
 helm repo add jupyterhub https://hub.jupyter.org/helm-chart/
 ```
 
-If you type this command:  
+Jos kirjoitat tämän komennon:  
 ```sh
 helm repo list   
 ```
-You should see your newly added repostory.  
+Sinun pitäisi nähdä juuri lisäämäsi arkisto.  
 
-It also possible to check for updates (and update your `repo`) with this command:  
+On myös mahdollista tarkistaa päivitykset (ja päivittää `repo`) tällä komennolla:  
 ```sh
 helm repo update
 ```
 
-You can search and check the packages available:  
+Voit etsiä ja tarkistaa saatavilla olevat paketit:  
 ```sh
 helm search repo jupyterhub
 NAME                            CHART VERSION   APP VERSION     DESCRIPTION                    
 jupyterhub/jupyterhub           3.1.0           4.0.2           Multi-user Jupyter installation                   
 ```
-### Check values
-When installing an online `repo`, you can check the default `values` used when you deploy it. For that, type the following command:  
+### Tarkista arvot {#check-values}
+Kun asennat online-`repoa`, voit tarkistaa oletusarvot, joita käytetään sen käyttöönotossa. Tätä varten kirjoita seuraava komento:  
 ```sh
 helm show values jupyterhub/jupyterhub > values.yaml
 ```
-[ArtifactHub](https://artifacthub.io/) is a good site where you can find packages
+[ArtifactHub](https://artifacthub.io/) on hyvä sivusto, josta löydät paketteja.
 
-### Edit and install from a repo  
-After exporting the default `values` you can edit or create a `config` file with your own values.  
-Then, you can install the `Chart` using this command:  
+### Muokkaa ja asenna reposta {#edit-and-install-from-a-repo}  
+Kun olet vienyt oletusarvot, voit muokata tai luoda `config`-tiedoston omilla arvoillasi.  
+Sitten voit asentaa `Chart` tämän komennon avulla:  
 ```sh
 helm install my-jupyterhub jupyterhub/jupyterhub -f config.yaml
-```

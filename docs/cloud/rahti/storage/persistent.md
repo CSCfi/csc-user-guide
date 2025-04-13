@@ -1,25 +1,23 @@
---8<-- "rahti_rwx_storage.md"
 
-# Persistent volumes
+# Persistent-volyymit {#persistent-volumes}
 
-**Persistent volumes** are storage which persist during & after pod's lifetime.
+**Persistent-volyymit** ovat tallennustilaa, joka säilyy Podin elinkaaren aikana ja sen jälkeen.
 
-Persistent volumes in Rahti are stored in a resilient storage such as CEPH. They are created by using a **PersistentVolumeClaim**. When a
-new claim is made, and **a Pod mounts it**, a new volume space will be created.
+Persistent-volyymit Rahtissa tallennetaan kestävään tallennustilaan, kuten CEPH. Ne luodaan käyttämällä **PersistentVolumeClaim**-resurssia. Kun uusi vaatimus tehdään ja **Pod kiinnittää sen**, uusi tallennustila luodaan.
 
-!!! info "A change from Rahti 1 version"
+!!! info "Muutos Rahti 1 -versiosta"
 
-    In production Rahti a new persistent volume will remain in **"⏳ Pending"** until any Pod mounts it. This is a change from Rahti 1 where the volume was created right away.
+    Tuotannollisessa Rahtissa uusi persistent-volyymi jää tilaan **"⏳ Odottaa"** kunnes jokin Pod kiinnittää sen. Tämä on muutos Rahti 1:stä, jossa volyymi luotiin heti.
 
-There is one storage class available in Rahti:
+Rahtissa on saatavilla yksi tallennusluokka:
 
- * *standard-csi*. This is a "Read Write Once" (RWO) storage class, meaning that only one pod can mount the volume (in read-write mode).
+ * *standard-csi*. Tämä on "Read Write Once" (RWO) tallennusluokka, mikä tarkoittaa, että vain yksi pod voi mountata volyymin (kirjoitus-luku-tilassa).
 
-More storage classes are on the work.
+Lisää tallennusluokkia on työn alla.
 
 ![PersistentVolumeClaim](../../img/pods-and-storage-pvc.drawio.svg)
 
-Persistent storage is requested in the cluster using `PersistentVolumeClaim` objects:
+Pysyvä tallennustila pyydetään klusterissa käyttämällä `PersistentVolumeClaim`-objekteja:
 
 *`pvc.yaml`*
 
@@ -36,18 +34,15 @@ spec:
       storage: 1Gi
 ```
 
-The example above will request a 1 GiB persistent storage that can be mounted in read-write
-mode by a single pod.
+Yllä oleva esimerkki pyytää 1 GiB persistent-tallennustilan, joka voidaan kiinnittää yhden podin käyttöön kirjoitus-luku-tilassa.
 
-Persistent storage can be requested also via the web console.
+Pysyvä tallennustila voidaan pyytää myös verkkokonsolin kautta.
 
 !!! warning
 
-    When a volume contains a high amount of files (>15 000), the time it takes to mount and be available can be higher than 5 minutes. The more files, the more time it takes to be available.
+    Kun volyymissa on suuri määrä tiedostoja (>15 000), aika, jonka se vie kiinnittyäkseen ja saatavilla ollakseen, voi olla yli 5 minuuttia. Mitä enemmän tiedostoja, sitä enemmän aikaa se vie tullakseen saataville.
 
-The persistent volume can be used in a pod by specifying `spec.volumes`
-(defines the volumes to attach) and `spec.containers.volumeMounts` (defines where
-to mount the attached volumes in the container's filesystem):
+Persistent-volyymi voidaan käyttää podissa määrittämällä `spec.volumes` (määrittelee kiinnitettävät volyymit) ja `spec.containers.volumeMounts` (määrittelee, mihin kiinnitettävät volyymit kiinnitetään säilön tiedostojärjestelmässä):
 
 *`pvc-pod.yaml`*:
 
@@ -65,12 +60,13 @@ spec:
     image: "image-registry.openshift-image-registry.svc:5000/openshift/httpd"
     volumeMounts:
     - mountPath: /mountdata
-      name: smalldisk-vol # Refers to your volume below
+      name: smalldisk-vol # Viittaa alla olevaan volyymiisi
   volumes:
   - name: smalldisk-vol
     persistentVolumeClaim:
-      claimName: testing-pvc # Refers to your PersistentVolumeClaim (pvc.yaml)
+      claimName: testing-pvc # Viittaa PersistentVolumeClaimiin (pvc.yaml)
 ```
 
 !!! warning
-    When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](../../../data/Allas/using_allas/a_backup.md).
+    Kun Pysyvä Volyymi poistetaan, vastaava data poistetaan **pysyvästi**. On erittäin suositeltavaa ottaa säännöllisesti ja versioituja kopioita datasta itsenäiseen tallennusjärjestelmään kuten [Allas](../../../data/Allas/using_allas/a_backup.md).
+

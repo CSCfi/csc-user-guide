@@ -1,22 +1,23 @@
-# How to get Allas S3 credentials
 
-It is possible to use the openstack API to get Allas S3 credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY). Each credential pair is linked to a single OpenStack project.
+# Kuinka saada Allas S3 -tunnistetiedot {#how-to-get-allas-s3-credentials}
 
-1. Install [OpenStack command line tools](../../cloud/pouta/install-client.md)
+On mahdollista käyttää openstack API:a saadaksesi Allas S3 -tunnistetiedot (AWS_ACCESS_KEY_ID ja AWS_SECRET_ACCESS_KEY). Jokainen tunnistepari on linkitetty yhteen OpenStack-projektiin.
 
-1. Login into OpenStack by following the [Configure your terminal environment for OpenStack](../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack) article.
+1. Asenna [OpenStack komentorivityökalut](../../cloud/pouta/install-client.md)
 
-1. You can either retrieve already created credentials or create new ones
+1. Kirjaudu OpenStackiin noudattamalla artikkelia [Määritä terminaaliympäristösi OpenStackille](../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack).
 
-    1. In order to retrieve already created credentials:
+1. Voit joko hakea jo luotuja tunnistetietoja tai luoda uusia
+
+    1. Jo luotujen tunnistetietojen hakeminen:
 
         ```sh
         openstack ec2 credentials list
         ```
 
-        It will list the credentials of every project, and you will see only the "Project ID" next to each credential pair. You can use `openstack project list` in order to see all the projects you have access, it will list the name and the id of each of them.
+        Tämä luetteloi kaikkien projektien tunnistetiedot, ja näet vain "Project ID" kunkin tunnisteparin vieressä. Voit käyttää `openstack project list` nähdäksesi kaikki projektit, joihin sinulla on pääsy, se luettelee kunkin projektin nimen ja tunnuksen.
 
-    1. Create new credentials:
+    1. Uusien tunnistetietojen luominen:
 
         ```sh
         openstack ec2 credentials create

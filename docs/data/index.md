@@ -1,7 +1,7 @@
-## [Working with data](datasets/dataset-sources.md)
+## [Tietojen käsittely](datasets/dataset-sources.md)
 
-## [Moving data](moving/index.md)
+## [Datan siirtäminen](moving/index.md)
 
-## [Allas object storage](Allas/index.md)
+## [Allas objektitallennus](Allas/index.md)
 
-## [Kaivos database service](kaivos/overview.md)
+## [Kaivos-tietokantapalvelu](kaivos/overview.md)

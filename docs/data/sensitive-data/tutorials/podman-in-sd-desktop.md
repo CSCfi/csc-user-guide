@@ -1,21 +1,16 @@
-# Using Podman in SD Desktop
 
+# Podmanin käyttö SD Desktopissa {#using-podman-in-sd-desktop}
 
-!!! Note
-    Podman is not available at the moment.
+!!! Huomio
+    Podman ei ole tällä hetkellä saatavilla.
 
+[Podman](https://podman.io/) -konttien hallintajärjestelmä on saatavilla Ubuntu 22 -pohjaisissa SD Desktop -virtuaalikoneissa. Podman pystyy käyttämään Docker-kontteja, ja siksi sitä voidaan käyttää korvaamaan Docker SD Desktop -työnkuluissa.
 
-The [Podman](https://podman.io/) container manager is available in Ubuntu 22-based SD Desktop virtual machines.
-Podman is able to use Docker containers and thus it can be used to replace Docker in your SD Desktop workflows.
+Koska SD Desktopilla ei ole pääsyä ohjelmistokonttien arkistoihin, sinun on tallennettava haluamasi kontti _Docker-arkistotiedostoon_ jossakin muussa ympäristössä, jossa sinulla on Podman tai Docker. Tämä tiedosto on sitten tuotava SD Desktopiin SD Connectin kautta.
 
-As SD Desktop doesn't have access to software container repositories, 
-you must save the container you wish to use into a _Docker archive file_ in some other environment where you have Podman or Docker.
-This file must then be imported to SD Desktop through SD Connect.
+Esimerkiksi käyttääkseen _Trimmomatic_-ohjelmistoa CSC-projektin `project_2000123` SD Desktopissa, voit käyttää seuraavaa menettelyä.
 
-For example, to use _Trimmomatic_ software in SD Desktop of CSC project `project_2000123`, you could use following procedure.
-
-In a Linux server with Docker available, create a Docker container file that includes Trimmomatic.
-This can be done with commands:
+Linux-palvelimella, jossa Docker on käytettävissä, luo Docker-konttitiedosto, joka sisältää Trimmomaticin. Tämä voidaan tehdä komennoilla:
 
 ```text
 sudo docker pull staphb/trimmomatic:latest
@@ -23,43 +18,41 @@ sudo docker images
 sudo docker save -o trimmomatic.docker 932a84b67790
 ```
 
-Here the last command uses container ID (932a84b67790) that was checked with the `docker images` command.
+Tässä viimeinen komento käyttää konttitunnusta (932a84b67790), joka tarkistettiin `docker images` -komennolla.
 
-The Docker file needs to be uploaded to SD Connect from where it can be copied to a SD Desktop virtual machine.
-In this example the Docker file `trimmomatic.docker` is uploaded to SD Connect using `a-put` command:
+Docker-tiedosto täytyy ladata SD Connectiin, josta se voidaan kopioida SD Desktop -virtuaalikoneeseen. Tässä esimerkissä Docker-tiedosto `trimmomatic.docker` ladataan SD Connectiin `a-put` -komennolla:
 
 ```text
-a-put --sdx trimmomatic.docker -b 2000123_docker  
+a-put --sdx trimmomatic.docker -b 2000123_docker
 ```
-The command above encrypts the data (`--sdx`) and stores it to SD Connect bucket `2000123_docker`.
 
-To use the copied container, open or refresh the Data Gateway connection in your SD Desktop virtual machine. Then open a terminal window and copy the Docker file to the local disk of your virtual machine. Now you can load the Docker container to your Podman environment. 
+Yllä oleva komento salaa tiedot (`--sdx`) ja tallentaa ne SD Connect -säilöön `2000123_docker`.
 
-In the case of the Trimmomatic container you could do the container import with commands:
+Kopion käyttöön ottamiseksi avaa tai päivitä Data Gateway -yhteys SD Desktop -virtuaalikoneessasi. Avaa sitten pääteikkuna ja kopioi Docker-tiedosto virtuaalikoneesi paikalliselle levylle. Nyt voit ladata Docker-kontin Podman-ympäristöösi.
+
+Trimmomatic-kontin tapauksessa kontti voidaan tuoda seuraavilla komennoilla:
 
 ```text
 cp Projects/SD-Connect/project_2000123/2000123_docker/trimmomatic.docker ./
 podman image load -i trimmomatic.docker
-podman image list 
+podman image list
 podman image tag 932a84b67790 trimmomatic
 ```
 
-In SD Desktop you must always add definition `--cgroup-manager cgroupfs` when running a Podman container.
-For example, using the imported container to run Trimmomatic filtering for file `/media/volume/rawdata.fastq` could be now done
-with command: 
- 
+SD Desktopissa sinun tulee aina lisätä määrittely `--cgroup-manager cgroupfs`, kun suoritat Podman-konttia. Esimerkiksi käyttäissäsi tuodun konttia Trimmomatic-suodatukseen tiedostolle `/media/volume/rawdata.fastq`, tämä voitaisiin tehdä komennolla:
+
 ```text
-podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
+podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest trimmomatic SE /media/volume/rawdata.fastq /media/volume/flitered.fastq MINLEN:100
 ```
 
-In the command above the first part of the command is the actual `podman` command that defines the Podman operation (`run`), and mounting between local and container environments (`-v`).
+Yllä olevassa komennossa komennon ensimmäinen osa on varsinainen `podman`-komento, joka määrittelee Podman-operaation (`run`) ja paikallisten ja konttiympäristöjen välisen liitoksen (`-v`).
 
 ```text
 podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest
 ```
 
-Rest of the command defines the actual `trimmomatic` analysis command:
+Komennon loppuosa määrittelee varsinaisen `trimmomatic`-analyysikomennon:
 
 ```text
-trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
+trimmomatic SE /media/volume/rawdata.fastq /media/volume/flitered.fastq MINLEN:100
 ```

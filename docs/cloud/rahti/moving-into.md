@@ -1,57 +1,53 @@
-# Moving into Rahti
 
-## When to migrate to Kubernetes
+# Siirtyminen Rahtiin
 
-When considering migrating your services from Pouta to Kubernetes (k8s), it’s important to consider the relative
-strengths of each platform. Both Pouta and Kubernetes-based platforms, such as Rahti, are Cloud
-Computing platforms, but there are some important differences. OpenStack-based services, like
-cPouta, are classified as Infrastructure-as-a-Service (IaaS) cloud services where users can provision their own 
-infrastructure as Virtual Machine. Rahti, on the other hand is classifies as a Platform-as-a-Service (PaaS), where users can deploy
-their container-based platforms in shared Kubernetes cluster that was hardened to support multi-tenancy.
+## Milloin siirtyä Kubernetesiin {#when-to-migrate-to-kubernetes}
 
-The primary difference between IaaS and PaaS services is that with IaaS the user is responsible
-for managing the operating system and potentially multiple applications whereas with PaaS, the
-user is only responsible for managing the application and the data. You can read more about cloud
-computing concepts [here](concepts.md).
+Kun harkitset palvelujesi siirtämistä Poudasta Kubernetesiin (k8s), on tärkeää ottaa huomioon
+kummankin alustan suhteelliset vahvuudet. Sekä Pouta että Kubernetes-pohjaiset alustat, kuten Rahti, ovat Pilvilaskentapalveluita, mutta niissä on joitain tärkeitä eroja. OpenStack-pohjaiset palvelut, kuten
+cPouta, luokitellaan Infra-as-a-Service (IaaS) pilvipalveluiksi, joissa käyttäjät voivat varata oman
+infrastruktuurinsa virtuaalikoneena. Rahti puolestaan luokitellaan Platform-as-a-Service (PaaS) -palveluksi, jossa käyttäjät voivat ottaa
+käyttöön konttipohjaisia alustojaan jaetussa Kubernetes-klusterissa, joka on vahvistettu tukemaan monen käyttäjän ympäristöjä.
 
-Containers have certain advantages over traditional Virtual machines. Container images are typically
-smaller and lighter in memory and CPU usage than Virtual machine images. Launching new containers is
-fast, which gives them potential for great scalability. Since container deployment also tends to be
-relatively easy, continuous deployment and integration practices work very well with container based
-approaches.
+Pääasiallinen ero IaaS- ja PaaS-palvelujen välillä on se, että IaaS:ssa käyttäjä on vastuussa
+käyttöjärjestelmän ja mahdollisesti monien sovellusten hallinnoinnista, kun taas PaaS:ssa,
+käyttäjä on vastuussa vain sovelluksen ja datan hallinnoinnista. Voit lukea lisää pilvilaskentakonsepteista [täältä](concepts.md).
 
-Using a container orchestration service like Rahti that is built on top of Kubernetes, makes the
-deployment of applications easy. In Rahti you can manage your applications directly using a web
-interface accessible through a web browser. Rahti provides a platform for you to host your own applications
-and make them accessible over the web. Rahti can run many different kinds of applications and workloads, from web servers
-and databases to data analysis pipelines.
+Konteilla on tiettyjä etuja perinteisiin virtuaalikoneisiin verrattuna. Konttikuvat ovat tyypillisesti
+pienempiä ja vähemmän muistia ja prosessoritehoa kuluttavia kuin virtuaalikonekuvat. Uusien konttien käynnistäminen on
+nopeaa, mikä antaa niille mahdollisuuden suureen skaalautuvuuteen. Koska konttien käyttöönotto on myös suhteellisen helppoa, jatkuvan käyttöönoton ja integroinnin käytännöt toimivat erittäin hyvin konttipohjaisissa lähestymistavoissa.
 
-Some example use cases that are well suited for Rahti include:
+Käyttämällä konttien orkestrointipalvelua, kuten Kubernetesin päälle rakennettua Rahtia, tekee sovellusten
+käyttöönotosta helppoa. Rahtissa voit hallinnoida sovelluksiasi suoraan verkkoselaimen kautta käytettävän
+verkkoliittymän avulla. Rahti tarjoaa alustan, jossa voit isännöidä omia sovelluksiasi ja tehdä ne
+saataville verkon kautta. Rahti voi ajaa monenlaisia sovelluksia ja työkuormia, kuten verkkopalvelimia
+ja tietokantoja sekä data-analyysiputkia.
 
-* Hosting an interactive web application or a regular website. Rahti comes with many of the most common
-features needed for web based applications
-* Complex prepackaged application like Apache Spark. It’s also easy to scale up applications for multiple
-users.
-* Deploying from a catalog with many commonly used application templates with just one command.
+Joihinkin esimerkkikäyttötapauksiin, jotka sopivat Rahtiin, kuuluvat:
 
-In other words, in cases where scalability is needed, or you only want to manage a single application, container
-orchestration service might be the way to go.
+* Interaktiivisen verkkosovelluksen tai tavallisen verkkosivuston isännöinti. Rahti sisältää monia
+yleisimmistä verkkosovelluksissa tarvittavista ominaisuuksista.
+* Monimutkainen esipakattu sovellus, kuten Apache Spark. Sovellusten skaalauksen kasvattaminen useille
+käyttäjille on myös helppoa.
+* Käyttöönotto katalogista, joka sisältää monia yleisesti käytettyjä sovelluspohjia vain yhdellä komennolla.
 
-Containers are inherently not as secure as Virtual machines. With container orchestration services like
-Rahti and Openshift containers are not allowed to run with root access, which may provide some limitations
-in certain circumstances and requires further customization to the images. For sensitive data processing tasks, 
-it is better to consider other CSC service like ePouta which is always be the preferred platform. It
-is specifically designed for high performance and high security tasks for sensitive data handling with variety
-of available resources.
+Toisin sanoen, tilanteissa, joissa tarvitaan skaalautuvuutta tai haluat hallita vain yhtä sovellusta, konttien
+orkestrointipalvelu voi olla oikea valinta.
 
-### Additional information
+Kontit eivät luonteensa vuoksi ole yhtä turvallisia kuin virtuaalikoneet. Sellaisten konttien
+orkestrointipalveluiden, kuten Rahti ja Openshift, kanssa kontteja ei saa ajaa root-oikeuksilla, mikä voi aiheuttaa
+joitain rajoituksia tietyissä tilanteissa ja vaatii lisämuokkauksia kuviin. Herkän datan käsittelytehtävissä on
+parempi harkita muita CSC-palveluja, kuten ePoutaa, joka on aina ensisijainen alusta. Se
+on erityisesti suunniteltu korkean suorituskyvyn ja korkean turvallisuuden tehtäviin, joissa käsitellään herkkiä tietoja ja käytetään monenlaisia resursseja.
 
-[What is Rahti?](rahti-what-is.md)
+### Lisätietoja {#additional-information}
 
-[Container clouds fundamentals](https://rahti-course.a3s.fi/index.html#1)
+[Mikä on Rahti?](rahti-what-is.md)
 
-[Why use containers vs. VMs? | VMware](https://www.vmware.com/topics/glossary/content/vms-vs-containers.html)
+[Kontepilvien perusteet](https://rahti-course.a3s.fi/index.html#1)
 
-[Containers vs. Virtual Machines (VMs): What’s the Difference? | IBM](https://www.ibm.com/cloud/blog/containers-vs-vms)
+[Miksi käyttää kontteja vs. VM:itä? | VMware](https://www.vmware.com/topics/glossary/content/vms-vs-containers.html)
 
-[Migrate a service from Kubernetes to OpenShift | IBM](https://developer.ibm.com/learningpaths/migrate-kubernetes-openshift/)
+[Kontit vs. virtuaalikoneet (VM:t): Mitä eroa? | IBM](https://www.ibm.com/cloud/blog/containers-vs-vms)
+
+[Palvelun siirtyminen Kubernetesista OpenShiftiin | IBM](https://developer.ibm.com/learningpaths/migrate-kubernetes-openshift/)

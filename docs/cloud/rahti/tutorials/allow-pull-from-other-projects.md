@@ -1,33 +1,33 @@
-!!! success "Basic level"
-    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) or the Rahti [web interface](../usage/getting_started.md)
 
-# Allow pulls of images from one Rahti project to another
+!!! success "Perustaso"
+    Sinulla tulee olla tietoa OpenShift CLI-työkalusta [oc](../usage/cli.md) tai Rahti [web-käyttöliittymästä](../usage/getting_started.md).
 
-Every Rahti project has a private image registry space. Any image compatible with the [OCI](https://opencontainers.org/) format can be stored in the registry. Common uses for the registry are to store [images built by Rahti](../images/creating.md#using-rahti-to-build-container-images) or cache upstream images.
+# Salli kuvien nouto yhdestä Rahti-projektista toiseen {#allow-pulls-of-images-from-one-rahti-project-to-another}
 
-![Image Streams](../../img/ImageStreams.png)
+Jokaisella Rahti-projektilla on yksityinen kuvarekisteritila. Rekisteriin voidaan tallentaa mikä tahansa [OCI](https://opencontainers.org/) -muodon mukainen kuva. Rekisterin yleisiä käyttötapoja ovat [Rahtin rakentamien kuvien](../images/creating.md#using-rahti-to-build-container-images) tallentaminen tai ylävirran kuvien välimuistitus.
 
-By default, any image stored in a project's private registry can be pulled from within the project. Also, by default, only authenticated member of the project will be allowed to pull or push an image from outside the project. This means that if you want to build and deploy an image, Pods will be able to use it without any extra configuration. And it also means that you will be able to pull that image only if your are authenticated and member of the project.
+![Kuvavirtaukset](../../img/ImageStreams.png)
 
-The objective of this tutorial is to explain how to achieve an extra use case, pulling images from another project within Rahti. The use case for this is when several projects are used to deploy the same infrastructure thus sharing the same images. In the example below, the first project will be production (`bajor-prod`), the other one will be for testing (`bajor-test`). Both need to share the same registry to make the test and deployment easier and simpler to follow.
+Oletuksena mitä tahansa projektin yksityiseen rekisteriin tallennettua kuvaa voidaan noutaa projektin sisältä. Myös oletuksena vain projektin todennetut jäsenet voivat noutaa tai työntää kuvan projektin ulkopuolelta. Tämä tarkoittaa, että jos haluat rakentaa ja ottaa käyttöön kuvan, Podit voivat käyttää sitä ilman lisäasetuksia. Lisäksi voit noutaa kyseisen kuvan vain, jos olet todennettu ja projektin jäsen.
 
-1. Make sure you have two projects to play with. If you do not have two projects that you can play with, you can follow the [create project](../usage/projects_and_quota.md#creating-a-project) documentation.
+Tämän oppaan tavoitteena on selittää, kuinka saavuttaa lisäkäyttötapauksia, kuten kuvien noutaminen toisesta Rahti-projektista. Käyttötapaus on relevantti, kun useita projekteja käytetään saman infrastruktuurin käyttöönottoon ja siten kuvien jakamiseen. Alla olevassa esimerkissä ensimmäinen projekti on tuotanto (`bajor-prod`), ja toinen projekti on testaukseen (`bajor-test`). Molempien täytyy jakaa sama rekisteri helpottamaan testaus- ja käyttöönottoprosessia.
 
-1. There are two methods to achieve this:
-    1. You can do this using the [oc command line tool](../usage/cli.md), by running:
+1. Varmista, että sinulla on kaksi projektia käytettävissä. Jos sinulla ei ole kahta projektia, joita voit käyttää, voit seurata [luo projekti](../usage/projects_and_quota.md#creating-a-project) dokumentaatiota.
+
+1. Tämä voidaan saavuttaa kahdella menetelmällä:
+    1. Voit käyttää [oc komentorivityökalua](../usage/cli.md) suorittamalla seuraavan komennon:
 
         ```sh
         oc adm policy add-role-to-user system:image-puller system:serviceaccounts:bajor-test \
                -n bajor-prod
         ```
 
-        The command above will allow the group `system:serviceaccounts:bajor-test` to pull any image stored in `bajor-prod`. The group contains every service account of the project.
+        Yllä oleva komento sallii ryhmän `system:serviceaccounts:bajor-test` noutaa minkä tahansa kuvan, joka on tallennettu projektissa `bajor-prod`. Ryhmä sisältää kaikki projektin palvelutilit.
 
-    1. You can use the web interface, by going to the `Administrator` interface and then to `User Management > RoleBindings`. Finally click in the `Create binding` button and fill up the form as shown:
+    1. Voit käyttää web-käyttöliittymää menemällä `Administrator`-käyttöliittymään ja sitten `User Management > RoleBindings`. Lopuksi klikkaa `Create binding` -painiketta ja täytä lomake seuraavasti:
 
-        ![Create RoleBinding](../../img/Create-RoleBinding.png)
+        ![Luo RoleBinding](../../img/Create-RoleBinding.png)
 
-        The **Name** of the new rolebinding can be any name, it is recommended to keep it informative of its purpose. The **Namespace** has to be the destination project, ie: the project that hosts the images. The **Role name** has to be `system:image-puller`. Finally the **Group** has to be `system:serviceaccounts:bajor-test`, the group corresponding to the project that needs to pull the images.
+        Uuden rolebindingin **Nimi** voi olla mikä tahansa, mutta suositellaan, että se informoi sen tarkoituksesta. **Namespace** on oltava kohdeprojekti, eli projekti, joka isännöi kuvia. **Roolin nimi** on oltava `system:image-puller`. Lopuksi **Ryhmä** on `system:serviceaccounts:bajor-test`, joka vastaa projektia, joka tarvitsee kuvien noutoa.
 
-1. In order to test it, one just need to deploy a Pod in `bajor-test` that uses an image from `bajor-prod` (similar to `image-registry.apps.2.rahti.csc.fi/bajor-prod/image-name`).
-
+1. Testataksesi sitä, tarvitset vain ottaa käyttöön Podin `bajor-test` -projektissa, joka käyttää kuvaa `bajor-prod` -projektista (esim. `image-registry.apps.2.rahti.csc.fi/bajor-prod/image-name`).

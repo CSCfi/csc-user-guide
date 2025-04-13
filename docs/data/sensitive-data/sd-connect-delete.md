@@ -1,34 +1,36 @@
-# Deleting files and folders
 
-You can delete main folders, subfolders or individual files from SD Connect.
+# Tiedostojen ja kansioiden poistaminen
 
-## Deleting files
+Voit poistaa pääkansioita, alikansioita tai yksittäisiä tiedostoja SD Connect -palvelusta.
 
-1. Find correct folder from All folders tab.
-2. Click **Delete** on right side of each file you want to delete.
-3. If you need to delete multiple files select **Display options** from top right corner of data table and select **Display as file paths** from dropdown menu. Then select **Hide pagination** from the same menu. Now all files are displayed on one page. 
-4. Select checkbox on top left corner of datatable. Now you can delete all files using toolbar appearing on top of data table.
+## Tiedostojen poistaminen {#deleting-files}
 
-## Deleting subfolder
+1. Etsi oikea kansio Kaikki kansiot -välilehdeltä.
+2. Napsauta **Poista** kunkin poistettavan tiedoston oikealta puolelta.
+3. Jos sinun tarvitsee poistaa useita tiedostoja, valitse **Näyttöasetukset** datataulukon oikeasta yläkulmasta ja valitse avattavasta valikosta **Näytä tiedostopolkuina**. Valitse sitten samasta valikosta **Piilota sivutus**. Nyt kaikki tiedostot näytetään yhdellä sivulla.
+4. Valitse valintaruutu datataulukon vasemmasta yläkulmasta. Nyt voit poistaa kaikki tiedostot käyttämällä työkalupalkkia, joka ilmestyy datataulukon yläosaan.
 
-Subfolder is deleted automatically when all files in it are deleted.
+## Alikansion poistaminen {#deleting-subfolder}
 
-1. Find correct folder from All folders tab and click to view files.
-2. Find correct subfolder and open it.
-3. Click **Delete** on right side of each file you want to delete.
+Alikansio poistuu automaattisesti, kun kaikki sen tiedostot on poistettu.
 
-## Deleting main folder
+1. Etsi oikea kansio Kaikki kansiot -välilehdeltä ja napsauta nähdäksesi tiedostot.
+2. Etsi oikea alikansio ja avaa se.
+3. Napsauta **Poista** kunkin poistettavan tiedoston oikealta puolelta.
 
-You need first delete all files in main folder.
+## Pääkansion poistaminen {#deleting-main-folder}
 
-1. Find correct folder from All folders tab.
-2. Delete folder with **Delete** on right side of the folder.
+Sinun täytyy ensin poistaa kaikki pääkansion tiedostot.
 
-## Features in SD Connect
+1. Etsi oikea kansio Kaikki kansiot -välilehdeltä.
+2. Poista kansio valitsemalla **Poista** kansion oikealta puolelta.
 
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
-* [Command line interface](./sd-connect-command-line-interface.md)
-* [Troubleshooting](./sd-connect-troubleshooting.md)
+## Ominaisuudet SD Connect -palvelussa {#features-in-sd-connect}
+
+* [Tallenna](./sd-connect-upload.md)
+* [Jaa](./sd-connect-share.md)
+* [Lataa](./sd-connect-download.md)
+* [Poista](./sd-connect-delete.md)
+* [Komentoriviliittymä](./sd-connect-command-line-interface.md)
+* [Vianetsintä](./sd-connect-troubleshooting.md)
+

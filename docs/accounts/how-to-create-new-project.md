@@ -1,92 +1,95 @@
+
 ---
 search:
   boost: 2
 ---
 
-# Creating a new project
+# Uuden projektin luominen {#creating-a-new-project}
 
-A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu) is required for creating new projects.
+Uuden projektin luomista varten tarvitaan [CSC käyttäjätili](how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu).
 
-1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account.
-2. Choose **Projects** in the navigation menu on the left.
-3. On the top of the page choose **+ New project**.
-4. Fill in the **Project name** and **Project description.**
-5. Choose the **Project category**. Available categories are:
-	* [Academic](how-to-create-new-project.md#academic)
-	* [Commercial](how-to-create-new-project.md#commercial)
-	* [Course](how-to-create-new-project.md#course)
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi/) CSC-käyttäjätililläsi tai Haka/Virtu-tililläsi.
+2. Valitse **Projektit** navigointivalikosta vasemmalta.
+3. Valitse sivun yläosasta **+ Uusi projekti**.
+4. Täytä **Projektin nimi** ja **Projektin kuvaus.**
+5. Valitse **Projektiluokka**. Tarjolla olevat kategoriat ovat:
+	* [Akateminen](how-to-create-new-project.md#academic)
+	* [Kaupallinen](how-to-create-new-project.md#commercial)
+	* [Kurssi](how-to-create-new-project.md#course)
 	* [LUMI](how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
-6. After you have created the project, remember to add [Service](how-to-add-service-access-for-project.md) to the project.
+6. Luotuasi projektin, muista lisätä [Palvelu](how-to-add-service-access-for-project.md) projektiin.
 
-![New Project creation view.](../img/mycsc-create-new-project.png){width=400}
+![Uuden projektin luomisnäkymä.](../img/mycsc-create-new-project.png){width=400}
 
-## Academic
+## Akateeminen {#academic}
 
-Academic project category is reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} and they can be created only by members of Finnish higher education institutions, state research institutes and CSC.
+Akateeminen projektikategoria on varattu [maksuttomille käyttötapauksille](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} ja niitä voivat luoda vain suomalaisten korkeakoulujen, valtion tutkimuslaitosten ja CSC:n jäsenet.
 
-!!! Note
-    If you are an educator and need resources for a course, check out the [Course](how-to-create-new-project.md#course) project category. If you are a student, have a look at the [Student](how-to-create-new-project.md#student) project category.
+!!! Huom
+    Jos olet opettaja ja tarvitset resursseja kurssia varten, tarkista [Kurssi](how-to-create-new-project.md#course) -projektikategoria. Jos olet opiskelija, katso [Opiskelija](how-to-create-new-project.md#student) -projektikategoria.
 
-6. Please select the **Field of Science** and **Sub Science Area** of the type of research being carried out in the project.
-7. Select _Yes_ or _No_ according to whether personal data will be handled in your project. Read more about [handling personal data in your project](../accounts/when-your-project-handles-personal-data.md).
-8. Please have a look at our terms and conditions and confirm your acceptance.
-9. Click **Create project**.
+6. Valitse **tieteenala** ja **alatutkimusalue**, jonka projektissa tehtävä tutkimus käsittelee.
+7. Valitse _Kyllä_ tai _Ei_ sen mukaan käsitelläänkö projektissasi henkilötietoja. Lue lisää [henkilötietojen käsittelystä projektissasi](../accounts/when-your-project-handles-personal-data.md).
+8. Tutustu ehtoihimme ja vahvista, että hyväksyt ne.
+9. Napsauta **Luo projekti**.
 
-Academic projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
+Akateemiset projektit ovat yleensä voimassa vuoden kerrallaan, mutta niitä voi jatkaa. Projektin jatkamiseksi katso sivu [Kuinka hallita projektiasi](how-to-manage-your-project.md).
 
-## Commercial
+## Kaupallinen {#commercial}
 
-Commercial projects are currently only available through the Service Desk. Please [contact CSC Service Desk](../support/contact.md) for more information.
+Kaupalliset projektit ovat tällä hetkellä saatavilla vain Service Deskin kautta. Ole hyvä ja [ota yhteyttä CSC Service Deskiin](../support/contact.md) saadaksesi lisätietoja.
 
-## Course
+## Kurssi {#course}
 
-The course category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to deliver a course once. Re-delivering the course requires a new project. Please note, that all data is deleted at the end of the project.
+Kurssikategoria on varattu [maksuttomille](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} käyttötapauksille. Tämä kategoria on määräaikainen (enintään 6 kuukautta, ei jatkettavissa), kiinteä resurssi ja suunniteltu tarjoamaan kurssi kerran. Kurssin uudelleentarjoaminen vaatii uuden projektin. Huomaa, että kaikki tiedot poistetaan projektin päättyessä.
 
-6. Fill in the course dates and field of science. 
-7. Please have a look at our terms and conditions and confirm your acceptance.
-8. Click **Create project**.
+6. Täytä kurssin päivämäärät ja tieteenala.
+7. Tutustu ehtoihimme ja vahvista, että hyväksyt ne.
+8. Klikkaa **Luo projekti**.
 
-The easiest way to add students to a course project is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
+Helpoin tapa lisätä opiskelijoita kurssiprojektiin on käyttää [kutsulinkkiä](how-to-add-members-to-project.md#using-invitation-link).
 
-## How to create Finnish LUMI projects
+## Kuinka luoda suomalainen LUMI-projekti {#how-to-create-finnish-lumi-projects}
 
-LUMI projects are used to manage access to LUMI and the resources provided by it. LUMI projects are restricted to LUMI environment only (LUMI-C, LUMI-G etc.). Finnish LUMI projects are fixed in time and resources, and the total resources must be defined already in the project application.
+LUMI-projektit ovat käytössä LUMI-palvelujen ja niiden tarjoamien resurssien hallintaan. LUMI-projektit ovat rajattuina LUMI-ympäristöön (LUMI-C, LUMI-G jne.). Suomalaiset LUMI-projektit ovat ajallisesti ja resursseiltaan kiinteitä, ja resurssit on määritettävä projektihakemuksessa.
 
-A Finnish LUMI project can include one or several CSC user accounts and one CSC user account can be a member in several Finnish LUMI projects. Each LUMI project must have a Principal Investigator (i.e. Project Manager), who creates the project and applies for resources, manages the user accounts that belong to the project and is responsible of the resource usage. The LUMI Project Manager is typically a leader of a research team or other senior researcher. See more for [project manager prerequisites](https://research.csc.fi/en/prerequisites-for-a-project-manager).
+Suomalaiseen LUMI-projektiin voi kuulua yksi tai useampi CSC-käyttäjätili, ja yksi CSC-käyttäjätili voi olla jäsenenä useissa suomalaisissa LUMI-projekteissa. Jokaisella LUMI-projektilla on oltava vastuullinen tutkija (eli projektipäällikkö), joka luo projektin, hakee resursseja, hallinnoi projektin käyttäjätilejä ja vastaa resurssien käytöstä. LUMI-projektipäällikkö on yleensä tutkimusryhmän johtaja tai muu vanhempi tutkija. Katso lisätietoja [projektipäällikön edellytyksistä](https://research.csc.fi/en/prerequisites-for-a-project-manager).
 
-LUMI services are free of charge for academic research for members of Finnish higher education institutions and state research institutes.
+LUMI-palvelut ovat maksuttomia suomalaisille korkeakoulujen ja valtion tutkimuslaitosten jäsenille.
 
-### Creating a LUMI project and applying for resources
+### LUMI-projektin luominen ja resurssien hakeminen {#creating-a-lumi-project-and-applying-for-resources}
 
-6. Select **LUMI** from the Project category list.
-7. Select LUMI **Access mode** (Regular, Benchmark, or Development)
-8. Fill in the **resources**: CPU core hours, GPU hours, Storage hours, and all the **text fields** carefully below. If the data is incomplete or insufficient, the application will be rejected. For Regular Access applications, a list of prior publications and a proper research plan are required. For Benchmark Access, a plan of how the resources will be used for the benchmarks is required, and for Development Access a description of program codes, methods and development objectives is required.
-9. Select the **Field of Science**, and fill in the **Keywords**.
-10. Does your project handle personal data? Please note: **LUMI projects are not allowed to handle personal data at present**.
-11. Tick the box I have read and accepted the LUMI General Terms of Use.
-12. Click **Create project**.
+6. Valitse **LUMI** projektikategorioiden listasta.
+7. Valitse LUMI **Käyttötila** (Regular, Benchmark tai Development)
+8. Täytä **resurssit**: CPU-ytimen tunnit, GPU-tunnit, tallennustunnit ja kaikki alla muotoiltavat **tekstikentät** huolellisesti. Jos tiedot ovat puutteellisia tai riittämättömiä, hakemus hylätään. Regular Access -hakemuksissa vaaditaan aikaisempien julkaisujen lista ja asianmukainen tutkimussuunnitelma. Benchmark Access -hakemuksissa vaaditaan suunnitelma resurssien käytöstä vertailuarvoihin, Development Access -hakemuksissa ohjelmakoodien, metodien ja kehitystavoitteiden kuvaus.
+9. Valitse **tieteenala** ja täytä **avainsanat**.
+10. Sisältääkö projektisi henkilötietoja? Huomaa: **LUMI-projekteissa ei saa käsitellä henkilötietoja tällä hetkellä**.
+11. Ruksaa laatikko: olen lukenut ja hyväksynyt LUMIn yleiset käyttöehdot.
+12. Napsauta **Luo projekti**.
 
-Once you have created the project, [invite the project members](how-to-add-members-to-project.md). Your LUMI project application will be sent to the CSC Resource allocation administration to be processed. The CSC Resource allocation group has meetings [every three weeks](https://research.csc.fi/applying-for-computing-resources).
+Luotuasi projektin, [kutsu projektin jäsenet](how-to-add-members-to-project.md). LUMI-projekti-hakemuksesi lähetetään CSC:n resurssienhallintotarkoituksiin käsiteltäväksi. CSC:n resurssienhallintaryhmällä on kokouksia [joka kolmas viikko](https://research.csc.fi/applying-for-computing-resources).
 
-Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting/ssh-keys.md).
+Huomioi, että LUMI-pääsy annetaan vain SSH-avaimilla, ei salasanoilla. Kun saat hyväksymissähköpostiviestin LUMI-projektihakemuksestasi, ole hyvä ja [lataa julkinen SSH-avaimesi MyCSC:n ohjeiden mukaisesti](../computing/connecting/ssh-keys.md).
 
-For further information on LUMI projects please visit [Users in Finland](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}
+Lisätietoa LUMI-projekteista löytyy [Käyttäjille Suomessa](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}
 
-## Student
+## Opiskelija {#student}
 
-A student can be the project manager of the student project. Please read the [Getting started with the Student Project](../support/tutorials/student_quick.md) carefully and then you can continue with the instructions below.
+Opiskelija voi olla opiskelijaprojektin projektipäällikkö. Ole hyvä ja lue [Aloittaminen opiskelijaprojektin kanssa](../support/tutorials/student_quick.md) huolellisesti, ja sen jälkeen voit jatkaa alla olevien ohjeiden mukaan.
 
-The student category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to support student's work with higher educational institutes' courses and thesis work.
+Opiskelijakategoria on varattu [maksuttomille](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} käyttötapauksille. Tämä kategoria on määräaikainen (enintään 6 kuukautta, ei jatkettavissa), kiinteä resurssi ja suunniteltu tukemaan opiskelijan työtä korkeakoulujen kurssien ja opinnäytetöiden kanssa.
 
-1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account.
-2. Choose **Projects** in the navigation menu on the left.
-3. On the top of the page choose **+ New project**.
-4. In **the name field**, enter a descriptive name for your project. This could be the name of the course or the topic of your thesis work, for example.
-5. In **the description field**, please indicate whether this is a course-related project or a project related to your thesis work, for example.
-6. Select **the end date** of the resource need or course, but no more than six months from the project creation date.
-7. In **the comments field**, please fill in the university course code and title or name if available.
-8. Fill in **the field of your studies** - or the closest approximation.
-9. Please read our **terms and conditions** and confirm your acceptance.
-10. Click **Create project**.
+1. Kirjaudu sisään [MyCSC](http://my.csc.fi/) CSC-käyttäjätililläsi tai Haka/Virtu-tililläsi.
+2. Valitse **Projektit** navigointivalikosta vasemmalta.
+3. Valitse sivun yläosasta **+ Uusi projekti**.
+4. **Nimikenttään** anna kuvaava nimi projektille. Tämä voi olla esimerkiksi kurssin nimi tai opinnäytetyösi aihe.
+5. **Kuvauskenttään**, ilmoita onko kyseessä kurssiin liittyvä projekti vai esimerkiksi opinnäytetyöhön liittyvä projekti.
+6. Valitse **resurssitarpeen tai kurssin päättymispäivä**, kuitenkin enintään kuusi kuukautta projektin luontipäivästä.
+7. **Kommenttikenttään** täytä yliopiston kurssikoodi ja nimi tai otsikko, jos se on saatavilla.
+8. Täytä **opintojen ala** tai lähinnä vastaava.
+9. Lue **ehdot ja säännöt** ja hyväksy ne.
+10. Napsauta **Luo projekti**.
 
-If you wish, you can add other members to your project. The easiest way to do so is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
+Jos haluat, voit lisätä muita jäseniä projektiin. Helpoiten tämä onnistuu käyttämällä [kutsulinkkiä](how-to-add-members-to-project.md#using-invitation-link).
+
+

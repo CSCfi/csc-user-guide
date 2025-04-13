@@ -1,16 +1,13 @@
-# Example batch job scripts for Mahti
+# Esimerkkejä eräkäsittelyskripteistä Mahti-järjestelmälle {#example-batch-job-scripts-for-mahti}
 
-Example job scripts for running different types of programs:
+Esimerkkejä eräajoista eri ohjelmatyypeille:
 
 [TOC]
 
-!!! note
-    If you use the scripts (please do!), do not forget to change the resources
-    (time, tasks etc.) to match your needs and to replace `myprog <options>`
-    with the executable (and options) of the program you wish to run as well
-    as `<project>` with the name of your project.
+!!! huom
+    Jos käytät skriptejä (suositellaan!), älä unohda muuttaa resursseja (aika, tehtävät jne.) tarpeidesi mukaan ja korvata `myprog <options>` ajettavan ohjelman suoritettavalla tiedostolla (ja valinnoilla) sekä `<project>` projektisi nimellä.
 
-## MPI
+## MPI {#mpi}
 
 ```bash
 #!/bin/bash
@@ -24,7 +21,7 @@ Example job scripts for running different types of programs:
 srun myprog <options>
 ```
 
-## Large MPI
+## Suuri MPI {#large-mpi}
 
 ```bash
 #!/bin/bash
@@ -38,7 +35,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## MPI + OpenMP
+## MPI + OpenMP {#mpi-openmp}
 
 ```bash
 #!/bin/bash
@@ -50,13 +47,13 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=8
 
-# Set the number of threads based on --cpus-per-task
+# Aseta ketjujen määrä perustuen --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
 
-## MPI + OpenMP with thread binding
+## MPI + OpenMP langan sidonnalla {#mpi-openmp-with-thread-binding}
 
 ```bash
 #!/bin/bash
@@ -68,14 +65,14 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=8
 
-# Set the number of threads based on --cpus-per-task
+# Aseta ketjujen määrä perustuen --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export OMP_PLACES=cores
 
 srun myprog <options>
 ```
 
-## MPI + OpenMP with simultaneous multithreading
+## MPI + OpenMP samanaikaisella monisäikeistyksellä {#mpi-openmp-with-simultaneous-multithreading}
 
 ```bash
 #!/bin/bash
@@ -88,15 +85,15 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=16
 
-# Note that the ntasks-per-node * cpus-per-task = 256
+# Huomaa että ntasks-per-node * cpus-per-task = 256
 
-# Set the number of threads based on --cpus-per-task
+# Aseta ketjujen määrä perustuen --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
 
-## MPI with one task per NUMA domain
+## MPI yhdellä tehtävällä per NUMA-alue {#mpi-with-one-task-per-numa-domain}
 
 ```bash
 #!/bin/bash
@@ -108,13 +105,13 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=16
 
-# A compute node has 8 NUMA domains, each containing 16 cores
-# Slurm places the MPI tasks --cpus-per-task apart
+# Laskentasolmuilla on 8 NUMA-aluetta, joissa jokaisessa on 16 ydintä
+# Slurm sijoittaa MPI-tehtävät --cpus-per-task etäisyydelle toisistaan
 
 srun myprog <options>
 ```
 
-## OpenMP
+## OpenMP {#openmp}
 
 ```bash
 #!/bin/bash
@@ -125,13 +122,13 @@ srun myprog <options>
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=128
 
-# set the number of threads based on --cpus-per-task
+# aseta ketjujen määrä perustuen --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
 
-## Local disk and `small` partition
+## Paikallinen levy ja `small` osio {#local-disk-and-small-partition}
 
 ```bash
 #!/bin/bash
@@ -143,19 +140,18 @@ srun myprog <options>
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=nvme:100
 
-# Small partition:
-# - Each job gets 1.875 GB memory per reserved core automatically.
-#   If a task needs more memory, use `--cpus-per-task` option.
-# - Memory reservation slurm options are ignored
-# - Local NVMe disk up to 3500 GiB is available, reserve with
-#   `--gres=nvme:<size in GiB>` option and use through
-#   $LOCAL_SCRATCH environment variable
+# Small osio:
+# - Jokainen työ saa automaattisesti 1,875 GB muistia per varattu ydin.
+#   Jos tehtävä tarvitsee lisää muistia, käytä `--cpus-per-task` asetusta.
+# - Muistivaraukset slurm-asetukset ohitetaan
+# - Paikallinen NVMe-levy jopa 3500 GiB on saatavilla, varaa asetuksella
+#   `--gres=nvme:<koko GiB>` ja käytä $LOCAL_SCRATCH ympäristömuuttujan kautta
 
 export MY_JOB_TMPDIR=$LOCAL_SCRATCH
 srun myprog <options>
 ```
 
-## 1-2 GPU job i.e. `gpusmall` partition
+## 1-2 GPU-tehtävä eli `gpusmall` osio {#1-2-gpu-job-i.e.-gpusmall-partition}
 
 ```bash
 #!/bin/bash
@@ -166,17 +162,17 @@ srun myprog <options>
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --gres=gpu:a100:1
-## if local fast disk on a node is also needed, replace above line with:
+## jos tarvitset myös paikallisen nopean levyn solmussa, korvaa edellinen rivi:
 #SBATCH --gres=gpu:a100:1,nvme:900
 #
-## Please remember to load the environment your application may need.
-## And use the variable $LOCAL_SCRATCH in your batch job script 
-## to access the local fast storage on each node.
+## Muista ladata ympäristö, jota sovelluksesi saattaa tarvita.
+## Ja käytä muuttujaa $LOCAL_SCRATCH eräkäsittelyskriptissäsi 
+## paikallisen nopean tallennustilan käyttämiseen jokaisessa solmussa.
 
 srun myprog <options>
 ```
 
-## 4 GPUs per node and multinode GPU job i.e. `gpumedium` partition
+## 4 GPU:ta per solmu ja monisoluinen GPU-tehtävä eli `gpumedium` osio {#4-gpus-per-node-and-multinode-gpu-job-i.e.-gpumedium-partition}
 
 ```bash
 #SBATCH --job-name=example
@@ -187,12 +183,11 @@ srun myprog <options>
 #SBATCH --ntasks=8
 #SBATCH --cpus-per-task=32
 #SBATCH --gres=gpu:a100:4
-## if local fast disk on nodes is also needed, replace above line with: 
+## jos tarvitset myös paikallisen nopean levyn solmuissa, korvaa edellinen rivi: 
 #SBATCH --gres=gpu:a100:4,nvme:3600
 #
-## Please remember to load the environment your application may need.
-## And use the variable $LOCAL_SCRATCH in your batch job script 
-## to access the local fast storage on each node.
+## Muista ladata ympäristö, jota sovelluksesi saattaa tarvita.
+## Ja käytä muuttujaa $LOCAL_SCRATCH eräkäsittelyskriptissäsi 
+## paikallisen nopean tallennustilan käyttämiseen jokaisessa solmussa.
 
 srun myprog <options>
-```

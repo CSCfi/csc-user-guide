@@ -1,40 +1,36 @@
-# How to increase disk quotas
 
-## Increasing the storage capacity in Puhti and Mahti
+# Kuinka lisätä levykiintiöitä
 
-The quotas of the [scratch](../computing/disk.md#scratch-directory) and [projappl](../computing/disk.md#projappl-directory) directories of Puhti and Mahti servers can be
-increased if needed.
+## Tallennuskapasiteetin lisääminen Puhtissa ja Mahtissa {#increasing-the-storage-capacity-in-puhti-and-mahti}
 
-You can use MyCSC to manage these quotas.
+Puhti ja Mahti palvelimien [scratch](../computing/disk.md#scratch-directory) ja [projappl](../computing/disk.md#projappl-directory) hakemistojen
+kiintiöitä voidaan tarvittaessa lisätä.
 
-1. Login to [MyCSC](https://my.csc.fi) and **select the project** you want to
-   modify.
-1. In the Services list, click Configuration for **Puhti** or **Mahti** service as needed. This opens a page where the project manager can modify the quotas.
+Voit hallita näitä kiintiöitä käyttämällä MyCSC:tä.
 
-You can check the default limits of scratch and projappl areas from the table below. Values in parenthesis indicate automatically approved limits. Applications with higher values will be determined in the next resource allocation meeting.
-  
-| Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
-|-----------|--------------|--------------|---------------------------|---------------------------|
-| projappl  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
-| scratch   |   1 TiB      |  100&nbsp;TiB&nbsp;(<&nbsp;20&nbsp;TiB)    | 1 000 000                 | 10 000 000 (<&nbsp;5&nbsp;000&nbsp;000)               |
+1. Kirjaudu [MyCSC:hen](https://my.csc.fi) ja **valitse projekti,** jota haluat muokata.
+2. Palvelut-listalta klikkaa Määritykset **Puhti** tai **Mahti** palvelulle tarpeen mukaan. Tämä avaa sivun, jossa projektipäällikkö voi muokata kiintiöitä.
 
-Note that the extended quota consumes your CSC billing units regardless of how
-much data you actually have in the directory. [See billing](billing.md) for
-details. Furthermore, even after the quota is increased, the automatic cleaning
-process will continue removing idle files from the scratch directory.
+Voit tarkastaa oletusrajat scratch ja projappl alueille alla olevasta taulukosta. Sulkeissa olevat arvot ovat automaattisesti hyväksyttyjä rajoja. Sovellukset, joilla on korkeammat arvot, päätetään seuraavassa resurssien allokointikokouksessa.
 
-## Increasing the storage capacity in Allas
+| Hakemisto | Oletuskoko | Enimmäiskoko | Oletustiedostojen määräraja | Enimmäistiedostojen määräraja |
+|-----------|------------|--------------|-----------------------------|------------------------------|
+| projappl  | 50 GiB     | 200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                     | 2 000 000 (<&nbsp;500&nbsp;000)                 |
+| scratch   | 1 TiB      | 100&nbsp;TiB&nbsp;(<&nbsp;20&nbsp;TiB)    | 1 000 000                   | 10 000 000 (<&nbsp;5&nbsp;000&nbsp;000)               |
 
-The default quota for a new project is 10 TB, but that can be increased if needed. Allas is the preferred storage site for 
-any large datasets in the CSC environment, so you should not hesitate to request a larger quota for Allas, if you work with larger data sets.
+Huomaa, että laajennettu kiintiö kuluttaa CSC:n laskutusyksiköitäsi riippumatta siitä, kuinka paljon dataa hakemistossasi on. [Katso laskutus](billing.md) saadaksesi lisätietoja. Lisäksi, vaikka kiintiötä on lisätty, automaattinen siivousprosessi jatkaa käyttämättömien tiedostojen poistamista scratch-hakemistosta.
 
-To increase your Allas quota, please send a request to: servicedesk@csc.fi 
-In the request, define what Allas project you are using, how large storage space is needed and what kind of data will be stored to Allas.
+## Tallennuskapasiteetin lisääminen Allasissa {#increasing-the-storage-capacity-in-allas}
 
-Note that storing data in Allas consumes billing units. In Allas, billing is based on the amount of data stored. The rate is 1 BU/TiBh, 
-i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year. [How to apply for billing units](how-to-apply-for-billing-units.md)
+Uuden projektin oletuskiintiö on 10 TB, mutta sitä voidaan tarvittaessa lisätä. Allas on suosittu tallennuspaikka suurille tietoaineistoille CSC:n ympäristössä, joten sinun ei tulisi epäröidä pyytää suurempaa kiintiötä Allasille, jos työskentelet suuremmilla tietoaineistoilla.
 
-## Increasing the storage capacity in IDA
+Lisätäksesi Allas-kiintiötäsi, lähetä pyyntö osoitteeseen: servicedesk@csc.fi
+Pyynnössä määrittele, mitä Allas-projektia käytät, kuinka suurta tallennustilaa tarvitaan ja millaista dataa Allasiin tallennetaan.
 
-[About Monitoring and Adjusting Project Quota in IDA User Guide](https://www.fairdata.fi/en/user-guides/user-guide/#project-quota)
+Huomaa, että tiedon tallentaminen Allasiin kuluttaa laskutusyksiköitä. Allasiin perustuva laskutus pohjautuu tallennetun datan määrään. Hinta on 1 BU/TiBh, eli 1 TB dataa Allasissa kuluttaa 24 BU päivässä ja 8760 BU vuodessa. [Kuinka hakea laskutusyksiköitä](how-to-apply-for-billing-units.md)
+
+## Tallennuskapasiteetin lisääminen IDAssa {#increasing-the-storage-capacity-in-ida}
+
+[Projektikiintiön seurannasta ja säätämisestä IDA Käyttäjän oppaassa](https://www.fairdata.fi/en/user-guides/user-guide/#project-quota)
+
 

@@ -1,47 +1,48 @@
-# How to deploy OAuth2 Proxy in Rahti
 
-We will explain how to deploy and use [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to provide authentication control
-using Providers such as Google, GitHub, and others.
+# Kuinka ottaa käyttöön OAuth2-proxy Rahtissa {#how-to-deploy-oauth2-proxy-in-rahti}
 
-In this tutorial, we will see how to use GitHub
+Selitämme, kuinka ottaa käyttöön ja käyttää [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) käytettävissä autentikoinnin hallintaan
+käyttäen tarjoajia kuten Google, GitHub ja muita.
 
-!!! warning
-    This is a simple proof of concept. Naturally, your application should be able to control the access based on groups, email, username, ...
+Tässä opetusohjelmassa käymme läpi, miten käyttää GitHubia
 
-## Deploy your web application
+!!! varoitus
+    Tämä on yksinkertainen esimerkkitoteutus. Luonnollisesti sovelluksesi tulisi pystyä hallitsemaan pääsyä ryhmien, sähköpostin, käyttäjätunnuksen jne. perusteella.
 
-First, we will deploy a very simple web application, this [flask demo](https://github.com/CSCfi/rahti-flask-hello). Follow the instructions
-from the GitHub repo.
+## Ota web-sovelluksesi käyttöön {#deploy-your-web-application}
 
-Don't create the Route, it won't be necessary because we will use `NGINX` as a reverse proxy.
+Ensiksi otamme käyttöön hyvin yksinkertaisen web-sovelluksen, tämän [flask-demo](https://github.com/CSCfi/rahti-flask-hello). Seuraa ohjeita
+GitHub-reposta.
 
-## Deploy NGINX
+Älä luo Routea, sitä ei tarvita, koska käytämme `NGINX`:ää käänteisenä proxy-palvelimena.
 
-You can use our [NGINX image](https://github.com/CSCfi/nginx-okd) to run NGINX on Rahti (OpenShift 4)
+## Ota NGINX käyttöön {#deploy-nginx}
 
-With Rahti, you can directly build the image. More information [here](../images/creating.md#using-the-source-to-image-mechanism)
+Voit käyttää meidän [NGINX-kuvaamme](https://github.com/CSCfi/nginx-okd) ajaaksesi NGINX:ää Rahtissa (OpenShift 4)
 
-Run this command:
+Rahatissa voit suoraan rakentaa kuvan. Lisätietoa [täältä](../images/creating.md#using-the-source-to-image-mechanism)
+
+Suorita tämä komento:
 
 ```sh
 oc new-app https://github.com/CSCfi/nginx-okd
 ```
 
-Once the build is finished, run this command to create a Route:
+Kun koonti on valmis, suorita tämä komento luodaksesi Route:
 
 ```sh
 oc create route edge flask-demo --service=nginx-okd --hostname=demo-oauth2.2.rahtiapp.fi --insecure-policy='Redirect' --port=8081
 ```
 
-!!! info
-    You can set your own `--hostname`. In this example, we are using Rahti default domain `2.rahtiapp.fi`.
+!!! tieto
+    Voit asettaa oman `--hostname`:n. Tässä esimerkissä käytämme Rahtin oletusdomainia `2.rahtiapp.fi`.
 
-    You can also use your own domain but in this case, you will need to create an `Ingress`.
-    More information [here](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+    Voit myös käyttää omaa domainiasi, mutta tässä tapauksessa sinun on luotava `Ingress`.
+    Lisätietoa [täältä](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
-We need to create a specific configuration to make NGINX run as reverse-proxy. For that, we will use a [ConfigMap](../concepts.md#configmap)
+Meidän on luotava erityinen konfiguraatio, jotta NGINX toimisi käänteisenä proxy-palvelimena. Tätä varten käytämme [ConfigMapia](../concepts.md#configmap)
 
-Create a new `configmap.yaml` file:
+Luo uusi `configmap.yaml` tiedosto:
 
 ```yaml
 apiVersion: v1
@@ -51,15 +52,15 @@ metadata:
 data:
   default.conf: |
     server {
-      listen 8081; # NGINX service port
-      server_name demo-oauth2.2.rahtiapp.fi; # The same as the --hostname created previously in the Route
+      listen 8081; # NGINX-palvelun portti
+      server_name demo-oauth2.2.rahtiapp.fi; # Sama kuin aiemmin Routeen luotu --hostname
     
     location /oauth2/ {
       proxy_pass       http://oauth2-proxy:4180;
       proxy_set_header Host                    $host;
       proxy_set_header X-Real-IP               $remote_addr;
       proxy_set_header X-Auth-Request-Redirect $request_uri;
-      # or, if you are handling multiple domains:
+      # tai jos käsittelet useita domaineja:
       # proxy_set_header X-Auth-Request-Redirect $scheme://$host$request_uri;
     }
     
@@ -68,7 +69,7 @@ data:
       proxy_set_header Host             $host;
       proxy_set_header X-Real-IP        $remote_addr;
       proxy_set_header X-Forwarded-Uri  $request_uri;
-      # nginx auth_request includes headers but not body
+      # nginx auth_request sisältää otsikot mutta ei vartaloa
       proxy_set_header Content-Length   "";
       proxy_pass_request_body           off;
     }
@@ -79,43 +80,43 @@ data:
       auth_request /oauth2/auth;
       error_page 401 =403 /oauth2/sign_in;
     
-      # pass information via X-User and X-Email headers to backend,
-      # requires running with --set-xauthrequest flag
+      # siirrä tiedot X-User ja X-Email otsikoiden kautta backendille
+      # vaatii, että ajetaan --set-xauthrequest lippu mukana
       auth_request_set $user   $upstream_http_x_auth_request_user;
       auth_request_set $email  $upstream_http_x_auth_request_email;
       proxy_set_header X-User  $user;
       proxy_set_header X-Email $email;
       proxy_set_header Host $http_host;
     
-      # if you enabled --pass-access-token, this will pass the token to the backend
+      # jos otit käyttöön --pass-access-token, tämä välittää tokenin backendille
       auth_request_set $token  $upstream_http_x_auth_request_access_token;
       proxy_set_header X-Access-Token $token;
     
-      # if you enabled --cookie-refresh, this is needed for it to work with auth_request
+      # jos otit käyttöön --cookie-refresh, tätä tarvitaan sen toimimiseksi auth_requestin kanssa
       auth_request_set $auth_cookie $upstream_http_set_cookie;
       add_header Set-Cookie $auth_cookie;
     
-      # When using the --set-authorization-header flag, some provider's cookies can exceed the 4kb
-      # limit and so the OAuth2 Proxy splits these into multiple parts.
-      # Nginx normally only copies the first `Set-Cookie` header from the auth_request to the response,
-      # so if your cookies are larger than 4kb, you will need to extract additional cookies manually.
+      # Kun käytät --set-authorization-header lippua, joidenkin tarjoajien evästeet voivat ylittää 4 kb
+      # rajan ja siksi OAuth2 Proxy jakaa ne useampaan osaan.
+      # Nginx kopioi normaalisti vain ensimmäisen `Set-Cookie` otsikon auth_requestista vasteeseen,
+      # joten jos evästeesi ovat suurempia kuin 4 kb, sinun on manuaalisesti noudettava ylimääräisiä evästeitä.
       auth_request_set $auth_cookie_name_upstream_1 $upstream_cookie_auth_cookie_name_1;
     
-      # Extract the Cookie attributes from the first Set-Cookie header and append them
-      # to the second part ($upstream_cookie_* variables only contain the raw cookie content)
+      # Hae evästeattribuutit ensimmäisestä Set-Cookie-otsikosta ja liitä ne
+      # toiseen osaan ($upstream_cookie_* muuttujat sisältävät vain raakatiedon evästeisiin)
       if ($auth_cookie ~* "(; .*)") {
           set $auth_cookie_name_0 $auth_cookie;
           set $auth_cookie_name_1 "auth_cookie_name_1=$auth_cookie_name_upstream_1$1";
       }
     
-      # Send both Set-Cookie headers now if there was a second part
+      # Lähetä molemmat Set-Cookie-otsikot nyt, jos oli toinen osa
       if ($auth_cookie_name_upstream_1) {
           add_header Set-Cookie $auth_cookie_name_0;
           add_header Set-Cookie $auth_cookie_name_1;
       }
     
-      proxy_pass http://course-flask-demo:8080/; # Set your backend, where you should be redirected. Here, our flask-demo webapp. It is the service name and its port.
-    # or "root /path/to/site;" or "fastcgi_pass ..." etc
+      proxy_pass http://course-flask-demo:8080/; # Aseta backend-si, jonne sinut ohjataan. Tässä, meidän flask-demo web-sovellus. Se on palvelun nimi ja sen portti.
+    # tai "root /polku/sivustoon;" tai "fastcgi_pass ..." jne
     }
     
       error_page   500 502 503 504  /50x.html;
@@ -125,37 +126,37 @@ data:
     }
 ```
 
-You can find more information about this configuration on the [OAuth2 Proxy website](https://oauth2-proxy.github.io/oauth2-proxy/configuration/integration)
+Löydät lisätietoa tästä konfiguraatiosta [OAuth2 Proxy verkkosivustolta](https://oauth2-proxy.github.io/oauth2-proxy/configuration/integration)
 
-The most important values to modify in this ConfigMap are:
+Tärkeimmät arvot muokattavaksi tässä ConfigMapissa ovat:
 
-- `listen 8081`: Which represents the NGINX service port
-- `server_name`: The same as the --hostname created previously in the Route
-- `proxy_pass`: Set your backend, where you should be redirected. Here, our flask-demo webapp. It is the service name and its port.
+- `listen 8081`: Mikä edustaa NGINX-palvelun porttia
+- `server_name`: Sama kuin aiemmin Routeen luotu --hostname
+- `proxy_pass`: Aseta backendisi, jonne sinun tulisi tulla ohjatuksi. Tässä, meidän flask-demo web-sovellus. Se on palvelun nimi ja sen portti.
 
-Apply the ConfigMap configuration:
+Sovella ConfigMap-konfiguraatiota:
 
 ```sh
 oc apply -f configmap.yaml
 ```
 
-## Create your GitHub OAuth Apps
+## Luo GitHub OAuth-sovelluksesi {#create-your-github-oauth-apps}
 
-You need to go to [GitHub](https://github.com/settings/developers) > OAuth Apps
+Sinun on mentävä [GitHubiin](https://github.com/settings/developers) > OAuth Apps
 
-Click on New OAuth App
+Klikkaa uutta OAuth-sovellusta
 
 ![New GitHub OAuth App](../../img/GitHub-new-oauth-app.png)
 
-Fill in the different fields:
+Täytä eri kentät:
 
-- **Application Name**: Give a name to your GitHub OAuth Application
-- **Homepage URL**: The homepage of your web application. In this example, it will be the route of the NGINX reverse proxy (`https://demo-oauth2.2.rahtiapp.fi`)
-- **Authorization callback URL**: Your applications's callback URL. In this example, it will be like `https://demo-oauth2.2.rahtiapp.fi/oauth2/callback`
+- **Sovelluksen nimi**: Anna nimi GitHub OAuth -sovelluksellesi
+- **Kotisivu-URL**: Web-sovelluksesi kotisivu. Tässä esimerkissä se on NGINX:n käänteisen proxyn reitti (`https://demo-oauth2.2.rahtiapp.fi`)
+- **Valtuutuksen palautus-URL**: Sovelluksesi palautus-URL. Tässä esimerkissä se on kuin `https://demo-oauth2.2.rahtiapp.fi/oauth2/callback`
 
-## Deploy OAuth2 Proxy
+## Ota käyttöön OAuth2 Proxy {#deploy-oauth2-proxy}
 
-To deploy [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/), we will use a .yaml file. Create a new file named `oauth2.yaml` and copy this:
+Jotta voit ottaa käyttöön [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/):n, käytämme .yaml tiedostoa. Luo uusi tiedosto nimeltä `oauth2.yaml` ja kopioi tämä:
 
 ```yaml
 apiVersion: apps/v1
@@ -217,37 +218,37 @@ spec:
     k8s-app: oauth2-proxy
 ```
 
-The most important things are:
+Tärkeimmät asiat ovat:
 
 - `--provider=github`
-- `--client-id=` Copy from the GitHub OAuth Apps created previously
-- `--client-secret=` Copy from the GitHub OAuth Apps created previously
-- `--cookied-secret=` You can generate one by running this command: `docker run -ti --rm python:3-alpine python -c 'import secrets,base64; print(base64.b64encode(base64.b64encode(secrets.token_bytes(16))));'`
+- `--client-id=` Kopio GitHub OAuth Appsista, joka luotiin aiemmin
+- `--client-secret=` Kopio GitHub OAuth Appsista, joka luotiin aiemmin
+- `--cookied-secret=` Voit luoda yhden suorittamalla tämän komennon: `docker run -ti --rm python:3-alpine python -c 'import secrets,base64; print(base64.b64encode(base64.b64encode(secrets.token_bytes(16))));'`
 
-Once done, apply the configuration:
+Kun tämä on tehty, sovella konfiguraatio:
 
 ```sh
 oc apply -f oauth2.yaml
 ```
 
-## Almost done
+## Lähes valmis {#almost-done}
 
-Now that we have:
+Nyt kun meillä on:
 
-1. Our web application
-2. NGINX as a reverse proxy
-3. Our GitHub OAuth App
-4. OAuth2 proxy deployed
+1. Web-sovelluksemme
+2. NGINX käänteisenä proxy-palvelimena
+3. GitHub OAuth -sovelluksemme
+4. Käytössä oleva OAuth2-proxy
 
-We need to tell NGINX to communicate with our OAuth2 Proxy that will reach GitHub to let us access our web application
+Meidän on kerrottava NGINX:lle, että sen on kommunikoitava OAuth2 Proxy:n kanssa, joka tavoittaa GitHubin, jotta voimme päästä käsiksi web-sovellukseemme
 
-Here is schema:
+Tässä on kaavio:
 
-![OAuth2 schema](../../img/oauth2.png)
+![OAuth2 kaavio](../../img/oauth2.png)
 
-Do you remember that we created a ConfigMap earlier? What's the purpose of it? Well, it is going to be the new NGINX default configuration file.
+Muistatko, että loimme aiemmin ConfigMapin? Mikä sen tarkoitus on? No, se tulee olemaan uusi NGINX:n oletuskonfiguraatiotiedosto.
 
-Create a `patch-configmap.yaml` file:
+Luo `patch-configmap.yaml` tiedosto:
 
 ```yaml
 apiVersion: apps/v1
@@ -269,34 +270,35 @@ spec:
           name: nginx-default
 ```
 
-Patch your deployment:
+Korjaa deployisi:
 
 ```sh
 oc patch deploy/nginx-okd --patch-file=patch-configmap.yaml
 ```
 
-It will automatically trigger a new deployment of a NGINX pod.
+Tämä käynnistää automaattisesti uuden NGINX-podin käyttöönoton.
 
-Once the pod is ready, you can try your new configuration. Open your web application website (it should be the Route created during the deployment of NGINX
-so https://demo-oauth2.2.rahtiapp.fi for this example).
+Kun pod on valmis, voit kokeilla uutta konfiguraatiotasi. Avaa websovellussivustosi (sen pitäisi olla NGINX:n käyttöönotossa luotu reitti
+eli https://demo-oauth2.2.rahtiapp.fi tässä esimerkissä).
 
-You should see the OAuth2 Proxy Homepage and a **Sign in with GitHub** button.
+Sinun pitäisi nähdä OAuth2 Proxy -kotisivu ja **Kirjaudu GitHubilla** -painike.
 
-![oauth2 proxy homepage](../../img/oauth2-proxy-homepage.png)
+![oauth2 proxy kotisivu](../../img/oauth2-proxy-homepage.png)
 
-Proceed
+Jatka
 
-Once you have validated your credentials and let GitHub access your data, you should be redirected to the web application:
+Kun olet vahvistanut tunnistetietosi ja antanut GitHubille oikeuden päästä tietoihisi, sinut pitäisi ohjata websovellukseen:
 
-![Faslk homepage](../../img/flask-demo-homepage.png)
+![Flask kotisivu](../../img/flask-demo-homepage.png)
 
-# Few comments
+# Muutama huomio {#few-comments}
 
-Congrats! You managed to deploy an OAuth2 Proxy to access your website.
+Onneksi olkoon! Onnistuit ottamaan käyttöön OAuth2 Proxyn päästäksesi verkkosivustollesi.
 
-Keep in mind that this example doesn't control the name, username or email. A good application must be able to check the email for example and
-let the user access the applications or not.
+Pidä mielessä, että tämä esimerkki ei kontrolloi nimeä, käyttäjätunnusta tai sähköpostia. Hyvän sovelluksen on pystyttävä tarkistamaan esimerkiksi sähköposti ja
+päästämään käyttäjä sovelluksiin tai ei.
 
-Here is an example of OAuth2 Proxy + Kubernetes-Dashboard: <https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/#example-oauth2-proxy-kubernetes-dashboard>
+Tässä esimerkki OAuth2 Proxy + Kubernetes-Dashboard: <https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/#example-oauth2-proxy-kubernetes-dashboard>
 
-In this example, it is possible to give access to the cluster by controlling the email of the user with [kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+Tässä esimerkissä on mahdollista antaa pääsy klusteriin kontrolloimalla käyttäjän sähköpostia [kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/):lla
+

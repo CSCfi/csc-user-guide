@@ -1,108 +1,103 @@
-# Using Allas with Rclone 
 
-This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Mahti computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others). At the moment, the Swift protocol is the default option on the CSC servers. 
+# Allaksen käyttö Rclonella {#using-allas-with-rclone}
 
-> **WARNING:** Rclone should not be used to copy, move or rename objects **inside** Allas. Rclone provides commands for these operations but they don't work correctly for files larger than 5 GB.
+Tämä luku sisältää ohjeet Allaksen käyttämiseen [Rclonen](https://rclone.org/) kanssa Puhti- ja Mahti-laskentaympäristöissä. _Rclone_ tarjoaa erittäin tehokkaan ja monipuolisen tavan käyttää Allasta ja muita objektitallennuspalveluja. Se pystyy käyttämään sekä S3- että Swift-protokollia (ja monia muita). Tällä hetkellä CSC-palvelimissa Swift-protokolla on oletusvaihtoehto. 
+
+> **VAROITUS:** Rclonella ei tulisi kopioida, siirtää tai nimetä uudelleen objekteja **Allaksen sisällä**. Rclone tarjoaa komentoja näihin toimenpiteisiin, mutta ne eivät toimi oikein yli 5 GB kokoisille tiedostoille.
 > 
-> **WARNING:** If a rclone data upload process for a over 5 GB file gets interrupted, please remove the partially uploaded object before restarting the upload process. Otherwise rclone sometimes reports a successful data upload even though not all data has been copied to Allas.
+> **VAROITUS:** Jos Rclone-datan latausprosessi yli 5 GB kokoiselle tiedostolle keskeytyy, poista osittain ladattu objekti ennen uudelleen käynnistämistä. Muuten Rclone saattaa joskus ilmoittaa onnistuneesta datan latauksesta, vaikka kaikkea tietoa ei ole kopioitu Allakseen.
 
-
-
-The basic syntax of Rclone:
+Rclonen perussyntaksi:
 <pre>
-rclone <i>subcommand options source:path dest:path</i> 
+rclone <i>käsky vaihtoehdot lähde:polku kohde:polku</i> 
 </pre>
 
-The most frequently used Rclone commands:
+Useimmiten käytetyt Rclone-komennot:
 
-*    [rclone copy]( https://rclone.org/commands/rclone_copy/) – Copy files from the source to the destination, skipping what has already been copied.
-*    [rclone sync](https://rclone.org/commands/rclone_sync/) – Make the source and destination identical, modifying only the destination.
-*    [rclone move](https://rclone.org/commands/rclone_move/) – Move files from the source to the destination.
-*    [rclone delete](https://rclone.org/commands/rclone_delete/) – Remove the contents of a path.
-*    [rclone mkdir](https://rclone.org/commands/rclone_mkdir/) – Create the path if it does not already exist.
-*    [rclone rmdir](https://rclone.org/commands/rclone_rmdir/) – Remove the path.
-*    [rclone check](https://rclone.org/commands/rclone_check/) – Check if the files in the source and destination match.
-*    [rclone ls](https://rclone.org/commands/rclone_ls/) – List all objects in the path, including size and path.
-*    [rclone lsd](https://rclone.org/commands/rclone_lsd/) – List all directories/containers/buckets in the path.
-*    [rclone lsl](https://rclone.org/commands/rclone_lsl/) – List all objects in the path, including size, modification time and path.
-*    [rclone lsf](https://rclone.org/commands/rclone_lsf/) – List the objects using the virtual directory structure based on the object names.
-*    [rclone cat](https://rclone.org/commands/rclone_cat) – Concatenate files and send them to stdout.
-*    [rclone copyto](https://rclone.org/commands/rclone_copyto/) – Copy files from the source to the destination, skipping what has already been copied.
-*    [rclone moveto](https://rclone.org/commands/rclone_moveto/) – Move the file or directory from the source to the destination.
-*    [rclone copyurl](https://rclone.org/commands/rclone_copyurl/) – Copy the URL's content to the destination without saving it in the tmp storage.
+*    [rclone copy]( https://rclone.org/commands/rclone_copy/) – Kopioi tiedostoja lähteestä kohteeseen, ohittaa jo kopioituja.
+*    [rclone sync](https://rclone.org/commands/rclone_sync/) – Tekee lähteestä ja kohteesta identtisiä, muokkaa vain kohdetta.
+*    [rclone move](https://rclone.org/commands/rclone_move/) – Siirtää tiedostoja lähteestä kohteeseen.
+*    [rclone delete](https://rclone.org/commands/rclone_delete/) – Poistaa sisällön polusta.
+*    [rclone mkdir](https://rclone.org/commands/rclone_mkdir/) – Luo polun, jos se ei jo ole olemassa.
+*    [rclone rmdir](https://rclone.org/commands/rclone_rmdir/) – Poistaa polun.
+*    [rclone check](https://rclone.org/commands/rclone_check/) – Tarkistaa, vastaavatko tiedostot lähteissä ja kohteissa.
+*    [rclone ls](https://rclone.org/commands/rclone_ls/) – Listaa kaikki objektit polussa, mukaan lukien koko ja polku.
+*    [rclone lsd](https://rclone.org/commands/rclone_lsd/) – Listaa kaikki hakemistot/säiliöt/sanko polussa.
+*    [rclone lsl](https://rclone.org/commands/rclone_lsl/) – Listaa kaikki objektit polussa, mukaan lukien koko, muokkausaika ja polku.
+*    [rclone lsf](https://rclone.org/commands/rclone_lsf/) – Listaa objektit virtuaalisen hakemistorakenteen mukaisesti objektin nimien perusteella.
+*    [rclone cat](https://rclone.org/commands/rclone_cat) – Yhdistää tiedostot ja lähettää ne stdout:lle.
+*    [rclone copyto](https://rclone.org/commands/rclone_copyto/) – Kopioi tiedostoja lähteestä kohteeseen, ohittaa jo kopioituja.
+*    [rclone moveto](https://rclone.org/commands/rclone_moveto/) – Siirtää tiedoston tai hakemiston lähteestä kohteeseen.
+*    [rclone copyurl](https://rclone.org/commands/rclone_copyurl/) – Kopioi URL:n sisällön kohteeseen tallentamatta sitä tmp-tallennukseen.
 
-A more extensive list can be found on the [Rclone manual pages](https://rclone.org/docs/) or by typing the command `rclone` in Puhti.
+Laajempi luettelo löytyy [Rclonen manuaalisivuilta](https://rclone.org/docs/) tai kirjoittamalla Puhtiin komento `rclone`.
 
-## Authentication 
+## Autentikointi {#authentication}
 
-The first step is to authenticate to a project in Allas. Rclone can use both Swift and S3 protocols but these connections will have different names in rclone commands. 
+Ensimmäinen askel on autentikoitua projektiin Allaksessa. Rclone voi käyttää sekä Swift- että S3-protokollia, mutta näillä yhteyksillä on eri nimet rclone-komennoissa.
 
-In this document we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use rclone also in your local computer. Instructions of configuring locally installed Rclone are here
+Tässä dokumentissa kuvataan, miten Rclonea käytetään CSC:n laskentaympäristössä (Puhti ja Mahti). Voit käyttää rclonea myös paikallisella tietokoneellasi. Ohjeet paikallisesti asennetun Rclonen konfigurointiin ovat täällä
 
-   * [Local Rclone configuration for Allas](./rclone_local.md)
+* [Paikallinen Rclone-konfiguraatio Allekse](./rclone_local.md)
 
+### Rclone Swift-protokollalla CSC:n supertietokoneilla {#rclone-with-swift-on-csc-supercomputers}
 
-### Rclone with swift on CSC supercomputers
-
-The default protocol of Allas is Swift. In Puhti and Mahti Swift based Allas connection is activated  with commands:
+Allaksen oletusprotokolla on Swift. Puhti- ja Mahti-ympäristöissä Swift-pohjainen Allas-yhteys aktivoidaan komentoja käyttäen:
 ```text
 module load allas
 allas-conf
 ```
-The `allas-conf` command asks for your CSC password (University/Haka password will not work here). It lists
-your projects in Allas and asks you to define the project that will be used. Then _allas-conf_ generates a Rclone configuration file for the Allas service and authenticates the connection to the selected project. In Rclone command this swift based connection is referred with remote name `allas:`. The authentication information is stored in the shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL` that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session, so if you login to Puhti in another session, you need to authenticate again to access Allas.
+`allas-conf`-komento pyytää CSC-salasanaasi (yliopiston/Haka-salasana ei toimi tässä). Se listaa projektisi Allaksessa ja pyytää määrittämään käytettävän projektin. Sitten _allas-conf_ luo Rclone-konfiguraatiotiedoston Allas-palvelulle ja autentikoi yhteyden valittuun projektiin. Rclone-komennossa tämä Swift-pohjainen yhteys mainitaan etäyhteyden nimellä `allas:`. Autentikointitiedot tallennetaan kuori- muuttujissa `OS_AUTH_TOKEN` ja `OS_STORAGE_URL`, jotka ovat voimassa jopa kahdeksan tuntia. Kuitenkin, voit päivittää autentikoinnin milloin vain suorittamalla _allas-conf_ uudelleen. Ympäristömuuttujat ovat saatavilla vain kyseiselle sisäänkirjautumissessioille, joten jos kirjaudut Puhdille toisessa istunnossa, sinun on autentikoiduttava uudelleen päästäksesi Allakseen.
 
-### Rclone with S3 on CSC supercomputers
+### Rclone S3-protokollalla CSC:n supertietokoneilla {#rclone-with-s3-on-csc-supercomputers}
 
-If you want to use Allas with the S3 protocol instead, run the `allas-conf` command with the `--mode S3` option.
+Jos haluat käyttää Allasta S3-protokollalla, suorita `allas-conf`-komento `--mode S3` -valinnalla.
 ```text
 module load allas
 allas-conf --mode S3
 ```
-This command opens permanent S3 based connection to Allas. Rclone can now refer to this connection with remote name `s3allas:`.
-In the examples below the swift based `allas:` remote definition is used, but if you have S3 connection defined, you could replace it
-with `s3allas:`. Note that you can have both `allas:` and `s3allas:` functional in the same time and that they can still use different Allas projects. However, you should avoid mixing protocols. If an object is loaded using `allas:` do also all operations with `allas:`.  
+Tämä komento avaa pysyvän S3-pohjaisen yhteyden Allakseen. Rclone voi nyt viitata tähän yhteyteen etäyhteyden nimellä `s3allas:`. Alla olevissa esimerkeissä käytetään Swift-pohjaista `allas:`-etämääritelmää, mutta jos olet määrittänyt S3-yhteyden, voit korvata sen `s3allas:`. Huomaa, että voit käyttää samanaikaisesti sekä `allas:` että `s3allas:` ja että ne voivat silti käyttää eri Allas-projekteja. Vältä kuitenkin protokollien sekoittamista. Jos objekti ladataan käyttäen `allas:`, tee myös kaikki toiminnot `allas:` kanssa.
 
-## Create buckets and upload objects
+## Luo sankoja ja lataa objekteja {#create-buckets-and-upload-objects}
 
-The data in Allas is arranged into containers called buckets. You can consider them as root-level directories. All buckets in Allas must have unique names – you cannot create a bucket if some other project has already used that bucket name. It is a good rule of thumb to have something project- or user-specific in the bucket name, e.g. _2000620-raw-data_. See the [checklist](../introduction.md#naming-buckets) for how to name a bucket.
+Allaksen data on järjestetty kontteihin, joita kutsutaan sankoiksi. Voit pitää niitä juuritason hakemistoina. Kaikilla sankoilla Allaksessa on oltava yksilölliset nimet – et voi luoda sankoa, jos joku muu projekti on jo käyttänyt kyseistä sankonimeä. On hyvä nyrkkisääntö lisätä jotain projekti- tai käyttäjäkohtaista sankonimeen kuten _2000620-raw-data_. Katso [tarkistuslistan](../introduction.md#naming-buckets) ohjeet kuinka nimetä sanko.
 
-In the case of _Rclone_, create a bucket:
+_Rclonella_: luodaan sanko:
 ```text
 rclone mkdir allas:2000620-raw-data
 ```
-Upload a file using the command ```rclone copy```:
+Ladataksesi tiedoston käytä komentoa ```rclone copy```:
 ```text
 rclone copy file.dat allas:2000620-raw-data/
 ```
-The command above creates an object _file.dat_ in the bucket _2000620-raw-data_.
-If you use `rclone move` instead of `rclone copy`, the local version of the uploaded file (file.dat)
-is deleted after copying.
+Yllä oleva komento luo objektin _file.dat_ sankoon _2000620-raw-data_.
+Jos käytät `rclone move` sen sijaan että `rclone copy`, ladatun tiedoston (file.dat)
+paikallinen versio poistetaan kopioinnin jälkeen.
 
-The _copy_ and _move_ subcommands only work with files. If you would like to copy all files in a directory, use the _copyto_ or _moveto_ subcommands.
+_copy_ ja _move_ käskyt toimivat vain tiedostoilla. Jos haluat kopioida kaikki tiedostot hakemistosta, käytä _copyto_ tai _moveto_ käskyjä.
 
-During upload, files that are larger than 5 GB will be split and stored as several objects. The objects are stored automatically in a distinct bucket called `<bucket-name>_segments`. For example, if you would upload a large file to  `2000620-raw-data`, the actual data would be stored in several pieces in the bucket `2000620-raw-data_segments`. The target bucket (`2000620-raw-data`) would contain just a manifest object stating which segments comprise the stored file. Operations performed on the manifest object are automatically reflected in the segments. Normally users don't need to operate with the segments buckets at all, and objects inside these buckets should not be deleted or modified.
+Latauksen aikana, tiedostot jotka ovat suurempia kuin 5 GB pilkotaan ja tallennetaan useiksi objekteiksi. Objektit tallennetaan automaattisesti erilliseen sankoon nimeltä `<sanko-nimi>_segments`. Esimerkiksi, jos lataisit suuren tiedoston `2000620-raw-data`, todellinen data tallennetaan useiksi paloiksi sankoon `2000620-raw-data_segments`. Kohdesanko (`2000620-raw-data`) sisältää vain manifesti-objektin, joka kertoo mitkä segmentit muodostavat tallennetun tiedoston. Toimet manifesti-objektissa heijastuvat automaattisesti segmentteihin. Normaalisti käyttäjien ei tarvitse käsitellä segmentti-sankoja lainkaan, ja näiden sankojen sisällä olevia objekteja ei pitäisi poistaa tai muokata.
 
-## List buckets and objects
+## Listaa sankoja ja objekteja {#list-buckets-and-objects}
 
-List all the buckets belonging to a project:
+Listaa kaikki projektiin kuuluvat sangot:
 <pre><b>rclone lsd allas:</b>
 0 2019-06-06 14:43:40         0 2000620-raw-data
 </pre>
 
-List the content of a bucket: 
+Listaa sankon sisältö: 
 <pre><b>rclone ls allas:2000620-raw-data</b>
 677972 file.dat
 </pre>
 
-## Download objects
+## Lataa objekteja {#download-objects}
 
-Use the same `rclone copy` and `rclone copyto` commands to download a file:
+Käytä samoja `rclone copy` ja `rclone copyto` komentoja tiedoston lataamiseen:
 ```text
 rclone copy allas:2000620-raw-data/file.dat
 ```
 
-If you include a destination parameter in the download command, Rclone creates a directory for the download:
+Jos sisällytät kohdeparametrin latauskomentoon, Rclone luo hakemiston latausta varten:
 ```text
 rclone copy allas:2000620-raw-data/file.dat doh
 ```
@@ -114,11 +109,11 @@ file.dat</pre>
 drwxr-xr-x  3 user  staff  96 Jun  6 14:58 doh
 </pre>
 
-## Synchronizing a directory
+## Kansion synkronointi {#synchronizing-a-directory}
 
-One way of moving data between Allas and the computing environment is synchronization. The difference between copying and synchronizing is that while copying only adds new objects or files from the source to the destination, synchronization can also remove data from the destination, in order to make the destination match the source. This feature makes synchronization very effective but also potentially very dangerous.
+Yksi tapa siirtää tietoa Allaksen ja laskentaympäristön välillä on synkronointi. Kopioinnin ja synkronoinnin ero on, että kun kopiointi vain lisää uusia objekteja tai tiedostoja lähteestä kohteeseen, synkronointi voi myös poistaa dataa kohteesta, jotta kohde vastaa lähdettä. Tämä ominaisuus tekee synkronoinnista erittäin tehokkaan mutta myös potentiaalisesti erittäin vaarallisen.
 
-For example, a folder named _mydata_ has the following structure:
+Esimerkiksi kansiolla nimeltä _mydata_ on seuraava rakenne:
 <pre>
 <b>ls -R mydata</b>
 
@@ -132,7 +127,7 @@ mydata/setB:
 file3.txt  file4.txt
 </pre>
 
-An example of using _sync_ (note that the destination parameter requires the folder name (_mydata_)):
+Esimerkki _sync_:in käyttämisestä (huomaa, että kohdeparametri vaatii kansion nimen (_mydata_)):
 
 ```text
 rclone sync mydata allas:2000620-raw-data/mydata
@@ -145,7 +140,7 @@ rclone sync mydata allas:2000620-raw-data/mydata
      5075 mydata/setB/file4.txt
 </pre>
 
-Let us assume that we are storing new data (_file5.txt_ and _file6.txt_) in the subdirectory _mydata/setC_ and simultaneously removing the file _mydata/setB/file3.txt_. When the _rclone sync_ command is executed again, the new data is added to Allas and the object _mydata/setB/file3.txt_ is removed.
+Oletetaan, että tallennamme uutta dataa (_file5.txt_ ja _file6.txt_) alihakemistoon _mydata/setC_ ja samalla poistamme tiedoston _mydata/setB/file3.txt_. Kun _rclone sync_-komento suoritetaan uudelleen, uusi data lisätään Allakseen ja objekti _mydata/setB/file3.txt_ poistetaan.
 
 <pre><b>rclone sync mydata allas:2000620-raw-data/mydata</b>
 
@@ -157,12 +152,9 @@ Let us assume that we are storing new data (_file5.txt_ and _file6.txt_) in the 
      4327 mydata/setC/file6.txt
 </pre>
 
-In the examples above, Allas has been used as the destination that is changed. However, the command can be used in the reverse direction as well:
+Yllä olevissa esimerkeissä Allasta on käytetty kohteena jota muutetaan. Komentoa voidaan käyttää myös toiseen suuntaan:
 ```text
 rclone sync allas:2000620-raw-data/mydata mydata
 ```
 
-This command returns the uploaded data from Allas to the _mydata_ directory. Note however that if you have added new data to _mydata_ after synchronizing the directory with Allas, this data will be erased.
-
-
- 
+Tämä komento palauttaa ladatun datan Allaksesta _mydata_-kansioon. Huomaa kuitenkin, että jos olet lisännyt uusia tietoja _mydata_:an synkronoinnin jälkeen Allaksen kanssa, nämä tiedot poistetaan.

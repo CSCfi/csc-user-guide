@@ -1,64 +1,62 @@
-# Accessing Kvasi
 
-You first need a CSC userid for Puhti. If you do not have one, check out the
-[How to get started as a new user at CSC?](../../../support/faq/how-to-get-started-at-CSC.md) FAQ.
+# Kvasiin pääsy
 
-In order to access Kvasi, your CSC userid needs to part of the `kvasi-users` group. Send a mail to servicedesk@csc.fi and ask to be added to the **kvasi-users** group.
+Tarvitset ensin CSC-käyttäjätunnuksen Puhtille. Jos sinulla ei ole käyttäjätunnusta, tutustu 
+[kuinka aloittaa uutena käyttäjänä CSC:llä?](../../../support/faq/how-to-get-started-at-CSC.md) usein kysyttyihin kysymyksiin.
 
-When you have been added, you can use SSH to login to kvasi.csc.fi directly.
+Voidaksesi päästä Kvasiin, CSC-käyttäjätunnuksesi täytyy kuulua `kvasi-users` -ryhmään. Lähetä sähköpostia osoitteeseen servicedesk@csc.fi ja pyydä lisäystä **kvasi-users** -ryhmään.
 
-## Setting up an SSH tunnel for the Jupyter web interface
+Kun sinut on lisätty, voit käyttää SSH:ta kirjautuaksesi suoraan osoitteeseen kvasi.csc.fi.
 
-In order to use the Jupyter notebook environment, you need to set up an SSH tunnel, forwarding the output port of your notebook environment to your local computer. Follow these steps:
+## SSH-tunnelin perustaminen Jupyter-verkkokäyttöliittymälle {#setting-up-an-ssh-tunnel-for-the-jupyter-web-interface}
 
-1. Login to Kvasi with SSH:
-    * `ssh <userid>@kvasi.csc.fi`
-2. Start the Jupyter server: `./qlm_notebooks/launch_qlm_notebooks`. This will give you two values:
-    * The Jupyter port number. It will be `8888`, or higher
-    * The token for accessing the web interface (a string of letters and numbers)
-    * Example output:
+Jotta voit käyttää Jupyter-muistikirja-ympäristöä, sinun on asetettava SSH-tunneli, joka ohjaa muistikirjaympäristösi tulostusportin paikalliselle tietokoneellesi. Seuraa näitä ohjeita:
+
+1. Kirjaudu Kvasiin SSH:lla:
+    * `ssh <käyttäjätunnus>@kvasi.csc.fi`
+2. Käynnistä Jupyter-palvelin: `./qlm_notebooks/launch_qlm_notebooks`. Tämä antaa sinulle kaksi arvoa:
+    * Jupyter-portin numero. Se on `8888`, tai suurempi
+    * Token verkkokäyttöliittymään pääsemiseksi (kirjain- ja numeromerkkijono)
+    * Esimerkkiulostulo:
 
 ```
 Jupyter port : 8888
 Jupyter token: 123456abcdef
 
-To access your Jupyter notebook from your local computer:
+Jotta pääset Jupyter-muistikirjaasi paikalliselta tietokoneeltasi:
 
-1. Create SSH tunnel:
+1. Luo SSH-tunneli: 
     ssh -L 8890:localhost:8888 yourcscusername@kvasi.csc.fi
 
-2. Open browser link: http://127.0.0.1:8890/?token=123456abcdef
+2. Avaa selaimen linkki: http://127.0.0.1:8890/?token=123456abcdef
 ```
 
-3. Start an SSH tunnel, forwarding the Jupyter port to a local port number.
-You can choose, _e.g_, `8890` for the local port
-    * The details of how to open up the SSH tunnel depend on your SSH client.
-    * Using the command line, you can login once more from a second terminal,
-    now specifying port forwarding, using the ssh command of the output above.
+3. Aloita SSH-tunneli, siirtäen Jupyter-portin paikalliselle porttinumerolle.
+   Voit valita esimerkiksi `8890` paikalliseksi portiksi
+    * SSH-tunnelin avaamisen yksityiskohdat riippuvat SSH-asiakkaastasi.
+    * Komentorivillä voit kirjautua uudelleen toisesta terminaalista,
+      nyt määrittelemällä portin uudelleenohjaus käyttäen yllä annettua ssh-komentoa.
 
-4. Open up your browser, and go to the address given by the output, for example
-`http://127.0.0.1:8890/?token=123456abcdef` This should open up the web interface
-to Kvasi, with two main options to explore:
-    * **The manual** (to the left)
-    * **The Jupyter notebook environment** with examples (to the right)
+4. Avaa selaimesi ja mene osoitteeseen, joka on annettu ulostulona, esimerkiksi 
+`http://127.0.0.1:8890/?token=123456abcdef` Tämä pitäisi avata Kvasin verkkokäyttöliittymä, jossa on kaksi päävaihtoehtoa tutkittavana:
+    * **Käsikirja** (vasemmalla)
+    * **Jupyter-muistikirja ympäristö esimerkeillä** (oikealla)
 
+## myQLM {#myqlm}
 
-## myQLM
+myQLM on kevytversio QLM-ekosysteemistä, jota voidaan ajaa Kvasi QLM:n ulkopuolella. myQLM:n avulla voit suunnitella ja simuloida kvanttialgoritmeja paikallisesti, omalla tietokoneellasi. MyQLM soveltuu hyvin kvanttialgoritmien tutkimisen aloittamiseen. QLM:n kehittyneet ominaisuudet puuttuvat, mutta perusominaisuudet ovat samat.
 
-myQLM is a light-weight version of the QLM ecosystem that can be run outside the Kvasi QLM. With myQLM, you can design and simulate quantum algorithms locally, on your own computer. MyQLM is well suited for getting started with quantum algorithm exploration. Advanced features of the QLM are missing, but the basic features are the same.
-
-myQLM is now open access, and can be downloaded for Linux and Windows here:
+myQLM on nyt avoin ja se voidaan ladata Linuxille ja Windowsille täältä:
 [myQLM docs and installation instructions](https://myqlm.github.io/index.html)
 
-You can also use myQLM directly from the [CSC Noppe environment](https://noppe.csc.fi).
-After logging in, simply launch a new "myQLM Notebooks" environment and open it in your browser.
-Training material related to previous course can be found under the Folder **CourseMaterial**
+Voit myös käyttää myQLM:ää suoraan [CSC Noppen ympäristöstä](https://noppe.csc.fi).
+Kirjautumisen jälkeen käynnistä yksinkertaisesti uusi "myQLM Notebooks" -ympäristö ja avaa se selaimessasi.
+Aiempiin kursseihin liittyvää koulutusmateriaalia löytyy kansiosta **CourseMaterial**.
 
+## Linkit {#links}
 
-## Links
-
-* [Webinar: Quantum Computing and Programming in Two Hours (2021)](https://youtu.be/whoTr3zM3jU)
-* [Webinar: Kvanttilaskentaa ja -ohjelmointia kahdessa tunnissa (2021)](https://youtu.be/EnDKcCAjRtg)
-* [Webinar: What is Quantum Computing? (2019)](https://youtu.be/44F0rYmLT4Y)
-* [Online: Introduction to Quantum Computing and Algorithms](https://ssl.eventilla.com/event/mZ9Pa)
+* [Webinaari: Quantum Computing and Programming in Two Hours (2021)](https://youtu.be/whoTr3zM3jU)
+* [Webinaari: Kvanttilaskentaa ja -ohjelmointia kahdessa tunnissa (2021)](https://youtu.be/EnDKcCAjRtg)
+* [Webinaari: What is Quantum Computing? (2019)](https://youtu.be/44F0rYmLT4Y)
+* [Verkkopohjainen: Introduction to Quantum Computing and Algorithms](https://ssl.eventilla.com/event/mZ9Pa)
 * [The Quantum Learning Machine at atos.net](https://atos.net/en/solutions/quantum-learning-machine)

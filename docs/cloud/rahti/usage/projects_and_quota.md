@@ -1,59 +1,39 @@
-# Projects and quota
+# Projektit ja kiintiöt
 
-## OpenShift projects and CSC computing projects
+## OpenShift-projektit ja CSC-tietojenkäsittelyprojektit {#openshift-projects-and-csc-computing-projects}
 
 !!! info
-    Projects in Rahti are separated from CSC computing projects. A single CSC
-    computing project can have access to multiple projects in Rahti.
-    Each CSC computing project with access to Rahti will have a corresponding *group* in
-    Rahti.
+    Projektit Rahti-ympäristössä ovat erillään CSC:n tietojenkäsittelyprojekteista. Yhdellä CSC-tietojenkäsittelyprojektilla voi olla pääsy useisiin projekteihin Rahti-ympäristössä. Jokaisella CSC-tietojenkäsittelyprojektilla, jolla on pääsy Rahtiin, on vastaava *ryhmä* Rahti-ympäristössä.
 
-All projects in Rahti must be mapped to a CSC computing project. This
-mapping is used to determine which CSC computing project a given resource
-belongs to for billing and other purposes. You need to
-specify which of them to use. You have to specify which project to map by entering `csc_project:` followed
-by the name or number of your CSC computing project in the _Description_ field
-when creating a new project in Rahti. You can also enter other text in the
-description field if you want to have a human-readable description for
-the project you are creating.
+Kaikki Rahti-ympäristön projektit on liitettävä CSC-tietojenkäsittelyprojektiin. Tätä kartoittamista käytetään määrittämään, mihin CSC-tietojenkäsittelyprojektiin tietty resurssi kuuluu laskutuksen ja muiden tarkoitusperien vuoksi. Sinun on ilmoitettava, mitä niistä käytetään. Sinun on määriteltävä, mihin projektiin yhdistetään, syöttämällä `csc_project:` seurasi CSC-tietojenkäsittelyprojektin nimi tai numero kirjoitettaessa uutta projektia Rahti-ympäristöön. Voit myös syöttää muun tekstin kuvauskenttään, jos haluat lisätä projektillesi ihmiskielellä ymmärrettävän kuvauksen.
 
-For example, if you have Rahti access via *project_1000123*, you would
-enter the following in the _Description_ field:
+Esimerkiksi, jos sinulla on Rahti-oikeudet *project_1000123*-projektiin, syötä _Kuvaus_-kenttään seuraava:
 
 ```yaml
 csc_project: 1000123
 ```
 
-You can also enter a human-readable description for the project, in which case
-the field could look like this:
+Voit myös lisätä ihmiskielellä ymmärrettävän kuvauksen projektille, jolloin kenttä voisi näyttää tältä:
 
 ```yaml
-This project is used for hosting the Pied Piper web application.
+Tätä projektia käytetään Pied Piper -web-sovelluksen ylläpitämiseen.
 
 csc_project: 1000123
 ```
 
-This would make it so that any usage within that Rahti project is billed
-to the billing unit quota of project_1000123. Note that project_1000123 must
-have Rahti service access and you must be a member of that computing project,
-or the OpenShift project creation will fail.
+Tämä saattaisi varmistaa, että kaikki käyttö kyseisessä Rahti-projektissa laskutetaan project_1000123-laskentayksikön kiintiöstä. Huomaa, että project_1000123-projektilla täytyy olla Rahti-palvelun käyttöoikeus ja sinun täytyy olla kyseisen tietojenkäsittelyprojektin jäsen, muuten OpenShift-projektin luonti epäonnistuu.
 
-See the section about [accounts](../../../accounts/index.md).
+Katso lisätietoja [tileistä](../../../accounts/index.md).
 
-If you would like to know which CSC computing projects you are a member of, you
-can view a list in the [My Projects tool](https://my.csc.fi/projects) of MyCSC.
+Jos haluat tietää, mihin CSC-tietojenkäsittelyprojekteihin olet jäsen, voit tarkastella luetteloa MyCSC:n [Omat projektini -työkalussa](https://my.csc.fi/projects).
 
-If you would like to know which CSC computing project a Rahti project is
-associated with, you can do so using the _oc_ command line tool. You can find
-instructions for setting up oc in the [command line tool usage
-instructions ](cli.md). For example, if your Rahti project is called
-*my-openshift-project*, you would run:
+Jos haluat tietää, mihin CSC-tietojenkäsittelyprojektiin Rahti-projekti on liitetty, voit käyttää _oc_-komentorivityökalua. Ohjeet oc-työkalun määrittämiseksi löytyvät [komentorivin käyttöohjeista](cli.md). Esimerkiksi, jos Rahti-projektisi nimi on *my-openshift-project*, suorita:
 
 ```bash
 oc get project my-openshift-project -o yaml
 ```
 
-This should produce the following output:
+Tämän pitäisi tuottaa seuraava tuloste:
 
 ```yaml
 apiVersion: project.openshift.io/v1
@@ -76,78 +56,64 @@ status:
   phase: Active
 ```
 
-In the output above, you can find the associated CSC computing project under
-`metadata.labels.csc_project`. In this case, the project is `1000123`.
-This information is also available via a web interface.
+Yllä olevassa tulosteessa voit löytää liittyvän CSC-tietojenkäsittelyprojektin `metadata.labels.csc_project`-kohdan alta. Tässä tapauksessa projekti on `1000123`. Tämä tieto löytyy myös verkkoliittymän kautta.
 
 ![Labels web UI](../../img/Labels-webui.png)
 
 !!! info
 
-    It is not possible for normal users to change the *csc_project* label
-    after a project has been created. If you would like to change the label for
-    an existing project, please [contact the support](../../../support/contact.md). You can also create
-    a completely new project if you want to use a different label.
+    Tavallisille käyttäjille ei ole mahdollista muuttaa *csc_project*-tunnistetta projektin luomisen jälkeen. Jos haluat muuttaa olemassa olevan projektin tunnistetta, ota [yhteyttä tukeen](../../../support/contact.md). Voit myös luoda kokonaan uuden projektin, jos haluat käyttää eri tunnistetta.
 
-## Creating a project
+## Projektin luominen {#creating-a-project}
 
-First, click this [link](https://rahti.csc.fi/) to access the homepage of Rahti and click **Login Page** under *OpenShift 4.15*.  
+Ensiksi, klikkaa tätä [linkkiä](https://rahti.csc.fi/) päästäksesi Rahti-aloitussivulle ja klikkaa **Kirjautumissivu** kohdassa *OpenShift 4.15*.
 
-After being logged in, click the blue "Create Project" button to create a project, and you will be presented with the following view:
+Kirjautumisen jälkeen, klikkaa sinistä "Luo projekti" -painiketta luodaksesi projektin, ja sinulle näytetään seuraavanlainen näkymä:
 
 ![OpenShift new project dialog](../../img/new_project_dialog_4.png)
 
-If you are in "Developer" view, click on "Projects: All projects" located in the topbar and "Create Project":
+Jos olet "Kehittäjä"-näkymässä, klikkaa "Projektit: Kaikki projektit" yläpalkissa ja "Luo projekti":
 ![OpenShift new project dialog Developer](../../img/new_project_dialog_4_developer.png)  
 
-1. You *need* to pick a **unique name** that is not in use by any other project
-in the system.
-1. You *can* also enter a **human-readable display name** and.
-1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
+1. Sinun *täytyy* valita **uniikki nimi**, jota ei käytetä muissa järjestelmän projekteissa.
+1. Voit myös syöttää **ihmiskielellä ymmärrettävän näyttönimen**.
+1. Sinun *täytyy myös* antaa **CSC-tietojenkäsittelyprojekti** _Kuvaus_-kentässä. Sen täytyy olla voimassa oleva CSC-projekti, johon sinulla on pääsy. Jos haluat nähdä, mihin CSC-projekteihin sinulla on pääsy, tarkista <https://my.csc.fi>. Jos sinulla ei ole pääsyä mihinkään CSC-projektiin, et voi luoda minkäänlaista Rahti-projektia. Jos sinulla on pääsy Rahti-projektin kautta projektikoodilla project_1000123, syötä Kuvaus-kenttään:
 
 > csc_project: 1000123
 
 ![OpenShift Create Project](../../img/create_project_dialog_4.png)
 
-See the section about [accounts](../../../accounts/index.md).
+Katso lisätietoja [tileistä](../../../accounts/index.md).
 
-Once you have filled in the fields, click "Create", and you will see the application
-catalog where you can pick an application template or import your
-own one.
+Kun olet täyttänyt kentät, klikkaa "Luo", ja näet sovelluskatalogin, jossa voit valita sovellusmallin tai tuoda oman mallisi.
 
-For more information about using the web interface, refer to the
-[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.15). You can find out which version of the documentation to look at in the web interface by
-clicking the question mark symbol in the top bar and selecting "About".
+Saat lisätietoja web-liittymän käytöstä [OpenShiftin virallisesta dokumentaatiosta](https://docs.okd.io/) (nykyinen versiomme on 4.15). Voit selvittää, mikä dokumentaatioversio sinun tulee katsoa web-liittymässä klikkaamalla yläpalkissa olevaa kysymysmerkkiä ja valitsemalla "Tietoja".
 
-## CSC computing project quotas
+## CSC-tietojenkäsittelyprojektien kiintiöt {#csc-computing-project-quotas}
 
 !!! info
 
-    A CSC project quota is shared between the different Rahti projects (also known as namespaces).
-    This means that if more than one person is working on the same CSC project and create their
-    own namespaces, the resources are shared.
+    CSC-projektikiintiö on jaettu eri Rahti-projektien (tunnetaan myös nimellä nimialueet) välillä. Tämä tarkoittaa, että jos useampi kuin yksi henkilö työskentelee samassa CSC-projektissa ja luo omia nimialueitaan, resurssit jaetaan.
 
-Each CSC computing project has its own quota. Initial quota is the following:
+Jokaisella CSC-tietojenkäsittelyprojektilla on oma kiintiönsä. Alkuperäinen kiintiö on seuraava:
 
-| Resource                         | Default |
+| Resurssi                          | Oletus  |
 |----------------------------------|---------|
-| Virtual cores                    | 4       |
+| Virtuaaliset ytimet              | 4       |
 | RAM                              | 16 GiB  |
-| Storage                          | 100 GiB |
-| Number of image streams (images) | 20      |
-| Size of each registry images     | 5 GiB   |
+| Tallennustila                    | 100 GiB |
+| Kuvavirtauksien (kuvien) määrä   | 20      |
+| Jokaisen rekisterikuvan koko     | 5 GiB   |
 
-This means that your CSC computing project can use up to 4 cores and 16GiB in total, it can be 1 Pod using the whole 4 cores and 16 GiB, 8 pods each using half a core and 2 GiB, etc...
+Tämä tarkoitaa, että CSC-tietojenkäsittelyprojektisi voi käyttää yhteensä enintään 4 ydintä ja 16 GiB RAM-muistia, se voi olla yksi pod, joka käyttää koko 4 ydin 16 GiB RAM:ia, 8 podia jotka käyttävät kukin puoli ydintä ja 2 GiB, jne.
 
-!!! Warning
+!!! warning
 
-    If you have several users that can access the CSC computing project, they can create a new Rahti project (see above). Keep in mind that the quotas will be shared across the different Rahti projects.
-    If you need to adjust your CSC computing project quotas, please contact us. More information [here](projects_and_quota.md#requesting-more-quota)
+    Jos sinulla on useita käyttäjiä, jotka voivat käyttää CSC-tietojenkäsittelyprojektia, he voivat luoda uuden Rahti-projektin (katso yllä). Pidä mielessä, että kiintiöt jaetaan eri Rahti-projektien välillä. Jos sinun on säädettävä CSC-tietojenkäsittelyprojektisi kiintiöitä, otathan yhteyttä. Lisätietoa [täällä](projects_and_quota.md#requesting-more-quota)
 
-You can find the resource usage and quota of a project in the project view in
-the web interface under **Administration -> ResourceQuota** and **Administration -> LimitRanges** in the `Administrator` menu.
+Näet resurssien käytön ja kiintiön projektinäkymässä web-liittymän puolella kohdasta **Hallinnointi -> ResourceQuota** ja **Hallinnointi -> LimitRanges** `Administrator`-valikosta.
 
-Alternatively, you can use the oc command line tool:
+Vaihtoehtoisesti voit käyttää oc-komentorivityökalua:
 
 ```sh
 $ oc describe AppliedClusterResourceQuotas
@@ -155,12 +121,12 @@ Name:                      crq-200xxxx
 Namespace Selector:        ["test-delete"]
 Resource                   Used  Hard
 --------                   ----  ----
-limits.cpu                 500m  16
-limits.ephemeral-storage   0     5Gi
+limits.cpu                 500m  16  
+limits.ephemeral-storage   0     5Gi 
 limits.memory              1Gi   40Gi
-openshift.io/imagestreams  1     20
-persistentvolumeclaims     0     20
-pods                       1     100
+openshift.io/imagestreams  1     20  
+persistentvolumeclaims     0     20  
+pods                       1     100 
 requests.storage           0     200Gi
 ```
 
@@ -176,60 +142,54 @@ openshift.io/Image     storage   -    5Gi    -                -              -
 PersistentVolumeClaim  storage   -    100Gi  -                -              -
 ```
 
-### Default Pod resource limits
+### Pod-resurssien oletusrajat {#default-pod-resource-limits}
 
-Every Pod needs to have lower and upper limits regarding resources, specifically for CPU and memory. The lower are called `requests`, and the upper are called `limits`. The `requests` sets the minimum resources needed for a  Pod to run, and a Pod is not allowed to use more resources than the specified in `limits`.
+Jokaisella Podilla täytyy olla alarajat ja ylärajat resurssien osalta, erityisesti CPU:n ja muistin osalta. Alarajoja kutsutaan `requesteiksi` ja ylärajalta `limitiksi`. `Requests` määrittää minimiresurssit, joita Pod tarvitsee suorittamiseen, eikä Pod saa käyttää enempää resursseja kuin mitä `limits` määrittävät.
 
-The user can set the limits explicitly within the available quota, but if no limit is set by the user, the defaults are used:
+Käyttäjä voi asettaa rajat nimenomaisesti käytettävissä olevan kiintiön sisällä, mutta jos käyttäjä ei aseta rajoja, käytetään oletusrajoja:
 
-|Type|CPU|Memory|
+|Tyyppi|CPU|Muisti|
 |:-:|:-:|:-:|
 |limits|500m|1Gi|
 |requests|100m|500Mi|
 
-Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
+Huom: `m` tarkoittaa milliydintä. `500m` vastaa 0,5 ydintä, tai toisin sanoen puolikas CPU-ytimen aika.
 
-Rahti enforces a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 250m. And if you want to increase the CPU limit to 1, you will have to increase as well the request to at least 200m.
+Rahti asettaa enimmäisrajan/pyynnön suhteeksi 5. Tämä tarkoittaa, että CPU- tai muistirajoitukset eivät voi olla enempää kuin 5 kertaa suurempia kuin `request`. Joten jos CPU-pyyntö on 50m, CPU-rajoitus ei voi olla yli 250m. Ja jos haluat kasvattaa CPU-rajoitusta 1:een, sinun on myös kasvatettava pyyntö vähintään 200m:iin.
 
-## Requesting more quota
+## Lisää kiintiötä {#requesting-more-quota}
 
-If you need more resources than the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are handled on a case-by-case basis depending on the currently available resources in Rahti and the use case.
+Jos tarvitset enemmän resursseja kuin oletukset, voit hakea lisää kiintiötä ottamalla yhteyttä Service Deskiin. Katso [Yhteyssivua](../../../support/contact.md) ohjeita varten. Kiintiöhakemukset käsitellään tapauskohtaisesti riippuen Rahti-ympäristössä käytettävissä olevista resursseista ja käyttötapauksesta.
 
-## Sharing projects with other users
+## Projektin jakaminen muiden käyttäjien kanssa {#sharing-projects-with-other-users}
 
 !!! info
 
-    When creating a Rahti project which is associated with certain CSC computing project, by default all members the of
-    CSC computing project will have admin access to the Rahti project.
-    You can also add individually an user to a specific Rahti project. The user must have a CSC or HAKA login.
+    Kun luot Rahti-projektin, joka liitetään tiettyyn CSC-tietojenkäsittelyprojektiin, oletuksena kaikki CSC-tietojenkäsittelyprojektin jäsenet saavat järjestelmänvalvojan oikeudet Rahti-projektiin.
+    Voit myös lisätä yksittäisen käyttäjän tiettyyn Rahti-projektiin. Käyttäjällä tulee olla joko CSC- tai HAKA-tunnus.
 
-OpenShift has a flexible role-based access control system that allows you to
-give access to projects you have created to other users and groups in the system.
-You can give e.g. full admin, basic user, edit or read only access to other
-users and groups in the system for collaboration.
+OpenShiftillä on joustava roolipohjainen käyttöoikeusjärjestelmä, jolla voit antaa oikeuksia muihin käyttäjiin ja ryhmiin järjestelmässä luomissasi projekteissa.
+Voit antaa esimerkiksi täyden admin-, peruskäyttäjä-, muokkaus- tai vain lukuoikeudet muille
+käyttäjille ja ryhmille järjestelmässä yhteistyön edistämiseksi.
 
-You can edit project memberships in the web interface via **User Management ->
-RoleBindings**, in the `Administrator` menu. You can either give access rights to individual users, groups or Service Accounts by selecting either the _Users_,  _Groups_ or ServiceAccount.
+Voit muokata projektin jäsenyyksiä verkkokäyttöliittymässä kohdasta **Käyttäjien hallinta -> Roolisidokset** `Administrator`-valikosta. Voit antaa käyttöoikeuksia joko yksittäisille käyttäjille, ryhmille tai palvelutileille valitsemalla joko _Käyttäjät_,  _Ryhmät_ tai Palvelutili.
 
 ![Create Role Binding](../../img/Create_role_binding.png)
 
-Note that it is important to use correct usernames when sharing projects
-with others. Rahti allows you to freely enter any username and will not notify
-you for having entered a non-existent username. Usernames are also case-sensitive.
-You can find out your username in Rahti via the command line, by using the command `oc whoami`.
+Huomaa, että on tärkeää käyttää oikeita käyttäjänimiä jakaessasi projekteja muiden kanssa. Rahti sallii sinun syöttää vapaasti minkä tahansa käyttäjänimen eikä anna ilmoitusta olemattoman käyttäjänimen syöttämisestä. Käyttäjien nimet ovat myös kirjainkoon tunnistavia. Voit selvittää oman käyttäjänimesi Rahti-ympäristössä komentorivin kautta käyttämällä käskyä `oc whoami`.
 
-## Deleting a project
+## Projektin poistaminen {#deleting-a-project}
 
-In order to delete a project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project"
+Poistaaksesi projektin sinun täytyy mennä pääsivulle ja klikata projektin nimen viereistä kolmea pystysuuntaista pistettä. Ponnahdusvalikossa näet vaihtoehdon "Poista projekti".
 
 ![Delete drop down](../../img/delete_project_menu.png)
 
-Then you will be asked to input the name of the project to prevent accidental deletions.
+Sitten sinua pyydetään syöttämään projektin nimi virheellisten poistojen ehkäisemiseksi.
 
 !!! warning
 
-    After the project has been confirmed for deletion, all resources will be deleted and there will be no way to restore them, including the data stored in the persistent volumes.
+    Projektin poistamisen vahvistamisen jälkeen kaikki resurssit poistetaan eikä niitä voi palauttaa, mukaan lukien datan, joka on tallennettu pysyviin levytunteihin.
 
 ![Project name dialog](../../img/delete_project_name.png)
 
-After that, Rahti will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends on the amount of resources the project had. After that, Rahti will liberate the project name, and it will be possible to create an empty project with the same name.
+Tämän jälkeen Rahti aloittaa projektin kaikkien resurssien poistamisen. Tämä voi kestää vain muutaman sekunnin tai jopa minuutin, riippuen projektin resurssien määrästä. Tämän jälkeen Rahti vapauttaa projektin nimen, ja voit luoda tyhjän projektin samalla nimellä.

@@ -1,136 +1,134 @@
-# Managing volumes and virtual desktops
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+# Levyjen ja virtuaalisten työpöytien hallinta {#managing-volumes-and-virtual-desktops}
 
-## SD Desktop management
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Hallitse virtuaalisia työpöytiä SD Desktop -palvelussa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens in **SD Desktop management** page.
+## SD Desktop -hallinta {#sd-desktop-management}
 
-* [Detaching and attaching a volume](#detaching-and-attaching-a-volume)
-* [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
-* [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
-* [Deleting a virtual desktop](#deleting-a-virtual-desktop)
+SD Desktop -palvelun avulla voit helposti hallita levyjä sekä keskeyttää, käynnistää uudelleen tai poistaa virtuaalisia työpöytiäsi. Työpöytien hallinta tapahtuu **SD Desktop -hallinta** -sivulla.
 
-!!! Note
-    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
+* [Levyn irrottaminen ja liittäminen](#detaching-and-attaching-a-volume)
+* [Virtuaalisen työpöydän keskeyttäminen tai jatkaminen](#pausing-or-unpausing-a-virtual-desktop)
+* [Virtuaalisen työpöydän uudelleenkäynnistys](#rebooting-a-virtual-desktop)
+* [Virtuaalisen työpöydän poistaminen](#deleting-a-virtual-desktop)
 
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
+!!! Huom
+    Nämä vaihtoehdot ovat saatavilla vain virtuaalisille työpöydille, jotka on luotu 2. helmikuuta 2023 jälkeen. Ole hyvä ja [ota yhteyttä palvelupisteeseen](../../support/contact.md), jos työskentelet vanhempien työpöytien kanssa.
 
-## Detaching and attaching a volume 
+![Siirry SD Desktop -hallintaan.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
-### Detach a volume from your virtual desktop
+## Levyn irrottaminen ja liittäminen {#detaching-and-attaching-a-volume}
 
-With the option **Detach volume**, you can easily disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop. 
+### Levyn irrottaminen virtuaalisesta työpöydästä {#detach-a-volume-from-your-virtual-desktop}
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+**Irrota levy** -vaihtoehdon avulla voit helposti irrottaa levyn virtuaalisesta työpöydästäsi. Levy ja sen sisältö tallennetaan samaan CSC-projektiin, jossa se alun perin luotiin. Tätä toimintoa voi verrata kiintolevyn irrottamiseen tai liittämiseen kannettavaan tietokoneeseen.
 
-2. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
+1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Siirry oikeaan virtuaaliseen työpöytään etusivulla kohdassa **Kaikki yhteydet**.
 
-3. On the homepage, click **SD Desktop management**.
+2. Tallenna ja sulje kaikki levyllä olevat tiedostot tietojen korruptoitumisen estämiseksi ja kirjaudu ulos virtuaalisesta työpöydästä.
 
-4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
-Confirm the operation through the notification.
+3. Napsauta etusivulla **SD Desktop -hallinta**.
 
-![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
+4. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä ja napsauta samassa rivissä oikealla puolella **Irrota levy**. Vahvista toiminto ilmoituksen kautta.
 
-### Attach a volume to a new virtual desktop
+![Irrota levy.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
 
-When you want to access the data saved in the detached volume, you can attach it to a new virtual desktop.
+### Levy liittäminen uuteen virtuaaliseen työpöytään {#attach-a-volume-to-a-new-virtual-desktop}
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the homepage, click **SD Desktop management**.
+Kun haluat käyttää irrotetun levyn dataa, voit liittää sen uuteen virtuaaliseen työpöytään.
 
-2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, operating system etc.). Follow steps 1-2 in these [instructions](./sd-desktop-create.md).
+1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Napsauta etusivulla **SD Desktop -hallinta**.
 
-3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdown will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
+2. Sivun alareunassa, kohdassa Työpöydän valinta, valitse tarvittavat vaihtoehdot (CSC-projekti, käyttöjärjestelmä jne.). Noudata näiden [ohjeiden](./sd-desktop-create.md) vaiheita 1-2.
 
-4. Click on **Create desktop**.
+3. Kohdassa **Lisää ulkoinen levy (valinnainen)** napsauta **Valitse olemassa olevista levyistä**. Ponnahdusvalikko näyttää saatavilla olevat, samassa CSC-projektissa tallennetut levyt. Jätä kentät **Levyn koko** ja **Levyn nimi** tyhjiksi.
 
+4. Napsauta **Luo työpöytä**.
 
-!!! note
-    - A detached volume can not be attached to an existing virtual desktop, only to new virtual desktops during creation phase. 
-    - The content of a detached volume can not be accessed or deleted.
-    - To delete or access the volume content, attach it to a desktop with the same operating system during the desktop creation phase. 
-    - Volumes can not be moved or transferred between CSC projects for security reasons.
+!!! huom
+    - Irrotettua levyä ei voi liittää olemassa olevaan virtuaaliseen työpöytään, vaan ainoastaan uusiin virtuaalisiin työpöytiin luomisvaiheessa.
+    - Irrotetun levyn sisältöä ei voida käyttää tai poistaa.
+    - Jos haluat poistaa tai käyttää levyn sisältöä, liitä se työpöytäympäristöön samalla käyttöjärjestelmällä työpöydän luomisvaiheessa.
+    - Levyjä ei voi siirtää tai siirtää CSC-projektien välillä turvallisuussyistä.
 
-![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
-
-
-## Pausing or unpausing a virtual desktop
-
-You can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
-
-### Pausing a virtual desktop
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
-
-2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
-
-3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-
-4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Pause desktop**. 
-
-5. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
-
-!!! note
-    You can't access or detach a volume while a desktop is paused.
-
-![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Pause_desktop.png)
-
-### Resuming a virtual desktop
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-
-2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
-
-!!! note
-    Resuming a paused desktop is only possible for active CSC projects with available billing units. 
-
-![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
+![Liitä levy.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
 
 
-## Rebooting a virtual desktop
+## Virtuaalisen työpöydän keskeyttäminen tai jatkaminen {#pausing-or-unpausing-a-virtual-desktop}
 
-If your virtual desktop or software becomes unresponsive, you can reboot it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
+Voit keskeyttää virtuaalisen työpöydän. Tällä tavoin työpöytä lakkaa kuluttamasta laskutusyksikköjä.
 
-!!! Note
-    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to reboot your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
+### Virtuaalisen työpöydän keskeyttäminen {#pausing-a-virtual-desktop}
 
-To reboot a desktop:
+1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Siirry oikeaan virtuaaliseen työpöytään etusivulla kohdassa **Kaikki yhteydet**.
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+2. Sulje kaikki ohjelmat, tallenna tai sulje kaikki tiedostot ja kirjaudu ulos virtuaalisesta työpöydästä tietojen korruptoitumisen estämiseksi.
 
-2. Close all programs and ensure you save or close any files to prevent data corruption.
-    
-3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-    
-4. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Reboot**.
-    
-5. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
+3. SD Desktopin etusivulla napsauta **Siirry SD Desktop -hallintaan**.
 
-![Reboot desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
+4. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä ja napsauta samassa rivissä oikealla puolella **Keskeytä työpöytä**.
 
-## Deleting a virtual desktop
+5. Vahvista toiminto ilmoituksen kautta. Työpöydän keskeyttäminen voi kestää jopa 30 minuuttia.
 
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
+!!! huom
+    Et voi käyttää tai irrottaa levyä, kun työpöytä on keskeytetty.
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+![Keskeytä työpöytä.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Pause_desktop.png)
 
-2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
+### Virtuaalisen työpöydän jatkaminen {#resuming-a-virtual-desktop}
 
-!!! Note
-    Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
+1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. SD Desktopin etusivulla napsauta **Siirry SD Desktop -hallintaan**.
 
-![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Delete_desktop.png)
+2. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä. Napsauta samassa rivissä oikealla **Vaihtoehdot** ja valitse **Jatka**.
+
+!!! huom
+    Keskeytetyn työpöydän jatkaminen on mahdollista vain aktiivisille CSC-projekteille, joissa on saatavilla laskutusyksiköitä.
+
+![Jatka työpöytää.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
 
 
-## Your next steps in this guide
+## Virtuaalisen työpöydän uudelleenkäynnistys {#rebooting-a-virtual-desktop}
 
-* [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
-* [Customisation - software & tools](./sd-desktop-software.md)
-* [Importing data ](./sd-desktop-access.md)
-* [Exporting data  via user interface](./sd-desktop-export.md)
-* [Export data programmatically](./sd-desktop-export-commandline.md)
-* [Troubleshooting](./sd-desktop-troubleshooting.md)
+Jos virtuaalinen työpöytäsi tai ohjelmistosi lakkaa vastaamasta, voit käynnistää sen uudelleen. Uudelleenkäynnistyksen jälkeen kaikki virtuaaliseen työpöytään tallennetut tiedostot ja ohjelmistot pysyvät saatavilla.
 
+!!! Huom
+    Jos Data Gateway -sovellus lakkaa vastaamasta taustalla toimivien vanhojen istuntojen vuoksi, sinun ei tarvitse käynnistää työpöytääsi uudelleen. Sen sijaan voit käyttää päätettä prosessin tunnistamiseen ja pysäyttämiseen. Apua saat [CSC-palvelupisteestä](../../support/contact.md), aihekenttä "Sensitiivinen data."
+
+Työpöydän uudelleenkäynnistäminen:
+
+1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Siirry oikeaan virtuaaliseen työpöytään etusivulla kohdassa **Kaikki yhteydet**.
+
+2. Sulje kaikki ohjelmat ja varmista, että tallennat tai suljet kaikki tiedostot tietojen korruptoitumisen estämiseksi.
+
+3. SD Desktopin etusivulla napsauta **Siirry SD Desktop -hallintaan**.
+   
+4. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä. Napsauta samassa rivissä oikealla **Vaihtoehdot** ja valitse **Uudelleenkäynnistä**.
+
+5. Vahvista toiminto ilmoituksen kautta. Työpöydän uudelleenkäynnistäminen voi kestää jopa 30 minuuttia.
+
+![Käynnistä työpöytä uudelleen.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
+
+## Virtuaalisen työpöydän poistaminen {#deleting-a-virtual-desktop}
+
+Analyysisi päätyttyä voit poistaa virtuaalisen työpöydän, mukaan lukien ulkoisen levyn ja kaikki siihen tallennetut tiedostot. Tätä toimintoa ei voi perua:
+
+1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. SD Desktopin etusivulla napsauta **Siirry SD Desktop -hallintaan**.
+
+2. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä. Napsauta samassa rivissä oikealla **Vaihtoehdot** ja valitse **Poista**.
+
+!!! Huom
+    Ota yhteyttä kaikkiin projektin jäseniin ennen virtuaalisen työpöydän poistamista. Tällä toiminnolla poistat koko työtilan, mukaan lukien kaikki tiedostot, jotka on tallennettu virtuaaliseen työpöytään tai ulkoiseen levyyn muiden projektin jäsenten toimesta.
+
+![Poista työpöytä.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Delete_desktop.png)
+
+
+## Seuraavat vaiheet tässä oppaassa {#your-next-steps-in-this-guide}
+
+* [Virtuaaliseen työpöytään siirtyminen](./sd-desktop-access-vm.md)
+* [Työskentely työpöydän kanssa: vinkkejä ja perusteita](./sd-desktop-working.md)
+* [Mukauttaminen - ohjelmistot ja työkalut](./sd-desktop-software.md)
+* [Tietojen tuominen](./sd-desktop-access.md)
+* [Tietojen vienti käyttöliittymän kautta](./sd-desktop-export.md)
+* [Ohjelmallinen tiedonvienti](./sd-desktop-export-commandline.md)
+* [Vianetsintä](./sd-desktop-troubleshooting.md)
 

@@ -1,49 +1,37 @@
 # Julia Jupyter
 
-## Selecting the Julia-Jupyter application
+## Julia-Jupyter-sovelluksen valitseminen {#selecting-the-julia-jupyter-application}
 
-![ood application menu](../../img/julia-jupyter/ood-application-menu.png)
+![ood sovellusvalikko](../../img/julia-jupyter/ood-application-menu.png)
 
-We can use [Julia](../../apps/julia.md) on Jupyter through the
-[Puhti](https://www.puhti.csc.fi) and [Mahti](https://www.mahti.csc.fi) web
-interfaces by selecting the **Julia-Jupyter** application from the menu.
+Voimme käyttää [Juliaa](../../apps/julia.md) Jupyterissa
+[Puhtin](https://www.puhti.csc.fi) ja [Mahtin](https://www.mahti.csc.fi) verkkoliittymien kautta valitsemalla valikosta **Julia-Jupyter**-sovelluksen.
 
-## Launching Julia-Jupyter
+## Julia-Jupyterin käynnistäminen {#launching-julia-jupyter}
 
-![julia jupyter options](../../img/julia-jupyter/options-1.png)
+![julia jupyter valinnat](../../img/julia-jupyter/options-1.png)
 
-Now, we need to select the resources for running Julia-Jupyter. First, we must
-select a project for billing and partition for computing resources.
+Nyt meidän on valittava resurssit Julia-Jupyterin suorittamiseen. Ensimmäiseksi meidän on valittava projekti laskutusta varten ja osio laskentaresursseille.
 
-![julia jupyter options](../../img/julia-jupyter/options-2.png)
+![julia jupyter valinnat](../../img/julia-jupyter/options-2.png)
 
-Next, we must set the desired computing resources: CPU cores, memory, local
-disk, and time.
+Seuraavaksi meidän on asetettava halutut laskentaresurssit: CPU-ytimet, muisti, paikallinen levy ja aika.
 
-![julia jupyter options](../../img/julia-jupyter/options-3.png)
+![julia jupyter valinnat](../../img/julia-jupyter/options-3.png)
 
-Finally, we must select the Jupyter type. We recommend using Jupyter lab, but
-the classic notebook is also available. The working directory sets the root
-directory for Jupyter. The Julia depot directory sets the location for package
-installations, compiled files, and other Julia depots. If you plan to install
-large amounts of Julia packages, we recommend using `/projappl` or `/scratch`
-instead of the `$HOME` directory as it could run out of quota. For example,
-Plots.jl installs over 10k files and is quite large.
+Lopuksi meidän on valittava Jupyter-tyyppi. Suosittelemme käyttämään Jupyter Labia, mutta myös klassinen muistikirja on saatavilla. Työskentelyhakemisto asettaa Jupyterin juurihakemiston. Julia depot -hakemisto määrittelee sijainnin pakettiasennuksille, käännetyille tiedostoille ja muille Julian varastoille. Jos aiot asentaa suuren määrän Julian paketteja, suosittelemme käyttämään `/projappl` tai `/scratch` -hakemistoa `$HOME`-hakemiston sijaan, koska se saattaa ylittää kiintiön. Esimerkiksi Plots.jl asentaa yli 10 000 tiedostoa ja on melko suuri.
 
-## Starting Julia kernel
+## Julian ytimen käynnistäminen {#starting-julia-kernel}
 
-![available julia kernels on jupyter lab](../../img/julia-jupyter/julia-kernels.png)
+![saatavilla olevat julia ytimet jupyter labissa](../../img/julia-jupyter/julia-kernels.png)
 
-When we first start the Julia-Jupyter session, we don't have any Julia kernels available.
-To install kernels, we must open the *Terminal* application, load the Julia module, and invoke an installation script as follows:
+Kun käynnistämme ensimmäisen kerran Julia-Jupyter-istunnon, meillä ei ole saatavilla mitään Julian ytimiä. Kernelien asentamiseksi meidän on avattava *Terminal*-sovellus, ladattava Julia-moduuli ja suoritettava asennusskripti seuraavasti:
 
 ```bash
 module load julia
 install_ijulia_kernel.jl
 ```
 
-The script installs [IJulia.jl](https://github.com/JuliaLang/IJulia.jl) and the kernel for the Julia version that was loaded from the module.
-Now, we can close the terminal and refresh the Launcher window, and we should see the installed Julia kernel in the notebook menu.
-Press the icon to start a Julia notebook.
+Skripti asentaa [IJulia.jl](https://github.com/JuliaLang/IJulia.jl) ja ytimen Julia-versiolle, joka ladattiin moduulista. Nyt voimme sulkea terminaalin ja päivittää Launcher-ikkunan, jolloin meidän pitäisi nähdä asennettu Julia-ydin muistikirjavalikossa. Paina kuvaketta aloittaaksesi Julia-muistikirjan.
 
-Note that the Jupyter installation for Julia is separate from the Jupyter installation for Python and is not intended for other use.
+Huomaa, että Julian Jupyter-asennus on erillinen Pythonin Jupyter-asennuksesta eikä ole tarkoitettu muuhun käyttöön.

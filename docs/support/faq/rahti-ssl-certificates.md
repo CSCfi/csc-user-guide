@@ -1,9 +1,10 @@
-# Do you offer in Rahti SSL certificates?
 
-Yes, a wildcard certificate for the DNS names `*.2.rahtiapp.fi` and `*.rahtiapp.fi` is installed and can be used directly by the user.
+# Tarjoaako Rahti SSL-varmenteita? {#do-you-offer-in-rahti-ssl-certificates}
 
-So if the DNS name of your service is under the subdomain `rahtiapp.fi`, simply enable the *TLS encryption* of the route, and automatically the route will have a valid certificate. The certificate is managed by the Rahti team, this includes the renewal and installation.
+Kyllä, DNS-nimille `*.2.rahtiapp.fi` ja `*.rahtiapp.fi` on asennettu wildcard-varmenne, ja käyttäjä voi käyttää sitä suoraan.
 
-If the DNS name is not under the subdomain `rahtiapp.fi`, you need to provide your own certificate. You need to take care of obtaining the certificate, adding it to the `Route` object, and afterwards renew it before it expires.
+Jos palvelusi DNS-nimi sijaitsee aliverkkotunnuksen `rahtiapp.fi` alla, ota yksinkertaisesti käyttöön *TLS-salaus* reitille, ja reitti saa automaattisesti voimassa olevan varmenteen. Rahti-tiimi hallitsee varmenteen, mikä sisältää uusimisen ja asennuksen.
 
-You can read more about this in our [Custom domain names and secure transport](../../cloud/rahti/tutorials/custom-domain.md) tutorial.
+Jos DNS-nimi ei ole aliverkkotunnuksen `rahtiapp.fi` alla, sinun on toimitettava oma varmenteesi. Sinun on huolehdittava varmenteen hankkimisesta, sen lisäämisestä `Route`-objektiin ja sen uudenmisesta ennen sen vanhentumista.
+
+Voit lukea tästä lisää [Mukautetut verkkotunnukset ja turvallinen yhteys](../../cloud/rahti/tutorials/custom-domain.md) -oppaastamme.

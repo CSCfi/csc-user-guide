@@ -1,56 +1,56 @@
-# Creating containers
 
-CSC's supercomputers Puhti and Mahti support running [Apptainer containers](https://apptainer.org/) (formerly known as Singularity). If you wish to run a container-based application, first check the [application pages](../../apps/index.md) to see if a pre-installed container is already available. Also see our [documentation on how to run containers](run-existing.md).
+# Containerien luominen {#creating-containers}
 
-If you cannot find a pre-built container, one option is to build your own. If a Docker container image already exists, you can often simply convert that to an Apptainer container. Another option is to build your own container from scratch.  Both approaches will be discussed below. As always, if you have any problems or questions, don't hesitate to contact [CSC's Service Desk](../../support/contact.md).
+CSC:n supertietokoneet Puhti ja Mahti tukevat [Apptainer-containereiden](https://apptainer.org/) (entiseltä nimeltään Singularity) käyttöä. Jos haluat käyttää container-pohjaista sovellusta, tarkista ensin [sovellussivut](../../apps/index.md) nähdäksesi, onko esiasennettu container jo saatavilla. Katso myös [dokumentaatiomme konttien käytöstä](run-existing.md).
 
-## Converting a Docker container
+Jos et löydä valmista containeria, yksi vaihtoehto on rakentaa oma. Jos Docker container -kuva on jo olemassa, voit usein vain muuntaa sen Apptainer-containeriksi. Toinen vaihtoehto on rakentaa oma container alusta alkaen. Molempia lähestymistapoja käsitellään alla. Kuten aina, jos sinulla on ongelmia tai kysyttävää, älä epäröi ottaa yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md).
 
-If you already have an existing Docker container, in many cases it can easily be converted to an Apptainer image. Docker container images can be found in public repositories such as [Docker Hub](https://hub.docker.com/), but **please take care to only use images uploaded from reputable sources** as these images can easily be a source of security vulnerabilities or even contain malicious code.
+## Docker-containerin muuntaminen {#converting-a-docker-container}
 
-GPU-optimized containers can also be found in [NVIDIA's GPU cloud (NGC)](https://catalog.ngc.nvidia.com/). These containers have been prepared by NVIDIA, and should thus be safe.
+Jos sinulla on jo olemassa oleva Docker-container, monissa tapauksissa se voidaan helposti muuntaa Apptainer-kuvaksi. Docker-container -kuvia löytyy julkisista arkistoista, kuten [Docker Hubista](https://hub.docker.com/), mutta **muista käyttää vain hyvämaineisista lähteistä ladattuja kuvia**, sillä nämä kuvat voivat helposti olla tietoturvariskejä tai jopa sisältää haitallista koodia.
 
-Further [information about converting Docker containers can be found in the Apptainer documentation](https://apptainer.org/docs/user/main/docker_and_oci.html).
+GPU-optimoituja containereita löytyy myös [NVIDIAn GPU-pilvestä (NGC)](https://catalog.ngc.nvidia.com/). Nämä containerit ovat NVIDIAn valmistelemia ja siten turvallisia.
 
-Here is an example of how to build an Apptainer image on Puhti from [NVIDIA's PyTorch Docker image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch). We'll use `sinteractive` as heavy processing should not be done in the login nodes.
+Lisätietoa [Docker-containerien muuntamisesta löytyy Apptainer-dokumentaatiosta](https://apptainer.org/docs/user/main/docker_and_oci.html).
+
+Tässä on esimerkki Apptainer-kuvan rakentamisesta Puhtissa [NVIDIAn PyTorch Docker -kuvasta](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch). Käytämme `sinteractive`, sillä raskasta käsittelyä ei pitäisi tehdä kirjautumissolmuissa.
 
 ```bash
-# Let's start a 1 hour interactive job with enough memory and local scratch space
+# Aloitetaan 1 tunnin interaktiivinen työ riittävällä muistilla ja paikallisella raaputusalueella
 sinteractive --account <project> --time 1:00:00 -m 16G --tmp 64
 
-# Let's use the fast local drive for temporary storage
+# Käytetään nopeaa paikallista asemaa tilapäiseen tallennukseen
 export APPTAINER_TMPDIR=$LOCAL_SCRATCH
 export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
 
-# This is just to avoid some annoying warnings
+# Tämä on vain ärsyttävien varoitusten välttämiseksi
 unset XDG_RUNTIME_DIR
 
-# Change directory to where you wish to store the image
+# Vaihdetaan hakemistoon, johon haluat tallentaa kuvan
 cd /projappl/<project>
 
-# Do the actual conversion
-# NOTE: the Docker image is downloaded straight from NGC
+# Suoritetaan varsinainen muuntaminen
+# HUOM: Docker-kuva ladataan suoraan NGC:stä
 apptainer build pytorch_22.09-py3.sif docker://nvcr.io/nvidia/pytorch:22.09-py3
 ```
 
-Note that the Apptainer image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but for example in the project application directory [projappl](../../computing/disk.md).
+Huomaa, että Apptainer-kuvien `.sif`-tiedostot voivat helposti olla useita gigatavuja suuria, joten niitä ei pitäisi tallentaa kotihakemistoosi, vaan esimerkiksi projektin hakemistoon [projappl](../../computing/disk.md).
 
-Also see our [documentation on how to run containers](run-existing.md).
+Katso myös [dokumentaatiomme konttien käytöstä](run-existing.md).
 
-## Build a container from scratch
+## Containerin rakentaminen alusta asti {#build-a-container-from-scratch}
 
-You can also build your own container from scratch. This is an option for more experienced users, and your main source of information is the [official Apptainer documentation on building containers](https://apptainer.org/docs/user/main/build_a_container.html).
+Voit myös rakentaa oman containerisi alusta alkaen. Tämä on vaihtoehto kokeneemmille käyttäjille, ja tärkein tietolähteesi on [virallinen Apptainer-dokumentaatio containerien rakentamisesta](https://apptainer.org/docs/user/main/build_a_container.html).
 
-You can find some help also by looking at our [tutorial on building Apptainer containers from scratch](../../support/tutorials/singularity-scratch.md).
+Voit löytää apua myös tutustumalla [ohjeeseemme Apptainer-containerien rakentamisesta alusta asti](../../support/tutorials/singularity-scratch.md).
 
-## Building a container without sudo access on Puhti and Mahti
+## Containerin rakentaminen ilman sudo-oikeuksia Puthissa ja Mahtissa {#building-a-container-without-sudo-access-on-puhti-and-mahti}
 
-Root access into Puhti and Mahti is not permitted. Namespaces have also been disabled due to security issues involved. However, with a few restrictions, Apptainer can still be used by an unprivileged user to build a container using the [fakeroot](https://apptainer.org/docs/user/main/fakeroot.html) feature.
+Juuretason pääsy Puthiin ja Mahtiin ei ole sallittu. Nimitilat on myös poistettu käytöstä niihin liittyvien tietoturvaongelmien vuoksi. Kuitenkin muutamin rajoituksin, Apptaineria voi silti käyttää oikeudeton käyttäjä rakentamaan containeria käyttämällä [fakeroot](https://apptainer.org/docs/user/main/fakeroot.html)-ominaisuutta.
 
-Apptainer enables `--fakeroot` flag by default when building containers if `sudo` or namespaces are not available, this makes the user appear as `root:root` while building the container, thus enabling them to build images that require root file permissions e.g. to install packages via `apt`.
-However, this only makes the user *appear* as the root user, in the host system a user still has no additional permissions. By itself, fakeroot is not always sufficient, and building some containers may fail due to various reasons. For more details see the [official Apptainer documentation](https://apptainer.org/docs/user/main/fakeroot.html).
+Apptainer mahdollistaa `--fakeroot`-lipun oletusarvoisesti containerien rakentamisessa, jos `sudo` tai nimitilat eivät ole saatavilla, mikä saa käyttäjän näyttämään `root:root`-käyttäjältä containeria rakentaessaan, mikä mahdollistaa sellaisten kuvien rakentamisen, jotka vaativat juuritiedostojen oikeuksia esimerkiksi pakettien asentamiseen `apt`:n kautta. Tämä saa kuitenkin vain käyttäjän *näyttämään* root-käyttäjältä, isäntäjärjestelmässä käyttäjällä ei ole lisää oikeuksia. Yksinään fakeroot ei aina riitä, ja joissain tapauksissa joitain containereita ei voida rakentaa erilaisten syiden vuoksi. Lisätietoja löytyy [virallisesta Apptainer-dokumentaatiosta](https://apptainer.org/docs/user/main/fakeroot.html).
 
-The following simple example definition file (saved as `ubuntu.def`) creates an image based on Ubuntu 22.04 with one package installed.
+Seuraava yksinkertainen määrittelytiedosto (tallennettuna nimellä `ubuntu.def`) luo kuvan, joka perustuu Ubuntu 22.04:ään yhden paketin kanssa.
 
 ```text title="ubuntu.def"
 Bootstrap: docker
@@ -60,32 +60,32 @@ From: ubuntu:22.04
 	apt-get install -y cowsay
 ```
 
-The image can be built with `apptainer build ubuntu.sif ubuntu.def` and ran as `apptainer shell ubuntu.sif`. Now, the installed package can be accessed in the shell opened by typing `echo hello | /usr/games/cowsay`. Note that `sudo` is not required to run these commands.
+Kuva voidaan rakentaa komennolla `apptainer build ubuntu.sif ubuntu.def` ja suorittaa komennolla `apptainer shell ubuntu.sif`. Nyt asennettua pakettia voidaan käyttää avaamalla komentoikkuna komennolla `echo hello | /usr/games/cowsay`. Huomaa, että `sudo` ei vaadita näiden komentojen suorittamiseen.
 
-Below is a table of common docker base images and whether installing simple packages with the distribution's default package manager works on them in Puhti and Mahti:
+Alla on taulukko yleisistä docker-pohjakuvista ja niiden yhteensopivuudesta yksinkertaisten pakettien asentamiseen jakelun oletuspakettien hallintaohjelmalla Puthissa ja Mahtissa:
 
 |Image|Tag|Works|
 |-----|---|-----|
-|alpine|3.6-3.19|no|
-|almalinux|8-9|yes|
-|debian|buster-trixie|yes|
-|centos|7|yes|
-|opensuse/leap|15.0,15.6|no|
-|opensuse/leap|15.1-15.5|yes|
-|redhat/ubi|8-9|yes|
-|ubuntu|16.04-22.04|yes|
+|alpine|3.6-3.19|ei|
+|almalinux|8-9|kyllä|
+|debian|buster-trixie|kyllä|
+|centos|7|kyllä|
+|opensuse/leap|15.0,15.6|ei|
+|opensuse/leap|15.1-15.5|kyllä|
+|redhat/ubi|8-9|kyllä|
+|ubuntu|16.04-22.04|kyllä|
 
-Some issues related to, for example, glibc, fakeroot, file permissions and old remote repos are often difficult to solve, so trying out a few different base images can be a good idea before spending a lot of time debugging.
+Joihinkin ongelmiin liittyen esimerkiksi glibc:hen, fakerootiin, tiedostojen oikeuksiin ja vanhoihin etätiedostoihin on usein vaikea löytää ratkaisu, joten muutaman erilaisen pohjakuvan kokeileminen voi olla hyvä idea ennen kuin käytät paljon aikaa vianmääritykseen.
 
-## Using GPU from containers in interactive sessions in Puhti
+## GPU:n käyttäminen containereista interaktiivisissa sessioissa Puthissa {#using-gpu-from-containers-in-interactive-sessions-in-puhti}
 
-### Running existing images
+### Olemassa olevien kuvien ajaminen {#running-existing-images}
 
-To run programs in [Accelerated Visualization](../webinterface/accelerated-visualization.md) that [use GPU](https://apptainer.org/docs/user/latest/gpu.html), use the `--nv` flag when starting the container: `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/), a few environment variables have to be set as well. In the base images provided for GPU usage by CSC, these are set automatically when the container is started. Note that if you run `apptainer shell` instead of `apptainer run`, `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see [base image definition files](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) for details.
+Ajaaksesi ohjelmia [kiihdytetyllä visualisoinnilla](../webinterface/accelerated-visualization.md), jotka [käyttävät GPU:ta](https://apptainer.org/docs/user/latest/gpu.html), käytä `--nv` lippua containerin käynnistykseen: `apptainer run --nv /path_to_image/image.sif`. Käyttääksesi graafista näyttöä [VirtualGL](https://virtualgl.org/)-ohjelmistolla, on myös asetettava muutamia ympäristömuuttujia. CSC:n GPU-käyttöön tarjoamissa peruskuvissa nämä ovat asetettu automaattisesti, kun container käynnistetään. Huomaa, että jos suoritat `apptainer shell` komennon sijaan `apptainer run`, `%runscript` ei suoriteta eikä tarpeellisia vgl-ympäristömuuttujia aseteta, sinun täytyy silloin asettaa ne manuaalisesti, katso [peruskuvauksien määrittelytiedostot](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) lisätietoja varten.
 
-To easily start the program, create a `.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) in the `$HOME/Desktop` directory in Puhti. An icon then appears on the desktop which will start the program in the container.
+Ohjelman helppo käynnistys voidaan tehdä luomalla `.desktop` [pikakuvaketiedosto](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) hakemistoon `$HOME/Desktop` Puhtissa. Kuvake ilmestyy sitten työpöydälle, joka käynnistää ohjelman containerissa.
 
-Example `blender.desktop` file which starts the example container provided in the next section.
+Esimerkki `blender.desktop`-tiedostosta, joka käynnistää seuraavassa osiossa tarjotun esimerkkikontainerin.
 ```
 [Desktop Entry]
 Type=Application
@@ -94,32 +94,33 @@ Terminal=true
 Exec=apptainer run --nv /path_to_image/vgl_blender.sif
 ```
 
-### Building your own images
-To build containers for VGL applications yourself, you can use one of the base images provided by CSC as a base. These images have both graphics driver and VirtualGL already installed, which are necessary to use GPU in graphical applications running remotely.
+### Oman kuvan rakentaminen {#building-your-own-images}
 
-Base images available can be found from the path `/appl/opt/vis/vgl-base-images/` in Puhti.
+Jos haluat rakentaa containereita VGL-sovelluksille itse, voit käyttää CSC:n tarjoamia peruskuvia pohjana. Näissä kuvissa on sekä grafiikkaohjain että VirtualGL valmiiksi asennettuna, jotka ovat tarpeen GPU:n käyttämiseen etänä ajettavissa graafisissa sovelluksissa.
 
-For details of how the base images work, see their [definition files](https://github.com/CSCfi/singularity-recipes/tree/main/visualization).
+Saatavilla olevat peruskuvat löytyvät polusta `/appl/opt/vis/vgl-base-images/` Puthissa.
 
-Here is a commented example definition file that installs blender on top of the base image.
+Lisätietoja peruskuvien toiminnasta, katso niiden [määrittelytiedostot](https://github.com/CSCfi/singularity-recipes/tree/main/visualization).
+
+Tässä on kommentoitu esimerkkitiedosto, joka asentaa blenderin peruskuvan päälle.
 
 ```
 Bootstrap: localimage
 From: /appl/opt/vis/vgl-base-images/ubuntu/22.04.sif 
 
 %environment
-	# Specify path to the binary that we want to run on start
+	# Määritä polku binääriin, joka halutaan suorittaa aloitushetkellä
 	export VGL_APPLICATION=/opt/blender-3.6.0/blender
 %post
-	# When building with fakeroot without namespaces we cannot modify users or groups during the installation so we replace problematic binaries with dummies and hope that everything will still work
+	# Kun rakennetaan fakerootilla ilman nimitiloja, emme voi muokata käyttäjiä tai ryhmiä asennuksen aikana, joten korvataan ongelmalliset binäärit dummyeilla ja toivotaan, että kaikki toimii
 	cp /usr/bin/true /usr/sbin/groupadd
 	cp /usr/bin/true /usr/sbin/useradd
 
-	# Install blender dependencies, to figure out which libraries are required use ldd, read error messages etc.
+	# Asenna blenderin riippuvuudet, selvitä mitkä kirjastot ovat tarpeen käyttämällä ldd:tä, lue virheviestejä jne.
 	apt-get install -y libxi6 libxrender1 libxkbcommon0 \
 	                   libxkbcommon-x11-0 libsm6 libice6
 
-	# Install Blender binary
+	# Asenna Blender-binääri
 	cd /opt
 	BLENDER_VERSION=3.6.0
 	wget https://ftp.halifax.rwth-aachen.de/blender/release/Blender$(echo "$BLENDER_VERSION" | cut -d. -f1,2)/blender-$BLENDER_VERSION-linux-x64.tar.xz

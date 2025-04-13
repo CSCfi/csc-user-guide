@@ -1,41 +1,41 @@
-# Glossary
+# Sanasto {#glossary}
 
-## A
+## A {#a}
 
 * `AES` &mdash; _Advanced Encryption Standard_
 * `AI` &mdash; _Artificial Intelligence_
 * `API` &mdash; _Application programming interface_
 * `AVX` &mdash; _Advanced Vector eXtensions_
 
-## B
+## B {#b}
 
 * `BLAS` &mdash; _Basic Linear Algebra Subprograms_
 * `BU` &mdash; _Billing Unit_
 
-## C
+## C {#c}
 
 * `CBC` &mdash; _Cipher Block Chaining_
 * `CLI` &mdash; _Command-Line Interface_
 * `CPU` &mdash; _Central Processing Unit_
 * `CTR` &mdash; _Counter_
 
-## D
+## D {#d}
 
 * `DBaaS` &mdash; _Database-as-a-Service_
 * `DFT` &mdash; _1. Discrete Fourier Transform, 2. Density Functional Theory_
 
-## E
+## E {#e}
 
 * `ECB` &mdash; _Electronic Codebook_
 * `EtM` &mdash; _Encrypt-then-MAC_
 
-## F
+## F {#f}
 
 * `FFT` &mdash; _Fast Fourier Transform_
 * `FLOPS` &mdash; _Floating Point Operations Per Second_
 * `FTP` &mdash; _File Transfer Protocol_
 
-## G
+## G {#g}
 
 * `GCC` &mdash; _GNU Compiler Collection_
 * `GCD` &mdash; _Graphics Compute Die_
@@ -45,25 +45,25 @@
 * `GPU` &mdash; _Graphics Processing Unit_
 * `GUI` &mdash; _Graphical User Interface_
 
-## H
+## H {#h}
 
 * `HPC` &mdash; _High-Performance Computing_
 * `HTC` &mdash; _High-Throughput Computing_
 * `HTTP` &mdash; _Hypertext Transfer Protocol_
 * `HTTPS` &mdash; _Hypertext Transfer Protocol Secure_
 
-## I
+## I {#i}
 
 * `IaaS` &mdash; _Infrastructure-as-a-Service_
 * `IaC` &mdash; _Infrastructure-as-Code_
 * `I/O` &mdash; _Input/Output_
 * `IP` &mdash; _Internet Protocol_
 
-## L
+## L {#l}
 
 * `LUMI` &mdash; _Large Unified Modern Infrastructure_
 
-## M
+## M {#m}
 
 * `MAC` &mdash; _Message Authentication Code_
 * `MDS` &mdash; _Metadata Server_
@@ -73,19 +73,19 @@
 * `MOOC` &mdash; _Massive Open Online Course_
 * `MPI` &mdash; _Message-Passing Interface_
 
-## N
+## N {#n}
 
 * `NFS` &mdash; _Network File System_
 * `NVMe` &mdash; _Non-Volatile Memory express_
 
-## O
+## O {#o}
 
 * `OMP` &mdash; _Open Multi-Processing_
 * `OOD` &mdash; _Open OnDemand_
 * `OSS` &mdash; _Object Storage Server_
 * `OST` &mdash; _Object Storage Target_
 
-## P
+## P {#p}
 
 * `PaaS` &mdash; _Platform-as-a-Service_
 * `PBKDF1` &mdash; _Password-Based Key Derivation Function 1_
@@ -97,18 +97,18 @@
 * `PM` &mdash; _Project Manager_
 * `PRACE` &mdash; _Partnership for Advanced Computing in Europe_
 
-## Q
+## Q {#q}
 
 * `QLM` &mdash; _Quantum Learning Machine_
 * `QPU` &mdash; _Quantum Processing Unit_
 
-## R
+## R {#r}
 
 * `RAID` &mdash; _Redundant Array of Inexpensive Disks_
 * `REPL` &mdash; _Read–Eval–Print Loop_
 * `RSA` &mdash; _Rivest-Shamir-Adleman_
 
-## S
+## S {#s}
 
 * `SaaS` &mdash; _Software-as-a-Service_
 * `SLURM` &mdash; _Simple Linux Utility for Resource Management_
@@ -118,17 +118,17 @@
 * `SSH` &mdash; _Secure SHell_
 * `SSL` &mdash; _Secure Sockets Layer_
 
-## T
+## T {#t}
 
 * `TLS` &mdash; _Transport Layer Security_
 * `TOTP` &mdash; _Time-based One-Time Password_
 
-## U
+## U {#u}
 
 * `UI` &mdash; _User Interface_
 * `UUID` &mdash; _Universally Unique Identifier_
 * `UX` &mdash; _User Experience_
 
-## V
+## V {#v}
 
 * `VM` &mdash; _Virtual Machine_

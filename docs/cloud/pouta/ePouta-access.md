@@ -1,24 +1,25 @@
-# Applying for ePouta access
 
-Applying for **ePouta** access is not a self service process, it might require manual intervention and some **weeks of wait**. This is different from the cPouta, which is self-service and you should be able to get your new project in a matter of minutes. 
+# Hakemus ePouta-käyttöoikeuden saamiseksi {#applying-for-epouta-access}
 
-ePouta is a IaaS cloud designed to hold and process **sensitive data**. Because of this, the design focuses on the security of the platform and the data contained in it. It requires a [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) VPN connection between ePouta and the local network of the user of the VM. In other words, before using ePouta it is necessary to have a [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) VPN configured. This network setup is a manual step that involves several teams from CSC and the institution of the user of the VMs.
+Hakemus **ePouta**-käyttöoikeuden saamiseksi ei ole itsepalveluprosessi, se saattaa vaatia manuaalista väliintuloa ja **viikkojen odotusta**. Tämä eroaa cPoutasta, joka on itsepalvelu, ja sinun pitäisi pystyä saamaan uusi projektisi muutamassa minuutissa.
+
+ePouta on IaaS-pilvi, joka on suunniteltu käsittelemään ja säilyttämään **arkaluonteisia tietoja**. Tämän vuoksi suunnittelu keskittyy alustan ja siinä olevien tietojen turvallisuuteen. Se vaatii [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) VPN-yhteyden ePoutan ja käyttäjän VM:n paikallisen verkon välille. Toisin sanoen, ennen ePoutan käyttöä on tarpeen konfiguroida [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) VPN. Tämä verkkokokoonpano on manuaalinen vaihe, joka sisältää useita CSC:n ja VM-käyttäjän laitoksen tiimejä.
 
 <center>![MPLS](../img/epouta_connection.drawio.svg)</center>
 
-The end result will be a "virtual private data center", as the servers on the customer network, will be in the same network as the VMs in CSC.
+Lopputuloksena on "virtuaalinen yksityinen datakeskus", sillä asiakasverkon palvelimet ovat samassa verkossa CSC:n VM:ien kanssa.
 
-1. The first step is to be sure that ePouta is the suitable service for the use case. ePouta is designed to store and process **sensitive data**. If the use case does not deal with sensitive data, cPouta might be a better service for the use case.
+1. Ensimmäinen askel on varmistaa, että ePouta on sopiva palvelu käyttötarkoitukseen. ePouta on suunniteltu säilyttämään ja käsittelemään **arkaluonteisia tietoja**. Jos käyttötapaus ei käsittele arkaluonteisia tietoja, cPouta voi olla parempi palvelu käyttötarkoitukseen.
 
-1. Once the suitability of ePouta has been validated, it is necessary to check if there is already a project created in ePouta that can hold this use case. Some institutions have what is called an "umbrella project", or other kind of pre-created or pre-allocated pool of network connections. Please contact your institution's IT team to check this.
+1. Kun ePoutan soveltuvuus on vahvistettu, on tarpeen tarkistaa, onko ePoutassa jo luotu projekti, joka voi sisältää tämän käyttötapauksen. Joillakin laitoksilla on niin sanottu "sateenvarjoprojekti" tai muu etukäteen luotu tai etukäteen jaettu verkkoyhteyksien pooli. Ota yhteyttä laitoksesi IT-tiimiin tarkistaaksesi tämän.
 
-1. If no suitable project or network connection is already available, you must then make a request by sending an email to <servicedesk@csc.fi> explaining you use case. Please make sure to mention this information:
+1. Jos sopivaa projektia tai verkkoyhteyttä ei ole vielä saatavilla, sinun on lähettävä pyyntö sähköpostitse osoitteeseen <servicedesk@csc.fi> selittäen käyttötapauksesi. Muista mainita seuraavat tiedot:
 
-    * Use case description and why it needs to be hosted in ePouta.
-    * Mention that no existing resource can be used and a new one must be created.
-    * Estimation of resources needed, and for how long these resources will be used. You can check the [VM flavors and billing](vm-flavors-and-billing.md#epouta-flavors) page to see what VMs are available and stimate the number of Billing units needed.
-    * IPs of the administration machines that will need to create, modify and delete VMs.
+    * Käyttötapauksen kuvaus ja miksi se tulee isännöidä ePoutassa.
+    * Mainitse, ettei nykyisiä resursseja voida käyttää ja uusi on luotava.
+    * Tarvittavien resurssien arviointi ja kuinka kauan resursseja käytetään. Voit tarkistaa [VM-maut ja -laskutus](vm-flavors-and-billing.md#epouta-flavors) -sivulta, mitä VM:itä on saatavilla ja arvioida tarvittavien Laskutusyksiköiden määrän.
+    * Hallintakoneiden IP-osoitteet, jotka luovat, muokkaavat ja poistavat VM:t.
 
-1. Once the ticket has been created, it is necessary to wait. CSC will contact the necessary network teams to setup the infrastructure. You will be only contacted upon completion, or if any question arises.
+1. Kun tiketti on luotu, on tarpeen odottaa. CSC ottaa yhteyttä tarvittaviin verkostotiimeihin infrastruktuurin pystyttämiseksi. Sinuun otetaan yhteyttä vain valmistumisen yhteydessä tai jos kysymyksiä ilmenee.
 
-1. You might be contacted by your institution's IT team asking for clarifications in regards to network configurations.
+1. Laitoksesi IT-tiimi saattaa ottaa sinuun yhteyttä ja pyytää tarkennuksia verkon konfiguraatioista.

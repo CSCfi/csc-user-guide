@@ -1,7 +1,7 @@
-# Compiling applications in LUMI
+# Sovellusten kääntäminen LUMI:ssa
 
-## General instructions
+## Yleiset ohjeet {#general-instructions}
 
-* The LUMI software policy is that users should install required software themselves.
-* To support this process, the [EasyBuild](https://docs.lumi-supercomputer.eu/software/installing/easybuild/) tool is provided with accompanying build recipes for several applications. For more details, see the [LUMI software documentation pages](https://docs.lumi-supercomputer.eu/software/).
-* Compiling applications manually is of course also possible. Please see [the LUMI documentation](https://docs.lumi-supercomputer.eu/development/) for more information on developing and compiling applications in the LUMI programming environment.
+* LUMI:n ohjelmistopolitiikka on, että käyttäjien pitäisi asentaa tarvittavat ohjelmistot itse.
+* Tätä prosessia tukemaan on tarjolla [EasyBuild](https://docs.lumi-supercomputer.eu/software/installing/easybuild/) -työkalu, joka sisältää rakennusreseptit useille sovelluksille. Lisätietoja on saatavilla [LUMI-ohjelmiston dokumentaatiosta](https://docs.lumi-supercomputer.eu/software/).
+* Sovellusten manuaalinen kääntäminen on tietenkin myös mahdollista. Katso [LUMI-dokumentaatio](https://docs.lumi-supercomputer.eu/development/) saadaksesi lisätietoja sovellusten kehittämisestä ja kääntämisestä LUMI-ohjelmointiympäristössä.

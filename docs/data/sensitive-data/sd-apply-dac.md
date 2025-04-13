@@ -1,224 +1,222 @@
- 
+# FEGA-tietojen uudelleenkäytön mahdollistaminen {#enabling-reuse-of-fega-data}
 
-# Enabling reuse of FEGA data
+CSC:ssä tallennetun ja valvotun saatavuuden alaisena julkaistun datan käyttöoikeutta hallinnoi rekisterinpitäjä tai heidän edustajansa SD Apply -palvelussa. Jotta voit mahdollistaa FEGA:an (Finnish Federated EGA) tallennettujen tietokokonaisuuksien uudelleenkäytön, sinun tulee lisätä organisaatiosi tarjoamat tietokokonaisuudet SD Apply -katalogiin. Huomioithan, että jos käytät SD Apply -palvelua hallitaksesi FEGA:an tallennettujen tietokokonaisuuksien käyttöoikeuksia, organisaatiollasi tulee olla palvelusopimus CSC:n kanssa. Lue lisää [FEGA:n oikeudellisista sopimuksista](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
 
-Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
+Rekisterinpitäjänä SD Apply -palvelussa olet vastuussa:
 
-As a data controller in SD Apply, you are responsible for:
+* Tietokokonaisuuksien lisäämisestä SD Apply -katalogiin hakemuslomakkeen ja käytäntöjen kanssa.
+* Edustajien (Data Access Committee, DAC) nimeämisestä, jotka hallinnoivat käyttöoikeuspyyntöjä organisaatiosi tietokokonaisuuksiin.
+* Datan uudelleenkäyttökäytäntöjen määrittelemisestä.
 
-* Adding your datasets to catalogue in SD Apply together with an application form and policies.
-* Designating representatives (a Data Access Committee, DAC) who manage the data access requests to your organization’s datasets.
-* Defining data access policies for data reuse.
+## Tietosuojatoimikunnan (DAC) muodostaminen {#forming-a-data-access-committee-dac}
 
-## Forming a Data Access Committee (DAC)
+Ennen kuin alat lisätä tietoja SD Apply -palveluun, suosittelemme keskustelemaan organisaatiossasi yleisen tietosuojatoimikunnan (DAC) muodostamisen mahdollisuudesta, joka hallinnoi pääsyä kaikkiin tietokokonaisuuksiin, joiden rekisterinpitäjä organisaatiosi on.
 
-Before you start adding information in SD Apply, we recommend discussing inside your organization about the possibility of forming a general Data Access Committee (DAC) that manages access to all datasets your organization is the data controller of. 
+DAC on vastuussa:
 
-DAC is responsible for:
+- **Uusien FEGA-lähetysten koordinoinnista ja hyväksynnästä organisaationsa sisällä**: Tarkastamalla tietokokonaisuudet, jotka lähetetään Federated EGA:an organisaationsa hallinnassa.
+- **Organisaation tietokokonaisuuksien käyttöoikeuksien hallinnasta**: Arvioimalla DAC:n hallinnoimien tietokokonaisuuksien käyttöoikeuspyyntöjä varmistaakseen määriteltyjen käytäntöjen, määräysten ja eettisten ohjeiden noudattamisen.
 
-- **Coordinating and approving new FEGA submissions inside their organisation**: Reviewing the datasets that will be submitted in the Federated EGA under their organization and controllership.
-- **Managing access to organization's datasets**: Evaluating data access requests for datasets managed by the DAC to ensure compliance with defined policies, regulations, and ethical guidelines.
-
-## Adding a dataset to catalogue in SD Apply
+## Tietokokonaisuuden lisääminen SD Apply -katalogiin {#adding-a-dataset-to-catalogue-in-sd-apply}
 
 ![SD Apply Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD_Apply_infographic.png)
 
-Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complicated. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
+Tietokokonaisuuksien lisääminen SD Apply -palveluun ensimmäistä kertaa tapahtuu läheisessä yhteistyössä CSC:n Service Deskin kanssa, koska prosessi voi olla hieman monimutkainen. Varaa aikaa prosessille ja valmistaudu keskustelemaan oikeudellisen tiimisi kanssa tietojen uudelleenkäyttöön tarvittavista sopimuksista. Alla on yleisiä ohjeita, jotka ohjaavat sinua prosessin läpi.
 
-## Step by step guide
+## Vaiheittainen opas {#step-by-step-guide}
 
-### 1. Request for organization profile
+### 1. Pyydä organisaatioprofiilia {#request-for-organization-profile}
 
-Before you can add information to SD Apply, CSC service desk needs to create an organization profile and set you as the organization administrator. 
+Ennen kuin voit lisätä tietoja SD Apply -palveluun, CSC Service Desk luo organisaatioprofiilin ja asettaa sinut organisaation ylläpitäjäksi.
 
-1. Send an email to servicedesk@csc.fi with the subject "SD services" to request profile creation.
-2. Log in to [SD Apply service](https://sd-apply.csc.fi/).
-3. Inform the service desk that you have logged in. Service desk will add you to right organization.
-4. The service desk will inform you when you can start adding datasets to SD Apply. 
+1. Lähetä sähköpostia osoitteeseen servicedesk@csc.fi aiheenaan "SD services" pyytääksesi profiilin luomista.
+2. Kirjaudu [SD Apply -palveluun](https://sd-apply.csc.fi/).
+3. Ilmoita Service Deskille, että olet kirjautunut sisään. Service Desk lisää sinut oikeaan organisaatioon.
+4. Service Desk ilmoittaa sinulle, kun voit aloittaa tietokokonaisuuksien lisäämisen SD Apply -palveluun. 
 
-!!! note
-    Always use the same identity provider (Haka/Virtu or CSC login) when logging into SD Apply because your role and datasets you manage are connected to your login identity.
+!!! huomautus
+    Käytä aina samaa identiteetin tarjoajaa (Haka/Virtu tai CSC-tunnus) kirjauduttaessa SD Apply -palveluun, koska roolisi ja hallinnoimasi tietokokonaisuudet ovat yhteydessä kirjautumisidentiteettiisi.
 
-### 2. Add dataset as catalogue item
+### 2. Lisää tietokokonaisuus katalogiesineeksi {#add-dataset-as-catalogue-item}
 
-Cataloque item enables applicant to apply for access for your dataset. When you add datasets to be applied via SD Apply, you have to first create:
+Katalogiesine mahdollistaa hakijan hakea käyttöoikeutta tietokokonaisuuteesi. Kun lisäät tietokokonaisuuksia SD Apply -palveluun haettavaksi, sinun tulee ensin luoda:
 
-* **Form:** applicants use the application form to apply for access rights.
-* **Policy (optional):** Data access agreements which describe how applicants can re-use data.
-* **DAC:** Data Access Committee process applications.
-* **Identifier:** a technical identifier for the dataset, for example a DOI.
+* **Lomake:** hakijat käyttävät hakemuslomaketta hakeakseen käyttöoikeuksia.
+* **Käytäntö (valinnainen):** Datan käyttöoikeussopimukset, jotka kuvaavat, miten hakijat voivat käyttää uudelleen dataa.
+* **DAC:** Tietosuojatoimikunta käsittelee hakemuksia.
+* **Tunniste:** tekninen tunniste tietokokonaisuudelle, esimerkiksi DOI.
 
-Then you combine these items together by creating a catalogue item. You can also reuse existing items. 
+Sitten yhdistät nämä kohteet luomalla katalogiesineen. Voit myös käyttää uudelleen olemassa olevia kohteita.
 
-!!! note
-    You have to create form, policy, DAC and identifier items **before** creating a catalogue item.
+!!! huomautus
+    Sinun on luotava lomake, käytäntö, DAC ja tunniste **ennen** kuin luot katalogiesineen.
 
-### 2.1. Create an application form
+### 2.1. Luo hakemuslomake {#create-an-application-form}
 
-The data controller specifies what information the applicant must provide in the application form to access the data.
+Rekisterinpitäjä määrittelee, mitä tietoja hakijan on annettava hakemuslomakkeessa saadakseen pääsyn dataan.
 
-1. Log in to SD Apply and navigate to Administration > Forms.
-2. Select **Create form**.
-3. Give the form a descriptive name. The name will show in the form list view to help you find it but it is not shown to the applicant.
-4. Give the form a title. This is shown to the applicant. 
-5. Add the fields you want to have in the application. The preview on the right side shows how an applicant would see the application form. The form field options are explained in more detail below.
-6. Select **Save** when you are finished with the form.
+1. Kirjaudu SD Apply -palveluun ja siirry kohtaan Administration > Forms.
+2. Valitse **Create form**.
+3. Anna lomakkeelle kuvaileva nimi. Nimi näkyy lomakeluettelossa auttamaan sen löytämisessä, mutta sitä ei näytetä hakijalle.
+4. Anna lomakkeelle otsikko. Tämä näytetään hakijalle. 
+5. Lisää kenttiä, jotka haluat sisällyttää hakemukseen. Esikatselu oikealla puolella näyttää, miten hakija näkisi hakemuslomakkeen. Lomakkeen kenttävalinnat selitetään tarkemmin alla.
+6. Valitse **Tallenna**, kun olet valmis lomakkeen kanssa.
 
-!!! note
-    You can only edit the form as long as it has not been connected to a catalogue item.
+!!! huomautus
+    Voit muokata lomaketta vain niin kauan kuin sitä ei ole yhdistetty katalogiesineeseen.
 
-You can include the parts of the agreements that need to be filled in directly in the application form in SD Apply. The rest of the agreement content can be provided as a PDF attachment and added as policy in SD Apply, allowing applicants to review and accept the terms electronically when requesting access to the dataset. This way, applicants can complete the necessary sections within SD Apply and accept the terms of use without needing to manually sign documents. Please discuss with your organization's legal team about this possibility.
+Voit sisällyttää sopimusten osat, jotka on täytettävä suoraan SD Apply -hakemuslomakkeeseen. Loppusopimuksen sisältö voidaan toimittaa PDF-liitteenä ja lisätä käytännöksi SD Apply -palveluun, jolloin hakijat voivat tarkistaa ja hyväksyä ehdot sähköisesti pyytäessään pääsyä tietokokonaisuuteen. Tällä tavalla hakijat voivat täyttää tarvittavat osiot SD Apply -palvelun sisällä ja hyväksyä käyttöehdot ilman paperien manuaalista allekirjoittamista. Keskustele tästä mahdollisuudesta organisaatiosi oikeudellisen tiimin kanssa.
 
-#### Form fields explained
+#### Lomakekenttien selitykset {#form-fields-explained}
 
-- **Application title**: Use this field if you want the applicants to provide a name for their application.
-- **Option list**: Use option list if you want the applicant to choose one of the given options. ID-code is the identifier for the option. It is shown, for example in the reports, but the applicant will only see the label fields. For example: You can put “Y” as an ID-code for Yes-option and “N” for No-option.
-- **Multi-select list**: Use a multi-select list if you want the applicant to choose one or more of the given options.
-- **Table**: Provide a set of columns for the table. The applicant can add as many rows as they wish. All columns are required for each row. You can require the applicant to fill in at least one row.
-- **Email address**: Email address field will validate the email the applicant has provided.
-- **Attachment**: Applicant can add one or multiple attachments.
-- **Label**: Use labels as descriptive texts if you want to give the applicant additional information, such as instructions, regarding some field.
-- **Header**: Consider using headers if you want to divide the application form into sections.
-- **Phone number**: A phone number in an international format (E.164), e.g. +14155552671.
-- **IP address**: IP address field will validate the IP address the applicant has provided in IPv4 or IPv6 forms. IP address must not be within the known private range.
+- **Hakemuksen otsikko**: Käytä tätä kenttää, jos haluat hakijoiden antavan hakemukselleen nimen.
+- **Vaihtoehtolista**: Käytä vaihtoehtolistaa, jos haluat hakijan valitsevan yhden annetuistä vaihtoehdoista. ID-koodi on vaihtoehdon tunniste. Se näytetään esimerkiksi raporteissa, mutta hakija näkee vain etikettikentän. Esimerkiksi: Voit laittaa "Y" ID-koodiksi kyllä-vaihtoehdolle ja "N" ei-vaihtoehdolle.
+- **Monivalintalista**: Käytä monivalintalistaa, jos haluat hakijan valitsevan yhden tai useamman annetuista vaihtoehdoista.
+- **Taulukko**: Tarjoa sarakkeiden joukko taulukolle. Hakija voi lisätä niin monta riviä kuin haluaa. Kaikki sarakkeet ovat pakollisia jokaiselle riville. Voit vaatia hakijaa täyttämään vähintään yhden rivin.
+- **Sähköpostiosoite**: Sähköpostiosoitekenttä tarkistaa hakijan antaman sähköpostiosoitteen.
+- **Liite**: Hakija voi lisätä yhden tai useamman liitteen.
+- **Etiketti**: Käytä etikettejä kuvaavin teksteinä, jos haluat antaa hakijalle lisätietoja, kuten ohjeita jostakin kentästä.
+- **Otsikko**: Harkitse otsikoiden käyttämistä, jos haluat jakaa hakemuslomakkeen osioihin.
+- **Puhelinnumero**: Puhelinnumero kansainvälisessä muodossa (E.164), esimerkiksi +14155552671.
+- **IP-osoite**: IP-osoitekenttä tarkistaa hakijan antaman IP-osoitteen IPv4- tai IPv6-muodoissa. IP-osoite ei saa kuulua tunnettuun yksityiseen alueeseen.
 
-#### Creating conditional fields 
+#### Ehdollisten kenttien luominen {#creating-conditional-fields}
 
-If needed, you can create fields that are hidden or shown to the applicant depending on their answers.
+Tarvittaessa voit luoda kenttiä, jotka ovat piilotettuja tai näkyvät hakijalle riippuen heidän vastauksistaan.
 
-For example, you can create an option list “Do you want to add attachments?” Yes - No. If the applicant chooses “Yes” the attachment field is shown to the applicant. If they choose “No” they will not see the attachment field.
+Esimerkiksi voit luoda vaihtoehtolistan "Haluatko lisätä liitteitä?" Kyllä - Ei. Jos hakija valitsee "Kyllä", liitekenttä näytetään hakijalle. Jos he valitsevat "Ei", he eivät näe liitekenttää.
 
-!!! note
-    Conditional fields only work with Option list and Multiselect fields.
+!!! huomautus
+    Ehdolliset kentät toimivat vain vaihtoehto- ja monivalintakenttien kanssa.
 
-1. Create an **Option list** and fill in the options
-2. Create another field of any field type.
-3. In the field you just created, select Additional settings>Visible>Only if
-4. Field: Locate the Option list you created earlier from the drop-down list
-5. Has one of the values: Select when you want the list to be shown. In this example, Field 2 "Add one or multiple attachments" is shown if the applicant chooses the "Yes" option in Field 1, "Do you want to add attachments?".
+1. Luo **Vaihtoehto** ja täytä vaihtoehdot
+2. Luo toinen kenttä mistä tahansa kenttätyypistä.
+3. Valitse juuri luomassasi kentässä Lisäasetukset > Näkyvä > Vain jos
+4. Kenttä: Etsi aiemmin luomasi vaihtoehtolista pudotusvalikosta
+5. Sisältää yhden arvoista: Valitse, milloin haluat kentän olevan näkyvissä. Tässä esimerkissä Kenttä 2 "Lisää yksi tai useampi liite" näytetään, jos hakija valitsee "Kyllä"-vaihtoehdon Kenttä 1:stä, "Haluatko lisätä liitteitä?".
 
-You can test how the fields work in the Preview section on the right of the page.
+Voit testata kuinka kentät toimivat esikatseluosiossa sivun oikealla puolella.
 
-### 2.2. Create a policy 
+### 2.2. Luo käytäntö {#create-a-policy}
 
-Policies define the agreements and terms of use that the applicant has to accept to be able to use the data. Policies are shown as part of the application form and every research group member who applies for access has to accept the policies before they are able to access the data.
+Käytännöt määrittelevät sopimukset ja käyttöehdot, jotka hakijan on hyväksyttävä voidakseen käyttää dataa. Käytännöt näytetään osana hakemuslomaketta ja jokaisen tutkimusryhmän jäsenen, joka hakee käyttöoikeutta, on hyväksyttävä käytännöt ennen kuin he voivat käyttää dataa.
 
-You can create three types of policies:
+Voit luoda kolmea erilaista käytäntöä:
 
-- **External link**: Provide a link to an external page with terms of use. Use links, for example, when you want to license your resources using standardised licenses, such as [Creative Commons](https://creativecommons.org/choose/?lang=en).
-- **Inline text**: Write the terms of use in the application form. The applicant will see it as normal text in the application form.
-- **Attachment**: Upload a file that the applicant can download and accept when they fill in the application form. We recommend using PDF format. We recommend drafting the policy attachments in the way that allows the applicant to agree to them by accepting the terms of use electronically in SD Apply.
+- **Ulkoinen linkki**: Tarjoa linkki ulkoiselle sivulle käyttöehdoilla. Käytä linkkejä esimerkiksi, jos haluat lisensoida resurssejasi standardisoiduilla lisensseillä, kuten [Creative Commons](https://creativecommons.org/choose/?lang=fi).
+- **Sisäinen teksti**: Kirjoita käyttöehdot hakemuslomakkeeseen. Hakija näkee sen normaalina tekstinä lomakkeessa.
+- **Liite**: Tallenna tiedosto, jonka hakija voi ladata ja hyväksyä, kun hän täyttää hakemuslomakkeen. Suosittelemme PDF-muodon käyttöä. Suosittelemme laatimaan politiikkaliitteet siten, että hakija voi hyväksyä ne sähköisesti SD Apply -palvelussa hyväksymällä käyttöehdot.
 
-#### Data Access Policies in the Finnish Federated EGA
+#### Datan käyttöoikeuskäytännöt Finnish Federated EGA:ssa {#data-access-policies-in-the-finnish-federated-ega}
 
-Data deposition to the Finnish Federated EGA requires a series of legal agreements: a Service Agreement for Federated EGA and a Data Access Agreement including a Data Transfer Agreement. 
+Tietojen siirto Finnish Federated EGA:han vaatii joukon oikeudellisia sopimuksia: palvelusopimus Federated EGA:lle ja datan käyttöoikeussopimus, mukaan lukien datan siirtosopimus.
 
-**Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, the data controller can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. The DAA should also include a Data Transfer Agreement (DTA), necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. DAA and DTA will be included in the Polcies in SD Apply. For further information, please contact your home organization's legal services. You can [download an example template](https://ega-archive.org/assets/files/Example_DAA.doc) provided by the EGA.
+**Data Access Agreement**: Data Access Agreement (DAA) on sopimus tietosuojatoimikunnan (DAC) ja hakijan välillä, joka hakee käyttöoikeutta datan uudelleenkäyttöä varten. DAA:n kautta rekisterinpitäjä voi määritellä ehdot ja rajoitukset datan uudelleenkäytölle, mukaan lukien datan käytön, julkaisun, latauksen ja käyttöoikeuden hallinnointia koskevat käytännöt. DAA:n tulisi myös sisältää Data Transfer Agreement (DTA), joka on tarpeen, kun tutkijat EU/ETA:n ulkopuolisilta alueilta käyttävät dataa SD Desktopin kautta. DAA ja DTA sisällytetään SD Apply -palvelun politiikoihin. Lisätietoja saat ottamalla yhteyttä kotiorganisaatiosi oikeudellisiin palveluihin. Voit [ladata esimerkkimallin](https://ega-archive.org/assets/files/Example_DAA.doc), jonka EGA on tarjoanut.
 
-Consult your organization's legal experts to define data access policies that are appropriate for this purpose.  
+Konsultoi organisaatiosi oikeudellisia asiantuntijoita määrittääksesi sopivat datan käyttöoikeuskäytännöt tähän tarkoitukseen.
 
-Policies are optional. You cannot edit the policy after you have created and saved it.
+Käytännöt ovat valinnaisia. Et voi muokata käytäntöä sen luomisen ja tallentamisen jälkeen.
 
-### 2.3. Create a DAC
+### 2.3. Luo DAC {#create-a-dac}
 
-By creating a DAC, you assign a Data Access Committee (DAC) members as application handlers. They approve or reject data access requests for your organization's datasets and receive email notifications of new applications.
+Luomalla DAC:n asetat tietosuojatoimikunnan (DAC) jäsenet hakemuskäsittelijöiksi. He hyväksyvät tai hylkäävät datahaun tietokokonaisuuksien käyttöoikeuspyynnöt ja saavat sähköposti-ilmoitukset uusista hakemuksista.
 
-You can choose between two different processes: A dynamic process and a decider process. Choose the one which suits your organisation best. Remember to give your DAC a descriptive name so it will be easier for you to find it later.
+Voit valita kahden eri prosessin välillä: dynaaminen prosessi ja päätösprosessi. Valitse organisaatiollesi parhaiten sopiva. Muista antaa DAC:lle kuvaileva nimi, jotta löydät sen helpommin myöhemmin.
 
-- **A default process**: DAC members are in full charge of approving or rejecting applications. In addition, there can be reviewers and deciders. Only one DAC member has to approve the application. 
+- **Oletusprosessi**: DAC-jäsenet vastaavat täysin hakemusten hyväksymisestä tai hylkäämisestä. Lisäksi voi olla arvioijia ja päättäjiä. Vain yhden DAC-jäsenen on hyväksyttävä hakemus.
 
-- **A decider process**: Restricted version of the default process. The DAC members do not have the authority to approve or reject applications. They have to request a separate decider user to approve or reject the application. 
+- **Päättäjäprosessi**: Oletusprosessin rajoitettu versio. DAC-jäsenillä ei ole valtuuksia hyväksyä tai hylätä hakemuksia. Heidän on pyydettävä erillistä päättäjäkäyttäjää hyväksymään tai hylkäämään hakemus.
 
-#### Assign DAC members
+#### DAC-jäsenten nimeäminen {#assign-dac-members}
 
-Add DAC members as application handlers by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a DAC** to make sure there are enough handlers to process all the applications. 
+Lisää DAC-jäsenet hakemuksen käsittelijöiksi etsimällä käyttäjää käyttäjänimellä tai valitsemalla sen pudotusvalikosta. Suosittelemme **nimittämään enemmän kuin yhden käsittelijän DAC:lle** varmistaaksesi, että hakemuksia käsittelemään on tarpeeksi käsittelijöitä.
 
-!!! note
-    You can **only find handlers that have previously logged in to SD Apply**. If you cannot find the handler you were looking for, please ask them to log in and try again.
+!!! huomautus
+    Voit **löytää vain ne käsittelijät, jotka ovat kirjautuneet SD Apply -palveluun**. Jos et löydä etsimääsi käsittelijää, pyydä häntä kirjautumaan sisään ja yritä uudelleen.
 
-If you want to hide the names of the application handlers (DAC, reviewers, deciders) from the applicant, select the checkbox *Anonymized handling*.
+Jos haluat piilottaa hakemuksen käsittelijöiden (DAC, arvioijat, päättäjät) nimet hakijalta, valitse valintaruutu *Anonymized handling*.
 
-DAC members do not get notified when they have been assigned as a handler, but they receive emails about new applications.
+DAC-jäsenet eivät saa ilmoitusta, kun heidät on nimetty käsittelijäksi, mutta he saavat sähköpostia uusista hakemuksista.
 
-#### Add a form to a DAC
+#### Lisää lomake DAC:lle {#add-a-form-to-a-dac}
 
-If you know all the datasets your organization manages in SD Apply will use the same application form, you can connect the form you created to a DAC by selecting the form from the dropdown menu.  
+Jos tiedät, että kaikki organisaatiosi hallinnoimat tietokokonaisuudet SD Apply -palvelussa käyttävät samaa hakemuslomaketta, voit yhdistää luomasi lomakkeen DAC:llä valitsemalla lomakkeen pudotusvalikosta.
 
-If you want to ask dataset specific questions from the applicant, you can create two application forms and connect the form with general questions to the DAC, and another form with dataset specific questions to the catalogue item. In this case, the applicant will see the application forms two parts and will fill in both forms. 
+Jos haluat esittää tietokokonaisuuskohtaisia kysymyksiä hakijalta, voit luoda kaksi hakemuslomaketta ja yhdistää yleisiä kysymyksiä sisältävän lomakkeen DAC:lle ja toisen tietokokonaisuuskohtaisia kysymyksiä sisältävän lomakkeen katalogiesineelle. Tällöin hakija näkee hakemuslomakkeet kahdessa osassa ja täyttää molemmat lomakkeet.
 
-#### Add a policy to a DAC
+#### Lisää käytäntö DAC:lle {#add-a-policy-to-a-dac}
 
-If you know all the datasets your organization manages in SD Apply will have the same terms of use and agreements, you can connect the policies you created to a DAC  by selecting them from the dropdown menu.
+Jos tiedät, että kaikilla organisaatiosi SD Apply -palvelussa hallinnoimilla tietokokonaisuuksilla on samat käyttöehdot ja sopimukset, voit yhdistää luomasi käytännöt DAC:lle valitsemalla ne pudotusvalikosta.
 
-Unfortunately, we currently have a technical limitation of 1 MB for PDF attachments. **Please optimise your PDF file before adding it to SD Apply**.  
+Valitettavasti meillä on tällä hetkellä tekninen rajoitus PDF-liitteiden kokoon, joka on 1 MB. **Ole hyvä ja optimoi PDF-tiedostosi ennen lisäämistä SD Apply -palveluun**.
 
-This way these polcies will be added automatically to all catalogue items that use the same DAC. You can also add dataset specific terms of use by connecting a policy to a identifier. 
+Tällä tavoin nämä käytännöt lisätään automaattisesti kaikkiin katalogiesineisiin, jotka käyttävät samaa DAC:ta. Voit myös lisätä tietokokonaisuuskohtaisia käyttöehtoja yhdistämällä käytännön tunnisteeseen.
 
-### 2.4. Create a identifier
+### 2.4. Luo tunniste {#create-a-identifier}
 
-When a researcher submits data to Federated EGA, they receive a unique identifier for their dataset, for example EGAD12345. To make the dataset available for reuse through SD Apply, the FEGA Submitter should send this identifier to the data controller so that it can be added to SD Apply. 
+Kun tutkija lähettää tietoja Federated EGA:lle, hän saa yksilöllisen tunnisteen tietokokonaisuudelleen, esimerkiksi EGAD12345. Jotta tietokokonaisuus olisi saatavilla uudelleenkäyttöön SD Apply -palvelussa, FEGA-lähettäjän tulisi lähettää tämä tunniste rekisterinpitäjälle, jotta se voidaan lisätä SD Apply -palveluun.
 
-1. Add the identifier the FEGA submitter provided to you in the identifier field. 
-2. Select the policies you want to connect to your identifier by choosing the policies you have created from the drop-down list. Policies are optional.
+1. Lisää tunniste, jonka FEGA-lähettäjä on antanut sinulle tunnistekenttään.
+2. Valitse käytännöt, jotka haluat liittää tunnisteeseesi, valitsemalla luomasi käytännöt pudotusvalikosta. Käytännöt ovat valinnaisia.
 
-!!! note
-    You cannot edit the identifier after you have created and saved it. If you want to change something after you have created an identifier, you should create a new identifier and archive the old one.
+!!! huomautus
+    Et voi muokata tunnistetta sen luomisen ja tallentamisen jälkeen. Jos haluat muuttaa jotain tunnisteen luomisen jälkeen, sinun tulee luoda uusi tunniste ja arkistoida vanha.
 
-### 2.5. Create a catalogue item
+### 2.5. Luo katalogiesine {#create-a-catalogue-item}
 
-Catalogue item connects the items you have created into a single dataset to which the applicant can apply for access. 
+Katalogiesine yhdistää luomasi kohteet yhdeksi tietokokonaisuudeksi, johon hakija voi hakea käyttöoikeutta.
 
-1. In the title field, provide a descriptive name for the dataset. It will make it easier for the applicants to recognise which dataset they want to apply access to.
-2. If there is more information about the dataset on another website, you can add a link to the More info field.
-3. Select the DAC you have created from the DAC drop-down.
-4. Select the identifier for the dataset you want to add to SD Apply from identifier drop-down.
-5. If you didn't connect the form to the DAC, select the application form you have created from the drop-down list.
-6. Select FEGA as category.
-7. **Enable the catalogue item to show it to applicants**. The catalogue item is disabled at first so no one will be able to apply access to it before it is enabled. After you enable the catalogue item, it will show as a dataset on the Catalogue page.
+1. Kirjoita kuvaileva nimi tietokokonaisuudelle otsikkokenttään. Se helpottaa hakijan tunnistamista, mihin tietokokonaisuuteen he haluavat hakea käyttöoikeutta.
+2. Jos tietokokonaisuudesta on lisätietoja toisella verkkosivulla, voit lisätä linkin *Lisätietoa*-kenttään.
+3. Valitse luomasi DAC pudotusvalikosta.
+4. Valitse tunniste haluamallesi tietokokonaisuudelle SD Apply -palveluun tunnisteen pudotusvalikosta.
+5. Jos et yhdistänyt lomaketta DAC:lle, valitse luomasi hakemuslomake pudotusvalikosta.
+6. Valitse kategoriaksi FEGA.
+7. **Ota katalogiesine käyttöön, jotta se näkyy hakijoille**. Katalogiesine on alun perin poistettu käytöstä, joten kukaan ei voi hakea siihen käyttöoikeutta ennen kuin se otetaan käyttöön. Kun olet ottanut käyttöön katalogiesineen, se näytetään tietokokonaisuutena Katalogisivulla.
 
-#### Editing catalogue items
+#### Katalogiesineiden muokkaus {#editing-catalogue-items}
 
-You can edit the catalogue item’s name, organization and links to additional information by selecting edit.
+Voit muokata katalogiesineen nimeä, organisaatiota ja lisätietolinkkejä valitsemalla muokkaa.
 
-!!! note
-    After saving, you cannot edit form, DAC or identifier connected to the catalogue item. Editing is also not possible when some part of the catalogue item is disabled.
+!!! huomautus
+    Tallentamisen jälkeen et voi muokata katalogiesineeseen yhdistettyä lomaketta, DAC:ta tai tunnistetta. Muokkaaminen ei myöskään ole mahdollista, kun jokin osa katalogiesineestä on poistettu käytöstä.
 
-If you want to change the application form and/or the DAC of one or multiple catalogue items, select the catalogue items you want to edit by clicking the checkbox and then **Update catalogue item**.
+Jos haluat muuttaa yhden tai useamman katalogiesineiden hakemuslomaketta ja/tai DAC:ta, valitse muokattavat katalogiesineet klikkaamalla valintaruutua ja valitse sitten **Päivitä katalogiesine**.
 
-This will **disable and archive the old catalogue item** and create a new updated catalogue item. This means that the applicants cannot see or apply for access to the old catalogue item anymore.
+Tämä **poistaa käytöstä ja arkistoi vanhan katalogiesineen** ja luo uuden päivitetyn katalogiesineen. Tämä tarkoittaa, että hakijat eivät näe tai hae pääsyä vanhaan katalogiesineeseen enää.
 
-## Adding more datasets under your organisation
+## Lisää tietokokonaisuuksia organisaatiosi alle {#adding-more-datasets-under-your-organisation}
 
-When you have created a form, necessary policies, and a DAC once, you can reuse these items for future dataset submissions, if the datasets have the same DAC.
+Kun olet kerran luonut lomakkeen, tarvittavat käytännöt ja DAC:n, voit käyttää näitä kohteita uudelleen tulevissa tietokokonaisuuksien lähetyksissä, jos tietokokonaisuuksilla on sama DAC.
 
-Add a new dataset to SD Apply catalogue with the same DAC:
+Lisää uusi tietokokonaisuus SD Apply -katalogiin samalla DAC:lla:
 
-1. Create a new **identifier**. The FEGA submitter should provide you the unique identifier for their dataset. 
-2. Create a **catalogue item** by combining the items you previously created (identifier, form, DAC)
-3. Enable the catalogue item so it shows for the applicants.
+1. Luo uusi **tunniste**. FEGA-lähettäjän tulisi toimittaa sinulle yksilöllinen tunniste tietokokonaisuudelleen.
+2. Luo **katalogiesine** yhdistämällä aiemmin luomasi kohteet (tunniste, lomake, DAC)
+3. Ota katalogiesine käyttöön, jotta se näkyy hakijoille.
 
-Make sure that necessary agreements are either combined with the DAC you use or every new identifier you add to SD Apply. 
+Varmista, että tarvittavat sopimukset on joko yhdistetty käyttämääsi DAC:iin tai jokaiseen uuteen tunnisteeseen, jonka lisäät SD Apply -palveluun.
 
-## Disabling, and archiving items
+## Kohteiden poistaminen käytöstä ja arkistointi {#disabling-and-arching-items}
 
-You can disable and archive all the items. Deleting is not possible because we want to offer a full history of events for information security reasons.
+Voit poistaa käytöstä ja arkistoida kaikki kohteet. Poistaminen ei ole mahdollista, koska haluamme tarjota täyden tapahtumahistorian tietoturvasyistä.
 
-### Disabling items
+### Kohteiden poistaminen käytöstä {#disabling-items}
 
-When you disable an item, for example a form, it **cannot be used in any new catalogue items anymore**. Disabled items will be hidden from the drop-down lists.
+Kun poistat kohteen, esimerkiksi lomakkeen, käytöstä, sitä **ei voi enää käyttää uusissa katalogiesineissä**. Poistetut kohteet piilotetaan pudotusvalikoista.
 
-**If you disable a catalogue item**, the applicant will not be able to apply for access to it anymore. However, if they have applied for access to the catalogue item before disabling, the handler can still complete the application process and approve or reject the application.
+**Jos poistat käytöstä katalogiesineen**, hakija ei voi enää hakea siihen käyttöoikeutta. Jos hakija on kuitenkin hakenut katalogiesineeseen käyttöoikeutta ennen poistamista, käsittelijä voi silti viimeistellä hakemusprosessin hyväksymällä tai hylkäämällä hakemuksen.
 
-You can re-enable disabled items.
+Voit ottaa poistetut kohteet uudelleen käyttöön.
 
-### Archiving
+### Arkistointi {#archiving}
 
-Archiving **hides the item from the administration view and from the applicants**. If you want to view archived items select **Display archived**. We recommend archiving old items that are not in use anymore.
+Arkistointi **piilottaa kohteen hallintanäkymästä ja hakijoilta**. Jos haluat tarkastella arkistoituja kohteita, valitse **Näytä arkistoidut**. Suosittelemme arkistoimaan vanhat, ei enää käytössä olevat kohteet.
 
-You can unarchive archived items.
+Voit poistaa arkistoinnin arkistoiduilta kohteilta.
 
-Handlers are warned if the catalogue item the applicant has applied for access, has been disabled or archived. 
+Käsittelijöille ilmoitetaan, jos katalogiesine, johon hakija on hakenut käyttöoikeutta, on poistettu käytöstä tai arkistoitu.
 
-## Support
+## Tuki {#support}
 
-If you have questions about using SD Apply, please contact [CSC Service Desk](../../support/contact.md) (subject: SD Apply).
+Jos sinulla on kysyttävää SD Apply -palvelun käytöstä, ota yhteyttä [CSC Service Deskiin](../../support/contact.md) (aihe: SD Apply).

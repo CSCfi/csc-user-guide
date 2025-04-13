@@ -1,59 +1,61 @@
-# How to get access to SD Services: Project member
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**
+# Kuinka saada pääsy SD-palveluihin: Projektin jäsen {#how-to-get-access-to-sd-services-project-member}
 
-## Use case
+**[Ohjeet suomeksi (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**
 
-You need access to SD services for processing research data. You are member of a research team and research team manager has invited you to join CSC project.
+## Käyttötapaus {#use-case}
 
-## Solution
+Tarvitset pääsyn SD-palveluihin tutkimusdatan käsittelyä varten. Olet tutkimusryhmän jäsen ja tutkimusryhmän johtaja on kutsunut sinut liittymään CSC-projektiin.
 
-1. [Create a CSC account](#1-create-a-csc-account)
-2. [Join to CSC project](#2-join-to-csc-project)
-3. [Activate MFA Authentication](#3-activate-mfa-authentication)
-5. [Log into SD Services](#4-log-into-sd-services)
+## Ratkaisu {#solution}
 
-![How to get started as project member.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Member.png)
+1. [Luo CSC-tili](#1-create-a-csc-account)
+2. [Liity CSC-projektiin](#2-join-to-csc-project)
+3. [Aktivoi MFA-todennus](#3-activate-mfa-authentication)
+5. [Kirjaudu SD-palveluihin](#4-log-into-sd-services)
 
-## Step by step tutorial
+![Kuinka aloittaa projektin jäsenenä.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Member.png)
 
-### 1. Create a CSC account
+## Askel askeleelta ohjeet {#step-by-step-tutorial}
 
-- **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
-- Fill in your information on the Sign up page.
-- Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
-- You will get your CSC user account confirmation via email.
+### 1. Luo CSC-tili {#1-create-a-csc-account}
 
-### 2. Join to CSC project
+- **Mene [MyCSC-portaaliin](https://my.csc.fi){ target="_blank" }**
+- Kirjaudu sisään Virtulla tai Hakalla organisaatiosi tunnistautumisen perusteella. Valitse kotiorganisaatiosi ja kirjaudu heidän tunnistuspalveluunsa. [Kuinka saada tili ilman Hakaa tai Virtua](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+- Täytä tietosi Rekisteröidy-sivulla.
+- Luo salasana, jossa on vähintään 12 merkkiä, mukaan lukien suuria ja pieniä kirjaimia sekä vähintään yksi numero. Erikoismerkkejä ei sallita.
+- Saat vahvistuksen CSC-käyttäjätilillesi sähköpostitse.
 
-The project manager has either added you to a CSC project or sent you an invitation link.
+### 2. Liity CSC-projektiin {#2-join-to-csc-project}
 
-* **Option A:** Project manager has already added you as a member. Check your email for a notification and log in to MyCSC to find the project.
-* **Option B:** You received an invitation link via email. Click the link to apply for membership, and the project manager will approve your membership application.
+Projektipäällikkö on joko lisännyt sinut CSC-projektiin tai lähettänyt sinulle kutsulinkin.
 
-### 3. Activate MFA Authentication
+* **Vaihtoehto A:** Projektipäällikkö on jo lisännyt sinut jäseneksi. Tarkista sähköpostistasi ilmoitus ja kirjaudu MyCSC:hen löytääksesi projektin.
+* **Vaihtoehto B:** Olet saanut kutsulinkin sähköpostitse. Klikkaa linkkiä hakeaksesi jäsenyyttä, ja projektipäällikkö hyväksyy jäsenhakemuksesi.
 
-You need to activate MFA (multi-factor authentication) to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
+### 3. Aktivoi MFA-todennus {#3-activate-mfa-authentication}
 
-- Install an authentication app (e.g., Google Authenticator or Microsoft Authenticator) on your mobile before activating MFA.
-- Click **Enable MFA** in the **Project notifications** window (top right corner) or go to the Profile page (left navigation or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking **Activate**.
-- A QR code will be created. Scan it with your authentication app (e.g., Google Authenticator).
-- Your app will generate a verification code. Enter this code in the **Verification code** field on MyCSC and click **Verify**.
+Sinun täytyy aktivoida MFA (monivaiheinen todennus) kirjautuaksesi sensitive data -palveluihin. [Lisätietoa monivaiheisesta todennuksesta](../../accounts/mfa.md).
 
-![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
+- Asenna todennussovellus (esim. Google Authenticator tai Microsoft Authenticator) puhelimeesi ennen MFA:n aktivoimista.
+- Klikkaa **Ota MFA käyttöön** **Projektin ilmoitukset** -ikkunassa (yläoikea kulma) tai mene Profiili-sivulle (vasen navigaatio tai yläoikeilla oleva hampurilaisvalikko).
+- Ota monivaiheinen todennus käyttöön klikkaamalla **Aktivoi**.
+- QR-koodi luodaan. Skannaa se todennussovelluksellasi (esim. Google Authenticator).
+- Sovelluksesi luo varmistuskoodin. Syötä tämä koodi **Vahvistuskoodi**-kenttään MyCSC:ssä ja klikkaa **Vahvista**.
 
-### 4. Log into SD Services
+![Monivaiheinen todennus.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 
-- Now all the preparations are ready and you can start using the services (links to related user guides):
+### 4. Kirjaudu SD-palveluihin {#4-log-into-sd-services}
+
+- Nyt kaikki valmistelut ovat valmiina ja voit alkaa käyttää palveluja (linkit käyttäjäoppaisiin):
 
 SD Connect:
 
-- [SD Connect overview and key features](./sd_connect.md)
-- [SD Connect login instructions](./sd-connect-login.md)
+- [SD Connect yleiskuvaus ja avainominaisuudet](./sd_connect.md)
+- [SD Connect kirjautumisohjeet](./sd-connect-login.md)
   
 SD Desktop:
 
-- [SD Desktop overwvire and key features](./sd_desktop.md)
-- [SD Desktop login instructions](sd-desktop-login.md)
+- [SD Desktop yleiskuvaus ja avainominaisuudet](./sd_desktop.md)
+- [SD Desktop kirjautumisohjeet](sd-desktop-login.md)
+

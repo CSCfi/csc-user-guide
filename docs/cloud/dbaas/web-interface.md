@@ -1,45 +1,43 @@
-# Getting started with DBaaS from the Web interface
+# Pääsy DBaaS:ään verkkoliittymästä {#getting-started-with-dbaas-from-the-web-interface}
 
-You can log into DBaaS by going to [pukki.dbaas.csc.fi](https://pukki.dbaas.csc.fi).
+Voit kirjautua DBaaS:ään menemällä osoitteeseen [pukki.dbaas.csc.fi](https://pukki.dbaas.csc.fi).
 
-## Creating a new database instance
+## Uuden tietokanta-instanssin luominen {#creating-a-new-database-instance}
 
-In the column on the left hand side you can go to `Database` -> `Instances` and then press on the `Launch Instance` that can be found on your right hand side.
-Now you can define what settings you want for your database:
+Vasemmanpuoleisessa sarakkeessa voit siirtyä kohtaan `Database` -> `Instances` ja sitten painaa oikealla puolella olevaa `Launch Instance`. Nyt voit määrittää haluamasi asetukset tietokannallesi:
 
-1. `Instance name` - What ever you want to name the instance.
-2. `Volume size` - How much disk space you will need for your database. If you just want to test the DBaaS then 1 GiB is probably enough. To increase the disk size later, downtime is required for the database. If you already know how much data you will use then it is easy to estimate how large volume you need.
-3. `Volume type` - This can be left empty.
-4. `Datastore` - What type of database you want. It is recommend to use the latest version of your preferred database, if you don't have a specific reason for using an older version. 
-Currently Pukki supports [PostgreSQL](postgresql.md) and [MariaDB](mariadb.md).
-5. `Flavor` - How large database instances you want. For small use cases the `standard.small` is probably enough. If you later find out that it is not large enough you can always change it later. Changing flavor will require downtime.
-6. `Locality` - Is not needed. In the future DBaaS will support clustered databases and at that point anti-affinity should be the preferred option in most cases.
+1. `Instance name` - Mikä tahansa, minkä haluat instanssille nimeksi.
+2. `Volume size` - Kuinka paljon levytallennustilaa tietokantaa varten tarvitaan. Jos haluat vain testata DBaaS:ää, 1 GiB riittänee. Koon kasvattaminen myöhemmin vaatii käyttökatkon tietokannalle. Jos jo tiedät, kuinka paljon dataa käytät, on helppo arvioida, kuinka suuri tallennustila on tarpeen.
+3. `Volume type` - Tämän voi jättää tyhjäksi.
+4. `Datastore` - Minkä tyyppisen tietokannan haluat. Suositellaan käytettävän viimeisintä versiota suosikkitietokannastasi, ellei ole erityistä syytä käyttää vanhempaa versiota. Pukki tukee tällä hetkellä [PostgreSQL](postgresql.md) ja [MariaDB](mariadb.md).
+5. `Flavor` - Kuinka suuria tietokanta-instansseja tarvitset. Pieniä käyttötilanteita varten `standard.small` on todennäköisesti riittävä. Jos myöhemmin huomaat, ettei se ole tarpeeksi suuri, voit aina muuttaa sitä. Flavorin muuttaminen vaatii käyttökatkon.
+6. `Locality` - Ei tarvita. Tulevaisuudessa DBaaS tukee klusteroituja tietokantoja, jolloin anti-affiniteetti on useimmissa tapauksissa suositeltava vaihtoehto.
 
-On the next page `Database access`:
+Seuraavalla sivulla `Database access`:
 
-7. `Allowed CIDRs` - Here you want to add your allowed IP-addresses in the format `$IP/32` if you want to allow multiple IP-addresses. You need to separate them by a comma `,`. By default the database are created without any `Allowed CIDRs` which means that you won't be able to connect to your database.
+7. `Allowed CIDRs` - Tähän voit lisätä sallitut IP-osoitteesi muodossa `$IP/32`, jos haluat sallia useita IP-osoitteita. Ne täytyy erottaa pilkulla `,`. Oletuksena tietokannat luodaan ilman `Allowed CIDRs` -määrityksiä, mikä tarkoittaa, ettei tietokantaan voi yhdistää.
 
-On the third page `Intialize Databases:
+Kolmannella sivulla `Intialize Databases`:
 
-8. In the `Initial Databases` field you can write what databases should be initialized. You can add additional database after the instance have started.
-9. `Initial Admin User` adding first user that you want to use to connect to the database. You can add more user accounts after the database instance have started.
-10. `Password` for the you first user. Please make sure that this password is not used anywhere else.
-11. `Allowed Host (optional)` , this feature is not supported at the moment but in the future it will possible to limit users access based on IP.
+8. Kentässä `Initial Databases` voit kirjoittaa, mitkä tietokannat tulisi alustaa. Voit lisätä lisää tietokantoja sen jälkeen, kun instanssi on käynnistynyt.
+9. `Initial Admin User` lisää ensimmäisen käyttäjän, jota haluat käyttää tietokantaan yhdistämiseen. Voit lisätä lisää käyttäjätilejä sen jälkeen, kun tietokanta-instanssi on käynnistynyt.
+10. `Password` ensimmäiselle käyttäjällesi. Varmista, ettei tätä salasanaa ole käytetty missään muualla.
+11. `Allowed Host (optional)` , tätä ominaisuutta ei tällä hetkellä tueta, mutta tulevaisuudessa on mahdollista rajoittaa käyttäjien pääsyä IP-osoitteen perusteella.
 
-On the fourth page `Advanced`:
+Neljännellä sivulla `Advanced`:
 
-12. You don't need to do anything but it is possible to launch a new database from a backup. If you choose to launch a database from a backup you don't need to specify `Initial Admin User`, `Passowrd`, or `Initial Databases`
-13. Now you can press `Launch`
-14. Once the database instance has launched, you can click the name of the database instance and manage additional items, such as users, backups etc. But it might take a couple minutes before the instance is up and running.
-15.  Now you can go to the database specific documentation to find out further instructions on how to use the database:
+12. Sinun ei tarvitse tehdä mitään, mutta on mahdollista käynnistää uusi tietokanta varmuuskopiosta. Jos valitset tietokannan käynnistämisen varmuuskopiosta, sinun ei tarvitse määrittää `Initial Admin User`, `Password` tai `Initial Databases`.
+13. Nyt voit painaa `Launch`.
+14. Kun tietokanta-instanssi on käynnistynyt, voit klikata tietokanta-instanssin nimeä ja hallita lisäominaisuuksia, kuten käyttäjiä, varmuuskopioita jne. Instanssin käynnistyminen ja toimintavalmius saattaa kestää muutaman minuutin.
+15. Nyt voit siirtyä tietokantakohtaiseen dokumentaatioon löytääksesi lisäohjeita tietokannan käyttämiseen:
 
-	* [PostgreSQL](postgresql.md)
-	* [MariaDB](mariadb.md)
+   * [PostgreSQL](postgresql.md)
+   * [MariaDB](mariadb.md)
 
-## Modify user accounts in the database instance
+## Käyttäjätilien muokkaus tietokanta-instanssissa {#modify-user-accounts-in-the-database-instance}
 
-You can add, remove and modify users from the users tab of the database instances view. You need to make sure that you use strong passwords for each and every user.
+Voit lisätä, poistaa ja muokata käyttäjiä tietokanta-instanssien käyttäjät-välilehdellä. Varmista, että käytät vahvoja salasanoja jokaiselle käyttäjälle.
 
-## Add and remove databases
+## Tietokantojen lisääminen ja poistaminen {#add-and-remove-databases}
 
-You can add and remove databases from the `Database` tab of the database instances.
+Voit lisätä ja poistaa tietokantoja tietokanta-instanssien `Database`-välilehdeltä.

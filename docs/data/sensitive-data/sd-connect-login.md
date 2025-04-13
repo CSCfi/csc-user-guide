@@ -1,25 +1,27 @@
-# Login to SD Connect
 
-## Prerequisites
+# Kirjautuminen SD Connectiin {#login-to-sd-connect}
 
-* [Access SD Connect and SD Desktop for the first time](./sd-access.md#)
+## Edellytykset {#prerequisites}
 
-## Step by step
+* [Pääsy SD Connectiin ja SD Desktopiin ensimmäistä kertaa](./sd-access.md#)
 
-1. **Navigate to [SD Connect](https://sd-connect.csc.fi)**. We recommend using Google Chrome for the best experience.
-2. **Choose your login method**. Select CSC Login, Haka, Virtu or Life Science login then click Login.
-3. **Enter your details**. Type in your username and password, then click Login.
-4. **Verify your identity**. As a second verification step, enter the temporary code from your mobile authenticator app and click Continue. If prompted, please accept cookies to proceed.
-5. You should now have access to SD Connect. If you see an additional message about identity verification, click Proceed to continue.
-6. **Troubleshooting tip**. If you run into any issues, try clearing your browser history and cookies before logging in again. Note that Firefox private mode is not supported.
+## Askel askeleelta {#step-by-step}
 
-![SD Connect login](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Login.png)
+1. **Siirry [SD Connectiin](https://sd-connect.csc.fi)**. Suosittelemme käyttämään Google Chromea parhaan kokemuksen takaamiseksi.
+2. **Valitse kirjautumistapasi**. Valitse CSC Login, Haka, Virtu tai Life Science kirjautuminen ja napsauta sitten Kirjaudu sisään.
+3. **Syötä tietosi**. Kirjoita käyttäjätunnuksesi ja salasanasi, ja napsauta Kirjaudu sisään.
+4. **Vahvista henkilöllisyytesi**. Toisena varmennusvaiheena syötä mobiilivarmennussovelluksestasi saamasi väliaikainen koodi ja napsauta Jatka. Jos sinua kehotetaan, hyväksy evästeet jatkaaksesi.
+5. Sinulla pitäisi nyt olla pääsy SD Connectiin. Jos näet lisäviestin henkilöllisyyden varmistamisesta, napsauta Jatka jatkaaksesi.
+6. **Vianmääritysvinkki**. Jos kohtaat ongelmia, kokeile tyhjentää selaimesi historia ja evästeet ennen uudelleen kirjautumista. Huomaa, että Firefoxin yksityinen tila ei ole tuettu.
 
-## Features in SD Connect
+![SD Connect kirjautuminen](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Login.png)
 
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
-* [Command line interface](./sd-connect-command-line-interface.md)
-* [Troubleshooting](./sd-connect-troubleshooting.md)
+## Ominaisuudet SD Connectissa {#features-in-sd-connect}
+
+* [Lataa](./sd-connect-upload.md)
+* [Jaa](./sd-connect-share.md)
+* [Lataa alas](./sd-connect-download.md)
+* [Poista](./sd-connect-delete.md)
+* [Komentoriviliitäntä](./sd-connect-command-line-interface.md)
+* [Vianmääritys](./sd-connect-troubleshooting.md)
+

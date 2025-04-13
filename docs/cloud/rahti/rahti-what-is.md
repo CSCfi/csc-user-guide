@@ -1,34 +1,34 @@
-# What is Rahti?
+# Mikä on Rahti? {#what-is-rahti}
 
-!!! warning "Recommendations"
-    Before using Rahti, we recommend that you familiarise yourself with containers.
-    You can find more information by following this [link](ext_docs.md)
+!!! warning "Suositukset"
+    Ennen Rahdin käyttöä suosittelemme, että tutustut konteihin.
+    Voit löytää lisätietoa seuraamalla tätä [linkkiä](ext_docs.md).
 
-Rahti is the container orchestration service at CSC. Rahti runs on [okd](https://www.okd.io/), the community distribution of Kubernetes that powers Red Hat OpenShift. Built around a core of [OCI](https://opencontainers.org/) container packaging and [Kubernetes](https://kubernetes.io/) container cluster management.
+Rahti on CSC:n konttien orkestrointipalvelu. Rahti toimii [okd](https://www.okd.io/):llä, joka on Kubernetes-yhteisöjakelu, joka tukee Red Hat OpenShiftiä. Rakennettu [OCI](https://opencontainers.org/) konttipaketoinnin ja [Kubernetes](https://kubernetes.io/) konttiklusterin hallinnan ytimeen.
 
-With the Rahti service you can easily deploy scalable and fault tolerant applications and make them accessible over the web. Rahti provides features like load balancing, high availability and rolling updates for your application. It also provides a set of ready-made templates that allow you to set up applications like a database or a web server with just a few clicks. Under the hood, Rahti is built on open source and based on a distribution of Kubernetes called OKD.
+Rahdin palvelun avulla voit helposti ottaa käyttöön skaalautuvia ja vikasietoisia sovelluksia ja tehdä niistä saavutettavia verkon kautta. Rahti tarjoaa ominaisuuksia kuten kuormituksen tasapainotus, korkea saatavuus ja jatkuvat päivitykset sovelluksellesi. Se tarjoaa myös valmiiden mallipohjien sarjan, joiden avulla voit asentaa sovelluksia, kuten tietokannan tai verkkopalvelimen, muutamalla napsautuksella. Pinnaltaan Rahti on rakennettu avoimen lähdekoodin päälle ja perustuu Kubermetes-jakeluun, joka tunnetaan nimellä OKD.
 
-Like cPouta, Rahti is a generic platform that can run many different kinds of applications from web servers and databases to complex scientific software stacks and data analysis pipelines. However, the approach Rahti takes and the way you use it is quite different from cPouta. In contrast to cPouta where you manage infrastructure like virtual machines and networks, in Rahti you manage applications directly. You can think of it as a big computer where you launch applications whereas cPouta is like a data center where you add your own computers. As you will be sharing this big computer with other users, extra security limitations are in place, the most important being that the applications will be run using a non privileged user.
+Kuten cPouta, Rahti on yleinen alusta, joka voi ajaa monenlaisia sovelluksia verkkopalvelimista ja tietokannoista monimutkaisiin tieteellisiin ohjelmistopinoihin ja data-analyysiputkiin. Kuitenkin Rahdin lähestymistapa ja käyttötapa poikkeavat cPoudasta. Toisin kuin cPoudassa, jossa hallitaan infrastruktuuria kuten virtuaalikoneita ja verkkoja, Rahdissa hallitaan sovelluksia suoraan. Voit ajatella sitä isona tietokoneena, johon käynnistät sovelluksia, kun taas cPouta on kuin datakeskus, johon lisäät omia tietokoneitasi. Koska jaat tämän ison tietokoneen muiden käyttäjien kanssa, lisäturvarajoituksia on paikallaan, tärkeimpänä se, että sovellukset suoritetaan ilman korkeamman tason käyttäjäoikeuksia.
 
-## When should I choose Rahti?
+## Milloin valita Rahti? {#when-should-i-choose-rahti}
 
-Here are some example use cases that Rahti is good for:
+Tässä on joitakin esimerkkikäyttötapauksia, joissa Rahti on hyvä valinta:
 
-* Host an interactive web application or just a regular web site.
-* Pre-package a complex application like Apache Spark and make it easy for others to run their own instance of that application.
-* Deploy a web application written in common languages like Python, Javascript or Java to the web with just one command.
-* If you want to run a web application or host a web site, Rahti will likely be the platform for you. It comes with a lot of the most common features needed for web based applications.
+* Käytä vuorovaikutteisen verkkosovelluksen tai pelkkän verkkosivuston isännöintiin.
+* Esipaketoi monimutkainen sovellus, kuten Apache Spark, ja tee sen oman yksikön käyttöönotto helpoksi muille.
+* Ota käyttöön verkkosovellus, joka on kirjoitettu yleisillä kielillä kuten Python, Javascript tai Java, verkkokäyttöön yhdellä komennolla.
+* Jos haluat ajaa verkkosovellusta tai isännöidä verkkosivustoa, Rahti on todennäköisesti sinulle sopiva alusta. Se tarjoaa monia yleisimpiä verkkosovellusten tarvitsemia ominaisuuksia.
 
-## OpenShift OKD v Kubernetes
+## OpenShift OKD vs Kubernetes {#openshift-okd-v-kubernetes}
 
-OpenShift [OKD](https://www.okd.io/) is optimized for multi-tenant deployment. This means that different tenants will be sharing the same hardware. For this reason, **privileged mode** is not allowed, and containers **cannot be run as root**.
+OpenShift [OKD](https://www.okd.io/) on optimoitu monen vuokralaisen käyttöön. Tämä tarkoittaa, että eri käyttäjäryhmät jakavat samaa laitteistoa. Tästä syystä **privilegioitu tila** ei ole sallittu, ja kontteja **ei voida ajaa root-käyttäjänä**.
 
-OpenShift provides these extra services over a standard Kubernetes offering:
+OpenShift tarjoaa seuraavat lisäpalvelut standardi Kubernetes-tarjontaan verrattuna:
 
 * Web UI: <https://rahti.csc.fi/>
 
 ![Rahti WEB UI](../img/Rahti-landing.png)
 
-* HTTP(s) load balancer (HAProxy). Using [Routes](networking.md#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
+* HTTP(s) kuormituksen tasaaja (HAProxy). Käyttämällä [Reittejä](networking.md#routes) **Ingressien** sijasta ja tukemalla vain HTTP (80) ja HTTPS (443).
 
-* Central file [storage volumes](storage/index.md)
+* Keskitetyt tiedosto [tallennustilat](storage/index.md)

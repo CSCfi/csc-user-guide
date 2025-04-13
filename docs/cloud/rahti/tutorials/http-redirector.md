@@ -1,19 +1,20 @@
-!!! success "Basic level"
-    It is very simple to setup a HTTP redirection in Rahti using a web server like nginx. We can redirect to basically any URL we want with very complex logics. For this tutorial, we will keep it simple and simply redirect to a different host, but keeping the path of the URL.
 
-# Setup a HTTP redirection in Rahti
+!!! success "Perustaso"
+    HTTP-uudelleenohjauksen asettaminen Rahtissa on hyvin yksinkertaista käyttäen verkkopalvelinta kuten nginx:ä. Voimme ohjata käytännössä mihin tahansa URL:iin hyvin monimutkaisilla logiikoilla. Tässä opetusohjelmassa pidämme sen yksinkertaisena ja ohjaamme yksinkertaisesti eri isäntään, mutta säilytämme URL:n polun.
 
-## Procedure
+# HTTP-uudelleenohjauksen asettaminen Rahtissa {#setup-a-http-redirection-in-rahti}
 
-1. Deploy an NGINX Image. It is recommended to use `bitnami/nginx`
+## Menettely {#procedure}
+
+1. Ota käyttöön NGINX-kuva. On suositeltavaa käyttää `bitnami/nginx`
 
     ![bitnami/nginx](../../img/bitnami-nginx-deploy.png)
 
-1. Add a Route with the URL that you want to redirect. If you visit the URL, you should see the "nginx welcome page"
+1. Lisää reitti URL:llä, johon haluat ohjata. Jos vierailet URL:ssä, sinun pitäisi nähdä "nginx tervetuloa -sivu"
 
     ![route](../../img/create-route-nginx.png)
 
-1. Add a ConfigMap with a server redirection block. Go to **Workloads > ConfigMaps**, click in **Create ConfigMap**. The **Name** will be later used when mounting the ConfigMap. The **Key** will be the name of the file, and the **Value** the content of the file. 
+1. Lisää ConfigMap-palvelin uudelleenohjauslohkolla. Siirry kohtaan **Workloads > ConfigMaps**, klikkaa **Create ConfigMap**. **Nimi** käytetään myöhemmin, kun ConfigMap asennetaan. **Avain** on tiedoston nimi, ja **Arvo** tiedoston sisältö.
 
     ```nginx
     #default.conf
@@ -24,9 +25,9 @@
     }
     ```
 
-    In this example, `test.com` is the original URL, and `test2.com`  is the one that the user will be redirected to.
+    Tässä esimerkissä `test.com` on alkuperäinen URL, ja `test2.com` on se, johon käyttäjä ohjataan.
 
-1. Mount the Configmap to the nginx deployment as a volume. Go to deployment and add following code in the YAML file.
+1. Asenna Configmap nginx-sijoitteluun volyymina. Siirry sijoitteluun ja lisää seuraava koodi YAML-tiedostoon.
 
    ```
    spec:
@@ -41,12 +42,12 @@
             name: nginx-conf
    ```
 
-    In this example, nginx-conf is the **name** of configMap, nginx-config is the **key** and the ConfigMap has to be mounted in `/opt/bitnami/nginx/conf/server_blocks/`, other images may store the nginx configuration in different folders.
+    Tässä esimerkissä nginx-conf on ConfigMapin **nimi**, nginx-config on **avain** ja ConfigMap on asennettava sijaintiin `/opt/bitnami/nginx/conf/server_blocks/`, muilla kuvilla nginx-konfiguraatio saattaa sijaita eri hakemistoissa.
 
-## Add more host domains
+## Lisää isäntäalueita {#add-more-host-domains}
 
-If you need to redirect more than one host domain, you can use the same nginx, you just need to (1) add a new Route with the new host, and (2) add a new server block to the existing ConfigMap. In order for nginx to pick up the new configuration, you can delete the Pod or enter in the pod's terminal and run `nginx -s reload`.
+Jos sinun täytyy ohjata useampia kuin yksi isäntäalue, voit käyttää samaa nginxiä. Sinun tarvitsee vain (1) lisätä uusi reitti uudella isännällä ja (2) lisätä uusi palvelinlohko olemassa olevaan ConfigMapiin. Jotta nginx ottaa uuden konfiguraation käyttöön, voit poistaa Podin tai siirtyä Podin terminaaliin ja ajaa `nginx -s reload`.
 
-## Conclusion and more
+## Yhteenveto ja lisätietoja {#conclusion-and-more}
 
-Nginx is a powerful web server. You can use it also as a HTTP proxy and load balancer. For more information, please check the documentation at <https://nginx.org/en/docs/>.
+Nginx on tehokas verkkopalvelin. Voit käyttää sitä myös HTTP-välityspalvelimena ja kuormantasaimena. Lisätietoja saat dokumentaatiosta osoitteessa <https://nginx.org/en/docs/>.

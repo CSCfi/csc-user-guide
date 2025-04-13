@@ -1,30 +1,31 @@
-# How can I give access to other people to my VM in Pouta?
 
-When a [new VM is created](../../cloud/pouta/launch-vm-from-web-gui.md), a single default user is created automatically. And a single SSH key pair has given access to that default user in that VM. This gives access to that VM to a single person, the one that created the VM and the one that owns the SSH **private** key. See the Wikipedia [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) article for more information about SSH keys and the protocol in general.
+# Kuinka voin antaa pääsyn muille henkilöille VM:lleni Poutassa? {#how-can-i-give-access-to-other-people-to-my-vm-in-pouta}
 
-It is a common use case (and a good practice for production services) that more than one person has access to the VM. The following procedure is one of the several options to accomplish that. We will create a new user and give access to that user to a single person.
+Kun [uusi VM luodaan](../../cloud/pouta/launch-vm-from-web-gui.md), luodaan automaattisesti yksi oletuskäyttäjä. Ja yksi SSH-avaimien pari on antanut pääsyn tälle oletuskäyttäjälle siinä VM:ssä. Tämä antaa pääsyn siihen VM:ään yhdelle henkilölle, sille, joka on luonut VM:n ja joka omistaa SSH:n **yksityisen** avaimen. Katso lisää Wikipedia-artikkelista [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell), jossa on lisätietoa SSH-avaimista ja protokollasta yleisesti.
 
-## Create a new user
+On yleinen käyttötapaus (ja hyvä käytäntö tuotantopalveluille), että useammalla kuin yhdellä henkilöllä on pääsy VM:lle. Seuraava menettely on yksi useista vaihtoehdoista tämän saavuttamiseksi. Luomme uuden käyttäjän ja annamme pääsyn tälle käyttäjälle yhdelle henkilölle.
 
-1. [Connect to the VM](../../cloud/pouta/connecting-to-vm.md) as the default user. This user has superuser privileges (`sudo`).
+## Luo uusi käyttäjä {#create-a-new-user}
 
-1. Create the new user, see the [adduser](https://linux.die.net/man/8/adduser) manual for more information.
+1. [Yhdistä VM:ään](../../cloud/pouta/connecting-to-vm.md) oletuskäyttäjänä. Tällä käyttäjällä on järjestelmänvalvojan oikeudet (`sudo`).
 
-	```sh
-	sudo adduser -m <user>
-	```
+2. Luo uusi käyttäjä, katso [adduser](https://linux.die.net/man/8/adduser) -manuaali lisätietoja varten.
 
-!!! info "Substitute `<user>` by the username you want to create"
+    ```sh
+    sudo adduser -m <user>
+    ```
 
-The user has been created in the VM, but nobody has access to it. To give access to this user, we need to configure the **Authorized Keys** for this account.
+!!! info "Korvaa `<user>` luotavan käyttäjätunnuksen kanssa"
 
-## Configure Authorized keys
+Käyttäjä on luotu VM:ssä, mutta kenelläkään ei ole pääsyä siihen. Antaaksesi pääsyn tälle käyttäjälle, meidän täytyy määrittää **Authorized Keys** tälle tilille.
 
-Before you start, you will need a **public** ssh key. This public key must have been created by the new person that will be given access to this VM. When an SSH key pair is created, two keys are created, the **public** SSH key and the **private** key. The public one can be publicly published to the whole world, for example, GitHub publishes the keys of all its users. On the other hand, the **private** key must never be shared with anyone, and should not leave the computer where it was created.
+## Määritä Authorized keys {#configure-authorized-keys}
 
-### Create SSH key pair
+Ennen kuin aloitat, tarvitset **public** ssh-avaimen. Tämä julkinen avain tulee olla luotu sen uuden henkilön toimesta, jolle pääsy VM:ään annetaan. Kun SSH-avaimien pari on luotu, luodaan kaksi avainta: **julkinen** SSH-avain ja **yksityinen** avain. Julkinen voi olla julkisesti julkaistu koko maailmalle, esimerkiksi GitHub julkaisee kaikkien käyttäjiensä avaimet. Toisaalta **yksityistä** avainta ei saa koskaan jakaa kenellekään, eikä sen pitäisi poistua siitä tietokoneesta, johon se on luotu.
 
-It is recommended to create a new ssh key pair per user and service, this way if the **private** key is leaked, the damage is limited to that user in that service. If you use the same key for every VM, every one of them will be potentially compromised and will have to be recreated. In Linux and Mac you can create a new private/public key pair by doing:
+### Luo SSH-avainten pari {#create-ssh-key-pair}
+
+On suositeltavaa luoda uusi ssh-avainten pari per käyttäjä ja palvelu, tällä tavalla, jos **yksityinen** avain vuotaa, vahinko on rajattu vain siihen käyttäjään siinä palvelussa. Jos käytät samaa avainta jokaiselle VM:lle, jokainen niistä voi potentiaalisesti vaarantua ja täytyy luoda uudelleen. Linuxissa ja Mac:ssa voit luoda uuden yksityisen/julkisen avainten parin tekemällä:
 
 ```sh
 $ ssh-keygen 
@@ -50,71 +51,71 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-The example above created two files: `id_rsa` the **private** key, and `id_rsa.pub` the **public** key. For reference, a **public** ssh key looks like this:
-
+Yllä olevassa esimerkissä luotiin kaksi tiedostoa: `id_rsa` **yksityinen** avain, ja `id_rsa.pub` **julkinen** avain. Viitteeksi, **julkinen** ssh-avain näyttää tältä:
 
 ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCoQ9S7V+CufAgwoehnf2TqsJ9LTsu8pUA3FgpS2mdVwcMcTs++8P5sQcXHLtDmNLpWN4k7NQgxaY1oXy5e25x/4VhXaJXWEt3luSw+Phv/PB2+aGLvqCUirsLTAD2r7ieMhd/pcVf/HlhNUQgnO1mupdbDyqZoGD/uCcJiYav8i/V7nJWJouHA8yq31XS2yqXp9m3VC7UZZHzUsVJA9Us5YqF0hKYeaGruIHR2bwoDF9ZFMss5t6/pzxMljU/ccYwvvRDdI7WX4o4+zLuZ6RWvsU6LGbbb0pQdB72tlV41fSefwFsk4JRdKbyV3Xjf25pV4IXOTcqhy+4JTB/jXxrF
 ```
 
-!!! info "The key above is [Linus Torvarld](https://github.com/torvalds.keys)'s public ssh key in github"
+!!! info "Yllä oleva avain on [Linus Torvald](https://github.com/torvalds.keys)'n julkinen ssh-avain GitHubissa"
 
-### Adding keys to `authorized_keys`
+### Lisää avaimet `authorized_keys`-tiedostoon {#adding-keys-to-authorized-keys}
 
-Once the new person has sent you the public key, you need to copy it to the server and add it to the `authorized_keys` "database" file:
+Kun uusi henkilö on lähettänyt sinulle julkisen avaimen, sinun täytyy kopioida se palvelimelle ja lisätä se `authorized_keys` "tietokanta"-tiedostoon:
 
-1. Upload the public key file to the server, from a Linux or Mac machine you can use `SCP` (Secure copy protocol):
+1. Lataa julkisen avaimen tiedosto palvelimelle, Linuxissa tai Mac:ssa voit käyttää `SCP` (Secure copy protocol):
 
-       ```sh
-       scp id_rsa.pub <default_user>@<floating_ip>:
-       ```
+    ```sh
+    scp id_rsa.pub <default_user>@<floating_ip>:
+    ```
 
-       Note: The `<default_user>` is still the one found in the [image documentation](../../cloud/pouta/images.md#images)
+    Huom: `<default_user>` on edelleen se, joka löytyy [kuvauksen dokumentaatiosta](../../cloud/pouta/images.md#images)
 
-1. Make sure that the special SSH configuration directory exists:
+2. Varmista, että erityinen SSH-konfiguraatiokansio on olemassa:
 
-	```sh
-	mkdir -p ~<user>/.ssh
-	```
+    ```sh
+    mkdir -p ~<user>/.ssh
+    ```
 
-	Again, substitute `<user>` with the username you just created. For example, for the user `pepe` the command would be: `mkdir -p ~pepe/.ssh`.
+    Taas kerran, korvaa `<user>` juuri luomallasi käyttäjänimellä. Esimerkiksi, käyttäjälle `pepe` komento olisi: `mkdir -p ~pepe/.ssh`.
 
-1. make a backup of the `authorized_keys` file (this is optional but recommended):
+3. tee varmuuskopio `authorized_keys`-tiedostosta (tämä on valinnainen mutta suositeltava):
 
-	```sh
-	cp ~<user>/.ssh/authorized_keys ~<user>/.ssh/authorized_keys.$(date +%s)
-	```
+    ```sh
+    cp ~<user>/.ssh/authorized_keys ~<user>/.ssh/authorized_keys.$(date +%s)
+    ```
 
-1. Add the public key to the `authorized_keys` file:
+4. Lisää julkinen avain `authorized_keys`-tiedostoon:
 
-	```sh
-	cat id_rs.pub >> ~<user>/.ssh/authorized_keys
-	```
-1. Make sure the permissions are right:
+    ```sh
+    cat id_rs.pub >> ~<user>/.ssh/authorized_keys
+    ```
 
-	```sh
-	chmod 700 ~<user>/.ssh
-	chmod 600 ~<user>/.ssh/authorized_keys
-	```
+5. Varmista, että oikeudet ovat oikeat:
 
-1. Finally, check that the `authorized_keys` file looks like it should, with one public key per line.
+    ```sh
+    chmod 700 ~<user>/.ssh
+    chmod 600 ~<user>/.ssh/authorized_keys
+    ```
 
-The new person can now follow the [connecting to a VM](../../cloud/pouta/connecting-to-vm.md) article. The command (in Linux and Mac) should be something like the following:
+6. Lopuksi, tarkista, että `authorized_keys`-tiedosto näyttää siltä kuin pitäisi, yksi julkinen avain per rivi.
+
+Uusi henkilö voi nyt seurata artikkelia [yhdistäminen VM:ään](../../cloud/pouta/connecting-to-vm.md). Komennon (Linuxissa ja Mac:ssa) pitäisi olla jotakin seuraavanlaista:
 
 ```sh
 ssh -i id_rsa <user>@<floating_ip>
 ```
 
-## Give access to the same user to several public keys
+## Anna pääsy samalle käyttäjälle usealle julkiselle avaimelle {#give-access-to-the-same-user-to-several-public-keys}
 
-It could be a good practice to give access to the same user at the same VM to more than one SSH key pair. For example, if the same person has different devices, each device will have a different private key, and if one of the devices gets lost, only one of the keys has to be deleted from `authorized_keys`. For this use case, it is possible to use the [ssh-copy-id](https://linux.die.net/man/1/ssh-copy-id) tool. This tool will only work if you already have access to that user at that VM.
+Voi olla hyvä käytäntö antaa pääsy samalle käyttäjälle samassa VM:ssä usealle SSH-avaimelle. Esimerkiksi, jos samalla henkilöllä on eri laitteet, jokaisella laitteella on eri yksityinen avain, ja jos yksi laitteista katoaa, vain yksi avaimista täytyy poistaa `authorized_keys`-tiedostosta. Tätä käyttötapaa varten on mahdollista käyttää työkalua [ssh-copy-id](https://linux.die.net/man/1/ssh-copy-id). Tämä työkalu toimii vain, jos sinulla on jo pääsy kyseiseen käyttäjään kyseisessä VM:ssä.
 
 ```sh
 ssh-copy-id -i ~/.ssh/id_rsa.pub <user>@<floating_ip>
 ```
 
-The file `~/.ssh/id_rsa.pub` is the new SSH key to add.
+Tiedosto `~/.ssh/id_rsa.pub` on uusi lisättävä SSH-avain.
 
-!!! warning "Do not give access to the same user name to different people"
-    It is not a good practice to give access to different people to the same user. This is because it makes it almost impossible to audit who and when connected to the VM.
+!!! warning "Älä anna eri ihmisille pääsyä samalle käyttäjänimelle"
+    Ei ole hyvä käytäntö antaa eri ihmisille pääsyä samalle käyttäjälle. Tämä johtuu siitä, että se tekee lähes mahdottomaksi tarkistaa, kuka ja milloin yhdistyi VM:ään.
 

@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,28 +6,27 @@ tags:
 
 # MIRA
 
-MIRA is a whole genome shotgun and EST sequence assembler. The current version is able to perform true hybrid de novo 
-assemblies using reads gathered through NGS sequencing technology.
+MIRA on koko genomin shotgun- ja EST-sekvenssikoostaja. Nykyinen versio pystyy suorittamaan aitoja hybrid de novo -kokoonpanoja käyttäen lukemia, jotka on kerätty NGS-sekvensointiteknologian avulla.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+Vapaa käyttää ja avoin lähdekoodi [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) -lisenssin alla.
 
-## Available
+## Saatavilla {#available}
 
 * Puhti: 5rc1
 
-## Usage
+## Käyttö {#usage}
 
-MIRA is activated with command:
+MIRA aktivoidaan komennolla:
 
 ```bash
 module load mira/5rc1
 ```
 
-After that, you can use MIRA commands:
+Tämän jälkeen voit käyttää MIRA-komentoja:
 
 ```bash
 mira
@@ -35,7 +35,7 @@ miraconvert
 miramem
 ```
 
-## More information
+## Lisätietoa {#more-information}
 
-* [MIRA in github](https://github.com/bachev/mira)
-* [MIRA documentation](http://mira-assembler.sourceforge.net/docs/DefinitiveGuideToMIRA.html)
+* [MIRA githubissa](https://github.com/bachev/mira)
+* [MIRA dokumentaatio](http://mira-assembler.sourceforge.net/docs/DefinitiveGuideToMIRA.html)

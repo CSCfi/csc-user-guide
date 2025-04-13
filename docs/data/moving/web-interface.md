@@ -1,24 +1,18 @@
-# Moving files using the HPC web interfaces
+# Tiedostojen siirtäminen HPC-verkkoliittymien avulla {#moving-files-using-the-hpc-web-interfaces}
 
-!!! warning "Note"
-    Uploaded files will overwrite existing files with the same name without
-    prompting. Currently, the maximum size for individual file uploads is 10 GB.
+!!! warning "Huomautus"
+    Ladatut tiedostot korvaavat ilman ilmoitusta olemassa olevat samannimiset tiedostot. Tällä hetkellä yksittäisen tiedoston latauksen maksimikoko on 10 Gt.
 
-Files can be uploaded and downloaded to/from CSC supercomputers using the file
-browser functionality of [Puhti, Mahti](../../computing/webinterface/index.md)
-and [LUMI web interfaces](https://docs.lumi-supercomputer.eu/runjobs/webui/).
-The file browser can be opened from the Files menu in the top navigation bar.
-This displays a list of all project disk areas you have access to (example for
-Puhti below).
+Tiedostoja voidaan ladata ja siirtää CSC:n supertietokoneisiin ja -tietokoneista käyttämällä [Puhti, Mahti](../../computing/webinterface/index.md) ja [LUMI-verkkoliittymien](https://docs.lumi-supercomputer.eu/runjobs/webui/) tiedostoselainta. Tiedostoselain voidaan avata Tiedostot-valikosta yläosan navigointipalkissa. Tämä näyttää luettelon kaikista projektien levyalueista, joihin sinulla on pääsy (esimerkki Puhtista alla).
 
-![Puhti web interface front page](../../img/ood-files.png 'Puhti web interface front page')
+![Puhti-verkkoliittymän etusivu](../../img/ood-files.png 'Puhti-verkkoliittymän etusivu')
 
-**In the file browser you can:**
+**Tiedostoselaimessa voit:**
 
-* Upload files (drag&drop or by browsing your local folders)
-* Download files
-* Manage files on the supercomputer (copy/move/edit/delete)
-* Create new files/directories
-* Open a command-line shell in the current directory
+* Ladata tiedostoja (vetämällä ja pudottamalla tai selaamalla paikallisia kansioitasi)
+* Ladata tiedostoja omalle koneelle
+* Hallita tiedostoja supertietokoneella (kopiointi/siirtäminen/muokkaus/poisto)
+* Luoda uusia tiedostoja/hakemistoja
+* Avata komentorivikuoren nykyiseen hakemistoon
 
-![Puhti web interface file browser](../../img/ood-files2.png 'Puhti web interface file browser')
+![Puhti-verkkoliittymän tiedostoselain](../../img/ood-files2.png 'Puhti-verkkoliittymän tiedostoselain')

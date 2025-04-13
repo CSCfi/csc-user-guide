@@ -1,31 +1,32 @@
+
 ---
-title: Cloud Services
+title: Pilvipalvelut
 ---
 
-# Overview
+# Yleiskatsaus {#overview}
 
-CSC Cloud Services consists of Pouta hardware virtualisation service, Rahti application containerisation service, Pukki cloud database service and CSC Noppe web application course hosting service. CSC hosts all services itself, with data centres in Finland.
+CSC Pilvipalvelut koostuvat Pouta-laitteiston virtualisointipalvelusta, Rahti-sovellusinstallointipalvelusta, Pukki-pilvitietokantapalvelusta ja CSC Noppe-verkkosovellusten kurssihotellipalvelusta. CSC isännöi kaikkia palveluita itse, konesjapistelmejen sijaitessa Suomessa.
 
-### Pouta
+### Pouta {#pouta}
 
-The Pouta service is a cloud computing infrastructure based on the OpenStack. It provides virtual computer hardware platforms, storage and computer network resources.
+Pouta-palvelu on pilvitietojenkäsittelyn infrastruktuuri, joka perustuu OpenStackiin. Se tarjoaa virtuaalisia tietokonealustoja, tallennustilaa ja tietoverkkokeskuksia.
 
-If you need a full access to your virtual machines, storage and virtual network devices, choose [Pouta](pouta/index.md).
+Jos tarvitset täyden pääsyn virtuaalikoneillesi, tallennustilalle ja virtuaaliverkkolaitteille, valitse [Pouta](pouta/index.md).
 
-### Pukki
+### Pukki {#pukki}
 
-Pukki is a cloud database service that provides on demand databases with automatic backups and maintenance. If you have a CSC-account you should be able to get your first database within 15 minutes and your second database within five. If you are doing research, arranging courses or building a new services that needs databases you probably want to check out this service before you start setting up manually your own database.
+Pukki on pilvitietokantapalvelu, joka tarjoaa tarpeen mukaan tietokantoja automaattisilla varmuuskopioilla ja ylläpidolla. Jos sinulla on CSC-tili, sinun pitäisi saada ensimmäinen tietokanta 15 minuutissa ja toinen tietokanta viidessä minuutissa. Jos teet tutkimusta, järjestät kursseja tai rakennat uusia tietokantapalveluja tarvitsevia palveluita, kannattaa tarkistaa tämä palvelu ennen kuin alat manuaalisesti luoda omaa tietokantaa.
 
-If you need a self-service database with backups, choose [Pukki](dbaas/index.md).
+Jos tarvitset itsepalvelutietokannan varmuuskopioilla, valitse [Pukki](dbaas/index.md).
 
-### Rahti
+### Rahti {#rahti}
 
-Rahti is a containerisation service based on Red Hat OKD. It provides application level virtualisation where software applications can run in isolated user spaces without root access.
+Rahti on kontituspalvelu, joka perustuu Red Hat OKD:hen. Se tarjoaa sovellustason virtualisointia, missä ohjelmistosovellukset voivat toimia eristetyissä käyttäjätiloissa ilman root-oikeuksia.
 
-If you need an environment to run a containerised software application that does not require root privileges, choose [Rahti](rahti/index.md).
+Jos tarvitset ympäristön kontittaiselle ohjelmistosovellukselle, joka ei vaadi root-oikeuksia, valitse [Rahti](rahti/index.md).
 
-### Noppe
+### Noppe {#noppe}
 
-Noppe is a hosted platform for teaching and research. It provides a technical environment for hosting e.g. Jupyter Notebook, RStudio Server and Apache Spark environments combined with user management.
+Noppe on alusta opetukselle ja tutkimukselle. Se tarjoaa teknisen ympäristön ylläpitämään esim. Jupyter Notebook, RStudio Server ja Apache Spark -ympäristöjä käyttäjähallinnalla yhdistettynä.
 
-If you need a turnkey solution for listed environments, choose [Noppe](noppe/index.md).
+Jos tarvitset avaimet käteen -ratkaisun luetelluille ympäristöille, valitse [Noppe](noppe/index.md).

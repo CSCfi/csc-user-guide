@@ -1,33 +1,34 @@
-# Running containers
 
-If you are familiar with [Docker containers](https://en.wikipedia.org/wiki/Docker_(software)), [Apptainer containers](https://apptainer.org/) (formerly known as Singularity) are essentially the same thing, but are better suited for multi-user systems such as CSC's supercomputers. Containers provide an isolated software environment for each application, which makes it easier to install complex applications. On shared file systems, such as those used on CSC's supercomputers, launch times can also be much shorter for containers compared to alternatives such as conda.
+# Konttien ajaminen
 
-For more information, read our [overview page on containers](overview.md) or [the Apptainer user guide](https://apptainer.org/docs/user/main/).
+Jos olet perehtynyt [Docker-kontteihin](https://en.wikipedia.org/wiki/Docker_(software)), [Apptainer-kontit](https://apptainer.org/) (aikaisemmin tunnettu nimellä Singularity) ovat käytännössä sama asia, mutta ne soveltuvat paremmin monen käyttäjän järjestelmiin, kuten CSC:n supertietokoneisiin. Kontit tarjoavat eristetyn ohjelmisto-ympäristön kullekin sovellukselle, mikä helpottaa monimutkaisten sovellusten asentamista. Jaetuissa tiedostojärjestelmissä, kuten CSC:n supertietokoneilla käytettävissä, käyttöajat voivat olla myös paljon lyhyempiä kuin vaihtoehtoilla, kuten conda.
 
-## Running Apptainer
+Lisätietoja saat lukemalla [yleiskatsauksen kontteihin](overview.md) tai [Apptainer käyttäjän oppaan](https://apptainer.org/docs/user/main/).
 
-CSC's supercomputers Puhti and Mahti both support running Apptainer containers. For many use cases, CSC's staff has provided ready-made containers that can be used simply by loading the corresponding module. Please check the [application pages](../../apps/index.md) if a pre-installed container is already available for the application you are interested in. See that specific application's page for detailed instructions on how to use it.
+## Apptainerin ajaminen {#running-apptainer}
 
-If you find that some container is missing that you think could be generally useful, you can ask us to install it by contacting [CSC's Service Desk](../../support/contact.md).  Otherwise you can also look into [building your own container images](creating.md).
+CSC:n supertietokoneet Puhti ja Mahti tukevat molemmat Apptainer-konttien ajamista. Monissa käyttötapauksissa CSC:n henkilökunta on tarjonnut valmiiksi tehdyt kontit, joita voidaan käyttää yksinkertaisesti lataamalla vastaava moduuli. Tarkista [sovellussivut](../../apps/index.md), onko haluamallesi sovellukselle jo asennettu kontti saatavilla. Katso kyseisen sovelluksen sivulta tarkat käyttöohjeet.
 
-### Using `apptainer_wrapper`
+Jos huomaat, että jokin kontti puuttuu, jonka uskot olevan yleisesti hyödyllinen, voit pyytää meitä asentamaan sen ottamalla yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md). Vaihtoehtoisesti voit tutustua [oman konttikuvan rakentamiseen](creating.md).
 
-Unless otherwise specified in the application-specific documentation, all CSC's Apptainer-based applications can be easily used with the `apptainer_wrapper` command. In many cases also other common commands, such as `python` or `R`, have also been wrapped to make the user experience seamless. See the [individual application documentation pages](../../apps/index.md) for details.
+### `apptainer_wrapper`-komennon käyttäminen {#using-apptainer-wrapper}
 
-When you load a container-based module it sets appropriate values to the `SING_IMAGE` and `SING_FLAGS` shell environment variables which are used by `apptainer_wrapper` to set all the appropriate options automatically for running Apptainer.
+Ellei muuta ole sovelluksen dokumentaatiossa mainittu, kaikki CSC:n Apptainer-pohjaiset sovellukset voidaan helposti käyttää `apptainer_wrapper`-komennolla. Monissa tapauksissa myös muita yleisiä komentoja, kuten `python` tai `R`, on kääritty saumattoman käyttökokemuksen saavuttamiseksi. Katso [yksittäiset sovellusten dokumentaatiosivut](../../apps/index.md) saadaksesi lisätietoja.
 
-The typical way to run something using the activated container is as follows:
+Kun lataat konttiin perustuvan moduulin, se asettaa sopivat arvot `SING_IMAGE`- ja `SING_FLAGS`-ympäristömuuttujille, joita `apptainer_wrapper` käyttää asettaakseen kaikki sopivat vaihtoehdot automaattisesti Apptainerin ajamiseen.
+
+Tyypillinen tapa ajaa jotain aktivoidulla kontilla on seuraava:
 
 ```bash
 module load modulename
 apptainer_wrapper exec command_to_run
 ```
 
-Another useful command is `apptainer_wrapper shell` which starts a shell session inside the container.
+Toinen hyödyllinen komento on `apptainer_wrapper shell`, joka aloittaa shell-istunnon kontin sisällä.
 
-Inside the container, the root directory in general is read-only, i.e., you cannot change the image itself. Common paths such as `/projappl`, `/scratch` and users' home directories are "bound" to the real (host) paths and can thus be read from and written to as usual from inside the container.
+Kontin sisällä päähakemisto on yleensä vain luku -muodossa, eli et voi muuttaa itse kuvaa. Yleisiä polkuja kuten `/projappl`, `/scratch` ja käyttäjien kotihakemistot on "sidottu" todellisiin (isäntä)polkuihin ja niitä voidaan siten lukea ja niihin voidaan kirjoittaa normaalisti kontin sisältä.
 
-You can also use `apptainer_wrapper` with containers that you have created yourself. You just need to set the `SING_IMAGE` to point to the correct Apptainer image file. For example:
+Voit myös käyttää `apptainer_wrapper`-komentoa itse luomiesi konttien kanssa. Sinun tarvitsee vain asettaa `SING_IMAGE` osoittamaan oikeaan Apptainer-kuvatiedostoon. Esimerkiksi:
 
 ```bash
 export SING_IMAGE=/path/to/apptainer_image.sif
@@ -35,53 +36,52 @@ export SING_IMAGE=/path/to/apptainer_image.sif
 apptainer_wrapper exec command_to_run
 ```
 
-You can also set additional Apptainer options via the `SING_FLAGS` variable. For example to use GPUs:
+Voit myös asettaa lisäasetuksia Apptainerille `SING_FLAGS`-muuttujan kautta. Esimerkiksi GPU:iden käyttämiseksi:
 
 ```bash
 export SING_FLAGS=--nv
 ```
 
+### Apptainerin ajaminen suoraan {#running-apptainer-directly}
 
-### Running Apptainer directly
+Voit myös ajaa Apptainerin suoraan, jos `apptainer_wrapper`-ohjelmointi ei jostain syystä sovi sinulle. Silloin sinun on itse annettava polku konttikuvaan ja sidottava kaikki polut, joita sinun tarvitsee päästä kuvan sisältä. Huomaa, että oletuksena jotkin polut, kuten `HOME` ja `CWD`, on [sidottu automaattisesti](https://apptainer.org/docs/user/main/bind_paths_and_mounts.html#system-defined-bind-paths).
 
-You can also run Apptainer directly if the `apptainer_wrapper` script for some reason isn't appropriate for you.  Then you need to provide the path to the container image yourself and bind any paths that you need to be able to access from inside the image. Note that by default some paths such as `HOME` and `CWD` are [bound automatically](https://apptainer.org/docs/user/main/bind_paths_and_mounts.html#system-defined-bind-paths).
-
-Usage examples:
+Käyttöesimerkit:
 
 ```bash
 apptainer exec -B /scratch:/scratch /path/to/apptainer_image.sif command_to_run
 apptainer shell /path/to/apptainer_image.sif
 ```
 
-If you need GPU support, add the `--nv` flag to your command.
+Jos tarvitset GPU-tuenta, lisää `--nv`-lippu komentoosi.
 
-### Mounting datasets with SquashFS 
+### Datan asennus SquashFS:llä {#mounting-datasets-with-squashfs}
 
-A common problem with supercomputers is that accessing datasets with a huge number of files on the shared file system is very inefficient. For more details, please read [our technical description of the Lustre file system](../lustre.md). Using Apptainer, one potential solution to this problem would be [accessing the dataset using a SquashFS image](https://sylabs.io/guides/3.7/user-guide/bind_paths_and_mounts.html#squashfs-image-files). 
+Yleinen ongelma supertietokoneissa on, että suurilla tiedostomäärillä olevan datan käyttö jaetussa tiedostojärjestelmässä on erittäin tehotonta. Lisätietoja lue [tekninen kuvaus Lustre-tiedostojärjestelmästä](../lustre.md). Apptaineria käyttäen yksi potentiaalinen ratkaisu tähän ongelmaan olisi [datan käyttö SquashFS-kuvalla](https://sylabs.io/guides/3.7/user-guide/bind_paths_and_mounts.html#squashfs-image-files).
 
-First, create a SquashFS image of your dataset, thus reducing it to one big file. We recommend doing this in an [interactive session](../running/interactive-usage.md) using the fast local drive for temporary storage. For example, to launch an interactive session with 100 GiB local drive (adjust size as needed) you can run:
+Luo ensin SquashFS-kuva datastasi, vähentäen se yhdeksi suureksi tiedostoksi. Suosittelemme tekemään tämän [interaktiivisessa istunnossa](../running/interactive-usage.md) käyttäen nopeaa paikallista levyä tilapäiseen tallennukseen. Esimerkiksi, käynnistääksesi interaktiivisen istunnon, jossa on 100 GiB paikallista levytilaa (säädä kokoa tarpeen mukaan), voit ajaa:
 
 ```bash
 sinteractive --time 1:00:00 --tmp 100 --cores 4
 ```
 
-Then in the interactive session:
+Sitten interaktiivisessa istunnossa:
 ```bash
-# Extract individual files to local drive
+# Poimi yksittäiset tiedostot paikalliselle levylle
 cd $LOCAL_SCRATCH
 tar xf /scratch/project/my_dataset.tar
-# Create squashfs file
+# Luo squashfs-tiedosto
 mksquashfs my_dataset my_dataset.sqfs -processors 4
-# Move the resulting squashfs file back to the shared drive
+# Siirrä syntyvä squashfs-tiedosto takaisin jaettuun levyyn
 mv my_dataset.sqfs /scratch/project/
 ```
 
-In the commands above we assume you have your dataset stored in a tar-package, and it extracts to a directory called `my_dataset`. Adjust the commands to your own situation.
+Ylläolevissa komennoissa oletetaan, että olet tallentanut datasetin tar-pakettiin ja se avautuu hakemistoon nimeltä `my_dataset`. Säädä komentoja omaan tilanteeseesi sopivaksi.
 
-Next, you would mount this image to your Apptainer execution so that it appears as a normal directory inside the container.  We simply need to add a bind mount option to the Apptainer command: `-B /scratch/project/my_dataset.sqfs:/data:image-src=/`. If you are using the `apptainer_wrapper` you can do this by adding it to the `SING_FLAGS environment variable:
+Seuraavaksi sinun tulisi asentaa tämä kuva Apptainerin suorittamiseen, jotta se näkyisi normaalina hakemistona kontin sisällä. Meidän tarvitsee vain lisätä bind-asetus Apptainerin komennolle: `-B /scratch/project/my_dataset.sqfs:/data:image-src=/`. Jos käytät `apptainer_wrapper`-ohjelmointia, voit tehdä tämän lisäämällä se `SING_FLAGS` ympäristömuuttujaan:
 
 ```
 export SING_FLAGS="-B /scratch/project/my_dataset.sqfs:/data:image-src=/ $SING_FLAGS"
 ```
 
-After this the dataset will be available under the `/data` path inside the container.
+Tämän jälkeen datasetti on käytettävissä `/data`-polun alla kontin sisällä.

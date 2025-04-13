@@ -1,21 +1,23 @@
-# Connecting to Puhti and Mahti web interfaces
+
+# Yhdistäminen Puhti ja Mahti verkkoliittymiin {#connecting-to-puhti-and-mahti-web-interfaces}
 
 --8<-- "mfa-update.md"
 
-1. Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi) or
+1. Käytä selainta ja siirry osoitteeseen [www.puhti.csc.fi](https://www.puhti.csc.fi) tai
    [www.mahti.csc.fi](https://www.mahti.csc.fi).
-2. On the landing page, click on "Log in" and select an appropriate
-   authentication provider.
-      1. When logging in using your CSC user account, select CSC as the
-         authentication provider and use the same username and password you use
-         when connecting with `ssh`.
+2. Aloitussivulla klikkaa "Kirjaudu sisään" ja valitse sopiva
+   todennuksen tarjoaja.
+      1. Kun kirjaudut sisään CSC-käyttäjätililläsi, valitse CSC
+         todennuksen tarjoajaksi ja käytä samaa käyttäjätunnusta ja salasanaa
+         kuin yhdistäessäsi `ssh`:n avulla.
 
-    ![Puhti web interface login page](../../img/ood_login.png)
+    ![Puhti web-käyttöliittymän kirjautumissivu](../../img/ood_login.png)
 
-3. After successful authentication, you will see the dashboard.
+3. Onnistuneen todennuksen jälkeen näet hallintapaneelin.
 
-    ![Puhti web interface front page](../../img/ood_main.png)
+    ![Puhti web-käyttöliittymän etusivu](../../img/ood_main.png)
 
-4. From here, you can browse your files on the supercomputer, start a shell,
-   view running jobs or start one of the many available applications. The
-   dashboard also contains some important system information.
+4. Täältä käsin voit selata tiedostojasi supertietokoneella, avata komentotulkin,
+   tarkastella käynnissä olevia töitä tai käynnistää jonkin monista saatavilla olevista
+   sovelluksista. Hallintapaneeli sisältää myös joitakin tärkeitä järjestelmätietoja.
+

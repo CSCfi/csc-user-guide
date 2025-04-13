@@ -1,23 +1,24 @@
-# Images
 
-A Docker image is a file which is built up normally by an instructional file named **Dockerfile**. An Docker image is immutable, i.e. existing image file cannot be modified, but one can create a new layer to it & thus have a modified version of image suitable to him.
+# Kuvia {#images}
 
-Docker containers are the running instances of Docker images. To avoid confusions, lets have a quick walkthrough over Docker image & containers using cooking example:
+Docker-kuva on tiedosto, joka rakennetaan yleensä ohjetiedoston nimeltä **Dockerfile** avulla. Docker-kuva on muuttumaton, eli olemassa olevaa kuvaa ei voida muuttaa, mutta siihen voidaan lisätä uusi kerros ja näin saada muokattu version kuvasta, joka sopii käyttäjälle.
 
-* Dockerfile could be regarded as the ingredients list.
-* Docker Images are ingredients mixed together.
-* Docker Container is cooked delicious meal: The final end product!
+Docker-kontit ovat Docker-kuvien käynnissä olevia instansseja. Välttääksemme sekaannuksia, käydään nopeasti läpi Docker-kuva ja -kontit käyttämällä ruoanlaittoesimerkkiä:
 
-To better explain these analogies, let's follow some examples.
+* Dockerfilea voitaisiin pitää ainesosaluettelona.
+* Docker-kuvat ovat sekoitettuja ainesosia.
+* Docker-kontti on kypsennetty herkullinen ateria: Lopputuote!
 
-First, in order to run a docker image one can use the docker client on the host machine (provided that it is installed):
+Selittääkseni näitä analogioita paremmin, seuraamme muutamia esimerkkejä.
+
+Ensiksi, jotta docker-kuvaa voidaan ajaa, voi käyttää docker-asiakasta isäntäkoneessa (edellyttäen, että se on asennettu):
 
 ```sh
 docker run -p 80:80 nginx
 ```
 
-This will, if the image is not cached locally, first pull (or download) the latest nginx image, then look for the predefined entry point, and finally a container is run. You can access and see the nginx welcome page through the address http://localhost:80  
-The output will be something like:
+Tämä lataa (tai lataa) ensin uusimman nginx-kuvan, jos sitä ei ole välimuistissa paikallisesti, etsii sitten ennalta määritetyn aloituspisteen, ja lopulta kontti käynnistetään. Voit käyttää ja katsella nginx-tervetulosivua osoitteesta http://localhost:80  
+Tuloste voi näyttää seuraavalta:
 
 ```sh
 Unable to find image 'nginx:latest' locally
@@ -31,49 +32,48 @@ f1359798dfe4: Pull complete
 5836f8c1cebc: Pull complete
 Digest: sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
 Status: Downloaded newer image for nginx:latest
-/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
-/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
-/docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
-10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
-10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
-/docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
-/docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
-/docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
-/docker-entrypoint.sh: Configuration complete; ready for start up
-2023/11/08 10:27:14 [notice] 1#1: using the "epoll" event method
-2023/11/08 10:27:14 [notice] 1#1: nginx/1.25.3
-2023/11/08 10:27:14 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14)
-2023/11/08 10:27:14 [notice] 1#1: OS: Linux 6.4.16-linuxkit
-2023/11/08 10:27:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2023/11/08 10:27:14 [notice] 1#1: start worker processes
-2023/11/08 10:27:14 [notice] 1#1: start worker process 29
-2023/11/08 10:27:14 [notice] 1#1: start worker process 30
-2023/11/08 10:27:14 [notice] 1#1: start worker process 31
-2023/11/08 10:27:14 [notice] 1#1: start worker process 32
-2023/11/08 10:27:14 [notice] 1#1: start worker process 33
-2023/11/08 10:27:14 [notice] 1#1: start worker process 34
-2023/11/08 10:27:14 [notice] 1#1: start worker process 35
-2023/11/08 10:27:14 [notice] 1#1: start worker process 36
+/docker-entrypoint.sh: /docker-entrypoint.d/ ei ole tyhjä, yritetään suorittaa konfiguraatio
+/docker-entrypoint.sh: Etsitään shell-skriptejä /docker-entrypoint.d/
+/docker-entrypoint.sh: Käynnistetään /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+10-listen-on-ipv6-by-default.sh: info: Haetaan tarkistussumma tiedostosta /etc/nginx/conf.d/default.conf
+10-listen-on-ipv6-by-default.sh: info: Ota IPv6 käyttöön tiedostossa /etc/nginx/conf.d/default.conf
+/docker-entrypoint.sh: Lähteet /docker-entrypoint.d/15-local-resolvers.envsh
+/docker-entrypoint.sh: Käynnistetään /docker-entrypoint.d/20-envsubst-on-templates.sh
+/docker-entrypoint.sh: Käynnistetään /docker-entrypoint.d/30-tune-worker-processes.sh
+/docker-entrypoint.sh: Kokoonpano valmis; valmiina käynnistykseen
+2023/11/08 10:27:14 [tiedoksi] 1#1: "epoll" tapahtumamenetelmä käytössä
+2023/11/08 10:27:14 [tiedoksi] 1#1: nginx/1.25.3
+2023/11/08 10:27:14 [tiedoksi] 1#1: koostettu gcc 12.2.0 (Debian 12.2.0-14)
+2023/11/08 10:27:14 [tiedoksi] 1#1: Käyttöjärjestelmä: Linux 6.4.16-linuxkit
+2023/11/08 10:27:14 [tiedoksi] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessien käynnistys
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessin käynnistys 29
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessin käynnistys 30
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessin käynnistys 31
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessin käynnistys 32
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessin käynnistys 33
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessin käynnistys 34
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessin käynnistys 35
+2023/11/08 10:27:14 [tiedoksi] 1#1: työläisprosessin käynnistys 36
 ```
 
-The name in this example is `nginx`, but as we can see, it is expanded first to `nginx:latest` and then to `library/nginx`, the different parts are:
+Tämän esimerkin nimi on `nginx`, mutta kuten näemme, se laajennetaan ensin muotoon `nginx:latest` ja sitten muotoon `library/nginx`, eri osat ovat:
 
-* If the domain name is not included, docker assumes it is default public docker registry, `docker.io`. But there are other registries, for example  `image-registry.apps.2.rahti.csc.fi` is Rahti's private docker registry.
+* Jos verkkotunnuksen nimi ei sisälly, docker olettaa, että se on oletusarvoinen julkinen docker-rekisteri, `docker.io`. Mutta on olemassa muita rekistereitä, esimerkiksi `image-registry.apps.2.rahti.csc.fi` on Rahti's yksityinen docker-rekisteri.
 
-* Then it is the path for the image, in this case it is `/library`. Again docker is assuming it, this path is reserved to "official base images", or in other words common Linux distributions, from where other images are based on.
+* Seuraavaksi on kuvan polku, tässä tapauksessa se on `/library`. Jälleen docker olettaa sen, tämä polku on varattu "virallisille peruskuville", tai toisin sanoen yleisille Linux-jakeluille, joista muut kuvat perustuvat.
 
-* Next, you have the image name itself, `nginx`. There are a lot of other "base images" in `docker.io/library`, such as `ubuntu` or `alpine`.
+* Seuraavaksi on kuvan nimi itse, `nginx`. `docker.io/library` sisältää paljon muita "peruskuvia", kuten `ubuntu` tai `alpine`.
 
-* Finally, it is the tag, `latest`. This is the default tag for an image, but an image can have any given name for a tag. This is used to differentiate between version of the same image. Examples for `nginx` are: `stable`, `perl`, `1.25.3-perl`, and lots more. The contents of a given tag can change with time, `latest` will be always the most updated version. But other tags are left unchanged after they are released.
+* Lopuksi on merkintä, `latest`. Tämä on oletusmerkintä kuvalle, mutta kuvalle voidaan antaa mikä tahansa nimi merkinnäksi. Tällä erotetaan saman kuvan versiot toisistaan. Esimerkkejä `nginx`:istä ovat: `stable`, `perl`, `1.25.3-perl`, ja paljon muuta. Annetun merkinnän sisältö voi muuttua ajan myötä, `latest` on aina ajantasaisin versio. Mutta muut merkinnät pysyvät muuttumattomina niiden julkaisun jälkeen.
 
+Docker-hubin virallinen [nginx](https://hub.docker.com/_/nginx) -sivu tarjoaa meille enemmän tietoja siitä, miten virallisen nginx-kuvan eri merkityt versiot on rakennettu.
 
-Official page of [nginx](https://hub.docker.com/_/nginx) on Docker hub provide us more details how different tagged versions of official nginx image is build.
+## Edistyneet kuvan sisäiset toiminnot {#advanced-image-internals}
 
-## Advanced image internals
+Monesti Docker-kuvien kirjoittaja ei välttämättä anna yksityiskohtia Dockerfilesta, jota käytettiin Docker-kuvien rakentamiseen. Siksi on hyvä tarkastella kuvia tuntemattomista lähteistä. Voit nähdä kuvan sisäisen yksityiskohtaisen tiedon `docker inspect` -työkalun avulla. Tuloste on JSON-objekti, jota voidaan käsitellä tavallisilla työkaluilla, kuten `jq`, katso esimerkki tämän sivun alalaidasta.
 
-Many times author of Docker images don't necessarily provide details of Dockerfile which were used to build Docker images. It is therefore good idea to inspect images from unknown sources. You can see the detailed information of image internal using `docker inspect`. The output is a JSON object, that can be processed using standard tools like `jq`, see an example at the bottom of this page.
-
-This allows to see interesting data about the image, like the environment, the entry point, initial command, the layers, and many more.
+Tämä mahdollistaa mielenkiintoisten tietojen näkemisen kuvasta, kuten ympäristö, aloituskohta, alkuperäinen komento, kerrokset ja paljon muuta.
 
 ```bash
 $ docker inspect nginx

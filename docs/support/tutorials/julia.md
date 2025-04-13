@@ -1,44 +1,40 @@
-# Running Julia batch jobs on CSC clusters
-This tutorial contains examples for running various Julia batch jobs on Puhti, Mahti and LUMI clusters.
+# Ajoitetaan Julia-erätöitä CSC-klustereissa
+Tämä opetus sisältää esimerkkejä erilaisten Julia-erätöiden ajamisesta Puhti-, Mahti- ja LUMI-klustereissa.
 
 [TOC]
 
+## Esimerkkejä {#examples}
+Nämä esimerkit havainnollistavat [Julia-ympäristön](../../apps/julia.md) käyttöä erilaisissa erätöissä.
+Ne on mukautettu yleisistä ohjeista töiden ajamisesta [Puhtissa ja Mahtissa](../../computing/running/getting-started.md) ja [LUMIssa](https://docs.lumi-supercomputer.eu/runjobs/).
+Huomaa, että emme käytä `srun`-komentoa prosessien käynnistämiseen eräskriptissä. Sen sijaan käytämme Juliaa prosessihallintaan tai kutsumme `srun`-komentoa Julia-koodin sisällä.
 
-## Examples
-These examples demonstrate the usage of the [Julia environment](../../apps/julia.md) for various batch jobs.
-They are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
-Note that we do not use `srun` to start processes in the batch script.
-Instead we use Julia for process management or call `srun` inside the Julia code.
-
-Before running the examples, we need to instantiate the Julia project on the login node.
-That is, run the following command in the directory with your Julia environment where `Project.toml` file is located.
+Ennen esimerkkien ajamista on luotava Julia-projekti kirjautumissolmussa. Sitä varten suorita seuraava komento hakemistossa, jossa Julia-ympäristön `Project.toml`-tiedosto sijaitsee.
 
 ```bash
 module load julia
 julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
 ```
 
-You can use multiple threads `--threads=10` which will speed up the precompilation.
+Voit käyttää useita säikeitä `--threads=10`, mikä nopeuttaa esikääntämistä.
 
-
-### Serial program
-We use the following directory structure and assume it is our working directory.
+### Sarjaohjelma {#serial-program}
+Käytämme seuraavaa hakemistorakennetta ja oletamme sen olevan työskentelyhakemistomme.
 
 ```text
 .
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-└── script.jl     # Julia script
+├── Project.toml  # Julia-ympäristö
+├── batch.sh      # Slurm-eräskripti
+└── script.jl     # Julia-skripti
 ```
 
-An example of a `script.jl` code.
+Esimerkki `script.jl`-koodista.
 
 ```julia
 println("Hello world!")
 ```
 
 === "Puhti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -55,7 +51,7 @@ println("Hello world!")
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -71,9 +67,8 @@ println("Hello world!")
     julia --project=. script.jl
     ```
 
-
 === "LUMI"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -90,32 +85,31 @@ println("Hello world!")
     julia --project=. script.jl
     ```
 
-
-### Multi-threading on single node
-We use the following directory structure and assume it is our working directory.
+### Usean säikeen käyttö yhdellä solmulla {#multi-threading-on-single-node}
+Käytämme seuraavaa hakemistorakennetta ja oletamme sen olevan työskentelyhakemistomme.
 
 ```text
 .
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-└── script.jl     # Julia script
+├── Project.toml  # Julia-ympäristö
+├── batch.sh      # Slurm-eräskripti
+└── script.jl     # Julia-skripti
 ```
 
-An example of a `script.jl` code.
+Esimerkki `script.jl`-koodista.
 
 ```julia
-# Number of threads
+# Säikeiden lukumäärä
 n = Threads.nthreads()
 println(n)
 
-# Lets fill the id of each thread to the ids array.
+# Täytetään jokaisen säikeen id id:t-taulukkoon.
 ids = zeros(Int, n)
 Threads.@threads for i in eachindex(ids)
     ids[i] = Threads.threadid()
 end
 println(ids)
 
-# Alternatively, we can use the @spawn macro to run task on threads.
+# Vaihtoehtoisesti voimme käyttää @spawn-makroa ajamaan tehtävän säikeillä.
 ids = zeros(Int, n)
 @sync for i in eachindex(ids)
     Threads.@spawn ids[i] = Threads.threadid()
@@ -124,7 +118,7 @@ println(ids)
 ```
 
 === "Puhti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -141,7 +135,7 @@ println(ids)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -158,7 +152,7 @@ println(ids)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -175,65 +169,64 @@ println(ids)
     julia --project=. script.jl
     ```
 
-
-### Multi-processing on single node
-We use the following directory structure and assume it is our working directory.
+### Usean prosessin käyttö yhdellä solmulla {#multi-processing-on-single-node}
+Käytämme seuraavaa hakemistorakennetta ja oletamme sen olevan työskentelyhakemistomme.
 
 ```text
 .
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-└── script.jl     # Julia script
+├── Project.toml  # Julia-ympäristö
+├── batch.sh      # Slurm-eräskripti
+└── script.jl     # Julia-skripti
 ```
 
-An example of a `Project.toml` project file.
+Esimerkki `Project.toml`-projektitiedostosta.
 
 ```toml
 [deps]
 Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
-An example of a `script.jl` code.
+Esimerkki `script.jl`-koodista.
 
 ```julia
 using Distributed
 
-# We set one worker process per core.
+# Asetamme yhden työntekijäprosessin per ydin.
 proc_num = Sys.CPU_THREADS
 
-# Environment variables that we pass to the worker processes.
-# We set the thread count to one since each process uses one core.
+# Ympäristömuuttujat, jotka välitämme työntekijäprosesseille.
+# Asetamme säikeiden lukumäärän yhteen, koska kukin prosessi käyttää yhtä ydintä.
 proc_env = [
     "JULIA_NUM_THREADS"=>"1",
     "JULIA_CPU_THREADS"=>"1",
     "OPENBLAS_NUM_THREADS"=>"1",
 ]
 
-# We add worker processes to the local node using LocalManager.
+# Lisätään työntekijäprosesseja paikalliselle solmulle LocalManagerin avulla.
 addprocs(proc_num; env=proc_env, exeflags="--project=.")
 
-# We use the `@everywhere` macro to include the task function in the worker processes.
-# We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
+# Käytämme `@everywhere`-makroa sisällyttämään tehtäväfunktiot työntekijäprosesseihin.
+# Meidän täytyy kutsua `@everywhere` työntekijäprosessien lisäämisen jälkeen; muuten koodi ei sisälly uusiin prosesseihin.
 @everywhere function task()
     return (worker=myid(), hostname=gethostname(), pid=getpid())
 end
 
-# We run the task function in each worker process.
+# Suoritamme tehtäväfunktion jokaisessa työntekijäprosessissa.
 futures = [@spawnat worker task() for worker in workers()]
 
-# Then, we fetch the output from the processes.
+# Haemme prosessien tuloksen.
 outputs = fetch.(futures)
 
-# Remove processes after we are done.
+# Poistetaan prosessit, kun olemme valmiita.
 rmprocs.(workers())
 
-# Print the outputs of master and worker processes.
+# Tulostetaan isäntä- ja työntekijäprosessien tulokset.
 println(task())
 println.(outputs)
 ```
 
 === "Puhti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -250,7 +243,7 @@ println.(outputs)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -267,7 +260,7 @@ println.(outputs)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -284,18 +277,17 @@ println.(outputs)
     julia --project=. script.jl
     ```
 
-
-### Multi-processing on multiple nodes
-We use the following directory structure and assume it is our working directory.
+### Usean prosessin käyttö useilla solmuilla {#multi-processing-on-multiple-nodes}
+Käytämme seuraavaa hakemistorakennetta ja oletamme sen olevan työskentelyhakemistomme.
 
 ```text
 .
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-└── script.jl     # Julia script
+├── Project.toml  # Julia-ympäristö
+├── batch.sh      # Slurm-eräskripti
+└── script.jl     # Julia-skripti
 ```
 
-An example of a `Project.toml` project file.
+Esimerkki `Project.toml`-projektitiedostosta.
 
 ```toml
 [deps]
@@ -303,17 +295,17 @@ ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
 Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
-An example of a `script.jl` code.
+Esimerkki `script.jl`-koodista.
 
 ```julia
 using Distributed
 using ClusterManagers
 
-# We set one worker process per core.
+# Asetamme yhden työntekijäprosessin per ydin.
 proc_num = parse(Int, ENV["SLURM_NTASKS"])
 
-# Environment variables that we pass to the worker processes.
-# We set the thread count to one since each process uses one core.
+# Ympäristömuuttujat, jotka välitämme työntekijäprosesseille.
+# Asetamme säikeiden lukumäärän yhteen, koska kukin prosessi käyttää yhtä ydintä.
 n = Threads.nthreads()
 proc_env = [
     "JULIA_NUM_THREADS"=>"$n",
@@ -321,31 +313,31 @@ proc_env = [
     "OPENBLAS_NUM_THREADS"=>"$n",
 ]
 
-# We add worker processes to the local node using SlurmManager
+# Lisätään työntekijäprosesseja paikalliselle solmulle SlurmManagerin avulla.
 addprocs(SlurmManager(proc_num); env=proc_env, exeflags="--project=.")
 
-# We use the `@everywhere` macro to include the task function in the worker processes.
-# We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
+# Käytämme `@everywhere`-makroa sisällyttämään tehtäväfunktiot työntekijäprosesseihin.
+# Meidän täytyy kutsua `@everywhere` työntekijäprosessien lisäämisen jälkeen; muuten koodi ei sisälly uusiin prosesseihin.
 @everywhere function task()
     return (worker=myid(), hostname=gethostname(), pid=getpid())
 end
 
-# We run the task function in each worker process.
+# Suoritamme tehtäväfunktion jokaisessa työntekijäprosessissa.
 futures = [@spawnat worker task() for worker in workers()]
 
-# Then, we fetch the output from the processes.
+# Haemme prosessien tuloksen.
 outputs = fetch.(futures)
 
-# Remove processes after we are done.
+# Poistetaan prosessit, kun olemme valmiita.
 rmprocs.(workers())
 
-# Print the outputs of master and worker processes.
+# Tulostetaan isäntä- ja työntekijäprosessien tulokset.
 println(task())
 println.(outputs)
 ```
 
 === "Puhti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -362,7 +354,7 @@ println.(outputs)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -379,7 +371,7 @@ println.(outputs)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -396,41 +388,39 @@ println.(outputs)
     julia --project=. script.jl
     ```
 
+### MPI-ohjelma {#mpi-program}
+Käynnistämme MPI-ohjelman Julian `mpiexec`-käärellefunktiolla.
+Käärellefunktio korvaa paikallisten asetusten mukaisen komennon `mpirun`-muuttujaan MPI-ohjelman ajamiseksi.
+Komento on `srun` Puhtissa, Mahtissa ja LUMIssa.
+Käärelle mahdollistaa joustavamman koodin kirjoittamisen, kuten MPI- ja ei-MPI-koodin yhdistelyn, ja siirrettävämmän koodin, koska MPI-ohjelmien ajamisen komento voi vaihdella alustasta riippuen.
+Huomaamme, että suurimittaisissa Julia MPI-töissä, joissa on tuhansia yksiköitä, depot-hakemisto täytyy jakaa [paikalliseen solmutallennukseen tai muistiin](https://juliahpc.github.io/user_faq/#how_to_cope_with_a_large_number_of_mpi_processes_accessing_the_same_julia_depot) ja muokata depot-polkuja vastaavasti.
+Muussa tapauksessa pakettien latauksesta tulee erittäin hidasta.
 
-### MPI program
-We launch the MPI program using Julia's `mpiexec` wrapper function.
-The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
-The command is `srun` in Puhti, Mahti, and LUMI.
-The wrapper allows us to write more flexible code, such as mixing MPI and non-MPI code, and more portable code because the command to run MPI programs can vary across platforms.
-We note that for large-scale Julia MPI jobs with thousands of ranks, we have to distribute the [depot directory to local node storage or memory](https://juliahpc.github.io/user_faq/#how_to_cope_with_a_large_number_of_mpi_processes_accessing_the_same_julia_depot) and modify the depot paths accordingly.
-Otherwise, package loading will become extremely slow.
-
-
-We use the following directory structure and assume it is our working directory.
+Käytämme seuraavaa hakemistorakennetta ja oletamme sen olevan työskentelyhakemistomme.
 
 ```text
 .
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-├── prog.jl       # Julia MPI program
-└── script.jl     # Julia script
+├── Project.toml  # Julia-ympäristö
+├── batch.sh      # Slurm-eräskripti
+├── prog.jl       # Julia MPI -ohjelma
+└── script.jl     # Julia-skripti
 ```
 
-An example of a `Project.toml` project file.
+Esimerkki `Project.toml`-projektitiedostosta.
 
 ```toml
 [deps]
 MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
 ```
 
-An example of a `script.jl` code.
+Esimerkki `script.jl`-koodista.
 
 ```julia
 using MPI
 mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
 ```
 
-An example of a `prog.jl` Julia MPI code.
+Esimerkki `prog.jl` Julia MPI -koodista.
 
 ```julia
 using MPI
@@ -439,12 +429,12 @@ MPI.Init()
 comm = MPI.COMM_WORLD
 rank = MPI.Comm_rank(comm)
 size = MPI.Comm_size(comm)
-println("Hello from rank $(rank) out of $(size) from host $(gethostname()) and process $(getpid()).")
+println("Tervehdys yksiköltä $(rank), yhteensä $(size) yksiköltä isännästä $(gethostname()), ja prosessista $(getpid()).")
 MPI.Barrier(comm)
 ```
 
 === "Puhti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -462,7 +452,7 @@ MPI.Barrier(comm)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -480,7 +470,7 @@ MPI.Barrier(comm)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -498,26 +488,25 @@ MPI.Barrier(comm)
     julia --project=. script.jl
     ```
 
-
-### Single GPU
-We use the following directory structure and assume it is our working directory.
+### Yksi GPU {#single-gpu}
+Käytämme seuraavaa hakemistorakennetta ja oletamme sen olevan työskentelyhakemistomme.
 
 ```text
 .
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-└── script.jl     # Julia script
+├── Project.toml  # Julia-ympäristö
+├── batch.sh      # Slurm-eräskripti
+└── script.jl     # Julia-skripti
 ```
 
 === "Puhti"
-    An example of a `Project.toml` project file.
+    Esimerkki `Project.toml`-projektitiedostosta.
 
     ```toml
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     ```
 
-    An example of a `script.jl` code.
+    Esimerkki `script.jl`-koodista.
 
     ```julia
     using CUDA
@@ -527,7 +516,7 @@ We use the following directory structure and assume it is our working directory.
     B_d = A_d * A_d
     ```
 
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -546,14 +535,14 @@ We use the following directory structure and assume it is our working directory.
     ```
 
 === "Mahti"
-    An example of a `Project.toml` project file.
+    Esimerkki `Project.toml`-projektitiedostosta.
 
     ```toml
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     ```
 
-    An example of a `script.jl` code.
+    Esimerkki `script.jl`-koodista.
 
     ```julia
     using CUDA
@@ -563,7 +552,7 @@ We use the following directory structure and assume it is our working directory.
     B_d = A_d * A_d
     ```
 
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -582,14 +571,14 @@ We use the following directory structure and assume it is our working directory.
     ```
 
 === "LUMI"
-    An example of a `Project.toml` project file.
+    Esimerkki `Project.toml`-projektitiedostosta.
 
     ```toml
     [deps]
     AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
     ```
 
-    An example of a `script.jl` code.
+    Esimerkki `script.jl`-koodista.
 
     ```julia
     using AMDGPU
@@ -599,7 +588,7 @@ We use the following directory structure and assume it is our working directory.
     B_d = A_d * A_d
     ```
 
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -618,19 +607,18 @@ We use the following directory structure and assume it is our working directory.
     julia --project=. script.jl
     ```
 
-
-### Multi GPU with MPI
-We use the following directory structure and assume it is our working directory.
+### Usean GPU:n käyttö MPI:n kanssa {#multi-gpu-with-mpi}
+Käytämme seuraavaa hakemistorakennetta ja oletamme sen olevan työskentelyhakemistomme.
 
 ```text
 .
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-├── prog.jl       # Julia GPU-aware MPI program
-└── script.jl     # Julia script
+├── Project.toml  # Julia-ympäristö
+├── batch.sh      # Slurm-eräskripti
+├── prog.jl       # Julia GPU -tietoisuus MPI -ohjelma
+└── script.jl     # Julia-skripti
 ```
 
-An example of a `script.jl` code.
+Esimerkki `script.jl`-koodista.
 
 ```julia
 using MPI
@@ -638,7 +626,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
 ```
 
 === "LUMI"
-    An example of a `Project.toml` project file.
+    Esimerkki `Project.toml`-projektitiedostosta.
 
     ```toml
     [deps]
@@ -646,7 +634,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
     ```
 
-    An example of a `prog.jl` code. ([source](https://gist.github.com/luraess/a47931d7fb668bd4348a2c730d5489f4))
+    Esimerkki `prog.jl`-koodista. ([source](https://gist.github.com/luraess/a47931d7fb668bd4348a2c730d5489f4))
 
     ```julia
     using MPI
@@ -654,12 +642,12 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     MPI.Init()
     comm = MPI.COMM_WORLD
     rank = MPI.Comm_rank(comm)
-    # select device
+    # valitse laite
     comm_l = MPI.Comm_split_type(comm, MPI.COMM_TYPE_SHARED, rank)
     rank_l = MPI.Comm_rank(comm_l)
     device = AMDGPU.device_id!(rank_l+1)
     gpu_id = AMDGPU.device_id(AMDGPU.device())
-    # select device
+    # valitse laite
     size = MPI.Comm_size(comm)
     dst  = mod(rank+1, size)
     src  = mod(rank-1, size)
@@ -669,13 +657,13 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     recv_mesg = ROCArray{Float64}(undef, N)
     fill!(send_mesg, Float64(rank))
     AMDGPU.synchronize()
-    rank==0 && println("start sending...")
+    rank==0 && println("alustetaan lähetys...")
     MPI.Sendrecv!(send_mesg, dst, 0, recv_mesg, src, 0, comm)
-    println("recv_mesg on proc $rank: $recv_mesg")
-    rank==0 && println("done.")
+    println("recv_mesg yksikölle $rank: $recv_mesg")
+    rank==0 && println("valmis.")
     ```
 
-    An example of a `batch.sh` batch script.
+    Esimerkki `batch.sh`-eräskriptistä.
 
     ```bash
     #!/bin/bash
@@ -695,59 +683,58 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     julia --project=. script.jl
     ```
 
-
-## Notes
-### Multi-threading in linear algebra
-Julia uses OpenBLAS as the default `LinearAlgebra` backend.
-External linear algebra backends such as OpenBLAS use internal threading.
-We can set their thread counts using environment variables.
-The `julia` module sets them to the number of CPU threads.
+## Muistiinpanoja {#notes}
+### Usean säikeen käyttö lineaarialgebrassa {#multi-threading-in-linear-algebra}
+Julia käyttää OpenBLAS:ia oletuksena `LinearAlgebra`-taustajärjestelmänä.
+Ulkoiset lineaarialgebran taustajärjestelmät kuten OpenBLAS käyttävät sisäistä säikeistystä.
+Voimme asettaa niiden säikeiden määrän ympäristömuuttujilla.
+`julia`-moduuli asettaa ne CPU-säikeiden määrän mukaisesti.
 
 ```bash
 export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
 ```
 
-We must be careful not to oversubscribe cores when using BLAS operations within Julia threads or processes.
-We can change the amount of BLAS threads at runtime using the `BLAS.set_num_threads` function.
+Meidän täytyy olla varovaisia, ettemme ylikuormita ytimiä käyttäessämme BLAS-operaatioita Julian säikeiden tai prosessien sisällä.
+Voimme muuttaa BLAS-säikeiden määrää ajonaikaisesti käyttämällä `BLAS.set_num_threads`-funktiota.
 
 ```julia
 using LinearAlgebra
 
-# Number of threads
+# Säikeiden lukumäärä
 n = Threads.nthreads()
 
-# Define a matrix
+# Määritä matriisi
 X = rand(1000, 1000)
 
-# Set the number of threads to one before performing BLAS operations of multiple Julia threads.
+# Aseta säikeiden lukumäärä yhteen ennen BLAS-operaatioiden suorittamista monella Julia-säikeellä.
 BLAS.set_num_threads(1)
 Y = zeros(n)
-Threads.@threads for i in 1:n  # uses n Julia threads
-    Y[i] = sum(X * X)          # uses one BLAS thread
+Threads.@threads for i in 1:n  # käyttää n Julia-säiettä
+    Y[i] = sum(X * X)          # käyttää yhtä BLAS-säiettä
 end
 
-# Set the number of threads back to the default when performing BLAS operation on a single Julia Thread.
+# Aseta säikeiden lukumäärä takaisin oletukseen suoritettaessa BLAS-operaatio yksittäisellä Julia-säikeellä.
 BLAS.set_num_threads(n)
 Z = zeros(n)
-for i in 1:n                   # uses one Julia thread
-    Z[i] = sum(X * X)          # uses n BLAS threads
+for i in 1:n                   # käyttää yhtä Julia-säiettä
+    Z[i] = sum(X * X)          # käyttää n BLAS-säiettä
 end
 ```
 
-Alternatively, we can use the MKL backend via [MKL.jl](https://github.com/JuliaLinearAlgebra/MKL.jl) as a linear algebra backend.
-MKL is often faster than OpenBLAS when using multiple threads on Intel CPUs, such as those on Puhti.
-We can set the MKL thread count as follows.
+Vaihtoehtoisesti voimme käyttää MKL-taustaa [MKL.jl](https://github.com/JuliaLinearAlgebra/MKL.jl) kautta lineaarialgebran taustajärjestelmänä.
+MKL on usein nopeampi kuin OpenBLAS käytettäessä useita säikeitä Intel-suorittimilla, kuten Puhti-klusterissa olevilla.
+Voimme asettaa MKL-säikeiden määrän seuraavasti.
 
 ```bash
 export MKL_NUM_THREADS=$JULIA_CPU_THREADS
 ```
 
-If we use MKL, we should load it before other linear algebra libraries.
+Jos käytämme MKL:ää, meidän pitäisi ladata se ennen muita lineaarialgebran kirjastoja.
 
 ```julia
 using MKL
 using LinearAlgebra
-# your code ...
+# sinun koodisi ...
 ```
 
-There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
+OpenBLAS:in ja MKL:n käytössä on [huomioitavia seikkoja](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer), kun käytetään muita kuin yhtä tai kaikkia ytimiä BLAS-säikeitä.

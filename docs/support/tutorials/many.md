@@ -1,99 +1,56 @@
-# GNU Parallel workflow for many small, independent runs
+# GNU Parallel -työnkulku monille pienille, itsenäisille ajoille {#gnu-parallel-workflow-for-many-small-independent-runs}
 
-The goal is to have a workflow that is
+Tavoitteena on luoda työnkulku, joka on
 
-1. *simple* to understand,
-2. fits well into the *batch queue system*, and
-3. does not stress the *parallel file system*.
+1. *yksinkertainen* ymmärtää,
+2. sopii hyvin *eräjono*-järjestelmään ja
+3. ei kuormita *rinnakkaista tiedostojärjestelmää*.
 
-There is a plethora of workflow tools. Whatever tool one chooses, it will
-unlikely match the particular workflow and underlying computing platform out of
-the box. Some amount of programming is needed in most cases. A very much related
-discussion is in [Array jobs](../../computing/running/array-jobs.md)
-chapter of <https://docs.csc.fi>.
+Työnkulkuvälineitä on runsaasti. Mikä tahansa väline valitaankin, se ei todennäköisesti sovellu sellaisenaan tiettyyn työnkulkuun ja taustalla olevaan tietokoneympäristöön. Useimmissa tapauksissa tarvitaan jonkin verran ohjelmointia. Hyvin läheisesti käsiteltävä keskustelu löytyy [Riviärit](../../computing/running/array-jobs.md) -luvun keskustelusta osoitteessa <https://docs.csc.fi>.
 
-## Strengths of GNU Parallel
+## GNU Parallelin vahvuudet {#strengths-of-gnu-parallel}
 
-* Does not require a database or persistent manager process
-* Easily scales to a large number of tasks/nodes
-* Efficient use of scheduler resources
+* Ei vaadi tietokantaa tai pysyvää hallintaprosessia
+* Skaalautuu helposti suureen määrään tehtäviä/solmukohtia
+* Tehokas ajanhallintaresurssien käyttö
 
-## Disadvantages of GNU Parallel
+## GNU Parallelin haitat {#disadvantages-of-gnu-parallel}
 
-* User is required to do careful organization of input and output files
-* Scaling up requires consideration of system I/O performance
-* Modest familiarity with bash scripting recommended
-* Only serial subtasks
-* No support for dependencies or error recovery
+* Käyttäjän on huolellisesti organisoitava syöte- ja ulostulotiedostot
+* Skaalaaminen vaatii järjestelmän I/O-suorituskyvyn huomioimista
+* Kohtalainen kokemus bash-komentosarjoista suositeltavaa
+* Ainoastaan sarjallisia alatehtäviä
+* Ei tukea riippuvuuksille tai virheenpalautukselle
 
-## System limits outline
+## Järjestelmän rajat yhteenveto {#system-limits-outline}
 
-The maximum number of jobs that each user can submit per month should be kept
-below one thousand. Too many batch jobs will generate excess log data and slows
-down the job scheduler.
-[Array jobs](../../computing/running/array-jobs.md) are basically
-just a shorthand, so a single array job of 100 members counts the same as 100
-individual jobs from the batch queue system's perspective.
+Kunkin käyttäjän kuukaudessa lähettämien töiden enimmäismäärä tulisi pitää alle tuhannessa. Liian monet erätyöt tuottavat liikaa lokitietoa ja hidastavat työhallintajärjestelmää. [Riviärit](../../computing/running/array-jobs.md) ovat käytännössä vain lyhenne, joten yksi 100 jäsenen riviäritö vastaavat 100 yksittäistä työtä eräjonojärjestelmän näkökulmasta.
 
-The job maximum runtime is limited by the queue parameters. The minimum time is
-not limited, but if the job is too short, it is just generating proportionally
-large scheduling overhead in the batch system.
+Työn maksimisuoritusaika rajoittuu jonoparametrien mukaan. Minimiajalle ei ole rajoitusta, mutta jos työ on liian lyhyt, se vain tuottaa suhteettoman suuren ajoituskuormituksen eräjärjestelmässä.
 
-!!! Tip
-      A good target is to write batch
-      jobs that finish somewhere between two hours and two days.
+!!! Vinkki
+      Hyvä tavoite on kirjoittaa erätöitä, jotka päättyvät kahden tunnin ja kahden päivän välillä.
 
-Parallel file systems work poorly when a single client (application program)
-tries to perform too many file operations. Such cases can be e.g. applications
-installed with the Conda package manager directly on the shared file system. 
-One miniconda environment is easily over 20000 files and Anaconda distribution
-is much worse. Many of these files need to be opened every time a Conda application
-is launched. When running many, relatively short jobs, avoid running applications installed with Conda. However, if your application requires a complex environment,
-use applications packed into Singularity containers, which are single files from
-the perspective of the file system. To easily containerize a Conda environment,
-see the [Tykky container wrapper tool](../../computing/containers/tykky.md)
+Rinnakkaiset tiedostojärjestelmät toimivat huonosti, kun yksittäinen asiakas (sovellusohjelma) yrittää suorittaa liikaa tiedosto-operaatioita. Tällaisia tapauksia voivat olla esimerkiksi sovellukset, jotka on asennettu Conda-pakettienhallinnan avulla suoraan jaetulle tiedostojärjestelmälle. Yksi miniconda-ympäristö sisältää helposti yli 20000 tiedostoa, ja Anaconda-jakelu on sitäkin pahempi. Monia näistä tiedostoista täytyy avata joka kerta, kun Conda-sovellusta käynnistetään. Kun ajatetaan useita, suhteellisen lyhyitä töitä, vältä Condalla asennettujen sovellusten käyttöä. Jos sovelluksesi vaatii monimutkaista ympäristöä, käytä sovelluksia, jotka on pakattu Singularity-kontteihin, jotka ovat tiedostojärjestelmän näkökulmasta yksittäisiä tiedostoja. Katso Conda-ympäristön helppoon kontitukseen [Tykky-container-wrapper-työkalu](../../computing/containers/tykky.md).
 
-"Too many files" issues are also often encountered with workflows consisting of
-thousands of small runs. As a general guide, keep the number of files in a
-single directory well below one thousand, and organize your data into multiple
-directories. Also, use command `csc-workspaces` to monitor that the total number
-of files in your projects stays well below the limits. If most of the files are
-temporary, or there simply is too many of them, using the fast local SSD disks
-in the
-[I/O nodes](../../computing/running/creating-job-scripts-puhti.md#local-storage)
-can solve the problem. You can pack small files into a bigger archive file with
-the `tar` command. Most importantly, if there are output files that you do not need,
-find out how to turn off writing those in the first place.
+"Tiedostoja on liikaa" -ongelmia kohdataan usein myös työnkuluissa, jotka koostuvat tuhansista pienistä ajoista. Yleisenä ohjeena: pidä yksittäisessä hakemistossa olevien tiedostojen määrä hyvin alle tuhannessa ja organisoi datasi moniin hakemistoihin. Käytä myös komentoa `csc-workspaces` seuramaan, että projektiesi tiedostojen kokonaismäärä pysyy hyvin alle rajojen. Jos suurin osa tiedostoista on väliaikaisia tai niitä yksinkertaisesti on liian monta, nopeiden paikallisten SSD-levyjen käyttö
+[I/O solmuissa](../../computing/running/creating-job-scripts-puhti.md#local-storage) voi ratkaista ongelman. Voit pakata pieniä tiedostoja suurempaan arkistotiedostoon `tar`-komennolla. Erityisesti, jos on olemassa ulostulotiedostoja, joita et tarvitse, selvitä miten niiden kirjoittaminen voidaan alusta alkaen kytkeä pois.
 
-Please contact <servicedesk@csc.fi> if your workflow needs help to fit into the
-limits given above.
+Ole yhteydessä osoitteessa <servicedesk@csc.fi>, jos työnkuluasi täytyy sovittaa yllä annettuihin rajoihin.
 
+## Esimerkki tapaus, 80000 itsenäistä ajoa {#an-example-case-80000-independent-runs}
 
-## An example case, 80000 independent runs
+Yleisesti ottaen työnkulun suunnitteluun tarvitaan kolme osaa sisääntuloa:
 
-In general, there are three pieces of input that are needed for designing the
-workflow:
+1. Kuinka monta ajoa yhteensä tulee olemaan?
+2. Kuinka kauan yksittäinen ajo kestää?
+3. Kuinka monta tiedostoa luodaan?
 
-1. How many runs there will be in total?
-2. How long does a single run take?
-4. How many files will be created?
+Kaksi ensimmäistä määrittävät, kuinka ajot ryhmitellään erätöiksi, ja viimeinen määrittää hakemistorakenteen.
 
-The first two determine how the runs are grouped into batch jobs, and the last
-one determines the directory hierarchy.
+Katsotaanpa esimerkkiä, jossa meillä on 80000 itsenäistä, ei-rinnakkaista yksiytimistä ajoa, joista kukin kestää 0–30 minuuttia, keskimäärin 15 minuuttia. Pahimmassa tapauksessa kaikki erätyön ajot kestävät maksimiajan, 30 minuuttia. Näemme, että yksi 40-tunnin erätyö riittää ainakin 80 ajolle yhdellä ytimellä ja 3200 ajolle kaikilla 40 ytimellä yhdellä laskentasolmulla. Niinpä kaikki 80000 ajoa mahtuvat 25 40-tunnin erätyöhön, kukin varaten yhden täyden laskentasolmun.
 
-Let's consider an example where we have 80000 independent, non-parallel
-single-core runs, each taking from 0 to 30 minutes, with a 15-minute average. In
-the worst case, all the runs in a batch job take the maximum amount of time, 30
-minutes. We can see that a single 40-hour batch job should be enough for at
-least 80 runs with a single core, and 3200 runs with all 40 cores in a full
-compute node. Thus, all 80000 runs should fit in 25 40-hour batch jobs, each
-reserving one full compute node.
-
-Let's say our application is a real disk-hog, and in addition to one input file
-and one output file that we wish to keep, it also creates 100 temporary files in
-the current directory. We can have at maximum about 400 input and output files
-in a single directory, and use the fast local disk in the I/O nodes for the
-temporary files. For 80000 runs we thus get 200 directories, each with 400 runs.
+Oletetaan, että sovelluksemme on todellinen levyrohmua, ja sen lisäksi, että meillä on yksi sisääntulotiedosto ja yksi ulostulotiedosto, jotka haluamme säilyttää, se myös luo 100 väliaikaistiedostoa nykyiseen hakemistoon. Voimme olla korkeintaan noin 400 sisääntulo- ja ulostulotiedostoa yhdessä hakemistossa ja käyttää nopeaa paikallista levyä I/O solmuille väliaikaistiedostoille. 80000 ajolle saamme näin 200 hakemistoa, joista jokaisessa on 400 ajoa.
 
 ```
 many
@@ -107,10 +64,9 @@ many
     dir-200
 ```
 
-Additional consideration needs to be taken if the single runs are parallel, or
-there are dependencies between them, but that's another story.
+Lisänäkökohtia on otettava huomioon, jos yksittäiset ajot ovat rinnakkaisia tai niillä on keskinäisiä riippuvuuksia, mutta se on toinen tarina.
 
-Let's look at the job script for our example case:
+Katsotaanpa työn skripti esimerkki tapauksessamme:
 
 ```bash
 #!/bin/bash
@@ -137,35 +93,15 @@ find $job_dirs -name 'input-*' | \
     parallel -j $SLURM_CPUS_PER_TASK bash wrapper.sh {}
 ```
 
-The batch job reserves a whole node for 40 hours. One task starts in the node,
-which has access to all 40 CPU cores in the node. Since we reserve all the
-cores, we can reserve all the memory and all the local disk all the same, no
-need to be stringy here. The last line, `#SBATCH --array=0,24`, tells the batch
-system to execute 25 copies of this job, each job identified by a unique number
-in environment variable `SLURM_ARRAY_TASK_ID`. Depending on the queue situation,
-many of these jobs can run in parallel.
+Erätyö varaa koko solmun 40 tunniksi. Solmuun käynnistyy yksi tehtävä, jolla on pääsy solmun kaikkiin 40 suorittimeen. Koska varaamme kaikki ytimet, voimme varata kaiken muistin ja kaiken paikallisen levyn samalla tavalla, ei tarvitse olla pihi. Viimeinen rivi, `#SBATCH --array=0,24`, kertoo eräjärjestelmälle suorittaa 25 kopiota tästä työstä, jokainen työ yksilöitynä ympesän muuttujan `SLURM_ARRAY_TASK_ID` avulla. Jonomarginaalin mukaan monet näistä töistä voivat käynnistyä rinnakkain.
 
-Next we load a module providing
-[GNU parallel](https://www.gnu.org/software/parallel/). We use this tool
-within the node to "schedule" all 3200 runs in a job, so that at any point
-in time all 40 cores are busy, but not overloaded.
+Seuraavaksi ladataan moduuli, joka tarjoaa [GNU parallel](https://www.gnu.org/software/parallel/). Käytämme tätä työkalua solmun sisällä "aikatauluttamaan" kaikki 3200 ajoa työssä niin, että milloin tahansa kaikki 40 ydintä ovat käytössä mutta eivät ylikuormitettuja.
 
-Next lines calculate which directories belong to the current array job, using
-the `SLURM_ARRAY_TASK_ID` environment varible.
+Seuraavat rivit laskevat, mitkä hakemistot kuuluvat nykyiseen riviäritehtävään käyttäen `SLURM_ARRAY_TASK_ID` -ympäristömuuttujaa.
 
-The main "loop" of the script is implemented with GNU parallel command
-`parallel`. With the option `-j $SLURM_CPUS_PER_TASK` we tell GNU parallel to
-keep running 40 commands (applications) in parallel. Since we need to copy
-files into and out from the local SSD for each run, we wrap our application in a
-small shell script, `wrapper.sh`, which takes the input file name as an
-argument. The names of the input files are fed to GNU parallel through a pipe,
-and GNU parallel keeps on running the `bash wrapper.sh <input file>` command as
-long as there are arguments in the pipe.
+Skriptin pääasiallinen "silmukka" on toteutettu GNU parallelin käskyllä `parallel`. Asetuksella `-j $SLURM_CPUS_PER_TASK` kerromme GNU parallelin jatkavan 40 komennon (sovelluksen) suorittamista rinnakkain. Koska meidän on kopioitava tiedostoja paikalliselle SSD-levylle ja sieltä pois jokaisen ajon osalta, kääritään sovelluksemme pieneen skriptiin, `wrapper.sh`, joka ottaa sisääntulotiedoston nimen argumenttina. Sisääntulotiedostojen nimet syötetään GNU parallelille putken kautta, ja GNU parallel jatkaa käskyn `bash wrapper.sh <input file>` suorittamista, kunnes putkessa on argumentteja.
 
-Separating the wrapper script from the batch job script makes it possible to
-develop and test each other separately. In general, use small test sets when
-developing the workflow, and do not expect to get it perfect on the first try.
-You can study and test a small version of the example case with
+Skripti erottelun erätyöstä mahdollistaa kummankin itsenäisen kehityksen ja testauksen. Yleisesti ottaen käytä pieniä testisarjoja kehittäessäsi työnkulkua, ja älä odota saada sitä täydelliseksi ensimmäisellä yrityksellä. Voit tutkia ja testata pientä versiota esimerkkitapauksesta seuraavilla komennoilla:
 
 ```
 export SBATCH_ACCOUNT=<your project>
@@ -176,13 +112,7 @@ tree /scratch/${SBATCH_ACCOUNT}/many
 sbatch job.sh
 ```
 
-!!! Note
-    Running multiple separate jobs inside a larger allocation may result in
-    idle resources. Please make sure that such a job has a lot of quick jobs
-    to run, so that the last running job is not keeping the complete allocation
-    alive for long. Thus, the length of a subjob should be much less than
-    the duration of the allocation, and the number of subjobs much larger
-    than the cores requested in one task.
+!!! Huomio
+    Useiden erillisten töiden suorittaminen suuremmassa erässä voi johtaa resurssien joutilaisuuteen. Varmista, että tällainen työ sisältää paljon nopeita töitä suoritettavaksi, jotta viimeinen suorittava työ ei pitkitä koko erän kestoa liian pitkään. Joten alatyön pituuden tulisi olla paljon pienempi kuin erän kesto, ja alatyön määrä paljon suurempi kuin yhdessä tehtävässä pyydetyt ytimet.
 
-You can use [seff](../faq/how-much-memory-my-job-needs.md) to learn how long 
-past jobs have been.
+Voit käyttää [seff](../faq/how-much-memory-my-job-needs.md) tarkistaaksesi, kuinka kauan aiemmat työt ovat kestäneet.

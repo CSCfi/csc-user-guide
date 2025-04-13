@@ -1,28 +1,29 @@
-# Running temporary PostgreSQL database in SD Desktop
 
-1. Request access to the tools-for-sd-connect or upload your own PostgreSQL singularity container to SD Connect. Start a SD Desktop Virtual Machine that has data volume that is big enough for your data. Login to your SD Desktop, open Data Gateway connection to SD Connect and open a terminal session.
+# Väliaikaisen PostgreSQL-tietokannan ajaminen SD Desktopissa {#running-temporary-postgresql-database-in-sd-desktop}
 
-2. In the terminal session, create directory `/media/volume/psql` and move there
+1. Pyydä pääsyä tools-for-sd-connect -työkaluihin tai lataa oma PostgreSQL-singuaarisuuskonttisi SD Connectiin. Käynnistä SD Desktop -virtuaalikone, jolla on riittävän suuri tietomäärä levytilasta dataa varten. Kirjaudu sisään SD Desktopiin, avaa Data Gateway -yhteys SD Connectiin ja avaa pääteistunto.
 
+2. Luo pääteistunnossa hakemisto `/media/volume/psql` ja siirry sinne
+    
     ```text
-    mkdir/media/volume/psql
+    mkdir /media/volume/psql
     cd /media/volume/psql
     ```
 
-3. Import Apptainer container containing PostreSQL
+3. Tuo Apptainer-säilö, joka sisältää PostgreSQL:n
 
     ```text
     cp $HOME/Projects/SD\ connect/*/tools-for-sd-desktop/apptainer/postgres_14.2-alpine3.15.sif ./
     ```
 
-4. Create PostgreSQL environment file (`pg.env`) to be used.
+4. Luo ympäristötiedosto PostgreSQL:lle (`pg.env`), jota käytetään.
 
     ```text
     module load nano
     nano pg.env
     ```
 
-5. Add following settings to the file
+5. Lisää tiedostoon seuraavat asetukset
 
     ```text
     export TZ=Europe/Helsinki
@@ -32,46 +33,45 @@
     export POSTGRES_INITDB_ARGS="--encoding=UTF-8"
     ```
 
-    Then save and exit nano.
+    Tallenna sitten ja poistu nanosta.
 
-6. Create directories for PostgreSQL server
+6. Luo hakemistot PostgreSQL-palvelimelle
 
     ```text
     mkdir pgdata
     mkdir pgrun 
     ```
 
-7. Start a screen session in your terminal session and launch database server using the container:
+7. Käynnistä screen-istunto pääteistunnossasi ja käynnistä tietokantapalvelin käyttämällä säilöä:
 
     ```text
     screen
     apptainer run -B pgdata:/var/lib/postgresql/data -B pgrun:/var/run/postgresql -e -C --env-file pg.env postgres_14.2-alpine3.15.sif
     ```
 
-    Then leave the screen session by pressing:
+    Jätä sitten screen-istunto painamalla:
 
     ```text
     Ctrl-a-d
     ```
 
-    The server should now continue running in the screen session.
+    Palvelimen pitäisi nyt jatkaa käyntiään screen-istunnossa.
 
-8. Open a shell session into your PostgreSQL container. Remember to mount the directory where you have your data
-(e.g. `/shared-directory`)
+8. Avaa komentorivistunto PostgreSQL-säilöön. Muista kiinnittää hakemisto, jossa datasi sijaitsee (esim. `/shared-directory`)
 
     ```text
     apptainer shell -B /shared-directory:/shared-directory postgres_14.2-alpine3.15.sif
     ```
 
-    Inside container, move to your data directory and star working with your database:
+    Kontissa, siirry datakansioosi ja aloita työskentely tietokantasi kanssa:
 
     ```text
-    cd  /shared-directory
+    cd /shared-directory
     psql -h localhost -p 5432 -d mydb -U pguser
     ```
 
-    For example
+    Esimerkiksi
 
     ```text
-    psql -h localhost -p 5432 -d mydb -U pguser f psql_dump_file.sql
+    psql -h localhost -p 5432 -d mydb -U pguser -f psql_dump_file.sql
     ```

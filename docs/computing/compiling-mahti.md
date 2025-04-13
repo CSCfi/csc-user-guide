@@ -1,206 +1,144 @@
-# Compiling applications in Mahti
+# Ohjelmien kääntäminen Mahti-klusterilla
 
-## General instructions
+## Yleiset ohjeet {#general-instructions}
 
+- Mahdollisuuksien mukaan käytä [paikallista levyä](disk.md#login-nodes) sisäänkirjautumissolmussa ohjelmien kääntämiseen.
+  - Paikallisella levyllä kääntäminen on huomattavasti nopeampaa ja vähentää kuormitusta yhteiseltä tiedostojärjestelmältä.
+  - Paikallista levyä puhdistetaan usein, joten siirräthän tiedostosi muualle kääntämisen jälkeen.
 
-- Whenever possible, use the [local disk](disk.md#login-nodes) on the login node for compiling software.
-    - Compiling on the local disk is much faster and shifts load from the shared file system. 
-    - The local disk is cleaned frequently, so please move your files elsewhere after compiling. 
+## MPI-sovellusten kääntäminen {#building-mpi-applications}
 
-
-## Building MPI applications
-
-C/C++ and Fortran applications can be built with
-[GNU](https://gcc.gnu.org) or [AMD](https://developer.amd.com/amd-aocc/)
-compiler suites. The GNU compilers are loaded by default. AMD compilers can be
-loaded using the [Modules](modules.md) system with the command:
+C/C++ ja Fortran -sovelluksia voi kääntää joko [GNU](https://gcc.gnu.org) tai [AMD](https://developer.amd.com/amd-aocc/) kääntäjäpakettien avulla. GNU-kääntäjät ovat ladattuna oletuksena. AMD-kääntäjät voi ladata [Modules](modules.md) järjestelmän kautta komennolla:
 ```
 module load aocc
 ```
 
-Different applications function better with different suites, so the selection
-needs to be done on a case-by-case basis.
+Eri sovellukset toimivat paremmin eri kääntäjäpakettien kanssa, joten valinta täytyy tehdä tapauskohtaisesti.
 
-The MPI environment in Mahti is OpenMPI, and when building MPI
-applications all compiler suites can be used with
-the `mpicc` (C), `mpicxx` (C++), or `mpif90` (Fortran) wrappers.
+Mahdi-klusterin MPI-ympäristö on OpenMPI, ja kun rakennat MPI-sovelluksia, voit käyttää kaikkia kääntäjäpaketteja `mpicc` (C), `mpicxx` (C++), tai `mpif90` (Fortran) kääreiden avulla.
 
-The compiler options for different suites are different. The
-recommended basic optimization flags are listed in the table below. It
-is recommended to start from 
-the safe level and then move up to intermediate or even aggressive,
-while making sure the results are  correct and the program's
-performance has improved. 
+Kääntäjäpakettien kääntäjäoptionit eroavat toisistaan. Suositellut perusoptimointioptiot on listattu alla olevassa taulukossa. On suositeltavaa aloittaa turvalliselta tasolta ja siirtyä sitten keskitason tai jopa aggressiiviseen optimointiin samalla varmistaen, että tulokset ovat oikeita ja ohjelman suorituskyky on parantunut.
 
+| Optimointitaso   | GNU               | AMD (clang)  |
+| :--------------- | :---------------- | :----------- |
+| **Turvallinen**  | -O2 -march=native | -O2 -march=native  |
+| **Keskitaso**    | -O3 -march=native | -O3 -march=native |
+| **Aggressiivinen** | -O3 -march=native -ffast-math -funroll-loops | -O3 -march=native -ffast-math -funroll-loops |
 
-| Optimisation level | GNU               | AMD (clang) |
-| :----------------- | :---------------- | :----------- |
-| **Safe**           | -O2 -march=native | -O2 -march=native  |
-| **Intermediate**   | -O3 -march=native | -O3 -march=native |
-| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -march=native -ffast-math -funroll-loops |
+Yksityiskohtainen luettelo GNU- ja AMD-kääntäjien optioista löytyy _man_-sivuilta (`man gcc/gfortran`) kun vastaava ohjelmointiympäristö on ladattu, tai kääntäjämanuaaleista (katso linkit yllä).
 
-
-A detailed list of options for the GNU and AMD compilers can be found on the _man_
-pages (`man gcc/gfortran`)  when the corresponding programming
-environment is loaded, or in the compiler manuals (see the links above).
-
-List all available versions of the compiler suites:
+Listaa kaikki saatavilla olevat kääntäjäversiot:
 ```
 module spider gcc
 module spider aocc
 ```
 
-<!-- ### Intel compilers
+## OpenMP- ja hybridisovellusten kääntäminen {#building-openmp-and-hybrid-applications}
 
-!!! warning
-    Support for Intel compilers may be somewhat limited and may lack certain functionalities. For more detailed information, it is recommended to contact the CSC service desk.
+OpenMP- tai MPI/OpenMP-hybridisovelluksia käännettäessä tarvitaan lisäkääntäjä- ja linkkeriflageja:
 
-Access to the Intel compilers can be obtained by loading the .unsupported modules:
+| Kääntäjäpaketti | OpenMP-lippu |
+| :-------------- | :----------- |
+| GNU ja AMD      | -fopenmp     |
 
-```
-module load .unsupported
-module load intel-oneapi-compilers/2021.4.0
-```
+## Sarjasovellusten kääntäminen {#building-serial-applications}
 
-Comprehensive information about flags and optimization options that can be used with the compiler can be found in the manual pages, accessible with `man icc/ifort`. -->
+Sarjasovelluksia käännettäessä tulee käyttää kääntäjäpakettikohtaisia kääntäjäkomentoja:
 
-## Building OpenMP and hybrid applications
+| Kääntäjäpaketti | C   | C++  | Fortran   |
+| :-------------- | :-  | :--  | :-------- |
+| GNU             | gcc | g++  | gfortran  |
+| AMD             | clang | clang++ | flang |
 
-Additional compiler and linker flags are needed when building OpenMP or
-MPI/OpenMP hybrid applications:
+## GPU-sovellusten kääntäminen {#building-gpu-applications}
 
-| Compiler suite | OpenMP flag |
-| :------------- | :---------- |
-| GNU and AMD    | -fopenmp    |
+CUDA-, OpenACC- ja OpenMP Offloading (C++ koodille) ohjelmointimallit ovat saatavilla Mahtissa NVIDIA HPC -kääntäjien kautta:
 
+Kääntäjät:
 
-## Building serial applications
+- (`nvc`) on C11-kääntäjä, joka tukee OpenACC:tä NVIDIA GPU:ille sekä OpenACC- ja OpenMP:tä moniydinprosessorille.
 
-For building serial applications, one needs to use compiler suite
-specific compiler command:
+- (`nvc++`) on C++17-kääntäjä, joka tukee GPU-ohjelmointia C++17 rinnakkaisalgoritmeilla, OpenACC:llä ja OpenMP Offloadingillä NVIDIA GPU:ille. Ei tue vielä C++ CUDA-koodia.
 
-| Compiler suite | C  | C++ | Fortran |
-| :------------- | :- | :-- | :------ |
-| GNU            | gcc | g++ | gfortran |
-| AMD            | clang | clang++ | flang |
+- (`nvcc`) on CUDA C ja CUDA C++ kääntäjäohjain NVIDIA GPU:ille.
 
-## Building GPU applications
+- (`nvfortran`) on CUDA Fortran kääntäjäohjain NVIDIA GPU:ille, tukee OpenACC:ta ja OpenMP:tä moniydinprosessorille OpenACC:lle.
 
-The CUDA, OpenACC and OpenMP Offloading (for C++ codes) programming 
-models are provided on Mahti by the NVIDIA HPC compilers:
+### CUDA {#cuda}
 
-Compilers:
+Koodin generoimiseksi tietylle kohdelaitteelle, kerro CUDA-kääntäjälle minkä laskentakapasiteetin kohdelaitteella on. Mahtissa GPU:t (Ampere V100) tukevat laskentakapasiteettia 8.0. Määritä tämä käyttämällä `-gencode arch=compute_80,code=sm_80`.
 
-- The (`nvc`) is a C11 compiler that supports OpenACC for NVIDIA  GPUs while  OpenACC and OpenMP for multicore CPUs.
-
-- The compiler (`nvc++`) is a C++17 compiler which supports GPU programming with C++17 parallel algorithms, OpenACC, and OpenMP
-Offloading on NVIDIA GPUs. It does not support yet C++ CUDA codes.
-
-- The (`nvcc`) is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
-
-- The (`nvfortran`) is the CUDA Fortran compiler driver for NVIDIA GPUs, it supports OpenACC as also multicore for OpenACC and OpenMP.
-
-### CUDA
-
-To generate code for a given target device, tell the CUDA
-compiler what compute capability the target device supports. On Mahti, the
-GPUs (Ampere V100) support compute capability 8.0. Specify this using
-`-gencode arch=compute_80,code=sm_80`.
-
-For example, compiling a CUDA kernel (`example.cu`) on Puhti (for C or C++ codes):
+Esimerkiksi CUDA-ytimen (`example.cu`) kääntäminen Puhtilla (C- tai C++-koodit):
 ```bash
 nvcc -gencode arch=compute_80,code=sm_80 example.cu
 ```
 
-Compile a CUDA Fortran code named example.cuf
+Käännä CUDA Fortran -koodi nimeltä example.cuf:
 ```bash
 nvfortran -gpu=cc80 example.cuf
 ```
 
-### OpenACC
+### OpenACC {#openacc}
 
-!!! warning
-    OpenACC support is provided through the NVIDIA `nvc` and `nvc++` compilers.
-    However, it is important to note that the support can be somewhat 
-    limited and may lack certain functionalities, such as MPI 
-    parallelization. For additional information about OpenACC support, 
-    the CSC service desk should be contacted.
+!!! varoitus
+    OpenACC-tuki toimitetaan NVIDIA:n `nvc` ja `nvc++` kääntäjien kautta.
+    On kuitenkin tärkeää huomata, että tuki voi olla hieman rajallinen ja saattaa puuttua joitain toiminnallisuuksia, kuten MPI-parallelisointi. Lisätietoja OpenACC-tuesta saa CSC:n palvelupisteestä.
 
-The compilers can be accessed through the NVIDIA HPC SDK module:
+Kääntäjät ovat saatavilla NVIDIA HPC SDK -moduulin kautta:
 ```bash
 module load .unsupported
 module load nvhpc/22.3
 ```
 
-For more detailed information about the available modules, please see `module
-spider nvhpc`.
+Lisätietoa saatavilla olevista moduuleista löytyy `module spider nvhpc`.
 
-To enable OpenACC support, one needs to give `-acc` flag to the compiler.
+Ota OpenACC-tuki käyttöön lisäämällä `-acc` flag kääntäjälle.
 
-To generate code for a given target device, tell the compiler
-what compute capability the target device supports. On Puhti, the GPUs (Ampere A100) 
-support compute capability 8.0. 
+Koodin generoimiseksi tietylle kohdelaitteelle, kerro kääntäjälle minkä laskentakapasiteetin kohdelaitteella on. Puhtilla GPU:t (Ampere A100) tukevat laskentakapasiteettia 8.0.
 
-For example, to compiling C code that uses OpenACC directives (`example.c`):
-
+Esimerkiksi C-koodin, joka käyttää OpenACC direktiivejä (`example.c`), kääntäminen:
 ```bash
-nvc -acc example.c .gpu=cc80
+nvc -acc example.c -gpu=cc80
 ```
 
-For information about what the compiler actually does with the OpenACC
-directives, use `-Minfo=all`.
+Lisätietoa siitä, mitä kääntäjä tekee OpenACC-direktiiveillä, saa käyttämällä `-Minfo=all`.
 
-For Fortran code:
+Fortran-koodille:
 ```bash
 nvfortran -acc example.F90 -gpu=cc80
 ```
 
-For C++ code:
+C++-koodille:
 ```bash
 nvc++ -acc example.cpp -gpu=cc80
 ```
 
-### OpenMP Offloading
+### OpenMP Offloading {#openmp-offloading}
 
-To enable OpenMP Offloading, the options `-mp=gpu` is required
+Ota käyttöön OpenMP Offloading lisäämällä `-mp=gpu` optio.
 
-For example, compile a C code with OpenMP offloading:
+Esimerkiksi C-koodin kääntäminen OpenMP offloadingillä:
 ```bash
 nvc -mp=gpu example.c -gpu=cc80
 ```
 
-For Fortran code:
+Fortran-koodille:
 ```bash
 nvfortran -mp=gpu example.F90 -gpu=cc80
 ```
 
-For C++ code:
+C++-koodille:
 ```bash
 nvc++ -mp=gpu example.cpp -gpu=cc80
 ```
 
-The `nvc++` compiler supports codes that contain OpenACC, OpenMP Offloading and C++ parallel algorithms in the same code, 
-for such case you can compile with:
+`nvc++`-kääntäjä tukee koodeja, jotka sisältävät OpenACC:n, OpenMP Offloadingin ja C++-rinnakkaisalgoritmeja samassa koodissa, tällaisessa tapauksessa voit kääntää seuraavasti:
 ```bash
 nvc++ -stdpar -acc -mp=gpu example.cpp -gpu=cc80
 ```
 
-<!-- For MPI, load the module
-```bash
-module load openmpi/4.1.2
-```
+## Ohjelmiston rakentaminen Spackilla {#building-software-using-spack}
 
-The use of the wrappers `mpicc`, `mpic++`, `mpif90`, executes the corresponding `nvc`,`nvc++`,`nvfortran` respectively. -->
+[Spack](https://spack.io) on joustava pakettienhallintaohjelma, jota voi käyttää ohjelmiston asentamiseen supertietokoneilla sekä Linux- ja macOS-järjestelmissä. Perusmoduulipuu, joka sisältää kääntäjät, MPI-kirjastot ja monia CSC:n supertietokoneilla saatavilla olevista ohjelmistoista, on asennettu Spackin avulla.
 
-## Building software using Spack
-
-[Spack](https://spack.io) is a flexible package manager that can be used to
-install software on supercomputers and Linux and macOS systems. The basic
-module tree including compilers, MPI libraries and many of the available
-software on CSC supercomputers have been installed using Spack.
-
-CSC provides a module `spack/v0.17-user` on Mahti that can be used by users to
-build software on top of the available compilers and libraries using Spack. It
-is also possible to install different customized versions of packages available
-in the module tree for special use cases. [See here for a short tutorial on how
-to install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md).
+CSC tarjoaa Mahtilla modulin `spack/v0.17-user`, jota käyttäjät voivat käyttää rakentaakseen ohjelmistoja saatavilla olevien kääntäjien ja kirjastojen päälle Spackin avulla. On myös mahdollista asentaa erilaisia räätälöityjä versioita moduulipuussa saatavilla olevista paketeista erityistapauksiin. [Katso täältä lyhyt opetusohjelma siitä, miten ohjelmistoja asennetaan CSC:n supertietokoneilla Spackin avulla](../support/tutorials/user-spack.md).

@@ -1,32 +1,32 @@
+
 # Federated European Genome-phenome Archive (FEGA)
 
-Federated European Genome-phenome Archive (FEGA) is a service for storing and publishing human genetic and phenotypic data consented for research. The service is based on a European network of local repositories. CSC hosts Finnish FEGA. Please note that this user guide is specific for Finnish FEGA service.
+Federated European Genome-phenome Archive (FEGA) on palvelu ihmisten perinnöllisyys- ja fenotyyppidatan tallentamiseen ja julkaisemiseen, joka on suostumuksella käytettävissä tutkimuksessa. Palvelu perustuu paikallisten eurooppalaisten arkistojen verkostoon. CSC isännöi Suomen FEGAa. Huomioithan, että tämä käyttöopas koskee nimenomaan Suomen FEGA-palvelua.
 
-You can use FEGA either to submit, apply or approve access to biomedical datasets. The service allows you to store sensitive research data under controlled access in Finland. At the same time, the public study information (metadata) is made internationally available in central [European Genome-phenome Archive](https://ega-archive.org/studies) (EGA). Each dataset is associated with a Data Access Committee (DAC), which evaluates data access applications and can grant or deny data access for re-use. If the application is approved, the applicant can directly access and analyse the sensitive data in a secure and private cloud workspace using CSC Sensitive Data Services for research. Submitting data to FEGA requires a separate contract. Choose the correct user guide below:
+Voit käyttää FEGAa joko biolääketieteellisten tietoaineistojen lähettämiseen, hakemiseen tai käyttöoikeuden hyväksymiseen. Palvelu mahdollistaa arkaluontoisten tutkimustietojen tallentamisen hallitun käyttöoikeuden alle Suomessa. Samalla julkinen tutkimustieto (metadata) on kansainvälisesti saatavilla keskeisessä [European Genome-phenome Archive](https://ega-archive.org/studies) (EGA). Jokainen tietoaineisto on liitetty Data Access Committeeen (DAC), joka arvioi tietoaineistojen käyttöoikeushakemuksia ja voi myöntää tai evätä tietojen uudelleenkäyttöoikeuden. Jos hakemus hyväksytään, hakija voi käsitellä ja analysoida arkaluontoista dataa turvallisessa ja yksityisessä pilvityötilassa käyttäen CSC:n Sensitiivisten tietojen palveluita tutkimukseen. Datan lähettäminen FEGAan vaatii erillisen sopimuksen. Valitse oikea käyttöopas alta:
 
-## I want to ...
+## Haluan ...
 
-- **[Publish data in FEGA](./fega-submission.md)**
-- **[Apply access to FEGA data](./sd-apply-access.md)**
-- **[Approve access to FEGA data](./sd-apply-approval.md)**
-- **[Enable reuse of FEGA data](./sd-apply-dac.md)**
+- **[Julkaista dataa FEGA:ssa](./fega-submission.md)**
+- **[Hakea pääsyä FEGA-dataan](./sd-apply-access.md)**
+- **[Hyväksyä pääsyä FEGA-dataan](./sd-apply-approval.md)**
+- **[Mahdollistaa FEGA-datan uudelleenkäyttö](./sd-apply-dac.md)**
 
 <br/>
 
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/zsZe4ZEld0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Hyödyllisiä termejä
 
-## Useful terminology
+- **Central EGA**. Central European Genome-phenome Archive. Kun dataa lähetetään FEGAan, metadata tehdään kansainvälisesti saataville keskeisessä EGA:ssa.
 
-- **Central EGA**. Central European Genome-phenome Archive. When submitting data to FEGA, the metadata is made internationally available in central EGA. 
+- **Data Access Committee (DAC)**. Yksilö tai ryhmä yksilöitä, jotka hallinnoivat FEGAan tallennettuja tietoaineistoja ja ovat vastuussa käyttöoikeushakemusten hyväksymisestä tai hylkäämisestä kyseisiin aineistoihin.
 
-- **Data Access Committee (DAC)**. Individual or group of individuals who are controllers for a dataset stored at FEGA and are responsible for approving and rejecting access requests to that dataset.
+- **Data Applicant**. Yksilö, joka hakee pääsyä arkaluonteiseen dataan tai metadataan, joka on tallennettu FEGAan.
 
-- **Data Applicant**. Individual who applies access to sensitive data or metadata that has been stored at FEGA.
+- **Data Submitter**. Yksilö, joka lataa dataa, metadataa ja muuta informaatiota FEGAan uudelleenkäyttöä varten hallitun pääsyn alaisena. Datan lähettäjä edustaa datan omistavan organisaationa lähetysprosessin aikana.
 
-- **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access. The data submitter represents data owner organisation during the submission process.
-
-- **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
+- **Finnish FEGA**. Kansallinen biolääketieteellisen tutkimuksen suostumuksella saatavien tietojen varasto. CSC ylläpitää Suomen FEGAa. Suomen FEGAan ladattu tutkimusdata pysyy hallitun pääsyn alaisena Suomessa.
 
 !!! note
-    For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for research webpage](https://research.csc.fi/sensitive-data-services-for-research).
+    Lisätietoja on saatavilla Federated EGA [palvelukuvaus](https://research.csc.fi/-/fega) CSC-palvelukatalogissa ja [CSC:n sensitiivisten datapalveluiden tutkimusverkkosivulla](https://research.csc.fi/sensitive-data-services-for-research).

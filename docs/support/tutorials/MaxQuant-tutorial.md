@@ -1,71 +1,58 @@
 
-# Running MaxQuant software on Puhti supercomputer
+# MaxQuant-ohjelmiston käyttäminen Puhti-superkoneella {#running-maxquant-software-on-puhti-supercomputer}
 
-[MaxQuant](https://maxquant.org/) is a quantitative proteomics software package designed for analyzing large mass-spectrometric data sets. High-performance computing environment like Puhti is a suitable place for running compute-intensive jobs using MaxQuant software in proteomics research.
+[MaxQuant](https://maxquant.org/) on kvantitatiivinen proteomiikkasovelluspaketti, joka on suunniteltu suurten massaspektrometristen tietojoukkojen analysointiin. Suorituskykyinen laskentaympäristö, kuten Puhti, soveltuu laskentaintensiivisten tehtävien suorittamiseen MaxQuant-ohjelmiston avulla proteomiikan tutkimuksessa.
 
-MaxQuant is free to use, but each user needs to register and download MaxQuant from the [developer site](https://maxquant.org/download_asset/maxquant/latest) themselves.
+MaxQuant on ilmainen käyttää, mutta jokaisen käyttäjän on rekisteröidyttävä ja ladattava MaxQuant itse [kehittäjän sivustolta](https://maxquant.org/download_asset/maxquant/latest).
 
-This tutorial provides instructions for running MaxQuant software on Puhti.
+Tässä ohjeessa annetaan ohjeet MaxQuant-ohjelmiston suorittamiseen Puhtilla.
 
-## Configure parameter file
+## Parametritiedoston konfigurointi {#configure-parameter-file}
 
-Even if you are going to run the MaxQuant pipeline on Puhti, 
-you first have to configure different parameters of your MaxQuant 
-job on your local Windows machine. And then upload parameter file 
-(i.e.,`mqpar.xml`), raw data samples (i.e, .raw files) and sequence 
-file (i.e., .fasta file) to Puhti computing environment.
+Vaikka aiot suorittaa MaxQuant-putkiston Puhtilla, sinun on ensin konfiguroitava MaxQuant-työsi eri parametrit paikallisella Windows-koneellasi. Sen jälkeen lataa parametridata (eli `mqpar.xml`), raakatiedsätä (esim. .raw tiedostot) ja sekvenssitiedosto (eli .fasta tiedosto) Puhti-laskentaympäristöön.
 
-## Edit XML configuration file
+## XML-konfigurointitiedoston muokkaaminen {#edit-xml-configuration-file}
 
-You have to make some modifications in parameter file (`mqpar.xml`), which was for example created on a local windows machine, to comply with HPC environment.
+Sinun on tehtävä joitain muutoksia parametridataasi (`mqpar.xml`), joka esimerkiksi luotiin paikallisella Windows-koneella, jotta se olisi yhteensopiva HPC-ympäristön kanssa.
 
-These modifications include changes in :
+Näihin muutoksiin kuuluu:
 
-- Windows paths into linux paths for sample files ( tip: search for `<filePaths>` in XML file) 
-- Windows path into linux path for fasta sequence file  (tip: search for `<fastaFilePath>` in XML file)
-- In the number of threads according to number of samples (tip: search for  `<numThreads>` in XML file)
+- Windows-polkujen muuttaminen linux-polkuiksi näytetiedostoille (vinkki: etsi `<filePaths>` XML-tiedostosta)
+- Windows-polun muuttaminen linux-poluksi fasta-sekvenssitiedostolle (vinkki: etsi `<fastaFilePath>` XML-tiedostosta)
+- Säikeiden lukumäärä näytteiden määrän mukaan (vinkki: etsi `<numThreads>` XML-tiedostosta)
 
-## Submit as a batch job to Puhti cluster
+## Lähettäminen erätyöksi Puhti-keskuksessa {#submit-as-a-batch-job-to-puhti-cluster}
 
-- First login to Puhti computer (see instructions [here](../../computing/connecting/index.md))
+- Kirjaudu ensin Puhti-koneeseen (katso ohjeet [täältä](../../computing/connecting/index.md))
 
-- Change to your project directory on Puhti and copy your input files there ([tips on how to transfer files](../../data/moving/index.md)).
+- Vaihda projektihakemistoon Puhtilla ja kopioi syötetiedostosi sinne ([vinkkejä tiedostonsiirrosta](../../data/moving/index.md)).
 
- This is your project directory (on scratch) where your .xml files, .fasta file, and raw data files are located
+  Tämä on projektihakemistosi (scratchissa), jossa .xml-tiedostosi, .fasta-tiedostosi ja raakatiedostosi sijaitsevat
 
-- Learn how to enable MaxQuant environment 
+- Opi ottamaan käyttöön MaxQuant-ympäristö
 
-MaxQuant software actually also needs mono software to be able to run. 
-With mono software, you can choose your *version* of MaxQuant. 
-CSC provides a module for mono.
+MaxQuant-ohjelmisto tarvitsee myös mono-ohjelmiston toimiakseen. Mono-ohjelmistolla voit valita MaxQuant-versiosi. CSC tarjoaa modulin mono:lle.
 
 ```text
 module load mono/5.14
 ```
 
-Download your linux-compatible version of MaxQuant (e.g., v2.0.3.0) to your 
-scratch directory on Puhti and run the following to verify that MaxQuant is installed properly:
+Lataa linux-yhteensopiva versiosi MaxQuantista (esim. v2.0.3.0) scratch-hakemistoosi Puhtilla ja suorita seuraava varmistaaksesi, että MaxQuant on asennettu oikein:
 
 ```text
 mono MaxQuant\ 2.0.3.0/bin/MaxQuantCmd.exe --help
 ```
 
-Note that the directory name contains a space, so you need to either escape it using backslash (\) or enclose the path in quotes. For ease of use, you may wish to rename the directory so it has e.g underscore instead of space. 
+Huomaa, että hakemiston nimi sisältää välilyönnin, joten sinun on joko käytettävä kenoviivaa (\) tai ympäröitävä polku lainausmerkeillä. Helppouden vuoksi saatat haluta nimetä hakemiston niin, että siinä on esim. alaviiva välilyönnin sijasta.
 
-!!! Note 
-    Please note that the MaxQuant version you used to create .xml parameter 
-    configuration file must match with the version you use on linux environment 
-    to smoothly run it on a cluster environment. Other latest versions may work.
+!!! Huomio 
+    Huomaa, että MaxQuant-versio, jota käytit .xml-parametrikonfiguraatiotiedoston luomiseen, on vastattava sitä versiota, jota käytät Linux-ympäristössä, jotta se sujuu kyseisessä klusteriympäristössä. Muut uusimmat versiot voivat toimia.
 
+- Lähetä lopuksi skriptisi
 
- - Finally submit your script
+Luo erätyöskripti [jaetun muistin töiden ohjeiden mukaisesti](../../computing/running/creating-job-scripts-puhti.md#serial-and-shared-memory-batch-jobs) ja varmista, että skripti päätyy samaan hakemistoon kuin missä `mqpar.xml`- ja muut tietotiedostosi sijaitsevat.
 
-Create a batch script according to the [instructions for shared memory jobs](../../computing/running/creating-job-scripts-puhti.md#serial-and-shared-memory-batch-jobs) 
-and make sure the script ends up in the same directory as your `mqpar.xml` 
-file and other data files are located.
-
-Just to facilitate writing your batch scripting process, you may use the following  
-minimal example script (calles say, e.g., `maxquant.sh`), to start with: 
+Helpottaaksesi erätyöskriptin kirjoittamista, voit käyttää seuraavaa vähimmäisesimerkkiskriptiä (kutsutaan esim. `maxquant.sh`), alustana:
 
 ```bash
 #!/bin/bash
@@ -79,50 +66,48 @@ minimal example script (calles say, e.g., `maxquant.sh`), to start with:
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=16000
 
-# load maxquant environment
+# lataa maxquant-ympäristö
 
 module load mono/5.14
 
-# adjust file paths here
+# säädä tiedostopolut täällä
 
 mono /path_of_MaxQuant/bin/MaxQuantCmd.exe /path/MaxQuant/mqpar.xml
 
 ```
 
-and then modify resource allocations depending on the number samples. Submit your script as below:
+ja muuta sitten resurssivarauksia näytteiden määrän mukaan. Lähetä skriptisi alla:
 
 ```bash
 sbatch maxquant.sh
 ```
 
-When `maxquant` job is finished, your output files will be in this same directory.
+Kun `maxquant`-tehtävä on valmis, tulostiedostosi ovat tässä samassa hakemistossa.
 
-## Tutorial example
+## Tutorista esimerkki {#tutorial-example}
 
-You can download example tutorial data for running MaxQuant as below:
+Voit ladata esimerkkejä tutorista aineistosta MaxQuant-käyttöön alla:
 
 ```bash
 wget https://a3s.fi/proteomics/MaxQuant_tutorial.tar.gz
 ```
 
-and then untar the downloaded archive file as below:
+ja pura sitten ladattu arkistotiedosto alla:
+
 ```bash
-tar -xavf  MaxQuant_tutorial.tar.gz
+tar -xavf MaxQuant_tutorial.tar.gz
 ```
 
-The tutorial has example raw files and other necessary files to run MaxQuant for testing.
+Opastus sisältää esimerkkiraakatiestoiminnan ja muut tarvittavat tiedostot MaxQuantin ajamiseen testattavaksi.
 
+## Tarkista käytetyt resurssit, kun tehtäväsi on valmis {#look-at-the-used-resources-once-your-job-is-finished}
 
-## Look at the used resources once your job is finished
+Kun `maxquant`-tehtävä on valmis, voit tarkistaa tietojenkäsittelyresurssien käytön, kuten [muistin](../faq/how-much-memory-my-job-needs.md) ja CPU:n käytön tehokkuuden. Tämä auttaa sinua hienosäätämään paremmin parametreja tehokasta tietojenkäsittelyresurssien käyttöä varten.
 
-Once `maxquant` job is finished, you can check the utilization of computing resources
-like [memory](../faq/how-much-memory-my-job-needs.md) and CPU usage efficiency.
-This will help you tune with better parameters for efficient usage of computing resources.
+Voit käyttää seuraavia komentoja työnumeron avulla:
 
-You can use the following commands using job id:
 ```
 seff <jobid>
 sacct –l –j <jobid>
 sacct -o jobid,jobname,maxrss,maxvmsize,state,elapsed -j <jobid>
-
 ```

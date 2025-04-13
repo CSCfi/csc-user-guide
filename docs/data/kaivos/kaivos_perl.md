@@ -1,21 +1,20 @@
-# Using Perl MySQL API at CSC
+# Perl MySQL API:n käyttäminen CSC:llä {#using-perl-mysql-api-at-csc}
 
-The Perl MySQL API is available in Puhti at CSC, as a part of the bioperl environment.
-The following tasks are usually performed, when a MySQL database is used by a Perl script:
+Perl MySQL API on saatavilla Puhti-ympäristössä CSC:llä osana bioperl-ympäristöä. Seuraavat tehtävät suoritetaan yleensä, kun Perl-skripti käyttää MySQL-tietokantaa:
 
-* Perl DBI module is imported
-* The connection to the MySQL server is opened
-* The statements are executed and their results sets are retrieved
-* The server connection is closed
+* Perl DBI -moduuli tuodaan
+* Yhteys MySQL-palvelimeen avataan
+* Komennot suoritetaan ja niiden tulosjoukot haetaan
+* Palvelinyhteys suljetaan
 
-The following guidance assumes that you have a database user account to the database service at CSC. If you are accessing another MySQL server replace the server name (`kaivos.csc.fi`) in script the server name you are using.
+Seuraava ohjeistus olettaa, että sinulla on tietokantakäyttäjätili CSC:n tietokantapalvelussa. Jos käytät toista MySQL-palvelinta, korvaa skriptissä palvelimen nimi (`kaivos.csc.fi`) käyttämälläsi palvelimen nimellä.
 
-## Write a MYSQL database access script
+## Kirjoita MYSQL-tietokantayhteysskripti {#write-a-mysql-database-access-script}
 
-Use your favorite text editor to create a named script file e.g. _mydb_script.pl_ . Then copy the following text to the script.
+Käytä suosikki tekstieditoria luodaksesi nimetty skriptitiedosto, esim. _mydb_script.pl_. Kopioi sitten seuraava teksti skriptiin.
 
 ```perl
-# mydb_script.pl script to show MySQL server version
+# mydb_script.pl skripti MySQL-palvelimen version näyttämiseksi
 use strict;
 use DBI;
 my $dbh = DBI->connect ("DBI:mysql:your_database_name:kaivos.csc.fi",
@@ -31,38 +30,38 @@ while (my @row = $sth->fetchrow_array())
 $dbh->disconnect ();
 ```
 
-The connection to the database is established by invoking the `connect()` method with the connection parameters. These parameters are: the database to use, database server, database user account and database password. Replace these values corresponding your database, database user account and database password. The `prepare()` method prepares the SQL statement and `execute()` method sends statement to the database server. The `fetchrow_array()` method retrieves rows from the result set in a loop, and the resulting rows are printed. Finally the connection is closed by `disconnect()` method.
+Yhteys tietokantaan luodaan kutsumalla `connect()`-metodia yhteysparametreilla. Nämä parametrit ovat: käytettävä tietokanta, tietokantapalvelin, tietokantakäyttäjätili ja tietokantasalasana. Korvaa nämä arvot vastaamaan tietokantaasi, tietokantakäyttäjätiliäsi ja tietokantasalasanaasi. `prepare()`-metodi valmistelee SQL-komennon ja `execute()`-metodi lähettää komennon tietokantapalvelimelle. `fetchrow_array()`-metodi hakee rivejä tulosjoukosta silmukassa, ja tuloksena olevat rivit tulostetaan. Lopuksi yhteys suljetaan `disconnect()`-metodilla.
 
-## Running the MYSQL database access script
+## MYSQL-tietokantayhteysskriptin suorittaminen {#running-the-mysql-database-access-script}
 
-Run the script from the command line with Perl interpreter. We recommend using bioperl in CSC environment, because it contains the required modules.
+Suorita skripti komentoriviltä Perl-tulkin avulla. Suosittelemme käyttämään bioperlia CSC-ympäristössä, koska se sisältää tarvittavat moduulit.
 
 ```text
 module load biokit
 perl mydb_script.pl
 ```
 
-or add following to the beginning of the script:
+tai lisää seuraava skriptin alkuun:
 
 ```bash
 #!/appl/soft/bio/bioperl/5.30.0/bin/perl
 ```
 
-Then make the script executable and run it directly:
+Tee sitten skriptistä suoritettava ja suorita se suoraan:
 
 ```bash
 chmod +x mydb_script.pl
 ./mydb_script.pl
 ```
 
-### The statements issuing methods
+### Komentojen suorittamismenetelmät {#the-statements-issuing-methods}
 
-The `prepare()` method is for preparing the SQL statement and `execute()` method is for issuing SQL statements. However, you can use the `do()` method for non repeated non-SELECT statement (e.g. INSERT, UPDATE, DELETE), because no data is returned from the database:
+`prepare()`-metodi on SQL-komennon valmistelua varten ja `execute()`-metodi on SQL-komentojen suorittamista varten. Kuitenkin, voit käyttää `do()`-metodia kertaluonteisiin ei-SELECT-komentoihin (esim. INSERT, UPDATE, DELETE), koska tietokannasta ei palauteta dataa:
 
 ```perl
 $rows_affected = $dbh->do("UPDATE your_table SET foo = foo + 1");
 ```
 
-### Transaction
+### Transaktio {#transaction}
 
-By default AutoCommit mode is on. You do not need to use `commit()` method while making transactions. Only InnoDB storage engine is transactional. The default MyISAM is a non-transactional storage engine.
+Oletuksena AutoCommit-tila on päällä. Sinun ei tarvitse käyttää `commit()`-metodia suorittaessasi transaktioita. Vain InnoDB-tallennusmoottori on transaktionaalinen. Oletuksena oleva MyISAM on ei-transaktionaalinen tallennusmoottori.

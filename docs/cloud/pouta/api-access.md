@@ -1,37 +1,23 @@
-# Pouta access through OpenStack APIs
 
-This article introduces access to Pouta through OpenStack APIs. OpenStack 
-APIs provide access to all OpenStack components and their resources, such 
-as nova (compute), glance (VM images), keystone (authentication), swift 
-(object storage), cinder (block storage), and neutron (networking). 
+# Pouta-yhteys OpenStack APIen kautta {#pouta-access-through-openstack-apis}
 
-OpenStack APIs are RESTful and there are multiple ways to interact with 
-them which include using the command-line tools (e.g., `openstack`) or 
-using direct HTTP requests (e.g., with `curl`) or using one of the 
-client libraries (e.g., the `openstacksdk`). 
+Tämä artikkeli esittelee Pouta-yhteyden OpenStack APIen kautta. OpenStack APIs tarjoaa pääsyn kaikkiin OpenStack-komponentteihin ja niiden resursseihin, kuten nova (laskenta), glance (VM-kuvat), keystone (autentikointi), swift (objektitallennus), cinder (lohkovarasto) ja neutron (verkkoyhteydet).
 
-In this article, we briefly look into using cURL to make direct HTTP requests 
-to the OpenStack APIs and move to check how to use the `openstacksdk` to automate 
-some mundane tasks as a demonstration. 
+OpenStack APIs ovat RESTful-rajapintoja, ja niihin voidaan olla yhteydessä useilla tavoilla, kuten komento-rivityökalujen (esim. `openstack`) avulla, suorilla HTTP-pyynnöillä (esim. `curl`-työkalulla) tai käyttämällä asiakaskirjastoja (esim. `openstacksdk`).
 
-### Pouta access through cURL
+Tässä artikkelissa tarkastelemme lyhyesti cURL:in käyttöä suorien HTTP-pyyntöjen tekemiseksi OpenStack APIen ja siirrymme katsomaan, kuinka `openstacksdk`:tä käytetään automatisoimaan joitain yksinkertaisia tehtäviä esimerkkinä.
 
-Before we can use cURL or any other client to make API requests we need 
-to set some environment variables which hold our credentials to Pouta. This 
-can be done by running a script that you can download from the 
-[Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) 
-after logging in. See more details from the last section under [Installing the OpenStack tools](install-client.md).
+### Pouta-yhteys cURL:in kautta {#pouta-access-through-curl}
 
-Once you have the script with your credentials (`<project_name>-openrc.sh`) from 
-the web UI, you can add the environment variables by running the script as:
+Ennen kuin voimme käyttää cURL:ia tai muuta asiakasta API-pyyntöjen tekemiseen, meidän on asetettava joitakin ympäristömuuttujia, jotka sisältävät Pouta-kirjautumistietomme. Tämä voidaan tehdä suorittamalla skripti, jonka voit ladata [Pouta-verkkoliittymästä](https://pouta.csc.fi/dashboard/project/api_access/) kirjautumisen jälkeen. Katso lisää viimeisestä osasta kohdasta [OpenStack-työkalujen asentaminen](install-client.md).
+
+Kun sinulla on skripti kirjautumistiedoillasi (`<project_name>-openrc.sh`) web-käyttöliittymästä, voit lisätä ympäristömuuttujat ajamalla skriptin seuraavasti:
 
 ```bash
 source <project_name>-openrc.sh
 ```
 
-And supplying your CSC account username and password when prompted. After this 
-You coud make requests to the Pouta cloud. Normally you would start with 
-authenticating yourself as: 
+Ja syöttää CSC-tilisi käyttäjätunnus ja salasana pyydettäessä. Tämän jälkeen voit tehdä pyyntöjä Pouta-pilvipalveluun. Normaalisti alkaisit autentikoimalla itsesi seuraavasti:
 
 ```bash
 curl -v -s  -H "Content-Type: application/json"   -d '
@@ -56,16 +42,12 @@ curl -v -s  -H "Content-Type: application/json"   -d '
 }' "$OS_AUTH_URL/auth/tokens?nocatalog" | python -m json.tool
 ```
 
-And obtaining your token as an `X-Subject-Token` response header. The response 
-body for our request will also contain additional useful information which includes 
-the expiration date and time of the token as `"expires_at":"datetime"`.  
+Ja saada tokenisi `X-Subject-Token` vastausotsakkeena. Pyyntömme vastausrungossa on myös lisähyödyllistä tietoa, joka sisältää tokenin vanhentumisajan ja -päivämäärän muodossa `"expires_at":"datetime"`.
 
-Once authenticated, we can make further CRUD requests to the various APIs handling our 
-cloud resources. For example, we can request the compute API for the list of available 
-virtual machine flavors as:
+Kun olet autentikoitunut, voimme tehdä CRUD-pyyntöjä eri API:hin, jotka hallitsevat pilviresurssejamme. Esimerkiksi voimme pyytää laskenta-API:lta luettelon saatavilla olevista virtuaalikoneen makuvaihtoehdoista seuraavasti:
 
 ```
-export OS_TOKEN=<copy-your-token-here>
+export OS_TOKEN=<kopioi-tokenisi-tähän>
 export OS_COMPUTE_API=https://pouta.csc.fi:8777/v2.1
 ```
 
@@ -75,27 +57,19 @@ curl -s -H "X-Auth-Token: $OS_TOKEN" \
   | python -m json.tool
 ```
 
-You can consult the [Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) further 
-to get the right values for the Pouta API endpoints such as `OS_COMPUTE_API`.  
+Voit katsoa lisätietoa [Pouta-verkkoliittymästä](https://pouta.csc.fi/dashboard/project/api_access/) saadaksesi oikeat arvot Pouta API päätepisteille, kuten `OS_COMPUTE_API`.
 
-### Pouta access through client libraries
+### Pouta-yhteys asiakaskirjastojen kautta {#pouta-access-through-client-libraries}
 
-[Openstacksdk](https://docs.openstack.org/openstacksdk/latest/) is a client library (SDK) for 
-building applications and services that work with OpenStack Clouds. It provides a consistent and complete 
-set of features to interact with the various OpenStack components. The SDK implements Python 
-bindings to the OpenStack API, which enables you to perform automation tasks in Python by 
-making calls on Python objects rather than making REST calls directly.
+[Openstacksdk](https://docs.openstack.org/openstacksdk/latest/) on asiakaskirjasto (SDK) sovellusten ja palveluiden rakentamiseen, jotka toimivat OpenStack Clouds -ympäristössä. Se tarjoaa johdonmukaisen ja täydellisen ominaisuusjoukon, jolla voi olla yhteydessä eri OpenStack-komponentteihin. SDK toteuttaa Python-sidokset OpenStack APIen kanssa, mikä mahdollistaa automaatiotehtävien suorittamisen Pythonissa tekemällä kutsuja Python-olioilla sen sijaan, että suorittaisi suoria REST-kutsuja.
 
-In order to use it with our applications we need to first install the SDK as: 
+Jotta voisimme käyttää sitä sovellustemme kanssa, meidän on ensin asennettava SDK:
 
 ```bash
 pip install openstacksdk
 ```
 
-Next, we need to provide our configurations and credentials through a `clouds.yaml` file which can be downloaded from 
-the [Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) after logging in. 
-Openstacksdk expects this file in one of the following folders: the `current` directory, the `~/.config/openstack` 
-directory, or `/etc/openstack` directory. The `clouds.yaml` should look like: 
+Seuraavaksi meidän on annettava kokoonpanomme ja tunnistetietomme `clouds.yaml` tiedoston kautta, jonka voi ladata [Pouta-verkkoliittymästä](https://pouta.csc.fi/dashboard/project/api_access/) kirjautumisen jälkeen. Openstacksdk odottaa tätä tiedostoa yhdessä seuraavista kansioista: `current` hakemistossa, `~/.config/openstack` hakemistossa tai `/etc/openstack` hakemistossa. `clouds.yaml` -tiedoston pitäisi näyttää seuraavalta:
 
 ```yaml
 clouds:
@@ -112,9 +86,7 @@ clouds:
     identity_api_version: 3
 ```
 
-You should add your secrets such as the password field into a separate file 
-named `secure.yaml` and place it in the same folder as your `clouds.yaml` file. 
-The `secure.yaml` file should look like: 
+Sinun pitäisi lisätä salaisuutesi, kuten salasana-kenttä, erilliseen tiedostoon nimeltä `secure.yaml` ja asettaa se samaan kansioon kuin `clouds.yaml` tiedosto. `secure.yaml` tiedoston pitäisi näyttää seuraavalta:
 
 ```yaml
 clouds:
@@ -123,34 +95,34 @@ clouds:
       password: XXXXXXXXXX
 ```
 
-Now, you can run the following simple example which lists the available virtual machine flavors:
+Nyt voit ajaa seuraavan yksinkertaisen esimerkin, joka listaa saatavilla olevat virtuaalikoneen makuvaihtoehdot:
 
 ```python
 #!/usr/bin/python3
 import openstack
 
-# Initialize and turn on debug logging
+# Ota käyttöön ja käynnistä debug-lokitus
 openstack.enable_logging(debug=True)
 
-# Initialize cloud
+# Alusta pilvi
 conn = openstack.connect(cloud='openstack')
 
-# list VM flavors  
+# listaa VM-makuvaihtoehdot  
 for flavor in conn.compute.flavors():
     print(flavor.to_dict())
-``` 
+```
 
-### List the ports used
+### Käytettyjen porttien listaaminen {#list-the-ports-used}
 
-You can have a list of the ports used by cPouta [here](https://pouta.csc.fi/dashboard/project/api_access/)  
-Also, you can retrieve this list by using the command below:
+Voit saada listan käytetyistä porteista cPoutasta [täältä](https://pouta.csc.fi/dashboard/project/api_access/)  
+Voit myös hakea tämän listan käyttämällä alla olevaa komentoa:
 
 ```
 openstack catalog list
 ```
 
-The ports listed as `public` are the ones you need.
+Porteista, jotka on listattu `public`, ovat ne, joita tarvitset.
 
-### External documentation
+### Ulkoinen dokumentaatio {#external-documentation}
 
-More detailed information can be found from the [OpenStack SDK Documentation](https://docs.openstack.org/openstacksdk/latest/).
+Yksityiskohtaisempaa tietoa löytyy [OpenStack SDK Dokumentaatiosta](https://docs.openstack.org/openstacksdk/latest/).

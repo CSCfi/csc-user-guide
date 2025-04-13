@@ -1,39 +1,38 @@
-# Why can't I connect to my virtual machine in Pouta?
+# Miksi en voi yhdistää virtuaalikoneeseeni Poutassa?
 
-There are several reasons that can cause problems when connecting to a VM. We will go through all the steps one by one.
+On useita syitä, jotka voivat aiheuttaa ongelmia yhdistettäessä VM:ään. Käymme kaikki vaiheet läpi yksi kerrallaan.
 
-## Network
+## Verkko {#network}
 
-### Floating IP
+### Kelluva IP {#floating-ip}
 
-Before connecting to a cPouta VM, it is necessary to add a Floating IP. This step is not necessary in ePouta, indeed ePouta does not provide Virtual IPs, one must connect directly to the Private IP.
+Ennen kuin yhdistät cPouta VM:ään, on tarpeen lisätä kelluva IP-osoite. Tätä vaihetta ei tarvita ePoutassa, sillä ePouta ei tarjoa virtuaali IP-osoitteita, vaan yhteys on otettava suoraan yksityiseen IP-osoitteeseen.
 
-In order to add a virtual ip, follow the [Post creation step](../../cloud/pouta/launch-vm-from-web-gui.md#post-creation-step) guide.
+Jotta lisätään virtuaali-IP, seuraa [Post creation step](../../cloud/pouta/launch-vm-from-web-gui.md#post-creation-step) -ohjetta.
 
-### port 22: Connection timed out
+### portti 22: Yhteyden aikakatkaisu {#port-22-connection-timed-out}
 
 ```sh
 $ ssh cloud-user@yy.yy.yyy.yy
 ssh: connect to host yy.yy.yyy.yy port 22: Connection timed out
 ```
 
-If you are not able to connect to your VM, the most common reason for these problems are **Firewalls** and **Security Groups** (Openstack's firewall) that are too restrictive. Newly launched virtual machines will by default block all traffic. You need to create a new security group. The security group must open the SSH port 22 to the ingress traffic.
+Jos et pysty yhdistämään VM:ään, yleisin syy näihin ongelmiin ovat **palomuurit** ja **turvaryhmät** (Openstackin palomuuri), jotka ovat liian rajoittavia. Uudet virtuaalikoneet estävät oletuksena kaiken liikenteen. Sinun on luotava uusi turvaryhmä. Turvaryhmän on avattava SSH-portti 22 saapuvalle liikenteelle.
 
-Please follow the [Firewalls and security](../../cloud/pouta/launch-vm-from-web-gui.md#firewalls-and-security-groups) groups article. If the problem persists you may check the firewall setup of your local institution.
+Seuraa [Firewalls and security](../../cloud/pouta/launch-vm-from-web-gui.md#firewalls-and-security-groups) -artikkelia. Jos ongelma jatkuu, voit tarkistaa paikallisen laitoksesi palomuuriasetukset.
 
-!!! Warning "Permission denied"
-    Incorrectly configured Security Groups, can lead to permissions denied errors due to the fact that the VM needs to fetch the public SSH keys on its first start. If the network is not configured properly, the public key may not be added and no access will be configured.
-    For this reason, you need to make sure that the `default` security group is configured in the VM at creation.
+!!! Varoitus "Käyttöoikeus evätty"
+    Väärin määritetyt turvaryhmät voivat johtaa käyttöoikeuden evätty -virheisiin, koska VM tarvitsee hakea julkiset SSH-avaimet ensimmäisellä käynnistyksellään. Jos verkkoa ei ole määritetty oikein, julkista avainta ei ehkä lisätä eikä pääsyä konfiguroida.
+    Siksi sinun on varmistettava, että `default`-turvaryhmä on määritetty VM:ään sen luomisessa.
 
+### REMOTE HOST IDENTIFICATION HAS CHANGED {#remote-host-identification-has-changed}
 
-### REMOTE HOST IDENTIFICATION HAS CHANGED
-
-Sometimes Floating IPs are reused with different Virtual Machines at different times. By default your SSH client will have `stricthostkeychecking=yes` configured, and will show you the error message:
+Joskus kelluvia IP-osoitteita käytetään uudelleen eri virtuaalikoneiden kanssa eri aikoina. Oletuksena SSH-asiakkaasi on määritetty `stricthostkeychecking=yes` ja näyttää sinulle virheilmoituksen:
 
 ```sh
 $ ssh cloud-user@86.50.xxx.xxx
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@   WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!      @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
 Someone could be eavesdropping on you right now (man-in-the-middle attack)!
@@ -49,76 +48,76 @@ ECDSA host key for 86.50.xxx.xxx has changed and you have requested strict check
 Host key verification failed.
 ```
 
-You can safely do as it suggests and remove the entry. But only if you are sure that it is the first time you connect to said IP since it has been assigned to a new instance, or since the instance has been reinstalled. The example shows the output of the ssh command, different tools and versions might have a slightly different output, but the principle is the same.
+Voit turvallisesti tehdä mitä se ehdottaa ja poistaa merkinnän. Mutta vain jos olet varma, että se on ensimmäinen kerta, kun yhdistät kyseiseen IP:hen, sen jälkeen kun se on määritetty uudelle instanssille tai kun instanssi on asennettu uudelleen. Esimerkki näyttää ssh-komennon tulosteen, eri työkalut ja versiot voivat tarjota hieman erilaisen tulosteen, mutta periaate on sama.
 
-## Authentication - Permission denied (too many authentication failures)
+## Autentikointi - Käyttöoikeus evätty (liian monta kirjautumisyritystä) {#authentication-permission-denied-too-many-authentication-failures}
 
 ```sh
 Received disconnect from xx.xx.xxx.xx port 22:2: Too many authentication failures
 ```
 
-If the authentication is not configured properly, you may see an error similar to the one above. This error can come from different root causes.
+Jos autentikointi ei ole määritetty oikein, saatat nähdä virheen, joka on samanlainen kuin yllä. Tämä virhe voi johtua eri perusongelmista.
 
-### Are you using the correct user?
+### Käytätkö oikeaa käyttäjää? {#are-you-using-the-correct-user}
 
-Different distributions are configured with different defaults users. See here the up to date list of [images](../../cloud/pouta/images.md#images) and their corresponding default users. For example if you are using "Ubuntu 24.04", the correct user is "ubuntu", but if you are using "AlmaLinux-9" the correct one is "almalinux".
+Eri jakelut on määritetty eri oletuskäyttäjillä. Katso päivitetty lista [kuvista](../../cloud/pouta/images.md#images) ja niiden vastaavista oletuskäyttäjistä. Esimerkiksi, jos käytät "Ubuntu 24.04", oikea käyttäjä on "ubuntu", mutta jos käytät "AlmaLinux-9", oikea käyttäjä on "almalinux".
 
-It is a common practise for Pouta images, when you try to login as `root`, to get a message back telling you which username to use instead:
+Pouta-kuville on yleistä, että kun yrität kirjautua sisään käyttäjänä `root`, saat viestin, joka kertoo sinulle, mitä käyttäjänimeä sinun pitäisi käyttää sen sijaan:
 
 ```sh
 $ ssh root@86.xxx.xxx.xxx
 Please login as the user "cloud-user" rather than the user "root".
 ```
 
-### Which key pair is configured in the Instance? And do you have the matching Private Key?
+### Mikä avainpari on konfiguroitu instanssissa? Ja onko sinulla vastaava yksityinen avain? {#which-key-pair-is-configured-in-the-instance-and-do-you-have-the-matching-private-key}
 
-In order to see which "**Key Pair**" is configured on that VM. Go to <https://pouta.csc.fi/dashboard/project/instances/> and see the key pair name.
+Jotta näet, mikä "**Avainpari**" on konfiguroitu kyseiselle VM:lle. Mene osoitteeseen <https://pouta.csc.fi/dashboard/project/instances/> ja katso avainparin nimi.
 
 ![VM Status check](../../cloud/img/instances-keypair.png)
 
-Then go to <https://pouta.csc.fi/dashboard/project/key_pairs> where all **your** keys are configured. The page will give you the list of **public keys**. In the screenshots above, the "**Key Pair**" is `SGC-key`.
+Mene sitten osoitteeseen <https://pouta.csc.fi/dashboard/project/key_pairs>, jossa kaikki **sinun** avaimet on konfiguroitu. Sivusto antaa sinulle listan **julkisista avaimista**. Yllä olevassa kuvakaappauksessa "**Avainpari**" on `SGC-key`.
 
 ![Key pairs listing](../../cloud/img/key-pairs-listing.png)
 
-Copy the Public key content (`ssh-rsa AAA.... jack@sgc.com`) into a file called `SGC-key.pub`. You can then calculate the **Public key** fingerprint by:
+Kopioi julkisen avaimen sisältö (`ssh-rsa AAA.... jack@sgc.com`) tiedostoon nimeltä `SGC-key.pub`. Voit sitten laskea **julkisen avaimen** sormenjäljen seuraavasti:
 
 ```sh
 $ ssh-keygen -lf SGC-key.pub
 2048 SHA256:FjN0zrymP3mMZzTJ/UJrypmVVcH8Wgok9+JBiBhcvFc no comment (RSA)
 ```
 
-The example above uses the `SHA256` algorithm by default. You can force it to use `MD5` by doing:
+Yllä oleva esimerkki käyttää oletuksena `SHA256`-algoritmia. Voit pakottaa sen käyttämään `MD5`:ta seuraavasti:
 
 ```sh
 $ ssh-keygen -lf .ssh/SGC-key.pub -E md5
 2048 MD5:eb:b3:eb:ff:65:2f:cb:a5:fa:ab:f4:84:04:a2:d3:9a no comment (RSA)
 ```
 
-!!! Info "No Key Pair listed"
-    It is possible that the VM was created without a "**keypair**` (the corresponding field is empty `-`), in this case you need to [re-create the VM](../../cloud/pouta/launch-vm-from-web-gui.md), this time with a keypair configured.
-    ![No Key Pair](../../cloud/img/instance-no-keypair.png)
+!!! Info "Avainpari puuttuu"
+    On mahdollista, että VM luotiin ilman "**avainparia**" (vastaava kenttä on tyhjä `-`), tässä tapauksessa sinun on [luotava VM uudelleen](../../cloud/pouta/launch-vm-from-web-gui.md), tällä kertaa avainparilla konfiguroituna.
+    ![Avainpari puuttuu](../../cloud/img/instance-no-keypair.png)
 
-Then it is necessary to find the corresponding **Private key**. In Linux and MacOS, private key are normally stored in the `.ssh` folder. You can use the same command as above to generate the fingerprint of the private key:
+Seuraavaksi sinun on löydettävä vastaava **yksityinen avain**. Linuxissa ja MacOS:ssa yksityiset avaimet tallennetaan yleensä `.ssh`-kansioon. Voit käyttää samaa komentoa genXCategorías sormenjäljen luomiseen yksityiselle avaimelle:
 
 ```sh
 $ ssh-keygen -lf .ssh/SGC-key
 2048 SHA256:FjN0zrymP3mMZzTJ/UJrypmVVcH8Wgok9+JBiBhcvFc no comment (RSA)
 ```
 
-The fingerprints must match.
+Sormenjälkien on vastattava toisiaan.
 
-!!! Info "Instance log"
-    You can also see the finger print of the key from the **Instance log**. Go to [instance page](https://pouta.csc.fi/dashboard/project/instances/) and click in the name of the instance. Then click in the Log tab. You will need to find the lines that begin with `ci-info`. This is the output of the cloud init script.
+!!! Info "Instanssiloki"
+    Voit myös nähdä avaimen sormenjäljen **instanssilokista**. Mene [instanssisivulle](https://pouta.csc.fi/dashboard/project/instances/) ja klikkaa instanssin nimeä. Klikkaa sitten Lokit-välilehteä. Sinun on löydettävä rivit, jotka alkavat `ci-info`. Tämä on pilven aloitusskriptin tuloste.
 
-    ![Instance log](../../cloud/img/log-instance.png)
+    ![Instanssiloki](../../cloud/img/log-instance.png)
 
-    You will be able to see the username, the file where the keys are configured and the list of finger prints of the configured keys. In the example above the output shows the `MD5` algorithm.
+    Voit nähdä käyttäjänimen, tiedoston, jossa avaimet on konfiguroitu, ja konfiguroitujen avainten sormenjälkiluettelon. Yllä oleva esimerkki näyttää `MD5`-algoritmin tulosteen.
 
-If you do not find the corresponding private key, you will need to either [re-create the VM](../../cloud/pouta/launch-vm-from-web-gui.md)) with a ssh key pair that you own and control, or use our [How to rescue instances?](./pouta-openstack-rescue-mode.md) guide to be able to access the VM's disk and change the public key installed in the `authorized_keys` file. This last option is complex and it is only needed if you already have data and/or software in the VM's local disk. If you need to follow this second option, but are confused on how, please create a ticket with us at <servicedesk@csc.fi>, we will help you step by step.
+Jos et löydä vastaavaa yksityistä avainta, sinun on joko [luotava VM uudelleen](../../cloud/pouta/launch-vm-from-web-gui.md) ssh-avainparilla, joka on sinun omasi ja hallinnassasi, tai käytettävä [Kuinka pelastaa instanssit?](./pouta-openstack-rescue-mode.md) -opastamme, jotta voit käyttää VM:n levyä ja vaihtaa julkisen avaimen `authorized_keys`-tiedostoon. Tämä viimeinen vaihtoehto on monimutkainen ja tarpeen vain, jos sinulla on jo dataa ja/tai ohjelmistoa VM:n paikallisella levyllä. Jos sinun on noudatettava tätä toista vaihtoehtoa, mutta et tiedä miten, tee tiketti meille osoitteessa <servicedesk@csc.fi>, niin autamme sinua askel askeleelta.
 
-### Are you offering the correct private key?
+### Tarjoatko oikean yksityisen avaimen? {#are-you-offering-the-correct-private-key}
 
-The ssh client by default only offers the ssh keys that have a _standard name_ and are in the ~standard folder_ (`.ssh` in `$HOME`). If you happen to have a non standard file name or a non standard file location, you can use the `-i <private_key_file>` option to make sure that the key is being offered, and `-v` to increase the log output, to see when the client offers it. The command will be like:
+Oletuksena ssh-asiakas tarjoaa vain ne ssh-avaimet, joilla on _vakionimi_ ja jotka ovat _vakiohakemistossa_ (`.ssh` hakemistossa `$HOME`-kansiossa). Jos sinulla on ei-vakioniminen tiedosto tai ei-vakiosijaintinen tiedosto, voit käyttää `-i <yksityinen_avain_tiedosto>` -vaihtoehtoa varmistaaksesi, että avain tarjotaan, ja `-v` kasvattaaksesi lokitulosteita, nähdäksesi milloin asiakas tarjoaa sen. Komento on seuraavanlainen:
 
 ```sh
 $ ssh -v -i .ssh/SGC-key ubuntu@193.166.200.200 2>&1 | grep SGC-key
@@ -128,4 +127,4 @@ debug1: Will attempt key: /home/galvaro/.ssh/SGC-key RSA SHA256:FjN0zrymP3mMZzTJ
 debug1: Offering public key: /home/galvaro/.ssh/SGC-key RSA SHA256:FjN0zrymP3mMZzTJ/UJrypmVVcH8Wgok9+JBiBhcvFc explicit agent
 ```
 
-If none of this works, please contact us at <servicedesk@csc.fi>.
+Jos mikään näistä ei toimi, ota yhteyttä osoitteeseen <servicedesk@csc.fi>.

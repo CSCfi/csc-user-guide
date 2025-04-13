@@ -1,221 +1,142 @@
-# Running your first job on Puhti
+# Ensimmäisen työn suorittaminen Puhtilla
 
-## Logging in
+## Kirjautuminen {#logging-in}
 
-To prepare and run your jobs, you first need to log in to Puhti. You
-can use either command line application or a special terminal
-program. Command line applications come standard on most operating
-systems. Terminal programs may need to be installed separately, but they
-typically offer more options on things like font size, copy-paste etc.
+Jotta voit valmistella ja suorittaa työsi, sinun on ensin kirjauduttava Puhtille. Voit käyttää joko komentorivisovellusta tai erikoistunutta päätelohjelmaa. Komentorivisovellukset ovat vakiovaruste useimmissa käyttöjärjestelmissä. Päätelohjelmat voivat vaatia erillisen asennuksen, mutta ne tarjoavat yleensä enemmän vaihtoehtoja esimerkiksi kirjasinkoon, kopioinnin ja liittämisen suhteen.
 
-On Linux or macOS open a terminal. In Windows 10 open Powershell. Give command:
+Avaa Linux- tai macOS-järjestelmässä päätelaite. Windows 10:ssä avaa Powershell. Anna komento:
 
 ```text
 ssh yourcscusername@puhti.csc.fi
 ```
-Where **yourcscusername** is the username you get from CSC.
+Missä **yourcscusername** on CSC:ltä saatu käyttäjänimi.
 
-You can find more detailed instructions in our User Guide: [Connecting
-to CSC supercomputers](../../computing/connecting/index.md).
+Voit löytää tarkemmat ohjeet käyttäjäohjeestamme: [Yhdistäminen CSC:n supertietokoneisiin](../../computing/connecting/index.md).
 
+## Mikä Puhti on? {#what-is-puhti}
 
-## What is Puhti?
+Puhti on, kuten useimmat modernit HPC-järjestelmät (High Performance Computing), klusteritietokone. Tämä tarkoittaa sitä, että sillä on pieni määrä kirjautumissolmuja ja suuri määrä laskentasolmuja.
 
-Puhti, like most modern HPC (High Performance Computing) systems, is
-a cluster computer. It means that is has a small number of login nodes
-and a large number of compute nodes.
+Kun kirjaudut sisään, päädyt johonkin kahdesta kirjautumissolmusta. Kirjautumissolmut on tarkoitettu esimerkiksi datan siirtämiseen, eräajotyöiden hallintaan ja asetusten tekemiseen. Sinun ei pitäisi suorittaa varsiniaisia töitä kirjautumissolmuissa. Niitä on vain kaksi, ja ne ovat jaettu kaikkien käyttäjien kesken. Suurten töiden suorittaminen niissä voi tehdä järjestelmästä hitaan ja epävakaan kaikkien käyttäjien kannalta (Lisätietoa [käyttöpolitiikastamme](../../computing/usage-policy.md)).
 
-When you log in, you end up in one of the two login nodes. Login nodes
-are meant for things like moving data and setting up and managing your
-batch jobs. You should not run actual jobs on the login nodes. There
-are only two login nodes and they are shared by everybody. Running big
-jobs on them can make the system slow and unresponsive for all
-(More details in our [usage policy](../../computing/usage-policy.md)).
+Työt tulisi suorittaa laskentasolmuissa. Tämä tapahtuu erätyöjärjestelmää käyttäen, jota kutsutaan myös *ajastimeksi* tai *kuormanhallitsijaksi*. Puhtilla käytettävä järjestelmä on nimeltään [Slurm](https://slurm.schedmd.com/overview.html).
 
-Jobs should be run in the compute nodes. This is done using the *batch
-job system* also called a *scheduler* or a *workload manager*. The
-system in use in Puhti is called [Slurm](https://slurm.schedmd.com/overview.html).
+Suorittaaksesi työsi erätyöjärjestelmän kautta käytät komentoa **srun** tai kirjoitat erätyöskriptin ja käytät komentoa **sbatch**. Keskustelemme tästä myöhemmin yksityiskohtaisemmin.
 
-To run your job through the batch job system you use command **srun**
-or write a batch jobs script and use command **sbatch**. We will
-discuss this in more detail later.
+Katsoaksesi, millaisista laskentasolmuista Puhti koostuu, katso käyttäjän opas: [Puhtin tekniset tiedot](../../computing/systems-puhti.md).
 
-To check what kind of compute nodes are available in Puhti, see the
-User Guide: [Technical details about
-Puhti](../../computing/systems-puhti.md).
+## Ohjelmistoympäristö {#software-environment}
 
+Puhti tarjoaa valikoiman yleisesti käytettyjä biotieteiden ohjelmistoja. Voit tarkistaa listauksen [Sovellukset](../../apps/by_discipline.md#biosciences).
 
-## Software environment
-
-Puhti has a selection of commonly used bioscience software
-available. You can check the listing in
-[Applications](../../apps/by_discipline.md#biosciences).
-
-The application listing may not be quite up to date, so it is a good
-idea to use **module spider** command to see if a software (and which
-version) is available, *e.g*:
+Sovelluslista ei välttämättä ole täysin ajan tasalla, joten on hyvä idea käyttää **module spider** -komentoa tarkistaaksesi, onko ohjelmisto (ja mikä versio) saatavilla, *esim.*:
 
 ```text
 module spider bowtie2
 ```
 
-To avoid conflicts between different applications and versions, most
-software on Puhti is installed as *modules*. To use an application you
-will need to load the module, *e.g*:
+Konfliktien välttämiseksi eri sovellusten ja versioiden välillä suurin osa Puhtin ohjelmistoista on asennettu *moduleina*. Sovelluksen käyttämiseksi sinun on ladattava moduuli, *esim.*:
 
 ```text
 module load bowtie2
 ```
-You can also specify a specific version, *e.g*:
+Voit myös määrittää tietyn version, *esim.*:
 ```text
 module load bowtie2/2.3.5.1
 ```
-If you do not specify a version, the default version (typically latest
-stable release) is loaded.
+Jos et määritä versiota, ladataan oletusversio (yleensä uusin vakaa julkaisu).
 
-We also provide a module that loads many commonly used bioscience 
-applications at once:
+Tarjoamme myös moduulin, joka lataa monia yleisesti käytettyjä biotieteiden sovelluksia kerralla:
 ```text
 module load biokit
 ```
-The easiest way to see the content of the biokit module is to load it, and check the listing.
+Helpointa tarkastaa biokit-moduulin sisältö on ladata se ja tarkistaa listaus.
 ```text
 module list
 ```
 
-To see which modules to load, see the instruction page for each software
+Katsoaksesi, mitkä moduulit on ladattava, katso käyttöohje jokaiselle ohjelmistolle.
 
-For more information on the module system, please see the user guide:
-[The module system](../../computing/modules.md).
+Lisätietoja moduulijärjestelmästä löytyy käyttäjäoppaan osiosta: [Moduulijärjestelmä](../../computing/modules.md).
 
+## Työn suunnittelu {#planning-your-job}
 
-## Planning your job
+Työn suorittamiseen erätyöjärjestelmän kautta sinun täytyy varata resursseja, *ts.* ytimien, muistin ja ajan, jotka sopivat työhön. Voidaksesi päättää tarvittavista resursseista, sinun täytyy vastata joihinkin kysymyksiin:
 
-To run a job through a batch job system, you will need to reserve
-resources, *i.e.* cores, memory and time, suitable for the job. To
-decide on the needed resources, you will have to answer some
-questions:
+### Kuinka monta ydintä sovellukseni voi käyttää? {#how-many-cores-can-my-application-use}
 
-### How many cores can my application use?
+Ensiksi lyhyesti terminologiasta: Puhuttaessa kotitietokoneista käytetään yleensä termejä "prosessor" ja "ydin". Esimerkiksi useimmissa moderneissa kotitietokoneissa on yksi prosessori, jossa on kaksi tai useampia ytimiä. Puhuttaessa HPC-koneista vastaavat termit ovat "kanta" ja "CPU". Esimerkiksi Puhtin laskentasolmuissa on kaksi kantaa, joissa kummassakin on 20 CPU:ta. Tässä ohjeessa käytetään termejä "prosessorit/ytimet", koska ne ovat todennäköisesti tutumpia ihmisille, joilla ei ole HPC-taustaa.
 
-First a short note on terminology: When speaking about home computers
-people usually use terms "processor" and "core". For example, most
-modern home computers have one processor with two or more cores. When
-speaking about HPC machines the corresponding terms are "socket" and
-"CPU". For example, Puhti compute nodes have two sockets with 20 CPUs
-each. This tutorial uses terms "processors/cores", as they are
-probably more familiar for people without HPC background.
+Sovellukset voidaan jakaa kategorioihin niiden käytettävissä olevien ytimien määrän mukaan:
 
-Applications can be divided into categories according to the amount 
-of cores they can use:
+- **Sarjaohjelmistot**
+    - Voi käyttää vain yhtä ydintä
+    - Monet biotieteiden ohjelmistot kuuluvat tähän kategoriaan
+    - Jos sovellusohjeessa ei mainita käytettävien ytimien tai säikeiden määrää, sovellus on todennäköisesti sarjallinen
+    - Useampien ytimien varaaminen ei tee näistä sovelluksista nopeampia, koska ne voivat käyttää vain yhtä ydintä
+- **Jaetun muistin/säikeistetyty/OpenMP-sovellukset**
+    - Voi käyttää useampaa kuin yhtä ydintä, mutta kaikkien ytimien on oltava samassa solmussa (joten Puhtilla enintään 40 ydintä)
+    - Useimmat biotieteiden sovellukset, jotka voivat käyttää useampaa kuin yhtä ydintä, kuuluvat tähän kategoriaan
+    - Muista myös ilmoittaa sovellukselle käytettävien ytimien määrä
+    - Tarkista sovelluksen dokumentaatiosta oikeat komentorivivaihtoehdot
+    - Yleensä on parasta vastata ytimiä säikeiden määrään, mutta tarkista sovelluksen dokumentaatio
+- **MPI-parallelisoidut sovellukset**
+    - Voi käyttää useampaa kuin yhtä ydintä, ytimet eivät tarvitse olla samassa solmussa
+    - Vain hyvin harvat biotieteiden sovellukset kuuluvat tähän kategoriaan
+- **Hybridi-parallelisoidut sovellukset**
+    - Työ, jossa jokaiselle MPI-tehtävälle varataan useita ytimiä. Jokainen tehtävä käyttää sitten jotain muuta rinnakkaistamista kuin MPI työtä tehdäkseen. Yleisin strategia on se, että jokainen MPI-tehtävä käynnistää useita säikeitä käyttämällä OpenMP:tä.
+    - Melko harvinainen biotieteen sovelluksissa
 
-- **Serial applications**
-    - Can only use one core
-    - Many bioscience applications belong to this category
-    - If the application manual makes no mention of number of cores or 
-      threads to use, the application is probably serial
-    - Reserving more cores will not make these applications any faster, 
-      as they can only use one
-- **Shared memory/threaded/OpenMP applications**
-    - Can use more than one core, but all cores must be in the same node 
-      (so in Puhti max 40 cores)
-    - Most bioscience applications that can use more than one core are 
-      in this category
-    - Also remember to tell the application the number of cores to use
-    - Check the application documentation for correct command line options
-    - Usually it is best to match the number of cores to the number of threads, 
-      but check the application documentation 
-- **MPI parallel applications**
-    - Can use more than one core, cores need not be in the same node
-    - Only very few bioscience applications in this category
-- **Hybrid parallel applications**
-    - A job where each MPI task is allocated several cores. Each task then 
-      uses some other parallelization than MPI to do work. The most common strategy 
-      is for every MPI task to launch multiple threads using OpenMP.
-    - Quite rare in bioscience applications
+Selvittääksesi, mihin kategoriaan sovelluksesi kuuluu, lue dokumentaatio.
 
-To find out what category your application belongs to, read the documentation.
+On myös huomattava, että useammat ytimet eivät automaattisesti tarkoita nopeampaa suoritusaikaa. Liian monen ytimen varaaminen voi itse asiassa hidastaa ohjelmiston toimintaa. Optimaalinen ytimien määrä riippuu sovelluksesta, datasta ja suoritetusta analyysista. Sinun pitäisi tarkistaa sovelluksen dokumentaatiosta, antaa kehittäjät ohjeita. On myös hyvä idea tehdä joitakin testejä eri ytimien lukumäärillä nähdäkseen, kuinka hyvin sovellus skaalautuu.
 
-It should also be noted that more cores does not automatically mean
-faster run time. Reserving too many cores can actually make the
-software run slower. The optimal number of cores depends on the
-application, data and the analysis performed. You should check the
-application documentation to see if the developers give any
-guidelines. It is also a good idea to run some tests with different
-core numbers to see how well the application scales.
+### Kuinka paljon muistia sovellukseni tarvitsee? {#how-much-memory-does-my-application-need}
 
+Vaaditun muistin arvioiminen voi olla melko vaikeaa. Monissa tapauksissa se riippuu valitusta datasta ja sovelluksen asetuksista. Myös säikeiden määrä voi usein vaikuttaa muistivaatimuksiin.
 
-### How much memory does my application need?
+Sinun pitäisi lukea sovelluksen dokumentaatio nähdäksesi, antavatko kehittäjät jotakin arviota. Usein on myös hyödyllistä tarkistaa käyttäjäfoorumeilta, jos ohjelmistolla on sellainen.
 
-Estimating the required memory can be quite difficult. In many cases
-it is affected by the data and the application options chosen. Also
-number of threads used can often effect the memory requirements.
+Usein, erityisesti kun sovellusta ajetaan ensimmäistä kertaa, täytyy vain tehdä arvaus. Jos saat virheilmoituksen muistin loppumisesta, lisää muistivarausta ja yritä uudelleen. Jos tehtävä valmistuu, voit tarkistaa todellisen muistinkäytön ja käyttää sitä varausten tekemiseen tulevaisuudessa.
 
-You should read the application documentation to see if the developers
-give any estimate. Often it is also helpful to check the user forums,
-if the software has one.
+Enemmän tietoa löytyy tästä UKK-kohdasta: [Miten arvioida kuinka paljon muistia erätehtäväni tarvitsee?](../faq/how-much-memory-my-job-needs.md)
 
-Often, especially when running an application for the first time, you
-just have to make a guess. If you get an error message about memory
-running out, increase memory reservation and try again. If the job
-finishes, you can check the actual memory usage and use that to make
-the reservations in the future.
+### Kuinka paljon aikaa minun pitäisi varata? {#how-much-time-should-i-reserve}
 
-More information can be found in this FAQ entry: [How to estimate how
-much memory my batch job
-needs?](../faq/how-much-memory-my-job-needs.md)
+Suoritusaikaan tutustuminen etukäteen voi olla vaikeaa, jos et tunne sovellusta.
 
+Sinun pitäisi varmistaa, että varaat tarpeeksi, sillä työ keskeytetään, kun aikavaraus loppuu, olipa se valmistunut vai ei.
 
-### How much time should I reserve?
+Toisaalta liian suuren aikavälin varaaminen ei ole niin suuri ongelma. Työ valmistuu, kun työn viimeinen tehtävä valmistuu. Työsi kuluttaa laskentayksikköjä ainoastaan todellisen kuluneen ajan, ei varauksen mukaan.
 
-Knowing the run tme in advance can also be difficult if you are not
-familiar with the application.
+On ihan ok varata maksimiaika osiossa, jossa käytät sovellusta ensimmäistä kertaa. Kun työ on valmis, voit tarkistaa kuluneen ajan ja tehdä paremmin tietoisen varauksen seuraavalla kerralla.
 
-You should make sure to reserve enough, as the job will be stopped
-when the time reservation runs out, whether it is finished or not.
+## Työn suorittaminen {#running-your-job}
 
-On the other hand reserving too much time is not that big of a
-problem. The job will finish when the last task of the job
-finishes. Your job will only consume billing units according to the
-actual elapsed time, not according to reservation.
+### Interaktiiviset työt {#interactive-jobs}
 
-It is OK to reserve the maximum time allowed in the partition you are
-using when running an application first time. After the job finishes,
-you can check the elapsed time, and make a more informed reservation
-next time.
+Interaktiiviset työt ovat hyviä esimerkiksi testaamiseen, pienien tehtävien suorittamiseen ja ohjelmistoihin, joilla on graafinen käyttöliittymä.
 
-
-## Running your job
-
-### Interactive jobs
-
-Interactive jobs are good for things like testing, running small tasks
-and for software that has a graphical user interface.
-
-As mentioned, you should not run jobs in the login node. Instead you
-can use **sinteractive** command to open an interactive shell:
+Kuten mainittua, et pitäisi suorittaa töitä kirjautumissolmussa. Sen sijaan voit käyttää **sinteractive**-komentoa avataksesi interaktiivisen komentokehotteen:
 
 ```text
 sinteractive -i
 ```
-For more detailed instructions, see the User Guide: [Interactive usage](../../computing/running/interactive-usage.md)
+Katso tarkemmat ohjeet Käyttäjän oppaasta: [Interaktiivinen käyttö](../../computing/running/interactive-usage.md)
 
-Longer jobs that take more resources are best run as batch jobs.
+Pidemmät töitä, jotka vievät enemmän resursseja, on parasta suorittaa erätöinä.
 
-### Batch jobs
+### Erätyöt {#batch-jobs}
 
-Running a batch job typically has three steps:
-1. Make sure you have all the necessary input files
-    1. For instructions on how to move data from your own computer to Puhti, see section [Data/Moving data](../../data/moving/index.md) in the User Guide
-2. Write a batch job script
-    1. Use a text editor like nano, vim or emacs to write the script
-    2. If you write the script on your own computer, and move it to 
-       Puhti, some care should be taken. Make sure it is saved as text, 
-       not as a Word doc or something like that. Also be aware that Windows 
-       treats line endings differently than Linux, and this can cause problems.
-3. Submit the job
+Erätyön suorittaminen koostuu tyypillisesti kolmesta vaiheesta:
+1. Varmista, että sinulla on kaikki tarvittavat syötetiedostot
+    1. Ohjeet kuinka siirtää tietoa omalta tietokoneeltasi Puhtille, katso osio [Data/Tiedon siirtäminen](../../data/moving/index.md) Käyttäjän oppaassa
+2. Kirjoita erätyöskripti
+    1. Käytä tekstieditoria kuten nano, vim tai emacs kirjoittaaksesi skriptin
+    2. Jos kirjoitat skriptin omalla tietokoneellasi ja siirrät sen Puhtille, ole varovainen. Varmista, että se on tallennettu tekstinä eikä esimerkiksi Word-dokumenttina. Ole myös tietoinen, että Windows käsittelee rivinvaihtoja eri tavalla kuin Linux, ja tämä voi aiheuttaa ongelmia.
+3. Lähetä työ
 
-Here is an example batch job script. It is saved as *myjobscript*
+Tässä on esimerkki erätyöskriptistä. Se on tallennettu nimellä *myjobscript*
 ```text
 #!/bin/bash
 #SBATCH --job-name=bowtie2
@@ -231,21 +152,13 @@ module load biokit
 bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq > output.sam
 ```
 
-All the lines staring with **#SBATCH** are passed on to the batch job
-system. We use them to request the necessary resources.
+Kaikki rivit, jotka alkavat **#SBATCH**-merkkijonolla, välitetään erätyöjärjestelmälle. Käytämme niitä vaatiaksemme tarvittavat resurssit.
 
-Job name (--job-name) is mainly used to identify your job *e.g.* when
-listing jobs with **squeue** or checking past jobs with **sacct**.
+Työn nimi (--job-name) käytetään pääasiassa työn tunnistamiseksi *esim.* kun listaat työt **squeue**-komennolla tai tarkistat menneitä töitä **sacct**-komennolla.
 
-It is necessary to to inform the system which project should be
-billed. This is done with **--account**. You can check the projects that
-you belong to in [MyCSC](https://my.csc.fi/myProjects) or with `csc-projects`
-in the command line.
+On välttämätöntä ilmoittaa järjestelmälle, mikä projektin pitäisi laskuttaa. Tämä tehdään **--account**-vaihtoehdolla. Voit tarkistaa projektit, joihin kuulut, [MyCSC](https://my.csc.fi/myProjects)-palvelusta tai `csc-projects`-komennolla komentorivillä.
 
-Bowtie2 is a shared memory application. As discussed earlier that
-means it can use more than one core, but all cores must be in the same
-node. We specify that we want to run one task (--ntask=1) in one node
-(--nodes=1) using 16 cores (--cpus-per-task):
+Bowtie2 on jaetun muistin sovellus. Kuten aiemmin mainittiin, tämä tarkoittaa, että se voi käyttää useampaa kuin yhtä ydintä, mutta kaikki ytimet on oltava samassa solmussa. Määrittelemme, että haluamme ajaa yhden tehtävän (--ntask=1) yhdessä solmussa (--nodes=1) käyttäen 16 ydintä (--cpus-per-task):
 
 ```text
 #SBATCH --ntasks=1
@@ -253,218 +166,174 @@ node. We specify that we want to run one task (--ntask=1) in one node
 #SBATCH --cpus-per-task=16
 ```
 
-Because it is a shared memory application we can use `--mem` to specify
-the total memory requested for the task. For an MPI job we would have
-to request memory per core with `--mem-per-cpu`.
+Koska se on jaetun muistin sovellus, voimme käyttää `--mem`-vaihtoehtoa määrittämään tehtävälle pyydetyn kokonaismuistin. MPI-työlle meidän täytyisi pyytää muisti per ydin `--mem-per-cpu`-vaihtoehdolla.
 
 ```text
 #SBATCH --mem=16G
 ```
 
-The time reservation is given as hours:minutes:seconds *i.e.* `hh:mm:ss`. in
-this case we reserve four hours:
+Aikavaraus annetaan muodossa tunnit:minuutit:sekunnit *eli* `hh:mm:ss`. Tässä tapauksessa varataan neljä tuntia:
 
 ```text
 #SBATCH --time=04:00:00
 ```
 
-We also need to specify which partition (also called a queue) we want 
-the job to run in. This is specified with the `--partition` option. For 
-most bioscience jobs "small" is the correct choice. It is for jobs that
-run inside one node.
+Meidän täytyy myös määrittää, mitä osiota (myös kutsutaan jonoksi) haluamme työn suorittamiseen. Tämä määritetään `--partition`-vaihtoehdolla. Useimmille biotieteiden töille "small" on oikea valinta. Se on töille, jotka suoritetaan yhden solmun sisällä.
 
 ```text
 #SBATCH --partition=small
 ```
 
-You can check the available partitions in the User Guide: [Available
-batch job partitions](../../computing/running/batch-job-partitions.md)
+Voit tarkistaa käytettävissä olevat osiot Käyttäjän oppaasta: [Saatavilla olevat erätehtäväosiot](../../computing/running/batch-job-partitions.md)
 
-By default various outputs and error messages that would be printed to
-the screen if the application was run interactively, are saved in a
-file called *slurm-&lt;jobid&gt;.out*. Sometimes it is clearer to separate
-the outputs and errors. This can be done adding options `--output` and
-`--error`. The `%j` will be replaced by jobid of the job in the file name.
+Oletuksena erilaiset tulosteet ja virheilmoitukset, jotka tulostettaisiin näytölle, jos sovellus ajettaisiin interaktiivisesti, tallennetaan tiedostoon nimeltä *slurm-&lt;jobid&gt;.out*. Joskus on selvempää erottaa tulosteet ja virheet. Tämä voidaan tehdä lisäämällä `--output` ja `--error`-vaihtoehdot. `%j` korvataan työn jobid-tunnuksella tiedoston nimessä.
 
 ```text
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 ```
 
-There are also other available options. For a more detailed
-explanation, please see the User Guide: [Creating a batch job script
-for Puhti](../../computing/running/creating-job-scripts-puhti.md)
+Saatavilla on myös muita vaihtoehtoja. Yksityiskohtaisempaan selitykseen, katso Käyttäjän opas: [Erätehtäväskriptin luominen Puhtille](../../computing/running/creating-job-scripts-puhti.md)
 
-When you have written the batch job script, you can submit the job to the queue:
+Kun olet kirjoittanut erätyöskriptin, voit lähettää työn jonoon:
 ```text
 sbatch myjobscript
 ```
-If the job was submitted successfully, you should see a message:
+Jos työ lähetettiin onnistuneesti, sinun pitäisi nähdä viesti:
 ```text
 Submitted batch job <jobid>
 ```
 
-It is possible to launch a job directly with command **srun** by
-giving the options given as `#SBATCH` lines directly as command line
-options, but writing a batch job script is generally preferable for
-clarity and ease of re-use if you *e.g.* want submit a similar job with
-different data or modified parameters.
+On mahdollista käynnistää työ suoraan komennolla **srun** antamalla `#SBATCH`- rivien vaihtoehdot suoraan komentorivi-vaihtoehtoina, mutta erätyöskriptin kirjoittaminen on yleensä suositeltavaa selkeyden ja uudelleenkäytön helpottamiseksi *esim.* jos haluat lähettää samanlaisen työn eri datalla tai muokatuilla parametreilla.
 
-### Array jobs
+### Taulukkoajot {#array-jobs}
 
-If you wish to run several instances of the same command with different 
-input files or different set of parameters, you should consider running 
-them as an array job. Array jobs offer an easy way to launch and manage 
-a group of similar jobs.
+Jos haluat suorittaa useita saman komennon instansseja eri syötetiedostoilla tai eri parametreillä, kannattaa harkita niiden ajamista taulukkoajona. Taulukkoajot tarjoavat helpon tavan käynnistää ja hallita ryhmää samanlaisia töitä.
 
-Running array jobs is described in detail in the User Guide: 
-[Array jobs](../../computing/running/array-jobs.md)
+Taulukkoajojen suorittaminen kuvataan yksityiskohtaisesti Käyttäjän oppaassa: [Array-jotokset](../../computing/running/array-jobs.md)
 
-## Managing jobs
+## Tehtävien hallinta {#managing-jobs}
 
-You can check your current jobs, both running and queueing:
+Voit tarkistaa nykyiset tehtäväsi, sekä suoritettavat että jonossa olevat:
 ```text
 squeue -u <username>
 ```
-Or  get a bit more detailed listing using:
+Tai saada hieman yksityiskohtaisempia listatietoja käyttäen:
 ```text
 squeue -l -u <username>
 ```
-You can check the status of your job in the column named ST or STATUS (depending
-whether option -l is used or not). R or RUNNING means the job is currently running.
-P or PENDING means it is still waiting in the queue.
+Voit tarkistaa työsi tilan ST- tai STATUS-sarakkeesta riippuen, käytetäänkö vaihtoehdon -l vai ei. R tai RUNNING tarkoittaa, että työ on tällä hetkellä käynnissä. P tai PENDING tarkoittaa, että se on vielä jonossa.
 
-If the job is pending, you can see the reason in the NODELIST(REASON) column. 
+Jos työ on odottava, voit nähdä syyn NODELIST(REASON)-sarakkeesta.
 
-Reason:
+Syyt:
 ```text
 (Resources)
 ```
-or
+tai
 ```text
  (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
-mean that there are currently no available resources to run your job. The
-job will run as soon as resources are free.
+tarkoittavat, että tällä hetkellä ei ole saatavilla olevia resursseja työn suorittamiseen. Työ käynnistyy, kun resurssit vapautuvat.
 
-Reason:
+Syyt:
 ```text
 (Priority)
 ```
-means your job is being held back by the fair share functionality of the 
-batch job system: When a user runs many jobs in a short amount of time, their 
-jobs will have lower priority. These jobs will spend a bit longer in the queue, 
-but will be run eventually.
+tarkoittavat, että työsi pidätetään erätyöjärjestelmän fair share -toiminnallisuuden vuoksi: Kun käyttäjä suorittaa paljon töitä lyhyessä ajassa, hänen työnsä saa alhaisemman prioriteetin. Nämä työt odottavat jonossa hieman kauemmin, mutta ne suoritetaan lopulta.
 
-Queueing time will depend on the overall load on the system (*i.e.* how many jobs are in the 
-queue before yours) and on the resource requirements of your jobs.
+Jonotusaika riippuu yleisestä kuormituksesta järjestelmässä (*eli* kuinka monta työtä on jonossa ennen sinun) ja töiden resurssivaatimuksista.
 
-If it feels your jobs queue a long time, you might want to check this FAQ entry:
-[Why is my batch job queueing so long?](../faq/why-is-my-job-queueing-so-long.md)
+Jos tuntuu, että työsi jonottuvat pitkään, kannattaa tarkistaa tämä UKK-kohta: [Miksi erätehtäväni jonottaa niin pitkään?](../faq/why-is-my-job-queueing-so-long.md)
 
-There are also other reasons, but they are less common. Consult **servicedesk@csc.fi** if necessary.
+On myös muita vähemmän yleisiä syitä, mutta ne ovat harvinaisempia. Tarvittaessa ota yhteyttä **servicedesk@csc.fi**.
 
-You can cancel a submitted batch job with:
+Voit peruuttaa lähetetyn erätyön seuraavasti:
 ```text
 scancel <jobid>
 ```
 
-## Monitoring resource usage
+## Resurssien käytön seuranta {#monitoring-resource-usage}
 
-After the job has finished you can use commands **seff** and **sacct** to check the 
-resources the job actually used.
+Kun työ on valmis, voit käyttää komentoja **seff** ja **sacct** tarkistaaksesi työn todelliset resurssienkulutukset.
 ```text
 seff <jobid>
 ```
 
-Most important things to check are the CPU efficiency and memory utilization.
+Tärkeimmät asiat tarkistaa ovat CPU:n tehokkuus ja muistin käyttö.
 
-There are many things that can cause poor CPU efficiency. It could, for example,
-indicate that the program is waiting for disk access to catch up. In these cases
-you should consider using a node with fast local disk.  For details, please see the User Guide: 
-[Creating a batch job script for Puhti](../../computing/running/creating-job-scripts-puhti.md)
+Monet asiat voivat aiheuttaa huonoa CPU:n tehokkuutta. Se voisi esimerkiksi tarkoittaa, että ohjelma odottaa levytoimintojen saavuttavan tehtävänsä. Näissä tapauksissa on syytä harkita solmun käyttöä, jossa on nopea paikallinen levy. Yksityiskohdat löytyvät Käyttäjän oppaasta: [Erätöiden luominen Puhtille](../../computing/running/creating-job-scripts-puhti.md)
 
-Low efficiency could also be due to reserving more than one core and the application
-scaling poorly. Check especially if the percentage matches the number of cores reserved,
-*e.g.* 25% with four cores or 12,5% with eight cores *etc*. This is typically due to the
-application only using one core. Check if the application can really use more than one core, 
-or if you have set the corresponding application parameter correctly. 
+Alhainen tehokkuus voi myös johtua yli yhden ytimen varaamisesta ja ohjelmiston huonosta skaalaamisesta. Tarkista erityisesti, vastaako prosenttiluku varattujen ytimien määrää, *esim.* 25% neljällä ytimellä tai 12,5% kahdeksalla ytimellä *etc*. Tämä johtuu yleensä siitä, että sovellus käyttää vain yhtä ydintä. Tarkista, voiko sovellus todella käyttää enemmän kuin yhtä ydintä, tai oletko asettanut vastaavan sovellusparametrin oikein.
 
 ```text
 CPU Efficiency: 12.48% of 06:56:08 core-walltime
 ```
 
-Also check the actual utilized memory and set the memory reservation for the next run
-accordingly, but leave some safety buffer, e.g. few GB. Fore example, in the following
-job, the memory request has been way too large (92GB requested vs. 6GB used).
+Tarkista myös todellinen hyödynnetty muisti ja aseta muistivaraus seuraavaa suoritus kertaa varten vastaavasti, mutta jätä jonkin verran turvamarginaalia, esim. muutama GB. Esimerkiksi seuraavassa työssä, muistipyyntö on ollut aivan liian suuri (92GB pyydetty vs. 6GB käytetty).
 
 ```text
 Memory Utilized: 5.98 GB
 Memory Efficiency: 6.25% of 92.59 GB
 ```
 
-The other command to check the status and resource usage of past jobs is **sacct**. It is handy
-when you want to see the status of many jobs (*e.g* all the subjobs of an array job).
-Command **seff** will only show one job at a time.
+Toinen komento tarkistaa menneiden töiden tila ja resurssien käyttö on **sacct**. Se on kätevä, kun haluat nähdä monien töiden tilan (*esim.* kaikki osatyöt taulukkoajossa). Komento **seff** näyttää vain yhden työn kerrallaan.
 
 ```text
 sacct
 ```
-The information shown by default includes the state of the jobs (PENDING/RUNNING/COMPLETED/FAILED) 
-and the jobid. 
+Oletuksena näytettävä tieto sisältää töiden tilan (PENDING/RUNNING/COMPLETED/FAILED) ja työn id:n.
 
-You can also specify which fields to show with the -o option:
+Voit myös määrittää, mitkä kentät näytetään -o-vaihtoehdolla:
 ```text
 sacct -o jobid,jobname,ntasks,ReqNodes,allocnodes,reqcpus,alloccpus,reqmem,maxrss,timelimit,elapsed,state -j <jobid>
 ```
-By default **sacct** only shows jobs run on current date. You can select the start date
-with option -S.
+Oletuksena **sacct** näyttää vain nykyisen päivän töitä. Voit valita aloituspäivämäärän -S-vaihtoehdolla.
 ```text
 sacct -S <YYYY-MM-DD>
 ```
-Please note, that the `sacct` command is heavy on the queuing system, so don't build scripts that
-run it repeatedly.
+Huomaa, että `sacct`-komento on raskas jonotusjärjestelmän suhteen, joten älä rakenna skriptejä, jotka suorittavat sen toistuvasti.
 
-## Troubleshooting
+## Vianmääritys {#troubleshooting}
 
-### Getting familiar with a new program
+### Tutustuminen uuteen ohjelmaan {#getting-familiar-with-a-new-program}
 
-Here are some useful steps when familiarizing yourself with a new program.
+Tässä on joitakin hyödyllisiä vaiheita tutustuessasi uuteen ohjelmaan.
 
-- Read the manual
-- It may be helpful to first try run the program interactively to find the correct command line options
-    - This allows to use `top` to get rough a estimate on memory use etc.
-- If developers provide some test or example data, run it first
-    - Make sure the results are as expected
-- You can use the test partition to check your batch job script
-    - Limits : 15 min, 2 nodes
-    - Job turnaround usually very fast
-    - Can be useful to spot typos, missing files *etc.* before submitting a job that will spend long in the queue
-- Before very large runs, it’s a good idea do a smaller trial run
-    - Check that results are as expected
-    - Check resource usage after test run and adjust accordingly 
-    - Try different core numbers and see how the software scales
+- Lue ohje
+- Voi olla hyödyllistä yrittää ensin ajaa ohjelma interaktiivisesti löytääksesi oikeat komentorivivaihtoehdot
+    - Tämä mahdollistaa `top`-komennon käytön saadakseen karkean arvion muistinkäytöstä jne.
+- Jos kehittäjät tarjoavat joitain testaus- tai esimerkkidataa, aja ne ensin
+    - Varmista, että tulokset ovat odotetut
+- Voit käyttää testiosuutta tarkistaaksesi erätyöskriptin
+    - Rajat: 15 min, 2 solmua
+    - Työn vaihtuvuus yleensä hyvin nopeaa
+    - Voi olla hyödyllinen tarkistaa kirjoitusvirheitä, puuttuvia tiedostoja jne. ennen suuren työn lähettämistä
+- Ennen hyvin suuria suorituslenkkejä on hyvä tehdä pienempi koeajo
+    - Tarkista, että tulokset ovat odotetut
+    - Tarkista resurssien käyttö koeajon jälkeen ja säädä sitä vastaavasti
+    - Kokeile eri ytimien määriä ja katso, kuinka ohjelmisto skaalautuu
 
-### Troubleshooting checklist
+### Vianmäärityksen tarkistuslista {#troubleshooting-checklist}
 
-Start with these if your job fails:
+Aloita näistä, jos työsi epäonnistuu:
 
-1. Did the job run out of time?
-2. Did the job run out of memory?
-3. Did the job actually use resources you specified?
-    - Problems in the batch job script can cause parameters to be ignored and default values getting used instead
-4. Did it fail immediately or did it run for some time?
-    - Jobs failing immediately are often due to something simple like 
-      typos in command line, missing inputs, bad parameters *etc.*
-5. Check the error file captured by the batch job script
-6. Check any other error files and logs the program may have produced
-7. Error messages can sometimes be long, cryptic and a bit intimidating, 
-   but try skimming through them and see if you can spot something 
-   ”human readable” instead of ”nerd readable”
-    - Often you can spot the actual problem easily if you go through the 
-      whole message. Something like ”required input file so-and-so missing” 
-      or ”parameter X out of range” *etc.*
+1. Loppuiko tehtävältä aika?
+2. Loppuiko tehtävältä muisti?
+3. Käyttikö tehtävä todella määrittämiäsi resursseja?
+    - Ongelmia erätyöskriptissä voi aiheuttaa parametrien huomiotta jättämisen ja oletusarvojen käytön
+4. Epäonnistuko se heti vai ajoiko se jonkin aikaa?
+    - Välittömästi epäonnistuvat työt johtuvat usein jostain yksinkertaisesta kuten 
+      kirjoitusvirheistä komentorivillä, puuttuvista syötteistä, vääristä parametreista jne.
+5. Tarkista erätyöskriptin tallentama virhetiedosto
+6. Tarkista kaikki muut virhetiedostot ja lokit, jotka ohjelma on saattanut luoda
+7. Virheilmoitukset voivat toisinaan olla pitkiä, kryptisiä ja hieman pelottavia, 
+   mutta yritä silti silmäillä niitä ja katso, voitko löytää jotain 
+   ”ihmisen luettavissa” sen sijaan, että olisi ”nörtille luettavissa”
+    - Usein voit huomata todellisen ongelman helposti käymällä koko 
+      viestin läpi. Jotain kuten ”vaadittu syötetiedosto on ja on puuttuva” 
+      tai ”parametri X vääränlainen” jne.
 
-If you can't figure it out, please don't hesitate to contact us at
-**servicedesk@csc.fi**. Remember to include relevant information like what
-program you were trying to run on which server etc.
+Jos et pysty selvittämään sitä, älä epäröi ottaa yhteyttä osoitteeseen 
+**servicedesk@csc.fi**. Muista liittää mukaan olennaiset tiedot, kuten mitä 
+ohjelmaa yritit suorittaa ja millä palvelimella jne.

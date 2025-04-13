@@ -1,71 +1,59 @@
+
 # Tykky
 
-## Intro
+## Intro {#intro}
 
-Tykky is a set of tools which make software installations on HPC systems easier and
-more efficient using Apptainer containers.
+Tykky on joukko työkaluja, jotka tekevät ohjelmistojen asennuksesta HPC-järjestelmiin helpompaa ja tehokkaampaa käyttämällä Apptainer-kontteja.
 
-Tykky use cases:
+Tykky-käyttötapaukset:
 
-- Conda installations, based on Conda `environment.yml`.
-- Pip installations, based on pip `requirements.txt`.
-- Container installations, based on existing Docker or Apptainer/Singularity images.
-    - This includes installations from the Bioconda channel, see
-      [this tutorial for an example](../../support/tutorials/bioconda-tutorial.md).
+- Conda-asennukset perustuvat Conda `environment.yml`-tiedostoon.
+- Pip-asennukset perustuvat pip `requirements.txt`-tiedostoon.
+- Konttiasennukset perustuvat olemassa oleviin Docker- tai Apptainer/Singularity-kuviin.
+    - Tämä sisältää asennukset Bioconda-kanavalta, katso [tämä opas](../../support/tutorials/bioconda-tutorial.md) esimerkkinä.
 
-Tykky wraps installations inside an Apptainer/Singularity container to improve startup
-times, reduce I/O load, and lessen the number of files on large parallel file systems.
-Additionally, Tykky will generate wrappers so that installed software can be used
-(almost) as if it was not containerized. Depending on tool selection and settings,
-either the whole host file system or a limited subset is visible during execution
-and installation. This means that it's possible to wrap installations using e.g
-`mpi4py` relying on the host-provided MPI installation.
+Tykky käärii asennukset Apptainer/Singularity-kontin sisään parantaakseen käynnistysaikoja, vähentääkseen I/O-kuormaa ja pienentääkseen tiedostojen määrää suurilla rinnakkaisilla tiedostojärjestelmillä. Lisäksi Tykky luo käärinnät siten, että asennettua ohjelmistoa voidaan käyttää (melkein) kuin se ei olisi konttien sisällä. Riippuen työkalujen valinnasta ja asetuksista, joko koko isäntäkoneen tiedostojärjestelmä tai rajallinen alijoukko on näkyvissä suorittamisen ja asennuksen aikana. Tämä tarkoittaa, että on mahdollista kääriä asennuksia käyttäen esimerkiksi `mpi4py`, joka perustuu isännän tarjoamaan MPI-asennukseen.
 
-This documentation covers a subset of the functionality and focuses on Conda and
-Python. Most advanced use-cases are not covered here yet.
+Tämä dokumentaatio kattaa osan toiminnallisuudesta ja keskittyy Conda- ja Python-versioihin. Useimmat kehittyneet käyttötapaukset eivät ole vielä täällä mukana.
 
-!!! Warning
-    As Tykky is still under development, some of the more advanced features might
-    change with respect to exact usage and API.
+!!! Varoitus
+    Koska Tykky on edelleen kehityksessä, jotkut edistyneemmät ominaisuudet voivat muuttua koskien täsmällistä käyttöä ja API:ta.
 
-## Tykky module
+## Tykky-moduuli {#tykky-module}
 
-To access Tykky tools:
+Tykky-työkalujen käyttöön pääsy:
 
-1) Usually it is best to first unload all other modules:
+1) Yleensä on parasta ensin poistaa kaikki muut moduulit käytöstä:
 
 ```bash
 module purge
 ```
 
-2) Load the Tykky module:
+2) Lataa Tykky-moduuli:
 
 ```bash
 module load tykky
 ```
 
-## Conda-based installation
+## Conda-pohjainen asennus {#conda-based-installation}
 
-!!! note "About licensing"
-    If you use environments installed with Tykky versions older than 0.4.0,
-    please ensure that you have read and understood the license terms for
-    Miniconda and any used channels before using the command.
+!!! huomaa "Lisenssikäytännöistä"
+    Jos käytät ympäristöjä, jotka on asennettu Tykky-versioilla vanhemmilla kuin 0.4.0, varmista, että olet lukenut ja ymmärtänyt Minicondan ja käytettyjen kanavien lisenssiehtoja ennen komennon käyttöä.
     
-    - [Anaconda terms of service](https://legal.anaconda.com/policies/en?name=terms-of-service#anaconda-terms-of-service).
-    - [Miniconda end-user license agreement](https://legal.anaconda.com/policies/en?name=terms-of-service#offering-description-miniconda).
-    - [Anaconda terms of service FAQs](https://www.anaconda.com/pricing/terms-of-service-faqs).
+    - [Anacondan käyttöehdot](https://legal.anaconda.com/policies/en?name=terms-of-service#anaconda-terms-of-service).
+    - [Miniconda-end-user license agreement](https://legal.anaconda.com/policies/en?name=terms-of-service#offering-description-miniconda).
+    - [Anacondan käyttöehdot UKK](https://www.anaconda.com/pricing/terms-of-service-faqs).
 
-    Tykky versions 0.4.0 and later use Miniforge, for which the above license restrictions do not apply.
-    [See Tykky release history](https://github.com/CSCfi/hpc-container-wrapper/releases).
+    Tykky-versioissa 0.4.0 ja myöhemmin käytetään Miniforgea, johon yllä mainitut lisenssien rajoitukset eivät koske. [Katso Tykky-julkaisu historia](https://github.com/CSCfi/hpc-container-wrapper/releases).
 
-1) Create a **Conda environment file** `env.yml`:
+1) Luo **Conda-ympäristötiedosto** `env.yml`:
 
-- [Create manually a new file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) or
-- [Create the file from an existing Conda installation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment). For example: `conda env export -n <target_env_name> > env.yml`.
-  	- If the existing environment is on a Windows or MacOS machine, the [`--from-history` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms) might be required to get a `.yml` file suitable for Linux.
-  	- If the existing environment is on a Linux machine with x86 CPU architecture, it is also possible to use [`--explicit` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#building-identical-conda-environments).
+- [Luo manuaalisesti uusi tiedosto](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) tai
+- [Luo tiedosto olemassa olevasta Conda-asennuksesta](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment). Esimerkiksi: `conda env export -n <target_env_name> > env.yml`.
+  	- Jos olemassa oleva ympäristö on Windows- tai MacOS-koneella, [`--from-history`-lipuke](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms) voi olla tarpeen Linux-yhteensopivan `.yml`-tiedoston luomiseksi.
+  	- Jos olemassa oleva ympäristö on Linux-koneella x86-prosessoriarkkitehtuurilla, myös [`--explicit`-lipuke](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#building-identical-conda-environments) on mahdollinen.
 
-An example of a suitable `env.yml` file would be:
+Esimerkki sopivasta `env.yml`-tiedostosta:
 
 ```yaml
 channels:
@@ -76,68 +64,57 @@ dependencies:
   - nglview
 ```
 
-!!! info
-    The `channels` field lists which channels the packages should be pulled from
-    to this environment, whereas the `dependencies` field lists the actual Conda
-    packages that will be installed into the environment. Note that Conda uses a
-    channel priority for determining where to install packages from, i.e. it tries
-    to first install packages from the first listed channel. If no package versions
-    are specified, Conda always installs the latest versions.
+!!! tietoa
+    `channels`-kenttä listaa kanavat, joista paketit haetaan tähän ympäristöön, kun taas `dependencies`-kenttä listaa varsinaiset Conda-paketit, jotka asennetaan ympäristöön. Huomaa, että Conda käyttää kanavaprioriteettia päättäessään, mistä paketit asennetaan, eli se yrittää ensin asentaa paketit ensimmäisestä luetellusta kanavasta. Jos pakettiversiot eivät ole tarkasti määritelty, Conda asentaa aina uusimmat versiot.
 
-2) Create a new directory `<install_dir>` for the installation. `/projappl/<your_project>/...`
-   is recommended.
+2) Luo uusi hakemisto `<install_dir>` asennukselle. `/projappl/<your_project>/...` on suositeltu.
 
-3) Create the installation:
+3) Luo asennus:
 
 ```bash
 conda-containerize new --prefix <install_dir> env.yml
 ```
 
-4) Add the `<install_dir>/bin` directory to your `$PATH`:
+4) Lisää `<install_dir>/bin`-hakemisto `$PATH`-polkuusi:
 
 ```bash
 export PATH="<install_dir>/bin:$PATH"
 ```
 
-5) Now you can call `python` and any other executables Conda has installed in the same
-   way as if you had activated the environment.
+5) Nyt voit kutsua `python`ia ja kaikkia muita Condaan asennettuja ohjelmoituja kuten jos olisit aktivoinut ympäristön.
 
-### Using Jupyter with a Tykky installation
+### Jupyterin käyttö Tykky-asennuksen kanssa {#using-jupyter-with-a-tykky-installation}
 
-To use a Tykky installation with [Jupyter](https://jupyter.org/), include correct conda package in your Conda environment file: `jupyterlab` for [JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) or `notebook` for [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) from `conda-forge` channel. Also additional JupyterLab extensions can be installed, for example [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) or [dask-labextension](https://github.com/dask/dask-labextension). 
+Jotta voit käyttää Tykky-asennusta [Jupyterin](https://jupyter.org/) kanssa, sisällytä oikea conda-paketti Conda-ympäristötiedoston: `jupyterlab` [JupyterLabia](https://jupyterlab.readthedocs.io/en/latest/) varten tai `notebook` [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) conda-forge-kanavalta. Myös lisä JupyterLab-laajennuksia voidaan asentaa, kuten esimerkiksi [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) tai [dask-labextension](https://github.com/dask/dask-labextension).
 
-The best way to use Jupyter in Puhti or Mahti is with [the web interface](../webinterface/index.md). See [Jupyter application page](../webinterface/jupyter.md#tykky-installations) for details how to use your own Tykky installation with Puhti web interface Jupyter.
+Paras tapa hyödyntää Jupyteria Puhti- tai Mahti-projektiin on [verkkokäyttöliittymän](../webinterface/index.md) kautta. Katso [Jupyter-sovellussivulta](../webinterface/jupyter.md#tykky-installations) yksityiskohtia kuinka käyttää omaa Tykky-asennusta Puhti web-käyttöliittymän Jupyterissa.
 
-### Pip with Conda
+### Pip Condan kanssa {#pip-with-conda}
 
-To install some additional pip packages, add the `-r <req_file>` argument, e.g.:
+Jos haluat asentaa lisä pip-paketteja, lisää `-r <req_file>`-argumentti, esim.:
 
 ```bash
 conda-containerize new -r req.txt --prefix <install_dir> env.yml
 ```
 
-### Mamba
+### Mamba {#mamba}
 
-The tool also supports using [Mamba](https://github.com/mamba-org/mamba) for installing
-packages. Mamba often finds suitable packages much faster than Conda, so it is a good
-option when the required package list is long. Enable this feature by adding the `--mamba`
-flag.
+Työkalu tukee myös [Mamba](https://github.com/mamba-org/mamba) käyttöä pakettien asennuksessa. Mamba löytää usein sopivia paketteja paljon nopeammin kuin Conda, joten se on hyvä vaihtoehto erityisesti, kun vaadittujen pakettien luettelo on pitkä. Ota tämä ominaisuus käyttöön lisäämällä `--mamba`-lipuke.
 
 ```bash
 conda-containerize new --mamba --prefix <install_dir> env.yml
 ```
 
-### End-to-end example
+### Päättyvä esimerkki {#end-to-end-example}
 
-Create a new Conda-based installation using the previous `env.yml` file.
+Luo uusi Conda-pohjainen asennus käyttäen aiempaa `env.yml`-tiedostoa.
 
 ```bash
 mkdir MyEnv
 conda-containerize new --prefix MyEnv env.yml
 ```
 
-After the installation finishes, add the installation directory to your `PATH`
-and use it like normal.
+Kun asennus on valmis, lisää asennushakemisto `PATH`-polkuusi ja käytä sitä normaalisti.
 
 ```bash
 $ export PATH="$PWD/MyEnv/bin:$PATH"
@@ -152,23 +129,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-### Modifying a Conda installation
+### Conda-asennuksen muokkaaminen {#modifying-a-conda-installation}
 
-Tykky installations reside in a container, so they can not be directly modified.
-Small Python packages can be added normally using `pip`, but then the Python packages
-will be sitting on the parallel file system, which is not recommended for any larger
-installations.
+Tykky-asennukset ovat kontin sisällä joten niitä ei voida suoraan muokata. Pienet Python-paketit voidaan lisätä normaalisti käyttäen `pip`, mutta silloin Python-paketit ovat rinnakkaisella tiedostojärjestelmällä, mitä ei suositella suuremmille asennuksille.
 
-To actually modify the installation, we can use the `update` keyword together with
-the `--post-install <file>` option, which specifies a bash script with commands to
-run to update the installation. The commands are executed with the Conda environment
-activated.
+Asennuksen muokkaamiseksi voimme käyttää `update`-avainta yhdessä `--post-install <file>`-vaihtoehdon kanssa, joka määrittelee bash-skriptin komentoineen asennuksen päivittämiseksi. Komennot suoritetaan aktivoinnin aikana Conda-ympäristöön.
 
 ```bash
 conda-containerize update <existing installation> --post-install <file> 
 ```
 
-Where `<file>` could e.g. contain:
+Missä `<file>` voisi sisältää esimerkiksi:
 
 ```bash
 conda install -y numpy
@@ -176,93 +147,74 @@ conda remove -y nglview
 pip install requests
 ```
 
-In this mode the whole host system is available including all software and modules.
+Tässä tilassa koko isäntäjärjestelmä on käytettävissä, mukaan lukien kaikki ohjelmistot ja moduulit.
 
-## Pip-based installations
+## Pip-pohjaiset asennukset {#pip-based-installations}
 
-Sometimes you don't need a full-blown Conda environment or you might prefer pip
-to manage Python installations. In this case we can use:
+Joskus et tarvitse täysimittaista Conda-ympäristöä tai haluat, että pip hallitsee Python-asennuksia. Tässä tapauksessa voimme käyttää:
 
 ```bash
 pip-containerize new --prefix <install_dir> req.txt
 ```
 
-where `req.txt` is a standard pip requirements file. The notes and options for
-modifying a Conda installation apply here as well.
+Missä `req.txt` on standardi pip-vaatimuksen tiedosto. Conda-asennuksen muokkaamiseen liittyvät huomiot ja vaihtoehdot pätevät myös tässä.
 
-Note that the Python version used by `pip-containerize` is the first Python executable
-found in the path, so it's affected by loaded modules.
+Huomaa, että `pip-containerize`:n käyttämä Python-versio on ensimmäinen polusta löytyvä Python-suoritettava, joten se vaikuttaa ladattuihin moduuleihin.
 
-**Important:** This Python can not be itself container-based as nesting is not possible!
+**Tärkeää:** Tämä Python ei voi itsessään olla konttipohjainen, koska pesiminen ei ole mahdollista!
 
-An additional `--slim` flag exists, which will instead use a pre-built minimal Python
-container with a much newer version of Python as a base. Without the `--slim` flag,
-the whole host system is available, whereas with the flag the system installations (i.e.
-`/usr`, `/lib64`, ...) are no longer taken from the host, but instead coming from
-within the container.
+On olemassa lisä-`--slim`-lipuke, joka käyttää sen sijaan valmiina olevaa minimikokoista Python-konttia paljon uudemmalla Python-versiolla pohjana. Ilman `--slim`-lipuketta koko isäntäkoneen järjestelmä on käytettävissä, kun taas lipukkeen kanssa järjestelmän asennukset (eli `/usr`, `/lib64`, ...) eivät enää tule isännän päältä, vaan ne tulevat kontin sisältä.
 
-## Container-based installations
+## Konttipohjaiset asennukset {#container-based-installations}
 
-Tykky also provides an option to:
+Tykky tarjoaa myös vaihtoehdon:
 
-- Generate wrappers for tools in existing Apptainer/Singularity containers so that
-  they can be used transparently (no need to prepend `apptainer exec ...` or modify
-  scripts if switching between containerized versions and "normal" installations).
-- Install tools available in Docker images, including generating wrappers.
+- Generoida käärinnät työkaluista olemassa olevissa Apptainer/Singularity-konteissa niin, että niitä voidaan käyttää läpinäkyvästi (ei tarvitse lisätä `apptainer exec ...` tai muuttaa skriptejä vaihdettaessa konttipohjaisten ja "normaalien" asennusten välillä).
+- Asentaa Docker-kuvissa saatavilla olevia työkaluja, mukaan lukien käärinnän generointi.
 
 ```bash
 wrap-container -w /path/inside/container <container> --prefix <install_dir> 
 ```
 
-- `<container>` can be a local filepath or any [URL accepted by
-  Apptainer/Singularity](https://docs.sylabs.io/guides/3.7/user-guide/cli/singularity_pull.html)
-  (e.g `docker://` `oras://`)
-- `-w` needs to be an absolute path (or comma-separated list) inside the container.
-  Wrappers will then be automatically created for the executables in the target
-  directories / for the target path. If you do not know the path of the executables
-  in the container, open a shell inside the container and use the [which
-  command](https://linuxize.com/post/linux-which-command/). To open a shell:
-  	- In case of existing local Apptainer/Singularity file: `singularity shell image.sif`.
-  	- In case of Docker or non-local Apptainer/Singularity file, create first the
-      installation with some path and then start with created `_debug_shell`.
+- `<container>` voi olla paikallinen tiedostopolku tai mikä tahansa [URL, jonka Apptainer/Singularity hyväksyy](https://docs.sylabs.io/guides/3.7/user-guide/cli/singularity_pull.html) (esim. `docker://` `oras://`)
+- `-w` tulee olla absoluuttinen polku (tai pilkulla erotettu lista) kontin sisällä. Käärinnät luodaan automaattisesti kohdehakemistoissa tai kohdepolulla oleville suoritettaville ohjelmille. Jos et tiedä suoritettavien ohjelmien polkua kontissa, avaa kuori kontin sisällä ja käytä [which-komentoa](https://linuxize.com/post/linux-which-command/). Kuoren avaaminen:
+  	- Olemassa olevan paikallisen Apptainer/Singularity-tiedoston tapauksessa: `singularity shell image.sif`.
+  	- Docker- tai ei-paikallisen Apptainer/Singularity-tiedoston tapauksessa, luo ensin asennus jollekin polulle ja käynnistä sitten luomalla `_debug_shell`.
 
-## Memory errors
+## Muistivirheet {#memory-errors}
 
-With very large installations the resources available on the login node might
-not be enough, resulting in Tykky failing with a `MemoryError`. In this case, the
-installation needs to be done on a compute node, for example using an [interactive
-session](../../computing/running/interactive-usage.md#sinteractive-on-puhti):
+Erittäin suurien asennusten kanssa käytettävissä olevat resurssit kirjautumissolmussa eivät ehkä ole riittäviä, mikä johtaa Tykkyyn kaatumaan `MemoryError`:illa. Tässä tapauksessa asennus tulee suorittaa laskentasolmussa, esimerkiksi käyttäen [interaktiivista istuntoa](../../computing/running/interactive-usage.md#sinteractive-on-puhti):
 
 ```bash
-# Start interactive session, here with 12 GB memory and 15 GB local disk (increase if needed)
+# Aloita interaktiivinen istunto, tässä 12 GB:llä muistia ja 15 GB:llä paikallista levytilaa (lisää tarvittaessa)
 sinteractive --account <project> --time 1:00:00 --mem 12000 --tmp 15
 
-# Load Tykky
+# Lataa Tykky
 module purge
 module load tykky
 
-# Run the Tykky commands as described above, e.g.
+# Suorita Tykky-komennot yllä kuvatulla tavalla, esimerkiksi
 conda-containerize new --prefix <install_dir> env.yml
 ```
 
-## Moving and deleting Tykky installation
+## Tykky-asennuksen siirtäminen ja poistaminen {#moving-and-deleting-tykky-installation}
 
-For deleting a Tykky installation, remove the <install_dir> folder.
+Tykky-asennuksen poistamiseksi poista <install_dir> hakemisto.
 
-Tykky installations can also be moved:
+Tykky-asennuksia voidaan myös siirtää:
 
-* Inside the same supercomputer, from folder to folder, move the <install_dir> folder with `mv` to new location. 
-* Between Puhti and Mahti use `rsync`. For copying to Mahti, log in to Mahti and change to the folder where you want to move the Tykky installation, then use: 
+* Samassa supertietokoneessa, hakemistosta hakemistoon, siirrä <install_dir> -hakemisto `mv`:n avulla uuteen sijaintiin.
+* Puhtin ja Mahtin välillä käytä `rsync`. Kun haluat kopioida Mahtiin, kirjaudu ensin Mahtiin ja vaihda hakemistoon, johon haluat siirtää Tykky-asennuksen, ja käytä:
 
 ```
 rsync -al <username>@puhti.csc.fi:<install_dir> .
 ```
 
-## More complicated example
+## Monimutkaisempi esimerkki {#more-complicated-example}
 
-[Example in tool repository](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md).
+[Esimerkki työkalun hakemistosta](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md).
 
-## How it works
+## Kuinka se toimii {#how-it-works}
 
-See the `README` in the source code repository. The source code can be found in the
-[GitHub repository](https://github.com/CSCfi/hpc-container-wrapper).
+Katso `README` lähdekoodin hakemistossa. Lähdekoodi löytyy [GitHub-hakemistosta](https://github.com/CSCfi/hpc-container-wrapper).
+

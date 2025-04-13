@@ -1,9 +1,10 @@
-# How fast is the Pouta network?
 
-The network is a mix of 40 Gb/s and 10 Gb/s Ethernet. Machines launched using HPC flavors will have 40 Gb/s network access while standard flavors will have 10 Gb/s. For more information, see the chapter about virtual machine flavors: [Virtual machine flavors and quotas](../../cloud/pouta/vm-flavors-and-billing.md)
+# Kuinka nopea Pouta-verkko on? {#how-fast-is-the-pouta-network}
 
-Some limitations are imposed by virtualisation:
+Verkko on sekoitus 40 Gb/s ja 10 Gb/s Ethernetiä. HPC-muisteilla käynnistetyt koneet saavat 40 Gb/s verkon, kun taas tavallisilla muisteilla on 10 Gb/s. Lisätietoja löytyy luvusta virtuaalikoneiden muisteista: [Virtuaalikoneiden muistit ja kiintiöt](../../cloud/pouta/vm-flavors-and-billing.md)
 
-   - For intra node and external connectivity some overhead is introduced because of virtualization. This will impact latency and bandwidth, but we have no benchmark data to share at this time.
-   - Applications sensitive to network latency may perform significantly worse than using a cluster (like Puhti) natively.
-   - Overhead is introduced by the necessity to use Ethernet for virtual machine connectivity and compatibility.
+Virtualisointi asettaa joitakin rajoituksia:
+
+   - Intra node ja ulkoinen yhteys sisältää joitakin ylikuluja johtuen virtualisoinnista. Tämä vaikuttaa viiveeseen ja kaistanleveyteen, mutta meillä ei ole vertailudataa jaettavaksi tällä hetkellä.
+   - Verkkoviiveherkät sovellukset saattavat toimia selvästi huonommin kuin käyttäessä klusteria (kuten Puhtia) natiivisti.
+   - Ylikuluja syntyy Ethernetin käytön tarpeellisuudesta virtuaalikoneiden yhteyksiin ja yhteensopivuuteen.

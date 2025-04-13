@@ -1,22 +1,15 @@
-# Creating a batch job script for Mahti
+# Erän työn skriptin luominen Mahtille
 
-Please have a look at the [Puhti documentation](creating-job-scripts-puhti.md)
-for the general introduction to batch scripts in the CSC supercomputing
-environment. On this page we focus on Mahti-specific topics.
+Tutustu [Puhti-dokumentaatioon](creating-job-scripts-puhti.md) saadaksesi yleiskuvan eräskripteistä CSC:n supertietokoneympäristössä. Tässä keskitymme Mahti-spesifisiin aiheisiin.
 
-!!! Note
-    Full nodes are allocated for jobs, with the exception of jobs in `small`,
-    [`interactive`](interactive-usage.md#sinteractive-on-mahti) and GPU partitions,
-    [see also below](#using-interactive-partition-for-non-parallel-pre-or-post-processing).
-    Many options also work differently on Mahti compared to Puhti, so it is not
-    advisable to copy scripts from Puhti to Mahti without appropriate
-    modifications.
+!!! Huomautus
+    Kaikki solmut varataan töille, lukuun ottamatta `small`, [`interactive`](interactive-usage.md#sinteractive-on-mahti) ja GPU-osioita, [katso myös alla](#using-interactive-partition-for-non-parallel-pre-or-post-processing). Monet asetukset toimivat Mahtissa eri tavalla kuin Puhtissa, joten ei ole suositeltavaa kopioida skriptejä Puhtista Mahtiin ilman asianmukaisia muutoksia.
 
 [TOC]
 
-## Basic MPI batch jobs
+## Perus MPI-erätöitä {#basic-mpi-batch-jobs}
 
-An example of a simple MPI batch job script:
+Esimerkki yksinkertaisesta MPI-erätyöskriptistä:
 
 ```bash
 #!/bin/bash
@@ -32,78 +25,57 @@ module load myprog/1.2.3
 srun myprog -i input -o output
 ```
 
-Specify the exact number of nodes and number of tasks per node  with
-`--nodes` and `--ntasks-per-node`, respectively. Use all 128 cores in
-the node.
+Määritä tarkka solmujen lukumäärä ja tehtävien määrä solmua kohden `--nodes` ja `--ntasks-per-node` optioilla. Käytä kaikki 128 ydintä solmussa.
 
-!!! Note
-    - MPI processes should **not** be started with _mpirun_ or _mpiexec_. Use `srun` instead.
-    - appropriate software module has to be loaded in the batch job script for the submission to
-      work properly.
+!!! Huomautus
+    - MPI-prosesseja ei tulisi **aloittaa** _mpirun_ tai _mpiexec_-komentoja käyttäen. Käytä `srun` sen sijaan.
+    - tarvittava ohjelmamoduuli on ladattava erätyöskriptiin, jotta lähetys toimii oikein.
 
-## Hybrid batch jobs
+## Hybridierätyöt {#hybrid-batch-jobs}
 
-As explained for [Puhti](creating-job-scripts-puhti.md#hybrid-batch-jobs), hybrid
-parallelization can run multiple OpenMP threads per MPI task. In addition to the
-`--ntasks-per-node=X` one needs to set `--cpus-per-task=Y`. The default is one cpu
-(thread) per task. To use all physical cores in a Mahti node choose `X * Y = 128`,
-like in [this example](example-job-scripts-mahti.md#mpi-openmp).
-If you are using simultaneous multithreading (see section below) your should use `X * Y = 256`
+Kuten [Puhti-dokumentaatiossa](creating-job-scripts-puhti.md#hybrid-batch-jobs) on selitetty, hybridiparallelisointi voi ajaa useita OpenMP-säikeitä MPI-tehtävää kohden. "—ntasks-per-node=X" lisäksi on asetettava "`--cpus-per-task=Y`". Oletuksena yksi cpu (säie) per tehtävä. Käytettäessä kaikkia fyysisiä ydinpareja Mahti-solmussa valitse `X * Y = 128`, kuten [tässä esimerkissä](example-job-scripts-mahti.md#mpi-openmp). Jos käytät samanaikaista monisäikeistystä (katso alla oleva osio), sinun tulisi käyttää `X * Y = 256`.
 
-The optimal ratio between the number of tasks and cores per tasks varies for each
-program and job input. Testing is required to find the right combination for your
-application. You can find some examples for
-[CP2K](../../apps/cp2k.md#performance-notes) and
-[NAMD](../../apps/namd.md#performance-considerations).
+Ohjelman ja työn syötettä kohti optimaalinen suhde tehtävien määrän ja ytimien välillä vaihtelee. Oikean yhdistelmän löytämiseen vaaditaan testausta. Voit löytää joitakin esimerkkejä [CP2K](../../apps/cp2k.md#performance-notes) ja [NAMD](../../apps/namd.md#performance-considerations).
 
-## Hybrid batch jobs with simultaneous multithreading (SMT)
+## Hybridierätyöt samanaikaisen monisäikeistyksen (SMT) kanssa {#hybrid-batch-jobs-with-simultaneous-multithreading-smt}
 
-Mahti is configured so that it doesn't place any theads to the logical cores
-by default. SMT support can be enabled with `--hint=multithread` option.
-When this option is used, it is important to use the `--ntasks-per-node=X` and
-`--cpus-per-task=Y` so that `X * Y = 256`. Failing to do so will leave some of the
-actual physical cores unallocated and performance will be suboptimal.
-[Example batch job script for SMT](example-job-scripts-mahti.md#mpi-openmp-with-simultaneous-multithreading).
+Mahti on konfiguroitu niin, ettei se sijoita säikeitä loogisiin ytimiin oletuksena. SMT-tuki voidaan ottaa käyttöön `--hint=multithread`-vaihtoehdolla. Kun tätä vaihtoehtoa käytetään, on tärkeää käyttää `--ntasks-per-node=X` ja `--cpus-per-task=Y` niin, että `X * Y = 256`. Jos tätä ei tehdä, jotkut fyysisistä ytimistä jäävät käyttämättä ja suorituskyky on alivoimainen. [Esimerkki erätyöskriptistä SMT:llä](example-job-scripts-mahti.md#mpi-openmp-with-simultaneous-multithreading).
 
-## Local storage
+## Paikallinen tallennustila {#local-storage}
 
-Mahti nodes in `interactive`, `small` and GPU partitions also have fast local storage, which is good for I/O-intensive applications.
-Request local storage using the `--gres` flag in the job submission:
+Mahti-solmuilla `interactive`, `small` ja GPU-osioissa on myös nopea paikallinen tallennustila, joka sopii hyvin I/O-intensiivisiin sovelluksiin.
+Pyydä paikallista tallennustilaa työn lähetyksessä `--gres`-lipulla:
 
 ```bash
 #SBATCH --gres=nvme:<local_storage_space_per_node>
 ```
 
-The amount of space is given in GB (with a maximum of 3800 GB per node). For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis. Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
+Tallennustilan määrä annetaan GB:ssä (maksimissaan 3800 GB per solmu). Esimerkiksi pyytääksesi 100 GB tallennustilaa, käytä `--gres=nvme:100`-vaihtoehtoa. Paikallinen varaus on per solmu. Käytä ympäristömuuttujaa `$LOCAL_SCRATCH` erätyöskripteissäsi käyttääksesi joka solmun paikallista tallennustilaa.
 
-## GPU batch jobs
+## GPU-erätyöt {#gpu-batch-jobs}
 
-Mahti has 24 GPU nodes and each of them has four Nvidia Ampere A100 GPUs and a local 3.8 TB Nvme drive.
-The GPUs are available on the `gputest`, `gpusmall` and `gpumedium` partitions using the option:
+Mahtissa on 24 GPU-solmua ja jokaisessa on neljä Nvidia Ampere A100 GPU:ta ja paikallinen 3,8 TB Nvme-asema. GPU:t ovat käytettävissä `gputest`, `gpusmall` ja `gpumedium` partitioneissa käyttäen optiota:
 
 ```bash
 #SBATCH --gres=gpu:a100:<number_of_gpus_per_node>
 ```
 
-Mahti's `gpusmall` partition supports only one or two GPU jobs. So the maximum is `--gres=gpu:a100:2`
+Mahtin `gpusmall` partitioni tukee vain yhtä tai kahta GPU-työtä. Joten enimmäismäärä on `--gres=gpu:a100:2`.
 
 ```bash
 #SBATCH --partition=gpusmall
 #SBATCH --gres=gpu:a100:1
 ```
 
-In Mahti's `gpusmall` partition there are also A100 GPUs that have been sliced into smaller a100_1g.5gb GPUs
-with one seventh of the compute and memory capacity of a full A100 GPU. For each GPU slice you can reserve
-at most 4 CPU cores and for each GPU slice the job is allocated 17.5 GiB of memory. Also note that you can reserve
-at most one GPU slice per job. The GPU slices are available on `gpusmall` using the options:
+Mahtin `gpusmall` partitiolla on myös A100 GPU:ta, jotka on jaettu pienemmiksi a100_1g.5gb GPU:ksi, joiden laskenta- ja muistitehosta on yksi seitsemäsosa täydestä A100 GPU:sta. Jokaiselle GPU-viipaleelle voit varata enintään 4 CPU-ydintä ja jokaiselle GPU-viipaleelle työlle varataan 17,5 GiB muistia. Huomaa myös, että voit varata enintään yhden GPU-viipaleen per työ. GPU-viipaleet ovat saatavilla `gpusmall`-osiossa käyttämällä vaihtoehtoja:
 
 ```bash
 #SBATCH --partition=gpusmall
 #SBATCH --gres=gpu:a100_1g.5gb:1
 ```
 
-Mahti's `gpumedium` partition supports multi-GPU jobs with four GPUs per compute node.
-The example below will allocate four GPUs per compute node, so eight GPUs altogether:
+Mahtin `gpumedium`-partitioni tukee monen GPU:n töitä neljällä GPU:lla per laskentasolmu.
+Alla oleva esimerkki varaa neljä GPU:ta per laskentasolmu, joten yhteensä kahdeksan GPU:ta:
 
 ```bash
 #SBATCH --nodes=2
@@ -111,19 +83,17 @@ The example below will allocate four GPUs per compute node, so eight GPUs altoge
 #SBATCH --gres=gpu:a100:4
 ```
 
-The `gpumedium` is the only gpu partition where more than one compute node is available (maximum number for the `--nodes` flag is six).
+`Gpumedium` on ainoa GPU-partition, jossa on saatavilla useampi kuin yksi laskentasolmu (suurin mahdollinen määrä `--nodes`-lipulla on kuusi).
 
-The `gputest` partition is for short test runs. Maximum for the `--time` flag is 15 minutes and one job per account can be run in a RUNNING state.
-Maximum for the  `--nodes` flag is one but all four GPUs on a node can be allocated for a test job.
+`Gputest` partitioni on lyhyille testiajoille. Suurin mahdollinen `--time`-lipun aika on 15 minuuttia ja yksi työ per käyttäjätili voi suorittaa RUNNING-tilassa. `--nodes`-lipun suurin raja on yksi, mutta kaikki neljä GPU:ta solmussa voidaan varata testityölle.
 
-Multiple resources can be requested with a comma-separated list.
-Request both GPU and local storage:
+Useita resursseja voi pyytää pilkulla erotetulla listalla. Pyydä sekä GPU että paikallinen tallennustila:
 
 ```bash
 #SBATCH --gres=gpu:a100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
 
-Many GPU applications also support cpu multithreading but not all. If cpu threading is supported cpu cores for the application threading operations can be enabled using `--cpus-per-task` flag. The example below will use one GPU and 32 cores are available for cpu threading (32 is 1/4 of the CPU cores of a single node) also 950 GB local fast disk storage (1/4 of the total amount of local disk on a node). Ampere A100 GPU also has its own 40GB memory (and that memory will not need any reservation flag). Default amount of main memory allocated per GPU is 122.5GB
+Monet GPU-sovellukset tukevat myös CPU-monisäikeistystä, mutta eivät kaikki. Jos CPU-säikeistys on tuettu, CPU-ydintä sovelluksen säieoperaatioille voidaan aktivoida käyttämällä `--cpus-per-task`-lippua. Alla oleva esimerkki käyttää yhtä GPU:ta ja 32 ydintä saatavilla CPU-säikeistykseen (32 on 1/4 yhdestä solmun CPU-yhteismäärästä) ja 950 GB nopeaa paikallista levyn tallennustilaa (1/4 solmun paikallisen levyn kokonaismäärästä). Ampere A100 GPU:ssa on myös oma 40GB muisti (ja tämä muisti ei tarvitse mitään varauslippua). Oletuksena GPU:lle varattava päämuistin määrä on 122.5GB.
 
 ```bash
 #SBATCH --partition=gpusmall
@@ -131,31 +101,17 @@ Many GPU applications also support cpu multithreading but not all. If cpu thread
 #SBATCH --cpus-per-task=32
 #SBATCH --gres=gpu:a100:1,nvme:950
 
-# If multithreading is OpenMP implementation then define also OMP_NUM_THREADS environment variable
+# Jos monisäikeistys on OpenMP-toteutus, määritä myös OMP_NUM_THREADS-ympäristömuuttuja
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 ```
 
-So above example will use 1/4 of all resources on a GPU node and therefore four similar batch jobs could run on a GPU node.
+Joten yllä oleva esimerkki käyttää 1/4 kaikista resursseista GPU-solmussa ja siksi neljä samankaltaista erätyötä voisi suorittaa GPU-solmussa.
 
-## Undersubscribing nodes
+## Alikapasitoituvat solmut {#undersubscribing-nodes}
 
-If an application requires more memory per core than there is available
-with full node (2 GB / core) it is possible to use also a subset of
-cores within a node. Also, if the application is memory bound, memory
-bandwidth and the application performance can be improved by using
-only a single core per NUMA domain or L3 cache (look at
-[Mahti technical description](../systems-mahti.md) for details.
-Note that billing is, however, always based on full nodes.
+Jos sovellus tarvitsee ytimelle enemmän muistia kuin on saatavilla täydellä solmulla (2 GB / ydin), on myös mahdollista käyttää solmua osittain. Lisäksi, jos sovellus on muistirajoitteinen, muistikaista ja sovelluksen suorituskykyä voidaan parantaa käyttämällä vain yhtä ydinparia per NUMA-alue tai L3-välimuisti (katso [Mahti tekninen kuvaus](../systems-mahti.md) yksityiskohtia). Huomaa, että laskutus perustuu aina täysiin solmuihin.
 
-When undersubscribing nodes, one should always set
-`--ntasks-per-node=X` and `--cpus-per-task=Y` so that `X * Y = 128`,
-even with pure MPI jobs. By default, Slurm scatters MPI tasks
-`--cpus-per-task` apart, i.e. with `--cpus-per-task=8` the MPI task
-**0** is bound to CPU core **0**, the MPI task **1** is bound to CPU
-core **7** _etc._. Memory bandwidth (and application performance) is
-the best when the tasks are executing on maximally scattered cores. As
-an example, in order to use 32 GB / core, one can run only with 8
-tasks per node as
+Kun alikapasitoit solmuja, tulisi aina asettaa `--ntasks-per-node=X` ja `--cpus-per-task=Y` niin, että `X * Y = 128`, jopa puhtailla MPI-töillä. Oletuksena Slurm levittää MPI-tehtävät etäälle toisistaan `--cpus-per-task`:llä, eli `--cpus-per-task=8`:llä MPI-tehtävä **0** sidotaan CPU-ytimeen **0**, MPI-tehtävä **1** sidotaan CPU-ytimeen **7** _jne._ Muistikaista (ja sovelluksen suorituskyky) on paras, kun tehtävät suorittavat mahdollisimman hajautetuilla ytimillä. Esimerkiksi, jos haluat käyttää 32 GB / ydin, voit suorittaa vain 8 tehtävää solmua kohden, kuten
 
 ```bash
 #SBATCH --ntasks-per-node=8
@@ -167,11 +123,7 @@ export OMP_NUM_THREADS=1
 srun myprog -i input -o output
 ```
 
-For hybrid applications, one should use
-`OMP_PROC_BIND` OpenMP runtime environment variable for
-placing the OpenMP threads. As an example, in order to run
-one MPI task per NUMA domain and one OpenMP thread per L3cache one
-can set
+Hybridisovelluksille, tulisi käyttää `OMP_PROC_BIND` OpenMP-aikarakenteen ympäristömuuttuja sijoittamaan OpenMP-säikeet. Esimerkiksi, jotta voisi suorittaa yhden MPI-tehtävän per NUMA-alue ja yhden OpenMP-säikeen per L3-välimuisti, voi asettaa
 
 ```bash
 #SBATCH --ntasks-per-node=8
@@ -185,23 +137,17 @@ module load myprog/1.2.3
 srun myprog -i input -o output
 ```
 
-Please check also our [Mahti batch script examples](example-job-scripts-mahti.md) page.
+Tutustu myös sivuumme [Mahti erätyöskriptien esimerkeistä](example-job-scripts-mahti.md).
 
-## Using interactive partition for non-parallel pre- or post-processing
+## Interaktiivisen osion käyttäminen ei-paralleeliseen esikäsittelyyn tai jälkikäsittelyyn {#using-interactive-partition-for-non-parallel-pre-or-post-processing}
 
-In many cases the computing tasks include pre- or post-processing steps that are not able to utilize parallel computing.
-In these cases it is recommended that, if possible, the task is split into several, chained, batch jobs and that the non-parallel
-processing is executed in the `interactive` partition of Mahti.
+Monissa tapauksissa laskentatehtävät sisältävät esikäsittely- tai jälkikäsittelyvaiheita, jotka eivät pysty hyödyntämään rinnakkaislaskentaa. Näissä tapauksissa suositellaan, että, jos mahdollista, tehtävä jaetaan useaan, ketjutettuun, erätyöhön ja että ei-paralleelinen käsittely suoritetaan Mahtin `interactive`-osiossa.
 
-In the interactive partition the jobs can reserve just few cores so that the non-parallel tasks can be executed without wasting resources.  
-Note that you can use interactive partition also for non-interactive jobs and that you can link two batch jobs so that the second job starts
-only when the first one has finished.
+Interaktiivisessa osiossa työt voivat varata vain muutamia ytimiä siten, että ei-paralleelliset tehtävät voidaan suorittaa ilman resurssien hukkaa. Huomaa, että voit käyttää interaktiivista osiota myös ei-interaktiivisiin töihin ja että voit linkittää kaksi erätyötä siten, että toinen työ alkaa vasta, kun ensimmäinen on valmistunut.
 
-For example, say that we would like to post-process the _output_ file, produced with the very first MPI example job in this page. The post processing command:
-`python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. Instead of including the post-processing
-to the main job it is reasonable to execute it as separate job in the interactive partition.
+Esimerkiksi, sanotaan, että haluaisimme jälkikäsitellä _output_-tiedoston, joka on luotu tämän sivun ensimmäisellä MPI-esimerkki-työllä. Jälkikäsittelykomento: `python post-proc.py output` käyttää vain sarjalaskentaa ja vaatii noin 40 minuuttia ja 3 GB muistia. Sen sijaan, että jälkikäsittely sisällytetään päätyöhön, on perusteltua suorittaa se erillisenä työnä interaktiivisessa osiossa.
 
-Jobs in interactive partition can reserve 1-8 cores and each core reserves 1.875 GB of memory. Thus in this case we will reserve 2 cores `--cpus-per-task=2` to have enough memory (3.75 GB) available.  Further, `--dependency=afterok:<slurm-jobid>` defines that the job can start only when the previously sent job has successfully finished. Here the `<slurm-jobid>` is replaced with ID number of the batch job that produces the _output_ file (you'll get the ID number when you submit the job).
+Työt interaktiivisessa osiossa voivat varata 1-8 ydintä ja jokainen ydin varaa 1.875 GB muistia. Täten tässä tapauksessa varaamme 2 ydintä `--cpus-per-task=2`, jotta muistia (3.75 GB) on riittävästi saatavilla. Lisäksi `--dependency=afterok:<slurm-jobid>` määrittelee, että työ voi alkaa vain, kun aiemmin lähetetty työ on onnistuneesti päättynyt. Tässä `<slurm-jobid>` korvataan erätyön, joka tuottaa _output_-tiedoston, ID-numerolla (saat ID-numeron, kun lähetät työn).
 
 ```bash
 #!/bin/bash
@@ -217,7 +163,6 @@ Jobs in interactive partition can reserve 1-8 cores and each core reserves 1.875
 python post-proc.py output
 ```
 
-## Executing large amounts of small non-MPI jobs
+## Suurten ei-MPI-töiden suorittaminen {#executing-large-amounts-of-small-non-mpi-jobs}
 
-In Mahti, [HyperQueue](../../apps/hyperqueue.md) meta-scheduler
-can be used to process large amounts of small non-MPI jobs.
+Mahtissa voidaan käyttää [HyperQueue](../../apps/hyperqueue.md) meta-ajastinta käsittelemään suuria määriä pieniä ei-MPI-töitä.

@@ -1,61 +1,49 @@
-# How to use cPouta for Remote Desktop
+# Kuinka käyttää cPoutaa Etätyöpöytänä
 
-This article will go through how to set up a remote desktop with noVNC and
-ssh-tunnel into a non-GPU flavor in c- and ePouta. We are using noVNC because
-it allows us to use our browser to access the desktop, i.e. no 
-local installations needed. If you would like to have
-instructions on how to use a GPU instance for rendering look
-here: [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
+Tässä artikkelissa käydään läpi, kuinka etätyöpöytä asetetaan noVNC:llä ja ssh-tunnelilla c- ja ePoutassa ilman GPU:ta. Käytämme noVNC:ä, koska se mahdollistaa työpöydän käyttämisen selaimen kautta, eli paikallisia asennuksia ei tarvita. Jos tarvitset ohjeita GPU-instanssin käyttämisestä renderöintiin, katso [täältä](how-to-use-cpouta-gpu-for-rendering.md): [Kuinka käyttää cPouta GPU:ta renderöintiin](how-to-use-cpouta-gpu-for-rendering.md)
 
-First, we will show you how to install the different softwares needed manually. At the end of this article, 
-we will show you how to do it automatically when creating an instance (post install scripts). If you want to 
-go directly to the post install script, click [here](#post-install-scripts)
+Ensiksi, näytämme, kuinka tarvittavat ohjelmistot asennetaan manuaalisesti. Artikkelin lopussa näytämme, kuinka tämä tehdään automaattisesti luotaessa instanssi (post install skriptit). Jos haluat siirtyä suoraan post install skriptiin, klikkaa [tästä](#jälkiasennusskriptit).
 
-## Preparations
+## Valmistelut {#preparations}
 
-We will utilize the following technologies to install the remote desktop:
+Käytämme seuraavia teknologioita asentaaksemme etätyöpöydän:
 
-  - A standard-flavor, for example, _standard.medium_ 
-  - Almalinux-9 image (In Pouta they have already the epel-repository installed)
-  - noVNC, since it allows us to use our browser instead of a traditional VNC-client to view the desktop
-  - tigervnc-server as our VNC server
-  - Xfce as our Desktop environment
-  - ssh-tunnel so that the VNC server is not open to the internet. This is very important.
+  - Vakio-maku, esimerkiksi _standard.medium_ 
+  - Almalinux-9 kuva (Poudassa heillä on jo epel-repository asennettuna)
+  - noVNC, koska se mahdollistaa selaimen käytön perinteisen VNC-asiakasohjelman sijaan työpöydän katseluun
+  - tigervnc-server VNC-palvelimena
+  - Xfce työpöytäympäristönä
+  - ssh-tunnel, jotta VNC-palvelin ei ole avoinna internetille. Tämä on erittäin tärkeää.
 
-### Create and access your instance for remote desktop
+### Luo ja käytä instanssiasi etätyöpöydälle {#create-and-access-your-instance-for-remote-desktop}
 
-!!! Warning  
-    Do not use the `standard.tiny` flavor. As this flavor has only 1Go of RAM, noVNC cannot be installed
+!!! Varoitus  
+    Älä käytä `standard.tiny` makua. Koska tässä maussa on vain 1 Gt RAM-muistia, ei voida asentaa noVNC:tä
 
-1. Launch a standard-flavor instance with the Alamlinux-9 image.
-2. Attach a floating IP to the instance.
-3. In the security rules allow ingress ssh (port 22).
-4. We will ssh into the instance with this command and create a ssh-tunnel.
+1. Käynnistä vakio-maku instanssi Alamlinux-9 kuvalla.
+2. Liitä kelluva IP instanssiin.
+3. Salli SSH-tulo tietoturvasäännöissä (portti 22).
+4. SSH:ssaudu instanssiin tällä komennolla ja luo SSH-tunneli.
 
-```
-ssh -L2001:localhost:6081 almalinux@YOUR-FLOATING-IP
+```shell
+ssh -L2001:localhost:6081 almalinux@SINUN-KELLUVA-IP
 ```
 
-This also works at least in the Windows Powershell. If you don't have
-an ssh-agent running, you will need to specify also your ssh-key:
+Tämä toimii ainakin Windows Powershellissä. Jos sinulla ei ole käynnissä SSH-agenttia, sinun pitää myös määrittää SSH-avain:
 
+```shell
+ssh -i C:\käyttäjät\paikallinenkäyttäjänimi\.ssh\sinunavain.pem -L2001:localhost:6081 almalinux@SINUN-KELLUVA-IP
 ```
-ssh -i C:\users\localusername\.ssh\yourkey.pem -L2001:localhost:6081 almalinux@YOUR-FLOATING-IP
-```
 
-Note, that the port 2001 is the one that you will use with the browser later.
-    
-`-L2001:localhost:6081` means that we will be able to access port 6081 on the server
-from our computer's local port 2001. Keep the terminal alive. The ssh-command is the only step
-needed on the local computer.
+Huomaa, että portti 2001 on se, jota käytät selaimella myöhemmin.
 
-### Install the required software on the VM
+`-L2001:localhost:6081` tarkoittaa, että pääsemme porttiin 6081 palvelimella tietokoneemme paikallisesta portista 2001. Pidä terminaali auki. SSH-komento on ainoa askel, joka tarvitaan paikallisella tietokoneella.
 
-In this example we are using Xfce for our Desktop Environment. If you want to use
-some other Desktop environment you will probably need to modify the
-vncserver-config-defaults configuration file.
+### Asenna tarvittavat ohjelmistot virtuaalikoneelle {#install-the-required-software-on-the-vm}
 
-```
+Tässä esimerkissä käytämme Xfce:tä Työpöytäympäristönä. Jos haluat käyttää jotain toista työpöytäympäristöä, sinun pitää todennäköisesti muokata vncserver-config-defaults konfiguraatiotiedostoa.
+
+```shell
 sudo dnf update
 sudo dnf install -y epel-release
 sudo dnf groupinstall -y "Xfce" "base-x"
@@ -63,25 +51,25 @@ sudo systemctl set-default graphical
 sudo reboot
 ```
 
-Install noVNC and tigervnc for the vncserver
+Asenna noVNC ja tigervnc vncserverille
 
-```
+```shell
 sudo dnf install -y novnc tigervnc-server
 ```
 
-### Configure the software
+### Määritä ohjelmistot {#configure-the-software}
 
-Create a new user called `vncuser` for example.
+Luo uusi käyttäjä nimeltä `vncuser` esimerkiksi.
 
-```
+```shell
 sudo adduser vncuser
 sudo passwd vncuser
 sudo su - vncuser
 ```
 
-Create a base configure for the user `vncuser` to be able to use the remote desktop.
+Luo peruskonfiguraatio käyttäjälle `vncuser` etätyöpöydän käyttämiseksi.
 
-```
+```shell
 vncpasswd
 
 Password:
@@ -89,17 +77,15 @@ Verify:
 Would you like to enter a view-only password (y/n)? n
 ```
 
-Exit the `vncuser` shell
+Poistu `vncuser` shellistä
 
-```
+```shell
 exit
 ```
 
-Configure a resolution you would like to use. 1440x900 is a common resolution
-but this have been tested to work with an resolution as big as 3840x2160 .
-This can be configured globally for all the users.
+Määritä haluamasi resoluutio. 1440x900 on yleinen resoluutio, mutta tätä on testattu toimivan resoluutiolla niin suurella kuin 3840x2160. Tämä voidaan konfiguroida kaikille käyttäjille globaalisti.
 
-```
+```shell
 sudo sed -i -e 's/=gnome/=xfce/g' /etc/tigervnc/vncserver-config-defaults
 sudo sh -c "cat >> /etc/tigervnc/vncserver-config-defaults" <<EOF
 ## CONFIGURATION FOR ALL USERS ##
@@ -109,9 +95,9 @@ localhost=no
 EOF
 ```
 
-Or each user can have their own configuration. Here, with `vncuser`
+Tai jokainen käyttäjä voi omistaa oman konfiguraationsa. Tässä, `vncuser` kanssa
 
-```
+```shell
 sudo su - vncuser
 cat >> ~/.config/tigervnc/config <<EOF
 geometry=1440x900
@@ -121,143 +107,122 @@ localhost=no
 EOF
 ```
 
-### Starting your remote desktop
+### Käynnistä etätyöpöytäsi {#starting-your-remote-desktop}
 
-Note, that with this documentation the NoVNC session will only work with ':1'.
+Huomaa, että tämän dokumentaation kanssa NoVNC-istunto toimii vain ':1'.
 
-A good practice is to use the `systemd` service to start `vncserver`. There is a template in
-`/lib/systemd/system` called `vncserver@.service`. Copy it to `/etc/systemd/system/vncserver@:1.service`
+Hyvä käytäntö on käyttää `systemd` palvelua `vncserver` käynnistämiseen. Malli löytyy `/lib/systemd/system` nimeltään `vncserver@.service`. Kopioi se hakemistoon `/etc/systemd/system/vncserver@:1.service`.
 
-```
+```shell
 sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
 ```
 
-Assign `vncuser` to screen :1
+Määritä `vncuser` näyttöön :1
 
-```
+```shell
 sudo sh -c "cat >> /etc/tigervnc/vncserver.users" <<EOF
 :1=vncuser
 EOF
 ```
 
-Enable and start `vncserver` service
+Ota käyttöön ja käynnistä `vncserver` palvelu
 
-```
+```shell
 sudo systemctl enable vncserver@:1.service && sudo systemctl start vncserver@:1.service
 ```
 
-You can check the status of the service
+Voit tarkistaa palvelun tilan
 
-```
+```shell
 sudo systemctl status vncserver@:1.service
 ```
 
-And it's listening on port `5901` and `0.0.0.0` (not only localhost `127.0.0.1`)
+Ja se kuuntelee portissa `5901` ja `0.0.0.0` (ei pelkästään localhost `127.0.0.1`)
 
-```
+```shell
 ss -tulpn | egrep -i 'vnc|590'
 ```
 
-You can start the noVNC client by running
+Voit aloittaa noVNC-asiakkaan ajamalla
 
-```
+```shell
 novnc_server --listen 6081 --vnc localhost:5901
 ```
 
-The application location might differ based on the Linux distribution you are using.
-The `--listen 6081` means on which port the service will be accessed from. The
-`--vnc localhost:5901` means on what port it is expecting the vncserver to be 
-accessed from. You can exit out of the noVNC session by `ctrl+c`.
+Sovelluksen sijainti saattaa vaihdella käyttämäsi Linux-jakelun mukaan. `--listen 6081` tarkoittaa, millä portilla palvelu on saatavilla. `--vnc localhost:5901` tarkoittaa, millä portilla se odottaa vncserverin saavutettavuutta. Voit poistua noVNC-istunnosta painamalla `ctrl+c`.
 
-You should now be able to access the noVNC session by going to this link in
-your browser `http://127.0.0.1:2001/vnc.html` . Note, that the port number is the
-same as the one you used with the ssh-command.
+Sinun pitäisi nyt pystyä kirjautumaan noVNC-istuntoon selaimellasi osoitteessa `http://127.0.0.1:2001/vnc.html`. Huomaa, että porttinumero on sama, jota käytit ssh-komennolla.
 
-## Important information if you don't want to use the ssh-tunnel
+## Tärkeää tietoa, jos et halua käyttää ssh-tunnelia {#important-information-if-you-dont-want-to-use-the-ssh-tunnel}
 
-It is of course also possible to use noVNC or VNC directly over the internet
-but we strongly recommend against this. VNC is one of the easiest services to
-exploit on the internet, it is not a question if your server will get hacked 
-but when. If you are still going to disregard our recommendation at least be sure
-that you add a good security rule to your server so that you can only access the
-server from your IP.
+On tietenkin mahdollista käyttää noVNC- tai VNC:tä suoraan internetin kautta, mutta suosittelemme tätä voimakkaasti välttämään. VNC on yksi helpoimmista palveluista käyttää väärin internetissä, ja kysymys ei ole, jos palvelimesi hakkeroidaan, vaan milloin. Jos päätät silti sivuuttaa suosituksemme, varmista vähintään, että lisäät hyvän tietoturvasäännön palvelimeesi, jotta saat palvelimen käyttöön vain IP-osoitteestasi.
 
+## Ota Guacamole käyttöön {#deploy-guacamole}
 
-## Deploy Guacamole
+Guacamole on asiakasvapaaton etätyöpöytäväylä. Se tukee standardiprotokollia, kuten VNC, RDP ja SSH.
+Lisätietoa [virallisella sivustolla](https://guacamole.apache.org/)
 
-Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH.
-More information on the [official website](https://guacamole.apache.org/)
+Voit helposti ottaa guacamolen käyttöön tällä [ansible-skriptillä](https://github.com/trispera/ansible-openstack-guacamole).
 
-You can easily deploy guacamole using this [ansible script](https://github.com/trispera/ansible-openstack-guacamole)
+Aiemmin otimme käyttöön uuden graafisen palvelimen. `templates/user-mapping.xml.j2` tiedostossa sinun on määritettävä nimi, palvelimen paikallinen osoite ja portti.
 
-Previously we deployed a new graphical server. In the `templates/user-mapping.xml.j2` file, 
-you have to specify a name, the local address of the server, and the port.
+Asennuksen jälkeen guacamole on käytettävissä `https://<YOUR_FLOATING_IP>:8080/guacamole`
 
-After the deployment, guacamole is accessible via `https://<YOUR_FLOATING_IP>:8080/guacamole`
+Se mahdollistaa pääsyn eri koneille `vncserver` yhdestä paikasta.
 
-It allows you to access different machines with a `vncserver` from one place.
+## Jos haluat käyttää Ubuntua {#if-you-want-to-use-ubuntu}
 
+Kirjoitettaessa `ubuntu-desktop` ja `tigervnc-server` toimivat `Ubuntu-22`:n kanssa. Jos haluat käyttää `Ubuntu-24`:ää, käytä `Xfce` graafiympäristönä.
 
-## If you want to use Ubuntu
+Seuraavat ovat vaiheet `tigervnc-server`:n asennukseen Ubuntu-22:lle. Vaiheet ovat varsin samanlaiset kuin aiemmin nähty `Almalinux-9`, muutamien paketinnimien ollessa erilaisia.
 
-As of this writing, `ubuntu-desktop` and `tigervnc-server` works with `Ubuntu-22`. 
-If you want to use `Ubuntu-24`, use `Xfce` as graphical environment.
+1. Käynnistä vakio-maku instanssi Ubuntu-22.04 kuvalla.
+2. Liitä kelluva IP instanssiin.
+3. Salli SSH-tulo tietoturvasäännöissä (portti 22).
+4. SSH:ssaudu instanssiin tällä komennolla ja luo SSH-tunneli.
 
-Here are the steps to install `tigervnc-server` on Ubuntu-22. 
-The steps are quite similar to `Almalinux-9` seen previously, few packages name are different.
-
-1. Launch a standard-flavor instance with the Ubuntu-22.04 image.
-2. Attach a floating IP to the instance.
-3. In the security rules allow ingress ssh (port 22).
-4. We will ssh into the instance with this command and create a ssh-tunnel.
-
-```
-ssh -L2001:localhost:6081 ubuntu@YOUR-FLOATING-IP
+```shell
+ssh -L2001:localhost:6081 ubuntu@SINUN-KELLUVA-IP
 ```
 
-This also works at least in the Windows Powershell. If you don't have
-an ssh-agent running, you will need to specify also your ssh-key:
+Tämä toimii ainakin Windows Powershellissä. Jos sinulla ei ole käynnissä SSH-agenttia, sinun pitää myös määrittää SSH-avain:
 
+```shell
+ssh -i C:\käyttäjät\paikallinenkäyttäjänimi\.ssh\sinunavain.pem -L2001:localhost:6081 ubuntu@SINUN-KELLUVA-IP
 ```
-ssh -i C:\users\localusername\.ssh\yourkey.pem -L2001:localhost:6081 ubuntu@YOUR-FLOATING-IP
-```
 
-Note, that the port 2001 is the one that you will use with the browser later.
-    
-`-L2001:localhost:6081` means that we will be able to access port 6081 on the server
-from our computer's local port 2001. Keep the terminal alive. The ssh-command is the only step
-needed on the local computer.
+Huomaa, että portti 2001 on se, jota käytät selaimella myöhemmin.
 
-In this example we are using Ubuntu-desktop for our Desktop Environment. If you want to use
-some other Desktop environment you will probably need to modify the
-vncserver-config-defaults configuration file.
+`-L2001:localhost:6081` tarkoittaa, että pääsemme porttiin 6081 palvelimella tietokoneemme paikallisesta portista 2001. Pidä terminaali auki. SSH-komento on ainoa askel, joka tarvitaan paikallisella tietokoneella.
 
-```
+Tässä esimerkissä käytämme Ubuntu-työpöytää Työpöytäympäristönä. Jos haluat käyttää jotain toista työpöytäympäristöä, sinun pitää todennäköisesti muokata vncserver-config-defaults konfiguraatiotiedostoa.
+
+```shell
 sudo apt update && sudo apt upgrade
 sudo apt install ubuntu-desktop -y
 sudo systemctl set-default graphical
 sudo reboot
 ```
 
-Install noVNC and tigervnc for the vncserver
+Asenna noVNC ja tigervnc vncserverille
 
-```
+```shell
 sudo snap install novnc
 sudo apt install -y tigervnc-standalone-server
 ```
 
-### Configure the software
+### Määritä ohjelmistot {#configure-the-software}
 
-Create a new user called `vncuser` for example.
+Luo uusi käyttäjä nimeltä `vncuser` esimerkiksi.
 
-```
+```shell
 sudo adduser vncuser
 sudo su - vncuser
 ```
 
-Create a base configure for the user `vncuser` to be able to use the remote desktop.
+Luo peruskonfiguraatio käyttäjälle `vncuser` etätyöpöydän käyttämiseksi.
 
-```
+```shell
 vncpasswd
 
 Password:
@@ -265,118 +230,108 @@ Verify:
 Would you like to enter a view-only password (y/n)? n
 ```
 
-Exit the `vncuser` shell
+Poistu `vncuser` shellistä
 
-```
+```shell
 exit
 ```
 
-Configure a resolution you would like to use. 1440x900 is a common resolution
-but this have been tested to work with an resolution as big as 3840x2160 .
-This can be configured globally for all the users.
+Määritä haluamasi resoluutio. 1440x900 on yleinen resoluutio, mutta tätä on testattu toimivan resoluutiolla niin suurella kuin 3840x2160. Tämä voidaan konfiguroida kaikille käyttäjille globaalisti.
 
-```
+```shell
 sudo sh -c "cat >> /etc/tigervnc/vncserver-config-defaults" <<EOF
 ## CONFIGURATION FOR ALL USERS ##
-\$geometry = "1440x900";
-\$depth = "24";
-\$session = "ubuntu";
-\$localhost = "no";
+$geometry = "1440x900";
+$depth = "24";
+$session = "ubuntu";
+$localhost = "no";
 EOF
 ```
 
-Or each user can have their own configuration. Here, with `vncuser`
+Tai jokainen käyttäjä voi omistaa oman konfiguraationsa. Tässä, `vncuser` kanssa
 
-```
+```shell
 sudo su - vncuser
 cat >> ~/.vnc/config <<EOF
-\$geometry = "1440x900";
-\$depth = "24";
-\$session = "ubuntu";
-\$localhost = "no";
+$geometry = "1440x900";
+$depth = "24";
+$session = "ubuntu";
+$localhost = "no";
 EOF
 ```
 
-### Starting your remote desktop
+### Käynnistä etätyöpöytäsi {#starting-your-remote-desktop}
 
-Note, that with this documentation the NoVNC session will only work with ':1'.
+Huomaa, että tämän dokumentaation kanssa NoVNC-istunto toimii vain ':1'.
 
-A good practice is to use the `systemd` service to start `vncserver`. There is a template in
-`/lib/systemd/system` called `tigervncserver@.service`. Copy it to `/etc/systemd/system/tigervncserver@:1.service`
+Hyvä käytäntö on käyttää `systemd` palvelua `vncserver` käynnistämiseen. Malli löytyy `/lib/systemd/system` nimeltään `tigervncserver@.service`. Kopioi se hakemistoon `/etc/systemd/system/tigervncserver@:1.service`.
 
-```
+```shell
 sudo cp /lib/systemd/system/tigervncserver@.service /etc/systemd/system/tigervncserver@:1.service
 ```
 
-Assign `vncuser` to screen :1
+Määritä `vncuser` näyttöön :1
 
-```
+```shell
 sudo sh -c "cat >> /etc/tigervnc/vncserver.users" <<EOF
 :1=vncuser
 EOF
 ```
 
-Enable and start `vncserver` service
+Ota käyttöön ja käynnistä `vncserver` palvelu
 
-```
+```shell
 sudo systemctl enable tigervncserver@:1.service && sudo systemctl start tigervncserver@:1.service
 ```
 
-You can check the status of the service
+Voit tarkistaa palvelun tilan
 
-```
+```shell
 sudo systemctl status tigervncserver@:1.service
 ```
 
-And it's listening on port `5901` and `0.0.0.0` (not only localhost `127.0.0.1`)
+Ja se kuuntelee portissa `5901` ja `0.0.0.0` (ei pelkästään localhost `127.0.0.1`)
 
-```
+```shell
 ss -tulpn | egrep -i 'vnc|590'
 ```
 
-You can start the noVNC client by running
+Voit aloittaa noVNC-asiakkaan ajamalla
 
-```
+```shell
 novnc --listen 6081 --vnc localhost:5901
 ```
 
-The application location might differ based on the Linux distribution you are using.
-The `--listen 6081` means on which port the service will be accessed from. The
-`--vnc localhost:5901` means on what port it is expecting the vncserver to be 
-accessed from. You can exit out of the noVNC session by `ctrl+c`.
+Sovelluksen sijainti saattaa vaihdella käyttämäsi Linux-jakelun mukaan. `--listen 6081` tarkoittaa, millä portilla palvelu on saatavilla. `--vnc localhost:5901` tarkoittaa, millä portilla se odottaa vncserverin saavutettavuutta. Voit poistua noVNC-istunnosta painamalla `ctrl+c`.
 
-You should now be able to access the noVNC session by going to this link in
-your browser `http://127.0.0.1:2001/vnc.html` . Note, that the port number is the
-same as the one you used with the ssh-command.
+Sinun pitäisi nyt pystyä kirjautumaan noVNC-istuntoon selaimellasi osoitteessa `http://127.0.0.1:2001/vnc.html`. Huomaa, että porttinumero on sama, jota käytit ssh-komennolla.
 
+## Jälkiasennusskriptit {#post-install-scripts}
 
-## Post install scripts
-When you create an instance in cPouta, it is possible to add a `Post-Creation` step.
+Kun luot instanssin cPoutassa, on mahdollista lisätä `Jälkikäsittely` vaihe.
 
-It allows you to run automatic tasks to install softwares and/or run updates.
+Se mahdollistaa automaattisten tehtävien suorittamisen ohjelmistojen asentamiseen ja/tai päivitysten suorittamiseen.
 
-![machine post creation](img/post-creation-pouta.png)
+![laite jälkikäsittely](img/post-creation-pouta.png)
 
-You have the choice between `Direct Input` meaning that you have to type the commands 
-or `File` meaning that you can upload a bash script or a [cloud-init](https://docs.cloud-init.io/en/latest/index.html) 
-script.
+Sinulla on valittavana `Suora Syöttö`, mikä tarkoittaa, että sinun tulee kirjoittaa komennot tai `Tiedosto`, mikä tarkoittaa, että voit ladata bash-skriptin tai [cloud-init](https://docs.cloud-init.io/en/latest/index.html) skriptin.
 
-You can find here two scripts using `cloud-init`. One for `AlmaLinux` and one for `Ubuntu`:
+Täältä löydät kaksi skriptiä käyttäen `cloud-init`:ia. Yksi `AlmaLinux`:ille ja yksi `Ubuntu`:lle:
 
 `init_vnc_almalinux.yaml`:
 
 ```yaml
 #cloud-config
 #
-# Above first line indicates that the file is a Cloud-Init configuration file. Don't remove it
+# Edellä oleva ensimmäinen rivi osoittaa, että tiedosto on Cloud-Init konfiguraatiotiedosto. Älä poista sitä
 
-# Update the package list
+# Päivitä pakettien luettelo
 package_update: true
 
-# Upgrade all installed packages to their latest versions
+# Päivitä kaikki asennetut paketit uusimpiin versioihin
 package_upgrade: true
 
-# List of packages to install
+# Asennettavien pakettien luettelo
 packages:
   - epel-release
 
@@ -422,15 +377,15 @@ power_state:
 ```yaml
 #cloud-config
 #
-# Above first line indicates that the file is a Cloud-Init configuration file. Don't remove it
+# Edellä oleva ensimmäinen rivi osoittaa, että tiedosto on Cloud-Init konfiguraatiotiedosto. Älä poista sitä
 
-# Update the package list
+# Päivitä pakettien luettelo
 package_update: true
 
-# Upgrade all installed packages to their latest versions
+# Päivitä kaikki asennetut paketit uusimpiin versioihin
 package_upgrade: true
 
-# List of packages to install
+# Asennettavien pakettien luettelo
 packages:
   - ubuntu-desktop
   - tigervnc-standalone-server
@@ -472,12 +427,12 @@ power_state:
   message: rebooting machine
 ```
 
-We recommend to save these scripts in a yaml file and use **File** from the Post-Creation menu.
+Suosittelemme tallentamaan nämä skriptit yaml-tiedostoon ja käyttämään **Tiedosto** Jälkikäsittely-valikosta.
 
-After the installation of your machine, you still need to create a vnc password. Connect to your machine via SSH 
-(`ssh -L2001:localhost:6081 {ubuntu | almalinux}@{YOUR-FLOATING-IP}`) and run the following commands:
+Koneen asennuksen jälkeen sinun on yhä luotava vnc-salasana. Yhdistä koneeseesi SSH:n kautta 
+(`ssh -L2001:localhost:6081 {ubuntu | almalinux}@{YOUR-FLOATING-IP}`) ja suorita seuraavat komennot:
 
-For AlmaLinux:
+AlmaLinuxille:
 
 ```sh
 $ sudo su - vncuser
@@ -491,7 +446,7 @@ $ exit
 $ sudo systemctl start vncserver@:1.service
 ```
 
-For Ubuntu:
+Ubuntulle:
 
 ```sh
 $ sudo su - vncuser
@@ -505,18 +460,18 @@ $ exit
 $ sudo systemctl start tigervncserver@:1.service
 ```
 
-Once the service is running, you can run `novnc`:
+Kun palvelu on käynnissä, voit ajaa `novnc`:
 
-Almalinux:
+Almalinuxille:
 
 ```sh
 novnc_server --listen 6081 --vnc localhost:5901
 ```
 
-Ubuntu:
+Ubuntulle:
 
 ```sh
 novnc --listen 6081 --vnc localhost:5901
 ```
 
-and access the noVNC session via `http://127.0.0.1:2001/vnc.html` using the `vncpasswd` you set previously.
+ja kirjautua noVNC-istuntoon osoitteessa `http://127.0.0.1:2001/vnc.html` käyttämällä aiemmin määrittämääsi `vncpasswd`-salaa.

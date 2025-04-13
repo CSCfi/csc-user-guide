@@ -1,5 +1,4 @@
-# Can I run MPI applications on Pouta?
 
-MPI applications should run, although currently we don't have any specific
-guidelines for users. We welcome feedback or benchmark results. Please contact
-[CSC Service Desk](../contact.md).
+# Voinko ajaa MPI-sovelluksia Poutalla? {#can-i-run-mpi-applications-on-pouta}
+
+MPI-sovellusten pitäisi toimia, vaikka meillä ei tällä hetkellä olekaan erityisiä ohjeita käyttäjille. Otamme mielellämme vastaan palautetta tai vertailutuloksia. Ota yhteyttä [CSC Service Desk](../contact.md).

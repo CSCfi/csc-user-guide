@@ -1,52 +1,51 @@
-# Blender tutorials
 
-These tutorial videos teach you how to use [Blender software](../../apps/blender.md)
-for scientific visualization. The series focuses on features useful for scientists, and
-correspond to one full day hands-on course. Note that the videos have caption texts,
-which you can switch on in YouTube (the "CC" button in the right bottom corner of the
-video). These videos were created by Jyrki Hokkanen in late 2020. Materials for hands-on
-exercises can be downloaded from Allas (the links are provided in the sections below).
+# Blender-oppaat {#blender-tutorials}
 
-* [More about scientific visualisation at CSC](https://research.csc.fi/visualization)
+Nämä opetusvideot opettavat sinua käyttämään [Blender-ohjelmistoa](../../apps/blender.md)
+tieteelliseen visualisointiin. Sarja keskittyy tutkijoille hyödyllisiin ominaisuuksiin ja
+vastaa yhden kokonaisen päivän käytännön kurssia. Huomaa, että videoissa on tekstitykset,
+jotka voit kytkeä päälle YouTubessa (”CC”-painike videon oikeassa alakulmassa).
+Nämä videot loi Jyrki Hokkanen loppuvuodesta 2020. Materiaalit käytännön harjoituksiin
+voidaan ladata Allasista (linkit ovat alla olevissa osioissa).
 
-## Introduction to Blender
+* [Lisää tieteellisestä visualisoinnista CSC:llä](https://research.csc.fi/visualization)
 
-This first tutorial of six covers Blender 2.9 introduction and installation.
+## Johdanto Blenderiin {#introduction-to-blender}
+
+Tämä kuudesta opetusvideosta ensimmäinen kattaa Blender 2.9:n esittelyn ja asennuksen.
 
 <iframe width="560" height="315" title="Introduction to Blender video" srcdoc="https://www.youtube.com/embed/vQBVt7GFbL0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Interface
+## Käyttöliittymä {#interface}
 
-This second tutorial covers Blender 2.9 interface.
+Tämä toinen opetusvideo kattaa Blender 2.9:n käyttöliittymän.
 
 <iframe width="560" height="315" title="Blender interface video" srcdoc="https://www.youtube.com/embed/0Zof1mHSkNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Meshes
+## Verkkokuviot {#meshes}
 
-This third Blender tutorial covers importing and fixing meshes exported from scientific
-applications, such as [ParaView](../../apps/paraview.md), [VisIt](../../apps/visit.md),
-and [VMD](../../apps/vmd.md).
+Tämä kolmas Blender-opetusvideo kattaa verkkokuvioiden tuomisen ja korjaamisen tieteellisistä sovelluksista, kuten [ParaView](../../apps/paraview.md), [VisIt](../../apps/visit.md), ja [VMD](../../apps/vmd.md).
 
-* [Course material for this part can be downloaded from Allas](https://a3s.fi/blendermaterials/Blender_tutorial_series_demo_files.zip)
+* [Kurssin materiaali tähän osioon voidaan ladata Allaasta](https://a3s.fi/blendermaterials/Blender_tutorial_series_demo_files.zip)
 
 <iframe width="560" height="315" title="Blender meshes video" srcdoc="https://www.youtube.com/embed/aGmGgZ9ORhU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Renderers
+## Renderöinnit {#renderers}
 
-This fourth Blender tutorial covers setting up lights and rendering meshes with different renderers.
+Tämä neljäs Blender-opetusvideo kattaa valojen asettamisen ja verkkokuvioiden renderöinnin eri renderöijillä.
 
 <iframe width="560" height="315" title="Blender renderers video" srcdoc="https://www.youtube.com/embed/BzvIeGTNLTs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Animation
+## Animaatio {#animation}
 
-This fifth Blender tutorial covers camera animation.
+Tämä viides Blender-opetusvideo kattaa kameran animaation.
 
 <iframe width="560" height="315" title="Blender camera animation video" srcdoc="https://www.youtube.com/embed/LwWG1R7i9GI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Scripting
+## Skriptaus {#scripting}
 
-This sixth Blender tutorial covers automating tasks by scripting.
+Tämä kuudes Blender-opetusvideo kattaa tehtävien automatisoinnin skriptaamalla.
 
-* [Course material for this part can be downloaded from Allas](https://a3s.fi/blendermaterials/Blender_tutorial_series_demo_files.zip)
+* [Kurssin materiaali tähän osioon voidaan ladata Allaasta](https://a3s.fi/blendermaterials/Blender_tutorial_series_demo_files.zip)
 
 <iframe width="560" height="315" title="Automatic tasks by scripting in Blender video" srcdoc="https://www.youtube.com/embed/EHjhtq1ODk8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

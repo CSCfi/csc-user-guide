@@ -1,10 +1,11 @@
-# DBaaS flavors and prices
 
-The database instances are hosted on top of cPouta. The billing is based on the flavor (database instance size), volume size of the database and how much backup you are using.
+# DBaaS-mallit ja hinnat {#dbaas-flavors-and-prices}
 
-## Flavor types
+Tietokantainstanssit isännöidään cPouta-alustalla. Laskutus perustuu malliin (tietokantainstanssin koko), tietokannan volyymin kokoon ja varmuuskopioiden käyttömäärään.
 
-| Flavor | Cores | Memory (MB) | Billing Units / hour |
+## Mallityypit {#flavor-types}
+
+| Malli | Ytimet | Muisti (MB) | Laskutusyksiköt / tunti |
 |--- |:---:|:---:|:---:|
 | standard.small   | 2 | 2000  | 2  |
 | standard.medium  | 3 | 4000  | 4  |
@@ -13,38 +14,36 @@ The database instances are hosted on top of cPouta. The billing is based on the 
 | standard.xxlarge | 8 | 32000 | 25 |
 | standard.3xlarge | 8 | 64000 | 50 |
 | hpc.5.16core    | 16 | 59392 | 60 |
-<!-- should this flavor exist here: | hpc.6.32core    | 32 | 116 | 120 | -->
-<!--- We should probably remove standard.3xlarge in favor of supporting hpc.5.16core -->
+<!-- pitäisikö tämän mallin olla täällä: | hpc.6.32core    | 32 | 116 | 120 | -->
+<!--- Meidän pitäisi luultavasti poistaa standard.3xlarge, jotta voimme tukea hpc.5.16core -->
 
 
-## Volumes
+## Volyymit {#volumes}
 
-| Resource type | Unit | Billing Units / GiB hour |
+| Resurssityyppi | Yksikkö | Laskutusyksiköt / GiB tunti |
 |--- |:---:|:---:|
-| Volumes | GiB reserved | 0.01 |
+| Volyymit | Varattu GiB | 0,01 |
 
-The maximum volume size per database instance is currently 200 GiB.
+Tietokantainstanssin maksimaalinen volyymin koko on tällä hetkellä 200 GiB.
 
+## Varmuuskopiot {#backups}
 
-
-## Backups
-| Resource type | Unit | Billing Units / GiB hour |
+| Resurssityyppi | Yksikkö | Laskutusyksiköt / GiB tunti |
 |--- |:---:|:---:|
-| Backups | GiB usage | 0.003 |
+| Varmuuskopiot | Käytetty GiB | 0,003 |
 
-Automatic daily backups are stored for 90 days and they consume billing units based on total backup usage.
+Automaattiset päivittäiset varmuuskopiot säilytetään 90 päivää ja ne kuluttavat laskutusyksiköitä varmuuskopioiden kokonaiskäytön perusteella.
 
+## Kiintiöt {#quotas}
 
-## Quotas
+Oletuskiintiöt
 
-Defaults Quotas
-
-| Resource type | Amount |
+| Resurssityyppi | Määrä |
 |--- |:---:|
-| Maximum manual backups               | 1000      |
-| Maximum number of database instances | 5         |
-| Maximum memory usage                 | 20000 MB |
-| Maximum volume reservation           | 50 GiB    |
+| Maksimi manuaaliset varmuuskopiot | 1000      |
+| Maksimi tietokantainstanssien määrä | 5         |
+| Maksimi muistin käyttö          | 20000 MB |
+| Maksimi volyymin varaus         | 50 GiB    |
 
-If you need to run more or bigger database than what the default quota allows you can always send a
-request to [ServiceDesk](mailto:servicedesk@csc.fi) .
+Jos tarvitset käyttää enemmän tai suurempia tietokantoja kuin mitä oletuskiintiö sallii, voit aina lähettää
+pyynnön [ServiceDeskille](mailto:servicedesk@csc.fi).

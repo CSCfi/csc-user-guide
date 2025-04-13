@@ -1,57 +1,54 @@
-# When your project handles personal data
 
-When you use CSC's services to process **personal data** in your research project you need to select "We handle personal data in this project" when 
-creating a project in MyCSC. 
-[Read what is personal data from the office of the data protection ombudsman web pages](https://tietosuoja.fi/en/what-is-personal-data).
-After this, you will be presented with a **GDPR Document**, where you should describe your data processing activities.
+# Kun projektisi käsittelee henkilötietoja
 
-In this form, you describe the personal data processing activities and the types of personal data you are processing. You also need to check a box if you handle special categories of data. 
-Read more about [sensitive data](https://research.csc.fi/definition-of-sensitive-data) and about 
-[managing sensitive data](https://research.csc.fi/managing-sensitive-data) on Research.csc.fi website.
+Kun käytät CSC:n palveluita **henkilötietojen** käsittelyyn tutkimusprojektissasi, sinun on valittava "Käsittelemme henkilötietoja tässä projektissa" luodessasi projektin MyCSC:ssä. 
+[Lue, mitä henkilötiedot ovat tietosuojavaltuutetun toimiston verkkosivuilta](https://tietosuoja.fi/en/what-is-personal-data).
+Tämän jälkeen sinulle esitetään **GDPR-dokumentti**, jossa sinun tulisi kuvata tietojenkäsittelytoimintasi.
 
+Tässä lomakkeessa kuvaat henkilötietojen käsittelytoimet ja käsittelemiäsi henkilötietojen tyyppejä. Sinun on myös merkittävä ruutu, jos käsittelet erityisiä tietoryhmiä. 
+Lue lisää [arkaluonteisista tiedoista](https://research.csc.fi/definition-of-sensitive-data) ja 
+[arkaluonteisten tietojen hallinnasta](https://research.csc.fi/managing-sensitive-data) Research.csc.fi-sivustolla.
 
-This form is attached to your CSC project and serves as an instruction to processing personal data for CSC. 
-If you do not know how to fill in the form, please contact the data protection officer of your organization (see the contact details at the end of this page). 
-Note, that you can edit this description any time, or download it as a PDF file on the _Project management_ page in MyCSC (see screenshot below).
+Tämä lomake liitetään CSC-projektiisi ja toimii ohjeena henkilötietojen käsittelylle CSC:ssä. 
+Jos et tiedä, miten täyttää lomake, ota yhteyttä organisaatiosi tietosuojavastaavaan (yhteystiedot löytyvät tämän sivun lopusta). 
+Huomioi, että voit milloin tahansa muokata tätä kuvausta tai ladata sen PDF-tiedostona _Projektinhallinta_-sivulta MyCSC:ssä (katso kuvakaappaus alla).
 
-![The Project management page in MyCSC](../img/WhenYourProjectHandlesPersonalData_GDPRdocument.png 'The Project management page in MyCSC')
+![Projektinhallinta-sivu MyCSC:ssä](../img/WhenYourProjectHandlesPersonalData_GDPRdocument.png 'Projektinhallinta-sivu MyCSC:ssä')
 
-## Data processing agreement 
-[The General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use) with 
-[data processing agreement](https://research.csc.fi/data-processing-agreement) and the description of processing activities 
-together with the other materials mentioned in the data processing agreement, 
-constitute a legally binding data processing agreement for the purposes of the EU General Data Protection Regulation (2016/679, the “GDPR”). 
-All of CSC's users accept the Data processing agreement together with the General Terms of Use for CSC's Services for Research and Education 
-when registering as users.
+## Tietojenkäsittelysopimus {#data-processing-agreement}
 
-In the GDPR definitions, processing essentially refers to anything you can possibly do with someone’s personal information: 
-collecting it, storing it, destroying it, etc. GDPR compliance requires data controllers (in this case You as a CSC's service user) 
-to sign a data processing agreement with any parties that act as data processors on their behalf 
-(in this case CSC acts as a data processor on you behalf when You use our services).  
+[CSC:n palveluiden yleiset käyttöehdot tutkimukselle ja koulutukselle](https://research.csc.fi/general-terms-of-use) sekä 
+[tietojenkäsittelysopimus](https://research.csc.fi/data-processing-agreement) ja prosessointitoimintojen kuvaus 
+yhdessä tietojenkäsittelysopimuksessa mainittujen muiden materiaalien kanssa muodostavat EU:n tietosuoja-asetuksen (2016/679, "GDPR") mukaisesti laillisesti sitovan tietojenkäsittelysopimuksen. 
+Kaikki CSC:n käyttäjät hyväksyvät tietojenkäsittelysopimuksen yhdessä CSC:n palveluiden yleisten käyttöehtojen kanssa rekisteröityessään käyttäjiksi.
 
-Filling in the data processing agreement and the GDPR Document are mandatory parts of contracting to use CSC’s Services for Research and Education, if personal data is processed.
+GDPR-määrittelyissä käsittelyllä viitataan kaikkeen, mitä voit mahdollisesti tehdä jonkun henkilötiedoilla: 
+kerätä niitä, tallentaa, tuhota jne. GDPR:n noudattaminen vaatii rekisterinpitäjiä (tässä tapauksessa sinä CSC:n palvelun käyttäjänä) 
+allekirjoittamaan tietojenkäsittelysopimuksen kaikkien osapuolten kanssa, jotka toimivat tietojen käsittelijöinä heidän puolestaan 
+(tässä tapauksessa CSC toimii tietojenkäsittelijänä puolestasi, kun käytät palveluitamme).  
 
-Please refer to:
+Tietojenkäsittelysopimuksen ja GDPR-dokumentin täyttäminen on pakollinen osa sopimusta CSC:n palveluiden käytöstä tutkimus- ja koulutustarkoituksiin, jos henkilötietoja käsitellään.
 
-- [The General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)
-- [The Data Processing Agreement](https://research.csc.fi/data-processing-agreement)
-- [Service descriptions](https://research.csc.fi/en/service-catalog)
-- [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+Katso:
 
-to find more detailed information on how we as a data processor protect your personal data.
+- [CSC:n palveluiden yleiset käyttöehdot tutkimukselle ja koulutukselle](https://research.csc.fi/general-terms-of-use)
+- [Tietojenkäsittelysopimus](https://research.csc.fi/data-processing-agreement)
+- [Palvelukuvaukset](https://research.csc.fi/en/service-catalog)
+- [CSC:n tietopolitiikka](https://www.csc.fi/en/data-policy)
 
+löytääksesi tarkempaa tietoa siitä, miten me tietojenkäsittelijänä suojaamme henkilötietosi.
 
-## Contact information of Finnish universities data protection / legal offices
+## Suomen yliopistojen tietosuoja- / oikeusosastojen yhteystiedot {#contact-information-of-finnish-universities-data-protection-legal-offices}
 
-| **University**  | **Contact information**  |
+| **Yliopisto**  | **Yhteystiedot**  |
 |---|---|
-| Aalto University  | tietosuojavastaava@aalto.fi <br />[Data Protection Policy](https://www.aalto.fi/en/services/aalto-university-data-protection-policy) |
-| LUT University  | dataprotection@lut.fi <br />tietosuoja@lut.fi <br />[Data protection policy](https://www.lut.fi/en/data-protection)  |
-| University of Eastern Finland  | tietosuoja@uef.fi <br />[Data protection policy](https://www.uef.fi/en/data-protection)  |
-| University of Helsinki  | tietosuoja@helsinki.fi <br />[Data protection policy](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
-| University of Jyväskylä  | tietosuoja@jyu.fi <br />[Data protection policy](https://www.jyu.fi/en/data-privacy-at-the-university-of-jyvaskyla) |
-| University of Lapland  | tietosuoja@ulapland.fi <br />[Data protection policy](https://www.ulapland.fi/EN/About-us/Our-principles/Data-protection) |
-| University of Oulu  | dpo@oulu.fi <br />[Data protection policy](https://www.oulu.fi/en/data-privacy-notice) |
-| University of Tampere  | dpo@tuni.fi <br />[Data protection policy](https://www.tuni.fi/en/research/responsible-science-and-research/data-protection) |
-| University of Turku  | dpo@utu.fi <br />tietosuoja@utu.fi <br />[Data protection policy](https://www.utu.fi/en/privacy/notice) |
-| University of Vaasa  | tietosuojavastaava@uwasa.fi <br />[Data protection policy](https://www.uwasa.fi/en/data-protection) |
+| Aalto-yliopisto  | tietosuojavastaava@aalto.fi <br />[Tietosuojakäytäntö](https://www.aalto.fi/en/services/aalto-university-data-protection-policy) |
+| LUT-yliopisto  | dataprotection@lut.fi <br />tietosuoja@lut.fi <br />[Tietosuojakäytäntö](https://www.lut.fi/en/data-protection)  |
+| Itä-Suomen yliopisto  | tietosuoja@uef.fi <br />[Tietosuojakäytäntö](https://www.uef.fi/en/data-protection)  |
+| Helsingin yliopisto  | tietosuoja@helsinki.fi <br />[Tietosuojakäytäntö](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
+| Jyväskylän yliopisto  | tietosuoja@jyu.fi <br />[Tietosuojakäytäntö](https://www.jyu.fi/en/data-privacy-at-the-university-of-jyvaskyla) |
+| Lapin yliopisto  | tietosuoja@ulapland.fi <br />[Tietosuojakäytäntö](https://www.ulapland.fi/EN/About-us/Our-principles/Data-protection) |
+| Oulun yliopisto  | dpo@oulu.fi <br />[Tietosuojakäytäntö](https://www.oulu.fi/en/data-privacy-notice) |
+| Tampereen yliopisto  | dpo@tuni.fi <br />[Tietosuojakäytäntö](https://www.tuni.fi/en/research/responsible-science-and-research/data-protection) |
+| Turun yliopisto  | dpo@utu.fi <br />tietosuoja@utu.fi <br />[Tietosuojakäytäntö](https://www.utu.fi/en/privacy/notice) |
+| Vaasan yliopisto  | tietosuojavastaava@uwasa.fi <br />[Tietosuojakäytäntö](https://www.uwasa.fi/en/data-protection) |

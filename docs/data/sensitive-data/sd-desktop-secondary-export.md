@@ -1,39 +1,41 @@
-# Data export from virtual desktop
 
-Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data. The exported results will be send to the data permit authority Findata for scrutiny. 
+# Datan vienti virtuaalityöpöydältä {#data-export-from-virtual-desktop}
 
-Please ensure you reserve enough time for the export process. It may take us a few days to respond to your request, and once the results are sent to scrutiny, the scrutiny process will take up to seven business days.
+Virtuaalityöpöytäsi on täysin eristetty internetistä ja muista palveluista tietoturvasyistä. Myös datan vienti on rajoitettua: vain CSC voi viedä ei-sensitiivisiä tuloksia turvallisesta työtilasta, kun käsitellään toissijaista käyttöä varten tarkoitettua dataa. Viedyt tulokset lähetetään tietolupaviranomaiselle Findatalle tarkastettavaksi.
 
-**In order to export the results at the end of your analysis, you need to:**
+Varaathan riittävästi aikaa vientiprosessille. Voi kestää muutaman päivän ennen kuin vastaamme pyyntöösi, ja kun tulokset on lähetetty tarkastettavaksi, tarkastusprosessi voi kestää jopa seitsemän arkipäivää.
 
-1. Make sure your results **do not contain any sensitive data**. Read more about producing anonymous results from [Findata's website](https://findata.fi/en/services-and-instructions/producing-anonymous-results/);
-2. Collect all the results into a same folder and name it as **Results**;
-3. Place the **Results** folder into the **shared-directory** on your Desktop;
-4. Download and complete Findata's [summary form for verifying the anonymity of the results](https://findata.fi/summary-form-verifying-anonymity-of-results);
-5. **Send a request to [CSC Service Desk](../../support/contact.md)** to export your results and attach the completed Findata's summary form to the request;
-6. All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be added back to the CSC project, if your project is still ongoing;
-7. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect.
+**Jotta voit viedä tulokset analyysin lopussa, sinun tulee:**
 
-![Exporting results from virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Exporting_secondary_use_data.png)
+1. Varmista, että tuloksesi **eivät sisällä mitään sensitiivistä dataa**. Lue lisää anonyymien tulosten tuottamisesta [Findatan verkkosivuilta](https://findata.fi/palvelut-ja-ohjeet/anonyymien-tulosten-tuottaminen/);
+2. Kerää kaikki tulokset samaan kansioon ja nimeä se **Results** (Tulokset);
+3. Sijoita **Results**-kansio **shared-directory** (jaettu-hakemisto) työpöydällesi;
+4. Lataa ja täytä Findatan [yhteenvetolomake tulosten anonymiteetin varmistamiseksi](https://findata.fi/yhteenvetolomake-tulosten-anonymiteetin-varmistamiseksi);
+5. **Lähetä pyyntö [CSC:n Service Deskiin](../../support/contact.md)** tulosten viemiseksi ja liitä täytetty Findatan yhteenvetolomake pyyntöön;
+6. Kaikki “Results”-kansion sisältö viedään tietolupaviranomaiselle, ja se on saatavilla sinulle tarkastuksen jälkeen. Vientiprosessin aikana et voi käyttää virtuaalityöpöytääsi. Kaikki projektin jäsenet on poistettava CSC-projektista datan viennin ajaksi. Tämän jälkeen sinut lisätään takaisin CSC-projektiin, jos projektisi on edelleen käynnissä;
+7. Saat ohjeet uuden CSC-projektin luomiseen SD Connectissa, minkä jälkeen Sensitive Data Support -tiimi jakaa tulokset sinulle SD Connectin kautta.
 
-## Deleting virtual desktop
+![Tulosten vienti virtuaalityöpöydältä](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Exporting_secondary_use_data.png)
 
-### Deleting a desktop
+## Virtuaalityöpöydän poisto {#deleting-virtual-desktop}
 
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved on it. You cannot undo this action:
+### Työpöydän poistaminen {#deleting-a-desktop}
 
- 1. On [SD Desktop Homepage](https://sd-desktop.csc.fi), click **Go to SD Desktop management**.
- 2. Under *Available desktops* select the correct virtual Desktop. On the right side, click **Options** and **Delete Desktop**.
+Analyysin lopussa voit poistaa virtuaalityöpöytäsi, mukaan lukien ulkoinen asema ja kaikki siihen tallennetut tiedostot. Tätä toimintoa ei voi perua:
 
-[![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
+1. [SD Desktop -kotisivulla](https://sd-desktop.csc.fi), klikkaa **Siirry SD Desktop -hallintaan**.
+2. Kohdassa *Saatavilla olevat työpöydät* valitse oikea virtuaalityöpöytä. Oikealla puolella, klikkaa **Asetukset** ja **Poista työpöytä**.
 
-!!! Note
-    The virtual desktop **should not be deleted before all the results have been exported.** Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved on the virtual desktop or on the external volume by other project members.
+[![Työpöydän poisto](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
 
-### End of data access and data deletion policies
+!!! Huomio
+    Virtuaalityöpöytää **ei tule poistaa ennen kuin kaikki tulokset on viety.** Ota yhteyttä kaikkiin projektin jäseniin ennen virtuaalityöpöydän poistamista. Tällä toiminnolla poistat koko työtilan, mukaan lukien kaikki virtuaalityöpöydälle tai muille projektin jäsenille ulkoiselle levylle tallennetut tiedostot.
 
-Access to the data will be denied after the data permit expires. If you want to continue accessing the data after the original validity period ends, you need to send an *amendment application* to the data controller to extend the validity of the permit.
+### Datan käyttöoikeuksien ja datan poistosäännöt {#end-of-data-access-and-data-deletion-policies}
 
-When the data permit has expired, the CSC project will be closed, and you cannot access your virtual Desktop anymore. This means that **all your results must be exported before the end of the validity period**. Both the project and the data will be deleted according to CSC’s data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)) and agreement with the users. As a default, **inactive projects and all their data will be deleted after 90 days** in accordance with the regulation.
+Käyttöoikeus dataan estetään, kun datalupa umpeutuu. Jos haluat jatkaa datan käyttöä alkuperäisen voimassaoloajan päätyttyä, sinun on lähetettävä *muutoshakemus* datan käsittelijälle luvan voimassaoloajan pidentämiseksi.
 
-If you are still waiting for a decision about your amendment application when the original permit expires, please contact [CSC Service Desk](../../support/contact.md) in order to save your CSC project and data for later use. We cannot grant access to the Desktop without a valid data permit.
+Kun datalupa umpeutuu, CSC-projekti suljetaan, etkä voi enää käyttää virtuaalityöpöytääsi. Tämä tarkoittaa, että **kaikki tulokset on vietävä ennen voimassaoloajan päättymistä**. Sekä projekti että data poistetaan CSC:n tietojen säilyttämiskäytännön mukaisesti (katso [CSC:n palveluiden yleiset käyttöehdot tutkimukselle ja koulutukselle](https://research.csc.fi/yleiset-kayttoehdot)) ja käyttäjien kanssa tehdyn sopimuksen mukaisesti. Oletuksena **passiiviset projektit ja kaikki niiden data poistetaan 90 päivän kuluttua** säännöksen mukaisesti.
+
+Jos odotat päätöstä muutoshakemuksestasi alkuperäisen luvan umpeutuessa, ota yhteyttä [CSC:n Service Deskiin](../../support/contact.md) tallentaaksesi CSC-projektisi ja datasi myöhempää käyttöä varten. Emme voi myöntää käyttöoikeutta työpöydälle ilman voimassaolevaa datalupaa.
+

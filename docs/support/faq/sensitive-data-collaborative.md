@@ -1,17 +1,17 @@
-# How can I share sensitive data with my collaborators?
+# Kuinka voin jakaa arkaluonteisia tietoja yhteistyökumppaneilleni? {#how-can-i-share-sensitive-data-with-my-collaborators}
 
-You can share sensitive data with your collaborators via:
+Voit jakaa arkaluonteisia tietoja yhteistyökumppaneillesi seuraavilla tavoilla:
 
-1) **Data transfer using SD Connect**:
-This operation requires a few planning steps. First, your collaborator needs a CSC account and a CSC project (recipient project). Next, you can share files with them from your SD Connect folder for:
-- data transfer: the recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
-- data collection: in addition to Transfer data permission, the recipient project’s members can upload new files or delete existing files from your folder in SD Connect. Use this when you want the folder to be your shared workspace.
-- analysis via SD Desktop: the recipient project's members can only access the folder content in SD Desktop. Use this when you need maximum certainty that your files are not distributed further.
+1) **Tietojen siirto SD Connectin avulla**:
+Tämä toimenpide vaatii muutamia suunnitteluvaiheita. Ensinnäkin, yhteistyökumppanillasi on oltava CSC-tili ja CSC-projekti (vastaanottava projekti). Sen jälkeen voit jakaa tiedostoja heidän kanssaan SD Connect -kansiostasi seuraavasti:
+- tiedonsiirto: vastaanottavan projektin jäsenet voivat kopioida SD Connect -kansiosi ja ladata tiedostot salauksen purkamisen jälkeen. Tiedostot ovat myös käytettävissä SD Desktopin kautta. Käytä tätä, kun haluat siirtää tietosi toiseen projektiin.
+- tietojen keruu: tiedonsiirto-oikeuden lisäksi vastaanottavan projektin jäsenet voivat ladata uusia tiedostoja tai poistaa olemassa olevia tiedostoja SD Connect -kansiostasi. Käytä tätä, kun haluat, että kansio on yhteinen työtilanne.
+- analyysi SD Desktopin kautta: vastaanottavan projektin jäsenet voivat käyttää kansiota vain SD Desktopin kautta. Käytä tätä, kun haluat varmistaa, että tiedostoja ei levitetä eteenpäin.
 
-3) **Data streaming via SD Desktop**:
-Another way to share sensitive data with collaborators is to give them access to your private computing environment in SD Desktop.
-They will then be able to access and analyse data in your virtual Desktop, but they will not be able to export it outside the computing environment, download it, or make copies of it.
+2) **Tietojen suoratoisto SD Desktopin kautta**:
+Toinen tapa jakaa arkaluonteisia tietoja yhteistyökumppaneillesi on antaa heille pääsy yksityiseen laskentaympäristöösi SD Desktopissa.
+He voivat siten käyttää ja analysoida tietoja virtuaalisessa työpöydässäsi, mutta he eivät voi viedä tietoja ulos laskentaympäristöstä, ladata niitä tai kopioida niitä.
 
-Note: When transferring personal or sensitive data outside the EEA, ensure you have the appropriate legal basis and comply with relevant data protection legislation. Be mindful of this when sharing sensitive data with collaborators via SD Connect or SD Desktop.
+Huom: Kun siirrät henkilötietoja tai arkaluonteisia tietoja ETA-alueen ulkopuolelle, varmista, että sinulla on asianmukainen oikeusperusta ja noudatat henkilötietojen suojaa koskevaa lainsäädäntöä. Ole tietoinen tästä, kun jaat arkaluonteisia tietoja yhteistyökumppaneidesi kanssa SD Connectin tai SD Desktopin kautta.
 
-If you need assistance contact your organization's data protection officer or legal office or write us at servicedesk@csc.fi (subject: Sensitive data)
+Jos tarvitset apua, ota yhteyttä organisaatiosi tietosuojavastaavaan tai lakiosastoon tai kirjoita meille osoitteeseen servicedesk@csc.fi (aihe: Arkaluonteiset tiedot)

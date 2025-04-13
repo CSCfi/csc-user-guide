@@ -1,91 +1,71 @@
-!!! warning "Middle level"
-    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and OpenShift [Routes](../concepts.md#route) API as well as a 
-    knowledge of Kubernetes [Pods](../concepts.md#pod) and [Services](../concepts.md#service)
+!!! warning "Keskitaso"
+Tarvitset OpenShift CLI-työkalun [oc](../usage/cli.md) sekä OpenShift [Routes](../concepts.md#route) API:n tuntemusta ja lisäksi Kubernetesin [Podit](../concepts.md#pod) ja [Palvelut](../concepts.md#service).
 
-# Introduction
+# Johdanto {#introduction}
 
-In this tutorial, the Kubernetes core concepts _pods_, _services_, _routes_ and
-_ReplicationControllers_ and their YAML representations are discussed. In order
-to illustrate these _Kubernetes API objects_, an Apache HTTP server application
-is constructed by writing plain text YAML representations of these objects.
+Tässä tutoriaalissa käsitellään Kubernetesin ydinkonsepteja _pods_, _services_, _routes_ ja _ReplicationControllers_ sekä niiden YAML-muodossa olevia esityksiä. Näiden _Kubernetes API objektien_ havainnollistamiseksi rakennetaan Apache HTTP-palvelinsovellus kirjoittamalla näiden objektien yksinkertaisia tekstimuotoisia YAML-esityksiä.
 
-The objects minimally required defined in the cluster to have the
-server running:
+Klusterissa tarvittavat vähimmäismääräiset objektit palvelimen ajamiseksi:
 
-1. A pod that runs the container.
-1. A service that exposes the pod internally and gives it a predictable name.
-1. A route that will expose the service to the internet by redirecting
-   traffic from `<myservice>.2.rahtiapp.fi` to the service object.
+1. Pod, joka ajaa kontin.
+2. Palvelu, joka altistaa podin sisäisesti ja antaa sille ennustettavan nimen.
+3. Reitti, joka avaa palvelun internetiin ohjaamalla liikenteen `<myservice>.2.rahtiapp.fi`:sta palveluobjektiin.
 
 !!! info
 
-    In practice, you should not deploy applications the way described in this
-    tutorial. Instead, it is meant for learning the core concepts of
-    Kubernetes.
+    Käytännössä sinun ei pitäisi ottaa sovelluksia käyttöön samalla tavalla kuin tässä tutoriaalissa on kuvattu. Sen sijaan se on tarkoitettu Kubernetesin ydinkonseptien oppimiseen.
 
-![Network](../../img/routeServicePod.drawio.svg)
+![Verkko](../../img/routeServicePod.drawio.svg)
 
-## Preparation
+## Valmistelu {#preparation}
 
-Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../usage/cli.md) if you need help on that.
+Varmista, että `oc`-komentorivi on asennettuna ja että olet kirjautunut sisään. Katso tarvittaessa [komentorivityökalun asennus](../usage/cli.md) saadaksesi apua.
 
-## Projects
+## Projektit {#projects}
 
-The command `oc projects` shows the projects you have access to:
+Komento `oc projects` näyttää projektit, joihin sinulla on pääsy:
 
 ```bash
 $ oc projects
-You have access to the following projects and can switch between them with 'oc
+Sinulla on pääsy seuraaviin projekteihin, ja voit vaihtaa niiden välillä komennolla 'oc
 project <projectname>':
 
     someone-elses-public-project
   * my-project-with-unique-name
 
-Using project "my-project-with-unique-name" on server "https://api.2.rahti.csc.fi:6443".
+Käytät projektia "my-project-with-unique-name" palvelimella "https://api.2.rahti.csc.fi:6443".
 ```
 
 !!! info
 
-    The listing may include projects that other users have created to host
-    public Docker images. While it is possible to switch to these projects, you
-    only have read-only access to the Docker images hosted in them.
+    Listaus saattaa sisältää projekteja, jotka muut käyttäjät ovat luoneet isännöidäkseen julkisia Docker-kuvia. Vaikka on mahdollista vaihtaa näihin projekteihin, sinulla on niissä vain lukuoikeudet Docker-kuviin.
 
-If there is no single suitable project, a new one can be created with the command `oc
+Jos sopivaa projektia ei ole, uusi voidaan luoda komennolla `oc
 new-project`:
 
 ```bash
 oc new-project my-project-with-unique-name
 ```
 
-The name of the project needs to be unique across the Rahti container cloud, and
-moreover, the name may only contain letters, digits and hyphen symbols, and it
-is not case sensitive. In essence, the name needs to be usable as part of a DNS
-name.
+Projektin nimen on oltava yksilöllinen Rahti-konteineripilvessä, ja lisäksi nimi voi sisältää vain kirjaimia, numeroita ja yhdysmerkkejä, eikä se ole kirjainkoon herkkä. Pohjimmiltaan nimen on oltava sellainen, että sitä voidaan käyttää DNS-nimen osana.
 
-If you are a member of multiple CSC projects with access to Rahti, the description of the
-project must contain `csc_project: #######`, where `#######` is the project
-that should be billed (see
-[Projects and quota](../usage/projects_and_quota.md)).
-The description can be included in the `new-project` command:
+Jos kuulut useampaan kuin yhteen CSC-projektiin, joilla on pääsy Rahtiin, projektin kuvauksessa on oltava `csc_project: #######`, jossa `#######` on laskutettava projekti (katso [Projektit ja kiintiöt](../usage/projects_and_quota.md)). Kuvaus voidaan liittää `new-project`-komentoon:
 
 ```bash
 oc new-project my-project-with-unique-name --description='csc_project: #######'
 ```
 
-Switch between projects using the command `oc project`:
+Voit vaihtaa projektien välillä komennolla `oc project`:
 
 ```bash
 oc project another-project
 ```
 
-## Pods and the command line interface
+## Podit ja komentoriviliitäntä {#pods-and-the-command-line-interface}
 
-Pods are objects that run one or more containers. The containers in a pod
-share an IP address, and they can communicate via `localhost` or shared memory.
-Consequently, they need to be executed in a single physical node.
+Podit ovat objekteja, jotka ajavat yhden tai useampia kontteja. Podin kontit jakavat IP-osoitteen ja voivat kommunikoida `localhost`in tai jaetun muistin kautta. Tämän vuoksi ne on suoritettava yhdellä fyysisellä solmulla.
 
-In our case, the pod will run a container image with a web server installed in
-it:
+Meidän tapauksessamme pod suorittaa web-palvelimen asennettuna konttikuvassa:
 
 *`pod.yaml`*:
 
@@ -103,50 +83,39 @@ spec:
     image: "image-registry.openshift-image-registry.svc:5000/openshift/httpd"
 ```
 
-This pod will run one container image specified in the field
-`spec.containers.image`.
+Tämä pod suorittaa yhden konttikuvan, joka on määritelty kentässä `spec.containers.image`.
 
-The name of the pod is provided in `metadata.name`. The pod can be referred to
-using `oc`:
+Podin nimi on annettu `metadata.name` kohdassa. Podiin voidaan viitata käyttäen `oc`-komentoa:
 
 ```bash
 oc get pods mypod
 ```
 
-The field `metadata.labels.pool` is an arbitrary key-value pair that enables
-the pods to be grouped and referred by e.g. _services_.
+Kenttä `metadata.labels.pool` on mielivaltainen avain-arvo pari, joka mahdollistaa podien ryhmittelyn ja niiden löytymisen esim. _palveluiden_ avulla.
 
-The Kubernetes API objects are represented in the YAML format.
-[Short introduction to YAML](yaml_introduction.md).
+Kubernetes API -objekteja esitetään YAML-muodossa. [Lyhyt johdanto YAML:iin](yaml_introduction.md).
 
-Pods and other Kubernetes/OpenShift API objects are created with the `oc`
-command line utility:
+Podit ja muut Kubernetes/OpenShift API-objektit luodaan `oc`-komentorivityökalun avulla:
 
 ```bash
 oc create -f pod.yaml
 ```
 
-The pod should now appear in the "Overview" page in OpenShift's web console when
-the project is viewed.
+Podin pitäisi nyt näkyä "Yhteenveto"-sivulla OpenShiftin web-konsolissa projektia tarkasteltaessa.
 
-Pods can be deleted using the command `oc delete`:
+Podi voidaan poistaa `oc delete` komennolla:
 
 ```bash
 oc delete pod mypod
 ```
 
-Consequently, the pod should disappear from the OpenShift web console, but let us
-keep this one running for now.
+Näin ollen podin pitäisi kadota OpenShiftin verkkokonsolista, mutta pidetään se toistaiseksi käynnissä.
 
 ----
 
-### Resource requests and limits
+### Resurssipyynnöt ja rajat {#resource-requests-and-limits}
 
-Typically, you allocate _resources_ to containers using _requests_ and
-_limits_, but in these examples, we refrain from doing that for the sake of
-brevity. If no values are provided, default values will be used instead. The
-same pod as above with memory and CPU resources of 200 MB to 1 GB and 0,2 CPU
-to 1 CPU would read as:
+Tyypillisesti varaat _resursseja_ konteille käyttämällä _pyyntöjä_ ja _rajoja_, mutta näissä esimerkeissä pidättäydymme niiden käytöstä lyhyyden vuoksi. Jos arvoja ei ole annettu, käytetään oletusarvoja. Sama pod kuin yllä, muistin ja suorittimen resursseilla 200 MB - 1 GB ja 0,2 suorittimesta - 1 suorittimeen, voidaan lukea seuraavasti:
 
 *`pod.yaml`*:
 
@@ -171,17 +140,13 @@ spec:
         cpu: "1"
 ```
 
-Read more about requests and limits in the [Kubernetes
-documentation](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/).
+Lue lisää pyynnöistä ja rajoista [Kubernetes-dokumentaatiosta](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/).
 
 ----
 
-## Service
+## Palvelu {#service}
 
-The IP addresses of pods are not consistent and may change if, for example,
-a pod is killed and recreated. Thus, in order to reliably access a pod, its IP
-address must be tracked and stored. Service objects do just that, and as
-a result, they provide a consistent network identity to pods:
+Podien IP-osoitteet eivät ole pysyviä ja saattavat muuttua, jos esimerkiksi pod tapetaan ja luodaan uudelleen. Siksi, jotta podiin voidaan luotettavasti päästä, sen IP-osoite on seurattava ja tallennettava. Palveluobjektit tekevät juuri sen, ja seurauksena ne tarjoavat pysyvän verkkoidentiteetin podeille:
 
 *`service.yaml`*:
 
@@ -202,18 +167,11 @@ spec:
     pool: servepod
 ```
 
-This service will redirect TCP traffic internally from port 8081 in the project
-to the port 8080 of the pods having their labels listed in `spec.selector`. In this
-case, traffic is redirected to the pods with the label `pool: servepod`. If
-there are multiple pods matching `spec.selector`, then traffic is split
-between the pods. By default, splitting is done in a round-robin manner.
+Tämä palvelu välittää TCP-liikenteen sisäisesti portista 8081 projektissa porttiin 8080 podeissa, joiden etiketit ovat listattu `spec.selector`-kohdassa. Tässä tapauksessa liikenne ohjataan podeihin, joilla on etiketti `pool: servepod`. Jos on olemassa useita podeja, jotka vastaavat `spec.selector`-kohtaa, liikenne jaetaan podeille. Oletuksena jako tehdään vuorotellen käännöksellä.
 
-The only required field in the `spec.ports` field is `port`. Omitting
-`protocol` defaults it to TCP, and omitting `targetPort` defaults to the
-value of `port`.
+`spec.ports`-kentässä vaadittu kenttä on vain `port`. `protocol` oletusarvo on TCP ja `targetPort` oletusarvo on `port`in arvo.
 
-Let us ensure that the service is defined by launching a remote shell in the
-container running in the pod `mypod` and querying the internal DNS service:
+Varmistaaksemme, että palvelu on määritelty, aloitamme etäshellin podin `mypod` kontissa ja kyselemme sisäistä DNS-palvelua:
 
 ```bash
 $ oc rsh mypod
@@ -226,11 +184,9 @@ Address: 172.30.103.178
 
 ```
 
-## Route
+## Reitti {#route}
 
-The _route_ object is an OpenShift extension to Kubernetes that routes HTTP
-traffic from the internet (or whichever network the OpenShift cluster is
-connected to) to services in the OpenShift cluster.
+_Reitti_ objektit ovat OpenShiftin lisäyksiä Kubernetesiin, jotka ohjaavat HTTP-liikenteen internetistä (tai mihin tahansa verkkoon, johon OpenShift-klusteri on yhdistetty) OpenShiftin klusterin palveluihin.
 
 *`route.yaml`*:
 
@@ -251,46 +207,32 @@ spec:
     weight: 100
 ```
 
-This route redirects traffic from the internet to the service in the cluster
-whose `metadata.name` equals `spec.to.name`.
+Tämä reitti ohjaa liikenteen internetistä klusterin palveluun, jonka `metadata.name` vastaa `spec.to.name`-kohtaa.
 
-* You need to replace `<myroute>` with any value that is a valid DNS name (It is recommended is to use the project name).
+* Sinun täytyy korvata `<myroute>` millä tahansa arvolla, joka on kelvollinen DNS-nimi (on suositeltavaa käyttää projektnimeä).
 
-In the particular route also allows traffic only from the subnet `192.168.1.0/24` and
-the IP `10.0.0.1`. Security-wise, it is highly encouraged to utilize IP
-whitelisting for services that are not meant to be visible to the entire
-internet.
+Erityisesti tämä reitti sallii vain liikenteen aliverkosta `192.168.1.0/24` ja IP:stä `10.0.0.1`. Turvallisuusnäkökulmasta on erittäin suositeltavaa käyttää IP-listoja palveluille, joiden ei ole tarkoitus olla näkyvissä koko internetille.
 
-* In order to be able to connect, you need to add (or replace) your own IP or a subnet mask that contains your IP. A second option is to delete the annotation altogether, this will allow anyone in the world to connect. 
+* Jotta voit muodostaa yhteyden, sinun täytyy lisätä (tai korvata) oma IP:si tai aliverkon maski, joka sisältää oman IP:si. Toinen vaihtoehto on poistaa merkintä kokonaan, jolloin kaikki maailmassa voivat muodostaa yhteyden.
 
-You can now go to your browser and type the address you set: `<myservice>.2.rahtiapp.fi`. It should return you the Apache test page:
+Voit nyt mennä selaimeesi ja kirjoittaa asettamasi osoitteen: `<myservice>.2.rahtiapp.fi`. Sen pitäisi palauttaa sinulle Apache-testisivu:
 
-![Apache test page](../../img/Apache-test-page.png)
+![Apache-testisivu](../../img/Apache-test-page.png)
 
 !!! warning
 
-    If the whitelist entry is malformed, OpenShift will discard the whitelist
-    and allow all traffic.
+    Jos whitelist-merkintä on muotoiltu väärin, OpenShift hylkää whitelistin ja sallii kaiken liikenteen.
 
-By default, the hostname is `metadata.name` + `-` + `project name`
-+ `.2.rahtiapp.fi` unless otherwise specified in `spec.host`.
+Oletuksena isäntänimi on `metadata.name` + `-` + `projektnimi` + `.2.rahtiapp.fi`, ellei muuta ole määritelty `spec.host`:ssa.
 
-So far we have set up a pod, a service and a route. If the physical server
-where the pod lives gets shut down, you have to manually restart the pod using
-`oc create -f pod.yaml`. The _ReplicationController_ and _ReplicaSet_ objects are
-a mechanism that will, roughly speaking, do that for the user.
+Tähän mennessä olemme asettaneet podin, palvelun ja reitin. Jos fyysinen palvelin, jossa pod sijaitsee, sammuu, sinun täytyy manuaalisesti käynnistää podit uudelleen käyttämällä `oc create -f pod.yaml`. _ReplicationController_ ja _ReplicaSet_ objektit ovat mekanismeja, jotka tekevät tämän puolestasi.
 
-## ReplicationController
+## Replikaationohjaus {#replicationcontroller}
 
-!!! Warning "ReplicationControlers deprecated"
-    ReplicationControlers, alongside DeploymentConfigs are deprecated in current versions of OpenShift OKD. Follow [convert DeploymentConfig to Deployment](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
+!!! Warning "ReplicationControllers vanhentuneet"
+    ReplicationControllers, samoin kuin DeploymentConfigs ovat vanhentuneet OpenShift OKD:n nykyisissä versioissa. Seuraa ohjeita [korvaa DeploymentConfig Deploymentilla](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
 
-A ReplicationController ensures that there are `spec.replicas` number of pods
-whose labels match the `spec.selector` running in the cluster. If there are too many,
-ReplicationController shuts down the extra ones, and if there are too few,
-it starts up pods according to the `spec.template` field. Actually, the
-template field is exactly the pod described in `pod.yaml`, except the fields
-`apiVersion` and `kind` are missing.
+Replikaationohjaus varmistaa, että klusterissa on `spec.replicas` numero podeja, joiden etiketit vastaavat `spec.selector`:ia. Jos podeja on liikaa, Replikaationohjaus sammuttaa ylimääräiset, ja jos podeja on liian vähän, se käynnistää podeja `spec.template`-kohtaan perustuen. Todellisuudessa template-kenttä on täsmälleen pod, joka on kuvattu `pod.yaml`:issa, paitsi että kentät `apiVersion` ja `kind` puuttuvat.
 
 *`ReplicationController.yaml`*:
 
@@ -318,49 +260,29 @@ spec:
         image: "image-registry.openshift-image-registry.svc:5000/openshift/httpd"
 ```
 
-The ReplicationControllers are functionally close to ReplicaSets, discussed
-in the chapter "[Kubernetes and OpenShiftconcepts](../concepts.md)".
-A ReplicationController can be transformed into a ReplicaSet by
-changing `spec.selector` to `spec.selector.matchLabels` and setting
-`kind: ReplicaSet`.
+Replikaationohjaimet toimivat suurin piirtein samalla tavalla kuin ReplicaSets, joita käsitellään "[Kubernetes- ja OpenShift-konseptit](../concepts.md)" luvussa.
+Replikaationohjaimen voi muuntaa ReplicaSetiksi vaihtamalla `spec.selector` kohtaan `spec.selector.matchLabels` ja asettamalla `kind: ReplicaSet`.
 
 !!! info
 
-    A central Kubernetes' concept coined *reconciliation loop* manifests in the
-    ReplicationControllers. The reconciliation loop is a mechanism that measures
-    the *actual state* of the system, constructs the *current state* based to the
-    measurement of the system and performs such actions that the state of the
-    system would equal to the *desired state*.
+    Keskeinen Kubernetes-konsepti nimeltään *rekonsiliaatiosilmukka* ilmenee Replikaationohjaimissa. Rekonsiliaatiosilmukka on mekanismi, joka mittaa järjestelmän *aktuaalisen tilan*, rakentaa mittaukseen perustuvan *nykytilan* ja suorittaa toimia niin, että järjestelmän tila vastaisi haluttua *tavoitetilaa*.
 
-    In such a terminology, ReplicationControllers are objects that describe the
-    *desired state* of the cluster. Another such object is the service
-    object encountered earlier. There, an another reconciliation loop compares
-    the endpoints of the service to the actual pods that are ready and adjusts
-    accordingly. As a result, the endpoints of the service always point to pods
-    that are ready and only those pods whose labels contain all fields in
-    the selector of the service object. In fact, every incidence of `spec` in
-    a YAML representation of a Kubernetes object describes a specification for
-    a reconciliation loop. The loops for pods just happen to be tied to the
-    worker nodes of Kubernetes and are thus susceptible to deletion if, or
-    when, the worker nodes are deprovisioned.
+    Tässä terminologiassa, Replikaationohjaimet ovat objekteja, jotka kuvaavat klusterin *tavoitetilaa*. Toinen tällainen objekti on aiemmin kohdattu palveluobjekti. Siellä toinen rekonsiliaatiosilmukka vertaa palvelun päätepisteitä todellisiin ja valmis oleviin podeihin ja säätää niitä tarpeen mukaan. Tämän seurauksena palvelun päätepisteet osoittavat aina valmiisiin podeihin ja vain niihin podeihin, joiden etiketeissä on kaikki palveluobjektin valitsimessa esiintyvät kentät. Itse asiassa jokainen `spec`:n esiintymä Kubernetes-objektin YAML-esityksessä kuvailee spesifikaatiota rekonsiliaatiosilmukalle. Silmukat podeille vain sattuvat olemaan sidoksissa Kubernetesin työntekijäsolmuihin ja ovat siten altistuneita poistettaviksi, jos tai kun työntekijäsolmut lopetetaan.
 
-## Cleaning up
+## Siivous {#cleaning-up}
 
-Once we are satisfied with the application, let us not keep it running in the
-cluster but remove it with the command `oc delete`:
+Kun olemme tyytyväisiä sovellukseen, emme pidä sitä klusterissa käynnissä, vaan poistamme sen `oc delete` komennolla:
 
 ```bash
 oc delete all --selector app=serveapp
 ```
 
-This will delete all objects with the label `app: serveapp`.
+Tämä poistaa kaikki objektit, joiden etiketti on `app: serveapp`.
 
-## Conclusion
+## Johtopäätös {#conclusion}
 
-In this tutorial, a static web page server was set up using YAML files
-representing the Kubernetes objects. The created objects can be further
-modified in the OpenShift web console where:
+Tässä tutoriaalissa asennettiin staattinen verkkosivupalvelin käyttäen Kubernetes-objekteja edustavia YAML-tiedostoja. Luotuja objekteja voidaan edelleen muokata OpenShift-verkkokonsolissa, jossa:
 
-* Routes can be modified to be secure ones encrypted by TLS.
-* Autoscalers, persistent storage, resource limits and health checks can be added to ReplicationControllers.
-* New routes can be added to services.
+* Reittejä voidaan muokata turvallisiksi TLS:llä salatuiksi.
+* Automaattisia skaalaimia, pysyviä tallennustiloja, resurssirajoja ja terveysseurantoja voidaan lisätä Replikaationohjaimiin.
+* Uusia reittejä voidaan lisätä palveluille.

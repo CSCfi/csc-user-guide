@@ -1,28 +1,27 @@
-# Security guidelines for DBaaS
 
-## Firewalls
+# Tietoturvaohjeet DBaaS:lle {#security-guidelines-for-dbaas}
 
-All database instances have their own firewalls. Users are responsible for making sure that the firewall rules are strict. The firewall rules should only be open to those IP-addresses that is needed. Relaxed firewall rules are probably some of the largest security risks and you need to take it seriously. Even if you don't have any "secret" data in your database, you are not allowed to have it open to the world. If you want to share your data, you should do it through a proxy or other services that might use the database as a backend. Leaving a database port open on the internet is an sure-fire way to attract malicious actors to target your database.
+## Palomuurit {#firewalls}
 
-You can find out more about how to use firewalls in the [Firewall section](firewalls.md)
+Kaikilla tietokanta-esiintymillä on omat palomuurinsa. Käyttäjien vastuulla on varmistaa, että palomuurisäännöt ovat tiukat. Palomuurisääntöjen tulisi olla avoinna vain niille IP-osoitteille, joita tarvitaan. Löysät palomuurisäännöt ovat todennäköisesti yksi suurimmista turvallisuusriskeistä, ja ne on otettava vakavasti. Vaikka tietokannassasi ei olisikaan "salaista" tietoa, sitä ei saa olla avoimena koko maailmalle. Jos haluat jakaa tietosi, sinun tulisi tehdä se välityspalvelimen tai muiden palveluiden kautta, jotka saattavat käyttää tietokantaa taustana. Jättämällä tietokantaportin avoimeksi internettiin houkuttelet pahantahtoisia toimijoita kohdistamaan hyökkäyksiä tietokantaasi.
 
-## Authentication
+Lisätietoja palomuurien käytöstä löytyy [Palomuurit-osasta](firewalls.md).
 
-You can log in to the DBaaS service with many different authentication methods as long as you have a [CSC account](../../accounts/how-to-create-new-user-account.md) and belong to a project that has applied for DBaaS access.
+## Autentikointi {#authentication}
 
-From the web interface, you can create application credentials if you like to automate your database management from another application.
+Voit kirjautua DBaaS-palveluun monilla eri autentikointimenetelmillä, kunhan sinulla on [CSC-tili](../../accounts/how-to-create-new-user-account.md) ja kuulut projektiin, joka on hakenut DBaaS-oikeuksia.
 
-You can not use your CSC account to authenticate to your databases. The databases require their own username and password that you can manage when you create a new database instance. You can also add, remove and modify the database user accounts after the database creation. It is important that you create strong passwords for your database accounts.
+Verkkokäyttöliittymästä voit luoda sovellustodennuksia, jos haluat automatisoida tietokannan hallinnan toisesta sovelluksesta käsin.
 
-## Database security
+Et voi käyttää CSC-tiliäsi kirjautuaksesi tietokantoihisi. Tietokannat vaativat oman käyttäjätunnuksen ja salasanan, joita voit hallita luodessasi uuden tietokantaesiintymän. Voit myös lisätä, poistaa ja muokata tietokannan käyttäjätunnuksia tietokannan luomisen jälkeen. On tärkeää, että luot vahvoja salasanoja tietokantatunnuksillesi.
 
-All database instances are running in their dedicated virtual machines. The reason for this is to minimize the risks careless users pose on other users that take their security seriously.
+## Tietokannan tietoturva {#database-security}
 
-The DBaaS admins are allowed to shutdown, lock, or firewall database instances that are suspected to be used maliciously, as well as disable user access to the service.
+Kaikki tietokanta-esiintymät toimivat omissa virtuaalikoneissaan. Syynä tähän on minimoida riskejä, joita huolimattomat käyttäjät aiheuttavat muille käyttäjille, jotka ottavat turvallisuutensa vakavasti.
 
-## Backups
+DBaaS-ylläpitäjillä on oikeus sammuttaa, lukita tai estää tietokantaesiintymiä, jotka epäillään käytettävän pahantahtoisesti, sekä estää käyttäjien pääsy palveluun.
 
-Backups are taken automatically once a day. Users are not allowed to delete their own backups.
-Backups are deleted automatically after 90 days. Backups are stored encrypted in Allas. Therefore, if
-you want to store additional backups of your database it is advised to use other services than
-Allas and cPouta. [More information about backups can be found in the backups section](backups.md).
+## Varmuuskopiot {#backups}
+
+Varmuuskopiot otetaan automaattisesti kerran päivässä. Käyttäjät eivät saa poistaa omia varmuuskopioitaan. Varmuuskopiot poistetaan automaattisesti 90 päivän kuluttua. Varmuuskopiot tallennetaan salattuina Allas-palveluun. Tästä syystä, jos haluat tallentaa lisävarmuuskopioita tietokannastasi, on suositeltavaa käyttää muita palveluita kuin Allas ja cPouta. [Lisätietoja varmuuskopioista löytyy varmuuskopioiden osasta](backups.md).
+

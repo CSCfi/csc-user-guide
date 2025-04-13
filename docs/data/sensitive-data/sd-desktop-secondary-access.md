@@ -1,84 +1,83 @@
-# Importing data in your virtual desktop
+Here's the translated Finnish version of your markdown content:
 
-## Prerequisites
-* [Create virtual desktop](../sensitive-data/sd-desktop-secondary-create.md)
-* [Access virtual desktop](../sensitive-data/sd-desktop-secondary-access-vm.md)
+```markdown
+# Datan tuonti virtuaaliseen työpöytään
 
-Once a virtual desktop is created, each CSC project member can access it through their browser. The virtual desktop is isolated from the internet, so data access must be done through the Data Gateway application. This application allows you to import data from SD Connect or SD Apply. Imported data is saved on the virtual desktop’s external volume for secure analysis.
+## Esi­vai­ati­mukset {#prerequisites}
+* [Luo virtuaalinen työpöytä](../sensitive-data/sd-desktop-secondary-create.md)
+* [Käytä virtuaalista työpöytää](../sensitive-data/sd-desktop-secondary-access-vm.md)
 
-## Additional information
+Kun virtuaalinen työpöytä on luotu, jokainen CSC-projektin jäsen voi käyttää sitä selaimen kautta. Virtuaalinen työpöytä on eristetty internetistä, joten datan käytössä on käytettävä Data Gateway -sovellusta. Tämä sovellus mahdollistaa datan tuonnin SD Connect- tai SD Apply -palveluista. Tuotu data tallennetaan virtuaalisen työpöydän ulkoiseen volyymiin turvallista analysointia varten.
 
-* **What is an external volume?** Your virtual desktop’s local storage is limited, so it’s recommended to save large data files and collaborative work on the external volume. This volume acts like an external hard drive that can be detached and reattached to different desktops, allowing project members to share and edit files stored there.
-* **Adding the external volume:** the external volume can only be added when creating a [new virtual desktop](../sensitive-data/sd-desktop-secondary-create.md)
-* **Additional volume space:** if you need additional volume space (more than 200 GB), you can request it by writing to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
+## Lisätietoa {#additional-information}
 
+* **Mikä on ulkoinen volyymi?** Virtuaalisen työpöydän paikallinen tallennustila on rajallinen, joten suurten datatiedostojen ja yhteistyöhön liittyvien töiden tallentaminen ulkoiseen volyymiin on suositeltavaa. Tämä volyymi toimii kuin ulkoinen kovalevy, joka voidaan irrottaa ja liittää eri työpöytiin, mikä mahdollistaa projektin jäsenten jakaa ja muokata siellä tallennettuja tiedostoja.
+* **Ulkoisen volyymin lisääminen:** ulkoista volyymia voidaan lisätä vain luotaessa [uusi virtuaalinen työpöytä](../sensitive-data/sd-desktop-secondary-create.md)
+* **Lisätila volyymille:** jos tarvitset lisää tallennustilaa (yli 200 GB), voit pyytää sitä kirjoittamalla CSC Service Deskille (aihe: SD Desktop), **huomaa, että volyymilaajennukset ovat mahdollisia vain ennen kuin dataa on lisätty volyymille**.
 
-## Step by step
+## Vaihe vaiheelta {#step-by-step}
 
-### 1. Access data via the Data Gateway application
+### 1. Käytä dataa Data Gateway -sovelluksen kautta {#1-access-data-via-the-data-gateway-application}
 
-* [Access](sd-desktop-secondary-access-vm.md) your virtual desktop.
-* Launch **Data Gateway** by clicking icon on the left side of desktop.
-* Select **SD Apply:**. This option is accessible only if the data controller has granted you permission.
-* Click  **Continue**.
+* [Käytä](sd-desktop-secondary-access-vm.md) virtuaalista työpöytääsi.
+* Käynnistä **Data Gateway** napsauttamalla työpöydän vasemmalla puolella olevaa kuvaketta.
+* Valitse **SD Apply**. Tämä vaihtoehto on käytettävissä vain, jos datan hallinnoija on myöntänyt sinulle oikeuden.
+* Napsauta **Jatka**.
 
-![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_LaunchGateway1.png)
+![Käynnistä Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_LaunchGateway1.png)
 
+* Seuraavassa ikkunassa napsauta **Jatka**. Data Gateway luo suojatun yhteyden virtuaalisen työpöytäsi ja datasi välille sekä luo **Projects**-kansion virtuaaliseen työpöytääsi (ja käytettävissä terminaalista).
 
-* In the next window click **Continue**. Data Gateway establishes a secure connection between your virtual desktop and your data, and creates **Projects** folder on your virtual desktop (and accessible from the terminal).
+![Gateway-yhteys](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_GatewayAccess1.png)
 
-![Gateway connection](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_GatewayAccess1.png)
+* Seuraavassa ikkunassa napsauta **Avaa kansio** tarkastellaksesi kaikkia SD Connect tai SD Apply -palveluihin tallennettuja tiedostoja. Tiedostot ovat saatavilla vain luku -tilassa turvallista käyttöä varten. Tiedostojen tarkastelua varten napsauta oikealla tiedostoa ja valitse haluamasi sovellus sen avaamiseksi.
 
+![Gateway avaa kansio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_GatewayAccess2.png)
 
-* In the next window click **Open folder** to view all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access. To view them, right-click the file and select the desired application to open it.
+### 2. Tuo kopio tiedostoista virtuaalisen työpöydän volyymiin {#2-import-a-copy-of-the-files-to-your-virtual-desktops-volume}
 
-![Gateway open folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_GatewayAccess2.png)
+Pidä **Data Gateway** auki ja napsauta **Avaa kansio**.
 
-### 2. Import a copy of the files to your virtual desktop's volume
+1. Valitse ja kopioi tiedostot tai kansiot **Projects**-kansiosta.
+2. Avaa **Volume** napsauttamalla työpöydän vasemmalla puolella olevaa kuvaketta.
+3. Liitä tiedostot tai kansiot **Volume**-kansioon. Tiedostot tai kansiot purkautuvat automaattisesti kopioinnin aikana ja ovat käytettävissä analyysiä varten.
 
-Keep **Data Gateway** open and click **Open folder**.
+![Gateway kopioi volyymiin](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_GatewayAccess3.png)
 
-1. Select and copy the files or folders from the **Projects** folder.
-2. Open **Volume** by clicking icon on the left side of desktop.
-3. Paste files or folders into **Volume**. Files or folders will automatically decrypt during the copy process and become available for analysis.
+### 3. Määritä pääsyyn liittyvät oikeudet {#3-set-permissions-for-shared-access}
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_GatewayAccess3.png)
+Kun tiedostot on kopioitu volyymiin, säädä kansioiden ja tiedostojen käyttöoikeudet muiden projektin jäsenten käytettäväksi. Oletuksena käyttöoikeudet on rajoitettu vain sinun käyttösi.
 
+1. Napsauta oikealla kopioitua kansiota **Volumessa** ja valitse **Ominaisuudet** säätääksesi kansion käyttöoikeuksia.
+    * Avaa **Permissions**-välilehti.
+    * Määritä oikeudet luomaan ja poistamaan tiedostoja, jotta ne pysyvät käytettävissä, kun volyymi liitetään eri virtuaaliseen työpöytään.
+        1. Owner -> Access -> Valitse "Create and delete files".
+        2. Others -> Access -> Valitse "Create and delete files".
 
-### 3. Set permissions for shared access
+![Gateway kopioi volyymiin](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions1.png)
 
-After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only.
+![Gateway kopioi volyymiin](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions2.png)
 
-1. Right-click the folder copied to **Volume** and select **Properties** to adjust folder permissions.
-    * Open the **Permissions** tab.
-    * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
-        1. Owner -> Access -> Select “Create and delete files”.
-        2. Others -> Access -> Select “Create and delete files”.
+2. Seuraavaksi valitse **Muuta kansioon sisältyvien tiedostojen käyttöoikeuksia** säätääksesi kansiossa olevien tiedostojen käyttöoikeuksia.
+    * Määritä käyttöoikeudet seuraavasti:
+        1. Owner -> Files -> Valitse "Read and write". Folders -> Valitse "Create and delete files". 
+        2. Others -> Files -> Valitse "Read and write". Folders -> Valitse "Create and delete files".
+        3. Napsauta **Muuta**.
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions1.png)
+![Gateway kopioi volyymiin](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions3.png)
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions2.png)
+Nyt kaikilla projektin jäsenillä, joilla on pääsy, on mahdollisuus katsella ja analysoida tiedostoja.
 
-2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder.
-    * Set permissions to:
-        1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”. 
-        2. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        3. Click **Change**.
+### 4. Sulje Data Gateway {#4-close-data-gateway}
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions3.png)
+Voit nyt katkaista Data Gateway -yhteyden napsauttamalla **Katkaise ja kirjaudu ulos**, jos lisää tiedontuontia ei tarvita tällä hetkellä.
 
-Now all project members with access can view and analyze files.
+!!! Huomautus
+    Jos yli 10 Data Gateway -yhteyttä jätetään avoimiksi, Data Gateway lakkaa toimimasta. Tässä tapauksessa [ota yhteyttä CSC Service Deskiin](../../support/contact.md) (aihe: SD Desktop).
 
-### 4. Close Data Gateway
+### 5. Kirjaudu ulos {#5-log-out}
 
-You can now disconnect the Data Gateway connection by clicking **Disconnect and sign out** if no further data import are needed at this point.
+[Kirjaudu ulos](sd-desktop-access-vm.md#log-out-from-virtual-desktop) virtuaalisesta työpöydästä.
+```
 
-!!! Note
-    If more than 10 Data Gateway connection are left open, Data Gateway will stop working. In this case, [contact CSC Service Desk](../../support/contact.md) (subject: SD Desktop).
-
-
-### 5. Log out
-
-[Log out](sd-desktop-access-vm.md#log-out-from-virtual-desktop) from virtual desktop.
-
-
+Please ensure to review the translated content carefully for context accuracy, as well as any specific technical term usage that may differ in Finnish based on your exact domain or field.

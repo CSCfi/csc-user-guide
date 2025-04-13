@@ -1,90 +1,90 @@
-# Rahti migration guide
+# Rahti-siirto-opas {#rahti-migration-guide}
 
-This guide is dedicated to answer the most frequent questions and provide procedures for the Rahti 1 to Rahti migration.
+Tämä opas on omistettu vastaamaan yleisimpiin kysymyksiin ja tarjoamaan menettelytavat Rahti 1:stä Rahtiin siirtymiseen.
 
-Rahti 1 is the current deployed and used version of OpenShift OKD running in CSC. The exact version is `v3.11`, it is the last released version in the `3.XX` series. The underlining Kubernetes version is v1.11. Rahti 1 is in open beta, and was not meant to reach production status.
+Rahti 1 on nykyisin käytössä oleva OpenShift OKD:n versio, joka toimii CSC:ssä. Tarkka versio on `v3.11`, ja se on viimeinen julkaistu versio `3.XX`-sarjassa. Alustana oleva Kubernetes-versio on v1.11. Rahti 1 on avoin betaversio, eikä sen ollut tarkoitus saavuttaa tuotantotilaa.
 
-Rahti production is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.28. This version uses [cri-o](https://cri-o.io/) as the container runtime. `CRI-o` it is a lightweight alternative to using Docker as the runtime for kubernetes, both are fully compatible with each other and follow the `OCI` standard. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti 1 (OKD v3.11) to become Rahti production (OKD 4.xx). So in other words, this means that every single application running in Rahti 1 needs to be migrated to production Rahti manually. The two versions will run in parallel for a certain amount of time, but all wanted applications should be migrated to new platform by the latest 22nd October 2024.
+Rahti tuotanto on seuraava OpenShift OKD:n versio, joka toimii CSC:ssä. Alustana oleva Kubernetes-versio on v1.28. Tämä versio käyttää [cri-o](https://cri-o.io/):ta konttikäyttöön. `CRI-o` on kevyt vaihtoehto käyttää Dockeria kubernetesin ajonaikana, molemmat ovat täysin yhteensopivia keskenään ja noudattavat `OCI`-standardia. Koska OpenShift OKD v4 on uudelleen toteutus, valmistaja ei tarjoa päivityspolkua, jolla Rahti 1 (OKD v3.11) voisi päivittää Rahti tuotannoksi (OKD 4.xx). Toisin sanottuna, tämä tarkoittaa, että jokainen Rahti 1:ssä toimiva sovellus tarvitsee siirtää tuotantoon manuaalisesti. Kaksi versiota toimivat rinnakkain tietyn ajan, mutta kaikki halutut sovellukset tulee siirtää uudelle alustalle viimeistään 22. lokakuuta 2024.
 
-## General steps
+## Yleiset vaiheet {#general-steps}
 
-Before you start the migration, you need to gather information about your application:
+Ennen siirron aloittamista sinun tulee kerätä tietoja sovelluksestasi:
 
-1. Where is the **data stored**? And how is it **accessed**? Do you use a database?
-     1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../dbaas/index.md).
-     1. If you use Read-Write-Once (RWO) volumes, you can easily migrate them to Rahti. Just follow the instruction in the [How to use storage?](#how-to-use-storage) section.
-     1. If you use Read-Write-Many (RWX), you have to check why are you using it. It may be two main options: (1) It was the default and you could use a RWO volume instead because you are only mounting the volume once, or (2) You need to mount at the same time the same volume in several Pods. If you are in option (2), sadly there is not yet a supported solution in Rahti for RWX, please contact us at <servicedesk@csc.fi> and let us know your use case, we are gathering customer needs to better develop the RWX solution. And we will work together on possible alternatives.
+1. Missä **data** on tallennettuna? Ja miten se on **käytettävissä**? Käytätkö tietokantaa?
+     1. Jos käytät PostgreSQL-tietokantaa, joka on isännöity Rahtissa, harkitse siirtymistä [Pukki DBaaS](../dbaas/index.md):iin.
+     1. Jos käytät Read-Write-Once (RWO) -volyymeja, voit helposti siirtää ne Rahtiin. Seuraa vain ohjeita kohdassa [Miten käyttää tallennustilaa?](#how-to-use-storage).
+     1. Jos käytät Read-Write-Many (RWX) -volyymeja, sinun täytyy tarkistaa miksi käytät niitä. Syitä voi olla kaksi: (1) Se oli oletusarvo ja voit käyttää RWO-volyymia sen sijaan, koska kiinnität volyymin vain kerran, tai (2) sinun täytyy kiinnittää sama volyymi samaan aikaan useaan Pod:iin. Jos olet vaihtoehdossa (2), valitettavasti Rahtissa ei ole vielä tukea RWX:lle, ota yhteyttä osoitteeseen <servicedesk@csc.fi> ja kerro meille käyttötapauksesi, keräämme asiakastarpeita kehittääksemme RWX-ratkaisua paremmin. Työskentelemme yhdessä mahdollisten vaihtoehtojen parissa.
 
-     In order to see the storage type of your volumes, you can check the types in the Storage page.
+     Voit nähdä volyymiesi tallennustyypin Tarkista -sivulla.
 
-     ![Storage page](../img/storage-page.png)
+     ![Tarkista sivu](../img/storage-page.png)
 
-1. What are the **CPU** and **memory** requirements? Rahti has lower _default_ **memory** or **CPU** limits, see the [What are the default limits?](#what-are-the-default-limits) section for more details about this.
+1. Mitkä ovat **CPU**- ja **muisti**vaatimukset? Rahtissa on alemmat _oletus_ **muisti**- tai **CPU**-rajoitukset, katso lisätietoja kohdasta [Mitkä ovat oletusrajat?](#what-are-the-default-limits).
 
-1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](../../support/faq/helm.md). As a last option, you may copy manually each API object.
-1. How do users access the application? What are the URLs? Is the URL is a Rahti provided URL (`*.rahtiapp.fi`), or a dedicated domain?
-    1. If you use a dedicated domain, you need to see with your DNS provider how to update the name record. The DNS information can be found on the [Route](../rahti/networking.md#routes) documentation.
-    1. If you use a URL of the type `*.rahtiapp.fi`, you will no longer be able to use use it in Rahti and will need to migrate to `*.2.rahtiapp.fi` or to a dedicated domain.
-1. Migration day considerations. What is an acceptable downtime? - We can provide you some assistance on planning the migration, but we cannot coordinate with your users or decide what is an acceptable downtime.
+1. Miten sovellus on **asennettu** Rahti 1:ssä? Ihanteellisesti käytit [Helm-kaavioita](https://helm.sh/), [Kustomize](https://kustomize.io/) tai Source to Image, ja sovelluksen asentaminen Rahtiin on helppoa. Jos ei, harkitse yhden Helm-kaavion luomista ohjeen [Kuinka pakata Kubernetes-sovellus Helmin avulla](../../support/faq/helm.md) avulla. Viimeisenä vaihtoehtona voit kopioida manuaalisesti jokaisen API-objektin.
+1. Miten käyttäjät pääsevät sovellukseen? Mitkä ovat URL-osoitteet? Onko URL-osoite Rahtin tarjoama osoite (`*.rahtiapp.fi`), vai oma verkkotunnus?
+    1. Jos käytät omaa verkkotunnusta, sinun tulee tarkistaa DNS-palveluntarjoajalta, miten päivität nimikirjauksen. DNS-tiedot löytyvät [Reitti](../rahti/networking.md#routes) -dokumentaatiosta.
+    1. Jos käytät URL-osoitetta muodossa `*.rahtiapp.fi`, et voi enää käyttää sitä Rahtissa, ja sinun on siirrettävä se osoitteeseen `*.2.rahtiapp.fi` tai omaan verkkotunnukseen.
+1. Siirtopäivän huomiot. Mikä on hyväksyttävä käyttökatkos? - Voimme tarjota sinulle apua siirron suunnittelussa, mutta emme voi koordinoida käyttäjiesi kanssa tai päättää, mikä on hyväksyttävä käyttökatkos.
 
-Suggested migration procedure:
+Ehdotettu siirtomenettely:
 
-1. Deploy a test application in Rahti.
-1. Make a copy of the data from Rahti 1 to Rahti. Remember to write down the time it takes.
-1. Validate that the application works as expected in Rahti. Stress tests are a recommended way to better catch any possible issue.
-1. Schedule the migration, where you stop the Rahti 1 app, copy the data, and make the necessary DNS updates.
+1. Asenna testisovellus Rahtiin.
+1. Tee kopio datasta Rahti 1:stä Rahtiin. Muista kirjoittaa ylös käytetty aika.
+1. Varmista, että sovellus toimii odotetusti Rahtissa. Stressitestit ovat suositeltava tapa havaita mahdolliset ongelmat.
+1. Aikatauluta siirto, jolloin keskeytät Rahti 1 -sovelluksen, kopioi datan ja tee tarvittavat DNS-päivitykset.
 
-## FAQ
+## FAQ {#faq}
 
-### How to log in Rahti?
+### Kuinka kirjautua Rahtiin? {#how-to-log-in-rahti}
 
-Go to [Rahti](https://rahti.csc.fi/), click in `Login`
+Mene [Rahti](https://rahti.csc.fi/):n, klikkaa `Kirjaudu sisään`
 
-![Rahti login](../img/rahti_login2.png)
+![Rahti kirjautuminen](../img/rahti_login2.png)
 
-You will be then served with a page with all the authentication options that Rahti 1 accepts. Choose the one that is more convenient for you, all your identities should be linked to the same Rahti 1 account.
+Tämän jälkeen sinulle tarjotaan sivu kaikilla tunnistusvaihtoehdoilla, jotka Rahti 1 hyväksyy. Valitse sinulle sopivin vaihtoehto, kaikki tunnuksesi pitäisi olla linkitettyyn samaan Rahti 1 -tiliin.
 
-#### Command line login
+#### Komentorivin kirjautuminen {#command-line-login}
 
-In order to get the "login command", once you have logged in the web interface, click on your name and then in "Copy Login Command". For security reasons, you will be required to login again, after that you will be served the page the login command you can copy to the clipboard and paste it in any terminal running on your system.
+Jotta saat "kirjautumiskomennon", kun olet kirjautunut sisään verkkoliittymään, klikkaa nimeäsi ja sitten "Kopioi kirjautumiskomento". Turvallisuussyistä sinua pyydetään kirjautumaan uudelleen sisään, jonka jälkeen sinua palvellaan sivulla, josta voit kopioida kirjautumiskomennon leikepöydälle ja liittää sen mihin tahansa järjestelmässäsi ajettavaan terminaaliin.
 
-![Copy Login Command](../img/CopyLoginCommand.png)
+![Kopioi kirjautumiskomento](../img/CopyLoginCommand.png)
 
-### How to create a project?
+### Kuinka luoda projekti? {#how-to-create-a-project}
 
-There are few places in th web interface where a project can be created. One of the paths to create a project is to go to `Administrator` > `Home` > `Projects`
+Omassa verkkoliittymässä on muutamia paikkoja, joissa projekti voidaan luoda. Yksi poluista projektin luomiseen on mennä `Ylläpitäjä` > `Koti` > `Projektit`
 
 ![page1](../img/create_project1.png)
 
-Then click in "Create Project".
+Klikkaa sitten kohtaa "Luo projekti".
 
 ![page1](../img/create_project2.png)
 
-The fields are the same as with Rahti 1 had:
+Kentät ovat samat kuin mitä Rahti 1:ssä oli:
 
-1. You need to pick a unique name that is not in use by any other project in the system.
+1. Sinun täytyy valita ainutlaatuinen nimi, jota ei ole käytössä järjestelmän muussa projektissa.
     
-1. You can also enter a human-readable display name and.
+1. Voit myös antaa ihmisen luettavan näyttönimen.
     
-1. You have to also enter a CSC computing project in the Description field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check https://my.csc.fi. If you have access to no CSC project, you will not be able to create any Rahti 1 project. If you have Rahti 1 access via project_1000123, you would enter the following in the Description field:
+1. Sinun täytyy myös syöttää CSC-laskentaprojekti Kuvaus-kenttään. Sen täytyy olla tällä hetkellä voimassa oleva CSC-projekti, johon tilillesi on pääsy. Jotta voit nähdä, mihin CSC-projekteihin sinulla on pääsy, tarkista https://my.csc.fi. Jos sinulla ei ole pääsyä mihinkään CSC-projektiin, et pysty luomaan yhtään Rahti 1 projektia. Jos sinulla on Rahti 1:n pääsy project_1000123:n kautta, syötä seuraava Kuvaus-kenttään:
 
-> csc_project: 1000123
+> csc_projekti: 1000123
 
-### How to see quota/limits?
+### Kuinka nähdä kiintiöt/rajat? {#how-to-see-quota-limits}
 
-The quota and limits of a given project can be found in the bottom of the project details page.
+Tietyn projektin kiintiöt ja rajat löytyvät projektin tietosivun alareunasta.
 
-![Project page](../img/project_page.png)
+![Projektisivu](../img/project_page.png)
 
-If you click in "quota"
+Klikkaa "kiintiö"
 
-![Quota details](../img/quota_details.png)
+![Kiintiön tiedot](../img/quota_details.png)
 
-### What are the default limits?
+### Mitkä ovat oletusrajat? {#what-are-the-default-limits}
 
-Every Pod needs to have lower and upper limits regarding resources, specifically for CPU and memory. The lower are called requests, and the upper are called limits. The requests sets the minimum resources needed for a Pod to run, and a Pod is not allowed to use more resources than the specified in limits. The user can set the limits explicitly within the available quota.
+Jokaisella Pod:illa on oltava ala- ja ylärajat resursseille, erityisesti CPU:lle ja muistille. Alarajoja kutsutaan pyynnöiksi, ja ylärajoja kutsutaan rajoiksi. Pyynnöt määrittelevät vähimmäisresurssit, jotka tarvitaan Pod:in suorittamiseen, eikä Pod:ille ole sallittua käyttää enemmän resursseja kuin rajoina on määritelty. Käyttäjä voi asettaa rajat nimenomaisesti käytettävän kiintiön puitteissa.
 
-In Rahti 1 the default limits were the same as the default quota:
+Rahti 1:ssä oletusrajat olivat samat kuin oletuskiintiö:
 
 ```yaml
       resources:
@@ -96,7 +96,7 @@ In Rahti 1 the default limits were the same as the default quota:
           memory: 200Mi
 ```
 
-In Rahti the default limits are lower than the default quota:
+Rahtissa oletusrajat ovat matalampia kuin oletuskiintiö:
 
 ```yaml
     - resources:
@@ -108,53 +108,53 @@ In Rahti the default limits are lower than the default quota:
           memory: 500Mi
 ```
 
-The recommended way to discover the suitable values for your application is trial and error. Launch your application in Rahti and observe the memory and CPU consumption. If your application gets to the memory limit, it will be killed with an `OutOfMemoryError` (`OOM`), normally with a `137 error code`. CPU on the other hand, behaves differently, and the application will not be killed. But both limits have to be treated on the same way, if you see that any of the two limits is reached, raise the limit and try again. It is recommended to have at least a small margin of 10-20% over the expected limits. Of course, you can skip this process if you already know your application's resource needs. Also you might take a look to the [Horizontal Autoscaler](../../support/faq/addHorizontalAutoscaler.md), which allows you to automatically create and delete replicas of your Pods. It is better for availability and resource scheduling to have several smaller Pods, but not all applications support it.  
+Suositeltu tapa löytää sovelluksellesi sopivat arvot on yritys ja erehdys. Käynnistä sovellus Rahtissa ja tarkkaile sen muistin ja CPU:n kulutusta. Jos sovelluksesi saavuttaa muistirajan, se surmataan `OutOfMemoryError` (`OOM`) kanssa, yleensä `137 virhekoodilla`. CPU käyttäytyy toisaalta eri tavalla, ja sovellusta ei surmata. Mutta molempien rajoja on käsiteltävä samalla tavalla, jos näet, että jokin rajoista on saavutettu, nosta rajaa ja yritä uudelleen. On suositeltavaa pitää ainakin pieni 10-20% marginaali odotettujen rajojen yli. Tietenkin voit ohittaa tämän prosessin, jos tiedät jo sovelluksesi resurssitarpeet. Voit myös tutustua [Horizontal Autoscaler](../../support/faq/addHorizontalAutoscaler.md) -ratkaisuun, joka mahdollistaa Pod:ien automaattisen luomisen ja poistamisen. On parempi saatavuuden ja resurssien planoituksen kannalta, että on useita pienempiä Pod:ia, mutta kaikki sovellukset eivät tue sitä.
 
-!!! info "Why are limits tighter?"
-    Rahti 1 resource range (difference between request and limits) was too wide. This made the scheduler's job harder, as every Pod looked the same regarding resource needs (every Pod requested the same resources). This increased the "noisy neighbours effect", were Pods hungry for resources were placed on the same nodes as more modest Pods. The hungry ones were starving the more modest ones. With tighter limits and a maximum factor of between request and limit, Pods will need to be configured with more explicit limits.
+!!! info "Miksi rajat ovat tiukemmat?"
+    Rahti 1:n resurssialue (pyynnön ja rajojen välinen ero) oli liian laaja. Tämä teki aikatauluttajan tehtävästä vaikeamman, koska jokainen Pod näyttäytyi samanlaisena resurssitarpeidensa suhteen (jokainen Pod pyysi samoja resursseja). Tämä lisäsi "meluisan naapurustovaikutusta", jolla nälkäiset Pod:t sijoitettiin samoille solmuille kuin vaatimattomammat Pod:t. Nälkäiset aiheuttivat vaatimattomampien nälkäkuoleman. Tiukempien rajojen ja enimmäiskertoimen välillä pyynnön ja rajan välillä, Pod:t täytyy konfiguroida tarkemmilla rajoilla.
 
-### How to edit a Deployment/DeploymentConfig default limits?
+### Kuinka muokata Deployment/DeploymentConfig oletusrajoja? {#how-to-edit-a-deployment-deploymentconfig-default-limits}
 
-![Actions>EditResourceLimits](../img/editResourceLimits.png){ align=right }
+![Toiminnot>Muokkaa resurssirajoja](../img/editResourceLimits.png){ align=right }
 
-In order to increase or decrease the resource limits, one can use the web UI or the command line.
+Resurssirajojen lisäämiseksi tai pienentämiseksi voi käyttää web-käyttöliittymää tai komentoriviä.
 
-From the web UI, go to the Deployment page, go to **Actions > Edit resource limits**. You will be presented with a dialog with the CPU request and limit and Memory request and limit. The limit cannot be more than 5 times higher than the request. The request is the minimum CPU (or memory) necessary for the deploy to work, and will be used to schedule the Pod. The limit is the maximum allowed usage of CPU (or memory). If a Pod tries to use more memory than the limit, the Pod will be killed (OOMKilled). On the other hand, if a Pod tries to use more CPU then the limit, it will be simply limited, but it will not be killed.
+Web-käyttöliittymästä, mene Deployment-sivulle, mene **Toiminnot > Muokkaa resurssirajoja**. Sinulle esitellään dialogi, jossa on CPU-pyyntö ja raja sekä Muistipyyntö ja raja. Raja ei voi olla yli 5 kertaa korkeampi kuin pyyntö. Pyyntö on vähimmäis-CPU (tai muisti), joka on tarpeen asennuksen toimimiseksi, ja sitä käytetään Pod:in aikatauluttamiseen. Raja on suurin sallittu CPU (tai muistin) käyttö. Jos Pod yrittää käyttää enemmän muistia kuin rajana, Pod surmataan (OOMKilled). Toisaalta, jos Pod yrittää käyttää enemmän CPU:ta kuin rajana, se yksinkertaisesti rajataan, mutta sitä ei surmata.
 
-![Edit ResourceLimits](../img/editResourceLimitsDialog.png)
+![Muokkaa resurssirajoja](../img/editResourceLimitsDialog.png)
 
-!!! Warning "DeploymentConfig is deprecated"
-    DeploymentConfig is deprecated in newer versions of OpenShift OKD and will be completely removed in the future. See Redhat's [deprecation announcement of DeploymentConfig](https://access.redhat.com/articles/7041372) and their [replacement guide for DeploymentConfig](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
+!!! Varoitus "DeploymentConfig on vanhentumassa"
+    DeploymentConfig on vanhentumassa uudemmissa OpenShift OKD:n versioissa, ja se poistetaan kokonaan tulevaisuudessa. Katso Redhatin [DeploymentConfigin vanhenemisilmoitus](https://access.redhat.com/articles/7041372) heidän [korvausoppaastanssa DeploymentConfigille](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
 
-### How to create routes?
+### Kuinka luoda reittejä? {#how-to-create-routes}
 
-!!! info "Default URLs suffix have changed"
+!!! info "Oletus-URL-päätteet ovat muuttuneet"
 
-    In Rahti 1 default URLs were `<whatever>.rahtiapp.fi` meanwhile in Rahti it will be `<whatever>.2.rahtiapp.fi`
+    Rahti 1:ssä oletus-URL:t olivat `<mikä tahansa>.rahtiapp.fi` kun taas Rahtissa ne ovat `<mikä tahansa>.2.rahtiapp.fi`
 
-A Route can be created by going to the project details page, and click in Routes.
+Reitti voidaan luoda menemällä projektin tietosivulle ja klikkaamalla Reitit.
 
-![Project page](../img/project_page2.png)
+![Projektisivu](../img/project_page2.png)
 
-And then click in "Create Route"
+Klikkaa sitten kohtaa "Luo reitti"
 
-![Create Route](../img/create_route.png)
+![Luo Reitti](../img/create_route.png)
 
-A Route has two compulsory parameters:
+Reitillä on kaksi pakollista parametria:
 
-* a `name`, which must be unique within the project.
-* a `service`/`port`, which is where the traffic will be routed to.
+* `nimi`, jonka tulee olla ainutlaatuinen projektin sisällä.
+* `palvelu`/`portti`, johon liikenne reititetään.
 
-Other optional parameters are:
+Muut vapaaehtoiset parametrit ovat:
 
-* a `hostname`, which must be unique within Rahti. If none is provided, the hostname will be autogenerated by using the route `name` and the `project name`.
-* `Secure Route` can be activated to activate TLS encryption (Only TLS v1.3 and v1.2 are supported in Rahti, Rahti 1 only support TLS v1.2). The options are similar than in [Rahti Routes](../rahti/networking.md#routes)
+* `isäntänimi`, joka tulee olla ainutlaatuinen Rahtin sisällä. Jos isäntänimeä ei ole annettu, se luodaan automaattisesti yhdistämällä reitin `nimi` ja `projektin nimi`.
+* `Turvallinen reitti` voidaan aktivoida TLS-salauksen aktivoimiseksi (Vain TLS v1.3 ja v1.2 on tuettu Rahtissa, Rahti 1 tukee vain TLS v1.2:ta). Vaihtoehdot ovat samankaltaisia kuin [Rahti-reitit](../rahti/networking.md#routes)
 
-### How to edit a route?
+### Kuinka muokata reittiä? {#how-to-edit-a-route}
 
-A Route can be edited by going to the project details page, click in Route, and then click in the route name you would like to edit.
+Reittiä voidaan muokata menemällä projektin tietosivulle, klikkaamalla Reitti, ja sitten klikkaamalla sitä reittiä, jota haluat muokata.
 
-Then click in Actions > Edit Route. A YAML representation of the route will appear. You can edit it following the example at the [Concepts Route](../rahti/concepts.md#route) page. If for example you want to add TLS support (https support), you need to add inside the `spec` section:
+Klikkaa sitten Toiminnot > Muokkaa Reitti. Näkyviin tulee reitin YAML-esitys. Voit muokata sitä seuraamalla esimerkkiä [Käsitteen Reitti](../rahti/concepts.md#route) -sivulla. Jos esimerkiksi haluat lisätä TLS-tuennan (https tuki), sinun on lisättävä sisään `spec` -osioon:
 
 ```
 spec:
@@ -163,65 +163,65 @@ spec:
     termination: edge
 ```
 
-Where `Redirect` tells the route to redirect users from http to https automatically.
+Missä `Redirect` kertoo reitille ohjata käyttäjät automaattisesti http:stä https:ään.
 
-![Route modes](../img/route-modes.drawio.svg)
+![Reitin tilat](../img/route-modes.drawio.svg)
 
-### What changes must be made in firewalls?
+### Mitä muutoksia on tehtävä palomuureissa? {#what-changes-must-be-made-in-firewalls}
 
-The egress IP used in Rahti is different that for Rahti 1 had. This means that if you have a firewall rule opening for traffic coming from Rahti 1, the IP has to be updated. The Rahti 1 IP is `193.167.189.25` and the new one for Rahti is `86.50.229.150`.
+Rahtissa käytettävä ulosmenevä IP on eri kuin Rahti 1:ssä käytetty. Tämä tarkoittaa, että jos sinulla on palomuurisääntö, joka avaa liikenteelle Rahti 1:stä, IP on päivitettävä. Rahti 1:n IP on `193.167.189.25` ja uusi Rahtin IP on `86.50.229.150`.
 
-!!! warning "egress IP may change"
+!!! varoitus "ulosmenevä IP saattaa muuttua"
 
-    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
+    Rahtin ulosmenevä IP saattaa muuttua tulevaisuudessa. Esimerkiksi, jos useita Rahtin versioita ajetaan rinnakkain, jokaisella on eri IP. Tai jos alustavan verkkoinfrastruktuurin suuri muutos tapahtuu.
 
-Some project with dedicated egress IPs will have to request a new dedicated IP in Rahti and update their firewalls accordingly.
+Joillakin projekteilla, joilla on omat ulosmenevät IP:t, on pyydettävä uusi oma IP Rahtissa ja päivitettävä palomuurit asianmukaisesti.
 
-### How to manage users in project?
+### Kuinka hallita käyttäjiä projektissa? {#how-to-manage-users-in-project}
 
-Rahti will synchronize the Rahti project members with the CSC project members. Any member of the linked CSC project will get **Admin** access to the Rahti project. The membership of the CSC project can be then handled in <my.csc.fi>. For example, we have the CSC project 1000123, we can go to <my.csc.fi> and add or remove members. We can create few Rahti projects and link each of them to 1000123. A couple of minutes after creation, all members of the CSC project will be Admins of each of the Rahti 1 projects.
-In the project details page select "Project access".
-It is also possible to add permissions manually to specific users that are not member of the CSC project and maybe that we do not want to make Admins. In the **Project** page in the Developer section, select "Project access".
+Rahti synkronoi Rahti-projektien jäsenet CSC-projektien jäsenten kanssa. Kaikki linkitetyn CSC-projektin jäsenet saavat **ylläpitäjän** pääsyn Rahti-projektiin. CSC-projektin jäsenyyttä voidaan sitten hallita <my.csc.fi>:ssa. Esimerkiksi, meillä on CSC-projekti 1000123, voimme mennä <my.csc.fi>:hin ja lisätä tai poistaa jäseniä. Voimme luoda muutamia Rahti-projekteja ja linkittää kukin niistä 1000123:ään. Muutaman minuutin kuluttua luomisesta, kaikki CSC-projektin jäsenet ovat kaikkien Rahti 1 -projektien ylläpitäjiä.
+Projektin tietosivulla valitse "Projektin käyttöoikeus".
+On myös mahdollista lisätä oikeuksia manuaalisesti tietyille käyttäjille, jotka eivät ole CSC-projektin jäseniä ja joita emme ehkä halua tehdä ylläpitäjiksi. **Projektisivulla** Kehittäjä-osiossa valitse "Projektin käyttöoikeus".
 
-![Manage users](../img/manage_users.png)
+![Hallitse käyttäjiä](../img/manage_users.png)
 
-You just need to write the user's user name, and a role level: `admin`, `Edit` or `View`. To save the changes, just click in `Save`. The different access that each role level has can be checked out in the linked documentation in the page itself.
+Sinun tarvitsee vain kirjoittaa käyttäjän käyttäjätunnus ja roolitason: `ylläpitäjä`, `Muokkaus` tai `Näytä`. Tallenna muutokset napsauttamalla `Tallenna`. Eri pääsy, joka jokaisella roolitasolla on, voidaan tarkistaa linkitetyssä dokumentaatiossa itse sivulla.
 
-### How to delete project?
+### Kuinka poistaa projekti? {#how-to-delete-project}
 
-A project can be deleted from the Project details page (`Developer` > `Project`), by selecting `Actions` > `Delete project`. A dialog to confirm the deletion will appear:
+Projekti voidaan poistaa Projektin tietosivulta (`Kehittäjä` > `Projekti`), valitsemalla `Toiminnot` > `Poista projekti`. Vahvistusdialogi poistolle tulee näkyviin:
 
-![Delete Project](../img/delete_project.png)
+![Poista Projekti](../img/delete_project.png)
 
-The name of the project (`app-config` in this example) has to be typed in before the project is deleted. This is just to avoid accidental deletion.
+Projekti nimi (`app-config` tässä esimerkissä) on kirjoitettava ennen projektin poistamista. Tämä on vain estämään vahingossa tapahtuva poisto.
 
-### How to use storage?
+### Kuinka käyttää tallennustilaa? {#how-to-use-storage}
 
-In the Project details page (`Developer` > `Project`), click `PersistentVolumeClaims` and then click in `Create PersistentVolumeClaim`.
+Projektin tietosivulla (`Kehittäjä` > `Projekti`), klikkaa `PersistentVolumeClaims` ja sitten klikkaa `Luo PersistentVolumeClaim`.
 
-![Create PersistentVolumeClaim](../img/Create_PersistentVolumeClaim.png)
+![Luo PersistentVolumeClaim](../img/Create_PersistentVolumeClaim.png)
 
-* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write (mounted) by a single node (In order to mount it in several Pods, you need to use [Pod affinity](../rahti/tutorials/pod-affinity.md), so all the Pods are created on the same node).
+* Tällä hetkellä vain yksittäistä `StorageClass`-tyyppiä voidaan käyttää. Se vastaa `Cinder`-volyymeja, joita voidaan lukea tai kirjoittaa (mounted) vain yhdellä nodella (jotta se voidaan kiinnittää useaan Pod:iin, sinun on käytettävä [Pod affinity](../rahti/tutorials/pod-affinity.md):a, jotta kaikki Podit luodaan samaan nodeen).
 
-* A unique name within the project must be provided.
+* Uniikki nimi projektin sisällä on annettava.
 
-* A size within the quota limits has to be defined.
+* Koko kiintiön rajoissa on määriteltävä.
 
-* The Volume mode should be `Filesystem`.
+* Volyymimuodon tulee olla `Filesystem`.
 
-!!! warning "Lazy volume creation"
-    The volume will only be created when it is mounted for the first time, this is a change in behavior in `Rahti`.
+!!! varoitus "Hidas volyymin luonti"
+    Volyymi luodaan vasta, kun se on kiinnitetty ensimmäisen kerran, mikä on muutos käyttäytymisessä `Rahti`:ssa.
 
-### How to Recreate Pod for Deployment having RWO Volumes
+### Kuinka luoda pod uudelleen tapahtumassa, jossa on RWO-volyymeja {#how-to-recreate-pod-for-deployment-having-rwo-volumes}
 
-In Rahti 1 the default volume was RWX(read-write-many), so these volumes could be mounted to many pods at the same time. But in Rahti volumes are RWO(read-write-once), so these volumes can be mouted to only one pod at a time. 
+Rahti 1:ssä oletusvolyymi oli RWX (read-write-many), joten nämä volyymit voitiin kiinnittää useille podeille samanaikaisesti. Rahtissa volyymit ovat RWO (read-write-once), joten nämä volyymit voidaan kiinnittää vain yhdelle podille kerrallaan.
 
-So, if the deployment have a mounted volume and you want to update the deployment, change the deployment strategy from "rolling update" to "recreate". Go to "Actions" and click on "Edit update strategy", now select "recreate"
+Joten, jos asennuksessa on kiinnitetty volyymi ja haluat päivittää asennuksen, muuta asennusstrategiaa "rullapäivityksestä" "luokseen". Siirry kohtaan "Toiminnot" ja napsauta "Muokkaa päivitysstrategiaa", valitse nyt "luokseen"
 
-![Action](../img/action.png)
+![Toiminnot](../img/action.png)
 
-![Edit deployment stategy](../img/edit_update_strategy.png)
+![Muokkaa asennusstrategiaa](../img/edit_update_strategy.png)
 
-### How to use Integrated Registry
+### Kuinka käyttää integrointirekisteriä {#how-to-use-integrated-registry}
 
-To learn more about image caching and access control registry in Rahti, refer to the following article: [Using Rahti Integrated Registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md)
+Jos haluat lisätietoja kuvien välimuistista ja pääsynhallintarekisteristä Rahtissa, katso seuraava artikkeli: [Rahtin integroidun rekisterin käyttäminen](../../cloud/rahti/images/Using_Rahti_integrated_registry.md)

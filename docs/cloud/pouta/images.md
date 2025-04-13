@@ -1,87 +1,54 @@
-# Basic information about images
+# Perustietoa kuvista {#basic-information-about-images}
 
 [TOC]
 
-CSC provides a set of standard images that are well suited for cloud
-use. In most cases, you can use these images instead of creating your
-own. The images are created automatically using _diskimage-builder_. 
-If you are interested in the details of how
-these images are created, see this [GitHub page]. The images are
-updated at regular intervals so that they contain the latest security
-updates at the time virtual machines are launched.
+CSC tarjoaa joukon standardikuvia, jotka sopivat hyvin pilvikäyttöön. Useimmissa tapauksissa voit käyttää näitä kuvia omien kuvien luomisen sijaan. Kuvat luodaan automaattisesti käyttäen _diskimage-builder_-työkalua. Jos olet kiinnostunut siitä, miten nämä kuvat luodaan, katso tämä [GitHub-sivu]. Kuvat päivitetään säännöllisesti, jotta ne sisältävät uusimmat tietoturvapäivitykset, kun virtuaalikoneet otetaan käyttöön.
 
-It is possible that for some use cases the automatically created
-images are not suitable. In this case, it is possible to create your
-own images and use them instead. However, there are some caveats 
-to consider when creating your own images that you would not
-need to consider when using the default images. For more information,,
-see [Advanced images](adding-images.md)
+On mahdollista, että joissakin käyttötapauksissa automaattisesti luodut kuvat eivät ole sopivia. Tässä tapauksessa on mahdollista luoda omia kuvia ja käyttää niitä sijasta. Kuitenkin omia kuvia luodessa on huomioitava eräitä seikkoja, joita ei tarvitse miettiä käytettäessä oletuskuvia. Lisätietoja saat osiosta [Edistyneet kuvat](adding-images.md).
 
-## The main features of the images provided by CSC
+## CSC:n tarjoamien kuvien pääominaisuudet {#the-main-features-of-the-images-provided-by-csc}
 
-The images provided by CSC are mostly the same as upstream.
+CSC:n tarjoamat kuvat ovat pääasiassa samanlaisia kuin alkuperäiset.
 
-* Most of the images come with the pre-configured username `cloud-user`,
-though there are some exceptions to this rule.
-* We make sure that the images are updated before releasing them,
-so that we are sure that they work.
-* The `-Cuda` images come preinstalled with the latest CUDA drivers.
-* We enable automatic updates.
-* We disable password login.
-* We sometimes add some nice-to-have packages such as _vim_ or _ntp_. We try to
-keep the additional packages at a minimum.
+* Useimmat kuvat tulevat valmiiksi määritetyn käyttäjätunnuksen `cloud-user` kanssa, vaikka tästä säännöstä on joitakin poikkeuksia.
+* Varmistamme, että kuvat päivitetään ennen julkaisua, jotta varmistumme niiden toimivuudesta.
+* `-Cuda`-kuvat tulevat esiasennetuilla uusimmilla CUDA-ajureilla.
+* Otamme automaattiset päivitykset käyttöön.
+* Poistamme salasanakirjautumisen käytöstä.
+* Lisäämme joskus muutamia hyödyllisiä paketteja, kuten _vim_ tai _ntp_. Yritämme pitää lisäpaketit minimissä.
 
-## Images
+## Kuvat {#images}
 
-|Image|Username|Modified <br/>|
+|Kuva|Käyttäjätunnus|Muokattu <br/>|
 |--- |:---:|:---:|
-|CentOS-9-Stream |**cloud-user** |no  |
-|AlmaLinux-8     |**almalinux**  |no  |
-|AlmaLinux-9     |**almalinux**  |no  |
-|Ubuntu-18.04    |**ubuntu**     |no  |
-|Ubuntu-20.04    |**ubuntu**     |no  |
-|Ubuntu-22.04    |**ubuntu**     |no  |
-|Ubuntu-24.04    |**ubuntu**     |no  |
+|CentOS-9-Stream |**cloud-user** |ei  |
+|AlmaLinux-8     |**almalinux**  |ei  |
+|AlmaLinux-9     |**almalinux**  |ei  |
+|Ubuntu-18.04    |**ubuntu**     |ei  |
+|Ubuntu-20.04    |**ubuntu**     |ei  |
+|Ubuntu-22.04    |**ubuntu**     |ei  |
+|Ubuntu-24.04    |**ubuntu**     |ei  |
 
-### CentOS-9-Stream
+### CentOS-9-Stream {#centos-9-stream}
 
-The CentOS community is now actively maintaining CentOS-9-Stream, which is the upstream branch for RHEL.
-Given that updates and changes are first tested in CentOS and only subsequently deployed for Red Hat Enterprise Linux (RHEL), the resulting operating system is possibly less stable compared to its previous version, i.e., when RHEL was the upstream for CentOS.
-The CentOS community [emphasizes](https://blog.centos.org/2020/12/future-is-centos-stream/)
-that the Stream version is nevertheless extremely close in terms of stability
-to the corresponding RHEL version.
-Note that this is the upstream version of the image, i.e., we do not perform
-any change to the image before making it available on our services. The default
-username is `cloud-user`.
+CentOS-yhteisö ylläpitää nyt aktiivisesti CentOS-9-Streamia, joka on RHEL:n ylävirran haara. Koska päivitykset ja muutokset testataan ensin CentOS:ssa ja vasta sitten otetaan käyttöön Red Hat Enterprise Linuxissa (RHEL), tuloksena oleva käyttöjärjestelmä on mahdollisesti vähemmän vakaa verrattuna aiempaan versioon, jolloin RHEL oli CentOS:n ylävirta. CentOS-yhteisö [korostaa](https://blog.centos.org/2020/12/future-is-centos-stream/), että Stream-versio on kuitenkin erittäin lähellä vakaudeltaan vastaavaa RHEL-versiota. Huomaa, että tämä on kuvan ylävirran versio, eli emme tee mitään muutoksia kuvaan ennen kuin se julkaistaan palveluissamme. Oletuskäyttäjänimi on `cloud-user`.
 
-### AlmaLinux-8 and AlmaLinux-9
+### AlmaLinux-8 ja AlmaLinux-9 {#almalinux-8-and-almalinux-9}
 
-AlmaLinux is a linux distribution created in response to the termination
-of CentOS-8 project and the fundamental change of CentOS building process, due
-to which CentOS' traditional stability was impacted. AlmaLinux aims to be fully
-binary-compatible with RedHat Enterprise Linux, and by doing so the linux
-distribution effectively takes the role that CentOS used to have before the
-switch to the -Stream versions. Note that these are the upstream versions of the
-AlmaLinux images, and their default username is `almalinux` instead of `cloud-user`.
+AlmaLinux on Linux-jakelu, joka luotiin vastauksena CentOS-8 projektin päättämiseen ja CentOS:in rakennusprosessin perustavanlaatuisen muutoksen vuoksi, mikä vaikutti CentOS:in perinteiseen vakauteen. AlmaLinux pyrkii olemaan täysin yhteensopiva Red Hat Enterprise Linuxin kanssa, ja näin ollen Linux-jakelu ottaa tehokkaasti sen roolin, mikä CentOS:lla oli ennen siirtymistä Stream-versioihin. Huomaa, että nämä ovat AlmaLinux-kuvien ylävirran versioita, ja niiden oletuskäyttäjänimi on `almalinux` `cloud-user` sijaan.
 
-### Ubuntu-24.04, 22.04, 20.04 and 18.04 LTS
-Some like chocolate, some like strawberry. This is the choice for those that
-do not want to use CentOS. Note that these are the upstream versions of the
-Ubuntu images, and their default username is `ubuntu` instead of `cloud-user`.
+### Ubuntu-24.04, 22.04, 20.04 ja 18.04 LTS {#ubuntu-24-04-22-04-20-04-and-18-04-lts}
 
-## Snowflake images
-These images you should probably not use without a really good
-reason. You might be better off [creating your own image](adding-images.md)
+Jotkut pitävät suklaasta, toiset mansikasta. Tämä on valinta niille, jotka eivät halua käyttää CentOS:ia. Huomaa, että nämä ovat Ubuntun kuvien ylävirran versioita, ja niiden oletuskäyttäjänimi on `ubuntu` `cloud-user` sijaan.
 
-If there any images that you think we should add, do not hesitate to contact
-[Service Desk](mailto:servicedesk@csc.fi).
+## Huurrekukka-kuvat {#snowflake-images}
 
-### cirros
-This is a really small image which can be used to boot an instance really fast.
-This can be useful for doing tests in Pouta, such as testing if the network works or
-how fast you can launch an instance. You should not use this for persistent
-VMs, and you should always delete the instance when you are done with
-testing. There is very little reason for end-users using this image, and if
-you are unsure, CentOS and Ubuntu are better choices 99% of the time. 
+Näitä kuvia ei pitäisi käyttää ilman todella hyvää syytä. Saatat paremminkin hyötyä [oman kuvan luomisesta](adding-images.md).
 
-[GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
+Jos sinulla on mielessä kuvia, joita meidän tulisi lisätä, älä epäröi ottaa yhteyttä [Service Deskiin](mailto:servicedesk@csc.fi).
+
+### cirros {#cirros}
+
+Tämä on hyvin pieni kuva, jota voidaan käyttää käynnistämään instanssi erittäin nopeasti. Tämä voi olla hyödyllistä testauksessa Poudassa, kuten verkon toiminnan testaamisessa tai instanssin käynnistämisnopeuden tarkistamisessa. Tätä ei pitäisi käyttää pysyviin VM:iin, ja instanssi tulisi aina poistaa testauksen jälkeen. Tavallisten käyttäjien ei pitäisi juuri käyttää tätä kuvaa, ja jos olet epävarma, CentOS ja Ubuntu ovat parempia valintoja 99% ajasta.
+
+[GitHub-sivu]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation

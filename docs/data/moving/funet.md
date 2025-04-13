@@ -1,92 +1,58 @@
-# Sharing and transporting files using Funet FileSender
+# Tiedostojen jakaminen ja siirtäminen Funet FileSenderilla {#sharing-and-transporting-files-using-funet-filesender}
 
-Funet FileSender is a browser-based service for sending large files to
-colleagues. It is provided as an alternative to email attachments, but it can
-also be used for moving files to CSC environment. The service allows you to
-upload and send files up to 300 GB size. The service is **not** intended for
-long-term storage, as the files are deleted automatically after the
-preservation time is exceeded. The maximum preservation time is 21 days.
+Funet FileSender on selainpohjainen palvelu, jolla voi lähettää suuria tiedostoja kollegoille. Se tarjoaa vaihtoehdon sähköpostiliitteille, mutta sitä voi myös käyttää tiedostojen siirtämiseen CSC-ympäristöön. Palvelun avulla voit ladata ja lähettää tiedostoja, joiden koko on enintään 300 GB. Palvelua ei ole tarkoitettu pitkäaikaiseen säilytykseen, koska tiedostot poistetaan automaattisesti säilytysajan ylittyessä. Suurin sallittu säilytysaika on 21 päivää.
 
-Funet FileSender is available for all Haka-enabled organizations without any
-additional measures. For example, a CSC user account is not needed to use the
-service. Both sending and receiving are possible without installing any
-additional programs.
+Funet FileSender on käytettävissä kaikille Haka-verkkoon kuuluville organisaatioille ilman lisätoimenpiteitä. Esimerkiksi CSC-käyttäjätiliä ei tarvita palvelun käyttöön. Sekä lähettäminen että vastaanottaminen on mahdollista ilman lisäohjelmien asennusta.
 
-You can use Funet FileSender to share your files with anybody. The receiver
-doesn't need any authentication for downloading the file from FileSender. If
-you don't belong to Haka, you need a colleague who can send you an
-_upload voucher_. The voucher is a one-time permit to use the service for
-sending a file.
+Voit käyttää Funet FileSenderia tiedostojesi jakamiseen kenelle tahansa. Vastaanottaja ei tarvitse tunnistautumista FileSenderista tiedoston lataamiseen. Jos et kuulu Haka-verkon piiriin, tarvitset kollegan, joka voi lähettää sinulle _upload voucherin_. Voucher on kertalupa palvelun käyttämiseen tiedoston lähettämiseksi.
 
-## Uploading data to FileSender
+## Tiedostojen lataaminen FileSenderiin {#uploading-data-to-filesender}
 
-First, [login to the service with your browser](https://filesender.funet.fi).
-You should login to the system with your Haka credentials; first select your
-home organization and use your institutional username and password to log in
-(not CSC username and password).
+[Kirjaudu ensin sisään palveluun selaimellasi](https://filesender.funet.fi). Sinun tulee kirjautua järjestelmään Haka-tunnuksillasi; valitse ensin kotiorganisaatiosi ja käytä laitoksesi käyttäjätunnusta ja salasanaa (ei CSC:n käyttäjätunnusta ja salasanaa).
 
-After this you can specify the email address of the recipient, or alternatively
-get a shareable link. Use the _Select files_ button to choose the files you
-want to send. After the temporary storage time has been defined
-(_Expiry date:_) and the usage terms are accepted, press the _Send_ button to
-upload the files. Once the files have been uploaded, the recipient will get an
-email notification.
+Tämän jälkeen voit määrittää vastaanottajan sähköpostiosoitteen tai vaihtoehtoisesti saada jaettavan linkin. Käytä _Select files_ -painiketta valitaksesi tiedostot, jotka haluat lähettää. Kun tilapäisen säilytysajan päivämäärä on asetettu (_Expiry date:_) ja käyttöehdot hyväksytty, paina _Send_ -painiketta ladataksesi tiedostot. Kun tiedostot on ladattu, vastaanottaja saa sähköposti-ilmoituksen.
 
-It is possible to administer your files while they are waiting for the pick-up.
-Click the _My Transfers_ button to do this.
+On mahdollista hallita tiedostojasi niiden odottaessa noutoa. Klikkaa _My Transfers_ -painiketta tehdäksesi tämän.
 
-![Funet FileSender upload page](/img/funet_upload.png 'Funet FileSender upload page')
+![Funet FileSender lataussivu](/img/funet_upload.png 'Funet FileSender lataussivu')
 
-!!! Note
-    As data is uploaded to Funet FileSender through a web browser, it may be
-    difficult to use it for data located on CSC supercomputers. In this case,
-    you can alternatively use
-    [Allas commands](../Allas/using_allas/a_commands.md) `a-flip` or
-    `a-publish` for sharing data. Yet another alternative is to
-    [use the FileSender command-line client](#using-filesender-from-the-command-line).
+!!! Huomio
+    Koska data ladataan Funet FileSenderiin verkkoselaimen kautta, voi olla vaikeaa käyttää sitä CSC:n supertietokoneilla sijaitsevan datan siirtämiseen. Tässä tapauksessa voit vaihtoehtoisesti käyttää [Allas-käskyjä](../Allas/using_allas/a_commands.md) `a-flip` tai `a-publish` datan jakamiseen. Toinen vaihtoehto on [käyttää FileSender komentoriviltä](#using-filesender-from-the-command-line).
 
-## Download data from FileSender
+## Tiedostojen lataaminen FileSenderista {#download-data-from-filesender}
 
-The recipient will get an email that contains a URL to the download page of
-the submitted files. The shareable link will also point to the download page.
-You can start the download by pressing the _Download_ button.
+Vastaanottaja saa sähköpostin, joka sisältää URL-osoitteen ladattavien tiedostojen sivulle. Jaettava linkki ohjaa myös lataussivulle. Voit aloittaa lataamisen painamalla _Download_ -painiketta.
 
-![Funet FileSender download page](/img/funet_download.png)
+![Funet FileSender lataussivu](/img/funet_download.png)
 
-You can also right click the download button and select _Copy Link_ to
-get the download URL to the file. The URL can then be used to download the file
-using another tool, for example [`wget`](wget.md):
+Voit myös klikata hiiren oikealla painikkeella latauspainiketta ja valita _Copy Link_ saadaksesi lataus-URL:n tiedostoon. URL:ä voidaan sitten käyttää tiedoston lataamiseen toisella välineellä, esimerkiksi [`wget`](wget.md):
 
 ```bash
 wget "https://filesender.funet.fi/download.php?token=4da0-b98e-3290c6471469&files_ids=36805" -O data_from_FS
 ```
 
-!!! note "Note"
-    When downloading data from Funet FileSender with `wget` you must enclose
-    the download link with quotation marks and use option `-O` to define a file
-    name that will be used for the downloaded data.
+!!! huomio "Huomio"
+    Kun lataat tietoja Funet FileSenderista `wget`-komennolla, sinun täytyy sulkea latauslinkki lainausmerkkeihin ja käyttää `-O`-valitsinta määrittääksesi tiedostonimen, jota käytetään ladatun datan tallentamiseen.
 
-## Using FileSender from the command-line
+## FileSenderin käyttäminen komentoriviltä {#using-filesender-from-the-command-line}
 
-FileSender can also be used from the command-line using a Python 3 utility
-script.
+FileSenderia voi käyttää myös komentoriviltä Python 3 -apuohjelman avulla.
 
-Assuming you are on a Linux server (e.g. Puhti or Mahti):
+Oletetaan, että olet Linux-palvelimella (esim. Puhti tai Mahti):
 
-1. Download the `filesender.py` Python tool:
+1. Lataa `filesender.py` Python-työkalu:
 
     ```bash
     wget https://raw.githubusercontent.com/filesender/filesender/refs/heads/development/scripts/client/filesender.py
     ```
 
-2. Create a new folder `~/.filesender` in your home directory:
+2. Luo uusi kansio `~/.filesender` kotihakemistoosi:
 
     ```bash
     mkdir -p ~/.filesender
     ```
 
-3. Create a `~/.filesender/filesender.py.ini` client configuration file as
-   follows (decrease the preservation time if needed):
+3. Luo `~/.filesender/filesender.py.ini` asiakaskonfiguraatiotiedosto seuraavasti (pienennä säilytysaikaa tarvittaessa):
 
     ```ini
     [system]
@@ -98,15 +64,10 @@ Assuming you are on a Linux server (e.g. Puhti or Mahti):
     apikey = <api secret>
     ```
 
-    Your username (_Identifiant_) and API key (_Secret_) can be found/generated
-    on the _My profile_ page of the
-    [Funet FileSender website](https://filesender.funet.fi/) (requires logging
-    in first). Treat the API key as any password – keep it secret! Note that
-    the username in this case is **not** the same as your CSC account username.
+    Käyttäjätunnuksesi (_Identifiant_) ja API-avain (_Secret_) löytyvät/voidaan luoda [Funet FileSender -verkkosivun](https://filesender.funet.fi/) _My profile_ -sivulta (ensin täytyy kirjautua sisään). Käsittele API-avainta kuin mitä tahansa salasanaa – pidä se salassa! Huomaa, että käyttäjätunnus tässä tapauksessa ei ole samanhankintainen CSC:n käyttäjätunnuksen kanssa.
 
-4. Now you may send a file (e.g. `data.tgz`) to a recipient (e.g.
-   `recipient@example.com`) with:
+4. Nyt voit lähettää tiedoston (esim. `data.tgz`) vastaanottajalle (esim. `recipient@example.com`) seuraavasti:
 
     ```bash
     python3 filesender.py -r recipient@example.com ./data.tar.gz
-    ```
+    

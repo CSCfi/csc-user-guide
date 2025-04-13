@@ -1,36 +1,36 @@
-# Data import and export
+# Tietojen tuonti ja vienti {#data-import-and-export}
 
-In the CSC computing environment we recommend command `mysqlimport` for loading data into a database in Kaivos.  This command reads in a delimited text file into a table already existing in the database. To load a large text file from a CSC computing server to a database in Kaivos, you can use the command syntax:
+CSC:n laskentaympäristössä suosittelemme käyttämään komentoa `mysqlimport` tietojen lataamiseen kaivos-tietokantaan. Tämä komento lukee rajatun tekstiedoston taulukkoon, joka jo on olemassa tietokannassa. Ladataaksesi suuren tekstiedoston CSC:n laskentapalvelimelta kaivos-tietokantaan, voit käyttää seuraavaa komentosyntaksia:
 
 ```bash
 mysqlimport -h kaivos.csc.fi -u db_user_account --local --compress --password database_name input_file.table
 ```
 
-`mysqlimport` strips any extension from the input file name and uses the result to determine the name of the table into which to import the file's contents. The user must make sure that the database contains a previously created table with data columns that match the data in the input data file. The user may also have to change the name of the input file if it is not compatible with a database table. The `--local` option defines that the data file locates in the machine where the client is used and not in the actual database server. Thus in the case of `mysqlimport`, this option is obligatory in the computing servers of CSC.
+`mysqlimport` poistaa tiedostonimestä mahdollisen laajennuksen ja käyttää lopputulosta määrittääkseen, minkä taulukon sisältöön tiedoston tiedot tulisi tuoda. Käyttäjän on varmistettava, että tietokannassa on valmiiksi luotu taulukko, jonka sarakkeet vastaavat syötettävän tiedoston tietoja. Käyttäjän on mahdollisesti myös muutettava tiedoston nimeä, jos se ei ole yhteensopiva tietokantataulukon kanssa. `--local` -valinta määrittää, että tiedosto sijaitsee asiakkaan käytössä olevassa koneessa, eikä todellisessa tietokantapalvelimessa. CSC:n laskentapalvelimilla tämä vaihtoehto on pakollinen `mysqlimport`-komennolla.
 
-Downloading complete tables or databases from the database can be done with command `mysqldump`. This command was developed for making backup copies of MySQL databases. In the case of `kaivos.csc.fi`, backup copies are not needed as the database is automatically backup copied by CSC.  Instead `mysqldump` offers an easy way to make a copy of your database so that you can move both the data content and structure of your database to another SQL server. You can make a copy of the whole database:
+Kokonaiset taulukot tai tietokannat voidaan ladata tietokannasta komennolla `mysqldump`. Tämä komento on kehitetty MySQL-tietokantojen varmuuskopiointiin. `kaivos.csc.fi`-tapausessa varmuuskopioita ei tarvita, koska tietokanta varmuuskopioidaan automaattisesti CSC:n toimesta. Sen sijaan `mysqldump` tarjoaa helpon tavan kopioida tietokantasi siirtämällä sekä tietosisältö että tietokannan rakenne toiseen SQL-palvelimeen. Voit tehdä kopion koko tietokannasta:
 
 ```bash
 mysqldump -u db_user_account -h kaivos.csc.fi -p database > database_dump.txt
 ```
 
-or just from one or more tables:
+tai vain yhdestä tai useammasta taulukosta:
 
 ```bash
 mysqldump -u db_user_account -h kaivos.csc.fi -p database table_name > table_dump.txt
 ```
 
-When `mysqldump` is used with the default settings, the result files contain MySQL commands that are needed to create and populate the selected database tables. `mysqldump` locks the table in the beginning of the copying. Because of this only the `dbname_admin` user account of the database can launch the command by default. In the case of other user accounts (`dbname_read` or `dbname_user`)  `--skip-lock-tables` option should be added to the `mysqldump` command.
+Kun `mysqldump`-komentoa käytetään oletusasetuksilla, tulostiedostot sisältävät MySQL-komennot, joita tarvitaan valittujen tietokantataulukoiden luomiseen ja täyttämiseen. `mysqldump` lukitsee taulukon kopioinnin alkaessa. Tämän vuoksi vain tietokannan `dbname_admin` käyttäjätili voi oletusarvoisesti käynnistää komennon. Muilla käyttäjätileillä (esim. `dbname_read` tai `dbname_user`) tulisi lisätä komennon `mysqldump` yhteyteen vaihtoehto `--skip-lock-tables`.
 
-You can import the database_dump.txt file as follows:
+Voit tuoda tietokannan `database_dump.txt`-tiedoston seuraavasti:
 
 ```bash
 mysql -u database_user_account -h kaivos.csc.fi -p database < database_dump.txt
 ```
 
-## Example: Importing data with mysqlimport
+## Esimerkki: Tietojen tuonti mysqlimport-komennolla {#example-importing-data-with-mysqlimport}
 
-In this example we import a data set into the result table created in the example in chapter 2.  The data to be imported to the database locates in file: `data_to_import.txt`. This file contains data rows like:
+Tässä esimerkissä tuomme tietojoukon tulostaulukkoon, joka luotiin esimerkissä luvussa 2. Tietokantaan tuotavat tiedot sijaitsevat tiedostossa: `data_to_import.txt`. Tämä tiedosto sisältää tietorivejä, kuten:
 
 ```text
 1       -419.557        STRUCTURE1.PDB
@@ -45,17 +45,17 @@ In this example we import a data set into the result table created in the exampl
 10      -444.549        STRUCTURE10.PDB
 11      -463.394        STRUCTURE11.PDB
 12      -430.548        STRUCTURE12.PDB
-etc...
+jne...
 ```
 
-To import the data to the results table, we must first copy the data to a file with a name that is compatible with the table name (results).  
+Jotta voimme tuoda tiedot `results`-taulukkoon, meidän on ensin kopioitava tiedot tiedostoon, jolla on taulukon nimen kanssa yhteensopiva nimi.
 
 ```bash
 cp data_to_import.txt results.table
 ```
 
-Then use `mysqlimport` to import the data
+Tämän jälkeen käytetään `mysqlimport`-komentoa tietojen tuomiseen:
 
 ```bash
 mysqlimport -h kaivos.csc.fi --local --compress -p -u DB_A_admin DB_A results.table
-```
+

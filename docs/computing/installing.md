@@ -1,103 +1,61 @@
-# Overview
+# Yleiskatsaus {#overview}
 
-It is possible to install own software on CSC supercomputers if you cannot find a software
-suitable for your needs from the [list of pre-installed applications](../apps/index.md)
-or using `module spider`. The installation procedure will vary based on your specific
-application. There are, however, some general rules you should be mindful of:
+On mahdollista asentaa omia ohjelmistoja CSC:n supertietokoneille, jos et löydä tarpeisiisi sopivaa ohjelmistoa [esiasennettujen sovellusten luettelosta](../apps/index.md) tai käyttämällä `module spider` -komentoa. Asennusmenettely riippuu sovelluksestasi. On kuitenkin olemassa joitakin yleisiä sääntöjä, joita sinun tulisi noudattaa:
 
-- You cannot use `sudo`, i.e. typical `sudo apt` or `sudo yum` commands you might find
-  online will not work on CSC supercomputers.
-- You cannot install into "standard" system locations, e.g. `/usr/bin`, `/usr/lib` etc.
-  Instead, the best location for your own installations is the `/projappl` directory of
-  your project.
-- Use the fast local disk `$TMPDIR` when compiling to avoid stressing the parallel file
-  system. Compiling applications typically cause quite a bit of I/O load.
-- Many software might require some dependencies, e.g. [HPC libraries](hpc-libraries.md)
-  such as FFTW or ScaLAPACK. Note that many of these are available as pre-installed
-  modules, so you may not need to install *everything* from scratch.
-- New software are not automatically added to your `$PATH`. To access the software,
-  either provide the full path or add with `export PATH=/path/to/my/app/bin:$PATH`.
+- Et voi käyttää `sudo`-komentoa, eli tavalliset `sudo apt` tai `sudo yum` -komennot, joita saatat löytää verkosta, eivät toimi CSC:n supertietokoneilla.
+- Et voi asentaa "standardiin" järjestelmän sijaintiin, kuten `/usr/bin`, `/usr/lib` jne. Sen sijaan paras sijainti omille asennuksille on projektisi `/projappl`-hakemisto.
+- Käytä nopeaa paikallista levyä `$TMPDIR` kootessasi välttääksesi kuormittamasta rinnakkaistiedostojärjestelmää. Sovellusten kokoaminen aiheuttaa yleensä melko paljon I/O-kuormitusta.
+- Monet ohjelmistot saattavat vaatia joitakin riippuvuuksia, kuten [HPC-kirjastoja](hpc-libraries.md) kuten FFTW tai ScaLAPACK. Huomaa, että monet näistä ovat saatavilla esiasennettuina moduuleina, joten sinun ei ehkä tarvitse asentaa *kaikkea* alusta alkaen.
+- Uudet ohjelmistot eivät automaattisesti lisäänny `$PATH`-polkuusi. Päästäksesi ohjelmistoon, anna joko täydellinen polku tai lisää se `export PATH=/path/to/my/app/bin:$PATH` -komennolla.
 
-!!! info "Help is available!"
-    Don't hesitate to contact [CSC Service Desk](../support/contact.md) if you
-    encounter issues with installing your own software.
+!!! info "Apua on saatavilla!"
+    Älä epäröi ottaa yhteyttä [CSC Service Deskiin](../support/contact.md), jos kohtaat ongelmia omien ohjelmistojen asentamisessa.
 
-## Native installations
+## Alkuperäiset asennukset {#native-installations}
 
-Native installations refer to applications that are installed directly to the system.
-Typically, one downloads the source code of the software, compiles the code, and installs
-to a location where the user has write-access, e.g. the project's `/projappl` directory.
-Native installation from source code might sometimes be the only way to install an
-application, and is recommended especially for software with few or no dependencies.
+Alkuperäisillä asennuksilla tarkoitetaan sovelluksia, jotka asennetaan suoraan järjestelmään. Tyypillisesti ohjelmiston lähdekoodi ladataan, käännetään ja asennetaan paikkaan, jossa käyttäjällä on kirjoitusoikeudet, kuten projektin `/projappl`-hakemisto. Asentaminen lähdekoodista voi joskus olla ainoa tapa asentaa sovellus, ja se on suositeltavaa erityisesti ohjelmistolle, jossa on vähän tai ei lainkaan riippuvuuksia.
 
-### Compiling
+### Kääntäminen {#compiling}
 
-HPC software written using programming languages such as C, C++ or Fortran need to be
-compiled before installing. Guidelines on compiling software on CSC supercomputers can
-be found from the links below. A list of available HPC libraries that may need to be
-linked upon compiling is also provided.
+HPC-ohjelmistot, jotka on kirjoitettu ohjelmointikielillä kuten C, C++ tai Fortran, täytyy kääntää ennen asentamista. Ohjeita ohjelmistojen kääntämiselle CSC:n supertietokoneilla löytyy alla olevista linkeistä. Luettelo saatavilla olevista HPC-kirjastoista, joihin voi olla tarpeen linkittää käännön yhteydessä, on myös saatavilla.
 
-- [Compiling on Puhti](compiling-puhti.md)
-- [Compiling on Mahti](compiling-mahti.md)
-- [Compiling on LUMI](compiling-lumi.md)
-- [HPC libraries](hpc-libraries.md)
+- [Kääntäminen Puhtilla](compiling-puhti.md)
+- [Kääntäminen Mahtilla](compiling-mahti.md)
+- [Kääntäminen LUMI:lla](compiling-lumi.md)
+- [HPC-kirjastot](hpc-libraries.md)
 
-### Spack
+### Spack {#spack}
 
-[Spack](https://spack.io) is a flexible package manager that can be used to install
-software on supercomputers and Linux and macOS systems. The basic module tree including
-compilers, MPI libraries and many of the available software on CSC supercomputers have
-been installed using Spack. Spack is similar to the [EasyBuild package manager extensively
-used on LUMI](https://docs.lumi-supercomputer.eu/software/installing/easybuild/).
+[Spack](https://spack.io) on joustava pakettienhallintaohjelma, jota voidaan käyttää ohjelmistojen asentamiseen supertietokoneille sekä Linux- ja macOS-järjestelmiin. Perusmoduuliputki, joka sisältää kääntäjät, MPI-kirjastot ja monet saatavilla olevat ohjelmistot CSC:n supertietokoneilla, on asennettu Spackin avulla. Spack on samanlainen kuin [EasyBuild-pakettienhallinta, jota käytetään laajasti LUMI:lla](https://docs.lumi-supercomputer.eu/software/installing/easybuild/).
 
-CSC provides user Spack modules on Puhti and Mahti that can be used to build software on top of the
-available compilers and libraries. It is also possible to install different customized versions of
-packages available in the module tree for special use cases. [See here for a short tutorial on how to
-install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md). Spack is
-also available on [LUMI](https://docs.lumi-supercomputer.eu/software/installing/spack/).
+CSC tarjoaa käyttäjille Spack-moduuleja Puhtilla ja Mahtilla, joita voidaan käyttää ohjelmistojen rakentamiseen saatavilla olevien kääntäjien ja kirjastojen päälle. On myös mahdollista asentaa erilaisia räätälöityjä versioita moduulipuussa saatavilla olevista paketeista erityistapauksia varten. [Katso täältä lyhyt tutoriaali siitä, miten asentaa ohjelmistoja CSC:n supertietokoneille käyttämällä Spackia](../support/tutorials/user-spack.md). Spack on saatavilla myös [LUMI:lla](https://docs.lumi-supercomputer.eu/software/installing/spack/).
 
-### Ready-made binaries
+### Valmiit binäärit {#ready-made-binaries}
 
-Ready-made binaries typically exhibit optimal performance only on the system on which
-they have been compiled on. This applies especially for MPI codes, which should always
-be re-compiled for best performance. However, if the binary you want to use is a simple
-serial or threaded application, you can try running it directly.
+Valmiit binäärit tarjoavat tyypillisesti optimaalisen suorituskyvyn vain siinä järjestelmässä, missä ne on käännetty. Tämä pätee erityisesti MPI-koodeihin, jotka tulisi aina kääntää uudelleen parhaan suorituskyvyn saavuttamiseksi. Jos haluamasi binääri on kuitenkin yksinkertainen sarja- tai säietehtäväinen sovellus, voit kokeilla ajaa sitä suoraan.
 
-## Containers
+## Kontit {#containers}
 
-Containerizing applications can be a very efficient way to install software and libraries,
-especially if the application has complex dependencies such as most Python environments
-([see below](#pythonr-environments)). CSC supercomputers support Apptainer/Singularity
-containers, which are similar to Docker, but better suited for multi-user HPC systems. In
-most cases, ready-made Docker containers can be easily converted into an Apptainer image.
-Another option is to build your own container from scratch. More details on working with
-containers in CSC's computing environment can be found from the links below:
+Ohjelmistojen ja kirjastojen kontittaminen voi olla erittäin tehokas tapa asentaa ohjelmistoja, erityisesti jos sovelluksessa on monimutkaisia riippuvuuksia, kuten useimmissa Python-ympäristöissä ([katso alla](#pythonr-environments)). CSC:n supertietokoneet tukevat Apptainer/Singularity-kontteja, jotka ovat samankaltaisia kuin Docker-kontit, mutta soveltuvat paremmin monen käyttäjän HPC-järjestelmiin. Useimmissa tapauksissa valmiit Docker-kontit voidaan helposti muuntaa Apptainer-kuviksi. Toinen vaihtoehto on rakentaa oma kontti alusta alkaen. Lisätietoja konttien käytöstä CSC:n laskentaympäristössä löytyy alla olevista linkeistä:
 
-- [Overview of containers](containers/overview.md)
-- [Running containers](containers/run-existing.md)
-- [Creating containers](containers/creating.md)
-- [Tykky container wrapper](containers/tykky.md)
+- [Yleiskatsaus konteista](containers/overview.md)
+- [Konttien ajaminen](containers/run-existing.md)
+- [Konttien luominen](containers/creating.md)
+- [Tykky-konttikuori](containers/tykky.md)
 
-## Python/R environments
+## Python/R-ympäristöt {#pythonr-environments}
 
-Best practice guidelines on installing own Python and R packages can be found in
-the Python, R and Tykky container wrapper pages below.
+Parhaat käytännöt omien Python- ja R-pakettien asentamiseen löytyvät alla olevilta Python-, R- ja Tykky-konttikuorisivuilta.
 
-- [Installing Python packages and environments](../apps/python.md)
-- [Containerizing Conda and pip environments with Tykky](containers/tykky.md)
-- [R package installations](../apps/r-env.md#r-package-installations)
+- [Python-pakettien ja ympäristöjen asentaminen](../apps/python.md)
+- [Conda- ja pip-ympäristöjen kontittaminen Tykkyllä](containers/tykky.md)
+- [R-pakettien asennukset](../apps/r-env.md#r-package-installations)
 
-Briefly, individual Python packages with no/few dependencies can be installed
-alongside CSC's pre-installed Python modules with `pip install --user <package>`.
-More complicated environments should always be containerized. This is accomplished
-easily with [Tykky](containers/tykky.md).
+Lyhyesti sanottuna, yksittäiset Python-paketit, joilla on vähän riippuvuuksia, voidaan asentaa CSC:n esiasennettujen Python-moduulien rinnalle komennolla `pip install --user <paketti>`. Monimutkaisemmat ympäristöt tulisi aina kontittaa. Tämä onnistuu helposti [Tykkyllä](containers/tykky.md).
 
-Similarly, the pre-installed R module provided by CSC is a containerized environment
-containing more than 1300 packages. If these do not suit your needs, you can install your
-own packages into a project-specific location under `/projappl` and add this to your library
-trees in R. [See here for specific details](../apps/r-env.md#r-package-installations).
+Sama pätee CSC:n tarjoamaan esiasennettuun R-moduuliin, joka on kontitettu ympäristö sisältäen yli 1300 pakettia. Jos nämä eivät vastaa tarpeitasi, voit asentaa omia pakettejasi projektikohtaiseen sijaintiin `/projappl`-hakemistossa ja lisätä sen R:n kirjastopuihin. [Katso täältä tarkemmat tiedot](../apps/r-env.md#r-package-installations).
 
-## More information
+## Lisätietoa {#more-information}
 
-- [Installing your own software](https://csc-training.github.io/csc-env-eff/part-2/installing/)
-  (CSC Computing Environment slides and tutorials)
+- [Oman ohjelmiston asentaminen](https://csc-training.github.io/csc-env-eff/part-2/installing/)
+  (CSC:n laskentaympäristön diat ja tutoriaalit)

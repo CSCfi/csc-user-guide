@@ -1,26 +1,26 @@
-# How to backup a Postgres DB into Allas
 
-In this tutorial we are going to show how to backup a PostgreSQL or Maria DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
+# Kuinka varmuuskopioida Postgres-tietokanta Allakseen {#how-to-backup-a-postgres-db-into-allas}
 
-!!! Warning
-    This is a simple example, the backup SQL file is not compressed, the checksums are not verified, there is no encryption, ... it just shows the basic idea of creating a backup and putting it in object storage.
+Tässä oppaassa näytämme, kuinka varmuuskopioida PostgreSQL- tai MariaDB-tietokanta Rahtissa Allakseen. Yleinen idea on käyttää `CronJobia`, joka luo tietokannasta dump-tiedoston ja lataa sen Allakseen.
 
-    You can find the address of the GitHub repository [here](https://github.com/CSCfi/rclone-template/tree/psql). Feel free to clone and edit it to suit your needs.
+!!! Varoitus
+    Tämä on yksinkertainen esimerkki, varmuuskopioitu SQL-tiedosto ei ole pakattu, tarkistussummia ei ole vahvistettu, ei ole salausta, ... tämä näyttää vain perusidean siitä, miten varmuuskopio luodaan ja laitetaan objektitallennustilaan.
 
-## Prerequisites
+    Löydät GitHub-repositorion osoitteen [täältä](https://github.com/CSCfi/rclone-template/tree/psql). Voit vapaasti kloonata ja muokata sitä tarpeidesi mukaan.
 
-* A postgres or  maria DB. You need to have read access to it. To deploy a new DB in Rahti, you can use the Postgres or MariaDB template provided in the catalog. It is also possible to backup an external DB, but all instructions assume the DB is running in Rahti in the same namespace as the backup process will be run.
+## Esivaatimukset {#prerequisites}
 
+* Postgres- tai MariaDB-tietokanta. Sinulla on oltava lukuoikeus siihen. Luodaksesi uuden tietokannan Rahtissa voit käyttää katalogista löytyvää Postgres- tai MariaDB-mallia. On myös mahdollista varmuuskopioida ulkoinen tietokanta, mutta kaikki ohjeet olettavat, että tietokanta toimii Rahtissa samassa nimeämisavaruudessa, jossa varmuuskopiot jaetaan.
 
-* A secret that will take the value of `$DBHOST` (either `postgresql` or `mariadb`) with the following keys: `database-user`, `database-password`, and `database-name`. This secret is created by rclone's template, but will need to be created manually if Postgres or Mariadb is running outside Rahti.
+* Salaisuus, joka tulee ottaa `$DBHOST`-arvoksi (joko `postgresql` tai `mariadb`) seuraavien avaimien kanssa: `database-user`, `database-password` ja `database-name`. Tämä salaisuus luodaan rclone-mallilla, mutta se on luotava manuaalisesti, jos Postgres tai Mariadb toimii Rahtin ulkopuolella.
 
-* The `ACCESS_KEY` and `SECRET_KEY` to access Allas. You may get them by doing:
+* `ACCESS_KEY` ja `SECRET_KEY` Allakseen pääsyä varten. Niitä voi saada seuraavasti:
 
 ```bash
 pip install python-openstackclient
 ```
 
-Then go to [OpenRC download](https://pouta.csc.fi/dashboard/project/api_access/openrc/), download the OpenStack RC File v2.0, source it, and input your password when prompted:
+Mene sitten [OpenRC lataussivulle](https://pouta.csc.fi/dashboard/project/api_access/openrc/), lataa OpenStack RC File v2.0, suorita se ja anna salasana, kun sitä kysytään:
 
 ```bash
 $ source ~/Downloads/project_XXXXXXX-openrc.sh
@@ -28,23 +28,23 @@ Please enter your OpenStack Password for project project_XXXXXXX as user <USER>:
 
 ```
 
-Finally you can create the credentials:
+Lopuksi voit luoda tunnukset:
 
 ```bash
 openstack ec2 credentials create
 ```
 
-Or if you already have created the credentials, you may show them by doing:
+Tai jos sinulla on jo luotuna tunnukset, voit näyttää ne seuraavalla komennolla:
 
 ```bash
 openstack ec2 credentials list -f yaml
 ```
 
-* An Allas bucket/container. You may create it from the web interface, or using `rclone`.
+* Allas-säiliö/kontti. Voit luoda sen verkkokäyttöliittymästä tai käyttämällä `rclonea`.
 
-## Add the CronJob
+## Lisää CronJob {#add-the-cronjob}
 
-First you need to clone the repository with the template and add it to the Rahti namespace where Postgres or Mariadb is running:
+Ensiksi sinun täytyy kloonata repositorio mallin kanssa ja lisätä se Rahti-nimeämisavaruuteen, missä Postgres tai Mariadb toimii:
 
 ```sh
 git clone https://github.com/cscfi/rclone-template.git -b psql
@@ -52,23 +52,22 @@ cd rclone-template
 oc create -f rclone.yaml
 ```
 
-Once the template is added to your namespace, you just need to deploy it:
+Kun malli on lisätty nimeämistilaasi, vain sinun tarvitsee ottaa se käyttöön:
 
 ```sh
 $ oc process rclone \
     ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
     SECRET_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
     BUCKET_DIR=existing_bucket/existing/path \
-    DBHOST=postgresql \ # or mariadb
+    DBHOST=postgresql \ # tai mariadb
     SCHEDULE="0 4 * * *" | oc create -f -
 ```
 
-This will run the backup process every day at 4:00 am. You may change the schedule, see <https://en.wikipedia.org/wiki/Cron> for reference.
-The backups won't be overwritten as it will take the date and time of the backup start.
+Tämä suorittaa varmuuskopiointiprosessin joka päivä kello 4:00. Aikataulua voi muuttaa, katso viitteeksi <https://en.wikipedia.org/wiki/Cron>.
+Varmuuskopiot eivät kirjoita päälleen, koska ne ottavat varmuuskopion aloitusajan ja päivämäärän.
 
-You can find more information about the backup and restore commands here:  
+Lisää tietoa varmuuskopion ja palautuskomentojen suorittamisesta:  
 
-- PostgreSQL: [Backup database](https://www.postgresqltutorial.com/postgresql-administration/postgresql-backup-database/) and [Restore database](https://www.postgresqltutorial.com/postgresql-administration/postgresql-restore-database/)
+- PostgreSQL: [Varmuuskopioi tietokanta](https://www.postgresqltutorial.com/postgresql-administration/postgresql-backup-database/) ja [Palauta tietokanta](https://www.postgresqltutorial.com/postgresql-administration/postgresql-restore-database/)
 
-- MariaDB: [Backup database](https://mariadb.com/kb/en/mariadb-dump/) and [Restore database](https://mariadb.com/kb/en/backup-and-restore-overview/)
-
+- MariaDB: [Varmuuskopioi tietokanta](https://mariadb.com/kb/en/mariadb-dump/) ja [Palauta tietokanta](https://mariadb.com/kb/en/backup-and-restore-overview/)

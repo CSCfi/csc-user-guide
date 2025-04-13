@@ -1,65 +1,66 @@
-# How does LUMI-C differ from Mahti?
 
-[LUMI-C](https://docs.lumi-supercomputer.eu/hardware/lumic/) consists of 2048 AMD CPU nodes (2x64 cores each). The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each). Although the systems are very alike based on CPU-hardware, core count and performance, there are important differences which are highlighted on this page.
+# Miten LUMI-C eroaa Mahtista? {#how-does-lumi-c-differ-from-mahti}
 
-## GPUs and memory
+[LUMI-C](https://docs.lumi-supercomputer.eu/hardware/lumic/) koostuu 2048 AMD CPU -nodesta (2x64 ydintä kussakin). [Mahtin](systems-mahti.md) nodemäärä on samankaltainen, 1404 AMD CPU -noden (2x64 ydintä kussakin). Vaikka järjestelmät ovat hyvin samankaltaisia suorittimen laitteiston, ydinmäärän ja suorituskyvyn perusteella, on tärkeää huomata tällä sivulla korostetut erot.
 
-Mahti has only a few (24) GPU-nodes available, while LUMI-C is flanked by [LUMI-G](https://docs.lumi-supercomputer.eu/hardware/lumig/) and [LUMI-D](https://docs.lumi-supercomputer.eu/hardware/lumid/) with a massive GPU capacity. Also, Mahti has 256 GB memory in all CPU nodes, while LUMI-C has also 512 GB and 1024 GB memory nodes (similar to Puhti).
+## GPU:t ja muisti {#gpus-and-memory}
 
-## Accessing and SSH keys
+Mahtilla on vain muutamia (24) GPU-nodea, kun taas LUMI-C:lla on tukena [LUMI-G](https://docs.lumi-supercomputer.eu/hardware/lumig/) ja [LUMI-D](https://docs.lumi-supercomputer.eu/hardware/lumid/) massiivisella GPU-kapasiteetilla. Lisäksi Mahtilla on 256 GB muistia kaikissa CPU-nodeissa, kun taas LUMI-C:lla on myös 512 GB ja 1024 GB muistillisia nodeja (kuten Puhtilla).
 
-To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Note that LUMI-projects have a finite duration ([see below](lumi-vs-mahti.md#finite-time-projects)) and cannot be used for running on the national resources and vice versa.
+## Yhteydet ja SSH-avaimet {#accessing-and-ssh-keys}
 
-Furthermore, accessing LUMI is only possible using SSH keys uploaded to MyCSC, meaning that you cannot use passwords to connect through SSH. This authentication method is also in use on Mahti (and Puhti) since 14 April 2025. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting/ssh-keys.md) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
+Päästäksesi LUMI:in, sinun on ensin [luotava LUMI-spesifinen projekti](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Huomaa, että LUMI-projekteilla on määräaika ([katso alla](lumi-vs-mahti.md#finite-time-projects)) eikä niitä voi käyttää kansallisilla resursseilla ja päinvastoin.
 
-Similar to Puhti and Mahti, LUMI can, however, also be accessed through a [web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/).
+Lisäksi LUMI:in pääsy on mahdollista vain MyCSC:lle ladatuilla SSH-avaimilla, eli et voi käyttää salasanoja yhdistääksesi SSH:lla. Tämä todennustapa on myös käytössä Mahtilla (ja Puhtilla) 14. huhtikuuta 2025 lähtien. Ohjeet siitä, miten luoda SSH-avainpari ja ladata julkinen avain [MyCSC:hen](https://my.csc.fi/), löytyvät [SSH-avainten määrittäminen](connecting/ssh-keys.md) -sivulta ja [Aloita LUMI:in tutustuminen](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) -sivuilta.
 
-## Finite time projects
+Puhtin ja Mahtin tavoin LUMI:in pääsee kuitenkin myös [web-käyttöliittymän](https://docs.lumi-supercomputer.eu/runjobs/webui/) kautta.
 
-Finnish LUMI projects have a finite duration ranging from 3 months to max. 3 years depending on the access mode:
+## Määräaikaiset projektit {#finite-time-projects}
 
-|Access mode  |Length  |Can be extended?               |
-|-------------|--------|-------------------------------|
-|Regular      |1 year  |No                             |
-|Benchmark    |3 months|No                             |
-|Extreme scale|1 year  |No                             |
-|Development  |1 year  |Yes, twice = max. 3 years total|
+Suomalaisilla LUMI-projekteilla on määräaikainen kesto, joka vaihtelee 3 kuukaudesta enintään 3 vuoteen riippuen käyttöoikeusmuodosta:
 
-For more details on the access modes, see the [LUMI access page on the Services for Research website](https://research.csc.fi/lumi-access). Note that LUMI users from Finland are also eligible to apply for EuroHPC Joint Undertaking (JU) resources. [See more details on European access modes here](https://www.lumi-supercomputer.eu/get-started-2021/users-in-europe/).
+|Käyttöoikeusmuoto|Kesto   |Voidaanko laajentaa?                |
+|-----------------|--------|-----------------------------------|
+|Säännöllinen     |1 vuosi |Ei                                 |
+|Benchmark        |3 kuukautta|Ei                              |
+|Erittäin suuri   |1 vuosi |Ei                                 |
+|Kehitys          |1 vuosi |Kyllä, kahdesti = enintään 3 vuotta|
 
-## Software installation policy
+Lisätietoja käyttöoikeusmuodoista löytyy [LUMI:n käyttöoikeussivulta Tutkimuksen Palvelut -sivustolla](https://research.csc.fi/lumi-access). Huomaa, että Suomen LUMI-käyttäjät ovat myös oikeutettuja hakemaan EuroHPC Joint Undertaking (JU) -resursseja. [Lisätietoja Euroopan käyttöoikeusmuodoista täällä](https://www.lumi-supercomputer.eu/get-started-2021/users-in-europe/).
 
-Similar to Mahti, CSC offers some frequently used applications as pre-installed modules on LUMI. A list of these can be found in [CSC Docs](../apps/by_system.md#lumi) as well as [LUMI Docs](https://docs.lumi-supercomputer.eu/software/local/csc/).
+## Ohjelmistojen asennuskäytännöt {#software-installation-policy}
 
-To facilitate installing own software on LUMI, the [EasyBuild tool](https://docs.lumi-supercomputer.eu/software/installing/easybuild/) is provided along with [installation recipes](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib) (EasyConfig files) using which you can install additional applications to your home or project directories. Additionally, a [container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/) identical to the [Tykky tool](containers/tykky.md) is provided as a means to wrap installations inside an Apptainer/Singularity container. This is recommended especially for Conda and pip environments to alleviate the load on the parallel filesystem.
+Mahtin tavoin CSC tarjoaa joitakin usein käytettyjä sovelluksia valmiiksi asennettuina moduuleina LUMI:lla. Lista näistä löytyy [CSC Docs](../apps/by_system.md#lumi):sta sekä [LUMI Docs](https://docs.lumi-supercomputer.eu/software/local/csc/):sta.
 
-If you have problems installing your software on LUMI, please [send a ticket to the LUMI user support team](https://lumi-supercomputer.eu/user-support/need-help/)!
+Oman ohjelmistosi asentamisen helpottamiseksi LUMI:lle, [EasyBuild-työkalu](https://docs.lumi-supercomputer.eu/software/installing/easybuild/) on käytettävissä yhdessä [asennusreseptien](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib) (EasyConfig-tiedostot) kanssa, joiden avulla voit asentaa lisäsovelluksia koti- tai projektikansioihisi. Lisäksi on saatavilla [konttikäärijä](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/), joka on identtinen [Tykky-työkalun](containers/tykky.md) kanssa ja tarjoaa keinon kääriä asennukset Apptainer/Singularity-kontin sisälle. Tämä suositellaan erityisesti Conda- ja pip-ympäristöille vähentämään kuormitusta rinnakkaisessa tiedostojärjestelmässä.
 
-## Programming environment and software stacks
+Jos sinulla on ongelmia ohjelmistosi asentamisessa LUMI:lle, ole hyvä ja [lähetä tukipyyntö LUMI:n käyttäjätukitiimille](https://lumi-supercomputer.eu/user-support/need-help/)!
 
-The programming environment of LUMI is quite different compared to CSC supercomputers. LUMI comes with three alternative programming environments, namely Cray, GNU and AOCC. Each of the environments have their own compiler suites that become available upon loading the corresponding programming environment module. Moreover, two types of software stacks are offered, the CrayEnv and LUMI stacks. Please refer to the LUMI documentation for a detailed description of the [available collection of compiler suites](https://docs.lumi-supercomputer.eu/development/compiling/prgenv/) and [software stacks](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/softwarestacks/) and how to swap between these.
+## Ohjelmointiympäristö ja ohjelmistopinot {#programming-environment-and-software-stacks}
 
-!!! info "Note"
-    Irrespective of the loaded compiler suite, one noticeable difference concerning the LUMI programming environment is that it comes with compiler wrappers that replace commands commonly found on HPC systems such as Mahti. For example, commands for compiling MPI code like `mpicc`, `mpic++` and `mpif90` are unavailable as such. Instead, you should use the wrappers `cc`, `CC` and `ftn`, respectively. See the LUMI documentation for [more details on the available MPI wrappers](https://docs.lumi-supercomputer.eu/development/compiling/prgenv/#compile-an-mpi-program).
+LUMI:n ohjelmointiympäristö on melko erilainen verrattuna CSC:n supertietokoneisiin. LUMI:lla on kolme vaihtoehtoista ohjelmointiympäristöä, nimittäin Cray, GNU ja AOCC. Jokaisella ympäristöllä on oma kääntäjäkokoelmansa, jotka tulevat saataville ladattaessa vastaava ohjelmointiympäristömoduuli. Lisäksi tarjotaan kahta tyyppiä ohjelmistopinoja, CrayEnv ja LUMI-pinot. Katso LUMI:n dokumentaatiota saadaksesi yksityiskohtainen kuvaus [saatavilla olevista kääntäjäkokoelmista](https://docs.lumi-supercomputer.eu/development/compiling/prgenv/) ja [ohjelmistopinoista](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/softwarestacks/) sekä ohjeet niiden vaihtamiseen.
 
-## Disk areas and storage
+!!! info "Huomautus"
+    Riippumatta ladatusta kääntäjäkokoelmasta, yksi merkittävä ero LUMI:n ohjelmointiympäristössä on se, että siinä käytetään kääntäjäkäärejä, jotka korvaavat yleisesti käytetyt käskyt HPC-järjestelmissä, kuten Mahti. Esimerkiksi MPI-koodien kääntämisessä käytettävät käskyt, kuten `mpicc`, `mpic++` ja `mpif90`, eivät ole saatavilla sellaisenaan. Näiden sijaan sinun tulisi käyttää kääreitä `cc`, `CC` ja `ftn`. Katso LUMI-dokumentaatiosta [lisätietoja käytettävissä olevista MPI-kääreistä](https://docs.lumi-supercomputer.eu/development/compiling/prgenv/#compile-an-mpi-program).
 
-Similar to CSC supercomputers, LUMI uses a [Lustre parallel filesystem](https://docs.lumi-supercomputer.eu/storage/parallel-filesystems/lumip/). However, there's no fast local disk on LUMI similar to the local scratch on Puhti and Mahti. Instead, a fast flash-based Lustre scratch space ([LUMI-F](https://docs.lumi-supercomputer.eu/storage/parallel-filesystems/lumif/)) is available. There is also an object storage similar to Allas, [LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/), available. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/storage/).
+## Levyalueet ja tallennus {#disk-areas-and-storage}
 
-## Available partitions
+CSC:n supertietokoneiden tavoin LUMI käyttää [Lustre-paralleelista tiedostojärjestelmää](https://docs.lumi-supercomputer.eu/storage/parallel-filesystems/lumip/). Kuitenkin LUMI:lla ei ole nopeaa paikallista levyä, kuten Puhtin ja Mahtin paikallinen raaputuslevy. Sen sijaan tarjolla on nopea flash-pohjainen Lustre-raaputustila ([LUMI-F](https://docs.lumi-supercomputer.eu/storage/parallel-filesystems/lumif/)). Käytettävissä on myös objektitallennus, kuten Allas, [LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/). [Katso LUMI-dokumentaatiosta lisätietoja](https://docs.lumi-supercomputer.eu/storage/).
 
-LUMI has two types of partitions (queues): three that are allocatable by node (only full nodes can be requested, similar to Mahti) and five that are allocatable by resources (partial nodes can be requested, similar to Puhti). [See more details in the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/), e.g. maximum wall-time/node count and naming of the partitions.
+## Saatavilla olevat osastot {#available-partitions}
 
-Note that LUMI consortium country projects (e.g. Finnish LUMI projects) use different partitions than EuroHPC JU projects. The latter are prefixed by `ju-` and cannot be used unless you're a member of a project that has been allocated resources by the JU.
+LUMI:ssa on kahta tyyppiä osastoja (jonoja): kolme, jotka allokoidaan noden mukaan (vain täydet nodet voidaan pyytää, kuten Mahtissa) ja viisi, jotka allokoidaan resurssien mukaan (osittaiset nodet voidaan pyytää, kuten Puhtissa). [Katso lisätietoja LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/), mm. enimmäisseinämäaika/nodemäärä ja osastojen nimeäminen.
 
-## Billing
+Huomaa, että LUMI-konsortion maiden projektit (esim. suomalaiset LUMI-projektit) käyttävät eri osastoja kuin EuroHPC JU -projektit. Jälkimmäiset ovat etuliitteellä `ju-` ja niitä ei voi käyttää, ellei ole jäsenenä projektissa, jolle JU on myöntänyt resursseja.
 
-Billing on LUMI differs from Mahti. The consumption of billing units (BUs) depends for example on which partition you are running on, as well as on whether you are using CPU, GPU (LUMI-G/LUMI-D) or storage resources, thus amounting to three different billing currencies. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
+## Laskutus {#billing}
 
-## Sensitive data
+Laskutus LUMI:ssa eroaa Mahtista. Laskutusyksiköiden (BU) kulutus riippuu esimerkiksi siitä, millä osastolla suoritat, sekä siitä, käytätkö CPU-, GPU- (LUMI-G/LUMI-D) tai tallennusresursseja, mikä muodostaa kolme eri laskutusvaluuttaa. [Katso LUMI-dokumentaatiosta lisätietoja ja tarkat kaavat](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
 
-LUMI projects are not allowed to handle sensitive (personal) data at the moment!
+## Herkkä data {#sensitive-data}
 
-## Support channels
+LUMI-projektit eivät saa käsitellä herkkiä (henkilökohtaisia) tietoja tällä hetkellä!
 
-The main channel for LUMI support is to [contact the LUMI User Support Team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/).
+## Tukikanavat {#support-channels}
+
+LUMI-tuen pääkanava on [ottaa yhteyttä LUMI:n käyttäjätukitiimiin (LUST)](https://lumi-supercomputer.eu/user-support/need-help/).

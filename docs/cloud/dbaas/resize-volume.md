@@ -1,61 +1,59 @@
-# Resize database instance volume
+# Muuta tietokanta-instanssin tilavuuden kokoa {#resize-database-instance-volume}
 
-When you first create a database instance, you specify the size of the volume the instance has in use. If you later on notice that the size is not enough, you can resize the volume either from the web interface or from the CLI. Note that you can only increase the size of the volume, not decrease.  
+Kun luot tietokanta-instanssin, määrität sen käytössä olevan tilavuuden koon. Jos myöhemmin huomaat, että koko ei riitä, voit muuttaa tilavuuden kokoa joko verkkokäyttöliittymästä tai CLI:stä. Huomaa, että voit vain kasvattaa tilavuuden kokoa, etkä pienentää sitä.
 
-## Precautions  
+## Varotoimet {#precautions}
 
-Resizing the volume should not affect your data, but you can make a backup of your instance manually before resizing to prevent any data loss.
+Tilavuuden koon muuttamisen ei pitäisi vaikuttaa tietoihisi, mutta voit tehdä varmuuskopion instanssistasi manuaalisesti ennen koon muuttamista tietojen katoamisen estämiseksi.
 
-See the steps to make `manual backups` in [Backups](backups.md).
+Katso ohjeet `manuaalisten varmuuskopioiden` tekemiseen [Varmuuskopiot](backups.md).
 
-## Resize volume from the Web interface
+## Muuta tilavuuden kokoa verkkokäyttöliittymässä {#resize-volume-from-the-web-interface}
 
-1. In the column on the left hand side you can go to `Database` -> `Instances` and locate the instance you want to resize the volume of.  
+1. Vasemmassa reunassa olevasta sarakkeesta voit siirtyä kohtaan `Tietokanta` -> `Instanssit` ja etsiä instanssin, jonka tilavuuden kokoa haluat muuttaa.
 
-2. On the right hand side of the select row, next to Create Backup -button, press the `arrow icon` to open up a drop-down list, and select `Resize Volume`.
+2. Valitun rivin oikeassa reunassa, luo varmuuskopio -painikkeen vieressä, paina `nuolikuvaketta` avataksesi pudotusvalikon ja valitse `Muuta tilavuuden kokoa`.
 
-    ![Select 'Resize volume'](../img/cloud_dbaas_resize_volume_1.png "Resize volume")
+   ![Valitse 'Muuta tilavuuden kokoa'](../img/cloud_dbaas_resize_volume_1.png "Muuta tilavuuden kokoa")
 
+3. Siellä voit määrittää tietokanta-instanssin `uuden koon` GB:na.  
+Huomaa, että uuden arvon on oltava suurempi kuin nykyinen tilavuuden koko.
 
-3. From there you can specify the `new size` for the database instance in GB.  
-Note that the new value must be greater than the existing volume size.
+4. Vahvista muutos painikkeella `Muuta tietokannan tilavuutta`.
 
-4. Confirm the change with `Resize Database Volume`.
+   ![Valitse 'Muuta tilavuuden kokoa'](../img/cloud_dbaas_resize_volume_2.png "Muuta tilavuuden kokoa")
 
-    ![Select 'Resize volume'](../img/cloud_dbaas_resize_volume_2.png "Resize volume")
+5. Muutoksen pitäisi kestää 1-2 minuuttia. Jos verkkokäyttöliittymä ei automaattisesti päivitä tilaa `Muutetaan` tilaan `Aktiivinen`, yritä ladata sivu uudelleen.
 
-5. The change should take 1-2 minutes. If the web interface does not automatically update the status from `Resizing` to `Active`, try to reload the page.  
+   Jos tila on `Muutetaan` yli 5 minuuttia, tarkista alla oleva kohta `Minulla on ongelmia tilavuuden koon muuttamisessa`.
 
-    If the status is `Resizing` for over 5 minutes, check `I'm having problems with resizing the volume` below.  
+## Muuta tilavuuden kokoa CLI:stä {#resize-volume-from-the-cli}
 
-## Resize volume from the CLI
-
-1. Locate the `instance ID` for the instance you want to resize the volume of:
+1. Etsi instanssista `instanssin ID`, jonka tilavuuden kokoa haluat muuttaa:
 
     ```sh
     openstack database instance list
     ```
 
-2. `Resize the volume` of the instance:
+2. `Muuta instanssin tilavuuden kokoa`:
 
     ```sh
     openstack database instance resize volume $INSTANCE_ID $NEW_VOLUME_SIZE
     ```
 
-    for example:  
+    Esimerkiksi:  
     openstack database instance resize volume `f37a8ea6-5ed7-4982-8a71-9131756f04ae` `5`
 
-3. After 1-2 minutes, the `status` of the instance should be `ACTIVE`:  
+3. 1-2 minuutin kuluttua instanssin `tila` pitäisi olla `AKTIIVINEN`:  
 
     ```sh
-        openstack database instance show $INSTANCE_ID
-    ```  
+    openstack database instance show $INSTANCE_ID
+    ```
 
-    If the status is `Resizing` for over 5 minutes, check `I'm having problems with resizing the volume` below.  
+    Jos tila on `Muutetaan` yli 5 minuuttia, tarkista alla oleva kohta `Minulla on ongelmia tilavuuden koon muuttamisessa`.
 
-## I'm having problems with resizing the volume  
+## Minulla on ongelmia tilavuuden koon muuttamisessa {#im-having-problems-with-resizing-the-volume}
 
-### Status stuck on RESIZING  
+### Tila juuttunut MUUTETAAN-tilaan {#status-stuck-on-resizing}
 
-Make sure you have tried to `reload the web interface page` or ran `openstack database instance show $INSTANCE_ID` command after 5 minutes of resizing the volume.
-If the status of instance is `RESIZING` after 5 minutes, please [contact us](../../support/contact.md).  
+Varmista, että olet yrittänyt `ladata verkkokäyttöliittymäsivu uudelleen` tai suorittanut `openstack database instance show $INSTANCE_ID` komennon 5 minuutin kuluttua tilavuuden koon muuttamisesta. Jos instanssin tila on `MUUTETAAN` 5 minuutin kuluttua, ole hyvä ja [ota meihin yhteyttä](../../support/contact.md).

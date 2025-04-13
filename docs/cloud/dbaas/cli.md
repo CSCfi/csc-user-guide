@@ -1,230 +1,232 @@
-# Using DBaaS with CLI
 
-The DBaaS is using OpenStack on the backend, which means that you can use the OpenStack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command-line it does not mean that you are connected to Pouta. This is especially important if you are automating things in both Pouta and DBaaS since you need to connect to different Keystone endpoints.
+# DBaaS:n käyttäminen komentoriviltä {#using-dbaas-with-cli}
 
-## Getting started
+DBaaS käyttää taustapuolella OpenStackia, mikä tarkoittaa, että voit käyttää OpenStackin komentorivityökaluja samalla tavalla kuin Poutassa. On tärkeää huomata, että vaikka Pouta käyttää samaa komentoriviä, se ei tarkoita, että olisit yhteydessä Poutaan. Tämä on erityisen tärkeää, jos automatisoit asioita sekä Poutassa että DBaaS:ssa, koska sinun on yhdistettävä eri Keystone-päätepisteisiin.
 
-1. First make sure that you have `python3` installed.
-2. Then, install the command-line tools:
+## Alkuun pääseminen {#getting-started}
 
-	```sh
-	pip3 install python-openstackclient python-troveclient
-	```
+1. Varmista ensin, että `python3` on asennettuna.
+2. Asenna sitten komentorivityökalut:
 
-3. You need to download your `openrc` file from [Pukki](https://pukki.dbaas.csc.fi) and choose the correct project number. Then, go to `API Access` and `Download OpenStack RC file` and choose `OpenStack RC file`.
-4. Once you have downloaded the file you can source it by running:
+   ```sh
+   pip3 install python-openstackclient python-troveclient
+   ```
 
-	```sh
-	source $FILENAME
-	```
+3. Sinun on ladattava `openrc`-tiedostosi [Pukista](https://pukki.dbaas.csc.fi) ja valittava oikea projektinumero. Siirry sitten kohtaan `API Access` ja `Download OpenStack RC file` ja valitse `OpenStack RC file`.
+4. Kun olet ladannut tiedoston, voit lähteä liikkeelle seuraavalla komennolla:
 
-5. After that you should be able to verify that it works by listing available datastores (available types of databases):
+   ```sh
+   source $FILENAME
+   ```
 
-	```sh
-	openstack datastore list
-	```
+5. Tämän jälkeen sinun pitäisi pystyä varmistamaan, että se toimii listaamalla käytettävissä olevat tietovarastot (saatavilla olevat tietokantatyypit):
 
-Remember that you can use the help command as `openstack help database` and the flag `--help` to find out more about the different commands.
+   ```sh
+   openstack datastore list
+   ```
 
-## Creating a database instance
+Muista, että voit käyttää apukomentoa `openstack help database` ja lippua `--help` saadaksesi lisätietoja eri komennoista.
 
-1. Make sure that you have sourced the openrc file that you downloaded from [Pukki](https://pukki.dbaas.csc.fi).
-2. Before creating a database it is a good idea to know what kind of settings you want to use. These are the main things that you want to collect:
-	* The `name` of your new database instance. In this example we will use `my_database_instance`.
-	* What `databases` you want to create. In this example we will just use `my_first_database`.
-	* `IP addresses` from where you would like to access your database. You can usually find out your IP by googling what is my IP or using a homepage like this from CLI:
+## Tietokanta-instanssin luominen {#creating-a-database-instance}
 
-		```sh
-		curl ifconfig.me
-		```
+1. Varmista, että olet käyttänyt lähdetettä openrc tiedostolle, jonka latasit [Pukista](https://pukki.dbaas.csc.fi).
+2. Ennen tietokannan luomista on hyvä idea tietää, millaisia asetuksia haluat käyttää. Tässä ovat pääasiat, jotka haluat kerätä:
+   - Uuden tietokanta-instancesi `name`. Tässä esimerkissä käytämme nimeä `my_database_instance`.
+   - Mitä `databases` haluat luoda. Tässä esimerkissä käytämme `my_first_database`.
+   - `IP addresses`, mistä haluaisit käyttää tietokantaasi. Voit yleensä selvittää IP-osoitteesi googlaamalla "mikä on IP-osoitteeni" tai käyttämällä tällaista sivustoa komentoriviltä:
 
-	* `Flavor`, for example `standard.small` . You can list available flavors with:
+     ```sh
+     curl ifconfig.me
+     ```
 
-		```sh
-		openstack database flavor list
-		```
+   - `Flavor`, esimerkiksi `standard.small`. Voit luetella käytettävissä olevat maut seuraavasti:
 
-	* `Datastore`, suggestion: `postgresql`. You can find datastores with:
+     ```sh
+     openstack database flavor list
+     ```
 
-		```sh
-		openstack datastore list
-		```
+   - `Datastore`, ehdotus: `postgresql`. Voit löytää tietovarastoja seuraavasti:
 
-	* `datastore version`. This optional flag depends on the datastore you have chosen. You can safely omit it if you're fine with the default datastore version, which should always be the latest one available. You can find out the available datastore versions with:
+     ```sh
+     openstack datastore list
+     ```
 
-		```sh
-		openstack datastore version list postgresql
-		```
+   - `datastore version`. Tämä valinnainen lippu riippuu valitusta tietovarastosta. Voit turvallisesti jättää sen pois, jos olet tyytyväinen oletustietovaraston versioon, joka on aina uusin saatavilla oleva. Voit selvittää käytettävissä olevat tietovarastoversiot seuraavasti:
 
-	* How large `volume` in GiB you want to use to store your database. If this is your first time testing DBaaS you will get by with `1` GiB.
+     ```sh
+     openstack datastore version list postgresql
+     ```
 
-	* What `username` and `password` you want to use. In this example we will use `databaseuser` and `myPassword568`.
+   - Kuinka suuri `volume` GiB:ssä haluat käyttää tietokantasi tallentamiseen. Jos tämä on ensimmäinen kertasi testata DBaaS:ää, selviydyt yhdellä `1` GiB:llä.
 
-3. Once you've gathered the data you want to use to create your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP`. You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses. By default the database instance are created without any `allowed-cidr` which means that you won't be able to connect to your database.
+   - Mitä `username` ja `password` haluat käyttää. Tässä esimerkissä käytämme `databaseuser` ja `myPassword568`.
 
-	```sh
-	openstack database instance create my_database_instance \
-	--flavor standard.small \
-	--databases my_first_database \
-	--users databaseuser:myPassword568 \
-	--datastore postgresql \
-	--datastore-version 17.0 \
-	--is-public \
-	--size 1 \
-	--allowed-cidr ${MY_IP}/32
-	```
+3. Kun olet kerännyt tiedot, voit luoda tietokannan seuraavalla komennolla. Päivitä muuttujat tarpeesi mukaan, erityisesti `MY_IP`. Voit myös käyttää lippua `--allowed-cidr` useita kertoja lisätäksesi useita IP-osoitteita. Oletuksena luodut tietokanta-instanssit eivät sisällä yhtään `allowed-cidr`, mikä tarkoittaa, ettet voi yhdistää tietokantaasi.
 
-	If you have any issues don't hesitate using the `openstack database instance create --help` command.
+   ```sh
+   openstack database instance create my_database_instance \
+   --flavor standard.small \
+   --databases my_first_database \
+   --users databaseuser:myPassword568 \
+   --datastore postgresql \
+   --datastore-version 17.0 \
+   --is-public \
+   --size 1 \
+   --allowed-cidr ${MY_IP}/32
+   ```
 
-4. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have received a `HEALTHY` state the public IP should be visible. Note that it will show you a private and public IP, you are only interested in the public IP. The following command will show you info about the instance:
+   Jos sinulla on ongelmia, älä epäröi käyttää komentoa `openstack database instance create --help`.
 
-	```sh
-	openstack database instance show $INSTANCE_ID
-	```
+4. Nyt sinun on odotettava muutama minuutti, kunnes tietokanta-instanssit on luotu ja ne ovat saaneet julkisen IP:n. Kun instanssille on saatu `HEALTHY`-tila, julkinen IP pitäisi olla näkyvissä. Huomaa, että se näyttää sinulle yksityisen ja julkisen IP:n, olet kiinnostunut vain julkisesta IP:stä. Seuraava komento näyttää tietoja instanssista:
 
-5. If you are not happy with the firewalls (`--allowed-cidr`) you can update them with:
+   ```sh
+   openstack database instance show $INSTANCE_ID
+   ```
 
-	```sh
-	openstack database instance update $INSTANCE_ID --allowed-cidr $NEW_IP_RANGE
-	```
+5. Jos et ole tyytyväinen palomuureihin (`--allowed-cidr`), voit päivittää ne seuraavasti:
 
-It is a good idea to check out what the command options are with `openstack database instance update --help`.
+   ```sh
+   openstack database instance update $INSTANCE_ID --allowed-cidr $NEW_IP_RANGE
+   ```
 
-More information about how to connect to databases can be found in the `Databases` section in the left hand side navigation.
+On hyvä idea tarkistaa, mitä komentovaihtoehtoja on `openstack database instance update --help`.
 
-### Restoring from backups
+Lisätietoja siitä, miten yhdistää tietokantoihin, löytyy navigaation vasemmalta puolelta kohdasta `Databases`.
 
-You can use the same command as when creating a backup, but you need to use the flag and the backup id you want to use for restoring the backup, `--backup $BACKUP_ID`.
+### Palauttaminen varmuuskopioista {#restoring-from-backups}
 
-###  Additional useful commands
+Voit käyttää samaa komentoa kuin varmuuskopion luomisessa, mutta sinun on käytettävä lippua ja sitä varmuuskopiointitunnusta, jonka haluat käyttää palauttamiseen, `--backup $BACKUP_ID`.
 
-#### Create additional database in database instance
+### Lisähyödylliset komennot {#additional-useful-commands}
 
-This is similar to do a `CREATE DATABASE db_name;`
+#### Luodaan ylimääräinen tietokanta tietokantainsanssiin {#create-additional-database-in-database-instance}
+
+Tämä on samanlaista kuin `CREATE DATABASE db_name;`
 
 ```
 openstack database db create $INSTANCE_ID $DB_NAME
 ```
 
-#### Adding users to a database
+#### Lisää käyttäjiä tietokantaan {#adding-users-to-a-database}
 
-List existing users in the database:
+Listaa olemassa olevat käyttäjät tietokannassa:
 
 ```
 openstack database user list $INSTANCE_ID
 ```
 
-Create a new user (`--databases` is optional):
+Luo uusi käyttäjä (`--databases` on valinnainen):
 
 ```
 openstack database user create $INSTANCE_ID $USER_NAME $PASSWORD --databases $DATABASE_NAME
 ```
 
-### Removing users from a database
+### Poistetaan käyttäjiä tietokannasta {#removing-users-from-a-database}
 
-Deleting an user can be done by running:
+Käyttäjän poistaminen voidaan tehdä suorittamalla:
 
 ```
 openstack database user delete $INSTANCE_ID $USER_NAME
 ```
 
-#### Delete instance
+#### Poista instanssi {#delete-instance}
 
-Figure out what database instance you would like to delete:
+Selvitä, mikä tietokantainstanssi haluat poistaa:
 
 ```
 openstack database instance list
 ```
 
-Delete the instances:
+Poista instanssit:
 
 ```
 openstack database instance delete $INSTANCE_ID
 ```
 
-#### Supported functionality
+#### Tuetut toiminnot {#supported-functionality}
 
-These are the available commands at the moment:
+Nämä ovat käytettävissä olevat komennot tällä hetkellä:
 
-| Openstack command | status | Comments |
+| Openstack-komento | tila | Kommentit |
 |--- |:---:|:---|
-| openstack database backup create 			| Supported	|	All flags are not tested |
-| openstack database backup delete 			| Supported 	|       Might be removed in future |
-| openstack database backup execution delete 		| Not available | 	Not supported in DBaaS |
-| openstack database backup list 			| Supported	||
-| openstack database backup list instance 		| Supported 	||
-| openstack database backup show 			| Supported	||
-| openstack database backup strategy create 		| Not available	|	Only available for admins|
-| openstack database backup strategy delete 		| Not available	|	Only available for admins|
-| openstack database backup strategy list 		| Not available	| 	Only available for admins|
-| openstack database cluster create 			| Not available | 	Not investigated yet|
-| openstack database cluster delete 			| Not available | 	Not investigated yet|
-| openstack database cluster force delete 		| Not available | 	Not investigated yet|
-| openstack database cluster grow 			| Not available | 	Not investigated yet|
-| openstack database cluster list 			| Not available | 	Not investigated yet|
-| openstack database cluster list instances 		| Not available | 	Not investigated yet|
-| openstack database cluster modules 			| Not available | 	Not investigated yet|
-| openstack database cluster reset status 		| Not available | 	Not investigated yet|
-| openstack database cluster show 			| Not available | 	Not investigated yet|
-| openstack database cluster shrink 			| Not available | 	Not investigated yet|
-| openstack database cluster upgrade 			| Not available | 	Not investigated yet|
-| openstack database configuration attach 		| Supported     ||
-| openstack database configuration create 		| Supported     ||
-| openstack database configuration default 		| Supported     ||
-| openstack database configuration delete 		| Supported     ||
-| openstack database configuration detach 		| Supported     ||
-| openstack database configuration instances 		| Supported     ||
-| openstack database configuration list 		| Supported     ||
-| openstack database configuration parameter list	| Supported     ||
-| openstack database configuration parameter set 	| Supported     ||
-| openstack database configuration parameter show 	| Supported     ||
-| openstack database configuration set 			| Supported     ||
-| openstack database configuration show 		| Supported     ||
-| openstack database db create 				| Supported 	||
-| openstack database db delete 				| Supported 	||
-| openstack database db list 				| Supported 	||
-| openstack database flavor list 			| Supported 	||
-| openstack database flavor show 			| Supported 	||
-| openstack database instance create 			| Supported 	||
-| openstack database instance delete 			| Supported 	||
-| openstack database instance detach 			| Not available ||
-| openstack database instance eject 			| Not available ||
-| openstack database instance force delete 		| Only admins 	||
-| openstack database instance list 			| Supported 	||
-| openstack database instance promote 			| Not available ||
-| openstack database instance reboot 			| Only admins 	||
-| openstack database instance rebuild 			| Only admins 	||
-| openstack database instance reset status 		| Only admins 	||
-| openstack database instance resize flavor 		| Supported     |	Be aware that this causes downtime |
-| openstack database instance resize volume 		| Not supported	| 	Does not work without admin intervention |
-| openstack database instance restart 			| Supported 	|	Restart the database container - limited benefit |
-| openstack database instance show 			| Supported 	||
-| openstack database instance update 			| Supported 	|	Subset of the flags are supported. Flags that are supported: --name , --allowed-cidr|
-| openstack database instance upgrade 			| Supported 	| 	Upgrading the database instance. This command will cause downtime. |
-| openstack database limit list 			| Supported 	||
-| openstack database log list 				| Supported     |	Allows to view instance logs. This API is unstable and might get changed, it does not do the same thing as upstream |
-| openstack database log save 				| Not available ||
-| openstack database log set 				| Not available ||
-| openstack database log show 				| Not available ||
-| openstack database log tail 				| Not available ||
-| openstack database quota show 			| Only admins 	||
-| openstack database quota update 			| Only admins 	||
-| openstack database root disable 			| Supported 	||
-| openstack database root enable 			| Supported 	|	For most cases root enable is not necessary but if you want to do advanced permission configuration it is probably necessary. |
-| openstack database root show 				| Supported 	||
-| openstack database user create 			| Supported 	||
-| openstack database user delete 			| Supported 	||
-| openstack database user grant access 			| Supported 	||
-| openstack database user list 				| Supported 	||
-| openstack database user revoke access 		| Supported 	||
-| openstack database user show 				| Supported 	||
-| openstack database user show access 			| Supported 	||
-| openstack database user update attributes 		| Supported 	||
-| openstack datastore delete  				| Only admins 	||
-| openstack datastore list 				| Supported 	||
-| openstack datastore show 				| Supported 	||
-| openstack datastore version create 			| Only admins 	||
-| openstack datastore version delete 			| Only admins 	||
-| openstack datastore version list 			| Supported	||
-| openstack datastore version set 			| Only admins 	||
-| openstack datastore version show 			| Supported	||
+| openstack database backup create | Tuettu | Kaikkia lippuja ei ole testattu |
+| openstack database backup delete | Tuettu | Saattaa poistua tulevaisuudessa |
+| openstack database backup execution delete | Ei saatavilla | Ei tuettu DBaaS:ssä |
+| openstack database backup list | Tuettu ||
+| openstack database backup list instance | Tuettu ||
+| openstack database backup show | Tuettu ||
+| openstack database backup strategy create | Ei saatavilla | Vain ylläpitäjille käytettävissä |
+| openstack database backup strategy delete | Ei saatavilla | Vain ylläpitäjille käytettävissä |
+| openstack database backup strategy list | Ei saatavilla | Vain ylläpitäjille käytettävissä |
+| openstack database cluster create | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster delete | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster force delete | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster grow | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster list | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster list instances | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster modules | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster reset status | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster show | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster shrink | Ei saatavilla | Ei vielä tutkittu |
+| openstack database cluster upgrade | Ei saatavilla | Ei vielä tutkittu |
+| openstack database configuration attach | Tuettu ||
+| openstack database configuration create | Tuettu ||
+| openstack database configuration default | Tuettu ||
+| openstack database configuration delete | Tuettu ||
+| openstack database configuration detach | Tuettu ||
+| openstack database configuration instances | Tuettu ||
+| openstack database configuration list | Tuettu ||
+| openstack database configuration parameter list | Tuettu ||
+| openstack database configuration parameter set | Tuettu ||
+| openstack database configuration parameter show | Tuettu ||
+| openstack database configuration set | Tuettu ||
+| openstack database configuration show | Tuettu ||
+| openstack database db create | Tuettu ||
+| openstack database db delete | Tuettu ||
+| openstack database db list | Tuettu ||
+| openstack database flavor list | Tuettu ||
+| openstack database flavor show | Tuettu ||
+| openstack database instance create | Tuettu ||
+| openstack database instance delete | Tuettu ||
+| openstack database instance detach | Ei saatavilla ||
+| openstack database instance eject | Ei saatavilla ||
+| openstack database instance force delete | Vain ylläpitäjille ||
+| openstack database instance list | Tuettu ||
+| openstack database instance promote | Ei saatavilla ||
+| openstack database instance reboot | Vain ylläpitäjille ||
+| openstack database instance rebuild | Vain ylläpitäjille ||
+| openstack database instance reset status | Vain ylläpitäjille ||
+| openstack database instance resize flavor | Tuettu | Huomaa, että tämä aiheuttaa seisokkia |
+| openstack database instance resize volume | Ei tuettu | Ei toimi ilman ylläpidon väliintuloa |
+| openstack database instance restart | Tuettu | Uudelleenkäynnistää tietokantasäiliön - rajallinen hyöty |
+| openstack database instance show | Tuettu ||
+| openstack database instance update | Tuettu | Osa lipuista on tuettu. Tuetut liput ovat: --name , --allowed-cidr|
+| openstack database instance upgrade | Tuettu | Päivittää tietokanta-instanssin. Tämä komento aiheuttaa seisokkia. |
+| openstack database limit list | Tuettu ||
+| openstack database log list | Tuettu | Mahdollistaa instanssilokien tarkastelun. Tämä API on epävakaa ja saattaa muuttua, se ei tee samaa kuin ylävirran |
+| openstack database log save | Ei saatavilla ||
+| openstack database log set | Ei saatavilla ||
+| openstack database log show | Ei saatavilla ||
+| openstack database log tail | Ei saatavilla ||
+| openstack database quota show | Vain ylläpitäjille ||
+| openstack database quota update | Vain ylläpitäjille ||
+| openstack database root disable | Tuettu ||
+| openstack database root enable | Tuettu | Useimmissa tapauksissa root enable ei ole tarpeen, mutta jos haluat tehdä kehittyneitä lupakonfiguraatioita, se on todennäköisesti tarpeen. |
+| openstack database root show | Tuettu ||
+| openstack database user create | Tuettu ||
+| openstack database user delete | Tuettu ||
+| openstack database user grant access | Tuettu ||
+| openstack database user list | Tuettu ||
+| openstack database user revoke access | Tuettu ||
+| openstack database user show | Tuettu ||
+| openstack database user show access | Tuettu ||
+| openstack database user update attributes | Tuettu ||
+| openstack datastore delete | Vain ylläpitäjille ||
+| openstack datastore list | Tuettu ||
+| openstack datastore show | Tuettu ||
+| openstack datastore version create | Vain ylläpitäjille ||
+| openstack datastore version delete | Vain ylläpitäjille ||
+| openstack datastore version list | Tuettu ||
+| openstack datastore version set | Vain ylläpitäjille ||
+| openstack datastore version show | Tuettu ||
+

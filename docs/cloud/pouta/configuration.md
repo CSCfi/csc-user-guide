@@ -1,8 +1,8 @@
-# Configuration    
+# Konfiguraatio {#configuration}
 
-- [VM lifecycle & saving BUs](vm-lifecycle.md)
-- [Virtual machine flavors and Billing Unit rates](vm-flavors-and-billing.md)
-- [Accounting principles and quotas](accounting.md)
-- [Images](images.md)
-- [Networking](networking.md)
-- [Storage](storage.md)
+- [VM elinkaari & BUn tallennus](vm-lifecycle.md)
+- [Virtuaalikoneiden maut ja Billing Unit -hinnat](vm-flavors-and-billing.md)
+- [Kirjanpitoperiaatteet ja kiintiöt](accounting.md)
+- [Kuvat](images.md)
+- [Verkko](networking.md)
+- [Tallennus](storage.md)

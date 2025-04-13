@@ -1,118 +1,123 @@
+```yaml
 ---
 search:
   boost: 4
 ---
+```
 
-# Technical details about Mahti
+# Mahti-tekniset tiedot
 
-## Compute nodes
+## Laskentasolmut {#compute-nodes}
 
-**Mahti** has a total of **1404** CPU nodes and **24** GPU nodes. The
-theoretical peak performance is 7.5 petaflops for the CPU nodes and 2.0
-petaflops for the GPU nodes, in total 9.5 petaflops.
+**Mahti**:lla on yhteensä **1404** CPU-solmua ja **24** GPU-solmua.
+Teoreettinen huippusuorituskyky on 7,5 petaflopsia CPU-solmuille ja 2,0
+petaflopsia GPU-solmuille, yhteensä 9,5 petaflopsia.
 
-Both CPU and GPU nodes have two AMD Rome 7H12 CPUs with 64 cores each,
-making the total core count about 180 000. The CPUs are based on AMD Zen 2
-architecture, supporting the AVX2 vector instruction set, and run at 2.6 GHz
-base frequency (max boost up to 3.3 GHz). The CPUs support simultaneous
-multithreading (SMT) where each core can run two hardware threads. When SMT is
-enabled, the total thread count per node is 256 threads.
+Sekä CPU- että GPU-solmuissa on kaksi AMD Rome 7H12 CPU:ta, joissa kummassakin
+on 64 ydintä, mikä tekee kokonaisyhdinmääräksi noin 180 000. CPU:t perustuvat
+AMD Zen 2 -arkkitehtuuriin, joka tukee AVX2-vektori-käskykantaa, ja ne toimivat
+2,6 GHz perustaajuudella (maksimivirkistys jopa 3,3 GHz). CPU:t tukevat
+samanaikaista monisäikeistystä (SMT), jossa jokainen ydin voi ajaa kahta
+laitteistosäiettä. Kun SMT on käytössä, kokonaissäiemäärä per solmu on 256
+säiettä.
 
-The CPU nodes are equipped with 256 GB of memory and the vast majority
-have no local disks. There are in total 60 nodes that are equipped
-with a local 3.8 TB NVMe drive. These are available in the `small` and
-`interactive` partitions.
+CPU-solmuissa on 256 GB muistia, ja valtaosalla niistä ei ole paikallisia
+levyjä. Yhteensä 60 solmussa on paikallinen 3,8 TB NVMe-levyasema. Nämä ovat
+saatavilla `small` ja `interactive` osioissa.
 
-The GPU nodes are equipped with 512 GB of memory and a local 3.8 TB NVMe drive.
-They also have four Nvidia Ampere A100 GPUs. In a subset of the nodes the A100
-GPUs have been split into multiple smaller GPUs with a fraction of the compute
-and memory capacity of the A100 GPUs. These are useful for interactive work,
-courses and for code development.
+GPU-solmuissa on 512 GB muistia ja paikallinen 3,8 TB NVMe-levyasema. Niissä
+on myös neljä Nvidia Ampere A100 GPU:ta. Osassa solmuista A100 GPU:t on jaettu
+useampiin pienempiin GPU-idioihin, joiden laskenta- ja muistiteho on
+murto-osan A100:n tehosta. Nämä ovat hyödyllisiä interaktiiviseen työskentelyyn,
+kursseille ja koodikehitykselle.
 
-### NUMA configuration
+### NUMA-konfiguraatio {#numa-configuration}
 
-Mahti node has a highly hierarchical structure. There are two sockets in the
-node, each containing a single CPU and memory DIMMs. All the memory within the
-node is shared, but memory performance depends on the distance of the core to
-the memory. In order to provide slightly increased memory performance we run
-each CPU in NPS4 (NUMA per socket 4) mode that further splits each CPU into 4
-NUMA domains. Each NUMA domain has 16 cores, and two memory controllers with 32
-GiB of memory in total. Core 0 runs threads 0 and 128, core 1 threads 1 and 129
-and so on. The figure below shows how the threads are distributed over each of
-the cores and NUMA nodes.
+Mahti-solmulla on erittäin hierarkkinen rakenne. Solmussa on kaksi kantaa,
+joista jokaisessa on yksi CPU ja muistimoduulit. Kaikki muisti solmussa on
+jaettua, mutta muistin suorituskyky riippuu ytimen ja muistin välisestä
+etäisyydestä. Jotta muistin suorituskykyä saataisiin hieman parannettua,
+ajamme jokaisen CPU:n NPS4 (NUMA per socket 4) -tilassa, joka jakaa jokaisen
+CPU:n neljään NUMA-alueeseen. Jokaisessa NUMA-alueessa on 16 ydintä ja kaksi
+muistiohjainta, joissa yhteensä 32 GiB muistia. Ydin 0 ajaa säikeet 0 ja 128,
+ydin 1 säikeet 1 ja 129, ja niin edelleen. Alla oleva kuva osoittaa, miten
+säikeet jakautuvat jokaisessa ytimessä ja NUMA-solmuissa.
 
-!["NUMA configuration"](../img/mahti_numa.png)
+!["NUMA-konfiguraatio"](../img/mahti_numa.png)
 
-### Cores, core complexes and compute dies
+### Ytimet, ydinkompleksit ja laskentaytimet {#cores-core-complexes-and-compute-dies}
 
-The basic building block of the processor is a core, which are then grouped
-into core complexes (CCXs), and furthermore into compute dies (CCDs).
+Suoritinyksikön perusosa on ydin, jotka sitten ryhmitellään ydinkomplekseiksi
+(CCX), ja edelleen laskentaytimiin (CCD).
 
-Each core has 32 KiB of L1 data cache and 32
-KiB of L1 instruction cache, the L2 cache is also private per core and each
-core has 512 KiB L2 cache. Each core has two FMA (fused multiply add) units,
-that operate on full 256 bit vectors, meaning operations in 8 single precision
-floats or 4 double precision floats can be carried out by each unit each clock
-cycle. Thus, at best 2 (multiply+add) x 2 (two units) x 4 (vector width) = 16
-double precision floating point operations per cycle.
+Jokaisella ytimellä on 32 KiB L1-datavälimuistia ja 32 KiB L1
+käskyvälimuistia, L2-välimuisti on myös yksityinen per ydin ja jokaisella
+ytimellä on 512 KiB L2-välimuistia. Jokaisella ytimellä on kaksi FMA
+(fused multiply-add) yksikköä, jotka käyttävät kokonaisia 256-bittisiä
+vektoreita, mikä tarkoittaa, että operaatioita 8 yksinkertaisella tarkkuudella
+olevaa liukuluvun tai 4 kaksoistarkkuudella olevaa liukuluvun kanssa voidaan
+suorittaa kullekin yksikölle jokaisella kellojaksolla. Näin ollen, parhaimmillaan
+2 (kerro+lisää) x 2 (kaksi yksikköä) x 4 (vektorin leveys) = 16 kaksoistarkkuuden
+liukulukulaskuja per jakso.
 
-Moving up from the core, 4 cores are grouped together into a core
-complex (CCX), within the CCX the cores share the same 16 MiB of L3 cache. Two
-of these CCX parts are then combined to form a compute die (CCD).
+Ydimen tasolta ylöspäin 4 ydintä on ryhmitelty yhteen ydinkompleksiin (CCX),
+CCX:ssä ytimillä on yhteinen 16 MiB L3-välimuisti. Kaksi tällaista CCX-osaa
+yhdistetään sitten laskentaytimeksi (CCD).
 
-!["CCD configuration"](../img/mahti_ccd.png)
+!["CCD-konfiguraatio"](../img/mahti_ccd.png)
 
-Each processor consists of 8 compute dies and an additional I/O die that houses
-the memory controllers and PCI-e controller. Each node is then made up of two
-of these processors and one 200gbit HDR network adapter.
+Jokainen suorittimen koostuu kahdeksasta laskentaytimestä ja yhdestä ylimääräisestä
+I/O-ytimestä, joka tallettaa muistiohjaimet ja PCI-e-ohjaimen. Kukin solmu
+koostuu kahdesta tällaisesta prosessorista ja yhdestä 200 gbit HDR
+verkkosovittimesta.
 
-!["Node configuration"](../img/mahti_node.png)
+!["Solmukonfiguraatio"](../img/mahti_node.png)
 
-For an in depth description of the Zen 2 core you can read further on it at
-[WikiChip](https://en.wikichip.org/wiki/amd/microarchitectures/zen_2)
+Zen 2 -ytimen perusteellinen kuvaus on luettavissa
+[WikiChipissä](https://en.wikichip.org/wiki/amd/microarchitectures/zen_2)
 
-## Network
+## Verkko {#network}
 
-The interconnect is based on Mellanox HDR InfiniBand and each node is connected
-to the network with a single 200 Gbps HDR link. The network topology is a
-dragonfly+ topology. The topology consists of multiple groups of nodes, each of
-which is internally connected with a fat tree topology, these fat trees are
-then connected to each other using all to all links.
+Väyläverkko perustuu Mellanox HDR InfiniBandiin, ja jokainen solmu on yhdistetty
+verkkoon yhdellä 200 Gbps HDR-liitännällä. Verkkotopologia on dragonfly+
+topologia. Topologia koostuu useista solmuryhmistä, joista jokainen on
+sisäisesti yhdistetty paksukaaviopuuhun, nämä puita yhdistetään toisiinsa
+all-to-all linkeillä.
 
-!["Simplified dragonfly+ toppology"](../img/mahti_df_ex.png)
+!["Yksinkertaistettu dragonfly+ topologia"](../img/mahti_df_ex.png)
 
-In Mahti there are 234 nodes in each dragonfly group and the internal fat tree
-has a blocking factor of 1.7:1, with 20 or 18 nodes connected per leaf switch
-and each leaf switch has 12 links going to the spine switch in the group, all
-links are 200 Gbps links. There are in total 6 groups, and between the groups
-there is fully non-blocking all-to-all connectivity, with 5 200 Gbps links
-going from each spine switch to one spine switch in every other group.
+Mahtissa on 234 solmua kussakin dragonfly-ryhmässä ja sisäinen paksukaavio-puu
+on tukostoiminen suhteessa 1,7:1, jossa 20 tai 18 solmua on yhdistetty
+lehtikytkimeen, ja jokaisesta lehtikytkimestä on 12 linkkiä ryhmän selkäkytkimeen,
+kaikki linkit ovat 200 Gbps linkkejä. Yhteensä on 6 ryhmää, ja ryhmien välillä
+on täysin tukostoiminen all-to-all-yhteys, jossa 5 200 Gbps linkkiä menee
+jokaisesta selkäkytkimestä yhteen selkäkytkimeen jokaisessa toisessa ryhmässä.
 
-!["Mahti dragonfly+ toppology"](../img/mahti_df.png)
+!["Mahti dragonfly+ topologia"](../img/mahti_df.png)
 
-## Storage
+## Tallennus {#storage}
 
-Mahti has a 8.7 PB Lustre parallel storage system providing space for
-[home](disk.md#home-directory), [project](disk.md#projappl-directory) and
-[scratch](disk.md#scratch-directory) storages.
+Mahtissa on 8,7 PB Lustre-rinnakkaisvarastointijärjestelmä, joka tarjoaa
+tilaa [kotihakemisto](disk.md#home-directory), [projekti](disk.md#projappl-directory) ja
+[työtila](disk.md#scratch-directory) tallennuksille.
 
-Current Lustre configuration for Mahti is:
+Nykyinen Lustre-konfiguraatio Mahtille on:
 
-| Storage area | # OSTs | # MDTs |
-|--------------|--------|--------|
-| home         |    8   |   1    |
-| projappl     |    8   |   1    |
-| scratch      |   24   |   2    |
+| Tallennusalue | # OST:t  | # MDT:t |
+|---------------|----------|---------|
+| home          |    8     |   1     |
+| projappl      |    8     |   1     |
+| scratch       |   24     |   2     |
 
-Please see [Lustre documentation](lustre.md) for the terminology.
+Katso [Lustre-dokumentaatio](lustre.md) terminologiaa varten.
 
-The `scratch` on Mahti can have better performance than the other storage
-areas, if your application and the data size is big enough, because of more
-OSTs and MDTs.
+`Scratch` Mahtissa voi tarjota parempaa suorituskykyä kuin muut
+tallennusalueet, jos sovelluksesi ja tiedostokokosi ovat riittävän suuria,
+koska siinä on enemmän OST- ja MDT-yksiköitä.
 
-The peak I/O performance for Mahti is around to 100 GB/sec for write and 115
-GB/sec for read. However, this performance was achieved on dedicated system
-with 64 compute nodes, which means around to 1.5 GB/sec per compute node. If
-more nodes are used or many jobs do significant I/O, then one does not achieve
-1.5 GB/sec. This is also the case if the I/O pattern of the application is not
-efficient.
+Mahtin huippu I/O-suorituskyky on noin 100 GB/s kirjoittamiselle ja 115
+GB/s lukemiselle. Tämä suorituskyky saavutettiin kuitenkin omistetussa
+järjestelmässä, jossa oli 64 laskentasolmua, mikä tarkoittaa noin 1,5 GB/s
+laskentasolmua kohden. Jos käytetään enemmän solmuja tai monet työt tekevät
+merkittävää I/O:ta, ei saavuteta 1,5 GB/s. Sama pätee, jos sovelluksen
+I/O-malli ei ole tehokas.

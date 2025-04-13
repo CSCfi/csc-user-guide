@@ -1,108 +1,51 @@
-# Containers & their Orchestration
+# Kontit ja niiden orkestrointi {#containers-their-orchestration}
 
-## Containers
+## Kontit {#containers}
 
-Containers are a technology based on operating system kernel features
-that allow the creation of isolated environments sharing a kernel.
-For example, container features make it possible to have several isolated root
-filesystems, network stacks and process trees that all use the same kernel.
-These isolated environments are similar in functionality to lightweight virtual
-machines, but there are some key differences between virtual machines and
-containers. The biggest one is that virtual machines always have their own
-kernels, while containers share the host system's kernel.
+Kontit ovat tekniikka, joka perustuu käyttöjärjestelmän ytimen ominaisuuksiin ja mahdollistaa eristettyjen ympäristöjen luomisen, jotka jakavat saman ytimen. Esimerkiksi konttien ominaisuudet mahdollistavat useiden eristettyjen juuritiedostojärjestelmien, verkkojen ja prosessipuiden luomisen, jotka kaikki käyttävät samaa ydintä. Nämä eristetyt ympäristöt muistuttavat toiminnallisuudeltaan kevyitä virtuaalikoneita, mutta virtuaalikoneiden ja konttien välillä on olennaisia eroja. Suurin ero on, että virtuaalikoneilla on aina omat ytimensä, kun taas kontit jakavat isäntäjärjestelmän ytimen.
 
-![The difference between virtual machines and containers](../img/vm_vs_container.png)
-*The difference between virtual machines and containers.*
+![Ero virtuaalikoneiden ja konttien välillä](../img/vm_vs_container.png)
+*Ero virtuaalikoneiden ja konttien välillä.*
 
-While many operating systems have the container functionality, what we look at more
-specifically in this documentation is containers in the Linux operating system.
-Linux is the most popular operating system for running containers, and it is
-also the operating system used in the Rahti container cloud.
+Vaikka monilla käyttöjärjestelmillä on konttitoimintoja, tässä dokumentaatiossa keskitymme tarkemmin Linux-käyttöjärjestelmän kontteihin. Linux on suosituin käyttöjärjestelmä konttien ajamiseen, ja se on myös käyttis Rahti-konttipilvessä.
 
-In order to use the container functionality, a _runtime_ is needed. Currently, the most popular runtime in Linux is
-_Docker_, but [podman](https://podman.io/), [cri-o](https://cri-o.io/), and many others are getting more relevance.
-All of these runtime follows the guidelines of the [Open Container Initiative](https://opencontainers.org/) (OCI).
-A runtime provides a set of tools that makes it easier to use containers compared to using the
-kernel functionality directly. Mainly the command line interface and backend libraries for running, building and
-managing containers and images
+Konttitoiminnallisuuden käyttöön tarvitaan _suoritusaika_. Tällä hetkellä suosituin suoritusaika Linuxissa on _Docker_, mutta [podman](https://podman.io/), [cri-o](https://cri-o.io/), ynnä muut ovat saaneet yhä enemmän merkitystä. Kaikki nämä suoritukset noudattavat [Open Container Initiative](https://opencontainers.org/) (OCI) ohjeita. Suoritusaika tarjoaa työkalupaketin, joka helpottaa konttien käyttöä verrattuna suoraan ytimen ominaisuuksien hyödyntämiseen. Pääasiallisesti komentoriviliittymä ja taustakirjastot konttien ja kuvien ajamiseen, rakentamiseen ja hallintaan.
 
-Docker has popularized containers by making them easier to use. Instead of
-looking at kernel documentation and figuring out how to use the different
-interfaces of the kernel's container features and then having to figure out
-which features you want to use and how, Docker provides a simpler way to start
-containers with a single command line command. The specific kernel features and
-how to use them are isolated to the user by Docker.
+Docker on tehnyt konteista suosittuja helpottamalla niiden käyttöä. Sen sijaan että tutkisit ytimen dokumentaatiota ja selvittäisit, miten ytimen konttiominaisuuksia käytetään sekä valitsisit mitkä ominaisuudet haluat ottaa käyttöön, Docker tarjoaa yksinkertaisemman tavan suorittaa kontit yhden komentorivikomennon avulla. Tietyt ytimen ominaisuudet ja niiden käyttäminen jäävät Dockerin käyttäjän näkökulmasta piiloon.
 
-As an example of how Docker is used, this is how you could start a container on
-your computer after installing Docker:
+Esimerkkinä siitä, miten Dockeria käytetään, voit suorittaa kontin tietokoneellasi asentamalla Dockerin:
 
 ```bash
 docker run -it ubuntu
 ```
 
-This will download the _ubuntu_ image if it is not already present on the
-computer, start a container based on that image, and give the user a command line
-interface within the container. From the user's point of view, the experience is
-similar to starting a virtual machine: regardless of the operating system
-distribution on your computer, interacting with the container seems like you
-are interacting with a Ubuntu installation.
+Tämä lataa _ubuntu_-kuvan, jos se ei ole jo ladattu tietokoneelle, käynnistää kontin kyseisestä kuvasta ja tarjoaa käyttäjälle komentoriviliittymän kontin sisällä. Käyttäjän näkökulmasta kokemus on samankaltainen kuin virtuaalikoneen käynnistämisessä: riippumatta tietokoneesi käyttöjärjestelmän jakelusta, konttiin vuorovaikutus tuntuu siltä kuin olisit tekemisissä Ubuntu-asennuksen kanssa.
 
-After running the command, you should be able to see the Ubuntu Docker image
-that has been downloaded by listing the images:
+Komentoa suorittaessasi, sinun pitäisi pystyä näkemään ladattu Ubuntu Docker -kuva listaamalla kuvat:
 
 ```bash
 docker images
 ```
 
-You can also do many other things, such as launch containers in the background,
-attach to a running container to interact with it, or build your own Docker
-images from a Dockerfile. The examples given here are intended to give a general
-idea of what using containers is like from the user's perspective. For more
-complete documentation about Docker, see the
-[official Docker documentation](https://docs.docker.com/).
+Voit myös tehdä monia muita asioita, kuten käynnistää kontteja taustalla, liittyä käynnissä olevaan konttiin vuorovaikuttaaksesi sen kanssa tai rakentaa omia Docker-kuvia Dockerfile-tiedoston avulla. Tässä annetut esimerkit on tarkoitettu antamaan yleiskuva siitä, millaista konttien käyttö on käyttäjän näkökulmasta. Täydellisempi dokumentaatio Dockerista löytyy [virallisesta Docker-dokumentaatiosta](https://docs.docker.com/).
 
-## Container orchestration
+## Konttien orkestrointi {#container-orchestration}
 
-To understand why container orchestration platforms are important, let us
-describe how a typical web-based application that end users access via a web
-browser is built.
+Ymmärtääksemme, miksi konttien orkestrointialustat ovat tärkeitä, kuvataan, kuinka tyypillinen web-sovellus, johon loppukäyttäjät pääsevät verkkoselaimen kautta, rakennetaan.
 
-![Container orchestration](../img/container-orch2.drawio.svg)
+![Konttien orkestrointi](../img/container-orch2.drawio.svg)
 
-The application comprises a frontend that is the part of the application
-visible to users and a backend that handles various tasks in the background such as
-storing user data in a database. The application runs a server process that
-clients access to interact with the application. It also accesses a database
-such as PostgeSQL or MongoDB in the background to store user data.
+Sovellus koostuu käyttöliittymästä, joka on käyttäjille näkyvä osa sovellusta, ja taustajärjestelmästä, joka hoitaa erilaisia tehtäviä taustalla, kuten käyttäjän tietojen tallentamisen tietokantaan. Sovellus suorittaa palvelimen prosessin, johon asiakkaat liittyvät vuorovaikuttaakseen sovelluksen kanssa. Se myös käyttää taustalla tietokantaa, kuten PostgeSQL tai MongoDB, käyttäjän tietojen tallentamiseen.
 
-The architects of this application must design it to keep the application
-running reliably, quickly and safely:
+Sovelluksen suunnittelijoiden on suunniteltava se siten, että sovellus pysyy luotettavana, nopeana ja turvallisena:
 
-  * Server hardware can fail, so the application must be replicated on multiple
-    physical servers so that the failure of an individual server will not render the
-    entire application inaccessible.
-  * A large number of users causes load on the application. It must be
-    possible to scale up the application by adding more application processes to
-    prepare for increased user load.
-  * The connection to the application must be secure so that the users can safely
-    enter their data in the application without fearing eavesdroppers.
-  * User data must be stored reliably on a fault-tolerant storage system.
+  * Palvelinlaitteisto voi epäonnistua, joten sovellus on replikointava useille fyysisille palvelimille siten, että yksittäisen palvelimen vikaantuminen ei tee koko sovellusta saavuttamattomaksi.
+  * Suuri käyttäjämäärä aiheuttaa kuormitusta sovellukselle. Sovellus on voitava skaalata ylös lisäämällä enemmän sovellusprosesseja, jotta se voi valmistautua kasvaneeseen käyttäjäkuormitukseen.
+  * Yhteyden sovellukseen on oltava turvallinen, jotta käyttäjät voivat syöttää tietonsa sovellukseen ilman pelkoa salakuuntelusta.
+  * Käyttäjän tiedot on tallennettava luotettavasti vikasietoiseen tallennusjärjestelmään.
 
-You could create Linux virtual machines, install Docker on them, and run the
-application directly using those, but there is a lot of additional work to meet
-all of the above requirements. You would have to figure
-out how to manage multiple instances of the application running on several
-servers, how to direct incoming traffic evenly to all the application instances,
-how to store user data, and how to quickly add more capacity when needed.
+Voisit luoda Linux-virtuaalikoneita, asentaa Dockerin niihin ja suorittaa sovelluksen suoraan käyttäen niitä, mutta lisätyövaatimus täyttääksesi kaikki yllä olevat vaatimukset on suuri. Sinun pitäisi selvittää, miten hallita useita sovelluksen instansseja eri palvelimilla, miten ohjata saapuva liikenne tasaisesti kaikille sovellusinstansseille, miten tallentaa käyttäjän tiedot ja miten nopeasti lisätä kapasiteettia tarvittaessa.
 
-Luckily, most applications have similar requirements, so the steps for creating
-good applications are often quite similar. This is where container orchestration
-systems come in. They handle many of the common tasks required for running
-robust web applications such as distributing application instances over multiple
-servers, directing traffic to the application instances, and providing persistent
-storage for databases.
+Onneksi useimmilla sovelluksilla on samanlaiset vaatimukset, joten hyvien sovellusten luomisen vaiheet ovat usein melko samankaltaisia. Tässä kohtaa konttien orkestrointijärjestelmät tulevat mukaan. Ne hoitavat monia yleisiä tehtäviä, joita tarvitaan robustien web-sovellusten suorittamiseen, kuten sovellusinstanssien jakelu useille palvelimille, liikenteen ohjaaminen sovellusinstansseille ja pysyvän tallennustilan tarjoaminen tietokannoille.
 
-Currently, the most popular software for container orchestration is _Kubernetes_.
-It is based on earlier systems developed at Google over a decade. The Rahti
-system is based on a distribution of Kubernetes called _OpenShift_ made by
-Red Hat.
+Tällä hetkellä suosituin ohjelmisto konttien orkestrointiin on _Kubernetes_. Se perustuu Googlessa kehitettäviin järjestelmiin yli kymmenen vuoden ajan. Rahti-järjestelmä perustuu Red Hatin luomaan Kubernetes-jakeluun nimeltä _OpenShift_.

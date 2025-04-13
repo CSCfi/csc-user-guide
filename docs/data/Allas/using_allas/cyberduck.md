@@ -1,59 +1,59 @@
-# Using Allas with Cyberduck
+# Allaksen käyttö Cyberduckin kanssa {#using-allas-with-cyberduck}
 
-For Windows and Mac, [Cyberduck](https://cyberduck.io/) provides a graphical user interface to Allas.
+Windowsille ja Macille [Cyberduck](https://cyberduck.io/) tarjoaa graafisen käyttöliittymän Allaksen käyttöön.
 
-The instructions below describe how to open a _Swift_-protocol-based Cyberduck connection to Allas. 
-With this setup, Cyberduck is compatible with _rclone_, _Swift_ and _a-tools_. Cyberduck can be configured to use
-_S3_ protocol too, but that option is not discussed here.
+Alla olevat ohjeet kuvaavat, kuinka avata _Swift_-protokollaan perustuva Cyberduck-yhteys Allakseen. 
+Tämä asetus tekee Cyberduckista yhteensopivan _rclone_:n, _Swift_:in ja _a-tools_:in kanssa. Cyberduck voidaan myös 
+määrittää käyttämään _S3_-protokollaa, mutta sitä vaihtoehtoa ei käsitellä tässä ohjeessa.
 
-In the end fo this page there is a [list of functions](#cyberduck-functions) that Cyberduck offers for data management.
-Please use [Cyberduck web site](https://cyberduck.io/) for more detailed information and instructions.
+Tämän sivun lopussa on lista [toiminnoista](#cyberduck-functions), joita Cyberduck tarjoaa datan hallintaan.
+Käytä [Cyberduckin verkkosivuja](https://cyberduck.io/) saadaksesi lisätietoa ja ohjeita.
 
-1\. Install **Cyberduck**.
+1\. Asenna **Cyberduck**.
 
-2\. Navigate to the Cyberduck main menu and choose **Bookmark | New Bookmark** (_Ctrl-Shift-B_).
+2\. Siirry Cyberduckin päävalikkoon ja valitse **Kirjanmerkki | Uusi kirjamerkki** (_Ctrl-Shift-B_).
 
-!["New bookmark"](../img/cyberduck_bookmark.jpg)
+![“Uusi kirjamerkki”](../img/cyberduck_bookmark.jpg)
 
-**Figure** Creating a new bookmark
+**Kuva** Uuden kirjanmerkin luominen
 
-3\. In the first dropdown menu, choose _OpenStack Swift (Keysone 3)_.
-    ( if your Cyberduck does not have this option available, you need to update it to a more recent version)
+3\. Ensimmäisessä avattavassa valikossa, valitse _OpenStack Swift (Keysone 3)_.
+   (jos Cyberduckista puuttuu tämä vaihtoehto, sinun täytyy päivittää se uudemmaksi versioksi)
 
-4\. As the **Server**, type _pouta.csc.fi_ and choose the **Port** _5001_. 
+4\. Kirjoita **Palvelin**-kohtaan _pouta.csc.fi_ ja valitse **Portti** _5001_.
 
-5\. In the section **Project:Domain:Username**, type (without spaces) the desired _project's name_, add "**:default:**" and your _Pouta username_ (this is the CSC user accout you use in CSC supercomputers and cPouta). Thus, it should be in the format _projectname:default:username_, e.g. *project_123456:default:john*.
+5\. Kohdassa **Projekti:Toimialue:Käyttäjänimi**, kirjoita (ilman välilyöntejä) halutun _projektin nimi_, lisää "**:default:**" ja sinun _Pouta-käyttäjänimesi_ (tämä on CSC:n käyttäjätili, jota käytät CSC:n supertietokoneissa ja cPoutassa). Sen tulisi siis olla muodossa _projektinnimi:default:kayttajanimi_, esim. *project_123456:default:john*.
 
-6\. Type your CSC password in the **Password** field. You can close the bookmark by clicking **X** on the upper right corner of the pop-up window.
+6\. Kirjoita CSC-salasanasi **Salasana**-kenttään. Voit sulkea kirjanmerkin klikkaamalla pop-up-ikkunan oikeassa yläkulmassa olevaa **X**:ää.
 
-!["Entering information for a bookmark"](../img/cyberduck_bookmark_info.jpg)
+![“Tietojen syöttäminen kirjanmerkkiä varten”](../img/cyberduck_bookmark_info.jpg)
 
-**Figure** Entering information for a bookmark
+**Kuva** Tietojen syöttäminen kirjanmerkkiä varten
 
-7\. Navigate to the top left corner to the icons under _Open Connection_ and choose the **Bookmarks icon** (second from the left).
- 
-8\. Next, right-click the created bookmark and choose the option **Connect to server**.
+7\. Siirry vasemmassa yläkulmassa oleviin kuvakkeisiin _Avaa yhteys_-kohdassa ja valitse **Kirjanmerkkikuvake** (toinen vasemmalta).
 
-!["Connecting to the server"](../img/cyberduck_connect.jpg)
+8\. Seuraavaksi, napsauta hiiren oikealla painikkeella luotua kirjanmerkkiä ja valitse vaihtoehto **Yhdistä palvelimeen**.
 
-**Figure** Connecting to the server
+![“Yhdistäminen palvelimeen”](../img/cyberduck_connect.jpg)
 
-Now you should be able to see the content of your project (which might be empty).
+**Kuva** Yhdistäminen palvelimeen
 
-### Cyberduck functions
+Nyt sinun pitäisi nähdä projektisi sisältö (joka saattaa olla tyhjä).
 
-Cyberduck offers some basic functionalities for managing data in the object storage:
+### Cyberduckin toiminnot {#cyberduck-functions}
 
- * _Create_ buckets
- * _Upload_ objects
- * _List_ objects and buckets
- * _Download_ object and buckets
- * _Edit_ objects
- * _Edit_ metadata
- * _Share_ objects
- * _Remove_ objects and buckets
+Cyberduck tarjoaa joitakin perustason toimintoja datan hallintaan objektitallennustilassa:
 
-The Cyberduck user interface is quite easy to use. 
-The data management options can be displayed by either right-clicking the bucket/object or choosing the 
-bucket/object and then clicking the **Action** button on the menu bar. 
-To navigate back to the previous directory, use backspace.
+ * _Luoda_ alueita
+ * _Ladata_ objekteja
+ * _Luetella_ objekteja ja alueita
+ * _Ladata_ objekteja ja alueita
+ * _Muokata_ objekteja
+ * _Muokata_ metadataa
+ * _Jakaa_ objekteja
+ * _Poistaa_ objekteja ja alueita
+
+Cyberduckin käyttöliittymä on melko helppokäyttöinen. 
+Datanhallintavaihtoehdot voidaan näyttää joko napsauttamalla hiiren oikealla painikkeella aluetta/objektia tai valitsemalla 
+alueen/objektin ja sitten klikata valikkorivin **Toiminto**-painiketta. 
+Siirtyäksesi takaisin edelliseen hakemistoon, käytä askelpalautinta.

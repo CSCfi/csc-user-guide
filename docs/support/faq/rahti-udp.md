@@ -1,3 +1,4 @@
-# Does Rahti support UDP connections?
 
-No, meanwhile, internal UDP traffic is possible, i.e.: during Pod to Pod communications inside the same namespace. It is not possible to contact Rahti using the UDP protocol. Only HTTP/HTTPS is supported for `Route`s, and `oc port-forwarding` only supports TCP ports.
+# Tukeeko Rahti UDP-yhteyksiä? {#does-rahti-support-udp-connections}
+
+Ei, sillä välin sisäinen UDP-liikenne on mahdollista, eli: Podien välinen viestintä saman namespace-nimen sisällä. UDP-protokollaa ei voida käyttää Rahtin kanssa. Vain HTTP/HTTPS on tuettu `Route`-reiteille, ja `oc port-forwarding` tukee vain TCP-portteja.

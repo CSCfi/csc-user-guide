@@ -1,118 +1,116 @@
-# How to get access to SD Desktop with a Findata permit
+# Kuinka saada pääsy SD-työpöytään Findatan luvalla {#how-to-get-access-to-sd-desktop-with-a-findata-permit}
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/qxYIXDqpTp0" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä Findata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
+**[Ohjeet suomeksi (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
 
-## Use case
+## Käyttötapaus {#use-case}
 
-You need to access SD Desktop. You have a permit from Findata.
+Sinun täytyy päästä SD-työpöytään. Sinulla on lupa Findatalta.
 
-## Solution
+## Ratkaisu {#solution}
 
-1. [Create a CSC account](#1-create-a-csc-account) 
-2. [Create new CSC project](#2-create-new-csc-project)
-3. [Fill GDPR document](#3-fill-gdpr-document)
-4. [Contact CSC service desk](#4-contact-csc-service-desk)
-5. CSC adds members to your project, please wait
-6. CSC activates SD Desktop for your project, please wait
-7. [Activate MFA](#7-activate-mfa)
-8. [CSC project is ready](#8-your-csc-project-is-ready)
+1. [Luo CSC-tunnus](#1-create-a-csc-account)
+2. [Luo uusi CSC-projekti](#2-create-new-csc-project)
+3. [Täytä GDPR-asiakirja](#3-fill-gdpr-document)
+4. [Ota yhteyttä CSC:n yhteispalvelupisteeseen](#4-contact-csc-service-desk)
+5. CSC lisää jäseniä projektiisi, odota
+6. CSC aktivoi SD-työpöydän projektiisi, odota
+7. [Aktivoi MFA](#7-activate-mfa)
+8. [CSC-projektisi on valmis](#8-your-csc-project-is-ready)
 
-### 1. Create a CSC account
+### 1. Luo CSC-tunnus {#1-create-a-csc-account}
 
 !!! warning-label
-    Team manager
+    Tiimin vetäjä
 !!! info-label
-    Team member
+    Tiimin jäsen
 
-**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=46s){ target="_blank" }**
+**[Katso video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=46s){ target="_blank" }**
 
-- **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+- **Siirry [MyCSC-portaaliin](https://my.csc.fi){ target="_blank" }**
+- Kirjaudu sisään Haka-tunnuksilla. Valitse kotiorganisaatiosi ja kirjaudu sisään heidän tunnistuspalveluunsa. [Kuinka saada tunnus ilman Hakaa](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
   
-- Fill in your information on the Sign up page.
-- Set your password using 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
- - You will receive your CSC user account confirmation via email.
+- Täytä tietosi rekisteröitymissivulla.
+- Aseta salasanasi, joka on vähintään 12 merkkiä pitkä ja sisältää sekä isoja että pieniä kirjaimia sekä vähintään yhden numeron. Erikoismerkkejä ei hyväksytä.
+- Saat CSC-käyttäjätilisi vahvistusviestin sähköpostitse.
 
-### 2. Create new CSC project
-
-!!! warning-label
-    Team manager
-
-**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=119s){ target="_blank" }**
-
-- Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
-- On the top of the page choose **”New project”**.
-- Fill in the project name and project description. You can edit these later if needed.
-- Choose the Project category to be **“Findata”**.
-- Fill all required fields. Read and accept the terms of use.
-- Click **“Create a project”**.
-
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
-
-
-### 3. Fill GDPR document
+### 2. Luo uusi CSC-projekti {#2-create-new-csc-project}
 
 !!! warning-label
-    Team manager
+    Tiimin vetäjä
 
-**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=185s){ target="_blank" }**
+**[Katso video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=119s){ target="_blank" }**
 
-- Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
-- The document appears when you create a new project. You can edit this document later.
-- Your home organization is the **data controller**. [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
+- Mene "Projektit” -sivulle (vasemmanpuoleinen valikko tai hampurilaisvalikko oikeassa yläkulmassa).
+- Sivun yläosassa valitse **"Uusi projekti"**.
+- Täytä projektin nimi ja projektin kuvaus. Voit muokata näitä myöhemmin tarvittaessa.
+- Valitse Projektiluokaksi **"Findata"**.
+- Täytä kaikki vaaditut kentät. Lue ja hyväksy käyttöehdot.
+- Klikkaa **"Luo projekti"**.
 
-![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
+![Luo uusi projekti.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
 
-### 4. Contact CSC service desk
+### 3. Täytä GDPR-asiakirja {#3-fill-gdpr-document}
 
 !!! warning-label
-    Team manager
+    Tiimin vetäjä
 
-**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=221s){ target="_blank" }**
+**[Katso video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=185s){ target="_blank" }**
 
-- Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
-- Write your project number to the email (e.g. *project_1234567*).
-- Attach a copy of your **data permit** to the email.
-- Write down a list of your research teams' email addresses. Please use same emails that they created the CSC-account with.
-- Put your research team as cc.
+- Koska projektisi käsittelee henkilötietoja, sinun täytyy täyttää GDPR-asiakirja eli *Kuvaus käsittelytoimista* -lomake.
+- Asiakirja ilmestyy kun luot uuden projektin. Voit muokata asiakirjaa myöhemmin.
+- Kotiorganisaatiosi on **rekisterinpitäjä**. [Lue lisää rooleista ja GDPR:stä](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
+
+![Kuvaus käsittelytoimista.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
+
+### 4. Ota yhteyttä CSC:n yhteispalvelupisteeseen {#4-contact-csc-service-desk}
+
+!!! warning-label
+    Tiimin vetäjä
+
+**[Katso video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=221s){ target="_blank" }**
+
+- Lähetä sähköpostia osoitteeseen **sensitivedata-support@csc.fi**, aihe: *Sensitive Data, Secondary use*.
+- Kirjoita projektisi numero sähköpostiin (esim. *project_1234567*).
+- Liitä sähköpostiin kopio **datapäätöksestäsi**.
+- Kirjoita luettelo tutkimusryhmäsi sähköpostiosoitteista. Käytä samoja sähköposteja, joilla CSC-tili on luotu.
+- Lisää tutkimusryhmäsi cc:hen.
 
 !!! Note ""
-    ### 5. CSC adds members to your project
-    - Please wait that Sensitive Data Support -team adds your research team to your project
-    - Note! All team members must have a [CSC-account](#1-create-a-csc-account), so they can become project members.
+    ### 5. CSC lisää jäseniä projektiisi
+    - Odota, että Sensitive Data Support -tiimi lisää tutkimusryhmäsi projektiisi.
+    - Huom! Kaikilla tiimin jäsenillä täytyy olla [CSC-tili](#1-create-a-csc-account), jotta he voivat olla projektin jäseniä.
 
 !!! Note ""
-    ### 6. CSC activates SD Desktop -service for your project
-    - Please wait that Sensitive Data Support -team activates SD Desktop -service for your project.
-    - You will receive an email notification, when everything is ready.
+    ### 6. CSC aktivoi SD-työpöytäpalvelun projektiisi
+    - Odota, että Sensitive Data Support -tiimi aktivoi SD-työpöytäpalvelun projektiisi.
+    - Saat sähköposti-ilmoituksen, kun kaikki on valmista.
 
-
-### 7. Activate MFA
-
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
-
-**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=359s){ target="_blank" }**
-
-- You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
-- Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
-- Click **Enable MFA** in **Project notifications** window in top right corner or go to the **Profile** page (Left side menu or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking **“Activate”**.
-- This will create a QR code which you can read with your authentication application (for example Google Authenticator).
-- Your authentication application will provide a verification code which you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
-
-![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
-
-### 8. Your CSC project is ready!
+### 7. Aktivoi MFA {#7-activate-mfa}
 
 !!! warning-label
-    Team manager
+    Tiimin vetäjä
 !!! info-label
-    Team member
+    Tiimin jäsen
 
-- Write down your project number, you might need it later (e.g. *project_1234567*).
-- Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-secondary-login.md).
+**[Katso video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=359s){ target="_blank" }**
+
+- Sinun täytyy aktivoida MFA (monivaiheinen tunnistautuminen) voidaksesi kirjautua Sensitiivisten tietojen palveluihin. [Lisätietoja monivaiheisesta tunnistautumisesta](../../accounts/mfa.md). *Jos monivaiheinen tunnistautuminen on jo käytössä, voit siirtyä vaiheeseen 9.*
+- Ennen MFA:n aktivoimista tarvitset jonkin tunnistautumissovelluksen mobiililaitteeseesi, esimerkiksi Google Authenticator tai Microsoft Authenticator.
+- Klikkaa **Ota MFA käyttöön** **Projektitiedotteet**-ikkunassa oikeassa yläkulmassa tai siirry **Profiili**sivulle (Vasemmanpuoleinen valikko tai oikean yläkulman hampurilaisvalikko).
+- Ota Monivaiheinen tunnistautuminen käyttöön klikkaamalla **"Aktivoi"**.
+- Tämä luo QR-koodin, jonka voit lukea tunnistautumissovelluksellasi (esimerkiksi Google Authenticator).
+- Tunnistautumissovelluksesi antaa vahvistuskoodin, jonka voit nyt kirjoittaa MyCSC:n **"Vahvistuskoodi"**-kenttään ja napsauttaa **"Vahvista"**.
+
+![Monivaiheinen tunnistautuminen.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
+
+### 8. CSC-projektisi on valmis! {#your-csc-project-is-ready}
+
+!!! warning-label
+    Tiimin vetäjä
+!!! info-label
+    Tiimin jäsen
+
+- Kirjoita ylös projektisi numero, saatat tarvita sitä myöhemmin (esim. *project_1234567*).
+- Nyt voit kirjautua ulos MyCSC:stä ja [kirjautua SD-työpöytään](sd-desktop-secondary-login.md).

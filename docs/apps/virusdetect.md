@@ -1,81 +1,61 @@
+
 ---
 tags:
-  - Free
+  - Ilmainen
 ---
 
 # VirusDetect
 
-VirusDetect is a software for analyzing large-scale sRNA datasets for
-virus identification. The program performs reference-guided assembly by
-aligning sRNA reads to the known virus reference database (GenBank
-gbvrl) as well as *de novo* assembly using _Velvet_ with automated
-parameter optimization. The assembled contigs are compared to the
-reference virus sequences for virus identification. The contigs were
-treated as undetermined contigs if they are not hit to any known
-viruses. The siRNA profile of these undetermined contigs are provided as
-guidance to discovery novel viruses which do not show sequence
-similarity with known viruses.
+VirusDetect on ohjelmisto laajamittaisten sRNA-datasettien analysointiin virusten tunnistamista varten. Ohjelma suorittaa viittausohjatun kokoamisen kohdistamalla sRNA-luvut tunnettuun virusviitetietokantaan (GenBank gbvrl) sekä tekee *de novo* -koostamisen käyttäen _Velvet_-ohjelmaa automaattisella parametrin optimoinnilla. Kootut contigit verrataan viitevirussekvensseihin virusten tunnistamiseksi. Contigit käsitellään määrittämättöminä, jos ne eivät vastaa mitään tunnettuja viruksia. Näiden määrittämättömien contigien siRNA-profiilit annetaan ohjeiksi uusien virusten löytämiseksi, jotka eivät osoita sekvenssin samankaltaisuutta tunnettujen virusten kanssa.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Developers state that the software is free to use and open source, but no specific
-license is specified.
+Kehittäjät ilmoittavat, että ohjelmisto on ilmaiseksi käytettävissä ja avoimen lähdekoodin, mutta mitään erityistä lisenssiä ei ole määritelty.
 
-## Available
+## Saatavuus {#available}
 
 * Puhti: 1.7, 1.8
-* Chipster graphical user interface
+* Chipsterin graafinen käyttöliittymä
 
-## Usage
+## Käyttö {#usage}
 
-To use VirusDetect on Puhti, you first need to load `biokit` and `virusdetect` modules.
+VirusDetectin käyttämiseksi Puhtilla sinun täytyy ensin ladata `biokit` ja `virusdetect` -moduulit.
 
 ```bash
 module load biokit
 module load virusdetect
 ```
 
-After that, you can start VirusDetect with the command `virus_detect.pl`.
-For example:
+Tämän jälkeen voit aloittaa VirusDetectin komennolla `virus_detect.pl`.
+Esimerkiksi:
 
 ```bash
 virus_detect.pl --reference vrl_plant reads.fastq
 ```
 
-The developers of VirusDetect recommend removing ribosomal RNA (rRNA)
-sequences from the input sequences before running VirusDetect. This can
-be done by aligning the sRNA reads against Silva rRNA database using
-Bowtie. On Puhti, the Silva database is available in path:
+VirusDetectin kehittäjät suosittelevat ribosomaalisten RNA (rRNA)-sekvenssien poistamista syötesekvensseistä ennen VirusDetectin ajoa. Tämä voidaan tehdä kohdistamalla sRNA-luvut Silva rRNA -tietokantaan käyttäen Bowtie-sovellusta. Puhdissa Silva-tietokanta on saatavilla polussa:
 
 ```bash
 /appl/data/bio/biodb/production/silva/Silva_rRNA_database
 ```
 
-The actual cleaning command could look like:
+Varsinainen puhdistuskomento voisi näyttää tältä:
 
 ```bash
 bowtie -v 1 -k 1 --un cleaned_reads.fastq -f -q /appl/data/bio/biodb/production/silva/Silva_rRNA_database reads.fastq sRNA_rRNA_match
 ```
 
-If possible, it is recommended that you use `--host_reference` option
-to filter out the sRNA originating from the host organism. This
-filtering is done by running a BWA mapping against the genome of the
-host organism. CSC does not maintain BWA indexes on Puhti,
-but you can use `chipster_genomes` to retrieve BWA indexes used by the 
-Chipster service.
+Jos mahdollista, on suositeltavaa käyttää `--host_reference` -vaihtoehtoa suodattaaksesi isäntäorganismista peräisin olevat sRNA:t. Tämä suodatus tehdään ajamalla BWA-kohdistus isäntäorganismin genomiin. CSC ei ylläpidä BWA-indeksejä Puhtilla, mutta voit käyttää `chipster_genomes`-ohjelmaa noutaaksesi Chipster-palvelun käyttämät BWA-indeksit.
 
 ```bash
 chipster_genomes bwa
 ```
 
-The command above lists the available indexes and asks you to pick one.
-If a suitable species is not available, then you need to do indexing for their host
-organism genome before running VirusDetect.
+Yllä oleva komento listaa saatavilla olevat indeksit ja pyytää sinua valitsemaan yhden. Jos sopivaa lajia ei ole saatavilla, täytyy isäntäorganismin genomi indeksoida ennen VirusDetectin ajoa.
 
-For example, for _Triticum aestivum_, the required BWA indexes can be
-created with the commands:
+Esimerkiksi _Triticum aestivum_:lle tarvittavat BWA-indeksit voidaan luoda komennoilla:
 
 ```bash
 ensemblfetch.sh triticum_aestivum
@@ -83,16 +63,15 @@ mv Triticum_aestivum.IWGSC.dna.toplevel.fa triticum_aestivum.fa
 bwa index -p triticum_aestivum triticum_aestivum.fa
 ```
 
-Note that generating BWA indexes for plant genomes can take several hours.
+Huomaa, että kasvien genomien BWA-indeksien luominen voi kestää useita tunteja.
 
-Once you have the BWA index for the host genome available, you can launch the VirusDetect job with the command:
+Kun sinulla on BWA-indeksi isäntägenomille saatavilla, voit käynnistää VirusDetect-työn komennolla:
 
 ```bash
 virus_detect.pl --reference vrl_plant --host_reference triticum_aestivum.fa cleaned_reads.fastq
 ```
 
-VirusDetect is mainly used for detecting plant viruses (`vrl_plant`), but you can use it for other viruses too. The `--reference` option defines the
-reference virus sequence dataset to be used. The available reference datasets are:
+VirusDetectia käytetään pääasiassa kasvivirusien tunnistamiseen (`vrl_plant`), mutta sitä voidaan käyttää myös muihin viruksiin. `--reference` -vaihtoehto määrittää käytettävän viitevirussekvenssien datasetin. Saatavilla olevat viitedatasetit ovat:
 
 ```text
 vrl_algae
@@ -103,13 +82,8 @@ vrl_plants
 vrl_vertebrates
 ```
 
-Both the VirusDetect and BWA indexing tasks often require significant
-computing capacity. Because of that, you should use batch jobs for 
-running VirusDetect jobs. Below is a
-sample batch job file for running VirusDetect with 8 computing cores
-and 8 GB of memory. The maximum running time in the job below is set to
-10 hours.
- 
+Sekä VirusDetect että BWA-indeksointitehtävät vaativat usein merkittävää laskentakapasiteettia. Tämän vuoksi kannattaa käyttää erätehtäviä VirusDetect-työtehtävien ajamiseen. Alla on esimerkki erätehtävätiedostosta, joka ajaa VirusDetectin käyttämällä 8 laskentaydintä ja 8 GB muistia. Työn maksimiaika on asetettu 10 tuntiin.
+
 ```bash
 #!/bin/bash -l
 #SBATCH --job-name=VirusDetect
@@ -129,28 +103,24 @@ module load virusdetect
 virus_detect.pl --thread_num 8 --reference vrl_plants --host_reference triticum_aestivum.fa reads_123.fastq
 ```
 
-The batch job file above can be submitted to the batch job system with the
-command:
+Yllä oleva erätehtävätiedosto voidaan lähettää erätehtäväjärjestelmään komennolla:
 
 ```bash
 sbatch batch_job_file.sh
 ```
 
-More information about running batch jobs on Puhti can be found from the
-[batch job instruction pages](../computing/running/getting-started.md).
+Lisätietoja erätehtävien ajamisesta Puhtissa löytyy [erätehtäväohjesivuilta](../computing/running/getting-started.md).
 
-VirusDetect writes the analysis results to a new directory, named after the query dataset `result_<queryfile>`. VirusDetect produces a large number of result files. The most essential files are:
+VirusDetect kirjoittaa analyysin tulokset uuteen hakemistoon, joka on nimetty kyselydatasetsin mukaan `result_<queryfile>`. VirusDetect tuottaa suuren määrän tulostiedostoja. Keskeisimmät tiedostot ovat:
 
-* `blastn.html` Table listing reference viruses that have corresponding virus contigs identified by BLASTN.
-* `blastx.html` Table listing reference viruses that have corresponding virus contigs identified by BLASTX. 
-* `<query>.blastn.xls` Table of BLASTN matches to the reference virus database.
-* `<query>.blastx.xls` Table of BLASTX matches to the reference virus database.
-* `undetermined.html` Table listing the length, siRNA size distribution and 21-22nt percentage of undetermined contigs. Potential virus contigs (21-22 nt > 50%) are indicated in green.
-* `undetermined_blast.html` Table listing contigs having hits in the virus reference database but not assigned to any reference viruses because they did not meet the coverage or depth criteria.
+* `blastn.html` Taulukko, joka listaa viiteviruksista ne, joilla on vastaavat viruscontigit, jotka on tunnistettu BLASTN:llä.
+* `blastx.html` Taulukko, joka listaa viiteviruksista ne, joilla on vastaavat viruscontigit, jotka on tunnistettu BLASTX:llä.
+* `<query>.blastn.xls` Taulukko BLASTN-osumista viitevirustietokantaan.
+* `<query>.blastx.xls` Taulukko BLASTX-osumista viitevirustietokantaan.
+* `undetermined.html` Taulukko listaa määrittämättömien contigien pituudet, siRNA-kokojakaumat ja 21-22 nt:n prosentuaalisen osuuden. Potentiaaliset viruscontigit (21-22 nt > 50 %) merkitään vihreällä.
+* `undetermined_blast.html` Taulukko, joka listaa contigit, joilla on osumia virusviitetietokannassa, mutta joita ei ole liitetty mihinkään viitevirukseen, koska ne eivät täyttäneet kattavuus- tai syvyyskriteerejä.
 
-As many of the output files are in HTML format, it may be difficult to study them on Puhti.
-One option to study the results is to move them to a public bucket on Allas. For example
-(replace `projnum` with your own project number):
+Koska monet tulosasiakirjoista ovat HTML-muodossa, voi niiden tutkiminen Puhtilla olla haastavaa. Yksi vaihtoehto tulosten tutkimiseksi on siirtää ne julkiseen säilöön Allas-palvelussa. Esimerkiksi (korvaa `projnum` omalla projekti numerolla):
 
 ```bash
 module load allas
@@ -159,12 +129,13 @@ rclone copy -P results_cleaned_reads.fastq allas:virusdetect_projnum/results_cle
 a-publish -b virusdetect_projnum -index dynamic
 ```
 
-Now you can study the results with your browser in URL:
+Nyt voit tutkia tuloksia selaimellasi osoitteessa:
 
 ```bash
 https://a3s.fi/virusdetect_projnum/index.html
 ```
 
-## More information
+## Lisätietoja {#more-information}
 
-* [VirusDetect home page](http://virusdetect.feilab.net/cgi-bin/virusdetect/index.cgi)
+* [VirusDetectin kotisivu](http://virusdetect.feilab.net/cgi-bin/virusdetect/index.cgi)
+

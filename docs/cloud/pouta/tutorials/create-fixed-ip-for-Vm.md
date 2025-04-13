@@ -1,43 +1,43 @@
-# Create a fixed IP for a VM
+# Luo kiinteä IP VM:lle
 
-## Introduction
+## Johdanto {#introduction}
 
-It is a simple process to know/fix the IP address of the VM before launching it. Also, IP can be reserved if you want to re-launch a VM.
+On yksinkertainen prosessi tietää/kiinnittää VM:n IP-osoite ennen sen käynnistämistä. Myös IP voidaan varata, jos haluat käynnistää VM:n uudelleen.
 
-### Fix IP address before launching a VM
+### Kiinnitä IP-osoite ennen VM:n käynnistämistä {#fix-ip-address-before-launching-a-vm}
 
-Follow the procedure:
+Noudata seuraavaa menettelyä:
 
-1. In menu of your project, go to **Networks** and Click on the `project_XXXXXXX-network` link, where XXXXXXX is your project number.
+1. Projektisi valikossa, mene **Verkot** ja napsauta `project_XXXXXXX-network` linkkiä, missä XXXXXXX on projektinumero.
 
-![Project](../../img/project.png)
+![Projekti](../../img/project.png)
 
-2. Go to **Ports** tab and click on **Create Port** in right-top corner.
+2. Siirry **Portit**-välilehteen ja napsauta **Luo portti** oikeassa yläkulmassa.
 
-![Project-network](../../img/project-network.png)
+![Projekti-verkko](../../img/project-network.png)
 
-3. A dialog box should apear as shown in next image. Enter the name and click **Create**.
+3. Dialogi-ikkuna ilmestyy seuraavan kuvan mukaisesti. Syötä nimi ja napsauta **Luo**.
 
-![Create-port](../../img/Create-port-unspecified.png)
+![Luo-portti](../../img/Create-port-unspecified.png)
 
-4. Now, while launching an instance, got to **Network Ports** and use this port. 
+4. Nyt, kun käynnistät instanssia, siirry **Verkkoportit** ja käytä tätä porttia.
 
-![launch-instance](../../img/launch-instance.png) 
+![käynnistä-instanssi](../../img/launch-instance.png)
 
-### Reserve IP to re-launch a VM
-Procedure is almost same with few additional steps:
+### Varaa IP uudelleenkäynnistettävälle VM:lle {#reserve-ip-to-re-launch-a-vm}
 
-1. Write down the IP and the list of security groups of the current VM.
+Menettely on melkein sama muutamalla lisäaskeleella:
 
-2. Shutdown the VM.
+1. Kirjoita muistiin nykyisen VM:n IP-osoite ja turvallisuusryhmien lista.
 
-3. Take a snapshot.
+2. Sammuta VM.
 
-4. Click on **Ports** in network of your project.
+3. Ota tilannekuva.
 
-5. Delete the port corresponding to the IP of your current VM. This is because that port is auto generated and cannot be assigned to any other VM than the one that is currently assigned. The delete button is under Actions. 
+4. Napsauta projektisi verkon **Portit**.
 
-6. Now, create a port as mentioned above. Here, in **Specify IP address or subnet**, change it to **Fixed IP Address**. A new field will appear, input there the IP of you current VM.
+5. Poista nykyisen VM:si IP:tä vastaava portti. Tämä johtuu siitä, että kyseinen portti on automaattisesti luotu eikä sitä voi osoittaa mihinkään muuhun VM:ään kuin siihen, johon se on tällä hetkellä osoitettu. Poistonappi on Toiminnot-kohdassa.
 
-7. Use this port while launching a VM. 
+6. Nyt, luo portti edellä mainitulla tavalla. Tässä, **Määritä IP-osoite tai aliverkko**, vaihda se **Kiinteä IP-osoite**. Uusi kenttä ilmestyy, syötä siihen nykyisen VM:si IP-osoite.
 
+7. Käytä tätä porttia, kun käynnistät VM:ää.

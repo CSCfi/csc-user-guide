@@ -1,16 +1,18 @@
-# How to run an ad-hoc interactive container
 
-It is sometimes useful to be able to run a random container image for debugging inside a project. `oc run` allows it by running in a single command:
+# Kuinka ajaa ad-hoc interaktiivinen kontti {#how-to-run-an-ad-hoc-interactive-container}
+
+Joskus on hyödyllistä pystyä ajamaan satunnainen konttikuva ongelmanratkaisua varten projektin sisällä. `oc run` sallii tämän ajamalla sen yhdellä komennolla:
 
 ```
 $ oc run pod-name -it --rm --image=bash --restart=Never
-If you do not see a command prompt, try pressing enter.
+Jos et näe komentokehotetta, yritä painaa enteriä.
 bash-5.1$
 ```
 
-* `pod-name` can be any given name that does not exist already in the namespace.
-* `-it` tells  `oc` to create an interactive session.
-* `--rm` will make the Pod to be deleted after the session is over.
-* `--image=bash` is the name of the image, in this case [library/bash](https://hub.docker.com/_/bash). It can be any given image, either public library image like `bash`, or a purpose build private image.
-* `--restart=Never` will tell OpenShift to not restart the Pod when the session is over.
-* If you would like to start a Pod with a different command than its default, you can do so by adding `-- [COMMAND] [args...] [flags]` at the end (e.g. `oc run pod-name  -it --rm --image=python --restart=Never -- bash`).
+* `pod-name` voi olla mikä tahansa nimi, jota ei ole jo olemassa nimialueella.
+* `-it` käskee `oc`:n luomaan interaktiivisen istunnon.
+* `--rm` poistaa Podin istunnon päätyttyä.
+* `--image=bash` on kuvan nimi, tässä tapauksessa [library/bash](https://hub.docker.com/_/bash). Se voi olla mikä tahansa annettu kuva, joko julkinen kirjasto kuva kuten `bash`, tai tarkoitusta varten rakennettu yksityinen kuva.
+* `--restart=Never` käskee OpenShiftia olemaan käynnistämättä Podi uudelleen istunnon päätyttyä.
+* Jos haluat käynnistää Podin eri komennolla kuin sen oletuskomento, voit tehdä sen lisäämällä `-- [COMMAND] [args...] [flags]` loppuun (esim. `oc run pod-name -it --rm --image=python --restart=Never -- bash`).
+

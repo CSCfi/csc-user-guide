@@ -1,213 +1,163 @@
 # LUE
 
-!!! Note
-    While we try our hardest to make tools easy to use, parallel file systems with a
-    huge amount of files and data are complicated. Read the full instructions before
-    using the tool!
+!!! Huom
+    Vaikka pyrimme tekemään työkaluista mahdollisimman helppokäyttöisiä, rinnakkaiset tiedostojärjestelmät, joissa on valtava määrä tiedostoja ja dataa, ovat monimutkaisia. Lue täydelliset ohjeet ennen työkalun käyttöä!
 
-Keeping track of how much data/files one has on the disk and (re)moving it in a
-timely manner ensures a more performant file system for all users.
+Seuraamalla levytilan/tiedostojen määrää ja siirtämällä niitä ajoissa varmennetaan tehokkaampi tiedostojärjestelmä kaikille käyttäjille.
 
-When querying size information it's important to limit the processed set of files.
-Some operations can be both slow and heavy on the file system. In other words, don't
-run the tool on the whole project folder (e.g `/scratch/project_12345`), but choose
-instead smaller sub-folders where you think you might have a lot of files or data
-which could possibly be moved/compressed/removed. By default, the tool will only
-fetch size data for 30 mins before quitting.
+Kun teet kyselyitä kokotiedoista, on tärkeää rajata prosessoitava tiedostojoukko. Jotkin operaatiot voivat olla sekä hitaita että raskaita tiedostojärjestelmälle. Toisin sanoen, älä suorita työkalua koko projektikansioon (esim. `/scratch/project_12345`), vaan valitse pienempiä alikansioita, joissa arvelet olevan paljon tiedostoja tai dataa, jotka voisi mahdollisesti siirtää/pakata/poistaa. Oletusarvoisesti työkalu hakee kokotiedot vain 30 minuuttia ennen lopettamista.
 
-## Short prelude
+## Lyhyt esipuhe {#short-prelude}
 
-LUE is a tool available on CSC supercomputers which shows the amount of data and
-number of files within a given folder on the parallel file system.
+LUE on työkalu, joka on saatavilla CSC:n supertietokoneilla. Se näyttää datan määrän ja tiedostojen lukumäärän määritetyssä kansiossa rinnakkaisessa tiedostojärjestelmässä.
 
-Importantly, LUE is significantly faster than standard tools like `stat` or `du`
-(these being slow to the point of infeasibility on a bad day), while being nicer
-on the file system. This, however, comes with a possible slight loss in accuracy.
+Tärkeää on, että LUE on merkittävästi nopeampi kuin tavanomaiset työkalut kuten `stat` tai `du` (nämä voivat olla hitaita pisteeseen, jossa niiden käyttö on mahdotonta huonona päivänä), samalla ollen ystävällisempi tiedostojärjestelmälle. Tämä tosin voi johtaa pieneen tarkkuuden menetykseen.
 
-A secondary point is that LUE presents the results in a fairly understandable way,
-saving the user from having to script something themselves based on raw `du` output.
+Toisena huomiona on se, että LUE esittää tulokset melko ymmärrettävästi, säästäen käyttäjän raakadatan `du` perusteella scriptin luomiselta.
 
-The sources of possible inaccuracy are:
+Mahdollisten epätarkkuuksien lähteet ovat:
 
-1. Old files which have not been accessed are missing size data.
-      - There is a specific date (2020-11-18) before which data is not available on
-        **Puhti**. Mahti does not have a such a limitation.
-      - Files created/accessed after this should be ok.
-      - It's not always possible to accurately determine affected files in a
-        sufficiently efficient manner.
-2. We can't get the actual layout of the files on the disk, so we might slightly
-   overestimate the actual disk usage.
-      - A file which is 95 MB large might only consume 68 MB of disk space if it
-        contains large parts of only zeros.
-3. Files which are currently in use might not be reported correctly.
+1. Vanhat tiedostot, joita ei ole käytetty, puuttuvat kokotiedot.
+      - **Puhti**-järjestelmässä on tietty päivämäärä (2020-11-18), jota vanhempia tietoja ei ole saatavilla. Mahti ei ole rajoitettu näin.
+      - Tämän jälkeen luodut/käytetyt tiedostot pitäisi olla kunnossa.
+      - Aina ei ole mahdollista tarkasti määrittää vaikuttavia tiedostoja riittävän tehokkaasti.
+2. Emme voi saada tiedostojen todellista sijoittelua levylle, joten saatamme hieman yliarvioida todellista levytilan käyttöä.
+      - 95 MB kokoinen tiedosto voi kuluttaa vain 68 MB levytilaa, jos se sisältää suurilta osin pelkkää nollaa.
+3. Tiedostot, joita käytetään tällä hetkellä, saatetaan raportoida virheellisesti.
 
-## Basic usage
+## Peruskäyttö {#basic-usage}
 
-Load the module with:
+Lataa moduuli seuraavasti:
 
 ```bash
 module load lue
 ```
 
-and start by running
+ja aloita suorittamalla
 
 ```bash
-lue <target_dir>
+lue <kohde_kansio>
 ```
 
-### Output
+### Tuloste {#output}
 
 ```text
-Total size: 8994868686 Processed files: 90551 Permission denied: 16 Missing size: 48955, Other err: 1
-path, total size, in dir size, % of total, % of dir
+Kokonaiskoko: 8994868686 Prosessoidut tiedostot: 90551 Käyttöoikeus estetty: 16 Koko puuttuu: 48955, Muu virhe: 1
+polku, kokonaiskoko, kansiossa koko, % kokonaisesta, % kansiosta
 ---------------------------------------------------
 /scratch/project_12345/dirA  8.4GB  356KB 100.0 100.0
-    results                       3.7GB  458MB 44.15 44.15 NOSIZE:2
-    installations                 1.4GB  48KB  16.2  16.2 
+    tulokset                      3.7GB  458MB 44.15 44.15 NOSIZE:2
+    asennukset                    1.4GB  48KB  16.2  16.2 
     datasetA                      684MB  64KB  7.9   7.9
     datasetB                      530MB  56KB  6.12  6.12  NOPERM:1 NOSIZE:17
-    testing                       512MB  8KB   5.92  5.92 
-    images                        395MB  764KB 4.56  4.56 
+    testaus                       512MB  8KB   5.92  5.92 
+    kuvat                         395MB  764KB 4.56  4.56 
     numpy-git                     292MB  12KB  3.37  3.37 
-    newAB                         263MB  412KB 3.04  3.04  NOPERM:9 NOSIZE:953
-    cuda_old                      249MB  4KB   2.87  2.87 
+    uusiAB                        263MB  412KB 3.04  3.04  NOPERM:9 NOSIZE:953
+    cuda_vanha                    249MB  4KB   2.87  2.87 
     AI-simu                       176MB  52KB  2.03  2.03  NOSIZE:43491
-    mpi-test                      60MB   52KB  0.69  0.69 
-WARNING: Size information is missing for 48956 files
-Rerun with --sync-size to update size information, estimated duration: 43 seconds
+    mpi-testi                      60MB   52KB  0.69  0.69 
+VAROITUS: Kootiedot puuttuvat 48956 tiedostosta
+Käynnistä uudelleen --sync-size päivitettäväksesi kokotiedot, arvioitu kesto: 43 sekuntia
 ```
 
-While the tool is running it will print how many files it has processed, the total
-size of the files, how many directories could not be opened and how many files did
-not have a reported size.
+Kun työkalu suorittaa, se tulostaa kuinka monta tiedostoa se on prosessoinut, tiedostojen kokonaiskoon, kuinka monta kansiota ei voitu avata ja kuinka monessa tiedostossa ei ollut raportoitu kokoa.
 
 !!! info
-    Using the `-c/--count` flag you can display the number of files instead of the
-    amount of data.
+    Käyttämällä `-c/--count` -lippua voit näyttää tiedostojen lukumäärän tiedon määrän sijasta.
 
-Once the tool is finished going through the files, it will print the size of `<target_dir>`
-and the size of any sub-folders. The columns from left to right are:
+Kun työkalu on käynyt läpi tiedostot, se tulostaa `<kohde_kansio>` koko koon ja kaikkien alihakemistojen koot. Sarakkeet vasemmalta oikealle ovat:
 
-- The directory/file name
-- The total size of the directory (including subdirectories) or the size of the file
-- The size of all files in a directory (excluding subdirectories)
-- How many percent the directory or file is of the total size of `<target_dir>`
-- How many percent the directory or file is of the total size of its parent directory
-- Counts of how many directories could not be opened (`NOPERM`) or how many files
-  were missing size information (`NOSIZE`)
+- Hakemiston/tiedoston nimi
+- Hakemiston kokonaiskoko (sisältäen alihakemistot) tai tiedoston koko
+- Kaikkien kansiossa olevien tiedostojen koko (pois lukien alihakemistot)
+- Kuinka monta prosenttia hakemisto tai tiedosto on `<kohde_kansio>`-kansioiden kokonaiskoosta
+- Kuinka monta prosenttia hakemisto tai tiedosto on sen ylähakemiston kokonaistilavuudesta
+- Kuinka monta hakemistoa ei voitu avata (`NOPERM`) tai kuinka monelta tiedostolta puuttui kokotietoja (`NOSIZE`)
 
 !!! info
-    **If we could not open a directory we have no estimate on how much data is
-    contained in that directory**. See [updating-size](#updating-size) for how to
-    fix the `NOSIZE` error. The `NOPERM` error requires the owner of the directories
-    to fix the access rights.
+    **Jos emme voineet avata hakemistoa, emme voi arvioida, kuinka paljon dataa on kyseisessä hakemistossa**. Katso [kokon päivittäminen](#updating-size) -ohjeista, miten `NOSIZE`-virheen korjaaminen onnistuu. `NOPERM`-virhe edellyttää hakemiston omistajalta käyttöoikeuksien korjaamista.
 
-By default, files or empty folders are not shown in the output. Use `--show-all`
-to override this.
+Oletusarvoisesti, tiedostoja tai tyhjiä kansioita ei näytetä tulosteessa. Käytä `--show-all` -lippua ohittaaksesi tämän.
 
-Using `--display-level=<n>` we can show a deeper hierarchy to get more detailed
-information.
+Käyttämällä `--display-level=<n>` voimme näyttää syvemmän hierarkian saadaksemme tarkempia tietoja.
 
 ```bash
 $ lue --display-level=2 /scratch/project_12345/
 
-path, total size, in dir size, % of total, % of dir
+polku, kokonaiskoko, kansiossa koko, % kokonaisesta, % kansiosta
 ---------------------------------------------------
 /scratch/project_12345/dirA        8.4GB  356KB 100.0 100.0
-    results                            3.7GB  458MB 44.15 44.15
+    tulokset                            3.7GB  458MB 44.15 44.15
         simu1                              2.8GB  522MB 32.84 74.38 NOSIZE:1
         simu2                              521MB  521MB 6.02  13.64 NOSIZE:1
-    installation                       1.4GB  48KB  16.2  16.2 
+    asennukset                         1.4GB  48KB  16.2  16.2 
         gcc10                              351MB  351MB 4.05  25.02
         gcc11                              351MB  351MB 4.05  25.02
         clang15                            351MB  351MB 4.05  25.02
         intel                              350MB  350MB 4.04  24.94
 ```
 
-Alternatively, we can just run the tool on one of the sub-folders to get a smaller,
-less cluttered output.
+Vaihtoehtoisesti voimme suorittaa työkalun vain yhdellä alikansiolla saadaksemme pienemmän, vähemmän sekavan tulosteen.
 
 ```bash
-$ lue /scratch/project_12345/dirA/result
+$ lue /scratch/project_12345/dirA/tulokset
 
-path, total size, in dir size, % of total, % of dir
+polku, kokonaiskoko, kansiossa koko, % kokonaisesta, % kansiosta
 ---------------------------------------------------
-/scratch/project_12345/dirA/result           3.7GB  458MB 100.0 100.0
-    simu1                                        2.8GB  522MB 74.38 74.38 NOSIZE:1
-    simu2                                        521MB  521MB 13.64 13.64 NOSIZE:1
+/scratch/project_12345/dirA/tulokset      3.7GB  458MB 100.0 100.0
+    simu1                                    2.8GB  522MB 74.38 74.38 NOSIZE:1
+    simu2                                    521MB  521MB 13.64 13.64 NOSIZE:1
 ```
 
-LUE keeps a very simple cache of runs. After running LUE on `/scratch/project_12345/dirA/`
-you can run it on any subdirectories without actually re-querying anything from the file system.
-To force the tool to refresh the data (for example if a run needs other options or the cache
-is to old), use `--refresh`. The cache is saved under `$TMPDIR`, so if you switch nodes, you
-will need to rerun.
+LUE pitää hyvin yksinkertaista välimuistia ajoista. Kun olet ajanut LUE:n `/scratch/project_12345/dirA/`, voit suorittaa sen alihakemistoissa ilman, että mitään varsinaisesti kyseletään tiedostojärjestelmästä uudestaan. Pakota työkalu päivittämään data käyttämällä `--refresh`. Välimuisti tallennetaan `$TMPDIR`-kansioon, joten jos vaihdat konetta, joudut tekemään uuden ajon.
 
-Using the `--yaml file.yaml` and `--json file.json` options you can save the output
-in a more parsable format instead of printing it to the screen.
+Käytä `--yaml file.yaml` ja `--json file.json` -vaihtoehtoja tallentaaksesi tuloste helposti käsiteltävään muotoon sen sijaan, että se tulostuisi ruudulle.
 
-## Updating size
+## Kokon päivittäminen {#updating-size}
 
-As mentioned, files which have not been accessed since _2020-11-18_ are not reported
-correctly. Note that this applies only for **Puhti**, Mahti does not have this limitation.
+Kuten mainittu, tiedostot, joita ei ole käytetty vuoden _2020-11-18_ jälkeen, raportoidaan virheellisesti. Huomaa, että tämä koskee vain **Puhti**-järjestelmää, Mahtissa ei ole tätä rajoitusta.
 
-Next follows the steps to correct this. This procedure needs to be done only once,
-after which the size should be reported correctly:
+Seuraavaksi ohjeet tämän korjaamiseksi. Tämä menettely täytyy tehdä vain kerran, jonka jälkeen koko raportoituu oikein:
 
-1. Run `lue <target_dir>`.
-      - If no warnings are printed and there are no `NOSIZE` labels, the reported size
-        should be fairly accurate. No need for further steps.
-2. Rerun `lue --sync-size <target_dir>`. The previous command should have reported
-   the number of affected files and a (very) rough estimate of the duration.
-      - A progress bar will be updated to show how many files have been processed and
-        how many files could not be updated due to insufficient permissions.
-3. Rerun `lue --refresh <target_dir>`.
-      - Shown size should be fairly accurate.
+1. Suorita `lue <kohde_kansio>`.
+      - Jos ilmoituksia ei tulostu ja `NOSIZE`-merkintöjä ei ole, raportoitu koko on melko tarkka. Jatkovaiheita ei tarvita.
+2. Suorita `lue --sync-size <kohde_kansio>` uudelleen. Edellinen komento ilmoitti vaikuttavien tiedostojen lukumäärän ja (hyvin) karkean arvion kestoajasta.
+      - Paikkapalkki näytetään, ja se kertoo, kuinka monta tiedostoa on käsitelty ja kuinka moni ei voitu päivittää riittämättömien käyttöoikeuksien vuoksi.
+3. Suorita `lue --refresh <kohde_kansio>` uudelleen.
+      - Näkyvän koon pitäisi olla varsin tarkka.
 
-**If there are still `NOSIZE` labels reported:**
+**Jos `NOSIZE`-merkintöjä yhä näkyy:**
 
-1. Some files could not be updated due to insufficient permissions.
-      - The number of affected files was reported when running with `--sync-size`.
-         - If the number matches the number of `NOSIZE`, there is no need for steps 2. and 3.
-      - Can only be remedied by the owner fixing the access permissions.
-      - If the number of affected files is small (<1000), you can rerun with
-        `lue --refresh <target_dir> --stat-unsynced` to get more accurate size info,
-        although this will be a bit slower.
-2. Some files require much heavier operations to sync the size.
-      - Rerun with `lue --sync-size --slow-sync <target_dir>`. **NOTE!** Adding the
-        `--slow-sync` option will be about x10 slower than with just `--sync-size`
-      - Before doing this run `lue` on some of the sub-folders (without `--refresh`)
-        to find out where the `NOSISZE` files are located. Then use `ls -l` or `du -h`
-        to confirm that the files are actually not zero in size. If the files seem to
-        be non-zero in size, run with `--slow-sync`. Otherwise go to 3.
-      - Usually this step is not needed.
-3. Some files are very old and have an actual size of zero -> we have incorrectly
-   flagged them.
-      - If you know that you have a program/framework which produces a lot of empty
-        files, consider removing those before running the tool.
-      - If you already ran with `--slow-sync` or confirmed that it was not needed, you
-        can add the `--no-guess` flag to not report these files.
+1. Joitakin tiedostoja ei voitu päivittää riittämättömien käyttöoikeuksien vuoksi.
+      - Vaikuttavien tiedostojen määrä ilmoitettiin suoritettaessa `--sync-size`-komennolla.
+         - Jos luku vastaa `NOSIZE`-tiedostojen määrää, askeleet 2. ja 3. voi jättää väliin.
+      - Korjattavissa vain omistajan korjatessa käyttöoikeudet.
+      - Jos vaikuttavien tiedostojen määrä on pieni (<1000), voit suorittaa `lue --refresh <target_dir> --stat-unsynced` saadaksesi tarkempia koko tietoja, vaikka tämä on hieman hitaampaa.
+2. Jotkin tiedostot vaativat huomattavasti raskaampia toimintoja koon synkronoimiseksi.
+      - Suorita uudelleen `lue --sync-size --slow-sync <target_dir>`. **HUOM!** Lisäten `--slow-sync`-vaihtoehto on noin x10 hitaampi kuin pelkän `--sync-size` käyttäminen.
+      - Ennen kuin teet tätä, aja `lue` joissakin alikansioissa (ilman `--refresh`), jotta saat tietää missä `NOSIZE`-tiedostoja on. Käytä sitten `ls -l` tai `du -h` varmistaaksesi, että tiedostot eivät ole oikeasti nollakokoisia. Jos tiedostot eivät näytä olevan nollakokoisia, aja ne `--slow-sync`. Muuten siirry kohtaan 3.
+      - Tavallisesti tätä vaihetta ei tarvita.
+3. Jotkin tiedostot ovat hyvin vanhoja ja todellisuudessa nollakokoisia -> olemme virheellisesti merkinneet ne.
+      - Jos tiedät, että sinulla on ohjelma/työkalu, joka tuottaa paljon tyhjiä tiedostoja, harkitse niiden poistamista ennen työkalun suorittamista.
+      - Jos olet jo suorittanut `--slow-sync` tai varmistanut, ettei sitä tarvita, voit käyttää `--no-guess`-lippua, jotta näitä tiedostoja ei raportoida.
 
-## Limiting the runtime
+## Suoritusajan rajoittaminen {#limiting-the-runtime}
 
-It's a good idea to limit the runtime of the tool, and often we get useful information
-even though we did not go through the folder structure exhaustively. If you press
-`Ctrl-C` to interrupt the tool, the processed information will be saved and you can
-rerun without `--refresh` to view the results. Other options to limit the runtime are:
+On hyvä idea rajoittaa työkalun suoritusaikaa, ja usein saamme hyödyllistä tietoa, vaikka emme käy läpi kansiorakennetta tyhjentävästi. Jos painat `Ctrl-C` katkaistaksesi työkalun, käsitellyt tiedot tallentuvat ja voit suorittaa sen ilman `--refresh` nähdäksesi tulokset. Muita vaihtoehtoja suorituksen rajoittamiseksi ovat:
 
 `--timeout <n>`
 
-: Stop after `<n>` minutes (default 30min if `--timeout` is not set)
+: Lopeta `<n>` minuutin jälkeen (oletus 30min, jos `--timeout` ei ole asetettu)
 
 `--file-limit <n>`
 
-: Stop the search after going through a set amount of files.
+: Lopeta haku, kun tietty määrä tiedostoja on käyty läpi.
 
 `--size-limit <n>`
 
-: Stop the search after reaching a set total size. Supported units are K, M, G, T.
-  If no suffix is used G is assumed.
+: Lopeta haku, kun saavutetaan asetettu kokonaiskoko. Tuetut yksiköt ovat K, M, G, T. Jos päätettä ei käytetä, oletus on G.
 
 `--search-depth <n>`
 
-: Limit search depth to `<n>`. Default is no limit.
+: Rajoita hakusyvyys `<n>`. Oletus on ilman rajaa.

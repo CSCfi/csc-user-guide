@@ -1,18 +1,19 @@
-!!! success "Basic level"
-    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and kubernetes [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
 
-# Annotations
+!!! success "Perustaso"
+Sinulla tulee olla OpenShift CLI -työkalun [oc](../usage/cli.md) ja Kubernetesin [huomautusten](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) tietämys.
 
-You can use Kubernetes annotations to attach arbitrary non-identifying metadata to objects. Clients such as tools and libraries can retrieve this metadata. Annotations, like labels, are key/value maps.
+# Huomautukset {#annotations}
 
-Annotations can be added to any object by simply doing:
+Voit käyttää Kubernetes-huomautuksia liittääksesi mielivaltaista, ei-tunnistettavaa metadataa objekteihin. Asiakkaat, kuten työkalut ja kirjastot, voivat noutaa tätä metadataa. Huomautukset, kuten etiketit, ovat avain/arvo-karttoja.
+
+Huomautuksia voidaan lisätä mihin tahansa objektiin yksinkertaisesti seuraavasti:
 
 ```
 oc annotate <object_type> <object_name> <key>=<value>
 ```
 
-Here are some examples that use annotations:
+Tässä on joitakin esimerkkejä, joissa käytetään huomautuksia:
 
-* [Protecting Against DDoS Attacks](../../../support/faq/DDos.md)
-* [Route annotations](../concepts.md#route)
-* [Custom domain names and secure transport](custom-domain.md)
+* [Suojautuminen DDoS-hyökkäyksiltä](../../../support/faq/DDos.md)
+* [Reitti huomautukset](../concepts.md#route)
+* [Mukautetut verkkotunnukset ja turvallinen siirto](custom-domain.md)

@@ -1,15 +1,8 @@
-# What does it cost to use Pouta?
 
-Pouta usage is free for Finnish academic use if a project application is
-accepted. This uses the same process as the HPC systems at CSC. For a detailed
-explanation, see
-[Pouta Usage policy](../../cloud/pouta/vm-flavors-and-billing.md).
+# Mitä Poutan käyttäminen maksaa? {#what-does-it-cost-to-use-pouta}
 
-[Academic and commercial pricing](https://research.csc.fi/purchasing) is also
-available for cases where we are unable to provide free access or sufficient
-resources.
+Poutan käyttö on ilmaista suomalaiseen akateemiseen käyttöön, jos projektihakemus hyväksytään. Tämä käyttää samaa prosessia kuin CSC:n HPC-järjestelmät. Yksityiskohtaisen selityksen saat kohdasta [Pouta Usage policy](../../cloud/pouta/vm-flavors-and-billing.md).
 
-Accounting and billing is based on the same billing units that are used in the
-HPC systems at CSC. Academic users can apply for more free billing units
-through the [CSC customer portal MyCSC](https://my.csc.fi). Paying customers
-should contact [CSC Service Desk](../contact.md).
+[Akateeminen ja kaupallinen hinnoittelu](https://research.csc.fi/purchasing) on myös saatavilla tapauksille, joissa emme pysty tarjoamaan ilmaista pääsyä tai riittäviä resursseja.
+
+Kirjanpito ja laskutus perustuvat samoihin laskutusyksiköihin, joita käytetään CSC:n HPC-järjestelmissä. Akateemiset käyttäjät voivat hakea lisää ilmaisia laskutusyksiköitä [CSC:n asiakasportaalin MyCSC](https://my.csc.fi) kautta. Maksavien asiakkaiden tulisi ottaa yhteyttä [CSC Service Desk](../contact.md).

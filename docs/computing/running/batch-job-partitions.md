@@ -1,193 +1,196 @@
-# Available batch job partitions
 
-On CSC supercomputers, programs are run by submitting them to partitions,
-which are logical sets of nodes managed by the SLURM workload manager.
-This page lists the available SLURM partitions on the Puhti and Mahti
-supercomputers, as well as explains their intended uses. Below are the general
-guidelines for using the SLURM partitions on our systems:
+# Käytettävissä olevat erätyöosastot {#available-batch-job-partitions}
 
-1. **Use the `test` and `gputest` partitions for testing your code, not production.**
-   These partitions provide access to fewer resources than other partitions,
-   but jobs submitted to them have a higher priority and are thus granted
-   resources before other jobs.
-2. **Only request multiple CPU cores if you know your program supports
-   parallel processing.** Reserving multiple cores does not automatically
-   speed up your job. Your program must be written in a way that the
-   computations can be done in multiple threads or processes. Reserving more
-   cores does nothing by itself, except make you queue for longer.
-3. **Only use the GPU partitions if you know your program can utilize GPUs.**
-   Running your computations using one or more GPUs is a very effective
-   parallelization method for certain applications, but your program must be
-   configured to use the CUDA platform. If you are unsure whether this is the
-   case, it is better to submit it to a CPU partition, since you will be
-   allocated resources sooner. You may also always
-   [consult CSC Service Desk](../../support/contact.md) when in doubt.
+CSC:n supertietokoneilla ohjelmia ajetaan lähettämällä ne osastoille,
+jotka ovat SLURM-työkuormanhallinnan hallinnoimia loogisia solmuryhmiä.
+Tämä sivu listaa Puhtin ja Mahtin supertietokoneiden käytettävissä olevat
+SLURM-osastot sekä selittää niiden suunnitellut käyttötarkoitukset. Alla
+ovat yleiset ohjeet SLURM-osastojen käyttämiseen järjestelmissämme:
 
-The following commands can be used to show information about available
-partitions:
+1. **Käytä `test`- ja `gputest`-osastoja koodisi testaamiseen, ei tuotantoon.**
+   Nämä osastot tarjoavat pääsyn vähempiin resursseihin kuin muut osastot,
+   mutta niille lähetetyt työt saavat korkeamman etusijan ja saavat siten
+   resursseja muiden töiden edellä.
+2. **Pyydä useampia prosessoriytimiä vain, jos tiedät ohjelmasi tukevan
+   rinnakkaista käsittelyä.** Useiden ytimien varaaminen ei automaattisesti
+   nopeuta työtäsi. Ohjelmasi on kirjoitettava siten, että laskennan voi
+   suorittaa useilla säikeillä tai prosesseilla. Useampien ytimien varaaminen
+   itsessään ei tee muuta kuin pidentää jonotus aikaa.
+3. **Käytä GPU-osastoja vain, jos tiedät ohjelmasi hyödyntävän GPU:ta.**
+   Laskennan suorittaminen yhdellä tai useammalla GPU:lla on erittäin tehokas
+   rinnakkaistamismenetelmä tiettyihin sovelluksiin, mutta ohjelmasi tulee
+   olla konfiguroitu käyttämään CUDA-alustaa. Jos et ole varma, onko näin,
+   on parempi lähettää se CPU-osastolle, koska sinulle osoitetaan resursseja
+   nopeammin. Voit myös aina
+   [ottaa yhteyttä CSC:n palvelupisteeseen](../../support/contact.md) kun olet
+   epävarma.
+
+Seuraavia komentoja voidaan käyttää näyttämään tietoa käytettävissä olevista
+osastoista:
 
 ```bash
-# Display a summary of available partitions
+# Näyttää yhteenveto käytettävissä olevista osastoista
 $ sinfo --summarize
 
-# Display details about a specific partition:
+# Näyttää tarkempia tietoja tietystä osastosta:
 $ scontrol show partition <partition_name>
 ```
 
-!!! info "LUMI partitions"
-    The available LUMI batch job partitions are found in the
-    [LUMI documentation].
+!!! info "LUMI-osastot"
+    Käytettävissä olevat LUMI-erätyöosastot löytyvät
+    [LUMI-dokumentaatiosta].
 
-## Puhti partitions
+## Puhti osastot {#puhti-partitions}
 
-The following guidelines apply to the SLURM partitions on Puhti:
+Seuraavat ohjeet koskevat SLURM-osastoja Puhtilla:
 
-1. **Only request the memory you need.** Memory can easily end up being a
-   bottleneck in resource allocation. Even if the desired amount of GPUs
-   and/or CPU cores is continuously available, your job will sit in the queue
-   for as long as it takes for the requested amount of memory to become
-   free. It is thus recommended to only request the amount of memory that is
-   necessary for running your job. Additionally, the amount of billing units
-   consumed by your job is affected by the amount of memory requested, not
-   the amount which was actually used. See
-   [how to estimate your memory requirements](../../support/faq/how-much-memory-my-job-needs.md).
-2. **Only use the `longrun` partitions if necessary.** The `longrun` and
-   `hugemem_longrun` partitions provide access to fewer resources and have a
-   lower priority than the other partitions, so it is recommended to use them
-   only for jobs that *really* require a very long runtime (e.g. if there is no
-   way to checkpoint and restart a computation).
+1. **Pyydä vain tarvitsemasi muisti.** Muisti voi helposti muodostua
+   resurssien jakelun pullonkaulaksi. Jopa jos haluttu määrä GPU:ta ja/tai
+   CPU-ytimiä on jatkuvasti saatavilla, työsi istuu jonossa niin kauan kunnes
+   pyydetty määrä muistista vapautuu. Siksi on suositeltavaa pyytää vain
+   määrä, joka on tarpeen työsi suorittamiseen. Lisäksi, työn kuluttamien
+   laskentayksikköjen määrä riippuu pyydetystä muistimäärästä, ei käytetystä.
+   Katso lisää [kuinka arvioida muistitarpeesi](../../support/faq/how-much-memory-my-job-needs.md).
+2. **Käytä `longrun`-osastoja vain tarpeen mukaan.** `longrun` ja
+   `hugemem_longrun`-osastot tarjoavat pääsyn vähempiin resursseihin ja
+   niillä on alhaisempi prioriteetti kuin muilla osastoilla, joten on
+   suositeltavaa käyttää niitä vain töihin, jotka *todella* vaativat erittäin
+   pitkän suorituksen (esim. jos ei ole tapaa keskeyttää ja uudelleenkäynnistää
+   laskentaa).
 
-### Puhti CPU partitions
+### Puhti CPU-osastot {#puhti-cpu-partitions}
 
-Puhti features the following partitions for submitting jobs to CPU nodes:
+Puhti tarjoaa seuraavat osastot CPU-solmuille osoitettavien töiden
+lähettämiseen:
 
-| Partition         | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|-------------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `test`            | 15 minutes    | 80               | 2            | M                                 | 185 GiB                | n/a                                    |
-| `small`           | 3 days        | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
-| `large`           | 3 days        | 1040             | 26           | M, L, IO                          | 373 GiB                | 3600 GiB                               |
-| `longrun`         | 14 days       | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
-| `hugemem`         | 3 days        | 160              | 4            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
-| `hugemem_longrun` | 14 days       | 40               | 1            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
+| Osasto          | Aika<br>raja | Max CPU<br>ytimet | Max<br>solmut | [Solmutyypit](../systems-puhti.md) | Max muisti<br>per solmu | Max paikallinen tallennus<br>([NVMe]) per solmu |
+|-----------------|-------------|---------------------|--------------|-------------------------------------|--------------------------|-----------------------------------------------|
+| `test`          | 15 minuuttia| 80                  | 2            | M                                   | 185 GiB                  | ei koske                                     |
+| `small`         | 3 päivää    | 40                  | 1            | M, L, IO                            | 373 GiB                  | 3600 GiB                                     |
+| `large`         | 3 päivää    | 1040                | 26           | M, L, IO                            | 373 GiB                  | 3600 GiB                                     |
+| `longrun`       | 14 päivää   | 40                  | 1            | M, L, IO                            | 373 GiB                  | 3600 GiB                                     |
+| `hugemem`       | 3 päivää    | 160                 | 4            | XL, BM                              | 1496 GiB                 | 1490 GiB (XL), 5960 GiB (BM)                 |
+| `hugemem_longrun` | 14 päivää | 40                  | 1            | XL, BM                              | 1496 GiB                 | 1490 GiB (XL), 5960 GiB (BM)                 |
 
-### Puhti GPU partitions
+### Puhti GPU-osastot {#puhti-gpu-partitions}
 
-Puhti features the following partitions for submitting jobs to GPU nodes:
+Puhti tarjoaa seuraavat osastot GPU-solmuille osoitettavien töiden
+lähettämiseen:
 
-| Partition | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|-----------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `gputest` | 15 minutes    | 8           | 80               | 2            | GPU                               | 373 GiB                | 3600 GiB                               |
-| `gpu`     | 3 days        | 80          | 800              | 20           | GPU                               | 373 GiB                | 3600 GiB                               |
+| Osasto   | Aika<br>raja | Max<br>GPU:t | Max CPU<br>ytimet | Max<br>solmut | [Solmutyypit](../systems-puhti.md) | Max muisti<br>per solmu | Max paikallinen tallennus<br>([NVMe]) per solmu |
+|----------|-------------|---------------|---------------------|--------------|-------------------------------------|--------------------------|-----------------------------------------------|
+| `gputest`| 15 minuuttia| 8             | 80                  | 2            | GPU                                 | 373 GiB                  | 3600 GiB                                     |
+| `gpu`    | 3 päivää    | 80            | 800                 | 20           | GPU                                 | 373 GiB                  | 3600 GiB                                     |
 
-!!! info "Fair use of GPU nodes on Puhti" 
-    You should reserve **no more than 10 CPU cores per GPU**.
+!!! info "Tasapuolinen GPU-solmujen käyttö Puhtilla"
+    Sinun tulisi varata **enintään 10 CPU-ytimeä per GPU**.
 
-### Puhti `interactive` partition
+### Puhti `interactive`-osasto {#puhti-interactive-partition}
 
-The `interactive` partition on Puhti allows running
-[interactive jobs](./interactive-usage.md) on CPU nodes. To run an
-interactive job on a GPU node, use `sinteractive` command
-[with the `-g` option](./interactive-usage.md#sinteractive-on-puhti),
-which submits the job to the `gpu` partition instead. Note that you can only
-run two simultaneous jobs on the Puhti `interactive` partition.
+`interactive`-osasto Puhtilla mahdollistaa
+[interaktiivisten töiden](./interactive-usage.md) suorittamisen CPU-solmuilla.
+Jos haluat suorittaa interaktiivisen työn GPU-solmulla, käytä `sinteractive`-
+komentoa [`-g`-valinnan kanssa](./interactive-usage.md#sinteractive-on-puhti),
+joka lähettää työn `gpu`-osastolle sen sijaan. Huomaa, että voit suorittaa
+vain kaksi samanaikaista työtä Puhtin `interactive`-osastolla.
 
-| Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `interactive` | 7 days        | 8                | 1            | IO                                | 76 GiB                 | 720 GiB                                |
+| Osasto       | Aika<br>raja | Max CPU<br>ytimet | Max<br>solmut | [Solmutyypit](../systems-puhti.md) | Max muisti<br>per solmu | Max paikallinen tallennus<br>([NVMe]) per solmu |
+|--------------|-------------|---------------------|--------------|-------------------------------------|--------------------------|-----------------------------------------------|
+| `interactive`| 7 päivää    | 8                   | 1            | IO                                  | 76 GiB                   | 720 GiB                                       |
 
-## Mahti partitions
+## Mahti osastot {#mahti-partitions}
 
-### Mahti CPU partitions with node-based allocation
+### Mahti CPU-osastot solmupohjaisella allokoinnilla {#mahti-cpu-partitions-with-node-based-allocation}
 
-Mahti features the following partitions for submitting jobs to CPU nodes. Jobs
-submitted to these partitions occupy
-[all of the resources available on a node](../systems-mahti.md#compute-nodes)
-and make it inaccessible to other jobs. Thus, your job should ideally be able
-to utilize all 128 cores available on each reserved node efficiently. Although
-in certain situations it may be worthwhile to
-[undersubscribe nodes](creating-job-scripts-mahti.md#undersubscribing-nodes),
-note that your job will still consume billing units based on the amount of
-reserved *nodes*, not CPU cores.
+Mahti tarjoaa seuraavat osastot CPU-solmuille osoitettavien töiden
+lähettämiseen. Näille osastoille lähetetyt työt vievät
+[kaikki solmulla käytettävissä olevat resurssit](../systems-mahti.md#compute-nodes)
+ja tekevät siitä muille töille saavuttamattoman. Siten työn tulisi ideaalisti
+pystyä hyödyntämään kaiken varatun solmun 128 ytimen tehosesti. Vaikka
+tietyissä tilanteissa voi olla hyödyllistä
+[vajaa-allokoida solmuja](creating-job-scripts-mahti.md#undersubscribing-nodes),
+huomaa, että työsi kuluttaa silti laskentayksiköitä varattujen *solmujen*
+mutta ei CPU-ytimien perusteella.
 
-Some partitions are only available under special conditions. The `large`
-partition is only accessible to projects that have
-[completed a scalability test](../../accounts/how-to-access-mahti-large-partition.md)
-and demonstrated good utilization of the partition resources. The `gc`
-partition, which allows users to run extremely large simulations, is only
-accessible to
-[Grand Challenge projects](https://research.csc.fi/grand-challenge-proposals).
+Jotkut osastot ovat saatavilla vain erityisillä ehdoilla. `large`-osasto on
+vain niiden projektien käytössä, jotka ovat
+[suorittaneet skaalautuvuustestin](../../accounts/how-to-access-mahti-large-partition.md)
+ja osoittaneet hyvää osastoresurssien käyttöä. `gc`-osasto, joka mahdollistaa
+käyttäjien suorittaa erittäin suuria simulaatioita, on vain
+[Grand Challenge -projektien](https://research.csc.fi/grand-challenge-proposals)
+käytettävissä.
 
-| Partition | Time<br>limit | CPU cores<br>per node | Nodes<br>per job | [Node types](../systems-mahti.md) | Memory<br>per node | Max local storage<br>([NVMe]) per node | Requirements                    |
-|-----------|---------------|-----------------------|------------------|-----------------------------------|--------------------|----------------------------------------|---------------------------------|
-| `test`    | 1 hour        | 128                   | 1–2              | CPU                               | 256 GiB            | n/a                                    | n/a                             |
-| `medium`  | 36 hours      | 128                   | 1–20             | CPU                               | 256 GiB            | n/a                                    | n/a                             |
-| `large`   | 36 hours      | 128                   | 20–200           | CPU                               | 256 GiB            | n/a                                    | [scalability test]              |
-| `gc`      | 36 hours      | 128                   | 200–700          | CPU                               | 256 GiB            | n/a                                    | [Grand Challenge project]       |
+| Osasto   | Aika<br>raja | CPU ytimet<br>per solmu | Solmut<br>per työ | [Solmutyypit](../systems-mahti.md) | Muisti<br>per solmu | Max paikallinen tallennus<br>([NVMe]) per solmu | Vaatimukset                        |
+|----------|-------------|--------------------------|--------------------|-------------------------------------|----------------------|-----------------------------------------------|----------------------------------|
+| `test`   | 1 tunti     | 128                      | 1–2                | CPU                                 | 256 GiB              | ei koske                                     | ei koske                         |
+| `medium` | 36 tuntia   | 128                      | 1–20               | CPU                                 | 256 GiB              | ei koske                                     | ei koske                         |
+| `large`  | 36 tuntia   | 128                      | 20–200             | CPU                                 | 256 GiB              | ei koske                                     | [skaalautuvuustesti]             |
+| `gc`     | 36 tuntia   | 128                      | 200–700            | CPU                                 | 256 GiB              | ei koske                                     | [Grand Challenge -projekti]     |
 
-### Mahti CPU partitions with core-based allocation
+### Mahti CPU-osastot ydinpohjaisella allokoinnilla {#mahti-cpu-partitions-with-core-based-allocation}
 
-Two CPU partitions on Mahti allow you to reserve cores instead of
-full nodes. These are the `small` partition and the `interactive`
-partition. In these partitions jobs are allocated 1.875 GiB of memory
-for each reserved CPU core, and the only way to reserve more memory is
-to reserve more cores. These partitions are also special in that you
-can reserve local storage on the node. It is important that you only
-request local storage if you are able to make use of it, and no more
-than you need. Since the local storage is limited, requesting a large
-amount of storage may increase your queueing time.
+Maktilla on kaksi CPU-osastoa, jotka mahdollistavat ytimien varaamisen koko
+solmujen sijasta. Nämä ovat `small`-osasto ja `interactive`-osasto. Näissä
+osastoissa töille allokoidaan 1.875 GiB muistia jokaista varattua CPU-ydintä
+kohti, ja ainoa tapa varata enemmän muistia on varata lisää ytimiä. Nämä
+osastot ovat myös erityisiä, koska voit varata paikallista tallennustilaa
+solmulla. On tärkeää, että pyydät paikallista tallennustilaa vain, jos
+voidaan hyödyntää sitä, eikä enempää kuin tarvitset. Koska paikallista
+tallennustilaa on rajoitetusti, suuren määrän tallennustilan pyytäminen voi
+lisätä jonotusaikaa.
 
-The `interactive` partition on Mahti is intended for
-[interactive pre- and post-processing tasks](./interactive-usage.md). It
-allows reserving CPU resources without occupying an entire node, which means
-that other jobs may also access the same node. You can run up to 8
-simultaneous jobs on the `interactive` partition and reserve at most 32 cores,
-i.e., you may have one job using 32 cores, 8 jobs using 4 cores each, or
-anything in between.
+`interactive`-osasto Mahtilla on tarkoitettu
+[interaktiivisiin esikäsittely- ja jälkikäsittelytehtäviin](./interactive-usage.md).
+Se mahdollistaa varata CPU-resursseja ilman, että koko solmu on käytössä, mikä
+tarkoittaa, että muutkin työt voivat käyttää samaa solmua. Voit suorittaa jopa
+8 samanaikaista työtä `interactive`-osastossa ja varata enintään 32 ydintä,
+eli sinulla voi olla yksi työ, joka käyttää 32 ydintä, 8 työtä, jotka
+käyttävät 4 ydintä kukin, tai mitä tahansa näiden välillä.
 
-The `small` partition is intended for batch processing of small scale
-CPU compute workloads, that do not need a full node. It is also able
-to support applications that need local storage to perform
-optimally. Many workloads that have traditionally used Puhti, may
-benefit from this partition.
+`small`-osasto on tarkoitettu pienimuotoisten CPU-laskentatehtävien
+eräkäsittelyyn, jotka eivät tarvitse koko solmua. Se voi myös tukea
+sovelluksia, jotka tarvitsevat paikallista tallennusta toimiakseen optimaalisesti.
+Monet työt, jotka ovat perinteisesti käyttäneet Puhtia, voivat hyötyä tästä
+osastosta.
 
-| Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `small`       | 3 days        | 128              | 1            | CPU with NVMe                     | 240 GiB                | 3500 GiB                               |
-| `interactive` | 7 days        | 32               | 1            | CPU, CPU with NVMe                | 60 GiB                 | 3500 GiB                               |
+| Osasto       | Aika<br>raja | Max CPU<br>ytimet | Max<br>solmut | [Solmutyypit](../systems-mahti.md) | Max muisti<br>per solmu | Max paikallinen tallennus<br>([NVMe]) per solmu |
+|--------------|-------------|---------------------|--------------|-------------------------------------|--------------------------|-----------------------------------------------|
+| `small`      | 3 päivää    | 128                 | 1            | CPU NVMe:llä                        | 240 GiB                  | 3500 GiB                                     |
+| `interactive`| 7 päivää    | 32                  | 1            | CPU, CPU NVMe:llä                   | 60 GiB                   | 3500 GiB                                     |
 
-### Mahti GPU partitions
+### Mahti GPU-osastot {#mahti-gpu-partitions}
 
-Mahti features the following partitions for submitting jobs to GPU nodes.
-Unless otherwise specified, the job is allocated 122.5 GiB of memory for
-each reserved GPU.
+Mahti tarjoaa seuraavat osastot GPU-solmuille osoitettavien töiden
+lähettämiseen. Elle muuta mainittu, työlle allokoidaan 122.5 GiB muistia jokaista
+varattua GPU:ta kohden.
 
-| Partition   | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|-------------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `gputest`   | 15 minutes    | 4           | 128              | 1            | GPU                               | 490 GiB                | 3500 GiB                               |
-| `gpusmall`  | 36 hours      | 2           | 64               | 1            | GPU                               | 490 GiB                | 3500 GiB                               |
-| `gpumedium` | 36 hours      | 24          | 768              | 6            | GPU                               | 490 GiB                | 3500 GiB                               |
+| Osasto     | Aika<br>raja | Max<br>GPU:t | Max CPU<br>ytimet | Max<br>solmut | [Solmutyypit](../systems-mahti.md) | Max muisti<br>per solmu | Max paikallinen tallennus<br>([NVMe]) per solmu |
+|------------|-------------|---------------|---------------------|--------------|-------------------------------------|--------------------------|-----------------------------------------------|
+| `gputest`  | 15 minuuttia| 4             | 128                 | 1            | GPU                                 | 490 GiB                  | 3500 GiB                                     |
+| `gpusmall` | 36 tuntia   | 2             | 64                  | 1            | GPU                                 | 490 GiB                  | 3500 GiB                                     |
+| `gpumedium`| 36 tuntia   | 24            | 768                 | 6            | GPU                                 | 490 GiB                  | 3500 GiB                                     |
 
-!!! info "Fair use of GPU nodes on Mahti"
-    You should reserve **no more than 32 CPU cores per GPU**.
+!!! info "Tasapuolinen GPU-solmujen käyttö Mahtilla"
+    Sinun tulisi varata **enintään 32 CPU-ytimeä per GPU**.
 
-#### GPU slices
+#### GPU-viipaleet {#gpu-slices}
 
-A subset of the Nvidia A100 GPUs on the Mahti `gpusmall` partition are divided
-into a total of 28 smaller GPU slices, which have one-seventh of the
-compute and memory capacity of a full A100 GPU. You are able to reserve at
-most 4 CPU cores when using a GPU slice. Additionally, the job is allocated
-17.5 GiB of memory, and there is no way to request a different amount. Finally,
-you are only able to reserve one GPU slice per job. The GPU slices are intended
-especially for interactive use that requires GPU capacity.
+Osa Mahtin `gpusmall`-osaston Nvidia A100 GPU:ista on jaettu yhteensä 28
+pienemmäksi GPU-viipaleeksi, joilla on seitsemäsosa A100 GPU:n laskenta- ja
+muistikapasiteetista. Käyttäessäsi GPU-viipaletta voit varata korkeintaan 4
+CPU-ydintä. Lisäksi työlle allokoidaan 17.5 GiB muistia, eikä sitä voi
+pyytää muuta määrää. Lopuksi voit varata vain yhden GPU-viipaleen per työ.
+GPU-viipaleet on erityisesti tarkoitettu interaktiiviseen käyttöön, joka vaatii
+GPU-kapasiteettia.
 
-To reserve a GPU slice, use `sinteractive` with the `-g` option, or include the
-`--gres=gpu:a100_1g.5gb:1` option together with specifying the `gpusmall`
-partition in your batch script. For more information, see the instructions on
-[creating GPU batch jobs on Mahti](creating-job-scripts-mahti.md#gpu-batch-jobs).
+Varataksesi GPU-viipaleen käytä `sinteractive` `-g`-valinnalla tai lisää
+`--gres=gpu:a100_1g.5gb:1` vaihtoehto määrittäessäsi `gpusmall`-osaston eräskriptissäsi.
+Katso lisätietoja ohjeista [GPU-erätöiden luomisesta Mahtilla](creating-job-scripts-mahti.md#gpu-batch-jobs).
 
-<!-- Links -->
-[Grand Challenge project]: https://research.csc.fi/grand-challenge-proposals
-[LUMI documentation]: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/
+<!-- Linkit -->
+[Grand Challenge -projekti]: https://research.csc.fi/grand-challenge-proposals
+[LUMI-dokumentaatio]: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/
 [NVMe]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
-[scalability test]: ../../accounts/how-to-access-mahti-large-partition.md
-<!-- Links -->
+[skaalautuvuustesti]: ../../accounts/how-to-access-mahti-large-partition.md
+<!-- Linkit -->
+

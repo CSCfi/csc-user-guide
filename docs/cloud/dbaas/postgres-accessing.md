@@ -1,71 +1,69 @@
-# Access your PostgreSQL database
+# Käytä PostgreSQL-tietokantaasi {#access-your-postgresql-database}
 
-See [the page on firewalls](firewalls.md) for instructions on opening access to your database.
+Katso [sivulta palomuureista](firewalls.md) ohjeita tietokantaan pääsyn avaamiseksi.
 
-## Graphical user interface
+## Graafinen käyttöliittymä {#graphical-user-interface}
 
-A popular tool for working with PostgreSQL databases is pgAdmin, which can be found [here](https://www.pgadmin.org/). It can be installed as a desktop application, or on a server to be accessed via its web GUI. Note that it can not be installed on the Pukki database instance, and the DBaaS team does not provide support for it, as we are more comfortable using the CLI tools.
+Suosittu työkalu PostgreSQL-tietokantojen kanssa työskentelyyn on pgAdmin, jonka löydät [täältä](https://www.pgadmin.org/). Se voidaan asentaa työpöytäsovelluksena tai palvelimelle, jolle voidaan käyttää sen verkkokäyttöliittymän kautta. Huomaa, että sitä ei voida asentaa Pukki-tietokantainstanssiin, eikä DBaaS-tiimi tarjoa siihen tukea, sillä olemme mukavampia käyttämään CLI-työkaluja.
 
-## Command-line
+## Komentorivi {#command-line}
 
-1. Install the `postgresql` command line tool. Note that some Linux distributions might provide ancient versions of it by default. Please consult [this page](https://www.postgresql.org/download/) for detailed installation instructions.
-2. Find the public IP of your database instance from its Overview tab in the web GUI, or with `openstack database instance list`.
-3. Use the following commands to access your PostgreSQL instance from the command line:
+1. Asenna `postgresql`-komentorivityökalu. Huomaa, että jotkut Linux-jakelut voivat oletuksena tarjota sille vanhentuneita versioita. Katso yksityiskohtaiset asennusohjeet [tältä sivulta](https://www.postgresql.org/download/).
+2. Löydä tietokantainstanssisi julkinen IP-osoite sen yleiskatsausvälilehdeltä verkkokäyttöliittymässä tai komennolla `openstack database instance list`.
+3. Käytä seuraavia komentoja päästäksesi PostgreSQL-instanssiisi komentoriviltä:
    ```
    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
    ```
 
-   If your application is using a configuration file The syntax normally looks something like this:
-
+   Jos sovelluksesi käyttää konfiguraatiotiedostoa, syntaksi näyttää yleensä tältä:
    ```
    postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
    ```
 
-   You can also use the latter syntax to access the database with `psql` but it will omit column names from query responses.
+   Voit myös käyttää jälkimmäistä syntaksia päästäksesi tietokantaan `psql`:lla, mutta se jättää sarakenimet pois kyselyvastauksista.
 
-### Common issues with CLI connections
+### Yleisiä ongelmia CLI-yhteyksissä {#common-issues-with-cli-connections}
 
-1. If the connection hangs and times out without a PostgreSQL prompt, or if you get an error like:
+1. Jos yhteys jäätyy ja aikakatkaistuu ilman PostgreSQL-kehotetta, tai saat virheen kuten:
    ```
    psql: error: connection to server at "195.148.30.38", port 5432 failed: Connection refused
    Is the server running on that host and accepting TCP/IP connections?
    ```
-   it means either the IP address is wrong or the database instance's firewall is blocking access.
-2. If you get an error like:
+   se tarkoittaa, että joko IP-osoite on väärä tai tietokantainstanssin palomuuri estää pääsyn.
+2. Jos saat virheen kuten:
    ```
    psql: error: connection to server at "$IP_ADDRESS", port 5432 failed: FATAL:  database "$DATABASE" does not exist
    ```
-   it means you're trying to access the wrong database.
-3. If `psql` asks for a password but rejects it, make sure you typed it correctly, and check that the database user exists, either through the Users tab in the web GUI or with `openstack database user list ${DATABASE_ID}`.
+   tämä tarkoittaa, että yrität käyttää väärää tietokantaa.
+3. Jos `psql` kysyy salasanaa mutta hylkää sen, varmista, että kirjoitit sen oikein, ja tarkista, että tietokannan käyttäjä on olemassa joko verkkokäyttöliittymän Users-välilehdestä tai komennolla `openstack database user list ${DATABASE_ID}`.
 
-## Accessing your Pukki PostgreSQL database from Puhti
+## Pukin PostgreSQL-tietokannan käyttö Puhti-palvelimesta {#accessing-your-pukki-postgresql-database-from-puhti}
 
-1. First make sure that your database's [firewall allows traffic from Puhti](firewalls.md#puhti).
-2. [Log in to Puhti](../../computing/connecting/index.md).
-3. To be able to use the `psql` command line tool you need to first load the module:
+1. Varmista ensin, että tietokantasi [palomuuri sallii liikenteen Puhti-palvelusta](firewalls.md#puhti).
+2. [Kirjaudu sisään Puhtiin](../../computing/connecting/index.md).
+3. Jotta voit käyttää `psql`-komentorivityökalua, sinun täytyy ensin ladata moduuli:
    ```
    module load psql
    ```
-4. Store your database password in your home directory. This is needed if you want to use
-   PostgreSQL from a batch job. You can do it by creating a file with the necessary credentials:
-    1. Create a file `~/.pgpass` with the following content (modify the placeholder variables accordingly):
+4. Tallenna tietokantasi salasana kotihakemistoosi. Tämä on tarpeen, jos haluat käyttää PostgreSQL:ää eräajon kautta. Voit tehdä sen luomalla tiedoston, jossa on tarvittavat tunnistetiedot:
+    1. Luo tiedosto `~/.pgpass` seuraavalla sisällöllä (muokkaa paikalla olevat muuttujat tarpeen mukaan):
     ```
     $PUBLIC_IP:5432:*:$USERNAME:$PASSWORD
     ```
-        * The `$PUBLIC_IP` should be the public IP-address of your instance.
-        * `5432` is the port to use (in Pukki it is always 5432).
-        * The `*` means that all databases in you database instance should use the same credentials.
-        * The `$USERNAME` and `$PASSWORD` are your database username and password.
-    2. Update the file permissions with `chmod 600 ~/.pgpass` to keep your credentials safe.
-5. Now you can verify that you can access your database without entering your password:
+        * `$PUBLIC_IP` on instanssisi julkinen IP-osoite.
+        * `5432` on käytettävä portti (Pukissa se on aina 5432).
+        * `*` tarkoittaa, että kaikki tietokannan instanssin tietokannat käyttävät samoja tunnistustietoja.
+        * `$USERNAME` ja `$PASSWORD` ovat tietokantasi käyttäjätunnus ja salasana.
+    2. Päivitä tiedoston käyttöoikeudet komennolla `chmod 600 ~/.pgpass` suojellaksesi tunnistautumistietojasi.
+5. Nyt voit varmistaa, että pääset tietokantaasi ilman salasanan syöttämistä:
    ```
    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
    ```
 
-### Basic Puhti batch job example using psql
+### Perus Puhti-eräajotehtävän esimerkki käyttäen psql:ää {#basic-puhti-batch-job-example-using-psql}
 
-1. This requires that you have configured `~/.pgpass` correctly in the previous section.
-2. Create a file named `my-first-psql-batch-job.bash`:
+1. Tämä edellyttää, että olet asettanut `~/.pgpass` oikein edellisessä osiossa.
+2. Luo tiedosto nimeltä `my-first-psql-batch-job.bash`:
    ```bash title="my-first-psql-batch-job.bash"
    #!/bin/bash -l
    #SBATCH --job-name=psql_job
@@ -80,68 +78,67 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
    module load psql
    psql --user $DB_USER_NAME --host $DB_IP_ADDRESS $DATABASE_NAME -c 'SELECT 1' >> psql-results.txt
    ```
-   Make sure that you have updated the following variables:
-      * `$PROJECT_NUMBER` – your CSC project ID (e.g. project_2001234)
-      * `$DB_USER_NAME` – your database username (same as in `~/.pgpass`)
-      * `$DB_IP_ADDRESS` – the public IP-address of your database
-      * `$DATABASE_NAME` – name of your database
-3. Once you are happy with the batch script, you can submit the job by running:
+   Varmista, että olet päivittänyt seuraavat muuttujat:
+      * `$PROJECT_NUMBER` – CSC-projektisi tunnus (esim. project_2001234)
+      * `$DB_USER_NAME` – tietokantasi käyttäjätunnus (sama kuin `~/.pgpass`)
+      * `$DB_IP_ADDRESS` – tietokantasi julkinen IP-osoite
+      * `$DATABASE_NAME` – tietokantasi nimi
+3. Kun olet tyytyväinen eräaskriptiin, voit lähettää työn ajettavaksi komennolla:
    ```
    sbatch my-first-psql-batch-job.bash
    ```
 
-## Some useful SQL commands
+## Joitakin hyödyllisiä SQL-käskyjä {#some-useful-sql-commands}
 
-### List databases
+### Näytä tietokannat {#list-databases}
 
 ```sql
 \l
 ```
 
-### List tables
+### Näytä taulukot {#list-tables}
 
 ```sql
 \d
 ```
 
-### Show table descriptions
+### Näytä taulukon kuvaukset {#show-table-descriptions}
 
 ```sql
 \d $TABEL_NAME
 ```
 
-### Change database
+### Vaihda tietokantaa {#change-database}
 
 ```sql
 \c $DATABASE_NAME
 ```
 
-Note that this is the same command as for creating a new database if it does not exist (and you have given yourself root permissions).
+Huomaa, että tämä on sama käsky uuden tietokannan luomiseen, jos sitä ei ole olemassa (ja olet antanut itsellesi pääkäyttäjän oikeudet).
 
-### Example query
+### Esimerkkikysely {#example-query}
 
 ```sql
 SELECT row1, row2 FROM table1 ORDER_BY row3 DESC LIMIT 2;
 ```
 
-### Show all database settings
+### Näytä kaikki tietokanta-asetukset {#show-all-database-settings}
 
 ```sql
 SHOW ALL;
 ```
 
-### Show all users
+### Näytä kaikki käyttäjät {#show-all-users}
 
 ```sql
 select * from pg_user;
 ```
 
-This is also visible from the web interface or the OpenStack CLI. Note that the PostgreSQL user is a service user, i.e. the user that the DBaaS uses to communicate with your database.
+Tämä näkyy myös verkkokäyttöliittymässä tai OpenStack CLI:ssä. Huomaa, että PostgreSQL-käyttäjä on palvelukäyttäjä, eli käyttäjä, jota DBaaS käyttää kommunikointiin tietokantasi kanssa.
 
-### Extended display
+### Laajennettu näyttö {#extended-display}
 
-This will show each column of the record on its own row. This is especially useful when you want to inspect a single record.
+Tämä näyttää kunkin tietueen sarakkeen omalla rivillään. Tämä on erityisen hyödyllistä, kun haluat tarkastella yksittäistä tietuetta.
 
 ```sql
 SELECT * FROM table1 LIMIT 1 \gx
-```

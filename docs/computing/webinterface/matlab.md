@@ -1,10 +1,11 @@
-# MATLAB
 
-The app will start a MATLAB session on Puhti with the specified resources.
-Currently, only the R2023b release with Parallel Computing and Compiler SDK toolboxes is installed.
+# MATLAB {#matlab}
 
-In addition to computing resources, partition and project, there is an **optional** "License file" field.
-With it you can specify path to your own home organisation's license server to obtain MATLAB license
-from there instead. This option is useful, for example, in situations where all CSC's MATLAB licences are already reserved.
+Sovellus käynnistää MATLAB-istunnon Puhtilla tarvitsemasi resursseilla.
+Tällä hetkellä on asennettuna vain R2023b-julkaisu Parallel Computing ja Compiler SDK -työkaluilla.
 
-For documentation on using MATLAB, see the [MATLAB documentation](../../apps/matlab.md).
+Laskentaresurssien, osion ja projektin lisäksi on olemassa **valinnainen** "Lisenssitiedosto" -kenttä.
+Sen avulla voit määrittää oman kotiorganisaatiosi lisenssipalvelimen polun saadaksesi MATLAB-lisenssin
+sieltä. Tämä vaihtoehto on hyödyllinen esimerkiksi tilanteissa, joissa kaikki CSC:n MATLAB-lisenssit ovat jo varattuja.
+
+MATLAB:in käyttödokumentaatio löytyy [MATLAB-dokumentaatio](../../apps/matlab.md).

@@ -1,88 +1,89 @@
-!!! error "Advanced level"
-    This tutorial uses OpenShift CLI tool [oc](../usage/cli.md).
-    You must understand that OpenShift [Routes](../concepts.md#route) only exposes HTTP/HTTPS port to the internet
 
-# Accessing databases on Rahti from CSC supercomputers
+!!! error "Kehittynyt taso"
+    Tämä opas käyttää OpenShiftin CLI työkalua [oc](../usage/cli.md).
+    Sinun tulee ymmärtää, että OpenShift [Reitit](../concepts.md#route) altistavat internetille vain HTTP/HTTPS-portteja
 
-!!! warning "New Rahti LoadBalancer available"
-    It is now possible to enable [LoadBalancer](../networking.md#using-loadbalancer-service-type-with-dedicated-ips) in Rahti.   
-    Unlike [Routes](../networking.md#routes), the LoadBalancer service allows you to expose services to the Internet without being limited to HTTP/HTTPS.  
-    Have a look at the documentation linked above to learn more.  
+# Tietokantojen käyttö Rahdilla CSC:n supertietokoneilla {#accessing-databases-on-rahti-from-csc-supercomputers}
 
-    The following documentation is still available if you prefer to use Routes and Websocat.
+!!! warning "Uusi Rahti LoadBalancer saatavilla"
+    Rahdilla on nyt mahdollista ottaa käyttöön [LoadBalancer](../networking.md#using-loadbalancer-service-type-with-dedicated-ips).
+    Toisin kuin [Reitit](../networking.md#routes), LoadBalancer-palvelu mahdollistaa palveluiden altistamisen internetille ilman, että se rajoittuu HTTP/HTTPS:ään.
+    Tutustu yllä linkitettyyn dokumentaatioon saadaksesi lisätietoja.
 
-Many HPC workflows require a database. Running these on the login node poses several issues and running on Pouta brings administration overhead. Rahti is a good candidate, but one obstacle is that Rahti does not support non-HTTP traffic from external sources.
+    Seuraava dokumentaatio on edelleen saatavilla, jos haluat käyttää Reittejä ja Websocat-ohjelmaa.
 
-A workaround for this problem is to establish a TCP tunnel over an HTTP-compatible WebSocket connection. This can be achieved using a command-line client for connecting to and serving WebSockets called [WebSocat](https://github.com/vi/websocat). Here, a WebSocat instance running on Puhti/Mahti translates a database request coming from a workflow to an HTTP-compatible WebSocket protocol. Once the traffic enters Rahti we use another WebSocat instance running inside Rahti to translate back the WebSocket connection to a TCP connection over the original port the database is configured to receive traffic. A drawing of the process is shown below.
+Monet HPC-työprosessit vaativat tietokannan. Näiden suorittaminen kirjautumissolmussa aiheuttaa useita ongelmia, ja suorittaminen Poutassa tuo hallinnollista kuormitusta. Rahti on hyvä vaihtoehto, mutta yksi este on, että Rahti ei tue HTTP:stä poikkeavaa liikennettä ulkoisista lähteistä.
 
-![Image illustrating a WebSocket connection bridging CSC's HPC environment and a database service on Rahti](../../../img/websocat-diagram-4.drawio.png)
+Tämän ongelman kiertämiseksi voidaan luoda HTTP-yhteensopiva WebSocket-yhteys TCP-tunneloinnin avulla. Tämä voidaan saavuttaa käyttämällä komentoriviasiakasohjelmaa nimeltä [WebSocat](https://github.com/vi/websocat), jolla voi muodostaa yhteyksiä ja palvella WebSocateja. Tässä tapauksessa Rahdin sisällä toimiva WebSocat-instance muuntaa työprosessista tulevan tietokantakyselyn HTTP-yhteensopivaksi WebSocket-protokollaksi. Kun liikenne saapuu Rahdille, käytämme toista Rahdin sisällä toimivaa WebSocat-instanssia muuntaaksemme WebSocket-yhteyden takaisin TCP-yhteydeksi alkuperäiselle portille, jolle tietokanta on määritetty vastaanottamaan liikennettä. Prosessin piirros on esitetty alla.
 
-This tutorial outlines the steps to achieve this using MariaDB as an example database.
+![Kuva, joka kuvaa WebSocket-yhteyttä CSC:n HPC-ympäristön ja Rahdilla olevan tietokantapalvelun välillä](../../../img/websocat-diagram-4.drawio.png)
 
-!!! info
-
-    The OpenShift template used below to configure WebSocat on Rahti is an unsupported beta version!
+Tämä opas kuvaa vaiheet tämän saavuttamiseksi käyttäen MariaDB:tä esimerkkitietokantana.
 
 !!! info
 
-    This solution is suitable for computationally light use cases. Reasonable scaling can be expected for up to ~100 processes simultaneously accessing a database on Rahti. Exceeding this limit is not advised and may result in performance degradation.
-
-## Step 1: Setting up MariaDB and WebSocat on Rahti
-
-Configuring MariaDB and WebSocat on Rahti can be done either through the web interface or using the `oc` command line tool. Notice that your CSC project must have access to the Rahti service. See here [how to add service access for a project](../../../accounts/how-to-add-service-access-for-project.md).
+    Alla käytetty OpenShift-malli WebSocatin konfiguroimiseen Rahdilla on tuettu beta-versio!
 
 !!! info
 
-    Mind the difference between [persistent](../storage/index.md#persistent-storage) and [ephemeral storage](../storage/index.md#ephemeral-storage) when creating a new database in Rahti. Ephemeral databases are meant for temporary storage and should not be considered reliable. If the [Pod](../networking.md#pods) in which your database is running is deleted or restarted you will lose all your data! To avoid this, create a database with a persistent volume and make sure to also perform regular backups to for example [Allas](../../../data/Allas/index.md).
+    Tämä ratkaisu soveltuu laskennallisesti kevyisiin käyttötapauksiin. Järkevä mittakaava voidaan olettaa noin 100 prosessille, jotka samanaikaisesti käyttävät tietokantaa Rahdilla. Tämän rajan ylittäminen ei ole suositeltavaa ja saattaa heikentää suorituskykyä.
 
-### Option 1: Using the Rahti web interface
+## Vaihe 1: MariaDB:n ja WebSocatin asennus Rahdilla {#step-1-setting-up-mariadb-and-websocat-on-rahti}
 
-- Log in to the [Rahti web interface](https://rahti.csc.fi/). See [Getting access](../access.md) for instructions.
-- Deploy MariaDB from the "Developer Catalog". You will find the developer catalog in the **+Add** section of the `Developer` menu.
-- Configure the database. You need to at least select or create a Rahti project to which you want to add the database. If creating a new project, make sure to include your CSC project number in the project description in the form `csc_project: 2001234`
-- Create the database and remember the
-    - Connection Username
-    - Connection Password
-    - Root Password
-    - Database name (`sampledb` by default)
-    - Database service name (`mariadb` by default)
-- After creation, double check the network parameters and remember them:
-    - Target port (3306 by default)
-    - Hostname address (of the form `<service name>.<project name>.svc`)
-- An [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml) is needed to configure WebSocat on Rahti. Download or copy this YAML file to your clipboard. **Note:** that this is an _unsupported_ beta template
-- Click in the `+` sign in the upper right corner of the webinterface, and paste the template. Click create.
-- Come back to the "Developer Catalog" and deploy the Websocat template. You need to provide the "Database service name" (`mariadb` by default) and the "Database port" (`3306` by default).
-- In the `Developer` menu, go to **Project -> Route** and copy the Location URL. You will use this URL to connect from outside Rahti.
+MariaDB:n ja WebSocatin konfigurointi Rahdilla voidaan tehdä joko verkkokäyttöliittymän kautta tai käyttämällä `oc` komentorivityökalua. Huomaa, että CSC-projektillasi on oltava pääsy Rahdin palveluun. Katso [kuinka lisätä palvelun käyttöoikeus projektille](../../../accounts/how-to-add-service-access-for-project.md).
 
-### Option 2: Using the `oc` command line tool
+!!! info
 
-- See [Command line tool usage](../usage/cli.md) for basic instructions
-- Login using your CSC username and password
+    Kiinnitä huomiota eroon [pysyvän](../storage/index.md#persistent-storage) ja [ohimenevän tallennustilan](../storage/index.md#ephemeral-storage) välillä, kun luot uutta tietokantaa Rahdille. Ohimenevä tietokanta on tarkoitettu tilapäiseen tallennukseen eikä pitäisi pitää luotettavana. Jos [Pod](../networking.md#pods), jossa tietokantasi toimii, poistetaan tai käynnistetään uudelleen, menetät kaikki tietosi! Tämän välttämiseksi luo tietokanta pysyvällä levyllä ja varmista, että suoritat säännöllisesti varmuuskopioita esimerkiksi [Allas](../../../data/Allas/index.md)-palveluun.
+
+### Vaihtoehto 1: Rahdin verkkokäyttöliittymän käyttö {#option-1-using-the-rahti-web-interface}
+
+- Kirjaudu [Rahdin verkkokäyttöliittymään](https://rahti.csc.fi/). Katso [Pääsyn hankkiminen](../access.md) ohjeet.
+- Ota käyttöön MariaDB "Sovelluskehittäjien katalogista". Löydät kehittäjäkatalogin `Kehittäjä`-valikon **+Lisää**-osiosta.
+- Määritä tietokanta. Sinun on valittava tai luotava vähintään Rahdin projekti, johon haluat lisätä tietokannan. Jos luot uuden projektin, varmista, että projektin kuvauksessa on CSC-projektin numero muodossa `csc_project: 2001234`
+- Luo tietokanta ja muista nämä
+    - Yhteyskäyttäjänimi
+    - Yhteyssalasana
+    - Juuren salasana
+    - Tietokannan nimi (`sampledb` oletuksena)
+    - Tietokantapalvelun nimi (`mariadb` oletuksena)
+- Tarkista luomisen jälkeen verkkoasetukset ja muista ne:
+    - Kohdeportti (3306 oletuksena)
+    - Isännän osoite (muodossa `<palvelunimi>.<projektinimi>.svc`)
+- WebSocatin konfiguroimiseen Rahdilla tarvitaan [OpenShift-malli](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml). Lataa tai kopioi tämä YAML-tiedosto leikepöydällesi. **Huom:** tämä on _tuettu_ beta-malli
+- Klikkaa `+` merkkiä verkkokäyttöliittymän oikeassa yläkulmassa ja liitä malli. Klikkaa luo.
+- Palaa "Sovelluskehittäjien katalogiin" ja ota käyttöön Websocat-malli. Sinun on annettava "Tietokantapalvelun nimi" (`mariadb` oletuksena) ja "Tietokantaportti" (`3306` oletuksena).
+- `Kehittäjä`-valikossa, siirry **Project -> Route** ja kopioi Location URL. Käytät tätä URL:ää yhdistymiseen Rahdista ulkopuolelta.
+
+### Vaihtoehto 2: `oc` komentorivityökalun käyttö {#option-2-using-the-oc-command-line-tool}
+
+- Katso [Komentorivityökalun käyttö](../usage/cli.md) perusohjeet
+- Kirjautuminen CSC:n käyttäjänimellä ja salasanalla
 
 ```bash
 oc login https://api.2.rahti.csc.fi:6443 -u <username> -p <password>
 ```
 
-- Create a new project (namespace) or switch to existing one. If creating a new project, make sure to include your CSC project number in the project description in the form `csc_project: 2001234`
+- Luo uusi projekti (namespace) tai siirry olemassa olevaan. Jos luot uuden projektin, varmista, että projektin kuvauksessa on CSC-projektin numero muodossa `csc_project: 2001234`
 
 ```bash
-oc new-project <project name> --display-name='My new project'\
+oc new-project <project name> --display-name='Uusi projektini'\
    --description='csc_project: <project number>'
 ```
 
-or
+tai
 
 ```bash
 oc project <project name>
 ```
 
-- Add MariaDB by launching the `mariadb-persistent` template. Remember the username, password, database name and the database service name. Use the `-p` flag to modify default parameters
+- Lisää MariaDB käynnistämällä `mariadb-persistent` mallin. Muista käyttäjänimi, salasana, tietokannan nimi ja tietokantapalvelun nimi. Käytä `-p` lippua muokataksesi oletusparametreja
 
 ```bash
 oc new-app --template=mariadb-persistent
 ```
 
-- Add WebSocat by launching the [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml). You can check the target port with `oc describe services <service name>`. The default parameters for the service name and target port are `mariadb` and 3306, respectively
+- Lisää WebSocat käynnistämällä [OpenShift-malli](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml). Voit tarkistaa kohdeportin komennolla `oc describe services <service name>`. Palvelun nimi ja kohdeportin oletusparametrit ovat `mariadb` ja 3306
 
 ```bash
 oc new-app --file=/path/to/websocat-template.yaml\
@@ -90,19 +91,19 @@ oc new-app --file=/path/to/websocat-template.yaml\
   --param=DATABASE_PORT=<port>
 ```
 
-- Remember the route hostname of the form `websocat-<project name>.2.rahtiapp.fi`. You can check this later with `oc get route websocat`
+- Muista reitti isäntänimi muodossa `websocat-<project name>.2.rahtiapp.fi`. Voit tarkistaa tämän myöhemmin komennolla `oc get route websocat`
 
-If you visit the Route URL with you browser, you should see this message:
+Jos vierailet reitillä selaimesi kautta, sinun pitäisi nähdä seuraava viesti:
 
 ```
-Only WebSocket connections are welcome here
+Vain WebSocket-yhteydet ovat tervetulleita tänne
 ```
 
-## Step 2: Running WebSocat on CSC supercomputers
+## Vaihe 2: WebSocatin suorittaminen CSC:n supertietokoneilla {#step-2-running-websocat-on-csc-supercomputers}
 
-MariaDB and WebSocat have now been set up on Rahti and you should have the following details: MariaDB username, password, database name and the WebSocat route hostname. These are needed when connecting to the database. However, first we need to run the `websocat` binary on Puhti/Mahti to open the required TCP tunnel.
+MariaDB ja WebSocat ovat nyt asetettu Rahdilla, ja sinulla pitäisi olla seuraavat tiedot: MariaDB-käyttäjänimi, salasana, tietokannan nimi ja WebSocat-reitin isäntänimi. Näitä tarvitaan yhdettäessä tietokantaan. Ensin meidän on kuitenkin suoritettava `websocat`-binaari Puhti/Mahti-palvelimilla vaaditun TCP-tunnelin avaamiseksi.
 
-- [Download `websocat` from GitHub](https://github.com/vi/websocat/releases) and add it to your `PATH`. For example:
+- [Lataa `websocat` GitHubista](https://github.com/vi/websocat/releases) ja lisää se `PATH`-polkuusi. Esimerkiksi:
 
 ```bash
 wget https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static \
@@ -111,36 +112,35 @@ chmod +x websocat
 export PATH=$PATH:$PWD
 ```
 
-- We do not want to run WebSocat on the login node, so open an interactive session with `sinteractive -i` and launch `websocat`. By passing 0 as the target port, WebSocat gets handed an available port which we can extract using `lsof` (the below commands are conveniently put into a script). Recall that the `<project name>` placeholder in the route hostname provided to `websocat` refers to the name of your Rahti project
+- Emme halua suorittaa WebSocatia kirjautumissolmussa, joten avaa interaktiivinen istunto komennolla `sinteractive -i` ja käynnistä `websocat`. Antamalla kohdeportiksi 0, WebSocat saa käyttöönsä vapaan portin, jonka voimme selvittää `lsof`-komennolla (alla olevat komennot on kätevästi laitettu skriptiin). Muista, että `<project name>`-paikkamerkintä reitin isäntänimessä, joka annetaan `websocat`-ohjelmaan, viittaa Rahti-projektisi nimeen
 
 ```bash
 websocat -b tcp-l:127.0.0.1:0 wss://websocat-<project name>.2.rahtiapp.fi -E &
-ws_pid=$!  # $! contains the process ID of the most recently executed background command
+ws_pid=$!  # $! sisältää viimeksi suoritetun taustakomennon prosessitunnuksen
 mkdir -p /tmp/$USER
 lsof -i -p $ws_pid 2>/dev/null | grep TCP | grep -oE "localhost:[0-9]*" | \
   cut -d ":" -f2 > /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port
-echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
+echo "Saavutettu kohdeportti $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 ```
 
 !!! info
 
-    If you want to access your database within a batch job, run `websocat` within your batch script. You can utilize the same obtained target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.2.rahtiapp.fi -E &`. Otherwise, pass 0 as the target port and check which one it gets handed using `lsof`.
+    Jos haluat käyttää tietokantaasi erässä, suorita `websocat` eräskriptisi sisällä. Voit käyttää samaa saatua kohdeporttia, jos olet lähettämässä työtäsi interaktiivisesta istunnosta, jossa `websocat` on jo käynnissä; käy komennolla `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.2.rahtiapp.fi -E &`. Muussa tapauksessa anna kohdeportiksi 0 ja tarkista, mikä portti WebSocatille lopulta myönnetään `lsof`-komennolla.
 
-- Now `websocat` is running in the interactive session/batch job and you may connect to your MariaDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials
+- Nyt `websocat` toimii interaktiivisessa istunnossa/erätyössä ja voit yhdistää Rahdilla olevaan MariaDB-tietokantaan käyttäen saatua kohdeporttia. Voit tarkistaa yhteyden esimerkiksi Pythonilla. Huomaa, että alla olevassa esimerkissä käytetyt käyttäjänimi ja salasana viittaavat luotuun tietokantapalveluun, eivät CSC-tietoihisi
 
 !!! info
 
-    For this example to work, you need to install the mariadb python module. At the time of writing this the command to use is:
+    Jotta tämä esimerkki toimisi, sinun tulee asentaa mariadb python-moduuli. Kirjoitushetkellä käytettävä komento on:
     `pip3 install mariadb=1.0.11`
-    This is due to the fact that the current last version of the module is broken for the platforms we tested this with. See the upstream documentation for more information: <https://mariadb-corporation.github.io/mariadb-connector-python/install.html>
-
+    Tämä johtuu siitä, että moduulin uusin versio on rikki alustoille, joilla testasimme tätä. Katso alkuperäisestä dokumentaatiosta lisätietoa: <https://mariadb-corporation.github.io/mariadb-connector-python/install.html>
 
 ```python
-# Module Imports
+# Moduulin tuonnit
 import mariadb
 import sys
 
-# Connect to MariaDB Platform
+# Yhdistä MariaDB-alustaan
 try:
     conn = mariadb.connect(
         user="<username>",
@@ -151,12 +151,11 @@ try:
 
     )
 except mariadb.Error as e:
-    print(f"Error connecting to MariaDB Platform: {e}")
+    print(f"Virhe MariaDB-alustaan yhdistettäessä: {e}")
     sys.exit(1)
 
-# Get Cursor
+# Hanki kursori
 cur = conn.cursor()
 ```
 
-**Note:** The websocat client will only listen on IPv4. On some systems it is then necessary to use `127.0.0.1` as host, otherwise IPv6 will be used and it will not connect.
-
+**Huom:** Websocat-asiakasohjelma kuuntelee vain IPv4:llä. Joillakin järjestelmillä on sen vuoksi välttämätöntä käyttää isäntänä `127.0.0.1`, muuten käytetään IPv6:ta eikä se yhdistä.

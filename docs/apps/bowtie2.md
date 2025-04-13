@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,71 +6,62 @@ tags:
 
 # Bowtie2
 
-Bowtie2 is an ultrafast, memory-efficient short read aligner. It aligns short DNA sequences (reads) 
-to the human genome at a rate of over 25 million 35-bp reads per hour. Bowtie2 indexes the genome 
-with a Burrows-Wheeler index to keep its memory footprint small: typically about 2.2 GB for the 
-human genome (2.9 GB for paired-end).
+Bowtie2 on erittäin nopea ja vähän muistia käyttävä lyhyiden lukujen kohdistustyökalu. Se kohdistaa lyhyet DNA-sekvenssit (luennat) ihmisen genomiin nopeudella yli 25 miljoonaa 35-bp lukua tunnissa. Bowtie2 käyttää Burrows-Wheeler -indeksiä genomin indeksoimiseen, jotta muistijalanjälki pysyy pienenä: tyypillisesti noin 2,2 Gt ihmisen genomille (2,9 Gt paarikohtaiseen kohdistukseen).
 
-There are two versions of Bowtie available: Bowtie2 and Bowtie. The more recent Bowtie2 program differs 
-significantly from its ancestor Bowtie. For example the command line options are different for these two tools.
+Saatavilla on kaksi Bowtien versiota: Bowtie2 ja Bowtie. Uudempi Bowtie2 eroaa merkittävästi esisarjastaan Bowtie:stä. Esimerkiksi komentorivin vaihtoehdot ovat erilaiset näille kahdelle työkalulle.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttää ja avoimen lähdekoodin [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Available
+## Saatavilla {#available}
 
--   Puhti: 2.3.5.1, 2.4.1, 2.4.4, 2.5.3
--   Chipster graphical user interface
+-  Puhti: 2.3.5.1, 2.4.1, 2.4.4, 2.5.3
+-  Graafinen käyttöliittymä Chipster
 
-## Usage
+## Käyttö {#usage}
 
-On Puhti, Bowtie2 can be taken in use as part of the `biokit` module collection:
+Puhtissa Bowtie2 voidaan ottaa käyttöön osana `biokit`-moduulikokoelmaa:
 
 ```bash
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Bowtie2. Note however that there are other bioinformatics tools on Puhti,
-that have a separate setup command.
+Biokit-moduuli asentaa valikoiman yleisesti käytettyjä bioinformatiikan työkaluja, mukaan lukien Bowtie2. Huomaa kuitenkin, että Puhtissa on muita bioinformatiikan työkaluja, joita käytetään erillisellä asennuskomennolla.
 
-In a typical Bowtie2 run, you first need to index the reference genome with `bowtie2-build` command. You should do this in scratch directory instead of your 
-home directory. For example;
+Tyypillisessä Bowtie2-ajossa sinun on ensin indeksoitava referenssigenomi `bowtie2-build`-komennolla. Tämä pitäisi tehdä "scratch"-hakemistossa kodin sijaan. Esimerkiksi:
 
 ```bash
 bowtie2-build genome.fa genome
 ```
 
-Alternatively, you can use `chipster_genomes` command to download pre-calculated bowtie2 indexes from the CSC Chipster server to Puhti:
+Vaihtoehtoisesti voit käyttää `chipster_genomes`-komentoa ladataksesi valmiiksi lasketut bowtie2-indeksit CSC:n Chipster-palvelimelta Puhtiin:
 
 ```bash
 chipster_genomes bowtie2
-``` 
+```
 
-When the reference genome has been downloaded or indexed, the actual alignment job can be launched with `bowtie2` command. For example, for single end reads, this could be done with the command:
+Kun referenssigenomi on ladattu tai indeksoitu, varsinainen kohdistustyö voidaan käynnistää `bowtie2`-komennolla. Yksikertaisten lukuparien osalta tämä voidaan tehdä seuraavasti:
 
 ```bash
 bowtie2 -x genome -U reads.fq -S output.sam
 ```
 
-For paired end data, the minimal Bowtie2 syntax is:
+Paariparilliselle datalle minimaalinen Bowtie2-syntaksi on:
 
 ```bash
 bowtie2 -x genome -1 first_read_set.fq -2 second_read_set.fq -S output.sam
-``` 
+```
 
-### Example batch script for Puhti
+### Esimerkki eräajotiedosto Puhtille {#example-batch-script-for-puhti}
 
-On Puhti, `bowtie` and `bowtie2` jobs should be run as batch jobs. Below is a sample batch job file, 
-for running a Bowtie2 paired end alignment on Puhti. The recent Bowtie2 versions scale well, so you can effectively use up 
-to 16 cores in your batch job.
+Puhtissa `bowtie` ja `bowtie2` -työt tulee suorittaa eräajona. Alla on esimerkki eräajotiedostosta, joka suorittaa Bowtie2-paarikohtaisen kohdistuksen Puhtilla. Uudet Bowtie2-versiot skaalautuvat hyvin, joten voit tehokkaasti käyttää jopa 16 ydintä eräajossasi.
 
-Note that the batch job file must define the project that will be used.
-You can check all the projects that you belong to with the command `groups` or
-`csc-projects`. Use [MyCSC](https://my.csc.fi) to obtain more specific information about a
-specific project.
+Huomaa, että eräajotiedoston on määritettävä käytettävä projekti.
+Voit tarkistaa kaikki projektit, joihin kuulut, komennolla `groups` tai
+`csc-projects`. Käytä [MyCSC](https://my.csc.fi) -sivustoa saadaksesi tarkempia tietoja tietystä projektista.
 
 ```bash
 #!/bin/bash -l
@@ -79,7 +71,7 @@ specific project.
 #SBATCH --time=04:00:00
 #SBATCH --partition=small
 #SBATCH --ntasks=1
-#SBATCH --nodes=1  
+#SBATCH --nodes=1
 #SBATCH --cpus-per-task=16
 #SBATCH --account=project_123456
 #SBATCH --mem=16000
@@ -89,29 +81,29 @@ bowtie2-build genome.fasta genome
 bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq > output.sam
 ```
 
-In the batch job example above one task (`--ntasks=1`) is executed. The Bowtie2 job uses 16 cores (`--cpus-per-task=16`) with total of 16 GB of memory (`--mem=16000`). 
-The maximum duration of the job is four hours (`--time=04:00:00`).
-All the cores are assigned from one computing node (`--nodes=1`).
-In the example, the project that will be used is `project_123456`. This value should be replaced by the name of your computing project.
+Yllä olevassa eräajon esimerkissä suoritetaan yksi tehtävä (`--ntasks=1`). Bowtie2-työ käyttää 16 ydintä (`--cpus-per-task=16`) yhteensä 16 GB muistia (`--mem=16000`). 
+Työn enimmäiskesto on neljä tuntia (`--time=04:00:00`).
+Kaikki ytimet ovat yhdeltä laskentasolmultra (`--nodes=1`).
+Esimerkissä käytettävä projekti on `project_123456`. Tämä arvo pitäisi korvata oman laskentaprojektisi nimellä.
 
-You can submit the batch job file to the batch job system with command:
+Voit lähettää eräajotiedoston eräajojärjestelmään komennolla:
 
 ```bash
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Katso lisätietoja eräajojen suorittamisesta [Puhtin käyttäjän oppaasta](../computing/running/getting-started.md).
 
-## References
+## Viittaukset {#references}
 
-When you use Bowtie2, please cite:
+Kun käytät Bowtie2:ta, viittaa:
 
 > Langmead B, Salzberg S. Fast gapped-read alignment with Bowtie 2. Nature Methods. 2012, 9:357-359.
 
-## Support
+## Tuki {#support}
 
-[CSC Service Desk](../support/contact.md)
+[CSC palvelupiste](../support/contact.md)
 
-## More information
+## Lisätietoja {#more-information}
 
-More information about Bowtie2 can be found from the [Bowtie2 home page](https://github.com/BenLangmead/bowtie2/blob/master/README.md).
+Lisätietoja Bowtie2:sta löytyy [Bowtie2 kotisivulta](https://github.com/BenLangmead/bowtie2/blob/master/README.md).

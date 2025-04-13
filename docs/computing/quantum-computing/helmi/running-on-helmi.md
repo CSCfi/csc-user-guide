@@ -1,77 +1,72 @@
-# Running on Helmi
 
-!!! info "Give feedback!"
-    **All feedback is highly appreciated**, please comment on your
-    experience to [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
+# Ajo Helmissä {#running-on-helmi}
 
-## Running Jobs
+!!! info "Anna palautetta!"
+    **Kaikki palaute on erittäin arvostettua**, kommentteja kokemuksista voi lähettää [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
 
-Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts.
+## Tehtävien ajo {#running-jobs}
 
-Helmi currently supports submitting jobs using Qiskit or Cirq. Qiskit and Cirq scripts can only be submitted as ordinary python files.
-To submit and run jobs on Helmi you need to use the correct environment on LUMI.
+Tehtävät voidaan lähettää `q_fiqci` jonoon määrittämällä `--partition=q_fiqci` eräajoskryptissä.
 
-* First, run `module use /appl/local/quantum/modulefiles`. The available modules will now show up on `module avail`.
-* Second, depending on if you want to use the Qiskit or Cirq environment, run:
-    * `module load helmi_qiskit` or
+Helmi tukee tällä hetkellä tehtävien lähettämistä käyttäen Qiskitia tai Cirqiä. Qiskit- ja Cirq-skriptejä voidaan lähettää vain tavallisina python-tiedostoina. Tehtävien lähettämiseksi ja ajamiseksi Helmille tulee käyttää oikeaa ympäristöä LUMI:lla.
+
+* Ensiksi, aja `module use /appl/local/quantum/modulefiles`. Saatavilla olevat moduulit näkyvät nyt `module avail`-komennolla.
+* Toiseksi, riippuen siitä haluatko käyttää Qiskit- tai Cirq-ympäristöä, suorita:
+    * `module load helmi_qiskit` tai
     * `module load helmi_cirq`
 
+`helmi_qiskit` ja `helmi_cirq` tarjoavat esivalmistettuja python-ympäristöjä, joita voi suorittaa suoraan Helmillä. Jos haluat lisätä omia python-paketteja esivalmistettuihin python-ympäristöihin, voit tehdä niin komennolla `python -m pip install --user package`.
 
-`helmi_qiskit` and `helmi_cirq` provide pre-made python environments to directly run on Helmi.
-If you wish to add your own python packages to the pre-made python environment you can do so with `python -m pip install --user package`.
+!!! info "Luo oma python-ympäristösi"
+    Käyttäjät voivat luoda oman python-ympäristönsä, jos haluavat. Ainoa esivaatimus on ladata `helmi_standard`-moduuli. Oman ympäristön luomiseen suositellaan [container wrapper tool](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
+Helmillä tuetut nykyiset ohjelmistoversiot ovat:
 
-!!! info "Creating your own python environment"
-    Users can create their own python environment if they wish. The only prerequisite is to load the `helmi_standard` module.
-    To create your own environment the [container wrapper tool](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/) is recommended.
+| Ohjelmisto | Moduuli_nimi | Versiot |
+|------------|--------------|---------|
+| Cirq IQM:llä | cirq_iqm |  15.2  |
+| Qiskit IQM:llä | qiskit_iqm |  15.5 |
+| IQM asiakas | iqm_client | >= 20.11, <= 20.13 |
 
-The current supported software versions on helmi are:
-
-| Software | Module_name | Versions |
-|----------|-------------|----------|
-| Cirq on IQM | cirq_iqm |  15.2  |
-| Qiskit on IQM | qiskit_iqm |  15.5 |
-| IQM client | iqm_client | >= 20.11, <= 20.13 |
-
-Here is an example batch script to submit jobs on Helmi
+Tässä on esimerkki eräajoskryptistä tehtävien lähettämiseksi Helmillä
 
 ```bash
 #!/bin/bash
 
-#SBATCH --job-name=helmijob   # Job name
-#SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-#SBATCH --partition=q_fiqci   # Partition (queue) name
-#SBATCH --ntasks=1              # One task (process)
-#SBATCH --mem-per-cpu=2G       # memory allocation
-#SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:15:00         # Run time (hh:mm:ss)
+#SBATCH --job-name=helmijob   # Työn nimi
+#SBATCH --account=project_<id>  # Projekti laskutusta varten (slurm_job_account)
+#SBATCH --partition=q_fiqci   # Osasto (jono) nimi
+#SBATCH --ntasks=1              # Yksi tehtävä (prosessi)
+#SBATCH --mem-per-cpu=2G       # muistin allokointi
+#SBATCH --cpus-per-task=1     # Ytimien (säikeiden) määrä
+#SBATCH --time=00:15:00         # Ajoaika (hh:mm:ss)
 
 module use /appl/local/quantum/modulefiles
 
-# uncomment correct line:
+# kommentoi oikein rivi:
 # module load helmi_qiskit
-# or
+# tai
 # module load helmi_cirq
 
 python your_python_script.py
 ```
 
-The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`.
+Eräajoskrypti voidaan sitten lähettää `sbatch`-komennolla. Voit myös lähettää interaktiivisia tehtäviä `srun`-komennon kautta.
 
 ```bash
 srun --account=project_<id> -t 00:15:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
 ```
 
-The `helmi_*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with Helmi.
+`helmi_*`-moduuli asettaa oikean python-ympäristön Qiskitin tai Cirqin käyttöön yhdessä Helmin kanssa.
 
-!!! info "Running on Helmi"
-    When submitting a job on Helmi, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
+!!! info "Ajo Helmissä"
+    Kun tehtävä lähetetään Helmille, käyttäjän slurm_job_account (projekti, jossa tehtävä suoritetaan) yhdistetään project_id:hen, ja tämä tieto siirretään VTT:lle laskutustarkoituksiin.
 
-### Qiskit
+### Qiskit {#qiskit}
 
-To load the Qiskit module use `module load helmi_qiskit`.
+Lataa Qiskit-moduuli käyttämällä `module load helmi_qiskit`.
 
-In Qiskit python scripts you will need to include the following:
+Qiskit-python-skripteissä sinun tulee sisällyttää seuraava:
 
 ```python
 import os
@@ -79,15 +74,15 @@ import os
 from qiskit import QuantumCircuit, transpile
 from iqm.qiskit_iqm import IQMProvider
 
-HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
+HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # Tämä asetetaan moduulin lataamisen yhteydessä
 
 provider = IQMProvider(HELMI_CORTEX_URL)
 backend = provider.get_backend()
 
-shots = 1000  # Set the number of shots you wish to run with
+shots = 1000  # Aseta haluamiesi ajojen määrä
 
-# Create your quantum circuit.
-# Here is an example
+# Luo kvanttivirtapiirisi.
+# Tässä on esimerkki
 circuit = QuantumCircuit(2, 2)
 circuit.h(0)
 circuit.cx(0, 1)
@@ -101,9 +96,9 @@ counts = job.result().get_counts()
 print(counts)
 ```
 
-### Cirq
+### Cirq {#cirq}
 
-To load the Cirq module use `module load helmi_cirq`.
+Lataa Cirq-moduuli käyttämällä `module load helmi_cirq`.
 
 ```python
 import os
@@ -114,14 +109,14 @@ from iqm.cirq_iqm.iqm_sampler import IQMSampler
 
 adonis = Adonis()
 
-HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
+HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # Tämä asetetaan moduulin lataamisen yhteydessä
 
 sampler = IQMSampler(HELMI_CORTEX_URL)
 
 shots = 1000
 
-# Create your quantum circuit
-# Here is an example
+# Luo kvanttivirtapiirisi
+# Tässä on esimerkki
 q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
 circuit = cirq.Circuit()
 circuit.append(cirq.H(q1))
@@ -132,7 +127,7 @@ print(circuit)
 decomposed_circuit = adonis.decompose_circuit(circuit)
 routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
 
-# Optionally print mapping
+# Valinnaisesti tulosta yhdistely
 # print(routed_circuit)
 # print(initial_mapping)
 # print(final_mapping)
@@ -141,102 +136,97 @@ result = sampler.run(routed_circuit, repetitions=shots)
 print(result.measurements['m'])
 ```
 
-## Additional examples
+## Lisäesimerkkejä {#additional-examples}
 
-An additional [set of examples can be found here](https://github.com/FiQCI/helmi-examples).
-The examples emphasize the difference between running on a simulator and a real physical quantum computer,
-and how to construct your circuits for optimum results on Helmi. The repository also contains some useful
-scripts for submitting jobs.
+Lisää [esimerkkejä löytyy täältä](https://github.com/FiQCI/helmi-examples).
+Esimerkit korostavat simuloinnin ja todellisen fyysisen kvanttitietokoneen välisiä eroja
+sekä kuinka rakentaa virtapiirisi optimaalisten tulosten saamiseksi Helmissä. Arkistossa on myös hyödyllisiä
+pätkiä tehtävien lähettämiseen.
 
+## Simuloidut testiajot {#simulated-test-runs}
 
-## Simulated test runs
+Koska kvanttiresurssit voivat olla rajallisia, on suositeltavaa valmistella etukäteen koodit ja algoritmit, joita aiot ajaa Helmillä. Tätä prosessia varten [`qiskit-on-iqm` tarjoaa väärennetyn melumallin mukaan](https://iqm-finland.github.io/qiskit-on-iqm/user_guide.html#noisy-simulation-of-quantum-circuit-execution). Voit ajaa väärennettyä melumallia paikallisesti läppärilläsi simulointia ja testausta varten.
 
-As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on Helmi in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://iqm-finland.github.io/qiskit-on-iqm/user_guide.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing.
+Qiskitia ja Cirqiä koskevat esimerkit ja ohjeet LUMI-Helmi-osaston käyttöön ovat saatavilla. [Löydät ne täältä](https://github.com/FiQCI/fiqci-examples).
 
-A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
+## Työn metadata {#job-metadata}
 
-## Job Metadata
-
-Additional metadata about your job can be queried directly with Qiskit. For example:
+Lisämetadata tiedoista voidaan kysyä suoraan Qiskitilla. Esimerkiksi:
 
 ```python
-
 provider = IQMProvider(HELMI_CORTEX_URL)
 backend = provider.get_backend()
 
-#Retrieving backend information
-print(f'Native operations: {backend.operation_names}')
-print(f'Number of qubits: {backend.num_qubits}')
-print(f'Coupling map: {backend.coupling_map}')
+#Palvelimen tietojen hakeminen
+print(f'Natiivitoiminnot: {backend.operation_names}')
+print(f'Qubittien lukumäärä: {backend.num_qubits}')
+print(f'Yhdistelykartta: {backend.coupling_map}')
 
 transpiled_circuit = transpile(circuit, backend)
 job = backend.run(transpiled_circuit, shots=shots)
 result = job.result()
 exp_result = result._get_experiment(circuit)
 
-print("Job ID: ", job.job_id())  # Retrieving the submitted job id
-print(result.request.circuits)  # Retrieving the circuit request sent
-print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
-print(result.request.qubit_mapping)  # Retrieving the qubit mapping
-print(result.request.shots)  # Retrieving the number of requested shots.
+print("Työn ID: ", job.job_id())  # Lähetetyn työn id:n haku
+print(result.request.circuits)  # Lähetetyn virtapiiripyyntöä hakeminen
+print("Kalibrointijoukon ID: ", exp_result.calibration_set_id)  # Nykyisen kalibrointijoukon id:n hakeminen.
+print(result.request.qubit_mapping)  # Qubit-yhdistelyn hakeminen
+print(result.request.shots)  # Haluamiesi ajojen lukumäärän hakeminen.
 
-#retrieve a job using the job_id from a previous session
+#hae työ käyttäen job_id:tä aiemmasta istunnosta
 #old_job = backend.retrieve_job(job_id)
 ```
-!!! info "Save your Job ID!"
-    Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
-    The same applies for the calibration set id.
 
+!!! info "Tallenna työsi ID!"
+    Huomioi, että tällä hetkellä ei ole menetelmää aiempien Työn ID:iden listaamiseksi, joten on suositeltavaa aina tulostaa Työn ID työn lähettämisen jälkeen ja tallentaa se jonnekin! Sama koskee kalibrointijoukon ID:tä.
 
-## Figures of Merit
+## Arvostelun mittasuhteet {#figures-of-merit}
 
-The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
+Arvostelun mittasuhteet (tai laadun mittarit) voivat olla tarpeen julkaistaessa Helmilla tuotettua työtä. Ne antavat myös käsityksen Helmin nykyisestä tilasta. `helmi-examples` sisältää apuskriptin kalibrointidatan saamiseksi, mukaan lukien arvostelun mittasuhteet. Skripti löytyy [täältä](https://github.com/FiQCI/helmi-examples/blob/main/scripts/get_calibration_data.py). Tämä tiedosto voidaan lisätä omiin python-skripteihisi ja se palauttaa datan json-muodossa. Huomaa, että viimeisimmän kalibrointidatan kysely voi antaa puutteellisen tai vanhentuneen mittarijoukon. Siksi kalibrointijoukon ID:t tulee tallentaa Työn ID:iden oheen.
 
-Here is a brief description of the figures which are given when querying:
+Tässä on lyhyt kuvaus annetuista mittareista kyselyn yhteydessä:
 
-| Figure                          | Description                                                                                                                                                                           |     |     |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| T1 Time (s)                     | The T1 time is called the longitudinal relaxation rate and describes how quickly the excited state of the qubit returns to its ground state.                                          |     |     |
-| T2 Time (s)                     | The T2 time is called the transverse relaxation rate and describes loss of coherence of a superposition state.                                                                        |     |     |
-| T2 Echo Time (s)                | The T2 echo time describes the loss of coherence of the superposition state of the qubit. It is more precise than the T2 Time as it is less susceptible to low-frequency noise.       |     |     |
-| Single shot readout fidelity    | This describes the fidelity when performing single shot readouts of the qubit state. Single-shot readout prepares 50% of the qubit states in the excited and 50% in the ground state. |     |     |
-| Single shot readout 01 error    | The error in assigning an excited state ('1') when the state is in the ground state ('0').                                                                                            |     |     |
-| Single shot readout 10 error    | The error in assigning a ground state ('0') when the state is in the excited state ('1').                                                                                             |     |     |
-| Fidelity 1QB gates averaged     | This is calculated from Randomized Benchmarking and describes the average gate fidelity when a random sequence of single qubit Clifford gates is applied.                             |     |     |
-| Fidelity 2QB Cliffords averaged | This is calculated from Randomized Benchmarking, showing the average Clifford gate fidelity.                                                                                          |     |     |
-| CZ gate fidelity                | The controlled-z gate fidelity calculated through interleaved randomized benchmarking, where the controlled-z gate is interleaved.                                                    |     |     |
+| Mittari                          | Kuvaus                                                                                                                       |     |     |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --- | --- |
+| T1 Aika (s)                      | T1 aika kutsutaan pituussuuntainen rentoutumisnopeus ja se kuvaa kuinka nopeasti qubitin jännitetila palautuu perustilaansa. |     |     |
+| T2 Aika (s)                      | T2 aika kutsutaan poikittainen rentoutumisnopeus ja se kuvaa superpositiotilan koherenssin menettämistä.                      |     |     |
+| T2 Kaiku-Aika (s)                | T2 kaiku-aika kuvaa qubitin superpositiotilan koherenssin menettämistä. Se on tarkempi kuin T2 Aika, koska se on vähemmän altis matalataajuuksiselle hälylle. |     |     |
+| Yksittäisen laukauksen luennan uskollisuus | Tämä kuvaa uskollisuutta yksittäisen laukauksen luentojen suorittamisen aikana qubit-tilasta. Yksittäisen laukauksen luenta valmistaa 50% qubit-tiloista jännitetilaansa ja 50% perustilaan. |     |     |
+| Yksittäisen laukauksen luenta 01 virhe | Virhe jännitetilan ('1') määrittämisessä, kun tila on perustilassa ('0').                                                 |     |     |
+| Yksittäisen laukauksen luenta 10 virhe | Virhe perustilan ('0') määrittämisessä, kun tila on jännitetilassa ('1').                                                |     |     |
+| Fidelity 1QB portit keskiarvona    | Tämä lasketaan Randomized Benchmarkingin avulla ja kuvaa keskimääräistä porttiuskollisuutta, kun satunnainen sarja yksittäisiä qubit Clifford-portteja sovelletaan. |     |     |
+| Fidelity 2QB Cliffords keskiarvona | Tämä lasketaan Randomized Benchmarkingin avulla, joka näyttää keskimääräisen Clifford-porttiuskollisuuden.                     |     |     |
+| CZ portin uskollisuus             | Ohjatun z-portin uskollisuus, joka lasketaan lomitetun randomisoidun benchmarking-menetelmän avulla, jossa ohjattu z-portti lomitetaan.  |     |     |
 
+Lisätietoa mittarista saa ottamalla yhteyttä [CSC:n Service Deskiin](../../../support/contact.md), saavutettavissa osoitteessa [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
-For further information on the figures of merit contact the [CSC Service Desk](../../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+## Helmin käyttö Lumi-verkkorajapinnassa {#using-helmi-on-lumi-web-interface}
 
+[LUMI-verkkorajapinta](https://docs.lumi-supercomputer.eu/runjobs/webui/) mahdollistaa käyttäjille kvanttitehtävien suorittamisen Helmillä verkkorajapinnan kautta. Kirjautumista LUMI:n verkkorajapinnalle koskevat tiedot voi lukea [LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
 
-## Using Helmi on Lumi-web interface
+### Helmin käyttäminen {#accessing-helmi}
 
-The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run quantum jobs on Helmi through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
+Kun olet onnistuneesti autentikoinut, sinulla pitäisi nyt olla pääsy koontinäyttöösi. Napsauta Jupyter-sovellusta, valitse projektisi ja osasto q_fiqci. Jos sinulla on aktiivinen varaus, voit käyttää sitä valitsemalla se kohdan Varaukset alta.
 
-### Accessing Helmi
-
-After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
-
-It is recommended to use the 'Advanced settings'. Under the 'Custom init' option select Text, and under the 'Script to start' textbox enter the following script to configure the environment to use the quantum software stack.
+Suosittelemme käyttämään 'Lisäasetuksia'. Kohdassa 'Custom init' valitse 'Teksti', ja kohdassa 'Skriptin käynnistäminen' -tekstikentässä anna seuraava skripti ympäristön konfiguroimiseksi kvanttiohjelmistoa varten.
 
 ```bash
 module use /appl/local/quantum/modulefiles
-module load helmi_qiskit # or module load helmi_cirq
+module load helmi_qiskit # tai module load helmi_cirq
 ```
 
 <p align="center">
-    <img src="../../../../img/helmi_with_lumi_web.png" alt="Helmi's with LUMI web">
+    <img src="../../../../img/helmi_with_lumi_web.png" alt="Helmi Lumilla web-käyttöliittymän kanssa">
 </p>
 
-Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access Helmi using the Jupyter-for-courses app.
+Napsauta käynnistä käynnistääksesi Jupyter-istuntosi. Tämä käynnistää Jupyterin komennolla python -m Jupyter lab. Jos käytät Helmiä kvanttilaskentakurssin aikana, saatetaan erityisesti kurssia varten luoda mukautettu ympäristö. Tässä tapauksessa voit käyttää Helmiä Jupyter-for-courses-sovelluksen kautta.
 
 <p align="center">
-    <img src="../../../../img/helmi_with_jupyter_for_courses_gui.png" alt="Helmi's with LUMI web">
+    <img src="../../../../img/helmi_with_jupyter_for_courses_gui.png" alt="Helmi Lumilla web-käyttöliittymän kanssa">
 </p>
 
+## Lisälukemista {#further-reading}
+* [Lumi verkkokäyttöliittymä](https://docs.lumi-supercomputer.eu/runjobs/webui/)
+* [Jupyter Lumi verkkokäyttöliittymällä](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/)
+* [Helmin käyttö Lumi verkkokäyttöliittymällä](https://fiqci.fi/_posts/2024-08-23-Lumi_web_introduction/)
 
-## Further Reading
-* [Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/)
-* [Jupyter on Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/)
-* [Using Helmi on Lumi web interface](https://fiqci.fi/_posts/2024-08-23-Lumi_web_introduction/)

@@ -1,16 +1,15 @@
-# X11 remote graphics does not work
 
-Remote graphics requires tunneling X11 through SSH using the `-X` flag. On
-Linux, connect to e.g. Puhti using:  
+# X11-etägrafiikka ei toimi {#x11-remote-graphics-does-not-work}
+
+Etägrafiikka vaatii X11:n tunneloinnin SSH:n kautta käyttämällä `-X`-lipuketta. Linuxissa yhdistä esimerkiksi Puhtiin käyttäen:  
 
 ```bash
 ssh -X <your-user-name>@puhti.csc.fi
 ```
 
-An error may occur if you have run out of disk quota.
+Virhe voi ilmetä, jos olet ylittänyt levykiintiösi.
 
-Another (better) way to run remote graphics is to use a remote desktop through
-the [Puhti web interface](../../computing/webinterface/index.md).
+Toinen (parempi) tapa käyttää etägrafiikkaa on käyttää etätyöpöytää [Puhti-verkkoliittymän](../../computing/webinterface/index.md) kautta.
 
-For more details, see our
-[instructions for graphical connections](../../computing/connecting/index.md#graphical-connection).
+Lisätietoja saat
+[graafisten yhteyksien ohjeistuksestamme](../../computing/connecting/index.md#graphical-connection).

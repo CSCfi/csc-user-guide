@@ -1,55 +1,45 @@
+
 ---
 search:
   boost: 2
 ---
 
-# Billing
+# Laskutus {#billing}
 
-CSC's services are free of charge for academic research, teaching or training
-for members of Finnish higher education institutions and state research institutes.
+CSC:n palvelut ovat maksuttomia akateemiselle tutkimukselle, opetukselle tai koulutukselle
+suomalaisille korkeakouluille ja valtion tutkimuslaitoksille.
 
-See the [Billing unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"}
-at research.csc.fi.
+Katso [Laskutuksen yksikön ja hinnan laskin](https://research.csc.fi/billing-units#buc){:target="_blank"}
+sivustolta research.csc.fi.
 
-**The billing rates for the services are as follows:**
+**Palvelujen laskutushinnat ovat seuraavat:**
 
-* [Puhti and Mahti billing](../computing/hpc-billing.md)
-* Allas object storage billing:  1 TiB consumes **1** BU per hour. Only actual
-   data stored in Allas is billed.
-* [Pouta billing](../cloud/pouta/accounting.md)
-* [Rahti billing](../cloud/rahti/billing.md)
-* [Kvasi billing](../computing/quantum-computing/kvasi/kvasi-billing.md)
-* [SD Connect and SD Desktop billing](../data/sensitive-data/sd-use-case-new-user-project-manager.md#sd-connect-bu-consumption)
+* [Puhti ja Mahti laskutus](../computing/hpc-billing.md)
+* Allas-objektitallennuksen laskutus: 1 TiB kuluttaa **1** BU tunnissa. Vain Allas-palveluun tallennettu
+  data laskutetaan.
+* [Pouta laskutus](../cloud/pouta/accounting.md)
+* [Rahti laskutus](../cloud/rahti/billing.md)
+* [Kvasi laskutus](../computing/quantum-computing/kvasi/kvasi-billing.md)
+* [SD Connect ja SD Desktop laskutus](../data/sensitive-data/sd-use-case-new-user-project-manager.md#sd-connect-bu-consumption)
 
+!!! info "Huomio"
 
+    Lumille [katso LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
 
-!!! info "Note"
+    Fairdata IDA:n ja Kaivoksen käyttö ei kuluta laskutusyksiköitä.
 
-    For LUMI billing, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
+## Laskutusyksikön kulutuksen seuranta {#monitoring-billing-unit-consumption}
 
-    The use of Fairdata IDA and Kaivos doesn't consume billing units.
+_My Projects_ -sivulla [MyCSC:ssa](https://my.csc.fi) voit tutkia laskutusyksiköiden kulutusta ja hakea
+lisää laskutusyksiköitä. Siellä voit helposti tarkistaa, kuka kulutti laskutusyksiköitä, milloin niitä kulutettiin 
+ja missä palvelussa. Huomaa, että tallennukseen liittyvää laskutusyksikön kulutusta (Puhti/Mahti Scratch -kansioissa ja Allaksessa) 
+ei ole yhdistetty tiettyyn käyttäjätiliin, vaan se raportoidaan "muut".
 
-## Monitoring billing unit consumption
+## Rajoitettu palvelun käyttöoikeus, kun laskutusyksiköt on kulutettu {#restricted-service-access-when-billing-units-have-been-consumed}
 
-In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the
-billing unit consumption and apply for more billing units. There you can easily
-check who consumed the billing units, when they were consumed and in which
-service. Note that storage-related billing unit consumption (in Puhti/Mahti Scratch folders and in
-Allas) is not linked to a specific user account and is reported as "other".
+Kun kaikki laskutusyksiköt CSC-projektistasi on kulutettu, palveluiden käyttöä voidaan rajoittaa niissä palveluissa, jotka kuluttavat laskutusyksiköitä. Voit seurata CSC-projektisi laskutusyksikön kulutusta MyCSC:n kautta edellä kuvatulla tavalla. Voit saada täyden käyttöoikeuden palveluihin hakemalla lisää laskutusyksiköitä MyCSC-portaalin kautta.
 
+Yksityiskohtaista tietoa siitä, miten palvelut rajoittavat käyttöä, kun laskutusyksiköt loppuvat:
 
-
-## Restricted service access when billing units have been consumed
-
-When all billing units in your CSC Project have been consumed, service usage can be limited in services that consume billing units. You can track your CSC Project's billing unit usage via MyCSC as described above. You can regain full access to your services by applying for additional billing units using the MyCSC portal.
-
-Detailed information on how services are currently limiting the use when billing units run out:
-
-* [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
+* [Puhti ja Mahti](../computing/usage-policy.md#running-out-of-billing-units)
 * [Sensitive Data Desktop](../data/sensitive-data/sd-use-case-new-user-project-manager.md#what-happens-if-your-project-runs-out-of-billing-units)
-
-
-
-
-
-

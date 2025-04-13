@@ -1,76 +1,71 @@
-
-# Terms and concepts
+# Termit ja käsitteet
 
 [TOC]
 
-### Access Control List
+### Käyttövaltuuslista {#access-control-list}
 
-The _Access Control List_ (ACL) mechanism can be used to control other Allas users' access to your buckets.
+_Käyttövaltuuslista_ (Access Control List, ACL) -mekanismia voidaan käyttää hallitsemaan muiden Allas-käyttäjien pääsyä sinun bucket-teihisi.
 
-### Billing unit
+### Laskutusyksikkö {#billing-unit}
 
-_Billing units_ describe the consumption of computing and storage resources in the CSC systems. In Allas, the amount of data stored consumes billing units.
+_Laskutusyksiköt_ kuvaavat tietokone- ja tallennusresurssien käyttöä CSC-järjestelmissä. Allaksessa tallennettu datamäärä kuluttaa laskutusyksiköitä.
 
-See [Billing and Quotas](./introduction.md#billing-and-quotas)
+Katso [Laskutus ja kiintiöt](./introduction.md#billing-and-quotas)
 
-### Bucket
+### Ämpäri {#bucket}
 
-A _bucket_ is a container for objects that may also include metadata describing the bucket.
+_Ämpäri_ on objektille tarkoitettu säiliö, joka voi sisältää myös metatietoja, jotka kuvaavat ämpäriä.
 
-### Checksum
+### Tarkistussumma {#checksum}
 
-A _checksum_ is a hashed string computed of an object to observe whether the object has changed (data integrity).
-You can display the checksum using the command `md5sum`.
+_Tarkistussumma_ on laskettu merkkijono, jolla voidaan tarkistaa, onko objekti muuttunut (datan eheys). Voit näyttää tarkistussumman komennolla `md5sum`.
 
-### Client
+### Asiakasohjelma {#client}
 
-The _client software_ is used to access an object storage service, such as Allas. There are different types of clients:
+_Asiakasohjelmaa_ käytetään objektitallennuspalvelun, kuten Allas, käyttämiseen. Asiakkaita on monenlaisia:
 
-* **Web browser-based access** via:
-    - [Allas Web UI](./using_allas/allas-ui.md) – a user-friendly graphical interface for managing buckets, uploading and downloading objects, and sharing data.
-    - [OpenStack Horizon web interface](./using_allas/web_client.md) – a basic web interface for managing small files (≤5 GiB) in Allas.
+* **Verkkoselaimeen perustuva käyttö**:
+    - [Allas-verkkokäyttöliittymä](./using_allas/allas-ui.md) – käyttäjäystävällinen graafinen käyttöliittymä ämpärien hallintaan, objektien lataamiseen ja jakamiseen.
+    - [OpenStack Horizon -verkkokäyttöliittymä](./using_allas/web_client.md) – yksinkertainen verkkokäyttöliittymä pienten tiedostojen (≤5 GiB) hallintaan Allaksessa.
 
-* **Command-line clients** such as:
-    - [Swift](./using_allas/swift_client.md) and [s3cmd](./using_allas/s3_client.md) – for power users who need advanced control over object storage.
+* **Komentoriviasiakkaat**, kuten:
+    - [Swift](./using_allas/swift_client.md) ja [s3cmd](./using_allas/s3_client.md) – edistyneille käyttäjille, jotka tarvitsevat objektisäilytyksen tarkempaa hallintaa.
 
-* **Programmable interface (API)** for those integrating Allas with software applications.
+* **Ohjelmoitava rajapinta (API)** niille, jotka integroituvat Allakseen ohjelmistosovellusten kanssa.
 
+### Metatiedot {#metadata}
 
-### Metadata
+_Metatiedot_ kuvaavat objektia tai ämpäriä ja niitä voidaan käyttää objektien hakemiseen. Näitä käytetään _avain-arvo_-pareina (esimerkiksi nimi: John).
 
-_Metadata_ describes an object or bucket. It can be used to search for objects.
-It is used via _key-value_ pairs (for example, name: John).
+### Objektin elinkaari {#object-lifecycle}
 
-### Object lifecycle
+_Objektin elinkaari_ voidaan määrittää poistamaan objektit automaattisesti Allaksesta. Elinkaari määritetään ämpärin tasolla, jossa voidaan määrittää useita vanhenemisjaksoja. Elinkaari koskee ämpärin objekteja niiden vastaavien tunnisteiden ja/tai etuliitteiden perusteella. Katso esimerkki [s3-asiakasohjelman dokumentaatiosta](./using_allas/s3_client.md#setting-up-an-object-lifecycle).
 
-_Object lifecycle_ Can be configured to automatically remove objects from Allas. Lifecycle is configured in the bucket level, where multiple expiration periods can be defined. Lifecycle is applied to the objects in the bucket based on their matching tags and/or prefixes. See an example in the [s3 client tool documentation](./using_allas/s3_client.md#setting-up-an-object-lifecycle)
+### Objektitallennus {#object-storage}
 
-### Object storage
+_Objektitallennus_ viittaa tietokoneen tietotallennukseen, joka hallitsee dataa objekteina tiedostojen tai lohkojen sijasta. Tyypillisesti objekti koostuu itse datasta, metatiedoista ja yksilöllisestä tunnisteesta. Yleisesti ottaen data voi olla mitä tahansa, esim. kuva tai ääni.
 
-_Object storage_ refers to a computer data storage that manages data as objects instead of files or blocks. Typically, an object consists of the data itself, metadata and a unique identifier. In general, the data can be anything, e.g. an image or audio.
+### OpenStack {#openstack}
 
-### OpenStack
+_OpenStack-pilvihallinnan middlewarea_ voidaan käyttää Allakseen pääsyyn. [OpenStack Horizon -verkkokäyttöliittymä](./using_allas/web_client.md) tarjoaa perustoimintoja datanhallintaan Allaksessa.
 
-The _OpenStack cloud management middleware_ can be used to access Allas.
-The [OpenStack Horizon web interface](./using_allas/web_client.md) offers some basic functionalities for data management in Allas.
+Katso lisätietoja [OpenStackista](https://www.openstack.org/).
 
-See [OpenStack](https://www.openstack.org/) for more information.
+### Pseudokansio {#pseudo-folder}
 
-### Pseudo folder
+Ämpäreissä ei voi olla muita ämpäreitä. Voit kuitenkin käyttää niin kutsuttuja _pseudokansioita_.
 
-Buckets cannot contain other buckets. You can, however, use so-called _pseudo folders_.
+Jos objektin nimi sisältää vinoviivan `/`, se tulkitaan kansion erottimeksi. Näitä näytetään kansiolistauksina, kun pääset dataan verkkokäyttöliittymän kautta. Nämä pseudokansiot lisätään automaattisesti, jos lataat kokonaisia kansioita komentoriviasiakkaalla.
 
-If an object's name contains a forward slash `/`, it is interpreted as a folder separator. These are shown as folder listings when accessing the data via the web interface. These pseudo folders are automatically added if you upload whole folders using a command line client.
-
-For example, if you add two objects
+Esimerkiksi, jos lisäät kaksi objektia
 ```bash
 fishes/salmon.png
 fishes/bass.png
 ```
-in a bucket, listing the bucket will display a folder called _fishes_ and the two files in it.
+ämpäriin, listatessasi ämpärin näet kansion nimeltä _fishes_ ja kaksi tiedostoa siinä.
 
-## Quota
+## Kiintiö {#quota}
 
-The _Allas quota_ defines the maximum amount of data (capacity) the project is allowed to store in Allas.
+_Allaksen kiintiö_ määrittää suurimman sallitun datamäärän (kapasiteetin), jonka projekti saa tallentaa Allakseen.
 
-See [Billing and quotas](./introduction.md#billing-and-quotas)
+Katso [Laskutus ja kiintiöt](./introduction.md#billing-and-quotas)

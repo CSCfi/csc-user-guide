@@ -1,90 +1,85 @@
-# Sensitive Data (SD) services for research: user guide
+# Herkkien tietojen (SD) palvelut tutkimukseen: Käyttöopas {#sensitive-data-sd-services-for-research-user-guide}
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu or the search bar to find topics quickly. If the left menu is not visible, try zooming out in your browser.
+Tervetuloa CSC:n herkkien tietojen (SD) palveluiden käyttöoppaaseen. Käytä vasenta valikkoa tai hakukenttää löytääksesi aiheita nopeasti. Jos vasen valikko ei ole näkyvissä, yritä zoomata ulos selaimessasi.
 
-1. [Quick links to key topics :material-arrow-down:](#quick-links-to-key-topics)
-1. [Quick access to login portals :material-arrow-down:](#quick-access-to-login-portals)
-1. [Service Breaks :material-arrow-down:](#service-breaks)
-1. [Support :material-arrow-down:](#support)
+1. [Pikakuvakkeet keskeisiin aiheisiin :material-arrow-down:](#quick-links-to-key-topics)
+2. [Pikauduportaaleihin pääsy :material-arrow-down:](#quick-access-to-login-portals)
+3. [Palvelukatkokset :material-arrow-down:](#service-breaks)
+4. [Tuki :material-arrow-down:](#support)
 
-
-
-### Quick links to key topics
+### Pikakuvakkeet keskeisiin aiheisiin {#quick-links-to-key-topics}
 
 <div class="grid cards csc-quick-links" markdown>
 
-- #### Store and analyse research data
+- #### Tutkimusdatan tallennus ja analysointi
 
     ---
 
-    [Start here: setting up a CSC project :material-arrow-right:](sd-access.md)
+    [Aloita täältä: CSC-projektin perustaminen :material-arrow-right:](sd-access.md)
 
-    [Store with SD Connect :material-arrow-right:](sd_connect.md)
+    [Tallenna SD Connectilla :material-arrow-right:](sd_connect.md)
 
-    [Analyse with SD Desktop :material-arrow-right:](sd_desktop.md)
-
-
-- #### Publish and reuse research data
-
-    ---
-
-    [Federated EGA :material-arrow-right:](federatedega.md)
-
-    [Reuse with SD Apply :material-arrow-right:](sd-apply.md)
+    [Analysoi SD Desktopilla :material-arrow-right:](sd_desktop.md)
 
 
-- #### Secondary use of health and social data
+- #### Tutkimusdatan julkaisu ja uudelleenkäyttö
 
     ---
 
-    [Start here with **Findata permit** :material-arrow-right:](findata-permit.md)
+    [Keskitetty EGA :material-arrow-right:](federatedega.md)
 
-    [Start here with **Public Register permit** :material-arrow-right:](single-register-permit.md)
-
-    [Analyse with SD Desktop for secondary use :material-arrow-right:](sd-desktop-audited.md)
-
-    [Submitting secondary use data :material-arrow-right:](single-register-submission.md)
+    [Uudelleenkäyttö SD Applyllä :material-arrow-right:](sd-apply.md)
 
 
-- #### Additional Resources
+- #### Terveys- ja sosiaalidatan toissijainen käyttö
 
     ---
 
-    [What's New with Sensitive Data Services :material-arrow-right:](../../support/wn/data-new.md)
+    [Aloita **Findata-luvalla** :material-arrow-right:](findata-permit.md)
 
-    [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
+    [Aloita **Julkisen rekisterin luvalla** :material-arrow-right:](single-register-permit.md)
 
-    [Useful Terminology :material-arrow-right:](sd-terminology.md)
+    [Analysoi SD Desktopilla toissijaista käyttöä varten :material-arrow-right:](sd-desktop-audited.md)
 
-    [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
+    [Toissijaisen käytön datan lähetys :material-arrow-right:](single-register-submission.md)
+
+
+- #### Lisäresurssit
+
+    ---
+
+    [Uutta herkkien tietojen palveluissa :material-arrow-right:](../../support/wn/data-new.md)
+
+    [Usein kysytyt kysymykset (UKK) :material-arrow-right:](../../support/faq/index.md)
+
+    [Hyödyllistä terminologiaa :material-arrow-right:](sd-terminology.md)
+
+    [SD-palveluiden kotisivu _research.csc.fi_ -sivustolla :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
 
 </div>
 
-
-### Quick access to login portals
+### Pikauduportaaleihin pääsy {#quick-access-to-login-portals}
 
 <div class="grid csc-quick-links csc-quick-links--portals" markdown>
 
-[MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC user portal" target=_blank }
+[MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC-käyttäjäportaali" target=_blank }
 
-[SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Sensitive Data (SD) Connect" target=_blank }
+[SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Herkkien tietojen (SD) Connect" target=_blank }
 
-[SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Sensitive Data (SD) Desktop" target=_blank }
+[SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Herkkien tietojen (SD) Desktop" target=_blank }
 
-[SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Sensitive Data (SD) Apply" target=_blank }
+[SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Herkkien tietojen (SD) Apply" target=_blank }
 
 </div>
 
+### Palvelukatkokset {#service-breaks}
 
-### Service breaks
+* SD-palvelut ovat säännönmukaisessa huollossa **joka kuukauden ensimmäisenä keskiviikkona**. Lisätiedot löytyvät [Palvelukatkokset-sivulta _research.csc.fi_ -sivustolla :material-open-in-new:](https://research.csc.fi/service-breaks){ target=_blank }
 
-* SD services undergo regular maintenance on the **first Wednesday of every month**, for full details please visit [Service Breaks page in _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/service-breaks){ target=_blank }
+### Tuki {#support}
 
+!!! info "Onko sinulla kysyttävää? Haluatko keskustella siitä, miten SD-palvelut voivat tukea tutkimusprojektiasi?"
 
-### Support
-
-!!! info "Do you have any questions? Would you like to discuss how SD services can support your research project?"
-
-       - [Contact us](../../support/contact.md), subject: *Sensitive Data services*
-       - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
-       - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
+    - [Ota yhteyttä](../../support/contact.md), aihe: *Herkkien tietojen palvelut*
+    - Liity [CSC:n tutkimuskäyttäjien kahvitilaisuuteen - Joka keskiviikko klo 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
+    - Tarjoamme tilauksesta koulutusta ja verkkotapaamisia, jotta voimme opastaa sinua askel askeleelta projektin perustamisessa tai palveluun ensimmäistä kertaa kirjautumisessa.

@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Academic
@@ -7,64 +8,64 @@ system:
 ---
 
 # MATLAB
-[MATLAB](https://mathworks.com/products/matlab.html) is a high-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
+[MATLAB](https://mathworks.com/products/matlab.html) on korkean tason tekninen laskentakieli ja interaktiivinen ympäristö algoritmien kehittämiseen, tiedon visualisointiin, tiedon analysointiin ja numeeriseen laskentaan.
 
 [TOC]
 
 
-## License
-MATLAB is proprietary software.
+## Lisenssi {#license}
+MATLAB on suljettu ohjelmisto.
 
 
-## Available
-### Puhti - Interactive MATLAB
-Puhti has MATLAB installations for interactive use and batch jobs.
-The interactive MATLAB is intended for temporary, light pre- and postprocessing of data.
-It is available as follows:
+## Saatavilla {#available}
+### Puhti - Interaktiivinen MATLAB {#puhti-interactive-matlab}
+Puhtissa on MATLAB-asennuksia interaktiiviseen käyttöön ja eräajotöihin.
+Interaktiivinen MATLAB on tarkoitettu väliaikaiseen, kevyeseen datan esikäsittelyyn ja jälkikäsittelyyn.
+Se on saatavilla seuraavasti:
 
-- License: Academic
-- Versions: from R2023a to R2024b
-- Toolboxes: Parallel Computing Toolbox.
-  There are 2 licenses for each toolbox.
+- Lisenssi: Akateeminen
+- Versiot: R2023a:sta R2024b:hen
+- Työkalupakit: Parallel Computing Toolbox.
+  Käytössä on 2 lisenssiä jokaista työkalupakkia kohden.
 
-### Puhti - MATLAB Parallel Server
-MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MATLAB installation to Puhti.
-It is available as follows:
+### Puhti - MATLAB Parallel Server {#puhti-matlab-parallel-server}
+MATLAB Parallel Server (MPS) mahdollistaa työn lähettämisen eräajotyönä paikallisesta MATLAB-asennuksesta Puhtiin.
+Se on saatavilla seuraavasti:
 
-- License: Academic
-- Versions: from R2021a to R2024b
-- Toolboxes: MATLAB Parallel Server.
-  There is license for using upto 500 computing cores simultaneously.
-  Furthermore, toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
+- Lisenssi: Akateeminen
+- Versiot: R2021a:sta R2024b:hen
+- Työkalupakit: MATLAB Parallel Server.
+  Käytössä on lisenssi enintään 500 laskentaytimen samanaikaiseen käyttöön.
+  Lisäksi työkalupakkeja, joihin sinulla on lisenssi paikallisella MATLAB-lisenssilläsi, voidaan käyttää MATLAB Parallel Serverin kanssa.
 
-The academic license allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
-If you are a user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
+Akateeminen lisenssi sallii käytön vain suomalaisten korkeakoulujen henkilökunnalle ja opiskelijoille.
+Jos olet kaupallisen yrityksen tai suomalaisen tutkimuslaitoksen käyttäjä, pyydä [CSC:n asiakaspalvelua](../support/contact.md) ohjeiden saamiseksi.
 
-### LUMI - Interactive MATLAB
-LUMI has MATLAB an installation for interactive use.
+### LUMI - Interaktiivinen MATLAB {#lumi-interactive-matlab}
+LUMI:ssa on MATLAB-asennus interaktiiviseen käyttöön.
 
-- License: Academic
-- Versions: from R2023b to R2024a
-- Toolboxes: Simulink, Control System Toolbox, Curve Fitting Toolbox, Deep Learning Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Signal Processing Toolbox, Statistics and Machine Learning Toolbox, Wavelet Toolbox.
-  There are 25 licenses of each toolbox.
+- Lisenssi: Akateeminen
+- Versiot: R2023b:stä R2024a:han
+- Työkalupakit: Simulink, Control System Toolbox, Curve Fitting Toolbox, Deep Learning Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Signal Processing Toolbox, Statistics and Machine Learning Toolbox, Wavelet Toolbox.
+  Käytössä on 25 lisenssiä jokaista työkalupakkia kohden.
 
-The academic license allows use only for teaching and academic research at a degree-granting institute.
+Akateeminen lisenssi sallii käytön vain opetus- ja tutkimuskäyttöön tutkintoa myöntävässä oppilaitoksessa.
 
 
-## Using interactive MATLAB on Puhti and LUMI
-### Command-line interface
-We can run an interactive MATLAB session on the command line.
-We first need to make a reservation using Slurm:
+## Interaktiivisen MATLABin käyttäminen Puhtilla ja LUMIlla {#using-interactive-matlab-on-puhti-and-lumi}
+### Komentoriviliittymä {#command-line-interface}
+Voimme suorittaa interaktiivisen MATLAB-istunnon komentoriviltä.
+Aluksi meidän on tehtävä varaus käyttämällä Slurmia:
 
 ```bash
 srun --account=project_id --partition=small --time=0:15:00 --cpus-per-task=1 --mem-per-cpu=4g --pty bash
 ```
 
-Please, replace the `project_id` with your project identifier, otherwise the script will fail.
+Korvaa `project_id` projektitunnisteellasi, muuten skripti epäonnistuu.
 
 === "Puhti"
 
-    Then, we need to load the MATLAB module:
+    Tämän jälkeen meidän on ladattava MATLAB-moduuli:
 
     ```bash
     module load matlab
@@ -72,44 +73,44 @@ Please, replace the `project_id` with your project identifier, otherwise the scr
 
 === "LUMI"
 
-    On LUMI, we must add the module files under CSC's local directory to the module path before loading the module.
+    LUMI:lla meidän on lisättävä moduulitiedostot CSC:n paikallisesta hakemistosta moduulipolulle ennen moduulin lataamista.
 
     ```bash
     module use /appl/local/csc/modulefiles
     module load matlab
     ```
 
-Now `matlab`, `mbuild`, `mex` and `mcc` commands are available.
-For example, we can open the MATLAB command line interface as follows:
+Nyt `matlab`, `mbuild`, `mex` ja `mcc` komennot ovat käytettävissä.
+Esimerkiksi, voimme avata MATLAB-komentoriviliittymän seuraavasti:
 
 ```bash
 matlab -nodisplay
 ```
 
-We can also run MATLAB scripts using the batch mode as follows:
+Voimme myös suorittaa MATLAB-skriptejä erätilassa seuraavasti:
 
 ```bash
 matlab -batch <script>
 ```
 
 
-### Web interface
-We can also use the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
-First, we need to log into [www.puhti.csc.fi](https://www.puhti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
-Then, we have two options:
+### Web-käyttöliittymä {#web-interface}
+Voimme myös käyttää [web-käyttöliittymää](../computing/webinterface/index.md) interaktiivisiin MATLAB-istuntoihin.
+Ensinnäkin, meidän on kirjauduttava sisään [www.puhti.csc.fi](https://www.puhti.csc.fi) tai [www.lumi.csc.fi](https://www.lumi.csc.fi).
+Tämän jälkeen meillä on kaksi vaihtoehtoa:
 
-1. We can use **MATLAB web application** which opens a web version of the MATLAB graphical user interface.
+1. Voimme käyttää **MATLAB web -sovellusta**, joka avaa MATLAB-graafisen käyttöliittymän web-version.
 
-2. We can use the **Desktop application** and click the MATLAB icon to open the desktop version of MATLAB graphical user interface.
+2. Voimme käyttää **Työpöytäsovellusta** ja klikata MATLAB-ikonia avataksesi MATLAB-graafisen käyttöliittymän työpöytäversion.
 
-_On the LUMI Desktop Application, Matlab can be found via the menu button in the bottom left corner. Simply search for matlab and click the icon / drag it to the desktop to easily find it again._
+_LUMI-työpöytäsovelluksessa Matlab löytyy vasemman alakulman valikkopainikkeen kautta. Etsi yksinkertaisesti matlab ja klikkaa kuvaketta / raahaa se työpöydälle löytääksesi sen helposti uudelleen._
 
-We need to set atleast 4 GB of memory before launching the MATLAB application.
+Meidän on asetettava vähintään 4 GB muistia ennen MATLAB-sovelluksen käynnistämistä.
 
 
-## Parallel computing on MATLAB
-In MATLAB, we can parallelize code using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
-Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
+## Rinnakkaislaskenta MATLABissa {#parallel-computing-on-matlab}
+MATLABissa voimme rinnakkaistaa koodia korkeatasoisilla [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html) -rakenteilla.
+Harkitse seuraavaa sarjallista koodia, joka on kirjoitettu `funcSerial.m`-tiedostoon ja joka pysähtyy sekunniksi `n` kertaa ja mittaa suoritusajan:
 
 ```matlab
 function t = funcSerial(n)
@@ -121,13 +122,13 @@ t = toc(t0);
 end
 ```
 
-The following serial execution should run for around two seconds:
+Seuraavan sarjallisen suorituksen pitäisi kestää noin kaksi sekuntia:
 
 ```matlab
 funcSerial(2)
 ```
 
-We can parallelize the function using the parallel for-loop construct, `parfor`, written into `funcParallel.m` file as follows:
+Voimme rinnakkaista funktiota käyttämällä rinnakkaista for-silmukkarakennetta, `parfor`, joka on kirjoitettu `funcParallel.m`-tiedostoon seuraavasti:
 
 ```matlab
 function t = funcParallel(n)
@@ -139,8 +140,8 @@ t = toc(t0);
 end
 ```
 
-To run parallel code, we need to create a parallel pool using processes or threads and then run the parallel code.
-We can create a parallel pool using two processes and run the parallel code with the same argument as serial but it should only take around one second:
+Rinnakkaiskoodin suorittamiseksi meidän on luotava rinnakkaisallas prosesseista tai säikeistä ja sitten suoritettava rinnakkaiskoodi.
+Voimme luoda rinnakkaisaltaan kahdella prosessilla ja suorittaa rinnakkaiskoodia samalla argumentilla kuin sarjallinen, mutta sen pitäisi kestää vain noin sekunti:
 
 ```matlab
 pool = parpool('Processes', 2);
@@ -148,7 +149,7 @@ funcParallel(2)
 delete(pool);
 ```
 
-Same using parallel pool with threads:
+Sama säikeillä varustetulla rinnakkaisaltaalla:
 
 ```matlab
 pool = parpool('Threads', 2);
@@ -156,105 +157,105 @@ funcParallel(2)
 delete(pool);
 ```
 
-With MATLAB Parallel Server we can also create parallel pools to Puhti and run parallel code there.
+MATLAB Parallel Serverilla voimme myös luoda rinnakkaisaltaita Puhtiin ja suorittaa rinnakkaiskoodia siellä.
 
-<!-- TODO: Constructs for using GPUs are also available. -->
-
-
-## Submitting work from local MATLAB to Puhti using MATLAB Parallel Server
-### Configuring MPS on local MATLAB
-Puhti's MATLAB Parallel Server (MPS) allows users to send batch jobs from a local MATLAB session to the Puhti cluster.
-Using Puhti MPS requires a local MATLAB installation with a supported MATLAB version and the Parallel Computing Toolbox and access to the Puhti cluster.
-We can configure MPS on a local computer using the following instructions.
-
-1. Log in and out to Puhti via SSH client to ensure you have a home directory.
-2. Download the configuration script archive [**mps_puhti.zip**](https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip) for Puhti.
-3. Create a local MATLAB configuration directory.
-4. Extract the configurations to the configuration directory.
-5. Add the directory to the unzipped configuration files to MATLAB's path using `addpath` and `savepath` functions in MATLAB.
-6. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt.
+<!-- TODO: Rakenteita myös GPU:iden käyttöön on saatavilla. -->
 
 
-#### Linux and MacOS
-Step 1: Run in shell:
+## Työn lähettäminen paikallisesta MATLABista Puhtiin MATLAB Parallel Serverin avulla {#submitting-work-from-local-matlab-to-puhti-using-matlab-parallel-server}
+### MPS:n konfigurointi paikallisessa MATLABissa {#configuring-mps-on-local-matlab}
+Puhtin MATLAB Parallel Server (MPS) mahdollistaa käyttäjille eräajotöiden lähettämisen paikallisesta MATLAB-istunnosta Puhti-klusteriin.
+Puhtin MPS:n käyttö edellyttää paikallista MATLAB-asennusta tuetulla MATLAB-versiolla ja Parallel Computing Toolboxilla sekä pääsyä Puhti-klusteriin.
+Voimme konfiguroida MPS:n paikallisessa tietokoneessa seuraavilla ohjeilla.
+
+1. Kirjaudu ulos ja sisään Puhtiin SSH-asiakasohjelman kautta varmistaaksesi, että sinulla on kotihakemisto.
+2. Lataa konfiguraatioskriptin arkisto [**mps_puhti.zip**](https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip) Puhtille.
+3. Luo paikallinen MATLAB-konfiguraatiohakemisto.
+4. Pura konfiguraatiot konfiguraatiohakemistoon.
+5. Lisää hakemisto purettuihin konfiguraatiotiedostoihin MATLABin polkuun käyttämällä `addpath` ja `savepath` funktioita MATLABissa.
+6. Määritä MATLABisi lähettämään töitä Puhtiin kutsumalla `configCluster` MATLABissa ja anna käyttäjätunnuksesi kehotteeseen.
+
+
+#### Linux ja MacOS {#linux-and-macos}
+Vaihe 1: Suorita komentorivillä:
 
 ```bash
 ssh <username>@puhti.csc.fi exit
 ```
 
-Step 2: Run in shell:
+Vaihe 2: Suorita komentorivillä:
 
 ```bash
 curl --location --output "$HOME/Downloads/mps_puhti.zip" https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip
 ```
 
-Step 3: Run in shell:
+Vaihe 3: Suorita komentorivillä:
 
 ```bash
 mkdir -p "$HOME/.matlab"
 ```
 
-Step 4: Run in shell:
+Vaihe 4: Suorita komentorivillä:
 ```bash
 unzip "$HOME/Downloads/mps_puhti.zip" -d "$HOME/.matlab/mps_puhti"
 ```
 
-Step 5: Run in MATLAB:
+Vaihe 5: Suorita MATLABissa:
 ```matlab
 addpath(fullfile(getenv("HOME"), ".matlab", "mps_puhti"))
 savepath
 ```
 
-Step 6: Run in MATLAB:
+Vaihe 6: Suorita MATLABissa:
 ```matlab
 configCluster
 ```
 
-#### Windows
-Step 1: Run in Windows Powershell:
+#### Windows {#windows}
+Vaihe 1: Suorita Windows Powershellissä:
 
 ```bash
 ssh <username>@puhti.csc.fi exit
 ```
 
-Step 2: Run in Windows Powershell:
+Vaihe 2: Suorita Windows Powershellissä:
 
 ```powershell
 Invoke-WebRequest -Uri "https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip" -OutFile "$env:USERPROFILE\Downloads\mps_puhti.zip"
 ```
 
-Step 3: Run in Windows Powershell:
+Vaihe 3: Suorita Windows Powershellissä:
 
 ```powershell
 New-Item -Path "$env:APPDATA\Mathworks\MATLAB" -ItemType Directory -Force 
 ```
 
-Step 4: Run in Windows Powershell:
+Vaihe 4: Suorita Windows Powershellissä:
 ```powershell
 Expand-Archive -Path "$env:USERPROFILE\Downloads\mps_puhti.zip" -DestinationPath "$env:APPDATA\Mathworks\MATLAB\mps_puhti"
 ```
 
-Step 5: Run in MATLAB:
+Vaihe 5: Suorita MATLABissa:
 ```matlab
 addpath(fullfile(getenv("APPDATA"), "Mathworks", "MATLAB", "mps_puhti"))
 savepath
 ```
 
-Step 6: Run in MATLAB:
+Vaihe 6: Suorita MATLABissa:
 ```matlab
 configCluster
 ```
 
 
-### Submitting serial jobs
-Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
-Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to the empty string `''`.
-Furthermore, `CPUsPerNode` is set automatically by the `batch` command, thus we unset it.
-For example, a simple CPU reservation looks as follows:
+### Sarjatöiden lähettäminen {#submitting-serial-jobs}
+Ennen eräajotyön lähettämistä meidän on määritettävä resurssivaraus käyttämällä `parcluster`.
+Koska `parcluster` on tilallinen, on turvallisinta tyhjentää eksplisiittisesti käyttämättömät ominaisuudet asettamalla ne tyhjäksi `'`.
+Lisäksi `CPUsPerNode` asetetaan automaattisesti `batch`-komennolla, joten me tyhjennämme sen.
+Esimerkiksi, yksinkertainen CPU-varaus näyttää seuraavalta:
 
 ```matlab
 c = parcluster;
-% Replace 'project_id' to your project identifier, otherwise the script will fail.
+% Korvaa 'project_id' projektitunnisteellasi, muuten skripti epäonnistuu.
 c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
@@ -265,30 +266,30 @@ c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
 ```
 
-Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
-It returns a job object which we can use to access the output of the submitted job.
+Nyt voimme käyttää [`batch`](http://se.mathworks.com/help/distcomp/batch.html) -funktiota lähettääksemme työn Puhtiin.
+Se palauttaa työobjektin, jota voimme käyttää lähetetyn työn tulosten tarkasteluun.
 
-The first time you submit a job, MATLAB will prompt you to choose between password or SSH key authentication.
-Password authentication is no longer supported on Puhti, so you must select SSH key authentication.
-Provide the path to your private key and enter the password for the private key if one exists.
-MATLAB will store the path to your key and will not request it again in future sessions.
+Kun lähetät työn ensimmäisen kerran, MATLAB kehottaa sinua valitsemaan salasana- tai SSH-avainautentikoinnin välillä.
+Salasanasautentikointia ei enää tueta Puhtissa, joten sinun on valittava SSH-avainautentikointi.
+Anna polku yksityiseen avainavaimeesi ja syötä yksityiselle avaimelle oleva salasana, jos sellainen on.
+MATLAB tallentaa avainavaimesi polun eikä pyydä sitä uudelleen tulevissa istunnoissa.
 
-We can submit a simple test job that returns the current working directory as follows:
+Voimme lähettää yksinkertaisen testityön, joka palauttaa nykyisen työhakemiston seuraavasti:
 
 ```matlab
 j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
 
-In the example, we set the working directory to the home directory by setting `'CurrentFolder'` to `'.'`.
-Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by setting `'AutoAddClientPath'` to `false`.
+Esimerkissä asetamme työhakemistoksi kotihakemiston asettamalla `'CurrentFolder'` arvoksi `'.'`.
+Lisäksi meidän tulisi poistaa MATLABin paikallinen hakupolku käytöstä etätyöntekijöillä asettamalla `'AutoAddClientPath'` arvoksi `false`.
 
 
-### Submitting parallel jobs
-Let's create a reservation:
+### Rinnakkaistöiden lähettäminen {#submitting-parallel-jobs}
+Tehdään varaus:
 
 ```matlab
 c = parcluster;
-% Replace 'project_id' to your project identifier, otherwise the script will fail.
+% Korvaa 'project_id' projektitunnisteellasi, muuten skripti epäonnistuu.
 c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
@@ -299,24 +300,24 @@ c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
 ```
 
-Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
-For example, we can submit a parallel job to eight cores as follows:
+Nyt voimme käyttää batch-komentoa luodaksemme rinnakkaisaltaan työntekijöille asettamalla `'Pool'`-parametriksi varattavien ytimen määrä.
+Esimerkiksi, voimme lähettää rinnakkaistyön kahdeksalle ytimelle seuraavasti:
 
 ```matlab
 j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
 
-Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
-For example, a job that needs eight cores will consume nine CPU cores.
+Huomaa, että rinnakkaisallas pyytää aina yhden lisä-CPU-ytimen hallitakseen eräajotyötä ja ydinpoolia.
+Esimerkiksi, työ, joka tarvitsee kahdeksan ydintä, kuluttaa yhdeksän CPU-ydintä.
 
 
-### Submitting serial GPU jobs
-We can create a GPU reservation by setting the appropriate values for the `Partition`, `GpuCard`, and `GPUsPerNode` properties.
-For example, a single GPU reservation looks as follows:
+### Sarja-GPU-töiden lähettäminen {#submitting-serial-gpu-jobs}
+Voimme luoda GPU-varauksen asettamalla sopivat arvot `Partition`, `GpuCard`, ja `GPUsPerNode` -ominaisuuksille.
+Esimerkiksi, yhden GPU:n varaus näyttää seuraavalta:
 
 ```matlab
 c = parcluster;
-% Replace 'project_id' to your project identifier, otherwise the script will fail.
+% Korvaa 'project_id' projektitunnisteellasi, muuten skripti epäonnistuu.
 c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'gpu';
 c.AdditionalProperties.WallTime = '00:15:00';
@@ -327,54 +328,54 @@ c.AdditionalProperties.GPUsPerNode = 1;
 c.AdditionalProperties.EmailAddress = '';
 ```
 
-Now, we can submit a simple GPU job that queries the available GPU device as follows:
+Nyt voimme lähettää yksinkertaisen GPU-työn, joka kysyy saatavilla olevan GPU-laitteen seuraavasti:
 
 ```matlab
 j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
 
 
-### Querying jobs and output
-To retrieve a list of currently running or completed jobs, use
+### Töiden ja tulosten kysely {#querying-jobs-and-output}
+Saadaksesi listan nykyisistä käynnissä olevista tai valmiista töistä, käytä
 
 ```matlab
 c = parcluster;
 c.Jobs
 ```
 
-Get a handle to the job with sequence number 1
+Hanki kahva työlle, jolla on sekvenssinumero 1
 
 ```matlab
 j = c.Jobs(1);
 ```
 
-Once we have a handle to the cluster, we'll call the `findJob` method to search for the job with the specified job ID, on example below `ID = 11`.
+Kun meillä on kahva klusterille, kutsumme `findJob`-metodia etsiäksemme työ ID:llä, esimerkissä alla `ID = 11`.
 
 ```matlab
 j = findJob(c, 'ID', 11);
 ```
 
-Once the job has been completed, we can fetch the function outputs as follows:
+Kun työ on valmis, voimme hakea funktion tulokset seuraavasti:
 
 ```matlab
 fetchOutputs(j)
 ```
 
-Data that has been written to files on the cluster needs to be retrieved directly from the file system.
+Klusterin tiedostojärjestelmään kirjoitetut tiedot on haettava suoraan tiedostojärjestelmästä.
 
 
 <!--
-Once we've identified the job we want, we can retrieve the results as we've done previously.
-If the job has produced an error, we can call the `getDebugLog` method to view the error log file.
-The error log can be lengthy and is not shown here.
+Kun olemme tunnistaneet työn, jonka haluamme nähdä, voimme noutaa tulokset aiemmin kuvatuilla tavoilla.
+Jos työssä on ollut virhe, voimme kutsua `getDebugLog`-metodia nähdäksesi virhelokitiedoston.
+Virheloki voi olla pitkä, joten sitä ei näytetä tässä.
 
-As an example, we will retrieve the debug log of the serial job.
+Esimerkiksi, haemme sarjatyön virhelokin.
 
 ```matlab
 getDebugLog(j.Parent, j.Tasks(1))
 ```
 
-For debugging, retrieve the log file.
+Vianmääritystä varten, haetaan lokitiedosto.
 
 ```matlab
 getDebugLog(j.Parent ,j)
@@ -383,8 +384,8 @@ getDebugLog(j.Parent ,j)
 
 
 <!--
-### Checking license status
-You can check the status of MPS licenses on Puhti after logging in with `scontrol` command.
+### Lisenssitilanteen tarkistaminen
+Voit tarkistaa MPS-lisenssien tilanteen Puhtilla kirjauduttuasi `scontrol`-komennolla.
 
 ```bash
 scontrol show lic=mdcs
@@ -395,3 +396,5 @@ LicenseName=mdcs
     Total=500 Used=320 Free=180 Remote=no
 ```
 -->
+```
+

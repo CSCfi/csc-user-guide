@@ -1,118 +1,96 @@
-# The module system
+# Modulijärjestelmä {#the-module-system}
 
-The module system enables managing several mutually incompatible software environments
-within one computer. Use the `module` command to query the available applications,
-libraries or compiler suites, and dynamically initialize them.
-The module system should be used for both interactive and batch jobs.
+Modulijärjestelmä mahdollistaa useiden keskenään yhteensopimattomien ohjelmistoympäristöjen hallinnan yhdellä tietokoneella. Käytä `module`-komentoa saatavilla olevien sovellusten, kirjastojen tai kääntäjäkokonaisuuksien kyselyyn ja niiden dynaamiseen alustamiseen.
+Modulijärjestelmää kannattaa käyttää sekä interaktiivisissa että eräkäsittelytöissä.
 
-The **environment modules** provide a convenient way to set up everything
-required by a particular application. The module system modifies the
-environment variables of the user's shell so that the correct versions
-of executables are in the path and the linker can find the correct version
-of the required libraries. For example, the command `mpicc` points to
-different compilers depending on the module loaded.
+**Ympäristömoduulit** tarjoavat kätevän tavan asentaa kaikki tarvittava tietyn sovelluksen käyttöön. Modulijärjestelmä muokkaa käyttäjän shellin ympäristömuuttujia niin, että oikeat suoritettavat tiedostot löytyvät polusta ja linkittäjä löytää oikean version vaadituista kirjastoista. Esimerkiksi komento `mpicc` viittaa eri kääntäjiin ladatusta modulista riippuen.
 
-CSC uses **Lmod** environment modules. They are developed at the Texas Advanced Computing
-Center (TACC) and implemented using the _Lua_ programming language. More technical
-details can be found on the [Lmod homepage].
+CSC käyttää **Lmod**-ympäristömoduuleita. Ne on kehitetty Texas Advanced Computing Centerissä (TACC) ja toteutettu _Lua_-ohjelmointikielellä. Lisätekniset tiedot löytyvät [Lmodin kotisivulta].
 
 [TOC]
 
-## Basic usage
+## Peruskäyttö {#basic-usage}
 
-The syntax of the module command:
+Moduulikomennon syntaksi:
 
 ```text
 module command modulename
 ```
 
-Listing the modules loaded (including your current environment):
+Ladattujen moduulien (myös nykyisen ympäristösi) listaaminen:
 
 ```text
 module list
 ```
 
-The command `module help` provides general information about a module. For
-example, to get more information about the module `intel-oneapi-compilers`, use:
+Komento `module help` antaa yleistä tietoa moduulista. Esimerkiksi saadaksesi lisätietoa moduulista `intel-oneapi-compilers`, käytä komentoa:
 
 ```text
 module help intel-oneapi-compilers
 ```
 
-Load new modules to your environment with the command `load`. For
-example, to load the `intel-oneapi-mpi` module, use:
+Lataa uusia moduuleja ympäristöösi komennolla `load`. Esimerkiksi ladataksesi `intel-oneapi-mpi`-moduulin, käytä komentoa:
 
 ```text
 module load intel-oneapi-mpi
 ```
 
-Note that you can only load modules that are compatible with the other
-loaded modules. That is, you cannot load modules that are
-conflicting with previously loaded modules, or modules that depend on
-modules that have not been loaded.
+Huomaa, että voit ladata vain moduuleja, jotka ovat yhteensopivia muiden ladattujen moduulien kanssa. Eli et voi ladata moduuleja, jotka ovat ristiriidassa aiemmin ladattujen moduulien kanssa tai moduuleja, jotka riippuvat moduuleista, jotka eivät ole ladattuja.
 
-Modules that are not needed or conflict with other modules
-can be unloaded using `unload`:
+Moduulit, joita ei tarvita tai jotka ovat ristiriidassa muiden moduulien kanssa, voidaan purkaa `unload`-komennolla:
 
 ```text
 module unload intel-oneapi-mkl
 ```
 
-### The most commonly used module commands {#module-commands-table}
+### Yleisimmin käytetyt moduulikomennot {#module-commands-table}
 
-|  Module command                   |  Description                                                                                        |
-|-----------------------------------|-----------------------------------------------------------------------------------------------------|
-| module help *modulename*          | Information about a module.                                                                         |
-| module load *modulename*          | Loads the default version of the environment module.                                                |
-| module load *modulename/version*  | Loads specific version of the module.                                                               |
-| module unload *modulename*        | Unloads the given environment module.                                                               |
-| module list                       | List the loaded modules.                                                                            |
-| module avail                      | List all modules that are available to be loaded (i.e. compatible with your current environment).   |
-| module spider                     | List all existing modules.                                                                          |
-| module spider *modulename*        | Search the entire list of existing modules.                                                         |
-| module spider *modulename/version*| Gives information on how to load the module (prerequisites etc).                                    |
-| module swap *modulename1 modulename2* | Replaces a module with another (and tries to re-load compatible versions of other loaded modules).  |
-| module show *modulename*          | Show commands in the module file.                                                                   |
-| module purge                      | Unloads all modules.                                                                                |
+| Moduulikomento                        | Kuvaus                                                                                            |
+|-----------------------------------|--------------------------------------------------------------------------------------------------|
+| module help *modulename*          | Tietoa moduulista.                                                                                |
+| module load *modulename*          | Lataa ympäristömoduulin oletusversion.                                                            |
+| module load *modulename/version*  | Lataa tietyn version moduulista.                                                                  |
+| module unload *modulename*        | Purkaa annetun ympäristömoduulin.                                                                 |
+| module list                       | Listaa ladatut moduulit.                                                                          |
+| module avail                      | Listaa kaikki moduulit, jotka voivat olla ladattavissa (eli yhteensopivat nykyisen ympäristösi kanssa). |
+| module spider                     | Listaa kaikki olemassa olevat moduulit.                                                           |
+| module spider *modulename*        | Etsi kaikki olemassa olevat moduulit tietyn nimen perusteella.                                    |
+| module spider *modulename/version*| Antaa tietoa moduulin lataamiseen liittyvistä asioista (esim. esivaatimukset).                    |
+| module swap *modulename1 modulename2* | Korvaa moduulin toisella (ja yrittää ladata uudelleen yhteensopivat versiot muista ladatuista moduuleista). |
+| module show *modulename*          | Näytä komennot moduulitiedostossa.                                                                |
+| module purge                      | Purkaa kaikki moduulit.                                                                           |
 
-### Finding modules
+### Moduulien löytäminen {#finding-modules}
 
-You can list the modules that are compatible with your current module
-set by using:
+Voit listata moduulit, jotka ovat yhteensopivia nykyisen modulijoukkosi kanssa käyttämällä:
 
 ```text
 module avail
 ```
 
-Because of the hierarchical structure of the _Lmod_ system, it is not possible to
-load all installed modules simply using a single `module load` command. The
-`avail` command does not show modules that cannot be loaded due to
-conflicts or unmet dependencies. These protective
-restrictions prevent the loading of incompatible module combinations.
+_Lmod_-järjestelmän hierarkkisen rakenteen vuoksi ei ole mahdollista ladata kaikkia asennettuja moduuleja yksinkertaisesti käyttämällä yksittäistä `module load`-komentoa. `avail`-komento ei näytä moduuleja, joita ei voida ladata yhteensopimattomuuksien tai täyttämättömien riippuvuuksien vuoksi. Nämä suojarajoitukset estävät yhteensopimattomien moduliyhdistelmien lataamisen.
 
-List all installed software packages:
+Listaa kaikki asennetut ohjelmistopaketit:
 
 ```text
 module spider
 ```
 
-List modules by name:
+Listaa moduulit nimen perusteella:
 
 ```text
 module spider int
 ```
 
-The above command will list all modules with the string _int_ in their name. A more detailed
-description of a module can be printed using the full module name with a version number:
+Yllä oleva komento listaa kaikki moduulit, joiden nimessä on merkkijono _int_. Yksityiskohtaisempi kuvaus moduulista voidaan tulostaa käyttämällä koko modulien nimeä ja versionumeroa:
 
 ```text
 module spider intel-oneapi-mkl/2022.1.0
 ```
 
-### Solving module dependencies
+### Moduuliriippuvuuksien ratkaiseminen {#solving-module-dependencies}
 
-Some modules depend on other modules. If a required module is missing, the module system
-prints an error message:
+Jotkut moduulit riippuvat muista moduuleista. Jos vaadittua moduulia ei ole, modulijärjestelmä tulostaa virheilmoituksen:
 
 ```text
 $ module load parallel-netcdf
@@ -138,9 +116,7 @@ $ module spider parallel-netcdf/1.12.2
 ----------------------------------------------------------------------------
 ```
 
-In such cases, the `module avail` command excludes the module from the list and the
-`module load` command cannot find it. The easiest way to find out the required environment
-is to use the `module spider` command with the version information. For example:
+Tällaisissa tapauksissa `module avail`-komento jättää moduulin pois listalta, eikä `module load`-komento löydä sitä. Helpoin tapa löytää vaadittu ympäristö on käyttää `module spider`-komentoa version tiedoilla. Esimerkiksi:
 
 ```text
 $ module spider parallel-netcdf/1.12.2
@@ -156,23 +132,13 @@ $ module spider parallel-netcdf/1.12.2
 ...
 ```
 
-In this case, you will have to load one of the listed environments before
-proceeding with `module load` command.
+Tässä tapauksessa sinun on ladattava yksi listatuista ympäristöistä ennen `module load`-komennon käyttämistä.
 
-## Advanced topics
+## Kehittyneet aiheet {#advanced-topics}
 
-In general, applications and their dependencies should be compiled and
-linked using the same compiler. In some cases this is a strict
-requirement. For example, you can not use the _MPI Fortran90_ module
-compiled with Intel compilers with _gfortran_. Environment modules
-have several mechanisms that prevent the user from setting up an
-incompatible environment.
+Yleisesti ottaen sovellukset ja niiden riippuvuudet tulisi kääntää ja linkittää samoilla kääntäjillä. Joissakin tapauksissa tämä on pakollinen vaatimus. Esimerkiksi et voi käyttää _MPI Fortran90_-moduulia, joka on käännetty Intel-kääntäjillä, _gfortran_:n kanssa. Ympäristömoduuleilla on useita mekanismeja, jotka estävät käyttäjää asettamasta yhteensopimatonta ympäristöä.
 
-The module hierarchy contributes to keeping the compiler and MPI library
-settings compatible with each other. In practice, for each supported
-compiler, there is a module for a supported MPI library. When the user
-switches the compiler module, the module system tries to find the
-correct versions of the loaded modules:
+Modulihierarkia auttaa pitämään kääntäjän ja MPI-kirjaston asetukset keskenään yhteensopivina. Käytännössä jokaiselle tuetulle kääntäjälle on moduuli tuetulle MPI-kirjastolle. Kun käyttäjä vaihtaa kääntäjämoduulia, modulijärjestelmä yrittää löytää oikeat versiot ladatuista moduuleista:
 
 ```text
 $ module list
@@ -195,29 +161,18 @@ Inactive Modules:
  1) parallel-netcdf/1.12.2
 ```
 
-If the correct version is not found, the module system _deactivates_ these
-modules (see above). In practice, the module is unloaded, but it is marked so that
-when the compiler/MPI configuration is changed, the system tries to find
-the correct version automatically.
+Jos oikeaa versiota ei löydy, modulijärjestelmä _deaktivoi_ nämä moduulit (katso yllä). Käytännössä moduuli puretaan, mutta se merkitään niin, että kun kääntäjä/MPI-kokoonpanoa muutetaan, järjestelmä yrittää löytää oikean version automaattisesti.
 
-This hierarchy is implemented by changing the `$MODULEPATH` variable.
-Every compiler module adds its own path to the module path so that
-the software modules compatible with that specific compiler can be listed.
-When the compiler module is unloaded, this path is removed from the
-module path. The same applies to the MPI modules as well.
+Tämä hierarkia toteutetaan muuttamalla `$MODULEPATH`-muuttujaa. Jokainen kääntäjämoduuli lisää oman polkunsa modulipolkuun niin, että tietyn kääntäjän kanssa yhteensopivat ohjelmistomoduulit voidaan listata. Kun kääntäjämoduuli puretaan, tämä polku poistetaan modulipolulta. Sama pätee myös MPI-moduuleihin.
 
-### Using your own module files
+### Omien moduulitiedostojen käyttäminen {#using-your-own-module-files}
 
-If you want to control the software packages using modules
-installed by yourself, you can place your own module files in your home
-directory. For example, if you include module files in
-`$HOME/modulefiles`, you can access them after adding the path to the
-module search path using the command:
+Jos haluat hallita moduuleilla itse asentamiasi ohjelmistopaketteja, voit sijoittaa omat moduulitiedostosi kotihakemistoosi. Esimerkiksi, jos sisällytät moduulitiedostoja hakemistoon `$HOME/modulefiles`, voit käyttää niitä lisäämällä polun modulihakupolkuun komennolla:
 
 ```text
 module use $HOME/modulefiles
 ```
 
-If you want to study existing module files, `module show <modulename>` shows also the filename of the module file.
+Jos haluat tutkia olemassa olevia moduulitiedostoja, `module show <modulename>` näyttää myös moduulitiedoston nimen.
 
-  [Lmod homepage]: https://lmod.readthedocs.io/en/latest/
+[Lmodin kotisivulta]: https://lmod.readthedocs.io/en/latest/

@@ -1,52 +1,53 @@
-!!! success "Basic level"
-    You need to familiarize yourself with the Rahti [web interface](../usage/getting_started.md)
 
-    You need knowledge on Git and GitHub. Also, a GitHub account is required
+!!! success "Perustaso"
+    Sinun täytyy tutustua Rahtin [verkkokäyttöliittymään](../usage/getting_started.md)
 
-# Webhooks
+    Sinulla tulee olla tietoa Gitistä ja GitHubista. Lisäksi tarvitaan GitHub-tili.
 
-Webhooks are URLs that allow triggering actions in a system. Rahti supports webhooks to trigger rebuilds. This means that each BuildConfig is listening to a particular URL that includes a secret (more about that later), and that when this URL is called, a build will be triggered for a default branch.
+# Webhooks {#webhooks}
 
-There are few types of formats supported: Generic, GitHub, GitLab and Bitbucket. This means that if the source code of the application is in Gitlab, the Gitlab URL type must be selected.
+Webhookit ovat URL-osoitteita, jotka mahdollistavat toimintojen käynnistämisen järjestelmässä. Rahti tukee webhooks-toimintoa uudelleenrakentamisen käynnistämiseen. Tämä tarkoittaa, että jokainen BuildConfig kuuntelee tiettyä URL-osoitetta, joka sisältää salaisuuden (lisätietoa myöhemmin), ja kun tätä URL-osoitetta kutsutaan, käynnistetään oletushaaran rakentaminen.
 
-![Triggers](../../img/trigger.drawio.svg)
+Muutamia formaatteja tuetaan: Yleinen, GitHub, GitLab ja Bitbucket. Tämä tarkoittaa, että jos sovelluksen lähdekoodi on GitLabissa, on valittava GitLab URL-tyyppi.
 
-In this example we will use the GitHub type.
+![Laukaisijat](../../img/trigger.drawio.svg)
 
-## Creating a secret
+Tässä esimerkissä käytämme GitHub-tyyppiä.
 
-In the `Developer` menu, go to the **Secrets** page. Make sure that you are in the right project and then click in **Create -> Webhook secret**. Write any sensible name. And click in Generate. Write down the generated secret. And **Save**.
+## Salaisuuden luominen {#creating-a-secret}
 
-![CreateWebhookSecret](../../img/CreateWebhookSecret.png)
+`Kehittäjä`-valikossa siirry **Salaisuudet**-sivulle. Varmista, että olet oikeassa projektissa ja sitten klikkaa kohtaa **Luo -> Webhook-salaisuus**. Anna järkevä nimi. Ja klikkaa Generoi. Kirjoita muistiin luotu salaisuus. Ja **Tallenna**.
 
-## Getting the URL
+![LuoWebhookSalaisuus](../../img/CreateWebhookSecret.png)
 
-You need an already created `BuildConfig` object, or create a new one. In order to create a new BuildConfig, check out the [Creating an image](../images/creating.md) article.
+## URL-osoite {#getting-the-url}
 
-Now you need to edit the build config (**Actions -> Edit BuildConfig**), and add a trigger. To do this, click in "Trigger", in the bottom of the edit page, in the "Advanced options" section. Then, click in "Add trigger". The new trigger must have a type, in our case it will be "GitHub". It also needs a secret, select the secret you created in the previous step.
+Tarvitset jo luodun `BuildConfig`-objektin tai luo uusi. Uuden BuildConfigin luomiseksi katso artikkeli [Kuvan luominen](../images/creating.md).
 
-![Edit BuildConfig](../../img/editBuildConfig.png)
+Nyt sinun täytyy muokata BuildConfigia (**Toiminnot -> Muokkaa BuildConfigia**), ja lisätä laukaisu. Tee tämä klikkaamalla kohtaa "Laukaise", sivun alareunassa, "Lisäasetukset"-osiossa. Sitten klikkaa "Lisää laukaisu". Uudella laukaisulla täytyy olla tyyppi, meidän tapauksessa se on "GitHub". Se tarvitsee myös salaisuuden, valitse edellisessä vaiheessa luomasi salaisuus.
 
-When the `BuildConfig` is configured, you can get the URL via the webinterface. Using the `Developer` menu, go to the **Builds** page, and select the `BuildConfig`. In the `Webhooks` section, you will see "Copy URL with Secret". Click on it, and the URL will be in your clipboard.
+![Muokkaa BuildConfigia](../../img/editBuildConfig.png)
 
-![Copy URL with Secret](../../img/webhooks.png)
+Kun `BuildConfig` on määritetty, voit saada URL-osoitteen verkkokäyttöliittymän kautta. Käyttämällä `Kehittäjä`-valikkoa, siirry **Rakennukset**-sivulle, ja valitse `BuildConfig`. `Webhookit`-osiossa näet "Kopioi URL salaisuuden kanssa". Klikkaa sitä, ja URL-osoite on leikepöydälläsi.
 
-!!! Warning "Default branch names do not match"
+![Kopioi URL salaisuuden kanssa](../../img/webhooks.png)
 
-    You need to make sure that the branch names match between Rahti and GitHub. In Rahti, the default branch name is `master`, but in GitHub, the default branch name is `main`. This means that&mdash;by default&mdash;any change in a GitHub branch named `main` will be ignored by Rahti.
+!!! Warning "Oletushaaran nimet eivät täsmää"
 
-    If you want changes in `main` to be picked up by Rahti, you need to:
+    Sinun täytyy varmistaa, että haaran nimet täsmäävät Rahtin ja GitHubin välillä. Rahtissa oletushaaran nimi on `master`, mutta GitHubissa oletushaaran nimi on `main`. Tämä tarkoittaa sitä, että oletuksena kaikki muutokset GitHubin `main`-nimisessä haarassa jätetään huomiotta Rahtin toimesta.
 
-    1. Edit the **BuildConfig**
-    1. Expand **Show advanced Git options** under **Source**
-    1. Add the correct branch name (in this case `master`) under **Git reference**.
+    Jos haluat, että muutokset `main`-haarassa poimitaan Rahtissa, sinun täytyy:
 
-## GitHub
+    1. Muokata **BuildConfigia**
+    1. Laajentaa **Näytä lisäasetukset Git-vaihtoehdoille** kohdassa **Lähde**
+    1. Lisätä oikea haaran nimi (tässä tapauksessa `master`) kohtaan **Git-viite**.
 
-Once you got the URL and the secret, go to <https://github.com>. There you should go to the repository where the code is, and in **Settings -> Webhooks**, click in "Add webhook".
+## GitHub {#github}
 
-![GitHub Webhooks](../../img/GitHubWebhook.png)
+Kun olet saanut URL-osoitteen ja salaisuuden, mene osoitteeseen <https://github.com>. Mene siellä siihen repositorioon missä koodi on, ja kohdassa **Asetukset -> Webhooks**, klikkaa "Lisää webhook".
 
-You just need to fill up the "Payload URL" and the "Secret", and change the content type to `Application/json`.
+![GitHub Webhookit](../../img/GitHubWebhook.png)
 
-![Add webhook](../../img/Addwebhook.png)
+Sinun tarvitsee vain täyttää "Palautteen URL" ja "Salaisuus", ja vaihtaa sisällön tyyppi muotoon `Application/json`.
+
+![Lisää webhook](../../img/Addwebhook.png)

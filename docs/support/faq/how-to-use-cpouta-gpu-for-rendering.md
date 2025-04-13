@@ -1,41 +1,41 @@
-# How to use cPouta GPU for rendering?
+# Kuinka käyttää cPouta GPU:ta renderöintiin? {#how-to-use-cpouta-gpu-for-rendering}
 
-If you have been granted GPU flavors, you can use GPUs for rendering. The following instructions show how to set up cPouta remote graphics environment. If you do not need a GPU accelerated environment for remote desktop here is instructions to set up a [Remote Desktop environment](how-to-use-cpouta-for-remote-desktop.md). For GPU use, you need to install X, VNC, and VirtualGL servers. Once installed, the servers stay running also when you exit your SSH session. To return to using cPouta remote graphics, just open one secure SSH connection. The general procedure will be explained and some examples given. Part of the information is also available as a [video tutorial](https://youtu.be/An1e9ryS3nY).
+Jos sinulle on myönnetty GPU-muotoiluja, voit käyttää GPU:ta renderöintiin. Seuraavat ohjeet osoittavat, kuinka voit perustaa cPouta-etägrafiikkaympäristön. Jos et tarvitse GPU-kiihdytettyä ympäristöä etätyöpöydälle, tässä on ohjeet cPoutan [etätyöpöytäympäristön](how-to-use-cpouta-for-remote-desktop.md) määrittämiseksi. GPU-käyttöön sinun on asennettava X, VNC ja VirtualGL-palvelimet. Kun asennukset on suoritettu, palvelimet pysyvät käynnissä myös silloin, kun poistut SSH-istunnostasi. Palataksesi cPouta-etägrafiikan käyttöön, avaa vain yksi turvallinen SSH-yhteys. Yleinen menettely selitetään, ja annamme joitakin esimerkkejä. Osa tiedoista on saatavilla myös [video-oppaana](https://youtu.be/An1e9ryS3nY).
 
-The instructions are mainly for cPouta Ubuntu 18 image but the principles apply to the other linux distros. Ubuntu is a good choice if latest features are needed. Brief CentOS instructions are also provided at the end. These installations are minimal. Some applications require additional packages to run properly. Although cPouta CUDA images can be reconfigured for rendering, it is recommended to do the installation from scratch.
+Ohjeet ovat pääasiassa cPoutan Ubuntu 18 -kuvalle, mutta periaatteet pätevät muihin Linux-jakeluihin. Ubuntu on hyvä valinta, jos uusimpia ominaisuuksia tarvitaan. Lyhyet CentOS-ohjeet ovat myös mukana lopussa. Nämä asennukset ovat minimaalisia. Joidenkin sovellusten asianmukainen toiminta edellyttää lisäpakettien asennusta. Vaikka cPouta CUDA-kuvat voidaan mukauttaa renderöintiin, on suositeltavaa tehdä asennus alusta alkaen.
 
 [TOC]
-  
-## Ubuntu installation
 
-After launching a cPouta Ubuntu image, update package lists, install X server and Openbox windows manager
+## Ubuntu-asennus {#ubuntu-installation}
+
+Kun olet käynnistänyt cPouta Ubuntu -kuvan, päivitä pakettien listat, asenna X-palvelin ja Openbox-ikkunahallinta
 
 ```
 sudo apt-get update
 sudo apt-get install xorg openbox
 ```
 
-_(Skip the following driver installation if you are using a CUDA image.)_ First install linux kernel sources, which are needed for NVIDIA driver compilation to work. Then download the NVIDIA driver that is best suited to your needs. In this example a recent driver 450.51.06 is used. See NVIDIA web pages for the available linux drivers (cPouta has Tesla P100 cards).
+_(Ohita seuraava ajurin asennus, jos käytät CUDA-kuvaa.)_ Asenna ensin Linux-ytimeen liittyviä lähteitä, joita tarvitaan NVIDIA-ajurin käännöksen toimimiseksi. Lataa sitten tarpeisiisi parhaiten sopiva NVIDIA-ajuri. Tässä esimerkissä käytetään viimeisintä ajuria 450.51.06. Katso NVIDIA:n verkkosivuilta saatavilla olevat Linux-ajurit (cPoutalla on Tesla P100 -kortteja).
 
 ```
 sudo apt install build-essential libglvnd-dev pkg-config
 sudo wget http://uk.download.nvidia.com/tesla/450.51.06/NVIDIA-Linux-x86_64-450.51.06.run
 ```
 
-When you run the NVIDIA installation script, you'll get a warning that 32-bit compatibility libraries will not be installed, which is fine for most cases. If you do need 32-bit support, run first `sudo apt-get install gcc-multilib`
+Kun ajat NVIDIA:n asennusskriptin, saat varoituksen siitä, että 32-bittisiä yhteensopivia kirjastoja ei asenneta, mikä on useimmissa tapauksissa ok. Jos kuitenkin tarvitset 32-bittistä tukea, suorita ensin `sudo apt-get install gcc-multilib`
 
 ```
 sudo sh NVIDIA-Linux-x86_64-450.51.06.run
 ```
 
-_(Continue from here if you are using a CUDA image.)_ Configure X for the NVIDIA driver with **nvidia-xconfig** tool. It will find out the card's BusID address (PCI:0:5:0 in this example, replace with your query result), which will be used to create a X configuration file. Ignore the configuration file related warning.
+_(Jatka tästä, jos käytät CUDA-kuvaa.)_ Määritä X NVIDIA-ajurille **nvidia-xconfig**-työkalulla. Se selvittää kortin BusID-osoitteen (esimerkissä PCI:0:5:0, vaihda kyselytuloksesi mukaan), jota käytetään X:n konfiguraatiotiedoston luomiseen. Ohita konfiguraatiotiedostoon liittyvä varoitus.
 
 ```
 nvidia-xconfig --query-gpu-info
 sudo nvidia-xconfig --busid=PCI:0:5:0
 ```
 
-VirtualGL middleware is needed to direct graphics to the NVIDIA card, and VNC server will stream the rendered graphics to your local VNC client. Download and install VirtualGL and TurboVNC servers. (You will also need a VNC client app on your local PC, see below.)
+VirtualGL-välikerros tarvitaan graafisen ohjauksen ohjaamiseksi NVIDIA-kortille, ja VNC-palvelin suoratoistaa renderöidyn grafiikan paikalliseen VNC-asiakkaaseesi. Lataa ja asenna VirtualGL ja TurboVNC-palvelimet. (Tarvitset myös VNC-asiakasohjelman paikalliselle tietokoneellesi, katso alta.)
 
 ```
 wget https://netix.dl.sourceforge.net/project/virtualgl/2.6.4/virtualgl_2.6.4_amd64.deb
@@ -43,161 +43,160 @@ wget https://kumisystems.dl.sourceforge.net/project/turbovnc/2.2.5/turbovnc_2.2.
 sudo dpkg -i virtualgl_*.deb turbovnc_*.deb
 ```
 
-Configure the VirtualGL server. If you are the only user on the virtual machine, answer **No** to all questions (choose: 1,n,n,n,x). More info is available at [virtualgl.org/Documentation/](https://virtualgl.org/Documentation/)
+Määritä VirtualGL-palvelin. Jos olet virtuaalikoneen ainoa käyttäjä, vastaa **Ei** kaikkiin kysymyksiin (valitse: 1,n,n,n,x). Lisätietoja löytyy [virtualgl.org/Documentation/](https://virtualgl.org/Documentation/)
 
 ```
 sudo vglserver_config
 ```
-Reboot your cPouta virtual machine at this stage, before continuing.
+Käynnistä cPouta-virtuaalikoneesi uudelleen tässä vaiheessa ennen jatkamista.
 
-After the reboot, start the VNC server. Define your virtual desktop window size by the _geometry_ parameter. Leaving it out defaults to 1240x900. The first time the VNC server is started, it will ask to create a password. When prompted, type (up to) 8 character password (twice), then reply **No** to a view-only password. You will need this TurboVNC password later, when connecting via your local PC's VNC viewer client. See **Usage** below. More info is available at [turbovnc.org/Documentation/](https://turbovnc.org/Documentation/)
+Uudelleenkäynnistyksen jälkeen käynnistä VNC-palvelin. Määritä virtuaalisen työpöytäikkunan koko _geometry_-parametrilla. Jos jätät parametrin pois, oletuskoko on 1240x900. Ensimmäisellä kerralla, kun VNC-palvelin käynnistyy, se pyytää luomaan salasanan. Kun sinua pyydetään, kirjoita (enintään) 8 merkin salasana (kahdesti), ja vastaa sitten **Ei** katselu-only-salasanalle. Tarvitset tätä TurboVNC-salasanaa myöhemmin, kun muodostat yhteyden paikallisen tietokoneesi VNC-katseluohjelman kautta. Katso **Käyttö** alla. Lisätietoja on saatavilla osoitteessa [turbovnc.org/Documentation/](https://turbovnc.org/Documentation/)
 
 ```
 /opt/TurboVNC/bin/vncserver -geometry 1920x1080
 ```
 
-Start your X server (you need to hit _return_ twice), and set display number to 0.
+Käynnistä X-palvelin (sinun on painettava _enter_ kahdesti), ja aseta näyttönumeroksi 0.
 
 ```
 sudo /usr/bin/X :0 &
 export DISPLAY=:0
 ```
 
-Now the GPU is ready to be used via your local VNC viewer, as described below. You'll need to have one secure SSH tunnel open for the VNC connection. The servers will keep on running when exiting SSH. If you reboot your virtual machine, run the last three commands above, to start the servers again.
+Nyt GPU on valmis käytettäväksi paikallisen VNC-katseluohjelmasi kautta, kuten alla on kuvattu. Sinun on avattava yksi turvallinen SSH-tunneli VNC-yhteydelle. Palvelimet jatkavat käyntiään, kun poistut SSH:sta. Jos käynnistät virtuaalikoneesi uudelleen, aja yllä olevat kolme viimeistä komentoa palvelinten käynnistämiseksi uudelleen.
 
   
-## Usage - how to use cPouta remote graphics
+## Käyttö - kuinka käyttää cPouta-etägrafiikkaa {#usage---how-to-use-cpouta-remote-graphics}
 
-Install TurboVNC 2.2.5 viewer to your local desktop PC from [sourceforge.net/projects/turbovnc/files/](https://sourceforge.net/projects/turbovnc/files/)
+Asenna TurboVNC 2.2.5 katseluohjelma paikalliselle työpöytätietokoneellesi [sourceforge.net/projects/turbovnc/files/](https://sourceforge.net/projects/turbovnc/files/)
 
-Open an encrypted SSH tunnel for the VNC connection between your PC and the virtual machine (VM). The port used by TurboVNC server is shown when TurboVNC starts: _TurboVNC started on display **name-of-VM:1**_ (name-of-VM is the instance name you have given to your virtual machine, and TurboVNC server uses the first available port). For your local PC, choose a port that is not in use already, say 5911. After the SSH tunnel is established, start your local TurboVNC viewer at the local port. See the examples below (note that other distros use *cloud-user* instead of *ubuntu* as the default username).
+Avaa salattu SSH-tunneli VNC-yhteydelle tietokoneesi ja virtuaalikoneen (VM) välillä. TurboVNC-palvelimen käyttämä portti näkyy, kun TurboVNC käynnistyy: _TurboVNC started on display **name-of-VM:1**_ (name-of-VM on virtuaalikoneellesi antamasi instanssinimi, ja TurboVNC-palvelin käyttää ensimmäistä vapaata porttia). Paikalliselle tietokoneellesi valitse portti, joka ei ole jo käytössä, esimerkiksi 5911. Kun SSH-tunneli on muodostettu, käynnistä paikallinen TurboVNC-näkymäsi paikallisessa portissa. Katso alla olevat esimerkit (huomaa, että muut jakelut käyttävät *cloud-user*ia oletusnimimerkkinä *ubuntun* sijasta).
 
 **Linux/Mac:**  
-fill in your _vncviewer_ path, the ip number of your VM, its name, and the location and name of your key pair file. Type your TurboVNC password when prompted.
+täytä _vncviewer_-polku, virtuaalikoneesi ip-numero ja nimi sekä avainparitiedoston sijainti ja nimi. Kirjoita TurboVNC-salasanasi, kun sinua pyydetään.
 
 ```
 path/vncviewer -via ubuntu@ip-number-of-VM name-of-VM:1 -i path/private-key-file.pem
 ```
 
   
-**Windows PC, at command prompt:**  
-fill in your PuTTY path (PuTTY comes with TurboVNC, and the default path is used in this example), fill in the name of your VM, its ip number, and the location and name of your key pair file
+**Windows PC, komentokehotteessa:**  
+täytä PuTTY-polku (PuTTY tulee TurboVNC:n mukana, ja oletustietuna polku on esitetty esimerkissä), täytä virtuaalikoneesi nimi, sen ip-numero sekä avainparitiedoston sijainti ja nimi
 
 ```
 "c:\\program files\\turbovnc\\putty.exe" -L 5911:name-of-VM:5901 ubuntu@ip-number-of-VM -i path\\private-key-file.ppk
 ```
 
-**Windows PC, using PuTTY's graphical interface:**  
-type the location of your key-pair file to _Private key file for authentication_ box in the _Auth_ panel of the PuTTY configuration box. Also fill in the source and destination ports ports, in the category _Connection_\-_SSH_\-_Tunnels_, _Source port:_ 5911, _Destination:_ name-of-VM:5901 (remember to click the _Add_ button). Save the session profile for further use.
+**Windows-tietokoneella käyttäen PuTTY:n graafista käyttöliittymää:**  
+kirjoita avainparitiedoston sijainti _Private key file for authentication_ -ruutuun PuTTY-konfigurointiruudun _Auth_-paneelissa. Täytä myös lähde- ja kohdesatamat kategoriassa _Connection_\-_SSH_\-_Tunnels_, _Source port:_ 5911, _Destination:_ name-of-VM:5901 (muista napsauttaa _Add_-painiketta). Tallenna istunto profiili myöhempää käyttöä varten.
 
-After the SSH tunnel is established, open your TurboVNC viewer client. When _New TurboVNC Connection_ window opens, fill in localhost:11, click _Connect_, and type your TurboVNC password when prompted.
+Kun SSH-tunneli on muodostettu, avaa TurboVNC-katseluohjelmasi. Kun _New TurboVNC Connection_ -ikkuna avautuu, täytä localhost:11, napsauta _Connect_ ja kirjoita TurboVNC-salasanasi, kun kysytään.
 
   
-**All platforms:**  
-After the TurboVNC password is accepted, an empty VNC window opens. Right-click to open a terminal. Remember to **start your apps with vglrun** command. For example, to run OpenGL test app glxspheres64, type
+**Kaikilla alustoilla:**  
+Kun TurboVNC-salasana hyväksytään, tyhjä VNC-ikkuna avautuu. Napsauta hiiren kakkospainikkeella avataksesi terminaalin. Muista **käynnistää sovelluksesi vglrun-komennolla**. Esimerkiksi suorittaaksesi OpenGL-testisovelluksen glxspheres64, kirjoita
 
 ```
 vglrun /opt/VirtualGL/bin/glxspheres64
 ```
 
-When you have finished, close the VNC window by clicking the _X_ button either on the menu bar (_Disconnect_) or the top-right window corner. Do not right click the desktop and choose _exit_, since this closes the Openbox windows manager (see **Known issues** below).
+Kun olet valmis, sulje VNC-ikkuna napsauttamalla _X_ -painiketta joko valikkopalkissa (_Disconnect_) tai oikeassa yläkulmassa olevassa ikkunassa. Älä napsauta hiiren kakkospainikkeella työpöytää ja valitse _exit_, koska tämä sulkee Openbox-ikkunahallinnan (katso **Tunnetut ongelmat** alla).
 
   
-## Useful commands
+## Hyödyllisiä komentoja {#useful-commands}
 
-Find out TurboVNC server display number and process ID
+Selvitä TurboVNC-palvelimen näyttönumero ja prosessitunnus
 
 ```
 /opt/TurboVNC/bin/vncserver -list
 ```
 
-Close TurboVNC server running at display 1
+Sulje TurboVNC-palvelin, joka toimii näytöllä 1
 
 ```
 /opt/TurboVNC/bin/vncserver -kill :1
 ```
 
-Check if X server is running
+Tarkista, onko X-palvelin käynnissä
 
 ```
 ps auxw | grep X
 ```
 
-Stop X server
+Pysäytä X-palvelin
 
 ```
 sudo killall X (CentOS)
 sudo killall Xorg (Ubuntu)
 ```
 
-Find out glibc, NVIDIA driver versions
+Selvitä glibc, NVIDIA-ajuriversiot
 
 ```
 ldd --version
 nvidia-smi
 ```
 
-Uninstall NVIDIA driver (for example 450.51.06)
+Poista NVIDIA-ajuri (esimerkiksi 450.51.06)
 
 ```
 sudo sh NVIDIA-Linux-x86_64-450.51.06.run --uninstall
 ```
 
-NVIDIA readme-file is located at _/usr/share/doc/NVIDIA_GLX-1.0/README.txt_
+NVIDIA:n ohjetiedosto sijaitsee _/usr/share/doc/NVIDIA_GLX-1.0/README.txt_
 
-## Known issues
+## Tunnetut ongelmat {#known-issues}
 
-If you exit TurboVNC viewer window by right-clicking and choosing _exit_, Openbox windows manager will shut off. To start Openbox, close and restart your TurboVNC server as instructed above.
+Jos poistut TurboVNC-katseluohjelman ikkunasta napsauttamalla hiiren kakkospainiketta ja valitset _exit_, Openbox-ikkunahallinta sulkeutuu. Käynnistä Openbox, sulje ja käynnistä TurboVNC-palvelin uudelleen yllä olevan ohjeen mukaisesti.
 
-Some applications require additional packages to run properly. For example, in Ubuntu installation, ParaView needs an extra package
+Jotkin sovellukset vaativat lisäpakettien asennusta toimiakseen oikein. Esimerkiksi Ubuntu-asennuksessa ParaView vaatii ylimääräisen paketin
 
 ```
 sudo apt-get install libxcb-keysyms1
 ```
 
-and in CentOS
+ja CentOS:ssa
 
 ```
 sudo yum install xcb-util-keysyms
 ```
 
-  
-##CentOS installation
+## CentOS-asennus {#centos-installation}
 ----------------------
 
-After launching a CentOS-7 image, update package lists, install X server, fonts, and Openbox windows manager
+Kun olet käynnistänyt CentOS-7-kuvan, päivitä pakettien listat, asenna X-palvelin, fontit ja Openbox-ikkunahallinta
 
 ```
 yum check-update
 sudo yum install xorg-x11-xauth xorg-x11-server-Xorg dejavu-sans-fonts xterm openbox
 ```
 
-Install linux kernel sources needed for NVIDIA driver compilation to work
+Asenna Linux-kernelin lähteet, joita tarvitaan NVIDIA-ajurin käännöksen toimimiseksi
 
 ```
 sudo yum install kernel-devel-$(uname -r) gcc
 ```
 
-Download NVIDIA driver (say version 450.51.06) install script
+Lataa NVIDIA-ajurin (esimerkiksi version 450.51.06) asennusskripti
 
 ```
 sudo wget http://uk.download.nvidia.com/tesla/450.51.06/NVIDIA-Linux-x86_64-450.51.06.run
 ```
 
-Run the script. Suggested answers: **No** to _register the kernel module sources with DKMS_, and **No** to _Install NVIDIA's 32-bit compatibility libraries_. Ignore warnings.
+Suorita skripti. Suositellut vastaukset: **Ei** _rekisteröi ytimen moduulin lähteet DKMS:ssä_, ja **Ei** _asentaa NVIDIA:n 32-bittiset yhteensopivat kirjastot_. Ohita varoitukset.
 
 ```
 sudo sh NVIDIA-Linux-x86_64-450.51.06.run
 ```
 
-Configure X for the NVIDIA driver with **nvidia-xconfig** tool. It will find out the card's BusID address (PCI:0:5:0 in this example, replace with your query result), which will be used to create a X configuration file (ignore the corresponding warning).
+Määritä X NVIDIA-ajurille **nvidia-xconfig**-työkalulla. Se selvittää kortin BusID-osoitteen (esimerkissä PCI:0:5:0, vaihda kyselytuloksesi mukaan), jota käytetään X:n konfiguraatiotiedoston luomiseen (ohita vastaava varoitus).
 
 ```
 nvidia-xconfig --query-gpu-info
 sudo nvidia-xconfig --busid=PCI:0:5:0
 ```
 
-Download VirtualGL and TurboVNC repos and install the servers
+Lataa VirtualGL ja TurboVNC-repot, ja asenna palvelimet
 
 ```
 sudo wget --directory-prefix=/etc/yum.repos.d https://virtualgl.org/pmwiki/uploads/Downloads/VirtualGL.repo
@@ -206,35 +205,34 @@ sudo yum install VirtualGL
 sudo yum install turbovnc
 ```
 
-Configure VirtualGL server (suggested answers: 1,n,n,n,x)
+Määritä VirtualGL-palvelin (suositellut vastaukset: 1,n,n,n,x)
 
 ```
 sudo /opt/VirtualGL/bin/vglserver_config
 ```
 
-Start TurboVNC server. It will ask you to create a password. When prompted, type: 8 characters long password (twice), then reply **No** to a _view-only password_
+Käynnistä TurboVNC-palvelin. Se pyytää sinua luomaan salasanan. Kun sinua pyydetään, kirjoita: 8 merkkiä pitkä salasana (kahdesti), vastaa sitten **Ei** _katselu-only-salasanalle_
 
 ```
 /opt/TurboVNC/bin/vncserver -geometry 1920x1080
 ```
 
-Edit _.vnc/xstartup.turbovnc_ file with your favorite editor. The file should include only the following two lines, delete everything else
+Muokkaa _.vnc/xstartup.turbovnc_-tiedostoa suosikkieditorillasi. Tiedostossa tulisi olla vain seuraavat kaksi riviä, poista kaikki muut
 
 ```
 #!/bin/sh
 exec openbox-session
 ```
 
-You need to restart TurboVNC server again, for the changes to take place. Either reboot VM or just kill and start again TurboVNC
+Sinun täytyy käynnistää TurboVNC-palvelin uudelleen, jotta muutokset astuvat voimaan. Joko käynnistä VM uudelleen tai tapa ja käynnistä TurboVNC uudelleen
 
 ```
 /opt/TurboVNC/bin/vncserver -kill :1
 /opt/TurboVNC/bin/vncserver -geometry 1920x1080
 ```
 
-Start X server at display 0, and the cPouta remote graphics set-up is ready.
+Käynnistä X-palvelin näytöllä 0, ja cPouta-etägrafiikka-asennus on valmis.
 
 ```
 sudo /usr/bin/X :0 &
 export DISPLAY=:0
-```

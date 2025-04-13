@@ -1,66 +1,55 @@
-# Using rsync for data transfer and synchronization
 
-**Rsync** is a data transfer tool that can be used much like the `scp` command.
-When transferring data, `rsync` checks the difference between the source and
-target files and only transfers the parts that have changed. This makes `rsync`
-suitable for:
+# Rsyncin käyttäminen tiedonsiirtoon ja synkronointiin {#using-rsync-for-data-transfer-and-synchronization}
 
-1. **Synchronizing folders**. Using `scp` or `cp` would copy and transfer
-   everything, while `rsync` will only copy and transfer the modifications.
-2. **Transferring large files**. `rsync` can be set to save progress, so if the
-   transfer is interrupted, it can be resumed at the same point.
+**Rsync** on tiedonsiirtotyökalu, jota voidaan käyttää samoin kuin `scp`-komentoa. Kun tietoja siirretään, `rsync` tarkistaa eron lähde- ja kohdetiedostojen välillä ja siirtää vain muuttuneet osat. Tämä tekee `rsyncistä` sopivan:
 
-The basic command syntax of `rsync` is:
+1. **Kansioiden synkronointiin**. `scp` tai `cp` kopioisivat ja siirtäisivät kaiken, kun taas `rsync` kopioi ja siirtää vain muutokset.
+2. **Suurten tiedostojen siirtämiseen**. `rsync` voidaan asettaa tallentamaan edistyminen, joten jos siirto keskeytyy, se voidaan jatkaa samasta kohdasta.
+
+`Rsync`:in peruskomentosyntaksi on:
 
 ```bash
 rsync -options source target
 ```
 
-If the data source or target location is a remote site, it is defined with the
-syntax:
+Jos datalähde tai -kohdesijainti on etäsivusto, se määritellään syntaksilla:
 
 ```bash
 username@server:/path/on/server
 ```
 
-However, both the target and source can also be located on the same machine. In
-that case you can just give directory paths to source and target sites.
+Kohde ja lähde voivat kuitenkin sijaita samalla koneella. Tällöin voit yksinkertaisesti antaa hakemistopolut lähde- ja kohdesivustoille.
 
-The table below lists the most commonly used options:
+Alla olevassa taulukossa on lueteltu yleisimmin käytetyt vaihtoehdot:
 
-|Option      |Argument|Description|
-|------------|--------|-----------|
-|`-r`        |        |Recurse into directories|
-|`-a`        |        |Use archive mode: copy files and directories recursively and preserve access permissions and timestamps|
-|`-v`        |        |Verbose mode|
-|`-z`        |        |Compress|
-|`-e`        |`ssh`   |Specify the remote shell to use|
-|`-n`        |        |Show what files would be transferred|
-|`--partial` |        |Keep partially transferred files|
-|`--progress`|        |Show progress during transfer|
-|`-P`        |        |Same as `--partial --progress`|
+|Vaihtoehto    |Argumentti|Kuvaus|
+|--------------|----------|------|
+|`-r`          |          |Sukella hakemistoihin|
+|`-a`          |          |Käytä arkistotilaa: kopioi tiedostot ja hakemistot rekursiivisesti ja säilytä käyttöoikeudet ja aikaleimat|
+|`-v`          |          |Näytä tarkka tieto|
+|`-z`          |          |Pakkaa|
+|`-e`          |`ssh`     |Määritä käytettävä etäkuori|
+|`-n`          |          |Näytä mitkä tiedostot siirrettäisiin|
+|`--partial`   |          |Säilytä osittain siirretyt tiedostot|
+|`--progress`  |          |Näytä siirron edistyminen|
+|`-P`          |          |Sama kuin `--partial --progress`|
 
-So the command for transferring a local folder to Puhti, while showing the
-progress and keeping partially transferred files, would for example be:
+Joten komentoa paikallisen kansion siirtämiseksi Puhtiin, näyttäen edistymisen ja säilyttäen osittain siirretyt tiedostot, käytettäisiin esimerkiksi:
 
 ```bash
 rsync -rP /path/to/local/folder username@puhti.csc.fi:/path/to/target
 ```
 
-This would either:
+Tämä joko:
 
-1. Create a folder on Puhti at `/path/to/target/folder` if the folder was not
-   present before. In this case, everything in the local folder will be
-   transferred.
-2. Synchronize the source and target folders if the folder already exists on
-   Puhti. In this case, only changes we have made will be transferred.
+1. Luo kansion Puhtiin sijaintiin `/path/to/target/folder`, jos kansiota ei ollut olemassa aiemmin. Tässä tapauksessa kaikki paikallisen kansion sisältö siirretään.
+2. Synkronoi lähde- ja kohdekansiot, jos kansio on jo olemassa Puhtissa. Tässä tapauksessa vain tehdyt muutokset siirretään.
 
-And the same thing in reverse:
+Ja sama asia päinvastoin:
 
 ```bash
 rsync -rP username@puhti.csc.fi:/path/to/target/folder /path/to/local
 ```
 
-!!! warning
-    `rsync` will always overwrite any changes made to the target, even if they
-    are newer than the source!
+!!! varoitus
+    `rsync` korvaa aina kaikki kohteeseen tehdyt muutokset, vaikka ne olisivat uudempiakin kuin lähde!

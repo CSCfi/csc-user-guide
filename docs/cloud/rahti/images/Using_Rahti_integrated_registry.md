@@ -1,88 +1,85 @@
-# Using Rahti integrated registry
+# Rahtin integroitu rekisteri {#using-rahti-integrated-registry}
 
-## Manual Image Caching
+## Käsin tapahtuva kuvan välimuisti {#manual-image-caching}
 
-It is possible to manually cache images in Rahti. This could be useful to remove
-an external dependency or improve performance.
+On mahdollista pitää kuvia käsin välimuistissa Rahtissa. Tämä voi olla hyödyllistä ulkoisen riippuvuuden poistamiseksi tai suorituskyvyn parantamiseksi.
 
-The process is simple:
+Prosessi on yksinkertainen:
 
-1. [Install](../usage/cli.md#how-to-install-the-oc-tool) and [login with OC](../usage/cli.md#how-to-login-with-oc).
+1. [Asenna](../usage/cli.md#how-to-install-the-oc-tool) ja [kirjaudu OC:lla](../usage/cli.md#how-to-login-with-oc).
 
-1. With a terminal, connect to the Rahti registry:
+1. Yhdistä terminaalilla Rahti-rekisteriin:
     ```sh
-    sudo docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
+    sudo docker login -p $(oc whoami -t) -u unused image-registry.apps.2.rahti.csc.fi
     ```
 
-    _Alternatively, you can access to this address: <https://oauth-openshift.apps.2.rahti.csc.fi/oauth/token/display> to request
-    a token. Once connected, display and copy the token. The command will be:_
+    _Vaihtoehtoisesti voit käyttää tätä osoitetta: <https://oauth-openshift.apps.2.rahti.csc.fi/oauth/token/display> pyytääksesi tokenin. Yhdistyttyäsi, näytä ja kopioi token. Komento on:_
 
     ```sh
     sudo docker login -p <YOUR_TOKEN> -u unused image-registry.apps.2.rahti.csc.fi
     ```
 
     !!! info
-        If you get any error, make sure you are logged in. If you run `oc whoami`, the command should return your username.
+        Jos saat virheen, varmista, että olet kirjautunut sisään. Jos suoritat `oc whoami`, komennon pitäisi palauttaa käyttäjänimesi.
 
-2. Tag the image you want to push:
+2. Merkitse kuva, jonka haluat puskea:
    ```sh
    sudo docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
    ```
-   _Replace {YOUR_RAHTI_PROJECT_NAME} by the name of your project._
-   _Please note that YOUR_RAHTI_PROJECT_NAME here is the Rahti project name (AKA namespace name), and does not refer to CSC project._
+   _Korvaa {YOUR_RAHTI_PROJECT_NAME} projektisi nimellä._
+   _Huomaa, että YOUR_RAHTI_PROJECT_NAME tässä viittaa Rahtin projektin nimeen (tunnetaan myös nimellä namespace-nimi), eikä viittaa CSC-projektiin._
 
-4. Push your image:
+4. Puske kuvasi:
    ```sh
    sudo docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
    ```
 
-You should be able to see your images in your project:
-![Image Streams](../../img/image_streams_rahti4.png)
+Pitäisi pystyä näkemään kuvat projektissasi:
+![Kuvavirrat](../../img/image_streams_rahti4.png)
 
-Alternatively you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
+Vaihtoehtoisesti voit kysellä kuvia etäreksiteristä komennolla `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
 
-## Using Manually Cached Images
+## Manuaalisesti välimuistitun kuvien käyttäminen {#using-manually-cached-images}
 
-Go to your project's deployment, and edit it.
+Mene projektisi käyttöönottoon ja muokkaa sitä.
 
-![Edit deployment](../../img/edit_deployment.png)
+![Muokkaa käyttöönottoa](../../img/edit_deployment.png)
 
-Go to the Images section, make sure the option "Deploy images from an image stream tag" is clicked.
-Finally select the new image.
+Mene kohtaan "Kuvat", varmista, että vaihtoehto "Deploy images from an image stream tag" on valittuna.
+Valitse lopuksi uusi kuva.
 
-![Use cached image](../../img/use_cached_image.png)
+![Käytä välimuistitettua kuvaa](../../img/use_cached_image.png)
 
-## Access Control for the Rahti Integrated Registry
+## Käyttöoikeudet Rahtin integroidulle rekisterille {#access-control-for-the-rahti-integrated-registry}
 
-Rahti allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html).
+Rahti mahdollistaa tarkan hallinnan pääsystä integroituun kuvarekisteriin, antaen mahdollisuuden hallita käyttöoikeuksia käyttäjäautentikoinnin perusteella: [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html).
 
-### 1. **Anonymous Access** (`system:anonymous`)
+### 1. **Anonyymi pääsy** (`system:anonymous`) {#anonymous-access}
 
-This refers to users who access the registry without providing any authentication credentials. In this scenario, they have no identity attached to their requests.
+Tämä viittaa käyttäjiin, jotka käyttävät rekisteriä ilman minkäänlaisia autentikointitietoja. Tässä tapauksessa heillä ei ole mitään identiteettiä liitettynä pyyntöihinsä.
 
-- **How to enable**: Use the following command to allow anonymous users to pull images from your project's registry:
+- **Miten mahdollistaa**: Käytä seuraavaa komentoa, jotta anonyymit käyttäjät voivat hakea kuvia projektisi rekisteristä:
   ```bash
   oc policy add-role-to-user registry-viewer system:anonymous -n <project>
   ```
-- **Use case**: Suitable for cases where you want to make images publicly accessible, allowing anyone to view or pull images without logging in.
+- **Käyttötapaus**: Sopii tilanteisiin, joissa haluat tehdä kuvat julkisesti saataville, mahdollistaen kenen tahansa katsella tai hakea kuvia ilman kirjautumista.
 
-### 2. **Unauthenticated Access** (`system:unauthenticated`)
+### 2. **Autentikoimaton pääsy** (`system:unauthenticated`) {#unauthenticated-access}
 
-This group includes all users who are accessing the system without valid authentication credentials, including anonymous users but potentially also used automated systems, scripts or external services  that do not need to be authenticate.
+Tähän ryhmään kuuluu kaikki käyttäjät, jotka pääsevät järjestelmään ilman voimassaolevia autentikointitietoja, mukaan lukien anonyymit käyttäjät, mutta mahdollisesti myös käytetyt automatisoidut järjestelmät, skriptit tai ulkoiset palvelut, jotka eivät tarvitse olla autentikoituja.
 
-- **How to enable**: Grant unauthenticated users access with the command:
+- **Miten mahdollistaa**: Myönnä autentikoimattomalle käyttäjälle pääsy komennolla:
   ```bash
   oc policy add-role-to-user registry-viewer system:unauthenticated -n <project>
   ```
-- **Use case**: This is broader than `system:anonymous` and is useful for systems or services to access your registry without authentication.
+- **Käyttötapaus**: Tämä on laajempi kuin `system:anonymous` ja on hyödyllinen järjestelmille tai palveluille, jotta ne voivat käyttää rekisteriäsi ilman autentikointia.
 
-### 3. **Authenticated Access** (`system:authenticated`)
+### 3. **Autentikoitu pääsy** (`system:authenticated`) {#authenticated-access}
 
-Authenticated users are those who have successfully logged in using valid credentials (e.g., OAuth tokens).
+Autentikoidut käyttäjät ovat niitä, jotka ovat onnistuneesti kirjautuneet sisään käyttäen voimassaolevia tunnuksia (esim. OAuth tokenit).
 
-- **How to enable**: To allow all authenticated users to access the registry:
+- **Miten mahdollistaa**: Salliaksesi kaikille autentikoiduille käyttäjille pääsyn rekisteriin:
   ```bash
   oc policy add-role-to-user registry-viewer system:authenticated -n <project>
   ```
-- **Use case**: This allows any user with valid credentials to view or pull images, useful for restricting access.
-
+- **Käyttötapaus**: Tämä sallii kenen tahansa, jolla on voimassa olevat tunnukset, katsella tai hakea kuvia, hyödyllinen pääsyn rajoittamiseksi.

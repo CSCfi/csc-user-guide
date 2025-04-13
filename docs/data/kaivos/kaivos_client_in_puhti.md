@@ -1,44 +1,45 @@
-# MySQL client programs at CSC
 
-Below you can find instructions on how to use the MySQL client programs in CSC's computing environment. The SQL language is not covered, but you can find a lot of documentation and guidance elsewhere (e.g., MariaDB or MySQL user manuals).
+# MySQL-asiakasohjelmat CSC:llä
 
-## Connecting your database
+Alta löydät ohjeet siitä, miten käyttää MySQL-asiakasohjelmia CSC:n laskentaympäristössä. SQL-kieltä ei käsitellä tässä, mutta voit löytää paljon dokumentointia ja ohjeita muualta (esim. MariaDB- tai MySQL-käyttäjän oppaista).
 
-Once the database user accounts have been received from CSC the user can start to create tables and store data into the empty database. The database service can be used through MySQL client program available in Puhti.
+## Oman tietokannan yhdistäminen {#connecting-your-database}
 
-In command line usage, users open the connection from Puhti to the `kaivos.csc.fi` server, which provides the database service. To be able to use MySQL commands you need to first load the environment:
+Kun tietokannan käyttäjätilit on saatu CSC:ltä, käyttäjä voi alkaa luoda tauluja ja tallentaa tietoa tyhjään tietokantaan. Tietokantapalvelua voi käyttää Puhtissa saatavilla olevan MySQL-asiakasohjelman kautta.
+
+Komentorivikäytössä käyttäjät avaavat yhteyden Puhtista `kaivos.csc.fi`-palvelimeen, joka tarjoaa tietokantapalvelun. Jotta voit käyttää MySQL-komentoja, sinun täytyy ensin ladata ympäristö käyttöön:
 
 ```bash
 module load mariadb/11.4.3
 ```
 
-After this you can start the MySQL client program or execute some of the MySQL commands. A MySQL command line client session to `kaivos.csc.fi` is opened with the command:
+Tämän jälkeen voit käynnistää MySQL-asiakasohjelman tai suorittaa joitakin MySQL-komentoja. MySQL-komentoriviasiakassessio `kaivos.csc.fi`:hin avataan komennolla:
 
 ```bash
 mysql -u db_user_account -p -h kaivos.csc.fi --local db_name
 ```
 
-This starts an interactive MySQL session which you can use to execute SQL commands for your database. In the command above options `-u` and `-h` define your database user account and the database server name (`kaivos.csc.fi`). The `-p` option defines that password is used for authentication. The `--local` option is not always necessary, but it is useful as it indicates to the MySQL client that the MySQL connection comes from a remote host.
+Tämä käynnistää interaktiivisen MySQL-istunnon, jota voit käyttää suorittamaan SQL-komentoja tietokannallesi. Komennossa yllä vaihtoehdot `-u` ja `-h` määrittävät tietokannan käyttäjätilisi ja tietokantapalvelimen nimen (`kaivos.csc.fi`). Vaihtoehto `-p` määrittää, että salasanaa käytetään todentamiseen. `--local`-vaihtoehto ei ole aina tarpeellinen, mutta se on hyödyllinen, koska se osoittaa MySQL-asiakasohjelmalle, että MySQL-yhteys tulee etäisännältä.
 
-Instead of giving the SQL commands interactively, you can also write the SQL commands into a file and execute them with the command:
+Sen sijaan, että annat SQL-komennot interaktiivisesti, voit myös kirjoittaa SQL-komennot tiedostoon ja suorittaa ne komennolla:
 
 ```bash
 mysql -u db_user_account -p -h kaivos.csc.fi --local db_name < commands.sql > output.txt
 ```
 
-or
+tai
 
 ```bash
 mysql -u db_user_account -p -h kaivos.csc.fi --local --skip-column-names --quick db_name < commands.sql > output.txt
 ```
 
-In the latter command, the `--skip-column-names` option is used to print out only the data produced by the SQL commands. Otherwise names of the selected columns would be printed too. The `--quick` option makes the client to print each row as it is received instead of storing it to the cache first.
+Jälkimmäisessä komennossa `--skip-column-names`-vaihtoehto käytetään tulostamaan ainoastaan SQL-komentojen tuottama data. Muutoin valittujen sarakkeiden nimet tulostettaisiin myös. `--quick`-vaihtoehto saa asiakasohjelman tulostamaan jokaisen rivin heti sen vastaanottamisen jälkeen tallentamatta sitä ensin välimuistiin.
 
-## Setting default values for MySQL connection
+## MySQL-yhteyden oletusarvojen asettaminen {#setting-default-values-for-mysql-connection}
 
-In the mysql commands above, the client program would ask for the user name and password every time when a mysql command is executed. It is however possible to define default values for the database name, user name and password, that will be used for the connection if no password or user name is given. Setting the default values is useful especially in cases where the user uses mostly just one database.
+Yllä olevissa mysql-komennoissa asiakasohjelma kysyisi käyttäjänimeä ja salasanaa joka kerta, kun mysql-komento suoritetaan. On kuitenkin mahdollista määritellä tietokannan nimi, käyttäjänimi ja salasana oletusarvoiksi, joita käytetään yhdistykseen, jos salasanaa tai käyttäjänimeä ei anneta. Oletusarvojen asettaminen on hyödyllistä erityisesti silloin, kun käyttäjä käyttää enimmäkseen vain yhtä tietokantaa.
 
-The default values for the MySQL connections is defined in a file called `.my.cnf` (note the dot in the beginning of the file name) that locates in the user's home directory. This definition file can be constructed in Puhti with a normal text editor. Below is shown the basic structure of the `.my.cnf` file:
+MySQL-yhteyden oletusarvot määritellään tiedostossa nimeltä `.my.cnf` (huomaa piste tiedostonimen alussa), joka sijaitsee käyttäjän kotihakemistossa. Tämä määrittelytiedosto voidaan luoda Puhtissa tavallisella tekstieditorilla. Alla on esitetty `.my.cnf`-tiedoston perusrakenne:
 
 ```text
 [client]
@@ -50,51 +51,51 @@ host = kaivos.csc.fi
 database = db_name
 ```
 
-You can also store the settings for MySQL connection to some other file name, and apply these settings by using option `--defaults-extra-file=settings_file`. For example, if you would like to use MySQL connection configuration that is stored to file _db_conn2.def_, you could execute the previously used MySQL query by using command:
+Voit myös tallentaa MySQL-yhteyden asetukset johonkin toiseen tiedostonimeen ja käyttää näitä asetuksia käyttämällä vaihtoehtoa `--defaults-extra-file=settings_file`. Esimerkiksi, jos haluaisit käyttää MySQL-yhteysasetuksia, jotka on tallennettu tiedostoon _db_conn2.def_, voit suorittaa aiemmin käytetyn MySQL-kyselyn käyttämällä komentoa:
 
 ```bash
 mysql --defaults-extra-file=db_conn2.def --local db_name < commands.sql > output.txt
 ```
 
-## Graphical Interfaces
+## Graafiset käyttöliittymät {#graphical-interfaces}
 
-Graphical MySQL interfaces have not been installed to Puhti. However graphical database interfaces are very efficient when you need to get familiar and administrate a complex database that contains a large number of tables. If you wish to use your database through a graphical user interface, we recommend that you install a interface program (e.g. MysqlWorkbench) to your local computer and create a remote connection to Kaivos as described in chapter 5.
+Graafisia MySQL-käyttöliittymiä ei ole asennettu Puhtiin. Kuitenkin graafiset tietokantakäyttöliittymät ovat erittäin tehokkaita, kun sinun pitää tutustua ja hallinnoida monimutkaista tietokantaa, joka sisältää suuren määrän tauluja. Jos haluat käyttää tietokantaasi graafisen käyttöliittymän kautta, suosittelemme, että asennat käyttöliittymäohjelman (esim. MysqlWorkbench) paikalliselle tietokoneellesi ja luot etäyhteyden Kaivokseen kuten luvussa 5 on kuvattu.
 
-## Following the disk usage in kaivos.csc.fi
+## Seuranta levytilan käytössä kaivos.csc.fi-palvelimella {#following-the-disk-usage-in-kaivos-csc-fi}
 
-Each user has only limited disk space available in the kaivos.csc.fi server. If the database reaches the disk quota, the database users can no longer write to the database. In these cases the users should clean up the database to reduce the size or apply more disk space from CSC. You can check the database quota and usage in MySQL terminal session. 
+Jokaisella käyttäjällä on vain rajallinen määrä levytilaa käytettävissä kaivos.csc.fi-palvelimella. Jos tietokanta saavuttaa levykiintiönsä, tietokannan käyttäjät eivät voi enää kirjoittaa tietokantaan. Näissä tapauksissa käyttäjien pitäisi siivota tietokantaa koon pienentämiseksi tai hakea lisää levytilaa CSC:ltä. Voit tarkistaa tietokannan kiintiön ja käytön MySQL-terminalisessiossa.
 
-To see the disk quota in kaivos.csc.fi, give the MySQL command:
+Nähdäksesi levykiintiön kaivos.csc.fi-palvelimella, anna MySQL-komento:
 
 ```sql
 CALL quotadb.quota();
 ```
 
-The current size of the database can be checked with the MySQL command:
+Tietokannan nykyinen koko voidaan tarkistaa MySQL-komennolla:
 
 ```sql
 CALL quotadb.usedquota();
 ```
 
-## Example: Creating a table
+## Esimerkki: Taulun luominen {#example-creating-a-table}
 
-In the following example we create a new table called results into an empty database `DB_A`.
+Seuraavassa esimerkissä luomme uuden taulun nimeltään results tyhjään `DB_A`-tietokantaan.
 
-First we connect to the database with the MySQL client:
+Ensin yhdistämme tietokantaan MySQL-asiakasohjelmalla:
 
 ```bash
 mysql -u DB_A_admin -h kaivos.csc.fi -p DB_A
 ```
 
-Next we create a new table that contains three columns: `id`, `value` and `comment`. The id column is in this case defined to be a unique integer, the value column contains floating point numbers and the comment column text data (a non binary string with max. 30 characters). Note that in real life you normally define many other features like the primary key column and auto filling etc. when you create a new table.
+Seuraavaksi luomme uuden taulun, joka sisältää kolme saraketta: `id`, `value` ja `comment`. Id-sarake on tässä tapauksessa määritelty olemaan uniikki kokonaisluku, value-sarake sisältää liukulukuja ja comment-sarakkeessa on tekstimuotoinen data (enintään 30 merkin ei-binäärinen merkkijono). Huomaa, että todellisessa elämässä määrittelet yleensä monia muita ominaisuuksia kuten ensisijaisen avainsarakkeen ja automaattisen täyttämisen jne. kun luot uuden taulun.
 
 ```sql
 CREATE TABLE results (id INT UNIQUE, value FLOAT, comment VARCHAR(30));
 ```
 
-Note the semicolon (`;`) that is used as end character in SQL commands.
+Huomaa puolipiste (`;`), jota käytetään SQL-komentojen lopetusmerkkinä.
 
-You can now use SQL command `SHOW TABLES` to see which tables your database contains.
+Voit nyt käyttää SQL-komentoa `SHOW TABLES` nähdäksesi, mitä tauluja tietokantasi sisältää.
 
 ```sql
 mysql> SHOW TABLES;
@@ -106,7 +107,7 @@ mysql> SHOW TABLES;
 1 row in set (0.01 sec)
 ```
 
-Data can be inserted to the table with the SQL command `INSERT INTO`. Below we insert three new lines to the table:
+Tietoja voidaan lisätä tauluun SQL-komennolla `INSERT INTO`. Alla lisätään kolme uutta riviä tauluun:
 
 ```sql
 mysql> INSERT INTO results (id, value, comment) VALUES (1, 27.45, "Test case");
@@ -114,7 +115,7 @@ mysql> INSERT INTO results (id, value, comment) VALUES (2, 12.33, "Another");
 mysql> INSERT INTO results (id, value, comment) VALUES (3, 25.33, "Value2");
 ```
 
-When the table contains data, we can now do SQL queries with the `SELECT` command:
+Kun taulu sisältää dataa, voimme nyt tehdä SQL-kyselyitä `SELECT`-komennolla:
 
 ```sql
 mysql> SELECT value FROM results WHERE id=2;
@@ -125,7 +126,7 @@ mysql> SELECT value FROM results WHERE id=2;
 +-------+
 ```
 
-The MySQL client session is closed with the command EXIT:
+MySQL-asiakassessio suljetaan komennolla EXIT:
 
 ```sql
 mysql> EXIT

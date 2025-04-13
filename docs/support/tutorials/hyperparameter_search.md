@@ -1,103 +1,97 @@
-# Hyperparameter search
+# Hyperparametrien haku {#hyperparameter-search}
 
-This guide explains how to do hyperparameter search for machine learning on
-CSC's supercomputers. It is part of our [Machine learning guide](ml-guide.md).
+Tässä oppaassa selitetään, kuinka tehdä hyperparametrien haku koneoppimisessa CSC:n supertietokoneilla. Se on osa meidän [Koneoppimisopasta](ml-guide.md).
 
-## Introduction
+## Johdanto {#introduction}
 
-In machine learning (ML), one key component in model selection is to select a suitable set of model configurations for solving a given statistical problem. These model configurations are known as *hyperparameters*.
+Koneoppimisessa (ML) yksi keskeinen komponentti mallin valinnassa on valita sopiva joukko mallin konfiguraatioita annetun tilastollisen ongelman ratkaisemiseksi. Näitä mallin konfiguraatioita kutsutaan *hyperparametreiksi*.
 
-This is in no way an easy task. Statistical estimation problems assumes that there exists an optimal solution, however in many real-world problems there is no guarantee that such a solution exists. For example, in biological and medical applications the variability of observations makes near impossible to obtain optimal, separable decision boundaries; whereas (the canonical) seabass and salmon sorting does have a more (or less) optimally defined solutions; and in linguistics they maybe statistically optimal solutions, however semantically the results may be incomprehensible to humans. The lack of an optimal solution makes it difficult to give recommendations for setting up hyperparameters in a ML for a given problem. For this reason, this document chooses to use the term **search** instead of **optimization** (as optimization appears more frequently in ML literature). 
+Tämä ei ole missään nimessä helppo tehtävä. Tilastolliset estimointiongelmat olettavat, että on olemassa optimaalinen ratkaisu, mutta monissa tosielämän ongelmissa ei ole takeita siitä, että sellainen ratkaisu löytyy. Esimerkiksi biologisissa ja lääketieteellisissä sovelluksissa havaintojen vaihteluvuus tekee lähes mahdottomaksi saada aikaan optimaalisia, erottuvia päätösrajoja; kun taas (kanoninen) meribassin ja lohen lajittelu on enemmän (tai vähemmän) optimaalisesti määritelty, ja kielitieteessä voi olla tilastollisesti optimaalisia ratkaisuja, mutta semanttisesti tulokset voivat olla ihmisille käsittämättömiä. Optimaalisen ratkaisun puute tekee vaikeaksi antaa suosituksia hyperparametrien asettamiseen ML:lle tiettyä ongelmaa varten. Tästä syystä tämä dokumentti valitsee käyttämään termiä **haku** sen sijaan, että käytettäisiin **optimointi** (kuten optimointi esiintyy useammin ML-kirjallisuudessa).
 
-Some key points when attempting hyperparameter searching:
+Joitakin keskeisiä kohtia, kun yrittää hyperparametrien hakua:
 
-+ the amount of available data
-+ choice of loss function ( determines the type of estimator to be used )
-+ choice of solver
++ saatavilla olevan datan määrä
++ tappiofunktion valinta (määrittää käytettävän estimaattorityypin)
++ ratkaisijan valinta
 
-These points are conditioned on each other. Hyperparameters can be numerical (discrete or continuous) or categorical (type of regularization, activation functions, solvers), and additionally many hyperparameters (may) have both linear and nonlinear effects on each other. Since ML models are applied to statistical problems, there is no substitute for good statistical knowledge of the problem at hand: this helps setting some possible hyperparameter options and their ranges and choosing the right type of estimator. For example, if all patterns, or almost all, are considered important to the problem at hand, parallel learning methods are preferable (such as neural networks); then if only some patterns are considered important then sequential statistical methods should be preferred. Choosing suitable hyperparameters can be done either manually or automatically. This documentation focuses on automated searching.
+Nämä kohdat ovat riippuvaisia toisistaan. Hyperparametrit voivat olla numeerisia (diskreettejä tai jatkuvia) tai kategorisia (vakioinnin tyyppi, aktivointifunktiot, ratkaisijat), ja lisäksi monilla hyperparametreilla voi olla sekä lineaarisia että ei-lineaarisia vaikutuksia toisiinsa. Koska ML-malleja sovelletaan tilastollisiin ongelmiin, hyvän tilastollisen tuntemuksen hankkimiselle ongelman käsittelyssä ei ole korvaajaa: tämä auttaa asettamaan mahdollisia hyperparametri-vaihtoehtoja ja niiden rajoja sekä valitsemaan oikean tyyppisen estimaattorin. Esimerkiksi, jos kaikki kuviot, tai melkein kaikki, koetaan tärkeiksi käsiteltävälle ongelmalle, rinnakkaiset oppimismenetelmät ovat etusijalla (kuten neuroverkot); sitten jos vain tietyt kuviot ovat tärkeitä, tulisi suosia ajallisesti peräkkäisiä tilastollisia menetelmiä. Sopivien hyperparametrien valinnan voi tehdä joko manuaalisesti tai automaattisesti. Tämä dokumentaatio keskittyy automatisoituun hakuun.
 
-In order to do hyperparameter search, the data is randomly divided into three separate sets: *training*, *validation* and *test* sets ( given that there is enough data. Otherwise, the validation set can be omitted ). Hyperparameters are searched using the training data and validated the validation set. Once a suitable set of hyperparameters has been found, the completed model is evaluated against the test set.
+Hyperparametrien hakuun on data jaettava satunnaisesti kolmeen erilliseen osaan: *koulutus*, *validointi* ja *testi* joukkoihin (olettaen, että dataa on riittävästi. Muutoin validointijoukko voidaan jättää pois). Hyperparametreja haetaan käyttäen koulutusdataa ja validoidaan validointijoukolla. Kun sopiva joukko hyperparametreja on löydetty, valmis malli arvioidaan testijoukkoa vasten.
 
-One thing to keep in mind however, is that a change in a hyperparameter defines a new model, *all* hyperparameter searches select the best model w.r.t to a given metric (probability of error for example), which is statistically a questionable approach. Training **n** models on the *same* data set induces a dependency, which has to be considered when comparing different models. ANOVA or Bernoulli trials could be considered here when comparing different models on the same data.
+Yksi asia kuitenkin on pidettävä mielessä: hyperparametrin muuttaminen määrittää uuden mallin, *kaikki* hyperparametrien haut valitsevat parhaan mallin suhteessa annettuun metriikkaan (esimerkiksi virhetodennäköisyyteen), mikä on tilastollisesti kyseenalainen lähestymistapa. Treenaamalla **n** mallia *samalla* datasarjalla syntyy riippuvuus, joka on huomioitava vertaillessa eri malleja. ANOVA- tai Bernoulli-kokeita voitaisiin harkita tässä vertaillessa eri malleja samalla datalla.
 
-## Search strategies
+## Hakustrategiat {#search-strategies}
 
-There are five main categories of searching for hyperparameters.
+Hyperparametrien hakemiseen on viisi pääkategoriaa.
 
-### Grid search
+### Ruudukkohaun {#grid-search}
 
-In *Grid search*, the hyperparameters of a model are considered occupying a grid. Each grid point corresponds to a set of hyperparameters, and then the grid is searched and evaluated w.r.t given metric. This approach is more suitable when the number of hyperparameters is low and their ranges is limited. This is because Grid search does an exhaustive search from the entire search space, which can be time consuming with a large search space. So Grid Search would be more appropriate if you are searching for a small number of hyperparameters, or for suitable categorical hyperparameters, such as type of regularizer and type of solver. Grid search approach is easily parallelizable.
+Ruudukkohaussa hyperparametrit nähdään sijoittuneina ruudukkoon. Jokainen ruudukon piste vastaa joukkoa hyperparametreja, ja sitten ruudukko haetaan ja arvioidaan suhteessa annettuun metriikkaan. Tämä lähestymistapa sopii paremmin, kun hyperparametrien määrä on alhainen ja niiden vaihtoalueet ovat rajallisia. Tämä johtuu siitä, että ruudukkohaussa tehdään tyhjentävä haku koko hakutilassa, mikä voi viedä aikaa suuren hakutilan kanssa. Ruudukkohaun käyttö on sopivampaa, jos etsit pientä määrää hyperparametreja tai sopivia kategorisia hyperparametreja, kuten vakioijan tai ratkaisijan tyyppiä. Ruudukkohaun lähestymistapaa on helppo rinnakkaistaa.
 
+### Satunnaistettu haku {#randomized-search}
 
-### Randomized search
+Satunnaistettu haku mahdollistaa hyperparametrien etsimisen suuremmasta hakutilasta. Kun on annettu joukko hyperparametreja ja niiden alarajat ja ylärajat, valitaan arvoja satunnaisesti annetuilta alueilta. Teoreettisesti oletetussa suuressa hakutilassa Satunnaishaku pystyy löytämään sopivamman joukon hyperparametreja. Samoin kuin Ruudukkohaussa, Satunnaishaku on myös helposti rinnakkaistettavissa.
 
-*Randomized search* allows searching for hyperparameters from a larger search space. Given a set of hyperparameters and their lower and upper bounds, values are randomly selected from the given ranges. In theory, given a large search space, Random search will be able to find more suitable set of hyperparameters. Similarly as Grid search, Random search is also easily parallelizable. 
+### Adaptiivinen haku {#adaptive-search}
 
+Ruudukko- ja Satunnaishakumenetelmät eivät huomioi aiemmin arvioituja hyperparametriehdokkaita, kun taas adaptiivinen haku, tai Bayes-optimointi, hyödyntää aikaisemmin arvioituja hyperparametreja ohjatakseen hakuaan uusien hyperparametrisettien löytämiseksi. Haku tehdään kouluttamalla *surrogaattimalli*, joka sisältää joukon alkuperäisiä hyperparametreja. Kun surrogaattimalli on koulutettu, *hankintafunktiota* käytetään hakemaan uusia hyperparametreja. Tämä lähestymistapa on luonteeltaan peräkkäinen: haku etenee vain, kun hankintafunktio on arvioinut hyperparametrijoukon, mikä tekee adaptiivisesta hausta vaikeasti rinnakkaistettavan.
 
-### Adaptive search
+### Monitarkkuushaku {#multifidelity-search}
 
-Grid and Random search approaches do not take into account the previously evaluated hyperparameter candidates, whereas *adaptive search*, or *Bayesian optimization*, utilizes previously evaluated hyperparameters to direct its search for a new set of hyperparameters. The search is done by training a *surrogate model*, which contains a set of initial hyperparameters. After a surrogate model has been trained, an *acquisition function* is used to direct the search for new hyperparameters. This approach is sequential in nature: the search moves forward only after the set of hyperparameters have been evaluated by the acquisition function, making adaptive search difficult to parallelize.
+Monitarkkuushaku käsittelee suurten hyperparametritilojen hakuongelmaa, erityisesti suurissa neuroverkkimalleissa. Haku jaetaan *matalan* ja *korkean* tarkkuuden arviointeihin: matala tarkkuus sisältää pienen osajoukon koulutusdatasta, kun taas korkea tarkkuus sisältää suuren osajoukon koulutusdatasta. Jokaisen hyperparametrikonfiguraation suorituskyvyt kirjataan sekä matalassa että korkeassa tarkkuudessa, ja parhaiksi havaittuja valitaan seuraavaan arviointiin. On kaksi suosittua monitarkkuuslähestymistä: *jaksottainen puolitus* ja *hyperkaista*. Jaksottaisessa puolittamisessa kukin arviointikierros hylkää puolet "heikoimmin suorittaneista" hyperparametrikonfiguraatioista, joilla on staattinen budjetti, ja säilyttää paremmat puolet hyperparametrikonfiguraatioista. Tämä prosessi jatkuu, kunnes parhaat hyperparametrit jäävät jäljelle. Hyperkaista käsittelee jaksottaisen puolittamisen staattista luonnetta jakamalla dynaamisesti budjetin määrän hyperparametreille iteraatioiden aikana käyttäen jaksottaista puolittamista apurutiinina sopivien hyperparametrien valinnassa.
 
+### Metaheuristiikat {#metaheuristics}
 
-### Multifidelity search
+Metaheuristiikat ovat joukko hakumenetelmiä, jotka osaavat käsitellä vaikeita rajoitteita, kuten epäkonveksisuutta, epäjatkuvia ja epäsileitä funktioita. Teoreettisesti metaheuristiikat voivat tehdä parempia approksimaatioita maailmanlaajuiselle optimumille (jos todellinen optimumi on olemassa) suurissa malleissa. Hyperparametrien haussa suosittuja metaheuristisia lähestymistapoja ovat *evoluutiolaskenta* ja *partikkeliparven lähestymistavat*: evoluutiolaskennassa joukko alkuperäisiä, satunnaisia hyperparametreja arvioidaan, sitten muunnellaan ja valitaan kuntofunktion mukaisesti; partikkeliparven lähestymistavat toimivat samalla tavalla, mutta hyperparametreja haetaan osittain kollektiivisesti: jokainen hyperparametri arvioidaan erikseen ja sitten kaikille hyperparametreille jaetaan informaatiota hakemaan uusia hyperparametreja.
 
-*Multifidelity search* addresses the problem of searching large hyperparameter spaces, particularly for large neural network models. The search is divided into *low* and *high* fidelity evaluations: low fidelity involves a small subset of the training data while high fidelity involves a large subset of the training data. The performances of each hyperparameter configuration from low and high fidelity evaluations are recorded and those which performed best are selected to the next evaluation. There are two popular multifidelity approaches: *successive halving* and *hyperband*. In successive halving, each evaluation iteration discards half of the "poorest performing" hyperparameter configurations which have a static budget, and keeps the better half of the hyperparameter configurations. This process in continued until the best set of hyperparameters remain. Hyperband addresses the static nature of successive halving by dynamically allocating the amount budget to hyperparameters during iterations, using successive halving as a subroutine for selecting the suitable hyperparameters.
+## Ohjelmisto hyperparametrien hakuun {#software-for-hyperparameter-search}
 
+Tämä dokumentaatio painottuu Python-ohjelmointikieleen. Tässä esittelemme ohjelmistopaketteja, joilla on selkeä API, dokumentaatio ja jotka sopivat käytettäväksi CSC:n laskentaympäristössä.
 
-### Metaheuristics
-
-*Metaheuristics* are a set of search methods that can cope with difficult constraints, such as nonconvexity, noncontinuous and nonsmooth functions. In theory, metaheuristics can do better approximations to a global optimum (if a true optimum exists) for large scale models. For hyperparameter search, popular metaheuristic approaches are *evolutionary computation* and *particle swarm* approaches: in evolutionary computation, a set of initial, random hyperparameters are evaluated, then mutated and selected according to a fitness function; particle swarm approaches work in a similar manner, but searching for hyperparameters is done in a semi-collective manner: each hyperparameter is individually evaluated and then information is shared between all hyperparameters to direct the search for a new set of hyperparameters. 
-
-## Software for hyperparameter search
-
-This documentation is biased towards the Python programming languages. We present here software packages which have a clearer API, documentation and are suitable usage in CSC's computing infrastructure.
-
-Due to package dependencies, you should load the python-data module with the latest python version:
+Pakettiriippuvuuksista johtuen, lataa python-data -moduuli uusimmalla pythonin versiolla:
 
 ```bash
 module load python-data/3.9-1
 ```
 
+#### Scikit-learn {#scikit-learn}
 
-#### Scikit-learn
-
-When Grid or Random search is a suitable option for hyperparameter search, **Scikit-learn** has implementations of both Grid and Random search with cross-validation. Cross-validation is its own model selection process, and is highly dependent on the amount of available data and, for example, the number of folds to use (number of folds and train/test data split are dependent variables). Note that if you are testing a *larger number* of possible models, you will be in risk of getting an overfitted model.
+Kun Ruudukko- tai Satunnaishaku on sopiva vaihtoehto hyperparametrien hakuun, **Scikit-learn**:illa on toteutukset sekä Ruudukko- että Satunnaishaulle ristiinvertamassa. Ristiinvertus on oma mallin valintaprosessi, ja se riippuu voimakkaasti käytettävissä olevan datan määrästä ja esimerkiksi käytettävien taitosten lukumäärästä (taitosten ja treeni/testidatasplitin lukumäärä ovat riippuvaisia muuttujia). Huomaa, että jos testaat *isompaa määrää* mahdollisia malleja, olet vaarassa saada ylioppineen mallin.
 
 ```python
 # Scikit-learn 
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
-hyperparams = { ... } # list of hyperparameters with their ranges and options
+hyperparams = { ... } # hyperparametrien lista niiden rajoineen ja vaihtoehtoineen
 
 gridsearch   = GridSearchCV( model, hyperparams, ... )
 
-... = # Define data splits
+... = # Määrittele datasplitit
 
 gridsearch.fit( Xtrain, ytrain )
 ```
 
-#### Optuna
+#### Optuna {#optuna}
 
-**Optuna** is a model agnostic library for hyperparameter search. In addition to Grid and Random search, Optuna implements Tree-structured Parzen estimator and CMA-ES sampling methods for searching hyperparameters, and additionally you can implement your own custom sampler methods. To make searching more efficient, multifidelity search can be done with Optuna, with Median or Threshold as an additional pruning option of the search space. 
+**Optuna** on malliriippumaton kirjasto hyperparametrien hakuun. Grid- ja Satunnaishaun lisäksi Optuna toteuttaa puunrakenteisen Parzenerottimen ja CMA-ES-näytteenottomenetelmät hyperparametrien hakuun, ja voit lisäksi toteuttaa omia mukautettuja näytteenottomenetelmiä. Haun tehostamiseksi monitarkkuushaku voidaan tehdä Optunalla, Median tai Rajoitteen lisäleikkausvaihtoehtona hakutilan karsimiseksi.
 
 ```python
 # Optuna
 import optuna
-model       = ... # Define model
+model       = ... # Määrittele malli
 hyperparams = { ... }
 
 gridsearch = optuna.create_study( sampler = optuna.samplers.GridSampler( params ) )
 gridsearch.optimize( model )
 ```
 
-#### Scikit-optimize
+#### Scikit-optimize {#scikit-optimize}
 
-**Scikit-optimize** implements adaptive search strategies and is built on top f scikit-learn. This makes it easy to implement right on top of models built using scikit-learn.
+**Scikit-optimize** toteuttaa adaptiivisia hakustrategioita ja on rakennettu scikit-learnin päälle. Tämä tekee siitä helpon toteuttaa suoraan scikit-learnin avulla rakennettujen mallien päälle.
 
 ```python
-# Scikit-optimize using Scikit-learn models
+# Scikit-optimize käyttäen Scikit-learn malleja
 from sklearn.ensemble import GradientBoostingClassifier
-model = GradientBoostingClassifier()  # Define GradientBoosting
+model = GradientBoostingClassifier()  # Määrittele GradientBoosting
 
 from skopt.space import Real, Integer
 from skopt.utils import use_name_args
@@ -111,19 +105,19 @@ def objective( **hyperparams ):
 	model.set_params( **hyperparams )
 	return -( np.mean( cross_val_score( model, X, y, cv = 3, n_jobs = -1, scoring = 'neg_mean_absolute_error' ) )
 
-# Execute Gaussian Process
+# Suorita Gaussin prosessi
 from skopt import gp_minimize
 
 model_gp = gp_minimize( objective, hyperparams, n_class = 50, random_state = 123 )
 ```
 
-#### Ray
+#### Ray {#ray}
 
-For the case you would like to enable parallel model selection, *Ray* offers an efficient wrappers for various Python packages. In case you need packages that are not included in the python-data module, use
+Jos haluat mahdollistaa mallin valinnan rinnakkaisuuden, *Ray* tarjoaa tehokkaita kääreitä erilaisille Python-paketeille. Jos tarvitset paketteja, jotka eivät sisälly python-data -moduuliin, käytä
 ```python
-pip install --user <package-name>
+pip install --user <paketti-nimi>
 ```
-If you want to use Ray to parallelize models build with scikit-learn, the easiest way is to use **tune-sklearn** package. With tune-sklearn, you will get better parallelization performance using Ray, instead of using **n_jobs = -1** argument within GridSearchCV or RandomizedSearchCV functions. Here's is an example using **TuneGridSearchCV** with models using scikit-learn:
+Jos haluat käyttää Rayä rinnakkaistamaan malleja, jotka on rakennettu scikit-learnilla, helpoin tapa on käyttää **tune-sklearn**-pakettia. Tune-sklearnin avulla saat parempaa rinnakkaistamissuorituskykyä Rayllä, sen sijaan että käyttäisit **n_jobs = -1**-argumenttia GridSearchCV:ssä tai RandomizedSearchCV:n funktioissa. Tässä on esimerkki käyttämällä **TuneGridSearchCV**:tä scikit-learnia käyttäviin malleihin:
 
 ```python
 from ray.tune.sklearn import TuneGridSearchCV
@@ -140,19 +134,19 @@ hyperparameter_grid = { "loss": [ 'hinge', 'log', 'modified_huber', 'squared_hin
 tune_search = TuneGridSearchCV( model, hyperparameter_grid, early_stopping = True, max_iters = 10, 
                                 use_gpu = False, n_jobs = -1 )
 
-... # Do your data split into train, validation and test sets
+... # Tee datasplitti treeni-, validointi- ja testijoukkoihin
 tune_search.fit( Xtrain, ytrain )
 print( tune_search.best_params_ )
 ```
-It is recommended to have a lot of hyperparameter options on the grid to exploit Ray's parallelism. If you have only a small set of hyperparameters to try out then use the methods what are offered in scikit-learn.
+On suositeltavaa olla paljon hyperparametrivaihtoehtoja ruudukossa hyödyntämään Rayn rinnakkaisuutta. Jos sinulla on vain pieni joukko hyperparametreja kokeiltavana, käytä menetelmiä, joita tarjotaan scikit-learnissa.
 
-**TuneSearchCV** function enables the use of Randomized and Adaptive Search. To switch to adaptive search, change the **search_optimization** argument. By default TuneSearchCV uses Randomized search. Instead of fixed set of hyperparameters, use suitable ranges using Numpy or Scipy functions. Note that different *search_optimization* arguments may have packages dependencies which you have to install if they are missing.
+**TuneSearchCV**-funktio mahdollistaa satunnaistettujen ja adaptiivisten hakujen käytön. Vaihtaaksesi adaptiiviseen hakuun muuta **search_optimization**-argumenttia. Oletuksena TuneSearchCV käyttää satunnaishaun. Sen sijaan, että käytät kiinteää joukkoa hyperparametrejä, käytä sopivia alueita käyttäen Numpy- tai Scipy-funktioita. Huomaa, että eri *search_optimization* -argumentit voivat sisältää pakettiriippuvuuksia, jotka sinun on asennettava, jos ne puuttuvat.
 
 ```python
 from ray.tune.sklearn import TuneSearchCV 
-hyperparameter_grid = { ... } # Set hyperparameter ranges
+hyperparameter_grid = { ... } # Aseta hyperparametrialueet
 
-# Randomized search
+# Satunnaishaku
 tune_randomized = TuneSearchCV( model, hyperparameter_grid, early_stopping = True, 
                                     search_optimization = 'random',
                                     max_iters = 10, use_gpu = False, n_jobs = -1 )
@@ -162,10 +156,9 @@ tune_bayes      = TuneSearchCV( model, hyperparameter_grid, early_stopping = Tru
                                     max_iters = 10, use_gpu = False, n_jobs = -1 )
 ```
 
-### Example using CSC's supercomputers
+### Esimerkki käyttäen CSC:n supertietokoneita {#example-using-csc-supercomputers}
 
-Here are case examples of doing model selection using Puhti and Mahti. Be sure to assign the number of CPUs **explicitly** in Puhti. In Mahti when you reserve a node, you automatically reserve the max number of CPUs. Also check the documentation for the partition names to use in both Puhti and Mahti.
-
+Tässä ovat tapausesimerkit mallin valinnasta käyttäen Puhtia ja Mahtia. Varmista, että määrität CPU:iden määrän **eksplisiittisesti** Puhtissa. Mahtia käytettäessä, kun varaat solmun, varaat automaattisesti maksimimäärän CPU:ita. Tarkista myös dokumentaatiosta osionimet, joita käytetään sekä Puhtissa että Mahtissa.
 
 ```batch
 # example-slurm.sh
@@ -176,7 +169,7 @@ Here are case examples of doing model selection using Puhti and Mahti. Be sure t
 #SBATCH --ntasks=1
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=40
-#SBATCH --account=projectname
+#SBATCH --account=projektinimi
 
 module load python-data/3.9-1
 
@@ -201,7 +194,7 @@ tune_search = TuneGridSearchCV( model, hyperparameter_grid, early_stopping = Tru
 
 X, y = load_digits(n_class=10, return_X_y=True)
 
-Xtrain, Xtest, ytrain, ytest = train_test_split( X, y, train_size = 0.90, test_size = .1, random_state = 0 ) # Split chosen arbitrarily
+Xtrain, Xtest, ytrain, ytest = train_test_split( X, y, train_size = 0.90, test_size = .1, random_state = 0 ) # Split valittu mielivaltaisesti
 
 tune_search.fit( Xtrain, ytrain )
 print( tune_search.best_params_ )
@@ -213,6 +206,6 @@ print( tune_search.score( Xtest, ytest ) )
 sbatch example-slurm.sh hyperparameter_example.py 
 ```
 
-### More examples
+### Lisää esimerkkejä {#more-examples}
 
-More examples can be found from <https://github.com/bilbrait/ml-guide-examples>.
+Lisää esimerkkejä löytyy osoitteesta <https://github.com/bilbrait/ml-guide-examples>.

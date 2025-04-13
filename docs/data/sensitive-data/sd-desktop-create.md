@@ -1,89 +1,89 @@
-# Create virtual desktops
+
+# Luo virtuaalisia työpöytiä {#create-virtual-desktops}
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/wb4TwsqNCRE" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/KgdGueesSe4" title="Luo virtuaalinen työpöytä SD Desktop -palvelussa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-With the SD Desktop service, you can create virtual computers for analysing sensitive data. On your virtual desktop, you can analyze sensitive research data through your web browser securely. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to three virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise.
+SD Desktop -palvelun avulla voit luoda virtuaalisia tietokoneita arkaluonteisten tietojen analysointia varten. Virtuaalisella työpöydälläsi voit analysoida arkaluonteisia tutkimustietoja turvallisesti verkkoselaimen kautta. Lisäksi SD Desktop tarjoaa turvallisen työympäristön yhteistyöhön perustuville tutkimusprojekteille. Voit luoda enintään kolme virtuaalista työpöytää yhdessä CSC-projektissa. Virtuaalisen työpöydän luominen ei vaadi teknisiä taitoja.
 
-## Step by step
+## Vaihe vaiheelta {#step-by-step}
 
-### 1. Log in to SD Desktop
+### 1. Kirjaudu SD Desktopiin {#1-log-in-to-sd-desktop}
 
-* Log in to SD Desktop.
-* Click **Go to SD Desktop Management**.
+* Kirjaudu SD Desktopiin.
+* Klikkaa **Siirry SD Desktopin hallintaan**.
 
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
+![Siirry SD Desktopin hallintaan.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
-### 2. Select
+### 2. Valitse {#2-select}
 
-1. correct CSC project
-2. operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
-3. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
-4. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
+1. oikea CSC-projekti
+2. käyttöjärjestelmä. Suosittelemme valitsemaan **Linux Ubuntu22**, koska Linux CentOS7:lle ei julkaista päivityksiä 30. kesäkuuta 2024 jälkeen.
+3. nimi työpöydällesi. Kuvaava nimi on hyödyllinen, erityisesti jos työskentelet useissa projekteissa. Huomaa, että nimen tulisi sisältää vain kirjaimia tai numeroita, eikä erikoismerkkejä tai välilyöntejä saa käyttää nimessä.
+4. esirakennettu työpöytävalinta tarpeidesi mukaan. [Katso vaihtoehdot alta](#virtual-desktop-options)
 
-![Virtual desktop selections.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
+![Virtuaaliset työpöytävalinnat.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
 
-#### Virtual desktop options
+#### Virtuaalisen työpöydän vaihtoehdot {#virtual-desktop-options}
 
-|  | Use  | Technical specifications | Correspondent Pouta Flavor | Billing Units consumption |
+|  | Käyttötarkoitus | Tekninen erittely | Pouta-vastaavuus | Laskutusyksiköiden kulutus |
 |-|-|-|-|-|
-|  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 billing units/h|
-|  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.4 billing units/h |
-| **Heavy computation**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 28; Memory 176 GB; Root disk 80 GB  | hpc.6.28 core | 65 billing units/h |
-| **Small GPU computation**| This option is available only upon request. Please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
-| **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
+| **Pieni laskenta** | Ihanteellinen arkaluonteisten tietojen analysointiin toimisto-ohjelmilla (esim. yksinkertainen tilastollinen analyysi Excelillä, videoiden katseleminen, äänitiedostojen kuuntelu ja tekstinkäsittely). Voit verrata tätä työpöytää omaan kannettavaasi. | Ydin 6; Muisti 15 GB; Juurilevy 80 GB; | standard.xlarge | 5.2 laskutusyksikköä/h |
+| **Keskikokoinen laskenta** | Ihanteellinen monimutkaisen tilastollisen tai genomianalyysin suorittamiseen (esim. komentorivin käyttö skriptien suorittamiseen). Voit verrata tätä työpöytää organisaatiosi IT-osaston tarjoamaan tehokkaaseen kannettavaan. | Ydin 8; Muisti 30 GB; Juurilevy 80 GB | standard.xxlarge | 10.4 laskutusyksikköä/h |
+| **Raskaampi laskenta** | Ihanteellinen ei-interaktiivisen ohjelmallisen analyysin (koneoppimisen) suorittamiseen, joka vaatii raskasta laskentatehoa. Ole hyvä äläkä valitse tätä vaihtoehtoa yksinkertaiseen analyysiin, koska se kuluttaa merkittävästi resursseja. | Ydin 28; Muisti 176 GB; Juurilevy 80 GB  | hpc.6.28 core | 65 laskutusyksikköä/h |
+| **Pieni GPU-laskenta** | Tämä vaihtoehto on saatavilla vain pyynnöstä. Ole hyvä ja ota yhteyttä servicedesk@csc.fi (aihe 'SD Desktop') ennen luontia varmistaaksesi saatavuuden ja saadaksesi lisätietoja |  |  |  |
+| **Suuri kuvaprojekti** | Tämä vaihtoehto on saatavilla vain pyynnöstä. Ole hyvä ja ota yhteyttä servicedesk@csc.fi (aihe 'SD Desktop') ennen luontia varmistaaksesi saatavuuden ja saadaksesi lisätietoja |  |  |  |
 
-!!! note
-    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. The medium GPU computation option has been deprecated in October 2024. 
-
-
-### 3. Add an external volume (virtual external hard drive)
-
-Add an external  volume to your virtual desktop, extending default storage (80 GB) up to 200 GB.
-
-1. Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
-
-2. Name your volume. Note, that the volume name should not include special characters or spaces.
-
-* It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive. Please note that after the virtual desktop is set up, the volume can only be extended with additional storage if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*.
-
-* **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
-
-![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
-
-### 4. Create virtual desktop
-
-Finally, click *Create desktop*. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
-
-!!! Note
-    After clicking "Create," please be aware that the confirmation notification may take up to 30 seconds to appear. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
-
-![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
-
-## Important considerations
-
-* Your virtual desktop is **accessible to all project members upon creation** and **consumes billing units** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop)
-
-* Each CSC project supports up to 3 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
-
-* All desktops come with a set of pre-installed open-source software managed by CSC. More informations about the list of pre-installed software and customisation is available [delete](./sd-desktop-software.md).
-
-* **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. Unused desktops trigger email notifications after 14 days of inactivity.
-  
-
-!!! info "Need assistance?"
-    If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "Sensitive data".
+!!! huom
+    Kaikki virtuaalipohjaiset GPU-työpöydät, joita on luotu **ilman ennakkohyväksyntää**, poistetaan, jotta resurssien käyttö on optimaalista. Ole hyvä ja ota yhteyttä servicedesk@csc.fi (aihe "Arkaluonteiset tiedot") saadaksesi lisätietoja ja suunnitellaksesi. Keskikokoisen GPU-laskennan vaihtoehto on lopetettu lokakuussa 2024.
 
 
-## Your next steps in this guide
+### 3. Lisää ulkoinen levy (virtuaalinen ulkoinen kiintolevy) {#3-add-an-external-volume-virtual-external-hard-drive}
 
-* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
-* [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
-* [Customisation - software & tools](./sd-desktop-software.md)
-* [Importing data ](./sd-desktop-access.md)
-* [Exporting data  via user interface](./sd-desktop-export.md)
-* [Export data programmatically](./sd-desktop-export-commandline.md)
-* [Troubleshooting](./sd-desktop-troubleshooting.md)
+Lisää ulkoinen levy virtuaaliseen työpöytääsi, laajentaen oletustallennuksen (80 GB) jopa 200 GB:iin.
+
+1. Valitse koko, joka kattaa datasetin ja työtiedostojen yhdistetyn koon. Jos et ole varma, minkä levykoon sinun tulisi valita, lähetä sähköpostia [CSC Service Deskiin](../../support/contact.md).
+
+2. Nimeä volyymi. Huomaa, että volyymin nimi ei saa sisältää erikoismerkkejä tai välilyöntejä.
+
+* On suositeltavaa tallentaa kriittiset analyysit tai tiedostot volyymille, joka voi toimia myös varmuuskopiona, jos virtuaalinen työpöytä lakkaa vastaamasta. Huomaa, että virtuaalisen työpöydän asennuksen jälkeen volyymi voidaan laajentaa lisäämällä tallennustilaa vain, jos sille ei ole tallennettu tietoja tai tiedostoja. Pyydä laajennusta ottamalla yhteyttä [CSC Service Deskiin](../../support/contact.md), *(aihe: SD Desktop)*.
+
+* **Voit irrottaa ja liittää volyymin virtuaalisesta työpöydästäsi** SD Desktopin hallintasivulla. Tätä voidaan verrata kiintolevyn liittämiseen/irrottamiseen kannettavaasi. Tämä ominaisuus on saatavilla vain helmikuun 2023 jälkeen luoduilla työpöydillä. Lisätietoja: [Volyymin ja työpöytien hallinta](./sd-desktop-manage.md).
+
+![Lisää volyymi.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
+
+### 4. Luo virtuaalinen työpöytä {#4-create-virtual-desktop}
+
+Lopuksi, klikkaa *Luo työpöytä*. Toimenpide on täysin automatisoitu ja voi kestää jopa 30 minuuttia. Jos yrität päästä virtuaaliseen työpöytään tämän prosessin aikana, näkyviin tulee virheilmoitus, joka pyytää sinua palaamaan myöhemmin.
+
+!!! Huomaa
+    Kun olet klikannut "Luo", ole tietoinen, että vahvistusilmoitus voi kestää jopa 30 sekuntia ilmestyä. Jos et ole varma, oliko toiminto onnistunut, ole hyvä ja ota meihin yhteyttä palvelupisteeseen. Pahoittelemme mahdollisista epämukavuuksista.
+
+![Luo työpöytä.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
+
+## Tärkeitä huomioita {#important-considerations}
+
+* Virtuaalinen työpöytäsi on **saatavilla kaikille projektin jäsenille luomisen jälkeen** ja **kuluttaa laskutusyksiköitä** CSC-projektistasi kunnes [keskeytetty](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) tai [poistettu](./sd-desktop-manage.md#deleting-a-virtual-desktop)
+
+* Jokainen CSC-projekti tukee enintään 3 virtuaalista työpöytää, ja 10 projektin jäsenellä on mahdollisuus yhdistää samanaikaisesti kuhunkin työpöytään.
+
+* Kaikki työpöydät sisältävät valikoituja ennaltainstalletuja avoimen lähdekoodin ohjelmistoja, joita hallinnoi CSC. Lisää tietoa esiasennetuista ohjelmistoista ja mukauttamisesta on saatavilla [poista](./sd-desktop-software.md).
+
+* **Poista tai keskeytä käyttämättömät työpöydät**: Varmista, että [poistat](./sd-desktop-manage.md#deleting-a-virtual-desktop) tai [keskeytät](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) työpöytäsi, kun et käytä sitä. Käyttämättömät työpöydät laukaisevat sähköposti-ilmoituksia 14 päivän käyttämättömyyden jälkeen.
+
+
+!!! info "Tarvitsetko apua?"
+    Jos olet epävarma siitä, minkä työpöydän valita tai tarvitset tukea tutkimuksellesi, ota yhteyttä [CSC Service Deskiin](../../support/contact.md), aihe "Arkaluonteiset tiedot".
+
+## Seuraavat askeleet tässä oppaassa {#your-next-steps-in-this-guide}
+
+* [Volyymien ja virtuaalisten työpöytien hallinta](./sd-desktop-manage.md)
+* [Virtuaalisen työpöydän käyttäminen](./sd-desktop-access-vm.md)
+* [Työskentely työpöydälläsi: vinkit ja välttämättömyydet](./sd-desktop-working.md)
+* [Mukauttaminen - ohjelmistot ja työkalut](./sd-desktop-software.md)
+* [Tiedon tuonti ](./sd-desktop-access.md)
+* [Tietojen vienti käyttöliittymän kautta](./sd-desktop-export.md)
+* [Vie tietoja ohjelmallisesti](./sd-desktop-export-commandline.md)
+* [Vianmääritys](./sd-desktop-troubleshooting.md)
 

@@ -1,82 +1,78 @@
-# Command line tool usage
 
-Rahti can be used via the command line either with OpenShift's _oc_ tool
-or with the _kubectl_ tool from Kubernetes. Certain features specific to OpenShift
-are only available when using the oc tool.
+# Komentorivityökalun käyttö {#command-line-tool-usage}
 
-## How to install the `oc` tool
+Rahti voidaan käyttää komentorivin kautta joko OpenShiftin _oc_-työkalulla tai Kubernetesin _kubectl_-työkalulla. Tietyt OpenShiftille ominaiset toiminnot ovat saatavilla vain oc-työkalun avulla.
 
-The oc tool is a single binary that only needs to be included in your _path_. You may download it from the [Getting started with the OpenShift CLI](https://docs.openshift.com/container-platform/4.15/cli_reference/openshift_cli/getting-started-cli.html) page in OpenShift's documentation. Follow the detailed instructions in the link.
+## Miten asentaa `oc`-työkalu {#how-to-install-the-oc-tool}
 
-In order to test that it was properly installed, open a new terminal, go to any folder, and run:
+Oc-työkalu on yksi binaaritiedosto, joka tarvitsee vain lisätä _path_:iin. Voit ladata sen OpenShiftin dokumentaation [Getting started with the OpenShift CLI](https://docs.openshift.com/container-platform/4.15/cli_reference/openshift_cli/getting-started-cli.html) -sivulta. Noudata linkissä olevia yksityiskohtaisia ohjeita.
+
+Testataksesi, että työkalu on asennettu oikein, avaa uusi pääte, siirry mihin tahansa kansioon ja suorita:
 
 ```
 $ oc --help
 ```
 
-It should show the list of all available commands.
+Sen pitäisi näyttää kaikki käytettävissä olevat komennot.
 
-## The "Command Line Tools" page in the OpenShift web UI
+## "Komentorivityökalut" -sivu OpenShiftin web-käyttöliittymässä {#the-command-line-tools-page-in-the-openshift-web-ui}
 
-Instructions for downloading the oc tool including the download link for several platforms and operating systems can be found in the "Command Line Tools" page in the web interface:
+Oc-työkalun latausohjeet, mukaan lukien latauslinkki useille alustoille ja käyttöjärjestelmille, löytyvät web-käyttöliittymän "Komentorivityökalut" -sivulta:
 
-![Command line tools](../../img/cli_help_menu_4.png)
+![Komentorivityökalut](../../img/cli_help_menu_4.png)
 
-after clicking you will be welcomed with:
+Klikkauksen jälkeen sinua tervehtii näytöllä seuraavanlainen näkymä:
 
-![OpenShift Command Line Tools page](../../img/openshift_cli_dialog_4.png)
+![OpenShift Command Line Tools -sivu](../../img/openshift_cli_dialog_4.png)
 
-## How to login with `oc`?
+## Miten kirjautua `oc`:lla? {#how-to-login-with-oc}
 
-The oc login command to login can be found in the dropdown menu next to your name. There is a
-button next to it for copying the command to the clipboard. Copy the command and paste it in a terminal to start using OpenShift via the
-command line. The command looks like:
+Oc-komennon kirjautumisohje löytyy nimesi vieressä olevasta pudotusvalikosta.
+Siinä on myös nappi, jolla komento voidaan kopioida leikepöydälle. Kopioi komento ja liitä se päätteeseen aloittaaksesi OpenShiftin käytön komentoriviltä. Komento näyttää tältä:
 
 ```bash
-oc login https://api.2.rahti.csc.fi:6443 --token=<secret access token>
+oc login https://api.2.rahti.csc.fi:6443 --token=<salainen pääsytunnus>
 ```
 
-This command can be obtained by clicking your username and "Copy Login Command"
-in the web console:
+Tämä komento voidaan saada klikkaamalla käyttäjänimeäsi ja "Copy Login Command" web-konsolissa:
 
 ![copy login](../../img/CopyLoginCommand.png)
 
 !!! info "sudo"
 
-    If you open multiple terminals, the login session for oc will be active in
-    all of them.
+    Jos avaat useita päätteitä, oc:n kirjautumissessio on aktiivinen kaikissa.
 
 !!! info "Helm login"
-    If you are using Helm and you are not logged in, you might get an error like:
+    Jos käytät Helmiä etkä ole kirjautunut sisään, saatat kohdata virheen, kuten:
     ```sh
     $ helm ls       
     Error: Kubernetes cluster unreachable: Get "http://localhost:8080/version": dial tcp 127.0.0.1:8080: connect: connection refused
     ```
 
-## How to login in the registry?
+## Miten kirjautua rekisteriin? {#how-to-login-in-the-registry}
 
-In order to use Rahti internal container registry, it is necessary to login separately. Once you login, it is possible to use the client docker to `pull` and `push` from Rahti's registry.
+Käyttääksesi Rahtin sisäistä konttirekisteriä, on tarpeen kirjautua erikseen. Kun olet kirjautunut sisään, voit käyttää docker-asiakasta `pull`- ja `push`-komentoihin Rahtin rekisterissä.
 
-### Using personal account
+### Käyttäen henkilökohtaista tiliä {#using-personal-account}
 
-After login with `oc`, it is possible to use the command to generate a token (`oc whoami -t`):
+Kun kirjaudut sisään `oc`:lla, voit käyttää komentoa luodaksesi tunnisteen (`oc whoami -t`):
 
 `docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi`
 
-!!! info "sudo use"
-    Some docker client setups require to run the `docker` client as root using `sudo`. In this case the `oc login` command needs to also be run using `sudo`. This is because the login information is stored in the user's home directory, only the user that runs `oc login` is logged in to Rahti.
+!!! info "sudo käyttö"
+    Jotkut docker-asiakasasennukset vaativat `docker`-asiakkaan ajamista root-käyttäjänä käyttäen `sudo`:a. Tässä tapauksessa `oc login` -komento täytyy myös suorittaa käyttäen `sudo`:a. Tämä johtuu siitä, että kirjautumistiedot säilytetään käyttäjän kotihakemistossa, joten vain käyttäjä, joka suorittaa `oc login` -komennon, on kirjautunut Rahtiin.
 
-    As a general recommendation, it is better to use other "rootless" runtimes like podman, when possible. It is also possible to configure Docker as non-root user. In order to do so, in most Linux distributions, you just need to type this command:  
+    Yleisohjeena on parempi käyttää muita non-root-ajokorttiohjelmia, kuten podmania, aina kun mahdollista. On myös mahdollista konfiguroida Docker non-root-käyttäjää varten. Tämän tekemiseksi useimmissa Linux-jakeluissa tulee vain suorittaa tämä komento:  
     
     ```sh
     sudo usermod -aG docker $USER
     ```
 
-    And then log out and log back to have the group membership re-evaluated.
+    Ja sitten kirjaudu ulos ja takaisin sisään, jotta ryhmäjäsenyyden uudelleentarkastelu tapahtuu.
 
-### Using a service account token
+### Käyttäen palvelutilin tunnistetta {#using-a-service-account-token}
 
-Rahti also offers the opportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti namespace: builder, default and deployer, it is recommended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
+Rahti tarjoaa myös mahdollisuuden käyttää sisäistä palvelutiliä rekisterin kanssa toimimiseen. Tämä on suositeltavaa automatisoiduille menettelyille, kuten CI-putkiloille. Vaikka oletuksena kolme sisäistä palvelutiliä luodaan jokaiseen Rahtin namespaceen: builder, default ja deployer, on suositeltavaa luoda erityinen sisäinen palvelutili ja määrittää sille `system:image-pusher`-rooli.
 
 ```sh
 oc create serviceaccount pusher
@@ -84,72 +80,70 @@ oc policy add-role-to-user system:image-pusher -z pusher
 docker login -p $(oc create token pusher) -u unused image-registry.apps.2.rahti.csc.fi
 ```
 
-This service account token, the one you get with `oc sa get-token pusher` does not expire.
+Tämä palvelutilin tunniste, jonka saat `oc sa get-token pusher` -komennolla, ei vanhene.
 
-## CLI cheat sheet
+## Komentorivin lunttitaulu {#cli-cheat-sheet}
 
-**Basic usage:**
+**Peruskäyttö:**
 
 ```bash
-oc <command> <--flags>
-oc help <command>
+oc <komento> <--liput>
+oc help <komento>
 ```
 
-**Examples:**
+**Esimerkkejä:**
 
-Show projects:
+Näytä projektit:
 
 ```bash
 oc projects
 ```
 
-Switch to project `my-project`:
+Vaihda projektiin `my-project`:
 
 ```bash
 oc project my-project
 ```
 
-Show all pods in the current namespace:
+Näytä kaikki podit nykyisessä nimiavaruudessa:
 
 ```bash
 oc get pods
 ```
 
-Show all pods in the namespace `<my-other-name-space>`:
+Näytä kaikki podit nimiavaruudessa `<my-other-name-space>`:
 
 ```bash
 oc get pods -n <my-other-namespace>
 ```
 
-Show all pods that have the key-value pair `app: myapp` in `metadata.labels`:
+Näytä kaikki podit, joilla on avain-arvopari `app: myapp` `metadata.labels`-kohdassa:
 
 ```bash
 oc get pods --selector app=myapp
 ```
 
-Print the specifications of the pod `mypod`
+Tulosta podin `mypod` määrittelyt:
 
 ```bash
 oc get pod mypod -o yaml
 ```
 
-### Other useful commands
+### Muut hyödylliset komennot {#other-useful-commands}
 
-* `oc create` creates an object. Example: `oc create -f file.yaml`
-* `oc replace` replaces an object. Example: `oc replace -f file.yaml`
-* `oc delete` deletes an object in OpenShift. Example: `oc delete rc
-  myreplicationcontroller`
-* `oc apply` modifies an object according to the input. Example `oc apply -f
-  file.yaml`
-* `oc explain` prints out the API documentation. Example: `oc explain deploy.spec`
-* `oc edit` loads an object from the API to the local editor chosen by the `$EDITOR`
-  environment variable. Example: `oc edit Deployment mydeploy`
+* `oc create` luo objektin. Esimerkki: `oc create -f file.yaml`
+* `oc replace` korvaa objektin. Esimerkki: `oc replace -f file.yaml`
+* `oc delete` poistaa objektin OpenShiftissa. Esimerkki: `oc delete rc myreplicationcontroller`
+* `oc apply` päivittää objektin syöttötietojen mukaan. Esimerkki `oc apply -f file.yaml`
+* `oc explain` tulostaa API-dokumentaation. Esimerkki: `oc explain deploy.spec`
+* `oc edit` lataa objektin API:sta paikalliseen editoriin, jonka `$EDITOR`
+  ympäristömuuttuja määrää. Esimerkki: `oc edit Deployment mydeploy`
 
-## Abbreviations
+## Lyhenteet {#abbreviations}
 
-Object types have abbreviations that are recognized in the CLI:
+Objektilajeilla on lyhenteitä, jotka CLI tunnistaa:
 
-|Abbreviation |Meaning|
+|Lyhenne |Merkitys|
 |-----:|:-------|
 |`is`|`ImageStream`|
 |`dc`|`DeploymentConfig`\*|
@@ -158,11 +152,10 @@ Object types have abbreviations that are recognized in the CLI:
 |`rc`|`ReplicationController`|
 |`pvc`|`PersistentVolumeClaim`|
 
-\* Deployment Config is deprecated
+\* Deployment Config on vanhentunut
 
-## Further documentation
+## Lisädokumentaatio {#further-documentation}
 
-See the official documentation for more information about using the command line
-interface:
+Katso virallinen dokumentaatio saadaksesi lisätietoja komentorivikäyttöliittymän käytöstä:
 
-* [OpenShift documentation: CLI reference](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.10/html-single/cli_tools/index)
+* [OpenShift dokumentaatio: CLI viite](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.10/html-single/cli_tools/index)

@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -8,47 +9,46 @@ system:
 
 # QGIS
 
-[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysing geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS. 
+[QGIS](https://qgis.org/en/site/) on ilmainen ja avoimen lähdekoodin GIS-sovellus, jota voidaan käyttää paikkatietojen katseluun, muokkaamiseen ja analysointiin. QGIS tukee hyvin laajaa valikoimaa vektori- ja rasteriformaatteja sekä yleisiä API-protokollia, kuten WMS, WMTS, WCS ja WFS.
 
-In supercomputers, QGIS could be used for example to visualize the resulting files from processing with other tools: lastools, R, Python etc.
+Supertietokoneissa QGIS:tä voidaan käyttää esimerkiksi muiden työkalujen avulla prosessoitujen tiedostojen visualisointiin: lastools, R, Python jne.
 
+## Saatavilla {#available}
 
-## Available
+__QGIS__ on saatavilla seuraavilla versioilla:
 
-__QGIS__ is available with following versions:
+* 3.38 Puhtissa, sisältää myös [GDAL](gdal.md) ja [PDAL](pdal.md). Myös PCRaster-kirjasto on asennettu säilöön, mutta [PCRaster QGIS -laajennus](https://jvdkwast.github.io/qgis-processing-pcraster/) tulee lisätä jokaisen käyttäjän toimesta.
+* 3.34 Puhtissa, sisältää myös [GDAL](gdal.md), [PDAL](pdal.md) ja uudet natiivipistepilvityökalut QGIS:ssä.
+* 3.31 Puhtissa ja LUMI:ssa, sisältää myös [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) ja [SagaGIS](saga-gis.md).
+* 3.22 Puhtissa
 
-* 3.38 in Puhti, includes also [GDAL](gdal.md) and [PDAL](pdal.md). It also has PCRaster library installed to the container, but [PCRaster QGIS plug-in](https://jvdkwast.github.io/qgis-processing-pcraster/) should be added by each user.
-* 3.34 in Puhti, includes also [GDAL](gdal.md), [PDAL](pdal.md) and the new native point cloud tools in QGIS.
-* 3.31 in Puhti and LUMI, includes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
-* 3.22 in Puhti
+## Käyttö {#usage}
 
-## Usage
+### QGIS Puhtissa {#qgis-in-puhti}
 
-### QGIS in Puhti
+QGIS:n käyttöön, avaa se Puhtin web-käyttöliittymässä:
 
-For using QGIS, open it in Puhti web interface:
+1. Kirjaudu sisään [Puhtin web-käyttöliittymään](https://puhti.csc.fi). 
+2. Avaa [Desktop-sovellus](../computing/webinterface/desktop.md). 
+3. Käynnistä Desktopin jälkeen kaksoisnapsauttamalla QGIS-kuvaketta uusimmasta versiosta.
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launching the Desktop, double-click QGIS icon for the newest version.
-
-If you want to use older version, open `Terminal` (Desktop icon) and start QGIS:
+Jos haluat käyttää vanhempaa versiota, avaa `Terminal` (Desktop-kuvake) ja käynnistä QGIS:
 
 ```
 module load qgis/3.22
 qgis
 ```
 
-### QGIS in LUMI
+### QGIS LUMI:ssa {#qgis-in-lumi}
 
-For using QGIS, open it in LUMI web interface:
+QGIS:n käyttöön, avaa se LUMIn web-käyttöliittymässä:
 
-1. Log in to [LUMI web interface](https://lumi.csc.fi). 
-2. Open [Desktop app](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/). 
-3. After launching the Desktop, open the newest version of QGIS from the Menu in the bottom left corner (under Other).
-    * You can drag-and-drop the icon to your desktop for easier access in the future
+1. Kirjaudu sisään [LUMIn web-käyttöliittymään](https://lumi.csc.fi). 
+2. Avaa [Desktop-sovellus](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/). 
+3. Käynnistä Desktopin jälkeen, avaa QGIS:n uusin versio alakulman valikosta (Other-osiossa).
+   * Voit vetää ja pudottaa kuvakkeen työpöydällesi helpompaa pääsyä varten tulevaisuudessa
 
-If you want to use the CLI, open `Terminal Emulator` from the Menu in the bottom left corner and start QGIS:
+Jos haluat käyttää CLI:tä, avaa `Terminal Emulator` alakulman valikosta ja käynnistä QGIS:
 
 ```
 module use /appl/local/csc/modulefiles
@@ -56,49 +56,44 @@ module load qgis
 qgis
 ```
 
-### SagaGIS toolbox in QGIS
+### SagaGIS työkalupakki QGIS:ssä {#sagagis-toolbox-in-qgis}
 
-SagaGIS tools are not available by default with QGIS 3.31 in Processing Toolbox, but can be added with installing `Saga Next Gen` plug-in. This is a new plug-in and all tools might not work yet.  
+SagaGIS-työkalut eivät ole oletuksena saatavilla QGIS 3.31:ssa Processing Toolboxissa, mutta ne voidaan lisätä asentamalla `Saga Next Gen` -laajennus. Tämä on uusi laajennus, eikä kaikki työkalut välttämättä vielä toimi.
 
-### PyQGIS
+### PyQGIS {#pyqgis}
 
-It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS library](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/). Use `python3` for accessing PyQGIS libraries.
+QGIS:n toimintoihin on myös mahdollista päästä käsiksi Pythonista ilman graafista käyttöliittymää [PyQGIS-kirjaston](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/) avulla. Käytä `python3` PyQGIS-kirjastojen käyttöön.
 
+### Puhti QGIS ja Allas {#puhti-qgis-and-allas}
 
-### Puhti QGIS and Allas
+QGIS voi __lukea__ tiedostoja suoraan Allas-palvelusta joko S3- tai SWIFT-APIn avulla. Ennen QGIS:n käynnistämistä luo yhteys kuten kuvattu [geospatiaaliset tiedostot suoraan pilvestä, mukaan lukien Allas -oppaassa](../support/tutorials/gis/gdal_cloud.md) ja käynnistä sitten QGIS Terminalista.
 
-QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) and then start QGIS from Terminal.
+Suurten datamäärien käsittelyssä Allas-palvelussa harkitse [virtuaalirastereiden](https://research.csc.fi/virtual_rasters) käyttöä.
 
-With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
+## Lisenssi {#license}
 
-## License 
+QGIS on lisensoitu GNU General Public Licensen alaisuudessa.
 
-QGIS is licensed under the GNU General Public License.
+## Viittaus {#citation}
 
-## Citation
+```QGIS.org, 2024. QGIS-kanepaikkatietojärjestelmä. QGIS Association. http://www.qgis.org```
 
-```QGIS.org, 2024. QGIS Geographic Information System. QGIS Association. http://www.qgis.org```
+## Kunnianosoitus {#acknowledgement}
 
+Ole hyvä ja mainitse CSC ja Geoportti julkaisussasi, se on tärkeää projektien jatkolle ja rahoituksen raportoinnille.
+Esimerkiksi voit kirjoittaa "Kirjoittajat haluavat kiittää CSC:tä - Tieteen tietotekniikan keskus, Suomi (urn:nbn:fi:research-infras-2016072531) ja Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
-
-## Acknowledgement
-
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
-
-
-## Installation
-* 3.38 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` and `pcraster` packages from `conda-forge` repository.
-* 3.34 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` package from `conda-forge` repository.
-* 3.31 was installed [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
+## Asennus {#installation}
+* 3.38 asennettiin [Tykky'n conda-containerize funktionaalisuudella](../computing/containers/tykky.md#conda-based-installation). .yml-tiedosto sisälsi vain `qgis` ja `pcraster` paketit `conda-forge`-varastosta.
+* 3.34 asennettiin [Tykky'n conda-containerize funktionaalisuudella](../computing/containers/tykky.md#conda-based-installation). .yml-tiedosto sisälsi vain `qgis` paketin `conda-forge`-varastosta.
+* 3.31 asennettiin [Tykky'n wrap-container funktionaalisuudella](../computing/containers/tykky.md#container-based-installations) käyttäen [QGIS Docker -ilmettä Dockerhubista, jonka tarjoaa QGIS-yhteisö](https://hub.docker.com/r/qgis/qgis). LUMI:ssa `Tykky` on nimeltään `Container wrapper`.
 
 `wrap-container -w /usr/bin docker://qgis/qgis:latest --prefix install_dir`
 
+## Viitteet {#references}
 
-## References
-
-* [QGIS homepage](https://www.qgis.org/)
-* [QGIS tutorials](https://www.qgistutorials.com/en/)
-* [Free QGIS training material](https://qgis.org/en/site/forusers/trainingmaterial/index.html)
-* [PyQGIS cookbook](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/)
+* [QGIS kotisivu](https://www.qgis.org/)
+* [QGIS opastuksia](https://www.qgistutorials.com/en/)
+* [Ilmainen QGIS koulutusmateriaali](https://qgis.org/en/site/forusers/trainingmaterial/index.html)
+* [PyQGIS ohjekirja](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/)
 

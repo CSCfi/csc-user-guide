@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -7,52 +8,52 @@ system:
 
 # Zonation
 
-[Zonation](https://zonationteam.github.io/Zonation5/) is a spatial conservation prioritization framework for large-scale conservation planning. It identifies areas, or landscapes, important for retaining high habitat quality and connectivity for multiple biodiversity features (eg. species), providing a quantitative method for enhancing species' long term persistence.
+[Zonation](https://zonationteam.github.io/Zonation5/) on paikkatietoihin perustuva suojelusuunnittelun priorisointimenetelmä laajamittaiselle suojelusuunnittelulle. Se tunnistaa alueet tai maisemat, jotka ovat tärkeitä korkean elinympäristölaadun ja monimuotoisuuspiirteiden (esim. lajien) välisen yhteyden säilyttämiselle, ja tarjoaa määrällisen menetelmän lajien pitkäaikaisen säilymisen parantamiseksi.
 
+## Saatavilla
 
-## Available
+__Zonation__ on saatavilla Puhtissa seuraavilla versioilla:
 
-__Zonation__ is available in Puhti with following versions:
+* 5.2.1 (sisältää graafisen käyttöliittymän)
+* 5.2.0.2 (sisältää graafisen käyttöliittymän)
+* 5.1.0 (sisältää graafisen käyttöliittymän)
 
-* 5.2.1 (including Graphical User Interface)
-* 5.2.0.2 (including Graphical User Interface)
-* 5.1.0 (including Graphical User Interface)
+## Käyttö
 
-
-## Usage
-
-Zonation is available in the __zonation__ module:
+Zonation on käytettävissä __zonation__-moduulissa:
 
 ```
 module load zonation
-z5 <command arguments>
+z5 <komentojen argumentit>
 ```
 
-With version 5.2.1 you can also use `zonation5 <command arguments>`
+Versiolla 5.2.1 voit myös käyttää `zonation5 <komentojen argumentit>`
 
-Zonation can be used in Puhti with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. In Puhti, it can use one node, which is max 40 cores.  
+Zonationia voi käyttää Puhtissa komentorivin tai graafisen käyttöliittymän kanssa, interaktiivisena tehtävänä tai eräajojärjestelmän kanssa. Varaa joka tapauksessa sopiva määrä laskentaresursseja: ytimiä ja muisti. Zonation 5 toimii nopeammin, jos se voi käyttää useita ytimiä. Puhtissa se voi käyttää yhtä nodia, mikä on maksimissaan 40 ydintä.
 
-Before starting Zonation, move your data to your project's __scratch__ folder. For testing, [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) can be used.
+Ennen Zonationin aloittamista siirrä datasi projektisi __scratch__-kansioon. Testaukseen voit käyttää [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip).
 
-### Zonation with Graphical User Interface
+### Zonation graafisella käyttöliittymällä
 
-Zonation Graphical User Interface (GUI) can be started in Puhti web interface:
+Zonationin graafisen käyttöliittymän (GUI) voi käynnistää Puhtin web-käyttöliittymässä:
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open [Desktop app](../computing/webinterface/desktop.md)
-3. After launching the Desktop, double-click Zonation icon.
+1. Kirjaudu sisään [Puhtin web-käyttöliittymään](https://puhti.csc.fi).
+2. Avaa [Desktop-sovellus](../computing/webinterface/desktop.md)
+3. Tietokoneen avauksen jälkeen kaksoisnapsauta Zonation-kuvaketta.
 
-### Working with Zonation interactively
-For relatively short analysis jobs, it is possible to use Zonation in [interactive session](../computing/running/interactive-usage.md).
+### Työskentely Zonationin kanssa interaktiivisesti
+
+Suhteellisen lyhyille analyysitöille Zonationia voi käyttää [interaktiivisessa istunnossa](../computing/running/interactive-usage.md).
 
 ```
 sinteractive -i
-cd /scratch/project_200xxxx/<location_of_your_data>
+cd /scratch/project_200xxxx/<sijainti_datalle>
 z5 -w --mode=ABF minimal_settings.z5 /scratch/project_200xxxx/example1_out
 ```
 
-### Using Zonation with batch job
-For longer analysis jobs, Puhti batch system should be used.
+### Zonationin käyttö eräajolla
+
+Pidemmille analyysitöille Puhtin eräajojärjestelmän käyttö on suositeltavaa.
 
 ```
 #!/bin/bash
@@ -63,42 +64,34 @@ For longer analysis jobs, Puhti batch system should be used.
 #SBATCH --mem=4G
 
 module load zonation
-cd /scratch/project_200xxxx/<location_of_your_data>
+cd /scratch/project_200xxxx/<sijainti_datalle>
 srun z5 -w --mode=ABF minimal_settings.z5 /scratch/project_200xxxx/example1_out
 ```
 
+## Lisenssi
 
-## License 
+Zonation 5 on jaettu täsmälleen tällaisena, vapaasti [GNU General Public License (GPL) version 3 (#GNUGPL) (#GNUGPLv3) lisenssillä.](https://www.gnu.org/licenses/gpl-3.0.html)
 
-Zonation 5 is distributed as is, freely under [GNU General Public License (GPL) version 3 (#GNUGPL) (#GNUGPLv3) license.](https://www.gnu.org/licenses/gpl-3.0.html)
+## Viittaaminen
 
+`Moilanen, A., Lehtinen, P., Kohonen, I., Virtanen, E., Jalkanen, J. ja Kujala, H. 2022. Uudet menetelmät paikkatietopriorisointiin sovellettuna suojeluun, maankäytön suunnitteluun ja ekologisiin vaikutuksiin perustuviin väistöihin. Methods in Ecology and Evolution`
 
-## Citation
+## Tunnustukset
 
-`Moilanen, A., Lehtinen, P., Kohonen, I., Virtanen, E., Jalkanen, J. and Kujala, H. 2022. Novel methods for spatial prioritization with applications in conservation, land use planning and ecological impact avoidance. Methods in Ecology and Evolution`
+Ole hyvä ja mainitse CSC ja Geoportti julkaisuissasi, se on tärkeää projektin jatkumiselle ja rahoitusraporteille. Esimerkiksi voit kirjoittaa "Kirjoittajat haluavat kiittää CSC - Tieteen tietotekniikan keskus, Suomi (urn:nbn:fi:research-infras-2016072531) ja avoin geoinformaatioinfrastruktuuri tutkimukselle (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
+## Asennus
 
-## Acknowledgement
+Zonation asennettiin Puhtiin Apptainerilla käyttäen [Zonation Apptainer määritelmätiedostoja](https://github.com/CSCfi/singularity-recipes/tree/main/zonation), jotka on kirjoittanut Pauli Lehtinen Helsingin yliopistosta pienillä muokkauksilla.
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
-
-
-## Installation
-
-Zonation was installed to Puhti with Apptainer using [Zonation Apptainer definition files](https://github.com/CSCfi/singularity-recipes/tree/main/zonation) written by Pauli Lehtinen from University of Helsinki with slight modifications. 
-
-The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): 
+Kontti käärittiin lopulta [Tykky's wrap-container toiminnolla](../computing/containers/tykky.md#container-based-installations): 
 `wrap-container -w /squashfs-root/AppRun --prefix install_dir zonation5_v2.1.sif`
 
-Symbolic links added for `z5` and `zonation5` to work as starting commands.
+Symbolisia linkkejä lisättiin `z5` ja `zonation5` toimimaan aloituskomentoina.
 
-## References
+## Viitteet
 
-* [Zonation homepage](https://zonationteam.github.io/Zonation5/)
+* [Zonation kotisivu](https://zonationteam.github.io/Zonation5/)
 * [Zonation Github](https://github.com/zonationteam/Zonation5)
-* [Zonation 5 manual and tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip)
-
-
-
+* [Zonation 5 ohjekirja ja tutoriaali data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip)
 

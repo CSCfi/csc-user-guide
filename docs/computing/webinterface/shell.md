@@ -1,16 +1,17 @@
-# Shell
 
-The shell apps can be found under _Pinned Apps_ or on the top navbar under the
-_Tools_ section. There are two different shells.
+# Shell {#shell}
 
-The _Login node shell_ launches a normal Linux shell on one of the login nodes.
-Any command that is running when the login node shell browser tab is closed
-will stop. Note that the same rules apply here as during a normal SSH session:
+Shell-sovellukset löytyvät _Näkyvät sovellukset_ -kohdasta tai ylävalikkorivin
+_Työkalut_-osiosta. On olemassa kaksi erilaista shelliä.
+
+_Login solmun shelli_ käynnistää normaalin Linux-shellin yhdestä sisäänkirjautumissolmuista.
+Kaikki komennot, jotka ovat käynnissä sisäänkirjautumissolmun shell-selaimen välilehden sulkemisen yhteydessä,
+pysähtyvät. Huomaa, että samat säännöt pätevät kuin normaalin SSH-istunnon aikana:
 
 !!! error-label 
-    **Login nodes are only for light pre/postprocessing**
-    (see [usage policy](../usage-policy.md)).
+    **Sisäänkirjautumissolmut ovat ainoastaan kevyeen esikäsittelyyn/jälkikäsittelyyn**
+    (katso [käyttöpolitiikka](../usage-policy.md)).
 
-The _Compute node shell_ launches a persistent shell on a compute node for
-heavier commands that should not be run on login nodes. The persistent shell
-will keep running even if you close your browser or lose internet connection.
+_Laskentasolmun shelli_ käynnistää pysyvän shellin laskentasolmussa raskaammille komennoille, joita ei tule
+ajaa sisäänkirjautumissolmuissa. Pysyvä shelli jatkaa toimintaansa, vaikka sulkisit selaimen tai menettäisit
+internet-yhteyden.

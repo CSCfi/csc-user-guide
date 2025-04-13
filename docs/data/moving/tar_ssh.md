@@ -1,87 +1,70 @@
-# Using Tar over SSH to move many files
 
-Linux tools such as `scp` and `rsync` are commonly used to transfer files
-between a remote server and a local machine. However, these tools are not
-very practical for moving many small files.
+# Tarin käyttö SSH:n kautta monien tiedostojen siirtämiseen {#using-tar-over-ssh-to-move-many-files}
 
-A simple, much faster solution is to write a (compressed) tar package
-containing your data directly to the target system. This is accomplished by
-piping the output of `tar` over an `ssh` connection. Writing the archive
-directly to the destination helps also to conserve disk space on the source
-system.
+Linux-työkaluja, kuten `scp` ja `rsync`, käytetään yleisesti tiedostojen siirtämiseen etäpalvelimen ja paikallisen koneen välillä. Kuitenkaan nämä työkalut eivät ole kovin käytännöllisiä, kun siirrettävänä on paljon pieniä tiedostoja.
 
-For general information about tar, see
-[Packing and compression tools](../../support/tutorials/env-guide/packing-and-compression-tools.md).
+Yksinkertainen, paljon nopeampi ratkaisu on kirjoittaa (pakattu) tar-paketti, joka sisältää datasi suoraan kohdejärjestelmälle. Tämä saavutetaan ohjaamalla `tar`-komennon lähtö `ssh`-yhteyden yli. Arkiston kirjoittaminen suoraan kohteeseen auttaa myös säästämään levytilaa lähtöjärjestelmässä.
 
-## Examples
+Yleistä tietoa tarista löytyy kohdasta
+[Pakkaus- ja pakkaustyökalut](../../support/tutorials/env-guide/packing-and-compression-tools.md).
 
-All following commands are executed on a local workstation, which is assumed to
-have the required tools (`tar`, `ssh` and, optionally, `gzip`/`bzip2`) installed.
-Puhti is used as the example remote server.
+## Esimerkit {#examples}
 
-The general syntax is:
+Kaikki seuraavat komennot suoritetaan paikalliselta työasemalta, jolle oletetaan olevan tarvittavat työkalut (`tar`, `ssh` ja mahdollisesti `gzip`/`bzip2`) asennettuna. Puhti on käytössä esimerkkinä etäpalvelimesta.
+
+Yleinen syntaksi on:
 
 ```bash
 tar c <directory_to_transfer> | ssh <username>@puhti.csc.fi 'cat > <target_path_on_puhti>'
 ```
 
-For example, the command to copy a directory `myfiles` from your local machine
-to the directory `/scratch/project_2001234` on Puhti would be:
+Esimerkiksi komento kopioida hakemisto `myfiles` paikalliselta koneelta hakemistoon `/scratch/project_2001234` Puhtissa olisi:
 
 ```bash
 tar c myfiles | ssh <username>@puhti.csc.fi 'cat > /scratch/project_2001234/myfiles.tar'
 ```
 
-To extract the tar archive at the same time, replace the `cat` command as:
+Purkaaksesi tar-arkiston samanaikaisesti, korvaa `cat`-komento seuraavasti:
 
 ```bash
 tar c myfiles | ssh <username>@puhti.csc.fi 'tar x -C /scratch/project_2001234'
 ```
 
-Conversely, you could also copy data located on the remote server to your local
-machine using a command like:
+Vastaavasti voit kopioida tiedot etäpalvelimelta paikalliselle koneellesi komennolla kuten:
 
 ```bash
 ssh <username>@puhti.csc.fi 'tar c -C <parent_directory_on_puhti> <directory_to_transfer>' > <archive_on_local_machine>
 ```
 
-For example, the command to copy a folder `myfiles` located in
-`/scratch/project_2001234` to your local machine would be:
+Esimerkiksi komento kopioida kansio `myfiles`, joka sijaitsee
+`/scratch/project_2001234` hakemistoon paikalliselle koneellesi:
 
 ```bash
 ssh <username>@puhti.csc.fi 'tar c -C /scratch/project_2001234 myfiles' > myfiles.tar
 ```
 
-To extract the archive at the same time:
+Purkaaksesi arkiston samanaikaisesti:
 
 ```bash
 ssh <username>@puhti.csc.fi 'tar c -C /scratch/project_2001234 myfiles' | tar x
 ```
 
-!!! info "Enable compression"
-    The above commands did not use compression. Replace `tar c` (`tar x`) with
-    `tar cz` or `tar cj` (`tar xz` or `tar xj`) to enable gzip or bzip2
-    compression (decompression). Note that some files do not benefit from
-    compression (e.g. binary files or files that are already compressed), in
-    which case it is faster to transfer without compressing.
+!!! info "Ota käyttöön pakkaus"
+    Yllä olevat komennot eivät käytä pakkausta. Korvaa `tar c` (`tar x`) `tar cz` tai `tar cj` (`tar xz` tai `tar xj`) mahdollistamaan gzip- tai bzip2-pakkaus (purku). Huomaa, että jotkin tiedostot eivät hyödy pakkauksesta (esim. binääritiedostot tai tiedostot, jotka ovat jo pakattuja), jolloin on nopeampaa siirtää ilman pakkausta.
 
-!!! info "Avoid verbose output"
-    Adding `v` option (e.g. `tar czv`) will produce verbose output, i.e. list
-    the processed files in the console. This slows down the transfer process
-    when moving many small files, so it is recommended to avoid using it.
+!!! info "Vältä yksityiskohtaista tulostusta"
+    `v`-vaihtoehdon lisääminen (esim. `tar czv`) tuottaa yksityiskohtaista tulostusta eli listaa käsitellyt tiedostot konsolissa. Tämä hidastaa siirtoprosessia, kun siirretään monia pieniä tiedostoja, joten on suositeltavaa välttää sen käyttöä.
 
-## Performance comparison
+## Suorituskyvyn vertailu {#performance-comparison}
 
-Below is a rough comparison of the time taken to transfer a directory with many
-small files to Puhti. Each file is 100 KiB in size and no compression is
-applied.
+Alla on karkea vertailu siitä, kuinka kauan kestää siirtää hakemisto, jossa on paljon pieniä tiedostoja Puhdille. Jokainen tiedosto on kooltaan 100 KiB ja pakkausta ei ole käytetty.
 
-| Number of files        | `tar` + `ssh` | `scp`    |
+| Tiedostojen määrä      | `tar` + `ssh` | `scp`    |
 |-----------------------:|--------------:|---------:|
 | 100                    | 0.5 s         | 2.4 s    |
 | 1000                   | 1.3 s         | 20.5 s   |
 | 10000                  | 9.4 s         | 201.2 s  |
 
-## More information
+## Lisätietoa {#more-information}
 
-- [Packing and compression tools](../../support/tutorials/env-guide/packing-and-compression-tools.md)
+- [Pakkaus- ja pakkaustyökalut](../../support/tutorials/env-guide/packing-and-compression-tools.md)

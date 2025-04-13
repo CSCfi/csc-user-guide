@@ -1,23 +1,24 @@
-# How can I mount my Allas S3 bucket to a VM running in cPouta
 
-Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to an Ubuntu 22.04 (also tested with Ubuntu 20.04 and 18.04) or a Centos7 based virtual machine running in cPouta.
+# Kuinka voin liittää Allas S3 -ämpärin cPoutassa toimivaan VM:ään {#how-can-i-mount-my-allas-s3-bucket-to-a-vm-running-in-cpouta}
+
+Yhdistämällä cPouta-pilviympäristön ja Allas-tallennusympäristön voit rakentaa skaalautuvia tiedonhallintaympäristöjä. Tämä asiakirja näyttää yhden esimerkin siitä, kuinka voit yhdistää nämä kaksi palvelua liittämällä ämpärin Allaksesta cPoutassa toimivaan Ubuntu 22.04 (testattu myös Ubuntu 20.04 ja 18.04) tai Centos7-pohjaiseen virtuaalikoneeseen.
 
 [TOC]
 
-## Installing OpenStack, s3cmd and s3fs
+## OpenStackin, s3cmd:n ja s3fs:n asennus {#installing-openstack-s3cmd-and-s3fs}
 
-### In Ubuntu 22.04 LTS (works for Ubuntu 20.04 and 18.04 as well)
+### Ubuntussa 22.04 LTS (toimii myös Ubuntu 20.04 ja 18.04) {#in-ubuntu-2204-lts-works-for-ubuntu-2004-and-1804-as-well}
 
-* After launching an Ubuntu based virtual machine in cPouta, open a terminal connection to the VM and update it with the command:
+* Käynnistettyäsi Ubuntu-pohjaisen virtuaalikoneen cPoutassa, avaa terminaaliyhteys virtuaalikoneeseen ja päivitä se komennolla:
 
 	```sh
 	sudo apt update
 	```
 
 !!! warning
-    Older versions of Ubuntu will have older and deprecated versions of python. It is recommended to use the latest Ubuntu version available in Pouta.
+    Vanhemmissa Ubuntu-versioissa on vanhat ja vanhentuneet Python-versiot. Suositellaan käyttämään käytössä olevaa uusinta Ubuntua Poutassa.
 
-* Then install OpenStack client by:
+* Asenna sitten OpenStack-asiakasohjelma:
 
 	```sh
 	sudo apt install python3-pip python3-dev python3-setuptools
@@ -26,34 +27,34 @@ Combining cPouta cloud environment and Allas storage environment allows you to b
 	```
 
 	!!! info
-		For Ubuntu 18.04, type those commands:  
+		Ubuntu 18.04:ssä suorita nämä komennot:  
 		```sh
 		sudo apt install python3-pip python3-dev python3-setuptools
 		sudo pip3 install --upgrade pip
 		sudo pip install python-openstackclient --ignore-installed PyYAML
 		```
 		
-		If you omit `--ignore-installed PyYAML`, you will receive an error message:  
+		Jos jätät `--ignore-installed PyYAML` pois, saat virheilmoituksen:  
 		```
 		Cannot uninstall 'PyYAML'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
 		```
-		It should be installed by **distutils**, so the removal process cannot confirm which files belong to it.
+		Se tulisi asentaa **distutils**-työkalun kautta, joten poistoprosessi ei pysty vahvistamaan, mitkä tiedostot kuuluvat siihen.
 
-* Next, install  **s3cmd** and **s3fs** commands to your VM.
+* Seuraavaksi asenna **s3cmd** ja **s3fs** komennot virtuaalikoneeseesi.
 
 	```sh
 	sudo apt install s3cmd s3fs
 	```
 
-### In Centos7 (Maintenance Updates EOL 2024-06-30)
+### Centos7:ssä (Ylläpitopäivitykset EOL 2024-06-30) {#in-centos7-maintenance-updates-eol-2024-06-30}
 
-* After launching a Centos7 based virtual machine in cPouta, open a terminal connection to the VM and update it with the command:
+* Käynnistettyäsi Centos7-pohjaisen virtuaalikoneen cPoutassa, avaa terminaaliyhteys virtuaalikoneeseen ja päivitä se komennolla:
 
 	```sh
 	sudo yum update
 	```
 
-* OpenStack and s3cmd can then be installed by:
+* OpenStack ja s3cmd voidaan asentaa sitten seuraavasti:
 
 	```sh
 	sudo yum install python3 python3-devel wget
@@ -62,18 +63,17 @@ Combining cPouta cloud environment and Allas storage environment allows you to b
 	sudo yum install s3cmd
 	```
 
-* s3fs-fuse can be installed using this command:
+* s3fs-fuse voidaan asentaa tällä komennolla:
 
 	```sh
 	sudo yum install s3fs-fuse
 	```
 
-## Configuring and using Allas
+## Allaksen konfigurointi ja käyttäminen {#configuring-and-using-allas}
 
-### Use s3cmd to read and write files
+### Käytä s3cmd:ää tiedostojen lukemiseen ja kirjoittamiseen {#use-s3cmd-to-read-and-write-files}
 
-Once you have openstack, s3cmd and s3fs installed, download and execute the **poutaos_configure** tool to configure _s3cmd_ so that it uses your cPouta project. You can also use this tool to switch between different Allas projects 
-if you have several of them.
+Kun olet asentanut openstackin, s3cmd:n ja s3fs:n, lataa ja suorita **poutaos_configure** työkalu konfiguroidaksesi _s3cmd_ siten, että se käyttää cPouta-projektiasi. Voit myös käyttää tätä työkalua vaihtaaksesi eri Allas-projektien välillä, jos sinulla on useampi niistä.
 
 ```
 wget https://a3s.fi/tools/poutaos_configure
@@ -81,11 +81,11 @@ chmod u+x poutaos_configure
 ./poutaos_configure
 ```
 
-The _poutaos_configure_ will first ask you for your CSC username and password, you can see which is your CSC username in your [MyCSC profile](https://my.csc.fi/profile) page, you csan also change your password there. Then it will list your Allas projects and ask you to fill up the project to be used. Finally it will ask you for the **chunk size**, it is recommended to leave the default.
+_poutaos_configure_ kysyy ensin käyttäjä- ja salasanaasi CSC:lle. Voit nähdä CSC-käyttäjänimesi [MyCSC-profiili](https://my.csc.fi/profile) sivultasi, ja voit myös vaihtaa salasanasi siellä. Työkalu listaa sitten Allas-projektisi ja kysyy käytettävää projektia. Lopuksi se kysyy **chunk size** -arvoa, on suositeltavaa jättää oletusarvo.
 
-After this you can use the storage area of your Allas project with _s3cmd_ commands. Now you can see, download and upload files in this bucket with _s3cmd_.
+Tämän jälkeen voit käyttää Allas-projektisi tallennustilaa _s3cmd_ komennoilla. Nyt voit nähdä, ladata ja lähettää tiedostoja tähän ämpäriin _s3cmd_:llä.
 
-* List all your buckets:
+* Listaa kaikki ämpärisi:
 
 ```sh
 $ s3cmd ls s3://
@@ -94,40 +94,39 @@ $ s3cmd ls s3://
 2020-11-06 13:56  s3://case_1
 ```
 
-* Let's assume you already have a bucket called **case_1** in Allas and that you have some data objects (i.e. files) in this bucket.
+* Oletetaan, että sinulla on jo ämpäri nimeltä **case_1** Allaksessa ja siinä on joitakin dataobjekteja (eli tiedostoja).
 
 ```sh
 $ s3cmd ls s3://case_1
 2022-10-17 07:14     67213268  s3://case_1/file1.txt
 ```
 
-* To retrieve the file:
+* Tiedoston hakeminen:
 
 ```sh
 s3cmd get s3://case_1/file1.txt
 ```
 
-* To upload a new file:
+* Uuden tiedoston lataaminen:
 
 ```sh
 s3cmd put file2.txt s3://case_1/
 ```
 
-This is the **recommended way** to use Allas with the S3 protocol from the command line. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk". You can use `s3fs` for that.
+Tämä on **suositeltu tapa** käyttää Allasta S3-protokollan kautta komentoriviltä. On myös mahdollista liittää ämpäri virtuaalikoneeseesi siten, että se näkyy "liitettynä levynä". Voit käyttää `s3fs`:ää tähän.
 
-### Use s3fs to mount a folder into your VM
+### Käytä s3fs:ää kansion liittämiseen virtuaalikoneeseesi {#use-s3fs-to-mount-a-folder-into-your-vm}
 
-
-1. To do this, create first an empty directory (like **os_case_1**) to be used as a mount point:
+1. Tee ensin tyhjä hakemisto (kuten **os_case_1**), jota käytetään liitäntäpisteenä:
 
 	```sh
 	mkdir os_case_1
 	```
 
 	!!! info
-	    Any empty directory can be used as a mount point
+	    Mikä tahansa tyhjä hakemisto voidaan käyttää liitäntäpisteenä
 
-1. Create a `.passwd-s3fs` file in your home directory. The format of the file must be: `ACCESS_KEY_ID:SECRET_ACCESS_KEY` and have _600_ permissions. (Your project must be sourced: `source project_xxxxxxx`)
+1. Luo `.passwd-s3fs` tiedosto kotihakemistoosi. Tiedoston muoto on: `ACCESS_KEY_ID:SECRET_ACCESS_KEY` ja siinä on oltava _600_ oikeudet. (Projektisi on oltava määritettynä: `source project_xxxxxxx`)
 
 	```sh
 	$ openstack ec2 credentials list -f value | grep $OS_PROJECT_ID | tail -1 |\
@@ -136,7 +135,7 @@ This is the **recommended way** to use Allas with the S3 protocol from the comma
 	$ chmod 600 .passwd-s3fs
 	```
 
-1. then use the _s3fs_ command to mount the bucket.
+1. Käytä sitten _s3fs_ komentoa liittääksesi ämpäri.
 
 	```sh
 	s3fs case_1 os_case_1 -o passwd_file=~/.passwd-s3fs -o url=https://a3s.fi/ \
@@ -144,24 +143,26 @@ This is the **recommended way** to use Allas with the S3 protocol from the comma
 	```
 
 	!!! info 
-	    The uid value returned by `id -u` should be 1000 for the default user
+	    `id -u` komennon palauttama uid-arvo on oletuskäyttäjälle 1000
 
 	!!! info
-	    The umask value `0333` mounts the files in **read-only mode**. If you want to mount them in read-write mode, use `0027` instead
+	    Umask-arvo `0333` liittää tiedostot **vain luku** -tilassa. Jos haluat liittää ne luku-kirjoitus -tilassa, käytä `0027` sijaan.
 
-1. And after this you should be able to see the objects of the mounted bucket as files. Try for example the command:
+1. Tämän jälkeen sinun pitäisi voida nähdä liitetyn ämpärin objektit tiedostoina. Kokeile esimerkiksi seuraavaa komentoa:
 
 	```sh
 	ls -l os_case_1
 	```
 
-	The output should be the same as with `s3cmd ls s3://case_1`
+	Tulos pitäisi olla sama kuin `s3cmd ls s3://case_1`
 
 	!!! info 
-	    You can also check the mount by typing the command `df -h`
+	    Voit myös tarkistaa liitäntäpisteen komennolla `df -h`
 
-1. When you are done you can unmount the folder by:
+1. Kun olet valmis, voit irrottaa kansion:
 
 	```sh
 	sudo umount os_case_1
 	```
+```
+

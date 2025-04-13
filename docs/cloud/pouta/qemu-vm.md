@@ -1,73 +1,72 @@
-# QEMU virtual images in cPouta
+# QEMU:n virtuaalikuvat cPoutassa
 
-[QEMU](https://www.qemu.org/docs/master/about/index.html) is a robust open-source machine emulator and virtualizer. It enables the running of operating systems and applications intended for one machine on an entirely different platform. This tool is integral to various virtualization frameworks. Notably, it's implemented within the OpenStack cloud infrastructure.
+[QEMU](https://www.qemu.org/docs/master/about/index.html) on vankka avoimen lähdekoodin koneemulaattori ja virtualisoija. Se mahdollistaa käyttöjärjestelmien ja sovellusten suorittamisen, jotka on tarkoitettu yhdelle koneelle, täysin eri alustalla. Tämä työkalu on keskeinen osa erilaisia virtualisointikehyksiä. Merkittävästi sitä käytetään OpenStack-pilvi-infrastruktuurissa.
 
-## 1. Downloading a backup or snapshot
+## 1. Varmuuskopion tai tilannevedoksen lataaminen {#downloading-a-backup-or-snapshot}
 
-Downloading a backup or snapshot image from cPouta to your local PC. To accomplish this, you need to have the OpenStack command-line client (`openstack`). Source your openrc script file to configure the necessary environment variables for authentication. If you don't have this file, you can download it from the web [UI](https://pouta.csc.fi/). For more information see [Installing the client tools using pip](install-client.md) and [Configure your terminal environment for OpenStack](install-client.md).
+Varmuuskopion tai tilannevedoksen kuvan lataaminen cPoutasta paikalliselle tietokoneellesi. Tämän saavuttamiseksi sinun tulee olla OpenStack-komentoriviasiakasohjelma (`openstack`). Aja openrc-käsikirjoitustiedostosi konfiguroidaksesi tarvittavat ympäristömuuttujat tunnistautumista varten. Jos sinulla ei ole tätä tiedostoa, voit ladata sen verkkokäyttöliittymästä [UI](https://pouta.csc.fi/). Lisätietoja saat kohdasta [Asenna asiakastyökalut pipin avulla](install-client.md) ja [Määritä terminaaliympäristösi OpenStackia varten](install-client.md).
 
-For example, on a Debian/Ubuntu-based system, you can install these with:
+Esimerkiksi Debian/Ubuntu-pohjaisessa järjestelmässä voit asentaa ne seuraavasti:
 
 ```bash
 sudo apt-get install python3-openstackclient 
 ```
-And  source openrc script file:
+Aja openrc-käsikirjoitustiedosto:
 
 ```bash
 source <project_name_here>-openrc.sh
 ```
 
-You will be prompted to enter your password. See [Install OpenStack client](install-client.md) for other Operating Systems.
+Sinua pyydetään syöttämään salasanasi. Katso [Asenna OpenStack-asiakas](install-client.md) muille käyttöjärjestelmille.
 
-List the images/snapshots including the disk format that are available in your OpenStack project:
+Listaa kuvat/tilannevedokset mukaan lukien levyformaatti, jotka ovat saatavilla OpenStack-projektissasi:
 
 ```bash
 openstack image list --long
 ```
 
-Note down the ID of the image you want to download.
+Merkitse ylös kuvan ID, jonka haluat ladata.
 
-Now, download the image to your local machine:
+Nyt, lataa kuva paikalliselle koneellesi:
 
 ```bash
 openstack image save --file LOCAL_IMAGE_FILENAME.qcow2 IMAGE_ID
 ```
 
-Replace `LOCAL_IMAGE_FILENAME.qcow2` with your desired local filename, disk format  and `IMAGE_ID` with the ID.
+Korvaa `LOCAL_IMAGE_FILENAME.qcow2` haluamallasi paikallisella tiedostonimellä, levyformaatilla ja `IMAGE_ID` ID:llä.
 
-## 2. Understanding file formats of the downloaded backup or snapshot
+## 2. Ladatun varmuuskopion tai tilannevedoksen tiedostomuotojen ymmärtäminen {#understanding-file-formats-of-the-downloaded-backup-or-snapshot}
 
-When you download a backup or snapshot of your virtual machine (VM) from cPouta, the file format of the downloaded image could be raw or qcow2. The QEMU emulator supports several disk formats including raw, vdi, and qcow2. See [OpenStack Disk and Container Formats](https://docs.openstack.org/glance/stein/user/formats.html) for more information.
+Kun lataat virtuaalikoneesi (VM) varmuuskopion tai tilannevedoksen cPoutasta, ladatun kuvan tiedostomuoto voi olla joko raw tai qcow2. QEMU-emulaattori tukee useita levyformaatteja, mukaan lukien raw, vdi, ja qcow2. Katso [OpenStackin levyn ja kontin formaatit](https://docs.openstack.org/glance/stein/user/formats.html) saadaksesi lisää tietoa.
 
-- **QCOW2 (QEMU Copy On Write)**: This is the default and most common format for OpenStack images, especially when QEMU is used.
-- **RAW**: A raw disk image format. It's generally larger in size than QCOW2 images.
-- **VDI (Virtual Disk Image)**: This format is mainly associated with VirtualBox but can also be used with OpenStack.
+- **QCOW2 (QEMU Copy On Write)**: Tämä on yleisin ja oletusformaatti OpenStack-kuville, erityisesti kun QEMU:ta käytetään.
+- **RAW**: Raaka levynkuvamuoto. Se on yleensä kooltaan suurempi kuin QCOW2-kuvat.
+- **VDI (Virtual Disk Image)**: Tämä formaatti liittyy pääasiassa VirtualBoxiin, mutta sitä voidaan käyttää myös OpenStackin kanssa.
 
-The following command tell you the format of the image, providede that you have the `qemu-img` tool installed. See [QEMU installation](https://www.qemu.org/download/#linux) for more information.
+Seuraava komento kertoo sinulle kuvan formaatin, mikäli sinulla on `qemu-img` työkalu asennettuna. Katso [QEMU-asennus](https://www.qemu.org/download/#linux) saadaksesi lisää tietoa.
 
 ```bash
 qemu-img info /path/to/your/image
 ```
 
-## 3. Converting VM image disk formats to QCOW2 with QEMU
+## 3. VM-levykuvien muuntaminen QCOW2-muotoon QEMU:n avulla {#converting-vm-image-disk-formats-to-qcow2-with-qemu}
 
-If you do not have a QCOW2 image but have a VM disk in another format, you can convert it to QCOW2 using QEMU's `qemu-img` tool. The following command 
-converts  your VM disk to QCOW2 format:
+Jos sinulla ei ole QCOW2-kuvaa mutta sinulla on VM-levy toisessa formaatissa, voit muuntaa sen QCOW2-muotoon käyttämällä QEMU:n `qemu-img` työkalua. Seuraava komento muuntaa VM-levysi QCOW2-muotoon:
 
 ```bash
 qemu-img convert -f [source_format] -O qcow2 [source_image] [destination_image.qcow2]
-```    
+```
 
-Where:
+Missä:
 
-- `[source_format]`: The format of the source image (e.g., `raw`, `vdi`, `vmdk`, `vhdx`).
-- `[source_image]`: The path to the source VM disk.
-- `[destination_image.qcow2]`: The path where you want to save the converted QCOW2 image.
+- `[source_format]`: Lähdekuvan formaatti (esim., `raw`, `vdi`, `vmdk`, `vhdx`).
+- `[source_image]`: Lähteen VM-levyn polku.
+- `[destination_image.qcow2]`: Polku, johon haluat tallentaa muunnetun QCOW2-kuvan.
 
-For example, to convert the `testCentOS.raw` downloaded image to QCOW2 image using QEMU, first get image info and then convert it as following:
+Esimerkiksi, muuntaaksesi `testCentOS.raw` ladatun kuvan QCOW2-muotoon QEMU:n avulla, hanki ensin kuvan tiedot ja muunna sitten seuraavasti:
 
 ```bash
-qemu-img info testCentOS.raw 
+qemu-img info testCentOS.raw
 
 image: testCentOS.raw
 file format: raw
@@ -79,36 +78,36 @@ disk size: 2.97 GiB
 qemu-img convert -f raw -O qcow2 testCentOS.raw testCentOS.qcow2
 ```
 
-After the conversion process completes, you can check the details of the converted image using:
+Kun muuntaminen on valmis, voit tarkistaa muunnetun kuvan tiedot seuraavalla komennolla:
 
 ```bash
 qemu-img info testCentOS.qcow2
 ```
 
-## 4. Running downloaded backup or snapshot images locally with QEMU
+## 4. Ladattujen varmuuskopio- tai tilannevedoskuvien suorittaminen paikallisesti QEMU:lla {#running-downloaded-backup-or-snapshot-images-locally-with-qemu}
 
-The downloaded backup or snapshot image from cPouta, which is typically in the `raw` format. Before executing it with QEMU, it's essential to convert this image to the `qcow2` format. Please refer to the previous section for steps on format conversion and verification. Before running the virtual machine locally, ensure that `cloud-utils` and `qemu-kvm` packages are installed. A step-by-step guide as follows:
+Ladattu varmuuskopio tai tilannevedoskuva cPoutasta, joka on tyypillisesti `raw`-formaatissa. Ennen kuin suoritat sen QEMU:lla, on olennaista muuntaa tämä kuva `qcow2`-muotoon. Viittaa aiempaan osioon muodon muuntamisesta ja vahvistamisesta. Ennen kuin ajat virtuaalikoneen paikallisesti, varmista, että `cloud-utils` ja `qemu-kvm` paketit on asennettu. Vaiheittainen opas on seuraava:
 
-!!! Warning  
-    The image you downloaded from cPouta needs cloud-init and requires modification to function properly locally. The image downloaded may require configuration change on the networking setup locally.
+!!! Varoitus  
+    cPoutasta lataamasi kuva tarvitsee cloud-init-ohjelman ja vaatii muokkauksia toimiakseen kunnolla paikallisesti. Saattaa olla, että ladattu kuva vaatii kokoonpanomuutoksia paikallisessa verkkoasetuksessa.
 
-- Install necessary packages.
+- Asenna tarvittavat paketit.
     
-    For RHEL or CentOS 8 system:
+    RHEL- tai CentOS 8 -järjestelmälle:
 
     ```bash
     sudo dnf install cloud-utils
     ```
 
-    On a Debian/Ubuntu-based system:
+    Debian/Ubuntu-pohjaiselle järjestelmälle:
 
     ```bash
     sudo apt-get install cloud-image-utils
     ```
 
-- Prepare the cloud-init configuration.
+- Valmistele cloud-init-kokoonpano.
 
-    Create a file named `cloud-config.yaml` with the following content:
+    Luo tiedosto nimeltä `cloud-config.yaml` seuraavalla sisällöllä:
 
     ```yaml
     #cloud-config
@@ -116,7 +115,7 @@ The downloaded backup or snapshot image from cPouta, which is typically in the `
     - YOUR_SSH_PUBLIC_KEY
     ```
 
-    Replace `YOUR_SSH_PUBLIC_KEY` with the content of your SSH public key (`~/.ssh/id_rsa.pub`). For example:
+    Korvaa `YOUR_SSH_PUBLIC_KEY` SSH-julkisen avaimen sisältösi kanssa (`~/.ssh/id_rsa.pub`). Esimerkiksi:
 
     ```yaml
     #cloud-config
@@ -124,47 +123,48 @@ The downloaded backup or snapshot image from cPouta, which is typically in the `
     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQ... your.email@example.com
     ```
 
-- Generate a cloud-init ISO with your configuration
+- Generoi cloud-init ISO kokoonpanollasi
 
-    Using the `cloud-localds` utility, convert the YAML file to a cloud-init ISO:
+    Käyttämällä `cloud-localds`-työkalua, muuta YAML-tiedosto cloud-init ISO:ksi:
 
     ```bash
     cloud-localds user-data.iso cloud-config.yaml
     ```
 
--  Boot the VM with the cloud-init ISO.
+-  Käynnistä virtuaalikone cloud-init ISO:n kanssa.
   
-    Using QEMU, you'd boot the image as follows:
+    Käyttäen QEMU:ta, käynnistä kuva seuraavasti:
 
     ```bash
     qemu-kvm  -enable-kvm -m 2048 -hda test100snapshot-v2.qcow2  -cdrom user-data.iso -net nic -net user,hostfwd=tcp::2222-:22
     ```
 
-    The command will output `VNC server running on ::1:5900`.
+    Komento tulostaa `VNC server running on ::1:5900`.
 
-    The output `VNC server running on ::1:5900` indicates that QEMU started the virtual machine and is providing a graphical console via a VNC server. You can connect to this VNC server to see the VM's display and interact with it. We will try to onnect it using SSH.
+    Tuloste `VNC server running on ::1:5900` ilmoittaa, että QEMU käynnisti virtuaalikoneen ja tarjoaa graafisen konsolin VNC-palvelimen kautta. Voit yhdistää tähän VNC-palvelimeen nähdäksesi virtuaalikoneen näytön ja olla vuorovaikutuksessa sen kanssa. Yritämme liittää siihen SSH:lla.
 
-    The given QEMU command does a few things:
+    Annettu QEMU-komento tekee muutamia asioita:
 
-    1. `-enable-kvm`: Enables KVM 
-    2. `-m 2048`: Assigns 2048MB (or 2GB) of RAM to the virtual machine.
-    3. `-hda test100snapshot-v2.qcow2`: Sets the primary hard drive of the VM to the `test100snapshot-v2.qcow2` image.
-    4. `-cdrom user-data.iso`: Mounts `user-data.iso` as a CD-ROM in the VM.
-    5. `-net nic`: Creates a virtual NIC (Network Interface Card) for the VM.
-    6. `-net user,hostfwd=tcp::2222-:22`: Sets up user-mode networking and forwards port 2222 on the host to port 22 on the VM. 
+    1. `-enable-kvm`: Ottaa KVM:n käyttöön 
+    2. `-m 2048`: Määrittää virtuaalikoneelle 2048MB (tai 2GB) RAM-muistia.
+    3. `-hda test100snapshot-v2.qcow2`: Asettaa virtuaalikoneen primäärilevyn kuvan `test100snapshot-v2.qcow2`.
+    4. `-cdrom user-data.iso`: Liittää `user-data.iso` CD-levyksi virtuaalikoneeseen.
+    5. `-net nic`: Luo virtuaalisen verkkokortin (Network Interface Card) virtuaalikoneelle.
+    6. `-net user,hostfwd=tcp::2222-:22`: Määrittää käyttäjätilassa toimivan verkon ja ohjaa isännän portin 2222 porttiin 22 virtuaalikoneessa. 
 
-- Once the VM has booted and fully initialized, you can SSH into this image locally(the snapshot used here is an Ubuntu 22.04 flavor as an example):
+- Kun virtuaalikone on käynnistynyt ja valmis, voit yhdistää siihen SSH-yhteyden kautta paikallisesti (tässä esimerkkinä käytetty tilannevedos on Ubuntu 22.04):
 
     ```bash
     ssh -i ~/.ssh/id_rsa -p 2222 ubuntu@localhost
     ```
-## 5. Uploading a VM image to cPouta
 
-Uploading a VM image to cPouta can be done using either the Horizon web interface (WEB UI) or the OpenStack CLI. See more on [Adding Images](adding-images.md).
+## 5. Virtuaalikonekuvan lataaminen cPoutaan {#uploading-a-vm-image-to-cpouta}
 
-- using OpenStack CLI, assuming you have sourced the OpenStack credentials as shown above.
+Virtuaalikonekuvan lataaminen cPoutaan voi tapahtua joko Horizon-verkkokäyttöliittymän (WEB UI) tai OpenStack CLI:n avulla. Katso lisää kohdasta [Kuvien lisääminen](adding-images.md).
 
-    Use the `openstack image create` command to upload the image as follows:
+- OpenStack CLI:tä käyttämällä, olettaen, että olet määritellyt OpenStack-tiedot yllä esitetyn mukaisesti.
+
+    Käytä `openstack image create` komentoa kuvan lataamiseen seuraavasti:
 
     ```bash
     openstack image create "testCentOS" \
@@ -174,22 +174,22 @@ Uploading a VM image to cPouta can be done using either the Horizon web interfac
     --private
     ```
 
-    Check the created image is in the list of images that are available in your OpenStack project:
+    Tarkista, että luotu kuva on saatavilla olevien kuvien listassa OpenStack-projektissasi:
 
     ```bash
     openstack image list --long
     ```
 
-- Using Web UI, first log in to web dashboard using your credentials.
+- Käyttämällä Web UI:ta, kirjaudu ensin verkkopaneeliin tunnuksillasi.
 
-    - **Navigate to image management**: Under the `Project` tab, go to `Compute` -> `Images`.
-    -  **Upload the Image**: Click on the `+ Create Image` button and fill in the details:
-        - **Image Name**: Provide a name for the image.
-        - **Image Description**: (Optional) Add a brief description.
-        - **Image Source**: Choose `File Browse` and select your QCOW2 image.
-        - **Format**: Select `QCOW2 - QEMU Emulator` or `raw`.
-        - **Architecture**: (Optional) Specify the architecture (e.g., x86_64).
-        - **Image Sharing **: `Protected` `Yes`.
-        - Click `Create Image`.
+    - **Siirry kuvanhallintaan**: `Project`-välilehdessä, mene kohtaan `Compute` -> `Images`.
+    -  **Lataa kuva**: Klikkaa `+ Create Image` -painiketta ja täytä tiedot:
+        - **Kuvan nimi**: Anna kuvalle nimi.
+        - **Kuvan kuvaus**: (Valinnainen) Lisää lyhyt kuvaus.
+        - **Kuvan lähde**: Valitse `File Browse` ja valitse QCOW2-kuvasi.
+        - **Formaatti**: Valitse `QCOW2 - QEMU Emulator` tai `raw`.
+        - **Arkkitehtuuri**: (Valinnainen) Määritä arkkitehtuuri (esim., x86_64).
+        - **Kuvan jakaminen**: `Protected` `Yes`.
+        - Klikkaa `Create Image`.
   
-After the command runs or web ui upload successfully, the image will be available for use.
+Kun komento suoritetaan tai web-sovelluslataus onnistuu, kuva on käytettävissä.

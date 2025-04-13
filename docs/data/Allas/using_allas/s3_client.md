@@ -1,53 +1,51 @@
+# S3-asiakas {#the-s3-client}
 
-# The S3 client
+Tässä luvussa kuvataan, kuinka käyttää Allas-objektien tallennuspalvelua **s3cmd** komentorivikomentojen avulla. Tämä asiakasohjelma käyttää _S3_-protokollaa, joka eroaa _Swift_-protokollasta, jota käytetään [Rclone](./rclone.md), [swift](./swift_client.md) ja [a-commands](./a_commands.md) esimerkeissä. Yleensä S3:lla ladatut tiedot ovat käytettävissä myös swift-protokollan kanssa. Kuitenkin, yli 5 GB tiedostot, jotka on ladattu swiftillä Allakseen, eivät ole ladattavissa S3-protokollan avulla.
 
-This chapter describes how to use the Allas object storage service with the **s3cmd** command line client. This client uses
-the _S3_ protocol that differs from the _Swift_ protocol used in the [Rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples. Normally data uploaded with S3 can be utilized with swift protocol too. However, over 5 GB files uploaded to Allas with swift can't be downloaded with S3 protocol.
+Käyttäjän näkökulmasta yksi suurimmista eroista S3- ja Swift-protokollien välillä on se, että Swift-pohjaiset yhteydet pysyvät voimassa kahdeksan tuntia kerrallaan, kun taas S3:ssa yhteys pysyy pysyvästi avoimena. Pysyvä yhteys on käytännöllinen monin tavoin, mutta sillä on myös turvallisuusnäkökulma: jos CSC-tilisi vaarantuu, vaarantuu myös objektien tallennustila.
 
-From the user perspective, one of the main differences between S3 and Swift protocols is that Swift based connections remain valid for eight hours at a time, but with S3, the connection remains permanently open. The permanent connection is practical in many ways but it has a security aspect: if your CSC account is compromised, so is the object storage space.
-
-The syntax of the `s3cmd` command:
+`s3cmd`-komennon syntaksi:
 ```text
 s3cmd -options command parameters
 ```
 
-The most commonly used _s3cmd_ commands:
+Yleisimmät _s3cmd_ komennot:
 
-| s3cmd command | Function |
+| s3cmd komento | Toiminto |
 | :---- | :---- |
-| mb | Create a bucket |
-| put | Upload an object |
-| ls | List objects and buckets |
-| get | Download objects and buckets |
-| cp | Move object |
-| del | Remove objects or buckets |
-| md5sum | Get the checksum |
-| info | View metadata |
-| signurl | Create a temporary URL |
-| put -P | Make an object public |
-| setacl --acl-grant | Manage access rights |
+| mb | Luo ämpäri (bucket) |
+| put | Lataa objekti |
+| ls | Listaa objektit ja ämpärit |
+| get | Lataa objektit ja ämpärit |
+| cp | Siirrä objekti |
+| del | Poista objektit tai ämpärit |
+| md5sum | Hanki tarkistussumma |
+| info | Näytä metadata |
+| signurl | Luo väliaikainen URL |
+| put -P | Aseta objekti julkiseksi |
+| setacl --acl-grant | Hallitse käyttöoikeuksia |
 
-
-The table above lists only the most essential _s3cmd_ commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage) or type:
+Yllä oleva taulukko listaa vain olennaisimmat _s3cmd_ komennot. Täydentävämmän listan saamiseksi, vieraile [s3cmd käyttöohje](https://s3tools.org/usage) tai kirjoita:
 ```text
 s3cmd -h
 ```
-## Getting started with s3cmd
 
-If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection-in-supercomputers).
+## S3cmd:n aloittaminen {#getting-started-with-s3cmd}
 
-To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment.
+Jos käytät Allasta Puhtissa tai Mahtissa, kaikki tarvittavat paketit ja ohjelmistot on jo asennettu. Tässä tapauksessa voit ohittaa tämän luvun ja siirtyä osioon [S3-yhteyden konfigurointi supertietokoneissa](#configuring-s3-connection-in-supercomputers).
 
-**OpenStack s3cmd installation:**
+Jotta voit konfiguroida s3cmd-yhteyden, sinulla tulee olla _OpenStack_ ja _s3cmd_ asennettuna ympäristöösi.
 
-Fedora/RHEL derivatives:
+**OpenStack s3cmd asennus:**
+
+Fedora/RHEL johdannaiset:
 ```text
 sudo yum update
 sudo yum install python3
 sudo pip3 install python-openstackclient
 sudo yum install s3cmd
 ```
-Debian derivatives:
+Debian johdannaiset:
 ```text
 sudo apt install python3-pip
 sudo pip3 install python-openstackclient
@@ -62,143 +60,135 @@ pip3 install s3cmd
 s3cmd
 ```
 
-Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
+Viittaa [http://s3tools.org/download](http://s3tools.org/download) ja [http://s3tools.org/usage](http://s3tools.org/usage) saadaksesi lisätietoa.
 
-**Configuring S3 connection on local computer**
+**S3-yhteyden konfigurointi paikallisessa tietokoneessa**
 
-Once you have _OpenStack_ and _s3cmd_ installed in your environment, you can download the [allas_conf](https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf)
-script to set up the S3 connection to your Allas project.
+Kun olet asentanut _OpenStack_ ja _s3cmd_ ympäristöösi, voit ladata [allas_conf](https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf) skriptin konfiguroidaksesi S3-yhteyden Allaksen projektiisi.
 ```text
 wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --mode S3 --user your-csc-username
 ```
-Note that you should use the `--user` option to define your CSC username. The configuration command first asks for your
-CSC password and then for you to choose an Allas project. After that, the tool creates a key file for the S3 connection and stores it in the default location (_.s3cfg_ in home directory).
+Huomaa, että sinun tulisi käyttää `--user` -asetusta määritelläksesi CSC-käyttäjänimesi. Konfigurointikomento kysyy ensin CSC-salasanasi ja sitten valitsemaan Allas-projektin. Sen jälkeen työkalu luo avain-tiedoston S3-yhteyttä varten ja tallentaa sen oletussijaintiin (_.s3cfg_ kotikansiossa).
 
-## Configuring S3 connection in supercomputers
+## S3-yhteyden konfigurointi supertietokoneissa {#configuring-s3-connection-in-supercomputers}
 
-To use _s3cmd_ in Puhti and Mahti, you must first configure the connection:
+Jotta voit käyttää _s3cmd_ Puhtissa ja Mahtissa, sinun on ensin konfiguroitava yhteys:
 ```text
 module load allas
 allas-conf --mode S3
 ```
-The configuration process first asks for your CSC password. Then it lists your Allas projects and asks to select the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
+Konfigurointiprosessi kysyy ensin CSC-salasanasi. Sitten se listaa Allas-projektisi ja pyytää valitsemaan käytettävän projektin. Konfigurointitiedot tallennetaan tiedostoon _$HOME/.s3cfg_. Tämä konfiguraatio tarvitsee määritellä vain kerran. Tulevaisuudessa _s3cmd_ käyttää automaattisesti objektien tallennusyhteyttä, joka on kuvailtu _.s3cfg_ tiedostossa. Jos haluat vaihtaa Allas-projektia, jota _s3cmd_ käyttää, sinun täytyy suorittaa konfigurointikomento uudelleen.
 
-You can use the S3 credentials, stored in the _.s3cfg_ file, in other services too. You can check the currently used _access key_ and _secret_key_ with command:
+Voit käyttää _.s3cfg_ -tiedostoon tallennettuja S3-todennustietoja myös muissa palveluissa. Voit tarkistaa parhaillaan käytössä olevat _access key_ ja _secret_key_ komennolla:
 ```
 grep key $HOME/.s3cfg
-
 ```
+Kun käytät näitä avaimia muissa palveluissa, sinun tulisi varmistaa, että avaimet pysyvät aina yksityisinä. Kuka tahansa, joka pääsee käsiksi näihin kahteen avaimeen, voi käyttää ja muokata kaikkea projektin dataa Allaksessa.
 
-If you use these keys in other services, your should make sure that the keys always remain private. Any person who has access to these two keys, can access and modify all the data that the project has in Allas.
-
-In needed, you can deactivate an S3 key pair with command:
-
+Tarvittaessa voit deaktivoida S3-avainparin komennolla:
 ```
 allas-conf --s3remove
 ```
 
+## Luo ämpärit ja lataa objekteja {#create-buckets-and-upload-objects}
 
-
-## Create buckets and upload objects
-
-Create a new bucket:
+Luo uusi ämpäri:
 ```text
 s3cmd mb s3://my_bucket
 ```
 
-Upload a file to a bucket:
+Lataa tiedosto ämpäriin:
 ```text
 s3cmd put my_file s3://my_bucket
 ```
 
-## List objects and buckets
+## Listaa objektit ja ämpärit {#list-objects-and-buckets}
 
-List all buckets in a project:
+Listaa kaikki ämpärit projektissa:
 ```text
 s3cmd ls
 ```
 
-List all objects in a bucket:
+Listaa kaikki objektit ämpärissä:
 ```text
 s3cmd ls s3://my_bucket
 ```
 
-Display information about a bucket:
+Näytä tietoja ämpäristä:
 ```text
 s3cmd info s3://my_bucket
 ```
 
-Display information about an object:
+Näytä tietoja objekteista:
 ```text
 s3cmd info s3://my_bucket/my_file
 ```
 
-## Download objects and buckets
+## Lataa objektit ja ämpärit {#download-objects-and-buckets}
 
-Download an object:
+Lataa objekti:
 ```text
 s3cmd get s3://my_bucket/my_file new_file_name
 ```
-The parameter *new_file_name* is optional. It defines a new name for the downloaded file.
+Paramentteri *new_file_name* on vapaaehtoinen. Se määrittää ladatulle tiedostolle uuden nimen.
 
-Using the command `md5sum`, you can check that the file has not been changed or corrupted:
+Komennolla `md5sum` voit tarkistaa, ettei tiedosto ole muuttunut tai vioittunut:
 <pre>
 $ <b>md5sum my_file new_file_name</b>
    39bcb6992e461b269b95b3bda303addf  my_file
    39bcb6992e461b269b95b3bda303addf  new_file_name
 </pre>
-In the above example, the checksums match between the original and downloaded file.
+Yllä olevassa esimerkissä tarkistussummat täsmäävät alkuperäisen ja ladatun tiedoston välillä.
 
-Download an entire bucket:
+Lataa koko ämpäri:
 ```text
 s3cmd get -r s3://my_bucket/
 ```
 
-## Move objects
+## Siirrä objekteja {#move-objects}
 
-Copy an object to another bucket. Note that should use these commands only for objects that were uploaded to Allas with S3 protocol:
+Kopioi objekti toiseen ämpäriin. Huomaa, että näitä komentoja tulisi käyttää vain objekteihin, jotka on ladattu Allakseen S3-protokollalla:
 ```text
 s3cmd cp s3://sourcebucket/objectname s3://destinationbucket
 ```
 
-For example:
+Esimerkiksi:
 <pre>
 $ <b>s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket</b>
-remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/bigfish'
+kaukokopio: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/bigfish'
 </pre>
 
-Rename the file while copying it:
+Nimeä tiedosto uudelleen kopioidessasi sitä:
 <pre>
 $ <b>s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket/newname</b>
-remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/newname'
+kaukokopio: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/newname'
 </pre>
 
-## Delete objects and buckets
+## Poista objektit ja ämpärit {#delete-objects-and-buckets}
 
-Delete an object:
+Poista objekti:
 ```text
 s3cmd del s3://my_bucket/my_file
 ```
 
-Delete a bucket:
+Poista ämpäri:
 ```text
 s3cmd rb s3://my_bucket
 ```
-**Note:** You can only delete empty buckets.
+**Huom:** Voit poistaa vain tyhjät ämpärit.
 
-## s3cmd and public objects
+## s3cmd ja julkiset objektit {#s3cmd-and-public-objects}
 
-In this example, the object _salmon.jpg_ in the pseudo folder _fishes_ is made public:
+Tässä esimerkissä objekti _salmon.jpg_ pseudo-kansiossa _kalat_ tehdään julkiseksi:
 <pre>
 $ <b>s3cmd put fishes/salmon.jpg s3://my_fishbucket/fishes/salmon.jpg -P</b>
-Public URL of the object is: https://a3s.fi/my_fishbucket/fishes/salmon.jpg
+Objektin julkinen URL on: https://a3s.fi/my_fishbucket/fishes/salmon.jpg
 </pre>
 
+## Toisen projektin lukuoikeuden antaminen ämpäriin {#giving-another-project-read-access-to-a-bucket}
 
-## Giving another project read access to a bucket
-
-You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Puhti and Mahti:
+Voit hallita käyttöoikeuksia komennolla `s3cmd setacl`. Tämä komento vaatii projektin _UUID_ (universaali yksilöivä tunniste), jolle haluat myöntää käyttöoikeuden. Projektin jäsenet voivat tarkistaa projektinsa tunnuksen osoitteessa <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> tai käyttämällä komentoa ```openstack project show```. Esimerkiksi Puhtilla ja Mahtilla:
 
 ```text
 module load allas
@@ -206,57 +196,53 @@ allas-conf -k --mode s3cmd
 openstack project show $OS_PROJECT_NAME
 ```
 
-In case of _s3cmd_ the read and write access can be controlled for both buckets and objects:
+S3cmd:n tapauksessa luku- ja kirjoitusoikeuksia voidaan hallita sekä kauhoille että objekteille:
 
-Following command gives project with UUID _3d5b0ae8e724b439a4cd16d1290_ read access to _my_fishbucket_ but not to the objects inside :
+Seuraava komento antaa projektin UUID:llä _3d5b0ae8e724b439a4cd16d1290_ lukuoikeuden _my_fishbucket_ ämpäriin, mutta ei sen sisällä oleviin objekteihin:
 ```text
 s3cmd setacl --acl-grant=read:3d5b0ae8e724b439a4cd16d1290 s3://my_fishbucket
 ```
-Similarly, following command gives write access to just single object:
+Samalla tavalla seuraava komento antaa kirjoitusoikeuden vain yhdelle objektille:
 ```text
 s3cmd setacl --acl-grant=write:3d5b0ae8e724b439a4cd16d1290 s3://my_fishbucket/bigfish
 ```
-If you want to modify the access permissions of all the objects in a bucket, you can add option `--recursive` to the command:
+Jos haluat muuttaa kaikkien ämpärin objektien käyttöoikeuksia, voit lisätä komennolle `--recursive`-asetuksen:
 ```text
 s3cmd setacl --recursive --acl-grant=read:3d5b0ae8e724b439a4cd16d1290 s3://my_fishbucket
 ```
 
-You can check the access permissions with _s3cmd info_:
+Voit tarkistaa käyttöoikeudet _s3cmd info_ -komennolla:
 <pre>
 $ <b>s3cmd info s3://my_fishbucket|grep -i acl</b>
    ACL:       other_project_uuid: READ
    ACL:       my_project_uuid: FULL_CONTROL
 </pre>
 
-Option _--acl-revoke_ can be used to remove a read or write access:
+Vaihtoehto _--acl-revoke_ voidaan käyttää lukemis- tai kirjoitusoikeuden poistamiseen:
 ```text
 s3cmd setacl --recursive --acl-revoke=read:$other_project_uuid s3://my_fishbucket
 ```
 
-The shared objects and buckets can be used with both S3 and Swift based tools. Note however, that listing
-commands show only buckets owned by your project. In the case of shared buckets and objects you must know the
-names of the buckets in order to use them.
+Jaetut objektit ja ämpärit voidaan käyttää sekä S3- että Swift-pohjaisilla työkaluilla. Huomaa kuitenkin, että listauskomennot näyttävät vain projektisi omistamat ämpärit. Jaettujen ämpärien ja objektien tapauksessa sinun on tiedettävä ämpärien nimet voidaksesi käyttää niitä.
 
-In the case of the example above, user from project _3d5b0ae8e724b439a4cd16d1290_ will not see _my_fishbucket_ , when it is shared, with command:
-
+Yllä olevassa esimerkissä käyttäjä projektista _3d5b0ae8e724b439a4cd16d1290_ ei näe _my_fishbucket_, kun se on jaettu, komennolla:
 ```text
 s3cmd ls
 ```
-However she can list the content of the bucket with command:
+Hän voi kuitenkin listata ämpärin sisällön komennolla:
 ```text
 s3cmd ls s3://my_fishbucket
 ```
-In the Pouta web UI, user can move to a shared bucket by defining the bucket name in the URL. Move to some
-bucket of your project and replace the bucket name in the end of the URL with the name of the shared bucket:
+Poutan verkkokäyttöliittymässä käyttäjä voi siirtyä jaettuun ämpäriin määrittämällä ämpärin nimen URL-osoitteessa. Siirry projektiin kuuluvan ämpärin ja korvaa URL-osoitteen lopussa oleva ämpärin nimi jaetun ämpärin nimellä:
 ```
 https://pouta.csc.fi/dashboard/project/containers/container/my_fishbucket
 ```
 
-## Use example
+## Käyttöesimerkki {#use-example}
 
-In this example, we store a simple dataset in Allas using s3cmd.
+Tässä esimerkissä tallennamme yksinkertaisen tietoaineiston Allakseen käyttäen s3cmd.
 
-First, create a new bucket. The command `s3cmd ls` reveals that the object storage is empty at first. Then, use the command `s3cmd mb` to create a new bucket called _fish-bucket_.
+Ensiksi luo uusi ämpäri. Komento `s3cmd ls` paljastaa, että objektien tallennustila on alussa tyhjä. Käytä sitten komentoa `s3cmd mb` luodaksesi uusi ämpäri nimeltään _fish-bucket_.
 
 <pre>
 $ <b>s3cmd ls</b>
@@ -264,18 +250,18 @@ ls
 
 $ <b>s3cmd mb s3://fish-bucket</b>
 mb s3://fish-bucket/
-Bucket 's3://fish-bucket/' created
+Ämpäri 's3://fish-bucket/' luotu
 
 $ <b>s3cmd ls</b>
 ls
 2018-03-12 13:01  s3://fish-bucket
 </pre>
-It is recommended to collect the data to be stored as larger units and compress it before uploading it to the system.
+On suositeltavaa kerätä tallennettava aineisto suuremmiksi yksiköiksi ja pakata se ennen järjestelmään lataamista.
 
-In this example, we store the Bowtie2 indices and the genome of the zebrafish (danio rerio) in the fish bucket. Running `ls -lh` shows that the index files are available in the current directory:
+Tässä esimerkissä tallennamme Bowtie2-indeksit ja seeprakalagenomin (danio rerio) kalojen ämpäriin. `ls -lh`-komennon suorittaminen näyttää, että indeksitiedostot ovat saatavilla nykyisessä hakemistossa:
 
 <pre>$ <b>ls -lh</b>
-total 3.2G
+yhteensä 3.2G
 -rw------- 1 kkayttaj csc 440M Mar 12 13:41 Danio_rerio.1.bt2
 -rw------- 1 kkayttaj csc 327M Mar 12 13:41 Danio_rerio.2.bt2
 -rw------- 1 kkayttaj csc 217K Mar 12 13:20 Danio_rerio.3.bt2
@@ -286,75 +272,72 @@ total 3.2G
 -rw------- 1 kkayttaj csc 599K Mar 12 13:13 log
 </pre>
 
-The data is collected and compressed as a single file using the `tar` command:
+Kerää ja pakkaa aineisto yhdeksi tiedostoksi `tar`-komentoa käyttäen:
 ```text
 tar zcf zebrafish.tgz Danio_rerio*
 ```
 
-The size of the resulting file is about 2 GB. The compressed file can be uploaded to the fish bucket using the command `s3cmd put`:
+Lopputiedoston koko on noin 2 GB. Pakattu tiedosto voidaan ladata kalojen ämpäriin käyttämällä komentoa `s3cmd put`:
 <pre>
 $ <b>ls -lh zebrafish.tgz</b>
 -rw------- 1 kkayttaj csc 9.3G Mar 12 15:23 zebrafish.tgz
 
 $ <b>s3cmd put zebrafish.tgz s3://fish-bucket</b>
 put zebrafish.tgz s3://fish-bucket
-upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [1 of 1]
- 2081306836 of 2081306836   100% in   39s    50.16 MB/s  done
+lataus: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [1 of 1]
+ 2081306836 of 2081306836   100% in   39s    50.16 MB/s  valmis
 
 $ <b>s3cmd ls s3://fish-bucket</b>
 ls s3://fish-bucket
 2019-10-01 12:11 9982519261   s3://fish-bucket/zebrafish.tgz
 </pre>
 
-Uploading 2 GB of data takes time. Retrieve the uploaded file:
+2 GB datan lataaminen vie aikaa. Nouda ladattu tiedosto:
 ```text
 s3cmd get s3://fish-bucket/zebrafish.tgz
 ```
 
-By default, this bucket can only be accessed by the project members. However, using the command `s3cmd setacl`, you can make the file publicly available.
+Oletusarvoisesti tähän ämpäriin pääsevät vain projektin jäsenet. Kuitenkin käyttämällä komentoa `s3cmd setacl`, voit tehdä tiedoston julkisesti saatavilla.
 
-First make the fish bucket public:
+Ensiksi tee kalojen ämpäristä julkinen:
 ```text
 s3cmd setacl --acl-public s3://fish-bucket
 ```
 
-Then make the zebrafish genome file public:
+Sitten tee seeprakalagenomi tiedosto julkiseksi:
 ```text
 s3cmd setacl --acl-public s3://fish-bucket/zebrafish.tgz
 ```
 
-The syntax of the URL of the file:
+Tiedoston URL-osoitteen syntaksi:
 ```text
 https://a3s.fi/bucket_name/object_name
 ```
 
-In this case, the file would be accessible using the link
+Tässä tapauksessa tiedosto olisi saatavilla linkin avulla
 _https://a3s.fi/fish-bucket/zebrafish.tgz_
 
+## Objekteiden julkaiseminen tilapäisesti allekirjoitetuilla URL-osoitteilla {#publishing-objects-temporarily-with-signed-urls}
 
-## Publishing objects temporarily with signed URLs
+Komennolla _s3cmd signurl_ voidaan Allaksessa oleva objekti julkaista tilapäisesti URL-osoitteella, joka sisältää turvallisuutta lisäävän pääsytunnuksen.
 
-With command _s3cmd signurl_ an object in Allas can be temporarily published with URL that includes security increasing access token.
-
-In the previous example object _s3://fish-bucket/zebrafish.tgz_ was made permanently accessible through simple static URL.
-With _signurl_ the same object could be shared more securely and only for a limited time. For example command:
-
+Edellisessä esimerkissä objekti _s3://fish-bucket/zebrafish.tgz_ tehtiin pysyvästi saataville yksinkertaisen staattisen URL-osoitteen kautta. Komennolla _signurl_ voidaan sama objekti jakaa turvallisemmin ja vain rajalliseksi ajaksi. Esimerkiksi komento:
 ```text
 s3cmd signurl s3://fish-bucket/zebrafish.tgz +3600
 ```
-would print out an URL that remains valid for 3600 s (1 h). In this case URL, produced by the command above, would look something like:
+tulostaisi URL-osoitteen, joka säilyy voimassa 3600 s (1 h). Tässä tapauksessa yllä olevan komennon tuottama URL-osoite näyttäisi suunnilleen tältä:
 ```text
 https://fish-bucket.a3s.fi/zebrafish.tgz?AWSAccessKeyId=78e6021a086d52f092b3b2b23bfd7a67&Expires=1599835116&Signature=OLyyCY14s%2F0HxKOOd108mldINyE%3D
 ```
 
-## Setting up an object lifecycle
+## Objektien elinkaaren määrittäminen {#setting-up-an-object-lifecycle}
 
-In order to delete/expire objects automatically, a lifecycle policy can be set-up to the Allas bucket. Objects in the bucket are treated per the lifecycle policy if matching conditions are found. Matching conditions can be set to a prefix and/or tag(s) within the object. Lifecycle policy is especially well suited for the cases where data needs to be removed as a "maintenance" measure after certain intervals.
+Jotta sinulla olisi mahdollisuus poistaa/vanhentaa objekteja automaattisesti, voit määrittää elinkaarikäytännön Allas-ämpärille. Ämpärissä olevia objekteja käsitellään elinkaarikäytännön mukaisesti, jos vastaavuusehdot täyttyvät. Vastaavuusehdot voidaan asettaa objektin etuliitteelle ja/tai tunnisteille. Elinkaarikäytäntö soveltuu erityisesti tapauksiin, joissa tiedot on poistettava "ylläpitoa" varten tietyin aikavälein.
 
-!!! warning
-    Before setting up the lifecycle policy, please check with your department/team that it correctly represents the retention policy for the data in the project. (Legal or regulatory constrains).
+!!! varoitus
+    Ennen kuin määrität elinkaarikäytännön, varmista osastoltasi/tiimiltäsi, että se vastaa projektissa olevan datan säilytyskäytäntöä. (Lailliset tai säädökselliset rajoitukset).
 
-In the following lifecycle policy we have two rules set. let's name it as `mypolicy.xml`.
+Seuraavassa elinkaarikäytännössä meillä on kaksi sääntöä. Nimetään se `mypolicy.xml`.
 
 ```xml
 <?xml version="1.0" ?>
@@ -388,7 +371,7 @@ In the following lifecycle policy we have two rules set. let's name it as `mypol
 </LifecycleConfiguration>
 ```
 
-Alternatively, one can set the policies using `prefix` which can be thought as an equivalent to `folder`. Both methods can also be combined using `<And>` tag.
+Vaihtoehtoisesti politiikat voidaan asettaa `prefix`-asetuksella, jota voidaan pitää vastaavana kuin `kansio`. Molempia menetelmiä voidaan myös yhdistää käyttäen `<And>`-tunnistetta.
 
 ```xml
 <?xml version="1.0" ?>
@@ -412,20 +395,17 @@ Alternatively, one can set the policies using `prefix` which can be thought as a
 </LifecycleConfiguration>
 ```
 
-To set this lifecycle policy into our bucket, we use the `setlifecycle` sub-command:
-
+Asettaaksemme tämän elinkaarikäytännön ämpäriimme käytämme `setlifecycle`-alakomento:
 ```bash
 s3cmd setlifecycle mypolicy.xml s3://MY_BUCKET
 ```
 
-We can verify current policy with `getlifecycle` sub-command:
-
+Voimme tarkistaa nykyisen käytännön `getlifecycle`-alakomennolla:
 ```bash
 s3cmd getlifecycle s3://MY_BUCKET
 ```
 
-To review the bucket (or object) with `info` sub-command:
-
+Tarkista ämpäri (tai objekti) `info`-alakomennolla:
 ```bash
 s3cmd info s3://MY_BUCKET
 
@@ -438,43 +418,43 @@ s3://MY_BUCKET/ (bucket):
    ACL:       project_xxxxxxx: FULL_CONTROL
 ```
 
-In order to put your object(s) under the lifecycle policy, you may utilize tags and/or prefixes.
+Jotta objectit voidaan laittaa elinkaarikäytännön alaisiksi, voit hyödyntää tunnisteita ja/tai etuliitteitä.
 
-* Tagging is done with adding a header with the format `x-amz-tagging:KEY=VALUE`.
-* Prefix can be considered as a "folder".
+* Tunnisteiden lisääminen tapahtuu antamalla otsikko muodossa `x-amz-tagging:KEY=VALUE`.
+* Etuliitettä voidaan ajatella "kansiona".
 
-Let's see the following cases:
+Katsotaanpa seuraavia tapauksia:
 
 ```bash
-# Should be removed in 24 hours per rule ID: 1-days-expiration
+# Pitäisi poistaa 24 tunnin sisällä sääntömäärityksen ID: 1-days-expiration mukaisesti
 s3cmd --add-header=x-amz-tagging:days=1 put MY_FILE_01.tar.gz s3://MY_BUCKET/
 s3cmd --add-header=x-amz-tagging:days=1 put MY_FILE_02.tar.gz s3://MY_BUCKET/gone-in-one-day/
 
-# Should be removed in 30 days per rule ID: 30-days-expiration
+# Pitäisi poistaa 30 päivän sisällä sääntömäärityksen ID: 30-days-expiration mukaisesti
 s3cmd --add-header=x-amz-tagging:days=30 put MY_FILE_03.tar.gz s3://MY_BUCKET/
 
-# Should be removed in 30 days per rule ID: Daily
+# Pitäisi poistaa 30 päivän sisällä sääntömäärityksen ID: Daily mukaisesti
 s3cmd put MY_FILE_04.tar.gz s3://MY_BUCKET/daily/
 
-# Should be removed in 365 days per rule ID: Weekly
+# Pitäisi poistaa 365 päivän sisällä sääntömäärityksen ID: Weekly mukaisesti
 s3cmd put MY_FILE_05.tar.gz s3://MY_BUCKET/weekly/
 ```
 
-Other references to setting up a lifecycle:
+Muita viitteitä elinkaaren asettamiseksi:
 
-* [RedHat developer guide for Ceph storage](https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/developer_guide/index#s3-api-bucket-lifecycle).
+* [RedHat developer guide Ceph storage](https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/developer_guide/index#s3-api-bucket-lifecycle).
 * [Creating an intelligent object storage system with Ceph’s Object Lifecycle Management](https://shopnpaz.medium.com/creating-an-intelligent-object-storage-system-with-cephs-object-lifecycle-management-112e2e46d490)
 * [Multiple lifecycles - s3cmd](https://stackoverflow.com/questions/49615977/multiple-lifecycles-s3cmd)
-* Surprise entry for the above found at [cloud.blog.csc.fi](http://cloud.blog.csc.fi/2019/02/cpouta-cloud-object-storage-service-has.html)
+* Yllä olevalle yllättävä merkintä [cloud.blog.csc.fi](http://cloud.blog.csc.fi/2019/02/cpouta-cloud-object-storage-service-has.html)
 
-## Limit bucket access to specific IP addresses
+## Rajoita ämpärin pääsyä tiettyihin IP-osoitteisiin {#limit-bucket-access-to-specific-ip-addresses}
 
-You can limit access to a bucket to specific IP addresses by defining a policy.
+Voit rajoittaa pääsyn ämpäriin tiettyihin IP-osoitteisiin määrittelemällä käytännön.
 
-!!! Warning
-    Remember not to block your own access to the bucket, you can't access the bucket or fix the policy if you do so.
+!!! Varoitus
+    Muista olla estämättä omaa pääsyäsi ämpäriin, et voi käyttää ämpäriä tai korjata käytäntöä, jos teet niin.
 
-In the following IP policy example we allow access to bucket POLICY-EXAMPLE-BUCKET from IP subnet 86.50.164.0/24. Let's name the policy file `myippolicy.json`.
+Seuraavassa IP-käytäntöesimerkissä sallimme pääsyn ämpäriin POLICY-EXAMPLE-BUCKET IP-aliverkosta 86.50.164.0/24. Nimetään käytäntötiedosto `myippolicy.json`.
 
 ```json
 {
@@ -500,18 +480,16 @@ In the following IP policy example we allow access to bucket POLICY-EXAMPLE-BUCK
 }
 ```
 
-To set this IP policy into our bucket, we use the `setpolicy` sub-command:
+Asettaaksemme tämän IP-käytännön ämpäriimme käytämme `setpolicy`-alakomento:
 
 ```bash
 s3cmd setpolicy myippolicy.json s3://POLICY-EXAMPLE-BUCKET
 ```
 
-The current policy can be viewed with `info` sub-command.
+Nykyisen käytännön voi tarkistaa `info`-alakomennolla.
 
-We can delete current policy with `delpolicy` sub-command:
+Voimme poistaa nykyisen käytännön `delpolicy`-alakomennolla:
 
 ```bash
 s3cmd delpolicy s3://POLICY-EXAMPLE-BUCKET
 s3://POLICY-EXAMPLE-BUCKET/: Policy deleted
-```
-

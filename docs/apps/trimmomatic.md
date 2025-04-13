@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,61 +6,61 @@ tags:
 
 # Trimmomatic
 
-Trimmomatic performs a variety of useful trimming tasks for illumina paired-end and single ended data.
+Trimmomatic suorittaa useita hyödyllisiä leikkaustehtäviä illumina paired-end- ja yksittäiselle datalle.
 
 [TOC]
 
-## License
+## Lisenssi {#license}
 
-- Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
-- The license does NOT apply to the sequence of the Illumina sequences contained in the software.
-THE ILLUMINA sequences (adapters) etc REMAIN COPYRIGHTED and owned by Illumina and are used in Trimmomatic by permission.
+- Vapaa käyttää ja avoin lähdekoodi [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssin alaisuudessa.
+- Lisenssi EI sovellu ohjelmistoon sisältyvien Illumina-sekvenssien sarjaan.
+ILLUMINAn sekvenssit (adapterit) jne. PYSYVÄT TEKIJÄNOIKEUSSUOJATTUINA ja ovat Illumina omistuksessa, ja niitä käytetään Trimmomaticissa luvan perusteella.
 
-## Available
+## Saatavilla {#available}
 
 - Puhti: 0.39
-- [Chipster](https://chipster.csc.fi) graphical user interface
+- [Chipster](https://chipster.csc.fi) graafinen käyttöliittymä
 
-## Usage
+## Käyttö {#usage}
 
-Trimmomatic is included in the `biokit` module:
+Trimmomatic sisältyy `biokit`-moduuliin:
 
 ```bash
 module load biokit
 ```
 
-It can also be loaded separately:
+Sen voi myös ladata erikseen:
 
 ```bash
 module load trimmomatic
 ```
 
-Trimmomatic can be launched with command:
+Trimmomatic voidaan käynnistää komennolla:
 
 ```bash
 trimmomatic
 ```
 
-If you need to adjust Java settings you can use variable `$TMJAR`
+Jos sinun tarvitsee säätää Java-asetuksia, voit käyttää muuttujaa `$TMJAR`
 
 ```bash
 java <java options> -jar $TMJAR <trimmomatic options>
 ```
 
-Included adapter sequences for ILLUMINACLIP can be used by specifying `$ADAPTERS`, e.g:
+Sisällytettyjä adapterisekvenssejä ILLUMINACLIP:lle voi käyttää määrittelemällä `$ADAPTERS`, esim.:
 
 ```bash
 ILLUMINACLIP:$ADAPTERS/TruSeq3-PE.fa:2:30:10
 ```
 
-Trimmomatic jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job.
+Trimmomaticin tehtävien tulisi olla suoritettuina joko [interaktiivisen session](../computing/running/interactive-usage.md) aikana tai erätyönä.
 
-Example batch job script:
+Esimerkki erätyön käsikirjoituksesta:
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=trimmomatic
-#SBATCH --account=project_12345 # Substitute your project name
+#SBATCH --account=project_12345 # Korvaa projektin nimi
 #SBATCH --partition=small
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=1
@@ -76,12 +77,12 @@ SLIDINGWINDOW:4:15 \
 MINLEN:36
 ```
 
-The batch job could be launched with command:
+Erätyö voidaan käynnistää komennolla:
 
 ```bash
 sbatch trimmomatic_script
 ```
 
-## More information
+## Lisätietoja {#more-information}
 
-* [Trimmomatic home page](http://www.usadellab.org/cms/?page=trimmomatic)
+* [Trimmomatic kotisivu](http://www.usadellab.org/cms/?page=trimmomatic)

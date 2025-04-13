@@ -1,91 +1,85 @@
-# Billing
 
-## Terminology
+# Laskutus
 
-* Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
-* CSC computing project: A placeholder for the user's resources information - including: the number of BUs and the CSC
-services which are available for use.
-* Rahti project: A Kubernetes namespace with additional annotations.
+## Terminologia {#terminology}
 
-## Billing model
+* Laskutusyksikkö (BU): Yksikkö, jota käytetään laskutuksessa CSC:ssä - jokainen resurssi kuluttaa tietyn määrän BUs tunnissa.
+* CSC laskentaprojekti: Käyttäjän resurssitiedon säilytyspaikka - sisältää: BUs-määrän ja CSC-palvelut, jotka ovat käytettävissä.
+* Rahti-projekti: Kubernetes-namespace lisäannotaatioilla.
 
-Billing units usage of given CSC project are calculated by scraping the usage data from all Rahti projects associated with that CSC project.
-These calculations are based on:
+## Laskutusmalli {#billing-model}
 
-* Pod core.
-* Pod memory.
-* Persistent volumes.
+CSC-projektiin liittyvien Rahti-projektien käyttöaineistot kerätään laskentayksiköiden käyttötarkoituksen laskemiseksi. Nämä laskelmat perustuvat:
 
-If the current usage is lower than the minimum requested resource, the requested resource is used for the calculations.
+* Pod-ydin.
+* Pod-muisti.
+* Pysyvät levyt.
 
-The rate at which billing units are consumed depends on the size of the
-resources. Billing units are consumed as follows:
+Jos nykyinen käyttö on alle vähimmäisresurssin, laskelmissa käytetään pyydettyä resurssia.
 
-| Resource         | Billing units |
-|------------------|---------------|
-| Pod core hour    | 1             |
-| Pod RAM GB hour  | 1,5           |
-| Storage TiB hour | 3             |
+Se, kuinka nopeasti laskutusyksiköitä kulutetaan, riippuu resurssien koosta. Laskutusyksiköitä kulutetaan seuraavasti:
+
+| Resurssi        | Laskutusyksiköt |
+|-----------------|-----------------|
+| Podi-ydintunti  | 1               |
+| Podi RAM GiB tunti | 1,5           |
+| Tallennus TiB tunti | 3            |
 
 
 !!! info
 
-    Currently, Rahti does not bill for the stored images.
+    Tällä hetkellä Rahti ei laskuta tallennetuista kuvista.
 
-Let's see an example. You create a pod with the following specs:
+Katsotaanpa esimerkki. Luot podin seuraavilla määrityksillä:
 
-* 1 core
+* 1 ydin
 * 512 MiB RAM
 
-and the current real usage is:
+nykyinen todellinen käyttö on:
 
-* 0.5 cores
+* 0,5 ydintä
 * 1 GiB RAM
 
-You also create a persistent volume of size 10 GiB and attach it to the pod. The
-cost in BUs can be calculated as follows:
+Luot myös pysyvän 10 GiB levyn ja liität sen podiin. Kustannukset BUs:ssä voidaan laskea seuraavasti:
 
-The core usage is 0.5 cores and the request is 1 cores. According to the BU consumption rate 1 > 0.5 so 1 is used.
+Ydin käyttö on 0,5 ydintä ja pyyntö on 1 ydintä. BU-kulutusasteen mukaan 1 > 0,5 joten käytetään 1.
 
-The memory usage is 1 GiB and the request is 512 MiB. The same goes for memory usage 1 GiB > 512 MiB so 1 GiB is used
+Muistin käyttö on 1 GiB ja pyyntö on 512 MiB. Sama pätee muistinkäyttöön 1 GiB > 512 MiB, joten käytetään 1 GiB
 
-![BU calculation](../img/BU-calculation.drawio.svg)
+![BU-laskenta](../img/BU-calculation.drawio.svg)
 
 <!--
-## Billing unit calculator
+## Laskutusyksikkölaskuri
 
-For an estimate of the billing units the services you plan on using will consume, please refer to the
-billing unit calculator below. The [billing unit calculator can also be found at MyCSC](https://my.csc.fi/buc/).
+Arvio laskutusyksiköistä, joita aiotut palvelut kuluttavat, katso laskutusyksikkölaskuri. [Myöhempi löytää laskutusyksikkölaskuri MyCSC:stä](https://my.csc.fi/buc/).
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 
 -->
-## Cost Change when migrating from Rahti 1 to Rahti
+## Kustannusmuutos siirryttäessä Rahdista 1 Rahtiin {#cost-change-when-migrating-from-rahti-1-to-rahti}
 
-While migrating from Rahti 1 to Rahti, BU calculation will be changed. The main differences in calculation are:
+Kun siirrytään Rahdista 1 Rahtiin, BU-laskenta muuttuu. Laskennan pääasialliset erot ovat:
 
-* In Rahti 1, BU’s are calculated based on requested resources while in Rahti, BU’s are calculated based on current uses. If current uses is lower than the minimum requested resource, requested resource is used for the calculation.
-* BU for Pod core hour in Rahti 1 is 0.5 and in Rahti it is 1.
-* BU for Pod RAM GiB hour in Rahti 1 is 1 where in Rahti It is 1.5.
+* Rahti 1:ssä BU:t lasketaan pyydettyjen resurssien perusteella, kun taas Rahtissa BU:t lasketaan nykyisten käyttötapojen mukaan. Jos nykyinen käyttö on alle vähimmäisresurssin, laskennassa käytetään pyydettyä resurssia.
+* Podi-ydintunnin BU Rahti 1:ssä on 0,5 ja Rahtissa 1.
+* Podin RAM GiB tunnin BU Rahti 1:ssä on 1, kun taas Rahtissa se on 1,5.
 
-Note : BU for Storage TiB hour is same i.e. 3.
+Huomio: Tallennus TiB tunnin BU on sama eli 3.
 
-So, in case of the above example the BU calculation for Rahti 1 is
+Joten yllä olevassa esimerkissä BU-laskelma Rahti 1:lle on
 
-![BU calculation for Rahti 1](./images/Rahti1BU.drawio.svg)
+![BU-laskenta Rahdille 1](./images/Rahti1BU.drawio.svg)
 
+Oletusrajat Rahtissa voidaan asettaa alemmaksi kuin oletusmääräraja. Siinä missä Rahti 1:ssä oletusraja on sama kuin oletusmääräraja. Lisätietoja [Siirtyminen Rahtiin](../rahti/rahti-migration.md). Tämä voi vähentää oletuskustannuksia käyttäjälle. Samalle esimerkille BU Rahdille 1:
 
-Default limits in Rahti can be set lower than the default quota. Where in Rahti 1 default limit is same as default quota. For more details [Migration to Rahti](../rahti/rahti-migration.md). This can decrease the default costs for the user. For the same example the BU For Rahti 1:
+![Oletuskustannus Rahdille 1](./images/Rahti1Requests.drawio.svg)
 
-![Default cost for Rahti 1](./images/Rahti1Requests.drawio.svg)
+ja Rahtissa BU on rajoissa:
 
-and for Rahti BU will lie between 
-limits:
+![Oletusrajoitukset Rahdille](./images/RahtiLimits.drawio.svg)
 
-![Default limits for Rahti](./images/RahtiLimits.drawio.svg)
+ja pyynnöt:
 
-and requests:
+![Oletuspyynnöt Rahdille](./images/RahtiRequest.drawio.svg)
 
-![Default requests for Rahti](./images/RahtiRequest.drawio.svg)
-
-Note : BU for Storage TiB hour is considered same i.e. 3.
+Huomio: Tallennus TiB tunnin BU on pidetty samana eli 3.

@@ -1,7 +1,6 @@
-# What's new
 
-Here you will find news of new features
-and changes to the computing environment 
+# Mikä on uutta {#what-s-new}
+
+Täältä löydät uutisia uusista ominaisuuksista ja muutoksista laskentaympäristössä
 
 <!-- Content will be generated here, do not EDIT manually -->
-

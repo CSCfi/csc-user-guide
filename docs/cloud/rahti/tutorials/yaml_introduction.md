@@ -1,17 +1,17 @@
-# Short introduction to YAML
 
-YAML is used to describe key-value maps and arrays. YAML files are recognized
-by the `.yml` or `.yaml` file suffix.
+# Lyhyt johdatus YAML-kieleen {#short-introduction-to-yaml}
 
-A YAML dataset can be
+YAML:ia käytetään kuvaamaan avain-arvo -karttoja ja taulukoita. YAML-tiedostot tunnistetaan käyttämällä `.yml` tai `.yaml` tiedostopäätettä.
 
-* a value
+YAML-datasetti voi olla
+
+* arvo
 
 ```yaml
 value
 ```
 
-* an array
+* taulukko
 
 ```yaml
 - value 1
@@ -19,20 +19,20 @@ value
 - value 3
 ```
 
-or
+tai
 
 ```yaml
 [value 1, value 2, value 3]
 ```
 
-* a dictionary
+* sanakirja
 
 ```yaml
 key: value
 another_key: another value
 ```
 
-  or
+tai
 
 ```yaml
 key:
@@ -41,7 +41,7 @@ another_key:
   another value
 ```
 
-* YAML dataset
+* YAML-datasetti
 
 ```yaml
 key:
@@ -54,7 +54,7 @@ key:
     - but indentation is not necessary here
 ```
 
-Values can be input across multiple lines using `>`:
+Arvot voidaan syöttää monille riveille käyttäen `>`:
 
 ```yaml
 key: >
@@ -64,7 +64,7 @@ key: >
   Placing double newline here will result in newline in the actual data.
 ```
 
-Verbatim style is supported with the `|` character:
+Verbatim-tyyliä tuetaan `|` merkillä:
 
 ```yaml
 key: |
@@ -73,9 +73,9 @@ key: |
   treated as such
 ```
 
-## YAML vs JSON
+## YAML vs JSON {#yaml-vs-json}
 
-YAML is a superset of JSON (JavaScript Object Notation). Thus,
+YAML on JSON:in (JavaScript Object Notation) yläjoukko. Tällöin,
 
 ```json
 {
@@ -95,7 +95,7 @@ YAML is a superset of JSON (JavaScript Object Notation). Thus,
 }
 ```
 
-is also valid YAML. In general YAML is more compact than JSON:
+on myös kelvollinen YAML. Yleisesti ottaen YAML on kompaktimpaa kuin JSON:
 
 ```yaml
 key:
@@ -108,9 +108,9 @@ key:
         - but indentation is not necessary here
 ```
 
-## yq command line tool
+## yq komentorivityökalu {#yq-command-line-tool}
 
-`yq` is a useful tool to work with `yaml`. It can be installed using [`pip`](https://pypi.org/project/yq/):
+`yq` on hyödyllinen työkalu `yaml`-tiedostojen kanssa työskentelyyn. Sen voi asentaa käyttämällä [`pip`](https://pypi.org/project/yq/):
 
 ```bash
 $ pip show yq  
@@ -126,7 +126,7 @@ Requires: argcomplete, PyYAML, toml, xmltodict
 Required-by: 
 ```
 
-`yq` is a `jq` wrapper, this means that it converts the yaml input to json and then handles the processing to `jq`, for this reason it has the same syntax as `jq`. In the example below, the value of `.data.WebHookSecretKey` is retrieved in raw mode (without quotes):
+`yq` on `jq`-kääre. Tämä tarkoittaa, että se muuntaa yaml-syötteen jsoniksi ja käsittelee sen sen jälkeen `jq`:lle, ja siksi sillä on sama syntaksi kuin `jq`:lla. Seuraavassa esimerkissä `.data.WebHookSecretKey`:n arvo haetaan raakatilassa (ilman lainausmerkkejä):
 
 ```bash
 $ echo 'apiVersion: v1
@@ -140,4 +140,5 @@ metadata:
 dGhpc19pc19hX2JhZF90b2tlbgo=
 ```
 
-For more information, see [yaml.org](https://yaml.org/) or [json.org](https://json.org).
+Lisätietoja löytyy osoitteista [yaml.org](https://yaml.org/) tai [json.org](https://json.org).
+

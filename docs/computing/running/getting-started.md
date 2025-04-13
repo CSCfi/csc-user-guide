@@ -1,53 +1,42 @@
-# Getting started
+# Aloittaminen
 
-CSC uses a batch job system to schedule and execute computing tasks on our
-supercomputers.
+CSC käyttää eräajojärjestelmää aikatauluttamaan ja suorittamaan laskentatehtäviä supertietokoneillamme.
 
-Typically, a batch job first loads a software environment using the
-[module system](../modules.md) and then executes a program to do some
-computing. Importantly, a batch job is also required to specify the resources
-(runtime, memory, cores, etc.) needed for the execution of the job.
+Tyypillisesti eräajo aloittaa lataamalla ohjelmistoympäristön käyttäen [moduulijärjestelmää](../modules.md) ja suorittaa sitten ohjelman laskentatehtävän tekemiseksi. On tärkeää, että eräajossa määritellään myös ne resurssit (suoritusaika, muisti, ytimet jne.), joita tehtävän suorittamiseen tarvitaan.
 
-This section introduces the basics of creating and submitting batch jobs using
-the SLURM batch job system at CSC.
+Tässä osiossa käydään läpi perusasiat eräajojen luomisesta ja lähettämisestä käyttäen SLURM-eräajojärjestelmää CSC:ssä.
 
-Note that also [interactive tasks](interactive-usage.md) (other than compiling,
-moving data and light pre- and post-processing) are to be done via the batch
-job system. See [Usage policy](../usage-policy.md) for details.
+Huomaa, että myös [interaktiiviset tehtävät](interactive-usage.md) (muut kuin kääntäminen, tietojen siirto sekä kevyet esikäsittely- ja jälkikäsittelytehtävät) tulee suorittaa eräajojärjestelmän kautta. Katso tarkemmat tiedot [Käyttöpolitiikasta](../usage-policy.md).
 
-!!! warning "Key concepts of the CSC batch job system"
-    1. **Jobs do not run instantly, but are put in a queue.**
-        - The jobs are executed when there are resources available. The 
-          starting time also depends on your job's priority score.
-        - The priority score of a job exists to ensure fair sharing of
-          computational resources between all the users of the cluster. Running
-          a lot of jobs will decrease the initial priority score of
-          your jobs. The priority score will then increase gradually as your
-          job waits in the queue.
-    1. **The starting time of a job cannot be predicted accurately.**
-        - It depends heavily on the actual runtimes of all other users' jobs
-          and whether new jobs are submitted. See
+!!! warning "Tärkeät käsitteet CSC:n eräajojärjestelmästä"
+    1. **Työt eivät käynnisty välittömästi, vaan ne menevät jonoon.**
+        - Työt suoritetaan, kun resursseja on vapaana. Käynnistysaika riippuu
+          myös työn prioriteettipisteestäsi.
+        - Työn prioriteettipisteet on olemassa varmistamaan
+          oikeudenmukainen laskentatehojen jakaminen klusterin käyttäjien
+          välillä. Paljon töiden suorittaminen alentaa työnne
+          lähtöprioriteettipistettä. Prioriteettipisteet nousevat asteittain,
+          kun työnne odottaa jonossa.
+    1. **Työn tarkkaa käynnistysaikaa ei voida ennustaa.**
+        - Se riippuu suurelta osin muiden käyttäjien töiden todellisista
+          suoritusaikoista ja siitä, lähetetäänkö uusia töitä. Katso
           [FAQ](../../support/faq/when-will-my-job-run.md).
-    1. **Computational resources (e.g. runtime, memory, number of cores) are
-       requested explicitly.**
-        - If the reserved time or memory limits are exceeded, the job will be
-          terminated automatically!
+    1. **Laskentaresurssit (esim. suoritusaika, muisti, ytimien lukumäärä)
+       pyydetään erikseen.**
+        - Jos varattu aika tai muistirajat ylitetään, työ keskeytetään
+          automaattisesti!
 
-To get started with running your application on CSC supercomputers:
+Aloittaaksesi sovelluksesi suorittamisen CSC:n supertietokoneilla:
 
-1. [Creating a batch job script for Puhti](creating-job-scripts-puhti.md)
-2. [Creating a batch job script for Mahti](creating-job-scripts-mahti.md)
-3. [Submit a batch job](submitting-jobs.md)
-4. [Available batch job partitions](batch-job-partitions.md)
-5. [Performance checklist](performance-checklist.md)
+1. [Eräajon käsikirjoituksen luominen Puhti:lle](creating-job-scripts-puhti.md)
+2. [Eräajon käsikirjoituksen luominen Mahti:lle](creating-job-scripts-mahti.md)
+3. [Eräajon lähettäminen](submitting-jobs.md)
+4. [Saatavilla olevat eräajon osastot](batch-job-partitions.md)
+5. [Suorituskyvyn tarkastuslista](performance-checklist.md)
 
-If you are already familiar with SLURM, check out our
-[example batch job scripts for Puhti](example-job-scripts-puhti.md) or
-[example batch job scripts for Mahti](example-job-scripts-mahti.md).
+Jos olet jo perehtynyt SLURM:iin, tarkista meidän
+[esimerkkieräajon käsikirjoitukset Puhti:lle](example-job-scripts-puhti.md) tai
+[esimerkkieräajon käsikirjoitukset Mahti:lle](example-job-scripts-mahti.md).
 
-!!! info "Getting started with LUMI"
-    Please see the
-    [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/)
-    for how to get started with running jobs on the LUMI supercomputer. LUMI
-    also uses the SLURM batch queue system, so the differences between running
-    on CSC supercomputers and LUMI are minor.
+!!! info "LUMI:n aloittaminen"
+    Katso [LUMI:n dokumentaatio](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/) saadaksesi ohjeet töiden suorittamisesta LUMI-superkoneella. LUMI käyttää myös SLURM-eräajojärjestelmää, joten erot CSC:n superkoneiden ja LUMI:n välillä ovat vähäiset.

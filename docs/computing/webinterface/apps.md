@@ -1,91 +1,67 @@
-# Interactive apps
+# Interaktiiviset sovellukset
 
-## Available apps
+## Saatavilla olevat sovellukset
 
-  - [Accelerated visualization](accelerated-visualization.md)
-  - [Desktop](desktop.md)
+  - [Nopeutettu visualisointi](accelerated-visualization.md)
+  - [Työpöytä](desktop.md)
   - [Jupyter](jupyter.md)
-  - [Julia on Jupyter](julia-on-jupyter.md)
-  - [Jupyter for courses](jupyter-for-courses.md)
+  - [Julia Jypyterillä](julia-on-jupyter.md)
+  - [Jupyter kursseille](jupyter-for-courses.md)
   - [MATLAB](matlab.md)
   - [MLflow](mlflow.md)
   - [RStudio](rstudio.md)
   - [TensorBoard](tensorboard.md)
   - [Visual Studio Code](vscode.md)
 
-## Launching an interactive app
+## Interaktiivisen sovelluksen käynnistäminen {#launching-an-interactive-app}
 
-1. The interactive apps can be found in the navigation bar under _Apps_, or on
-   _My Interactive Sessions_ page.
-2. To launch an app on a compute node, select it from the menu. 
-3. After selecting an interactive app from the list you will be presented with
-   a form to configure the session.
-    1. Fill in appropriate billing project, partition, resources and
-       app-specific settings.
-4. After submitting the app form, and the Slurm job for the app has finished
-   queuing, the app will be started and you will be able to connect to the
-   application on the _My Interactive Sessions_ page (see below).
+1. Interaktiiviset sovellukset löytyvät navigaatiopalkista kohdasta _Sovellukset_ tai
+   _Omat interaktiiviset istunnot_ -sivulta.
+2. Käynnistääksesi sovelluksen laskentasolmussa, valitse se valikosta.
+3. Kun valitset interaktiivisen sovelluksen listalta, sinulle esitetään lomake
+   istunnon konfiguroimiseksi.
+    1. Täytä asianmukainen laskutusprojekti, osasto, resurssit ja
+       sovelluskohtaiset asetukset.
+4. Kun olet lähettänyt sovelluslomakkeen ja sovellusjonon Slurm-työ on valmistunut,
+   sovellus käynnistyy ja voit liittää sovellukseen _Omat interaktiiviset istunnot_ -sivulla (katso alla).
 
-![Interactive sessions](../../img/ood-interactive-sessions.png)
+![Interaktiiviset istunnot](../../img/ood-interactive-sessions.png)
 
-!!! warning "Avoid idle interactive sessions"
-    Note that apps keep running and consuming resources even if you close the
-    browser tab for the app session. To stop the app, you can cancel the
-    session from the _My Interactive Sessions_ page.
+!!! varoitus "Vältä käyttämättömiä interaktiivisia istuntoja"
+    Huomaa, että sovellukset kuluttavat resursseja myös silloin, kun suljet sovelluksen
+    selaimen välilehden. Lopettaaksesi sovelluksen voit peruuttaa istunnon _Omat interaktiiviset istunnot_ -sivulta.
 
-## Saved interactive app settings
+## Tallennetut interaktiivisen sovelluksen asetukset {#saved-interactive-app-settings}
 
-The resources and other settings that you select in the interactive app forms can be saved and
-restored later.
+Interaktiivisen sovelluksen lomakkeilla valitsemasi resurssit ja muut asetukset voidaan tallentaa ja
+palauttaa myöhemmin.
 
-### Saving settings
+### Asetusten tallentaminen {#saving-settings}
 
-To save the settings, check the *Save settings* checkbox at the end of the form. A modal will appear
-where you can either choose to save as a new saved settings, or overwrite an existing saved setting.
-Enter a name for the saved settings and press save. After that you will be launch the application,
-which will save the settings.
+Tallentaaksesi asetukset, valitse *Tallenna asetukset* -valintaruutu lomakkeen lopussa. Modaalinen ikkuna ilmestyy,
+jossa voit valita tallennetaanko uudet asetukset vai ylikirjoitetaanko vanhat. Anna nimi tallennettaville asetuksille ja paina "tallenna". Tämän jälkeen voit käynnistää sovelluksen,
+joka tallentaa asetukset.
 
-![saving settings in form](../../img/ood-save-settings.png)
+![asetusten tallentaminen lomakkeeseen](../../img/ood-save-settings.png)
 
-### Using saved settings
+### Tallennettujen asetusten käyttö {#using-saved-settings}
 
-On the app forms, you will be able to select which saved settings to load for the app:
+Sovelluslomakkeissa voit valita, mitkä tallennetut asetukset ladataan sovellukseen:
 
-![saved settings in form](../../img/ood-use-saved-settings.png)
+![tallennetut asetukset lomakkeessa](../../img/ood-use-saved-settings.png)
 
-On the *My interactive sessions* page, or on the app form pages, you will see a list of your saved
-settings for each app on the left. Clicking on one of them will show you the settings in a list.
-Using the buttons on the top right you can either edit the settings in the form, or directly launch
-a session using those settings.
+*Omat interaktiiviset istunnot* -sivulla tai sovelluslomakesivuilla näet luettelon kaikista sovelluksista tallennetuista
+asetuksista vasemmalla. Yhtä niistä napsauttamalla näet asetukset listassa.
+Yläoikealla olevilla painikkeilla voit joko muokata lomakkeen asetuksia tai suoraan käynnistää
+istunnon näillä asetuksilla.
 
-![saved settings page](../../img/ood-saved-settings-page.png)
+![tallennettujen asetusten sivu](../../img/ood-saved-settings-page.png)
 
-## Troubleshooting
+## Vianmääritys {#troubleshooting}
 
-Several factors may cause your interactive session to fail to launch. Common
-reasons for failures are temporary issues with the shared file system (Lustre),
-job running out of memory, or invalid settings in the session configuration
-form (e.g. invalid Python installation for Jupyter). Below are some general
-tips for troubleshooting:
+Useat tekijät voivat estää interaktiivisen istunnon käynnistymisen. Yleisiä syitä epäonnistumiseen ovat väliaikaiset ongelmat jaetussa tiedostojärjestelmässä (Lustre), muistin loppuminen tai virheelliset asetukset istuntokonfiguraatiolomakkeessa (esim. virheellinen Python-asennus Jupyterille). Alla on joitakin yleisiä vinkkejä vianmääritykseen:
 
-1. File system issues come and go. The level of disk lag displayed on the web
-   interface dashboard may give a hint if Lustre issues might be the reason for
-   why your job failed to start. In this case there's not much that can be
-   done, and the best option is typically to wait for a moment and then try
-   re-launching the session.
-2. To rule out errors due to limited computing resources, try launching a new
-   session requesting more memory or cores.
-3. Make sure to double-check that all the other settings in the configuration
-   form are correct, e.g. path to a custom Python interpreter is correct, and
-   that the environment contains all packages needed to launch the session
-   (e.g. Jupyter).
-4. Information about a session is stored in a log file `output.log`, which can
-   be viewed from the card of your session on the _My Interactive Sessions_
-   page. Checking the contents of this file for error messages is a good
-   starting point to understand why your job failed to launch. If you're unable
-   to interpret the contents of the log file, don't hesitate to
-   [contact CSC Service Desk](../../support/contact.md). **Please include the
-   log file of your failed session in your support request.** This will help us
-   to solve your issue faster. Other ways in which you can speed up the
-   processing of your support request are discussed on the
-   [How to write good support requests](../../support/support-howto.md) page.
+1. Tiedostojärjestelmäongelmat tulevat ja menevät. Verkkoliittymän informaatiopaneelin levyviive saattaa vihjata, onko Lustre-ongelma syynä työn epäonnistumiseen. Tässä tilanteessa ei yleensä ole paljon tehtävissä, joten parasta on odottaa hetki ja yrittää sitten käynnistää istunto uudelleen.
+2. Sulje pois virheet rajallisista laskentaresursseista yrittämällä käynnistää uusi istunto, joka pyytää enemmän muistia tai ytimiä.
+3. Varmista, että kaikki muut lomakkeen asetukset ovat oikein. Esim. varmista, että mukautetun Python-tulkinnan polku on oikea ja että ympäristössä on kaikki istunnon käynnistämiseen tarvittavat paketit (esim. Jupyter).
+4. Istunnon tiedot tallennetaan lokitiedostoon `output.log`, joka voidaan katsoa omasta kortista _Omat interaktiiviset istunnot_ -sivulla. Tämän tiedoston sisältö, josta etsit virheilmoituksia, on hyvä lähtökohta ymmärtääksesi, miksi työsi epäonnistui. Jos et pysty tulkitsemaan lokitiedoston sisältöä, älä epäröi [ottaa yhteyttä CSC:n asiakaspalveluun](../../support/contact.md). **Liitä epäonnistuneen istunnon lokitiedosto tukipyyntösi mukaan.** Tämä auttaa meitä ratkaisemaan ongelmasi nopeammin. Muita tapoja nopeuttaa tukipyynnön käsittelyä on käsitelty sivulla [Kuinka kirjoittaa hyviä tukipyyntöjä](../../support/support-howto.md).

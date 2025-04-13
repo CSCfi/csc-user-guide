@@ -1,50 +1,51 @@
-# Uploading and encrypting data
+
+# Tietojen lataaminen ja salaaminen {#uploading-and-encrypting-data}
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats, but it is supported only for files up to 100 GB and folders smaller than 1 TB. Largers files or folders can be and uploaded [programmatically](./sd-connect-command-line-interface.md).
+Tietosi salataan automaattisesti, kun lataat tietoja SD Connectiin. Tämä sopii kaikille tiedostotyypeille ja -muodoille, mutta on tuettu vain tiedostoille, joiden koko on enintään 100 GB, ja kansioille, jotka ovat pienempiä kuin 1 TB. Suurempia tiedostoja tai kansioita voidaan ladata [ohjelmallisesti](./sd-connect-command-line-interface.md).
 
-!!! Note
-    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable uploading files and folders.
+!!! Huomautus
+    Jos käytät palvelua ensimmäistä kertaa, selaimessasi saattaa ilmestyä ponnahdusikkuna, joka pyytää sinua hyväksymään evästeet. Ole hyvä ja klikkaa Hyväksy, jotta tiedostojen ja kansioiden lataaminen mahdollistuu.
 
-## Upload and encrypt files to a new folder
+## Lataaminen ja tiedostojen salaaminen uuteen kansioon {#upload-and-encrypt-files-to-a-new-folder}
 
-1. Log in to SD Connect.
-2. Select the correct CSC project in the top left corner.
-3. Click **Upload** in the top right corner.
-4. In the new window, name the destination folder for your files.
-5. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
-6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
-7. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
+1. Kirjaudu SD Connectiin.
+2. Valitse oikea CSC-projekti vasemmasta yläkulmasta.
+3. Napsauta **Lataa** oikeassa yläkulmassa.
+4. Uudessa ikkunassa nimeä tiedostojesi kohdekansio.
+5. Napsauta **Valitse tiedostot** avataksesi selainikkunan ja valitse tiedostot ladattavaksi. Jos haluat ladata kansioita, vedä ja pudota ne ikkunaan. Napsauta **Lataa**, jotta automaattinen salaus ja lataus alkaa.
+6. Ilmoitus latauksen tilasta ilmestyy ja on näkyvissä, kunnes lataus on valmis. Ilmoitus sisältää myös linkin kohdekansioon.
+7. Kun lataus on valmis, salatut tiedostot ovat saatavilla ladattavaksi ja jaettavaksi SD Connectin kautta tai analysointia, muokkausta tai merkintöjen lisäämistä varten SD Desktopin kautta.
 
-!!! info "Folder names"
+!!! Info "Kansioiden nimet"
 
-    - Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
-    - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
-    - Folder names can't be modified afterwards.
+    - Kansion nimien on oltava yksilöllisiä kaikissa olemassa olevissa kansioissa kaikissa projekteissa SD Connectissä ja Allaksessa (pilvitallennusratkaisu, jonka pohjalta SD Connect on kehitetty). Jos et voi luoda uutta kansiota, joku toinen projekti saattaa jo käyttää valitsemaasi nimeä. Tämän tilanteen välttämiseksi on hyvä käyttää projektikohtaisia tunnisteita (esimerkiksi projektin ID-numero tai lyhenne) kansion nimessä.
+    - Vältä välilyöntejä ja erikoismerkkejä; käytä latinalaisia aakkosia (a-z), numeroita (0-9), väliviivaa (-), alaviivaa (_) ja pistettä (.). Muista, että kaikki kansion nimet ovat julkisia; älä sisällytä mitään luottamuksellisia tietoja.
+    - Kansion nimiä ei voi muokata jälkeenpäin.
 
-## Upload and encrypt files to an existing folder
+## Lataaminen ja tiedostojen salaaminen olemassa olevaan kansioon {#upload-and-encrypt-files-to-an-existing-folder}
 
-1. Select the correct folder (by double-click).
-2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph.
+1. Valitse oikea kansio (tuplaklikkaamalla).
+2. Napsauta **Lataa** oikeassa yläkulmassa ja noudata yllä olevan kappaleen vaiheita 4–6.
 
-!!! warning "Warning"
+!!! Varoitus "Varoitus"
 
-    Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission. [Read about use case](./sd-connect-share-read-to-sd-desktop.md)
+    Samassa CSC-projektissa olevat jäsenet voivat ladata ja purkaa tietoja SD Connectista. Tämä voidaan rajoittaa jakamalla tiedostoja **Vain luku SD Desktopiin** -oikeudella. [Lisätietoa käyttöesimerkistä](./sd-connect-share-read-to-sd-desktop.md)
 
-!!! Note "Additional considerations"
+!!! Huomautus "Lisähuomioita"
 
-    - Large files (> 100 GB) may take hours to upload, and uploads stop after 8 hours.
-    - The user interface might be slower when there are more than 2500 files for each folder. In this case please user the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
-    - Files can't be edited in SD Connect; download them for editing or  access them via SD Desktop. 
-    - Uploading files into subfolders is currently not supported.
-    - SD Connect displays your encrypted files as virtual folders. Plan your folder structure carefully—organize files by projects, themes, or logical structures to improve accessibility and workflow. This also helps when sharing access with others. For assistance, contact CSC Service Desk (subject: Sensitive data).
+    - Suurten tiedostojen (> 100 GB) lataaminen voi kestää tunteja, ja lataus keskeytyy 8 tunnin jälkeen.
+    - Käyttöliittymä voi hidastua, kun kussakin kansiossa on yli 2500 tiedostoa. Tässä tapauksessa käytä [komentorivityökaluja lataamiseen ja automaattiseen avainten hallintaan](./sd-connect-command-line-interface.md). 
+    - Tiedostoja ei voi muokata SD Connectissä; lataa ne muokattaviksi tai käytä niitä SD Desktopin kautta.
+    - Tiedostojen lataaminen alikansioihin ei ole tällä hetkellä tuettua.
+    - SD Connect näyttää salatut tiedostosi virtuaalisina kansioina. Suunnittele kansiorakenteesi huolellisesti — järjestele tiedostoja projektien, teemojen tai loogisten rakenteiden mukaan parantaaksesi saavutettavuutta ja työnkulkua. Tämä auttaa myös, kun jaat käyttöoikeuksia muille. Lisäapua saa CSC:n asiakaspalvelusta (aihe: Arkaluontoiset tiedot).
 
-## Features in SD Connect
+## Ominaisuudet SD Connectissä {#features-in-sd-connect}
 
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
-* [Command line interface](./sd-connect-command-line-interface.md)
-* [Troubleshooting](./sd-connect-troubleshooting.md)
+* [Lataaminen](./sd-connect-upload.md)
+* [Jakaminen](./sd-connect-share.md)
+* [Lataaminen alas](./sd-connect-download.md)
+* [Poistaminen](./sd-connect-delete.md)
+* [Komentorivikäyttöliittymä](./sd-connect-command-line-interface.md)
+* [Vianmääritys](./sd-connect-troubleshooting.md)

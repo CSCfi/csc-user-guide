@@ -1,34 +1,35 @@
-# cPouta and ePouta related videos
 
-## cPouta tutorial video series
+# cPoutaan ja ePoutaan liittyvät videot
 
-- [Launching a virtual machine] and connecting to it on a local macOS laptop
-- [Installing applications] on a virtual machine (in this example, we use
-  [Conda], but it is only one of many options)
-- [Attaching a data volume] to a virtual machine to work with larger datasets
-- [Saving a virtual machine] as a snapshot and re-stating it  
+## cPouta-opetusvideoiden sarja {#cpouta-tutorial-video-series}
 
-## cPouta webinar recordings
+- [Virtuaalikoneen käynnistäminen] ja yhdistäminen siihen paikallisella macOS-kannettavalla
+- [Sovellusten asentaminen] virtuaalikoneeseen (tässä esimerkissä käytämme
+  [Conda], mutta se on vain yksi monista vaihtoehdoista)
+- [Datalevyn liittäminen] virtuaalikoneeseen suurempien tietoaineistojen käsittelyyn
+- [Virtuaalikoneen tallentaminen] kuvana ja sen uudelleenkäynnistäminen
 
-- [Creating a virtual machine in cPouta]
-- [First steps into automating cPouta deployments with Ansible]
-- [Virtual Machine and basic web service deployment with Ansible]
+## cPouta-webinaaritallenteet {#cpouta-webinar-recordings}
 
-## Other cPouta related videos
+- [Virtuaalikoneen luominen cPouta-palvelussa]
+- [Ensiaskeleet cPouta-järjestelmien automatisointiin Ansiblella]
+- [Virtuaalikoneen ja perusverkkopalvelun käyttöönotto Ansiblella]
 
-- [CSC's Pouta Cloud Services] (an introduction)
-- [Introduction to CSC's OpenStack cPouta cloud] (a course recording)
-- [Rendering with cPouta's GPUs]
+## Muita cPoutaan liittyviä videoita {#other-cpouta-related-videos}
 
-[Launching a virtual machine]: https://www.youtube.com/watch?v=CvoN4pv0RJQ
-[Installing applications]: https://www.youtube.com/watch?v=THqppmnkV7E
+- [CSC:n Pouta-pilvipalvelut] (peruskatsaus)
+- [Johdatus CSC:n OpenStack cPouta-pilveen] (kurssitallenne)
+- [Renderöinti cPoutan GPU:illa]
+
+[Virtuaalikoneen käynnistäminen]: https://www.youtube.com/watch?v=CvoN4pv0RJQ
+[Sovellusten asentaminen]: https://www.youtube.com/watch?v=THqppmnkV7E
 [Conda]: http://conda.io
-[Attaching a data volume]: https://www.youtube.com/watch?v=FBmMTwwKcpk
-[Saving a virtual machine]: https://www.youtube.com/watch?v=YlMSWoWB5uk
-[Mounting remote directories]: https://youtu.be/mhPDU2MxqZI
-[Creating a Virtual Machine in cPouta]: https://www.youtube.com/watch?v=CIO8KRbgDoI
-[First steps into automating cPouta deployments with Ansible]: https://www.youtube.com/watch?v=m81gmCXF21E
-[Virtual Machine and basic web service deployment with Ansible]: https://www.youtube.com/watch?v=Qvd0-zI4yvw
-[CSC's Pouta Cloud Services]: https://www.youtube.com/watch?v=2opuVIBSPgw
-[Introduction to CSC's OpenStack cPouta cloud]: https://www.youtube.com/watch?v=1OSe7Fr_c7g
-[Rendering with cPouta's GPUs]: https://youtu.be/An1e9ryS3nY
+[Datalevyn liittäminen]: https://www.youtube.com/watch?v=FBmMTwwKcpk
+[Virtuaalikoneen tallentaminen]: https://www.youtube.com/watch?v=YlMSWoWB5uk
+[Etähakemistojen liittäminen]: https://youtu.be/mhPDU2MxqZI
+[Virtuaalikoneen luominen cPouta-palvelussa]: https://www.youtube.com/watch?v=CIO8KRbgDoI
+[Ensiaskeleet cPouta-järjestelmien automatisointiin Ansiblella]: https://www.youtube.com/watch?v=m81gmCXF21E
+[Virtuaalikoneen ja perusverkkopalvelun käyttöönotto Ansiblella]: https://www.youtube.com/watch?v=Qvd0-zI4yvw
+[CSC:n Pouta-pilvipalvelut]: https://www.youtube.com/watch?v=2opuVIBSPgw
+[Johdatus CSC:n OpenStack cPouta-pilveen]: https://www.youtube.com/watch?v=1OSe7Fr_c7g
+[Renderöinti cPoutan GPU:illa]: https://youtu.be/An1e9ryS3nY

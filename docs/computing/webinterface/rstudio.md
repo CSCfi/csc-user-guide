@@ -1,61 +1,43 @@
 # RStudio
 
-The RStudio application will launch an RStudio session with the specified resources using the
-selected [R environment (r-env) version](../../apps/r-env.md#available)).
+RStudio-sovellus käynnistää RStudio-istunnon valituilla resursseilla käyttäen valittua [R-ympäristön (r-env) versiota](../../apps/r-env.md#available).
 
-The user is automatically logged in to the RStudio session when pressing the **Connect to RStudio
-Server** button.
+Käyttäjä kirjautuu automaattisesti RStudio-istuntoon painamalla **Connect to RStudio Server** -painiketta.
 
-Selecting **Multithreaded** will set the environment variable `OMP_NUM_THREADS`, controlling the number
-of OpenMP threads, to the number of requested CPU cores. See [r-env documentation on
-threading](../../apps/r-env.md#improving-performance-using-threading) for more details.
+Valitsemalla **Multithreaded** asetetaan ympäristömuuttuja `OMP_NUM_THREADS`, joka säätelee OpenMP-säikeiden määrää, pyydettyjen CPU-ytimien määrään. Katso lisätietoja [r-env-dokumentaatiosta säikeistämisen parantamisesta](../../apps/r-env.md#improving-performance-using-threading).
 
-!!! note "When to use RStudio?"
-    RStudio sessions are meant for interactive work, for example R script development and running
-    light and medium-heavy analyses up to a few hours. Long, memory-intensive, or otherwise
-    resource-heavy tasks are best carried out as [non-interactive batch
-    jobs](../../apps/r-env.md#non-interactive-use).
+!!! note "Milloin käyttää RStudioa?"
+    RStudio-istunnot on tarkoitettu interaktiiviseen työskentelyyn, esimerkiksi R-skriptien kehittämiseen ja kevyiden sekä keskikokoisten analyysien suorittamiseen muutaman tunnin ajan. Pitkäkestoiset, muisti-intensiiviset tai muuten resursseja vaativat tehtävät kannattaa suorittaa [ei-interaktiivisina erätehtävinä](../../apps/r-env.md#non-interactive-use).
 
-## Frequently asked questions about RStudio
+## Usein kysytyt kysymykset RStudiosta {#frequently-asked-questions-about-rstudio}
 
-### RStudio is not starting and I see a grey screen. What should I do?
+### RStudio ei käynnisty ja näen harmaan näytön. Mitä minun pitäisi tehdä? {#rstudio-is-not-starting-and-i-see-a-grey-screen-what-should-i-do}
 
-If an RStudio session fails to start or RStudio is extremely slow, first try resetting your
-RStudio user state as described below. These steps will clean up leftover data from previous interrupted RStudio
-sessions in two hidden folders in the user's home directory: `.config/rstudio` and `.local/share/rstudio`. These folders can be either renamed (to keep the contents) or deleted (if you are sure the contents are not needed).
+Jos RStudio-istunto ei käynnisty tai RStudio on erittäin hidas, kokeile ensin nollata RStudio-käyttäjätila seuraavien ohjeiden mukaisesti. Nämä vaiheet siivoavat edellisten keskeytyneiden RStudio-istuntojen jäljelle jääneet tiedot kahdessa piilotetussa kansiossa käyttäjän kotihakemistossa: `.config/rstudio` ja `.local/share/rstudio`. Nämä kansiot voidaan joko nimetä uudelleen (sisällön säilyttämiseksi) tai poistaa (jos olet varma, ettei sisältöä tarvita).
 
-**Option 1:** Use the file viewer in the web interface:
+**Vaihtoehto 1:** Käytä verkkokäyttöliittymän tiedostonäkymää:
 
-1. In the top left corner of the web interface dashboard, choose **Files** and **Home Directory**.
-2. Click **Show dotfiles**.
-3. Delete or rename the `rstudio` folders under `.config` and `.local` -> `share`. 
+1. Verkkokäyttöliittymän hallintapaneelin vasemmassa yläkulmassa valitse **Tiedostot (Files)** ja **Kotihakemisto (Home Directory)**.
+2. Napsauta **Näytä piilotiedostot (Show dotfiles)**.
+3. Poista tai nimeä uudelleen `rstudio`-kansiot `.config` ja `.local` -> `share` alaisuudesta.
 
-**Option 2:** Use a terminal (for example a login node shell in the web interface) to delete or
-rename these folders. Here is an example how renaming would work:
+**Vaihtoehto 2:** Käytä päätelaitetta (esimerkiksi kirjautumissolmu verkkokäyttöliittymässä) näiden kansioiden poistamiseen tai uudelleennimeämiseen. Tässä on esimerkki, miten uudelleennimeäminen toimisi:
 
 `mv ~/.config/rstudio ~/.config/rstudio-old`  
 `mv ~/.local/share/rstudio ~/.local/share/rstudio-old`
 
-If after this RStudio still fails to start or remains very slow, please [contact CSC Service
-Desk](../../support/contact.md).
+Jos tämän jälkeen RStudio ei vieläkään käynnisty tai pysyy hyvin hitaana, ota yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md).
 
-### How do I install an R package?
+### Miten asennan R-paketin? {#how-do-i-install-an-r-package}
 
-The R environment has over 1400 pre-installed R packages packages ready to use. The easiest
-way to check if a package is available is to try to load it with `library(packagename)`. If a
-package is missing, you can install it yourself for your project by following the [instructions for R package
-installation](../../apps/r-env.md#r-package-installations), or you can [contact CSC Service
-Desk](../../support/contact.md) for a general installation available to all users.
+R-ympäristössä on yli 1400 valmiiksi asennettua R-pakettia. Helpoin tapa tarkistaa, onko paketti saatavilla, on yrittää ladata se komennolla `library(packagename)`. Jos paketti puuttuu, voit asentaa sen itse projektiisi [R-paketin asennusohjeiden](../../apps/r-env.md#r-package-installations) mukaisesti tai voit ottaa yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md) saadaksesi yleisen asennuksen kaikkien käyttäjien käyttöön.
 
-### How do I change the directory shown in the RStudio files panel?
+### Miten muutan RStudion tiedostopaneelissa näkyvää hakemistoa? {#how-do-i-change-the-directory-shown-in-the-rstudio-files-panel}
 
-By default, the files panel shows your home directory on the supercomputer. To change the directory,
-click the three dots on the top right of the panel. In the box that appears, type the target
-directory, for example `/scratch/<project>`.
+Oletuksena tiedostopaneelissa näkyy koti hakemistosi supertietokoneella. Voit vaihtaa hakemistoa napsauttamalla kolmea pistettä paneelin oikeassa yläkulmassa. Kirjoita avautuvaan ruutuun kohdehakemisto, esimerkiksi `/scratch/<project>`.
 
-![Changing RStudio Files panel directory](../../img/rstudio_change_directory.png 'Changing RStudio Files panel directory')
+![RStudion tiedostopaneelin hakemiston vaihtaminen](../../img/rstudio_change_directory.png 'Changing RStudio Files panel directory')
 
-## More information
+## Lisätietoja {#more-information}
 
-For more information on the R environment, see the [r-env documentation](../../apps/r-env.md).
-If you have a question, please [contact CSC Service Desk](../../support/contact.md).
+Lisätietoja R-ympäristöstä löytyy [r-env-dokumentaatiosta](../../apps/r-env.md). Jos sinulla on kysyttävää, ota yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md).

@@ -1,34 +1,34 @@
-# Protecting Against DDoS Attacks in Rahti
 
- A [denial-of-service](https://en.wikipedia.org/wiki/Denial-of-service_attack#Distributed_DoS) attack (DoS attack) is a cyber-attack in which the perpetrator seeks to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet. Denial of service is typically accomplished by flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled. A distributed denial-of-service (DDoS) is a large-scale DoS attack where the perpetrator uses more than one unique IP address or machines, often from thousands of hosts infected with malware.
+# Suojautuminen DDoS-hyökkäyksiltä Rahti {#protecting-against-ddos-attacks-in-rahti}
 
-Rahti's routers are already configured to have some protection against DDoS. The timeout `http-request` and others have been added to the default HAProxy router image to protect the cluster against DDoS attacks (for example, [slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security))). The current configured values are:
+[Palvelunestohyökkäys](https://en.wikipedia.org/wiki/Denial-of-service_attack#Distributed_DoS) (DoS-hyökkäys) on verkkohyökkäys, jossa hyökkääjä pyrkii tekemään koneen tai verkkoresurssin saavuttamattomaksi sen aiotuille käyttäjille estämällä väliaikaisesti tai pysyvästi palvelut isäntäjärjestelmän koneeseen, joka on yhteydessä Internetiin. Palvelunestohyökkäys toteutetaan tyypillisesti tulvimalla kohdekone turhilla pyynnöillä järjestelmien ylikuormittamiseksi ja estämällä siten osa tai kaikki lailliset pyynnöt. Hajautettu palvelunestohyökkäys (DDoS) on suurimittainen DoS-hyökkäys, jossa hyökkääjä käyttää enemmän kuin yhtä yksilöllistä IP-osoitetta tai konetta, usein tuhansien haittaohjelmien tartuttamien isäntäjärjestelmien kautta.
 
-| Parameter | Default timeout | Description |
+Rahtin reitittimet on jo valmiiksi konfiguroitu sisältämään jonkinlaista suojaa DDoS-hyökkäyksiä vastaan. Aikakatkaisu `http-request` ja muut on lisätty oletusarvoiseen HAProxy-reitittimen kuvaan suojaamaan klusteria DDoS-hyökkäyksiltä (esimerkiksi, [slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security))). Tämänhetkiset konfiguroidut arvot ovat:
+
+| Parametri | Oletus aikakatkaisu | Kuvaus |
 |:--|:--|:--|
-|http-request| 10s| HAProxy gives a client 10 seconds to send its headers HTTP request. [http-request](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20http-request) manual |
-|connect| 10s| Set the maximum time to wait for a connection attempt to a server to succeed. [connect](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4.2-timeout%20connect) manual |
-|http-keep-alive| 10s| Set the maximum allowed time to wait for a new HTTP request to appear [http-keep-alive](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20http-keep-alive) manual |
-|check| 10s| Set additional check timeout, but only after a connection has been already
-established. [check](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20check) manual |
+|http-request| 10s| HAProxy antaa asiakkaalle 10 sekuntia lähettää HTTP-pyyntönsä otsikot. [http-request](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20http-request) käsikirja |
+|connect| 10s| Asetetaan enimmäisaika odottaessa yhteydenottoyrityksen onnistumista palvelimelle. [connect](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4.2-timeout%20connect) käsikirja |
+|http-keep-alive| 10s| Asetetaan sallittu maksimiaika odottaessa uuden HTTP-pyynnön ilmestymistä [http-keep-alive](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20http-keep-alive) käsikirja |
+|check| 10s| Määritä lisätarkistus aikakatkaisu, mutta vasta yhteyden muodostamisen jälkeen. [check](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20check) käsikirja |
 
-It is possible to enable further protections on a per route basis. These annotations must be added accordingly to the `Route` you may want to protect:
+On mahdollista ottaa käyttöön lisäsuojauksia reittikohtaisesti. Nämä merkinnät on lisättävä asianmukaisesti `Route`, jota haluatte suojata:
 
-|Setting|Description|
+|Asetus|Kuvaus|
 |:--|:--|
-|haproxy.router.openshift.io/rate-limit-connections|Enables the settings be configured (when set to true, for example).|
-|haproxy.router.openshift.io/rate-limit-connections.concurrent-tcp|The number of concurrent TCP connections that can be made by the same IP address on this route.|
-|haproxy.router.openshift.io/rate-limit-connections.rate-tcp|The number of TCP connections that can be opened by a client IP.|
-|haproxy.router.openshift.io/rate-limit-connections.rate-http|The number of HTTP requests that a client IP can make in a 3-second period.|
+|haproxy.router.openshift.io/rate-limit-connections|Mahdollistaa asetusten konfiguroinnin (kun esimerkiksi asetetaan arvo true).|
+|haproxy.router.openshift.io/rate-limit-connections.concurrent-tcp|Samaa IP-osoitetta käyttäen tälle reitille tehtävien yhtäaikaisten TCP-yhteyksien määrä.|
+|haproxy.router.openshift.io/rate-limit-connections.rate-tcp|TCP-yhteyksien määrä, jonka asiakas-IP voi avata.|
+|haproxy.router.openshift.io/rate-limit-connections.rate-http|HTTP-pyyntöjen määrä, jonka asiakas-IP voi tehdä 3 sekunnin ajanjaksolla.|
 
-For example you can activate protection in HTTP by running this command:
+Esimerkiksi, voit aktivoida suojauksen HTTP:llä suorittamalla tämän komennon:
 
 ```sh
 oc annotate route test-rates haproxy.router.openshift.io/rate-limit-connections='true' \
                              haproxy.router.openshift.io/rate-limit-connections.rate-http='10'
 ```
 
-This activates a limit of 10 connections per source IP in a 3 second period.
+Tämä aktivoi rajan 10 yhteydelle per lähde-IP 3 sekunnin ajanjaksolla.
 
-* See our main [Route](../../cloud/rahti/concepts.md#route) documentation.
-* See here the upstream documentation about [Route-specific Annotations](https://docs.openshift.com/container-platform/4.15/networking/routes/route-configuration.html#nw-route-specific-annotations_route-configuration)
+* Katso pää-[Reitti](../../cloud/rahti/concepts.md#route) dokumentaatiomme.
+* Katso ylävirran dokumentaatio [Reittikohtaiset merkinnät](https://docs.openshift.com/container-platform/4.15/networking/routes/route-configuration.html#nw-route-specific-annotations_route-configuration)

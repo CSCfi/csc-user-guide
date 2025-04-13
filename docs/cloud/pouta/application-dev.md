@@ -1,114 +1,108 @@
-# Application development practices (in Pouta)
+# Sovelluksen kehityskäytännöt (Poutassa) {#application-development-practices-in-pouta}
 
-This article discusses some best practices for developers
-to follow while creating or deploying their application in
-Pouta, and how Pouta can help on following them. Pouta clouds ([cPouta] and [ePouta]), like other IaaS clouds, offer more flexibility than traditional bare metal computing environments do, allowing new and better designs.
+Tässä artikkelissa käsitellään parhaita käytäntöjä, joita kehittäjien kannattaa noudattaa luodessaan tai ottaessaan sovelluksiaan käyttöön Poutassa, ja kuinka Pouta voi auttaa näiden käytäntöjen noudattamisessa. Pouta-pilvet ([cPouta] ja [ePouta]) tarjoavat muiden IaaS-pilvien tapaan enemmän joustavuutta kuin perinteiset paljasmetalli-käyttöympäristöt, mahdollistaen uusia ja parempia suunnitelmia.
 
-The recommendations listed below are focused on what Pouta provides to you and how your applications can profit from it. Is not an exhaustive list of all best practices. You can additionally follow a larger set of [practices] as mentioned by the [Cloud Native Computing Foundation], various online literature on
-OpenStack such as its technical blogs, user guides, user stories etc. In real scenarios, some of these practices may not be applicable to your application, but applying practices that are suitable is the key takeaway of this article.
+Alla luetellut suositukset keskittyvät siihen, mitä Pouta tarjoaa ja miten sovellukset voivat hyötyä siitä. Tämä ei ole tyhjentävä lista kaikista parhaista käytännöistä. Voit lisäksi noudattaa laajempaa joukkoa [käytäntöjä], kuten [Cloud Native Computing Foundation], erilaista OpenStack-kirjallisuutta, kuten teknisiä blogeja, käyttöoppaita, käyttäjätarinoita jne. Todellisissa tilanteissa jotkin näistä käytännöistä eivät ehkä sovellu sovellukseesi, mutta soveltuvien käytäntöjen käyttöönotto on tämän artikkelin tärkein anti.
 
-## Stateless and disposable Virtual Machine nodes
+## Tilattomat ja hävitettävät virtuaalikoneet {#stateless-and-disposable-virtual-machine-nodes}
 
-If possible, try to develop your application in the form of distributed
-stateless _microservices_ that are responsible for independent computational sub-tasks and communicate among each other through a well defined interface. This is largely possible by the fact that you can create new VMs and reserve storage in a matter of a couple of minutes.
+Mikäli mahdollista, pyri kehittämään sovelluksesi hajautettujen tilattomien _mikropalveluiden_ muotoon, jotka vastaavat itsenäisistä laskennallisista alitehtävistä ja kommunikoivat keskenään hyvin määritetyn rajapinnan kautta. Tämä on mahdollista suurilta osin siksi, että voit luoda uusia virtuaalikoneita ja varata tallennustilaa muutamassa minuutissa.
 
-Data, which in most situations is irreplaceable, needs to be stored in separate data storage services that are persistent in nature, and not in the VM itself. In Pouta clouds, we
-offer _Object storage_ ([Allas]) and _Volume storage_ ([Cinder]).
+Tieto, joka useimmissa tilanteissa on korvaamatonta, tulee tallentaa erillisiin tietovarastopalveluihin, jotka ovat luonteeltaan pysyviä, eikä virtuaalikoneeseen itseensä. Pouta-pilvissä tarjoamme _objektitallennusta_ ([Allas]) ja _levytallennusta_ ([Cinder]).
 
-The application will be more **resilient**. Running stateless VMs where the data is stored in redundant services like [Cinder] or [Allas] (managed by a dedicated teams of professionals), minimizes the impact of failures. If the hardware that runs the VM suddenly fails, data will not be lost. This removes single points of failure (SPoF).
+Sovellus on tällöin **kestävämpi**. Ajamalla tilattomia virtuaalikoneita, joissa tiedot tallennetaan redundantteihin palveluihin kuten [Cinder] tai [Allas] (ammattilaistiimien hallinnoimina), minimoidaan vikojen vaikutus. Jos virtuaalikonetta ajava laitteisto yhtäkkiä hajoaa, tiedot eivät katoa. Tämä poistaa yksittäiset vikaantumispisteet (SPoF).
 
-<center>![Stateless VM](../../img/stateless_VM.drawio.png)
+<center>![Tilaton VM](../../img/stateless_VM.drawio.png)
 
-*Stateless VMs*</center>
+*Tilattomat virtuaalikoneet*</center>
 
-## Readily scalable (horizontal vs vertical)
+## Helposti skaalattavissa (vaakasuora vs pystysuora) {#readily-scalable-horizontal-vs-vertical}
 
-If an application follows the _microservice_ approach (mentioned in the previous topic), it will allow easy **horizontal** scaling, i.e. add or remove replicas of the same VM. This approach is sometimes more complex, as you will need to use a suitable design that allows distributed computing. A load balancer of some kind will also be needed to distribute work among the VMs.
+Jos sovellus noudattaa _mikropalvelu_ lähestymistapaa (kuten edellisessä aiheessa mainittiin), se mahdollistaa helpon **vaakasuoran** skaalaamisen, ts. saman virtuaalikoneen replikoiden lisäämisen tai poistamisen. Tämä lähestymistapa on joskus monimutkaisempi, koska sinun on käytettävä sopivaa suunnitelmaa, joka mahdollistaa hajautetun laskennan. Tarvitaan myös jonkinlainen kuormantasain jakamaan työtä virtuaalikoneiden kesken.
 
-After that hurdle is passed, it will be then less complex to horizontally **scale up and down** the application. If the computing and the data are not hardly coupled, the design will allow adding or removing Virtual machine replicas. Having more replicas also allows to spread the computation nodes across the computer center and minimizes (even more) the impact of individual failures, again lowering the number of SPoF. As already mentioned, the scale up and down is done in a matter of minutes thanks to the nature of Pouta.
+Kun tämä haaste on ratkaistu, on sitten vähemmän monimutkaista vaakasuoran **skaalauksen lisääminen ja vähentäminen** sovelluksessa. Jos laskenta ja tiedot eivät ole tiukasti sidoksissa, suunnittelu mahdollistaa virtuaalikone-replikoiden lisäämisen tai poistamisen. Enemmän replikoita mahdollistaa myös laskentasolmujen jakautumisen tietokeskuksen läpi ja minimoi (vieläkin) yksittäisten vikojen vaikutukset, jälleen vähentäen yksittäisten vikaantumispisteiden määrää. Kuten jo mainittu, skaalauksen lisääminen ja vähentäminen tehdään muutamassa minuutissa Poutan luonteen ansiosta.
 
-For applications that do not allow the _microservice_ approach, Pouta allows easy **vertical** scaling, i.e. *VM resize* to change the VM [flavor] and add or remove compute resources (CPUs, RAM, disk etc.). It is very fast as it requires only a short reboot. The software running in the VM will transparently see more resources after the reboot. It is not necessary to reinstall the software. This is a complement (or alternative) to horizontal scaling (replication).
+Sovelluksille, jotka eivät salli _mikropalvelu_-lähestymistapaa, Pouta mahdollistaa helpon **pystysuoran** skaalaamisen, ts. *virtuaalikoneen koon muuttaminen* muuttaaksesi virtuaalikoneen [makuprofiilia] ja lisätäksesi tai poistaaksesi laskentaresursseja (prosessorit, RAM, levy jne.). Se on erittäin nopeaa, sillä se vaatii vain lyhyen uudelleenkäynnistyksen. Virtuaalikoneessa ajettava ohjelmisto näkee lisää resursseja uudelleenkäynnistyksen jälkeen läpinäkyvästi. Ohjelmistoa ei tarvitse asentaa uudelleen. Tämä täydentää (tai vaihtoehtoisesti) vaakasuuntaista skaalausta (replikointi).
 
-<center>![scale](../../img/scale.drawio.png)
+<center>![skaalaus](../../img/scale.drawio.png)
 
-*Horizontal vs Vertical scaling*</center>
+*Vaakasuorassa vs pystysuorassa skaalaaminen*</center>
 
-!!! info "auto scale"
+!!! info "automaattinen skaalaus"
 
-    In Pouta clouds, you could also programmatically scale your Heat stack using [OpenStack Heat resources] like *OS::Heat::ResourceGroup*,*OS::Heat::AutoScalingGroup* and *OS::Heat::ScalingPolicy*.
+    Pouta-pilvissä voit myös ohjelmoida automaattisesti skaalaamaan Heat-pinoa käyttämällä [OpenStack Heat resursseja], kuten *OS::Heat::ResourceGroup*, *OS::Heat::AutoScalingGroup* ja *OS::Heat::ScalingPolicy*.
 
-## Isolated deployments for testing and production
+## Erilliset käyttöönottotestit ja -tuotantoa {#isolated-deployments-for-testing-and-production}
 
-You **must** have several isolated deployment environments, at least **testing** and **production**. Even though the names might vary, and more environments might be suitable. There must be a **testing** environment where you and your teammates will experiment with changes and validate that they work as designed. And a **Production** environment which is dedicated to your users. Issues should be found and solved in **testing** before they can get to **production**. Pouta allows you to request several computing projects that will be isolated among themselves by construction. 
+Sinun **on pakko** olla useita erillisiä käyttöönottoympäristöjä, vähintään **testaus** ja **tuotanto**. Vaikka nimet voivat vaihdella ja useammat ympäristöt saattavat olla sopivia. On oltava **testaus** ympäristö, jossa sinä ja tiimisi kokeilette muutoksia ja varmistatte, että ne toimivat suunnitellusti. Ja **tuotanto** ympäristö, joka on omistettu käyttäjillesi. Ongelmat tulisi löytyä ja ratkaista **testauksessa** ennen kuin ne pääsevät **tuotantoon**. Pouta mahdollistaa useiden laskentaprojektien pyytämisen, jotka ovat alusta alkaen eristettyjä toisistaan.
 
-!!! info "Common saying"
+!!! info "Yleinen sanonta"
 
-    Everybody has a testing environment. Some people are lucky enough enough to have a totally separate environment to run production in.
+    Jokaisella on testausympäristö. Osa ihmisistä on tarpeeksi onnekkaita omistamaan täysin erillisen ympäristön tuotannolle.
 
-Other common deployment types include:
+Muita yleisiä käyttöönotto-tyyppejä ovat:
 
-* **Pre-production**, which is in between test and production where a stable copy of production is kept but no users have access to it. Changes will go through pre-production before they arrive to production. This is useful to make a last and integrated test of a bunch of individual changes together. The environment will normally be frozen for some time before the changes are applied to production. It is common that a sub-community of friendly users (like the development team) might be using this environment so a real life test can be done (eat your own dog food).
+* **Esituotanto**, joka on testin ja tuotannon välillä, jossa pidetään vakaa kopio tuotannosta, mutta käyttäjillä ei ole pääsyä siihen. Muutokset kulkevat esituotannon kautta ennen kuin ne tulevat tuotantoon. Tämä on hyödyllistä tehdä viimeinen ja integroitu testi useille yksittäisille muutoksille yhdessä. Ympäristö jäädytetään yleensä jonkin aikaa ennen kuin muutokset viedään tuotantoon. On yleistä, että ystävällisten käyttäjien alayhteisö (kuten kehitystiimi) saattaa käyttää tätä ympäristöä, jotta todellinen elämän testi voidaan tehdä (syö omaa koiranruokaasi).
 
-* **Development**, where each team or developer will have its own playground to break and test individual changes. There are normally several of these environments and they are disposable.
+* **Kehitys**, missä jokaisella tiimillä tai kehittäjällä on oma leikkikenttä yksittäisten muutosten murentamiselle ja testaamiselle. Yleensä näitä ympäristöjä on useita ja ne ovat hävitettäviä.
 
-## Backups
+## Varmuuskopiot {#backups}
 
-Backups are critical to any application. They protect data against _accidental deletion_, _hardware failure_, _corruption_, _ransomware_ and more. There are several data backup strategies. Depending on the application and the data it contains, the backup strategy might vary. Factors like cost, complication to setup, and reproducibility of the data, affect the strategy to follow. Pouta clouds do not provide a backup solution, but help setting up one by providing advanced storage solutions like [Cinder] and [Allas].
+Varmuuskopiot ovat kriittisiä mille tahansa sovellukselle. Ne suojaavat tietoja _tahattomalta poistamiselta_, _laitteistovialta_, _korruptiolta_, _kiristyshaittaohjelmilta_ ja muulta. On olemassa useita tietojen varmuuskopiointistrategioita. Riippuen sovelluksesta ja sen sisältämistä tiedoista, varmuuskopiointistrategia voi vaihdella. Tekijät kuten kustannukset, asennuksen monimutkaisuus ja tietojen toistettavuus vaikuttavat seurattavaan strategiaan. Pouta-pilvet eivät tarjoa varmuuskopiointiratkaisua, mutta auttavat määrittämään sellaisen tarjoamalla edistyneitä tallennusratkaisuja, kuten [Cinder] ja [Allas].
 
-One common backup strategy is the 3-2-1 rule. 3 copies of the data (including the original production one), 2 different media of storage and 1 offsite backup. Other basic backup principle is that copies cannot be deleted or corrupted from the original source (this is to prevent accidents and ransomware). Using a dedicated backup tool is recommended, these tools allow to easily create immutable copies that are properly dated and scheduled. They also facilitate other secondary aspects like encryption and older backups deletion. It is also very important to validate that the backups are indeed valid and that it is possible to recover the data as intended.
+Yleinen varmuuskopiointistrategia on 3-2-1 -sääntö. 3 kopiota tiedoista (mukaan lukien alkuperäinen tuotantokopio), 2 erilaista tiedontallennusmediaa ja 1 etävarmuuskopio. Toinen perustavanlaatuinen varmuuskopiointiperiaate on, että kopioita ei voida poistaa tai korruptoida alkuperäisestä lähteestä (tämä on estämään onnettomuuksia ja kiristyshaittaohjelmia). Erityisen varmuuskopiotyökalun käyttäminen on suositeltavaa, nämä työkalut mahdollistavat helposti muuttumattomien kopioiden luomisen, jotka ovat asianmukaisesti päivitettyjä ja aikataulutettuja. Ne helpottavat myös muita toissijaisia näkökohtia, kuten salakirjoitusta ja vanhempien varmuuskopioiden poistamista. On myös erittäin tärkeää varmistaa, että varmuuskopiot ovat todellakin voimassa ja että tietojen voi palauttaa tarkoitetulla tavalla.
 
 <center>![3-2-1](../../img/3-2-1.drawio.png)
 
-*3-2-1 strategy*</center>
+*3-2-1 strategia*</center>
 
-## Use Continuous Integration and Continuous Delivery
+## Käytä jatkuvaa integraatiota ja jatkuvaa toimintaa {#use-continuous-integration-and-continuous-delivery}
 
-The application you develop, the IaC code that deploys its infrastructure, and the configuration management code that configures it, should be tracked by a version control system of your choice, the most popular and de facto standard is [GIT]. Once the code of the application is in Version control, the next step is to use Continuous Integration (CI) and Continuous Delivery (CD).
+Kehittämäsi sovellus, siihen liittyvä infrastruktuurin käyttöönoton koodaus sekä sitä konfiguroiva hallintakoodi tulisi seurata versionhallintajärjestelmällä, valitsemasi versionhallintajärjestelmä, suosituin ja de facto standardi on [GIT]. Kun sovelluksen koodi on versionhallinnassa, seuraava vaihe on käyttää jatkuvaa integraatiota (CI) ja jatkuvaa toimintaa (CD).
 
 <center>![Git](../../img/git.drawio.png)
 
-*Git development and collaboration*</center>
+*Git-kehitys ja yhteistyö*</center>
 
-Once the code of the application is in Version control, the next step is to use Continuous Integration (CI) and Continuous Delivery (CD).
+Kun sovelluksen koodi on versionhallinnassa, seuraava vaihe on käyttää jatkuvaa integraatiota (CI) ja jatkuvaa toimintaa (CD).
 
-CI is when each change committed to your **codebase** is automatically **built** and **tested**. This allows to find issues sooner and systematically. The kind of tests that can be added could be generic, like code analysis tools, or purpose written tests that check the functionality of the code, preventing bug regressions and so. Finally it is also common, to have internal procedure checks, like make sure every new branch has a ticket associated with it. Experience with these kind of practices show that time and effort is saved by teams when using CI. There are some well known CI services online such as [Travis CI], [Circle CI] and [Github actions], that have a very low barrier of entry and give right away added value.
+Jatkuva integrointi (CI) tarkoittaa, että jokainen muutos, joka sitoudutaan koodipohjaasi, rakennetaan automaattisesti ja testataan. Tämä mahdollistaa ongelmien löytämisen aikaisemmin ja järjestelmällisesti. Lisättävien testien tyyppi voi olla yleinen, kuten koodianalyysityökalut tai tarkoituksenmukaiset testit, jotka tarkistavat koodin toiminnallisuuden, estäen virheiden taantumia jne. Lopuksi on myös yleistä, että on sisäisiä menettelytarkastuksia, kuten varmistetaan, että jokaisella uudella haaralla on siihen liittyvä lippu. Kokemukset näistä käytännöistä osoittavat, että aika ja vaivannäkö säästyy tiimeiltä, kun käytetään CI:tä. On muutamia tunnettuja CI-palveluita verkossa, kuten [Travis CI], [Circle CI] ja [Github actions], joilla on erittäin matala kynnyskäyrä ja jotka antavat heti lisäarvoa.
 
-CD is when the **release** of specific versions of the software is done automatically. And more importantly, the **deployment** of those validated versions is also automatic. So if a change passes both all the automatic tests and the review of other members of the coding team, the change is deployed automatically. This degree of automation also requires a solid deployment process that does not require downtime and confident in the whole process. New deployed versions will be **monitored**, this information will probably lead to **planning** of new versions. 
+Jatkuva toimitus (CD) tarkoittaa, että tiettyjen ohjelmistoversioiden julkaisua tehdään automaattisesti. Ja mikä tärkeämpää, näiden validoitujen versioiden jakelu on myös automaattista. Joten, jos muutos läpäisee sekä kaikki automaattiset testit että muiden koodaustiimin jäsenten tarkastelun, muutos otetaan käyttöön automaattisesti. Tämä automaatiotaso vaatii myös vankan jakeluprosessin, joka ei edellytä seisokkeja ja luottamusta koko prosessiin. Uudet käyttöönotetut versiot seurataan, tämä tieto johtaa todennäköisesti uusien versioiden suunnitteluun.
 
 <center>![CI CD](../../img/ci-cd.drawio.png)</center>
 
-## Use Devops tools
+## Käytä Devops-työkaluja {#use-devops-tools}
 
-### Infrastructure as Code tools
+### Infrastruktuuri koodina -työkalut {#infrastructure-as-code-tools}
 
-Infrastructure as Code (IaC) tools are very useful, as they allow to specify complex application infrastructures (VM, networking, storage, ...) using text files (code) known as templates. Then the tool will use the API of the cloud provider to automatically create/configure/delete the corresponding infrastructure. Some IaC tools which are stable and widely used are:
+Infrastruktuuri koodina (IaC) -työkalut ovat erittäin hyödyllisiä, koska ne mahdollistavat monimutkaisten sovellusinfrastruktuurien (virtuaalikoneet, verkosto, tallennus, ...) määrittämisen tekstimuotoisilla tiedostoilla (koodi), joita kutsutaan malleiksi. Sitten työkalu käyttää pilvipalveluntarjoajan rajapintaa luodakseen/määrittääkseen/poistaakseen vastaavan infrastruktuurin automaattisesti. Joitakin IaC-työkaluja, jotka ovat vakaita ja laajalti käytössä, ovat:
 
-* **Terraform** is a very known IaC tool. It is dedicated to only being an IaC tool. It is cloud agnostic thanks to the use of "providers", like the [OpenStack provider]. See the example [terraform-openstack-example].
-* **Heat** is the tool integrated by OpenStack. See the example [heat-openstack-example].
-* **Ansible** has some modules that provide IaC functionality. See the example [ansible-openstack-example].
+* **Terraform** on hyvin tunnettu IaC-työkalu. Se on omistettu olemaan vain IaC-työkalu. Se on pilvisidonta-agnostinen "toimittajien" käytön ansiosta, kuten [OpenStack provider]. Katso esimerkki [terraform-openstack-example].
+* **Heat** on OpenStackiin integroitu työkalu. Katso esimerkki [heat-openstack-example].
+* **Ansible** sisältää joitain moduuleja, jotka tarjoavat IaC-toiminnallisuutta. Katso esimerkki [ansible-openstack-example].
 
-You can see above three examples, one for for each tool. All of them aim to get the same result: One or more VMs with nginx installed and few local files deployed. In order to choose which one to use, you will need to consider the up and downs of the tools and use the one that fits more your use case. For example, if you think about support. Both Heat and Ansible are developed by the OpenStack team and the Terraform provider is a community written software. In addition, Heat is provided together with OpenStack and can  be used via command line or the web interface. Finally Heat is the only one that the Pouta team fully supports. On the other hand, Terraform is more widely used and will be easier to find examples and help than the other two tools.
+Kuten yllä oleva kolmesta esimerkistä kullekin työkalulle näkyy, ne kaikki tähtäävät samaan tulokseen: Yksi tai useampi virtuaalikone nginx-installoitu ja muutamia paikallisia tiedostoja otettuna käyttöön. Valitaksesi minkä työkalun käytät, sinun tulee tarkastella työkalujen ylä- ja alamäkiä ja käyttää sitä, joka parhaiten sopii tapausesi. Esimerkiksi, jos ajattelet tukea. Sekä Heat että Ansible ovat OpenStack-tiimin kehittämiä ja Terraform Provider on yhteisön kirjoittama ohjelmisto. Lisäksi Heat toimitetaan OpenStackin mukana ja sitä voi käyttää komentorivillä tai verkkokäyttöliittymällä. Lopuksi Heat on ainoa, jota Pouta-tiimi tukee täysin. Toisaalta Terraform on laajemmin käytetty ja esimerkkien ja avun löytäminen on siitä helpompaa kuin kahdesta muusta työkalusta.
 
-!!! Info "Terraform license"
+!!! Info "Terraform-licenssi"
 
-    Terraform has changed its license (Summer 2023), [OpenTofu](https://opentofu.org/) is an alternative client created to avoid licensing issues that might be created. At this time Tofu is a drop in replacement, but it is expected to diverge with time. At this time there is no ansible module for Tofu.
+    Terraform on muuttanut lisenssiään (kesä 2023), [OpenTofu](https://opentofu.org/) on vaihtoehtoinen asiakasohjelma, joka on luotu välttämään mahdollisia lisensointiongelmia. Tällä hetkellä Tofu on suoraan vaihtokelpoinen, mutta sen odotetaan eriytyvän ajan myötä. Tällä hetkellä ei ole Ansible-moduulia Tofulle.
 
 
-<center>![Heat webUI](../../img/heat-web-ui.png)
-*Heat web UI*
+<center>![Heat web-käyttöliittymä](../../img/heat-web-ui.png)
+*Heat web-käyttöliittymä*
 </center>
 
-!!! warning "Tools evolve"
+!!! varoitus "Työkalut kehittyvät"
 
-    Keep in mind that the situations for these (and most) tools evolve over time, support may get better or dropped altogether, features and bugs may be fixed, ...
+    Muista, että näiden (ja useimpien) työkalujen tilanne kehittyy ajan myötä, tuki voi parantua tai loppua kokonaan, ominaisuuksia ja virheitä voi korjata jne.
 
-### Configuration management tools
+### Konfiguraationhallintatyökalut {#configuration-management-tools}
 
-Every application you build has some dependencies in the form of software libraries and their specific versions.
-In order for your application to work, these dependencies should be explicitly defined and installed automatically. A configuration management tool like **Ansible** or **Puppet** is the best way to achieve this. Using a configuration management tool to define and install dependencies automatically makes the deployments more reproducible and predictable. In the Ansible example below, a task called "Install dependencies" will install few tools:
+Jokaisella rakentamallasi sovelluksella on joitain riippuvuuksia ohjelmakirjastojen ja niiden tiettyjen versioiden muodossa. Jotta sovellus toimisi, nämä riippuvuudet tulee määritellä selvästi ja asentaa automaattisesti. Konfiguraationhallintatyökalu, kuten **Ansible** tai **Puppet**, on paras tapa saavuttaa tämä. Käyttämällä konfiguraationhallintatyökalua määrittelemään ja asentamaan riippuvuudet automaattisesti tekee käyttöönotosta toistettavaa ja ennustettavaa. Ansible-esimerkissä alla, tehtävä nimeltä "Asenna riippuvuudet" asentaa muutaman työkalun:
 
 ```yaml
-- name: Install dependencies
+- name: Asenna riippuvuudet
   become: yes
   package:
    name:
@@ -118,56 +112,54 @@ In order for your application to work, these dependencies should be explicitly d
    state: present
 ```
 
-When all dependencies are declared, Ansible will make sure that they are installed in the deployment environment before the actual application is
-deployed. You should never install any dependencies
-manually, instead automate their installation. This helps reproducibility (all systems will be installed in the same way) and the system will be self-documented (it will be clear what needs to be installed). It is also possible to specify versions of software to make the installation much more stable.
+Kun kaikki riippuvuudet on määritelty, Ansible varmistaa, että ne on asennettu käyttöönottoympäristöön ennen varsinaisen sovelluksen käyttöönottoa. Sinun ei koskaan tule asentaa mitään riippuvuuksia manuaalisesti, sen sijaan automatisoi niiden asennus. Tämä auttaa toistettavuudessa (kaikki järjestelmät asennetaan samalla tavalla) ja järjestelmä itse dokumentoituu (on selvää, mitä pitää asentaa). On myös mahdollista määrittää ohjelmistoversioita, mikä tekee asennuksesta paljon vakaampaa.
 
-These principles also apply to configuration. When possible, you should use upstream modules to handle the configuration of the software installed. Modules often isolate you from platform and version differences, i.e. you will write the same configuration definition for different versions of the software and different flavors of the operating systems and the module will translate that for you.
+Nämä periaatteet koskevat myös asetuksia. Mahdollisuuksien mukaan sinun tulisi käyttää ylätason moduuleja hallinnoimaan asennetun ohjelmiston asetuksia. Moduulit usein eristävät sinut alusta- ja versioeroista, ts. kirjoitat saman konfiguraatiojulistuksen eri ohjelmistoversioille ja eri käyttöjärjestelmän makuille ja moduuli kääntää sen puolestasi.
 
-Configuration management tools integrate very well with Pouta clouds. As they are able to read and use specific deployment values of the VMs, like IP addresses, host names, etc...  This means that these variables do not need to be hardwired into the system and will always be kept up to date. For example, we have a load balancer and few worker nodes, the load balancer needs to have a list of worker node IPs. A configuration management tool will be able to generate automatically the load balancer configuration using the information it gets from OpenStack's API. The final product is hands-off installation and upgrade process, where the configuration management does all the work and no manual work is necessary.
+Konfiguraationhallintatyökalut integroituvat hyvin Pouta-pilviin. Koska ne osaavat lukea ja käyttää tiettyjä käyttöönottoarvoja virtuaalikoneista, kuten IP-osoitteet, isäntänimet jne., näitä muuttujia ei tarvitse kovakoodata järjestelmään ja ne säilyttävät ajantasaisen tilan. Esimerkiksi, meillä on kuormantasain ja muutamia työsolmuja, kuormantasaajan täytyy sisältää lista työsolmujen IP-osoitteista. Konfiguraationhallintatyökalu voi automaattisesti luoda kuormantasaajan konfiguraation käyttämällä tietoa, jonka se saa OpenStackin API:sta. Lopputulos on täysi-naruriippumaton asennus- ja päivitysprosessi, jossa konfiguraationhallinta tekee kaiken työn eikä manuaalista työtä tarvita.
 
-## Research alternatives before you develop and deploy
+## Tutki vaihtoehtoja ennen kuin kehität ja otat käyttöön {#research-alternatives-before-you-develop-and-deploy}
 
-Before you start to develop and deploy a new service, it is advisable to explore if existing services and software already cover your use case. You should try to avoid falling into the "[not invented here syndrome](https://en.wikipedia.org/wiki/Not_invented_here)", where internally developed services and products are unfairly favored. It changes from case to case, as sometimes the project needs cannot be covered by existing solutions. CSC provides some service solutions that you should be aware of:
+Ennen kuin alat kehittämään ja ottamaan käyttöön uutta palvelua, on suositeltavaa tutkia, kattaako olemassa olevat palvelut ja ohjelmistot jo käyttötapauksesi. Sinun tulisi yrittää välttää joutumasta "[ei kehitetty täällä -syndroomaan](https://en.wikipedia.org/wiki/Not_invented_here)", missä sisäisesti kehitettyjä palveluita ja tuotteita suositaan kohtuuttomasti. Tilanne vaihtelee tapauskohtaisesti, sillä toisinaan projektiin liittyviä tarpeita ei voida kattaa olemassa olevilla ratkaisuilla. CSC tarjoaa muutamia palveluratkaisuja, joista sinun tulisi olla tietoinen:
 
-### Noppe
+### Noppe {#noppe}
 
-If you need Jupyter or RStudio notebook, CSC provides a [noppe service](../noppe/index.md). It is a mature service provided by a dedicated team of professionals.
+Jos tarvitset Jupyter- tai RStudio-muistikirjan, CSC tarjoaa [noppe palvelun](../noppe/index.md). Se on kypsä palvelu, joka on ammattitaitoisen tiimin tarjoama.
 
-### Rahti
+### Rahti {#rahti}
 
-If you need to deploy Docker containers on a cluster like Kubernetes, CSS provides [Rahti](../rahti/index.md). Rahti is a OpenShift okd developed by RedHat.
+Jos sinun tarvitsee ottaa käyttöön Docker-säilöjä Kubernetes-tyyppisessä klusterissa, CSC tarjoaa [Rahti](../rahti/index.md). Rahti on RedHatin kehittämä OpenShift okd.
 
-### Pukki
+### Pukki {#pukki}
 
-If you need a database, you should take a look to [Pukki](../dbaas/what-is-dbaas.md), CSC's Database as a Service offering (**currently in a closed beta**).
+Jos tarvitset tietokannan, sinun kannattaa katsoa [Pukki](../dbaas/what-is-dbaas.md), CSC:n Database as a Service -tarjonta (**tällä hetkellä suljetussa betassa**).
 
 
-!!! info "contact us"
+!!! info "ota meihin yhteyttä"
 
-    If any of these services interest you, but they do not cover 100% your needs, please contact us at <servicedesk@csc.fi> and we will study your case.
+    Jos jokin näistä palveluista kiinnostaa sinua, mutta ne eivät kata 100% tarpeistasi, ota yhteyttä meihin osoitteessa <servicedesk@csc.fi> ja tutkimme tapaustasi.
 
-## Summary
+## Yhteenveto {#summary}
 
-Pouta offers few useful tools and resources that will make it easier to develop more reliable applications. Cloud deployments work very well when the application follow the idea of disposable microservices that are prepared to scale up and down transparently and are designed to respond well to unexpected failures. Pouta gives the flexibility of easily deploying isolated development environments. In addition, the API gives all the power of automation to you, and thanks to Devops tools it is simple to use that power. And of course never forget to backup your data.
+Pouta tarjoaa muutamia hyödyllisiä työkaluja ja resursseja, jotka helpottavat luomaan luotettavampia sovelluksia. Pilvikäyttöönotot toimivat erittäin hyvin, kun sovellus noudattaa tilattomien mikropalveluiden ajatusta, jotka on suunniteltu skaalautumaan ylös ja alas läpinäkyvästi ja vastaamaan hyvin odottamattomiin vikoihin. Pouta antaa mahdollisuuden helposti ottaa käyttöön eristettyjä kehitysympäristöjä. Lisäksi API antaa sinulle kaiken automaation vallan, ja Devops työkalujen ansiosta tätä valtaa on yksinkertaista hyödyntää. Ja tietenkin älä koskaan unohda varmuuskopioida tietojasi.
 
-  [practices]: https://12factor.net/
-  [code repositories]: https://github.com/CSCfi
-  [code repository]: http://https://github.com/CSCfi/etherpad-deployment-demo
-  [Etherpad code example]: https://github.com/CSCfi/etherpad-deployment-demo
-  [OpenStack Heat resources]: https://docs.openstack.org/heat/stein/template_guide/openstack.html
-  [Ansible playbooks]: https://github.com/CSCfi/spark-openstack
+  [käytännöt]: https://12factor.net/
+  [koodivarastot]: https://github.com/CSCfi
+  [koodivarasto]: http://https://github.com/CSCfi/etherpad-deployment-demo
+  [Etherpad-koodiesimerkki]: https://github.com/CSCfi/etherpad-deployment-demo
+  [OpenStack Heat -resurssit]: https://docs.openstack.org/heat/stein/template_guide/openstack.html
+  [Ansible-playbookit]: https://github.com/CSCfi/spark-openstack
   [Travis CI]: https://travis-ci.org
   [Circle CI]: https://circleci.com/
-  [Github actions]: https://github.com/features/actions
+  [Github toiminnot]: https://github.com/features/actions
   [cPouta]: https://pouta.csc.fi
   [ePouta]: http://epouta.csc.fi
   [Allas]: ../../data/Allas/index.md
   [Cinder]: persistent-volumes.md
-  [ansible-openstack-example]: https://github.com/cscfi/ansible-openstack-example
-  [heat-openstack-example]: https://github.com/cscfi/heat-openstack-example
-  [terraform-openstack-example]: https://github.com/cscfi/terraform-openstack-example
-  [flavor]: vm-flavors-and-billing.md
+  [ansible-openstack-esimerkki]: https://github.com/cscfi/ansible-openstack-example
+  [heat-openstack-esimerkki]: https://github.com/cscfi/heat-openstack-example
+  [terraform-openstack-esimerkki]: https://github.com/cscfi/terraform-openstack-example
+  [makuprofiili]: vm-flavors-and-billing.md
   [OpenStack provider]: https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs
   [Cisa]: https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf
   [Cloud Native Computing Foundation]: https://www.cncf.io/

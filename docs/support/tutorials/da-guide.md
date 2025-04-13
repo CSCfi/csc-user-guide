@@ -1,86 +1,85 @@
-# Data analysis guide
 
-The purpose of this guide is to help you in choosing the right tools and environment for your data analysis.  In addition, CSC organizes a [wide variety of training courses](https://www.csc.fi/en/trainings), many of which are related to data analytics and machine learning in CSC's computing environments.  Finally, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](../../support/contact.md).
+# Data-analyysiopas {#data-analysis-guide}
 
-## Getting started
+Tämän oppaan tarkoituksena on auttaa sinua valitsemaan oikeat työkalut ja ympäristön data-analyysiisi. Lisäksi CSC järjestää [monipuolisesti koulutuskursseja](https://www.csc.fi/en/trainings), joista monet liittyvät data-analytiikkaan ja koneoppimiseen CSC:n laskentaympäristöissä. Lopuksi, CSC:n asiantuntijat auttavat mielellään kaikissa datalähtöisen tutkimuksesi osa-alueissa, ja heihin voi ottaa yhteyttä [CSC:n palvelupisteen](../../support/contact.md) kautta.
 
-To get started, you need to:
+## Aloittaminen {#getting-started}
 
-- have a [CSC account](../../accounts/how-to-create-new-user-account.md)
-- be member of a CSC project, either by [creating a new project](../../accounts/how-to-create-new-project.md) or joining an existing project, e.g. by asking the [project manager to add you](../../accounts/how-to-add-members-to-project.md)
+Aloittaaksesi sinun tulee:
 
-Finally, the project needs to have [access to the services](../../accounts/how-to-add-service-access-for-project.md) you will use.  More on our services below, and when you might use them.
+- olla [CSC:n käyttäjätili](../../accounts/how-to-create-new-user-account.md)
+- olla CSC-projektin jäsen, joko [luomalla uusi projekti](../../accounts/how-to-create-new-project.md) tai liittymällä olemassa olevaan projektiin, esimerkiksi pyytämällä [projektipäällikköä lisäämään sinut](../../accounts/how-to-add-members-to-project.md)
 
-## CSC's services
+Lopuksi, projektilla on oltava [pääsy käyttämiisi palveluihin](../../accounts/how-to-add-service-access-for-project.md). Lisätietoja palveluistamme alla ja milloin niitä voi käyttää.
 
-Below is a short glossary of CSC's services that are most relevant for data analysis.
+## CSC:n palvelut {#cscs-services}
 
-[**Puhti**](../../computing/index.md) is CSC's supercomputer where most computing should be done.  [Puhti has a large set of pre-installed applications](../../apps/index.md), and scales up to very computing heavy tasks, including GPU-based processing.
+Alla on lyhyt sanasto CSC:n palveluista, jotka ovat tärkeimpiä data-analyysille.
 
-[**Allas**](../../data/Allas/index.md) is CSC's data storage service.  If you have big datasets or need to share data with people outside of your project, you should consider using Allas.
+[**Puhti**](../../computing/index.md) on CSC:n supertietokone, jossa useimmat laskennat tulisi tehdä. [Puhtissa on laaja valikoima esiasennettuja sovelluksia](../../apps/index.md), ja se skaalaantuu erittäin raskaisiin laskentatehtäviin, mukaan lukien GPU-pohjainen käsittely.
 
-[**Pouta**](../../cloud/pouta/index.md) is CSC's cloud service where you can create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Pouta is also more suitable for processing sensitive data, especially the ePouta variant.
+[**Allas**](../../data/Allas/index.md) on CSC:n tietovarastopalvelu. Jos sinulla on suuria tietoaineistoja tai tarvitsee jakaa dataa projektisi ulkopuolisille, kannattaa harkita Allaksen käyttöä.
 
-[**Rahti**](../../cloud/rahti/index.md) is CSC's container cloud.  Here you can easily create virtual applications based on container images.
+[**Pouta**](../../cloud/pouta/index.md) on CSC:n pilvipalvelu, jossa voit luoda oman virtuaalisen palvelimesi. Tämä antaa sinulle enemmän hallintaa laskentaympäristöstä, mutta ei välttämättä sovi erittäin raskaisiin laskentatehtäviin. Pouta sopii myös paremmin arkaluonteisen tiedon käsittelyyn, erityisesti ePouta-variantti.
 
-[**Noppe**](https://noppe.csc.fi/) is a great service if you just want to run a quick analysis directly in your web browser. Noppe supports Jupyter with Python tools for data analysis and machine learning, and also RStudio.
+[**Rahti**](../../cloud/rahti/index.md) on CSC:n konttipilvi. Täällä voit helposti luoda virtuaalisia sovelluksia konttikuvien pohjalta.
 
-## Example use cases
+[**Noppe**](https://noppe.csc.fi/) on erinomainen palvelu, jos haluat vain suorittaa nopean analyysin suoraan verkkoselaimessasi. Noppe tukee Jupyteria Python-työkalujen kanssa data-analyysiin ja koneoppimiseen sekä myös RStudioa.
 
-### Getting into data-driven research
+## Esimerkkitapauksia {#example-use-cases}
 
-*You have been dabbling in Excel or SPSS but now you are looking for more powerful ways to handle your data.*
+### Siirtyminen datavetoiseen tutkimukseen {#getting-into-data-driven-research}
 
-A great way to start with data analytics is to attend a course. You can check out upcoming courses on the [CSC training website](https://www.csc.fi/en/trainings). Also, CSC has some training materials that are suitable for self-learning, such as these introductory courses:
+*Olet tutkinut Excelin tai SPSS:n avulla, mutta nyt haluat tehokkaampia tapoja käsitellä dataasi.*
 
-- [R for Beginners](https://github.com/csc-training/R-for-beginners)
-- [Data Analysis with R](https://github.com/csc-training/da-with-r-remote)
-- [Practical Machine Learning (using Python)](https://e-learn.csc.fi/course/view.php?id=14)
+Mahtava tapa aloittaa data-analytiikka on osallistua kurssille. Voit tarkistaa tulevat kurssit [CSC:n koulutussivustolta](https://www.csc.fi/en/trainings). Lisäksi CSC:llä on koulutusmateriaaleja, jotka soveltuvat itseopiskeluun, kuten seuraavat johdantokurssit:
 
-If you are in the field of bioinformatics, you might also want to check out the [Chipster platform](https://chipster.csc.fi/).
+- [R aloittelijoille](https://github.com/csc-training/R-for-beginners)
+- [Data-analyysi R:llä](https://github.com/csc-training/da-with-r-remote)
+- [Käytännön koneoppiminen (Pythonilla)](https://e-learn.csc.fi/course/view.php?id=14)
 
-There is also plenty of data science information available online, some popular resources include [Udemy](https://www.udemy.com/courses/development/data-science/),
-[Coursera](https://www.coursera.org/browse/data-science) and [edX](https://www.edx.org/course/subject/data-science).
+Jos työskentelet bioinformatiikan alalla, kannattaa myös tarkistaa [Chipster-alusta](https://chipster.csc.fi/).
 
-If you don't want to set up a development environment on your own laptop, you can easily use [Rahti](../../cloud/rahti/access.md) to set up an RStudio environment using a ready-made RStudio template from the template catalog.
-More info about the RStudio template can be found in the [RStudio-openshift GitHub repository](https://github.com/CSCfi/rstudio-openshift).  
-We also have [instructions on how to use the Allas object storage from RStudio](https://github.com/CSCfi/rstudio-openshift/blob/master/Allas.md).
+Verkossa on runsaasti data-analytiikan tietoa saatavilla, suosittuja resursseja ovat esimerkiksi [Udemy](https://www.udemy.com/courses/development/data-science/),
+[Coursera](https://www.coursera.org/browse/data-science) ja [edX](https://www.edx.org/course/subject/data-science).
 
-### Scaling up from your laptop (beginner)
+Jos et halua pystyttää kehitysympäristöä omalle kannettavallesi, voit helposti käyttää [Rahti-palvelua](../../cloud/rahti/access.md) asentaaksesi RStudio-ympäristön valmiilla RStudio-pohjalla mallikatalogista. Lisätietoja RStudio-pohjasta löytyy [RStudio-openshift GitHub-repositorysta](https://github.com/CSCfi/rstudio-openshift).  
+Meillä on myös [ohjeet Allas-objektivaraston käytöstä RStudiosta](https://github.com/CSCfi/rstudio-openshift/blob/master/Allas.md).
 
-*You have been running analyses in R or Python for some time already, but you have reached the limits of your own laptop or desktop computer. Perhaps you need more memory or faster processing?*
+### Skaalaaminen kannettavasta tietokoneesta (aloittelija) {#scaling-up-from-your-laptop-beginner}
 
-In most cases, the next step would be to move to CSC's supercomputer Puhti, which is a high performance computing (HPC) cluster. That means it's not one computer, but a collection of many computers. Users access the front-end server (login node) of Puhti, where they can submit computing jobs to a queuing system which takes care of distributing them to the cluster's different computers (compute nodes).  Please read the [instructions on how to access Puhti](../../computing/index.md), and [how to submit computing jobs to Puhti's queuing system](../../computing/running/getting-started.md).
+*Olet jo jonkin aikaa suorittanut analyyseja R:llä tai Pythonilla, mutta olet saavuttanut oman kannettavasi tai pöytätietokoneesi rajat. Tarvitset ehkä enemmän muistia tai nopeampaa prosessointia?*
 
-Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R and RStudio Server](../../apps/r-env.md), and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](../../support/contact.md).
+Useimmissa tapauksissa seuraava askel olisi siirtyä CSC:n supertietokoneeseen Puhtiin, joka on korkeatehoinen laskentaklusteri (HPC). Tämä tarkoittaa, että se ei ole yksi tietokone, vaan kokoelma monia tietokoneita. Käyttäjät pääsevät Puhtin etupalvelimelle (login node), jossa he voivat lähettää laskentatöitä jonotusjärjestelmään, joka huolehtii niiden jakamisesta klusterin eri tietokoneille (laskentosolmuille). Lue [ohjeet Puhtiin pääsemisestä](../../computing/index.md) ja [how to submit computing jobs to Puhti's queuing system](../../computing/running/getting-started.md).
 
-As Puhti is a shared computing environment, users are restricted in what they can do, for example when it comes to installing customized software or processing sensitive data.  In some cases, it might make sense to instead use [**Pouta**](../../cloud/pouta/index.md) to create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Another option is [**Rahti**](../../cloud/rahti/index.md), where you can create virtual applications based on container images. See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples).
+Puhtissa on [laaja valikoima tieteellisiä laskentasovelluksia esiasennettuna](../../apps/index.md), mukaan lukien [R ja RStudio Server](../../apps/r-env.md) sekä [Python-kirjastot data-analyysiin](../../apps/python-data.md). Jos huomaat jotain puuttuvan, älä epäröi ottaa yhteyttä [palvelupisteeseemme](../../support/contact.md).
 
-### Heavy computing needs (advanced)
+Koska Puhti on jaettu laskentaympäristö, käyttäjiä rajoitetaan siinä, mitä he voivat tehdä, esimerkiksi räätälöidyn ohjelmiston asentamisessa tai arkaluonteisen datan käsittelyssä. Joissakin tapauksissa voi olla järkevää käyttää [**Poutaa**](../../cloud/pouta/index.md) luodaksesi oman virtuaalipalvelimen. Tämä antaa sinulle enemmän hallintaa laskentaympäristön suhteen, mutta ei välttämättä sovellu erittäin raskaisiin laskentatöihin. Toinen vaihtoehto on [**Rahti**](../../cloud/rahti/index.md), jossa voit luoda virtuaalisia sovelluksia konttikuvien pohjalta. Katso esimerkkejä [koneoppimismallien käyttöönotosta Rahtissa](https://github.com/CSCfi/rahti-ml-examples).
 
-*You are already an expert, but you have outgrown the resources of your local institution.*
+### Raskaammat laskentatarpeet (edistynyt) {#heavy-computing-needs-advanced}
 
-If you need to heavily parallelize your computing, or for example use GPU-accelerated processing, Puhti is the right answer (see instructions in the above section).
+*Olet jo asiantuntija, mutta olet kasvanut ulos paikallisen laitoksesi resursseista.*
 
-For GPU-accelerated machine learning, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [JAX](../../apps/jax.md) and [RAPIDS](../../apps/rapids.md). 
+Jos tarvitset voimakasta laskennan rinnakkaistamista tai esimerkiksi GPU-kiihdytettyä käsittelyä, Puhti on oikea vastaus (katso ohjeet yllä olevasta osiosta).
 
-For more information:
+GPU-kiihdytettyyn koneoppimiseen tuemme [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [JAX](../../apps/jax.md) ja [RAPIDS](../../apps/rapids.md).
 
-- [CSC's machine learning guide](ml-guide.md)
+Lisätietoja:
 
-If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores) and threads, it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
+- [CSC:n koneoppimisopas](ml-guide.md)
 
+Jos käytät R:ää data-analyysiin, tuemme myös [rinnakkaisia erätöitä R:ssä](../../apps/r-env.md#parallel-batch-jobs). Tarpeistasi riippuen monenlaiset rinnakkaislaskennat ovat mahdollisia R:llä. Useita prosessoreita (ytimiä) ja säikeitä hyödyntävien töiden lisäksi on mahdollista suorittaa sarjatöitä, joissa analyysi jaetaan moniin alitehtäviin. Analyyseihin, jotka vaativat useita solmuja, R tukee myös useita viestinvälitysrajapintaan (MPI) perustuvia töitä.
 
-<!-- ### Big data processing (advanced)
+<!-- ### Suuren datan käsittely (edistynyt) {#big-data-processing-advanced}
 
-You can use Rahti for example running [big data analytics and machine learning jobs on scalable Apache Spark cluster](../../apps/spark.md). -->
+Voit käyttää Rahtia esimerkiksi suorittamaan [suurten datojen analytiikkaa ja koneoppimistehtäviä skaalautuvalla Apache Spark -klusterilla](../../apps/spark.md). -->
 
-### Course environments (for teachers)
+### Kurssiympäristöt (opettajille) {#course-environments-for-teachers}
 
-*You are teaching a course that needs complex computing environments for its exercises but you do not want to spend valuable course time on debugging installation errors.* 
+*Opetat kurssia, joka tarvitsee monimutkaisia laskentaympäristöjä harjoituksiinsa, mutta et halua käyttää arvokasta kurssiaikaa asennusvirheiden korjaamiseen.* 
 
-Consider using [CSC's Noppe service](https://noppe.csc.fi/) that contains easy-to-use environments for working with data and programming. The course environments support Jupyter, Python (including many machine learning libraries), R / RStudio Server and Spark.
+Harkitse käyttäväsi [CSC:n Noppe-palvelua](https://noppe.csc.fi/), joka tarjoaa helppokäyttöisiä ympäristöjä datan ja ohjelmoinnin parissa työskentelemiseen. Kurssiympäristöt tukevat Jupyteria, Pythonia (mukaan lukien monet koneoppimiskirjastot), R/RStudio Serveriä ja Sparkia.
 
-If you are planning to use Noppe for your course, please remember to submit a notification about your course requirements using [this online form](https://www.webropolsurveys.com/S/84118B6BD6E97501.par).
+Jos suunnittelet Noppen käyttöä kurssillasi, muistathan lähettää ilmoituksen kurssisi vaatimuksista käyttämällä [tässä verkkolomake](https://www.webropolsurveys.com/S/84118B6BD6E97501.par).
 
-CSC's collection of [GitHub repositories](https://github.com/csc-training) for training purposes can also be a valuable resource for course planning and sharing teaching materials with course participants.
+CSC:n koulutustarkoituksiin luotujen [GitHub-repositorien kokoelma](https://github.com/csc-training) voi myös olla arvokas resurssi kurssin suunnitteluun ja opetusaineistojen jakamiseen kurssin osallistujille.

@@ -1,473 +1,460 @@
-# a-commands, easy and safe
 
-The Allas object storage system can be used in multiple ways and for many purposes. In many cases, using Allas efficiently requires that the user know the features of both the object storage system and the software or protocol used to manage the data in Allas.
+# a-komennot, helppo ja turvallinen
 
-For users who simply want to use Allas for storing data that is in the CSC computing environment, CSC provides a set of commands for managing and moving data between the CSC computing environment and Allas:
+Allas-objektivarastojärjestelmää voidaan käyttää monin tavoin ja moniin tarkoituksiin. Usein Allaksen tehokas käyttö vaatii, että käyttäjä tuntee sekä objektivarastojärjestelmän että sen ohjelmiston tai protokollan ominaisuudet, joita käytetään Allaksen datanhallintaan.
 
+Käyttäjille, jotka haluavat yksinkertaisesti käyttää Allasta CSC:n laskentaympäristössä olevan datan tallentamiseen, CSC tarjoaa joukon komentoja datan hallintaan ja siirtämiseen CSC:n laskentaympäristön ja Allaksen välillä:
 
-| a-command | help text | Function |
+| a-komento | ohjeteksti | Toiminto |
 | :--- | :--- | :--- |
-| [a-put](#a-put)| [help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md)|Upload a file or directory to Allas |
-| [a-check](#a-check) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)| Check if all the objects, that a-put should have created, are found in Allas |
-| [a-list](#a-list) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md)| List buckets and objects in Allas |
-| [a-publish](#a-publish) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-publish.md)|Upload a file to Allas into a bucket that allows public access over the internet |
-| [a-flip](#a-flip) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md)|Upload a file temporarily to Allas into a bucket that allows public access over the internet |
-| [a-get](#a-get) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-get.md)| Download a stored dataset (object) from Allas |
-| [a-find](#a-find)|[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-find.md)|Search and locate data uploaded with *a-put* |
-| [a-delete](#a-delete) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-delete.md)| Delete an object in Allas |
-| [a-info](#a-info) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-info.md)| Display information about an object in Allas |
-| [a-access](#a-access) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-access.md)| Control access permissions of a bucket in Allas |
-| a-stream |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-stream.md)|Stream the content of an object to standard output |
-| a-encrypt |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-encrypt.md)|Make an encrypted copy of an object uploaded in Allas |
+| [a-put](#a-put)| [help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md)|Lataa tiedosto tai hakemisto Allakseen |
+| [a-check](#a-check) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)| Tarkista, löytyvätkö kaikki objektit, jotka a-put -komennon pitäisi luoda, Allaksesta |
+| [a-list](#a-list) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md)| Listaa ämpärit ja objektit Allaksessa |
+| [a-publish](#a-publish) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-publish.md)|Lataa tiedosto Allakseen ämpäriin, joka sallii julkisen pääsyn internetin kautta |
+| [a-flip](#a-flip) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md)|Lataa tiedosto tilapäisesti Allakseen ämpäriin, joka sallii julkisen pääsyn internetin kautta |
+| [a-get](#a-get) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-get.md)| Lataa tallennettu datasetti (objekti) Allaksesta |
+| [a-find](#a-find)|[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-find.md)|Etsi ja paikanna *a-put*:lla ladattua dataa |
+| [a-delete](#a-delete) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-delete.md)| Poista objekti Allaksesta |
+| [a-info](#a-info) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-info.md)| Näytä tietoja Allaksen objektista |
+| [a-access](#a-access) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-access.md)| Hallitse ämpärin käyttöoikeuksia Allaksessa |
+| a-stream |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-stream.md)|Striimaa objektin sisältö standardilähtöön |
+| a-encrypt |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-encrypt.md)|Tee salattu kopio Allakseen ladatusta objektista |
 
-In addition to the above commands, there are separate tools for other purposes:
+Lisäksi on erillisiä työkaluja muita tarkoituksia varten:
 
- * __allas_conf__ : Set up and open a connection to Allas
- * [__allas-backup__](./a_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
- * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
- * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
- * [__allas-dir-to-bucket__](https://github.com/CSCfi/allas-cli-utils/blob/master/help/allas-dir-to-bucket.md) : copy a local file or directory to Allas. Parallel upload processes are used for over 5GB files.
+ * __allas_conf__ : Määritä ja avaa yhteys Allakseen
+ * [__allas-backup__](./a_backup.md) : Luo varmuuskopio paikallisesta datasetistä Allaksen varmuusvarastoon.
+ * __allas-mount__ : Liitä Allaksen ämpäri käytettäväksi vain luku -hakemistona paikallisympäristössä.
+ * __allas-health-check__ : Tarkista yli 5 GB objekti
+
+eista Allaksen eheys.
+ * [__allas-dir-to-bucket__](https://github.com/CSCfi/allas-cli-utils/blob/master/help/allas-dir-to-bucket.md) : kopioi paikallinen tiedosto tai hakemisto Allakseen. Rinnakkaisia latausprosesseja käytetään yli 5GB kokoisille tiedostoille.
  
-If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
+Jos käytät a-komentoja superkoneiden ulkopuolella, tarkista [allas-cli-utils dokumentointi](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) näiden työkalujen asentamisesta.
 
-Below we discuss briefly of the most frequetly used features of a-commands. New features are added to a-commands every now and then and they may not be covered in the examples below. Use the help option `--help` to check the command specific information. For example:
+Alla keskustellaan lyhyesti a-komentojen yleisimmin käytetyistä ominaisuuksista. Uusia ominaisuuksia lisätään a-komentoihin silloin tällöin, eikä niitä välttämättä käsitellä alla olevissa esimerkeissä. Käytä ohje-vaihtoehtoa `--help` tarkistaaksesi komennon erityistiedot. Esimerkiksi:
 ```text
 a-put --help
 ```
 
+# Esimerkki: Datan tallentaminen työtilahakemistosta Allakseen
 
-# Example: Saving data from scratch directory to Allas
+## Yhteyden avaaminen
 
-## Opening a connection
-
-In order to use these tools in Puhti and Mahti, first load a-commands:
+Jotta voit käyttää näitä työkaluja Puhtissa ja Mahtissa, lataa ensin a-komennot:
 ```text
 module load allas
 ```
-Then open a connection to Allas:
+Avaa sitten yhteys Allakseen:
 ```text
 allas-conf
 ```
-The connection remains open for eight hours. You can rerun the _allas-conf_ command at any time
-to extend the validity of the connection for eight more hours or to switch to another Allas 
-project. 
+Yhteys pysyy auki kahdeksan tuntia. Voit ajaa _allas-conf_ -komennon milloin tahansa uudelleen
+jatkaaksesi yhteyden voimassaoloa uudestaan kahdeksan tuntia tai siirtyäksesi toiseen Allas 
+projektiin. 
 
-By default, _allas-conf_ lists your projects that have access to Allas, but if you know the name of the project, you
-can also give it as an argument:
+Oletuksena, _allas-conf_ listaa projektisi, joilla on pääsy Allakseen, mutta jos tiedät projektin nimen,
+voit myös antaa sen argumenttina:
 ```text
 allas-conf project_201234
 ```
-Note that the Allas project does not need to be the same as the project you are using in Puhti or Mahti.
+Huomaa, että Allas-projektin ei tarvitse olla sama kuin projekti, jota käytät Puhtissa tai Mahtissa.
 
-If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipeline takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
+Jos suoritat suuria, monivaiheisia prosesseja (esim. erätöitä), voi olla, että datanhallintaputkesi kestää yli kahdeksan tuntia. Näissä tapauksissa voit lisätä -k -vaihtoehdon `allas-conf` komentoon.
 ```text
 allas-conf -k
 ```
-With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
+Kun tämä asetus on käytössä, salasana tallennetaan ympäristömuuttujaan OS_PASSWORD. A-komennot tunnistavat tämän ympäristömuuttujan ja suoritettaessa ne automaattisesti päivittävät nykyisen Allas-yhteyden.
 
-## Copying data between Puhti scratch directory and Allas
+## Datan kopioiminen Puhti scratch -hakemiston ja Allaksen välillä
 
-Copying data from directory _/scratch/project_201234/dataset_3_ to Allas:
+Datan kopioiminen hakemistosta _/scratch/project_201234/dataset_3_ Allakseen:
 
 ```text
 cd /scratch/project_201234
 a-put dataset_3
 ```
-The data in directory _dataset_3_ is stored to the default bucket _201234-puhti-SCRATCH_ as object: _dataset_3.tar_.
-Available data buckets in Allas can be listed with command:
+Hakemiston _dataset_3_ data tallennetaan oletusämpäriin _201234-puhti-SCRATCH_ objektina: _dataset_3.tar_.
+Allaksen saatavilla olevat dataämpärit voidaan listata komennolla:
 
 ```text
 a-list
 ```
-And the content of 201234-puhti-SCRATCH can be listed with command:
+Ja komentaa 201234-puhti-SCRATCH voidaan listata komennolla:
 
 ```
 a-list 201234-puhti-SCRATCH
 ```
-The directory that was stored to Allas can be retrieved back to Puhti with command:
+Hakemisto, joka tallennettiin Allakseen, voidaan hakea takaisin Puhtille komennolla:
 
 ```text
 a-get 201234-puhti-SCRATCH/dataset_3.tar
 ```
 
+# A komennot tarkemmin
 
-# A commands in more detail
+## a-put lataa dataa Allakseen<a name="a-put"></a>
 
-## a-put uploads data to Allas<a name="a-put"></a>
-
-`a-put` is used to upload data from the disk environment of Mahti and Puhti to 
-the Allas storage environment. The basic syntax of the command:
+Komennolla `a-put` ladataan dataa Mahtin ja Puhtin levy-ympäristöstä 
+Allas-tallennusympäristöön. Komennon perussyntaksi:
 ```text
-a-put directory_or_file
+a-put hakemisto_tai_tiedosto
 ```
 
-By default, this tool performs the following operations:
+Oletuksena tämä työkalu tekee seuraavat toimenpiteet:
 
-1.    Ensure that there is a working connection to the Allas storage service and 
-define the project that will be used to store the data.
+1.    Varmista, että Allas-tallennuspalveluun on toimiva yhteys ja 
+määritä projekti, jota käytetään datan tallennukseen.
 
-2.    In the case of a directory, the content of the directory is collected as a single file
-using the `tar` command.
+2.    Hakemiston tapauksessa hakemiston sisältö kerätään yhdeksi tiedostoksi
+käyttäen `tar`-komentoa.
 
-3.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
+3.    Pakattu data ladataan Allakseen käyttäen `rclone`-komentoa ja _Swift_-protokollaa.
 
 
-By default, a-put uses the standard bucket and object names that depend on the username, project and location
-of the data uploaded:
+Oletuksena a-put käyttää vakioämpäri- ja objektinimiä, jotka riippuvat käyttäjätunnuksesta, projektista ja ladatun datan sijainnista:
 
-*    a) Data from /scratch in Puhti is uploaded to the bucket _projectNumber-puhti-SCRATCH_
-*    b) Data from /scratch in Mahti is uploaded to the bucket _projectNumber-mahti-SCRATCH_
-*    c) Data from /projappl in Puhti is uploaded to the bucket _projectNumber-puhti-PROJAPPL_ 
-*    d) Data from /projappl in Mahti is uploaded to the bucket _projectNumber-mahti-PROJAPPL_ 
-*    e) Data from $LOCAL_SCRATCH in Puhti is uploaded to the bucket _projectNumber-puhti-LOCAL_SCRATCH_
-*    f) In other cases, the data is uploaded to _username-projectNumber-MISC_
+*    a) Data Puhtin /scratch:sta ladataan ämpäriin _projectNumber-puhti-SCRATCH_
+*    b) Data Mahtin /scratch:sta ladataan ämpäriin _projectNumber-mahti-SCRATCH_
+*    c) Data Puhtin /projappl:sta ladataan ämpäriin _projectNumber-puhti-PROJAPPL_ 
+*    d) Data Mahtin /projappl:sta ladataan ämpäriin _projectNumber-mahti-PROJAPPL_ 
+*    e) Data Puhtin $LOCAL_SCRATCH:sta ladataan ämpäriin _projectNumber-puhti-LOCAL_SCRATCH_
+*    f) Muissa tapauksissa data ladataan _username-projectNumber-MISC_
 
-For example, for the user _kkayttaj_, a member of the project _12345_, data located in the HOME directory
-is uploaded to the bucket _kkayttaj-12345-MISC_.
+Esimerkiksi käyttäjälle _kkayttaj_, joka on projektin _12345_ jäsen, HOME-hakemistoon sijoitettu data ladataan ämpäriin _kkayttaj-12345-MISC_.
 
-If you wish to use other than the standard bucket, you can define a bucket name with the option _-b_ or  
+Jos haluat käyttää jotain muuta kuin vakioämpäriä, voit määrittää ämpärin nimen vaihtoehdolla _-b_ tai  
 _--bucket_.
 
-The compressed dataset is stored as one object. By default, the object name depends on the file name and location. The possible subdirectory path in Puhti or Mahti is included in the object name, e.g. a file called _test_1.txt_ in /scratch/project_2012345 in Puhti can be stored using the commands:
+Pakatut datasetit tallennetaan yhtenä objektina. Oletuksena objektin nimi riippuu tiedoston nimestä ja sijainnista. Mahdollinen alihakemistopolku Puhtissa tai Mahtissa sisällytetään objektin nimeen, esim. tiedosto nimeltä _test_1.txt_ Puhtin /scratch/project_2012345 -hakemistossa voidaan tallentaa käyttämällä seuraavia komentoja:
 ```text
 cd /scratch/project_2012345
 a-put test_1.txt
 ```
 
-In this case, the file is stored in the bucket _2012345-puhti-SCRATCH_.
-as the object _test_1.txt_
+Tässä tapauksessa tiedosto tallennetaan ämpäriin _2012345-puhti-SCRATCH_.
+objektiksi _test_1.txt_
 
-If you have another file called _test_1.txt_ located in _/scratch/project_2012345/kkayttaj/project2/_,
-you can store it using the commands
+Jos sinulla on toinen tiedosto nimeltä _test_1.txt_ sijainnissa _/scratch/project_2012345/kkayttaj/project2/_,
+voit tallentaa sen seuraavilla komennoilla
 ```text
 cd /scratch/project_2012345/kkayttaj/project2/
 a-put test_1.txt
 ```
-or
+tai
 ```text
 cd /scratch/project_2012345/kkayttaj
 a-put project2/test_1.txt
 ```
-In this case, the file is stored in the bucket _2012345-puhti-SCRATCH_ 
-as the object _kkayttaj/project2/test_1.txt_.
+Tässä tapauksessa tiedosto tallennetaan ämpäriin _2012345-puhti-SCRATCH_ 
+objektina _kkayttaj/project2/test_1.txt_.
 
-In addition to the actual data object, another object containing metadata is created. This metadata object has the 
-same name as the main object with the extension *_ameta*. This metadata file is used by the 
-other *a-commands*, and normally, it is not displayed to the user, but if you examine the buckets
-using tools like _swift_ or _rclone_, you will see these metadata objects as well.
+Varsinaisen dataobjektin lisäksi luodaan toinen objekti, joka sisältää metadataa. Tämä metadataobjekti 
+on samaa nimeä kuin pääobjekti lisällä *_ameta*. Tätä metatiedostoa käytetään 
+muissa *a-komentoissa*, ja normaalisti sitä ei näytetä käyttäjälle, mutta jos tarkastelet ämpäreitä
+työkaluilla kuten _swift_ tai _rclone_, näet myös nämä metatiedot.
 
-If you wish to use a name differing from the default object name, you can define it with the option _-o_ or  
+Jos haluat käyttää nimeä, joka poikkeaa vakiomuotoisesta objektinimestä, voit määrittää sen vaihtoehdolla _-o_ tai  
 _--object_:
 ```text
 cd /scratch/project_2012345
 a-put project2/test_1.txt -b newbucket1 -o case1.txt -c
 ```
 
-The command above uploads the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt.zst_.
-As the option _-c_ is used, the data is stored in zstd compressed format. 
+Yllä oleva komento lataa tiedoston *test_1.txt* Allakseen ämpäriin _newbucket1_ objektina _case1.txt.zst_.
+Koska vaihtoehtoa _-c_ käytetään, data tallennetaan zstd-pakatussa muodossa. 
 
-You can give several file or directory names for _a-put_ and use * as a wildcard character when naming the data to be uploaded. Note that in these cases each item (file or directory) will be stored as a separate object. For example, say that we have a directory called _job123_ that contains files _input1.txt_, _input2.txt_ and _program.py_. In addition there are directories _output_dir_1_ and _output_dir_2_ .
+Voit antaa _a-put_ -komennolle useita tiedosto- tai hakemistonnimiä ja käyttää * merkkiä jokerina ladattavan datan nimeämisessä. Huomaa, että näissä tapauksissa jokainen kohde (tiedosto tai hakemisto) tallennetaan erillisenä objektina. Esimerkiksi, sanotaan, että meillä on _job123_ -hakemisto, joka sisältää tiedostot _input1.txt_, _input2.txt_ ja _program.py_. Lisäksi on hakemistot _output_dir_1_ ja _output_dir_2_.
 
-Command:
+Komento:
 ```text
 a-put job123/output_dir_1 jobs123/input1.txt
 ```
-uploads content of _output_dir_1_ to object _job123/output_dir_1.tar_ and _input1.txt_ to _job123/input1.txt_.
+lataa _output_dir_1_:n sisällön objektiksi _job123/output_dir_1.tar_ ja _input1.txt_:n _job123/input1.txt_.
 
-Similarly command
+Vastaavasti komento:
 ```text
 a-put job123/output_dir*
 ```
-uploads content of _output_dir_1_ to object _job123/output_dir_1.tar_ and content of _output_dir_2_ to object _job123/output_dir_2.tar_. 
+lataa _output_dir_1_:n sisällön objektiksi _job123/output_dir_1.tar_ ja _output_dir_2_:n sisällön objektiksi _job123/output_dir_2.tar_. 
 
-During upload datasets that are larger than 5 GB will be split and stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would upload a large file to  bucket  _kkayttaj-12345-MISC_ the actual data would be stored as several pieces into bucket _kkayttaj-12345-MISC_segments_. The target bucket (_kkayttaj-12345-MISC_) would contain just a front object that contains information what segments make the stored dataset. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
-
+Jos datasetit ovat suurempia kuin 5 GB, ne jaetaan ja tallennetaan useina objekteina. Tämä tapahtuu automaattisesti ämpäriin, jonka nimi on lisätty alkuperäiseen ämpärin nimeen laajennos _segments_. Esimerkiksi, jos ladattaisiin suuri tiedosto ämpäriin _kkayttaj-12345-MISC_ tosiasiassa dataa tallennettaisiin useina osina ämpäriin _kkayttaj-12345-MISC_segments_. Kohdeämpäriin (_kkayttaj-12345-MISC_) jää ainoastaan etuobjekti, joka sisältää tiedot siitä, mitkä segmentit muodostavat tallennetun datasetin. Toimintojen suorittaminen etuobjektille heijastuu automaattisesti segmentteihin. Käyttäjien ei normaalisti tarvitse toimia segmenttiämpäreiden kanssa, eikä näiden ämpärien objekteja pitäisi poistaa tai muokata.
 
 ## a-check<a name="a-check"></a>
 
-This command goes through the Allas object names, that a corresponding `a-put` command would create, and then checks if object with the same name already exists in Allas. The main purpose of this command is to provide a tool to check if a large `a-put` command was successfully executed. `a-check` accepts the same command line options as `a-put`.
+Tämä komento käy läpi Allaksessa objektinimet, jotka vastaava `a-put` -komento loisi, ja tarkistaa, löytyykö samalla nimellä oleva objekti jo Allaksesta. Komennon pääasiallinen tarkoitus on tarjota työkalu suuren `a-put` -komennon onnistumisen tarkistamiseksi. `a-check` hyväksyy samat komentorivivaihtoehdot kuin `a-put`.
 
-For example, if a dataset is uploaded with command:
+Esimerkiksi, jos datasetti ladataan komennolla:
 ```text
 a-put job123/*
 ```
-The upload can be checked with command: 
+Lataus voidaan tarkistaa komennolla: 
 ```text
 a-check job123/*
 ```
-The _a-check_ command compares the item names to be uploaded to the matching objects in Allas.
-The files or directories that don't have a target object Allas, are reported and stored to a file:
-missing_bucket-name_number. If some of the objects in the sample commands above would be missing, then
-a-check would list the missing files and directories in file `missing_job123_67889` (the number in the end is
-just a random number).
+_a-check_ -komento vertaa ladattavien kohteiden nimiä Allas-objekteihin.
+Kohteet, joilla ei ole kohdeobjektia Allaksessa, raportoidaan ja tallennetaan tiedostoon: missing_bucket-name_number. Jos jokin kohteista yllä olevassa esimerkissä puuttuisi, niin
+a-check listaisi puuttuvat tiedostot ja hakemistot tiedostossa `missing_job123_67889` (suorassa numerossa lopussa on vain satunnainen numero).
 
-This file of missing items can be used with a-put option --input-list, to continue the failed upload process:
+Tätä puuttuvien kohteiden tiedostoa voidaan käyttää a-put-vaihtoehdon --input-list kanssa jatkamaan epäonnistunutta latausprosessia:
 ```text
 a-put --input-list missing_job123_67889
 ```
 
-You should note, that _a-check_ does does not check if the actual contents of the object is correct. It checks only the object names, which may originate from some other sources.
+Huomaa, että _a-check_ ei tarkista, onko varsinaisen objektin sisältö oikein. Se tarkistaa vain objektinimet, jotka saattavat olla peräisin joistakin muista lähteistä.
 
-In addition to checking, if upload was successful, _a-check_ can be used to do a "dry-run" test for _a-put_ to see, what objects will be created or replaced before running the actual _a-put_ command. 
+Paitsi että _a-check_ tarkistaa, oliko lataus onnistunut, sitä voidaan käyttää myös "kuiva-ajo" -testiin ennen varsinaisen _a-put_ -komennon suorittamista, jotta nähdään, mitä objekteja luodaan tai korvataan. 
 
 
 ## a-list<a name="a-list"></a>
 
-a-list is used to show the names of buckets and objects stored to Allas. a-list is designed to be used for objects uploaded with _a-put_ but it shows objects that have been uploaded with other tools too. However, it doesn't show the _ameta_ metadata file files created by a-put, to keep the object listings shorter.
+a-list -komennolla näytetään tiedot Allakseen tallennettujen ämpäreiden ja objektien nimistä. a-list on suunniteltu käytettäväksi a-puta -komennolla ladatuille objekteille, mutta se näyttää kuitenkin myös muiden työkalujen avulla ladatut objektit. Se ei kuitenkaan näytä a-put:n luomia _ameta_ -metatiedostoja pitääkseen objektin listaukset lyhyinä.
 
-### a-list examples
+### a-list esimerkkejä
 
-List all buckets belonging to a project:
+Listaa projektin kaikki ämpärit:
 ```text
 a-list
 ```
-Display the objects included in a bucket:
+Näytä ämpäriin sisältyvät objektit:
 ```text
 a-list bucket_name
 ```
-Typing a part of an object's name lists a subset of objects:
+Kirjoittamalla osa objektin nimestä listaa osajoukkoa objekteista:
 ```text
 a-list bucket_name/beginning_of_the_object
 ```
-A more detailed listing, containing object size and date can be obtained with option `-l`
+Tarkemman listauksen saamiseksi, joka sisältää objektin koon ja päivämäärän, voit käyttää vaihtoehtoa `-l`
 ```text
 a-list -l 
 ```
-Option `-d` make a-list to interpret /-characters in object names as pseudofolder separators.
+Vaihtoehto `-d` saa a-listin tulkitsemaan /-merkit objektin nimissä pseudokansion erottimina.
 ```text
 a-list -d 
 ```
 
 ## a-publish<a name="a-publish"></a>
 
-`a-publish` copies a file to Allas in a bucket that can be publicly accessed. Thus, anyone with the address (URL) of the 
-uploaded data object can read and download the data with a web browser or tools like _wget_ and _curl_. 
-a-publish works similarly to a-put with some differences: 
+`a-publish` kopioi tiedoston Allakseen ämpäriin, johon on julkinen pääsy. Täten kuka tahansa ladatun dataobjektin osoitteen (URL) omaava henkilö voi lukea ja ladata datan joko verkkoselaimen tai työkalujen kuten _wget_ ja _curl_ avulla. a-publish toimii samankaltaisesti kuin a-put, muutamilla eroilla: 
 
-1) a-publish can upload only files, not directories. 
-2) The access control of the target bucket is set so that it is available for any user in read-only mode.
+1) a-publish voi ladata vain tiedostoja, ei hakemistoja. 
+2) Kohdeämpärin käyttöoikeudet asetetaan siten, että se on saatavilla jokaiselle käyttäjälle vain luku -tilassa.
 
-The basic syntax:
+Perussyntaksi:
 ```text
-a-publish file_name
+a-publish tiedosto_nimi
 ```
-By default, the file is uploaded to the bucket _username-projectNumber_-pub. You can define other bucket names using the option _-b_. You should note that this command makes all data in the target bucket publicly accessible, including data that has been previously uploaded to the bucket.
+Oletuksena tiedosto ladataan ämpäriin _username-projectNumber_-pub. Voit määrittää muut ämpärien nimet käyttämällä vaihtoehtoa _-b_. Huomaa, että tämä komento tekee kaiken datan kohdeämpärissä julkisesti saataville, mukaan lukien jo aiemmin ämpäriin ladatun datan.
 
-The public URL of a data object will be:
-`https://a3s.fi/username-projectNumber-pub/object_name`
+Dataobjektin julkinen URL on:
+`https://a3s.fi/username-projectNumber-pub/tiedosto_nimi`
 
-An object uploaded with _a-publish_ can be removed from Allas using the command _a-delete_.
+Objektin, joka ladattiin _a-publish_ -komennolla, voi poistaa Allaksesta käyttämällä _a-delete_ -komentoa.
 
-A sample session with _a-publish_, uploading the document _presentation.pdf_ to the default public bucket in Allas:
+Näytteen istunto _a-publish_ -komennon kanssa, esitellessä dokumentin _presentation.pdf_ lataamista oletusarvoiseen julkiseen ämpäriin Allakseen:
 
 <pre><b>a-publish presentation.pdf</b> 
-Files to be uploaded:  presentation.pdf
-Bucket: kkayttaj-1234567-pub
-Processing: presentation.pdf
-Checking total size of presentation.pdf. Please wait.
+Ladattavat tiedostot:  presentation.pdf
+Ämpäri: kkayttaj-1234567-pub
+Käsittely: presentation.pdf
+Tarkistetaan presentation.pdf:n koko. Odota hetki.
 
-Uploading data to allas.
-Transferred:        4.188M / 4.188 MBytes, 100%, 7.700 MBytes/s, ETA 0s
-Errors:                 0
-Checks:                 0 / 0, -
-Transferred:            1 / 1, 100%
-Elapsed time:       500ms
-Confirming upload...
+Data ladataan ollakseen valmis kaikille.
+Siirretty:        4.188M / 4.188 MBytes, 100%, 7.700 MBytes/s, ETA 0s
+Virheet:                  0
+Tarkistukset:        0 / 0, -
+Siirrettyä:        1 / 1, 100%
+Kulunut aika:        500ms
+Latauksen vahvistus...
 presentation.pdf OK
 
-Adding metadata for uploaded presentation.pdf
-presentation.pdf uploaded to kkayttaj-1234567-pub
-Publick link: https://a3s.fi/kkayttaj-1234567-pub/presentation.pdf
+Lisätään metadata ladatulle presentation.pdf:lle
+presentation.pdf ladattu kkayttaj-1234567-pub
+Julksinen linkki: https://a3s.fi/kkayttaj-1234567-pub/presentation.pdf
 
-Upload ready
+Lataus valmis
 
 </pre>
 
 ## a-flip<a name="a-flip"></a>
 
-`a-flip` is a tool to make individual files temporarily available over the internet. It is intended for situations where you
-want to make a copy of a file visible on the internet for a short while e.g. for copying to another platform shared with a co-worker.
+`a-flip` on työkalu yksittäisten tiedostojen tilapäiseen saatavuuteen internetin kautta. Se on tarkoitettu tilanteisiin, joissa halutaan tehdä tiedostosta kopio, joka on näkyvissä internetissä esimerkiksi toisen alustan kopioimista varten yhdessä työtoverin kanssa.
 
-a-flip copies a file to Allas into a bucket that can be publicly accessed. Thus, anyone with the address (URL) of the 
-uploaded data object can read and download the data with a web browser or tools like _wget_ and _curl_. 
-a-flip works similarly to a-publish with some differences:
+a-flip kopioi tiedoston Allakseen ämpäriin, johon on julkinen pääsy. Näin ollen kuka tahansa ladatun dataobjektin osoitteen (URL) omaava voi lukea ja ladata datan joko verkkoselaimen tai työkalujen kuten _wget_ ja _curl_ avulla. a-flip toimii samankaltaisesti a-publish:n kanssa, mutta muutamilla eroilla:
 
-1. Only the predefined bucket name (_username-projectNumber_-flip) can be used.
-1. Upon execution, it checks the content of the flip bucket and deletes objects that are older than two days.
+1. Vain ennalta määritelty ämpärin nimi (_username-projectNumber_-flip) voidaan käyttää.
+2. Suoritettaessa se tarkistaa flip-ämpärin sisällön ja poistaa yli kaksi päivää vanhat objektit.
 
-The basic syntax:
+Perussyntaksi:
 ```text
-a-flip file_name
+a-flip tiedosto_nimi
 ```
-The file is uploaded to the bucket _username-projectNumber_-flip. The URL of the uploaded object:
+Tiedosto ladataan ämpäriin _username-projectNumber_-flip. Ladatun objektin osoite:
 ```text
-https://a3s.fi/username-projectNumber-flip/file_name
+https://a3s.fi/username-projectNumber-flip/tiedosto_nimi
 ```
-
 
 ## a-find<a name="a-find"></a>
 
-The `a-find` command lists and locates data that has been uploaded to Allas using `a-put`.
+Komennolla `a-find` listataan ja paikannetaan data, joka on ladattu Allakseen `a-put` -komennolla.
 
-The basic syntax:
+Perussyntaksi:
 ```text
-a-find query_term
+a-find hakutermi
 ```
 
-The query term is compared to the names and original paths of the files that have been uploaded to
-Allas, and matching objects are reported (but not downloaded).
+Hakutermiä verrataan Allakseen ladattujen tiedostojen nimiin ja alkuperäisiin polkuihin ja vastaavat objektit raportoidaan (mutta ei ladattuina).
 
-The query term is processed as a regular repression where some characters, e.g. period (.), have a special meaning.
-The same regular expression syntax is used with e.g. the _grep_, _awk_ and _sed_ commands.
-The most commonly occurring special characters:
+Hakutermi prosessoidaan säännöllisenä ilmaisuna, jossa joillakin merkkeillä, kuten pisteellä (.), on erityinen merkitys. Sama säännöllisten lausekkeiden syntaksi käytetään esimerkiksi _grep_, _awk_ ja _sed_ -komennoissa. Yleisimmin esiintyvät erikoismerkit:
 
-- Period (**.**) is used to define any single character.
-- **^** marks the beginning of a line.
-- **$** marks the end of a line.
-- **[ ]** matches any character inside the brackets. For example, [abc] would match a, b or c.
-- **[^ ]** matches any character except the characters inside the brackets.   
-    For example, [^abc] would select all rows that contain characters than are not a, b and c.
-- ** * ** matches zero or more of the preceding characters or expressions.
-    `\{n,m\}` matches n to m occurrences of the preceding characters or expressions.
+- Piste (**.**) käytetään minkä tahansa yksittäisen merkin määrittelemiseen.
+- **^** merkitsee rivin alkua.
+- **$** merkitsee rivin loppua.
+- **[ ]** vastaa mitä tahansa merkkiä hakasulkeiden sisällä. Esimerkiksi [abc] vastaisi a, b tai c.
+- **[^ ]** vastaa mitä tahansa merkkiä lukuun ottamatta hakasulkeiden sisäisiä merkkejä.   
+    Esimerkiksi [^abc] valitsisi kaikki rivit, jotka sisältävät merkkejä, jotka eivät ole a, b ja c.
+- ** * ** vastaa nollaa tai useampaa edeltävää merkkiä tai ilmaisua.
+    `\{n,m\}` vastaa n:stä m:ään edeltäviä merkkejä tai ilmauksia.
 
-Options:
+Vaihtoehdot:
 
 
-- **-a**, **--all**  By default only the standard buckets, used by a-put, are searched. Option `--all` defines that all the buckets of the project will be included in the search.
-- **-f**, **--files** List the names of matching files inside the objects in addition to the object names.
-- **-p**,**--project _project_ID_** Search matches in the buckets of the defined project instead of the currently configured project. 
-- **-b**, **--bucket _bucket_name_** By default, all default buckets used by `a-put` are searched. The option _-bucket_ allows you to specify a single bucket for the search. Use this option also in cases where you have stored data in a bucket with a non-standard name.
-- **-s**, **-silent** Print only object names and the number of hits. If the _-f_ option is used, print the object name and the matching file names on one row.
+- **-a**, **--all**  Oletuksena vain a-put:n käyttämät vakiämpärit ets
 
-## a-info shows information about an uploaded dataset<a name="a-info"></a>
+itään. Vaihtoehto `--all` määrittelee, että kaikki projektin ämpärit sisällytetään etsintään.
+- **-f**, **--files** Listaa nimien lisäksi hakulausekkeen raamatullisista hakuparametreista vastaavat tiedostot.
+- **-p**,**--project _project_ID_**  Etsi vastineet määritetyn projektin ämpäreistä nykyisen konfiguroidun projektin sijaan. 
+- **-b**, **--bucket _bucket_name_** Oletuksena kaikki _a-put_ -komennon käyttämät vakiämpärit ets
+
+itään. Vaihtoehto _-bucket_ mahdollistaa yksittäisen ämpärin määrittelemisen etsintään. Käytä tätä vaihtoehtoa myös tilanteissa, joissa olet tallentanut dataa epätavanomaisella nimellä olevaan ämpäriin.
+- **-s**, **-silent** Tulosta vain objektinimet ja osumien lukumäärä. Jos _-f_ -vaihtoehtoa käytetään, tulosta objektin nimi ja vastaavat tiedostonimet yhdellä rivillä.
+
+
+## a-info näyttää tietoa ladatusta datasetistä<a name="a-info"></a>
                              
-The command `a-info` allows you to get information about a dataset that has been uploaded to Allas using `a-put`.   
+Komennolla `a-info` voi saada tietoa datasetistä, joka on ladattu Allakseen käyttämällä `a-put` -komentoa.   
 
 ```text
-a-info bucket/object_name
+a-info bucket/objekti_nimi
 ```           
-If you execute this command without any object name, it will list basic information of all of the objects of the current project and a total summary about how much data and objects your Allas project contains.
+Jos suoritat tämän komennon ilman objektinimeä, se listaa perusinfot kaikista tämänhetkisen projektin objekteista ja vikasta yhteenvetotietoa siitä, kuinka paljon dataa ja objekteja Allas-projektisi sisältää.
 ```text
 a-info 
 ```   
 
                              
-## a-get retrieves stored data<a name="a-get"></a>
+## a-get hakee tallennettua dataa<a name="a-get"></a>
 
-This tool is used to download data that has been uploaded to the Allas service using the `a-put` command.
-The basic syntax:
+Tätä työkalua käytetään ladatun datan lataamiseen, joka on ladattu Allas-palveluun käyttämällä `a-put` -komentoa.
+Perussyntaksi:
 ```text
-a-get object_name
+a-get objekti_nimi
 ```
-By default, the object is retrieved, uncompressed and extracted to a file or directory that was used in upload. If a directory or file with the same name already exists, you must either remove the existing file or directory, or assign the downloaded data to a new directory with the `-target` option.
+Objekti haetaan oletuksena, puretaan pakatusta tiedostosta ja sen data palautetaan tiedostoon tai hakemistoon, jota käytettiin latauksessa. Jos olemassa oleva tiedosto tai hakemisto on jo olemassa samalla nimellä, sinun on joko poistettava olemassa oleva tiedosto tai hakemisto tai määritettävä ladatulle datalle uusi hakemisto _-target_ -vaihtoehdon avulla.
 
-Options:
+Vaihtoehdot:
 
-- **-p**, **--project _project_ID_** Retrieve data from the buckets of the defined project instead of the currently configured project. 
-- **-f**, **--file _file_name_** Retrieve only a specific file or directory from the stored dataset. **Note:** Define the full path of the file or directory within the stored object.
-- **-d** **--target_dir** <dir_name> If this option is defined, a new target directory is created and the data is retrieved there.
-- **-t** **--target_file** <file_name> Define a file name for the object for the object to be downloaded.
-- **-l** **--original_location**       Retrieve the data to the original location in the directory structure.
-- **--asis**                        Download the object without unpacking tar files and uncompressing zst compressed data.
-- **--s3cmd**                       Use S3 protocol and s3cmd command for data retrieval in stead of Swift protocol and rclone.
+- **-p**, **--project _project_ID_** Hae data projektin ämpäreistä nykyisen konfiguroidun projektin sijasta. 
+- **-f**, **--file _file_name_** Hae vain tietty tiedosto tai hakemisto tallennetusta datasetistä. **Huom:** Määritä koko polku tiedoston tai hakemiston sijainnille tallennetun objektin sisällä.
+- **-d** **--target_dir** <dir_name> Jos tätä vaihtoehtoa käytetään, luodaan uusi kohdehakemisto ja data haetaan sinne.
+- **-t** **--target_file** <file_name> Määritä tiedostonnimi ladattavalle objektille.
+- **-l** **--original_location**       Hae data alkuperäiseen sijaintiin hakemistorakenteessa.
+- **--asis**                        Lataa objekti ilman tar-tiedoston purkamista ja zst-pakatun datan avattamista.
+- **--s3cmd**                       Käytä S3-protokollaa ja s3cmd-komentoa datan hakemiseen Swift-protokollan ja rclone-komennon sijaan.
 
-At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need to use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
+Tällä hetkellä _a-get_ voi ladata vain yhden objektin kerrallaan. Jos sinun tarvitsee ladata suuri määrä objekteja, sinun tarvitsee käyttää silmukoita. Esimerkiksi ladataksesi kaikki objektit ämpäristä _bucket_123_ , voit käyttää komentoja:
 
 ```text
-#make a list of objects
+#tee listaus objekteista
 a-list bucket_123 > object_list_bucket123
 
-#use the list in for loop
+#käytä listaa for-silmukassa
 for ob in $(cat object_list_bucket123)
 do
   a-get $ob
 done  
 
-#remove the object list
+#poista objektilista
 rm object_list_bucket123
 ```
 
-
 ## a-delete<a name="a-delete"></a>
-a-delete is used to remove data that has been uploaded to Allas service using the a-put command.
-The basic syntax of the command is:
-<pre>a-delete object_name</pre>
+a-delete komennolla poistetaan dataa, joka on ladattu Allakseen a-put -komennolla.
+Komennon perussyntaksi on:
+<pre>a-delete objektin_nimi</pre>
 
-By default _a-delete_ asks user to confirm the removal of an object. This checking can be skipped with option `-f`.
+Oletuksena _a-delete_ kysyy käyttäjältä vahvistusta objektin poistamiseen. Tämän tarkistuksen voi ohittaa vaihtoehdolla `-f`.
 
-If you want to remove a bucket, you can use option `--rmb`. By default _a-delete --rmb_ removes only empty buckets. If you want to delete non-empty bucket, you need to add option `--FORCE` to the command.
+Jos haluat poistaa ämpärin, voit käyttää vaihtoehtoa `--rmb`. Oletuksena _a-delete --rmb_ poistaa vain tyhjät ämpärit. Jos haluat poistaa muita kuin tyhjiä ämpäreitä, sinun on lisättävä _--forcE_.
 
 ## a-access<a name="a-access"></a>
 
-By default, only project members can read and write the data in a bucket.
-Members of the project can grant read and write access to the bucket and 
-the objects it contains, for other Allas projects or make the bucket publicly
-accessible to the internet.
+Oletuksena vain projektin jäsenet voivat lukea ja kirjoittaa ämpärin dataa.
+Projektin jäsenet voivat avata luku- ja kirjoitusoikeudet ämpäriin ja 
+sen sisältämiin objekteihin, muille Allas-projekteille tai tehdä ämpäri julkisesti
+saatavaksi internetiin.
 
-**a-access** is a tool to control access permissions (swift protocol) of a bucket in Allas.
+**a-access** on työkalu hallita ämpärin käyttöoikeuksia (swift protokolla) Allaksessa.
 
-Syntax 
+Syntaksi 
 ```text
-a-access +/-type project_id bucket
+a-access +/-tyyppi projektin_nro ämpäri_nimi
 ```
-Options:
+Vaihtoehdot:
 
-- **+r**,  **+read** <project_id>        Grant read access to the bucket for the project.
-- **+w**,  **+write** <project_id>       Grant write access to the bucket for the project.
-- **+rw**, **+read-write**  <project_id> Grant read and write access to the bucket for the project.
-- **-r**,  **-read** <project_id>        Remove read access from the bucket.
-- **-w**,  **-write** <project_id>       Remove write access from the bucket.
-- **-rw**, **-read-write**  <project_id> Remove read and write access from the bucket to the project.
-- **+p**,  **+public**                   Give public read-only access to the bucket.
-- **-p**,  **-public**                   Remove public read-only access to the bucket.
+- **+r**,  **+read** <project_id>        Anna projektin lukuoikeus ämpäriin.
+- **+w**,  **+write** <project_id>       Anna projektin kirjoitusoikeus ämpäriin.
+- **+rw**, **+read-write**  <project_id> Anna projektin luku- ja kirjoitusoikeus ämpäriin.
+- **-r**,  **-read** <project_id>        Poista projektin lukuoikeus ämpäristä.
+- **-w**,  **-write** <project_id>       Poista projektin kirjoitusoikeus ämpäristä.
+- **-rw**, **-read-write**  <project_id> Poista projektin luku- ja kirjoitusoikeudet ämpäristä.
+- **+p**,  **+public**                   Anna julkinen lukuoikeus ämpäriin.
+- **-p**,  **-public**                   Poista julkinen lukuoikeus ämpäristä.
 
-For example, to allow members of project: _project_2001234_ to have read-only access to bucket: _my_data_bucket_, you can use command:
+Esimerkiksi, jotta projektin: _project_2001234_ jäsenet voisivat saada lukuoikeuden ämpäriin: _my_data_bucket_, voit käyttää komentoa:
 ```text
 a-access +r project_2001234  my_data_bucket
 ```
-The access permissions are set similarly to the corresponding _segments bucket too.
+Käyttöoikeudet asetetaan samalla tavalla myös väliämpärille segments bucket.
 
-Note, that bucket listing tools don't show the bucket names of other projects,
-not even in cases were the project has read and/or write permissions to the bucket.
+Huomaa, että ämpärin listauksen työkalut eivät näytä muiden projektien ämpärien nimiä, 
+edes siinä tapauksessa, että projektilla on luku- ja/tai kirjoitusoikeudet ämpäriin.
 
-For example in this case a user, belonging to project _project_2001234_, 
-don't see the _my_data_bucket_ in the bucket list produced by command:
+Esimerkiksi tässä tapauksessa käyttäjän, joka kuuluu projektiin _project_2001234_, 
+ei näe _my_data_bucket_ -ämpäriä ämpärin listauksessa komennolla:
 ```text  
 a-list
 ```
-but the user can still list the contents of this bucket with command:  
+mutta käyttäjä voi silti listata ämpärin sisällön komennolla:  
 ```text
 a-list my_data_bucket
 ```
-And download objects from the bucket with a-get.
+Ja ladata kohteita ämpäristä a-get:llä.
 
-a-access manages the access permissions only in the project and bucket level.
-Use **swift post** command for more sophisticated access control.
+a-access hallitsee käyttöoikeuksia vain projektin ja ämpärin tasolla.
+Käytä **swift post** -komentoa monimutkaisempaan käyttöoikeuksien hallintaan.
 
-If you run _a-access_ command for a bucket without any modification options,
-it will print out the current settings of the bucket.
+Jos suoritat _a-access_ -komennon ämpärille ilman muutoksia vaihtoehtoja,
+se näyttää ämpärin nykyiset asetukset.
 
+### a-komentojen konfigurointi
 
-### Configuring your a-commands
+Userit voivat muokata a-komentojen oletusasetuksia tekemällä konfiguraatiotiedoston nimeltä **.a_tools_conf** kotihakemistoonsa. Tässä tiedostossa voi asettaa oletusasetuksia monille a-put -komennon vaihtoehtojen määrittelemille toiminnoille.
 
-A users can modify the default settings of a-commands by making a configuration file named as **.a_tools_conf** to their **home directory**.  In this file you can set default values for many of the functions that are defined with a-put command options.
-
-For example, if you are working mostly with files that would benefit from compression, you might like to use the _--compress_ option with a-put. If you want this to be default setting you could create .a_tools_conf file
-that contains setting:
+Esimerkiksi, jos työskentelet pääasiassa tiedostojen kanssa, jotka hyötyvät pakkauksesta, saatat haluta käyttää _--compress_ -vaihtoehtoa a-put -komennossa. Jos haluat tämän olevan oletusasetus, voit luoda .a_tools_conf -tiedoston, joka sisältää:
 
 ```text
 compression=1
 ```
-Now command:
+Nyt komento:
 ```text
 a-put my_data.b
 ```
-will compress the data during the upload process (that would normally not be the case). However, you can still skip compression with option _--nc_.
+pakkkaisi datan latauksen aikana (mikä ei normaalisti ole tilanne). Kuitenkin, voit silti ohittaa pakkauksen vaihtoehdolla _--nc_.
 
 ```text
 a-put --nc my_data.b
 ```
  
-You can check most commonly used settings from this sample [.a_tools_conf](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf) file. Copy the sample file to your home directory and un-comment and define the variables you wish to use.
-
+Voit tarkistaa yleisimmin käytetty vertaileja tästä esimerkistä [.a_tools_conf](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf). Kopioi esimerkkitiedosto kotihakemistoosi ja aktivoi ja määritä haluamasi muuttujat.
 

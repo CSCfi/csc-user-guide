@@ -1,187 +1,125 @@
+
 ---
 tags:
-  - Other
+  - Muut
 ---
 
 # Gaussian
 
-Gaussian is a versatile program package providing various capabilities for
-electronic structure modeling.
+Gaussian on monipuolinen ohjelmistopaketti, joka tarjoaa erilaisia mahdollisuuksia elektronisen rakenteen mallintamiseen.
 
-## Available
+## Saatavilla {#available}
 
 - Puhti: `G16RevC.02`
 - Mahti: `G16RevC.02`
 
-## License
+## Lisenssi {#license}
 
-CSC has acquired a full commercial license for Gaussian. It is available to all
-approved account holders, subject to license restrictions. To use Gaussian at
-CSC, **your user ID must be added to the Gaussian user group.** Send a request
-to the [CSC Service Desk](../support/contact.md).
+CSC on hankkinut täyden kaupallisen lisenssin Gaussianiin. Se on saatavilla kaikille hyväksytyille käyttäjille, lisenssirajoitusten mukaisesti. Käyttääksesi Gaussiania CSC:llä, **käyttäjätunnuksesi on lisättävä Gaussian-käyttäjäryhmään.** Lähetä pyyntö [CSC:n Service Deskiin](../support/contact.md).
 
-## Usage
+## Käyttö {#usage}
 
-Initialize the Gaussian environment:
+Alusta Gaussian-ympäristö:
 
 ```bash
 module load gaussian/G16RevC.02
 ```
 
-Standard jobs are then conveniently submitted by using the `subg16` script:
+Vakioajoja voi kätevästi lähettää `subg16`-skriptillä:
 
 ```bash
 subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
 ```
 
-where:
+missä:
 
-- `hhh:mm:ss` is the requested maximum wall time in hours, minutes and seconds.
-- `jobname` is the name of the input file, excluding the `.com` extension.
-- `[NVMe disk]` (optional) is the request for fast local NVMe disk in GB.
+- `hhh:mm:ss` on vaadittu maksimiaika tunneissa, minuuteissa ja sekunneissa.
+- `jobname` on syötettävän tiedoston nimi ilman `.com`-päätettä.
+- `[NVMe disk]` (valinnainen) tarkoittaa nopean paikallisen NVMe-levyn pyyntiä gigatavuina.
 
-Run `subg16` without arguments to display more details.
+Aja `subg16` ilman argumentteja saadaksesi lisätietoja.
 
-## Performance considerations
+## Suorituskykyyn liittyviä seikkoja {#performance-considerations}
 
-For optimal performance of Gaussian jobs on CSC's servers, it is beneficial to
-make some efficiency considerations. Some hints on how to estimate memory and
-disk requirements can be found [here](http://gaussian.com/running/?tabid=3).
-There is also a nice summary provided by
-[NRIS on the topic](https://documentation.sigma2.no/software/application_guides/gaussian/gaussian_tuning.html).
+Optimalisen suorituskyvyn saavuttamiseksi CSC:n palvelimilla suoritettavissa Gaussian-töissä, on hyödyllistä ottaa huomioon tiettyjä tehokkuusseikkoja. Vinkkejä muisti- ja levyvaatimusten arvioimiseen löytyy [täältä](http://gaussian.com/running/?tabid=3). Aiheesta on myös hyvä yhteenveto [NRIS:in toimesta](https://documentation.sigma2.no/software/application_guides/gaussian/gaussian_tuning.html).
 
-Gaussian provides a large number of computational models, each with different
-performance characteristics depending on available resources.
+Gaussian tarjoaa suuren määrän laskentamalleja, joista jokaisella on erilaiset suorituskykyominaisuudet käytettävissä olevista resursseista riippuen.
 
-### Parallel calculations
+### Rinnakkaislaskenta {#parallel-calculations}
 
-The number of cores allocated for a job is set in the input file using the
-`%NProcShared` flag.
+Ytimen määrä, joka varataan työhön, määritetään syötettävässä tiedostossa käyttäen `%NProcShared`-lippua.
 
-In general, **the optimal number of cores is quite low**, so it is a good idea
-to start with some test runs on a representative job using a small number of
-cores, such as `%NProcShared=4`. Based on the test results, you can determine
-the appropriate resources for actual production runs.
+Yleisesti ottaen **optimaalinen ytimien määrä on melko alhainen**, joten on hyvä idea tehdä testiajoja edustavalla työllä käyttäen pientä ytimien määrää, kuten `%NProcShared=4`. Testitulosten perusteella voit päättää sopivat resurssit varsinaisiin ajokertoihin.
 
-Increasing the number of cores does not always improve performance and may even
-degrade it.
+Ytimien määrän lisääminen ei aina paranna suorituskykyä ja saattaa jopa heikentää sitä.
 
-### Memory
+### Muisti {#memory}
 
-Memory reservation in Gaussian is controlled using the `%Mem` flag in the input
-file, where you specify the total amount of memory to be allocated for the
-calculation.
+Gaussianissa muistin varaus hallitaan käyttäen `%Mem`-lippua syötetiedostossa, jossa määritetään laskentaan varattavan muistin kokonaismäärä.
 
-For parallel jobs, Gaussian shares memory across multiple cores. Since much of
-the data can be shared among threads, there is only a weak dependence of memory
-usage on the number of cores. This means that increasing the number of cores
-typically does not require a proportional increase in memory allocation.
+Rinnakkaistöissä Gaussian jakaa muistin useiden ytimien kesken. Koska suuri osa tiedoista voi olla jaettuna ketjujen välillä, muistinkäytön riippuvuus ytimien lukumäärästä on heikko. Tämä tarkoittaa, että ytimien määrän lisääminen ei tyypillisesti vaadi suhteellista muistinvarausta.
 
-The overall memory requirement depends on the method, basis set, and number of
-cores. For more information, see
-[Gaussian's official documentation](https://gaussian.com/techsupport/).
+Kokonaismuistivaatimukseen vaikuttavat menetelmä, kanta ja ytimien määrä. Lisätietoja on saatavilla [Gaussianin virallisesta dokumentaatiosta](https://gaussian.com/techsupport/).
 
-There are also some tools, like
-[GaussMem](https://massimiliano-arca.itch.io/gaussmem), that can help estimate
-memory needs.
+On myös työkaluja, kuten [GaussMem](https://massimiliano-arca.itch.io/gaussmem), jotka auttavat arvioimaan muistin tarpeita.
 
-!!! info "Note"
-    On Mahti, each reserved CPU core is allocated **1.875 GiB of memory**. The
-    only way to request more memory is to reserve additional cores. As a
-    result, the optimal number of cores used by Gaussian may sometimes be lower
-    than the number of reserved cores, depending on memory requirements.
+!!! info "Huomio"
+    Mahtissa jokaiselle varatulle CPU-ytimelle myönnetään **1.875 GiB muistia**. Ainoa tapa pyytää enemmän muistia on varata lisää ytimiä. Tämän seurauksena Gaussianin käyttämien ytimien optimaalinen määrä saattaa joskus olla alempi kuin varattujen ytimien määrä, riippuen muistin tarpeista.
 
-### Using local disk (NVMe)
+### Paikallisen levyn (NVMe) käyttö {#using-local-disk-nvme}
 
-For disk I/O intensive jobs, such as highly correlated methods like **MP2**,
-**CCSD(T)**, and property calculations like **vibrational frequency
-calculations**, using the fast **NVMe local disk** on
-[Puhti](../computing/running/creating-job-scripts-puhti.md#local-storage) or
-[Mahti](../computing/running/creating-job-scripts-mahti.md#local-storage) can
-significantly improve performance. Using local disk for such jobs will also
-reduce the overall load on the Lustre parallel file system.
+Levy-I/O-intensiivisissä töissä, kuten erittäin korreloiduissa menetelmissä kuten **MP2**, **CCSD(T)** ja ominaisuuslaskennoissa kuten **värähtelytaajuuslaskennat**, nopean **NVMe-paikallisen levyn** käyttö [Puhtissa](../computing/running/creating-job-scripts-puhti.md#local-storage) tai [Mahtissa](../computing/running/creating-job-scripts-mahti.md#local-storage) voi merkittävästi parantaa suorituskykyä. Paikallisen levyn käyttäminen tällaisissa töissä vähentää myös kokonaisrasitusta Lustre-rinnakkaistiedostojärjestelmään.
 
 ```bash
 subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
 ```
 
-### Estimating optimal resources
+### Resurssien arvioiminen {#estimating-optimal-resources}
 
-Before running large-scale calculations, it's crucial to determine the **most
-efficient** use of computational resources. Overallocating cores or memory can
-lead to wasted resources and, in some cases, even slower performance.
+Ennen suuria laskentoja on tärkeää määrittää laskentaresurssien **tehokkain** käyttö. Ydinten tai muistin yliluokitus voi johtaa resurssien tuhlaukseen ja joissakin tapauksissa jopa hitaampaan suoritukseen.
 
-#### **Step-by-Step Approach**
+#### **Askeltasoinen lähestymistapa** {#step-by-step-approach}
 
-1. **Start small** – Begin with a test job using a modest number of cores
-   (e.g., `%NProcShared=4`).
-2. **Monitor performance** – After the job completes, use the `seff` command to
-   check CPU utilization, memory efficiency, and job runtime.
-3. **Gradually increase resources** – Double the core count in steps (e.g., 4 →
-   8 → 16) and observe the impact on performance.
-4. **Identify the efficiency plateau** – If the speedup gained by doubling the
-   cores falls below 1.5, further increases are likely inefficient.
-5. **Consider disk and memory needs** – Some methods (e.g., **MP2, CCSD(T),
-   frequency calculations**) benefit more from sufficient memory and fast local
-   disk (NVMe) than additional cores. Insufficient memory or slow disk I/O can
-   cause bottlenecks and poor scaling.
+1. **Aloita pienestä** – Aloita testityöllä käyttämällä vaatimattoman määrän ytimiä (esim. `%NProcShared=4`).
+2. **Seuraa suorituskykyä** – Testin jälkeen käytä `seff`-komentoa tarkistaaksesi CPU-käytön, muistitehokkuuden ja työn suoritusajan.
+3. **Lisää resursseja vähitellen** – Tuplaa ydinten määrä askelissa (esim. 4 → 8 → 16) ja tarkkaile vaikutusta suorituskykyyn.
+4. **Tunnista tehokkuuden tasaantuminen** – Jos nopeutuminen ytimien tuplaamisella laskee alle 1.5:n, lisäykset ovat todennäköisesti tehottomia.
+5. **Harkitse levy- ja muistitarpeita** – Jotkin menetelmät (esim. **MP2, CCSD(T), taajuuslaskennat**) hyötyvät enemmän riittävästä muistista ja nopeasta paikallisesta levystä (NVMe) kuin lisäytimistä. Riittämätön muisti tai hidas levyn I/O voivat aiheuttaa pullonkauloja ja huonoa skaalautumista.
 
-Efficient resource allocation ensures faster runs, minimizes queuing times, and
-avoids unnecessary system load.
+Tehokas resurssien jakaminen varmistaa nopeammat ajot, minimoi jonotusajat ja välttää tarpeettoman järjestelmäkuormituksen.
 
-### Performance example
+### Suorituskykyesimerkki {#performance-example}
 
-Here, we provide a brief example of how different resource allocations affect
-Gaussian's performance and what factors should be considered. We use
-[α-Tocopherol](https://en.wikipedia.org/wiki/%CE%91-Tocopherol) (a type of
-vitamin E) as the input structure. The input file is available at
-[vitamin_e.com](https://a3s.fi/gaussian/vitamin_e.com).
+Tässä esitetään esimerkki siitä, kuinka erilaiset resurssirajoitukset vaikuttavat Gaussianin suorituskykyyn ja mitä tekijöitä tulisi huomioida. Käytämme [α-Tokoferolia](https://en.wikipedia.org/wiki/%CE%91-Tocopherol) (eräs E-vitamiini) syöterakenteena. Syöte tiedosto on saatavilla osoitteessa [vitamin_e.com](https://a3s.fi/gaussian/vitamin_e.com).
 
-The tests were conducted in a **production environment**, where job
-interference may introduce performance fluctuations. Additionally, some
-variability arises from the arbitrary placement of allocated cores within a
-node. This internal hierarchy can influence performance.
+Testit suoritettiin **tuotantoympäristössä**, jossa työn häirintä voi aiheuttaa suorituskyvyn vaihtelua. Lisäksi osa vaihteluista johtuu alustavan ytimen sijoittelusta solmun sisällä. Tämä sisäinen hierarkia voi vaikuttaa suorituskykyyn.
 
-First, we compare the runtime and scaling of a `b3lyp/cc-pVDZ, %mem=10GB, 10GB
-NVMe` single-point calculation. This calculation requires only modest memory
-and disk resources, so increasing them should not affect performance.
+Aluksi vertaamme suoritusaikaa ja skaalautuvuutta `b3lyp/cc-pVDZ, %mem=10GB, 10GB NVMe` yksipiste-laskennassa. Tämä laskenta tarvitsee vain kohtuullisen muisti- ja levyresurssin, joten niiden lisääminen ei saisi vaikuttaa suorituskykyyn.
 
 ![Gaussian Performance](../img/g16_perf_1.png)
 
-For this specific case, the scaling on Puhti starts to level off beyond 30
-cores, while on Mahti, the scaling continues at a reasonable level up to about
-80 cores.
+Tässä tapauksessa skaalaus Puhtissa alkaa tasoittua 30 ytimen jälkeen, kun taas Mahtissa skaalaus jatkuu kohtuullisella tasolla noin 80 ytimeen asti.
 
-If we perform the same calculation but increase the size of the basis set to
-`b3lyp/cc-pVTZ`, the `%mem=10GB, 10GB NVMe` allocation is still sufficient for
-all requirements.
+Jos teemme saman laskennan, mutta suurennamme kantalaskoisuuden `b3lyp/cc-pVTZ`:hen, `%mem=10GB, 10GB NVMe` varaus riittää edelleen kaikkiin tarpeisiin.
 
 ![Gaussian Performance](../img/g16_perf_2.png)
 
-For this larger calculation, the scaling on Puhti remains good up to a full
-node. On Mahti, however, the scaling begins to level off around 100 cores.
+Tässä isommassa laskennassa Puhtin skaalaus pysyy hyvänä solmun täyteen  kuormaan asti. Mahtissa skaalaus alkaa tasoittua noin 100 ytimen kohdalla.
 
-For a wave function-based method like `MP2/cc-pVDZ, %mem=100GB, 200GB NVMe`,
-both the reserved memory and the use of local disk (NVMe) have a significant
-impact on performance, as shown in the following graph:
+Aaltotoimintoon perustuvassa menetelmässä `MP2/cc-pVDZ, %mem=100GB, 200GB NVMe`, sekä varattu muisti että paikallisen levyn (NVMe) käyttö vaikuttavat merkittävästi suorituskykyyn, kuten seuraavasta kaaviosta käy ilmi:
 
 ![Gaussian Performance](../img/g16_perf_3.png)
 
-On Puhti, the speedup levels off at around 25 cores, while on Mahti, the
-performance gain continues up to approximately 35 cores.
+Puhtissa nopeutus tasoittuu 25 ytimen paikkeilla, kun taas Mahtissa suorituskyvyn lisäys jatkuu noin 35 ytimeen asti.
 
-Tests on Puhti highlight the importance of allocating sufficient memory.
-Additionally, the notable performance improvement from using local disk (NVMe)
-over the standard scratch disk (about 30% faster!) indicates that local disk
-should always be the preferred option for these types of calculations.
+Testit Puhtissa korostavat riittävän muistin varaamisen tärkeyttä. Lisäksi selvät suorituskyvyn parannukset paikallisen levyn (NVMe) käytöstä tavallisen väliaikaislevyn sijaan (noin 30 % nopeammin!) osoittavat, että paikallinen levy tulisi aina olla etusijalla tällaisessa laskennassa.
 
-## References
+## Viittaukset {#references}
 
-- [How to cite Gaussian](http://gaussian.com/citation_b01/) in your
-  publications.
+- [Kuinka viitata Gaussiani](http://gaussian.com/citation_b01/) julkaisuissasi.
 
-## More information
+## Lisätietoa {#more-information}
 
-- [Online Gaussian user reference](http://gaussian.com/man/)
-- [Using Gabedit as GUI for Gaussian jobs on Puhti](../support/tutorials/gabedit_gaussian.md)
-- [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
+- [Gaussin verkkokäyttäjäohje](http://gaussian.com/man/)
+- [Gabeditin käyttäminen GUI:na Gaussian-töille Puhtissa](../support/tutorials/gabedit_gaussian.md)
+- [Gaussian-töiden viljely HyperQueue:lla](https://csc-aining.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)

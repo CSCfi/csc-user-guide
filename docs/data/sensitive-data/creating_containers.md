@@ -1,43 +1,40 @@
-# Extending SD Desktop software environment with your own Apptainer containers
 
-In this tutorial we use cPouta to create Apptainer containers to import new software to SD Desktop.
+# Laajenna SD Desktop -ohjelmistoympäristö omilla Apptainer-konteillasi {#extending-sd-desktop-software-environment-with-your-own-apptainer-containers}
 
-**Steps 1 and 2** describe how to setup you own Virtual Machine with Apptainer environment to cPouta. This is 
-not the only option and if you have already an Apptainer installed elsewhere, you can skip these steps and 
-use your own Apptainer environment.
+Tässä opetusohjelmassa käytämme cPoutaa Luodaksemme Apptainer-kontteja tuodaksemme uutta ohjelmistoa SD Desktopille.
 
-**Step 3** describes one approach to how you can build your own software containers.
+**Vaiheet 1 ja 2** kuvaavat, kuinka asennat oman virtuaalikoneesi Apptainer-ympäristön cPoutaan. Tämä ei ole ainoa vaihtoehto, ja jos sinulla on jo Apptainer asennettuna muualla, voit ohittaa nämä vaiheet ja käyttää omaa Apptainer-ympäristöäsi.
 
-**Step 4** shows how a container is uploaded to Allas.
+**Vaihe 3** kuvaa, kuinka voit rakentaa oman ohjelmistokonttisi.
 
-**Step 5** describes how the software installed in a container can be used in SD Desktop.
+**Vaihe 4** esittää, kuinka kontti ladataan Allakseen.
 
-## 1. Creating your own Apptainer workbench to cPouta
+**Vaihe 5** kuvaa, kuinka konttiin asennettavaa ohjelmistoa voidaan käyttää SD Desktopilla.
 
-In order to utilize all features of Apptainer you must run it in an environment where you have administrator level access rights. At CSC, you can have administrator level access in virtual machines running in cPouta. Using cPouta for the building process adds a bit of extra steps into the process: you have to know how to launch and access virtual machines in cPouta. On the other hand cPouta has a fast connection to the Allas service that is used to import the ready-made containers to SD Desktop.
+## 1. Oman Apptainer-työpenkin luominen cPoutaan {#1-creating-your-own-apptainer-workbench-to-cpouta}
 
-As a first step, launch a virtual machine in cPouta, as described in the cPouta user guide:
+Jotta voit hyödyntää kaikkia Apptainerin ominaisuuksia, sinun täytyy suorittaa se ympäristössä, missä sinulla on ylläpitäjän oikeudet. CSC:llä voit saada ylläpitäjän oikeudet virtuaalikoneille, jotka toimivat cPoutassa. cPoutan käyttöllä rakentamisprosessissa on hieman ylimääräisiä vaiheita: sinun täytyy tietää, miten käynnistää ja käyttää virtuaalikoneita cPoutassa. Toisaalta cPoutan yhteys Allas-palveluun on nopea, mikä helpottaa valmiiden konttien importtaamista SD Desktopille.
 
-*  [Launching a virtual machine with the cPouta web interface](../../cloud/pouta/launch-vm-from-web-gui.md)
+Ensimmäiseksi käynnistä virtuaalikone cPoutassa, kuten cPouta-käyttäjäoppaassa on kuvattu:
 
-and for example these tutorial videos:
+* [Virtuaalikoneen käynnistäminen cPouta-käyttöliittymän kautta](../../cloud/pouta/launch-vm-from-web-gui.md)
 
-*  [Launching a virtual machine](https://www.youtube.com/watch?v=CvoN4pv0RJQ) and connecting to it on a local macOS laptop
-*  [Creating a virtual machine in cPouta](https://www.youtube.com/watch?v=CIO8KRbgDoI) a webinar recording.
+ja esimerkiksi nämä opetusvideot:
 
-In this tutorial we use a virtual machine that was launched using:
+* [Virtuaalikoneen käynnistäminen](https://www.youtube.com/watch?v=CvoN4pv0RJQ) ja yhdistäminen siihen paikallisella macOS-läppärillä
+* [Virtuaalikoneen luominen cPoutaan](https://www.youtube.com/watch?v=CIO8KRbgDoI) webinaaritallenne.
 
-*  Flavor: **Standard.medium**
-*  Instance Boot Source: **Image**
-*  Image Name: **Ubuntu-22.04**
+Tässä opetusohjelmassa käytämme virtuaalikonetta, joka on käynnistetty käyttämällä:
 
+* Tyyppi: **Standard.medium**
+* Instanssin Käynnistyslähde: **Kuva**
+* Kuvan Nimi: **Ubuntu-22.04**
 
-## 2. Installing singularity and Allas tools to Ubuntu 22.04 server
+## 2. Singularityn ja Allas-työkalujen asentaminen Ubuntu 22.04 palvelimelle {#2-installing-singularity-and-allas-tools-to-ubuntu-22-04-server}
 
-Here we start from a situation where we have logged in to our freshly started virtual machine for the first time. As preparatory steps we need to install to our virtual machine **Apptainer** to create new software containers and **allas-tools** to upload the containers we will create to Allas.
+Tässä aloitetaan tilanteesta, jossa olemme kirjautuneet juuri luotuun virtuaalikoneeseemme ensimmäistä kertaa. Valmisteluvaiheina meidän täytyy asentaa virtuaalikoneeseemme **Apptainer** uusien ohjelmistokonttien luomista varten ja **allas-tools** ladataksemme luomiemme kontit Allakseen.
 
-
-The singularity installation is done with commands:
+Singularityn asennus tehdään komennoilla:
 
 ```text
 sudo apt update
@@ -48,7 +45,7 @@ sudo apt update
 sudo apt install -y apptainer
 ```
 
-After which Allas tools can be installed with:
+Tämän jälkeen Allas-työkalut voidaan asentaa komennolla:
 
 ```text
 sudo apt install python3-pip python3-dev
@@ -59,23 +56,23 @@ curl https://rclone.org/install.sh | sudo bash
 git clone https://github.com/CSCfi/allas-cli-utils
 ```
 
-Note that this installation process needs to be done only once for a virtual machine.
+Huomaa, että tämä asennusprosessi tarvitsee tehdä vain kerran virtuaalikoneelle.
 
-## 3. Creating an Apptainer container
+## 3. Apptainer-kontin luominen {#3-creating-an-apptainer-container}
 
-There are many ways to create new Apptainer containers. You can crate a container by creating a _sandbox_ in to which you log in and add content by typing installation commands. Alternatively you can automatize the installation process so that you collect all the commands and settings to an Apptainer _definition file_ that instructs the installation process. A detailed view to the container building can be found from the [Apptainer user guide](https://apptainer.org/docs/user/main/build_a_container.html).
+Apptainer-kontteja voi luoda monella tapaa. Voit luoda kontin luomalla _sandboxing_-ympäristön, johon kirjaudut ja lisäät sisältöjä komentosarjoilla. Vaihtoehtoisesti voit automatisoida asennusprosessin kokoamalla kaikki komennot ja asetukset Apptainerin _määrittelytiedostoon_, joka ohjaa asennusprosessia. Yksityiskohtainen katsaus kontin rakentamiseen löytyy [Apptainer-käyttäjäoppaasta](https://apptainer.org/docs/user/main/build_a_container.html).
 
-Here we use a mixture of these two approaches. We first use a simple definition file to create a new container sandbox that contains a set of tools for software installation. Then we open a shell session to the container sandbox and do the actual software installations manually.
+Täällä käytämme näiden kahden lähestymistavan yhdistelmää. Ensin käytämme yksinkertaista määrittelytiedostoa luodaksemme uuden kontin hiekkalaatikon, joka sisältää joukon työkaluja ohjelmistoasennuksia varten. Sitten avaamme komentorivisession kontin hiekkalaatikkoon ja teemme varsinaiset ohjelmistoasennukset manuaalisesti.
 
-### 3.1 Definition file
+### 3.1 Määrittelytiedosto {#3-1-definition-file}
 
-First open a new file called `ubuntu_with_inst_tools.def` with command:
+Avaa ensin uusi tiedosto nimeltä `ubuntu_with_inst_tools.def` komennolla:
 
 ```text
 nano ubuntu_with_inst_tools.def
 ```
 
-And copy-paste to the new file the content from the sample definition file below:
+Ja kopioi-liitä uuteen tiedostoon sisältö alla olevasta esimerkkimäärittelytiedostosta:
 
 ```text
 Bootstrap: docker
@@ -114,23 +111,21 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-### 3.2 Creating and using sandbox
+### 3.2 Hiekkalaatikon luominen ja käyttö {#3-2-creating-and-using-sandbox}
 
-Next we will use this definition file to create a new Apptainer sandbox
+Seuraavaksi käytämme tätä määrittelytiedostoa luodaksemme uuden Apptainer-hiekkalaatikon
 
 ```text
 sudo apptainer build --sandbox sd_sandbox_1 ubuntu_with_inst_tools.def
 ```
 
-When the sandbox is ready we open a shell session into it. Option `-w` enables us to write to the sandbox:
+Kun hiekkalaatikko on valmis, avaamme siihen komentorivisession. Valitsin `-w` antaa meille mahdollisuuden kirjoittaa hiekkalaatikkoon:
 
 ```text
 sudo apptainer shell -w sd_sandbox_1
 ```
 
-Now we are inside the Apptainer sandbox, and we can start installing the software we need.
-We have already Conda available that will provide a handy way to install many software tools.
-For example, following commands install _bamtools_ into Conda environment called _biotools_. 
+Nyt olemme sisällä Apptainer-hiekkalaatikossa ja voimme aloittaa tarvitsemiemme ohjelmistojen asennukset. Meillä on jo Conda käytettävissä, joka tarjoaa kätevän tavan asentaa monia ohjelmistotyökaluja. Esimerkiksi seuraavat komennot asentavat _bamtoolsin_ Conda-ympäristöön nimeltä _biotools_.
 
 ```text
 conda init bash
@@ -140,8 +135,7 @@ conda activate biotools
 conda install bamtools
 ```
 
-We could also use normal installation procedures instead of Conda. For example instead of `conda install vcftools`
-you could do vcftools installation with commands:
+Voisimme myös käyttää tavanomaisia asennusmenetelmiä Condan sijaan. Esimerkiksi sen sijaan, että käytämme `conda install vcftools`, voisimme tehdä vcftoolsin asennuksen komennoilla:
 
 ```text
 cd /opt/tools
@@ -153,108 +147,103 @@ make
 make install
 ```
 
-New version of samtools could be installed with command:
+Uudempi versio samtoolsista voidaan asentaa komennolla:
 
 ```text
 apt install samtools
 ```
 
-Pip can be used to add Python modules:
+Pipin avulla voidaan lisätä Python-moduuleja:
 
 ```text
 pip install pyhdfe
 ```
 
-When you are ready with the software installations you can exit the sandbox with command:
+Kun olet valmis ohjelmistoasennusten kanssa, voit poistua hiekkalaatikosta komennolla:
 
 ```text
 exit
 ```
 
-Note: If you have launched a bash session for Conda installations, you will need to give two exit commands
+Huomaa: Jos olet käynnistänyt bash-session Conda-asennuksia varten, sinun tulee antaa kaksi exit-komentoa
 
-### 3.3 Creating an Apptainer image file
+### 3.3 Apptainer-kuvatiedoston luominen {#3-3-creating-an-apptainer-image-file}
 
-Now we are back in the base virtual machine. Next we convert the sandbox into an Apptainer image file with command:
+Nyt olemme takaisin perusvirtuaalikoneessa. Seuraavaksi muutamme hiekkalaatikon Apptainer-kuvatiedostoksi komennolla:
 
 ```text
 sudo apptainer build sd_tools_1.sif sd_sandbox_1
 ```
 
-After this, file listing (`ls -lh`) shows that the current directory has a sandbox directory and an Apptainer image file
+Tämän jälkeen tiedostoluettelo (`ls -lh`) näyttää, että nykyinen hakemisto sisältää hiekkalaatikkohakemiston ja Apptainer-kuvatiedoston
 
 ```text
 drwxr-xr-x. 18 root   root   4.0K Sep 27 12:56 sd_sandbox_1
 -rwxr-xr-x   1 ubuntu ubuntu 419M Sep 27 13:43 sd_tools_1.sif
 ```
 
-Note that both the sandbox and Apptainer image file can be used to execute the commands we just installed. For example, we can print out _samtools_ help message with both commands below:
+Huomaa, että sekä hiekkalaatikkohakemisto että Apptainer-kuvatiedosto voidaan käyttää suorittamaan äsken asentamiamme komentoja. Esimerkiksi voimme tulostaa _samtoolsin_ ohjeen molemmilla alla olevilla komennoilla:
 
 ```text
 apptainer exec sd_sandbox_1 samtools 
 apptainer exec sd_tools_1.sif samtools
 ```
 
-## 4. Uploading container to Allas/SD Connect
+## 4. Kontin lataaminen Allas/SD Connectiin {#4-uploading-container-to-allas-sd-connect}
 
-In order to use the Apptainer container in SD desktop, we need to encrypt it with CSC public key and upload it to Allas. If you want to use the same container in other locations too, for example in Puhti and Mahti, you will need to upload another, non-encrypted version to Allas.
+Jotta Apptainer-konttia voidaan käyttää SD-työpöydällä, meidän täytyy salata se CSC:n julkisella avaimella ja ladata se Allakseen. Jos haluat käyttää samaa konttia myös muissa paikoissa, esimerkiksi Puhtissa ja Mahtissa, sinun tulee ladata toinen, salaamaton versio Allakseen.
 
-For the upload process we use the Allas tools we installed in step 2, where we installed Allas tools to directory `$HOME/allas-cli-utils`.
-First we add this directory to command path:
+Latausprosessissa käytämme Allas-työkaluja, jotka asensimme vaiheessa 2, jossa asensimme Allas-työkalut hakemistoon `$HOME/allas-cli-utils`. Ensin lisäämme tämän hakemiston komentopolkuun:
 
 ```text
 export PATH=${HOME}/allas-cli-utils:${PATH}
 ```
 
-Next we open connection to Allas using the `allas_conf` script. Note that you must define your CSC user account
-with `-u your-csc-account`. Here we assume that the user account is `kkayttaj`.
+Seuraavaksi avaamme yhteyden Allakseen `allas_conf`-skriptin avulla. Huomaa, että sinun pitää määritellä CSC-käyttäjätilisi `-u your-csc-account` op-kennan avulla. Tässä oletetaan, että käyttäjätili on `kkayttaj`.
 
 ```text
 source ${HOME}/allas-cli-utils/allas_conf -u kkayttaj
 ```
 
-The command above asks for the password of the CSC user account and then lists the Allas projects that the user account has available.
-In this case we select the number that defines project _project_2000123_. After that the Allas connections to the selected project will remain active for the next eight hours.
+Yllä oleva komento kysyy CSC-käyttäjätilin salasanan ja sen jälkeen listaa Allas-projektit, joita käyttäjätilillä on käytettävissä. Tässä tapauksessa valitsemme numeron, joka määrittää projektin _project_2000123_. Tämän jälkeen Allas-yhteydet valittuun projektiin ovat aktiivisia seuraavat kahdeksan tuntia.
 
-Now we can access Allas with [a-tools](../Allas/using_allas/a_commands.md) or [rclone](../Allas/using_allas/rclone.md). 
-Next we upload the container image we just created to Allas with command:
+Nyt voimme käyttää Allasta [a-tools](../Allas/using_allas/a_commands.md) tai [rclone](../Allas/using_allas/rclone.md) avulla. Seuraavaksi lataamme juuri luomamme konttikuvan Allakseen komennolla:
 
 ```text
 a-put --sdx sd_tools_1.sif -b 2000123_apptainer_sd -m "SD Compatible. Contains bamtools, samtools and vcftools."
 ```
 
-In the command above option `--sdx` is used to encrypt the container with CSC public key. The encrypted container will be stored to bucket `2000123_apptainer_sd`. Here the bucket name contains the project number (2000123) to ensure uniqueness and _sd_ is used to indicate that this bucket contains SD Desktop compatible data. Option `-m` is used to add a description line to the metadata object that a-put creates.
+Yllä olevassa komennossa valitsin `--sdx` käytetään salataksesi kontin CSC:n julkisella avaimella. Salattu kontti tallennetaan hakemistoon `2000123_apptainer_sd`. Tässä hakemiston nimi sisältää projektinumeron (2000123) ainutlaatuisuuden varmistamiseksi ja _sd_ osoittaa, että tämä hakemisto sisältää SD Desktopille yhteensopivaa dataa. Valitsin `-m` käytetään lisäämään metatietokohteen kuvauksen, jonka a-put luo.
 
-## 5. Using Apptainer containers in SD Desktop
+## 5. Apptainer-konttien käyttäminen SD Desktopilla {#5-using-apptainer-containers-in-sd-desktop}
 
-In order to use the apptainer container you have created you need first download a copy of the container to the SD Desktop with _Data Gateway_ tool. First login to [SD Desktop](https://sd-desktop.csc.fi) and connect to the Virtual Desktop that you want to use. Open Data Gateway, navigate then to the right project (`project_2000123`) and bucket (`2000123_apptainer_sd`), and download the Apptainer image file (`sd_tools_1.sif`) to the SD Desktop.
+Jotta voit käyttää luomaasi apptainer-konttia, sinun täytyy ensin ladata kontista kopio SD Desktopille _Tietoportti_-työkalulla. Kirjaudu ensin [SD Desktopille](https://sd-desktop.csc.fi) ja yhdistä siihen virtuaaliseen työpöytään, jota haluat käyttää. Avaa Tietoportti, navigoi oikeaan projektiin (`project_2000123`) ja hakemistoon (`2000123_apptainer_sd`), ja lataa Apptainer-kuvatiedosto (`sd_tools_1.sif`) SD Desktopille.
 
-After that, open a Linux terminal in the SD Desktop. In the terminal, move the Apptainer file to the location you want to use it. In this example that could be done with command:
+Sen jälkeen, avaa Linux-terminali SD Desktopilla. Terminalissa siirrä Apptainer-tiedosto haluamaasi paikkaan. Tässä esimerkissä se voitaisiin tehdä komennolla:
 
 ```text
 cp /home/kkayttaj/Projects/SD-connect/project_2000123/2000123_apptainer_sd/sd_tools_1.sif ./
 ```
 
-Now we could execute for example the samtools command that is installed in the container.
+Nyt voisimme suorittaa esimerkiksi samtools-komennon, joka on jo asennettu konttiin.
 
 ```text
 apptainer exec sd_tools_1.sif samtools
 ```
 
-The command above prints out the help for samtools version 1.10 that is installed in the container. Note that another version of samtools, version 1.9, is installed in the SD Desktop, so the command below would work too, but it would print help of the older samtools version:
+Yllä oleva komento tulostaa samtoolsin version 1.10 ohjeen, joka on konttiin asennettu. Huomaa, että toinen versio samtoolsista, versio 1.9, on asennettu SD Desktopilla, joten myös alla oleva komento toimisi, mutta se tulostaisi vanhemman samtools-version ohjeen:
 
 ```text
 samtools --help
 ```
 
-When using the Apptainer container, you should note that it has its own file system that is read-only. In addition to this static file system Apptainer mounts selected directories from the host system into the container environment. These bind mounts can be used to import data to the container, and they are also the only places into which new data can be written.
+Kun käytät Apptainer-konttia, on hyvä huomata, että sillä on oma tiedostojärjestelmänsä, joka on kirjoitussuojattu. Tämän staattisen tiedostojärjestelmän lisäksi Apptainer liittää valitut isäntäjärjestelmän hakemistot konttiympäristöön. Näitä kytkentöjä voidaan käyttää datan tuomiseen konttiin ja ne ovat myös ainoita paikkoja, joihin uutta dataa voidaan kirjoittaa.
 
-By default, Apptainer bind mounts **home directory** (`/home/$USER`), `/tmp`, and **current working directory** (`$PWD`) into your container at runtime. If you need to mount additional directories you will need to define them with singularity option `-B source-directory:target-directory`.
+Oletuksena Apptainer liittää **kotihakemiston** (`/home/$USER`), `/tmp`, ja **työskentelyhakemiston** (`$PWD`) konttiisi ajon aikana. Jos tarvitset lisähakemistoja liitettäviksi, sinun on määriteltävä ne singularity-optiolla `-B lähdehakemisto:kohdehakemisto`.
 
-For example if we have input file `input_bam.bam` current working directory, it is automatically accessible for a command that is executed inside the container. But if we need also another input file `reference.bed` which locates in directory called `/data`, then we should add that directory to the list of bind-mounted directories. For example:
+Esimerkiksi, jos meillä on tulotiedosto `input_bam.bam` nykyisessä työskentelyhakemistossa, se on automaattisesti käytettävissä komennolle, joka suoritetaan kontin sisällä. Mutta jos tarvitsemme myös toisen tulotiedoston `reference.bed`, joka sijaitsee hakemistossa `/data`, meidän tulisi lisätä kyseinen hakemisto kytkettävien hakemistojen listalle. Esimerkiksi:
 
 ```text
 apptainer -B /data:/data exec sd_tools_1.sif samtools depth -a -b /data/refrence.bed input_bam.bam > result.depth
 ```
 
- 

@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -5,56 +6,55 @@ tags:
 
 # SPAdes
 
-SPAdes is a short read assembler for small genomes. SPAdes works with Illumina or IonTorrent reads and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads.
+SPAdes on pienten genomien kokoaja lyhyille lukujonoille. SPAdes toimii Illuminan tai IonTorrentin lukujonojen kanssa ja pystyy tuottamaan hybridi-koosteita käyttäen PacBio-, Oxford Nanopore- ja Sanger-lukujonoja.
 
-SPAdes (`spades.py`) includes several separate modules:
+SPAdes (`spades.py`) sisältää useita erillisiä moduuleja:
 
-* BayesHammer – read error correction tool for Illumina reads, which works well on both single-cell and standard datasets.
-* IonHammer – read error correction tool for IonTorrent data, which also works on both types of data.
-* SPAdes – iterative short-read genome assembly module; values of K are selected automatically based on the read length and dataset type.
-* MismatchCorrector – a tool which improves mismatch and short indel rates in resulting contigs and scaffolds; this module uses the BWA tool [Li H. and Durbin R., 2009]; MismatchCorrector is turned off by default, but we recommend turning it on.
+* BayesHammer – lukujonovirheen korjaustyökalu Illumina-lukujonoille, joka toimii hyvin sekä yksisolu- että vakiotietoaineistoissa.
+* IonHammer – lukujonovirheen korjaustyökalu IonTorrent-datalle, joka toimii myös molemmille tietotyyppien kanssa.
+* SPAdes – iteratiivinen lyhyen lukun genomin kokoamisosio; K-arvot valitaan automaattisesti luku pituudesta ja tietoaineistotyypistä.
+* MismatchCorrector – työkalu, joka parantaa tulosjätösten ja niin sanottujen lyhyiden inokulointien virheprosentteja; tämä moduuli käyttää BWA-työkalua [Li H. ja Durbin R., 2009]; MismatchCorrector on oletusarvoisesti pois päältä, mutta suosittelemme sen päälle kytkemistä.
 
-We recommend running SPAdes with BayesHammer/IonHammer to obtain high-quality assemblies. However, if you use your own read correction tool, it is possible to turn error correction module off. It is also possible to use only the read error correction stage if you wish to use another assembler.
+Suosittelemme SPAdesin käyttöä yhdessä BayesHammerin/IonHammerin kanssa korkealaatuisten kokoamisten saavuttamiseksi. Jos kuitenkin käytät omaa lukujonovirheenkorjaustyökalua, on mahdollista kytkeä virheenkorjausmoduuli pois päältä. Myös vain lukujonovirheenkorjausvaiheen käyttö mahdollista, jos aiot käyttää muuta kokoajaa.
 
-In addition to the general purpose SPAdes there are specific SPAdes parameter sets for:
+Yleiskäyttöisen SPAdesin lisäksi on olemassa erityisiä SPAdes-parametriasetuksia:
 
 * Coronaspades (`coronaspades.py`)
 * Metaviralspades (`metaviralspades.py`)
 * Rnaviralspades (`rnaviralspades.py`)
-* Metagenomics (`metaspades.py`)
-* Plasmid assembly (`plasmidspades.py`)
-* RNA-Seq assembly (`rnaspades.py`)
+* Metagenomiikka (`metaspades.py`)
+* Plasmidien kokoaminen (`plasmidspades.py`)
+* RNA-Seq -kokoaminen (`rnaspades.py`)
 
-See the [SPAdes documentation](https://ablab.github.io/spades/installation.html) for more details.
+Lisätietoja löytyy [SPAdes-dokumentaatiosta](https://ablab.github.io/spades/installation.html).
 
 [TOC]
 
-## License
+## License {#license}
 
-Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+Ilmainen käyttää ja avoimen lähdekoodin [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) lisenssillä.
 
-## Available
+## Available {#available}
 
 - Puhti: 3.15.5, 4.0.0
 
-## Usage
+## Usage {#usage}
 
-On Puhti, SPAdes is activated by loading the `spades` module.
+Puhtissa SPAdes aktivoidaan lataamalla `spades`-moduuli.
 
 ```bash
 module load spades/<version>
 ```
 
-For usage help, use command:
+Käyttöohjeita saat käyttämällä komentoa:
 
 ```bash
 spades.py -h
 ```
 
-Assembly tasks can be very resource demanding and, therefore, you should never run real SPAdes jobs on the login nodes of Puhti.
-For any real analysis task, we recommend running SPAdes as a batch job.
+Kokoamistehtävät voivat vaatia paljon resursseja, joten SPAdes-tehtäviä ei tule koskaan ajaa Puhtin kirjautumissolmuilla. Suosittelemme ajamaan SPAdesin eräajona todellisissa analyysitehtävissä.
 
-Sample SPAdes batch job file:
+Esimerkki SPAdes-eräajotiedostosta:
 
 ```bash
 #!/bin/bash
@@ -74,21 +74,18 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun spades.py --pe1-1 reads_R1.fastq.gz --pe1-2 reads_R2.fastq.gz -t $SLURM_CPUS_PER_TASK -o SpadesResult
 ```
 
-In the example above `<project>` should be replaced with your project name. You can use `csc-projects` to check your CSC projects.
-Maximum running time is 
-set to 12 hours (`--time=12:00:00`). As SPAdes uses thread-based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory (`--mem=32G`). Note that the number of cores to be used needs to be defined with both `$OMP_NUM_THREADS` environment variable and in the actual `spades.py` command (option `-t`). In this case, we use `$SLURM_CPUS_PER_TASK` variable that contains the `--cpus-per-task`
-value. We could as well use `export OMP_NUM_THREADS=8` and `-t 8`, but then we have to remember to change the values if the number of the reserved CPUs is changed.
+Yllä olevassa esimerkissä `<project>` tulee korvata projektisi nimellä. Voit käyttää `csc-projects` tarkistaaksesi CSC-projektisi. Enimmäisaika on asetettu 12 tunniksi (`--time=12:00:00`). Koska SPAdes käyttää säikeisiin perustuvaa rinnakkaisuutta, prosessi katsotaan yhdeksi työksi, joka tulisi suorittaa yhdellä solmulla (`--ntasks=1`, `--nodes=1`). Työ varaa kahdeksan ydintä `--cpus-per-task=8` ja voi käyttää yhteensä enintään 32 Gt muistia (`--mem=32G`). Huomaa, että käytettävien ytimien määrä tulee määritellä sekä `$OMP_NUM_THREADS` ympäristömuuttujalla että varsinaisessa `spades.py`-komennossa (vaihtoehto `-t`). Tässä tapauksessa käytämme `$SLURM_CPUS_PER_TASK` -muuttujaa, joka sisältää `--cpus-per-task` arvon. Voisimme myös käyttää `export OMP_NUM_THREADS=8` ja `-t 8`, mutta silloin meidän on muistettava muuttaa arvoja, jos varattujen suorittimien määrä muuttuu.
 
-The job is submitted to the batch job system with `sbatch` command. For example, if the batch job
-file is named `spades_job.sh`, then the submission command is: 
+Työ ajetaan eräajojärjestelmään `sbatch`-komennolla. Esimerkiksi, jos eräajotiedoston nimi on `spades_job.sh`, silloin komento on:
 
 ```bash
 sbatch spades_job.sh 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+Lisätietoja eräajojen suorittamisesta löydät [Puhtin käyttäjäoppaan eräajojen osiosta](../computing/running/getting-started.md).
 
-## More information
+## More information {#more-information}
 
-*	[SPAdes website](https://ablab.github.io/spades/)
-*	[SPAdes GitHub repository](https://github.com/ablab/spades)
+* [SPAdes-verkkosivusto](https://ablab.github.io/spades/)
+* [SPAdes GitHub -arkisto](https://github.com/ablab/spades)
+

@@ -1,112 +1,108 @@
+
 # Allas Web UI
 
-Allas Web UI provides a simple-to-use web user interface for CSC Object Storage service, Allas.
+Allas Web UI tarjoaa helppokäyttöisen verkkokäyttöliittymän CSC:n objektitallennuspalveluun, Allakseen.
 
-## Getting Started
+## Aloittaminen {#getting-started}
 
-1. Go to [https://allas.csc.fi](https://allas.csc.fi) and log in.
-2. Select your project from the **Select Project** dropdown menu.
-
-
-=== "Login Page"
-    ![Allas Web UI Login](img/Allas-UI-login.png){ width=80% }
-
-=== "Main Page"
-    ![Main Page](img/Allas-UI-main.png){ width=80% }
-
-## Creating a Bucket
-
-A bucket is a storage container for your objects. Follow these steps to create one:
-
-1. Click on **Create bucket**.
-2. Enter a bucket name (names cannot be modified later. See the [checklist for naming a bucket](../introduction.md#naming-buckets)).
-3. (Optional) Add tags for better organization and search abilities.
-4. Click **Save**.
-
-![Create a Bucket](img/Allas-UI-bucket.png){ width=80% }
-<br>Creating a new bucket
-
-## Uploading Objects
-
-You can upload objects in two ways:
-
-### Uploading from the main page:
-1. Click the **Upload** button on the dashboard.
-2. Enter a bucket name (names cannot be modified later. See the [checklist for naming a bucket](../introduction.md#naming-buckets)).
-3. Select / "Drag & Drop" objects and click **Upload**.
-4. A new bucket containing the objects will be created. 
+1. Siirry osoitteeseen [https://allas.csc.fi](https://allas.csc.fi) ja kirjaudu sisään.
+2. Valitse projektisi **Valitse projekti** -valikosta.
 
 
-### Uploading to an existing bucket:
-1. Click on an existing bucket.
-2. Press the **Upload** button.
-3. Select / "Drag & Drop" objects and click **Upload** to store them in the chosen bucket.
+=== "Kirjautumissivu"
+    ![Allas Web UI -kirjautuminen](img/Allas-UI-login.png){ width=80% }
 
-=== "Uploading from the main page"
-    ![Allas Web UI Login](img/Allas-UI-upload1.png){ width=80% }
+=== "Pääsivu"
+    ![Pääsivu](img/Allas-UI-main.png){ width=80% }
 
-=== "Uploading to an existing bucket"
-    ![Main Page](img/Allas-UI-upload2.png){ width=80% }
+## Kaukalon luominen {#creating-a-bucket}
 
+Kaukalo on objektiesi tallennussäiliö. Luodaksesi sellaisen noudata näitä ohjeita:
 
+1. Klikkaa **Luo kaukalo**.
+2. Syötä kaukalon nimi (nimiä ei voi muokata myöhemmin. Katso [kaukalon nimeämisohjeet](../introduction.md#naming-buckets)).
+3. (Valinnainen) Lisää tageja paremman organisoinnin ja hakutoimintojen vuoksi.
+4. Klikkaa **Tallenna**.
 
-## Viewing and Managing Buckets
+![Luo kaukalo](img/Allas-UI-bucket.png){ width=80% }
+<br>Uuden kaukalon luominen
 
-After creating buckets and uploading objects, you can view and manage them easily.
+## Objektien lataaminen {#uploading-objects}
 
-1. The main dashboard lists all your buckets.
-2. Click on a bucket name to view its contents.
-3. Use the **[Download](#downloading-objects-and-buckets)**, **[Share](#sharing-a-bucket)**, or **Options** (*[Copy](#copying-a-bucket)*, *Edit tags*, *[Delete](#removing-objects-and-buckets)*) buttons for actions on objects and buckets.
+Voit ladata objekteja kahdella tavalla:
 
-![Dashboard](img/Allas-UI-dashboard.png){ width=80% }
-<br>Managing buckets in Allas
-
-## Sharing a Bucket
-
-To share a bucket, follow these steps:
-
-1. **Obtain the Share ID**:
-    - If you are sharing with another project you own: Switch to that project, press **Copy Share ID**, then return to your original project.
-    - If you are sharing with another user's project: Ask them to copy their Share ID and send it to you.
-2. Look for the bucket you want to share, click **Share**, and paste the copied Share ID.
-3. **Select the permissions**:
-    - **Transfer data**: Allows downloading and copying.
-    - **Collaborate**: Allows uploading and deleting.
-    - **View**: Read-only access.
-4. Click **Share** to finalize the process.
-5. You can see the buckets you have shared under the **Buckets you have shared** tab.
-6. You can see buckets shared with you under the **Buckets shared with you** tab.
-
-**Note:** You can always remove a share of a bucket by clicking **Share** and pressing **Delete**.
-
-=== "Sharing Permissions"
-    ![Sharing Permissions](img/Allas-UI-share.png){ width=80% }
-
-=== "Buckets You Have Shared"
-    ![Buckets You Have Shared](img/Allas-UI-shared.png){ width=80% }
+### Lataaminen pääsivulta: {#uploading-from-the-main-page}
+1. Paina **Lataa**-painiketta hallintapaneelissa.
+2. Syötä kaukalon nimi (nimiä ei voi muokata myöhemmin. Katso [kaukalon nimeämisohjeet](../introduction.md#naming-buckets)).
+3. Valitse/”Raahaa ja pudota” objekteja ja klikkaa **Lataa**.
+4. Uusi kaukalo, joka sisältää objektit, luodaan.
 
 
-## Copying a Bucket
+### Lataaminen olemassa olevaan kaukaloon: {#uploading-to-an-existing-bucket}
+1. Klikkaa olemassa olevaa kaukaloa.
+2. Paina **Lataa**-painiketta.
+3. Valitse/”Raahaa ja pudota” objekteja ja klikkaa **Lataa** tallentaaksesi ne valittuun kaukaloon.
 
-**Use Case**: If you want to preserve the data in a bucket while performing tests or modifications, you can copy it and work on the duplicate without affecting the original.
+=== "Lataaminen pääsivulta"
+    ![Allas Web UI -kirjautuminen](img/Allas-UI-upload1.png){ width=80% }
 
-To copy a bucket:
+=== "Lataaminen olemassa olevaan kaukaloon"
+    ![Pääsivu](img/Allas-UI-upload2.png){ width=80% }
 
-1. Click on the **Options** button next to the bucket.
-2. Select **Copy**.
+## Kaukalojen tarkastelu ja hallinta {#viewing-and-managing-buckets}
 
+Kaukalojen luomisen ja objektien lataamisen jälkeen voit tarkastella ja hallita niitä helposti.
 
-## Downloading Objects and Buckets
+1. Pääasiallinen hallintapaneeli listaa kaikki kaukalosi.
+2. Klikkaa kaukalon nimeä nähdäksesi sen sisällön.
+3. Käytä **[Lataa](#downloading-objects-and-buckets)**, **[Jaa](#sharing-a-bucket)** tai **Valinnat** -painikkeita (*[Kopioi](#copying-a-bucket)*, *Muokkaa tageja*, *[Poista](#removing-objects-and-buckets)*) objektien ja kaukaloiden toimenpiteille.
+
+![Hallintapaneeli](img/Allas-UI-dashboard.png){ width=80% }
+<br>Kaukalojen hallinta Allaksessa
+
+## Kaukalon jakaminen {#sharing-a-bucket}
+
+Kaukalon jakamiseksi noudata näitä ohjeita:
+
+1. **Hanki Jako-ID**:
+    - Jos jaat toiseen projektisi: Vaihda siihen projektiin, paina **Kopioi Jako-ID**, ja palaa alkuperäiseen projektiisi.
+    - Jos jaat toisen käyttäjän projektiin: Pyydä häntä kopioimaan Jako-ID ja lähettämään se sinulle.
+2. Etsi kaukalo, jonka haluat jakaa, klikkaa **Jaa** ja liitä kopioitu Jako-ID.
+3. **Valitse oikeudet**:
+    - **Siirrä dataa**: Mahdollistaa lataamisen ja kopioimisen.
+    - **Tee yhteistyötä**: Mahdollistaa lataamisen ja poistamisen.
+    - **Katso**: Vain lukuoikeudet.
+4. Klikkaa **Jaa** viimeistelläksesi prosessin.
+5. Näet jakamasi kaukalot **Jaetut kaukalot** -välilehdellä.
+6. Näet sinulle jaetut kaukalot **Sinulle jaetut kaukalot** -välilehdellä.
+
+**Huom:** Voit aina poistaa jaon kaukalosta klikkaamalla **Jaa** ja painamalla **Poista**.
+
+=== "Jakamisoikeudet"
+    ![Jakamisoikeudet](img/Allas-UI-share.png){ width=80% }
+
+=== "Jaetut kaukalot"
+    ![Jaetut kaukalot](img/Allas-UI-shared.png){ width=80% }
+
+## Kaukalon kopiointi {#copying-a-bucket}
+
+**Käyttötapaus**: Jos haluat säilyttää kaukalossa olevan datan samalla kun suoritat testejä tai muutoksia, voit kopioida sen ja työskennellä kopiolla vaikuttamatta alkuperäiseen.
+
+Kaukalon kopioimiseksi:
+
+1. Klikkaa **Valinnat**-painiketta kaukalon vieressä.
+2. Valitse **Kopioi**.
+
+## Objektien ja kaukaloiden lataaminen {#downloading-objects-and-buckets}
 
 !!! warning ""
-    Downloading buckets or folders larger than **5 GiB** is currently not supported. For larger downloads, consider using the **[Command Line Tools](./rclone.md)** instead.
+    Kaukaloiden tai kansioiden lataaminen, jotka ovat suurempia kuin **5 GiB**, ei tällä hetkellä ole tuettu. Suurempia latauksia varten käytä mieluummin **[Komentorivityökaluja](./rclone.md)**.
 
 
-1. Click the **Download** button next to the Bucket / Object.
-2. The file will be saved to your local system.
+1. Klikkaa **Lataa**-painiketta kaukalon / objektin vieressä.
+2. Tiedosto tallennetaan paikalliselle järjestelmällesi.
 
-## Removing Objects and Buckets
+## Objektien ja kaukaloiden poistaminen {#removing-objects-and-buckets}
 
-- **Buckets**: Empty the bucket first, then click **Options** > **Delete** next to the bucket.
-- **Objects**: Click **Delete** next to an object.
-
+- **Kaukalot**: Tyhjennä ensin kaukalo, sitten klikkaa **Valinnat** > **Poista** kaukalon vieressä.
+- **Objektit**: Klikkaa **Poista** objektin vieressä.

@@ -1,38 +1,38 @@
-# External documentation
 
-## Platform documentation
+# Ulkoinen dokumentaatio
 
-Both the OpenShift and the Kubernetes projects maintain extensive user
-documentation. When looking at documentation, you should keep in mind that the
-documentation is versioned for each version of the platform. You should look at
-documentation for the platform with which you are currently working with. You
-can find out the relevant version information by clicking the question mark
-symbol in the top bar of the web interface and selecting "About" or with the `oc version`
-command line command while logged in to the OpenShift environment.
+## Alustan dokumentaatio {#platform-documentation}
 
-  * [Kubernetes documentation](https://kubernetes.io/docs/home/)
-  * [OpenShift documentation](https://docs.okd.io/)
+Sekä OpenShift että Kubernetes -projektit ylläpitävät laajaa käyttäjädokumentaatiota.
+Dokumentaatioon tutustuessasi on tärkeää muistaa, että dokumentaatio on versioitu 
+jokaiselle alustan versiolle. Sinun tulisi katsoa sen alustan dokumentaatiota,
+jonka kanssa työskentelet. Löydät asianmukaiset versiotiedot napsauttamalla
+kysymysmerkkisymbolia verkkoliittymän ylärivillä ja valitsemalla "About" tai
+käyttämällä `oc version` komentoa OpenShift-ympäristössä ollessasi kirjautuneena.
 
-You could also have a look at "Awesome Kubernetes" which is a curated list of
-links about Kubernetes:
+  * [Kubernetes dokumentaatio](https://kubernetes.io/docs/home/)
+  * [OpenShift dokumentaatio](https://docs.okd.io/)
+
+Voit myös tutustua "Awesome Kubernetes" -sivustoon, joka sisältää kuratoidun 
+listan linkkejä Kubernetesista:
 
   * [Awesome Kubernetes](https://ramitsurana.github.io/awesome-kubernetes/)
 
-## Docker
+## Docker {#docker}
 
-Knowing how to use Docker is also important when using container platforms:
+Dockerin käytön osaaminen on myös tärkeää säilöalustoilla työskenneltäessä:
 
-  * [Docker documentation](https://docs.docker.com/)
+  * [Docker dokumentaatio](https://docs.docker.com/)
 
-There is also a curated list of links about Docker called "Awesome Docker" that
-you may find interesting for gaining deeper knowledge about Docker:
+On myös olemassa kuratoitu linkkilista Dockerista nimeltä "Awesome Docker", 
+joka voi olla mielenkiintoinen syvemmän Docker-tuntemuksen hankkimiseksi:
 
   * [Awesome Docker](https://awesome-docker.netlify.app/)
 
-## Tutorials and courses
+## Opetusohjelmat ja kurssit {#tutorials-and-courses}
 
-There are many tutorials and online courses available for OpenShift and
-Kubernetes. Here is a list of some of them:
+OpenShift- ja Kubernetes -aiheisia opetusohjelmia ja verkkokursseja on saatavilla 
+runsaasti. Tässä on joitakin niistä:
 
   * [OpenShift: Interactive Learning Portal](https://learn.openshift.com/)
   * [Udacity: Scalable Microservices with
@@ -40,16 +40,15 @@ Kubernetes. Here is a list of some of them:
   * [edX: Introduction to
     Kubernetes](https://www.edx.org/course/introduction-kubernetes-linuxfoundationx-lfs158x)
 
-You may also find the material and the exercises of the CSC container course
-helpful:
+CSC:n säilökurssin materiaali ja harjoitukset voivat myös olla hyödyllisiä:
 
-  * [CSC container course
-    material](https://rahti-course.a3s.fi/index.html)
+  * [CSC säilökurssin
+    materiaali](https://rahti-course.a3s.fi/index.html)
 
-## Blogs
+## Blogit {#blogs}
 
-You can find usage examples and announcements from the OpenShift and the
-Kubernetes blogs:
+Löydät käyttöesimerkkejä ja ilmoituksia OpenShift- ja Kubernetes-blogeista:
 
-  * [Kubernetes blog](http://blog.kubernetes.io/)
-  * [OpenShift blog](https://blog.openshift.com/)
+  * [Kubernetes blogi](http://blog.kubernetes.io/)
+  * [OpenShift blogi](https://blog.openshift.com/)
+

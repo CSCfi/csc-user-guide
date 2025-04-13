@@ -1,3 +1,4 @@
+
 ---
 tags:
   - Free
@@ -7,43 +8,43 @@ system:
 
 # SNAP
 
-[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all common satellite platforms.
+[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) on Euroopan avaruusjärjestön kehittämä kaukokartoituksen työkalupakkiarkkitehtuuri. Se sisältää työkaluja kaikille yleisille satelliittialustoille.
 
-## Available
+## Saatavilla {#available}
 
-__SNAP__ is available in Puhti with following versions:
+__SNAP__ on saatavilla Puhtiissa seuraavilla versioilla:
 
-* 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista)
-* 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
+* 9.0 (wrapped singularity -konteineri Python 3.6.9:llä sisältäen snappy ja snapista)
+* 8.0 (Singularity -konteineri snappy 8.0.3:lla ja Python 3.6.9:llä)
 
-In addition we provide the module `snap/jupyter` which has SNAP 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista) and jupyter installed. You can for example use it in the Jupyter application in the Puhti webinterface via the **custom module** option.
+Lisäksi tarjoamme moduulin `snap/jupyter`, jossa on SNAP 9.0 (wrapped singularity -konteineri Python 3.6.9:llä sisältäen snappy ja snapista) ja jupyter asennettuna. Voit esimerkiksi käyttää sitä Jupyter-sovelluksessa Puhti:n web-käyttöliittymän kautta **custom module** -vaihtoehdon avulla.
 
-### Installed toolboxes
+### Asennetut työkalupakit {#installed-toolboxes}
 
-* Sentinel toolboxes (1,2,3) 
-* SMOS toolbox 
-* Radarsat toolbox 
-* PROBA-V toolbox
+* Sentinel-työkalupakit (1,2,3) 
+* SMOS-työkalupakki 
+* Radarsat-työkalupakki 
+* PROBA-V-työkalupakki
 
-You can install more plugins to your own user directory from the SNAP Graphical user interface.
+Voit asentaa lisää lisäosia omaan käyttäjähakemistoosi SNAP:n graafisesta käyttöliittymästä.
 
-## Usage
+## Käyttö {#usage}
 
-SNAP is included in the __snap__ module and can be loaded with:
+SNAP sisältyy __snap__-moduuliin ja sen voi ladata komennolla:
 
 `module load snap`
 
-This loads the newest available version. You can load an older version with:
+Tämä lataa uusimman saatavilla olevan version. Voit ladata vanhemman version komennolla:
 
 `module load snap/<VERSION>`
 
-### Using SNAP with Graphical User Interface (GUI) in Puhti web interface
+### SNAP:n käyttäminen graafisella käyttöliittymällä (GUI) Puhti:n web-käyttöliittymässä {#using-snap-with-graphical-user-interface-gui-in-puhti-web-interface}
 
-The easiest option for using SNAP is to open it in Puhti web interface.
+Helpoin tapa käyttää SNAP:ia on avata se Puhti:n web-käyttöliittymässä.
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launching the Desktop, double-click SNAP icon OR open `Terminal` (Desktop icon) and start SNAP:
+1. Kirjaudu [Puhti:n web-käyttöliittymään](https://puhti.csc.fi).
+2. Avaa [Desktop-sovellus](../computing/webinterface/desktop.md). 
+3. Työpöydän käynnistämisen jälkeen kaksoisnapsauta SNAP-kuvaketta TAI avaa `Terminal` (työpöytäkuvake) ja käynnistä SNAP:
 
 ```
 module load snap
@@ -51,151 +52,148 @@ source snap_add_userdir $TMPDIR
 snap -J-xmx10G
 ```
 
-#### SNAP userdir and Java temp dir configuration 
+#### SNAP userdir ja Java-temp-hakemiston määritykset {#snap-userdir-and-java-temp-dir-configuration}
 
-SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Puhti or want to change the used folders. 
+SNAP käyttää merkittävästi tallennustilaa välimuistille ja tilapäistiedostoille. Oletusarvoisesti nämä kirjoitetaan HOME-hakemistoosi, ja ne voivat helposti täyttää sen. Vältäksesi tämän, määritä [snap-käyttäjähakemisto](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) ja Java-väliaikainen kansio. Sinun tulee ajaa tämä skripti joka kerta, kun alat käyttää SNAP:ia Puhti:ssa tai haluat muuttaa käytettäviä kansioita.
 
-After loading the snap module run
+Lataa snap-moduuli ja suorita:
 
 `source snap_add_userdir <YOUR-PROJECTS-SCRATCH-FOLDER>`
 
-You could also request a fast [nvme](../computing/running/creating-job-scripts-puhti.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
+Voit myös pyytää nopeaa [nvme](../computing/running/creating-job-scripts-puhti.md#local-storage) levyä eräajossa ja suorittaa ensin käskyn eräajossa, jolloin kaikki tilapäis-/välimuistotiedostot kirjoitetaan nopealle levylle raapaisualueen sijaan. Tämä voi parantaa nopeutta vaativissa laskelmissa.
 
-`source snap_add_userdir $LOCAL_SCRATCH` with batch jobs
+`source snap_add_userdir $LOCAL_SCRATCH` eräajoissa
 
-`source snap_add_userdir $TMPDIR` with interactive jobs
+`source snap_add_userdir $TMPDIR` interaktiivisissa ajoissa
 
-This scripts sets also Java temporary folder, it is set to be snap/temp subfolder in the folder you defined. If you want to set Java temporary folder to be somewhere else use:
-`export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djava.io.tmpdir=<SOME-FOLDER>"` after setting the user directory.
+Tämä skripti asettaa myös Java-väliaikaisen kansion, joka asetetaan olemaan snap/temp-alikansiossa määrittelemässäsi kansiossa. Jos haluat asettaa Java-väliaikaisen kansion jonnekin muualle, käytä:
+`export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djava.io.tmpdir=<SOME-FOLDER>"` käyttäjähakemiston määrityksen jälkeen.
 
-!!! note
-        The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
+!!! huom
+        Graafinen käyttöliittymä ei seuraa snap.userdir-asetusta, mutta huomioi Java-asetuksen. SNAP GUI luo __.snap__ -kansion HOME-hakemistosi sisälle ja täyttää sen. Tyhjennä se, jos tilasi loppuu HOME-hakemistossasi.
 
-#### Java memory settings
+#### Java-muistiasetukset {#java-memory-settings}
 
-__By default SNAP/8.0 in Puhti uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
+__Oletusarvoisesti SNAP/8.0 Puhtissa käyttää vain enintään 2 Gt muistia Java:lle.__ Lisää tätä, lisäämällä `-J-xmx10G` tai vastaava asetus `snap`- tai `gpt`-käskyyn. `-J-xmx10G` laajentaa Java:n maksimi muistin 10 Gt:iin. Säädä tämä tarpeidesi mukaan ja työn muistin varauksen mukaan. Työn muistin varaukseen verrattuna käytä Java:lle muutama Gt vähemmän.
 
-### Using SNAP with Graph Processing Tool (gpt) command
+### SNAP:n käyttäminen Graph Processing Tool (gpt) komennolla {#using-snap-with-graph-processing-tool-gpt-command}
 
-The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti partition](../computing/running/batch-job-partitions.md).
+Graph Processing Tool `gpt` on komentorivityökalu, jota käytetään eräprosessointiin. GPT:n avulla voidaan käyttää enemmän laskentatehoa kuin SNAP:n graafisessa käyttöliittymässä, koska sitä voidaan käyttää skripteissä ja siten sisällyttää töihin, jotka voidaan lähettää mille tahansa [Puhti-osastolle](../computing/running/batch-job-partitions.md).
 
-GPT command looks often something like this:
+GPT-komento näyttää usein tältä:
 
 ```
 gpt -J-xmx10G <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
 ```
 
-Some relevant __gpt__ options include:
+Joihinkin merkittäviin __gpt__-asetuksiin kuuluu:
 
-* __-J-xmx10G__    maximum memory used by Java.
-* __-q__    Number of threads the gpt instance will use. Set it to the number of CPU cores requested or more
-* __-c__    Cache size in bytes. Change this if storage space becomes an issue
-* __-x__    Clear internal tile cache after writing a complete row of tiles to output file. Add this if memory becomes an issue
+* __-J-xmx10G__    maksimi muisti, joka Java käyttää.
+* __-q__    Kierteiden lukumäärä, jota GPT-instanssi käyttää. Aseta se pyydettyjen CPU-ydinten määräksi tai suuremmaksi
+* __-c__    Välimuistitilan koko tavuina. Muuta tätä, jos tallennustilasta tulee ongelma
+* __-x__    Tyhjennä sisäinen laatikkovälimuisti täydellisen laattarivin kirjoittamisen jälkeen tulostiedostoon. Lisää tämä, jos muistista tulee ongelma
 
+Katso lisätietoja GPT:stä alla olevista viitteistä.
 
-See the links under references at the end of this page for additional info about GPT.
-
-Also the following command is very useful in creating the graphs for different operators. It can be executed in an interactive session
+Myös seuraava komento on erittäin hyödyllinen luomaan graafeja eri operaattoreille. Se voidaan suorittaa interaktiivisessa istunnossa
 ```
 sinteractive -i
 module load snap
 gpt <snap-operator> -h
 ```
 
-`gpt --diag -J-Xmx60G -c 40G` can be used to see which memory and cache settings are used by `gpt`.
+`gpt --diag -J-Xmx60G -c 40G` voidaan käyttää näkemään, mitä muisti- ja välimuistiasetuksia `gpt` käyttää.
 
-#### GPT examples for Puhti
+#### GPT-esimerkkejä Puhtille {#gpt-examples-for-puhti}
 
-* [Full examples how to run GPT in Puhti in GitHub](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and an [array job](../computing/running/array-jobs.md) where the same graph is computed for several input images.
+* [Täydelliset esimerkit GPT:n käytöstä Puhtilla GitHubissa](https://github.com/csc-training/geocomputing/tree/master/snap). Esimerkit sisältävät sekä yksinkertaisen työn yhden GPT-graafin kanssa että [tekijöitä-jobs](../computing/running/array-jobs.md), joissa samaa graafia lasketaan useille syötekuville.
 
+### SNAP:n käyttäminen Python-rajapintojen kanssa {#using-snap-with-the-python-interfaces}
 
-### Using SNAP with the Python interfaces
-
-It is also possible to access SNAP functionalities from Python with the __snappy__ and __snapista__ (only SNAP 9) library.
+SNAP-toimintoihin on myös mahdollista päästä Pythonista __snappy__- ja __snapista__-kirjastoilla (vain SNAP 9).
 
 __SNAP 9.0__
 
-Running snappy/snapista scripts with batch jobs:
+suoritetaan snappy/snapista skriptejä eräajoilla:
 ```
 python3 <YOUR-PYTHON-SCRIPT>
 ```
 
-See available packages:
+Katso käytettävissä olevat paketit:
 ```
 pip3 list
 ```
 
-Installing new packages to your `$HOME` directory:
+Uusien pakettien asentaminen `$HOME`-hakemistoon:
 
 ```
 pip <NEW-PACKAGE-NAME> --user
 ```
 
-It is also possible to install packages to directories other than `$HOME`.
-Please see our
-[Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
-for instructions.
+On myös mahdollista asentaa paketteja muihin hakemistoihin kuin `$HOME`.
+Katso ohjeet oppaastamme
+[Python-käyttöohje](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 __SNAP 8.0__
 
-Running snappy scripts with batch jobs:
+Suoritetaan snappy-skriptejä eräajoilla:
 ```
 apptainer_wrapper exec python3 <YOUR-PYTHON-SCRIPT>
 ```
 
-See available packages:
+Katso käytettävissä olevat paketit:
 ```
 apptainer_wrapper exec pip list
 ```
 
-Installing new packages to your `$HOME` directory:
+Uusien pakettien asentaminen `$HOME`-hakemistoon:
 
 ```
 apptainer_wrapper exec pip <NEW-PACKAGE-NAME> --user
 ```
 
-It is also possible to install packages to directories other than `$HOME`.
-Please see our
-[Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
-for instructions.
+On myös mahdollista asentaa paketteja muihin hakemistoihin kuin `$HOME`.
+Katso ohjeet oppaastamme
+[Python-käyttöohje](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-## Updating SNAP
+## Päivittäminen SNAP:iin {#updating-snap}
 
-SNAP minor and module updates are stored in the `$HOME/.snap` directory. This means that all minor updates need to be installed by the user. You can either do this in SNAP Desktop by following the instructions in the pop-up at start up, or for SNAP 9 by running `source update_snap` after loading the SNAP module in the terminal.
+SNAP -pienempiä ja moduulipäivityksiä säilytetään kansiossa `$HOME/.snap`. Tämä tarkoittaa, että kaikki pienemmät päivitykset on asennettava käyttäjän toimesta. Voit joko tehdä tämän SNAP:n työpöytäohjelmassa seuraamalla käynnistyessä annettuja ohjeita tai SNAP 9:lle suorittamalla `source update_snap` SNAP-moduulin lataamisen jälkeen terminaalista.
 
-## License
+## Lisenssi {#license}
 
-All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license.
+Kaikki SNAP-ohjelmisto on julkaistu [GPL-3](https://www.gnu.org/licenses/gpl.html) lisenssillä.
 
-## Citation
+## Viittaus {#citation}
 
 ```SNAP - ESA Sentinel Application Platform v{VERSION}, http://step.esa.int```
 
 
 
-##  Acknowledgement
+## Tunnustus {#acknowledgement}
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+Ole hyvä ja huomioi CSC ja Geoportti julkaisuissasi, sillä se on tärkeää projektin jatkumisen ja rahoitusraporttien kannalta.
+Esimerkkinä voit kirjoittaa "Kirjoittajat haluavat kiittää CSC - Tieteen tietotekniikan keskusta, Suomi (urn:nbn:fi:research-infras-2016072531) ja Avoimen paikkatiedon tutkimusinfrastruktuuria (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
 
-## Installation
+## Asennus {#installation}
 
-SNAP was installed to Puhti with Singularity using the [SNAP Docker image provided by mundialis on Dockerhub](https://hub.docker.com/r/mundialis/esa-snap) with some small additions to provide snappy and snapista Python interfaces. The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): 
+SNAP asennettiin Puhti:lle käyttöön Singularity:n avulla käyttäen [SNAP Docker -kuvaa, jonka tarjoaa mundialis Dockerhubissa](https://hub.docker.com/r/mundialis/esa-snap) joidenkin pienten lisäysten kanssa, jotta snappy ja snapista Python-rajapinnat olisivat käytettävissä. Konteineri käärittiin lopulta [Tykky:n wrap-container-toiminnallisuuden](../computing/containers/tykky.md#container-based-installations) avulla: 
 
 `wrap-container -w /usr/local/snap/bin,/usr/bin snap9_py.sif --prefix install_dir`
 
-The full [SNAP Singularity definition file](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap/snap_py.def). 
+Täysimittainen [SNAP Singularity -määrittelytiedosto](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap/snap_py.def). 
 
 
-## References
+## Viitteet {#references}
 
-* [SNAP homepage](http://step.esa.int/main/toolboxes/snap/)
-* [SNAP CSC example](https://github.com/csc-training/geocomputing/tree/master/snap)
-* [SNAP command line tutorial (GPT)](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
-* [SNAP wiki](https://senbox.atlassian.net/wiki/spaces/SNAP/overview)
-* [SNAP tutorials](http://step.esa.int/main/doc/tutorials/)
-* [snappy Python examples](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python)
-* [Creating a GPF Graph](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/70503590/Creating+a+GPF+Graph)
-* [Bulk Processing with GPT command](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/70503475/Bulk+Processing+with+GPT)
+* [SNAP-etusivu](http://step.esa.int/main/toolboxes/snap/)
+* [SNAP CSC -esimerkki](https://github.com/csc-training/geocomputing/tree/master/snap)
+* [SNAP-komentorivikurssi (GPT)](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
+* [SNAP-wiki](https://senbox.atlassian.net/wiki/spaces/SNAP/overview)
+* [SNAP-oppaat](http://step.esa.int/main/doc/tutorials/)
+* [snappy Python -esimerkit](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python)
+* [GPF-graafin luominen](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/70503590/Creating+a+GPF+Graph)
+* [Massaprosessointi GPT-komennolla](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/70503475/Bulk+Processing+with+GPT)
+```
 

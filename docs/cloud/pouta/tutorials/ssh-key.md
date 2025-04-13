@@ -1,22 +1,22 @@
-# SSH Key Pair
+# SSH-avainpari {#ssh-key-pair}
 
-The SSH key pair is very useful in [many situations](https://en.wikipedia.org/wiki/Secure_Shell#Use) and is not limited to use in the OpenStack environment.
+SSH-avainpari on erittäin hyödyllinen [monissa tilanteissa](https://en.wikipedia.org/wiki/Secure_Shell#Use), eikä sitä ole rajoitettu käytettäväksi vain OpenStack-ympäristössä.
 
-This tutorial covers the creation of an SSH key pair and a practical use case with OpenStack.
+Tämä opetusohjelma kattaa SSH-avainparin luomisen sekä käytännön käyttötapauksen OpenStackin kanssa.
 
-SSH keys are text files and, as the name of this tutorial suggests, they come in pairs: a private key and a public key.
+SSH-avaimet ovat tekstitiedostoja, ja kuten tämän opetusohjelman nimi viittaa, ne tulevat pareina: yksityinen avain ja julkinen avain.
 
 <center>
-![SSH key pair in use](../../img/cloud_tutorial_ssh_key_pair.svg 'One key pair can be used for multiple computers'){width=400}
+![SSH-avainparin käyttö](../../img/cloud_tutorial_ssh_key_pair.svg 'Yksi avainpari voi olla käytössä useilla tietokoneilla'){width=400}
 </center>
 
-After this tutorial, you will know how to use SSH keys instead of password authentication.
+Opetusohjelman jälkeen osaat käyttää SSH-avaimia sijaan salasana-autentikointi.
 
-## Creating an SSH key pair on a computer
+## SSH-avainparin luominen tietokoneella {#creating-an-ssh-key-pair-on-a-computer}
 
-An SSH key pair can be created with a command `ssh-keygen` in all three major operating systems.
+SSH-avainpari voidaan luoda komennolla `ssh-keygen` kaikissa kolmessa suuressa käyttöjärjestelmässä.
 
-By default the command stores the key pair in right location - under user's home directory, in a directory called `.ssh` - and asks to add a password into it.
+Oletuksena komento tallentaa avainparin oikeaan paikkaan - käyttäjän kotihakemistoon, hakemistoon nimeltä `.ssh` - ja pyytää lisäämään sille salasanan.
 
 ```text
 $ ssh-keygen
@@ -46,56 +46,56 @@ $ ls -l .ssh | grep rsa
 $
 ```
 
-After the command exits, two files may be found from the .ssh directory.
+Kun komento päättyy, .ssh -hakemistosta löytyy kaksi tiedostoa.
 
-!!! success "Key pair created"
+!!! success "Avainpari luotu"
 
-    By default the `ssh-keygen` command creates a private key named **id_rsa** and a public key named **id_rsa.pub**.
+    Oletuksena `ssh-keygen`-komento luo yksityisen avaimen nimeltä **id_rsa** ja julkisen avaimen nimeltä **id_rsa.pub**.
 
-Below is an example execution of the command in Windows 11 PowerShell.
+Alla on esimerkki komennon suorittamisesta Windows 11 PowerShellissä.
 
-![Creating an SSH key pair in Windows 11](../../img/cloud_tutorial_ssh_key_pair_powershell.png 'A screencapture of the Windows 11')
+![SSH-avainparin luominen Windows 11:ssä](../../img/cloud_tutorial_ssh_key_pair_powershell.png 'Näyttökuva Windows 11:stä')
 
-## Adding an existing key pair to OpenStack
+## Olemassa olevan avainparin lisääminen OpenStackiin {#adding-an-existing-key-pair-to-openstack}
 
-If you have an existing key pair or have created one on your computer, it can be added to OpenStack environment.
+Jos sinulla on olemassa oleva avainpari tai olet luonut sellaisen tietokoneellasi, sen voi lisätä OpenStack-ympäristöön.
 
-To do this, you need to be signed in to one of the Pouta services.
+Tätä varten sinun tulee olla kirjautuneena johonkin Pouta-palveluista.
 
-1. Go to the **Compute > Key Pairs** section, and select **Import Public Key**.
-2. Give the key pair a name.
-3. Either use **Choose File** button and select **id_rsa.pub** file or copy + paste the content of it to the **Public Key** text area.
-4. Click **Import Public Key** button.
+1. Mene **Laskenta > Avainparit** -osioon ja valitse **Tuo julkinen avain**.
+2. Anna avainparille nimi.
+3. Käytä **Valitse tiedosto** -painiketta ja valitse **id_rsa.pub** -tiedosto tai kopioi ja liitä sen sisältö **Julkinen avain** -tekstialueelle.
+4. Klikkaa **Tuo julkinen avain** -painiketta.
 
-![Importing an existing SSH key pair.](../../img/cloud_tutorial_ssh_key_pair_import.png 'Import Public Key view in OpenStack')
+![Olemassa olevan SSH-avainparin tuominen.](../../img/cloud_tutorial_ssh_key_pair_import.png 'Tuo julkinen avain näkymä OpenStackissa')
 
-!!! info "Tip"
+!!! info "Vinkki"
 
-    To ensure compatibility with OpenStack and to distinguish between multiple keys, it is recommended to use the command in the following form: `ssh-keygen -t rsa -f keyname.key`.
+    OpenStack-yhteensopivuuden varmistamiseksi ja useiden avainten erottamiseksi on suositeltavaa käyttää komentoa seuraavassa muodossa: `ssh-keygen -t rsa -f keyname.key`.
 
-## Creating an SSH key in OpenStack
+## SSH-avaimen luominen OpenStackissa {#creating-an-ssh-key-in-openstack}
 
-This chapter will walk you through creating an SSH key pair in the OpenStack web interface. You must be signed in to one of the Pouta services.
+Tämä luku opastaa sinut SSH-avainparin luomiseen OpenStackin verkkokäyttöliittymässä. Sinun tulee olla kirjautuneena johonkin Pouta-palveluista.
 
-1. Go to the **Compute > Key Pairs** section, and select **Create Key Pair**.
+1. Mene **Laskenta > Avainparit** -osioon ja valitse **Luo avainpari**.
 
-    ![The Access & Security subpage in the cPouta web interface](../../../img/pouta-user-guide-keypairs.png 'ssh key pairs')
+    ![Access & Security -alasivu cPouta-verkkokäyttöliittymässä](../../../img/pouta-user-guide-keypairs.png 'ssh avainpareja')
 
-    **Figure** The _Access & Security_ subpage in the cPouta web interface
+    **Kuva** _Access & Security_ -alasivu cPouta-verkkokäyttöliittymässä
 
-1. Give your key a name and click in **Create Key Pair**. You will get a "_keyname.pem_" to save. Save it in your home directory. This will be the last time you will be able to download this **private key**, Pouta does not keep a copy in its servers.
+1. Anna avaimellesi nimi ja klikkaa **Luo avainpari**. Saat tallennettavaksi "_keyname.pem_". Tallenna se kotihakemistoosi. Tämä on viimeinen kerta, kun voit ladata tämän **yksityisen avaimen**, Pouta ei säilytä kopiota sen palvelimilla.
 
-    ![Create key](../../../img/pouta-create-key.png)
+    ![Luo avain](../../../img/pouta-create-key.png)
 
-    **Figure** The Create Key Pair dialog
+    **Kuva** Luo avainpari -dialogi
 
-### Linux and Mac
+### Linux ja Mac {#linux-and-mac}
 
-In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run this commmands:
+Jotta voit asentaa viimeisessä vaiheessa ladatun avaimen (_keyname.pem_ tai _keyname.cer_), sinun tulee suorittaa nämä komennot:
 
-!!! info "For macOS"
+!!! info "macOS:lle"
 
-    If you are using Chrome browser in macOS Monterey, you will get keyname.cer instead of keyname.pem. The following procedure will remain same.
+    Jos käytät Chrome-selainta macOS Montereyssä, saat keyname.cer:n sijaan keyname.pem. Seuraava toimenpide pysyy samana.
 
 ```bash
 mkdir -p ~/.ssh
@@ -104,15 +104,14 @@ mv keyname.pem ~/.ssh
 chmod 400 ~/.ssh/keyname.pem
 ```
 
-!!! info "400 = Only owner can read"
+!!! info "400 = Vain omistaja voi lukea"
 
-    When a file in Unix has 400 permissions, it translates to:
+    Kun tiedostolla Unixissa on 400 oikeudet, se tarkoittaa:
     `r-- --- ---`
 
-    which means, only the owner can read the file. This is the recommended value for SSH, but in case you need to overwrite the file, you will need to give also write permissions: `chmod 600 ~/.ssh/keyname.pem`.
+    mikä tarkoittaa, että vain omistaja voi lukea tiedoston. Tämä on suositeltu arvo SSH:lle, mutta jos sinun on ylikirjoitettava tiedosto, sinun on annettava myös kirjoitusoikeudet: `chmod 600 ~/.ssh/keyname.pem`.
 
-
-Before using the newly created key, you should protect it with a passphrase:
+Ennen uuden avaimen käyttöä sinun tulisi suojata se salasanalla:
 
 ```bash
 chmod 600 ~/.ssh/keyname.pem
@@ -120,45 +119,45 @@ ssh-keygen -p -f .ssh/keyname.pem
 chmod 400 ~/.ssh/keyname.pem
 ```
 
-### Windows (PowerShell)
+### Windows (PowerShell) {#windows-powershell}
 
-In **Windows** environments it is recommended to use PowerShell. The process is very similar
+**Windows**-ympäristöissä on suositeltavaa käyttää PowerShelliä. Prosessi on hyvin samanlainen
 
 ```PowerShell
 mkdir ~/.ssh
 mv yourkey.pem ~/.ssh/
 ```
 
-Before using the newly created key, you should protect it with a passphrase:
+Ennen uuden avaimen käyttöä sinun tulisi suojata se salasanalla:
 
 ```PowerShell
 ssh-keygen.exe -p -f yourkey.pem
 ```
 
-Then, still from PowerShell, you can use the `ssh` command to connect to your machine, in the same way it is done from Linux or Mac.
+Sen jälkeen, edelleen PowerShellistä, voit käyttää `ssh`-komentoa yhdistääksesi koneeseesi samalla tavalla kuin Linuxista tai Macista.
 
-#### Windows (Putty)
+#### Windows (Putty) {#windows-putty}
 
-If your copy of Windows does not have the _ssh_ command installed, it is also possible to use _Putty_.
+Jos Windows-versiossasi ei ole _ssh_-komentoa asennettuna, voit käyttää myös _Puttya_.
 
-This is done by using the _puttygen_ tool to load your private key (.pem) and save it in the (password protected) .ppk format which Putty can use.
+Tämä tapahtuu käyttämällä _puttygen_-työkalua yksityisen avaimen (.pem) lataamiseen ja sen tallentamiseen (salasanasuojatussa) .ppk-muodossa, jota Putty voi käyttää.
 
-1. Download _Putty_ and _puttygen_, which are available at <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>.
+1. Lataa _Putty_ ja _puttygen_ osoitteesta <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>.
 
-1. Run _puttygen_ and load the key you downloaded (it should be in the Downloads page).
+1. Käynnistä _puttygen_ ja lataa ladattu avain (sen pitäisi olla Lataukset-sivulla).
 
     ![Putty Gen](../../../img/putty-load.png)
 
-1. Set a password to the key. This is not compulsory, but advised.
+1. Aseta salasanan avaimelle. Tämä ei ole pakollista, mutta suositeltavaa.
 
-1. Save the key in _ppk_ format, this is the default Putty format for keys.
+1. Tallenna avain _ppk_-muodossa, joka on oletusmuoto Putty-avainsille.
 
-    ![Saved](../../../img/putty-saved-ppk.png)
+    ![Tallennettu](../../../img/putty-saved-ppk.png)
 
-Now we can use this new in Putty to connect to a Virtual Machine.
+Nyt voimme käyttää tätä uutta Puttyn kanssa yhdistääksemme virtuaalikoneeseen.
 
-1. Run _putty_ and load the ssh key. Go to **Connection > SSH > Auth** and under **Private key file for authentication**, use the **Browse...** button to select the proper .ppk file.
+1. Käynnistä _putty_ ja lataa ssh-avain. Siirry kohtaan **Connection > SSH > Auth** ja **Private key file for authentication** -kohdassa käytä **Selaa...** -painiketta valitaksesi oikea .ppk-tiedosto.
 
-    ![Private key file for authentication](../../../img/putty-key-file-authentication.png)
+    ![Yksityisen avaintiedoston autentikointi](../../../img/putty-key-file-authentication.png)
 
-1. Once the key is loaded, you will save the session. Go to the **Session** section and under **Saved Sessions** write the name of the new session and click save.
+1. Kun avain on ladattu, tallenna istunto. Siirry kohtaan **Session** ja kohdassa **Saved Sessions** kirjoita uuden istunnon nimi ja klikkaa tallenna.

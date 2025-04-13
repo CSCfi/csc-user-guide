@@ -1,71 +1,69 @@
-# The web client – OpenStack Horizon Dashboard
+# The web client – OpenStack Horizon Dashboard {#the-web-client-openstack-horizon-dashboard}
 
-This chapter provides instructions for using Allas with the user-friendly _OpenStack Horizon Dashboard_. 
+Tämä luku tarjoaa ohjeita Allaksen käyttöön käyttäjäystävällisellä _OpenStack Horizon Dashboardilla_.
 
-OpenStack documentation for managing buckets over the web interface: [https://docs.openstack.org/horizon/latest/user/manage-containers.html](https://docs.openstack.org/horizon/latest/user/manage-containers.html)
+OpenStack-dokumentaatio ämpärien hallintaan verkkokäyttöliittymän kautta: [https://docs.openstack.org/horizon/latest/user/manage-containers.html](https://docs.openstack.org/horizon/latest/user/manage-containers.html)
 
-The OpenStack dashboard has a small subset of object storage functionalities. The available operations:
+OpenStack-hallintapaneeli tarjoaa pienen osajoukon objektien tallennustoiminnallisuuksia. Saatavilla olevat toiminnot:
 
-| Function |
+| Toiminto |
 | :--- |
-| _Create_ a new bucket |
-| _Upload_ an object (max. 5GB) |
-| _View_ objects and buckets |
-| _Download_ an object |
-| _Remove_ objects and buckets |
-| Make buckets _public_ or _private_ |
+| _Luo_ uusi ämpäri |
+| _Lataa_ objekti (maks. 5 GB) |
+| _Näytä_ objektit ja ämpärit |
+| _Lataa_ objekti |
+| _Poista_ objektit ja ämpärit |
+| Tee ämpärit _julkisiksi_ tai _yksityisiksi_ |
 
+### **Vaihtoehtoinen verkkoliittymä – Allas Web UI** {#alternative-web-interface-allas-web-ui}
+Käyttäjäystävällisemmän ja ominaisuusrikkaamman verkkoliittymän saatavuutta varten voit käyttää myös **[Allas Web UI:tä](./allas-ui.md)**.  
+Allas Web UI tarjoaa graafisen tavan hallita objektien tallennusta, luoda ja poistaa ämpäreitä, ladata objekteja ja asettaa jakoluvat, kaikki käyttäjäystävällisessä ympäristössä.
 
-### **Alternative Web Interface – Allas Web UI**
-For a more intuitive and feature-rich web interface, you can also use **[Allas Web UI](./allas-ui.md)**.  
-Allas Web UI provides a graphical way to manage object storage, create and delete buckets, upload/download objects, and set sharing permissions, all within a user-friendly environment.
+## Luo ämpäri {#create-a-bucket}
 
-## Create a bucket
+1\. Siirry osoitteeseen [pouta.csc.fi](https://pouta.csc.fi/) ja kirjaudu sisään
 
-1\. Go to [pouta.csc.fi](https://pouta.csc.fi/) and login
+2\. Valikossa vasemmalla, navigoi kohtaan **Project | Object Store | Containers**  
+(Kontti vastaa ämpäriä)
 
-2\. In the menu on the left, navigate to **Project | Object Store | Containers**  
-(A container corresponds to a bucket)
+!["Käytä kontoa"](img/allas_screenshot_create_container.png)  
+**Kuva** Kontin luominen
 
-!["Creating a container"](img/allas_screenshot_create_container.png)  
-**Figure** Creating a container
+3\. Paina **+Container**-painiketta ja nimeä ämpäri (katso [ämpärin nimeämisen tarkistuslista](../introduction.md#naming-buckets)). Jos päätät tehdä ämpärin _julkiseksi_, sen sisältöä voi [katsoa internetin kautta](#view-objects-via-the-internet).
 
-3\. Press the **+Container** button and name the bucket (see the [checklist for naming a bucket](../introduction.md#naming-buckets)). If you choose to make the bucket _Public_, the contents of the bucket can be [viewed via the internet](#view-objects-via-the-internet).
+## Lataa objekti {#upload-an-object}
 
-## Upload an object
+Tämän käyttöliittymän tiedostojen lataustoiminto toimii vain alle 5 GB tiedostoille.
 
-The data upload function of this interface works only for files smaller than 5 GB.
+1\. Valitse haluamasi ämpäri ja paina oikealla olevaa **lataussymbolia**.
 
-1\. Choose the desired bucket and press the **upload symbol** on the right.
+!["Lataa objekti"](img/Allas_screenshot_upload.png)  
+**Kuva** Objekti lataaminen
 
-!["Upload object"](img/Allas_screenshot_upload.png)  
-**Figure** Uploading an object
+2\. Valitse objektit tietokoneeltasi ja nimeä se. **Huom:** Älä <u>käytä</u> ei-ASCII-merkkejä (&auml;, &ouml; jne.).
 
-2\. Choose the object on your computer and name it. **Note:** Do <u>not</u> use non-ASCII characters (&auml;, &ouml; etc.). 
+3\. Lataa objekti. Se ilmestyy konttiisi. Voit myös luoda pseudo-kansioita objekteille painamalla **+Folder**-painiketta lataussymbolin vieressä, esim. objektien järjestämiseksi kansioihin.
 
-3\. Upload the object. It will appear in your container. You can also create pseudo folders for the objects with the **+Folder** button next to the upload symbol, e.g. to organize the objects into folders.
+## Katso objekteja internetin kautta {#view-objects-via-the-internet}
 
-## View objects via the internet
+Jos objektit sisältävä ämpäri on asetettu _julkiseksi_, kaikkien, jotka tietävät URL-osoitteen, voi katsella internetin kautta. Tämä asetus voidaan muuttaa osoitteessa [pouta.csc.fi/dashboard/project/containers](https://pouta.csc.fi/dashboard/project/containers/) valitsemalla kontti ja valitsemalla **Public Access** -asetus:
 
-If the bucket containing the objects is set to _public_, the objects can be viewed via the internet by anyone who knows the URL. This setting can be changed in [pouta.csc.fi/dashboard/project/containers](https://pouta.csc.fi/dashboard/project/containers/) by choosing the container and selecting the **Public Access** setting:
+!["Tee objekti julkiseksi tai yksityiseksi"](img/Allas_screenshot_public.png)
+**Kuva** Objekti julkiseksi tai yksityiseksi tekeminen
 
-!["Making object public or private"](img/Allas_screenshot_public.png)
-**Figure** Making an object public or private
+Esimerkiksi, julkinen objekti nimeltä _my_fish_ kontissa _my_fishbucket_ voi katsella URL-osoitteella _a3s.fi/my_fishbucket/my_fish_. Huomaa, että tapauksissa, joissa suuri objekti tallennetaan Allakseen segmentteinä, täytyy myös segmenttejä sisältävä ämpäri (esim. _my_fichbucket_segments_) asettaa _julkiseksi_.
 
-For example, the public object called _my_fish_ in the container _my_fishbucket_ can be viewed with the URL _a3s.fi/my_fishbucket/my_fish_.
-Note that in cases, where a large object is stored to Allas as segments, you must set to _public_ also the segments containing bucket ( e.g. _my_fichbucket_segments_ ).
+## Lataa objekti {#download-an-object}
 
-## Download an object
+Lataa objekti napsauttamalla objektin nimen oikealla puolella olevaa **Lataa**-painiketta.
 
-Download an object by clicking the **Download** button on the right side of the object's name.
+## Poista objekteja ja ämpäreitä {#remove-objects-and-buckets}
 
-## Remove objects and buckets
+Objekteja voi poistaa laajentamalla oikealla olevasta pudotusvalikosta _Lataa_-painikkeen vierestä ja valitsemalla **Poista**.
 
-Objects can be removed by expanding the dropdown menu on the right next to the _Download_ button and choosing **Delete**.
+Ämpärit voidaan poistaa vain, kun ne ovat tyhjiä. Siksi kaikki objektit ämpärissä on poistettava tai siirrettävä pois ennen kuin ämpäri voidaan poistaa. Poista ämpäri napsauttamalla ämpärin nimen vieressä olevaa **roskakorisymbolia**.
 
-Buckets can be removed only when they are empty. Hence, all objects in a bucket must be removed or moved elsewhere before the bucket can be deleted. Remove a bucket by clicking the **trashcan symbol** next to the bucket's name. 
+!["Poista objekti tai kontti"](img/Allas_screenshot_delete.png)
+**Kuva** Objektin tai ämpärin poistaminen
 
-!["Removing object or container"](img/Allas_screenshot_delete.png)
-**Figure** Removing an object or a bucket
-
-Alternatively, and especially if you want to remove several objects at once, you can choose the objects by selecting the small boxes on the left side of the object names and choosing the **trashcan symbol** on the red background in the upper right corner.
+Vaihtoehtoisesti, ja erityisesti jos haluat poistaa useita objekteja kerralla, voit valita objektit valitsemalla pientä ruutua objektin nimen vasemmalla puolella ja valitsemalla punaisen taustan oikeassa yläkulmassa olevan **roskakorin symbolin**.

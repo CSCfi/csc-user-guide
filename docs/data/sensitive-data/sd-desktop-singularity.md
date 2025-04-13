@@ -1,47 +1,43 @@
-# Utilizing Apptainer containers in SD Desktop
+
+# Apptainer-konttien hyödyntäminen SD Desktopissa {#utilizing-apptainer-containers-in-sd-desktop}
 
 !!! warning-label
-    Skill level - Advanced 
+    Taitotaso - Edistynyt
 
-As the SD Desktop is not directly connected internet, you can't use tools like Git, Conda or Pip to install new software there.
-Instead, you can use  [Apptainer](https://apptainer.org/docs/user/latest/introduction.html) software container tool to add new software to your SD Desktop environment. However, you have to first build or download an Apptainer container elsewhere, and then use _Allas/SD Connect_ to import the container to SD Desktop.
+Koska SD Desktop ei ole suoraan yhteydessä internettiin, et voi käyttää työkaluja kuten Git, Conda tai Pip asentaaksesi uutta ohjelmistoa. Sen sijaan voit käyttää [Apptainer](https://apptainer.org/docs/user/latest/introduction.html) ohjelmistokonttityökalua lisätäksesi uutta ohjelmistoa SD Desktop -ympäristöösi. Sinun on kuitenkin ensin rakennettava tai ladattava Apptainer-kontti muualla ja sitten käytettävä _Allas/SD Connectia_ tuodaksesi kontin SD Desktopiin.
 
-Note: Apptainer is a fork on Singularity container system, so in many occasions instructions may refer to Singularity. In most cases you can just replace "Singularity" with "Apptainer".
+Huomaa: Apptainer on Singularity-konttijärjestelmän haarukka, joten ohjeet voivat usein viitata Singularityyn. Useimmissa tapauksissa voit vain korvata "Singularityn" "Apptainerilla".
 
-If you have root access to a machine with Apptainer, you can build your own container that contains exactly the software and datasets you need. Many software are also available as ready-made Apptainer containers or as Docker containers that can be converted into
-Appainer containers. In this document we show how to import a ready-made Apptaner container from a public repository to SD Desktop.
+Jos sinulla on root-oikeudet koneeseen, jossa on Apptainer, voit rakentaa oman konttisi, joka sisältää juuri tarvitsemasi ohjelmiston ja datasetit. Monia ohjelmistoja on saatavana myös valmiiksi rakennettuina Apptainer-kontteina tai Docker-kontteina, jotka voidaan muuntaa Apptainer-konteiksi. Tässä asiakirjassa näytämme, kuinka voit tuoda valmiiksi rakennetun Apptainer-kontin julkisesta arkistosta SD Desktopiin.
 
+## Vaiheittainen ohje {#step-by-step-tutorial}
 
-## Step by step tutorial
-
-*Before you start, please activate services **Puhti, SD Desktop** and **Allas/SD Connect** for your project. This happens in [MyCSC](https://my.csc.fi/login){ target="_blank" }.*
+*Ennen kuin aloitat, ota käyttöön palvelut **Puhti, SD Desktop** ja **Allas/SD Connect** projektiisi. Tämä tapahtuu [MyCSC:ssä](https://my.csc.fi/login){ target="_blank" }.*
 
 <iframe width="562" height="316" srcdoc="https://www.youtube.com/embed/6-_pSrRu4-c" title="Utilizing Apptainer containers in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-How to import a ready-made Apptainer container from a public repository to SD Desktop:
+Kuinka tuoda valmiiksi rakennettu Apptainer-kontti julkisesta arkistosta SD Desktopiin:
 
-1. [Find a suitable container](#find-a-suitable-container)
-2. [Download the container](#download-the-container)
-3. [Upload the container to SD Connect](#upload-the-container-to-allas-sd-connect)
-4. [Download the container to SD Desktop](#using-a-container-in-sd-desktop)
+1. [Löydä sopiva kontti](#find-a-suitable-container)
+2. [Lataa kontti](#download-the-container)
+3. [Lähetä kontti Allas/SD Connectiin](#upload-the-container-to-allas-sd-connect)
+4. [Lataa kontti SD Desktopiin](#using-a-container-in-sd-desktop)
 
-### Importing ready-made container through Puhti
+### Valmiin kontin tuominen Puhtin kautta {#importing-ready-made-container-through-puhti}
 
-#### Find a suitable container
-In the example below we import [BETA Binding and Expression Target Analysis](https://cistrome.org/BETA/index.html) software to SD Desktop.
-This tool is available as a ready-made Apptainer container in [Biocontainers](https://biocontainers.pro/registry) repository. You can find the tool by searching for _Binding and Expression Target Analysis_ in the repository. When you open the detailed information of the resulting _cistrome_beta_ container, 
-you can see that the Singularity module can be downloaded from URL: <https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4>
+#### Löydä sopiva kontti {#find-a-suitable-container}
+Esimerkissä tuomme [BETA Binding and Expression Target Analysis](https://cistrome.org/BETA/index.html) ohjelmiston SD Desktopiin. Tämä työkalu on saatavana valmiiksi rakennettuna Apptainer-konttina [Biocontainers](https://biocontainers.pro/registry) arkistossa. Voit löytää työkalun etsimällä _Binding and Expression Target Analysis_ arkistosta. Kun avaat tuloksena olevan _cistrome_beta_ kontin yksityiskohtaiset tiedot, voit nähdä, että Singularity-moduulin voi ladata seuraavasta URL-osoitteesta: <https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4>
 
-#### Download the container
-As we don't need to build the container from scratch, we can use [puhti.csc.fi](../../computing/index.md) server to download the container image and push it to Allas.
+#### Lataa kontti {#download-the-container}
+Koska meidän ei tarvitse rakentaa konttia tyhjästä, voimme käyttää [puhti.csc.fi](../../computing/index.md) palvelinta ladata konttikuvan ja siirtää sen Allasiin.
 
-First [login to puhti.csc.fi](https://www.puhti.csc.fi/public/){ target="_blank" }. Then, start an interactive batch job session with command:
+Ensiksi [kirjaudu puhti.csc.fi:hin](https://www.puhti.csc.fi/public/){ target="_blank" }. Sitten käynnistä interaktiivinen erätyötapahtuma komennolla:
 
 ```text
 sinteractive
 ```
 
-In the interactive session move to `LOCAL_SCRATCH` directory and set some Singularity related environment variables:
+Interaktiivisessa sessiossa siirry `LOCAL_SCRATCH`-hakemistoon ja aseta joitain Singularityyn liittyviä ympäristömuuttujia:
 
 ```text
 export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
@@ -49,22 +45,21 @@ export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
 unset XDG_RUNTIME_DIR
 ```
 
-Then download a local copy of the Beta container with command
+Lataa sitten paikallinen kopio Beta-kontista komennolla
 
 ```text
 apptainer pull beta.sif https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4
 ```
 
-This creates a new singularity container file, `beta.sif`. From the home page of BETA software 
-we download also a test data set for confirming that the container works.
+Tämä luo uuden singularity-konttitiedoston, `beta.sif`. BETA-ohjelmiston kotisivulta lataamme myös testidatan varmistaaksemme, että kontti toimii.
 
 ```text
 wget http://cistrome.org/BETA/src/BETA_test_data.zip
 ```
 
-#### Upload the container to Allas / SD Connect
+#### Lähetä kontti Allas / SD Connectiin {#upload-the-container-to-allas-sd-connect}
 
-Then we upload these two files to Allas/SD Connect. In this example we use project _2012345_.
+Lataamme sitten nämä kaksi tiedostoa Allasiin/SD Connectiin. Tässä esimerkissä käytämme projektia _2012345_.
 
 ```text
 module load allas
@@ -73,49 +68,40 @@ a-put --sdx beta.sif -b 2012345_beta
 a-put --sdx BETA_test_data.zip -b 2012345_beta
 ```
 
-The commands above store the files into bucket `2012345_beta` in Allas. `a-put` is used with option `--sdx` in order to encrypt the uploaded data with SD Desktop compatible encryption. 
+Yllä olevat komennot tallentavat tiedostot Allas-säilöön `2012345_beta`. `a-put`-komentoa käytetään `--sdx`-vaihtoehdolla, jotta ladattu data salataan SD Desktop -yhteensopivalla salauksella.
 
-### Using a container in SD Desktop
+### Kontin käyttäminen SD Desktopissa {#using-a-container-in-sd-desktop}
 
-First [login to sd-desktop.csc.fi](https://sd-desktop.csc.fi/){ target="_blank" } and open your virtual desktop session.
+Ensin [kirjaudu sd-desktop.csc.fi:hin](https://sd-desktop.csc.fi/){ target="_blank" } ja avaa oma virtuaalinen työpöytäsessio.
 
-Once the `.sif` formatted Apptainer container file and the sample data has been uploaded to Allas, we can copy 
-them to SD Desktop. To do this open _DataGateway_, in your session SD Desktop. After that copy the data to local disk in SD Desktop.
+Kun `.sif`-muotoinen Apptainer-konttitiedosto ja esimerkkidata on ladattu Allasiin, voimme kopioida ne SD Desktopiin. Tätä varten avaa _DataGateway_, SD Desktop -istunnossasi. Sen jälkeen kopioi data paikalliseen levyyn SD Desktopissa.
 
-You can do that using the **graphical DataGateway tool** on the Desktop (see the [video](https://youtu.be/6-_pSrRu4-c?t=397){ target="_blank" }).
+Voit tehdä tämän käyttämällä **graafista DataGateway-työkalua** työpöydällä (katso [video](https://youtu.be/6-_pSrRu4-c?t=397){ target="_blank" }).
 
-Or you can use **Linux command line**: Open a Linux terminal in the SD-Desktop. In the terminal, move the Apptainer file and test data to your current locations:
+Tai voit käyttää **Linuxin komentorivikäyttöliittymää**: Avaa Linux-pääte SD-Desktopissa. Päätteessä siirrä Apptainer-tiedosto ja testidata nykyisiin sijainteihin:
 
 ```text
 cp Projects/SD-connect/project_201234/2012345_beta/beta.sif ./
 cp Projects/SD-connect/project_201234/2012345_beta/BETA_test_data.zip ./
 ```
 
-Unzip the test dataset:
+Pura testidatasetti:
 
-```text 
+```text
 unzip BETA_test_data.zip
 ```
 
-Now you can run BETA through _apptainser_ command. 
-For example the _help_ of command _BETA minus_ is shown with command:
+Nyt voit ajaa BETAa _apptainser_-komennon avulla.
+Esimerkiksi _BETA minus_ komennon _help_-ominaisuus näytetään komennolla:
 
 ```text
 apptainer exec beta.sif BETA minus -h
 ```
 
-And the analysis with sample data in directory `BETA_test_data` can
-be executed with commands like:
+Ja analyysi esimerkkidatalla hakemistossa `BETA_test_data` voidaan suorittaa komennoilla kuten:
 
 ```text
 apptainer exec beta.sif BETA minus -p BETA_test_data/3656_peaks.bed --bl -g hg19
 ```
 
-In this example the results will be written to directory `BETA_OUTPUT`. 
-
-
-
-
-
-
-
+Tässä esimerkissä tulokset kirjoitetaan hakemistoon `BETA_OUTPUT`.

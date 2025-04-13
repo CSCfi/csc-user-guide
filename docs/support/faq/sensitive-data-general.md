@@ -1,63 +1,53 @@
-# General characteristics of the services
+# Palveluiden yleiset ominaisuudet
 
-## Are CSC Sensitive Data services suitable for any research professional? 
-Yes. The services have been designed to support research professionals with different backgrounds (project manager, postdoc, Ph.D. student, master student, bioinformatician or data analyst,  single research group, or international collaborative project) and from any research field. 
-Each service is accessible via a user interface and command-line interface.
+## Ovatko CSC:n Sensitive Data -palvelut sopivia kaikille tutkimusalan ammattilaisille? {#are-csc-sensitive-data-services-suitable-for-any-research-professional}
+Kyllä. Palvelut on suunniteltu tukemaan erilaisista taustoista tulevia tutkimusalan ammattilaisia (projektipäällikkö, postdoc, tohtorikoulutettava, maisteriopiskelija, bioinformaatikko tai data-analyytikko, yksittäinen tutkimusryhmä tai kansainvälinen yhteistyöprojekti) ja kaikilta tutkimusaloilta. Kukin palvelu on käytettävissä sekä käyttäjäliittymän että komentorivin kautta.
 
-If you think specific training material is needed, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive Data). We are happy to know more about your needs and point of view and provide our best support. 
+Jos koet, että tarvitset erityistä koulutusmateriaalia, älä epäröi ottaa yhteyttä osoitteeseen servicedesk@csc.fi (sähköpostin aihe: Sensitive Data). Haluamme mielellämme kuulla tarpeistasi ja näkökulmastasi ja tarjota parasta mahdollista tukea.
 
-## Are CSC Sensitive Data services suitable for any research project? 
-The services have been designed to support a wide range of use cases from any research field (social science and humanities, life sciences, engineering, etc.).
-Don't hesitate to contact us to figure out how the Sensitive Data services/platform can be customized to support your research.
+## Ovatko CSC:n Sensitive Data -palvelut sopivia kaikille tutkimusprojekteille? {#are-csc-sensitive-data-services-suitable-for-any-research-project}
+Palvelut on suunniteltu tukemaan laajaa käyttötilanteiden kirjoa kaikilta tutkimusaloilta (yhteiskuntatieteet ja humanistiset tieteet, elinkeinotieteet, tekniikka jne.). Älä epäröi ottaa yhteyttä meihin selvittääksesi, miten Sensitive Data -palvelut/alusta voidaan räätälöidä tukemaan tutkimustasi.
 
-Briefly, 
+Lyhyesti, 
 
-* with SD Connect: you can store up to 200 TB of data for the active phases of your project. If your project requires larger storage space, contact us at servicedesk@csc.fi.
+* SD Connectilla: voit tallentaa jopa 200 TB tietoa projektisi aktiivisten vaiheiden ajaksi. Jos projektisi vaatii enemmän tallennustilaa, ota yhteyttä osoitteeseen servicedesk@csc.fi.
 
-* with SD Desktop, you can access a set of pre-built secure cloud computing environments via the public internet. You can carry out simple statistical analysis or complex computing in your private workspace. Once the analysis is finalized, you can quickly delete the Desktop.
+* SD Desktopilla voit käyttää etukäteen rakennettuja turvallisia pilvilaskentaympäristöjä julkisen internetin kautta. Voit suorittaa yksinkertaisia tilastollisia analyyseja tai monimutkaista laskentaa omassa yksityisessä tilassasi. Kun analyysi on valmis, voit nopeasti poistaa Desktopin.
 
+## En ole pilvipalveluiden ja laskennan asiantuntija; mistä minun pitäisi aloittaa? {#i-am-not-an-expert-on-cloud-services-and-computing-where-should-i-start}
+Ota meihin yhteyttä. Voimme ohjata sinut oikean dokumentaation pariin ja keskustella tarpeistasi yksityiskohtaisesti. Kirjoita osoitteeseen servicedesk@csc.fi (sähköpostin aihe: Sensitive Data).
 
+## Minkälaista dataa voin käsitellä palveluilla? {#what-type-of-data-can-i-process-using-the-services}
+Data voidaan tallentaa SD Connectissa ja analysoida SD Desktopilla missä tahansa muodossa: yksinkertaisina tekstinä tai taulukkolaskentatiedostoina, monimutkaisina geneettisinä tietokokonaisuuksina, video- tai äänitiedostoina ja kuvina.
 
-## I am not an expert on cloud services and computing; where should I start?
-Get in touch with us. We can point out the correct documentation and discuss your needs in detail. Write at servicedesk@csc.fi (email subject: Sensitive Data). 
+## Tarjoatteko varmuuskopiointipalvelua? {#do-you-provide-a-backup-service}
+SD Connectille (tallennus ja jakaminen) ja SD Desktopille (laskenta) ei ole saatavilla varmuuskopiointipalvelua. Kuitenkin SD Connect käyttää objektien tallennusjärjestelmää, joka sietää levyrikkoja.
 
-## What type of data can I process using the services?
-The data can be stored in SD Connect, analyzed in SD Desktop in any format: simple text or spreadsheet files, complex genetic datasets, video or audio files, and images.
+## Ovatko CSC:n Sensitive Data -palvelut maksuttomia? {#are-csc-sensitive-data-service-free-of-charge}
+Sensitive Data -palvelut ovat maksuttomia suomalaisille tutkijoille CSC:n [yleisten käyttöehtojen](https://research.csc.fi/general-terms-of-use) mukaisesti. Kuitenkin, jokainen palvelu kuluttaa resursseja: laskentayksikköjä käytön aikana ja kiintiöitä tallennustilan varauksessa.
 
-## Do you provide a backup service?
-There is no backup service available for SD Connect (storage and share) and SD Desktop (compute). However, SD Connect uses an object storage system that is fails to tolerate disk breaks. 
+**Laskentayksiköt:**
 
+* Kun luot uuden CSC-projektin, sinulla on noin 10 000 laskentayksikköä.
 
-## Are CSC Sensitive Data service free of charge?
-The Sensitive Data Services are free of charge for Finnish academics, according to CSC [General Terms of use](https://research.csc.fi/general-terms-of-use). However, each service consumes resources: billing units for their use and quota for storage space allocation. 
+* Voit selvittää, kuinka paljon laskentayksiköitä SD Desktop ja Allas (SD Connectille) käyttävät tarpeidesi perusteella tällä [laskurilla](https://research.csc.fi/billing-units#buc). Tällä voit arvioida palveluiden käytön kustannuksia laskentayksikköinä tai euroina.
 
-**Billing units:**
+* Kun olet arvioinut, kuinka monta laskentayksikköä projektisi tarvitsee vuosittain, voit hakea lisäresursseja noudattamalla näitä [ohjeita](../../accounts/how-to-apply-for-billing-units.md). Jos projektisi kestää jopa 5 vuotta, tarvitaan erillinen keskustelu ja sopimus.
 
-* When you create a new CSC project, you have about 10.000 billing units. 
+**Kiintiöt:**
 
-* You can find out how many billing units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/billing-units#buc). Here you can estimate the services usage cost in billing units or in euros.
+* Kun luot uuden CSC-projektin ja palvelupidon SD Connectille, sinulla on käytössäsi oletuskiintiö (tai tallennustila) noin 10 TB. Jos tarvitset lisää tallennustilaa, voit kirjoittaa osoitteeseen servicedesk@csc.fi ja hakea lisää.
 
-* Once you have estimated how many billing units your project would need every year, you can apply for more resources following these [instructions](../../accounts/how-to-apply-for-billing-units.md). If your projects last up to 5 years, a separate discussion and an agreement are needed. 
+* SD Connectissa tallennustila (sekä kiintiö että laskentayksiköt) noin 100–200 TB:hen asti on maksutonta akateemiseen tutkimuskäyttöön.
 
-**Quotas:**
+* Jos suunnittelet tallentavasi yli 200 TB dataa yli 1-2 vuodeksi, tarvitaan erillinen keskustelu ja sopimus.
 
-* When you create a new CSC project and service access for SD Connect, you have a default quota (or storage space) of about 10 TB. If you need more storage space, you can write to servicedesk@csc.fi and apply for more. 
+Yksi tärkeä huomio on, että kun päätät tutkimuksesi ja lähetät käsikirjoituksesi, voit käyttää erityisiä palveluita tallentaaksesi osan datastasi arkistoihimme (SD Submit tai Federated EGA). Tässä tapauksessa data tallennetaan (hallinnoidun pääsyn alaisuudessa) pidemmäksi aikaa, ja CSC ylläpitää siitä kahta kopiota, eikä sinun tarvitse omistaa CSC-projektia tai kuluttaa laskentayksiköitä.
 
-* The costs for storage space in SD Connect (both quota and billing units) up to around 100–200 TB is free of charge for academic research use. 
+## Tarvitsenko erityistä asiantuntemusta asettaakseni yksityisen työtilan SD Connectin ja SD Desktopin avulla? {#do-i-need-any-particular-experties-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop}
+Ei. Voit asettaa turvattoman työtilasi seuraamalla käyttöohjeen ja videotutoriaalien ohjeita. Tarjoamme myös verkkotukea, älä epäröi ottaa yhteyttä osoitteeseen servicedesk@csc.fi (aihe: Sensitive Data).
 
-* If you plan to store more than 200 TB of data for more than 1-2 years, a separate discussion and an agreement are needed.
+## Kuinka kauan kestää asettaa yksityinen työtila SD Connectin ja SD Desktopin avulla? {#how-long-does-it-take-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop}
+* Jos olet kokenut CSC-käyttäjä, asettaminen kestää noin 10 minuuttia. Ensin hae SD Desktopin ja SD Connect/Allaksen palvelujen käyttöä [MyCSC-portaalista](https://my.csc.fi); kirjaudu sitten SD Desktopiin ja käynnistä uusi laskentaympäristö.
 
-One important note is that once you end your research and submit your manuscript, you can then use specific services to store part of your data in our repositories (SD Submit or Federated EGA). In this case, the data is stored (under controlled access) for longer periods, and  CSC maintains two copies of it, and you do not need to have a CSC project or consume billing units.
-
-
-## Do I need any particular experties to set up a private workspace with SD Connect and SD Desktop?
-
-No. You can set up your secure workspace following the user guide and video tutorial instructions. We also provide on line support, don't hesitate to contact us at servicedesk@csc.fi (Subject: Sensitive Data)
-
-
-## How long does it take to set up a private workspace with SD Connect and SD Desktop?
-
-* If you are an experienced CSC user, it should take about 10 minutes. First, apply for SD Desktop and SD Connect/Allas service access using [MyCSC portal](https://my.csc.fi); next, login to SD Desktop and launch a new computing environment.
- 
-* If you have never used CSC services, it might take up to several hours. You can find the necessary support in the user guide and step-by-step video tutorials (13 videos X 3 minutes). Please feel free to contact us at servicedesk@csc.fi if you need our help. 
-
+* Jos et ole koskaan käyttänyt CSC:n palveluita, saattaa kestää useampiakin tunteja. Löydät tarpeellista tukea käyttöohjeesta ja vaihe-vaiheelta videotutoriaaleista (13 videota x 3 minuuttia). Ota yhteyttä servicedesk@csc.fi, jos tarvitset apuamme.

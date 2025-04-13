@@ -1,31 +1,31 @@
-# SD Desktop for seconday use of health and social data (register data). 
+# SD Desktop terveys- ja sosiaalitietojen (rekisteritietojen) toissijaiseen käyttöön. 
 
-## What is the SD Desktop for secondary use?
+## Mikä on SD Desktop terveys- ja sosiaalitietojen toissijaiseen käyttöön? {#what-is-the-sd-desktop-for-secondary-use}
 
-The SD Desktop service is a certified environment for data processing under the Act on the Secondary Use of Health and Social Data (requires a permit provided by Findata, the Finnish Social and Health Data Permit Authority). SD Desktop has been audited against the Findata regulation.
+SD Desktop -palvelu on sertifioitu ympäristö tietojen käsittelyyn Terveys- ja sosiaalitietojen toissijaisesta käytöstä annetun lain mukaisesti (vaatii Findatan, Suomen Sosiaali- ja Tietosuojaviranomaisen, myöntämän luvan). SD Desktop on auditoitu Findatan säädösten mukaisesti.
 
-## How does processing secondary use data on SD Desktop differ from standard use of Sensitive Data services?
+## Miten rekisteritietojen käsittely SD Desktopissa eroaa Sensitive Data -palveluiden tavanomaisesta käytöstä? {#how-does-processing-secondary-use-data-on-sd-desktop-differ-from-standard-use-of-sensitive-data-services}
 
-With register data, there are some restrictions to the service compared to the standard use of SD Desktop. The restrictions are necessary to comply with the  regulation of the Health and Social Data Permit Authority (Findata). Most important limitations include: the service and data access is managed by CSC instead of the user and other services (for example SD Connect) are not available. Read more in [SD Desktop service description](https://research.csc.fi/-/sd-desktop).
+Rekisteritietojen tapauksessa palveluun on joitakin rajoituksia verrattuna SD Desktopin tavanomaiseen käyttöön. Rajoitukset ovat tarpeellisia noudattaaksemme Tietosuoja- ja terveyslupaviranomaisen (Findata) sääntelyä. Tärkeimpiä rajauksia ovat esimerkiksi, että palvelun ja tiedonkäytön hallinnoi CSC käyttäjän sijasta, ja muita palveluita (esim. SD Connect) ei ole käytettävissä. Lue lisää [SD Desktop -palvelukuvauksesta](https://research.csc.fi/-/sd-desktop).
 
-## How can I access register data with SD Desktop?
+## Miten pääsen käsiksi rekisteritietoihin SD Desktopissa? {#how-can-i-access-register-data-with-sd-desktop}
 
-First, you need to have a data permit from Findata or a single public register. Then you need to create a CSC account, if you do not have one already, and a specific Findata type CSC project for your data. Next, you can request for service access from our service desk (servicedesk@csc.fi) with the data permit. The data will be transferred directly to the service from the data controller, and it will be available only for verified project members on the virtual desktop. For more information see: [SD Desktop for seconday use](../../data/sensitive-data/secondarydata-access.md).
+Ensinnäkin tarvitset Findatan tai yksittäisen julkisen rekisterin myöntämän tietoluvan. Sen jälkeen sinun on luotava CSC-tili, jos sinulla ei vielä ole sellaista, ja erityinen Findata-tyyppinen CSC-projekti tiedoillesi. Sen jälkeen voit pyytää palvelupääsyä palvelupisteestämme (servicedesk@csc.fi) tietoluvalla. Tiedot siirretään suoraan palveluun tietojen rekisterinpitäjältä, ja ne ovat saatavilla vain vahvistetuille projektin jäsenille virtuaalisessa työpöydässä. Lisätietoja: [SD Desktop terveys- ja sosiaalitietojen toissijaiseen käyttöön](../../data/sensitive-data/secondarydata-access.md).
 
-## Can I combine my own data with register data on SD Desktop?
+## Voinko yhdistää omia tietojani rekisteritietoihin SD Desktopissa? {#can-i-combine-my-own-data-with-register-data-on-sd-desktop}
 
-In a project using secondary use health and social data, all the data processed on SD Desktop must be provided by the data controller (Findata or a single register). If you want to combine your own findings with register data, you need to specify it in your application for the data permit. 
+Projektissa, jossa käytetään terveys- ja sosiaalitietojen toissijaista käyttöä, kaikki SD Desktopissa käsiteltävät tiedot on toimitettava tietojen rekisterinpitäjän (Findata tai yksittäinen rekisteri) toimesta. Jos haluat yhdistää omat tutkimustuloksesi rekisteritietoihin, sinun on ilmoitettava siitä tietolupahakemuksessasi. 
 
-## Is it possible to install software to SD Desktop when processing secondary use data?
+## Onko mahdollista asentaa ohjelmistoja SD Desktopiin, kun käsitellään toissijaisesti käytettäviä tietoja? {#is-it-possible-to-install-software-to-sd-desktop-when-processing-secondary-use-data}
 
-The programs available on the Desktop are [listed in the user guide](../../data/sensitive-data/sd-desktop-secondary-working.md#default-software-available-in-sd-desktop).
+Työpöydällä saatavilla olevat ohjelmat ovat [lueteltu käyttöoppaassa](../../data/sensitive-data/sd-desktop-secondary-working.md#default-software-available-in-sd-desktop).
 
-If the software you need is not pre-installed on SD Desktop, you need to contact our service desk (servicedesk@csc.fi) to check if the program is compatible with the service and available for installation in the secondary use projects.
+Jos tarvitsemasi ohjelmisto ei ole valmiiksi asennettu SD Desktopiin, sinun on otettava yhteyttä palvelupisteeseemme (servicedesk@csc.fi) tarkistaaksesi, onko ohjelma yhteensopiva palvelun kanssa ja asennettavissa toissijaista käyttöä olevissa projekteissa.
 
-## How can I export my results from SD Desktop?
+## Miten voin viedä tulokseni SD Desktopista? {#how-can-i-export-my-results-from-sd-desktop}
 
-You need to make a request to our service desk (servicedesk@csc.fi) to export your results. The results will be exported directly to Findata and you will receive them after the authority’s scrutiny.
+Sinun on pyydettävä palvelupisteeltämme (servicedesk@csc.fi) tulostesi viemistä. Tulokset viedään suoraan Findataan ja saat ne käyttöön viranomaisten tarkastuksen jälkeen.
 
-## What will happen to my data after the secondary use data permit expires?
+## Mitä tiedoilleni tapahtuu, kun toissijaisen käytön tietolupa vanhenee? {#what-will-happen-to-my-data-after-the-secondary-use-data-permit-expires}
 
-You will not be able to access your virtual desktop after the validity period of your data permit ends. If you do not apply for extension for the data permit from the data controller and request us to extend the duration of your CSC project, your project will close automatically after the expiration of the data permit. All data from a closed project will be deleted after 90 days, according to CSC’s data retention policy. You need to have all your results exported from the virtual desktop before the data permit expires – otherwise you cannot access them when the permit is no longer valid.
+Et pääse käyttämään virtuaalista työpöytääsi tietoluvasi voimassaoloajan päätyttyä. Ellet hae tietoluvan jatkoa rekisterinpitäjältä ja pyydä meitä jatkamaan CSC-projektisi kestoa, projektisi sulkeutuu automaattisesti tietoluvan voimassaolon päättyessä. Kaikki suljetusta projektista peräisin olevat tiedot poistetaan 90 päivän kuluttua CSC:n tiedonhallinnan käytäntöjen mukaisesti. Sinun on vietävä kaikki tulokset virtuaaliympäristöstä ennen tietoluvan vanhenemista – muuten et voi käyttää niitä, kun lupa ei enää ole voimassa.

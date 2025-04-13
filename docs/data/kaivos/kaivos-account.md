@@ -1,17 +1,17 @@
-# Getting a database account
+# Hanki tietokantatili {#getting-a-database-account}
 
-The `kaivos.csc.fi` database service can be accessed only from the computing servers of CSC. Thus, in order to use the database service, the project manager as well as all the users should have a CSC user account at Puhti. To open a database to Kaivos database service, the project manager needs to login to the CSC customer portal [MyCSC](https://my.csc.fi) and perform following steps:
+CSC:n `kaivos.csc.fi` -tietokantapalveluun pääsee käsiksi vain CSC:n laskentapalvelimilta. Siksi projektipäällikön ja kaikkien käyttäjien tulee olla CSC-käyttäjiä Puhti-palvelussa voidakseen käyttää tietokantapalvelua. Avatakseen tietokannan Kaivos-tietokantapalveluun projektipäällikön tulee kirjautua CSC:n asiakasportaaliin [MyCSC](https://my.csc.fi) ja suorittaa seuraavat toimet:
 
-1. Register as CSC user
-2. Create a new project or select an already existing project
-3. Send a request to [CSC Service Desk](../../support/contact.md). The request should include the proposed name of the database and the size of the database (in GB).
+1. Rekisteröidy CSC-käyttäjäksi
+2. Luo uusi projekti tai valitse jo olemassa oleva projekti
+3. Lähetä pyyntö [CSC Service Deskille](../../support/contact.md). Pyynnön tulee sisältää ehdotettu tietokannan nimi ja tietokannan koko (GB).
 
-When the application is processed, a new empty database is created to the database server (`kaivos.csc.fi`). The database service is used through MySQL client programs or other MySQL interfaces (Including MariaDB interfaces). The project manager will receive three database user accounts with passwords to access and manage the database. The database user accounts are based on the database name defined in the application form. The three database user accounts have different roles:
+Kun hakemus on käsitelty, uusi tyhjä tietokanta luodaan tietokantapalvelimeen (`kaivos.csc.fi`). Tietokantapalvelua käytetään MySQL-asiakasohjelmien tai muiden MySQL-rajapintojen (myös MariaDB-rajapinnat) kautta. Projektipäällikkö saa kolme tietokantakäyttäjätiliä ja salasanaa tietokannan käyttöä ja hallintaa varten. Tietokantakäyttäjätilit perustuvat hakemuslomakkeessa määriteltyyn tietokannan nimeen. Kolmella tietokantakäyttäjätilillä on eri roolit:
 
-* The **databasename_admin** user account is intended for database administration. This user account can create new tables and indexes for the database. This user account can also remove records and tables from the database. However, the admin user account can't create new databases or database user accounts. This user account has all rights to the database except the GRANT OPTION.
+* **databasename_admin** käyttäjätili on tarkoitettu tietokannan hallintaan. Tällä käyttäjätilillä voidaan luoda uusia tauluja ja indeksejä tietokantaan. Tämä käyttäjätili voi myös poistaa tietueita ja tauluja tietokannasta. Tällä käyttäjätilillä ei kuitenkaan voi luoda uusia tietokantoja tai tietokantakäyttäjätilejä. Tällä käyttäjätilillä on kaikki oikeudet tietokantaan pois lukien GRANT OPTION.
 
-* The **databasename_user** user account is intended for everyday usage of the database. This user account can read, write, change and delete data from the database tables. However, this user account can't change the structure of the database i.e. create or drop tables. This user account has the following rights to the database tables: SELECT, INSERT, UPDATE, DELETE.
+* **databasename_user** käyttäjätili on tarkoitettu tietokannan päivittäiseen käyttöön. Tällä käyttäjätilillä voidaan lukea, kirjoittaa, muuttaa ja poistaa tietoa tietokantatauluista. Tämä käyttäjätili ei kuitenkaan voi muuttaa tietokannan rakennetta, eli luoda tai poistaa tauluja. Tällä käyttäjätilillä on seuraavat oikeudet tietokantatauluihin: SELECT, INSERT, UPDATE, DELETE.
 
-* The **databasename_read** user account is intended for users who are allowed to do only queries to the database. This user account can't change the database in any level. This user account has only the SELECT right to database tables.
+* **databasename_read** käyttäjätili on tarkoitettu käyttäjille, jotka saavat ainoastaan suorittaa kyselyitä tietokantaan. Tällä käyttäjätilillä ei voi muuttaa tietokantaa millään tasolla. Tällä käyttäjätilillä on vain SELECT-oikeus tietokantatauluihin.
 
-The project manager should distribute the database user accounts with passwords to the users of the database service. The databasename_read user account can be given to users who are not members of the computing project. One research group can have several databases. Each database has proprietary database user accounts and passwords.
+Projektipäällikön tulee jakaa tietokantakäyttäjätilit ja salasanat tietokantapalvelun käyttäjille. Databasename_read-käyttäjätili voidaan antaa käyttäjille, jotka eivät ole laskentaprojektin jäseniä. Yksi tutkimusryhmä voi omistaa useita tietokantoja. Jokaisella tietokannalla on omat suojaamattomat tietokantakäyttäjätilit ja salasanat.

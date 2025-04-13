@@ -1,76 +1,59 @@
-# Using user Spack module for software installations
 
-Spack is a package manager for supercomputers, Linux and macOS. It can be used
-to install complicated scientific software packages easily. CSC installs the
-development stack, including compilers, MPI libraries and also many other
-libraries and applications using Spack. CSC provides also a user module for
-customers that enables per-project software installations using Spack.
+# Käyttäjäkohtaisen Spack-moduulin käyttö ohjelmistojen asennuksessa {#using-user-spack-module-for-software-installations}
 
-!!! warning "Note"
-    Spack is an advanced tool and it requires understanding of
-    compiling and linking programs.
+Spack on pakettienhallintaohjelma supertietokoneille, Linuxille ja macOS:lle. Sitä voidaan käyttää tieteellisten ohjelmistopakettien helppoon asentamiseen. CSC asentaa kehityspaketin, joka sisältää kääntäjät, MPI-kirjastot sekä monia muita kirjastoja ja sovelluksia Spackin avulla. CSC tarjoaa myös käyttäjämoduulin asiakkaille, joka mahdollistaa projektikohtaiset ohjelmistoasennukset Spackin avulla.
 
-!!! info "Available versions"
-    This tutorial assumes you are on Puhti, which has `spack/v0.18-user`
-    installed. Mahti has two versions of Spack available for users,
-    `spack/v0.17-user` and `spack/v0.20-user`. Aside from the module versions,
-    the outlined procedure is identical on the two systems.
+!!! warning "Huomautus"
+    Spack on edistynyt työkalu ja vaatii ohjelmien kääntämisen ja linkittämisen ymmärtämistä.
 
-## Creating a Spack instance
+!!! info "Saatavilla olevat versiot"
+    Tämä opastus olettaa, että olet Puhtilla, jossa on asennettuna `spack/v0.18-user`. Mahtilla on käyttäjille saatavilla kaksi Spackin versiota, `spack/v0.17-user` ja `spack/v0.20-user`. Moduuliversioita lukuun ottamatta toimintatapa on identtinen molemmissa järjestelmissä.
 
-Before running the Spack module for the first time, you have to prepare an
-installation location that can reside either on `/projappl` or `/scratch` disk
-areas. You also have to set an environment variable that points to the location
-of the Spack instance.
+## Spack-instanssin luominen {#creating-a-spack-instance}
 
-For example, if you want to create a Spack instance in the `/projappl`
-directory, you can initialize the environment as follows:
+Ennen kuin suoritat Spack-moduulin ensimmäistä kertaa, sinun on valmisteltava asennuspaikka, joka voi sijaita joko `/projappl` tai `/scratch` levyalueilla. Sinun on myös asetettava ympäristömuuttuja, joka osoittaa Spack-instanssin sijainnin.
+
+Esimerkiksi, jos haluat luoda Spack-instanssin `/projappl` hakemistoon, voit alustaa ympäristön seuraavasti:
 
 ```bash
 [maijam@puhti-login11 ~]$ module purge
-The following modules were not unloaded:
-  (Use "module --force purge" to unload all):
+Seuraavat moduulit eivät purkautuneet:
+  (Käytä "module --force purge" purkaaksesi kaikki):
 
   1) csc-tools
 [maijam@puhti-login11 ~]$ export USER_SPACK_ROOT=/projappl/project_2001234/spack-instance-1
 [maijam@puhti-login11 ~]$ mkdir -p ${USER_SPACK_ROOT}
 [maijam@puhti-login11 ~]$ module load spack/v0.18-user
-Run user-spack-init to initialize user installation in /projappl/project_2001234/spack-instance-1
+Suorita user-spack-init alustaksesi käyttäjän asennus kohteessa /projappl/project_2001234/spack-instance-1
 [maijam@puhti-login11 ~]$ user-spack-init
-[INFO] USER_SPACK_GROUP not set, defaulting to project_2001234 based on target directory
+[INFO] USER_SPACK_GROUP ei ole asetettu, käytetään oletuksena project_2001234 kohdehakemiston perusteella
 ```
 
-!!! info "Purge before loading"
-    Before loading Spack, you have to run `module purge` to purge all default
-    environment compilers and library modules as they may interfere with Spack
-    builds.
+!!! info "Puhdistaminen ennen latausta"
+    Ennen Spackin lataamista sinun on suoritettava `module purge` puhdistaaksesi kaikki oletusarvoiset ympäristön kääntäjät ja kirjastomoduulit, koska ne voivat häiritä Spackin rakennusprosessia.
 
-!!! info "Several Spack instances"
-    You can have several Spack instances under the same project. The used
-    instance is specified with the `$USER_SPACK_ROOT` environment variable that
-    points to the root directory of the instance.
+!!! info "Useita Spack-instansseja"
+    Voit käyttää useita Spack-instanseja samassa projektissa. Käytettävä instanssi määritetään ympäristömuuttujalla `$USER_SPACK_ROOT`, joka osoittaa instanssin juurihakemistoon.
 
-!!! info "Initializing"
-    Before accessing the Spack instance for the first time, you have to
-    initialize it by running the `user-spack-init` command.
+!!! info "Alustaminen"
+    Ennen kuin käytät Spack-instanssia ensimmäistä kertaa, sinun on alustettava se suorittamalla `user-spack-init` komento.
 
-## Using the Spack instance
+## Spack-instanssin käyttäminen {#using-the-spack-instance}
 
-An initialized instance can be activated by purging the module environment,
-setting the root path of the instance and loading the Spack module:
+Alustettu instanssi voidaan aktivoida purkamalla moduuliympäristö, asettamalla instanssin juuripolku ja lataamalla Spack-moduuli:
 
 ```bash
 [maijam@puhti-login11 ~]$ module purge
-The following modules were not unloaded:
-  (Use "module --force purge" to unload all):
+Seuraavat moduulit eivät purkautuneet:
+  (Käytä "module --force purge" purkaaksesi kaikki):
 
   1) csc-tools
 [maijam@puhti-login11 ~]$ export USER_SPACK_ROOT=/projappl/project_2001234/spack-instance-1
 [maijam@puhti-login11 ~]$ module load spack/v0.18-user
-Found existing user spack installation at /projappl/project_2001234/spack-instance-1
+Löydetty olemassa oleva käyttäjän spack-asennus kohteesta /projappl/project_2001234/spack-instance-1
 ```
 
-### Example build
+### Esimerkki rakennuksesta {#example-build}
 
 ```bash
 [maijam@puhti-login11 ~]$ spack spec -I --reuse kakoune
@@ -85,12 +68,7 @@ Concretized
 [^]          ^pkgconf@1.8.0%gcc@11.3.0 arch=linux-rhel8-cascadelake
 ```
 
-The `spack spec` command shows what would be installed given a certain input.
-It is good practice to run it before installing to ensure that the build looks
-like intended. The `-I` flag is used to display the current install status of
-the package and its dependencies, while the `--reuse` flag is provided in order
-to reuse already installed dependencies whenever possible. Actual installation
-is then performed via the `spack install` command:
+`spack spec` komento näyttää, mitä asennettaisiin tietyn syötteen perusteella. On hyvä tapa suorittaa se ennen asennusta varmistaaksesi, että rakennus on halutun kaltainen. `-I` lippu käytetään paketin ja sen riippuvuuksien nykyisen asennustilan näyttämiseen, kun taas `--reuse` lippu käytetään hyödyntämään jo asennettuja riippuvuuksia aina kun mahdollista. Varsinainen asennus suoritetaan `spack install` komennolla:
 
 ```bash
 [maijam@puhti-login11 ~]$ spack install --reuse kakoune
@@ -108,34 +86,26 @@ is then performed via the `spack install` command:
 [+] /projappl/project_2001234/spack-instance-1/install_tree/gcc-11.3.0/kakoune-2021.11.08-yh4nmf
 ```
 
-!!! info "Spec syntax"
-    The string that specifies which package should be installed (the *spec*)
-    can be simply just the package name, as above, but often you might want to
-    install a specific version, perhaps using a specific compiler and with some
-    optional installation flags (e.g. a GPU-enabled version of the software).
-    Spack uses a special syntax for specifying this information as explained in
-    the official
-    [documentation](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies).
+!!! info "Spec-syntaksi"
+    Merkkijono, joka määrittää mikä paketti tulisi asentaa (*spec*), voi olla vain paketin nimi, kuten yllä, mutta usein saatat haluta asentaa tietyn version, mahdollisesti tiettyä kääntäjää käyttäen ja joillakin valinnaisilla asennuslipuilla (esim. GPU-tuettu ohjelmistoversio). Spack käyttää erityistä syntaksia tämän tiedon määrittämiseen, kuten on selitetty virallisessa
+    [dokumentaatiossa](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies).
 
-## Using modules with user Spack installations
+## Moduulien käyttäminen käyttäjän Spack-asennuksilla {#using-modules-with-user-spack-installations}
 
-By default, Spack creates module files under `$USER_SPACK_ROOT/modules`
-and you can add that path to your `$MODULEPATH` with the command:
+Oletuksena Spack luo moduulitiedostot polkuun `$USER_SPACK_ROOT/modules`
+ja voit lisätä tämän polun `$MODULEPATH`:iin komennolla:
 
 ```bash
 [maijam@puhti-login11 ~]$ module use ${USER_SPACK_ROOT}/modules
 ```
 
-After installing a new package, you may need to regenerate the module files.
-For example:
+Uuden paketin asentamisen jälkeen saatat joutua regeneroimaan moduulitiedostot. Esimerkiksi:
 
 ```bash
 [maijam@puhti-login11 ~]$ spack module tcl refresh kakoune
 ```
 
-Now you can see the modules with regular `module avail` and `module spider`
-commands. For example, the `kakoune` editor built in the previous example can be
-searched and loaded with:
+Nyt voit nähdä moduulit säännöllisillä `module avail` ja `module spider` komennoilla. Esimerkiksi `kakoune` editori, joka on rakennettu aiemmassa esimerkissä, voidaan etsiä ja ladata seuraavasti:
 
 ```bash
 [maijam@puhti-login11 ~]$ module spider kakoune
@@ -144,13 +114,14 @@ searched and loaded with:
   kakoune: kakoune/2021.11.08-gcc-11.3.0-yh4n
 --------------------------------
 
-    This module can be loaded directly: module load kakoune/2021.11.08-gcc-11.3.0-yh4n
+    Tämä moduuli voidaan ladata suoraan: module load kakoune/2021.11.08-gcc-11.3.0-yh4n
 
 [maijam@puhti-login11 ~]$ module load kakoune/2021.11.08-gcc-11.3.0-yh4n
 ```
 
-## Further reading
+## Lisälukemista {#further-reading}
 
-- [Official Spack documentation](https://spack.readthedocs.io/en/latest/index.html)
-- [Spack tutorial](https://spack.readthedocs.io/en/latest/tutorial.html)
-- [Spack GitHub repository](https://github.com/spack/spack)
+- [Virallinen Spack-dokumentaatio](https://spack.readthedocs.io/en/latest/index.html)
+- [Spack-opetus](https://spack.readthedocs.io/en/latest/tutorial.html)
+- [Spack GitHub-repositorio](https://github.com/spack/spack)
+

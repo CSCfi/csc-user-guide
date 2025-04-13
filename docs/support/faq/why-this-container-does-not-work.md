@@ -1,5 +1,6 @@
-# Why this container report permission denied errors?
 
-The most common reason for a container to fail to run in Rahti, is that the container image expects to be run as `root`. As Rahti does not run images as root, permission denied errors will stop the execution.
+# Miksi tämä säilöraportti ilmoittaa käyttöoikeuksien epäämisestä? {#why-this-container-report-permission-denied-errors}
 
-The solution is to use a different image. The first option is to find another image that is prepared to be run as a non root user. If there is not an image already prepared to run in OpenShift, or it is not provided by a trustable source, the other option is to modify the current image to make it work with a non root user, for example as described in the [Creating images](../../cloud/rahti/images/creating.md) section.
+Yleisin syy sille, että säilö ei käynnisty Rahtissa, on se, että säilökuva odottaa suoritusta käyttäjänä `root`. Koska Rahti ei suorita kuvia root-käyttäjänä, käyttöoikeuksien epäämisvirheet pysäyttävät suorituksen.
+
+Ratkaisu on käyttää toista kuvaa. Ensimmäinen vaihtoehto on löytää toinen kuva, joka on valmisteltu suoritettavaksi ilman root-käyttäjää. Jos ei ole kuvaa, joka on valmiina suoritettavaksi OpenShiftissä tai sitä ei tarjoa luotettava lähde, toinen vaihtoehto on muokata nykyistä kuvaa toimimaan ilman root-käyttäjää, esimerkiksi kuten kuvattu [Kuvien luominen](../../cloud/rahti/images/creating.md) osiossa.

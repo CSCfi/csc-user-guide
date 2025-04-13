@@ -1,15 +1,13 @@
-# Job Composer
-The Job Composer app can be used for creating and managing batch jobs.
 
-Jobs are created from templates, which can be selected in a few ways
+# Työn Koostaja {#job-composer}
+Työn Koostaja -sovellusta voidaan käyttää eräajojen luomiseen ja hallintaan.
 
- * Copy a template from the system
- * Copy a template you have previously created
- * Use a previous job as template
+Työt luodaan malleista, joita voi valita muutamalla tavalla
 
-## Getting started
+* Kopioi malli järjestelmästä
+* Kopioi malli, jonka olet aiemmin luonut
+* Käytä aiempaa työtä mallina
 
-An example of running a basic Slurm job.
-Create a job from the default template by clicking `From Default Template` in the `New Job` dropdown.
-To edit the name of the job click `Job Options`.
-The batch job script can be edited by clicking `Open Editor`
+## Aloittaminen {#getting-started}
+
+Esimerkki perus Slurm-työn suorittamisesta. Luo työ oletusmallista napsauttamalla `Oletusmallista` kohdassa `Uusi työ` -pudotusvalikossa. Muuta työn nimeä napsauttamalla `Työasetukset`. Eräajon skriptiä voidaan muokata napsauttamalla `Avaa editori`.

@@ -1,57 +1,37 @@
-# PostgreSQL versions
 
-Currently Pukki supports two major versions of PostgreSQL, 14 and 17. We recommend always using
-the most recent version available when creating new database instances, and existing ones can
-be upgraded to use newer minor or major versions. For more detailed information on differences
-between all PostgreSQL versions, consult the
-[PostgreSQL documentation](https://www.postgresql.org/docs/release/).
+# PostgreSQL-versiot
 
-## Minor version upgrades
+Tällä hetkellä Pukki tukee kahta suurta PostgreSQL-versiota, 14 ja 17. Suosittelemme aina käyttämään uusinta saatavilla olevaa versiota, kun luodaan uusia tietokantaesiintymiä, ja olemassa olevia voidaan päivittää käyttämään uudempia vähäisiä tai suuria versioita. Lisätietoja kaikista PostgreSQL-versioiden eroista saat [PostgreSQL-dokumentaatiosta](https://www.postgresql.org/docs/release/).
 
-Minor version upgrades in PostgreSQL (e.g. from 14.12 to 14.13) should have no breaking changes.
-The upgrade process itself happens automatically in the background once initiated, and should only
-take a couple of minutes. It involves shutting down the existing server, installing the new version,
-and starting the server back up, without modifying the data itself in any way.
+## Vähäiset versioiden päivitykset {#minor-version-upgrades}
 
-## Major version upgrades
+Vähäisillä versiopäivityksillä PostgreSQL:ssä (esim. 14.12:sta 14.13:een) ei pitäisi olla rikkoontuvia muutoksia. Itse päivitysprosessi tapahtuu automaattisesti taustalla, kun aloitettu, ja sen pitäisi kestää vain muutama minuutti. Se sisältää olemassa olevan palvelimen sulkemisen, uuden version asentamisen ja palvelimen käynnistämisen uudelleen muuttamatta tietoja millään tavalla.
 
-Major version upgrades shouldn't be visibly different from minor version upgrades to a Pukki user,
-but there's a lot more going on under the hood, and an increased risk of something going wrong in
-the process. There's a real risk of data loss, and the user should be ready to create a new
-database instance from a backup in such a case.
+## Suuret versioiden päivitykset {#major-version-upgrades}
 
-Before upgrading your database to a new major version, we heavily recommend using a backup of it
-to create a new database instance just for testing the upgrade first. Upgrading between major
-versions requires significantly more disk space than minor version upgrades, and if there isn't
-enough disk space available, the upgrade will fail. In these cases increasing volume size before
-attempting a major version upgrade is necessary.
+Suuret versiepäivitykset eivät saisi olla Pukki-käyttäjälle näkyvästi erilaisia kuin vähäiset versiopäivitykset, mutta kulissien takana tapahtuu paljon enemmän, ja prosessissa on lisääntynyt riski, että jokin menee pieleen. On olemassa todellinen tietojen menetyksen riski, ja käyttäjän tulisi olla valmis luomaan uusi tietokantaesiintymä varmuuskopiosta tällaisessa tapauksessa.
 
-Downgrading to a previous major version is not possible in Pukki. The only way to return to an
-older major version is to restore an old backup from before the upgrade.
+Ennen kuin päivität tietokantasi uuteen suureen versioon, suosittelemme vahvasti käyttämään varmuuskopiota uuden tietokantaesiintymän luomiseen vain päivityksen testaamista varten. Suurten versioiden välinen päivitys vaatii huomattavasti enemmän levytilaa kuin vähäiset versiopäivitykset, ja jos levytilaa ei ole tarpeeksi, päivitys epäonnistuu. Näissä tapauksissa on välttämätöntä lisätä tilavuuden kokoa ennen suurten versioiden päivitystä.
 
-## Changes between PostgreSQL 14 and 17
+Edelliseen suureen versioon palauttaminen ei ole mahdollista Pukissa. Ainoa tapa palata vanhempaan suureen versioon on palauttaa vanha varmuuskopio ennen päivitystä.
 
-Most of the changes to PostgreSQL between versions 14 and 17 won't be visible to the user. Many of
-them are focused on server side performance, logging, and more advanced and specific SQL features.
-However, PostgreSQL 15 brought a very specific change to default permissions, which affects how
-Pukki manages users and their access rights.
+## Muutokset PostgreSQL 14:n ja 17:n välillä {#changes-between-postgresql-14-and-17}
 
-Keep in mind when upgrading a database from PostgreSQL 14 to 17 that the existing permissions are
-kept intact. This means that a fresh PostgreSQL 17 instance will have some differences compared to
-one that was upgraded from PostgreSQL 14. You can read more about this on the 
-[permissions page](postgres-permissions.md).
+Suurin osa muutoksista PostgreSQL:ssä versioiden 14 ja 17 välillä ei ole käyttäjälle näkyvissä. Monet niistä keskittyvät palvelinpuolen suorituskykyyn, lokitukseen ja kehittyneempiin ja erityisiin SQL-ominaisuuksiin. PostgreSQL 15 toi kuitenkin erittäin erityisen muutoksen oletuslupiin, mikä vaikuttaa siihen, kuinka Pukki hallitsee käyttäjiä ja heidän käyttöoikeuksiaan.
 
-## Some useful commands
+Pidä mielessä, kun päivität tietokannan PostgreSQL 14:stä 17:ään, että olemassa olevat käyttöoikeudet säilyvät ennallaan. Tämä tarkoittaa, että uusi PostgreSQL 17 -esiintymä eroaa joissakin asioissa verrattuna sellaiseen, joka on päivitetty PostgreSQL 14:stä. Voit lukea lisää tästä [käyttöoikeussivulta](postgres-permissions.md).
 
-### Show the current database version
+## Joitakin hyödyllisiä komentoja {#some-useful-commands}
+
+### Näytä nykyinen tietokantaversio {#show-the-current-database-version}
 
 ```sql
 SELECT 1;
 ```
 
-### Import database dump
+### Tuo tietokantadump
 
-If you have a database dump, you can import it to your Pukki database with the following command. Be aware that this might overwrite what you already have in the database:
+Jos sinulla on tietokantadump, voit tuoda sen Pukki-tietokantaasi seuraavalla komennolla. Huomioi, että tämä saattaa korvata jo tietokannassa olevan sisällön:
 
 ```bash
 psql -h $FLOATING_IP -d $DATABASE -U USERNAME -f file.sql

@@ -1,102 +1,89 @@
-# PostgreSQL permissions
+# PostgreSQL-luvat
 
-## PostgreSQL 17 permissions
+## PostgreSQL 17 -luvat {#postgresql-17-permissions}
 
-In PostgreSQL 17 database instances, you need to explicitly grant users access to a database to
-allow them to create tables in the public schema of the specified database. This can be done as
-follows with the command line tools.
+PostgreSQL 17 -tietokantaesiintymissä sinun on annettava käyttäjille selkeä lupa käyttää tietokantaa, jotta he voivat luoda tauluja kyseisen tietokannan julkisessa skeemassa. Tämä voidaan tehdä seuraavasti komentorivityökaluilla.
 
-When creating a new user, you can use the `--database` flag to grant user access to create new
-table in the public schema in a specific database:
+Kun luot uutta käyttäjää, voit käyttää `--database`-lippua myöntääksesi käyttäjälle oikeuden luoda uusia tauluja tietyn tietokannan julkisessa skeemassa:
 
 ```sh
 openstack database user create $INSTNACE_ID $USER_NAME $USER_PASSWORD --database $DATABASE_NAME
 ```
 
-The command to grant permissions for a user to create tables to an existing database user:
+Komento käyttäjälle taulujen luomisoikeuden myöntämiseksi olemassa olevaan tietokantaan:
+
 ```sh
 openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
 ```
 
-The web interface also allows creating users and modifying their permissions.
+Web-käyttöliittymä mahdollistaa myös käyttäjien luomisen ja heidän oikeuksiensa muokkaamisen.
 
-To create a new user with database access:
+Uuden käyttäjän luominen tietokantayhteydellä:
 
-  1. Choose an instance from the Instances page
-  2. Go to its Users tab
-  3. Press Create User
+1. Valitse esiintymä Esiintymät-sivulta
+2. Siirry Käyttäjät-välilehdelle
+3. Paina Luo käyttäjä
 
-You can also edit permissions of existing users from the Users tab, by choosing 'Manage Access'
-from the drop down menu in the 'Actions' column.
+Voit myös muokata olemassa olevien käyttäjien oikeuksia Käyttäjät-välilehdeltä valitsemalla 'Hallinnoi käyttöoikeuksia' toimintovalikon 'Toiminnot'-sarakkeesta.
 
-What Pukki does in the background is basically
+Taustalla Pukki tekee pohjimmiltaan
 
-### Giving a user read-only access to a table
-As the table owner or root user you can do the following SQL command:
+### Käyttäjän antaminen vain lukuoikeuksiin tauluun {#giving-a-user-read-only-access-to-a-table}
+
+Taulun omistajana tai pääkäyttäjänä voit suorittaa seuraavan SQL-komennon:
 
 ```sql
 GRANT SELECT ON ${table} TO ${user};
 ```
 
-### Giving a user read-write access to a table
+### Käyttäjän antaminen luku- ja kirjoitusoikeuksiin tauluun {#giving-a-user-read-write-access-to-a-table}
 
-If you want to allow users to add, modify, remove and read rows in your database you can give the
-user following permissions:
+Jos haluat sallia käyttäjien lisätä, muokata, poistaa ja lukea rivejä tietokannassasi, voit antaa käyttäjälle seuraavat oikeudet:
 
 ```sql
 GRANT SELECT, INSERT, UPDATE, DELETE ON ${table} TO ${user};
 ```
 
+## Muutokset PostgreSQL 14:n ja 17:n välillä {#changes-between-postgresql-14-and-17}
 
-## Changes between PostgreSQL 14 and 17
+PostgreSQL 15 toi hyvin spesifin muutoksen oletusoikeuksiin, mikä vaikuttaa siihen, miten Pukki hallitsee käyttäjiä ja heidän käyttöoikeuksiaan.
 
-PostgreSQL 15 brought a very specific change to default permissions, which affects how Pukki
-manages users and their access rights.
+### Erot Pukin tavassa hallita tietokantakäyttöä {#differences-in-how-pukki-manages-database-access}
 
-### Differences in how Pukki manages database access
+PostgreSQL 14:ssä tietokannan käyttäjille myönnetyt oletusoikeudet sallivat heidän luoda uusia tauluja minkä tahansa tietokantainstanssin julkisessa skeemassa. PostgreSQL 15 peruutti `create`-oikeuden kaikilta tietokannan käyttäjiltä (paitsi tietokannan omistajalta) julkisessa skeemassa, jota käytetään oletuksena skeemana. Nyt uusille käyttäjille on annettava selkeästi `create`-oikeus skeemaan, yleensä tietokannan oletusjulkiseen skeemaan.
 
-In PostgreSQL 14, the default privileges granted to database users allowed them to create new
-tables in any database's public schema on that database instance. PostgreSQL 15 revoked the
-`create` permission from all database users (except a database owner) from the public schema,
-which is used as the default schema. Now new users need to be explicitly given the `create`
-permission to a schema, usually the database's default `public` schema.
-
-In a nutshell, when revoking or granting a user access to a PostgreSQL 14 database in Pukki, the
-query modifying permissions looks something like this:
+Yksinkertaistettuna, kun käyttäjän oikeuksia peruutetaan tai myönnetään PostgreSQL 14 -tietokannassa Pukissa, oikeuksia muuttava kysely näyttää tältä:
 
 ```sql
 GRANT|REVOKE ALL ON DATABASE ${DATABASE} TO|FROM ${USER};
 ```
 
-On a PostgreSQL 17 database instance, the same web GUI or CLI-tool commands would result in this
-kind of a permissions-modifying query:
+PostgreSQL 17 -tietokantaesiintymässä sama verkkokäyttöliittymä tai CLI-työkalukomennot johtaisivat seuraavanlaiseen oikeuksia muuttavaan kyselyyn:
 
 ```sql
 GRANT|REVOKE ALL ON SCHEMA public TO|FROM ${USER};
 ```
 
-You can always enable root access on a database instance and log in as the root user to modify
-permissions more freely.
+Voit aina ottaa käyttöön pääkäyttäjäoikeudet tietokantaesiintymässä ja kirjautua sisään pääkäyttäjänä muuttaaksesi oikeuksia vapaammin.
 
+## Huomautus käyttöoikeuksista {#a-note-about-privileges}
 
-## A note about privileges
+Jos sinulla on vähän tai ei lainkaan aiempaa kokemusta PostgreSQL:stä, suosittelemme tutustumaan siihen, miten PSQL:n oikeudet toimivat tietokantojen, skeemojen ja taulujen kanssa. [Tässä on yksi opastus, josta voi olla hyötyä.](https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/)
 
-If you have little or no prior experience with PostgreSQL, we recommend familiarizing yourself with how privileges in PSQL interact with Databases, Schema, and Tables. [Here's one tutorial that might be of use.](https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/)
+Välttääksesi sekaannusta, muista, että PostgreSQL 14:ssä oletusoikeudet sallivat jokaiselle käyttäjälle yhteyden kaikkiin tietokantoihin ja taulujen luomisen oletusjulkiseen skeemaan. He eivät voi käyttää olemassa olevia tauluja tai muita skeemoja ilman selkeää lupaa, mutta eivät myöskään voi luoda uusia skeemoja.
 
-To avoid confusion, keep in mind that in PostgreSQL 14 the default privileges allow every user to connect to any database and create tables in the default 'public' schema. They cannot access existing tables or other schema without explicit permission, however, they cannot create new schema.
+Tyypillisesti PSQL:ssä objektin omistajalla (objekti voi olla tietokanta, skeema, taulu jne.) on ainoastaan oikeuksia siihen, ellei toisin mainita. Tämä, yhdistettynä oikeuksien rajoittumiseen hierarkian 'alas', voi johtaa sekaannuksiin. Oikeuksien antaminen skeemalle ei välttämättä anna oikeuksia sen sisältämiin tauluihin. Lisätietoja varten, [tässä on viralliset oikeusasiakirjat.](https://www.postgresql.org/docs/14/ddl-priv.html)
 
-Typically the owner of an object in PSQL (an object can be a database, a schema, a table, etc. etc.) is the only one with any privileges regarding it, unless otherwise specified. This, combined with privileges not flowing 'downwards' in the hierarchy, can lead to some confusion. Having privileges to a schema doesn't imply any privileges to the tables contained within. For further reading, [here's the official docs on privileges.](https://www.postgresql.org/docs/14/ddl-priv.html)
+### Käyttöoikeuksien esimerkkikäyttö {#example-usage-of-privileges}
 
-### Example usage of privileges
-
-These queries would allow the example_user to select data from the example_table. Note that the two queries are identical, as long as the search path hasn't been modified.
+Nämä kyselyt sallivat example_userin valita tietoja example_table:sta. Huomaa, että molemmat kyselyt ovat identtisiä, kunhan hakupolkua ei ole muutettu.
 
 ```
 GRANT SELECT ON example_table TO example_user;
 GRANT SELECT ON public.example_table TO example_user;
 ```
 
-Keep in mind example_user here means a role, which can also be a group. These queries would create a new group, assign a user to it, and grant privileges to select data from all tables in the public schema.
+Huomaa, että example_user tarkoittaa tässä roolia, joka voi myös olla ryhmä. Nämä kyselyt luovat uuden ryhmän, määrittävät käyttäjän siihen ja antavat oikeudet valita tietoja kaikista tauluista julkisessa skeemassa.
 
 ```
 CREATE ROLE example_group;
@@ -104,5 +91,4 @@ GRANT example_group TO example_user;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO example_group;
 ```
 
-For easier management of privileges, we recommend creating groups and assigning users to relevant ones instead of tweaking rights on a per-user basis.
-
+Helpottaaksemme käyttöoikeuksien hallintaa suosittelemme luomaan ryhmiä ja määrittämään niihin käyttäjiä relevanttien sijaan kuin oikeuksien säätämistä yksittäisten käyttäjien kohdalla.

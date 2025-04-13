@@ -1,20 +1,21 @@
-# How to open a terminal to a Pod?
 
-In order to open a terminal to a **Running** Pod there are two options:
+# Kuinka avata pääte Podille? {#how-to-open-a-terminal-to-a-pod}
 
-## Using the web interface
+Jotta voit avata päätteen **Käynnissä** -tilassa olevalle Podille, on kaksi vaihtoehtoa:
 
-1. Log into Rahti's web interface and navigate to **Project > Pods**. (Or **Workloads > Pods** in Administrator view)
+## Käyttäen verkkokäyttöliittymää {#using-the-web-interface}
 
-1. Click on any of the Pod names whose status is **Running**.
+1. Kirjaudu Rahtin verkkokäyttöliittymään ja siirry kohtaan **Projekti > Podit**. (Tai **Kuormitukset > Podit** ylläpitäjän näkymässä)
 
-1. Click on the **Terminal** tab to reveal the terminal.
+1. Klikkaa minkä tahansa **Käynnissä** -tilassa olevan Podin nimeä.
+
+1. Klikkaa **Pääte**-välilehteä nähdäksesi päätteen.
 
 ![Terminal Pod](img/terminal.png)
 
-## Using the command line with `oc`
+## Käyttäen komentoriviä `oc`:llä {#using-the-command-line-with-oc}
 
-1. First, get the name of the Pod you want to open an interactive terminal session to:
+1. Ensin, hanki Podin nimi, johon haluat avata interaktiivisen päätetilaisuuden:
 
 	```sh
 	$ oc get pods
@@ -24,9 +25,8 @@ In order to open a terminal to a **Running** Pod there are two options:
 	django-ex-1-rtbak   1/1       Running     0          2h
 	```
 
-1. We see that a terminal to either `django-ex-1-svwg2` or `django-ex-1-rtbak` can be opened.
+1. Näemme, että pääte joko `django-ex-1-svwg2` tai `django-ex-1-rtbak` -nonatomic voi avata.
 
 	```sh
 	oc rsh pod/django-ex-1-rtbak
 	```
-

@@ -1,90 +1,88 @@
-# Creating a virtual machine in Pouta
+# Virtuaalikoneen luominen Poutaan {#creating-a-virtual-machine-in-pouta}
 
 !!! Warning
 
-    You should familiarize yourself with the security instructions and
-    terms of Pouta accounting before launching your first virtual
-    machine.
+    Sinun tulisi tutustua Poutan turvallisuusohjeisiin ja
+    laskutussääntöihin ennen ensimmäisen virtuaalikoneesi käynnistämistä.
 
-This document explains a simple way to launch a virtual machine in the
-Pouta service. Any CSC user with a computing project can request
-access to the service as described in [Applying for Pouta access].
-To use Pouta, you need to have applied Pouta access for your project first.
-Please make sure you are familiar with the [concepts](../index.md) and
-[security issues](security.md) first. You might also want to take a
-look at the [webinar](https://www.youtube.com/watch?v=CIO8KRbgDoI).
+Tässä dokumentissa esitellään yksinkertainen tapa käynnistää virtuaalikone
+Poutan palvelussa. Kuka tahansa CSC:n käyttäjä, jolla on laskentaprojekti,
+voi pyytää palveluun pääsyä kuten kuvailtu [Hakeminen Poutan käyttöoikeuteen].
+Käyttääksesi Poutaa, sinun tulee ensin hakea käyttöoikeutta projektiisi.
+Varmista ensin, että olet tutustunut [käsitteisiin](../index.md) ja
+[turvallisuusasioihin](security.md). Saatat myös haluta katsoa
+[verkkolähetyksen](https://www.youtube.com/watch?v=CIO8KRbgDoI).
 
 [TOC]
 
 
-<!--TOC is to get the table of contents -->
+<!--TOC luo sisällysluettelon -->
 
-The web interfaces of the Pouta clouds are available at following addresses:
+Pouta-pilvien verkkokäyttöliittymät ovat saatavilla seuraavissa osoitteissa:
 
-| URL           | Service name           | Access |
+| URL           | Palvelun nimi           | Pääsy |
 | :------------- |:-------------| :-----|
-| [https://pouta.csc.fi](https://pouta.csc.fi)       | cPouta web interface | Accessible on the internet |
-| [https://epouta.csc.fi](https://epouta.csc.fi)     | ePouta web interface      |  Accessible only from IPs provided for accessing the management interfaces of ePouta |
+| [https://pouta.csc.fi](https://pouta.csc.fi)       | cPouta-verkkoliittymä | Pääsy internetissä |
+| [https://epouta.csc.fi](https://epouta.csc.fi)     | ePouta-verkkoliittymä      | Pääsy vain IP-osoitteista, jotka on tarkoitettu ePoutan hallintaliittymien käytölle |
 
-This _OpenStack Horizon_ based interface allows you do basic cloud computing management operations such as launch a new virtual machine and manage security settings. To use this service, you need a CSC account and a cPouta/ePouta project at CSC.
+Tämä _OpenStack Horizon_ -pohjainen käyttöliittymä mahdollistaa perus pilvilaskentatoimintojen hallinnan, kuten uuden virtuaalikoneen käynnistämisen ja turvallisuusasetusten hallinnan. Tämän palvelun käyttöön tarvitaan CSC:n käyttäjätili ja cPouta/ePouta-projekti CSC:ssä.
 
-You can log in to cPouta using several accounts. In addition to your CSC account (CSC username and password), you can also use Haka, VIRTU, and Life Science AAI accounts. The Haka, VIRTU and Life Science AAI accounts will work only if they are linked to your CSC account. Accounts can be linked at [MyCSC](https://my.csc.fi/).
+Voit kirjautua cPoutaan useilla tileillä. CSC:n käyttäjätilisi (CSC:n käyttäjätunnus ja salasana) lisäksi voit käyttää Haka-, VIRTU- ja Life Science AAI -tilejä. Haka-, VIRTU- ja Life Science AAI -tilit toimivat vain, jos ne on linkitetty CSC-tunnukseesi. Tilit voidaan linkittää [MyCSC](https://my.csc.fi/).
 
-You can log in to ePouta only using your CSC account.
+Voit kirjautua ePoutaan vain CSC-tililläsi.
 
-## Preparatory steps
+## Valmistelevat vaiheet {#preparatory-steps}
 
-Before creating a Virtual Machine you must do these 3 steps:
+Ennen virtuaalikoneen luomista sinun täytyy suorittaa seuraavat 3 vaihetta:
 
-1. Select the correct **CSC project**.
+1. Valitse oikea **CSC-projekti**.
 
-1. Create and setup a **SSH key pair**.
+1. Luo ja asenna **SSH-avaimien pari**.
 
-1. Setting a **security group** to control the firewall.
+1. Aseta **turvallisuusryhmä** hallitsemaan palomuuria.
 
-Before starting your first virtual machine in cPouta/ePouta, you must first set up a SSH key pair and modify the security settings so that you will be able to connect to your virtual machine.
+Ennen ensimmäisen virtuaalikoneen käynnistämistä cPoutassa/ePoutassa, sinun on ensin luotava SSH-avaimien pari ja muokattava turvallisuusasetuksia, jotta voit yhdistää virtuaalikoneeseesi.
 
-### Selecting the CSC project
+### Valitse CSC-projekti {#selecting-the-csc-project}
 
-![Pouta project selection](../../img/pouta_project_selection.png){ align=left }
+![Pouta-projektin valinta](../../img/pouta_project_selection.png){ align=left }
 
-You may have more than one CSC project with access to Pouta. You can check this from [my.csc.fi](https://my.csc.fi){:target="_blank"}, where you will be able to see all the projects you have access and which ones have cPouta (or ePouta) activated as a service.
+Sinulla voi olla useampi kuin yksi CSC-projekti, jolla on pääsy Poutaan. Voit tarkistaa tämän [my.csc.fi](https://my.csc.fi){:target="_blank"}, jossa näet kaikki projektit, joihin sinulla on pääsy ja joihin cPouta (tai ePouta) on aktivoitu palveluna.
 
-Back in Pouta's interface, make sure that you select the correct project. There are two condiderations here:
+Poutan käyttöliittymässä varmista, että valitset oikean projektin. Tässä on kaksi huomioon otettavaa seikkaa:
 
-* A project is a sandbox which contains resources like Virtual Machines and networks, and anyone with access to that project will be able to see and administer all these resources. They may not be able to access a Virtual Machine, as this is determinated by the SSH keys configured in the machine, but they will be able to **delete**, **reboot**, ... etc.
-* Projects are used to determinate billing. Make sure that the costs will go to the correct billing project.
+* Projekti on hiekkalaatikko, joka sisältää resursseja kuten virtuaalikoneita ja verkkoja, ja kuka tahansa projektissa voi nähdä ja hallita kaikkia näitä resursseja. He eivät välttämättä voi päästä virtuaalikoneeseen, koska tämä määritetään koneeseen konfiguroiduilla SSH-avaimilla, mutta he voivat **poistaa**, **käynnistää uudelleen**, ... jne.
+* Projektit määrittävät laskutuksen. Varmista, että kustannukset menevät oikealle laskutusprojektille.
 
+### SSH-avaimien asettaminen {#setting-up-ssh-keys}
 
-### Setting up SSH keys
+Avaa yhteys virtuaalikoneisiisi cPoutassa/ePoutassa, sinun on ensin todistettava identiteettisi virtuaalikoneelle, ja tätä varten tarvitset SSH-avaimia. Tämä on oletustapa (ja turvallisin) päästä virtuaalikoneisiin. Sinun tarvitsee asettaa SSH-avaimesi vain kerran per projekti.
 
-To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
+!!! info "Public avainten tuonti"
+    Jos olet jo perehtynyt SSH-avaimiin, voit käyttää olemassa olevia SSH-avaimiasi päästäksesi virtuaalikoneisiin. Verkkokäyttöliittymässä mene **Compute > Key Pairs** -osioon ja valitse **Import Public Key**. Sinun täytyy nimetä avain, muista, että sinun täytyy käyttää tätä nimeä, kun luot virtuaalikoneita, joten suositus on pitää se lyhyenä ja informatiivisena aiotun käytön suhteen. Toiseksi liitä julkinen avaimellesi, sen täytyy olla yhdessä rivissä ja olla muodossa `key-type hash comment`, esimerkiksi RSA-avain `henkilö@domain.nimi`:
 
-!!! info "Import public keys"
-    If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recomendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@domain.name`:
+    `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB henkilö@domain.nimi`
 
-    `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB person@domain.name`
+Jos et ole aikaisemmin käyttänyt SSH-avaimia, sinun täytyy luoda sellainen. Verkkokäyttöliittymä voi hoitaa tämän puolestasi:
 
-If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you:
+1. Mene **Compute > Key Pairs** -osioon ja valitse **Create Key Pair**.
 
-1. Go to the **Compute > Key Pairs** section, and select **Create Key Pair**.
+    ![Käyttöliittymän Access & Security -alivälilehti cPoutassa](../../img/pouta-user-guide-keypairs.png 'ssh key pairs')
 
-    ![The Access & Security subpage in the cPouta web interface](../../img/pouta-user-guide-keypairs.png 'ssh key pairs')
+    **Kuva** _Access & Security_ -alivälilehti cPoutan verkkokäyttöliittymässä
 
-    **Figure** The _Access & Security_ subpage in the cPouta web interface
+1. Anna avaimellesi nimi ja napsauta **Create Key Pair**. Saat "_keyname.pem_" tallentaaksesi. Tallenna se kotihakemistoosi. Tämä on viimeinen kerta, kun voit ladata tämän **yksityisen avaimen**, Pouta ei pidä kopiota palvelimillaan.
 
-1. Give your key a name and click in **Create Key Pair**. You will get a "_keyname.pem_" to save. Save it in your home directory. This will be the last time you will be able to download this **private key**, Pouta does not keep a copy in its servers.
+    ![Luo avain](../../img/pouta-create-key.png)
 
-    ![Create key](../../img/pouta-create-key.png)
+    **Kuva** Create Key Pair -dialogi
 
-    **Figure** The Create Key Pair dialog
+#### Linux ja Mac {#linux-and-mac}
 
-#### Linux and Mac
+Asentaaksesi avaimen, jonka latasit edellisessä vaiheessa (_keyname.pem_ tai _keyname.cer_), sinun täytyy ajaa nämä komennot:
 
-In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run this commands:
-
-!!! info "For MacOS"
-    If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem. The following procedure will remain same.
+!!! info "MacOS:lle"
+    Jos käytät Chrome-selainta Mac OS X Monterey -käyttöjärjestelmässä, saat avainname.cer sijasta avainname.pem. Seuraava menettely pysyy samana.
 
 ```bash
 mkdir -p ~/.ssh
@@ -93,14 +91,13 @@ mv keyname.pem ~/.ssh
 chmod 400 ~/.ssh/keyname.pem
 ```
 
-!!! info "400 = Only owner can read"
-    When a file in Unix has 400 permissions, it translates to:
+!!! info "400 = Vain omistaja voi lukea"
+    Kun tiedostolla Unixissa on 400 käyttöoikeudet, se tarkoittaa:
     `r-- --- ---`
 
-    which means, only the owner can read the file. This is the recommended value for SSH, but in case you need to overwrite the file, you will need to give also write permissions: `chmod 600 ~/.ssh/keyname.pem`.
+    mikä tarkoittaa, että vain omistaja voi lukea tiedostoa. Tämä on suositeltu arvo SSH-avaimille, mutta jos sinun tarvitsee ylikirjoittaa tiedosto, sinun täytyy myös antaa kirjoitusoikeudet: `chmod 600 ~/.ssh/keyname.pem`.
 
-
-Before using the newly created key, you should protect it with a passphrase:
+Ennen kuin käytät juuri luotua avainta, sinun tulisi suojata se salasanalla:
 
 ```bash
 chmod 600 ~/.ssh/keyname.pem
@@ -108,198 +105,199 @@ ssh-keygen -p -f .ssh/keyname.pem
 chmod 400 ~/.ssh/keyname.pem
 ```
 
-#### Windows (PowerShell)
+#### Windows (PowerShell) {#windows-powershell}
 
-In **Windows** environments it is recommended to use PowerShell. The process is very similar
+**Windows**-ympäristöissä suositellaan käytettävän PowerShelliä. Prosessi on hyvin samankaltainen
 
 ```PowerShell
 mkdir ~/.ssh
 mv yourkey.pem ~/.ssh/
 ```
 
-Before using the newly created key, you should protect it with a passphrase:
+Ennen kuin käytät juuri luotua avainta, sinun tulisi suojata se salasanalla:
 
 ```PowerShell
 ssh-keygen.exe -p -f yourkey.pem
 ```
 
-Then, still from PowerShell, you can use the `ssh` command to connect to your machine, in the same way it is done from Linux or Mac.
+Sitten, edelleen PowerShellistä, voit käyttää `ssh` komentoa yhdistääksesi koneeseen, samalla tavalla kuin se tehdään Linuxista tai Macista.
 
-#### Windows (Putty)
+#### Windows (Putty) {#windows-putty}
 
-If your copy of Windows does not have the _ssh_ command installed, it is also possible to use _Putty_.
+Jos Windowsissasi ei ole _ssh_-komentoa asennettuna, on myös mahdollista käyttää Puttya.
 
-This is done by using the _puttygen_ tool to load your private key (.pem) and save it in the (password protected) .ppk format which Putty can use.
+Tämä tehdään käyttämällä _puttygen_-työkalua, ladata yksityinen avain (.pem) ja tallentaa se (salasanalla suojattuna) .ppk-muodossa, jota Putty voi käyttää.
 
-1. Download _Putty_ and _puttygen_, which are available at <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>.
+1. Lataa _Putty_ ja _puttygen_, jotka ovat saatavilla osoitteessa <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>.
 
-1. Run _puttygen_ and load the key you downloaded (it should be in the Downloads page).
+1. Aja _puttygen_ ja lataa avain, jonka latasit (sen pitäisi olla Lataukset-sivulla).
 
     ![Putty Gen](../../img/putty-load.png)
 
-1. Set a password to the key. This is not compulsory, but advised.
+1. Aseta avaimelle salasana. Tämä ei ole pakollista, mutta suositeltua.
 
-1. Save the key in _ppk_ format, this is the default Putty format for keys.
+1. Tallenna avain _ppk_-muodossa, tämä on oletusmuoto Puttylle.
 
-    ![Saved](../../img/putty-saved-ppk.png)
+    ![Tallennettu](../../img/putty-saved-ppk.png)
 
-Now we can use this new in Putty to connect to a Virtual Machine.
+Nyt voimme käyttää tätä uutta Puttya yhdistäksemme virtuaalikoneeseen.
 
-1. Run _putty_ and load the ssh key. Go to **Connection > SSH > Auth > Credentials** and under **Private key file for authentication**, use the **Browse...** button to select the proper .ppk file.
+1. Aja _putty_ ja lataa ssh-avain. Mene **Connection > SSH > Auth > Credentials** ja **Private key file for authentication**-kohdassa käytä **Browse...**-painiketta valitaksesi oikea .ppk-tiedosto.
 
-    ![Private key file for authentication](../../img/putty-key-file-authentication.png)
+    ![Yksityinen avaintiedosto todennukseen](../../img/putty-key-file-authentication.png)
 
-1. Once the key is loaded, you will save the session. Go to the **Session** section and under **Saved Sessions** write the name of the new session and click save.
+1. Kun avain on ladattu, tallenna istunto. Mene **Session**-osioon ja **Saved Sessions**-kohdassa kirjoita uuden istunnon nimi ja napsauta tallenna.
 
-### Firewalls and security groups
+### Palomuurit ja suojausryhmät {#firewalls-and-security-groups}
 
-Security groups are sets of firewall rules which limit access to your machines. A virtual machine can use one or more security groups. These firewall rules are made on the _OpenStack_ layer and you may have additional firewall rules within your virtual machine. In case of connectivity problems, you should make sure both the security group and the virtual machine's internal firewall are correctly configured. The "Default" security group comes with rules that allow internal communication between virtual machines that are members of the security group.
+Suojausryhmät ovat joukko palomuurisääntöjä, jotka rajoittavat pääsyä koneisiisi. Virtuaalikone voi käyttää yhtä tai useampaa suojausryhmää. Nämä palomuurisäännöt tehdään _OpenStack_-kerroksessa, ja sinulla voi olla lisäpalomuurisääntöjä virtuaalikoneessasi. Yhteysongelmien sattuessa sinun tulisi varmistaa, että sekä suojausryhmä että virtuaalikoneen sisäinen palomuuri on oikein konfiguroitu. "Oletus"-suojausryhmässä on säännöt, jotka sallivat sisäisen kommunikaation virtuaalikoneiden välillä, jotka kuuluvat suojausryhmään.
 
-A security group can be edited or created in any moment of the Virtual Machine life-cycle. Any change applied to a security group assigned to a Virtual Machine, will be applied instantly to the Virtual Machine.
+Suojausryhmää voidaan muokata tai luoda missä tahansa virtuaalikoneen elinkaaren vaiheessa. Kaikki suojausryhmään tehdyt muutokset sovelletaan heti virtuaalikoneeseen.
 
-!!! warning "Do not edit the default security group"
-    As a good practice, we discourage changing the "Default" security group. We recommend instead that you create specific security groups for specific purposes and name them accordingly. For example create a security group called "SSH-VPN" to allow computers from the VPN to SSH/22 to the machines on that security group.
+!!! warning "Älä muokkaa oletussuojausryhmää"
+    Hyväksi käytännöksi ei suositella "Oletus"-suojausryhmän muokkaamista. Suosittelemme sen sijaan luomaan erityisiä suojausryhmiä erityisiin tarkoituksiin ja nimeämään ne vastaavasti. Esimerkiksi luo suojausryhmä nimeltä "SSH-VPN", jotta VPN-koneiden on mahdollista tehdä SSH/22-kutsuja suojausryhmän koneisiin.
 
-In order to create a new security group:
+Uuden suojausryhmän luomiseksi:
 
-1. Go to **Network > Security Groups**, and click in **Create Security Group**, name it and add a description.
+1. Siirry **Network > Security Groups** -osioon ja napsauta **Create Security Group**, anna nimi ja lisää kuvaus.
 
-1. Then click in **Manage Rules**, and in the view that is displayed, click **Add Rule**.
+1. Napsauta **Manage Rules** ja esiin tulevassa näkymässä napsauta **Add Rule**.
 
-    ![Add rule](../../img/pouta-add-rules-secgroup.png)
+    ![Lisää sääntö](../../img/pouta-add-rules-secgroup.png)
 
-    There is a lot customization available, but in this case it is recommended to use the `SSH` rule that only requires one parameter: `CIDR`. The **Classless Inter-Domain Routing** or **CIDR** allows you to specify a subnet (`88.44.55.0/24`) or an specific IP (`88.44.55.77/32`).
+    Saatavilla on runsaasti mukautusvaihtoehtoja, mutta tässä tapauksessa suositellaan käytettäväksi `SSH`-sääntöä, joka vaatii vain yhden parametrin: `CIDR`. **Classless Inter-Domain Routing** tai **CIDR** antaa sinun määrittää aliverkon (`88.44.55.0/24`) tai tietyn IP:n (`88.44.55.77/32`).
 
-1. In order to find out your IP you can use services like <https://apps.csc.fi/myip>.
+1. Löytääksesi IP:si voit käyttää palveluja kuten <https://apps.csc.fi/myip>.
 
 !!! warning
-    Your network situation might more complicated than that. You may be behind a proxy. In that case, consult with your network support.
+    Verkko-ongelmasi voivat olla monimutkaisempia. Saatat olla proxy-palvelimen takana. Jos näin on, kysy neuvoa verkko-tukihenkilöltäsi.
 
 !!! error
-    You can also open ports to all possible IP addresses by using `0.0.0.0/0` as CIDR, but doing this is a bad security practise.
+    Voit myös avata portit kaikille mahdollisille IP-osoitteille käyttämällä `0.0.0.0/0` CIDR-arvona, mutta tämä on huono tietoturvakäytäntö.
 
 !!! Tip
-    **Please note:**
+    **Huomaa:**
 
-    *   **Deleting the default egress rules (allow any protocol to 0.0.0.0/0 and ::/0) in cPouta will cause disruption in the metadata service responsible for SSH key injections. If you want to limit egress traffic, you should at least allow outbound traffic to IP 169.254.169.254, TCP port 80, for SSH key injections to work.**
-    *   **Even though the ePouta virtual machines are only accessible via the customer's network, they also need to have security groups configured for them. Otherwise they can not be accessed.**
-    *   **It is possible to add and remove security groups on a running instance. This is done from the instances page.**
+    *   **Oletussäännöt poistaminen ulospäin (salli mikä tahansa protokolla 0.0.0.0/0 ja ::/0) cPoutassa aiheuttaa häiriöitä metatietopalvelussa, joka vastaa SSH-avainasettelusta. Jos haluat rajoittaa ulospäin suuntautuvaa liikennettä, sinun pitäisi ainakin sallia lähtevä liikenne IP-osoitteeseen 169.254.169.254, TCP-porttiin 80, jotta SSH-avainten asettaminen toimii.**
+    *   **Vaikka ePoutan virtuaalikoneet ovat vain asiakkaan verkon käytettävissä, niidenkin tulee olla konfiguroitu suojausryhmillä. Muutoin niihin ei pääse.**
+    *   **On mahdollista lisätä ja poistaa suojausryhmiä käynnissä olevasta instanssista. Tämä tehdään instanssisivulta.**
 
-### Server Groups
+### Palveluryhmät {#server-groups}
 
-If you want a policy that allows your instances to run (or not) on the same host, you can set up server groups.
+Jos haluat politiikan, joka sallii instanssisi toimia (tai ei toimia) samalla isännällä, voit asettaa palveluryhmät.
 
-![Server Groups](../../img/pouta-server-groups.png)
+![Palveluryhmät](../../img/pouta-server-groups.png)
 
 !!! Warning  
-    You can only add an instance to a server group at instance creation time. Not afterwards!
+    Voit lisätä instanssin palveluryhmään vain instanssia luodessasi. Ei myöhemmin!
 
-After clicking on **Create Server Group**, a windows will open:  
+Klikattuasi **Create Server Group**, ikkuna avautuu:  
 
-![Create Server Group](../../img/pouta-create-server-group.png)
+![Luo palveluryhmä](../../img/pouta-create-server-group.png)
 
-Give a name to your server group and select a policy. You will have the choice between **Affinity**, **Anti Affinity**, **Soft Affinity** and **Soft Anti Affinity**.  
+Anna palveluryhmällesi nimi ja valitse politiikka. Valittavana on **Affinity**, **Anti Affinity**, **Soft Affinity** ja **Soft Anti Affinity**.  
 
-- **Affinity**: Instances within a server group with an affinity policy are scheduled to run on the same host whenever possible. The affinity policy aims to keep instances together on the same physical server, which can be beneficial for applications or services that require low-latency communication between instances.
+- **Affinity**: Instanssit, jotka sijaitsevat palveluryhmässä, jossa on affinity-politiikka, ajoittavat ajamiseen samalla isännällä aina kun mahdollista. Affinity-politiikan tavoitteena on pitää instanssit yhdessä samalla fyysisellä palvelimella, mikä voi olla hyödyllistä sovelluksille tai palveluille, jotka vaativat alhaisen viiveen kommunikaatiota instanssien välillä.
 
-- **Anti Affinity**: Instances within a server group with an anti-affinity policy are scheduled to run on different hosts whenever possible. The anti-affinity policy enhances fault tolerance and availability by spreading instances across multiple physical servers. This helps minimize the impact of hardware failures on a single server.
+- **Anti Affinity**: Instanssit, jotka sijaitsevat palveluryhmässä, jossa on anti-affinity-politiikka, ajoittavat ajamiseen eri isännillä aina kun mahdollista. Anti-affinity-politiikka parantaa vikasietoisuutta ja saatavuutta levittämällä instanssit useille fyysisille palvelimille. Tämä auttaa minimoimaan laitteistovikojen vaikutuksia yhdelle palvelimelle.
 
-- **Soft Affinity**: Soft affinity is a variation of the affinity policy. In a server group with a soft affinity policy, the scheduler attempts to keep instances on the same host, but it is not a strict requirement. If constraints prevent the co-location of instances on the same host, the scheduler can still place them on different hosts. Soft affinity provides a more flexible approach compared to the strict affinity policy.
+- **Soft Affinity**: Soft affinity on variaatio affinity-politiikasta. Palveluryhmässä, jossa on soft affinity -politiikka, ajurlintia yrittää pitää instanssit samalla isännällä, mutta se ei ole tiukka vaatimus. Jos rajoitteet estävät instanssien sijoittumisen samalla isännällä, aikatauluttaja voi silti sijoittaa ne eri isännälle. Soft affinity tarjoaa joustavamman lähestymistavan verrattuna tiukkaan affinity-politiikkaan.
 
-- **Soft Anti-Affinity:** Soft anti-affinity is a variation of the anti-affinity policy. In a server group with a soft anti-affinity policy, the scheduler attempts to place instances on different hosts, but it is not a strict requirement. If constraints prevent the spread of instances across different hosts, the scheduler can still place them on the same host. Soft anti-affinity provides a more flexible approach compared to the strict anti-affinity policy.  
+- **Soft Anti-Affinity:** Soft anti-affinity on variaatio anti-affinity-politiikasta. Palveluryhmässä, jossa on soft anti-affinity -politiikka, ajurlintia yrittää sijoittaa instanssit eri isännille, mutta se ei ole tiukka vaatimus. Jos rajoitteet estävät instanssien levittämisen eri isännille, ajurlintia voi silti sijoittaa ne samalle isännälle. Soft anti-affinity tarjoaa joustavamman lähestymistavan verrattuna tiukkaan anti-affinity-politiikkaan.  
 
-To check if your instances are running on the same (or different) hosts, you can type this command:
+Tarkistaaksesi, ovatko instanssisi samalla (tai eri) isännällä, voit käyttää tätä komentoa:
 ```sh
 openstack server show [INSTANCE_NAME | INSTANCE_ID] | grep HostId
 ```
 
 !!! Note  
-    The "soft" variants allow for more flexibility in instance placement.  
-    Affinity or anti-affinity policies may not always be possible due to resource constraints or other scheduling limitations.
+    "Pehmeät" variantit sallivat enemmän joustavuutta instanssien sijoituksessa.  
+    Affinity- tai anti-affinity-politiikoita ei aina ole mahdollista toteuttaa resurssirajoitteiden tai muiden aikatauluttamisrajoitusten vuoksi.
 
-## Launching a virtual machine
+## Virtuaalisen koneen käynnistäminen {#launching-a-virtual-machine}
 
-Once the SSH keys and security groups are set, you can launch a new virtual machine using the Pouta web interfaces:
+Kun SSH-avaimet ja suojausryhmät on asetettu, voit käynnistää uuden virtuaalikoneen Poutan verkkokäyttöliittymien kautta:
 
 !!! info
-    * [https://pouta.csc.fi](https://pouta.csc.fi) (for cPouta)
-    * or [https://epouta.csc.fi](https://epouta.csc.fi) (for ePouta)
+    * [https://pouta.csc.fi](https://pouta.csc.fi) (cPoutaa varten)
+    * tai [https://epouta.csc.fi](https://epouta.csc.fi) (ePoutaa varten)
 
-1. In the main page of the Pouta web interface, open the **Compute > Instances** view.
-1. Click in **Launch Instance** on the top right. This opens a _launch instance_ screen where you define the properties of the new virtual machine.
+1. Poutan verkkokäyttöliittymän pääsivulla avaa **Compute > Instances** -näkymä.
+1. Klikkaa **Launch Instance** oikealla yläkulmassa. Tämä avaa _launch instance_-näytön, jossa määritellään uuden virtuaalikoneen ominaisuudet.
 
-    ![Launch the instance view](../../img/pouta-launch-instance.png 'Launch cPouta instance')
+    ![Käynnistä instanssinäkymä](../../img/pouta-launch-instance.png 'Launch cPouta instance')
 
-    **Figure** Launch the instance view
+    **Kuva** Käynnistä instanssinäkymä
 
-1. On the **Details** tab of the _launch instance_ view, first write the **Instance Name**.
+1. _Launch instance_-näkymän **Details**-välilehdellä kirjoita ensin **Instance Name**.
 
-1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create. See [Virtual machine flavors and billing unit rates](vm-flavors-and-billing.md) for a complete list and descriptions.
+1. Valitse **Flavour**, joka on luomasi virtuaalikoneen "koko". Katso [Virtuaalikoneen maustet ja laskutusyksikkön korot](vm-flavors-and-billing.md) täydelliselle listalle ja kuvauksille.
 
-1. In **Instance Count** you can specify the number of Virtual Machines to create. If in doubt, leave it to `1`.
+1. **Instance Count**-kohdassa voit määrittää luotavien virtuaalikoneiden määrän. Jos olet epävarma, jätä se arvoon `1`.
 
-1. **Instance Boot Source**. Select "Boot from image" in the drop down menu.
+1. **Instance Boot Source**. Valitse avattavasta valikosta "Boot from image".
 
     !!! Info "Cloud-native"
 
-        In case you want to be more cloud-native, you can select the "Boot from image (creates a new volume)" option. This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
+        Jos haluat olla enemmän cloud-native, voit valita "Boot from image (creates a new volume)" -vaihtoehdon. Tämä vaihtoehto luo uuden pysyvän levyn instanssillesi. Jos poistat epähuomiossa instanssisi tai se menee palautumattomaan tilaan, instanssisi tiedostojärjestelmä tallentuu tähän levyyn. Myöhemmin voit käyttää tätä levyä käynnistääksesi uuden instanssin samalla tiedostojärjestelmän tilalla kuin edellinen instanssi.
 
-    !!! Warning "Please note"
+    !!! Warning "Huomaa"
 
-        The "Boot from image (creates a new volume)" approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
+        Lähestymistapa "Boot from image (creates a new volume)" luo lisälevyn, josta laskutetaan normaalisti kuten [hinnoittelusivullamme](https://research.csc.fi/billing-units) mainitaan.
 
 
-1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.
+1. **Image Name**, tämä päättää, mitä Linux-jakelua käytetään. Voit valita kuvan, joka sopii paremmin käyttötapaukseesi. Poutan oletuksena tarjoamat kuvat ovat säännöllisesti ajan tasalla.
 
-1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the [**Preparatory Steps**](#setting-up-ssh-keys). Secondly you need to select under the [**Security Groups**](#firewalls-and-security-groups) the security group previously created.
+1. **Access & Security**-välilehdellä sinun täytyy määrittää kaksi vaihtoehtoa. Ensiksi sinun täytyy valita *Key Pair* -nimi, jonka olet luonut [**Valmisteluvaiheissa**](#setting-up-ssh-keys). Toiseksi sinun täytyy valita [**Suojausryhmät**](#firewalls-and-security-groups)-kohdassa aikaisemmin luotu suojausryhmä.
 
-    !!! Warning "Key pairs cannot be added after creation"
-        A public key is only added to the VM if it has been specified in this step. After clicking on **Launch**, the VM will be created, and the configured key pairs cannot be changed. If no key pair is configured, the recommended solution is to delete the VM and start from scratch.
+    !!! Warning "Avaimia ei voida lisätä luomisen jälkeen"
+        Julkinen avain lisätään VM:lle vain, jos se on määritelty tässä vaiheessa. Kun napsautat **Launch**, VM luodaan, eikä konfiguroituja avainnippoja voi muuttaa. Jos avainnippua ei ole konfiguroitu, suositeltu ratkaisu on poistaa VM ja aloittaa alusta.
 
     ![Launch the instance access view](../img/launch_instance_access_security.png 'Launch cPouta instance network')
 
     !!! Warning
-        If you click the "+" button, the window will close unexpectedly and a small pop-up will appear:
+        Jos napsautat "+"-painiketta, ikkuna sulkeutuu odottamatta ja pieni ponnahdusikkuna ilmestyy:
 
         ![Error plus button](../img/danger_keypairs.png 'Danger key pairs')
 
-        This is a known bug. Please refer to the [previous section](#setting-up-ssh-keys) on how to create your SSH keys.
+        Tämä on tunnettu bugi. Katso edellinen [jakso](#setting-up-ssh-keys) luodaksesi SSH-avaimesi.
 
-1. The **Networking** tab, make sure that your own network (your project name) is selected.
+1. **Networking**-välilehdellä varmista, että oma verkko (projektisi nimi) on valittuna.
 
     ![Launch the instance network view](../img/launch_instance_network.png 'Launch cPouta instance network')
 
-1. Finally, **Advanced Options** tab allows you to select a [**Server Group**](#server-groups)
+1. Lopuksi, **Advanced Options**-välilehti mahdollistaa [**Palveluryhmän**](#server-groups) valinnan
 
-You can click **Launch** to start the Virtual Machine creation.
+Voit napsauttaa **Launch** aloittaaksesi virtuaalikoneen luomisen.
 
-## Post creation step
+## Jälkimmäinen luominen askel {#post-creation-step}
 
-When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.XXX`). This means that meanwhile the machine can access the internet and other virtual machines in the same project, it can not be accessed from outside the project. To be able to access your virtual machine, you need to attach a **public IP address** to it.  
+Kun virtuaalikone käynnistetään, se saa vain **yksityinen IP** (`192.168.XXX.XXX`). Tämä tarkoittaa, että kone voi päästä internettiin ja muihin virtuaalikoneisiin samassa projektissa, mutta siihen ei pääse projektin ulkopuolelta. Jotta voit päästä virtuaalikoneeseesi, sinun täytyy liittää **julkinen IP-osoite** siihen.  
 
 !!! info
-    Associate a floating IP is only available for cPouta instances.
+    Kelluvan IP:n yhdistäminen on käytettävissä vain cPouta-instansseissa.
 
-1. Go to **Compute > Instances**, you should see your Virtual machine listed.
+1. Mene **Compute > Instances**, sinun pitäisi nähdä virtuaalikoneesi listauksessa.
 
-1. On the right of your new machine's entry, under **Actions**, click in the drop down menu, and select **Associate Floating IP**.
+1. Oikealla uuden koneesi kohdalla **Actions**, napsauta pudotusvalikkoa ja valitse **Associate Floating IP**.
 
-    ![Floating IP association options](../../img/associate-floating-ip-menu.png 'Associate floating IP menu')
+    ![Floating IP -yhdistämisvaihtoehdot](../../img/associate-floating-ip-menu.png 'Associate floating IP menu')
 
-    **Figure** Floating IP association options
+    **Kuva** Floating IP -yhdistämisvaihtoehdot
 
-1. Select an IP address under **IP Address**. If "No floating IP addresses allocated" show up, click in the plus to allocate a new IP to you project, you will need to add a description.
+1. Valitse **IP Address**-kohdassa IP-osoite. Jos "No floating IP addresses allocated" näkyy, napsauta plus-symbolia allokoidaksesi uuden IP:n projektiisi, sinun täytyy lisätä kuvaus.
 
-1. Under **Port to be associated** select the virtual machine.
+1. **Port to be associated**-kohdassa valitse virtuaalikone.
 
-1. Click in **Associate**.
+1. Napsauta **Associate**.
 
-![Floating IP association dialog](../../img/pouta-assign-ip.png 'Assign IP')
+![Floating IP -yhdistämisdialogi](../../img/pouta-assign-ip.png 'Assign IP')
 
-**Figure** Floating IP association dialog
+**Kuva** Floating IP -yhdistämisdialogi
 
-!!! warning "IP billing"
+!!! warning "IP-laskutus"
 
-    Allocated floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://cloud.blog.csc.fi/2017/12/floating-ip-management.html) for management of floating IPs in a cPouta project.
+    Allokoidut kelluvat IP-osoitteet laskutetaan 0,2 BU/tunti nopeudella. Voit lisäksi lukea [blogipostauksemme](http://cloud.blog.csc.fi/2017/12/floating-ip-management.html) kelluvien IP-osoitteiden hallinnasta cPouta-projektissa.
 
-Now we can go to the [Connecting to your virtual machine](connecting-to-vm.md) section and log in to the new Virtual Machine.
+Nyt voimme siirtyä [Yhdistää virtuaalikoneeseesi](connecting-to-vm.md)-osioon ja kirjautua vastikään luotuun virtuaalikoneeseen.
+
