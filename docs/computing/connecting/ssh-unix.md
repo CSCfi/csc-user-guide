@@ -53,10 +53,11 @@ non-default location, you must tell the `ssh` command where to look for the
 key. Use option `-i` as follows:
 
 ```bash
-# Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
+# Replace <username> with the name of your CSC user account,
+# <host> with "puhti" or "mahti" and <path-to-private-key>
+# with the path to your SSH private key
 
-ssh <username>@<host>.csc.fi -i /path/to/key/file
+ssh <username>@<host>.csc.fi -i <path-to-private-key>
 ```
 
 ## Graphical connection
