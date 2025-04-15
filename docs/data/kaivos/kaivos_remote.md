@@ -2,13 +2,18 @@
 
 The MySQL databases in `kaivos.csc.fi` can be directly accessed only from the computing servers of CSC (Puhti and Mahti). However, you can make the database visible to your own computer using your CSC user account and port forwarding through an _ssh tunnel_.
 
+!!! note "SSH keys"
+    Please note that connecting to CSC computing servers over SSH requires you
+    to set up SSH keys and add your public key to MyCSC portal.
+    [Read the instructions here](../../computing/connecting/ssh-keys.md).
+
 In linux and MacOSX machines an ssh tunnel from your local computer to `kaivos.csc.fi` via `puhti.csc.fi` can be done for example with the command:
 
 ```bash
 ssh -l csc_username -L 3306:kaivos.csc.fi:3306 puhti.csc.fi -N
 ```
 
-The `-N` option in the end of the connection command blocks the command shell after the connection is established. Once the connection is closed also the port forwarding becomes disabled. Note that the ssh command above uses your CSC user account and password, not the database user account.
+The `-N` option in the end of the connection command blocks the command shell after the connection is established. Once the connection is closed also the port forwarding becomes disabled. Note that the ssh command above uses your CSC user account name, not the database user account.
 
 In Windows machines you can use e.g. plink program to open the tunnel. [Plink](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) can only be used through the command prompt. Below is a sample command for using plink:
 

@@ -1,3 +1,5 @@
+# Kubernetes and OpenShift concepts
+
 The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
