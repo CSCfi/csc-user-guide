@@ -1,5 +1,13 @@
 # Computing environment
 
+## New data cleaning policy on Puhti, 17.4.2025
+On Puhti there is a process to clean (delete) old files in scratch that are not in active use. To ensure the system remains usable we are changing the [cleaning policy](../../computing/usage-policy/#disk-cleaning)
+. The new policy is:
+
+* If project has a scratch quota of 5 TiB or more cleaning will target files that have not been accessed (opened, read, modified) in the last 90 days.
+* For other projects with smaller scratch quotas the cleaning policy is unchanged. Cleaning will target files that have not been accessed (opened, read, modified) in the last 180 days. 
+
+
 ## Puhti and Mahti web interfaces updated to release 25 and 11, 7.4.2025
 
 * Mahti: [RStudio](../../computing/webinterface/rstudio.md) has been added.
