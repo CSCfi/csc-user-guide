@@ -38,14 +38,16 @@ been accessed in a long time. The performance of a parallel file system starts
 to degrade when it fills up, and the more it fills up, the slower the performance
 will get.
 
-The current policy in Puhti is that files that have not been accessed for
-**6 months** or more will be removed. This cleaning will happen regularly,
+This cleaning will happen regularly,
 and each time users are informed at least 1 month in advance. CSC also provides
 lists of files that are about to be removed and instructions for how one can
 transfer important files to more suitable disk systems.
 
-A similar procedure will be introduced on Mahti, but it is not yet in place.
-The policy is still that users should keep only actively used data in scratch.
+The cleaning is stricter for projects with larger quotas
+ * For project that have a **scratch quota of 5 TiB or more**,  files that have not been accessed (opened, read, modified) in the last **90 days** will be deletd.
+ * For other projects with **smaller scratch quotas**, files that have not been accessed (opened, read, modified) in the last **180 days**. 
+
+A similar procedure will be introduced on Mahti, but it is not yet in place. The policy is still that users should keep only actively used data in scratch.
 
 ## GPU nodes
 
