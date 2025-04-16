@@ -1,6 +1,7 @@
 # Computing environment
 
 ## New data cleaning policy on Puhti, 17.4.2025
+
 On Puhti there is a process to clean (delete) old files in scratch that are not in active use. To ensure the system remains usable we are changing the [cleaning policy](../../computing/usage-policy/#disk-cleaning)
 . The new policy is:
 
