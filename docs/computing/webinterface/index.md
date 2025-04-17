@@ -10,9 +10,9 @@ available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the
 [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for
 more details.
 
-Please note that logging in to Puhti and Mahti web interfaces require
+Please note that logging in to Puhti and Mahti web interfaces requires
 **multi-factor authentication**.
-[Read more on the Connecting page](connecting.md).
+[More information on the Connecting page](connecting.md).
 
 !!! warning "Scope"
     The HPC web interfaces are best suited for **interactive workloads** that
