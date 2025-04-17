@@ -1,6 +1,55 @@
 # Computing environment
 
-## Starting April 14 2025, SSH login to Puhti and Mahti will only work with SSH keys added in MyCSC, 25.3.2025
+## New data cleaning policy on Puhti, 17.4.2025
+
+On Puhti there is a process to clean (delete) old files in scratch that are not
+in active use. To ensure the system remains usable, we are changing the
+[cleaning policy](../../computing/usage-policy.md#disk-cleaning).
+
+**The new policy is**:
+
+* If project has a **scratch quota of 5 TiB or more**, cleaning will target
+  files that have not been accessed (opened, read, modified) in the last **90
+  days**.
+* For other projects with smaller scratch quotas the cleaning policy is
+  unchanged. Cleaning will target files that have not been accessed (opened,
+  read, modified) in the last **180 days**.
+
+You can use the `csc-workspaces` command to see which cleaning cycle your
+projects are subject to.
+
+## Puhti and Mahti web interfaces updated to release 25 and 11, 7.4.2025
+
+* Mahti: [RStudio](../../computing/webinterface/rstudio.md) has been added.
+* RStudio now queries available r-env version dynamically.
+* VSCode updated to 1.98.2.
+* Python module selection has been added to VSCode.
+* Interactive app launch settings can now be saved and restored later. See [Saved interactive app settings](../../computing/webinterface/apps.md#saved-interactive-app-settings) for how to use them.
+* Interactive app form labels and descriptions have been improved.
+* The default amount of local disk for interactive apps has been reduced.
+* The performance of the web interfaces has been improved.
+* Open OnDemand updated to version 4.0.2.
+
+## Starting April 22 2025, multi-factor authentication is required to login to web interfaces of Puhti and Mahti, 2.4.2025 <a id="mfa"></a>
+
+**Change:** Starting April 22 2025, multi-factor authentication (MFA) will be
+required to
+[login to the web interfaces of Puhti and Mahti](../../computing/webinterface/connecting.md).
+
+**Action:**  Test whether MFA is already enabled for Haka logins by your home
+organization. [Please use the test page in MyCSC](https://my.csc.fi/test-mfa)
+(select **Haka MFA**). It is highly preferred to use the Haka MFA of your home organization, if possible.
+If Haka MFA is not enabled or if your home organization does not offer Haka,
+[please activate **CSC MFA** following these instructions](../../accounts/mfa.md#how-to-activate-mfa).
+
+**Motivation:** With this change we are improving the security of our
+computing, data, and cloud services.
+[Read more about MFA in the blog on the research.csc.fi website](https://research.csc.fi/2025/04/02/multi-factor-authentication/).
+
+Please contact [CSC Service Desk](../../support/contact.md) if you have any
+questions or need support with activating MFA.
+
+## Starting April 14 2025, SSH login to Puhti and Mahti will only work with SSH keys added in MyCSC, 25.3.2025 <a id="ssh-key"></a>
 
 **Change:** Starting April 14 2025, only SSH keys added through MyCSC will
 allow you to login to Puhti or Mahti with SSH. Traditional password-based

@@ -1,3 +1,5 @@
+# Images
+
 A Docker image is a file which is built up normally by an instructional file named **Dockerfile**. An Docker image is immutable, i.e. existing image file cannot be modified, but one can create a new layer to it & thus have a modified version of image suitable to him.
 
 Docker containers are the running instances of Docker images. To avoid confusions, lets have a quick walkthrough over Docker image & containers using cooking example:

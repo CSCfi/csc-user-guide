@@ -51,3 +51,25 @@
 .csc-footer__link:is(:active, :hover) {
   background-color: var(--md-accent-bg-color);
 }
+
+footer .md-footer-meta.md-typeset pre.commit-sha {
+  color: pink;
+  font-size: small;
+}
+
+footer .md-footer-meta.md-typeset a {
+  transition:
+    transform 125ms,
+    color 125ms;
+}
+
+footer .md-footer-meta.md-typeset a:is(:hover,:active) {
+  color: var(--md-footer-fg-color--lighter);
+  background-color: unset;
+  transform: scale(1.25);
+}
+
+footer .md-social__link svg {
+  max-height: 1rem;
+  vertical-align: middle;
+}
