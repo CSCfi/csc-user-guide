@@ -50,6 +50,9 @@ suitable disk systems.
 * For other projects with **smaller scratch quotas**, files that have not been
   accessed (opened, read, modified) in the last **180 days** will be deleted.
 
+You can use the `csc-workspaces` command to see which cleaning cycle your
+projects are subject to.
+
 A similar procedure will be introduced on Mahti, but it is not yet in place.
 The policy is still that users should keep only actively used data in scratch.
 

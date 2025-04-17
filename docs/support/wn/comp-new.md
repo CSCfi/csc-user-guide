@@ -15,6 +15,9 @@ in active use. To ensure the system remains usable, we are changing the
   unchanged. Cleaning will target files that have not been accessed (opened,
   read, modified) in the last **180 days**.
 
+You can use the `csc-workspaces` command to see which cleaning cycle your
+projects are subject to.
+
 ## Puhti and Mahti web interfaces updated to release 25 and 11, 7.4.2025
 
 * Mahti: [RStudio](../../computing/webinterface/rstudio.md) has been added.
