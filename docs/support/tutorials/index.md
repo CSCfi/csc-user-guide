@@ -4,7 +4,6 @@
 
 * [Getting started with supercomputing at CSC](hpc-quick.md)
 * [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
-* [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [Linux basics for CSC](env-guide/index.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
@@ -12,10 +11,14 @@
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
-* [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
 * [Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+
+## Data management 
+* [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
+* [Getting disk usage using Lue](lue.md)
+* [Moving large datasets to Allas](data-mover.md)
 
 ## Installation of tools on supercomputers
 
