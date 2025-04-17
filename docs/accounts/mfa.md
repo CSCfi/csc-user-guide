@@ -18,9 +18,9 @@ CSC is gradually rolling out MFA across all of our services. Currently, the foll
 
 * **SD Connect**  
 * **SD Desktop**  
+* **Puhti web interface**
+* **Mahti web interface**
 * Coming soon:
-    * **Puhti web interface**  
-    * **Mahti web interface**  
     * **MyCSC**
   
 ## MFA Instructions for users logging in with Haka credentials
