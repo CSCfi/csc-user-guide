@@ -268,7 +268,7 @@ Commands:
 The file [development/packages.txt](development/packages.txt) contains the currently used Python packages without explicit versions. To build an image with the latest versions for the packages available to _pip_ on the base image (`rockylinux:8`), include `--build-args upgrade=true` for the build command (possibly using a different tag, such as `docs-upgrade`):
 
 ```bash
-podman build -t docs-upgrade -f development/Containerfile.development --build-args upgrade=true .
+podman build -t docs-upgrade -f development/Containerfile.development --build-arg upgrade=true .
 ```
 
 The image now has the latest available Python packages installed instead of the versions frozen in [requirements.txt](requirements.txt). The upgraded environment can now be, for example, frozen into `requirements.txt` with

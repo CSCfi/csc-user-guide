@@ -4,4 +4,5 @@ mkdocs-material
 mkdocs-git-revision-date-localized-plugin
 mkdocs-redirects
 mkdocs-section-index
+mkdocs-static-i18n
 feedparser
