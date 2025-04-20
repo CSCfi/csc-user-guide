@@ -59,6 +59,18 @@ hooks:
 plugins:
   - tags
   - search
+  - i18n:
+      docs_structure: suffix
+      default: en
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: fi
+          name: Suomi
+          build: true
+
   - git-revision-date-localized:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
       fallback_to_build_date: true
@@ -163,6 +175,8 @@ plugins:
         "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
         "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
         "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
+
+
 
 markdown_extensions:
   - md_in_html
