@@ -29,7 +29,7 @@ $ which python3
 
 You can also check the Python version:
 
-```
+```bash
 python3 --version
 ```
 
