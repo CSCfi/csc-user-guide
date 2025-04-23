@@ -4,7 +4,7 @@
 
 Some examples:
 
-```bash
+```console
 $ module purge
 $ which python3
 /usr/bin/python3   # ← system Python
@@ -63,7 +63,7 @@ Below is an example (with many lines removed) using the python-data
 module combined with a venv and some packages installed into the
 user's home directory.
 
-```sh
+```console
 Package    Version  Location                                                                Installer
 ---------- -------- ----------------------------------------------------------------------- ---------
 aiohttp    3.9.3    /PUHTI_TYKKY_FRQGCcR/miniconda/envs/env1/lib/python3.10/site-packages   conda    # ← tykky
@@ -93,7 +93,7 @@ example pytorch has packages installed into `/usr/local/lib` or
 `/usr/local/lib64`. Note that these are paths inside the pytorch
 container.
 
-```bash
+```console
 Package    Version  Location                                  Installer
 ---------- -------- ----------------------------------------- ---------
 absl-py    1.4.0    /usr/local/lib/python3.11/site-packages   pip      # ← pytorch container
