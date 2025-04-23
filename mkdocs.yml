@@ -480,7 +480,11 @@ nav:
           # Python MySQL API at CSC:
   - Sensitive data:
       - data/sensitive-data/index.md
+<<<<<<< Updated upstream
       - Table of contents: data/sensitive-data/sd-services-toc.md
+=======
+      - Table of contents: data/sensitive-data/sd-toc.md
+>>>>>>> Stashed changes
       - Store and analyse:
           - Start here:
               - data/sensitive-data/sd-access.md
