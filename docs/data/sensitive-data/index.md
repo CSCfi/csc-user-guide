@@ -1,12 +1,12 @@
 # Sensitive Data (SD) services for research: user guide
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu or the search bar to find topics quickly. If the left menu is not visible, try zooming out in your browser.
+Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
-1. [Quick links to key topics :material-arrow-down:](#quick-links-to-key-topics)
-1. [Quick access to login portals :material-arrow-down:](#quick-access-to-login-portals)
-1. [Service Breaks :material-arrow-down:](#service-breaks)
-1. [Support :material-arrow-down:](#support)
-
+- [Quick links to key topics :material-arrow-down:](#quick-links-to-key-topics)
+- [Links to services :material-arrow-down:](#links-to-services)
+- [Service Breaks :material-arrow-down:](#service-breaks)
+- [Support :material-arrow-down:](#support)
+- [Table of contents of user guide :material-arrow-down:](sd-services-toc.md)
 
 
 ### Quick links to key topics
@@ -17,7 +17,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     ---
 
-    [Start here: setting up a CSC project :material-arrow-right:](sd-access.md)
+    [Start here: Accessing Sensitive Data services :material-arrow-right:](sd-access.md)
 
     [Store with SD Connect :material-arrow-right:](sd_connect.md)
 
@@ -28,7 +28,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     ---
 
-    [Federated EGA :material-arrow-right:](federatedega.md)
+    [Publish with Federated EGA :material-arrow-right:](federatedega.md)
 
     [Reuse with SD Apply :material-arrow-right:](sd-apply.md)
 
@@ -43,7 +43,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     [Analyse with SD Desktop for secondary use :material-arrow-right:](sd-desktop-audited.md)
 
-    [Submitting secondary use data :material-arrow-right:](single-register-submission.md)
+    [Submit secondary use data :material-arrow-right:](single-register-submission.md)
 
 
 - #### Additional Resources
@@ -61,17 +61,17 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 </div>
 
 
-### Quick access to login portals
+### Links to services
 
 <div class="grid csc-quick-links csc-quick-links--portals" markdown>
 
-[MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC user portal" target=_blank }
+[Create and manage CSC account with MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC user portal" target=_blank }
 
-[SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Sensitive Data (SD) Connect" target=_blank }
+[Store and share with SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Sensitive Data (SD) Connect" target=_blank }
 
-[SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Sensitive Data (SD) Desktop" target=_blank }
+[Analyse with SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Sensitive Data (SD) Desktop" target=_blank }
 
-[SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Sensitive Data (SD) Apply" target=_blank }
+[Reuse with SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Sensitive Data (SD) Apply" target=_blank }
 
 </div>
 
