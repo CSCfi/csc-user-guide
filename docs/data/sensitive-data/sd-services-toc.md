@@ -69,7 +69,6 @@ hide:
     * [Manage virtual desktop](sd-desktop-secondary-manage.md)
     * [Access virtual desktop](sd-desktop-secondary-access-vm.md)
     * [Work with your desktop and software](sd-desktop-secondary-working.md)
-    * [Customisation - software & tools](sd-desktop-secondary-software.md)
     * [Import data](sd-desktop-secondary-access.md)  
     * [Export data](sd-desktop-secondary-export.md)  
     * [Troubleshooting](sd-desktop-secondary-troubleshooting.md)
@@ -81,12 +80,12 @@ hide:
 * [Auto-apptainer](./tutorials/auto-apptainer.md)
 * [Backup for SD Desktop](./tutorials/backup_sd_desktop.md)
 * [Decrypting all files in a directory](./tutorials/decrypt-directory.md)
-* [Extending SD Desktop software environment with your own Apptainer containers](./tutorials/creating_containers.md)
+* [Extending SD Desktop software environment with your own Apptainer containers](./creating_containers.md)
 * [Install VS Code in SD Desktop](./tutorials/vscode.md)
 * [Install Whisper in SD Desktop](./tutorials/whisper.md)
 * [Podman in SD Desktop](./tutorials/podman-in-sd-desktop.md)
 * [Running temporary PostgreSQL database in SD Desktop](./tutorials/postgresql.md)
-* [Using Allas storage service to receive sensitive research data](./tutorials/psequencing_center_tutorial.md)
+* [Using Allas storage service to receive sensitive research data](./sequencing_center_tutorial.md)
 
 ## Misc
 * [Useful terminology: services and technical aspects](sd-terminology.md)
