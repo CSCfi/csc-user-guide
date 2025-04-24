@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md)
+
 # Federated European Genome-phenome Archive (FEGA)
 
 Federated European Genome-phenome Archive (FEGA) is a service for storing and publishing human genetic and phenotypic data consented for research. The service is based on a European network of local repositories. CSC hosts Finnish FEGA. Please note that this user guide is specific for Finnish FEGA service.

@@ -6,7 +6,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 - [Links to services :material-arrow-down:](#links-to-services)
 - [Service Breaks :material-arrow-down:](#service-breaks)
 - [Support :material-arrow-down:](#support)
-- [Table of contents of user guide :material-arrow-down:](sd-services-toc.md)
+- [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
 
 ### Quick links to key topics
@@ -50,11 +50,11 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     ---
 
-    [What's New with Sensitive Data Services :material-arrow-right:](../../support/wn/data-new.md)
+    [What's new with Sensitive Data Services :material-arrow-right:](../../support/wn/data-new.md)
 
     [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
 
-    [Useful Terminology :material-arrow-right:](sd-terminology.md)
+    [Useful terminology :material-arrow-right:](sd-terminology.md)
 
     [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
 

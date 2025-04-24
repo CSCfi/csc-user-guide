@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md)
+
 # Store and share with Sensitive Data Connect
 
 - [Overview](#overview)
