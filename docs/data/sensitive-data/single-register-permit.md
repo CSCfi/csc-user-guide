@@ -54,7 +54,7 @@ You need to access SD Desktop. You have a permit from a single register.
 - Fill all required fields. Read and accept the terms of use.
 - Click **Create a project**.
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Findata.png)
 
 
 ### 3. Fill GDPR document
