@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # How to give access to folder content only in SD Desktop
 
 ## Use case
