@@ -1,4 +1,4 @@
-[Table of contents of user guide](sd-services-toc.md)
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
 # Federated European Genome-phenome Archive (FEGA)
 
