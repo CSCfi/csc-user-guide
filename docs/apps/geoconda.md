@@ -42,7 +42,6 @@ includes following python packages:
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
 -   [pyproj] - performs cartographic transformations and geodetic computations.
 -   [pyogrio](https://pyogrio.readthedocs.io/en/latest/index.html) - vectorized spatial vector file format I/O using GDAL/OGR.
--   [odc-stac](https://odc-stac.readthedocs.io/) - fetch data according to STAC search to xarray. NEW 2025
 -   [openeo](https://openeo.org/) - for connecting to Earth observation cloud back-ends in a simple and unified way. NEW 2024
 -   [open3d](http://www.open3d.org/docs/release/index.html) - for 3D data processing
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
@@ -79,7 +78,7 @@ includes following python packages:
 -   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details.
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [xarray-spatial](https://xarray-spatial.org/) - efficient common raster analysis functions for xarray. [xarray-spatial example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
-    -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray extension for tiled map plotting.
+    -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray extension for tiled map plotting. Not in 3.12.10
 -   And many more, for retrieving the full list use:
     `list-packages`
     
@@ -104,7 +103,7 @@ If you think that some important GIS package for Python is missing from here, yo
 
 The `geoconda` module is available:
 
-* 3.12.x (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created April 2025), in Puhti.
+* 3.12.10 (Python 3.12.10, PDAL 2.8.4, GDAL 3.10.2, created April 2025), in Puhti.
 * 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti and LUMI.
 * 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Puhti and Mahti.
 * 3.10.9 (Python 3.10.9, PDAL 2.5.2, GDAL 3.6.2, created March 2023), in Puhti.
