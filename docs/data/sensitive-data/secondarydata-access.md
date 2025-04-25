@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Start here: Accessing secondary use health or social data via Sensitive Data services 
 
 ## CSC project enables service usage

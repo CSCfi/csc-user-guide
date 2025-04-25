@@ -1,3 +1,4 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
 # How to get access to SD Services: Project manager
 

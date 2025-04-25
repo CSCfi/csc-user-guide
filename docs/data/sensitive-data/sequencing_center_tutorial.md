@@ -140,7 +140,7 @@ sensitive data services of CSC.
             * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-#### Cretating encryption keys via command line tools
+#### Creating encryption keys via command line tools
 
 In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
 
