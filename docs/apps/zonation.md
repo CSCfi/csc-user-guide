@@ -12,11 +12,12 @@ system:
 
 ## Available
 
-__Zonation__ is available in Puhti with following versions:
+__Zonation__ including Graphical User Interface is available in Puhti with following versions:
 
-* 5.2.1 (including Graphical User Interface)
-* 5.2.0.2 (including Graphical User Interface)
-* 5.1.0 (including Graphical User Interface)
+* 5.2.3
+* 5.2.1 
+* 5.2.0.2 
+* 5.1.0
 
 
 ## Usage
