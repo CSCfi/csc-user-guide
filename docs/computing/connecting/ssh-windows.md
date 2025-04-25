@@ -23,8 +23,8 @@ or in a local terminal by running:
 ssh-keygen -a 100 -t ed25519
 ```
 
-Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
-recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
+Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
+recommend Ed25519**.
 
 If you want your generated keys to persist through MobaXterm restarts,
 set a persistent home directory for MobaXterm in the program settings
@@ -100,8 +100,8 @@ keys. To generate SSH keys for connecting with PuTTY, use the
 provides
 [instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
 
-Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
-recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
+Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
+recommend Ed25519**.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
@@ -170,8 +170,8 @@ running:
 ssh-keygen -a 100 -t ed25519
 ```
 
-Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
-recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
+Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
+recommend Ed25519**.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
