@@ -418,6 +418,7 @@ nav:
 
           - More advanced features: cloud/dbaas/advanced.md
           - Resizing database instance volume: cloud/dbaas/resize-volume.md
+          - Rebuild database instances: cloud/dbaas/rebuild-database.md
       - Rahti:
           - cloud/rahti/index.md
           - What is Rahti:
