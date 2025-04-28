@@ -1,14 +1,32 @@
+{#
+  You can choose which icon the announcement is garnished
+  with by uncommenting (i.e. changing the delimiters from
+  a comment (#) to a statement (%)) a line below. Only a
+  single line can be uncommented at a time.
+#}
+{# import ".icons/material/coffee.svg" as icon #}
+{# import ".icons/material/chat.svg" as icon #}
+{# import ".icons/material/information.svg" as icon #}
+{% import ".icons/material/alert.svg" as icon %}
+{# import ".icons/material/rocket-launch.svg" as icon #}
+{# import ".icons/material/test-tube.svg" as icon #}
+{# import ".icons/material/beaker.svg" as icon #}
+{# import ".icons/material/dna.svg" as icon #}
+{# import ".icons/material/atom.svg" as icon #}
+{# import ".icons/material/telescope.svg" as icon #}
+<div class="announcement-icon">{{ icon }}</div>
 {# Put the announcement, in HTML, right under this comment! #}
 <p>
-&#128295; No, it's not just you! The navigation sidebars <em>do</em> have a new look. <a href="/support/wn/training-new/#visual-changes-for-docs-csc">Click here for details.</a> &#128295;
+Significant changes to Puhti & Mahti authentication coming in April! Read about the <a href="{{ base_url | url }}/support/wn/comp-new/#ssh-key">SSH key</a> and <a href="{{ base_url | url }}/support/wn/comp-new/#mfa">multi-factor authentication</a> requirements.
 </p>
-{# Remember
-  - to set the announcement_visible to true in mkdocs.yml
-  - that the announcement bar has only been tested with <p> and <a>
-  - to include a target="_blank" attribute in external links
-  - to not have loose text outside of a <p> (or an <a>)
-  - that you can garnish the announcement with emojis by using their code
-    points with HTML entities, for example &#x2615; for the "hot beverage" emoji.
-  - to not use the literal 'docs.csc.fi' for internal links,
-    use href="{{ base_url|url }}/path/to/page/" instead
+{# ...and right above _this_ comment. #}
+<div class="announcement-icon announcement-icon-end">{{ icon }}</div>
+{#
+  Remember
+    - to not use the literal 'docs.csc.fi' for internal links,
+      - use href="{{ base_url | url }}/path/to/page/" instead
+    - to set the announcement_visible to true in mkdocs.yml
+    - that the announcement bar has only been tested with <p> and <a>
+    - to include a target="_blank" attribute in external links
+    - to not have loose text outside of a <p> (or an <a>)
 #}

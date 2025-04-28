@@ -3,7 +3,6 @@
 ## OpenShift projects and CSC computing projects
 
 !!! info
-
     Projects in Rahti are separated from CSC computing projects. A single CSC
     computing project can have access to multiple projects in Rahti.
     Each CSC computing project with access to Rahti will have a corresponding *group* in
@@ -39,9 +38,10 @@ to the billing unit quota of project_1000123. Note that project_1000123 must
 have Rahti service access and you must be a member of that computing project,
 or the OpenShift project creation will fail.
 
+See the section about [accounts](../../../accounts/index.md).
+
 If you would like to know which CSC computing projects you are a member of, you
-can view a list in the [My Projects
-tool](https://my.csc.fi/projects) of MyCSC. 
+can view a list in the [My Projects tool](https://my.csc.fi/projects) of MyCSC.
 
 If you would like to know which CSC computing project a Rahti project is
 associated with, you can do so using the _oc_ command line tool. You can find
@@ -121,8 +121,8 @@ clicking the question mark symbol in the top bar and selecting "About".
 
 ## CSC computing project quotas
 
-!!! info  
-    
+!!! info
+
     A CSC project quota is shared between the different Rahti projects (also known as namespaces).
     This means that if more than one person is working on the same CSC project and create their
     own namespaces, the resources are shared.
@@ -141,7 +141,7 @@ This means that your CSC computing project can use up to 4 cores and 16GiB in to
 
 !!! Warning
 
-    If you have several users that can access the CSC computing project, they can create a new Rahti project (see above). Keep in mind that the quotas will be shared across the different Rahti projects.  
+    If you have several users that can access the CSC computing project, they can create a new Rahti project (see above). Keep in mind that the quotas will be shared across the different Rahti projects.
     If you need to adjust your CSC computing project quotas, please contact us. More information [here](projects_and_quota.md#requesting-more-quota)
 
 You can find the resource usage and quota of a project in the project view in
@@ -184,8 +184,8 @@ The user can set the limits explicitly within the available quota, but if no lim
 
 |Type|CPU|Memory|
 |:-:|:-:|:-:|
-|limits|250m|2500Mi|
-|requests|50m|500Mi|
+|limits|500m|1Gi|
+|requests|100m|500Mi|
 
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 
@@ -199,8 +199,8 @@ If you need more resources than the defaults, you can apply for more quota by co
 
 !!! info
 
-    When creating a Rahti project which is associated with certain CSC computing project, by default all members the of 
-    CSC computing project will have admin access to the Rahti project.  
+    When creating a Rahti project which is associated with certain CSC computing project, by default all members the of
+    CSC computing project will have admin access to the Rahti project.
     You can also add individually an user to a specific Rahti project. The user must have a CSC or HAKA login.
 
 OpenShift has a flexible role-based access control system that allows you to

@@ -191,7 +191,7 @@ Now run the previous R script as a batch job.
 
 ### a) Create a batch job script, which will submit the job to the queue.
 
-Copy the *serial batch script* template from [CSC's R-env page](../../../apps/r-env/#serial-batch-jobs)
+Copy the *serial batch script* template from [CSC's R-env page](../../apps/r-env.md#serial-batch-jobs)
 into a file called _batch.sh_
 
 In addition to setting up the computing requirements, this script

@@ -9,6 +9,15 @@ edit_uri: edit/master/docs/
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
+  landing_banner:
+    path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
+    image: example-banner.png
+    title: Example banner now up on landing page
+    link: https://example.org/courses/example-course/
+    description: |-
+      Banner for upcoming example course.
+      Second line for example description.
+    visible: false
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
     provider: custom
@@ -29,14 +38,26 @@ extra:
             Thank you! Your feedback is appreciated.
       exclude:
         - ref.md
+  short_description: User guides and tutorials
+  social:
+    - icon: material/github
+      link: https://github.com/CSCfi/
+    - icon: material/linkedin
+      link: https://www.linkedin.com/company/csc---it-center-for-science/
+    - icon: material/instagram
+      link: https://www.instagram.com/CSCfi/
+    - icon: material/facebook
+      link: https://www.facebook.com/CSCfi/
+    - icon: material/youtube
+      link: https://www.youtube.com/c/CSCfi
+
 
 hooks:
   - hooks/archives.py
   - hooks/preview.py
 
 plugins:
-  - tags:
-      tags_file: apps/by_license.md
+  - tags
   - search
   - git-revision-date-localized:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
@@ -73,6 +94,14 @@ plugins:
         "cloud/concepts.md": "cloud/index.md"
         "apps/alpha.md": "apps/index.md"
         "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
+        "computing/cProfile.md": "apps/cProfile.md"
+        "computing/compute-san.md": "apps/compute-san.md"
+        "computing/cuda-gdb.md": "apps/cuda-gdb.md"
+        "computing/gdb.md": "apps/gdb.md"
+        "computing/ncu.md": "apps/ncu.md"
+        "computing/nsys.md": "apps/nsys.md"
+        "computing/nvprof.md": "apps/nvprof.md"
+        "computing/pdb.md": "apps/pdb.md"  
         # files moved to Allas:
         # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
         "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -87,6 +116,7 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
+        "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
         # Rahti2 to Rahti:
         "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
         "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
@@ -110,9 +140,7 @@ plugins:
         "cloud/rahti2/tutorials/index.md": "cloud/rahti/tutorials/index.md"
         "cloud/rahti2/tutorials/allow-pull-from-other-projects.md": "cloud/rahti/tutorials/allow-pull-from-other-projects.md"
         "cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md": "cloud/rahti/tutorials/deploy_static_webserver_webconsole.md"
-        "cloud/rahti2/tutorials/configuration.md": "cloud/rahti/tutorials/configuration.md"
         "cloud/rahti2/tutorials/webhooks.md": "cloud/rahti/tutorials/webhooks.md"
-        "cloud/rahti2/tutorials/integrating-external-services.md": "cloud/rahti/tutorials/integrating-external-services.md"
         "cloud/rahti2/tutorials/annotations.md": "cloud/rahti/tutorials/annotations.md"
         "cloud/rahti2/tutorials/connect-database-hpc.md": "cloud/rahti/tutorials/connect-database-hpc.md"
         "cloud/rahti2/tutorials/yaml_introduction.md": "cloud/rahti/tutorials/yaml_introduction.md"
@@ -134,17 +162,22 @@ plugins:
         "cloud/rahti2/images/creating.md": "cloud/rahti/images/creating.md"
         "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
         "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
-        "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_2_integrated_registry.md"
+        "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
 
 markdown_extensions:
+  - md_in_html
   - footnotes
   - admonition
   - abbr
   - attr_list
   - def_list
   - pymdownx.details
+  - pymdownx.blocks.caption
   - pymdownx.tabbed:
       alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.snippets:
       base_path: csc-overrides/assets/snippets
       auto_append:
@@ -159,16 +192,27 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
   name: material
   language: en
   custom_dir: csc-overrides
-  logo: assets/images/logo.png
+  logo: assets/images/logo.svg
   favicon: assets/images/logo.png
   icon:
     repo: material/git
     edit: material/pencil
+    admonition:
+      info: material/information
+      success: material/check-circle
+      warning: material/alert
+    # Error admonition type is not in Material for MkDocs,
+    # so the following icon is a literal definition in
+    # csc-overrides/assets/stylesheets/admonition.css
+      # error: material/close-circle
   palette:
     scheme: csc
     primary: custom
@@ -182,9 +226,6 @@ extra_css:
   - assets/stylesheets/extra.css
 
 extra_javascript:
-  - assets/javascripts/constants.js # Constants need to be loaded first since the other scripts depend on them
-  - assets/javascripts/dropdown.js
-  - assets/javascripts/layout.js
   - assets/javascripts/extra.js
   - assets/javascripts/feedback.js
 
@@ -193,9 +234,9 @@ validation:
   nav:
     omitted_files: ignore
   links:
-    absolute_links: ignore
-    unrecognized_links: ignore
-    anchors: ignore
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
 
 nav:
   - Home: index.md
@@ -215,7 +256,7 @@ nav:
       - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
       - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
       - Billing: accounts/billing.md
-      - Multi-factor Authentication: accounts/mfa.md
+      - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md
       - FMI: accounts/fmi.md
   - Computing:
@@ -226,12 +267,13 @@ nav:
           - computing/available-systems.md
           - Puhti: computing/systems-puhti.md
           - Mahti: computing/systems-mahti.md
+          - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md
+          - Setting up SSH keys: computing/connecting/ssh-keys.md
           - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
           - SSH client on Windows: computing/connecting/ssh-windows.md
-          - Setting up SSH keys: computing/connecting/ssh-keys.md
       - Supercomputer storage:
           - computing/disk.md
           - Lustre filesystem: computing/lustre.md
@@ -316,6 +358,7 @@ nav:
               - cloud/pouta/configuration.md
               - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
               - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
+              - Accounting principles and quotas: cloud/pouta/accounting.md
               - Images:
                   - cloud/pouta/images.md
                   - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
@@ -346,6 +389,7 @@ nav:
               - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
+              - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -394,7 +438,7 @@ nav:
                   - cloud/rahti/images/overview.md
                   - Creating an image: cloud/rahti/images/creating.md
                   - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
-                  - Using Rahti integrated registry: cloud/rahti/images/Using_Rahti_2_integrated_registry.md
+                  - Using Rahti integrated registry: cloud/rahti/images/Using_Rahti_integrated_registry.md
               - Storage in Rahti:
                   - cloud/rahti/storage/index.md
                   - Ephemeral storage: cloud/rahti/storage/ephemeral.md
@@ -408,27 +452,25 @@ nav:
               - Security guide: cloud/rahti/security-guide.md
           - Tutorials:
               - cloud/rahti/tutorials/index.md
+              - 4cat: cloud/rahti/tutorials/4cat.md
+              - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
               - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+              - Allow pulls of images from one Rahti project to another: cloud/rahti/tutorials/allow-pull-from-other-projects.md
               - Annotations: cloud/rahti/tutorials/annotations.md
               - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
-              - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
               - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
               - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
               - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
               - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
+              - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
               - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
               - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+              - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
               - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti/tutorials/webhooks.md
-              - 4cat: cloud/rahti/tutorials/4cat.md
               - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
-              - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
-              - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
-              - Integrating External Services: cloud/rahti/tutorials/integrating-external-services.md
-              - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
-              - Allow pulls of images from one Rahti project to another: cloud/rahti/tutorials/allow-pull-from-other-projects.md
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
@@ -459,6 +501,7 @@ nav:
           - Common Error Messages: data/Allas/using_allas/error_messages.md
           - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
           - Allas clients:
+              - Allas Web UI: data/Allas/using_allas/allas-ui.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
@@ -481,7 +524,7 @@ nav:
           # Python MySQL API at CSC:
   - Sensitive data:
       - data/sensitive-data/index.md
-      - Choose service: data/sensitive-data/choose-a-service.md
+      - Table of contents: data/sensitive-data/sd-services-toc.md
       - Store and analyse:
           - Start here:
               - data/sensitive-data/sd-access.md
@@ -493,7 +536,6 @@ nav:
               - Upload: data/sensitive-data/sd-connect-upload.md
               - Share: data/sensitive-data/sd-connect-share.md
               - Download: data/sensitive-data/sd-connect-download.md
-              - Download files uploaded with previous version: data/sensitive-data/sd-connect-download-old-version.md
               - Delete: data/sensitive-data/sd-connect-delete.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
@@ -504,9 +546,10 @@ nav:
               - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
               - Access virtual desktop: data/sensitive-data/sd-desktop-access-vm.md
               - Work with your virtual desktop: data/sensitive-data/sd-desktop-working.md
+              - Customisation - software & tools: data/sensitive-data/sd-desktop-software.md
               - Import data: data/sensitive-data/sd-desktop-access.md
-              - Customisation: data/sensitive-data/sd-desktop-software.md
-              - Export data: data/sensitive-data/sd-desktop-export.md
+              - Export data via user interface: data/sensitive-data/sd-desktop-export.md
+              - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
           - Publish with Federated EGA:

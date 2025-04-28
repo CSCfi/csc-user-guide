@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # How to get access to SD Desktop with a Findata permit
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/qxYIXDqpTp0" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä Findata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -26,6 +28,8 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! info-label
     Team member
 
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=46s){ target="_blank" }**
+
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
 - Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
   
@@ -38,6 +42,8 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! warning-label
     Team manager
 
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=119s){ target="_blank" }**
+
 - Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **”New project”**.
 - Fill in the project name and project description. You can edit these later if needed.
@@ -45,13 +51,15 @@ You need to access SD Desktop. You have a permit from Findata.
 - Fill all required fields. Read and accept the terms of use.
 - Click **“Create a project”**.
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Findata.png)
 
 
 ### 3. Fill GDPR document
 
 !!! warning-label
     Team manager
+
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=185s){ target="_blank" }**
 
 - Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
@@ -63,6 +71,8 @@ You need to access SD Desktop. You have a permit from Findata.
 
 !!! warning-label
     Team manager
+
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=221s){ target="_blank" }**
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
@@ -87,6 +97,8 @@ You need to access SD Desktop. You have a permit from Findata.
     Team manager
 !!! info-label
     Team member
+
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=359s){ target="_blank" }**
 
 - You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
 - Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.

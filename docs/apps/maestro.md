@@ -25,8 +25,8 @@ self-learning materials.
 
 ## Available
 
-* Puhti: 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3, 2024.4
-* Mahti: 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3, 2024.4
+* Puhti: 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3, 2024.4, 2025.1
+* Mahti: 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3, 2024.4, 2025.1
 
 A two-year cleaning cycle is applied on the Maestro modules on CSC supercomputers.
 Specifically, this means that module versions older than two years will be removed.
@@ -60,10 +60,10 @@ which tend to be more performant and have less bugs.
 ## License
 
 Maestro is available for all academic users in Finland: staff and students, for academic
-purposes. Please consult the [EULA](https://www.schrodinger.com/maestro-academic-eula)
+purposes. Please consult the [EULA](https://www.schrodinger.com/eula)
 for the exact definition. Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens. If licenses run out, contact
-us via [ServiceDesk](/support/contact/).
+us via [ServiceDesk](../support/contact.md).
 
 ## Usage
 
@@ -156,7 +156,7 @@ bash your_script_name.sh
     [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but
     the performance may be somewhat slow and submitted jobs may end up fizzled. Also,
     **no long/heavy tasks** should be done on the login nodes. Please consult the
-    [Usage policy](../../computing/usage-policy) page for more details.
+    [Usage policy](../computing/usage-policy.md) page for more details.
 
 !!! info "Note for Windows users"
     **Windows** users may need to edit the script created by the GUI a little.

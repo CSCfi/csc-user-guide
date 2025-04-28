@@ -1,3 +1,7 @@
+!!! success "Basic level"
+    This is a simple tutorial to show how to deploy a web server using the Rahti [web interface](../usage/getting_started.md) as
+    the same as the one using the CLI that you can find [here](./deploy_static_webserver_cli.md)
+
 # Static web server
 
 How to set up a static web server in Rahti.

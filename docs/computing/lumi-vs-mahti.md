@@ -10,7 +10,7 @@ Mahti has only a few (24) GPU-nodes available, while LUMI-C is flanked by [LUMI-
 
 To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Note that LUMI-projects have a finite duration ([see below](lumi-vs-mahti.md#finite-time-projects)) and cannot be used for running on the national resources and vice versa.
 
-Furthermore, accessing LUMI is only possible using SSH keys, meaning that you cannot use passwords to connect through SSH like on Mahti. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting/ssh-keys.md) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
+Furthermore, accessing LUMI is only possible using SSH keys uploaded to MyCSC, meaning that you cannot use passwords to connect through SSH. This authentication method is also in use on Mahti (and Puhti) since 14 April 2025. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting/ssh-keys.md) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
 
 Similar to Puhti and Mahti, LUMI can, however, also be accessed through a [web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/).
 
@@ -44,7 +44,7 @@ The programming environment of LUMI is quite different compared to CSC supercomp
 
 ## Disk areas and storage
 
-Similar to CSC supercomputers, LUMI uses a [Lustre parallel filesystem](https://docs.lumi-supercomputer.eu/storage/parallel-filesystems/lumip/). However, there's no fast local disk on LUMI similar to the local scratch on Puhti and Mahti-AI. Instead, a fast flash-based Lustre scratch space ([LUMI-F](https://docs.lumi-supercomputer.eu/storage/parallel-filesystems/lumif/)) is available. There is also an object storage similar to Allas, [LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/), available. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/storage/).
+Similar to CSC supercomputers, LUMI uses a [Lustre parallel filesystem](https://docs.lumi-supercomputer.eu/storage/parallel-filesystems/lumip/). However, there's no fast local disk on LUMI similar to the local scratch on Puhti and Mahti. Instead, a fast flash-based Lustre scratch space ([LUMI-F](https://docs.lumi-supercomputer.eu/storage/parallel-filesystems/lumif/)) is available. There is also an object storage similar to Allas, [LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/), available. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/storage/).
 
 ## Available partitions
 

@@ -10,4 +10,4 @@ Not as such, but you do have several options:
   well with most modern web browsers.
 * If you are using Rahti, you can use the wildcard certificate for
   `*.2.rahtiapp.fi` DNS names. See also:
-  [Do you offer SSL certificates in Rahti](../rahti-ssl-certificates).
+  [Do you offer SSL certificates in Rahti](rahti-ssl-certificates.md).

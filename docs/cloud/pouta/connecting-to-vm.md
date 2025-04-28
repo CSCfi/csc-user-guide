@@ -1,6 +1,6 @@
 # Connecting to your virtual machine
 
-This article describes several ways to connect to a running virtual machine. In order to create a Virtual Machine, check out [Creating a virtual machine in Pouta](../launch-vm-from-web-gui/).
+This article describes several ways to connect to a running virtual machine. In order to create a Virtual Machine, check out [Creating a virtual machine in Pouta](launch-vm-from-web-gui.md).
 
 !!! info "Password access disabled"
 
@@ -94,7 +94,7 @@ By enabling agent forwarding, you enable the ssh agent running on the remote Vir
 
 ### Putty
 
-Open Putty, after following the instructions at [windows-putty](/cloud/pouta/launch-vm-from-web-gui/#windows-putty) you should have a saved session with the private key stored on it.
+Open Putty, after following the instructions at [windows-putty](./launch-vm-from-web-gui.md#windows-putty) you should have a saved session with the private key stored on it.
 
 * Load the saved session.
 

@@ -1,6 +1,6 @@
 # How fast is the Pouta network?
 
-The network is a mix of 40 Gb/s and 10 Gb/s Ethernet. Machines launched using HPC flavors will have 40 Gb/s network access while standard flavors will have 10 Gb/s. For more information, see the chapter about virtual machine flavors: [Virtual machine flavors and quotas](/cloud/pouta/vm-flavors-and-billing)
+The network is a mix of 40 Gb/s and 10 Gb/s Ethernet. Machines launched using HPC flavors will have 40 Gb/s network access while standard flavors will have 10 Gb/s. For more information, see the chapter about virtual machine flavors: [Virtual machine flavors and quotas](../../cloud/pouta/vm-flavors-and-billing.md)
 
 Some limitations are imposed by virtualisation:
 

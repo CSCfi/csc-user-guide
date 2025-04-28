@@ -61,22 +61,18 @@ are project-specific. If you are a member of several projects, you also have acc
 
 Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
 
-
-This fast parallel scratch space is intended as temporary storage
-space for the data that is used in the supercomputer. The scratch
-directory is not intended for long-term data storage. To ensure that
-the disks do not fill up CSC will regularly delete files that have not
-been accessed in a long time. In Puhti the current policy is to remove
-files that have not been accessed for more than 6 months. In Mahti a
-similar cleaning procedure will be introduced, but is not yet
-active. See [Usage policy](../../computing/usage-policy) page for details on the current
-policy.
-
+This fast parallel scratch space is intended as temporary storage space for the
+data that is used in the supercomputer. The scratch directory is not intended
+for long-term data storage. To ensure that the disks do not fill up CSC will
+regularly delete files that have not been accessed in a long time. In Puhti the
+current policy is to remove files that have not been accessed for more than 180
+days (scratch quota less than 5 TiB) or 90 days (scratch quota 5 TiB or more).
+In Mahti a similar cleaning procedure will be introduced, but is not yet
+active. See [Usage policy](usage-policy.md#disk-cleaning) page for details on
+the current policy.
 
 Make sure to consult our tutorial for [tips and guidelines on how to
 manage your data on `scratch`](../support/tutorials/clean-up-data.md).
-
-
 
 ## Projappl directory
 
@@ -99,33 +95,37 @@ csc-workspaces
 ```
 
 The above command displays all `scratch` and `projappl` directories you have access to.
+It also displays which of your projects are subject to the 90 day `scratch` cleaning
+cycle and which to the 180 day `scratch` cleaning cycle.
 
-For example, if you are a member in two projects, with unix groups `project_2012345`
-and `project_3587167`, then you have access to two `scratch` and `projappl` directories:
+For example, if you are a member in two projects, with unix groups `project_2000123`
+and `project_2001234`, then you have access to two `scratch` and `projappl` directories:
 
 ```text
-[kkayttaj@puhti ~]$ csc-workspaces 
-Disk area               Capacity(used/max)  Files(used/max)  Project description  
-----------------------------------------------------------------------------------
+[kkayttaj@puhti-login11 ~]$ csc-workspaces 
+
+Disk area               Capacity(used/max)  Files(used/max)  Cleanup
+----------------------------------------------------------------------
 Personal home folder
-----------------------------------------------------------------------------------
-/users/kkayttaj                2.05G/10G       23.24k/100k
 
-Project applications 
-----------------------------------------------------------------------------------
-/projappl/project_2012345     3.056G/50G       23.99k/100k   Ortotopology modeling
-/projappl/project_3587167     10.34G/50G       2.45/100k     Metaphysics methods
+/users/kkayttaj                 4.4G/10G         24K/100K        n/a
+----------------------------------------------------------------------
+Project: project_2000123 "Project X"
 
-Project scratch 
-----------------------------------------------------------------------------------
-/scratch/project_2012345        56G/1T         150.53k/1000k Ortotopology modeling
-/scratch/project_3587167       324G/1T         5.53k/1000k   Metaphysics methods
+/projappl/project_2000123        24G/50G         36K/100K        n/a
+/scratch/project_2000123        103G/1.0T       389K/1.0M       180d
+----------------------------------------------------------------------
+Project: project_2001234 "Project Y"
+
+/projappl/project_2001234        85G/100G       282K/600K        n/a
+/scratch/project_2001234        7.2T/8.0T       2.7M/5.0M        90d
+----------------------------------------------------------------------
 ```
 
-Moving to the scratch directory of `project_2012345`:
+Moving to the scratch directory of `project_2000123`:
 
 ```bash
-cd /scratch/project_2012345
+cd /scratch/project_2000123
 ```
 
 Please note that not all CSC projects have Puhti/Mahti access, so you may not
@@ -189,7 +189,8 @@ of millions of files are stored in the `scratch` area.
 If the application depends on the use of temporary files, the suitability of
 the filesystem may have a large effect on the performance of the application,
 see section *Mind your I/O - it can make a big difference* in the [Performance
-checklist](running/performance-checklist.md#mind-your-io---it-can-make-a-big-difference).
+checklist](running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference).
+
 Please note that some applications use temporary files "behind the scenes". Usually these
 applications read some environment variable that points to a suitable disk area, such as
 `$TMPDIR`.
@@ -211,15 +212,16 @@ that require heavy I/O operations, for example packing and unpacking archive fil
 
 ### Compute nodes with local SSD (NVMe) disks
 
-Jobs running in the I/O- and GPU-nodes in Puhti and GPU-nodes in Mahti have local fast storage
+Jobs running in the I/O- and GPU-nodes in Puhti and Mahti have local fast storage
 available. In interactive batch jobs launched with [sinteractive](running/interactive-usage.md),
 this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs
 with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request.
 Different nodes have different amounts of disks, see [Puhti technical details](systems-puhti.md)
-for a detailed list of all node types. In normal compute nodes, there are 1490 GiB and 3600 GiB
+for a detailed list of all node types in Puhti. In normal compute nodes, there are 1490 GiB and 3600 GiB
 disks. In big memory nodes there are 1490 GiB and 5960 GiB disks, and in GPU-nodes there are
 3600 GiB disks. To save resources, and to ensure your jobs do not queue for resources for too
-long, it is a good idea to only reserve what you actually need.
+long, it is a good idea to only reserve what you actually need. In Mahti there are 60 CPU nodes with 3500 GiB
+local disks in the `small` and `interactive` partitions. The GPU nodes have 3600 GiB local disks.
 
 These local disk areas are designed to support I/O intensive computing tasks and cases where you
 need to process large amounts (over 100 000) of small files. These directories are cleaned once
@@ -233,12 +235,13 @@ For more information see [creating job scripts](running/creating-job-scripts-puh
 In Puhti we simply recommend using compute nodes with NVMe disks (`$LOCAL_SCRATCH`) for the
 applications that require temporary local storage.
 
-In Mahti, with most compute nodes without local NVMe disks, it is possible to store a relatively
+In Mahti, where only some compute nodes have local NVMe disks, it is also possible to store a relatively
 small amount of temporary files in memory. In practice, the applications can use the directory
 `/dev/shm` for this, for example by setting `export TMPDIR=/dev/shm`. Please note that the use
 of `/dev/shm` consumes memory, so less is left available for the applications. This may lead to
 applications running out of memory sooner than expected and failing in the compute node, but
-this usually does no other harm. The plus side is that if it works, it should be fast. In Puhti
-however, where applications from multiple users can share the same node, running out of memory
-by filling up `/dev/shm` will crash other users applications, too. **It is thus not recommended to
-use `/dev/shm` in Puhti at all.**
+this usually does no other harm. The plus side is that if it works, it should be fast.
+
+However, in Puhti, as well as Mahti `small`, `interactive` and GPU partitions, where applications
+from multiple users can share the same node, running out of memory by filling up `/dev/shm` will
+crash other users applications, too! **In these cases it is not recommended to use `/dev/shm` at all.**

@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # How to get access to SD Desktop with a single register permit
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/y91wzD0wqEA" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -30,6 +32,8 @@ You need to access SD Desktop. You have a permit from a single register.
 !!! info-label
     Team member
 
+**[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=47s){ target="_blank" }**
+
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
 - Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu). 
 - Fill in your information on the Sign up page.
@@ -41,6 +45,8 @@ You need to access SD Desktop. You have a permit from a single register.
 !!! warning-label
     Team manager
 
+**[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=120s){ target="_blank" }**
+
 - Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **New project**.
 - Fill in the project name and project description. You can edit these later if needed.
@@ -48,13 +54,15 @@ You need to access SD Desktop. You have a permit from a single register.
 - Fill all required fields. Read and accept the terms of use.
 - Click **Create a project**.
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Findata.png)
 
 
 ### 3. Fill GDPR document
 
 !!! warning-label
     Team manager
+
+**[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=186s){ target="_blank" }**
 
 - Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
@@ -66,6 +74,8 @@ You need to access SD Desktop. You have a permit from a single register.
 
 !!! warning-label
     Team manager
+
+**[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=221s){ target="_blank" }**
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
@@ -90,6 +100,8 @@ You need to access SD Desktop. You have a permit from a single register.
     Team manager
 !!! info-label
     Team member
+
+**[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=358s){ target="_blank" }**
 
 - You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
 - Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
@@ -117,6 +129,8 @@ You need to access SD Desktop. You have a permit from a single register.
     Team manager
 !!! info-label
     Team member
+
+**[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=429s){ target="_blank" }**
 
 After creating the project in MyCSC, you need to apply for access to the dataset in SD Apply. This is a technical security step and does not affect the permission granted in the data permit.
 
@@ -149,6 +163,8 @@ You are now on the Applications page.
     * You will receive an email notification whenever the state of your application changes.
 
 ### 11. Send approved application to CSC
+
+**[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=518s){ target="_blank" }**
 
 * Login to SD Apply: [https://sd-apply.csc.fi](https://sd-apply.csc.fi).
 * Find your application and click **''PDF''** under **Actions**.

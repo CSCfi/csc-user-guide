@@ -1,3 +1,5 @@
+# Snapshots
+
 Table of Contents
 
 [TOC]
@@ -183,7 +185,7 @@ A few points to bear in mind:
 It is possible to download an image, including image snapshots, but only from the CLI. The steps are the following:
 
 !!! Info
-    In order to run this commands you need to [install the openstack client](../install-client/) and [login into Pouta](../install-client/#configure-your-terminal-environment-for-openstack).
+    In order to run this commands you need to [install the openstack client](install-client.md) and [login into Pouta](install-client.md#configure-your-terminal-environment-for-openstack).
 
 2. List all the images in the project:
 
@@ -323,7 +325,7 @@ It is not possible to download a volume snapshot directly from OpenStack, not fr
 
         The id `b4f95381-e56d-4080-95e4-935c66528005` corresponds to the snapshot we want to restore, and `test-snapshot` is the name of the new createc volume.
 
-1. Now you need to attach the volume to a VM. You can use an existing VM or [create a new VM](../launch-vm-from-web-gui/). Once you have a VM ready, you need to attach the volume to it:
+1. Now you need to attach the volume to a VM. You can use an existing VM or [create a new VM](launch-vm-from-web-gui.md). Once you have a VM ready, you need to attach the volume to it:
 
     ![Manage Attachments](../img/cloud_pouta_vm_snapshot_10.svg)
 
@@ -338,7 +340,7 @@ It is not possible to download a volume snapshot directly from OpenStack, not fr
 
      ![Attached To](../img/attached_to.png)
 
-1. [Log in the VM via SSH](../connecting-to-vm/) and mount the folder:
+1. [Log in the VM via SSH](connecting-to-vm.md) and mount the folder:
 
     ```sh
     sudo mount /dev/vdb /mnt

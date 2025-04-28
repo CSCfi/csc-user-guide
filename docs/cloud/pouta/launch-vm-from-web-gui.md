@@ -28,7 +28,7 @@ The web interfaces of the Pouta clouds are available at following addresses:
 
 This _OpenStack Horizon_ based interface allows you do basic cloud computing management operations such as launch a new virtual machine and manage security settings. To use this service, you need a CSC account and a cPouta/ePouta project at CSC.
 
-You can log in to cPouta using several accounts. In addition to your CSC account (CSC username and password), you can also use Haka, VIRTU, and Life Science AAI accounts. The Haka, VIRTU and Life Science AAI accounts will work only if they are linked to your CSC account. Accounts can be linked at [My CSC](https://my.csc.fi/).
+You can log in to cPouta using several accounts. In addition to your CSC account (CSC username and password), you can also use Haka, VIRTU, and Life Science AAI accounts. The Haka, VIRTU and Life Science AAI accounts will work only if they are linked to your CSC account. Accounts can be linked at [MyCSC](https://my.csc.fi/).
 
 You can log in to ePouta only using your CSC account.
 
@@ -234,7 +234,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
 1. On the **Details** tab of the _launch instance_ view, first write the **Instance Name**.
 
-1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create. See [Virtual machine flavors and billing unit rates](../vm-flavors-and-billing) for a complete list and descriptions.
+1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create. See [Virtual machine flavors and billing unit rates](vm-flavors-and-billing.md) for a complete list and descriptions.
 
 1. In **Instance Count** you can specify the number of Virtual Machines to create. If in doubt, leave it to `1`.
 
@@ -302,4 +302,4 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
     Allocated floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://cloud.blog.csc.fi/2017/12/floating-ip-management.html) for management of floating IPs in a cPouta project.
 
-Now we can go to the [Connecting to your virtual machine](../connecting-to-vm) section and log in to the new Virtual Machine.
+Now we can go to the [Connecting to your virtual machine](connecting-to-vm.md) section and log in to the new Virtual Machine.

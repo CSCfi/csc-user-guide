@@ -1,12 +1,12 @@
 # How can I give access to other people to my VM in Pouta?
 
-When a [new VM is created](/cloud/pouta/launch-vm-from-web-gui/), a single default user is created automatically. And a single SSH key pair has given access to that default user in that VM. This gives access to that VM to a single person, the one that created the VM and the one that owns the SSH **private** key. See the Wikipedia [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) article for more information about SSH keys and the protocol in general.
+When a [new VM is created](../../cloud/pouta/launch-vm-from-web-gui.md), a single default user is created automatically. And a single SSH key pair has given access to that default user in that VM. This gives access to that VM to a single person, the one that created the VM and the one that owns the SSH **private** key. See the Wikipedia [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) article for more information about SSH keys and the protocol in general.
 
 It is a common use case (and a good practice for production services) that more than one person has access to the VM. The following procedure is one of the several options to accomplish that. We will create a new user and give access to that user to a single person.
 
 ## Create a new user
 
-1. [Connect to the VM](/cloud/pouta/connecting-to-vm/) as the default user. This user has superuser privileges (`sudo`).
+1. [Connect to the VM](../../cloud/pouta/connecting-to-vm.md) as the default user. This user has superuser privileges (`sudo`).
 
 1. Create the new user, see the [adduser](https://linux.die.net/man/8/adduser) manual for more information.
 
@@ -69,7 +69,7 @@ Once the new person has sent you the public key, you need to copy it to the serv
        scp id_rsa.pub <default_user>@<floating_ip>:
        ```
 
-       Note: The `<default_user>` is still the one found in the [image documentation](/cloud/pouta/images/#images)
+       Note: The `<default_user>` is still the one found in the [image documentation](../../cloud/pouta/images.md#images)
 
 1. Make sure that the special SSH configuration directory exists:
 
@@ -99,7 +99,7 @@ Once the new person has sent you the public key, you need to copy it to the serv
 
 1. Finally, check that the `authorized_keys` file looks like it should, with one public key per line.
 
-The new person can now follow the [connecting to a VM](/cloud/pouta/connecting-to-vm/) article. The command (in Linux and Mac) should be something like the following:
+The new person can now follow the [connecting to a VM](../../cloud/pouta/connecting-to-vm.md) article. The command (in Linux and Mac) should be something like the following:
 
 ```sh
 ssh -i id_rsa <user>@<floating_ip>

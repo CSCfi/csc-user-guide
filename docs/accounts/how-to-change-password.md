@@ -1,15 +1,16 @@
-# How to change password
+# How to reset your password
 
-You are required to change your CSC user account password annually. You will receive notifications from CSC when your password is about to expire. 
-You can change your password in two ways: Using the current password or with a password reset link ordered to your email. You can follow the instructions below.
+You will receive notifications from CSC when the password of your user account is about to expire. 
+If you need to reset the password follow the instructions below.
+There are two ways to request a link. 
 
-## Using current password
+## Password reset link from your user profile
 
 1. Login to [MyCSC](http://my.csc.fi).
-2. Go to _Profile_ and click _Change password_.
-3. Enter your current password and the new password twice. Click _Change_.
+2. Go to _Profile_ and click _Reset password_.
+3. Click _Request a reset link_. Instructions are sent to the email address associated with your CSC user account.
 
-## Using password reset link
+## Password reset link before you log in
 
 1. Go to [MyCSC](http://my.csc.fi). Click _Log in_.
 2. Choose _CSC Login_.

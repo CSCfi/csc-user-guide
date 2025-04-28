@@ -1,3 +1,5 @@
+# Networking
+
 ## Ipv4
 
 All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs in this document and Rahti's system itself are ipv4 only, no ipv6 IP is used.
@@ -70,7 +72,7 @@ Any existing possible domain name could potentially be used in Rahti, but the DN
     router-default.apps.2.rahti.csc.fi has address 195.148.21.61
     ```
 
-* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](tutorials/custom-domain.md#lets-encrypt).
+* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](./tutorials/custom-domain.md#acme-protocol-automatic-certificates).
 
 Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
 

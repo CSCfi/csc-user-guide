@@ -1,3 +1,4 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
 # How to get access to SD Services: Project manager
 
@@ -6,7 +7,7 @@
 
 ## Use case
 
-You need to access to SD services for processing research data. You are manager of research team or work independently.
+You need access to SD services for processing research data. Whether you are the manager of a research team or working independently, you can use SD Connect to store, share, and transfer research data. Optionally, your team can also analyse the data stored in SD Connect using SD Desktop.
 
 ## Solution
 
@@ -100,7 +101,7 @@ Once all the billing units for your CSC project have been used up, **access to t
 - your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
 
 !!! Note
-    Each project member will receive a notification via email from the My CSC portal when the billing units for your CSC project are about to end.
+    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
 
 #### SD Connect BU consumption
 
@@ -179,6 +180,14 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ### 9. Log into SD Services
 
-- Now all the preparations are already and you can start to use SD Connect and SD Desktop.
-    - [SD Connect login instructions](sd-connect-login.md)
-    - [SD Desktop login instructions](sd-desktop-login.md)
+- Now all the preparations are ready and you can start using the services (links to related user guides):
+
+SD Connect:
+
+- [SD Connect overview and key features](./sd_connect.md)
+- [SD Connect login instructions](./sd-connect-login.md)
+  
+SD Desktop:
+
+- [SD Desktop overwvire and key features](./sd_desktop.md)
+- [SD Desktop login instructions](sd-desktop-login.md)

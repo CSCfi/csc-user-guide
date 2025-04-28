@@ -1,0 +1,24 @@
+.csc-landing-title {
+  margin: 1rem auto 2rem 1rem;
+}
+
+.csc-landing-title > img {
+  float: left;
+  height: 62px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.csc-landing-title > hgroup > h1 {
+  margin: 0;
+  line-height: 1;
+  font-size: 42px;
+}
+
+.csc-landing-title > hgroup > p {
+  margin: unset;
+  line-height: 1;
+  font-size: 20px;
+  font-weight: var(--csc-font-weight--body);
+  color: var(--c-tertiary-600);
+}

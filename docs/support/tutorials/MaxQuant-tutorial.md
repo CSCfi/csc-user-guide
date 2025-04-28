@@ -60,7 +60,7 @@ Note that the directory name contains a space, so you need to either escape it u
 
  - Finally submit your script
 
-Create a batch script according to the [instructions for shared memory jobs](../../../computing/running/creating-job-scripts-puhti#serial-and-shared-memory-batch-jobs) 
+Create a batch script according to the [instructions for shared memory jobs](../../computing/running/creating-job-scripts-puhti.md#serial-and-shared-memory-batch-jobs) 
 and make sure the script ends up in the same directory as your `mqpar.xml` 
 file and other data files are located.
 

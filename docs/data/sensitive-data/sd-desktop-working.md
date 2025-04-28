@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Working with your Desktop: tips and essentials
 
 ## Prerequisites
@@ -128,8 +130,12 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 
 ![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
 
-Read next:
 
-- [How to import data for analysis in your desktop](./sd-desktop-access.md)
-- [Customisation: adding software](./sd-desktop-software.md)
-- [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+## Your next steps in this guide
+
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
+

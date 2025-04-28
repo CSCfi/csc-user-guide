@@ -1,3 +1,7 @@
+!!! error "Advanced level"
+    This tutorial requires a good knowledge of Kubernetes environment. It also explains how to use an in-built feature with the command line 
+    to deploy different environments of a project (Test, Staging, Prod, ...)
+
 # Kustomize
 
 [Kustomize](https://kustomize.io) is similar to [Helm](../../../support/faq/helm.md), both are good for bundling kubernetes elements such as services, deployments, etc...  

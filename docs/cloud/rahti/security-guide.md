@@ -1,3 +1,5 @@
+# Security guide
+
 Rahti applications are exposed to the Internet, and
 their security should be treated with an appropriate care.
 The user on whose account a service is running in Rahti is
@@ -12,21 +14,21 @@ roughly divided in two categories.
 
 ## Cluster policy
 
-By default, our cluster applies default security policies:  
+By default, our cluster applies default security policies:
 
-- **No root enforced**: That means that you cannot run a container with root privileges. It will fail.  
+- **No root enforced**: That means that you cannot run a container with root privileges. It will fail.
 
-- **Random UID/GID**: When your pod is deployed in our cluster, a random UID will be generated. You cannot assigned a UID/GID out of this range (for example, `1001`), it will require special privileges. Usually, the number is like `1000620000`.  
+- **Random UID/GID**: When your pod is deployed in our cluster, a random UID will be generated. You cannot assigned a UID/GID out of this range (for example, `1001`), it will require special privileges. Usually, the number is like `1000620000`.
 
-- **[Restricted-v2 policy](https://connect.redhat.com/en/blog/important-openshift-changes-pod-security-standards)**: Since Openshift 4.11, the new SCC policies are introduced according to the [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/).  
-  - What is the difference between v1 and v2 SCC (Security Context Constraints) policies?  
-    - V2 does not permit *allowPrivilegeEscalation=true*  
-        - Empty or false is compatible with v1 SCC and therefore works on OCP versions < 4.11  
-    - V2 requires you to leave the dropped capabilities empty, set it to *ALL*, or add only *NET_BIND_SERVICE*  
-        - By being accepted as v2 the SCC will always drop *ALL*. V1 only dropped *KILL*, *MKNOD*, *SETUID*, *SETGID* capabilities.  
-        - V2 still allows explicitly adding the *NET_BIND_SERVICE* capability  
-    - V2 requires you to either leave *SeccompProfile* empty or set it to *runtime/default*  
-        - Empty is compatible with v1 and works on OCP versions < 4.11  
+- **[Restricted-v2 policy](https://connect.redhat.com/en/blog/important-openshift-changes-pod-security-standards)**: Since Openshift 4.11, the new SCC policies are introduced according to the [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/).
+  - What is the difference between v1 and v2 SCC (Security Context Constraints) policies?
+    - V2 does not permit *allowPrivilegeEscalation=true*
+        - Empty or false is compatible with v1 SCC and therefore works on OCP versions < 4.11
+    - V2 requires you to leave the dropped capabilities empty, set it to *ALL*, or add only *NET_BIND_SERVICE*
+        - By being accepted as v2 the SCC will always drop *ALL*. V1 only dropped *KILL*, *MKNOD*, *SETUID*, *SETGID* capabilities.
+        - V2 still allows explicitly adding the *NET_BIND_SERVICE* capability
+    - V2 requires you to either leave *SeccompProfile* empty or set it to *runtime/default*
+        - Empty is compatible with v1 and works on OCP versions < 4.11
 
 - **[Default Pod resource limits](../rahti/usage/projects_and_quota.md#default-pod-resource-limits)**
 
@@ -39,11 +41,23 @@ you need to add your certificate data in the route object.
 
 Access to the services should be limited to selected networks with
 **whitelists** whenever applicable (See the chapter
-[Routes](tutorials/deploy_static_webserver_cli.md#route)). This is relevant whenever
+[Routes](concepts.md#route)). This is relevant whenever
 access can be restricted in terms of IP addresses.
 
 Secure routes thwart eavesdropping attacks that target e.g. service passwords
 and usernames, and other critical data sent over the internet.
+
+It is recommended to activate the HSTS header, and can be activated by running this command:
+
+```sh
+$ oc annotate route test-route haproxy.router.openshift.io/hsts_header='true'
+```
+
+HTTP Strict-Transport-Security response header (or HSTS for short) tells the browser to always use HTTPS and never HTTP for this given Route.
+
+!!! Info "Rate limiting"
+    It is also possible to use Annotations to [Protect your application against DDoS Attacks](../../support/faq/DDos.md)
+
 
 ## Image security
 

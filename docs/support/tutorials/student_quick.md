@@ -15,7 +15,7 @@ The easiest way is to **create a student project**.
 ## Project Details
 
 - The student may have **one project** at a time but be a member of many.
-- The student project is access to **a fixed amount of resources** for **a fixed period of time** for [selected CSC services](#available-services).
+- The student project is access to **a fixed amount of resources** for **a fixed period of time** for [selected CSC services](#available-services). *The quota of services cannot be increased and the end date of the project cannot be extended.*
 - Its purpose is to help students with their studies **free of charge**[^1].
 - The services are provided through **the same infrastructure** used by researchers, teachers and other students at Finnish higher education institutions.[^2]
 
@@ -31,6 +31,10 @@ The easiest way is to **create a student project**.
 - Student projects are **not intended for sensitive data**[^6] and cannot store such data.
 
 ## Available Services
+
+!!! info-label
+
+    If you need other services, ask someone at the university to create a different type of project and add you as a member.
 
 - [Allas](../../data/Allas/index.md){:target="_blank"} storage service
 - [Pouta](../../cloud/pouta/index.md){:target="_blank"} cloud service

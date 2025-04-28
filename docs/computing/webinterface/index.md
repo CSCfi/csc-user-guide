@@ -10,6 +10,10 @@ available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the
 [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for
 more details.
 
+Please note that logging in to Puhti and Mahti web interfaces requires
+**multi-factor authentication**.
+[More information on the Connecting page](connecting.md).
+
 !!! warning "Scope"
     The HPC web interfaces are best suited for **interactive workloads** that
     consume a **modest amount of computational resources**. Some examples are
@@ -42,6 +46,7 @@ more details.
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
         - MLflow
+        - RStudio
         - TensorBoard
         - Visual Studio Code
 - **Apps available in Puhti only:**
@@ -50,7 +55,6 @@ more details.
         - COMSOL
         - ParaView
         - VMD
-    - RStudio
     - MATLAB
 
 ### Shell
@@ -108,8 +112,8 @@ will allocate one Nvidia V100 GPU. See the
 [Puhti partitions page](../running/batch-job-partitions.md#puhti-partitions)
 for general information about queues on Puhti.
 
-In the **Mahti web interface**, the `interactive` and `gpusmall` partitions are
-available. Selecting the `gpusmall` partition will allocate a split Nvidia A100
-GPU (a100_1g.5g) with 1/7th of the compute capacity of a full A100. For more
-details about the split GPUs on Mahti, see the
+In the **Mahti web interface**, the `interactive`, `small` and `gpusmall`
+partitions are available. Selecting the `gpusmall` partition will allocate a
+split Nvidia A100 GPU (a100_1g.5g) with 1/7th of the compute capacity of a full
+A100. For more details about the split GPUs on Mahti, see the
 [Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).

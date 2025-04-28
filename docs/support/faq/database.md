@@ -12,7 +12,7 @@ of your choice. Use security groups to give network access to your database.
 
 !!! warning "Important"
     When using
-    [security groups](/cloud/pouta/launch-vm-from-web-gui/#firewalls-and-security-groups),
+    [security groups](../../cloud/pouta/launch-vm-from-web-gui.md#firewalls-and-security-groups),
     pay special attention to open only the necessary port(s) to the necessary
     IP(s).
 

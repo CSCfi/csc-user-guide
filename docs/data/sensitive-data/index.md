@@ -1,124 +1,90 @@
+# Sensitive Data (SD) services for research: user guide
 
-# Sensitive Data (SD) services user guide
+Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the steps below to navigate the guide and access key information quickly. To navigate the user guide, click on the left-hand side navigation bar or the [quick links](#quick-links-to-key-topics) from this page. Right side of each page has a table of content for faster browsing. The search tool is also available at the top bar.
+- [Quick links to key topics :material-arrow-down:](#quick-links-to-key-topics)
+- [Links to services :material-arrow-down:](#links-to-services)
+- [Service Breaks :material-arrow-down:](#service-breaks)
+- [Support :material-arrow-down:](#support)
+- [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 
 ### Quick links to key topics
 
-<div class="quick-links-container">
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Store and analyse</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd-access/">Start here</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd_connect/">Store with SD Connect</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd_desktop/">Analyse with SD Desktop</a>
-    </div>
-  </div>
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Publish and reuse</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="federatedega/">Federated EGA</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd-apply/">Reuse with SD Apply</a>
-    </div>
-  </div>
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Secondary use of health and social data</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="findata-permit/">Findata permit</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="single-register-permit/">Register permit</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd-desktop-audited/">Analyse with SD Desktop for secondary use</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="single-register-submission/">Submitting secondary use data</a>
-    </div>
-  </div>
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Additional Resources</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../../support/wn/data-new/">What's New with Sensitive Data Services</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../../support/faq/">Frequently Asked Questions (FAQ)</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd-terminology/">Useful Terminology</a>
-    </div>
-  </div>
+<div class="grid cards csc-quick-links" markdown>
+
+- #### Store and analyse research data
+
+    ---
+
+    [Start here: Accessing Sensitive Data services :material-arrow-right:](sd-access.md)
+
+    [Store with SD Connect :material-arrow-right:](sd_connect.md)
+
+    [Analyse with SD Desktop :material-arrow-right:](sd_desktop.md)
+
+
+- #### Publish and reuse research data
+
+    ---
+
+    [Publish with Federated EGA :material-arrow-right:](federatedega.md)
+
+    [Reuse with SD Apply :material-arrow-right:](sd-apply.md)
+
+
+- #### Secondary use of health and social data
+
+    ---
+
+    [Start here with **Findata permit** :material-arrow-right:](findata-permit.md)
+
+    [Start here with **Public Register permit** :material-arrow-right:](single-register-permit.md)
+
+    [Analyse with SD Desktop for secondary use :material-arrow-right:](sd-desktop-audited.md)
+
+    [Submit secondary use data :material-arrow-right:](single-register-submission.md)
+
+
+- #### Additional Resources
+
+    ---
+
+    [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
+
+    [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
+
+    [Useful terminology :material-arrow-right:](sd-terminology.md)
+
+    [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
+
 </div>
 
 
-### Quick links to login portals
+### Links to services
 
-Please ensure you read the instructions carefully before accessing any services to have a smooth experience:
+<div class="grid csc-quick-links csc-quick-links--portals" markdown>
 
-<div class="quick-links-container">
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Access SD Services</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">SD Desktop</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply</a>
-    </div>
-  </div>
+[Create and manage CSC account with MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC user portal" target=_blank }
+
+[Store and share with SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Sensitive Data (SD) Connect" target=_blank }
+
+[Analyse with SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Sensitive Data (SD) Desktop" target=_blank }
+
+[Reuse with SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Sensitive Data (SD) Apply" target=_blank }
+
 </div>
 
-### Service Breaks
-   
-* SD services undergo regular maintenance on the **first Wednesday of every month**, for full details please visit [Service Breaks page in CSC's research.csc.fi website](https://research.csc.fi/service-breaks){ target="_blank" } 
+
+### Service breaks
+
+* SD services undergo regular maintenance on the **first Wednesday of every month**, for full details please visit [Service Breaks page in _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/service-breaks){ target=_blank }
 
 
 ### Support
 
-!!! info "Do you have any questions? Would you like to discuss a specific project?"
-       
-       - [Contact us](../../support/contact.md), subject: *Sensitive Data*
-       - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
-       - Our team is here to help, and we offer direct support. Don't hesitate to contact!
+!!! info "Do you have any questions? Would you like to discuss how SD services can support your research project?"
 
-
-
-## Introduction to Sensitive Data (SD) services
-
-If you're new to CSC's Sensitive Data services, we recommend starting with the [introduction on research.csc.fi](https://research.csc.fi/sensitive-data) to get an overview of how the services work.
-
-### Watch: Overview Video
-
-<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-Read more about the services: [Choose a service](choose-a-service.md)
-
-### What is sensitive data
-Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
-[Read more about sensitive data from research.csc.fi](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
-
-### CSC's Sensitive Data services are available to:
-
-- Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
-- Research institutes and their international collaborators
-- Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access)
-
-
-
-
-
-
-
-
-
+       - [Contact us](../../support/contact.md), subject: *Sensitive Data services*
+       - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
+       - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.

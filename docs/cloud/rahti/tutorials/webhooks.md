@@ -1,3 +1,8 @@
+!!! success "Basic level"
+    You need to familiarize yourself with the Rahti [web interface](../usage/getting_started.md)
+
+    You need knowledge on Git and GitHub. Also, a GitHub account is required
+
 # Webhooks
 
 Webhooks are URLs that allow triggering actions in a system. Rahti supports webhooks to trigger rebuilds. This means that each BuildConfig is listening to a particular URL that includes a secret (more about that later), and that when this URL is called, a build will be triggered for a default branch.

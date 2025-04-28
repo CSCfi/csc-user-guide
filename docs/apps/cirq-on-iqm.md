@@ -15,7 +15,7 @@ Currently supported [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) ve
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 15.1    | `helmi_cirq/15.1`                    | X     |                 |
+| 15.2    | `helmi_cirq/15.2`                    | X     |                 |
 
 
 All modules are based on Tykky using LUMI-container-wrapper.
@@ -71,7 +71,7 @@ Example batch script for running a quantum job on Helmi:
 module use /appl/local/quantum/modulefiles
 module load helmi_cirq
 
-python -u first_quantum_job.py
+python -u quantum_job.py
 ```
 
 Submit the script with `sbatch <script_name>.sh`.

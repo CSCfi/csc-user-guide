@@ -1,15 +1,21 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Data submission
 
-Below, you will find step-by-step instructions for uploading, describing, and publishing biomedical data via the Finnish Federated EGA. **Please be aware that this process can be lengthy** (anywhere between one to four months), but we will support you at every step. Requests will be processed in the order they are received. 
+Below, you will find step-by-step instructions for uploading, describing, and publishing biomedical data via the Finnish Federated EGA. **Please be aware that this process can be lengthy** (anywhere between one to six months), but we will offer support and guide you during the entire process.
+
+The process described on this user guide is specific for submitting datasets to Finnish FEGA. Central EGA and other FEGA nodes have different data submission processes.
+
+Submission requests will be processed in the order they are received. 
 
 !!! Note
-    Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). Please make sure, before starting to submit any data, that all the legal agreements are in place. You can do so by contacting [CSC Service Desk](../../support/contact.md) (subject: Federated EGA) or your home organization's legal services.
+    Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). **Please start preparing the submission well in advance** (even before submitting your manuscript to a scientific journal) by contacting [CSC Service Desk](../../support/contact.md) (subject: Federated EGA) and your home organization's legal services.
     
 ## Step 1: Legal agreements, Data Access Committee and Policies
 
 Data deposition to the Finnish Federated EGA requires a series of legal agreements: a Service Agreement for Federated EGA and a Data Access Agreement including a Data Transfer Agreement. These agreements, as well as the subsequent access management of the data, are the responsibility of the data controller. The data controller of the submitted data is usually the academic organization that has facilitated the research. The ownership of the data does not change by using this service.
 
-Submitting data to FEGA is covered by the [CSC's free-of-charge](https://research.csc.fi/free-of-charge-use-cases) use cases, but the free use doesn't include a mandatory backup copy of the data. Backup storage can be bought as an additional service within FEGA, or submitting organisation can agree on other storage methods for the backup copy in the contract with CSC. More information about the price of FEGA's internal backup service in the [pricing document](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf){ target=_blank }.
+Submitting data to FEGA is covered by the [CSC's free-of-charge](https://research.csc.fi/free-of-charge-use-cases) use cases for Finnish academic research use, but the free use doesn't include a mandatory backup copy of the data. Backup storage can be bought as an additional service within FEGA, or submitting organisation can agree on other storage methods for the backup copy in the contract with CSC. More information about the price of FEGA's internal backup service in the [pricing document](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf){ target=_blank }. The submission service is available only for Finnish users.
 
 Below, you can find more information about necessary legal agreements and data access management:
 
@@ -17,32 +23,17 @@ Below, you can find more information about necessary legal agreements and data a
 
 * **Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, the data controller can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. The DAA should also include a Data Transfer Agreement (DTA), necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. DAA and DTA will be included in the data access policies (see the next paragraph). For further information, please contact your home organization's Data Access Committee or legal services. You can find an example template [here](https://ega-archive.org/assets/files/Example_DAA.doc).
 
-* **Data Access Committee and Policies**: Data Access Committee (DAC) and Policies are managed by the data controller. Data access as well as DAC and Policy information are managed in a separate service called SD Apply. Organizations can have general DACs and Policies, which are used for all datasets submitted from the same organization. Only data access application link associated with the dataset will be unique to each dataset. This link is created after your data submission is finalized in FEGA submission portal, and the unique identifier of your dataset is combined to DAC, Policies and application form in SD Apply. To make sure your organization has a suitable DAC and Policies for your dataset, contact your own organization's representatives or [CSC Service Desk](../../support/contact.md) for further guidance.
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/XXOph-0wacc?si=9NWFpr-LjF_d4f2W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-!!! Note
-    Please be aware that your organization might already have the necessary agreements in place with CSC, or templates for Data Access Agreements available. We are here to provide support if additional information is required, [CSC Service Desk](../../support/contact.md) (subject: Federated EGA). 
+* **Data Access Committee and Policies**: Data Access Committee (DAC) and Policies are managed by the data controller. Data access as well as DAC and Policy information are managed in a separate service called [SD Apply](./sd-apply.md). Organizations can have general DACs and Policies, which are used for all datasets submitted from the same organization. Only data access application link associated with the dataset will be unique to each dataset. This link is created after your data submission is finalized in FEGA submission portal, and the unique identifier of your dataset is combined to DAC, Policies and application form in SD Apply. To make sure your organization has a suitable DAC and Policies for your dataset, contact your own organization's representatives or [CSC Service Desk](../../support/contact.md) for further guidance.
 
 ## Step 2: General information of the submission
 
-Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the general information of the submission.
+Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the general information of the submission. Preferably, this information is first shared with the organizational DAC, which then can send the information to FEGA helpdesk with their approval of the submission.
 
-To begin the submission process, please fill in the [general information form](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/fega-general-information.pdf) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send the required information via email to [CSC Service Desk](../../support/contact.md) (subject: Federated EGA). You will receive further instructions.
-
-!!! note
-
-    - This workflow is specific for submitting datasets to Finnish FEGA. Central EGA and other FEGA nodes have different data submission processes.
-    
-    - Data submission might take up to a month or more. Therefore, please get in touch with us well in advance (before submitting your manuscript to a scientific journal). In this way, we can offer proper support and guide you during the entire process.
-    
-    - Please use the same email thread throughout the whole submission process.
-
+To begin the submission process, please fill in the [general information form](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/fega-general-information.pdf) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send submission request to your organization's DAC and they can deliver the required information via email to [CSC Service Desk](../../support/contact.md) (subject: Federated EGA).
 
 ## Step 3: Credentials
 
-Once the legal agreements between the data controller and CSC are finalized, you can register on the [EGA webpage](https://ega-archive.org/register/) to create central EGA credentials. You will receive an activation link via email after your registration has been approved by central EGA. After activating your credentials, contact [CSC Service Desk](../../support/contact.md) in order to be added as a Finnish FEGA submitter.
+Once the legal agreements between the data controller and CSC are finalized and the submission is approved by the organizational DAC, you can register on the [EGA webpage](https://ega-archive.org/register/) to create central EGA credentials. You will receive an activation link via email after your registration has been approved by central EGA. After activating your credentials, contact [CSC Service Desk](../../support/contact.md) in order to be added as a Finnish FEGA submitter. In addition, provide the IP address from which you will transfer the data to FEGA to be able to connect to the FEGA inbox.
 
 !!! note
     Central EGA credentials, including a username (usually this is your email address) and a password, are required for the encryption and data upload to Finnish FEGA and for metadata submission with the submitter portal.
@@ -71,7 +62,7 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 Non-sensitive data (or open data) needs to be submitted in appropriate archives. For example, sequences to the ENA [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), variants to EVA [European Variation Archive](https://www.ebi.ac.uk/eva/), array-based to [ArrayExpress – functional genomics data](https://www.ebi.ac.uk/arrayexpress/), phenotypes to [BioSamples](https://www.ebi.ac.uk/biosamples/) and GWAS summary statistics to the [GWAS Catalog](https://www.ebi.ac.uk/gwas/).
 
 !!! note
-    For more information about data types and formats, check [Central EGA webpage](https://ega-archive.org/submission/sequence) or contact us at [CSC Service Desk](../../support/contact.md) (subject: Federated EGA).
+    For more information about data types and formats, see [Submission FAQ on EGA web page](https://ega-archive.org/submission/metadata/submission/FAQ/) or contact us at [CSC Service Desk](../../support/contact.md) (subject: Federated EGA).
 
 ## Step 5: Data encryption and upload 
 Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEGA needs to be encrypted. 
@@ -157,17 +148,17 @@ Log in to the submitter portal by using the EGA credentials (username: usually y
 
 Using the submitter portal, you can register the following metadata objects:
 
-- **Study**. Information about the sequencing study.
+- **Study**. Information about the sequencing study. The title should be a 3–20-word introduction of the project, and the description should be a 3 - 5 sentences definition of the project with some background, goal and details.
 
 - **Samples**. Information about the sequencing samples in the experiment or analysis. You can also do a batch upload for samples.
 
 - **Experiments**. Information about the sequencing methods, protocols, and machines.
 
-- **Runs**. Information about the files containing the raw data generated in a run of sequencing. Samples, experiments, and files are linked through runs. Appropriate objects for FASTQ and BAM/CRAM submissions. You can also do a batch upload for runs.
+- **Runs**. Information about the files containing the raw data generated in a run of sequencing. Samples, experiments, and files are linked through runs. Appropriate object for FASTQ and BAM/CRAM submissions. You can also do a batch upload for runs.
 
 - **Analysis**. References the analysis files, which can include processed data (VCF), specific type of raw data (BAM/BAI or CRAM/CRAI) or phenotypic information. Associated with samples and study. The analysis is an EGA specific metadata object that links Samples to Files. If you don't have any analysis files, you can proceed without Analysis metadata.
 
-- **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy (including access application link), which is created by CSC helpdesk.
+- **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy, which includes access application link and is created by CSC helpdesk. The title should be a 3–20-word overview of the dataset content, and the description should be a 3 - 4 sentences definition of the dataset content, including sample number and details, file type and technology/experimentation used.
 
 When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
 

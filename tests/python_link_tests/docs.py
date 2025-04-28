@@ -51,8 +51,8 @@ class Docs:
         with open(self.input_files[0]) as fp:
             for line in fp:
                 line_stripped=line.strip()
-                data=line_stripped.split(":")
-                data=list(map(lambda x: x.strip() ,data ))
+                matched=re.search(r"([^:]*):([0-9]*):([^:]*):?(\S*)", line_stripped)
+                data=list(map(lambda x: x.strip(), matched.groups()))
                 source_file=self.files[data[0]]
                 if(len(data)==4):
                     source_file.add_link(Internal_link(source_file,data[1],data[2],data[3]))
@@ -207,7 +207,10 @@ class Internal_link:
         if(self.is_absolute):
             source="site/"
             target=self.link_file_target
-            
+
+            if(self.ends_with_md):
+                target=target[:-3]
+
             if(not self.has_other_ending):
                 target=target+"/index.html"
 

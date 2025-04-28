@@ -1,6 +1,10 @@
+!!! warning "Middle level"
+    You need to familiarize yourself with the kubernetes [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/) API.  
+    In this tutorial, we will use the OpenShift CLI tool [oc](../usage/cli.md)
+
 # Advanced NetworkPolicies
 
-In this YAML example below there is a `NetworkPolkicy` that will allow communication **initiated from** another namespace `<NAME OF ANOTHER NAMESPACE>` to the current namespace:
+In this YAML example below there is a `NetworkPolicy` that will allow communication **initiated from** another namespace `<NAME OF ANOTHER NAMESPACE>` to the current namespace:
 
 ```yaml
 apiVersion: networking.k8s.io/v1

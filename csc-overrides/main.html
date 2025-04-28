@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-{% block announce %}
-  {% if config.extra.announcement_visible is not true %}
-  <style>
-  .md-banner {
-    display: none;
-  }
-  </style>
-  {% endif %}
-  {% include "partials/announcement.html" %}
-{% endblock announce %}
+{% block header %}
+  {% include "partials/pre-header.html" %}
+  {{ super() }}
+{% endblock header %}
+{% block hero %}
+{% if config.extra.announcement_visible is true %}
+  <div class="announcement-banner">
+    {% include "partials/announcement.html" %}
+  </div>
+{% endif %}
+{% endblock hero %}
 {% block content %}
   {% block breadcrumbs %}
     {% include "partials/breadcrumbs.html" %}

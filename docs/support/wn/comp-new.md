@@ -1,5 +1,93 @@
 # Computing environment
 
+## New data cleaning policy on Puhti, 17.4.2025
+
+On Puhti there is a process to clean (delete) old files in scratch that are not
+in active use. To ensure the system remains usable, we are changing the
+[cleaning policy](../../computing/usage-policy.md#disk-cleaning).
+
+**The new policy is**:
+
+* If project has a **scratch quota of 5 TiB or more**, cleaning will target
+  files that have not been accessed (opened, read, modified) in the last **90
+  days**.
+* For other projects with smaller scratch quotas the cleaning policy is
+  unchanged. Cleaning will target files that have not been accessed (opened,
+  read, modified) in the last **180 days**.
+
+You can use the `csc-workspaces` command to see which cleaning cycle your
+projects are subject to.
+
+## Puhti and Mahti web interfaces updated to release 25 and 11, 7.4.2025
+
+* Mahti: [RStudio](../../computing/webinterface/rstudio.md) has been added.
+* RStudio now queries available r-env version dynamically.
+* VSCode updated to 1.98.2.
+* Python module selection has been added to VSCode.
+* Interactive app launch settings can now be saved and restored later. See [Saved interactive app settings](../../computing/webinterface/apps.md#saved-interactive-app-settings) for how to use them.
+* Interactive app form labels and descriptions have been improved.
+* The default amount of local disk for interactive apps has been reduced.
+* The performance of the web interfaces has been improved.
+* Open OnDemand updated to version 4.0.2.
+
+## Starting April 22 2025, multi-factor authentication is required to login to web interfaces of Puhti and Mahti, 2.4.2025 <a id="mfa"></a>
+
+**Change:** Starting April 22 2025, multi-factor authentication (MFA) will be
+required to
+[login to the web interfaces of Puhti and Mahti](../../computing/webinterface/connecting.md).
+
+**Action:**  Test whether MFA is already enabled for Haka logins by your home
+organization. [Please use the test page in MyCSC](https://my.csc.fi/test-mfa)
+(select **Haka MFA**). It is highly preferred to use the Haka MFA of your home organization, if possible.
+If Haka MFA is not enabled or if your home organization does not offer Haka,
+[please activate **CSC MFA** following these instructions](../../accounts/mfa.md#how-to-activate-mfa).
+
+**Motivation:** With this change we are improving the security of our
+computing, data, and cloud services.
+[Read more about MFA in the blog on the research.csc.fi website](https://research.csc.fi/2025/04/02/multi-factor-authentication/).
+
+Please contact [CSC Service Desk](../../support/contact.md) if you have any
+questions or need support with activating MFA.
+
+## Starting April 14 2025, SSH login to Puhti and Mahti will only work with SSH keys added in MyCSC, 25.3.2025 <a id="ssh-key"></a>
+
+**Change:** Starting April 14 2025, only SSH keys added through MyCSC will
+allow you to login to Puhti or Mahti with SSH. Traditional password-based
+authentication and SSH keys stored in your personal `~/.ssh/authorized_keys`
+file will no longer work. Note that the Puhti and Mahti web interfaces are not
+affected by this change and login sessions can be launched within the web
+browser as before.
+
+**Action:** To access Puhti and Mahti login nodes with SSH, you must create SSH
+keys and add your public key to MyCSC.
+[See here for detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
+
+**Motivation:** The purpose of implementing this change is to improve the
+security of our computing, data, and cloud services. Password-based logins
+are vulnerable, as are manually managed SSH keys. Implementing MyCSC key
+management significantly strengthens user identity verification.
+
+Please contact [CSC Service Desk](../../support/contact.md) if you have any
+questions or need support with taking SSH keys into use.
+
+## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
+
+Mahti has expanded its capabilities with a
+[new small partition](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
+featuring 56 compute nodes (7168 cores), each equipped with 3500 GiB
+of local NVMe storage. This partition introduces flexible CPU
+core-based allocation, allowing users to reserve individual cores
+rather than entire nodes. Additionally, the interactive partition has
+been enhanced with 4 nodes that include the same high-capacity local
+storage.
+
+This new configuration is optimized for batch processing of small
+CPU-intensive workloads that require fast local storage access. The
+combination of core-based allocation and high-performance NVMe drives
+makes this partition particularly suitable for data-intensive
+tasks. Current Puhti users working with I/O-bound workflows may find
+this new resource especially valuable for their computations.
+
 ## Puhti and Mahti web interfaces updated to release 24 and 10, 30.1.2025
 
 * VSCode has been updated to 1.96.4.
@@ -16,6 +104,7 @@
 * Open OnDemand updated to version 3.1.9.
 
 ## Puhti and Mahti web interfaces updated to release 22 and 8, 28.8.2024
+
 * The Jupyter app launch form has been improved.
     * Module version for Python modules can now be selected using a dropdown.
     * The UI for extending the Python environment with additional packages has been simplified.
@@ -25,6 +114,7 @@
 * Open OnDemand updated to version 3.1.7.
 
 ## Puhti and Mahti web interfaces updated to release 21 and 7, 13.6.2024
+
 * VSCode updated to 1.89.1.
 * Jupyter app should work better with virtual environments created outside the web interface.
 * Puhti: RStudio now has R version 4.4.0 available.
@@ -32,8 +122,8 @@
 * Open OnDemand updated to version 3.1.5.
 
 ## Puhti and Mahti web interfaces updated to release 20 and 6, 27.5.2024
-* The Cloud storage configuration app can now configure connections to LUMI-O.
 
+* The Cloud storage configuration app can now configure connections to LUMI-O.
 
 ## Puhti and Mahti web interfaces updated to release 19 and 5, 10.4.2024
 
@@ -43,7 +133,6 @@
 * Downloading directories now works correctly again.
 * Accessibility statement has been updated and some accessibility issues have been fixed.
 * Open OnDemand updated to version 3.1.4
-
 
 ## Puhti web interface updated to release 18, 5.3.2024
 
@@ -66,7 +155,6 @@
 * TensorBoard and MLflow can now use the default module versions.
 * Open OnDemand updated to version 3.1.1.
 
-
 ## Mahti has small GPUs available for interactive work, 5.3.2024
 
 Four (4) A100 GPUs on Mahti have been split into a total of 28 smaller GPUs with a fraction of the 
@@ -75,7 +163,6 @@ the compute power of one A100 GPU and in total 5 GB of memory. These are useful 
 courses and for code development, and are also available via the
 [web interface](../../computing/webinterface/index.md#partitions-and-resources).
 [See more details here](../../computing/running/creating-job-scripts-mahti.md#gpu-batch-jobs).
-
 
 ## Mahti web interface updated to release 4, 27.2.2024
 
@@ -209,7 +296,7 @@ remains before access is removed.
 
 * User authentication is now happening through OpenID Connect, which means that users
   can authenticate via Haka or CSC login. This enables Single Sign-on (SSO) between,
-  e.g., the web interface and My CSC.
+  e.g., the web interface and MyCSC.
 * A new welcome page has been added instead of the old login page.
 * The Puhti usage metrics are now visualized in a new manner.
 * Open onDemand version updated to 2.0.29.
@@ -287,7 +374,7 @@ for a detailed list of all nodes.
 Puhti's parallel file system is filling up and hence degrading performance. We will start
 to enforce a policy to remove old files. To help managing files without causing
 excessive load on the system, we've updated our [tutorial on how to move, delete or archive
-your data](../../tutorials/clean-up-data/).
+your data](../tutorials/clean-up-data.md).
 
 ## Puhti web interface beta updated to release 8 25.5.2022
 

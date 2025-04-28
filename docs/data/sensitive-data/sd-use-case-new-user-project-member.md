@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # How to get access to SD Services: Project member
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**
@@ -46,6 +48,14 @@ You need to activate MFA (multi-factor authentication) to log in the Sensitive D
 
 ### 4. Log into SD Services
 
-- All preparations are complete. You can now start using SD Connect and SD Desktop.
-    - [SD Connect login instructions](sd-connect-login.md)
-    - [SD Desktop login instructions](sd-desktop-login.md)
+- Now all the preparations are ready and you can start using the services (links to related user guides):
+
+SD Connect:
+
+- [SD Connect overview and key features](./sd_connect.md)
+- [SD Connect login instructions](./sd-connect-login.md)
+  
+SD Desktop:
+
+- [SD Desktop overwvire and key features](./sd_desktop.md)
+- [SD Desktop login instructions](sd-desktop-login.md)

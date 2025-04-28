@@ -1,6 +1,6 @@
 # How to deploy OAuth2 Proxy in Rahti
 
-We will explan how to deploy and use [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to provide authentication control
+We will explain how to deploy and use [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to provide authentication control
 using Providers such as Google, GitHub, and others.
 
 In this tutorial, we will see how to use GitHub
@@ -39,7 +39,7 @@ oc create route edge flask-demo --service=nginx-okd --hostname=demo-oauth2.2.rah
     You can also use your own domain but in this case, you will need to create an `Ingress`.
     More information [here](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
-We need to create a specific configuration to make NGINX run as reverse-proxy. For that, we will use [ConfigMap](../tutorials/configuration.md)
+We need to create a specific configuration to make NGINX run as reverse-proxy. For that, we will use a [ConfigMap](../concepts.md#configmap)
 
 Create a new `configmap.yaml` file:
 

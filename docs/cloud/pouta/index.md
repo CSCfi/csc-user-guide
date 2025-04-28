@@ -76,5 +76,5 @@ Other useful links are:
 ## Self study and troubleshooting
 
 * [Pouta videos](tutorials/pouta-videos.md)
-* [Known problems and limitations](known-problems.md)
+* [Known problems and limitations](./known-problems.md)
 * [Pouta FAQ](../../support/faq/index.md#pouta)

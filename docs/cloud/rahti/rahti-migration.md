@@ -11,7 +11,7 @@ Rahti production is the next version of OpenShift OKD running in CSC. The underl
 Before you start the migration, you need to gather information about your application:
 
 1. Where is the **data stored**? And how is it **accessed**? Do you use a database?
-     1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../../dbaas/).
+     1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../dbaas/index.md).
      1. If you use Read-Write-Once (RWO) volumes, you can easily migrate them to Rahti. Just follow the instruction in the [How to use storage?](#how-to-use-storage) section.
      1. If you use Read-Write-Many (RWX), you have to check why are you using it. It may be two main options: (1) It was the default and you could use a RWO volume instead because you are only mounting the volume once, or (2) You need to mount at the same time the same volume in several Pods. If you are in option (2), sadly there is not yet a supported solution in Rahti for RWX, please contact us at <servicedesk@csc.fi> and let us know your use case, we are gathering customer needs to better develop the RWX solution. And we will work together on possible alternatives.
 
@@ -23,7 +23,7 @@ Before you start the migration, you need to gather information about your applic
 
 1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](../../support/faq/helm.md). As a last option, you may copy manually each API object.
 1. How do users access the application? What are the URLs? Is the URL is a Rahti provided URL (`*.rahtiapp.fi`), or a dedicated domain?
-    1. If you use a dedicated domain, you need to see with your DNS provider how to update the name record. The DNS information can be found on the [Route](../../rahti/networking/#routes) documentation.
+    1. If you use a dedicated domain, you need to see with your DNS provider how to update the name record. The DNS information can be found on the [Route](../rahti/networking.md#routes) documentation.
     1. If you use a URL of the type `*.rahtiapp.fi`, you will no longer be able to use use it in Rahti and will need to migrate to `*.2.rahtiapp.fi` or to a dedicated domain.
 1. Migration day considerations. What is an acceptable downtime? - We can provide you some assistance on planning the migration, but we cannot coordinate with your users or decide what is an acceptable downtime.
 
@@ -224,4 +224,4 @@ So, if the deployment have a mounted volume and you want to update the deploymen
 
 ### How to use Integrated Registry
 
-To learn more about image caching and access control registry in Rahti, refer to the following article: [Using Rahti Integrated Registry](../../cloud/rahti/images/Using_Rahti_2_integrated_registry.md)
+To learn more about image caching and access control registry in Rahti, refer to the following article: [Using Rahti Integrated Registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md)

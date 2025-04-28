@@ -1,17 +1,30 @@
-.md-banner {
+.announcement-banner {
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--csc-admonition--bg);
-}
-
-.md-banner__inner {
-  overflow: hidden;
-  max-width: unset;
-  height: auto;
-  margin: .3rem auto;
-}
-
-.md-banner__inner p {
-  margin: unset;
-  font-size: small;
   color: var(--csc-admonition--fg);
-  line-height: 2.0;
+  font-size: 1.25em;
+}
+
+.announcement-banner a {
+  text-decoration: underline;
+  transition: background-color 125ms;
+  color: var(--md-typeset-a-color);
+}
+
+.announcement-banner a:hover {
+  background-color: var(--md-accent-bg-color);
+}
+
+.announcement-banner > .announcement-icon {
+  margin: 0 1.125em;
+  height: 1.75em;
+  aspect-ratio: 1/1;
+  fill: var(--csc-admonition--fg);
+}
+
+.announcement-banner > .announcement-icon-end {
+  transform: rotateY(180deg);
 }

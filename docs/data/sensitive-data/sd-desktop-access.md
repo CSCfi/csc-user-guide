@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Importing data in your virtual desktop
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/hsUQSrNpaf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -56,13 +58,15 @@ Keep **Data Gateway** open and click **Open folder**.
 
 ### 3. Set permissions for shared access
 
-After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only.
+After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only (orange lock icon).
 
 1. Right-click the folder copied to **Volume** and select **Properties** to adjust folder permissions.
     * Open the **Permissions** tab.
     * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
         1. Owner -> Access -> Select “Create and delete files”.
         2. Others -> Access -> Select “Create and delete files”.
+        3. Close the permission tab (top left corner).
+        4. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
 
@@ -73,10 +77,12 @@ After copying files to volume, adjust permissions for folders and files to enabl
         1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”. 
         2. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         3. Click **Change**.
+        4. Close the permission tab (top left corner).
+        5. The orange lock icon will no longer be visible next to the files and can now be edited by all project members.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
 
-Now all project members with access can view and analyze files.
+
 
 ### 4. Close Data Gateway
 
@@ -89,5 +95,11 @@ You can now disconnect the Data Gateway connection if no further data accessor i
 ### 5. Log out
 
 [Log out](sd-desktop-access-vm.md#log-out-from-virtual-desktop) from virtual desktop.
+
+## Your next steps in this guide
+
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
 
 
