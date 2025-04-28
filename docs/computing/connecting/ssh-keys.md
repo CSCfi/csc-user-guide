@@ -92,7 +92,7 @@ Host *.bullx
 
 The only way to copy a public key to a supercomputer is through the MyCSC
 customer portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+[Read the instructions below](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Adding public key in MyCSC
 
@@ -105,14 +105,28 @@ You can add your public key through the
 3. Locate _SSH PUBLIC KEYS_ section and select _+ Add key_. As a security
    measure, you are asked to log in again if it has been a few minutes since
    you last logged into the portal.
-4. Enter a _Title_ for your key pair, e.g. "my-ssh-key".
-5. Paste your **public** SSH key into the _Key_ field. Supported key types are
-   Ed25519 and RSA 4096 through 16384. **We strongly recommend Ed25519**.
-6. Select _Add_.
-7. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
+4. Add your public key by either:
+    1. uploading the public key file in the _Upload file_ tab, or
+    2. manually pasting its contents into the _Key_ field in the _Manual input_
+       tab. In this case, also add a _Title_ for the key, e.g. "my-ssh-key".
+5. Select _Upload_ or _Add_.
+6. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
    it might take up to one hour for your new key to become active. If it takes
    longer than that, please
    [contact the CSC Service Desk](../../support/contact.md).
+
+!!! warning "Supported key types and formatting"
+    Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
+    recommend Ed25519**.
+
+    Your public key should consist of the SSH key type, the key sequence and an
+    optional comment, all separated by single spaces. Make sure to add the
+    whole SSH key on the same line and do not add other whitespace than normal
+    space characters. If your key is improperly formatted, an error message is
+    displayed. A key in the correct format looks like this:
+    ```
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7 optional-comment
+    ```
 
 Users can check their public keys on Puhti or Mahti using the commands:
 
@@ -126,16 +140,6 @@ cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
 
 If you have added multiple keys to MyCSC, they should all be visible in the
 same `${USER}.pub` file.
-
-!!! info "Required key format"
-    Your public key should consist of the SSH key type and the key sequence,
-    separated by a single space. Make sure to add the whole SSH key on the
-    same line and do not add other whitespace than normal space characters.
-    If your key is improperly formatted, an error message is displayed. A key
-    in the correct format looks like this:
-    ```
-    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
-    ```
 
 ## More information
 
