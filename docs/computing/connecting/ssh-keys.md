@@ -105,15 +105,27 @@ You can add your public key through the
 3. Locate _SSH PUBLIC KEYS_ section and select _+ Add key_. As a security
    measure, you are asked to log in again if it has been a few minutes since
    you last logged into the portal.
-4. Add your public key by either:
+
+    ![Add key](https://a3s.fi/docs-files/ssh-no-keys.png 'Add key')
+
+4. Add your public key by either
     1. uploading the public key file in the _Upload file_ tab, or
     2. manually pasting its contents into the _Key_ field in the _Manual input_
        tab. In this case, also add a _Title_ for the key, e.g. "my-ssh-key".
+
+        === "Upload file"
+            ![Upload file](https://a3s.fi/docs-files/ssh-upload-file.png 'Upload file')
+
+        === "Manual input"
+            ![Manual input](https://a3s.fi/docs-files/ssh-manual-input.png 'Manual input')
+
 5. Select _Upload_ or _Add_.
 6. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
    it might take up to one hour for your new key to become active. If it takes
    longer than that, please
    [contact the CSC Service Desk](../../support/contact.md).
+
+    ![New key added](https://a3s.fi/docs-files/ssh-key-added.png 'New key added')
 
 !!! warning "Supported key types and formatting"
     Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
