@@ -16,8 +16,10 @@ to be able to connect to CSC supercomputers using an SSH client.
       copying the public key directly to CSC supercomputers using tools such as
       `ssh-copy-id` will not work.
 
-In addition to this documentation, please see our
-[tutorial on setting up SSH keys](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html).
+For more information about SSH keys, see:
+
+- [Tutorial: Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+- [FAQ: Troubleshooting issues with SSH keys](../../support/faq/ssh-keys-not-working.md).
 
 !!! warning
     The private key should **never** be shared with anyone, not even with CSC
@@ -105,8 +107,7 @@ You can add your public key through the
    you last logged into the portal.
 4. Enter a _Title_ for your key pair, e.g. "my-ssh-key".
 5. Paste your **public** SSH key into the _Key_ field. Supported key types are
-   Ed25519 and RSA 2048 through 16384. **We strongly recommend Ed25519**. If
-   opting for RSA, please use at least 4096 bits.
+   Ed25519 and RSA 4096 through 16384. **We strongly recommend Ed25519**.
 6. Select _Add_.
 7. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
    it might take up to one hour for your new key to become active. If it takes
@@ -135,3 +136,8 @@ same `${USER}.pub` file.
     ```
     ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
     ```
+
+## More information
+
+- [Tutorial on setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+- [Troubleshooting issues with SSH keys](../../support/faq/ssh-keys-not-working.md)

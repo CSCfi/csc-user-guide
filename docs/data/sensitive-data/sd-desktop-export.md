@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Exporting data from virtual desktop via user interface
 
 ## Prerequisites

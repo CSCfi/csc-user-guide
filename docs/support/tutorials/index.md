@@ -15,7 +15,7 @@
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
-* [Setting up SSH keys](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+* [Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
 
 ## Installation of tools on supercomputers
 
