@@ -101,6 +101,8 @@ Your CSC account is now secured with multi-factor authentication!
 
 If you are experiencing problems or want to disable your MFA authentication, please contact the [CSC Service Desk](../support/contact.md).
 
+See also [solutions to common MFA-related problems](../support/faq/issues-with-mfa.md).
+
 !!! note "Reminder"
     If you know you'll be switching to a new phone, remember to disable
     MFA before making the switch. Also, keep your contact information up to date
