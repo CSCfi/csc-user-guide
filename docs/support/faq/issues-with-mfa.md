@@ -1,6 +1,6 @@
 # How to solve issues with multi-factor authentication (MFA)
 
-## The provided code is wrong or has been expired. Please try again.
+## Error: "The provided code is wrong or has been expired. Please try again."
 
 To solve the problem:
 
