@@ -36,6 +36,8 @@ template: home.html
     [LUMI User Guide :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
 
     [Allas User Guide :material-arrow-right:](data/Allas/index.md)
+    
+    [Python Usage Guide :material-arrow-right:](support/tutorials/python-usage-guide.md)
 
     [Machine Learning Guide :material-arrow-right:](support/tutorials/ml-guide.md)
 

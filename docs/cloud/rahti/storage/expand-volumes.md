@@ -7,6 +7,10 @@ As dynamic volume expansion is not activated, if one edits directly in the `YAML
 # * spec: Forbidden: spec is immutable after creation except resources.requests for bound claims
 (...)
 ```
+!!! warning ""
+    When increasing the size of a PersistentVolumeClaim (PVC), it's recommended to use sizes that are multiples of **8 GiB** (e.g., 16 GiB, 32 GiB, 64 GiB, 128 GiB, etc.).  
+    Other values may not work and the size increase may silently fail.
+
 
 Then a more artisanal procedure must be followed:
 

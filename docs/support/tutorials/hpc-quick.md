@@ -204,8 +204,8 @@ under `/scratch/<project>`. This folder is shared by *all users* in a project
 and has a default quota of 1 TB.
 
 Please note that the **scratch disk is not meant for long-term data storage**
-and, on Puhti, files that have not been used for 180 days will be automatically
-removed. We recommend the
+and, on Puhti, files that have not been used for 180 days (scratch quota less than 5 TiB)
+or 90 days (scratch quota 5 TiB or more) will be automatically removed. We recommend the
 [Allas object storage service](../../data/Allas/introduction.md) for storing
 research data that is not actively used on the supercomputers. See
 [guidelines for managing data on Puhti and Mahti scratch disks](clean-up-data.md)
