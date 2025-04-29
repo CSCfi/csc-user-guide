@@ -24,7 +24,7 @@
 ## Accounts
 * [I cannot login. What to do?](i-cannot-login.md)
 * [I forgot MyCSC password. How do I get a new one?](new-password.md)
-* [I have issues with setting up multi-factor authentication (MFA)](issues-with-mfa.md)
+* [How to solve issues with multi-factor authentication (MFA)](issues-with-mfa.md)
 * [How to create a CSC user account?](how-to-create-CSC-user-account.md)
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
 * [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
