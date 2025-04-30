@@ -97,17 +97,6 @@ Your CSC account is now secured with multi-factor authentication!
 
 ![MFA activated](images/small/mfa-enabled.png 'Your account is now secured with Multi-factor authentication')
 
-## Problems with MFA
-
-If you are experiencing problems or want to disable your MFA authentication, please contact the [CSC Service Desk](../support/contact.md).
-
-See also [solutions to common MFA-related problems](../support/faq/issues-with-mfa.md).
-
-!!! note "Reminder"
-    If you know you'll be switching to a new phone, remember to disable
-    MFA before making the switch. Also, keep your contact information up to date
-    in MyCSC in case your account needs to be recovered.
-
 ## Logging in with MFA
 
 ### Haka users with home organization MFA
@@ -129,3 +118,14 @@ See also [solutions to common MFA-related problems](../support/faq/issues-with-m
 2. Authenticate with the chosen method.
 3. CSC asks you to provide the six-digit code shown in your authentication app
 4. You are in!
+
+## Problems with MFA
+
+If you are experiencing problems or want to disable your MFA authentication, please contact the [CSC Service Desk](../support/contact.md).
+
+See also [solutions to common MFA-related problems](../support/faq/issues-with-mfa.md).
+
+!!! note "Reminder"
+    If you know you'll be switching to a new phone, remember to disable
+    MFA before making the switch. Also, keep your contact information up to date
+    in MyCSC in case your account needs to be recovered.
