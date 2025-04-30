@@ -114,56 +114,6 @@ def copy_assets(docs_dir, lang_dir):
                     shutil.copy2(src_file, dst_file)
                     logger.info(f"Copied asset: {rel_path}")
 
-def update_mkdocs_config(docs_dir, language_name, language_code):
-    """Update mkdocs.yml with i18n configuration if needed."""
-    config_file = os.path.join(docs_dir, '..', 'mkdocs.yml')
-    
-    if not os.path.exists(config_file):
-        logger.warning(f"mkdocs.yml not found at {config_file}")
-        return
-    
-    with open(config_file, 'r', encoding='utf-8') as f:
-        content = f.read()
-    
-    # Check if i18n plugin is already configured
-    if 'mkdocs-static-i18n' in content or 'i18n:' in content:
-        logger.info("i18n plugin already configured in mkdocs.yml")
-        return
-    
-    # Simple string replacement to add i18n plugin configuration
-    # Note: This is a basic approach. For complex YAML files, consider using a YAML parser
-    i18n_config = f"""
-plugins:
-  - search
-  - i18n:
-      default_language: en
-      languages:
-        en:
-          name: English
-          build: true
-        {language_code}:
-          name: {language_name}
-          build: true
-      docs_structure: folder
-      fallback_to_default: true
-"""
-
-    # Check if plugins section exists
-    if 'plugins:' in content:
-        # Add i18n to existing plugins
-        content = re.sub(r'plugins:', f'plugins:\n  - i18n:\n      default_language: en\n      languages:\n        en:\n          name: English\n          build: true\n        {language_code}:\n          name: {language_name}\n          build: true\n      docs_structure: folder\n      fallback_to_default: true', content, count=1)
-    else:
-        # Add the entire plugins section
-        content += i18n_config
-    
-    # Backup the original file
-    shutil.copy2(config_file, f"{config_file}.backup")
-    
-    # Write the updated configuration
-    with open(config_file, 'w', encoding='utf-8') as f:
-        f.write(content)
-    
-    logger.info(f"Updated mkdocs.yml with i18n configuration")
 
 def main():
     parser = argparse.ArgumentParser(description='Translate MkDocs markdown files to multiple languages.')
@@ -171,16 +121,11 @@ def main():
     parser.add_argument('--language', required=True, help='Target language (e.g., Finnish)')
     parser.add_argument('--lang-code', required=True, help='Language code (e.g., fi)')
     parser.add_argument('--force', action='store_true', help='Force retranslation of all files')
-    parser.add_argument('--update-config', action='store_true', help='Update mkdocs.yml with i18n configuration')
     args = parser.parse_args()
     
     docs_dir = Path(args.docs_dir)
     lang_code = args.lang_code
     target_language = args.language
-    
-    # Update mkdocs.yml if requested
-    if args.update_config:
-        update_mkdocs_config(docs_dir, target_language, lang_code)
     
     # Create language directory
     lang_dir = Path(f"{docs_dir}.{lang_code}")
