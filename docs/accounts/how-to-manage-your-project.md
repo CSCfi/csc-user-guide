@@ -11,7 +11,9 @@ CSC Project needs to be extended yearly.
 
     Project Manager’s CSC account inactivation closes the project for all project members.
 
-* The Project Manager’s CSC account needs to be kept active by changing password yearly and keeping user information such as email address up to date. If needed, Project Manager is responsible for transferring Project Manager duties to another member of the Project.
+* The Project Manager’s CSC user account needs to be kept active. CSC will send notifications with instructions by email before any user accounts or passwords expire. Please note active user account does not extend the project. 
+* Keep user information such as email address up to date.
+* If needed, Project Manager is responsible for transferring Project Manager duties to another member of the Project.
 
 Users are primarily responsible for [moving data](../data/moving/index.md) or deleting the project content themselves before the project is closed. 
 If you're unsure about your CSC Project's or Account's status, please log in [MyCSC](https://my.csc.fi) to extend your project or change your account password.
