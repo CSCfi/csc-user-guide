@@ -7,11 +7,10 @@ CSC Project needs to be extended yearly.
 * When granted new billing units (BU) project is extended automatically by a year.
 * Projects that use [Fairdata IDA](https://ida.fairdata.fi/) will be extended automatically.
 
-!!! Note 
-
+!!! Note
     Project Manager’s CSC account inactivation closes the project for all project members.
 
-* The Project Manager’s CSC user account needs to be kept active. CSC will send notifications with instructions by email before any user accounts or passwords expire. Please note active user account does not extend the project. 
+* The Project Manager’s CSC user account needs to be kept active. CSC will send notifications with instructions by email before any user accounts or passwords expire. Please note, an active user account does not extend the project.
 * Keep user information such as email address up to date.
 * If needed, Project Manager is responsible for transferring Project Manager duties to another member of the Project.
 
