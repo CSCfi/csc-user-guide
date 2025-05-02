@@ -16,6 +16,20 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
+    **10.4.2025** PyTorch 2.6.0 installed to Puhti and Mahti, and made the
+    default version. Includes the most recent versions of popular packages
+    such as Hugging Face transformers, vLLM and FAISS. PyTorch geometric
+    and related packages are no longer included, as they do not support
+    newer versions of PyTorch.
+
+    **20.1.2025** PyTorch 2.5.1 set as the default version on all supercomputers.
+
+    **20.12.2024** PyTorch 2.5.1 with ROCm 6.2 added to LUMI. Includes all
+    the usual packages plus experimental support for FAISS.
+    
+    **17.12.2024** PyTorch 2.5.1 added to Puhti and Mahti. Includes vLLM
+    and FAISS among many other updates.
+
     **19.9.2024** PyTorch 2.4.1 with ROCm 6.1 added to LUMI. The LUMI
     PyTorch module now includes [vLLM version
     0.5.5](https://docs.vllm.ai/en/latest/) in addition to
@@ -71,10 +85,12 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.4.1   | `pytorch/2.4`  | -     | -     | X    | default version            |
+| 2.6.0   | `pytorch/2.6`  | X     | X     | -    | Default on Puhti, Mahti    |
+| 2.5.1   | `pytorch/2.5`  | X     | X     | X    | Default on LUMI            |
+| 2.4.1   | `pytorch/2.4`  | -     | -     | X    |                            |
 | 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
 | 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |
-| 2.2.2   | `pytorch/2.2`  | -     | -     | X    | default version            |
+| 2.2.2   | `pytorch/2.2`  | -     | -     | X    |                            |
 | 2.2.1   | `pytorch/2.2`  | X     | X     | -    |                            |
 | 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                            |
 | 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                            |

@@ -17,12 +17,15 @@ CSC organizes ArcGIS software consortium for Finnish universities and
 universities of applied sciences. The members of current consortium are
 listed at the end of this page. 
 
+!!! note
+    CSC ArcGIS software consortium will end 31.12.2025. 
+
 To the members of ArcGIS software consortium these products are available (for details see the license agreement Appendix A):
 
 -   ArcGIS Online
--   ArcGIS Pro and Desktop.
+-   ArcGIS Pro and Desktop
 -   ArcGIS Enterprise 
--   ArcGIS Drone2map, NEW 2022
+-   ArcGIS Drone2map
 -   Esri CityEngine
 -   ArcGIS Monitor
 -   ArcGIS Hub Premium
@@ -39,10 +42,13 @@ Software may be installed to the computers of the consortium member university a
 and students and may be used at home or during field work according to the user terms. The more detailed terms of
 use can be found from [ArcGIS site license agreement](../img/ArcGIS_education_Institution_terms_and_conditions_2020-2022.pdf).
 
+From 1.1.2025 onward the following ArcGIS Desktop extensions are not available: Data Interoperability, Aviation Airports, Aviation Charting, Bathymetry, Data Reviewer, Defense Mapping, LocateXT, Maritime,
+Production Mapping, Tracking Analyst, Workflow Manager, Location Referencing Desktop (Pipeline) and Location Referencing Desktop (Roads&Hwy).
+
 ------------------------------------------------------------------------
 
-## ArcGIS  Desktop and ArcGIS Pro
-All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://support.esri.com/en/arcmap-esri-plan), because active development of ArcGIS Desktop has stopped.
+!!! note 
+    Development of ArcGIS Desktop has stopped and it will be officially retired on 1.3.2026 and licenses will likely be unavailable from 1.1.2026 onward. ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://support.esri.com/en/arcmap-esri-plan) during 2025. 
 
 ### Installation
 -   [Installation guidelines for ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/install-and-sign-in-to-arcgis-pro.htm) and [ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm).
@@ -52,15 +58,13 @@ All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://supp
 ### License
 ArcGIS products need to be authorized. Licensing options for consortium members:
 
--   **Named users**, main option for ArcGIS Pro, not available for ArcGIS desktop. The user must have home university's ArcGIS Online 
+-   **Named users**, main option for ArcGIS Pro, not available for ArcGIS Desktop. The user must have home university's ArcGIS Online 
 account with personal ArcGIS Pro license. Ask this from your home university ArcGIS Online administrator.  
--   **Concurrent licenses** from CSC license server, main option ArcGIS for Desktop, but also available for ArcGIS Pro. 
+-   **Concurrent licenses** from CSC license server, main option ArcGIS Desktop. ArcGIS Pro concurrent licenses are available only until 31.3.2025. 
 Ask your home university's ArcGIS contact person for address of the license server and the port numbers to be opened. 
 Help: [ArcGIS Pro](http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-concurrent-use-license.htm) 
 and [ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/authorization-wizard.htm).
--   **Single use license**s, for ArcGIS Pro and ArcGIS for Desktop, only for university personnel. Single Use license does not 
-need internet connection, so useful for example during field work. Single Use licenses are always valid until end of the calendar year. 
-Single Use licenses are available from University's contact persons.
+-   **Single use license**, for ArcGIS Pro and ArcGIS Desktop. Not available for 2025. 
 
   
 !!! note
@@ -72,12 +76,12 @@ Single Use licenses are available from University's contact persons.
 #### Borrowing concurrent licenses
 
 ArcGIS Educational site license includes also possibility to borrow
-licenses for 100 days. With a borrowed license it is possible to work
+licenses for 20 days. With a borrowed license it is possible to work
 without Internet connection or outside of FUNET network.
 
 License is borrowed with [ArcGIS Administrator](http://desktop.arcgis.com/en/arcmap/latest/get-started/administer/borrowing-and-returning-licenses.htm) or [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-concurrent-use-license.htm#ESRI_SECTION1_9E03C2B7A83C4FE4A41408EE7E0498CB):
 
--   Always borrow the base product ArcGIS Desktop or ArcGIS Pro, only Advanced level is available.
+-   Always borrow the base product ArcGIS Desktop or ArcGIS Pro.
 -   All extensions need to be borrowed separately, you are free to
     choose which ones you need. Especially with ArcGIS Pro make sure you borrow all the extensions you need. It is not possible to add extensions to already borrowed base product.
 -   Licenses borrowed at the end of year are always returned on 31th of December, because annual license renewal.

@@ -1,7 +1,6 @@
 ---
 template: sw-catalog/app.html
 software_catalog:
-  draft: true
   name: NoMachine
   description:
   license_type:

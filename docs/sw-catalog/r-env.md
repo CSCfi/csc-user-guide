@@ -8,34 +8,40 @@ software_catalog:
     - Mathematics and Statistics
   available_on:
     - Puhti
+    - Mahti
 ---
 
-`r-env` is an [Apptainer container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 
+`r-env` is an [Apptainer container](../computing/containers/run-existing.md) including R and RStudio Server, and several other features to facilitate their use. 
 
 - R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
 
+!!! info "News"
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).  
+
 ## Available
 
-`r-env` includes 1400+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
+`r-env` includes 1500+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-Current modules and versions supported on Puhti:
+Current modules and versions supported on Puhti and Mahti:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | TensorFlow version | CmdStan version |
-| ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------| ------------------ | --------------- |
-| r-env/440               | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.9.1              | 2.35.0          |
-| r-env/432               | January 15 2024     | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.9.1              | 2.34.1          |
-| r-env/430               | June 07 2023        | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.9.1              | 2.32.2          |
-| r-env/422               | March 06 2023       | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.9.1              | 2.32.1          |
-| r-env/421               | June 29 2022        | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.9.1              | 2.30.1          |
+| Module name (R version) | Puhti / Mahti | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | CmdStan version |
+| ----------------------- | ------------- | ------------------- | -------------------- | ---------------------- | ----------------| --------------- |
+| r-env/442 (default)     | X / X         | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
+| r-env/440               | X / -         | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.35.0          |    
+| r-env/432               | X / -         | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.34.1          | 
+| r-env/430               | X / -         | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.32.2          |    
+| r-env/422               | X / -         | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.32.1          | 
+| r-env/421               | X / -         | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.30.1          | 
 
 
 Other software and libraries:
 
 - Open MPI 4.1.2 (with Mellanox OFED™ software)
+- TensorFlow 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
 - cget 0.2.0
 
 ## Licenses
@@ -65,8 +71,8 @@ Licensing information within the `r-env` container is available in the file `/us
 There are several ways to use the `r-env` module on Puhti:
 
 * Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti in general). Use this option for analyses that take longer or require a lot of memory.
-* [Interactive jobs on a compute node](../../computing/running/interactive-usage/), using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
-* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/usage-policy#login-nodes). 
+* [Interactive jobs on a compute node](../computing/running/interactive-usage.md), using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
 #### Interactive use on a compute node
 
@@ -153,7 +159,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`
 
 #### Parallel batch jobs
 
-The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `lidR`, `pbdMPI` and `snow`.
+The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `pbdMPI` and `snow`.
 
 Further to the following examples, please see our separate [tutorial for parallel R jobs](../support/tutorials/parallel-r.md). There is also [separate documentation on MPI jobs](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) for examples of parallel computing using the `raster` package.
 
@@ -633,7 +639,7 @@ It is possible to configure `r-env` to use NVIDIA NVBLAS, a drop-in BLAS replace
 
 Compared to CPU jobs, using NVBLAS may offer speed improvements without changes to the underlying R code. However, the benefits afforded are strongly analysis-specific. Additionally, NVBLAS jobs make sub-optimal use of reservations on the GPU partition, with only certain operations being routed to the GPU.
 
-Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../../computing/usage-policy#gpu-nodes) and this checklist:
+Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/usage-policy.md#gpu-nodes) and this checklist:
 
 - Are BLAS3 routines the main bottleneck in your workflow? 
 - Are speed-ups possible through other means (e.g. rewriting your code)?
@@ -670,17 +676,17 @@ The `r-env` module includes several packages that make use of [Stan](https://mc-
 *Using R with the CmdStan backend* 
 
 The `r-env` module comes with a separate [CmdStan](https://github.com/stan-dev/cmdstan) installation that is specific to each module version.
-To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/440` this would be done as follows:
+To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/442` this would be done as follows:
 
 ```r
-cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/440-stan/cmdstan-2.35.0")
+cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/442-stan/cmdstan-2.36.0")
 ```
 
 If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 ```r
 # Set R version
-export RVER=440
+export RVER=442
 
 # Launch R after binding CmdStan
 SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"
@@ -755,7 +761,7 @@ To use R packages installed in `/projappl`, add the following to the beginning o
 .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
-Alternatively, you can add the desired changes to an `.Renviron` file (only when not using RStudio):
+Alternatively, you can add the desired changes to an `.Renviron` file:
 
 ```bash
 echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron

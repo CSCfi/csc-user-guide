@@ -290,8 +290,8 @@ It is worth reading the sections about
 and [Task Arrays](https://it4innovations.github.io/hyperqueue/stable/jobs/arrays/)
 to understand the different ways to run computations with HyperQueue. For more
 complex task dependencies, we can use HyperQueue as the executor for other workflow
-managers, such as [Snakemake](#using-snakemake-with-hyperqueue) or
-[Nextflow](#using-nextflow-with-hyperqueue).
+managers, such as [Snakemake](#using-snakemake-or-nextflow-with-hyperqueue) or
+[Nextflow](#using-snakemake-or-nextflow-with-hyperqueue).
 
 **Stopping the workers and the server**
 
@@ -467,22 +467,10 @@ is requested.
     hq server stop
     ```
 
-### Using Snakemake with HyperQueue
+### Using Snakemake or Nextflow with HyperQueue
 
-Using Snakemake's `--cluster` flag, we can use `hq submit` instead of `sbatch`:
-
-```bash
-snakemake --cluster "hq submit --cpus <threads> ..."
-```
-
-If you are porting a more complicated workflow from Slurm, you can do argument
-parsing and transformations programmatically using Snakemake's
-[job properties](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties).
-
-### Using Nextflow with HyperQueue
-
-See a [separate tutorial](../support/tutorials/nextflow-hq.md) for instructions on
-using HyperQueue as an executor for Nextflow workflows.
+See a [Nextflow](../support/tutorials/nextflow-tutorial.md#running-nextflow-with-hyperqueue-executor) or [Snakemake tutorial](../support/tutorials/snakemake-puhti.md#running-snakemake-with-hyperqueue-executor) for instructions on
+using HyperQueue as an executor for Nextflow or Snakemake workflows.
 
 ### Multinode tasks
 

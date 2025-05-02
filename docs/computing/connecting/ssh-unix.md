@@ -20,8 +20,8 @@ You will be asked to type a passphrase. Please choose a secure passphrase. It
 should be at least 8 characters long and contain numbers, letters and special
 characters. Never leave the passphrase empty!
 
-Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
-recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
+Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
+recommend Ed25519**.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
@@ -53,10 +53,11 @@ non-default location, you must tell the `ssh` command where to look for the
 key. Use option `-i` as follows:
 
 ```bash
-# Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
+# Replace <username> with the name of your CSC user account,
+# <host> with "puhti" or "mahti" and <path-to-private-key>
+# with the path to your SSH private key
 
-ssh <username>@<host>.csc.fi -i /path/to/key/file
+ssh <username>@<host>.csc.fi -i <path-to-private-key>
 ```
 
 ## Graphical connection

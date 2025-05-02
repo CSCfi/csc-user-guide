@@ -22,7 +22,7 @@ Free to use and open source under [MIT License](https://github.com/biobakery/Met
 
 ## Available
 
-*   Puhti: 4.0.2, 4.0.3, 4.0.6
+*   Puhti: 4.0.2, 4.0.3, 4.0.6, 4.1.1
 
 ## Usage
 

@@ -7,6 +7,7 @@ software_catalog:
   disciplines:
     - Geosciences
   available_on:
+    - LUMI
     - Puhti
     - Mahti
 ---
@@ -23,7 +24,7 @@ includes following python packages:
     -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
--   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication in Puhti](#google-earth-engine-authentication-set-up). 
+-   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication in Puhti](#google-earth-engine-authentication-set-up-in-puhti). 
 -   [fiona] - reads and writes spatial data files.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
@@ -59,7 +60,7 @@ includes following python packages:
     vector geometries. It includes functions for zonal statistics and
     interpolated point queries. [rasterstats example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
 -   [rtree] - spatial indexing and search.
--   [r5py](https://r5py.readthedocs.io/en/stable) - for rapid realistic routing on multimodal transport networks, see [below how to set memory correctly](#r5py-memory-settings) for r5py. NEW 2024
+-   [r5py](https://r5py.readthedocs.io) - for rapid realistic routing on multimodal transport networks, see [below how to set memory correctly](#r5py-memory-settings) for r5py. NEW 2024
 -   [sentinelhub](https://sentinelhub-py.readthedocs.io/en/latest/index.html) - for working with new Sentinel Hub services.
 -   [sentinelsat] - downloading Sentinel images, [sentinelsat example in CSC geocomputing Github] (https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
@@ -80,7 +81,7 @@ Additionally geoconda includes:
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
--   [landsatlinks](https://github.com/ernstste/landsatlinks) - for creating download URLs for Landsat Collection 2 Level 1 product bundles using the USGS/EROS Machine-to-Machine API. Use `python3.10 -m landsatlinks`.
+-   [landsatlinks](https://github.com/ernstste/landsatlinks) - for creating download URLs for Landsat Collection 2 Level 1 product bundles using the USGS/EROS Machine-to-Machine API. Use `python -m landsatlinks`.
 -   [PDAL](https://pdal.io/) - Point Data Abstraction Library
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
    
@@ -94,7 +95,7 @@ If you think that some important GIS package for Python is missing from here, yo
 
 The `geoconda` module is available:
 
-* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti.
+* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti and LUMI.
 * 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Puhti and Mahti.
 * 3.10.9 (Python 3.10.9, PDAL 2.5.2, GDAL 3.6.2, created March 2023), in Puhti.
 * 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Puhti and Mahti.
@@ -102,6 +103,12 @@ The `geoconda` module is available:
 Version number is the same as the Python version.
 
 ## Usage
+
+When using in LUMI, run this first:
+
+```bash
+module use /appl/local/csc/modulefiles
+```
 
 For using Python packages and other tools listed above, you can initialize them with:
 
@@ -121,22 +128,25 @@ To check the exact packages and versions included in the loaded module:
 list-packages
 ```
  
-You can add more Python packages to `geoconda` by following the instructions in
-our
+You can add more Python packages to `geoconda` by following the instructions in our
 [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-You can edit your Python code in Puhti with:
+You can edit your Python code with:
 
-* [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), 
-* [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
-* [Jupyter Notebook or Lab in Puhti web interface](../computing/webinterface/jupyter.md) or 
-* Spyder in [Puhti web interface with remote desktop](../computing/webinterface/desktop.md).
+* [Visual Studio Code in Puhti or LUMI web interface](../computing/webinterface/vscode.md)
+* [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md)
+* Jupyter Notebook or Lab in [Puhti](../computing/webinterface/jupyter.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
+* Spyder in [Puhti](../computing/webinterface/desktop.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop
 
-To open Spyder in Puhti web interface with remote desktop:
+To open Spyder in Puhti or LUMI web interface with remote desktop:
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open Remote desktop: Apps -> Desktop. 
-3. After launching the remote desktop open `Terminal` (Desktop icon) and start Spyder:
+1. Log in to [Puhti](https://puhti.csc.fi) or [LUMI](https://www.lumi.csc.fi/) web interface.
+2. Open Remote desktop: Apps -> Desktop.
+3. After launching the remote desktop:
+    * on Puhti, open `Terminal` (Desktop icon)
+    * on LUMI, open `Terminal Emulator` from the Menu in the bottom left corner
+4. Start spyder:
+    * On LUMI, remember to first run `module use /appl/local/csc/modulefiles`
 
 ```bash
 module load geoconda
@@ -149,7 +159,7 @@ spyder
 * `export _JAVA_OPTIONS="-Xmx4g"` from command-line before starting Python OR
 * `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` in the beginning of your Python code.
 
-### Google Earth Engine authentication set up
+### Google Earth Engine authentication set up in Puhti
 For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have an account in GEE. Before first usage, also set up GEE authentication in Puhti:
 
 1. Open Puhti web interface
@@ -170,18 +180,15 @@ import ee
 ee.Authenticate()
 ```
 
-This prints out a long link and asks for a code. Copy the link to the Web Browser and open the Google log-in page. Log-in and copy the created code back to Python.
+This prints out a long link and asks for a code. Copy the link to the web browser and open the Google log-in page. Log-in and copy the created code back to Python.
 
+## Using Allas or LUMI-O from Python
 
-## Using Allas from Python
-
-There are two Python libraries installed in Geoconda that can interact with Allas. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
+There are two Python libraries installed in Geoconda that can interact with Allas or LUMI-O. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
 
 It is also possible to __read__ and __write__ files from and to Allas or other cloud object storage directly with GDAL-based packages such as `geopandas` and `rasterio`. Please check our [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
 
-With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
-
-
+With large quantities of raster data, consider using [virtual rasters](https://research.csc.fi/virtual_rasters).
 
 ## License
 
@@ -198,7 +205,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Geoconda was installed to Puhti and Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
+Geoconda was installed to Puhti and Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, Geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
 ```bash
 conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools geoconda_3.11.10.yml

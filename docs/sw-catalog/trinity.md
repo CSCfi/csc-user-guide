@@ -2,7 +2,7 @@
 template: sw-catalog/app.html
 software_catalog:
   name: Trinity
-  description: Traskriptome assembly tool
+  description: Transcriptome assembly tool
   license_type: Free
   disciplines:
     - Biosciences

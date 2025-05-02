@@ -57,8 +57,10 @@ size information. Run `man lfs-find` for further instructions and information on
 
 ## Automatic removal of files
 
-There is a policy of removing files older than 180 days from `scratch` (not `projappl`) to ensure
-that only actively used data resides on the disk (currently implemented only on Puhti).
+There is a [policy](../../computing/usage-policy.md#disk-cleaning) of removing files
+older than **180 days** (`scratch` quota less than 5 TiB) or **90 days** (`scratch` quota
+5 TiB or more) from `scratch` (not `projappl`) to ensure that only actively used data
+resides on the disk (currently implemented only on Puhti).
 
 Files that will be deleted in the next clean up are listed in so called "purge lists" files.
 These are split up by project, and can be found on Lustre at one of the locations below.

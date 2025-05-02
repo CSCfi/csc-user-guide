@@ -8,13 +8,15 @@ software_catalog:
     - Chemistry
   available_on:
     - Puhti
+    - Mahti
 ---
 
 MOLPRO is a software package geared towards accurate ab initio quantum chemistry calculations. The emphasis in the program is on highly accurate computations, with extensive treatment of the electron correlation problem through the multireference configuration interaction, coupled cluster and associated methods.
 
 ## Available
 
--   Puhti: 2024.1
+-   Puhti: 2024.3
+-   Mahti: 2024.3
 
 ## License
 
@@ -22,54 +24,85 @@ MOLPRO is a software package geared towards accurate ab initio quantum chemistry
 
 ## Usage
 
-Initialise MOLPRO on Puhti:
+Initialise MOLPRO on Puhti or Mahti:
 
 ```bash
-module load molpro/2024.1
+module load molpro/2024.3
 ```
+
 
 Molpro has been built with the Global Arrays toolkit (`--with-mpi-pr`) that allocates one helper process per node for parallel MPI runs.
 
-### Example batch script for Puhti using MPI parallelization
+!!! info "Note"
+    Although some parts of the code support shared memory parallelism (OpenMP), its use is not generally recommended.
 
-```bash
-#!/bin/bash
-#SBATCH --partition=test
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=40 # MPI tasks per node
-#SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH --time=00:10:00           # time as `hh:mm:ss`
-
-module load molpro/2024.1
-
-export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
-mkdir -p $MOLPRO_TMP
-
-$MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
-rm -rf $MOLPRO_TMP
-```
+### Example batch scripts
 
 !!! info "Note"
-    Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the [fast local storage](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Wave function-based correlations methods, both single and multireference, often create a
+    substantial amount of disk I/O. In order to achieve maximal performance for the job and to
+    avoid excess load on the Lustre parallel file system it is advisable to use the local disk.
 
-### Example batch script for Puhti using MPI parallelization and local disk (NVMe)
+=== "Puhti"
 
-```bash
-#!/bin/bash
-#SBATCH --partition=small
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=40 # MPI tasks per node
-#SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH --time=00:10:00      # time as `hh:mm:ss`
-#SBATCH --gres=nvme:100      # requested local disk space in GB 
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=test
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=40      # MPI tasks per node
+    #SBATCH --account=yourproject     # insert here the project to be billed 
+    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
+    module purge
+    module load molpro/2024.3
 
-module load molpro/2024.1
-export MOLPRO_TMP=$LOCAL_SCRATCH/$SLURM_JOB_ID
-mkdir -p $MOLPRO_TMP
+    export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
+    mkdir -p $MOLPRO_TMP
 
-$MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
-rm -rf $MOLPRO_TMP
-```
+    $MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
+    rm -rf $MOLPRO_TMP
+    ```
+
+=== "Puhti, local disk"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=large
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=40
+    #SBATCH --account=yourproject     # insert here the project to be billed
+    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
+    #SBATCH --gres=nvme:100           # requested local disk space in GB
+    module purge
+    module load molpro/2024.3
+    export MOLPRO_TMP=$LOCAL_SCRATCH/MOLPRO_TMP_$SLURM_JOB_ID
+    mkdir -p $MOLPRO_TMP
+
+    $MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
+    rm -rf $MOLPRO_TMP
+    ```
+
+=== "Mahti"
+ 
+     On Mahti, it is often necessary to undersubscribe cores per node to ensure sufficient memory per core. See the [Mahti job script guidelines](../computing/running/creating-job-scripts-mahti.md#undersubscribing-nodes) for more details.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=test
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=16
+    #SBATCH --cpus-per-task=8
+    #SBATCH --account=yourproject     # insert here the project to be billed
+    #SBATCH --time=0:10:00 # time as hh:mm:ss
+    # set --ntasks-per-node=X and --cpus-per-task=Y so that X * Y = 128
+    module purge
+    module load molpro/2024.3
+
+    export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
+    mkdir -p $MOLPRO_TMP
+
+    $MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
+    rm -rf $MOLPRO_TMP
+    ```
 
 ### Example of scalability
 

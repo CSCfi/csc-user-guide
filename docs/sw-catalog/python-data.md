@@ -73,7 +73,7 @@ data analytics and machine learning, for example:
 
 If you find that some package is missing, you can often install it
 yourself with `pip install --user`.  See [our Python
-documentation](python.md#installing-python-packages-to-existing-modules)
+documentation](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
 for more information on how to install packages yourself.
 
 It is also possible to use [Python virtual

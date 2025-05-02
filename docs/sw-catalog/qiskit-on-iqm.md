@@ -14,8 +14,6 @@ Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is
 installed as `helmi_qiskit` on LUMI. It is used for running quantum circuits on
 [Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
-!!! info "News"
-     **28.10.2024** Installed `helmi_qiskit/15.4` which supports Qiskit==1.1.2
 
 ## Available
 
@@ -24,7 +22,7 @@ versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 15.4    | `helmi_qiskit/15.4`                  | X     |                 |
+| 15.5    | `helmi_qiskit/15.5`                  | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,

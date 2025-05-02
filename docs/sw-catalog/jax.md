@@ -22,8 +22,12 @@ Currently supported JAX versions:
 
 | Version | Module             | Puhti   | Mahti   | LUMI       | Notes          |
 |:-------:|--------------------|:-------:|:-------:|:----------:|----------------|
-| 0.4.30  | `jax/0.4.30`       | default | default | default    | all packages   |
-| 0.4.30  | `jax/0.4.30-small` | X       | X       | X*         | framework only |
+| 0.5.0   | `jax/0.5.0`        | default | default | -          | all packages   |
+|         | `jax/0.5.0-small`  | X       | X       | -          | framework only |
+| 0.4.38  | `jax/0.4.38`       | X       | X       | default*   | all packages   |
+|         | `jax/0.4.38-small` | X       | X       | X*         | framework only |
+| 0.4.30  | `jax/0.4.30`       | X       | X       | X*         | all packages   |
+|         | `jax/0.4.30-small` | X       | X       | X*         | framework only |
 | 0.4.23  | `jax/0.4.23-py3.9` | X       | X       | X*         |                |
 | 0.4.20  | `jax/0.4.20`       | X       | X       | X*         |                |
 | 0.4.18  | `jax/0.4.18`       | -       | -       | X*         |                |
@@ -32,8 +36,8 @@ Currently supported JAX versions:
 | 0.4.1   | `jax/0.4.1`        | X       | X       | -          |                |
 | 0.3.13  | `jax/0.3.13`       | X       | X       | -          |                |
 
-The modules contain [JAX](https://github.com/google/jax/) for Python 3.9
-with GPU support via CUDA/ROCm as well as a large list of additional python packages commonly used together with JAX.
+The modules contain [JAX](https://github.com/google/jax/) for Python with GPU support via CUDA/ROCm as well as a large list of additional python packages commonly used together with JAX.
+The Python version differs between modules releases. Modules with JAX version up to 0.4.23 use Python 3.9, later modules use Python 3.12.
 
 **Versions in LUMI, marked as "*" are still experimental with limited
 support.** Some of the features described below might not work for them.
@@ -89,18 +93,23 @@ To use the default version (most-recent) on Puhti or Mahti, initialize it with:
 module load jax
 ```
 
+or
+```bash
+module load jax/small
+```
+
 To access CSC-installed JAX on LUMI:
 
 ```bash
 module use /appl/local/csc/modulefiles/
-module load jax
+module load jax  # jax/small
 ```
 
 !!! note
 
     In your scripts we recommend to fix the version so that
     changes in future upgrades do not break scripts, e.g.,:
-    `module load jax/0.4.23-py3.9`
+    `module load jax/0.5.0` or `module load jax/0.5.0-small`
 
 Please note that the JAX modules already include the corresponding
 CUDA and cuDNN or ROCm libraries, so **there is no need to load any

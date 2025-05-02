@@ -2,9 +2,10 @@
 template: sw-catalog/app.html
 software_catalog:
   name: Intel VTune Profiler
-  description:
+  description: Performance analysis tool for single core and threading performance
   license_type: Free
   disciplines:
+    - Miscellaneous
   available_on:
     - Puhti
 ---

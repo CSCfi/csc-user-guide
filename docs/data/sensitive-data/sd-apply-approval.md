@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Data approval for Data Access Committee (DAC)
 
 Data Access Committee (DAC) is established during the FEGA data submission process. After the service agreement between CSC and the data controller is in place, the data controller will designate the DAC members in the SD Apply service. The DAC is responsible for processing data access applications and managing access rights to different datasets. All the communication between DAC and the data applicant is managed using SD Apply. Each DAC is associated with specific datasets in the SD Apply catalogue. DAC members can process data access applications independently, thus only one DAC member needs to approve or reject the application. 

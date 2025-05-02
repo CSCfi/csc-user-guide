@@ -28,7 +28,7 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 ## Available
 
 - QIIME1: Puhti: 1.9.1
-- QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun
+- QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun, 2024.10-amplicon, 2024.10-metagenome, 2024.10-pathogenome
 
 ## Usage
 
@@ -58,25 +58,25 @@ qiime
 
 ## Distributions
 
-Latest versions of QIIME2 come in different distributions: amplicon/shotgun/tiny.
+Latest versions of QIIME2 come in different distributions: amplicon/metagenome/pathogenome/tiny.
 These distributions vary on which plugins come with them. You can compare the
-[distributions](https://docs.qiime2.org/2023.9/install/#distributions) on QIIME2
+[distributions](https://docs.qiime2.org/2024.10/install/#distributions) on QIIME2
 home pages.
 
-CSC provides installations for the amplicon and shotgn distributions.
+CSC provides installations for the amplicon, metagenome and pathogenome distributions.
 
 ## Additional plugins
 
 CSC only maintains the basic distributions of QIIME2. If you need plugins not included in the basic distributions, you will need to install your own QIIME2 using the [Tykky tool](../computing/containers/tykky.md).
 
-First select the distribution (amplicon/shotgun/tiny) that best meets your needs.
+First select the distribution (amplicon/metagenome/pathogenome/tiny) that best meets your needs.
 
-Download the corresponding [environment file](https://docs.qiime2.org/2023.9/install/native/).
+Download the corresponding [environment file](https://docs.qiime2.org/2024.10/install/native/).
 
-For example for 2023.9 amplicon distribution:
+For example for 2024.10 amplicon distribution:
 
 ```bash
-wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2023.9-py38-linux-conda.yml
+wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2024.10-py310-linux-conda.yml
 ```
 
 Check the installation instructions for the plugins you want to use.
@@ -93,7 +93,7 @@ Installation:
 module purge
 module load tykky
 mkdir qiime
-conda-containerize new --mamba --prefix qiime qiime2-amplicon-2023.9-py38-linux-conda.yml
+conda-containerize new --mamba --prefix qiime qiime2-amplicon-2024.10-py310-linux-conda.yml
 ```
 
 If necessary, run:

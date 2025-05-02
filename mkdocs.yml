@@ -529,7 +529,7 @@ nav:
           # Python MySQL API at CSC:
   - Sensitive data:
       - data/sensitive-data/index.md
-      - Choose service: data/sensitive-data/choose-a-service.md
+      - Table of contents: data/sensitive-data/sd-services-toc.md
       - Store and analyse:
           - Start here:
               - data/sensitive-data/sd-access.md

@@ -37,14 +37,17 @@ Currently supported TensorFlow versions:
 
 | Version | Module               | Puhti | Mahti | LUMI | Notes           |
 |:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.15.0  | `tensorflow/2.15`    | X     | X     | -    | default version |
+| 2.18.0  | `tensorflow/2.18`    | X     | X     | -    | default version |
+| 2.17.0  | `tensorflow/2.17`    | X     | X     | -    |                 |
+| 2.16.1  | `tensorflow/2.16`    | -     | -     | X    | default version |
+| 2.15.0  | `tensorflow/2.15`    | X     | X     | -    |                 |
 | 2.14.0  | `tensorflow/2.14`    | X     | X     | -    |                 |
 | 2.13.0  | `tensorflow/2.13`    | X     | X     | -    |                 |
-| 2.12.0  | `tensorflow/2.12`    | X     | X     | X*   |                 |
-| 2.11.0  | `tensorflow/2.11`    | X     | X     | X*   |                 |
-| 2.10.0  | `tensorflow/2.10`    | X     | X     | X*   |                 |
-| 2.9.0   | `tensorflow/2.9`     | X     | X     | X*   |                 |
-| 2.8.0   | `tensorflow/2.8`     | X     | X     | X*   |                 |
+| 2.12.0  | `tensorflow/2.12`    | X     | X     | X    |                 |
+| 2.11.0  | `tensorflow/2.11`    | X     | X     | X    |                 |
+| 2.10.0  | `tensorflow/2.10`    | X     | X     | X    |                 |
+| 2.9.0   | `tensorflow/2.9`     | X     | X     | X    |                 |
+| 2.8.0   | `tensorflow/2.8`     | X     | X     | X    |                 |
 | 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   | -    |                 |
 | 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   | -    |                 |
 | 2.5.0   | `tensorflow/2.5`     | (x)   | (x)   | -    |                 |
@@ -62,10 +65,6 @@ Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
 and Horovod are not expected to work anymore with these modules. If
 you still wish to access these versions, you need to enable old RHEL7
 modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
-
-**Versions in LUMI, marked as "X*" are still experimental with limited
-support.** They are still subject to change at any time without notice,
-and for example multi-node jobs are know not to work properly yet.
 
 If you find that some package is missing, you can often install it
 yourself using `pip install`. It is recommended to use Python virtual
@@ -85,10 +84,11 @@ huggingface-cli`. For more information, see [CSC's general
 instructions on how to run Apptainer
 containers](../computing/containers/run-existing.md).
 
-Some modules support [Horovod](https://horovod.ai/), which is our recommended
-framework for multi-node jobs, i.e., jobs needing more than 4
-GPUs. Horovod can also be used with single-node jobs for 2-4 GPUs. For more
-information, read the [Multi-GPU section in our machine learning
+Some modules support [Horovod](https://horovod.ai/), which is our
+recommended framework for multi-node jobs, i.e., jobs needing more
+than 4 GPUs on Puhti and Mahti. Horovod can also be used with
+single-node jobs for 2-4 GPUs. For more information, read the
+[Multi-GPU section in our machine learning
 guide](../support/tutorials/ml-multi.md).
 
 
@@ -113,10 +113,6 @@ module use /appl/local/csc/modulefiles/
 module load tensorflow
 ```
 
-Note that LUMI versions are still considered experimental with limited
-support. They are still subject to change at any time without notice,
-and for example multi-node jobs are know not to work properly yet.
-
 If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
@@ -124,8 +120,8 @@ versions](#available)), use:
 module load tensorflow/2.12
 ```
 
-Please note that the module already includes CUDA and cuDNN libraries, so
-**there is no need to load cuda and cudnn modules separately!**
+Please note that the modules already include CUDA/ROCm libraries, so
+**there is no need to load cuda or rocm modules separately!**
 
 This command will also show all available versions:
 
@@ -148,17 +144,18 @@ list-packages
 
 ### Example batch script
 
-Example batch script for reserving one GPU and 1/4 of the available CPU cores in
-a single node:
+Example batch script for reserving one GPU and 1/4 (1/8 on LUMI) of
+the available CPU cores in a single node:
 
 === "Puhti"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpu
+    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=80G
+    #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
     
@@ -171,6 +168,7 @@ a single node:
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpusmall
+    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=32
     #SBATCH --time=1:00:00

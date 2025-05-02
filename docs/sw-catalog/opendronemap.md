@@ -16,6 +16,7 @@ software_catalog:
 
 __OpenDroneMap__ is available in Puhti with following versions:
 
+* 3.5.4
 * 3.0.4
 * 2.8.8
 

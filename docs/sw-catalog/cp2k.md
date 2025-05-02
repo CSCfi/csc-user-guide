@@ -98,7 +98,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     module load gcc/13.2.0 openmpi/5.0.5
     module load cp2k/2024.2
 
-    srun cp2k.popt H2O-64.inp > H2O-64.out
+    srun cp2k.psmp H2O-64.inp > H2O-64.out
     ```
 
 === "Mahti (mixed MPI/OpenMP)"
