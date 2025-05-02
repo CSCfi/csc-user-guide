@@ -1,5 +1,5 @@
 site_name: Docs CSC
-site_url: https://docs.csc.fi/
+site_url: !ENV [SITE_URL, "https://docs.csc.fi"]
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 
 repo_name: CSCfi/csc-user-guide
