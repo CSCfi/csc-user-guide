@@ -1,54 +1,54 @@
-# Rebuilding database instance
+# Rebuilding database instances
 
-## Description
-Sometimes your database is running on a really old servers that requires updated that can not be
-provisioned without restarts or reinstall or when upgrades would take unnecessary long, in those
-cases Pukki uses rebuild to ensure that upgrades can be down with minimal downtime.
+## What is a rebuild?
+Rebuilding a database instance in Pukki essentially means recreating the virtual machine which
+it runs on, without modifying any of the user's data. This is occasionally necessary because of
+changes which couldn't otherwise be provisioned, such as when a component approaches its
+end-of-life and cannot be replaced without downtime.
 
-Rebuild basically means that your database instance gets reinstalled without modifying your data.
-Rebuilds takes usually around 5 minutes but it is still a good idea to reserve more time for the
-rebuild procedure.
+Rebuilding usually causes about five minutes of downtime, but it's still a good idea to reserve
+some extra time for the procedure.
 
-## Things to be aware of when doing a rebuild
-* If you do a rebuild it is a good idea to do it inside office hours so that you can quickly get
-  helps if something goes wrong.
-* If the rebuild takes longer than 15 minutes feel free to open a ticket with
-  [servicedesk@csc.fi](mailto:servicedesk@csc.fi) so that we know who we can contact in case there
-  are any issues that requires more debugging.
-* Rebuild is probably the most advanced operation in Pukki that the users are allowed to do, it is
-  a good idea to do the rebuild inside office hours in case there are any issue the Pukki-admins
-  can assist you quickly.
-* The database instance will get the status `Building` while the instance is rebuilding.
-* From the web-GUI you can only rebuild instances that the Pukki-service have marked as need to be
-  rebuilt. From the openstack-cli you are allowed to rebuild any instance even if it does not
-  require rebuilding.
+## Things to be aware of when performing a rebuild
+* A rebuild is probably the most complex operation users are allowed to do in Pukki. Because of
+  this it's a good idea to do it during office hours so Pukki admins can assist with any
+  unforeseen issues.
+* If the rebuild takes longer than 15 minutes, feel free to open a ticket with
+  [servicedesk@csc.fi](mailto:servicedesk@csc.fi) so we know who to contact in case of issues that
+  require more debugging.
+* The database instance's status will show `Building` while the rebuild is in progress.
+* It's only possible to rebuild instances specifically marked as requiring a rebuild from
+  the web GUI. To rebuild other database instances, you have to use the command-line tools.
 
 
-## Rebuilding database instances using the Web GUI interface
+## Rebuilding database instances using the web GUI interface
 
-1. Go to your [project instance view](https://pukki.dbaas.csc.fi/project/).
-2. Ensure that you have chosen the correct computing project if you have multiple computing projects.
-3. In your database instance project view your database instances that requires rebuild have a 
-visible button that says `Rebuild instance` if the database instance requires rebuild. If the button
-is not visible then it does not requires rebuild.
-4. To rebuild the instance press the `Rebuild instance` button. After that you will need to wait
-around 5 minutes before the instances have completed rebuilding.
-5. Once the instances have completed rebuilding the `Rebuild instance` option will no longer be
-available.
+1. Go to the [database instances list view](https://pukki.dbaas.csc.fi/project/).
+2. Ensure that you have chosen the correct project from the dropdown in the upper left corner in
+case you are a member of several projects.
+3. In the database instances list view, any instances requiring a rebuild should show
+'Rebuild Instance' as the default action on the button in the rightmost column of the table.
+If the default action reads something else (usually 'Create Backup'), the instance is not in need
+of a rebuild.
+4. To rebuild the instance press the 'Rebuild Instance' button. Expected downtime for the
+operation is around 5 minutes.
+5. After a successful rebuild, the default action should no longer read 'Rebuild Instance'.
 
 
-## Rebuild database instances using the openstack-CLI tool
+## Rebuilding database instances using the OpenStack command-line client
 !!! info "Be aware"
-   Compared with the web GUI users can rebuild their database instances even if there is no need
-   with the openstack-cli tool.
+    With the command-line tools, it is possible to perform a rebuild on any database instances,
+    including ones not marked as requiring one.
 
-1. To find out if your instance needs to be rebuilt you need to run this command
+
+1. Use the `show` command with a `-c rebuild_required` flag to find out if the instance needs
+rebuilding:
 
 ```txt
-openstack database instance show -c rebuild_required $INSTNACE_ID
+openstack database instance show -c rebuild_required $INSTANCE_ID
 ```
 
-if it shows
+The output should look something like this:
 
 ```txt
 +------------------+-------+
@@ -58,30 +58,28 @@ if it shows
 +------------------+-------+
 ```
 
-Then you know it requires rebuild. If it returns
+A value of `True` indicates the database instance is in need of a rebuild.
+
+2. Use the `rebuild` command to rebuild the instance:
 
 ```txt
-+------------------+-------+
-| Field            | Value |
-+------------------+-------+
-| rebuild_required | False |
-+------------------+-------+
+openstack database instance rebuild $INSTANCE_ID latest
 ```
-then you knows that it does not requires rebuilding
-3. To rebuild your database instances you can run this command:
 
-```txt
-openstack database instance rebuild $INSTNACE_ID latest
-```
-then you need to wait about 5 minutes until the instances `operating_status` is `HEALTHY` and
-`status` is `ACTIVE` . You can show the instances status by doing 
+It should then take about 5 minutes until the rebuild is done and the instance's
+`operating_status` is `HEALTHY` and `status` is `ACTIVE`.
+
+To check these values, use the `show` command:
 
 ```txt
 openstack database instance show $INSTANCE_ID
 ```
-4. Once the `status` is `ACTIVE` you can verify that the instance does not requires rebuild by
+
+3. Once the instance's `status` is `ACTIVE`, you can again use the `-c rebuild_required` flag
+with the `show` command to confirm that the instance no longer requires a rebuild:
+
 ```txt
-openstack database instance show -c rebuild_required $INSTNACE_ID
+openstack database instance show -c rebuild_required $INSTANCE_ID
 +------------------+-------+
 | Field            | Value |
 +------------------+-------+
@@ -90,7 +88,5 @@ openstack database instance show -c rebuild_required $INSTNACE_ID
 ```
 
 !!! info "Pro tip"
-   You can also list all database instances with verbose flag and searching for
-   `"rebuild_required": true` in the output by doing:
-   `openstack database instance list -vv`
-
+    You can also use `openstack database instance list -vv` to get more verbose output from the
+    list command, and then search for `"rebuild_required": true` in the output.
