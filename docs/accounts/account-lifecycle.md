@@ -89,9 +89,9 @@ If you no longer need your user account, store all the project data you need or 
 Close the projects if they are not used anymore (if you are a member of the project, the Project manager can close the project in MyCSC portal if needed). If you are the Project manager, you can also find a new Project manager for your project. 
 
 Most importantly make sure the project data is saved and other project members have access to the data. 
-After the data is in good hands contact us and let us know of any changes. 
+After the data is in good hands contact us and provide a full description of your situation including a list of relevant/required changes.
 
-If you are changing to another organisation, contact us and let us know of any changes. 
+If you are changing to another organisation, contact us and provide a full description of your situation including a list of relevant/required changes.
 
 !!! Note
     If you want to terminate your account, please
