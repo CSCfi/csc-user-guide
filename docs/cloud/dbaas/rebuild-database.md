@@ -2,9 +2,9 @@
 
 ## What is a rebuild?
 Rebuilding a database instance in Pukki essentially means recreating the virtual machine which
-it runs on, without modifying any of the user's data. This is occasionally necessary because of
-changes which couldn't otherwise be provisioned, such as when a component approaches its
-end-of-life and cannot be replaced without downtime.
+the database runs on, without modifying any of the user's data. This is occasionally necessary
+because of changes which couldn't otherwise be provisioned, such as when a component approaches
+its end-of-life and cannot be replaced without downtime.
 
 Rebuilding usually causes about five minutes of downtime, but it's still a good idea to reserve
 some extra time for the procedure.
