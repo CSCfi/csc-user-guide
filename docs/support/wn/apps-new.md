@@ -1,5 +1,11 @@
 # Applications
 
+## GROMACS 2025.1, 5.5.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.1 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.1/release-notes/2025/2025.1.html)
+for a list of all new features and improvements.
+
 ## PyTorch 2.6.0 available on Puhti and Mahti, 10.4.2025
 
 PyTorch 2.6.0 is now available on Puhti and Mahti, and set as the
