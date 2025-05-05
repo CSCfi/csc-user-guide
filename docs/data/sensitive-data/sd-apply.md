@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Reuse with Sensitive Data Apply
 
 Sensitive Data (SD) Apply is a service for applying access rights to sensitive datasets stored at CSC. In practice, it is a simple web user interface that guides you during the application process.

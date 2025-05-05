@@ -1,3 +1,4 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
 # Sensitive Data Desktop for secondary use of health and social data 
 

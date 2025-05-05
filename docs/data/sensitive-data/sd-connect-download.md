@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Downloading folders and files
 
 You can easily download folders or individual files from SD Connect user interface.
