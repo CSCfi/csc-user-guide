@@ -1,5 +1,10 @@
 # Applications
 
+## Geoconda 3.12.10, 6.5.2025
+
+[geoconda](../../apps/geoconda.md) version 3.12.10 has been added
+and set as the default module on Puhti. Besides package updates, it includes a several new packages: `access`, `contectily`, `dask-image`, `duckdb`, `esda`, `geocube`, `geodatasets`, `geoplot`, `h3-py`, `jupyter-resource-usage`, `pandana`, `pyrosm`, `pysheds`, `rio-cogeo` and `urbanaccess`. From packages available in previous geoconda, `wrf-python` and `xarray_leaflet` unfortunately could not be added this time.
+
 ## PyTorch 2.6.0 available on Puhti and Mahti, 10.4.2025
 
 PyTorch 2.6.0 is now available on Puhti and Mahti, and set as the
