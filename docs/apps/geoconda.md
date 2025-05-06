@@ -77,7 +77,7 @@ includes following python packages:
 -   [urbanaccess](https://udst.github.io/urbanaccess) - for computing GTFS transit and OpenStreetMap pedestrian networks for accessibility analysis. NEW 2025
 -   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details.
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
-    -   [xarray-spatial](https://xarray-spatial.org/) - efficient common raster analysis functions for xarray. [xarray-spatial example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
+    -   [xarray-spatial](https://xarray-spatial.readthedocs.io/) - efficient common raster analysis functions for xarray. [xarray-spatial example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
     -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray extension for tiled map plotting. Not in 3.12.10
 -   And many more, for retrieving the full list use:
     `list-packages`
