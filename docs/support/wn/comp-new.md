@@ -1,5 +1,13 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 26 and 12, 6.5.2025
+
+* Jobs in the web interfaces have been limited to a maximum of 16 hours to improve queueing times.
+* VSCode now sets python.defaultInterpreterPath to help identifying the correct Python interpreter.
+* Virtual environments in the Jupyter app now work better with some modules, e.g. geoconda.
+* The email on session start option has been added to all interactive apps.
+* Open OnDemand updated to version 4.0.3.
+
 ## New data cleaning policy on Puhti, 17.4.2025
 
 On Puhti there is a process to clean (delete) old files in scratch that are not

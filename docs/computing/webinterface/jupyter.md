@@ -76,6 +76,14 @@ installation. So, if you created an installation with the command `conda-contain
 
 ### Virtual environment
 
+!!! Note
+
+    Ensure that you are using the correct Python kernel when using a virtual
+    environment. Otherwise, Python packages installed in the virtual
+    environment may not be possible to import in the notebook. When launching
+    Jupyter with a virtual environment, the kernel installed by the
+    web interface will be named `Python 3 (venv)`.
+
 You can create a virtual environment by enabling the *Virtual environment* option in the app form,
 as seen in the [Installing packages section](#installing-packages), and providing desired path of
 your virtual environment in the *Virtual environment path* field. The path should be under either
