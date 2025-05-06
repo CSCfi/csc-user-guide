@@ -1,4 +1,4 @@
-!!! warning "Significant changes to authentication coming in April 2025"
+!!! warning "Significant changes to authentication came in April 2025"
     Starting April 14 2025, SSH login to Puhti and Mahti will only work using
     SSH keys added in MyCSC. Password authentication and public keys stored in
     users' personal `~/.ssh/authorized_keys` file on the supercomputer will no
