@@ -1,5 +1,11 @@
 # Applications
 
+## GROMACS 2025.1, 7.5.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.1 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.1/release-notes/2025/2025.1.html)
+for a list of all new features and improvements.
+
 ## Geoconda 3.12.10, 6.5.2025
 
 [geoconda](../../apps/geoconda.md) version 3.12.10 has been added
