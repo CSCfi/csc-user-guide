@@ -61,10 +61,13 @@ To use Allas with S3 and boto3, some configurations need to be set up:
 
 The easiest way to set up S3 configuration for `boto3` is by
 [configuring an S3 connection on a CSC supercomputer](s3_client.md#configuring-s3-connection-in-supercomputers).
-After running `allas-conf --mode s3cmd`, the credentials and S3 region are stored in
-`credentials` and S3 endpoint in `config` file in `~/.aws/` folder. That is the default location where `boto3` looks for
-them. You can also define another location for the credentials file by
-modifying the `AWS_SHARED_CREDENTIALS_FILE` environment variable.
+
+```bash
+module load allas
+allas-conf --mode S3
+```
+
+This saves the credentials and S3 region in `credentials` and S3 endpoint in `config` file in the default `~/.aws/` folder. 
 
 If you wish to access Allas from a personal laptop or some other server,
 copy the `~/.aws`-folder to your home directory on that computer: `C:\Users\username\.aws` on Windows or `~/.aws/` on Mac and Linux.
