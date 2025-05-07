@@ -66,18 +66,15 @@ After running `allas-conf --mode s3cmd`, the credentials and S3 region are store
 them. You can also define another location for the credentials file by
 modifying the `AWS_SHARED_CREDENTIALS_FILE` environment variable.
 
-If you wish to access Allas from a personal workstation or some other server,
-you can copy the configuration files
-[using a file transfer tool](../../moving/index.md) like `scp`.
-If you want `boto3` to find the credentials automatically
-without having to modify `AWS_SHARED_CREDENTIALS_FILE`,
-make sure that you also copy the parent directory as in the example
-below.
+If you wish to access Allas from a personal laptop or some other server,
+copy the `~/.aws`-folder to your home directory on that computer: `C:\Users\username\.aws` on Windows or `~/.aws/` on Mac and Linux.
+[Use any file transfer tool](../../moving/index.md), for example `scp`.
 
 ```bash
-# Copy the credentials file and its parent directory to your home directory
+# Copy the aws configuration files to your home directory
 scp -r <username>@<hostname>.csc.fi:~/.aws $HOME
 ```
+
 
 ### Credentials for accessing multiple CSC projects
 
