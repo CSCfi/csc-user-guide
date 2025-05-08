@@ -8,22 +8,21 @@ Puhti has following datasets:
     -   All Paituli datasets have a readme-file with a link to Etsin dataset descriptions and terms of use.
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
     -   NLS normal color ortho images are not available in Puhti, but the infrared ones are.
+    -   NLS 2m DEM, lidar and infrared ortophotos are updated in Puhti automatically every Monday.
     - Additions to NLS data:
         +   2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
         + [Automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008-2024. Includes index map in root folder. Last update 5/2025.
     - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Puhti local files.
 *   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Last update 1/2025. 
-*   **Finnish Forest Centre**, CC BY 4.0 license, **updated in 8/2023**
+*   **Finnish Forest Centre**, CC BY 4.0 license, last update 8/2023
     * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)
     * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24)
     * [Forest mask](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/df99fbd3-44b3-4ffc-b84a-9459f318d545)
     * [Forest resource plots](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/332e5abf-63c2-4723-9c2d-4a926bbe587a)
 *   **Landsat mosaics produced by SYKE and FMI** in Paikkatietoalusta project
     -   [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995
-    -   [Historical Landsat NDVI mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-image-index-mosaics-hind-historialliset-landsat-kuvaindeksimosaiikit-hind): 1984-2011
 
-NLS 2m DEM, lidar and infrared ortophotos are updated in Puhti automatically every Monday.
 
 The open spatial data is stored in Puhti: **/appl/data/geo**
 
