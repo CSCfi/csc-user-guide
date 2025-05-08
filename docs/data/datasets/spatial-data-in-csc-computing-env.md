@@ -3,16 +3,16 @@
 
 Puhti has following datasets:
 
-*   **Paituli data**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland and University of Helsinki.. Weekly updates. 
+*   **Paituli data**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland and University of Helsinki.. 
     -   [Full list of Paituli datasets](https://paituli.csc.fi/metadata.html)
     -   All Paituli datasets have a readme-file with a link to Etsin dataset descriptions and terms of use.
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
     -   NLS normal color ortho images are not available in Puhti, but the infrared ones are.
     -   NLS 2m DEM, lidar and infrared ortophotos are updated in Puhti automatically every Monday.
     - Additions to NLS data:
-        +   2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
-        +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
-        + [Automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008-2024. Includes index map in root folder. Last update 5/2025.
+        + 2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
+        + Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
+        + [Automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p), 2008-2024. Includes index map in root folder. Last update 5/2025.
     - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Puhti local files.
 *   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Last update 1/2025. 
 *   **Finnish Forest Centre**, CC BY 4.0 license, last update 8/2023
