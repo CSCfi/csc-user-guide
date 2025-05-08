@@ -13,8 +13,8 @@ Puhti has following datasets:
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
         + Automatically classified lidar data, only data of year 2019
     - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Puhti local files.
-*   **LUKE, multi-source national forest inventory**, 2013, 2015, 2017, 2019 and 2021. LUKE license changed in Aug 2019 to CC BY 4.0.
-*   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Weekly updates. 
+*   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Last update 1/2025. 
+*   **NLS, [automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008-2024. Includes index map root folder. Last update 5/2025.
 *   **Finnish Forest Centre**, CC BY 4.0 license, **updated in 8/2023**
     * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)
     * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24)
@@ -24,7 +24,7 @@ Puhti has following datasets:
     -   [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995
     -   [Historical Landsat NDVI mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-image-index-mosaics-hind-historialliset-landsat-kuvaindeksimosaiikit-hind): 1984-2011
 
-NLS 2m DEM, lidar, infrared ortophotos and all SYKE datasets are updated in Puhti automatically every Monday.
+NLS 2m DEM, lidar and infrared ortophotos are updated in Puhti automatically every Monday.
 
 The open spatial data is stored in Puhti: **/appl/data/geo**
 
