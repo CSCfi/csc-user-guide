@@ -28,9 +28,9 @@ The open spatial data is stored in Puhti: **/appl/data/geo**
 
 Accessing data in Puhti requires CSC user account with a project with Puhti service enabled. All Puhti users have **read** access to these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy. Open spatial data in Puhti is maintained by CSC personnel. If you notice any problems with data or wish some new dataset, contact CSC Servicedesk.
 
-!!! warning "Sentinel satellite mosaics produced by SYKE and FMI in Paikkatietoalusta project were removed from Puhti on 21.11.2023"
+!!! note "Satellite mosaics produced by SYKE and FMI in Paikkatietoalusta project were removed from Puhti on 21.11.2023"
 
-    The removed datasets were: [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar), [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind). They are available from FMI's own object storage which has more data than was stored to Puhti local disks. The easiest way to find PTA sentinel mosaics from FMI is with [Paituli STAC](https://paituli.csc.fi/stac.html). Paituli STAC page includes also usage examples for R and Python.
+    The removed datasets were: [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar), [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) and Landsat index mosaics. They are available from FMI's own object storage which has more data than was stored to Puhti local disks. The easiest way to find PTA mosaics from FMI is with [Paituli STAC](https://paituli.csc.fi/stac.html). Paituli STAC page includes also usage examples for R and Python.
 
 ## Spatial data in Allas
 
