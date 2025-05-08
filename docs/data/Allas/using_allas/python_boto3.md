@@ -51,31 +51,35 @@ installed. If you wish to use the library in another Python environment, you can
 use `pip` to
 [add it on top of an existing module](../../../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-## Configuring S3 credentials
+## Configuring S3
+To use Allas with S3 and boto3, some configurations need to be set up:
+* Credentials: access key and secret key
+* S3 endpoint
+* S3 region
 
-### Credentials for accessing a single project
+### Configurations for accessing a single CSC project
 
-The easiest way to set up S3 credentials for using `boto3` is by
+The easiest way to set up S3 configuration for `boto3` is by
 [configuring an S3 connection on a CSC supercomputer](s3_client.md#configuring-s3-connection-in-supercomputers).
-After running `allas-conf --mode s3cmd`, the credentials are stored in
-`~/.aws/credentials`, which is the default location where `boto3` looks for
-them. You can also define another location for the credentials file by
-modifying the `AWS_SHARED_CREDENTIALS_FILE` environment variable.
-
-If you wish to access Allas from a personal workstation,
-you can simply copy the credentials file to your device
-[using a file transfer tool](../../moving/index.md) like `scp`.
-If you want `boto3` to find the credentials automatically
-without having to modify `AWS_SHARED_CREDENTIALS_FILE`,
-make sure that you also copy the parent directory as in the example
-below.
 
 ```bash
-# Copy the credentials file and its parent directory to your home directory
+module load allas
+allas-conf --mode S3
+```
+
+This saves the credentials and S3 region in `credentials` and S3 endpoint in `config` file in the default `~/.aws/` folder. 
+
+If you wish to access Allas from a personal laptop or some other server,
+copy the `~/.aws`-folder to your home directory on that computer: `C:\Users\username\.aws` on Windows or `~/.aws/` on Mac and Linux.
+[Use any file transfer tool](../../moving/index.md), for example `scp`.
+
+```bash
+# Copy the aws configuration files to your home directory
 scp -r <username>@<hostname>.csc.fi:~/.aws $HOME
 ```
 
-### Credentials for accessing multiple projects
+
+### Credentials for accessing multiple CSC projects
 
 Using `allas-conf --mode s3cmd` is straightforward,
 but it overwrites the existing credentials file when run,
@@ -117,6 +121,8 @@ You can now use these credentials to
 S3 credentials configured only for one project:
 ```python
 # Create resource using credentials from the default location
+# With newer versions of aws-library defining endpoint here is not any more mandatory, if it is given in the config file.
+
 import boto3
 
 s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
