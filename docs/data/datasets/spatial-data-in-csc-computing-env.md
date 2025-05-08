@@ -11,10 +11,9 @@ Puhti has following datasets:
     - Additions to NLS data:
         +   2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
-        + Automatically classified lidar data, only data of year 2019
+        + [Automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008-2024. Includes index map in root folder. Last update 5/2025.
     - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Puhti local files.
 *   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Last update 1/2025. 
-*   **NLS, [automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008-2024. Includes index map root folder. Last update 5/2025.
 *   **Finnish Forest Centre**, CC BY 4.0 license, **updated in 8/2023**
     * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)
     * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24)
