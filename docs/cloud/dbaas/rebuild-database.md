@@ -14,11 +14,13 @@ some extra time for the procedure.
   this it's a good idea to do it during office hours so Pukki admins can assist with any
   unforeseen issues.
 * If the rebuild takes longer than 15 minutes, feel free to open a ticket with
-  [servicedesk@csc.fi](mailto:servicedesk@csc.fi) so we know who to contact in case of issues that
-  require more debugging.
+  [servicedesk@csc.fi](mailto:servicedesk@csc.fi) with your project number and the instance's ID
+  included so we know who to contact and where to investigate in case of issues that require
+  a closer look.
 * The database instance's status will show `Building` while the rebuild is in progress.
 * It's only possible to rebuild instances specifically marked as requiring a rebuild from
-  the web GUI. To rebuild other database instances, you have to use the command-line tools.
+  the web GUI. To rebuild other database instances, you have to use the command-line tools. See
+  section [below](#rebuilding-database-instances-using-the-openstack-command-line-client).
 
 
 ## Rebuilding database instances using the web GUI interface
