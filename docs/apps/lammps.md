@@ -7,23 +7,38 @@ tags:
 
 LAMMPS is a "Molecular Dynamics Simulator" which supports a wide variety of
 [different force fields](https://docs.lammps.org/Intro_features.html#ff). CSC
-does not have a general purpose installation of LAMMPS as each user typically
-needs a more or less customized version. Please read below how to create yours.
+provides a general purpose installation of LAMMPS, but it does not include all
+[optional packages and plugins](https://docs.lammps.org/Packages.html) that are
+available. Thus, you may have to build your own custom version depending on
+your needs. Please read the instructions below.
 
 [TOC]
 
 ## Available
 
-* Puhti: Instructions and CMake files available for building in
-  `/appl/soft/chem/lammps/`
-* Mahti: Instructions and CMake files available for building in
-  `/appl/soft/chem/lammps/`
-* LUMI: Instructions and CMake files available for building in
-  `/appl/local/csc/soft/chem/lammps`
+=== "Puhti"
+    * Pre-installed modules:
+        * `lammps/29Aug2024`
+    * Instructions for building your own custom versions available at
+      `/appl/soft/chem/lammps/custom`
+
+=== "Mahti"
+    * Pre-installed modules:
+        * `lammps/29Aug2024`
+    * Instructions for building your own custom versions available at
+      `/appl/soft/chem/lammps/custom`
+
+=== "LUMI"
+    * Pre-installed modules:
+        * `lammps/29Aug2024-cpu`
+        * `lammps/29Aug2024-gpu`
+    * Instructions for building your own custom versions available at
+      `/appl/local/csc/soft/chem/lammps/custom`
 
 !!! info "Note"
-    Don't use prebuilt binaries, but take a look at the instructions below for
-    configuring and compiling LAMMPS for optimal performance. Don't hesitate to
+    Don't use prebuilt binaries, but use the pre-installed modules or take a
+    look at the instructions below for configuring and compiling LAMMPS for
+    optimal performance. Don't hesitate to
     [contact CSC Service Desk](../support/contact.md) if you encounter any
     problems!
 
@@ -34,8 +49,28 @@ Public License (GPL).
 
 ## Usage
 
-1. Navigate to `/appl/soft/chem/lammps/` on Puhti/Mahti, or
-   `/appl/local/csc/soft/chem/lammps` on LUMI.
+Load the module and check which packages are available in CSC's installation.
+For example:
+
+```bash
+module load lammps/29Aug2024
+lmp -help
+```
+
+On LUMI, you need to first activate CSC's local software stack before you can
+see and load the module. For example:
+
+```bashs
+module use /appl/local/csc/modulefiles
+module load lammps/29Aug2024-gpu
+lmp -help
+```
+
+If the pre-installed module does not include the packages you need, you may
+install your own custom version as follows:
+
+1. Navigate to `/appl/soft/chem/lammps/custom` on Puhti/Mahti, or
+   `/appl/local/csc/soft/chem/lammps/custom` on LUMI.
 2. If you can't find a pre-downloaded source code (e.g.
    `stable_2Aug2023.tar.gz`) or the LAMMPS version is not suitable, download it
    yourself from the [LAMMPS home page](https://lammps.org/download.html).
@@ -65,11 +100,27 @@ Public License (GPL).
     [the LAMMPS documentation](https://docs.lammps.org/Speed_kokkos.html) for
     more details.
 
-Consult these pages for generic instructions about running jobs:
+### Batch script examples
 
-* [How to create batch jobs on Puhti](../computing/running/creating-job-scripts-puhti.md)
-* [How to create batch jobs on Mahti](../computing/running/creating-job-scripts-mahti.md).
-* [How to create batch jobs on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/batch-job/)
+=== "Puhti"
+    ```bash
+    TBA
+    ```
+
+=== "Mahti"
+    ```bash
+    TBA
+    ```
+
+=== "LUMI-C"
+    ```bash
+    TBA
+    ```
+
+=== "LUMI-G"
+    ```bash
+    TBA
+    ```
 
 ### Performance notes
 
