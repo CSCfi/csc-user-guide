@@ -96,6 +96,7 @@
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Plumed](plumed.md) Library and tools for enhanced sampling methods
+* [Quantum ESPRESSO](qe.md) Electronic-structure calculations and materials modeling at the nanoscale
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
 * [TURBOMOLE](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
