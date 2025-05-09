@@ -2,7 +2,7 @@
 
 # Command Line Interface and automated key management
 
-The new SD Connect command line tools, available from February 2025, support file upload, download (with a-commands) and automated key management (with lock-unlock) during encryption and decryption. After programmatic encryption and upload, data can be viewed through the SD Connect user interface and SD Desktop. Coding skills are required to use the tools effectively, below is a step by step guide to get started. In contrast, files have been uploaded before February 2025, were manually encrypted using your encryption key and will need to be decrypted manually after download.
+SD Connect command line tool, **sd-lock-util**, as well as **a-put** and **a-get** commands support SD Connect compatible data upload and download with automatic encryption and decryption. After upload, the data can be downloaded through the SD Connect web interface and SD Desktop too.  Note that files have been uploaded before February 2025 and were manually encrypted using your encryption key and will still need to be decrypted manually after download.
 
 - [Background information](#background-information)
 - [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
@@ -11,20 +11,20 @@ The new SD Connect command line tools, available from February 2025, support fil
 
 ## Background information
 
-SD Connect is part of CSC's Sensitive Data Services, offering a free and secure data processing environment for academic research projects at Finnish universities and research institutes. SD Connect enhances the Allas object storage system by adding an automatic encryption layer, enabling secure storage of sensitive data. Data stored in SD Connect can also be accessed through SD Desktop for secure virtual desktops. While SD Connect is typically accessed via the SD Connect Web interface, command-line tools may offer a more efficient way to manage data in certain situations.
+SD Connect is part of CSC's Sensitive Data Services, offering a free and secure data processing environment for academic research projects at Finnish universities and research institutes. SD Connect enhances the Allas object storage system by adding an automatic encryption layer, enabling secure storage of sensitive data. Data stored in SD Connect can also be accessed through SD Desktop service. While SD Connect is typically accessed via the SD Connect Web interface, command-line tools may offer a more efficient way to manage data in certain situations.
 
-This document provides instructions on how you can install on your local environment (Linux, Mac) and how you can use the a-commands from the allas-cli-utils package to upload and download with automated key management via command line with SD Connect.
+This document provides instructions on how you can install SD Connect commad line tools on your local environment (Linux, Mac) and how you can use the them to upload and download to and from SD Connect.
 
 !!! Note
     Allas itself does not differentiate between data uploaded via SD Connect (user interface or commandline tools) and data uploaded to Allas using different methods. Data buckets may contain a mix of SD Connect data, other encrypted data, and regular data. It is the user's responsibility to manage data types within the buckets. However, it is recommended to store SD Connect data in separate buckets and folders to avoid mixing different data types.
 
 ## Command line tools and automated key management
 
-### Step 1: Installing a-tools on your local environment
+### Step 1: Installing a-tools and sd-lock-util on your local environment
 
-To upload and automatically encrypt sensitive data to SD Connect programmatically, you need to install the command-line tools, which require root access to your laptop or local environment (Mac or Linux). For this reason, you might need support from your organization’s IT unit.
+To upload and automatically encrypt sensitive data to SD Connect using command line, you need to install the [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils) and [sd-lock-util](https://github.com/CSCfi/sd-lock-util) to your laptop or local environment (Mac or Linux). The installation may require root access and for this reason, you might need support from your organization’s IT unit.
 
-[Here you can find step-by-step instructions](https://github.com/CSCfi/allas-cli-utils). This guide provides installation instructions for the a-commands (used to upload and download files) as well as the lock and unlock commands (used to automatically encrypt and decrypt files via automated key management).
+[Here you can find step-by-step instructions](https://github.com/CSCfi/allas-cli-utils) for installing _a-commands_ and  _sd-lock-util_ command.
 
 !!! Note
     If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and Lumi). However, these systems are restricted to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
@@ -45,15 +45,15 @@ export PATH=/some-local-path/allas-cli-utils:$PATH
 source /some-local-path/allas-cli-utils/allas_conf -u your-csc-account --sdc
 ```
 
-- The set up process asks first your CSC passwords (Haka or Virtu passwords can't be used here). After that you will select the CSC project to be used. This is the normal login process for Allas.
-- However, when SD Connect is enabled, the process asks you to give the *SD Connect API token*.
+- The set up process asks first your CSC password (Haka or Virtu passwords can't be used here). After that you will select the CSC project to be used. This is the identiccal to the normal login process for Allas.
+- in the case of SD Connect, the process has an extra step where it asks you to give the *SD Connect API token*.
 
 To retrieve the temporary SD Connect API token:
 
 - Login to the [SD Connect web interface](https://sd-connect.csc.fi). If you have multiple CSC projects, make sure you have selected the same SD Connect project in both the command line and the web interface (top left corner).  
-- In the top right corner of the web interface, click on Support, then select Select API Token from the dropdown menu.
-- In the new dialog, enter a name for your temporary token. Note: Tokens are project-specific, so the name must be unique. Avoid using special characters in the name.
-- Click on Create Token. The token will be displayed only once. Once you see the token, copy it (click the icon to the left of the token). Important: make sure to store it securely, as it will not be retrievable later.
+- In the top right corner of the web interface, click on **Support**, then select **Create API Token** from the dropdown menu.
+- In the new dialog, **enter a name** for your temporary token. Avoid using special characters in the token name.
+- Click on **Create Token**. The token will be displayed only once. Once you see the token, copy it (click the icon to the left of the token). Important: make sure to store it securely, as it will not be retrievable later.
 
     ![API token](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_APItoken.png)
 
@@ -64,16 +64,16 @@ The SD Connect compatible Allas connection is now valid for next eight hours. An
 ### Step 3: Data upload and automated encryption
 
 Data can be uploaded to SD Connect by using command *a-put* with option *--sdc*.
-For example to upload file *my-secret-table.csv" to location *2000123-sens/dataset2* in Allas use command:
+For example to upload file *my-secret-table.csv* to location *2000123-sens/dataset2* in Allas use command:
 
 ```bash
 a-put --sdc my-secret-table.csv -b 2000123-sens/dataset2
 ```
 
-This will produce SD Connect object: 2000123-sens/dataset2/my-secret-table.csv.c4gh
+This will produce SD Connect object: *2000123-sens/dataset2/my-secret-table.csv.c4gh*
 
 All other a-put options and features can be used too. For example directories are
-stored as tar files, if --asis option is not used.
+stored as tar files, if _--asis_ option is not used.
 
 Command:
 
@@ -81,25 +81,33 @@ Command:
 a-put --sdc my-secret-directory -b 2000123-sens/dataset2
 ```
 
-Will produce SD connect object: 2000123-sens/dataset2/my-secret-directory.tar.c4gh
+Will produce SD connect object: *2000123-sens/dataset2/my-secret-directory.tar.c4gh*
 
-For massive data uploads, you can use *allas-dir-to-bucket* in combination with option *--sdc*.
+For massive data uploads, you can use **sd-lock-util lock** command. For example you could upload local
+directory _dataset3_ to bucket  _2000123-sens_ with command:
 
-```bash
-allas-dir-to-bucket --sdc my-secret-directory  2000123-new-sens
+```text
+sd-lock-util lock dataset3 --container 2000123-sens --progress
 ```
 
-The command above will copy all the files from directory my-secret-directory to bucket 2000123-new-sens in SD Connect compatible format.
+sd-lock-util does not store the directory as a tar-archive file. Instead, all files in the
+directory will be stored as individual objects, named according to the location in the diretory.
+
+You can use option *--prefix* to do define a spcific location inside the target bucket:
+
+```text
+sd-lock-util lock dataset3 --container 2000123-sens --prefix case-study2 --progress
+```
 
 !!! Note
-    Do not use special characters or spaces in the folder name.
+    Do not use special characters or spaces in the bucket name.
 
 !!! Note
     Since SD Connect was updated in October 2024, it is no longer straightforward to determine which encryption method was used for an encrypted .c4gh file stored in Allas/SD Connect. If you are now using a new encryption method to upload files to an existing CSC project, please ensure you add a note to your folders indicating that the encryption protocol has changed. You can either share this information with your colleagues or clearly include it in the folder name. As a good practice, we advise creating a new folder and avoiding mixing files encrypted with different methods.
 
 ### Step 4: Data download and automated decryption
 
-Data can be downloaded from Allas with command a-get. If SD Connect connection is enabled, a-get will automatically try to decrypt objects with suffix *.c4gh*.
+Data can be downloaded from SD Connect with command *a-get*. If SD Connect connection is enabled, a-get will automatically try to decrypt objects with suffix *.c4gh*.
 
 So for example command:
 
@@ -107,28 +115,42 @@ So for example command:
 a-get 2000123-sens/dataset2/my-secret-table.csv.c4gh
 ```
 
-Will produce local file: my-secret-table.csv
+Will produce local file: *my-secret-table.csv*
 
 And similarly command:
 
 ```bash
 a-get 2000123-sens/dataset2/my-secret-directory.tar.c4gh
 ```
+Will produce local directory: *my-secret-directory*
 
-Will produce local directory: my-secret-directory
+For large dowloads you can use *sd-lock-util unlock* command. To dowload an entire bucket you can use command:
 
-Note that this automatic decryption works only for the files that have
+```text
+sd-lock-util unlock --container bucket-name --progress
+```
+Like in the case of upload, option *--prefix* can be used to select a subset from the bucket.
+For example, to download from bucket _2000123-sens_ just the object names starting with _case-study2_
+you can use command:
+
+```text
+sd-lock-util unlock --container 2000123-sens --prefix case-study2 --progress
+```
+
+Note that the automatic decryption with a-get or sd-lock-util works only for the files that have
 been stored using the new SD Connect that was taken in use in October 2024.
 
-For the older SD Connect files and other Crypt4gh encrypted files you still must
+For the older SD Connect files and other Crypt4gh encrypted files you still must use a-get and
 provide the matching secret key with option *--sk*
 
 ```bash
-a-get --sk my-key.sec  2000123-sens/old-date/sample1.txt.c4gh
+a-get --sk my-key.sec  2000123-sens/old-data/sample1.txt.c4gh
 ```
 
 Unfortunately there is no easy way to know, which encryption method has been used in
-a .c4gh file stored in Allas.
+a .c4gh file stored in SD Connect.
+
+
 
 ## Command line tools and manual encryption
 
