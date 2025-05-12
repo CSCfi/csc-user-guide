@@ -102,7 +102,7 @@ ida upload -p 2000002 survey_2021 survey_2021
 ```
 
 More examples can be found in the
-[GitHub repository of the IDA command-line tool](https://github.com/CSCfi/ida2-command-line-tools#examples).
+[GitHub repository of the IDA command-line tool](https://github.com/CSCfi/fairdata-ida-v3/tree/master/cli#examples).
 
 If the user has already configured the IDA command-line tool, then the upload
 command uses that configuration. If not, then the upload command asks the user
