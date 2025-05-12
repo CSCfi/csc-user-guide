@@ -15,7 +15,7 @@ More information about applying for IDA storage space can be found at the
 IDA can be used with a web browser user interface, as well as with a
 command-line client tool `ida` that is available on the computing servers
 hosted by CSC (Puhti and Mahti). IDA client can also be downloaded from
-[GitHub](https://github.com/CSCfi/ida2-command-line-tools).
+[GitHub](https://github.com/CSCfi/fairdata-ida-v3/tree/master/cli).
 
 The storage of files in IDA can be managed using the web and command-line
 client interfaces. However, the contents of the stored files can't be modified
@@ -63,7 +63,7 @@ ida_configure
 The configuration process asks for your CSC project number, username and
 [application password](https://www.fairdata.fi/en/ida/user-guide/#app-passwords).
 This information can be obtained from the
-[security settings page of the IDA web interface](https://ida.fairdata.fi/settings/user/security).
+[security settings page of the IDA web interface](https://ida.fairdata.fi/settings/user).
 The configuration is stored in your home directory, so you need to do it only
 once.
 
@@ -135,4 +135,4 @@ your current directory.
 
 More information about using and configuring the IDA client, including
 additional examples, can be found in
-[GitHub](https://github.com/CSCfi/ida2-command-line-tools).
+[GitHub](https://github.com/CSCfi/fairdata-ida-v3/tree/master/cli).
