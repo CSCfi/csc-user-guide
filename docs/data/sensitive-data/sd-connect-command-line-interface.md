@@ -27,11 +27,11 @@ To upload and automatically encrypt sensitive data to SD Connect using command l
 [Here you can find step-by-step instructions](https://github.com/CSCfi/allas-cli-utils) for installing _a-commands_ and  _sd-lock-util_ command.
 
 !!! Note
-    If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and Lumi). However, these systems are restricted to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
+    If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and Lumi). However, these systems are intended to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
 
 ### Step 2: Opening connection to SD Connect
 
-To open SD Connect compatible Allas connection you must add option *--sdc* the configuration command. In CSC supercomputers the connection is opened with commands:
+To open SD Connect compatible Allas connection you must add option *--sdc* to the configuration command. In CSC supercomputers the connection is opened with commands:
 
 ```bash
 module load allas
@@ -45,15 +45,15 @@ export PATH=/some-local-path/allas-cli-utils:$PATH
 source /some-local-path/allas-cli-utils/allas_conf -u your-csc-account --sdc
 ```
 
-- The set up process asks first your CSC password (Haka or Virtu passwords can't be used here). After that you will select the CSC project to be used. This is the identiccal to the normal login process for Allas.
-- in the case of SD Connect, the process has an extra step where it asks you to give the *SD Connect API token*.
+- The set up process asks first your CSC password (Haka or Virtu passwords can't be used here). After that you will select the CSC project to be used. This is the identical to the normal login process for Allas.
+- in the case of SD Connect, the process has an extra step where it asks you to give the **SD Connect API token**.
 
 To retrieve the temporary SD Connect API token:
 
 - Login to the [SD Connect web interface](https://sd-connect.csc.fi). If you have multiple CSC projects, make sure you have selected the same SD Connect project in both the command line and the web interface (top left corner).  
 - In the top right corner of the web interface, click on **Support**, then select **Create API Token** from the dropdown menu.
 - In the new dialog, **enter a name** for your temporary token. Avoid using special characters in the token name.
-- Click on **Create Token**. The token will be displayed only once. Once you see the token, copy it (click the icon to the left of the token). Important: make sure to store it securely, as it will not be retrievable later.
+- Click on **Create Token**. The token will be displayed only once. Once you see the token, copy it (click the icon to the left of the token). Important: make sure to store it securely, as it will not be retrievable later. 
 
     ![API token](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_APItoken.png)
 
@@ -73,7 +73,7 @@ a-put --sdc my-secret-table.csv -b 2000123-sens/dataset2
 This will produce SD Connect object: *2000123-sens/dataset2/my-secret-table.csv.c4gh*
 
 All other a-put options and features can be used too. For example directories are
-stored as tar files, if _--asis_ option is not used.
+stored as _tar_ files, if _--asis_ option is not used.
 
 Command:
 
@@ -152,24 +152,28 @@ a .c4gh file stored in SD Connect.
 
 
 
-## Command line tools and manual encryption
+## Command line tools and manual decryption
+
+In this Chapter we discuss how to decrypt Crypt4GH encrypted files that are not compatible with current SD Connect version.
+In these cases automatic decryption does not work. Instead the data needs first to be downloaded to your local computer after which the
+decryption is done with **crypt4gh** command or [Crypt4GH graphical user interface](.sd-connect-download.md#14-decrypt-the-files-with-the-crypt4gh-application).
+
+Typical cases where this manual decryption is needed are files that have been stored to SD Connect using the old protocol and files that are exported from SD Desktop. 
+
+In these cases it is mandatoryt that you have access to the secret key (often called as private key) that matches the public key that was used for encrtypting the data.
+
+Only the download and decryption of files uploaded with CLI and own encryption key pair is discussed in this section. To encrypt and upload files via command line, please check [this tutorial](../sensitive-data/sequencing_center_tutorial.md) illustrating how to use the crypt4gh tool to upload files in Allas (visible from SD Connect). 
 
 ### 2.1 Preparation
 
-Several command line tools can be used to upload encrypted files to Allas, where they will be visible from SD Connect.
+You can use any Allas compatible tool to download encrypted files from Allas.
+Commonly used command line tools inclule:
 
-Examples are:
+- [R-clone](../Allas/using_allas/rclone)
+- [a-tools](../Allas/using_allas/a_commands.md)
 
-- R-clone
-- a-tools
-
-You can find more information in [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
-
-Download and decryption of files uploaded with CLI and own encryption key pair is discussed in this section. To encrypt and upload files via command line, please check [this tutorial](../sensitive-data/tutorials/decrypt-directory.md)illustrating how to use the crypt4GH tool to upload files in Allas (visible from SD Connect). Below is also more information about the crypt4GH CLI. For documentation and more information, you can also check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
-
-In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
-
-**Python 3.6+ is required** to use the Crypt4GH encryption utility. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
+In addition to Allas compatible tool, you need [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git).
+Crypt4GH is a written in Pyhthon. **Python 3.6+ is required**. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
 
 1. Install the Crypt4GH encryption CLI tool. You can install Crypt4GH directly with pip tool:
 
@@ -221,17 +225,32 @@ In this example, we first generate your key pair (a password-protected private k
 
       You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently, crypt4gh uses term *secure key* for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
 
-### 2.2 Decrypt a file
+### 2.2 Download and decrypt a file
 
-To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
+To decrypt a file you will need a secret key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that you are decrypting a file _dog.jpg_ that you encryperd in SD Desktop with key _groupA-pub_ after which you exported the file to bucket _2000123-export_. 
+To retrieve the file to your local computer you a can do both download and decryption with _a-put_ command.
 
 ```bash
-crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg Passphrase for groupA.sec:
+a-get --sk groupA.sec 2000123-export/dog.jpg.c4gh
+```
+The command abover asks the password of key file after which it downloads the data and decrypts it.
+
+Alternatively you could use for example _rclone_ to download the data:
+
+```bash
+rclone copy allas:2000123-export/dog.jpg.c4gh ./dog.jpg.c4gh
+```
+After that use `crypt4gh decrypt` command for decryption:
+
+```bash
+crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg
 ```
 
-where `--sk groupA.sec` is a corresponding private key to one of the public keys used in the encryption. The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg.c4gh` reads in an encrypted file called `dog.jpg.c4gh` and `>dog.jpg` writes out a decrypted file named `dog.jpg`.
+The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg.c4gh` reads in an encrypted file called `dog.jpg.c4gh` and `>dog.jpg` writes out a decrypted file named `dog.jpg`.
 
-The command will ask the user to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
+The command will ask the user to enter the password (passphrase) of your secret key. For security reasons the password is not displayed when you type it.
+
+If you need to decrypt a large number of Crypt4GH encryopted files, you can check a [tutorial that describes how all the files in a directory can be decrypted](../sensitive-data/tutorials/decrypt-directory.md)
 
 !!! Note
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys. If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](tutorials/decrypt-directory.md).
