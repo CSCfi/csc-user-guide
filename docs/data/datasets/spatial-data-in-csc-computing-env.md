@@ -3,36 +3,34 @@
 
 Puhti has following datasets:
 
-*   **Paituli data**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland and University of Helsinki.. Weekly updates. 
+*   **Paituli data**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland and University of Helsinki.. 
     -   [Full list of Paituli datasets](https://paituli.csc.fi/metadata.html)
     -   All Paituli datasets have a readme-file with a link to Etsin dataset descriptions and terms of use.
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
     -   NLS normal color ortho images are not available in Puhti, but the infrared ones are.
+    -   NLS 2m DEM, lidar and infrared ortophotos are updated in Puhti automatically every Monday.
     - Additions to NLS data:
-        +   2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
-        +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
-        + Automatically classified lidar data, only data of year 2019
+        + 2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
+        + Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
+        + [Automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p), 2008-2024. Includes index map in root folder. Last update 5/2025.
     - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Puhti local files.
-*   **LUKE, multi-source national forest inventory**, 2013, 2015, 2017, 2019 and 2021. LUKE license changed in Aug 2019 to CC BY 4.0.
-*   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Weekly updates. 
-*   **Finnish Forest Centre**, CC BY 4.0 license, **updated in 8/2023**
+*   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Last update 1/2025. 
+*   **Finnish Forest Centre**, CC BY 4.0 license, last update 8/2023
     * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)
     * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24)
     * [Forest mask](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/df99fbd3-44b3-4ffc-b84a-9459f318d545)
     * [Forest resource plots](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/332e5abf-63c2-4723-9c2d-4a926bbe587a)
 *   **Landsat mosaics produced by SYKE and FMI** in Paikkatietoalusta project
     -   [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995
-    -   [Historical Landsat NDVI mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-image-index-mosaics-hind-historialliset-landsat-kuvaindeksimosaiikit-hind): 1984-2011
 
-NLS 2m DEM, lidar, infrared ortophotos and all SYKE datasets are updated in Puhti automatically every Monday.
 
 The open spatial data is stored in Puhti: **/appl/data/geo**
 
 Accessing data in Puhti requires CSC user account with a project with Puhti service enabled. All Puhti users have **read** access to these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy. Open spatial data in Puhti is maintained by CSC personnel. If you notice any problems with data or wish some new dataset, contact CSC Servicedesk.
 
-!!! warning "Sentinel satellite mosaics produced by SYKE and FMI in Paikkatietoalusta project were removed from Puhti on 21.11.2023"
+!!! note "Satellite mosaics produced by SYKE and FMI in Paikkatietoalusta project were removed from Puhti on 21.11.2023"
 
-    The removed datasets were: [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar), [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind). They are available from FMI's own object storage which has more data than was stored to Puhti local disks. The easiest way to find PTA sentinel mosaics from FMI is with [Paituli STAC](https://paituli.csc.fi/stac.html). Paituli STAC page includes also usage examples for R and Python.
+    The removed datasets were: [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar), [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) and Landsat index mosaics. They are available from FMI's own object storage which has more data than was stored to Puhti local disks. The easiest way to find PTA mosaics from FMI is with [Paituli STAC](https://paituli.csc.fi/stac.html). Paituli STAC page includes also usage examples for R and Python.
 
 ## Spatial data in Allas
 
