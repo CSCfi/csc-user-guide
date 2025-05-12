@@ -6,7 +6,7 @@ SD Connect command line tool, **sd-lock-util**, as well as **a-put** and **a-get
 
 - [Background information](#background-information)
 - [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
-- [Command line tools and manual encryption](#command-line-tools-and-manual-encryption)
+- [Command line tools and manual encryption](#command-line-tools-and-manual-decryption)
 - [Tutorials](#tutorials)
 
 ## Background information
