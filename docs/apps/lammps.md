@@ -189,7 +189,7 @@ CPUs and GPUs on Mahti and LUMI. The system contains 16M atoms.
   [see below](#high-throughput-computing-with-lammps)).
 * Launching multiple OpenMP threads per MPI task may boost CPU performance. Use
   `-sf omp` command-line switch and set `OMP_NUM_THREADS` environment variable
-  to activate OpenMP support to all styles that support it. Note that the
+  to activate OpenMP threading for all styles that support it. Note that the
   product of MPI tasks (`--ntasks-per-node`) and threads/task
   (`--cpus-per-task`) should not exceed the physical number of cores on a node,
   otherwise performance will suffer. See e.g.
