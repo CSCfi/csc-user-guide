@@ -156,7 +156,7 @@ a .c4gh file stored in SD Connect.
 
 In this Chapter we discuss how to decrypt Crypt4GH encrypted files that are not compatible with current SD Connect version.
 In these cases automatic decryption does not work. Instead the data needs first to be downloaded to your local computer after which the
-decryption is done with **crypt4gh** command or [Crypt4GH graphical user interface](.sd-connect-download.md#14-decrypt-the-files-with-the-crypt4gh-application).
+decryption is done with **crypt4gh** command or [Crypt4GH graphical user interface](./sd-connect-download.md#14-decrypt-the-files-with-the-crypt4gh-application).
 
 Typical cases where this manual decryption is needed are files that have been stored to SD Connect using the old protocol and files that are exported from SD Desktop. 
 
@@ -169,7 +169,7 @@ Only the download and decryption of files uploaded with CLI and own encryption k
 You can use any Allas compatible tool to download encrypted files from Allas.
 Commonly used command line tools include:
 
-- [R-clone](../Allas/using_allas/rclone)
+- [R-clone](../Allas/using_allas/rclone.md)
 - [a-tools](../Allas/using_allas/a_commands.md)
 
 In addition to Allas compatible tool, you need [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git).
