@@ -193,7 +193,7 @@ CPUs and GPUs on Mahti and LUMI. The system contains 16M atoms.
   product of MPI tasks (`--ntasks-per-node`) and threads/task
   (`--cpus-per-task`) should not exceed the physical number of cores on a node,
   otherwise performance will suffer. See e.g.
-  [the Mahti example above](#mahti-hybrid-mpiopenmp).
+  [the Mahti example above](#batch-script-examples).
 
 ### High-throughput computing with LAMMPS
 
