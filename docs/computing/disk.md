@@ -79,11 +79,16 @@ manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 Each project has also a 50 GB project application disk space in the directory
 `/projappl/<project>`.
 
-It is intended for storing applications you have compiled yourself, libraries etc. that you
-are sharing within the project. It is not a personal storage space but it is shared with
-all members of the project team. Note that no files in this folder will be removed automatically.
+It is intended for storing compiled software binaries, source code, libraries
+and small-scale reference data that are shared within a project. It is not a
+personal storage space, but it is shared with all members of a project. Note
+that no files in this folder will be removed automatically.
 
-It is not intended for running applications, so please run them in `scratch` instead.
+Please note that `projappl` quota is limited, and the disk area is not meant
+for storing active research data. Thus, please do not submit jobs from or write
+large-scale data to your project's `projappl` directory, but use `scratch`
+instead for this purpose. Note that the self-installed applications you run
+can and should still be stored in `projappl`.
 
 ## Using scratch and projappl directories
 
