@@ -121,9 +121,13 @@ You can now use these credentials to
 S3 credentials configured only for one project:
 ```python
 # Create resource using credentials from the default location
-# With newer versions of aws-library defining endpoint here is not any more mandatory, if it is given in the config file.
+# With newer versions of aws-library:
+#   - defining endpoint here is not any more mandatory, if it is given in the config file.
+#   - two checksum settings must be added that moving objects to/from Allas would work
 
 import boto3
+os.environ["AWS_REQUEST_CHECKSUM_CALCULATION"] = "when_required"
+os.environ["AWS_RESPONSE_CHECKSUM_VALIDATION"] = "when_required"
 
 s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
 ```
@@ -137,6 +141,9 @@ s3_credentials = '<credentials-file>'   # e.g. '~/.boto3_credentials'
 s3_profile = 's3allas-<project>'        # e.g. 's3allas-project_2001234'
 
 os.environ['AWS_SHARED_CREDENTIALS_FILE'] = s3_credentials
+os.environ["AWS_REQUEST_CHECKSUM_CALCULATION"] = "when_required"
+os.environ["AWS_RESPONSE_CHECKSUM_VALIDATION"] = "when_required"
+
 s3_session = boto3.Session(profile_name=s3_profile)
 s3_resource = s3_session.resource('s3', endpoint_url='https://a3s.fi')
 ```
