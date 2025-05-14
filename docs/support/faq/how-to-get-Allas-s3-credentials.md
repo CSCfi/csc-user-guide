@@ -1,10 +1,10 @@
 # How to get Allas S3 credentials?
 
-It is possible to get Allas S3 credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY). Each credential pair is linked to a single CSC project.
+How to get Allas S3 credentials: access key and secret key? Each credential pair is linked to a single CSC project.
 
 ## 'allas-conf'
 
-Use [`allas-conf`](../data/Allas/allas-conf.md#s3-connection-details) to find out your S3 credentials.
+Use [`allas-conf`](../../data/Allas/using_allas/allas-conf.md#s3-connection-details) to find out your S3 credentials.
 It is pre-installed to CSC supercomputers or can be installed to Linux and Mac.
 
 
