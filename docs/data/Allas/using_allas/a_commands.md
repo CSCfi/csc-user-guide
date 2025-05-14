@@ -45,7 +45,7 @@ In order to use these tools in Puhti and Mahti, first load a-commands:
 module load allas
 ```
 
-Configure Allas connection with [`allas-conf`](allas-conf.md) for more info and additional options.
+Configure Allas connection with [`allas-conf`](allas-conf.md).
 
 ```text
 allas-conf
@@ -93,7 +93,7 @@ By default, this tool performs the following operations:
 define the project that will be used to store the data.
 
 2.    In the case of a directory, the content of the directory is collected as a single file
-using the `tar` command. If you have a lot of data, this might not be a good option, consider then using some other [Allas client](accssing_allas.md) that does not package files.
+using the `tar` command. If you have a lot of data, this might not be a good option, consider then using some other [Allas client](accessing_allas.md) that does not package files.
 
 3.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
 

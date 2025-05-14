@@ -73,7 +73,7 @@ Allas can be used from CSC computing environment or any other laptop or server c
 * Graphical locally installed tools
 * Other tools: Python and R libraries etc
 
-[The accessing Allas page](accessing-allas.md) describes the different options in detail.
+[The accessing Allas page](accessing_allas.md) describes the different options in detail.
 
 
 ## Protocols

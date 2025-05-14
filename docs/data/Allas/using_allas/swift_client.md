@@ -10,7 +10,7 @@ Open a connection to Allas:
 allas-conf
 ```
 
-See [`allas-conf`](allas-examples.md#configure-connection-to-allas) for more info and additional options.
+See [`allas-conf`](allas-conf.md) for more info and additional options.
 
 This chapter includes instructions for the following operations:
 

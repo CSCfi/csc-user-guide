@@ -11,6 +11,7 @@ The four main options for accessing Allas are:
 * Other tools: Python and R libraries etc
 
 The tool lists below are not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
+You can cross-use the Allas clients as long as you access Allas with the same protocol (Swift or S3).
 
 When choosing the tool for accessing Allas, consider:
 
@@ -23,7 +24,7 @@ When choosing the tool for accessing Allas, consider:
 * Packaging of files, in case of moving many filea, `a-tools` packages them by default to a .tar file and adds metadata, other tools usually move files as they are.
 * Sensitity of your data, for sensitive data use [tools that support client side encryption](allas_encryption.md).
 
-To use Allas from Puhti or Mahti, see [Tutorial for using Allas in CSC supercomputers](allas-examples.md).
+To use Allas from Puhti or Mahti, see [Tutorial for using Allas in CSC supercomputers](allas-hpc.md).
 
 ## Web browser interfaces
 

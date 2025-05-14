@@ -12,11 +12,11 @@ This Allas object storage service user guide consists of following parts:
 ## Accessing Allas
 
    * [Accessing Allas](./accessing_allas.md) A summary of the most commonly used Allas tools. Including:
-      * [Gaining Access](./accessing_allas.md#gaining-access) 
-      * [Accessing Allas from a web browser](./accessing_allas.md#accessing-allas-from-the-web-browser)
-      * [Accessing Allas in the CSC computing environment and other linux-platforms](./accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms)
-      * [Accessing Allas with Windows or Mac](./accessing_allas.md#accessing-allas-with-windows-or-mac)
-      * [Other ways of accessing Allas](./accessing_allas.md#other-ways-of-accessing-allas)
+      * [Gaining Access](./introduction.md#gaining-access) 
+      * [Accessing Allas from a web browser](./accessing_allas.md#web-browser-interfaces)
+      * [Accessing Allas with command-line tools](./accessing_allas.md#command-line-tools)
+      * [Accessing Allas with graphical tools](./accessing_allas.md#graphical-tools)
+      * [Accessing Allas with other tools: Python and R libraries etc](./accessing_allas.md#other-tools:-python-and-r-libraries-etc)
 
 ### Understanding error messages
 
@@ -25,7 +25,7 @@ This Allas object storage service user guide consists of following parts:
    
 ## Tutorials and other documents
 
-* [Using Allas interactively in Puhti and Mahti](./allas-examples.md) 
+* [Using Allas interactively in Puhti and Mahti](./allas-hpc.md) 
 * [Using Allas in batch jobs](./allas_batchjobs.md)
 * [Using Allas to host a data set for a research group](./allas_project_example.md)
 * [Using Allas to transport sensitive data](../sensitive-data/sequencing_center_tutorial.md)

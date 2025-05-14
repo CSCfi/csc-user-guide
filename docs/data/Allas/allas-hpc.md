@@ -10,6 +10,7 @@ active. In addition to storage, Allas can be used for transporting data between
 different servers and sharing data with other users.
 
 * [Allas user guide](index.md)
+* [Using Allas in batch jobs](allas_batchjobs.md)
 
 To upload or download data between Allas and supercomputers, use:
 
