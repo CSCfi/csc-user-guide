@@ -11,6 +11,9 @@ You can delete main folders, subfolders or individual files from SD Connect.
 3. If you need to delete multiple files select **Display options** from top right corner of data table and select **Display as file paths** from dropdown menu. Then select **Hide pagination** from the same menu. Now all files are displayed on one page. 
 4. Select checkbox on top left corner of datatable. Now you can delete all files using toolbar appearing on top of data table.
 
+![SD Connect Delete file](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Deletefile.png)
+
+
 ![SD Connect Delete files](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Deletefiles.png)
 
 
