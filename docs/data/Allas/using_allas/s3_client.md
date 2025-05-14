@@ -6,6 +6,8 @@ the _S3_ protocol that differs from the _Swift_ protocol used in the [Rclone](./
 
 From the user perspective, one of the main differences between S3 and Swift protocols is that Swift based connections remain valid for eight hours at a time, but with S3, the connection remains permanently open. The permanent connection is practical in many ways but it has a security aspect: if your CSC account is compromised, so is the object storage space.
 
+Use version 2.0.2 or later.
+
 The syntax of the `s3cmd` command:
 ```text
 s3cmd -options command parameters
@@ -64,40 +66,24 @@ s3cmd
 
 Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
 
-**Configuring S3 connection on local computer**
+Additionally install [`allas-conf`](allas-conf.md#installation).
 
-Once you have _OpenStack_ and _s3cmd_ installed in your environment, you can download the [allas_conf](https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf)
-script to set up the S3 connection to your Allas project.
-```text
-wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
-source allas_conf --mode S3 --user your-csc-username
-```
-Note that you should use the `--user` option to define your CSC username. The configuration command first asks for your
-CSC password and then for you to choose an Allas project. After that, the tool creates a key file for the S3 connection and stores it in the default location (_.s3cfg_ in home directory).
-
-## Configuring S3 connection in supercomputers
+## Configuring S3 connection 
 
 To use _s3cmd_ in Puhti and Mahti, you must first configure the connection:
 ```text
 module load allas
 allas-conf --mode S3
 ```
-The configuration process first asks for your CSC password. Then it lists your Allas projects and asks to select the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
 
-You can use the S3 credentials, stored in the _.s3cfg_ file, in other services too. You can check the currently used _access key_ and _secret_key_ with command:
-```
-grep key $HOME/.s3cfg
+On local computer:
+```text
+source allas_conf --mode S3 --user your-csc-username
+```text
 
-```
+The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
 
-If you use these keys in other services, your should make sure that the keys always remain private. Any person who has access to these two keys, can access and modify all the data that the project has in Allas.
-
-In needed, you can deactivate an S3 key pair with command:
-
-```
-allas-conf --s3remove
-```
-
+See [`allas-conf`](allas-examples.md#configure-connection-to-allas) for more info and additional options.
 
 
 ## Create buckets and upload objects

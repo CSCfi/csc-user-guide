@@ -1,6 +1,14 @@
-# How to get Allas S3 credentials
+# How to get Allas S3 credentials?
 
-It is possible to use the openstack API to get Allas S3 credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY). Each credential pair is linked to a single OpenStack project.
+It is possible to get Allas S3 credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY). Each credential pair is linked to a single CSC project.
+
+## 'allas-conf'
+
+Use [`allas-conf`](../../data/allas/allas-conf.md#s3-connection-details) to find out your S3 credentials.
+It is pre-installed to CSC supercomputers or can be installed to Linux and Mac.
+
+
+## openstack API
 
 1. Install [OpenStack command line tools](../../cloud/pouta/install-client.md)
 

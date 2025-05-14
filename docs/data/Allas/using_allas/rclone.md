@@ -37,9 +37,9 @@ A more extensive list can be found on the [Rclone manual pages](https://rclone.o
 
 The first step is to authenticate to a project in Allas. Rclone can use both Swift and S3 protocols but these connections will have different names in rclone commands. 
 
-In this document we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use rclone also in your local computer. Instructions of configuring locally installed Rclone are here
+In this document we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use [rclone also in your local computer](./rclone_local.md). 
 
-   * [Local Rclone configuration for Allas](./rclone_local.md)
+See [`allas-conf`](allas-conf.md#configure-connection-to-allas) for more info and additional options.
 
 
 ### Rclone with swift on CSC supercomputers
@@ -49,19 +49,20 @@ The default protocol of Allas is Swift. In Puhti and Mahti Swift based Allas con
 module load allas
 allas-conf
 ```
-The `allas-conf` command asks for your CSC password (University/Haka password will not work here). It lists
-your projects in Allas and asks you to define the project that will be used. Then _allas-conf_ generates a Rclone configuration file for the Allas service and authenticates the connection to the selected project. In Rclone command this swift based connection is referred with remote name `allas:`. The authentication information is stored in the shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL` that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session, so if you login to Puhti in another session, you need to authenticate again to access Allas.
+In Rclone commands, this Swift based connection is referred with remote name `allas:`. 
 
 ### Rclone with S3 on CSC supercomputers
 
-If you want to use Allas with the S3 protocol instead, run the `allas-conf` command with the `--mode S3` option.
+If you want to use Allas with the S3 protocol instead, run:
 ```text
 module load allas
 allas-conf --mode S3
 ```
 This command opens permanent S3 based connection to Allas. Rclone can now refer to this connection with remote name `s3allas:`.
 In the examples below the swift based `allas:` remote definition is used, but if you have S3 connection defined, you could replace it
-with `s3allas:`. Note that you can have both `allas:` and `s3allas:` functional in the same time and that they can still use different Allas projects. However, you should avoid mixing protocols. If an object is loaded using `allas:` do also all operations with `allas:`.  
+with `s3allas:`. 
+
+Note, that you can have both `allas:` and `s3allas:` functional in the same time and that they can still use different Allas projects. However, you should avoid mixing protocols. If an object is loaded using `allas:` do also all operations with `allas:`.  
 
 ## Create buckets and upload objects
 
@@ -164,5 +165,38 @@ rclone sync allas:2000620-raw-data/mydata mydata
 
 This command returns the uploaded data from Allas to the _mydata_ directory. Note however that if you have added new data to _mydata_ after synchronizing the directory with Allas, this data will be erased.
 
+## Copying files directly between object storages
 
+Rclone can also be used to directly copy files from another object storage (e.g. [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), [Google cloud](https://cloud.google.com/learn/what-is-object-storage), [CREODIAS](https://creodias.eu/cloud/cloudferro-cloud/storage-2/object-storage/),...) to Allas. For this both credentials need to be stored in a Rclone configuration file in the users home directory (`.config/rclone/rclone.conf`). An example is shown below:
+
+```
+[s3allas]
+type = s3
+provider = Other
+env_auth = false
+access_key_id = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+endpoint = a3s.fi
+acl = private
+
+[otherobjectstorage]
+type = s3
+provider = Other
+env_auth = false
+access_key_id = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+secret_access_key = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+endpoint = yourotherendpoint.com
+acl = private
+```
+The configuration for Allas is added automatically when configuring Allas in s3 mode 
+
+`source allas_conf --mode s3cmd` .
+
+After creating/updating this file, Rclone can be used to copy files
+
+`rclone copy otherobjectstorage:bucket-x/object-y  s3allas:bucket-z/object-a`
+
+or list files from either Allas or the other object storage by using the respective name
+
+`rclone lsf otherobjectstorage: `.
  

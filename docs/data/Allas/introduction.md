@@ -15,6 +15,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * The data can be accessed from anywhere using the URL.
  * The data can have different levels of access control.
  * The data can have lifecycle policy set.
+ * You can access Allas from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
 
 **Limitations**
 
@@ -22,6 +23,16 @@ The stored objects can be of any data type, such as images or compressed data fi
  * It is unsuitable for files that change constantly during their lifetime (e.g. most SQL databases).
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing, and the previous version replaced with a new one.
  * In case of swift protocol, files larger than 5 GB are divided into smaller segments. Normally, this is done automatically during the upload. See [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
+
+See also the [common use cases](./using_allas/common_use_cases.md).
+
+## Gaining access
+
+To be able to use Allas, you need to have:
+
+* [CSC account](../../accounts/how-to-create-new-user-account.md)
+* [CSC a computing project](../../accounts/how-to-create-new-project.md) for which [Allas service has been enabled](../../accounts/how-to-add-service-access-for-project.md)
+
 
 ## Billing and quotas
 
@@ -31,6 +42,9 @@ The default quota for a new project is 10 TB, but that can be increased if neede
 
 To increase your Allas quota, please send a request to: `servicedesk@csc.fi`
 In the request, define what Allas project you are using, how large storage space is needed and what kind of data will be stored to Allas.
+
+Note that the data stored in Allas
+[consume billing units of the project](../../accounts/billing.md).
 
 
 **The default quotas for projects:**
@@ -48,25 +62,18 @@ Storing data in Allas consumes _billing units_. In Allas, billing is based on th
 Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 
 
-
 ## Different ways to use Allas
 
-You cannot mount Allas direcly to a computer. This means that in order to use Allas, you need software tools to access it. There are four main ways to access Allas:
+Allas can be used from CSC computing environment or any other laptop or server connected to Internet. There are many tools for working with Allas:
 
 ![Allas access clients](img/allas-access-flavors.png)
 
-1. In the CSC computing environment (Puhti and Mahti), there are ready-to-use tools provided by CSC to access Allas. These tools are mostly the same that can also be installed in any Linux environment, e.g. a virtual machine in cPouta or a local Linux server.
-In the CSC computing environment, Allas should be used to store any data that needs to be preserved for longer than a few weeks. The supercomputer's own storage has a policy to delete idle data, so the data must be moved to Allas after computing. See [Computing disk environment](../../computing/disk.md)
+* Web browser interfaces
+* Command-line tools
+* Graphical locally installed tools
+* Other tools: Python and R libraries etc
 
-2. [Allas Web UI](https://allas.csc.fi) provides a web-based graphical interface for managing object storage in Allas. It allows users to create and manage buckets, upload and download objects (up to 5 GiB per file), and configure sharing permissions. Allas Web UI offers a convenient way to interact with Allas without requiring command-line tools, making it suitable for users who prefer a visual approach. More information can be found in the [Allas Web UI guide](./using_allas/allas-ui.md).
-
-3. WWW access to Allas is provided by the web interface of the cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). No special software is required to access Allas with a browser, making this the by far simplest way to access Allas. On the other hand, the browser user interface has a number of limitations compared to other clients, the most notable of which are lower performance and uploading/downloading only a single file at a time. Instructions for accessing and using Allas with a browser: [OpenStack Horizon web interface](./using_allas/web_client.md)
-
-4. To access Allas with command line commands, client software supporting the _Swift_ or _S3_ protocol is required. This is the most flexible way to access Allas, but it requires more effort than other access methods. Instructions to use a command line client: [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms).
-
-5. To access Allas with a GUI client, a suitable GUI client is required. The client needs to be capable to use the _Swift_ or _S3_ access protocol. Instructions to use a GUI client: [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-or-mac).
-
-See also the [common use cases](./using_allas/common_use_cases.md).
+[The accessing Allas page](accessing-allas.md) describes the different options in detail.
 
 
 ## Protocols
@@ -83,57 +90,8 @@ Generic recommendations for selecting the protocol:
  * In any case, choose only one of the protocols. Do not mix _S3_ and _Swift_.
  * It is better to store a few large objects than many small objects.
  * Using over 100 GB objects may cause problems because of long upload/download times.
-
-## Clients
-
-Allas is accessed via a client software that takes care of moving data to and from Allas and managing data objects. There are several different kinds of client software for accessing the object storage servers. Allas can be used with any object storage client that is compatible with the Swift or S3 protocol.
-
-| Client | Notes |
-| :-------- | :------- |
-| [Allas Web UI](./using_allas/allas-ui.md) | Use via [https://allas.csc.fi](https://allas.csc.fi). |
-| [SD Connect](../sensitive-data/sd_connect.md) | Sensitive data orinented [Web interface for Allas](https://sd-connect.csc.fi). |
-| [a-commands](./using_allas/a_commands.md) | Provides easy-to-use tools for basic use. Requires Rclone, Swift and OpenStack. |
-| [swift python-swiftclient](./using_allas/swift_client.md)| The versatile Swift client. |
-| [s3cmd](./using_allas/s3_client.md) | The versatile S3 client (version 2.0.2 or later). |
-| [Python with S3](./using_allas/python_boto3.md) |	Programmatic access. |
-| [Python with SWIFT](./using_allas/python_swift.md) |	Programmatic access. |
-| [rclone](./using_allas/rclone.md) | Versatile command line tool for both Swift and S3 protocols |
-| libs3	| |
-| python-openstackclient | |
-| aws-cli | aws-cli and the boto3 Python library. |
-| curl | Extremely simple to use with public objects and temporary URLs. |
-| wget | The same as curl. |
-| [web client](./using_allas/web_client.md) | Use via [https://pouta.csc.fi](https://pouta.csc.fi). Provides basic functions. |
-
-### Client operations
-
-A _web client_ is suitable for using the basic functions. *a-commands* offer easy-to-use functions for using Allas either via a personal computer or supercomputer. Power users might want to consider the clients _rclone_, _Swift_ and _s3cmd_. The table displays the core functions of the power clients concerning data management in Allas.
-
-| | Allas Web UI | a-commands | rclone | Swift | s3cmd |
-| :----- | :-----: | :----: | :----: | :-----: | :----: |
-| Usage | _Basic_ | _Basic_ | _Power_ |_Power_ | _Power_ |
-| **Create buckets** | <font color="green">&#x2714;</font> |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| **Upload objects** | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| **List** | | | | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>  |
-| **Download** | | | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font> | |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| **Remove** | | | | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>&#8226;&#8226; | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>&#8226;&#8226; |
-| **Managing access rights** | | | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private |  | <font color="green">&#x2714;</font>| | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp URLs | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| **Set lifecycle policies** | | | | | <font color="green">&#x2714;</font> |
-| **Move objects** | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| **Edit metadata** | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| **Download whole project** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | |
-| **Remove whole project** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | |
-
-<div align="right">&#8226;&#8226; Only empty buckets</div>
+ 
+Note, that some [Allas clients](accessing_allas.md) support only one of these protocols.
 
 ## System characteristics
 
