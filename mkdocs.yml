@@ -501,17 +501,19 @@ nav:
           - Common Error Messages: data/Allas/using_allas/error_messages.md
           - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
           - Allas clients:
-              - Allas Web UI: data/Allas/using_allas/allas-ui.md
+              - Allas connection configuration: data/Allas/using_allas/allas-conf.md          
+              - Allas web UI: data/Allas/using_allas/allas-ui.md
+              - Puhti/Mahti web UI: computing/webinterface/file-browser.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
               - Python with S3: data/Allas/using_allas/python_boto3.md
-              - Python with SWIFT: data/Allas/using_allas/python_swift.md
+              - Python with Swift: data/Allas/using_allas/python_swift.md
               - Rclone from Computing environment: data/Allas/using_allas/rclone.md
               - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
               - Swift: data/Allas/using_allas/swift_client.md
               - S3cmd: data/Allas/using_allas/s3_client.md
-              - Web GUI: data/Allas/using_allas/web_client.md
+              - Pouta web UI: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
       - Kaivos database service:
           - data/kaivos/overview.md
