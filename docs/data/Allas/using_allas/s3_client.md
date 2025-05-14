@@ -79,7 +79,7 @@ allas-conf --mode S3
 On local computer:
 ```text
 source allas_conf --mode S3 --user your-csc-username
-```text
+```
 
 See [`allas-conf`](allas-conf.md) for more info and additional options.
 

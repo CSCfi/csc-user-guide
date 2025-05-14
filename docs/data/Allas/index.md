@@ -14,9 +14,9 @@ This Allas object storage service user guide consists of following parts:
    * [Accessing Allas](./accessing_allas.md) A summary of the most commonly used Allas tools. Including:
       * [Gaining Access](./introduction.md#gaining-access) 
       * [Accessing Allas from a web browser](./accessing_allas.md#web-browser-interfaces)
-      * [Accessing Allas with command-line tools](./accessing_allas.md#command-line-tools)
+      * [Accessing Allas with command-line tools](./accessing_allas.md#commandline-tools)
       * [Accessing Allas with graphical tools](./accessing_allas.md#graphical-tools)
-      * [Accessing Allas with other tools: Python and R libraries etc](./accessing_allas.md#other-tools:-python-and-r-libraries-etc)
+      * [Accessing Allas with other tools: Python and R libraries etc](./accessing_allas.md#other-tools-python-and-r-libraries-etc)
 
 ### Understanding error messages
 
