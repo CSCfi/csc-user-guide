@@ -13,6 +13,7 @@ You can delete main folders, subfolders or individual files from SD Connect.
 
 ![SD Connect Delete file](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Deletefile.png)
 
+![SD Connect Display options](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_DisplayOptions.png)
 
 ![SD Connect Delete files](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Deletefiles.png)
 
