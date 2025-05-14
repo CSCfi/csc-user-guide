@@ -109,7 +109,7 @@ WinSCP has generally rather slow data transfer speed for S3, so likely not suita
 
 These Python and R libraries can be installed to all operating systems.
 
-## Clients comparision
+## Clients comparison
 
 A _web client_ is suitable for using the basic functions. *a-commands* offer easy-to-use functions for using Allas either via a personal computer or supercomputer. Power users might want to consider the clients _rclone_, _Swift_ and _s3cmd_. The table displays the core functions of the power clients concerning data management in Allas.
 

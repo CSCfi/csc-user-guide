@@ -33,16 +33,17 @@ The most frequently used Rclone commands:
 
 A more extensive list can be found on the [Rclone manual pages](https://rclone.org/docs/) or by typing the command `rclone` in Puhti.
 
-## Authentication 
+## Authentication on CSC supercomputers
 
-The first step is to authenticate to a project in Allas. Rclone can use both Swift and S3 protocols but these connections will have different names in rclone commands. 
-
-In this document we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use [rclone also in your local computer](./rclone_local.md). 
-
-See [`allas-conf`](allas-conf.md#configure-connection-to-allas) for more info and additional options.
+Below, we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use [Rclone also in your local computer](./rclone_local.md). 
 
 
-### Rclone with swift on CSC supercomputers
+The first step is to configure connection to a project in Allas. Rclone can use both Swift and S3 protocols but these connections will have different names in rclone commands. 
+
+
+ [`allas-conf`](allas-conf.md#allas-conf-configure-connection) for more info and additional options.
+
+### Rclone with swift 
 
 The default protocol of Allas is Swift. In Puhti and Mahti Swift based Allas connection is activated  with commands:
 ```text
@@ -51,7 +52,7 @@ allas-conf
 ```
 In Rclone commands, this Swift based connection is referred with remote name `allas:`. 
 
-### Rclone with S3 on CSC supercomputers
+### Rclone with S3
 
 If you want to use Allas with the S3 protocol instead, run:
 ```text
@@ -63,6 +64,8 @@ In the examples below the swift based `allas:` remote definition is used, but if
 with `s3allas:`. 
 
 Note, that you can have both `allas:` and `s3allas:` functional in the same time and that they can still use different Allas projects. However, you should avoid mixing protocols. If an object is loaded using `allas:` do also all operations with `allas:`.  
+
+
 
 ## Create buckets and upload objects
 

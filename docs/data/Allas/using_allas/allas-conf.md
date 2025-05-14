@@ -25,7 +25,8 @@ Available on CSC supercomputers with **allas** module. Can be (installed)[allas-
 module load allas
 ```
 
-## `allas-conf` SWIFT connection
+## `allas-conf` configure connection
+### SWIFT connection
 
 is valid for up to **eight hours**
 
@@ -55,7 +56,7 @@ allas-conf -k
 ```
 With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
 
-## `allas-conf` S3 connection
+### S3 connection
 
 To enable S3 protocol, use option `-m S3`
 ```text
@@ -65,8 +66,8 @@ allas-conf -m S3
 The same authentication is used for all login sessions and it does not have an expiration time.
 
 `allas-conf` generates configuration files in S3 mode for: 
-* `rclone`
-* `s3cmd` 
+* `rclone`: `.config/rclone/rclone.conf`
+* `s3cmd`: `~/.s3cfg`
 * `aws`: credentials and S3 region in `~/.aws/credentials` and S3 endpoint in `~/.aws/config` files.
 
 Additionally, Python 'boto3' and R 'aws.s3' libraries use 'aws' configuration files.
@@ -113,7 +114,7 @@ To use Allas with S3 on a machine where `allas-conf` is not available or with to
 * S3 endpoint: `a3s.fi` or `https://a3s.fi`
 * S3 region: sometimes no settings needed, sometimes leave empty (````)
 
-The easiest way to get the S3 credentials is by configuring an [S3 connection](#configure-s3-connection) on a CSC supercomputer (or some other machine that can run `allas_conf` tool) and see the keys from the printout of the command. 
+The easiest way to get the S3 credentials is by configuring an [S3 connection](#s3-connection) on a CSC supercomputer (or some other machine that can run `allas_conf` tool) and see the keys from the printout of the command. 
 
 ```
 module load allas

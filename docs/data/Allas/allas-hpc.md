@@ -1,7 +1,7 @@
 # Tutorial for using Allas in CSC supercomputers 
 
 CSC supercomputers, Puhti and Mahti, do not provide permanent storage space for
-research data. The supercomputer's own storage has a policy to [delete idle data](../../computing/usage-policy/#disk-cleaning), so the data must be moved to Allas after computing.
+research data. The supercomputer's own storage has a policy to [delete idle data](../../computing/usage-policy.md#disk-cleaning), so the data must be moved to Allas after computing.
 
 Data that needs to be stored for a longer time than just a few
 weeks should be copied to Allas object storage service. Allas provides a
@@ -13,10 +13,10 @@ different servers and sharing data with other users.
 
 To upload or download data between Allas and supercomputers, use:
 
-* [Puhti or Maht web interface](accessing_allas.md#web-browser-interfaces)
+* [Puhti or Mahti web interface](accessing_allas.md#web-browser-interfaces)
 * [Commandline tools](accessing_allas.md#commandline-tools).
 
-In Puhti and Mahti the Allas commandline tools are installed by CSC and provided through _allas_ module.
+In Puhti and Mahti, the Allas commandline tools are installed by CSC and provided through **allas** module.
 
 ## Get access to Allas
 
@@ -25,17 +25,12 @@ By default, CSC computing projects do not have access to Allas. The project mana
 
 ## Select your Allas protocol
 
-It is important to choose between [_Swift_ and _S3_ protocols](introduction.md#protocols) early in the project.  
+It is important to choose between [_Swift_ and _S3_ protocols](introduction.md#protocols) early in the project. 
+That affects which tools you can use and how to configure the connection to Allas.
 
-TODO
-In order to enable Allas related tools in Puhti or Mahti, first load the Allas module:
-```text
-module load allas
-```
+## Moving data
 
-## Move data to and from Allas
-
-Once an Allas connection is configured, you can start using the object storage with the tools listed above. 
+Once an Allas connection is configured, you can start using the object storage. 
 
 This tutorial provides four examples for using Allas on Puhti and Mahti. The
 examples are based on interactively executed commands, and thus apply only for

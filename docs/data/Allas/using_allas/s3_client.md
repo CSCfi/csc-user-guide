@@ -36,7 +36,7 @@ s3cmd -h
 ```
 ## Getting started with s3cmd
 
-If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection-in-supercomputers).
+If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection).
 
 To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment.
 
@@ -66,7 +66,7 @@ s3cmd
 
 Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
 
-Additionally install [`allas-conf`](allas-conf.md#installation).
+Additionally install [`allas-conf`](allas-conf.md#allas-conf-installation).
 
 ## Configuring S3 connection 
 
@@ -81,9 +81,7 @@ On local computer:
 source allas_conf --mode S3 --user your-csc-username
 ```text
 
-The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
-
-See [`allas-conf`](allas-examples.md#configure-connection-to-allas) for more info and additional options.
+See [`allas-conf`](allas-conf.md) for more info and additional options.
 
 
 ## Create buckets and upload objects

@@ -779,7 +779,7 @@ When prompted about an existing LaTeX distribution, answer `yes` to continue the
 
 The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data. 
 
-Accessing Allas via the `r-env` module can be done as follows. First configure [Allas connection for S3](../data/Allas/using_allas/python_boto3.md#configuring-s3):
+Accessing Allas via the `r-env` module can be done as follows. First configure [Allas connection for S3](../data/Allas/using_allas/allas-conf.md#s3-connection):
 
 ```bash
 module load allas

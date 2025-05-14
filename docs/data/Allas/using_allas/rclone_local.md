@@ -12,7 +12,7 @@ line: _Terminal_ in Mac and Linux, _Command prompt_ or _Powershell_ in Windows.
 
 ## Configuring Allas connection in Mac and Linux (Swift and S3)
 
-First [install `allas-conf` locally](allas-conf.md#installation) and configure your connection.
+First [install `allas-conf` locally](allas-conf.md#allas-conf-installation) and configure your connection.
 
 ```bash
 # Swift
@@ -21,7 +21,7 @@ source allas_conf -u your-csc-username -p your-csc-project-name
 source allas_conf -u kkayttaj -p project_2001234 -m S3
 ```
 
-In Rclone commands, this Swift based connection is referred with remote name `allas:` and S3 conncetion `s3allas:`. 
+In Rclone commands, this Swift based connection is referred with remote name `allas:` and S3 connection `s3allas:`. 
 
 ## Configuring Allas connection in Windows 
 
