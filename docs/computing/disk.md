@@ -79,7 +79,7 @@ manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 Each project has also a 50 GB project application disk space in the directory
 `/projappl/<project>`.
 
-It is intended for storing compiled software binaries, source code, libraries
+It is intended for storing compiled software binaries, source code, libraries, scripts
 and small-scale reference data that are shared within a project. It is not a
 personal storage space, but it is shared with all members of a project. Note
 that no files in this folder will be removed automatically.
