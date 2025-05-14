@@ -25,10 +25,15 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
     - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
     - Folder names can't be modified afterwards.
 
+![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
+
+
 ## Upload and encrypt files to an existing folder
 
 1. Select the correct folder (by double-click).
 2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph.
+
+![SD Connect Create folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_CreateFolder.png)
 
 !!! warning "Warning"
 
