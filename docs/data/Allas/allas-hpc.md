@@ -12,7 +12,7 @@ different servers and sharing data with other users.
 One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start
 working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
 
-If you have not used Allas before, then start with reading **[Allas general introduction](introduction.md)**, which inlcudes many important things to know.
+If you have not used Allas before, then start with reading **[Allas general introduction](introduction.md)**, which includes many important things to know.
 
 Additional information regarding:
 
