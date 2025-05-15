@@ -5,7 +5,6 @@ This Allas object storage service user guide consists of following parts:
 ## Introduction
 
    * [Introduction](./introduction.md) An overview of the service. Recommended reading before starting to use Allas.
-
    * [Common use cases](./using_allas/common_use_cases.md) Some examples.
 
 
