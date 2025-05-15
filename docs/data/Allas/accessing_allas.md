@@ -21,7 +21,7 @@ When choosing the tool for accessing Allas, consider:
 * Your other workflow, Python or R libraries may be useful, if you use these programming languages already for other tasks.
 * The operating system of your local machine, some command-line and graphical tools support only Linux/Mac or Windows.
 * [Allas protocol](introduction.md#protocols) of your choice, many of the command-line and graphical tools support only SWIFT or S3. 
-* Packaging of files, in case of moving many filea, `a-tools` packages them by default to a .tar file and adds metadata, other tools usually move files as they are.
+* Packaging of files, in case of moving many files, `a-tools` packages them by default to a .tar file and adds metadata, other tools usually move files as they are.
 * Sensitity of your data, for sensitive data use [tools that support client side encryption](allas_encryption.md).
 
 To use Allas from Puhti or Mahti, see [Tutorial for using Allas in CSC supercomputers](allas-hpc.md).
@@ -145,7 +145,7 @@ A _web client_ is suitable for using the basic functions. *a-commands* offer eas
 Files larger than 5 GB are divided into smaller segments during upload. 
 
 * Most tools split large files automatically
-* With _Swift_, you can use the _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
+* With _Swift_, you can use the _Static Large Object_: [swift with large files](using_allas/swift_client.md#files-larger-than-5-gb)
 
 After upload, s3cmd connects these segments into one large object, but in case of swift based uploads (a-put, rclone , swift) the large files are also stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would use _a-put_ to upload a large file to bucket _123-dataset_ the actual data would be stored as several pieces into bucket _123-dataset_segments_. The target bucket _123_dataset_ would contain just a front object that contains information what segments make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the _segments_ buckets at all and objects inside these buckets should not be deleted or modified. 
 
