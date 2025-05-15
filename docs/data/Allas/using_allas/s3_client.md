@@ -103,6 +103,7 @@ List all buckets in a project:
 s3cmd ls
 ```
 
+List all objects in a bucket:du
 List all objects in a bucket:
 ```text
 s3cmd ls s3://my_bucket
@@ -116,6 +117,11 @@ s3cmd info s3://my_bucket
 Display information about an object:
 ```text
 s3cmd info s3://my_bucket/my_file
+```
+
+Check your project's object storage usage:
+```text
+s3cmd du -H
 ```
 
 ## Download objects and buckets

@@ -9,15 +9,19 @@ platform that you can use to store your data as long as your CSC project is
 active. In addition to storage, Allas can be used for transporting data between
 different servers and sharing data with other users.
 
+One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start
+working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
+
 * [Allas user guide](index.md)
 * [Using Allas in batch jobs](allas_batchjobs.md)
+* [Using Allas and LUMI-O from LUMI supercomputer](allas_lumi.md)
 
 To upload or download data between Allas and supercomputers, use:
 
 * [Puhti or Mahti web interface](accessing_allas.md#web-browser-interfaces)
 * [Commandline tools](accessing_allas.md#commandline-tools).
 
-In Puhti and Mahti, the Allas commandline tools are installed by CSC and provided through **allas** module.
+In Puhti and Mahti, the Allas commandline tools are installed by CSC and provided through **allas module**.
 
 ## Get access to Allas
 
@@ -31,11 +35,9 @@ That affects which tools you can use and how to configure the connection to Alla
 
 ## Moving data
 
-Once an Allas connection is configured, you can start using the object storage. 
-
 This tutorial provides four examples for using Allas on Puhti and Mahti. The
-examples are based on interactively executed commands, and thus apply only for
-relatively small datasets (max. some hundreds of GBs).
+examples are based on interactively executed commands, and thus examples 1, 2 and 4 apply only for
+relatively small datasets (max. some hundreds of GBs). The third example suits also for bigger datasets.
 
 1. [The first example](#example-1-using-allas-with-a-commands) uses the
    *a-commands* (`a-put`, `a-get`) for uploading data from Mahti to Allas, and
