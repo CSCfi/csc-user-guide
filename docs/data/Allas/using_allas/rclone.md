@@ -69,7 +69,7 @@ Note, that you can have both `allas:` and `s3allas:` functional in the same time
 
 ## Create buckets and upload objects
 
-The data in Allas is arranged into containers called buckets. You can consider them as root-level directories. All buckets in Allas must have unique names – you cannot create a bucket if some other project has already used that bucket name. It is a good rule of thumb to have something project- or user-specific in the bucket name, e.g. _2000620-raw-data_. See the [checklist](../introduction.md#naming-buckets) for how to name a bucket.
+The data in Allas is arranged into containers called buckets. You can consider them as root-level directories. All buckets in Allas must have unique names – you cannot create a bucket if some other project has already used that bucket name. It is a good rule of thumb to have something project- or user-specific in the bucket name, e.g. _2000620-raw-data_. See the [checklist](../introduction.md#naming-buckets-and-objects) for how to name a bucket.
 
 In the case of _Rclone_, create a bucket:
 ```text

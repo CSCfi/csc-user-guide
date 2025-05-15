@@ -12,7 +12,7 @@ The stored objects can be of any data type, such as images or compressed data fi
 **Benefits**
 
  * The object storage can handle practically any static data.
- * The data can be accessed from anywhere using the URL.
+ * The data can be accessed from anywhere.
  * The data can have different levels of access control.
  * The data can have lifecycle policy set.
  * You can access Allas from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
@@ -71,7 +71,7 @@ Unlike most other object storage providers, CSC does <u>not</u> charge for objec
 
 **The default quotas for projects:**
 
-### Resource limits in Allas
+### Resource limits
 
 Allas has technical limits, that normally can not be increased:
  
@@ -102,11 +102,11 @@ Note, that some [Allas clients](accessing_allas.md) support only one of these pr
 
 ## Naming buckets and objects
 
-Each bucket has a name that must be unique across all Allas users. If another user has a bucket called `test`, another bucket called `test` cannot be created. All bucket names are public, so please do not include any confidential information in the bucket names. You may, for example, use your project ID, e.g. _2000620-raw-data_.
+Each bucket has a name that must be unique across all Allas users. If another user has a bucket called `test`, another bucket called `test` cannot be created. All bucket names are public, so please do not include any confidential information in the bucket names. You may, for example, use your project ID, e.g. _2000620-raw-data_. It is not possible to rename a bucket.
 
 Object URLs can be in the DNS format, e.g. _https://a3s.fi/bucketname/objectname_. Please use a valid DNS name (RFC 1035). We recommend not using upper case or non-ASCII (&auml;, &ouml; etc.) characters.
 
-It is not possible to rename a bucket.
+For object names, you can use [pseodo folders](terms_and_concepts.md#pseudo-folder), which some Allas clients display as folders.
 
 ## File size and packaging
 
@@ -123,10 +123,18 @@ When moving your data to Allas, you can take few different strategies:
 * A combination of these approaches, so that some subsets of files are packaged for Allas. If you have a lot of small files and the total amount of data is big, then it likely makes sense to package for example different folders to own files that are then stored to Allas.
 
 
+## Access rights to data
+
+It is possible to assign rights at bucket level or object level. In general there are 3 types of access policies:
+
+* Data is accessible only for CSC project members. Note, that also all project members have same writing rights, so any project member can (accidentally) delete any object.
+* Data is public to anybody, accessible with URLs.
+* Data is opened to another CSC project.
+
+More info in [Sharing data](using-allas/common-use-cases.md#sharing-data) use case.
+
 ## Backup
 
-Allas data is spread across various servers, which protects against disk and server failures. 
-
-**Please note:** This does not protect the data from e.g. accidental deletion. Please make regular backups of important data.
+Allas data is spread across various servers, which protects against disk and server failures. But, this does not protect the data from e.g. accidental deletion. Please make regular backups of important data.
 
 
