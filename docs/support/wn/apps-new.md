@@ -1,5 +1,12 @@
 # Applications
 
+## Schrödinger Maestro 2025.2, 15.5.2025
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2025.2 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
 ## GROMACS 2025.1, 7.5.2025
 
 [GROMACS](../../apps/gromacs.md) 2025.1 is now available on Puhti, Mahti and LUMI.
