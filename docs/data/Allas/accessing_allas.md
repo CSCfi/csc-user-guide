@@ -71,7 +71,7 @@ To access Allas with **command line commands**, client software supporting the _
 | [rclone](./using_allas/rclone.md)  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |  <font color="green">&#x2714;</font> | 
 | [swift python-swiftclient](./using_allas/swift_client.md) | <font color="green">&#x2714;</font> |   | <font color="green">&#x2714;</font> |   |
 | [s3cmd](./using_allas/s3_client.md) |  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |   |
-| aws-cli |   | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| [aws-cli](https://s3browser.com/) |   | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 
 Additionally for exmple `curl` and `wget` can be used for downloading public objects or objects with temporary URLs.
 
@@ -140,3 +140,13 @@ A _web client_ is suitable for using the basic functions. *a-commands* offer eas
 
 <div align="right">&#8226;&#8226; Only empty buckets</div>
 
+## Files larger than 5 GB
+
+Files larger than 5 GB are divided into smaller segments during upload. 
+
+* Most tools split large files automatically
+* With _Swift_, you can use the _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
+
+After upload, s3cmd connects these segments into one large object, but in case of swift based uploads (a-put, rclone , swift) the large files are also stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would use _a-put_ to upload a large file to bucket _123-dataset_ the actual data would be stored as several pieces into bucket _123-dataset_segments_. The target bucket _123_dataset_ would contain just a front object that contains information what segments make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the _segments_ buckets at all and objects inside these buckets should not be deleted or modified. 
+
+It is important not to mix Swift and S3, as these protocols are not fully mutually compatible.
