@@ -1,6 +1,0 @@
-
-find . -iname "*.laz" | pdal tindex create index.sqlite -f "SQLite" --stdin --lyr_name index --write_absolute_path 
-
-find  /appl/data/geo/mml/laserkeilaus_automaattinen -iname "*.laz" | pdal tindex create index.sqlite -f "SQLite" --stdin --lyr_name index --write_absolute_path --fast_boundary --a_srs "EPSG:3067" --t_srs "EPSG:3067"
-
-find  /appl/data/geo/mml/laserkeilaus/2008_latest -iname "*.laz" | pdal tindex create index.sqlite -f "SQLite" --stdin --lyr_name index --write_absolute_path --fast_boundary --a_srs "EPSG:3067" --t_srs "EPSG:3067"
