@@ -51,10 +51,6 @@ extra:
     - icon: material/youtube
       link: https://www.youtube.com/c/CSCfi
   csc_ui_version: 2.3.0
-  sw_catalog:
-    templates_dir: sw-catalog
-    index_template: apps-index.html
-    page_meta_key: software_catalog
 
 hooks:
   - hooks/sw_catalog.py

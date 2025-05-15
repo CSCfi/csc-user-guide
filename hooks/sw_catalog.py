@@ -1,1 +1,1 @@
-from software_catalog import *
+from sw_catalog import *

@@ -3,7 +3,7 @@
   {% include "partials/actions.html" %}
   {% include "partials/breadcrumbs.html" %}
 
-  {% set app_meta = page.meta[config.extra.sw_catalog.page_meta_key] %}
+  {% set app_meta = page.meta.software_catalog %}
   {% include "sw-catalog/partials/app-heading.html" %}
   {% include "sw-catalog/partials/app-tags.html" %}
 

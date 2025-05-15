@@ -1,4 +1,25 @@
-applications:
+export_subpath: apps/
+
+license_type_order:
+  - Free
+  - Academic
+  - Non-commercial
+discipline_order:
+  - Biosciences
+  - Chemistry
+  - Computational Engineering
+  - Data Analytics and Machine Learning
+  - Geosciences
+  - Language Research and Other Digital Humanities and Social Sciences
+  - Mathematics and Statistics
+  - Physics
+  - Quantum
+system_order:
+  - Puhti
+  - Mahti
+  - LUMI
+
+appendix:
   - name: Chipster
     description: Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
     disciplines:

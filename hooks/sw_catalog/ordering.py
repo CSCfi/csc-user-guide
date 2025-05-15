@@ -5,7 +5,7 @@ class Order:
     def __init__(self, values):
         self.__ranks = {value.lower(): rank
                         for rank, value
-                        in enumerate(values)}
+                        in enumerate((*dict.fromkeys(values),))}
 
     def __rank(self, value):
         return self.__ranks.get(str(value).lower(), inf)
@@ -15,6 +15,14 @@ class Order:
 
 
 class OrderedValue:
+    """Compares values by their list indices. Only unique values (case
+       insensitive) are considered. I.e. for the list
+
+       ["b", "a", "B", "c"],
+
+       it holds true that "b" < "a" < "c".
+    """
+
     def __init__(self, value, sequence: [str]):
         self.__value = value
         self.__order = Order(sequence)
