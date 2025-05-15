@@ -30,9 +30,9 @@ Subfolder is deleted automatically when all files in it are deleted.
 
 You need first delete all files in the folder.
 
-1. Find correct folder from All folders tab.
+1. Find correct folder from All folders tab and click to view files.
 2. Follow steps from 2 to 4 in [Deleting files](#deleting-files)
-3. Select **Options**, then **Delete**, on right side of the folder.
+3. Return to All folders view. Select **Options**, then **Delete**, on right side of the folder.
 
 ![SD Connect Delete folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Deletefolder.png)
 
