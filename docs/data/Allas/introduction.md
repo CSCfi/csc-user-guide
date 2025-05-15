@@ -131,7 +131,7 @@ It is possible to assign rights at bucket level or object level. In general ther
 * Data is public to anybody, accessible with URLs.
 * Data is opened to another CSC project.
 
-More info in [Sharing data](using-allas/common_use_cases.md#sharing-data) use case.
+More info in [Sharing data](using_allas/common_use_cases.md#sharing-data) use case.
 
 ## Backup
 
