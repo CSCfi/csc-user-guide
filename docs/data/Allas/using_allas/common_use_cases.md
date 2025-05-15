@@ -2,7 +2,7 @@
 
 ## Storage for CSC computing projects
 
-The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. The inactive data should be moved to Allas. See [Allas HPC tutorial](allas-hpc.md) for further information.
+The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. The inactive data should be moved to Allas. See [Allas HPC tutorial](../allas-hpc.md) for further information.
 
 ## Sharing data
 
@@ -16,7 +16,7 @@ The data can be accessed and shared in a variety of ways:
     * [Pouta web UI](./web_client.md#view-objects-via-the-internet)
     * [S3 client](./s3_client.md#s3cmd-and-public-objects)
 
-* **Access control lists:** Access control lists (ACLs) work on buckets, not objects. With ACLs, you can share your data in a limited manner to other projects. You can e.g. grant a collaboration project authenticated read access to your datasets.
+* **Access control lists:** Access control lists (ACLs) work on buckets, not objects. With ACLs, you can share your data in a limited manner to other projects. You can e.g. grant a collaboration project authenticated read access to your datasets. See [example how to share data to another CSC project](../allas_project_example.md).
 
  * **Temporary signed links** can be created with [s3cmd](./s3_client.md#publishing-objects-temporarily-with-signed-urls) . This kind of links can be used in cases where the data needs to be accessed over the internet without credentials, but is not supposed to remain publicly accessible.
  
@@ -26,7 +26,7 @@ The data can be accessed and shared in a variety of ways:
 
 A common way to use the object storage is storing static web content, such as images, videos, audio, pdfs or other downloadable content, and adding links to it on a web page, which can run either inside Allas or somewhere else, [like this example](https://a3s.fi/my_fishbucket/my_fish).
 
-To publish a some content, first move it with a [Allas client](accessing_allas.md) to Allas and then [make the files public](#sharing-data).
+To publish a some content, first move it with a [Allas client](../accessing_allas.md) to Allas and then [make the files public](#sharing-data).
 
 
 ## Storing data for distributed use

@@ -26,6 +26,13 @@ The stored objects can be of any data type, such as images or compressed data fi
 
 See also the [common use cases](./using_allas/common_use_cases.md).
 
+## System characteristics
+
+In Allas, objects are stored in buckets. A bucket is a data object container. Buckets should not be confused with _dockers_ or other computing containers. A bucket functions similarly to a file system directory, except that there can only be one level, i.e. buckets cannot contain other buckets.
+
+![Allas projects and buckets](img/allas_projects_and_buckets.PNG)
+**Figure** Data structure in Allas
+
 ## Gaining access
 
 To be able to use Allas, you need to have:
@@ -93,12 +100,7 @@ Generic recommendations for selecting the protocol:
  
 Note, that some [Allas clients](accessing_allas.md) support only one of these protocols.
 
-## System characteristics
 
-In Allas, objects are stored in buckets. A bucket is a data object container. Buckets should not be confused with _dockers_ or other computing containers. A bucket functions similarly to a file system directory, except that there can only be one level, i.e. buckets cannot contain other buckets.
-
-![Allas projects and buckets](img/allas_projects_and_buckets.PNG)
-**Figure** Data structure in Allas
 
 ## Naming buckets
 

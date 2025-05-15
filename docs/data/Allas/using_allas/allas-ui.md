@@ -99,7 +99,7 @@ To copy a bucket:
 ## Downloading Objects and Buckets
 
 !!! warning ""
-    Downloading buckets or folders larger than **5 GiB** is currently not supported. For larger downloads, consider using the **[Command Line Tools](./rclone.md)** instead.
+    Downloading buckets or folders larger than **5 GiB** is currently not supported. For larger downloads, consider using the **[Command Line Tools](./accessing_allas.md#commandline-tools)** instead.
 
 
 1. Click the **Download** button next to the Bucket / Object.
