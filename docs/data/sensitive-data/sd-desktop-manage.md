@@ -2,13 +2,10 @@
 
 # Managing volumes and virtual desktops
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-## SD Desktop management
-
-With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens in **SD Desktop management** page.
+With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. 
 
 * [Detaching and attaching a volume](#detaching-and-attaching-a-volume)
+* [Deleting a vOLUME](#deleting-a-volume)
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
@@ -16,7 +13,6 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 !!! Note
     These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
 ## Detaching and attaching a volume 
 
@@ -24,14 +20,13 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 With the option **Detach volume**, you can easily disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop. 
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop.
 
 2. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
 
-3. On the homepage, click **SD Desktop management**.
+3. On the SD Desktop homepage, click **Manage volumes**.
 
-4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
-Confirm the operation through the notification.
+4. In the new window choose the correct virtual desktop, and in the same row, on the right side, click **Detach**. Confirm the operation through the notification.
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
 
