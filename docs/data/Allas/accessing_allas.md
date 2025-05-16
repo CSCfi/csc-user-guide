@@ -44,7 +44,7 @@ To access Allas with **command line commands**, client software supporting the _
 
 | Tools | SWIFT support | S3 support | Linux/Mac | Windows |
 | ----- | ------------- | ---------- | --------- | ------- |
-| [a-commands](./using_allas/a_commands.md) | <font color="green">&#x2714;</font> | - | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| [a-commands](./using_allas/a_commands.md) | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | - |
 | [rclone](./using_allas/rclone.md)  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |  <font color="green">&#x2714;</font> | 
 | [swift python-swiftclient](./using_allas/swift_client.md) | <font color="green">&#x2714;</font> |   | <font color="green">&#x2714;</font> |   |
 | [s3cmd](./using_allas/s3_client.md) |  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |   |
