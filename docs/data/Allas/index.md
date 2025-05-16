@@ -38,7 +38,7 @@ This Allas object storage service user guide consists of following parts:
 * [Is it possible to move data in Allas to new project?](../../support/faq/is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](../../support/faq/is-it-possible-to-make-data-in-allas-read-only.md)
 * [What to do for data in Allas after project ends?](../../support/faq/what-to-do-for-data-in-allas-after-project-ends.md)
-* [How to make a bucket public?](../../support/faq/ow-to-make-a-bucket-public.md)
+* [How to make a bucket public?](../../support/faq/how-to-make-a-bucket-public.md)
 * [How to get Allas S3 credentials](../../support/faq/how-to-get-Allas-s3-credentials.md)
 * [How to mount my Allas S3 bucket to a VM running in cPouta](../../support/faq/how-to-mount-os-bucket-for-cpouta.md)
 * [How to backup a Postgres DB into Allas from Rahti?](../../support/faq/backup-postgres-allas.md)
