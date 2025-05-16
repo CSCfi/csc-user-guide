@@ -20,8 +20,8 @@ When choosing the tool for accessing Allas, consider:
 * The amount of data you have to move, the web interfaces are not suitable for for big data transfers.
 * Your other workflow, Python or R libraries may be useful, if you use these programming languages already for other tasks.
 * The operating system of your local machine, some command-line and graphical tools support only Linux/Mac or Windows.
-* [Allas protocol](introduction.md#protocols) of your choice, many of the command-line and graphical tools support only SWIFT or S3. 
-* Packaging of files, in case of moving many files, `a-tools` packages them by default to a .tar file and adds metadata, other tools usually move files as they are.
+* [Allas protocol](introduction.md#protocols) of your choice, many of the command-line and graphical tools support only Swift or S3. 
+* [Packaging of files](introduction.md#file-sizes-and-packaging), in case of moving many files, `a-tools` packages them by default to a .tar file and adds metadata, other tools usually move files as they are.
 * Sensitity of your data, for sensitive data use [tools that support client side encryption](allas_encryption.md).
 
 To use Allas from Puhti or Mahti, see [Tutorial for using Allas in CSC supercomputers](allas-hpc.md).
@@ -30,36 +30,13 @@ To use Allas from Puhti or Mahti, see [Tutorial for using Allas in CSC supercomp
 
 At the moment CSC provides several web browser interfaces for Allas:
 
-**Allas Web UI** is a web-based interface designed to simplify the management of object storage in Allas. It provides an intuitive way to interact with your data without needing command-line tools.  
-It is an ideal option for users who prefer a visual interface over command-line tools for basic object storage operations.  
-
-* [Allas Web UI Guide](./using_allas/allas-ui.md)  
-* [Access Allas Web UI](https://allas.csc.fi)  
-
-It allows users to create and manage buckets, upload and download objects (up to 5 GiB per file), and configure sharing permissions. 
-
-The **web-interfaces of Puhti and Mahti** are connected to Allas. 
-These interfaces allow you to transfer files and directories between your local computer and Allas as well as
-between CSC supercomputers and Allas.
-
-* [Instructions for using Allas in Puhti and Mahti web interfaces](../../computing/webinterface/file-browser.md)
-* [Puhti web interface](https://www.puhti.csc.fi)
-* [Mahti web interface](https://www.mahti.csc.fi)
-
-
-The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic functions for data management in Allas. 
-
-* [Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
-* [cPouta Web Interface](https://pouta.csc.fi)
-
-This interface can only be used for files smaller than 5 GB and uploading/downloading only a single file at a time. 
-
-
-**SD Connect** provides an interface for storing and sharing sensitive data. 
-This service is based on Allas but we don't recommend it for other than sensitive data.
-
-* [SD Connect instructions](../sensitive-data/sd_connect.md)
-* [SD Connect interface](https://sd-connect.csc.fi)
+| Web interface  | Instructions |SWIFT support | S3 support | Use cases | Limits |
+| ----- | ------------- | ---------- | --------- | ------- |
+| [Access Allas Web UI](https://allas.csc.fi)  | [Allas web UI](./using_allas/allas-ui.md) |  | <font color="green">&#x2714;</font>  | General first choice, share data with another project | upload and download objects (up to 5 GiB per file)
+| [Puhti web interface](https://www.puhti.csc.fi) | [Puhti web UI](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Puhti or local, also S3 usage |
+| [Mahti web interface](https://www.mahti.csc.fi) | [Mahti web UI](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Mahti or local, also S3 usage |
+| [cPouta Web Interface](https://pouta.csc.fi) | [cPouta web UI](./using_allas/web_client.md)  |  | <font color="green">&#x2714;</font> | Make your bucket public | Files smaller than 5 GB and uploading/downloading only a single file at a time. |
+| [SD Connect interface](https://sd-connect.csc.fi) | [SD Connect](../sensitive-data/sd_connect.md) |  | <font color="green">&#x2714;</font> | Sensitive data |
 
 ## Commandline tools
 
@@ -74,18 +51,6 @@ To access Allas with **command line commands**, client software supporting the _
 | [aws-cli](https://s3browser.com/) |   | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 
 Additionally for exmple `curl` and `wget` can be used for downloading public objects or objects with temporary URLs.
-
-Basic Allas operations with different tools.
-
-| Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	Download file _data1.txt_ from bucket _buck_123_ |
-|-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
-| [a-commands](using_allas/a_commands.md) |`a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
-| [rclone (swift)](using_allas/rclone.md) |`rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`|
-| [rclone (S3)](using_allas/rclone.md) |`rclone ls s3allas:buck_123` | `rclone copy data1.txt s3allas:buck_123/` |	`rclone copy s3allas:buck_123/data1.txt ./`|
-| [Swift](using_allas/swift_client.md) |`swift list buck_123` | `swift upload buck_123 data1.txt` |	`swift download buck_123 data1.txt` |
-| [s3cmd](using_allas/s3_client.md)\*	 |`s3cmd ls s3://buck_123` |	`s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
-
-
 
 ## Graphical tools
 
