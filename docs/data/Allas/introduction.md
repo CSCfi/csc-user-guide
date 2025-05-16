@@ -138,10 +138,10 @@ More info in [Sharing data](using_allas/common_use_cases.md#sharing-data) use ca
 Allas data is spread across various servers, which protects against disk and server failures. But, this does not protect the data from e.g. accidental deletion. Please make regular backups of important data.
 
 
-## 6 steps to get started
+## 7 steps to get started
 
 1. [Get access](#gaining-access) to Allas as service.
-2. Plan how to store your data to Allas: [naming](naming-buckets-and-objects), [file packaging](file-sizes-and packaging), [access rights](access-rights-to-data).
+2. Plan how to store your data to Allas: [naming](#naming-buckets-and-objects), [file packaging](#file-sizes-and packaging), [access rights](#access-rights-to-data).
 3. Decide, which [protocol](#protocols) and [client](accessing_allas.md) to use.
 4. If moving data from/to your local machine, install the selected tool (not needed if using webinterfaces).
 5. [Configure the connection](using_allas/allas-conf.md) to Allas.
