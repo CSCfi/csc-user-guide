@@ -32,11 +32,11 @@ At the moment CSC provides several web browser interfaces for Allas:
 
 | Web interface  | Instructions |SWIFT support | S3 support | Use cases | Limits |
 | ----- | ------------- | ---------- | --------- | ------- | ------- |
-| [Allas web UI](https://allas.csc.fi)  | [Instructions](./using_allas/allas-ui.md) |  | <font color="green">&#x2714;</font>  | General first choice, share data with another project | upload and download objects (up to 5 GiB per file)
-| [Puhti web UI](https://www.puhti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Puhti or local, also S3 usage and LUMI-O | Maximum size for individual file uploads from local is 10 GB |
-| [Mahti web UI](https://www.mahti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Mahti or local, also S3 usage and LUMI-O | Maximum size for individual file uploads from local is 10 GB|
-| [cPouta web UI](https://pouta.csc.fi) | [Instructions](./using_allas/web_client.md)  |  | <font color="green">&#x2714;</font> | Make your bucket public | Files smaller than 5 GB and uploading/downloading only a single file at a time. | 
-| [SD Connect ](https://sd-connect.csc.fi) | [Instructions](../sensitive-data/sd_connect.md) |  | <font color="green">&#x2714;</font> | Sensitive data | |
+| [Allas web UI](https://allas.csc.fi)  | [Instructions](./using_allas/allas-ui.md) | <font color="green">&#x2714;</font> |   | General first choice, share data with another project | Max 5 GB files)
+| [Puhti web UI](https://www.puhti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Puhti or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
+| [Mahti web UI](https://www.mahti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Mahti or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
+| [cPouta web UI](https://pouta.csc.fi) | [Instructions](./using_allas/web_client.md)  | <font color="green">&#x2714;</font> |  | Make your bucket public | Max 5 GB files, uploading/downloading only a single file at a time. | 
+| [SD Connect ](https://sd-connect.csc.fi) | [Instructions](../sensitive-data/sd_connect.md) | <font color="green">&#x2714;</font> |  | Sensitive data | |
 
 ## Commandline tools
 
@@ -65,13 +65,13 @@ WinSCP has generally rather slow data transfer speed for S3, so likely not suita
 ## Other tools: Python and R libraries etc
 
 * Python:
-   * [Python with SWIFT](using_allas/python_swift.md)
-   * [Python with S3 with `boto3`](using_allas/python_boto3.md).
-   * [Geoscience related examples how Allas can be used in Python scripts](https://github.com/csc-training/geocomputing/tree/master/python/allas)
-* [Nextcloud front end](allas-nextcloud.md) Can be set up in Pouta to get additional functionality.
+    * [Python with SWIFT](using_allas/python_swift.md)
+    * [Python with S3 with `boto3`](using_allas/python_boto3.md).
+    * [Geoscience related examples how Allas can be used in Python scripts](https://github.com/csc-training/geocomputing/tree/master/python/allas)
 * R
-  * [aws.s3 R package](https://cloud.r-project.org/web/packages/aws.s3/index.html) can be used for working with Allas with S3 protocol
-  * [Geoscience related example how Allas can be used in R scripts](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R), inc. aws.s3 set up.
+    * [aws.s3 R package](https://cloud.r-project.org/web/packages/aws.s3/index.html) can be used for working with Allas with S3 protocol
+    * [Geoscience related example how Allas can be used in R scripts](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R), inc. aws.s3 set up.
+* [Nextcloud front end](allas-nextcloud.md) Can be set up in Pouta to get additional functionality.
 
 These Python and R libraries can be installed to all operating systems.
 
