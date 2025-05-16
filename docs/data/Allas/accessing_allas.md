@@ -31,12 +31,12 @@ To use Allas from Puhti or Mahti, see [Tutorial for using Allas in CSC supercomp
 At the moment CSC provides several web browser interfaces for Allas:
 
 | Web interface  | Instructions |SWIFT support | S3 support | Use cases | Limits |
-| ----- | ------------- | ---------- | --------- | ------- |
-| [Access Allas Web UI](https://allas.csc.fi)  | [Allas web UI](./using_allas/allas-ui.md) |  | <font color="green">&#x2714;</font>  | General first choice, share data with another project | upload and download objects (up to 5 GiB per file)
-| [Puhti web interface](https://www.puhti.csc.fi) | [Puhti web UI](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Puhti or local, also S3 usage |
-| [Mahti web interface](https://www.mahti.csc.fi) | [Mahti web UI](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Mahti or local, also S3 usage |
-| [cPouta Web Interface](https://pouta.csc.fi) | [cPouta web UI](./using_allas/web_client.md)  |  | <font color="green">&#x2714;</font> | Make your bucket public | Files smaller than 5 GB and uploading/downloading only a single file at a time. |
-| [SD Connect interface](https://sd-connect.csc.fi) | [SD Connect](../sensitive-data/sd_connect.md) |  | <font color="green">&#x2714;</font> | Sensitive data |
+| ----- | ------------- | ---------- | --------- | ------- | ------- |
+| [Allas web UI](https://allas.csc.fi)  | [Instructions](./using_allas/allas-ui.md) |  | <font color="green">&#x2714;</font>  | General first choice, share data with another project | upload and download objects (up to 5 GiB per file)
+| [Puhti web UI](https://www.puhti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Puhti or local, also S3 usage and LUMI-O | Maximum size for individual file uploads from local is 10 GB |
+| [Mahti web UI](https://www.mahti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Mahti or local, also S3 usage and LUMI-O | Maximum size for individual file uploads from local is 10 GB|
+| [cPouta web UI](https://pouta.csc.fi) | [Instructions](./using_allas/web_client.md)  |  | <font color="green">&#x2714;</font> | Make your bucket public | Files smaller than 5 GB and uploading/downloading only a single file at a time. | 
+| [SD Connect ](https://sd-connect.csc.fi) | [Instructions](../sensitive-data/sd_connect.md) |  | <font color="green">&#x2714;</font> | Sensitive data | |
 
 ## Commandline tools
 
