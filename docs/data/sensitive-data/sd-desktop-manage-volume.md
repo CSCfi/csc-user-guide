@@ -25,13 +25,17 @@ When you want to save data to the volume or access the data saved in the volume,
 
 You can easily detach a volume from your virtual desktop. You can compare this operation to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created.
 
-* [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Access desktop** on the right side of the correct desktop.
+
+2. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
+
+3. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
 
 ![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
 
 ### In the new window
 
-1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Detach** on the right side of the volume you want to Detach from the desktop. 
+1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Detach** on the right side of the volume you want to detach from the desktop. 
 2. Close the window when you are ready.
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DetachVolume.png)
