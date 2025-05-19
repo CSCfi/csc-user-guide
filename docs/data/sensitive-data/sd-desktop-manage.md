@@ -33,7 +33,7 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 !!! note
     You can't access or detach a volume while a desktop is paused.
 
-![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Pause_desktop.png)
+![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_PauseDesktop.png)
 
 ### Resuming a virtual desktop
 
