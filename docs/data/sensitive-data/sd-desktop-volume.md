@@ -19,7 +19,9 @@ It’s recommended to save critical analyses or files on the volume, which can a
 
 3. (optional) Write description or note about the volume for your team. This helps other team members understand its purpose and contents.
 
-![Create volume window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop2.png)
+4. Click "Create". 
+
+![Create volume window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume2.png)
 
 * **You can detach and attach a volume from your virtual desktop**. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
 
