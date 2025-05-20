@@ -5,7 +5,7 @@
 With the SD Desktop service, you can easily pause, reboot or delete your virtual desktops. 
 
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
-* [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
+* [Restarting a virtual desktop](#restarting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
 
 !!! Note
@@ -72,16 +72,16 @@ If your virtual desktop or software becomes unresponsive, you can restart it. Af
 
 ## Deleting a virtual desktop
 
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
+At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action.
+
+!!! Note
+    Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
 2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
 
-!!! Note
-    Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
-
-![Restart desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
+![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
 
 
 ## Your next steps in this guide
