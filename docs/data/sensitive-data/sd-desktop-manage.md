@@ -48,7 +48,7 @@ You can pause a virtual desktop. Paused desktop will stop consuming billing unit
 !!! note
     Resuming a paused desktop is only possible for active CSC projects with available billing units. 
 
-![Unpause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Unpause_desktop.png)
+![Unpause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_UnpauseDesktop.png)
 
 
 ## Restarting a virtual desktop
@@ -68,7 +68,7 @@ If your virtual desktop or software becomes unresponsive, you can restart it. Af
     
 5. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
 
-![Restart desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Restart_desktop.png)
+![Restart desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_RestartDesktop.png)
 
 ## Deleting a virtual desktop
 
@@ -81,7 +81,7 @@ At the end of your analysis, you can delete your virtual desktop, including the 
 !!! Note
     Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
 
-![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Delete_desktop.png)
+![Restart desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
 
 
 ## Your next steps in this guide
