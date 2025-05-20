@@ -1,11 +1,11 @@
 # Managing volumes
 
-* [Attaching a volume](#attach-a-volume-to-a-virtual-desktop)
-* [Detaching a volume](#detach-a-volume-from-a-virtual-desktop)
+* [Attaching a volume](#attaching-a-volume-to-a-virtual-desktop)
+* [Detaching a volume](#detaching-a-volume-from-a-virtual-desktop)
 * [Deleting a volume](#deleting-a-volume)
 
 
-## Attach a volume to a virtual desktop
+## Attaching a volume to a virtual desktop
 
 When you want to save data to the volume or access the data saved in the volume, you can attach it to a virtual desktop. You can compare this operation to connecting a USB stick to your laptop.
 
@@ -13,7 +13,7 @@ When you want to save data to the volume or access the data saved in the volume,
 
 ![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
 
-### In the new window
+### In Manage volumes window
 
 1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Attach** on the right side of the volume you want to attach to the desktop. 
 2. You need to restart your desktop to access the volume. You can restart your desktop via notification or do it later in **Manage desktop** menu if the desktop is in use.
@@ -21,7 +21,7 @@ When you want to save data to the volume or access the data saved in the volume,
 
 ![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
 
-## Detach a volume from a virtual desktop
+## Detaching a volume from a virtual desktop
 
 You can easily detach a volume from your virtual desktop. You can compare this operation to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created.
 
@@ -33,7 +33,7 @@ You can easily detach a volume from your virtual desktop. You can compare this o
 
 ![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
 
-### In the new window
+### In Manage volumes window
 
 1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Detach** on the right side of the volume you want to detach from the desktop. 
 2. Close the window when you are ready.
@@ -42,8 +42,13 @@ You can easily detach a volume from your virtual desktop. You can compare this o
 
 
 !!! note
-    - The content of a detached volume can not be accessed or deleted.
-    - To delete or access the volume content, attach it to a desktop with the same operating system. 
+    - To access the volume content, attach it to a desktop with the same operating system. 
     - Volumes can not be moved or transferred between CSC projects for security reasons.
 
 
+## Deleting a volume
+
+1. Detach the volume from the desktop it is attached to.
+2. Click **Volumes** tab.
+3. Click **Delete**.
+4. Confirm deleting the volume via notification.

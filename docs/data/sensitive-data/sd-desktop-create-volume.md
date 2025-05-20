@@ -1,8 +1,9 @@
-# Add an external volume (virtual external hard drive)
+# Create volumes (virtual external hard drive)
 
-A volume is like a virtual USB stick used to store your data. You can attach it to one virtual desktop or move it between desktops that belong to the same CSC project as needed.
+A volume is like a virtual USB stick used to store your data. You can attach it to one virtual desktop or move it between desktops that belong to the same CSC project as needed. This can be compared to connecting/disconnecting a USB stick to/from your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volumes](./sd-desktop-manage-volume.md).
 
-It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive. Please note that after the virtual desktop is set up, the volume can only be extended with additional storage if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*.
+!!! Note
+    It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive. Please note that after the virtual desktop is set up, the volume can only be extended with additional storage if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*.
 
 ## Step by step
 
@@ -23,5 +24,7 @@ It’s recommended to save critical analyses or files on the volume, which can a
 
 ![Create volume window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume2.png)
 
-* **You can detach and attach a volume from your virtual desktop**. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
 
+## Features in SD Desktop
+
+* [Create virtual desktops](./sd-desktop-create.md)

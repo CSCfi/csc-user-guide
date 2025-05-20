@@ -14,7 +14,7 @@
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
-## Your next steps in this guide
+## Features in SD Desktop
 
 * [Create virtual desktops](./sd-desktop-create.md)
 * [Managing volumes and virtual desktops](./sd-desktop-manage.md)
