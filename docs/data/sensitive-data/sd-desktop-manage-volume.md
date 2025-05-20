@@ -48,7 +48,9 @@ You can easily detach a volume from your virtual desktop. You can compare this o
 
 ## Deleting a volume
 
-1. Detach the volume from the desktop it is attached to.
-2. Click **Volumes** tab.
-3. Click **Delete**.
+1. If the volume is attached to a desktop detach it first.
+2. On the SD Desktop homepage, click **Volumes** tab.
+3. Click **Delete** on the right side of the correct volume.
 4. Confirm deleting the volume via notification.
+
+![Delete volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteVolume.png)
