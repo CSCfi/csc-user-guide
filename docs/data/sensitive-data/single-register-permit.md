@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # How to get access to SD Desktop with a single register permit
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/y91wzD0wqEA" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -52,7 +54,7 @@ You need to access SD Desktop. You have a permit from a single register.
 - Fill all required fields. Read and accept the terms of use.
 - Click **Create a project**.
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Findata.png)
 
 
 ### 3. Fill GDPR document

@@ -11,27 +11,31 @@ tags:
 
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
 
+!!! info "News"
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).  
+
 ## Available
 
-`r-env` includes 1400+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
+`r-env` includes 1500+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-Current modules and versions supported on Puhti:
+Current modules and versions supported on Puhti and Mahti:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | TensorFlow version | CmdStan version |
-| ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------| ------------------ | --------------- |
-| r-env/442               | February 12 2025    | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.18.0             | 2.36.0          |
-| r-env/440               | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.9.1              | 2.35.0          |
-| r-env/432               | January 15 2024     | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.9.1              | 2.34.1          |
-| r-env/430               | June 07 2023        | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.9.1              | 2.32.2          |
-| r-env/422               | March 06 2023       | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.9.1              | 2.32.1          |
-| r-env/421               | June 29 2022        | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.9.1              | 2.30.1          |
+| Module name (R version) | Puhti / Mahti | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | CmdStan version |
+| ----------------------- | ------------- | ------------------- | -------------------- | ---------------------- | ----------------| --------------- |
+| r-env/442 (default)     | X / X         | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
+| r-env/440               | X / -         | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.35.0          |    
+| r-env/432               | X / -         | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.34.1          | 
+| r-env/430               | X / -         | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.32.2          |    
+| r-env/422               | X / -         | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.32.1          | 
+| r-env/421               | X / -         | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.30.1          | 
 
 
 Other software and libraries:
 
 - Open MPI 4.1.2 (with Mellanox OFED™ software)
+- TensorFlow 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
 - cget 0.2.0
 
 ## Licenses
@@ -751,7 +755,7 @@ To use R packages installed in `/projappl`, add the following to the beginning o
 .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
-Alternatively, you can add the desired changes to an `.Renviron` file (only when not using RStudio):
+Alternatively, you can add the desired changes to an `.Renviron` file:
 
 ```bash
 echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
@@ -775,18 +779,19 @@ When prompted about an existing LaTeX distribution, answer `yes` to continue the
 
 The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data. 
 
-Accessing Allas via the `r-env` module can be done as follows. First configure Allas by running these commands before launching an interactive shell session:
+Accessing Allas via the `r-env` module can be done as follows. First configure [Allas connection for S3](../data/Allas/using_allas/python_boto3.md#configuring-s3):
 
 ```bash
 module load allas
-allas-conf --mode s3cmd
+allas-conf --mode S3
 ```
 
-After [starting an interactive session and launching R / RStudio Server](#interactive-use-on-a-compute-node), you can now access your bucket list as follows. Note that, for this to work, you will need to have the `allas` module loaded and the argument `region=''` added to the `bucketlist()` function:
+To get the list of your buckets:
 
 ```r
 library(aws.s3)
-bucketlist(region='')
+options("cloudyr.aws.default_region" = "")
+bucketlist()
 ```
 
 ## Citation

@@ -61,33 +61,34 @@ are project-specific. If you are a member of several projects, you also have acc
 
 Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
 
-
-This fast parallel scratch space is intended as temporary storage
-space for the data that is used in the supercomputer. The scratch
-directory is not intended for long-term data storage. To ensure that
-the disks do not fill up CSC will regularly delete files that have not
-been accessed in a long time. In Puhti the current policy is to remove
-files that have not been accessed for more than 6 months. In Mahti a
-similar cleaning procedure will be introduced, but is not yet
-active. See [Usage policy](./usage-policy.md) page for details on the current
-policy.
-
+This fast parallel scratch space is intended as temporary storage space for the
+data that is used in the supercomputer. The scratch directory is not intended
+for long-term data storage. To ensure that the disks do not fill up CSC will
+regularly delete files that have not been accessed in a long time. In Puhti the
+current policy is to remove files that have not been accessed for more than 180
+days (scratch quota less than 5 TiB) or 90 days (scratch quota 5 TiB or more).
+In Mahti a similar cleaning procedure will be introduced, but is not yet
+active. See [Usage policy](usage-policy.md#disk-cleaning) page for details on
+the current policy.
 
 Make sure to consult our tutorial for [tips and guidelines on how to
 manage your data on `scratch`](../support/tutorials/clean-up-data.md).
-
-
 
 ## Projappl directory
 
 Each project has also a 50 GB project application disk space in the directory
 `/projappl/<project>`.
 
-It is intended for storing applications you have compiled yourself, libraries etc. that you
-are sharing within the project. It is not a personal storage space but it is shared with
-all members of the project team. Note that no files in this folder will be removed automatically.
+It is intended for storing compiled software binaries, source code, libraries, scripts
+and small-scale reference data that are shared within a project. It is not a
+personal storage space, but it is shared with all members of a project. Note
+that no files in this folder will be removed automatically.
 
-It is not intended for running applications, so please run them in `scratch` instead.
+Please note that `projappl` quota is limited, and the disk area is not meant
+for storing active research data. Thus, please do not submit jobs from or write
+large-scale data to your project's `projappl` directory, but use `scratch`
+instead for this purpose. Note that the self-installed applications you run
+can and should still be stored in `projappl`.
 
 ## Using scratch and projappl directories
 
@@ -99,33 +100,37 @@ csc-workspaces
 ```
 
 The above command displays all `scratch` and `projappl` directories you have access to.
+It also displays which of your projects are subject to the 90 day `scratch` cleaning
+cycle and which to the 180 day `scratch` cleaning cycle.
 
-For example, if you are a member in two projects, with unix groups `project_2012345`
-and `project_3587167`, then you have access to two `scratch` and `projappl` directories:
+For example, if you are a member in two projects, with unix groups `project_2000123`
+and `project_2001234`, then you have access to two `scratch` and `projappl` directories:
 
 ```text
-[kkayttaj@puhti ~]$ csc-workspaces 
-Disk area               Capacity(used/max)  Files(used/max)  Project description  
-----------------------------------------------------------------------------------
+[kkayttaj@puhti-login11 ~]$ csc-workspaces 
+
+Disk area               Capacity(used/max)  Files(used/max)  Cleanup
+----------------------------------------------------------------------
 Personal home folder
-----------------------------------------------------------------------------------
-/users/kkayttaj                2.05G/10G       23.24k/100k
 
-Project applications 
-----------------------------------------------------------------------------------
-/projappl/project_2012345     3.056G/50G       23.99k/100k   Ortotopology modeling
-/projappl/project_3587167     10.34G/50G       2.45/100k     Metaphysics methods
+/users/kkayttaj                 4.4G/10G         24K/100K        n/a
+----------------------------------------------------------------------
+Project: project_2000123 "Project X"
 
-Project scratch 
-----------------------------------------------------------------------------------
-/scratch/project_2012345        56G/1T         150.53k/1000k Ortotopology modeling
-/scratch/project_3587167       324G/1T         5.53k/1000k   Metaphysics methods
+/projappl/project_2000123        24G/50G         36K/100K        n/a
+/scratch/project_2000123        103G/1.0T       389K/1.0M       180d
+----------------------------------------------------------------------
+Project: project_2001234 "Project Y"
+
+/projappl/project_2001234        85G/100G       282K/600K        n/a
+/scratch/project_2001234        7.2T/8.0T       2.7M/5.0M        90d
+----------------------------------------------------------------------
 ```
 
-Moving to the scratch directory of `project_2012345`:
+Moving to the scratch directory of `project_2000123`:
 
 ```bash
-cd /scratch/project_2012345
+cd /scratch/project_2000123
 ```
 
 Please note that not all CSC projects have Puhti/Mahti access, so you may not

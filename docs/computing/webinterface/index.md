@@ -10,12 +10,17 @@ available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the
 [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for
 more details.
 
+Please note that logging in to Puhti and Mahti web interfaces requires
+**multi-factor authentication**.
+[More information on the Connecting page](connecting.md).
+
 !!! warning "Scope"
     The HPC web interfaces are best suited for **interactive workloads** that
     consume a **modest amount of computational resources**. Some examples are
     **pre- and post-processing of data** in Jupyter Notebooks using
     **at most a few tens of CPU cores**, **small-scale AI/ML experiments**
-    using a **single GPU**, and **data visualization** tasks.
+    using a **single GPU**, and **data visualization** tasks. As such, the
+    maximum length of interactive jobs is limited to 16 hours.
 
     Please note that the interactive applications in the web interfaces are
     **not** suitable for **multi-node** and **multi-GPU jobs**. Such workloads
@@ -42,6 +47,7 @@ more details.
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
         - MLflow
+        - RStudio
         - TensorBoard
         - Visual Studio Code
 - **Apps available in Puhti only:**
@@ -50,7 +56,6 @@ more details.
         - COMSOL
         - ParaView
         - VMD
-    - RStudio
     - MATLAB
 
 ### Shell
@@ -100,7 +105,11 @@ specific instructions, see the [Interactive apps](apps.md) page.
 !!! warning-label
     Only a few partitions of Puhti and Mahti are available for use in the web
     interfaces. Some apps also have a more limited set of partitions available
-    than others.
+    than others.  
+    The maximum length of jobs in the web interfaces is 16 hours to keep the
+    queueing times for interactive resources short. If you have work that
+    requires longer jobs than that, we recommend that you run your software as
+    [batch jobs](../running/getting-started.md).
 
 In the **Puhti web interface**, the `interactive`, `small`, `test`, `gpu` and
 `gputest` partitions are available. Selecting the `gpu` or `gputest` partition

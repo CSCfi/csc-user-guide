@@ -1,3 +1,4 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
 # Analyze and compute with Sensitive Data Desktop
 

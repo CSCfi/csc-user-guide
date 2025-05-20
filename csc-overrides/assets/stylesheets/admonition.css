@@ -1,31 +1,68 @@
-/* Collapsible admonitions are not supported ATM. */
-.md-typeset :is(details, summary) {
+/* Hide fallback admonition when collapsible */
+.md-typeset details:not(
+  .default,
+  .info,
+  .success,
+  .warning,
+  .error
+) {
   display: none !important;
 }
 
-.md-typeset .admonition {
+.md-typeset .admonition,
+.md-typeset details {
   box-shadow: unset;
-  border: 2px solid;
-  border-radius: 6px;
-  border-left-width: 14px;
+  border-width: var(--csc-admonition-border-width);
+  border-radius: var(--csc-admonition-border-radius);
   font-size: medium;
   font-weight: var(--csc-font-weight--regular);
 }
 
-.md-typeset .admonition-title::before {
+.md-typeset .admonition:not(
+  .info,
+  .success,
+  .warning,
+  .error
+) .admonition-title::before,
+.md-typeset details:not(
+  .info,
+  .success,
+  .warning,
+  .error
+) > summary::before {
   display: none;
 }
 
-.md-typeset .admonition-title {
-  margin: unset !important;
-  padding: unset !important;
-  padding-top: .6rem !important;
+.md-typeset .admonition-title,
+.md-typeset details > summary {
   font-weight: var(--csc-font-weight--bold);
+}
+
+.md-typeset .admonition-title {
   background-color: unset !important;
 }
 
 .md-typeset .admonition-title + * {
   margin-top: 0;
+}
+
+.md-typeset .admonition > :not(.admonition-title):first-child {
+  margin-top: .6rem;
+}
+
+.md-typeset .admonition:not(
+  .info,
+  .success,
+  .warning,
+  .error
+) > .admonition-title,
+.md-typeset details:not(
+  .info,
+  .success,
+  .warning,
+  .error
+) > summary {
+  padding: .4rem 0 .4rem .6rem !important;
 }
 
 .md-typeset .admonition:not(
@@ -38,68 +75,6 @@
   border: unset;
   background-color: var(--csc-admonition--bg);
   color: var(--csc-admonition--fg);
-}
-
-.md-typeset .admonition.default {
-  border-color: var(--csc-admonition-default--border);
-}
-
-.md-typeset .admonition.default-label {
-  border-color: var(--csc-admonition-default-label--fg) !important;
-  color: var(--csc-admonition-default-label--fg);
-  background-color: var(--csc-admonition-default-label--bg);
-}
-
-.md-typeset .admonition.info {
-  border-color: var(--csc-admonition-info--border);
-}
-
-.md-typeset .admonition.info-label {
-  border-color: var(--csc-admonition-info-label--fg) !important;
-  color: var(--csc-admonition-info-label--fg);
-  background-color: var(--csc-admonition-info-label--bg);
-}
-
-.md-typeset .admonition.success {
-  border-color: var(--csc-admonition-success--border);
-}
-
-.md-typeset .admonition.success-label {
-  border-color: var(--csc-admonition-success-label--fg) !important;
-  color: var(--csc-admonition-success-label--fg);
-  background-color: var(--csc-admonition-success-label--bg);
-}
-
-.md-typeset .admonition.warning {
-  border-color: var(--csc-admonition-warning--border);
-}
-
-.md-typeset .admonition.warning-label {
-  border-color: var(--csc-admonition-warning-label--fg) !important;
-  color: var(--csc-admonition-warning-label--fg);
-  background-color: var(--csc-admonition-warning-label--bg);
-}
-
-.md-typeset .admonition.error {
-  border-color: var(--csc-admonition-error--border);
-}
-
-.md-typeset .admonition.error-label {
-  border-color: var(--csc-admonition-error-label--fg) !important;
-  color: var(--csc-admonition-error-label--fg);
-  background-color: var(--csc-admonition-error-label--bg);
-}
-
-.md-typeset .admonition:is(
-  .default-label,
-  .info-label,
-  .success-label,
-  .warning-label,
-  .error-label
-) {
-  max-width: max-content;
-  border: var(--csc-border);
-  font-weight: var(--csc-font-weight--regular);
 }
 
 .md-typeset .admonition:is(
@@ -118,8 +93,13 @@
   .success-label,
   .warning-label,
   .error-label
-) > :nth-child(2) {
-  margin-top: .1rem;
+) {
+  max-width: max-content;
+  line-height: 1;
+  font-weight: var(--csc-font-weight--regular);
+  font-size: var(--csc-admonition-label-font-size);
+  padding: var(--csc-admonition-label-padding);
+  box-shadow: var(--csc-admonition-label-box-shadow);
 }
 
 .md-typeset .admonition:is(
@@ -129,5 +109,139 @@
   .warning-label,
   .error-label
 ) > :last-child {
-  margin-bottom: .1rem;
+  margin-bottom: 0;
+}
+
+.md-typeset .admonition.default,
+.md-typeset details.default {
+  border-color: var(--csc-admonition-default-border-color);
+}
+
+.md-typeset details.default:focus-within {
+  box-shadow: 0 0 0 .2rem color(from var(--csc-admonition-default-background-color) srgb r g b / .6);
+}
+
+.md-typeset .admonition.default > .admonition-title::before,
+.md-typeset details.default > summary::after,
+.md-typeset details.default > summary::before {
+  background-color: var(--csc-admonition-default-border-color);
+}
+
+.md-typeset details.default > summary {
+  background-color: var(--csc-admonition-default-background-color);
+}
+
+.md-typeset .admonition.default-label {
+  border-color: var(--csc-admonition-default-text-color) !important;
+  color: var(--csc-admonition-default-text-color);
+  background-color: var(--csc-admonition-default-background-color);
+}
+
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  border-color: var(--csc-admonition-info-border-color);
+}
+
+.md-typeset details.info:focus-within {
+  box-shadow: 0 0 0 .2rem color(from var(--csc-admonition-info-background-color) srgb r g b / .6);
+}
+
+.md-typeset .admonition.info > .admonition-title::before,
+.md-typeset details.info > summary::after,
+.md-typeset details.info > summary::before {
+  background-color: var(--csc-admonition-info-border-color);
+}
+
+.md-typeset details.info > summary {
+  background-color: var(--csc-admonition-info-background-color);
+}
+
+.md-typeset .admonition.info-label {
+  border-color: var(--csc-admonition-info-text-color) !important;
+  color: var(--csc-admonition-info-text-color);
+  background-color: var(--csc-admonition-info-background-color);
+}
+
+.md-typeset .admonition.success,
+.md-typeset details.success {
+  border-color: var(--csc-admonition-success-border-color);
+}
+.md-typeset details.success:focus-within {
+  box-shadow: 0 0 0 .2rem color(from var(--csc-admonition-success-background-color) srgb r g b / .6);
+}
+
+.md-typeset .admonition.success > .admonition-title::before,
+.md-typeset details.success > summary::after,
+.md-typeset details.success > summary::before {
+  background-color: var(--csc-admonition-success-border-color);
+}
+
+.md-typeset details.success > summary {
+  background-color: var(--csc-admonition-success-background-color);
+}
+
+.md-typeset .admonition.success-label {
+  border-color: var(--csc-admonition-success-text-color) !important;
+  color: var(--csc-admonition-success-text-color);
+  background-color: var(--csc-admonition-success-background-color);
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: var(--csc-admonition-warning-border-color);
+}
+
+.md-typeset details.warning:focus-within {
+  box-shadow: 0 0 0 .2rem color(from var(--csc-admonition-warning-background-color) srgb r g b / .6);
+}
+
+.md-typeset .admonition.warning > .admonition-title::before,
+.md-typeset details.warning > summary::after,
+.md-typeset details.warning > summary::before {
+  background-color: var(--csc-admonition-warning-border-color);
+}
+
+.md-typeset details.warning > summary {
+  background-color: var(--csc-admonition-warning-background-color);
+}
+
+.md-typeset .admonition.warning-label {
+  border-color: var(--csc-admonition-warning-text-color) !important;
+  color: var(--csc-admonition-warning-text-color);
+  background-color: var(--csc-admonition-warning-background-color);
+}
+
+.md-typeset .admonition.error,
+.md-typeset details.error {
+  border-color: var(--csc-admonition-error-border-color);
+}
+
+.md-typeset details.error:focus-within {
+  box-shadow: 0 0 0 .2rem color(from var(--csc-admonition-error-background-color) srgb r g b / .6);
+}
+
+.md-typeset .admonition.error > .admonition-title::before,
+.md-typeset details.error > summary::after,
+.md-typeset details.error > summary::before {
+  background-color: var(--csc-admonition-error-border-color);
+}
+
+.md-typeset details.error > summary {
+  background-color: var(--csc-admonition-error-background-color);
+}
+
+/* Error admonition type is not defined in Material for MkDocs,
+   so here's the icon for it. Icons for the other admonitions
+   are defined in mkdocs.yml, under theme.icon.admonition.*
+*/
+.md-typeset .admonition.error > .admonition-title::before,
+.md-typeset details.error > summary::before {
+  -webkit-mask-image: var(--md-admonition-icon--error);
+          mask-image: var(--md-admonition-icon--error);
+}
+
+.md-typeset .admonition.error-label {
+  border-color: var(--csc-admonition-error-text-color) !important;
+  color: var(--csc-admonition-error-text-color);
+  background-color: var(--csc-admonition-error-background-color);
 }

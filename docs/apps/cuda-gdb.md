@@ -1,8 +1,18 @@
+---
+tags:
+  - Free
+---
+
 # cuda-gdb: CUDA debugger
 
 ## Available
-    Puhti: 10.2
-    Mahti: 10.1
+
+- Puhti: 10.2
+- Mahti: 10.1
+
+## License
+
+Usage is possible for both academic and commercial purposes.    
 
 ## Usage
 
@@ -13,7 +23,7 @@ CUDA programs.
 In order to use tool the CUDA code has to be compiled with the extra flags
 `-g` and `-G`.
 
-Next in an [interactive session](running/interactive-usage.md) one needs to
+Next in an [interactive session](../computing/running/interactive-usage.md) one needs to
 first load the CUDA module:
 
 ```bash
