@@ -39,7 +39,7 @@ You can pause a virtual desktop. Paused desktop will stop consuming billing unit
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
-2. On the SD Desktop homepage, click **Manage desktop**.
+2. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
 
 3. Click **Unpause**. 
 
@@ -63,10 +63,11 @@ If your virtual desktop or software becomes unresponsive, you can restart it. Af
 
 2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
     
-3. On the SD Desktop homepage, click **Manage desktop**.
-43. Click **Unpause**. 
+3. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
+
+4. Click **Unpause**. 
     
-5. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
+5. Confirm the operation via the notification. Restarting a desktop may take up to 30 minutes.
 
 ![Restart desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_RestartDesktop.png)
 
@@ -77,9 +78,13 @@ At the end of your analysis, you can delete your virtual desktop, including the 
 !!! Note
     Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
-2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
+2. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
+
+3. Click **Delete**. 
+
+4. Confirm the operation via the notification. Unpausing a desktop may take up to 30 minutes.
 
 ![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
 

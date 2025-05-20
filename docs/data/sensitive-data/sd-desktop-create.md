@@ -11,8 +11,6 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 ![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop.png)
 
-
-
 ### In Create desktop window 
 
 1. Select name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
