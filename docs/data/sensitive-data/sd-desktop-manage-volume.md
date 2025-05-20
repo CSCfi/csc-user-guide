@@ -4,6 +4,10 @@
 * [Detaching a volume](#detaching-a-volume-from-a-virtual-desktop)
 * [Deleting a volume](#deleting-a-volume)
 
+!!! note
+    - To access the volume content, attach it to a desktop with the same operating system. 
+    - Volumes can not be moved or transferred between CSC projects for security reasons.
+
 
 ## Attaching a volume to a virtual desktop
 
@@ -39,12 +43,6 @@ You can easily detach a volume from your virtual desktop. You can compare this o
 2. Close the window when you are ready.
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DetachVolume.png)
-
-
-!!! note
-    - To access the volume content, attach it to a desktop with the same operating system. 
-    - Volumes can not be moved or transferred between CSC projects for security reasons.
-
 
 ## Deleting a volume
 

@@ -15,7 +15,7 @@ With the SD Desktop service, you can easily pause, reboot or delete your virtual
 
 ## Pausing or unpausing a virtual desktop
 
-You can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
+You can pause a virtual desktop. Paused desktop will stop consuming billing units and can be unpaused as long as the project has not expired or if billing units haven't been depleted.
 
 ### Pausing a virtual desktop
 
@@ -24,9 +24,9 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
 
-3. On the SD Desktop homepage, click **Manage volume**.
+3. On the SD Desktop homepage, click **Manage desktop**.
 
-4. Click **Pause desktop**. 
+4. Click **Pause**. 
 
 5. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
 
@@ -35,38 +35,40 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 ![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_PauseDesktop.png)
 
-### Resuming a virtual desktop
+### Unpausing a virtual desktop
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
-2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
+2. On the SD Desktop homepage, click **Manage desktop**.
+
+3. Click **Unpause**. 
+
+4. Confirm the operation via the notification. Unpausing a desktop may take up to 30 minutes.
 
 !!! note
     Resuming a paused desktop is only possible for active CSC projects with available billing units. 
 
-![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
+![Unpause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Unpause_desktop.png)
 
 
-## Rebooting a virtual desktop
+## Restarting a virtual desktop
 
-If your virtual desktop or software becomes unresponsive, you can reboot it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
+If your virtual desktop or software becomes unresponsive, you can restart it. After the restart, all files and software saved on the virtual desktop will remain accessible.
 
 !!! Note
-    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to reboot your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
+    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
 
-To reboot a desktop:
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop from the homepage.
 
-2. Close all programs and ensure you save or close any files to prevent data corruption.
+2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
     
-3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-    
-4. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Reboot**.
+3. On the SD Desktop homepage, click **Manage desktop**.
+43. Click **Unpause**. 
     
 5. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
 
-![Reboot desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
+![Restart desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Restart_desktop.png)
 
 ## Deleting a virtual desktop
 
