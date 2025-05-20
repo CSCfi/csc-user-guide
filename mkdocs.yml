@@ -544,8 +544,9 @@ nav:
               - data/sensitive-data/sd_desktop.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
               - Create virtual desktop: data/sensitive-data/sd-desktop-create.md
-              - Create volume: data/sensitive-data/sd-desktop-volume.md
-              - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
+              - Create volume: data/sensitive-data/sd-desktop-create-volume.md
+              - Manage virtual desktops: data/sensitive-data/sd-desktop-manage.md
+              - Manage volumes: data/sensitive-data/sd-desktop-manage-volume.md
               - Access virtual desktop: data/sensitive-data/sd-desktop-access-vm.md
               - Work with your virtual desktop: data/sensitive-data/sd-desktop-working.md
               - Customisation - software & tools: data/sensitive-data/sd-desktop-software.md
