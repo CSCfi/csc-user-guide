@@ -109,4 +109,4 @@ units.
 
 ## Prolonging ongoing slurm jobs 
 
-CSC admins will not change job parameters like length or priority on request.
+CSC will not change job parameters like length or priority. 
