@@ -1,5 +1,6 @@
-# Introduction to data encryption compatible with Sensitive Data services
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
+# Introduction to data encryption compatible with Sensitive Data services
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/dI1Py_1gA-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Downloading folders and files
 
 You can easily download folders or individual files from SD Connect user interface.
@@ -22,6 +24,8 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 2. Click **Download** on right side of the folder you want to download.
 3. Files are decrypted automatically. Locate downloaded files from your computer (for example Downloads folder).
 
+![SD Connect Download folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Download.png)
+
 ### Downloading individual files
 
 1. Find correct folder from All folders tab and click to view files.
@@ -31,6 +35,8 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 !!! Warning
     If you encounter the message 'Some downloaded files need manual decryption.' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
+
+![SD Connect Download files](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Downloadfiles.png)
 
 
 ### Downloading via Firefox: troubleshooting

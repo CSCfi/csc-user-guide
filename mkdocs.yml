@@ -101,7 +101,7 @@ plugins:
         "computing/ncu.md": "apps/ncu.md"
         "computing/nsys.md": "apps/nsys.md"
         "computing/nvprof.md": "apps/nvprof.md"
-        "computing/pdb.md": "apps/pdb.md"  
+        "computing/pdb.md": "apps/pdb.md"
         # files moved to Allas:
         # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
         "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -417,7 +417,8 @@ nav:
                   - Permissions: cloud/dbaas/mariadb-permissions.md
 
           - More advanced features: cloud/dbaas/advanced.md
-          - Resizing database instance volume: cloud/dbaas/resize-volume.md
+          - Resizing database instance volumes: cloud/dbaas/resize-volume.md
+          - Rebuilding database instances: cloud/dbaas/rebuild-database.md
       - Rahti:
           - cloud/rahti/index.md
           - What is Rahti:
@@ -524,7 +525,7 @@ nav:
           # Python MySQL API at CSC:
   - Sensitive data:
       - data/sensitive-data/index.md
-      - Choose service: data/sensitive-data/choose-a-service.md
+      - Table of contents: data/sensitive-data/sd-services-toc.md
       - Store and analyse:
           - Start here:
               - data/sensitive-data/sd-access.md

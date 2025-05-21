@@ -779,18 +779,19 @@ When prompted about an existing LaTeX distribution, answer `yes` to continue the
 
 The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data. 
 
-Accessing Allas via the `r-env` module can be done as follows. First configure Allas by running these commands before launching an interactive shell session:
+Accessing Allas via the `r-env` module can be done as follows. First configure [Allas connection for S3](../data/Allas/using_allas/python_boto3.md#configuring-s3):
 
 ```bash
 module load allas
-allas-conf --mode s3cmd
+allas-conf --mode S3
 ```
 
-After [starting an interactive session and launching R / RStudio Server](#interactive-use-on-a-compute-node), you can now access your bucket list as follows. Note that, for this to work, you will need to have the `allas` module loaded and the argument `region=''` added to the `bucketlist()` function:
+To get the list of your buckets:
 
 ```r
 library(aws.s3)
-bucketlist(region='')
+options("cloudyr.aws.default_region" = "")
+bucketlist()
 ```
 
 ## Citation

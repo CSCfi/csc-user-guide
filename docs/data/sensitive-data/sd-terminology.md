@@ -1,4 +1,6 @@
-## Useful terminology: services and technical aspects
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
+# Useful terminology: services and technical aspects
 
 **Allas**: CSC's cloud storage service. SD Connect is an interface that facilitates sensitive data encryption and storage in Allas. Users can also access Allas programmatically with interfaces for non-sensitive data.
 
