@@ -107,6 +107,7 @@ resources and storage by
 [applying](../accounts/how-to-apply-for-billing-units.md) for more billing
 units.
 
-## Prolonging ongoing slurm jobs 
+## Slurm job management by CSC
 
-CSC will not change job parameters like length or priority. 
+* CSC will not change job parameters like length or priority. 
+* CSC can terminate jobs if they are misusing resources. E.g., if resources (CPU cores, GPUs, memory) are severely underutilized or IO is overloading the storage system.
