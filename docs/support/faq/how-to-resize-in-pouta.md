@@ -7,14 +7,10 @@ You can find more information about snapshot [here](../../cloud/pouta/snapshots.
 
 ### Using the resize functionality 
 
-Few points regarding the resize functionality:
-
-- [I/O flavors](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) and [GPU flavors](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) cannot be resized to a different family flavors. I/O flavors use an ephemeral disk. The data that are not volumes are not copied when the resize functionality is used. This means that your machine won't be able to boot and the message "No bootable device" will be displayed in the console. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-a-snapshot-from-the-web-interface).
-
-- You can safely use the resize process if your I/O flavor vm is booted from a volume.
+- [I/O flavors](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) and [GPU flavors](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) cannot be resized because data in the root and ephemeral disks are not copied when the resize functionality is used. This means that your machine won't be able to boot and the message "No bootable device" will be displayed in the console. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-a-snapshot-from-the-web-interface).
 
 !!! Warning    
-    Keep in mind that when creating a snapshot, only the contents of the root disk will be preserved. If you have data located in the `/mnt` directory for example, back it up in `Allas` using a tool such as [rclone](../../data/Allas/using_allas/rclone.md) or [s3cmd](../../data/Allas/using_allas/s3_client.md)
+    Keep in mind that when creating a snapshot, only the contents of the root disk will be preserved. If you have data located in the ephemeral disk (usually in the `/mnt` directory), you can back up your data in a [volume](../../cloud/pouta/persistent-volumes.md) or in `Allas` using a tool such as [rclone](../../data/Allas/using_allas/rclone.md) or [s3cmd](../../data/Allas/using_allas/s3_client.md)
 
 !!! Warning  
     It's possible to resize from a `standard` flavor *family* to a `hpc` flavor *family*. Nothing will prevent you to do that but it's **highly not recommended!**  
