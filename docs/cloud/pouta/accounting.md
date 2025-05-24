@@ -72,7 +72,7 @@ extensions by sending email to [CSC Service Desk](../../support/contact.md).
 
 With the default resources, a cPouta user could launch eight
 *standard.tiny* instances or two *standard.large* instances or one
-*hpc-gen1.8core* instance. The purpose of the quota is to prevent
+*hpc.4.5core* instance. The purpose of the quota is to prevent
 individual users from reserving the entire cluster and thus preventing
 other users from accessing it.
 
