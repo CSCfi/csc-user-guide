@@ -8,7 +8,7 @@ A volume is like a virtual USB stick used to store your data. You can attach it 
 ## Step by step
 
 1. Select correct CSC project from dropdown on the left side.
-2. Click **Create volume**.
+2. Click **Create volume**. 
 
 ![Create volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume.png)
 
@@ -20,10 +20,13 @@ A volume is like a virtual USB stick used to store your data. You can attach it 
 
 3. (optional) Write description or note about the volume for your team. This helps other team members understand its purpose and contents.
 
-4. Click "Create". 
+4. Click **Create**. The window will now close and volume creation will start.
+
+After returning to the main page, you will see a data table displaying the volumes in your project.
 
 ![Create volume window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume2.png)
 
+![Volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Volumes.png)
 
 ## Features in SD Desktop
 
