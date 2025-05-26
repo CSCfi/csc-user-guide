@@ -17,7 +17,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 2. Select operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
 3. Select a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
 4. (optional) Write description or note about the desktop for your team. This helps other team members understand its purpose and contents.
-5. Click **Create**. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
+5. Click **Create**. You will see a datatable displaying desktops in your project. Creating a desktop can take up to 30 minutes. During this there is **Creating** tag next to the desktop name. You can access the desktop when tag changes to **Running**. If you try accessing the virtual desktop during creation, an error message will be displayed asking you to return later.
 
 ![Create desktop window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop2.png)
 
