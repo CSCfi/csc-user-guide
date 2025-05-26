@@ -2,7 +2,6 @@
 
 # Accessing virtual desktop
 
-
 * [Access virtual desktop](#access-virtual-desktop)
 * [Log out from virtual desktop](#log-out-from-virtual-desktop)
 * [Reconnecting to an analysis session](#reconnecting-to-an-analysis-session)
@@ -10,15 +9,13 @@
 
 ## Access virtual desktop
 
-1. [Login](./sd-desktop-login.md) to SD Desktop. All your virtual desktops are listed at the home page under **All connections**.
+1. On the main page, select correct CSC project from dropdown on the left side. 
+2. You will see a data table displaying the desktops in your project. Check that status of virtual desktop you want to access is **Running**.
+3. Click **Access desktop**. 
 
-2. Select project (e.g. `project_NNNNN`) and click **plus icon**.
-  
-3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
+The virtual desktop will open in your browser. If it's your first time using it, you'll see a **Getting Started** panel where you can adjust settings like screen resolution.
 
-When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
-
-![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
+![Access desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM2.png)
 
 
 ## Log out from virtual desktop

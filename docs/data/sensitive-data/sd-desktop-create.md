@@ -23,7 +23,6 @@ After returning to the main page, you will see a data table displaying the deskt
 
 ![Create desktop window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop2.png)
 
-
 ![Access desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM.png)
 
 #### Virtual desktop options
