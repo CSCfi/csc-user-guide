@@ -19,7 +19,7 @@ Allas Web UI provides a simple-to-use web user interface for CSC Object Storage 
 A bucket is a storage container for your objects. Follow these steps to create one:
 
 1. Click on **Create bucket**.
-2. Enter a bucket name (names cannot be modified later. See the [checklist for naming a bucket](../introduction.md#naming-buckets)).
+2. Enter a bucket name (names cannot be modified later. See the [checklist for naming a bucket](../introduction.md#naming-buckets-and-objects)).
 3. (Optional) Add tags for better organization and search abilities.
 4. Click **Save**.
 
@@ -32,7 +32,7 @@ You can upload objects in two ways:
 
 ### Uploading from the main page:
 1. Click the **Upload** button on the dashboard.
-2. Enter a bucket name (names cannot be modified later. See the [checklist for naming a bucket](../introduction.md#naming-buckets)).
+2. Enter a bucket name (names cannot be modified later. See the [checklist for naming a bucket](../introduction.md#naming-buckets-and-objects)).
 3. Select / "Drag & Drop" objects and click **Upload**.
 4. A new bucket containing the objects will be created. 
 
@@ -99,7 +99,7 @@ To copy a bucket:
 ## Downloading Objects and Buckets
 
 !!! warning ""
-    Downloading buckets or folders larger than **5 GiB** is currently not supported. For larger downloads, consider using the **[Command Line Tools](./rclone.md)** instead.
+    Downloading buckets or folders larger than **5 GiB** is currently not supported. For larger downloads, consider using the **[Command Line Tools](../accessing_allas.md#commandline-tools)** instead.
 
 
 1. Click the **Download** button next to the Bucket / Object.

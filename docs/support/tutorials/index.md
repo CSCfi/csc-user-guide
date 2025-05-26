@@ -36,7 +36,7 @@
 
 ## Allas
 
-* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
+* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-hpc.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)

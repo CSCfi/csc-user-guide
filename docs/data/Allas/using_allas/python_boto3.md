@@ -51,37 +51,18 @@ installed. If you wish to use the library in another Python environment, you can
 use `pip` to
 [add it on top of an existing module](../../../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-## Configuring S3
-To use Allas with S3 and boto3, some configurations need to be set up:
-* Credentials: access key and secret key
-* S3 endpoint
-* S3 region
+### Credentials for accessing one CSC project
 
-### Configurations for accessing a single CSC project
-
-The easiest way to set up S3 configuration for `boto3` is by
-[configuring an S3 connection on a CSC supercomputer](s3_client.md#configuring-s3-connection-in-supercomputers).
-
-```bash
+```text
 module load allas
-allas-conf --mode S3
+allas-conf -m S3
 ```
 
-This saves the credentials and S3 region in `credentials` and S3 endpoint in `config` file in the default `~/.aws/` folder. 
-
-If you wish to access Allas from a personal laptop or some other server,
-copy the `~/.aws`-folder to your home directory on that computer: `C:\Users\username\.aws` on Windows or `~/.aws/` on Mac and Linux.
-[Use any file transfer tool](../../moving/index.md), for example `scp`.
-
-```bash
-# Copy the aws configuration files to your home directory
-scp -r <username>@<hostname>.csc.fi:~/.aws $HOME
-```
-
+`boto3` is internally using `aws`-library, so if you want to [copy your credentials](allas-conf.md#s3-connection-details) outside the supercomputer, follow instructions for `aws`.
 
 ### Credentials for accessing multiple CSC projects
 
-Using `allas-conf --mode s3cmd` is straightforward,
+Using `allas-conf -m S3` is straightforward,
 but it overwrites the existing credentials file when run,
 making it somewhat tedious to work with multiple projects.
 Therefore, it is recommended to use the 
