@@ -30,13 +30,13 @@ After the first log in, CSC service desk can create an organizational profile fo
 
 ### Step 2: Creating objects in SD Apply
 
-After you have been set as the owner of the organization profile, you should create a license and a workflow for the organization in SD Apply. You can also create an application form that the applicant has to fill in when they submit a data access request. Forms are optional so if you don't need to ask applicant to provide more information, e.g. to confirm the journal number when they send the access request, you don't need to create one. 
+After you have been set as the owner of the organization profile, you should create a policy and a DAC (Data Access Committee) for the organization in SD Apply. You can also create an application form that the applicant has to fill in when they submit a data access request. Forms are optional so if you don't need to ask applicant to provide more information, e.g. to confirm the journal number when they send the access request, you don't need to create one. 
 
 1. Navigate to SD Apply Administration tab
-2. Select Licenses tab and then **create license**. License specifies the terms of use for the data, which the applicants need to approve when they send the data access application. Since in this case, the terms have already been defined in the data permit, you can for example refer to the data permit in the license text. You can use the inline text as license type for short texts.  
-3. Next, navigate to Workflows tab and **create workflow**. Workflow defines who will manage the data access applications of the organization in SD services. These named users will always receive a notification via email about new access applications and can approve or reject the applications in SD Apply.  
+2. Select Policies tab and then **create Policy**. Policy specifies the terms of use for the data, which the applicants need to approve when they send the data access application. Since in this case, the terms have already been defined in the data permit, you can for example refer to the data permit in the policy text. You can use the inline text as policy type for short texts.  
+3. Next, navigate to DACs tab and **create DAC**. DAC (Data Access Committee) defines the persons who will manage the data access applications of the organization in SD services. These named users will always receive a notification via email about new access applications and can approve or reject the applications in SD Apply.  
 
-The forms and licenses are public in SD Apply, so these should not include any sensitive information. These objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Resource** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
+The forms and policies are public in SD Apply, so these should not include any sensitive information. These objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Identifier** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
 
 ### Step 3: Establishing a secure SSH connection with CSC
 
@@ -168,7 +168,7 @@ To start processing applications, follow the link in your email or log in direct
 
 ### Step 2: Process the application
 
-In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
+In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. 
 
 [![SD Apply "Actions" tab and application](images/apply/apply_dac.png)](images/apply/apply_dac.png)
 
