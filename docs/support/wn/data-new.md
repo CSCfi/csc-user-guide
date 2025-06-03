@@ -1,6 +1,6 @@
 # Data management
 
-## Temporary workaround for importing files from SD Connect into SD Desktop, 3.6.2025
+## Temporary workaround for importing files from SD Connect into SD Desktop, 3.6.2025 <a id="sd-workaround"></a>
 
 We're currently having a technical issue where some files can't be imported from SD Connect to SD Desktop using the Data Gateway app (both the interface and command-line tool). You will see an "input/output error" for these files. Not all files are affected, only certain ones.
 
