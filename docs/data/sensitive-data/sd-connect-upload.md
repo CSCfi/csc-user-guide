@@ -21,9 +21,15 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 !!! info "Folder names"
 
-    - Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
-    - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
-    - Folder names can't be modified afterwards.
+    * Folder name should start with a lowercase letter or a number.
+    * Folder name should be between 3 and 63 characters long.
+    * Use Latin alphabets (a-z), numbers (0-9) and dash (-). 
+    * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
+    * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
+    * Remember, all bucket names are public; please do not include any confidential information.
+    * Folder names can't be modified afterwards.
+
+
 
 ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
