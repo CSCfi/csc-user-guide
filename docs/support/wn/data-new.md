@@ -1,6 +1,47 @@
 # Data management
 
 
+## Temporary workaround for importing files from SD Connect into SD Desktop, 3.6.2025
+
+We're currently having a technical issue where some files can't be imported from SD Connect to SD Desktop using the Data Gateway app (both the interface and command-line tool). You will see an "input/output error" for these files. Not all files are affected, only certain ones.
+
+We are still investigating the underlying cause of this problem. In the meantime, you can use a this workaround to access and copy files:
+
+#### Step 1: Open the connection between SD Desktop and SD Connect
+
+* Login to your virtual desktop, close and disconnect Data Gateway application.
+
+* On the left side navigation bar, open the terminal and type the following command:
+
+```go-fuse -http_timeout=60```
+
+* Press Enter. The tool will next ask your CSC username and CSC password. 
+* Write your user name, press Enter, enter your password and press Enter. 
+
+Note: when you enter the password characters will not be displayed. 
+
+![Open connection.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-Temp1.png)
+
+After a few seconds the tool will display:
+
+INFO [DATE] Data Gateway database completed
+INFO [DATE]  Mounting Data Gateway at home/username/Projects
+
+This means that now the connection is open and all the files are displayed in the project folder. Do not close the terminal until you have access all the files you are interested in. 
+
+
+#### Step 2: Open the project folder
+
+* On the left navigation bar, double click to open the folder icon called Files.
+
+* In the new window, on the bottom of the navigation bar you can now locate the Projects folder. 
+
+* Once you click on it, you can display all you the files stored in SD Connect and copy them inside your Desktop. 
+
+* To close the connection, click on the Unmount icon next to the Projects folder icon.
+
+![Open connection.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-Temp2.png)
+
 ## Sensitive Data (SD) Connect: new command line tools for automated key management, 02.2025
 
 We are excited to announce that, starting February 2025, new command line tools are available for automated key management with SD Connect. These tools allow you to upload and download files (using a-commands) and manage encryption keys automatically (using lock-unlock commands). After encrypting and uploading data programmatically, you can access it via the SD Connect user interface or SD Desktop. Please note that these tools require coding skills. A step-by-step guide is provided below to help you get started.
