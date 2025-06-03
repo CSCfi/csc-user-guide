@@ -106,7 +106,7 @@ CSC provides an application that simplifies encryption key generation and data d
     * Use Latin alphabets (a-z), numbers (0-9) and dash (-). 
     * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
     * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
-    * Remember, all bucket names are public; please do not include any confidential information.
+    * Remember, all folder names are public; please do not include any confidential information.
     * Folder names can't be modified afterwards.
 
 
