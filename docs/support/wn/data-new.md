@@ -4,7 +4,7 @@
 
 We're currently having a technical issue where some files can't be imported from SD Connect to SD Desktop using the Data Gateway app (both the interface and command-line tool). You will see an "input/output error" for these files. Not all files are affected, only certain ones.
 
-We are still investigating the underlying cause of this problem. In the meantime, you can use a this workaround to access and copy files.
+We are still investigating the underlying cause of this problem. In the meantime, you can use this workaround to access and copy files.
 
 ### Step 1: Open the connection between SD Desktop and SD Connect
 
@@ -16,7 +16,7 @@ We are still investigating the underlying cause of this problem. In the meantime
     ```
 
 3. Press Enter. The tool will next ask your CSC username and CSC password.
-4. Write your user name, press Enter, enter your password and press Enter. Note, characters will not be displayed when you enter the password.
+4. Write your username, press Enter, enter your password and press Enter. Note, characters will not be displayed when you enter the password.
 
     ![Open connection.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-Temp1.png)
 
