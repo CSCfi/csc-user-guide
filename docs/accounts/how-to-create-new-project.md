@@ -113,7 +113,7 @@ _Note_: If you are not eligible to be the Project Manager yourself, you might ha
 
 You can check your Haka attributes in MyCSC portal:
 
-1. Go to https://my.csc.fi/userinfo and click on **Retrieve userinfo**
+1. Go to [https://my.csc.fi/userinfo](https://my.csc.fi/userinfo) and click on **Retrieve userinfo**
 2. Log in with your organization's Haka ID
 3. Your affiliations are in the **eduPersonScopedAffiliation** section
 
