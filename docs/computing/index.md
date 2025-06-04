@@ -1,8 +1,11 @@
 # Overview
 
 !!! Note
-    For an overview of the LUMI supercomputer, see [the LUMI
-    documentation](https://docs.lumi-supercomputer.eu/hardware/).
+    For an overview of CSC's next national supercomputer Roihu coming in 2026,
+    [see this page](systems-roihu.md).
+
+    For an overview of the LUMI supercomputer, see
+    [the LUMI documentation](https://docs.lumi-supercomputer.eu/hardware/).
 
 Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users
 since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is
@@ -16,6 +19,9 @@ for larger jobs (minimum 128 CPU-cores). Mahti also contains a GPU partition
 since 2021 (Mahti AI) with Nvidia Ampere GPUs. See [specifications](available-systems.md)
 for details on the systems and [this page for an outline of differences between LUMI-C and
 Mahti](lumi-vs-mahti.md).
+
+Puhti and Mahti will be replaced in 2026 by CSC's next national supercomputer
+called **Roihu**. [Read more about Roihu here](systems-roihu.md).
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
 basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
