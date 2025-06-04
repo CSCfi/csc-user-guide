@@ -39,7 +39,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 1. Select the correct folder (by double-click).
 2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph.
 
-## Upload and encrypt files to a new folder
+## Create a folder
 
 You can create a folder and upload files to it later.
 
