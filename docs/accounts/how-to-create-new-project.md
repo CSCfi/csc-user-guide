@@ -103,7 +103,7 @@ Here we describe how the Haka identity linked to your CSC account affects your r
 | `student@org.fi` (without being faculty, staff or employee) | a student who has registered as being present (läsnäoleva). | ❌ | ❌ | ✅ |
 | `member@org.fi` (without being faculty, staff or employee) | This value covers all categories mentioned above plus students taking qualifying education courses, further education courses or open university and further education center students (pätevöitymiseen tähtäävä täydennyskoulutus, muu täydennyskoulutus, avoin yliopisto/korkeakoulu, täydennyskoulutuskeskuksen opiskelijat). | ❌ | ❌ | ✅ |
 
-In addition, you may have the following Haka affiliation information, but these do not affect your right to create CSC Projects: `affiliate@org.fi`, `alum@org.fi`, `library-walk-in@org.fi`
+In addition, you may have one or more of the following Haka affiliation information types, but these do not give you the right to create CSC Projects: `affiliate@org.fi`, `alum@org.fi`, `library-walk-in@org.fi`
 
 More information about the policy in [Prerequisites and responsibilities for a CSC project manager](https://research.csc.fi/terms-of-use/prerequisites-for-a-project-manager/).
 
