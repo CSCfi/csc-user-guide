@@ -355,13 +355,17 @@ Documentation for _Material for MkDocs_ has a [search feature](https://squidfunk
 
 ## How do I add a license tag to an application page?
 
-The license tag is added inside a YAML front matter. The first lines in the Markdown file should be
-the front matter. Please note the enclosing dashes. A template for the front matter is
+The license tag is added inside the YAML front matter. Temporarily, the license type should be placed as a
+list item under `tags:` _and_ as a string in `license_type:`:
 
 ```yaml
 ---
 tags:
   - <license>
+catalog:
+  # ...
+  license_type: <license>
+  # ...
 ---
 ```
 
@@ -372,35 +376,21 @@ The application will then be included on the Applications by license page automa
 
 ## How do I tag an application as available under a web interface?
 
-As with [adding a license tag](#how-do-I-add-a-license-tag-to-an-application-page), an application
-can be tagged as available in a particular web interface. The application will then be listed under
-that web interface on the _Applications by availability_ page. The tags for web interfaces that an
-application is available on are added under the `system` key in the front matter.
+In the YAML front matter. The following would, for example, tag the application as available on
+Puhti, Mahti _and_ Puhti web interface.
 
 ```yaml
 ---
-system:
-  - www-<system1>
-  - www-<system2>
+catalog:
+  # ...
+  available_on:
+    - Puhti
+    - Mahti
+    - web_interfaces:
+        - Puhti
+  # ...
 ---
 ```
-
-where `<system1>` or `<system2>` is one of the systems where a web interface is available, for
-example (prefixed with `www-`) `mahti` or `puhti`.
-
-As a temporary workaround, to prevent an application getting listed under a system for merely
-mentioning the system, edit the [skip_system.txt](scripts/skip_system.txt) file.
-
-```text
-Workaround:
-
-...
-
-SKIP_<system1> application.md
-SKIP_<system2> application.md
-```
-
-where `<system1>` and `<system2>` are as above.
 
 ## How do I add footnotes?
 
