@@ -1,6 +1,16 @@
 ---
 tags:
   - Non-commercial
+catalog:
+  name: NAMD
+  description: Highly scalable classical molecular dynamics
+  license_type: Non-commercial
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # NAMD

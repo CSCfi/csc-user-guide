@@ -1,9 +1,4 @@
 {% extends "base.html" %}
-{% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@{{ config.extra.csc_ui_version }}/dist/styles/css/theme.css">
-  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@{{ config.extra.csc_ui_version }}/dist/csc-ui/csc-ui.esm.js" />
-{% endblock styles %}
 {% block header %}
   {% include "partials/pre-header.html" %}
   {{ super() }}
@@ -21,7 +16,3 @@
   {% endblock breadcrumbs %}
   {{ super() }}
 {% endblock content %}
-{% block scripts %}
-  {{ super() }}
-  <script src="https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@{{ config.extra.csc_ui_version }}/dist/csc-ui/csc-ui.esm.js" type="module"></script>
-{% endblock scripts %}

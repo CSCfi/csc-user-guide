@@ -1,6 +1,13 @@
 ---
 tags:
   - Other
+catalog:
+  name: ArcGIS
+  description: General purpose GIS software family for viewing, editing and analysing geospatial data
+  license_type: Other
+  disciplines:
+    - Geosciences
+  unchecked: true
 ---
 
 # ArcGIS

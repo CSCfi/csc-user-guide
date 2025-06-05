@@ -1,32 +1,37 @@
+from typing import NamedTuple, Callable
+
 from .ordering import OrderedValue
 from .apps import App, DocsApp
+from .config import _ListingOrder
 
 
 class Catalog:
-    def __init__(self, disciplines, licenses, systems):
-        self.__ordered = dict(disciplines=disciplines,
-                              licenses=licenses,
-                              systems=systems)
-        self.__apps: [App] = []
+    def __init__(self, listing_order: _ListingOrder):
+        self.__ordered = listing_order
+        self.__apps: list[App] = []
         self.__disciplines = set()
         self.__licenses = set()
         self.__systems = set()
         self.__web_interfaces = set()
 
-    def __iter__(self):
-        for prop in ("apps",
-                     "disciplines",
-                     "licenses",
-                     "systems",
-                     "web_interfaces",
-                     "alphabetical",
-                     "by_discipline",
-                     "by_license",
-                     "by_availability"):
-            yield (prop, getattr(self, prop))
-
     def __len__(self):
         return len(self.__apps)
+
+    def asdict(self):
+        props = ("apps",
+                 "disciplines",
+                 "licenses",
+                 "systems",
+                 "web_interfaces",
+                 "alphabetical",
+                 "by_discipline",
+                 "by_license_type",
+                 "by_availability",
+                 "by_web_availability")
+
+        return {attr_name: getattr(self, attr_name)
+                for attr_name in dir(self)
+                if attr_name in props}
 
     @property
     def __sorted_apps(self):
@@ -50,77 +55,78 @@ class Catalog:
             {prop: app[prop]
              for prop in props
              if prop in app and app[prop]}
-            for app in [dict(app_obj)
+            for app in [app_obj.asdict()
                         for app_obj
                         in self.__sorted_apps]]}
 
-    def __get_sort_key(self, order_by):
+    def __get_sort_key(self, order_by: list[str]) -> Callable[[str], OrderedValue]:
         return lambda value: OrderedValue(value, order_by)
 
-    @property
-    def apps(self):
-        return [dict(app) for app in self.__sorted_apps if isinstance(app, DocsApp)]
+    def __get_grouped_apps(self,
+                           groups: list[str],
+                           attr: str,
+                           callback: Callable[[App, str, ], bool] | None=None) -> dict:
+        callback_fn = (callback if callback is not None
+                       else lambda app, attr, value: (value in getattr(app, attr)
+                                                      if hasattr(app, attr)
+                                                      else False))
+
+        return {item: [app.asdict()
+                       for app
+                       in self.__sorted_apps
+                       if callback_fn(app, attr, item)]
+                for item
+                in groups}
 
     @property
-    def disciplines(self):
+    def unchecked(self) -> list[dict]:
+        return [app.asdict() for app in self.__apps if app.unchecked]
+
+    @property
+    def disciplines(self) -> list[str]:
         return sorted(self.__disciplines,
                       key=self.__get_sort_key(self.__ordered["disciplines"]))
 
     @property
-    def licenses(self):
+    def licenses(self) -> list[str]:
         return sorted(self.__licenses,
-                      key=self.__get_sort_key(self.__ordered["licenses"]))
+                      key=self.__get_sort_key(self.__ordered["license_types"]))
 
     @property
-    def systems(self):
+    def systems(self) -> list[str]:
         return sorted(self.__systems,
                       key=self.__get_sort_key(self.__ordered["systems"]))
 
     @property
-    def web_interfaces(self):
+    def web_interfaces(self) -> list[str]:
         return sorted(self.__web_interfaces,
                       key=self.__get_sort_key(self.__ordered["systems"]))
 
     @property
-    def alphabetical(self):
+    def alphabetical(self) -> dict[str, list[dict]]:
         characters = set([app.name[0].lower() for app in self.__apps])
-        return {char: [dict(app)
-                       for app
-                       in self.__sorted_apps
-                       if app.name.lower().startswith(char)]
-                for char
-                in sorted(characters)}
+        startswith = lambda app, attr, value: (getattr(app, attr).lower().startswith(value))
+
+        return self.__get_grouped_apps(sorted(characters),
+                                       "name",
+                                       callback=startswith)
 
     @property
-    def by_discipline(self):
-        return {discipline: [dict(app)
-                             for app
-                             in self.__sorted_apps
-                             if discipline in app.disciplines]
-                for discipline
-                in self.disciplines}
+    def by_discipline(self) -> dict[str, list[dict]]:
+        return self.__get_grouped_apps(self.disciplines, "disciplines")
 
     @property
-    def by_license(self):
-        return {license_type: [dict(app)
-                               for app
-                               in self.__sorted_apps
-                               if license_type == app.license_type]
-                for license_type
-                in self.licenses}
+    def by_license_type(self) -> dict[str, list[dict]]:
+        identity = lambda app, attr, value: (value == getattr(app, attr))
+
+        return self.__get_grouped_apps(self.licenses,
+                                       "license_type",
+                                       callback=identity)
 
     @property
-    def by_availability(self):
-        return {system: [dict(app)
-                         for app
-                         in self.__sorted_apps
-                         if system in app.available_on]
-                for system
-                in self.systems}
+    def by_availability(self) -> dict[str, list[dict]]:
+        return self.__get_grouped_apps(self.systems, "available_on")
 
     @property
-    def by_web_availability(self):
-        return {web_ui: [dict(app)
-                         for app
-                         in self.__sorted_apps
-                         if web_ui in app.available_on.get("web_interfaces", [])]}
+    def by_web_availability(self) -> dict[str, list[dict]]:
+        return self.__get_grouped_apps(self.web_interfaces, "available_on_web")

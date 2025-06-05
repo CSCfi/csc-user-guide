@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Qiskit-on-iqm
+  description: open-source qiskit adapter for quantum computing
+  license_type: Free
+  disciplines:
+    - Quantum
+  available_on:
+    - LUMI
 ---
 
 # Qiskit-on-iqm

@@ -1,6 +1,15 @@
 ---
 tags:
   - Academic
+catalog:
+  name: AMS-GUI
+  description: AMS integrated GUI
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # AMS-GUI

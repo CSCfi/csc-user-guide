@@ -23,7 +23,7 @@ class OrderedValue:
        it holds true that "b" < "a" < "c".
     """
 
-    def __init__(self, value, sequence: [str]):
+    def __init__(self, value, sequence: list[str]):
         self.__value = value
         self.__order = Order(sequence)
 

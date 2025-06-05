@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Intel VTune Profiler
+  description: Performance analysis tool for single core and threading performance
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
 ---
 
 # Intel VTune Profiler

@@ -1,9 +1,16 @@
 ---
 tags:
   - Free
-system:
-  - www-mahti
-  - www-puhti
+catalog:
+  name: Jupyter for courses
+  description: A version of the Jupyter app for course environments
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - Puhti
+        - Mahti
 ---
 
 # Jupyter for courses

@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: NWChem
+  description: A computational chemistry software package designed to perform well on parallel HPC systems
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # NWChem

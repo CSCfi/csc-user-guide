@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: LAMMPS
+  description: Fast molecular dynamics engine with large force field selection
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # LAMMPS

@@ -1,6 +1,16 @@
 ---
 tags:
   - Other
+catalog:
+  name: VASP
+  description: Ab initio DFT electronic structures
+  license_type: Other
+  disciplines:
+    - Physics
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # VASP

@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Roary
+  description: Pan genome pipeline
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Roary

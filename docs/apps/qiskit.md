@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: Qiskit
+  description: open-source toolkit for useful quantum computing
+  license_type: Free
+  disciplines:
+    - Quantum
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Qiskit

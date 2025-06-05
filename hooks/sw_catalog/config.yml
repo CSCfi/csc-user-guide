@@ -1,23 +1,31 @@
+# The path where generated content is placed.
 export_subpath: apps/
 
-license_type_order:
-  - Free
-  - Academic
-  - Non-commercial
-discipline_order:
-  - Biosciences
-  - Chemistry
-  - Computational Engineering
-  - Data Analytics and Machine Learning
-  - Geosciences
-  - Language Research and Other Digital Humanities and Social Sciences
-  - Mathematics and Statistics
-  - Physics
-  - Quantum
-system_order:
-  - Puhti
-  - Mahti
-  - LUMI
+listing_order:
+  # The literal order of categories on the app index pages. Categories
+  # not included will appear (in undefined order) below the categories
+  # listed here.
+  #
+  # Examples include the license type 'Other' and the 'Miscellaneous'
+  # discipline.
+  license_types:
+    - Free
+    - Academic
+    - Non-commercial
+  disciplines:
+    - Biosciences
+    - Chemistry
+    - Computational Engineering
+    - Data Analytics and Machine Learning
+    - Geosciences
+    - Language Research and Other Digital Humanities and Social Sciences
+    - Mathematics and Statistics
+    - Physics
+    - Quantum
+  systems:
+    - Puhti
+    - Mahti
+    - LUMI
 
 appendix:
   - name: Chipster
