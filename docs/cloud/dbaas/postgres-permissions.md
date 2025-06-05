@@ -10,12 +10,12 @@ When creating a new user, you can use the `--database` flag to grant user access
 table in the public schema in a specific database:
 
 ```sh
-openstack database user create $INSTNACE_ID $USER_NAME $USER_PASSWORD --database $DATABASE_NAME
+openstack database user create $INSTANCE_ID $USER_NAME $USER_PASSWORD --database $DATABASE_NAME
 ```
 
 The command to grant permissions for a user to create tables to an existing database user:
 ```sh
-openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
+openstack database user grant access $INSTANCE_ID $USER_NAME $DATABASE_NAME
 ```
 
 The web interface also allows creating users and modifying their permissions.

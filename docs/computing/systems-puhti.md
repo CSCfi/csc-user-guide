@@ -18,7 +18,7 @@ fat tree with a blocking factor of approximately 2:1.
 
 The **Puhti AI** artificial intelligence partition has a total of **80 GPU
 nodes** with a total peak performance of 2,7 petaflops. Each node has
-two latest generation Intel Xeon processors, code name _Cascade Lake_,
+two Intel Xeon processors, code name _Cascade Lake_,
 with 20 cores each running at 2,1 GHz. They also have four Nvidia
 Volta V100 GPUs with 32 GB of memory each. The nodes are equipped with
 384 GB of main memory and 3,6 TB of fast local storage. This partition

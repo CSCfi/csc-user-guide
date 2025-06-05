@@ -38,6 +38,7 @@ with plenty of analysis scripts.
     |2024.2   |`gromacs/2024.2`
     |2024.3   |`gromacs/2024.3`
     |2024.4   |`gromacs/2024.4`
+    |2025.1   |`gromacs/2025.1`
 
 === "Mahti"
     | Version | Available modules | Notes |
@@ -54,6 +55,7 @@ with plenty of analysis scripts.
     |2024.2   |`gromacs/2024.2`
     |2024.3   |`gromacs/2024.3`
     |2024.4   |`gromacs/2024.4`
+    |2025.1   |`gromacs/2025.1`
 
 === "LUMI"
     | Version | Available modules | Notes |
@@ -62,6 +64,7 @@ with plenty of analysis scripts.
     |2024.2   |`gromacs/2024.2`<br>`gromacs/2024.2-gpu`<br>`gromacs/2024.2-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
     |2024.3   |`gromacs/2024.3`<br>`gromacs/2024.3-gpu`<br>`gromacs/2024.3-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
     |2024.4   |`gromacs/2024.4`<br>`gromacs/2024.4-gpu`|GPU-enabled module available
+    |2025.1   |`gromacs/2025.1`<br>`gromacs/2025.1-gpu`<br>`gromacs/2025.1-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the
   recommended latest minor version from each year (replace `<year>`
@@ -274,7 +277,7 @@ on the GROMACS page.
     #SBATCH --cpus-per-task=7
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.4-gpu
+    module load gromacs/2025.1-gpu
 
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
@@ -293,7 +296,7 @@ on the GROMACS page.
     #SBATCH --ntasks-per-node=8
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.4-gpu
+    module load gromacs/2025.1-gpu
 
     export OMP_NUM_THREADS=7
 

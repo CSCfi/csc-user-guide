@@ -418,7 +418,8 @@ nav:
                   - Permissions: cloud/dbaas/mariadb-permissions.md
 
           - More advanced features: cloud/dbaas/advanced.md
-          - Resizing database instance volume: cloud/dbaas/resize-volume.md
+          - Resizing database instance volumes: cloud/dbaas/resize-volume.md
+          - Rebuilding database instances: cloud/dbaas/rebuild-database.md
       - Rahti:
           - cloud/rahti/index.md
           - What is Rahti:
