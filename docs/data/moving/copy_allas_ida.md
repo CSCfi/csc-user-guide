@@ -133,8 +133,8 @@ in Puhti server at CSC.
 #### 1. Connect to Puhti
 
 We recommend that you run the data transfer process in one of the login nodes of the Puhti.
-(Login nodes can be used in this care as the data transfer process is not computationally heavy).
-The easiest way to open a login node session in Puhti is to use tha WWW interface of Puhti:
+(Login nodes can be used in this case as the data transfer process is not computationally heavy).
+The easiest way to open a login node session in Puhti is to use the WWW interface of Puhti:
 
    * [Puhti Web interface](https://www.puhti.csc.fi)
 
@@ -153,7 +153,7 @@ allas-conf -m S3
 ```
 
 The _allas-conf_ command will prompt you to enter your CSC password. The Haka password is not accepted.
-After that you will choose, the Allas projec where the data will be copied.
+After that you will choose the Allas project where the data will be copied.
 
 
 Next, establish the IDA connection with the commands:
