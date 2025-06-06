@@ -14,15 +14,15 @@ A volume is like a virtual USB stick for storing your data. You can attach it to
 
 ### In Create volume window 
 
-1. Select name for your volume. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
+1. Select a name for your volume. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
 
 2. Choose from the available options that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
 
-3. (optional) Write description or note about the volume for your team. This helps other team members understand its purpose and contents.
+3. Write **optional** description or note about the volume to help your team members understand its purpose and contents.
 
 4. Click **Create**. The window will now close and volume creation will start.
 
-After returning to the main page, you will see a data table displaying the volumes in your project.
+Back on the main page, you will see a list of your volumes. You can now proceed to attach it to your desktop.
 
 ![Create volume window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume2.png)
 

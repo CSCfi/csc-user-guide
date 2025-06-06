@@ -13,10 +13,10 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 ### In Create desktop window 
 
-1. Select name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
+1. Select a name for your desktop. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
 2. Select operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
 3. Select a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
-4. (optional) Write description or note about the desktop for your team. This helps other team members understand its purpose and contents.
+4. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
 5. Click **Create**. The window will now close and desktop creation will start.
 
 After returning to the main page, you’ll see a list of your desktops. Creating a desktop can take up to 30 minutes, during which a "Creating" label will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to "Running", the desktop is ready to use.
