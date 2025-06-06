@@ -64,7 +64,6 @@ vlx --version
     # OpenMP settings (based on allocated SLURM cpus)
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
     export OMP_PLACES=cores
-    export SRUN_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
 
     # Run VeloxChem
     job=ecd_response
