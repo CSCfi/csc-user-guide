@@ -176,7 +176,7 @@ export PATH=/appl/opt/csc-cli-utils/google-cloud-sdk/bin:$PATH
 earthengine authenticate
 ```
 
-This prints out a long link and asks for a code. Copy the link to the web browser of your local laptop. Follow the instruction on the web page and finally copy the created code back to Terminal.
+This prints out a long link and asks for a code. Copy the link to the web browser of your local laptop. Follow the instructions on the web page and finally copy the created code back to Terminal.
 
 ## Using Allas or LUMI-O from Python
 
