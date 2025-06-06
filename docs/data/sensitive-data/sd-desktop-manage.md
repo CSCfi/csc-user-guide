@@ -15,7 +15,7 @@ With the SD Desktop service, you can easily pause, reboot or delete your virtual
 
 ## Pausing or unpausing a virtual desktop
 
-You can pause a virtual desktop. Paused desktop will stop consuming billing units and can be unpaused as long as the project has not expired or if billing units haven't been depleted.
+A paused desktop won’t use billing units. You can unpause it later if the project is still active and billing units remain. Also you can’t attach or detach volumes while desktop is paused.
 
 ### Pausing a virtual desktop
 
@@ -30,12 +30,11 @@ You can pause a virtual desktop. Paused desktop will stop consuming billing unit
 
 5. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
 
-!!! note
-    You can't access or detach a volume while a desktop is paused.
-
 ![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_PauseDesktop.png)
 
 ### Unpausing a virtual desktop
+
+You can unpause a desktop if the project is still active and billing units remain.
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
@@ -45,15 +44,12 @@ You can pause a virtual desktop. Paused desktop will stop consuming billing unit
 
 4. Confirm the operation via the notification.
 
-!!! note
-    Resuming a paused desktop is only possible for active CSC projects with available billing units. 
-
 ![Unpause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_UnpauseDesktop.png)
 
 
 ## Restarting a virtual desktop
 
-If your virtual desktop or software becomes unresponsive, you can restart it. After the restart, all files and software saved on the virtual desktop will remain accessible.
+Restart if your desktop or software becomes unresponsive. Your files and software will stay intact.
 
 !!! Note
     If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
@@ -73,10 +69,10 @@ If your virtual desktop or software becomes unresponsive, you can restart it. Af
 
 ## Deleting a virtual desktop
 
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action.
+At the end of your analysis, you can delete your virtual desktop and all files saved in it. You cannot undo this action.
 
 !!! Note
-    Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
+    Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in it by other project members. 
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
