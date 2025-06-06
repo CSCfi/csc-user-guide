@@ -19,7 +19,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 4. (optional) Write description or note about the desktop for your team. This helps other team members understand its purpose and contents.
 5. Click **Create**. The window will now close and desktop creation will start.
 
-After returning to the main page, you will see a data table displaying the desktops in your project. Desktop creation may take up to 30 minutes. During this time, a Creating status label will appear next to the desktop name. If you attempt to access the virtual desktop while it is still being created, an error message will prompt you to try again later. Once the status changes to Running, the desktop will be ready for use.
+After returning to the main page, you’ll see a list of your desktops. Creating a desktop can take up to 30 minutes, during which a "Creating" label will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to "Running", the desktop is ready to use.
 
 ![Create desktop window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop2.png)
 
