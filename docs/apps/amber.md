@@ -1,6 +1,16 @@
 ---
 tags:
   - Academic
+catalog:
+  name: Amber
+  description: Molecular dynamics suite
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Amber

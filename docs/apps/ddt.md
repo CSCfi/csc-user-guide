@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: DDT
+  description: Parallel debugger
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # DDT

@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: PDAL
+  description: for point cloud translations and processing
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # PDAL

@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: R for GIS
+  description: R spataial analysis libraries
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # R for GIS

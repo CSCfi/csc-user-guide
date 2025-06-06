@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: PANNZER2/SANSPANZ
+  description: Automatic protein annotation tool
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # PANNZER2/SANSPANZ

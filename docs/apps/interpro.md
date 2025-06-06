@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: InterProScan
+  description: Protein signature/motif search tool
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # InterProScan

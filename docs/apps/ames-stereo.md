@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: NASA Ames Stereo Pipeline (ASP)
+  description: for processing stereo images
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # NASA Ames Stereo Pipeline (ASP)

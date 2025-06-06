@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Structure
+  description: Inference of population structure in genetics
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Structure

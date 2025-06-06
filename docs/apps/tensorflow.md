@@ -1,7 +1,16 @@
 ---
-title: TensorFlow
 tags:
   - Free
+catalog:
+  name: TensorFlow
+  description: Deep learning library for Python
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # TensorFlow

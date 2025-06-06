@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: WhiteboxTools
+  description: an advanced geospatial data analysis platform
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # WhiteboxTools

@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: cProfile
+  description: Built-in profiler for Python programs
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # cProfile: Python profiler

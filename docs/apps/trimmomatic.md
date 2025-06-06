@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Trimmomatic
+  description: Trim Illumina paired-end and single-read data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Trimmomatic

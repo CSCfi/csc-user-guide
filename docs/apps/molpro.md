@@ -1,6 +1,15 @@
 ---
 tags:
   - Non-commercial
+catalog:
+  name: MOLPRO
+  description: Package for accurate ab initio quantum chemistry calculations
+  license_type: Non-commercial
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # MOLPRO

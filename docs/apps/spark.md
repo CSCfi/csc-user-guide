@@ -1,6 +1,13 @@
 ---
 tags:
   - Free
+catalog:
+  name: Spark
+  description: High-performance distributed computing framework
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  unchecked: true
 ---
 
 # Spark

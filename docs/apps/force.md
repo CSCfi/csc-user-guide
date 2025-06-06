@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: FORCE 
+  description: for mass-processing of medium-resolution satellite images
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # FORCE 

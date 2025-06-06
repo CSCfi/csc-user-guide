@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: BRAKER
+  description: Automatic genome annotator for eucaryots
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # BRAKER

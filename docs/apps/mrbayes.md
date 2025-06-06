@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: MrBayes
+  description: Program for inferring phylogenies using Bayesian methods
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # MrBayes

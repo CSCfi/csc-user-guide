@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Velvet
+  description: Genome assembler
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Velvet

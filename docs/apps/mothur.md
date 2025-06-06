@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Mothur
+  description: Package for microbial community analysis of amplicon sequencing data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Mothur

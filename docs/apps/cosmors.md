@@ -1,6 +1,14 @@
 ---
 tags:
   - Academic
+catalog:
+  name: COSMO-RS
+  description: Toolbox for predictive property calculation of liquids
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
 ---
 
 # COSMO-RS

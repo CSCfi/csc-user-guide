@@ -1,9 +1,19 @@
 ---
 tags:
   - Academic
-system:
-  - www-puhti
-  - www-mahti
+catalog:
+  name: Maestro
+  description: Versatile drug discovery and materials modeling suite
+  license_type: Academic
+  disciplines:
+    - Chemistry
+    - Biosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+        - Mahti
+    - Puhti
+    - Mahti
 ---
 
 # Maestro

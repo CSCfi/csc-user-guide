@@ -1,7 +1,16 @@
 ---
-title: PyTorch
 tags:
   - Free
+catalog:
+  name: PyTorch
+  description: Machine learning framework for Python
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # PyTorch

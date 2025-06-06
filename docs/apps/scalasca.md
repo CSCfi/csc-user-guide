@@ -1,6 +1,13 @@
 ---
 tags:
   - Free
+catalog:
+  name: Scalasca
+  license_type: Free
+  available_on:
+    - Puhti
+    - Mahti
+  unchecked: true
 ---
 
 # Scalasca

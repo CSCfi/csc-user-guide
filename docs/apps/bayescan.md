@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: BayeScan
+  description: Tool for identifying candidate loci under natural selection based on allele frequencies in populations
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # BayeScan

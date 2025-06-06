@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: RAxML
+  description: Program for inferring phylogenies with likelihood
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # RAxML

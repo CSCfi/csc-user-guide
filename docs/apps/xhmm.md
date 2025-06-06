@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: XHMM (eXome-Hidden Markov Model)
+  description: Copy number variation calling from targeted sequencing data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # XHMM (eXome-Hidden Markov Model)

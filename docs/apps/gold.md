@@ -1,6 +1,15 @@
 ---
 tags:
   - Academic
+catalog:
+  name: GOLD
+  description: Protein Ligand Docking Software
+  license_type: Academic
+  disciplines:
+    - Chemistry
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # GOLD

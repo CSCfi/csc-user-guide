@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Python Data
+  description: Collection of Python libraries for data analytics and machine learning
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - Puhti
 ---
 
 # Python Data

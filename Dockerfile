@@ -32,8 +32,6 @@ RUN if [ ! -d ".git" ]; then \
     git init && \
     git switch --force $repo_branch; \
     fi && \
-    bash scripts/generate_alpha.sh && \
-    bash scripts/generate_by_system.sh && \
     bash scripts/generate_new.sh && \
     bash scripts/generate_glossary.sh && \
     mkdocs build -d /usr/share/nginx/html

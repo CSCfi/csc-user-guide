@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: TopHat
+  description: Splice junction mapper for RNA-Seq reads
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # TopHat

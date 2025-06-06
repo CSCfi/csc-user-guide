@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Sen2Cor
+  description: for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # Sen2Cor

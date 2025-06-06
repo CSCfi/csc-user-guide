@@ -1,6 +1,15 @@
 ---
 tags:
   - Other
+catalog:
+  name: ORCA
+  description: General purpose quantum chemistry package
+  license_type: Other
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # ORCA

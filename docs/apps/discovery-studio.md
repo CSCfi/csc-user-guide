@@ -1,6 +1,13 @@
 ---
 tags:
   - Academic
+catalog:
+  name: Discovery Studio
+  description: Protein modeling environment
+  license_type: Academic
+  disciplines:
+    - Biosciences
+  unchecked: true
 ---
 
 # Discovery Studio
