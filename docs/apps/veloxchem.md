@@ -106,7 +106,7 @@ vlx --version
 
  - VeloxChem website: [veloxchem.org](https://veloxchem.org/)
  - VeloxChem GitLab repository: [gitlab.com/veloxchem/veloxchem](https://gitlab.com/veloxchem/veloxchem)
- - [VeloxChem: A Python-driven density-functional theory program for spectroscopy simulations in high-performance computing environments](https://wires.onlinelibrary.wiley.com/doi/10.1002/wcms.1457 ) (introductory paper about VeloxChem) 
+ - [VeloxChem: A Python-driven density-functional theory program for spectroscopy simulations in high-performance computing environments](https://doi.org/10.1002/wcms.1457) (introductory paper about VeloxChem) 
  - [VeloxChem — Quantum Molecular Modelling in HPC Environments](https://wires.onlinelibrary.wiley.com/doi/10.1002/wcms.1457p)(article about the reasons and need for developing VeloxChem, the goals and structure of the software and its efficiency)
  - VIAMD for VeloxChem: [github.com/scanberg/viamd/wiki](https://github.com/scanberg/viamd/wiki) 
 
