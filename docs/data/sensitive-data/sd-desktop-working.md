@@ -18,7 +18,6 @@ The guide below provides clear instructions to help you get comfortable with bot
 - [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
-- [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
 
 ## Security-related features and limitations
 
@@ -76,9 +75,14 @@ The copy-paste function from your computer/laptop to your virtual desktop is lim
 
 ## Default software available in SD Desktop
 
-**You can work with your virtual desktop like with a standard computer**, accessing several pre-installed programs from the applications menu bar (top left corner). Examples include Open Office, image-viewing applications, video and audio players, Jupyter Notebooks etc. You can also open a terminal and use Linux from the command line. For more information on accessing R-Studio, please [check the paragraph below](#accessing-rstudio-from-virtual-desktop).
+**You can work with your virtual desktop like with a standard computer**, accessing several pre-installed programs from the applications menu bar (top left corner). Examples include Open Office, image-viewing applications, video and audio players, Jupyter Notebooks etc. You can also open a terminal and use Linux from the command line. 
 
-Below we list some of the most commonly used tools that are by default installed in the virtual desktop. The list is not complete and there are small differences between different desktop options.
+Below we list some of the most commonly used tools that are by default installed in the virtual desktop. The list is not complete and there are small differences between different desktop options. 
+
+
+If you want to install software that is not included by default (for example, RStudio), you can use the SD-Software Installer. This simple application provides a list of additional software and guides you through the installation process, no technical expertise required. To learn how, please follow the next guide: [Customisation - software & tools](./sd-desktop-software.md) For more advanced users, it's also possible to install other tools using containerized applications with Aptainer or Podman.
+
+
 
 | **Category**              | **Software**                                                                                                                                                                       |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -92,43 +96,7 @@ Below we list some of the most commonly used tools that are by default installed
 
 ## Accessing RStudio from virtual desktop
 
-The computing environment i.e. virtual desktop (visible from your browser) is isolated from the internet. For example, you can open a Firefox web browser in your virtual desktop but not access any site online. At this moment, you will also not be able to access any repositories directly. To open R Studio for data analysis the following steps are required:
-
-1. Open the terminal.
-
-2. Launch RStudio with:
-
-    ```text
-    start-rstudio-server
-    ```
-
-![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio1.png)
-
-
-* This will return a URL and a service-specific password:
-
-    ```text
-    RStudio Server - Sensitive Data Desktop Edition
-    ---------------------------------------------------------------------------------------
-    Copy/Paste this URL into Firefox:
-
-    http://localhost:8787/
-
-    -----------------------------------------------------------------------------------------
-    Enter these at the RStudio Server sign-in screen
-    ----------------------------------------------------------------------------------------
-    Username: accountname  Password: Example23241232
-    ----------------------------------------------------------------------------------------
-    To stop RStudio Server: Ctrl+C
-    ```
-
-3.  Copy the URL and paste it in Firefox to open the R-Studio login page.
-4. Enter your username and password to access the server.
-
-!!! Note
-    Only files saved in the external volume are accessible to other project members using RStudio.
-
-![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
+For a step by step guide, see: [Installing RStudio via SD-Software Installer](.data/sensitive-data/r-in-sd-desktop)
 
 
 ## Your next steps in this guide
