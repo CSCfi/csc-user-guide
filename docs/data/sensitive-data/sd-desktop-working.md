@@ -96,7 +96,7 @@ If you want to install software that is not included by default (for example, RS
 
 ## Accessing RStudio from virtual desktop
 
-For a step by step guide, see: [Installing RStudio via SD-Software Installer](.data/sensitive-data/r-in-sd-desktop)
+For a step by step guide, see: [Installing RStudio via SD-Software Installer](.sensitive-data/r-in-sd-desktop)
 
 
 ## Your next steps in this guide
