@@ -89,6 +89,7 @@
 * [How to transfer data to Rahti?](transfer_data_rahti.md)
 * [Protecting against DDoS Attacks](DDos.md)
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
+* [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
 ## Sensitive Data Services for research
