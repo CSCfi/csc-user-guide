@@ -4,4 +4,4 @@
 
     1. [Test whether **Haka MFA** is already enabled for you](/accounts/mfa.md#mfa-instructions-for-users-logging-in-with-haka-credentials).
           * If your home organization has enabled MFA for Haka login, you do not need to activate MFA separately for CSC services. It is highly preferred that you use the Haka MFA of your home organization if possible.
-    2. [If Haka MFA is not enabled or if your home organization does not offer Haka, activate **CSC MFA** following these instructions](/accounts/mfa.md#how-to-activate-mfa).
+    2. [If Haka MFA is not enabled or if your home organization does not offer Haka, activate **CSC MFA** following these instructions](/accounts/mfa.md#how-to-activate-csc-mfa).
