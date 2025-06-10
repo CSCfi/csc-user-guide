@@ -2,7 +2,7 @@
 
 # Create virtual desktops
 
-With the SD Desktop service, you can create virtual computers for analysing sensitive data. On your virtual desktop, you can analyse sensitive research data through your web browser securely. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to three virtual desktops for one CSC project and it doesn't require technical expertise.
+With the SD Desktop service, you can create virtual computers for analysing sensitive data. On your virtual desktop, you can analyse sensitive research data through your web browser securely. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create multiple desktops for one CSC project and it doesn't require technical expertise.
 
 ## Step by step
 
