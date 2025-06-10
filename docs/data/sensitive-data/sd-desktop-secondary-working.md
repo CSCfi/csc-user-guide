@@ -123,43 +123,8 @@ Below you can find a list of tools available in our software package.
 
 ## Accessing RStudio from virtual desktop
 
-The computing environment i.e. virtual desktop (visible from your browser) is isolated from the internet. For example, you can open a Firefox web browser in your virtual desktop but not access any site online. At this moment, you will also not be able to access any repositories directly. To open R Studio for data analysis the following steps are required:
+After conatcting servicedesk@csc.fi and receving specific guidance, you can access R Studio by following this tutorial: [Adding RStudio and R libraries to SD Desktop](./sensitive-data/r-in-sd-desktop.md)
 
-1. Open the terminal.
-
-2. Launch RStudio with:
-
-    ```text
-    start-rstudio-server
-    ```
-
-![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio1.png)
-
-
-* This will return a URL and a service-specific password:
-
-    ```text
-    RStudio Server - Sensitive Data Desktop Edition
-    ---------------------------------------------------------------------------------------
-    Copy/Paste this URL into Firefox:
-
-    http://localhost:8787/
-
-    -----------------------------------------------------------------------------------------
-    Enter these at the RStudio Server sign-in screen
-    ----------------------------------------------------------------------------------------
-    Username: accountname  Password: Example23241232
-    ----------------------------------------------------------------------------------------
-    To stop RStudio Server: Ctrl+C
-    ```
-
-3.  Copy the URL and paste it in Firefox to open the R-Studio login page.
-4. Enter your username and password to access the server.
-
-!!! Note
-    Only files saved in the external volume are accessible to other project members using RStudio.
-
-![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
 
 Read next:
 
