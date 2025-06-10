@@ -18,11 +18,10 @@ You need to access SD Desktop. You have a permit from a single register.
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
-7. [Activate MFA](#7-activate-mfa)
-8. [CSC project is ready](#8-your-csc-project-is-ready)
-9. [Apply for access to the dataset with SD Apply](#9-apply-for-access-to-the-dataset-with-sd-apply)
-10. Register processes application, please wait
-11. [Send approved application to CSC](#11-send-approved-application-to-csc)
+7. [CSC project is ready](#7-your-csc-project-is-ready)
+8. [Apply for access to the dataset with SD Apply](#8-apply-for-access-to-the-dataset-with-sd-apply)
+9. Register processes application, please wait
+10. [Send approved application to CSC](#10-send-approved-application-to-csc)
 
 
 ### 1. Create a CSC account 
@@ -94,26 +93,7 @@ You need to access SD Desktop. You have a permit from a single register.
     - You will receive an email notification, when everything is ready.
 
 
-### 7. Activate MFA
-
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
-
-**[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=358s){ target="_blank" }**
-
-- You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
-- Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
-- Click **Enable MFA** in **Project notifications** window in top lright corner or go to the **Profile** page (Left side menu or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking **'Activate'**.
-- This will create a QR code which you can read with your authentication application (for example Google Authenticator).
-- Your authentication application will provide a verification code which you can now write to MyCSC **Verification code** field and click **Verify**.
-
-![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
-
-
-### 8. Your CSC project is ready!
+### 7. Your CSC project is ready
 
 !!! warning-label
     Team manager
@@ -123,7 +103,7 @@ You need to access SD Desktop. You have a permit from a single register.
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC.
 
-### 9. Apply for access to the dataset with SD Apply
+### 8. Apply for access to the dataset with SD Apply
 
 !!! warning-label
     Team manager
@@ -158,11 +138,11 @@ You are now on the Applications page.
 ![SD Apply application](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_Application.png)
 
 !!! Note ""
-    ### 11. Wait for approval from data controller
+    ### 9. Wait for approval from data controller
     * After you have sent the application, it will be forwarded to the data controller, who approves or rejects it. 
     * You will receive an email notification whenever the state of your application changes.
 
-### 11. Send approved application to CSC
+### 10. Send approved application to CSC
 
 **[Watch video](https://www.youtube.com/watch?v=y91wzD0wqEA&t=518s){ target="_blank" }**
 

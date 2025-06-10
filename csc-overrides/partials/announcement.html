@@ -6,9 +6,9 @@
 #}
 {# import ".icons/material/coffee.svg" as icon #}
 {# import ".icons/material/chat.svg" as icon #}
-{# import ".icons/material/information.svg" as icon #}
+{% import ".icons/material/information.svg" as icon %}
 {# import ".icons/material/alert.svg" as icon #}
-{% import ".icons/material/wrench.svg" as icon %}
+{# import ".icons/material/wrench.svg" as icon #}
 {# import ".icons/material/rocket-launch.svg" as icon #}
 {# import ".icons/material/test-tube.svg" as icon #}
 {# import ".icons/material/beaker.svg" as icon #}
@@ -18,7 +18,7 @@
 <div class="announcement-icon">{{ icon }}</div>
 {# Put the announcement, in HTML, right under this comment! #}
 <p>
-There will be a service break on Puhti on Tue 3 June from 08:00 to 21:00. <a href="https://research.csc.fi/service-break/service-break-on-puhti-3/" target="_blank">Click here for more information</a>.
+Note: Starting from June 11, 2025, using the MyCSC portal will require multi-factor authentication (MFA). <a href="{{ base_url | url }}/accounts/mfa/">Read our MFA guide here</a>.
 </p>
 {# ...and right above _this_ comment. #}
 <div class="announcement-icon announcement-icon-end">{{ icon }}</div>

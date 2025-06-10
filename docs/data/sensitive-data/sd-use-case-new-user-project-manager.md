@@ -16,10 +16,9 @@ You need access to SD services for processing research data. Whether you are the
 3. [Data protection](#3-data-protection)
 4. [Activate SD Services for your project](#4-activate-sd-services-for-your-project)
 5. [Apply resources (billing units) for your project](#5-apply-billing-units-for-your-project)
-6. [Activate MFA Authentication](#6-activate-mfa-authentication)
-7. [If you have a research team, add them to be your project members](#7-if-you-have-a-research-team-add-them-to-be-your-project-members)
-8. [Closing your project and data retention](#8-closing-your-project-and-data-retention)
-9. [Log into SD Services](#9-log-into-sd-services)
+6. [If you have a research team, add them to be your project members](#6-if-you-have-a-research-team-add-them-to-be-your-project-members)
+7. [Closing your project and data retention](#7-closing-your-project-and-data-retention)
+8. [Log into SD Services](#8-log-into-sd-services)
 
 ![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
@@ -47,7 +46,7 @@ You need access to SD services for processing research data. Whether you are the
 - Finally, read and accept the terms of use.
 - Click **Create new project**.
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Academic.png)
 
 ### 3. Data protection
 
@@ -132,19 +131,7 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 
 ![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
 
-### 6. Activate MFA Authentication
-
-You need to activate MFA (multi-factor authentication) to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
-
-- Install an authentication app (e.g., Google Authenticator or Microsoft Authenticator) on your mobile before activating MFA.
-- Click **Enable MFA** in the **Project notifications** window (top right corner) or go to the Profile page (left navigation or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking **Activate**.
-- A QR code will be created. Scan it with your authentication app (e.g., Google Authenticator).
-- Your app will generate a verification code. Enter this code in the **Verification code** field on MyCSC and click **Verify**.
-
-![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
-
-### 7. If you have a research team, add them to be your project members
+### 6. If you have a research team, add them to be your project members
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
 - Add members from **Members** window. Click **Add members**.
@@ -164,7 +151,7 @@ You need to activate MFA (multi-factor authentication) to log in the Sensitive D
 !!! Note
     Each CSC project members must also create a MyCSC user account (this happens when they apply membership to your project) and activate the MFA.
 
-### 8. Closing your project and data retention
+### 7. Closing your project and data retention
 
 The default lifetime of a CSC project is one year, after which it will be automatically closed and all data deleted. As a project manager, you can either extend the project duration or directly close your project after completing your research.  As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure) via the MyCSC portal.
 
@@ -178,7 +165,7 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ![Close project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_CloseProject.png)
 
-### 9. Log into SD Services
+### 8. Log into SD Services
 
 - Now all the preparations are ready and you can start using the services (links to related user guides):
 
