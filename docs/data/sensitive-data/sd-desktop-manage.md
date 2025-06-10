@@ -49,7 +49,7 @@ You can unpause a desktop if the project is still active and billing units remai
 
 ## Restarting a virtual desktop
 
-Restart if your desktop or software becomes unresponsive. Your files and software will stay intact.
+If your virtual desktop or software becomes unresponsive, you can restart it. All files and software saved on the virtual desktop will remain accessible.
 
 !!! Note
     If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
@@ -69,10 +69,10 @@ Restart if your desktop or software becomes unresponsive. Your files and softwar
 
 ## Deleting a virtual desktop
 
-At the end of your analysis, you can delete your virtual desktop and all files saved in it. You cannot undo this action.
+At the end of your analysis, you can delete entire virtual desktop, and all files saved to it by you or other project members. 
 
-!!! Note
-    Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in it by other project members. 
+!!! Warning
+    You cannot undo this action. Please contact all the project members before deleting a virtual desktop. ´
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
