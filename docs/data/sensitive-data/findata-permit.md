@@ -18,8 +18,7 @@ You need to access SD Desktop. You have a permit from Findata.
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
-7. [Activate MFA](#7-activate-mfa)
-8. [CSC project is ready](#8-your-csc-project-is-ready)
+7. [CSC project is ready](#7-your-csc-project-is-ready)
 
 ### 1. Create a CSC account
 
@@ -91,25 +90,7 @@ You need to access SD Desktop. You have a permit from Findata.
     - You will receive an email notification, when everything is ready.
 
 
-### 7. Activate MFA
-
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
-
-**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=359s){ target="_blank" }**
-
-- You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
-- Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
-- Click **Enable MFA** in **Project notifications** window in top right corner or go to the **Profile** page (Left side menu or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking **“Activate”**.
-- This will create a QR code which you can read with your authentication application (for example Google Authenticator).
-- Your authentication application will provide a verification code which you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
-
-![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
-
-### 8. Your CSC project is ready!
+### 7. Your CSC project is ready!
 
 !!! warning-label
     Team manager
