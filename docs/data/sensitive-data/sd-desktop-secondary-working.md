@@ -123,7 +123,7 @@ Below you can find a list of tools available in our software package.
 
 ## Accessing RStudio from virtual desktop
 
-After conatcting servicedesk@csc.fi and receving specific guidance, you can access R Studio by following this tutorial: [Adding RStudio and R libraries to SD Desktop](./sensitive-data/r-in-sd-desktop.md)
+After contacting [CSC Service Desk](../../support/contact.md) and receiving specific guidance, you can access R Studio by following this tutorial: [Adding RStudio and R libraries to SD Desktop](r-in-sd-desktop.md)
 
 
 Read next:
