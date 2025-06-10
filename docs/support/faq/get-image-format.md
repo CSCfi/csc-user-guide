@@ -1,5 +1,13 @@
 # Why Rahti cannot find this docker image?
 
+!!! error "Pulling images from DockerHub"
+    Since the last Rahti version deployed (OpenShift 4.17) there is a configuration change when pulling images. Some images are hardcoded. It will pull from a specific repository (like JFrog).
+    To minimise the impact and avoid errors when pulling the image from DockerHub, you must use the fully qualified image name.
+
+    For example, instead of using `image: mongo:latest`, you should use `image: docker.io/library/mongo:latest`.
+
+    This behavior will be fixed in OpenShift 4.18. We don't have ETA for now.
+
 ![Could not load image](img/Could_not_load_image_metadata.png)
 
 Often there are simple causes for this problem. Maybe there is a typo in the image name, or the image might have been removed since the last time it was successfully pulled. These two problems are common, and as such, it is worth double-checking the image source.
