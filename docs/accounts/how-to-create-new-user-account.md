@@ -27,7 +27,7 @@ If your home organization is a member of the Haka or Virtu federation, you can c
 1. Select your home organization and log in to their identity service.
 1. Fill in your information on the _Sign up_ page.
 1. You will receive an email message containing a link to MyCSC where you can set your CSC account password.
-1. If you are signing up with _Virtu_ you will be prompted to [set up your CSC MFA](../accounts/mfa.md#step-2-scan-qr-code) after setting your CSC accounts password. If you signing up with _Haka_, you might already have a working MFA login integrated with your Haka login, and you will be asked to sign in with the Haka MFA. If your home organisation doesn't provide Haka MFA, you will be guided to set up CSC MFA.
+1. If you are signing up with _Virtu_ you will be prompted to [set up your CSC MFA](../accounts/mfa.md#step-2-scan-qr-code) after setting your CSC accounts password. If you are signing up with _Haka_, you might already have a working MFA login integrated with your Haka login, and you will be asked to sign in with the Haka MFA. If your home organisation doesn't provide Haka MFA, you will be guided to set up CSC MFA.
 1. You will receive a confirmation via email after successfully registering your CSC user account.
 
 ## Getting an account without Haka or Virtu
