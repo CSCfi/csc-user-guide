@@ -91,7 +91,7 @@ This is the recommended option to obtain and renew Let's Encrypt certificates. T
 
 ![Cert manager](../../img/cert-manager.png)
 
-1. First, as usual, you need to [install oc](../usage/cli.md#how-to-install-the-oc-tool) and [login into Rahti](../usage/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../usage/projects_and_quota.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
+1. First, as usual, you need to [install oc](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login into Rahti](../usage/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../usage/projects_and_quota.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
 
 1. Double check that the domain name exists. Let's Encrypt needs to verify that you indeed control said domain name, and it does that by issuing a HTTP request to the actual Domain Name and it expects it to respond accordingly. To test it, enter the Domain name in your browser and see that Rahti answers accordingly.
 

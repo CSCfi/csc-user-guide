@@ -4,9 +4,17 @@ Rahti can be used via the command line either with OpenShift's _oc_ tool
 or with the _kubectl_ tool from Kubernetes. Certain features specific to OpenShift
 are only available when using the oc tool.
 
-## How to install the `oc` tool
+## The "Command Line Tools" page in the Rahti web UI
 
-The oc tool is a single binary that only needs to be included in your _path_. You may download it from the [Getting started with the OpenShift CLI](https://docs.openshift.com/container-platform/4.15/cli_reference/openshift_cli/getting-started-cli.html) page in OpenShift's documentation. Follow the detailed instructions in the link.
+The oc tool is a single binary that only needs to be included in your _path_. Instructions for downloading the oc tool including the download link for several platforms and operating systems can be found in the [Command Line Tools](https://console.rahti.csc.fi/command-line-tools) page in the web interface:
+
+![Command line tools](../../img/cli_help_menu_4.png)
+
+after clicking you will be welcomed with:
+
+![OpenShift Command Line Tools page](../../img/openshift_cli_dialog_4.png)
+
+Download the necessary package and copy it in your _path_.
 
 In order to test that it was properly installed, open a new terminal, go to any folder, and run:
 
@@ -15,16 +23,6 @@ $ oc --help
 ```
 
 It should show the list of all available commands.
-
-## The "Command Line Tools" page in the OpenShift web UI
-
-Instructions for downloading the oc tool including the download link for several platforms and operating systems can be found in the "Command Line Tools" page in the web interface:
-
-![Command line tools](../../img/cli_help_menu_4.png)
-
-after clicking you will be welcomed with:
-
-![OpenShift Command Line Tools page](../../img/openshift_cli_dialog_4.png)
 
 ## How to login with `oc`?
 
