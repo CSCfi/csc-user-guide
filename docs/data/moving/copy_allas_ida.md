@@ -47,7 +47,7 @@ Download the data from Allas to that new directory. You should use the same
 protocol as was used to originally upload the data to Allas. If the data was
 uploaded with command-line tools, preferably also use the same command-line
 tool. More information about the Allas tools on Puhti is available at
-[Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms).
+[Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md).
 
 In our example case the data was originally uploaded to Allas with a-commands,
 so the user uses `a-get` to download the data:
@@ -288,7 +288,7 @@ a-put <directory_or_file>
 ```
 
 More information about the Allas tools on Puhti is available at
-[Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms).
+[Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md).
 
 Continuing our example, assuming the unzipped data to be uploaded to Allas is
 in a directory `experiment_data`, it can be uploaded with `a-put` as:
