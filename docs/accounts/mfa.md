@@ -99,19 +99,23 @@ Your CSC account is now secured with multi-factor authentication!
 3. CSC asks you to provide the six-digit code shown in your authentication app
 4. You are in!
 
+## How to proceed when changing to a new phone
+
+The easiest option is to **transfer** your MFA secret to your new phone. Please follow the instructions of the authenticator app of your choice.
+
+If, for some reason, the MFA secret cannot be transferred from your old phone to your new one, you can follow these steps:
+
+1. Log in to MyCSC using your **old phone's** authenticator app, navigate to the [Profile page](https://my.csc.fi/profile) and click on the **Edit** button under **CSC Multi-Factor Authentication**.
+2. Scan the QR code shown on the screen with your **new phone's** authenticator app.
+3. Fill in the verification code from your **new phone's** authenticator app and click on the **Enable Multi-Factor Authentication** button.
+4. Verify that you can log in to MyCSC with your new phone by logging out from MyCSC and logging back in again.
+5. Your MFA secret that is stored on you **old phone** can no longer be used to log in to CSC's services for research. Remove it from your old phone's authenticator app.
+
+!!! note
+    If you no longer have access to your old phone, please [contact CSC Service Desk](../support/contact.md).
+
 ## Problems with MFA
 
 If you are experiencing problems or want to disable your MFA authentication, please contact the [CSC Service Desk](../support/contact.md).
 
 See also [solutions to common MFA-related problems](../support/faq/issues-with-mfa.md).
-
-!!! note "Reminder"
-    If, for some reason, the MFA secret cannot be transferred from your old phone to your new one, you can follow these steps:
-
-    1. Log in to MyCSC using your **old phone's** authenticator app, navigate to the [Profile page](https://my.csc.fi/profile) and click on the **Edit** button under **CSC Multi-Factor Authentication**.
-    2. Scan the QR code shown on the screen with your **new phone's** authenticator app.
-    3. Fill in the verification code from your **new phone's** authenticator app and click on the **Enable Multi-Factor Authentication** button.
-    4. Verify that you can log in to MyCSC with your new phone by logging out from MyCSC and logging back in again.
-    5. Your MFA secret that is stored on you **old phone** can no longer be used to log in to CSC's services for research. Remove it from your old phone's authenticator app.
-
-    If you no longer have access to your old phone, please [contact CSC Service Desk](../support/contact.md).
