@@ -106,6 +106,10 @@ If you are experiencing problems or want to disable your MFA authentication, ple
 See also [solutions to common MFA-related problems](../support/faq/issues-with-mfa.md).
 
 !!! note "Reminder"
-    If you know you'll be switching to a new phone, remember to disable
-    MFA before making the switch. Also, keep your contact information up to date
-    in MyCSC in case your account needs to be recovered.
+     If, for some reason, the MFA secret cannot be transferred from your old phone to your new one, you can follow these steps:
+
+     1. Log in to MyCSC using your **old phone's** authenticator app, navigate to the [Profile page](https://my.csc.fi/profile) and click on the **Edit** button under **CSC Multi-Factor Authentication**.
+     2. Scan the QR code shown on the screen with your **new phone's** authenticator app.
+     3. Fill in the verification code from your **new phone's** authenticator app and click on the **Enable Multi-Factor Authentication** button.
+     4. Verify that you can log in to MyCSC with your new phone by logging out from MyCSC and logging back in again.
+     5. Your MFA secret that is stored on you **old phone** can no longer be used to log in to CSC's services for research. Remove it from your old phone's authenticator app.
