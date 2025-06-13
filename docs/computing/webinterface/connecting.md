@@ -2,12 +2,8 @@
 
 --8<-- "mfa-update.md"
 
-1. Ensure that you have a CSC account and have enabled multi-factor
-   authentication (MFA):
-    1. Haka users:
-       [Check if Haka MFA is already enabled by your organization](../../accounts/mfa.md#mfa-instructions-for-users-logging-in-with-haka-credentials).
-    2. If Haka MFA is not enabled, or you do not have Haka credentials:
-       [Activate CSC MFA](../../accounts/mfa.md#how-to-activate-mfa).
+1. Ensure that you have a CSC account:
+    * [Instructions for creating a new CSC user account](../../accounts/how-to-create-new-user-account.md).
 2. Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi) or
    [www.mahti.csc.fi](https://www.mahti.csc.fi).
 3. On the landing page, click on "Log in" and select an appropriate

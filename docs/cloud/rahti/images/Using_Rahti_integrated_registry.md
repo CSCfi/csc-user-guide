@@ -7,7 +7,7 @@ an external dependency or improve performance.
 
 The process is simple:
 
-1. [Install](../usage/cli.md#how-to-install-the-oc-tool) and [login with OC](../usage/cli.md#how-to-login-with-oc).
+1. [Install](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login with OC](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui).
 
 1. With a terminal, connect to the Rahti registry:
     ```sh
