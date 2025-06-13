@@ -1,5 +1,14 @@
-# The path where generated content is placed.
-export_subpath: apps/
+# The path where generated JSON file is placed.
+export_filepath: apps/catalog.json
+
+export_props:
+  # The fields included for apps in the generated JSON file.
+  - name
+  - description
+  - license_type
+  - disciplines
+  - available_on
+  - url
 
 listing_order:
   # The literal order of categories on the app index pages. Categories

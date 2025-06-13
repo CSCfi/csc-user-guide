@@ -1,6 +1,6 @@
-from .hook import SWCatalogHook
+from .hook import CatalogHook
 
-hook = SWCatalogHook(__name__)
+hook = CatalogHook(name=__name__)
 
 def __getattr__(name):
     return hook.plugin_events[name]

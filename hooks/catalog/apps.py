@@ -132,4 +132,9 @@ class DocsApp(App):
 class AppendixApp(App):
     def __init__(self, meta, url=None):
         super().__init__(meta)
-        self.url = url if url is not None else meta.get("url")
+        self.page = meta.get("page")
+        self.__url = url if url is not None else meta.get("url")
+
+    @property
+    def url(self):
+        return self.__url

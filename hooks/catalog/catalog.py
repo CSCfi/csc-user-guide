@@ -1,13 +1,13 @@
 from typing import NamedTuple, Callable
 
 from .ordering import OrderedValue
-from .apps import App, DocsApp
-from .config import _ListingOrder
+from .apps import App, DocsApp, AppendixApp
+from .config import CatalogConfig
 
 
 class Catalog:
-    def __init__(self, listing_order: _ListingOrder):
-        self.__ordered = listing_order
+    def __init__(self, config: CatalogConfig):
+        self.__ordered = config.listing_order
         self.__apps: list[App] = []
         self.__disciplines = set()
         self.__licenses = set()
@@ -65,7 +65,7 @@ class Catalog:
     def __get_grouped_apps(self,
                            groups: list[str],
                            attr: str,
-                           callback: Callable[[App, str, ], bool] | None=None) -> dict:
+                           callback: Callable[[App, str], bool] | None=None) -> dict:
         callback_fn = (callback if callback is not None
                        else lambda app, attr, value: (value in getattr(app, attr)
                                                       if hasattr(app, attr)
@@ -81,6 +81,10 @@ class Catalog:
     @property
     def unchecked(self) -> list[dict]:
         return [app.asdict() for app in self.__apps if app.unchecked]
+
+    @property
+    def appended(self) -> list[dict]:
+        return [app.asdict() for app in self.__apps if isinstance(app, AppendixApp)]
 
     @property
     def disciplines(self) -> list[str]:

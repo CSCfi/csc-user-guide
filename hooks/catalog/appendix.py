@@ -1,7 +1,12 @@
+from pathlib import Path
+
+from .config import CatalogConfig
+
+
 class Appendix:
-    def __init__(self, appendix: list):
-        self.__appendix = appendix
-        self.__internal_apps = {app["src"]: app
+    def __init__(self, config: CatalogConfig):
+        self.__appendix = config.appendix
+        self.__internal_apps = {Path(app["src"]): app
                                 for app
                                 in self.__appendix
                                 if app.get("src") is not None}
