@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: RAPIDS
+  description: Suite of libraries for data analytics and machine learning on GPUs
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # RAPIDS

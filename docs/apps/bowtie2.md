@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Bowtie2
+  description: Short read aligner
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Bowtie2

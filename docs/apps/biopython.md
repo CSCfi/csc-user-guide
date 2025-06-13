@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Biopython
+  description: Python environment with biopython and other bioinformatics related Python libraries
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Biopython

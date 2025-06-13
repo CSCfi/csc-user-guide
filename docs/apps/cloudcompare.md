@@ -1,8 +1,16 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
+catalog:
+  name: CloudCompare
+  description: for visualizing, editing and processing poing clouds
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+    - Puhti
 ---
 
 # CloudCompare

@@ -1,6 +1,15 @@
 ---
 tags:
   - Academic
+catalog:
+  name: TURBOMOLE
+  description: Efficient program package for electronic structure calculations
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # TURBOMOLE

@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Prokka
+  description: Rapid prokaryotic genome annotation
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Prokka

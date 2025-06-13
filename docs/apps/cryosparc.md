@@ -1,9 +1,18 @@
 ---
 tags:
   - Other
-system:
-  - www-puhti
-  - www-mahti
+catalog:
+  name: CryoSPARC
+  description: Tool to analyse Cryo-EM data on Puhti/Mahti
+  license_type: Other
+  disciplines:
+    - Biosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+        - Mahti
+    - Puhti
+    - Mahti
 ---
 
 # CryoSPARC

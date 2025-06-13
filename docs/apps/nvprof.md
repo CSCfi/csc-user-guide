@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: nvprof
+  description: Nvidia profiling tool that collects and views profiling data
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # nvprof: CUDA profiler

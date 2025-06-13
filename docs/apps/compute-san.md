@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: compute-sanitizer
+  description: Functional correctness checking suite included in the CUDA toolkit
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # compute-sanitizer: functional correctness checking suite for CUDA programs

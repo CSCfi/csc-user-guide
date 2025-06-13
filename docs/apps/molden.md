@@ -1,6 +1,15 @@
 ---
 tags:
   - Non-commercial
+catalog:
+  name: Molden
+  description: Processing program for molecular and electronic structure calculations
+  license_type: Non-commercial
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # Molden

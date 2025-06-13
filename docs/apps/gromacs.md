@@ -1,6 +1,17 @@
 ---
 tags:
   - Free
+catalog:
+  name: GROMACS
+  description: Fast and versatile classical molecular dynamics
+  license_type: Free
+  disciplines:
+    - Chemistry
+    - Biosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # GROMACS

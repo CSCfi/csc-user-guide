@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Seqtk
+  description: Tool for processing sequences in the FASTA or FASTQ format
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Seqtk

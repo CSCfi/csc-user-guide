@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: HMMER
+  description: Toolkit to create and use sequence profile hidden Markov models
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # HMMER

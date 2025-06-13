@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Bioconda
+  description: Package manger for installing bioinformatics software
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Bioconda

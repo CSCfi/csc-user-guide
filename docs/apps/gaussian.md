@@ -1,6 +1,15 @@
 ---
 tags:
   - Other
+catalog:
+  name: Gaussian
+  description: Versatile computational chemistry package
+  license_type: Other
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # Gaussian

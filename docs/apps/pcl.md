@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: PCL
+  description: for 2D/3D image and point cloud processing
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # PCL

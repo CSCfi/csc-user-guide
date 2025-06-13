@@ -1,6 +1,14 @@
 ---
 tags:
   - Academic
+catalog:
+  name: CSD
+  description: Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
 ---
 
 # CSD

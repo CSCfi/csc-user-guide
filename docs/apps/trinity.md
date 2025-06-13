@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Trinity
+  description: Transcriptome assembly tool
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Trinity

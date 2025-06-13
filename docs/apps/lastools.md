@@ -1,6 +1,14 @@
 ---
 tags:
   - Other
+catalog:
+  name: LAStools
+  description: for LiDAR datasets
+  license_type: Other
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # LAStools

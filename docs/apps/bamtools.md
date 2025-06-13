@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: BamTools
+  description: Tools for working with BAM formatted files
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # BamTools

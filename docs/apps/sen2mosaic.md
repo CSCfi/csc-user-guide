@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Sen2mosaic
+  description: for download, preprocessing and mosaicing of Sentinel-2 products
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # Sen2mosaic

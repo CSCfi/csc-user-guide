@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Cirq-on-iqm
+  description: open-source cirq adapter for quantum computing
+  license_type: Free
+  disciplines:
+    - Quantum
+  available_on:
+    - LUMI
 ---
 
 # Cirq-on-iqm

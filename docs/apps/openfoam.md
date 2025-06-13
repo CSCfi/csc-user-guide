@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: OpenFOAM
+  description: Open source C++ tool box for continuum mechanics problems
+  license_type: Free
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # OpenFOAM

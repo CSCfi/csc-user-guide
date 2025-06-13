@@ -1,6 +1,15 @@
 ---
 tags:
   - Academic
+catalog:
+  name: IDL
+  description: Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
+  license_type: Academic
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # IDL

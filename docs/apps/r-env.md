@@ -1,6 +1,15 @@
 ---
 tags:
   - Other
+catalog:
+  name: r-env
+  description: R, RStudio Server, SAGA and TensorFlow
+  license_type: Other
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # r-env

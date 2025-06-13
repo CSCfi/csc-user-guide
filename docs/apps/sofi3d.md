@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: SOFI3D
+  description: for 3D finite-difference seismic wave simulation
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # SOFI3D

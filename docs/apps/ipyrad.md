@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: iPyrad
+  description: toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # iPyrad

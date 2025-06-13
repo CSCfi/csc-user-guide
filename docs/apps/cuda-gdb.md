@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: cuda-gdb
+  description: Nvidia extension of the GNU debugger GDB
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # cuda-gdb: CUDA debugger

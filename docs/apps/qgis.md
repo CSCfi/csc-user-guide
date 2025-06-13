@@ -1,9 +1,18 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: QGIS
+  description: General purpose GIS software family for viewing, editing and analysing geospatial data
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
 ---
 
 # QGIS

@@ -1,6 +1,13 @@
 ---
 tags:
   - Academic
+catalog:
+  name: Materials Studio
+  description: Versatile materials modeling suite
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  unchecked: true
 ---
 
 # Materials Studio

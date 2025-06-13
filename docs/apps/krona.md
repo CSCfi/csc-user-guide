@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Krona visualization tool
+  description: Visualization tool for taxonomic classification and other hierarchical data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Krona visualization tool

@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: SPAdes
+  description: Genome assembly
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # SPAdes

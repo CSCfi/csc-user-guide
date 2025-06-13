@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Freebayes
+  description: Genetic variant detector
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Freebayes

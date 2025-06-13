@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: EMBOSS
+  description: Toolkit for classical sequence analysis
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # EMBOSS
