@@ -6,7 +6,7 @@ tags:
 # Qiskit-on-iqm
 
 Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is
-installed as `helmi_qiskit` on LUMI. It is used for running quantum circuits on
+installed as `fiqci-vtt-qiskit` on LUMI. It is used for running quantum circuits on
 [Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
 
@@ -17,7 +17,7 @@ versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 15.5    | `helmi_qiskit/15.5`                  | X     |                 |
+| 15.5    | `fiqci-vtt-qiskit/15.5`                  | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -34,7 +34,7 @@ qiskit-on-iqm is licensed under
 
 ## Usage
 
-To use `helmi_qiskit` on LUMI, initialize it with:
+To use `fiqci-vtt-qiskit` on LUMI, initialize it with:
 
 ```bash
 module use /appl/local/quantum/modulefiles
@@ -43,13 +43,13 @@ module use /appl/local/quantum/modulefiles
 and 
 
 ```bash
-module load helmi_qiskit
+module load fiqci-vtt-qiskit
 ```
 
-This command will also show how to load `helmi_qiskit`:
+This command will also show how to load `fiqci-vtt-qiskit`:
 
 ```bash
-module avail helmi_qiskit
+module avail fiqci-vtt-qiskit
 ```
 
 ### Example batch script
@@ -70,7 +70,7 @@ Example batch script for running a quantum job on Helmi:
 #SBATCH --account=project_xxx   # Project for billing
 
 module use /appl/local/quantum/modulefiles
-module load helmi_qiskit
+module load fiqci-vtt-qiskit
 
 python -u quantum_job.py
 ```

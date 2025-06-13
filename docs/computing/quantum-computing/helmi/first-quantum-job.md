@@ -21,7 +21,7 @@ module load Local-quantum
 You can then see the list of available *modules* with `module avail`. The quantum modules should be at the top! In this walkthrough Qiskit will be used, therefore the next step is to load the module into our current environment with
 
 ```bash
-module load helmi_qiskit
+module load fiqci-vtt-qiskit
 ```
 
 ## Creating your first quantum program
@@ -71,7 +71,7 @@ Now the circuit is created! If you wish you can see what your circuit looks like
 
 ## Setting the backend
 
-First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi and is only reachable inside the `q_fiqci` partition. This environment variable is set automatically when loading any of the `helmi_*` modules such as the `helmi_qiskit` module. 
+First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi and is only reachable inside the `q_fiqci` partition. This environment variable is set automatically when loading any of the Quantum computing modules such as the `fiqci-vtt-qiskit` module. 
 
 ```python
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
@@ -176,7 +176,7 @@ This submits the job *interactively* meaning that the output will be printed str
 #SBATCH --account=project_xxx  # Project for billing
 
 module use /appl/local/quantum/modulefiles
-module load helmi_qiskit
+module load fiqci-vtt-qiskit
 
 python -u first_quantum_job.py
 ```
