@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from typing import Union
 
 import humps
 
@@ -177,7 +178,7 @@ Interactive web applications available on
 
     # 'def export_by_license(self)' not needed.
 
-    def append_content(self, filepath: Path, markdown) -> str | None:
+    def append_content(self, filepath: Path, markdown) -> Union[str, None]:
         attr_name = f"append_{filepath.stem}"
 
         if hasattr(self, attr_name):

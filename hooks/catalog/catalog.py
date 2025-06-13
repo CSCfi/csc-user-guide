@@ -1,4 +1,4 @@
-from typing import NamedTuple, Callable
+from typing import Optional, Callable
 
 from .ordering import OrderedValue
 from .apps import App, DocsApp, AppendixApp
@@ -65,7 +65,7 @@ class Catalog:
     def __get_grouped_apps(self,
                            groups: list[str],
                            attr: str,
-                           callback: Callable[[App, str], bool] | None=None) -> dict:
+                           callback: Optional[Callable[[App, str], bool]]=None) -> dict:
         callback_fn = (callback if callback is not None
                        else lambda app, attr, value: (value in getattr(app, attr)
                                                       if hasattr(app, attr)
