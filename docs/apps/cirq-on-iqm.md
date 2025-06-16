@@ -6,7 +6,7 @@ tags:
 # Cirq-on-iqm
 
 Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is
-installed as `helmi_cirq` on LUMI. It is used for running quantum circuits on
+installed as `fiqci-vtt-cirq` on LUMI. It is used for running quantum circuits on
 [Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
 ## Available
@@ -15,7 +15,7 @@ Currently supported [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) ve
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 15.2    | `helmi_cirq/15.2`                    | X     |                 |
+| 15.2    | `fiqci-vtt-cirq/15.2`                    | X     |                 |
 
 
 All modules are based on Tykky using LUMI-container-wrapper.
@@ -33,7 +33,7 @@ cirq-on-iqm is licensed under
 
 ## Usage
 
-To use `helmi_cirq` on LUMI, initialize it with:
+To use `fiqci-vtt-cirq` on LUMI, initialize it with:
 
 ```bash
 module use /appl/local/quantum/modulefiles
@@ -42,13 +42,13 @@ module use /appl/local/quantum/modulefiles
 and 
 
 ```bash
-module load helmi_cirq
+module load fiqci-vtt-cirq
 ```
 
-This command will also show how to load `helmi_cirq`:
+This command will also show how to load `fiqci-vtt-cirq`:
 
 ```bash
-module avail helmi_cirq
+module avail fiqci-vtt-cirq
 ```
 
 ### Example batch script
@@ -69,7 +69,7 @@ Example batch script for running a quantum job on Helmi:
 #SBATCH --account=project_xxx   # Project for billing
 
 module use /appl/local/quantum/modulefiles
-module load helmi_cirq
+module load fiqci-vtt-cirq
 
 python -u quantum_job.py
 ```
