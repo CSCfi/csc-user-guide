@@ -198,3 +198,7 @@ $ docker inspect nginx
     }
 ]
 ```
+
+## Troubleshooting
+
+Check out our [Rahti FAQ](../../../support/faq/index.md#rahti) and [Rahti tutorials](../tutorials/index.md) for more information

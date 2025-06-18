@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: PLUMED
+  description: Library and tools for enhanced sampling methods
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # PLUMED

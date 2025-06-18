@@ -1,8 +1,16 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
+catalog:
+  name: Zonation
+  description: Spatial conservation prioritization framework
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+    - Puhti
 ---
 
 # Zonation

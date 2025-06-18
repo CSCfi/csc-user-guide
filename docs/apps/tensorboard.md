@@ -1,10 +1,18 @@
 ---
 tags:
   - Free
-system:
-  - www-mahti
-  - www-puhti
-  - www-lumi
+catalog:
+  name: TensorBoard
+  description: The visualization toolkit for TensorFlow
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+        - Mahti
+    - LUMI
 ---
 
 # TensorBoard

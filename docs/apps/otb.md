@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Orfeo ToolBox (Open Source processing of remote sensing images) 
+  description: for remote sensing applications
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # Orfeo ToolBox (Open Source processing of remote sensing images) 

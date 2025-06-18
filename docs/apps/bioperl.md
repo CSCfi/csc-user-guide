@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: BioPerl
+  description: Perl environment with bioperl extension
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # BioPerl

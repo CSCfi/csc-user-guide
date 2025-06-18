@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Seismic Unix
+  description: for processing of 2D seismic or GPR data sets.
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # Seismic Unix

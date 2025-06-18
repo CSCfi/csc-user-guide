@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: MACS2/3
+  description: ChIP-Seq analysis tool
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # MACS2/3

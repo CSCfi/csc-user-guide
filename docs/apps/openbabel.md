@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: Open Babel
+  description: Program to interconvert file formats currently used in molecular modeling
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # Open Babel

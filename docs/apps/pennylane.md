@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Pennylane
+  description: Free open-source software framework for quantum machine learning and quantum computing
+  license_type: Free
+  disciplines:
+    - Quantum
+  available_on:
+    - LUMI
 ---
 
 # Pennylane

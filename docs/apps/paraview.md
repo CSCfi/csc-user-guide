@@ -1,9 +1,19 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: ParaView
+  description: Free open-source visualization application
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # ParaView

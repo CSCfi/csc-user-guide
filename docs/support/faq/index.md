@@ -71,6 +71,7 @@
 * [How to resize an instance or volume in Pouta?](how-to-resize-in-pouta.md)
 * [How to use cPouta for Remote Desktop](how-to-use-cpouta-for-remote-desktop.md)
 * [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
+* [Is nested virtualization supported on Pouta?](is-nested-virtualization-supported.md)
 * [Is Pouta backed up?](is-pouta-backed-up.md)
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
@@ -89,6 +90,7 @@
 * [How to transfer data to Rahti?](transfer_data_rahti.md)
 * [Protecting against DDoS Attacks](DDos.md)
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
+* [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
 ## Sensitive Data Services for research

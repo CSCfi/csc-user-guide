@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: SageMath
+  description: Free open-source mathematics software system
+  license_type: Free
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
 ---
 
 # SageMath

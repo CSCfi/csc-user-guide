@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: MetaPhlAn
+  description: Profiling the composition of microbial communities with metagenomic data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # MetaPhlAn

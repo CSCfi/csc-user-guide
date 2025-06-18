@@ -1,6 +1,16 @@
 ---
 tags:
   - Other
+catalog:
+  name: Star-CCM+
+  description: Computational Fluid Dynamics software by Siemens Digital Industries Software
+  license_type: Other
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Star-CCM+

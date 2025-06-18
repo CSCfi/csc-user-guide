@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: FastQC
+  description: Quality control tool for high throughput sequence data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # FastQC

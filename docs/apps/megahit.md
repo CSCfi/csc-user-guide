@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Megahit
+  description: Metagenomics assembly
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Megahit
