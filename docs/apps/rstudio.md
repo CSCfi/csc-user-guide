@@ -1,8 +1,16 @@
 ---
 tags:
   - Other
-system:
-  - www-puhti
+catalog:
+  name: RStudio IDE
+  description: Integrated development environment for R
+  license_type: Other
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - web_interfaces:
+        - Puhti
+    - Puhti
 ---
 
 # RStudio IDE

@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: JAX
+  description: Autograd and XLA, brought together for high-performance machine learning
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # JAX

@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: pdb
+  description: Built-in Python debugger
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # pdb: Python debugger

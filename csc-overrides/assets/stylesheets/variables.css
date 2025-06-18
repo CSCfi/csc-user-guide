@@ -1,7 +1,7 @@
 /* Museo Sans font */
 @import url("https://use.typekit.net/csv4mjm.css");
 /* CSC Design System custom properties */
-@import url(https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@2.1.11/dist/styles/css/theme.css);
+@import url(https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@2.3.0/dist/styles/css/theme.css);
 
 :root {
   --md-text-font: "museo-sans";

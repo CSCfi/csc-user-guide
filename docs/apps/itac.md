@@ -1,6 +1,12 @@
 ---
 tags:
   - Free
+catalog:
+  name: Intel Trace Analyzer and Collector (ITAC)
+  license_type: Free
+  available_on:
+    - Puhti
+  unchecked: true
 ---
 
 # Intel Trace Analyzer and Collector (ITAC)

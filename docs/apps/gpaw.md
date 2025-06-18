@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: GPAW
+  description: Versatile DFT package
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # GPAW

@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: Python
+  description: The programming language and its modules at CSC
+  license_type: Free
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # Python

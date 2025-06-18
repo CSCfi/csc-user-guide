@@ -1,17 +1,17 @@
-.md-tag {
+.md-typeset .md-tag {
   border: 1px solid var(--md-primary-fg-color);
-  color: var(--md-primary-fg-color) !important;
-  background-color: transparent !important;
+  color: var(--md-primary-fg-color);
+  background-color: transparent;
   border-radius: 15px;
-  font-weight: 400 !important;
-  text-decoration: none !important;
+  font-weight: 400;
+  text-decoration: none;
 }
 
-:target>.md-tag {
-  color: var(--md-primary-bg-color) !important;
-  background-color: var(--md-primary-fg-color) !important;
+.md-typeset :target>.md-tag {
+  color: var(--md-primary-bg-color);
+  background-color: var(--md-primary-fg-color);
 }
 
-a.md-tag:is(:active, :hover) {
-  background-color: var(--md-accent-bg-color) !important;
+.md-typeset .md-tag:is(:active, :hover) {
+  background-color: var(--md-accent-bg-color);
 }
