@@ -57,6 +57,19 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 !!! note
     FEGA doesn't support **array data**. You can read more information about array based submissions, and how to submit array based datasets on [EGA web page](https://ega-archive.org/submission/metadata/submission/array/).
 
+**Submitting phenotypic data:**
+
+In order to submit phenotypic data to FEGA,
+
+1. select appropriate metadata model for the phenotypic data,
+2. organize the data according to the selected metadata model,
+3. save the information to a text file or other suitable format, and
+4. submit the phenotypic data as a dataset.
+
+**COVID-19 data**
+
+If you are submitting COVID-19 phenotypic clinical data to FEGA, use the metadata model defined by [Benasconi et al. (2020)](https://academic.oup.com/bib/article/22/2/664/6043287). This helps to promote interoperability between studies.
+
 **Non-sensitive data**:
 
 Non-sensitive data (or open data) needs to be submitted in appropriate archives. For example, sequences to the ENA [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), variants to EVA [European Variation Archive](https://www.ebi.ac.uk/eva/), array-based to [ArrayExpress – functional genomics data](https://www.ebi.ac.uk/arrayexpress/), phenotypes to [BioSamples](https://www.ebi.ac.uk/biosamples/) and GWAS summary statistics to the [GWAS Catalog](https://www.ebi.ac.uk/gwas/).
