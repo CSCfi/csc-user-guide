@@ -154,7 +154,7 @@ support compute capability 8.0.
 For example, to compiling C code that uses OpenACC directives (`example.c`):
 
 ```bash
-nvc -acc example.c .gpu=cc80
+nvc -acc example.c -gpu=cc80
 ```
 
 For information about what the compiler actually does with the OpenACC
