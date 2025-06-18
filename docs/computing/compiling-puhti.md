@@ -115,17 +115,29 @@ not necessary on Puhti, since there is only one type of GPU.
 ### OpenACC
 
 !!! warning
-    OpenACC support is provided through the NVIDIA `nvc` and `nvc++` compilers.
-    However, it is important to note that the support can be somewhat 
-    limited and may lack certain functionalities, such as MPI 
-    parallelization. For additional information about OpenACC support, 
-    the CSC service desk should be contacted.
-    
-The compilers can be accessed through the NVIDIA HPC SDK module:
+    OpenACC support is provided through the NVIDIA `nvc` and
+    `nvc++` compilers.  However, it is important to note that the
+    support can be somewhat limited and may lack certain
+    functionalities and they are not integrated to the rest of the
+    module tree.
 
+!!! warning
+    If you enable the modules with the following instructions,
+    your environment may not work normally. The `module purge` command
+    is necessary and loading any other modules together with nvhpc
+    ones may break your environment and is not supported by CSC. For
+    additional information about OpenACC support, the CSC service desk
+    should be contacted.
+
+The compilers can be accessed through the NVIDIA HPC SDK modules which are included in the SDK installation. They can't be accessed directly and you have to enable them by adding the search path manually as follows:
+```bash
+module purge
+module use /appl/opt/nvhpc/modulefiles
 ```
-module load .unsupported
-module load nvhpc/22.7
+
+After adding the modules to the search tree you have to load the desired combination of compilers, MPI and CUDA. The recommended combination is `nvhpc-hpcx-cuda`, for example:
+```bash
+module load nvhpc-hpcx-cuda12/24.11
 ```
 
 Enabling OpenACC support requires providing the `-acc` flag to the compiler. For Fortran codes, this can be achieved as follows:
