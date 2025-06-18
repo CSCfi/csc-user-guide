@@ -120,20 +120,30 @@ nvfortran -gpu=cc80 example.cuf
 ### OpenACC
 
 !!! warning
-    OpenACC support is provided through the NVIDIA `nvc` and `nvc++` compilers.
-    However, it is important to note that the support can be somewhat 
-    limited and may lack certain functionalities, such as MPI 
-    parallelization. For additional information about OpenACC support, 
-    the CSC service desk should be contacted.
+    OpenACC support is provided through the NVIDIA `nvc` and
+    `nvc++` compilers.  However, it is important to note that the
+    support can be somewhat limited and may lack certain
+    functionalities and they are not integrated to the rest of the
+    module tree.
 
-The compilers can be accessed through the NVIDIA HPC SDK module:
+!!! warning
+    If you enable the modules with the following instructions,
+    your environment may not work normally. The `module purge` command
+    is necessary and loading any other modules together with nvhpc
+    ones may break your environment and is not supported by CSC. For
+    additional information about OpenACC support, the CSC service desk
+    should be contacted.
+
+The compilers can be accessed through the NVIDIA HPC SDK modules which are included in the SDK installation. They can't be accessed directly and you have to enable them by adding the search path manually as follows:
 ```bash
-module load .unsupported
-module load nvhpc/22.3
+module purge
+module use /appl/opt/nvhpc/modulefiles
 ```
 
-For more detailed information about the available modules, please see `module
-spider nvhpc`.
+After adding the modules to the search tree you have to load the desired combination of compilers, MPI and CUDA. The recommended combination is `nvhpc-hpcx-cuda`, for example:
+```bash
+module load nvhpc-hpcx-cuda12/25.1
+```
 
 To enable OpenACC support, one needs to give `-acc` flag to the compiler.
 
