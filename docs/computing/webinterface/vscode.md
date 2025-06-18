@@ -59,5 +59,6 @@ To install the extension:
 
 
 ## Troubleshooting
-If VSCode does not work properly you can clear the settings and launch the application again.
-This can be done done by deleting the folder `~/.local/share/csc-vscode`.
+
+- If VSCode does not work properly you can clear the settings and launch the application again. This can be done done by deleting the folder `~/.local/share/csc-vscode`.
+- Dev tunnels are not supported and their usage has been blocked. We recommend accessing VScode server instances via the supercomputer web interface, or experimenting with the [Remote SSH plugin](../../support/tutorials/remote-dev.md).
