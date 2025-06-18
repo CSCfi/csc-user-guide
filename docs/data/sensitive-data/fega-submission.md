@@ -57,9 +57,9 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 !!! note
     FEGA doesn't support **array data**. You can read more information about array based submissions, and how to submit array based datasets on [EGA web page](https://ega-archive.org/submission/metadata/submission/array/).
 
-**Submitting phenotypic data:**
+**Phenotypic data:**
 
-In order to submit phenotypic data to FEGA,
+In order to submit sensitive phenotypic data to FEGA,
 
 1. select appropriate metadata model for the phenotypic data,
 2. organize the data according to the selected metadata model,
