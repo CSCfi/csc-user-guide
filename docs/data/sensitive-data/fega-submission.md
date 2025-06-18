@@ -68,7 +68,7 @@ In order to submit phenotypic data to FEGA,
 
 **COVID-19 data**
 
-If you are submitting COVID-19 phenotypic clinical data to FEGA, use the metadata model defined by [Benasconi et al. (2020)](https://academic.oup.com/bib/article/22/2/664/6043287). This helps to promote interoperability between studies.
+If you are submitting COVID-19 phenotypic clinical data to FEGA, use the metadata model defined by [Bernasconi et al. (2021)](https://doi.org/10.1093/bib/bbaa359). This helps to promote interoperability between studies.
 
 **Non-sensitive data**:
 
