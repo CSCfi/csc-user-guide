@@ -73,81 +73,6 @@ List all available versions of the compiler suites:
 module spider intel-oneapi-compilers
 module spider gcc
 ```
-
-## Building GPU Applications
-
-GPU support in Puhti is provided through NVIDIA compilers:
-
-- The `nvc` compiler is a C11 compiler that supports OpenACC for NVIDIA GPUs, and OpenACC and OpenMP for multicore CPUs.
-
-- The `nvc++` compiler is a C++17 compiler that supports GPU programming with C++17 parallel algorithms, OpenACC, and OpenMP offloading on NVIDIA GPUs. However, it does not currently support C++ CUDA codes.
-
-- The `nvcc` compiler is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
-
-- The `nvfortran` compiler is the CUDA Fortran compiler driver for NVIDIA GPUs, supporting both OpenACC and multicore processing for OpenACC and OpenMP.
-
-Specific instructions on how to load and use these compilers are provided in the following sections.
-
-### CUDA
-
-The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for the target
-GPU device and passing on the rest to a non-CUDA compiler (i.e. `gcc`). For example, to load the CUDA 11.7 environment together with the GNU compiler:
-
-```bash
-module load gcc/11.3.0 cuda/11.7.0
-```
-
-To generate code for a given target device, tell the CUDA
-compiler what compute capability the target device supports. On Puhti, the
-GPUs (Volta V100) support compute capability 7.0. Specify this using
-`-gencode arch=compute_70,code=sm_70`.
-
-For example, compiling a CUDA kernel (`example.cu`) on Puhti:
-
-```bash
-nvcc -gencode arch=compute_70,code=sm_70 example.cu
-```
-
-In principle, it is also possible to target multiple GPU architectures by repeating
-`-gencode` multiple times for different compute capabilities. However, this is
-not necessary on Puhti, since there is only one type of GPU.
-
-### OpenACC
-
-!!! warning
-    OpenACC support is provided through the NVIDIA `nvc` and
-    `nvc++` compilers.  However, it is important to note that the
-    support can be somewhat limited and may lack certain
-    functionalities and they are not integrated to the rest of the
-    module tree.
-
-!!! warning
-    If you enable the modules with the following instructions,
-    your environment may not work normally. The `module purge` command
-    is necessary and loading any other modules together with nvhpc
-    ones may break your environment and is not supported by CSC. For
-    additional information about OpenACC support, the CSC service desk
-    should be contacted.
-
-The compilers can be accessed through the NVIDIA HPC SDK modules which are included in the SDK installation. They can't be accessed directly and you have to enable them by adding the search path manually as follows:
-```bash
-module purge
-module use /appl/opt/nvhpc/modulefiles
-```
-
-After adding the modules to the search tree you have to load the desired combination of compilers, MPI and CUDA. The recommended combination is `nvhpc-hpcx-cuda`, for example:
-```bash
-module load nvhpc-hpcx-cuda12/24.11
-```
-
-Enabling OpenACC support requires providing the `-acc` flag to the compiler. For Fortran codes, this can be achieved as follows:
-
-```
-nvfortran -acc example.F90 -gpu=cc70
-```
-
-For information about what the compiler actually does with the OpenACC directives, use `-Minfo=all`.
-
 ## Building MPI applications
 
 There are currently two MPI environments available: `openmpi` and `intel-oneapi-mpi`. The default is `openmpi`, which is
@@ -179,12 +104,124 @@ MPI/OpenMP hybrid applications:
 | Intel          | -qopenmp    |
 | GNU            | -fopenmp    |
 
+
+## Building GPU Applications
+
+CUDA is the recommended programming model for Nvidia GPUs and CSC provides it as
+an environment module. OpenACC and OpenMP offloading programming models can also
+be used, but they are not part of the CSC supported software stack.
+
+Specific instructions on how to load and use these compilers are provided in the following sections.
+
+### CUDA
+
+The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for the target
+GPU device and passing on the rest to a non-CUDA compiler (i.e. `gcc`).
+For example, to load the CUDA 11.7 environment together with the GNU compiler:
+
+```bash
+module load gcc/11.3.0 cuda/11.7.0
+```
+
+To generate code for a given target device, tell the CUDA
+compiler what compute capability the target device supports. On Puhti, the
+GPUs (Volta V100) support compute capability 7.0. Specify this using
+`-gencode arch=compute_70,code=sm_70`.
+
+For example, compiling a CUDA kernel (`example.cu`) on Puhti:
+
+```bash
+nvcc -gencode arch=compute_70,code=sm_70 example.cu
+```
+
+In principle, it is also possible to target multiple GPU architectures by repeating
+`-gencode` multiple times for different compute capabilities. However, this is
+not necessary on Puhti, since there is only one type of GPU.
+
+### OpenACC and OpenMP offloading
+
+!!! warning
+    OpenACC support is provided through the NVIDIA `nvc` and
+    `nvc++` compilers.  However, it is important to note that the
+    support can be somewhat limited and may lack certain
+    functionalities and they are not integrated to the rest of the
+    module tree.
+
+!!! warning
+    If you enable the modules with the following instructions,
+    your environment may not work normally. The `module purge` command
+    is necessary and loading any other modules together with nvhpc
+    ones may break your environment and is not supported by CSC. For
+    additional information about OpenACC support, the CSC service desk
+    should be contacted.
+
+The compilers can be accessed through the NVIDIA HPC SDK modules which are included in the SDK installation. They can't be accessed directly and you have to enable them by adding the search path manually as follows:
+```bash
+module purge
+module use /appl/opt/nvhpc/modulefiles
+```
+
+After adding the modules to the search tree you have to load the desired combination of compilers, MPI and CUDA. The recommended combination is `nvhpc-hpcx-cuda`, for example:
+```bash
+module load nvhpc-hpcx-cuda12/24.11
+```
+
+#### OpenACC
+
+To generate code for a given target device, tell the compiler
+what compute capability the target device supports. On Puhti, the GPUs (V100)
+support compute capability 7.0.
+
+For example, to compiling C code that uses OpenACC directives (`example.c`):
+
+```bash
+nvc -acc example.c -gpu=cc70
+```
+
+For information about what the compiler actually does with the OpenACC
+directives, use `-Minfo=all`.
+
+For Fortran code:
+```bash
+nvfortran -acc example.F90 -gpu=cc70
+```
+
+For C++ code:
+```bash
+nvc++ -acc example.cpp -gpu=cc70
+```
+#### OpenMP offloading
+
+To enable OpenMP Offloading, the options `-mp=gpu` is required
+
+For example, compile a C code with OpenMP offloading:
+```bash
+nvc -mp=gpu example.c -gpu=cc70
+```
+
+For Fortran code:
+```bash
+nvfortran -mp=gpu example.F90 -gpu=cc70
+```
+
+For C++ code:
+```bash
+nvc++ -mp=gpu example.cpp -gpu=cc70
+```
+
+The `nvc++` compiler supports codes that contain OpenACC, OpenMP Offloading and
+C++ parallel algorithms in the same code, for such case you can compile with:
+```bash
+nvc++ -stdpar -acc -mp=gpu example.cpp -gpu=cc70
+```
+
 ## Building software using Spack
 
-[Spack](https://spack.io) is a flexible package manager that can be used to
-install software on supercomputers and Linux and macOS systems. The basic
-module tree including compilers, MPI libraries and many of the available
-software on CSC supercomputers have been installed using Spack.
+[Spack](https://spack.io) is a flexible package manager that can be
+used to install software on supercomputers and Linux and macOS
+systems. The basic module tree including compilers, MPI libraries and
+many of the available software on CSC supercomputers have been
+installed using Spack.
 
 CSC provides a module `spack/v0.18-user` on Puhti that can be used by users to
 build software on top of the available compilers and libraries using Spack. It
