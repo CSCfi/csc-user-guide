@@ -94,7 +94,7 @@ be used, but they are not part of the CSC supported software stack.
 
 The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for
 target GPU device and passing the rest of the code to a non-CUDA
-compiler (i.e. `gcc`). For example, to load the CUDA 11.7 environment
+compiler (i.e. `gcc`). For example, to load the CUDA 12.6.1 environment
 together with the GNU compiler:
 
 ```bash
