@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: VeloxChem
+  description: Python-based open source quantum chemistry software
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
 ---
 
 # VeloxChem
