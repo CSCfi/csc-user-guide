@@ -13,9 +13,9 @@ Please note following details that limit the usage of this procedure:
 
 # Getting stared 
 
-Add Puhti service to your project and contact CSC (sevicedesk@csc.fi) and request that Puhti access will be created for your SD Desktop environment. In this process a robot account will be create for your project and a project specific server process is launched for you project by CSC Puhti.
+Add Puhti service to your project and contact CSC (sevicedesk@csc.fi) and request that Puhti access will be created for your SD Desktop environment. In this process a robot account will be created for your project and a project specific server process is launched for you project by CSC Puhti.
 
-The job submission is done with command `sdsi-client`. This tool can be added to your SD desktop machine by installing `CSC Tools` with SD tool installer to your SD Desktop machine.
+The job submission is done with command `sdsi-client`. This tool can be added to your SD desktop machine by installing `CSC Tools` with [SD tool installer](../sd-desktop-software.md/#customisation-via-sd-software-installer) to your SD Desktop machine.
 
 # Submitting jobs
 
@@ -23,7 +23,7 @@ The job submission is done with command `sdsi-client`. This tool can be added to
 
 The batch josb submitted by sdsi-client read the input data from SD Connect service. Thus all the input data must be uploaded to SD Connect before the job is submitted. Note that you can't use data in the local disks of your SD Desktop virtual machine or unencrypted files as input files for your batch job. However, local files in Puhti can be used, if the access permissions allow all group members to use the data.
 
-Thus the first step in constructing a sensitive data batch job is to upload the input data to SD Coonnect.
+Thus the first step in constructing a sensitive data batch job is to upload the input data to SD Connect.
 
 ## Constructing a batch job file
 
@@ -35,8 +35,8 @@ When you submit a batch job from SD Desktop, you must define following informati
 4. How much resources (time, memory, temporary dick space ) the job needs.
 
 You can define this thins in command line as _sdsi-client_ command options, but normally
-it is more convenient to give this information a as batch job definition file. 
-Below is a sample of a simple sdsi job definition file, named as job1.sdsi
+it is more convenient to give this information as a batch job definition file. 
+Below is a sample of a simple sdsi job definition file, named as _job1.sdsi_
 
 ```text
 data:
@@ -110,12 +110,12 @@ new files in SD Connect:
     sdhpc-results-2008749/123456/slurm.out.tar.c4gh
 ```
  You can change the output bucket with sdsi-client option `-bucket bucket_name`. Note that the bucket 
- name must be uniq in this case too.
+ name must be unique in this case too.
 
 
 ## Running serial jobs effectively
 
-The jobs that sdsi submits reserve always one full Puhti node. These nodes have 40 computing cores 
+The jobs that sdsi-client submits reserve always one full Puhti node. These nodes have 40 computing cores 
 so you should use these batch jobs only for tasks that can utilize multiple computing cores. 
 Preferably all 40. 
 
@@ -128,8 +128,7 @@ or few computing cores, you can use tools like _gnuparallel_, _nextfllow_ or _sn
 computing tasks to be executed in the same time.
 
 In the examples below we have a tar-arcvive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`.
-The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks
-so that all 40 cores are effectively used.
+The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks so that all 40 cores are effectively used.
  
 ### GNUparallel
 
@@ -155,7 +154,7 @@ sbatch:
 
 In the sample job above, the first command, `source /appl/profile/zz-csc-env.sh` is used to add 
 _module_ command and other Puhti settings to the execution environment.
-The GNUparallel is enabled command `module load parallel`.
+GNUparallel is enabled with command `module load parallel`.
 Next the tar file containing 1000 files is extracted to the temporary local disk area.
 Finally, the file listing of the .txt filesmin the extracted directory is guided to `parallel` command that runs 
 the given command, `md5sum`, for each file (_{}_) using 40 parallel processes (`-j 40`).
