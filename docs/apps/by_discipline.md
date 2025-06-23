@@ -100,7 +100,6 @@
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
 * [TURBOMOLE](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
-* [VeloxChem](veloxchem.md) Python-based open source quantum chemistry software 
 * [VMD](vmd.md) Molecular visualization program
 
 ## Computational Engineering
