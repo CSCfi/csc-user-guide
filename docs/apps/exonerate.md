@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Exonerate
+  description: A generic tool for pairwise sequence comparison
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Exonerate

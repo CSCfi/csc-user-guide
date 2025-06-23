@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: HyperQueue
+  description: Scheduler for sub-node tasks
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # HyperQueue

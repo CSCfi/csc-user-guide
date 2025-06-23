@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Illumina BaseSpace
+  description: Command line client for retrieving data from the Illumina BaseSpace environment
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Illumina BaseSpace

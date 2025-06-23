@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: Elmer
+  description: Open source multi-physics FEM package
+  license_type: Free
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Elmer

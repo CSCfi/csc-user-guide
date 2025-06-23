@@ -1,9 +1,19 @@
 ---
 tags:
   - Non-commercial
-system:
-  - www-puhti
-  - www-mahti
+catalog:
+  name: VMD
+  description: Molecular visualization program
+  license_type: Non-commercial
+  disciplines:
+    - Chemistry
+    - Biosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+        - Mahti
+    - Puhti
+    - Mahti
 ---
 
 # VMD

@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: Nextflow
+  description: Nextflow is a scientific workflow management system for creating scalable, portable, and reproducible workflows
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Nextflow

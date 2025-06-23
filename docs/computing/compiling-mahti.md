@@ -86,28 +86,27 @@ specific compiler command:
 
 ## Building GPU applications
 
-The CUDA, OpenACC and OpenMP Offloading (for C++ codes) programming 
-models are provided on Mahti by the NVIDIA HPC compilers:
-
-Compilers:
-
-- The (`nvc`) is a C11 compiler that supports OpenACC for NVIDIA  GPUs while  OpenACC and OpenMP for multicore CPUs.
-
-- The compiler (`nvc++`) is a C++17 compiler which supports GPU programming with C++17 parallel algorithms, OpenACC, and OpenMP
-Offloading on NVIDIA GPUs. It does not support yet C++ CUDA codes.
-
-- The (`nvcc`) is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
-
-- The (`nvfortran`) is the CUDA Fortran compiler driver for NVIDIA GPUs, it supports OpenACC as also multicore for OpenACC and OpenMP.
+CUDA is the recommended programming model for Nvidia GPUs and CSC provides it as
+an environment module. OpenACC and OpenMP offloading programming models can also
+be used, but they are not part of the CSC supported software stack.
 
 ### CUDA
 
-To generate code for a given target device, tell the CUDA
+The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for
+target GPU device and passing the rest of the code to a non-CUDA
+compiler (i.e. `gcc`). For example, to load the CUDA 12.6.1 environment
+together with the GNU compiler:
+
+```bash
+module load gcc/10.4.0 cuda/12.6.1
+```
+
+To generate code for a given target device, you can tell the CUDA
 compiler what compute capability the target device supports. On Mahti, the
 GPUs (Ampere V100) support compute capability 8.0. Specify this using
 `-gencode arch=compute_80,code=sm_80`.
 
-For example, compiling a CUDA kernel (`example.cu`) on Puhti (for C or C++ codes):
+For example, compiling a CUDA kernel (`example.cu`) on Mahti (for C or C++ codes):
 ```bash
 nvcc -gencode arch=compute_80,code=sm_80 example.cu
 ```
@@ -117,34 +116,45 @@ Compile a CUDA Fortran code named example.cuf
 nvfortran -gpu=cc80 example.cuf
 ```
 
-### OpenACC
+### OpenACC and OpenMP offloading
 
 !!! warning
-    OpenACC support is provided through the NVIDIA `nvc` and `nvc++` compilers.
-    However, it is important to note that the support can be somewhat 
-    limited and may lack certain functionalities, such as MPI 
-    parallelization. For additional information about OpenACC support, 
-    the CSC service desk should be contacted.
+    OpenACC support is provided through the NVIDIA `nvc` and
+    `nvc++` compilers.  However, it is important to note that the
+    support can be somewhat limited and may lack certain
+    functionalities and they are not integrated to the rest of the
+    module tree.
 
-The compilers can be accessed through the NVIDIA HPC SDK module:
+!!! warning
+    If you enable the modules with the following instructions,
+    your environment may not work normally. The `module purge` command
+    is necessary and loading any other modules together with nvhpc
+    ones may break your environment and is not supported by CSC. For
+    additional information about OpenACC support, the CSC service desk
+    should be contacted.
+
+The compilers can be accessed through the NVIDIA HPC SDK modules which are included in the SDK installation. They can't be accessed directly and you have to enable them by adding the search path manually as follows:
 ```bash
-module load .unsupported
-module load nvhpc/22.3
+module purge
+module use /appl/opt/nvhpc/modulefiles
 ```
 
-For more detailed information about the available modules, please see `module
-spider nvhpc`.
+After adding the modules to the search tree you have to load the desired combination of compilers, MPI and CUDA. The recommended combination is `nvhpc-hpcx-cuda`, for example:
+```bash
+module load nvhpc-hpcx-cuda12/25.1
+```
+#### OpenACC
 
 To enable OpenACC support, one needs to give `-acc` flag to the compiler.
 
 To generate code for a given target device, tell the compiler
-what compute capability the target device supports. On Puhti, the GPUs (Ampere A100) 
+what compute capability the target device supports. On Mahti, the GPUs (Ampere A100) 
 support compute capability 8.0. 
 
 For example, to compiling C code that uses OpenACC directives (`example.c`):
 
 ```bash
-nvc -acc example.c .gpu=cc80
+nvc -acc example.c -gpu=cc80
 ```
 
 For information about what the compiler actually does with the OpenACC
@@ -160,7 +170,7 @@ For C++ code:
 nvc++ -acc example.cpp -gpu=cc80
 ```
 
-### OpenMP Offloading
+#### OpenMP Offloading
 
 To enable OpenMP Offloading, the options `-mp=gpu` is required
 
@@ -179,8 +189,7 @@ For C++ code:
 nvc++ -mp=gpu example.cpp -gpu=cc80
 ```
 
-The `nvc++` compiler supports codes that contain OpenACC, OpenMP Offloading and C++ parallel algorithms in the same code, 
-for such case you can compile with:
+The `nvc++` compiler supports codes that contain OpenACC, OpenMP Offloading and C++ parallel algorithms in the same code, for such case you can compile with:
 ```bash
 nvc++ -stdpar -acc -mp=gpu example.cpp -gpu=cc80
 ```

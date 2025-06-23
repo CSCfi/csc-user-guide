@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+GH_BASE="https://github.com/CSCfi/csc-user-guide/blob/master"
+
 usage="Usage: $(basename "$0") [-h] [-u]
 Print last update timestamp and most recent committer for each Docs page.
 
@@ -44,7 +46,7 @@ while read -r line ; do
     elif [[ "$line" && -z "${seen[$line]}" ]] ; then
         seen["$line"]="$date"
     fi
-done < <(git log --format="/%H %as %an" --name-only "$GIT_LOG_OPTS")
+done < <(git log --format="/%H %as %an" --name-only $GIT_LOG_OPTS)
 
 echo "|Updated|Filename|Head line|"
 echo "|:-:|:-:|:-:|"
@@ -60,7 +62,7 @@ git ls-files "$path*.md" | while read -r f ; do
         echo "##### $f"
       fi
 
-      echo "|${seen[$f]}|$f|$head_line|"\
+      echo "|${seen[$f]}|$GH_BASE/$f|$head_line|"\
       | iconv -f iso-8859-1 -t utf-8
     fi
 done | sort -r | grep "$name"

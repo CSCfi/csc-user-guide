@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: VirusDetect
+  description: Virus identification with sRNA data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # VirusDetect

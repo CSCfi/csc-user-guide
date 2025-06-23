@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Cutadapt
+  description: Trimming high-throughput sequencing reads
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Cutadapt

@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: ncu
+  description: Nvidia CUDA kernel profiler
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # ncu: GPU CUDA Kernel Profiler

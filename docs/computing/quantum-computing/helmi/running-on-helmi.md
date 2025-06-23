@@ -13,11 +13,11 @@ To submit and run jobs on Helmi you need to use the correct environment on LUMI.
 
 * First, run `module use /appl/local/quantum/modulefiles`. The available modules will now show up on `module avail`.
 * Second, depending on if you want to use the Qiskit or Cirq environment, run:
-    * `module load helmi_qiskit` or
-    * `module load helmi_cirq`
+    * `module load fiqci-vtt-qiskit` or
+    * `module load fiqci-vtt-cirq`
 
 
-`helmi_qiskit` and `helmi_cirq` provide pre-made python environments to directly run on Helmi.
+`fiqci-vtt-qiskit` and `fiqci-vtt-cirq` provide pre-made python environments to directly run on Helmi.
 If you wish to add your own python packages to the pre-made python environment you can do so with `python -m pip install --user package`.
 
 
@@ -49,9 +49,9 @@ Here is an example batch script to submit jobs on Helmi
 module use /appl/local/quantum/modulefiles
 
 # uncomment correct line:
-# module load helmi_qiskit
+# module load fiqci-vtt-qiskit
 # or
-# module load helmi_cirq
+# module load fiqci-vtt-cirq
 
 python your_python_script.py
 ```
@@ -69,7 +69,7 @@ The `helmi_*` module sets up the correct python environment to use Qiskit or Cir
 
 ### Qiskit
 
-To load the Qiskit module use `module load helmi_qiskit`.
+To load the Qiskit module use `module load fiqci-vtt-qiskit`.
 
 In Qiskit python scripts you will need to include the following:
 
@@ -103,7 +103,7 @@ print(counts)
 
 ### Cirq
 
-To load the Cirq module use `module load helmi_cirq`.
+To load the Cirq module use `module load fiqci-vtt-cirq`.
 
 ```python
 import os
@@ -222,7 +222,7 @@ It is recommended to use the 'Advanced settings'. Under the 'Custom init' option
 
 ```bash
 module use /appl/local/quantum/modulefiles
-module load helmi_qiskit # or module load helmi_cirq
+module load fiqci-vtt-qiskit # or module load fiqci-vtt-cirq
 ```
 
 <p align="center">

@@ -12,7 +12,7 @@ CSC’s MFA uses a time-based one-time passcode (TOTP) system, which works with 
 
 If your home organization has enabled multi-factor authentication for Haka login, you do not need to activate it separately for CSC services. **It is recommended to use your home organization’s Haka authentication if available.**
 
-Otherwise, you must activate MFA once to access CSC research services.
+Otherwise, you must [enable CSC provided multi-factor authentication (CSC MFA)](#how-to-activate-csc-mfa) to access CSC services for research.
 
 CSC is gradually rolling out MFA across all of our services. Currently, the following CSC services utilize multi-factor authentication:
 
@@ -20,27 +20,15 @@ CSC is gradually rolling out MFA across all of our services. Currently, the foll
 * **SD Desktop**  
 * **Puhti web interface**
 * **Mahti web interface**
-* Coming soon:
-    * **MyCSC**
+* **MyCSC**
   
 ## MFA Instructions for users logging in with Haka credentials
 
-Your home organization may already offer multi-factor authentication during the Haka login process (Haka MFA). We recommend using your home organization's multi-factor authentication, if available. Note that when logging in with CSC user name and password in the web interface, the MyCSC MFA will always be used. Both home organization MFA and the MyCSC MFA can be set up at the same time.
-
-Please first check if you already have functioning Haka MFA. To check:
-
-1. Visit the 'Profile' section of the [MyCSC portal](https://my.csc.fi/)
-2. Use the 'Test your Multi-Factor Authentication capabilities' function on the right-hand side by pressing 'Test'. **Remember to log in with Haka during the test**.
-
-### Possible outcomes
-
-* Haka MFA is working. In that case no further action is required from you.
-* Haka MFA is **not** working, and you receive an error message indicating that you need to activate Haka MFA following your home organization's instructions. CSC doesn't handle issues related to Haka MFA, for this matter, please contact your **home organization**.
-* Haka MFA is not working, and you receive a message stating that Haka MFA is not enabled in your organization. In that case you should activate CSC multi-factor authentication (CSC MFA). [See instructions below](#how-to-activate-mfa).
+Your home organization may already offer multi-factor authentication during the Haka login process (Haka MFA). We recommend using your home organization's multi-factor authentication, if available. Note that when logging in with CSC user name and password in the web interface, CSC MFA will always be used. Both home organization MFA and CSC MFA can be set up at the same time.
 
 ## Users logging in with Virtu credentials, CSC login or Lifescience login
 
-Activate CSC's multi-factor authentication (CSC MFA) in MyCSC. [See instructions below](#how-to-activate-mfa).
+Activate CSC MFA in MyCSC. [See instructions below](#how-to-activate-csc-mfa).
 
 ## What you need before setting up CSC MFA
 
@@ -49,11 +37,11 @@ Before enabling MFA, make sure you have:
 * A CSC user account and password. If you don’t have an account yet, register through the MyCSC customer portal. [Read the instructions here](how-to-create-new-user-account.md).
 * A mobile device that is compatible with an authentication app (essentially any modern smartphone).
 
-## How to activate MFA
+## How to activate CSC MFA
 
-### Step 1: Install authentication app
+### Prerequisite: Install authentication app
 
-To use MFA, install **an authentication app** on your mobile phone. **If you already have an authentication app on your phone, [skip to step 2](#step-2-log-in-to-mycsc).**
+To use CSC MFA, install **an authentication app** on your mobile phone. **If you already have an authentication app on your phone, [skip to step 1](#step-1-log-in-to-the-csc-mfa-activation-page-in-mycsc).**
 
 Some commonly used apps include:
 
@@ -63,35 +51,27 @@ Some commonly used apps include:
 
 Follow the installation instructions provided by your chosen app.
 
-### Step 2: Log in to MyCSC
+### Step 1: Log in to the CSC MFA activation page in MyCSC
 
-Log in to the [**MyCSC**](https://my.csc.fi/) website with your username and password, and click the **Profile** icon in the top right corner of the page. A dropdown menu will open, allowing you to select **Profile** (highlighted in the image below).
+Open the [**CSC MFA activation page**](https://my.csc.fi/mfa-activation-login) in your web browser and log in using your preferred login method (Haka, Virtu or CSC login).
 
-![Profile view in MyCSC](images/small/mfa-profile-banner.png 'Profile view banner')
+If you are using CSC login and have forgotten your CSC user account password, [**here's how you can change it**](../accounts/how-to-change-password.md).
 
-If you have forgotten your CSC user account password, [**here's how you can change it**](../accounts/how-to-change-password.md).
-
-### Step 3: Start the activation of multi-factor authentication
-
-In the **Profile** section, click **Enable** in the Multi-Factor Authentication banner.
-
-![enable MFA banner](images/small/mfa-enable-mfa-banner.png 'Multi-factor authentication banner')
-
-### Step 4: Scan QR code
+### Step 2: Scan QR code
 
 Scan the QR code displayed on the screen using your authentication app.
 
-![read QR code](images/small/mfa-scan-qr-code.png 'Read the QR.code')
+![scan QR code](images/small/mfa-scan-qr-code.png 'Scan the QR code')
 
-### Step 5: Enter verification code
+### Step 3: Enter verification code
 
-After scanning the QR code, press **Continue**.  Complete the task that your authentication app requires. Once the task is completed, **your MFA setup is complete.**
-
-![type in 6-digit code](images/small/mfa-enter-verification-code.png 'Type in 6-digit code')
+Complete the task that your authentication app requires. Once the task is completed, **fill in the verification code from your authentication app** in the input field on the CSC MFA activation page and click the **Enable Multi-Factor Auhtentication** button.
 
 ![authentication app screen](images/small/haka-one-time-code.jpeg 'The 6-digit code on your phone')
 
-### Step 6: Finish
+![fill in 6-digit code](images/small/mfa-enter-verification-code.png 'Fill in 6-digit code')
+
+### Step 4: Finish
 
 Your CSC account is now secured with multi-factor authentication!
 
@@ -119,13 +99,23 @@ Your CSC account is now secured with multi-factor authentication!
 3. CSC asks you to provide the six-digit code shown in your authentication app
 4. You are in!
 
+## How to proceed when changing to a new phone
+
+The easiest option is to **transfer** your MFA secret to your new phone. Please follow the instructions of the authenticator app of your choice.
+
+If, for some reason, the MFA secret cannot be transferred from your old phone to your new one, you can follow these steps:
+
+1. Log in to MyCSC using your **old phone's** authenticator app, navigate to the [Profile page](https://my.csc.fi/profile) and click on the **Edit** button under **CSC Multi-Factor Authentication**.
+2. Scan the QR code shown on the screen with your **new phone's** authenticator app.
+3. Fill in the verification code from your **new phone's** authenticator app and click on the **Enable Multi-Factor Authentication** button.
+4. Verify that you can log in to MyCSC with your new phone by logging out from MyCSC and logging back in again.
+5. Your MFA secret that is stored on you **old phone** can no longer be used to log in to CSC's services for research. Remove it from your old phone's authenticator app.
+
+!!! note
+    If you no longer have access to your old phone, please [contact CSC Service Desk](../support/contact.md).
+
 ## Problems with MFA
 
 If you are experiencing problems or want to disable your MFA authentication, please contact the [CSC Service Desk](../support/contact.md).
 
 See also [solutions to common MFA-related problems](../support/faq/issues-with-mfa.md).
-
-!!! note "Reminder"
-    If you know you'll be switching to a new phone, remember to disable
-    MFA before making the switch. Also, keep your contact information up to date
-    in MyCSC in case your account needs to be recovered.

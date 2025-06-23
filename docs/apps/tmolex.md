@@ -1,6 +1,14 @@
 ---
 tags:
   - Academic
+catalog:
+  name: TmoleX
+  description: GUI for setting up and analyzing TURBOMOLE jobs
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
 ---
 
 # TmoleX

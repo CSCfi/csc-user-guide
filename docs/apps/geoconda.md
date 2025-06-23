@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: Geoconda
+  description: - Python spatial analysis libraries
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Geoconda
