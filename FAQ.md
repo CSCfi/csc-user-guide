@@ -22,12 +22,12 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [Which Markdown features/extensions are available?](#which-markdown-featuresextensions-are-available)
   - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
+  - [How do I include a new software page on the "Applications" index pages](#how-do-i-add-a-new-applications-page)
   - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
   - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
   - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
-
 
 ## How to include my new page in the navigation panel?
 
