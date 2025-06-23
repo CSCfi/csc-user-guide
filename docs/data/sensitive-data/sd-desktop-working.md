@@ -84,7 +84,6 @@ Below we list some of the most commonly used tools that are by default installed
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Office Tools**          | [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)                                                                                                                         |
 | **Programming**           | [Go](https://go.dev/) <br> [Python 3](./tutorials/sd-pythonlibs.md) including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode |
-| **R & RStudio**           | [R / RStudio Server](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop) <br> - Matching the r-env-singularity/4.0.5 module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12) <br> - 1000+ pre-installed R packages (versions available on Apr 20, 2021) <br> - Intel® oneAPI Math Kernel Library (oneMKL) <br> - GIS software (PROJ, GDAL, SAGA) <br> - CUDA drivers <br> - TensorFlow (used with R TensorFlow back-end) <br> - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)                 |
 | **Workflow Engines**      | - [Nextflow](https://www.nextflow.io/) <br> - [Snakemake](https://snakemake.readthedocs.io/en/stable/)                                                                                                                                                |
 | **Software Containers**    | - [Apptainer](https://apptainer.org/) <br> - [Podman](https://podman.io/) (Only in Ubuntu machines)                                                                                                                             |
 | **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)                                                                                                                          |
@@ -92,43 +91,8 @@ Below we list some of the most commonly used tools that are by default installed
 
 ## Accessing RStudio from virtual desktop
 
-The computing environment i.e. virtual desktop (visible from your browser) is isolated from the internet. For example, you can open a Firefox web browser in your virtual desktop but not access any site online. At this moment, you will also not be able to access any repositories directly. To open R Studio for data analysis the following steps are required:
-
-1. Open the terminal.
-
-2. Launch RStudio with:
-
-    ```text
-    start-rstudio-server
-    ```
-
-![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio1.png)
-
-
-* This will return a URL and a service-specific password:
-
-    ```text
-    RStudio Server - Sensitive Data Desktop Edition
-    ---------------------------------------------------------------------------------------
-    Copy/Paste this URL into Firefox:
-
-    http://localhost:8787/
-
-    -----------------------------------------------------------------------------------------
-    Enter these at the RStudio Server sign-in screen
-    ----------------------------------------------------------------------------------------
-    Username: accountname  Password: Example23241232
-    ----------------------------------------------------------------------------------------
-    To stop RStudio Server: Ctrl+C
-    ```
-
-3.  Copy the URL and paste it in Firefox to open the R-Studio login page.
-4. Enter your username and password to access the server.
-
-!!! Note
-    Only files saved in the external volume are accessible to other project members using RStudio.
-
-![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
+Accessing RStudio from virtual desktop
+For a step by step guide, see: Installing RStudio via SD-Software Installer No technical expertise required.
 
 
 ## Your next steps in this guide
