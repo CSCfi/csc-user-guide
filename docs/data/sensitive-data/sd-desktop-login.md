@@ -14,14 +14,17 @@
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
-## Features in SD Desktop
+## Your next steps in this guide:
 
-* [Create virtual desktops](./sd-desktop-create.md)
-* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
-* [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Login to SD Desktop](./sd-desktop-login.md)
+* [Create virtual desktop](./sd-desktop-create.md)
+* [Create volume](./sd-desktop-create-volume.md)
+* [Manage virtual desktops](./sd-desktop-manage.md)
+* [Manage volumes](./sd-desktop-manage-volume.md)
+* [Access virtual desktop](./sd-desktop-access-vm.md)
+* [Work with your desktop: tips and essentials](./sd-desktop-working.md)
 * [Customisation - software & tools](./sd-desktop-software.md)
-* [Importing data ](./sd-desktop-access.md)
-* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Import data ](./sd-desktop-access.md)
+* [Export data via user interface](./sd-desktop-export.md)
 * [Export data programmatically](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)

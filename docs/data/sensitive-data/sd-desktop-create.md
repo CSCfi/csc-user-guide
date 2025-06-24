@@ -53,14 +53,18 @@ After returning to the main page, you’ll see a list of your desktops. Creating
     If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "Sensitive data".
 
 
-## Your next steps in this guide
+## Your next steps in this guide:
 
-* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
-* [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Login to SD Desktop](./sd-desktop-login.md)
+* [Create virtual desktop](./sd-desktop-create.md)
+* [Create volume](./sd-desktop-create-volume.md)
+* [Manage virtual desktops](./sd-desktop-manage.md)
+* [Manage volumes](./sd-desktop-manage-volume.md)
+* [Access virtual desktop](./sd-desktop-access-vm.md)
+* [Work with your desktop: tips and essentials](./sd-desktop-working.md)
 * [Customisation - software & tools](./sd-desktop-software.md)
-* [Importing data ](./sd-desktop-access.md)
-* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Import data ](./sd-desktop-access.md)
+* [Export data via user interface](./sd-desktop-export.md)
 * [Export data programmatically](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
 

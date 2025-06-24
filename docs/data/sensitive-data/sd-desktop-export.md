@@ -226,8 +226,18 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
 
 If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
 
-## Your next steps in this guide
+## Your next steps in this guide:
 
+* [Login to SD Desktop](./sd-desktop-login.md)
+* [Create virtual desktop](./sd-desktop-create.md)
+* [Create volume](./sd-desktop-create-volume.md)
+* [Manage virtual desktops](./sd-desktop-manage.md)
+* [Manage volumes](./sd-desktop-manage-volume.md)
+* [Access virtual desktop](./sd-desktop-access-vm.md)
+* [Work with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Import data ](./sd-desktop-access.md)
+* [Export data via user interface](./sd-desktop-export.md)
 * [Export data programmatically](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
 

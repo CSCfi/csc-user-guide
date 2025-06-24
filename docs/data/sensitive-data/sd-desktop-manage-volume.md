@@ -2,18 +2,21 @@
 
 # Managing volumes
 
+With the SD Desktop service, you can easily attach, detach or delete your volumes.
+
 * [Attaching a volume](#attaching-a-volume-to-a-virtual-desktop)
 * [Detaching a volume](#detaching-a-volume-from-a-virtual-desktop)
 * [Deleting a volume](#deleting-a-volume)
 
-!!! note
-    - To access the volume content, attach it to a desktop with the same operating system. 
-    - Volumes can not be moved or transferred between CSC projects for security reasons.
 
 
 ## Attaching a volume to a virtual desktop
 
 When you want to save data to the volume or access the data saved in the volume, you can attach it to a virtual desktop. You can compare this operation to connecting a USB stick to your laptop.
+
+!!! Note
+    - To access the volume content, attach it to a desktop with the same operating system. 
+    - Volumes can not be moved or transferred between CSC projects for security reasons.
 
 * [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
 
@@ -59,3 +62,18 @@ At the end of your analysis, you can delete a volume, and all files saved to it 
 4. Confirm deleting the volume via notification.
 
 ![Delete volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteVolume.png)
+
+## Your next steps in this guide:
+
+* [Login to SD Desktop](./sd-desktop-login.md)
+* [Create virtual desktop](./sd-desktop-create.md)
+* [Create volume](./sd-desktop-create-volume.md)
+* [Manage virtual desktops](./sd-desktop-manage.md)
+* [Manage volumes](./sd-desktop-manage-volume.md)
+* [Access virtual desktop](./sd-desktop-access-vm.md)
+* [Work with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Import data ](./sd-desktop-access.md)
+* [Export data via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)

@@ -4,8 +4,7 @@
 
 
 - [Overview](#overview)
-- [Key features](#key-features)
-- [Limitations](#limitations)
+- [Key features and limitations](#key-features-and-limitations)
 - [Your next steps in this guide](#your-next-steps-in-this-guide)
 
 
@@ -19,6 +18,8 @@ Sensitive Data (SD) Desktop allows you to analyze sensitive research data from y
 !!! Note 
     The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
 
+
+## Key features and limitations
 
 <div class="grid cards" markdown>
 
