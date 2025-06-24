@@ -51,7 +51,7 @@ You can easily detach a volume from your virtual desktop. You can compare this o
 At the end of your analysis, you can delete a volume, and all files saved to it by you or other project members. 
 
 !!! Warning
-    You cannot undo this action. Please contact all the project members before deleting a volume. ´
+    You cannot undo this action. Please contact all the project members before deleting a volume. 
 
 1. If the volume is attached to a desktop detach it first. 
 2. On the SD Desktop homepage, click **Volumes** tab.
