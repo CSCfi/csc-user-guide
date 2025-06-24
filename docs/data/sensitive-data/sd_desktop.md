@@ -22,9 +22,9 @@ You can browse the main topics of this section using the navigation bar on the r
 
 * Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
 
-* Only members of the same CSC project can access the virtual desktop. One CSC project can create up to three desktops. 
+* Only members of the same CSC project can access the virtual desktop. One CSC project can have multiple desktops. 
 
-* Four pre-built computing options (Linux Ubuntu OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customization is possible by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data);
+* Multiple pre-built computing options (Linux Ubuntu OS) are available (for simple statistical analysis and machine learning). Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customization is possible by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data);
 
 * The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
 
@@ -35,7 +35,7 @@ You can browse the main topics of this section using the navigation bar on the r
 
 * Only open-source software is available.
 
-* We do not provide virtual desktops with GPUs or Windows operating systems. 
+* We do not provide virtual desktops with Windows operating systems. 
 
 !!! Note 
     The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.

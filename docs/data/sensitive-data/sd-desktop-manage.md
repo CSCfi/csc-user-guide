@@ -2,16 +2,16 @@
 
 # Managing virtual desktops
 
+
+!!! Note
+    These options are available only on virtual desktops created after major update in autumn 2025. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
+
+
 With the SD Desktop service, you can easily pause, reboot or delete your virtual desktops. 
 
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Restarting a virtual desktop](#restarting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
-
-!!! Note
-    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
-
-
 
 ## Pausing or unpausing a virtual desktop
 

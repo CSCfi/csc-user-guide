@@ -14,7 +14,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 ### In Create desktop window 
 
 1. Select a name for your desktop. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
-2. Select operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
+2. Select operating system. We recommend to choose **Linux Ubuntu22**. If you want to create a GPU desktop, please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further instructions.
 3. Select a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
 4. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
 5. Click **Create**. The window will now close and desktop creation will start.
@@ -32,21 +32,21 @@ After returning to the main page, you’ll see a list of your desktops. Creating
 |  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 billing units/h|
 |  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.4 billing units/h |
 | **Heavy computation**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 28; Memory 176 GB; Root disk 80 GB  | hpc.6.28 core | 65 billing units/h |
-| **Small GPU computation**| This option is available only upon request. Please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
-| **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
+| **Small GPU computation**| This option is available only upon request. Please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further instructions. |  |  |  |
+| **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further instructions. |  |  |  |
 
 !!! note
-    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. The medium GPU computation option has been deprecated in October 2024. 
+    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning.
 
 ## Important considerations
 
 * Your virtual desktop is **accessible to all project members upon creation** and **consumes billing units** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop)
 
-* Each CSC project supports up to 3 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
+* Each CSC project supports multiple virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
-* All desktops come with a set of pre-installed open-source software managed by CSC. More informations about the list of pre-installed software and customisation is available [delete](./sd-desktop-software.md).
+* All desktops come with a set of pre-installed open-source software managed by CSC. More informations about the list of pre-installed software and customisation is available [here](./sd-desktop-software.md).
 
-* **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. Unused desktops trigger email notifications after 14 days of inactivity.
+* Ensure to [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. Unused desktops trigger email notifications after 14 days of inactivity.
   
 
 !!! info "Need assistance?"
