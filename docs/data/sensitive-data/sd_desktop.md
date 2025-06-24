@@ -16,8 +16,6 @@ Sensitive Data (SD) Desktop allows you to analyze sensitive research data from y
 ### Multiple ways of accessing data via SD Desktop
 ![Multiple ways of accessing data via SD Desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Desktop_overview.png)
 
-You can browse the main topics of this section using the navigation bar on the right side of this page or the search function.
-
 !!! Note 
     The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
 
