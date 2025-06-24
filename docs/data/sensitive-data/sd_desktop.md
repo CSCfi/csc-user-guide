@@ -20,7 +20,28 @@ You can browse the main topics of this section using the navigation bar on the r
 
 ### Key features
 
-* Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
+
+
+
+### Limitations
+
+
+
+!!! Note 
+    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
+
+
+
+
+
+
+<div class="grid cards" markdown>
+
+- :material-view-grid:{ .lg .middle } **Key features**
+
+    ---
+
+    * Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
 
 * Only members of the same CSC project can access the virtual desktop. Multiple desktops can be created under one CSC project.
 
@@ -28,17 +49,18 @@ You can browse the main topics of this section using the navigation bar on the r
 
 * The secure analysis environment is isolated from the internet. The only way to import and export data is via the SD Connect service.
 
+- :material-view-grid-plus:{ .lg .middle } **Limitations**
 
-### Limitations
+    ---
 
-* The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
+    * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
 * Only open-source software is available.
 
 * We do not provide virtual desktops with Windows operating systems. 
 
-!!! Note 
-    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
+</div>
+
 
 
 ## Your next steps in this guide:
