@@ -1,4 +1,4 @@
-# Running your first quantum computing job on Helmi through LUMI
+# Running your first quantum computing job on the Quantum computers through LUMI
 
 If you've applied for a project, been accepted, setup your ssh keys and gained access to LUMI, then the next step is to run your first quantum computing job on a real quantum computer! This is a guide for exactly how to do that. The only thing you need to know is your project number! 
 
@@ -71,14 +71,20 @@ Now the circuit is created! If you wish you can see what your circuit looks like
 
 ## Setting the backend
 
-First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi and is only reachable inside the `q_fiqci` partition. This environment variable is set automatically when loading any of the Quantum computing modules such as the `fiqci-vtt-qiskit` module. 
+First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi(the 5 qubit machine) and is only reachable inside the `q_fiqci` partition, while the `Q50_CORTEX_URL`is the endpoint to reach Q50(the 50 qubit machine). This environment variable is set automatically when loading any of the Quantum computing modules such as the `fiqci-vtt-qiskit` module. 
 
 ```python
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
-
 provider = IQMProvider(HELMI_CORTEX_URL)
 backend = provider.get_backend()
+
+## Uncomment the lines below to use Q50
+#Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+#Q50_provider = IQMProvider(Q50_CORTEX_URL)
+#backend2 = Q50_provider.get_backend()
+
 ```
+
 ### Decomposing the circuit (*Optional*)
 
 The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. Helmi's basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. 
@@ -165,22 +171,26 @@ This submits the job *interactively* meaning that the output will be printed str
 ```bash
 #!/bin/bash -l
 
-#SBATCH --job-name=helmijob   # Job name
-#SBATCH --output=helmijob.o%j # Name of stdout output file
-#SBATCH --error=helmijob.e%j  # Name of stderr error file
+#SBATCH --job-name=quantumjob   # Job name
+#SBATCH --output=quantumjob.o%j # Name of stdout output file
+#SBATCH --error=quantumjob.e%j  # Name of stderr error file
 #SBATCH --partition=q_fiqci   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --mem-per-cpu=2G       # memory allocation
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:15:00         # Run time (hh:mm:ss)
+#SBATCH --time=00:05:00         # Run time (hh:mm:ss)
 #SBATCH --account=project_xxx  # Project for billing
 
 module use /appl/local/quantum/modulefiles
 module load fiqci-vtt-qiskit
 
+#To run on Helmi(Q5) and Q50 uncomment the line below
+#export DEVICES=("Q5" "Q50")
+
 python -u first_quantum_job.py
 ```
-This can be submitted with `sbatch batch_script.sh` in the same directory as your python file. Jobs in the SLURM queue can be monitored through `squeue -u username` and after the job has completed your results can be found in the `helmijob.oxxxxx` file. This can be printed to the terminal with `cat`. 
+This can be submitted with `sbatch batch_script.sh` in the same directory as your python file. Jobs in the SLURM queue can be monitored through `squeue -u username` and after the job has completed your results can be found in the `quantumjob.oxxxxx` file. This can be printed to the terminal with `cat`. 
+To run on both Helmi and Q50 or Q50 alone you will need to specify the devices that you require. Here `Q5` represents Helmi and `Q50`represents the 50 qubit machine.
 
 
 ## Congratulations!
@@ -209,8 +219,13 @@ circuit.measure_all()
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 
-provider = IQMProvider(HELMI_CORTEX_URL)
-backend = provider.get_backend()
+helmi_provider = IQMProvider(HELMI_CORTEX_URL)
+backend = helmi_provider.get_backend()
+
+## Uncomment the lines below to use Q50
+#Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+#Q50_provider = IQMProvider(Q50_CORTEX_URL)
+#backend2 = Q50_provider.get_backend()
 
 # Retrieving backend information
 # print(f'Native operations: {backend.operation_names}')
