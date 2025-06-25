@@ -10,37 +10,36 @@ computational operators. Before QPUs can be utilized, they require tailor-made p
 and algorithms. The [Finnish Quantum-Computing Infrastructure](https://fiqci.fi) FiQCI provides access to
 quantum computing resources through CSC's service portals.
 
-## Helmi
+## Quantum Computers
 
-**5 Qubit Quantum Computer**
+### Helmi (VTT Q5)
 
-Helmi, the first Finnish quantum computer, is co-developed by VTT and IQM Quantum Computers. Presently, Helmi provides 5 qubits. With Helmi, users can run quantum programs and algorithms on a real, physical device.
+Helmi, the first Finnish quantum computer, is co-developed by VTT and IQM Quantum Computers. It offers a 5-qubit system, enabling users to execute quantum programs and algorithms on a physical quantum device.
 
 Access to Helmi is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Helmi through the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project.md).
 
+
+### VTT Q50
+
+Q50 is a 53-qubit quantum computer, also co-developed by VTT and IQM Quantum Computers.
+
+Similar to Helmi, Q50 is accessible through the LUMI supercomputer environment. Users will need to apply for a quantum computing project on LUMI. Upon approval, Q50 can be accessed using the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project.md).
+
+
 For further reading:
 
-* [A more technical description about Helmi](./helmi/helmi-specs.md).
-* [Specific instructions for the LUMI Helmi partition](./helmi/fiqci-partition.md)
-* [Getting started with Helmi](./helmi/helmi-from-lumi.md)
+* [A more technical description about the quantum computers](./quantum-computers/specs.md).
+* [Specific instructions for the fiqci partition](./quantum-computers/fiqci-partition.md)
+* [Getting started with Helmi/Q50](./quantum-computers/access.md)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
 
 
-## Kvasi
+## Simulators
 
-**The Quantum Learning Machine**
+### Qiskit
 
-Kvasi is an advanced quantum computer simulator/emulator. With Kvasi, the user can explore and develop algorithms 
-for quantum computers. Read here [detailed instructions on how to access](../quantum-computing/kvasi/kvasi.md)
+The LUMI supercomputer now supports the simulation of quantum algorithms with up to 44 qubits using Qiskit, IBM’s open-source quantum computing framework. This capability enables researchers to explore and test large-scale quantum algorithms in preparation for quantum advantage.
 
-Kvasi provides an ecosystem for developing and simulating quantum algorithms in both 
-ideal and realistic, noisy conditions. With Kvasi, you can optimize your algorithm 
-for a specific hardware (QPU), with specific qubit connectivity and basic gate operations.
-
-The algorithms can be developed either at a level close to the hardware, using 
-the Atos Quantum Assembler (AQASM) language, or using a higher level, Python based 
-language and ready-made libraries. The QLM comes with several ready-made examples.
-You can also download and run locally [myQLM](../quantum-computing/kvasi/kvasi.md#myqlm) - a light-weight version of the 
-QLM ecosystem.
+For more details, refer to this [blog](https://fiqci.fi/publications/2025-04-01-LUMI-quantum-simulations-qiskit-aer)
 
 

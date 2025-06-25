@@ -12,9 +12,9 @@ The project PI is responsible for ensuring that the [Terms of Use](https://a3s.f
 
 Follow the official instructions to connect to the LUMI system: [Connecting to LUMI – Official Documentation](https://docs.lumi-supercomputer.eu/firststeps/).
 
-Details for running jobs on the quantum computers through lumi can found in the [Running quantum jobs](running-quantum-jobs.md) page.
+Details for running jobs on the quantum computers through LUMI can found in the [Running quantum jobs](running-quantum-jobs.md) page.
 
 ## Support channels
 
-For support with Helmi access via LUMI, contact the  [CSC Service Desk](../../../support/contact.md), reachable at servicedesk@csc.fi. 
+For support with access via LUMI, contact the  [CSC Service Desk](../../../support/contact.md), reachable at servicedesk@csc.fi. 
 

@@ -31,7 +31,6 @@ The next step is to create your quantum circuit! Here a simple bell state will b
 !!! info "Tip!"
 	
 	You can quickly see your LUMI workspaces with
-	`module load lumi-workspaces` and
 	`lumi-workspaces`
 
 Let us first create our python file with `nano first_quantum_job.py`. Here we use `nano` but if you are comfortable you can also use `vim` or `emacs`. This will bring up the `nano` text editor, the useful commands are at the bottom, to save and exit CTRL-X + Y.

@@ -10,7 +10,7 @@ Detailed instructions on the process of creating a general LUMI project via MyCS
 
 !!! info "Getting Started"
 	To get started with Helmi/VTT Q50 see
-	[Access Helmi through LUMI](helmi-from-lumi.md). 
+	[Access Helmi/Q50 through LUMI](access.md). 
 
 ## Further reading:
 

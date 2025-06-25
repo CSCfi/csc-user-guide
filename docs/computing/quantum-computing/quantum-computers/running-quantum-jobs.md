@@ -34,9 +34,9 @@ The current supported software versions are:
 
 | Software | Module_name | Versions |
 |----------|-------------|----------|
-| Cirq on IQM | cirq_iqm |  15.2  |
-| Qiskit on IQM | qiskit_iqm |  15.5 |
-| IQM client | iqm_client | >= 20.11, <= 20.13 |
+| Cirq on IQM | cirq_iqm |  >= 16.0, <= 17.0  |
+| Qiskit on IQM | qiskit_iqm |  >= 17.3, <= 18.0 |
+| IQM client | iqm_client | >= 22.3, <= 23.0 |
 
 Here is an example batch script to submit a quantum job
 
@@ -225,7 +225,7 @@ The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allo
 
 After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
 
-It is recommended to use the 'Advanced settings'. Under the 'Custom init' option select Text, and under the 'Script to start' textbox enter the following script to configure the environment to use the quantum software stack.
+It is recommended to use the `Advanced settings`. Under the `Custom init` option select Text, and under the `Script to start` textbox enter the following script to configure the environment to use the quantum software stack.
 
 ```bash
 module use /appl/local/quantum/modulefiles
