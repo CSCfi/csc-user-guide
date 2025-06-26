@@ -327,7 +327,7 @@ The most commonly occurring special characters:
 - **[ ]** matches any character inside the brackets. For example, [abc] would match a, b or c.
 - **[^ ]** matches any character except the characters inside the brackets.   
     For example, [^abc] would select all rows that contain characters than are not a, b and c.
-- ** * ** matches zero or more of the preceding characters or expressions.
+- **\*** matches zero or more of the preceding characters or expressions.
     `\{n,m\}` matches n to m occurrences of the preceding characters or expressions.
 
 Options:
