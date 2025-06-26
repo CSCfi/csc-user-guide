@@ -18,7 +18,6 @@ at research.csc.fi.
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/accounting.md)
 * [Rahti billing](../cloud/rahti/billing.md)
-* [Kvasi billing](../computing/quantum-computing/kvasi/kvasi-billing.md)
 * [SD Connect and SD Desktop billing](../data/sensitive-data/sd-use-case-new-user-project-manager.md#sd-connect-bu-consumption)
 
 

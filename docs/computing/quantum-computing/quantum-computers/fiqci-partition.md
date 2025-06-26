@@ -15,7 +15,7 @@ need to apply for quantum resources in addition to CPU, GPU, and storage.
 ## The FiQCI partition `q_fiqci`
 
 Access to the quantum computers is only available through the FiQCI partition on LUMI, which provides a direct connection between a [LUMI-C
-node](https://docs.lumi-supercomputer.eu/hardware/lumic/) and Helmi.
+node](https://docs.lumi-supercomputer.eu/hardware/lumic/) and the Fiqci quantum computers.
 
 * [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/)
 
@@ -29,7 +29,7 @@ Currently, the maximum run time of a quantum job is 2 hours.
 
 ## Storage areas
 
-The Helmi partition uses the same storage policies as LUMI. You can find [further details on LUMI Storage here](https://docs.lumi-supercomputer.eu/storage/).
+The `q_fiqci` partition uses the same storage policies as LUMI. You can find [further details on LUMI Storage here](https://docs.lumi-supercomputer.eu/storage/).
 
 ## Usage and Billing
 
@@ -38,7 +38,7 @@ Quantum computing projects work similarly to the regular LUMI system. The main d
 1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C `--partition=standard` and `--partition=small`.
 2. The maximum job walltime is **2 hours**.
 3. Usage is billed as QPU seconds **QPUs** in `q_fiqci`. 
-4. The LUMI-Helmi computing environment has to be loaded separately. See [Running on Helmi](./running-quantum-jobs.md) for details.
+4. The LUMI-Fiqci computing environment has to be loaded separately. See [Running on quantum jobs](./running-quantum-jobs.md) for details.
 
 Presently, running through the `q_fiqci` queue will consume QPU seconds for the amount of wall-time spent running in the `q_fiqci` queue.
 
@@ -46,4 +46,4 @@ Presently, running through the `q_fiqci` queue will consume QPU seconds for the 
     You can check your used QPUs using the `lumi-allocations` tool. 
 
 
-Helmi-specific support can be reached via the [CSC Service Desk](../../../support/contact.md). Note that presently, user support is limited to technical issues.
+Quantum-specific support can be reached via the [CSC Service Desk](../../../support/contact.md). Note that presently, user support is limited to technical issues.

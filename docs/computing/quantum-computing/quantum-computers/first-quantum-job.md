@@ -86,7 +86,7 @@ backend = provider.get_backend()
 
 ### Decomposing the circuit (*Optional*)
 
-The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. Helmi's basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. 
+The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Helmi, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
 
 ```python
 circuit_decomposed = transpile(circuit, backend=backend)
@@ -156,7 +156,7 @@ Once you've made your first quantum program remember to save! CTRL+X then Y to s
 
 ## Running the job through LUMI
 
-To run your quantum programme on LUMI you will need to submit the job through the SLURM batch scheduler on LUMI. Accessing Helmi is done through the `q_fiqci` partition. In the same directory where you have saved your quantum program, you can submit the job to SLURM using:
+To run your quantum programme on LUMI you will need to submit the job through the SLURM batch scheduler on LUMI. Accessing the quantum computers (Helmi, Q50) is done through the `q_fiqci` partition. In the same directory where you have saved your quantum program, you can submit the job to SLURM using:
 
 ```bash
 srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci python -u first_quantum_job.py
@@ -183,7 +183,7 @@ This submits the job *interactively* meaning that the output will be printed str
 module use /appl/local/quantum/modulefiles
 module load fiqci-vtt-qiskit
 
-#To run on Helmi(Q5) and Q50 uncomment the line below
+#To run on both Helmi(Q5) and Q50 uncomment the line below
 #export DEVICES=("Q5" "Q50")
 
 python -u first_quantum_job.py
@@ -194,7 +194,7 @@ To run on both Helmi and Q50 or Q50 alone you will need to specify the devices t
 
 ## Congratulations!
 
-Congratulations! You have just run your first job on Helmi. 
+Congratulations! You have just run your first job on a quantum computer. 
 
 The full python script can be found below. 
 

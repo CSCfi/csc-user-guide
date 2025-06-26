@@ -324,16 +324,13 @@ nav:
               - Visual Studio Code: computing/webinterface/vscode.md
       - Quantum computing:
           - computing/quantum-computing/overview.md
-          - Kvasi QLM:
-              - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
-              - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
-          - Helmi:
-              - Helmi projects: computing/quantum-computing/helmi/helmi-projects.md
-              - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
-              - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
-              - Technical details: computing/quantum-computing/helmi/helmi-specs.md
-              - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
-              - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
+          - Quantum-computers:
+              - Projects: computing/quantum-computing/quantum-computers/projects.md
+              - Access through LUMI: computing/quantum-computing/quantum-computers/access.md
+              - First quantum job: computing/quantum-computing/quantum-computers/first-quantum-job.md
+              - Technical details: computing/quantum-computing/quantum-computers/specs.md
+              - FiQCI partition: computing/quantum-computing/quantum-computers/fiqci-partition.md
+              - Running quantum jobs: computing/quantum-computing/quantum-computers/running-quantum-jobs.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:

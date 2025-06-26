@@ -21,7 +21,7 @@ VTT Q50 is a 53-qubit quantum computer co-developed by VTT and IQM using superco
 The qubits are arranged in a **Square lattice** topology, a 2D grid where each qubit interacts directly with its nearest neighbors.
 
 <p align="center">
-    <img src="../../../../img/helmi_mapping.png" alt="Helmi's node mapping">
+    <img src="../../../../img/Helmi_topology.png" alt="Q50's node mapping">
 </p>
 
 ### Native Gates
@@ -54,7 +54,7 @@ print(adonis.metadata.nx_graph)
 
 ## Further Reading
 
-* [Specific instructions for the LUMI Helmi partition](fiqci-partition.md)
+* [Specific instructions for the fiqci partition](fiqci-partition.md)
 * [Qiskit adapter for IQM devices](https://iqm-finland.github.io/qiskit-on-iqm/)
 * [Cirq adapter for IQM devices](https://iqm-finland.github.io/cirq-on-iqm/)
 

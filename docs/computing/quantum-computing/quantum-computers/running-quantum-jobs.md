@@ -157,9 +157,9 @@ scripts for submitting jobs.
 
 ## Simulated test runs
 
-As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on Helmi in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://iqm-finland.github.io/qiskit-on-iqm/user_guide.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing.
+As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on the quantum computers in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://iqm-finland.github.io/qiskit-on-iqm/user_guide.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing.
 
-A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
+A set of Qiskit and Cirq examples and scripts for guidance in using the `q_fiqci` partition are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
 
 ## Job Metadata
 
@@ -217,11 +217,11 @@ Here is a brief description of the figures which are given when querying:
 For further information on the figures of merit contact the [CSC Service Desk](../../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 
-## Using Helmi on Lumi-web interface
+## Using Helmi/Q50 on Lumi-web interface
 
 The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run quantum jobs on  Helmi and Q50 through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
 
-### Accessing Helmi
+### Accessing Helmi/Q50
 
 After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
 
@@ -246,4 +246,4 @@ Click on launch to start your Jupyter session. This will launch Jupyter using th
 ## Further Reading
 * [Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/)
 * [Jupyter on Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/)
-* [Using Helmi on Lumi web interface](https://fiqci.fi/_posts/2024-08-23-Lumi_web_introduction/)
+* [Using the quantum computers Lumi web interface](https://fiqci.fi/_posts/2024-08-23-Lumi_web_introduction/)

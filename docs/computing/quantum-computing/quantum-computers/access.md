@@ -6,7 +6,7 @@ To access Helmi or Q50, you must first create a LUMI project with quantum comput
 
 Once the project is created, the **Principal Investigator (PI)** can invite other users: [How to add members to project](../../../accounts/how-to-add-members-to-project.md)
 
-The project PI is responsible for ensuring that the [Terms of Use](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) are followed.
+The project PI is responsible for ensuring that the [Helmi Terms of Use](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) or [Q50 Terms of Use](https://a3s.fi/FiQCI/VTT_Quantum_Academic_Use_EULA.pdf) are followed.
 
 ## Connect to LUMI
 
