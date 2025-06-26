@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: BLAST
+  description: Sequence similarity search tool for nucleotides and proteins
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # BLAST

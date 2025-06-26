@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Octave
+  description: High-level interpreted language for numerical computations
+  license_type: Free
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
 ---
 
 # Octave

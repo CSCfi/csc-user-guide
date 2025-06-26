@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: PALM
+  description: Meteorological model system for atmospheric and oceanic boundary-layer flows
+  license_type: Free
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # PALM

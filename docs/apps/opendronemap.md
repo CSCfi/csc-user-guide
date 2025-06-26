@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: OpenDroneMap (ODM)
+  description: for processing aerial drone imagery
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # OpenDroneMap (ODM)

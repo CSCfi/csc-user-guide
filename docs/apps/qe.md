@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: Quantum ESPRESSO
+  description: Electronic-structure calculations and materials modeling at the nanoscale
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
+    - LUMI
 ---
 
 # Quantum ESPRESSO

@@ -1,9 +1,18 @@
 ---
 tags:
   - Academic
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: MATLAB
+  description: High-level technical computing language
+  license_type: Academic
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
 ---
 
 # MATLAB

@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: nsys
+  description: Nvidia GPU and CPU profiler
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # nsys: Nvidia GPU and CPU profiler

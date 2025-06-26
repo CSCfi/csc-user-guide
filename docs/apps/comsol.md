@@ -1,8 +1,16 @@
 ---
 tags:
   - Academic
-system:
-  - www-puhti
+catalog:
+  name: COMSOL Multiphysics
+  description: General-purpose simulation software
+  license_type: Academic
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - web_interfaces:
+        - Puhti
+    - Puhti
 ---
 
 # COMSOL Multiphysics

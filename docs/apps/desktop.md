@@ -1,10 +1,18 @@
 ---
 tags:
   - Free
-system:
-  - www-mahti
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Desktop
+  description: Remote desktop environment
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+        - Mahti
+    - LUMI
 ---
 
 # Desktop

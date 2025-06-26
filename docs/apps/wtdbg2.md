@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: wtdbg2
+  description: Fast assembler for long-read data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # wtdbg2

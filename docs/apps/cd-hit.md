@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: CD-HIT
+  description: Sequence clustering and redundancy removal tool
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # CD-HIT

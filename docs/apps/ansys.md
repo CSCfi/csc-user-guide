@@ -1,6 +1,16 @@
 ---
 tags:
   - Other
+catalog:
+  name: ANSYS
+  description: ANSYS Academic engineering simulation software suite
+  license_type: Other
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # ANSYS

@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: gdb
+  description: GNU debugger for compiled programs
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # gdb: GNU Debugger

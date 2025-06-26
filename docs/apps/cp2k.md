@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: CP2K
+  description: DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # CP2K

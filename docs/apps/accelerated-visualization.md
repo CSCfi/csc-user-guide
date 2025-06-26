@@ -1,9 +1,17 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Accelerated visualization
+  description: A selection of GPU accelerated visualization applications
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
 ---
 
 # Accelerated visualization
