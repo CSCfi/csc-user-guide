@@ -6,7 +6,7 @@ To get started, create a LUMI project via MyCSC. Note that Q50 projects follow a
 
 Detailed instructions on the process of creating a general LUMI project via MyCSC are here:
 
-* [How to create a LUMI project and apply for resources](../../../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
+* [How to create a LUMI project and apply for resources](../../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
 
 !!! info "Getting Started"
 	To get started with Helmi/VTT Q50 see
