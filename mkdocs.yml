@@ -170,6 +170,9 @@ plugins:
         "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/specs.md"
         "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/fiqci-partition.md"
         "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
+        "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
+        "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+
 
 markdown_extensions:
   - md_in_html
