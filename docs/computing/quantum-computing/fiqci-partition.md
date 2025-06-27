@@ -46,4 +46,4 @@ Presently, running through the `q_fiqci` queue will consume QPU seconds for the 
     You can check your used QPUs using the `lumi-allocations` tool. 
 
 
-Support can be reached via the [CSC Service Desk](../../../support/contact.md). Note that presently, user support is limited to technical issues.
+Support can be reached via the [CSC Service Desk](../../support/contact.md). Note that presently, user support is limited to technical issues.

@@ -29,9 +29,9 @@ Refer to the [Open Call](https://fiqci.fi/publications/2025-03-04-Q50-Call-1_202
 
 For further reading:
 
-* [A more technical description about the quantum computers](./quantum-computers/specs.md).
-* [Specific instructions for the fiqci partition](./quantum-computers/fiqci-partition.md)
-* [Getting started with Helmi/Q50](./quantum-computers/access.md)
+* [A more technical description about the quantum computers](./specs.md).
+* [Specific instructions for the fiqci partition](./fiqci-partition.md)
+* [Getting started with Helmi/Q50](./access.md)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
 
 
