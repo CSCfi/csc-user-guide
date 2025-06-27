@@ -80,73 +80,223 @@ To load the Qiskit module use `module load fiqci-vtt-qiskit`.
 
 In Qiskit python scripts you will need to include the following:
 
-```python
-import os
+=== "Helmi"
+    ```python
+    import os
 
-from qiskit import QuantumCircuit, transpile
-from iqm.qiskit_iqm import IQMProvider
+    from qiskit import QuantumCircuit, transpile
+    from iqm.qiskit_iqm import IQMProvider
 
-DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
+    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
 
-provider = IQMProvider(DEVICE_CORTEX_URL)
-backend = provider.get_backend()
+    provider = IQMProvider(DEVICE_CORTEX_URL)
+    backend = provider.get_backend()
 
-shots = 1000  # Set the number of shots you wish to run with
+    shots = 1000  # Set the number of shots you wish to run with
 
-# Create your quantum circuit.
-# Here is an example
-circuit = QuantumCircuit(2, 2)
-circuit.h(0)
-circuit.cx(0, 1)
-circuit.measure_all()
+    # Create your quantum circuit.
+    # Here is an example
+    circuit = QuantumCircuit(2, 2)
+    circuit.h(0)
+    circuit.cx(0, 1)
+    circuit.measure_all()
 
-print(circuit.draw(output='text'))
+    print(circuit.draw(output='text'))
 
-transpiled_circuit = transpile(circuit, backend)
-job = backend.run(transpiled_circuit, shots=shots)
-counts = job.result().get_counts()
-print(counts)
-```
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    counts = job.result().get_counts()
+    print(counts)
+    ```
+
+=== "Q50"
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit, transpile
+    from iqm.qiskit_iqm import IQMProvider
+
+    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
+
+    provider = IQMProvider(DEVICE_CORTEX_URL)
+    backend = provider.get_backend()
+
+    shots = 1000  # Set the number of shots you wish to run with
+
+    # Create your quantum circuit.
+    # Here is an example
+    circuit = QuantumCircuit(2, 2)
+    circuit.h(0)
+    circuit.cx(0, 1)
+    circuit.measure_all()
+
+    print(circuit.draw(output='text'))
+
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    counts = job.result().get_counts()
+    print(counts)
+    ```
+
+=== "Multiple backends"
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit, transpile
+    from iqm.qiskit_iqm import IQMProvider
+
+    HELMI_DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    Q50_DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    provider_helmi = IQMProvider(HELMI_DEVICE_CORTEX_URL)
+    provider_q50 = IQMProvider(Q50_DEVICE_CORTEX_URL)
+    
+    backend_helmi = provider_helmi.get_backend()
+    backend_q50 = provider_q50.get_backend()
+
+    shots = 1000  # Set the number of shots you wish to run with
+
+    # Create your quantum circuit.
+    # Here is an example
+    circuit = QuantumCircuit(2, 2)
+    circuit.h(0)
+    circuit.cx(0, 1)
+    circuit.measure_all()
+
+    print(circuit.draw(output='text'))
+
+    transpiled_circuit_helmi = transpile(circuit, backend_helmi)
+    transpiled_circuit_q50= transpile(circuit, backend_q50)
+    
+    job_helmi = backend_helmi.run(transpiled_circuit_helmi, shots=shots)
+    job_q50 = backend.run(transpiled_circuit_q50, shots=shots)
+
+    counts_helmi = job_helmi.result().get_counts()
+    counts_q50 = job_q50.result().get_counts()
+    
+    print(f"Counts Helmi {counts_helmi}")
+    print(f"Counts Q50 {counts_q50}")
+    ```
 
 ### Cirq
 
 To load the Cirq module use `module load fiqci-vtt-cirq`.
 
-```python
-import os
+=== "Helmi"
+    ```python
+    import os
 
-import cirq
-from iqm.cirq_iqm import Adonis
-from iqm.cirq_iqm.iqm_sampler import IQMSampler
+    import cirq
+    from iqm.cirq_iqm import Adonis
+    from iqm.cirq_iqm.iqm_sampler import IQMSampler
 
-adonis = Adonis()
+    adonis = Adonis()
 
-DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
+    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 
-sampler = IQMSampler(DEVICE_CORTEX_URL)
+    sampler = IQMSampler(DEVICE_CORTEX_URL)
 
-shots = 1000
+    shots = 1000
 
-# Create your quantum circuit
-# Here is an example
-q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
-circuit = cirq.Circuit()
-circuit.append(cirq.H(q1))
-circuit.append(cirq.CNOT(q1, q2))
-circuit.append(cirq.measure(q1, q2, key='m'))
-print(circuit)
+    # Create your quantum circuit
+    # Here is an example
+    q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+    circuit = cirq.Circuit()
+    circuit.append(cirq.H(q1))
+    circuit.append(cirq.CNOT(q1, q2))
+    circuit.append(cirq.measure(q1, q2, key='m'))
+    print(circuit)
 
-decomposed_circuit = adonis.decompose_circuit(circuit)
-routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+    decomposed_circuit = adonis.decompose_circuit(circuit)
+    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
 
-# Optionally print mapping
-# print(routed_circuit)
-# print(initial_mapping)
-# print(final_mapping)
+    # Optionally print mapping
+    # print(routed_circuit)
+    # print(initial_mapping)
+    # print(final_mapping)
 
-result = sampler.run(routed_circuit, repetitions=shots)
-print(result.measurements['m'])
-```
+    result = sampler.run(routed_circuit, repetitions=shots)
+    print(result.measurements['m'])
+    ```
+
+=== "Q50"
+    ```python
+    import os
+
+    import cirq
+    from iqm.cirq_iqm import Adonis
+    from iqm.cirq_iqm.iqm_sampler import IQMSampler
+
+    adonis = Adonis()
+
+    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    sampler = IQMSampler(DEVICE_CORTEX_URL)
+
+    shots = 1000
+
+    # Create your quantum circuit
+    # Here is an example
+    q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+    circuit = cirq.Circuit()
+    circuit.append(cirq.H(q1))
+    circuit.append(cirq.CNOT(q1, q2))
+    circuit.append(cirq.measure(q1, q2, key='m'))
+    print(circuit)
+
+    decomposed_circuit = adonis.decompose_circuit(circuit)
+    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+
+    # Optionally print mapping
+    # print(routed_circuit)
+    # print(initial_mapping)
+    # print(final_mapping)
+
+    result = sampler.run(routed_circuit, repetitions=shots)
+    print(result.measurements['m'])
+    ```
+
+=== "Multiple backends"
+    ```python
+    import os
+
+    import cirq
+    from iqm.cirq_iqm import Adonis
+    from iqm.cirq_iqm.iqm_sampler import IQMSampler
+
+    adonis = Adonis()
+
+    HELMI_DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    Q50_DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    sampler_helmi = IQMSampler(HELMI_DEVICE_CORTEX_URL)
+    sampler_q50 = IQMSampler(Q50_DEVICE_CORTEX_URL)
+
+    shots = 1000
+
+    # Create your quantum circuit
+    # Here is an example
+    q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+    circuit = cirq.Circuit()
+    circuit.append(cirq.H(q1))
+    circuit.append(cirq.CNOT(q1, q2))
+    circuit.append(cirq.measure(q1, q2, key='m'))
+    print(circuit)
+
+    decomposed_circuit = adonis.decompose_circuit(circuit)
+    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+
+    # Optionally print mapping
+    # print(routed_circuit)
+    # print(initial_mapping)
+    # print(final_mapping)
+
+    result_helmi = sampler_helmi.run(routed_circuit, repetitions=shots)
+    result_q50 = sampler_q50.run(routed_circuit, repetitions=shots)
+
+    print(f"Results Helmi: {result_helmi.measurements['m']}")
+    print(f"Results Q50: {result_q50.measurements['m']}")
+    ```
 
 ## Additional examples
 
