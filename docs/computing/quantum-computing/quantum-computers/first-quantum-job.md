@@ -186,29 +186,78 @@ Remember to add your own project account!
 This submits the job *interactively* meaning that the output will be printed straight to the terminal screen. If you wish you can also submit it using `sbatch` using this skeleton batch script. Using `nano` as before create the script `batch_script.sh`. 
 
 
-```bash
-#!/bin/bash -l
+=== "Helmi"
+    ```bash
+    #!/bin/bash -l
 
-#SBATCH --job-name=quantumjob   # Job name
-#SBATCH --output=quantumjob.o%j # Name of stdout output file
-#SBATCH --error=quantumjob.e%j  # Name of stderr error file
-#SBATCH --partition=q_fiqci   # Partition (queue) name
-#SBATCH --ntasks=1              # One task (process)
-#SBATCH --mem-per-cpu=2G       # memory allocation
-#SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:05:00         # Run time (hh:mm:ss)
-#SBATCH --account=project_xxx  # Project for billing
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --output=quantumjob.o%j # Name of stdout output file
+    #SBATCH --error=quantumjob.e%j  # Name of stderr error file
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+    #SBATCH --account=project_xxx  # Project for billing
 
-module use /appl/local/quantum/modulefiles
-module load fiqci-vtt-qiskit
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
 
-#To run on both Helmi(Q5) and Q50 uncomment the line below
-#export DEVICES=("Q5" "Q50")
+    export DEVICES=("Q5")
 
-source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
 
-python -u first_quantum_job.py
-```
+    python -u first_quantum_job.py
+    ```
+
+=== "Q50"
+    ```bash
+    #!/bin/bash -l
+
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --output=quantumjob.o%j # Name of stdout output file
+    #SBATCH --error=quantumjob.e%j  # Name of stderr error file
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+    #SBATCH --account=project_xxx  # Project for billing
+
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
+
+    export DEVICES=("Q50")
+
+    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+
+    python -u first_quantum_job.py
+    ```
+
+=== "Multiple backends"
+    ```bash
+    #!/bin/bash -l
+
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --output=quantumjob.o%j # Name of stdout output file
+    #SBATCH --error=quantumjob.e%j  # Name of stderr error file
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+    #SBATCH --account=project_xxx  # Project for billing
+
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
+
+    export DEVICES=("Q5" "Q50")
+
+    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+
+    python -u first_quantum_job.py
+    ```
+
 This can be submitted with `sbatch batch_script.sh` in the same directory as your python file. Jobs in the SLURM queue can be monitored through `squeue -u username` and after the job has completed your results can be found in the `quantumjob.oxxxxx` file. This can be printed to the terminal with `cat`. 
 To run on both Helmi and Q50 or Q50 alone you will need to specify the devices that you require. Here `Q5` represents Helmi and `Q50`represents the 50 qubit machine.
 
@@ -219,51 +268,162 @@ Congratulations! You have just run your first job on a quantum computer.
 
 The full python script can be found below. 
 
-```python
-import os
+=== "Helmi"
+    ```python
+    import os
 
-from qiskit import QuantumCircuit, QuantumRegister, transpile
-from iqm.qiskit_iqm import IQMProvider
+    from qiskit import QuantumCircuit, QuantumRegister, transpile
+    from iqm.qiskit_iqm import IQMProvider
 
-shots = 1000
+    shots = 1000
 
-qreg = QuantumRegister(2, "QB")
-circuit = QuantumCircuit(qreg, name='Bell pair circuit')
+    qreg = QuantumRegister(2, "QB")
+    circuit = QuantumCircuit(qreg, name='Bell pair circuit')
 
-circuit.h(qreg[0])
-circuit.cx(qreg[0], qreg[1])
-circuit.measure_all()
+    circuit.h(qreg[0])
+    circuit.cx(qreg[0], qreg[1])
+    circuit.measure_all()
 
-# Uncomment if you wish to print the circuit
-# print(circuit.draw())
+    # Uncomment if you wish to print the circuit
+    # print(circuit.draw())
 
-HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 
-helmi_provider = IQMProvider(HELMI_CORTEX_URL)
-backend = helmi_provider.get_backend()
+    provider_helmi = IQMProvider(HELMI_CORTEX_URL)
+    backend_helmi = provider_helmi.get_backend()
 
-## Uncomment the lines below to use Q50
-#Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
-#Q50_provider = IQMProvider(Q50_CORTEX_URL)
-#backend2 = Q50_provider.get_backend()
+    # Retrieving backend information
+    # print(f'Native operations: {backend.operation_names}')
+    # print(f'Number of qubits: {backend.num_qubits}')
+    # print(f'Coupling map: {backend.coupling_map}')
 
-# Retrieving backend information
-# print(f'Native operations: {backend.operation_names}')
-# print(f'Number of qubits: {backend.num_qubits}')
-# print(f'Coupling map: {backend.coupling_map}')
+    transpiled_circuit = transpile(circuit, backend_helmi)
 
-transpiled_circuit = transpile(circuit, backend)
-job = backend.run(transpiled_circuit, shots=shots)
-result = job.result()
-exp_result = job.result()._get_experiment(circuit)
-# You can retrieve the job at a later date with backend.retrieve_job(job_id)
-# Uncomment the following lines to get more information about your submitted job
-# print("Job ID: ", job.job_id())
-# print(result.request.circuits)
-# print("Calibration Set ID: ", exp_result.calibration_set_id)
-# print(result.request.qubit_mapping)
-# print(result.request.shots)
+    job = backend.run(transpiled_circuit, shots=shots)
+    result = job.result()
 
-counts = result.get_counts()
-print(counts)
-```
+    # You can retrieve the job at a later date with backend.retrieve_job(job_id)
+    # Uncomment the following lines to get more information about your submitted job
+    # print("Job ID: ", job.job_id())
+    # print(result.request.circuits)
+    # exp_result = job.result()._get_experiment(circuit)
+    # print("Calibration Set ID: ", exp_result.calibration_set_id)
+    # print(result.request.qubit_mapping)
+    # print(result.request.shots)
+
+    counts = result.get_counts()
+    print(counts)
+    ```
+
+=== "Q50"
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit, QuantumRegister, transpile
+    from iqm.qiskit_iqm import IQMProvider
+
+    shots = 1000
+
+    qreg = QuantumRegister(2, "QB")
+    circuit = QuantumCircuit(qreg, name='Bell pair circuit')
+
+    circuit.h(qreg[0])
+    circuit.cx(qreg[0], qreg[1])
+    circuit.measure_all()
+
+    # Uncomment if you wish to print the circuit
+    # print(circuit.draw())
+
+    Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    provider_q50 = IQMProvider(Q50_CORTEX_URL)
+    backend_q50 = provider_q50.get_backend()
+
+    # Retrieving backend information
+    # print(f'Native operations: {backend.operation_names}')
+    # print(f'Number of qubits: {backend.num_qubits}')
+    # print(f'Coupling map: {backend.coupling_map}')
+
+    transpiled_circuit = transpile(circuit, backend_helmi)
+    
+    job = backend_q50.run(transpiled_circuit, shots=shots)
+    result = job.result()
+    
+    # You can retrieve the job at a later date with backend.retrieve_job(job_id)
+    # Uncomment the following lines to get more information about your submitted job
+    # print("Job ID: ", job.job_id())
+    # print(result.request.circuits)
+    # exp_result = job.result()._get_experiment(circuit)
+    # print("Calibration Set ID: ", exp_result.calibration_set_id)
+    # print(result.request.qubit_mapping)
+    # print(result.request.shots)
+
+    counts = result.get_counts()
+    print(counts)
+    ```
+
+=== "Multiple backends"
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit, QuantumRegister, transpile
+    from iqm.qiskit_iqm import IQMProvider
+
+    shots = 1000
+
+    qreg = QuantumRegister(2, "QB")
+    circuit = QuantumCircuit(qreg, name='Bell pair circuit')
+
+    circuit.h(qreg[0])
+    circuit.cx(qreg[0], qreg[1])
+    circuit.measure_all()
+
+    # Uncomment if you wish to print the circuit
+    # print(circuit.draw())
+
+    HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    provider_helmi = IQMProvider(HELMI_CORTEX_URL)
+    backend_helmi = provider_helmi.get_backend()
+
+    provider_q50 = IQMProvider(Q50_CORTEX_URL)
+    backend_q50= provider_q50.get_backend()
+
+
+    # Retrieving backend information
+    # print(f'Native operations: {backend.operation_names}')
+    # print(f'Number of qubits: {backend.num_qubits}')
+    # print(f'Coupling map: {backend.coupling_map}')
+
+    transpiled_circuit_helmi = transpile(circuit, backend_helmi)
+    transpiled_circuit_q50 = transpile(circuit, backend_q50)
+    
+    job_helmi = backend_helmi.run(transpiled_circuit_helmi, shots=shots)
+    job_q50 = backend_q50.run(transpiled_circuit_q50, shots=shots)
+    
+    result_helmi = job_helmi.result()
+    result_q50 = job_q50.result()
+
+    # You can retrieve the job at a later date with backend.retrieve_job(job_id)
+    # Uncomment the following lines to get more information about your submitted jobs
+    # print("Helmi Job ID: ", job_helmi.job_id())
+    # print(result_helmi.request.circuits)
+    # exp_result_helmi = job_helmi.result()._get_experiment(circuit)
+    # print("Helmi Calibration Set ID: ", exp_result_helmi.calibration_set_id)
+    # print(result_helmi.request.qubit_mapping)
+    # print(result_helmi.request.shots)
+
+    # print("Q50 job ID: ", job_q50.job_id())
+    # print(result_q50.request.circuits)
+    # exp_result_q50 = job_q50.result()._get_experiment(circuit)
+    # print("Q50 Calibration Set ID: ", exp_result_q50.calibration_set_id)
+    # print(result_q50.request.qubit_mapping)
+    # print(result_q50.request.shots)
+
+    counts_helmi = result_helmi.get_counts()
+    counts_q50 = result_q50.get_counts()
+
+    print(f"Helmi results: {counts_helmi}")
+    print(f"Q50 results: {counts_q50}")
+    ```
