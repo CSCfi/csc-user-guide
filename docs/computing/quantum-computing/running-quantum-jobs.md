@@ -112,7 +112,10 @@ Here is an example batch script to submit a quantum job
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`.
 
 ```bash
-srun --account=project_<id> -t 00:15:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
+module use /appl/local/quantum/modulefiles
+module --ignore_cache load "fiqci_vtt_qiskit"
+export DEVICES=("Q50")
+srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u your_python_script.py"
 ```
 
 The `fiqci-vtt-*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with the quantum computers.
