@@ -72,17 +72,36 @@ Now the circuit is created! If you wish you can see what your circuit looks like
 
 First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi(the 5 qubit machine) and is only reachable inside the `q_fiqci` partition, while the `Q50_CORTEX_URL`is the endpoint to reach Q50(the 50 qubit machine). This environment variable is set automatically when loading any of the Quantum computing modules such as the `fiqci-vtt-qiskit` module. 
 
-```python
-HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
-provider = IQMProvider(HELMI_CORTEX_URL)
-backend = provider.get_backend()
+=== "Helmi"
+    ```python
+    # Accessing Helmi
 
-## Uncomment the lines below to use Q50
-#Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
-#Q50_provider = IQMProvider(Q50_CORTEX_URL)
-#backend2 = Q50_provider.get_backend()
+    HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    provider = IQMProvider(HELMI_CORTEX_URL)
+    backend = provider.get_backend()
+    ```
 
-```
+=== "Q50"
+    ```python
+    # Accessing Q50
+
+    Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+    Q50_provider = IQMProvider(Q50_CORTEX_URL)
+    backend = Q50_provider.get_backend()
+    ```
+
+=== "Multiple backends"
+    ```python
+    # It is possible to simultaneously run jobs on multiple backends
+
+    HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    provider_helmi = IQMProvider(HELMI_CORTEX_URL)
+    backend_helmi = provider.get_backend()
+
+    Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+    Q50_provider = IQMProvider(Q50_CORTEX_URL)
+    backend_q50 = Q50_provider.get_backend()
+    ```
 
 ### Decomposing the circuit (*Optional*)
 
