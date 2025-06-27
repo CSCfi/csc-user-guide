@@ -8,7 +8,7 @@ The qubits are arranged in a **star shaped** topology, with the central qubit be
 This means that any two-qubit gate will work between QB3 and any other qubit, 
 whereas one-qubit gates can be mapped to any of the 4 surrounding qubits. 
 
-<center>!["Helmi's node mapping"](../../img/helmi_mapping.png)</center>
+<center>!["Helmi's node mapping"](../../img/Helmi_topology.png)</center>
 
 
 #### Native Gates
