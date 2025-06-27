@@ -40,27 +40,74 @@ The current supported software versions are:
 
 Here is an example batch script to submit a quantum job
 
-```bash
-#!/bin/bash
+=== "Helmi"
+    ```bash
+    #!/bin/bash
 
-#SBATCH --job-name=quantumjob   # Job name
-#SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-#SBATCH --partition=q_fiqci   # Partition (queue) name
-#SBATCH --ntasks=1              # One task (process)
-#SBATCH --mem-per-cpu=2G       # memory allocation
-#SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
 
-module use /appl/local/quantum/modulefiles
+    module use /appl/local/quantum/modulefiles
 
-# uncomment correct line:
-# module load fiqci-vtt-qiskit
-# or
-# module load fiqci-vtt-cirq
-export DEVICES=("Q5") #export DEVICES=("Q5" "Q50") to use Helmi and Q50
-source $RUN_SETUP
-python your_python_script.py
-```
+    # uncomment correct line:
+    # module load fiqci-vtt-qiskit
+    # or
+    # module load fiqci-vtt-cirq
+    export DEVICES=("Q5")
+    source $RUN_SETUP
+    python your_python_script.py
+    ```
+
+=== "Q50"
+    ```bash
+    #!/bin/bash
+
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+
+    module use /appl/local/quantum/modulefiles
+
+    # uncomment correct line:
+    # module load fiqci-vtt-qiskit
+    # or
+    # module load fiqci-vtt-cirq
+    export DEVICES=("Q50")
+    source $RUN_SETUP
+    python your_python_script.py
+    ```
+
+=== "Multiple backends"
+    ```bash
+    #!/bin/bash
+
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+
+    module use /appl/local/quantum/modulefiles
+
+    # uncomment correct line:
+    # module load fiqci-vtt-qiskit
+    # or
+    # module load fiqci-vtt-cirq
+    export DEVICES=("Q5" "Q50")
+    source $RUN_SETUP
+    python your_python_script.py
+    ```
 
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`.
 
@@ -80,73 +127,223 @@ To load the Qiskit module use `module load fiqci-vtt-qiskit`.
 
 In Qiskit python scripts you will need to include the following:
 
-```python
-import os
+=== "Helmi"
+    ```python
+    import os
 
-from qiskit import QuantumCircuit, transpile
-from iqm.qiskit_iqm import IQMProvider
+    from qiskit import QuantumCircuit, transpile
+    from iqm.qiskit_iqm import IQMProvider
 
-DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
+    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 
-provider = IQMProvider(DEVICE_CORTEX_URL)
-backend = provider.get_backend()
+    provider = IQMProvider(DEVICE_CORTEX_URL)
+    backend = provider.get_backend()
 
-shots = 1000  # Set the number of shots you wish to run with
+    shots = 1000  # Set the number of shots you wish to run with
 
-# Create your quantum circuit.
-# Here is an example
-circuit = QuantumCircuit(2, 2)
-circuit.h(0)
-circuit.cx(0, 1)
-circuit.measure_all()
+    # Create your quantum circuit.
+    # Here is an example
+    circuit = QuantumCircuit(2, 2)
+    circuit.h(0)
+    circuit.cx(0, 1)
+    circuit.measure_all()
 
-print(circuit.draw(output='text'))
+    print(circuit.draw(output='text'))
 
-transpiled_circuit = transpile(circuit, backend)
-job = backend.run(transpiled_circuit, shots=shots)
-counts = job.result().get_counts()
-print(counts)
-```
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    counts = job.result().get_counts()
+    print(counts)
+    ```
+
+=== "Q50"
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit, transpile
+    from iqm.qiskit_iqm import IQMProvider
+
+    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    provider = IQMProvider(DEVICE_CORTEX_URL)
+    backend = provider.get_backend()
+
+    shots = 1000  # Set the number of shots you wish to run with
+
+    # Create your quantum circuit.
+    # Here is an example
+    circuit = QuantumCircuit(2, 2)
+    circuit.h(0)
+    circuit.cx(0, 1)
+    circuit.measure_all()
+
+    print(circuit.draw(output='text'))
+
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    counts = job.result().get_counts()
+    print(counts)
+    ```
+
+=== "Multiple backends"
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit, transpile
+    from iqm.qiskit_iqm import IQMProvider
+
+    HELMI_DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    Q50_DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    provider_helmi = IQMProvider(HELMI_DEVICE_CORTEX_URL)
+    provider_q50 = IQMProvider(Q50_DEVICE_CORTEX_URL)
+    
+    backend_helmi = provider_helmi.get_backend()
+    backend_q50 = provider_q50.get_backend()
+
+    shots = 1000  # Set the number of shots you wish to run with
+
+    # Create your quantum circuit.
+    # Here is an example
+    circuit = QuantumCircuit(2, 2)
+    circuit.h(0)
+    circuit.cx(0, 1)
+    circuit.measure_all()
+
+    print(circuit.draw(output='text'))
+
+    transpiled_circuit_helmi = transpile(circuit, backend_helmi)
+    transpiled_circuit_q50= transpile(circuit, backend_q50)
+    
+    job_helmi = backend_helmi.run(transpiled_circuit_helmi, shots=shots)
+    job_q50 = backend.run(transpiled_circuit_q50, shots=shots)
+
+    counts_helmi = job_helmi.result().get_counts()
+    counts_q50 = job_q50.result().get_counts()
+    
+    print(f"Counts Helmi {counts_helmi}")
+    print(f"Counts Q50 {counts_q50}")
+    ```
 
 ### Cirq
 
 To load the Cirq module use `module load fiqci-vtt-cirq`.
 
-```python
-import os
+=== "Helmi"
+    ```python
+    import os
 
-import cirq
-from iqm.cirq_iqm import Adonis
-from iqm.cirq_iqm.iqm_sampler import IQMSampler
+    import cirq
+    from iqm.cirq_iqm import Adonis
+    from iqm.cirq_iqm.iqm_sampler import IQMSampler
 
-adonis = Adonis()
+    adonis = Adonis()
 
-DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
+    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 
-sampler = IQMSampler(DEVICE_CORTEX_URL)
+    sampler = IQMSampler(DEVICE_CORTEX_URL)
 
-shots = 1000
+    shots = 1000
 
-# Create your quantum circuit
-# Here is an example
-q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
-circuit = cirq.Circuit()
-circuit.append(cirq.H(q1))
-circuit.append(cirq.CNOT(q1, q2))
-circuit.append(cirq.measure(q1, q2, key='m'))
-print(circuit)
+    # Create your quantum circuit
+    # Here is an example
+    q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+    circuit = cirq.Circuit()
+    circuit.append(cirq.H(q1))
+    circuit.append(cirq.CNOT(q1, q2))
+    circuit.append(cirq.measure(q1, q2, key='m'))
+    print(circuit)
 
-decomposed_circuit = adonis.decompose_circuit(circuit)
-routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+    decomposed_circuit = adonis.decompose_circuit(circuit)
+    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
 
-# Optionally print mapping
-# print(routed_circuit)
-# print(initial_mapping)
-# print(final_mapping)
+    # Optionally print mapping
+    # print(routed_circuit)
+    # print(initial_mapping)
+    # print(final_mapping)
 
-result = sampler.run(routed_circuit, repetitions=shots)
-print(result.measurements['m'])
-```
+    result = sampler.run(routed_circuit, repetitions=shots)
+    print(result.measurements['m'])
+    ```
+
+=== "Q50"
+    ```python
+    import os
+
+    import cirq
+    from iqm.cirq_iqm import Adonis
+    from iqm.cirq_iqm.iqm_sampler import IQMSampler
+
+    adonis = Adonis()
+
+    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    sampler = IQMSampler(DEVICE_CORTEX_URL)
+
+    shots = 1000
+
+    # Create your quantum circuit
+    # Here is an example
+    q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+    circuit = cirq.Circuit()
+    circuit.append(cirq.H(q1))
+    circuit.append(cirq.CNOT(q1, q2))
+    circuit.append(cirq.measure(q1, q2, key='m'))
+    print(circuit)
+
+    decomposed_circuit = adonis.decompose_circuit(circuit)
+    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+
+    # Optionally print mapping
+    # print(routed_circuit)
+    # print(initial_mapping)
+    # print(final_mapping)
+
+    result = sampler.run(routed_circuit, repetitions=shots)
+    print(result.measurements['m'])
+    ```
+
+=== "Multiple backends"
+    ```python
+    import os
+
+    import cirq
+    from iqm.cirq_iqm import Adonis
+    from iqm.cirq_iqm.iqm_sampler import IQMSampler
+
+    adonis = Adonis()
+
+    HELMI_DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    Q50_DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+
+    sampler_helmi = IQMSampler(HELMI_DEVICE_CORTEX_URL)
+    sampler_q50 = IQMSampler(Q50_DEVICE_CORTEX_URL)
+
+    shots = 1000
+
+    # Create your quantum circuit
+    # Here is an example
+    q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+    circuit = cirq.Circuit()
+    circuit.append(cirq.H(q1))
+    circuit.append(cirq.CNOT(q1, q2))
+    circuit.append(cirq.measure(q1, q2, key='m'))
+    print(circuit)
+
+    decomposed_circuit = adonis.decompose_circuit(circuit)
+    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+
+    # Optionally print mapping
+    # print(routed_circuit)
+    # print(initial_mapping)
+    # print(final_mapping)
+
+    result_helmi = sampler_helmi.run(routed_circuit, repetitions=shots)
+    result_q50 = sampler_q50.run(routed_circuit, repetitions=shots)
+
+    print(f"Results Helmi: {result_helmi.measurements['m']}")
+    print(f"Results Q50: {result_q50.measurements['m']}")
+    ```
 
 ## Additional examples
 
@@ -166,31 +363,60 @@ A set of Qiskit and Cirq examples and scripts for guidance in using the `q_fiqci
 
 Additional metadata about your job can be queried directly with Qiskit. For example:
 
-```python
+=== "Helmi"
+    ```python
 
-DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
-provider = IQMProvider(DEVICE_CORTEX_URL)
-backend = provider.get_backend()
+    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    provider = IQMProvider(DEVICE_CORTEX_URL)
+    backend = provider.get_backend()
 
-#Retrieving backend information
-print(f'Native operations: {backend.operation_names}')
-print(f'Number of qubits: {backend.num_qubits}')
-print(f'Coupling map: {backend.coupling_map}')
+    #Retrieving backend information
+    print(f'Native operations: {backend.operation_names}')
+    print(f'Number of qubits: {backend.num_qubits}')
+    print(f'Coupling map: {backend.coupling_map}')
 
-transpiled_circuit = transpile(circuit, backend)
-job = backend.run(transpiled_circuit, shots=shots)
-result = job.result()
-exp_result = result._get_experiment(circuit)
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    result = job.result()
+    exp_result = result._get_experiment(circuit)
 
-print("Job ID: ", job.job_id())  # Retrieving the submitted job id
-print(result.request.circuits)  # Retrieving the circuit request sent
-print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
-print(result.request.qubit_mapping)  # Retrieving the qubit mapping
-print(result.request.shots)  # Retrieving the number of requested shots.
+    print("Job ID: ", job.job_id())  # Retrieving the submitted job id
+    print(result.request.circuits)  # Retrieving the circuit request sent
+    print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
+    print(result.request.qubit_mapping)  # Retrieving the qubit mapping
+    print(result.request.shots)  # Retrieving the number of requested shots.
 
-#retrieve a job using the job_id from a previous session
-#old_job = backend.retrieve_job(job_id)
-```
+    #retrieve a job using the job_id from a previous session
+    #old_job = backend.retrieve_job(job_id)
+    ```
+
+=== "Q50"
+    ```python
+
+    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+    provider = IQMProvider(DEVICE_CORTEX_URL)
+    backend = provider.get_backend()
+
+    #Retrieving backend information
+    print(f'Native operations: {backend.operation_names}')
+    print(f'Number of qubits: {backend.num_qubits}')
+    print(f'Coupling map: {backend.coupling_map}')
+
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    result = job.result()
+    exp_result = result._get_experiment(circuit)
+
+    print("Job ID: ", job.job_id())  # Retrieving the submitted job id
+    print(result.request.circuits)  # Retrieving the circuit request sent
+    print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
+    print(result.request.qubit_mapping)  # Retrieving the qubit mapping
+    print(result.request.shots)  # Retrieving the number of requested shots.
+
+    #retrieve a job using the job_id from a previous session
+    #old_job = backend.retrieve_job(job_id)
+    ```
+
 !!! info "Save your Job ID!"
     Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
     The same applies for the calibration set id.
@@ -198,7 +424,7 @@ print(result.request.shots)  # Retrieving the number of requested shots.
 
 ## Figures of Merit
 
-The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi/Q50. It also gives an idea as to the current status of quantum computers. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
+The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi/Q50. It also gives an idea as to the current status of the quantum computers. In `fiqci-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
 
 Here is a brief description of the figures which are given when querying:
 
@@ -233,15 +459,12 @@ module use /appl/local/quantum/modulefiles
 module load fiqci-vtt-qiskit # or module load fiqci-vtt-cirq
 ```
 
-<p align="center">
-    <img src="../../img/Quantum_jobs_lumi_web.png" alt="Helmi's with LUMI web">
-</p>
+!["Qcs with LUMI web"](../../img/Quantum_jobs_lumi_web.png)
+
 
 Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi/Q50 during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.
 
-<p align="center">
-    <img src="../../img/helmi_with_jupyter_for_courses_gui.png" alt="Qcs with LUMI web">
-</p>
+!["Qcs with LUMI web courses"](../../img/helmi_with_jupyter_for_courses_gui.png)
 
 
 ## Further Reading
