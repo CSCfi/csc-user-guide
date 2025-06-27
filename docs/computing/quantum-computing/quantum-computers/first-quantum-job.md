@@ -84,9 +84,9 @@ backend = provider.get_backend()
 
 ```
 
-### Decomposing the circuit (*Optional*)
+### Transpiling the circuit
 
-The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Helmi, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
+This next step is where the quantum circuit you've just created is decomposed (transpiled) into it's basis gates. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Helmi, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
 
 ```python
 circuit_decomposed = transpile(circuit, backend=backend)
@@ -186,7 +186,7 @@ module load fiqci-vtt-qiskit
 #To run on both Helmi(Q5) and Q50 uncomment the line below
 #export DEVICES=("Q5" "Q50")
 
-source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+source $RUN_SETUP
 
 python -u first_quantum_job.py
 ```
