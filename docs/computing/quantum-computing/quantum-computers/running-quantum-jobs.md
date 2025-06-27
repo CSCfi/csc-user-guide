@@ -364,31 +364,60 @@ A set of Qiskit and Cirq examples and scripts for guidance in using the `q_fiqci
 
 Additional metadata about your job can be queried directly with Qiskit. For example:
 
-```python
+=== "Helmi"
+    ```python
 
-DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
-provider = IQMProvider(DEVICE_CORTEX_URL)
-backend = provider.get_backend()
+    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    provider = IQMProvider(DEVICE_CORTEX_URL)
+    backend = provider.get_backend()
 
-#Retrieving backend information
-print(f'Native operations: {backend.operation_names}')
-print(f'Number of qubits: {backend.num_qubits}')
-print(f'Coupling map: {backend.coupling_map}')
+    #Retrieving backend information
+    print(f'Native operations: {backend.operation_names}')
+    print(f'Number of qubits: {backend.num_qubits}')
+    print(f'Coupling map: {backend.coupling_map}')
 
-transpiled_circuit = transpile(circuit, backend)
-job = backend.run(transpiled_circuit, shots=shots)
-result = job.result()
-exp_result = result._get_experiment(circuit)
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    result = job.result()
+    exp_result = result._get_experiment(circuit)
 
-print("Job ID: ", job.job_id())  # Retrieving the submitted job id
-print(result.request.circuits)  # Retrieving the circuit request sent
-print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
-print(result.request.qubit_mapping)  # Retrieving the qubit mapping
-print(result.request.shots)  # Retrieving the number of requested shots.
+    print("Job ID: ", job.job_id())  # Retrieving the submitted job id
+    print(result.request.circuits)  # Retrieving the circuit request sent
+    print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
+    print(result.request.qubit_mapping)  # Retrieving the qubit mapping
+    print(result.request.shots)  # Retrieving the number of requested shots.
 
-#retrieve a job using the job_id from a previous session
-#old_job = backend.retrieve_job(job_id)
-```
+    #retrieve a job using the job_id from a previous session
+    #old_job = backend.retrieve_job(job_id)
+    ```
+
+=== "Q50"
+    ```python
+
+    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
+    provider = IQMProvider(DEVICE_CORTEX_URL)
+    backend = provider.get_backend()
+
+    #Retrieving backend information
+    print(f'Native operations: {backend.operation_names}')
+    print(f'Number of qubits: {backend.num_qubits}')
+    print(f'Coupling map: {backend.coupling_map}')
+
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    result = job.result()
+    exp_result = result._get_experiment(circuit)
+
+    print("Job ID: ", job.job_id())  # Retrieving the submitted job id
+    print(result.request.circuits)  # Retrieving the circuit request sent
+    print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
+    print(result.request.qubit_mapping)  # Retrieving the qubit mapping
+    print(result.request.shots)  # Retrieving the number of requested shots.
+
+    #retrieve a job using the job_id from a previous session
+    #old_job = backend.retrieve_job(job_id)
+    ```
+
 !!! info "Save your Job ID!"
     Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
     The same applies for the calibration set id.
