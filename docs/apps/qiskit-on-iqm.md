@@ -25,7 +25,7 @@ versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 15.5    | `fiqci-vtt-qiskit/15.5`                  | X     |                 |
+| 17.8    | `fiqci-vtt-qiskit/17.8`                  | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -79,7 +79,8 @@ Example batch script for running a quantum job:
 
 module use /appl/local/quantum/modulefiles
 module load fiqci-vtt-qiskit
-
+export DEVICES=("Q5") #export DEVICES=("Q5" "Q50") to use Helmi and Q50
+source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
 python -u quantum_job.py
 ```
 
