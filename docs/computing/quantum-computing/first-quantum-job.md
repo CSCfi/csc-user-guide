@@ -125,9 +125,7 @@ qubit_mapping = {
 
 As an example, here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. The same process can be applied to other quantum computers like Q50.
 
-<p align="center">
-    <img src="../../img/helmi_mapping.png" alt="Helmi's node mapping">
-</p>
+<center>!["Helmi's node mapping"](../../img/helmi_mapping.png)</center>
 
 
 The two qubit Controlled-X gate we implemented in our circuit is currently on the second of our two qubits in the Quantum register, `qreg[1]`. Due to Helmi's topology this needs to be mapped to QB3 on Helmi. The 1 qubit Hadamard gate can be mapped to any of the *outer* qubits, QB1, QB2, QB4, QB5, here we choose QB1. 
