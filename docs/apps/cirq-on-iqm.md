@@ -90,4 +90,4 @@ Submit the script with `sbatch <script_name>.sh`.
 ## More information
 
 - [Cirq-IQM documentation](https://iqm-finland.github.io/cirq-on-iqm/user_guide.html)
-- [Quantum-Computing](../computing/quantum-computing//running-quantum-jobs.md)
+- [Quantum-Computing](../computing/quantum-computing/running-quantum-jobs.md)
