@@ -18,6 +18,7 @@ catalog:
 Machine learning framework for Python.
 
 !!! info "News" 
+    **26.6.2025** PyTorch 2.7.1 installed to LUMI, and made the default version. 
 
     **10.4.2025** PyTorch 2.6.0 installed to Puhti and Mahti, and made the
     default version. Includes the most recent versions of popular packages
@@ -88,8 +89,9 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
+| 2.7.1   | `pytorch/2.7`  | -     | -     | X    | Default on LUMI            |
 | 2.6.0   | `pytorch/2.6`  | X     | X     | -    | Default on Puhti, Mahti    |
-| 2.5.1   | `pytorch/2.5`  | X     | X     | X    | Default on LUMI            |
+| 2.5.1   | `pytorch/2.5`  | X     | X     | X    |                            |
 | 2.4.1   | `pytorch/2.4`  | -     | -     | X    |                            |
 | 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
 | 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |
