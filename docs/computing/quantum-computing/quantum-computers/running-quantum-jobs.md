@@ -59,7 +59,7 @@ Here is an example batch script to submit a quantum job
     # or
     # module load fiqci-vtt-cirq
     export DEVICES=("Q5")
-    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    source $RUN_SETUP
     python your_python_script.py
     ```
 
@@ -82,7 +82,7 @@ Here is an example batch script to submit a quantum job
     # or
     # module load fiqci-vtt-cirq
     export DEVICES=("Q50")
-    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    source $RUN_SETUP
     python your_python_script.py
     ```
 
@@ -105,10 +105,9 @@ Here is an example batch script to submit a quantum job
     # or
     # module load fiqci-vtt-cirq
     export DEVICES=("Q5" "Q50")
-    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    source $RUN_SETUP
     python your_python_script.py
     ```
-
 
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`.
 
@@ -423,9 +422,9 @@ Additional metadata about your job can be queried directly with Qiskit. For exam
     The same applies for the calibration set id.
 
 
-## Helmi/Q50 Figures of Merit
+## Figures of Merit
 
-The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi/Q50. It also gives an idea as to the current status of the device. In `fiqci-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
+The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi/Q50. It also gives an idea as to the current status of the quantum computers. In `fiqci-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
 
 Here is a brief description of the figures which are given when querying:
 
@@ -461,7 +460,7 @@ module load fiqci-vtt-qiskit # or module load fiqci-vtt-cirq
 ```
 
 <p align="center">
-    <img src="../../../../img/running_on_helmi_and_q50.png" alt="Helmi's with LUMI web">
+    <img src="../../../../img/Quantum_jobs_lumi_web.png" alt="Helmi's with LUMI web">
 </p>
 
 Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi/Q50 during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.

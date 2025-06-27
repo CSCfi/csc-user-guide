@@ -80,7 +80,7 @@ module use /appl/local/quantum/modulefiles
 module load fiqci-vtt-cirq
 
 export DEVICES=("Q5") #export DEVICES=("Q5" "Q50") to use Helmi and Q50
-source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+source $RUN_SETUP
 
 python -u quantum_job.py
 ```

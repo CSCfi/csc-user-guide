@@ -105,7 +105,7 @@ First we need to set our provider and backend. The provider is the service which
 
 ### Transpiling the circuit
 
-The next step is optional and where the quantum circuit you've just created is transpiled (decomposed) into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of tranpilation involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Helmi and Q50, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
+This next step is where the quantum circuit you've just created is decomposed (transpiled) into it's basis gates. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Helmi and Q50, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
 
 ```python
 circuit_decomposed = transpile(circuit, backend=backend)
@@ -205,7 +205,7 @@ This submits the job *interactively* meaning that the output will be printed str
 
     export DEVICES=("Q5")
 
-    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    source $RUN_SETUP
 
     python -u first_quantum_job.py
     ```
@@ -229,7 +229,7 @@ This submits the job *interactively* meaning that the output will be printed str
 
     export DEVICES=("Q50")
 
-    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    source $RUN_SETUP
 
     python -u first_quantum_job.py
     ```
@@ -253,7 +253,7 @@ This submits the job *interactively* meaning that the output will be printed str
 
     export DEVICES=("Q5" "Q50")
 
-    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    source $RUN_SETUP
 
     python -u first_quantum_job.py
     ```
