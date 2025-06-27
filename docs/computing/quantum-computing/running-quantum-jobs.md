@@ -134,7 +134,7 @@ In Qiskit python scripts you will need to include the following:
     from qiskit import QuantumCircuit, transpile
     from iqm.qiskit_iqm import IQMProvider
 
-    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
+    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 
     provider = IQMProvider(DEVICE_CORTEX_URL)
     backend = provider.get_backend()
@@ -163,7 +163,7 @@ In Qiskit python scripts you will need to include the following:
     from qiskit import QuantumCircuit, transpile
     from iqm.qiskit_iqm import IQMProvider
 
-    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL') #os.getenv('Q50_CORTEX_URL')
+    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
 
     provider = IQMProvider(DEVICE_CORTEX_URL)
     backend = provider.get_backend()

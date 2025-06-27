@@ -77,8 +77,8 @@ First we need to set our provider and backend. The provider is the service which
     # Accessing Helmi
 
     HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
-    provider = IQMProvider(HELMI_CORTEX_URL)
-    backend = provider.get_backend()
+    provider_helmi = IQMProvider(HELMI_CORTEX_URL)
+    backend_helmi = provider_helmi.get_backend()
     ```
 
 === "Q50"
@@ -86,8 +86,8 @@ First we need to set our provider and backend. The provider is the service which
     # Accessing Q50
 
     Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
-    Q50_provider = IQMProvider(Q50_CORTEX_URL)
-    backend = Q50_provider.get_backend()
+    provider_q50 = IQMProvider(Q50_CORTEX_URL)
+    backend_q50 = provider_q50.get_backend()
     ```
 
 === "Multiple backends"
@@ -99,8 +99,8 @@ First we need to set our provider and backend. The provider is the service which
     backend_helmi = provider.get_backend()
 
     Q50_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
-    Q50_provider = IQMProvider(Q50_CORTEX_URL)
-    backend_q50 = Q50_provider.get_backend()
+    provider_q50 = IQMProvider(Q50_CORTEX_URL)
+    backend_q50 = provider_q50.get_backend()
     ```
 
 ### Transpiling the circuit
@@ -123,7 +123,7 @@ qubit_mapping = {
             }
 ```
 
-As an example, here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. The same process can be applied to other quantum computers like Q50.
+As an example, here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. The same process can be applied to other quantum computers e.g. Q50.
 
 <center>!["Helmi's node mapping"](../../img/helmi_mapping.png)</center>
 
