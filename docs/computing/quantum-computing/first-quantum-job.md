@@ -107,7 +107,7 @@ qubit_mapping = {
 Here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. 
 
 <p align="center">
-    <img src="../../../../img/helmi_mapping.png" alt="Helmi's node mapping">
+    <img src="../../img/helmi_mapping.png" alt="Helmi's node mapping">
 </p>
 
 
