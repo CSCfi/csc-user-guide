@@ -123,7 +123,7 @@ qubit_mapping = {
             }
 ```
 
-Here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. 
+As an example, here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. The same process can be applied to other quantum computers like Q50
 
 <p align="center">
     <img src="../../../../img/helmi_mapping.png" alt="Helmi's node mapping">
@@ -348,7 +348,7 @@ The full python script can be found below.
     
     job = backend_q50.run(transpiled_circuit, shots=shots)
     result = job.result()
-    
+
     # You can retrieve the job at a later date with backend.retrieve_job(job_id)
     # Uncomment the following lines to get more information about your submitted job
     # print("Job ID: ", job.job_id())
