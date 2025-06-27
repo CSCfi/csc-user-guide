@@ -293,9 +293,9 @@ The full python script can be found below.
     backend_helmi = provider_helmi.get_backend()
 
     # Retrieving backend information
-    # print(f'Native operations: {backend.operation_names}')
-    # print(f'Number of qubits: {backend.num_qubits}')
-    # print(f'Coupling map: {backend.coupling_map}')
+    # print(f'Native operations: {backend_helmi.operation_names}')
+    # print(f'Number of qubits: {backend_helmi.num_qubits}')
+    # print(f'Coupling map: {backend_helmi.coupling_map}')
 
     transpiled_circuit = transpile(circuit, backend_helmi)
 
@@ -340,11 +340,11 @@ The full python script can be found below.
     backend_q50 = provider_q50.get_backend()
 
     # Retrieving backend information
-    # print(f'Native operations: {backend.operation_names}')
-    # print(f'Number of qubits: {backend.num_qubits}')
-    # print(f'Coupling map: {backend.coupling_map}')
+    # print(f'Native operations: {backend_q50.operation_names}')
+    # print(f'Number of qubits: {backend_q50.num_qubits}')
+    # print(f'Coupling map: {backend_q50.coupling_map}')
 
-    transpiled_circuit = transpile(circuit, backend_helmi)
+    transpiled_circuit = transpile(circuit, backend_q50)
     
     job = backend_q50.run(transpiled_circuit, shots=shots)
     result = job.result()
