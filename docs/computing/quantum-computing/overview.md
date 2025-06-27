@@ -23,7 +23,8 @@ Access to Helmi is provided through the LUMI supecomputer environment. Users wil
 
 Q50 is a 53-qubit quantum computer, also co-developed by VTT and IQM Quantum Computers.
 
-Similar to Helmi, Q50 is accessible through the LUMI supercomputer environment. Users will need to apply for a quantum computing project on LUMI. Upon approval, Q50 can be accessed using the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project.md).
+Similar to Helmi, Q50 is accessible through the LUMI supercomputer environment. Users will need to apply for a quantum computing project on LUMI. Upon approval, Q50 can be accessed using the LUMI job scheduler (SLURM).
+Refer to the [Open Call](https://fiqci.fi/publications/2025-03-04-Q50-Call-1_2025) publication for detailed instructions on how to apply for a project with Q50 access.
 
 
 For further reading:

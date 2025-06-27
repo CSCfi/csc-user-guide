@@ -1,7 +1,7 @@
 # Quantum Projects on LUMI 
 
 Access to **Helmi** and **Q50** requires a LUMI project with allocated quantum computing resources. 
-To get started, create a LUMI project via MyCSC. Each project must have a **Principal Investigator** as the Project Manager, typically a senior researcher.
+To get started, create a LUMI project via MyCSC. Note that Q50 projects follow a separate application procedure, refer to the [Open Call](https://fiqci.fi/publications/2025-03-04-Q50-Call-1_2025) for details. Each project must have a **Principal Investigator** as the Project Manager, typically a senior researcher.
 
 
 Detailed instructions on the process of creating a general LUMI project via MyCSC are here:

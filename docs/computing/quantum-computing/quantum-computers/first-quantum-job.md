@@ -186,6 +186,8 @@ module load fiqci-vtt-qiskit
 #To run on both Helmi(Q5) and Q50 uncomment the line below
 #export DEVICES=("Q5" "Q50")
 
+source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+
 python -u first_quantum_job.py
 ```
 This can be submitted with `sbatch batch_script.sh` in the same directory as your python file. Jobs in the SLURM queue can be monitored through `squeue -u username` and after the job has completed your results can be found in the `quantumjob.oxxxxx` file. This can be printed to the terminal with `cat`. 
