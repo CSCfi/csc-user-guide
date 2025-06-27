@@ -40,27 +40,75 @@ The current supported software versions are:
 
 Here is an example batch script to submit a quantum job
 
-```bash
-#!/bin/bash
+=== "Helmi"
+    ```bash
+    #!/bin/bash
 
-#SBATCH --job-name=quantumjob   # Job name
-#SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-#SBATCH --partition=q_fiqci   # Partition (queue) name
-#SBATCH --ntasks=1              # One task (process)
-#SBATCH --mem-per-cpu=2G       # memory allocation
-#SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
 
-module use /appl/local/quantum/modulefiles
+    module use /appl/local/quantum/modulefiles
 
-# uncomment correct line:
-# module load fiqci-vtt-qiskit
-# or
-# module load fiqci-vtt-cirq
-export DEVICES=("Q5") #export DEVICES=("Q5" "Q50") to use Helmi and Q50
-source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
-python your_python_script.py
-```
+    # uncomment correct line:
+    # module load fiqci-vtt-qiskit
+    # or
+    # module load fiqci-vtt-cirq
+    export DEVICES=("Q5")
+    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    python your_python_script.py
+    ```
+
+=== "Q50"
+    ```bash
+    #!/bin/bash
+
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+
+    module use /appl/local/quantum/modulefiles
+
+    # uncomment correct line:
+    # module load fiqci-vtt-qiskit
+    # or
+    # module load fiqci-vtt-cirq
+    export DEVICES=("Q50")
+    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    python your_python_script.py
+    ```
+
+=== "Multiple backends"
+    ```bash
+    #!/bin/bash
+
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+
+    module use /appl/local/quantum/modulefiles
+
+    # uncomment correct line:
+    # module load fiqci-vtt-qiskit
+    # or
+    # module load fiqci-vtt-cirq
+    export DEVICES=("Q5" "Q50")
+    source /appl/local/quantum/fiqci_vtt/scripts/run_script.sh
+    python your_python_script.py
+    ```
+
 
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`.
 
