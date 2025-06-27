@@ -3,7 +3,7 @@
 ## General
 
 * [Getting started with supercomputing at CSC](hpc-quick.md)
-* [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
+* [Getting started with Quantum computers](../../computing/quantum-computing/access.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [Linux basics for CSC](env-guide/index.md)

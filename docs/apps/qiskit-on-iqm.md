@@ -14,8 +14,8 @@ catalog:
 # Qiskit-on-iqm
 
 Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is
-installed as `fiqci-vtt-qiskit` on LUMI. It is used for running quantum circuits on
-[Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
+installed as `fiqci-vtt-qiskit` on LUMI. It is used for running quantum circuits on the
+[quantum computers](../computing/quantum-computing/running-quantum-jobs.md).
 
 
 ## Available
@@ -25,7 +25,7 @@ versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 15.5    | `fiqci-vtt-qiskit/15.5`                  | X     |                 |
+| 17.8    | `fiqci-vtt-qiskit/17.8`                  | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -62,14 +62,14 @@ module avail fiqci-vtt-qiskit
 
 ### Example batch script
 
-Example batch script for running a quantum job on Helmi:
+Example batch script for running a quantum job:
 
 ```bash title="LUMI"
 #!/bin/bash -l
 
-#SBATCH --job-name=helmijob     # Job name
-#SBATCH --output=helmijob.o%j   # Name of stdout output file
-#SBATCH --error=helmijob.e%j    # Name of stderr error file
+#SBATCH --job-name=quantumjob     # Job name
+#SBATCH --output=quantumjob.o%j   # Name of stdout output file
+#SBATCH --error=quantumjob.e%j    # Name of stderr error file
 #SBATCH --partition=q_fiqci     # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --cpus-per-task=1       # Number of cores (threads)
@@ -79,7 +79,8 @@ Example batch script for running a quantum job on Helmi:
 
 module use /appl/local/quantum/modulefiles
 module load fiqci-vtt-qiskit
-
+export DEVICES=("Q5") #export DEVICES=("Q5" "Q50") to use Helmi and Q50
+source $RUN_SETUP
 python -u quantum_job.py
 ```
 
@@ -88,4 +89,4 @@ Submit the script with `sbatch <script_name>.sh`.
 ## More information
 
 - [Qiskit-IQM documentation](https://iqm-finland.github.io/qiskit-on-iqm/)
-- [Quantum-Computing](../computing/quantum-computing/helmi/running-on-helmi.md)
+- [Quantum-Computing](../computing/quantum-computing/running-quantum-jobs.md)
