@@ -103,9 +103,9 @@ First we need to set our provider and backend. The provider is the service which
     backend_q50 = Q50_provider.get_backend()
     ```
 
-### Decomposing the circuit (*Optional*)
+### Transpiling the circuit
 
-The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Helmi, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
+The next step is optional and where the quantum circuit you've just created is transpiled (decomposed) into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of tranpilation involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Helmi and Q50, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
 
 ```python
 circuit_decomposed = transpile(circuit, backend=backend)
@@ -132,7 +132,7 @@ Here we are mapping the first qubit in the quantum register to the first of Helm
 
 The two qubit Controlled-X gate we implemented in our circuit is currently on the second of our two qubits in the Quantum register, `qreg[1]`. Due to Helmi's topology this needs to be mapped to QB3 on Helmi. The 1 qubit Hadamard gate can be mapped to any of the *outer* qubits, QB1, QB2, QB4, QB5, here we choose QB1. 
 
-Note that this step is entirely optional. Using the `execute` function automatically does the mapping based on the information stored in the backend. Inputting the qubit mapping simply gives more control to the user. 
+Note that this step is entirely optional. Using the `transpile` function automatically does the mapping based on the information stored in the backend. Inputting the qubit mapping manually simply gives more control to the user. 
 
 To transpile a circuit using the specified qubit mapping you can do the following:
 
