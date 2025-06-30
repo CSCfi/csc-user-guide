@@ -12,8 +12,9 @@ Currently, Helmi and Q50 support job submissions using Qiskit or Cirq. These scr
 
 To run jobs on the quantum computers, follow these steps to set up the correct environment on LUMI:
 
-* Run `module use /appl/local/quantum/modulefiles`. 
-This command makes the available modules visible via `module avail`.
+**Note:** Run these commands either in your batch script or within an interactive session started via `srun`.
+
+* Add the module path so the system can locate the available modules: `module use /appl/local/quantum/modulefiles`
 
 * Load the appropriate environment module depending on your framework:
     * For Qiskit: `module load fiqci-vtt-qiskit` 
@@ -54,7 +55,7 @@ Here is an example batch script to submit a quantum job
 
     module use /appl/local/quantum/modulefiles
 
-    # uncomment correct line:
+    # uncomment the correct line:
     # module load fiqci-vtt-qiskit
     # or
     # module load fiqci-vtt-cirq
@@ -77,7 +78,7 @@ Here is an example batch script to submit a quantum job
 
     module use /appl/local/quantum/modulefiles
 
-    # uncomment correct line:
+    # uncomment the correct line:
     # module load fiqci-vtt-qiskit
     # or
     # module load fiqci-vtt-cirq
@@ -100,7 +101,7 @@ Here is an example batch script to submit a quantum job
 
     module use /appl/local/quantum/modulefiles
 
-    # uncomment correct line:
+    ## uncomment the correct line:
     # module load fiqci-vtt-qiskit
     # or
     # module load fiqci-vtt-cirq
@@ -111,12 +112,29 @@ Here is an example batch script to submit a quantum job
 
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`.
 
-```bash
-module use /appl/local/quantum/modulefiles
-module --ignore_cache load "fiqci_vtt_qiskit"
-export DEVICES=("Q50")
-srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u your_python_script.py"
-```
+=== "Helmi"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module --ignore_cache load "fiqci-vtt-qiskit"
+    export DEVICES=("Q5")
+    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
+    ```
+
+=== "Q50"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module --ignore_cache load "fiqci-vtt-qiskit"
+    export DEVICES=("Q50")
+    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
+    ```
+
+=== "Multiple backends"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module --ignore_cache load "fiqci-vtt-qiskit"
+    export DEVICES=("Q5" "Q50")
+    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
+    ```
 
 The `fiqci-vtt-*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with the quantum computers.
 
@@ -457,13 +475,57 @@ After successfully authenticating, you should now have access to your dashboard.
 
 It is recommended to use the `Advanced settings`. Under the `Custom init` option select Text, and under the `Script to start` textbox enter the following script to configure the environment to use the quantum software stack.
 
-```bash
-module use /appl/local/quantum/modulefiles
-module load fiqci-vtt-qiskit # or module load fiqci-vtt-cirq
-```
+#### Qiskit
+=== "Helmi"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
+    export DEVICES=("Q5")
+    source $RUN_SETUP
+    ```
+
+=== "Q50"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
+    export DEVICES=("Q50")
+    source $RUN_SETUP
+    ```
+
+=== "Multiple backends"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
+    export DEVICES=("Q5", "Q50")
+    source $RUN_SETUP
+    ```
+
+#### Cirq
+=== "Helmi"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-cirq
+    export DEVICES=("Q5")
+    source $RUN_SETUP
+    ```
+
+=== "Q50"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-cirq
+    export DEVICES=("Q50")
+    source $RUN_SETUP
+    ```
+
+=== "Multiple backends"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-cirq
+    export DEVICES=("Q5", "Q50")
+    source $RUN_SETUP
+    ```
 
 !["Qcs with LUMI web"](../../img/Quantum_jobs_lumi_web.png)
-
 
 Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi/Q50 during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.
 

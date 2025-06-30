@@ -14,7 +14,7 @@ need to apply for quantum resources in addition to CPU, GPU, and storage.
 
 ## The FiQCI partition `q_fiqci`
 
-Access to the quantum computers is only available through the FiQCI partition on LUMI, which provides a direct connection between a [LUMI-C
+The `q_fiqci` partition on LUMI is dedicated to quantum computing workloads. It provides a direct connection between a [LUMI-C
 node](https://docs.lumi-supercomputer.eu/hardware/lumic/) and the Fiqci quantum computers.
 
 * [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/)
