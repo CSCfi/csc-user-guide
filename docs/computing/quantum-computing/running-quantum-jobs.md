@@ -475,7 +475,7 @@ After successfully authenticating, you should now have access to your dashboard.
 
 It is recommended to use the `Advanced settings`. Under the `Custom init` option select Text, and under the `Script to start` textbox enter the following script to configure the environment to use the quantum software stack.
 
-#### "Qiskit"
+#### Qiskit
 === "Helmi"
     ```bash
     module use /appl/local/quantum/modulefiles
@@ -500,7 +500,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     source $RUN_SETUP
     ```
 
-#### "Cirq"
+#### Cirq
 === "Helmi"
     ```bash
     module use /appl/local/quantum/modulefiles
