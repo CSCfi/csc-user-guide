@@ -479,12 +479,16 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     ```bash
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-qiskit
+    export DEVICES=("Q5")
+    source $RUN_SETUP
     ```
 
 === "Cirq"
     ```bash
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-cirq
+    export DEVICES=("Q5")
+    source $RUN_SETUP
     ```
 
 !["Qcs with LUMI web"](../../img/Quantum_jobs_lumi_web.png)
