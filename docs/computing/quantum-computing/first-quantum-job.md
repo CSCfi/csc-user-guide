@@ -175,12 +175,35 @@ Once you've made your first quantum program remember to save! CTRL+X then Y to s
 
 To run your quantum programme on LUMI you will need to submit the job through the SLURM batch scheduler on LUMI. Accessing the quantum computers (Helmi, Q50) is done through the `q_fiqci` partition. In the same directory where you have saved your quantum program, you can submit the job to SLURM using:
 
-```bash
-module use /appl/local/quantum/modulefiles
-module --ignore_cache load "fiqci_vtt_qiskit"
-export DEVICES=("Q50")
-srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u first_quantum_job.py"
-```
+=== "Helmi"
+    ```bash
+    # Using Helmi
+
+    module use /appl/local/quantum/modulefiles
+    module --ignore_cache load "fiqci-vtt-qiskit"
+    export DEVICES=("Q5")
+    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u first_quantum_job.py"
+    ```
+
+=== "Q50"
+    ```bash
+    # Using Q50
+
+    module use /appl/local/quantum/modulefiles
+    module --ignore_cache load "fiqci-vtt-qiskit"
+    export DEVICES=("Q50")
+    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u first_quantum_job.py"
+    ```
+
+=== "Multiple backends"
+    ```bash
+    # Using multiple backends
+
+    module use /appl/local/quantum/modulefiles
+    module --ignore_cache load "fiqci-vtt-qiskit"
+    export DEVICES=("Q5" "Q50")
+    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u first_quantum_job.py"
+    ```
 
 Remember to add your own project account!
 
