@@ -475,7 +475,8 @@ After successfully authenticating, you should now have access to your dashboard.
 
 It is recommended to use the `Advanced settings`. Under the `Custom init` option select Text, and under the `Script to start` textbox enter the following script to configure the environment to use the quantum software stack.
 
-=== "Qiskit"
+#### "Qiskit"
+=== "Helmi"
     ```bash
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-qiskit
@@ -483,11 +484,44 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     source $RUN_SETUP
     ```
 
-=== "Cirq"
+=== "Q50"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
+    export DEVICES=("Q50")
+    source $RUN_SETUP
+    ```
+
+=== "Multiple backends"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
+    export DEVICES=("Q5", "Q50")
+    source $RUN_SETUP
+    ```
+
+#### "Cirq"
+=== "Helmi"
     ```bash
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-cirq
     export DEVICES=("Q5")
+    source $RUN_SETUP
+    ```
+
+=== "Q50"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-cirq
+    export DEVICES=("Q50")
+    source $RUN_SETUP
+    ```
+
+=== "Multiple backends"
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-cirq
+    export DEVICES=("Q5", "Q50")
     source $RUN_SETUP
     ```
 
