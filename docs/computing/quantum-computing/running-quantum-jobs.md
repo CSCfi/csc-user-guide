@@ -14,9 +14,7 @@ To run jobs on the quantum computers, follow these steps to set up the correct e
 
 **Note:** Run these commands either in your batch script or within an interactive session started via `srun`.
 
-* Add the module path so the system can locate the available modules:
-
-`module use /appl/local/quantum/modulefiles`
+* Add the module path so the system can locate the available modules: `module use /appl/local/quantum/modulefiles`
 
 * Load the appropriate environment module depending on your framework:
     * For Qiskit: `module load fiqci-vtt-qiskit` 
@@ -57,7 +55,7 @@ Here is an example batch script to submit a quantum job
 
     module use /appl/local/quantum/modulefiles
 
-    # uncomment correct line:
+    # uncomment the correct line:
     # module load fiqci-vtt-qiskit
     # or
     # module load fiqci-vtt-cirq
@@ -80,7 +78,7 @@ Here is an example batch script to submit a quantum job
 
     module use /appl/local/quantum/modulefiles
 
-    # uncomment correct line:
+    # uncomment the correct line:
     # module load fiqci-vtt-qiskit
     # or
     # module load fiqci-vtt-cirq
@@ -103,7 +101,7 @@ Here is an example batch script to submit a quantum job
 
     module use /appl/local/quantum/modulefiles
 
-    # uncomment correct line:
+    ## uncomment the correct line:
     # module load fiqci-vtt-qiskit
     # or
     # module load fiqci-vtt-cirq
@@ -116,8 +114,6 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 
 === "Helmi"
     ```bash
-    # Using Helmi
-
     module use /appl/local/quantum/modulefiles
     module --ignore_cache load "fiqci-vtt-qiskit"
     export DEVICES=("Q5")
@@ -126,8 +122,6 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 
 === "Q50"
     ```bash
-    # Using Q50
-
     module use /appl/local/quantum/modulefiles
     module --ignore_cache load "fiqci-vtt-qiskit"
     export DEVICES=("Q50")
@@ -136,8 +130,6 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 
 === "Multiple backends"
     ```bash
-    # Using multiple backends
-
     module use /appl/local/quantum/modulefiles
     module --ignore_cache load "fiqci-vtt-qiskit"
     export DEVICES=("Q5" "Q50")
