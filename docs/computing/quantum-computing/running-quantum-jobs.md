@@ -495,7 +495,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     module load fiqci-vtt-cirq
     ```
 
-!["Qcs with LUMI web"](../../img/quantum_jobs_lumi_web.png)
+!["Qcs with LUMI web"](../../img/Quantum_jobs_lumi_web.png)
 
 Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi/Q50 during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.
 
