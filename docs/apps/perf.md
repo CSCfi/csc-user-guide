@@ -13,7 +13,7 @@ catalog:
     - Mahti
 ---
 
-# Perf
+# perf
 
 [`perf`](https://perfwiki.github.io/main/) is a performance monitoring tool for Linux systems.
 It provides access to hardware counters in the Performance Monitor Unit (PMU) and is capable of lightweight performance profiling.
