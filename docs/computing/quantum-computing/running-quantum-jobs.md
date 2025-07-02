@@ -1,3 +1,7 @@
+!!! warning "NOTE: QPU time tracking"
+    **Used QPU time does not yet display correctly in MyCSC.** The correct usage is tracked correctly internally
+    and we are working on correcting the time visible in MyCSC.
+
 # Running on Helmi and Q50
 
 !!! info "Give feedback!"
