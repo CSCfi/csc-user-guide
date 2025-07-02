@@ -496,7 +496,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     ```bash
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-qiskit
-    export DEVICES=("Q5", "Q50")
+    export DEVICES=("Q5" "Q50")
     source $RUN_SETUP
     ```
 
@@ -521,7 +521,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     ```bash
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-cirq
-    export DEVICES=("Q5", "Q50")
+    export DEVICES=("Q5" "Q50")
     source $RUN_SETUP
     ```
 
