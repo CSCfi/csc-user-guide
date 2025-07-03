@@ -15,7 +15,7 @@ Please note following details that limit the usage of this procedure:
 
 Add Puhti service to your project and contact CSC (sevicedesk@csc.fi) and request that Puhti access will be created for your SD Desktop environment. In this process a robot account will be created for your project and a project specific server process is launched for you project by CSC.
 
-The job submission is done with command `sdsi-client`. This command can be added to your SD desktop machine by installing `CSC Tools` with [SD tool installer](../sd-desktop-software.md/#customisation-via-sd-software-installer) to your SD Desktop machine.
+The job submission is done with command `sdsi-client`. This command can be added to your SD desktop machine by installing `CSC Tools` with [SD tool installer](../sd-desktop-software.md) to your SD Desktop machine.
 
 # Submitting jobs
 
