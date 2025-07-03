@@ -251,8 +251,8 @@ sbatch:
 
 ### GPU computing
 
-sdsi-client can also be used to submit jobs that utilize the GPU capacity of Puhtu.
-In example blelow example, GPU computing are used to speed up whisper speech recognition tool.
+sdsi-client can also be used to submit jobs that utilize the GPU capacity of Puhti.
+In the below example, GPU computing is used to speed up whisper speech recognition tool.
 Whisper is installed in Puhti and activated there with command `module load whisper`.
 
 
