@@ -131,7 +131,7 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 Read next:
 
 - [How to import data for analysis in your desktop](./sd-desktop-access.md)
-- [Customisation: adding software](./tutorials/sd-desktop-software.md)
+- [Customisation: adding software](./sd-desktop-software.md)
 - [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
 
 ## Submitting jobs from SD Desktop to HPC environments
