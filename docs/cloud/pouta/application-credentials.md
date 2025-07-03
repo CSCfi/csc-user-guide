@@ -30,86 +30,125 @@ credentials `Testing application credentials $TODAYS_DATE`.
 service will create a secret for you, this is probably the preferred method.
 7. It is a good idea to put an `expiration date` especially if you are testing the credentials only
 for today.
-8. There are four roles in cPouta, `member`, `heat_stack_owner`, `object_store_user` and `creator`. Usually you want to use the `member` role. You can find
-out more in the [Using roles sections](#using-roles).
-9. The `Unrestricted (dangerous)` check-box will allow your application credentials to
-create new application credentials. You should never give an application or automation any credentials that have this permission.
-10.  Once you have created the application credentials you can either download the credentials as a
-file that you can source, a YAML file that can be used directly by the CLI, or alternatively add the secret to your secret manager. This is the **first and last time** that you will be able to get access to this secret. If you lose it, you will need to revoke it and create a new one.
 
-    If you downloaded the `openrc file` you will get a file that contains something like this:
+    !!! warning "Temporary Unavailability of Role Restrictions for Application Credentials"
+        The usage of role restrictions for Application Credentials is temporarily unavailable.
 
-    ```bash
-    #!/usr/bin/env bash
+8. <del>There are four roles in cPouta, `member`, `heat_stack_owner`, `object_store_user` and `creator`. Usually you want to use the `member` role:</del>
 
-    export OS_AUTH_TYPE=v3applicationcredential
-    export OS_AUTH_URL=https://pouta.csc.fi:5001/v3
-    export OS_IDENTITY_API_VERSION=3
-    export OS_REGION_NAME="regionOne" # Depends if you are using cPouta or ePouta
-    export OS_INTERFACE=public
-    export OS_APPLICATION_CREDENTIAL_ID=xxxxxxxxxxxxxxxxxxxxxx
-    export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
-    ```
+    * <del> `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the member role enabled.</del>
 
-    If you source that file, you can use it together with with [OpenStack command-line tools](command-line-tools.md).
+    * <del> `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a IaC setup.</del>
 
-    You can also download the `cloud.yaml` file that will look like this:
+    * <del> `object_store_user` can operate over Allas and Objects Store.</del>
+
+    * <del> `creator` can create secrets such as passwords, encryption keys.</del>
+
+    <del> If you are using Applications credentials in ePouta, it's slightly different. There are two roles available: `member` and `heat_stack_owner`.</del>
+
+1. `Access Rules` allows you to fine tune permissions. You can add one or more rules in either _JSON_ or _YAML_ format. Each rule needs to specify the `service`, `method` and `path`. For example:
 
     ```yaml
-    # This is a clouds.yaml file, which can be used by OpenStack tools as a source
-    # of configuration on how to connect to a cloud. If this is your only cloud,
-    # just put this file in ~/.config/openstack/clouds.yaml and tools like
-    # python-openstackclient will just work with no further config. (You will need
-    # to add your password to the auth section)
-    # If you have more than one cloud account, add the cloud entry to the clouds
-    # section of your existing file and you can refer to them by name with
-    # OS_CLOUD=openstack or --os-cloud=openstack
-    clouds:
-      openstack:
-        
-        auth:
-          
-          auth_url: https://pouta.csc.fi:5001/v3
-          
-          application_credential_id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
-          application_credential_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
-        
-          
-        regions:
-            
-        - regionOne # Depends if you are using cPouta or ePouta
-            
-          
-        interface: "public"
-        identity_api_version: 3
-        auth_type: "v3applicationcredential"
+    - service: compute
+      method: GET
+      path: /v2.1/servers/**
     ```
 
-    See the comment on the file itself on how to use it.
+    See the [Access rules](https://docs.openstack.org/keystone/victoria/user/application_credentials.html#access-rules) upstream documentation for more examples and help.
+
+9. The `Unrestricted (dangerous)` check-box will allow your application credentials to
+create new application credentials. You should never give an application or automation any credentials that have this permission.
+
+## Using Application Credentials
+
+Once you have created the application credentials you can either download the credentials as a
+file that you can source, a YAML file that can be used directly by the CLI, or alternatively add the secret to your secret manager. This is the **first and last time** that you will be able to get access to this secret. If you lose it, you will need to revoke it and create a new one.
+
+If you downloaded the `openrc file` you will get a file that contains something like this:
+
+```bash
+#!/usr/bin/env bash
+
+export OS_AUTH_TYPE=v3applicationcredential
+export OS_AUTH_URL=https://pouta.csc.fi:5001/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_REGION_NAME="regionOne" # Depends if you are using cPouta or ePouta
+export OS_INTERFACE=public
+export OS_APPLICATION_CREDENTIAL_ID=xxxxxxxxxxxxxxxxxxxxxx
+export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
+```
+
+If you source that file, you can use it together with with [OpenStack command-line tools](command-line-tools.md).
+
+You can also download the `cloud.yaml` file that will look like this:
+
+```yaml
+# This is a clouds.yaml file, which can be used by OpenStack tools as a source
+# of configuration on how to connect to a cloud. If this is your only cloud,
+# just put this file in ~/.config/openstack/clouds.yaml and tools like
+# python-openstackclient will just work with no further config. (You will need
+# to add your password to the auth section)
+# If you have more than one cloud account, add the cloud entry to the clouds
+# section of your existing file and you can refer to them by name with
+# OS_CLOUD=openstack or --os-cloud=openstack
+clouds:
+  openstack:
+    
+    auth:
+      
+      auth_url: https://pouta.csc.fi:5001/v3
+      
+      application_credential_id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+      application_credential_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+    
+      
+    regions:
+        
+    - regionOne # Depends if you are using cPouta or ePouta
+        
+      
+    interface: "public"
+    identity_api_version: 3
+    auth_type: "v3applicationcredential"
+```
+
+See the comment on the file itself on how to use it.
 
 !!! info "Verify the credentials"
 
     It is a good idea to test that the application credentials are allowed to do what you expect them to be able to do. It is also a good idea to verify that they are **NOT** allowed to do what you expect them not to be allowed to do.
 
-## Using roles
+### Troubleshooting
 
-!!! warning "Temporary Unavailability of Role Restrictions for Application Credentials"
-    The usage of role restrictions for Application Credentials is temporarily unavailable.
+1. If a command fails with:
 
+    ```sh
+    $ openstack volume list
+    The request you have made requires authentication. (HTTP 401)
+    ```
 
-<del> In cPouta, there are four roles available: `member`, `heat_stack_owner`, `object_store_user` and `creator`.
+    You can review the current access rules by:
 
+    ```sh
+    $ openstack access rule list
+    +----------------------------------+---------+--------+------------------+
+    | ID                               | Service | Method | Path             |
+    +----------------------------------+---------+--------+------------------+
+    | cf8ed55fe9874a4ebc338686f499a322 | compute | GET    | /v2.1/servers/** |
+    | b7e078b180224dbcacd1a254e01ae7a8 | compute | GET    | /v3/auth/tokens  |
+    | 34071261c9594d95948d4c9645dffb2d | compute | GET    | /v2.1/**         |
+    | 7ad425c2b3a0488381f48306395023cd | compute | POST   | /v3/auth/tokens  |
+    +----------------------------------+---------+--------+------------------+
+    ```
 
-* <del> `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the `member` role enabled.
+    If you add `--debug` to the command you run, you will see a much more detailed output.
 
-* <del> `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
+1. If you get this failure:
 
-* <del> `object_store_user` can operate over Allas and Objects Store.
+    ```sh
+    $ openstack server list
+    Error authenticating with application credential: Application credentials cannot request a scope. (HTTP 401) (Request-ID: req-23dac9b0-5fd5-4f67-a23f-129b4ca55444)
+    ```
 
-* <del> `creator` can create secrets such as passwords, encryption keys.
+    It probably means that you have conflicting envirnment variables. Please try again (the source and the command) in a _clean_ terminal.
 
-<del> If you are using Applications credentials in ePouta, it's slightly different. There are two roles available: `member` and `heat_stack_owner`.
-
-* <del> `member` role is the normal user role. When you login into the web-interface you have the `member` role enabled.
-
-* <del> `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
