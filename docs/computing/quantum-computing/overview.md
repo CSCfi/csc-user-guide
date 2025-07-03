@@ -4,8 +4,10 @@ search:
 ---
 
 !!! warning "NOTE: QPU time tracking"
-    **Used QPU time does not yet display correctly in MyCSC.** The correct usage is tracked correctly internally
-    and we are working on correcting the time visible in MyCSC.
+    Used QPU time does not yet display correctly in MyCSC. The usage is tracked correctly internally
+    and we are working on correcting the time visible in MyCSC. If you have questions you can contact us at
+    [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi). 
+
 
 # Overview
 
