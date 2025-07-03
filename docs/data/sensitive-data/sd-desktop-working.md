@@ -133,3 +133,7 @@ Read next:
 - [How to import data for analysis in your desktop](./sd-desktop-access.md)
 - [Customisation: adding software](./sd-desktop-software.md)
 - [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+
+## Submitting jobs from SD Desktop to HPC environments
+
+- [How to use sdsi-client to submit batch jobs from SD Desktop to Puhti](./sdsi.md)
