@@ -136,4 +136,4 @@ Read next:
 
 ## Submitting jobs from SD Desktop to HPC environments
 
-- [How to use sdsi-client to submit batch jobs from SD Desktop to Puhti](./sdsi.md)
+- [How to use sdsi-client to submit batch jobs from SD Desktop to Puhti](./turorials/sdsi.md)
