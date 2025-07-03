@@ -1,3 +1,9 @@
+!!! warning "NOTE: QPU time tracking"
+    Used QPU time does not yet display correctly in MyCSC. The usage is tracked correctly internally
+    and we are working on correcting the time visible in MyCSC. If you have questions you can contact us at
+    [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi). 
+
+
 # Running on Helmi and Q50
 
 !!! info "Give feedback!"
@@ -349,12 +355,12 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     routed_circuit_q50, initial_mapping_q50, final_mapping_q50 = sampler_q50.device.route_circuit(decomposed_circuit_q50)
 
     # Optionally print mapping
-    # Print("Mapping Helmi")
+    # print("Mapping Helmi")
     # print(routed_circuit_helmi)
     # print(initial_mapping_helmi)
     # print(final_mapping_helmi)
 
-    # Print("Mapping Q50")
+    # print("Mapping Q50")
     # print(routed_circuit_q50)
     # print(initial_mapping_q50)
     # print(final_mapping_q50)
