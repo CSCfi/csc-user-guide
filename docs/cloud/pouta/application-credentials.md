@@ -130,18 +130,16 @@ See the comment on the file itself on how to use it.
 
 ### Troubleshooting tips
 
-  * You can review the current access rules by running:
+  * You can review the application credentials by running:
 
     ```sh
-    $ openstack access rule list
-    +----------------------------------+---------+--------+------------------+
-    | ID                               | Service | Method | Path             |
-    +----------------------------------+---------+--------+------------------+
-    | cf8ed55fe9874a4ebc338686f499a322 | compute | GET    | /v2.1/servers/** |
-    | b7e078b180224dbcacd1a254e01ae7a8 | compute | GET    | /v3/auth/tokens  |
-    | 34071261c9594d95948d4c9645dffb2d | compute | GET    | /v2.1/**         |
-    | 7ad425c2b3a0488381f48306395023cd | compute | POST   | /v3/auth/tokens  |
-    +----------------------------------+---------+--------+------------------+
+    $ openstack application credential list
+    ```
+
+    and to see single application credential:
+
+    ```sh
+    $ openstack application credential show <name>
     ```
 
     It is also possible to see the rules on the [Application Credentials](https://pouta.csc.fi/dashboard/identity/application_credentials/) page by clicking on the name of the credential.
@@ -159,4 +157,4 @@ See the comment on the file itself on how to use it.
 
   * In order to fine tune the Access Rules, you can see all the API endpoints in the [API access](https://pouta.csc.fi/dashboard/project/api_access/) page in the web interface. You can also see the same information by running the command `openstack catalog list`.
 
-  * The `Object Store` API is not within `Pouta`, but `Allas`, so they do not support `Access Rules`. If `Access Rules` are used no access to Allas is possible using them, no matter the configuration.
+  * The `Object Store` API is not within `Pouta`, but `Allas`. This means that they do not support `Access Rules`. If `Access Rules` are used no access to Allas will be possible using them, no matter the configuration used.
