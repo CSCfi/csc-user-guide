@@ -1,12 +1,14 @@
 # Application credentials
 
-Application credentials allow you to interact with Pouta via the [OpenStack command-line tools](command-line-tools.md) or directly via the API, by allowing you to create a **role specific** and **time limited** _TOKEN_ that can be revoked at any time. The most immediate advantage is that you no longer need to use or write your CSC password while using Pouta's API.
+Application credentials allow you to interact with Pouta via the [OpenStack command-line tools](command-line-tools.md) or directly via the API, by allowing you to create, for a given **project**, a **role specific** and **time limited** _TOKEN_ that can be revoked at any time. The most immediate advantage is that you no longer need to use or write your CSC password while using Pouta's API.
+
+* It will allow you access only to a given **project**.
 
 * **Role specific** means that the credentials can be created with limited permissions. You can create credentials that are only allowed to get data of your project, but not modify it. You can also create credentials that can only modify a specific resource. It is also possible to create credentials that can do everything that you can.
 
 * **Time limited** means that the credentials can have a much shorter life than the password of the account that created it. This is useful to limit the repercussion of a credential leak.
 
-* Other advantages are that credentials can be revoked at any time, and that you cannot change or obtain the password if you have only the application credential that created it.
+* Other advantages are that credentials can be revoked at any time from Poutas's web interface, and that you cannot change or obtain the password if you have only the application credential that created it.
 
 !!! info "Application credentials are linked to the personal account"
 
@@ -46,7 +48,7 @@ for today.
 
     <del> If you are using Applications credentials in ePouta, it's slightly different. There are two roles available: `member` and `heat_stack_owner`.</del>
 
-1. `Access Rules` allows you to fine tune permissions. You can add one or more rules in either _JSON_ or _YAML_ format. Each rule needs to specify the `service`, `method` and `path`. For example:
+1. `Access Rules` allows you to fine tune permissions. You can add one or more rules in either _JSON_ or _YAML_ format. Each rule needs to specify the `service`, `method` and `path`. This example allows you to list servers:
 
     ```yaml
     - service: compute
@@ -54,7 +56,15 @@ for today.
       path: /v2.1/servers/**
     ```
 
-    See the [Access rules](https://docs.openstack.org/keystone/victoria/user/application_credentials.html#access-rules) upstream documentation for more examples and help.
+    This one allows to list volumes:
+
+    ```yaml
+    - method: GET
+      path: /v3/*/volumes/**
+      service: volumev3
+    ```
+
+    See the [Access rules](https://docs.openstack.org/keystone/victoria/user/application_credentials.html#access-rules) upstream documentation for more examples and help. Access Rules have a lot of granularity and it can be complex to craft the exact rules you need.
 
 9. The `Unrestricted (dangerous)` check-box will allow your application credentials to
 create new application credentials. You should never give an application or automation any credentials that have this permission.
@@ -118,16 +128,9 @@ See the comment on the file itself on how to use it.
 
     It is a good idea to test that the application credentials are allowed to do what you expect them to be able to do. It is also a good idea to verify that they are **NOT** allowed to do what you expect them not to be allowed to do.
 
-### Troubleshooting
+### Troubleshooting tips
 
-1. If a command fails with:
-
-    ```sh
-    $ openstack volume list
-    The request you have made requires authentication. (HTTP 401)
-    ```
-
-    You can review the current access rules by:
+  * You can review the current access rules by running:
 
     ```sh
     $ openstack access rule list
@@ -141,14 +144,18 @@ See the comment on the file itself on how to use it.
     +----------------------------------+---------+--------+------------------+
     ```
 
-    If you add `--debug` to the command you run, you will see a much more detailed output.
+    It is also possible to see the rules on the [Application Credentials](https://pouta.csc.fi/dashboard/identity/application_credentials/) page by clicking on the name of the credential.
 
-1. If you get this failure:
+    If you add `--debug` to any command you run, you will see a much more detailed output including API calls.
+
+  * Before sourcing the application credentials file, make sure you do not have any other OpenStack variables (`env | grep OS`). Otherwise you will get this failure:
 
     ```sh
     $ openstack server list
     Error authenticating with application credential: Application credentials cannot request a scope. (HTTP 401) (Request-ID: req-23dac9b0-5fd5-4f67-a23f-129b4ca55444)
     ```
 
-    It probably means that you have conflicting environment variables. Please try again (the source and the command) in a _clean_ terminal.
+    Please try again (the sourcing and the command) in a _clean_ terminal.
+
+  * In order to fine tune the Access Rules, you can see all the API endpoints in the [API access](https://pouta.csc.fi/dashboard/project/api_access/) page in the web interface. You can also see the same information by running the command `openstack catalog list`.
 
