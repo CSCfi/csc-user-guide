@@ -248,6 +248,8 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
         The option "Create New Volume" set to "Yes" creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
 
+        If the flavour type has an ephemeral disk (for example, [I/O flavours](./vm-flavors-and-billing.md#io-flavors)), a new volume is only created for the root disk. [Ephemeral disks](./ephemeral-storage.md) are removed when the VM is deleted.
+
 
 1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create, from the available flavours and by clicking the up arrow. See [Virtual machine flavors and billing unit rates](vm-flavors-and-billing.md) for a complete list and descriptions. You can also expand the flavour to check the impact on your quota.
 
