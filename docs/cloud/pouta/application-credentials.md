@@ -150,5 +150,5 @@ See the comment on the file itself on how to use it.
     Error authenticating with application credential: Application credentials cannot request a scope. (HTTP 401) (Request-ID: req-23dac9b0-5fd5-4f67-a23f-129b4ca55444)
     ```
 
-    It probably means that you have conflicting envirnment variables. Please try again (the source and the command) in a _clean_ terminal.
+    It probably means that you have conflicting environment variables. Please try again (the source and the command) in a _clean_ terminal.
 
