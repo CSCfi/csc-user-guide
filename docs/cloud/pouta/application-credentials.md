@@ -20,7 +20,7 @@ In general Application credentials give the power and flexibility to allow a saf
 
 1. Go to [Pouta's web-interface](https://pouta.csc.fi/).
 2. Choose which project you want to use. (You will only see the projects that have cPouta activated in [my.csc.fi](https://my.csc.fi).)
-3. Go to `Identitiy` -> `Application Credentials`.
+3. Go to `Identity` -> `Application Credentials`.
 4. Press `Create Application Credential`. A dialog will open.
 
     ![Create Application Credential cPouta](../../img/create-application-credential-cpouta.png)
@@ -159,3 +159,4 @@ See the comment on the file itself on how to use it.
 
   * In order to fine tune the Access Rules, you can see all the API endpoints in the [API access](https://pouta.csc.fi/dashboard/project/api_access/) page in the web interface. You can also see the same information by running the command `openstack catalog list`.
 
+  * The `Object Store` API is not within `Pouta`, but `Allas`, so they do not support `Access Rules`. If `Access Rules` are used no access to Allas is possible using them, no matter the configuration.
