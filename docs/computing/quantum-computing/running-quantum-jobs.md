@@ -1,3 +1,9 @@
+!!! warning "NOTE: QPU time tracking"
+    Used QPU time does not yet display correctly in MyCSC. The usage is tracked correctly internally
+    and we are working on correcting the time visible in MyCSC. If you have questions you can contact us at
+    [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi). 
+
+
 # Running on Helmi and Q50
 
 !!! info "Give feedback!"
@@ -255,10 +261,7 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     import os
 
     import cirq
-    from iqm.cirq_iqm import Adonis
     from iqm.cirq_iqm.iqm_sampler import IQMSampler
-
-    adonis = Adonis()
 
     DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
 
@@ -275,8 +278,8 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     circuit.append(cirq.measure(q1, q2, key='m'))
     print(circuit)
 
-    decomposed_circuit = adonis.decompose_circuit(circuit)
-    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+    decomposed_circuit = sampler.device.decompose_circuit(circuit)
+    routed_circuit, initial_mapping, final_mapping = sampler.device.route_circuit(decomposed_circuit)
 
     # Optionally print mapping
     # print(routed_circuit)
@@ -292,10 +295,7 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     import os
 
     import cirq
-    from iqm.cirq_iqm import Adonis
     from iqm.cirq_iqm.iqm_sampler import IQMSampler
-
-    adonis = Adonis()
 
     DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
 
@@ -312,8 +312,8 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     circuit.append(cirq.measure(q1, q2, key='m'))
     print(circuit)
 
-    decomposed_circuit = adonis.decompose_circuit(circuit)
-    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+    decomposed_circuit = sampler.device.decompose_circuit(circuit)
+    routed_circuit, initial_mapping, final_mapping = sampler.device.route_circuit(decomposed_circuit)
 
     # Optionally print mapping
     # print(routed_circuit)
@@ -329,10 +329,7 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     import os
 
     import cirq
-    from iqm.cirq_iqm import Adonis
     from iqm.cirq_iqm.iqm_sampler import IQMSampler
-
-    adonis = Adonis()
 
     HELMI_DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
     Q50_DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
@@ -351,16 +348,25 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     circuit.append(cirq.measure(q1, q2, key='m'))
     print(circuit)
 
-    decomposed_circuit = adonis.decompose_circuit(circuit)
-    routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+    decomposed_circuit_helmi = sampler_helmi.device.decompose_circuit(circuit)
+    routed_circuit_helmi, initial_mapping_helmi, final_mapping_helmi = sampler_helmi.device.route_circuit(decomposed_circuit_helmi)
+
+    decomposed_circuit_q50 = sampler_q50.device.decompose_circuit(circuit)
+    routed_circuit_q50, initial_mapping_q50, final_mapping_q50 = sampler_q50.device.route_circuit(decomposed_circuit_q50)
 
     # Optionally print mapping
-    # print(routed_circuit)
-    # print(initial_mapping)
-    # print(final_mapping)
+    # print("Mapping Helmi")
+    # print(routed_circuit_helmi)
+    # print(initial_mapping_helmi)
+    # print(final_mapping_helmi)
 
-    result_helmi = sampler_helmi.run(routed_circuit, repetitions=shots)
-    result_q50 = sampler_q50.run(routed_circuit, repetitions=shots)
+    # print("Mapping Q50")
+    # print(routed_circuit_q50)
+    # print(initial_mapping_q50)
+    # print(final_mapping_q50)
+
+    result_helmi = sampler_helmi.run(routed_circuit_helmi, repetitions=shots)
+    result_q50 = sampler_q50.run(routed_circuit_q50, repetitions=shots)
 
     print(f"Results Helmi: {result_helmi.measurements['m']}")
     print(f"Results Q50: {result_q50.measurements['m']}")
@@ -496,7 +502,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     ```bash
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-qiskit
-    export DEVICES=("Q5", "Q50")
+    export DEVICES=("Q5" "Q50")
     source $RUN_SETUP
     ```
 
@@ -521,7 +527,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     ```bash
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-cirq
-    export DEVICES=("Q5", "Q50")
+    export DEVICES=("Q5" "Q50")
     source $RUN_SETUP
     ```
 
