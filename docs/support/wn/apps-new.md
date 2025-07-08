@@ -1,5 +1,13 @@
 # Applications
 
+## PyTorch 2.7.1 available on Puhti, Mahti and LUMI, 8.7.2025
+
+PyTorch 2.7.1 is now available on Puhti, Mahti and LUMI, and set as
+the default version. It includes the most recent versions of popular
+packages such as Hugging Face transformers, vLLM and FAISS. SGLang is
+now available for Mahti only. See our [PyTorch module documentation
+for more information](../../apps/pytorch.md#available).
+
 ## Schrödinger Maestro 2025.2, 15.5.2025
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2025.2 has been installed
