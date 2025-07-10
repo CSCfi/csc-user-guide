@@ -383,3 +383,4 @@ tutorial](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutori
 
 - [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
 - [PyTorch documentation](https://pytorch.org/docs/stable/index.html)
+- [LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)
