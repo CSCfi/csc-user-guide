@@ -32,6 +32,7 @@ If you find you in the need of creating a network and or router, you can recreat
     ![Subnet details on Pouta](../../img/pouta-network-3.png)
 
     By default, **Enable DHCP** is activated.
+
     - **Allocation Pools** - Choose the IP range that will deliver the IP for the DHCP
     - **DNS Name Server** - Enter 193.166.4.24 and 193.166.4.25 (See screenshot above)
 
