@@ -467,6 +467,7 @@ nav:
               - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
               - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
               - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
+              - Deploying from Git: cloud/rahti/tutorials/deploy_from_git.md
               - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
