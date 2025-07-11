@@ -1,6 +1,6 @@
 
 !!! success "Basic level"
-    You just need basic computing knowlege. It is usefull to know how XML or JSON works.
+    You just need basic computing knowledge. It is useful to know how XML or JSON works.
 
 # Short introduction to YAML
 

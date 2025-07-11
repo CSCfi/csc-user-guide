@@ -1,16 +1,25 @@
 # Virtual machine flavors and billing unit rates
 
-This article lists the types (flavors) of virtual machines and their
-cost in billing units.
+Currently, Pouta will bill for the use of 3 resources: storage volumes, floating IPs and virtual machines. The account of use of resources id done in increments of one hour. A good way to estimate usage cost is the [Billing unit calculator](https://research.csc.fi/resources/#buc) utility.
 
-The cPouta and ePouta services consume the same billing units as
-Puhti and Mahti. You can find more information in the [CSC computing environment articles].
+- **Storage volumes**: 3,5 BU / TiB hour. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, your can see the existing volumes. The total size of the volume is billed, and it consumes BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems.
+- **Floating IPs**: 0,2 BU / hour. Every floating IP reserved to the project is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume billing units.
+- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume BUs regardless whether you are using them or not. This means that a shut down or suspended virtual machine still consumes BUs, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
 
-Users can create virtual machines with larger or
-smaller compute resources based on their needs. The virtual
-machine *flavors* available in cPouta and ePouta are listed below in
-separate tables.
-Please note that the values for the memory of each flavor (in GiB) are approximated.
+## Quotas
+
+Each Pouta project has this initial default quota:
+
+| Resource | Default |
+|--------------:|:--------|
+| Instances | 8 |
+| Cores | 8 |
+| Memory | 32 GB |
+| Floating IPs | 2 |
+| Storage | 1 TB |
+
+
+Additional quota can be requested by sending an email to [csc service desk](../../support/contact.md) and explaining your use case. Every request is evaluated based on user needs versus available resources. We always aim to have enough free resources for every quota granted, but please note that there is no warranty. In some cases specific hardware, linked to specific virtual machine flavors may be full, so you would not be able to provision them even if you have the quota to do so.
 
 ## cPouta flavors
 
