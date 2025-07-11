@@ -2,13 +2,13 @@
 
 ## Basic level
 
-* 🟢 [Allow pulls of images from one Rahti project to another](allow-pull-from-other-projects.md)
-* 🟢 [Annotations](annotations.md)
 * 🟢 [Deploying a static web server using the web interface](deploy_static_webserver_webconsole.md)
 * 🟢 [Deploying a website from Git](deploy_from_git.md)
 * 🟢 [Setup a HTTP redirection in Rahti](http-redirector.md)
 * 🟢 [Short introduction to YAML](yaml_introduction.md)
 * 🟢 [Webhooks](webhooks.md)
+* 🟢 [Allow pulls of images from one Rahti project to another](allow-pull-from-other-projects.md)
+* 🟢 [Annotations](annotations.md)
 
 ## Middle level
 
