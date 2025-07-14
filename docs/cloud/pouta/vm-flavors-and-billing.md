@@ -1,6 +1,6 @@
 # Virtual machine flavors and billing unit rates
 
-Currently, Pouta will bill for the use of 3 resources: storage volumes, floating IPs and virtual machines. The account of use of resources id done in increments of one hour. A good way to estimate usage cost is the [Billing unit calculator](https://research.csc.fi/resources/#buc) utility.
+Currently, Pouta will bill for the use of 3 resources: storage volumes, floating IPs and virtual machines. The account of use of resources is done in increments of one hour. A good way to estimate usage cost is the [Billing unit calculator](https://research.csc.fi/resources/#buc) utility.
 
 - **Storage volumes**: 3,5 BU / TiB hour. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems.
 - **Floating IPs**: 0,2 BU / hour. Every floating IP reserved to the project is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume billing units.
