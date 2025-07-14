@@ -1,5 +1,5 @@
 !!! warning "Middle level"
-    A knowledge of Kubernetes environment and how webservers work is required. It is also useful to know how authentication work. This tutorial uses OpenShift CLI tool [oc](../usage/cli.md)
+    A knowledge of Kubernetes environment and how webservers work is required. It is also useful to know how authentication works. This tutorial uses OpenShift CLI tool [oc](../usage/cli.md)
 
 # How to deploy OAuth2 Proxy in Rahti
 
