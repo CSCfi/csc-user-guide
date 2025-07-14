@@ -24,4 +24,4 @@ How to set up a static web server in Rahti from a Git repository.
 
 1. If the analysis was successful, the last step is to click on `Create`. After few minutes, the site should be available.
 
-After this tutorial, you can check the [Webhooks](webhooks.md) article. Web hooks will allow you to automatically re-deploy this site for every change in the mail master branch.
+After this tutorial, you can check the [Webhooks](webhooks.md) article. Web hooks will allow you to automatically re-deploy this site for every change in the main master branch.
