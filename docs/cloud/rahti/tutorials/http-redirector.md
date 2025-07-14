@@ -28,8 +28,8 @@
 
 1. Mount the Configmap to the nginx deployment as a volume. Go to deployment and add following code in the YAML file.
 
-   ```
-   spec:
+    ```yaml
+    spec:
         containers:
           volumeMounts:
           - mountPath: /opt/bitnami/nginx/conf/server_blocks
@@ -39,7 +39,7 @@
               defaultMode: 420
               name: nginx-config
             name: nginx-conf
-   ```
+    ```
 
     In this example, nginx-conf is the **name** of configMap, nginx-config is the **key** and the ConfigMap has to be mounted in `/opt/bitnami/nginx/conf/server_blocks/`, other images may store the nginx configuration in different folders.
 
