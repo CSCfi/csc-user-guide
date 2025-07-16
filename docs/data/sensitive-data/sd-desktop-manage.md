@@ -20,9 +20,17 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 ## Detaching and attaching a volume 
 
-### Detach a volume from your virtual desktop
 
-With the option **Detach volume**, you can easily disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop. 
+With the option **Detach volume**, you disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop. Detached volume can be attached into a new SD Desktop VM during the launch process. Thus you can use volumes to transport data from old virtual machine to a new one.
+
+### Before detaching
+
+Before you detach a volume, it is good the set access permissions of files and directories such that all project members have both read and write access to all the data in the volume. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way. 
+
+You can do this permission set-up with linux command `pre-volume-detach` that you can take in use by installing `CSC Tools` with [SD tools installer](./sd-desktop-software.md#customisation-via-sd-software-installer). In addition to fixing the access permissions of the user who is running the command, it checks if there are other users that should run this command too. Further, the command allows you to make a backup copy of your home directory to the volume so that you can import the contents of your home directory to the new virtual machine.
+
+
+### Detach a volume from your virtual desktop
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
 
