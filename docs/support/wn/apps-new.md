@@ -1,5 +1,9 @@
 # Applications
 
+## R 4.5.1 in r-env, 22.7.2025
+
+R version 4.5.1 is now available in [r-env](../../apps/r-env.md) in Puhti and Mahti and is set as the default version. The new version will be available in RStudio in the Puhti and Mahti web interfaces shortly.
+
 ## PyTorch 2.7.1 available on Puhti, Mahti and LUMI, 8.7.2025
 
 PyTorch 2.7.1 is now available on Puhti, Mahti and LUMI, and set as
