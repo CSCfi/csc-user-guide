@@ -278,15 +278,16 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     circuit.append(cirq.measure(q1, q2, key='m'))
     print(circuit)
 
-    decomposed_circuit = sampler.device.decompose_circuit(circuit)
-    routed_circuit, initial_mapping, final_mapping = sampler.device.route_circuit(decomposed_circuit)
+    routed_circuit, initial_mapping, final_mapping = sampler.device.route_circuit(circuit)
+    decomposed_circuit = sampler.device.decompose_circuit(routed_circuit)
 
     # Optionally print mapping
     # print(routed_circuit)
     # print(initial_mapping)
     # print(final_mapping)
+    # print(decomposed_circuit)
 
-    result = sampler.run(routed_circuit, repetitions=shots)
+    result = sampler.run(decomposed_circuit, repetitions=shots)
     print(result.measurements['m'])
     ```
 
@@ -312,15 +313,16 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     circuit.append(cirq.measure(q1, q2, key='m'))
     print(circuit)
 
-    decomposed_circuit = sampler.device.decompose_circuit(circuit)
-    routed_circuit, initial_mapping, final_mapping = sampler.device.route_circuit(decomposed_circuit)
+    routed_circuit, initial_mapping, final_mapping = sampler.device.route_circuit(circuit)
+    decomposed_circuit = sampler.device.decompose_circuit(routed_circuit)
 
     # Optionally print mapping
     # print(routed_circuit)
     # print(initial_mapping)
     # print(final_mapping)
+    # print(decomposed_circuit)
 
-    result = sampler.run(routed_circuit, repetitions=shots)
+    result = sampler.run(decomposed_circuit, repetitions=shots)
     print(result.measurements['m'])
     ```
 
@@ -348,25 +350,27 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     circuit.append(cirq.measure(q1, q2, key='m'))
     print(circuit)
 
-    decomposed_circuit_helmi = sampler_helmi.device.decompose_circuit(circuit)
-    routed_circuit_helmi, initial_mapping_helmi, final_mapping_helmi = sampler_helmi.device.route_circuit(decomposed_circuit_helmi)
+    routed_circuit_helmi, initial_mapping_helmi, final_mapping_helmi = sampler_helmi.device.route_circuit(circuit)
+    decomposed_circuit_helmi = sampler_helmi.device.decompose_circuit(routed_circuit_helmi)
 
-    decomposed_circuit_q50 = sampler_q50.device.decompose_circuit(circuit)
-    routed_circuit_q50, initial_mapping_q50, final_mapping_q50 = sampler_q50.device.route_circuit(decomposed_circuit_q50)
+    routed_circuit_q50, initial_mapping_q50, final_mapping_q50 = sampler_q50.device.route_circuit(circuit)
+    decomposed_circuit_q50 = sampler_q50.device.decompose_circuit(routed_circuit_q50)
 
     # Optionally print mapping
     # print("Mapping Helmi")
     # print(routed_circuit_helmi)
     # print(initial_mapping_helmi)
     # print(final_mapping_helmi)
+    # print(decomposed_circuit_helmi)
 
     # print("Mapping Q50")
     # print(routed_circuit_q50)
     # print(initial_mapping_q50)
     # print(final_mapping_q50)
+    # print(decomposed_circuit_q50)
 
-    result_helmi = sampler_helmi.run(routed_circuit_helmi, repetitions=shots)
-    result_q50 = sampler_q50.run(routed_circuit_q50, repetitions=shots)
+    result_helmi = sampler_helmi.run(decomposed_circuit_helmi, repetitions=shots)
+    result_q50 = sampler_q50.run(decomposed_circuit_q50, repetitions=shots)
 
     print(f"Results Helmi: {result_helmi.measurements['m']}")
     print(f"Results Q50: {result_q50.measurements['m']}")
