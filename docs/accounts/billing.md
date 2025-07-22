@@ -16,7 +16,7 @@ at research.csc.fi.
 * [Puhti and Mahti billing](../computing/hpc-billing.md)
 * Allas object storage billing:  1 TiB consumes **1** BU per hour. Only actual
    data stored in Allas is billed.
-* [Pouta billing](../cloud/pouta/accounting.md)
+* [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
 * [Rahti billing](../cloud/rahti/billing.md)
 * [SD Connect and SD Desktop billing](../data/sensitive-data/sd-use-case-new-user-project-manager.md#sd-connect-bu-consumption)
 

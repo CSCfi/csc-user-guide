@@ -230,3 +230,13 @@ Please do not run any computations on HPC via the VS Code Terminal tab or using
 VS Code's debuggers. This would run the code on a login node by default, which
 is **not meant for demanding computations**. The setup is also fragile in
 general.
+
+## VSCode Remote Tunnels
+
+VSCode also offers a [Remote
+Tunnel](https://code.visualstudio.com/docs/remote/tunnels) feature as
+an alternative to SSH. The **VSCode dev tunnels feature has been
+intentionally disabled on Puhti and Mahti** due to security concerns,
+as it would give a third party the ability to control access into
+CSC's supercomputers. We recommend using the Remote SSH feature
+instead (documented above).
