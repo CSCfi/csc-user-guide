@@ -21,7 +21,7 @@ catalog:
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
 
 !!! info "News"
-  **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version. The new version will be available in RStudio in the Puhti and Mahti web interfaces shortly.  
+  **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.    
     **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).  
 
 ## Available
