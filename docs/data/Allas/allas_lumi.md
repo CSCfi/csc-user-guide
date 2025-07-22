@@ -46,7 +46,7 @@ source allas-cli-utils/allas_conf --lumi
 
 The configuration process asks you to connect with your browser to LUMI-O configuration sever, create credentials there and then copy the project number and keys for the setup tool. The setup process for LUMI-O will create environment variables needed for _S3_ command and configuration files for `s3cmd` and `rclone`. In addition you can define that `a-commands` will use by default LUMI-O storage server instead of Allas. After that commands like `a-list`, `a-put` or `a-get` will use your LUMI-O storage. If you don't set LUMI-O as the default storage service, you can add option `--lumi` to a-commands to use LUMI-O instead of Allas. 
 
-For `rclone`,  LUMI-O configuration provides two _rclone remotes_: _lumi-o:_ and _lumi-pub:_. The buckets used by _lumi-pub_ will be publicly visible in URL: `https://<project-number>.lumidata.eu/<bucket_name>`.
+For `rclone`,  LUMI-O configuration provides two _rclone remotes_: _lumi-<project-number>-private:_ and _lumi-<project-number>-public:_. The buckets used by _lumi-<project-number>-public_ will be publicly visible in URL: `https://<project-number>.lumidata.eu/<bucket_name>`. 
 
 Note that you can have an active connection to both LUMI-O and Allas at the same time.
 
@@ -73,7 +73,7 @@ a-list
 or 
 
 ```text
-rclone lsd lumi-o:
+rclone lsd lumi-<project-number>-private:     # Replace <project-number> with your LUMI project id, e.g. 465000001
 ```
 
 And at the same time you can list your buckets in Allas with commands:
@@ -91,7 +91,7 @@ rclone lsd allas:
 Copying data from Allas to LUMI-O could now be done with command:
 
 ```text
-rclone copyto -P allas:bucket-in-allas/object lumi-o:bucket-in-lumi-o/object
+rclone copyto -P allas:bucket-in-allas/object lumi-<project-number>-private:bucket-in-lumi-o/object
 ```
 
 The command above will work only for files smaller than 5 GB.
