@@ -69,7 +69,7 @@ For example to set Allas end-point:
 #### S3 connection set up for Allas 
 
 The easiest way to set up S3 configuration for `GDAL` is by
-[configuring an S3 connection on a CSC supercomputer](../../../data/Allas/using_allas/python_boto3.md#configuring-s3). 
+[configuring an S3 connection on a CSC supercomputer](../../../data/Allas/using_allas/allas-conf.md#s3-connection). 
 
 GDAL requires additionally that Allas endpoint is given as AWS_S3_ENDPOINT environment variable, see the commands above.
 
