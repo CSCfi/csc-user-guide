@@ -315,6 +315,8 @@ nav:
           - Running containers: computing/containers/run-existing.md
           - Creating containers: computing/containers/creating.md
           - Container wrapper (Tykky): computing/containers/tykky.md
+      - Containers (updated):
+          - computing/containers-updated/overview.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
