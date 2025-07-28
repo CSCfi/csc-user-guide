@@ -4,7 +4,7 @@ In this section, we provide instructions on how to build and run containers usin
 Puhti and Mahti clusters are examples of such environments.
 
 You should read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html) for general instructions.
-We focus on the special aspects of building containers on the HPC system with previously mentioned limitations.
+We focus on the special aspects of building and running containers on the Puhti and Mahti HPC platforms.
 
 ## Building containers
 
@@ -17,6 +17,26 @@ The `TMPDIR` environment variable must point to the local disk.
 Apptainer will use it to identify the directory as its temporary directory when building a container.
 Puhti and Mahti cluster set `TMPDIR` automatically on login nodes and compute nodes when local disk (NVMe) is reserved.
 Parallel file systems such as Lustre cannot and should not be used as the temporary directory.
+
+### Cache directory
+
+Apptainer caches layers and blobs such as base images to the cache directory.
+The default location is in the home directory which on Puhti and Mahti has a limit quota.
+Thus, we may want to change the cache location to projappl or temporary directory.
+
+```bash
+# Change to temporary directory
+export APPTAINER_CACHEDIR=$TMPDIR
+
+# Change to projappl
+export APPTAINER_CACHEDIR=/projappl/project_id/$USER
+```
+
+We can also clean the cache directory if necessary:
+
+```bash
+apptainer cache clean
+```
 
 ### Virtual memory limit
 
@@ -67,7 +87,7 @@ apptainer build \
     container.sif container.def
 ```
 
-### Build definition
+### Build definition file
 
 When building containers on environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
 These command are typically executed as part of pre or post installation scripts of DEB and RPM packages.
@@ -104,7 +124,10 @@ Replace the failing commands with always succeeding dummies post phase:
 
 ## Running containers
 
+```bash
+apptainer exec container.sif bash
+```
 
-## Example
+## Complete example for Puhti and Mahti
 TODO: complete example of building and running a container on Puhti or Mahti
 
