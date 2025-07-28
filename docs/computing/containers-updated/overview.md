@@ -3,6 +3,8 @@
 In this section, we provide instructions on how to build and run containers using Apptainer with fakeroot enabled in a HPC enviroment without unprivileged usernamespaces.
 Puhti and Mahti clusters are examples of such environments.
 
+You should read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html) for general instructions.
+We focus on the special aspects of building containers on the HPC system with previously mentioned limitations.
 
 ## Building containers
 
@@ -14,11 +16,12 @@ We can build containers on the login node or compute node, as long as the node h
 The `TMPDIR` environment variable must point to the local disk.
 Apptainer will use it to identify the directory as its temporary directory when building a container.
 Puhti and Mahti cluster set `TMPDIR` automatically on login nodes and compute nodes when local disk (NVMe) is reserved.
-Parallel file systems such as Lustre cannot and should not be used as the temporary dirctory.
+Parallel file systems such as Lustre cannot and should not be used as the temporary directory.
 
-### Virtual memory
+### Virtual memory limit
 
-Virtual memory is limited on the login nodes and exceeding it causes memory errors.
+If the virtual memory is limited, exceeding it memory causes memory errors during build.
+Virtual memory is limit on Puhti and Mahti login nodes is quite small and should be increased to the hard limit.
 You can check and modify virtual memory limits as follows:
 
 ```bash
@@ -52,7 +55,7 @@ srun \
     --pty bash
 ```
 
-### Binding temporary directory during build
+### Build commmand and binding temporary directory
 In HPC clusters the `/tmp` directory may have limited size.
 In the build script we should bind mount the local disk to `/tmp` to avoid running out of memory if the container build process writes data to it.
 
@@ -82,14 +85,14 @@ VERSION_ID="8.10"
 ...
 ```
 
-Use host compatible base image:
+Use host compatible base image in the build definition:
 
 ```sh
 Bootstrap: docker
 From: rockylinux/rockylinux:8.10
 ```
 
-We can replace problematic commands with dummies:
+Replace the failing commands with always succeeding dummies post phase:
 
 ```sh
 %post
