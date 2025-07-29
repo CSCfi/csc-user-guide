@@ -1,22 +1,50 @@
 # Containers (updated)
 
-In this section, we provide instructions on how to build and run containers using Apptainer with fakeroot enabled in a HPC enviroment without unprivileged usernamespaces.
-Puhti and Mahti clusters are examples of such environments.
+In this section, we provide instructions on how to build and run containers using [Apptainer](https://apptainer.org/) with fakeroot enabled in HPC clusters without unprivileged usernamespaces.
+We explain the special aspects of building and running containers on Puhti and Mahti clusters including how to set up the build environment, how to invoke the build commands, how to write container definition files and how to run containers on the clusters.
+For general instructions about building and running containers, we recommend that users read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html).
 
-You should read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html) for general instructions.
-We focus on the special aspects of building and running containers on the Puhti and Mahti HPC platforms.
+## Running containers
+
+We can obtain a container by either pulling an existing container or by building a container.
+
+Assume we have `container.sif`
+
+```bash
+apptainer exec container.sif bash
+```
+
+```bash
+apptainer exec --bind=/users --bind=/projappl --bind=/scratch container.sif bash
+```
 
 ## Building containers
 
-Building container requires setting appropriate build environment, using appropriate build commands and writing one or more container definition files.
+### Build location
 
-### Temporary directory and local disk
+We can build containers on any node that has local disk available.
+Login nodes have local disk by default.
+To build on a compute node, we can reserve a job with local disk (NVMe).
 
-We can build containers on the login node or compute node, as long as the node has local disk available.
+Here is an example of an interactive job for building containers (change the `project_id` to your project ID):
+
+```bash
+srun \
+    --account=project_id \
+    --partition=interactive \
+    --cpus-per-task=8 \
+    --mem=16G \
+    --gres=nvme:20 \
+    --time=01:00:00 \
+    --pty bash
+```
+
+### Temporary directory
+
 The `TMPDIR` environment variable must point to the local disk.
 Apptainer will use it to identify the directory as its temporary directory when building a container.
-Puhti and Mahti cluster set `TMPDIR` automatically on login nodes and compute nodes when local disk (NVMe) is reserved.
-Parallel file systems such as Lustre cannot and should not be used as the temporary directory.
+Puhti and Mahti cluster set the `TMPDIR` enviroment variable automatically on login nodes and compute nodes when local disk is reserved.
+Parallel file systems such as Lustre cannot (and should not) be used as the temporary directory.
 
 ### Cache directory
 
@@ -45,12 +73,12 @@ Virtual memory is limit on Puhti and Mahti login nodes is quite small and should
 You can check and modify virtual memory limits as follows:
 
 ```bash
-# Current virtual memory limit in kB
+# Query the current virtual memory limit in kB
 ulimit -v
 ```
 
 ```bash
-# Hard limit for virtual memory in kB
+# Query the hard limit for virtual memory in kB
 ulimit -Hv
 ```
 
@@ -59,35 +87,10 @@ ulimit -Hv
 ulimit -v $(ulimit -Hv)
 ```
 
-### Increase resources using an interactive job
-
 If your build runs out of memory, virtual memory or local disk space during the build on the login node, you should use an interactive job.
-Virtual memory has no limit in interactive job and memory and local disk size can be configured:
+Virtual memory has no limit in interactive job and memory and local disk size can be configured.
 
-```bash
-srun \
-    --account=project_2001659 \
-    --partition=interactive \
-    --cpus-per-task=8 \
-    --mem=16G \
-    --gres=nvme:20 \
-    --time=01:00:00 \
-    --pty bash
-```
-
-### Build commmand and binding temporary directory
-In HPC clusters the `/tmp` directory may have limited size.
-In the build script we should bind mount the local disk to `/tmp` to avoid running out of memory if the container build process writes data to it.
-
-```bash
-apptainer build \
-    --fakeroot \
-    --bind="$TMPDIR:/tmp" \
-    --env="TMPDIR=/tmp" \
-    container.sif container.def
-```
-
-### Build definition file
+### Build definition file and invoking the build command
 
 When building containers on environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
 These command are typically executed as part of pre or post installation scripts of DEB and RPM packages.
@@ -105,29 +108,36 @@ VERSION_ID="8.10"
 ...
 ```
 
-Use host compatible base image in the build definition:
+Container definition file named `container.def`:
 
 ```sh
+# Use host compatible base image.
 Bootstrap: docker
 From: rockylinux/rockylinux:8.10
-```
 
-Replace the failing commands with always succeeding dummies post phase:
-
-```sh
 %post
+    # Replace the failing commands with always succeeding dummies.
     cp /usr/bin/true /usr/sbin/useradd
     cp /usr/bin/true /usr/sbin/groupadd
-    # next command would fail without the dummies
+    # Rest of the build script.
+    # Install software with the system package manager.
     dnf -y update
 ```
 
-## Running containers
+In HPC clusters the `/tmp` directory may have limited size.
+In the build script we should bind mount the local disk to `/tmp` to avoid running out of memory if the container build process writes data to it.
 
 ```bash
-apptainer exec container.sif bash
+apptainer build \
+    --fakeroot \
+    --bind="$TMPDIR:/tmp" \
+    container.sif container.def
 ```
 
-## Complete example for Puhti and Mahti
-TODO: complete example of building and running a container on Puhti or Mahti
+## Complete example of building and running a container
 
+Here is a complete example of building and running a container on Puhti or Mahti.
+
+```sh
+#TODO
+```
