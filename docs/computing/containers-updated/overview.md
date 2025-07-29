@@ -15,7 +15,7 @@ apptainer exec container.sif bash
 ```
 
 ```bash
-apptainer exec --bind=/users --bind=/projappl --bind=/scratch container.sif bash
+apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" container.sif bash
 ```
 
 ## Building containers
