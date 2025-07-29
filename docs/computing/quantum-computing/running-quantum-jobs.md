@@ -541,4 +541,4 @@ Click on launch to start your Jupyter session. This will launch Jupyter using th
 ## Further Reading
 * [Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/)
 * [Jupyter on Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/)
-* [Using the quantum computers Lumi web interface](https://fiqci.fi/_posts/2024-08-23-Lumi_web_introduction/)
+* [Using the quantum computers Lumi web interface](https://fiqci.fi/publications/2024-08-23-Lumi_web_introduction)
