@@ -23,6 +23,12 @@ template: home.html
 
     [Puhti and Mahti Overview :material-arrow-right:](computing/index.md)
 
+    [Pouta Overview :material-arrow-right:](cloud/pouta.md)
+
+    [Getting access to Rahti :material-arrow-right:](cloud/rahti/access.md)
+
+    [What is DBaaS :material-arrow-right:](cloud/dbaas/what-is-dbaas.md)
+
     [Getting started with LUMI :material-open-in-new:](https://docs.lumi-supercomputer.eu/firststeps/getstarted/){ target=_blank }
 
     [How to get support :material-arrow-right:](support/contact.md)
