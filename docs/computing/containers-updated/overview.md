@@ -143,6 +143,20 @@ apptainer build \
 By default Apptainer bind mounts the host's `/tmp` to `/tmp` in the build environment.
 However, the size of `/tmp` is limited on Puhti and Mahti, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of memory.
 
+### Building sandbox
+
+Building into a sandbox also works with fakeroot and it is userful for experimenting with container builds.
+
+```bash
+apptainer build --fakeroot --sandbox "$TMPDIR/rockylinux" docker://rockylinux/rockylinux:8.10
+```
+
+Run shell in the sandbox directory to install sofware into the sandbox:
+
+```bash
+apptainer shell --fakeroot --writable --contain --cleanenv --bind="$TMPDIR:/tmp" "$TMPDIR/rockylinux"
+```
+
 ## Complete example of building and running a container
 
 Here is a complete example of building and running a container on Puhti or Mahti.
