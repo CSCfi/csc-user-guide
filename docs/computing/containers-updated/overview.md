@@ -4,18 +4,31 @@ In this section, we provide instructions on how to build and run containers usin
 We explain the special aspects of building and running containers on Puhti and Mahti clusters including how to set up the build environment, how to invoke the build commands, how to write container definition files and how to run containers on the clusters.
 For general instructions about building and running containers, we recommend that users read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html).
 
-## Running containers
+## Pulling container images from registry
 
-We can obtain a container by either pulling an existing container or by building a container.
-
-Assume we have `container.sif`
+We can obtain existing container images from a container registry by pulling them.
+Apptainer will convert them from Docker or OCI format into the Singularity Image Format (SIF).
 
 ```bash
-apptainer exec container.sif bash
+apptainer pull rockylinux.sif docker://rockylinux/rockylinux:8
 ```
 
+You can authenticate to a private registry using `apptainer registry login` command.
+
+## Running containers
+
+Assume we have a container image called `container.sif`.
+We can execute an arbitrary command (replace `mycommand`) inside the comand using the `apptainer exec` command as follows:
+
 ```bash
-apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" container.sif bash
+apptainer exec container.sif mycommand
+```
+
+We can make directories from the host available inside the container by using bind mounts.
+Specific diretories that we may want to bind mount on Puhti and Mahti are `/users`, `/projappl`, `/scratch`, `$TMPDIR`, and `$LOCAL_SCRATCH`.
+
+```bash
+apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" container.sif mycommand
 ```
 
 ## Building containers
@@ -25,7 +38,6 @@ apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" contain
 We can build containers on any node that has local disk available.
 Login nodes have local disk by default.
 To build on a compute node, we can reserve a job with local disk (NVMe).
-
 Here is an example of an interactive job for building containers (change the `project_id` to your project ID):
 
 ```bash
@@ -49,15 +61,11 @@ Parallel file systems such as Lustre cannot (and should not) be used as the temp
 ### Cache directory
 
 Apptainer caches layers and blobs such as base images to the cache directory.
-The default location is in the home directory which on Puhti and Mahti has a limit quota.
-Thus, we may want to change the cache location to projappl or temporary directory.
+The default location is in the home directory (`$HOME/.apptainer`) which on Puhti and Mahti has a limit quota.
+Thus, we may want to change the cache location to projappl to avoid filling our home directory (modify the `project_id` to your project ID).
 
 ```bash
-# Change to temporary directory
-export APPTAINER_CACHEDIR=$TMPDIR
-
-# Change to projappl
-export APPTAINER_CACHEDIR=/projappl/project_id/$USER
+export APPTAINER_CACHEDIR=/projappl/project_id/$USER/.apptainer
 ```
 
 We can also clean the cache directory if necessary:
