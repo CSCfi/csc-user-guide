@@ -4,17 +4,6 @@ In this section, we provide instructions on how to build and run containers usin
 We explain the special aspects of building and running containers on Puhti and Mahti clusters including how to set up the build environment, how to invoke the build commands, how to write container definition files and how to run containers on the clusters.
 For general instructions about building and running containers, we recommend that users read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html).
 
-## Pulling container images from registry
-
-We can obtain existing container images from a container registry by pulling them.
-Apptainer will convert them from Docker or OCI format into the Singularity Image Format (SIF).
-
-```bash
-apptainer pull rockylinux.sif docker://rockylinux/rockylinux:8
-```
-
-You can authenticate to a private registry using `apptainer registry login` command.
-
 ## Running containers
 
 Assume we have a container image called `container.sif`.
@@ -25,13 +14,13 @@ apptainer exec container.sif mycommand
 ```
 
 We can make directories from the host available inside the container by using bind mounts.
-Specific diretories that we may want to bind mount on Puhti and Mahti are `/users`, `/projappl`, `/scratch`, `$TMPDIR`, and `$LOCAL_SCRATCH`.
+Specific diretories that we may want to bind mount on Puhti and Mahti are the user home, projappl, scratch, and local disk spaces.
 
 ```bash
 apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" container.sif mycommand
 ```
 
-## Building containers
+## Building container images
 
 ### Build location
 
@@ -98,7 +87,18 @@ ulimit -v $(ulimit -Hv)
 If your build runs out of memory, virtual memory or local disk space during the build on the login node, you should use an interactive job.
 Virtual memory has no limit in interactive job and memory and local disk size can be configured.
 
-### Build definition file and invoking the build command
+### Building from existing Docker or OCI image
+
+We can obtain existing container images from a container registry by pulling them.
+Apptainer will convert them from Docker or OCI format into the Singularity Image Format (SIF).
+
+```bash
+apptainer build rockylinux.sif docker://rockylinux/rockylinux:8
+```
+
+You can authenticate to a private registry using `apptainer registry login` command.
+
+### Building from definition file
 
 When building containers on environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
 These command are typically executed as part of pre or post installation scripts of DEB and RPM packages.
