@@ -119,13 +119,11 @@ From: rockylinux/rockylinux:8.10
     # Replace the failing commands with always succeeding dummies.
     cp /usr/bin/true /usr/sbin/useradd
     cp /usr/bin/true /usr/sbin/groupadd
-    # Rest of the build script.
     # Install software with the system package manager.
     dnf -y update
 ```
 
-In HPC clusters the `/tmp` directory may have limited size.
-In the build script we should bind mount the local disk to `/tmp` to avoid running out of memory if the container build process writes data to it.
+We can invoke Apptainer to build the container (`container.sif`) from the definition file (`container.def`) using fakeroot as follows:
 
 ```bash
 apptainer build \
@@ -133,6 +131,9 @@ apptainer build \
     --bind="$TMPDIR:/tmp" \
     container.sif container.def
 ```
+
+By default Apptainer bind mounts the host's `/tmp` to `/tmp` in the build environment.
+However, the size of `/tmp` is limited on Puhti and Mahti, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of memory.
 
 ## Complete example of building and running a container
 
