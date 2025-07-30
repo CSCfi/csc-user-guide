@@ -23,9 +23,7 @@ template: home.html
 
     [Puhti and Mahti Overview :material-arrow-right:](computing/index.md)
 
-    [Pouta Overview :material-arrow-right:](cloud/pouta/index.md)
-
-    [Getting access to Rahti :material-arrow-right:](cloud/rahti/access.md)
+    [Cloud services Overview :material-arrow-right:](cloud/index.md)
 
     [What is DBaaS :material-arrow-right:](cloud/dbaas/what-is-dbaas.md)
 
@@ -64,6 +62,8 @@ template: home.html
     [Managing data on scratch :material-arrow-right:](support/tutorials/clean-up-data.md)
 
     [High-throughput computing :material-arrow-right:](computing/running/throughput.md)
+
+    [Creating a virtual machine in Pouta :material-arrow-right:](cloud/pouta/launch-vm-from-web-gui.md)
 
 </div>
 
