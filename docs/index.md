@@ -23,7 +23,7 @@ template: home.html
 
     [Puhti and Mahti Overview :material-arrow-right:](computing/index.md)
 
-    [Pouta Overview :material-arrow-right:](cloud/pouta.md)
+    [Pouta Overview :material-arrow-right:](cloud/pouta/index.md)
 
     [Getting access to Rahti :material-arrow-right:](cloud/rahti/access.md)
 
