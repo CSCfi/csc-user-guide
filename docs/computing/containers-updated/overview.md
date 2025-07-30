@@ -1,10 +1,10 @@
 # Containers (updated)
 
 In this section, we provide instructions on how to build and run containers using [Apptainer](https://apptainer.org/) with fakeroot enabled in HPC clusters without unprivileged usernamespaces.
-We explain the special aspects of building and running containers on Puhti and Mahti clusters including how to set up the build environment, how to invoke the build commands, how to write container definition files and how to run containers on the clusters.
+We explain the special aspects of building and running containers on Puhti and Mahti clusters including how to set up the build environment, how to invoke the build commands, how to write container definition files and how to run containers.
 For general instructions about building and running containers, we recommend that users read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html).
 
-Reasons for using containers on HPC cluster are:
+Some reasons for using containers on HPC cluster are:
 
 - Containers improve startup times and avoid I/O bottlenecks with the parallel file system (Lustre) for applications that consist of large number of files or load many shared libraries on startup.
   This is because Apptainer uses the Singularity Image Format (SIF) which packs the container files into a single (SquashFS) file.
