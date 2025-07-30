@@ -118,7 +118,7 @@ VERSION_ID="8.10"
 
 Container definition file named `container.def`:
 
-```sh
+```sh title="container.def"
 # Use host compatible base image.
 Bootstrap: docker
 From: rockylinux/rockylinux:8.10
@@ -145,22 +145,25 @@ However, the size of `/tmp` is limited on Puhti and Mahti, thus, we bind mount t
 
 ### Building sandbox
 
-Building into a sandbox also works with fakeroot and it is userful for experimenting with container builds.
+We can also build Apptainer sandboxes with fakeroot.
+Sanboxes are useful for experimenting with container builds.
+The sandbox must be created into the local disk (`$TMPDIR`), not in to the parallel file system (Lustre).
+
+We can initialize a sandbox from a base image as follows:
 
 ```bash
 apptainer build --fakeroot --sandbox "$TMPDIR/rockylinux" docker://rockylinux/rockylinux:8.10
 ```
 
-Run shell in the sandbox directory to install sofware into the sandbox:
+The, we can run a shell in the sandbox to install sofware into it:
 
 ```bash
 apptainer shell --fakeroot --writable --contain --cleanenv --bind="$TMPDIR:/tmp" "$TMPDIR/rockylinux"
 ```
 
-## Complete example of building and running a container
+We can use the same tricks to replace the failing commands in the sandbox:
 
-Here is a complete example of building and running a container on Puhti or Mahti.
-
-```sh
-#TODO
+```bash
+cp /usr/bin/true /usr/sbin/useradd
+cp /usr/bin/true /usr/sbin/groupadd
 ```

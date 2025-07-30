@@ -317,6 +317,7 @@ nav:
           - Container wrapper (Tykky): computing/containers/tykky.md
       - Containers (updated):
           - computing/containers-updated/overview.md
+          - Examples: computing/containers-updated/examples.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
