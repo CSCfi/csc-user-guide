@@ -39,13 +39,19 @@ From: rockylinux/rockylinux:8.10
     curl --location --output /opt/miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
     sh /opt/miniforge3.sh -b -p /opt/miniforge3
     rm -f /opt/miniforge3.sh
+
+    export MAMBA_ROOT_PREFIX=/opt/miniforge3
     /opt/miniforge3/bin/mamba shell hook --shell bash > /opt/mamba-hook.sh
     . /opt/mamba-hook.sh
 
     # install packages with mamba
 
 %environment
+    export MAMBA_ROOT_PREFIX=/opt/miniforge3
+
+%runscript
     . /opt/mamba-hook.sh
+    eval "$@"
 ```
 
 ```bash
