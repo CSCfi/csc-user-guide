@@ -4,6 +4,16 @@ In this section, we provide instructions on how to build and run containers usin
 We explain the special aspects of building and running containers on Puhti and Mahti clusters including how to set up the build environment, how to invoke the build commands, how to write container definition files and how to run containers on the clusters.
 For general instructions about building and running containers, we recommend that users read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html).
 
+Reasons for using containers on HPC cluster are:
+
+- Containers improve startup times and avoid I/O bottlenecks with the parallel file system (Lustre) for applications that consist of large number of files or load many shared libraries on startup.
+  This is because Apptainer uses the Singularity Image Format (SIF) which packs the container files into a single (SquashFS) file.
+
+- Running containerized software is reproducible becuase the container image is immutable.
+
+- Container build definitions captures more comprehensively what is installed into the container and how it is installed.
+  However, container build definitions are not a substitute for package managers.
+
 ## Running containers
 
 Assume we have a container image called `container.sif`.
@@ -19,6 +29,8 @@ Specific diretories that we may want to bind mount on Puhti and Mahti are the us
 ```bash
 apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" container.sif mycommand
 ```
+
+We can use same bind mounts with `apptainer run` and `apptainer shell`.
 
 ## Building container images
 
