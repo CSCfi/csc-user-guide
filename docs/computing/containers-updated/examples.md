@@ -57,3 +57,8 @@ From: rockylinux/rockylinux:8.10
 ```bash
 apptainer build --fakeroot miniforge.sif miniforge.def
 ```
+
+## Other
+
+- [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/matlab/r2024b)
+- [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
