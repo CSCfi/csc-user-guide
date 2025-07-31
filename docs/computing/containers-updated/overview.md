@@ -9,10 +9,14 @@ Some reasons for using containers on HPC cluster are:
 - Containers improve startup times and avoid I/O bottlenecks with the parallel file system (Lustre) for applications that consist of large number of files or load many shared libraries on startup.
   This is because Apptainer uses the Singularity Image Format (SIF) which packs the container files into a single (SquashFS) file.
 
-- Running containerized software is reproducible becuase the container image is immutable.
+- Running containerized software is reproducible because the container image is immutable.
 
-- Container build definitions captures more comprehensively what is installed into the container and how it is installed.
-  However, container build definitions are not a substitute for package managers.
+- Container build definitions capture more comprehensively what is installed into the container and how it is installed.
+
+Limitations of containers:
+
+- Containers are not composable and they are not a substitute for package managers.
+  That is, having a container with Python installed and another container with R installed, will not provide you with a container with both Python and R installed.
 
 ## Running containers
 
@@ -77,27 +81,16 @@ apptainer cache clean
 
 ### Virtual memory limit
 
-If the virtual memory is limited, exceeding it memory causes memory errors during build.
 Virtual memory is limit on Puhti and Mahti login nodes is quite small and should be increased to the hard limit.
-You can check and modify virtual memory limits as follows:
+Exceeding it virtual memory causes memory errors during build.
+You can you query the current virtual memory limit using `ulimit -v` and the hard limit using `ulimit -Hv`.
+On Puhti and Mahti login nodes, we can set the virtual memory limit to the hard limit as follows:
 
 ```bash
-# Query the current virtual memory limit in kB
-ulimit -v
-```
-
-```bash
-# Query the hard limit for virtual memory in kB
-ulimit -Hv
-```
-
-```bash
-# Set virtual memory limit to the hard limit
 ulimit -v $(ulimit -Hv)
 ```
 
-If your build runs out of memory, virtual memory or local disk space during the build on the login node, you should use an interactive job.
-Virtual memory has no limit in interactive job and memory and local disk size can be configured.
+If your build runs out of memory, virtual memory or local disk space during the build on the login node, you should use an interactive job where virtual memory is unlimited and and memory and local disk size can be configured.
 
 ### Building from existing Docker or OCI image
 
