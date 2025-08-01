@@ -310,14 +310,15 @@ nav:
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md
       - Performance analysis: computing/performance.md
-      - Containers:
+      - Containers (updated):
+          - computing/containers-updated/overview.md
+          - Examples: computing/containers-updated/examples.md
+          - Container wrapper (Tykky): computing/containers-updated/tykky.md
+      - Containers (legacy):
           - computing/containers/overview.md
           - Running containers: computing/containers/run-existing.md
           - Creating containers: computing/containers/creating.md
           - Container wrapper (Tykky): computing/containers/tykky.md
-      - Containers (updated):
-          - computing/containers-updated/overview.md
-          - Examples: computing/containers-updated/examples.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
