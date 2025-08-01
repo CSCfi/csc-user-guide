@@ -208,7 +208,7 @@ procedure using a temporary virtual machine.
    the size of myVmSnapshot. For example, if myVmSnapshot has a size of 
    80GB, a suitable flavor for the auxiliary virtual machine is io.160GB 
    because it has 160 GB of ephemeral storage. The operating system can be 
-   CentOS-7, for example.
+  `AlmaLinux-9`, for example.
    ```bash
    openstack server create --flavor <flavor> \
    --image <image uuid> \

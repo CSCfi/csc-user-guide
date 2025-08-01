@@ -61,7 +61,7 @@ sudo yum install dnf-automatic -y
 systemctl enable --now dnf-automatic-install.timer
 ```
 
-`yum-cron` for Centos 7:
+`yum-cron` for Centos 7 (and older RedHat related distributions):
 
 ```yaml
 sudo yum install yum-cron -y
