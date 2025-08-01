@@ -146,10 +146,7 @@ From: rockylinux/rockylinux:8.10
 We can invoke Apptainer to build the container (`container.sif`) from the definition file (`container.def`) using fakeroot as follows:
 
 ```bash
-apptainer build \
-    --fakeroot \
-    --bind="$TMPDIR:/tmp" \
-    container.sif container.def
+apptainer build --fakeroot --bind="$TMPDIR:/tmp" container.sif container.def
 ```
 
 By default Apptainer bind mounts the host's `/tmp` to `/tmp` in the build environment.
@@ -180,10 +177,11 @@ cp /usr/bin/true /usr/sbin/useradd
 cp /usr/bin/true /usr/sbin/groupadd
 ```
 
-## Creating and mounting datasets with SquashFS
+## Reading datasets from SquashFS file
 
-- lot of small files
-- accessed in read-only manner
+We can also avoid I/O bottlenecks with datasets that consist of large amounts of small files by reducing them to a single SquashFS file.
+The SquashFS file can be bind mounted inside the container and accessed in read-only manner.
+The following example unarchives the dataset to the local disk, creates a the squashfs  file from the dataset and them moves it back to scratch:
 
 ```bash
 # Extract individual files to local drive
@@ -197,7 +195,7 @@ mksquashfs mydataset mydataset.sqfs -processors 4
 mv mydataset.sqfs /scratch/project_id/
 ```
 
-We can bind mount the dataset as follows:
+Now, we can bind mount the dataset as follows:
 
 ```bash
 apptainer exec --bind=/scratch/project_id/mydataset.sqfs:/data:image-src=/ container.sif mycommand
