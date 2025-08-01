@@ -20,14 +20,9 @@ From: rockylinux/rockylinux:8.10
 apptainer build --fakeroot rockylinux.sif rockylinux.def
 ```
 
-## GPU
+## Applications
 
-```sh
-# TODO
-```
-
-## Other
-
+- [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
+- [uv (Python)](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
 - [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/matlab/r2024b)
 - [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
-- [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)

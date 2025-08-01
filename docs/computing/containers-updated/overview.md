@@ -6,7 +6,7 @@ For general instructions about building and running containers, we recommend tha
 
 Some reasons for using containers on HPC cluster are:
 
-- Containers improve startup times and avoid I/O bottlenecks with the parallel file system (Lustre) for applications that consist of large number of files or load many shared libraries on startup.
+- Containers improve startup times and avoid I/O bottlenecks with the parallel file system (Lustre) for applications that consist of large number of files or load many shared libraries on startup (such as Python, R and MATLAB).
   This is because Apptainer uses the Singularity Image Format (SIF) which packs the container files into a single (SquashFS) file.
 
 - Running containerized software is reproducible because the container image is immutable.
@@ -29,12 +29,19 @@ apptainer exec container.sif mycommand
 
 We can make directories from the host available inside the container by using bind mounts.
 Specific diretories that we may want to bind mount on Puhti and Mahti are the user home, projappl, scratch, and local disk spaces.
+Here is an example:
 
 ```bash
 apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" container.sif mycommand
 ```
 
-We can use same bind mounts with `apptainer run` and `apptainer shell`.
+We can add (Nvidia) GPU support with the `--nv` flag as follows:
+
+```bash
+apptainer exec --nv container.sif mycommand
+```
+
+We can use same the flags with `apptainer run` and `apptainer shell` commands.
 
 ## Building container images
 
@@ -98,7 +105,7 @@ We can obtain existing container images from a container registry by pulling the
 Apptainer will convert them from Docker or OCI format into the Singularity Image Format (SIF).
 
 ```bash
-apptainer build rockylinux.sif docker://rockylinux/rockylinux:8
+apptainer build rockylinux.sif docker://docker.io/rockylinux/rockylinux:8
 ```
 
 You can authenticate to a private registry using `apptainer registry login` command.
@@ -172,3 +179,28 @@ We can use the same tricks to replace the failing commands in the sandbox:
 cp /usr/bin/true /usr/sbin/useradd
 cp /usr/bin/true /usr/sbin/groupadd
 ```
+
+## Creating and mounting datasets with SquashFS
+
+- lot of small files
+- accessed in read-only manner
+
+```bash
+# Extract individual files to local drive
+cd $TMPDIR
+tar xf /scratch/project_id/mydataset.tar
+
+# Create squashfs file
+mksquashfs mydataset mydataset.sqfs -processors 4
+
+# Move the resulting squashfs file back to the shared drive
+mv mydataset.sqfs /scratch/project_id/
+```
+
+We can bind mount the dataset as follows:
+
+```bash
+apptainer exec --bind=/scratch/project_id/mydataset.sqfs:/data:image-src=/ container.sif mycommand
+```
+
+The data will be available under the path `/data` inside the container.
