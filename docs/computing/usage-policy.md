@@ -119,9 +119,10 @@ units.
 
 The course project can host the maximum of 50 students at a time.To check
 whether resources are available, send a request to servicedesk@csc.fi at least
-14 days beforehand.
+**14 days beforehand**.
 
-The request should include
+The request should include:
+
 * the number of participants,
 * the resources planned for the course,
 * and a timetable showing the course's daily hours.
