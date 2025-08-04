@@ -114,3 +114,17 @@ units.
 * CSC can terminate jobs if they are misusing resources. E.g., if resources
   (CPU cores, GPUs, memory) are severely underutilized or IO is overloading
   the storage system.
+
+## Computing resources for courses
+
+The course project can host the maximum of 50 students at a time.To check
+whether resources are available, send a request to servicedesk@csc.fi at least
+14 days beforehand.
+
+The request should include
+* the number of participants,
+* the resources planned for the course,
+* and a timetable showing the course's daily hours.
+
+Course resource reservations can only be made for a period of 5–10 days
+and for a maximum of 12 hours per day.
