@@ -171,7 +171,7 @@ The sandbox must be created into the local disk (`$TMPDIR`), not in to the paral
 We can initialize a sandbox from a base image as follows:
 
 ```bash
-apptainer build --fakeroot --sandbox "$TMPDIR/rockylinux" docker://rockylinux/rockylinux:8.10
+apptainer build --fakeroot --sandbox "$TMPDIR/rockylinux" docker://docker.io/rockylinux/rockylinux:8.10
 ```
 
 The, we can run a shell in the sandbox to install sofware into it:
@@ -191,7 +191,7 @@ cp /usr/bin/true /usr/sbin/groupadd
 
 We can also avoid I/O bottlenecks with datasets that consist of large amounts of small files by reducing them to a single SquashFS file.
 The SquashFS file can be bind mounted inside the container and accessed in read-only manner.
-The following example unarchives the dataset to the local disk, creates a the squashfs  file from the dataset and them moves it back to scratch:
+The following example extracts the dataset to the local disk, creates a the squashfs  file from the dataset and them moves it back to scratch:
 
 ```bash
 # Extract individual files to local drive
