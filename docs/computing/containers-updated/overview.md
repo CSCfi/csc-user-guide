@@ -45,6 +45,15 @@ We can use same the flags with `apptainer run` and `apptainer shell` commands.
 
 ## Building container images
 
+We can build containers with Apptainer as follows:
+
+```bash
+apptainer build <options>
+```
+
+In this section, we explain how to use the command to convert existing Docker and OCI images to Singularity Image format (SIF) images, build new SIF images from definition file or develop containers interactively as modifiable (ch)root directory using a sandbox.
+Also, we cover how to set the appropriate build environment and resources like memory for building on Puhti and Mahti.
+
 ### Build location
 
 We can build containers on any node that has local disk available.
@@ -67,7 +76,7 @@ srun \
 
 The `TMPDIR` environment variable must point to the local disk.
 Apptainer will use it to identify the directory as its temporary directory when building a container.
-Puhti and Mahti cluster set the `TMPDIR` enviroment variable automatically on login nodes and compute nodes when local disk is reserved.
+Puhti and Mahti cluster set the `TMPDIR` enviroment variable automatically on login nodes which have local disk by default and compute nodes when local disk is reserved.
 Parallel file systems such as Lustre cannot (and should not) be used as the temporary directory.
 
 ### Cache directory
@@ -99,7 +108,7 @@ ulimit -v $(ulimit -Hv)
 
 If your build runs out of memory, virtual memory or local disk space during the build on the login node, you should use an interactive job where virtual memory is unlimited and and memory and local disk size can be configured.
 
-### Building from existing Docker or OCI image
+### Building SIF image from existing Docker or OCI image
 
 We can obtain existing container images from a container registry by pulling them.
 Apptainer will convert them from Docker or OCI format into the Singularity Image Format (SIF).
@@ -110,9 +119,9 @@ apptainer build rockylinux.sif docker://docker.io/rockylinux/rockylinux:8
 
 You can authenticate to a private registry using `apptainer registry login` command.
 
-### Building from definition file
+### Building SIF image from definition file
 
-When building containers on environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
+When building containers with fakeroot on environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
 These command are typically executed as part of pre or post installation scripts of DEB and RPM packages.
 We can workaround many of these problems by using host compatible base image and replacing problematic commands with dummies that always succeed.
 
@@ -128,19 +137,20 @@ VERSION_ID="8.10"
 ...
 ```
 
-Container definition file named `container.def`:
+Apptainer definition files are written using the `.def` file extension.
+Here is a simple example of container definition that uses compatible base image and replaces the failing commands with the succeeding dummies:
 
 ```sh title="container.def"
-# Use host compatible base image.
 Bootstrap: docker
-From: rockylinux/rockylinux:8.10
+From: docker.io/rockylinux/rockylinux:8.10
 
 %post
     # Replace the failing commands with always succeeding dummies.
     cp /usr/bin/true /usr/sbin/useradd
     cp /usr/bin/true /usr/sbin/groupadd
-    # Install software with the system package manager.
-    dnf -y update
+
+    # Continue install software into the container normally.
+    dnf -y update  # would fail without the dummies
 ```
 
 We can invoke Apptainer to build the container (`container.sif`) from the definition file (`container.def`) using fakeroot as follows:
@@ -152,10 +162,10 @@ apptainer build --fakeroot --bind="$TMPDIR:/tmp" container.sif container.def
 By default Apptainer bind mounts the host's `/tmp` to `/tmp` in the build environment.
 However, the size of `/tmp` is limited on Puhti and Mahti, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of memory.
 
-### Building sandbox
+### Developing with interactive sandbox
 
 We can also build Apptainer sandboxes with fakeroot.
-Sanboxes are useful for experimenting with container builds.
+Sanboxes are useful for interactive development of containers.
 The sandbox must be created into the local disk (`$TMPDIR`), not in to the parallel file system (Lustre).
 
 We can initialize a sandbox from a base image as follows:
