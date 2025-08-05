@@ -1,6 +1,22 @@
 # Data management
 
 
+
+## Sesnitive Data Desktop export problem: quick workaround for known bug
+
+Virtual desktops created before August 2025 may display an incorrect error blocking data export via the Data Gateway application or programmatically, even when accessed by the CSC Project Manager.
+To resolve this issue, a one time workaround must be applied per virtual desktop, either through the graphical interface (Via Data Geteway / Sensitive Data (SD) installer tool
+) or programmatically. Step by step instructions are provided below.
+
+1) Via Data Geteway / Sensitive Data (SD) installer tool
+
+
+
+3) Programmatically
+   
+
+
+
 ## Sensitive Data (SD) Connect: new command line tools for automated key management, 02.2025
 
 We are excited to announce that, starting February 2025, new command line tools are available for automated key management with SD Connect. These tools allow you to upload and download files (using a-commands) and manage encryption keys automatically (using lock-unlock commands). After encrypting and uploading data programmatically, you can access it via the SD Connect user interface or SD Desktop. Please note that these tools require coding skills. A step-by-step guide is provided below to help you get started.
