@@ -110,22 +110,34 @@ units.
 
 ## Slurm job management by CSC
 
-* CSC will not change job parameters like length or priority. 
+* CSC will not change job parameters like length or priority
 * CSC can terminate jobs if they are misusing resources. E.g., if resources
   (CPU cores, GPUs, memory) are severely underutilized or IO is overloading
   the storage system.
 
-## Computing resources for courses
+## HPC resources for courses
 
-The course project can host the maximum of 50 students at a time.To check
-whether resources are available, send a request to servicedesk@csc.fi at least
-**14 days beforehand**.
+A [course project](../accounts/how-to-create-new-project.md#course) can host a
+maximum of 50 students at a time. Please note that course projects are subject
+to the same Slurm job priority policies as regular computing projects, meaning
+that course participants may need to queue for resources if the system is under
+heavy use.
 
-The request should include:
+To ensure the availability of resources at the time of the course session(s)
+and thus avoid queuing, an _advance resource reservation_ may be requested for
+the course. In this case, please
+[contact CSC Service Desk](../support/contact.md) **at least 14 days beforehand**.
 
-* the number of participants,
-* the resources planned for the course,
-* and a timetable showing the course's daily hours.
+The request should be motivated and include:
 
-Course resource reservations can only be made for a period of 5–10 days
-and for a maximum of 12 hours per day.
+1. the number of participants,
+2. the resources planned for the course,
+3. and a timetable showing the schedule of the course.
+
+Advance resource reservations for courses can be made for a maximum period of 5
+days in total and for a maximum of 9 hours per day. In special cases this may
+be increased to 10 days and 12 hours per day, but such a request will go
+through a more scrutinized approval process.
+
+The maximum amount and type of reservable resources depends on whether the
+request concerns Puhti or Mahti.
