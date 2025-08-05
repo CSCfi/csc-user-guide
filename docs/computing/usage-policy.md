@@ -110,7 +110,7 @@ units.
 
 ## Slurm job management by CSC
 
-* CSC will not change job parameters like length or priority
+* CSC will not change job parameters like length or priority.
 * CSC can terminate jobs if they are misusing resources. E.g., if resources
   (CPU cores, GPUs, memory) are severely underutilized or IO is overloading
   the storage system.
@@ -140,4 +140,5 @@ be increased to 10 days and 12 hours per day, but such a request will go
 through a more scrutinized approval process.
 
 The maximum amount and type of reservable resources depends on whether the
-request concerns Puhti or Mahti.
+request concerns Puhti or Mahti. Please
+[consult CSC Service Desk](../support/contact.md).
