@@ -312,6 +312,7 @@ nav:
       - Performance analysis: computing/performance.md
       - Containers (updated):
           - computing/containers-updated/overview.md
+          - Advanced: computing/containers-updated/advanced.md
           - Examples: computing/containers-updated/examples.md
           - Container wrapper (Tykky): computing/containers-updated/tykky.md
       - Containers (legacy):
