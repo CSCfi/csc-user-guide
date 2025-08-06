@@ -1,4 +1,5 @@
 from pathlib import Path
+from urllib.parse import urljoin
 
 from mkdocs.plugins import get_plugin_logger, CombinedEvent, event_priority
 from mkdocs.structure.files import File as MkDocsFile, InclusionLevel
@@ -89,6 +90,10 @@ class CatalogHook(DocsHook):
         if (dirname == "apps"
             and len(segments) == 1
             and segments[0] in self.__index_filenames):
+
+            # For now, set 'edit_url' to point to the Python module
+            # responsible for generating the apps index pages:
+            page.edit_url = urljoin(config.repo_url, "edit/master/hooks/catalog/export.py")
 
             content = self.__docs_export.append_content(filepath, markdown)
             self.__docs_export.add_page(Path(config.docs_dir) / dirname / filepath.name, content)

@@ -3,7 +3,7 @@ tags:
   - Free
 catalog:
   name: Geoconda
-  description: - Python spatial analysis libraries
+  description: Python libraries for spatial analysis 
   license_type: Free
   disciplines:
     - Geosciences

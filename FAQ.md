@@ -22,12 +22,12 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [Which Markdown features/extensions are available?](#which-markdown-featuresextensions-are-available)
   - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
+  - [How do I include a new software page on the "Applications" index pages](#how-do-i-add-a-new-applications-page)
   - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
   - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
   - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
-
 
 ## How to include my new page in the navigation panel?
 
@@ -352,6 +352,66 @@ Uncommented:
 Make sure to "un-uncomment" every other line, since only a single line may be in an uncommented state at a time.
 
 Documentation for _Material for MkDocs_ has a [search feature](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search) including **previews** for the icon database. The path of the icon file can be determined by examining the shortcode. For example, the path `.icons/material/information.svg` above corresponds to the shortcode `:material-information:` shown in the search.
+
+## How do I add a new "Applications" page?
+
+To include a new software page on the "Applications" index pages
+(`apps/index.md`, `apps/by_system.md`, `apps/by_license.md`, `apps/by_discipline`),
+you must add a YAML front matter at the beginning of the file (before the page title)
+with appropriate metadata. The frontmatter should look like this:
+
+```yaml
+---
+tags:
+  - <license type>
+catalog:
+  name: <software name>
+  description: <short description>
+  license_type: <license type>
+  disciplines:
+    - <discipline a>
+    - <discipline b>
+    - ...
+  available_on:
+    - web_interfaces:
+        - <system 1>
+        - <system 2>
+        - ...
+    - <system 1>
+    - <system 2>
+    - <system 3>
+    - ...
+---
+```
+
+For example, the front matter of MATLAB is:
+
+```yaml
+---
+tags:
+  - Academic
+catalog:
+  name: MATLAB
+  description: High-level technical computing language
+  license_type: Academic
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
+---
+```
+
+> [!IMPORTANT]
+> **Do not** edit the index pages by hand, as they are populated automatically by a script using the front matter data when the website is built.
+
+See also:
+
+* [How do I add a license tag to an application page?](#how-do-i-add-a-license-tag-to-an-application-page)
+* [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
 
 ## How do I add a license tag to an application page?
 
