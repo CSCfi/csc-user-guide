@@ -114,3 +114,5 @@ access](../../cloud/pouta/index.md).
 * [Python parallel jobs](python-usage-guide.md#python-parallel-jobs)
 * [Dask tutorial](dask-python.md)
 * [High-throughput computing and workflows](../../computing/running/throughput.md)
+
+For LUMI users see also the [LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide) created by LUMI user support.

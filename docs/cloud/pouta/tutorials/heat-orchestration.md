@@ -35,7 +35,7 @@ resources:
   instance1:
     type: OS::Nova::Server
     properties:
-      image: Centos-7
+      image: AlmaLinux-9
       flavor: standard.small
       key_name: my-key
       networks:

@@ -1,3 +1,7 @@
+
+!!! success "Basic level"
+    You just need basic computing knowledge. It is useful to know how XML or JSON works.
+
 # Short introduction to YAML
 
 YAML is used to describe key-value maps and arrays. YAML files are recognized
