@@ -67,7 +67,8 @@ wget "https://filesender.funet.fi/download.php?token=4da0-b98e-3290c6471469&file
        name that will be used for the downloaded data.
     2. The `wget` method only works when downloading individual files. Copying
        and using the URL of the _Download as single (.zip/.tar) file_ button to
-       download all files at once as an archive will unfortunately not work.
+       download multiple files at once as an archive will unfortunately not
+       work.
 
 ## Using FileSender from the command-line
 
