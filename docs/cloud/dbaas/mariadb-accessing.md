@@ -15,7 +15,7 @@ MariaDB Connectors are used for creating database connections from applications,
 and are available for many popular programming languages. You can find more information
 regarding their usage and configuration in MariaDB's documentation:
 
-  * [https://mariadb.com/docs/server/connect/ **FIXME**](https://mariadb.com/docs/server/connect/)
+  * [https://mariadb.com/docs/server/clients-and-utilities/server-client-software/client-libraries/connect-and-query](https://mariadb.com/docs/server/clients-and-utilities/server-client-software/client-libraries/connect-and-query)
   * [https://mariadb.com/kb/en/connectors/](https://mariadb.com/kb/en/connectors/)
 
 **Please pay special attention to SSL configuration** - as Pukki only allows SSL connections
