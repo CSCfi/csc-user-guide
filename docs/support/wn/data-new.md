@@ -2,19 +2,46 @@
 
 
 
-## Sesnitive Data Desktop export problem: quick workaround for known bug
+## Sensitive Data (SD) Desktop export problem: quick workaround for known bug
 
-Virtual desktops created before August 2025 may display an incorrect error blocking data export via the Data Gateway application or programmatically, even when accessed by the CSC Project Manager.
-To resolve this issue, a one time workaround must be applied per virtual desktop, either through the graphical interface (Via Data Geteway / Sensitive Data (SD) installer tool
-) or programmatically. Step by step instructions are provided below.
+Virtual desktops created before August 2025 display an incorrect error blocking data export via the Data Gateway application or programmatically, even when accessed by the CSC Project Manager.
+To resolve this issue is available a one time workaround that must be applied per virtual desktop, either via graphical interfaces ( Data Geteway and SD Installer tool
+) or programmatically. Step by step instructions are available below:
 
-1) Via Data Geteway / Sensitive Data (SD) installer tool
+### 1) Via graphical interfaces
+
+The following workaround that requires access to the SD Tool installer. If you don't have yet access, please follow
+
+1.	Request access to SD Tool installer  or refresh access in Data Gateway to get the latest version,
+2.	open SD Tool installer,
+3.	click Update CA Certificate button and confirm from the installer’s message box that the update is done,
+4.	close the installer and disconnect Data Gateway,
+5.	log out from the desktop,
+6.	log back in to the desktop, and
+7.	proceed with exports as usual.
 
 
 
-3) Programmatically
+
+
+### 2) Programmatically
    
+-  Log in to yoru virtual desktop. Open terminal (right click)
+  
+- Next open the Clipboard with a key combination Ctrl+Alt+Shift and activate the copy-paste function by selecting input method Text input. The Clipboard panel will close automatically after the selection and
+the input bar will appear at the bottom of the virtual desktop.
 
+- Now you can copy the following commands into the impout bar and they will be visible from the terminal (Ctrl+C or mouse right click):
+
+´´´mkdir -p /shared-directory/.certs´´´   press Enter
+
+´´´cp $FS_CERTS /shared-directory/.certs/´´´   press Enter
+
+´´´openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' >> /shared-directory/.certs/ca.crt´´´ press Enter
+
+´´´echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile ´´´  press Enter
+
+- logout fromt the virtual desktop and try the export again
 
 
 ## Sensitive Data (SD) Connect: new command line tools for automated key management, 02.2025
