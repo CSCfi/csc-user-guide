@@ -150,17 +150,25 @@ The username and password should be printed in the console text, above the login
 !!! Warning "Cirros"
     The Cirros image is a small Linux distribution image with limited software support and security updates. It should be used only for rescue operations when normal SSH access is not possible.
 
+	Cirros doesn't support XFS filesystem which Almalinux uses.
+
 ## Mount the disk 
 
 1. Check what volumes you have. If you don't have any other volumes attached it should look something like this:
 
 	```sh
-	$ lsblk
-	NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-	vda    253:0    0  10G  0 disk
-	└─vda1 253:1    0  10G  0 part
-	vdb    253:16   0  80G  0 disk
-	└─vdb1 253:17   0  80G  0 part /
+	$ lsblk
+	NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+	vda     253:0    0  3.5G  0 disk
+	├─vda1  253:1    0  2.5G  0 part /
+	├─vda14 253:14   0    4M  0 part
+	├─vda15 253:15   0  106M  0 part
+	└─vda16 259:0    0  913M  0 part
+	vdb     253:16   0   80G  0 disk
+	├─vdb1  253:17   0   79G  0 part
+	├─vdb14 253:30   0    4M  0 part
+	├─vdb15 253:31   0  106M  0 part /boot/efi
+	└─vdb16 259:1    0  913M  0 part /boot
 	```
 
 1. Now you want to mount `vdb1` to `/tmp/mnt` and go to that directory:
@@ -170,17 +178,65 @@ The username and password should be printed in the console text, above the login
 	$ sudo mount /dev/vdb1 /tmp/mnt/
 	```
 
-## Change bootloader (Grub)
+## Edit bootloader (Grub)
 
-1. Take a backup of grub:
+Sometimes, the problem can comes from a faulty kernel. You can edit the Grub to display the boot menu when you start the machine.
+
+1. Locate the `boot` partition in the `lsblk` command ran previously
+
+
+1. In this example, the `boot` partition is `/dev/vdb16`. Run these commands to mount the different volumes needed: (`root` volume is already mounted. See section [above](#mount-the-disk))
 
 	```sh
-	$ cp /tmp/mnt/boot/grub2/grub.cfg /tmp/mnt/root/grub.cfg.bak-$(date +"%F")
+	sudo mount /dev/vdb16 /tmp/mnt/boot
+	sudo mount --bind /dev /tmp/mnt/dev
+	sudo mount --bind /sys /tmp/mnt/sys
+	sudo mount --bind /proc /tmp/mnt/proc
 	```
 
-1. Open `/tmp/mnt/boot/grub2/grub.cfg` with your favorite text editor. Remove the first `menuentry` section. 
+1. Now, we'll edit the grub. The files to edit are slightly different on `Almalinux` and `Ubuntu`:
 
-    *NOTE:* This might not be the correct solution for your specific problem. The first menuentry is normally your latest and default kernel. 
+	#### Almalinux
+
+	```sh
+	sudo vi /tmp/mnt/etc/default/grub
+	```
+
+	Change `GRUB_TIMEOUT` to `15` (for example). Save and exit.
+
+	#### Ubuntu
+
+	```sh
+	sudo vi /tmp/mnt/etc/default/grub.d/50-cloudimg-settings.cfg
+	```
+
+	Change `GRUB_TIMEOUT` to `15` (for example). Save and exit.
+
+	```sh
+	sudo vi /tmp/mnt/etc/default/grub
+	```
+
+	Change `GRUB_TIMEOUT_STYLE` to `menu`. Save and exit.
+
+1. Now, it's time to update the grub with our modifications. Run these commands:
+
+	#### Almalinux
+
+	```sh
+	sudo chroot /tmp/mnt
+	sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+	```
+
+	#### Ubuntu
+
+	```sh
+	sudo chroot /tmp/mnt
+	update-grub
+	```
+
+Now, you can exit the VM and unrescue it by following the procedure [here](#get-out-of-rescue)
+
+When the VM boots, you will see the boot menu and you will be able to choose a different kernel.
 
 ## Use `chroot` to change the `/` folder
 

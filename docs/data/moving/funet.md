@@ -53,7 +53,7 @@ You can start the download by pressing the _Download_ button.
 
 ![Funet FileSender download page](/img/funet_download.png)
 
-You can also right click the download button and select _Copy Link_ to
+You can also right click the _Download_ button and select _Copy Link_ to
 get the download URL to the file. The URL can then be used to download the file
 using another tool, for example [`wget`](wget.md):
 
@@ -62,9 +62,13 @@ wget "https://filesender.funet.fi/download.php?token=4da0-b98e-3290c6471469&file
 ```
 
 !!! note "Note"
-    When downloading data from Funet FileSender with `wget` you must enclose
-    the download link with quotation marks and use option `-O` to define a file
-    name that will be used for the downloaded data.
+    1. When downloading data from Funet FileSender with `wget` you must enclose
+       the download link with quotation marks and use option `-O` to define a file
+       name that will be used for the downloaded data.
+    2. The `wget` method only works when downloading individual files. Copying
+       and using the URL of the _Download as single (.zip/.tar) file_ button to
+       download multiple files at once as an archive will unfortunately not
+       work.
 
 ## Using FileSender from the command-line
 

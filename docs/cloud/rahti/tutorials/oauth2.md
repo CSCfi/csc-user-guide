@@ -1,3 +1,6 @@
+!!! warning "Middle level"
+    A knowledge of Kubernetes environment and how webservers work is required. It is also useful to know how authentication works. This tutorial uses OpenShift CLI tool [oc](../usage/cli.md)
+
 # How to deploy OAuth2 Proxy in Rahti
 
 We will explain how to deploy and use [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to provide authentication control
