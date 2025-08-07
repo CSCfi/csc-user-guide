@@ -6,12 +6,12 @@
 - SUSE based, Zypper (RPM): [opensuse/leap](https://hub.docker.com/r/opensuse/leap)
 - Debian based, APT (DEB): [ubuntu](https://hub.docker.com/_/ubuntu), [debian](https://hub.docker.com/_/debian)
 
-## Building complex container images
+## Building container images
 
 Definition file sections:
 
-- `Bootstrap:` (docker, localimage)
-- `From:` (URI, path to SIF file)
+- `Bootstrap:`
+- `From:`
 - `%files`
 - `%setup`
 - `%post`
@@ -23,5 +23,6 @@ Prefix to install software:
 - `/usr/local`
 - unique directory in `/opt`
 
-- Makefiles work well for complex builds, [Makefile Tutorial](https://makefiletutorial.com/)
+- We recommend using Makefiles for complex builds, [Makefile Tutorial](https://makefiletutorial.com/)
 - user-space package managers (pip, conda, spack)
+- understanding Apptainer init scripts `.exec`, `.run`, `.shell`
