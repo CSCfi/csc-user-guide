@@ -59,8 +59,7 @@ You will need Python 3 or newer in order to install the command line
 client tools. If you are running even a relatively recent version of
 your operating system, this should not be an issue. However, if you
 have a Red Hat based system that is older than version 7, you will not be
-able to install Python 3 the normal way. See the note for
-RHEL/CentOS 6 users under the corresponding subheading below.
+able to install Python 3 the normal way. We do not support older versions than RHEL/CentOS 7.
 
 If for some reason you do not have Python installed, please [install it
 first].
@@ -82,17 +81,6 @@ For versions older than 16.04:
 If running version 7 or newer:
 
     sudo yum install python3-pip python3-devel
-
-!!! warning
-
-    If you are running RHEL/CentOS 6, the latest version of Python
-    available by default is 2.6. This is too old to run recent versions of
-    the OpenStack client tools. It is possible to install Python 3 for
-    these operating systems as well, but that is out of the scope of this
-    guide. You can find information on how to install Python 3 at
-    [SoftwareCollections.org]. Once you have done that, you should
-    be able to follow the instructions for newer Red Hat based systems
-    above.
 
 #### Preparation: OS X systems
 
