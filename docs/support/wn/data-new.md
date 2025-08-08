@@ -2,31 +2,30 @@
 
 
 
-## Sensitive Data (SD) Desktop export problem: quick workaround for known bug
+## Sensitive Data (SD) Desktop export problem: quick workaround 
 
 Virtual desktops created before August 2025 display an incorrect error blocking data export via the Data Gateway application or programmatically, even when accessed by the CSC Project Manager.
-To resolve this issue is available a one time workaround that must be applied per virtual desktop, either via graphical interfaces ( Data Geteway and SD Installer tool
-) or programmatically. Step by step instructions are available below:
+To resolve this issue is available a one time workaround that must be applied per virtual desktop, either via graphical interfaces ( Data Geteway and SD tool Installer) or programmatically. Step by step instructions:
 
-### 1) Via graphical interfaces
+### 1) Via graphical interface
 
-The following workaround that requires access to the SD Tool installer. If you don't have yet access, please follow
+If you don’t already have the SD Tool installer email servicedesk@csc.fi (subject: SD services) and include your [project’s SD Connect share ID to request access](../../data/sensitive-data/sd-connect-share.md)
+      
+- Log in to your virtual desktop and refresh access in Data Gateway to get the latest version of the tools. 
 
-1.	Request access to SD Tool installer  or refresh access in Data Gateway to get the latest version,
-2.	open SD Tool installer,
-3.	click Update CA Certificate button and confirm from the installer’s message box that the update is done,
-4.	close the installer and disconnect Data Gateway,
-5.	log out from the desktop,
-6.	log back in to the desktop, and
-7.	proceed with exports as usual.
+- If not already on the virtual desktop, copy the SD Tool installer there (with copy paste function). Right-click it, select Allow Launching, and open the SD tool installer.
 
+- Click Update CA Certificate in the SD Tool installer and confirm tfrom the installer’s message box that the update is done.
 
+- Close the SD tool installer, disconnect from Data Gateway and log out from the virtual desktop. 
+
+- You can not login into the vitual desktop again and can now continue with exports as usual.
 
 
 
 ### 2) Programmatically
-   
--  Log in to yoru virtual desktop. Open terminal (right click)
+
+ - Log in to yoru virtual desktop. Open terminal (right click)
   
 - Next open the Clipboard with a key combination Ctrl+Alt+Shift and activate the copy-paste function by selecting input method Text input. The Clipboard panel will close automatically after the selection and
 the input bar will appear at the bottom of the virtual desktop.
