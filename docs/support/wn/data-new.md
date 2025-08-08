@@ -25,30 +25,43 @@ If you don’t already have the SD Tool installer email servicedesk@csc.fi (subj
 
 ### 2) Programmatically
 
- - Log in to yoru virtual desktop. Open terminal (right click)
-  
-- Next open the Clipboard with a key combination Ctrl+Alt+Shift and activate the copy-paste function by selecting input method Text input. The Clipboard panel will close automatically after the selection and
-the input bar will appear at the bottom of the virtual desktop.
+ Log in to your virtual desktop.  Open the terminal (right-click).
 
-- Now you can copy the following commands into the impout bar and they will be visible from the terminal (Ctrl+C or mouse right click):
+- Open the clipboard with the key combination `Ctrl + Alt + Shift` and activate the copy-paste function by selecting Input method → Text input. 
+   The Clipboard panel will close automatically after the selection, and the input bar will appear at the bottom of the virtual desktop.
 
+-  Copy the following commands into the input bar. They will be visible in the terminal.  
+   You can paste them with `Ctrl + C` or by right-clicking.
+
+```bash
 mkdir -p /shared-directory/.certs
+````
 
-press Enter
+**Press Enter**
 
-cp $FS_CERTS /shared-directory/.certs/  
+```bash
+cp $FS_CERTS /shared-directory/.certs/
+```
 
-press Enter
+**Press Enter**
 
-openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' >> /shared-directory/.certs/ca.crt 
+```bash
+openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null \
+| awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
+>> /shared-directory/.certs/ca.crt
+```
 
-press Enter
+**Press Enter**
 
+```bash
 echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
+```
 
-press Enter
+**Press Enter**
 
-- logout fromt the virtual desktop and try the export again
+-  **Log out** from the virtual desktop and try the export again.
+
+
 
 
 ## Sensitive Data (SD) Connect: new command line tools for automated key management, 02.2025
