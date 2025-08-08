@@ -4,22 +4,24 @@
 
 ## Sensitive Data (SD) Desktop export problem: quick workaround 
 
-Virtual desktops created before August 2025 display an incorrect error blocking data export via the Data Gateway application or programmatically, even when accessed by the CSC Project Manager.
-To resolve this issue is available a one time workaround that must be applied per virtual desktop, either via graphical interfaces ( Data Geteway and SD tool Installer) or programmatically. Step by step instructions:
+Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager.  
+To resolve this issue, a one time workaround is available. It must be applied per virtual desktop, either via graphical interfaces (Data Gateway and SD Tool Installer) or programmatically.
 
-### 1) Via graphical interface
+Step by step instructions:
 
-If you don’t already have the SD Tool installer email servicedesk@csc.fi (subject: SD services) and include your [project’s SD Connect share ID to request access](../../data/sensitive-data/sd-connect-share.md)
+### 1) Via Graphical Interface
+
+If you don’t already have the SD Tool installer, email servicedesk@csc.fi (subject: SD services) and include your [project’s SD Connect share ID to request access](../../data/sensitive-data/sd-connect-share.md).
       
 - Log in to your virtual desktop and refresh access in Data Gateway to get the latest version of the tools. 
 
-- If not already on the virtual desktop, copy the SD Tool installer there (with copy paste function). Right-click it, select Allow Launching, and open the SD tool installer.
+- If not already on the virtual desktop, copy the SD Tool installer there (using the copy-paste function). Right-click it, select **Allow Launching**, and open the SD Tool installer.
 
-- Click Update CA Certificate in the SD Tool installer and confirm tfrom the installer’s message box that the update is done.
+- Click **Update CA Certificate** in the SD Tool installer and confirm from the installer’s message box that the update is done.
 
-- Close the SD tool installer, disconnect from Data Gateway and log out from the virtual desktop. 
+- Close the SD Tool installer, disconnect from Data Gateway and log out from the virtual desktop. 
 
-- You can not login into the vitual desktop again and can now continue with exports as usual.
+- You can now log in to the virtual desktop again and continue with exports as usual.
 
 
 
