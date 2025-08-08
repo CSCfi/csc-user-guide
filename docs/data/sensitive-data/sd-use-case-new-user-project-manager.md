@@ -82,17 +82,15 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 5. Apply billing units for your project
 
-Every service you use in your CSC project consumes both ** Billing Units (BUs) and storage quota**. BUs helps CSC to track how much computing power, processing time, and other resources your CSC project uses, while quota limits the amount of storage space available to the project. 
-
-When you start a project:  
+Every service you use in your CSC project consumes both **Billing Units (BUs) and storage quota**. BUs helps CSC to track how much computing power, processing time, and other resources your CSC project uses, while quota limits the amount of storage space available to the project. 
 
 -  Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_
    
 - Each new project starts with **10,000 BUs**, usually enough for initial testing but you need to plan how many BUs you will need for **1 year**.
 
-You can then apply for more BUs for your CSC project in MY CSC portal: 
+**You can then apply for more BUs for your CSC project in MYCSC portal**: 
    
-1. In the MYCSC portal, access yoru projct, scroll down and go to the **Resources** window.
+1. Login to https://my.csc.fi, click on your CSC project. In the new view, scroll down and go to the **Resources** window.
    
 2. Click **Apply for resources** and follow the step by step instructions.
 
