@@ -206,7 +206,7 @@ Here are base images for some common Linux operating systems:
 ### Installing software into container
 
 The typical pattern of installing software into container is start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using user-space package manager such as PIP, Conda or Spack or install software manually to `/usr/local` or in unique directory under `/opt`.
-The [Examples](./examples.md) section demonstrates how to build different kinds of containers.
+Our container [Examples](./examples.md) demonstrates this pattern with different kinds of containerized software installations.
 
 ## Reading datasets from SquashFS file
 

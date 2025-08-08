@@ -8,7 +8,7 @@ CSC has container build recipes for various applications in the [singularity-rec
 Here are the recipes that can be built with Apptainer using fakeroot on Puhti and Mahti:
 
 - [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
-- [uv (Python)](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
+- [Python with uv](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
 - [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/matlab/r2024b)
 - [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
 - [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
@@ -19,7 +19,7 @@ Here are the recipes that can be built with Apptainer using fakeroot on Puhti an
 Next, we provide an example of simple Python container with system Python and virtual environment.
 We can define the build definition as follows:
 
-```sh title="python-venv.def"
+```sh title="python-pip.def"
 Bootstrap: docker
 From: docker.io/rockylinux/rockylinux:8.10
 
@@ -45,24 +45,24 @@ From: docker.io/rockylinux/rockylinux:8.10
 Now, we can build the container image as follows:
 
 ```bash
-apptainer build --fakeroot python-venv.sif python-venv.def
+apptainer build --fakeroot python-pip.sif python-pip.def
 ```
 
 Finally, we can execute commands inside the container.
 For example, we can test the container by listing the PIP installed Python packages:
 
 ```bash
-apptainer exec python-venv.sif pip --no-cache list
+apptainer exec python-pip.sif pip --no-cache list
 ```
 
 ## Example: Extending a local image
 
 We can also extend existing SIF images.
-In this example, we extend the `python-venv.sif` container image by adding a new python library to it as follows:
+In this example, we extend the `python-pip.sif` container image by adding a new python library to it as follows:
 
-```sh title="python-venv-2.def"
+```sh title="python-pip-2.def"
 Bootstrap: localimage
-From: python-venv.sif
+From: python-pip.sif
 
 %post
     python3.11 -m pip install --no-cache-dir pandas
@@ -71,16 +71,16 @@ From: python-venv.sif
 Now, we build the container as normal:
 
 ```bash
-apptainer build --fakeroot python-venv-2.sif python-venv-2.def
+apptainer build --fakeroot python-pip-2.sif python-pip-2.def
 ```
 
 Let's list the PIP installed packages to see the packages that we added:
 
 ```bash
-apptainer exec python-venv.sif pip --no-cache list
+apptainer exec python-pip.sif pip --no-cache list
 ```
 
-## Example: Using Makefile to build containers
+## Example: Using Make to build containers
 
 Makefiles are a great way to organize the logic for building containers.
 If you are not familiar how Makefiles work, we recommend reading the excellent [Makefile Tutorial](https://makefiletutorial.com/).
