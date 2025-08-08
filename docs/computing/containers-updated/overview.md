@@ -189,35 +189,24 @@ cp /usr/bin/true /usr/sbin/groupadd
 
 ### Operating systems and package managers
 
-Main reason for using different operating system is that some software is developed and packaged only for that operating system.
+Sometimes it may be necessary to build a container that uses different Linux operating system than the host as the base image, for example, if software is developed and packaged only for that Linux operating system and it would require unreasonable amount of effort to try to port to a different operating system.
+The ability to build containers of different Linux operating system than the host is limited when using fakeroot without unprivileged usernamespaces and the only figure out is to attempt to build the container.
+Here are base images for some common Linux operating systems:
 
-Ability to build containers of different family than the host (e.g. RHEL and Debian) is limited when using fakeroot without unprivileged usernamespaces.
+- RHEL compatible operating systems with DNF package manager:
+    - [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8), [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9) ([RedHat Universal Base Image](https://catalog.redhat.com/en/software/base-images))
+    - [rockylinux](https://hub.docker.com/r/rockylinux/rockylinux)
+    - [almalinux](https://hub.docker.com/_/almalinux)
+- SUSE compatible operating systems with Zypper package manager:
+    - [opensuse/leap](https://hub.docker.com/r/opensuse/leap)
+- Debian compatible operating systems with APT package manager:
+    - [debian](https://hub.docker.com/_/debian)
+    - [ubuntu](https://hub.docker.com/_/ubuntu)
 
-RHEL compatible base images with DNF package manager:
+### Installing software into container
 
-- [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8), [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9) ([RedHat Universal Base Image](https://catalog.redhat.com/en/software/base-images))
-- [rockylinux](https://hub.docker.com/r/rockylinux/rockylinux)
-- [almalinux](https://hub.docker.com/_/almalinux)
-
-SUSE compatible base images systems with Zypper package manager:
-
-- [opensuse/leap](https://hub.docker.com/r/opensuse/leap)
-
-Debian compatible base images with APT package manager:
-
-- [debian](https://hub.docker.com/_/debian)
-- [ubuntu](https://hub.docker.com/_/ubuntu)
-
-### General principles
-
-Definition file sections:
-
-- `Bootstrap:` and `From:`
-- `%files`, `%setup`, `%post`, `%environment`, `%run`
-- prefix to install user software is `/usr/local` or unique directory in `/opt`
-- system package manager (dnf, apt)
-- user-space package managers (pip, conda, spack)
-- understanding Apptainer init scripts `.exec`, `.run`, `.shell`
+The typical pattern of installing software into container is start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using user-space package manager such as PIP, Conda or Spack or install software manually to `/usr/local` or in unique directory under `/opt`.
+The [Examples](./examples.md) section demonstrates how to build different kinds of containers.
 
 ## Reading datasets from SquashFS file
 

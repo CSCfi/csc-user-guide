@@ -2,9 +2,9 @@
 
 This section contains examples of building and running containers on Puhti and Mahti.
 
-## Applications
+## Application containers
 
-CSC has build recipes for various application in the [singularity-recipes](https://github.com/CSCfi/singularity-recipes) repository.
+CSC has container build recipes for various applications in the [singularity-recipes](https://github.com/CSCfi/singularity-recipes) repository.
 Here are the recipes that can be built with Apptainer using fakeroot on Puhti and Mahti:
 
 - [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
@@ -82,12 +82,17 @@ apptainer exec python-venv.sif pip --no-cache list
 
 ## Example: Using Makefile to build containers
 
-Makefiles are a great way to organize the login for building containers.
+Makefiles are a great way to organize the logic for building containers.
 If you are not familiar how Makefiles work, we recommend reading the excellent [Makefile Tutorial](https://makefiletutorial.com/).
 
 Here is an example of using Makefile to build a container from definition file named `container.def` into SIF file named `container.sif`.
 
-```Makefile
+```sh title="container.def"
+Bootstrap: docker
+From: docker.io/rockylinux/rockylinux:8.10
+```
+
+```Makefile title="Makefile"
 TMPDIR ?= /tmp
 PREFIX := .
 
