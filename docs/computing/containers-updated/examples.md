@@ -14,7 +14,7 @@ Here are the recipes that can be built with Apptainer using fakeroot on Puhti an
 - [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
 - [R environment](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity/4.5.1-fakeroot)
 
-## Python virtual environment
+## Example: Python virtual environment
 
 Next, we provide an example of simple Python container with system Python and virtual environment.
 We can define the build definition as follows:
@@ -55,7 +55,7 @@ For example, we can test the container by listing the PIP installed Python packa
 apptainer exec python-venv.sif pip --no-cache list
 ```
 
-## Extend an image
+## Example: Extending a local image
 
 We can also extend existing SIF images.
 In this example, we extend the `python-venv.sif` container image by adding a new python library to it as follows:
@@ -78,4 +78,41 @@ Let's list the PIP installed packages to see the packages that we added:
 
 ```bash
 apptainer exec python-venv.sif pip --no-cache list
+```
+
+## Example: Using Makefile to build containers
+
+Makefiles are a great way to organize the login for building containers.
+If you are not familiar how Makefiles work, we recommend reading the excellent [Makefile Tutorial](https://makefiletutorial.com/).
+
+Here is an example of using Makefile to build a container from definition file named `container.def` into SIF file named `container.sif`.
+
+```Makefile
+TMPDIR ?= /tmp
+PREFIX := .
+
+CONTAINER_SIF := $(PREFIX)/container.sif
+CONTAINER_DEF := container.def
+
+.PHONY: all
+all: $(CONTAINER_SIF)
+
+$(CONTAINER_SIF): $(CONTAINER_DEF)
+	apptainer build --fakeroot --bind=$(TMPDIR):/tmp $@ $<
+
+.PHONY: clean
+clean:
+	rm -f $(CONTAINER_SIF)
+```
+
+Let's invoke Make to build the container:
+
+```bash
+make
+```
+
+We can also invoke make with arguments such as `PREFIX` to build the container into a different directory:
+
+```bash
+make PREFIX=/projappl/project_id
 ```

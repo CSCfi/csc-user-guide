@@ -187,6 +187,38 @@ cp /usr/bin/true /usr/sbin/useradd
 cp /usr/bin/true /usr/sbin/groupadd
 ```
 
+### Operating systems and package managers
+
+Main reason for using different operating system is that some software is developed and packaged only for that operating system.
+
+Ability to build containers of different family than the host (e.g. RHEL and Debian) is limited when using fakeroot without unprivileged usernamespaces.
+
+RHEL compatible base images with DNF package manager:
+
+- [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8), [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9) ([RedHat Universal Base Image](https://catalog.redhat.com/en/software/base-images))
+- [rockylinux](https://hub.docker.com/r/rockylinux/rockylinux)
+- [almalinux](https://hub.docker.com/_/almalinux)
+
+SUSE compatible base images systems with Zypper package manager:
+
+- [opensuse/leap](https://hub.docker.com/r/opensuse/leap)
+
+Debian compatible base images with APT package manager:
+
+- [debian](https://hub.docker.com/_/debian)
+- [ubuntu](https://hub.docker.com/_/ubuntu)
+
+### General principles
+
+Definition file sections:
+
+- `Bootstrap:` and `From:`
+- `%files`, `%setup`, `%post`, `%environment`, `%run`
+- prefix to install user software is `/usr/local` or unique directory in `/opt`
+- system package manager (dnf, apt)
+- user-space package managers (pip, conda, spack)
+- understanding Apptainer init scripts `.exec`, `.run`, `.shell`
+
 ## Reading datasets from SquashFS file
 
 We can also avoid I/O bottlenecks with datasets that consist of large amounts of small files by reducing them to a single SquashFS file.
