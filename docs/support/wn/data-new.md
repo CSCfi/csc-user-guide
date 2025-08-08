@@ -32,13 +32,21 @@ the input bar will appear at the bottom of the virtual desktop.
 
 - Now you can copy the following commands into the impout bar and they will be visible from the terminal (Ctrl+C or mouse right click):
 
-´´´mkdir -p /shared-directory/.certs´´´   press Enter
+mkdir -p /shared-directory/.certs
 
-´´´cp $FS_CERTS /shared-directory/.certs/´´´   press Enter
+press Enter
 
-´´´openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' >> /shared-directory/.certs/ca.crt´´´ press Enter
+cp $FS_CERTS /shared-directory/.certs/  
 
-´´´echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile ´´´  press Enter
+press Enter
+
+openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' >> /shared-directory/.certs/ca.crt 
+
+press Enter
+
+echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
+
+press Enter
 
 - logout fromt the virtual desktop and try the export again
 
