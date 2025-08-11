@@ -1,5 +1,9 @@
 # Cloud services
 
+## Application credentials got more features in Pouta 7.7.2025
+
+Fine grained Access Rules are now supported on Pouta Application credentials. This allows to create very granular credentials that only allow very specific actions. You can visit the [Application Credentials](../../cloud/pouta/application-credentials.md) article to start improving your security when interacting with Pouta's API.
+
 ## Pukki now supports MariaDB, 7.1.2025
 Pukki now supports MariaDB as well as PostgreSQL. The MariaDB version we are support in Pukki is
 MariaDB 11.4. More information can be found in the

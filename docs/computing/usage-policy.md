@@ -53,8 +53,9 @@ suitable disk systems.
 You can use the `csc-workspaces` command to see which cleaning cycle your
 projects are subject to.
 
-A similar procedure will be introduced on Mahti, but it is not yet in place.
-The policy is still that users should keep only actively used data in scratch.
+**Mahti:** A similar procedure will be introduced on Mahti if the disk usage
+grows enough to warrant it. The policy is still that users should keep only
+actively used data in scratch.
 
 ## GPU nodes
 
@@ -106,3 +107,10 @@ If you are still actively using the project you can gain access to the compute
 resources and storage by
 [applying](../accounts/how-to-apply-for-billing-units.md) for more billing
 units.
+
+## Slurm job management by CSC
+
+* CSC will not change job parameters like length or priority. 
+* CSC can terminate jobs if they are misusing resources. E.g., if resources
+  (CPU cores, GPUs, memory) are severely underutilized or IO is overloading
+  the storage system.

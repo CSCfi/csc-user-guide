@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: HUMAnN
+  description: Profiling microbial pathways with metagenomic data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # HUMAnN

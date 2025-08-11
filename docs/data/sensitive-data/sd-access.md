@@ -15,7 +15,7 @@ The steps you need to follow depend on your role in the research team:
 
 ### Project Manager
 
-The project manager is the primary user of a CSC project, responsible for managing the project and project members members. They act as the data controller (or academic organization representative).
+The project manager is the primary user of a CSC project, responsible for managing the project and project members. They act as the data controller (or academic organization representative).
 
 Responsibilities include:
 

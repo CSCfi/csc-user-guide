@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Stacks
+  description: Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Stacks

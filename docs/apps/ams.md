@@ -1,6 +1,15 @@
 ---
 tags:
   - Academic
+catalog:
+  name: AMS
+  description: Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # AMS

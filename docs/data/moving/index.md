@@ -12,3 +12,4 @@ below the one that suits your needs best.
 * [Sharing and transporting files using Funet FileSender](funet.md)
 * [Moving data between IDA and CSC computing environment](../ida/using_ida.md)
 * [Remote disk mounts](disk_mount.md)
+* [Copying data between Allas and IDA via Puhti](copy_allas_ida.md)

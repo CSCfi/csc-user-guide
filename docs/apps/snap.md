@@ -1,8 +1,16 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
+catalog:
+  name: SNAP
+  description: for remote sensing applications
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+    - Puhti
 ---
 
 # SNAP

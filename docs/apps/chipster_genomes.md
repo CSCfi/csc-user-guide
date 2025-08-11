@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Chipster_genomes
+  description: Tool to download aligner indexes used by Chipster to Puhti
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Chipster_genomes

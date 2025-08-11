@@ -285,6 +285,9 @@ running Ollama on a full node with 4 GPUs on Puhti and 8 GPUs on LUMI.
 running in a supercomputer. This runs just as a normal Python batch
 job.
 
+Here is a user-contributed example for processing a big dataset with
+vLLM efficiently: <https://github.com/TurkuNLP/ECCO-ocr-large-run>.
+
 In some situations there's still a need for an OpenAI-compatible
 server, for example when interfacing with other programs. [Example
 scripts for running vLLM on Puhti, Mahti and LUMI can be found in our

@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: Geoconda
+  description: Python libraries for spatial analysis 
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Geoconda
@@ -168,27 +178,15 @@ spyder
 * `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` in the beginning of your Python code.
 
 ### Google Earth Engine authentication set up in Puhti
-For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have an account in GEE. Before first usage, also set up GEE authentication in Puhti:
-
-1. Open Puhti web interface
-2. Start Desktop app
-3. In the Desktop, open:
-    * Web Browser under Applications menu and
-    * Terminal from shortcuts
-4. In the Terminal:
+For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have an account and project in GEE. Before first usage, also set up GEE authentication in Puhti:
 
 ```
 module load geoconda
-python
-
-import os
-os.environ['PATH'] = '/appl/opt/csc-cli-utils/google-cloud-sdk/bin:' + os.environ['PATH']
-
-import ee
-ee.Authenticate()
+export PATH=/appl/opt/csc-cli-utils/google-cloud-sdk/bin:$PATH
+earthengine authenticate
 ```
 
-This prints out a long link and asks for a code. Copy the link to the web browser and open the Google log-in page. Log-in and copy the created code back to Python.
+This prints out a long link and asks for a code. Copy the link to the web browser of your local laptop. Follow the instructions on the web page and finally copy the created code back to Terminal.
 
 ## Using Allas or LUMI-O from Python
 
@@ -224,20 +222,17 @@ Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed fo
 
 ## References
 
--   [CSC Python parallelisation examples]
--   [Python spatial] libraries
--   [Geoprocessing with Python using Open Source GIS]
--   [GeoExamples], a lot of examples of using Python for spatial analysis
--   [Automating GIS processes course materials], where most of the exercises are done using Python (University of Helsinki)
--   [Geohack Week materials]
--   [Multiprocessing Basics]
--   [Geographic Data Science with Python]
--   [Aalto Spatial Analytics course material]
+-   [CSC Python parallelisation examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+-   [Multiprocessing Basics](https://pymotw.com/2/multiprocessing/basics.html)
+-   [Automating GIS processes course materials](https://automating-gis-processes.github.io) by University of Helsinki
+-   [Aalto Spatial Analytics course material](https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html) by Henrikki Tenkanen / Aalto University
+-   [Introduction to GIS Programming](https://geog-312.gishub.org/index.html) by Dr. Qiusheng Wu / University of Tennessee
+-   [Geographic Data Science with Python](https://geographicdata.science/book/intro.html) by Sergio Rey, Dani Arribas-Bel, Levi Wolf
+-   [Python Foundation for Spatial Analysis](https://courses.spatialthoughts.com/python-foundation.html) by Ujaval Gandhi
 
 ------------------------------------------------------------------------
 
 
-  [Conda]: https://conda.io/docs/
   [cartopy]: http://scitools.org.uk/cartopy/
   [descartes]: https://pypi.python.org/pypi/descartes
   [fiona]: https://pypi.python.org/pypi/Fiona
@@ -261,16 +256,4 @@ Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed fo
   [snappy]: https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python
   [SNAP]: snap.md
   [spyder]: https://docs.spyder-ide.org/
-  [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
-  [Bioconda]: bioconda.md
-  [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md
-  [Geoprocessing with Python using Open Source GIS]: http://www.gis.usu.edu/%7Echrisg/python/2009/
-  [GeoExamples]: https://geoexamples.com/
-  [Automating GIS processes course materials]: https://automating-gis-processes.github.io
-  [Geohack Week materials]: https://geohackweek.github.io/schedule.html
-  [Multiprocessing Basics]: https://pymotw.com/2/multiprocessing/basics.html
   [sentinelsat]: https://sentinelsat.readthedocs.io/en/stable/index.html
-  [CSC Python parallelisation examples]: https://github.com/csc-training/geocomputing/tree/master/python/puhti
-  [Geographic Data Science with Python]: https://geographicdata.science/book/intro.html
-  [Aalto Spatial Analytics course material]: https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html
-

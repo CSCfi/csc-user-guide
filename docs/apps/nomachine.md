@@ -1,3 +1,17 @@
+---
+tags:
+catalog:
+  name: NoMachine
+  description:
+  license_type:
+  disciplines:
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
+  unchecked: true
+---
+
 # NoMachine
 
 !!! warning "NoMachine at CSC discontinued on 25th of May 2023"

@@ -15,4 +15,4 @@ To solve the problem:
 2. If the previous step does not work, please delete the CSC MFA secret from
    your phone and start from the very beginning, including scanning the QR
    code (i.e. reset MFA completely).
-    1. [See instructions](../../accounts/mfa.md#how-to-activate-mfa).
+    1. [See instructions](../../accounts/mfa.md#how-to-activate-csc-mfa).

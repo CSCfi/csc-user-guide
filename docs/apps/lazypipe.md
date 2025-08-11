@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Lazypipe
+  description: A stand-alone pipeline for identifying viruses in host-associated or environmental samples
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Lazypipe

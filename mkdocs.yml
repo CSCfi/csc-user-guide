@@ -1,5 +1,5 @@
 site_name: Docs CSC
-site_url: https://docs.csc.fi/
+site_url: !ENV [SITE_URL, "https://docs.csc.fi"]
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 
 repo_name: CSCfi/csc-user-guide
@@ -51,8 +51,8 @@ extra:
     - icon: material/youtube
       link: https://www.youtube.com/c/CSCfi
 
-
 hooks:
+  - hooks/catalog.py
   - hooks/archives.py
   - hooks/preview.py
 
@@ -62,6 +62,7 @@ plugins:
   - git-revision-date-localized:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
       fallback_to_build_date: true
+      ignored_commits_file: .git-revision-date-ignore-revs
       type: date
       custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
       locale: en
@@ -117,6 +118,8 @@ plugins:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
         "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
+        # Pouta
+        "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
         # Rahti2 to Rahti:
         "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
         "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
@@ -163,6 +166,15 @@ plugins:
         "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
         "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
         "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
+        "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/projects.md"
+        "computing/quantum-computing/helmi/helmi-from-lumi.md": "computing/quantum-computing/access.md"
+        "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/first-quantum-job.md"
+        "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/specs.md"
+        "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/fiqci-partition.md"
+        "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
+        "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
+        "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+
 
 markdown_extensions:
   - md_in_html
@@ -322,16 +334,12 @@ nav:
               - Visual Studio Code: computing/webinterface/vscode.md
       - Quantum computing:
           - computing/quantum-computing/overview.md
-          - Kvasi QLM:
-              - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
-              - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
-          - Helmi:
-              - Helmi projects: computing/quantum-computing/helmi/helmi-projects.md
-              - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
-              - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
-              - Technical details: computing/quantum-computing/helmi/helmi-specs.md
-              - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
-              - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
+          - Projects: computing/quantum-computing/projects.md
+          - Access through LUMI: computing/quantum-computing/access.md
+          - First quantum job: computing/quantum-computing/first-quantum-job.md
+          - Technical details: computing/quantum-computing/specs.md
+          - FiQCI partition: computing/quantum-computing/fiqci-partition.md
+          - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:
@@ -357,7 +365,6 @@ nav:
               - cloud/pouta/configuration.md
               - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
               - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
-              - Accounting principles and quotas: cloud/pouta/accounting.md
               - Images:
                   - cloud/pouta/images.md
                   - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
@@ -460,6 +467,7 @@ nav:
               - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
               - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
               - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
+              - Deploying from Git: cloud/rahti/tutorials/deploy_from_git.md
               - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
@@ -580,10 +588,11 @@ nav:
           - Instructions for registers: data/sensitive-data/single-register-submission.md
       - Terminology: data/sensitive-data/sd-terminology.md
   - Applications:
-      - apps/index.md
-      - By discipline: apps/by_discipline.md
-      - By availability: apps/by_system.md
+      - apps/index.md                        # These three files don't exist on disk
+      - By discipline: apps/by_discipline.md # as they are generated by catalog-hook
+      - By availability: apps/by_system.md   # when the site is built by MkDocs.
       - By license: apps/by_license.md
+
   - FAQ: support/faq/index.md
   - Tutorials: support/tutorials/index.md
   - Training material: support/training-material/index.md

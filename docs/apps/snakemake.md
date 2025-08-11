@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Snakemake
+  description: Snakemake is a scientific workflow management system for creating scalable, portable, and reproducible workflows
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Snakemake

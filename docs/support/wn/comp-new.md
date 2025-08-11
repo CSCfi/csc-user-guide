@@ -48,7 +48,7 @@ required to
 organization. [Please use the test page in MyCSC](https://my.csc.fi/test-mfa)
 (select **Haka MFA**). It is highly preferred to use the Haka MFA of your home organization, if possible.
 If Haka MFA is not enabled or if your home organization does not offer Haka,
-[please activate **CSC MFA** following these instructions](../../accounts/mfa.md#how-to-activate-mfa).
+[please activate **CSC MFA** following these instructions](../../accounts/mfa.md#how-to-activate-csc-mfa).
 
 **Motivation:** With this change we are improving the security of our
 computing, data, and cloud services.

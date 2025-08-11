@@ -69,7 +69,7 @@ module load allas
 allas-conf --show-powershell
 ```
 
-When the configuration process in Puhti is ready, copy the last four lines, starting with `$Env:`, to the local PowerShell and execute them. Then test the Rclone connection with command:
+When the configuration process in Puhti is ready, copy the lines starting with `$Env:`, in the end of the output, to the local PowerShell and execute them. Then test the Rclone connection with command:
 
 ```bash
   .\rclone.exe lsd allas:

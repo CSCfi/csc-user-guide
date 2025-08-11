@@ -23,6 +23,10 @@ template: home.html
 
     [Puhti and Mahti Overview :material-arrow-right:](computing/index.md)
 
+    [Cloud services Overview :material-arrow-right:](cloud/index.md)
+
+    [What is DBaaS :material-arrow-right:](cloud/dbaas/what-is-dbaas.md)
+
     [Getting started with LUMI :material-open-in-new:](https://docs.lumi-supercomputer.eu/firststeps/getstarted/){ target=_blank }
 
     [How to get support :material-arrow-right:](support/contact.md)
@@ -58,6 +62,8 @@ template: home.html
     [Managing data on scratch :material-arrow-right:](support/tutorials/clean-up-data.md)
 
     [High-throughput computing :material-arrow-right:](computing/running/throughput.md)
+
+    [Creating a virtual machine in Pouta :material-arrow-right:](cloud/pouta/launch-vm-from-web-gui.md)
 
 </div>
 

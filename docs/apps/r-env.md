@@ -1,6 +1,15 @@
 ---
 tags:
   - Other
+catalog:
+  name: r-env
+  description: R, RStudio Server, SAGA and TensorFlow
+  license_type: Other
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # r-env
@@ -12,6 +21,7 @@ tags:
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
 
 !!! info "News"
+  **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.    
     **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).  
 
 ## Available
@@ -24,7 +34,8 @@ Current modules and versions supported on Puhti and Mahti:
 
 | Module name (R version) | Puhti / Mahti | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | CmdStan version |
 | ----------------------- | ------------- | ------------------- | -------------------- | ---------------------- | ----------------| --------------- |
-| r-env/442 (default)     | X / X         | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
+| r-env/451 (default)     | X / X         | July 7 2025         | 3.21                 | 2025.05.1-513          | 2025.2.0        | 2.36.0          |
+| r-env/442               | X / X         | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
 | r-env/440               | X / -         | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.35.0          |    
 | r-env/432               | X / -         | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.34.1          | 
 | r-env/430               | X / -         | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.32.2          |    
@@ -34,8 +45,8 @@ Current modules and versions supported on Puhti and Mahti:
 
 Other software and libraries:
 
-- Open MPI 4.1.2 (with Mellanox OFED™ software)
-- TensorFlow 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
+- Open MPI (with Mellanox OFED™ software) 4.1.7 (r-env/451) , 4.1.2 (from r-env/421 to r-env 442)
+- TensorFlow 2.19.0 (r-env/451), 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
 - cget 0.2.0
 
 ## Licenses
@@ -670,17 +681,17 @@ The `r-env` module includes several packages that make use of [Stan](https://mc-
 *Using R with the CmdStan backend* 
 
 The `r-env` module comes with a separate [CmdStan](https://github.com/stan-dev/cmdstan) installation that is specific to each module version.
-To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/442` this would be done as follows:
+To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/451` this would be done as follows:
 
 ```r
-cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/442-stan/cmdstan-2.36.0")
+cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/451-stan/cmdstan-2.36.0")
 ```
 
 If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 ```r
 # Set R version
-export RVER=442
+export RVER=451
 
 # Launch R after binding CmdStan
 SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"

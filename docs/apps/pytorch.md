@@ -1,7 +1,16 @@
 ---
-title: PyTorch
 tags:
   - Free
+catalog:
+  name: PyTorch
+  description: Machine learning framework for Python
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # PyTorch
@@ -9,6 +18,13 @@ tags:
 Machine learning framework for Python.
 
 !!! info "News" 
+
+    **8.7.2025** PyTorch 2.7.1 installed to Puhti and Mahti, and made the
+    default version. This version includes
+    [SGLang](https://docs.sglang.ai/), note however that SGLang only
+    supports Mahti due to the older GPU architecture on Puhti.
+    
+    **26.6.2025** PyTorch 2.7.1 installed to LUMI, and made the default version. 
 
     **10.4.2025** PyTorch 2.6.0 installed to Puhti and Mahti, and made the
     default version. Includes the most recent versions of popular packages
@@ -79,8 +95,9 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.6.0   | `pytorch/2.6`  | X     | X     | -    | Default on Puhti, Mahti    |
-| 2.5.1   | `pytorch/2.5`  | X     | X     | X    | Default on LUMI            |
+| 2.7.1   | `pytorch/2.7`  | X     | X     | X    | Default                    |
+| 2.6.0   | `pytorch/2.6`  | X     | X     | -    |                            |
+| 2.5.1   | `pytorch/2.5`  | X     | X     | X    |                            |
 | 2.4.1   | `pytorch/2.4`  | -     | -     | X    |                            |
 | 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
 | 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |
@@ -170,7 +187,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load pytorch/2.4
+module load pytorch/2.7
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries,
@@ -212,7 +229,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.4
+    module load pytorch/2.7
     srun python3 myprog.py <options>
     ```
 
@@ -226,7 +243,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.4
+    module load pytorch/2.7
     srun python3 myprog.py <options>
     ```
 
@@ -242,7 +259,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load pytorch/2.4
+    module load pytorch/2.7
     srun python3 myprog.py <options>
     ```
 
@@ -366,3 +383,4 @@ tutorial](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutori
 
 - [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
 - [PyTorch documentation](https://pytorch.org/docs/stable/index.html)
+- [LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)
