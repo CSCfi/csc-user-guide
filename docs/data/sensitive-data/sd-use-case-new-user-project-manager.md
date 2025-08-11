@@ -82,7 +82,7 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 5. Apply billing units for your project
 
-Every service you use in your CSC project consumes both **Billing Units (BUs) and storage quota**. BUs helps CSC to track how much computing power, processing time, and other resources your CSC project uses, while quota limits the amount of storage space available to the project. 
+Every active service a CSC project consumes both **Billing Units (BUs) and storage quota**. BUs helps CSC to track how much computing power, processing time your CSC project uses, while quota limits the amount of storage space available. 
 
 -  Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_
    
@@ -110,7 +110,7 @@ Once all the billing units for your CSC project have been used up, **access to t
 
 #### SD Connect BU consumption
 
-SD Connect stores data into CSC's clouyd infristures Allas and provies addittional automated encryption and encryption ke management.  Sd Cobnnect consumes billing units at a rate of **1.3 billing unit per TB per hour**.
+SD Connect stores data into CSC's clouyd infristures Allas and provies addittional automated encryption and encryption ke management.  SD Connect consumes billing units at a rate of **1.3 billing unit per TB per hour**.
 
 Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
