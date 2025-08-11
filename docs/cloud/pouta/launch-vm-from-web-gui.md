@@ -2,22 +2,12 @@
 
 !!! Warning
 
-    You should familiarize yourself with the security instructions and
+    You should familiarize yourself with the [security guidelines](security.md) and
     terms of Pouta accounting before launching your first virtual
     machine.
 
-This document explains a simple way to launch a virtual machine in the
-Pouta service. Any CSC user with a computing project can request
-access to the service as described in [Applying for Pouta access].
-To use Pouta, you need to have applied Pouta access for your project first.
-Please make sure you are familiar with the [concepts](../index.md) and
-[security issues](security.md) first. You might also want to take a
-look at the [webinar](https://www.youtube.com/watch?v=CIO8KRbgDoI).
 
-[TOC]
-
-
-<!--TOC is to get the table of contents -->
+You might also want to take a look at the [webinar](https://www.youtube.com/watch?v=CIO8KRbgDoI).
 
 The web interfaces of the Pouta clouds are available at following addresses:
 
@@ -26,39 +16,34 @@ The web interfaces of the Pouta clouds are available at following addresses:
 | [https://pouta.csc.fi](https://pouta.csc.fi)       | cPouta web interface | Accessible on the internet |
 | [https://epouta.csc.fi](https://epouta.csc.fi)     | ePouta web interface      |  Accessible only from IPs provided for accessing the management interfaces of ePouta |
 
-This _OpenStack Horizon_ based interface allows you do basic cloud computing management operations such as launch a new virtual machine and manage security settings. To use this service, you need a CSC account and a cPouta/ePouta project at CSC.
+This _OpenStack Horizon_ based interface allows you do basic cloud computing management operations such as launch a new virtual machine and manage security settings.
 
-You can log in to cPouta using several accounts. In addition to your CSC account (CSC username and password), you can also use Haka, VIRTU, and Life Science AAI accounts. The Haka, VIRTU and Life Science AAI accounts will work only if they are linked to your CSC account. Accounts can be linked at [MyCSC](https://my.csc.fi/).
+To use this service, you need a CSC account and a cPouta/ePouta project at CSC. Accounts can be linked at [MyCSC](https://my.csc.fi/).
 
 You can log in to ePouta only using your CSC account.
 
-## Preparatory steps
+## Prerequisites
 
-Before creating a Virtual Machine you must do these 3 steps:
+Before creating a Virtual Machine you need these two prerequisites:
 
-1. Select the correct **CSC project**.
+1. A **CSC account**. Accounts can be created following [How to create new CSC user account](../../accounts/how-to-create-new-user-account.md).
 
-1. Create and setup a **SSH key pair**.
+1. A **CSC project** with the **cPouta** or the **ePouta** service enabled. You can [Create a new project](../../accounts/how-to-create-new-project.md), or ask to be added to an existing one. The project needs to have the suitable service enabled. You can follow [Applying for cPouta access](../../accounts/how-to-add-service-access-for-project.md). **But** If you need to store or process **sensitive data**, you must use ePouta instead and [Apply for ePouta access](ePouta-access.md).
 
-1. Setting a **security group** to control the firewall.
-
-Before starting your first virtual machine in cPouta/ePouta, you must first set up a SSH key pair and modify the security settings so that you will be able to connect to your virtual machine.
-
-### Selecting the CSC project
+## Selecting the CSC project
 
 ![Pouta project selection](../../img/pouta_project_selection.png){ align=left }
 
 You may have more than one CSC project with access to Pouta. You can check this from [my.csc.fi](https://my.csc.fi){:target="_blank"}, where you will be able to see all the projects you have access and which ones have cPouta (or ePouta) activated as a service.
 
-Back in Pouta's interface, make sure that you select the correct project. There are two condiderations here:
+Back in [Pouta's web interface](https://pouta.csc.fi), make sure that you select the correct project. There are two considerations here:
 
-* A project is a sandbox which contains resources like Virtual Machines and networks, and anyone with access to that project will be able to see and administer all these resources. They may not be able to access a Virtual Machine, as this is determinated by the SSH keys configured in the machine, but they will be able to **delete**, **reboot**, ... etc.
+* A project is a sandbox which contains resources like Virtual Machines and networks, and **anyone with access** to that project will be able to **see**, **modify** and **delete** all these resources. They may not be able to access a Virtual Machine, as this is determined by the SSH keys configured in the machine.
 * Projects are used to determinate billing. Make sure that the costs will go to the correct billing project.
 
+## Setting up SSH keys
 
-### Setting up SSH keys
-
-To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
+To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. It is commonly called a SSH key pair because it consist on two files, the private key and the public key. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
 
 !!! info "Import public keys"
     If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recomendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@domain.name`:
@@ -76,8 +61,6 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 1. Give your key a name and click in **Create Key Pair**. You will get a "_keyname.pem_" to save. Save it in your home directory. This will be the last time you will be able to download this **private key**, Pouta does not keep a copy in its servers.
 
     ![Create key](../../img/pouta-create-key.png)
-
-    **Figure** The Create Key Pair dialog
 
 #### Linux and Mac
 
@@ -313,6 +296,6 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
 !!! warning "IP billing"
 
-    Allocated floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://cloud.blog.csc.fi/2017/12/floating-ip-management.html) for management of floating IPs in a cPouta project.
+    Allocated floating IPs are billed at the rate of 0,2 BU/hr. See the [Virtual machine flavors and billing unit rates](./vm-flavors-and-billing.md) for more information.
 
 Now we can go to the [Connecting to your virtual machine](connecting-to-vm.md) section and log in to the new Virtual Machine.

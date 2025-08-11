@@ -84,6 +84,7 @@ plugins:
         "support/faq/cannot-login-from-nomachine.md": "apps/nomachine.md"
         "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
         "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
+        "computing/allas.md": "data/Allas/allas-hpc.md"
         # renamed files:
         "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
         "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
@@ -103,6 +104,7 @@ plugins:
         "computing/nsys.md": "apps/nsys.md"
         "computing/nvprof.md": "apps/nvprof.md"
         "computing/pdb.md": "apps/pdb.md"
+        "data/Allas/allas-examples.md": "data/Allas/allas-hpc.md"
         # files moved to Allas:
         # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
         "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -118,6 +120,8 @@ plugins:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
         "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
+        # Pouta
+        "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
         # Rahti2 to Rahti:
         "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
         "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
@@ -287,7 +291,6 @@ nav:
       - Supercomputer storage:
           - computing/disk.md
           - Lustre filesystem: computing/lustre.md
-          - Allas object storage: computing/allas.md
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
@@ -364,7 +367,6 @@ nav:
               - cloud/pouta/configuration.md
               - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
               - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
-              - Accounting principles and quotas: cloud/pouta/accounting.md
               - Images:
                   - cloud/pouta/images.md
                   - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
@@ -467,6 +469,7 @@ nav:
               - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
               - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
               - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
+              - Deploying from Git: cloud/rahti/tutorials/deploy_from_git.md
               - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
@@ -508,17 +511,19 @@ nav:
           - Common Error Messages: data/Allas/using_allas/error_messages.md
           - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
           - Allas clients:
-              - Allas Web UI: data/Allas/using_allas/allas-ui.md
+              - Allas connection configuration: data/Allas/using_allas/allas-conf.md          
+              - Allas web UI: data/Allas/using_allas/allas-ui.md
+              - Puhti/Mahti web UI: computing/webinterface/file-browser.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
               - Python with S3: data/Allas/using_allas/python_boto3.md
-              - Python with SWIFT: data/Allas/using_allas/python_swift.md
+              - Python with Swift: data/Allas/using_allas/python_swift.md
               - Rclone from Computing environment: data/Allas/using_allas/rclone.md
               - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
               - Swift: data/Allas/using_allas/swift_client.md
               - S3cmd: data/Allas/using_allas/s3_client.md
-              - Web GUI: data/Allas/using_allas/web_client.md
+              - Pouta web UI: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
       - Kaivos database service:
           - data/kaivos/overview.md
