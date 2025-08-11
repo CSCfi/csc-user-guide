@@ -255,7 +255,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     ![Launch the instance security group](../img/pouta-launch-instance-security-groups.png 'Launch the instance security group')
 
-1. In [**Key Pair**](#setting-up-ssh-keys), you select the name of the _Key Pair_ you have created in the [**Preparatory Steps**](#preparatory-steps).
+1. In [**Key Pair**](#setting-up-ssh-keys), you select the name of the _Key Pair_ you have created in the [**Preparatory Steps**](#setting-up-ssh-keys).
 
     ![Launch the instance key-pairs](../img/pouta-launch-instance-key-pairs.png 'Launche the instance key-pairs')
 
