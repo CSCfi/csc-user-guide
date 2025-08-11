@@ -13,6 +13,7 @@ Here are the recipes that can be built with Apptainer using fakeroot on Puhti an
 - [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
 - [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
 - [R environment](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity/4.5.1-fakeroot)
+- [VirtualGL](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) and [Blender](https://github.com/CSCfi/singularity-recipes/tree/main/blender)
 
 ## Example: Python virtual environment
 
