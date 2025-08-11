@@ -1,4 +1,4 @@
-# Containers (updated)
+# Containers
 
 In this section, we provide instructions on how to build and run containers using [Apptainer](https://apptainer.org/) with fakeroot enabled in HPC clusters without unprivileged user namespaces.
 We explain the special aspects of building and running containers on Puhti and Mahti clusters including how to set up the build environment, how to invoke the build commands, how to write container definition files and how to run containers.
