@@ -1,5 +1,11 @@
 # Applications
 
+## GROMACS 2025.2, 11.8.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.2 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.2/release-notes/2025/2025.2.html)
+for a list of all new features and improvements.
+
 ## Schrödinger Maestro 2025.3, 7.8.2025
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2025.3 has been installed
