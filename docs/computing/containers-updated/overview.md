@@ -6,7 +6,7 @@ For general instructions about building and running containers, we recommend tha
 
 Some reasons for using containers on HPC clusters are:
 
-- Containers improve startup times and avoid I/O bottlenecks with the parallel file system (Lustre) for applications that consist of large number of files or load many shared libraries on startup (such as Python, R and MATLAB).
+- Containers improve startup times and avoid I/O bottlenecks with the parallel file system (Lustre) for applications that consist of a large number of files or load many shared libraries on startup (such as Python, R, and MATLAB).
   This is because Apptainer uses the Singularity Image Format (SIF) which packs the container files into a single (SquashFS) file.
 
 - Running containerized software is reproducible because the container image is immutable.
@@ -21,7 +21,7 @@ Limitations of containers:
 ## Running containers
 
 Assume we have a container image called `container.sif`.
-We can execute an arbitrary command (replace `mycommand`) inside the command using the `apptainer exec` command as follows:
+We can execute an arbitrary command (replace `mycommand`) inside the container using the `apptainer exec` command as follows:
 
 ```bash
 apptainer exec container.sif mycommand
@@ -122,8 +122,8 @@ You can authenticate to a private registry using `apptainer registry login` comm
 ### Building SIF image from definition file
 
 When building containers with fakeroot in an environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
-These commands are typically executed as part of pre or post installation scripts of DEB and RPM packages.
-We can work around many of these problems by using host-compatible base image and replacing problematic commands with dummies that always succeed.
+These commands are typically executed as part of pre- or post-installation scripts of DEB and RPM packages.
+We can work around many of these problems by using a host-compatible base image and replacing problematic commands with dummies that always succeed.
 
 We can query information about the host system by reading the `/etc/os-release` file.
 
@@ -149,7 +149,7 @@ From: docker.io/rockylinux/rockylinux:8.10
     cp /usr/bin/true /usr/sbin/useradd
     cp /usr/bin/true /usr/sbin/groupadd
 
-    # Continue install software into the container normally.
+    # Continue to install software into the container normally.
     dnf -y update  # would fail without the dummies
 ```
 
@@ -205,7 +205,7 @@ Here are base images for some common Linux operating systems:
 
 ### Installing software into container
 
-The typical pattern of installing software into a container is start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using a user-space package manager such as PIP, Conda or Spack or install software manually to `/usr/local` or in a unique directory under `/opt`.
+The typical pattern of installing software into a container is to start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using a user-space package manager such as PIP, Conda or Spack or install software manually to `/usr/local` or in a unique directory under `/opt`.
 Our container [Examples](./examples.md) demonstrates this pattern with different kinds of containerized software installations.
 
 ## Reading datasets from SquashFS file
