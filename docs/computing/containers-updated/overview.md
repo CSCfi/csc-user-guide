@@ -6,8 +6,8 @@ For general instructions about building and running containers, we recommend tha
 
 Some reasons for using containers on HPC clusters are:
 
-- Containers improve startup times and avoid I/O bottlenecks with the parallel file system (Lustre) for applications that consist of a large number of files or load many shared libraries on startup (such as Python, R, and MATLAB).
-  This is because Apptainer uses the Singularity Image Format (SIF) which packs the container files into a single (SquashFS) file.
+- Containers improve startup times and avoid I/O bottlenecks with the parallel file system, that is Lustre in Puhti and Mahti, for applications that consist of a large number of files or load many shared libraries on startup such as Python, R, and MATLAB.
+  This is because Apptainer uses the Singularity Image Format (SIF) which packs the container files into a single SquashFS file.
 
 - Running containerized software is reproducible because the container image is immutable.
 
@@ -127,8 +127,11 @@ We can work around many of these problems by using a host-compatible base image 
 
 We can query information about the host system by reading the `/etc/os-release` file.
 
-```text
-$ cat /etc/os-release
+```bash
+cat /etc/os-release
+```
+
+```text title="stdout"
 NAME="Rocky Linux"
 VERSION="8.10 (Green Obsidian)"
 ID="rocky"
@@ -194,7 +197,7 @@ The ability to build containers of a different Linux operating system than the h
 Here are base images for some common Linux operating systems:
 
 - RHEL compatible operating systems with DNF package manager:
-    - [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8), [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9) ([RedHat Universal Base Image](https://catalog.redhat.com/en/software/base-images))
+    - [RedHat Universal Base Images (UBI)](https://catalog.redhat.com/en/software/base-images): [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8), [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9) 
     - [rockylinux](https://hub.docker.com/r/rockylinux/rockylinux)
     - [almalinux](https://hub.docker.com/_/almalinux)
 - SUSE compatible operating systems with Zypper package manager:
