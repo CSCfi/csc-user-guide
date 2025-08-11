@@ -97,17 +97,6 @@ Every active service a CSC project consumes both **Billing Units (BUs) and stora
 
 
 
-#### What happens if your project runs out of billing units?
-
-Once all the billing units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
-
-- all virtual desktops currently running will automatically be paused
-- you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
-- your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
-
-!!! Note
-    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
-
 #### SD Connect BU consumption
 
 SD Connect stores data into CSC's clouyd infristures Allas and provies addittional automated encryption and encryption ke management.  SD Connect consumes billing units at a rate of **1.3 billing unit per TB per hour**.
@@ -136,6 +125,21 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 | Big Picture project | 195 | 854,100 | 1,708,770 |
 
 ![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
+
+
+#### What happens if your project runs out of billing units?
+
+Once all the billing units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
+
+- all virtual desktops currently running will automatically be paused
+- you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
+- your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
+
+!!! Note
+    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
+
+
+
 
 ### 6. Activate MFA Authentication
 
