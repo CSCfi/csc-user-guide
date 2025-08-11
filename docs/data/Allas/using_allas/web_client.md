@@ -1,8 +1,6 @@
-# The web client – OpenStack Horizon Dashboard
+# Pouta web interface
 
-This chapter provides instructions for using Allas with the user-friendly _OpenStack Horizon Dashboard_. 
-
-OpenStack documentation for managing buckets over the web interface: [https://docs.openstack.org/horizon/latest/user/manage-containers.html](https://docs.openstack.org/horizon/latest/user/manage-containers.html)
+This chapter provides instructions for using Allas with Pouta web interface OpenStack dashboard. 
 
 The OpenStack dashboard has a small subset of object storage functionalities. The available operations:
 
@@ -14,6 +12,8 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 | _Download_ an object |
 | _Remove_ objects and buckets |
 | Make buckets _public_ or _private_ |
+
+[OpenStack documentation for managing buckets over the web interface](https://docs.openstack.org/horizon/latest/user/manage-containers.html)
 
 
 ### **Alternative Web Interface – Allas Web UI**
@@ -30,7 +30,7 @@ Allas Web UI provides a graphical way to manage object storage, create and delet
 !["Creating a container"](img/allas_screenshot_create_container.png)  
 **Figure** Creating a container
 
-3\. Press the **+Container** button and name the bucket (see the [checklist for naming a bucket](../introduction.md#naming-buckets)). If you choose to make the bucket _Public_, the contents of the bucket can be [viewed via the internet](#view-objects-via-the-internet).
+3\. Press the **+Container** button and name the bucket (see the [checklist for naming a bucket](../introduction.md#naming-buckets-and-objects)). If you choose to make the bucket _Public_, the contents of the bucket can be [viewed via the internet](#view-objects-via-the-internet).
 
 ## Upload an object
 
