@@ -16,7 +16,7 @@ Here are the recipes that can be built with Apptainer using fakeroot on Puhti an
 
 ## Example: Python virtual environment
 
-Next, we provide an example of simple Python container with system Python and virtual environment.
+Next, we provide an example of a container with system Python and virtual environment with Python packages installed using pip.
 We can define the build definition as follows:
 
 ```sh title="python-pip.def"
@@ -49,7 +49,7 @@ apptainer build --fakeroot python-pip.sif python-pip.def
 ```
 
 Finally, we can execute commands inside the container.
-For example, we can test the container by listing the PIP installed Python packages:
+For example, we can test the container by listing the pip installed Python packages:
 
 ```bash
 apptainer exec python-pip.sif pip --no-cache list
@@ -58,7 +58,7 @@ apptainer exec python-pip.sif pip --no-cache list
 ## Example: Extending a local image
 
 We can also extend existing SIF images.
-In this example, we extend the `python-pip.sif` container image by adding a new python library to it as follows:
+In this example, we extend the `python-pip.sif` container image by adding another Python library to it as follows:
 
 ```sh title="python-pip-2.def"
 Bootstrap: localimage
@@ -74,7 +74,7 @@ Now, we build the container as normal:
 apptainer build --fakeroot python-pip-2.sif python-pip-2.def
 ```
 
-Let's list the PIP installed packages to see the packages that we added:
+Let's list the pip installed packages to see the packages that we added:
 
 ```bash
 apptainer exec python-pip.sif pip --no-cache list
@@ -83,9 +83,9 @@ apptainer exec python-pip.sif pip --no-cache list
 ## Example: Using Make to build containers
 
 Makefiles are a great way to organize the logic for building containers.
-If you are not familiar how Makefiles work, we recommend reading the excellent [Makefile Tutorial](https://makefiletutorial.com/).
+If you are not familiar with how Makefiles work, we recommend reading the excellent [Makefile Tutorial](https://makefiletutorial.com/).
 
-Here is an example of using Makefile to build a container from definition file named `container.def` into SIF file named `container.sif`.
+Here is an example of using a Makefile to build a container from a definition file named `container.def` into a SIF file named `container.sif`.
 
 ```sh title="container.def"
 Bootstrap: docker
