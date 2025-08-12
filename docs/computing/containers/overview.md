@@ -1,3 +1,7 @@
+---
+description: Instructions for building and running Apptainer containers in CSC supercomputers.
+---
+
 # Apptainer containers
 
 In this section, we provide instructions on how to build and run containers using [Apptainer](https://apptainer.org/) with fakeroot enabled in HPC clusters without unprivileged user namespaces.
@@ -28,7 +32,7 @@ apptainer exec container.sif mycommand
 ```
 
 We can make directories from the host available inside the container by using bind mounts.
-Specific directories that we may want to bind mount on Puhti and Mahti are the user home, projappl, scratch, and local disk spaces.
+Specific directories that we may want to bind mount on Puhti and Mahti are the user home, projappl, scratch, and local disk spaces (see [Disk Areas](../disk.md) for more information).
 Here is an example:
 
 ```bash
