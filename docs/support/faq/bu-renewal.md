@@ -59,8 +59,8 @@ based on the type of billing unit applied for.
 
 ## 6. Will I lose billing units to the new BU cutter even if my projects use billing units?
 
-The billing unit renewal introduces a "cutter" that will deprecate unused BUs.
-The billing unit cutter only affects projects that use **less than 40% of their
+The billing unit renewal introduces a "cutter" that will depreciate unused BUs.
+The billing unit cutter only affects projects that have used **less than 40% of their
 billing units** in a 6 month period counted from the last billing unit grant
 or deprecation check. If a project has used more than that, no resources are
 cut. The billing unit cutter affects only academic projects with student
