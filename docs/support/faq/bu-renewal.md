@@ -17,6 +17,9 @@ uses which units is depicted below:
     * Puhti, Mahti and Roihu Lustre storage, Allas, Shared fileservice, SD
       Connect
 
+!!! info "Note"
+    LUMI billing is **not** affected by the billing unit renewal.
+
 ## 2. When are the new billing units taken into use?
 
 The new billing units will be taken into use in September 2025. The exact date
