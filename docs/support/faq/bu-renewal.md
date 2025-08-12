@@ -25,15 +25,25 @@ uses which units is depicted below:
 The new billing units will be taken into use in September 2025. The exact date
 will be announced later.
 
-## 3. What will happen to my old billing units?
+## 3. Will I need to do something? What will happen to my old billing units?
 
-Old unused billing units already granted to projects will be migrated to the
-new units, i.e. no granted resources are lost. The mapping of old BUs to new
-BUs will be based on the past usage of the project. In other words, e.g.
-projects only running GPU jobs on Puhti will not get cloud billing units which
-they have no use for.
+No, you do not need to anything. Old unused billing units already granted to
+projects will be migrated to the new units, i.e. no granted resources are lost.
+The mapping of old BUs to new BUs will be based on the past usage of the
+project. In other words, e.g. projects only running GPU jobs on Puhti will not
+get cloud billing units which they have no use for.
 
-## 4. How will the new billing units affect resource applications?
+You can check your current BU budget in [MyCSC](https://my.csc.fi), as well as
+using the `csc-projects` command on Puhti and Mahti.
+
+## 4. How will the BU renewal affect CSC's services?
+
+The migration to new billing units will have minimal effect on service usage
+and services will be available as usual. However, resource applications will be
+unavailable during the migration when old billing units are converted into new
+ones.
+
+## 5. How will the new billing units affect resource applications?
 
 Resource applications will be done in the four new billing units in the future.
 This means that users have to consider what kind of resources and services they
@@ -47,7 +57,23 @@ larger impact on the service capacity compared to the same amount of BUs used
 on Mahti CPU nodes. Thus, the size limits for resource applications will be
 based on the type of billing unit applied for.
 
+## 6. Will I lose billing units to the new BU cutter even if my projects use billing units?
+
+The billing unit renewal introduces a "cutter" that will deprecate unused BUs.
+The billing unit cutter only affects projects that use **less than 40% of their
+billing units** in a 6 month period counted from the last billing unit grant
+or deprecation check. If a project has used more than that, no resources are
+cut. The billing unit cutter affects only academic projects with student
+projects being exempt.
+
+## 7. When will the first billing unit deprecation happen?
+
+The billing unit cutter is taken into use at the same time as the new units, so
+the first cuts would happen in **March 2026 at the earliest**. The billing unit
+usage of projects is checked six months after either the latest billing unit
+grant or the latest deprecation check.
+
 ## More information
 
 * Blog: [Mapping out the future of billing units](https://csc.fi/en/blog/mapping-out-the-future-of-billing-unit/) (CSC.fi)
-* Blog: [Billing unit renewal schedule and changes](https://csc.fi/en/blog/billing-unit-renewal-schedules-and-changes/) (CSC.fi)
+* Blog: [billing unit renewal schedule and changes](https://csc.fi/en/blog/billing-unit-renewal-schedules-and-changes/) (CSC.fi)
