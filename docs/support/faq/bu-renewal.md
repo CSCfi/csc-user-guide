@@ -62,7 +62,7 @@ based on the type of billing unit applied for.
 The billing unit renewal introduces a "cutter" that will depreciate unused BUs.
 The billing unit cutter only affects projects that have used **less than 40% of their
 billing units** in a 6 month period counted from the last billing unit grant
-or deprecation check. If a project has used more than that, no resources are
+or depreciation check. If a project has used more than that, no resources are
 cut. The billing unit cutter affects only academic projects with student
 projects being exempt.
 
@@ -71,7 +71,7 @@ projects being exempt.
 The billing unit cutter is taken into use at the same time as the new units, so
 the first cuts would happen in **March 2026 at the earliest**. The billing unit
 usage of projects is checked six months after either the latest billing unit
-grant or the latest deprecation check.
+grant or the latest depreciation check.
 
 ## More information
 
