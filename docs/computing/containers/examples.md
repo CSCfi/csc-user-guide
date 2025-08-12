@@ -112,8 +112,9 @@ make PREFIX=/projappl/project_id
 
 ## Example: Accelerated visualization application
 
-- [VirtualGL](https://github.com/CSCfi/singularity-recipes/tree/main/visualization)
-- [Blender](https://github.com/CSCfi/singularity-recipes/tree/main/blender)
+Start by building the [visualization](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) base image which contains VirtualGL, its dependencies, and utility scripts.
+We can build the accelerated visualization applications such as [Blender](https://github.com/CSCfi/singularity-recipes/tree/main/blender) on top of the visualization base image.
+Application should be executed with the `vglrun_wrapper` script installed in the base container.
 
 ## Other application containers
 
@@ -121,8 +122,8 @@ CSC has container build recipes for various applications in the [singularity-rec
 Here are the recipes that can be built with Apptainer using fakeroot on Puhti and Mahti:
 
 - [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
-- [Python with uv](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
+- [Python with uv package manager](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
+- [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
 - [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/matlab/r2024b)
 - [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
-- [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
 - [R environment](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity/4.5.1-fakeroot)
