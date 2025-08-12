@@ -312,7 +312,7 @@ nav:
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md
       - Performance analysis: computing/performance.md
-      - Containers:
+      - Apptainer containers:
           - computing/containers/overview.md
           - Examples: computing/containers/examples.md
           - Container wrapper (Tykky): computing/containers/tykky.md
