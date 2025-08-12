@@ -14,7 +14,7 @@ catalog:
 
 # r-env
 
-`r-env` is an [Apptainer container](../computing/containers/run-existing.md) including R and RStudio Server, and several other features to facilitate their use. 
+`r-env` is an [Apptainer container](../computing/containers/overview.md#running-containers) including R and RStudio Server, and several other features to facilitate their use. 
 
 - R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 

@@ -11,7 +11,7 @@
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
-* [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
+* [How to run existing containers in Puhti](../../computing/containers/overview.md#running-containers)
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
