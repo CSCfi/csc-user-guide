@@ -2,19 +2,6 @@
 
 This section contains examples of building and running containers on Puhti and Mahti.
 
-## Application containers
-
-CSC has container build recipes for various applications in the [singularity-recipes](https://github.com/CSCfi/singularity-recipes) repository.
-Here are the recipes that can be built with Apptainer using fakeroot on Puhti and Mahti:
-
-- [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
-- [Python with uv](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
-- [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/matlab/r2024b)
-- [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
-- [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
-- [R environment](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity/4.5.1-fakeroot)
-- [VirtualGL](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) and [Blender](https://github.com/CSCfi/singularity-recipes/tree/main/blender)
-
 ## Example: Python virtual environment
 
 Next, we provide an example of a container with system Python and virtual environment with Python packages installed using pip.
@@ -122,3 +109,20 @@ We can also invoke make with arguments such as `PREFIX` to build the container i
 ```bash
 make PREFIX=/projappl/project_id
 ```
+
+## Example: Accelerated visualization application
+
+- [VirtualGL](https://github.com/CSCfi/singularity-recipes/tree/main/visualization)
+- [Blender](https://github.com/CSCfi/singularity-recipes/tree/main/blender)
+
+## Other application containers
+
+CSC has container build recipes for various applications in the [singularity-recipes](https://github.com/CSCfi/singularity-recipes) repository.
+Here are the recipes that can be built with Apptainer using fakeroot on Puhti and Mahti:
+
+- [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
+- [Python with uv](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
+- [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/matlab/r2024b)
+- [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
+- [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
+- [R environment](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity/4.5.1-fakeroot)

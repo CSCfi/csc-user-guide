@@ -176,6 +176,7 @@ plugins:
         "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
         "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
         "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+        "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
 
 
 markdown_extensions:
@@ -311,14 +312,9 @@ nav:
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md
       - Performance analysis: computing/performance.md
-      - Containers (updated):
-          - computing/containers-updated/overview.md
-          - Examples: computing/containers-updated/examples.md
-          - Container wrapper (Tykky): computing/containers-updated/tykky.md
-      - Containers (legacy):
+      - Containers:
           - computing/containers/overview.md
-          - Running containers: computing/containers/run-existing.md
-          - Creating containers: computing/containers/creating.md
+          - Examples: computing/containers/examples.md
           - Container wrapper (Tykky): computing/containers/tykky.md
       - Web interface:
           - computing/webinterface/index.md

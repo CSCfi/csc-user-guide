@@ -20,7 +20,6 @@
 ## Installation of tools on supercomputers
 
 * [Installing software with Spack](user-spack.md)
-* [Building Singularity containers from scratch](singularity-scratch.md)
 * [Conda best practices](conda.md)
 
 ## Performance and high-throughput workflows
