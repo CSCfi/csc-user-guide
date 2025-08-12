@@ -76,4 +76,4 @@ grant or the latest deprecation check.
 ## More information
 
 * Blog: [Mapping out the future of billing units](https://csc.fi/en/blog/mapping-out-the-future-of-billing-unit/) (CSC.fi)
-* Blog: [billing unit renewal schedule and changes](https://csc.fi/en/blog/billing-unit-renewal-schedules-and-changes/) (CSC.fi)
+* Blog: [Billing unit renewal schedule and changes](https://csc.fi/en/blog/billing-unit-renewal-schedules-and-changes/) (CSC.fi)
