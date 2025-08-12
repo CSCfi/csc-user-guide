@@ -66,7 +66,7 @@ or deprecation check. If a project has used more than that, no resources are
 cut. The billing unit cutter affects only academic projects with student
 projects being exempt.
 
-## 7. When will the first billing unit deprecation happen?
+## 7. When will the first billing unit depreciation happen?
 
 The billing unit cutter is taken into use at the same time as the new units, so
 the first cuts would happen in **March 2026 at the earliest**. The billing unit
