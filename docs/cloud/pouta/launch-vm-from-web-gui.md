@@ -211,50 +211,63 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 1. In the main page of the Pouta web interface, open the **Compute > Instances** view.
 1. Click in **Launch Instance** on the top right. This opens a _launch instance_ screen where you define the properties of the new virtual machine.
 
-    ![Launch the instance view](../../img/pouta-launch-instance.png 'Launch cPouta instance')
+    ![Launch the instance view](../img/pouta-launch-instance.png 'Launch cPouta instance')
 
     **Figure** Launch the instance view
 
-1. On the **Details** tab of the _launch instance_ view, first write the **Instance Name**.
+1. On the **Details** tab of the _launch instance_ view, first write the **Instance Name** and select the number of instances you want to create ( _-x_ will be automatically added to the end of the name of the instance if you decide to set the **Count** > 1).
 
-1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create. See [Virtual machine flavors and billing unit rates](vm-flavors-and-billing.md) for a complete list and descriptions.
+1. Click **Next** and select your **Instance Boot Source**. Select "Image" in the drop down menu and click on the up arrow next to the available images.
 
-1. In **Instance Count** you can specify the number of Virtual Machines to create. If in doubt, leave it to `1`.
+    ![Select the instance source](../img/pouta-launch-instance-source.png 'Select the instance source')
 
-1. **Instance Boot Source**. Select "Boot from image" in the drop down menu.
+    **Figure** Select the instance source
 
     !!! Info "Cloud-native"
 
-        In case you want to be more cloud-native, you can select the "Boot from image (creates a new volume)" option. This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
+        In case you want to be more cloud-native, you can select the "Image" and set "Create a New Volume" to "Yes". This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
 
     !!! Warning "Please note"
 
-        The "Boot from image (creates a new volume)" approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
+        The option "Create New Volume" set to "Yes" creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
+
+        If the flavour type has an ephemeral disk (for example, [I/O flavours](./vm-flavors-and-billing.md#io-flavors)), a new volume is only created for the root disk. [Ephemeral disks](./ephemeral-storage.md) are removed when the VM is deleted.
 
 
-1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.
+1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create, from the available flavours and by clicking the up arrow. See [Virtual machine flavors and billing unit rates](vm-flavors-and-billing.md) for a complete list and descriptions. You can also expand the flavour to check the impact on your quota.
 
-1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in [**Setting up SSH keys**](#setting-up-ssh-keys). Secondly you need to select under the [**Security Groups**](#firewalls-and-security-groups) the security group previously created.
+    ![Select the instance flavour](../img/pouta-launch-instance-flavor.png 'Select the instance flavour')
+
+    **Figure** Select the instance flavour
+
+
+    !!! Info "Warning quota usage"
+
+        Pay attention that you can have a warning sign indicating if your quota is sufficient to run a specific flavour. If your quota is not enough, you can send a request to our [Service Desk](mailto:servicedesk@csc.fi) by specifying the amount you want.
+
+        ![Flavour warning](../img/pouta-launch-instance-flavor-warning.png 'Flavour warning')
+
+1. The **Networks** section, make sure that your own network (your project name) is selected.
+
+    ![Launch the instance network](../img/pouta-launch-instance-networks.png 'Launch cPouta instance network')
+
+1. In the next section [**Security Groups**](#firewalls-and-security-groups), you can assign the security group previously created. You can expand the security group to check the rules you set.
+
+    ![Launch the instance security group](../img/pouta-launch-instance-security-groups.png 'Launch the instance security group')
+
+1. In [**Key Pair**](#setting-up-ssh-keys), you select the name of the _Key Pair_ you have created in the [**Setting up SSH keys section**](#setting-up-ssh-keys).
+
+    ![Launch the instance key-pairs](../img/pouta-launch-instance-key-pairs.png 'Launche the instance key-pairs')
 
     !!! Warning "Key pairs cannot be added after creation"
-        A public key is only added to the VM if it has been specified in this step. After clicking on **Launch**, the VM will be created, and the configured key pairs cannot be changed. If no key pair is configured, the recommended solution is to delete the VM and start from scratch.
+        A public key is only added to the VM if it has been specified in this step.
+        After clicking on **Launch Instance**, the VM will be created, and the configured key pairs cannot be changed. If no key pair is configured, the recommended solution is to delete the VM and start from scratch.
 
-    ![Launch the instance access view](../img/launch_instance_access_security.png 'Launch cPouta instance network')
+1. **Configuration** section allows you to add a custom script to customize your instance after it has been launched.
 
-    !!! Warning
-        If you click the "+" button, the window will close unexpectedly and a small pop-up will appear:
+1. **Server Groups** tab allows you to select a [**Server Group**](#server-groups)
 
-        ![Error plus button](../img/danger_keypairs.png 'Danger key pairs')
-
-        This is a known bug. Please refer to the [previous section](#setting-up-ssh-keys) on how to create your SSH keys.
-
-1. The **Networking** tab, make sure that your own network (your project name) is selected.
-
-    ![Launch the instance network view](../img/launch_instance_network.png 'Launch cPouta instance network')
-
-1. Finally, **Advanced Options** tab allows you to select a [**Server Group**](#server-groups)
-
-You can click **Launch** to start the Virtual Machine creation.
+You can click **Launch Instance** to start the Virtual Machine creation.
 
 ## Post creation step
 
