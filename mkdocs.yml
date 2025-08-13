@@ -525,15 +525,6 @@ nav:
               - S3cmd: data/Allas/using_allas/s3_client.md
               - Pouta web UI: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
-      - Kaivos database service:
-          - data/kaivos/overview.md
-          - Getting a database account: data/kaivos/kaivos-account.md
-          - MySQL client programs at CSC: data/kaivos/kaivos_client_in_puhti.md
-          - Data import and export: data/kaivos/kaivos_import.md
-          - Using MySQL client through batch job system: data/kaivos/kaivos_batch_job.md
-          - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
-          - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
-          # Python MySQL API at CSC:
   - Sensitive data:
       - data/sensitive-data/index.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
