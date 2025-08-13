@@ -27,7 +27,7 @@ will be announced later.
 
 ## 3. Will I need to do something? What will happen to my old billing units?
 
-No, you do not need to anything. Old unused billing units already granted to
+No, you do not need to do anything. Old unused billing units already granted to
 projects will be migrated to the new units, i.e. no granted resources are lost.
 The mapping of old BUs to new BUs will be based on the past usage of the
 project. In other words, e.g. projects only running GPU jobs on Puhti will not
