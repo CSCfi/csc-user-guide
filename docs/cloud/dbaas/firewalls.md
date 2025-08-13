@@ -23,7 +23,7 @@ curl ifconfig.me -4
 
 * Browser:
 
-Search in Google for *What is my IP?*
+Visit  your [IP address](https://www.whatismyip.com).
 
 Use the returned IP address in CIDR format with `/32` to allow only that single IP.
 For example:
