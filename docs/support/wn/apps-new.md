@@ -1,6 +1,6 @@
 # Applications
 
-## GROMACS 2025.2, 11.8.2025
+## GROMACS 2025.2, 13.8.2025
 
 [GROMACS](../../apps/gromacs.md) 2025.2 is now available on Puhti, Mahti and LUMI.
 See [release notes](https://manual.gromacs.org/2025.2/release-notes/2025/2025.2.html)
