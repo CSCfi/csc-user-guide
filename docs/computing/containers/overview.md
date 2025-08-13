@@ -24,6 +24,8 @@ Limitations of containers:
 
 ## Running containers
 
+### Using Apptainer directly
+
 Assume we have a container image called `container.sif`.
 We can execute an arbitrary command (replace `mycommand`) inside the container using the `apptainer exec` command as follows:
 
@@ -32,20 +34,34 @@ apptainer exec container.sif mycommand
 ```
 
 We can make directories from the host available inside the container by using bind mounts.
-Specific directories that we may want to bind mount on Puhti and Mahti are the user home, projappl, scratch, and local disk spaces (see [Disk Areas](../disk.md) for more information).
-Here is an example:
+On Puhti and Mahti, we can bind mount the different [Disk Areas](../disk.md) to the container as follows:
 
 ```bash
 apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" container.sif mycommand
 ```
 
-We can add (Nvidia) GPU support with the `--nv` flag as follows:
+We can add Nvidia GPU support with the `--nv` flag as follows:
 
 ```bash
 apptainer exec --nv container.sif mycommand
 ```
 
 We can use the same flags with `apptainer run` and `apptainer shell` commands.
+
+### Using Apptainer wrapper
+
+Many CSC provided software environments that use containers provide access via the `apptainer_wrapper` script.
+The wrapper uses environment variables to find the path to the container image (`SING_IMAGE`) and to provide flags (`SING_FLAGS`) such as `--nv`.
+The wrapper script automatically appends flags for common binds mounts.
+We can execute commands from the container as follows:
+
+```bash
+export SING_IMAGE=/path-to/container.sif
+export SING_FLAGS=""
+apptainer_wrapper exec mycommand
+```
+
+Also `apptainer_wrapper run` and `apptainer_wrapper shell` subcommand are available.
 
 ## Building container images
 
@@ -60,20 +76,13 @@ Also, we cover how to set the appropriate build environment and resources like m
 
 ### Build location
 
-We can build containers on any node that has local disk available.
+We can build containers on any node that has [local disk available](../disk.md#temporary-local-disk-areas).
 Login nodes have local disk by default.
-To build on a compute node, we can reserve a job with local disk (NVMe).
-Here is an example of an interactive job for building containers (change the `project_id` to your project ID):
+To build on a compute node, we can reserve a Slurm job with a local disk.
+For example, we can reserve an interactive job with local disk (`--tmp`) as follows:
 
 ```bash
-srun \
-    --account=project_id \
-    --partition=interactive \
-    --cpus-per-task=8 \
-    --mem=16G \
-    --gres=nvme:20 \
-    --time=01:00:00 \
-    --pty bash
+sinteractive --cores 4 --mem 4000 --tmp 10 --time 0:15:00
 ```
 
 ### Temporary directory
