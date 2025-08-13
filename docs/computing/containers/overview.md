@@ -4,23 +4,28 @@ description: Instructions for building and running Apptainer containers in CSC s
 
 # Apptainer containers
 
-In this section, we provide instructions on how to build and run containers using [Apptainer](https://apptainer.org/) with fakeroot enabled in HPC clusters without unprivileged user namespaces.
-We explain the special aspects of building and running containers on Puhti and Mahti clusters including how to set up the build environment, how to invoke the build commands, how to write container definition files and how to run containers.
-For general instructions about building and running containers, we recommend that users read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html).
+In this section, we provide instructions on how to build and run containers using [Apptainer](https://apptainer.org/) on CSC supercomputers.
+For general instructions we recommend that users read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html).
+It is useful to know that previously Apptainer was known as Singularity and that name still lives in many parts of the software.
+The project was renamed when it moved from Sylabs to the Linux Foundation.
 
-Some reasons for using containers on HPC clusters are:
+## Motivation
 
-- Containers improve startup times and avoid I/O bottlenecks with the parallel file system, that is Lustre in Puhti and Mahti, for applications that consist of a large number of files or load many shared libraries on startup such as Python, R, and MATLAB.
-  This is because Apptainer uses the Singularity Image Format (SIF) which packs the container files into a single SquashFS file.
+Apptainer container image is a compressed, read-only file that encapsulates metadata and the root file system with all the applications, libraries and files.
+The image format is called Singularity Image Format (SIF) and uses the `.sif` file extension.
 
-- Running containerized software is reproducible because the container image is immutable.
+Apptainer container allows us to choose a base image with the Linux operating system as the root file system that we want and use its package manager to install software.
+We are limited to building with fakeroot without unprivileged user namespaces which limits the ability to install arbitrary packages on operating systems that are different from the host.
 
-- Container build definitions capture more comprehensively what is installed into the container and how it is installed.
+Running software from Apptainer container can improve startup times and avoid I/O bottlenecks with the [Lustre](../lustre.md) parallel file system for applications that consist of a large number of files or load large number of shared libraries on startup.
+For example, Python environments are known to suffer from this problem.
 
-Limitations of containers:
+Running Apptainer containers is reproducible because the container image is immutable.
+Apptainer build definitions capture what is installed into the container and how it is installed.
 
-- Containers are not composable and they are not a substitute for package managers.
-  That is, having a container with Python installed and another container with R installed, will not provide you with a container with both Python and R installed.
+We should not that containers images are not composable and they are not a substitute for package managers.
+That is, a container with Python installed and another container with R installed, will not provide you with a container with both Python and R installed.
+Instead, you must build a new container where you install both Python and R.
 
 ## Running containers
 
