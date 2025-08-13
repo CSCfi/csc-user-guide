@@ -132,7 +132,7 @@ We can obtain existing container images from a container registry by pulling the
 Apptainer will convert them from Docker or OCI format into the Singularity Image Format (SIF).
 
 ```bash
-apptainer build rockylinux.sif docker://docker.io/rockylinux/rockylinux:8
+apptainer build rockylinux.sif docker://docker.io/rockylinux/rockylinux:8.10
 ```
 
 You can authenticate to a private registry using `apptainer registry login` command.
@@ -181,7 +181,7 @@ apptainer build --fakeroot --bind="$TMPDIR:/tmp" container.sif container.def
 ```
 
 By default Apptainer bind mounts the host's `/tmp` to `/tmp` in the build environment.
-However, the size of `/tmp` is limited on Puhti and Mahti, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of memory.
+However, the size of `/tmp` is limited on Puhti and Mahti, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of disk space.
 
 ### Developing with interactive sandbox
 
