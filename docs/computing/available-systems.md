@@ -1,7 +1,7 @@
 # Systems
 
 CSC's computing environment consists of supercomputers Puhti and
-Mahti, and the quantum learning machine Kvasi. Puhti and Mahti have a
+Mahti. Puhti and Mahti have a
 fairly similar compute environment, and there is a wide range of
 workloads that can utilize both efficiently. At the same time their
 hardware is different, and this makes some worklods uniquely suitable

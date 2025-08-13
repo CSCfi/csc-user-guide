@@ -31,6 +31,7 @@ parallel quantum chemistry calculations, in particular for AIMD.
     |2023.2   |`cp2k/2023.2`      |       |
     |2024.1   |`cp2k/2024.1`      |       |
     |2024.2   |`cp2k/2024.2`      |       |
+    |2025.1   |`cp2k/2025.1`      |       |
 
 === "Mahti"
     | Version | Available modules | Notes |
@@ -42,11 +43,13 @@ parallel quantum chemistry calculations, in particular for AIMD.
     |2023.2   |`cp2k/2023.2`      |       |
     |2024.1   |`cp2k/2024.1`      |       |
     |2024.2   |`cp2k/2024.2`      |       |
+    |2025.1   |`cp2k/2025.1`      |       |
 
 === "LUMI"
     | Version | Available modules                | Notes                 |
     |:-------:|:---------------------------------|:---------------------:|
     |2024.3   |`cp2k/2024.3`<br>`cp2k/2024.3-gpu`| GPU version available |
+    |2025.1   |`cp2k/2025.1`<br>`cp2k/2025.1-gpu`| GPU version available |
 
 ## License
 
@@ -98,8 +101,8 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --account=<project>
 
     module purge
-    module load gcc/13.2.0 openmpi/5.0.5
-    module load cp2k/2024.2
+    module load gcc/14.2.0 openmpi/5.0.6
+    module load cp2k/2025.1
 
     srun cp2k.psmp H2O-64.inp > H2O-64.out
     ```
@@ -116,8 +119,8 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --account=<project>
 
     module purge
-    module load gcc/9.4.0 openmpi/4.1.2
-    module load cp2k/2024.2
+    module load gcc/14.2.0 openmpi/5.0.6
+    module load cp2k/2025.1
 
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     export OMP_PLACES=cores
@@ -139,7 +142,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     export OMP_NUM_THREADS=3
 
     module use /appl/local/csc/modulefiles
-    module load cp2k/2024.1-gpu
+    module load cp2k/2025.1-gpu
 
     export MPICH_GPU_SUPPORT_ENABLED=1
 
@@ -293,8 +296,8 @@ Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` section.
     #SBATCH --account=<project>
 
     module purge
-    module load gcc/9.4.0 openmpi/4.1.2
-    module load cp2k/2024.2
+    module load gcc/14.2.0 openmpi/5.0.6
+    module load cp2k/2025.1
 
     srun cp2k.psmp farming.inp >> farming.out
     ```

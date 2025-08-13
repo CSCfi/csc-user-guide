@@ -59,5 +59,5 @@ To install the extension:
 
 
 ## Troubleshooting
-If VSCode does not work properly you can clear the settings and launch the application again.
-This can be done done by deleting the folder `~/.local/share/csc-vscode`.
+
+- If VSCode does not work properly you can clear the settings and launch the application again. This can be done done by deleting the folder `~/.local/share/csc-vscode`.

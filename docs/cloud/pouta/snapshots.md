@@ -94,13 +94,14 @@ The output of the command should look something like this:
 +--------------------------------------+------------------------------------------+--------+
 | ID                                   | Name                                     | Status |
 +--------------------------------------+------------------------------------------+--------+
-| 5c057d87-5353-4f3c-a7a9-bffbbb99da4c | CentOS-7                                 | active |
-| 1585f871-f9c3-47ec-a3ff-1b80bce0b0eb | CentOS-7-Cuda                            | active |
-| 500e4de4-23fb-4cc1-bac7-83c43a8cb7eb | CentOS-8-Stream                          | active |
-| bef0ff50-1aaa-48af-95b2-910bf1da7dc9 | Ubuntu-18.04                             | active |
-| 5842526b-c835-4ad7-b572-4a8fe87752d1 | Ubuntu-20.04                             | active |
-| 41c7cd7e-8e10-4ced-a89e-41f159fe49fd | Ubuntu-22.04                             | active |
-| 3a9aad67-0f9c-4493-b574-17fe28d40afc | cirros                                   | active |
+| 143ccb94-50cd-4030-8d6b-d749e91ca52f | AlmaLinux-8                              | active |
+| 45bbe30b-2168-4155-8fdf-85450a5cbdcf | AlmaLinux-9                              | active |
+| f35fafee-bd55-412d-9125-01e7216918de | CentOS-9-Stream                          | active |
+| 020ec67a-4fdc-4131-8442-29f69a5e82f9 | Ubuntu-18.04                             | active |
+| 75457f65-fbe2-4159-875f-fd053bba66b0 | Ubuntu-20.04                             | active |
+| ce9b602b-7d46-4255-bca0-038f26e99db4 | Ubuntu-22.04                             | active |
+| 7ccf2de3-2953-4d66-8ace-f6ed5a0cb092 | Ubuntu-24.04                             | active |
+| ec5efcc0-689c-45a3-bffc-2439218adb00 | cirros                                   | active |
 | 14b2de4d-a5de-453a-bee0-f0b506198760 | important-linux-vm-snapshot-20320912     | active |
 | 5b92fd8b-d7e2-471c-bfbc-27c3041e54f7 | important-linux-vm-snapshot-20320912-cli | active |
 +--------------------------------------+------------------------------------------+--------+
@@ -195,13 +196,14 @@ It is possible to download an image, including image snapshots, but only from th
     +--------------------------------------+------------------------------------------+--------+
     | ID                                   | Name                                     | Status |
     +--------------------------------------+------------------------------------------+--------+
-    | 5c057d87-5353-4f3c-a7a9-bffbbb99da4c | CentOS-7                                 | active |
-    | 1585f871-f9c3-47ec-a3ff-1b80bce0b0eb | CentOS-7-Cuda                            | active |
-    | 500e4de4-23fb-4cc1-bac7-83c43a8cb7eb | CentOS-8-Stream                          | active |
-    | bef0ff50-1aaa-48af-95b2-910bf1da7dc9 | Ubuntu-18.04                             | active |
-    | 5842526b-c835-4ad7-b572-4a8fe87752d1 | Ubuntu-20.04                             | active |
-    | 41c7cd7e-8e10-4ced-a89e-41f159fe49fd | Ubuntu-22.04                             | active |
-    | 3a9aad67-0f9c-4493-b574-17fe28d40afc | cirros                                   | active |
+    | 143ccb94-50cd-4030-8d6b-d749e91ca52f | AlmaLinux-8                              | active |
+    | 45bbe30b-2168-4155-8fdf-85450a5cbdcf | AlmaLinux-9                              | active |
+    | f35fafee-bd55-412d-9125-01e7216918de | CentOS-9-Stream                          | active |
+    | 020ec67a-4fdc-4131-8442-29f69a5e82f9 | Ubuntu-18.04                             | active |
+    | 75457f65-fbe2-4159-875f-fd053bba66b0 | Ubuntu-20.04                             | active |
+    | ce9b602b-7d46-4255-bca0-038f26e99db4 | Ubuntu-22.04                             | active |
+    | 7ccf2de3-2953-4d66-8ace-f6ed5a0cb092 | Ubuntu-24.04                             | active |
+    | ec5efcc0-689c-45a3-bffc-2439218adb00 | cirros                                   | active |
     | 14b2de4d-a5de-453a-bee0-f0b506198760 | important-linux-vm-snapshot-20320912     | active |
     | 5b92fd8b-d7e2-471c-bfbc-27c3041e54f7 | important-linux-vm-snapshot-20320912-cli | active |
     +--------------------------------------+------------------------------------------+--------+

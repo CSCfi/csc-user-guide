@@ -27,7 +27,7 @@ editor:
 
 ## Accessing Allas and LUMI-O
 
-The **[Allas object storage service](../../computing/allas.md)** can also be
+The **[Allas object storage service](../../data/Allas/index.md)** can also be
 accessed from the web interfaces using the file browser.
 
 To configure authentication for Allas: 
