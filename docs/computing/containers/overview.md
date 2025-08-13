@@ -115,16 +115,16 @@ apptainer cache clean
 
 ### Virtual memory limit
 
-Virtual memory is limited on Puhti and Mahti login nodes is quite small and should be increased to the hard limit.
+The virtual memory is limit on Puhti and Mahti login nodes is quite small (10 GiB) and should be increased to the hard limit (24 GiB).
 Exceeding the virtual memory limit causes memory errors during build.
 You can query the current virtual memory limit using `ulimit -v` and the hard limit using `ulimit -Hv`.
-On Puhti and Mahti login nodes, we can set the virtual memory limit to the hard limit as follows:
+We can set the virtual memory limit to the hard limit as follows:
 
 ```bash
 ulimit -v $(ulimit -Hv)
 ```
 
-If your build runs out of memory, virtual memory or local disk space during the build on the login node, you should use an interactive job where virtual memory is unlimited and memory and local disk size can be configured.
+If your build runs out of virtual memory during the build on the login node, you should use an interactive job where virtual memory is limited to the amount of memory reserved for the job.
 
 ### Building SIF image from existing Docker or OCI image
 
