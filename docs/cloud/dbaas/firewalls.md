@@ -14,12 +14,15 @@ the firewall opening each time you update the firewalls for an instance with `--
 ## Finding Your Public IP Address
 
 If you do not know your public IPV4 address, you can check it using:
+
 * Command line:
+
 ```
 curl ifconfig.me -4
 ```
 
 * Browser:
+
 Search in Google for *What is my IP?*
 
 Use the returned IP address in CIDR format with `/32` to allow only that single IP.
