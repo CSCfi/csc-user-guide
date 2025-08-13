@@ -21,9 +21,8 @@ Currently supported pennylane versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 0.40.0  | `pennylane-lightning/0.40.0-gpu`     | X     | default version |
-| 0.39.0  | `pennylane-lightning/0.39.0-gpu`     | X     |                 |
-| 0.38.0  | `pennylane-lightning/0.38.0-gpu`     | X     |                 |
+| 0.41.1  | `pennylane-lightning/0.41.1-gpu`     | X     | default version |
+| 0.40.0  | `pennylane-lightning/0.40.0-gpu`     | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -54,10 +53,10 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```bash
-module load pennylane-lightning/0.40.0-gpu
+module load pennylane-lightning/0.41.1-gpu
 ```
 
-where `0.40.0-gpu` is the specified version
+where `0.41.1-gpu` is the specified version
 
 This command will also show all available versions:
 
@@ -84,7 +83,7 @@ Example batch script for reserving one GPU and CPU core in a single node:
 export OMP_PROC_BIND=spread  
 export OMP_PLACES=threads
 
-module load Local-quantum # or module use /appl/local/quantum/modulefiles
+module use /appl/local/quantum/modulefiles # or module load Local-quantum
 module load pennylane-lightning
 python <file_name>.py
 ```

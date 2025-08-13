@@ -3,7 +3,7 @@
 ## General
 
 * [Getting started with supercomputing at CSC](hpc-quick.md)
-* [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
+* [Getting started with Quantum computers](../../computing/quantum-computing/access.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [Linux basics for CSC](env-guide/index.md)
@@ -36,7 +36,7 @@
 
 ## Allas
 
-* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
+* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-hpc.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)

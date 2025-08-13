@@ -3,8 +3,6 @@
 This article explains the different states that virtual machine instances
 can have and their effect on resource usage.
 
-[TOC]
-
 Similar to other cloud providers, Pouta virtual machines also have a lifecycle. 
 Different states of virtual machines have different
 resource requirements for the underlying hardware and are therefore

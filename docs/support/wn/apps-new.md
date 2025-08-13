@@ -1,5 +1,31 @@
 # Applications
 
+## Schrödinger Maestro 2025.3, 7.8.2025
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2025.3 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## CP2K 2025.1 available on Puhti, Mahti and LUMI, 6.8.2025
+
+[CP2K](../../apps/cp2k.md) 2025.1 has been installed and set as the default
+module on Puhti, Mahti and LUMI. See
+[release notes](https://github.com/cp2k/cp2k/releases/tag/v2025.1)
+for a list of new features, fixes and breaking changes.
+
+## R 4.5.1 in r-env, 22.7.2025
+
+R version 4.5.1 is now available in [r-env](../../apps/r-env.md) in Puhti and Mahti and is set as the default version.
+
+## PyTorch 2.7.1 available on Puhti, Mahti and LUMI, 8.7.2025
+
+PyTorch 2.7.1 is now available on Puhti, Mahti and LUMI, and set as
+the default version. It includes the most recent versions of popular
+packages such as Hugging Face transformers, vLLM and FAISS. SGLang is
+now available for Mahti only. See our [PyTorch module documentation
+for more information](../../apps/pytorch.md#available).
+
 ## Schrödinger Maestro 2025.2, 15.5.2025
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2025.2 has been installed
