@@ -96,9 +96,3 @@ appendix:
     disciplines:
       - Language Research and Other Digital Humanities and Social Sciences
     url: http://urn.fi/urn:nbn:fi:lb-201902131 
-
-  - name: MySQL
-    description: MySQL database client
-    disciplines:
-      - Miscellaneous
-    src: data/kaivos/overview.md
