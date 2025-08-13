@@ -4,7 +4,7 @@
 
 The use of the computing and storage services of CSC is based on _user accounts_ and _projects_:
 
-*   **User accounts** are used to authenticate and manage users. Each user should have just one user account at CSC.  User accounts are always personal. It is forbidden to share the credentials of an account with other persons or allow other persons to use the account.
+*   **User accounts** are used to authenticate and manage users. Each user should have just one user account at CSC. User accounts are always personal and require Multi-Factor Authentication. It is forbidden to share the credentials of an account with other persons or allow other persons to use the account.
 
 *   **CSC projects** are used to manage access to CSC services and the resources provided by CSC. Access to CSC services like, Puhti, Allas or cPouta 
 is granted to CSC projects. The same applies to the billing units that are consumed when these services are used.
