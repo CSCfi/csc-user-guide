@@ -97,7 +97,7 @@ Every active service a CSC project consumes both **Billing Units (BUs) and stora
 
 #### SD Connect BU consumption
 
-SD Connect stores data into CSC's clouyd infristures Allas and provies addittional automated encryption and encryption ke management.  SD Connect consumes billing units at a rate of **1.3 billing unit per TB per hour**.
+SD Connect stores data into CSC's cloud infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes billing units at a rate of **1.3 billing unit per TB per hour**.
 
 Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
