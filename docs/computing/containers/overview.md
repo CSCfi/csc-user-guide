@@ -5,7 +5,9 @@ description: Instructions for building and running Apptainer containers in CSC s
 # Apptainer containers
 
 This section provides instructions for building and running containers with [Apptainer](https://apptainer.org/) on CSC supercomputers.
-While we cover CSC-specific usage and best practices here, the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html) serves as a comprehensive reference for general usage.
+While we focus on CSC-specific usage and best practices, the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html) serves as a comprehensive reference for general usage.
+For hands-on guidance, see the [Examples](./examples.md) section, which provides concrete examples tailored to CSC systems.
+
 Note that Apptainer was formerly known as Singularity, and you may still encounter the old name in the software internals and old documentation.
 The project was renamed when it transitioned from Sylabs to the Linux Foundation, but the core functionality remains the same.
 
@@ -81,8 +83,45 @@ We can build containers with Apptainer as follows:
 apptainer build <options>
 ```
 
-In this section, we explain how to use the command to convert existing Docker and OCI images to Singularity Image format (SIF) images, build new SIF images from definition files or develop containers interactively as modifiable (ch)root directory using a sandbox.
+In this section, we explain how to use the command to convert existing Docker and OCI images to SIF images, build new SIF images from definition files or develop containers interactively as modifiable (ch)root directory using a sandbox.
 Also, we cover how to set the appropriate build environment and resources like memory for building on Puhti and Mahti.
+
+### Choosing a Linux distribution as a base image
+
+When selecting a base image for your container, you can choose from several Linux distributions, each with its own package manager.
+For Red Hat Enterprise Linux (RHEL) based distributions that use the DNF package manager, popular options include [RedHat Universal Base Images (UBI)](https://catalog.redhat.com/en/software/base-images) available as [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8) and [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9), as well as community alternatives like [rockylinux](https://hub.docker.com/r/rockylinux/rockylinux) and [almalinux](https://hub.docker.com/_/almalinux).
+If you prefer SUSE-based systems with the Zypper package manager, [opensuse/leap](https://hub.docker.com/r/opensuse/leap) provides a stable foundation. For Debian-based distributions using the APT package manager, both [debian](https://hub.docker.com/_/debian) and [ubuntu](https://hub.docker.com/_/ubuntu) offer well-maintained base images with extensive package repositories.
+
+We can query information about the host system by reading the `/etc/os-release` file.
+
+```bash
+cat /etc/os-release
+```
+
+```text title="stdout"
+NAME="Rocky Linux"
+VERSION="8.10 (Green Obsidian)"
+ID="rocky"
+ID_LIKE="rhel centos fedora"
+VERSION_ID="8.10"
+...
+```
+
+Sometimes it may be necessary to build a container that uses a different Linux operating system than the host as the base image, for example, if software is developed and packaged only for that Linux operating system and it would require an unreasonable amount of effort to try to port to a different operating system.
+The ability to build containers of a different Linux operating system than the host is limited when using fakeroot without unprivileged usernamespaces and the only way to figure out is to attempt to build the container.
+
+When building containers with fakeroot in an environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
+These commands are typically executed as part of pre- or post-installation scripts of DEB and RPM packages.
+We can work around many of these problems by using a host-compatible base image and replacing problematic commands with dummies that always succeed.
+
+```bash
+cp /usr/bin/true /usr/sbin/useradd
+cp /usr/bin/true /usr/sbin/groupadd
+```
+
+### Installing software into container
+
+The typical pattern of installing software into a container is to start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using a user-space package manager such as pip, Conda or Spack or install software manually to `/usr/local` or in a unique directory under `/opt`.
 
 ### Build location
 
@@ -131,6 +170,11 @@ ulimit -v $(ulimit -Hv)
 
 If your build runs out of virtual memory during the build on the login node, you should use an interactive job where virtual memory is limited to the amount of memory reserved for the job.
 
+### Bind mounting temporary directory
+
+By default Apptainer bind mounts the host's `/tmp` to `/tmp` in the build environment.
+However, the size of `/tmp` is limited on Puhti and Mahti, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of disk space as follows: `--bind="$TMPDIR:/tmp"`.
+
 ### Building SIF image from existing Docker or OCI image
 
 We can obtain existing container images from a container registry by pulling them.
@@ -140,28 +184,7 @@ Apptainer will convert them from Docker or OCI format into the Singularity Image
 apptainer build rockylinux.sif docker://docker.io/rockylinux/rockylinux:8.10
 ```
 
-You can authenticate to a private registry using `apptainer registry login` command.
-
 ### Building SIF image from definition file
-
-When building containers with fakeroot in an environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
-These commands are typically executed as part of pre- or post-installation scripts of DEB and RPM packages.
-We can work around many of these problems by using a host-compatible base image and replacing problematic commands with dummies that always succeed.
-
-We can query information about the host system by reading the `/etc/os-release` file.
-
-```bash
-cat /etc/os-release
-```
-
-```text title="stdout"
-NAME="Rocky Linux"
-VERSION="8.10 (Green Obsidian)"
-ID="rocky"
-ID_LIKE="rhel centos fedora"
-VERSION_ID="8.10"
-...
-```
 
 Apptainer definition files are written using the `.def` file extension.
 Here is a simple example of container definition that uses compatible base image and replaces the failing commands with the succeeding dummies:
@@ -185,8 +208,6 @@ We can invoke Apptainer to build the container (`container.sif`) from the defini
 apptainer build --fakeroot --bind="$TMPDIR:/tmp" container.sif container.def
 ```
 
-By default Apptainer bind mounts the host's `/tmp` to `/tmp` in the build environment.
-However, the size of `/tmp` is limited on Puhti and Mahti, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of disk space.
 
 ### Developing with interactive sandbox
 
@@ -212,27 +233,6 @@ We can use the same tricks to replace the failing commands in the sandbox:
 cp /usr/bin/true /usr/sbin/useradd
 cp /usr/bin/true /usr/sbin/groupadd
 ```
-
-### Operating systems and package managers
-
-Sometimes it may be necessary to build a container that uses a different Linux operating system than the host as the base image, for example, if software is developed and packaged only for that Linux operating system and it would require an unreasonable amount of effort to try to port to a different operating system.
-The ability to build containers of a different Linux operating system than the host is limited when using fakeroot without unprivileged usernamespaces and the only way to figure out is to attempt to build the container.
-Here are base images for some common Linux operating systems:
-
-- RHEL compatible operating systems with DNF package manager:
-    - [RedHat Universal Base Images (UBI)](https://catalog.redhat.com/en/software/base-images): [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8), [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9) 
-    - [rockylinux](https://hub.docker.com/r/rockylinux/rockylinux)
-    - [almalinux](https://hub.docker.com/_/almalinux)
-- SUSE compatible operating systems with Zypper package manager:
-    - [opensuse/leap](https://hub.docker.com/r/opensuse/leap)
-- Debian compatible operating systems with APT package manager:
-    - [debian](https://hub.docker.com/_/debian)
-    - [ubuntu](https://hub.docker.com/_/ubuntu)
-
-### Installing software into container
-
-The typical pattern of installing software into a container is to start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using a user-space package manager such as pip, Conda or Spack or install software manually to `/usr/local` or in a unique directory under `/opt`.
-Our container [Examples](./examples.md) demonstrates this pattern with different kinds of containerized software installations.
 
 ## Reading datasets from SquashFS file
 
