@@ -11,21 +11,26 @@ The project was renamed when it moved from Sylabs to the Linux Foundation.
 
 ## Motivation
 
-Apptainer container image is a compressed, read-only file that encapsulates metadata and the root file system with all the applications, libraries and files.
-The image format is called Singularity Image Format (SIF) and uses the `.sif` file extension.
+An Apptainer container image is a single, compressed file that packages everything needed to run an application.
+This immutable file contains the complete root filesystem, including all applications, libraries, and dependencies, along with metadata such as environment variables and runtime configurations.
+Apptainer uses the Singularity Image Format (SIF) for its images, which are identified by the `.sif` file extension.
 
-Apptainer container allows us to choose a base image with the Linux operating system as the root file system that we want and use its package manager to install software.
-We are limited to building with fakeroot without unprivileged user namespaces which limits the ability to install arbitrary packages on operating systems that are different from the host.
+Apptainer containers enable you to select any Linux distribution as your base image, such as Ubuntu, Rocky Linux, or OpenSUSE, and leverage its native package manager to install software within that environment.
+However, building containers on CSC supercomputers has certain limitations, especially, when your chosen base image differs from the host's Linux distribution.
+These issues and their solutions are covered in detail later.
 
-Running software from Apptainer container can improve startup times and avoid I/O bottlenecks with the [Lustre](../lustre.md) parallel file system for applications that consist of a large number of files or load large number of shared libraries on startup.
-For example, Python environments are known to suffer from this problem.
+Running software from an Apptainer container can significantly improve startup times and reduce I/O bottlenecks on the [Lustre](../lustre.md) parallel file system.
+This is particularly beneficial for applications that contain many files or load numerous shared libraries during startup.
+Python environments, for instance, are notorious for this issue due to their extensive module dependencies and dynamic loading behavior.
 
-Running Apptainer containers is reproducible because the container image is immutable.
-Apptainer build definitions capture what is installed into the container and how it is installed.
+Apptainer containers ensure reproducible execution because their images are immutable.
+Once built, a container image remains unchanged, guaranteeing consistent behavior across different systems and over time.
+Additionally, Apptainer build definitions document the exact steps, packages, and configurations used to create the container, making the entire build process transparent and repeatable.
 
-We should not that containers images are not composable and they are not a substitute for package managers.
-That is, a container with Python installed and another container with R installed, will not provide you with a container with both Python and R installed.
-Instead, you must build a new container where you install both Python and R.
+Container images have an important limitation: they are not composable.
+Unlike traditional package managers that allow you to incrementally add software to a system, you cannot simply combine existing containers to create a new one.
+For example, having one container with Python and another with R does not give you access to both environments simultaneously.
+To use both tools together, you must create a new container image that includes both Python and R installations from the start.
 
 ## Running containers
 
