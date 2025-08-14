@@ -67,6 +67,7 @@ If you need assistance with the above points or support to verify if SD service 
 3. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
 4. The GDPR form (Description of processing activity ) that can be downloaded from your CSC project
 5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+6. [Service Level Agreement](../../data/sensitive-data/sd-services-sla.pdf)
 
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
