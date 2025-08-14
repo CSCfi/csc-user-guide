@@ -77,13 +77,7 @@ Also `apptainer_wrapper run` and `apptainer_wrapper shell` subcommand are availa
 
 ## Building container images
 
-We can build containers with Apptainer as follows:
-
-```bash
-apptainer build <options>
-```
-
-In this section, we explain how to use the command to convert existing Docker and OCI images to SIF images, build new SIF images from definition files or develop containers interactively as modifiable (ch)root directory using a sandbox.
+This section explain how to use Apptainer to convert existing Docker and OCI images to SIF images, how to build new SIF images from definition files or how to develop containers interactively as modifiable (ch)root directory using a sandbox.
 Also, we cover how to set the appropriate build environment and resources like memory for building on Puhti and Mahti.
 
 ### Choosing a Linux distribution as a base image
@@ -92,7 +86,12 @@ When selecting a base image for your container, you can choose from several Linu
 For Red Hat Enterprise Linux (RHEL) based distributions that use the DNF package manager, popular options include [RedHat Universal Base Images (UBI)](https://catalog.redhat.com/en/software/base-images) available as [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8) and [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9), as well as community alternatives like [rockylinux](https://hub.docker.com/r/rockylinux/rockylinux) and [almalinux](https://hub.docker.com/_/almalinux).
 If you prefer SUSE-based systems with the Zypper package manager, [opensuse/leap](https://hub.docker.com/r/opensuse/leap) provides a stable foundation. For Debian-based distributions using the APT package manager, both [debian](https://hub.docker.com/_/debian) and [ubuntu](https://hub.docker.com/_/ubuntu) offer well-maintained base images with extensive package repositories.
 
-We can query information about the host system by reading the `/etc/os-release` file.
+While Apptainer allows you to build containers using any Linux distribution as the base image, building on CSC supercomputers has some limitations due from using Apptainer fakeroot mode without unprivileged user namespaces.
+In this environment, certain privileged commands that are commonly executed during package installation will fail.
+For example, package managers often run privileged commands, such as `useradd` and `groupadd`, as part of their installation scripts and these will fail in the fakeroot environment.
+
+We can increase the amount packages that install without problems by using a base image that is compatible with the host system.
+You can identify your host system's Linux distribution as follows:
 
 ```bash
 cat /etc/os-release
@@ -107,17 +106,14 @@ VERSION_ID="8.10"
 ...
 ```
 
-Sometimes it may be necessary to build a container that uses a different Linux operating system than the host as the base image, for example, if software is developed and packaged only for that Linux operating system and it would require an unreasonable amount of effort to try to port to a different operating system.
-The ability to build containers of a different Linux operating system than the host is limited when using fakeroot without unprivileged usernamespaces and the only way to figure out is to attempt to build the container.
-
-When building containers with fakeroot in an environment that does not have unprivileged usernamespaces available, many commands that assume higher privileges such as `useradd` and `groupadd` will fail.
-These commands are typically executed as part of pre- or post-installation scripts of DEB and RPM packages.
-We can work around many of these problems by using a host-compatible base image and replacing problematic commands with dummies that always succeed.
+Furthermore, we should the problematic commands with dummy versions that always succeed:
 
 ```bash
 cp /usr/bin/true /usr/sbin/useradd
 cp /usr/bin/true /usr/sbin/groupadd
 ```
+
+This approach allows package installations to complete successfully while bypassing the permission-related failures.
 
 ### Installing software into container
 
@@ -139,7 +135,7 @@ sinteractive --cores 4 --mem 4000 --tmp 10 --time 0:15:00
 The `TMPDIR` environment variable must point to the local disk.
 Apptainer will use it to identify the directory as its temporary directory when building a container.
 Puhti and Mahti cluster set the `TMPDIR` environment variable automatically on login nodes which have local disk by default and compute nodes when local disk is reserved.
-Parallel file systems such as Lustre cannot (and should not) be used as the temporary directory.
+Lustre parallel file system cannot (and should not) be used as the temporary directory.
 
 ### Cache directory
 
@@ -213,7 +209,7 @@ apptainer build --fakeroot --bind="$TMPDIR:/tmp" container.sif container.def
 
 We can also build Apptainer sandboxes with fakeroot.
 Sandboxes are useful for interactive development of containers.
-The sandbox must be created on the local disk (`$TMPDIR`), not on the parallel file system (Lustre).
+The sandbox must be created on the local disk (`$TMPDIR`), not on the Lustre parallel file system.
 
 We can initialize a sandbox from a base image as follows:
 
