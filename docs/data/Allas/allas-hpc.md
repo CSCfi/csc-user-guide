@@ -1,17 +1,34 @@
-# Examples for using Allas in CSC supercomputers 
+# Tutorial for using Allas in CSC supercomputers 
 
 CSC supercomputers, Puhti and Mahti, do not provide permanent storage space for
-research data. Data that needs to be stored for a longer time than just a few
+research data. The supercomputer's own storage has a policy to [delete idle data](../../computing/usage-policy.md#disk-cleaning), so the data must be moved to Allas after computing.
+
+Data that needs to be stored for a longer time than just a few
 weeks should be copied to Allas object storage service. Allas provides a
 platform that you can use to store your data as long as your CSC project is
 active. In addition to storage, Allas can be used for transporting data between
 different servers and sharing data with other users.
 
-* [Allas user guide](index.md)
+One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start
+working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
+
+If you have not used Allas before, then start with reading **[Allas general introduction](introduction.md)**, which includes many important things to know.
+
+Additional information regarding:
+
+* [Using Allas in batch jobs](allas_batchjobs.md)
+* [Using Allas and LUMI-O from LUMI supercomputer](allas_lumi.md)
+
+To upload or download data between Allas and supercomputers there are a lot of different tools. You can use [Puhti or Mahti web interface](accessing_allas.md#web-browser-interfaces), [commandline tools](accessing_allas.md#commandline-tools) or [Python, R or other tools](accessing_allas.md#graphical-tools). In Puhti and Mahti, the Allas commandline tools are installed by CSC and provided through **allas module**.
+
+By default, CSC computing projects do not have access to Allas. The project manager has to additionally apply for Allas service in [MyCSC](https://my.csc.fi/).
+[Allas introduction page](introduction.md#) describes how to do it and also about default quotas and how to apply for more storage space.
+
+## Examples
 
 This tutorial provides four examples for using Allas on Puhti and Mahti. The
-examples are based on interactively executed commands, and thus apply only for
-relatively small datasets (max. some hundreds of GBs).
+examples are based on interactively executed commands, and thus examples 1, 2 and 4 apply only for
+relatively small datasets (max. some hundreds of GBs). The third example suits also for bigger datasets.
 
 1. [The first example](#example-1-using-allas-with-a-commands) uses the
    *a-commands* (`a-put`, `a-get`) for uploading data from Mahti to Allas, and
@@ -27,27 +44,6 @@ relatively small datasets (max. some hundreds of GBs).
 The a-commands are better suited for cases where the data is mainly used within
 the CSC computing environment (Puhti, Mahti). The second option, Rclone, is
 good for cases when the data will be used outside CSC too.
-
-## Getting access to Allas
-
-By default, CSC computing projects do not have access to Allas. Thus, the first
-thing is to
-[add the Allas service to your project](../../accounts/how-to-add-service-access-for-project.md).
-This is done in the [MyCSC](https://my.csc.fi) portal. Note that only the
-project manager can apply for access.
-
-The default storage quota in Allas is 10 TB. As this space is shared with all
-project members, it is possible that the space is not sufficient. In that case,
-you should estimate how much space is needed and request more space. The
-request should be sent to [CSC Service Desk](../../support/contact.md). Please
-include in your quota request:
-
-1. The ID/name of your project
-2. The amount of Allas space needed
-3. A short description of the data to be stored 
-
-Note that the data stored in Allas
-[consume billing units of the project](../../accounts/billing.md).
 
 ## Example 1: Using Allas with a-commands
 

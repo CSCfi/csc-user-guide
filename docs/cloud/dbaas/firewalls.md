@@ -11,7 +11,28 @@ With the [openstack CLI](cli.md) tool you can use the `opsenstack database insta
 Note that the command override the existing firewalls rules which means that you need to set all
 the firewall opening each time you update the firewalls for an instance with `--allowed-cidr` flag.
 
-## Single IP or subnet
+## Finding Your Public IP Address
+
+If you do not know your public IPV4 address, you can check it using:
+
+* Command line:
+
+```
+curl ifconfig.me -4
+```
+
+* Browser:
+
+Visit  your [IP address](https://www.whatismyip.com).
+
+Use the returned IP address in CIDR format with `/32` to allow only that single IP.
+For example:
+
+```
+192.168.0.1/32
+```
+
+## Allowing single IP, subnet, or multiple specific IPs
 
 By adding the "CIDR notion" `/32` to the end of an IP like `192.168.0.1/32` it means that you only
 allow that specific IP.
@@ -20,6 +41,9 @@ It is also possible to allow a subnet for example `/24` if you want to allow a w
 your office network. The smallest mask that is allowed is `/22` that is 1024 IP addresses.
 Pukki does not allow `0.0.0.0/0` since it would be too easy to set this value and forget that your
 database instance is accessible from the whole internet.
+
+Multiple specific IPs can be allowed by entering each as its own `/32` as a comma-separated list like
+`192.168.0.1/32,192.168.0.2/32,192.168.0.3/32`.
 
 ## Firewall openings from other CSC-services
 
