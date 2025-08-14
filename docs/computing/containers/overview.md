@@ -4,10 +4,10 @@ description: Instructions for building and running Apptainer containers in CSC s
 
 # Apptainer containers
 
-In this section, we provide instructions on how to build and run containers using [Apptainer](https://apptainer.org/) on CSC supercomputers.
-For general instructions we recommend that users read the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html).
-It is useful to know that previously Apptainer was known as Singularity and that name still lives in many parts of the software.
-The project was renamed when it moved from Sylabs to the Linux Foundation.
+This section provides instructions for building and running containers with [Apptainer](https://apptainer.org/) on CSC supercomputers.
+While we cover CSC-specific usage and best practices here, the official [Apptainer documentation](https://apptainer.org/docs/user/main/index.html) serves as a comprehensive reference for general usage.
+Note that Apptainer was formerly known as Singularity, and you may still encounter the old name in the software internals and old documentation.
+The project was renamed when it transitioned from Sylabs to the Linux Foundation, but the core functionality remains the same.
 
 ## Motivation
 
