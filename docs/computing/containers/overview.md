@@ -158,7 +158,7 @@ apptainer cache clean
 
 ### Virtual memory limit
 
-The virtual memory is limit on Puhti and Mahti login nodes is quite small (10 GiB) and should be increased to the hard limit (24 GiB).
+The virtual memory limit on Puhti and Mahti login nodes is quite small (10 GiB) and this can be increased up to the hard limit (24 GiB).
 Exceeding the virtual memory limit causes memory errors during build.
 You can query the current virtual memory limit using `ulimit -v` and the hard limit using `ulimit -Hv`.
 We can set the virtual memory limit to the hard limit as follows:
