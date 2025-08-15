@@ -67,6 +67,7 @@ If you need assistance with the above points or support to verify if SD service 
 3. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
 4. The GDPR form (Description of processing activity ) that can be downloaded from your CSC project
 5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+6. [Service Level Agreement](../../data/sensitive-data/sd-services-sla.pdf)
 
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
@@ -82,38 +83,31 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 5. Apply billing units for your project
 
-The Billing Unit (BU) is CSC’s metric for tracking resource consumption for each CSC projects. As each service consumes billing units. When starting a project, consider your resource needs, including storage and billing units consumption. Each project starts with 10,000 billing units, typically enough for initial testing.
+Every active service a CSC project consumes both **Billing Units (BUs) and storage quota**. BUs helps CSC to track how much computing power, processing time your CSC project uses, while quota limits the amount of storage space available. 
 
-You should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
+-  Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_
+   
+- Each new project starts with **10,000 BUs**, usually enough for initial testing but you need to plan how many BUs you will need for **1 year**.
 
-- See the table below for estimating your billing unit consumption.
-- Apply more billing units for your CSC project by clicking **"Apply for resources"** in Resources window.
-- You will get more info after your application to your MyCSC inbox.
-- You can always ask help from Service Desk _Subject: SD Services_
+**You can then apply for more BUs for your CSC project in MYCSC portal**: 
+   
+1. Login to https://my.csc.fi, click on your CSC project. In the new view, scroll down and go to the **Resources** window.
+   
+2. Click **Apply for resources** and follow the step by step instructions.
 
-#### What happens if your project runs out of billing units?
-
-Once all the billing units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
-
-- all virtual desktops currently running will automatically be paused
-- you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
-- your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
-
-!!! Note
-    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
 
 #### SD Connect BU consumption
 
-SD Connect stores data to Allas. Default storage space for SD Connect/Allas is 10 TB, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_. Storing data in SD Connect/Allas consumes billing units at a rate of **1 billing unit per TB per hour**. This means that storing 1 TB of data in SD Connect/Allas consumes 24 billing units daily and 8760 billing units annually.
+SD Connect stores data into CSC's cloud infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes billing units at a rate of **1.3 billing unit per TB per hour**.
 
 Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
 | **Storage Size** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
 |------------------|------------------------------|----------------------------|
-| 500 GB (0.5 TB) | 2,160 units | 4,320 units |
-| 1 TB | 4,320 units | 8,640 units |
-| 10 TB | 43,200 units | 86,400 units |
-| 100 TB | 432,000 units | 864,000 units |
+| 500 GB (0.5 TB) | 2,847 units | 5,694  units |
+| 1 TB | 5,694 units | 11,388 units |
+| 10 TB | 56,940 units | 113,880 units |
+| 100 TB | 569,400 units | 	1,138,800 units |
 
 #### SD Desktop BU consumption
 
@@ -130,6 +124,20 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 | Big Picture project | 195 | 854,100 | 1,708,770 |
 
 ![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
+
+
+#### What happens if your project runs out of billing units?
+
+Once all the billing units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
+
+- all virtual desktops currently running will automatically be paused
+- you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
+- your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
+
+!!! Note
+    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
+
+
 
 ### 6. If you have a research team, add them to be your project members
 
