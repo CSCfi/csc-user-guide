@@ -15,7 +15,7 @@ Before you can migrate your database, you need to create a new PostgreSQL instan
 You can do this by either using the [Web interface](../../cloud/dbaas/web-interface.md) or the [Command Line Interface](../../cloud/dbaas/cli.md).
 
 !!! Warning "Allowed CIDRs"
-    Make sure you add your [IP address](https://www.whatismyip.com/) in the format `$IP/32` in the [Allowed CIDRs](../../cloud/dbaas/firewalls.md#single-ip-or-subnet). If you want to allow multiple IP-addresses you need to separate them by a comma `,`. By default the database is created **without** any Allowed CIDRs which means that you won't be able to connect to your database.
+    Make sure you add your [IP address](https://www.whatismyip.com/) in the format `$IP/32` in the [Allowed CIDRs](../../cloud/dbaas/firewalls.md#allowing-single-ip-subnet-or-multiple-specific-ips). If you want to allow multiple IP-addresses you need to separate them by a comma `,`. By default the database is created **without** any Allowed CIDRs which means that you won't be able to connect to your database.
 
 ## Step 2: Export Your Current PostgreSQL Database
 
