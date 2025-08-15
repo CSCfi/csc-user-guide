@@ -109,7 +109,7 @@ VERSION_ID="8.10"
 ...
 ```
 
-Furthermore, we should the problematic commands with dummy versions that always succeed:
+Furthermore, we can replace the problematic commands with dummy versions that always succeed:
 
 ```bash
 cp /usr/bin/true /usr/sbin/useradd
