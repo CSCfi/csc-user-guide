@@ -4,7 +4,7 @@ This section contains examples of building and running containers on Puhti and M
 
 ## Example: Python virtual environment
 
-Next, we provide an example of a container with system Python and virtual environment with Python packages installed using pip.
+Next, we provide an example of a container with system Python and virtual environment with Python packages installed using Pip.
 We can define the build definition as follows:
 
 ```sh title="python-pip.def"
@@ -33,11 +33,11 @@ From: docker.io/rockylinux/rockylinux:8.10
 Now, we can build the container image as follows:
 
 ```bash
-apptainer build --fakeroot python-pip.sif python-pip.def
+apptainer build --fakeroot --bind="$TMPDIR:/tmp" python-pip.sif python-pip.def
 ```
 
 Finally, we can execute commands inside the container.
-For example, we can test the container by listing the pip installed Python packages:
+For example, we can test the container by listing the Pip installed Python packages:
 
 ```bash
 apptainer exec python-pip.sif pip --no-cache list
@@ -59,10 +59,10 @@ From: python-pip.sif
 Now, we build the container as normal:
 
 ```bash
-apptainer build --fakeroot python-pip-2.sif python-pip-2.def
+apptainer build --fakeroot --bind="$TMPDIR:/tmp" python-pip-2.sif python-pip-2.def
 ```
 
-Let's list the pip installed packages to see the packages that we added:
+Let's list the Pip installed packages to see the packages that we added:
 
 ```bash
 apptainer exec python-pip.sif pip --no-cache list

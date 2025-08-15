@@ -10,6 +10,7 @@ For hands-on guidance, see the [Examples](./examples.md) section, which provides
 
 Note that Apptainer was formerly known as Singularity, and you may still encounter the old name in the software internals and old documentation.
 The project was renamed when it transitioned from Sylabs to the Linux Foundation, but the core functionality remains the same.
+Sylabs maintains a fork of the project called SingularityCE.
 
 ## Motivation
 
@@ -120,7 +121,7 @@ This approach allows package installations to complete successfully while bypass
 
 ### Installing software into the container
 
-The typical pattern of installing software into a container is to start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using a user-space package manager such as pip, Conda or Spack or install software manually to `/usr/local` or in a unique directory under `/opt`.
+The typical pattern of installing software into a container is to start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using a user-space package manager such as Pip, Conda or Spack or install software manually to `/usr/local` or in a unique directory under `/opt`.
 
 ### Build location
 
@@ -234,6 +235,12 @@ cp /usr/bin/true /usr/sbin/useradd
 cp /usr/bin/true /usr/sbin/groupadd
 ```
 
+Now, we can install software normally:
+
+```bash
+dnf -y update
+```
+
 ## Reading datasets from SquashFS file
 
 We can also avoid I/O bottlenecks with datasets that consist of large amounts of small files by reducing them to a single SquashFS file.
@@ -259,3 +266,6 @@ apptainer exec --bind=/scratch/project_id/mydataset.sqfs:/data:image-src=/ conta
 ```
 
 The data will be available under the path `/data` inside the container.
+
+## Container wrappers
+[Tykky](./tykky.md) container wrapper is available for crearing containerized installations for Pip, Conda and Mamba installations with wrappers scripts.
