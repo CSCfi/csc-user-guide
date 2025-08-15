@@ -1,5 +1,18 @@
 # Applications
 
+## GROMACS 2025.2, 13.8.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.2 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.2/release-notes/2025/2025.2.html)
+for a list of all new features and improvements.
+
+## Schrödinger Maestro 2025.3, 7.8.2025
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2025.3 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
 ## CP2K 2025.1 available on Puhti, Mahti and LUMI, 6.8.2025
 
 [CP2K](../../apps/cp2k.md) 2025.1 has been installed and set as the default

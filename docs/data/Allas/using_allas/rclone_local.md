@@ -12,49 +12,16 @@ line: _Terminal_ in Mac and Linux, _Command prompt_ or _Powershell_ in Windows.
 
 ## Configuring Allas connection in Mac and Linux (Swift and S3)
 
-If you are using Rclone in a local **Linux** or **Mac machine**, you can download 
-the `allas_conf` script to set up the connection to your Allas project.
+First [install `allas-conf` locally](allas-conf.md#allas-conf-installation) and configure your connection.
 
 ```bash
-wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
+# Swift
 source allas_conf -u your-csc-username -p your-csc-project-name
-```
-
-Note that you should use the `-u` option to define your CSC username and `-p` to 
-define the CSC project you want to use. For example:
-
-```bash
-source allas_conf -u kkayttaj -p project_2001234
-```
-
-The command above defines a connection that uses Swift protocol and is valid in the current
-terminal session for 8 hours. The Rclone _remote_ site name is in this case _allas_. After 
-configuration you can for example list your buckets in Allas with command:
-
-```bash
-rclone lsd allas:
-```
-
-If you want to use S3 protocol instead of Swift, add option `-m S3` to the configuration command. 
-
-```bash
+# S3
 source allas_conf -u kkayttaj -p project_2001234 -m S3
 ```
 
-Note that in order to run the command above you must have _OpenStack_ client installed in your local machine. After configuring S3 connection to Allas, you can use it through Rclone remote called _s3allas:_. For example:
-
-```bash
-rclone lsd s3allas:
-```
-
-S3 connection is active until you explicitly delete it with command:
-
-```bash
-source allas_conf -u csc-user-name -p csc-project-name --s3remove
-```
-
-!!! Note
-    Remember to be careful and security-aware when configuring S3 connection to Allas. The S3 keys are stored in a readable format in your home directory and anyone who can read your keys can access Allas until the keys are expilicitly revoked from Allas. Removing the keys from your own computer is not enough to deactivate them.
+In Rclone commands, this Swift based connection is referred with remote name `allas:` and S3 connection `s3allas:`. 
 
 ## Configuring Allas connection in Windows 
 
