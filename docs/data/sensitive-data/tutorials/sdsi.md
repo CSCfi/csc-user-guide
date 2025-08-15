@@ -30,7 +30,7 @@ Thus the first step in constructing a sensitive data batch job is to upload the 
 When you submit a batch job from SD Desktop, you must define following information:
 
 1. What files need be downloaded from SD Connect to Puhti to be used as input files (`data:`)
-2. What commands will be executed (`run : `)
+2. What commands will be executed (`run: `)
 3. What data will be exported from Puhti to SD Connect when the job ends
 4. How much resources (time, memory, temporary dick space ) the job needs. (`sbatch:`)
 
@@ -51,11 +51,11 @@ sbatch:
 - --partition=test
 ```
 
-More sdsi batch job examples can be found below
+More sdsi batch job examples can be found below.
 
 ## Submitting the job
 
-The batch job defined in the file can be submitted with command 
+The batch job defined in the file can be submitted with command:
 
 ```text  
 sdsi-client new -input job1.sdsi
@@ -98,7 +98,7 @@ The execution of the actual computing includes following steps:
 By default the exported files include standard output and standard error of the batch job (this is the text that in interactive working is written to the terminal screen ) and files that are in directory _$RESULTS_.
 
 
-The results are uploaded from Puhti to SD Connecti into bucket named as: *sdhpc-results-*_project_number_, in a subfolder named after the batch job ID. In the example above the project used was 2008749 and the job id was 123456. Thus the job would produce two new files in SD Connect:
+The results are uploaded from Puhti to SD Connect into bucket named as: *sdhpc-results-*_project_number_, in a subfolder named after the batch job ID. In the example above the project used was 2008749 and the job id was 123456. Thus the job would produce two new files in SD Connect:
 
 ```txt
     sdhpc-results-2008749/123456/slurm.err.tar.c4gh
