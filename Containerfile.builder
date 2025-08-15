@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/python-311
+FROM ubi8/python-311
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
