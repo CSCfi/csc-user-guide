@@ -118,7 +118,7 @@ cp /usr/bin/true /usr/sbin/groupadd
 
 This approach allows package installations to complete successfully while bypassing the permission-related failures.
 
-### Installing software into container
+### Installing software into the container
 
 The typical pattern of installing software into a container is to start by using the system package manager such as DNF, APT or Zypper to install "system" software to `/usr` and then install software using a user-space package manager such as pip, Conda or Spack or install software manually to `/usr/local` or in a unique directory under `/opt`.
 
