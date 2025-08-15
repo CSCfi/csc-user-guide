@@ -207,6 +207,7 @@ We can invoke Apptainer to build the container (`container.sif`) from the defini
 apptainer build --fakeroot --bind="$TMPDIR:/tmp" container.sif container.def
 ```
 
+See the [Examples](./examples.md) section for more examples of Apptainer definition files.
 
 ### Developing with interactive sandbox
 
