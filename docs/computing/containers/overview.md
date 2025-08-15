@@ -145,10 +145,10 @@ Lustre parallel file system cannot (and should not) be used as the temporary dir
 
 Apptainer caches layers and blobs such as base images to the cache directory.
 The default location is in the home directory (`$HOME/.apptainer`) which on Puhti and Mahti has a limited quota.
-Thus, we may want to change the cache location to projappl to avoid filling our home directory (modify the `project_id` to your project ID).
+Thus, we may want to change the cache location to scratch to avoid filling our home directory (modify the `project_id` to your project ID).
 
 ```bash
-export APPTAINER_CACHEDIR=/projappl/project_id/$USER/.apptainer
+export APPTAINER_CACHEDIR=/scratch/project_id/$USER/.apptainer
 ```
 
 We can also clean the cache directory if necessary:
