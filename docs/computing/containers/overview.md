@@ -90,7 +90,7 @@ While Apptainer allows you to build containers using any Linux distribution as t
 In this environment, certain privileged commands that are commonly executed during package installation will fail.
 For example, package managers often run privileged commands, such as `useradd` and `groupadd`, as part of their installation scripts and these will fail in the fakeroot environment.
 
-We can increase the amount of workarounds that we can use and the amount packages that install without problems by using a base image from the same family as the host system.
+By using a base image from the same family as the host system we will decrease the number of problems stemming from using fakeroot mode for building containers.
 If you are using a base image that is not from the same family as the host system, expect that there are more packages that can't be installed successfully.
 The best way to find out is to try to build the container.
 
