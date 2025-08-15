@@ -86,7 +86,7 @@ When selecting a base image for your container, you can choose from several Linu
 For Red Hat Enterprise Linux (RHEL) based distributions that use the DNF package manager, popular options include [RedHat Universal Base Images (UBI)](https://catalog.redhat.com/en/software/base-images) available as [redhat/ubi8](https://hub.docker.com/r/redhat/ubi8) and [redhat/ubi9](https://hub.docker.com/r/redhat/ubi9), as well as community alternatives like [rockylinux](https://hub.docker.com/r/rockylinux/rockylinux) and [almalinux](https://hub.docker.com/_/almalinux).
 If you prefer SUSE-based systems with the Zypper package manager, [opensuse/leap](https://hub.docker.com/r/opensuse/leap) provides a stable foundation. For Debian-based distributions using the APT package manager, both [debian](https://hub.docker.com/_/debian) and [ubuntu](https://hub.docker.com/_/ubuntu) offer well-maintained base images with extensive package repositories.
 
-While Apptainer allows you to build containers using any Linux distribution as the base image, building on CSC supercomputers has some limitations due from using Apptainer fakeroot mode without unprivileged user namespaces.
+While Apptainer allows you to build containers using any Linux distribution as the base image, building on CSC supercomputers has some limitations due to using Apptainer fakeroot mode without unprivileged user namespaces.
 In this environment, certain privileged commands that are commonly executed during package installation will fail.
 For example, package managers often run privileged commands, such as `useradd` and `groupadd`, as part of their installation scripts and these will fail in the fakeroot environment.
 
