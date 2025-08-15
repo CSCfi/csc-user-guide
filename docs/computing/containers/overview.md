@@ -268,4 +268,6 @@ apptainer exec --bind=/scratch/project_id/mydataset.sqfs:/data:image-src=/ conta
 The data will be available under the path `/data` inside the container.
 
 ## Container wrappers
-[Tykky](./tykky.md) container wrapper is available for crearing containerized installations for Pip, Conda and Mamba installations with wrappers scripts.
+
+[Tykky](./tykky.md) container wrapper is available for creating containerized Pip and Conda installations with wrappers scripts.
+If you are familiar with Tykky you can keep using it, but we recommend building and running containers directly as explained in the previous sections.
