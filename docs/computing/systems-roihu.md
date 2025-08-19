@@ -56,8 +56,8 @@ a 6.0 PiB scratch space and a 0.5 PiB storage system for project applications
 and users' personal home directories. Separate file systems will ensure
 responsiveness of home and projappl even under heavy scratch usage.
 
-The peak I/O performance of Roihu scratch space is expected to be around 200
-GB/s for read and 170 GB/s for write. The home and projappl will have read and
+The peak I/O performance of Roihu scratch space is expected to be around 560
+GB/s for read and 280 GB/s for write. The home and projappl will have read and
 write bandwidths of 120 GB/s and 100 GB/s, respectively.
 
 Contrary to Puhti and Mahti, all Roihu CPU and GPU nodes will have a small 960
