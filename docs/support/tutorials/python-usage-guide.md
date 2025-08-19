@@ -161,8 +161,8 @@ It is also possible to create your own Python environments.
        For more information about using Apptainer containers, please see the
        related documentation:
 
-        * [Running Apptainer containers](../../computing/containers/run-existing.md)
-        * [Creating Apptainer containers](../../computing/containers/creating.md),
+        * [Running Apptainer containers](../../computing/containers/overview.md#running-containers)
+        * [Creating Apptainer containers](../../computing/containers/overview.md#building-container-images),
         including how to convert Docker containers to Apptainer containers.
 
     ---
@@ -191,8 +191,8 @@ It is also possible to create your own Python environments.
        For more information about using Apptainer containers, please see the
        related documentation:
 
-        * [Running Apptainer containers](../../computing/containers/run-existing.md)
-        * [Creating Apptainer containers](../../computing/containers/creating.md),
+        * [Running Apptainer containers](../../computing/containers/overview.md#running-containers)
+        * [Creating Apptainer containers](../../computing/containers/overview.md#building-container-images),
         including how to convert Docker containers to Apptainer containers.
 
     ---

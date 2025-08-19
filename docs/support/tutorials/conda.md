@@ -48,4 +48,4 @@ we recommend:
 
     Use [Tykky](../../computing/containers/tykky.md) to convert an existing Docker
     container to Apptainer or read our documentation on
-    [how to create your own Apptainer container](../../computing/containers/creating.md).
+    [how to create your own Apptainer container](../../computing/containers/overview.md#building-container-images).

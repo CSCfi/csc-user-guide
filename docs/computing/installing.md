@@ -74,8 +74,8 @@ Another option is to build your own container from scratch. More details on work
 containers in CSC's computing environment can be found from the links below:
 
 - [Overview of containers](containers/overview.md)
-- [Running containers](containers/run-existing.md)
-- [Creating containers](containers/creating.md)
+- [Running containers](containers/overview.md#running-containers)
+- [Creating containers](containers/overview.md#building-container-images)
 - [Tykky container wrapper](containers/tykky.md)
 
 ## Python/R environments

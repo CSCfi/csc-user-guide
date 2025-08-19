@@ -49,4 +49,4 @@ Note that if you are running applications that do not benefit from GPU accelerat
 the [Desktop app](desktop.md) instead. Only the applications suffixed with `(Accelerated)` benefit
 from a GPU.
 
-For more details about running your own applications in the Accelerated Visualization app, see the [creating containers page](../containers/creating.md#using-gpu-from-containers-in-interactive-sessions-in-puhti).
+For more details about running your own applications in the Accelerated Visualization app, see the [creating containers page](../containers/examples.md#example-accelerated-visualization-application).
