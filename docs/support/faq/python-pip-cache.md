@@ -33,7 +33,7 @@ with the `--cache-dir` flag or, globally by setting the
 something appropriate for your project and user):
 
 ```console
-$ export PIP_CACHE_DIR=/scratch/project_2001659/mvsjober/pip-cache/
+$ export PIP_CACHE_DIR=/scratch/<project>/<username>/pip-cache/
 $ mkdir -p $PIP_CACHE_DIR
 ```
 
