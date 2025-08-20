@@ -47,6 +47,7 @@
 * [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
 * [How do I create my own Python environment?](../tutorials/python-usage-guide.md#creating-your-own-python-environments)
 * [How to troubleshoot Python installation problems?](python-package-trouble.md)
+* [How to avoid Python pip cache filling up my home directory](python-pip-cache.md)
 
 ## Allas
 
