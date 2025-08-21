@@ -298,7 +298,7 @@ arrays <- commandArgs(trailingOnly = TRUE)
 
 *Jobs using `doMPI` (with `foreach`)*
 
-The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we could modify the `srun` command at the end of the batch job file:
+The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we replace `--cpus-per-task=8` with `--ntasks=8`. In addition, we could modify the `srun` command at the end of the batch job file:
 
 ```bash
 srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
