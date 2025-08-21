@@ -75,3 +75,6 @@ lue $HOME
 ```
 
 [See also this LUE tutorial](https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-lue.html).
+
+If you are a Python user and you notice that `.cache/pip` seems to be the culprit, 
+see our FAQ entry on [how to configure the pip cache](../faq/python-pip-cache.md).

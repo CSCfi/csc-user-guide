@@ -14,7 +14,7 @@ catalog:
 
 # r-env
 
-`r-env` is an [Apptainer container](../computing/containers/run-existing.md) including R and RStudio Server, and several other features to facilitate their use. 
+`r-env` is an [Apptainer container](../computing/containers/overview.md#running-containers) including R and RStudio Server, and several other features to facilitate their use. 
 
 - R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -298,7 +298,7 @@ arrays <- commandArgs(trailingOnly = TRUE)
 
 *Jobs using `doMPI` (with `foreach`)*
 
-The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we could modify the `srun` command at the end of the batch job file:
+The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we replace `--cpus-per-task=8` with `--ntasks=8`. In addition, we could modify the `srun` command at the end of the batch job file:
 
 ```bash
 srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
