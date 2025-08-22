@@ -154,7 +154,7 @@ the virtual machine to avoid data loss!**
 openstack server remove volume <server> <volume>
 ```
 
-- When an instance with an attached volume is [shelved](vm-lifecycle.md/#shelved), the volume status changes to **Reserved**. Unshelving the instance changes it back to **In-use**, and deleting the instance sets it to **Available**.
+- When an instance with an attached volume is [shelved](vm-lifecycle.md#shelved), the volume status changes to **Reserved**. Unshelving the instance changes it back to **In-use**, and deleting the instance sets it to **Available**.
 - For **multiattach volumes**, the status becomes **Reserved** when all attached instances are shelved, preventing the volume from being attached to another instance. It returns to **In-use** as soon as at least one of the attached instances is **unshelved**.
 
 If you want to delete a volume and the data contained on it, you can execute:
