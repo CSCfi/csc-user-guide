@@ -181,6 +181,13 @@ covers the [Unsloth library](https://github.com/unslothai/unsloth).
 
 ## Using quantization
 
+Quantization is a process that converts the weights and activations 
+within an LLM from high-precision values, such as 32-bit floating-point, 
+to lower-precision ones, such as an 8-bit integer. This leads to a 
+significant decrease in overall model size, leading to smaller memory
+needs with a slight drop in accuracy.
+
+
 Using the `bitsandbytes` library, you can also use 4-bit
 quantization. [Quantization has been integrated into Hugging Face
 Transformers as
