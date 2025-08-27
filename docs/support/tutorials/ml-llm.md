@@ -181,12 +181,28 @@ covers the [Unsloth library](https://github.com/unslothai/unsloth).
 
 ## Using quantization
 
+<!-- Definition of quantization added here, should we also
+keep the short introduction in the above section LLMs and GPU memory?
+Also the title is "using quantization but we for example show how to
+find quantized models on huggingface -->
+
 Quantization is a process that converts the weights and activations 
 within an LLM from high-precision values, such as 32-bit floating-point, 
 to lower-precision ones, such as an 8-bit integer. This leads to a 
 significant decrease in overall model size, leading to smaller memory
 needs with a slight drop in accuracy.
 
+Quantization can be done during inference or training phase. 
+Post-Training Quantization (PTQ) involves quantizing a pre-trained model
+during the inference phase. Quantization-Aware Training (QAT) is applied 
+during training to simulate the effects of quantization, resulting in a 
+model more robust to quantization noise. https://www.datacamp.com/tutorial/quantization-for-large-language-models
+
+It can take hours to quantize very large models, but luckily many models 
+already have a quantized version available for example in Hugging Face. 
+You can look for quantized models by a suffix in the model name 
+indicating a quantization method, for example, AWQ, GPTQ, or GGUF, 
+or alternatively, model precision, such as 8bit or 4bit.
 
 Using the `bitsandbytes` library, you can also use 4-bit
 quantization. [Quantization has been integrated into Hugging Face
