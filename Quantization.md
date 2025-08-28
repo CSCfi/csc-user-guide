@@ -116,6 +116,7 @@ SAVE_DIR = "Meta-Llama-3-8B-Instruct-awq-asym"
 model.save_pretrained(SAVE_DIR, save_compressed=True)
 tokenizer.save_pretrained(SAVE_DIR)
 ```
+A practical example of how to implement quantization in your model is given at: https://github.com/mahnoormahnoorr/Quantization 
 
 (source and more info: [https://github.com/vllm-project/llm-compressor/tree/main](https://github.com/vllm-project/llm-compressor/tree/main)  
 [https://arxiv.org/pdf/2306.00978](https://arxiv.org/pdf/2306.00978)) 
