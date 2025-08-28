@@ -62,10 +62,10 @@ model = AutoModelForCausalLM.from_pretrained(
 
 GPTQ supports different backends for faster inference such as **Marlin** (optimized for A100) and **ExLlamaV2** (optimized for LLaMA models on consumer GPUs). To enable a specific backend, pass `backend="marlin"` or `exllama_config={"version": 2}` to `GPTQConfig`.
 
-A blog post by Hugging Face compares bitsandbytes and GPTQ features which can be helpful in deciding which one is more suitable for your use case. https://huggingface.co/blog/overview-quantization-transformers
+A blog post by Hugging Face compares bitsandbytes and GPTQ features which can be helpful in deciding which one is more suitable for your use case. 👉 [Hugging Face Blog: Overview of Quantization in Transformers](https://huggingface.co/blog/overview-quantization-transformers)
 
-Source: [https://huggingface.co/and adocs/transformers/en/quantization/gptq](https://huggingface.co/docs/transformers/en/quantization/gptq)  
-[https://github.com/ModelCloud/GPTQModel/tree/main](https://github.com/ModelCloud/GPTQModel/tree/main)
+Source: [Transformers GPTQ Documentation](https://huggingface.co/docs/transformers/en/quantization/gptq)  
+[GPTQModel GitHub Repository](https://github.com/ModelCloud/GPTQModel/tree/main)
 
 
 ## Using GPTQ via LLM Compressor
@@ -118,5 +118,5 @@ tokenizer.save_pretrained(SAVE_DIR)
 ```
 A practical example of how to implement quantization in your model is given at: https://github.com/mahnoormahnoorr/Quantization 
 
-(source and more info: [https://github.com/vllm-project/llm-compressor/tree/main](https://github.com/vllm-project/llm-compressor/tree/main)  
-[https://arxiv.org/pdf/2306.00978](https://arxiv.org/pdf/2306.00978)) 
+(source and more info: [LLM Compressor GitHub](https://github.com/vllm-project/llm-compressor/tree/main)  
+[AWQ Paper (arXiv PDF)](https://arxiv.org/pdf/2306.00978)) 
