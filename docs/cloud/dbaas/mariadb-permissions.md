@@ -1,4 +1,8 @@
 # MariaDB permissions and privileges
+!!! warning "MariaDB in Pukki is still in beta"
+    This means that it hasn't been tested as extensively as PostgreSQL, and there might still be
+    large changes to how Pukki manages MariaDB database instances.
+
 
 ## About privileges
 
