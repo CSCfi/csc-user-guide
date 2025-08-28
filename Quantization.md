@@ -1,3 +1,39 @@
+
+# Quantization
+
+Quantization is a process that converts the weights and activations within an LLM from high-precision values, such as 32-bit floating-point, to lower-precision ones, such as an 8-bit integer. This leads to a significant decrease in overall model size, leading to smaller memory needs with a slight drop in accuracy.
+
+Quantization can be done during inference or training phase. **Post-Training Quantization (PTQ)** involves quantizing a pre-trained model during the inference phase. **Quantization-Aware Training (QAT)** is applied during training to simulate the effects of quantization, resulting in a model more robust to quantization noise.  
+(Source: [Datacamp – Quantization for Large Language Models](https://www.datacamp.com/tutorial/quantization-for-large-language-models))
+
+It can take hours to quantize very large models, but luckily many models already have a quantized version available, for example in Hugging Face. You can look for quantized models by a suffix in the model name indicating a quantization method, such as **AWQ, GPTQ, or GGUF**, or alternatively, model precision, such as **8bit** or **4bit**.
+
+---
+
+## Using quantization
+
+Using the **bitsandbytes** library, you can also use 4-bit quantization.  
+[Quantization has been integrated into Hugging Face Transformers as well](https://huggingface.co/blog/4bit-transformers-bitsandbytes).
+
+```python
+from transformers import BitsAndBytesConfig, AutoModelForCausalLM
+
+bnb_config = BitsAndBytesConfig(
+   load_in_4bit=True,
+   bnb_4bit_quant_type="nf4",
+   bnb_4bit_compute_dtype=torch.bfloat16,
+   bnb_4bit_use_double_quant=True,
+   bnb_4bit_quant_storage=torch.bfloat16,
+)
+
+model = AutoModelForCausalLM.from_pretrained(
+   args.model,
+   quantization_config=bnb_config,
+   ...
+)
+```
+
+
 **Quantization**
 
 Quantization is a process that converts the weights and activations within an LLM from high-precision values, such as 32-bit floating-point, to lower-precision ones, such as an 8-bit integer. This leads to a significant decrease in overall model size, leading to smaller memory needs with a slight drop in accuracy.
