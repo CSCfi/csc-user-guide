@@ -34,7 +34,7 @@ HADDOCK, developed by researchers at BonvinLab at Utrecht University, is a flags
 
 ## License
 
-HADDOCK3 is a free software available under Apache-2.0 license
+HADDOCK3 is free and open-source software, licensed under the [Apache License 2.0](https://github.com/haddocking/haddock3/blob/main/LICENSE). Commercial entities should verify and secure a license for CNS if needed
 
 ## Usage
 
