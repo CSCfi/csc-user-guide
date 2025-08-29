@@ -14,9 +14,9 @@ catalog:
 
 # HADDOCK3
 
-HADDOCK(High Ambiguity Driven protein-protein DOCKing) is a widely used computational tool for the integrative modeling of biomolecular interactions.  The software integrates various types of experimental data, biochemical, biophysical, bioinformatic prediction and knowledge to guide the docking process.
+HADDOCK (High Ambiguity Driven protein-protein DOCKing) is a widely used computational tool for the integrative modeling of biomolecular interactions.  The software integrates various types of experimental data, biochemical, biophysical, bioinformatic prediction and knowledge to guide the docking process.
 
-HADDOCK, Developed by researchers at BonvinLab at Utrecht University, is a flagship software in the EU H2020 BioExcel Center of Excellence for Biomolecular Research 
+HADDOCK, developed by researchers at BonvinLab at Utrecht University, is a flagship software in the EU H2020 BioExcel Center of Excellence for Biomolecular Research. 
 
 [TOC]
 
@@ -38,12 +38,12 @@ HADDOCK3 is a free software available under Apache-2.0 license
 
 ## Usage
 
-Load HADDOCK3 module  on LUMI like this:
+Load HADDOCK3 module  on LUMI as the following:
 
    ```text
     module use  /appl/local/csc/modulefiles/
-    module load  haddock3/2025.5.0
-    module load  haddock3/2025.5.0-mpi    # works also for MPI jobs
+    module load  haddock3/2025.5.0        # for non-mpi jobs
+    module load  haddock3/2025.5.0-mpi    # works also for mpi jobs
 
    ```
 
@@ -52,47 +52,47 @@ Load HADDOCK3 module  on LUMI like this:
 === "Haddock3 batch script example"
  
   ```text
-    #!/bin/bash
-    #SBATCH --account=project_xxxxxxxx
-    #SBATCH --partition=standard
-    #SBATCH --time=00:60:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128
-    #SBATCH --job-name=haddock3job
+#!/bin/bash
+#SBATCH --account=project_xxxxxxxx
+#SBATCH --partition=standard
+#SBATCH --time=00:60:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=128
+#SBATCH --job-name=haddock3job
 
-    module use  /appl/local/csc/modulefiles/
-    module load  haddock3/2025.5.0-mpi
+module use  /appl/local/csc/modulefiles/
+module load  haddock3/2025.5.0-mpi
 
-  # clone haddock3 repository
-    git clone https://github.com/haddocking/haddock3.git
+# clone haddock3 repository
+git clone https://github.com/haddocking/haddock3.git
 
-  # go to the example directory   
-    cd haddock3/docking-protein-ligand
-    haddock3 docking-protein-ligand-test.cfg
+# go to the example directory   
+cd haddock3/examples/docking-protein-ligand
+haddock3 docking-protein-ligand-test.cfg
   ```
 
 === "mpi job in batch script example"
 
   ```text
-    #!/bin/bash
-    #SBATCH --account=project_xxxxxxxx
-    #SBATCH --partition=standard
-    #SBATCH --time=03:00:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128
-    #SBATCH --job-name=haddock3mpi
+#!/bin/bash
+#SBATCH --account=project_xxxxxxxx
+#SBATCH --partition=standard
+#SBATCH --time=03:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=128
+#SBATCH --job-name=haddock3mpi
 
-    module use  /appl/local/csc/modulefiles/
-    module load  haddock3/2025.5.0-mpi
+module use  /appl/local/csc/modulefiles/
+module load  haddock3/2025.5.0-mpi
 
-  # clone haddock3 repository
-    git clone https://github.com/haddocking/haddock3.git
+# clone haddock3 repository
+git clone https://github.com/haddocking/haddock3.git
 
-  # go to the example directory
-    cd haddock3/examples/docking-antibody-antigen
+# go to the example directory
+cd haddock3/examples/docking-antibody-antigen
 
-  # execute
-    haddock3 docking-antibody-antigen-CDR-accessible-clt-full-mpi.cfg
+# execute
+haddock3 docking-antibody-antigen-CDR-accessible-clt-full-mpi.cfg
   ```
 
 ## References
