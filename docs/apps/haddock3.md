@@ -95,6 +95,7 @@ Load HADDOCK3 module  on LUMI like this:
 
   # execute
     haddock3 docking-antibody-antigen-CDR-accessible-clt-full-mpi.cfg
+
     ```
 
 ## References
@@ -104,8 +105,7 @@ Cite your work with the following references:
 > - M. Giulini, V. Reys, J.M.C. Teixeira, B. Jiménez-García, 
     R.V. Honorato, A. Kravchenko, X. Xu, R. Versini, A. Engel, S. Verhoeven, A.M.
     J.J. Bonvin, HADDOCK3: A modular and versatile platform for integrative modelling 
-    of biomolecular complexes Journal of Chemical Information and Modeling (2025). 
-    doi: 10.1021/acs.jcim.5c00969
+    of biomolecular complexes Journal of Chemical Information and Modeling (2025). doi: 10.1021/acs.jcim.5c00969
 > - M.C. Teixeira, J., Vargas Honorato, R., Giulini, M., Bonvin, A., 
     SarahAlidoost,Reys, V., Jimenez, B., Schulte, D., van Noort, C., Verhoeven, S., Vreede, B., SSchott, 
     & Tsai, R. (2024). haddocking/haddock3: v3.0.0-beta.5 (Version 3.0.0-beta.5) 
