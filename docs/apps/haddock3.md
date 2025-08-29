@@ -27,7 +27,7 @@ HADDOCK is one of the flagship software in the EU H2020 BioExcel Center of Excel
 === "LUMI"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    | 2025.5.0   |`haddock3/2025.5.0`<br>`haddock3/2025.5.0-mpi`|MPI-enabled module available
+    | 2025.5.0   |`haddock3/2025.5.0`<br>`haddock3/2025.5.0-mpi`| MPI-enabled module available
   
 
 - To access modules on LUMI, first load the CSC module tree into use with
@@ -42,17 +42,18 @@ HADDOCK3 is a free software available under Apache-2.0 license
 
 Load HADDOCK3 module  on LUMI like this:
 
-```bash
-module use  /appl/local/csc/modulefiles/
-module load  haddock3/2025.5.0
-module load  haddock3/2025.5.0-mpi  
-```
+   ```text
+    module use  /appl/local/csc/modulefiles/
+    module load  haddock3/2025.5.0
+    module load  haddock3/2025.5.0-mpi    # works also for MPI jobs
+
+   ```
 
 ### LUMI
 
 === "Haddock3 batch script example"
 
-    ```bash
+    ```text
     #!/bin/bash
     #SBATCH --account=project_xxxxxxxx
     #SBATCH --partition=standard
@@ -75,7 +76,7 @@ module load  haddock3/2025.5.0-mpi
 
 === "mpi job in batch script example"
 
-    ```bash 
+    ```text 
    !/bin/bash
    #SBATCH --account=project_xxxxxxxx
    #SBATCH --partition=standard
