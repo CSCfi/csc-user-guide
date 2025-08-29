@@ -75,8 +75,8 @@ Load HADDOCK3 module  on LUMI like this:
 
 === "mpi job in batch script example"
 
-  ```text 
-    !/bin/bash
+  ```text
+    #!/bin/bash
     #SBATCH --account=project_xxxxxxxx
     #SBATCH --partition=standard
     #SBATCH --time=03:00:00
@@ -87,13 +87,13 @@ Load HADDOCK3 module  on LUMI like this:
     module use  /appl/local/csc/modulefiles/
     module load  haddock3/2025.5.0-mpi
 
-   # clone haddock3 repository
+  # clone haddock3 repository
     git clone https://github.com/haddocking/haddock3.git
 
-   # go to the example directory
+  # go to the example directory
     cd haddock3/examples/docking-antibody-antigen
 
-   # execute
+  # execute
     haddock3 docking-antibody-antigen-CDR-accessible-clt-full-mpi.cfg
     ```
 
