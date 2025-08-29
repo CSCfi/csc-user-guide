@@ -14,11 +14,9 @@ catalog:
 
 # HADDOCK3
 
-HADDOCK, standing for High Ambiguity Driven protein-protein DOCKing, is a widely used computational tool for the integrative modeling of biomolecular interactions. Developed by researchers at Utrecht University in the BonvinLab for more than 20 years, it integrates various types of experimental data, biochemical, biophysical, bioinformatic prediction and knowledge to guide the docking process.
+HADDOCK(High Ambiguity Driven protein-protein DOCKing) is a widely used computational tool for the integrative modeling of biomolecular interactions.  The software integrates various types of experimental data, biochemical, biophysical, bioinformatic prediction and knowledge to guide the docking process.
 
-HADDOCK v3.0 is a bottom-up reimagination of the long standing time-proven HADDOCK used for integrative modeling of biomolecular complexes. This young and still very experimental (use it at your own risk!) aims to modularize and extend HADDOCK’s core functions.
-
-HADDOCK is one of the flagship software in the EU H2020 BioExcel Center of Excellence for Biomolecular Research 
+HADDOCK, Developed by researchers at BonvinLab at Utrecht University, is a flagship software in the EU H2020 BioExcel Center of Excellence for Biomolecular Research 
 
 [TOC]
 
@@ -95,8 +93,7 @@ Load HADDOCK3 module  on LUMI like this:
 
   # execute
     haddock3 docking-antibody-antigen-CDR-accessible-clt-full-mpi.cfg
-
-    ```
+  ```
 
 ## References
 
