@@ -5,13 +5,23 @@ hide:
 
 # Sensitive Data (SD) services user guide - Table of contents
 
-## Store and analyse research data
+Begin by identifying the type of data you are processing:
 
-* [Start here: Creating a CSC project](sd-access.md)
+1. Research data (e.g. consented data collected for research purposes): follow the relevant guides for storing and analysing or publishigng and reusing research data.
+   
+3. Register data provided by the Findata authority or public register: follow the relevant guides for analysing health and social data for secondry use.
+   
+Not sure which guide fits your case? Email us at servicedesk@csc.fi with the subject line "SD Services"
+
+# 1. Research data
+
+## 1.1 Store and analyse research data
+
+* [Start here: Creating a CSC project academic type](sd-access.md)
     * [Access as a project manager](sd-use-case-new-user-project-manager.md)
     * [Access as a project member](sd-use-case-new-user-project-member.md)
 
-### Store and share with SD Connect
+### 1.1.1 Store and share with SD Connect
 
 * [Store and share with SD Connect](sd_connect.md)
     * [Login to SD Connect](sd-connect-login.md)
@@ -25,7 +35,7 @@ hide:
     * [Command line interface](sd-connect-command-line-interface.md)
     * [Troubleshooting](sd-connect-troubleshooting.md)
 
-### Analyze and compute with SD Desktop
+### 1.1.2 Analyze and compute with SD Desktop
 
 * [Analyze and compute with Sensitive Data Desktop](sd_desktop.md)
     * [Login to SD Desktop](sd-desktop-login.md)
@@ -39,29 +49,29 @@ hide:
     * [Export data programmatically](sd-desktop-export-commandline.md)
     * [Troubleshooting](sd-desktop-troubleshooting.md)
 
-## Publish and reuse research data
+## 1.2 Publish and reuse research data
 
-### Publish with Fedarated EGA
+### 1.2.1 Publish with Fedarated EGA
 
 * [Publish with Fedarated EGA](federatedega.md)
     * [Publish data](fega-submission.md)
 
-### Reuse with SD Apply
+### 1.2.2 Reuse with SD Apply
 
 * [Reuse with SD Apply](sd-apply.md)
     * [Apply access to FEGA data](sd-apply-access.md)
     * [Approve access to FEGA data](sd-apply-approval.md)
     * [Enable reuse of FEGA data](sd-apply-dac.md)
 
-## Secondary use of health and social data
+## 2 Secondary use of health and social data
 
-### Start here: Accessing secondary use health or social data via Sensitive Data services
+### 2.1 Start here: Accessing secondary use health or social data via Sensitive Data services and a CSC project Findata type
 
 * [Start here: Accessing secondary use health or social data via Sensitive Data services](secondarydata-access.md)
     * [Access with Findata permit](findata-permit.md)
     * [Access with register permit](single-register-permit.md)
 
-### Analyze with SD Desktop for secondary use
+### 2.2 Analyze with SD Desktop for secondary use
 
 * [Analyze with SD Desktop for secondary use ](sd-desktop-audited.md)
     * [Login to SD Desktop](sd-desktop-secondary-login.md)
@@ -73,7 +83,9 @@ hide:
     * [Export data](sd-desktop-secondary-export.md)  
     * [Troubleshooting](sd-desktop-secondary-troubleshooting.md)
 
-## Tutorials
+## Adavnced tutorials
+
+Some tutorials require prior knowledge of SD services. If you are unsure, we recommend contacting us for support at servicedesk@csc.fi.
 
 * [Adding missing Python libraries to Pythion in SD Desktop](./tutorials/sd-pythonlibs.md)
 * [Adding RStudio and R libraries to SD Desktop](./tutorials/rstudio.md)
