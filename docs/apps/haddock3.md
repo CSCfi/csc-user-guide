@@ -76,13 +76,13 @@ Load HADDOCK3 module  on LUMI like this:
 === "mpi job in batch script example"
 
   ```text 
-   !/bin/bash
-   #SBATCH --account=project_xxxxxxxx
-   #SBATCH --partition=standard
-   #SBATCH --time=03:00:00
-   #SBATCH --nodes=1
-   #SBATCH --ntasks-per-node=128
-   #SBATCH --job-name=haddock3mpi
+    !/bin/bash
+    #SBATCH --account=project_xxxxxxxx
+    #SBATCH --partition=standard
+    #SBATCH --time=03:00:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=128
+    #SBATCH --job-name=haddock3mpi
 
     module use  /appl/local/csc/modulefiles/
     module load  haddock3/2025.5.0-mpi
