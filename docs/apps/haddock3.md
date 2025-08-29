@@ -52,8 +52,8 @@ Load HADDOCK3 module  on LUMI like this:
 ### LUMI
 
 === "Haddock3 batch script example"
-
-    ```text
+ 
+  ```text
     #!/bin/bash
     #SBATCH --account=project_xxxxxxxx
     #SBATCH --partition=standard
@@ -71,12 +71,11 @@ Load HADDOCK3 module  on LUMI like this:
   # go to the example directory   
     cd haddock3/docking-protein-ligand
     haddock3 docking-protein-ligand-test.cfg
-
-    ```
+  ```
 
 === "mpi job in batch script example"
 
-    ```text 
+  ```text 
    !/bin/bash
    #SBATCH --account=project_xxxxxxxx
    #SBATCH --partition=standard
