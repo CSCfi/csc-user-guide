@@ -9,7 +9,7 @@ Begin by identifying the type of data you are processing:
 
 1. Research data (e.g. consented data collected for research purposes): follow the relevant guides for storing and analysing or publishigng and reusing research data.
    
-3. Register data provided by the Findata authority or public register: follow the relevant guides for analysing health and social data for secondry use.
+3. Register data provided by the Findata authority or public register: follow the guide designed for analyzing health and social data for secondary use and comply with the Finnish legal requirements. 
    
 Not sure which guide fits your case? Email us at servicedesk@csc.fi with the subject line "SD Services"
 
@@ -83,9 +83,9 @@ Not sure which guide fits your case? Email us at servicedesk@csc.fi with the sub
     * [Export data](sd-desktop-secondary-export.md)  
     * [Troubleshooting](sd-desktop-secondary-troubleshooting.md)
 
-## Adavnced tutorials
+## Tutorials
 
-Some tutorials require prior knowledge of SD services. If you are unsure, we recommend contacting us for support at servicedesk@csc.fi.
+Please note: some of this tutorials require prior knowledge of SD services or advanced coding skills.
 
 * [Adding missing Python libraries to Pythion in SD Desktop](./tutorials/sd-pythonlibs.md)
 * [Adding RStudio and R libraries to SD Desktop](./tutorials/rstudio.md)
