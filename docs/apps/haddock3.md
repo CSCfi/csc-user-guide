@@ -54,18 +54,20 @@ module load  haddock3/2025.5.0-mpi
 
     ```bash
     #!/bin/bash
-    #SBATCH --account=project_465000810
+    #SBATCH --account=project_xxxxxxxx
     #SBATCH --partition=standard
     #SBATCH --time=00:60:00
     #SBATCH --nodes=1
-    #SBATCH --tasks-per-node=128
-    #SBATCH -J haddock3job
+    #SBATCH --ntasks-per-node=128
+    #SBATCH --job-name=haddock3job
 
     module use  /appl/local/csc/modulefiles/
     module load  haddock3/2025.5.0-mpi
 
   # clone haddock3 repository
     git clone https://github.com/haddocking/haddock3.git
+
+  # go to the example directory   
     cd haddock3/docking-protein-ligand
     haddock3 docking-protein-ligand-test.cfg
 
@@ -75,18 +77,19 @@ module load  haddock3/2025.5.0-mpi
 
     ```bash 
    !/bin/bash
-   #SBATCH --account=project_465000810
+   #SBATCH --account=project_xxxxxxxx
    #SBATCH --partition=standard
    #SBATCH --time=03:00:00
    #SBATCH --nodes=1
-   #SBATCH --tasks-per-node=128
-   #SBATCH -J haddock3mpi
+   #SBATCH --ntasks-per-node=128
+   #SBATCH --job-name=haddock3mpi
 
     module use  /appl/local/csc/modulefiles/
     module load  haddock3/2025.5.0-mpi
 
    # clone haddock3 repository
     git clone https://github.com/haddocking/haddock3.git
+
    # go to the example directory
     cd haddock3/examples/docking-antibody-antigen
 
