@@ -67,12 +67,12 @@ launch individual jobs, which can also span an allocation bigger than one node.
 Note, that you need to create the batch job in and launch it from the correct
 subfolder (mentioned in each example batch script).
 
-!!! Note.
+!!! note "Match the Slurm and cfg requirements"
 
-   Make sure that the number of cores (`ncores`) in the input.`cfg`
-   script matches what you ask from SLURM with `--ntasks-per-node=XX` (or
-   `--nodes=YY` times that for the mpi-job). For these examples you need to
-   edit also the `.cfg` files!
+    Make sure that the number of cores (`ncores`) in the input.`cfg`
+    script matches what you ask from SLURM with `--ntasks-per-node=XX` (or
+    `--nodes=YY` times that for the mpi-job). For these examples you need to
+    edit also the `.cfg` files!
 
 === "Haddock3 batch script example"
  
