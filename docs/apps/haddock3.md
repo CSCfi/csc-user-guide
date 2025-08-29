@@ -3,7 +3,7 @@ tags:
   - Free
 catalog:
   name: HADDOCK3
-  description: High Ambiguity Driven biomolecular DOCKing software
+  description: High Ambiguity Driven biomolecular DOCKing
   license_type: Free
   disciplines:
     - Chemistry
