@@ -67,6 +67,13 @@ launch individual jobs, which can also span an allocation bigger than one node.
 Note, that you need to create the batch job in and launch it from the correct
 subfolder (mentioned in each example batch script).
 
+!!! Note.
+
+   Make sure that the number of cores (`ncores`) in the input.`cfg`
+   script matches what you ask from SLURM with `--ntasks-per-node=XX` (or
+   `--nodes=YY` times that for the mpi-job). For these examples you need to
+   edit also the `.cfg` files!
+
 === "Haddock3 batch script example"
  
   ```text
@@ -79,10 +86,11 @@ subfolder (mentioned in each example batch script).
   #SBATCH --job-name=haddock3job
 
   module use  /appl/local/csc/modulefiles/
-  module load  haddock3/2025.5.0-mpi
+  module load  haddock3/2025.5.0
 
-  # create this file and submit it from
+  # create this batch script file and submit it from
   # haddock3/examples/docking-protein-ligand
+  # and make sure the requested cores match the ncores in *.cfg file
 
   haddock3 docking-protein-ligand-test.cfg
   ```
@@ -101,13 +109,14 @@ subfolder (mentioned in each example batch script).
   module use  /appl/local/csc/modulefiles/
   module load  haddock3/2025.5.0-mpi
 
-  # create this file and submit it from
+  # create this batch script file and submit it from
   # haddock3/examples/docking-antibody-antigen
+  # and make sure the requested cores match the ncores in *.cfg file
 
   # execute
   haddock3 docking-antibody-antigen-CDR-accessible-clt-full-mpi.cfg
   ```
-These first job should complete in a few minutes, while the mpi job can take an hour.
+The first job should complete in a few minutes, while the mpi job should finish in an hour.
 
 ## References
 
