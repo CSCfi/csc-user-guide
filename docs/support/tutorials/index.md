@@ -63,6 +63,7 @@
 * [Machine learning guide](ml-guide.md)
 * [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 * [Starting with parallel R](parallel-r.md)
+* [Working with large language models on supercomputers](ml-llm.md)
 
 ## Geoinformatics
 
