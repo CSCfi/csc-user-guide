@@ -14,13 +14,9 @@ catalog:
 
 # HADDOCK3
 
-HADDOCK (High Ambiguity Driven protein-protein DOCKing) is a widely used computational
-tool for the integrative modeling of biomolecular interactions.  The software integrates
-various types of experimental data, biochemical, biophysical, bioinformatic prediction 
-and knowledge to guide the docking process.
+HADDOCK (High Ambiguity Driven protein-protein DOCKing) is a widely used computational tool for the integrative modeling of biomolecular interactions.  The software integrates various types of experimental data, biochemical, biophysical, bioinformatic prediction and knowledge to guide the docking process.
 
-HADDOCK, developed by researchers at BonvinLab at Utrecht University, is a flagship software
-in the EU H2020 [BioExcel Center of Excellence for Biomolecular Research](https://bioexcel.eu/). 
+HADDOCK, developed by researchers at BonvinLab at Utrecht University, is a flagship software in the EU H2020 BioExcel Center of Excellence for Biomolecular Research. 
 
 [TOC]
 
@@ -29,18 +25,17 @@ in the EU H2020 [BioExcel Center of Excellence for Biomolecular Research](https:
 === "LUMI"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    | 2025.5.0   |`haddock3/2025.5.0`<br>`haddock3/2025.5.0-mpi`| MPI-enabled module available
+    | 2025.5.0   |`haddock3/2025.5.0-mpi`| MPI-enabled module available
+    | 2025.8.1   |`haddock3/2025.8.1-mpi`| MPI-enabled module available
   
-- To access these modules on LUMI, first load the CSC module tree into use with
+
+- To access modules on LUMI, first load the CSC module tree into use with
   `module use /appl/local/csc/modulefiles`
+
 
 ## License
 
-HADDOCK3 is free and open-source software, licensed under the 
-[Apache License 2.0](https://github.com/haddocking/haddock3/blob/main/LICENSE)
-Commercial entities should verify and secure a license for CNS if needed. For this,
-please contact the main developer
-[Alexandre Bonvin](https://www.bonvinlab.org/software/haddock3/) for details.
+HADDOCK3 is free and open-source software, licensed under the [Apache License 2.0](https://github.com/haddocking/haddock3/blob/main/LICENSE). Commercial entities should verify and secure a license for CNS if needed
 
 ## Usage
 
@@ -48,31 +43,10 @@ Load HADDOCK3 module  on LUMI as the following:
 
    ```text
     module use  /appl/local/csc/modulefiles/
-    module load  haddock3/2025.5.0        # for non-mpi jobs
-    module load  haddock3/2025.5.0-mpi    # works also for mpi jobs
+    module load  haddock3/2025.8.1-mpi   
    ```
 
 ### LUMI
-
-It is easy to try out the software on LUMI. First download tutorial inputs by
-cloning this repository in your scratch folder:
-
-```
-  git clone https://github.com/haddocking/haddock3.git
-```
-
-You can either run several separate simulations automatically dispatched
-by HADDOCK, as shown in the first batch script example below, or use MPI to
-launch individual jobs, which can also span an allocation bigger than one node.
-Note, that you need to create the batch job in and launch it from the correct
-subfolder (mentioned in each example batch script).
-
-!!! note "Match the Slurm and cfg requirements"
-
-    Make sure that the number of cores (`ncores`) in the input.`cfg`
-    script matches what you ask from SLURM with `--ntasks-per-node=XX` (or
-    `--nodes=YY` times that for the mpi-job). For these examples you need to
-    edit also the `.cfg` files!
 
 === "Haddock3 batch script example"
  
@@ -80,43 +54,45 @@ subfolder (mentioned in each example batch script).
   #!/bin/bash
   #SBATCH --account=project_xxxxxxxx
   #SBATCH --partition=standard
-  #SBATCH --time=00:15:00
+  #SBATCH --time=00:60:00
   #SBATCH --nodes=1
-  #SBATCH --ntasks-per-node=32
+  #SBATCH --ntasks-per-node=128
   #SBATCH --job-name=haddock3job
 
   module use  /appl/local/csc/modulefiles/
-  module load  haddock3/2025.5.0
+  module load  haddock3/2025.8.1-mpi
 
-  # create this batch script file and submit it from
-  # haddock3/examples/docking-protein-ligand
-  # and make sure the requested cores match the ncores in *.cfg file
+  # clone haddock3 repository
+  git clone https://github.com/haddocking/haddock3.git
 
+  # go to the example directory   
+  cd haddock3/examples/docking-protein-ligand
   haddock3 docking-protein-ligand-test.cfg
   ```
 
-=== "Haddock3 multi node job batch script example"
+=== "mpi job in batch script example"
 
   ```text
   #!/bin/bash
   #SBATCH --account=project_xxxxxxxx
   #SBATCH --partition=standard
   #SBATCH --time=03:00:00
-  #SBATCH --nodes=2
+  #SBATCH --nodes=1
   #SBATCH --ntasks-per-node=128
   #SBATCH --job-name=haddock3mpi
 
   module use  /appl/local/csc/modulefiles/
-  module load  haddock3/2025.5.0-mpi
+  module load  haddock3/2025.8.1-mpi
 
-  # create this batch script file and submit it from
-  # haddock3/examples/docking-antibody-antigen
-  # and make sure the requested cores match the ncores in *.cfg file
+  # clone haddock3 repository
+  git clone https://github.com/haddocking/haddock3.git
+
+  # go to the example directory
+  cd haddock3/examples/docking-antibody-antigen
 
   # execute
   haddock3 docking-antibody-antigen-CDR-accessible-clt-full-mpi.cfg
   ```
-The first job should complete in a few minutes, while the mpi job should finish in an hour.
 
 ## References
 
@@ -134,4 +110,3 @@ Cite your work with the following references:
 ## More information
 
 - [HADDOCK3 home page](https://www.bonvinlab.org/software/haddock3/) and [documentation](https://www.bonvinlab.org/haddock3-user-manual/)
-- [BioExcel-3 CoE HADDOCK page](https://bioexcel.eu/haddock-new/)
