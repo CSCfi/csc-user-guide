@@ -52,7 +52,7 @@ Load HADDOCK3 module  on LUMI as the following:
  
   ```text
   #!/bin/bash
-  #SBATCH --account=project_xxxxxxxx
+  #SBATCH --account=project_xxxxxxx
   #SBATCH --partition=standard
   #SBATCH --time=00:60:00
   #SBATCH --nodes=1
