@@ -67,7 +67,7 @@ launch individual jobs, which can also span an allocation bigger than one node.
 Note, that you need to create the batch job in and launch it from the correct
 subfolder (mentioned in each example batch script).
 
-!!! note "Match the Slurm and `.cfg` requirements"
+!!! note "Match the Slurm and .cfg requirements"
 
     Make sure that the number of cores (`ncores`) in the input.`cfg`
     script matches what you ask from SLURM with `--ntasks-per-node=XX` (or
