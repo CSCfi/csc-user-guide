@@ -57,13 +57,11 @@
 * [High-throughput computing with GROMACS](gromacs-throughput.md)
 * [Spring School on Computational Chemistry](https://zenodo.org/records/11172973)
 
-## Data analysis and machine learning
+## Data analysis
 
 * [Data analysis guide](da-guide.md)
-* [Machine learning guide](ml-guide.md)
-* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 * [Starting with parallel R](parallel-r.md)
-* [Working with large language models on supercomputers](ml-llm.md)
+* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 
 ## Geoinformatics
 
@@ -73,6 +71,18 @@
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
 * For software specific tutorials and examples, see [the respective software pages](../../apps/by_discipline.md#geosciences)
+
+## Machine learning and AI
+
+* [Machine learning guide, what CSC service to use for machine learning](ml-guide.md)
+* [Getting started with machine learning at CSC](ml-starting.md)
+* [GPU-accelerated machine learning](gpu-ml.md)
+* [Data storage for machine learning](ml-data.md)
+* [Multi-GPU and multi-node machine learning](ml-multi.md)
+* [Hyperparameter search](hyperparameter_search.md)
+* [Managing machine learning workflows on CSC's supercomputers](ml-workflows.md)
+* [Working with large language models on supercomputers](ml-llm.md)
+
 
 ## Pouta - cloud
 
