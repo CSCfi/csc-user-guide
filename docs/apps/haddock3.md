@@ -86,7 +86,7 @@ subfolder (mentioned in each example batch script).
   #SBATCH --job-name=haddock3job
 
   module use  /appl/local/csc/modulefiles/
-  module load  haddock3/2025.5.0
+  module load  haddock3/2025.8.1-mpi
 
   # create this batch script file and submit it from
   # haddock3/examples/docking-protein-ligand
@@ -107,7 +107,7 @@ subfolder (mentioned in each example batch script).
   #SBATCH --job-name=haddock3mpi
 
   module use  /appl/local/csc/modulefiles/
-  module load  haddock3/2025.5.0-mpi
+  module load  haddock3/2025.8.1-mpi
 
   # create this batch script file and submit it from
   # haddock3/examples/docking-antibody-antigen
