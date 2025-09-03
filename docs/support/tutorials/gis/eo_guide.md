@@ -151,7 +151,7 @@ CDSE data APIs and data download:
 Several example scripts are available for CDSE data download: 
 
 * [OpenSearch API + rclone by CSC](https://github.com/csc-training/geocomputing/tree/master/Copernicus_data_download), option to save to CSC Allas or some other object storage.
-* [CDSE STAC example scripts](https://github.com/eu-cdse/notebook-samples/tree/main/stac) for Python.
+* [CDSE STAC example scripts FIXME](https://github.com/eu-cdse/notebook-samples/tree/main/stac) for Python.
 * [OData API + Python requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb)
 * Alternatively [s3cmd and Python boto3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) can be used for S3 downloads.
 
