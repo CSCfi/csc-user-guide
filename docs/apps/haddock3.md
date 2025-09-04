@@ -32,8 +32,10 @@ in the EU H2020 [BioExcel Center of Excellence for Biomolecular Research](https:
     | 2025.5.0   |`haddock3/2025.5.0-mpi`| MPI-enabled module available
     | 2025.8.1   |`haddock3/2025.8.1-mpi`| MPI-enabled module available
   
-- To access these modules on LUMI, first load the CSC module tree into use with
-  `module use /appl/local/csc/modulefiles`
+!!! note "First load the CSC installed modules!"
+
+         To access these modules on LUMI, first load the CSC module tree into use with
+         `module use /appl/local/csc/modulefiles`
 
 ## License
 
