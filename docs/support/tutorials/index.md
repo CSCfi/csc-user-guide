@@ -11,7 +11,7 @@
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
-* [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
+* [How to run existing containers in Puhti](../../computing/containers/overview.md#running-containers)
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
@@ -20,7 +20,6 @@
 ## Installation of tools on supercomputers
 
 * [Installing software with Spack](user-spack.md)
-* [Building Singularity containers from scratch](singularity-scratch.md)
 * [Conda best practices](conda.md)
 
 ## Performance and high-throughput workflows
@@ -36,7 +35,7 @@
 
 ## Allas
 
-* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
+* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-hpc.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
@@ -58,12 +57,11 @@
 * [High-throughput computing with GROMACS](gromacs-throughput.md)
 * [Spring School on Computational Chemistry](https://zenodo.org/records/11172973)
 
-## Data analysis and machine learning
+## Data analysis
 
 * [Data analysis guide](da-guide.md)
-* [Machine learning guide](ml-guide.md)
-* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 * [Starting with parallel R](parallel-r.md)
+* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 
 ## Geoinformatics
 
@@ -73,6 +71,18 @@
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
 * For software specific tutorials and examples, see [the respective software pages](../../apps/by_discipline.md#geosciences)
+
+## Machine learning and AI
+
+* [Machine learning guide, what CSC service to use for machine learning](ml-guide.md)
+* [Getting started with machine learning at CSC](ml-starting.md)
+* [GPU-accelerated machine learning](gpu-ml.md)
+* [Data storage for machine learning](ml-data.md)
+* [Multi-GPU and multi-node machine learning](ml-multi.md)
+* [Hyperparameter search](hyperparameter_search.md)
+* [Managing machine learning workflows on CSC's supercomputers](ml-workflows.md)
+* [Working with large language models on supercomputers](ml-llm.md)
+
 
 ## Pouta - cloud
 

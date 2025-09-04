@@ -1,5 +1,13 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 28 and 13, 19.8.2025
+
+* Rclone updated to 1.70.3
+* TensorBoard now waits until it has fully launched before allowing the user to connect.
+* Desktop app now uses module reset instead of module restore.
+* Some security and performance improvements have been made.
+* Open OnDemand updated to 4.0.6.
+
 ## Puhti and Mahti web interfaces updated to release 26 and 12, 6.5.2025
 
 * Jobs in the web interfaces have been limited to a maximum of 16 hours to improve queueing times.
