@@ -34,8 +34,7 @@ in the EU H2020 [BioExcel Center of Excellence for Biomolecular Research](https:
   
 !!! note "First load the CSC installed modules!"
 
-         To access these modules on LUMI, first load the CSC module tree into use with
-         `module use /appl/local/csc/modulefiles`
+         To access these modules on LUMI, first load the CSC module tree into use with `module use /appl/local/csc/modulefiles`
 
 ## License
 
@@ -63,9 +62,8 @@ cloning this repository in your scratch folder:
   git clone https://github.com/haddocking/haddock3.git
 ```
 
-You can either run several separate simulations automatically dispatched
-by HADDOCK, as shown in the first batch script example below, or use MPI to
-launch individual jobs, which can also span an allocation bigger than one node.
+HADDOCK will automatically dispatch subjobs, within one node, as shown in the
+first batch script example below, or spanning multiple nodes (second example).
 Note, that you need to create the batch job in and launch it from the correct
 subfolder (mentioned in each example batch script).
 
