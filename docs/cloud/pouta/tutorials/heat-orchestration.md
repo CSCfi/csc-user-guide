@@ -18,7 +18,7 @@ These instructions provide a simple example on how to set up a stack via the web
 
 Here is the example:  
 ```yaml
-heat_template_version: Wallaby # As mentioned above, you can either use the date or the name
+heat_template_version: wallaby # As mentioned above, you can either use the date or the name
 
 description: Simple template to deploy a single instance in cPouta
 
