@@ -11,7 +11,7 @@ You can use MyCSC to manage these quotas.
    modify.
 1. In the Services list, click Configuration for **Puhti** or **Mahti** service as needed. This opens a page where the project manager can modify the quotas.
 
-You can check the default limits of scratch and projappl areas from the table below. Values in parenthesis indicate automatically approved limits. Applications with higher values will be determined in the next resource allocation meeting.
+You can check the default limits of scratch and projappl areas from the table below. Values in parenthesis indicate automatically approved limits. Applications with higher values will be determined in the resource allocation meetings every three weeks.
   
 | Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
 |-----------|--------------|--------------|---------------------------|---------------------------|
