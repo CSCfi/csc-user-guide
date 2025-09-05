@@ -15,10 +15,10 @@ You can check the default limits of scratch and projappl areas from the table be
   
 | Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
 |-----------|--------------|--------------|---------------------------|---------------------------|
-| projappl Puhti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
-| scratch (Puhti)   |   1 TiB      |  100&nbsp;TiB&nbsp;(<&nbsp;20&nbsp;TiB)    | 1 000 000                 | 10 000 000 (<&nbsp;5&nbsp;000&nbsp;000)               |
-| projappl (Mahti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
-| scratch (Mahti)   |   1 TiB      |  200&nbsp;TiB&nbsp;(<&nbsp;40&nbsp;TiB)    | 1 000 000                 | 20 000 000 (<&nbsp;10&nbsp;000&nbsp;000)               |
+| projappl&nbsp;(Puhti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
+| scratch&nbsp;(Puhti)   |   1 TiB      |  100&nbsp;TiB&nbsp;(<&nbsp;20&nbsp;TiB)    | 1 000 000                 | 10 000 000 (<&nbsp;5&nbsp;000&nbsp;000)               |
+| projappl&nbsp;(Mahti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
+| scratch&nbsp;(Mahti)   |   1 TiB      |  200&nbsp;TiB&nbsp;(<&nbsp;40&nbsp;TiB)    | 1 000 000                 | 20 000 000 (<&nbsp;10&nbsp;000&nbsp;000)               |
 
 Note that the extended quota consumes your CSC billing units regardless of how
 much data you actually have in the directory. [See billing](billing.md) for
