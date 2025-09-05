@@ -127,7 +127,7 @@ Cite your work with the following references:
     J.J. Bonvin, HADDOCK3: A modular and versatile platform for integrative modelling 
     of biomolecular complexes Journal of Chemical Information and Modeling (2025). doi: 10.1021/acs.jcim.5c00969
 > - M.C. Teixeira, J., Vargas Honorato, R., Giulini, M., Bonvin, A., 
-    SarahAlidoost,Reys, V., Jimenez, B., Schulte, D., van Noort, C., Verhoeven, S., Vreede, B., SSchott, 
+    Alidoost, S., Reys, V., Jimenez, B., Schulte, D., van Noort, C., Verhoeven, S., Vreede, B., SSchott, 
     & Tsai, R. (2024). haddocking/haddock3: v3.0.0-beta.5 (Version 3.0.0-beta.5) 
 
 
