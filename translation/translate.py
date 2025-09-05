@@ -4,6 +4,7 @@ import re
 import argparse
 import openai
 from pathlib import Path
+from itertools import chain
 import shutil
 import logging
 
@@ -114,35 +115,83 @@ def copy_assets(docs_dir, lang_dir):
                     shutil.copy2(src_file, dst_file)
                     logger.info(f"Copied asset: {rel_path}")
 
+def col_width(rows, col_i):
+    """Return the length of the longest item in
+        column 'col_i' of 2D iterable 'rows'.
+    """
+    return len(max([*zip(*rows)][col_i], key=len))
+
+def file_in_iterable(f: Path, iterable) -> bool:
+    """Return True if a Path object pointing to the same file
+        as f is found in iterable. Raises FileNotFoundError if
+        either f or any f_ in iterable is not found in the
+        filesystem.
+        """
+    return any(f.samefile(f_) for f_ in iterable)
 
 def main():
     parser = argparse.ArgumentParser(description='Translate MkDocs markdown files to multiple languages.')
-    parser.add_argument('--docs-dir', default='docs', help='Documentation directory')
-    parser.add_argument('--language', required=True, help='Target language (e.g., Finnish)')
-    parser.add_argument('--lang-code', required=True, help='Language code (e.g., fi)')
-    parser.add_argument('--force', action='store_true', help='Force retranslation of all files')
+    parser.add_argument('file', type=Path, nargs='*', help="Path to documentation file")
+    parser.add_argument('-d', '--docs-dir', type=Path, default=Path('docs'), help='Documentation directory (default: docs)')
+    parser.add_argument('-l', '--language', type=str, required=True, help='Target language (e.g., Finnish)')
+    parser.add_argument('-c', '--lang-code', type=str, required=True, help='Language code (e.g., fi)')
+    parser.add_argument('-g', '--glob', type=str, metavar='PATTERN', default='**/*.md', help='Replace the default pattern **/*.md with PATTERN (relative to DOCS_DIR, --glob \'\' to disable)')
+    parser.add_argument('-e', '--exclude', type=Path, metavar='EXCLUDED', nargs='+', help='Exclude the file EXCLUDED')
+    parser.add_argument('--force-all', action='store_true', help='Force retranslation of all files')
+    parser.add_argument('--dry-run', action='store_true', help='Only perform a dry-run, i.e. only print parameters')
     args = parser.parse_args()
-    
-    docs_dir = Path(args.docs_dir)
-    lang_code = args.lang_code
+
+    docs_dir = args.docs_dir
     target_language = args.language
-    
-    # Create language directory
-    lang_dir = Path(f"{docs_dir}.{lang_code}")
-    os.makedirs(lang_dir, exist_ok=True)
-    
-    # Process markdown files
-    for file_path in docs_dir.glob('**/*.md'):
-        # Skip files in language directories
-        if f'/{lang_code}/' in str(file_path) or any(f'/{l}/' in str(file_path) for l in ['fi', 'fr', 'de', 'es']):
-            continue
-        
-        process_file(file_path, docs_dir, target_language, lang_dir)
-    
-    # Copy assets (images, etc.)
-    copy_assets(docs_dir, lang_dir)
-    
-    logger.info(f"Translation to {target_language} complete")
+    lang_code = args.lang_code
+    lang_dir = docs_dir.with_name(f"{docs_dir.name}.{lang_code}")
+    excluded_files = args.exclude or []
+    positional_files = args.file or []
+    globbed_files = [*docs_dir.glob(args.glob)] if args.glob else []
+    source_files = []
+
+    # Add files from positional arbuments
+    source_files.extend(f for f in positional_files
+                        if f.is_file() and not file_in_iterable(f, excluded_files))
+    # Add files from globbing
+    source_files.extend(f for f in globbed_files
+                        if f.is_file() and not file_in_iterable(f, chain(excluded_files, source_files)))
+
+    if not args.dry_run:
+        # Create language directory
+        lang_dir.mkdir(exist_ok=True)
+
+        # Process markdown files
+        for file_path in source_files:
+            # Skip files in language directories
+            if f'/{lang_code}/' in str(file_path) or any(f'/{l}/' in str(file_path) for l in ['fi', 'fr', 'de', 'es']):
+                continue
+
+            process_file(file_path, docs_dir, target_language, lang_dir)
+
+        # Copy assets (images, etc.)
+        copy_assets(docs_dir, lang_dir)
+
+        logger.info(f"Translation to {target_language} complete")
+    else:
+        # Prepare and print a dry-run report
+        report = (
+            ("Documentation directory:", str(docs_dir)),
+            ("Language [code]:", f"{target_language} [{lang_code}]"),
+            ("Destination directory:", str(lang_dir)),
+            ("Glob:", f"'{args.glob}'" if args.glob else '<disabled>'),
+            ("Force retranslation:", f"{'Yes' if args.force_all else 'No'}")
+        )
+        header_lines = [k.ljust(col_width(report, 0)+1) + v
+                        for k,v in report]
+        source_lines = [str(source) for source in source_files] if source_files else ["No files!"]
+
+        print("DRY-RUN".rjust(col_width(report, 0), '-') + '-'*(col_width(report, 1)+1),
+              *header_lines,
+              sep="\n")
+        print(f"Source files ({len(source_files)}):",
+              *source_lines,
+              sep="\n  ")
 
 if __name__ == "__main__":
     main()
