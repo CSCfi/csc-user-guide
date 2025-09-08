@@ -14,6 +14,7 @@ Before running the examples, we need to instantiate the Julia project on the log
 That is, run the following command in the directory with your Julia environment where `Project.toml` file is located.
 
 ```bash
+module use /appl/local/csc/modulefiles
 module load julia
 julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
 ```
