@@ -77,6 +77,7 @@ module load turbomole/7.8
 export TURBOTMPDIR=`echo $PWD |cut -d'/' -f1-3`"/TM_TMPDIR/"$SLURM_JOB_ID
 mkdir -p $TURBOTMPDIR
 export PARNODES=$SLURM_CPUS_PER_TASK  # for SMP
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
 jobex -ri -c 300 > jobex.out
 ```
