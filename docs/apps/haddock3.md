@@ -32,10 +32,6 @@ in the EU H2020 [BioExcel Center of Excellence for Biomolecular Research](https:
     | 2025.5.0   |`haddock3/2025.5.0-mpi`| MPI-enabled module available
     | 2025.8.1   |`haddock3/2025.8.1-mpi`| MPI-enabled module available
   
-!!! note "First load the CSC installed modules!"
-
-         To access these modules on LUMI, first load the CSC module tree into use with `module use /appl/local/csc/modulefiles`
-
 ## License
 
 HADDOCK3 is free and open-source software, licensed under the 
@@ -46,7 +42,7 @@ please contact the main developer
 
 ## Usage
 
-Load HADDOCK3 module  on LUMI as the following:
+Load HADDOCK3 module on LUMI as the following:
 
    ```text
     module use  /appl/local/csc/modulefiles/
@@ -55,17 +51,17 @@ Load HADDOCK3 module  on LUMI as the following:
 
 ### LUMI
 
-It is easy to try out the software on LUMI. First download tutorial inputs by
+It is easy to try out the software on LUMI. First, download tutorial inputs by
 cloning this repository in your scratch folder:
 
 ```
   git clone https://github.com/haddocking/haddock3.git
 ```
 
-HADDOCK will automatically dispatch subjobs, within one node, as shown in the
-first batch script example below, or spanning multiple nodes (second example).
-Note, that you need to create the batch job in and launch it from the correct
-subfolder (mentioned in each example batch script).
+HADDOCK will automatically dispatch subjobs, within the slurm allocation, also
+spanning multiple nodes (second example).
+Note, that you need to create the batch job in and launch it from the _correct
+subfolder_ (mentioned in each example batch script).
 
 !!! note "Match the Slurm and cfg requirements"
 
@@ -88,7 +84,7 @@ subfolder (mentioned in each example batch script).
   module use  /appl/local/csc/modulefiles/
   module load  haddock3/2025.8.1-mpi
 
-  # create this batch script file and submit it from
+  # create this batch script file in and submit it from
   # haddock3/examples/docking-protein-ligand
   # and make sure the requested cores match the ncores in *.cfg file
 
@@ -101,7 +97,7 @@ subfolder (mentioned in each example batch script).
   #!/bin/bash
   #SBATCH --account=project_xxxxxxxx
   #SBATCH --partition=standard
-  #SBATCH --time=03:00:00
+  #SBATCH --time=02:00:00
   #SBATCH --nodes=2
   #SBATCH --ntasks-per-node=128
   #SBATCH --job-name=haddock3mpi
@@ -109,14 +105,21 @@ subfolder (mentioned in each example batch script).
   module use  /appl/local/csc/modulefiles/
   module load  haddock3/2025.8.1-mpi
 
-  # create this batch script file and submit it from
+  # create this batch script file in and submit it from
   # haddock3/examples/docking-antibody-antigen
   # and make sure the requested cores match the ncores in *.cfg file
 
   # execute
   haddock3 docking-antibody-antigen-CDR-accessible-clt-full-mpi.cfg
   ```
-The first job should complete in a few minutes, while the mpi job should finish in an hour.
+
+The first job should complete in a few minutes, while the second job should finish in an hour.
+The second job has multiple stages executed as separate job steps. You can monitor
+their progress e.g. with `sacct -j <JOBID> -o jobid,alloc,elapsed,maxrss`. In addition
+to these subjobs, the workflow has a final analysis stage which takes longer with increasing
+cores used in the computation. In practice, it will limit the reasonable amount of
+resources to 2 nodes for this case.
+
 
 ## References
 
