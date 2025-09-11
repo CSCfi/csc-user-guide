@@ -85,3 +85,6 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
        - [Contact us](../../support/contact.md), subject: *Sensitive Data services*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
        - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
+
+
+Sensitive Data (SD) Services - [Cookie policy](sd-cookie-policy.md)
