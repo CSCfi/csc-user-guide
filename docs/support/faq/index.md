@@ -12,6 +12,7 @@
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
 * [How to write good support requests to CSC Service Desk](../support-howto.md)
 * [My SSH keys do not work](ssh-keys-not-working.md)
+* [I have questions about the billing unit renewal (2025)](bu-renewal.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -46,6 +47,7 @@
 * [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
 * [How do I create my own Python environment?](../tutorials/python-usage-guide.md#creating-your-own-python-environments)
 * [How to troubleshoot Python installation problems?](python-package-trouble.md)
+* [How to avoid Python pip cache filling up my home directory](python-pip-cache.md)
 
 ## Allas
 

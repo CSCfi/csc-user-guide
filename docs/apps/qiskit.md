@@ -89,7 +89,7 @@ Qiskit-related package should be included in the module provided by CSC, please
 All modules are based on containers using Apptainer (previously known as Singularity).
 Wrapper scripts have been provided so that common commands such as `python`,
 `python3`, `pip` and `pip3` should work as normal. For more information, see
-[CSC's general instructions on how to run Apptainer containers](../computing/containers/run-existing.md).
+[CSC's general instructions on how to run Apptainer containers](../computing/containers/overview.md#running-containers).
 
 ## License
 

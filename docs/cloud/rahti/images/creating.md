@@ -164,10 +164,10 @@ Or using [webhooks](../tutorials/webhooks.md)
 It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Git repository.
 
 ```bash
-oc new-build -D $'FROM centos:7'
+oc new-build -D $'FROM almalinux:10'
 ```
 
-In this example, we will build an image that is a copy of `CentOS 7`.
+In this example, we will build an image that is a copy of `AlmaLinux 10`.
 
 It is also possible to create a build from a given `Dockerfile`:
 
