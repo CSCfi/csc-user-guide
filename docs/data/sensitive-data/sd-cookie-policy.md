@@ -1,7 +1,7 @@
 # Sensitive Data (SD) Services cookie policy
 
 
-We use only essential cookies to ensure our services function properly. These cookies are necessary for SD Apply, SD Connect, SD Desktop and Federated EGA to operate and cannot be disabled. 
+We use only essential cookies to ensure SD Services function properly. These cookies are necessary for SD Apply, SD Connect, SD Desktop and Federated EGA to operate and cannot be disabled. 
 
 Theese include:
 
