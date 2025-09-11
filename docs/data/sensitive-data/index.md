@@ -87,4 +87,4 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
        - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
 
 
-Sensitive Data (SD) Services - (Cookie policy)[sd-cookie-policy.md]
+Sensitive Data (SD) Services - [Cookie policy](sd-cookie-policy.md)
