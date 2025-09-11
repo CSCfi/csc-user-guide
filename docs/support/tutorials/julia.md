@@ -667,7 +667,6 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     N = 4
     send_mesg = ROCArray{Float64}(undef, N)
     recv_mesg = ROCArray{Float64}(undef, N)
-    fill!(send_mesg, Float64(rank))
     AMDGPU.synchronize()
     rank==0 && println("start sending...")
     MPI.Sendrecv!(send_mesg, dst, 0, recv_mesg, src, 0, comm)
