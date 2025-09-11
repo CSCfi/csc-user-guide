@@ -13,7 +13,22 @@ Instead we use Julia for process management or call `srun` inside the Julia code
 Before running the examples, we need to instantiate the Julia project on the login node.
 That is, run the following command in the directory with your Julia environment where `Project.toml` file is located.
 
+
+=== "Puhti"
 ```bash
+module load julia
+julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
+```
+
+=== "Mahti"
+```bash
+module load julia
+julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
+```
+
+=== "LUMI"
+```bash
+module use /appl/local/csc/modulefiles
 module load julia
 julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
 ```
