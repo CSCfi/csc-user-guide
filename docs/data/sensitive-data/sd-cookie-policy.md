@@ -3,7 +3,7 @@
 
 We use only essential cookies to ensure SD Services function properly. These cookies are necessary for SD Apply, SD Connect, SD Desktop and Federated EGA to operate and cannot be disabled. 
 
-Theese include:
+These include:
 
 * Session: maintains your session and is deleted when you close your browser.
 
