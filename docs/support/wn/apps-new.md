@@ -1,5 +1,12 @@
 # Applications
 
+## Python Data 3.12-25.09 now the default version, 12.9.2025
+
+A new version of [Python Data](../../apps/python-data.md)
+`python-data/3.12-25.09` has been installed, with the newest versions
+of popular data analytics packages. It has also been set as the default
+version.
+
 ## GROMACS 2025.2, 13.8.2025
 
 [GROMACS](../../apps/gromacs.md) 2025.2 is now available on Puhti, Mahti and LUMI.

@@ -8,9 +8,9 @@ hide:
 !!! Note
     To select the correct user guide, begin by identifying the type of data you are processing:
     
-    1. **Research data** (e.g. consented data collected for research purposes): follow the relevant guides for storing and analysing or publishigng and reusing research data.
+    1. **Research data** (e.g. consented data collected for research purposes): follow the relevant guides for storing and analysing or publishing and reusing research data.
     
-    2. **Secondary use of health and social data, register data** provided by the Findata authority or a public register: follow the guide designed for analyzing register and comply with the Finnish legal requirements. 
+    2. **Secondary use of health and social data, register data** provided by the Findata authority or a public register: follow the guide designed for analyzing register data and comply with the Finnish legal requirements. 
     
     Not sure which guide fits your case? Email us at servicedesk@csc.fi with the subject line "SD Services"
 
