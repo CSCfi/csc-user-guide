@@ -1,5 +1,24 @@
 # Applications
 
+## HADDOCK3 available on LUMI, 12.9.2025
+
+The latest version of [HADDOCK3](../../apps/haddock3.md) suitable for
+large scale ligand/protein/antibody docking and integrative modelling
+is available on LUMI, including example batch jobs.
+
+## Python Data 3.12-25.09 now the default version, 12.9.2025
+
+A new version of [Python Data](../../apps/python-data.md)
+`python-data/3.12-25.09` has been installed, with the newest versions
+of popular data analytics packages. It has also been set as the default
+version.
+
+## GROMACS 2025.2, 13.8.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.2 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.2/release-notes/2025/2025.2.html)
+for a list of all new features and improvements.
+
 ## Schrödinger Maestro 2025.3, 7.8.2025
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2025.3 has been installed
