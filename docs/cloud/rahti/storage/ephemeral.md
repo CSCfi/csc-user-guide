@@ -17,12 +17,12 @@ spec:
     emptyDir: {}
   containers:
   - name: container-a
-    image: centos:7
+    image: almalinux:10
     volumeMounts:
     - mountPath: /outputdata
       name: volume-a
   - name: container-b
-    image: centos:7
+    image: almalinux:10
     volumeMounts:
     - mountPath: /interm
       name: volume-a

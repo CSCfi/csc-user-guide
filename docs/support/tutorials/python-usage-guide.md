@@ -131,6 +131,15 @@ in a module provided by CSC, do not hesitate to contact our
 
     ---
 
+
+!!! warning 
+
+    Even if you are installing Python packages to projappl or scratch, the
+    pip command may still fill up your home directory as it stores its
+    cache there by default. See our FAQ entry on [how to configure the pip
+    cache](../faq/python-pip-cache.md).
+
+
 ### Creating your own Python environments
 
 It is also possible to create your own Python environments.
@@ -161,8 +170,8 @@ It is also possible to create your own Python environments.
        For more information about using Apptainer containers, please see the
        related documentation:
 
-        * [Running Apptainer containers](../../computing/containers/run-existing.md)
-        * [Creating Apptainer containers](../../computing/containers/creating.md),
+        * [Running Apptainer containers](../../computing/containers/overview.md#running-containers)
+        * [Creating Apptainer containers](../../computing/containers/overview.md#building-container-images),
         including how to convert Docker containers to Apptainer containers.
 
     ---
@@ -191,8 +200,8 @@ It is also possible to create your own Python environments.
        For more information about using Apptainer containers, please see the
        related documentation:
 
-        * [Running Apptainer containers](../../computing/containers/run-existing.md)
-        * [Creating Apptainer containers](../../computing/containers/creating.md),
+        * [Running Apptainer containers](../../computing/containers/overview.md#running-containers)
+        * [Creating Apptainer containers](../../computing/containers/overview.md#building-container-images),
         including how to convert Docker containers to Apptainer containers.
 
     ---

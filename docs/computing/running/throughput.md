@@ -204,8 +204,8 @@ workflows.
 [Lustre]: ../lustre.md
 [Fast local NVMe disk]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
 [Ramdisk]: ../disk.md#compute-nodes-without-local-ssd-nvme-disks
-[Singularity container]: ../containers/run-existing.md
-[mount your datasets with SquashFS]: ../containers/run-existing.md#mounting-datasets-with-squashfs
+[Singularity container]: ../containers/overview.md
+[mount your datasets with SquashFS]: ../containers/overview.md#reading-datasets-from-squashfs-file
 [file striping]: ../lustre.md#file-striping-and-alignment
 [CSC has deprecated the direct usage of Conda environments]: ../../support/tutorials/conda.md
 [container wrapper tool Tykky]: ../containers/tykky.md
