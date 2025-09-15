@@ -27,7 +27,7 @@ If your home organization is a member of the Haka or Virtu federation, you can c
 1. Select your home organization and log in to their identity service.
 1. Fill in your information on the _Sign up_ page.
 1. You will receive an email message containing a link to MyCSC where you can set your CSC account password.
-1. If you are signing up with _Virtu_ you will be prompted to [set up your CSC MFA](../accounts/mfa.md#step-2-scan-qr-code) after setting your CSC accounts password. If you are signing up with _Haka_, you might already have a working MFA login integrated with your Haka login, and you will be asked to sign in with the Haka MFA. If your home organisation doesn't provide Haka MFA, you will be guided to set up CSC MFA.
+1. If you are signing up with _Virtu_ you will be prompted to [set up your CSC MFA](../accounts/mfa.md#how-to-activate-csc-mfa) after setting your CSC accounts password. If you are signing up with _Haka_, you might already have a working MFA login integrated with your Haka login, and you will be asked to sign in with the Haka MFA. If your home organisation doesn't provide Haka MFA, you will be guided to set up CSC MFA.
 1. You will receive a confirmation via email after successfully registering your CSC user account.
 
 ## Getting an account without Haka or Virtu
@@ -53,11 +53,13 @@ If you are attending a course which is utilising CSC's services you need to crea
 
 ### For organisers/teachers
 
-CSC does not provide temporary training specific user accounts for courses anymore. If the participant does not yet have a user account, it needs to be created. The course organiser can then invite participants to the course project. If you're not able to create CSC user accounts, please [contact CSC Service Desk](../support/contact.md).
+CSC does not provide temporary training specific user accounts for courses. If the participant does not yet have a user account, it needs to be created. The course organiser can then invite participants to the course project.
 
-Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance as soon as you have the list of the participants. And when the project is ready you are able to start sending out the invitations to your participants. 
+Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance. And when the project is ready you are able to start sending out the invitations to the course participants. 
 
 Please see instructions on [how to create the course project](how-to-create-new-project.md#course)
+
+If you need assistance, please [contact CSC Service Desk](../support/contact.md).
 
 
 ## Getting a machine-to-machine robot account
