@@ -45,6 +45,10 @@ may benefit from the paused state but modern workflows generally do
 not use this state. Pausing a virtual machine is billed in the same
 way as an **active** state virtual machine.
 
+!!! warning
+
+    A *paused* virtual machine will be powered off during maintenance.
+
 ### Suspend
 Suspending a virtual machine saves its current state on
 the virtual machine's host compute node. The virtual machine can be
@@ -55,6 +59,10 @@ are not able to access your machine when it is in the *suspended* state.
 Virtual machines in the suspended state are billed in the same way
 as **active** state virtual machines. Suspending is not generally used
 in modern workflows.
+
+!!! warning
+
+    A *suspended* virtual machine will be powered off during maintenance.
 
 ### Shelved
 Shelving means shutting down a virtual machine and removing it from the host compute node. 
