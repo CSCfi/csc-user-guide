@@ -2,14 +2,14 @@
 
 ## 1. What are the new billing units?
 
-The new billing unit (BU) types are **HPC**, **HPC GPU**, **Cloud** and
+The new billing unit (BU) types are **CPU**, **GPU**, **Cloud** and
 **Storage**. In other words, CSC's services for research will consume different
 billing units based on the kind of services used. A summary of which service
 uses which units is depicted below:
 
-* **HPC billing unit**
+* **CPU billing unit**
     * Puhti, Mahti and Roihu jobs *without GPU*
-* **HPC GPU billing unit**
+* **GPU billing unit**
     * Puhti, Mahti and Roihu jobs *with GPU*
 * **Cloud billing unit**
     * cPouta, ePouta, Rahti, Pukki DBaaS, SD Desktop
@@ -18,7 +18,9 @@ uses which units is depicted below:
       Connect
 
 !!! info "Note"
-    LUMI billing is **not** affected by the billing unit renewal.
+    LUMI billing is **not** affected by the billing unit renewal. However, a
+    similar resource cutter as detailed [below](#cutter) will also be taken into
+    use on LUMI starting 1.10.2025.
 
 ## 2. When are the new billing units taken into use?
 
@@ -57,7 +59,7 @@ larger impact on the service capacity compared to the same amount of BUs used
 on Mahti CPU nodes. Thus, the size limits for resource applications will be
 based on the type of billing unit applied for.
 
-## 6. Will I lose billing units to the new BU cutter even if my projects use billing units?
+## 6. Will I lose billing units to the new BU cutter even if my projects use billing units? <a id="cutter"></a>
 
 The billing unit renewal introduces a "cutter" that will depreciate unused BUs.
 The billing unit cutter only affects projects that have used **less than 40% of their
