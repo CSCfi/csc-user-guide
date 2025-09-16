@@ -2,14 +2,14 @@
 
 ## 1. What are the new billing units?
 
-The new billing unit (BU) types are **HPC**, **HPC GPU**, **Cloud** and
+The new billing unit (BU) types are **CPU**, **GPU**, **Cloud** and
 **Storage**. In other words, CSC's services for research will consume different
 billing units based on the kind of services used. A summary of which service
 uses which units is depicted below:
 
-* **HPC billing unit**
+* **CPU billing unit**
     * Puhti, Mahti and Roihu jobs *without GPU*
-* **HPC GPU billing unit**
+* **GPU billing unit**
     * Puhti, Mahti and Roihu jobs *with GPU*
 * **Cloud billing unit**
     * cPouta, ePouta, Rahti, Pukki DBaaS, SD Desktop
@@ -18,12 +18,20 @@ uses which units is depicted below:
       Connect
 
 !!! info "Note"
-    LUMI billing is **not** affected by the billing unit renewal.
+    This billing unit renewal does **not** affect LUMI billing. However, a
+    similar resource cutter as detailed [below](#cutter) will also be taken into
+    use on LUMI starting October 1st, 2025.
 
 ## 2. When are the new billing units taken into use?
 
-The new billing units will be taken into use in September 2025. The exact date
-will be announced later.
+The new billing units will be rolled out starting **September 29th, 2025**. The
+exact schedule is detailed below:
+
+* **Mon 29.9.** Billing Unit applications in MyCSC are temporarily closed
+* **Wed 1.10.** Old applications are processed and projects are granted new
+  Billing Units
+* **Thu 2.10.** New Billing Units are taken into use in MyCSC and services,
+  resource applications for new Billing Units are opened
 
 ## 3. Will I need to do something? What will happen to my old billing units?
 
@@ -57,14 +65,14 @@ larger impact on the service capacity compared to the same amount of BUs used
 on Mahti CPU nodes. Thus, the size limits for resource applications will be
 based on the type of billing unit applied for.
 
-## 6. Will I lose billing units to the new BU cutter even if my projects use billing units?
+## 6. Will I lose billing units to the new BU cutter even if my projects use billing units? <a id="cutter"></a>
 
 The billing unit renewal introduces a "cutter" that will depreciate unused BUs.
 The billing unit cutter only affects projects that have used **less than 40% of their
 billing units** in a 6 month period counted from the last billing unit grant
 or depreciation check. If a project has used more than that, no resources are
-cut. The billing unit cutter affects only academic projects with student
-projects being exempt.
+cut. The billing unit cutter affects only academic projects with student and
+course projects being exempt.
 
 ## 7. When will the first billing unit depreciation happen?
 
@@ -75,5 +83,4 @@ grant or the latest depreciation check.
 
 ## More information
 
-* Blog: [Mapping out the future of billing units](https://csc.fi/en/blog/mapping-out-the-future-of-billing-unit/) (CSC.fi)
-* Blog: [Billing unit renewal schedule and changes](https://csc.fi/en/blog/billing-unit-renewal-schedules-and-changes/) (CSC.fi)
+* Blog: [Billing unit renewal schedule and changes](https://research.csc.fi/2025/06/02/billing-unit-renewal-schedule-and-changes/) (Research.csc.fi)
