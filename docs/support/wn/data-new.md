@@ -40,7 +40,7 @@ mkdir -p /shared-directory/.certs
 
 **Press Enter**
 
-```bash
+```
 cp $FS_CERTS /shared-directory/.certs/
 ```
 
