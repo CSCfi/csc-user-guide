@@ -21,7 +21,17 @@ A volume is like a virtual USB stick for storing your data. You can attach it to
 
 2. Choose from the available options the one that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
 
--- Add sizes table  200 GB, 500 GB, 1 terabyte--
+Volumes consume billing units per GB per hour, starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from table below.
+
+If you have a dataset larger than 1000 GB contact [CSC Service Desk](../../support/contact.md).
+
+
+| Name   | Size (GB) | Cost (BU/h) |
+|--------|-----------|-------------|
+| Large  | 1000      | 3.5         |
+| Medium | 500       | 1.75        |
+| Small  | 200       | 0.7         |
+
 
 3. Write **optional** description or note about the volume to help your team members understand its purpose and contents.
 
