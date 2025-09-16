@@ -1,4 +1,4 @@
-# Connecting to CSC supercomputers via VS Code gives out-of-memory error
+# VS Code Remote-SSH plugin gives out-of-memory error when connecting to CSC supercomputers
 
 Connecting to CSC supercomputers using VS Code versions 1.101 and later may
 fail with error `Out of memory: Cannot allocate Wasm memory for new instance`.
