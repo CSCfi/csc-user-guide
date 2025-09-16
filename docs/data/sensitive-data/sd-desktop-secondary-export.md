@@ -18,21 +18,9 @@ Please ensure you reserve enough time for the export process. It may take us a f
 
 ![Exporting results from virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Exporting_secondary_use_data.png)
 
-## Deleting virtual desktop
 
-### Deleting a desktop
 
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved on it. You cannot undo this action:
-
- 1. On [SD Desktop Homepage](https://sd-desktop.csc.fi), click **Go to SD Desktop management**.
- 2. Under *Available desktops* select the correct virtual Desktop. On the right side, click **Options** and **Delete Desktop**.
-
-[![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
-
-!!! Note
-    The virtual desktop **should not be deleted before all the results have been exported.** Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved on the virtual desktop or on the external volume by other project members.
-
-### End of data access and data deletion policies
+# End of data access and data deletion policies
 
 Access to the data will be denied after the data permit expires. If you want to continue accessing the data after the original validity period ends, you need to send an *amendment application* to the data controller to extend the validity of the permit.
 
