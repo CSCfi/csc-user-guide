@@ -42,6 +42,7 @@
 * [How can I install my own software?](how-to-install-own-software.md)
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
+* [Connecting to CSC supercomputers via VS Code gives out-of-memory error](vscode-out-of-memory.md)
 
 ## Python on supercomputers
 * [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
