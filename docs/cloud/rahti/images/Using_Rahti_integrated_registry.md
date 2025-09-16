@@ -41,6 +41,24 @@ You should be able to see your images in your project:
 
 Alternatively you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
 
+!!! warning "Troubleshooting"
+
+    If you receive this error when attempting to push your image:
+
+    ```
+    unknown: unexpected status from HEAD request to https://image-registry.apps.2.rahti.csc.fi/v2/{YOUR_RAHTI_PROJECT_NAME}/{YOUR_IMAGE_NAME}/manifests/sha256:834e7b0d913dd73e8616810c2c3a199cd8a3618e981f75eea235e0920d601ce4: 500
+    ```
+
+    You must create the `ImageStream` before pushing.
+
+    Run this command:
+
+    ```
+    oc create imagestream {YOUR_IMAGE_NAME}
+    ```
+
+[oc](../usage/cli.md) must be installed locally on your machine.
+
 ## Using Manually Cached Images
 
 Go to your project's deployment, and edit it.
