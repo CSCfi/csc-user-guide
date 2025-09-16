@@ -71,8 +71,8 @@ The billing unit renewal introduces a "cutter" that will depreciate unused BUs.
 The billing unit cutter only affects projects that have used **less than 40% of their
 billing units** in a 6 month period counted from the last billing unit grant
 or depreciation check. If a project has used more than that, no resources are
-cut. The billing unit cutter affects only academic projects with student
-projects being exempt.
+cut. The billing unit cutter affects only academic projects with student and
+course projects being exempt.
 
 ## 7. When will the first billing unit depreciation happen?
 
