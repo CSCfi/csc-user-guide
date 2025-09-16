@@ -18,14 +18,20 @@ uses which units is depicted below:
       Connect
 
 !!! info "Note"
-    LUMI billing is **not** affected by the billing unit renewal. However, a
+    This billing unit renewal does **not** affect LUMI billing. However, a
     similar resource cutter as detailed [below](#cutter) will also be taken into
-    use on LUMI starting 1.10.2025.
+    use on LUMI starting October 1st, 2025.
 
 ## 2. When are the new billing units taken into use?
 
-The new billing units will be taken into use in September 2025. The exact date
-will be announced later.
+The new billing units will be rolled out starting **September 29th, 2025**. The
+exact schedule is detailed below:
+
+* **Mon 29.9.** Billing Unit applications in MyCSC are temporarily closed
+* **Wed 1.10.** Old applications are processed and projects are granted new
+  Billing Units
+* **Thu 2.10.** New Billing Units are taken into use in MyCSC and services,
+  resource applications for new Billing Units are opened
 
 ## 3. Will I need to do something? What will happen to my old billing units?
 
@@ -77,5 +83,4 @@ grant or the latest depreciation check.
 
 ## More information
 
-* Blog: [Mapping out the future of billing units](https://csc.fi/en/blog/mapping-out-the-future-of-billing-unit/) (CSC.fi)
-* Blog: [Billing unit renewal schedule and changes](https://csc.fi/en/blog/billing-unit-renewal-schedules-and-changes/) (CSC.fi)
+* Blog: [Billing unit renewal schedule and changes](https://research.csc.fi/2025/06/02/billing-unit-renewal-schedule-and-changes/) (Research.csc.fi)
