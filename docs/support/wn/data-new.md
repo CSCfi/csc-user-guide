@@ -1,6 +1,6 @@
 # Data management
 
-## Sensitive Data (SD) Desktop export problem: quick workaround 
+## Sensitive Data (SD) Desktop export problem: quick workaround, 18.8.2025
 
 Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager.  
 To resolve this issue, a one time workaround is available. It must be applied per virtual desktop, either via graphical interfaces (Data Gateway and SD Tool Installer) or programmatically.
