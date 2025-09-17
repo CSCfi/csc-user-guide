@@ -50,7 +50,7 @@ to find more detailed information on how we as a data processor protect your per
 | University of Eastern Finland  | tietosuoja@uef.fi <br />[Data protection policy](https://www.uef.fi/en/data-protection)  |
 | University of Helsinki  | tietosuoja@helsinki.fi <br />[Data protection policy](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
 | University of Jyväskylä  | tietosuoja@jyu.fi <br />[Data protection policy](https://www.jyu.fi/en/data-privacy-at-the-university-of-jyvaskyla) |
-| University of Lapland  | tietosuoja@ulapland.fi <br />[Data protection policy FIXME](https://www.ulapland.fi/EN/About-us/Our-principles/Data-protection) |
+| University of Lapland  | tietosuoja@ulapland.fi <br />[Data protection policy](https://ulapland.fi/en/university/our-principles/data-protection/) |
 | University of Oulu  | dpo@oulu.fi <br />[Data protection policy](https://www.oulu.fi/en/data-privacy-notice) |
 | University of Tampere  | dpo@tuni.fi <br />[Data protection policy](https://www.tuni.fi/en/research/responsible-science-and-research/data-protection) |
 | University of Turku  | dpo@utu.fi <br />tietosuoja@utu.fi <br />[Data protection policy](https://www.utu.fi/en/privacy/notice) |
