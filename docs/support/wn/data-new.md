@@ -1,7 +1,6 @@
 # Data management
 
-
-## Sensitive Data (SD) Desktop export problem: quick workaround 
+## Sensitive Data (SD) Desktop export problem: quick workaround, 18.8.2025
 
 Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager.  
 To resolve this issue, a one time workaround is available. It must be applied per virtual desktop, either via graphical interfaces (Data Gateway and SD Tool Installer) or programmatically.
@@ -11,59 +10,50 @@ Step by step instructions:
 ### 1) Via Graphical Interface
 
 If you don’t already have the SD Tool installer, email servicedesk@csc.fi (subject: SD services) and include your [project’s SD Connect share ID to request access](../../data/sensitive-data/sd-connect-share.md).
-      
+
 - Log in to your virtual desktop and refresh access in Data Gateway to get the latest version of the tools. 
-
 - If not already on the virtual desktop, copy the SD Tool installer there (using the copy-paste function). Right-click it, select **Allow Launching**, and open the SD Tool installer.
-
 - Click **Update CA Certificate** in the SD Tool installer and confirm from the installer’s message box that the update is done.
-
 - Close the SD Tool installer, disconnect from Data Gateway and log out from the virtual desktop. 
-
 - You can now log in to the virtual desktop again and continue with exports as usual.
-
-
 
 ### 2) Programmatically
 
- Log in to your virtual desktop.  Open the terminal (right-click).
+Log in to your virtual desktop.  Open the terminal (right-click).
 
 - Open the clipboard with the key combination `Ctrl + Alt + Shift` and activate the copy-paste function by selecting Input method → Text input. 
-   The Clipboard panel will close automatically after the selection, and the input bar will appear at the bottom of the virtual desktop.
+  The Clipboard panel will close automatically after the selection, and the input bar will appear at the bottom of the virtual desktop.
 
--  Copy the following commands into the input bar. They will be visible in the terminal.  
-   You can paste them with `Ctrl + C` or by right-clicking.
+- Copy the following commands into the input bar. They will be visible in the terminal.  
+  You can paste them with `Ctrl + C` or by right-clicking.
 
-```bash
-mkdir -p /shared-directory/.certs
-````
+    ```bash
+    mkdir -p /shared-directory/.certs
+    ```
 
-**Press Enter**
+    **Press Enter**
 
-```bash
-cp $FS_CERTS /shared-directory/.certs/
-```
+    ```bash
+    cp $FS_CERTS /shared-directory/.certs/
+    ```
 
-**Press Enter**
+    **Press Enter**
 
-```bash
-openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null \
-| awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
->> /shared-directory/.certs/ca.crt
-```
+    ```bash
+    openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null \
+    | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
+    >> /shared-directory/.certs/ca.crt
+    ```
 
-**Press Enter**
+    **Press Enter**
 
-```bash
-echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
-```
+    ```bash
+    echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
+    ```
 
-**Press Enter**
+    **Press Enter**
 
--  **Log out** from the virtual desktop and try the export again.
-
-
-
+- **Log out** from the virtual desktop and try the export again.
 
 ## Temporary workaround for importing files from SD Connect into SD Desktop, 3.6.2025 <a id="sd-workaround"></a>
 
