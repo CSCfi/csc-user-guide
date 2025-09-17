@@ -107,7 +107,7 @@ With the SDA Uploader tool, you need to collect all the data to one folder on yo
 
 #### 4.2 Advanced options
 
-This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  command line (CLI, option 2 below) options for Linux, Mac and Windows. More information about the tool in the GitHub repository. Alternatively, you can encrypt the data with Crypt4GH (also GUI available, option 3 below) and send the data directly with SFTP on command line. With each option, you need to use CSC public key for encryption.
+This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  command line (CLI, option 1 below) options for Linux, Mac and Windows. More information about the tool in the [GitHub repository](https://github.com/CSCfi/sda-uploader/?tab=readme-ov-file#cli-demo). Alternatively, you can encrypt the data with Crypt4GH (also GUI available, option 2 below) and send the data directly with SFTP on command line. With each option, you need to use CSC public key for encryption.
 
 ##### Advanced option 1
 
