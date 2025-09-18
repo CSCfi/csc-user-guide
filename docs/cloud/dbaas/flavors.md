@@ -1,10 +1,10 @@
 # DBaaS flavors and prices
 
-The database instances are hosted on top of cPouta. The billing is based on the flavor (database instance size), volume size of the database and how much backup you are using.
+The database instances are hosted on top of cPouta. The billing is based on the flavor (database instance size), volume size of the database and how much backup you are using. All these resources consume **Cloud Billing Units**, for more information about Billing in CSC, visit the [Billing](../../accounts/billing.md) page.
 
 ## Flavor types
 
-| Flavor | Cores | Memory (MB) | Billing Units / hour |
+| Flavor | Cores | Memory (MB) | Cloud Billing Units / hour |
 |--- |:---:|:---:|:---:|
 | standard.small   | 2 | 2000  | 2  |
 | standard.medium  | 3 | 4000  | 4  |
@@ -19,7 +19,7 @@ The database instances are hosted on top of cPouta. The billing is based on the 
 
 ## Volumes
 
-| Resource type | Unit | Billing Units / GiB hour |
+| Resource type | Unit | Cloud Billing Units / GiB hour |
 |--- |:---:|:---:|
 | Volumes | GiB reserved | 0.01 |
 
@@ -28,7 +28,7 @@ The maximum volume size per database instance is currently 200 GiB.
 
 
 ## Backups
-| Resource type | Unit | Billing Units / GiB hour |
+| Resource type | Unit | Cloud Billing Units / GiB hour |
 |--- |:---:|:---:|
 | Backups | GiB usage | 0.003 |
 
