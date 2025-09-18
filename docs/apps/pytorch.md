@@ -143,7 +143,7 @@ For **PyTorch version 2.2 and earlier**, other commands need to be
 prefixed with `apptainer_wrapper exec`, for example `apptainer_wrapper
 exec huggingface-cli`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md). 
+containers](../computing/containers/overview.md#running-containers). 
 
 For **PyTorch version 2.3 and later on Puhti or Mahti**, we have used
 wrappers created with [the tykky

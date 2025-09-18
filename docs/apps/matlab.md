@@ -41,7 +41,7 @@ MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MAT
 It is available as follows:
 
 - License: Academic
-- Versions: from R2021a to R2024b
+- Versions: from R2021a to R2025a
 - Toolboxes: MATLAB Parallel Server.
   There is license for using upto 500 computing cores simultaneously.
   Furthermore, toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
@@ -255,7 +255,7 @@ configCluster
 ```
 
 
-### Submitting serial jobs
+### Submitting single and multithreaded jobs
 Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
 Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to the empty string `''`.
 Furthermore, `CPUsPerNode` is set automatically by the `batch` command, thus we unset it.
@@ -272,6 +272,8 @@ c.AdditionalProperties.MemPerCPU = '4g';
 c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
+% You can reserve multiple threads by increasing the NumThreads value.
+c.NumThreads = 1;
 ```
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
@@ -292,34 +294,7 @@ In the example, we set the working directory to the home directory by setting `'
 Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by setting `'AutoAddClientPath'` to `false`.
 
 
-### Submitting parallel jobs
-Let's create a reservation:
-
-```matlab
-c = parcluster;
-% Replace 'project_id' to your project identifier, otherwise the script will fail.
-c.AdditionalProperties.ComputingProject = 'project_id';
-c.AdditionalProperties.Partition = 'small';
-c.AdditionalProperties.WallTime = '00:15:00';
-c.AdditionalProperties.CPUsPerNode = '';
-c.AdditionalProperties.MemPerCPU = '4g';
-c.AdditionalProperties.GpuCard = '';
-c.AdditionalProperties.GPUsPerNode = '';
-c.AdditionalProperties.EmailAddress = '';
-```
-
-Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
-For example, we can submit a parallel job to eight cores as follows:
-
-```matlab
-j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddClientPath', false)
-```
-
-Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
-For example, a job that needs eight cores will consume nine CPU cores.
-
-
-### Submitting serial GPU jobs
+### Submitting GPU jobs
 We can create a GPU reservation by setting the appropriate values for the `Partition`, `GpuCard`, and `GPUsPerNode` properties.
 For example, a single GPU reservation looks as follows:
 
@@ -334,6 +309,8 @@ c.AdditionalProperties.MemPerCPU = '4g';
 c.AdditionalProperties.GpuCard = 'v100';
 c.AdditionalProperties.GPUsPerNode = 1;
 c.AdditionalProperties.EmailAddress = '';
+% You can reserve multiple threads by increasing the NumThreads value.
+c.NumThreads = 10;
 ```
 
 Now, we can submit a simple GPU job that queries the available GPU device as follows:
@@ -341,6 +318,35 @@ Now, we can submit a simple GPU job that queries the available GPU device as fol
 ```matlab
 j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
+
+
+### Submitting parallel pool
+Let's create a reservation:
+
+```matlab
+c = parcluster;
+% Replace 'project_id' to your project identifier, otherwise the script will fail.
+c.AdditionalProperties.ComputingProject = 'project_id';
+c.AdditionalProperties.Partition = 'small';
+c.AdditionalProperties.WallTime = '00:15:00';
+c.AdditionalProperties.CPUsPerNode = '';
+c.AdditionalProperties.MemPerCPU = '4g';
+c.AdditionalProperties.GpuCard = '';
+c.AdditionalProperties.GPUsPerNode = '';
+c.AdditionalProperties.EmailAddress = '';
+% You can reserve multiple threads per worker by increasing the NumThreads value.
+c.NumThreads = 1;
+```
+
+Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
+For example, we can submit a parallel job to eight cores as follows:
+
+```matlab
+j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+```
+
+Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
+For example, a job that needs eight cores will consume nine CPU cores.
 
 
 ### Querying jobs and output

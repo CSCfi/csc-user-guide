@@ -16,7 +16,7 @@ There are two different types of CSC user accounts: ordinary accounts for genera
 ## Getting an account with Haka or Virtu
 
 !!! Note 
-    If you are trying to access the [LUMI web interface](https://www.lumi.csc.fi) or [LUMI-O](https://www.auth.lumidata.eu),
+    If you are trying to access the [LUMI web interface](https://www.lumi.csc.fi) or [LUMI-O](https://auth.lumidata.eu),
     please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/) on how to get an account.
 
 If your home organization is a member of the Haka or Virtu federation, you can create an account yourself. For registration, you will need a mobile device that has an authentication app for setting up the multi-factor authentication

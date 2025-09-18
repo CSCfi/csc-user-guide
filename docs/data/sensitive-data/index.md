@@ -2,11 +2,8 @@
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
-- [Quick links to key topics :material-arrow-down:](#quick-links-to-key-topics)
-- [Links to services :material-arrow-down:](#links-to-services)
-- [Service Breaks :material-arrow-down:](#service-breaks)
-- [Support :material-arrow-down:](#support)
-- [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 ### Quick links to key topics
@@ -88,3 +85,6 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
        - [Contact us](../../support/contact.md), subject: *Sensitive Data services*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
        - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
+
+
+Sensitive Data (SD) Services - [Cookie policy](sd-cookie-policy.md)
