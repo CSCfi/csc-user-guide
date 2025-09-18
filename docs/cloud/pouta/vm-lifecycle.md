@@ -47,7 +47,7 @@ way as an **active** state virtual machine.
 
 !!! warning
 
-    A *paused* virtual machine will be powered off during maintenance.
+    A "paused" virtual machine may be powered off during maintenance operations.
 
 ### Suspend
 Suspending a virtual machine saves its current state on
@@ -62,7 +62,7 @@ in modern workflows.
 
 !!! warning
 
-    A *suspended* virtual machine will be powered off during maintenance.
+    A "suspended" virtual machine may be powered off during maintenance operations.
 
 ### Shelved
 Shelving means shutting down a virtual machine and removing it from the host compute node. 
