@@ -29,7 +29,7 @@ After acquiring the permit, you can start the service access process with CSC. N
 [Step by step tutorial for accessing datasets from Findata on SD Desktop](findata-permit.md)
 
 !!! Note
-    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the permit as soon as possible after receiving access to the disclosed data. A suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of wheter the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on.
+    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the permit as soon as possible after receiving access to the disclosed data. A suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on.
 
 #### Applying single register permit
 
