@@ -296,6 +296,8 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
 !!! warning "IP billing"
 
-    Allocated floating IPs are billed at the rate of 0,2 BU/hr. See the [Virtual machine flavors and billing unit rates](./vm-flavors-and-billing.md) for more information.
+    Allocated floating IPs are billed at the rate of 0,2 CBU/hr. See the [Virtual machine flavors and billing unit rates](./vm-flavors-and-billing.md) for more information.
 
 Now we can go to the [Connecting to your virtual machine](connecting-to-vm.md) section and log in to the new Virtual Machine.
+
+!!! info "\* **CBU**: Cloud Billing Units"
