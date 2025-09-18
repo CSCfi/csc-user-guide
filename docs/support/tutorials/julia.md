@@ -299,7 +299,7 @@ An example of a `Project.toml` project file.
 
 ```toml
 [deps]
-ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
+SlurmClusterManager = "c82cd089-7bf7-41d7-976b-6b5d413cbe0a"
 Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
@@ -307,7 +307,7 @@ An example of a `script.jl` code.
 
 ```julia
 using Distributed
-using ClusterManagers
+using SlurmClusterManager
 
 # We set one worker process per core.
 proc_num = parse(Int, ENV["SLURM_NTASKS"])
@@ -322,7 +322,7 @@ proc_env = [
 ]
 
 # We add worker processes to the local node using SlurmManager
-addprocs(SlurmManager(proc_num); env=proc_env, exeflags="--project=.")
+addprocs(SlurmManager())
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
 # We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
@@ -667,7 +667,6 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     N = 4
     send_mesg = ROCArray{Float64}(undef, N)
     recv_mesg = ROCArray{Float64}(undef, N)
-    fill!(send_mesg, Float64(rank))
     AMDGPU.synchronize()
     rank==0 && println("start sending...")
     MPI.Sendrecv!(send_mesg, dst, 0, recv_mesg, src, 0, comm)
