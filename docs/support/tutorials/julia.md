@@ -15,23 +15,23 @@ That is, run the following command in the directory with your Julia environment 
 
 
 === "Puhti"
-```bash
-module load julia
-julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
-```
+    ```bash
+    module load julia
+    julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
+    ```
 
 === "Mahti"
-```bash
-module load julia
-julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
-```
+    ```bash
+    module load julia
+    julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
+    ```
 
 === "LUMI"
-```bash
-module use /appl/local/csc/modulefiles
-module load julia
-julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
-```
+    ```bash
+    module use /appl/local/csc/modulefiles
+    module load julia
+    julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
+    ```
 
 You can use multiple threads `--threads=10` which will speed up the precompilation.
 
