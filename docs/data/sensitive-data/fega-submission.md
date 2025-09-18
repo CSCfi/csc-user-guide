@@ -165,7 +165,7 @@ Using the submitter portal, you can register the following metadata objects:
 
 * **Study**. Information about the sequencing study. The title should be a 3–20-word introduction of the project, and the description should be a 3 - 5 sentences definition of the project with some background, goal and details. Study's metadata will be publicly available on the EGA website.
 
-* **Samples**. Information about the sequencing samples in the experiment or analysis. You can also do a batch upload for samples. Samples’ metadata are subject to being identifiable, and thus only accessible by authorized data requesters, with the exception of alias, title, subject_id, gender and phenotype. It is the submitter’s responsibility not to submit sensitive metadata in these public fields. Also, anonymised fields that pinpoint the sample record in archivals - sample’s EGA stable ID (EGAN…), BioSample ID (SAMEA…) and submitter’s center name - are publicly available on the EGA website.
+* **Samples**. Information about the sequencing samples in the experiment or analysis. You can also do a batch upload for samples. Samples’ metadata are subject to being identifiable, and thus only accessible by authorized data requesters, with the exception of *alias*, *title*, *subject_id*, *gender* and *phenotype*. It is the submitter’s responsibility not to submit sensitive metadata in these public fields. Also, anonymised fields that pinpoint the sample record in archivals - sample’s EGA stable ID (EGAN…), BioSample ID (SAMEA…) and submitter’s center name - are publicly available on the EGA website.
 
 * **Experiments**. Information about the sequencing methods, protocols, and machines. Experiments' metadata will be publicly available on the EGA website.
 
