@@ -1,6 +1,6 @@
 ---
 tags:
-  - Free
+  - Academic
 catalog:
   name: HADDOCK3
   description: High Ambiguity Driven biomolecular DOCKing
