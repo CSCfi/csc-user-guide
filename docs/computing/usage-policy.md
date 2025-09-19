@@ -66,7 +66,8 @@ at all on CPUs. A good rule of thumb is to compare the
 [billing unit (BU)](../accounts/billing.md) usage (_e.g._ with
 [`seff`](./performance.md#quick-start-efficiency-report-with-seff)
 or the [billing unit calculator](https://research.csc.fi/billing-units/#buc))
-of the job on GPUs against CPUs and select the one using less.
+of the job on GPUs against CPUs and select the one using less. One CPU BU and one 
+GPU BU are equal in terms of cost.
 
 For Puhti and Mahti, this means that a full node of CPU cores roughly equals
 one GPU. However, since Puhti and Mahti have more CPU capacity than GPU, you
@@ -89,24 +90,44 @@ See [Conda best practices](../support/tutorials/conda.md) for more information.
 
 ## Running out of billing units
 
-In Puhti and Mahti the users need billing units to use the services. When a
-project runs out of billing units the ability to use the service will be
-limited in two phases. Immediately after running out of billing units no new
-jobs can be submitted. Jobs that are running are not interrupted and will run
-until completion/timeout. After a 30-day grace period the access to `/projappl`
-and `/scratch` folders will be disabled. No data is deleted, it is only access
-that is disabled. Data will, however, still be removed from `/scratch` in the
-[normal cleaning process](#disk-cleaning).
+When a project runs out of billing units, the ability to use
+the service will be limited in three phases.  If you are still
+actively using the project you can lift the limitations by
+[applying](../accounts/how-to-apply-for-billing-units.md) for more
+billing units.
+
+In the first phase the ability to submit new jobs is limited:
+
+* If you run out of storage BUs, no new jobs can be submitted to any
+partition 
+* If you run out of CPU BUs, no new jobs can be submitted to CPU partitions
+* If you run out of GPU BUs, no new jobs can be submitted to GPU partitions
+
+In other words, running out of CPU or GPU BUs only affects the
+corresponding partition type, while storage BUs affect all. Jobs that
+are running are not interrupted and will run until completion/timeout.
+
+
+In the second step data access is limited. When you run out of storage
+BUs a 30-day grace period starts, after which access to `/projappl`
+and `/scratch` folders is disabled. No data is deleted, it is only
+access that is disabled. Data will, however, still be removed from
+`/scratch` during the [normal cleaning process](#disk-cleaning). Note that
+having negative balance for CPU or GPU BUs does not trigger this step,
+only a negative storage BU balance.
+
 
 If you are not using a project actively we encourage you to migrate any data
 that you still need within the 30-day grace period and then
 [close the project](../accounts/how-to-manage-your-project.md#project-closure)
-in MyCSC.
+in MyCSC. 
 
-If you are still actively using the project you can gain access to the compute
-resources and storage by
-[applying](../accounts/how-to-apply-for-billing-units.md) for more billing
-units.
+In the third phase the project is closed after a 60-day grace period
+if you have run out of BUs of any type. If the project still has a
+negative amount of billing units of any type after 60 days, it will be
+closed.
+
+
 
 ## Slurm job management by CSC
 
