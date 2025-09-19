@@ -104,13 +104,13 @@ Each new project starts with **10,000 BUs**, usually enough for initial testing 
   Click **Apply for resources** and follow the step by step instructions.
 
 
-2. The **quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed by conacting  service desk _(subject: Increase Allas quota). 
+2. The **quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed by contacting  service desk _(subject: Increase Allas quota). 
 
 
 
 #### SD Connect BU consumption
 
-SD Connect stores data into CSC's cloud infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes billing units at a rate of **1.3 Storage BUs per TB per hour**.
+SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes billing units at a rate of **1.3 Storage BUs per TB per hour**.
 
 Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
@@ -127,7 +127,7 @@ Analysing data in SD Desktop consumes **Cloud Billing Units** based on the type 
 
 Here’s a table summarizing the billing units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
 
-| Desktop Option | Could Billing Rate (units/hour) |  Could Billing Units (6 Months) | Could Billing Units (1 Year) |
+| Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units (6 Months) | Cloud Billing Units (1 Year) |
 |----------------|---------------------------|--------------------------|------------------------|
 | Small Computation | 5.2 | 22,464 | 44,928 |
 | Medium Computation | 10.4 | 44,928 | 89,856 |
