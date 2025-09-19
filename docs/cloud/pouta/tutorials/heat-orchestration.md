@@ -14,7 +14,7 @@ You can access this feature in the web user interface's left hand panel or using
 
 These instructions provide a simple example on how to set up a stack via the web user interface. To create a Heat stack, click the "Stacks" link in the _Orchestration_ menu. The opened view displays all existing stacks and provides the button "Launch Stack" to launch a new stack. In the window which was opened after clicking the "Launch  Stack" button, you can upload an existing template that you created or you can start configuring your stack. Selecting a template is mandatory, and the template data can also be provided as direct input, as depicted in the picture below. Note that this picture contains a valid, yet simple example of a template which builds two instances and displays the IP address of the first instance.
 
-![Template selection](../../../img/stacks-view.png)  
+![Template selection](../../img/stacks-view.png)  
 
 Here is the example:  
 ```yaml
