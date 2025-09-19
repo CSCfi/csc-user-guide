@@ -1,10 +1,12 @@
 # Virtual machine flavors and billing unit rates
 
-Currently, Pouta will bill for the use of 3 resources: storage volumes, floating IPs and virtual machines. The account of use of resources is done in increments of one hour. A good way to estimate usage cost is the [Billing unit calculator](https://research.csc.fi/resources/#buc) utility.
+Currently, Pouta will bill for the use of 3 resources: storage volumes, floating IPs and virtual machines. The account of use of resources is done in increments of one hour. A good way to estimate usage cost is the [Billing unit calculator](https://research.csc.fi/resources/#buc) utility. All these resources consume Cloud Billing Units, for more information about Billing in CSC, visit the [Billing](../../accounts/billing.md) page.
 
-- **Storage volumes**: 3,5 BU / TiB hour. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems.
-- **Floating IPs**: 0,2 BU / hour. Every floating IP reserved to the project is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume billing units.
-- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume BUs regardless whether you are using them or not. This means that a shut down or suspended virtual machine still consumes BUs, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
+- **Storage volumes**: 3,5 CBU / TiB hour. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes CBUs even if they are not attached to virtual machines. This is because the data is still stored on our systems.
+- **Floating IPs**: 0,2 CBU / hour. Every floating IP reserved to the project is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume cloud billing units.
+- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume CBUs regardless whether you are using them or not. This means that a shut down or suspended virtual machine still consumes CBUs, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their CBU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
+
+\* **CBU**: Cloud Billing Units
 
 ## Quotas
 
@@ -24,14 +26,14 @@ Additional quota can be requested by sending an email to [csc service desk](../.
 ## cPouta flavors
 
 The following tables list the available virtual machine flavors in cPouta and their
-billing unit coefficients.
+cloud billing unit coefficients.
 Note that the default cPouta user account
 allows users to launch only a subset of the available virtual machine
 flavors.
 
 ### Standard flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |standard.tiny   |1|0.9 |80 |0 |0.9  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|0.25 |
 |standard.small  |2|1.9  |80 |0 |0.9  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|0.5  |
@@ -45,7 +47,7 @@ See more details on the [Standard flavors](#cpouta) section.
 
 ### HPC flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | hpc.6.14core    | 14 | 88  | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 23 |
 | hpc.6.28core    | 28 | 176 | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 45 |
@@ -65,7 +67,7 @@ See more details on the [HPC flavors](#cpouta_1) section.
 
 ### I/O flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | io.70GB  | 2  | 9.7 | 20 | 70  | 90  | 4.8   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 3  |
 | io.160GB | 4  | 19 | 20 | 160 | 180 | 4.7   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 6  |
@@ -82,7 +84,7 @@ See more details on the [I/O flavors](#cpouta_2) section.
 
 ### GPU flavors
 
-|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | gpu.1.1gpu | 14 | 1 | 117 | 80 |0 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 60  |
 | gpu.1.2gpu | 28 | 2 | 234 | 80 |0 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 120 |
@@ -99,7 +101,7 @@ billing unit coefficients.
 
 ### Standard flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | standard.tiny    | 1 | 0.9  | 80 | 0 | 0.9   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 0.25 |
 | standard.small   | 2 | 1.9  | 80 | 0 | 0.9   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 0.5  |
@@ -113,7 +115,7 @@ See more details on the [Standard flavors](#epouta) section.
 
 ### HPC flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | hpc.6.14core    | 14 | 88  | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 25 |
 | hpc.6.28core    | 28 | 176 | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 50 |
@@ -133,7 +135,7 @@ See more details on the [HPC flavors](#epouta_1) section.
 
 ### I/O flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | io.2.80GB         | 2  | 12,7 | 80 | 80  | 160  | 6.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 6  |
 | io.2.240GB        | 4  | 26  | 80 | 240  | 320  | 6.6 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 12  |
@@ -144,7 +146,7 @@ See more details on the [I/O flavors](#epouta_2) section.
 
 ### High memory flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | tb.3.480RAM  | 56 | 480  | 20 | 1650 | 1730 | 8.5  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 110 |
 | tb.3.1470RAM | 80 | 1470 | 80 | 2500 | 2580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 320 |
@@ -155,7 +157,7 @@ See more details on the [High memory flavors](#epouta_4) section.
 
 ### GPU flavors
 
-|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
+|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | gpu.1.1gpu | 14 | 1 | 117 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 60  |
 | gpu.1.2gpu | 28 | 2 | 234 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 120 |
@@ -408,7 +410,7 @@ virtual machines that use these flavors will continue to
 work.** We will maintain these flavors for a period of time,
 but they will be removed at some point in the near future.
 
-|Flavor|Cores|Memory <br/>(GiB)|Root<br/> disk <br/>(GB)|Ephemeral<br/> disk <br/>(GB)|Total<br/> disk <br/>(GB)|Memory/<br/> core <br/>(GiB)|Redundancy|Billing<br/> Units<br/>/h|
+|Flavor|Cores|Memory <br/>(GiB)|Root<br/> disk <br/>(GB)|Ephemeral<br/> disk <br/>(GB)|Total<br/> disk <br/>(GB)|Memory/<br/> core <br/>(GiB)|Redundancy|Cloud<br/>Billing<br/> Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | hpc-gen1.1core  | 1  | 3.7 | 80 (RAID0)  | 0            | 80  | 3.7 | | 2  |
 | hpc-gen1.4core  | 4  | 15  | 80 (RAID0)  | 0            | 80  | 3.7 | | 8  |

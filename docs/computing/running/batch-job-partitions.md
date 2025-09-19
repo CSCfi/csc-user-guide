@@ -106,7 +106,7 @@ and make it inaccessible to other jobs. Thus, your job should ideally be able
 to utilize all 128 cores available on each reserved node efficiently. Although
 in certain situations it may be worthwhile to
 [undersubscribe nodes](creating-job-scripts-mahti.md#undersubscribing-nodes),
-note that your job will still consume billing units based on the amount of
+note that your job will still consume CPU billing units based on the amount of
 reserved *nodes*, not CPU cores.
 
 Some partitions are only available under special conditions. The `large`

@@ -83,26 +83,38 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 5. Apply billing units for your project
 
-Every active service a CSC project consumes both **Billing Units (BUs) and storage quota**. BUs helps CSC to track how much computing power, processing time your CSC project uses, while quota limits the amount of storage space available. 
+#### Every active CSC project consumes both Billing Units (BUs) and storage quota.
 
--  Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_
-   
-- Each new project starts with **10,000 BUs**, usually enough for initial testing but you need to plan how many BUs you will need for **1 year**.
+1. **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes.
+
+CSC uses different types of billing units to measure resource usage based on the service:
+
+- SD Desktop consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources.
+  
+- SD Connect consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
+BUs  while quota limits the amount of storage space available. 
+
+
+Each new project starts with **10,000 BUs**, usually enough for initial testing but you need to plan how many BUs you will need for **1 year**.
 
 **You can then apply for more BUs for your CSC project in MYCSC portal**: 
    
-1. Login to https://my.csc.fi, click on your CSC project. In the new view, scroll down and go to the **Resources** window.
+- Login to https://my.csc.fi, click on your CSC project. In the new view, scroll down and go to the **Resources** window.
    
-2. Click **Apply for resources** and follow the step by step instructions.
+  Click **Apply for resources** and follow the step by step instructions.
+
+
+2. The **quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed by contacting  service desk _(subject: Increase Allas quota). 
+
 
 
 #### SD Connect BU consumption
 
-SD Connect stores data into CSC's cloud infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes billing units at a rate of **1.3 billing unit per TB per hour**.
+SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes billing units at a rate of **1.3 Storage BUs per TB per hour**.
 
 Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
-| **Storage Size** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
+| **Storage Size** | ** Storage Billing Units (6 Months)** | ** Storage Billing Units (1 Year)** |
 |------------------|------------------------------|----------------------------|
 | 500 GB (0.5 TB) | 2,847 units | 5,694  units |
 | 1 TB | 5,694 units | 11,388 units |
@@ -111,11 +123,11 @@ Here’s a table summarizing the billing units required for storing data in **SD
 
 #### SD Desktop BU consumption
 
-Analysing data in SD Desktop consumes billing units based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
+Analysing data in SD Desktop consumes **Cloud Billing Units** based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
 
 Here’s a table summarizing the billing units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
 
-| Desktop Option | Billing Rate (units/hour) | Billing Units (6 Months) | Billing Units (1 Year) |
+| Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units (6 Months) | Cloud Billing Units (1 Year) |
 |----------------|---------------------------|--------------------------|------------------------|
 | Small Computation | 5.2 | 22,464 | 44,928 |
 | Medium Computation | 10.4 | 44,928 | 89,856 |

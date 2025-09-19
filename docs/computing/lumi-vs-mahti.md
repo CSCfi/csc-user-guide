@@ -54,7 +54,9 @@ Note that LUMI consortium country projects (e.g. Finnish LUMI projects) use diff
 
 ## Billing
 
-Billing on LUMI differs from Mahti. The consumption of billing units (BUs) depends for example on which partition you are running on, as well as on whether you are using CPU, GPU (LUMI-G/LUMI-D) or storage resources, thus amounting to three different billing currencies. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
+LUMI does not share the same billing units as other CSC services like Mahti. However, the billing model is similar in that there are different units for CPU compute, GPU compute and storage resources, and that granted resources are periodically cut if left unused.
+
+[See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
 
 ## Sensitive data
 

@@ -1,12 +1,9 @@
 # How is the computing time calculated?
 
-The pricing of computing, cloud and storage services is based on billing units
-(BUs). Hourly rate of BU consumption depends on the service, as described in
-more detail in our [billing models](../../accounts/billing.md).
-
-You can use the
-[billing unit calculator](https://research.csc.fi/billing-units#buc) to
-estimate your billing unit usage in different scenarios.
+The pricing of HPC CPU, HPC GPU, cloud and storage resources is based on CPU,
+GPU, Cloud and Storage Billing Units (BUs), respectively. Hourly rate of BU
+consumption depends on the BU flavor and service, as described in more detail
+in our [billing models](../../accounts/billing.md).
 
 See how to
 [apply for more billing units](../../accounts/how-to-apply-for-billing-units.md).
