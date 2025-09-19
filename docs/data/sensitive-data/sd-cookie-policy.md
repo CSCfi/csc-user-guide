@@ -14,7 +14,7 @@ These include:
 [CSC Privacy Notice](https://research.csc.fi/security/) and [Terms of Use](https://research.csc.fi/terms-of-use/)
 
 
-# Sensitive Data (SD) -palveluiden evästekäytäntö
+# Sensitive Data (SD)-palveluiden evästekäytäntö
 
 Käytämme vain välttämättömiä evästeitä varmistaaksemme SD-palveluiden toimivuuden. Nämä evästeet ovat tarpeellisia SD Applyn, SD Connectin, SD Desktopin ja Federated EGA:n käytössä, eikä niitä voi poistaa käytöstä.
 
