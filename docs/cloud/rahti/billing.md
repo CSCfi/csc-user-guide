@@ -3,8 +3,8 @@
 ## Terminology
 
 * Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
-* Cloud billing unit (CBU): Billing units assigned to Cloud resource usage.
-* CSC computing project: A placeholder for the user's resources information - including: the number of CBUs and the CSC
+* Cloud billing unit (Cloud BU): Billing units assigned to Cloud resource usage.
+* CSC computing project: A placeholder for the user's resources information - including: the number of Cloud BUs and the CSC
 services which are available for use.
 * Rahti project: A Kubernetes namespace with additional annotations.
 
@@ -44,9 +44,9 @@ and the current real usage is:
 * 1 GiB RAM
 
 You also create a persistent volume of size 10 GiB and attach it to the pod. The
-cost in CBUs can be calculated as follows:
+cost in Cloud BUs can be calculated as follows:
 
-The core usage is 0.5 cores and the request is 1 cores. According to the CBU consumption rate 1 > 0.5 so 1 is used.
+The core usage is 0.5 cores and the request is 1 cores. According to the Cloud BU consumption rate 1 > 0.5 so 1 is used.
 
 The memory usage is 1 GiB and the request is 512 MiB. The same goes for memory usage 1 GiB > 512 MiB so 1 GiB is used
 
@@ -63,23 +63,23 @@ billing unit calculator below. The [billing unit calculator can also be found at
 -->
 ## Cost Change when migrating from Rahti 1 to Rahti
 
-While migrating from Rahti 1 to Rahti, CBU calculation will be changed. The main differences in calculation are:
+While migrating from Rahti 1 to Rahti, Cloud BU calculation will be changed. The main differences in calculation are:
 
 * In Rahti 1, they are calculated based on requested resources while in Rahti,  they are calculated based on current uses. If current uses is lower than the minimum requested resource, requested resource is used for the calculation.
-* CBU for Pod core hour in Rahti 1 is 0.5 and in Rahti it is 1.
-* CBU for Pod RAM GiB hour in Rahti 1 is 1 where in Rahti It is 1.5.
+* Cloud BU for Pod core hour in Rahti 1 is 0.5 and in Rahti it is 1.
+* Cloud BU for Pod RAM GiB hour in Rahti 1 is 1 where in Rahti It is 1.5.
 
-Note: CBU for Storage TiB hour is same i.e. 3.
+Note: Cloud BU for Storage TiB hour is same i.e. 3.
 
-So, in case of the above example the CBU calculation for Rahti 1 is
+So, in case of the above example the Cloud BU calculation for Rahti 1 is
 
-![CBU calculation for Rahti 1](./images/Rahti1BU.drawio.svg)
+![Cloud BU calculation for Rahti 1](./images/Rahti1BU.drawio.svg)
 
-Default limits in Rahti can be set lower than the default quota. Where in Rahti 1 default limit is same as default quota. For more details [Migration to Rahti](../rahti/rahti-migration.md). This can decrease the default costs for the user. For the same example the CBU For Rahti 1:
+Default limits in Rahti can be set lower than the default quota. Where in Rahti 1 default limit is same as default quota. For more details [Migration to Rahti](../rahti/rahti-migration.md). This can decrease the default costs for the user. For the same example the Cloud BU For Rahti 1:
 
 ![Default cost for Rahti 1](./images/Rahti1Requests.drawio.svg)
 
-and for Rahti CBU will lie between 
+and for Rahti Cloud BU will lie between 
 limits:
 
 ![Default limits for Rahti](./images/RahtiLimits.drawio.svg)
@@ -88,6 +88,6 @@ and requests:
 
 ![Default requests for Rahti](./images/RahtiRequest.drawio.svg)
 
-Note : CBU for Storage TiB hour is considered same i.e. 3.
+Note : Cloud BU for Storage TiB hour is considered same i.e. 3.
 
-!!! info "\* **CBU**: Cloud Billing Unit"
+!!! info "\* **Cloud BU**: Cloud Billing Unit"

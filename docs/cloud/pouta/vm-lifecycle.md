@@ -1,4 +1,4 @@
-# VM lifecycle & saving CBUs
+# VM lifecycle & saving Cloud BUs
 
 This article explains the different states that virtual machine instances
 can have and their effect on resource usage.
