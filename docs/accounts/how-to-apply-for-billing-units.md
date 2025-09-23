@@ -28,3 +28,36 @@ Submit a resource application:
 Billing unit applications cannot be edited after submission, but you
 can ask us to reject them, after which you can submit another
 application. [See our contact details here](../support/contact.md).
+
+```mermaid
+flowchart TD
+    A(("Resource
+       application
+       is made"))
+    B{Application
+      size?}
+    C1["Automatic grant
+       (instant)"]
+    C2["Monitor approval
+       (2-3 days)"]
+    C3["CSC resource allocation
+       group approval (every 3
+       weeks)"]
+    D{"Is application larger
+      than 0.5x of remaining
+      BUs?"}
+    E1["Next cutter date
+       unchanged"]
+    E2["Next cutter date
+       pushed forward"]
+
+    A-->B
+    B-->|S|C1
+    B-->|M|C2
+    B-->|L|C3
+    C1-->D
+    C2-->D
+    C3-->D
+    D-->|No|E1
+    D-->|Yes|E2
+```
