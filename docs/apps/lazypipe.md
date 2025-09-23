@@ -88,7 +88,7 @@ Listing background filters available for Lazypipe module:
 
 ```bash
 lazypipe.pl --filters 
-``
+```
  
 ## More information
 
