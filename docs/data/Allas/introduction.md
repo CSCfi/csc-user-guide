@@ -53,19 +53,18 @@ To be able to use Allas, you need to have:
 * [CSC account](../../accounts/how-to-create-new-user-account.md)
 * [CSC a computing project](../../accounts/how-to-create-new-project.md) for which [Allas service has been enabled](../../accounts/how-to-add-service-access-for-project.md)
 
-
 ## Billing and quotas
 
 Allas usage is based on CSC projects. All project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all other project members can also read, edit and delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
 
 **The default quota for a new project is 10 TB**, but that can be increased if needed. Allas is the preferred storage site for any large datasets in the CSC environment, so you should not hesitate to request a larger quota for Allas, if you work with larger data sets.
 
-To increase your Allas quota, please send a request to: `servicedesk@csc.fi`
+To increase your Allas quota, please send a request to [CSC Service Desk](../../support/contact.md).
 In the request, define what Allas project you are using, how large storage space is needed and what kind of data will be stored to Allas.
 
 Note that the data stored in Allas
-[consume billing units of the project](../../accounts/billing.md).
-In Allas, billing is based on the amount of data stored. The rate is 1 BU/TiBh, i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year.
+[consume Storage Billing Units of the project](../../accounts/billing.md).
+In Allas, billing is based on the amount of data stored. The rate is 1 Storage BU/TiBh, i.e. 1 TiB of data stored in Allas consumes 24 Storage BU in a day and 8760 Storage BU in a year.
 
 Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 
