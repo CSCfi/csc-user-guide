@@ -11,8 +11,7 @@ is granted to CSC projects. The same applies to the billing units that are consu
 A CSC project can include one or several CSC user accounts and one user account can be a member in several projects. Each CSC project must have a Project Manager, who creates the project, manages the user accounts and services that belong to the project and is responsible of the resource usage.
 The Project Manager is typically a leader of a research team or other senior researcher. See more detailed [project manager prerequisites](https://research.csc.fi/en/prerequisites-for-a-project-manager){:target="_blank"}.
 
-*   **Billing Units** (BUs) are used to allocate resources to users' projects. You can apply for Billing Units in [MyCSC](https://my.csc.fi) portal and CSC grants BUs to projects. [Usage consumes billing units](billing.md) but **no actual payment** is required.
-However, the amount of billing units must always remain positive.
+*   **Billing Units** (BUs) are used to allocate resources to users' projects. Projects can have 4 different BU types; **CPU**, **GPU**, **Storage** and **Cloud** and they are consumed as you use our services in your research. You can apply for Billing Units in [MyCSC](https://my.csc.fi) portal and CSC grants BUs to projects. [Usage consumes billing units](billing.md) but **no actual payment** is required.
 
 *   **LUMI projects** are used to manage access to LUMI and the resources provided by it. LUMI projects are restricted to LUMI environment only (LUMI-C, LUMI-G etc.). Finnish LUMI projects are fixed in time and resources, and the total resources must be defined already in the project application. Lumi projects are also used for [FiQCI quantum computers](../computing/quantum-computing/access.md). For further information please see [these instructions](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}. 
 
