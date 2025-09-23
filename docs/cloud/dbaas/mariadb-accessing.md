@@ -1,9 +1,7 @@
 # Accessing your MariaDB instance
 !!! warning "MariaDB in Pukki is still in beta"
     This means that it hasn't been tested as extensively as PostgreSQL, and there might still be
-    large changes to how Pukki manages MariaDB database instances. We have extended the MariaDB
-    beta phase until the end of August 2025 because we discovered during stress testing that
-    our backup process occasionally fails silently.
+    large changes to how Pukki manages MariaDB database instances.
 
 ## Graphical user interface
 You can find a non-comprehensive list of different graphical interfaces for using MariaDB on
@@ -15,8 +13,8 @@ MariaDB Connectors are used for creating database connections from applications,
 and are available for many popular programming languages. You can find more information
 regarding their usage and configuration in MariaDB's documentation:
 
-  * [https://mariadb.com/docs/server/connect/](https://mariadb.com/docs/server/connect/)
-  * [https://mariadb.com/kb/en/connectors/](https://mariadb.com/kb/en/connectors/)
+  * [Connect and Query](https://mariadb.com/docs/server/clients-and-utilities/server-client-software/client-libraries/connect-and-query)
+  * [Connectors Release Notes](https://mariadb.com/kb/en/connectors/)
 
 **Please pay special attention to SSL configuration** - as Pukki only allows SSL connections
 to its MariaDB instances, you *will* have to set up configuration options related to that.

@@ -84,6 +84,9 @@ plugins:
         "support/faq/cannot-login-from-nomachine.md": "apps/nomachine.md"
         "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
         "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
+        "computing/allas.md": "data/Allas/allas-hpc.md"
+        "computing/containers/creating.md": "computing/containers/overview.md"
+        "computing/containers/run-existing.md": "computing/containers/overview.md"
         # renamed files:
         "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
         "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
@@ -103,6 +106,7 @@ plugins:
         "computing/nsys.md": "apps/nsys.md"
         "computing/nvprof.md": "apps/nvprof.md"
         "computing/pdb.md": "apps/pdb.md"
+        "data/Allas/allas-examples.md": "data/Allas/allas-hpc.md"
         # files moved to Allas:
         # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
         "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -174,6 +178,7 @@ plugins:
         "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
         "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
         "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+        "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
 
 
 markdown_extensions:
@@ -289,7 +294,6 @@ nav:
       - Supercomputer storage:
           - computing/disk.md
           - Lustre filesystem: computing/lustre.md
-          - Allas object storage: computing/allas.md
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
@@ -310,11 +314,10 @@ nav:
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md
       - Performance analysis: computing/performance.md
-      - Containers:
+      - Apptainer containers:
           - computing/containers/overview.md
-          - Running containers: computing/containers/run-existing.md
-          - Creating containers: computing/containers/creating.md
-          - Container wrapper (Tykky): computing/containers/tykky.md
+          - Examples: computing/containers/examples.md
+          - Tykky: computing/containers/tykky.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
@@ -510,17 +513,19 @@ nav:
           - Common Error Messages: data/Allas/using_allas/error_messages.md
           - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
           - Allas clients:
-              - Allas Web UI: data/Allas/using_allas/allas-ui.md
+              - Allas connection configuration: data/Allas/using_allas/allas-conf.md          
+              - Allas web UI: data/Allas/using_allas/allas-ui.md
+              - Puhti/Mahti web UI: computing/webinterface/file-browser.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
               - Python with S3: data/Allas/using_allas/python_boto3.md
-              - Python with SWIFT: data/Allas/using_allas/python_swift.md
+              - Python with Swift: data/Allas/using_allas/python_swift.md
               - Rclone from Computing environment: data/Allas/using_allas/rclone.md
               - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
               - Swift: data/Allas/using_allas/swift_client.md
               - S3cmd: data/Allas/using_allas/s3_client.md
-              - Web GUI: data/Allas/using_allas/web_client.md
+              - Pouta web UI: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
       - Kaivos database service:
           - data/kaivos/overview.md

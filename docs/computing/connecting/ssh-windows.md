@@ -90,7 +90,7 @@ Configuration --> SSH`).
 
 ## PuTTY
 
-The [PuTTY SSH client](https://putty.org/) is an alternative to using OpenSSH.
+The [PuTTY SSH client](https://www.chiark.greenend.org.uk/~sgtatham/putty/) is an alternative to using OpenSSH.
 
 ### Generating SSH keys (PuTTY)
 

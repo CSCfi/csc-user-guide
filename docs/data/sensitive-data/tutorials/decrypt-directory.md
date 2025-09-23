@@ -77,7 +77,7 @@ The script could be executed with commands:
 
 ```bash
   chmod u+x decryption_script
-  ./chmod u+x decryption_script
+  ./decryption_script
 ```
 
 

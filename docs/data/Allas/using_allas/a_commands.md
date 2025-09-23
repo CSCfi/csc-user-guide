@@ -1,6 +1,6 @@
 # a-commands, easy and safe
 
-The Allas object storage system can be used in multiple ways and for many purposes. In many cases, using Allas efficiently requires that the user know the features of both the object storage system and the software or protocol used to manage the data in Allas.
+The Allas object storage system can be used in multiple ways and for many purposes. In many cases, using Allas efficiently requires that the user knows the features of both the object storage system and the software or protocol used to manage the data in Allas.
 
 For users who simply want to use Allas for storing data that is in the CSC computing environment, CSC provides a set of commands for managing and moving data between the CSC computing environment and Allas:
 
@@ -22,7 +22,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 
 In addition to the above commands, there are separate tools for other purposes:
 
- * __allas_conf__ : Set up and open a connection to Allas
+ * [__allas_conf__](allas-conf.md) : Set up and open a connection to Allas
  * [__allas-backup__](./a_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
  * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
  * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
@@ -38,32 +38,18 @@ a-put --help
 
 # Example: Saving data from scratch directory to Allas
 
-## Opening a connection
+## Configuring a connection in supercomputers
 
 In order to use these tools in Puhti and Mahti, first load a-commands:
 ```text
 module load allas
 ```
-Then open a connection to Allas:
+
+Configure Allas connection with [`allas-conf`](allas-conf.md).
+
 ```text
 allas-conf
 ```
-The connection remains open for eight hours. You can rerun the _allas-conf_ command at any time
-to extend the validity of the connection for eight more hours or to switch to another Allas 
-project. 
-
-By default, _allas-conf_ lists your projects that have access to Allas, but if you know the name of the project, you
-can also give it as an argument:
-```text
-allas-conf project_201234
-```
-Note that the Allas project does not need to be the same as the project you are using in Puhti or Mahti.
-
-If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipeline takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
-```text
-allas-conf -k
-```
-With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
 
 ## Copying data between Puhti scratch directory and Allas
 
@@ -107,7 +93,7 @@ By default, this tool performs the following operations:
 define the project that will be used to store the data.
 
 2.    In the case of a directory, the content of the directory is collected as a single file
-using the `tar` command.
+using the `tar` command. If you have a lot of data, this might not be a good option, consider then using some other [Allas client](../accessing_allas.md) that does not package files.
 
 3.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
 
@@ -369,7 +355,7 @@ Options:
 - **-t** **--target_file** <file_name> Define a file name for the object for the object to be downloaded.
 - **-l** **--original_location**       Retrieve the data to the original location in the directory structure.
 - **--asis**                        Download the object without unpacking tar files and uncompressing zst compressed data.
-- **--s3cmd**                       Use S3 protocol and s3cmd command for data retrieval in stead of Swift protocol and rclone.
+- **--s3s3cmd**                       Use S3 protocol and s3cmd command for data retrieval in stead of Swift protocol and rclone.
 
 At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need to use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
 
@@ -469,5 +455,3 @@ a-put --nc my_data.b
 ```
  
 You can check most commonly used settings from this sample [.a_tools_conf](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf) file. Copy the sample file to your home directory and un-comment and define the variables you wish to use.
-
-

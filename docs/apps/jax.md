@@ -69,7 +69,7 @@ those provided by installed packages should work as normal.
 For other commands, you may need to prefix them with
 `apptainer_wrapper exec`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md).
+containers](../computing/containers/overview.md#running-containers).
 
 
 ## Additional packages
