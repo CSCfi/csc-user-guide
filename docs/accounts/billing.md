@@ -5,16 +5,14 @@ search:
 
 # Billing
 
-CSC's services are free of charge for academic research, teaching or training
-for members of Finnish higher education institutions and state research institutes.
+CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes. **Billing Units** (BUs) are used to allocate resources for users' projects using our services. You can apply for Billing Units in [MyCSC](https://my.csc.fi) portal and CSC grants BUs to projects. [Usage consumes billing units](billing.md) but **no actual payment** is required.
 
-See the [Billing unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"}
-at research.csc.fi.
+See the [Billing unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"} at research.csc.fi.
 
 **The billing rates for the services are as follows:**
 
 * [Puhti and Mahti billing](../computing/hpc-billing.md)
-* Allas object storage billing:  1 TiB consumes **1** BU per hour. Only actual
+* Allas object storage billing:  1 TiB consumes **1** storage BU per hour. Only actual
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
 * [Rahti billing](../cloud/rahti/billing.md)
@@ -34,13 +32,13 @@ In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the
 billing unit consumption and apply for more billing units. There you can easily
 check who consumed the billing units, when they were consumed and in which
 service. Note that storage-related billing unit consumption (in Puhti/Mahti Scratch folders and in
-Allas) is not linked to a specific user account and is reported as "other".
+Allas) is not linked to a specific user account and is reported as "other" or "system".
 
 
 
 ## Restricted service access and CSC Project closure when billing units have been consumed
 
-When all billing units in your CSC Project have been consumed, service usage can be limited in services that consume billing units. You can track your CSC Project's billing unit usage via MyCSC as described above. You can regain full access to your services by applying for additional billing units using the MyCSC portal.
+When all billing units (CPU, GPU, Storage or Cloud) in your CSC Project have been consumed, service usage can be limited in services that consume billing units. You can track your CSC Project's billing unit usage via MyCSC as described above. You can regain full access to your services by applying for additional billing units using the MyCSC portal.
 
 You will be notified before your CSC Project's billing units run out. When an academic CSC project has run out of of billing units, the project members have 60 days to apply for additional billing units. If the billing units run out and after 60 days, the CSC project still has a negative amount of billing units, it will be closed.
 
