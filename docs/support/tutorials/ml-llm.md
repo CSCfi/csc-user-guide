@@ -191,7 +191,7 @@ It can take hours to quantize very large models, but luckily many models already
 
 ---
 
-## Using quantization
+## Using BitsandBytes Quantization
 
 Using the **bitsandbytes** library, you can also use 4-bit quantization.  
 [Quantization has been integrated into Hugging Face Transformers as well](https://huggingface.co/blog/4bit-transformers-bitsandbytes).
