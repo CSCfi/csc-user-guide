@@ -15,7 +15,7 @@ To select the correct service, begin by identifying the type of data you are pro
 
 1.2 with SD Desktop, you can access a set of pre-built secure cloud computing environments via the public internet. You can carry out simple statistical analysis or complex computing in your private workspace. Once the analysis is finalized, you can quickly delete the Desktop.
 
-2. **Secondary use of health and social data**, register data provided by the Findata authority or a public register can be accessed and analysed only with a restricted version of SD Dekstop. 
+2. **Secondary use of health and social data**, register data provided by the Findata authority or a public register can be accessed and analysed only with a restricted version of SD Desktop. 
 
 
 
