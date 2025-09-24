@@ -91,7 +91,8 @@ def translate_markdown(content, target_language, source_language="English", open
             instructions="You are a professional translator specializing in technical documentation.",
             input=prompt_template.substitute(source=source_language,
                                              target=target_language,
-                                             markdown=content)
+                                             markdown=content),
+            max_output_tokens=16000
         )
 
         return response.output_text
@@ -222,7 +223,7 @@ def main():
             ("Language [code]:", f"{target_language} [{lang_code}]"),
             ("Destination directory:", str(lang_dir)),
             ("Glob:", f"'{args.glob}'" if args.glob else '<disabled>'),
-            ("OpenAI model:", model),
+            ("OpenAI model:", args.model),
             ("Copy assets:", f"{'Yes' if args.copy_assets else 'No'}"),
             ("Force retranslation:", f"{'Yes' if args.force else 'No'}")
         )
