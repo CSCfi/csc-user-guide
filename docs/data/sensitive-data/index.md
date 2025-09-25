@@ -36,34 +36,15 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
 
+    [Video tutorials :material-arrow-right:](videotutorials.md)
+
     [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
 
     [Useful terminology :material-arrow-right:](sd-terminology.md)
 
     [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
 
-</div>
-- #### Additional Resources
 
-    ---
-
-    What's new with Sensitive Data services :material-arrow-right:  
-    [Video tutorials :material-arrow-right:](vide[Frequently Askedright:](../../support/faqnology :material-arrowright:  
-    [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for class="grid csc-quick-links csc-quick-links--portals" markdown>
-
-[Create and manage CSC account with MyCSC :material-open-in-new:](https://my.ctle="MyCSC user portal" target=_blank }  
-[Store and share with SD Connect :material-open-in-new:](https://sd-connectensitive Data (SD) Connect" target=_blank }  
-[Analyse with SD Desktop :material-open-in-new:](https://sd-desktopensitive Data (SD) Desktop" target=_blank }  
-[Reuse with SD Apply :material-open-in-new:](https://sd-apply.csc.fi/ve Data (SD) Apply" target=_blank }
+  
 
 </div>
-
-### Service breaks
-
-SD services undergo regular maintenance on the **first Wednesday of every month**. For full details, please visit the [Service Breaks page on the _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/service! info "Do you have any questions? Would you like to discuss how SD services can support your research project?"
-
-    - [Contact us](../../supportitive Data services*  
-    - Join the [CSC Research User Support Coffee – Every Wednesday at 14:00](https://ssl.eventilla.com/userser on-demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
-
----
-
