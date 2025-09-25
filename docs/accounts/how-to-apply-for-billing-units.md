@@ -3,7 +3,18 @@
 If your project is running low on billing units, you're expected to apply for more. You need to estimate your consumption and submit your billing unit application in the [MyCSC](https://my.csc.fi) portal. Your application will be reviewed by the CSC resource allocation team and, depending on your resource needs, you'll be awarded appropriate resources.
 Please note that having a negative billing unit balance will result in restrictions on our services.
 
-Submit a resource application:
+## Available billing unit packages
+
+These are the available billing unit packages in [MyCSC](https://my.csc.fi) portal. 
+| Package   |     CPU      |  GPU  | Storage   |  Cloud |
+|-----------|:------------:|:-----:|:---------:|------: |
+| Small     | 60 000  | 10 000  | 30 000  |  30 000 |
+| Medium    | < 600 000  |  < 100 000 |  < 300 000 | < 300 000 |
+| Large     | < 6 000 000 | < 1 000 000 | < 3 000 000 | < 3 000 000 |
+
+
+
+## How to submit a resource application:
 
 1. Login to [MyCSC](https://my.csc.fi).
 2. Choose _Projects_ in the navigation menu on the left.
