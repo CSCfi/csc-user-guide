@@ -249,7 +249,7 @@ from llmcompressor.modifiers.quantization import GPTQModifier
 recipe = GPTQModifier(targets="Linear", scheme="W4A16", ignore=["lm_head"])
 
 # Apply GPTQ using a small calibration dataset (internally sampled by your script/flags).
-# The dataset below ("mit-han-lab/pile-val-backup") is only an example—replace with one suited to your model.
+# The dataset below ("HuggingFaceH4/ultrachat_200k") is only an example—replace with one suited to your model.
 oneshot(model=model, dataset="HuggingFaceH4/ultrachat_200k", recipe=recipe)
 ```
 See a full example to quantize a model using GPTQ via LLM Compressor on Puhti, Mahti or LUMI in [our Github repository](link).
@@ -266,10 +266,10 @@ from llmcompressor.modifiers.quantization import GPTQModifier
 recipe = [AWQModifier(targets=["Linear"], scheme="W4A16_ASYM", ignore=["lm_head"])]
 
 # Apply AWQ with a small calibration set (dataset can be your own or a public one)
-# The dataset below ("mit-han-lab/pile-val-backup") is only an example—replace with one suited to your model.
+# The dataset below ("HuggingFaceH4/ultrachat_200k") is only an example—replace with one suited to your model.
 oneshot(  
     model=model,  
-    dataset="mit-han-lab/pile-val-backup",  # uses 'validation' split by default inside your script/flags
+    dataset="HuggingFaceH4/ultrachat_200k",  # uses 'validation' split by default inside your script/flags
     recipe=recipe,
 )
 ```
