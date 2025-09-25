@@ -32,7 +32,7 @@ There is no backup service available for SD Connect (storage and share) and SD D
 ## Are CSC Sensitive Data service free of charge?
 The Sensitive Data Services are free of charge for Finnish academics, according to CSC [General Terms of use](https://research.csc.fi/general-terms-of-use). However, each service consumes resources: Billing Units for their use and quota for storage space allocation. 
 
-**Billing units:**
+**Billing Units:**
 
 SD Desktop consumes Cloud Billing Units type while SD Connect (Allas) consumes Storage Billing Units type.
 

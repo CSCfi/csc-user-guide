@@ -36,15 +36,15 @@ These are the available Billing Unit packages in [MyCSC](https://my.csc.fi) port
 
     All members of a project can submit Billing Unit applications.
 
-Billing unit applications cannot be edited after submission, but you
+Billing Unit applications cannot be edited after submission, but you
 can ask us to reject them, after which you can submit another
 application. [See our contact details here](../support/contact.md).
 
-## Billing unit deprecation
+## Billing Unit deprecation
 
 Starting from Autumn 2025, unused Billing Units will be deprecated if left unused. To improve the predictability of service usage and reduce unused resources, Billing Units for academic projects will be periodically reduced if not utilized. This policy does not target commercial CSC projects. Every six months, counted from the last Billing Unit grant, the amount of used and unused Billing Units is checked and, if less than 40% of the available Billing Units after the last grant have been used, the units are cut accordingly. The goal is to encourage projects to use their resource grants, so no resources are cut from projects using Billing Units.
 
-### Billing unit deprecation example
+### Billing Unit deprecation example
 
 As an example, if a project with 40,000 CPU Billing Units and 25,000 GPU Billing Units remaining has been granted 60,000 CPU Billing Units and 135,000 GPU Billing Units in March, the available Billing Units after the grant would be 100,000 CPU Billing Units and 160,000 GPU Billing Units. This means in September it is checked, if the project has used at least 40% of these (or 40,000 CPU BUs and 64,000 GPU BUs), and if not, the leftover BUs are cut so that 60% of the resources are left. Then in next year’s March, it is checked if the project has used 80% of the resources (so 80,000 CPU BUs and 128,000 GPU BUs) and again, if it has not, the resources are cut correspondingly. If the project has used more than the threshold, no resources are cut. If the project is granted new resources, the timer for the resource cuts is reset again. 
 

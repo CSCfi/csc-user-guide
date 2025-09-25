@@ -113,7 +113,7 @@ Project: project_2012345        Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"
 Start: 2019-08-20 End: 2029-10-23 Status: open
 Budget:     410000 Used          0 Remain:     410000
-Billing units      Budget        Used      Remain
+Billing Units      Budget        Used      Remain
 -------------      ------        ----      ------
 CPU:                60000          20       59980
 GPU:                 1000          30         970

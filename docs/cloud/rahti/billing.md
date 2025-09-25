@@ -2,8 +2,8 @@
 
 ## Terminology
 
-* Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
-* Cloud Billing Unit (Cloud BU): Billing units assigned to Cloud resource usage.
+* Billing Unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
+* Cloud Billing Unit (Cloud BU): Billing Units assigned to Cloud resource usage.
 * CSC computing project: A placeholder for the user's resources information - including: the number of Cloud BUs and the CSC
 services which are available for use.
 * Rahti project: A Kubernetes namespace with additional annotations.
@@ -22,7 +22,7 @@ If the current usage is lower than the minimum requested resource, the requested
 The rate at which Cloud Billing Units are consumed depends on the size of the
 resources. Cloud Billing Units are consumed as follows:
 
-| Resource         | Cloud Billing units |
+| Resource         | Cloud Billing Units |
 |------------------|---------------------|
 | Pod core hour    | 1                   |
 | Pod RAM GB hour  | 1,5                 |
@@ -53,7 +53,7 @@ The memory usage is 1 GiB and the request is 512 MiB. The same goes for memory u
 ![BU calculation](../img/BU-calculation.drawio.svg)
 
 <!--
-## Billing unit calculator
+## Billing Unit calculator
 
 For an estimate of the Billing Units the services you plan on using will consume, please refer to the
 Billing Unit calculator below. The [Billing Unit calculator can also be found at MyCSC](https://my.csc.fi/buc/).

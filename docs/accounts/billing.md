@@ -7,7 +7,7 @@ search:
 
 CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes. **Billing Units** (BUs) are used to allocate resources for users' projects using our services. You can apply for Billing Units in [MyCSC](https://my.csc.fi) portal and CSC grants BUs to projects. [Usage consumes Billing Units](billing.md) but **no actual payment** is required.
 
-See the [Billing unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"} at research.csc.fi.
+See the [Billing Unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"} at research.csc.fi.
 
 **The billing rates for the services are as follows:**
 
