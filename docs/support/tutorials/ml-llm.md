@@ -185,7 +185,7 @@ Quantization is a process that converts the weights and activations within an LL
 
 Quantization can be done during inference or training phase. [Post-Training Quantization (PTQ)](https://docs.pytorch.org/TensorRT/ts/ptq.html) involves quantizing a pre-trained model during the inference phase. [Quantization-Aware Training (QAT)](https://www.ibm.com/think/topics/quantization-aware-training) is applied during training to simulate the effects of quantization, resulting in a model more robust to quantization noise. You can learn more about quantization for example in [this tutorial](https://www.datacamp.com/tutorial/quantization-for-large-language-models).
 
-It can take hours to quantize very large models, but luckily many models already have a quantized version available, for example in Hugging Face. You can look for quantized models by a suffix in the model name indicating a quantization method, such as **AWQ, GPTQ, or GGUF**, or alternatively, model precision, such as **8bit** or **4bit**.
+It can take hours to quantize very large models, but luckily many models already have a quantized version available, for example in Hugging Face. You can look for quantized models by a suffix in the model name indicating a quantization method, such as AWQ, GPTQ, or GGUF, or alternatively, model precision, such as 8bit or 4bit.
 
 ### Using BitsandBytes Quantization
 
@@ -212,10 +212,10 @@ You can use it in our fine-tuning LLMs example (see section above) with the --4b
 
 ### Using GPTQ Quantization
 
-In addition to **bitsandbytes**, Hugging Face Transformers has also integrated [**Gradient Post-Training Quantization (GPTQ)**](https://huggingface.co/docs/transformers/en/quantization/gptq). 
-[GPTQ](https://arxiv.org/abs/2210.17323) performs **row-wise quantization of weight matrices**, optimizing each row individually so that the quantized weights closely approximate the original values with minimal reconstruction error.  
+In addition to bitsandbytes, Hugging Face Transformers has also integrated [Gradient Post-Training Quantization (GPTQ)](https://huggingface.co/docs/transformers/en/quantization/gptq). 
+[GPTQ](https://arxiv.org/abs/2210.17323) performs row-wise quantization of weight matrices, optimizing each row individually so that the quantized weights closely approximate the original values with minimal reconstruction error.  
 
-Unlike runtime quantization libraries such as bitsandbytes, GPTQ performs a **one-time compression step** using a calibration dataset, resulting in a new quantized model that can be saved and loaded without requiring the original full-precision weights. To use GPTQ quantization from transformers, create a [GPTQConfig](https://huggingface.co/docs/transformers/v4.56.2/en/main_classes/quantization#transformers.GPTQConfig) class with number of bits to quantize to, a dataset to calibrate the weights for quantization, and a tokenizer.
+Unlike runtime quantization libraries such as bitsandbytes, GPTQ performs a one-time compression step using a calibration dataset, resulting in a new quantized model that can be saved and loaded without requiring the original full-precision weights. To use GPTQ quantization from transformers, create a [GPTQConfig](https://huggingface.co/docs/transformers/v4.56.2/en/main_classes/quantization#transformers.GPTQConfig) class with number of bits to quantize to, a dataset to calibrate the weights for quantization, and a tokenizer.
 
 ```python
 from transformers import GPTQConfig, AutoModelForCausalLM
@@ -233,13 +233,13 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 ```
 
-GPTQ supports different backends for faster inference such as **Marlin** (optimized for A100) and **ExLlamaV2** (optimized for LLaMA models on consumer GPUs). To enable a specific backend, pass `backend="marlin"` or `exllama_config={"version": 2}` to `GPTQConfig`.
+GPTQ supports different backends for faster inference such as Marlin (optimized for A100) and ExLlamaV2 (optimized for LLaMA models on consumer GPUs). To enable a specific backend, pass `backend="marlin"` or `exllama_config={"version": 2}` to `GPTQConfig`.
 
 A [blog post by Hugging Face](https://huggingface.co/blog/overview-quantization-transformers) compares bitsandbytes and GPTQ features which can be helpful in deciding which one is more suitable for your use case. See also our [Github repository](link) for a full example to quantize a model using GPTQ with Hugging Face Transformers on Puhti, Mahti or LUMI.
 
 ### Using GPTQ Quantization via LLM Compressor
 
-There is another way you can do quantization using GPTQ modifier from [**LLM Compressor**](https://github.com/vllm-project/llm-compressor). LLM Compressor is a post-training compression toolkit for Hugging Face models. It applies a *recipe* (e.g., GPTQ quantization) to an already-trained model and saves a compressed checkpoint that loads back into `transformers`. At runtime, it swaps the model’s linear layers for compressed kernels so generation uses quantized matmuls without changing your inference code. GPTQModifier is the quantization recipe component that runs **GPTQ** and quantizes weights to for example W4A16 (4-bit weights, 16-bit activations) using a small calibration set and lets you quantize target layers (e.g., `Linear`) and ignore heads (e.g., `lm_head`) to preserve output quality. 
+There is another way you can do quantization using GPTQ modifier from [LLM Compressor](https://github.com/vllm-project/llm-compressor). LLM Compressor is a post-training compression toolkit for Hugging Face models. It applies a *recipe* (e.g., GPTQ quantization) to an already-trained model and saves a compressed checkpoint that loads back into `transformers`. At runtime, it swaps the model’s linear layers for compressed kernels so generation uses quantized matmuls without changing your inference code. GPTQModifier is the quantization recipe component that runs GPTQ and quantizes weights to for example W4A16 (4-bit weights, 16-bit activations) using a small calibration set and lets you quantize target layers (e.g., `Linear`) and ignore heads (e.g., `lm_head`) to preserve output quality. 
 
 ```python
 from llmcompressor.entrypoints.oneshot import oneshot
@@ -248,7 +248,8 @@ from llmcompressor.modifiers.quantization import GPTQModifier
 # Define a GPTQ recipe: 4-bit weights (W4A16), target Linear layers, skip the LM head
 recipe = GPTQModifier(targets="Linear", scheme="W4A16", ignore=["lm_head"])
 
-# Apply GPTQ using a small calibration dataset (internally sampled by your script/flags)
+# Apply GPTQ using a small calibration dataset (internally sampled by your script/flags).
+# The dataset below ("mit-han-lab/pile-val-backup") is only an example—replace with one suited to your model.
 oneshot(model=model, dataset="HuggingFaceH4/ultrachat_200k", recipe=recipe)
 ```
 See a full example to quantize a model using GPTQ via LLM Compressor on Puhti, Mahti or LUMI in [our Github repository](link).
@@ -265,6 +266,7 @@ from llmcompressor.modifiers.quantization import GPTQModifier
 recipe = [AWQModifier(targets=["Linear"], scheme="W4A16_ASYM", ignore=["lm_head"])]
 
 # Apply AWQ with a small calibration set (dataset can be your own or a public one)
+# The dataset below ("mit-han-lab/pile-val-backup") is only an example—replace with one suited to your model.
 oneshot(  
     model=model,  
     dataset="mit-han-lab/pile-val-backup",  # uses 'validation' split by default inside your script/flags
