@@ -1,7 +1,4 @@
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if the menu is not visible, try zooming out in your browser), the search bar, or the [table of contents](sd-servicess quickly.
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class="grid cards csc-quick-links csc-quick-links--landing" markdown>
 
