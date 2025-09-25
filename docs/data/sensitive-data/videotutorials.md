@@ -9,7 +9,7 @@ These step-by-step video tutorials are already included in the User Guide, but h
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## SD COnnect : data storage, transfer or collecation
+## SD Connect : data storage, transfer or collecation
 
 #### Step1: Upload and donwload file via user interface
 
@@ -44,16 +44,19 @@ Upcoming
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/FkKfVlwr5CA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-#### Step 4: Working with virtual desktop (outdated)
+#### Step 4: Working with virtual desktop 
 
 
+Limitations, available applications (R Studio outdated)
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Login and logout
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ZPee-2OC9Dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
-#### Step5: Install sfotware
+#### Step 5: Install sfotware
 
 With the SD software installer 
 
@@ -70,7 +73,7 @@ Via aptteiner (advanced)
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/hsUQSrNpaf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-#### Optional: accessing data for reuse
+#### Optional: Accessing data for reuse via SD Apply
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/1cF_NQV6vyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -78,16 +81,22 @@ Via aptteiner (advanced)
 
 
 
+## Federated EGA
 
-#### SD Apply
+##### Introduction to metadata
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/U6ilhM-XOhU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### Inotrduction to Phentipc data
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/0anBkJbF7XY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+##### Phenotipic metadata: the COVID-19 example
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/AInMx8xj_Lk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### Building a metadata model: Interview to Anna Bernasconi
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/AInMx8xj_Lk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
 
-#### Federated EGA
-
-
-
-### SD Desktop
 
 
