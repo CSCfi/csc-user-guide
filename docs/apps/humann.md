@@ -1,64 +1,64 @@
 ---
 tags:
   - Free
+catalog:
+  name: HUMAnN
+  description: Profiling microbial pathways with metagenomic data
+  description_fi: Mikrobien aineenvaihduntareittien profilointi metagenomisella datalla
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# HUMAnN
+# HUMAnN { #humann }
 
 
 
-HUMAnN is a pipeline for efficiently and accurately profiling the presence/absence and abundance of 
-microbial pathways in a community from metagenomic or metatranscriptomic sequencing data. 
-This process (functional profiling) aims to describe the metabolic potential of a microbial community and its members. 
+HUMAnN on työnkulku, jolla voidaan tehokkaasti ja tarkasti profiloida mikrobien aineenvaihduntareittien läsnäolo/puuttuminen ja runsaus yhteisössä metagenomisista tai metatranskriptomisista sekvensointiaineistoista. Tämän prosessin (toiminnallinen profilointi) tavoitteena on kuvata mikrobiyhteisön ja sen jäsenten metabolinen potentiaali.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [MIT License](https://raw.githubusercontent.com/biobakery/humann/master/LICENSE).
+Vapaasti käytettävissä ja avoimen lähdekoodin, [MIT-lisenssin](https://raw.githubusercontent.com/biobakery/humann/master/LICENSE) alainen.
 
-## Available
+## Saatavilla { #available }
 
-Versions available in Puhti: 3.0.1, 3.6, 3.8, 3.9
+Puhdissa saatavilla olevat versiot: 3.0.1, 3.6, 3.8, 3.9
 
-## Usage
+## Käyttö { #usage }
 
-In Puhti, HUMAnN is installed as containerized application. To activate it, run command:
+Puhdissa HUMAnN on asennettu konttipohjaisena sovelluksena. Aktivoi se suorittamalla komento:
 
 ```text
 module load humann
 humann
 ```
 
-By default HUMaN tries to check and update the MetaPhlAn database every
-time it's run. This will fail with containerized installation, so you
-will need to add command line option:
+Oletusarvoisesti HUMaN yrittää tarkistaa ja päivittää MetaPhlAn-tietokannan joka suorituskerralla. Tämä epäonnistuu konttipohjaisessa asennuksessa, joten sinun tulee lisätä komentorivivalitsin:
 
 ```text
 --metaphlan-options "--offline --bowtie2db /path/to/db"
 ```
 
-To use CSC provided database use:
+CSC:n tarjoaman tietokannan käyttämiseksi käytä:
 
 ```text
 --metaphlan-options "--offline --bowtie2db $MPA"
 ```
 
-CSC provides default versions of the HUMaN databases. You can use them by
-specifying:
+CSC tarjoaa HUMaN-tietokantojen oletusversiot. Voit käyttää niitä määrittämällä:
 
 ```text
 --nucleotide-database $HUMANN_NUC
 --protein-database $HUMANN_PROT
 ```
 
-HUMAnN can utilize several CPU cores. To do this set `--cpus-per-task` to desired number.
-In Puhti you can use up to 40 cores. Also remember to add option `--threads` to your HUMAnN
-command. You can use variable `$SLURM_CPUS_PER_TASK` to automatically match the requested
-number.
+HUMAnN osaa hyödyntää useita suoritinytimiä. Aseta tätä varten `--cpus-per-task` haluttuun arvoon. Puhdissa voit käyttää enintään 40 ydintä. Muista myös lisätä `--threads` HUMAnN-komentoosi. Voit käyttää muuttujaa `$SLURM_CPUS_PER_TASK` vastaamaan automaattisesti pyydettyä määrää.
 
-
-Example batch job script (use your actual project neame for `--account`)
+Esimerkkieräajon skripti (käytä oman projektisi nimeä valitsimessa `--account`)
 
 ```text
 #!/bin/bash -l
@@ -80,8 +80,8 @@ wget https://github.com/biobakery/humann/raw/master/examples/demo.fastq.gz
 humann --threads=$SLURM_CPUS_PER_TASK --input demo.fastq.gz --nucleotide-database $HUMANN_NUC --protein-database $HUMANN_PROT --metaphlan-options "--offline --bowtie2db $MPA" --output demo_out
 ```
 
-## More information
+## Lisätietoja { #more-information }
 
-*   [HUMAnN home page](https://huttenhower.sph.harvard.edu/humann)
-*   [HUMAnN user guide](https://github.com/biobakery/humann)
-*   [HUMAnN tutorial](https://github.com/biobakery/biobakery/wiki/humann3)
+*   [HUMAnN-kotisivu](https://huttenhower.sph.harvard.edu/humann)
+*   [HUMAnN:n käyttöopas](https://github.com/biobakery/humann)
+*   [HUMAnN-tutoriaali](https://github.com/biobakery/biobakery/wiki/humann3)

@@ -1,80 +1,91 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: VisIt
+  description: Free open-source visualization application
+  description_fi: Ilmainen avoimen lähdekoodin visualisointisovellus
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# VisIt
+# VisIt { #visit }
 
-VisIt is an open source, versatile software for scientific visualization.
-VisIt is available on Puhti, and we recommend
-[the Puhti web interface remote desktop](../computing/webinterface/desktop.md)
-for running the GUI.
+VisIt on avoimen lähdekoodin, monipuolinen ohjelmisto tieteelliseen visualisointiin.
+VisIt on saatavilla Puhtissa, ja suosittelemme
+[Puhtin selainkäyttöliittymän etätyöpöytää](../computing/webinterface/desktop.md)
+GUI:n ajamiseen.
 
-!!! info "Running VisIt with GPU-accelerated graphics on Puhti and LUMI"
-    You can now also enable
-    [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
-    for much better performance. In this case, select the
-    _Accelerated Visualization_ app instead of _Desktop_ in the Puhti web
-    interface. On LUMI, select the regular _Desktop_ app and `lumid`
-    partition ([mode information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
+!!! info "VisItin ajaminen GPU-kiihdytetyllä grafiikalla Puhtissa ja LUMIssa"
+    Voit nyt myös ottaa käyttöön
+    [interaktiivisen GPU-kiihdytetyn visualisoinnin](../computing/webinterface/accelerated-visualization.md)
+    huomattavasti parempaa suorituskykyä varten. Valitse tällöin Puhtin
+    selainkäyttöliittymästä _Accelerated Visualization_ -sovellus _Desktop_-sovelluksen
+    sijaan. LUMIssa valitse tavallinen _Desktop_-sovellus ja `lumid`-osio
+    ([lisätietoja](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
-## License
+## Lisenssi { #license }
 
-VisIt is free also for commercial use and has been released under
-[BSD Open Source License](https://github.com/visit-dav/visit/blob/develop/LICENSE)
+VisIt on maksuton myös kaupalliseen käyttöön ja se on julkaistu
+[BSD Open Source License](https://github.com/visit-dav/visit/blob/develop/LICENSE) -lisenssillä.
 
-## Available
+## Saatavilla { #available }
 
 Puhti: 3.1.3, 3.3.3
 Mahti: 3.1.3, 3.3.1
 LUMI: 3.2.2
 
-## Parallel use
+## Rinnakkaiskäyttö { #parallel-use }
 
-VisIt can be run interactively in parallel configuration using several
-processors. Login to Puhti and submit the following to launch VisIt on a
-compute node
+VisIt voidaan ajaa interaktiivisesti rinnakkaiskokoonpanossa useilla
+prosessoriytimillä. Kirjaudu Puhtiin ja käynnistä VisIt laskentasolmulle
+seuraavasti:
 
 ```bash
 module load visit/3.1.3
 visit -l srun -np 2 -p test -t 00:10:00 -la --mem-per-cpu=2G -la --account=<your project>
 ```
 
-The job reservation parameters are:
+Työvarausta koskevat parametrit ovat:
 
 * `-np <number of cores>`
 * `-p <queue>`
-* `-t <time>` (hours:minutes:seconds)
-* `-la --mem-per-cpu=<memory per processor>` (in GB)
+* `-t <time>` (tunnit:minuutit:sekunnit)
+* `-la --mem-per-cpu=<memory per processor>` (GB)
 * `-la --account=<the billing project for the job>`
   
-Note that running VisIt with many processors does not necessarily bring speed
-benefits. It will depend on VisIt's particular data reader if (and to what
-extent) the data can be distributed between the processors.
+Huomaa, että VisItin ajaminen monella prosessorilla ei välttämättä tuo
+nopeusetua. Se riippuu VisItin käyttämästä datalukijasta, voiko dataa
+jakaa prosessorien kesken (ja missä määrin).
 
-## Using host profile of local VisIt installation
+## Paikallisen VisIt-asennuksen isäntäprofiilin käyttäminen { #using-host-profile-of-local-visit-installation }
 
-The VisIt client can be run on your local desktop computer while having VisIt
-components that process the data remotely on Puhti. Local VisIt host profiles
-can be used to launch jobs on Puhti compute nodes. Local and remote VisIt
-versions have to match.
+VisIt-asiakasohjelmaa voidaan ajaa paikallisella työpöytäkoneellasi, kun taas
+datan käsittelevät VisIt-komponentit toimivat etänä Puhtissa. Paikallisia VisItin
+isäntäprofiileja voidaan käyttää Puhtin laskentasolmuille lähetettävien töiden
+käynnistämiseen. Paikallisen ja etäjärjestelmän VisIt-versioiden on oltava samat.
 
-An example of a working host profile is screen captured below. Note that job
-reservation parameters that are not directly available as profile options
-should be given as _Advanced/Launcher arguments_, see the last screen capture.
+Alla on esimerkki toimivasta isäntäprofiilista kuvakaappauksina. Huomaa, että
+työvarausten parametrit, joita ei voi asettaa suoraan profiilivalinnoista, tulee
+antaa kohtaan _Advanced/Launcher arguments_; katso viimeinen kuvakaappaus.
 
-![Puhti screen capture 1](../img/host_profile_1.png)
+![Puhti-kuvakaappaus 1](../img/host_profile_1.png)
 
-![Puhti screen capture 2](../img/host_profile_2.png)
+![Puhti-kuvakaappaus 2](../img/host_profile_2.png)
 
-![Puhti screen capture 3](../img/host_profile_3.png)
+![Puhti-kuvakaappaus 3](../img/host_profile_3.png)
 
-![Puhti screen capture 4](../img/host_profile_4.png)
+![Puhti-kuvakaappaus 4](../img/host_profile_4.png)
 
-## More Information
+## Lisätietoja { #more-information }
 
-* [VisIt homepage (source code, binaries, manuals and tutorials, example data files)](https://visit-dav.github.io/visit-website/)
-* [User community website](http://visitusers.org)
+* [VisIt-kotisivu (lähdekoodi, binäärit, ohjeet ja oppaat, esimerkkiaineistot)](https://visit-dav.github.io/visit-website/)
+* [Käyttäjäyhteisön sivusto](http://visitusers.org)

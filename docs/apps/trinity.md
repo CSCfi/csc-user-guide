@@ -1,47 +1,50 @@
 ---
 tags:
   - Free
+catalog:
+  name: Trinity
+  description: Transcriptome assembly tool
+  description_fi: Transkriptomin kokoamistyökalu
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Trinity
+# Trinity { #trinity }
 
-Trinity is used for _de novo_ reconstruction of transcriptomes from RNA-seq data. Trinity combines three 
-independent software modules: **Inchworm**, **Chrysalis**, and **Butterfly**, applied sequentially to process 
-large volumes of RNA-seq reads. Trinity partitions the sequence data into many individual de Bruijn graphs, each 
-representing the transcriptional complexity at a given gene or locus, and then processes each graph independently 
-to extract full-length splicing isoforms and to tease apart transcripts derived.
+Trinityä käytetään RNA-seq-aineistosta _de novo_ -rekonstruktioon (transkriptomien kokoamiseen). Trinity yhdistää kolme itsenäistä ohjelmamoduulia: **Inchworm**, **Chrysalis** ja **Butterfly**, joita ajetaan peräkkäin suurten RNA-seq-lukemamäärien käsittelemiseksi. Trinity jakaa sekvenssiaineiston lukuisiin erillisiin de Bruijn -graafeihin, joista kukin kuvaa tietyn geenin tai lokuksen transkriptionaalista monimutkaisuutta, ja käsittelee jokaisen graafin itsenäisesti tuottaakseen täyspitkät splicing-isoformit ja erotellakseen transkriptit.
 
-The Trinity module at CSC also includes TransDecoder and Trinotate tools to analyze the results of a Trinity run.
+CSC:n Trinity-moduuli sisältää myös TransDecoder- ja Trinotate-työkalut Trinity-ajon tulosten analysointiin.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [Broad Institute License](https://github.com/genome-vendor/trinity/blob/master/LICENSE).
+Vapaa käyttää ja avoimen lähdekoodin ohjelmisto [Broad Institute -lisenssin](https://github.com/genome-vendor/trinity/blob/master/LICENSE) alaisena.
 
-## Available
+## Saatavilla { #available }
 
 Puhti: 2.8.5, 2.11.0, 2.13.2, 2.14.0, 2.15.1
 
-## Usage
+## Käyttö { #usage }
 
-### Using Trinity
+### Trinityn käyttö { #using-trinity }
 
-On Puhti, Trinity is set up with the command:
+Puhtissa Trinity otetaan käyttöön komennolla:
 
 ```bash
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools including
-Trinity 2.8.5. If you want to use a newer version, e.g. 2.13.2, run the command:
+biokit-moduuli tuo käyttöön joukon yleisesti käytettyjä bioinformatiikan työkaluja, mukaan lukien Trinity 2.8.5. Jos haluat käyttää uudempaa versiota, esim. 2.13.2, suorita komento:
 
 ```bash
 module load trinty/2.13.2
 ```
 
-Trinity should be used [interactively in a compute node](../computing/running/interactive-usage.md) 
-or preferably through the batch job system. Below is an example batch job file for Trinity.
+Trinityä tulisi käyttää [interaktiivisesti laskentasolmussa](../computing/running/interactive-usage.md) tai mieluiten eräajojärjestelmän kautta. Alla on esimerkkieräajon job-tiedosto Trinitylle.
 
 ```bash
 #!/bin/bash 
@@ -62,74 +65,65 @@ reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \
 --output trinity_run_out --grid_exec sbatch_commandlist
 ```
 
-The batch script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. 
-About 4 GB of memory is reserved for each core so the total memory reservation is `6 * 4 GB = 24 GB`. On Puhti, you must use batch job option
-`--account=` to define the project to be used. You should replace `project_1234567` used in the example with your own project. You can check your 
-projects with command: `csc-projects`.
+Yllä oleva eräajosk ripti varaa yhdeltä solmulta 6 laskentaydintä työtä varten. Esimerkkityön enimmäisaika on 48 tuntia. Muistia varataan noin 4 Gt jokaista ydintä kohden, joten kokonaismuistivaraus on `6 * 4 GB = 24 GB`. Puhtissa sinun on käytettävä eräajon valintaa `--account=` käytettävän projektin määrittämiseen. Korvaa esimerkissä käytetty `project_1234567` omalla projektillasi. Voit tarkistaa projektisi komennolla: `csc-projects`.
 
-In the actual `Trinity` command the number of computing cores to be used (`--CPU`) is set using the environment variable `$SLURM_CPUS_PER_TASK`. 
-This variable contains the value set by the `--cpus-per-task` Slurm option.
+Varsinaisessa `Trinity`-komennossa käytettävien laskentaytimien määrä (`--CPU`) asetetaan ympäristömuuttujalla `$SLURM_CPUS_PER_TASK`. Tämä muuttuja sisältää arvon, joka on asetettu Slurmin `--cpus-per-task`-optiolla.
 
-On Puhti, you can also use distributed computing to speed up the Trinity job. When the definition:
+Puhtissa voit myös käyttää hajautettua laskentaa Trinity-työn nopeuttamiseksi. Kun komennolle lisätään määritys:
 
 ```bash
 --grid_exec sbatch_commandlist
 ```
 
-is added to the command, some phases of the analysis tasks are executed as a set of parallel sub-jobs. 
-For large Trinity tasks the settings of the `sbatch_commandlist` tool are too limited. In these cases 
-replace `sbatch_commandlist` with `sbatch_commandlist_trinity`.
+joitakin analyysin vaiheita ajetaan rinnakkaisina alitöinä. Suurissa Trinity-ajoissa `sbatch_commandlist`-työkalun asetukset ovat liian rajoittuneet. Näissä tapauksissa korvaa `sbatch_commandlist` työkalulla `sbatch_commandlist_trinity`.
 
 ```bash
 --grid_exec sbatch_commandlist_trinity
 ```
 
-When Trinity is executed with `--grid_exec` option, it generates a large amount of temporary files, and it 
-is very likely that you will exceed the default limit of 100 000 files. Thus, it is advisable to apply for 
-a larger file number quota for Puhti scratch before submitting large Trinity jobs. You can send the request
-to [CSC Service Desk](../support/contact.md).
+Kun Trinity ajetaan `--grid_exec`-optiolla, se luo suuren määrän väliaikaistiedostoja, ja on hyvin todennäköistä, että ylität oletusrajan 100 000 tiedostoa. Siksi on suositeltavaa hakea suurempi tiedostomääräkiintiö Puhtin scratch-alueelle ennen suurten Trinity-töiden lähettämistä. Voit lähettää pyynnön [CSC Service Deskille](../support/contact.md).
 
-When the batch job file is ready, it can be submitted to the batch queue system with the command:
+Kun eräajon skripti on valmis, sen voi lähettää jonoon komennolla:
 
 ```bash
 sbatch batch_job_file
 ```
 
-Look here for [more information about running batch jobs](../computing/running/getting-started.md).
+Katso täältä [lisätietoja eräajojen suorittamisesta](../computing/running/getting-started.md).
 
-Please also check the [Trinity website](https://github.com/trinityrnaseq/trinityrnaseq/wiki) to get hints for estimating the required resources.
+Tutustu myös [Trinityn verkkosivuun](https://github.com/trinityrnaseq/trinityrnaseq/wiki) saadaksesi vinkkejä vaadittujen resurssien arviointiin.
 
-### Using autoTrinotate
+### autoTrinotaten käyttö { #using-autotrinotate }
 
-You can analyze the results of your Trinity job with `autoTrinotate`. You need two files resulting from a successful Trinity assembly.
+Voit analysoida Trinity-työsi tuloksia työkalulla `autoTrinotate`. Tarvitset kaksi tiedostoa, jotka syntyvät onnistuneesta Trinity-kokoamisesta.
 
-1. Fasta-formatted nucleotide sequence file containing the final contigs created by Trinity (`Trinity.fasta`)
-2. gene-to-trans map for the input fasta file (`Trinity.fasta.gene_to_trans_map`)
+1. Fasta-muotoinen nukleotidisekvenssitiedosto, joka sisältää Trinityn luomat lopulliset contigit (`Trinity.fasta`)
+2. gene-to-trans -kartta syötteen fasta-tiedostolle (`Trinity.fasta.gene_to_trans_map`)
 
-Note that depending on the Trinity version, these names may have a prefix as defined with the `--output` option (e.g. `trinity_run_out.Trinity.fasta`).
+Huomaa, että Trinity-versiosta riippuen nimillä voi olla etuliite, joka on määritelty `--output`-optiolla (esim. `trinity_run_out.Trinity.fasta`).
 
-Copy a template sqlite database for your analysis:
+Kopioi analyysiäsi varten mallipohjainen sqlite-tietokanta:
 
 ```bash
 cp $TRINOTATE_HOME/databases/Trinotate.sqlite mydb.sqlite
 ```
 
-You can then launch `autoTrinotate` with the command:
+Voit käynnistää `autoTrinotate`-ajon komennolla:
 
 ```bash
 $TRINOTATE_HOME/auto/autoTrinotate.pl --Trinotate_sqlite mydb.sqlite --transcripts Trinity.fasta --gene_to_trans_map  Trinity.fasta.gene_to_trans_map --conf $TRINOTATE_HOME/auto/conf.txt --CPU  $SLURM_CPUS_PER_TASK
 ```
 
-!!! warning "Note"
-    autoTrinotate analysis can require a lot of resources, so you should execute the command
-    in an [interactive session](../computing/running/interactive-usage.md) or as a batch job!
+!!! warning "Huomio"
+    autoTrinotate-analyysi voi vaatia runsaasti resursseja, joten suorita komento
+    [interaktiivisessa istunnossa](../computing/running/interactive-usage.md) tai eräajona!
 
-autoTrinotate produces an SQLite database file that can be further analyzed with the command:
+autoTrinotate tuottaa SQLite-tietokantatiedoston, jota voi analysoida edelleen komennolla:
 
 ```bash
 $TRINOTATE_HOME/Trinotate
 ```
 
-## More information
+## Lisätietoja { #more-information }
 
-- [Trinity home page](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
+- [Trinityn kotisivu](https://github.com/trinityrnaseq/trinityrnaseq/wiki)

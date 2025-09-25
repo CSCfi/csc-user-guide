@@ -1,130 +1,137 @@
 ---
-title: TensorFlow
 tags:
   - Free
+catalog:
+  name: TensorFlow
+  description: Deep learning library for Python
+  description_fi: Syväoppimiskirjasto Pythonille
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# TensorFlow
+# TensorFlow { #tensorflow }
 
-Deep learning framework for Python.
+Syväoppimiskehys Pythonille.
 
-!!! info "News"
+!!! info "Uutiset"
 
-    **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
-    (RHEL8), **the number of fully supported TensorFlow versions has been
-    reduced. Previously deprecated conda-based versions have been
-    removed.** Please [contact our servicedesk](../support/contact.md) if
-    you really need access to older versions.
+    **5.10.2022** Puhtin päivityksen Red Hat Enterprise Linux 8:aan
+    (RHEL8) vuoksi **täysin tuettujen TensorFlow-versioiden määrä on
+    vähentynyt. Aiemmin vanhentuneet conda-pohjaiset versiot on
+    poistettu.** Ota yhteyttä [palvelupisteeseemme](../support/contact.md),
+    jos todella tarvitset pääsyn vanhempiin versioihin.
 
-    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
-    the number of fully supported TensorFlow versions has been reduced. Please [contact our
-    servicedesk](../support/contact.md) if you really need access to other versions.
+    **5.5.2022** Mahtin päivityksen Red Hat Enterprise Linux 8:aan
+    (RHEL8) vuoksi täysin tuettujen TensorFlow-versioiden määrä on
+    vähentynyt. Ota yhteyttä [palvelupisteeseemme](../support/contact.md),
+    jos todella tarvitset pääsyn muihin versioihin.
 
-    **4.2.2022** All old TensorFlow versions which were based on direct Conda
-    installations have been deprecated, and we encourage users to move to newer
-    versions. Read more on our separate [Conda deprecation page](../support/tutorials/conda.md).
-
-
-## Available
-
-Currently supported TensorFlow versions:
-
-| Version | Module               | Puhti | Mahti | LUMI | Notes           |
-|:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.18.0  | `tensorflow/2.18`    | X     | X     | -    | default version |
-| 2.17.0  | `tensorflow/2.17`    | X     | X     | -    |                 |
-| 2.16.1  | `tensorflow/2.16`    | -     | -     | X    | default version |
-| 2.15.0  | `tensorflow/2.15`    | X     | X     | -    |                 |
-| 2.14.0  | `tensorflow/2.14`    | X     | X     | -    |                 |
-| 2.13.0  | `tensorflow/2.13`    | X     | X     | -    |                 |
-| 2.12.0  | `tensorflow/2.12`    | X     | X     | X    |                 |
-| 2.11.0  | `tensorflow/2.11`    | X     | X     | X    |                 |
-| 2.10.0  | `tensorflow/2.10`    | X     | X     | X    |                 |
-| 2.9.0   | `tensorflow/2.9`     | X     | X     | X    |                 |
-| 2.8.0   | `tensorflow/2.8`     | X     | X     | X    |                 |
-| 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   | -    |                 |
-| 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   | -    |                 |
-| 2.5.0   | `tensorflow/2.5`     | (x)   | (x)   | -    |                 |
-| 2.4.1   | `tensorflow/2.4`     | (x)   | (x)   | -    |                 |
-| 2.4.0   | `tensorflow/2.4-sng` | (x)   | -     | -    |                 |
-| 2.3.0   | `tensorflow/2.3`     | (x)   | -     | -    |                 |
-| 2.2.0   | `tensorflow/2.2`     | (x)   | -     | -    |                 |
-| 1.15.5  | `tensorflow/1.15`    | (x)   | -     | -    |                 |
-
-Includes [TensorFlow](https://www.tensorflow.org/) and
-[Keras](https://keras.io/) with GPU support via CUDA/ROCm.
-
-Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
-(RHEL7) images, and are no longer fully supported. In particular MPI
-and Horovod are not expected to work anymore with these modules. If
-you still wish to access these versions, you need to enable old RHEL7
-modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
-
-If you find that some package is missing, you can often install it
-yourself using `pip install`. It is recommended to use Python virtual
-environments. See [our Python documentation for more information on
-how to install packages
-yourself](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
-If you think that some important package should be included in the
-module provided by CSC, please [contact our
-servicedesk](../support/contact.md).
-
-All modules are based on containers using Apptainer (previously known
-as Singularity). Wrapper scripts have been provided so that common
-commands such as `python`, `python3`, `pip` and `pip3` should work as
-normal. For other commands, you need to prefix them with
-`apptainer_wrapper exec`, for example `apptainer_wrapper exec
-huggingface-cli`. For more information, see [CSC's general
-instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md).
-
-Some modules support [Horovod](https://horovod.ai/), which is our
-recommended framework for multi-node jobs, i.e., jobs needing more
-than 4 GPUs on Puhti and Mahti. Horovod can also be used with
-single-node jobs for 2-4 GPUs. For more information, read the
-[Multi-GPU section in our machine learning
-guide](../support/tutorials/ml-multi.md).
+    **4.2.2022** Kaikki vanhat TensorFlow-versiot, jotka perustuivat
+    suoriin Conda-asennuksiin, on poistettu käytöstä, ja kannustamme
+    käyttäjiä siirtymään uudempiin versioihin. Lue lisää erilliseltä
+    [Condan poistamista käsittelevältä sivulta](../support/tutorials/conda.md).
 
 
-## License
+## Available { #available }
 
-TensorFlow is licensed under [Apache License
-2.0](https://github.com/tensorflow/tensorflow/blob/master/LICENSE).
+Tällä hetkellä tuetut TensorFlow-versiot:
 
-## Usage
+| Versio | Moduuli               | Puhti | Mahti | LUMI | Huomautukset    |
+|:-------|:----------------------|:-----:|:-----:|:----:|-----------------|
+| 2.18.0 | `tensorflow/2.18`     | X     | X     | -    | oletusversio    |
+| 2.17.0 | `tensorflow/2.17`     | X     | X     | -    |                 |
+| 2.16.1 | `tensorflow/2.16`     | -     | -     | X    | oletusversio    |
+| 2.15.0 | `tensorflow/2.15`     | X     | X     | -    |                 |
+| 2.14.0 | `tensorflow/2.14`     | X     | X     | -    |                 |
+| 2.13.0 | `tensorflow/2.13`     | X     | X     | -    |                 |
+| 2.12.0 | `tensorflow/2.12`     | X     | X     | X    |                 |
+| 2.11.0 | `tensorflow/2.11`     | X     | X     | X    |                 |
+| 2.10.0 | `tensorflow/2.10`     | X     | X     | X    |                 |
+| 2.9.0  | `tensorflow/2.9`      | X     | X     | X    |                 |
+| 2.8.0  | `tensorflow/2.8`      | X     | X     | X    |                 |
+| 2.7.0  | `tensorflow/2.7`      | (x)   | (x)   | -    |                 |
+| 2.6.0  | `tensorflow/2.6`      | (x)   | (x)   | -    |                 |
+| 2.5.0  | `tensorflow/2.5`      | (x)   | (x)   | -    |                 |
+| 2.4.1  | `tensorflow/2.4`      | (x)   | (x)   | -    |                 |
+| 2.4.0  | `tensorflow/2.4-sng`  | (x)   | -     | -    |                 |
+| 2.3.0  | `tensorflow/2.3`      | (x)   | -     | -    |                 |
+| 2.2.0  | `tensorflow/2.2`      | (x)   | -     | -    |                 |
+| 1.15.5 | `tensorflow/1.15`     | (x)   | -     | -    |                 |
 
-To use the default version of TensorFlow on Puhti or Mahti, initialize
-it with:
+Sisältää [TensorFlow](https://www.tensorflow.org/):n ja
+[Keraksen](https://keras.io/) GPU-tuella CUDA/ROCm:n kautta.
+
+Merkinnällä "(x)" merkityt versiot perustuvat vanhoihin Red Hat Enterprise
+Linux 7 (RHEL7) -imageihin, eikä niitä enää tueta täysin. Erityisesti MPI:n
+ja Horovodin ei odoteta enää toimivan näiden moduulien kanssa. Jos haluat
+silti käyttää näitä versioita, sinun on otettava käyttöön vanhat RHEL7-moduulit
+komennolla `module use /appl/soft/ai/rhel7/modulefiles/`.
+
+Jos huomaat, että jokin paketti puuttuu, voit usein asentaa sen itse komennolla
+`pip install`. Suosittelemme käyttämään Pythonin virtuaaliympäristöjä. Katso
+[Python-dokumentaatiostamme lisätietoja pakettien asentamisesta
+itse](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
+Jos mielestäsi jokin tärkeä paketti pitäisi sisällyttää CSC:n tarjoamaan
+moduuliin, ole hyvä ja [ota yhteyttä
+palvelupisteeseemme](../support/contact.md).
+
+Kaikki moduulit perustuvat Apptaineria (aiemmin Singularity) käyttäviin
+kontteihin. Käyttöä helpottavat kääreskriptit on tarjottu niin, että
+yleiset komennot kuten `python`, `python3`, `pip` ja `pip3` toimivat
+normaalisti. Muiden komentojen kohdalla ne pitää esittää etuliitteellä
+`apptainer_wrapper exec`, esimerkiksi `apptainer_wrapper exec
+huggingface-cli`. Lisätietoja on [CSC:n yleisissä ohjeissa Apptainer-
+konttien ajamisesta](../computing/containers/overview.md#running-containers).
+
+Jotkin moduulit tukevat [Horovodia](https://horovod.ai/), jota
+suosittelemme monisolmuajoihin, eli ajoihin, jotka tarvitsevat yli 4 GPU:ta
+Puhtissa ja Mahtissa. Horovodia voi käyttää myös yksisolmuajoissa 2–4 GPU:lle.
+Lisätietoja on [koneoppaan monen GPU:n -osiossa](../support/tutorials/ml-multi.md).
+
+
+## License { #license }
+
+TensorFlow on lisensoitu [Apache License
+2.0](https://github.com/tensorflow/tensorflow/blob/master/LICENSE) -lisenssillä.
+
+## Usage { #usage }
+
+Ota TensorFlow'n oletusversio käyttöön Puhtissa tai Mahtissa komennolla:
 
 ```text
 module load tensorflow
 ```
 
-To access TensorFlow on LUMI:
+Käyttääksesi TensorFlow'ta LUMIssa:
 
 ```text
 module use /appl/local/csc/modulefiles/
 module load tensorflow
 ```
 
-If you wish to have a specific version ([see above for available
-versions](#available)), use:
+Jos haluat tietyn version ([katso yllä saatavilla olevat
+versiot](#available)), käytä:
 
 ```text
 module load tensorflow/2.12
 ```
 
-Please note that the modules already include CUDA/ROCm libraries, so
-**there is no need to load cuda or rocm modules separately!**
+Huomaa, että moduulit sisältävät jo CUDA/ROCm-kirjastot, joten
+**cuda- tai rocm-moduuleja ei tarvitse ladata erikseen!**
 
-This command will also show all available versions:
+Tämä komento näyttää myös kaikki saatavilla olevat versiot:
 
 ```text
 module avail tensorflow
 ```
 
-To check the exact packages and versions included in the loaded module you can
-run:
+Voit tarkistaa ladattuun moduuliin sisältyvät tarkat paketit ja versiot
+komennolla:
 
 ```text
 list-packages
@@ -132,14 +139,14 @@ list-packages
 
 !!! warning 
 
-    Note that login nodes are not intended for heavy computing, please use
-    slurm batch jobs instead. See our [instructions on how to use the batch job
-    system](../computing/running/getting-started.md).
+    Huomaa, että kirjautumissolmut eivät ole tarkoitettu raskaaseen
+    laskentaan; käytä sen sijaan Slurm-eräajoja. Katso [ohjeemme
+    eräajojärjestelmän käytöstä](../computing/running/getting-started.md).
 
-### Example batch script
+### Example batch script { #example-batch-script }
 
-Example batch script for reserving one GPU and 1/4 (1/8 on LUMI) of
-the available CPU cores in a single node:
+Esimerkkieräskripti, joka varaa yhden GPU:n ja 1/4 (LUMIssa 1/8) käytettävissä
+olevista CPU-ytimistä yhdellä solmulla:
 
 === "Puhti"
     ```bash
@@ -188,28 +195,25 @@ the available CPU cores in a single node:
     srun python3 myprog.py <options>
     ```
 
-Please read the section on [Efficient GPU utilization in our Machine
-learning guide](../support/tutorials/gpu-ml.md) to learn how to use
-the GPU efficiently.
+Lue [koneoppaan osio Tehokas GPU:n hyödyntäminen](../support/tutorials/gpu-ml.md)
+oppiaaksesi käyttämään GPU:ta tehokkaasti.
 
 
-### Big datasets, multi-GPU and multi-node jobs
+### Big datasets, multi-GPU and multi-node jobs { #big-datasets-multi-gpu-and-multi-node-jobs }
 
-If you are working with big datasets, or datasets that contain a lot
-of files, please read [the data section of our Machine learning
-guide](../support/tutorials/ml-data.md). In particular, please **do
-not read a huge number of files from the shared file system**, use
-fast local disk or package your data into larger files instead!
+Jos työskentelet isojen aineistojen tai monista tiedostoista koostuvien
+aineistojen kanssa, lue [koneoppaan data-osio](../support/tutorials/ml-data.md).
+Erityisesti, **älä lue valtavaa määrää tiedostoja jaetusta tiedostojärjestelmästä**,
+vaan käytä nopeaa paikallislevyä tai pakkaa datasi suuremmiksi tiedostoiksi!
 
-For multi-GPU and multi-node please read the [Multi-GPU and multi-node
-section of our Machine learning
-guide](../support/tutorials/ml-multi.md)
+Monen GPU:n ja monisolmuajojen osalta lue [koneoppaan Moni-GPU ja monisolmu
+-osio](../support/tutorials/ml-multi.md)
 
 
-## More information
+## More information { #more-information }
 
-- [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
-- [TensorFlow overview](https://www.tensorflow.org/overview/)
-- [Get Started with TensorFlow](https://www.tensorflow.org/tutorials)
-- [TensorFlow API documentation](https://www.tensorflow.org/api_docs/python/tf)
-- [Keras documentation](https://keras.io/)
+- [CSC:n koneoppimisopas](../support/tutorials/ml-guide.md)
+- [TensorFlow'n yleiskatsaus](https://www.tensorflow.org/overview/)
+- [Aloita TensorFlow'n käyttö](https://www.tensorflow.org/tutorials)
+- [TensorFlow API -dokumentaatio](https://www.tensorflow.org/api_docs/python/tf)
+- [Keras-dokumentaatio](https://keras.io/)

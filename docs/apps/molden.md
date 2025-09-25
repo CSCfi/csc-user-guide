@@ -1,39 +1,49 @@
 ---
 tags:
   - Non-commercial
+catalog:
+  name: Molden
+  description: Processing program for molecular and electronic structure calculations
+  description_fi: Molekyyli- ja elektronirakennelaskujen käsittelyohjelma
+  license_type: Non-commercial
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# Molden
+# Molden { #molden }
 
-Molden is a general molecular and electronic structure processing program. It can be used to analyze various results obtained from electronic structure calculations.
+Molden on yleiskäyttöinen molekyyli- ja elektronirakenteiden käsittelyohjelma. Sillä voidaan analysoida elektronirakennelaskuista saatuja erilaisia tuloksia.
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 6.7
 - Mahti: 6.7
 
-## License
+## Lisenssi { #license }
 
-- The use of the software is restricted to non-commercial research. [Detailed license description](https://www.theochem.ru.nl/molden/CopyRight.html).
-- In order to keep up support for Molden, please also register as a [Molden user](https://www.theochem.ru.nl/molden/form.html).
+- Ohjelmiston käyttö on rajoitettu ei-kaupalliseen tutkimukseen. [Detailed license description](https://www.theochem.ru.nl/molden/CopyRight.html).
+- Jotta Moldenin tuki säilyy, rekisteröidy myös [Molden-käyttäjäksi](https://www.theochem.ru.nl/molden/form.html).
 
-## Usage
+## Käyttö { #usage }
 
-Initialize with:
+Ota käyttöön komennolla:
 
 ```bash
 module load molden/6.7
 ```
 
-Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding or use the [Puhti web interface desktop](../computing/webinterface/desktop.md) (recommended).
+Huomaa, että Moldenin käyttö edellyttää etägrafiikkaa. Voit joko ottaa käyttöön X11-välityksen tai käyttää [Puhti-verkkokäyttöliittymän työpöytää](../computing/webinterface/desktop.md) (suositeltu).
 
-## References
+## Viitteet { #references }
 
-If you use Molden in your work, please cite the following references:
+Jos käytät Moldenia työssäsi, viittaa seuraaviin julkaisuihin:
 
 > * G. Schaftenaar, E. Vlieg and G. Vriend, "Molden 2.0: quantum chemistry meets proteins", J Comput. Aided Mol. Des., 31 (2017) 789-800.
 > * G. Schaftenaar and J. H. Noordik, "Molden: a pre- and post-processing program for molecular and electronic structures", J. Comput. Aided Mol. Des., 14 (2000) 123-134.
 
-## More information
+## Lisätietoja { #more-information }
 
-- [Molden home page](https://www.theochem.ru.nl/molden/)
+- [Molden-kotisivu](https://www.theochem.ru.nl/molden/)

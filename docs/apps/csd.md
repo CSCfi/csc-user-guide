@@ -1,116 +1,95 @@
-
 ---
 tags:
   - Academic
+catalog:
+  name: CSD
+  description: Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
+  description_fi: Cambridgen kiteystietokanta – orgaanisia ja metallo-orgaanisia kiderakenteita ja työkaluja
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
 ---
 
-# CSD
+# CSD { #csd }
 
-Cambridge Structural Database on kokoelma pienimolekyylisiä orgaanisia
-ja organometallisia kiteisiä rakenteita, jotka on määritetty röntgen- ja
-neutrodiffraktiotekniikoilla.
+Cambridge Structural Database on kokoelma pienten molekyylien orgaanisia ja organometallisia kiderakenteita, jotka on määritetty röntgen- ja neutronidiffraktiotekniikoilla.
 
-## Lisenssi {#license}
+## Lisenssi { #license }
 
-CSC tarjoaa kansallisen lisenssin, joka sallii rajattomat asennukset yliopistoissa
-ja voittoa tavoittelemattomissa tutkimuslaitoksissa **akateemiseen käyttöön**, sekä
-pääsyn WebCSD:hen laitoksen IP-osoitealueilta. Tällä hetkellä
-seuraavilla yliopistoilla on pääsy CSD:hen: Aalto, Helsinki, Oulu,
-Itä-Suomi, Jyväskylä, Turku, Åbo Akademi, Lappeenrannan teknillinen
-yliopisto, Puolustusvoimien teknikoryhmä. Jos haluat lisätä
-yliopistosi tai tutkimuslaitoksesi, täytä
-[Lisenssisopimus](../img/CSDLicenseAgreementTemplateNAC.pdf) ja
-[ota yhteyttä palvelupisteeseen](../support/contact.md)
+CSC tarjoaa kansallisen lisenssin, joka sallii rajattoman määrän asennuksia akateemiseen käyttöön yliopistoissa ja voittoa tavoittelemattomissa tutkimuslaitoksissa sekä pääsyn WebCSD:hen organisaatioiden IP-osoitealueilta. Tällä hetkellä seuraavilla yliopistoilla on pääsy CSD:hen: Aalto, Helsingin yliopisto, Oulun yliopisto, Itä-Suomen yliopisto, Jyväskylän yliopisto, Turun yliopisto, Åbo Akademi, Lappeenrannan teknillinen yliopisto, Maanpuolustuskorkeakoulu. Jos haluat lisätä yliopistosi tai tutkimuslaitoksesi, täytä [License agreement](../img/CSDLicenseAgreementTemplateNAC.pdf) ja [ota yhteyttä Service Deskiin](../support/contact.md)
 
-CSD-komponenttien käyttö edellyttää 
-[noudattamaan näitä ehtoja](../img/CSDLicenseAgreementTemplateNAC.pdf).
+CSD-komponenttien käyttö edellyttää [näiden ehtojen](../img/CSDLicenseAgreementTemplateNAC.pdf) noudattamista.
 
-## Saatavilla {#available}
+## Saatavilla { #available }
 
 - Puhti: 2022.2, 2023.2
 - Lataa ja asenna paikallisesti
 
-Suorita `module spider ccdc` nähdäksesi moduuliversiot ja miten ne
-ladataan.
+Aja `module spider ccdc` nähdäksesi moduuliversiot ja miten ne ladataan.
 
-## Käyttö {#usage}
+## Käyttö { #usage }
 
-**Cambridge Structural Database System** sisältää kaksi pääkomponenttia:
+**Cambridge Structural Database System** sisältää kaksi pääosaa:
 
-- Cambridge Structural *Database* ([CSD])
-- *Ohjelmisto* hakua, hakua, näyttöä ja CSD:n sisällön analysointia varten: ConQuest, VISTA, PreQuest, Superstar, Mercury, GOLD ja CSD-CrossMiner.
+- Cambridge Structural *tietokanta* ([CSD])
+- *Ohjelmisto* CSD-sisällön hakuun, noutoon, esittämiseen ja analysointiin: ConQuest, VISTA, PreQuest, Superstar, Mercury, GOLD ja CSD-CrossMiner.
 
-Ohjelmisto CSD-merkintöjen käyttöön ja analysointiin:
+Ohjelmistot CSD-merkintöjen käsittelyyn ja analysointiin:
 
 - [ConQuest] haku- ja nouto-ohjelmisto
-- [Mercury] graafinen tiedon näyttö, analyysi ja visualisointi
-- [Hermes] Päägraafinen käyttöliittymä analyysityökaluille
-- [CSD-Editor] Oman tietokannan luontityökalut (aiemmin PreQuest)
-- [IsoStar] Välivuorovaikutusten tietokanta
-- [Mogul] Molekyyligeometrian tietokanta
-- [SuperStar] Ennustaa proteiini-ligandi -vuorovaikutuksia käyttämällä kokeellista tietokantaa
-- [WebCSD] selaimen pääsy CSD-tietokantaan
-- [CrossMiner] monipuolinen vuorovaikutteinen farmakoforikyselytyökalu
-- [DASH] Kideaineen rakenteiden ratkaisu pulveridiffraatiotiedosta vuorovaikut­teisesti (vain Windowsille)
+- [Mercury] graafinen esitys, analyysi ja datan visualisointi
+- [Hermes] analyysityökalujen pääasiallinen graafinen käyttöliittymä
+- [CSD-Editor] sisäiset tietokannan luontityökalut (aiemmin PreQuest)
+- [IsoStar] tietopohja molekyylien välisten vuorovaikutusten tietoon
+- [Mogul] tietopohja molekyyligeometriasta
+- [SuperStar] proteiini–ligandi-vuorovaikutusten ennustaminen kokeellisen tietopohjan avulla
+- [WebCSD] selaimen kautta tapahtuva pääsy CSD-tietokantaan
+- [CrossMiner] interaktiivinen monipuolinen farmakoforikyselytyökalu
+- [DASH] jauhediffraktiodatan perusteella kiteisten rakenteiden interaktiivinen ratkaisu (vain Windowsille)
 
-On kolme tapaa käyttää CSD-järjestelmää:
+CSD-järjestelmään pääsee kolmella tavalla:
 
 - Paikallinen asennus (Windows tai Linux, vie paljon levytilaa)
-- CSD-järjestelmän käyttö [Puhtin verkkokäyttöliittymän kautta](../computing/webinterface/index.md)
-- WebCSD (rajoitettu toiminnallisuus), ohjaa selaimesi
-  [CCDC:n palvelimelle](http://webcsd.ccdc.cam.ac.uk/)
+- CSD-järjestelmän käyttö [Puhti-verkkokäyttöliittymän](../computing/webinterface/index.md) kautta
+- WebCSD (rajoitettu toiminnallisuus), siirry selaimella [CCDC:n palvelimelle](http://webcsd.ccdc.cam.ac.uk/)
 
-### CSD:n käyttö paikallisena asennuksena {#using-csd-as-a-local-installation}
+### CSD:n käyttäminen paikallisena asennuksena { #using-csd-as-a-local-installation }
 
-Asennusmedia voidaan ladata CCDC:n verkkosivustolta, mutta
-vaatii laitoksen numeron ja yliopiston vahvistuskoodin. Asennuksen
-jälkeen sinun täytyy aktivoida tuote. Saadaksesi tarvittavat
-koodit, ota yhteyttä joko [CSC:n palvelupisteeseen](../support/contact.md)
-tai paikalliseen CSD:n ylläpitäjään yliopistossasi. Tämä on suositeltu
-tapa tehokäyttäjille. Täysimittainen asennus vie noin 18 GB 
-levytilaa.
+Asennusmedian voi ladata CCDC:n verkkosivuilta, mutta lataus edellyttää yliopistosi paikkatunnusta (site number) ja vahvistuskoodia. Asennuksen jälkeen tuote on aktivoitava. Tarvittavat koodit saat ottamalla yhteyttä joko [CSC Service Deskiin](../support/contact.md) tai yliopistosi paikalliseen CSD-ylläpitäjään. Tämä on suositeltu tapa vaativille käyttäjille. Täysi asennus vaatii noin 18 Gt levytilaa.
 
-### CSD:n käyttäminen Puhtissa {#using-csd-on-puhti}
+### CSD:n käyttäminen Puhtissa { #using-csd-on-puhti }
 
-[Avaa Puhtin verkkokäyttöliittymä](https://puhti.csc.fi/) verkkoselaimella ja kirjaudu
-sisään CSC-käyttäjätililläsi.
+Avaa [Puhti-verkkokäyttöliittymä](https://puhti.csc.fi/) selaimella ja kirjaudu CSC-käyttäjätunnuksellasi.
 
-1. Sieltä [käynnistä Työpöytä](../computing/webinterface/desktop.md#launching).
+1. Sieltä [käynnistä työpöytä](../computing/webinterface/desktop.md#launching).
 2. Avaa pääte ja siirry sopivaan työhakemistoon.
 3. Lataa CSD-moduuli komennolla `module load ccdc`.
 
-Nyt sinulla on pääsy CSD-ohjelmiin, kuten ConQuest, Hermes, Mercury ja Mogul. Suorita ne
-kirjoittamalla terminaaliin `cq`, `hermes`, `mercury` tai `mogul`. Huomaa, että
-graafisen käyttöliittymän suorituskyky voi olla jonkin verran hitaampi verrattuna paikalliseen asennukseen.
+Nyt sinulla on käytössäsi CSD-ohjelmat, kuten ConQuest, Hermes, Mercury ja Mogul. Käynnistä ne kirjoittamalla päätteen komentoriville vastaavasti `cq`, `hermes`, `mercury` tai `mogul`. Huomaa, että käyttöliittymän suorituskyky voi olla jonkin verran hitaampi kuin paikallisessa asennuksessa.
 
-[GOLD](gold.md) on oma kohtansa Docs CSC:ssa.
+[H: GOLD](gold.md) -ohjelmalla on oma sivunsa Docs CSC:ssä.
 
-### WebCSD:n käyttäminen suoraan selaimella {#using-webcsd-directly-with-a-browser}
+### WebCSD:n käyttäminen suoraan selaimella { #using-webcsd-directly-with-a-browser }
 
-[WebCSD-palvelu](https://www.ccdc.cam.ac.uk/structures) 
-tarjoaa suurimman osan hakutoiminnoista suoraan selaimen kautta
-lisensoidun yliopiston IP-alueelta. Pääsy ei vaadi
-lisäautentikointia. Jos ongelmia ilmenee, [ota yhteyttä CSC:n
-palvelupisteeseen](../support/contact.md).
+[WebCSD-palvelu](https://www.ccdc.cam.ac.uk/structures) tarjoaa suurimman osan hakutoiminnoista suoraan selaimen kautta lisensoidun yliopiston IP-alueelta olevilla koneilla. Pääsy ei vaadi erillistä tunnistautumista. Ongelmien ilmetessä [ota yhteyttä CSC Service Deskiin](../support/contact.md).
 
-## Viitteet {#references}
+## Viitteet { #references }
 
-Uusia ohjelmistoja Cambridge Structural Database -tietokannan hakuun ja
-kiderakenteiden visualisointiin  
+Uutta ohjelmistoa Cambridge Structural Database -tietokannan hakuun ja kiderakenteiden visualisointiin  
 I. J. Bruno, J. C. Cole, P. R. Edgington, M. Kessler, C. F. Macrae, P.
 McCabe, J. Pearson ja R. Taylor, *Acta Crystallogr.*, **B58**, 389-397,
 2002
 
-Ohjelmakohtaiset viitteet löytyvät jokaisesta osasta 
-[online-dokumentaatio ja resurssit](https://www.ccdc.cam.ac.uk/support-and-resources/ccdcresources/)
+Ohjelmakohtaiset viitteet löytyvät kunkin tuotteen [verkkodokumentaatiosta ja -materiaaleista](https://www.ccdc.cam.ac.uk/support-and-resources/ccdcresources/)
 
-## Lisätietoa {#more-information}
+## Lisätietoja { #more-information }
 
-Tuotekohtaiset [UKK](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference) ja 
-[hyödyllisiä ohjekirjoja, tutoriaaleja ym.](https://www.ccdc.cam.ac.uk/support-and-resources) ovat saatavilla CSD-verkkosivustolla.
+Tuotekohtaisia [UKK-artikkeleita](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference) sekä [hyödyllisiä oppaita, tutoriaaleja ym.](https://www.ccdc.cam.ac.uk/support-and-resources) on saatavilla CSD:n verkkosivustolla.
 
   [CSD]: https://www.ccdc.cam.ac.uk/solutions/software/csd/
-  [Lisenssisopimus]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361
+  [License agreement]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361
   [ConQuest]: https://www.ccdc.cam.ac.uk/solutions/software/conquest/
   [Mercury]: https://www.ccdc.cam.ac.uk/solutions/software/mercury/
   [Hermes]: https://www.ccdc.cam.ac.uk/solutions/software/hermes/
@@ -121,4 +100,3 @@ Tuotekohtaiset [UKK](https://www.ccdc.cam.ac.uk/support-and-resources/Support/se
   [WebCSD]: https://www.ccdc.cam.ac.uk/solutions/software/webcsd/
   [CrossMiner]: https://www.ccdc.cam.ac.uk/solutions/software/csd-crossminer/
   [DASH]: https://www.ccdc.cam.ac.uk/open-source-products/dash-software/
-

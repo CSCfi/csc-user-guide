@@ -1,69 +1,74 @@
 ---
 tags:
   - Free
+catalog:
+  name: PANNZER2/SANSPANZ
+  description: Automatic protein annotation tool
+  description_fi: Automaattinen proteiinien annotointityökalu
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# PANNZER2/SANSPANZ
+# PANNZER2/SANSPANZ { #pannzer2/sanspanz }
 
-PANNZER2/SANSPANZ is a fully automated service for functional annotation 
-of prokaryotic and eukaryotic proteins of unknown function. The tool is 
-designed to predict the functional description (DE) and gene ontology (GO) classes. 
+PANNZER2/SANSPANZ on täysin automatisoitu palvelu sellaisten prokaryoottisten ja eukaryoottisten proteiinien toiminnalliseen annotointiin, joiden funktio on tuntematon. Työkalu on suunniteltu ennustamaan toiminnallinen kuvaus (DE) sekä Gene Ontology (GO) -luokat.
 
-## License
+## Lisenssi { #license }
 
-PANNZER has been published with the [GNU Public Licence v3](https://www.gnu.org/licenses/gpl-3.0.html).
+PANNZER on julkaistu [GNU Public Licence v3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Available
+## Saatavilla { #available }
 
-PANNZER is available on Puhti.
+PANNZER on saatavilla Puhtissa.
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, SANSPANZ annotation tool can be accessed with the command:
+Puhtissa SANSPANZ-annotointityökaluun pääsee komennolla:
 
 ```bash
 module load biokit
 ```
 
-After loading the module, you can launch SANSPANZ analysis using command `runsanspanz.py`. For example:
+Moduulin lataamisen jälkeen voit käynnistää SANSPANZ-analyysin komennolla `runsanspanz.py`. Esimerkiksi:
 
 ```bash
 runsanspanz.py -R -m Pannzer -s "species name" -i  input_seqs.fasta -o results.csv
 ```
 
-The species name is used to determine taxonomic distances. 
-The output is written to the file defined with option `-o`. Also, three other output files are created:
+Lajinnimeä käytetään taksonomisten etäisyyksien määrittämiseen.
+Tuloste kirjoitetaan tiedostoon, joka annetaan optiolla `-o`. Lisäksi luodaan kolme muuta tulostetiedostoa:
 
-* **Pannzer.out_1** contains details of the description (DE) prediction.
-* **Pannzer.out_2** contains details of the GO prediction.
-* **Pannzer.out_3** is a summary of all predicted annotations.
+* **Pannzer.out_1** sisältää tarkemmat tiedot toiminnallisen kuvauksen (DE) ennusteesta.
+* **Pannzer.out_2** sisältää tarkemmat tiedot GO-ennusteesta.
+* **Pannzer.out_3** on yhteenveto kaikista ennustetuista annotaatioista.
 
-Pannzer.out_3 can be converted to HTML-format with command `anno2html.pl`:
+Pannzer.out_3 voidaan muuntaa HTML-muotoon komennolla `anno2html.pl`:
 
 ```bash
 anno2html.pl < Pannzer.out_3 > annotations.html
 ```
 
-If you upload this file to Allas with the command:
+Jos lähetät tämän tiedoston Allakseen komennolla:
 
 ```bash
 a-flip annotations.html
 ```
 
-you can use the link provided by `a-flip` to study the results with your browser.
+voit käyttää `a-flip`-komennon antamaa linkkiä tulosten tarkasteluun selaimella.
 
-Note, that on Puhti you should always use `runsanspanz.py` with option `-R` that sends the
-analysis jobs to the annotation server maintained by the Holm group. Thus, the job does not use 
-the resources of Puhti, and it can be run as an interactive job on a login node.
+Huomaa, että Puhtissa `runsanspanz.py`-komentoa tulee aina käyttää optiolla `-R`, joka lähettää analyysitehtävät Holmin ryhmän ylläpitämälle annotointipalvelimelle. Näin työ ei käytä Puhtin resursseja ja sen voi ajaa interaktiivisena työnä kirjautumissolmulla.
 
-## More information
+## Lisätietoja { #more-information }
 
-For more information, execute command:
+Lisätietoja saat komennolla:
 
 ```bash
 runsanspanz.py -h
 ```
 
-Or study the PANNZER home page:
+Tai tutustumalla PANNZERin kotisivuun:
 
-* [PANNZER home page](http://ekhidna2.biocenter.helsinki.fi/sanspanz/)
+* [PANNZERin kotisivu](http://ekhidna2.biocenter.helsinki.fi/sanspanz/)

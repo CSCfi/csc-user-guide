@@ -1,42 +1,50 @@
-
 ---
 tags:
   - Free
+catalog:
+  name: Orfeo ToolBox (Open Source processing of remote sensing images) 
+  description: for remote sensing applications
+  description_fi: kaukokartoitussovelluksiin
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# Orfeo ToolBox (Avoimen lähdekoodin kaukokartoituskuvien käsittely) 
+# Orfeo ToolBox (Avoimen lähdekoodin kaukokartoituskuvien käsittely) { #orfeo-toolbox-open-source-processing-of-remote-sensing-images }
 
-[Orfeo ToolBox](https://www.orfeo-toolbox.org/) tai OTB on avoimen lähdekoodin sovellus, joka mahdollistaa korkean resoluution optisten, multiespektristen ja tutka-kuvien käsittelyn teratavun mittakaavassa.
+[Orfeo ToolBox](https://www.orfeo-toolbox.org/) eli OTB on avoimen lähdekoodin sovellus teratavukokoisten, korkean resoluution optisten, multispektraalisten ja tutkakuvien käsittelyyn.
 
-## Saatavilla {#available}
+## Saatavilla { #available }
 
-Orfeo ToolBox on saatavilla seuraavissa versioissa:
+Orfeo ToolBox on saatavilla seuraavina versioina:
 
 * Puhti: 8.0.1
 
-## Käyttö {#usage}
+## Käyttö { #usage }
 
-### Orfeo ToolBoxin lataaminen {#loading-orfeo-toolbox}
+### Orfeo ToolBoxin lataaminen { #loading-orfeo-toolbox }
 
 Orfeo ToolBox voidaan ladata komennolla
 
 `module load orfeotoolbox`
 
-### Komentorivityökalujen käyttö {#using-the-command-line-tools}
+### Komentorivityökalujen käyttö { #using-the-command-line-tools }
 
-Voit löytää lukuisia **OTB-sovelluksia** ja niiden esimerkkejä [OTB CookBookista](https://www.orfeo-toolbox.org/CookBook/Applications.html)
+Lukuisat **OTB-sovellukset** ja niistä esimerkkejä löydät [OTB CookBookista](https://www.orfeo-toolbox.org/CookBook/Applications.html)
 
-Esimerkiksi voit laskea NDVI:n Sentinel-virtuaalirasterista käyttämällä **otbcli_RadiometricIndices**-sovellusta. Tämä edellyttää, että NIR-kaista on ensimmäisessä kanavassa ja PUNAINEN-kaista toisessa.
+Esimerkiksi Sentinel-virtuaalirasterista voi laskea NDVI:n käyttämällä sovellusta **otbcli_RadiometricIndices**. Tämä edellyttää, että NIR-kaista on ensimmäisellä kanavalla ja RED-kaista toisella
 
 `otbcli_RadiometricIndices -in <virtual raster> -channels.nir 1 -channels.red 2 -list Vegetation:NDVI -out <output_file>`
 
-### OTB Python -työkalujen käyttö {#using-the-otb-python-tools}
+### OTB:n Python-työkalujen käyttö { #using-the-otb-python-tools }
 
-OTB:hen sisältyvät sovellukset voidaan myös suorittaa Python-kääreiden avulla, jotka tulevat moduulin mukana.
+OTB:hen sisältyviä sovelluksia voidaan ajaa myös käyttämällä moduuliin sisältyviä Python-sidoksia.
 
-Tässä on esimerkki, kuinka lasketaan rasterin keskiarvo testivirtuaalirasterista Pythonilla.
+Tässä esimerkki siitä, miten keskiarvosuodatus ajetaan testivirtuaalirasterille Pythonilla.
 
-```python
+```
 import otbApplication as otb
 
 fp = <INPUT RASTER FILEPATH>
@@ -50,22 +58,21 @@ app.SetParameterString("out", out)
 app.ExecuteAndWriteOutput()
 ```
 
-### Graafisten työkalujen käyttö {#using-the-graphical-tools}
+### Graafisten työkalujen käyttö { #using-the-graphical-tools }
 
-Käynnistä [Monteverdi](https://www.orfeo-toolbox.org/CookBook-8.0/Monteverdi.html): 
-
+Käynnistä [Monteverdi](https://www.orfeo-toolbox.org/CookBook-8.0/Monteverdi.html):
 ```
 monteverdi
 ```
-Muita graafisia työkaluja on myös saatavilla, katso 'ls /appl/soft/geo/orfeotoolbox/8.0.1/bin/otbgui*' saadaksesi täydellisen listan.
+Myös muita graafisia työkaluja on saatavilla; katso täydellinen lista komennolla 'ls /appl/soft/geo/orfeotoolbox/8.0.1/bin/otbgui*'. 
 
-### OTB-sovellusten suorittaminen rinnakkain {#running-otb-applications-in-parallel}
+### OTB-sovellusten ajaminen rinnakkain { #running-otb-applications-in-parallel }
 
-OTB-sovellukset vaikuttavat säätävän käsittelysäikeiden määrää automaattisesti, mikä tarkoittaa, että sovellukset toimivat yleensä nopeammin, kun niille annetaan enemmän CPU-ytimiä.
+OTB-sovellukset näyttävät säätävän käsittelysäikeiden määrää automaattisesti, mikä tarkoittaa, että sovellukset toimivat yleensä nopeammin, kun käyttöön annetaan enemmän suoritinytimiä. 
 
-Tässä on esimerkki erätyötehtävästä, jossa on 4 CPU-ydintä.
+Tässä esimerkkieräajon skripti 4 suoritinytimellä
 
-```bash
+```
 #!/bin/bash
 #SBATCH --job-name=<name_of_your_job>
 #SBATCH --account=<your_project>
@@ -81,29 +88,32 @@ otbcli_RadiometricIndices -in test_vrt.vrt -channels.nir 1 -channels.red 2 -list
 ```
 
 !!! note
-    OTB:tä on myös mahdollista käyttää rinnakkain useilla laskentasolmuilla [käyttäen MPI:tä](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi), mutta sitä ei ole vielä testattu Puhtilla.
+    OTB:tä on myös mahdollista ajaa rinnakkaisesti useilla laskentasolmilla [käyttäen MPI:tä](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi), mutta sitä ei ole vielä testattu Puhtissa
 
-## Lisenssi {#license}
+## Lisenssi { #license }
 
-Orfeo ToolBox on lisensoitu Apache License, Version 2.0:lla. [Koko Orfeo ToolBox -lisenssi](https://github.com/orfeotoolbox/OTB/tree/develop/Copyright)
+Orfeo ToolBox on lisensoitu Apache License, Version 2.0 -lisenssillä. [Täydellinen Orfeo ToolBox -lisenssi](https://github.com/orfeotoolbox/OTB/tree/develop/Copyright)
 
-## Viittaus {#citation}
+## Viittaus { #citation }
 
 `Grizonnet, M., Michel, J., Poughon, V. et al. Orfeo ToolBox: open source processing of remote sensing images. Open geospatial data, softw. stand. 2, 15 (2017). https://doi.org/10.1186/s40965-017-0031-6`
 
-## Kiitokset {#acknowledgement}
 
-Ole hyvä ja mainitse CSC ja Geoportti julkaisuissasi, sillä se on tärkeää projektin jatkumisen ja rahoitusraporttien kannalta.
-Voit esimerkiksi kirjoittaa "Kirjoittajat haluavat kiittää CSC - Tieteen tietotekniikan keskusta, Suomea (urn:nbn:fi:research-infras-2016072531) ja Avoimen paikkatiedon infrastruktuuria tutkimukselle (Geoportti, urn:nbn:fi:research-infras-2016072513) laskennallisista resursseista ja tuesta".
 
-## Asennus {#installation}
+## Kiitokset { #acknowledgement }
 
-Orfeo Toolbox asennettiin Puhtille [Tykkyn wrap-container-toiminnallisuuden](../computing/containers/tykky.md#container-based-installations) avulla käyttämällä [Orfeo Toolbox Docker -kuvaa Dockerhubista, jonka OTB-yhteisö tarjoaa](https://hub.docker.com/r/orfeotoolbox/otb).
+Mainitsethan julkaisuissasi CSC:n ja Geoportin; tämä on tärkeää projektin jatkuvuuden ja rahoitusraportoinnin kannalta.
+Esimerkiksi voit kirjoittaa: "Tekijät kiittävät CSC:tä – Tieteen tietotekniikkakeskus, Suomi (urn:nbn:fi:research-infras-2016072531) ja tutkimuksen paikkatietoinfrastruktuuria (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
+
+## Asennus { #installation }
+
+Orfeo Toolbox asennettiin Puhtiin [Tykkyn wrap-container -toiminnallisuudella](../computing/containers/tykky.md#container-based-installations) käyttäen [OTB-yhteisön tarjoamaa Orfeo Toolboxin Docker-kuvaa Dockerhubista](https://hub.docker.com/r/orfeotoolbox/otb). 
 
 `wrap-container -w /opt/otb/bin,/usr/bin/python3 docker://orfeotoolbox/otb:8.0.1 --prefix install_dir`
 
-## Viitteet {#references}
 
-* [Orfeo ToolBox kotisivu](https://www.orfeo-toolbox.org/)
-* [Orfeo ToolBox yleinen dokumentaatio](https://www.orfeo-toolbox.org/CookBook/)
-* [Orfeo ToolBox Python API dokumentaatio](https://www.orfeo-toolbox.org/PythonDoc/)
+## Viitteet { #references }
+
+* [Orfeo ToolBoxin kotisivu](https://www.orfeo-toolbox.org/)
+* [Orfeo ToolBoxin yleinen dokumentaatio](https://www.orfeo-toolbox.org/CookBook/)
+* [Orfeo ToolBoxin Python API -dokumentaatio](https://www.orfeo-toolbox.org/PythonDoc/)

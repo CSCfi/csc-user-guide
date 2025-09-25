@@ -1,32 +1,41 @@
 ---
 tags:
   - Free
-system:
-  - www-mahti
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Julia-Jupyter
+  description: Interactive computational environment for Julia
+  description_fi: Interaktiivinen laskentaympäristö Julialle
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+        - Mahti
+    - LUMI
 ---
 
-# Julia-Jupyter
+# Julia-Jupyter { #julia-jupyter }
 
-A version of the [Jupyter app](jupyter.md) for Julia programming language.
+Versio [Jupyter-sovelluksesta](jupyter.md) Julia-ohjelmointikielelle.
 
-## License
+## Lisenssi { #license }
 
-Free
+Ilmainen
 
-## Available
+## Saatavilla { #available }
 
-Julia-Jupyter is available as an interactive application via the web interface for
+Julia-Jupyter on saatavilla interaktiivisena sovelluksena verkkokäyttöliittymän kautta seuraaville:
 
 - Mahti
 - Puhti
 - LUMI
 
-## More information
+## Lisätietoja { #more-information }
 
-More information on Julia-Jupyter, interactive applications, and the web interfaces can be found under the [Computing section](../computing/index.md):
+Lisätietoja Julia-Jupyterista, interaktiivisista sovelluksista ja verkkokäyttöliittymistä löytyy [Laskenta-osiosta](../computing/index.md):
 
 - [Julia-Jupyter](../computing/webinterface/julia-on-jupyter.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [Interaktiiviset sovellukset](../computing/webinterface/apps.md)
+- [Verkkokäyttöliittymät](../computing/webinterface/index.md)

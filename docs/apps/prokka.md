@@ -1,47 +1,53 @@
 ---
 tags:
   - Free
+catalog:
+  name: Prokka
+  description: Rapid prokaryotic genome annotation
+  description_fi: Nopea prokaryoottisten genomien annotointi
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Prokka
+# Prokka { #prokka }
 
-Prokka is a software tool to annotate bacterial, archaeal and viral genomes.
+Prokka on ohjelmistotyökalu bakteerien, arkeonien ja virusten genomien annotointiin.
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaasti käytettävissä ja avoimen lähdekoodin ohjelmisto [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssin alaisena.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 1.4.6, 1.14.6
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, Prokka should be executed as a batch job. An interactive batch job for testing Prokka can be started
-with the command:
+Puhti-ympäristössä Prokka tulee suorittaa eräajona. Interaktiivisen eräajotehtävän Prokkan testausta varten voi käynnistää komennolla:
 
 ```bash
 sinteractive -i -m 8G
 ```
 
-To activate Prokka environment, run the command:
+Aktivoidaksesi Prokka-ympäristön, suorita komento:
 
 ```bash
 module load prokka
 ```
 
-After that you can launch Prokka with the command `prokka`. By default, Prokka tries to use 8 computing cores, but in 
-this interactive batch job case, you have just one core available. Therefore, you should always define the number
-of cores that Prokka will use with option `-cpus`.
+Tämän jälkeen voit käynnistää Prokkan komennolla `prokka`. Oletuksena Prokka yrittää käyttää 8 laskentaydintä, mutta tässä interaktiivisessa eräajossa käytettävissä on vain yksi ydin. Siksi sinun tulisi aina määrittää Prokan käyttämien ytimien määrä valinnalla `-cpus`.
 
-For example:
+Esimerkiksi:
 
 ```bash
 prokka --cpus 1 contigs.fasta
 ```
 
-Larger analyses should be executed as a batch job utilizing several cores.
-A sample batch job script (`batch_job_file.bash`) is provided below:
+Laajemmat analyysit kannattaa suorittaa useita ytimiä hyödyntävänä eräajona.
+Alla on esimerkki eräajon ajoskriptistä (`batch_job_file.bash`):
 
 ```bash
 #!/bin/bash -l
@@ -62,21 +68,18 @@ module load prokka
 prokka --cpus $SLURM_CPUS_PER_TASK --outdir results_case1 --prefix mygenome contigs_case1.fa
 ```
 
-In the batch job example above one Prokka task (`--ntasks=1`) is executed. 
-The job reserves 8 cores (`--cpus-per-task=8`) with total of 16 GB of memory (`--mem=16000`). 
-The maximum duration of the job is 24 hours (`--time 24:00:00`). All the cores are assigned from 
-one computing node (`--nodes=1`). In addition to the resource reservations, you have to define 
-the billing project for your batch job. This is done by replacing `your_project_name` with 
-the name of your project. You can use command `csc-projects` to see what CSC projects you have access to.
+Yllä olevassa eräajoesimerkissä suoritetaan yksi Prokka-tehtävä (`--ntasks=1`). 
+Työ varaa 8 ydintä (`--cpus-per-task=8`) ja yhteensä 16 Gt muistia (`--mem=16000`). 
+Työn enimmäiskesto on 24 tuntia (`--time 24:00:00`). Kaikki ytimet varataan yhdeltä laskentasolmulta (`--nodes=1`). Resurssivarausten lisäksi sinun on määritettävä työlle laskutusprojekti. Tämä tehdään korvaamalla `your_project_name` projektisi nimellä. Näet käytössäsi olevat CSC-projektit komennolla `csc-projects`.
 
-You can submit the batch job file to the batch job system with the command:
+Voit lähettää ajoskriptin eräajojärjestelmään komennolla:
 
 ```bash
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Lisätietoja eräajojen suorittamisesta löytyy [Puhti-käyttöoppaasta](../computing/running/getting-started.md).
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Prokka home page](https://github.com/tseemann/prokka)
+* [Prokan kotisivu](https://github.com/tseemann/prokka)

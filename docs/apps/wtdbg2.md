@@ -1,54 +1,62 @@
-
 ---
 tags:
   - Free
+catalog:
+  name: wtdbg2
+  description: Fast assembler for long-read data
+  description_fi: Nopea kokoaja pitkien lukemien datalle
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# wtdbg2
+# wtdbg2 { #wtdbg2 }
 
-wtdbg2 on nopea _de novo_ kokoamistyökalu pitkäkestoiseen sekvenssidataan, jota tuottaa PacBio tai Oxford Nanopore Technologies -sekvensserit.
+wtdbg2 on nopea _de novo_ -kokoamistyökalu pitkien lukemien sekvenssidatalle, jonka tuottavat PacBio- tai Oxford Nanopore Technologies -sekvensointilaitteet.
 
 [TOC]
 
-## Lisenssi {#license}
+## Lisenssi { #license }
 
-Vapaasti käytettävä ja avoin lähdekoodi [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
+Vapaasti käytettävissä ja avoimen lähdekoodin ohjelmisto [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Saatavuus {#available}
+## Saatavilla { #available }
 
 - Puhti: 2.5
 
-## Käyttö {#usage}
+## Käyttö { #usage }
 
-Puhtilla wtdbg2 aktivoidaan lataamalla biokit-moduuli:
+Puhtissa wtdbg2 otetaan käyttöön lataamalla biokit-moduuli:
 
 ```bash
 module load biokit
 ```
 
-Tämän jälkeen voit käyttää `wtdbg2` assembleria ja `wrpoa-cns` konsensointikomentoja. `wtdbg2` kokoaa raakatiedot ja luo contig-mallin ja reunan sekvenssit tiedostossa `prefix.ctg.lay.gz`. Suoritettava `wtpoa-cns` käyttää tätä tiedostoa ja tuottaa lopullisen konsensuksen FASTA-muodossa.
+Tämän jälkeen käytettävissä ovat `wtdbg2`-kokoaja ja `wrpoa-cns`-konsensusohjelma. `wtdbg2` kokoaa raakalukemat ja tuottaa kontigien layoutin ja reunasekvenssit tiedostoon `prefix.ctg.lay.gz`. Suoritettava `wtpoa-cns` lukee tämän tiedoston syötteenä ja tuottaa lopullisen konsensuksen FASTA-muodossa. 
 
-Tyypillinen työnkulku näyttää tältä:
+Tyypillinen työnkulku on seuraavanlainen:
 
 ```bash 
 wtdbg2 -x rs -g 4.6m -t 16 -i reads.fa.gz -fo prefix
 wtpoa-cns -t 16 -i prefix.ctg.lay.gz -fo prefix.ctg.fa
 ```
 
-`wtdbg2`-komennossa `-g` on arvioitu genomin koko ja `-x` määrää sekvensointiteknologian, joka voi olla arvoltaan `rs` PacBio RSII:lle, `sq` PacBio Sequelille, `ccs` PacBio CCS-lukemille ja `ont` Oxford Nanoporelle. Tämä optio asettaa useita parametreja ja se tulisi soveltaa ennen muita parametreja. Jos et saa hyvää kokoamista, saatat tarvita muiden parametrien hienosäätöä wtdbg2-manuaalin kuvaamalla tavalla.
+Komennossa `wtdbg2` valitsin `-g` on arvio genomin koosta ja `-x` määrittää sekvensointiteknologian; arvoja ovat mm. `rs` (PacBio RSII), `sq` (PacBio Sequel), `ccs` (PacBio CCS -lukemat) ja `ont` (Oxford Nanopore). Tämä valitsin asettaa useita parametreja ja se tulee antaa ennen muita parametreja. Jos et saa hyvää kokoamista, muita parametreja voi olla tarpeen säätää wtdbg2-manuaalin ohjeiden mukaisesti.
 
-Mikäli genomi on suuri (yli 10 Mb), wtdbg2:n kokoamisprosessi voi kestää useita tunteja tai päiviä. Puhtilla tällaiset suuret tehtävät tulisi aina suorittaa erätehtävinä.
+Suurten (yli 10 Mb) genomien kohdalla wtdbg2-kokoamisprosessi voi kestää useita tunteja tai päiviä. Puhtissa tällaiset suuret tehtävät tulee aina suorittaa eräajoina.
 
-Alla on esimerkki erätehtävätiedostosta _C. elegans_ genomin kokoamiseen.
+Alla on esimerkkieräajotiedosto _C. elegans_ -genomin kokoamiseen. 
 
-Esimerkkiaineisto ladattiin ENA-tietokannasta komennoilla:
+Esimerkkiaineisto ladattiin ENA-tietokannasta seuraavilla komennoilla:
 
 ```bash
 enaDataGet SRR5439404 -f fastq
 mv SRR5439404/SRR5439404_subreads.fastq.gz ./
 ```
 
-Varsinainen kokoamistehtävä suoritettiin alla olevalla erätehtävällä:
+Varsinainen kokoamistehtävä ajettiin alla olevalla eräajolla:
 
 ```bash
 #!/bin/bash
@@ -57,7 +65,7 @@ Varsinainen kokoamistehtävä suoritettiin alla olevalla erätehtävällä:
 #SBATCH --time=12:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
-#SBATCH --output=wtdbg2_out_32_%j
+#SBATCH --output==wtdbg2_out_32_%j
 #SBATCH --error=wtdbg2_err_32_%j
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=64G
@@ -69,17 +77,16 @@ wtdbg2 -x rs -g100m -t $SLURM_CPUS_PER_TASK -i SRR5439404_subreads.fastq.gz -fo 
 wtpoa-cns -t $SLURM_CPUS_PER_TASK -i c_elegas_test.ctg.lay.gz -fo c_elegabs.ctg.fa
 ```
 
-Yllä olevassa esimerkissä `<project>` tulisi korvata projektisi nimellä. Voit käyttää `csc-projects` tarkistaaksesi CSC-projektisi. Maksimiaika on asetettu 12 tunniksi (`--time=12:00:00`). Koska wtdbg2 käyttää säiepohjaista rinnakkaisuutta, prosessi katsotaan yhdeksi tehtäväksi, joka tulisi suorittaa yhdellä solmulla (`--ntasks=1`). Tehtävä varaa 32 ydintä `--cpus-per-task=32`, jotka voivat käyttää yhteensä enintään 64 Gt muistia (`--mem=64G`). Huomaa, että käytettävien ytimien määrä on määriteltävä myös `wtdbg2` ja `wtpoa-cns` komennoissa. Tämä voidaan asettaa optiolla `-t`. Tässä tapauksessa käytämme `$SLURM_CPUS_PER_TASK` muuttujaa, joka sisältää `--cpus-per-task` arvon (voimme myös käyttää `-t 32`, mutta silloin meidän täytyy muistaa muuttaa arvoa, jos varattujen suorittimien määrä muuttuu myöhemmin).
+Yllä olevassa esimerkissä `<project>` tulee korvata oman projektisi nimellä. Voit tarkistaa CSC-projektisi komennolla `csc-projects`. Suurin sallittu ajoaika on asetettu 12 tuntiin (`--time=12:00:00`). Koska wtdbg2 käyttää säiepohjaista rinnakkaistusta, prosessi on yksi työ, joka tulee ajaa yhdellä solmulla (`--ntasks=1`, `--ntasks=1`). Työ varaa 32 ydintä (`--cpus-per-task=32`), jotka voivat käyttää yhteensä enintään 64 Gt muistia (`--mem=64G`). Huomaa, että käytettävien ytimien määrä pitää määritellä myös `wtdbg2`- ja `wtpoa-cns`-komennoissa. Tämä asetetaan valitsimella `-t`. Tässä käytämme muuttujaa `$SLURM_CPUS_PER_TASK`, joka sisältää `--cpus-per-task`-arvon (voisimme käyttää myös `-t 32`, mutta silloin arvon vaihtaminen pitää muistaa, jos varattujen suoritinytimien määrä muuttuu myöhemmin.
 
-Tehtävä lähetetään erätehtävien järjestelmään `sbatch` komennolla. Esimerkiksi, jos erätehtävä tiedosto on nimeltään `wtdbg2_job.sh`, niin lähetyskomento on: 
+Työ lähetetään eräajojärjestelmään komennolla `sbatch`. Jos eräajotiedoston nimi on esimerkiksi `wtdbg2_job.sh`, lähetyskomento on: 
 
 ```bash
 sbatch wtdbg2_job.sh 
 ```
 
-Lisätietoja erätehtävien suorittamisesta löytyy [Puhtin käyttäjän oppaan erätehtäväosiosta](../computing/running/getting-started.md).
+Lisätietoja eräajojen ajamisesta löytyy [Puhdin käyttäjäoppaan eräajo-osiosta](../computing/running/getting-started.md).
 
-## Lisätietoa {#more-information}
+## Lisätietoja { #more-information }
 
-* [wtdbg2 kotisivu](https://github.com/ruanjue/wtdbg2)
-
+* [wtdbg2-kotisivu](https://github.com/ruanjue/wtdbg2)

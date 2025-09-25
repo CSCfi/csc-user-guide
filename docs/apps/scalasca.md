@@ -1,73 +1,79 @@
 ---
 tags:
   - Free
+catalog:
+  name: Scalasca
+  license_type: Free
+  available_on:
+    - Puhti
+    - Mahti
+  unchecked: true
 ---
 
-# Scalasca
+# Scalasca { #scalasca }
 
-[Scalasca](https://www.scalasca.org/) is an open-source software tool
-that supports the performance optimization of parallel programs by
-measuring and analyzing their runtime behavior via event traces. The analysis
-identifies potential performance bottlenecks - in particular those
-concerning communication and synchronization - and offers guidance in
-exploring their causes. Scalasca supports applications using MPI,
-OpenMP, POSIX threads, or MPI+OpenMP/Pthreads parallelization.
+[Scalasca](https://www.scalasca.org/) on avoimen lähdekoodin ohjelmistotyökalu,
+joka tukee rinnakkaisohjelmien suorituskyvyn optimointia mittaamalla ja
+analysoimalla niiden suoritusaikaista käyttäytymistä tapahtumajäljitysten avulla.
+Analyysi tunnistaa mahdollisia suorituskyvyn pullonkauloja – erityisesti
+viestintään ja synkronointiin liittyviä – ja tarjoaa ohjeita niiden syiden
+selvittämiseen. Scalasca tukee sovelluksia, jotka käyttävät MPI:tä,
+OpenMP:tä, POSIX-säikeitä tai MPI+OpenMP/Pthreads-rinnakkaistusta.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 2.6
 * Mahti: 2.6
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Usage
+## Käyttö { #usage }
 
-Using Scalasca involves three steps:
+Scalascan käyttö koostuu kolmesta vaiheesta:
 
-1. Instrumentation
-2. Execution measurement collection & analysis
-3. Analysis report examination
+1. Instrumentointi
+2. Suorituksen mittauksen keruu ja analyysi
+3. Analyysiraportin tarkastelu
 
-### Instrumentation
+### Instrumentointi { #instrumentation }
 
-Scalasca uses
-[the Score-P measurement infrastructure](https://perftools.pages.jsc.fz-juelich.de/cicd/scorep/tags/scorep-7.1/html/)
-for instrumentation of the target application. Score-P can be used
-also as a stand-alone tool without Scalasca.
+Scalasca käyttää
+[Score-P-mittausinfrastruktuuria](https://perftools.pages.jsc.fz-juelich.de/cicd/scorep/tags/scorep-7.1/html/)
+kohdesovelluksen instrumentointiin. Score-P:tä voidaan käyttää
+myös itsenäisenä työkaluna ilman Scalasca‑ohjelmaa.
 
-In order to instrument an application, you need to recompile the
-application using the Score-P instrumentation command `scorep`, which is added
-as a prefix to the original compile and link commands:
+Sovelluksen instrumentoimiseksi se täytyy kääntää uudelleen käyttäen
+Score-P:n instrumentointikomentoa `scorep`, joka lisätään etuliitteeksi
+alkuperäisiin käännös- ja linkityskomentoihin:
 
 ```bash
 module load scorep
 scorep mpicc -o my_prog my_prog.c
 ```
 
-or setting in a Makefile for C/C++ codes:
+tai asettamalla se Makefileen C/C++-koodeille:
 
 ```
 CC=scorep mpicc
 ```
 
-or, similarly, for Fortran codes:
+tai vastaavasti Fortran-koodeille:
 
 ```
 F90=scorep mpif90
 ```
 
-### Measurement collection and analysis
+### Mittausten keruu ja analyysi { #measurement-collection-and-analysis }
 
-While applications instrumented by Score-P can be executed directly
-with a measurement configuration defined via environment variables,
-the `scan` convenience command provided by
-Scalasca can be used to control certain aspects of the Score-P
-measurement environment during the execution of the target
-application. To produce a performance measurement using an
-instrumented executable, prefix `srun`
-with the `scan` command in the batch job script:
+Vaikka Score-P:llä instrumentoidut sovellukset voidaan suorittaa suoraan
+ympäristömuuttujilla määritellyllä mittauskonfiguraatiolla, Scalascan
+tarjoamaa `scan`-apukomentoa voidaan käyttää ohjaamaan
+tiettyjä Score-P:n mittausympäristön osa-alueita kohdesovelluksen
+suorituksen aikana. Tuottaaksesi suorituskykymittauksen
+instrumentoidulla ajettavalla tiedostolla, lisää `srun`-komennon eteen
+`scan` eräajon skriptissä:
 
 ```bash
 ...
@@ -77,18 +83,17 @@ module load scalasca
 scan srun ./my_app
 ```
 
-By default, a flat profile is collected. Upon completion, measurement
-results are stored in the experiment directory, which by default is
-composed of the prefix `scorep_`, the target application executable
-name, the run configuration (e.g., number of MPI ranks and/or OpenMP
-threads), and a few other parameters of the measurement
-configuration. For example, in the above example
+Oletuksena kerätään tasoprofiili. Valmistuttuaan mittaustulokset
+tallennetaan kokeen hakemistoon, joka oletuksena koostuu
+etuliitteestä `scorep_`, kohdesovelluksen ajettavan tiedoston nimestä,
+ajokokoonpanosta (esim. MPI-prosessien ja/tai OpenMP-säikeiden määrä)
+sekä muutamista muista mittauskonfiguraation parametreista. Esimerkiksi
+yllä olevassa esimerkissä
 `scorep_my_app_40_sum`.
 
-One can also collect event trace data. As tracing can produce huge
-amounts of data, it is recommended to first estimate the size of
-trace, and possibly filter out some functions from the measurement.
-Estimate can be obtained with `scorep-score` command:
+Voit myös kerätä tapahtumajälkiä. Koska jäljitys voi tuottaa valtavia määriä
+dataa, on suositeltavaa ensin arvioida jäljen koko ja mahdollisesti suodattaa
+joitakin funktioita pois mittauksesta. Arvion saa komennolla `scorep-score`:
 
 ```text
 $ scorep-score -r scorep_my_app_40_sum/profile.cubex
@@ -114,8 +119,8 @@ flt     type max_buf[B] visits time[s] time[%] time/visit[us]  region
 ...
 ```
 
-In order to filter out the measurement of `swap_fields` and `evolve`,
-one can create a file `scorep.filter` with the contents:
+Suodattaaksesi `swap_fields`- ja `evolve`-funktioiden mittauksen pois
+voit luoda tiedoston `scorep.filter`, jonka sisältö on:
 
 ```text
 SCOREP_REGION_NAMES_BEGIN
@@ -125,7 +130,7 @@ SCOREP_REGION_NAMES_BEGIN
 SCOREP_REGION_NAMES_END
 ```
 
-and check the effect of filtering with `-f` option:
+ja tarkistaa suodatuksen vaikutuksen valitsimella `-f`:
 
 ```bash
 $ scorep-score -f scorep.filter -r scorep_my_app_40_sum/profile.cubex
@@ -135,9 +140,9 @@ Estimated requirements for largest trace buffer (max_buf): 105kB
 ...
 ```
 
-One could now proceed with the trace collection by setting
-`SCOREP_FILTERING_FILE` environment variable and by passing options
-`-q` and `-t` to `scan` command:
+Voit nyt jatkaa jäljen keruuta asettamalla ympäristömuuttujan
+`SCOREP_FILTERING_FILE` ja antamalla valitsimet
+`-q` ja `-t` `scan`-komennolle:
 
 ```bash
 ...
@@ -150,30 +155,30 @@ export SCOREP_FILTERING_FILE=scorep.filter
 scan -q -t srun ./my_app
 ```
 
-After the trace collection is finished, Scalasca will carry out
-trace-analysis for identifying various performance bottlenecks.
-With tracing enabled, the experiment directory would be
+Kun jäljen keruu on valmis, Scalasca suorittaa
+jäljitysanalyysin erilaisten suorituskyvyn pullonkaulojen tunnistamiseksi.
+Kun jäljitys on käytössä, kokeen hakemisto on
 `scorep_my_app_40_trace`.
 
-## Analysis report examination
+## Analyysiraportin tarkastelu { #analysis-report-examination }
 
-The Scalasca analysis report explorer `square` cannot currently be run on CSC
-supercomputers. However, user may install Scalasca on their local
-workstation, and copy the experiment directory there for analysis,
-e.g.:
+Scalascan analyysiraportin tutkintatyökalua `square` ei toistaiseksi voi ajaa CSC:n
+supertietokoneilla. Käyttäjä voi kuitenkin asentaa Scalascaan omalle
+työasemalleen ja kopioida kokeen hakemiston sinne analysoitavaksi,
+esim.:
 
 ```bash
 rsync -r puhti.csc.fi:/scratch/.../rundir/scorep_my_app_40_trace .
 square scorep_my_app_40_trace
 ```
 
-For large traces, one may copy only the post-processed trace analysis
-result file `scorep_my_app_40_trace/scout.cubex`.
+Suurille jäljityksille voi kopioida vain jälkikäsitellyn
+jäljitysanalyysin tulostiedoston `scorep_my_app_40_trace/scout.cubex`.
 
-The OTF2 formatted event trace `scorep_my_app_40_trace/trace.otf2` can
-be analyzed also with [Intel Trace Analyzer](itac.md).
+OTF2-muodossa oleva tapahtumajälki `scorep_my_app_40_trace/trace.otf2`
+voidaan analysoida myös työkalulla [Intel Trace Analyzer](itac.md).
 
-## More information
+## Lisätietoja { #more-information }
 
-- [Scalasca user guide](https://apps.fz-juelich.de/scalasca/releases/scalasca/2.6/docs/manual/index.html)
-- [POP Online training](https://pop-coe.eu/further-information/online-training)
+- [Scalascan käyttäjäopas](https://apps.fz-juelich.de/scalasca/releases/scalasca/2.6/docs/manual/index.html)
+- [POP-verkkokoulutus](https://pop-coe.eu/further-information/online-training)

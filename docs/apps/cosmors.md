@@ -1,73 +1,68 @@
 ---
 tags:
   - Academic
+catalog:
+  name: COSMO-RS
+  description: Toolbox for predictive property calculation of liquids
+  description_fi: Työkalupakki nesteiden ominaisuuksien ennustavaan laskentaan
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
 ---
 
-# COSMO-RS
+# COSMO-RS { #cosmo-rs }
 
-**COSMOsuite** is a Comprehensive Toolbox for the Modelling and Prediction of Fluid Phase
-Properties using the COSMO-RS model. The toolbox consists of the components **COSMOtherm**,
-**COSMOconf**, **COSMOplex**, **COSMObase** and **COSMOquick**.
+**COSMOsuite** on kattava työkalupakki nestevaiheominaisuuksien mallinnukseen ja ennustamiseen COSMO-RS-mallin avulla. Työkalupakki koostuu komponenteista **COSMOtherm**, **COSMOconf**, **COSMOplex**, **COSMObase** ja **COSMOquick**.
 
-**COSMOtherm** is a command-line/file-driven program which can be run directly from a UNIX or DOS
-shell. It allows for the calculation of any solvent or solvent mixture and solute or solute system
-at variable temperature and pressure. COSMOtherm uses the chemical potentials derived from COSMO-RS
-theory to compute various equilibrium thermodynamic properties or derived quantities. COSMOtherm
-has a Graphical User Interface to the command-line program. It allows for the interactive use of
-the program, i.e. selection of compounds, preparation of property input, program runs and display
-of calculation results.
+**COSMOtherm** on komentorivi-/tiedosto-ohjattu ohjelma, jota voi ajaa suoraan UNIX- tai DOS-kuoresta. Se mahdollistaa minkä tahansa liuottimen tai liuotinseoksen sekä liuenneen aineen tai niistä koostuvien järjestelmien ominaisuuksien laskennan vaihtelevissa lämpötila- ja paineolosuhteissa. COSMOtherm käyttää COSMO-RS-teoriasta johdettuja kemiallisia potentiaaleja erilaisten tasapainotermodynaamisten ominaisuuksien ja niistä johdettujen suureiden laskemiseen. COSMOthermilla on graafinen käyttöliittymä komentoriviohjelmaan. Se mahdollistaa ohjelman interaktiivisen käytön, eli yhdisteiden valinnan, ominaisuussyötteiden valmistelun, ajojen suorittamisen ja laskentatulosten tarkastelun.
 
-**COSMOconf** is a flexible toolbox for conformer generation. COSMOconf can be used in combination
-with the [TURBOMOLE](turbomole.md) package to generate COSMO files for relevant conformations. It
-enables you to use pre-defined procedures that are optimized for the generation of the most
-relevant conformers for COSMO-RS. COSMOconf can be used through the GUI or from the command-line.
+**COSMOconf** on joustava työkalupakki konformeerien generointiin. COSMOconfia voidaan käyttää yhdessä [TURBOMOLE](turbomole.md)-paketin kanssa luomaan COSMO-tiedostoja olennaisille konformaatioille. Se mahdollistaa ennalta määritettyjen menettelyjen käytön, jotka on optimoitu COSMO-RS:ää varten olennaisimpien konformeerien tuottamiseen. COSMOconfia voidaan käyttää graafisen käyttöliittymän kautta tai komentoriviltä.
 
-**COSMOplex** is a tool for simulation of self-organizing inhomogeneous systems based on COSMO-RS.
-COSMOconf can be used through the GUI or from the command-line.
+**COSMOplex** on työkalu itsejärjestyvien epähomogeenisten järjestelmien simulointiin COSMO-RS:n pohjalta. COSMOconfia voidaan käyttää graafisen käyttöliittymän kautta tai komentoriviltä.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 2024
 
-## License
+## Lisenssi { #license }
 
-* You may use the Software exclusively for non-profit research purposes.
-* Only users from academic (i.e. degree-granting) institutes are allowed to use the Software
+* Ohjelmistoa saa käyttää yksinomaan voittoa tavoittelemattomaan tutkimuskäyttöön.
+* Vain akateemisten (eli tutkintoja myöntävien) laitosten käyttäjät saavat käyttää ohjelmistoa
 
-## Usage
+## Käyttö { #usage }
 
-### Use the GUI via your browser
+### Käytä graafista käyttöliittymää selaimella { #use-the-gui-via-your-browser }
 
-Go to [Puhti web interface](https://puhti.csc.fi/) using a web browser and login using your CSC
-user account or Haka federation.
+Siirry [Puhti-verkkokäyttöliittymään](https://puhti.csc.fi/) käyttäen verkkoselainta ja kirjaudu sisään CSC-käyttäjätunnuksellasi tai Haka-federaatiolla.
 
-1. From there, [launch a Desktop](../computing/webinterface/desktop.md#launching). 
-2. Open a `Terminal` and move to a suitable working directory.
-3. Load the COSMO-RS module: `module load cosmors/2024`.
-4. Add the launching icons to the Desktop with the command `setup_cosmodesktop.sh`.
-5. Start for instance `COSMOtherm` by double-clicking its Desktop icon.
+1. Sieltä [käynnistä työpöytä](../computing/webinterface/desktop.md#launching).
+2. Avaa `Terminal` ja siirry sopivaan työhakemistoon.
+3. Lataa COSMO-RS-moduuli: `module load cosmors/2024`.
+4. Lisää käynnistyskuvakkeet työpöydälle komennolla `setup_cosmodesktop.sh`.
+5. Käynnistä esimerkiksi `COSMOtherm` kaksoisnapsauttamalla sen työpöytäkuvaketta.
 
-### Run it from the command-line
+### Suorita komentoriviltä { #run-it-from-the-command-line }
 
-Initialize the COSMO-RS environment:
+Alusta COSMO-RS-ympäristö:
 
 ```bash
 module load cosmors/2024
 ```
 
-## Documentation
+## Dokumentaatio { #documentation }
 
-The latest documentation can be found in the directory `/appl/soft/chem/cosmors/Documentation/` as
-PDF files.
+Uusin dokumentaatio löytyy hakemistosta `/appl/soft/chem/cosmors/Documentation/` PDF-tiedostoina.
 
-Older documentation online:
+Vanhempi dokumentaatio verkossa:
 
 * [BIOVIA COSMOtherm](https://www.3ds.com/support/documentation/resource-library/single/biovia-cosmotherm/) 
 * [BIOVIA COSMOconf](https://www.3ds.com/support/documentation/resource-library/single/biovia-cosmoconf/) 
 * [BIOVIA COSMOquick](https://www.3ds.com/support/documentation/resource-library/single/biovia-cosmoquick/) 
 * [BIOVIA COSMOplex ](https://www.3ds.com/support/documentation/resource-library/single/biovia-cosmoplex/) 
 
-## More information
+## Lisätietoja { #more-information }
 
-* [COSMO-RS at Dassault Systèmes](https://www.3ds.com/products/biovia/cosmo-rs) 
-* [COSMO-RS videos on YouTube](https://www.youtube.com/playlist?list=PLRBPTxPZPfXVPSB46N-Ih1bCwMxOUY3de) 
+* [COSMO-RS Dassault Systèmesin sivuilla](https://www.3ds.com/products/biovia/cosmo-rs) 
+* [COSMO-RS-videoita YouTubessa](https://www.youtube.com/playlist?list=PLRBPTxPZPfXVPSB46N-Ih1bCwMxOUY3de)

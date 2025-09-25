@@ -1,15 +1,22 @@
 ---
 tags:
   - Academic
+catalog:
+  name: Discovery Studio
+  description: Protein modeling environment
+  description_fi: Proteiinimallinnusympäristö
+  license_type: Academic
+  disciplines:
+    - Biosciences
+  unchecked: true
 ---
 
-# Discovery Studio
+# Discovery Studio { #discovery-studio }
 
-Discovery Studio is a protein modeling program that contains tools to
-visualize, analyze, modify and simulate protein structures. 
+Discovery Studio on proteiinimallinnusohjelma, joka sisältää työkaluja proteiinirakenteiden visualisointiin, analysointiin, muokkaamiseen ja simulointiin. 
 
-!!! warning "Note"
-    The national Discovery Studio license provided by CSC was discontinued in 2022.
-    Since the beginning of 2023, it is no longer available. Please consider using 
-    [Maestro](maestro.md) instead. [Contact CSC Service Desk](../support/contact.md)
-    if you need support in migrating your workflow.
+!!! warning "Huom."
+    CSC:n tarjoama kansallinen Discovery Studio -lisenssi lakkautettiin vuonna 2022.
+    Vuoden 2023 alusta lähtien se ei ole enää saatavilla. Harkitse sen sijaan 
+    [Maestroa](maestro.md). [Ota yhteyttä CSC:n Service Deskiin](../support/contact.md),
+    jos tarvitset tukea työnkulun siirtämisessä.

@@ -1,37 +1,55 @@
-
 ---
 tags:
   - Other
+catalog:
+  name: ORCA
+  description: General purpose quantum chemistry package
+  description_fi: Yleiskäyttöinen kvanttikemian ohjelmistopaketti
+  license_type: Other
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# ORCA
+# ORCA { #orca }
 
-[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on ab initio kvanttikemian ohjelmistopaketti, joka sisältää moderneja elektronirakennemenetelmiä, kuten tiheystoiminnallisen teorian, usean kappaleen häiriöteorian, kytketyn klusterin menetelmiä, moniviitemenetelmiä ja puolikokeellisia kvanttikemian menetelmiä. Sen pääasiallinen sovelluskenttä on suuremmat molekyylit, siirtymämetallikompleksit ja niiden spektroskooppiset ominaisuudet. ORCA-ohjelmiston kehitys tapahtuu [Frank Neesen](https://en.wikipedia.org/wiki/Frank_Neese) tutkimusryhmässä. Vapaa versio on saatavilla vain akateemiseen käyttöön akateemisissa laitoksissa.
+[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on ab initio -kvanttikemian
+ohjelmistopaketti, joka sisältää moderneja elektronisen rakenteen menetelmiä, kuten tiheysfunktionaaliteorian,
+monikappalehäiriöteorian, coupled cluster -menetelmät, multireferenssimenetelmät ja puoli-empiiriset
+kvanttikemian menetelmät. Sen pääasiallisia sovellusalueita ovat suuret molekyylit, siirtymämetallikompleksit
+ja niiden spektroskooppiset ominaisuudet. ORCAa kehitetään
+[Frank Neesen](https://en.wikipedia.org/wiki/Frank_Neese) tutkimusryhmässä. Ilmaisversio on saatavilla
+vain akateemiseen käyttöön akateemisissa organisaatioissa.
 
 [TOC]
 
-## Saatavilla {#available}
+## Saatavilla { #available }
 
 - Puhti: 6.0.0
 - Mahti: 6.0.0
 
-Huomaa, että lisenssiongelmien vuoksi jokaisen käyttäjän on asennettava oma kopiopa ohjelmasta.
+Huomaa, että lisenssisyistä jokaisen käyttäjän on asennettava ohjelmasta oma kopionsa.
 
-## Lisenssi {#license}
+## Lisenssi { #license }
 
-ORCA-käyttäjien tulisi rekisteröityä, hyväksyä EULA, ladata ja asentaa oma kopio ohjelmasta
-([ORCA-foorumin verkkosivun kautta](https://orcaforum.kofo.mpg.de/app.php/portal)). Vapaa versio on saatavilla vain akateemiseen käyttöön akateemisissa laitoksissa.
+ORCA-käyttäjien tulee rekisteröityä, hyväksyä EULA, ladata ja asentaa ohjelman oma yksityinen kopio
+([ORCA-foorumin verkkosivuston](https://orcaforum.kofo.mpg.de/app.php/portal) kautta). Ilmaisversio on
+saatavilla vain akateemiseen käyttöön akateemisissa organisaatioissa.
 
-## Käyttö {#usage}
+## Käyttö { #usage }
 
 - Lataa ORCA 6.0.0, Linux, x86-64, jaettu versio, `orca_6_0_0_linux_x86-64_avx2_shared_openmpi416.tar.xz`
-- Siirrä ladattu tiedosto laskentaprojektisi sovellusalueelle (`/projappl/<proj>`) Puhtilla
-- Pure paketti, `tar xf orca_6_0_0_linux_x86-64_avx2_shared_openmpi416.tar.xz`
+- Siirrä ladattu tiedosto laskentaprojektisi sovellusalueelle (`/projappl/<proj>`) Puhtissa
+- Pura paketti, `tar xf orca_6_0_0_linux_x86-64_avx2_shared_openmpi416.tar.xz`
 
-### Esimerkki eräkäsittelyskripteistä {#example-batch-scripts}
+### Esimerkkieräskriptit { #example-batch-scripts }
 
-!!! info "Huomio"
-    Aaltotoimintoperäiset korrelaatiomenetelmät, sekä yksittäis- että moniviite, luovat usein merkittävän määrän levy I/O:ta. Parhaan suorituskyvyn saavuttamiseksi työtehtävälle ja Lusterin rinnakkaistiedostojärjestelmän liiallisen kuormituksen välttämiseksi on suositeltavaa käyttää paikallista levyä.
+!!! info "Huom."
+    Aaltotoimintoon perustuvat korrelaatiomenetelmät, sekä yksireferenssi- että multireferenssimenetelmät,
+    tuottavat usein runsaasti levy-I/O:ta. Parhaan suorituskyvyn saavuttamiseksi ja Lustre-rinnakkaistiedostojärjestelmän
+    turhan kuormituksen välttämiseksi on suositeltavaa käyttää paikallista levyä.
 
 === "Puhti"
 
@@ -39,17 +57,17 @@ ORCA-käyttäjien tulisi rekisteröityä, hyväksyä EULA, ladata ja asentaa oma
     #!/bin/bash
     #SBATCH --partition=test
     #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40      # MPI-tehtäviä per solmu
-    #SBATCH --account=yourproject     # täytä tähän laskutettava projekti 
-    #SBATCH --time=00:15:00           # aika muodossa `hh:mm:ss`
+    #SBATCH --ntasks-per-node=40      # MPI tasks per node
+    #SBATCH --account=yourproject     # insert here the project to be billed 
+    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
     module purge
     module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
     export ORCADIR=<path to your ORCA directory>/orca_6_0_0_shared_openmpi416_avx2/
     export LD_LIBRARY_PATH=${ORCADIR}:${LD_LIBRARY_PATH}
 
-    # Määritä $ORCA_TMPDIR osoittamaan lähetyshakemistoon
+    # Set $ORCA_TMPDIR to point to the submission directory
     export ORCA_TMPDIR=$SLURM_SUBMIT_DIR
-    # luo mpirun skripti joka suorittaa srun-komennon
+    # create an mpirun script that executes srun
     echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
     chmod +x ./mpirun
     export PATH=${SLURM_SUBMIT_DIR}:${PATH}
@@ -66,31 +84,31 @@ ORCA-käyttäjien tulisi rekisteröityä, hyväksyä EULA, ladata ja asentaa oma
     #SBATCH --partition=large
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=40
-    #SBATCH --account=yourproject     # täytä tähän laskutettava projekti
-    #SBATCH --time=00:15:00           # aika muodossa `hh:mm:ss`
-    #SBATCH --gres=nvme:100  # pyydetty paikallisen levyn tila GB:ssa
+    #SBATCH --account=yourproject     # insert here the project to be billed
+    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
+    #SBATCH --gres=nvme:100  # requested local disk space in GB
     module purge
     module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
     export ORCADIR=<path to your ORCA directory>/orca_6_0_0_shared_openmpi416_avx2/
     export LD_LIBRARY_PATH=${ORCADIR}:${LD_LIBRARY_PATH}
 
-    # luo mpirun skripti joka suorittaa srun-komennon
+    # create a mpirun script that executes srun
     echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
     chmod +x ./mpirun
     export PATH=${SLURM_SUBMIT_DIR}:${PATH}
     touch Jobid_is_$SLURM_JOB_ID 
 
 
-    # Määritä $ORCA_TMPDIR paikalliselle levylle
+    #Set $ORCA_TMPDIR to point to the local disk
     export ORCA_TMPDIR=$LOCAL_SCRATCH
-    # Kopioi vain tarvittavat tiedostot $ORCA_TMPDIR:iin
+    # Copy only necessary files to $ORCA_TMPDIR
     cp $SLURM_SUBMIT_DIR/*.inp $ORCA_TMPDIR/
-    # Siirry $ORCA_TMPDIR:iin
+    # Move to $ORCA_TMPDIR
     cd $ORCA_TMPDIR
 
     $ORCADIR/orca orca6.inp > ${SLURM_SUBMIT_DIR}/orca6.out
     rm -f  ${SLURM_SUBMIT_DIR}/mpirun
-    # Kopioi kaikki tulosteet lähetyshakemistoon
+    # Copy all output to submit directory
     cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
     ```
 
@@ -101,14 +119,14 @@ ORCA-käyttäjien tulisi rekisteröityä, hyväksyä EULA, ladata ja asentaa oma
     #SBATCH --partition=test
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=128
-    #SBATCH --account=yourproject     # täytä tähän laskutettava projekti
-    #SBATCH --time=0:10:00 # aika muodossa hh:mm:ss
+    #SBATCH --account=yourproject     # insert here the project to be billed
+    #SBATCH --time=0:10:00 # time as hh:mm:ss
     module purge
     module load gcc/11.2.0 openmpi/4.1.2 openblas/0.3.18-omp
     export ORCADIR=<path to your ORCA directory>/orca_6_0_0_shared_openmpi416_avx2/
     export LD_LIBRARY_PATH=${ORCADIR}:${LD_LIBRARY_PATH}
 
-    # luo mpirun skripti joka suorittaa srun-komennon
+    # create a mpirun script that executes srun
     echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
     chmod +x ./mpirun
     export PATH=${SLURM_SUBMIT_DIR}:${PATH}
@@ -118,28 +136,28 @@ ORCA-käyttäjien tulisi rekisteröityä, hyväksyä EULA, ladata ja asentaa oma
     rm -f  ${SLURM_SUBMIT_DIR}/mpirun
     ```
 
-!!! info "Huomio"
-    Muistathan säätää `%pal nproc` syötteessäsi vastaamaan pyydettyjen MPI-tehtävien kokonaismäärää (`--nodes` * `--ntasks-per-node`).
+!!! info "Huom."
+    Muista säätää `%pal nproc` syötetiedostossasi vastaamaan pyydettyjen MPI-tehtävien kokonaismäärää
+    (`--nodes` * `--ntasks-per-node`).
 
-## Viitteet {#references}
+## Viitteet { #references }
 
-ORCA:n yleiset viitteet ovat:
+ORCAn yleiset viitteet ovat:
 
-- Frank Neese. ORCA ohjelmistojärjestelmä. Wiley Interdiscip. Rev. Comput. Mol. Sci., 2(1):73–78, 2012. doi:<https://doi.wiley.com/10.1002/wcms.81>.
-- Frank Neese. Ohjelmistopäivitys: ORCA ohjelmistojärjestelmä, versio 4.0. Wiley Interdiscip. Rev. Comput. Mol. Sci., 8(1):e1327, 2018. doi:<https://doi.wiley.com/10.1002/wcms.1327>.
-- Frank Neese, Frank Wennmohs, Ute Becker, and Christoph Riplinger. ORCA kvanttikemian ohjelmistopaketti. J. Chem. Phys., 152(22):224108, 2020. doi:<https://aip.scitation.org/doi/10.1063/5.0004608>.
+- Frank Neese. The ORCA program system. Wiley Interdiscip. Rev. Comput. Mol. Sci., 2(1):73–78, 2012. doi:<https://doi.wiley.com/10.1002/wcms.81>.
+- Frank Neese. Software update: the ORCA program system, version 4.0. Wiley Interdiscip. Rev. Comput. Mol. Sci., 8(1):e1327, 2018. doi:<https://doi.wiley.com/10.1002/wcms.1327>.
+- Frank Neese, Frank Wennmohs, Ute Becker, and Christoph Riplinger. The ORCA quantum chemistry program package. J. Chem. Phys., 152(22):224108, 2020. doi:<https://aip.scitation.org/doi/10.1063/5.0004608>.
 
-Älä pelkästään viittaa ylläolevaan yleiseen viitteeseen, vaan viittaa lisäksi
-[alkuperäisiin artikkeleihin](https://www.faccts.de/docs/orca/6.0/manual/contents/public.html)
-joissa on raportoitu kehittämät ja ORCA:n implementaatiot menetelmistä, joita olet käyttänyt
-tutkimuksissasi! Julkaisut, jotka kuvaavat ORCA:ssa toteutettua toimintaa, on annettu käsikirjassa.
+Älä viittaa ainoastaan edellä mainittuihin yleisiin viitteisiin, vaan siteeraa lisäksi
+[alkuperäisiä julkaisuja](https://www.faccts.de/docs/orca/6.0/manual/contents/public.html),
+joissa on raportoitu käyttämiesi menetelmien kehitys ja niiden ORCA-toteutus tutkimuksissasi!
+ORCAan toteutetun toiminnallisuuden kuvaukset on esitetty käyttöoppaassa.
 
-## Lisätietoa {#more-information}
+## Lisätietoa { #more-information }
 
-- [ORCA Forum (kirjautuminen samoilla tunnuksilla kuin lataamiseen)](https://orcaforum.kofo.mpg.de/app.php/portal)
-- [ORCA 6 Muutokset](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html)
-- [ORCA 6 Käsikirja](https://www.faccts.de/docs/orca/6.0/manual/ )
-- [ORCA 6 Oppaat](https://www.faccts.de/docs/orca/6.0/tutorials/)
-- [ORCA YouTube-kanava](https://www.youtube.com/@orcaquantumchemistry)
-- [ORCA Syöttökirjasto, joka sisältää esimerkkisyötteitä](https://sites.google.com/site/orcainputlibrary/home)
-
+- [ORCA-foorumi (kirjaudu samoilla tunnuksilla, joilla latasit ohjelman)](https://orcaforum.kofo.mpg.de/app.php/portal)
+- [ORCA 6 -muutokset](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html)
+- [ORCA 6 -käyttöopas](https://www.faccts.de/docs/orca/6.0/manual/ )
+- [ORCA 6 -oppaat (tutorialit)](https://www.faccts.de/docs/orca/6.0/tutorials/)
+- [ORCAn YouTube-kanava](https://www.youtube.com/@orcaquantumchemistry)
+- [ORCA Input Library, sisältää esimerkkisyötteitä](https://sites.google.com/site/orcainputlibrary/home)

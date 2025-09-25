@@ -1,39 +1,43 @@
 ---
 tags:
   - Free
+catalog:
+  name: nsys
+  description: Nvidia GPU and CPU profiler
+  description_fi: Nvidia GPU- ja CPU-profilointityökalu
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# nsys: Nvidia GPU and CPU profiler
+# nsys: Nvidia GPU- ja CPU-profilointityökalu { #nsys-nvidia-gpu-and-cpu-profiler }
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 2022.1.3.3
 - Mahti: 2021.3.3.2
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Usage
+## Käyttö { #usage }
 
-The *nsys* profiling tool collects and views profiling data from the
-command-line. It enables the collection of a timeline of CUDA-related
-activities on both CPU and GPU, including kernel execution, memory transfers,
-memory set and CUDA API calls and events or metrics for CUDA kernels. The tool is very useful in identifying the high-level bottlenecks, hotspots and for determining which kernels should be targeted for optimization and analysis with the [Nsight Compute](ncu.md) tool.
-Profiling results are displayed in the console after the profiling data is
-collected, and may also be saved for later viewing by *nsys-ui* tool.
+Profilointityökalu *nsys* kerää ja näyttää profilointidataa komentoriviltä. Se mahdollistaa sekä CPU:lla että GPU:lla tapahtuvien CUDAan liittyvien toimintojen aikajanan keräämisen, kuten ydinajot, muistin siirrot, muistin asetukset sekä CUDA API -kutsut ja -tapahtumat tai mittarit CUDA-ytimille. Työkalu on erittäin hyödyllinen korkeantasoisten pullonkaulojen ja hotspotien tunnistamisessa sekä sen määrittämisessä, mihin ytimiin optimointi ja analyysi [Nsight Compute](ncu.md) -työkalulla kannattaa kohdistaa.
+Profiloinnin tulokset näytetään konsolissa datan keruun jälkeen, ja ne voidaan myös tallentaa myöhempää tarkastelua varten *nsys-ui*-työkalulla.
 
-To use `nsys`, one needs to first load the CUDA module:
+`nsys`-työkalun käyttö edellyttää, että CUDA-moduuli ladataan ensin:
 
 ```bash
 module load cuda
 ```
 
-To profile a CUDA code, one then adds the command `nsys` before the normal
-command to execute the code. Running is otherwise similar to that of any other
-CUDA job on [Puhti](../computing/running/example-job-scripts-puhti.md#single-gpu) or [Mahti](../computing/running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
+CUDA-koodin profilointia varten lisätään komento `nsys` normaalin suorituskäskyn eteen. Ajaminen on muuten samanlaista kuin muiden CUDA-töiden ajo [Puhti](../computing/running/example-job-scripts-puhti.md#single-gpu)ssa tai [Mahti](../computing/running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition)ssa.
 
-An example of usage and output of `nsys`:
+Esimerkki `nsys`-komennon käytöstä ja tulosteesta:
 
 ```bash
 $ nsys profile -t nvtx,cuda -o <results_file> --stats=true --force-overwrite true ./a.out
@@ -86,6 +90,6 @@ Time(%)      Total Time       Calls         Average         Minimum         Maxi
    ....
 ```
 
-`nsys` supports many useful running options. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-systems/).
+`nsys` tukee monia hyödyllisiä ajovaihtoehtoja. Lisätietoja on [Nvidian dokumentaatiossa](https://docs.nvidia.com/nsight-systems/).
 
-The report above can also be viewed using the graphical interface. The results of the analysis are saved in the the specified file, `<results_file>.qdrep` and can be viewed directly on the CSC servers running `nsys-ui` or copied on local computers and viewed using a local installation of the `nsight-systems`.
+Yllä oleva raportti voidaan tarkastella myös graafisella käyttöliittymällä. Analyysin tulokset tallennetaan määriteltyyn tiedostoon `<results_file>.qdrep`, ja ne voidaan tarkastella suoraan CSC:n palvelimilla ajamalla `nsys-ui` tai kopioida paikalliselle tietokoneelle ja avata paikallisesti asennetulla `nsight-systems`-sovelluksella.

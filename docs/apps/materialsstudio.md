@@ -1,16 +1,25 @@
 ---
 tags:
   - Academic
+catalog:
+  name: Materials Studio
+  description: Versatile materials modeling suite
+  description_fi: Monipuolinen materiaalien mallinnusohjelmistopaketti
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  unchecked: true
 ---
 
-# Materials Studio
+# Materials Studio { #materials-studio }
 
-Materials Studio is a versatile modelling suite for building and performing
-quantum and classical simulations of molecules, materials and nanostructures.
+Materials Studio on monipuolinen mallinnusohjelmistopaketti molekyylien,
+materiaalien ja nanorakenteiden kvantti- ja klassisten simulaatioiden
+rakentamiseen ja suorittamiseen.
 
-!!! warning "Note"
-    The national Materials Studio license provided by CSC was discontinued in 2022.
-    Since the beginning of 2023, it is no longer available. Please consider using, e.g., 
-    [Maestro](maestro.md) or [AMS](ams.md) instead.
-    [Contact CSC Service Desk](../support/contact.md) if you need support in migrating
-    your workflow.
+!!! warning "Huomio"
+    CSC:n tarjoama kansallinen Materials Studio -lisenssi lopetettiin vuonna 2022.
+    Vuoden 2023 alusta alkaen se ei ole enää saatavilla. Harkitse sen sijaan
+    esimerkiksi työkalujen [Maestro](maestro.md) tai [AMS](ams.md) käyttöä.
+    [Ota yhteyttä CSC:n Service Deskiin](../support/contact.md), jos tarvitset
+    tukea työnkulun siirtämisessä.

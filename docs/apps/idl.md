@@ -1,34 +1,44 @@
 ---
 tags:
   - Academic
+catalog:
+  name: IDL
+  description: Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
+  description_fi: Ohjelmointikieli, numeerinen analyysi, tieteellisen datan käsittely ja visualisointi
+  license_type: Academic
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# IDL
+# IDL { #idl }
 
-Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
+Ohjelmointikieli, numeerinen analyysi, tieteellisen datan käsittely ja visualisointi
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 8.5.1, 8.8.2
 * Mahti: 8.5.1, 8.8.1, 8.8.3
 
-## License
+## Lisenssi { #license }
 
-CSC has an Academic license, i.e., it is meant for Academic research only.
+CSC:llä on Academic-lisenssi, eli se on tarkoitettu vain akateemiseen tutkimukseen.
 
-## Usage
+## Käyttö { #usage }
 
 ```bash
 module load idl
 ```
 
-* Command line interface: `idl`
-* Graphical user interface: `idlde`
+* Komentorivikäyttöliittymä: `idl`
+* Graafinen käyttöliittymä: `idlde`
 
-## More information
+## Lisätietoja { #more-information }
 
-* **Manuals on Puhti (pdf):**
+* **Manuaalit Puhtissa (pdf):**
     * `/appl/soft/math/idl/idl/help/pdf`
     * `/appl/soft/math/idl/idl85/help/pdf`
     * `/appl/soft/math/idl/idl882/idl88/help/pdf`
-* [**IDL Manuals on the Web**](https://www.nv5geospatialsoftware.com/docs/routines-135.html)
+* [**IDL-manuaalit verkossa**](https://www.nv5geospatialsoftware.com/docs/routines-135.html)

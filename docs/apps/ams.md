@@ -1,37 +1,46 @@
 ---
 tags:
   - Academic
+catalog:
+  name: AMS
+  description: Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
+  description_fi: Mallinnuspaketti, joka tarjoaa moottoreita kuten ADF, BAND, DFTB ja MOPAC
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# AMS
+# AMS { #ams }
 
-The Amsterdam Modeling Suite (AMS) is a comprehensive suite of computational chemistry software. It comes with a graphical user interface, [AMS-GUI](ams-gui.md) 
-that provides an intuitive way for setting up, running, and analyzing simulations.
+Amsterdam Modeling Suite (AMS) on kattava laskennallisen kemian ohjelmistopaketti. Siihen kuuluu graafinen käyttöliittymä, [AMS-GUI](ams-gui.md), joka tarjoaa intuitiivisen tavan simulaatioiden määrittämiseen, ajamiseen ja analysointiin.
 
-## Available
+## Saatavilla { #available }
 
--   Puhti: ADF, Version 2024.102
--   Mahti: ADF, Version 2024.102
+-   Puhti: ADF, versio 2024.102
+-   Mahti: ADF, versio 2024.102
 
-## License
--  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
--  The license does not include the right for employees of government labs or other non-academic non-profit research institutes to use the software. 
--  The license only allows non-profit non-commercial use. 
--  The license excludes all forms of contract research, royalty-bearing activities and other activities leading to monetary benefits.
--  Research groups which need other modules of the AMS suite can obtain a license for themselves to run the programs on the CSC computers. 
+## Lisenssi { #license }
+-  Lisenssi oikeuttaa ohjelmiston käyttöön kenen tahansa akateemisen tutkijan tai akateemiseen oppilaitokseen kuuluvan opiskelijan toimesta, missä "Academic" tarkoittaa "tutkintoja myöntävään oppilaitokseen kuuluvaa". 
+-  Lisenssi ei sisällä oikeutta käyttää ohjelmistoa valtion laboratorioiden tai muiden ei-akateemisten voittoa tavoittelemattomien tutkimuslaitosten työntekijöille. 
+-  Lisenssi sallii ainoastaan voittoa tavoittelemattoman, ei-kaupallisen käytön. 
+-  Lisenssi sulkee pois kaikki sopimustutkimuksen muodot, rojaltituloja tuottavat toiminnot sekä muut taloudelliseen hyötyyn johtavat toiminnot.
+-  Tutkimusryhmät, jotka tarvitsevat AMS-paketin muita moduuleja, voivat hankkia itselleen lisenssin ohjelmien ajamiseen CSC:n tietokoneilla. 
 
-## Usage
+## Käyttö { #usage }
 
-Initialize AMS:
+Alusta AMS:
 
 ```bash
 module load ams/2024.102
 ```
 
-### Example batch scripts
+### Esimerkkieräajojen skriptit { #example-batch-scripts }
 
-!!! warning "Note"
-    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the [fast local storage (NVMe)](../computing/running/creating-job-scripts-puhti.md#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+!!! warning "Huomio"
+    Erityisesti jotkin ominaisuuslaskut voivat olla hyvin levy-I/O-intensiivisiä. Tällaiset työt hyötyvät [nopean paikallisen tallennustilan (NVMe)](../computing/running/creating-job-scripts-puhti.md#local-storage) käytöstä Puhtissa. Paikallisen levyn käyttö tällaisissa töissä vähentää myös Lustre-rinnakkaistiedostojärjestelmän kuormitusta.
  
 
 === "Puhti"
@@ -53,7 +62,7 @@ module load ams/2024.102
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
     ```
      
-=== "Puhti, local disk"
+=== "Puhti, paikallinen levy"
     
     ```bash
     #!/bin/bash
@@ -90,21 +99,21 @@ module load ams/2024.102
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
     ```
 
-### [The AMS-GUI](../apps/ams-gui.md)
+### [AMS-GUI](../apps/ams-gui.md) { #the-ams-gui }
 
-AMS comes with an integrated Graphical User Interface, [AMS-GUI](ams-gui.md) that makes it easy to set up, run and analyze modelling tasks.
-You can test the GUI via the Puhti web interface, but for more extensive use we recommend installing
-the GUI on your own laptop/workstation. For detailed instructions, see the [AMS-GUI documentation.](ams-gui.md)
+AMS sisältää integroidun graafisen käyttöliittymän, [AMS-GUI](ams-gui.md), joka helpottaa mallinnustehtävien määrittämistä, ajamista ja analysointia.
+Käyttöliittymää voi kokeilla Puhtin verkkokäyttöliittymän kautta, mutta laajempaa käyttöä varten suosittelemme asentamaan
+käyttöliittymän omalle kannettavalle/työasemalle. Yksityiskohtaiset ohjeet löytyvät [AMS-GUI-dokumentaatiosta.](ams-gui.md)
 
-## References
+## Viitteet { #references }
 
-Depending on your usage, be careful to properly cite the AMS driver, used calculation engines as well as feature references. For details, see the [relevant AMS documentation](https://www.scm.com/doc/Documentation/ ) 
+Käytöstä riippuen muista viitata asianmukaisesti AMS-ajuriin, käytettyihin laskentamoottoreihin sekä ominaisuusviittauksiin. Lisätietoja on saatavilla [asianmukaisesta AMS-dokumentaatiosta](https://www.scm.com/doc/Documentation/ ) 
 
-## More information
+## Lisätietoa { #more-information }
 
--   [AMS support pages](https://www.scm.com/contact-us/)
--   [Tutorials](https://www.scm.com/doc/Tutorials/index.html)
--   [Workshops](https://www.scm.com/workshops/)
--   [FAQ](https://www.scm.com/faq/)
--   [Knowledge bank](https://www.scm.com/knowledgebank/)
--   [The latest news](https://www.scm.com/news/)
+-   [AMS:n tukisivut](https://www.scm.com/contact-us/)
+-   [Opetusohjelmat](https://www.scm.com/doc/Tutorials/index.html)
+-   [Työpajat](https://www.scm.com/workshops/)
+-   [UKK](https://www.scm.com/faq/)
+-   [Tietopankki](https://www.scm.com/knowledgebank/)
+-   [Tuoreimmat uutiset](https://www.scm.com/news/)

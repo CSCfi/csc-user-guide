@@ -1,74 +1,83 @@
 ---
 tags:
   - Free
+catalog:
+  name: FORCE 
+  description: for mass-processing of medium-resolution satellite images
+  description_fi: keskiresoluutioisten satelliittikuvien massakäsittelyyn
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# FORCE 
+# FORCE { #force }
 
-FORCE (Framework for Operational Radiometric Correction for Environmental monitoring) is an all-in-one solution for mass-processing medium-resolution satellite images
+FORCE (Framework for Operational Radiometric Correction for Environmental monitoring) on kokonaisratkaisu keskiresoluutioisten satelliittikuvien massakäsittelyyn
 
-## Available
+## Saatavilla { #available }
 
-__FORCE__ is available in Puhti with the following versions:
+__FORCE__ on käytettävissä Puhtissa seuraavina versioina:
 
 * 3.7.8
 
-## Usage 
+## Käyttö { #usage }
 
-FORCE is included in the __force__ module. You can load it with:
+FORCE sisältyy __force__-moduuliin. Voit ladata sen komennolla:
 
 `module load force`
 
-By default the latest __force__ module is loaded. If you want a specific version you can specify the version number
+Oletuksena uusin __force__-moduuli ladataan. Jos haluat tietyn version, voit määrittää versionumeron
 
 `module load force/<VERSION_NUMBER>`
 
-## Download data from Google Cloud Storage
+## Lataa dataa Google Cloud Storagesta { #download-data-from-google-cloud-storage }
 
-To download data from Google Cloud Storage using the Level 1 Cloud Storage Downloader provided by FORCE, you need to register an account and authenticate to Google cloud using your own computer using the [gsutil-tool](https://cloud.google.com/storage/docs/gsutil) and copy the configuration file from your computers Home directory `$HOME/.boto` to your `$HOME` directory on Puhti. Following the instructions on [FORCE tutorials page](https://force-eo.readthedocs.io/en/latest/howto/level1-csd.html#downloading-the-metadata-catalogues), you will first have to update/download the metadata catalog. We suggest to store the metadata catalog in your  projects `/scratch` directory, so that other users in your project can share the catalog:
+Ladataksesi dataa Google Cloud Storagesta FORCEn tarjoamalla Level 1 Cloud Storage Downloader -työkalulla, sinun on rekisteröitävä tili ja todennettava Google Cloudiin omalla tietokoneellasi käyttäen [gsutil-työkalua](https://cloud.google.com/storage/docs/gsutil) ja kopioitava asetustiedosto kotihakemistostasi `$HOME/.boto` Puhtin `$HOME`-hakemistoosi. Seuraamalla ohjeita [FORCEn tutoriaalisivulla](https://force-eo.readthedocs.io/en/latest/howto/level1-csd.html#downloading-the-metadata-catalogues) sinun tulee ensin päivittää/ladata metatietoluettelo. Suosittelemme tallentamaan metatietoluettelon projektisi `/scratch`-hakemistoon, jotta muut käyttäjät projektissasi voivat jakaa luettelon:
 
 `force-level1-csd -u /path/to/your/scratch/dir` 
 
-Then you can download data from Google Cloud Storage as described on the [FORCE tutorials page](https://force-eo.readthedocs.io/en/latest/howto/level1-csd.html#querying-and-downloading-data).
+Tämän jälkeen voit ladata dataa Google Cloud Storagesta kuten [FORCEn tutoriaalisivulla](https://force-eo.readthedocs.io/en/latest/howto/level1-csd.html#querying-and-downloading-data) kuvataan.
 
 
 
-## Running FORCE commands
+## FORCE-komentojen suorittaminen { #running-force-commands }
 
-FORCE is installed as a container, but it has wrappers for all FORCE commands, so it can be used normally. 
+FORCE on asennettu konttina, mutta kaikille FORCE-komennoille on kääreet, joten sitä voidaan käyttää normaalisti. 
 
-If working interactively, you can also start a shell inside the container with
+Interaktiivisessa käytössä voit myös käynnistää komentotulkin kontin sisällä komennolla
 
 `_debug_shell`
 
-We have an example of running L1 to L2 pipeline for Sentinel images in [our Github examples](https://github.com/csc-training/geocomputing/tree/master/force)
+Meillä on esimerkki Sentinel-kuvien L1–L2-putken ajosta [GitHub-esimerkeissämme](https://github.com/csc-training/geocomputing/tree/master/force)
 
-## License 
+## Lisenssi { #license }
 
-[FORCE is licensed under the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE).
+[FORCE on lisensoitu GNU GPL -lisenssillä](https://github.com/davidfrantz/force/blob/master/LICENSE).
 
-## Citation
+## Viittaus { #citation }
 
-This software can be cited by citing the appropriate [FORCE publication](https://force-eo.readthedocs.io/en/latest/refs.html).
+Tähän ohjelmistoon voidaan viitata viittaamalla sopivaan [FORCE-julkaisuun](https://force-eo.readthedocs.io/en/latest/refs.html).
 
-## Acknowledgement
+## Kiitokset { #acknowledgement }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+Mainitsethan CSC:n ja Geoportin julkaisuissasi; tämä on tärkeää hankkeen jatkuvuuden ja rahoitusraportoinnin kannalta.
+Esimerkiksi voit kirjoittaa: "Tekijät kiittävät CSC:tä – Tieteen tietotekniikkakeskusta, Suomi (urn:nbn:fi:research-infras-2016072531) sekä tutkimuksen avoimen paikkatiedon infrastruktuuria (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
-## Installation
+## Asennus { #installation }
 
-FORCE was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [Docker image provided by the FORCE author on Dockerhub](https://hub.docker.com/r/davidfrantz/force). 
+FORCE asennettiin Puhtiin [Tykkyn wrap-container -toiminnallisuudella](../computing/containers/tykky.md#container-based-installations) käyttäen [Dockerhubissa FORCEn tekijän tarjoamaa Docker-kuvaa](https://hub.docker.com/r/davidfrantz/force). 
 
 `wrap-container -w /home/docker/bin docker://davidfrantz/force:latest --prefix install_dir`
 
 
-## References
+## Viitteet { #references }
 
-* [CSC Example](https://github.com/csc-training/geocomputing/tree/master/force)
-* [FORCE github](https://github.com/davidfrantz/force)
-* [FORCE documentation](https://force-eo.readthedocs.io/en/latest/)
-* [FORCE tutorials](https://davidfrantz.github.io/#tutorials)
-* [FORCE google group](https://groups.google.com/d/forum/force_eo)
-* [FORCE v2.0 (Old) User manual](https://www.uni-trier.de/fileadmin/fb6/prof/FER/Downloads/Software/FORCE/FORCE-user-guide-v-2-0.pdf)
-* [Using FORCE v2.0 (Old) in CSC environment (Taito) by Pekka Hurskainen](https://a3s.fi/gis-workshops/Satellite_time_series_processing_with_FORCE_in_CSC_Hurskainen.pdf)
+* [CSC-esimerkki](https://github.com/csc-training/geocomputing/tree/master/force)
+* [FORCE GitHub](https://github.com/davidfrantz/force)
+* [FORCE-dokumentaatio](https://force-eo.readthedocs.io/en/latest/)
+* [FORCE-oppaat](https://davidfrantz.github.io/#tutorials)
+* [FORCE Google -ryhmä](https://groups.google.com/d/forum/force_eo)
+* [FORCE v2.0 (vanha) -käyttöopas](https://www.uni-trier.de/fileadmin/fb6/prof/FER/Downloads/Software/FORCE/FORCE-user-guide-v-2-0.pdf)
+* [FORCE v2.0:n (vanha) käyttö CSC-ympäristössä (Taito), Pekka Hurskainen](https://a3s.fi/gis-workshops/Satellite_time_series_processing_with_FORCE_in_CSC_Hurskainen.pdf)

@@ -1,43 +1,51 @@
 ---
 tags:
   - Free
+catalog:
+  name: Roary
+  description: Pan genome pipeline
+  description_fi: Pangenomiputki
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Roary
+# Roary { #roary }
 
-Roary is a high-speed standalone pan genome pipeline, which takes annotated assemblies in 
-GFF3 format (produced by e.g. [Prokka](./prokka.md)) and calculates the pan genome.
+Roary on nopea, itsenäinen pangenomiputki, joka ottaa syötteeksi annotoidut kokoonpanot GFF3-muodossa (tuotettu esim. työkalulla [Prokka](./prokka.md)) ja laskee pangenomin.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaasti käytettävissä ja avoimen lähdekoodin ohjelmisto [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssin alaisena.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 3.13.0 
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, Roary should be executed as a batch job. An interactive batch job for running Roary can be started with the command:
+Puhti-ympäristössä Roary tulisi suorittaa eräajona. Roaryn ajamista varten interaktiivisen eräajon voi käynnistää komennolla:
 
 ```bash
 sinteractive -i 
 ```
  
-To use Roary, load the module using the command:
+Roaryn käyttämiseksi lataa moduuli komennolla:
 
 ```bash
 module load roary
 ```
 
-After that, you can launch Roary with the command `roary`. For example:
+Tämän jälkeen voit käynnistää Roaryn komennolla `roary`. Esimerkiksi:
 
 ```bash
 roary -f ./demo -e -n -v ./gff/*.gff
 ```
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Roary home page](https://sanger-pathogens.github.io/Roary/)
+* [Roaryn kotisivu](https://sanger-pathogens.github.io/Roary/)

@@ -1,137 +1,144 @@
 ---
 tags:
   - Free
+catalog:
+  name: BRAKER
+  description: Automatic genome annotator for eucaryots
+  description_fi: Automaattinen genomien annotointityökalu eukaryooteille
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# BRAKER
+# BRAKER { #braker }
 
 
 
-BRAKER is a tool for eukaryotic genome annotation.
-It uses genomic and RNA-Seq data to automatically generate full gene structure annotations in novel genome.
-BRAKER is based on GeneMark-ET R2 and AUGUSTUS pipelines.
+BRAKER on työkalu eukaryoottisten genomien annotointiin.
+Se käyttää genomisia ja RNA-Seq-aineistoja tuottaakseen automaattisesti täydelliset geenirakenteiden annotaatiot uudelle genomille.
+BRAKER perustuu GeneMark-ET R2- ja AUGUSTUS-putkistoihin.
 
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [Artistic License] (https://opensource.org/licenses/artistic-license-1.0)
-
-
-## Available
+Vapaa käyttää ja avoimen lähdekoodin [Artistic License] (https://opensource.org/licenses/artistic-license-1.0) alaisena
 
 
-
-Puhti: 2.1.6, 3.0.7
-
-
-## Setting up BRAKER
-
-BRAKER needs some additional setting up steps before using it for the first time.
-
-CSC BRAKER installations do not contain GeneMark or ProtHint softaware packages. While they are free
-for individual use, their licensing terms do not allow CSC to make a public installation of them.
-Each user needs to license and install them for their own use.
+## Saatavilla { #available }
 
 
-### GeneMark
 
-Go to [GeneMark download page](http://exon.gatech.edu/GeneMark/license_download.cgi), and fill in the form. The version you need is "GeneMark-ES/ET/EP+" for "LINUX 64 kernel 3.10 - 5". Download the program file and the license key. To uncompress the packages:
+Puhti: 2.1.6, 3.0.7, 3.0.8
+
+
+## BRAKERin käyttöönotto { #setting-up-braker }
+
+BRAKER tarvitsee joitakin lisäasetuksia ennen ensimmäistä käyttökertaa.
+
+CSC:n BRAKER-asennukset eivät sisällä GeneMark- tai ProtHint-ohjelmistopaketteja. Vaikka ne ovat ilmaisia yksittäiseen käyttöön, niiden lisenssiehdot eivät salli CSC:n tehdä niistä julkista asennusta.
+Jokaisen käyttäjän tulee hankkia lisenssi ja asentaa ne omaan käyttöönsä.
+
+
+### GeneMark { #genemark }
+
+Siirry [GeneMarkin lataussivulle](http://topaz.gatech.edu/GeneMark/license_download.cgi) ja täytä lomake. Tarvitsemasi versio on "GeneMark-ES/ET/EP+" järjestelmälle "LINUX 64 kernel 3.10 - 5". Lataa ohjelmatiedosto ja lisenssiavain. Pura paketit:
 
 ```bash
 tar xf gmes_linux_64_4.tar.gz
 gunzip gm_key_64.gz
 ```
 
-Copy the uncompressed key file to your home directory.
+Kopioi purettu avaintiedosto kotihakemistoosi nimellä `.gm_key`.
 
 ```bash
-cp gm_key_64 $HOME
+cp gm_key_64 $HOME/.gm_key
 ```
 
-To tell BRAKER where to find GeneMark, use command line option `--GENEMARK_PATH` to point to install location.
+Kertoaksesi BRAKERille, mistä GeneMark löytyy, käytä komentorivivalitsinta `--GENEMARK_PATH`, joka osoittaa asennuspaikkaan.
 
 ```txt
 --GENEMARK_PATH=/path/to/gmes_linux_64_4
 ```
 
-BRAKER module contains all the necessary dependencies.
+BRAKER-moduuli sisältää kaikki tarvittavat riippuvuudet.
 
 
-### ProtHint
+### ProtHint { #prothint }
 
-Download and uncompress ProtHint.
+Lataa ja pura ProtHint.
 
 ```bash
 wget https://github.com/gatech-genemark/ProtHint/releases/download/v2.6.0/ProtHint-2.6.0.tar.gz
 tar xf ProtHint-2.6.0.tar.gz
 ```
 
-Use command line option `--PROTHINT_PATH`to point to install location.
+Käytä komentorivivalitsinta `--PROTHINT_PATH` osoittamaan asennuspaikkaan.
 
 ```text
 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin
 ```
 
-BRAKER module contains all the necessary dependencies.
+BRAKER-moduuli sisältää kaikki tarvittavat riippuvuudet.
 
 
-### AUGUSTUS
+### AUGUSTUS { #augustus }
 
-AUGUSTUS is included in the installation, but you will need your own copy of AUGUSTUS config directory, as it needs to be writable by the user. You can create this by running command:
+AUGUSTUS sisältyy asennukseen, mutta tarvitset oman kopion AUGUSTUSin config-hakemistosta, koska sen on oltava käyttäjän kirjoitettavissa. Voit luoda sen suorittamalla komennon:
 
 ```bash
 copy_config
 ```
 
-It will create directory `config` in your current directory.
+Se luo nykyiseen hakemistoosi hakemiston `config`.
 
-Use command line option `--AUGUSTUS_CONFIG_PATH` to point to the config directory
-
-
-## Usage
-
-In Puhti BRAKER should be used only in batch jobs. Either in normal batch jobs or in interactive batch jobs.
+Käytä komentorivivalitsinta `--AUGUSTUS_CONFIG_PATH` osoittamaan config-hakemistoon.
 
 
-### Interactive usage
+## Käyttö { #usage }
 
-You can start interactive batch job with command:
+Puhti-ympäristössä BRAKERia tulee käyttää vain eräajoissa. Joko tavallisissa eräajoissa tai interaktiivisissa eräajoissa.
+
+
+### Interaktiivinen käyttö { #interactive-usage }
+
+Voit käynnistää interaktiivisen eräajon komennolla:
 
 ```bash
 sinteractive -i
 ```
 
-BRAKER can utilize several computing cores and can require significant amount of memory so you should reserve
-more than the default resources for your interactive batch job. For example 4 cores and 32 GB of memory.
+BRAKER osaa hyödyntää useita laskentaytimiä ja voi vaatia paljon muistia, joten sinun kannattaa varata oletusta enemmän resursseja interaktiiviseen eräajoon. Esimerkiksi 4 ydintä ja 32 Gt muistia.
 
-In batch job, you can initialize BRAKER environment with command
+Eräajossa voit alustaa BRAKER-ympäristön komennolla
 
 ```bash
 module load braker
 ```
 
-After that you can launch a BRAKER job with command:
+Tämän jälkeen voit käynnistää BRAKER-ajon komennolla:
 
 ```bash
 braker.pl
 ```
 
-To see the options, run command:
+Näet valitsimet komennolla:
 
 ```bash
 braker.pl --help
 ```
 
-Sample BRAKER command in Puhti:
+Esimerkkikomento BRAKERille Puhti-ympäristössä:
 
 ```bash
-braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK --GENEMARK_PATH=/path/to/gmes_linux_64_4 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin --AUGUSTUS_CONFIG_PATH /path/to/config
+braker.pl --species=sp1 --genome=genome.fa --prot_seq=proteins.fa --AUGUSTUS_ab_initio --threads=$SLURM_CPUS_PER_TASK --GENEMARK_PATH=/path/to/gmes_linux_64_4 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin --AUGUSTUS_CONFIG_PATH /path/to/config
 ```
 
 
-### Batch jobs
+### Eräajot { #batch-jobs }
 
-Sample batch job scrip for BRAKER:
+Esimerkki BRAKERin eräajoskriptistä:
 
 ```bash
 #!/bin/bash
@@ -148,28 +155,28 @@ Sample batch job scrip for BRAKER:
 module load braker
 
 # Use correct paths instead of "/path/to"
-braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa \
---prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK \
+braker.pl --species=sp1 --genome=genome.fa --prot_seq=proteins.fa \
+--AUGUSTUS_ab_initio --threads=$SLURM_CPUS_PER_TASK \
 --GENEMARK_PATH=/path/to/gmes_linux_64_4 \
 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin \
 --AUGUSTUS_CONFIG_PATH /path/to/config
 ```
 
-In the batch job example above one task (--ntasks 1) is executed. The BRAKER job uses 8 cores (--cpus-per-task=8 ) with total of 32 GB of memory (--mem=32000).
-The maximum duration of the job is ten hours (--time 10:00:00 ).
-All the cores are assigned from one computing node (--nodes=1 ).
-In the example the project that will be used is _project_2012345_.
-This value shuold be replaced by the name of your computing project.
+Yllä olevassa eräajoesimerkissä suoritetaan yksi tehtävä (--ntasks 1). BRAKER-ajo käyttää 8 ydintä (--cpus-per-task=8) ja yhteensä 32 Gt muistia (--mem=32000).
+Työn enimmäiskesto on kymmenen tuntia (--time 10:00:00).
+Kaikki ytimet varataan yhdeltä laskentasolmulta (--nodes=1).
+Esimerkissä käytettävä projekti on _project_2012345_.
+Tämä arvo tulisi korvata oman laskentaprojektisi nimellä.
 
-You can submit the batch job file to the batch job system with command:
+Voit lähettää eräajotiedoston eräajojärjestelmään komennolla:
 
 ```bash
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Katso [Puhti user guide](../computing/running/getting-started.md) saadaksesi lisätietoja eräajojen suorittamisesta.
 
 
-## More information
+## Lisätietoja { #more-information }
 
-* [BRAKER home page](https://github.com/Gaius-Augustus/BRAKER)
+* [BRAKERin kotisivu](https://github.com/Gaius-Augustus/BRAKER)

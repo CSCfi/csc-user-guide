@@ -1,34 +1,45 @@
 ---
 tags:
   - Free
+catalog:
+  name: Julia Language
+  description:  High-level, high-performance dynamic programming language for numerical computing
+  description_fi:  Korkean tason, korkean suorituskyvyn dynaaminen ohjelmointikieli numeeriseen laskentaan
+  license_type: Free
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# Julia Language
-[Julia language](https://julialang.org) is a high-performance, dynamic programming language.
-Julia is excellent for scientific computing because it can compile efficient native code using LLVM and includes mathematical functions, parallel computing capabilities, and a package manager in the standard library.
-Furthermore, Julia's syntax is intuitive and easy to learn, the multiple-dispatch paradigm allows writing composable code, increasing the ability to reuse existing code, and environments enable executing code in a reproducible way.
+# Julia-kieli { #julia-language }
+[Julia-kieli](https://julialang.org) on suorituskykyinen, dynaaminen ohjelmointikieli.
+Julia soveltuu erinomaisesti tieteelliseen laskentaan, koska se voi kääntää tehokasta natiivikoodia LLVM:n avulla ja sisältää vakiokirjastossa matemaattiset funktiot, rinnakkaislaskennan ominaisuudet sekä pakettienhallinnan.
+Lisäksi Julian syntaksi on intuitiivinen ja helppo oppia, multiple dispatch -paradigma mahdollistaa koostettavan koodin kirjoittamisen, mikä lisää olemassa olevan koodin uudelleenkäytettävyyttä, ja ympäristöt mahdollistavat koodin ajamisen toistettavasti.
 
 [TOC]
 
 
-## License
-Julia language is licensed under free and open source [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
+## Lisenssi { #license }
+Julia-kieli on lisensoitu vapaalla ja avoimen lähdekoodin [MIT-lisenssillä](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
 
 
-## Available
-Julia language is available on Puhti, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
-It is also available on the web interface via [Jupyter](../computing/webinterface/julia-on-jupyter.md) and [VSCode](../computing/webinterface/vscode.md#julia-language).
+## Saatavuus { #available }
+Julia-kieli on käytettävissä Puhtissa, Mahtissa ja LUMIssa komentoriviltä [moduulijärjestelmän](../computing/modules.md) kautta.
+Se on saatavilla myös selainkäyttöliittymässä [Jupyterin](../computing/webinterface/julia-on-jupyter.md) ja [VSCode](../computing/webinterface/vscode.md#julia-language):n kautta.
 
-If you find issues in using Julia on the cluster, you should [contact the servicedesk](../support/contact.md).
+Jos kohtaat ongelmia Julian käytössä klusterissa, [ota yhteyttä servicedeskiin](../support/contact.md).
 
 
-## Usage
-### Using the Julia module
-Julia language is available from the `julia` module.
+## Käyttö { #usage }
+### Julian moduulin käyttö { #using-the-julia-module }
+Julia-kieli on käytettävissä `julia`-moduulista.
 
-=== "Puhti and Mahti"
+=== "Puhti ja Mahti"
 
-    On Puhti and Mahti, we can load the module as follows:
+    Puhtissa ja Mahtissa moduuli voidaan ladata seuraavasti:
 
     ```bash
     module load julia
@@ -36,130 +47,130 @@ Julia language is available from the `julia` module.
 
 === "LUMI"
 
-    On LUMI, we must add the module files under CSC's local directory to the module path before loading the module.
+    LUMIlla moduulipolkuun on lisättävä CSC:n paikallisen hakemiston modulitiedostot ennen moduulin lataamista.
 
     ```bash
     module use /appl/local/csc/modulefiles
     module load julia
     ```
 
-After loading the Julia module, we can use Julia with the `julia` command.
-Without arguments, it starts an interactive Julia REPL.
+Julian moduulin lataamisen jälkeen Juliaa käytetään `julia`-komennolla.
+Ilman argumentteja se käynnistää interaktiivisen Julian REPL-ympäristön.
 
 ```bash
 julia
 ```
 
-For available command line options, we can run `julia --help` or read the manual `man julia`.
-For questions about the features of Julia language, we refer we recommend the official [documentation](https://docs.julialang.org) and the [discourse](https://discourse.julialang.org/) channel.
+Käytettävissä olevat komentorivivalitsimet näet komennolla `julia --help` tai lukemalla manuaalin `man julia`.
+Julian ominaisuuksiin liittyvissä kysymyksissä suosittelemme virallista [dokumentaatiota](https://docs.julialang.org) ja [Discourse](https://discourse.julialang.org/)-kanavaa.
 
 
-### Using the package manager
-The standard method for installing Julia packages is to use the package manager, `Pkg`, from the standard library.
-In Julia, we can import it as follows:
+### Pakettienhallinnan käyttö { #using-the-package-manager }
+Juliassa pakettien asentamisen vakiotapa on käyttää vakiokirjastoon kuuluvaa pakettienhallintaa `Pkg`.
+Juliassa sen voi tuoda käyttöön seuraavasti:
 
 ```julia
 import Pkg
 ```
 
-The common functions we use are `Pkg.add` to add packages, `Pkg.activate` to activate environments, and `Pkg.instantiate` to install all packages defined in the active environment.
-The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
+Yleisimmin käytetyt toiminnot ovat `Pkg.add` pakettien lisäämiseen, `Pkg.activate` ympäristöjen aktivointiin ja `Pkg.instantiate` kaikkien aktiivisessa ympäristössä määriteltyjen pakettien asentamiseen.
+[Pkg-dokumentaatio](https://pkgdocs.julialang.org/) tarjoaa lisätietoja Julian pakettienhallinnan käytöstä.
 
 
-### Placing the Julia depot directory
-The first directory on the Julia depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
-It is `$HOME/.julia` by default.
-The home directory has a relatively small quota on Puhti, Mahti, and LUMI.
-If you install large packages, we recommend placing the depot directory under Projappl to avoid running out of quota.
-We can change the depot directory by prepending a new directory to `JULIA_DEPOT_PATH` environment variable.
+### Julian depot-hakemiston sijainti { #placing-the-julia-depot-directory }
+Julian depot-polun ensimmäinen hakemisto määrää, minne Julia tallentaa asennetut paketit, käännetyt tiedostot, lokit sekä muut depotit.
+Oletuksena se on `$HOME/.julia`.
+Kotihakemistolla on suhteellisen pieni kiintiö Puhtissa, Mahtissa ja LUMIssa.
+Jos asennat suuria paketteja, suosittelemme sijoittamaan depot-hakemiston Projapplin alle, jotta kiintiö ei lopu kesken.
+Depot-hakemiston voi vaihtaa lisäämällä uuden hakemiston `JULIA_DEPOT_PATH`-ympäristömuuttujan alkuun.
 
-For example, we can use the following by replacing the `<project>` with a CSC project.
+Esimerkiksi seuraavasti; korvaa `<project>` CSC-projektilla.
 
 ```bash
 export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ```
 
-Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
-For more information, you can read more about the [depot path documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
+Tämän jälkeen voit turvallisesti poistaa oletusdepot-hakemiston komennolla `rm -r $HOME/.julia`.
+Lisätietoja on [depot-polun dokumentaatiossa](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
 
 
-### Multi-threading
-Julia provides the `Threads` library for multi-threading.
-It is included in the base library and imported by default in a Julia session.
-We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or starting Julia with the `--threads` option which overrides the value in the environment variable.
-If Julia module is loaded within a Slurm job and the environment variable is not set, it is set to the amount of requested CPU cores (`--cpus-per-task`).
-The default thread count is one.
-We recommend reading the [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/) section in Julia's manual for more details.
+### Monisäikeisyys { #multi-threading }
+Julia tarjoaa monisäikeistystä varten `Threads`-kirjaston.
+Se kuuluu peruskirjastoon ja tuodaan oletuksena Julia-istunnossa.
+Julian voi käynnistää usealla säikeellä asettamalla `JULIA_NUM_THREADS`-ympäristömuuttujan tai käynnistämällä Julian `--threads`-valitsimella, joka ohittaa ympäristömuuttujan arvon.
+Jos Julia-moduuli on ladattu Slurm-ajossa eikä ympäristömuuttujaa ole asetettu, sen arvoksi asetetaan pyydettyjen suoritinydinten määrä (`--cpus-per-task`).
+Oletussäikeiden määrä on yksi.
+Suosittelemme lukemaan Julian käsikirjan [monisäikeisyys](https://docs.julialang.org/en/v1/manual/multi-threading/) -osion lisätietoja varten.
 
 
-### Multi-processing and distributed computing
-#### Distributed and ClusterManagers.jl
-For multiprocessing and distributed computing, Julia provides the `Distributed` standard library.
-We use it for multi-processing on the local node.
-We can extend `Distributed` by installing the `ClusterManagers.jl` package, which allows us to add workers' processes to multiple nodes via Slurm using `SlurmManager`.
-We recommend reading the [multi-processing and distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) section in Julia manual for more details.
+### Moniprosessointi ja hajautettu laskenta { #multi-processing-and-distributed-computing }
+#### Distributed ja ClusterManagers.jl { #distributed-and-clustermanagers.jl }
+Moniprosessointiin ja hajautettuun laskentaan Julia tarjoaa `Distributed`-vakiokirjaston.
+Sitä käytetään moniprosessointiin paikallisella solmulla.
+Sen toiminnallisuutta voi laajentaa asentamalla `ClusterManagers.jl`-paketin, jonka avulla työntekijäprosessit voidaan lisätä useille solmuille Slurmin kautta `SlurmManager`-komponentin avulla.
+Suosittelemme lukemaan Julian käsikirjan [moniprosessointi ja hajautettu laskenta](https://docs.julialang.org/en/v1/manual/distributed-computing/) -osion lisätietoja varten.
 
 
-#### MPI.jl
-We can use MPI for distributed computing, especially over multiple nodes, in Julia on Puhti, Mahti, and LUMI using the `MPI.jl` package.
-We can install it using the package manager as follows:
+#### MPI.jl { #mpi.jl }
+MPI:tä voidaan käyttää hajautettuun laskentaan, erityisesti useilla solmuilla, Juliassa Puhtissa, Mahtissa ja LUMIssa `MPI.jl`-paketin avulla.
+Sen voi asentaa pakettienhallinnalla seuraavasti:
 
 ```julia
 import Pkg
 Pkg.add("MPI")
 ```
 
-We can load the `julia-mpi` module which sets global preferences to the environment such that MPI.jl uses to use the system MPI installation and the correct command to start MPI processes.
+Voimme ladata `julia-mpi`-moduulin, joka asettaa ympäristöön globaalit asetukset niin, että MPI.jl käyttää järjestelmän MPI-asennusta ja oikeaa komentoa MPI-prosessien käynnistämiseen.
 
 ```bash
 module load julia-mpi
 ```
 
-For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
+Lisätietoja on [MPI.jl-dokumentaatiossa](https://juliaparallel.org/MPI.jl/stable/).
 
 
-### GPU programming
-#### CUDA.jl
-The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be programmed using CUDA.
-We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
+### GPU-ohjelmointi { #gpu-programming }
+#### CUDA.jl { #cuda.jl }
+Puhtin ja Mahtin GPU-solmuissa on NVIDIAn GPU:t, joita voi ohjelmoida CUDAlla.
+`CUDA.jl`-paketin voi asentaa Juliaan pakettienhallinnan avulla seuraavasti:
 
 ```julia
 import Pkg
 Pkg.add("CUDA")
 ```
 
-We can load the `julia-cuda` module which sets global preferences to the environment such that CUDA.jl uses the system CUDA installation.
+Voimme ladata `julia-cuda`-moduulin, joka asettaa ympäristöön globaalit asetukset niin, että CUDA.jl käyttää järjestelmän CUDA-asennusta.
 
 ```bash
 module load julia-cuda
 ```
 
-For information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
+Lisätietoja on [CUDA.jl-dokumentaatiossa](https://cuda.juliagpu.org/stable/).
 
 
-#### AMDGPU.jl
-The GPU nodes on LUMI contain AMD GPUs.
-We can install the `AMDGPU.jl` package for programming AMD GPUs in Julia using the package manager as follows:
+#### AMDGPU.jl { #amdgpu.jl }
+LUMIn GPU-solmuissa on AMD:n GPU:t.
+`AMDGPU.jl`-paketin voi asentaa AMD:n GPU:iden ohjelmointiin Juliaan pakettienhallinnan avulla seuraavasti:
 
 ```julia
 import Pkg
 Pkg.add("AMDGPU")
 ```
 
-We can load the `julia-amdgpu` module which sets global preferences to the environment such that AMDGPU.jl to use the system ROCm installation.
+Voimme ladata `julia-amdgpu`-moduulin, joka asettaa ympäristöön globaalit asetukset niin, että AMDGPU.jl käyttää järjestelmän ROCm-asennusta.
 
 ```bash
 module load julia-amdgpu
 ```
 
-For information, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
+Lisätietoja on [AMDGPU.jl-dokumentaatiossa](https://amdgpu.juliagpu.org/stable/).
 
 
-### Running Julia batch jobs on CSC clusters
-[Running Julia batch jobs on CSC clusters](../support/tutorials/julia.md) section explains how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI.
+### Julian eräajot CSC:n klustereilla { #running-julia-batch-jobs-on-csc-clusters }
+[Julian eräajot CSC:n klustereilla](../support/tutorials/julia.md) -osio selittää, miten ajetaan sarja-, rinnakkais- ja GPU-eräajot Juliassa Puhtissa, Mahtissa ja LUMIssa.
 
 
-### Further reading
-For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/julia-for-hpc/) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) by Kjartan Thor Wikfeldt.
-HLRS's training material for the [Julia for High-Performance Computing](https://github.com/carstenbauer/JuliaHLRS23) course offers a deep dive into programming high-performance code with Julia.
-Finally, the [Julia on HPC Clusters](https://juliahpc.github.io) lists general notes about using and installing Julia on an HPC cluster.
+### Lisälukemista { #further-reading }
+Juliasta rinnakkais- ja korkean suorituskyvyn laskentaan suosittelemme ENCCS:n materiaalia [Julia for high-performance scientific computing](https://enccs.github.io/julia-for-hpc/) sekä Kjartan Thor Wikfeldtin artikkelia [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb).
+HLRS:n [Julia for High-Performance Computing](https://github.com/carstenbauer/JuliaHLRS23) -kurssin koulutusmateriaali tarjoaa syväsukelluksen suorituskykyisen Julian ohjelmointiin.
+Lopuksi [Julia on HPC Clusters](https://juliahpc.github.io) kokoaa yleisiä huomioita Julian käytöstä ja asentamisesta HPC-klustereille.

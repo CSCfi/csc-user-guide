@@ -1,77 +1,90 @@
 ---
 tags:
   - Other
-system:
-  - www-puhti
-  - www-mahti
+catalog:
+  name: CryoSPARC
+  description: Tool to analyse Cryo-EM data on Puhti/Mahti
+  description_fi: Työkalu Cryo-EM-datan analysointiin Puhti- ja Mahti-ympäristöissä
+  license_type: Other
+  disciplines:
+    - Biosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+        - Mahti
+    - Puhti
+    - Mahti
 ---
 
-# CryoSPARC
+# CryoSPARC { #cryosparc }
 
 CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification)
-is a state-of-the-art scientific software platform for processing cryo-electron
-microscopy (cryo-EM) single particle analysis data used in research and drug
-discovery activities by solving 3D structures of biological specimens, such as
-soluble and membrane proteins and their complexes, viruses, nucleic acids, and
-more. It can also process negative stain electron microscopy data.
+on huipputason tieteellinen ohjelmistoalusta kryoelektronimikroskopian (cryo-EM)
+yksittäishiukkasanalyysin datan käsittelyyn. Sitä käytetään tutkimuksessa ja
+lääkeainekehityksessä biologisten näytteiden, kuten liukoisten ja kalvoproteiinien
+sekä niiden kompleksien, virusten, nukleiinihappojen jne., 3D-rakenteiden
+ratkaisemiseen. Se pystyy myös käsittelemään negatiivivärjäyksen
+elektronimikroskopiadatan.
 
-## Available
+## Saatavilla { #available }
 
-The software can be installed on Puhti and Mahti. CSC recommends using Mahti
-for CryoSPARC usage due to its large needs of scratch disk space.
+Ohjelmisto voidaan asentaa Puhtiin ja Mahtiin. CSC suosittelee Mahtin käyttöä
+CryoSPARCia varten sen suuren scratch-levytilatarpeen vuoksi.
 
-## License
+## Lisenssi { #license }
 
-CryoSPARC has non-profit and commercial licensing options. The software is
-free-of-charge for non-profit academic use, but users must request
-[a licence key](https://cryosparc.com/download/) from the CryoSPARC home page.
-Please consult Structura Biotechnology Inc. (<mailto:sales@structura.bio>) for
-commercial usage.
+CryoSPARCille on tarjolla voittoa tavoittelemattoman toiminnan ja kaupallisen
+käytön lisenssivaihtoehtoja. Ohjelmisto on maksuton akateemiseen, voittoa
+tavoittelemattomaan käyttöön, mutta käyttäjien on pyydettävä
+[a lisenssiavain](https://cryosparc.com/download/) CryoSPARCin kotisivulta.
+Kaupallista käyttöä varten ole yhteydessä Structura Biotechnology Inc.:iin
+(<mailto:sales@structura.bio>).
 
-## Installation
+## Asennus { #installation }
 
-Note that every user needs to install their own instance of cryoSPARC. Shared
-installations are not recommended. Request port numbers for your CryoSPARC
-usage by sending an e-mail to [CSC Service Desk](../support/contact.md). The
-port number and login node will be reserved to you on Puhti and/or Mahti.
+Huomaa, että jokaisen käyttäjän on asennettava oma cryoSPARC-instanssinsa.
+Yhteisiä asennuksia ei suositella. Pyydä porttinumeroita CryoSPARCin käyttöä
+varten lähettämällä sähköpostia [CSC Service Deskille](../support/contact.md).
+Porttinumero ja kirjautumissolmu varataan sinulle Puhtissa ja/tai Mahtissa.
 
-The CryoSPARC installation tar file contains over 160k files, which exceeds the
-default file quota (100k) for `/projappl` disk space. Thus, users need to apply
-for an extension to the default quota when installing CryoSPARC.
+CryoSPARCin asennusarkisto sisältää yli 160 000 tiedostoa, mikä ylittää
+`/projappl`-levytilan oletustiedostokiintiön (100 000). Siksi käyttäjien on
+haettava laajennusta oletuskiintiöön CryoSPARCia asentaessaan.
 
-CSC maintains a centralised installation of cryoSPARC worker. If you follow CSC
-internal instructions and use the correct lane templates, you do not need to
-install worker at all. The internal installation instructions on Puhti or Mahti
-are available at path:
+CSC ylläpitää keskitettyä cryoSPARC worker -asennusta. Jos noudatat CSC:n
+sisäisiä ohjeita ja käytät oikeita lane-mallipohjia, sinun ei tarvitse asentaa
+workeria lainkaan. Sisäiset asennusohjeet Puhtissa tai Mahtissa löytyvät polusta:
 
 ```bash
 /appl/soft/bio/cryosparc/documentation/cryoSPARC_at_CSC.pdf
 ```
 
-Setting up SSH keys and adding your public key to MyCSC are required to be able
-to log in to Puhti and Mahti with SSH. SSH keys enable passwordless login,
-which is also helpful for CryoSPARC usage.
+SSH-avainten määrittäminen ja julkisen avaimesi lisääminen MyCSC:hen ovat
+edellytyksiä Puhtiin ja Mahtiin kirjautumiselle SSH:lla. SSH-avaimet
+mahdollistavat salasanattoman kirjautumisen, mikä on hyödyllistä myös
+CryoSPARCin käytössä.
 
-Please consult our documentation on:
+Tutustu dokumentaatioomme:
 
-- [How to connect to CSC supercomputers](../computing/connecting/index.md)
-- [How to set up SSH keys](../computing/connecting/ssh-keys.md)
+- [Kuinka yhdistää CSC:n supertietokoneisiin](../computing/connecting/index.md)
+- [SSH-avainten määrittäminen](../computing/connecting/ssh-keys.md)
 
-!!! note "CryoSPARC cannot be used from HPC web interfaces"
-    CryoSPARC users may not use web interfaces for logging in to Puhti/Mahti as
-    login nodes are randomly assigned. Please note that each user is assigned
-    to a specific login node with a specific port range for CryoSPARC usage.
+!!! note "CryoSPARCia ei voi käyttää HPC:n web-käyttöliittymien kautta"
+    CryoSPARCin käyttäjät eivät saa käyttää web-käyttöliittymiä kirjautuakseen
+    Puhtiin/Mahtiin, koska kirjautumissolmut arvotaan satunnaisesti. Huomaa, että
+    jokaiselle käyttäjälle on varattu tietty kirjautumissolmu ja tietty
+    porttialue CryoSPARCin käyttöä varten.
 
-## References
+## Viitteet { #references }
 
-Please consult all publications including the one mentioned below:
+Tutustu kaikkiin julkaisuihin, mukaan lukien alla mainittu:
 
 > Punjani, A., Rubinstein, J.L., Fleet, D.J. & Brubaker, M.A. cryoSPARC:
 algorithms for rapid unsupervised cryo-EM structure determination. Nature
 Methods 14, 290-296 (2017).
 
-## More information
+## Lisätietoja { #more-information }
 
-- [CryoSPARC home page](https://cryosparc.com/)
-- [CryoSPARC official installation instructions](https://guide.cryosparc.com/setup-configuration-and-management/how-to-download-install-and-configure)
-- [CryoSPARC documentation](https://guide.cryosparc.com/)  
+- [CryoSPARCin kotisivu](https://cryosparc.com/)
+- [CryoSPARCin viralliset asennusohjeet](https://guide.cryosparc.com/setup-configuration-and-management/how-to-download-install-and-configure)
+- [CryoSPARCin dokumentaatio](https://guide.cryosparc.com/)

@@ -1,45 +1,53 @@
-
 ---
 tags:
   - Free
+catalog:
+  name: Mothur
+  description: Package for microbial community analysis of amplicon sequencing data
+  description_fi: Paketti amplikonsekvensointiaineiston mikrobiyhteisöanalyysiin
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Mothur
+# Mothur { #mothur }
 
-Mothur on bioinformatiikkatyökalu mikrobiekologiaan liittyvän data-analyysin tarpeisiin.
+Mothur on bioinformatiikan työkalupakki mikrobiekologiaan liittyvän aineistoanalyysin tarpeisiin.
 
 [TOC]
 
-## Lisenssi {#license}
+## License { #license }
 
-Vapaa käyttää ja avoimen lähdekoodin GNU GPLv3 -lisenssin alla [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaasti käytettävissä ja avoimen lähdekoodin ohjelmisto, lisensoitu [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Saatavilla {#available}
+## Available { #available }
 
 - Puhti: 1.39.5, 1.44.0, 1.48.0, 1.48.2
 - [Chipster](https://chipster.csc.fi) graafinen käyttöliittymä
 
-## Käyttö {#usage}
+## Usage { #usage }
 
-Mothurin oletusversion alustaminen Puhtilla:
+Lataa Mothurin oletusversio Puhtissa komennolla:
 
 ```bash
 module load mothur
 ```
 
-Kaikkien saatavilla olevien versioiden näkeminen:
+Näytä kaikki saatavilla olevat versiot:
 
 ```bash
 module spider mothur
 ```
 
-Tietyn version lataaminen:
+Lataa tietty versio:
 
 ```bash
 module load mothur/1.48.0
 ```
 
-Mothurin ajaminen interaktiivisessa tilassa, käytä [sinteractive](../computing/running/interactive-usage.md).
+Aja Mothur interaktiivisessa tilassa käyttämällä [sinteractive](../computing/running/interactive-usage.md)-komentoa.
 
 ```bash
 sinteractive --account=project_1234567 -m 8000
@@ -47,13 +55,13 @@ module load mothur
 mothur
 ```
 
-Jos analyysisi vie paljon aikaa tai haluat käyttää useampia ytimiä, sinun tulisi ajaa Mothur erätehtävänä.
+Jos analyysit kestävät kauan tai haluat käyttää useita ytimiä, Mothur kannattaa ajaa eräajona.
 
-Aloita keräämällä Mothur-komennot komennotiedostoon käyttääksesi Mothuria [erätilassa](http://www.mothur.org/wiki/Batch_mode).
+Aloita kokoamalla Mothur-komennot komentotiedostoon, jotta voit käyttää Mothuria [erätilassa](http://www.mothur.org/wiki/Batch_mode).
 
-Kun sinulla on toimiva Mothur-komennotiedosto, voit tarvittaessa käynnistää Mothur-töitä, joiden suoritus kestää useita päiviä.
+Kun sinulla on toimiva Mothur-komentotiedosto, voit tarvittaessa käynnistää Mothur-ajoja, jotka kestävät useita päiviä.
 
-Alla on esimerkki Mothur-erätehtävätiedostosta. Tässä esimerkissä oletamme, että Mothur-komennot ovat tiedostossa `my_mothur_task.txt`.
+Alla on esimerkki Mothur-eräajotiedostosta. Tässä esimerkissä oletamme, että Mothur-komennot ovat tiedostossa `my_mothur_task.txt`.
 
 ```bash
 #!/bin/bash
@@ -71,23 +79,22 @@ module load mothur
 mothur my_mothur_task.txt
 ```
 
-Jos haluat käyttää useampia ytimiä, säädä parametriä `--cpus_per_task`. Sinun on myös säädettävä `processors`-parametria jokaisessa Mothur-komennotiedoston komennossa vastaavasti. Huomaa, että vain osa [Mothur-komennoista](https://mothur.org/wiki/tags/#commands) voi käyttää useampia ytimiä. Tarkista dokumentaatiosta, sisältääkö komento `processors`-asetuksen.
+Jos haluat käyttää useita ytimiä, säädä parametriä `--cpus_per_task`. Sinun on myös säädettävä Mothur-komentotiedoston kunkin komennon `processors`-parametria vastaavasti. Huomaa, että vain osa [Mothur-komennoista](https://mothur.org/wiki/tags/#commands) osaa käyttää useita ytimiä. Tarkista dokumentaatiosta, sisältyykö komennon valintoihin `processors`.
 
-Mothur-töiden on määrä ajaa yhdellä solmulla, joten Puhtin maksimiydinmäärä on 40. Tarkista skaalautuvuus ennen suurten töiden lähettämistä. Monet Mothur-tehtävät eivät skaalaudu kovin hyvin muutamaa ydintä pidemmälle. Liian monen ytimen käyttäminen voi jopa hidastaa työsi suoritusta.
+Mothur-ajojen on ajettava yhdellä solmulla, joten Puhtissa käytettävissä olevien ytimien enimmäismäärä on 40. Skaalautuvuus on syytä tarkistaa ennen suurten ajojen lähettämistä. Monet Mothur-tehtävät eivät skaalaudu hyvin muutamaa ydintä pidemmälle. Liian monen ytimen käyttö voi jopa hidastaa ajoa.
 
-Yllä kuvattu erätehtäväskenaario (tässä tapauksessa nimettynä `mothur_batch_job.sh`) voidaan lähettää erätehtäväjärjestelmään komennolla:
+Yllä kuvattu eräajon skripti (tässä nimellä `mothur_batch_job.sh`) voidaan lähettää eräajojärjestelmään komennolla:
 
 ```bash
 sbatch mothur_batch_job.sh
 ```
 
-Katso lisätietoja erätehtävien ajamisesta [Puhti-käyttäjän oppaasta](../computing/running/getting-started.md).
+Katso lisätietoja eräajojen ajamisesta [Puhti-käyttöoppaasta](../computing/running/getting-started.md).
 
-## Tuki {#support}
+## Support { #support }
 
 [CSC Service Desk](../support/contact.md)
 
-## Lisätietoja {#more-information}
+## More information { #more-information }
 
-- [Mothur-etusivu](https://www.mothur.org/)
-
+- [Mothurin kotisivu](https://www.mothur.org/)

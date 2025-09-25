@@ -1,65 +1,72 @@
 ---
 tags:
   - Free
+catalog:
+  name: Pennylane
+  description: Free open-source software framework for quantum machine learning and quantum computing
+  description_fi: Ilmainen avoimen lähdekoodin ohjelmistokehys kvanttikoneoppimiseen ja kvanttilaskentaan
+  license_type: Free
+  disciplines:
+    - Quantum
+  available_on:
+    - LUMI
 ---
 
 # Pennylane
 
-Pennylane is an open-source cross-platform Python library for quantum machine learning, quantum chemistry and quantum computing. Pennylane-lightning is a high-performance state-vector simulator for Pennylane. It is currently GPU enabled through the [Kokkos](https://kokkos.github.io/kokkos-core-wiki/) framework on LUMI.
+Pennylane on avoimen lähdekoodin, alustariippumaton Python-kirjasto kvanttikoneoppimiseen, kvanttikemiaan ja kvanttilaskentaan. Pennylane-lightning on Pennylanen korkean suorituskyvyn tilavektorisimulaattori. Se on tällä hetkellä GPU-tuettu LUMIssa [Kokkos](https://kokkos.github.io/kokkos-core-wiki/)-kehyksen kautta.
 
-## Available
+## Saatavilla { #available }
 
-Currently supported pennylane versions:
+Tällä hetkellä tuetut Pennylane-versiot:
 
-| Version | Module                               | LUMI  | Notes           |
-|:--------|:-------------------------------------|:-----:|-----------------|
-| 0.40.0  | `pennylane-lightning/0.40.0-gpu`     | X     | default version |
-| 0.39.0  | `pennylane-lightning/0.39.0-gpu`     | X     |                 |
-| 0.38.0  | `pennylane-lightning/0.38.0-gpu`     | X     |                 |
+| Versio | Moduuli                              | LUMI  | Huomautukset    |
+|:-------|:-------------------------------------|:-----:|-----------------|
+| 0.42.0 | `pennylane-lightning/0.42.0-gpu`     | X     | oletusversio    |
+| 0.41.1 | `pennylane-lightning/0.41.1-gpu`     | X     |                 |
+| 0.40.0 | `pennylane-lightning/0.40.0-gpu`     | X     |                 |
 
-All modules are based on Tykky using LUMI-container-wrapper.
-Wrapper scripts have been provided so that common commands such as `python`,
-`python3`, `pip` and `pip3` should work as normal. For more information, see
+Kaikki moduulit perustuvat Tykkyyn ja käyttävät LUMI-container-wrapperia.
+Saatavilla on wrapper-skriptejä, jotta yleiset komennot kuten `python`,
+`python3`, `pip` ja `pip3` toimivat normaalisti. Lisätietoja: 
 [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
-## License
+## Lisenssi { #license }
 
-Pennylane is licensed under
-[Apache License 2.0](https://github.com/PennyLaneAI/pennylane/blob/master/LICENSE).
+Pennylane on lisensoitu
+[Apache License 2.0](https://github.com/PennyLaneAI/pennylane/blob/master/LICENSE) -lisenssillä.
 
-## Usage
+## Käyttö { #usage }
 
-To use the default version of Pennylane on LUMI, initialize
-it with:
+Käyttääksesi Pennylanen oletusversiota LUMIssa, alusta se komennolla:
 
 ```bash
 module use /appl/local/quantum/modulefiles
 ```
 
-and 
+ja 
 
 ```bash
 module load pennylane-lightning
 ```
 
-If you wish to have a specific version ([see above for available
-versions](#available)), use:
+Jos haluat tietyn version ([katso käytettävissä olevat versiot yllä](#available)), käytä:
 
 ```bash
-module load pennylane-lightning/0.40.0-gpu
+module load pennylane-lightning/0.42.0-gpu
 ```
 
-where `0.40.0-gpu` is the specified version
+missä `0.42.0-gpu` on määritetty versio
 
-This command will also show all available versions:
+Tämä komento näyttää myös kaikki saatavilla olevat versiot:
 
 ```bash
 module avail pennylane-lightning
 ```
 
-### Example batch script
+### Esimerkkieräajon skripti { #example-batch-script }
 
-Example batch script for reserving one GPU and CPU core in a single node:
+Esimerkkieräajon skripti, joka varaa yhden GPU:n ja yhden CPU-ytimen yhdellä solmulla:
 
 ```bash title="LUMI"
 #!/bin/bash
@@ -76,14 +83,14 @@ Example batch script for reserving one GPU and CPU core in a single node:
 export OMP_PROC_BIND=spread  
 export OMP_PLACES=threads
 
-module load Local-quantum # or module use /appl/local/quantum/modulefiles
+module use /appl/local/quantum/modulefiles # or module load Local-quantum
 module load pennylane-lightning
 python <file_name>.py
 ```
 
-Submit the script with `sbatch <script_name>.sh`
+Lähetä skripti komennolla `sbatch <script_name>.sh`
 
-## More information
+## Lisätietoja { #more-information }
 
-- [Pennylane documentation](https://docs.pennylane.ai/en/stable/code/qml.html)
-- [Pennylane-lightning documentation](https://docs.pennylane.ai/projects/lightning/en/stable/)
+- [Pennylanen dokumentaatio](https://docs.pennylane.ai/en/stable/code/qml.html)
+- [Pennylane-lightningin dokumentaatio](https://docs.pennylane.ai/projects/lightning/en/stable/)

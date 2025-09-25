@@ -1,40 +1,42 @@
 ---
 tags:
   - Free
+catalog:
+  name: nvprof
+  description: Nvidia profiling tool that collects and views profiling data
+  description_fi: Nvidian profilointityökalu, joka kerää ja näyttää profilointitietoja
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# nvprof: CUDA profiler
+# nvprof: CUDA-profilointityökalu { #nvprof-cuda-profiler }
 
-## Available
+## Saatavuus { #available }
 
 - Puhti: 11.7.50
 - Mahti: 11.5.50
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Usage
+## Käyttö { #usage }
 
-The *nvprof* profiling tool collects and views profiling data from the
-command-line. It enables the collection of a timeline of CUDA-related
-activities on both CPU and GPU, including kernel execution, memory transfers,
-memory set and CUDA API calls and events or metrics for CUDA kernels.
-Profiling results are displayed in the console after the profiling data is
-collected, and may also be saved for later viewing by either *nvprof* or the
-*Visual Profiler*.
+Profilointityökalu *nvprof* kerää ja näyttää profilointitietoja komentoriviltä. Sen avulla voidaan kerätä aikajana CUDAan liittyvistä toiminnoista sekä CPU:lla että GPU:lla, mukaan lukien ytimen suoritus, muistin siirrot, muistin alustukset ja CUDA API -kutsut sekä CUDA-ytimien tapahtumat tai metriikat. Profiloinnin tulokset näytetään konsolissa profiloinnin valmistuttua, ja ne voidaan myös tallentaa myöhempää tarkastelua varten joko *nvprof*- tai *Visual Profiler* -työkaluilla.
 
-To use nvprof, one needs to first load the CUDA module:
+nvprofin käyttö edellyttää ensin CUDA-moduulin lataamista:
 
 ```bash
 module load cuda
 ```
 
-To profile a CUDA code, one then adds the command `nvprof` before the normal
-command to execute the code. Running is otherwise similar to that of any other
-CUDA job on [Puhti](../computing/running/example-job-scripts-puhti.md#single-gpu) or [Mahti](../computing/running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
+CUDA-koodin profilointia varten lisätään sitten komento `nvprof` normaalin ajokäskyn eteen. Ajo on muuten samanlaista kuin missä tahansa muussa CUDA-työssä koneilla [Puhti](../computing/running/example-job-scripts-puhti.md#single-gpu) tai [Mahti](../computing/running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
 
-An example of usage and output of nvprof:
+Esimerkki nvprofin käytöstä ja tulosteesta:
 ```
 $ nvprof dct8x8
 ======== Profiling result:
@@ -52,27 +54,17 @@ Time(%) Time Calls Avg Min Max Name
  0.52 97.75us 1 97.75us 97.75us 97.75us CUDAkernel2IDCT(float*, float*)
  0.12 22.59us 1 22.59us 22.59us 22.59us [CUDA memcpy DtoA]
 ```
-nvprof supports several very useful running options:
+nvprof tukee useita hyödyllisiä ajoasetuksia:
 
-* --export-profile: Export the profile to a file
+- --export-profile: Vie profilointidata tiedostoon
+- --analysis-metrics: Kerää profilointitietoja, jotka voidaan tuoda Visual Profiler -työkaluun
+- --print-gpu-trace: Näytä funktiokutsujen jälki
+- --openacc-profiling on: Profiloi myös OpenACC (oletuksena päällä)
+- --cpu-profiling on: Ota käyttöön jonkin verran CPU-profilointia
+- --csv --log-file FILE: Tuota CSV-ulostulo ja tallenna se tiedostoon FILE; kätevä kuvaajille tai benchmarkattuun analyysiin
+- --metrics M1: Mittaa vain metriikka M1, joka on yksi NVIDIAn tarjoamista metriikoista; ne voidaan listata komennolla --query-metrics.
 
-* --analysis-metrics: Collect profiling data that can be imported to Visual
-  Profiler
+Lisätietoja löydät [nvidia documentation](https://docs.nvidia.com/cuda/profiler-users-guide/).
 
-* --print-gpu-trace: Show trace of function calls
-
-* --openacc-profiling on: Profile OpenACC as well (on by default)
-
-* --cpu-profiling on: Enable some CPU profiling
-
-* --csv --log-file FILE: Generate CSV output and save to FILE; handy for plots
-  or benchmarked analysis
-
-* --metrics M1: Measure only metric M1 which is one of the NVIDIA-provided
-  metrics which can be listed via --query-metrics.
-
-For more details please check the
-[nvidia documentation](https://docs.nvidia.com/cuda/profiler-users-guide/).
-
-!!! note "Note"
-     `nvprof` does not support architectures `>SM70`. The [ `nsys`](nsys.md) tool should be used.
+!!! note "Huom."
+     `nvprof` ei tue arkkitehtuureja `>SM70`. The [ `nsys`](nsys.md) tool should be used.

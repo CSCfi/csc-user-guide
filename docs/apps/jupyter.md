@@ -1,54 +1,63 @@
 ---
 tags:
   - Free
-system:
-  - www-mahti
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Jupyter
+  description: Interactive computational environment for Python
+  description_fi: Interaktiivinen laskentaympäristö Pythonille
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+        - Mahti
+    - LUMI
 ---
 
-# Jupyter
+# Jupyter { #jupyter }
 
-[Project Jupyter](https://jupyter.org/) develops and maintains interactive
-computational environments, including the ever-popular
-[computational notebooks](https://docs.jupyter.org/en/latest/#what-is-a-notebook).
+[Project Jupyter](https://jupyter.org/) kehittää ja ylläpitää interaktiivisia
+laskentaympäristöjä, mukaan lukien erittäin suositut
+[laskentamuistikirjat](https://docs.jupyter.org/en/latest/#what-is-a-notebook).
 
-Jupyter interfaces such as Jupyter Notebook and JupyterLab come pre-installed
-with the [IPython](https://ipython.readthedocs.io/en/stable/index.html)
-kernel, which allows working on notebooks using the
-[Python programming language](./python.md). Our web interface also includes an
-[interactive Julia-Jupyter app](../computing/webinterface/julia-on-jupyter.md)
-using the [IJulia](https://github.com/JuliaLang/IJulia.jl)
-kernel for working with the [Julia language](./julia.md).
+Jupyter-käyttöliittymät, kuten Jupyter Notebook ja JupyterLab, tulevat
+esiasennettuna [IPython](https://ipython.readthedocs.io/en/stable/index.html)-
+ytimellä, jonka avulla muistikirjojen parissa voidaan työskennellä
+[Python-ohjelmointikielellä](./python.md). Verkkokäyttöliittymäämme sisältyy
+myös [interaktiivinen Julia–Jupyter -sovellus](../computing/webinterface/julia-on-jupyter.md), joka käyttää
+[IJulia](https://github.com/JuliaLang/IJulia.jl)-ydintä työskentelyyn
+[Julia-kielellä](./julia.md).
 
-## Available
+## Saatavilla { #available }
 
 - Mahti
 - Puhti
 - LUMI
 
-## License
+## Lisenssi { #license }
 
-Jupyter is released under the [modified BSD
-license](https://opensource.org/licenses/BSD-3-Clause).
+Jupyter on julkaistu [muokatulla BSD-lisenssillä](https://opensource.org/licenses/BSD-3-Clause).
 
-## Usage
+## Käyttö { #usage }
 
-Jupyter can be used on CSC supercomputers through interactive applications
-on our web interface:
+Jupyteria voidaan käyttää CSC:n supertietokoneilla interaktiivisten sovellusten
+kautta verkkokäyttöliittymässämme:
 
-- [Jupyter interactive application](../computing/webinterface/jupyter.md)
-  (IPython kernel)
-- [Julia-Jupyter interactive application](../computing/webinterface/julia-on-jupyter.md) (IJulia kernel)
+- [Jupyterin interaktiivinen sovellus](../computing/webinterface/jupyter.md)
+  (IPython-ydin)
+- [Julia–Jupyterin interaktiivinen sovellus](../computing/webinterface/julia-on-jupyter.md) (IJulia-ydin)
 
-Jupyter can also be used through the
-[LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/).
+Jupyteria voidaan käyttää myös
+[LUMIn verkkokäyttöliittymän](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/)
+kautta.
 
-## References
+## Viitteet { #references }
 
 - [Project Jupyter](https://jupyter.org/)
 
-## More information
+## Lisätietoja { #more-information }
 
-- [About Project Jupyter](https://jupyter.org/about)
-- [Project Jupyter Documentation](https://docs.jupyter.org/en/latest/)
+- [Tietoa Project Jupyteristä](https://jupyter.org/about)
+- [Project Jupyterin dokumentaatio](https://docs.jupyter.org/en/latest/)

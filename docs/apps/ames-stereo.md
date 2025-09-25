@@ -1,36 +1,45 @@
 ---
 tags:
   - Free
+catalog:
+  name: NASA Ames Stereo Pipeline (ASP)
+  description: for processing stereo images
+  description_fi: stereokuvien käsittelyyn
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# NASA Ames Stereo Pipeline (ASP)
+# NASA Ames Stereo Pipeline (ASP) { #nasa-ames-stereo-pipeline-asp }
 
-[NASA Ames Stereo Pipeline](https://stereopipeline.readthedocs.io/)  is a suite of free and open source automated geodesy and stereogrammetry tools designed for processing stereo images captured from satellites (around Earth and other planets), robotic rovers, aerial cameras, and historical images, with and without accurate camera pose information. It produces cartographic products, including digital terrain models (DTMs), ortho-projected images, 3D models, and bundle-adjusted networks of cameras. ASP’s data products are suitable for science analysis, mission planning, and public outreach. 
+[NASA Ames Stereo Pipeline](https://stereopipeline.readthedocs.io/) on maksuton ja avoimen lähdekoodin automatisoitujen geodesia- ja stereofotogrammetria-työkalujen kokonaisuus, joka on suunniteltu käsittelemään stereokuvia, joita on otettu satelliiteista (Maan ja muiden planeettojen kiertoradoilta), robottikulkijoista, ilmakameroista ja historiallisista kuvista, sekä tarkalla kameran asentotiedolla että ilman sitä. Se tuottaa kartografisia tuotteita, kuten digitaalisia maastomalleja (DTM), ortoprojektoituja kuvia, 3D-malleja ja nippusovitettuja kameraverkkoja. ASP:n dataproduktit soveltuvat tieteelliseen analyysiin, missiosuunnitteluun ja yleisöviestintään. 
 
-## Usage
+## Käyttö { #usage }
 
-Ames Stereo Pipeline is included in the following module:
+Ames Stereo Pipeline sisältyy seuraavaan moduuliin:
 
 * ames-stereo: 3.2.0
 
-Load the module:
+Lataa moduuli:
 
 ```
 module load ames-stereo
 ```
 
-You can test that Ames Stereo Pipeline is loaded successfully with
+Voit testata, että Ames Stereo Pipeline on ladattu onnistuneesti komennolla
 
 ```
 stereo -help
 ```
 
-Running `parallel_stereo` can be very computationally expensive, so it should be run via batch job system. The software developers recommend reserving full nodes for Ames Stereo Pipeline.
+Komennon `parallel_stereo` suoritus voi olla erittäin laskennallisesti raskasta, joten se kannattaa ajaa eräajojärjestelmän kautta. Ohjelmiston kehittäjät suosittelevat varaamaan Ames Stereo Pipeline -ajoja varten kokonaisia solmuja.
 
 
 
 
-### Example batch job
+### Esimerkkierätyö { #example-batch-job }
 
 ```
 #!/bin/bash
@@ -48,27 +57,27 @@ module load ames-stereo
 parallel_stereo [options] <images> [<cameras>] <output_file_prefix>
 ```
 
-The [parallel_stereo](https://stereopipeline.readthedocs.io/en/latest/tools/parallel_stereo.html) program is the primary tool of the Ames Stereo Pipeline, it has a lot of different options described in detail in documentation.
+Ohjelma [parallel_stereo](https://stereopipeline.readthedocs.io/en/latest/tools/parallel_stereo.html) on Ames Stereo Pipelinella ensisijainen työkalu; sillä on paljon erilaisia valitsimia, jotka on kuvattu yksityiskohtaisesti dokumentaatiossa.
 
-Ames Stereo Pipeline supports also multi-node batch jobs, see its [PBS and SLURM documentation](https://stereopipeline.readthedocs.io/en/latest/examples.html#using-pbs-and-slurm) for details; please notice that in Puhti, in addition to the mentioned arguments, you need to provide the `--account` argument and use the correct [`--partion`-names](../computing/running/batch-job-partitions.md).
+Ames Stereo Pipeline tukee myös monisolmuisia eräajoja; katso lisätietoja sen [PBS- ja SLURM-dokumentaatiosta](https://stereopipeline.readthedocs.io/en/latest/examples.html#using-pbs-and-slurm). Huomaa, että Puhtissa mainittujen argumenttien lisäksi sinun on annettava myös `--account`-argumentti ja käytettävä oikeita [`--partion`-nimiä](../computing/running/batch-job-partitions.md).
 
 
-## License 
+## Lisenssi { #license }
 
-NASA Ames Stereo Pipeline (ASP) is distributed under [Apache-2 license](https://www.apache.org/licenses/LICENSE-2.0).
+NASA Ames Stereo Pipeline (ASP) on julkaistu [Apache-2-lisenssillä](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Citation
+## Viittaus { #citation }
 
-[Citing the Ames Stereo Pipeline in your work](https://stereopipeline.readthedocs.io/en/latest/introduction.html#citing-the-ames-stereo-pipeline-in-your-work). 
+[Viittaaminen Ames Stereo Pipelineen omassa työssäsi](https://stereopipeline.readthedocs.io/en/latest/introduction.html#citing-the-ames-stereo-pipeline-in-your-work). 
 
-## Acknowledgement
+## Kiitokset { #acknowledgement }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports. As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+Pyydämme mainitsemaan CSC:n ja Geoportin julkaisuissanne; tämä on tärkeää projektien jatkuvuuden ja rahoitusraportoinnin kannalta. Esimerkiksi: "Tekijät haluavat kiittää CSC:tä – Tieteen tietotekniikan keskusta, Suomi (urn:nbn:fi:research-infras-2016072531) sekä avointa geospatiaalisen tiedon tutkimusinfrastruktuuria (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
-## Installation
+## Asennus { #installation }
 
-Ames Stereo Pipeline was installed on Puhti using [Tykky's conda-containerize functionality](../computing/containers/tykky.md), using this [Ames Stereo Pipeline conda environment file](https://github.com/csc-training/geocomputing/blob/master/supercomputer_installations/ames-stereo_3.2.0.yml).
+Ames Stereo Pipeline asennettiin Puhtiin hyödyntäen [Tykkyn conda-containerize-toiminnallisuutta](../computing/containers/tykky.md), käyttäen tätä [Ames Stereo Pipelinelle tehtyä conda-ympäristötiedostoa](https://github.com/csc-training/geocomputing/blob/master/supercomputer_installations/ames-stereo_3.2.0.yml).
 
-## References
+## Viitteet { #references }
 
-* [Ames Stereo Pipeline documentation](https://stereopipeline.readthedocs.io/)
+* [Ames Stereo Pipeline -dokumentaatio](https://stereopipeline.readthedocs.io/)

@@ -1,102 +1,220 @@
 ---
 tags:
   - Free
+catalog:
+  name: LAMMPS
+  description: Fast molecular dynamics engine with large force field selection
+  description_fi: Nopea molekyylidynamiikan laskentaohjelmisto, jossa on laaja voimakenttävalikoima
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# LAMMPS
+# LAMMPS { #lammps }
 
-LAMMPS is a "Molecular Dynamics Simulator" which supports a wide variety of
-[different force fields](https://docs.lammps.org/Intro_features.html#ff). CSC
-does not have a general purpose installation of LAMMPS as each user typically
-needs a more or less customized version. Please read below how to create yours.
+LAMMPS on "molekyylidynamiikkasimulaattori", joka tukee laajaa valikoimaa
+[erilaisia voimakenttiä](https://docs.lammps.org/Intro_features.html#ff). CSC
+tarjoaa yleiskäyttöisen LAMMPS-asennuksen, mutta se ei sisällä kaikkia
+[saatavilla olevia valinnaisia paketteja ja liitännäisiä](https://docs.lammps.org/Packages.html).
+Tarpeistasi riippuen sinun voi olla rakennettava oma räätälöity versio.
+Lue alla olevat ohjeet.
 
 [TOC]
 
-## Available
+## Saatavilla { #available }
 
-* Puhti: Instructions and CMake files available for building in
-  `/appl/soft/chem/lammps/`
-* Mahti: Instructions and CMake files available for building in
-  `/appl/soft/chem/lammps/`
-* LUMI: Instructions and CMake files available for building in
-  `/appl/local/csc/soft/chem/lammps`
+=== "Puhti"
+    | Julkaisu       | Saatavilla olevat moduulit | Huomautukset |
+    |:--------------:|:----------------------------|:------------:|
+    | 29 August 2024 | `lammps/29Aug2024`          | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2) |
 
-!!! info "Note"
-    Don't use prebuilt binaries, but take a look at the instructions below for
-    configuring and compiling LAMMPS for optimal performance. Don't hesitate to
-    [contact CSC Service Desk](../support/contact.md) if you encounter any
-    problems!
+    * Ohjeet omien räätälöityjen versioiden rakentamiseen saatavilla sijainnissa
+      `/appl/soft/chem/lammps/custom`.
 
-## License
+=== "Mahti"
+    | Julkaisu       | Saatavilla olevat moduulit | Huomautukset |
+    |:--------------:|:----------------------------|:------------:|
+    | 29 August 2024 | `lammps/29Aug2024`          | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2) |
 
-LAMMPS is an open-source code, distributed freely under the terms of the GNU
-Public License (GPL).
+    * Ohjeet omien räätälöityjen versioiden rakentamiseen saatavilla sijainnissa
+      `/appl/soft/chem/lammps/custom`.
 
-## Usage
+=== "LUMI"
+    | Julkaisu       | Saatavilla olevat moduulit                 | Huomautukset |
+    |:--------------:|:--------------------------------------------|:------------:|
+    | 29 August 2024 | `lammps/29Aug2024-cpu`<br>`lammps/29Aug2024-gpu` | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2)<br>GPU-versio ([Kokkos](https://docs.lammps.org/Speed_kokkos.html)) saatavilla |
 
-1. Navigate to `/appl/soft/chem/lammps/` on Puhti/Mahti, or
-   `/appl/local/csc/soft/chem/lammps` on LUMI.
-2. If you can't find a pre-downloaded source code (e.g.
-   `stable_2Aug2023.tar.gz`) or the LAMMPS version is not suitable, download it
-   yourself from the [LAMMPS home page](https://lammps.org/download.html).
-3. Read the compilation instructions, e.g. `lammps-cpu-instruction.txt`.
-4. Select the packages you want to include and compile the software following
-   the instructions.
-5. Example input and batch scripts are available in the `example` directory.
+    * Ohjeet omien räätälöityjen versioiden rakentamiseen saatavilla sijainnissa
+      `/appl/local/csc/soft/chem/lammps/custom`.
 
-!!! info "Compile using the fast local disk"
-    Please compile in `$TMPDIR` on Puhti/Mahti for faster performance and
-    less load on the shared file system. As the local disk is cleaned
-    frequently, remember to move your files to your project's `/projappl`
-    directory afterwards. Setting `-DCMAKE_INSTALL_PREFIX=/projappl/...` will
-    ensure that the files are moved automatically when running `make install`.
-    See the provided build instructions for specific details.
+## Lisenssi { #license }
 
-!!! info "GPU versions"
-    To enable GPU support, we recommend building LAMMPS with the Kokkos
-    package. Kokkos is a portable programming model that allows running on both
-    Nvidia and AMD GPUs. It is typically also more efficient than the standard
-    GPU package.
+LAMMPS on avoimen lähdekoodin ohjelmisto, jota jaellaan vapaasti GNU General
+Public Licensen (GPL) ehtojen mukaisesti.
 
-    When running, it is recommended to set the number of MPI tasks per node to
-    be equal to the number of physical GPUs on the node (GCDs on LUMI).
-    Assigning multiple MPI tasks to the same GPU is usually only faster if some
-    portions of the input script have not been ported to use Kokkos. See
-    [the LAMMPS documentation](https://docs.lammps.org/Speed_kokkos.html) for
-    more details.
+## Käyttö { #usage }
 
-Consult these pages for generic instructions about running jobs:
+Lataa CSC:n asentama moduuli ja tarkista, mitkä paketit ovat käytettävissä.
+Esimerkiksi:
 
-* [How to create batch jobs on Puhti](../computing/running/creating-job-scripts-puhti.md)
-* [How to create batch jobs on Mahti](../computing/running/creating-job-scripts-mahti.md).
-* [How to create batch jobs on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/batch-job/)
+```bash
+module load lammps/29Aug2024
+lmp -help
+```
 
-### Performance notes
+LUMIlla sinun on ensin aktivoitava CSC:n paikallinen ohjelmistopino ennen kuin
+näet ja voit ladata moduulin. Esimerkiksi:
 
-The following diagram compares the performance and scaling of LAMMPS on
-CPUs and GPUs on Mahti and LUMI. The system contains 16M atoms.
+```bashs
+module use /appl/local/csc/modulefiles
+module load lammps/29Aug2024-gpu
+lmp -help
+```
 
-![LAMMPS performance](../img/lammps-bench.png 'LAMMPS performance')
+Jos esiasennettu moduuli ei sisällä tarvitsemiasi paketteja, voit asentaa oman
+räätälöidyn version seuraavasti:
 
-* LAMMPS peformance is measured here in Gatom-steps/s, i.e. how many billion
-  atoms can be propagated one time step each second.
-* Large systems (millions of atoms) are able to utilize multiple GPUs
-  efficiently. The example system of 16M atoms scales well to several GPU nodes
-  and is about 10 times faster compared to running on an equal amount of CPU
-  nodes.
-* Smaller systems are best run on CPUs or a single GPU (or by sharing one GPU
-  among multiple independent trajectories using multi-replica simulations,
-  [see below](#high-throughput-computing-with-lammps)).
+1. Siirry Puhtilla/Mahtissa hakemistoon `/appl/soft/chem/lammps/custom`, tai
+   LUMIssa hakemistoon `/appl/local/csc/soft/chem/lammps/custom`.
+2. Lue käännösohjeet, esim. `lammps-cpu-instruction.txt`.
+3. Valitse haluamasi paketit ja käännä ohjelmisto ohjeiden mukaisesti.
+4. Testaa asennuksesi.
+    1. Esimerkkisyötteitä on saatavilla
+       [LAMMPSin GitHub-repositoriossa](https://github.com/lammps/lammps/tree/develop/bench).
+    2. Esimerkkieräajon skriptit ovat saatavilla [alla](#batch-script-examples).
 
-### High-throughput computing with LAMMPS
+!!! info "Käännä nopealle paikallislevylle"
+    Käännä Puhtilla/Mahtissa hakemistossa `$TMPDIR` nopeamman suorituskyvyn ja
+    pienemmän jaetun tiedostojärjestelmän kuormituksen saavuttamiseksi. Koska
+    paikallislevy siivotaan usein, muista siirtää tiedostosi projektisi
+    `/projappl`-hakemistoon jälkikäteen. Asettamalla
+    `-DCMAKE_INSTALL_PREFIX=/projappl/...` varmistat, että tiedostot siirtyvät
+    automaattisesti, kun suoritat `make install`. Katso tarkemmat tiedot
+    toimitetuista käännösohjeista.
 
-LAMMPS offers comprehensive support for executing loops and multiple
-independent simulations using a single input file. The `-partition`
-command-line switch enables running these concurrently within a
-single Slurm job step, thus accelerating the computations while keeping the
-load on the batch queue system minimal as excessive calls of `srun` or `sbatch`
-are avoided. An example batch script using the `-partition` option is provided
-for Puhti below.
+!!! info "GPU-versiot"
+    GPU-tuen ottamiseksi käyttöön suosittelemme kääntämään LAMMPSin Kokkos-
+    paketin kanssa. Kokkos on siirrettävä ohjelmointimalli, jonka avulla ajo
+    onnistuu sekä Nvidian että AMD:n GPU:illa. Se on tyypillisesti myös
+    tehokkaampi kuin vakiomuotoinen GPU-paketti.
+
+    Ajossa suositellaan asettamaan MPI-tehtävien määrä solmua kohden yhtä
+    suureksi kuin solmun fyysisten GPU:iden määrä (GCD:t LUMIssa). Usean
+    MPI-tehtävän osoittaminen samalle GPU:lle on yleensä nopeampaa vain, jos
+    jotkin syöttöskriptin osat eivät ole siirretty käyttämään Kokkosta.
+    [Katso lisätietoja LAMMPSin dokumentaatiosta](https://docs.lammps.org/Speed_kokkos.html).
+
+### Eräajon skriptiesimerkkejä { #batch-script-examples }
+
+=== "Puhti (pelkkä MPI)"
+    ```bash
+    !/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=40
+
+    module purge
+    module load lammps/29Aug2024
+
+    srun lmp -in in.script
+    ```
+
+=== "Mahti (hybridi MPI/OpenMP)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=medium
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=4
+    #SBATCH --ntasks-per-node=64
+    #SBATCH --cpus-per-task=2
+
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+    module purge
+    module load lammps/29Aug2024
+
+    srun lmp -in in.script -sf omp
+    ```
+
+=== "LUMI-C (hybridi MPI/OpenMP)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=4
+    #SBATCH --ntasks-per-node=64
+    #SBATCH --cpus-per-task=2
+
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+    module use /appl/local/csc/modulefiles
+    module load lammps/29Aug2024-cpu
+
+    srun lmp -in in.script -sf omp
+    ```
+
+=== "LUMI-G (GPU)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --gpus-per-node=8
+
+    export OMP_NUM_THREADS=1
+    export OMP_PROC_BIND=spread
+    export OMP_PLACES=threads
+    export MPICH_GPU_SUPPORT_ENABLED=1
+
+    module use /appl/local/csc/modulefiles
+    module load lammps/29Aug2024-gpu
+
+    srun lmp -in in.script -k on g ${SLURM_GPUS_ON_NODE} -sf kk -pk kokkos
+    ```
+
+### Suorituskykyhuomioita { #performance-notes }
+
+Seuraava kaavio vertailee LAMMPSin suorituskykyä ja skaalautuvuutta CPU:illa
+ja GPU:illa Mahtissa ja LUMIssa. Järjestelmä sisältää 16M atomia.
+
+![LAMMPSin suorituskyky](../img/lammps-bench.png 'LAMMPSin suorituskyky')
+
+* LAMMPSin suorituskyky mitataan tässä yksikössä Gatom-steps/s, eli kuinka
+  monta miljardia atomia voidaan edistää yhden aikastepin verran sekunnissa.
+* Suuret järjestelmät (miljoonia atomeja) pystyvät hyödyntämään useita GPU:ita
+  tehokkaasti. Esimerkkijärjestelmä, jossa on 16M atomia, skaalautuu hyvin
+  useille GPU-solmuille ja on noin 10 kertaa nopeampi verrattuna ajoon samalla
+  CPU-solmujen määrällä.
+* Pienet järjestelmät on parasta ajaa CPU:illa tai yhdellä GPU:lla (tai
+  jakamalla yksi GPU useiden toisistaan riippumattomien ratojen kesken
+  monireplika-simulaatioilla, [katso alla](#high-throughput-computing-with-lammps)).
+* Usean OpenMP-säikeen käynnistäminen MPI-tehtävää kohden voi parantaa
+  CPU-suorituskykyä. Käytä komentorivivalitsinta `-sf omp` ja aseta
+  ympäristömuuttuja `OMP_NUM_THREADS` aktivoidaksesi OpenMP-säikeistyksen
+  kaikille sitä tukeville tyyleille. Huomaa, että MPI-tehtävien
+  (`--ntasks-per-node`) ja säikeiden/tehtävä (`--cpus-per-task`) tulon ei
+  tulisi ylittää solmun fyysisten ytimien lukumäärää, muuten suorituskyky
+  heikkenee. Katso esim.
+  [yllä oleva Mahti-esimerkki](#batch-script-examples).
+
+### Korkean läpimenon laskenta LAMMPSilla { #high-throughput-computing-with-lammps }
+
+LAMMPS tarjoaa kattavan tuen silmukoiden ja useiden riippumattomien
+simulaatioiden suorittamiseen yhdellä input-tiedostolla. `-partition`-
+komentorivivalitsin mahdollistaa niiden ajamisen rinnakkain yhdessä Slurm-
+työvaiheessa, mikä nopeuttaa laskentaa ja pitää eräjonojärjestelmän kuorman
+pienenä, koska liiallisia `srun`- tai `sbatch`-kutsuja vältetään. Alla on
+esimerkki eräajon skriptistä, joka käyttää `-partition`-valitsinta Puhtilla.
 
 ```bash
 #!/bin/bash
@@ -108,35 +226,34 @@ for Puhti below.
 #SBATCH --mem-per-cpu=100
 
 module purge
-module load gcc/11.3.0 openmpi/4.1.4 fftw/3.3.10-mpi-omp
+module load lammps/29Aug2024
 
-export PATH="/path/to/your/lammps/installation/bin:${PATH}"
 export OMP_NUM_THREADS=1
 
 srun lmp -in loop.lammps -partition 24x5
 ```
 
-The above example runs an umbrella sampling simulation of ethanol adsorption on
-a NaCl surface. The simulation consists of 24 iterations where the ethanol
-molecule is gradually pulled closer to the surface. These 24 iterations are all
-run concurrently using 5 MPI tasks each, which is specified in the batch script
-as `-partition 24x5`. The number of processors must add up to the amount
-requested, in this case 3 full Puhti nodes (120 cores). In general, the
-partitions do not have to be of equal size, but one could for example specify
-`-partition 3x30 20 10` for 3 partitions of 30 cores, one of 20 cores and one
-of 10 cores (3 Puhti nodes). This does of course not make sense for jobs where
-the subtasks are virtually identical, such as here.
+Yllä oleva esimerkki ajaa umbrella sampling -simulaation etanolin adsorptiosta
+NaCl-pinnalle. Simulaatio koostuu 24 iteraatiosta, joissa etanolimolekyyliä
+vedetään asteittain lähemmäs pintaa. Nämä 24 iteraatiota ajetaan samanaikaisesti
+käyttäen kussakin 5 MPI-tehtävää, mikä määritetään eräajon skriptissä muodossa
+`-partition 24x5`. Prosessoreiden lukumäärän on vastattava varattua määrää,
+tässä tapauksessa 3 täyttä Puhti-solmua (120 ydintä). Yleisesti osioiden ei
+tarvitse olla saman kokoisia; voidaan esimerkiksi määrittää
+`-partition 3x30 20 10` kolmea 30 ytimen osiota, yksi 20 ytimen ja yksi 10
+ytimen osio (3 Puhti-solmua). Tällainen jako ei tietenkään ole järkevä
+tehtävissä, joissa osatehtävät ovat käytännössä identtisiä, kuten tässä.
 
-If the `-partition` switch is used one needs to replace the usual `index` and
-`loop` variable styles used in the input of sequential simulations. The
-corresponding styles compatible with multi-partition jobs are `world`,
-`universe` and `uloop`. For further details, see the LAMMPS documentation on
-[running multiple simulations from one input script](https://docs.lammps.org/Howto_multiple.html),
-the [partition switch](https://docs.lammps.org/Run_options.html#partition) and
-[variable styles compatible with multi-partition jobs](https://docs.lammps.org/variable.html).
+Jos `-partition`-valitsinta käytetään, on korvattava tavanomaiset
+sekventiaalisten ajojen syötteissä käytetyt `index`- ja `loop`-muuttujatyylit.
+Moniosioajoihin yhteensopivat vastaavat tyylit ovat `world`, `universe` ja
+`uloop`. Lisätietoja löytyy LAMMPSin dokumentaatiosta aiheista
+[useiden simulaatioiden ajaminen yhdestä syöttöskriptistä](https://docs.lammps.org/Howto_multiple.html),
+[`partition`-valitsin](https://docs.lammps.org/Run_options.html#partition) ja
+[moniosioajoihin yhteensopivat muuttujatyylit](https://docs.lammps.org/variable.html).
 
-A batch script for running the same system by sharing a single LUMI GCD (half
-a GPU) among all 24 replicas could look like:
+Eräajon skripti saman järjestelmän ajamiseen jakamalla yksi LUMIn GCD (puoli
+GPU:ta) kaikkien 24 replikaan kesken voisi näyttää tältä:
 
 ```bash
 #!/bin/bash
@@ -147,9 +264,9 @@ a GPU) among all 24 replicas could look like:
 #SBATCH --ntasks-per-node=24
 #SBATCH --gpus-per-node=1
 
-module load PrgEnv-amd craype-x86-trento craype-accel-amd-gfx90a rocm cray-fftw
+module use /appl/local/csc/modulefiles
+module load lammps/29Aug2024-gpu
 
-export PATH="/path/to/your/lammps/installation/bin:${PATH}"
 export MPICH_GPU_SUPPORT_ENABLED=1
 export OMP_NUM_THREADS=1
 export OMP_PROC_BIND=spread
@@ -158,13 +275,13 @@ export OMP_PLACES=threads
 srun lmp -in loop.lammps -k on g 1 -sf kk -pk kokkos -partition 24x1
 ```
 
-## References
+## Viitteet { #references }
 
-The following CPC paper is the canonical reference to use for citing LAMMPS. It
-gives an overview of the code including its parallel algorithms, design
-features, performance, and brief highlights of many of its materials modeling
-capabilities. If you wish, you can also mention the URL of the LAMMPS website
-in your paper, namely <https://www.lammps.org>.
+Seuraava CPC-artikkeli on LAMMPSia siteeratessa käytettävä kanoninen viite. Se
+antaa yleiskatsauksen koodiin, mukaan lukien sen rinnakkaisalgoritmit,
+suunnitteluominaisuudet, suorituskyvyn sekä lyhyet poiminnat monista sen
+materiaalimallinnusominaisuuksista. Halutessasi voit myös mainita artikkelissasi
+LAMMPSin verkkosivun osoitteen, eli <https://www.lammps.org>.
 
 > LAMMPS - a flexible simulation tool for particle-based materials modeling at
 > the atomic, meso, and continuum scales, A. P. Thompson, H. M. Aktulga, R.
@@ -172,10 +289,10 @@ in your paper, namely <https://www.lammps.org>.
 > Kohlmeyer, S. G. Moore, T. D. Nguyen, R. Shan, M. J. Stevens, J. Tranchida,
 > C. Trott, S. J. Plimpton, Comp Phys Comm, 271 (2022) 10817.
 
-References to other methods used in LAMMPS can be found
-[at the LAMMPS website](https://lammps.org/cite.html).
+Viittauksia LAMMPSissa käytettyihin muihin menetelmiin löytyy
+[LAMMPSin verkkosivuilta](https://lammps.org/cite.html).
 
-## More information
+## Lisätietoja { #more-information }
 
-* [LAMMPS home page](https://www.lammps.org)
-* [LAMMPS manual](https://docs.lammps.org/Manual.html)
+* [LAMMPSin kotisivu](https://www.lammps.org)
+* [LAMMPSin käsikirja](https://docs.lammps.org/Manual.html)

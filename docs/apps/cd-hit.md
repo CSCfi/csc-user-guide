@@ -1,73 +1,82 @@
 ---
 tags:
   - Free
+catalog:
+  name: CD-HIT
+  description: Sequence clustering and redundancy removal tool
+  description_fi: Sekvenssien klusterointi- ja redundanssinpoistotyökalu
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# CD-HIT
+# CD-HIT { #cd-hit }
 
-CD-HIT can be used for clustering large sequence sets or removing identical or highly similar sequences from a sequence set. 
-CD-HIT is often used as a tool to produce a non-redundant sequence set for further analysis of a large sequence set. 
-CD-HIT recognizes fasta and fastq sequence formats.
+CD-HIT:llä voidaan klusteroida suuria sekvenssijoukkoja tai poistaa sekvenssijoukosta identtiset tai hyvin samankaltaiset sekvenssit. 
+CD-HIT on usein käytetty työkalu ei-redundanttisen sekvenssijoukon tuottamiseen laajojen aineistojen jatkoanalyysiä varten. 
+CD-HIT tunnistaa fasta- ja fastq-sekvenssiformaatit.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+Vapaasti käytettävissä ja avoimen lähdekoodin, lisensoitu [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) -lisenssillä.
 
-## Available
+## Saatavilla { #available }
 
 Puhti: 4.8.1 
 
-## Usage
+## Käyttö { #usage }
 
-The setup command for CD-HIT on Puhti is:
+CD-HIT:n käyttöönottoon Puhtissa käytetään komentoa:
 
 ```bash
 module load biokit
 ```
 
-After the setup command, the server recognizes CD-HIT commands. The CD-HIT package has many programs. The most notable are:
+Komennon jälkeen järjestelmä tunnistaa CD-HIT-komennot. CD-HIT-pakettiin kuuluu monia ohjelmia. Merkittävimmät ovat:
 
-| Program | Description |
+| Ohjelma | Kuvaus |
 |---------|-------------|
-|cd-hit |Clustering and redundancy removal tool for protein sequences|
-|cd-hit-est |	Clustering and redundancy removal tool for nucleic acid sequences (only for sequences that do not contain introns)|
-|cd-hit-2d | Tool to compare two protein sequence sets |
-|cd-hit-est-2d | Tool to compare two nucleic sequence sets |
-|cd-hit-454 | A program to identify artificial duplicates from raw 454 sequencing reads |
-|cd-hit	| Cluster peptide sequences	|
-|psi-cd-hit	| Cluster proteins at less than 40% cutoff	|
-|cd-hit-lap	| Identify overlapping reads |
-|cd-hit-dup | Identify duplicates from single or paired Illumina reads |	
-|cd-hit-454 | Identify duplicates from 454 reads |
-|h-cd-hit | Hierarchical clustering |	
+|cd-hit |Proteiinisekvenssien klusterointi- ja redundanssinpoistotyökalu|
+|cd-hit-est |	Nukleiinihapposekvenssien klusterointi- ja redundanssinpoistotyökalu (vain intronittomille sekvensseille)|
+|cd-hit-2d | Työkalu kahden proteiinisekvenssijoukon vertailuun |
+|cd-hit-est-2d | Työkalu kahden nukleiinihapposekvenssijoukon vertailuun |
+|cd-hit-454 | Ohjelma keinotekoisten duplikaattien tunnistamiseen raakadatasta 454-sekvensointiluennoista |
+|cd-hit	| Ryhmittele peptidisekvenssejä	|
+|psi-cd-hit	| Ryhmittele proteiineja alle 40 %:n raja-arvolla	|
+|cd-hit-lap	| Tunnista päällekkäiset luennat |
+|cd-hit-dup | Tunnista duplikaatit yksittäisistä tai pareittaisista Illumina-luennoista |	
+|cd-hit-454 | Tunnista duplikaatit 454-luennoista |
+|h-cd-hit | Hierarkkinen klusterointi |	
  
 
-A full list of programs can be found in the [CD-HIT user guide](https://github.com/weizhongli/cdhit/wiki).
+Täydellinen ohjelmaluettelo löytyy [CD-HIT-käyttöoppaasta](https://github.com/weizhongli/cdhit/wiki).
 
-You can list the command line options of CD-HIT programs by using option `-help`. For example:
+CD-HIT-ohjelmien komentorivivalinnat saa listattua valitsimella `-help`. Esimerkiksi:
 
 ```bash
 cd-hit -help
 ```
 
-A simple analysis of a protein sequence set can be done, for example, with the command:
+Yksinkertainen proteiinisekvenssijoukon analyysi voidaan tehdä esimerkiksi komennolla:
 
 ```bash
 cd-hit -i my_proteins.fasta -o reduced_set.fasta -c 0.95
 ```
 
-The sample command above produces two result files:
+Yllä oleva esimerkkikomento tuottaa kaksi tulostiedostoa:
 
-* `reduced_set.fasta` contains a pruned sequence set. In this case, if two sequences are more than 95% identical, only the longer one is included in the results.
-* `reduced_set.fasta.clstr` contains information about the clustering of the sequences that share higher similarity than the given threshold value (in this case 95%).
+* `reduced_set.fasta` sisältää karsitun sekvenssijoukon. Tässä tapauksessa, jos kahden sekvenssin identtisyys on yli 95 %, tuloksiin sisällytetään vain pidempi.
+* `reduced_set.fasta.clstr` sisältää tiedot niiden sekvenssien klusteroinnista, joiden samankaltaisuus ylittää annetun kynnysarvon (tässä 95 %).
 
-## Support
+## Tuki { #support }
 
 [CSC Service Desk](../support/contact.md)
 
-## More information
+## Lisätietoja { #more-information }
 
-* [CD-HIT user guide](https://github.com/weizhongli/cdhit/wiki)
-* [CD-HIT home page](http://sites.google.com/view/cd-hit)
+* [CD-HIT-käyttöopas](https://github.com/weizhongli/cdhit/wiki)
+* [CD-HIT:n kotisivu](http://sites.google.com/view/cd-hit)

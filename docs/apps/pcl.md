@@ -1,65 +1,69 @@
 ---
 tags:
   - Free
+catalog:
+  name: PCL
+  description: for 2D/3D image and point cloud processing
+  description_fi: 2D/3D-kuvien ja pistepilvien käsittelyyn
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# PCL
+# PCL { #pcl }
 
-[PCL](https://pointclouds.org/) (Point Cloud Library) is a standalone, large scale, open project for 2D/3D image and point cloud processing.
+[PCL](https://pointclouds.org/) (Point Cloud Library) on itsenäinen, laajamittainen, avoin projekti 2D/3D-kuvien ja pistepilvien käsittelyyn.
 
-[PCLpy](https://github.com/davidcaron/pclpy) adds Python bindings to PCL.
+[PCLpy](https://github.com/davidcaron/pclpy) lisää Python-rajapinnan PCL:lle.
 
-## Available
+## Saatavilla { #available }
 
-__PCL__ is available in Puhti with following versions:
+__PCL__ on saatavilla Puhtissa seuraavina versioina:
 
-* 1.12.1 without PCLpy
-* 1.9.1 with PCLpy version 0.12.0 with Python 3.8.
+* 1.12.1 ilman PCLpy:tä
+* 1.9.1 PCLpy-versiolla 0.12.0 sekä Python 3.8:n kanssa.
 
  
-All included Python packages can be seen by using the command `list-packages`.
+Kaikki sisältyvät Python-paketit näkee komennolla `list-packages`.
 
-## Usage
+## Käyttö { #usage }
 
-PCL is included in the __pcl__ module and can be loaded with
+PCL sisältyy __pcl__-moduuliin ja sen voi ladata komennolla
 
 `module load pcl`
 
-You can see all available binaries with the command depending on the version:
+Saat näkyviin kaikki saatavilla olevat binaarit käyttämällä versiosta riippuvaa komentoa:
 
 ```
 ls /appl/soft/geo/pcl/1.12.1/bin
 ``` 
-or 
+tai 
 ```
 ls /appl/soft/geo/pcl/1.9.1/bin
 ```
 
-Note, that PCL/1.9.1 includes less PCL modules.
+Huomaa, että PCL/1.9.1 sisältää vähemmän PCL-moduuleja.
 
-## License 
+## Lisenssi { #license }
 
-PCL is released under the terms of the BSD license, and thus free for commercial and research use.
+PCL on julkaistu BSD-lisenssin ehdoin, joten se on ilmaiseksi käytettävissä sekä kaupalliseen että tutkimuskäyttöön.
 
-
-## Citation
+## Viittaus { #citation }
 
 `Radu Bogdan Rusu and Steve Cousins, 2011: "3D is here: Point Cloud Library (PCL)" in IEEE International Conference on Robotics and Automation (ICRA)`
 
+## Kiitokset { #acknowledgement }
 
-## Acknowledgement
+Mainitsethan CSC:n ja Geoportin julkaisuissasi; tämä on tärkeää projektin jatkumisen ja rahoitusraporttien kannalta.
+Esimerkiksi voit kirjoittaa "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-Please acknowdlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+## Asennus { #installation }
 
+PCL asennettiin Puhtiin Apptainerilla käyttäen tätä [PCL Apptainer -määrittelytiedostoa](https://github.com/CSCfi/singularity-recipes/blob/main/pcl/pcl_from_ubuntu.def).
 
-## Installation
+## Viitteet { #references }
 
-PCL was installed to Puhti with Apptainer, using this [PCL Apptainer definition file](https://github.com/CSCfi/singularity-recipes/blob/main/pcl/pcl_from_ubuntu.def).
-
-## References
-
-* [PCL homepage](https://pointclouds.org/)
-* [PCL Documentation and tutorials](https://pcl.readthedocs.io)
-
-
+* [PCL:n kotisivu](https://pointclouds.org/)
+* [PCL:n dokumentaatio ja tutoriaalit](https://pcl.readthedocs.io)

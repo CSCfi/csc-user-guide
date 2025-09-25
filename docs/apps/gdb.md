@@ -1,48 +1,49 @@
 ---
 tags:
   - Free
+catalog:
+  name: gdb
+  description: GNU debugger for compiled programs
+  description_fi: GNU-virheenjäljitin käännetyille ohjelmille
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# gdb: GNU Debugger
+# gdb: GNU-virheenjäljitin { #gdb-gnu-debugger }
 
-## Available
+## Saatavilla { #available }
 
 - Puhti
 - Mahti
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Usage
+## Käyttö { #usage }
 
-GNU Debugger (GDB) can be used to debug compiled programs (written in C, C++,
-Fortran). It can perform four main tasks: inform about everything that might
-affect the behavior, make the program stop in specific conditions, examine why
-the program stopped, and finally change things in the program in order to
-correct the effects of a bug.
+GNU-virheenjäljitin (GDB) voidaan käyttää käännettyjen ohjelmien (C-, C++- ja Fortran-kielisten) virheenjäljitykseen. Se voi suorittaa neljä päätehtävää: antaa tietoa kaikesta, mikä saattaa vaikuttaa ohjelman käyttäytymiseen; pysäyttää ohjelman tietyissä olosuhteissa; tutkia, miksi ohjelma pysähtyi; ja lopuksi muuttaa ohjelman tilaa virheen vaikutusten korjaamiseksi.
 
-In order to use the debugger the program has to be compiled with `-g` flag to
-enable symbolic debugging.
+Virheenjäljittimen käyttämiseksi ohjelma on käännettävä `-g`-lipulla, jotta symbolinen virheenjäljitys on käytössä.
 
-The debugger can either start a new process or attach to a running process.
+Virheenjäljitin voi joko käynnistää uuden prosessin tai kiinnittyä käynnissä olevaan prosessiin.
 
-Example of starting a new process to be debugged:
+Esimerkki uuden prosessin käynnistämisestä virheenjäljitystä varten:
 
 ```
 gdb --tui ./myexecutable
 ```
 
-Example of attaching to an existing process (with process ID `pid`):
+Esimerkki kiinnittymisestä olemassa olevaan prosessiin (prosessin tunnisteella `pid`):
 
 ```
 gdb --tui ./myexecutable pid
 ```
 
-If additional arguments are needed for the program, one can use the option
-`--args` before the name of the executable. The `--tui` option starts a nice
-terminal interface that shows the source code.
+Jos ohjelmalle tarvitaan lisäparametreja, niitä varten voi käyttää valitsinta `--args` ennen suoritettavan tiedoston nimeä. Valitsin `--tui` käynnistää päätteessä toimivan käyttöliittymän, joka näyttää lähdekoodin.
 
-In the `gdb` prompt it is possible to enter commands such as `break`, `step`,
-or `run`. For more information check the official page:
-[GDB](https://www.gnu.org/software/gdb/).
+`gdb`-kehoteessa voidaan antaa komentoja kuten `break`, `step` tai `run`. Lisätietoja viralliselta sivulta: [GDB](https://www.gnu.org/software/gdb/).

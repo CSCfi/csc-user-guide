@@ -1,43 +1,52 @@
 ---
 tags:
   - Free
+catalog:
+  name: SALMON
+  description: Program to produce transcript-level quantification estimates from RNA-seq data
+  description_fi: Ohjelma RNA-seq-datan transkriptitason kvantifiointiarvioiden tuottamiseen
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# SALMON
+# SALMON { #salmon }
 
-Salmon is a fast program to produce highly-accurate, transcript-level quantification estimates from RNA-seq data. Salmon achieves its accuracy and speed via a number of different innovations, including the use of quasi-mapping (accurate but fast-to-compute proxies for traditional read alignments), and massively-parallel stochastic collapsed variational inference. The result is a versatile tool that fits nicely into many pipelines. For example, you can choose to make use of the quasi-mapping algorithm by providing Salmon with raw sequencing reads, or, if it is more convenient, you can provide Salmon with regular alignments (e.g. an unsorted BAM file produced with your favorite aligner), and it will use the same fast, state-of-the-art inference algorithm to estimate transcript-level abundances for your experiment.
+Salmon on nopea ohjelma, joka tuottaa erittäin tarkkoja, transkriptitason kvantifiointiarvioita RNA-seq-datasta. Tarkkuus ja nopeus perustuvat useisiin innovaatioihin, kuten kvasi-kartoituksen käyttöön (perinteisten lukukohdistusten tarkat mutta nopeasti laskettavat korvikkeet) sekä laajasti rinnakkaistettuun stokastiseen kollapsoituun variaatiopäättelyyn. Tuloksena on monipuolinen työkalu, joka sopii hyvin moniin työnkulkuihin. Voit esimerkiksi käyttää kvasi-kartoitusalgoritmia antamalla Salmonille raakatason sekvensointiluvut, tai, jos se on kätevämpää, voit syöttää Salmonille valmiit kohdistukset (esim. suosikkikohdistimesi tuottaman lajittelemattoman BAM-tiedoston); molemmissa tapauksissa se käyttää samaa nopeaa, alan huipputason päättelyalgoritmia arvioidakseen kokeesi transkriptitason runsaudet.
 
-!!! info "Note"
-    Salmon works by (quasi)-mapping sequencing reads directly to the transcriptome. This means the Salmon index should be built on a set of target transcripts, not on the genome of the underlying organism. If indexing appears to be taking a very long time, or using a tremendous amount of memory (which it should not), please ensure that you are not attempting to build an index on the genome of your organism!
+!!! info "Huomautus"
+    Salmon toimii kartoittamalla (kvasi-kartoitus) sekvensointiluvut suoraan transkriptomiin. Tämä tarkoittaa, että Salmon-indeksi tulee rakentaa kohdetranskriptien joukolle, ei taustalla olevan eliön genomiin. Jos indeksointi vaikuttaa kestävän hyvin kauan tai kuluttavan valtavasti muistia (mikä ei pitäisi tapahtua), varmista, ettet yritä rakentaa indeksiä eliösi genomille!
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaasti käytettävissä ja avoimen lähdekoodin, lisensoitu [GNU GPLv3]:n mukaisesti (https://www.gnu.org/licenses/gpl-3.0.html).
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 0.14.2, 0.99.0b2, 1.1.0, 1.4.0, 1.9.0
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, the `salmon` command is activated by loading the Salmon module.
+Puhtissa komento `salmon` aktivoidaan lataamalla Salmon-moduuli.
 
 ```bash
 module load salmon
 ```
 
-For usage help, use the command:
+Käyttöohjeen saat komennolla:
 
 ```bash
 salmon --help
 ```
 
-!!! info "Note"
-    Loading the biokit module will load an older version of Salmon that comes with Trinity.
-    To use the latest version of Salmon, load the Salmon module directly as above.
+!!! info "Huomautus"
+    biokit-moduulin lataaminen tuo käyttöön vanhemman Salmon-version, joka tulee Trinityn mukana.
+    Jos haluat käyttää uusinta Salmon-versiota, lataa Salmon-moduuli suoraan kuten yllä.
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Salmon documentation](https://salmon.readthedocs.io/en/latest/)
+* [Salmonin dokumentaatio](https://salmon.readthedocs.io/en/latest/)

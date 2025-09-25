@@ -1,45 +1,48 @@
 ---
 tags:
   - Free
+catalog:
+  name: PALM
+  description: Meteorological model system for atmospheric and oceanic boundary-layer flows
+  description_fi: Meteorologinen mallijärjestelmä ilmakehän ja merien rajakerrosvirtauksille
+  license_type: Free
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# PALM
+# PALM { #palm }
 
-PALM is an advanced and modern meteorological model system for atmospheric and oceanic
-boundary-layer flows. It has been developed as a turbulence-resolving large-eddy simulation
-(LES) model that is especially designed for performing on massively parallel computer
-architectures.
+PALM on edistynyt ja nykyaikainen meteorologinen mallijärjestelmä ilmakehän ja merien rajakerrosvirtauksille. Se on kehitetty turbulenssia ratkaisevaksi suurpyörresimulointimalliksi (LES), joka on erityisesti suunniteltu toimimaan massiivisesti rinnakkaisilla tietokonearkkitehtuureilla.
 
-The PALM model system has been mainly developed and is maintained by the ​PALM group at the
-​[Institute of Meteorology and Climatology (IMUK)](https://www.muk.uni-hannover.de/?&L=1) of
-Leibniz Universität Hannover, Germany. A number of code parts have been contributed by national
-(German) and international work groups.
+PALM-mallijärjestelmää on pääosin kehittänyt ja sitä ylläpitää ​PALM-ryhmä ​[Meteorologian ja klimatologian instituutissa (IMUK)](https://www.muk.uni-hannover.de/?&L=1) Leibniz Universität Hannoverissa, Saksassa. Useita koodiosia ovat tuottaneet kansalliset (saksalaiset) ja kansainväliset työryhmät.
 
-## License
+## Lisenssi { #license }
 
-The PALM model system is free software. It can be redistributed and/or modified under the terms
-of the GNU General Public License (v3)(https://www.gnu.org/licenses/gpl-3.0.html).
+PALM-mallijärjestelmä on vapaa ohjelmisto. Sitä voidaan levittää ja/tai muokata GNU General Public License (v3)(https://www.gnu.org/licenses/gpl-3.0.html) -lisenssin ehtojen mukaisesti.
 
-## Available
+## Saatavilla { #available }
 
-PALM is available on [Puhti, Mahti and LUMI](../computing/available-systems.md) servers. Versions
-available are listed when running the installation script, see below.
+PALM on saatavilla [Puhti, Mahti ja LUMI](../computing/available-systems.md) -palvelimilla. Saatavilla olevat versiot luetellaan asennusskriptiä ajettaessa; katso alla.
 
-## Usage
+## Käyttö { #usage }
 
-After login on the server, give the command
+Kirjauduttuasi palvelimelle, anna komento
 
 ```bash
 module spider palm
 ```
 
-This gives you a list of the installed versions. To load the version of your choice, give the command
+Tämä listaa asennetut versiot. Valitsemasi version lataat komennolla
 
 ```bash
 module load palm/<version>
 ```
 
-On LUMI, you need to first load the module environment
+LUMIssa sinun on ensin ladattava moduuliympäristö
 
 ```bash
 module use /appl/local/csc/modulefiles
@@ -47,34 +50,29 @@ module spider palm
 module load palm/<version>
 ```
 
-Link to read the instruction file is created,
+Luodaan linkki ohjetiedoston lukemista varten,
 
 ```bash
 readme_palm_csc
 ```
 
-along with link to the command to run the installation script
+ja lisäksi linkki asennusskriptin suorituskomentoon
 
 ```bash
 installPalm
 ```
 
-It is recommended to read first the instruction file, especially to understand on which disk
-partition on the server the installation should be done (i.e., where to run the installation
-script).
+Suosittelemme lukemaan ensin ohjetiedoston, erityisesti sen, mille palvelimen levyosiolle asennus tulisi tehdä (eli missä asennusskripti ajetaan).
 
-An example test case input file is included in the installation. In the instruction
-file, run commands are given for compilation of the code, and for batch job execution
-using the example case. For more information about the test case execution, see the latest
-[PALM tutorials](https://palm.muk.uni-hannover.de/trac/wiki/doc/tut/palm#Exercisepresentations).
+Asennukseen sisältyy esimerkkitestitapauksen syötetiedosto. Ohjetiedostossa on annettu ajokäskyt koodin kääntämiseen sekä eräajon suorittamiseen esimerkkitapauksella. Lisätietoja testitapauksen ajamisesta on saatavilla uusimmista [PALM-oppaista](https://palm.muk.uni-hannover.de/trac/wiki/doc/tut/palm#Exercisepresentations).
 
-## Support
+## Tuki { #support }
 
-If you encounter problems using PALM, [contact CSC Service Desk](../support/contact.md).
+Jos kohtaat ongelmia PALMin käytössä, [ota yhteyttä CSC Service Deskiin](../support/contact.md).
 
-## More information
+## Lisätietoja { #more-information }
 
-* [The PALM model system](https://palm.muk.uni-hannover.de/trac)
-* [PALM documentation](https://palm.muk.uni-hannover.de/trac/wiki/doc)
-* [PALM movie gallery](https://palm.muk.uni-hannover.de/trac/wiki/gallery/movies)
-* [PALM Tutorial](https://palm.muk.uni-hannover.de/trac/wiki/doc/tut/palm#Exercisepresentations)
+* [PALM-mallijärjestelmä](https://palm.muk.uni-hannover.de/trac)
+* [PALMin dokumentaatio](https://palm.muk.uni-hannover.de/trac/wiki/doc)
+* [PALM-videogalleria](https://palm.muk.uni-hannover.de/trac/wiki/gallery/movies)
+* [PALM-opas](https://palm.muk.uni-hannover.de/trac/wiki/doc/tut/palm#Exercisepresentations)

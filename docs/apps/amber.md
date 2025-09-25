@@ -1,83 +1,78 @@
 ---
 tags:
   - Academic
+catalog:
+  name: Amber
+  description: Molecular dynamics suite
+  description_fi: Molekyylidynamiikan ohjelmistopaketti
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# Amber
+# Amber { #amber }
 
-Amber is a molecular dynamics package including a number of additional tools
-for more sophisticated analysis and in particular NMR structure refinement.
+Amber on molekyylidynamiikan ohjelmisto, johon sisältyy useita lisätyökaluja edistyneeseen analyysiin ja erityisesti NMR‑rakenteiden hienosäätöön.
 
 [TOC]
 
-## Available
+## Saatavilla { #available }
 
 === "Puhti"
-    | Version | Available modules           |
-    |:-------:|:----------------------------|
-    |20       |`amber/20`<br>`amber/20-cuda`|
-    |22       |`amber/22`<br>`amber/22-cuda`|
-    |24       |`amber/24`<br>`amber/24-cuda`|
+    | Versio | Saatavilla olevat moduulit   |
+    |:------:|:-----------------------------|
+    |20      |`amber/20`<br>`amber/20-cuda` |
+    |22      |`amber/22`<br>`amber/22-cuda` |
+    |24      |`amber/24`<br>`amber/24-cuda` |
 
 === "Mahti"
-    | Version | Available modules           |
-    |:-------:|:----------------------------|
-    |20       |`amber/20`<br>`amber/20-cuda`|
-    |22       |`amber/22`<br>`amber/22-cuda`|
-    |24       |`amber/24`<br>`amber/24-cuda`|
+    | Versio | Saatavilla olevat moduulit   |
+    |:------:|:-----------------------------|
+    |20      |`amber/20`<br>`amber/20-cuda` |
+    |22      |`amber/22`<br>`amber/22-cuda` |
+    |24      |`amber/24`<br>`amber/24-cuda` |
 
 === "LUMI"
-    | Version | Available modules              |
-    |:-------:|:-------------------------------|
-    |24       |`amber/24-cpu`<br>`amber/24-gpu`|
+    | Versio | Saatavilla olevat moduulit      |
+    |:------:|:--------------------------------|
+    |24      |`amber/24-cpu`<br>`amber/24-gpu` |
 
-## License
+## Lisenssi { #license }
 
-Amber can be used on CSC servers by all not-for-profit institute and university
-researchers irrespective of nationality or location. Look for the
-[academic license text here](http://ambermd.org/LicenseAmber22.pdf).
+Amberia voivat käyttää CSC:n palvelimilla kaikki voittoa tavoittelemattomien laitosten ja yliopistojen tutkijat kansallisuudesta tai sijainnista riippumatta. Löydät
+[akateemisen lisenssitekstin täältä](http://ambermd.org/LicenseAmber22.pdf).
 
-## Usage
+## Käyttö { #usage }
 
-See available versions and how to load Amber by running:
+Näet saatavilla olevat versiot ja ohjeen Amberin lataamiseen komennolla:
 
 ```bash
 module spider amber
 ```
 
-On LUMI, you need to add the CSC modules to your module path before running the
-above command:
+LUMIlla sinun tulee lisätä CSC:n moduulit moduulipolkuusi ennen yllä olevan komennon suorittamista:
 
 ```bash
 module use /appl/local/csc/modulefiles
 ```
 
-The `module load` command will set `$AMBERHOME` and put the AmberTools binaries
-in the path. Run Amber production jobs in the batch queues, see below. Very
-light system preparation (serial AmberTools jobs lasting a few seconds and
-using barely any memory) can be done on the login node as well. Heavier
-analyses can be run e.g. in an
-[interactive compute session](#interactive-jobs).
+Komento `module load` asettaa muuttujan `$AMBERHOME` ja lisää AmberTools-binäärit polkuun. Aja Amberin tuotantoajot eräjonoissa, katso alla. Hyvin kevyet järjestelmän esivalmistelut (sarjalliset AmberTools‑ajot, jotka kestävät vain muutamia sekunteja ja käyttävät tuskin lainkaan muistia) voi tehdä myös kirjautumissolmulla. Raskaampia analyyseja voi ajaa esimerkiksi
+[interaktiivisessa laskentasessiossa](#interactive-jobs).
 
-Molecular dynamics jobs are best run with `pmemd.cuda` as they are much faster
-on GPUs than on CPUs. Please note that using `pmemd.cuda` requires a module
-with the `-cuda` extension. Similarly on LUMI one should use `pmemd.hip` (or
-`pmemd.hip.MPI` for multi-GPU simulations), which requires loading a module
-with the `-gpu` extension.
+Molekyylidynamiikka-ajoissa kannattaa käyttää `pmemd.cuda`‑ohjelmaa, koska se on GPU:illa huomattavasti nopeampi kuin CPU:illa. Huomaa, että `pmemd.cuda` edellyttää moduulia, jonka nimessä on `-cuda`‑pääteliite. Vastaavasti LUMIlla tulee käyttää `pmemd.hip`‑ohjelmaa (tai monen GPU:n simulaatioihin `pmemd.hip.MPI`), mikä edellyttää `-gpu`‑päätteisen moduulin lataamista.
 
-Run only GPU aware binaries in the GPU partitions. If you're unsure, check with
-`seff <slurm_jobid>` that GPUs *were* used and that the job was significantly
-faster than without GPUs.
+Aja vain GPU‑tietoisia binäärejä GPU‑osioissa. Jos olet epävarma, tarkista komennolla `seff <slurm_jobid>`, että GPU:t todella käytettiin ja että ajo oli merkittävästi nopeampi kuin ilman GPU:ta.
 
-!!! info "Python modules"
-    Python scripts distributed with AmberTools are only available in the
-    Amber22 modules on Puhti/Mahti. However, since AmberTools is also
-    distributed through [Conda](https://anaconda.org/conda-forge/ambertools),
-    you can easily create a containerized environment containing these scripts
-    yourself using [Tykky](../computing/containers/tykky.md) or the
-    [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
+!!! info "Python-moduulit"
+    AmberToolsin mukana jaellut Python-skriptit ovat saatavilla vain Amber22‑moduuleissa Puhtilla/Mahtilla. Koska AmberTools on jaossa myös [Condassa](https://anaconda.org/conda-forge/ambertools),
+    voit kuitenkin helposti luoda kontitetun ympäristön, joka sisältää nämä skriptit, käyttämällä itse [Tykkyä](../computing/containers/tykky.md) tai
+    [LUMIn container wrapperia](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
-### Example batch scripts for Puhti and Mahti
+### Esimerkkieräskriptit Puhtille ja Mahtille { #example-batch-scripts-for-puhti-and-mahti }
 
 === "Puhti (GPU)"
 
@@ -137,29 +132,19 @@ faster than without GPUs.
     srun pmemd.cuda -O -i mdin.GPU -o mdout.GPU -p Cellulose.prmtop -c Cellulose.inpcrd
     ```
 
-!!! info "Note"
-    `pmemd.cuda` (and `pmemd.hip` on LUMI) are way faster than `pmemd.MPI`, so
-    use a CPU-version only in case you cannot use the GPU-version. If Amber
-    performance is not fast enough, consider using [GROMACS](gromacs.md), which
-    is typically able to scale further (i.e. make use of more CPU and/or GPU
-    resources). Consider also whether you really need speed or just a lot of
-    sampling. Accelerated sampling can also be achieved through ensemble
-    simulations, where multiple independent trajectories (e.g. the same system
-    equilibrated from different initial velocities) are run at the same time.
-    For more details, see the section on
-    [high-throughput simulations with Amber](#high-throughput-computing-with-amber).
+!!! info "Huom."
+    `pmemd.cuda` (ja LUMIlla `pmemd.hip`) on huomattavasti nopeampi kuin `pmemd.MPI`, joten käytä CPU‑versiota vain, jos et voi käyttää GPU‑versiota. Jos Amberin suorituskyky ei riitä, harkitse [GROMACSia](gromacs.md), joka tyypillisesti skaalautuu pidemmälle (eli pystyy hyödyntämään enemmän CPU‑ ja/tai GPU‑resursseja). Mieti myös, tarvitsetko todella nopeutta vai ennemmin paljon näytteenottoa. Nopeutettua näytteenottoa voi saavuttaa myös ensemble‑simulaatioilla, joissa useita riippumattomia trajektorioita (esim. sama järjestelmä eri alkuopeuksista lämpötasapainotettuna) ajetaan samanaikaisesti.
+    Lisätietoja on kohdassa
+    [Amberin läpivientisimulaatiot](#high-throughput-computing-with-amber).
 
-    If you want to use more than one GPU, perform scaling tests to verify that
-    the jobs really become faster and use a binary with `.cuda.MPI` or
-    `.hip.MPI` extension. The rule of thumb is that when you double the
-    resources, the job duration should decrease at least 1.5-fold. For overall
-    performance info, consult the
-    [Amber benchmark scaling details](http://ambermd.org/GPUPerformance.php).
-    Typically, the best efficiency is achieved with 1 GPU.
+    Jos haluat käyttää useampaa kuin yhtä GPU:ta, tee skaalaustestejä varmistaaksesi, että ajot todella nopeutuvat, ja käytä binääriä, jonka päätteessä on `.cuda.MPI` tai
+    `.hip.MPI`. Nyrkkisääntö on, että kun kaksinkertaistat resurssit, ajon keston tulisi lyhentyä vähintään 1,5‑kertaisesti. Yleistä suorituskykytietoa löytyy
+    [Amberin benchmark-skaalaustiedoista](http://ambermd.org/GPUPerformance.php).
+    Tyypillisesti paras tehokkuus saavutetaan yhdellä GPU:lla.
 
-### Example GPU batch scripts for LUMI
+### Esimerkkien GPU-eräskriptit LUMIlle { #example-gpu-batch-scripts-for-lumi }
 
-Amber can be loaded into use on LUMI with:
+Amber saadaan käyttöön LUMIlla komennolla:
 
 ```bash
 module use /appl/local/csc/modulefiles
@@ -168,7 +153,7 @@ module load amber/24-gpu
 module load amber/24-cpu
 ```
 
-=== "1 GCD (half a GPU)"
+=== "1 GCD (puoli GPU:ta)"
 
     ```bash
     #!/bin/bash
@@ -185,7 +170,7 @@ module load amber/24-cpu
     srun pmemd.hip -O -i mdin.GPU -o mdout.GPU -p Cellulose.prmtop -c Cellulose.inpcrd
     ```
 
-=== "8 GCDs (4 GPUs)"
+=== "8 GCD:tä (4 GPU:ta)"
 
     ```bash
     #!/bin/bash
@@ -218,73 +203,50 @@ module load amber/24-cpu
     srun --cpu-bind=$CPU_BIND ./select_gpu pmemd.hip.MPI -O -i mdin.GPU -o mdout.GPU -p Cellulose.prmtop -c Cellulose.inpcrd
     ```
 
-A performance comparison of Amber on CPUs (Mahti) and GPUs (Puhti, Mahti, LUMI)
-is shown in the bar plot below. Notice how the performance of a single GPU on
-all systems is an order of magnitude better than a full Mahti CPU node (128
-cores). Note also that Amber is typically not able to scale efficiently to
-multiple GPUs unless you have a very large system (>1 million particles).
+Amberin suorituskykyä CPU:illa (Mahti) ja GPU:illa (Puhti, Mahti, LUMI) on verrattu alla olevassa pylväskaaviossa. Huomaa, että yhden GPU:n suorituskyky kaikilla järjestelmillä on kertaluokkaa parempi kuin kokonaisen Mahti‑CPU‑solmun (128 ydintä). Huomaa myös, että Amber ei tyypillisesti skaalaudu tehokkaasti usealle GPU:lle, ellei sinulla ole erittäin suurta järjestelmää (>1 miljoona partikkelia).
 
-![Amber scaling on GPUs and CPUs on Puhti, Mahti and LUMI](../img/cellulose-amber.png 'Amber scaling on GPUs and CPUs on Puhti, Mahti and LUMI')
+![Amberin skaalaus GPU:illa ja CPU:illa Puhtilla, Mahtilla ja LUMIlla](../img/cellulose-amber.png 'Amber scaling on GPUs and CPUs on Puhti, Mahti and LUMI')
 
-!!! info "GPU binding on LUMI"
-    Running on multiple GPUs on LUMI will benefit from GPU binding. In the
-    example above, a bitmask is used to bind CPU cores to optimal (linked) GPUs
-    as well as exclude the first CPU core in each group of 8 cores (these are
-    reserved for the operating system and thus not available for computing).
-    For background and further instructions, see the
-    [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
-    Note that CPU/GPU binding is only possible when reserving full nodes
-    (`standard-g` or `--exclusive`).
+!!! info "GPU-sidonta LUMIlla"
+    Useammalla GPU:lla ajaminen LUMIlla hyötyy GPU‑sidonnasta. Yllä olevassa esimerkissä käytetään bittimaskia sitomaan CPU‑ytimiä optimaalisiin (linkitettyihin) GPU:ihin sekä jättämään pois käytöstä ensimmäinen CPU‑ydin jokaisessa 8 ytimen ryhmässä (nämä on varattu käyttöjärjestelmälle eikä niitä ole saatavilla laskentaan).
+    Taustaa ja lisäohjeita löytyy
+    [LUMIn dokumentaatiosta](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
+    Huomaa, että CPU/GPU‑sidonta on mahdollista vain, kun varataan kokonaisia solmuja
+    (`standard-g` tai `--exclusive`).
 
-Generic batch script examples for
-[LUMI-G](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/)
-and
-[LUMI-C](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumic-job/)
-are available in the LUMI documentation.
+Yleisiä eräskriptiesimerkkejä
+[LUMI-G:lle](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/)
+ja
+[LUMI-C:lle](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumic-job/)
+löytyy LUMIn dokumentaatiosta.
 
-### Interactive jobs
+### Interaktiiviset ajot { #interactive-jobs }
 
-Sometimes it is more convenient to run small jobs, like system preparations,
-interactively. Interactive batch jobs prevent excessive load on the login node
-and should be used in these kinds of cases. You can request a shell on a
-compute node from the
-[Puhti/Mahti web interface](../computing/webinterface/index.md), from the
-command line with
-[sinteractive](../computing/running/interactive-usage.md), or manually with:
+Joskus on kätevämpää ajaa pieniä töitä, kuten järjestelmän esivalmistelut, interaktiivisesti. Interaktiiviset eräajot estävät liiallisen kuormituksen kirjautumissolmulla ja niitä tulisi käyttää tällaisissa tapauksissa. Voit pyytää kuoren laskentasolmulle
+[Puhti/Mahti‑verkkokäyttöliittymästä](../computing/webinterface/index.md), komentoriviltä
+[sinteractive](../computing/running/interactive-usage.md)‑komennolla tai manuaalisesti:
 
 ```bash
 srun -n 1 -p test -t 00:05:00 --account=<project> --pty /bin/bash
 ```
 
-Once you have been allocated resources (you might need to wait), you can run
-e.g. the `paramfit` task directly with:
+Kun sinulle on myönnetty resurssit (joudut ehkä odottamaan), voit ajaa esimerkiksi `paramfit`‑tehtävän suoraan komennolla:
 
 ```bash
 paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 ```
 
-### High-throughput computing with Amber
+### Läpivientilaskenta Amberilla { #high-throughput-computing-with-amber }
 
-Similar to [GROMACS multidir](../support/tutorials/gromacs-throughput.md),
-Amber has a built-in "multi-pmemd" functionality, which allows you to run
-multiple MD simulations within a single Slurm allocation. This is an efficient
-option in cases where you want to run many similar, but independent,
-simulations. Typical use cases are enhanced sampling methods such as replica
-exchange MD. Also, since Amber simulations do not typically scale that well to
-multiple GPUs, multi-simulations can be used as a straightforward method to
-accelerate sampling by launching several differently initialized copies of your
-system, all running simultaneously on a single GCD each. If your system is very
-small and hence unable to utilize the full capacity of a GCD, it might even
-make sense to run multiple replicas on the same GCD to maximize efficiency.
+Samaan tapaan kuin [GROMACSin multidir](../support/tutorials/gromacs-throughput.md),
+Amberissa on sisäänrakennettu ”multi-pmemd”‑toiminnallisuus, jonka avulla voit ajaa useita MD‑simulaatioita yhdessä Slurm‑varauksessa. Tämä on tehokas vaihtoehto, kun haluat ajaa monia samankaltaisia mutta toisistaan riippumattomia simulaatioita. Tyypillisiä käyttökohteita ovat tehostetut näytteenottomenetelmät kuten replica exchange MD. Lisäksi, koska Amberin simulaatiot eivät tyypillisesti skaalaudu kovin hyvin usealle GPU:lle, moniajoja voidaan käyttää suoraviivaisena tapana nopeuttaa näytteenottoa käynnistämällä useita eri tavoin alustettuja kopioita järjestelmästäsi, kaikki ajossa samanaikaisesti kukin yhdellä GCD:llä. Jos järjestelmäsi on hyvin pieni eikä näin pysty hyödyntämään koko GCD:n kapasiteettia, voi olla järkevää ajaa useita replikoita samalla GCD:llä tehokkuuden maksimoimiseksi.
 
-!!! info "Note"
-    GPU resources on Puhti and Mahti are scarce, so we recommend running
-    large-scale multi-pmemd simulations only on LUMI. LUMI-G has a massive GPU
-    capacity available, which is also
-    [more affordable in terms of BUs](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/)
-    compared to Puhti and Mahti.
+!!! info "Huom."
+    GPU‑resurssit Puhtilla ja Mahtilla ovat niukat, joten suosittelemme suuria multi‑pmemd‑ajoja ensisijaisesti LUMIlla. LUMI‑G:llä on valtavasti GPU‑kapasiteettia, joka on myös
+    [BU‑mielessä edullisempi](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/)
+    kuin Puhtilla ja Mahtilla.
 
-An example multi-pmemd batch script for LUMI-G is provided below.
+Alla on esimerkki multi‑pmemd‑eräskriptistä LUMI‑G:lle.
 
 ```bash
 #!/bin/bash
@@ -317,10 +279,7 @@ CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
 srun --cpu-bind=$CPU_BIND ./select_gpu pmemd.hip.MPI -ng 16 -groupfile groupfile
 ```
 
-In this example, 16 copies of a system are run concurrently within a single
-Amber job, each using 1 GCD. 2 nodes are requested in total as each node on
-LUMI-G contains 8 GCDs (4 GPUs). The input, output, topology and coordinate
-files for the respective simulations are defined in a so-called `groupfile`:
+Tässä esimerkissä ajetaan 16 kopiota samasta järjestelmästä samanaikaisesti yhdessä Amber‑ajossa, kukin käyttäen yhtä GCD:tä. Yhteensä pyydetään 2 solmua, sillä jokaisessa LUMI‑G‑solmussa on 8 GCD:tä (4 GPU:ta). Kunkin simulaation syöte‑, tuloste‑, topologia‑ ja koordinaattitiedostot määritellään ns. `groupfile`‑tiedostossa:
 
 ```bash title="groupfile"
 -O -i mdin.GPU -o mdout000.GPU -p system000.prmtop -c system000.inpcrd
@@ -341,12 +300,11 @@ files for the respective simulations are defined in a so-called `groupfile`:
 -O -i mdin.GPU -o mdout015.GPU -p system015.prmtop -c system015.inpcrd
 ```
 
-See the [Amber manual](https://ambermd.org/doc12/Amber24.pdf) for further
-details on multi-pmemd.
+Lisätietoja multi‑pmemdistä löytyy [Amber‑manuaalista](https://ambermd.org/doc12/Amber24.pdf).
 
-## References
+## Viitteet { #references }
 
-When citing Amber or AmberTools, please use the following:
+Kun viittaat Amberiin tai AmberToolsiin, käytä seuraavaa:
 
 > D.A. Case, H.M. Aktulga, K. Belfon, I.Y. Ben-Shalom, J.T. Berryman, S.R.
 > Brozell, D.S. Cerutti, T.E. Cheatham, III, G.A. Cisneros, V.W.D. Cruzeiro,
@@ -361,9 +319,8 @@ When citing Amber or AmberTools, please use the following:
 > Xue, D.M. York, C. Zhao, Q. Zhu, and P.A. Kollman (2024), Amber 2024,
 > University of California, San Francisco.
 
-* [See more references](http://ambermd.org/CiteAmber.php).
+* [Katso lisää viitteitä](http://ambermd.org/CiteAmber.php).
 
-## More Information
+## Lisätietoja { #more-information }
 
-[The Amber home page](http://ambermd.org/) has an extensive manual
-and useful tutorials.
+[Amberin kotisivulla](http://ambermd.org/) on laaja manuaali ja hyödyllisiä tutoriaaleja.

@@ -1,66 +1,75 @@
 ---
 tags:
   - Other
+catalog:
+  name: LAStools
+  description: for LiDAR datasets
+  description_fi: LiDAR-aineistoille
+  license_type: Other
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# LAStools
+# LAStools { #lastools }
 
-[LAStools](https://lastools.github.io/) is a collection of tools for LiDAR data processing.
+[LAStools](https://lastools.github.io/) on kokoelma työkaluja LiDAR-aineiston käsittelyyn.
 
-## Usage
+## Käyttö { #usage }
 
-### Using LAStools
+### LAStoolsin käyttö { #using-lastools }
 
-LAStools is included in following modules:
+LAStools sisältyy seuraaviin moduuleihin:
 
-* lastools: 2025 (more exactly 250304), 2023 (230914) and 2022 (220613)
-* geoconda: 3.11.9, 3.10.9 and 3.10.6 (all with older 20171231)
+* lastools: 2025 (tarkemmin 250304), 2023 (230914) ja 2022 (220613)
+* geoconda: 3.11.9, 3.10.9 ja 3.10.6 (kaikissa vanha 20171231)
 
-Load one of these modules, for example the newest version (default):
+Lataa jokin näistä moduuleista, esimerkiksi uusin versio (oletus):
 
 `module load lastools` 
 
-The 2025 and 2023 versions of LAStools are based on the new [native Linux version of LAStools](https://rapidlasso.de/lastools-linux/) and requires `64` at the end of all tools. You can test that the LAStools module is loaded successfully with
+LAStoolsin 2025- ja 2023-versiot perustuvat uuteen [LAStoolsin native Linux -versioon](https://rapidlasso.de/lastools-linux/) ja vaativat `64` kaikkien työkalujen nimen loppuun. Voit testata, että LAStools-moduuli on ladattu onnistuneesti komennolla
 
 `lasinfo64 -h`
 
-For all older versions, for example in the **geoconda** module, you will need to omit the 64 at the end of the tool name, for example:
+Kaikissa vanhemmissa versioissa, esimerkiksi **geoconda**-moduulissa, 64 tulee jättää pois työkalun nimen lopusta, esimerkiksi:
 
 `lasinfo -h`
 
-For using licensed tools for testing, use `-demo` in the command, see [Lastools documentation](https://rapidlasso.de/lastools-test-and-validate-in-demo-mode/) for more information.  
+Lisensoitujen työkalujen testaamiseen käytä komentoon valitsinta `-demo`; katso lisätietoja [Lastools-dokumentaatiosta](https://rapidlasso.de/lastools-test-and-validate-in-demo-mode/).  
 
-### LAStools commands
+### LAStools-komennot { #lastools-commands }
 
-All lastool installations in Puhti include the open source tools of LAStools.
+Kaikki Puhtiin asennetut LAStools-versiot sisältävät LAStoolsin avoimen lähdekoodin työkalut.
 
-* las2las - extracts last returns, clips, subsamples, translates, etc ...
-* las2txt - turns LAS into human-readable and easy-to-parse ASCII
-* lasdiff - compares the data of two LAS/LAZ/ASCII files 
-* lasindex - creates a spatial index LAX file for fast spatial queries
-* lasinfo - prints out a quick overview of the contents of a LAS file
-* lasmerge - merges several LAS or LAZ files into a single LAS or LAZ file
-* lasprecision - analyses the actual precision of the LIDAR points
-* laszip - compresses the LAS files in a completely lossless manner
-* txt2las - converts LIDAR data from ASCII text to binary LAS format
+* las2las - erottaa viimeiset paluupisteet, leikkaa, alinäytteistää, siirtää jne ...
+* las2txt - muuntaa LAS:n ihmisen luettavaan ja helposti jäsennettävään ASCII-muotoon
+* lasdiff - vertaa kahden LAS/LAZ/ASCII-tiedoston tietoja 
+* lasindex - luo spatiaalisen indeksi-LAX-tiedoston nopeita sijaintikyselyitä varten
+* lasinfo - tulostaa pikakatsauksen LAS-tiedoston sisällöstä
+* lasmerge - yhdistää useita LAS- tai LAZ-tiedostoja yhdeksi LAS- tai LAZ-tiedostoksi
+* lasprecision - analysoi LiDAR-pisteiden todellisen tarkkuuden
+* laszip - pakkaa LAS-tiedostot täysin häviöttömästi
+* txt2las - muuntaa LiDAR-aineiston ASCII-tekstistä binaariseen LAS-muotoon
 
-The 2025 and 2023 version includes also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. 2025 version has additionally: `blast2dem64, demdiff64, demzip64, e572las64, lascopcindex64, laslicman64, lasplanes64, lasprobe64 and shp2las64`. See the License for terms of use for these tools. 
+Vuoden 2025 ja 2023 versio sisältävät lisäksi: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. Vuoden 2025 versiossa on lisäksi: `blast2dem64, demdiff64, demzip64, e572las64, lascopcindex64, laslicman64, lasplanes64, lasprobe64 and shp2las64`. Katso lisenssistä näiden työkalujen käyttöehdot. 
 
-2023 version does not support multi-core processing, but 2025 version does.
+Vuoden 2023 versio ei tue moniydinprosessointia, mutta vuoden 2025 versio tukee.
 
-In Puhti, only the command line tools are available, without the graphical user interface.
+Puhdissa on saatavilla vain komentorivityökalut, ei graafista käyttöliittymää.
 
-### Using a licensed version
+### Lisensoidun version käyttö { #using-a-licensed-version }
 
-CSC provides only the "free" version of LAStools. If you have your own license for LAStools, it can be used also in Puhti. 
+CSC tarjoaa vain LAStoolsin "ilmaisen" version. Jos sinulla on LAStoolsin oma lisenssi, sitä voidaan käyttää myös Puhdissa. 
 
-For using the 2023 native Linux version, copy the license file to your projects projappl directory in Puhti and provide the license file location as environment variable before using the tools:
+Vuoden 2023 native Linux -version käyttöä varten kopioi lisenssitiedosto projektisi projappl-hakemistoon Puhdissa ja aseta lisenssitiedoston sijainti ympäristömuuttujaan ennen työkalujen käyttöä:
 
 ```
 export LAStoolsLicenseFile=/projappl/project_200xxxx/yyy/lastoolslicense.txt
 ```
 
-**Alternative:** Also using the licensed Windows version is possible with wine (Windows emulator). You can install the .exe files yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../computing/disk.md).
+**Vaihtoehto:** Myös lisensoidun Windows-version käyttö on mahdollista wine-ohjelmalla (Windows-emulaattori). Voit asentaa .exe-tiedostot itse projektiisi. Lataa ja pura __LAStools__ [projappl-levyalueellesi](../computing/disk.md).
 
 ```
 cd /projappl/<your_project>
@@ -68,49 +77,47 @@ wget https://lastools.github.io/download/LAStools.zip
 unzip LAStools.zip
 ```
 
-Then add your license file to the /bin folder and you can start running the __.exe__ files with __wine64__
+Lisää sitten lisenssitiedostosi /bin-kansioon, ja voit alkaa ajaa __.exe__-tiedostoja komennolla __wine64__
 
-Notice you can only use the 64-bit versions of the tools with wine64
+Huomaa, että wine64:n kanssa voi käyttää vain työkalujen 64-bittisiä versioita
 
-Here is an example of running __lasinfo64.exe__ with __wine64__
+Alla esimerkki komennon __lasinfo64.exe__ ajosta __wine64__:llä
 
 ```
 module load wine
 wine64 lasinfo64.exe -i <LAS file>
 ```
 
+### Maanmittauslaitoksen lidar-aineisto Puhdissa { #finnish-national-land-survey's-lidar-data-in-puhti }
 
-### Finnish National Land Survey's lidar data in Puhti
+Suomen kansallinen [lidar-aineisto](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) on jo tallennettu Puhdin ympäristöön. Löydät sen polusta: __/appl/data/geo/mml/laserkeilaus__. [Lisätietoja](https://research.csc.fi/gis_data_in_csc_computing_env).
 
-The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Puhti. You can find it from filepath: __/appl/data/geo/mml/laserkeilaus__. [More info](https://research.csc.fi/gis_data_in_csc_computing_env).
+### LAStools monien tiedostojen kanssa { #lastools-with-many-files }
 
-### LAStools with many files
+Jos käsittelet LAStoolsilla suurta määrää lidar-tiedostoja, Puhdissa on mahdollista käsitellä tiedostoja rinnakkain. 
 
-If you are processing large number of lidar files with LAStools, it is possible in Puhti to process the files in parallel. 
+* Enintään 40 ytimeen (=1 solmu Puhdissa) asti paras vaihtoehto on käyttää GNU parallel -työkalua – katso lisätiedot [CSC GDAL -rinnakkaisesimerkistä](https://github.com/csc-training/geocomputing/tree/master/gdal).
+* Monisolmukäyttöön katso [Ohje: GNU Parallel -työnkulku monille pienille, toisistaan riippumattomille ajoille](../support/tutorials/many.md).
 
-* For using up to 40 cores (=1 node in Puhti), the best option would be using GNU parallel - see [CSC GDAL parallel example](https://github.com/csc-training/geocomputing/tree/master/gdal) for details.
-* For multi-node usage, see [Tutorial: GNU Parallel workflow for many small, independent runs](../support/tutorials/many.md).
+## Lisenssi { #license }
 
-## License 
+Tietoa LAStoolsin laillisesta käytöstä ja lisensoinnista: lue [LAStools LICENSE](https://lastools.github.io/LICENSE.txt).
 
-For information on the legal use and licensing of LAStools, please read the [LAStools LICENSE](https://lastools.github.io/LICENSE.txt).
+## Kiitokset { #acknowledgement }
 
-## Acknowledgement
+Jos käytät tätä ohjelmistoa Puhdissa, mainitse CSC ja Geoportti julkaisuissasi; tämä on tärkeää projektin jatkuvuuden ja rahoitusraportoinnin kannalta.
+Esimerkiksi: "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-If you use this software on Puhti, please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+## Viittaus { #citation }
 
-
-## Citation
-
-Citation of the software depends on which license was used:
+Ohjelmistoon viittaaminen riippuu käytetystä lisenssistä:
 
 * LAStools, "Efficient LiDAR Processing Software" (version 220613, academic), obtained from http://rapidlasso.com/LAStools
 * M. Isenburg, "LAStools - efficient LiDAR processing software" (version 220613, unlicensed), obtained from http://rapidlasso.com/LAStools
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
-## Installation
-**2025 and 2023 versions** were installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipies](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+## Asennus { #installation }
+**Vuoden 2025 ja 2023 versiot** asennettiin Puhtiin Singularity-konttia käyttäen, pohjautuen [CSC:n LasTools Apptrainer -reseptiikkaan](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) ja [Tykkyn wrap-container -toiminnallisuuteen](../computing/containers/tykky.md#container-based-installations).
 
 ```
 #2025
@@ -120,13 +127,12 @@ wrap-container -w /opt/LAStools/bin lastools_2025.sif --prefix 2025
 wrap-container -w /opt/LAStools lastools.sif --prefix 2023
 ```
 
-**2022 version** was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
+**Vuoden 2022 versio** asennettiin Puhtiin [Tykkyn wrap-container -toiminnallisuudella](../computing/containers/tykky.md#container-based-installations) käyttäen [LAStoolsin Docker-kuvaa Dockerhubista](https://hub.docker.com/r/pydo/lastools). 
 
 `wrap-container -w /opt/LAStools docker//:pydo/lastools:latest --prefix 2022`
 
+## Lähteet { #references }
 
-## References
-
-* [LAStools homepage](https://lastools.github.io/)
+* [LAStools-kotisivu](https://lastools.github.io/)
 * [LAStools Github](https://github.com/LAStools/LAStools)
-* [LAStools examples and tutorials](https://rapidlasso.de/knowledge/)
+* [LAStools-esimerkit ja -ohjeet](https://rapidlasso.de/knowledge/)

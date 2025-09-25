@@ -1,34 +1,43 @@
 ---
 tags:
   - Free
+catalog:
+  name: TopHat
+  description: Splice junction mapper for RNA-Seq reads
+  description_fi: RNA-Seq-lukemien liitoskohtien kartoittaja
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# TopHat
+# TopHat { #tophat }
 
-TopHat is a fast splice junction mapper for RNA-Seq reads. It aligns RNA-Seq reads to mammalian-sized genomes using the ultra high-throughput short read aligner Bowtie, and then analyzes the mapping results to identify splice junctions between exons.
+TopHat on nopea liitoskohtien kartoittaja RNA-Seq-lukemille. Se kohdistaa RNA-Seq-lukemat nisäkäskokoisiin genomeihin käyttäen erittäin suuren läpimenon lyhytlukemakohdistinta Bowtie, ja analysoi sitten kohdistustulokset tunnistaakseen eksonien väliset liitoskohdat.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [Boost Software License 1.0](https://github.com/DaehwanKimLab/tophat/blob/master/LICENSE).
+Vapaa käyttää ja avoimen lähdekoodin, lisensoitu [Boost Software License 1.0](https://github.com/DaehwanKimLab/tophat/blob/master/LICENSE) -lisenssillä.
 
-## Available
+## Saatavilla { #available }
 
 -   Puhti: 2.1.1
--   [Chipster](https://chipster.csc.fi) graphical user interface
+-   [Chipster](https://chipster.csc.fi) graafinen käyttöliittymä
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, TopHat is initialized with the command:
+Puhtissa TopHat otetaan käyttöön komennolla:
 
 ```bash
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Bowtie2, TopHat2 and Cufflinks.
+Biokit-moduuli asettaa käyttöön joukon yleisesti käytettyjä bioinformatiikan työkaluja, mukaan lukien Bowtie2, TopHat2 ja Cufflinks.
 
-Tophat jobs should be run as batch jobs. Below is a sample batch job file for running a TopHat job on Puhti:
+TopHat-ajoja tulisi suorittaa eräajotöinä. Alla on esimerkkieräajotiedosto TopHat-ajon suorittamiseksi Puhtissa:
 
 ```bash
 !/bin/bash
@@ -46,17 +55,17 @@ module load biokit
 tophat -p $SLURM_CPUS_PER_TASK -o tophat_results Homo.sapiens_bwt2_index reads1.fq reads2.fq 
 ```
 
-In the batch job example above, one task (`--ntasks=1`) is executed. The job uses 4 cores (`--cpus-per-task=4`) with 16 GB of memory (`--mem=16G`). The maximum duration of the job is 24 hours (`--time=24:00:00`). Change `--account` to match your own project name.
+Yllä olevassa eräajoesimerkissä suoritetaan yksi tehtävä (`--ntasks=1`). Työ käyttää 4 ydintä (`--cpus-per-task=4`) ja 16 Gt muistia (`--mem=16G`). Työn enimmäiskesto on 24 tuntia (`--time=24:00:00`). Vaihda `--account` vastaamaan oman projektisi nimeä.
 
-Note that we also need to tell TopHat to use the number of cores we reserved. In Tophat, this is done with the `-p` command-line argument. We can use system variable `$SLURM_CPUS_PER_TASK` to automatically match the reservation made with `--cpus-per-task`. This way we don't need to change the command-line if we change the reservation.
+Huomaa, että TopHatille on myös kerrottava varattujen ytimien määrä. TopHatissa tämä tehdään komentoriviparametrilla `-p`. Voimme käyttää järjestelmämuuttujaa `$SLURM_CPUS_PER_TASK` vastaamaan automaattisesti `--cpus-per-task`-varauksessa annettua arvoa. Näin komentoriviä ei tarvitse muuttaa, vaikka varausta muutettaisiin.
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Katso lisätietoja eräajojen ajamisesta kohdasta [Puhti user guide](../computing/running/getting-started.md).
 
-## Support
+## Tuki { #support }
 
 [CSC Service Desk](../support/contact.md)
 
-## More information
+## Lisätietoja { #more-information }
 
-* [TopHat Homepage](http://ccb.jhu.edu/software/tophat/index.shtml)
-* [TopHat Manual](http://ccb.jhu.edu/software/tophat/manual.shtml)
+* [TopHatin kotisivu](http://ccb.jhu.edu/software/tophat/index.shtml)
+* [TopHatin käyttöohje](http://ccb.jhu.edu/software/tophat/manual.shtml)

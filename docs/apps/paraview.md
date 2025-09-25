@@ -1,40 +1,48 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: ParaView
+  description: Free open-source visualization application
+  description_fi: Ilmainen avoimen lähdekoodin visualisointisovellus
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# ParaView
+# ParaView { #paraview }
 
-ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses the VTK library, in Python wrapping. We recommend the [HPC web interface remote desktops](../computing/webinterface/desktop.md) for interactive use.
+ParaView on avoimen lähdekoodin, tehokas ohjelmisto tieteelliseen visualisointiin. Taustalla se käyttää VTK-kirjastoa Python-sidoksilla. Suosittelemme [HPC-verkkokäyttöliittymän etätyöpöytiä](../computing/webinterface/desktop.md) interaktiiviseen käyttöön.
 
-!!! info "Running ParaView with GPU-accelerated graphics on Puhti and LUMI"
-    You can now also enable [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md) for better
-    performance. In this case, select _Accelerated visualization_ instead of _Desktop_
-    in the Puhti web interface. On LUMI, select the _Desktop_ app and `lumid`
-    partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
+!!! info "ParaViewin ajaminen GPU-kiihdytetyllä grafiikalla Puhtilla ja LUMIlla"
+    Voit nyt ottaa käyttöön myös [interaktiivisen visualisoinnin GPU-kiihdytyksellä](../computing/webinterface/accelerated-visualization.md) paremman suorituskyvyn saavuttamiseksi. Valitse tässä tapauksessa Puhtin verkkokäyttöliittymässä _Accelerated visualization_ vaihtoehdon _Desktop_ sijaan. LUMIlla valitse _Desktop_-sovellus ja `lumid`-osio ([lisätietoja](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
-ParaView is designed to run parallel tasks and consists of one client and one or several servers (pvservers). There are many ways to run ParaView to suit different needs.
+ParaView on suunniteltu ajamaan rinnakkaistehtäviä ja koostuu yhdestä asiakkaasta ja yhdestä tai useammasta palvelimesta (pvserver). ParaView’ta voi ajaa monella tavalla eri tarpeisiin.
 
-## License
+## License { #license }
 
-ParaView uses a [permissive BSD license](https://www.paraview.org/paraview-license/) that enables the broadest possible audience, including commercial organizations, to use the software, royalty free, for most purposes.
+ParaView käyttää [sallivaa BSD-lisenssiä](https://www.paraview.org/paraview-license/), joka mahdollistaa mahdollisimman laajan käytön, mukaan lukien kaupalliset organisaatiot, rojaltivapaasti useimpiin tarkoituksiin.
 
-## Available
+## Available { #available }
 
 * Puhti: 5.10.1
 * Mahti: 5.10.1
 * LUMI: 5.8.0
 
-## Usage
+## Usage { #usage }
 
-### Standalone mode
+### Standalone mode { #standalone-mode }
 
-The most straightforward way to use ParaView is to run it in standalone mode. This mode is sufficient for basic visualization tasks and is a good starting point also for more complex tasks.
+Yksinkertaisin tapa käyttää ParaView’ta on ajaa se itsenäisessä tilassa (standalone). Tämä tila riittää perusvisualisointiin ja on hyvä lähtökohta myös monimutkaisempiin tehtäviin.
 
-Standalone ParaView needs no pvserver reservation. **Note that ParaView should not be run on the login node**. You can use `sinteractive -i` command to reserve one CPU and up to 16 GB memory for your interactive session. When resources become available, the session is directed to a compute node. Load the module and start ParaView:
+Itsenäisessä tilassa ParaView ei tarvitse pvserver-varausta. **Huomaa, että ParaView’ta ei pidä ajaa kirjautumissolmulla.** Voit käyttää komentoa `sinteractive -i` varataksesi yhden suorittimen ja enintään 16 Gt muistia interaktiiviselle istunnolle. Kun resurssit vapautuvat, istunto ohjataan laskentasolmulle. Lataa moduuli ja käynnistä ParaView:
 
 ```bash
 module purge
@@ -42,41 +50,41 @@ module load paraview/5.10.1-paraview
 paraview
 ```
 
-If you need more resources, use `srun` and give session parameters as a one-liner. The following reserves 32 GB memory for one CPU, for one hour:
+Jos tarvitset enemmän resursseja, käytä `srun`-komentoa ja anna istunnon parametrit yhtenä rivinä. Seuraava varaa yhden suorittimen käyttöön 32 Gt muistia yhdeksi tunniksi:
 
 ```bash
 srun --partition=small --time=01:00:00 --mem=32G --account=<project> --x11=first --pty bash
 ```
 
-When directed to a compute node, load the module and start ParaView, as shown in the example above.
+Kun sinut on ohjattu laskentasolmulle, lataa moduuli ja käynnistä ParaView kuten yllä olevassa esimerkissä.
 
-If your model has complex geometry, interaction becomes slow and lag in screen updates is noticeable. ParaView has a tick box option to use OSPRay renderer for faster screen re-draws. Note that switching between the default and OSPRay rendering modes can be slow. Even when using one CPU, OSPRay rendering is much faster.
+Jos mallissasi on monimutkaista geometriaa, vuorovaikutus hidastuu ja näytön päivityksissä näkyy viivettä. ParaView’ssa on valintaruutu OSPRay-renderöijän käyttöön nopeampia näytön päivityksiä varten. Huomaa, että vaihtaminen oletus- ja OSPRay-renderöintitilojen välillä voi olla hidasta. Vaikka käyttäisit vain yhtä suoritinta, OSPRay-renderöinti on paljon nopeampaa.
 
-OSPRay is capable of using more than one CPU as threads to further accelerate screen updates. Threads are reserved with `--cpus-per-task`. The following example reserves 5 threads for rendering, and uses in total 32 GB of memory distributed between the CPUs. Note that most other functions of ParaView are not threaded, so they still use only one CPU.
+OSPRay osaa käyttää useampaa suoritinta säikeinä ruudunpäivitysten nopeuttamiseksi. Säikeet varataan optiolla `--cpus-per-task`. Seuraava esimerkki varaa renderöintiä varten 5 säiettä ja käyttää yhteensä 32 Gt muistia jaettuna suorittimien kesken. Huomaa, että useimmat muut ParaView’n toiminnot eivät ole säikeistettyjä, joten ne käyttävät edelleen vain yhtä suoritinta.
 
 ```bash
 srun --ntasks=1 --cpus-per-task=5 --partition=small --time=01:00:00 --mem=32G --account=<project> --x11=first --pty bash
 ```
 
-As previously shown, once directed to a compute node, load the module and start ParaView.  
+Kuten aiemmin, kun sinut on ohjattu laskentasolmulle, lataa moduuli ja käynnistä ParaView.  
 
-### Parallel mode - client using several servers (pvservers) and threads
+### Parallel mode - client using several servers (pvservers) and threads { #parallel-mode-client-using-several-servers-pvservers-and-threads }
 
-For demanding jobs, ParaView can be run in parallel mode: one client and many pvservers, each running on separate CPUs. The client connects to one of the pvservers, which communicates with the rest of the pvservers.  
+Vaativissa töissä ParaView voidaan ajaa rinnakkaistilassa: yksi asiakas ja useita pvserver-palvelimia, kukin omalla suorittimellaan. Asiakas yhdistää yhteen pvserveriin, joka kommunikoi muiden pvservereiden kanssa.  
 
-Note that if most of the work is done by only one pvserver, using a parallel setup can actually make ParaView run slower, due to extra time taken to parse data from different CPUs. You can check how much each pvserver is being used by opening *Memory Inspector* window in ParaView (file menu: *View/Memory Inspector*). ParaView's *D3*-filter can be used to distribute work more evenly between the cores.  
+Huomaa, että jos suurin osa työstä tehdään vain yhdellä pvserverillä, rinnakkaisasetuksen käyttö voi itse asiassa hidastaa ParaView’ta, koska datan jakaminen eri suorittimien välillä vie aikaa. Voit tarkistaa, kuinka paljon kukin pvserver on käytössä, avaamalla ParaView’ssa ikkunan *Memory Inspector* (valikosta: *View/Memory Inspector*). ParaView’n *D3*-suodatinta voi käyttää työn tasaisempaan jakamiseen ytimien välillä.  
 
-The example script `para5101-multi.sh` below starts several pvservers and one client (front-end), and connects them. After copying the script, check that it has the necessary execute permission - use `chmod u+x` to grant it. The script needs no editing. Resources should be reserved via `salloc` command. Reservation is for the client and the pvservers combined. `--ntasks` is the number of pvservers plus one client, and `--cpus-per-task` is the number of threads for each of these tasks, so the number of CPUs reserved is `--ntasks` * `cpus-per-task`. `--mem` is the combined memory used by all. The script reserves one GB memory for the client, and the rest is divided between the pvservers.
+Alla oleva esimerkkiskripti `para5101-multi.sh` käynnistää useita pvservereitä ja yhden asiakkaan (etuosan) ja yhdistää ne. Kopioinnin jälkeen varmista, että skriptillä on tarvittavat suoritusoikeudet – myönnä ne komennolla `chmod u+x`. Skripti ei vaadi muokkausta. Resurssit tulisi varata `salloc`-komennolla. Varaus kattaa sekä asiakkaan että pvserverit. `--ntasks` on pvservereiden määrä plus yksi asiakas, ja `--cpus-per-task` on kullekin näistä tehtävistä varattujen säikeiden määrä, joten varattujen suorittimien kokonaismäärä on `--ntasks` * `cpus-per-task`. `--mem` on kaikkien yhteiskäyttöinen muistimäärä. Skripti varaa asiakkaalle yhden gigatavun muistia, ja loput jaetaan pvservereiden kesken.
 
-The `salloc` example below allocates resources for one client and nine pvservers, each with two threads, so 20 CPUs are reserved. Nine GB memory in total is allocated for the pvservers, and one GB for the client. ParaView's OSPRay renderer uses threads, while most of the other ParaView functions benefit more of pvservers. **Note that all these `salloc` parameters need to be explicitly given,** otherwise the script `para581-multi.sh` will not work  
+Alla oleva `salloc`-esimerkki varaa resurssit yhdelle asiakkaalle ja yhdeksälle pvserverille, kullekin kaksi säiettä, joten yhteensä varataan 20 suorittinta. Pvservereille varataan yhteensä yhdeksän gigatavua muistia ja asiakkaalle yksi gigatavu. ParaView’n OSPRay-renderöijä hyödyntää säikeitä, kun taas useimmat muut ParaView’n toiminnot hyötyvät enemmän pvservereistä. **Huomaa, että kaikki nämä `salloc`-parametrit on annettava eksplisiittisesti,** muuten skripti `para581-multi.sh` ei toimi.  
 
 ```bash
 salloc --nodes=1 --ntasks=10 --cpus-per-task=2 --mem=10G --time=01:00:00 --partition=small --account=<project> para5101-multi.sh
 ```
 
-While the client connects to the servers, you may get a few warnings (*connect failed, retrying*) which you can ignore. However, if the last message was *Creating default builtin connection*, connection did eventually fail, and the client is operating without any pvservers. If this happens, check that you have included all the necessary job parameters in your `salloc` command.  
+Kun asiakas yhdistää palvelimiin, saatat nähdä muutamia varoituksia (*connect failed, retrying*), jotka voi ohittaa. Jos viimeinen viesti kuitenkin oli *Creating default builtin connection*, yhteys lopulta epäonnistui ja asiakas toimii ilman pvservereitä. Jos näin käy, tarkista, että olet sisällyttänyt kaikki tarvittavat työparametrit `salloc`-komentoosi.  
 
-#### Example script
+#### Example script { #example-script }
 
 ```bash title="para5101-multi.sh"
 #!/bin/bash 
@@ -104,10 +112,10 @@ srun --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=
 wait
 ```
 
-## More Information
+## More Information { #more-information }
 
-* [ParaView homepage](http://www.paraview.org/)
-* [ParaView documentation and guide](http://www.paraview.org/documentation/)
+* [ParaViewin kotisivu](http://www.paraview.org/)
+* [ParaView’n dokumentaatio ja opas](http://www.paraview.org/documentation/)
 * [ParaView Wiki](http://paraview.org/Wiki/ParaView)
-* [ParaView Tutorial](http://www.paraview.org/Wiki/The_ParaView_Tutorial)
-* [Search the ParaView users mailing list](http://discourse.paraview.org)
+* [ParaView-tutoriaali](http://www.paraview.org/Wiki/The_ParaView_Tutorial)
+* [Hae ParaView-käyttäjien postituslistalta](http://discourse.paraview.org)

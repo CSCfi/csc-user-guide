@@ -1,111 +1,120 @@
 ---
 tags:
   - Free
+catalog:
+  name: BWA
+  description: Short read aligner
+  description_fi: Lyhyiden lukemien kohdistin
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# BWA
+# BWA { #bwa }
 
-Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively short nucleotide sequences against a long reference sequence such as the human genome. It implements three algorithms, BWA-MEM (`mem`), BWA-Backtrack (`aln`) and BWA-SW (`bwasw`). BWA-Backtrack works for query sequences shorter than 200bp. The other two algorithms are used longer reads up to around 100kbp. BWA-MEM is recommended for reads longer than 70gb. All algorithms do gapped alignment.
+Burrows–Wheeler Aligner (BWA) on tehokas ohjelma, joka kohdistaa suhteellisen lyhyitä nukleotidisekvenssejä pitkää referenssisekvenssiä vasten, kuten ihmisen genomia. Se toteuttaa kolme algoritmia: BWA-MEM (`mem`), BWA-Backtrack (`aln`) ja BWA-SW (`bwasw`). BWA-Backtrack toimii alle 200 bp mittaisille kyselysekvensseille. Kahta muuta algoritmia käytetään pidemmille lukemille aina noin 100 kbp:hen asti. BWA-MEM:iä suositellaan yli 70 gb pituisille lukemille. Kaikki algoritmit tekevät aukollista kohdistusta.
 
-BWA can be used to align both single-end and paired-end reads to a reference genome or sequence set.
+BWA:ta voidaan käyttää sekä single-end- että paired-end-lukemien kohdistamiseen referenssigenomiin tai sekvenssijoukkoon.
 
 [TOC]
 
-## License
+## License { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttää ja avoimen lähdekoodin ohjelmisto [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Available
+## Available { #available }
 
 - Puhti: 0.7.17
-- [Chipster](https://chipster.csc.fi) graphical user interface
+- [Chipster](https://chipster.csc.fi) graafinen käyttöliittymä
 
-## Usage
+## Usage { #usage }
 
-On Puhti, BWA can be taken in use as part of the `biokit` module collection:
+Puhtissa BWA otetaan käyttöön osana `biokit`-modulikokoelmaa:
 
 ```bash
 module load biokit
 ```
 
-The biokit modules set up a set of commonly used bioinformatics tools, including BWA. Note however that there are other bioinformatics tools on Puhti that have separate setup commands.
+Biokit-modulit asettavat käyttöön joukon yleisesti käytettyjä bioinformatiikan työkaluja, mukaan lukien BWA. Huomaa kuitenkin, että Puhtissa on myös muita bioinformatiikan työkaluja, joilla on erilliset käyttöönotto­komennot.
 
-The basic syntax of BWA commands is:
+BWA-komentojen perussyntaksi on:
 
 ```bash
 bwa <command> [options]
 ```
 
-### BWA indexes
+### BWA-indeksit { #bwa-indexes }
 
-CSC does not maintain pre-compiled BWA indexes for reference genomes on Puhti, but you can check if genomes used in Chipster can provide you a ready-made index for a genome you want use. This can be done with the command:
+CSC ei ylläpidä valmiiksi laskettuja BWA-indeksejä referenssigenomeille Puhtissa, mutta voit tarkistaa, tarjoavatko Chipsterissä käytettävät genomi­paketit valmiin indeksin haluamallesi genomille. Tämä onnistuu komennolla:
 
 ```
 chipster_genomes bwa
 ``` 
 
-If a suitable genome index is not found, the fist step in creating alignment with BWA is downloading the reference genome and indexing it. Please note that your `$HOME` directory is often too small for working with complete genomes. Instead, you should do the analysis in the scratch directory of your Puhti project.
+Jos sopivaa genomi-indeksiä ei löydy, ensimmäinen vaihe BWA-kohdistuksen tekemisessä on referenssigenomin lataaminen ja indeksointi. Huomaa, että `$HOME`-hakemistosi on usein liian pieni kokonaisten genomien käsittelyyn. Sen sijaan analyysi kannattaa tehdä Puhti-projektisi scratch-hakemistossa.
 
-You can use for example command `ensemblfetch` or `wget` to download a reference genome to Puhti. For example:
+Voit ladata referenssigenomin Puhtiin esimerkiksi `ensemblfetch`- tai `wget`-komennolla. Esimerkiksi:
 
 ```bash
 ensemblfetch homo_sapiens
 ```
 
-The command above retrieves the human genome sequence to a file called `Homo_sapiens.GRCh38.dna.toplevel.fa`. You can calculate the BWA indexes for this file with the command:
+Yllä oleva komento noutaa ihmisen genomisekvenssin tiedostoon `Homo_sapiens.GRCh38.dna.toplevel.fa`. Voit laskea tälle tiedostolle BWA-indeksit komennolla:
 
 ```bash
 bwa index -a bwtsw Homo_sapiens.GRCh38.dna.toplevel.fa
 ```
 
-Note that for small less than 2 GB reference genomes you could use a faster "is" indexing algorithm (`bwa index -a is`)
+Huomaa, että pienille, alle 2 GB:n referenssigenomeille voit käyttää nopeampaa "is"-indeksointialgoritmia (`bwa index -a is`)
 
-### Single-end alignment
+### Single-end-kohdistus { #single-end-alignment }
 
-Once the indexing is ready you can carry out the alignment for singe-end reads with the command:
+Kun indeksointi on valmis, voit suorittaa single-end-lukemien kohdistuksen komennolla:
 
 ```bash
 bwa mem Homo_sapiens.GRCh38.dna.toplevel.fa reads.fastq > aln.sam
 ```
 
-If you wish to use the `aln` (BWA-Backtrack) algorithm, you need to do the alignment in two steps.
+Jos haluat käyttää `aln`- (BWA-Backtrack) algoritmia, kohdistus tehdään kahdessa vaiheessa.
 
-First calculate the actual alignment:
+Laske ensin varsinainen kohdistus:
 
 ```bash
 bwa aln Homo_sapiens.GRCh38.dna.toplevel.fa reads.fastq > aln_sa.sai
 ```
 
-The result file is in BWA-specific `.sai` format that you can convert to SAM format with `bwa samse` command:
+Tulostiedosto on BWA:n `.sai`-muodossa, jonka voit muuntaa SAM-muotoon `bwa samse` -komennolla:
 
 ```bash
 bwa samse Homo_sapiens.GRCh38.dna.toplevel.fa aln_sa.sai reads.fastq > aln.sam
 ```
 
-### Paired-end alignment
+### Paired-end-kohdistus { #paired-end-alignment }
 
-If you use the MEM algorithm, you can do the paired-end alignment with just one command:
+Jos käytät MEM-algoritmia, voit tehdä paired-end-kohdistuksen yhdellä komennolla:
 
 ```bash
 bwa mem Homo_sapiens.GRCh38.dna.toplevel.fa read1.fq read2.fq > aln.sam
 ```
 
-In the case of BWA-Backtrack algorithm, you should first do a separate alignment run for each read file:
+BWA-Backtrack-algoritmissa tulee ensin suorittaa erillinen kohdistusajo kummallekin lukutiedostolle:
 
 ```bash
 bwa aln Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq > aln1.sai
 bwa aln Homo_sapiens.GRCh38.dna.toplevel.fa reads2.fq > aln2.sai
 ```
 
-The two `.sai` alignment files are combined with command `bwa sampe`:
+Kaksi `.sai`-kohdistustiedostoa yhdistetään `bwa sampe` -komennolla:
 
 ```bash
 bwa sampe Homo_sapiens.GRCh38.dna.toplevel.fa aln1.sai aln2.sai reads1.fq reads2.fq > aln.sam
 ```
 
-### Running BWA batch jobs on Puhti
+### BWA-eräajojen suorittaminen Puhtissa { #running-bwa-batch-jobs-on-puhti }
 
-In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file for running a BWA job on Puhti:
+Puhtissa BWA-ajot tulee suorittaa eräajoina. Alla on esimerkki eräajotiedostosta BWA-ajon suorittamiseen Puhtissa:
 
 ```bash
 #!/bin/bash
@@ -129,19 +138,19 @@ bwa index -a bwtsw Homo_sapiens.GRCh38.dna.toplevel.fa
 bwa mem -t $SLURM_CPUS_PER_TASK Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq reads2.fq > aln.sam
 ```
 
-In the batch job example above, one BWA task (`--ntasks=1`) is executed. The BWA job uses 8 cores (`--cpus-per-task=8`) with a total of 32 GB of memory (`--mem=32000`). The maximum duration of the job is twelve hours (`--time 12:00:00`). All the cores are assigned from one computing node (`--nodes=1`). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing `your_project_name` with the name of your project. You can use command `csc-projects` to see what projects you have on Puhti.
+Yllä olevassa eräajoesimerkissä suoritetaan yksi BWA-tehtävä (`--ntasks=1`). BWA-ajo käyttää 8 ydintä (`--cpus-per-task=8`) ja yhteensä 32 GB muistia (`--mem=32000`). Ajolle on sallittu enintään 12 tuntia (`--time 12:00:00`). Kaikki ytimet varataan yhdeltä laskentasolmulta (`--nodes=1`). Resurssivarausten lisäksi sinun on määritettävä eräajosi laskutusprojekti korvaamalla `your_project_name` oman projektisi nimellä. Voit tarkistaa Puhtissa käytössäsi olevat projektit komennolla `csc-projects`.
 
-You can submit the batch job file to the batch job system with the command:
+Voit lähettää eräajotiedoston ajonhallintajärjestelmään komennolla:
 
 ```bash
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Katso lisätietoja eräajoista [Puhti user guide](../computing/running/getting-started.md) -oppaasta.
 
-## More information
+## Lisätietoja { #more-information }
 
-More information about BWA can be found from:
+Lisätietoja BWA:sta:
 
 * [BWA home page](http://bio-bwa.sourceforge.net/index.shtml)
 * [BWA manual](http://bio-bwa.sourceforge.net/bwa.shtml)

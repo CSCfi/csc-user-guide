@@ -1,34 +1,43 @@
 ---
 tags:
   - Free
+catalog:
+  name: OpenDroneMap (ODM)
+  description: for processing aerial drone imagery
+  description_fi: droonien ilmakuvien käsittelyyn
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# OpenDroneMap (ODM)
+# OpenDroneMap (ODM) { #opendronemap-odm }
 
-[OpenDroneMap](https://www.opendronemap.org/) (ODM) is an open source command line toolkit for processing aerial images. It is used for instance in making DEMs, DSMs, point clouds and orthophotos photogrammetrically.
+[OpenDroneMap](https://www.opendronemap.org/) (ODM) on avoimen lähdekoodin komentorivityökalupaketti ilmakuvien käsittelyyn. Sitä käytetään esimerkiksi DEM- ja DSM-mallien, pistepilvien ja ortokuvien fotogrammetriseen tuottamiseen.
 
-## Available
+## Saatavilla { #available }
 
-__OpenDroneMap__ is available in Puhti with following versions:
+__OpenDroneMap__ on saatavilla Puhtissa seuraavina versioina:
 
 * 3.5.4
 * 3.0.4
 * 2.8.8
 
-## Usage
-OpenDroneMap is available in Puhti as a [Singularity](../computing/containers/run-existing.md) container
+## Käyttö { #usage }
+OpenDroneMap on saatavilla Puhtissa [Singularity](../computing/containers/overview.md#running-containers) -konttina
 
-To run OpenDroneMap: 
-1) Copy your aerial images to Puhti. OpenDroneMap requires the folder names to end with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
-2) Write a batch job script (see below)
-3) Submit your OpenDroneMap batch job. 
+Toimi näin ajaaksesi OpenDroneMapin: 
+1) Kopioi ilmakuvasi Puhtiin. OpenDroneMap edellyttää, että kansionimi päättyy `code/images`, esimerkiksi `/scratch/project_2000XXX/odm/code/images`.
+2) Kirjoita eräajon skripti (ks. alla)
+3) Lähetä OpenDroneMap-eräajo jonoon. 
 
-* According to our tests, a project with ~300 images is optimal to run with 8-12 CPU cores; adjust the number of CPUs on the `--cpus-per-task` line. OpenDroneMap can use only one computing node in processing which means that it is limited to a maximum of 40 CPU cores per job.
-* `--project-path` - the place where images are stored, without the `code/images` part.
-* `--max-concurrency` - the number of threads used in several steps of ODM processing, here set to same number as reserved cores. 
-* It is possible to add [additional arguments](https://docs.opendronemap.org/arguments/) to the end of the command. 
-* If your images cover a very large area, see [ODM Splitting Large Datasets documentation](https://docs.opendronemap.org/large/)
-Below you can find an example batch job script. Adjust `--account`, `--cpus-per-task`, `--time` and `--mem-per-cpu` to your needs.
+* Testiemme mukaan noin 300 kuvan projekti toimii optimaalisesti 8–12 CPU-ytimellä; säädä ytimien määrää rivillä `--cpus-per-task`. OpenDroneMap käyttää vain yhtä laskentasolmua, mikä rajoittaa maksimiksi 40 CPU-ydintä per ajo.
+* `--project-path` - paikka, johon kuvat on tallennettu, ilman `code/images` -osaa.
+* `--max-concurrency` - säikeiden määrä, joita käytetään useissa ODM-käsittelyn vaiheissa; tässä asetettu samaksi kuin varattujen ytimien määrä. 
+* Komentoon voi lisätä [lisäargumentteja](https://docs.opendronemap.org/arguments/) loppuun. 
+* Jos kuvasi kattavat hyvin laajan alueen, katso [ODM Splitting Large Datasets -dokumentaatio](https://docs.opendronemap.org/large/)
+Alla on esimerkkieräajon skripti. Säädä `--account`, `--cpus-per-task`, `--time` ja `--mem-per-cpu` tarpeidesi mukaan.
 ```
 #!/bin/bash
 #SBATCH --account=<YOUR-CSC-PROJECT>
@@ -42,10 +51,10 @@ module load opendronemap
 apptainer_wrapper run --project-path /scratch/project_2000XXX/odm --max-concurrency $SLURM_CPUS_PER_TASK
 ```
 
-3) Outputs are available in `code`-folder, for example `/scratch/project_2000XXX/odm/code`
+3) Tulokset löytyvät `code`-kansiosta, esimerkiksi `/scratch/project_2000XXX/odm/code`
 
-### OpenDroneMap with compute node's local NMVE disk
-OpenDroneMap reads and writes a lot to disk, so running it is slightly (~15%) faster using [compute node's local NMVE disk](../computing/running/creating-job-scripts-puhti.md#local-storage). Below is example file for using OpenDroneMap with NMVE disk.
+### OpenDroneMap laskentasolmun paikallisella NMVE-levyllä { #opendronemap-with-compute-node-s-local-nmve-disk }
+OpenDroneMap lukee ja kirjoittaa levyä paljon, joten sen ajaminen on hieman (~15 %) nopeampaa käyttäen [laskentasolmun paikallista NMVE-levyä](../computing/running/creating-job-scripts-puhti.md#local-storage). Alla on esimerkkitiedosto OpenDroneMapin käyttöön NMVE-levyllä.
 
 ```
 #!/bin/bash
@@ -70,34 +79,26 @@ echo "Copying outputs from Puhti scratch to compute node local disk"
 rsync -r $LOCAL_SCRATCH/* $odm_dir
 ```
 
+## Lisenssi { #license } 
 
-## License 
+OpenDroneMapia levitetään GNU General Public License (GPL) version 3 -lisenssillä. [Täydellinen OpenDroneMap-lisenssi](https://github.com/OpenDroneMap/ODM/blob/master/LICENSE)
 
-OpenDroneMap is distributed under the GNU General Public License (GPL) version 3. [Full OpenDroneMap license](https://github.com/OpenDroneMap/ODM/blob/master/LICENSE)
-
-## Citation
+## Viittaus { #citation }
 
 `OpenDroneMap Authors, ODM - A command line toolkit to generate maps, point clouds, 3D models and DEMs from drone, balloon or kite images. OpenDroneMap/ODM GitHub Page 2020; https://github.com/OpenDroneMap/ODM`
 
+## Kiitokset { #acknowledgement }
 
+Ole hyvä ja mainitse CSC ja Geoportti julkaisuissasi; tämä on tärkeää projektin jatkuvuuden ja rahoitusraporttien kannalta.
+Esimerkiksi: "Kirjoittajat kiittävät CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) ja Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) -palveluja laskentaresursseista ja tuesta."
 
-## Acknowledgement
+## Asennus { #installation }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+OpenDroneMap asennettiin Puhtiin Apptrainerilla käyttäen [OpenDroneMapin yhteisön tarjoamaa Dockerhubin OpenDroneMap Docker -kuvaa](https://hub.docker.com/r/opendronemap/odm). OpenDroneMap-komentoja ei ole kääritty Tykkyllä, koska hakemistojen liittäminen tarvitaan aina ajohetkellä.
 
+## Viitteet { #references }
 
-## Installation
-
-OpenDroneMap was installed to Puhti with Apptrainer using the [OpenDroneMap Docker image from Dockerhub provided by OpenDroneMap community](https://hub.docker.com/r/opendronemap/odm). OpenDroneMap commands have not been wrapped with Tykky, because mapping of folders is always needed at run-time.
-
-
-## References
-
-* [OpenDroneMap homepage](https://opendronemap.org)
-* [OpenDroneMap Docs](https://docs.opendronemap.org/)
-* [OpenDroneMap Github](https://github.com/OpenDroneMap/ODM)
-* [Singularity containers in CSC](../computing/containers/run-existing.md)
-
-
-
+* [OpenDroneMapin kotisivu](https://opendronemap.org)
+* [OpenDroneMap-dokumentaatio](https://docs.opendronemap.org/)
+* [OpenDroneMap Githubissa](https://github.com/OpenDroneMap/ODM)
+* [Singularity-kontit CSC:ssä](../computing/containers/overview.md#running-containers)

@@ -1,33 +1,35 @@
 ---
 tags:
   - Academic
-system:
-  - www-puhti
+catalog:
+  name: COMSOL Multiphysics
+  description: General-purpose simulation software
+  description_fi: Yleiskäyttöinen simulointiohjelmisto
+  license_type: Academic
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - web_interfaces:
+        - Puhti
+    - Puhti
 ---
 
-# COMSOL Multiphysics
+# COMSOL Multiphysics { #comsol-multiphysics }
 
-The COMSOL Multiphysics simulation environment facilitates
-all steps in the modeling process; defining your geometry, specifying
-your physics, meshing, solving and then post-processing your results.
+COMSOL Multiphysics -simulointiympäristö helpottaa kaikkia mallinnusprosessin vaiheita: geometrian määrittely, fysiikan asetus, verkotus, ratkaisu sekä tulosten jälkikäsittely.
 
-Setting up the model up is quick, thanks to a number of predefined modeling
-interfaces for applications ranging from fluid flow and heat transfer to
-structural mechanics and electromagnetic analyses. Material properties,
-source terms and boundary conditions can all be arbitrary functions of
-the dependent variables.
+Mallin käyttöönotto on nopeaa useiden valmiiden mallinnusliittymien ansiosta; ne kattavat sovelluksia virtauslaskennasta ja lämmönsiirrosta rakenteiden mekaniikkaan ja sähkömagneettisiin analyyseihin. Materiaaliominaisuudet, lähdetermit ja reunaehdot voivat kaikki olla riippuvien muuttujien mielivaltaisia funktioita.
 
-## Available
+## Saatavilla { #available }
  
 - Puhti: 6.2, 6.1, 6.0
 
-## License
-The terms of use of this software allow it to be used only by affiliates (staff
-and students) of Finnish higher education institutions.
+## Lisenssi { #license }
+Tämän ohjelmiston käyttöehdot sallivat käytön vain suomalaisten korkeakoulujen ja yliopistojen henkilökunnalle ja opiskelijoille.
 
-## Usage
+## Käyttö { #usage }
 
-The following modules are currently available:
+Seuraavat moduulit ovat tällä hetkellä saatavilla:
 
 -   Acoustics
 -   AC/DC
@@ -37,30 +39,20 @@ The following modules are currently available:
 -   Particle Tracing
 -   Structural Mechanics
 
-The preferred method to use COMSOL interactively is via [the Puhti web interface
-desktop application](../computing/webinterface/desktop.md). In the web interface,
-select `Desktop` from the `Apps` view and specify the required resources (cores,
-execution time and memory). Remember to add your billing project, too.
+COMSOLin interaktiiviseen käyttöön suositellaan [Puhti-verkkokäyttöliittymän työpöytäsovellusta](../computing/webinterface/desktop.md). Verkkokäyttöliittymässä valitse `Apps`-näkymästä `Desktop` ja määritä tarvittavat resurssit (ytimet, ajoaika ja muisti). Muista myös lisätä laskutusprojektisi.
 
-Wait for a while as your interactive job sits in the queue and after that you can start
-COMSOL with double-clinking its icon (tick the box if you want to receive an email when your session starts).
+Odota hetki, kun interaktiivinen työsi on jonossa, ja sen jälkeen voit käynnistää COMSOLin tuplanapsauttamalla sen kuvaketta (rastita ruutu, jos haluat vastaanottaa sähköpostin, kun istuntosi käynnistyy).
 
 !!! Note
-    You can now also enable [interactive visualization with GPU
-    acceleration](../computing/webinterface/accelerated-visualization.md) for better
-    performance. In this case, select `Accelerated visualization` instead of `Desktop`
-    in the Puhti web interface.
+    Voit nyt myös ottaa käyttöön [interaktiivisen visualisoinnin GPU-kiihdytyksellä](../computing/webinterface/accelerated-visualization.md) paremman suorituskyvyn saavuttamiseksi. Valitse tässä tapauksessa Puhti-verkkokäyttöliittymässä `Desktop`:in sijaan `Accelerated visualization`.
 
-Sometimes, you may encounter errors relating to OpenGL rendering during
-the launch. The solution is to force COMSOL to start with software
-rendering from Desktop app `Terminal` using
+Joskus käynnistyksen yhteydessä voi ilmetä OpenGL-renderöintiin liittyviä virheitä. Ratkaisuna on pakottaa COMSOL käynnistymään ohjelmistopohjaisella renderöinnillä Desktop-sovelluksen `Terminal`-ikkunasta käyttämällä
 
 ```bash
 module load comsol
 comsol -3drend sw
 ```
 
+## Lisätietoja { #more-information }
 
-## More information
-
-- [COMSOL Multiphysics home page](https://www.comsol.com)
+- [COMSOL Multiphysicsin kotisivu](https://www.comsol.com)

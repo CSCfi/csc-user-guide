@@ -1,40 +1,44 @@
-
 ---
 tags:
   - Free
+catalog:
+  name: pdb
+  description: Built-in Python debugger
+  description_fi: Sisäänrakennettu Python-virheenkorjain
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# pdb: Python-virheenjäljitin
+# pdb: Pythonin virheenkorjain { #pdb-python-debugger }
 
-## Saatavilla {#available}
+## Saatavilla { #available }
 
 - Mahti: mikä tahansa Python-versio
 - Puhti: mikä tahansa Python-versio
 
-## Lisenssi {#license}
+## Lisenssi { #license }
 
 Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Käyttö {#usage}
+## Käyttö { #usage }
 
-[pdb](https://docs.python.org/3/library/pdb.html) on sisäänrakennettu Python
-virheenjäljitin, joka tukee katkaisupisteitä, lähdekoodin askeltamista rivi
-kerrallaan, pinokehysten tarkastelua, lähdekoodin listausta jne.
+[pdb](https://docs.python.org/3/library/pdb.html) on sisäänrakennettu Python-virheenkorjain, joka tukee keskeytyspisteitä, lähdekoodin askeltamista rivi riviltä, pinokehysten tarkastelua, lähdekoodin listausta jne.
 
-Virheenjäljitin voidaan käyttää kahdella tavalla. Koodin sisällä (tai
-tulkin kautta):
+Virheenkorjainta voi käyttää kahdella tavalla. Koodin sisällä (tai tulkista):
 
 ```
 import pdb
 pdb.run('functbd(list_parameters)')
 ```
 
-Vaihtoehtoisesti pdb voidaan käynnistää myös skriptinä toisen skriptin
-profiilin tekemiseksi:
+Vaihtoehtoisesti pdb:n voi myös käynnistää skriptinä toisen skriptin virheenkorjausta varten:
 
 ```
 python -m pdb myscript.py
 ```
 
-Suorittamalla `pdb` avautuu kehote, joka tukee eri komentoja kuten
-`where`, `down`, `up`, `break`, `step`, `next`, `jump`, `list`.
+Komennon `pdb` suorittaminen avaa kehotteen, joka tukee monia komentoja, kuten `where`, `down`, `up`, `up`, `break`, `step`, `next`, `jump`, `list`.

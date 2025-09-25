@@ -1,63 +1,73 @@
-
 ---
 tags:
   - Free
+catalog:
+  name: MrBayes
+  description: Program for inferring phylogenies using Bayesian methods
+  description_fi: Ohjelma fylogeneettisten puiden päättelemiseen bayesilaisin menetelmin
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# MrBayes
+# MrBayes { #mrbayes }
 
-MrBayes on ohjelma Bayesiläiseen päättelyyn fylogenetiikan alalla.
+
+
+MrBayes on ohjelma fylogeneettisten puiden päättelemiseen bayesilaisin menetelmin.
 
 [TOC]
 
-## Lisenssi {#license}
+## Lisenssi { #license }
 
-Vapaa käyttö ja avoin lähdekoodi [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
+Vapaa käyttää ja avoimen lähdekoodin [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Saatavuus {#available}
+## Saatavilla { #available }
 
 - Puhti: 3.2.7a
 
-## Käyttö {#usage}
+## Käyttö { #usage }
 
-Tarkistaaksesi saatavilla olevat versiot, käytä:
+Saatavilla olevat versiot näet komennolla:
 
 ```bash
 module spider mrbayes
 ```
 
-Ladataksesi tietyn version:
+Lataa tietty versio näin:
 
 ```bash
 module load mrbayes/3.2.7a
 ```
 
-Kun moduuli on ladattu, sarjaversio (eli yksiprosessorinen) käynnistyy komennolla:
+Moduulin lataamisen jälkeen sarjaversio (eli yhden prosessorin versio) käynnistyy komennolla:
 
 ```bash
 mb
 ```
 
-Rinnakkainen versio käynnistyy komennolla:
+Rinnakkaisversio käynnistyy komennolla:
 
 ```bash
 mb-mpi 
 ```
 
-Kun käytät rinnakkaisversiota, sinun tulisi huomioida, että MrBayes jakaa yhden ketjun yhdelle ytimelle, joten optimaalista suorituskykyä varten sinun tulisi käyttää yhtä monta ydintä kuin työsi kokonaisketjumäärä. Jos esimerkiksi olet määritellyt `nchains=4`, `nruns=2`, sinun tulisi käyttää 4 * 2 = 8 ydintä.
+Huomaa rinnakkaisversiota käyttäessäsi, että MrBayes varaa yhtä ketjua kohden yhden ytimen; optimaalisen suorituskyvyn saat käyttämällä yhtä monta ydintä kuin tehtävässäsi on ketjuja yhteensä. Jos esimerkiksi olet määrittänyt `nchains=4`, `nruns=2`, sinun tulisi käyttää 4 * 2 = 8 ydintä.
 
-## Eräajot {#batch-jobs}
+## Eräajot { #batch-jobs }
 
-MrBayes-analyysin suorittaminen saattaa viedä runsaasti suorituskykyaikaa ja muistia. On suositeltavaa ajaa se erätyöjärjestelmän kautta Puhtissa. Lyhyemmät testiajoit voidaan ajaa interaktiivisessa tilassa käyttäen [sinteractive](../computing/running/interactive-usage.md). Sarjaversiota suositellaan interaktiiviseen käyttöön.
+MrBayes-analyysi voi vaatia merkittävästi suoritinaikaa ja muistia. Siksi sen ajamista suositellaan Puhtin eräajojärjestelmän kautta. Lyhyemmät testiajot voi tehdä interaktiivisesti käyttäen [sinteractive](../computing/running/interactive-usage.md)-komentoa. Interaktiiviseen käyttöön suositellaan sarjaversiota.
 
-Eräajon suorittamiseksi sinun pitää:
+Eräajon suorittamiseen tarvitset:
 
-1. Kirjoittaa MrBayes-komentotiedosto (tässä `mb_com.nex`) tai sisällyttää MrBayes-komentolohko `.nex`-tiedostoon. Lisätietoja saat [MrBayesin käsikirjan kappaleesta 5.5.1](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
-2. Kirjoittaa eräajotiedosto (tässä `mb_batch`)
-3. Varmistaa, että sinulla on kaikki syötetiedostot (tässä `primates.nex`)
-4. Lähettää työsi jonoon
+1. Laadi MrBayes-komentotiedosto (tässä `mb_com.nex`) tai sisällytä MrBayes-komentolohko `.nex`-tiedostoosi. Lisätietoja: [MrBayes-käsikirjan luku 5.5.1](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
+2. Kirjoita eräajon skripti (tässä `mb_batch`)
+3. Varmista, että sinulla ovat kaikki syötetiedostot (tässä `primates.nex`)
+4. Lähetä työsi jonoon
 
-MrBayes-komentotiedoston tulisi sisältää komennot, jotka kirjoittaisit MrBayesissa interaktiivisessa tilassa. Tämä esimerkki suorittaa analyysin, joka mainitaan [MrBayes 3.2 käsikirjan kappaleessa 2](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
+MrBayes-komentotiedostossa tulisi olla ne komennot, jotka syöttäisit MrBayesiin interaktiivisessa tilassa. Tämä esimerkki ajaa analyysin, josta kerrotaan [MrBayes 3.2 -oppaan luvussa 2](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
 
 ```text
 begin mrbayes;
@@ -70,7 +80,7 @@ begin mrbayes;
 end;
 ```
 
-Alla on esimerkki eräajotiedostosta Puhtille 8 ytimen käytöllä. Käytämme 8 ydintä, koska esimerkissämme on `nchains=4`, `nruns=2`, eli 4 * 2 = 8.
+Alla on esimerkki Puhtissa ajettavasta eräajon skriptistä, jossa käytetään 8 ydintä. Käytämme 8 ydintä, koska esimerkissä on `nchains=4`, `nruns=2`, joten 4 * 2 = 8.
 
 ```bash
 #!/bin/bash
@@ -87,14 +97,13 @@ Alla on esimerkki eräajotiedostosta Puhtille 8 ytimen käytöllä. Käytämme 8
 srun mb-mpi mb_com.nex >log.txt
 ```
 
-Lähettääksesi työn Puhtiin:
+Työn lähetys Puhtissa:
 
 ```bash
 sbatch mb_batch 
 ```
 
-## Lisätietoa {#more-information}
+## Lisätietoja { #more-information }
 
-* [MrBayes kotisivu](https://nbisweden.github.io/MrBayes/index.html)
+* [MrBayesin kotisivu](https://nbisweden.github.io/MrBayes/index.html)
 * [Käsikirja ja muut resurssit](https://nbisweden.github.io/MrBayes/manual.html)
-

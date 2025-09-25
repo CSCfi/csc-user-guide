@@ -1,39 +1,48 @@
 ---
 tags:
   - Free
+catalog:
+  name: FastQC
+  description: Quality control tool for high throughput sequence data
+  description_fi: Laadunvalvontatyökalu korkean läpimenon sekvenssidatalle
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# FastQC
+# FastQC { #fastqc }
 
-FastQC is a quality control tool for high-throughput sequence data.
+FastQC on laadunvalvontatyökalu korkean läpimenon sekvenssidatalle.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttää ja avoimen lähdekoodin [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssin alainen.
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 0.11.9
-- [Chipster](https://chipster.csc.fi) graphical user interface
+- [Chipster](https://chipster.csc.fi) graafinen käyttöliittymä
 
-## Usage
+## Käyttö { #usage }
 
-To initialize on Puhti, use:
+Ota käyttöön Puhtissa komennolla:
 
 ```bash
 module load biokit
 ```
 
-You can then run FastQC:
+Tämän jälkeen voit ajaa FastQC:n:
 
 ```bash
 fastqc --help
 ```
 
-If you run FastQC without command line arguments, it will open a GUI. The best way to run a GUI remotely on Puhti is to use the [Puhti web interface desktop](../computing/webinterface/desktop.md).
+Jos ajat FastQC:n ilman komentorivivalitsimia, se avaa graafisen käyttöliittymän. Paras tapa käyttää graafista käyttöliittymää etäyhteydellä Puhtissa on hyödyntää [Puhti-verkkokäyttöliittymän työpöytää](../computing/webinterface/desktop.md).
 
-## More information
+## Lisätietoja { #more-information }
 
-* [FastQC Homepage](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+* [FastQC-sivusto](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)

@@ -1,31 +1,42 @@
 ---
 tags:
   - Free
+catalog:
+  name: GDAL
+  description: for geospatial data formats
+  description_fi: paikkatietoaineistojen tiedostomuodoille
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# GDAL
+# GDAL { #gdal }
 
-[GDAL](https://gdal.org/) (Geospatial Data Abstraction Library) is a GIS translator library for accessing and transforming geospatial data. Most commonly it is used in file format or coordinate system changes. 
+[GDAL](https://gdal.org/) (Geospatial Data Abstraction Library) on GIS-kääntökirjasto paikkatietoaineistojen käsittelyyn ja muuntamiseen. Yleisimmin sitä käytetään tiedostomuotojen tai koordinaattijärjestelmien muutoksiin. 
 
-## Available
+## Saatavilla { #available }
 
-GDAL is available with following versions:
+GDAL on saatavilla seuraavina versioina:
 
-* 3.9.2 - in the 3.38 [QGIS](qgis.md) and 3.11.10 [geoconda](geoconda.md) in Puhti
-* 3.9.1 - in the 3.11.9 [geoconda](geoconda.md) in Puhti and Mahti
-* 3.8.5 stand-alone: `gdal` in Puhti
-* 3.8.3 - in the 3.31 [QGIS](qgis.md) in Puhti and LUMI
-* 3.6.2 - in the 3.10.x [geoconda](geoconda.md) in Puhti and Mahti
-* 3.4.3 stand-alone: `gdal` in Puhti
-* Also in Puhti: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
+* 3.9.2 - QGIS 3.38 [QGIS](qgis.md) ja geoconda 3.11.10 [geoconda](geoconda.md) Puhtissa
+* 3.9.1 - geoconda 3.11.9 [geoconda](geoconda.md) Puhtissa ja Mahtissa
+* 3.8.5 itsenäinen: `gdal` Puhtissa
+* 3.8.3 - QGIS 3.31 [QGIS](qgis.md) Puhtissa ja LUMIssa
+* 3.6.2 - geoconda 3.10.x [geoconda](geoconda.md) Puhtissa ja Mahtissa
+* 3.4.3 itsenäinen: `gdal` Puhtissa
+* Saatavilla myös Puhtissa: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) ja [OrfeoToolBox](otb.md)
 
 !!! note
-    The stand-alone GDAL and R modules don't have Python bindings installed so e.g `gdal_calc` works only in the geoconda and qgis modules. Also, the supported file formats vary between the modules. `gdal/3.4.3` has the most limited driver support and no support for virtual drivers. It is possible to add more drivers to standalone and r-env GDAL installations, please ask. geoconda and qgis GDAL installations are based on conda gdal package and are impossible to change regarding drivers support. Use `gdalinfo --formats` to see supported raster formats and `ogrinfo --formats` for vector formats.
+    Itsenäisissä GDAL- ja R-moduuleissa ei ole Python-sidoksia asennettuna, joten esim. `gdal_calc` toimii vain geoconda- ja qgis-moduuleissa. Myös tuetut tiedostomuodot vaihtelevat moduulien välillä. `gdal/3.4.3`:ssa on rajoitetuin ajurituki eikä lainkaan tukea virtuaaliajureille. Itsenäisiin ja r-env GDAL -asennuksiin on mahdollista lisätä lisää ajureita; kysy tarvittaessa. geoconda- ja qgis-GDAL-asennukset perustuvat condan gdal-pakettiin, eikä niiden ajuritukea voi muuttaa. Käytä komentoa `gdalinfo --formats` nähdäksesi tuetut rasteriformaatit ja `ogrinfo --formats` vektoriformaatit.
 
-## Usage
-GDAL is included in the modules listed above, so it can be used when any of these modules is loaded. 
+## Käyttö { #usage }
+GDAL sisältyy yllä lueteltuihin moduuleihin, joten sitä voi käyttää, kun mikä tahansa näistä moduuleista on ladattu. 
 
-The stand-alone `gdal` module is mainly meant for building software on top of GDAL, but can also be used for command-line usage. To load stand-alone `gdal` use:
+Itsenäinen `gdal`-moduuli on tarkoitettu pääasiassa GDALin päälle rakennettavan ohjelmiston kääntämiseen, mutta sitä voi käyttää myös komentoriviltä. Lataa itsenäinen `gdal` näin:
 
 ```
 # GDAL 3.8.5
@@ -34,28 +45,28 @@ module load gcc/13.2.0 openmpi/5.0.5 gdal/3.8.5
 module load gcc/11.3.0 gdal/3.4.3
 ```
 
-You can test if GDAL loaded successfully with following
+Voit testata, latautuiko GDAL onnistuneesti, komennolla
 
 `gdalinfo --version`
 
-With `r-env` gdal commands can be used as:
+`r-env`-ympäristössä gdal-komentoja voi käyttää näin:
 
 `apptainer_wrapper exec gdalinfo --version`
 
 
-#### Using files directly from object storage services or cloud, inc Allas
+#### Tiedostojen käyttäminen suoraan objektitallennuspalveluista tai pilvestä, ml. Allas { #using-files-directly-from-object-storage-services-or-cloud-inc-allas }
 
-GDAL supports virtual [network based file systems](https://gdal.org/user/virtual_file_systems.html#network-based-file-systems) for reading and sometimes writing from several cloud storage systems, inc CSC Allas, Amazon S3, Google Cloud Storage, Microsoft Azure etc. Please check CSC's [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
+GDAL tukee virtuaalisia [verkkoon perustuvia tiedostojärjestelmiä](https://gdal.org/user/virtual_file_systems.html#network-based-file-systems) useista pilvitallennuspalveluista lukemiseen ja joissain tapauksissa myös kirjoittamiseen, ml. CSC Allas, Amazon S3, Google Cloud Storage, Microsoft Azure jne. Katso ohjeet ja esimerkit CSC:n oppaasta [Paikkatietoaineistojen käyttäminen suoraan pilvestä, ml. Allas](../support/tutorials/gis/gdal_cloud.md).
 
-#### Virtual rasters
+#### Virtuaalirasterit { #virtual-rasters }
 
-With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
+Suurten rasteriaineistomäärien (myös Allasissa) kanssa kätevin tapa käyttää aineistoa voi olla [GDAL:n virtuaalirasterit](../support/tutorials/gis/virtual-rasters.md). 
 
-## License 
+## Lisenssi { #license } 
 
-[GDAL is licensed under an MIT/X style license](https://gdal.org/license.html)
+[GDAL on lisensoitu MIT/X-tyylisellä lisenssillä](https://gdal.org/license.html)
 
-## Citation
+## Viittaaminen { #citation }
 GDAL/OGR contributors (2024). 
 GDAL/OGR Geospatial Data Abstraction software Library. 
 Open Source Geospatial Foundation. 
@@ -63,17 +74,16 @@ URL https://gdal.org,
 DOI: 10.5281/zenodo.5884351
 
 
-## Acknowledgement
+## Kiitokset { #acknowledgement }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+Mainitsethan CSC:n ja Geoportin julkaisuissasi; se on tärkeää projektien jatkumiselle ja rahoitusraportointia varten.
+Esimerkiksi: "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
+## Asennus { #installation } 
 
-## Installation 
+Itsenäinen GDAL asennettiin Puhtiin käyttäen [Spackia ja sen GDAL-pakettimäärittelyä](https://packages.spack.io/package.html?name=gdal). Muiden asennusten osalta katso kyseisten sovellusten sivut.
 
-Standalone GDAL was installed to Puhti using [Spack and its GDAL package definition](https://packages.spack.io/package.html?name=gdal). For other installations, see respective application page.
-
-Installation settings for 3.8.5. `+` means enabled option, `~` disabled.
+Asennusasetukset versiolle 3.8.5. `+` tarkoittaa käytössä olevaa valintaa, `~` poiskytkettyä.
 ```
 gdal@3.8.5+arrow+curl+deflate+expat+geos+gif+hdf4+hdf5+iconv+jpeg+liblzma+libxml2+lz4+netcdf+openjpeg+png+postgresql+spatialite+sqlite3+zstd
 ~archive~armadillo~basisu~blosc~brunsli~cfitsio~crnlib~cryptopp~csharp~ecw~filegdb~freexl~fyba~gta~hdfs~heif~idb~ipo~java~jxl~kdu~kea~lerc
@@ -82,7 +92,7 @@ gdal@3.8.5+arrow+curl+deflate+expat+geos+gif+hdf4+hdf5+iconv+jpeg+liblzma+libxml
 build_system=cmake build_type=Release generator=ninja patches=52459dc
 ```
 
-Installation settings for 3.4.3:
+Asennusasetukset versiolle 3.4.3:
 ```
 --with-libtiff=/appl/spack/v018/install-tree/gcc-11.3.0/libtiff-4.3.0-4xvmnn
 --with-geotiff=/appl/spack/v018/install-tree/gcc-11.3.0/libgeotiff-1.6.0-m66qzg
@@ -93,9 +103,9 @@ Installation settings for 3.4.3:
 --with-liblzma=yes
 --with-jpeg=/appl/spack/v018/install-tree/gcc-11.3.0/libjpeg-turbo-2.1.3-hnflqm"
 ```
-## References
+## Lähteet { #references }
 
-* [GDAL documentation, programs](https://gdal.org/programs/index.html)
-* [GDAL tutorial by CSC](../support/tutorials/gis/gdal.md)
+* [GDAL-dokumentaatio, ohjelmat](https://gdal.org/programs/index.html)
+* [CSC:n GDAL-opas](../support/tutorials/gis/gdal.md)
 * [GDAL cheat sheet](https://github.com/dwtkns/gdal-cheat-sheet)
-* [GDAL Linux examples](https://github.com/clhenrick/shell_scripts)
+* [GDAL Linux -esimerkkejä](https://github.com/clhenrick/shell_scripts)

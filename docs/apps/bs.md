@@ -1,64 +1,70 @@
 ---
 tags:
   - Free
+catalog:
+  name: Illumina BaseSpace
+  description: Command line client for retrieving data from the Illumina BaseSpace environment
+  description_fi: Komentorivityöline datan hakemiseen Illumina BaseSpace -ympäristöstä
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Illumina BaseSpace
+# Illumina BaseSpace { #illumina-basespace }
 
-Illumina BaseSpace command line client, `bs`, can be used to retrieve data from the Illumina BaseSpace environment to Puhti.
+Illumina BaseSpace -komentoriviasiakas, `bs`, mahdollistaa datan noutamisen Illumina BaseSpace -ympäristöstä Puhtiin.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Software is free to use.
+Ohjelmistoa voi käyttää maksutta.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 1.0.0 
 
-## Usage
+## Käyttö { #usage }
 
-First load the biokit module:
+Lataa ensin biokit-moduuli:
 
 ```bash
 module load biokit
 ```
 
-When biokit is loaded, the Illumina BaseSpace command line client starts with the command:
+Kun biokit on ladattu, Illumina BaseSpace -komentoriviasiakas käynnistyy komennolla:
 
 ```bash
 bs
 ```
 
-To be able to use this service, you must have an account in the [Illumina BaseSpace service](https://emea.illumina.com/products/by-type/informatics-products/basespace-sequence-hub.html).
+Palvelun käyttämiseksi sinulla on oltava tili [Illumina BaseSpace -palvelussa](https://emea.illumina.com/products/by-type/informatics-products/basespace-sequence-hub.html).
 
-As the first step, you must set up your authentication so that you can access your data in Illumina BaseSpace. 
-This is done by running the command:
+Ensimmäisenä vaiheena sinun on määritettävä todennus, jotta pääset käsiksi tietoihisi Illumina BaseSpace -palvelussa. Tämä tehdään ajamalla komento:
 
 ```bash
 bs auth
 ```
 
-The authentication information is stored to your home directory on Puhti
-(`$HOME/.basespace/default.cfg`). Thus, the authentication needs to be done only
-once.
+Todennustiedot tallennetaan kotihakemistoosi Puhtissa (`$HOME/.basespace/default.cfg`). Näin todennus tarvitsee tehdä vain kerran.
 
-After that you can start working with your Illumina data. For example, available datasets can be listed with the command:
+Tämän jälkeen voit aloittaa työskentelyn Illumina-datasi kanssa. Esimerkiksi saatavilla olevat aineistot voidaan luetella komennolla:
 
 ```bash
 bs list datasets
 ```
 
-Single dataset can be downloaded to Puhti with the command:
+Yksittäisen aineiston voi ladata Puhtiin komennolla:
 
 ```bash
 bs download dataset -i dataset_id -o local_download_dir
 ```
 
-## More information
+## Lisätietoja { #more-information }
 
-More detailed information about using Illumne BaseSpace client can be found form the links below:
+Yksityiskohtaisempaa tietoa Illumina BaseSpace -asiakkaan käytöstä löytyy alla olevista linkeistä:
 
-* [bs examples](https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-examples)
-* [bs overview](https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-overview)
+* [bs-esimerkit](https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-examples)
+* [bs-yleiskatsaus](https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-overview)

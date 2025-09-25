@@ -1,42 +1,51 @@
 ---
 tags:
   - Free
+catalog:
+  name: Octave
+  description: High-level interpreted language for numerical computations
+  description_fi: Korkean tason tulkattu kieli numeeriseen laskentaan
+  license_type: Free
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
 ---
 
-# Octave
+# Octave { #octave }
 
-GNU Octave is a high-level interpreted language, primarily intended for numerical computations. It provides capabilities for the numerical solution of linear and nonlinear problems, and for performing other numerical experiments. It also provides extensive graphics capabilities for data visualization and manipulation. Octave is normally used through its interactive command line interface, but it can also be used to write non-interactive programs. The Octave language is quite similar to Matlab so that most programs are easily portable.
+GNU Octave on korkean tason tulkattu kieli, joka on ensisijaisesti tarkoitettu numeeriseen laskentaan. Se tarjoaa ominaisuuksia lineaaristen ja epälineaaristen ongelmien numeeriseen ratkaisemiseen sekä muiden numeeristen kokeiden suorittamiseen. Lisäksi se tarjoaa laajat grafiikkaominaisuudet datan visualisointiin ja käsittelyyn. Octavea käytetään tavallisesti interaktiivisen komentorivikäyttöliittymän kautta, mutta sitä voidaan käyttää myös ei-interaktiivisten ohjelmien kirjoittamiseen. Octaven kieli on melko samanlainen kuin Matlab, joten useimmat ohjelmat on helppo siirtää.
 
 [TOC]
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 5.1.0
 
-## License
+## Lisenssi { #license }
 
 GNU General Public License (GPL)
 
-## Usage
+## Käyttö { #usage }
 
-### Interactive use on Puhti
+### Interaktiivinen käyttö Puhtissa { #interactive-use-on-puhti }
 
 ```bash
 $ ssh puhti.csc.fi
 $ module load octave-env
 $ octave
 ```
-Installing packages from Octave Forge for current user
+Octave Forgen pakettien asentaminen nykyiselle käyttäjälle
 
 ```bash
 > pkg install -forge -local <pkg_name>
 ```
 
-Packages ['Structure Handling'](https://gnu-octave.github.io/packages/struct/) and ['Parallel Computing'](https://gnu-octave.github.io/packages/parallel/) have been installed for all users by default.
+Paketit ['Structure Handling'](https://gnu-octave.github.io/packages/struct/) ja ['Parallel Computing'](https://gnu-octave.github.io/packages/parallel/) on asennettu oletuksena kaikille käyttäjille.
 
-### Octave batch jobs
+### Octave-erätyöt { #octave-batch-jobs }
 
-Example about a serial batch script job on Puhti
+Esimerkki sarja-ajoon tarkoitetusta eräskriptistä Puhtissa
 
 ```bash
 #!/bin/bash
@@ -51,19 +60,19 @@ module load octave-env
 srun octave my_code.m
 ```
 
-Submit the script with `sbatch <script_name.sh>`
+Lähetä skripti komennolla `sbatch <script_name.sh>`
 
-## References
+## Viitteet { #references }
 
-In view of the many contributions made by numerous developers over many years it is common courtesy to cite Octave in publications when it has been used during the course of research or the preparation of figures. The citation function can automatically generate a recommended citation text for Octave or any of its packages. See the help text below on how to use citation.
+Ottaen huomioon lukuisten kehittäjien monet panokset vuosien varrelta on hyvän tavan mukaista viitata Octaveen julkaisuissa, kun sitä on käytetty tutkimuksen aikana tai kuvien valmistelussa. citation-toiminto voi automaattisesti luoda suositellun viittaustekstin Octavelle tai mille tahansa sen paketeista. Katso alla olevasta ohjetekstistä, miten citationia käytetään.
 
 ```bash
 > citation
 > citation <package>
 ```
 
-Above commands will display instructions for citing GNU Octave or its packages in publications. When called without an argument, display information on how to cite the core GNU Octave system. When given a package name package, display information on citing the specific named package. Note that some packages may not yet have instructions on how to cite them.
+Yllä olevat komennot näyttävät ohjeet GNU Octaveen tai sen paketteihin viittaamista varten julkaisuissa. Kun komento suoritetaan ilman argumentteja, näytetään tiedot siitä, miten core GNU Octave -järjestelmään viitataan. Kun annetaan paketin nimi argumenttina, näytetään tiedot kyseisen paketin siteeraamisesta. Huomaa, että joillakin paketeilla ei ehkä vielä ole ohjeita niiden siteeraamiseen.
 
-## More information
+## Lisätietoja { #more-information }
 
-- Octave documentation [https://octave.org/doc/interpreter](https://octave.org/doc/interpreter)
+- Octaven dokumentaatio [https://octave.org/doc/interpreter](https://octave.org/doc/interpreter)

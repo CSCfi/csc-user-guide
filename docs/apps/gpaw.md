@@ -1,65 +1,65 @@
 ---
 tags:
   - Free
+catalog:
+  name: GPAW
+  description: Versatile DFT package
+  description_fi: Monipuolinen DFT-paketti
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# GPAW
+# GPAW { #gpaw }
 
-GPAW is an efficient program package for electronic structure
-calculations. It is based on the density-functional theory (DFT)
-implemented within the projector augmented wave (PAW), and it can utilize
-various basis sets (uniform real-space grids, plane waves, localized
-atomic orbital basis).
+GPAW on tehokas ohjelmistopaketti elektronirakennelaskentaan. Se perustuu tiheysfunktionaaliteoriaan (DFT), joka on toteutettu projector augmented wave (PAW) -menetelmän puitteissa, ja se voi käyttää erilaisia kantajoukkoja (tasaiset reaalitilan hilat, tasoaallot, lokalisoidut atomiorbitaalit).
 
-Some features of the software include:
+Ohjelmiston ominaisuuksiin kuuluvat mm.:
 
-- total energy calculations
-- structural optimizations
-- different boundary conditions (finite, wire, slab, bulk)
-- efficient parallelization
-- excited state properties within time-dependent density-functional
-    theory
+- kokonaisenergialaskut
+- rakenneoptimoinnit
+- erilaiset reunaehdot (finiitti, lanka, kalvo, bulk)
+- tehokas rinnakkaistus
+- viritystilojen ominaisuudet aikariippuvan tiheysfunktionaaliteorian puitteissa
 
 [TOC]
 
-## Available
+## Saatavuus { #available }
 
 - Puhti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0
 - Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0, 23.9.1, 24.1.0
-- Check all available versions (and default version) with
+- Katso kaikki saatavilla olevat versiot (ja oletusversio) komennolla
     `module avail gpaw`
-- Modules ending with `-omp` have the optional OpenMP parallelization enabled,
-    see [GPAW documentation about parallel runs](https://wiki.fysik.dtu.dk/gpaw/documentation/parallel_runs/parallel_runs.html?highlight=openmp#manual-openmp)
-    for more details.
+- Päätteeseen `-omp` päättyvissä moduleissa valinnainen OpenMP-rinnakkaistus on käytössä;
+    katso lisätietoja kohdasta [GPAW:n dokumentaatio rinnakkaisajoista](https://wiki.fysik.dtu.dk/gpaw/documentation/parallel_runs/parallel_runs.html?highlight=openmp#manual-openmp).
 
-### PAW Setups
+### PAW-asetukset { #paw-setups }
 
-All installations (except 24.1.0) use version **0.9.20000** of GPAW's PAW Setups.
+Kaikissa asennuksissa (paitsi 24.1.0) käytetään GPAW:n PAW-asetusten versiota **0.9.20000**.
 
-## License
+## Lisenssi { #license }
 
-GPAW is free software available under GPL, version 3+.
+GPAW on vapaa ohjelmisto, jota jaellaan GPL-lisenssillä, versio 3+.
 
-## Usage
+## Käyttö { #usage }
 
-Since the default version, that is available with `module load gpaw`, is
-subject to change when new versions are installed, we recommend to always load
-a specific GPAW version:
+Koska oletusversio, jonka saa komennolla `module load gpaw`, voi muuttua uusien versioiden myötä, suosittelemme aina lataamaan tietyn GPAW-version:
 
 ```bash
 module load gpaw/version
 ```
 
-!!! warning "Note"
-    In CSC environment, GPAW calculations are run with the `gpaw-python` command.
+!!! warning "Huom."
+    CSC-ympäristössä GPAW-laskut ajetaan komennolla `gpaw-python`.
 
-### Enabling ELPA
+### ELPA:n käyttöönotto { #enabling-elpa }
 
-On Mahti, GPAW can use the ELPA library to speed up the diagonalization step. Especially with LCAO calculations, ELPA can improve
-the performance. In order to use ELPA, the `'use_elpa' : True` setting needs to be included in the parallelization options in GPAW input
-(see [GPAW documentation](https://wiki.fysik.dtu.dk/gpaw/documentation/lcao/lcao.html#notes-on-performance) for more information).
+Mahti-järjestelmässä GPAW voi käyttää ELPA-kirjastoa diagonalisaatiovaiheen nopeuttamiseen. Erityisesti LCAO-laskuissa ELPA voi parantaa suorituskykyä. ELPA:n käyttöä varten asetus 'use_elpa' : True tulee sisällyttää GPAW-syötteen rinnakkaistusasetuksiin (katso lisätietoja: [GPAW:n dokumentaatio](https://wiki.fysik.dtu.dk/gpaw/documentation/lcao/lcao.html#notes-on-performance)).
 
-### Batch script examples
+### Eräajoesimerkit { #batch-script-examples }
 
 === "Puhti"
 
@@ -81,7 +81,7 @@ the performance. In order to use ELPA, the `'use_elpa' : True` setting needs to 
     srun gpaw-python input.py
     ```
 
-=== "Mahti (hybrid MPI/OpenMP parallelization)"
+=== "Mahti (hybridi MPI/OpenMP -rinnakkaistus)"
 
     ```bash
     #!/bin/bash -l
@@ -109,7 +109,7 @@ the performance. In order to use ELPA, the `'use_elpa' : True` setting needs to 
     srun gpaw-python input.py
     ```
 
-=== "Mahti (pure MPI parallelization)"
+=== "Mahti (pelkkä MPI-rinnakkaistus)"
 
     ```bash
     #!/bin/bash -l
@@ -130,6 +130,6 @@ the performance. In order to use ELPA, the `'use_elpa' : True` setting needs to 
     srun gpaw-python input.py
     ```
 
-## More information
+## Lisätietoja { #more-information }
 
-- [GPAW home page](https://wiki.fysik.dtu.dk/gpaw/)
+- [GPAW-kotisivu](https://wiki.fysik.dtu.dk/gpaw/)

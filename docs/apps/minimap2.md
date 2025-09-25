@@ -1,72 +1,81 @@
 ---
 tags:
   - Free
+catalog:
+  name: Minimap2
+  description: Short read aligner
+  description_fi: Lyhyiden lukemien kohdistin
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Minimap2
+# Minimap2 { #minimap2 }
 
-Minimap2 is a fast general-purpose alignment program to map DNA or long mRNA sequences against a large reference database.
-It can be used for:
+Minimap2 on nopea yleiskäyttöinen kohdistusohjelma, jolla voidaan kartoittaa DNA- tai pitkät mRNA-sekvenssit suurta viitetietokantaa vasten.
+Sitä voi käyttää seuraaviin tarkoituksiin:
 
-* mapping of accurate short reads (preferably longer than 100 bases)
-* mapping 1kb genomic reads at error rate 15% (e.g. PacBio or Oxford Nanopore genomic reads)
-* mapping full-length noisy Direct RNA or cDNA reads
-* mapping and comparing assembly contigs or closely related full chromosomes of hundreds of megabases in length
+* tarkkojen lyhyiden lukemien kohdistukseen (mieluiten yli 100 emäksen pituiset)
+* 1 kb:n genomilukemien kohdistukseen noin 15 %:n virhetasolla (esim. PacBio- tai Oxford Nanopore -genomilukemat)
+* täyspitkien, kohinaisten Direct RNA- tai cDNA-lukemien kohdistukseen
+* koontien contigien tai läheisesti sukua olevien, satojen megabastien pituisten kokonaiskromosomien kohdistukseen ja vertailuun
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [MIT License](https://raw.githubusercontent.com/lh3/minimap2/master/LICENSE.txt).
+Vapaa käyttää ja avoimen lähdekoodin [MIT-lisenssin](https://raw.githubusercontent.com/lh3/minimap2/master/LICENSE.txt) alaisena.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 2.24, 2.28
-* Chipster graphical user interface
+* Chipsterin graafinen käyttöliittymä
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, Minimap2 can be used as part of the `biokit` module collection:
+Puhti-ympäristössä Minimap2 on käytettävissä osana `biokit`-modulikokoelmaa:
 
 ```bash
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Minimap2. Note however that there are other bioinformatics tools on Puhti that have separate setup commands.
-Once biokit module is loaded, Minimap2 starts with the command:
+biokit-moduli ottaa käyttöön joukon yleisesti käytettyjä bioinformatiikan työkaluja, mukaan lukien Minimap2. Huomaa kuitenkin, että Puhtissa on myös muita bioinformatiikan työkaluja, joilla on erilliset latauskomennot.
+Kun biokit-moduli on ladattu, Minimap2 käynnistyy komennolla:
 
 ```bash
 minimap2
 ```
 
-Without any options, `minimap2` takes a reference database and a query sequence file as input and produce approximate mapping, without base-level alignment (i.e. no CIGAR), in the PAF format:
+Ilman valitsimia `minimap2` ottaa syötteenä viitetietokannan ja kyselysekvenssitiedoston ja tuottaa karkean kohdistuksen ilman emästason kohdistusta (eli ei CIGAR-tietoja) PAF-muodossa:
 
 ```bash
 minimap2 ref.fa query.fq > approx-mapping.paf
 ```
 
-If you wish to get the output in SAM format, you can use option `-a`.
+Jos haluat tulosteen SAM-muodossa, voit käyttää valitsinta `-a`.
 
-For different data types, Minimap2 needs to be tuned for optimal performance and accuracy.
-With option `-x` you can use case specific parameter sets, pre-defined and recommended by the Minimap2 developers.
+Eri aineistotyypeille Minimap2 täytyy virittää optimaalisen suorituskyvyn ja tarkkuuden saavuttamiseksi.
+Valitsimella `-x` voit käyttää tapauskohtaisia, Minimap2:n kehittäjien ennalta määrittelemiä ja suosittelemia parametrisarjoja.
  
-### Map long noisy genomic reads (_map-pb_ and _map-ont_)
+### Kohdista pitkät meluisat genomilukemat (_map-pb_ ja _map-ont_) { #map-long-noisy-genomic-reads-map-pb-and-map-ont }
 
-* PacBio subreads (_map-db_):
+* PacBio-alalukemat (_map-db_):
 
 ```bash
 minimap2 -ax map-pb ref.fa pacbio-reads.fq > aln.sam
 ```
 
-* Oxford Nanopore reads (_map-ont_):
+* Oxford Nanopore -lukemat (_map-ont_):
 
 ```bash
 minimap2 -ax map-ont ref.fa ont-reads.fq > aln.sam 
 ```
 
-### Map long mRNA/cDNA reads (splice)
+### Kohdista pitkät mRNA-/cDNA-lukemat (splice) { #map-long-mrna-cdna-reads-splice }
 
-* PacBio Iso-seq/traditional cDNA
+* PacBio Iso-Seq/perinteinen cDNA
 
 ```bash
 minimap2 -ax splice -uf ref.fa iso-seq.fq > aln.sam
@@ -84,60 +93,60 @@ minimap2 -ax splice ref.fa nanopore-cdna.fa > aln.sam
 minimap2 -ax splice -uf -k14 ref.fa direct-rna.fq > aln.sam
 ```
  
-* mapping against SIRV control
+* kohdistus SIRV-kontrolliin
 
 ```bash
 minimap2 -ax splice --splice-flank=no SIRV.fa SIRV-seq.fa
 ```
 
-### Find overlaps between long reads (_ava-pb_ and _aca-ont_)
+### Etsi päällekkäisyyksiä pitkien lukemien välillä (_ava-pb_ ja _aca-ont_) { #find-overlaps-between-long-reads-ava-pb-and-aca-ont }
 
-* PacBio read overlap
+* PacBio-lukemien päällekkäisyys
 
 ```bash
 minimap2 -x ava-pb reads.fq reads.fq > ovlp.paf
 ```
 
-* Oxford Nanopore read overlap
+* Oxford Nanopore -lukemien päällekkäisyys
 
 ```bash
 minimap2 -x ava-ont reads.fq reads.fq > ovlp.paf
 ```
 
-### Map short accurate genomic reads (sr)
+### Kohdista lyhyet tarkat genomilukemat (sr) { #map-short-accurate-genomic-reads-sr }
 
-Note, Minimap2 does not work well with short spliced reads.
+Huomaa, että Minimap2 ei toimi hyvin lyhyiden splicattujen lukemien kanssa.
 
-* single-end alignment
+* single-end-kohdistus
 
 ```bash
 minimap2 -ax sr ref.fa reads-se.fq > aln.sam
 ```
 
-* paired-end alignment
+* paired-end-kohdistus
 
 ```bash
 minimap2 -ax sr ref.fa read1.fq read2.fq > aln.sam
 ```
 
-* paired-end alignment
+* paired-end-kohdistus
 
 ```bash
 minimap2 -ax sr ref.fa reads-interleaved.fq > aln.sam 
 ```
 
-### Full genome/assembly alignment (_asm5_)
+### Koko genomin/koontien kohdistus (_asm5_) { #full-genome-assembly-alignment-asm5 }
 
-* assembly to assembly
+* koonti koontia vasten
 
 ```bash
 minimap2 -ax asm5 ref.fa asm.fa > aln.sam
 ```
 
-## Example batch script for Puhti
+## Esimerkkieräajotiedosto Puhtiin { #example-batch-script-for-puhti }
 
-On Puhti, Minimap2 jobs should be run as batch jobs. Below is a sample batch job file
-for running a Minimap2 paired-end alignment on Puhti.
+Puhtissa Minimap2-ajoja suositellaan ajettavaksi eräajoina. Alla on esimerkkieräajotiedosto
+Minimap2:n paired-end-kohdistuksen ajamiseen Puhtissa.
 
 ```bash
 #!/bin/bash -l
@@ -156,26 +165,26 @@ module load biokit
 minimap2 -t $SLURM_CPUS_PER_TASK -ax splice -uf ref.fa iso-seq.fq > aln.sam
 ```
 
-In the batch job example above, one task (`--ntasks=1`) is executed. The Minimap2 job
-uses 8 cores (`--cpus-per-task=8`) with a total of 16 GB of memory (`--mem=16000`).
-The maximum duration of the job is four hours (`--time=04:00:00`). All the cores
-are assigned from one computing node (`--nodes=1`). In addition to the resource
-reservations, you have to define the billing project for your batch job. This
-is done by replacing the `<project>` with the name of your project. You can
-use command `csc-projects` to see what projects you have on Puhti.
+Yllä olevassa eräajoesimerkissä ajetaan yksi tehtävä (`--ntasks=1`). Minimap2-ajo
+käyttää 8 ydintä (`--cpus-per-task=8`) ja yhteensä 16 Gt muistia (`--mem=16000`).
+Ajon enimmäiskesto on neljä tuntia (`--time=04:00:00`). Kaikki ytimet
+varataan yhdeltä laskentasolmulta (`--nodes=1`). Resurssivarausten lisäksi
+sinun on määritettävä eräajon laskutettava projekti. Tämä tehdään korvaamalla
+`<project>` oman projektisi nimellä. Voit tarkistaa, mitä projekteja sinulla on Puhtissa,
+komennolla `csc-projects`.
 
-You can submit the batch job file to the batch job system with the command:
+Voit lähettää eräajotiedoston ajonhallintajärjestelmään komennolla:
 
 ```bash
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Lisätietoja eräajojen ajamisesta: [Puhti user guide](../computing/running/getting-started.md)
 
-## Support
+## Tuki { #support }
 
 [CSC Service Desk](../support/contact.md)
 
-## More information
+## Lisätietoja { #more-information }
 
-* More information about Minimap2 can be found from the [Minimap2 home page](https://lh3.github.io/minimap2/).
+* Lisätietoja Minimap2:sta löytyy [Minimap2-kotisivulta](https://lh3.github.io/minimap2/).

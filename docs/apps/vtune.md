@@ -1,36 +1,42 @@
 ---
 tags:
   - Free
+catalog:
+  name: Intel VTune Profiler
+  description: Performance analysis tool for single core and threading performance
+  description_fi: Suorituskyvyn analysointityökalu yhden ytimen ja säikeistyksen suorituskyvylle
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
 ---
 
-# Intel VTune Profiler
+# Intel VTune Profiler { #intel-vtune-profiler }
 
-[Intel VTune Profiler](https://www.intel.com/content/www/us/en/docs/vtune-profiler/user-guide/2023-0/overview.html) is a performance analysis tool for single core and threading performance, i.e. for single node performance. For MPI analysis with multiple nodes, VTune produces a separate analysis for each node. More comprehensive MPI performance analysis is possible e.g. with [Intel Traceanalyzer](itac.md) or [Scalasca](scalasca.md).
+[Intel VTune Profiler](https://www.intel.com/content/www/us/en/docs/vtune-profiler/user-guide/2023-0/overview.html) on suorituskyvyn analysointityökalu yhden ytimen ja säikeistyksen suorituskyvylle, eli yhden solmun suorituskyvylle. Useamman solmun MPI-analyysissa VTune tuottaa erillisen analyysin jokaiselle solmulle. Laajempi MPI-suorituskyvyn analyysi on mahdollista esim. työkaluilla [Intel Traceanalyzer](itac.md) tai [Scalasca](scalasca.md).
 
-## Available
+## Saatavilla { #available }
 
 Puhti: 2022.3
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Usage
+## Käyttö { #usage }
 
-Intel VTune Profiler is provided via the `intel-oneapi-vtune` module. One sets up the environment by loading the module:
+Intel VTune Profiler tarjotaan moduulilla `intel-oneapi-vtune`. Ympäristö asetetaan lataamalla moduuli:
 
 ```
 module load intel-oneapi-vtune
 ```
 
-If you want to get source code level information, compile your code with the debugging information option `-g`.
+Jos haluat lähdekooditasoista tietoa, käännä ohjelmasi ottamalla käyttöön debug-tiedot valitsimella `-g`.
 
-### Results collection
+### Tulosten keruu { #results-collection }
 
-Performance analysis can be started either from VTune GUI, or with the VTune command line tool. In HPC systems
-one uses normally the command line tool `vtune` within a bash job. The first analysis that we suggest to try is
-"performance snapshot". Here is a sample batch job script that can be used to collect it
-(please modify the script according to your application and project!):
+Suorituskykyanalyysin voi käynnistää joko VTunen graafisesta käyttöliittymästä tai komentorivityökalulla. HPC-järjestelmissä käytetään yleensä komentorivityökalua `vtune` osana bash-eräajoa. Ensimmäiseksi suosittelemme kokeilemaan analyysiä "performance snapshot". Alla on esimerkkieräajon skripti, jolla sen voi kerätä (muokkaa skriptiä sovelluksesi ja projektisi mukaan!):
 
 ```
 #!/bin/bash
@@ -50,11 +56,9 @@ module load intel-oneapi-vtune
 srun vtune -collect performance-snapshot -- ./my_application
 ```
 
-By default, VTune writes the analysis results in a directory named `r000ps` within the current working directory,
-where the number is incremented automatically when multiple collections are run. The last two letters refer to the analysis
-type. One can use also a custom results directory with the `-r results_dir_name` option.
+Oletuksena VTune kirjoittaa tulokset nykyisen hakemiston alihakemiston nimellä `r000ps`, jossa numero kasvaa automaattisesti, kun keräyksiä ajetaan useita. Kaksi viimeistä kirjainta viittaavat analyysityyppiin. Voit myös määrittää oman tuloshakemiston valitsimella `-r results_dir_name`.
 
-When analysing MPI applications (and running with multiple MPI tasks), one should add the `-trace-mpi` option:
+MPI-sovelluksia analysoitaessa (ja ajettaessa useilla MPI-tehtävillä) kannattaa lisätä `-trace-mpi` -valitsin:
 
 ```
 #SBATCH ...
@@ -62,7 +66,7 @@ When analysing MPI applications (and running with multiple MPI tasks), one shoul
 srun vtune -collect performance-snapshot --trace-mpi -r results_dir_name -- ./my_application
 ```
 
-In the case of MPI jobs the profiler will generate a separate directory for each node. In order to reduce the amount of data collected, one can onsider collecting data only for a subset of the tasks by launching VTune inside a wrapper script:
+MPI-töissä profilointityökalu luo erillisen hakemiston jokaiselle solmulle. Kerättävän datan määrän pienentämiseksi voit kerätä tietoja vain osalta tehtävistä käynnistämällä VTunen kääreskriptin (wrapper) kautta:
 
 ```
 #SBATCH ...
@@ -89,54 +93,48 @@ srun ./vtune_wrapper ./my_application
 rm -rf ./vtune_wrapper
 ```
 
-### Analysing the results on command line
+### Tulosten analysointi komentoriviltä { #analysing-the-results-on-command-line }
 
-The command line tool can be used to create reports from collected results
-using the `-report` option:
+Komentorivityökalulla voi luoda raportteja kerätyistä tuloksista käyttämällä `-report`-valitsinta:
 
 ```
 vtune -report summary -r results_dir_name
 ```
 
-The results are printed to standard output or to a file using `-report-output output_filename` option.
+Tulokset tulostetaan vakiotulosteeseen tai tiedostoon valitsimella `-report-output output_filename`.
 
-VTune supports large number of different reports, *e.g.* "hotspots", "hardware events", and one can also
-compare differences between two reports:
+VTune tukee suurta määrää erilaisia raportteja, esim. "hotspots", "hardware events", ja voit myös vertailla kahden raportin eroja:
 
 ```
 vtune -report hotspots -r results_dir_name_00 -r results_dir_name_01
 ```
 
-By default the report time is grouped by functions, however it is also possible to
-have it grouped by source lines (`-group-by source-line`) or by module
+Oletuksena raportin ajat ryhmitellään funktioittain, mutta voit myös ryhmitellä ne lähdekoodiriveittäin (`-group-by source-line`) tai moduuleittain
 (`-group-by module`).
 
-Finally, it is possible to display the CPU time for call stacks
-(`-report callstacks`) or display a call tree and provide the CPU time for
-each function (`-report top-down`).
+Lopuksi on mahdollista näyttää CPU-aika kutsupinoille
+(`-report callstacks`) tai näyttää kutsupuu ja CPU-aika jokaiselle funktiolle
+(`-report top-down`).
 
+### Tulosten analysointi graafisella käyttöliittymällä { #analysing-the-results-using-gui }
 
-### Analysing the results using GUI
+Tuloksia voi tarkastella `vtune-gui`-sovelluksella, jonka suosittelemme käynnistämään [Desktop-sovelluksen](../computing/webinterface/desktop.md) kautta [Puhti-verkkokäyttöliittymässä](https://puhti.csc.fi). Voit myös kopioida koko tuloshakemiston työasemallesi paikallista analyysia varten.
 
-Results can be viewed using the `vtune-gui` application, which we recommend to launch via the [Desktop application](../computing/webinterface/desktop.md) in the [Puhti Web interface](https://puhti.csc.fi). You may also copy the full results directory
-to your workstation for local analysis.
-
-A particular result set can be opened by giving the name of the results directory as an argument to `vtune-gui`:
+Tietyn tulosjoukon voi avata antamalla tuloshakemiston nimen argumenttina `vtune-gui`-sovellukselle:
 
 ```bash
 vtune-gui results_dir_name
 ```
 
-#### Known issues
+#### Tunnetut ongelmat { #known-issues }
 
-Sometimes `vtune-gui` fails to start with an error "Failed to launch VTune Amplifier GUI...". If that happens, one should kill
-all VTune processes that are left behind and try again:
+Joskus `vtune-gui` ei käynnisty virheellä "Failed to launch VTune Amplifier GUI...". Tällöin kannattaa tappaa taustalle jääneet VTune-prosessit ja yrittää uudelleen:
 
 ```
 killall -9 -r vtune
 vtune-gui
 ```
 
-## Further information
+## Lisätietoja { #further-information }
 
-- [VTune documentation](https://www.intel.com/content/www/us/en/docs/vtune-profiler/user-guide/2024-1/overview.html)
+- [VTune-dokumentaatio](https://www.intel.com/content/www/us/en/docs/vtune-profiler/user-guide/2024-1/overview.html)

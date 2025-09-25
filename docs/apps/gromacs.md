@@ -1,132 +1,122 @@
 ---
 tags:
   - Free
+catalog:
+  name: GROMACS
+  description: Fast and versatile classical molecular dynamics
+  description_fi: Nopea ja monipuolinen klassinen molekyylidynamiikka
+  license_type: Free
+  disciplines:
+    - Chemistry
+    - Biosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# GROMACS
+# GROMACS { #gromacs }
 
-GROMACS is a very efficient engine to perform molecular dynamics simulations
-and energy minimization particularly of proteins. However, it can also be used
-to model polymers, membranes and e.g. coarse-grained systems. It also comes
-with plenty of analysis scripts.
+GROMACS on erittäin tehokas moottori molekyylidynamiikkasimulaatioiden ja energiaminimoinnin ajamiseen, erityisesti proteiineille. Sitä voidaan kuitenkin käyttää myös polymeerien, membraanien ja esim. karkeistetun tason järjestelmien mallintamiseen. Mukana tulee runsaasti analyysiskriptejä.
 
 [TOC]
 
-## Available
+## Saatavilla { #available }
 
 === "Puhti"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
-    |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
-    |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
-    |2023.2   |`gromacs/2023.2`
-    |2023.3   |`gromacs/2023.3`
-    |2024.0   |`gromacs/2024`
-    |2024.1   |`gromacs/2024.1`
-    |2024.2   |`gromacs/2024.2`
-    |2024.3   |`gromacs/2024.3`
-    |2024.4   |`gromacs/2024.4`
+    | Versio | Saatavilla olevat moduulit | Huom. |
+    |:------:|:---------------------------|:-----:|
+    |2022.2  |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-tuettu moduuli saatavilla
+    |2022.3  |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-tuettu moduuli saatavilla
+    |2022.4  |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-tuettu moduuli saatavilla
+    |2023.2  |`gromacs/2023.2`
+    |2023.3  |`gromacs/2023.3`
+    |2024.0  |`gromacs/2024`
+    |2024.1  |`gromacs/2024.1`
+    |2024.2  |`gromacs/2024.2`
+    |2024.3  |`gromacs/2024.3`
+    |2024.4  |`gromacs/2024.4`
+    |2025.1  |`gromacs/2025.1`
+    |2025.2  |`gromacs/2025.2`
 
 === "Mahti"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |2022.1   |`gromacs/2022.1`<br>`gromacs/2022.1-cp2k`|Module with CP2K available for QM/MM
-    |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
-    |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
-    |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
-    |2023.1   |`gromacs/2023.1`
-    |2023.2   |`gromacs/2023.2`
-    |2023.3   |`gromacs/2023.3`
-    |2024.0   |`gromacs/2024`
-    |2024.1   |`gromacs/2024.1`
-    |2024.2   |`gromacs/2024.2`
-    |2024.3   |`gromacs/2024.3`
-    |2024.4   |`gromacs/2024.4`
+    | Versio | Saatavilla olevat moduulit | Huom. |
+    |:------:|:---------------------------|:-----:|
+    |2022.1  |`gromacs/2022.1`<br>`gromacs/2022.1-cp2k`|CP2K:llä varustettu moduuli saatavilla QM/MM:ää varten
+    |2022.2  |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-tuettu moduuli saatavilla
+    |2022.3  |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-tuettu moduuli saatavilla
+    |2022.4  |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-tuettu moduuli saatavilla
+    |2023.1  |`gromacs/2023.1`
+    |2023.2  |`gromacs/2023.2`
+    |2023.3  |`gromacs/2023.3`
+    |2024.0  |`gromacs/2024`
+    |2024.1  |`gromacs/2024.1`
+    |2024.2  |`gromacs/2024.2`
+    |2024.3  |`gromacs/2024.3`
+    |2024.4  |`gromacs/2024.4`
+    |2025.1  |`gromacs/2025.1`
+    |2025.2  |`gromacs/2025.2`
 
 === "LUMI"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
-    |2024.2   |`gromacs/2024.2`<br>`gromacs/2024.2-gpu`<br>`gromacs/2024.2-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
-    |2024.3   |`gromacs/2024.3`<br>`gromacs/2024.3-gpu`<br>`gromacs/2024.3-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
-    |2024.4   |`gromacs/2024.4`<br>`gromacs/2024.4-gpu`|GPU-enabled module available
+    | Versio | Saatavilla olevat moduulit | Huom. |
+    |:------:|:---------------------------|:-----:|
+    |2023.3  |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-tuettu moduuli saatavilla
+    |2024.2  |`gromacs/2024.2`<br>`gromacs/2024.2-gpu`<br>`gromacs/2024.2-heffte`|GPU-tuettu moduuli saatavilla<br>heFFTe:llä varustettu moduuli saatavilla [GPU-PME-hajotusta](#gpu-pme-decomposition) varten
+    |2024.3  |`gromacs/2024.3`<br>`gromacs/2024.3-gpu`<br>`gromacs/2024.3-heffte`|GPU-tuettu moduuli saatavilla<br>heFFTe:llä varustettu moduuli saatavilla [GPU-PME-hajotusta](#gpu-pme-decomposition) varten
+    |2024.4  |`gromacs/2024.4`<br>`gromacs/2024.4-gpu`|GPU-tuettu moduuli saatavilla
+    |2025.1  |`gromacs/2025.1`<br>`gromacs/2025.1-gpu`<br>`gromacs/2025.1-heffte`|GPU-tuettu moduuli saatavilla<br>heFFTe:llä varustettu moduuli saatavilla [GPU-PME-hajotusta](#gpu-pme-decomposition) varten
+    |2025.2  |`gromacs/2025.2`<br>`gromacs/2025.2-gpu`|GPU-tuettu moduuli saatavilla
 
-- Puhti and Mahti have also `gromacs-env/<year>` modules for loading the
-  recommended latest minor version from each year (replace `<year>`
-  accordingly).
-- To access modules on LUMI, first load the CSC module tree into use with
-  `module use /appl/local/csc/modulefiles`
-- If you want to use command-line [Plumed tools](plumed.md), load the Plumed
-  module.
+- Puhtissa ja Mahtissa on myös `gromacs-env/<year>`-moduulit, jotka lataavat kunkin vuoden suositellun uusimman pienversion (korvaa `<year>` vastaavasti).
+- Päästäksesi LUMIn moduuleihin, lataa ensin CSC:n moduulipuu käyttöön komennolla `module use /appl/local/csc/modulefiles`
+- Jos haluat käyttää komentorivin [Plumed-työkaluja](plumed.md), lataa Plumed-moduuli.
 
 !!! info
-    We only provide the MPI version `gmx_mpi`, but it can be used for `grompp`,
-    `editconf` etc. similarly to the serial version. Instead of `gmx grompp`,
-    give `gmx_mpi grompp`.
+    Tarjoamme vain MPI-version `gmx_mpi`, mutta sitä voi käyttää `grompp`-, `editconf`- jne. komennoille samalla tavalla kuin sarjaversiota. Komennon `gmx grompp` sijaan käytä `gmx_mpi grompp`.
 
-## License
+## Lisenssi { #license }
 
-GROMACS is a free software available under LGPL, version 2.1.
+GROMACS on vapaa ohjelmisto, saatavilla LGPL-lisenssillä, versio 2.1.
 
-## Usage
+## Käyttö { #usage }
 
-Initialize recommended version of GROMACS on Puhti or Mahti like this:
+Alusta suositeltu GROMACS-versio Puhtissa tai Mahtissa näin:
 
 ```bash
 module purge
 module load gromacs-env
 ```
 
-Use `module spider` to locate other versions. To load these modules, you need
-to first load required dependencies, which are shown with
-`module spider gromacs/<version>`. To access CSC's GROMACS modules on LUMI,
-remember to first run `module use /appl/local/csc/modulefiles`.
+Käytä `module spider` muunnetta löytymiseen. Näiden moduulien lataaminen vaatii ensin tarvittavien riippuvuuksien lataamisen; ne näytetään komennolla `module spider gromacs/<version>`. Päästäksesi CSC:n GROMACS-moduuleihin LUMIssa, muista ensin ajaa `module use /appl/local/csc/modulefiles`.
 
-!!! info "Note"
-    Please use the `-maxh` flag for `mdrun`. Setting this equal to or slightly
-    less than the requested time limit (in hours) will ensure that there's time
-    for your simulation to write a final checkpoint and end gracefully before
-    the scheduler terminates the job. If left unspecified, there's a chance
-    that the job will crash the node(s) it is running on. For general guidance
-    on managing long simulations, see the
-    [GROMACS manual](https://manual.gromacs.org/current/user-guide/managing-simulations.html).
+!!! info "Huom."
+    Käytä `mdrun`-komennon kanssa lippua `-maxh`. Asettamalla sen pyydettyä aikarajaa (tunneissa) vastaavaksi tai hieman pienemmäksi varmistat, että simulaatiolla on aikaa kirjoittaa viimeinen checkpoint ja päättyä hallitusti ennen kuin ajonhallinta lopettaa työn. Jos tätä ei määritellä, on mahdollista, että työ kaataa solmun/solmut, joilla se pyörii. Yleisiä ohjeita pitkien simulaatioiden hallintaan löytyy
+    [GROMACS-käsikirjasta](https://manual.gromacs.org/current/user-guide/managing-simulations.html).
 
-### Notes about performance
+### Suorituskykyä koskevia huomioita { #notes-about-performance }
 
-!!! warning "Note"
-    Please minimize unnecessary disk I/O – never run simulations using
-    `mdrun -v` (the verbose flag)!
+!!! warning "Huom."
+    Minimoi turha levyluku/-kirjoitus – älä koskaan aja simulaatioita käyttäen `mdrun -v` (verbose-lippu)!
 
-It is important to setup the simulations properly to use resources efficiently.
-The most important aspects to consider (in addition to avoiding `-v`) are:
+On tärkeää asettaa simulaatiot oikein, jotta resursseja käytetään tehokkaasti. Tärkeimmät huomioitavat asiat (lisäksi: vältä `-v`) ovat:
 
-1. If you run in parallel, make a scaling test for each system – don't use more
-   cores/GPUs than is efficient. Scaling depends on many aspects of your system
-   and used algorithms, not just size.
-2. Use a recent version – there has been significant speedup and bug fixes over
-   the years. If you switch the major version, remember to check that the
-   results are comparable.
-3. For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
-   of 128 cores on Mahti), see examples below.
-4. Performance on GPUs depends on many factors and what calculations you
-   offload. Please consult the
-   [excellent ENCCS online materials](https://enccs.github.io/gromacs-gpu-performance/)
-   for a general overview, or the
-   [GROMACS on LUMI workshop materials](https://zenodo.org/records/10610643)
-   for how to run efficiently on LUMI-G.
-5. On LUMI-G it is important to make sure CPUs are bound to the correct GPUs to
-   minimize communication overhead. See examples below and
-   [LUMI Docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
-   for more information.
+1. Jos ajat rinnakkain, tee skaalautuvuustesti jokaiselle järjestelmälle – älä käytä enempää ytimiä/GPU:ita kuin on tehokasta. Skaalautuvuus riippuu monista järjestelmän ja käytettyjen algoritmien tekijöistä, ei pelkästä koosta.
+2. Käytä tuoretta versiota – suorituskyky on parantunut merkittävästi ja bugeja on korjattu vuosien varrella. Jos vaihdat pääversiota, muista tarkistaa, että tulokset ovat vertailukelpoisia.
+3. Suurissa ajoissa käytä täysiä solmuja (Puhtissa 40 ytimen monikerrat, Mahtissa 128 ytimen monikerrat), katso esimerkit alla.
+4. Suorituskyky GPU:illa riippuu monista tekijöistä ja siitä, mitä laskentaa offloadaat. Katso yleiskatsaus
+   [erinomaisista ENCCS:n verkkomateriaaleista](https://enccs.github.io/gromacs-gpu-performance/)
+   tai ohjeet tehokkaaseen ajamiseen LUMI-G:llä
+   [GROMACS LUMIssa -työpajamateriaaleista](https://zenodo.org/records/10610643).
+5. LUMI-G:llä on tärkeää varmistaa, että CPU:t sidotaan oikeisiin GPU:ihin viestintäylipään minimoimiseksi. Katso esimerkkejä alta sekä
+   [LUMI Docs -sivulta](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
+   lisätietoja varten.
 
-For a more complete description, consult the
-[mdrun performance checklist](https://manual.gromacs.org/current/user-guide/mdrun-performance.html)
-on the GROMACS page.
+Laajempi kuvaus löytyy GROMACS-sivun
+[mdrun-suorituskyvyn tarkistuslistasta](https://manual.gromacs.org/current/user-guide/mdrun-performance.html).
 
-### Puhti
+### Puhti { #puhti }
 
-=== "Serial batch script"
+=== "Sarja-ajon eräskripti"
 
     ```bash
     #!/bin/bash
@@ -145,7 +135,7 @@ on the GROMACS page.
     srun gmx_mpi mdrun -s topol -maxh 0.2
     ```
 
-=== "Parallel batch script"
+=== "Rinnakkaisen ajon eräskripti"
 
     ```bash
     #!/bin/bash
@@ -165,13 +155,10 @@ on the GROMACS page.
     srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
     ```
 
-    !!! info "Note"
-        To avoid multinode parallel jobs spreading over more nodes than
-        necessary, don't use the `--ntasks` flag, but specify `--nodes` and
-        `--ntasks-per-node=40` to get full nodes. This minimizes communication
-        overhead and fragmentation of node reservations.
+    !!! info "Huom."
+        Vältä monisolmuisten rinnakkaisajojen hajaantumista useammalle solmulle kuin on tarpeen: älä käytä lippua `--ntasks`, vaan määritä `--nodes` ja `--ntasks-per-node=40` saadaksesi täysiä solmuja. Tämä minimoi viestintäylipään ja solmuvarausten pirstoutumisen.
 
-=== "GPU batch script"
+=== "GPU-eräskripti"
 
     ```bash
     #!/bin/bash
@@ -194,15 +181,12 @@ on the GROMACS page.
     # srun gmx_mpi mdrun -pin on -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu -nstlist 200 -s topol -dlb yes
     ```
 
-    !!! info "Note"
-        Please make sure that using one GPU (and up to 10 CPU cores) is faster
-        than using one full node of CPU cores according to our
-        [usage policy](../computing/usage-policy.md). Otherwise, don't use GPUs
-        on Puhti.
+    !!! info "Huom."
+        Varmista [käyttöpolitiikkamme](../computing/usage-policy.md) mukaan, että yhden GPU:n (ja enintään 10 CPU-ytimen) käyttö on nopeampaa kuin yhden täyden CPU-solmun käyttö. Muussa tapauksessa älä käytä GPU:ita Puhtissa.
 
-### Mahti
+### Mahti { #mahti }
 
-=== "MPI-only parallel batch script"
+=== "Vain MPI -rinnakkaiseräskripti"
 
     ```bash
     #!/bin/bash
@@ -224,7 +208,7 @@ on the GROMACS page.
     srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
     ```
 
-=== "Mixed parallel batch script"
+=== "Sekarinnakkaisen ajon eräskripti"
 
     ```bash
     #!/bin/bash
@@ -248,9 +232,9 @@ on the GROMACS page.
     srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
     ```
 
-### LUMI
+### LUMI { #lumi }
 
-=== "Single GCD batch script"
+=== "Yhden GCD:n eräskripti"
 
     ```bash
     #!/bin/bash
@@ -263,14 +247,14 @@ on the GROMACS page.
     #SBATCH --cpus-per-task=7
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.4-gpu
+    module load gromacs/2025.2-gpu
 
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
     srun gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -maxh 0.2
     ```
 
-=== "Full GPU node batch script"
+=== "Koko GPU-solmun eräskripti"
 
     ```bash
     #!/bin/bash
@@ -282,7 +266,7 @@ on the GROMACS page.
     #SBATCH --ntasks-per-node=8
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.4-gpu
+    module load gromacs/2025.2-gpu
 
     export OMP_NUM_THREADS=7
 
@@ -307,34 +291,21 @@ on the GROMACS page.
     srun --cpu-bind=${CPU_BIND} ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -npme 1 -maxh 0.2
     ```
 
-!!! info "Terminology"
-    Each GPU on LUMI is composed of two AMD Graphics Compute Dies (GCD). Since
-    there are four GPUs per node, and Slurm interprets each GCD as a separate
-    GPU, you can reserve up to 8 "GPUs" per node. See more details in
-    [LUMI Docs](https://docs.lumi-supercomputer.eu/hardware/lumig/).
+!!! info "Terminologia"
+    Jokainen LUMIn GPU koostuu kahdesta AMD Graphics Compute Die -ytimestä (GCD). Koska solmussa on neljä GPU:ta ja Slurm tulkitsee jokaisen GCD:n erilliseksi GPU:ksi, voit varata jopa 8 ”GPU:ta” per solmu. Katso lisätietoja
+    [LUMI Docs -sivulta](https://docs.lumi-supercomputer.eu/hardware/lumig/).
 
-#### Notes about binding and multi-GPU simulations on LUMI
+#### Huomioita sitomisesta ja monen GPU:n ajoista LUMIssa { #notes-about-binding-and-multi-gpu-simulations-on-lumi }
 
-Only certain CPU cores are directly linked to a specific GPU on LUMI, so to
-maximize multi-GPU performance, it is important to ensure that CPU cores are
-bound to the GPUs accordingly. The full GPU node example above takes care of
-this, and also excludes the first core of each group of 8 cores linked to a
-given GCD. These are reserved for the operating system to reduce noise, meaning
-that there are only 56 cores available per node. This is also why we run 7
-threads per MPI rank, not 8.
+Vain tietyt CPU-ytimet ovat suoraan kytköksissä tiettyyn GPU:hun LUMIssa, joten monen GPU:n suorituskyvyn maksimoimiseksi on tärkeää varmistaa, että CPU-ytimet sidotaan GPU:ihin vastaavasti. Yllä oleva koko GPU-solmun esimerkki huolehtii tästä ja sulkee lisäksi pois kunkin 8 ytimen ryhmän ensimmäisen ytimen, joka on kytköksissä tiettyyn GCD:hen. Nämä varataan käyttöjärjestelmälle ”hälyn” vähentämiseksi, mikä tarkoittaa, että käytettävissä on vain 56 ydintä per solmu. Tästä syystä ajamme 7 säiettä per MPI-prosessi, emme 8.
 
-!!! error "Note"
-    Please note that CPU-GPU binding only works when reserving full nodes by
-    running in the `standard-g` partition or by using the `--exclusive` flag.
-    See more details in LUMI Docs:
-    [LUMI-G hardware](https://docs.lumi-supercomputer.eu/hardware/lumig/),
-    [LUMI-G examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
-    [GPU binding](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
+!!! error "Huom."
+    Huomaa, että CPU–GPU-sitominen toimii vain varattaessa kokonaisia solmuja ajamalla `standard-g`-osiossa tai käyttämällä lippua `--exclusive`. Katso lisätietoja LUMI Docs -sivuilta:
+    [LUMI-G-laitteisto](https://docs.lumi-supercomputer.eu/hardware/lumig/),
+    [LUMI-G-esimerkit](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
+    [GPU-sitominen](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
 
-Instead of communicating between GPUs through the CPU, direct GPU communication
-will also bring significant performance benefits when running on multiple GPUs.
-Enabling this requires setting the following environment variables in your
-batch script (see also the full GPU node example above):
+Sen sijaan, että GPU:t kommunikoisivat CPU:n kautta, suora GPU–GPU-viestintä tuo merkittäviä suorituskykyetuja ajettaessa usealla GPU:lla. Tämän mahdollistaminen edellyttää seuraavien ympäristömuuttujien asettamista eräskriptissä (katso myös yllä oleva koko GPU-solmun esimerkki):
 
 ```bash
 export MPICH_GPU_SUPPORT_ENABLED=1
@@ -342,75 +313,47 @@ export GMX_ENABLE_DIRECT_GPU_COMM=1
 export GMX_FORCE_GPU_AWARE_MPI=1
 ```
 
-Below is a comparison of the performance of GROMACS 2024.3 on Mahti (CPUs and
-GPUs) and LUMI-G using the STMV benchmark (1067k atoms, 2 fs timestep). This is
-a large system which scales very well also on GPUs. The performance of a single
-LUMI GCD (half a GPU) is about the same as a full Nvidia A100 GPU on Mahti, and
-much better than a single 128-core CPU node. Importantly, the availability of
-GPU nodes on LUMI is massive compared to Mahti (2978 vs. 24).
+Alla vertaillaan GROMACS 2024.3:n suorituskykyä Mahtissa (CPU:t ja GPU:t) ja LUMI-G:llä käyttäen STMV-vertailua (1067k atomia, 2 fs aikasteppi). Kyseessä on suuri järjestelmä, joka skaalautuu erittäin hyvin myös GPU:illa. Yhden LUMI GCD:n (puoli GPU:ta) suorituskyky on suunnilleen sama kuin Mahtin täyden Nvidia A100 GPU:n, ja selvästi parempi kuin yhden 128-ytimisen CPU-solmun. Tärkeää on myös se, että GPU-solmuja on LUMIssa saatavilla valtavasti enemmän kuin Mahtissa (2978 vs. 24).
 
-![GROMACS scaling on GPUs on Mahti and LUMI](../img/stmv.png 'GROMACS scaling on GPUs on Mahti and LUMI')
+![GROMACSin skaalautuminen GPU:illa Mahtissa ja LUMIssa](../img/stmv.png 'GROMACSin skaalautuminen GPU:illa Mahtissa ja LUMIssa')
 
-!!! info "Small systems and high-throughput simulations"
-    While medium-sized and large systems (few 100k to 1M+ atoms) can typically
-    utilize multiple GPUs well, small systems (less than 100k atoms) are often
-    best run on just a single GCD. A good way to further increase the GPU
-    utilization and efficiency of small simulations is to share one GCD between
-    multiple independent trajectories. This can be accomplished using the
-    built-in multidir feature of GROMACS. For more details about GPU-sharing
-    and aggregate sampling, see our
-    [tutorial on high-throughput simulations with GROMACS](../support/tutorials/gromacs-throughput.md).
+!!! info "Pienet järjestelmät ja korkean läpimenon simulaatiot"
+    Vaikka keskikokoiset ja suuret järjestelmät (muutama 100k – yli 1M atomia) hyödyntävät tyypillisesti useita GPU:ita hyvin, pienet järjestelmät (alle 100k atomia) kannattaa usein ajaa vain yhdellä GCD:llä. Hyvä tapa parantaa pienten simulaatioiden GPU-hyödyntämistä ja tehokkuutta on jakaa yksi GCD usean toisistaan riippumattoman trajektorin kesken. Tämä onnistuu GROMACSin sisäänrakennetulla multidir-ominaisuudella. Lisätietoja GPU-jakamisesta ja aggregoidusta otannasta löydät
+    [ohjeestamme GROMACSin korkean läpimenon simulaatioihin](../support/tutorials/gromacs-throughput.md).
 
-#### GPU PME decomposition
+#### GPU-PME-hajotus { #gpu-pme-decomposition }
 
-The scalability of huge systems with several million atoms may be limited by
-single GPU PME. To significantly improve scalability, decomposition of PME work
-to multiple GPUs is possible in modules suffixed with `-heffte` which have been
-linked to the [heFFTe library](https://icl-utk-edu.github.io/heffte/). Add the
-following exports to your batch script:
+Useiden miljoonien atomien jättijärjestelmien skaalautuvuutta voi rajoittaa yhden GPU:n PME. Skaalautuvuuden merkittävä parantaminen on mahdollista jakamalla PME-työ usealle GPU:lle moduuleissa, joiden suffiksina on `-heffte` ja jotka on linkitetty [heFFTe-kirjastoon](https://icl-utk-edu.github.io/heffte/). Lisää eräskriptiin seuraavat viennit:
 
 ```bash
 export GMX_GPU_PME_DECOMPOSITION=1
 export GMX_PMEONEDD=1
 ```
 
-The number of PME ranks to use depends on the specific case, but 1 or 2 per GPU
-*node* should be a reasonable starting point. So for 16 LUMI-G nodes, try
-`-npme 16` or `-npme 32`. An example benchmark is shown below.
+Käytettävien PME-prosessien määrä riippuu tapauskohtaisesti, mutta 1 tai 2 per GPU-solmu on usein hyvä lähtökohta. Esimerkiksi 16 LUMI-G-solmulle kokeile `-npme 16` tai `-npme 32`. Esimerkkimittaus on esitetty alla.
 
-![Scalability of benchPEP-h](../img/benchpep-h.png 'Scalability of benchPEP-h')
+![benchPEP-h:n skaalautuvuus](../img/benchpep-h.png 'benchPEP-h:n skaalautuvuus')
 
-### Visualization and analysis
+### Visualisointi ja analyysi { #visualization-and-analysis }
 
-GROMACS trajectory files and data can be visualized, for example, with the
-following programs:
+GROMACS-trajektorit ja -dataa voi visualisoida esimerkiksi seuraavilla ohjelmilla:
 
-- [VMD](vmd.md) visualization program for large biomolecular systems
-- [Grace](grace.md) plotting data produced with GROMACS tools
-- [MDAnalysis](https://www.mdanalysis.org/) Python library to analyze
-  trajectories from MD simulations
-    - Not available at CSC, but can be easily installed by the user in a
-      containerized Conda environment with
-      [Tykky](../computing/containers/tykky.md)
-- [PyMOL](https://pymol.org/2/) molecular modeling system (not available at
-  CSC)
+- [VMD](vmd.md) suurten biomolekyylijärjestelmien visualisointiin
+- [Grace](grace.md) GROMACS-työkalujen tuottaman datan piirtämiseen
+- [MDAnalysis](https://www.mdanalysis.org/) Python-kirjasto MD-simulaatioiden trajektorien analysointiin
+    - Ei saatavilla CSC:llä, mutta käyttäjä voi asentaa sen helposti kontitetussa Conda-ympäristössä
+      [Tykkyn](../computing/containers/tykky.md) avulla
+- [PyMOL](https://pymol.org/2/) molekyylimallinnusjärjestelmä (ei saatavilla CSC:llä)
 
-More are listed in the
-[GROMACS manual](https://manual.gromacs.org/current/how-to/visualize.html). In
-addition, GROMACS itself includes numerous post-processing utilities for
-analyzing trajectories. See the
-[command-line reference](https://manual.gromacs.org/current/user-guide/cmdline.html)
-for details.
+Lisää vaihtoehtoja on listattu
+[GROMACS-käsikirjassa](https://manual.gromacs.org/current/how-to/visualize.html).
+Lisäksi GROMACS sisältää lukuisia jälkikäsittelytyökaluja trajektorien analysointiin. Katso lisätiedot
+[komentoriviviitteestä](https://manual.gromacs.org/current/user-guide/cmdline.html).
 
-#### Running heavy/long analyses
+#### Raskaat/pitkät analyysit { #running-heavy-long-analyses }
 
-Visualization of large trajectories, as well as certain GROMACS tool scripts,
-can be computationally very demanding and should never be run on the login
-nodes (see [usage policy](../computing/usage-policy.md)). Instead, please run
-such workloads in an
-[`interactive` session](../computing/running/interactive-usage.md). Since we
-only provide the MPI-version of GROMACS, you need to prepend your `gmx_mpi`
-command with `orterun -n 1`, e.g.:
+Suurten trajektorien visualisointi sekä tietyt GROMACS-työkaluskriptit voivat olla laskennallisesti hyvin vaativia, eikä niitä pidä koskaan ajaa kirjautumissolmuilla (katso [käyttöpolitiikka](../computing/usage-policy.md)). Aja tällaiset kuormat sen sijaan
+[`interactive`-istunnossa](../computing/running/interactive-usage.md). Koska tarjoamme vain GROMACSin MPI-version, sinun tulee lisätä `gmx_mpi`-komennon eteen `orterun -n 1`, esim.:
 
 ```bash
 sinteractive --account <project>
@@ -418,29 +361,20 @@ module load gromacs-env
 orterun -n 1 gmx_mpi msd -n index -s topol -f traj
 ```
 
-As most GROMACS analysis utilities, such as the `msd` tool above, can only be
-run in serial, they might take quite long for large trajectories. In such cases
-it may be more convenient to run the tools as [serial batch jobs](#puhti). If
-the command you want to run requires interaction (e.g. to select which parts of
-your system to include in the analysis), you may pass these in a batch job for
-example like this:
+Koska useimmat GROMACS-analyysityökalut, kuten yllä oleva `msd`, toimivat vain sarjassa, ne voivat viedä pitkään suurille trajektorille. Tällaisissa tapauksissa voi olla kätevämpää ajaa työkalut [sarja-eräajoina](#puhti). Jos ajettava komento vaatii interaktiota (esim. valitsemaan, mitkä järjestelmän osat sisällytetään analyysiin), voit välittää nämä eräajossa esimerkiksi näin:
 
 ```bash
-# Three consecutive selections (options 2, 2 and 0), you need to know these beforehand
+# Kolme peräkkäistä valintaa (vaihtoehdot 2, 2 ja 0); sinun tulee tietää nämä etukäteen
 echo "2 2 0" | gmx_mpi trjconv -f traj -s topol -o trajout -pbc cluster -center
 ```
 
-Note that you may use the `interactive` partition (time limit 7 days) also in
-batch jobs if the 3 day time limit of `small` is not enough. The 14-day
-`longrun` partition has a very low priority and using it will often require
-substantial queueing. Another viable option is to use the
-[persistent compute node shell](../computing/webinterface/index.md#shell)
-available through the web interfaces, which will keep running even if you close
-your browser or lose internet connection.
+Huomaa, että voit käyttää myös `interactive`-osiota (aikaraja 7 päivää) eräajoissa, jos `small`-osion 3 päivän aikaraja ei riitä. `longrun`-osiossa (14 päivää) prioriteetti on hyvin matala ja sen käyttäminen vaatii usein merkittävää jonotusta. Toinen varteenotettava vaihtoehto on käyttää
+[persistentin laskentasolmun shelliä](../computing/webinterface/index.md#shell),
+joka jatkaa pyörimistä, vaikka sulkisit selaimen tai yhteys katkeaisi.
 
-## References
+## Viitteet { #references }
 
-Cite your work with the following references:
+Viittaa työhösi seuraavilla lähteillä:
 
 > - S. Páll, A. Zhmurov, P. Bauer, M. J. Abraham, M. Lundborg, A. Gray, B.
     Hess, E. Lindahl. Heterogeneous parallelization and acceleration of
@@ -450,11 +384,11 @@ Cite your work with the following references:
     Lindahl. GROMACS: High performance molecular simulations through
     multi-level parallelism from laptops to supercomputers. SoftwareX 1 (2015)
     pp. 19-25.
-> - S. Páll, M. J. Abraham, C. Kutzner, B. Hess, E. Lindahl. Tackling Exascale
+> - S. Päll, M. J. Abraham, C. Kutzner, B. Hess, E. Lindahl. Tackling Exascale
     Software Challenges in Molecular Dynamics Simulations with GROMACS. In S.
     Markidis & E. Laure (Eds.), Solving Software Challenges for Exascale 8759
     (2015) pp. 3-27.
-> - S. Pronk, S. Páll, R. Schulz, P. Larsson, P. Bjelkmar, R. Apostolov, M. R.
+> - S. Pronk, S. Päll, R. Schulz, P. Larsson, P. Bjelkmar, R. Apostolov, M. R.
     Shirts, J. C. Smith, P. M. Kasson, D. van der Spoel, B. Hess, and E.
     Lindahl. GROMACS 4.5: a high-throughput and highly parallel open source
     molecular simulation toolkit. Bioinformatics 29 (2013) pp. 845-54.
@@ -471,25 +405,24 @@ Cite your work with the following references:
     message-passing parallel molecular dynamics implementation. Comp. Phys.
     Comm. 91 (1995) pp. 43-56.
 
-See your simulation log file for more detailed references
-for methods applied in your setup.
+Katso simulaatiosi lokitiedostosta tarkemmat viittaukset setupissasi käytettyihin menetelmiin.
 
-## More information
+## Lisätietoja { #more-information }
 
-- [GROMACS home page](https://www.gromacs.org/) and [documentation](https://manual.gromacs.org/current/index.html)
-- [mdrun performance checklist](https://manual.gromacs.org/current/user-guide/mdrun-performance.html)
-- [Materials at the BioExcel website](https://bioexcel.eu/software/gromacs/)
-- [GROMACS community forum](https://gromacs.bioexcel.eu/)
-- [Poster about the performance of GROMACS on LUMI](https://zenodo.org/records/10696768)
-- **Training materials:**
-    - [Running GROMACS efficiently on LUMI workshop materials (2024)](https://zenodo.org/records/10610643)
-    - [Advanced GROMACS Workshop materials (2022)](https://enccs.github.io/gromacs-gpu-performance/)
-- **Tutorials:**
-    - [GROMACS tutorial home page](https://tutorials.gromacs.org/)
-    - [Hands-on tutorials by Justin A. Lemkul](https://www.mdtutorials.com/gmx/)
-    - [Tutorials by Bert de Groot group](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html)
-    - [Short How-To guides in the GROMACS manual](https://manual.gromacs.org/documentation/current/how-to/index.html)
-    - [High-throughput computing with GROMACS](../support/tutorials/gromacs-throughput.md)
-- Example `.tpr` files for testing:
-    - [Alcohol dehydrogenase (96k atoms)](https://a3s.fi/gromacs-inputs/adh.tpr)
-    - [Satellite tobacco mosaic virus (1067k atoms)](https://a3s.fi/gromacs-inputs/stmv.tpr)
+- [GROMACS-kotisivu](https://www.gromacs.org/) ja [dokumentaatio](https://manual.gromacs.org/current/index.html)
+- [mdrun-suorituskyvyn tarkistuslista](https://manual.gromacs.org/current/user-guide/mdrun-performance.html)
+- [Materiaalit BioExcelin sivustolla](https://bioexcel.eu/software/gromacs/)
+- [GROMACS-yhteisöfoorumi](https://gromacs.bioexcel.eu/)
+- [Posteri GROMACSin suorituskyvystä LUMIssa](https://zenodo.org/records/10696768)
+- **Koulutusmateriaalit:**
+    - [Running GROMACS efficiently on LUMI -työpajamateriaalit (2024)](https://zenodo.org/records/10610643)
+    - [Advanced GROMACS Workshop -materiaalit (2022)](https://enccs.github.io/gromacs-gpu-performance/)
+- **Tutoriaalit:**
+    - [GROMACS-tutoriaalien kotisivu](https://tutorials.gromacs.org/)
+    - [Justin A. Lemkulin hands-on -tutoriaalit](https://www.mdtutorials.com/gmx/)
+    - [Bert de Groot -ryhmän tutoriaalit](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html)
+    - [Lyhyet How-To-oppaat GROMACS-käsikirjassa](https://manual.gromacs.org/documentation/current/how-to/index.html)
+    - [Korkean läpimenon laskenta GROMACSilla](../support/tutorials/gromacs-throughput.md)
+- Esimerkki `.tpr`-tiedostoja testausta varten:
+    - [Alkoholi-dehydrogenaasi (96k atomia)](https://a3s.fi/gromacs-inputs/adh.tpr)
+    - [Satelliittitupakan mosaiikkivirus (1067k atomia)](https://a3s.fi/gromacs-inputs/stmv.tpr)

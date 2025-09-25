@@ -1,37 +1,47 @@
 ---
 tags:
   - Free
+catalog:
+  name: compute-sanitizer
+  description: Functional correctness checking suite included in the CUDA toolkit
+  description_fi: CUDA-työkalupakettiin sisältyvä toiminnallisen oikeellisuuden tarkistustyökalupaketti
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# compute-sanitizer: functional correctness checking suite for CUDA programs
+# compute-sanitizer: CUDA-ohjelmien toiminnallisen oikeellisuuden tarkistustyökalupaketti { #compute-sanitizer-functional-correctness-checking-suite-for-cuda-programs }
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 2022.2.0
 - Mahti: 2021.3.0
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Usage    
+## Käyttö { #usage }
 
-[compute-sanitizer](https://docs.nvidia.com/cuda/compute-sanitizer/index.html) is a functional correctness checking suite included in the CUDA toolkit (starting from version 11). 
-In order to use the tool, the CUDA code has to be compiled with the extra flags
-`-g` and `-G`.
+[compute-sanitizer](https://docs.nvidia.com/cuda/compute-sanitizer/index.html) on CUDA-työkalupakettiin sisältyvä toiminnallisen oikeellisuuden tarkistustyökalupaketti (alkaen versiosta 11).
+Työkalun käyttö edellyttää, että CUDA-koodi käännetään lisävalinnoilla `-g` ja `-G`.
 
-Debugging is started in an [interactive session](../computing/running/interactive-usage.md) 
-by running:
+Vianetsintä aloitetaan [interaktiivisessa istunnossa](../computing/running/interactive-usage.md)
+suorittamalla:
 
 ```bash
 compute-sanitizer  --tool <tool> ./cuda_program
 ```
-where `<tool>` is one of the several sub-tools for different type of checks:
 
-* `memcheck`: is capable of precisely detecting and attributing out of bounds and misaligned memory access errors in CUDA applications. It can also report hardware exceptions encountered by the GPU (default)
+missä `<tool>` on jokin useista eri tarkistuksia varten tarkoitetuista alatyökaluista:
 
-* `racecheck`: can report shared memory data access hazards that can cause data races.
+* `memcheck`: pystyy tarkasti havaitsemaan ja paikantamaan CUDA-sovellusten muistiviitteiden rajojen ylitykset ja virheelliset kohdistukset. Se voi myös raportoida GPU:n kohtaamat laitteistopoikkeukset (oletus)
 
-* `initcheck`: can report cases where the GPU performs uninitialized accesses to global memory 
+* `racecheck`: voi raportoida jaetun muistin tietojen käyttöön liittyvät vaarat, jotka voivat aiheuttaa kilpakäyttöä (data race).
 
-* `synccheck`: can report cases where the application is attempting invalid usages of synchronization primitives
+* `initcheck`: voi raportoida tapaukset, joissa GPU suorittaa alustamattomia pääsyjä globaaliin muistiin
+
+* `synccheck`: voi raportoida tapaukset, joissa sovellus yrittää käyttää synkronointirakenteita virheellisellä tavalla

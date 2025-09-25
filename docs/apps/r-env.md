@@ -1,105 +1,116 @@
 ---
 tags:
   - Other
+catalog:
+  name: r-env
+  description: R, RStudio Server, SAGA and TensorFlow
+  description_fi: R, RStudio Server, SAGA ja TensorFlow
+  license_type: Other
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# r-env
+# r-env { #r-env }
 
-`r-env` is an [Apptainer container](../computing/containers/run-existing.md) including R and RStudio Server, and several other features to facilitate their use. 
+`r-env` on [Apptainer-kontti](../computing/containers/overview.md#running-containers), joka sisältää R:n ja RStudio Serverin sekä useita muita ominaisuuksia niiden käytön helpottamiseksi. 
 
-- R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
+- R on avoimen lähdekoodin kieli ja ympäristö tilastolliseen laskentaan ja grafiikkaan. Lisätietoja R:stä löytyy [R-projektin sivustolta](https://www.r-project.org/about.html). Monia hyödyllisiä [R-käsikirjoja on saatavilla myös CRANissa](https://cran.r-project.org/manuals.html).
 
-- RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
+- RStudio Server on integroitu kehitysympäristö (IDE) R:lle. Lisätietoja RStudiosta löytyy [RStudion verkkosivuilta](https://rstudio.com/).
 
-!!! info "News"
-    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).  
+!!! info "Uutiset"
+  **22.7.2025** R-versio 4.5.1 on nyt saatavilla `r-env`-moduulissa Puhtissa ja Mahtissa ja se on asetettu oletusversioksi.    
+    **7.4.2025** `r-env` on nyt saatavilla myös Mahtissa, sisältäen RStudion [Mahtin web-käyttöliittymässä](../computing/webinterface/index.md). Moduuli toimii pääpiirteissään kuten `r-env` Puhtissa, mutta huomaa, että alla olevaa dokumentaatiota ei ole vielä päivitetty Mahtia varten. [Mahtin uusi small-osio](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) soveltuu monenlaiseen R- ja RStudio-työhön, pois lukien kaikkein muistia vaativimmat tehtävät. Puhtiin tottuneiden käyttäjien on hyvä huomata, että Mahtissa ei varata muistia erikseen, vaan ainoa tapa saada enemmän muistia on varata enemmän ytimia. Jos sinulla on kysyttävää R:n käytöstä Mahtissa, ota yhteyttä [CSC Service Deskiin](../support/contact.md).  
 
-## Available
+## Saatavilla { #available }
 
-`r-env` includes 1500+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
+`r-env` sisältää yli 1500 valmiiksi asennettua R-pakettia, mukaan lukien tuen [paikkatietoanalyysille](r-env-for-gis.md) ja rinnakkaislaskennalle. Suorituskyvyn parantamiseksi `r-env` on käännetty käyttäen [Intel® oneAPI Math Kernel Librarya (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (aiemmin Intel® MKL).
 
-With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
+Vähäisiä poikkeuksia lukuun ottamatta R-pakettien versiot `r-env`-moduulissa on päivätty tiettyyn ajankohtaan ([CRAN-paketit](https://cran.r-project.org/web/packages/index.html)) tai kiinnitetty tiettyyn [Bioconductor](https://www.bioconductor.org/) -versioon.
 
-Current modules and versions supported on Puhti and Mahti:
+Puhtissa ja Mahtissa tuetut moduulit ja versiot tällä hetkellä:
 
-| Module name (R version) | Puhti / Mahti | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | CmdStan version |
-| ----------------------- | ------------- | ------------------- | -------------------- | ---------------------- | ----------------| --------------- |
-| r-env/442 (default)     | X / X         | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
-| r-env/440               | X / -         | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.35.0          |    
-| r-env/432               | X / -         | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.34.1          | 
-| r-env/430               | X / -         | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.32.2          |    
-| r-env/422               | X / -         | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.32.1          | 
-| r-env/421               | X / -         | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.30.1          | 
+| Moduulin nimi (R-versio) | Puhti / Mahti | CRAN-pakettien päivämäärä | Bioconductor-versio | RStudio Server -versio | oneMKL-versio  | CmdStan-versio |
+| ----------------------- | ------------- | ------------------------- | ------------------- | ---------------------- | ---------------| --------------- |
+| r-env/451 (oletus)     | X / X         | July 7 2025               | 3.21                | 2025.05.1-513          | 2025.2.0       | 2.36.0          |
+| r-env/442               | X / X         | Feb 12 2025               | 3.20                | 2024.12.0-467          | 2025.0.1       | 2.36.0          |
+| r-env/440               | X / -         | May 15 2024               | 3.19                | 2024.04.0-735          | 2024.1.0       | 2.35.0          |    
+| r-env/432               | X / -         | Jan 15 2024               | 3.18                | 2023.12.0-369          | 2024.0.0       | 2.34.1          | 
+| r-env/430               | X / -         | Jun 07 2023               | 3.17                | 2023.06.0-421          | 2023.1.0       | 2.32.2          |    
+| r-env/422               | X / -         | Mar 06 2023               | 3.16                | 2023.03.0-386          | 2023.1.0       | 2.32.1          | 
+| r-env/421               | X / -         | Jun 29 2022               | 3.15                | 2022.02.3-492          | 2022.1.0       | 2.30.1          | 
 
+Muu ohjelmisto ja kirjastot:
 
-Other software and libraries:
-
-- Open MPI 4.1.2 (with Mellanox OFED™ software)
-- TensorFlow 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
+- Open MPI (Mellanox OFED™ -ohjelmistolla) 4.1.7 (r-env/451), 4.1.2 (r-env/421:stä r-env 442:een)
+- TensorFlow 2.19.0 (r-env/451), 2.18.0 (r-env/442), 2.9.1 (r-env/421–r-env/440)
 - cget 0.2.0
 
-## Licenses
+## Lisenssit { #licenses }
 
-- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/). The exact license of a package can also be checked inside R: `packageDescription("package", fields="License")`. More information on [citing R and different R packages](#citation) (at the bottom of the page).
+- R:n ja siihen liittyvien ohjelmistojen (mukaan lukien paketit) käytössä olevista lisensseistä löytyy tietoa [R-projektin sivuilta](https://www.r-project.org/Licenses/). Paketin tarkka lisenssi voidaan tarkistaa R:ssä: `packageDescription("package", fields="License")`. Lisätietoja [R:n ja eri R-pakettien siteeraamisesta](#citation) (sivun alaosassa).
 
-- The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). Please consult also the [RStudio End User License Agreement](https://rstudio.com/about/eula/).
+- RStudio Server -asennus perustuu [Open Source Editioniin](https://rstudio.com/products/rstudio/#rstudio-desktop) (saatavilla [AGPL v3 -lisenssillä)](https://github.com/rstudio/rstudio/blob/master/COPYING). Tutustu myös [RStudion loppukäyttäjän lisenssisopimukseen](https://rstudio.com/about/eula/).
 
-- Open MPI is distributed under the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause) (details on the [Open MPI website](https://www.open-mpi.org/community/license.php)).
+- Open MPI on jaettu [3-kohtaisen BSD-lisenssin](https://opensource.org/licenses/BSD-3-Clause) alaisena (lisätietoja [Open MPIn sivuilta](https://www.open-mpi.org/community/license.php)).
 
-- Mellanox OFED™ is based on OFED™ (available under a dual license of BSD or GPL 2.0), as well as proprietary components (see the [Mellanox OFED™ End-User Agreement](https://www.mellanox.com/page/mlnx_ofed_eula)).
+- Mellanox OFED™ perustuu OFED™:iin (saatavilla BSD- tai GPL 2.0 -kaksoislisenssillä) sekä proprietäärisiin komponentteihin (katso [Mellanox OFED™ End-User Agreement](https://www.mellanox.com/page/mlnx_ofed_eula)).
 
-- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf).
+- Intel® MKL on jaettu [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf) -lisenssillä.
 
-- NVIDIA NCCL is distributed under the [3-clause BSD license](https://docs.nvidia.com/deeplearning/nccl/bsd/index.html).
+- NVIDIA NCCL on jaettu [3-kohtaisen BSD-lisenssin](https://docs.nvidia.com/deeplearning/nccl/bsd/index.html) alaisena.
 
-- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA software development kits](https://docs.nvidia.com/deeplearning/cudnn/latest/reference/eula.html).
+- NVIDIA cuDNN on jaettu [NVIDIAn ohjelmistokehityspakettien lisenssisopimuksen](https://docs.nvidia.com/deeplearning/cudnn/latest/reference/eula.html) mukaisesti.
 
-- cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
+- cget on saatavilla [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE) -lisenssillä.
 
-- CmdStan is distributed under the [3-clause BSD license](https://github.com/stan-dev/cmdstan/blob/develop/LICENSE).
+- CmdStan on jaettu [3-kohtaisen BSD-lisenssin](https://github.com/stan-dev/cmdstan/blob/develop/LICENSE) alaisena.
 
-Licensing information within the `r-env` container is available in the file `/usr/licensing.txt`.
+`r-env`-kontin lisenssitiedot löytyvät tiedostosta `/usr/licensing.txt`.
 
-## Usage
+## Käyttö { #usage }
 
-There are several ways to use the `r-env` module on Puhti:
+`r-env`-moduulia voidaan käyttää Puhtissa usealla tavalla:
 
-* Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti in general). Use this option for analyses that take longer or require a lot of memory.
-* [Interactive jobs on a compute node](../computing/running/interactive-usage.md), using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
-* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
+* Ei-interaktiiviset eräajot ilman varattujen laskentaresurssien rajoituksia (muut kuin Puhdin yleiset rajoitukset). Käytä tätä vaihtoehtoa pidempiin tai paljon muistia vaativiin analyyseihin.
+* [Interaktiiviset ajot laskentasolmulla](../computing/running/interactive-usage.md), joko R-konsolilla tai RStudio Serverillä. Käytä tätä vaihtoehtoa koodin valmisteluun ja pienempiin analyyseihin. Interaktiivisissa ajoissa resurssit voivat olla rajoitettuja.
+* Interaktiivisesti kirjautumissolmulla käyttäen R-konsolia. Käytä tätä vain tiedonsiirtoon, pakettien saatavuuden tarkistamiseen ja pakettien asennukseen. Puhdin kirjautumissolmut [eivät ole tarkoitettu raskaaseen laskentaan](../computing/usage-policy.md#login-nodes). 
 
-#### Interactive use on a compute node
+#### Interaktiivinen käyttö laskentasolmulla { #interactive-use-on-a-compute-node }
 
-***Starting a shell session on the interactive partition***
+***Shell-istunnon käynnistäminen interaktiivisessa osiossa***
 
-To use R interactively on Puhti compute nodes, open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local scratch space. 
+Käyttääksesi R:ää interaktiivisesti Puhdin laskentasolmuilla avaa shell-istunto `interactive`-osioon komennolla `sinteractive`. Esimerkiksi alla oleva komento käynnistää istunnon, jossa on 4 Gt muistia ja 10 Gt paikallista scratch-tilaa. 
 
 ```bash
 sinteractive --account <project> --mem 4000 --tmp 10
 ```
 
-It is also possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). 
+On myös mahdollista määritellä muita asetuksia, kuten ajoaika ([katso `sinteractive`-dokumentaatio](../computing/running/interactive-usage.md)). 
 
-***Launching the R console***
+***R-konsolin käynnistäminen***
 
-Once you have opened an interactive shell session, you can start a command line version of R as follows (note that the command needs to be run on a compute node):
+Kun olet avannut interaktiivisen shell-istunnon, voit käynnistää R:n komentoriviversion seuraavasti (huomaa, että komento on ajettava laskentasolmulla):
 
 ```bash
 module load r-env
 start-r
 ```
 
-***Using RStudio Server***
+***RStudio Serverin käyttäminen***
 
-The`r-env` module can be used to remotely launch RStudio Server on your web browser. For this, you have two options.
+`r-env`-moduulia voidaan käyttää käynnistämään RStudio Server selaimeesi etäyhteydellä. Tähän on kaksi vaihtoehtoa.
 
-**Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md).
+**Vaihtoehto 1. Puhdin web-käyttöliittymän käyttäminen**. Tämä on selvästi helpoin tapa käynnistää RStudio Puhtissa. Lisätietoja: [Puhdin web-käyttöliittymän dokumentaatio](../computing/webinterface/index.md).
 
-**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
+**Vaihtoehto 2. SSH-tunnelointi**. Tämä vaihtoehto edellyttää tunnistautumista SSH-avaimella. Yksityiskohtaiset ohjeet löytyvät [erillisestä RStudio Serverin käyttöä käsittelevästä ohjeesta](../support/tutorials/rstudio-or-jupyter-notebooks.md) sekä [dokumentaatiostamme SSH-avainten käyttöönotosta Windowsissa, macOS:ssä ja Linuxissa](../computing/connecting/ssh-keys.md).
 
-#### Interactive use on a login node
+#### Interaktiivinen käyttö kirjautumissolmulla { #interactive-use-on-a-login-node }
 
-To launch the R console on a login node, run the following commands:
+Käynnistääksesi R-konsolin kirjautumissolmulla suorita seuraavat komennot:
 
 ```bash
 module load r-env
@@ -110,17 +121,17 @@ apptainer_wrapper exec R --no-save
 # as intended. 
 ```
 
-#### Non-interactive use
+#### Ei-interaktiivinen käyttö { #non-interactive-use }
 
-Further to interactive jobs, R scripts can be run non-interactively using batch job files. In addition to the following examples, [see this link](../computing/running/creating-job-scripts-puhti.md) for more information. Batch job files can be submitted to the batch job system as follows:
+Interaktiivisten ajojen lisäksi R-skriptejä voi ajaa ei-interaktiivisesti eräajotiedostoilla. Seuraavien esimerkkien lisäksi [katso tämä linkki](../computing/running/creating-job-scripts-puhti.md) lisätietoja varten. Eräajotiedostot voidaan lähettää eräajojärjestelmään seuraavasti:
 
 ```bash
 sbatch batch_job_file.sh
 ```
 
-#### Serial batch jobs
+#### Sarjaeräajot { #serial-batch-jobs }
 
-Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. For memory-intensive non-interactive jobs, we should also list a project-specific temporary directory in `/scratch/<project>`. We also execute the job using the `apptainer_wrapper` command.
+Alla on esimerkki yksiprosessorisen R-eräajon lähettämisestä Puhtiin. Huomaa, että käytetään `test`-osiota, jonka aikaraja on 15 minuuttia ja joka on tarkoitettu vain testaamiseen. Muisti-intensiivisissä ei-interaktiivisissa ajoissa tulisi myös määritellä projektikohtainen väliaikaishakemisto polkuun `/scratch/<project>`. Suoritamme ajon käyttäen komentoa `apptainer_wrapper`.
 
 ```bash
 #!/bin/bash -l
@@ -149,20 +160,20 @@ echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun apptainer_wrapper exec Rscript --no-save myscript.R
 ```
 
-In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`--mem-per-cpu=1000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
+Yllä olevassa esimerkissä suoritetaan yksi tehtävä (`--ntasks=1`), varataan 1 Gt muistia (`--mem-per-cpu=1000`) ja ajolle varataan viiden minuutin suoritusaika (`--time=00:05:00`).
 
-#### Parallel batch jobs
+#### Rinnakkaiset eräajot { #parallel-batch-jobs }
 
-The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `pbdMPI` and `snow`.
+`r-env`-moduulia voidaan käyttää rinnakkaislaskentaan useilla tavoilla. Näitä ovat moniydin- ja array-lähetykset sekä MPI (Message Passing Interface) -pohjaiset ajot. Moduuli sisältää useita paketteja, jotka tukevat monisolmuviestintää MPI:n kautta: `doMPI` (käytetään yhdessä `foreach`in kanssa), `future`, `pbdMPI` ja `snow`.
 
-Further to the following examples, please see our separate [tutorial for parallel R jobs](../support/tutorials/parallel-r.md). There is also [separate documentation on MPI jobs](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) for examples of parallel computing using the `raster` package.
+Seuraavien esimerkkien lisäksi tutustu erilliseen [rinnakkaisia R-ajoja käsittelevään ohjeeseen](../support/tutorials/parallel-r.md). Saatavilla on myös [erillinen dokumentaatio MPI-ajoista](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). Voit myös tutustua asiaankuuluvien R-pakettien käsikirjoihin ja [tähän sivuun](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) esimerkkejä varten `raster`-pakettiin perustuvasta rinnakkaislaskennasta.
 
 !!! note
-    For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone are unavailable due to compatibility issues.
+    Rmpi-pakettia käyttäville ajoille käytäthän `snow`-pakettia (joka rakentuu Rmpin päälle). Pelkkää Rmpi:tä käyttävät ajot eivät ole saatavilla yhteensopivuusongelmien vuoksi.
 
-*Multi-core jobs*
+*Moniydinajot*
 
-To submit a job employing multiple cores on a single node, one could use the following batch job file. The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
+Useita ytimiä yhdellä solmulla käyttävän ajon voi lähettää esimerkiksi seuraavalla eräajotiedostolla. Ajo varaa yhden tehtävän (`--ntasks=1`), kahdeksan ydintä (`--cpus-per-task=8`) ja yhteensä 8 Gt muistia (`--mem-per-cpu=1000)`. Ajoaika on rajoitettu viiteen minuuttiin.
 
 ```bash
 #!/bin/bash -l
@@ -192,9 +203,9 @@ echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun apptainer_wrapper exec Rscript --no-save myscript.R
 ```
 
-*Array jobs*
+*Array-ajot*
 
-Array jobs can be used to handle [*embarrassingly parallel*](../computing/running/array-jobs.md) tasks. The script below would submit a job involving ten subtasks on the `small` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
+Array-ajoja voidaan käyttää [helposti rinnakkaistettaville](../computing/running/array-jobs.md) tehtäville. Alla oleva skripti lähettää ajon, jossa on kymmenen alitehtävää `small`-osiossa ja kukin alitehtävä vaatii alle viisi minuuttia laskenta-aikaa ja alle 1 Gt muistia.
 
 ```bash
 #!/bin/bash -l
@@ -224,7 +235,7 @@ echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun apptainer_wrapper exec Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
 ```
 
-For larger-scale array jobs involving [many small independent runs](../support/tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
+Laajemmissa array-ajoissa, jotka sisältävät [monia pieniä itsenäisiä ajoja](../support/tutorials/many.md), voidaan harkita seuraavaa esimerkkiä. Oletetaan, että meillä on yhteensä 1500 ajoa suoritettavana. Meillä on myös lista (`mylist.txt`), jossa on jokaiselle ajolle yksilöllinen tunniste, jota käytetään R-skriptissä oikean aineiston poimimiseen analyysiä varten. Lista on rivi riviltä seuraavanlainen:
 
 ```bash
 set1
@@ -234,13 +245,13 @@ set3
 set1500
 ```
 
-To perform our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
+Analyysin tehokkaaseen suorittamiseen voimme hyödyntää moduulia, joka sisältää [GNU parallelin](https://www.gnu.org/software/parallel/) ajastamaan, miten ajot suoritetaan array-ajon sisällä. Alla olevasta eräajotiedostosta tulee huomioida pari yksityiskohtaa:
 
-- The way in which the runs are split into arrays is case-specific and requires manual calculation. In the current example, since `mylist.txt` contains 1500 identifiers and we are using 10 arrays, a decision has been made to allocate 150 runs per array. 
+- Se, miten ajot jaetaan array-ryhmiin, on tapauskohtaista ja vaatii manuaalisen laskennan. Tässä esimerkissä, koska `mylist.txt` sisältää 1500 tunnistetta ja käytämme 10 arrayta, on päätetty varata 150 ajoa arrayta kohden. 
 
-- We use `-j $SLURM_CPUS_PER_TASK -k`  to tell GNU parallel to keep running 4 applications in parallel, while ensuring that the job output order matches the input order.  The number of simultaneous parallel applications is defined using `--cpus-per-task`.
+- Käytämme `-j $SLURM_CPUS_PER_TASK -k` ohjeistamaan GNU parallelia ajamaan 4 sovellusta rinnakkain ja pitämään tulosteiden järjestyksen samana kuin syötteiden järjestys. Samanaikaisten rinnakkaisten sovellusten määrä määritellään `--cpus-per-task`-asetuksella.
 
-- For a real-life analysis, we would likely need much more time and memory (determined by what we do within our R script).
+- Todellisessa analyysissä tarvitsisimme todennäköisesti paljon enemmän aikaa ja muistia (riippuen siitä, mitä R-skriptissä tehdään).
 
 ```bash
 #!/bin/bash -l
@@ -278,24 +289,24 @@ sed -n "${from_run},${to_run}p" mylist.txt | \
                 $SLURM_ARRAY_TASK_ID
 ```
 
-If we wanted to access the unique run identifier as well as the array number within our R script, we could use the `commandArgs` function.
+Jos haluaisimme käyttää sekä yksilöllistä ajotunnistetta että array-numeroa R-skriptissä, voisimme hyödyntää `commandArgs`-funktiota.
 
 ```r
 # For example:
 arrays <- commandArgs(trailingOnly = TRUE)
 ```
 
-*Jobs using `doMPI` (with `foreach`)*
+*Ajot käyttäen `doMPI`:a (yhdessä `foreach`in kanssa)*
 
-The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we could modify the `srun` command at the end of the batch job file:
+`foreach`-paketti toteuttaa for-silmukan, joka käyttää iteraattoreita ja mahdollistaa rinnakkaisen suorituksen operaattorilla `%dopar%`. Rinnakkaisia `foreach`-silmukoita voidaan ajaa Puhtissa `doMPI`-paketin avulla. Muutoin eräajotiedosto muistuttaa moniydintyötä käyttävää tiedostoa, mutta korvaamme `--cpus-per-task=8` asetuksella `--ntasks=8`. Lisäksi voimme muokata eräajotiedoston lopussa olevaa `srun`-komentoa:
 
 ```bash
 srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
 ```
 
-The `--slave` argument is optional and will prevent different processes from printing out a welcome message etc.
+Valitsin `--slave` on valinnainen ja estää eri prosesseja tulostamasta tervetuloviestejä yms.
 
-Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal to the number of reserved cores that all begin to execute the given R script. It is important to include the `startMPIcluster()` call near the beginning of the R script as anything before it will be executed by all available processes (while only the master process continues after it). Upon completion, the cluster is closed using `closeCluster()`. The `mpi.quit()` function can then be used to terminate the MPI execution environment and to quit R:
+Toisin kuin `snow`-pakettia käytettäessä, `doMPI`-ajot käynnistävät R-istuntoja varattujen ytimien lukumäärän verran ja jokainen alkaa suorittaa annettua R-skriptiä. On tärkeää sisällyttää `startMPIcluster()`-kutsu R-skriptin alkuun, sillä kaikki sitä ennen oleva suoritetaan kaikissa prosesseissa (kun taas vain master-prosessi jatkaa sen jälkeen). Lopuksi klusteri suljetaan komennolla `closeCluster()`. `mpi.quit()`-funktiolla voidaan lopettaa MPI-ympäristö ja poistua R:stä:
 
 ```r
 library(doMPI, quietly = TRUE)
@@ -309,9 +320,9 @@ closeCluster(cl)
 mpi.quit()
 ```
 
-*Jobs using `snow`*
+*Ajot käyttäen `snow`-pakettia*
 
-Whereas most parallel R jobs employing the `r-env` module can be submitted using `srun apptainer_wrapper exec Rscript`, those involving the package `snow` need to be executed using a separate command (`RMPISNOW`). `snow` relies on a communication model where a master process is used to control other processes (workers). Because of this, the batch job file must specify one more task than the planned number of `snow` workers, as the master needs its own task. For example, for a job requiring seven workers, we could submit a job as follows:
+Siinä missä useimmat `r-env`-moduulia hyödyntävät rinnakkaiset R-ajot voidaan lähettää komennolla `srun apptainer_wrapper exec Rscript`, `snow`-pakettia käyttävät ajot täytyy suorittaa erillisellä komennolla (`RMPISNOW`). `snow` perustuu viestintämalliin, jossa master-prosessi ohjaa muita prosesseja (työntekijöitä). Tämän vuoksi eräajotiedostossa on määriteltävä yksi tehtävä enemmän kuin suunniteltu `snow`-työntekijöiden määrä, koska master tarvitsee oman tehtävänsä. Esimerkiksi, seitsemän työntekijän ajo voidaan lähettää seuraavasti:
 
 ```bash
 #!/bin/bash -l
@@ -340,7 +351,7 @@ echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun apptainer_wrapper exec RMPISNOW --no-save --slave -f myscript.R
 ```
 
-Unlike when using `foreach` and `doMPI`, here only the master process runs the R script. The R script must contain the call `getMPIcluster()` that is used to produce a reference to the cluster which can then be passed onto other functions. Upon completion of the analysis, the cluster is stopped using `stopCluster()`. For example:
+Toisin kuin `foreach`- ja `doMPI`-esimerkeissä, tässä vain master-prosessi ajaa R-skriptin. R-skriptissä on oltava kutsu `getMPIcluster()`, jolla luodaan viittaus klusteriin ja välitetään se muille funktioille. Analyysin valmistuttua klusteri pysäytetään komennolla `stopCluster()`. Esimerkiksi:
 
 ```r
 cl <- getMPIcluster()
@@ -355,15 +366,15 @@ a
 stopCluster(cl)
 ```
 
-*Jobs using `future`*
+*Ajot käyttäen `future`-pakettia*
 
-The `future` package provides an API for R jobs using futures (see the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details). Whether futures are resolved sequentially or in parallel is specified using the function `plan()`.
+`future`-paketti tarjoaa API:n futures-perusteisille R-ajoille (katso lisätietoja [futuren CRAN-sivulta](https://cran.r-project.org/web/packages/future/index.html)). Se, ratkaistaanko futuureja peräkkäin vai rinnakkain, määritellään funktiolla `plan()`.
 
-For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Using `plan(cluster)` is suitable for work using multiple nodes.
+Yhdelle solmulle sopivat `plan(multisession)` ja `plan(multicore)`. Edellinen käynnistää useita riippumattomia R-prosesseja ja jälkimmäinen forkkaa olemassa olevan R-prosessin. `plan(cluster)` sopii useamman solmun töihin.
 
-To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`), a single task (`--ntasks=1`), and the number of cores (`--cpus-per-task=x`; 40 is the maximum on a single node). By default, the number of workers is the number of cores given by `availableCores()`. For guidelines on designing batch job files, see other examples on this page.
+Lähettääksesi multisession- tai multicore-futuureja käyttävän ajon, määrittele yksi solmu (`--nodes=1`), yksi tehtävä (`--ntasks=1`) ja ytimien määrä (`--cpus-per-task=x`; enintään 40 yhdellä solmulla). Oletuksena työntekijöiden lukumäärä on `availableCores()`-funktion palauttama ytimien määrä. Ohjeita eräajotiedostojen suunnitteluun löytyy tämän sivun muista esimerkeistä.
 
-The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. 
+Alla oleva R-skripti voi olla hyödyllinen peräkkäisten, multisession- ja multicore-strategioiden ajankäytön vertailussa. 
 
 ```r
 library(future)
@@ -388,7 +399,7 @@ toc()
 # multicore: 2.212 sec
 ```
 
-For multi-node analyses using `plan(cluster)`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW` and we should specify enough tasks for both the master and worker processes (see 'Jobs using `snow`'). To use `future` with `snow`, the following lines would also need to be included in the R script:
+Monisolmuanalyyseihin `plan(cluster)`-menetelmällä työ voidaan lähettää `snow`-paketin avulla. Koska käytämme `snow`-pakettia, R täytyy käynnistää komennolla `RMPISNOW` ja tehtäviä pitää varata riittävästi sekä masterille että työntekijöille (katso 'Ajot käyttäen `snow`-pakettia'). Käyttääksesi `future`-pakettia yhdessä `snow`-paketin kanssa, lisää myös seuraavat rivit R-skriptiin:
 
 ```r
 library(future)
@@ -401,11 +412,11 @@ plan(cluster, workers = cl)
 stopCluster(cl)
 ```
 
-For practical examples of jobs using `plan(cluster)` and `plan(multicore)` with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
+Käytännön esimerkkejä `plan(cluster)`- ja `plan(multicore)`-ajoista rasteriaineistoilla löytyy [tästä](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
 
-*Jobs using `pbdMPI`*
+*Ajot käyttäen `pbdMPI`-pakettia*
 
-In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `srun apptainer_wrapper exec Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
+`pbdMPI`-pakettia käyttävissä analyyseissä jokainen prosessi ajaa samaa ohjelmaa mutta omalla datallaan. Toisin sanoen erillistä master-prosessia ei ole kuten `snow`- tai `doMPI`-paketeissa. `pbdMPI`-ajoja voidaan suorittaa komennolla `srun apptainer_wrapper exec Rscript`. Esimerkiksi voimme lähettää ajon, jossa on neljä tehtävää ja kaksi solmua (kaksi tehtävää solmua kohden):
 
 ```bash
 #!/bin/bash -l
@@ -434,7 +445,7 @@ echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
 ```
 
-As an example, this batch job file could be used to execute the following "hello world" script (original version available via the `pbdMPI` [GitHub repository](https://github.com/snoweye/pbdMPI)). The `init()` function initializes the MPI communicators while `finalize()` is used to shut them down and to exit R.
+Esimerkiksi tämä eräajotiedosto voisi suorittaa seuraavan "hello world" -skriptin (alkuperäinen versio saatavilla `pbdMPI`-paketin [GitHub-repositorystä](https://github.com/snoweye/pbdMPI)). `init()`-funktio alustaa MPI-kommunikaattorit ja `finalize()` sulkee ne ja lopettaa R-istunnon.
 
 ```r
 library(pbdMPI, quietly = TRUE)
@@ -447,18 +458,18 @@ comm.print(message, all.rank = TRUE, quiet = TRUE)
 finalize()
 ```
 
-#### Improving performance using threading
+#### Suorituskyvyn parantaminen säikeistystä hyödyntämällä { #improving-performance-using-threading }
 
-`r-env` has been compiled using the Intel® Math Kernel Library (MKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://software.intel.com/content/www/us/en/develop/documentation/mkl-linux-developer-guide/top/managing-performance-and-memory/improving-performance-with-threading.html). 
+`r-env` on käännetty Intel® Math Kernel Libraryn (MKL) kanssa, mikä mahdollistaa data-analyysitehtävien suorittamisen useilla säikeillä. Lisätietoja säikeistyksestä: [Intel®-sivusto](https://software.intel.com/content/www/us/en/develop/documentation/mkl-linux-developer-guide/top/managing-performance-and-memory/improving-performance-with-threading.html). 
 
-By default, `r-env` is single-threaded. While users may set a desired number of threads for a job, the benefits of this in terms of computation times depend on the analysis. Because of this, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
+Oletuksena `r-env` toimii yhdellä säikeellä. Vaikka käyttäjä voi asettaa säikeiden määrän, tästä saatava hyöty riippuu analyysista. Siksi suosittelemme kokeilemaan eri säiemääriä ja mittaamaan suorituskykyä pienellä esimerkkiaineistolla ja esimerkiksi R-paketilla [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
 
 !!! note
-    Note that simply adding more resources does not necessarily guarantee faster computation!
+    Pelkkä resurssien lisääminen ei välttämättä tarkoita nopeampaa laskentaa!
 
-The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Because `r-env` is based on an Apptainer container, when specifying the number of OpenMP threads we need to use the environment variable `APPTAINERENV_OMP_NUM_THREADS`.
+Moduuli käyttää OpenMP-säikeistystä ja säikeiden määrää voidaan hallita ympäristömuuttujalla `OMP_NUM_THREADS`. Käytännössä säikeiden määrä asetetaan vastaamaan ajossa käytettävien ytimien määrää. Koska `r-env` on Apptainer-kontin sisällä, OpenMP-säikeiden määrää määritettäessä on käytettävä ympäristömuuttujaa `APPTAINERENV_OMP_NUM_THREADS`.
 
-An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `APPTAINERENV_OMP_PLACES=cores`, we bind each thread to a single core. We also use `APPTAINERENV_OMP_PROC_BIND=close` to ensure that threads are placed as closely as possible (to allow faster communication between threads). Note that [other options](https://theartofhpc.com/pcse/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
+Esimerkki eräajotiedostosta löytyy alla. Tässä lähetämme ajon, jossa käytetään kahdeksaa ydintä (ja siten kahdeksaa säiettä) yhdellä solmulla. Huomaa, että säikeiden ja ytimien määrä täsmäytetään `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. Asettamalla `APPTAINERENV_OMP_PLACES=cores` sidomme jokaisen säikeen yhteen ytimeen. `APPTAINERENV_OMP_PROC_BIND=close` varmistaa, että säikeet sijoitetaan mahdollisimman lähelle toisiaan (nopeuttaen säikeiden välistä viestintää). Huomaa, että [muitakin vaihtoehtoja](https://theartofhpc.com/pcse/omp-affinity.html) säikeiden sijoittelun hallintaan on saatavilla analyysistä riippuen.
 
 ```bash
 #!/bin/bash -l
@@ -495,26 +506,26 @@ export APPTAINERENV_OMP_PROC_BIND=close
 srun apptainer_wrapper exec Rscript --no-save myscript.R
 ```
 
-In a multi-core interactive job, the number of threads can be automatically matched with the number of cores by running a multi-threaded version of the `start-r` or `start-rstudio-server` commands:
+Moniydininteraktiivisessa ajossa säikeiden määrä voidaan täsmäyttää automaattisesti ytimien määrään ajamalla säikeistetty versio komennoista `start-r` tai `start-rstudio-server`:
 
 ```bash
 start-r-multithread # or
 start-rstudio-server-multithread
 ```
 
-#### OpenMP / MPI hybrid jobs
+#### OpenMP-/MPI-hybridityöt { #openmp-mpi-hybrid-jobs }
 
-Further to [executing multi-threaded R jobs on a single node](#improving-performance-using-threading), these can also be run on multiple nodes. In such cases, one must specify the number of:
+[Usealla säikeellä yhdellä solmulla ajettavien R-töiden](#improving-performance-using-threading) lisäksi näitä voidaan ajaa usealla solmulla. Tällöin on määriteltävä:
 
-- Nodes (`--nodes`) 
+- solmujen lukumäärä (`--nodes`) 
 
-- MPI processes per node (`--ntasks-per-node`) 
+- MPI-prosessien lukumäärä solmua kohden (`--ntasks-per-node`) 
 
-- OpenMP threads used for each MPI process (`--cpus-per-task`)
+- OpenMP-säikeiden lukumäärä per MPI-prosessi (`--cpus-per-task`)
 
-When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to 40 (the maximum number of cores available on a single node on Puhti). For large multinode jobs, aim to use full nodes, i.e. use all 40 cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
+Näitä eräajotiedostossa määriteltäessä huomioi, että `--ntasks-per-node × --cpus-per-task` on oltava enintään 40 (Puhtin yksittäisen solmun ytimien enimmäismäärä). Suurissa monisolmuajoissa pyri käyttämään kokonaisia solmuja, eli kaikkia 40 ydintä jokaisessa solmussa. Sopivan OpenMP-säikeiden määrän ohella myös optimaalinen MPI-prosessien määrä ja jako vaatii kokeilua, sillä ne ovat tehtäväkohtaisia. 
 
-As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. We also use the same variables for thread affinity control.
+Esimerkkinä OpenMP-/MPI-hybridityöstä alla oleva lähetys käyttäisi yhteensä neljää MPI-prosessia (kaksi tehtävää solmua kohden, kaksi solmua varattuna) ja kukin prosessi käyttäisi kahdeksaa OpenMP-säiettä. Kaikkiaan työ käyttäisi 32 ydintä (`--cpus-per-task × --ntasks-per-node × --nodes`). Kuten yhden solmun säikeistetyissä ajoissa, säikeiden ja ytimien määrä täsmäytetään `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. Käytämme samoja muuttujia myös säikeiden sijoittelun hallintaan.
 
 ```bash
 #!/bin/bash -l
@@ -551,11 +562,11 @@ export APPTAINERENV_OMP_PROC_BIND=close
 srun apptainer_wrapper exec Rscript --no-save myscript.R
 ```
 
-#### Using fast local storage
+#### Nopean paikallisen tallennustilan käyttäminen { #using-fast-local-storage }
 
-For I/O-intensive analyses, [fast local storage](../computing/running/creating-job-scripts-puhti.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
+I/O-intensiivisissä analyyseissä [nopeaa paikallista tallennustilaa](../computing/running/creating-job-scripts-puhti.md#local-storage) voidaan käyttää ei-interaktiivisissa eräajoissa pienin muutoksin eräajotiedostoon. Interaktiiviset R-ajot käyttävät nopeaa paikallista tallennustilaa oletuksena.
 
-An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior examples where it was set as `/scratch/<project>`.
+Alla on esimerkki sarjaeräajosta, joka käyttää 10 Gt nopeaa paikallista tallennustilaa (`--gres=nvme:10`). Tässä väliaikaishakemisto määritellään ympäristömuuttujalla `TMPDIR`, toisin kuin aiemmissa esimerkeissä, joissa se oli `/scratch/<project>`.
 
 ```bash
 #!/bin/bash -l
@@ -585,17 +596,17 @@ echo "TMPDIR=$TMPDIR" >> ~/.Renviron
 srun apptainer_wrapper exec Rscript --no-save myscript.R
 ```
 
-Further to temporary file storage, data sets for analysis can be stored on a fast local drive in the location specified by the variable `LOCAL_SCRATCH`. To enable R to find your data, you will need to indicate this location in your R script. After launching R, you can print out the location using the following command:
+Väliaikaistiedostojen lisäksi analysoitavat aineistot voidaan tallentaa nopealle paikalliselle levylle sijaintiin, jonka määrittelee muuttuja `LOCAL_SCRATCH`. Jotta R löytää datasi, ilmoita tämä sijainti R-skriptissäsi. Voit tulostaa sijainnin R:ssä komennolla:
 
 ```
 Sys.getenv("LOCAL_SCRATCH")
 ```
 
-#### R interface to TensorFlow
+#### R-rajapinta TensorFlow’hun { #r-interface-to-tensorflow }
 
-The `r-env` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+`r-env`-moduuli tukee GPU-kiihdytettyjä TensorFlow-ajoja [R:n TensorFlow-rajapinnan](https://tensorflow.rstudio.com/) kautta. Jos tarvitset vain TensorFlow’n ilman R:ää, käytä jotakin saatavilla olevista [TensorFlow-moduuleista Puhtissa](tensorflow.md). Yleistä tietoa GPU-ajoista: [katso tämä ohje](../support/tutorials/gpu-ml.md). Huomaa, että `r-env` sisältää CUDA- ja cuDNN-kirjastot, joten näitä moduuleja ei tarvitse ladata erikseen.
 
-To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://tensorflow.rstudio.com/examples/). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
+Lähettääksesi GPU-ajon TensorFlow’n R-rajapinnalla käytä GPU-osiota ja määrittele GPU-tyyppi ja -määrä `--gres`-lipulla. Muun hoitaa R-skripti (ks. [täältä esimerkkejä](https://tensorflow.rstudio.com/examples/)). Alla olevassa skriptissä varataan yksi GPU ja 10 CPU:ta yhdellä solmulla:
 
 ```bash
 #!/bin/bash -l
@@ -625,23 +636,23 @@ echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun apptainer_wrapper exec Rscript --no-save myscript.R
 ```
 
-Please note that interactive work using GPU acceleration (e.g. with RStudio) is not supported.
+Huomaa, että interaktiivinen GPU-kiihdytystä hyödyntävä työ (esim. RStudio) ei ole tuettu.
 
-#### GPU acceleration using NVBLAS
+#### GPU-kiihdytys NVBLASilla { #gpu-acceleration-using-nvblas }
 
-It is possible to configure `r-env` to use NVIDIA NVBLAS, a drop-in BLAS replacement with GPU support for several BLAS3 routines (for details, see the [NVBLAS website](https://docs.nvidia.com/cuda/nvblas/index.html)). Routines not supported by NVBLAS are directed to a fallback BLAS library, i.e. oneMKL in the case of the `r-env` module.
+`r-env` voidaan konfiguroida käyttämään NVIDIA NVBLASia, joka on GPU-tuen sisältävä BLAS-korvike useille BLAS3-rutiineille (lisätietoja [NVBLAS-sivulla](https://docs.nvidia.com/cuda/nvblas/index.html)). NVBLASin tukemattomat rutiinit ohjataan varakirjastoon, eli `r-env`-moduulissa oneMKL:ään.
 
-Compared to CPU jobs, using NVBLAS may offer speed improvements without changes to the underlying R code. However, the benefits afforded are strongly analysis-specific. Additionally, NVBLAS jobs make sub-optimal use of reservations on the GPU partition, with only certain operations being routed to the GPU.
+NVBLAS voi tarjota nopeutuksia CPU-ajoihin verrattuna ilman muutoksia R-koodiin. Hyöty on kuitenkin vahvasti analyysikohtainen. Lisäksi NVBLAS-työt käyttävät GPU-osion varauksia tehottomasti, koska vain tietyt operaatiot ohjataan GPU:lle.
 
-Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/usage-policy.md#gpu-nodes) and this checklist:
+Ennen NVBLAS-työn ajamista huomioi [Puhdin GPU-solmujen käyttösäännöt](../computing/usage-policy.md#gpu-nodes) ja tämä tarkistuslista:
 
-- Are BLAS3 routines the main bottleneck in your workflow? 
-- Are speed-ups possible through other means (e.g. rewriting your code)?
-- Can certain parts of your script be run on a CPU partition rather than the GPU partition?
+- Ovatko BLAS3-rutiinit työnkulun pääasiallinen pullonkaula? 
+- Ovatko nopeutukset mahdollisia muilla tavoin (esim. kirjoittamalla koodia uudelleen)?
+- Voidaanko skriptin osia ajaa CPU-osiossa GPU-osion sijaan?
 
-NVBLAS can be used by following these steps:
+NVBLASia voidaan käyttää seuraavasti:
 
-Step 1. Create a file called `nvblas.conf` in `~/nvblas` with the following contents:
+Vaihe 1. Luo tiedosto `nvblas.conf` hakemistoon `~/nvblas` seuraavalla sisällöllä:
 
 ```
 NVBLAS_LOGFILE nvblas.log
@@ -649,10 +660,10 @@ NVBLAS_GPU_LIST ALL
 NVBLAS_TRACE_LOG_ENABLED
 NVBLAS_CPU_BLAS_LIB /opt/intel/oneapi/mkl/2022.1.0/lib/intel64/libmkl_rt.so
 ```
-Note that the CPU BLAS library listed above is specific to `r-env/421`.
-Adding `NVBLAS_TRACE_LOG_ENABLED` is optional and prompts NVBLAS to create a list of all intercepted BLAS calls for debugging.
+Huomaa, että yllä listattu CPU BLAS -kirjasto on spesifinen versiolle `r-env/421`.
+`NVBLAS_TRACE_LOG_ENABLED` on valinnainen ja pyytää NVBLASia luomaan listan kaikista siepatuista BLAS-kutsuista debuggausta varten.
 
-Step 2. Add the following lines to your GPU batch job file:
+Vaihe 2. Lisää seuraavat rivit GPU-eräajotiedostoosi:
 
 ```
 # Use NVBLAS
@@ -660,34 +671,34 @@ export APPTAINERENV_LD_PRELOAD=/usr/local/cuda/targets/x86_64-linux/lib/libnvbla
 export APPTAINERENV_NVBLAS_CONFIG_FILE=~/nvblas/nvblas.conf
 ```
 
-#### Using `r-env` with Stan
+#### `r-env`in käyttäminen Stanin kanssa { #using-r-env-with-stan }
 
-The `r-env` module includes several packages that make use of [Stan](https://mc-stan.org/) for statistical modelling.
+`r-env`-moduuli sisältää useita paketteja, jotka hyödyntävät [Stania](https://mc-stan.org/) tilastomallinnukseen.
 
 !!! note
-    The thread affinity variable `APPTAINERENV_OMP_PLACES=cores` has been found to interfere with parallel jobs using the `rstan` package. We currently recommend that this variable should not be used for parallel R jobs with Stan.
+    Säikeiden sijoittelua ohjaavan muuttujan `APPTAINERENV_OMP_PLACES=cores` on todettu häiritsevän `rstan`-pakettia käyttäviä rinnakkaisajoja. Suosittelemme toistaiseksi, ettei tätä muuttujaa käytetä rinnakkaisissa R-ajoissa, joissa hyödynnetään Stania.
 
-*Using R with the CmdStan backend* 
+*R:n käyttäminen CmdStan-taustaosalla* 
 
-The `r-env` module comes with a separate [CmdStan](https://github.com/stan-dev/cmdstan) installation that is specific to each module version.
-To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/442` this would be done as follows:
+`r-env`-moduulin mukana tulee erillinen [CmdStan](https://github.com/stan-dev/cmdstan)-asennus, joka on spesifinen moduuliversiolle.
+Sen käyttöä varten oikea polku CmdStanille on asetettava `cmdstanr`-paketin avulla. Esimerkiksi versiolle `r-env/451` tämä tehdään seuraavasti:
 
 ```r
-cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/442-stan/cmdstan-2.36.0")
+cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/451-stan/cmdstan-2.36.0")
 ```
 
-If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
+Jos käytät CmdStania interaktiivisessa istunnossa, yllä oleva komento toimii suoraan. Ei-interaktiivisissa eräajoissa CmdStan-polku on asetettava erikseen eräajotiedostossa. Tämä tehdään lisäämällä seuraavat komennot muiden eräajotiedoston sisältöjen oheen: 
 
 ```r
 # Set R version
-export RVER=442
+export RVER=451
 
 # Launch R after binding CmdStan
 SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"
 srun apptainer_wrapper exec Rscript --no-save script.R
 ```
 
-Other details on using the CmdStan backend are package-specific. As one example, one could use it with the [`brms`](https://paul-buerkner.github.io/brms/) package:
+Muut CmdStan-taustaosan käyttöön liittyvät yksityiskohdat ovat pakettikohtaisia. Esimerkkinä sitä voidaan käyttää [`brms`](https://paul-buerkner.github.io/brms/)-paketin kanssa:
 
 ```r
 library(brms)
@@ -699,11 +710,11 @@ fit_serial <- brm(
 )
 ```
 
-Note that [within-chain parallelisation with `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html) requires a project-specific installation of CmdStan. Please contact [CSC Service Desk](../support/contact.md) for instructions.
+Huomaa, että [ketjun sisäinen rinnakkaistus `brms`-paketissa](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html) vaatii projektikohtaisen CmdStan-asennuksen. Ota yhteyttä [CSC Service Deskiin](../support/contact.md) ohjeita varten.
 
-#### R package installations
+#### R-pakettien asennukset { #r-package-installations }
 
-It is possible to check if a particular package is already installed as follows.
+Voit tarkistaa, onko tietty paketti jo asennettu, seuraavasti.
 
 ```r
 # One way is to try loading the package:
@@ -717,13 +728,13 @@ installed_packages <- library()$results[,1]
 # Note: both ways are sensitive to upper- and lower-case letters
 ```
 
-Additional R package installations can be arranged via two routes:
+Lisäpakettien asennuksia voidaan tehdä kahta reittiä:
 
-- Project-specific installations can be used by creating a separate package directory in the `/projappl/<project>` directory (instructions below; also see [here](../computing/disk.md#projappl-directory) for information on ProjAppl)
+- Projektikohtaiset asennukset luomalla erillinen pakettihakemisto hakemistoon `/projappl/<project>` (ohjeet alla; katso myös [täältä](../computing/disk.md#projappl-directory) tietoa ProjApplista)
 
-- Requests for general installations (provided to all users as part of the module): please contact [CSC Service Desk](../support/contact.md)
+- Yleiset asennuspyynnöt (saatavilla kaikille käyttäjille osana moduulia): ota yhteyttä [CSC Service Deskiin](../support/contact.md)
 
-To make use of a project-specific package library, follow these instructions. First create a new folder inside your project directory. Note that the folder should be specific to the R version you are using (R packages installed using different `r-env` modules are not cross-compatible).
+Hyödyntääksesi projektikohtaista pakettikirjastoa toimi näin. Luo ensin uusi hakemisto projektihakemistoosi. Huomaa, että hakemiston tulee olla käyttämäsi R-version mukainen (eri `r-env`-moduuleilla asennetut R-paketit eivät ole keskenään yhteensopivia).
 
 ```r
 # On the command prompt:
@@ -731,90 +742,8 @@ To make use of a project-specific package library, follow these instructions. Fi
 mkdir project_rpackages_<rversion>
 ```
 
-You can then add the folder to your library trees in R:
+Voit sitten lisätä hakemiston R:n kirjastopolkuihin:
 
 ```r
 # Add this to your R code:
-.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
-libpath <- .libPaths()[1]
-
-# This command can be used to check that the folder is now visible:
-.libPaths() # It should be first on the list
-
-# Package installations should now be directed to the project
-# folder by default. You can also specify the path, e.g. install.packages("package", lib = libpath)
-
-# Note that it's also possible to fetch the R version automatically using getRversion(). For example:
-.libPaths(paste0("/projappl/<project>/project_rpackages_", gsub("\\.", "", getRversion()))) 
-
-```
-
-To use R packages installed in `/projappl`, add the following to the beginning of your R script. This modifies your library trees within a given R session only. In other words, you will need to run this each time when launching R:
-
-```r
-.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
-```
-
-Alternatively, you can add the desired changes to an `.Renviron` file:
-
-```bash
-echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
-```
-
-!!! note
-    When using `r-env`, user-defined changes to R library paths must be specified inside an R session or in relation to an `.Renviron` file. Other changes (e.g. using `export` to modify environment variables) will not work due to the R installation running inside an Apptainer container. If your analysis would require changes that cannot be achieved through the above means, please contact us for a module-wide package installation.
-
-#### Pdf rendering
-
-If pdf rendering of an R Markdown or a Quarto document fails, run the following in R:
-
-```r
-tinytex::install_tinytex()
-```
-
-When prompted about an existing LaTeX distribution, answer `yes` to continue the installation anyway.
-
-
-## Working with Allas
-
-The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data. 
-
-Accessing Allas via the `r-env` module can be done as follows. First configure Allas by running these commands before launching an interactive shell session:
-
-```bash
-module load allas
-allas-conf --mode s3cmd
-```
-
-After [starting an interactive session and launching R / RStudio Server](#interactive-use-on-a-compute-node), you can now access your bucket list as follows. Note that, for this to work, you will need to have the `allas` module loaded and the argument `region=''` added to the `bucketlist()` function:
-
-```r
-library(aws.s3)
-bucketlist(region='')
-```
-
-## Citation
-
-For finding out the correct citations for R and different R packages, you can type:
-
-```r
-citation() # for citing R
-citation("package") # for citing R packages
-```
-
-## Further information
-
-- [r-env container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity) (link to public GitHub repository)
-
-- [Tutorial on parallel R](../support/tutorials/parallel-r.md)
-
-- [R FAQs](https://cran.r-project.org/faqs.html) (hosted by CRAN)
-
-- [Related Projects](https://www.r-project.org/other-projects.html) (list of R-related projects on R Project website)
-
-- [R package cheatsheets](https://rstudio.com/resources/cheatsheets/) (hosted on RStudio website)
-
-- [tidyverse](https://www.tidyverse.org/) (pre-installed on the `r-env` module)
-
-- [doMPI](https://cran.r-project.org/web/packages/doMPI/index.html), [future](https://cran.r-project.org/web/packages/future/index.html), [furrr](https://cran.r-project.org/web/packages/furrr/index.html), [lidR](https://cran.r-project.org/web/packages/lidR/index.html), [pbdMPI](https://cran.r-project.org/web/packages/pbdMPI/index.html), [snow](https://cran.r-project.org/web/packages/snow/index.html) (CRAN pages for parallel R packages)
-
+.libPaths(c("/projappl/<

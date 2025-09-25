@@ -1,88 +1,91 @@
 ---
 tags:
   - Free
+catalog:
+  name: QIIME
+  description: Package for microbial community analysis of amplicon sequencing data
+  description_fi: Paketti amplicon-sekvensointidatan mikrobiyhteisöjen analysointiin
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# QIIME
+# QIIME { #qiime }
 
-QIIME (Quantitative Insights Into Microbial Ecology) is a package for comparison and analysis of microbial communities,
-primarily based on high-throughput amplicon sequencing data (such as SSU rRNA) generated on a variety of platforms,
-but also supporting analysis of other types of data (such as shotgun metagenomic data). QIIME takes users from their
-raw sequencing output through initial analyses such as OTU picking, taxonomic assignment, and construction of
-phylogenetic trees from representative sequences of OTUs, and through downstream statistical analysis, visualization,
-and production of publication-quality graphics.
+QIIME (Quantitative Insights Into Microbial Ecology) on paketti mikrobiyhteisöjen vertailuun ja analyysiin, joka perustuu ensisijaisesti monilla alustoilla tuotettuun korkean läpimenon amplicon-sekvensointidataan (esim. SSU rRNA), mutta tukee myös muuntyyppisten aineistojen (esim. shotgun-metagenomiikka) analyysia. QIIME vie käyttäjän raakadatasta alkuvaiheen analyyseihin, kuten OTU-klusterointiin, taksonomiseen luokitteluun ja OTU:iden edustajasekvensseihin perustuvien fylogeneettisten puiden rakentamiseen, ja edelleen jatkoanalyyseihin, visualisointeihin sekä julkaisulaatuisten kuvien tuottamiseen.
 
-In 2017 a totally rewritten version QIIME2 was released. The development of the original QIIME version has stopped. QIIME2 is strongly suggested for most uses.
+Vuonna 2017 julkaistiin täysin uudelleenkirjoitettu versio QIIME2. Alkuperäisen QIIME-version kehitys on päättynyt. QIIME2:n käyttöä suositellaan vahvasti useimpiin tarkoituksiin.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [BSD 3-Clause License](https://github.com/qiime2/qiime2/blob/master/LICENSE).
+Vapaa käyttää ja avoimen lähdekoodin, [BSD 3-Clause License](https://github.com/qiime2/qiime2/blob/master/LICENSE) -lisenssillä.
 
-## Available
+## Saatavilla { #available }
 
 - QIIME1: Puhti: 1.9.1
 - QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun, 2024.10-amplicon, 2024.10-metagenome, 2024.10-pathogenome
 
-## Usage
+## Käyttö { #usage }
 
-To load QIIME1 module on Puhti:
+Lataa QIIME1-moduuli Puhtissa:
 
 ```bash
 module load qiime1
 ```
 
-To use QIIME2, check available versions with:
+QIIME2:n käyttöä varten tarkista saatavilla olevat versiot komennolla:
 
 ```bash
 module spider qiime2
 ```
 
-Load desired version with e.g.:
+Lataa haluttu versio esim.:
 
 ```bash
 module load qiime2/2023.9-amplicon
 ```
 
-After that you can start QIIME2 with command:
+Tämän jälkeen voit käynnistää QIIME2:n komennolla:
 
 ```bash
 qiime
 ```
 
-## Distributions
+## Jakelut { #distributions }
 
-Latest versions of QIIME2 come in different distributions: amplicon/metagenome/pathogenome/tiny.
-These distributions vary on which plugins come with them. You can compare the
-[distributions](https://docs.qiime2.org/2024.10/install/#distributions) on QIIME2
-home pages.
+Uusimmat QIIME2-versiot ovat saatavilla eri jakeluina: amplicon/metagenome/pathogenome/tiny.
+Jakelut eroavat siinä, mitkä liitännäiset niihin sisältyvät. Voit vertailla
+[jakeluita](https://docs.qiime2.org/2024.10/install/#distributions) QIIME2:n
+kotisivuilla.
 
-CSC provides installations for the amplicon, metagenome and pathogenome distributions.
+CSC tarjoaa asennukset amplicon-, metagenome- ja pathogenome-jakeluille.
 
-## Additional plugins
+## Lisäliitännäiset { #additional-plugins }
 
-CSC only maintains the basic distributions of QIIME2. If you need plugins not included in the basic distributions, you will need to install your own QIIME2 using the [Tykky tool](../computing/containers/tykky.md).
+CSC ylläpitää vain QIIME2:n perusjakeluita. Jos tarvitset liitännäisiä, joita perusjakeluihin ei sisälly, sinun on asennettava oma QIIME2 [Tykky-työkalulla](../computing/containers/tykky.md).
 
-First select the distribution (amplicon/metagenome/pathogenome/tiny) that best meets your needs.
+Valitse ensin tarpeitasi parhaiten vastaava jakelu (amplicon/metagenome/pathogenome/tiny).
 
-Download the corresponding [environment file](https://docs.qiime2.org/2024.10/install/native/).
+Lataa vastaava [ympäristötiedosto](https://docs.qiime2.org/2024.10/install/native/).
 
-For example for 2024.10 amplicon distribution:
+Esimerkiksi 2024.10 amplicon -jakelulle:
 
 ```bash
 wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2024.10-py310-linux-conda.yml
 ```
 
-Check the installation instructions for the plugins you want to use.
+Tarkista haluamiesi liitännäisten asennusohjeet.
 
-If the additional plugins can be installed with Conda, you can simply add them to the end of the
-environment file.
+Jos lisäliitännäiset voi asentaa Condalla, voit yksinkertaisesti lisätä ne ympäristötiedoston loppuun.
 
-If the plugins need additional installation steps, you can copy them to text file and use
-`conda-containerize update` command as described in the Tykky documentation.
+Jos liitännäiset vaativat lisäaskeleita, voit kopioida ne tekstitiedostoon ja käyttää
+`conda-containerize update` -komentoa Tykky-dokumentaation mukaisesti.
 
-Installation:
+Asennus:
 
 ```bash
 module purge
@@ -91,33 +94,33 @@ mkdir qiime
 conda-containerize new --mamba --prefix qiime qiime2-amplicon-2024.10-py310-linux-conda.yml
 ```
 
-If necessary, run:
+Tarvittaessa aja:
 
 ```bash
 conda-containerize update qiime --post-install plugins.txt
 ```
 
-## Running
+## Ajo { #running }
 
-Note that many QIIME tasks involve heavy computing. Thus, these tasks should be executed as
-batch jobs.
+Huomaa, että monet QIIME-tehtävät ovat laskennallisesti raskaita. Siksi nämä tehtävät tulisi suorittaa
+eräajoina.
 
-QIIME jobs can be very disk intensive, especially its handling of temporary files, so it is best to
-reserve fast local disk for them.
+QIIME-ajot voivat olla hyvin levyintensiivisiä, erityisesti väliaikaistiedostojen käsittely, joten niille on parasta
+varata nopea paikallinen levy.
 
-For interactive batch jobs, see [sinteractive](../computing/running/interactive-usage.md) documentation.
+Interaktiivisia eräajoja varten katso [sinteractive](../computing/running/interactive-usage.md) -dokumentaatio.
 
-In case of normal batch jobs, you must reserve NVMe disk area that will be used as $TMPDIR area.
+Tavallisissa eräajoissa sinun tulee varata NVMe-levytila, jota käytetään $TMPDIR-alueena.
 
-For example, to reserve 100 GB of local disk space:
+Esimerkiksi 100 Gt paikallista levytilaa:
 
 ```text
 #SBATCH --gres=nvme:100
 ```
 
-For example, the batch job script below runs the denoising step of the
-[QIIME moving pictures tutorial](https://docs.qiime2.org/2019.7/tutorials/moving-pictures/#option-1-dada2 )
-as a batch job using eight cores.
+Esimerkiksi alla oleva eräajon skripti suorittaa
+[QIIME Moving Pictures -tutoriaalin](https://docs.qiime2.org/2019.7/tutorials/moving-pictures/#option-1-dada2)
+denoising-vaiheen eräajona kahdeksaa ydintä käyttäen.
 
 ```bash
 #!/bin/bash
@@ -145,25 +148,18 @@ qiime dada2 denoise-single \
   --p-n-threads $SLURM_CPUS_PER_TASK
 ```
 
-Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses thread-based
-parallelization, the job is requested to use one task (`--ntasks=1`) where all cores need to be in
-the same node (`--nodes=1`). This one task will use eight cores as parallel threads
-`--cpus-per-task=8` that can use in total up to 16 GB of memory (`--mem=16G`). Note that the
-number of cores to be used needs to be defined in actual `qiime` command, too. That is done with
-Qiime option `--p-n-threads`. In this case we use `$SLURM_CPUS_PER_TASK` variable that contains the
-`--cpus-pre-task` value. We could as well use `--p-n-threads 8`, but then we have to remember
-to change the value if the number of reserved CPUs is changed.
+Enimmäisaika on asetettu 1 tunniksi (`--time=01:00:00`). Koska QIIME2 käyttää säikeistykseen perustuvaa rinnakkaisuutta, työ pyydetään ajamaan yhtenä tehtävänä (`--ntasks=1`), jolloin kaikkien ytimien tulee olla samalla solmulla (`--nodes=1`). Tämä yksi tehtävä käyttää kahdeksaa ydintä rinnakkaissäikeinä (`--cpus-per-task=8`), jotka voivat käyttää yhteensä enintään 16 Gt muistia (`--mem=16G`). Huomaa, että käytettävien ytimien määrä pitää määrittää myös varsinaisessa `qiime`-komennossa. Se tehdään Qiimen valinnalla `--p-n-threads`. Tässä käytämme muuttujaa `$SLURM_CPUS_PER_TASK`, joka sisältää arvon `--cpus-pre-task`. Voisimme yhtä hyvin käyttää `--p-n-threads 8`, mutta silloin on muistettava muuttaa arvoa, jos varattujen CPU:iden määrää muutetaan.
 
-The job is submitted to the batch job system with `sbatch` command. For example, if the batch job file is named `qiime_job.sh`, then the submission command is:
+Työ lähetetään eräajojärjestelmään `sbatch`-komennolla. Jos eräajotiedoston nimi on esimerkiksi `qiime_job.sh`, lähetyskomento on:
 
 ```bash
 sbatch qiime_job.sh
 ```
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+Lisätietoja eräajojen suorittamisesta löytyy [Puhti-käyttöoppaan eräajo-osiosta](../computing/running/getting-started.md).
 
-!!! warning "Note"
-    The use of `tab-qiime` to enable command completion for QIIME is known to cause problems on Puhti, and should be avoided.
+!!! warning "Huom."
+    `tab-qiime`:n käyttäminen QIIME-komentojen täydennyksen mahdollistamiseksi aiheuttaa tunnetusti ongelmia Puhtissa, joten sitä tulisi välttää.
 
-## More information
+## Lisätietoja { #more-information }
 
-* [QIIME2 home page](https://qiime2.org/)
+* [QIIME2-kotisivu](https://qiime2.org/)

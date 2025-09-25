@@ -1,59 +1,68 @@
 ---
 tags:
   - Free
+catalog:
+  name: Elmer
+  description: Open source multi-physics FEM package
+  description_fi: Avoimen lähdekoodin monifysiikan FEM-paketti
+  license_type: Free
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# Elmer
+# Elmer { #elmer }
 
-Elmer is CSC's open source Finite Element multi-physics simulation package. It covers modules for fluid and solid mechanics,
-acoustics, and electro-magneto dynamics.
+Elmer on CSC:n avoimen lähdekoodin äärellisten elementtien monifysiikan simulointipaketti. Se sisältää moduuleja virtaus- ja kiinteämekaniikkaan, akustiikkaan sekä sähkö- ja magneettidynamiikkaan.
 
-Elmer utilizes third-party open source programs for pre- (e.g., Gmsh) and post-processing (e.g., ParaView, Visit).
-The version installed includes Elmer/Ice solvers needed for glaciological simulations (ice-sheets, glaciers).
-Elmer utilizes the MPI library for parallel computing with some solvers already having OpenMP parallel threading
-directives implemented.
+Elmer hyödyntää kolmannen osapuolen avoimen lähdekoodin ohjelmia esikäsittelyyn (esim. Gmsh) ja jälkikäsittelyyn (esim. ParaView, Visit).
+Asennettuun versioon sisältyvät Elmer/Ice-ratkaisimet, joita tarvitaan glasialogisiin simulointeihin (jäätiköt, jääpeitteet).
+Elmer käyttää paralleelilaskentaan MPI-kirjastoa, ja joissakin ratkaisimissa on jo toteutettu OpenMP-säikeistysdirektiivit.
 
 [TOC]
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 9.0
 - Mahti: 9.0
 - LUMI: 9.0
 
-## License
+## Lisenssi { #license }
 
-Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL. It is free for everyone to use.
+Elmer on lisensoitu GPL:n ja (tiedostolle `elmersolver.lib`) LGPL:n mukaisesti. Se on kaikkien vapaasti käytettävissä.
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti and Mahti, the Elmer versions available can be listed using the command
+Puhtilla ja Mahtilla saatavilla olevat Elmer-versiot voi listata komennolla
 
 ```bash
 module avail elmer
 ```
 
-On LUMI, one needs to first take into use the module files of CSC installed software:
+LUMIssa on ensin otettava käyttöön CSC:n asentamien ohjelmistojen moduulitiedostot:
 
 ```bash
 module use /appl/local/csc/modulefiles/
 module avail elmer
 ```
 
-The default version of Elmer is loaded with
+Elmerin oletusversio ladataan komennolla
 
 ```bash
 module load elmer/latest
 ```
 
-We recommend using this version (except for special reasons) on all platforms.
+Suosittelemme käyttämään tätä versiota (ellei erityistä syytä muuhun) kaikilla alustoilla.
 
-Be aware that this version is frequently updated. If you have User Functions as compiled code added to your case, make sure to recompile upon such an update (the date is displayed upon loading the module).
+Huomaa, että tätä versiota päivitetään usein. Jos tapaukseesi on lisätty käännettyjä User Functions -funktioita, muista kääntää ne uudelleen päivityksen jälkeen (päivämäärä näytetään moduulia ladattaessa).
 
-### Example parallel batch script
+### Esimerkki rinnakkaisen eräajon skriptistä { #example-parallel-batch-script }
 
 === "Puhti"
-    This is a basic script for a 30-minute single node job using all 40 cores and reserving 2 GB memory for each core, where the Elmer input file is `myrun.sif`.
+    Tämä on perusskripti 30 minuutin yhden solmun ajolle, jossa käytetään kaikkia 40 ydintä ja varataan 2 Gt muistia jokaista ydintä kohden. Elmerin syötetiedosto on `myrun.sif`.
 
     ```bash
     #!/bin/bash 
@@ -77,7 +86,7 @@ Be aware that this version is frequently updated. If you have User Functions as 
     ```
 
 === "Mahti"
-    The main difference on Mahti is that only full nodes can be allocated. A single node contains 128 cores (we do _not_ recommend to use [multithreading](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). The following script submits a 6-hour job using 4 nodes and all 128 cores per node (hence in total 512).
+    Tärkein ero Mahtissa on, että vain kokonaisia solmuja voi varata. Yhdessä solmussa on 128 ydintä (emme _suosittele_ käyttämään [multithreadingia](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). Seuraava skripti lähettää 6 tunnin ajon käyttäen 4 solmua ja kaikkia 128 ydintä per solmu (yhteensä siis 512).
 
     ```bash
     #!/bin/bash 
@@ -101,7 +110,7 @@ Be aware that this version is frequently updated. If you have User Functions as 
     ```
 
 === "LUMI"
-    Basic script for a 1-hour job using 4 nodes and 128 cores in total, where the Elmer input file is `myrun.sif`.
+    Perusskripti 1 tunnin ajolle käyttäen 4 solmua ja yhteensä 128 ydintä. Elmerin syötetiedosto on `myrun.sif`.
 
     ```bash
     #!/bin/bash 
@@ -124,10 +133,10 @@ Be aware that this version is frequently updated. If you have User Functions as 
     echo "done"
     ```    
 
-Instructions on how to submit and monitor jobs can be found in [CSC docs](../computing/running/submitting-jobs.md) and in [LUMI docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/).
+Ohjeita töiden lähettämiseen ja seuraamiseen löytyy [CSC-dokumentaatiosta](../computing/running/submitting-jobs.md) sekä [LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/).
 
-It can be advantageous to utilize fewer cores per node than available to increase performance in certain Elmer cases. See the example on [undersubscribing](../computing/running/creating-job-scripts-mahti.md#undersubscribing-nodes).
+Joissakin Elmer-tapauksissa suorituskyky voi parantua, jos per solmu käytetään vähemmän ytimiä kuin on saatavilla. Katso esimerkki [alivaraamisesta](../computing/running/creating-job-scripts-mahti.md#undersubscribing-nodes).
 
-## More information
+## Lisätietoja { #more-information }
 
-- [Elmer home page](https://www.elmerfem.org)
+- [Elmerin kotisivu](https://www.elmerfem.org)

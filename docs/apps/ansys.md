@@ -1,73 +1,84 @@
 ---
 tags:
   - Other
+catalog:
+  name: ANSYS
+  description: ANSYS Academic engineering simulation software suite
+  description_fi: ANSYS Academic -insinöörisimulointiohjelmistokokonaisuus
+  license_type: Other
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# ANSYS
+# ANSYS { #ansys }
 
-ANSYS offers a comprehensive software suite that spans the entire range of physics, providing access to virtually any field of engineering simulation that a design process requires ([ANSYS - Products](https://www.ansys.com/products)). *ANSYS Academic engineering simulation software*  (hereinafter **AAESS**) is used by thousands of universities globally for undergraduate students to learn physics principles, for researchers to solve complex engineering problems and for postgraduate students to produce data for their master’s theses or doctoral dissertations ([ANSYS - Academic](https://www.ansys.com/academic)).
+ANSYS tarjoaa kattavan ohjelmistokokonaisuuden, joka kattaa koko fysiikan kirjon ja mahdollistaa käytännössä minkä tahansa suunnitteluprosessin edellyttämän insinöörisimuloinnin ([ANSYS - Products](https://www.ansys.com/products)). *ANSYS Academic -insinöörisimulointiohjelmisto*  (jäljempänä **AAESS**) on käytössä tuhansissa yliopistoissa maailmanlaajuisesti: kandidaattiopiskelijat oppivat sen avulla fysiikan periaatteita, tutkijat ratkaisevat monimutkaisia insinööriongelmia ja jatko-opiskelijat tuottavat aineistoa maisterintutkielmiin tai väitöskirjoihin ([ANSYS - Academic](https://www.ansys.com/academic)).
 
-## License
+## License { #license }
 
-AAESS products are proprietary software. CSC - IT Center for Science Ltd. has these licenses available on CSC's server platforms. The licenses are only for academic use. See about use limitations from link given below (Ansys Academic - Terms and Conditions), and there, LICENSING AND TERM OF USE.
+AAESS-tuotteet ovat proprietaarisia ohjelmistoja. CSC - Tieteen tietotekniikan keskus Oy:llä on nämä lisenssit saatavilla CSC:n palvelinalustoilla. Lisenssit on tarkoitettu vain akateemiseen käyttöön. Käyttörajoituksista ks. alla oleva linkki (Ansys Academic - Terms and Conditions), erityisesti kohta LICENSING AND TERM OF USE.
 
-ANSYS products can be used also commercially on all CSC's platforms mentioned below. This is possible by using a "pay-per-use" licensing system called [Ansys Elastic Currency (AEC)](https://www.ansys.com/it-solutions/licensing). Usage of AEC licensing method on CSC's platforms always requires a private installation of ANSYS products by the user, and therefore does not follow the usage instructions given below. If you want to use AEC licensing, please send an inquiry to [CSC Service Desk](../support/contact.md).
+ANSYS-tuotteita voidaan käyttää myös kaupallisesti kaikilla alla mainituilla CSC:n alustoilla. Tämä on mahdollista käyttämällä "pay-per-use" -lisensointijärjestelmää nimeltä [Ansys Elastic Currency (AEC)](https://www.ansys.com/it-solutions/licensing). AEC-lisensointimenetelmän käyttö CSC:n alustoilla edellyttää aina, että käyttäjä tekee oman yksityisen ANSYS-asennuksen, eikä se siten noudata alla annettuja käyttöohjeita. Jos haluat käyttää AEC-lisensointia, lähetä tiedustelu [CSC Service Deskiin](../support/contact.md).
 
-## Available
+## Available { #available }
 
-CSC's AAESS product licenses are available on CSC's computing platforms [Puhti, Mahti and LUMI](../computing/available-systems.md) for analysis runs only. Additionally, on Mahti and LUMI, only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and installation of earlier versions is also possible. All installed versions are maintained on the servers.
+CSC:n AAESS-tuotelisenssit ovat saatavilla CSC:n laskenta-alustoilla [Puhti, Mahti ja LUMI](../computing/available-systems.md) ainoastaan analyysiajoihin. Lisäksi Mahtilla ja LUMIlla on käytettävissä vain CFD-moduulit (Fluent ja CFX). Palvelimille tarjotaan uusimmat AAESS-tuotteet, ja myös aiempien versioiden asennus on mahdollista. Kaikkia asennettuja versioita ylläpidetään palvelimilla.
 
-## Usage
+## Usage { #usage }
 
-After login on the server, make sure that you have transferred all your input files for the analysis run from your local computer to the server. Locate the files in your project's scratch directory. Home directory is not intended for computing.
+Kirjauduttuasi palvelimelle varmista, että olet siirtänyt kaikki analyysiajoa varten tarvittavat syötetiedostot paikalliselta koneeltasi palvelimelle. Sijoita tiedostot projektisi scratch-hakemistoon. Kotihakemistoa ei ole tarkoitettu laskentaan.
 
-To find out which versions of ANSYS are installed on the server, give command
+Selvittääksesi, mitkä ANSYS-versiot on asennettu palvelimelle, anna komento
 
 ```bash
 module spider ansys
 ```
 
-On LUMI, you need to first load the module environment
+LUMIlla sinun on ensin ladattava moduuliympäristö
 
 ```bash
 module use /appl/local/csc/modulefiles
 module spider ansys
 ```
 
-For example to load Ansys version 2023R2, give command
+Esimerkiksi ladataksesi Ansys-version 2023R2, anna komento
 
 ```bash
 module load ansys/2023R2
 ```
 
-There are examples of **batch job files** available on the servers. On Mahti and LUMI, only for CFD computations:
+Palvelimilla on saatavilla esimerkkejä **eräajotiedostoista**. Mahtilla ja LUMIlla vain CFD-laskentoihin:
 
 * Ansys CFX: `/appl/soft/eng/ansys_inc/example_batch_job_files/parjob_cfx`
 * Ansys Fluent: `/appl/soft/eng/ansys_inc/example_batch_job_files/parjob_fluent`
 * Ansys Fluent (LUMI): `/pfs/lustrep3/appl/local/csc/soft/eng/ansys_inc/example_batch_job_files/parjob_fluent`
 * Ansys Structural: `/appl/soft/eng/ansys_inc/example_batch_job_files/parjob_struct  (only on Puhti)`
 
-Copy those files and modify them for your own use. Further instructions are given in the files.
+Kopioi nämä tiedostot ja muokkaa niitä omaan käyttöösi. Lisäohjeet löytyvät tiedostoista.
 
-Ansys Fluent input files for the example batch job are in the folder (Mahti and Puhti):
+Esimerkin eräajon Ansys Fluent -syötetiedostot ovat kansiossa (Mahti ja Puhti):
 
 ```bash
 /appl/soft/eng/ansys_inc/example_case_files/aircraft_wing/
 ```
 
-and on LUMI
+ja LUMIlla
 
 ```bash
 /pfs/lustrep3/appl/local/csc/soft/eng/ansys_inc/example_case_file/aircraft_wing/
 ```
 
-Notice.  Ansys Structural modules are available only on Puhti server.
+Huom.  Ansys Structural -moduulit ovat saatavilla vain Puhti-palvelimella.
 
-## Support
+## Support { #support }
 
-If you encounter issues, please [contact CSC Service Desk](../support/contact.md).
+Jos kohtaat ongelmia, ole hyvä ja [ota yhteyttä CSC Service Deskiin](../support/contact.md).
 
-## More information
+## More information { #more-information }
 
 * [Ansys Inc.](https://www.ansys.com/)
 * [Ansys Academic - Terms and Conditions](https://www.ansys.com/academic/terms-and-conditions)

@@ -1,62 +1,63 @@
 ---
 tags:
   - Free
+catalog:
+  name: BioPerl
+  description: Perl environment with bioperl extension
+  description_fi: Perl-ympäristö BioPerl-laajennuksella
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# BioPerl
+# BioPerl { #bioperl }
 
-BioPerl is a collection of Perl modules that facilitate the development of 
-Perl scripts for bioinformatics applications. As such, it does not include 
-ready to use programs in the sense that many commercial packages and free 
-web-based interfaces do. On the other hand, BioPerl does provide reusable 
-Perl modules that facilitate writing Perl scripts for sequence manipulation, 
-accessing of databases using a range of data formats and execution and parsing 
-of the results of various molecular biology programs. Consequently, BioPerl 
-enables developing scripts that can analyze large quantities of sequence 
-data in ways that are typically difficult or impossible with web based systems.
+BioPerl on kokoelma Perl-moduuleja, jotka helpottavat bioinformatiikan sovelluksiin tarkoitettujen Perl-skriptien kehittämistä. Sellaisenaan se ei sisällä valmiita, heti käytettävissä olevia ohjelmia samaan tapaan kuin monet kaupalliset paketit ja ilmaiset verkkopohjaiset käyttöliittymät. Toisaalta BioPerl tarjoaa uudelleenkäytettäviä Perl-moduuleja, jotka helpottavat Perl-skriptien kirjoittamista sekvenssien käsittelyyn, tietokantoihin pääsyä eri tiedostomuodoissa sekä erilaisten molekyylibiologisten ohjelmien ajamista ja niiden tulosten jäsentämistä. Näin BioPerl mahdollistaa sellaisten skriptien kehittämisen, joilla voidaan analysoida suuria määriä sekvenssidataa tavoilla, jotka ovat verkkopohjaisilla järjestelmillä tyypillisesti hankalia tai mahdottomia.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-BioPerl is free to use and open source.
+BioPerliä saa käyttää vapaasti, ja se on avoimen lähdekoodin.
 
-BioPerl is licensed under the same terms as Perl itself which is dually-licensed under the terms of the [Perl Artistic license](https://dev.perl.org/licenses/artistic.html) or [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+BioPerl on lisensoitu samoilla ehdoilla kuin itse Perl, joka on kaksoislisensoitu [Perl Artistic license](https://dev.perl.org/licenses/artistic.html) -lisenssillä tai [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Available
+## Saatavilla { #available }
 
-- Puhti: Perl 5.36.0 with BioPerl 1.7.8
+- Puhti: Perl 5.36.0 ja BioPerl 1.7.8
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, BioPerl can be taken in use with the command:
+Puhti-ympäristössä BioPerlin saa käyttöön komennolla:
 
 ```bash
 module load biokit
 ```
 
-After this, you can launch a BioPerl program with the command:
+Tämän jälkeen voit käynnistää BioPerl-ohjelman komennolla:
 
 ```bash
 perl my_bioperl_code.pm
 ```
 
-Alternatively you can change the Perl definition in the first line of your code to
+Vaihtoehtoisesti voit muuttaa Perlin määrityksen koodisi ensimmäisellä rivillä muotoon
 
 ```bash
 #!/bin/env perl
 ```
 
-and execute the Perl program:
+ja suorittaa Perl-ohjelman:
 
 ```bash
 ./my_bioperl_code.pm
 ```
  
-## Support
+## Tuki { #support }
 
 [CSC Service Desk](../support/contact.md)
 
-## More information
+## Lisätietoja { #more-information }
 
-* [BioPerl home page](https://bioperl.org/)
+* [BioPerlin kotisivu](https://bioperl.org/)

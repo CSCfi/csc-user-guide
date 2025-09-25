@@ -1,33 +1,41 @@
-
 ---
 tags:
   - Free
+catalog:
+  name: BamTools
+  description: Tools for working with BAM formatted files
+  description_fi: Työkalut BAM-muotoisten tiedostojen käsittelyyn
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# BamTools
+# BamTools { #bamtools }
 
-BamTools tarjoaa sekä ohjelmoijan API:n että loppukäyttäjän työkalupaketin BAM-tiedostojen käsittelyyn.
+BamTools tarjoaa sekä ohjelmoijille API:n että loppukäyttäjille työkalupaketin BAM-tiedostojen käsittelyyn.
 
 [TOC]
 
-## Lisenssi {#license}
+## Lisenssi { #license }
 
-Vapaa käyttää ja avoimen lähdekoodin [MIT-lisenssillä](https://raw.githubusercontent.com/pezmaster31/bamtools/master/LICENSE)
+Vapaasti käytettävissä ja avoimen lähdekoodin, [MIT-lisenssin](https://raw.githubusercontent.com/pezmaster31/bamtools/master/LICENSE) alaisuudessa.
 
-## Saatavuus {#available}
+## Saatavilla { #available }
 
 -   Puhti: 2.5.2
--   Chipster graafinen käyttöliittymä
+-   Chipsterin graafinen käyttöliittymä
 
-## Käyttö {#usage}
+## Käyttö { #usage }
 
-Puhtilla BamTools voidaan ottaa käyttöön osana biokit-moduulikokoelmaa:
+Puhti-järjestelmässä BamTools voidaan ottaa käyttöön osana biokit-moduulikokoelmaa:
 
 ```bash
 module load biokit
 ```
 
-Biokit-moduuli määrittää joukon yleisesti käytettyjä bioinformatiikan työkaluja. Huomaa kuitenkin, että Puhtilla on muita bioinformatiikan työkaluja, joilla on erillisiä asetuskomentoja.
+Biokit-moduuli asettaa käyttöön joukon yleisesti käytettyjä bioinformatiikan työkaluja. Huomaa kuitenkin, että Puhtissa on myös muita bioinformatiikan työkaluja, joilla on erilliset käyttöönottokomennot.
 
 BamToolsin syntaksi on:
 
@@ -35,32 +43,32 @@ BamToolsin syntaksi on:
 bamtools COMMAND ARGUMENTS
 ```
 
-Saatavilla olevat bamtools-komennot:
+Käytettävissä olevat bamtools-komennot:
 
-- `convert`         Muuntaa BAM:in ja useiden muiden formaattien välillä
-- `count`           Tulostaa kohdistusten lukumäärän BAM-tiedostossa
-- `coverage`        Tulostaa peitto-tilastot syötteenä olevasta BAM-tiedostosta
-- `filter`          Suodattaa BAM-tiedostoja käyttäjän määrittelemien kriteerien mukaan
-- `header`          Tulostaa BAM-otsikkotiedot
-- `index`           Luo indeksi BAM-tiedostolle
+- `convert`         Muuntaa BAMin ja useiden muiden muotojen välillä
+- `count`           Tulostaa kohdistusten lukumäärän BAM-tiedostosta/-tiedostoista
+- `coverage`        Tulostaa kattavuustilastot syöte-BAM-tiedostosta
+- `filter`          Suodattaa BAM-tiedostoja käyttäjän määrittelemien kriteerien perusteella
+- `header`          Tulostaa BAM-otsaketiedot
+- `index`           Luo indeksin BAM-tiedostolle
 - `merge`           Yhdistää useita BAM-tiedostoja yhdeksi tiedostoksi
-- `random`          Valitsee satunnaisia kohdistuksia olemassa olevista BAM-tiedostoista, tarkoitettu enemmän testaustyökaluiksi.
-- `resolve`         Ratkaisee parittain luetut kohdistukset (merkitsee IsProperPair-lipun tarpeen mukaan)
-- `revert`          Poistaa kaksoiskappaleiden merkit ja palauttaa alkuperäiset emäslaadut
-- `sort`            Lajittelee BAM-tiedoston tiettyjen kriteerien mukaan
-- `split`           Jakaa BAM-tiedoston käyttäjän määrittelemän ominaisuuden perusteella, luoden uuden BAM-tulostetiedoston jokaiselle löydetylle arvolle
-- `stats`           Tulostaa perustilastoja syötteenä olevista BAM-tiedostoista
+- `random`          Valitsee satunnaisia kohdistuksia olemassa olevista BAM-tiedostoista; tarkoitettu lähinnä testauskäyttöön.
+- `resolve`         Käsittelee parittaiset lukemat (asettaa IsProperPair-lipun tarvittaessa)
+- `revert`          Poistaa duplikaattimerkinnät ja palauttaa alkuperäiset emäslaadut
+- `sort`            Lajittelee BAM-tiedoston tietyn kriteerin mukaan
+- `split`           Jakaa BAM-tiedoston käyttäjän määrittelemän ominaisuuden mukaan, luoden uuden BAM-tiedoston kullekin löydetylle arvolle
+- `stats`           Tulostaa perustilastoja syöte-BAM-tiedostosta/-tiedostoista
 
-Lisätietoja tietystä komennosta saa suorittamalla käskyn:
+Lisätietoja tietystä komennosta saat suorittamalla komennon:
 
 ```
 bamtools help COMMAND
 ```
 
-## Tuki {#support}
+## Tuki { #support }
 
 [CSC Service Desk](../support/contact.md)
 
-## Lisätietoja {#more-information}
+## Lisätietoja { #more-information }
 
 Lisätietoja BamToolsista löytyy [BamToolsin kotisivulta](https://github.com/pezmaster31/bamtools).

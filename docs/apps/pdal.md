@@ -1,59 +1,65 @@
 ---
 tags:
   - Free
+catalog:
+  name: PDAL
+  description: for point cloud translations and processing
+  description_fi: pistepilvien muunnoksiin ja käsittelyyn
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# PDAL
+# PDAL { #pdal }
 
-[PDAL](https://www.pdal.io/) is an open source command line application for point cloud translations and processing.
+[PDAL](https://www.pdal.io/) on avoimen lähdekoodin komentorivisovellus pistepilvien muunnoksiin ja käsittelyyn.
 
-## Available
+## Saatavilla { #available }
 
-PDAL is available in the following versions:
+PDAL on saatavilla seuraavina versioina:
 
-* 2.8.0 - [geoconda-3.11.10 module](geoconda.md) with pdal Python library, in Puhti
-* 2.7.2 - [QGIS-3.38 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Puhti
-* 2.7.2 - [geoconda-3.11.9 module](geoconda.md) with pdal Python library, in Puhti and Mahti
-* 2.6.2 - [QGIS-3.34 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Puhti
-* 2.5.2 - [geoconda-3.10.9 module](geoconda.md) with pdal Python library, in Puhti
-* 2.4.1 - [geoconda-3.10.6 module](geoconda.md) with pdal Python library, in Puhti and Mahti
-* 2.3.0 - [QGIS-3.31 module](qgis.md) without pdal Python library, in Puhti and LUMI
+* 2.8.0 - [geoconda-3.11.10-moduuli](geoconda.md) pdal Python -kirjastolla, Puhtissa
+* 2.7.2 - [QGIS-3.38-moduuli](qgis.md) ilman pdal Python -kirjastoa, mutta mukana [pdal_wrench](https://github.com/PDAL/wrench), Puhtissa
+* 2.7.2 - [geoconda-3.11.9-moduuli](geoconda.md) pdal Python -kirjastolla, Puhtissa ja Mahtissa
+* 2.6.2 - [QGIS-3.34-moduuli](qgis.md) ilman pdal Python -kirjastoa, mutta mukana [pdal_wrench](https://github.com/PDAL/wrench), Puhtissa
+* 2.5.2 - [geoconda-3.10.9-moduuli](geoconda.md) pdal Python -kirjastolla, Puhtissa
+* 2.4.1 - [geoconda-3.10.6-moduuli](geoconda.md) pdal Python -kirjastolla, Puhtissa ja Mahtissa
+* 2.3.0 - [QGIS-3.31-moduuli](qgis.md) ilman pdal Python -kirjastoa, Puhtissa ja LUMIssa
 
-## Usage
+## Käyttö { #usage }
 
-### Using pdal
+### PDALin käyttö { #using-pdal }
 
-For using PDAL, any of the modules listed about must be activated first, check the linked pages for details.
+PDALia käytettäessä jokin yllä luetelluista moduuleista on ensin aktivoitava; katso lisätiedot linkitetyiltä sivuilta.
 
-You can test if pdal loaded successfully with following
+Voit testata, latautuiko pdal onnistuneesti, seuraavalla komennolla
 
 `pdal --help`
 
-[Examples for using PDAL in Puhti](https://github.com/csc-training/geocomputing/tree/master/pdal).
+[Esimerkkejä PDALin käytöstä Puhtissa](https://github.com/csc-training/geocomputing/tree/master/pdal).
 
-## License 
+## Lisenssi { #license }
 
-PDAL is licensed with the BSD open source license. [The full PDAL licence](https://pdal.io/en/latest/copyright.html)
+PDAL on lisensoitu BSD-avoimen lähdekoodin lisenssillä. [Täydellinen PDAL-lisenssi](https://pdal.io/en/latest/copyright.html)
 
-## Citation
+## Viittaus { #citation }
 
 ```  PDAL contributors (2022). PDAL: The Point Data Abstraction Library, DOI: 10.5281/zenodo.2616780  ```
 
+## Kiitokset { #acknowledgement }
 
+Mainitsethan CSC:n ja Geoportin julkaisuissasi; tämä on tärkeää hankkeen jatkuvuuden ja rahoitusraporttien kannalta.
+Esimerkiksi: "Kirjoittajat haluavat kiittää CSC:tä – Tieteen tietotekniikkakeskus, Suomi (urn:nbn:fi:research-infras-2016072531) ja tutkimuksen avointa paikkatietoinfrastruktuuria (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta."
 
-## Acknowledgement
+## Asennus { #installation }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+Katso kunkin version moduulisivu: [Geoconda](./geoconda.md) , [QGIS](./qgis.md).
 
+## Lähteet { #references }
 
-## Installation
-
-Please see the respectives versions module page: [Geoconda](./geoconda.md) , [QGIS](./qgis.md).
-
-
-## References
-
-* [PDAL homepage](https://pdal.io/)
-* [LAS file example](https://pdal.io/en/latest/tutorial/las.html)
-
+* [PDALin kotisivu](https://pdal.io/)
+* [LAS-tiedoston esimerkki](https://pdal.io/en/latest/tutorial/las.html)

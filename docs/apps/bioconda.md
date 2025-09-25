@@ -1,15 +1,18 @@
 ---
 tags:
   - Free
+catalog:
+  name: Bioconda
+  description: Package manger for installing bioinformatics software
+  description_fi: Paketinhallinta bioinformatiikan ohjelmistojen asennukseen
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Bioconda
+# Bioconda { #bioconda }
 
-!!! error "Bioconda has been deprecated!"
-    Bioconda is no longer available on Puhti. Native Conda installations sitting
-    directly on the shared file system are ineffective and not recommended in HPC
-    environments such as Puhti. Please use [Tykky](../computing/containers/tykky.md)
-    installations instead to wrap your Conda environment within a container. [See
-    a tutorial on this here](../support/tutorials/bioconda-tutorial.md). Note that
-    some packages that were previously provided through Bioconda are now available
-    as separate modules.
+!!! error "Bioconda on poistettu käytöstä!"
+    Bioconda ei ole enää saatavilla Puhtissa. Suoraan jaetulla tiedostojärjestelmällä sijaitsevat paikalliset Conda-asennukset ovat tehottomia eivätkä suositeltavia HPC-ympäristöissä, kuten Puhti. Käytä sen sijaan [Tykky](../computing/containers/tykky.md) -asennuksia paketoidaksesi Conda-ympäristösi kontin sisään. [Katso tähän liittyvä opas täältä](../support/tutorials/bioconda-tutorial.md). Huomaa, että osa paketeista, jotka aiemmin tarjottiin Biocondan kautta, on nyt saatavilla erillisinä moduuleina.

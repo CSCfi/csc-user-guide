@@ -1,84 +1,93 @@
 ---
 tags:
   - Free
+catalog:
+  name: Seqtk
+  description: Tool for processing sequences in the FASTA or FASTQ format
+  description_fi: Työkalu FASTA- tai FASTQ-muodossa olevien sekvenssien käsittelyyn
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Seqtk
+# Seqtk { #seqtk }
 
-Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. It seamlessly parses both FASTA and FASTQ files which can also be optionally compressed by gzip.
+Seqtk on nopea ja kevyt työkalu FASTA- tai FASTQ-muodossa olevien sekvenssien käsittelyyn. Se jäsentää vaivattomasti sekä FASTA- että FASTQ-tiedostot, jotka voivat olla myös gzip-pakattuja.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [MIT License](https://github.com/lh3/seqtk/blob/master/LICENSE).
+Vapaasti käytettävissä ja avoimen lähdekoodin [MIT-lisenssillä](https://github.com/lh3/seqtk/blob/master/LICENSE).
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 1.3-r106, 1.4
 
-## Usage
+## Käyttö { #usage }
 
-Seqtk is included in the biokit module:
+Seqtk sisältyy biokit-moduuliin:
 
 ```bash
 module load biokit
 ```
 
-Alternatively, Seqtk can be loaded as an independent module:
+Vaihtoehtoisesti Seqtk voidaan ladata erillisenä moduulina:
 
 ```bash
 module load seqtk/<version>
 ```
 
-`seqtk` command syntax is:
+Komennon `seqtk` syntaksi on:
 
 ```bash
 seqtk <command> <arguments>
 ```
 
-The available Seqtk commands are:
+Käytettävissä olevat Seqtk-komennot:
 
-|Command | Function |
+| Komento | Toiminto |
 |--------|----------------------------------|
-|`seq`     |common transformation of FASTA/Q |
-|`comp`    |get the nucleotide composition of FASTA/Q |
-|`sample`  |sub-sample sequences |
-|`subseq`  |extract subsequences from FASTA/Q  |
-|`fqchk`   |fastq QC (base/quality summary)  |
-|`mergepe` |interleave two PE FASTA/Q files |
-|`trimfq`  |trim FASTQ using the Phred algorithm |
-|`hety`    |regional heterozygosity |
-|`gc`      |identify high- or low-GC regions |
-|`mutfa`   |point mutate FASTA at specified positions |
-|`mergefa` |merge two FASTA/Q files |
-|`famask`  |apply an X-coded FASTA to a source FASTA |
-|`dropse`  |drop unpaired from interleaved PE FASTA/Q |
-|`rename`  |rename sequence names |
-|`randbase`|choose a random base from hets |
-|`cutN`    |cut sequence at long N |
-|`listhet` |extract the position of each het |
+|`seq`     |FASTA/Q:n yleiset muunnokset |
+|`comp`    |hanki FASTA/Q:n nukleotidikoostumus |
+|`sample`  |ota satunnaisotos sekvensseistä |
+|`subseq`  |poimi alisekvenssejä FASTA/Q:sta  |
+|`fqchk`   |FASTQ-laadunvalvonta (emäs- ja laatuyhteenveto)  |
+|`mergepe` |lomita kaksi PE FASTA/Q -tiedostoa |
+|`trimfq`  |trimmaa FASTQ Phred-algoritmilla |
+|`hety`    |alueellinen heterotsygotia |
+|`gc`      |tunnista korkean tai matalan GC-pitoisuuden alueet |
+|`mutfa`   |tee pistemutaatioita FASTA:an annetuissa kohdissa |
+|`mergefa` |yhdistä kaksi FASTA/Q-tiedostoa |
+|`famask`  |sovella X-koodattua FASTA:aa lähde-FASTA:an |
+|`dropse`  |poista parittomat lukemat lomitetusta PE FASTA/Q:sta |
+|`rename`  |nimeä sekvenssit uudelleen |
+|`randbase`|valitse satunnainen emäs heterotsygoottikohdista |
+|`cutN`    |katkaise sekvenssi pitkän N-juoksun kohdalta |
+|`listhet` |poimi kunkin heterotsygoottikohdan sijainti |
 
-### Examples
+### Esimerkkejä { #examples }
 
-Convert FASTQ to FASTA:
+Muunna FASTQ FASTA-muotoon:
 
 ```bash
 seqtk seq -a in.fq.gz > out.fa
 ```
 
-Extract sequences with names in file `name.lst`, one sequence name per line:
+Poimi ne sekvenssit, joiden nimet ovat tiedostossa `name.lst`, yksi nimi per rivi:
 
 ```bash
 seqtk subseq in.fq name.lst > out.fq
 ```
 
-Extract sequences in regions contained in file `reg.bed`:
+Poimi sekvenssit alueilta, jotka on määritelty tiedostossa `reg.bed`:
 
 ```bash
 seqtk subseq in.fa reg.bed > out.fa
 ```
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Seqtk home page](https://github.com/lh3/seqtk)
+* [Seqtk-kotisivu](https://github.com/lh3/seqtk)

@@ -1,54 +1,65 @@
 ---
 tags:
   - Other
+catalog:
+  name: Star-CCM+
+  description: Computational Fluid Dynamics software by Siemens Digital Industries Software
+  description_fi: Siemens Digital Industries Softwaren laskennallisen virtausdynamiikan (CFD) ohjelmisto
+  license_type: Other
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# Star-CCM+
+# Star-CCM+ { #star-ccm }
 
-Simcenter STAR-CCM+ is a commercial Computational Fluid Dynamics (CFD) based simulation software developed by Siemens Digital Industries Software. [Simcenter STAR-CCM+](https://www.plm.automation.siemens.com/global/en/products/simcenter/STAR-CCM.html) allows the modeling and analysis of a range of engineering problems involving fluid flow, heat transfer, stress, particulate flow, electromagnetics and related phenomena. Formerly known as STAR-CCM+, the software was first developed by CD-adapco and was acquired by Siemens Digital Industries Software as part of the purchase of CD-adapco in 2016. It is now a part of the Simcenter Portfolio of software tools (Wikipedia).
+Simcenter STAR-CCM+ on kaupallinen laskennalliseen virtausdynamiikkaan (CFD) perustuva simulointiohjelmisto, jonka on kehittänyt Siemens Digital Industries Software. [Simcenter STAR-CCM+](https://www.plm.automation.siemens.com/global/en/products/simcenter/STAR-CCM.html) mahdollistaa erilaisten insinööriongelmien mallintamisen ja analysoinnin, jotka liittyvät virtausilmiöihin, lämmönsiirtoon, jännityksiin, partikkelivirtoihin, sähkömagnetiikkaan ja niihin liittyviin ilmiöihin. Ohjelmisto tunnettiin aiemmin nimellä STAR-CCM+; sen kehitti alun perin CD-adapco, jonka Siemens Digital Industries Software osti vuonna 2016 osana CD-adapcon yritysostoa. Se on nykyisin osa Simcenter-ohjelmistotyökalujen portfoliota (Wikipedia).
 
-## License
+## License { #license }
 
-CSC - IT Center for Science has no own Star-CCM+ licenses available for customer use on CSC's computing platforms.  Instead, user may purchase for her or his own use a *Power-On-Demand* (PoD) license to be used on the servers, for more information, see this [web page](https://community.sw.siemens.com/s/question/0D54O000061xpm2SAA/simcenter-starccm-licensing-options-and-setup-installation-and-troubleshooting).
+CSC – Tieteen tietotekniikan keskus ei tarjoa omia Star-CCM+-lisenssejä asiakkaiden käyttöön CSC:n laskenta-alustoilla. Sen sijaan käyttäjä voi hankkia omaan käyttöönsä Power-On-Demand (PoD) -lisenssin palvelimilla käytettäväksi; lisätietoja tällä [verkkosivulla](https://community.sw.siemens.com/s/question/0D54O000061xpm2SAA/simcenter-starccm-licensing-options-and-setup-installation-and-troubleshooting).
 
-## Available
+## Available { #available }
 
-Several versions of Star-CCM+ are available on [Puhti, Mahti and LUMI](../computing/available-systems.md) servers. Use command
+Useita Star-CCM+:n versioita on saatavilla [Puhti-, Mahti- ja LUMI](../computing/available-systems.md) -palvelimilla. Käytä komentoa
 
 ```bash
 module spider starccm+
 ```
 
-on the server to check the installed versions. The double precision version will have the `-R8` suffix on the end of the module version number.
+palvelimella asennettujen versioiden tarkistamiseksi. Kaksoistarkkuinen versio tunnistaa moduuliversionumeron lopussa olevasta -R8-päätteestä.
 
-On LUMI, you need to first load the module environment, and then give module spider command
+LUMIssa sinun on ensin ladattava moduuliympäristö ja sen jälkeen annettava module spider -komento
 
 ```bash
 module use /appl/local/csc/modulefiles
 module spider starccm+
 ```
 
-## Usage
+## Usage { #usage }
 
-There is a **batch job script** example available on the Puhti and Mahti servers in:
+Puhti- ja Mahti-palvelimilla on saatavilla esimerkki eräajon skriptistä:
 
 ```bash
 /appl/soft/eng/starccm+/parjob_starccm+
 ```
 
-On LUMI, the example batch job file is available here:
+LUMIssa esimerkkieräajotiedosto löytyy täältä:
 
 ```bash
 /pfs/lustrep3/appl/local/csc/soft/eng/starccm+/parjob_starccm_lumi
 ```
 
-Copy the file and modify it for your own use. Further instructions are given in the file and the documentations of the platforms.
+Kopioi tiedosto ja muokkaa se omaan käyttöösi. Lisäohjeita on tiedostossa sekä alustojen dokumentaatioissa.
 
-## Support
+## Support { #support }
 
-In a problem situation, please [contact CSC Service Desk](../support/contact.md).
+Ongelmatilanteissa, ole hyvä ja [ota yhteyttä CSC:n Service Deskiin](../support/contact.md).
 
-## More information
+## More information { #more-information }
 
 * [Simcenter STAR-CCM+](https://www.plm.automation.siemens.com/global/en/products/simcenter/STAR-CCM.html)
-* [Simcenter STAR-CCM+ Power On Demand licensing](https://community.sw.siemens.com/s/question/0D54O000061xpm2SAA/simcenter-starccm-licensing-options-and-setup-installation-and-troubleshooting)
+* [Simcenter STAR-CCM+ Power On Demand -lisensointi](https://community.sw.siemens.com/s/question/0D54O000061xpm2SAA/simcenter-starccm-licensing-options-and-setup-installation-and-troubleshooting)

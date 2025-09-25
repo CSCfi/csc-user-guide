@@ -1,47 +1,50 @@
 ---
 tags:
   - Free
+catalog:
+  name: Stacks
+  description: Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
+  description_fi: Työnkulku lokusten rakentamiseen short-read-sekvensseistä (esim. RAD-seq-data)
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Stacks
+# Stacks { #stacks }
 
-Stacks is a software pipeline for building loci from short-read sequences, such as those generated on the 
-Illumina platform. Stacks was developed to work with restriction enzyme-based data, such as RAD-seq, for 
-the purpose of building genetic maps and conducting population genomics and phylogeography.
+Stacks on ohjelmistotyönkulku lokusten rakentamiseen short-read-sekvensseistä, kuten Illumina-alustalla tuotetuista. Stacks kehitettiin toimimaan restriktioentsyymipohjaisilla aineistoilla, kuten RAD-seqillä, geneettisten karttojen rakentamiseksi sekä populaatiogenomiikan ja fylogeografian tutkimusta varten.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaasti käytettävissä ja avoimen lähdekoodin [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssillä.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 2.62, 2.65
 
-## Usage
+## Käyttö { #usage }
 
-The command-line tools of the Stacks package are installed on Puhti. To set up the most recent stacks environment on Puhti, 
-run the command:
+Stacks-paketin komentorivityökalut on asennettu Puhtiin. Ota uusin Stacks-ympäristö Puhtissa käyttöön komennolla:
 
 ```bash
 module load biokit
 ```
 
-After that you can launch Stacks commands like `denovo_map.pl`. For example:
+Tämän jälkeen voit ajaa Stacks-komentoja, kuten `denovo_map.pl`. Esimerkiksi:
 
 ```bash
 denovo_map.pl -m 3 -M 2 -n 3 -T 4 -S -b 1 -t -a 2010-11-30 -o ./stacks -p ./samples/male.fa -p ./samples/female.fa -r ./samples/progeny_1.fa -r ./samples/progeny_2.fa -r ./samples/progeny_3.fa
 ```
 
-As stacks jobs can be rather heavy, they should be executed as batch jobs. The Stacks installation on Puhti is not linked to 
-a stacks result database and web interface. Because of that you should use option `-S` (and not options `-B` and `-D`) in 
-`denovo_map.pl` runs.
+Koska Stacks-työt voivat olla varsin raskaita, ne kannattaa suorittaa eräajoina. Puhtin Stacks-asennus ei ole kytketty Stacksin tulostietokantaan eikä web-käyttöliittymään. Tästä syystä `denovo_map.pl` -ajoissa tulee käyttää valitsinta `-S` (ei valitsimia `-B` tai `-D`).
 
-It is, however, possible to set up your own Stacks database and WWW interface to a virtual machine running in the 
-cPouta cloud environment of CSC. [See more details here](../cloud/pouta/launch-vm-from-web-gui.md).
+CSC:n cPouta-pilviympäristössä ajettavaan virtuaalikoneeseen on kuitenkin mahdollista pystyttää oma Stacks-tietokanta ja WWW-käyttöliittymä. [Katso lisätietoja täältä](../cloud/pouta/launch-vm-from-web-gui.md).
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Stacks home page](https://catchenlab.life.illinois.edu/stacks/)
-* [Setting up a Stacks server in cPouta](../cloud/pouta/launch-vm-from-web-gui.md)
+* [Stacks-kotisivu](https://catchenlab.life.illinois.edu/stacks/)
+* [Stacks-palvelimen pystyttäminen cPoutaan](../cloud/pouta/launch-vm-from-web-gui.md)

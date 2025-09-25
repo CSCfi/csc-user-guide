@@ -1,56 +1,62 @@
 ---
 tags:
   - Free
+catalog:
+  name: Exonerate
+  description: A generic tool for pairwise sequence comparison
+  description_fi: Yleiskäyttöinen työkalu pariuttaisten sekvenssien vertailuun
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Exonerate
+# Exonerate { #exonerate }
 
-Exonerate is a generic tool for pairwise sequence comparison. It allows you to align sequences using a many alignment models, 
-using either exhaustive dynamic programming, or a variety of heuristics. You can use Exonerate for example for:
+Exonerate on yleiskäyttöinen työkalu pariuttaisten sekvenssien vertailuun. Sen avulla voit kohdistaa sekvenssejä useilla kohdistusmalleilla käyttäen joko kattavaa dynaamista ohjelmointia tai erilaisia heuristiikkoja. Voit käyttää Exoneratea esimerkiksi seuraaviin tarkoituksiin:
 
-* Aligning a cDNA to a genomic sequence
-* Aligning a protein to genomic sequence
-* 6-frame translated alignment
-* Genome to genome alignment
-* Exhaustive Smith-Waterman-Gotoh alignment
+* cDNA:n kohdistaminen genomiseen sekvenssiin
+* Proteiinin kohdistaminen genomiseen sekvenssiin
+* 6-kehyksinen käännöskohdistus
+* Genomien välinen kohdistus
+* Kattava Smith-Waterman-Gotoh-kohdistus
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttää ja avoimen lähdekoodin [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssin alla.
 
-## Available
+## Saatavilla { #available }
 
 Puhti: 2.4.0
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, you can initialize Exonerate with the command:
+Puhti-ympäristössä voit ottaa Exoneraten käyttöön komennolla:
 
 ```bash
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Exonerate.
-Note however that there are other bioinformatics tools in Puhti that have separate setup commands.
+biokit-moduuli ottaa käyttöön joukon yleisesti käytettyjä bioinformatiikan työkaluja, mukaan lukien Exonerate. Huomaa kuitenkin, että Puhtissa on myös muita bioinformatiikan työkaluja, joilla on erilliset käyttöönotto­komennot.
 
-After loading the `biokit` module, the `exonerate` commands are recognized.
+Kun `biokit`-moduuli on ladattu, `exonerate`-komennot ovat käytettävissä.
 
-For example, to align cDNA to genomic sequence, you can use `exonerate` command with `est2genome` model:
+Esimerkiksi cDNA:n kohdistamiseksi genomiseen sekvenssiin voit käyttää `exonerate`-komentoa `est2genome`-mallilla:
 
 ```bash
 exonerate --model est2genome query.fasta target.fasta
 ```
 
-You can see the command line options for `exonerate` with the command:
+Näet `exonerate`-ohjelman komentorivivalinnat komennolla:
 
 ```bash
 exonerate -h
 ```
  
-On Puhti, large Exonerate tasks should be executed as a batch jobs. Below is a sample batch job file for running an 
-Exonerate batch job in Puhti:
+Puhtissa suuret Exonerate-ajot tulisi suorittaa eräajona. Alla on esimerkkieräajotiedosto Exonerate-eräajon suorittamiseen Puhtissa:
 
 ```bash
 #!/bin/bash
@@ -64,15 +70,15 @@ module load biokit
 exonerate --model est2genome query.fasta target.fasta
 ```
 
-In the batch job example above, the maximum duration of the job is eight hours (`--time=08:00:00`) and the reserved memory is 8 GB (`--mem=8G`).
+Yllä olevassa eräajoesimerkissä työn enimmäiskesto on kahdeksan tuntia (`--time=08:00:00`) ja varattu muisti 8 GB (`--mem=8G`).
 
-You can submit the batch job file to the batch job system with command:
+Voit lähettää eräajotiedoston eräajojärjestelmään komennolla:
 
 ```bash
 sbatch batch_job_file.bash
 ```
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Exonerate home page](https://github.com/nathanweeks/exonerate)
-* [Exonerate guides](https://www.animalgenome.org/bioinfo/resources/manuals/exonerate/)
+* [Exoneraten kotisivu](https://github.com/nathanweeks/exonerate)
+* [Exoneraten oppaat](https://www.animalgenome.org/bioinfo/resources/manuals/exonerate/)

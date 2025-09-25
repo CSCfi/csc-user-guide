@@ -1,228 +1,233 @@
 ---
 tags:
   - Free
+catalog:
+  name: Geoconda
+  description: Python libraries for spatial analysis 
+  description_fi: Python-kirjastoja paikkatietoanalyysiin
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# Geoconda
+# Geoconda { #geoconda }
 
-Geoconda is a collection of python packages that facilitate the
-development of python scripts for geoinformatics applications. It
-includes following python packages:
+Geoconda on kokoelma Python-paketteja, jotka helpottavat Python-skriptien kehittämistä paikkatietosovelluksiin. Se sisältää seuraavat Python-paketit:
 
--   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Allas S3 example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
--   [cartopy] - for map plotting.
--   [cfgrib](https://pypi.org/project/cfgrib/) - map GRIB files to the NetCDF Common Data Model
--   [copc-lib](https://github.com/RockRobotic/copc-lib) - reader and writer interface for [Cloud Optimized Point Clouds (COPC)](https://copc.io/) Only in geoconda 3.10.9.
--   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension). 
-    -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
-    -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
--   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
--   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication in Puhti](#google-earth-engine-authentication-set-up-in-puhti). 
--   [fiona] - reads and writes spatial data files.
--   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
--   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
--   [igraph](https://igraph.org/python/) - for fast routing. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
--   [geopy](https://geopy.readthedocs.io/) - client for several popular geocoding web services.
--   [geo2ml](https://github.com/mayrajeo/geo2ml) - for preparing spatial data for machine learning NEW 2024
--   [h3pandas](https://h3-pandas.readthedocs.io/en/latest/) - for hexagonal geospatial indexing system, with Pandas and GeoPandas. NEW 2024
--   **[jupyter]** - Jupyter Notebooks and JupyterLab, best to use with [Puhti web interface](../computing/webinterface/index.md) and [Jupyter](../computing/webinterface/jupyter.md)
--   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
--   [leafmap](https://leafmap.org/) - for geospatial analysis and interactive mapping in a Jupyter environment.
--   [lidar](https://lidar.gishub.org/) - for delineating the nested hierarchy of surface depressions in digital elevation models (DEMs).
--   [metpy](https://unidata.github.io/MetPy/latest/index.html) - reading, visualizing, and performing calculations with weather data.
--   [movingpandas](http://movingpandas.org) - for trajectory data
--   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
--   [pyproj] - performs cartographic transformations and geodetic computations.
--   [pyogrio](https://pyogrio.readthedocs.io/en/latest/index.html) - vectorized spatial vector file format I/O using GDAL/OGR.
--   [openeo](https://openeo.org/) - for connecting to Earth observation cloud back-ends in a simple and unified way. NEW 2024
--   [open3d](http://www.open3d.org/docs/release/index.html) - for 3D data processing
--   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
-    OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing) Not in geoconda-3.11.9.
--   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
--   [pcraster](https://pcraster.geo.uu.nl/) - for spatio-temporal environmental modelling. NEW 2024
--   [psycopg2](https://www.psycopg.org/docs/) - PostgreSQL database adapter for Python. NEW 2024
--   [python-pdal](https://github.com/PDAL/python) - PDAL Python extension for lidar data
--   [Py6S](https://py6s.readthedocs.io/en/latest/index.html) - Python interface to the Second Simulation of the Satellite Signal in the Solar Spectrum (6S) atmospheric Radiative Transfer Model
--   [pysal] - spatial analysis functions.    
--   [pdal](https://pdal.io/) - for lidar data
--   [pyntcloud](https://pyntcloud.readthedocs.io/) - for working with 3D point clouds.
--   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs.  [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
--   [python-cdo](https://pypi.org/project/cdo/) - scripting interface to CDO (Climate Data Operators).
--   **[rasterio]** - access to geospatial raster data.
--   [rasterstats] - for summarizing geospatial raster datasets based on
-    vector geometries. It includes functions for zonal statistics and
-    interpolated point queries. [rasterstats example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
--   [rtree] - spatial indexing and search.
--   [r5py](https://r5py.readthedocs.io) - for rapid realistic routing on multimodal transport networks, see [below how to set memory correctly](#r5py-memory-settings) for r5py. NEW 2024
--   [sentinelhub](https://sentinelhub-py.readthedocs.io/en/latest/index.html) - for working with new Sentinel Hub services.
--   [sentinelsat] - downloading Sentinel images, [sentinelsat example in CSC geocomputing Github] (https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
--   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
--   [scipy](https://www.scipy.org/) - inc pandas, numpy, matplotlib etc
--   **[scikit-learn]** - machine learning for Python. [Spatial machine learning scikit-learn (shallow learning) exercises](https://github.com/csc-training/geocomputing/tree/master/machineLearning)
--   [skimage] -  algorithms for image processing.
--   [stackstac](https://stackstac.readthedocs.io/) - STAC data to xarray, [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
--   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas. [Allas Swift example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_Swift.py).
--   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details.
--   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
-    -   [xarray-spatial](https://xarray-spatial.org/) - efficient common raster analysis functions for xarray.
-    -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray extension for tiled map plotting.
--   And many more, for retrieving the full list in Puhti use:
+-   [access](https://access.readthedocs.io/) - resurssien spatiaalisen saavutettavuuden laskentaan. UUTTA 2025
+-   [boto3](https://boto3.readthedocs.io) - S3-tallennuksen tiedostojen käsittelyyn, esimerkiksi Allas. [Allas S3 -esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
+-   [cartopy] - karttojen piirtämiseen.
+-   [cfgrib](https://pypi.org/project/cfgrib/) - sovittaa GRIB-tiedostot NetCDF:n Common Data Modeliin
+-   [contextily](https://contextily.readthedocs.io/en/latest/) - karttalaattojen noutamiseen internetistä. UUTTA 2025
+-   [copc-lib](https://github.com/RockRobotic/copc-lib) - luku- ja kirjoitusrajapinta [Cloud Optimized Point Clouds (COPC)](https://copc.io/) -aineistoille. Vain geoconda 3.10.9:ssä.
+-   [dask](https://dask.org/) - edistynyttä rinnakkaisuutta analytiikkaan laajassa mittakaavassa, mukaan lukien [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) ja [Dask JupyterLab -laajennus](https://github.com/dask/dask-labextension). 
+    -   [Dask-rinnakkaistamisen esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
+    -   [STAC-esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
+-   [dask-image](https://dask-image.readthedocs.io/) - kuvankäsittely Dask Arrays -rakenteilla. UUTTA 2025
+-   [descartes] - käyttää Shapely- tai GeoJSON-tyyppisiä geometrisia objekteja matplotlibin polkuina ja kuvioina.
+-   [duckdb](https://duckdb.org/docs/index.html) - analyyttisten SQL-kyselyiden nopeaan suorittamiseen. UUTTA 2025
+-   [esda](https://github.com/pysal/esda) - Exploratory Spatial Data Analysis. UUTTA 2025
+-   [geocube](https://corteva.github.io/geocube/stable/readme.html) - muuntaa geopandas-vektoriaineiston rasteroiduksi xarray-aineistoksi. UUTTA 2025
+-   [geodatasets](https://geodatasets.readthedocs.io/) - paikkatietoaineiston esimerkkitiedostojen lataus ja välimuistitus. UUTTA 2025
+-   [geoplot](https://residentmario.github.io/geoplot/index.html) - paikkatiedon visualisointikirjasto. UUTTA 2025
+-   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - katso, miten [otat GEE-todennuksen käyttöön Puhtissa](#google-earth-engine-authentication-set-up-in-puhti). 
+-   [fiona] - lukee ja kirjoittaa paikkatietotiedostoja.
+-   [geoalchemy2]  - laajennuksia [SQLAlchemyyn] spatiaalisten tietokantojen, erityisesti PostGISin, kanssa työskentelyyn.
+-   **[geopandas]** - GeoPandas laajentaa [pandas]in käyttämiä tietotyyppejä.
+-   [igraph](https://igraph.org/python/) - nopeaan reititykseen. [Reititysesimerkkejä CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/routing)
+-   [geopy](https://geopy.readthedocs.io/) - asiakas useisiin suosittuihin geokoodausverkkopalveluihin.
+-   [geo2ml](https://github.com/mayrajeo/geo2ml) - paikkatiedon valmisteluun koneoppimista varten. UUTTA 2024
+-   [h3pandas](https://h3-pandas.readthedocs.io/en/latest/) - kuusikulmaiseen paikkatietoindeksointiin Pandasin ja GeoPandasin kanssa. UUTTA 2024
+-   [h3-py](https://uber.github.io/h3-py/intro.html) - Python-sidokset H3:lle, hierarkkiselle kuusikulmaiselle paikkatietoindeksointijärjestelmälle. UUTTA 2025
+-   [laspy](https://pythonhosted.org/laspy/) - .LAS LiDAR -tiedostojen lukemiseen, muokkaamiseen ja luomiseen. 
+-   [leafmap](https://leafmap.org/) - paikkatietoanalyyseihin ja interaktiivisiin karttoihin Jupyter-ympäristössä.
+-   [lidar](https://lidar.gishub.org/) - pinta-alueiden painanteiden sisäkkäisen hierarkian määrittämiseen digitaalista korkeusmallia (DEM) varten.
+-   [metpy](https://unidata.github.io/MetPy/latest/index.html) - säätietojen lukemiseen, visualisointiin ja laskentaan.
+-   [movingpandas](http://movingpandas.org) - trajektoriaineistolle
+-   [networkx] - monimutkaisten verkkojen rakenteen, dynamiikan ja toimintojen luomiseen, käsittelyyn ja tutkimiseen. [Reititysesimerkkejä CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/routing)
+-   [pyproj] - suorittaa kartografisia muunnoksia ja geodeettisia laskelmia.
+-   [pyogrio](https://pyogrio.readthedocs.io/en/latest/index.html) - vektoriaineistojen tiedostomuotojen I/O GDAL/OGR:ää käyttäen.
+-   [openeo](https://openeo.org/) - yhteyksiin Maa-observaatioiden pilvitaustoihin yksinkertaisesti ja yhtenäisesti. UUTTA 2024
+-   [open3d](http://www.open3d.org/docs/release/index.html) - 3D-aineiston käsittelyyn
+-   [osmnx] - lataa paikkatietogeometrioita ja rakentaa, projisoi, visualisoi ja analysoi katuverkkoja OpenStreetMapin rajapinnoista. [Reititysesimerkkejä CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/routing) Ei geoconda-3.11.9:ssä.
+-   [owslib](https://geopython.github.io/OWSLib/index.html) - OGC-verkkopalvelujen datan hakemiseen
+-   [pandana](https://udst.github.io/pandana) - verkkoanalyysiin. UUTTA 2025
+-   [pcraster](https://pcraster.geo.uu.nl/) - spatiaaliseen ja ajalliseen ympäristömallinnukseen. UUTTA 2024
+-   [psycopg2](https://www.psycopg.org/docs/) - PostgreSQL-tietokannan sovitin Pythonille. UUTTA 2024
+-   [pyrosm](https://pyrosm.readthedocs.io/en/latest/) - tuo OpenStreetMap-data Geopandas GeoDataFrameihin. UUTTA 2025
+-   [python-pdal](https://github.com/PDAL/python) - PDALin Python-laajennus lidar-dataan
+-   [Py6S](https://py6s.readthedocs.io/en/latest/index.html) - Python-rajapinta 6S-säteilykuljetusmalliin (Second Simulation of the Satellite Signal in the Solar Spectrum)
+-   [pysal] - paikkatietoanalyyseihin.    
+-   [pdal](https://pdal.io/) - lidar-dataan
+-   [pyntcloud](https://pyntcloud.readthedocs.io/) - 3D-pistepilvien käsittelyyn.
+-   [pysheds](https://mdbartos.github.io/pysheds/) - valuma-alueiden rajaukseen. UUTTA 2025
+-   [pystac-client](https://pystac-client.readthedocs.io/) - STAC-katalogien ja -rajapintojen käsittelyyn. [STAC-esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
+-   [python-cdo](https://pypi.org/project/cdo/) - skriptirajapinta CDO:lle (Climate Data Operators).
+-   **[rasterio]** - pääsy paikkatietorasteriaineistoihin.
+-   [rasterstats] - paikkatietorasteriaineistojen yhteenvetoon vektorigeometrioiden perusteella. Sisältää vyöhyketilastot ja interpoloidut pistekyselyt. [rasterstats-esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
+-   [rio-cogeo](https://cogeotiff.github.io/rio-cogeo/) - Cloud Optimized GeoTIFFien (COG) luontiin. UUTTA 2025
+-   [rtree] - spatiaaliseen indeksointiin ja hakuun.
+-   [r5py](https://r5py.readthedocs.io) - nopeaan realistiseen reititykseen monimuotoisissa liikenneverkoissa; katso [alta, kuinka asettaa muisti oikein](#r5py-memory-settings) r5py:lle. UUTTA 2024
+-   [sentinelhub](https://sentinelhub-py.readthedocs.io/en/latest/index.html) - uusien Sentinel Hub -palvelujen käyttöön.
+-   [sentinelsat] - Sentinel-kuvien lataamiseen, [sentinelsat-esimerkki CSC:n geocomputing GitHubissa] (https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
+-   [shapely] - geometristen objektien käsittelyyn ja analyysiin kartesiolaisessa tasossa.
+-   [scipy](https://www.scipy.org/) - sis. pandas, numpy, matplotlib jne
+-   **[scikit-learn]** - koneoppimista Pythonille. [Paikkatietokoneoppimisen scikit-learn -harjoituksia (shallow learning)](https://github.com/csc-training/geocomputing/tree/master/machineLearning)
+-   [skimage] - algoritmeja kuvankäsittelyyn.
+-   [stackstac](https://stackstac.readthedocs.io/) - STAC-data xarrayksi, [STAC-esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
+-   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - SWIFT-tallennuksen kanssa työskentelyyn, esimerkiksi Allas. [Allas Swift -esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_Swift.py).
+-   [urbanaccess](https://udst.github.io/urbanaccess) - GTFS-joukkoliikenne- ja OpenStreetMap-kävelyverkkojen laskemiseen saavutettavuusanalyysia varten. UUTTA 2025
+-   [whiteboxtools](https://www.whiteboxgeo.com/) - laaja-alaiseen paikkatietoaineiston käsittelyyn, monet työkalut toimivat rinnakkain; katso tarkemmat tiedot [CSC:n whiteboxtools-sivulta](whiteboxtools.md).
+-   **[xarray](http://xarray.pydata.org)** - moniulotteiselle rasteriaineistolle, ml. [rioxarray](https://corteva.github.io/rioxarray). [STAC-esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
+    -   [xarray-spatial](https://xarray-spatial.readthedocs.io/) - tehokkaita tavallisia rasterianalyysitoimintoja xarraylle. [xarray-spatial -esimerkki CSC:n geocomputing GitHubissa](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
+    -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray-laajennus ruudutettuun karttapiirtoon. Ei versiossa 3.12.10
+-   Ja paljon muuta; täydellisen listan saat komennolla:
     `list-packages`
     
-Additionally geoconda includes:
+Lisäksi geoconda sisältää:
 
--   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
--   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
+-   **[jupyter]** - Jupyter Notebooks ja JupyterLab. Käytä [Puhtin verkkokäyttöliittymästä](../computing/webinterface/index.md) ja [Jupyter-sovelluksesta](../computing/webinterface/jupyter.md). Sisältää [Dask-laajennuksen](https://github.com/dask/dask-labextension) ja [Resource usage -laajennuksen](https://github.com/jupyter-server/jupyter-resource-usage).
+-   [spyder] - Scientific Python Development Environment graafisella käyttöliittymällä (vastaava kuin RStudion R:lle). 
+-   **[GDAL/OGR](../apps/gdal.md)** komentorivityökalut 
 -   [GMT] The Generic Mapping Tools 
--   [landsatlinks](https://github.com/ernstste/landsatlinks) - for creating download URLs for Landsat Collection 2 Level 1 product bundles using the USGS/EROS Machine-to-Machine API. Use `python -m landsatlinks`.
+-   [landsatlinks](https://github.com/ernstste/landsatlinks) - Landsat Collection 2 Level 1 -tuotepakettien lataus-URL-osoitteiden luomiseen USGS/EROSin Machine-to-Machine -rajapinnan avulla. Käytä `python -m landsatlinks`.
 -   [PDAL](https://pdal.io/) - Point Data Abstraction Library
--   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
+-   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) netCDF-tiedostojen visualisointiin
+-   [psy-view](https://psyplot.github.io/psy-view/) netCDF-tiedostojen visualisointiin
    
-Python has multiple packages for parallel computing, for example
-**multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
+Pythonissa on useita rinnakkaislaskennan kirjastoja, kuten **multiprocessing**, **joblib** ja **dask**. [Puhti Python -esimerkeissämme](https://github.com/csc-training/geocomputing/tree/master/python/puhti) on esimerkkejä erilaisten rinnakkaistuskirjastojen hyödyntämisestä.
 
-If you think that some important GIS package for Python is missing from here, you can ask for installation from [CSC Service Desk](../support/contact.md).
+Jos mielestäsi jokin tärkeä Pythonin GIS-paketti puuttuu, voit pyytää asennusta [CSC Service Deskiltä](../support/contact.md).
 
 
-## Available
+## Available { #available }
 
-The `geoconda` module is available:
+`geoconda`-moduuli on saatavilla:
 
-* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti and LUMI.
-* 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Puhti and Mahti.
-* 3.10.9 (Python 3.10.9, PDAL 2.5.2, GDAL 3.6.2, created March 2023), in Puhti.
-* 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Puhti and Mahti.
+* 3.12.10 (Python 3.12.10, PDAL 2.8.4, GDAL 3.10.2, luotu huhtikuussa 2025), Puhtissa.
+* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, luotu marraskuussa 2024), Puhtissa ja LUMIssa.
+* 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, luotu elokuussa 2024), Puhtissa ja Mahtissa.
+* 3.10.9 (Python 3.10.9, PDAL 2.5.2, GDAL 3.6.2, luotu maaliskuussa 2023), Puhtissa.
+* 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, luotu syyskuussa 2022), Puhtissa ja Mahtissa.
 
-Version number is the same as the Python version.
+Versionumero on sama kuin Python-versio.
 
-## Usage
+## Usage { #usage }
 
-When using in LUMI, run this first:
+Kun käytät LUMIssa, suorita ensin:
 
 ```bash
 module use /appl/local/csc/modulefiles
 ```
 
-For using Python packages and other tools listed above, you can initialize them with:
+Yllä listattujen Python-pakettien ja muiden työkalujen käyttöön voit alustaa ympäristön komennolla:
 
 ```bash
 module load geoconda
 ```
 
-By default the latest geoconda module is loaded. If you want a specific version you can specify the version number of geoconda:
+Oletuksena ladataan uusin geoconda-moduuli. Jos haluat tietyn version, määritä geocondan versionumero:
 
 ```bash
 module load geoconda/[VERSION]
 ```
 
-To check the exact packages and versions included in the loaded module:
+Tarkista ladatun moduulin sisältämät paketit ja niiden versiot:
 
 ```bash
 list-packages
 ```
  
-You can add more Python packages to `geoconda` by following the instructions in our
+Voit lisätä `geoconda`an lisää Python-paketteja noudattamalla ohjeita oppaassamme
 [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-You can edit your Python code with:
+Voit muokata Python-koodiasi seuraavilla tavoilla:
 
-* [Visual Studio Code in Puhti or LUMI web interface](../computing/webinterface/vscode.md)
-* [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md)
-* Jupyter Notebook or Lab in [Puhti](../computing/webinterface/jupyter.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
-* Spyder in [Puhti](../computing/webinterface/desktop.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop
+* [Visual Studio Code Puhtin tai LUMIn verkkokäyttöliittymässä](../computing/webinterface/vscode.md)
+* Jupyter Notebook tai Lab [Puhtissa](../computing/webinterface/jupyter.md) tai [LUMIssa](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) verkkokäyttöliittymässä 
+* Spyder [Puhtissa](../computing/webinterface/desktop.md) tai [LUMIssa](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) verkkokäyttöliittymässä etätyöpöydällä
 
-To open Spyder in Puhti or LUMI web interface with remote desktop:
+Spyderin avaaminen Puhtin tai LUMIn verkkokäyttöliittymässä etätyöpöydällä:
 
-1. Log in to [Puhti](https://puhti.csc.fi) or [LUMI](https://www.lumi.csc.fi/) web interface.
-2. Open Remote desktop: Apps -> Desktop.
-3. After launching the remote desktop:
-    * on Puhti, open `Terminal` (Desktop icon)
-    * on LUMI, open `Terminal Emulator` from the Menu in the bottom left corner
-4. Start spyder:
-    * On LUMI, remember to first run `module use /appl/local/csc/modulefiles`
+1. Kirjaudu [Puhtin](https://puhti.csc.fi) tai [LUMIn](https://www.lumi.csc.fi/) verkkokäyttöliittymään.
+2. Avaa Etätyöpöytä: Apps -> Desktop.
+3. Kun etätyöpöytä on käynnistynyt:
+    * Puhtissa, avaa `Terminal` (Työpöydän kuvake)
+    * LUMIssa, avaa `Terminal Emulator` valikosta vasemmasta alakulmasta
+4. Käynnistä Spyder:
+    * LUMIssa muista ensin ajaa `module use /appl/local/csc/modulefiles`
 
 ```bash
 module load geoconda
 spyder
 ```
 
-### r5py memory settings
-`r5py` by default does not correctly understand how much memory it has available in a supercomputer so, it has to be defined manually. It is using Java in the background, so add environmental variable to set maximum memory available for Java: 
+### r5py memory settings { #r5py-memory-settings }
+`r5py` ei oletuksena tunnista oikein supertietokoneessa käytettävissä olevaa muistia, joten se pitää määritellä manuaalisesti. Taustalla käytetään Javaa, joten lisää ympäristömuuttuja määrittämään Javan enimmäismuisti: 
 
-* `export _JAVA_OPTIONS="-Xmx4g"` from command-line before starting Python OR
-* `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` in the beginning of your Python code.
+* `export _JAVA_OPTIONS="-Xmx4g"` komentoriviltä ennen Pythonin käynnistämistä TAI
+* `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` Python-koodisi alkuun.
 
-### Google Earth Engine authentication set up in Puhti
-For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have an account in GEE. Before first usage, also set up GEE authentication in Puhti:
-
-1. Open Puhti web interface
-2. Start Desktop app
-3. In the Desktop, open:
-    * Web Browser under Applications menu and
-    * Terminal from shortcuts
-4. In the Terminal:
+### Google Earth Engine authentication set up in Puhti { #google-earth-engine-authentication-set-up-in-puhti }
+Kun käytät Google Earth Engine (GEE) -rajapintaa `earthengine-api`-paketin kanssa, tarvitset GEE-tilin ja -projektin. Ennen ensimmäistä käyttöä ota GEE-todennus käyttöön Puhtissa:
 
 ```
 module load geoconda
-python
-
-import os
-os.environ['PATH'] = '/appl/opt/csc-cli-utils/google-cloud-sdk/bin:' + os.environ['PATH']
-
-import ee
-ee.Authenticate()
+export PATH=/appl/opt/csc-cli-utils/google-cloud-sdk/bin:$PATH
+earthengine authenticate
 ```
 
-This prints out a long link and asks for a code. Copy the link to the web browser and open the Google log-in page. Log-in and copy the created code back to Python.
+Tämä tulostaa pitkän linkin ja pyytää koodia. Kopioi linkki paikallisen tietokoneesi selaimeen. Seuraa verkkosivun ohjeita ja kopioi lopuksi luotu koodi takaisin terminaaliin.
 
-## Using Allas or LUMI-O from Python
+## Using Allas or LUMI-O from Python { #using-allas-or-lumi-o-from-python }
 
-There are two Python libraries installed in Geoconda that can interact with Allas or LUMI-O. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
+Geocondaan on asennettu kaksi Python-kirjastoa, jotka voivat olla vuorovaikutuksessa Allaksen tai LUMI-O:n kanssa. __Swiftclient__ käyttää Swift-protokollaa ja __boto3__ käyttää S3-protokollaa. CSC:n esimerkit molemmista löydät [täältä](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
 
-It is also possible to __read__ and __write__ files from and to Allas or other cloud object storage directly with GDAL-based packages such as `geopandas` and `rasterio`. Please check our [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
+On myös mahdollista __lukea__ ja __kirjoittaa__ tiedostoja suoraan Allakseen tai muuhun pilviobjektivarastoon GDAL-pohjaisilla paketeilla, kuten `geopandas` ja `rasterio`. Katso ohjeet ja esimerkit oppaastamme [Geospatiaalisten tiedostojen käyttö suoraan pilvestä, ml. Allas](../support/tutorials/gis/gdal_cloud.md).
 
-With large quantities of raster data, consider using [virtual rasters](https://research.csc.fi/virtual_rasters).
+Suurten rasterimäärien kanssa harkitse [virtuaalirastereiden](https://research.csc.fi/virtual_rasters) käyttöä.
 
-## License
+## License { #license }
 
-All packages are licensed under various free and open source licenses (FOSS), see the linked pages above for exact details.
+Kaikki paketit ovat erilaisilla vapaan ja avoimen lähdekoodin lisensseillä (FOSS). Katso tarkemmat tiedot yllä linkitetyiltä sivuilta.
 
-## Citation
+## Citation { #citation }
 
-Please see the above linked package pages for citation information per package.
+Katso kunkin paketin viittaustiedot yllä linkitetyiltä pakettisivuilta.
 
-##  Acknowledgement
+##  Acknowledgement { #acknowledgement }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+Pyydämme mainitsemaan CSC:n ja Geoportin julkaisuissanne; tämä on tärkeää projektien jatkumisen ja rahoitusraportoinnin kannalta.
+Esimerkiksi: "Kirjoittajat kiittävät CSC:tä – Tieteen tietotekniikkakeskus, Suomi (urn:nbn:fi:research-infras-2016072531) ja geoinformatiikan avoimen tutkimusinfrastruktuurin (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
-## Installation
+## Installation { #installation }
 
-Geoconda was installed to Puhti and Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, Geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
+Geoconda asennettiin Puhtiin ja Mahtiin käyttäen [Tykkyn conda-containerize -toiminnallisuutta](../computing/containers/tykky.md). LUMIssa Geoconda asennettiin käyttäen [LUMI container wrapperia](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). Työkalujen toiminnallisuus on lähes identtinen; `--post`-valitsin vastaa LUMIn wrapperissa valitsinta `--post-install`. WhiteboxToolsin conda-paketti asentaa vain WhiteboxTools-asentimen, joten WhiteboxToolsin kunnollinen asennus vaati lisäkomennon asennuksen jälkeen sekä kansion komentorivityökalujen käärimistä varten.
 
 ```bash
 conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools geoconda_3.11.10.yml
 ```
 
-Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Puhti and Mahti using `list-packages` command after loading the `geoconda` module.
+Geocondan conda-ympäristötiedostot sekä WhiteboxToolsia varten tarvittavat `download_wbt` ja `start_wbt.py` ovat saatavilla [CSC:n geocomputing-repositoriossa](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Huomaa, että toistettavuuden takaamiseksi pakettiversiot on määriteltävä ympäristötiedostossa; voit tarkistaa versiot Puhtissa ja Mahtissa `list-packages`-komennolla, kun `geoconda`-moduuli on ladattu.
 
 
-## References
+## References { #references }
 
--   [CSC Python parallelisation examples]
--   [Python spatial] libraries
--   [Geoprocessing with Python using Open Source GIS]
--   [GeoExamples], a lot of examples of using Python for spatial analysis
--   [Automating GIS processes course materials], where most of the exercises are done using Python (University of Helsinki)
--   [Geohack Week materials]
--   [Multiprocessing Basics]
--   [Geographic Data Science with Python]
--   [Aalto Spatial Analytics course material]
+-   [CSC Python parallelisation examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+-   [Multiprocessing Basics](https://pymotw.com/2/multiprocessing/basics.html)
+-   [Automating GIS processes course materials](https://automating-gis-processes.github.io) Helsingin yliopisto
+-   [Aalto Spatial Analytics course material](https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html) Henrikki Tenkanen / Aalto-yliopisto
+-   [Introduction to GIS Programming](https://geog-312.gishub.org/index.html) Dr. Qiusheng Wu / University of Tennessee
+-   [Geographic Data Science with Python](https://geographicdata.science/book/intro.html) Sergio Rey, Dani Arribas-Bel, Levi Wolf
+-   [Python Foundation for Spatial Analysis](https://courses.spatialthoughts.com/python-foundation.html) Ujaval Gandhi
 
 ------------------------------------------------------------------------
 
 
-  [Conda]: https://conda.io/docs/
   [cartopy]: http://scitools.org.uk/cartopy/
   [descartes]: https://pypi.python.org/pypi/descartes
   [fiona]: https://pypi.python.org/pypi/Fiona
@@ -246,16 +251,4 @@ Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed fo
   [snappy]: https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python
   [SNAP]: snap.md
   [spyder]: https://docs.spyder-ide.org/
-  [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
-  [Bioconda]: bioconda.md
-  [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md
-  [Geoprocessing with Python using Open Source GIS]: http://www.gis.usu.edu/%7Echrisg/python/2009/
-  [GeoExamples]: https://geoexamples.com/
-  [Automating GIS processes course materials]: https://automating-gis-processes.github.io
-  [Geohack Week materials]: https://geohackweek.github.io/schedule.html
-  [Multiprocessing Basics]: https://pymotw.com/2/multiprocessing/basics.html
   [sentinelsat]: https://sentinelsat.readthedocs.io/en/stable/index.html
-  [CSC Python parallelisation examples]: https://github.com/csc-training/geocomputing/tree/master/python/puhti
-  [Geographic Data Science with Python]: https://geographicdata.science/book/intro.html
-  [Aalto Spatial Analytics course material]: https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html
-

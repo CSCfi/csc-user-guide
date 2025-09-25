@@ -1,96 +1,96 @@
 ---
 tags:
   - Free
+catalog:
+  name: RAPIDS
+  description: Suite of libraries for data analytics and machine learning on GPUs
+  description_fi: Kirjastokokonaisuus data-analytiikkaan ja koneoppimiseen GPU:illa
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# RAPIDS
+# RAPIDS { #rapids }
 
-Suite of libraries for data analytics and machine learning on GPUs.
+Kirjastokokonaisuus data-analytiikkaan ja koneoppimiseen GPU:illa.
 
-!!! info "News"
+!!! info "Uutiset"
 
-    **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
-    (RHEL8), **the number of supported RAPIDS versions has been reduced.**
-    Please [contact our servicedesk](../support/contact.md) if you really
-    need access to older versions.
+    **5.10.2022** Puhtin päivityksen Red Hat Enterprise Linux 8:aan (RHEL8) myötä **tuettujen RAPIDS-versioiden määrä on vähentynyt.** Jos todella tarvitset pääsyn vanhempiin versioihin, [ota yhteyttä palvelupisteeseemme](../support/contact.md).
 
-    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
-    older versions of RAPIDS are no longer fully supported. Please
-    [contact our servicedesk](../support/contact.md) if you really need access
-    to older versions.
+    **5.5.2022** Mahtin päivityksen Red Hat Enterprise Linux 8:aan (RHEL8) vuoksi vanhemmat RAPIDS-versiot eivät ole enää täysin tuettuja. Jos todella tarvitset pääsyn vanhempiin versioihin, [ota yhteyttä palvelupisteeseemme](../support/contact.md).
 
-    **4.2.2022** All old RAPIDS versions which were based on direct Conda
-    installations have been deprecated, and we encourage users to move to newer
-    versions. Read more on our separate [Conda deprecation page](../support/tutorials/conda.md).
+    **4.2.2022** Kaikki vanhat RAPIDS-versiot, jotka perustuivat suoriin Conda-asennuksiin, on poistettu käytöstä, ja kannustamme käyttäjiä siirtymään uudempiin versioihin. Lue lisää erilliseltä [Condan käytöstäpoistosivulta](../support/tutorials/conda.md).
 
 
-## Available
+## Saatavilla { #available }
 
-RAPIDS is available on both Puhti and Mahti. Currently supported
-RAPIDS versions:
+RAPIDS on saatavilla sekä Puhtissa että Mahtissa. Tällä hetkellä tuetut RAPIDS-versiot:
 
-- 22.04, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `22.04`
+- 22.04, perustuu [RAPIDSin virallisiin Docker-kuviin](https://hub.docker.com/r/rapidsai/rapidsai/): `22.04`
 
-Contains the [RAPIDS](https://rapids.ai/) suite (including
+Sisältää [RAPIDS](https://rapids.ai/)-kokonaisuuden (mukaan lukien
 [cuDF](https://github.com/rapidsai/cudf),
 [cuML](https://github.com/rapidsai/cuml),
-[cuGraph](https://github.com/rapidsai/cugraph), and
-[XGBoost](https://rapids.ai/xgboost.html)) for Python with GPU support via CUDA.
+[cuGraph](https://github.com/rapidsai/cugraph) ja
+[XGBoost](https://rapids.ai/xgboost.html)) Pythonille GPU-tuella CUDA:n kautta.
 
-If you find that some package is missing, you can often install it yourself with
-`pip install --user`. See
-[our Python documentation](../support/tutorials/python-usage-guide.md) for
-more information on how to install packages yourself. If you think that some
-important RAPIDS-related package should be included in the module provided by
-CSC, please [contact our servicedesk](../support/contact.md).
+Jos huomaat, että jokin paketti puuttuu, voit usein asentaa sen itse komennolla
+`pip install --user`. Katso
+[Python-dokumentaatiostamme](../support/tutorials/python-usage-guide.md)
+lisätietoja siitä, miten voit asentaa paketteja itse. Jos mielestäsi jokin
+tärkeä RAPIDS:iin liittyvä paketti pitäisi sisällyttää CSC:n tarjoamaan
+moduuliin, [ota yhteyttä palvelupisteeseemme](../support/contact.md).
 
-All modules are based on containers using Apptainer (previously known
-as Singularity). Wrapper scripts have been provided so that common
-commands such as `python`, `python3`, `pip` and `pip3` should work as
-normal. For other commands, you need to prefix them with
-`apptainer_wrapper exec`. For more information, see
-[CSC's general instructions on how to run Apptainer containers](../computing/containers/run-existing.md).
+Kaikki moduulit perustuvat Apptaineria (aiemmalta nimeltään
+Singularity) käyttäviin kontteihin. Kääreskriptit on tarjolla, jotta
+yleiset komennot kuten `python`, `python3`, `pip` ja `pip3` toimivat
+normaalisti. Muita komentoja varten sinun tulee lisätä etuliitteeksi
+`apptainer_wrapper exec`. Lisätietoja:
+[CSC:n yleisohjeet Apptainer-konttien ajamisesta](../computing/containers/overview.md#running-containers).
 
-## License
+## Lisenssi { #license }
 
-RAPIDS is licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+RAPIDS on lisensoitu [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) -lisenssillä.
 
-## Usage
+## Käyttö { #usage }
 
-To use this software, initialize it with:
+Voit ottaa ohjelmiston käyttöön alustamalla sen komennolla:
 
 ```bash
 module load rapids
 ```
 
-to access the default version.
+jolloin käytössä on oletusversio.
 
-To see all the available versions, run:
+Kaikki saatavilla olevat versiot näet komennolla:
 
 ```bash
 module avail rapids
 ```
 
-To check the exact packages and versions included in the loaded module, you can run:
+Ladattuun moduuliin sisältyvät paketit ja niiden versiot voit tarkistaa komennolla:
 
 ```bash
 list-packages
 ```
 
-!!! warning "Note" 
+!!! warning "Huomautus" 
 
-    Login nodes are not intended for heavy computing, please use
-    Slurm batch jobs instead. See our [instructions on how to use the batch job
-    system](../computing/running/getting-started.md).
+    Login-solmut eivät ole tarkoitettu raskaaseen laskentaan; käytä sen sijaan
+    Slurm-eräajoja. Katso [ohjeemme eräajojärjestelmän
+    käytöstä](../computing/running/getting-started.md).
 
-### Local storage
+### Paikallinen tallennus { #local-storage }
 
-The GPU nodes have fast local storage which is useful for I/O-intensive
-applications. See our [general instructions on how to take the fast local
-storage into
-use](../computing/running/creating-job-scripts-puhti.md#local-storage).
+GPU-solmuissa on nopea paikallinen tallennus, josta on hyötyä I/O-intensiivisille
+sovelluksille. Katso [yleisohjeemme nopean paikallisen tallennuksen
+käyttöönotosta](../computing/running/creating-job-scripts-puhti.md#local-storage).
 
-## More information
+## Lisätietoja { #more-information }
 
-- [RAPIDS Docs](https://docs.rapids.ai/)
-- [RAPIDS Sample Notebooks](https://github.com/rapidsai/notebooks)
+- [RAPIDS-dokumentaatio](https://docs.rapids.ai/)
+- [RAPIDS-esimerkkimuistikirjat](https://github.com/rapidsai/notebooks)

@@ -1,72 +1,81 @@
 ---
 tags:
   - Free
+catalog:
+  name: Diamond
+  description: Sequence similarity search tool for proteins and nucloeotides
+  description_fi: Proteiinien ja nukleotidien sekvenssien samankaltaisuushakutyökalu
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Diamond
+# Diamond { #diamond }
 
-Diamond is a fast sequence similarity search tool for matching nucleotide or protein sequences against protein databases.
-The key features of Diamond are:
+Diamond on nopea sekvenssien samankaltaisuushakutyökalu, jolla nukleotidi- tai proteiinisekvenssejä voidaan verrata proteiinitietokantoihin.
+Diamondin keskeisiä ominaisuuksia ovat:
 
-* Pairwise alignment of proteins and translated DNA at 500x-20,000x speed of BLAST.
-* Frameshift alignments for long read analysis.
-* Low resource requirements and suitable for running on standard desktops or laptops.
-* Various output formats, including BLAST pairwise, tabular and XML, as well as taxonomic classification.
+* Proteiinien ja käännetyn DNA:n parikohdistus BLASTiin verrattuna 500–20 000-kertaisella nopeudella.
+* Kehyssiirtokohdistukset pitkien lukemien analyysiin.
+* Pienet resurssivaatimukset; soveltuu ajettavaksi tavallisilla pöytäkoneilla tai kannettavilla.
+* Useita tulostusmuotoja, mukaan lukien BLAST pairwise, taulukkomuotoinen ja XML, sekä taksonominen luokitus.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html).
+Vapaa käyttää ja avoimen lähdekoodin lisenssillä [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 2.0.15, 2.1.6, 2.1.10
 
-## Usage
+## Käyttö { #usage }
 
-To use Diamond, run first the command:
+Diamondin käyttämiseksi suorita ensin komento:
 
 ```bash
 module load biokit
 ```
 
-or:
+tai:
 
 ```bash
 module load diamond
 ```
 
-To load a specific version, e.g:
+Tietyn version lataamiseksi, esim.:
 
 ```bash
 module load diamond/2.0.15
 ```
 
-After that, you can check the Diamond help with the command:
+Tämän jälkeen voit tarkistaa Diamondin ohjeen komennolla:
 
 ```bash
 diamond help
 ```
 
-CSC provides Diamond indexes for SwissProt (swiss), Uniprot (uniprot) and NCBI non-redundant databases (nr). Location of these databases is defined with the environment variable `$DIAMONDDB`. For example, searching hits for a set of nucleotide sequences from the SwissProt database could be done with the command:
+CSC tarjoaa Diamond-indeksit SwissProt- (swiss), Uniprot- (uniprot) ja NCBI:n non-redundant -tietokannoille (nr). Näiden tietokantojen sijainti on määritelty ympäristömuuttujalla `$DIAMONDDB`. Esimerkiksi osumien haku joukolle nukleotidisekvenssejä SwissProt-tietokannasta onnistuu komennolla:
 
 ```bash
 diamond blastx --query nuc.fasta -d $DIAMONDDB/swiss --out diamond_results.txt -p 4 --max-target-seqs 500
 ```
 
-You can also do searches against your own protein sequence database. In this case, you must first calculate Diamond indexes for your reference protein set with command `diamond makedb`. For example:
+Voit myös hakea omaa proteiinisekvenssitietokantaasi vastaan. Tällöin sinun on ensin luotava Diamond-indeksit viiteproteiinijoukollesi komennolla `diamond makedb`. Esimerkiksi:
 
 ```bash
 diamond makedb --in refrerence_proteins.fasta -d my_ref -p 4
 ```
 
-The command above creates a Diamond index file (`my_ref.dmnd`) that can be used as the query database:
+Yllä oleva komento luo Diamond-indeksitiedoston (`my_ref.dmnd`), jota voidaan käyttää hakukohdetietokantana:
 
 ```bash
 diamond blastx --query nuc.fasta -d my_ref --out diamond_results2.txt -p 4 --max-target-seqs 500
 ```
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Diamond Github page](https://github.com/bbuchfink/diamond)
+* [Diamondin GitHub-sivu](https://github.com/bbuchfink/diamond)

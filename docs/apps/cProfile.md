@@ -1,46 +1,50 @@
 ---
 tags:
   - Free
+catalog:
+  name: cProfile
+  description: Built-in profiler for Python programs
+  description_fi: Sisäänrakennettu profilointityökalu Python-ohjelmille
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# cProfile: Python profiler
+# cProfile: Pythonin profilointityökalu { #cprofile-python-profiler }
 
-## Available
+## Saatavilla { #available }
 
-- Mahti: Any Python version
-- Puhti: Any Python version
+- Mahti: Mikä tahansa Python-versio
+- Puhti: Mikä tahansa Python-versio
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Usage
+## Käyttö { #usage }
 
 [cProfile](https://docs.python.org/3.8/library/profile.html#module-cProfile)
-is a built-in profiler for Python programs. There are two ways to use the
-profiler. Within the code (or from the interpreter):
+on Python-ohjelmien sisäänrakennettu profiiloija. Profiiloijaa voi käyttää kahdella tavalla. Koodin sisällä (tai tulkista):
 
 ```
 import cProfile
 cProfile.run('functba(list_parameters)')
 ```
 
-Now the script can be ran as a normal Python job. This will give information
-about how long and how many times the function gets called.
+Nyt skriptiä voidaan ajaa kuten tavallista Python-ajoa. Tämä antaa tietoa siitä, kuinka kauan funktiokutsut kestävät ja kuinka monta kertaa funktiota kutsutaan.
 
-Alternatively cProfile can also be invoked as a script to profile another
-script:
+Vaihtoehtoisesti cProfile voidaan myös ajaa skriptinä profiloimaan toista skriptiä:
 
 ```
 python -m cProfile [-o output_file] [-s sort_order] myscript.py
 ```
 
-The results can be printed out or saved to a file. By default they are ordered
-by name, but other options are available, too.
+Tulokset voidaan tulostaa tai tallentaa tiedostoon. Oletuksena ne järjestetään nimen mukaan, mutta muitakin vaihtoehtoja on saatavilla.
 
-A report saved in a file can e.g. be visualized and interpreted by a
-graphical tool such as `pyprof2calltree`. Here is an example of a profiling
-done for a function:
+Tiedostoon tallennettu raportti voidaan esimerkiksi visualisoida ja tulkita graafisella työkalulla, kuten `pyprof2calltree`. Tässä esimerkki funktion profiloinnista:
 
 ```
 93 function calls in 0.065 seconds
@@ -66,6 +70,4 @@ done for a function:
         1    0.020    0.020    0.028    0.028 {mkl_fft._pydfti.irfftn_numpy}
 ```
 
-Keep in mind that running the profiler has to be done in the same way as
-running a ([puhti](../computing/running/example-job-scripts-puhti.md)  or [mahti](../computing/running/example-job-scripts-mahti.md)) batch or
-[interactive](../computing/running/interactive-usage.md) job.
+Huomaa, että profiilointi tulee suorittaa samalla tavalla kuin ajettaessa ([puhti](../computing/running/example-job-scripts-puhti.md)  tai [mahti](../computing/running/example-job-scripts-mahti.md)) eräajoa tai [interaktiivista](../computing/running/interactive-usage.md) ajoa.

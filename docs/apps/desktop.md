@@ -1,36 +1,43 @@
 ---
 tags:
   - Free
-system:
-  - www-mahti
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Desktop
+  description: Remote desktop environment
+  description_fi: Etätyöpöytäympäristö
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+        - Mahti
+    - LUMI
 ---
 
-# Desktop
+# Työpöytä { #desktop }
 
-Access a remote Xfce desktop environment on a supercomputer.
+Käytä supertietokoneella etäistä Xfce-työpöytäympäristöä.
 
-## License
+## Lisenssi { #license }
 
-Free
+Ilmainen
 
-## Available
+## Saatavilla { #available }
 
-Desktop is available as an interactive application via the web interface for
+Työpöytä on saatavilla interaktiivisena sovelluksena verkkokäyttöliittymän kautta seuraaville
 
 - Mahti
 - Puhti
 - LUMI
 
-## More information
+## Lisätietoja { #more-information }
 
-More information on Desktop, interactive applications, and the web interfaces
-can be found under the [Computing section](../computing/index.md):
+Lisätietoja Työpöydästä, interaktiivisista sovelluksista ja verkkokäyttöliittymistä löytyy [Computing-osiosta](../computing/index.md):
 
-- [Desktop](../computing/webinterface/desktop.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [Työpöytä](../computing/webinterface/desktop.md)
+- [Interaktiiviset sovellukset](../computing/webinterface/apps.md)
+- [Verkkokäyttöliittymät](../computing/webinterface/index.md)
 
-For information about the Desktop app on LUMI, see the
-[LUMI user guide](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/).
+Lisätietoja LUMIn Työpöytä-sovelluksesta on [LUMIn käyttäjäoppaassa](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/).

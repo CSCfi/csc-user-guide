@@ -1,112 +1,109 @@
 ---
 tags:
   - Non-commercial
+catalog:
+  name: NAMD
+  description: Highly scalable classical molecular dynamics
+  description_fi: Erittäin skaalautuva klassinen molekyylidynamiikka
+  license_type: Non-commercial
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# NAMD
+# NAMD { #namd }
 
-NAMD is a parallel molecular dynamics code designed for high-performance
-simulation of large biomolecular systems. The software is developed and
-distributed by the Theoretical and Computational Biophysics Group at the
-Beckman Institute of the University of Illinois.
+NAMD on rinnakkaislaskentaan tarkoitettu molekyylidynamiikkaohjelmisto, joka on suunniteltu suurten biomolekyylijärjestelmien tehokkaaseen simulointiin. Ohjelmistoa kehittää ja jakelee Illinoisin yliopiston Beckman-instituutin Theoretical and Computational Biophysics Group.
 
-## Available
+## Saatavilla { #available }
 
-The following versions are available:
+Seuraavat versiot ovat saatavilla:
 
 * Puhti: 2.14, 2.14-cuda, 3.0, 3.0-cuda
 * Mahti: 2.14, 3.0, 3.0-cuda
 * LUMI: 3.0, 3.0-gpu
 
-## License
+## Lisenssi { #license }
 
-CSC has obtained a computing center
-[license](https://www.ks.uiuc.edu/Research/namd/license.html), which allows
-usage for non-commercial research. For commercial use, contact
-<mailto:namd@ks.uiuc.edu>. See also [acknowledging usage below](#references).
+CSC on hankkinut laskentakeskus
+[lisenssin](https://www.ks.uiuc.edu/Research/namd/license.html), joka sallii
+käytön ei-kaupalliseen tutkimukseen. Kaupallista käyttöä varten ota yhteyttä
+<mailto:namd@ks.uiuc.edu>. Katso myös [käytön mainitseminen alla](#references).
 
-## Usage
+## Käyttö { #usage }
 
-NAMD can be run either with CPUs or with GPUs + CPUs. GPU versions support
-single-node jobs only.
+NAMD:ia voidaan ajaa joko pelkillä CPU:illa tai GPU:illa + CPU:illa. GPU-versiot tukevat vain yhden solmun töitä.
 
-### Performance considerations
+### Suorituskykyyn liittyviä huomioita { #performance-considerations }
 
-Tests show that leaving one core for communication for each task is beneficial
-when running on multiple CPU nodes:
+Testit osoittavat, että on eduksi jättää yksi ydin kommunikointia varten jokaista tehtävää kohti, kun ajetaan useilla CPU-solmuilla:
 
 ```bash
 (( namd_threads = SLURM_CPUS_PER_TASK - 1 ))
 ```
 
-This is also recommended by the
-[NAMD manual](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node96.html).
-Please test with your input.
+Tätä suosittelee myös
+[NAMD-manuaali](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node96.html).
+Testaa omilla lähtötiedoillasi.
 
-Make sure `--ntasks-per-node` multiplied by `--cpus-per-task` equals 40 (Puhti)
-or 128 (Mahti), i.e. all cores in a node. Try different ratios and select the
-optimal one.
+Varmista, että `--ntasks-per-node` kerrottuna `--cpus-per-task` -arvolla on 40 (Puhti)
+tai 128 (Mahti), eli kaikki solmun ytimet. Kokeile eri suhteita ja valitse
+paras.
 
-The data below shows the ApoA1 benchmark (92k atoms, 2 fs timestep) on Mahti
-with ns/day as a function of allocated nodes and varying the number of
-`namd_threads` as set in the [Mahti script below](#batch-script-examples).
+Alla olevat tiedot esittävät ApoA1-vertailun (92k atomia, 2 fs aika-askel) Mahtilla,
+ns/day-yksikkönä varattujen solmujen funktiona sekä vaihdellen
+`namd_threads`-arvoa kuten [alla olevassa Mahti-skriptissä](#batch-script-examples) on asetettu.
 
-![NAMD Scaling on Mahti](../img/namd-scaling.svg 'NAMD Scaling on Mahti')
+![NAMD:n skaalaus Mahtilla](../img/namd-scaling.svg 'NAMD:n skaalaus Mahtilla')
 
-The data also shows the following things:
+Aineisto osoittaa myös seuraavaa:
 
-* Optimal settings depend on the amount of resources in addition to system and
-  run parameters. For this system, as the amount of resources are increased,
-  the optimum performance shifts from more threads per task (15) towards fewer
-  threads per task (3).
-* 1 GPU (+ 10 CPU cores) on Puhti gives a performance that is faster than
-  running on four full Mahti nodes. This is achieved by using the GPU-resident
-  mode instead of regular GPU-offloading. See more details in the
-  [NAMD user guide](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node102.html).
-* Remember that using more resources to get results faster is also more
-  expensive in terms of consumed billing units. To avoid wasting resources,
-  ensure that your job actually benefits from increasing the number of cores.
-  You should get at least a 1.5-fold speedup when doubling the amount of
-  resources.
-* To test your own system, run e.g. 10 000 steps of dynamics and search for the
-  `Benchmark time:` line in the output.
+* Optimaaliset asetukset riippuvat resurssien määrästä järjestelmän ja
+  ajoasetusten lisäksi. Tällä järjestelmällä resurssien kasvaessa
+  paras suorituskyky siirtyy useammista säikeistä per tehtävä (15) kohti vähempiä
+  säikeitä per tehtävä (3).
+* 1 GPU (+ 10 CPU-ydintä) Puhtilla on nopeampi kuin ajo neljällä täydellä Mahti-solmulla. Tämä saavutetaan käyttämällä GPU-resident-tilaa tavanomaisen GPU-offloadauksen sijaan. Katso lisätietoja
+  [NAMD-käyttöoppaasta](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node102.html).
+* Muista, että enemmän resursseja saadaksesi tulokset nopeammin on myös kalliimpaa laskutusyksiköiden kulutuksen kannalta. Välttääksesi resurssien tuhlaamisen,
+  varmista, että työsi todella hyötyy ytimien määrän kasvattamisesta.
+  Sinun tulisi saada vähintään 1,5-kertainen nopeutus, kun resurssien määrä kaksinkertaistetaan.
+* Oman järjestelmäsi testaamiseksi aja esim. 10 000 dynaamiikka-askelta ja etsi
+  tulosteesta rivi `Benchmark time:`.
 
 !!! info "NAMD 3.0"
-    NAMD3 shows a 2-3 times improved GPU performance over NAMD2, e.g. 160
-    ns/day vs. 55 ns/day for the ApoA1 system on Puhti. Please consider using
-    NAMD3 if you intend to run on GPUs. Running on LUMI-G is recommended for
-    large-scale simulations due to the better availability of GPUs compared to
-    Puhti and Mahti.
+    NAMD3 tarjoaa 2–3-kertaisesti paremman GPU-suorituskyvyn verrattuna NAMD2:een, esim. 160
+    ns/day vs. 55 ns/day ApoA1-järjestelmällä Puhtilla. Harkitse NAMD3:n käyttöä, jos aiot ajaa GPU:illa. Suurimittaisiin simulaatioihin suositellaan ajoa LUMI-G:llä GPU:iden paremman saatavuuden vuoksi verrattuna Puhtiin ja Mahtiin.
 
-#### Multi-GPU performance
+#### Usean GPU:n suorituskyky { #multi-gpu-performance }
 
 !!! warning-label
-    Given the scarcity of GPUs on Puhti and Mahti, we highly recommend running
-    multi-GPU NAMD simulations on LUMI-G.
+    Koska GPU:ita on niukasti Puhtilla ja Mahtilla, suosittelemme vahvasti ajamaan
+    usean GPU:n NAMD-simulaatiot LUMI-G:llä.
 
 
-The plot below shows the scalability of NAMD 3.0 on Puhti, Mahti and LUMI-G. To
-run on multiple GPUs efficiently, you typically need a rather large system
-composed of at least several hundred thousand atoms, such as the STMV case
-below. Check with your system and see the
-[NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
-for available features that allow you to maximize the performance
-of multi-GPU runs. Importantly, enabling GPU-resident mode using configuration
-file option `GPUresident on` is extremely beneficial.
+Alla oleva kuva esittää NAMD 3.0:n skaalausta Puhtilla, Mahtilla ja LUMI-G:llä. Jotta monen GPU:n ajo olisi tehokasta, tarvitset tyypillisesti melko suuren järjestelmän,
+jossa on vähintään useita satoja tuhansia atomeja, kuten alla oleva STMV-tapaus.
+Tarkista oman järjestelmäsi kanssa ja katso
+[NAMD:n verkkosivulta](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
+käytettävissä olevat ominaisuudet, joilla voit maksimoida
+moni-GPU-ajoiden suorituskyvyn. Erityisen hyödyllistä on ottaa käyttöön GPU-resident-tila
+konfiguraatiotiedoston asetuksella `GPUresident on`.
 
-![NAMD Scaling on GPUs](../img/namd-gpu.svg 'NAMD Scaling on GPUs')
+![NAMD:n skaalaus GPU:illa](../img/namd-gpu.svg 'NAMD:n skaalaus GPU:illa')
 
-### Batch script examples
+### Eräajon skriptiesimerkit { #batch-script-examples }
 
 !!! info ""
-    NAMD2 and NAMD3 come with differently named executables, `namd2` and
-    `namd3`. If you intend to use NAMD2, please edit the batch script examples
-    below accordingly.
+    NAMD2 ja NAMD3 toimitetaan eri nimisillä suoritettavilla ohjelmilla, `namd2` ja
+    `namd3`. Jos aiot käyttää NAMD2:ta, muokkaa alla olevia skriptejä sen mukaisesti.
 
 === "Puhti CPU"
-    The script below requests 5 tasks per node and 8 threads per task on two
-    full Puhti nodes (80 cores). One thread per task is reserved for
-    communication.
+    Alla oleva skripti pyytää 5 tehtävää per solmu ja 8 säiettä per tehtävä kahdelle
+    täydelle Puhti-solmulle (80 ydintä). Yksi säie per tehtävä varataan
+    kommunikointiin.
 
     ```bash
     #!/bin/bash 
@@ -133,8 +130,8 @@ file option `GPUresident on` is extremely beneficial.
     ```
 
 === "Puhti GPU"
-    Note, NAMD3 runs efficiently on GPUs, and this is usually more
-    cost-efficient than running on multiple CPU-only nodes.
+    Huomaa, että NAMD3 toimii tehokkaasti GPU:illa, ja tämä on yleensä
+    kustannustehokkaampaa kuin ajo useilla pelkillä CPU-solmuilla.
 
     ```bash
     #!/bin/bash 
@@ -151,9 +148,9 @@ file option `GPUresident on` is extremely beneficial.
     ```
 
 === "Mahti CPU"
-    The script below requests 8 tasks per node and 16 threads per task on two
-    full Mahti nodes (256 cores). One thread per task is reserved for
-    communication.
+    Alla oleva skripti pyytää 8 tehtävää per solmu ja 16 säiettä per tehtävä kahdelle
+    täydelle Mahti-solmulle (256 ydintä). Yksi säie per tehtävä varataan
+    kommunikointiin.
 
     ```bash
     #!/bin/bash
@@ -176,11 +173,10 @@ file option `GPUresident on` is extremely beneficial.
     ```
 
 === "LUMI-G (1 GCD)"
-    The script below requests 1 GCD and 7 CPU cores. Note that each GPU node
-    on LUMI contains 4 GPUs, which are in turn composed of 2 GCDs (graphics
-    compute dies) that are recognized by Slurm as individual GPU devices.
-    Moreover, there are 56 CPU cores available per node, so use at most 7 cores
-    per reserved GCD.
+    Alla oleva skripti pyytää 1 GCD:n ja 7 CPU-ydintä. Huomaa, että jokaisessa LUMI:n GPU-solmussa
+    on 4 GPU:ta, joista kukin koostuu 2 GCD:stä (graphics compute dies), jotka Slurm tunnistaa
+    erillisiksi GPU-laitteiksi. Lisäksi solmussa on 56 CPU-ydintä, joten käytä enintään 7 ydintä
+    varattua GCD:tä kohti.
 
     ```bash
     #!/bin/bash
@@ -198,14 +194,13 @@ file option `GPUresident on` is extremely beneficial.
     srun namd3 +p ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices 0 stmv.namd > stmv.out
     ```
 
-=== "LUMI-G (full node)"
-    The script below requests 8 GCDs and 50 CPU cores. To mitigate load
-    imbalance due to PME, less CPU cores are assigned to the single GPU device
-    performing the PME work using the `+pmepes` option. For the STMV case
-    using 8 GCDs, best performance is obtained by assigning 7 cores for each
-    non-PME device and only 1 core for the PME device. Note that `+p` is set to
-    the total number of CPU cores, i.e. `7*7 + 1 = 50`. Please test different
-    options for your system.
+=== "LUMI-G (koko solmu)"
+    Alla oleva skripti pyytää 8 GCD:tä ja 50 CPU-ydintä. PME:stä johtuvan kuormitus-epätasapainon
+    vähentämiseksi vähemmän CPU-ytimiä osoitetaan sille yhdelle GPU-laitteelle, joka tekee PME-työn, käyttäen `+pmepes`-optiota. STMV-tapauksessa
+    8 GCD:llä paras suorituskyky saadaan osoittamalla 7 ydintä kullekin
+    ei-PME-laitteelle ja vain 1 ydin PME-laitteelle. Huomaa, että `+p` asetetaan
+    CPU-ytimien kokonaismäärään, eli `7*7 + 1 = 50`. Testaa eri
+    vaihtoehtoja omalle järjestelmällesi.
 
     ```bash
     #!/bin/bash
@@ -223,25 +218,25 @@ file option `GPUresident on` is extremely beneficial.
     srun namd3 +p ${SLURM_CPUS_PER_TASK} +pmepes 1 +setcpuaffinity +devices 0,1,2,3,4,5,6,7 stmv.namd > stmv.out
     ```
 
-Submit batch jobs with:
+Lähetä eräajotyöt komennolla:
 
 ```bash
 sbatch namd_job.bash
 ```
 
-## References
+## Viitteet { #references }
 
-The
 [NAMD License Agreement](https://www.ks.uiuc.edu/Research/namd/license.html)
-specifies that any reports or published results obtained with NAMD shall
-acknowledge its use and credit the developers as:
+määrittelee, että kaikki NAMD:illa saadut raportit tai julkaistut tulokset
+tulee varustaa maininnalla ohjelmiston käytöstä ja sen kehittäjien
+krediitillä seuraavasti:
 
 > NAMD was developed by the Theoretical and Computational Biophysics Group in
 the Beckman Institute for Advanced Science and Technology at the University
 of Illinois at Urbana-Champaign.
 
-Also, any published work which utilizes NAMD shall include the following
-reference:
+Lisäksi kaikkien julkaisujen, joissa NAMD:ia on käytetty, tulee sisältää
+seuraava viite:
 
 > James C. Phillips, David J. Hardy, Julio D. C. Maia, John E. Stone,
 Joao V. Ribeiro, Rafael C. Bernardi, Ronak Buch, Giacomo Fiorin,
@@ -253,11 +248,11 @@ Scalable molecular dynamics on CPU and GPU architectures with NAMD.
 Journal of Chemical Physics, 153:044130, 2020.
 <https://doi.org/10.1063/5.0014475>
   
-In addition, electronic documents should include a direct link to the
-[official NAMD page](http://www.ks.uiuc.edu/Research/namd/).
+Lisäksi sähköisten dokumenttien tulisi sisältää suora linkki
+[viralliselle NAMD-sivulle](http://www.ks.uiuc.edu/Research/namd/).
 
-## More information
+## Lisätietoja { #more-information }
 
-* [NAMD manual](https://www.ks.uiuc.edu/Research/namd/current/ug/)
-* [NAMD home page](https://www.ks.uiuc.edu/Research/namd/)
-* [NAMD benchmarks](https://www.ks.uiuc.edu/Research/namd/benchmarks/)
+* [NAMD-käyttöohje](https://www.ks.uiuc.edu/Research/namd/current/ug/)
+* [NAMD:n kotisivu](https://www.ks.uiuc.edu/Research/namd/)
+* [NAMD-vertailut](https://www.ks.uiuc.edu/Research/namd/benchmarks/)

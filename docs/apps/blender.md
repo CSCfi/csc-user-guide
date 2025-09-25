@@ -1,57 +1,63 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Blender
+  description: 3D modeling, visualization and rendering software
+  description_fi: 3D-mallinnus-, visualisointi- ja renderöintiohjelmisto
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
 ---
 
-# Blender
+# Blender { #blender }
 
-Blender is a free, open source 3D creation suite which supports a variety of
-visualization use cases, such as 3D pipeline-modeling, rigging, animation,
-simulation, rendering, compositing and motion tracking, even video editing and
-game creation.
+Blender on ilmainen, avoimen lähdekoodin 3D-sisällöntuotannon ohjelmisto, joka tukee monenlaisia visualisoinnin käyttötapauksia, kuten 3D-työnkulun vaiheet: mallinnus, riggaus, animointi, simulointi, renderöinti, kompositointi ja liikkeenseuranta, sekä myös videoeditointi ja pelien tekeminen.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 3.2, 3.6
 * LUMI: 3.5.1
 
-## License
+## Lisenssi { #license }
 
-Blender is Free Software. You are free to use Blender for any purpose,
-including commercially or for education under Blender's
-[GPL license](https://download.blender.org/release/GPL3-license.txt).
+Blender on vapaa ohjelmisto. Voit käyttää Blenderiä mihin tahansa tarkoitukseen,
+myös kaupallisesti tai opetuksessa Blenderin
+[GPL-lisenssin](https://download.blender.org/release/GPL3-license.txt) alaisena.
 
-## Usage
+## Käyttö { #usage }
 
-You need accelerated graphics to work with Blender efficiently.
+Blenderin tehokkaaseen käyttöön tarvitaan kiihdytetty grafiikka.
 
-### Puhti
+### Puhti { #puhti }
 
-1. Connect to the [Puhti web interface](../computing/webinterface/connecting.md).
-2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
-   app of the web interface and specify the required resources.
-3. Click the *Launch* button. Your job is placed in the queue, and once it has
-   been allocated resources, click *Launch Accelerated Visualization*.
-4. Launch Blender from *Applications* > *Visualization* > *Blender* (or search
-   for it using the *Application Finder*). Launching the software may take a
-   few seconds, so be patient.
+1. Yhdistä [Puhti-verkkokäyttöliittymään](../computing/webinterface/connecting.md).
+2. Valitse verkkokäyttöliittymän [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+   -sovellus ja määritä tarvittavat resurssit.
+3. Napsauta painiketta *Launch*. Työsi asetetaan jonoon, ja kun sille on
+   myönnetty resurssit, napsauta *Launch Accelerated Visualization*.
+4. Käynnistä Blender valikosta *Applications* > *Visualization* > *Blender* (tai etsi se
+   käyttämällä *Application Finder* -toimintoa). Ohjelman käynnistyminen voi kestää
+   muutaman sekunnin, joten ole kärsivällinen.
 
-![Launching Blender in Puhti web interface accelerated desktop](../img/interactive_session_workspace_blender.png 'Launching Blender in Puhti web interface accelerated desktop')
+![Blenderin käynnistäminen Puhti-verkkokäyttöliittymän kiihdytetyssä työpöydässä](../img/interactive_session_workspace_blender.png 'Blenderin käynnistäminen Puhti-verkkokäyttöliittymän kiihdytetyssä työpöydässä')
 
-![Blender workspace](../img/blender_workspace.png 'Blender workspace')
+![Blender-työtila](../img/blender_workspace.png 'Blender-työtila')
 
-### LUMI
+### LUMI { #lumi }
 
-Blender can be used on LUMI via the regular *Desktop* application in the LUMI
-web interface. You need to select the `lumid` partition when launching the app.
-For more details, see the
-[LUMI user guide](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)
+Blenderiä voi käyttää LUMIlla LUMIn verkkokäyttöliittymän tavallisella *Desktop*-sovelluksella.
+Sovellusta käynnistettäessä on valittava `lumid`-osio. Lisätietoja: 
+[LUMIn käyttäjäopas](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Blender home page](https://www.blender.org/)
-* [Blender support pages](https://www.blender.org/support/)
-* [Blender tutorial videos at Docs CSC](../support/tutorials/blender-tutorial.md)
+* [Blenderin kotisivu](https://www.blender.org/)
+* [Blenderin tukisivut](https://www.blender.org/support/)
+* [Blender-opastusvideot Docs CSC:ssä](../support/tutorials/blender-tutorial.md)

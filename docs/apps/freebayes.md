@@ -1,82 +1,89 @@
 ---
 tags:
   - Free
+catalog:
+  name: Freebayes
+  description: Genetic variant detector
+  description_fi: Geneettisten varianttien tunnistin
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Freebayes
+# Freebayes { #freebayes }
 
-FreeBayes is a genetic variant detector designed to find small polymorphisms (SNPs, indels, MNPs and complex events).
+FreeBayes on geneettisten varianttien tunnistin, joka on suunniteltu havaitsemaan pieniä polymorfismeja (SNP:t, indelit, MNP:t ja monimutkaiset tapahtumat).
 
-FreeBayes is haplotype-based, in the sense that it calls variants based on the literal sequences of reads aligned to a particular target, not their precise alignment. This model is a straightforward generalization of previous ones (e.g. PolyBayes, samtools, GATK) which detect or report variants based on alignments. This method avoids one of the core problems with alignment-based variant detection, that identical sequences may have multiple possible alignments.
+FreeBayes on haplotyyppipohjainen siinä mielessä, että se kutsuu variantit perustuen tiettyyn kohteeseen kohdistettujen readien kirjaimellisiin sekvensseihin, ei niiden täsmälliseen kohdistukseen. Tämä malli on aiempien (esim. PolyBayes, samtools, GATK) suoraviivainen yleistys, joissa variantteja havaitaan tai raportoidaan kohdistuksiin perustuen. Tällä menetelmällä vältetään yksi kohdistuspohjaisen varianttienilmaisun keskeisistä ongelmista, nimittäin se, että identtisillä sekvensseillä voi olla useita mahdollisia kohdistuksia.
 
-FreeBayes uses short-read alignments (BAM files) for any number of individuals from a population and a reference genome to determine the most-likely combination of genotypes for the population at each position in the reference. It reports positions which it finds putatively polymorphic in variant call file (VCF) format. It can also use an input set of variants (VCF) as a source of prior information, and a copy number variant map (BED) to define non-uniform ploidy variation across the samples under analysis.
+FreeBayes käyttää lyhyiden readien kohdistuksia (BAM-tiedostot) populaation mielivaltaiselle määrälle yksilöitä ja vertailugenomia määrittääkseen todennäköisimmän genotyyppiyhdistelmän populaatiolle kussakin viitteen kohdassa. Se raportoi paikat, jotka se katsoo oletettavasti polymorfisiksi, varianttikutsutiedoston (VCF) muodossa. Se voi myös käyttää syötteenä annettua varianttijoukkoa (VCF) etukäteistietona sekä kopiolukumuutoskarttaa (BED) ei-tasaisen ploidian vaihtelun määrittämiseen analysoitavien näytteiden välillä.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [MIT License](https://raw.githubusercontent.com/freebayes/freebayes/master/LICENSE).
+Vapaasti käytettävissä ja avoimen lähdekoodin, [MIT-lisenssin](https://raw.githubusercontent.com/freebayes/freebayes/master/LICENSE) alaisena.
 
-## Available
+## Saatavuus { #available }
 
 * Puhti: 1.3.6, 1.3.7
 
-## Usage
+## Käyttö { #usage }
 
-First load the FreeBayes module.
+Lataa ensin FreeBayes-moduuli.
 
 ```bash
 module load freebayes
 ```
 
-After this you can launch Freebayes. For example:
+Tämän jälkeen voit käynnistää Freebayesin. Esimerkiksi:
 
 ```bash
 freebayes -f reference.fa input.bam > results.vcf
 ```
 
-Note that FreeBayes requires a BAM file that is indexed. A BAM file can be indexed with command:
+Huomaa, että FreeBayes edellyttää indeksoitua BAM-tiedostoa. BAM-tiedoston voi indeksoida komennolla:
 
 ```bash
 samtools index input.bam
 ```
 
-FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs on Puhti.
+FreeBayes-analyysiajot voivat olla laskennallisesti raskaita ja ne tulisi ajaa eräajoina Puhtissa.
 
-On Puhti, you can use `freebayes-puhti` to automatically submit a Freebayes job to the batch job system.
-This tool also speeds up the analysis by running the analysis as several simultaneous tasks in parallel.
-To be able to use `freebayes-puhti`, you first need to define a regions file for your reference fasta file.
-This can be done with the command:
+Puhtissa voit käyttää `freebayes-puhti`-työkalua Freebayes-työn automaattiseen lähettämiseen eräajojärjestelmään.
+Tämä työkalu myös nopeuttaa analyysiä suorittamalla sen useana samanaikaisena rinnakkaistehtävänä.
+Jotta voit käyttää `freebayes-puhti`-työkalua, sinun on ensin määritettävä referenssin fasta-tiedostolle regions-tiedosto.
+Tämä onnistuu komennolla:
 
 ```bash
 fasta_generate_regions.py reference.fa.fai 100000 > regions.txt
 ```
 
-For small datasets you may decrease the region size in the command above so that you will get more than 100 regions in the regions file.
+Pienille aineistoille voit pienentää yllä olevan komennon aluekokoa, jotta regions-tiedostoon kertyy yli 100 aluetta.
 
-Once you have the regions file created, you can launch your analysis task with the command:
+Kun regions-tiedosto on luotu, voit käynnistää analyysin komennolla:
 
 ```bash
 freebayes-puhti -regions regions.txt -f reference.fa input.bam -out results.vcf
 ```
 
-`freebayes-puhti` will execute your FreeBayes analysis as an automatically generated array batch job. The results will also be automatically merged and sorted once the batch jobs have finished. By default, `freebayes-puhti` allows each sub-job to use 16 GB of memory and to run for 24 hours. For massive FreeBayes jobs, this may not be sufficient. In that case, you can try to use options `-mem` and `-time` to extend the limits. `-mem` option 
-defines the memory reservation in gigabytes while the `-time` option defines the time reservation in hours. For example, extending the task to 64 GB of memory and 48 hours of running time could be done with the command:
+`freebayes-puhti` suorittaa FreeBayes-analyysisi automaattisesti muodostettuna array-erätyönä. Tulokset yhdistetään ja lajitellaan myös automaattisesti, kun eräajot ovat valmistuneet. Oletuksena `freebayes-puhti` sallii kullekin alityölle 16 Gt muistia ja 24 tunnin ajoajan. Hyvin suurissa FreeBayes-töissä tämä ei välttämättä riitä. Tällöin voit käyttää valitsimia `-mem` ja `-time` rajojen kasvattamiseen. Valitsin `-mem` määrittää muistivarauksen gigatavuina, kun taas `-time` määrittää aikavarauksen tunteina. Esimerkiksi 64 Gt muistia ja 48 tunnin ajoaika onnistuu komennolla:
 
 ```bash
 freebayes-puhti -mem 64 -time 48 -regions regions.txt -f reference.fa input.bam -out results.vcf
 ```
 
-Once launched, FreeBayes starts monitoring the progress of the job. As the job may take several days, the connection
-may break, or you may need to close the connection. This does not harm the actual computing task. Once all sub-jobs have completed, you can use command `freebayes-puhti-recover` to collect the results. For example:
+Käynnistyksen jälkeen FreeBayes alkaa seurata työn etenemistä. Koska työ voi kestää useita päiviä, yhteys voi katketa tai joudut sulkemaan sen. Tämä ei haittaa varsinaista laskentatehtävää. Kun kaikki alityöt ovat valmistuneet, voit kerätä tulokset komennolla `freebayes-puhti-recover`. Esimerkiksi:
 
 ```bash
 freebayes-puhti-recover freebayes_jobnum_tmp 
 ```
 
-Where `freebayes_jobnum_tmp` is the temporary FreeBayes directory that was created by the `freebayes-puhti` command in the same directory where the command was launched.
+Missä `freebayes_jobnum_tmp` on väliaikainen FreeBayes-hakemisto, jonka `freebayes-puhti` loi samaan hakemistoon, josta komento käynnistettiin.
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Freebayes home page](https://github.com/ekg/freebayes/blob/master/README.md)
-* [Reference publication](https://arxiv.org/abs/1207.3907)
+* [Freebayesin kotisivu](https://github.com/ekg/freebayes/blob/master/README.md)
+* [Viitejulkaisu](https://arxiv.org/abs/1207.3907)

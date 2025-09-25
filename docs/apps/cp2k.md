@@ -1,82 +1,96 @@
 ---
 tags:
   - Free
+catalog:
+  name: CP2K
+  description: DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
+  description_fi: DFT, kvanttikemia, QM/MM, AIMD jne., erityisesti jaksollisille järjestelmille
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# CP2K
+# CP2K { #cp2k }
 
-Versatile ab initio and classical molecular dynamics. CP2K is suited for large
-parallel quantum chemistry calculations, in particular for AIMD.
+Monipuolinen ab initio- ja klassinen molekyylidynamiikka. CP2K soveltuu suuriin
+rinnakkaisiin kvanttikemian laskuihin, erityisesti AIMD-laskentoihin.
 
 [TOC]
 
-## Available
+## Saatavilla { #available }
 
 === "Puhti"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |9.1      |`cp2k/9.1`         |       |
-    |2022.2   |`cp2k/2022.2`      |       |
-    |2023.1   |`cp2k/2023.1`      |       |
-    |2023.2   |`cp2k/2023.2`      |       |
-    |2024.1   |`cp2k/2024.1`      |       |
-    |2024.2   |`cp2k/2024.2`      |       |
+    | Versio | Saatavilla olevat moduulit | Huomautukset |
+    |:------:|:---------------------------|:------------:|
+    |9.1     |`cp2k/9.1`                  |              |
+    |2022.2  |`cp2k/2022.2`               |              |
+    |2023.1  |`cp2k/2023.1`               |              |
+    |2023.2  |`cp2k/2023.2`               |              |
+    |2024.1  |`cp2k/2024.1`               |              |
+    |2024.2  |`cp2k/2024.2`               |              |
+    |2025.1  |`cp2k/2025.1`               |              |
 
 === "Mahti"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |8.2      |`cp2k/8.2`         |       |
-    |9.1      |`cp2k/9.1`         |       |
-    |2022.2   |`cp2k/2022.2`      |       |
-    |2023.1   |`cp2k/2023.1`      |       |
-    |2023.2   |`cp2k/2023.2`      |       |
-    |2024.1   |`cp2k/2024.1`      |       |
-    |2024.2   |`cp2k/2024.2`      |       |
+    | Versio | Saatavilla olevat moduulit | Huomautukset |
+    |:------:|:---------------------------|:------------:|
+    |8.2     |`cp2k/8.2`                  |              |
+    |9.1     |`cp2k/9.1`                  |              |
+    |2022.2  |`cp2k/2022.2`               |              |
+    |2023.1  |`cp2k/2023.1`               |              |
+    |2023.2  |`cp2k/2023.2`               |              |
+    |2024.1  |`cp2k/2024.1`               |              |
+    |2024.2  |`cp2k/2024.2`               |              |
+    |2025.1  |`cp2k/2025.1`               |              |
 
 === "LUMI"
-    | Version | Available modules                | Notes                 |
-    |:-------:|:---------------------------------|:---------------------:|
-    |2024.3   |`cp2k/2024.3`<br>`cp2k/2024.3-gpu`| GPU version available |
+    | Versio | Saatavilla olevat moduulit                | Huomautukset          |
+    |:------:|:------------------------------------------|:---------------------:|
+    |2024.3  |`cp2k/2024.3`<br>`cp2k/2024.3-gpu`         | GPU-versio saatavilla |
+    |2025.1  |`cp2k/2025.1`<br>`cp2k/2025.1-gpu`         | GPU-versio saatavilla |
 
-## License
+## Lisenssi { #license }
 
-CP2K is freely available under the GPL license.
+CP2K on vapaasti saatavilla GPL-lisenssillä.
 
-## Usage
+## Käyttö { #usage }
 
 !!! info "LUMI"
-    To access CSC modules on LUMI, remember to first load the CSC module tree
-    into use with
+    Päästäksesi käyttämään CSC:n moduuleja LUMIlla, lataa ensin CSC:n moduulipuu
+    käyttöön komennolla
 
     ```bash
     module use /appl/local/csc/modulefiles
     ```
 
-Check which versions can be loaded directly:
+Tarkista, mitkä versiot voi ladata suoraan:
 
 ```bash
 module avail cp2k
 ```
 
-You can find all installed versions with:
+Kaikki asennetut versiot löytyvät komennolla:
 
 ```bash
 module spider cp2k
 ```
 
-Specify the version number to see how to load it:
+Anna versionumero nähdäksesi, miten se ladataan:
 
 ```bash
 module spider cp2k/<version>
 ```
 
-With each new project, make sure that your job can efficiently utilize all the
-cores you request in the batch script. The rule of thumb is that when you
-double the number of cores the calculation should be at least 1.5 times faster.
+Varmista jokaisen uuden projektin alussa, että ajosi hyödyntää tehokkaasti kaikki
+eräajon skriptissä varaamasi ytimet. Nyrkkisääntö: jos kaksinkertaistat ytimien
+määrän, laskennan tulisi nopeutua vähintään 1,5-kertaiseksi.
 
-### Example batch scripts
+### Esimerkkieräskriptit { #example-batch-scripts }
 
-=== "Puhti (MPI only)"
+=== "Puhti (vain MPI)"
 
     ```bash
     #!/bin/bash
@@ -88,13 +102,13 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --account=<project>
 
     module purge
-    module load gcc/13.2.0 openmpi/5.0.5
-    module load cp2k/2024.2
+    module load gcc/14.2.0 openmpi/5.0.6
+    module load cp2k/2025.1
 
     srun cp2k.psmp H2O-64.inp > H2O-64.out
     ```
 
-=== "Mahti (mixed MPI/OpenMP)"
+=== "Mahti (yhdistetty MPI/OpenMP)"
 
     ```bash
     #!/bin/bash
@@ -106,8 +120,8 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --account=<project>
 
     module purge
-    module load gcc/9.4.0 openmpi/4.1.2
-    module load cp2k/2024.2
+    module load gcc/14.2.0 openmpi/5.0.6
+    module load cp2k/2025.1
 
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     export OMP_PLACES=cores
@@ -115,7 +129,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     srun cp2k.psmp H2O-64.inp > H2O-64.out
     ```
 
-=== "LUMI-G (full GPU node)"
+=== "LUMI-G (täysi GPU-solmu)"
 
     ```bash
     #!/bin/bash
@@ -129,7 +143,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     export OMP_NUM_THREADS=3
 
     module use /appl/local/csc/modulefiles
-    module load cp2k/2024.1-gpu
+    module load cp2k/2025.1-gpu
 
     export MPICH_GPU_SUPPORT_ENABLED=1
 
@@ -150,82 +164,82 @@ double the number of cores the calculation should be at least 1.5 times faster.
     srun --cpu-bind=$CPU_BIND ./select_gpu cp2k.psmp H2O-dft-ls.inp >> H2O-dft-ls.out
     ```
 
-    !!! info "Note"
-        Each GPU on LUMI is composed of two AMD Graphics Compute Dies (GCD).
-        Since there are four GPUs per node and Slurm interprets each GCD as a
-        separate GPU, you can reserve up to 8 "GPUs" per node. See more details
-        in [LUMI Docs](https://docs.lumi-supercomputer.eu/hardware/lumig/).
+    !!! info "Huom."
+        Jokainen LUMIn GPU koostuu kahdesta AMD Graphics Compute Die -yksiköstä (GCD).
+        Koska solmussa on neljä GPU:ta ja Slurm tulkitsee jokaisen GCD:n erilliseksi
+        GPU:ksi, voit varata jopa 8 ”GPU:ta” per solmu. Lisätietoja:
+        [LUMI-dokumentaatio](https://docs.lumi-supercomputer.eu/hardware/lumig/).
 
-### Performance notes
+### Suorituskykyhuomiot { #performance-notes }
 
-#### Mahti
+#### Mahti { #mahti }
 
-The following table shows the total execution time (in seconds) of the
-[H2O-256 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-256.inp)
-on Mahti using `cp2k/2024.2`. The column headers show how many OpenMP threads
-were used per MPI task.
+Seuraava taulukko näyttää kokonaisajoajan (sekunteina)
+[H2O-256-vertailulle](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-256.inp)
+Mahtilla käyttäen `cp2k/2024.2`-versiota. Sarakeotsikot kertovat, montako OpenMP-säiettä
+käytettiin per MPI-tehtävä.
 
-|CPU nodes|1     |2     |4         |8     |
-|:-------:|:----:|:----:|:--------:|:----:|
-|1        |197.35|164.80|169.66    |192.07|
-|2        |111.95|107.78|**101.52**|117.60|
-|4        |82.74 |72.12 |72.00     |97.97 |
+|CPU-solmut|1     |2     |4         |8     |
+|:--------:|:----:|:----:|:--------:|:----:|
+|1         |197.35|164.80|169.66    |192.07|
+|2         |111.95|107.78|**101.52**|117.60|
+|4         |82.74 |72.12 |72.00     |97.97 |
 
-* For 256 water molecules, the best efficiency is obtained with 2 full nodes,
-  32 MPI tasks per node, and 4 OpenMP threads per task. For this system it is
-  not efficient to scale beyond 2 nodes (256 CPU cores).
-* Hybrid parallelism is often efficient – choose tasks and threads so that they
-  add up to 128 (physical) cores available per node (or up to 40 on Puhti).
-* Test the optimal run parameters for your model system and method.
-* Using the ELPA diagonalization library instead of ScaLAPACK may significantly
-  accelerate calculations that require large matrix diagonalizations (even up
-  to 50% depending on the system). A good example are metallic systems that may
-  converge poorly with the orbital transformation (OT) method and thus demand a
-  standard diagonalization of the Kohn-Sham matrix.
+* 256 vesimolekyylin tapauksessa paras tehokkuus saadaan 2 täydellä solmulla,
+  32 MPI-tehtävällä per solmu ja 4 OpenMP-säikeellä per tehtävä. Tälle järjestelmälle
+  ei ole tehokasta skaalata yli 2 solmun (256 CPU-ytimen).
+* Hybridirinnakkaisuus on usein tehokas – valitse tehtävien ja säikeiden määrät
+  siten, että ne summautuvat solmukohtaisiin 128 fyysiseen ytimeen (tai Puhtilla 40).
+* Testaa mallijärjestelmällesi ja -menetelmällesi optimaaliset ajoasetukset.
+* ELPA-diagonalisaatiokirjaston käyttäminen ScaLAPACKin sijaan voi merkittävästi
+  nopeuttaa laskuja, jotka vaativat suurten matriisien diagonalisaatiota (jopa
+  50 % järjestelmästä riippuen). Hyvä esimerkki ovat metalliset järjestelmät,
+  jotka voivat konvergoitua heikosti OT-menetelmällä (orbital transformation) ja
+  vaativat siksi Kohn–Shamin matriisin tavanomaisen diagonalisaation.
 
-#### LUMI
+#### LUMI { #lumi }
 
-Only certain CPU cores are directly linked to a specific GPU on LUMI, so to
-maximize multi-GPU performance, it is important to ensure that CPU cores are
-bound to the GPUs accordingly. The full GPU node example above takes care of
-this, and also excludes the first core of each group of 8 cores linked to a
-given GCD. These are reserved for the operating system to reduce noise, meaning
-that there are only 56 cores available per node.
+Vain tietyt CPU-ytimet ovat suoraan kytköksissä tiettyyn GPU:hun LUMIlla, joten
+moni-GPU-suorituksen maksimoimiseksi on tärkeää sitoa CPU-ytimet GPU:ihin
+vastaavasti. Yllä oleva täyden GPU-solmun esimerkki huolehtii tästä ja sulkee
+myös pois jokaisen 8 ytimen ryhmän ensimmäisen ytimen, joka on varattu
+käyttöjärjestelmälle hälyn vähentämiseksi. Tämän vuoksi solmussa on käytettävissä
+vain 56 ydintä.
 
-!!! error "Note"
-    Please note that CPU-GPU binding only works when reserving full nodes by
-    running in the `standard-g` partition or by using the `--exclusive` flag.
-    See more details in LUMI Docs:
-    [LUMI-G hardware](https://docs.lumi-supercomputer.eu/hardware/lumig/),
-    [LUMI-G examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
-    [GPU binding](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
+!!! error "Huom."
+    Huomaa, että CPU–GPU-sidonta toimii vain, kun varataan kokonaisia solmuja
+    ajamalla `standard-g`-jonossa tai käyttämällä `--exclusive`-valitsinta.
+    Lisätietoja LUMI-dokumentaatiosta:
+    [LUMI-G-laitteisto](https://docs.lumi-supercomputer.eu/hardware/lumig/),
+    [LUMI-G-esimerkit](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
+    [GPU-sidonta](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
 
-The following plot shows the total execution time of the
-[linear-scaling SCF benchmark](https://github.com/cp2k/cp2k/tree/master/benchmarks/QS_DM_LS)
-(2048 water molecules) on Mahti (CPU), LUMI-C and LUMI-G. When CPU-GPU binding
-is properly done (see example above), LUMI-G is about twice as performant as
-Mahti/LUMI-C when comparing GPU nodes vs. CPU nodes. Since not all routines of
-CP2K have been ported to GPUs, make sure to always check the performance and
-scaling of your system and method – some simulations (e.g. standard SCF) are
-better run on CPUs while others are substantially faster on GPUs (e.g.
-linear-scaling SCF, post-HF methods). For more details, see the
-[CP2K website](https://www.cp2k.org/gpu).
+Seuraava kuva esittää kokonaisajoajan
+[lineaarisesti skaalautuvalle SCF-vertailulle](https://github.com/cp2k/cp2k/tree/master/benchmarks/QS_DM_LS)
+(2048 vesimolekyyliä) Mahtilla (CPU), LUMI-C:llä ja LUMI-G:llä. Kun CPU–GPU-sidonta
+on tehty oikein (katso esimerkki yllä), LUMI-G on noin kaksinkertaisesti
+suorituskykyisempi kuin Mahti/LUMI-C, kun verrataan GPU-solmuja CPU-solmuihin.
+Koska kaikkia CP2K:n rutiineja ei ole siirretty GPU:ille, varmista aina
+järjestelmäsi ja menetelmäsi suorituskyky ja skaalaus – jotkin simulaatiot
+(esim. tavallinen SCF) kannattaa ajaa CPU:illa, kun taas toiset ovat selvästi
+nopeampia GPU:illa (esim. lineaarisesti skaalautuva SCF, post-HF-menetelmät).
+Lisätietoja: [CP2K:n verkkosivut](https://www.cp2k.org/gpu).
 
-![CP2K scaling on Mahti and LUMI](../img/cp2k-lumi.png 'CP2K scaling on Mahti and LUMI')
+![CP2K:n skaalautuminen Mahtissa ja LUMIssa](../img/cp2k-lumi.png 'CP2K:n skaalautuminen Mahtissa ja LUMIssa')
 
-### High-throughput computing with CP2K
+### Korkean läpimenon laskenta CP2K:lla { #high-throughput-computing-with-cp2k }
 
-High-throughput computations can be run conveniently with CP2K using the
-built-in `FARMING` program. This is an excellent option for use cases where the
-aim is to run a large amount of independent computations, such as when
-generating data for AI/ML pipelines. All subjobs are run in parallel within a
-single Slurm allocation, thus avoiding excess calls of `srun` or `sbatch` which
-decreases the load on the batch queue system.
+Korkean läpimenon laskentoja voi ajaa kätevästi CP2K:lla sisäänrakennetulla
+`FARMING`-ohjelmalla. Tämä on erinomainen vaihtoehto käyttötapauksiin, joissa
+tarkoituksena on ajaa suuri määrä toisistaan riippumattomia laskuja, kuten
+tuotettaessa dataa AI/ML-putkille. Kaikki alitehtävät ajetaan rinnakkain
+yhdessä Slurm-varauksessa, jolloin vältetään ylimääräiset `srun`- ja
+`sbatch`-kutsut ja vähennetään kuormaa jonojärjestelmässä.
 
-Running `FARMING` jobs requires an additional input file in which the details
-of the workflow, such as the input directories and number of parallel task
-groups, are specified. Example input and batch script files are provided below.
-Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` section.
+`FARMING`-ajot vaativat lisäsyötetiedoston, jossa määritellään työnkulun
+yksityiskohdat, kuten syötekansiot ja rinnakkaisten tehtäväryhmien määrä.
+Esimerkkisyöte- ja eräskriptit ovat alla. Huomaa, että `RUN_TYPE` on asetettu
+arvoon `NONE` `&GLOBAL`-osiossa.
 
 === "Input file"
 
@@ -283,37 +297,38 @@ Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` section.
     #SBATCH --account=<project>
 
     module purge
-    module load gcc/9.4.0 openmpi/4.1.2
-    module load cp2k/2024.2
+    module load gcc/14.2.0 openmpi/5.0.6
+    module load cp2k/2025.1
 
     srun cp2k.psmp farming.inp >> farming.out
     ```
 
-In this particular example, one full Mahti node is requested for running 8
-single-point calculations of a NaCl crystal with different lattice constants.
-In addition to the `farming.inp` input, each subjob requires its own ordinary
-input file, which are here organized into separate subdirectories named `run*`.
-Issuing `sbatch farming.sh` in the parent directory launches all calculations
-in parallel, allocating 16 cores to each subjob.
+Tässä esimerkissä varataan yksi täysi Mahti-solmu 8 NaCl-kiteen
+single point -laskulle eri hilarakenteilla. `farming.inp`-tiedoston lisäksi
+jokainen alitehtävä tarvitsee tavallisen oman syötetiedostonsa, jotka on tässä
+järjestetty omiin alihakemistoihin nimillä `run*`. Komennon `sbatch farming.sh`
+antaminen yläkansiossa käynnistää kaikki laskut rinnakkain, varaten kullekin
+alitehtävälle 16 ydintä.
 
-Note that dependencies can also be specified between subjobs using the
-`DEPENDENCIES` and `JOB_ID` keywords under the `&JOB` section. This enables the
-definition of complex workflows. For further details, see the
-[CP2K manual](https://manual.cp2k.org/trunk/CP2K_INPUT/FARMING.html) and
-[regtest files for example inputs](https://github.com/cp2k/cp2k/tree/master/tests/FARMING).
+Huomaa, että alitehtävien välille voidaan määritellä myös riippuvuuksia
+`DEPENDENCIES`- ja `JOB_ID`-avaimilla `&JOB`-osiossa. Tämän avulla voidaan
+määritellä monimutkaisia työnkulkuja. Lisätietoja:
+[CP2K-manuaali](https://manual.cp2k.org/trunk/CP2K_INPUT/FARMING.html) ja
+[regressiotestien esimerkkisyötteet](https://github.com/cp2k/cp2k/tree/master/tests/FARMING).
 
-## References
+## Viitteet { #references }
 
-CP2K prints out a list of relevant publications towards the end of the
-log file. Choose and cite the ones relevant to the methods you've used.
+CP2K tulostaa lokitiedoston loppupuolelle luettelon asiaankuuluvista
+julkaisuista. Valitse ja siteeraa niistä ne, jotka liittyvät käyttämiisi
+menetelmiin.
 
-## More information
+## Lisätietoa { #more-information }
 
-* [CP2K online manual](https://manual.cp2k.org/)
-* [CP2K home page](http://www.cp2k.org/)
-    * Contains [tutorials](https://www.cp2k.org/howto) and links to useful
-      [tools](https://www.cp2k.org/tools).
-* [Regtest inputs](https://github.com/cp2k/cp2k/tree/master/tests) can be used
-  as examples on how to use the different features in CP2K. Note that the
-  convergence criteria can be quite loose and should be separately tested for
-  production simulations.
+* [CP2K-verkkokäsikirja](https://manual.cp2k.org/)
+* [CP2K-kotisivu](http://www.cp2k.org/)
+    * Sisältää [ohjeita](https://www.cp2k.org/howto) ja linkkejä hyödyllisiin
+      [työkaluihin](https://www.cp2k.org/tools).
+* [Regressiotestien syötteitä](https://github.com/cp2k/cp2k/tree/master/tests) voidaan
+  käyttää esimerkkeinä CP2K:n eri ominaisuuksien käytöstä. Huomaa, että
+  konvergenssikriteerit voivat olla melko väljät ja ne kannattaa testata erikseen
+  tuotantoajoja varten.

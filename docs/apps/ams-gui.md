@@ -1,109 +1,102 @@
 ---
 tags:
   - Academic
+catalog:
+  name: AMS-GUI
+  description: AMS integrated GUI
+  description_fi: AMS:n integroitu graafinen käyttöliittymä
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# AMS-GUI
+# AMS-GUI { #ams-gui }
 
-[AMS](../apps/ams.md) comes with an integrated GUI (Graphical User Interface)
-that makes it easy to set up, run and analyze modelling tasks. You can test the
-GUI via the Puhti web interface, [www.puhti.csc.fi](../computing/webinterface/index.md),
-but for more extensive use we recommend installing the GUI on your own laptop/workstation.
+[AMS](../apps/ams.md) sisältää integroidun GUI:n (graafisen käyttöliittymän), joka helpottaa mallinnustehtävien määrittelyä, ajoa ja analysointia. Voit kokeilla GUI:ta Puhti-verkkokäyttöliittymän kautta, [www.puhti.csc.fi](../computing/webinterface/index.md), mutta laajempaa käyttöä varten suosittelemme asentamaan GUI:n omalle kannettavallesi tai työasemallesi.
 
-## License
+## Lisenssi { #license }
 
-See [the License section of AMS](ams.md#license).
+Katso [AMS:n lisenssiosio](ams.md#license).
 
-## Usage
+## Käyttö { #usage }
 
-### Use via your browser
+### Käyttö selaimen kautta { #use-via-your-browser }
 
-Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using your CSC user account.
+Siirry selaimella osoitteeseen [puhti.csc.fi](https://puhti.csc.fi/) ja kirjaudu CSC-käyttäjätunnuksellasi.
 
-1. From there [launch a Desktop](../computing/webinterface/desktop.md#launching). 
-2. Open a `Terminal` and move to a suitable working directory.
-3. Load the AMS module `module load ams/2023.104`.
-4. Start the input builder `amsinput` and construct your job.
-5. Save the job (`File-> Save As ...`).
+1. Sieltä [käynnistä työpöytä](../computing/webinterface/desktop.md#launching). 
+2. Avaa `Terminal` ja siirry sopivaan työhakemistoon.
+3. Lataa AMS-moduuli `module load ams/2023.104`.
+4. Käynnistä syötteen rakennustyökalu `amsinput` ja luo työsi.
+5. Tallenna työ (`File-> Save As ...`).
 
-Short jobs can be started directly from the GUI (`File-> Run`), but longer jobs should be submitted to the batch queue. 
-All saved jobs, both calculated and uncalculated, can be found in the GUI under `SCM-> Jobs`.
-Before you submit a job to the batch queue you have to define what resources it needs (time, memory, number of cores etc.)
+Lyhyet työt voi käynnistää suoraan GUI:sta (`File-> Run`), mutta pidemmät työt pitäisi lähettää eräjonoon. Kaikki tallennetut työt, sekä lasketut että laskemattomat, löytyvät GUI:ssa kohdasta `SCM-> Jobs`. Ennen kuin lähetät työn eräjonoon, määritä mitä resursseja se tarvitsee (aika, muisti, ytimien määrä jne.)
 
-1. Under `SCM-> Jobs`, select `Queue -> New -> SLURM`
-2. `Queue Name: My_testqueue`. You can save queues with different names corresponding to different resource requests  
-3. `Remote host:`. Leave empty  
-4. `Remote user:`. Leave empty  
-5. `Remote job directory:`. Leave empty  
+1. Siirry kohtaan `SCM-> Jobs` ja valitse `Queue -> New -> SLURM`
+2. `Queue Name: My_testqueue`. Voit tallentaa jonoja eri nimillä vastaamaan erilaisia resurssipyyntöjä  
+3. `Remote host:`. Jätä tyhjäksi  
+4. `Remote user:`. Jätä tyhjäksi  
+5. `Remote job directory:`. Jätä tyhjäksi  
 6. `Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" `   
-Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.
+Korvaa `<yourproject>` oikealla projektinimellä. Voit käyttää samoja komentorivivalitsimia kuin tavallisessa eräajon skriptissä.
 7. `Use Local Batch: yes`  
 8. `Prolog command: source /appl/profile/zz-csc-env.sh; module load ams/2023.104; export SCM_TMPDIR=$PWD; export FORT_TMPDIR=$SCM_TMPDIR`
-   This initiates the AMS environment.
+   Tämä alustaa AMS-ympäristön.
 
-Select the job you want to submit (`SCM-> Jobs`), the queue you want to use (`Queue`) and submit the job `Job-> Run`.  
+Valitse lähetettävä työ (`SCM-> Jobs`), valitse käytettävä jono (`Queue`) ja lähetä työ `Job-> Run`.  
 
-### Install your own GUI
+### Asenna GUI omalle koneellesi { #install-your-own-gui }
 
-The AMS license acquired by CSC allows CSC's academic customers to install the
-AMS-GUI on their local computer. In this way the user can conveniently build
-and set up a computing model. Once the model is ready, the actual computing
-task is sent to and performed by CSC's servers. The results can then be
-retrieved and analyzed on the local computer. Note that the license for the
-local installation only covers the AMS-GUI, and it is only valid for academic
-usage (not government or commercial research).
+CSC:n hankkima AMS-lisenssi sallii CSC:n akateemisten asiakkaiden asentaa AMS-GUI:n paikalliselle tietokoneelle. Näin käyttäjä voi kätevästi rakentaa ja määritellä laskentamallin. Kun malli on valmis, varsinainen laskenta lähetetään CSC:n palvelimille ja suoritetaan siellä. Tulokset voidaan sitten noutaa ja analysoida paikallisella koneella. Huomaa, että paikallisen asennuksen lisenssi kattaa vain AMS-GUI:n, ja se on voimassa vain akateemiseen käyttöön (ei valtion tai kaupalliseen tutkimukseen).
 
-#### 1. Request credentials
+#### 1. Pyydä tunnukset { #1-request-credentials }
 
-Request the credentials for downloading the AMS-GUI from [CSC Service Desk](../support/contact.md).
-Please include the tag `AMS-GUI` in the subject field. Note that the license
-covers only academic usage at CSC (not government or commercial research). The
-credentials will be reset every 6 months.
+Pyydä AMS-GUI:n lataustunnukset [CSC Service Deskiltä](../support/contact.md). Lisää aihe-kenttään tunniste `AMS-GUI`. Huomaa, että lisenssi kattaa vain CSC:llä tehtävän akateemisen käytön (ei valtion tai kaupallista tutkimusta). Tunnukset nollataan 6 kuukauden välein.
 
-#### 2. Download
+#### 2. Lataa { #2-download }
 
-Get the right binary for your machine from [the SCM website](https://www.scm.com/support/downloads/)
-using:
+Hae koneellesi sopiva binääri [SCM:n sivustolta](https://www.scm.com/support/downloads/)
+käyttäen:
 
 * **SCM User ID:** `<the User ID you got from servicedesk@csc.fi>`
 * **Password:** `<the password you got from servicedesk@csc.fi>`   
 
-The download starts without entering a user ID and the password for users of Safari on Mac. 
+Safari-selainta Macilla käyttävillä lataus alkaa ilman käyttäjätunnuksen ja salasanan syöttöä. 
 
-#### 3. Install
+#### 3. Asenna { #3-install }
 
-*a. Windows:* run the exe with Administrator privileges, accepting all defaults.  
-*b. Mac:* open the dmg and drag the AMS2023.xxx item to the Applications directory.  
-*c. Linux:* untar the tgz and source the `amsbashrc.sh` in the AMS installation directory.
+*a. Windows:* aja exe-järjestelmänvalvojan oikeuksin ja hyväksy kaikki oletusasetukset.  
+*b. Mac:* avaa dmg ja vedä kohde AMS2023.xxx Applications-hakemistoon.  
+*c. Linux:* pura tgz ja suorita `amsbashrc.sh` source-komennolla AMS:n asennushakemistossa.
 
-For more detailed information, see the [AMS installation manual](https://www.scm.com/doc/Installation/index.html).
+Yksityiskohtaisemmat ohjeet löytyvät [AMS:n asennusoppaasta](https://www.scm.com/doc/Installation/index.html).
 
-#### 4. Run
+#### 4. Aja { #4-run }
 
-*a. Windows:* double-click the **AMSjobs** shortcut  
-*b. Mac:* run the **AMS2023.xxx** application  
-*c. Linux:* set up your environment, run `$AMSBIN/adfjobs`
+*a. Windows:* kaksoisnapsauta pikakuvaketta **AMSjobs**  
+*b. Mac:* käynnistä sovellus **AMS2023.xxx**  
+*c. Linux:* ota ympäristö käyttöön ja aja `$AMSBIN/adfjobs`
 
-When you start AMS for the first time you will be prompted for your username,
-password, and email address. The license should be automatically fetched from
-the internet.
+Kun käynnistät AMS:n ensimmäistä kertaa, sinulta kysytään käyttäjänimeä, salasanaa ja sähköpostiosoitetta. Lisenssi haetaan automaattisesti internetistä.
 
-#### 5. Control batch jobs
+#### 5. Hallitse erätöitä { #5-control-batch-jobs }
 
-In order to manage remote jobs you need to set up an ssh key pair between your
-workstation and Puhti (Mahti), see
-[Setting up SSH keys](../computing/connecting/ssh-keys.md).
+Etätöiden hallintaa varten sinun on luotava SSH-avaimet työasemasi ja Puhtin (Mahti) välille, katso
+[SSH-avainten luonti](../computing/connecting/ssh-keys.md).
 
-All saved jobs, both calculated and uncalculated, can be found in the GUI under `SCM-> Jobs`.
-Before you submit a job to the batch queue you have to define what resources it needs
-(time, memory, number of cores etc.)
+Kaikki tallennetut työt, sekä lasketut että laskemattomat, löytyvät GUI:ssa kohdasta `SCM-> Jobs`.
+Ennen kuin lähetät työn eräjonoon, määritä mitä resursseja se tarvitsee
+(aika, muisti, ytimien määrä jne.)
 
-1. Select `Queue -> New -> SLURM`
-2. `Queue Name: My_testqueue`. You can save queues with different names corresponding to different resource requests
+1. Valitse `Queue -> New -> SLURM`
+2. `Queue Name: My_testqueue`. Voit tallentaa jonoja eri nimillä vastaamaan erilaisia resurssipyyntöjä
 3. `Remote host: puhti.csc.fi`. 
 4. `Remote user: <your CSC username> `   
 5. `Remote job directory: /scratch/<yourproject>`   
 6. `Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" `  
-Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.  
+Korvaa `<yourproject>` oikealla projektinimellä. Voit käyttää samoja komentorivivalitsimia kuin tavallisessa eräajon skriptissä.  
 7. `Use Local Batch: no`
 8. `Prolog command: source /appl/profile/zz-csc-env.sh;source /appl/soft/chem/AMS/ams2022.103/ams_csc.bash;export SCM_TMPDIR=/scratch/<yourproject>; export FORT_TMPDIR=$SCM_TMPDIR`

@@ -1,69 +1,76 @@
 ---
 tags:
   - Free
+catalog:
+  name: Picard Tools
+  description: Tools for working with SAM,BAM,CRAM and VCF files
+  description_fi: Työkalut SAM-, BAM-, CRAM- ja VCF-tiedostojen käsittelyyn
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Picard Tools
+# Picard-työkalut { #picard-tools }
 
 
 
-Picard is a set of command line tools for manipulating high-throughput
-sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
+Picard on komentorivityökalujen kokoelma korkean läpimenon sekvensointidatan (HTS) ja sellaisten formaattien kuin SAM/BAM/CRAM ja VCF käsittelyyn.
 
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [MIT License](https://github.com/broadinstitute/picard/blob/master/LICENSE.txt).
+Vapaasti käytettävissä ja avoimen lähdekoodin [MIT-lisenssin](https://github.com/broadinstitute/picard/blob/master/LICENSE.txt) alaisena.
 
-## Available
+## Saatavilla { #available }
 
 
 - Puhti:  2.27.4, 2.27.5, 3.0.1,  3.1.1
 
-## Usage
+## Käyttö { #usage }
 
-To load Picard, load module:
+Picardin lataaminen: lataa moduuli:
 ```bash
 module load picard
 ```
 
-Note: The `biokit` module comes with Picard version 2.27.5 due to Java version compatibility
-with other software. To use newer version of Picard, load the `picard` module.
+Huom: `biokit`-moduulin mukana tulee Picard-versio 2.27.5 Java-versioyhteensopivuuden vuoksi muun ohjelmiston kanssa. Uudemman Picard-version käyttöä varten lataa `picard`-moduuli.
 
-To get a summary of available tools:
+Yhteenveto saatavilla olevista työkaluista:
 ```bash
 picard
 ```
 
-Please note that in the Picard manual commands start with "java -jar
-picard.jar". In Puhti it is easiest to run Picard through a wrapper script,
-so substitute that with just `picard`.
+Huomaa, että Picardin ohjekirjassa komennot alkavat muodossa "java -jar
+picard.jar". Puhtissa Picardia on helpointa ajaa kääreskriptin kautta,
+joten korvaa tämä pelkällä `picard`.
 
-Example:
+Esimerkki:
 ```bash
 picard SamToFASTQ I=input.bam FASTQ=output.fastq
 ```
 
-By default picard can use up to 8 GB  of memory. If your analysis task
-requires more memory, you can launch picard with commands, `picard16`, `picard32`
-and `picard64` that reserve 16, 32 or 64 GB of memory respectively.
+Oletusarvoisesti Picard voi käyttää enintään 8 GB muistia. Jos analyysitehtäväsi
+vaatii enemmän muistia, voit käynnistää Picardin komennoilla `picard16`, `picard32`
+ja `picard64`, jotka varaavat vastaavasti 16, 32 tai 64 GB muistia.
 
-Example:
+Esimerkki:
 ```bash
 picard16 SamToFASTQ I=input.bam FASTQ=output.fastq
 ```
 
-If you need to specify Java options for Picard you can use `java -jar $PICARD`.
+Jos sinun täytyy määrittää Java-valitsimia Picardille, voit käyttää `java -jar $PICARD`.
 
-Example:
+Esimerkki:
 ```bash
 java -Xmx128g -jar $PICARD  SamToFASTQ I=input.bam FASTQ=output.fastq
 ```
 
 
-## More information
+## Lisätietoja { #more-information }
 
--   [Picard home page](http://broadinstitute.github.io/picard/)
--   [Detailed tool documentation](http://broadinstitute.github.io/picard/command-line-overview.html)
+-   [Picardin kotisivu](http://broadinstitute.github.io/picard/)
+-   [Työkalujen yksityiskohtainen dokumentaatio](http://broadinstitute.github.io/picard/command-line-overview.html)

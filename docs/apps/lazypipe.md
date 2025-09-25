@@ -1,27 +1,34 @@
 ---
 tags:
   - Free
+catalog:
+  name: Lazypipe
+  description: A stand-alone pipeline for identifying viruses in host-associated or environmental samples
+  description_fi: Itsenäinen putkilinja virusten tunnistamiseen isäntäperäisistä tai ympäristönäytteistä
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Lazypipe
+# Lazypipe { #lazypipe }
 
- 
-
-Lazypipe is a stand-alone pipeline for identifying viruses in host-associated or environmental samples. The main emphasis is on assembling, taxonomic binning and taxonomic profiling of bacterial/viral sequences.
+Lazypipe on itsenäinen putkilinja virusten tunnistamiseen isäntäperäisistä tai ympäristönäytteistä. Pääpaino on bakteeri-/virussekvenssien kokoamisessa, taksonomisessa ryhmittelyssä ja taksonomisessa profiloinnissa.
 
 [TOC]
 
-## License
+## License { #license }
 
-Free to use and open source under [MIT License](https://raw.githubusercontent.com/OverZealous/lazypipe/master/LICENSE).
+Vapaa käyttää ja avoimen lähdekoodin ohjelmisto [MIT-lisenssillä](https://raw.githubusercontent.com/OverZealous/lazypipe/master/LICENSE).
 
-## Available
+## Available { #available }
 
-Lazypipe 3.0 is available in Puhti.
+Lazypipe 3.0 on saatavilla Puhtissa.
 
-## Usage
+## Usage { #usage }
 
-All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is activated with commands:
+Kaikki Lazypipe-putkilinjan komponentit ovat saatavilla Puhtissa. [Lazypipen kotisivu](https://www.helsinki.fi/en/projects/lazypipe) tarjoaa yksityiskohtaiset ohjeet oman Lazypipe-ympäristön luomiseksi Puhtiin, mutta tätä ei tarvita, jos käytät Lazypipe-moduulia, joka aktivoidaan seuraavilla komennoilla:
 
 ```bash
 module load r-env
@@ -29,7 +36,7 @@ module load biokit
 module load lazypipe
 ```
 
-Now Lazypipe starts with commands:
+Tämän jälkeen Lazypipe käynnistyy komennoilla:
 
 ```bash
 cp /appl/soft/bio/lazypipe/3.0/lazypipe/config.yaml config.yaml
@@ -38,16 +45,11 @@ echo res: \"$(pwd)/tmpdir\" >> config.yaml
 lazypipe.pl -h
 ```
 
-Normally you need to use the `lazypipe.pl` command only for testing. For real analysis tasks lazypipe module includes `sbatch-lazypipe` command that you can use instead. 
+Tavallisesti `lazypipe.pl`-komentoa tarvitaan vain testaukseen. Varsinaisiin analyysitehtäviin Lazypipe-moduuli sisältää `sbatch-lazypipe`-komennon, jota kannattaa käyttää sen sijaan. 
 
-`sbatch-lazypipe` is a help tool that automatically generates a configuration file and a batch job file for a Lazypipe run 
-and submits the job to batch job system of Puhti. The command uses the same command line options 
-as the `lazypipe.pl` command. In addition `sbatch-lazypipe` asks user to define batch job resources
-(account, run time, memory, number of cores).
+`sbatch-lazypipe` on apuväline, joka luo automaattisesti asetustiedoston ja eräajotiedoston Lazypipe-ajolle ja lähettää työn Puhtin eräajojärjestelmään. Komento käyttää samoja komentorivivalitsimia kuin `lazypipe.pl`. Lisäksi `sbatch-lazypipe` pyytää käyttäjää määrittämään eräajon resurssit (laskutusprojekti, ajoaika, muisti, ytimien määrä).
 
-For example, to execute the [Example 1](https://www.helsinki.fi/en/projects/lazypipe/examples) from the
-Lazypipe User manual, you would first need to download the reads and reference genome to your scratch directory in Puhti
-(in real cases you will get these input files from your own sources):
+Esimerkiksi suorittaaksesi [Esimerkin 1](https://www.helsinki.fi/en/projects/lazypipe/examples) Lazypipen käyttöoppaasta, sinun tulee ensin ladata lukemat ja vertailugenomi Puhtin scratch-hakemistoosi (todellisissa tapauksissa saat nämä syötetiedostot omista lähteistäsi):
 
 ```bash
 mkdir /scratch/my_project/data
@@ -56,7 +58,7 @@ cp /appl/soft/bio/lazypipe/3.0/lazypipe/data/samples/M15small_R*.fastq /scratch/
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/900/108/605/GCA_900108605.1_NNQGG.v01/GCA_900108605.1_NNQGG.v01_genomic.fna.gz -P /scratch/my_project/hostgen/
 ```
 
-When you have the data available you can submit the task with commands:
+Kun data on saatavilla, voit lähettää työn komennoilla:
 
 ```bash
 cd /scratch/my_project
@@ -67,19 +69,17 @@ sbatch-lazypipe -1 data/M15/M15small_R1.fastq -S M15 -p main --anns norm\
 --hostgen genomes_host/GCA_900108605.1_NNQGG.v01_genomic.fna.gz -v
 ```
 
-When the `sbatch-lazypipe` is executed, it interactively asks information that is
-needed to construct a batch job. This includes following items (default values in brackets will be
-used if no new value is defined):
+Kun `sbatch-lazypipe` suoritetaan, se kysyy interaktiivisesti tiedot, joita tarvitaan eräajon muodostamiseen. Näihin kuuluvat seuraavat kohdat (suluissa olevia oletusarvoja käytetään, ellei uutta arvoa anneta):
 
-*   accounting project
-*   maximum duration of the job (default 24 hours)
-*   memory reservation (default 32G)
-*   number of computing cores to use (default 8)
-*   email notifications
+*   laskutusprojekti
+*   työn enimmäiskesto (oletus 24 tuntia)
+*   muistivaraus (oletus 32G)
+*   käytettävien laskentaydinten määrä (oletus 8)
+*   sähköposti-ilmoitukset
    
-After that your Lazypipe task is submitted to the batch job system for execution.
+Tämän jälkeen Lazypipe-työsi lähetetään eräajojärjestelmään suoritettavaksi.
 
-## More information
+## More information { #more-information }
 
-*   [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe)
-*   [Lazypipe UserGuide](https://bitbucket.org/plyusnin/lazypipe/wiki/UserGuide.v3.0)
+*   [Lazypipen kotisivu](https://www.helsinki.fi/en/projects/lazypipe)
+*   [Lazypipe-käyttöopas](https://bitbucket.org/plyusnin/lazypipe/wiki/UserGuide.v3.0)

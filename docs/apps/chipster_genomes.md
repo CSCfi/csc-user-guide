@@ -1,57 +1,65 @@
 ---
 tags:
   - Free
+catalog:
+  name: Chipster_genomes
+  description: Tool to download aligner indexes used by Chipster to Puhti
+  description_fi: Työkalu Chipsterin käyttämien kohdistinindeksien lataamiseen Puhtiin
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Chipster_genomes
+# Chipster_genomes { #chipster_genomes }
 
-Chipster_genomes is a help tool to download genome indexes used in [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti.
-CSC is maintaining several short read aligners (e.g. BWA, Bowtie2, STAR) in Puhti, but not the pre-calculated 
-indexes for reference genomes. By default, users need to import and index themselves the reference genomes they are using.
+Chipster_genomes on apuväline Chipster-ohjelmistossa käytettyjen genomi-indeksien lataamiseen Puhtiin.
+CSC ylläpitää Puhtissa useita lyhytlukujen kohdistimia (esim. BWA, Bowtie2, STAR), mutta ei valmiiksi laskettuja viitegenomien indeksejä. Oletuksena käyttäjien tulee tuoda ja indeksoida itse käyttämänsä viitegenomit.
 
-The Chipster server, however, contains indexes for a set of commonly used reference organisms for several aligners.
+Chipster-palvelimella on kuitenkin useiden kohdistimien indeksejä joukolle yleisesti käytettyjä viiteorganismeja.
 
-The genome data and indexes used in Chipster are based on the data available in Ensembl and Ensembl genomes databases. 
-However, in Chipster, only those sequences (chromosomes) that have been assigned to a karyotype, are included. 
-Further, in GTF files negative location values are removed.
+Chipsterissä käytetty genomidata ja indeksit perustuvat Ensembl- ja Ensembl Genomes -tietokantojen aineistoihin. 
+Chipsterissä kuitenkin mukana ovat vain ne sekvenssit (kromosomit), joille on määritetty karyotyyppi. 
+Lisäksi GTF-tiedostoista poistetaan negatiiviset sijaintiarvot.
 
-Thus, the data downloaded from Chipster server may, in some cases, differ from the data obtained directly from Ensembl.
+Näin ollen Chipster-palvelimelta ladattu data voi joissakin tapauksissa poiketa suoraan Ensemblistä saadusta datasta.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source.
+Vapaa käyttää ja avoimen lähdekoodin.
  
-## Available
+## Saatavuus { #available }
 
-Available in Puhti.
+Saatavilla Puhtissa.
 
-## Usage
+## Käyttö { #usage }
 
-The `chipster_genomes` tool is included in the `biokit` module, so to make it available, you must first run the set-up command:
+Työkalu `chipster_genomes` sisältyy `biokit`-moduuliin, joten ottaaksesi sen käyttöön sinun on ensin suoritettava valmistelukomento:
 
 ```bash
 module load biokit
 ```
 
-After that, you can use `chipster_genomes` command. This command needs two parameters:
+Tämän jälkeen voit käyttää komentoa `chipster_genomes`. Komento tarvitsee kaksi parametria:
 
-* File or index type (bed, gtf, fasta, bowtie, bowtie2, BWA, Hisat2, TopHat2)
-* Species name
+* Tiedosto- tai indeksityyppi (bed, gtf, fasta, bowtie, bowtie2, BWA, Hisat2, TopHat2)
+* Lajin nimi
 
-If the command is launched without any arguments, it first lists the available data types and asks to select one of them.
-Then the species available for the given datatype are listed, and the tool asks the user to select one of them.
+Jos komento käynnistetään ilman argumentteja, se luettelee ensin käytettävissä olevat datatyypit ja pyytää valitsemaan yhden niistä.
+Sen jälkeen luetellaan kyseiselle datatyypille saatavilla olevat lajit, ja työkalu pyytää käyttäjää valitsemaan niistä yhden.
 
 ```bash
 chipster_genomes
 ```
 
-The data type can, alternatively, be given as the first argument and the species name as the second argument.
-For example, the BWA indexes of Danio_rerio.GRCz11 can be retrieved with the command:
+Vaihtoehtoisesti datatyyppi voidaan antaa ensimmäisenä argumenttina ja lajin nimi toisena argumenttina.
+Esimerkiksi Danio_rerio.GRCz11:n BWA-indeksit voi noutaa komennolla:
 
 ```bash
 chipster_genomes bwa Danio_rerio.GRCz11
 ```
 
-Note that as the index files may be rather large, you should normally download the data to your `/scratch` disk area.
+Huomaa, että indeksitiedostot voivat olla varsin suuria, joten data kannattaa tavallisesti ladata `/scratch`-levyalueellesi.

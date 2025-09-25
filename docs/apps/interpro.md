@@ -1,14 +1,24 @@
-
 ---
 tags:
-  - Ilmainen
+  - Free
+catalog:
+  name: InterProScan
+  description: Protein signature/motif search tool
+  description_fi: Proteiinisignatuurien/motiivien hakutyökalu
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# InterProScan
+# InterProScan { #interproscan }
 
 
 
-InterProScan on työkalu, joka vertaa proteiini- tai nukleotidisekvenssejä joukkoon proteiinisignatuureja sisältäviä tietokantoja. Saatuja tuloksia eri tietokannoista annetaan yhtenäisessä muodossa. CSC:n InterProScan5-asennusta voidaan käyttää seuraavien tietokantojen proteiinisignatuurien etsintään:
+InterProScan on työkalu, joka vertaa proteiini- tai nukleotidisekvenssiä joukkoon proteiinisignatuuritietokantoja.
+Eri tietokannoista saadut tulokset esitetään yhtenäisessä muodossa. CSC:n InterProScan5-asennusta voidaan
+käyttää proteiinisignatuurien hakuun seuraavista tietokannoista:
 
    * TIGRFAM (15.0)
    * SFLD (4)
@@ -29,46 +39,51 @@ InterProScan on työkalu, joka vertaa proteiini- tai nukleotidisekvenssejä jouk
    * PIRSF (3.10)
 
 
-## Lisenssi {#license}
+## Lisenssi { #license }
 
-Vapaa ja avoimen lähdekoodin ohjelma [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) alaisuudessa.
+Vapaasti käytettävissä ja avoimen lähdekoodin ohjelmisto, lisenssinä [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Saatavilla {#available}
+## Saatavilla { #available }
 
 *   Puhti: 5.55-88.0, 5.67-90.0
 
-## Käyttö {#usage}
+## Käyttö { #usage }
 
-Puhti-järjestelmässä ladataan ensin interproscan-moduuli komennolla:
+Puhtissa lataa ensin interproscan-moduuli komennoilla:
 
 ```bash
 module load biokit
 module load interproscan
 ```
 
-Tämän jälkeen voit lähettää InterProScan-tehtävät käyttäen komentoa `cluster_interproscan`. Cluster_interproscan on apuväline, joka suorittaa automaattisesti InterProScan-tehtäväsi Puhtin erätehtäväjärjestelmän avulla. Jos kyselytiedostosi sisältää useita sekvenssejä, cluster_interproscan-työkalu jakaa automaattisesti InterProScan-tehtävät useisiin alatehtäviin, jotka suoritetaan samanaikaisesti Puhtissa.
+Tämän jälkeen voit lähettää InterProScan-ajoja komennolla `cluster_interproscan`. Cluster_interproscan
+on apuväline, joka ajaa InterProScan-tehtäväsi automaattisesti Puhtin eräajojärjestelmässä.
+Jos kyselytiedostossasi on useita sekvenssejä, cluster_interproscan jakaa InterProScan-tehtävät
+automaattisesti useisiin alitehtäviin, joita ajetaan samanaikaisesti Puhtissa.
 
-cluster_interproscan hyväksyy kaikki normaalit InterProScan-vaihtoehdot. Tarkista käytettävissä olevat vaihtoehdot antamalla komento:
+cluster_interproscan hyväksyy kaikki InterProScanin normaalit valitsimet. Saat luettelon käytettävissä olevista vaihtoehdoista komennolla:
 
 ```bash
 cluster_interproscan -h
 ```
 
-Alla on kaksi esimerkkikomentoa InterProScan-ohjelmasta
+Alla on kaksi esimerkkikomentoa:
 
-1. Suorittamalla InterProScan-hakua nukleotidisekvenssijoukolla kaikkia InterProScan-tietokantoja vastaan. Tulokset raportoidaan XML-muodossa.
+1. Ajetaan InterProScan-haku nukleotidisekvenssijoukolle kaikkia InterProScan-tietokantoja vastaan.
+Tulokset raportoidaan XML-muodossa.
 
 ```bash
 cluster_interproscan -i nucleotides.fasta -o results.xml -f XML -t n
 ```
 
-2. Suorittamalla InterProScan-hakua proteiinisekvenssijoukolla PfamA-tietokantoja vastaan. Tulokset raportoidaan GFF3-muodossa. GFF3-muunnos vaatii enemmän muistia kuin mitä Puhtin kirjautumissolmuilla on saatavilla, joten sinun tulisi lähettää interporosacn-tehtävä interaktiivisesta erätehtävästä vähintään 4 GiB muistilla.
+2. Ajetaan InterProScan-haku proteiinisekvenssijoukolle PfamA-tietokantaa vasten. Tulokset raportoidaan GFF3-muodossa. GFF3-muunnos vaatii enemmän muistia kuin mitä Puhtin kirjautumissolmuilta on saatavilla. Siksi tehtävä kannattaa käynnistää interaktiivisesta eräajosta, jossa on varattuna vähintään 4 GiB muistia.
 
 ```bash
 sinteractive -m 4000
 cluster_interproscan -i proteins.fasta -o results.gff3 -f GFF3 -appl PfamA
 ```
 
-## Lisätietoja {#more-information}
 
-*   [InterPro kotisivu](https://www.ebi.ac.uk/interpro/)
+## Lisätietoja { #more-information }
+
+*   [InterPro home page](https://www.ebi.ac.uk/interpro/)

@@ -1,77 +1,89 @@
-
 ---
 tags:
   - Free
+catalog:
+  name: JAX
+  description: Autograd and XLA, brought together for high-performance machine learning
+  description_fi: Autograd ja XLA, tuotu yhteen korkean suorituskyvyn koneoppimista varten
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# JAX
+# JAX { #jax }
 
-JAX on Autogradin ja XLAn yhdistelmä, joka on suunniteltu korkean suorituskyvyn koneoppimistutkimukseen.
+JAX on Autogradin ja XLA:n yhdistelmä, joka on tuotu yhteen korkean suorituskyvyn koneoppimisen tutkimusta varten.
 
-## Available {#available}
+
+## Saatavilla { #available }
 
 Tällä hetkellä tuetut JAX-versiot:
 
-| Versio  | Moduuli            | Puhti   | Mahti   | LUMI       | Huomautukset   |
-|:-------:|--------------------|:-------:|:-------:|:----------:|----------------|
-| 0.5.0   | `jax/0.5.0`        | default | default | -          | all packages   |
-|         | `jax/0.5.0-small`  | X       | X       | -          | framework only |
-| 0.4.38  | `jax/0.4.38`       | X       | X       | default*   | all packages   |
-|         | `jax/0.4.38-small` | X       | X       | X*         | framework only |
-| 0.4.30  | `jax/0.4.30`       | X       | X       | X*         | all packages   |
-|         | `jax/0.4.30-small` | X       | X       | X*         | framework only |
-| 0.4.23  | `jax/0.4.23-py3.9` | X       | X       | X*         |                |
-| 0.4.20  | `jax/0.4.20`       | X       | X       | X*         |                |
-| 0.4.18  | `jax/0.4.18`       | -       | -       | X*         |                |
-| 0.4.14  | `jax/0.4.14`       | X       | X       | -          |                |
-| 0.4.13  | `jax/0.4.13`       | X       | X       | -          |                |
-| 0.4.1   | `jax/0.4.1`        | X       | X       | -          |                |
-| 0.3.13  | `jax/0.3.13`       | X       | X       | -          |                |
+| Versio | Moduuli            | Puhti   | Mahti   | LUMI       | Huomautukset  |
+|:------:|--------------------|:-------:|:-------:|:----------:|----------------|
+| 0.5.0  | `jax/0.5.0`        | oletus  | oletus  | -          | kaikki paketit |
+|        | `jax/0.5.0-small`  | X       | X       | -          | vain kehys     |
+| 0.4.38 | `jax/0.4.38`       | X       | X       | oletus*    | kaikki paketit |
+|        | `jax/0.4.38-small` | X       | X       | X*         | vain kehys     |
+| 0.4.30 | `jax/0.4.30`       | X       | X       | X*         | kaikki paketit |
+|        | `jax/0.4.30-small` | X       | X       | X*         | vain kehys     |
+| 0.4.23 | `jax/0.4.23-py3.9` | X       | X       | X*         |                |
+| 0.4.20 | `jax/0.4.20`       | X       | X       | X*         |                |
+| 0.4.18 | `jax/0.4.18`       | -       | -       | X*         |                |
+| 0.4.14 | `jax/0.4.14`       | X       | X       | -          |                |
+| 0.4.13 | `jax/0.4.13`       | X       | X       | -          |                |
+| 0.4.1  | `jax/0.4.1`        | X       | X       | -          |                |
+| 0.3.13 | `jax/0.3.13`       | X       | X       | -          |                |
 
-Moduulit sisältävät [JAXin](https://github.com/google/jax/) Pythonille GPU-tuella CUDA/ROCm:n kautta sekä suuren määrän muita Python-paketteja, joita käytetään yleisesti yhdessä JAXin kanssa.
-Python-versio vaihtelee moduulijulkaisujen välillä. Moduulit, joiden JAX-versio on enintään 0.4.23, käyttävät Python 3.9:ää, ja myöhemmät moduulit käyttävät Python 3.12:ta.
+Moduulit sisältävät [JAXin](https://github.com/google/jax/) Pythonille GPU-tuen kanssa (CUDA/ROCm) sekä laajan joukon muita JAXin kanssa yleisesti käytettyjä Python-paketteja.
+Python-versio vaihtelee moduulijulkaisujen välillä. Moduulit, joissa JAXin versio on enintään 0.4.23, käyttävät Python 3.9:ää; uudemmat moduulit käyttävät Python 3.12:ta.
 
-**Versiot LUMIssa, merkitty "*":lla, ovat edelleen kokeellisia ja niille on rajoitettu tuki.** Jotkin alla kuvatuista ominaisuuksista eivät ehkä toimi niiden kanssa.
-Huomaa, että JAX on saatavilla myös [LUMIn ohjelmistokirjastossa](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/)
-LUMIn käyttäjätukitiimin ylläpitämänä (ei CSC:n tutkimustuki).
+**LUMIssa tähdellä (*) merkityt versiot ovat yhä kokeellisia ja niillä on rajattu tuki.** Kaikki alla kuvatut ominaisuudet eivät välttämättä toimi niiden kanssa.
+Huomaa, että JAX on saatavilla myös [LUMI Software Libraryssa](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/),
+jota ylläpitää LUMI User Support Team (ei CSC:n tutkimustuki).
 
-JAX-moduuli tulee kahdessa muodossa alkaen versiosta 0.4.30:
+Versiosta 0.4.30 alkaen JAX-moduulista on kaksi vaihtoehtoa:
 
-- "Pieni" maku, joka sisältää JAXin CUDA 12.2 GPU-tuen kanssa sekä cpulle ja Tensorflowlle, jotta niiden tiedonlataustoimintoja voi käyttää. Näissä käytetään nimeämismuotoa
-  `jax/<version>-small`, tai voit käyttää `jax/small` ladataksesi oletusversion (viimeisimmän).
-- "Täysi" maku, joka sisältää monia yleisesti käytettyjä koneoppimispaketteja, jotka perustuvat JAXiin -- voit käyttää `pip list` selvittääksesi, mitä paketteja sisältyy. Näissä käytetään nimeämismuotoa `jax/<version>`,
-  tai voit yksinkertaisesti käyttää `jax` ladataksesi oletusversion (viimeisimmän).
+- "Kevyt" vaihtoehto, joka sisältää JAXin CUDA 12.2 -GPU-tuella sekä vain CPU:lle tarkoitetut versiot
+  PyTorchista ja Tensorflowista, jotta niiden datanlataustyökaluja voidaan käyttää. Nämä noudattavat nimeämiskaavaa
+  `jax/<version>-small`, tai voit käyttää `jax/small` ladataksesi oletusversion (uusimman).
+- "Täysi" vaihtoehto, joka sisältää monia JAXin päälle rakentuvia, yleisesti käytettyjä koneoppimispaketteja — saat
+  täydellisen listan kaikista mukana olevista paketeista komennolla `pip list`. Nämä noudattavat nimeämiskaavaa `jax/<version>`,
+  tai voit yksinkertaisesti käyttää `jax` ladataksesi oletusversion (uusimman).
 
 !!! note
 
-    Koska JAX julkaisee uusia versioita jokseenkin epäsäännöllisellä aikataululla,
-    emme tee kaikkia uusia versioita heti saataville.
-    Sen sijaan pyrimme päivittämään järjestelmiemme saatavilla olevan JAX-version noin kuuden kuukauden välein, tavoitteena helmikuu ja elokuu, parhaan kykymme mukaan.
+    Koska JAX julkaisee uusia versioita epäsäännöllisesti,
+    emme tuo kaikkia uusia versioita saataville välittömästi.
+    Pyrimme sen sijaan päivittämään järjestelmissämme saatavilla olevan JAX-version noin puolen vuoden välein, tavoiteaikoina helmikuu ja elokuu, parhaamme mukaan.
 
-Kaikki moduulit perustuvat Apptainerin (aiemmin tunnettu nimellä Singularity) käyttämiin kontteihin. Kuutta [tykky](../computing/containers/tykky.md)
-on tarjottu niin, että yleiset komennot kuten `python`, `python3`, `pip` ja `pip3` ja
-asennettujen pakettien tarjoamat komennot toimivat normaalisti.
-Muiden komentojen osalta saatat joutua lisäämään etuliitteeksi
-`apptainer_wrapper exec`. Lisätietoja löydät [CSC:n yleisistä
-ohjeista Apptainer
-konttien käyttöön](../computing/containers/run-existing.md).
+Kaikki moduulit perustuvat Apptaineria (aiemmin Singularity) käyttäviin kontteihin. Kääreskriptit on tarjottu [tykky](../computing/containers/tykky.md)llä
+niin, että yleiset komennot, kuten `python`, `python3`, `pip` ja `pip3`, sekä asennettujen pakettien tarjoamat komennot toimivat normaalisti.
+Muiden komentojen kohdalla saatat joutua lisäämään etuliitteen
+`apptainer_wrapper exec`. Lisätietoja on [CSC:n yleisissä ohjeissa Apptainer-konttien ajamisesta](../computing/containers/overview.md#running-containers).
 
-## Additional packages {#additional-packages}
 
-Jos huomaat, että jokin paketti puuttuu, voit usein asentaa sen itse käyttäen `pip install`. On suositeltavaa käyttää Python-virtuaaliympäristöjä. Katso [Python-dokumentaatiostamme lisätietoja
-pakettien asentamisesta
+## Lisäpaketit { #additional-packages }
+
+Jos huomaat, että jokin paketti puuttuu, voit usein asentaa sen
+itse komennolla `pip install`. Suosittelemme Python-virtuaaliympäristöjen käyttöä. Katso [Python-dokumentaatiostamme lisätietoja
+siitä, miten asennat paketteja
 itse](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 Jos mielestäsi jokin tärkeä paketti pitäisi sisällyttää
-CSC:n tarjoamaan moduuliin, ota yhteyttä [palvelupisteeseemme](../support/contact.md).
+CSC:n tarjoamaan moduuliin, ole hyvä ja [ota yhteyttä palvelupöytäämme](../support/contact.md).
 
-## License {#license}
+## Lisenssi { #license }
 
 JAX on lisensoitu [Apache License
-2.0](https://github.com/google/jax/blob/main/LICENSE).
+2.0](https://github.com/google/jax/blob/main/LICENSE) -lisenssillä.
 
-## Usage {#usage}
+## Käyttö { #usage }
 
-Käyttääksesi oletusversiota (uusin) Puhtilla tai Mahtilla, alusta se komennolla:
+Käyttääksesi oletusversiota (uusinta) Puhtissa tai Mahtissa, lataa se komennolla:
 
 ```bash
 module load jax
@@ -82,7 +94,7 @@ tai
 module load jax/small
 ```
 
-CSC:n asentaman JAXin käyttöön LUMIssa:
+CSC:n asentaman JAXin käyttö LUMIssa:
 
 ```bash
 module use /appl/local/csc/modulefiles/
@@ -91,13 +103,13 @@ module load jax  # jax/small
 
 !!! note
 
-    Suosittelemme, että skripteissäsi kiinnität version, jotta
+    Skripteissä suosittelemme lukitsemaan version, jotta
     tulevien päivitysten muutokset eivät riko skriptejä, esim.:
     `module load jax/0.5.0` tai `module load jax/0.5.0-small`
 
-Huomaa, että JAX-moduulit sisältävät jo vastaavat
-CUDA- ja cuDNN- tai ROCm-kirjastot, joten **ei ole tarpeen ladata erikseen
-cuda, cudnn tai rocm -moduuleita!**
+Huomaa, että JAX-moduuleihin sisältyvät jo vastaavat
+CUDA- ja cuDNN- tai ROCm-kirjastot, joten **ei tarvitse ladata erikseen mitään
+cuda-, cudnn- tai rocm-moduuleja!**
 
 Tämä näyttää kaikki saatavilla olevat JAX-versiot:
 
@@ -107,20 +119,18 @@ module avail jax
 
 !!! note
 
-    Huomaa, että sisäänkirjautumissolmut eivät ole raskaaseen laskentaan, 
-    käytä sen sijaan slurm-eräajoja. Katso [ohjeemme eräajot]
-    (../computing/running/getting-started.md).
+    Huomaa, että kirjautumissolmut eivät ole tarkoitettu raskasta laskentaa varten;
+    käytä sen sijaan Slurm-eräajoja. Katso [ohjeemme eräajojärjestelmän käytöstä](../computing/running/getting-started.md).
 
 !!! note
 
-    Älä ** lue suurta määrää tiedostoja jakaen tiedostojärjestelmästä**, käytä
-    nopeaa paikallista levyä tai paketoi tietosi suurempiin tiedostoihin sen sijaan! Katso [koneoppimisen
-    oppaamme tietojen tallennusosa](../support/tutorials/ml-data.md) saadaksesi lisätietoja.
+    Älä **lue valtavaa määrää tiedostoja jaetusta tiedostojärjestelmästä**, vaan käytä
+    nopeaa paikallislevyä tai pakkaa datasi suuremmiksi tiedostoiksi! Katso lisätietoja [koneoppimisoppaan
+    data­tallennusosiosta](../support/tutorials/ml-data.md).
 
-## More information {#more-information}
+## Lisätietoja { #more-information }
 
-- [CSC:n Koneoppimisopas](../support/tutorials/ml-guide.md)
-- [JAX LUMIn ohjelmistokirjastossa](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/)
-- [JAX GitHub-sivu](https://github.com/google/jax)
-- [JAX viitedokumentaatio](https://jax.readthedocs.io/en/latest/)
-
+- [CSC:n koneoppimisopas](../support/tutorials/ml-guide.md)
+- [JAX LUMI Software Libraryssa](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/)
+- [JAXin GitHub-sivu](https://github.com/google/jax)
+- [JAXin referenssidokumentaatio](https://jax.readthedocs.io/en/latest/)

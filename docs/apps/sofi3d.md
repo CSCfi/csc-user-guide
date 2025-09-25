@@ -1,15 +1,24 @@
 ---
 tags:
   - Free
+catalog:
+  name: SOFI3D
+  description: for 3D finite-difference seismic wave simulation
+  description_fi: 3D-äärelliserotusmenetelmään perustuvaan seismisten aaltojen simulointiin
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# SOFI3D
+# SOFI3D { #sofi3d }
 
-[SOFI3D](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d) is an application for 3D Finite-Difference Seismic Wave Simulation.
+[SOFI3D](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d) on sovellus 3D-äärelliserotusmenetelmään perustuvaan seismisten aaltojen simulointiin.
 
-## Available
+## Saatavilla { #available }
 
-These tools are available on Puhti:
+Seuraavat työkalut ovat saatavilla Puhtissa:
 
 * partmodel
 * seismerge
@@ -17,22 +26,22 @@ These tools are available on Puhti:
 * sofi3D
 * sofi3D_acoustic
 
-## Usage
+## Käyttö { #usage }
 
-The SOFI3D module is available on Puhti and can be loaded using the following command:
+SOFI3D-moduuli on saatavilla Puhtissa ja sen voi ladata seuraavalla komennolla:
 
 `module load sofi3d`
 
-The application can be run with:
+Sovellus ajetaan komennolla:
 
 `sofi3D`
 
-## Example batch job
+## Esimerkkieräajo { #example-batch-job }
 
-SOFI3D creates many auxiliary files, so in this example subdirectories are used to reduce clutter.
+SOFI3D luo paljon välitiedostoja, joten tässä esimerkissä käytetään alihakemistoja sotkun vähentämiseksi.
 
-!!! warning "Reminder" 
-    Remember to replace the <project\> and <some_dir\> placeholders before trying the example batch job. <project\> is the name of the project you want to use in the style of project_200xxxx.
+!!! warning "Muistutus" 
+    Muista korvata <project\> ja <some_dir\> -paikkamerkit ennen kuin kokeilet esimerkkieräajoa. <project\> on käytettävän projektin nimi muodossa project_200xxxx.
 
 ```bash
 #!/bin/bash
@@ -86,7 +95,7 @@ srun sofi3D sofi3D.json > simulation.out
 rm -r sources receiver log model snap su tmp
 ```
 
-Where the input file is sofi3D.json defined as:
+Syötetiedostona on sofi3D.json, joka on määritelty seuraavasti:
 
 ```json
 #-----------------------------------------------------------------
@@ -209,35 +218,35 @@ Where the input file is sofi3D.json defined as:
 }
 ```
 
-## Common errors
+## Yleiset virheet { #common-errors }
 
-* The variables NPROCX, NPROCY and NPROCZ can be found under Domain Decomposition in the json file. Their product has to be equal to the --ntasks option, otherwise the program will stop. So NPROCX\*NPROCY\*NPROCZ=8 in the example run.
+* Muuttujat NPROCX, NPROCY ja NPROCZ löytyvät json-tiedoston kohdasta Domain Decomposition. Niiden tulon pitää olla yhtä suuri kuin --ntasks-valinnan arvo, muuten ohjelma pysähtyy. Esimerkissä NPROCX\*NPROCY\*NPROCZ=8.
 
-* A json file must be provided otherwise the application would try to read a default sofi3D.json file located in the current directory.
+* Json-tiedosto on annettava, muuten sovellus yrittää lukea oletustiedoston sofi3D.json nykyisestä hakemistosta.
 `sofi3D my_file.json`
 
-* The folders specified in the json file have to exist when the program is run as it does not create them.
+* Json-tiedostossa määriteltyjen kansioiden on oltava olemassa ajon aikana, sillä ohjelma ei luo niitä.
 
-* The output from different workers have to be accessible to each other, as one worker will merge the results from the other workers otherwise it will fail.
+* Eri prosessien tuottamien tulosten on oltava toistensa luettavissa, koska yksi prosessi yhdistää muiden tuottamat tulokset; muuten ajo epäonnistuu.
 
-## License
+## Lisenssi { #license }
 
-SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the [GNU General Public License](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d/-/blob/master/LICENSE.info) as published by the Free Software Foundation, version 2.0 of the License only.
+SOFI3D on vapaa ohjelmisto: sitä saa levittää ja/tai muokata [GNU General Public License](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d/-/blob/master/LICENSE.info) -lisenssin ehtojen mukaisesti, kuten Free Software Foundation on sen julkaissut, vain lisenssin version 2.0 mukaisesti.
 
-## Citation
+## Viittaus { #citation }
 
 `Bohlen, T. (2002). Parallel 3-D viscoelastic finite difference seismic modelling. Computers & Geosciences, 28(8), 887-899.`
 
-## Acknowledgement
+## Kiitokset { #acknowledgement }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+Mainitsethan CSC:n ja Geoportin julkaisuissasi; tämä on tärkeää projektin jatkuvuuden ja rahoitusraportoinnin kannalta.
+Esimerkiksi voit kirjoittaa: "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-## Installation
+## Asennus { #installation }
 
-SOFI3D was installed on Puhti following the general installation instructions: [SOFI3D Users Guide](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf).
+SOFI3D asennettiin Puhtiin noudattaen yleisiä asennusohjeita: [SOFI3D-käyttöopas](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf).
 
-## References
+## Viitteet { #references }
 
-* [SOFI3D homepage and source code](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d)
-* [SOFI3D manual](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf)
+* [SOFI3D:n kotisivu ja lähdekoodi](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d)
+* [SOFI3D-opas](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf)

@@ -1,55 +1,63 @@
 ---
 tags:
   - Free
+catalog:
+  name: Cutadapt
+  description: Trimming high-throughput sequencing reads
+  description_fi: Korkeatuottoisen sekvensoinnin lukujen trimmays
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# Cutadapt
+# Cutadapt { #cutadapt }
 
-Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of 
-unwanted sequence from your high-throughput sequencing reads.
+Cutadapt etsii ja poistaa adapterisekvenssejä, alukkeita, poly-A-häntiä ja muita ei-toivottuja sekvenssejä korkeatuottoisen sekvensoinnin lukemista.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [MIT License](https://github.com/marcelm/cutadapt/blob/main/LICENSE)
+Vapaa käyttää ja avoimen lähdekoodin ohjelmisto [MIT-lisenssin](https://github.com/marcelm/cutadapt/blob/main/LICENSE) alaisena
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 3.2, 3.4, 3.5, 4.6
 
-## Usage
+## Käyttö { #usage }
 
-On Puhti, the latest version of Cutadapt can be taken in use by loading the module:
+Puhtissa uusin Cutadapt-versio otetaan käyttöön lataamalla moduuli:
 
 ```bash
 module load cutadapt
 ```
 
-You can check the available versions with the command:
+Saatavilla olevat versiot voi tarkistaa komennolla:
 
 ```bash
 module spider cutadapt
 ```
 
-You can load a specific version with the command:
+Tietyn version voi ladata komennolla:
 
 ```bash
 module load cutadapt/3.2
 ```
 
-The basic syntax is:
+Perussyntaksi on:
 
 ```bash
 cutadapt --help
 ```
 
-Cutadapt should be run either in an interactive session or as a batch job.
+Cutadapt kannattaa ajaa joko interaktiivisessa istunnossa tai eräajona.
 
-## Support
+## Tuki { #support }
 
 [CSC Service Desk](../support/contact.md)
 
-## More information
+## Lisätietoja { #more-information }
 
-More information about Cutadapt can be found from the [Cutadapt home page](https://cutadapt.readthedocs.io/en/stable/).
+Lisätietoja Cutadaptista löytyy [Cutadaptin kotisivulta](https://cutadapt.readthedocs.io/en/stable/).

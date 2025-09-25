@@ -1,43 +1,48 @@
 ---
 tags:
   - Free
-system:
-  - www-mahti
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Visual Studio Code
+  description: Source code editor
+  description_fi: Lähdekoodieditori
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+        - Mahti
+    - LUMI
 ---
 
-# Visual Studio Code
+# Visual Studio Code { #visual-studio-code }
 
-Visual Studio Code, known colloquially as _VS Code_, is a source code editor by Microsoft.
+Visual Studio Code, tuttavallisemmin _VS Code_, on Microsoftin kehittämä lähdekoodieditori.
 
-## License
+## Lisenssi { #license }
 
-Free
+Ilmainen
 
-## Available
+## Saatavilla { #available }
 
-Visual Studio Code is available as an interactive application via the web interface for
+Visual Studio Code on saatavilla interaktiivisena sovelluksena verkkokäyttöliittymän kautta seuraavia varten
 
 - Mahti
 - Puhti
 - LUMI
 
-## Remote connections
+## Etäyhteydet { #remote-connections }
 
-Visual Studio Code features a remote connection extension (Remote-SSH) that allows an instance of the program installed at your local computer to connect to CSC's computing environments to edit code remotely. Find more details on how to use it with CSC's computing environments in our [Developing scripts remotely tutorial](../support/tutorials/remote-dev.md).
+Visual Studio Codessa on etäyhteyslaajennus (Remote-SSH), jonka avulla paikalliselle tietokoneellesi asennettu ohjelma voi muodostaa yhteyden CSC:n laskentaympäristöihin koodin etämuokkausta varten. Lisätietoja sen käytöstä CSC:n laskentaympäristöissä löytyy oppaastamme [Skriptien etäkehityksen opas](../support/tutorials/remote-dev.md).
 
 !!! warning
-    While connecting to CSC computing environment with VS Code is possible, it
-    is prone to connection issues and other problems. Thus, we recommend using
-    other ways to [connect to CSC supercomputers](../computing/connecting/index.md).
-    If you need to use VS Code on HPC, please consider the VS Code applications
-    available in the supercomputer web interfaces.
+    Vaikka yhteys CSC:n laskentaympäristöön VS Codella on mahdollinen, siihen liittyy usein yhteysongelmia ja muita ongelmia. Siksi suosittelemme käyttämään muita tapoja [yhdistää CSC:n superkoneisiin](../computing/connecting/index.md). Jos sinun täytyy käyttää VS Codea HPC-ympäristössä, harkitse superkoneiden verkkokäyttöliittymissä saatavilla olevia VS Code -sovelluksia.
 
-## More information
+## Lisätietoja { #more-information }
 
-More information on Visual Studio Code, interactive applications, and the web interfaces can be found under the [Computing section](../computing/index.md):
+Lisätietoja Visual Studio Codesta, interaktiivisista sovelluksista ja verkkokäyttöliittymistä löytyy [Laskenta-osiosta](../computing/index.md):
 
 - [Visual Studio Code](../computing/webinterface/vscode.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [Interaktiiviset sovellukset](../computing/webinterface/apps.md)
+- [Verkkokäyttöliittymät](../computing/webinterface/index.md)

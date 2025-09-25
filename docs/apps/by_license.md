@@ -1,46 +1,46 @@
-# Applications by license
+# Sovellukset lisenssityypeittäin { #applications-by-license }
 
-Select a license category for a brief description and a list of applications with corresponding licensing.
+Valitse lisenssikategoria saadaksesi lyhyen kuvauksen ja luettelon sovelluksista vastaavine lisensseineen.
 
-=== "Academic"
+=== "Akateminen"
 
-    !!! default "Applications with 'Academic' licensing"
+    !!! default "Sovellukset, joissa on 'Academic'-lisenssi"
 
-        These software can be used by any researcher or student affiliated with an academic, i.e.
-        degree-granting, institute for non-profit non-commercial purposes. Employees of governmental
-        research institutes or non-academic non-profit institutes might not be permitted to use the software.
-        Please always see the specific licensing details under the respective application pages.
+        Näitä ohjelmistoja voivat käyttää kaikki tutkijat tai opiskelijat, jotka ovat kytköksissä akateemiseen eli
+        tutkintoja myöntävään oppilaitokseen, ei-kaupallisiin ja voittoa tavoittelemattomiin tarkoituksiin. Valtion
+        tutkimuslaitosten tai muiden kuin akateemisten voittoa tavoittelemattomien laitosten työntekijöillä ei
+        välttämättä ole lupaa käyttää ohjelmistoa. Tutustu aina tarkempiin lisenssitietoihin kunkin sovelluksen sivulla.
 
 
     <!-- material/tags { include: [ Academic ] } -->
 
-=== "Free"
+=== "Ilmainen"
 
-    !!! default "Applications with 'Free' licensing"
+    !!! default "Sovellukset, joissa on 'Free'-lisenssi"
 
-        These software are freely available for anyone to use for most purposes. Please always see the specific
-        licensing details under the respective application pages.
+        Nämä ohjelmistot ovat kenen tahansa käytettävissä useimpiin tarkoituksiin ilman erillistä maksua. Tutustu aina
+        tarkempiin lisenssitietoihin kunkin sovelluksen sivulla.
 
 
     <!-- material/tags { include: [ Free ] } -->
 
-=== "Non-commercial"
+=== "Ei-kaupallinen"
 
-    !!! default "Applications with 'Non-commercial' licensing"
+    !!! default "Sovellukset, joissa on 'Non-commercial'-lisenssi"
 
-        The use of these software is restricted to non-commercial purposes irrespective of affiliation.
-        Please always see the specific licensing details under the respective application pages.
+        Näiden ohjelmistojen käyttö on rajoitettu ei-kaupallisiin tarkoituksiin organisaatiosta riippumatta.
+        Tutustu aina tarkempiin lisenssitietoihin kunkin sovelluksen sivulla.
 
 
     <!-- material/tags { include: [ Non-commercial ] } -->
 
-=== "Other"
+=== "Muu"
 
-    !!! default "Applications with 'Other' licensing"
+    !!! default "Sovellukset, joissa on 'Other'-lisenssi"
 
-        Please see further instructions and licensing details under the specific application pages. For
-        example, these software may require the user to acquire their own license directly from the developers, 
-        or there could be additional steps needed to get usage permission (e.g. addition to Unix group).
+        Katso tarkemmat ohjeet ja lisenssitiedot kunkin sovelluksen omalta sivulta. Esimerkiksi näiden ohjelmistojen
+        käyttäjän voi olla tarpeen hankkia oma lisenssi suoraan kehittäjiltä, tai käyttöoikeuden saaminen voi edellyttää
+        lisätoimia (esim. lisääminen Unix-ryhmään).
 
 
     <!-- material/tags { include: [ Other ] } -->

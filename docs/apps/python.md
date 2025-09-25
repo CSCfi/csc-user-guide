@@ -1,120 +1,132 @@
 ---
 tags:
   - Free
+catalog:
+  name: Python
+  description: The programming language and its modules at CSC
+  description_fi: Ohjelmointikieli ja sen moduulit CSC:llä
+  license_type: Free
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# Python
+# Python { #python }
 
-[Python](https://www.python.org/) is a general-purpose high-level
-programming language that is widely used for scientific computing.
-For instructions on using Python effectively on CSC supercomputers,
-please see our
-[Python usage guide](../support/tutorials/python-usage-guide.md).
+[Python](https://www.python.org/) on yleiskäyttöinen korkean tason
+ohjelmointikieli, jota käytetään laajasti tieteellisessä laskennassa.
+Ohjeita Pythonin tehokkaaseen käyttöön CSC:n supertietokoneilla
+löydät
+[Pythonin käyttöoppaastamme](../support/tutorials/python-usage-guide.md).
 
-## Available
+## Saatavilla { #available }
 
-* Puhti: 3.x versions
-* Mahti: 3.x versions
+* Puhti: 3.x-versiot
+* Mahti: 3.x-versiot
 
-## License
+## Lisenssi { #license }
 
-Python packages are usually licensed under various free and open source (FOSS)
-licenses. Python itself is licensed under the
-[PSF License](https://docs.python.org/3/license.html), which is also open source.
+Python-paketit ovat yleensä lisensoitu erilaisilla vapailla ja avoimen lähdekoodin (FOSS)
+lisensseillä. Itse Python on lisensoitu
+[PSF-lisenssillä](https://docs.python.org/3/license.html), joka on myös avointa lähdekoodia.
 
-## Usage
+## Käyttö { #usage }
 
-Our
-[Python usage guide](../support/tutorials/python-usage-guide.md)
-contains instructions for installing packages,
-using different development environments and doing parallel processing
-with Python.
+Meidän
+[Pythonin käyttöoppaan](../support/tutorials/python-usage-guide.md)
+ohjeissa kerrotaan pakettien asentamisesta,
+erilaisten kehitysympäristöjen käytöstä ja rinnakkaislaskennasta
+Pythonilla.
 
-It is generally recommended to use one of
-[pre-installed Python environments](./python.md#pre-installed-python-environments)
-for computing,
-since these already contain the essential libraries for most uses.
-If for some reason one wishes to use Python without loading an environment
-module, a
-basic
-[system Python](python.md#system-python)
-is also available.
+Yleisesti ottaen suositellaan käyttämään jotakin
+[esiasennetuista Python-ympäristöistä](./python.md#pre-installed-python-environments)
+laskentaan,
+koska niihin sisältyvät valmiiksi useimmissa käyttötapauksissa tarvittavat kirjastot.
+Jos jostain syystä halutaan käyttää Pythonia ilman ympäristömoduulin lataamista, on
+perus
+[järjestelmän Python](python.md#system-python)
+myös saatavilla.
 
-### System Python
+### Järjestelmän Python { #system-python }
 
-If using a pre-installed environment is not suitable,
-the basic system Python 3.9 can be launched with:
+Jos esiasennettu ympäristö ei sovellu käyttöön,
+perusjärjestelmän Python 3.9 käynnistyy komennolla:
 
 ```bash
 python3.9
 ```
 
 !!! warning
-    It is strongly advised to explicitly launch Python version 3.9 as
-    above, since **the default version launched by `python3` (3.6.8) has
-    [reached end-of-life](https://devguide.python.org/versions/)**.
+    On erittäin suositeltavaa käynnistää nimenomaisesti Python-versio 3.9 kuten
+    yllä, sillä **`python3`-komennon oletusarvoisesti käynnistämä versio (3.6.8) on
+    [saavuttanut elinkaarensa lopun](https://devguide.python.org/versions/)**.
 
-### Pre-installed Python environments
+### Esiasennetut Python-ympäristöt { #pre-installed-python-environments }
 
-Puhti and Mahti have several pre-installed
-[environment modules](../computing/modules.md) containing
-Python environments made for different science areas.
-For more details about the Python versions and libraries that are available
-for a module, please see the corresponding application page by opening
-one of the links in the table below.
+Puhti ja Mahti sisältävät useita esiasennettuja
+[ympäristömoduuleja](../computing/modules.md), jotka tarjoavat
+Python-ympäristöjä eri tieteenaloille.
 
-| Module name | Purpose | Package list |
-|-|-|-|
-| [biopythontools](biopython.md) | bioinformatics | [open](https://a3s.fi/python-pkg-lists/biopythontools.txt) |
-| [geoconda](geoconda.md) | geoinformatics | [open](https://a3s.fi/python-pkg-lists/geoconda.txt) |
-| [jax](jax.md) | JAX ML framework | [open](https://a3s.fi/python-pkg-lists/jax.txt) |
-| [python-data](python-data.md) | data analysis and ML utilities | [open](https://a3s.fi/python-pkg-lists/python-data.txt) |
-| [pytorch](pytorch.md) | PyTorch ML framework | [open](https://a3s.fi/python-pkg-lists/pytorch.txt) |
-| [qiskit](qiskit.md) | quantum computing | [open](https://a3s.fi/python-pkg-lists/qiskit.txt) |
-| [tensorflow](tensorflow.md) | TensorFlow ML framework | [open](https://a3s.fi/python-pkg-lists/tensorflow.txt) |
+| Moduulin nimi | Tarkoitus |
+|-|-|
+| [biopythontools](biopython.md) | bioinformatiikka |
+| [geoconda](geoconda.md) | geoinformatiikka |
+| [jax](jax.md) | JAX ML -kehys |
+| [python-data](python-data.md) | data-analyysi ja ML-apuohjelmat |
+| [pytorch](pytorch.md) | PyTorch ML -kehys |
+| [qiskit](qiskit.md) | kvanttilaskenta |
+| [tensorflow](tensorflow.md) | TensorFlow ML -kehys |
 
-To use any of the above environments, simply load the corresponding module
-using the `module load` command.
-For example:
+Voit käyttää mitä tahansa yllä olevista ympäristöistä lataamalla vastaavan moduulin
+komennolla `module load`.
 
 ```bash
-module load python-data
+module load <MODULE_NAME>  # e.g. module load python-data
 ```
 
-Typically, after activating a Python-based module, the `python3` command points
-to a version of Python that is newer than the default system Python and has a
-wider set of available packages. You can always check the Python version
-with the command `python3 --version`, and the full path of the command with
-`which python3` (to see if you are using the system Python or one from the
-modules listed above).
+Nähdäksesi moduuliin sisältyvät Python-kirjastot voit ajaa seuraavan
+komennon. Valitsin `-s`
+[sulkee pois käyttäjän asentamat paketit](https://docs.python.org/3/using/cmdline.html#cmdoption-s).
+
+```bash
+python3 -sm pip list
+```
+
+Tyypillisesti Python-pohjaisen moduulin aktivoinnin jälkeen komento `python3`
+osoittaa Pythonin versioon, joka on uudempi kuin järjestelmän oletus-Python ja
+johon sisältyy laajempi valikoima paketteja. Voit aina tarkistaa Python-version
+komennolla `python3 --version` ja komennon täydellisen polun komennolla
+`which python3` (jotta näet, käytätkö järjestelmän Pythonia vai jotakin yllä
+luetelluista moduuleista).
 
 !!! info ""
 
-    Note that most of the pre-installed Python environment modules are
-    self-contained and mutually exclusive environments, so it does not
-    make sense to for example load both python-data and pytorch
-    modules. The module loaded last will be the only active one, and
-    the module load command will warn about this, for example:
+    Huomaa, että useimmat esiasennetut Python-ympäristömoduulit ovat
+    itsenäisiä ja keskenään poissulkevia ympäristöjä, joten esimerkiksi
+    sekä python-data- että pytorch-moduulien lataaminen ei ole mielekästä.
+    Viimeisenä ladattu moduuli on ainoa aktiivinen, ja
+    module load -komento varoittaa tästä, esimerkiksi:
 
     ```
     Lmod is automatically replacing "python-data/3.10-24.04" with "pytorch/2.5".
     ```
 
+### Mukautetut Python-ympäristöt { #custom-python-environments }
 
-### Custom Python environments
+Vaikka esiasennetut Python-ympäristöt riittävät moniin käyttötapauksiin,
+projekteissa on usein tehtäviä, jotka vaativat lisäkirjastoja.
+Tällöin käytettävissä ovat seuraavat vaihtoehdot:
 
-While the pre-installed Python environments suffice for many applications,
-projects often involve tasks which require additional libraries.
-The following options are available in this case:
+* [Python-pakettien asentaminen olemassa oleviin moduuleihin](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+* [Omien Python-ympäristöjen luominen](../support/tutorials/python-usage-guide.md#creating-your-own-python-environments)
 
-* [Installing Python packages to existing modules](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
-* [Creating your own Python environments](../support/tutorials/python-usage-guide.md#creating-your-own-python-environments)
-
-## References
+## Viitteet { #references }
 
 * [Python Software Foundation](https://www.python.org/psf-landing/)
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Python documentation](https://docs.python.org/3/)
-* [The Python Package Index](https://pypi.org/)
+* [Pythonin dokumentaatio](https://docs.python.org/3/)
+* [Python Package Index](https://pypi.org/)

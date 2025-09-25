@@ -1,37 +1,46 @@
 ---
 tags:
   - Free
+catalog:
+  name: Seismic Unix
+  description: for processing of 2D seismic or GPR data sets.
+  description_fi: 2D-seismiikka- tai GPR-aineistojen käsittelyyn.
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# Seismic Unix
+# Seismic Unix { #seismic-unix }
 
-[Seismic Unix](https://wiki.seismic-unix.org/start) is a seismic processing package. It aims first at delivering a robust and efficient seismic reflection software package, dedicated to education, and to permit the processing of moderate size 2D seismic or GPR data sets.
+[Seismic Unix](https://wiki.seismic-unix.org/start) on seismisen datan käsittelypaketti. Sen ensisijaisena tavoitteena on tarjota vankka ja tehokas seismisen heijastuksen ohjelmistopaketti, joka on suunnattu opetuskäyttöön, sekä mahdollistaa keskikokoisten 2D-seismiikka- tai GPR-aineistojen käsittely.
 
 
-## Available
+## Saatavilla { #available }
 
-__Seismic Unix__ is available in Puhti with following versions:
+__Seismic Unix__ on saatavilla Puhtissa seuraavina versioina:
 
 * 44R28
 
 
-## Usage
+## Käyttö { #usage }
 
-Seismic Unix is available in the __seismic-unix__ module:
+Seismic Unix on saatavilla __seismic-unix__-moduulina:
 
 ```
 module load seismic-unix
 <commands>
 ```
-Seismic Unix can be used in Puhti with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. 
+Seismic Unixia voi käyttää Puhtissa komentoriviltä tai graafisen käyttöliittymän kautta, joko interaktiivisena työnä tai eräajossa. Varaa joka tapauksessa sopiva määrä laskentaresursseja: ytimiä ja muistia. 
 
-### Seismic Unix with Graphical User Interface
+### Seismic Unix graafisella käyttöliittymällä { #seismic-unix-with-graphical-user-interface }
 
-Seismic Unix Graphical User Interface (GUI) can be started in Puhti web interface:
+Seismic Unixin graafinen käyttöliittymä (GUI) voidaan käynnistää Puhtin web-käyttöliittymästä:
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open [Desktop app](../computing/webinterface/desktop.md)
-3. After launching the Desktop, open Terminal
+1. Kirjaudu [Puhti web -käyttöliittymään](https://puhti.csc.fi).
+2. Avaa [Desktop-sovellus](../computing/webinterface/desktop.md)
+3. Kun Desktop on käynnistynyt, avaa Terminal
 
 ```
 module load seismic-unix
@@ -39,8 +48,8 @@ cd /scratch/project_200xxxx/<location_of_your_data>
 <commands>
 ```
 
-### Working with Seismic Unix interactively
-For relatively short analysis jobs, it is possible to use Seismic Unix in [interactive session](../computing/running/interactive-usage.md).
+### Seismic Unixin interaktiivinen käyttö { #working-with-seismic-unix-interactively }
+Suhteellisen lyhyitä analyysitöitä varten Seismic Unixia voi käyttää [interaktiivisessa istunnossa](../computing/running/interactive-usage.md).
 
 ```
 sinteractive -i
@@ -49,8 +58,8 @@ module load seismic-unix
 <commands>
 ```
 
-### Using Seismic Unix with batch job
-For longer analysis jobs, Puhti batch system should be used.
+### Seismic Unixin käyttö eräajossa { #using-seismic-unix-with-batch-job }
+Pidempiä analyysejä varten tulee käyttää Puhtin eräajojärjestelmää.
 
 ```
 #!/bin/bash
@@ -65,9 +74,9 @@ cd /scratch/project_200xxxx/<location_of_your_data>
 <commands>
 ```
 
-## License 
+## Lisenssi { #license }
 
-Seismic Unix is distributed under following license:
+Seismic Unix on jaettu seuraavalla lisenssillä:
 
 ```
 Copyright ▒ 2008, Colorado School of Mines,
@@ -104,26 +113,26 @@ POSSIBILITY OF SUCH DAMAGE.
 ```
 
 
-## Citation
+## Viittaus { #citation }
 
 `Cohen, J. K. and Stockwell, Jr. J. W., (202x), CWP/SU: Seismic Un*x Release No. 44R28: an open source software  package for seismic research and processing, Center for Wave Phenomena, Colorado School of Mines.
 `
 
 
-## Acknowledgement
+## Kiitokset { #acknowledgement }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+Mainitsehan CSC ja Geoportti julkaisuissasi; tämä on tärkeää hankkeen jatkuvuuden ja rahoitusraportoinnin kannalta.
+Esimerkiksi voit kirjoittaa: "Tekijät kiittävät CSC:tä – Tieteen tietotekniikkakeskus, Suomi (urn:nbn:fi:research-infras-2016072531) ja Open Geospatial Information Infrastructure for Researchia (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta".
 
 
-## Installation
+## Asennus { #installation }
 
-Seismic Unix was installed to Puhti with Apptainer using commands listed in [Seismic Unix Apptainer definition file written by CSC](https://github.com/CSCfi/singularity-recipes/blob/main/seismic-unix/44R28.def). 
-Because the `make install` asks a few questions, that need to be answered interactively, the container was first created in [sandbox mode](https://apptainer.org/docs/user/main/build_a_container.html#creating-writable-sandbox-directories) 
-and then converted to normal Apptainer container.
+Seismic Unix asennettiin Puhtiin Apptainerilla käyttäen komentoja, jotka on listattu [CSC:n kirjoittamassa Seismic Unixin Apptainer-määrittelytiedostossa](https://github.com/CSCfi/singularity-recipes/blob/main/seismic-unix/44R28.def). 
+Koska `make install` esittää muutamia kysymyksiä, joihin on vastattava interaktiivisesti, kontti luotiin ensin [sandbox-tilassa](https://apptainer.org/docs/user/main/build_a_container.html#creating-writable-sandbox-directories) 
+ja muunnettiin sen jälkeen tavalliseksi Apptainer-kontiksi.
 
-The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): `wrap-container -w /usr/local/cwp/bin su.sif --prefix 44R28`
+Lopuksi kontti paketoitiin [Tykkyn wrap-container-toiminnallisuudella](../computing/containers/tykky.md#container-based-installations): `wrap-container -w /usr/local/cwp/bin su.sif --prefix 44R28`
 
-Additionally `common.sh` of Tykky created files was edited to add 2 required environment variables:
-* Edit the end: `export SINGULARITYENV_DEFAULT_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/cwp/bin/"`
-* Add new row: `export SINGULARITYENV_CWPROOT="/usr/local/cwp"`
+Lisäksi Tykkyn luomaa `common.sh`-tiedostoa muokattiin lisäämällä kaksi vaadittua ympäristömuuttujaa:
+* Muokkaa loppua: `export SINGULARITYENV_DEFAULT_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/cwp/bin/"`
+* Lisää uusi rivi: `export SINGULARITYENV_CWPROOT="/usr/local/cwp"`

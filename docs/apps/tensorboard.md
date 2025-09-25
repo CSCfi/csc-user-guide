@@ -1,34 +1,42 @@
 ---
 tags:
   - Free
-system:
-  - www-mahti
-  - www-puhti
-  - www-lumi
+catalog:
+  name: TensorBoard
+  description: The visualization toolkit for TensorFlow
+  description_fi: Visualisointityökalu TensorFlowille
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+        - Mahti
+    - LUMI
 ---
 
-# TensorBoard
+# TensorBoard { #tensorboard }
 
-The visualization toolkit for [TensorFlow](tensorflow.md).
+Visualisointityökalu [TensorFlowille](tensorflow.md).
 
-## License
+## Lisenssi { #license }
 
-Free
+Ilmainen
 
-## Available
+## Saatavilla { #available }
 
-TensorBoard is available as an interactive application via the web interface
-for
+TensorBoard on saatavilla interaktiivisena sovelluksena verkkokäyttöliittymän kautta
+seuraaville
 
 - Mahti
 - Puhti
 - LUMI
 
-## More information
+## Lisätietoja { #more-information }
 
-More information on TensorBoard, interactive applications, and the web
-interfaces can be found under the [Computing section](../computing/index.md):
+Lisätietoja TensorBoardista, interaktiivisista sovelluksista ja verkkokäyttöliittymistä löytyy [Computing-osiosta](../computing/index.md):
 
 - [TensorBoard](../computing/webinterface/tensorboard.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [Interaktiiviset sovellukset](../computing/webinterface/apps.md)
+- [Verkkokäyttöliittymät](../computing/webinterface/index.md)

@@ -1,73 +1,82 @@
 ---
 tags:
   - Free
+catalog:
+  name: Sen2mosaic
+  description: for download, preprocessing and mosaicing of Sentinel-2 products
+  description_fi: Sentinel-2-tuotteiden latausta, esikäsittelyä ja mosaiikin muodostusta varten
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
-# Sen2mosaic
+# Sen2mosaic { #sen2mosaic }
 
-[Sen2mosaic](https://sen2mosaic.readthedocs.io/en/latest/) is a tool to download, preprocess and mosaic [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) data.
+[Sen2mosaic](https://sen2mosaic.readthedocs.io/en/latest/) on työkalu [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) -aineistojen lataamiseen, esikäsittelyyn ja mosaiikin muodostamiseen.
 
-## Available
+## Saatavilla { #available }
 
-__Sen2mosaic__ is available in Puhti with following versions:
+__Sen2mosaic__ on saatavilla Puhtissa seuraavina versioina:
 
 * 0.2
 
-## Dependencies
+## Riippuvuudet { #dependencies }
 
-The __sen2mosaic__ module depends on [__geoconda/3.8.8__](./geoconda.md) and [__sen2cor/2.9__](./sen2cor.md) modules which are loaded automatically.
+__sen2mosaic__-moduuli riippuu [__geoconda/3.8.8__](./geoconda.md)- ja [__sen2cor/2.9__](./sen2cor.md) -moduuleista, jotka ladataan automaattisesti.
 
-## Usage
+## Käyttö { #usage }
 
-Sen2mosaic is included in the __sen2mosaic__ module and can be loaded with
+Sen2mosaic sisältyy __sen2mosaic__-moduuliin ja sen voi ladata komennolla
 
 `module load sen2mosaic`
 
-On Puhti, you run the tools with
+Puhtissa työkalut ajetaan komennoilla
 ```
 s2m_download <arguments>
 s2m_preprocess <arguments>
 s2m_mosaic <arguments>
 ```
 
-More information on the available arguments for each tool can be displayed with
+Lisätietoja kunkin työkalun käytettävissä olevista argumenteista saat komennolla
 
 `s2m_mosaic --help`
 
-or from the [sen2mosaic user manual](https://sen2mosaic.readthedocs.io/en/latest/command_line.html). (Note the `_` in tool names on Puhti!)
+tai [sen2mosaic-käyttöoppaasta](https://sen2mosaic.readthedocs.io/en/latest/command_line.html). (Huomaa alaviiva `_` Puhtin työkalujen nimissä!)
 
-For `s2m_preprocess` and `s2m_mosaic` you can use the argument `--n_processes` to set the number of available CPU cores to the number of computing cores of your job.
+Työkaluissa `s2m_preprocess` ja `s2m_mosaic` voit käyttää argumenttia `--n_processes` asettaaksesi käytettävissä olevien CPU-ydinten määrän vastaamaan työsi laskentaydinten määrää.
 
-### Advanced usage
+### Edistynyt käyttö { #advanced-usage }
 
-Further configuration of `s2m_preprocess` can be done via the `L2A_GIPP.xml` file (part of [Sen2cor](./sen2cor.md)). 
-You can find the default GIPP file in `/appl/soft/geo/sen2cor/2.9/Sen2Cor-02.09.00-Linux64/lib/python2.7/site-packages/sen2cor/cfg/L2A_GIPP.xml`. 
-Copy it to your `$HOME` directory, adjust it to your needs and add it to the call: `s2m_preprocess --gipp $HOME/L2A_GIPP.xml <other arguments>`
+Lisäasetuksia `s2m_preprocess`-työkalulle voidaan tehdä `L2A_GIPP.xml`-tiedoston avulla (osa [Sen2cor](./sen2cor.md) -pakettia). 
+Oletus-GIPP-tiedosto löytyy polusta `/appl/soft/geo/sen2cor/2.9/Sen2Cor-02.09.00-Linux64/lib/python2.7/site-packages/sen2cor/cfg/L2A_GIPP.xml`. 
+Kopioi se `$HOME`-hakemistoosi, muokkaa tarpeidesi mukaan ja lisää se kutsuun: `s2m_preprocess --gipp $HOME/L2A_GIPP.xml <other arguments>`
 
-## License
+## Lisenssi { #license }
 
-Sen2mosaic is published under the [GNU,GPL v3](https://github.com/smfm-project/sen2mosaic/blob/master/LICENSE.md) license.
+Sen2mosaic julkaistaan [GNU,GPL v3](https://github.com/smfm-project/sen2mosaic/blob/master/LICENSE.md) -lisenssillä.
 
 
-## Citation
+## Viittaus { #citation }
 
-Sen2mosaic does not provide any preferred citation information.
+Sen2mosaic ei tarjoa suositeltua viittaustietoa.
 
 ```Samuel Bowers: Sen2mosaic v.0.2. https://github.com/smfm-project/sen2mosaic , last accessed on {date}.```
 
 
-## Acknowledgement
+## Kiitokset { #acknowledgement }
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
-As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
-
-
-## Installation
-
-Almost all dependencies for Sen2mosaic are available from the [sen2cor](./sen2cor.md) and [geoconda](./geoconda.md) modules, so Sen2mosaic was installed on top of them using `pip install --user opencv-python git+https://github.com/smfm-project/sen2mosaic.git`, while both modules were loaded (remember to set the installation directory first with `export PYTHONUSERBASE=/path/to/sen2mosaic/install/directory`. For shorter command line calls, the commands `s2m_download` ,`s2m_preprocess` and `s2m_mosaic` were created to shorten the original `python3 /path/to/sen2mosaic/cli/download.py` commands. This last step is not necessary for usability.  
+Muistathan mainita CSC:n ja Geoportin julkaisuissasi; tämä on tärkeää hankkeen jatkumisen ja rahoitusraportoinnin kannalta.
+Esimerkiksi: "Kirjoittajat kiittävät CSC:tä - Tieteen tietotekniikan keskus (urn:nbn:fi:research-infras-2016072531) sekä tutkimuksen avoimen paikkatiedon infrastruktuuria (Geoportti, urn:nbn:fi:research-infras-2016072513) laskentaresursseista ja tuesta."
 
 
-## References
+## Asennus { #installation }
 
-* [Sen2mosaic user manual](https://sen2mosaic.readthedocs.io/en/latest/)
-* [Sen2mosaic github](https://github.com/smfm-project/sen2mosaic)
+Lähes kaikki Sen2mosaicin riippuvuudet ovat saatavilla [sen2cor](./sen2cor.md)- ja [geoconda](./geoconda.md) -moduuleista, joten Sen2mosaic asennettiin niiden päälle komennolla `pip install --user opencv-python git+https://github.com/smfm-project/sen2mosaic.git`, kun molemmat moduulit oli ladattu (muista asettaa asennushakemisto ensin komennolla `export PYTHONUSERBASE=/path/to/sen2mosaic/install/directory`. Lyhyempiä komentorivikutsuja varten luotiin komennot `s2m_download`, `s2m_preprocess` ja `s2m_mosaic` lyhentämään alkuperäisiä `python3 /path/to/sen2mosaic/cli/download.py`-komentoja. Tämä viimeinen vaihe ei ole välttämätön käytettävyyden kannalta.  
+
+
+## Viitteet { #references }
+
+* [Sen2mosaic-käyttöopas](https://sen2mosaic.readthedocs.io/en/latest/)
+* [Sen2mosaicin GitHub](https://github.com/smfm-project/sen2mosaic)

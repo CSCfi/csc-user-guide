@@ -1,35 +1,38 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Accelerated visualization
+  description: A selection of GPU accelerated visualization applications
+  description_fi: Valikoima GPU-kiihdytettyjä visualisointisovelluksia
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
 ---
 
-# Accelerated visualization
+# GPU-kiihdytetty visualisointi { #accelerated-visualization }
 
-A selection of GPU accelerated visualization applications.
+Valikoima GPU-kiihdytettyjä visualisointisovelluksia.
 
-## License
+## Lisenssi { #license }
 
-Free
+Ilmainen
 
-## Available
+## Saatavuus { #available }
 
-Accelerated visualization is available as an interactive application via the
-Puhti web interface. On LUMI, GPU accelerated graphical applications can be run
-through the regular Desktop app by selecting the `lumid` partition.
+GPU-kiihdytetty visualisointi on saatavilla interaktiivisena sovelluksena Puhtin selainkäyttöliittymän kautta. LUMIssa GPU-kiihdytettyjä graafisia sovelluksia voi ajaa tavallisen Desktop-sovelluksen kautta valitsemalla `lumid`-osion.
 
-## More information
+## Lisätietoja { #more-information }
 
-More information on Accelerated visualization, interactive applications, and
-the web interfaces can be found under the
-[Computing section](../computing/index.md):
+Lisätietoja GPU-kiihdytetystä visualisoinnista, interaktiivisista sovelluksista ja selainkäyttöliittymistä löytyy [Computing-osiosta](../computing/index.md):
 
-- [Accelerated visualization](../computing/webinterface/accelerated-visualization.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [GPU-kiihdytetty visualisointi](../computing/webinterface/accelerated-visualization.md)
+- [Interaktiiviset sovellukset](../computing/webinterface/apps.md)
+- [Selainkäyttöliittymät](../computing/webinterface/index.md)
 
-For instructions on running graphical applications with GPU acceleration on
-LUMI, see the
-[LUMI user guide](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/).
+Ohjeet GPU-kiihdytettyjen graafisten sovellusten ajamiseen LUMIssa löytyvät [LUMIn käyttäjäoppaasta](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/).

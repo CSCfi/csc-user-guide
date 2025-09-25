@@ -1,48 +1,51 @@
 ---
 tags:
   - Free
+catalog:
+  name: cuda-gdb
+  description: Nvidia extension of the GNU debugger GDB
+  description_fi: Nvidian laajennus GNU-virheenkorjaimeen GDB
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# cuda-gdb: CUDA debugger
+# cuda-gdb: CUDA-virheenkorjaaja { #cuda-gdb-cuda-debugger }
 
-## Available
+## Saatavilla { #available }
 
 - Puhti: 10.2
 - Mahti: 10.1
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.    
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.    
 
-## Usage
+## Käyttö { #usage }
 
-[cuda-gdb](https://docs.nvidia.com/cuda/cuda-gdb/index.html) is an NVIDIA
-extension of the GNU debugger `gdb`. It is a command-line tool for debugging
-CUDA programs.
+[cuda-gdb](https://docs.nvidia.com/cuda/cuda-gdb/index.html) on NVIDIAn laajennus GNU-virheenkorjaimeen `gdb`. Se on komentorivityökalu CUDA-ohjelmien virheenkorjaukseen.
 
-In order to use tool the CUDA code has to be compiled with the extra flags
-`-g` and `-G`.
+Työkalun käyttö edellyttää, että CUDA-koodi käännetään lisälipuilla `-g` ja `-G`.
 
-Next in an [interactive session](../computing/running/interactive-usage.md) one needs to
-first load the CUDA module:
+Seuraavaksi [interaktiivisessa istunnossa](../computing/running/interactive-usage.md) on ensin ladattava CUDA-moduuli:
 
 ```bash
 module load cuda
 ```
 
-and then the debugging can be started by running:
+ja sitten virheenkorjauksen voi käynnistää komennolla:
 
 ```bash
 cuda-gdb ./cuda_program
 ```
 
-The tool supports all options of [gdb](gdb.md) and some extra commands
-specific to CUDA debugging:
+Työkalu tukee kaikkia [gdb](gdb.md):n valintoja sekä joitakin CUDA-virheenkorjaukseen spesifisiä lisäkomentoja:
 
-* Info commands: Commands to query information about CUDA activities
-* Focus Commands: Commands to query or switch the focus of the debugger
-* Configuration Commands: Commands to configure the CUDA-specific commands
+* Info-komennot: Komennot, joilla kysellään tietoja CUDA-toiminnoista
+* Kohdistuskomennot: Komennot, joilla tarkastellaan tai vaihdetaan virheenkorjaimen kohdistusta
+* Asetuskomennot: Komennot CUDA-spesifisten komentojen asetusten määrittämiseen
 
-Out of bonds accesses can be checked inside the debugger by activating
-the memory checker with `set cuda memcheck on`. Alternatively the `cuda-memcheck` or [`compute-sanitizer`](compute-san.md)
-tool can be used outside of the debugger (`cuda-memcheck ./cuda_program` or `compute-sanitizer ./cuda_program`).
+Alueen ulkopuoliset muistiviittaukset voidaan tarkistaa virheenkorjaimen sisällä aktivoimalla muistintarkistus komennolla `set cuda memcheck on`. Vaihtoehtoisesti työkalua `cuda-memcheck` tai [`compute-sanitizer`](compute-san.md) voidaan käyttää virheenkorjaimen ulkopuolella (`cuda-memcheck ./cuda_program` tai `compute-sanitizer ./cuda_program`).

@@ -1,96 +1,115 @@
 ---
-title: PyTorch
 tags:
   - Free
+catalog:
+  name: PyTorch
+  description: Machine learning framework for Python
+  description_fi: Koneoppimisen kehys Pythonille
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# PyTorch
+# PyTorch { #pytorch }
 
-Machine learning framework for Python.
+Koneoppimisen kehys Pythonille.
 
-!!! info "News" 
+!!! info "Uutiset" 
 
-    **10.4.2025** PyTorch 2.6.0 installed to Puhti and Mahti, and made the
-    default version. Includes the most recent versions of popular packages
-    such as Hugging Face transformers, vLLM and FAISS. PyTorch geometric
-    and related packages are no longer included, as they do not support
-    newer versions of PyTorch.
-
-    **20.1.2025** PyTorch 2.5.1 set as the default version on all supercomputers.
-
-    **20.12.2024** PyTorch 2.5.1 with ROCm 6.2 added to LUMI. Includes all
-    the usual packages plus experimental support for FAISS.
+    **8.7.2025** PyTorch 2.7.1 asennettu Puhtiin ja Mahtiin ja asetettu
+    oletusversioksi. Tämä versio sisältää
+    [SGLangin](https://docs.sglang.ai/); huomaa kuitenkin, että SGLang
+    toimii vain Mahtissa Puhtin vanhemman GPU-arkkitehtuurin vuoksi.
     
-    **17.12.2024** PyTorch 2.5.1 added to Puhti and Mahti. Includes vLLM
-    and FAISS among many other updates.
+    **26.6.2025** PyTorch 2.7.1 asennettu LUMIin ja asetettu oletusversioksi. 
 
-    **19.9.2024** PyTorch 2.4.1 with ROCm 6.1 added to LUMI. The LUMI
-    PyTorch module now includes [vLLM version
-    0.5.5](https://docs.vllm.ai/en/latest/) in addition to
-    FlashAttention-2, bitsandbytes and many other frequently requested
-    packages already added included in earlier installations. The LUMI
-    module still uses old-style wrappers (not the tykky-based wrappers
-    as in Puhti and Mahti).
+    **10.4.2025** PyTorch 2.6.0 asennettu Puhtiin ja Mahtiin ja asetettu
+    oletusversioksi. Sisältää uusimmat versiot suosituista paketeista,
+    kuten Hugging Face transformers, vLLM ja FAISS. PyTorch Geometric
+    ja siihen liittyvät paketit eivät enää ole mukana, koska ne eivät
+    tue uudempia PyTorch-versioita.
 
-    **21.8.2024** PyTorch 2.4 added to Puhti and Mahti. The LUMI
-    installation will be delayed until after the current service
-    break. The torchtext package is no longer included as it has been
-    deprecated and no longer works with PyTorch 2.4.
+    **20.1.2025** PyTorch 2.5.1 asetettu oletusversioksi kaikilla supertietokoneilla.
 
-    **13.6.2024** PyTorch 2.3 added to Puhti and Mahti. The LUMI
-    installation will be delayed until early autumn due to an incompatible
-    ROCm driver version. This version has also updated how Python commands
-    are wrapped, as this solves several problems with using virtual
-    environments and Jupyter Notebooks. Due to this `apptainer` and
-    `apptainer_wrapper` commands will no longer work, but otherwise the
-    change should be invisible to users.
-
-    **1.3.2024** PyTorch 2.2 added to Puhti, Mahti and LUMI. The LUMI
-    module includes ROCm versions of 
-    [FlashAttention-2](https://github.com/ROCm/flash-attention) 
-    and [bitsandbytes](https://github.com/ROCm/bitsandbytes) as these are
-    difficult for users to add themselves. 
-    [xFormers](https://github.com/facebookresearch/xformers) has been added 
-    to all three systems.
-
-    **17.11.2023** PyTorch 2.1 added to Puhti, Mahti and LUMI. Horovod has
-    been removed, we recommend using [PyTorch DDP](../support/tutorials/ml-multi.md) 
-    instead. [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/) 
-    was added to the Puhti and Mahti version.
+    **20.12.2024** PyTorch 2.5.1 ROCm 6.2:lla lisätty LUMIin. Sisältää kaikki
+    tavanomaiset paketit sekä kokeellisen tuen FAISSille.
     
-    **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
-    (RHEL8), **the number of fully supported PyTorch versions has been
-    reduced. Previously deprecated conda-based versions have been
-    removed.** Please [contact our servicedesk](../support/contact.md) if
-    you really need access to older versions.
+    **17.12.2024** PyTorch 2.5.1 lisätty Puhtiin ja Mahtiin. Mukana vLLM
+    ja FAISS monien muiden päivitysten ohella.
 
-    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
-    the number of fully supported PyTorch versions has been reduced. Please [contact our
-    servicedesk](../support/contact.md) if you really need access to other versions.
+    **19.9.2024** PyTorch 2.4.1 ROCm 6.1:llä lisätty LUMIin. LUMIn
+    PyTorch-moduuli sisältää nyt [vLLM-version
+    0.5.5](https://docs.vllm.ai/en/latest/) sekä lisäksi
+    FlashAttention-2:n, bitsandbytesin ja monia muita usein pyydettyjä
+    paketteja, jotka on lisätty jo aiempiin asennuksiin. LUMIn moduuli
+    käyttää edelleen vanhan mallisia wrappereita (ei tykky-pohjaisia
+    wrappereita kuten Puhtissa ja Mahtissa).
 
-    **4.2.2022** All old PyTorch versions which were based on direct Conda
-    installations have been deprecated, and we encourage users to move to newer
-    versions. Read more on our separate [Conda deprecation page](../support/tutorials/conda.md).
+    **21.8.2024** PyTorch 2.4 lisätty Puhtiin ja Mahtiin. LUMIn asennus
+    viivästyy nykyisen huoltokatkon jälkeiseen aikaan. torchtext-paketti
+    ei ole enää mukana, koska se on poistettu käytöstä eikä toimi
+    PyTorch 2.4:n kanssa.
+
+    **13.6.2024** PyTorch 2.3 lisätty Puhtiin ja Mahtiin. LUMIn asennus
+    viivästyy alkusyksyyn epäyhteensopivan ROCm-ajuriversion vuoksi.
+    Tässä versiossa on myös päivitetty Python-komentojen wrappaus,
+    mikä ratkaisee useita ongelmia virtuaaliympäristöjen ja Jupyter
+    Notebookien käytössä. Tämän vuoksi `apptainer`- ja
+    `apptainer_wrapper`-komennot eivät enää toimi, mutta muilta osin
+    muutos on käyttäjille näkymätön.
+
+    **1.3.2024** PyTorch 2.2 lisätty Puhtiin, Mahtiin ja LUMIin. LUMIn
+    moduuli sisältää ROCm-versiot
+    [FlashAttention-2:sta](https://github.com/ROCm/flash-attention) 
+    ja [bitsandbytesista](https://github.com/ROCm/bitsandbytes), koska
+    näiden lisääminen itse on hankalaa. 
+    [xFormers](https://github.com/facebookresearch/xformers) on lisätty
+    kaikkiin kolmeen järjestelmään.
+
+    **17.11.2023** PyTorch 2.1 lisätty Puhtiin, Mahtiin ja LUMIin. Horovod on
+    poistettu; suosittelemme käyttämään [PyTorch DDP:tä](../support/tutorials/ml-multi.md) 
+    sen sijaan. [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/) 
+    lisättiin Puhti- ja Mahti-versioihin.
+    
+    **5.10.2022** Puhtin päivityksen Red Hat Enterprise Linux 8:aan
+    (RHEL8) vuoksi **täysin tuettujen PyTorch-versioiden määrä on
+    vähentynyt. Aiemmin vanhentuneet conda-pohjaiset versiot on
+    poistettu.** Ota tarvittaessa [yhteyttä palvelupisteeseemme](../support/contact.md),
+    jos todella tarvitset pääsyn vanhempiin versioihin.
+
+    **5.5.2022** Mahtin päivityksen Red Hat Enterprise Linux 8:aan (RHEL8)
+    vuoksi täysin tuettujen PyTorch-versioiden määrä on vähentynyt. Ota tarvittaessa
+    [yhteyttä palvelupisteeseemme](../support/contact.md), jos todella tarvitset muita versioita.
+
+    **4.2.2022** Kaikki vanhat PyTorch-versiot, jotka perustuivat suoriin
+    Conda-asennuksiin, on merkitty vanhentuneiksi, ja kannustamme käyttäjiä
+    siirtymään uudempiin versioihin. Lue lisää erilliseltä
+    [Conda-käytöstäpoistosivulta](../support/tutorials/conda.md).
 
 
-## Available
+## Saatavilla { #available }
 
-Currently supported PyTorch versions:
+Tällä hetkellä tuetut PyTorch-versiot:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.6.0   | `pytorch/2.6`  | X     | X     | -    | Default on Puhti, Mahti    |
-| 2.5.1   | `pytorch/2.5`  | X     | X     | X    | Default on LUMI            |
+| 2.7.1   | `pytorch/2.7`  | X     | X     | X    | Oletus                     |
+| 2.6.0   | `pytorch/2.6`  | X     | X     | -    |                            |
+| 2.5.1   | `pytorch/2.5`  | X     | X     | X    |                            |
 | 2.4.1   | `pytorch/2.4`  | -     | -     | X    |                            |
-| 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
-| 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |
+| 2.4.0   | `pytorch/2.4`  | X     | X     | -    | Uudet tykky-pohjaiset wrapperit |
+| 2.3.1   | `pytorch/2.3`  | X     | X     | -    | Uudet tykky-pohjaiset wrapperit |
 | 2.2.2   | `pytorch/2.2`  | -     | -     | X    |                            |
 | 2.2.1   | `pytorch/2.2`  | X     | X     | -    |                            |
 | 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                            |
 | 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                            |
 | 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
 | 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
-| 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
+| 1.13.1  | `pytorch/1.13` | -     | -     | X    | rajoitettu monisolmutuki   |
 | 1.13.0  | `pytorch/1.13` | X     | X     | -    |                            |
 | 1.12.0  | `pytorch/1.12` | X     | X     | -    |                            |
 | 1.11.0  | `pytorch/1.11` | X     | X     | -    |                            |
@@ -99,91 +118,85 @@ Currently supported PyTorch versions:
 | 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                            |
 | 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                            |
 
-Includes [PyTorch](https://pytorch.org/) and related libraries with
-GPU support via CUDA/ROCm.
+Sisältää [PyTorchin](https://pytorch.org/) ja siihen liittyvät kirjastot
+GPU-tuen kanssa CUDA/ROCm:in kautta.
 
-Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
-(RHEL7) images, and are no longer fully supported. In particular MPI
-and Horovod are not expected to work anymore with these modules. If
-you still wish to access these versions, you need to enable old RHEL7
-modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
+Merkinnällä "(x)" varustetut versiot perustuvat vanhoihin Red Hat Enterprise
+Linux 7 (RHEL7) -imageihin, eikä niitä enää tueta täysimääräisesti. Erityisesti
+MPI:n ja Horovodin ei odoteta enää toimivan näiden moduulien kanssa. Jos
+haluat silti käyttää näitä versioita, sinun täytyy ottaa käyttöön vanhat RHEL7
+moduulit komennolla `module use /appl/soft/ai/rhel7/modulefiles/`.
 
-If you find that some package is missing, you can often install it
-yourself using `pip install`. It is recommended to use Python virtual
-environments. See [our Python documentation for more information on
-how to install packages
-yourself](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
-If you think that some important package should be included in the
-module provided by CSC, please [contact our
-servicedesk](../support/contact.md).
+Jos huomaat, että jokin paketti puuttuu, voit usein asentaa sen itse komennolla
+`pip install`. Suosittelemme Pythonin virtuaaliympäristöjä. Katso [Python-
+dokumentaatiostamme lisätietoja pakettien
+omatoimisesta asennuksesta](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
+Jos mielestäsi jokin olennainen paketti pitäisi sisällyttää CSC:n tarjoamaan
+moduuliin, ole hyvä ja [ota yhteyttä
+palvelupisteeseemme](../support/contact.md).
 
-All modules are based on containers using Apptainer (previously known
-as Singularity). Wrapper scripts have been provided so that common
-commands such as `python`, `python3`, `pip` and `pip3` should work as
-normal. 
+Kaikki moduulit perustuvat Apptainer-kontteihin (aiemmin tunnettu nimellä
+Singularity). Wrapper-skriptit on tarjottu, jotta yleiset komennot kuten
+`python`, `python3`, `pip` ja `pip3` toimivat normaalisti. 
 
-For **PyTorch version 2.2 and earlier**, other commands need to be
-prefixed with `apptainer_wrapper exec`, for example `apptainer_wrapper
-exec huggingface-cli`. For more information, see [CSC's general
-instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md). 
+**PyTorch-versiossa 2.2 ja vanhemmissa** muut komennot täytyy suorittaa
+etuliitteellä `apptainer_wrapper exec`, esimerkiksi `apptainer_wrapper
+exec huggingface-cli`. Lisätietoja: [CSC:n yleiset ohjeet Apptainer-
+konttien ajamiseen](../computing/containers/overview.md#running-containers). 
 
-For **PyTorch version 2.3 and later on Puhti or Mahti**, we have used
-wrappers created with [the tykky
-tool](../computing/containers/tykky.md), and all commands provided by
-pre-installed Python packages are wrapped and can be used directly. In
-case you really need to run something inside the container you can
-prefix with `_debug_exec` or run `_debug_shell` to open a shell
-session.
+**PyTorch-versiossa 2.3 ja uudemmissa Puhtissa tai Mahtissa** olemme
+käyttäneet [tykky-työkalulla](../computing/containers/tykky.md) luotuja
+wrappereita, ja kaikki esiasennettujen Python-pakettien tarjoamat komennot
+on wrapattu ja niitä voi käyttää suoraan. Jos todella tarvitset jotain
+ajettavaksi kontin sisällä, voit käyttää etuliitettä `_debug_exec` tai
+avaa shell-istunto komennolla `_debug_shell`.
 
 
-!!! info "New users"
+!!! info "Uudet käyttäjät"
 
-    If you are new to using machine learning on CSC's supercomputers,
-    please read our new tutorial [Getting started with machine learning
-    at CSC](../support/tutorials/ml-starting.md), which covers how to run
-    a simple PyTorch project on Puhti using the web user interface.
+    Jos olet uusi koneoppimisen käyttäjä CSC:n supertietokoneilla, lue
+    uusi tutoriaalimme [Koneoppimisen aloitus CSC:llä](../support/tutorials/ml-starting.md),
+    jossa käydään läpi yksinkertaisen PyTorch-projektin ajaminen Puhtissa
+    verkkokäyttöliittymän kautta.
 
 
-## License
+## Lisenssi { #license }
 
-PyTorch is BSD-style licensed, as found in the [LICENSE
-file](https://github.com/pytorch/pytorch/blob/master/LICENSE).
+PyTorch on BSD-tyylisesti lisensoitu, katso [LICENSE-tiedosto](https://github.com/pytorch/pytorch/blob/master/LICENSE).
 
-## Usage
+## Käyttö { #usage }
 
-To use the default version of PyTorch on Puhti or Mahti, initialize it
-with:
+Oletusversion käyttämiseksi Puhtissa tai Mahtissa, alusta moduuli komennolla:
 
 ```text
 module load pytorch
 ```
 
-To access PyTorch on LUMI:
+PyTorchin käyttö LUMIssa:
 
 ```text
 module use /appl/local/csc/modulefiles/
 module load pytorch
 ```
 
-If you wish to have a specific version ([see above for available
-versions](#available)), use:
+Jos tarvitset tietyn version ([katso saatavilla olevat versiot yllä](#available)),
+käytä:
 
 ```text
-module load pytorch/2.4
+module load pytorch/2.7
 ```
 
-Please note that the module already includes CUDA and cuDNN libraries,
-so **there is no need to load cuda and cudnn modules separately!**
+Huomaa, että moduuli sisältää jo CUDA- ja cuDNN-kirjastot, joten
+**cuda- ja cudnn-moduuleja ei tarvitse ladata erikseen!**
 
-This command will also show all available versions:
+Tämä komento näyttää myös kaikki saatavilla olevat versiot:
 
 ```text
 module avail pytorch
 ```
 
-To check the exact packages and versions included in the loaded module you can
-run:
+Tarkistaaksesi ladattuun moduuliin sisältyvät paketit ja niiden versiot,
+aja:
 
 ```text
 list-packages
@@ -192,14 +205,14 @@ list-packages
 
 !!! warning 
 
-    Note that login nodes are not intended for heavy computing, please use slurm
-    batch jobs instead. See our [instructions on how to use the batch job
-    system](../computing/running/getting-started.md).
+    Huomaa, että kirjautumissolmut eivät ole tarkoitettu raskaaseen laskentaan;
+    käytä sen sijaan Slurm-eräajoja. Katso [ohjeemme eräajojärjestelmän
+    käytöstä](../computing/running/getting-started.md).
 
-### Example batch script
+### Esimerkki batch-skriptistä { #example-batch-script }
 
-Example batch script for reserving one GPU and a corresponding
-proportion of the available CPU cores in a single node:
+Esimerkkieräskripti yhden GPU:n ja vastaavan osuuden solmun CPU-ytimistä
+varaamiseksi:
 
 === "Puhti"
     ```bash
@@ -212,7 +225,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.4
+    module load pytorch/2.7
     srun python3 myprog.py <options>
     ```
 
@@ -226,7 +239,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.4
+    module load pytorch/2.7
     srun python3 myprog.py <options>
     ```
 
@@ -242,40 +255,36 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load pytorch/2.4
+    module load pytorch/2.7
     srun python3 myprog.py <options>
     ```
 
-Please read the section on [Efficient GPU utilization in our Machine
-learning guide](../support/tutorials/gpu-ml.md) to learn how to use
-the GPU efficiently.
+Lue Machine learning -oppaamme osio [GPU:n tehokas käyttö](../support/tutorials/gpu-ml.md),
+jotta opit käyttämään GPU:ta tehokkaasti.
 
 
-### Big datasets, multi-GPU and multi-node jobs
+### Suuret datasetit, multi-GPU- ja monisolmutyöt { #big-datasets-multi-gpu-and-multi-node-jobs }
 
-If you are working with big datasets, or datasets that contain a lot
-of files, please read [the data section of our Machine learning
-guide](../support/tutorials/ml-data.md). In particular, please **do
-not read a huge number of files from the shared file system**, use
-fast local disk or package your data into larger files instead!
+Jos työskentelet suurten datasetien tai hyvin monista tiedostoista koostuvien
+datasetien kanssa, lue [Machine learning -oppaan data-osio](../support/tutorials/ml-data.md).
+Erityisesti, **älä lue valtavaa määrää tiedostoja jaetusta tiedostojärjestelmästä**,
+vaan käytä nopeaa paikallislevyä tai pakkaa datasi suurempiin tiedostoihin!
 
-For multi-GPU and multi-node jobs we recommend using the PyTorch
-Distributed Data-Parallel framework. You can read more about this and
-find examples of how to use PyTorch DDP on CSC's supercomputers in the
-[Multi-GPU and multi-node section of our Machine learning
-guide](../support/tutorials/ml-multi.md)
+Multi-GPU- ja monisolmutöihin suosittelemme PyTorchin Distributed Data-Parallel
+-kehystä. Voit lukea siitä lisää ja löytää esimerkkejä PyTorch DDP:n käytöstä
+CSC:n supertietokoneilla [Machine learning -oppaan multi-GPU- ja
+monisolmu -osiosta](../support/tutorials/ml-multi.md)
 
 
-### PyTorch profiler
+### PyTorch-profileri { #pytorch-profiler }
 
-If your PyTorch program is slow, or you notice that it has a [low GPU
-utilization](../support/tutorials/gpu-ml.md#gpu-utilization) you can
-use the [PyTorch
-profiler](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html)
-to analyze the time and memory consumption of your program.
+Jos PyTorch-ohjelmasi on hidas tai huomaat sillä olevan [alhainen GPU:n
+käyttöaste](../support/tutorials/gpu-ml.md#gpu-utilization), voit käyttää
+[PyTorch-profileria](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html)
+ohjelmasi ajan- ja muistinkulutuksen analysointiin.
 
-The PyTorch profiler can be taken into use by adding a few lines of
-code to your existing PyTorch program:
+PyTorch-profileri voidaan ottaa käyttöön lisäämällä muutama rivi koodia
+olemassa olevaan PyTorch-ohjelmaasi:
 
 ```python
 from torch.profiler import profile, ProfilerActivity
@@ -295,15 +304,14 @@ prof = profile(
 )
 ```
 
-In this example we opt to skip the first 10 batches and record only a
-few batches for profiling. The profiling trace is saved into
-TensorBoard format into the directory `logs/profiler`. To see all the
-options, check the [PyTorch API documentation for
-profiler](https://pytorch.org/docs/stable/profiler.html#torch.profiler.profile).
+Tässä esimerkissä ohitamme ensimmäiset 10 erää ja tallennamme vain
+muutaman erän profilointia varten. Profiloinnin jälki tallennetaan
+TensorBoard-muodossa hakemistoon `logs/profiler`. Kaikki vaihtoehdot
+löytyvät [PyTorchin profiler-API-dokumentaatiosta](https://pytorch.org/docs/stable/profiler.html#torch.profiler.profile).
 
-Next you need to start and stop the profiler, and record the
-individual steps (typically the batches). This would typically be
-around your training loop:
+Seuraavaksi sinun tulee käynnistää ja pysäyttää profiler sekä kirjata
+yksittäiset askeleet (tyypillisesti erät). Tämä sijoittuu yleensä
+opetuslenkkisi ympärille:
 
 ```python
 prof.start()
@@ -315,54 +323,51 @@ for batch in train_loader:
 prof.stop()
 ```
 
-In our [GitHub
-repository](https://github.com/CSCfi/pytorch-ddp-examples/) we gave a
-full example with profiling:
+[GitHub-repositoriossamme](https://github.com/CSCfi/pytorch-ddp-examples/)
+on täydellinen esimerkki profiloinnista:
 [`mnist_ddp_profiler.py`](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp_profiler.py)
-with a corresponding [Slurm batch job
-script](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-ddp-gpu1-profiler.sh).
+sekä vastaava [Slurm-eräajon skripti](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-ddp-gpu1-profiler.sh).
 
-After running the job you can view the output of the profiler using
-TensorBoard.  Start a TensorBoard session in the [web interface of the
-supercomputer](../computing/webinterface/apps.md) you are using. If
-the PyTorch profiler isn't opened automatically you may be able to
-find it as *PYTORCH_PROFILER* in the tab bar. If the tab isn't visible
-by default, it can be found at the pull-down menu on the right-hand
-side of the interface.
+Ajettuasi työn voit tarkastella profilerin tuloksia TensorBoardilla.
+Käynnistä TensorBoard-istunto käyttämäsi supertietokoneen
+[verkkokäyttöliittymässä](../computing/webinterface/apps.md). Jos
+PyTorch-profileri ei aukea automaattisesti, se saattaa löytyä
+välilehtipalkista nimellä PYTORCH_PROFILER. Jollei välilehti näy
+oletuksena, sen löytää käyttöliittymän oikean reunan pudotusvalikosta.
 
-A particularly useful view is the Trace view (select "Trace" from the
-"Views" pull-down menu). Below is an example screenshot of a run of
-the example linked to above.
+Erityisen hyödyllinen näkymä on Trace-näkymä (valitse "Trace"
+"Views"-pudotusvalikosta). Alla on esimerkkikuvakaappaus yllä
+linkatusta esimerkistä.
 
-![Screenshot of PyTorch profiler in TensorBoard](../img/pytorch-profiler1.png)
+![Kuvakaappaus PyTorch-profilerista TensorBoardissa](../img/pytorch-profiler1.png)
 
-The Trace view can be zoomed in and panned using the small toolbar to
-the upper right, or using the 'a' and 'd' keys to pan, and 'w' and 's'
-for zooming in and out.
+Trace-näkymää voi zoomata ja pannata oikean yläkulman pienestä
+työkalupalkista, tai näppäimillä 'a' ja 'd' pannaukseen sekä 'w' ja 's'
+zoomaamiseen sisään ja ulos.
 
-In the screenshot we can see:
+Kuvakaappauksessa nähdään:
 
-- Area 1, marked with red, shows the data loading (can be seen by
-  zooming in and reading the function names shown. This is run
-  entirely in the CPU as it's only colored in the top part of the
-  screen under regular python CPU threads.
-- Area 2, marked with blue, shows the forward and back propagation
-  steps. Part of this is done on the GPU, as seen by the coloring in
-  the bottom part, in the "GPU 0" area.
+- Alue 1, merkitty punaisella, näyttää datan latauksen (näkyy
+  zoomaamalla sisään ja lukemalla esitettyjä funktioiden nimiä). Tämä
+  ajetaan kokonaan CPU:lla, kuten värit näyttävät vain ruudun yläosassa
+  Pythonin CPU-säikeiden alla.
+- Alue 2, merkitty sinisellä, näyttää eteenpäin- ja taaksepäinleviämisen
+  vaiheet. Osa tästä tehdään GPU:lla, mikä näkyy väreinä ruudun
+  alaosassa "GPU 0" -alueella.
   
-Clearly this job is not utilizing the GPU well as a majority of the
-time is used in CPU processing. In general one could try adding more
-CPU cores to handle the data loading more efficiently, and increase
-the batch size to increase the GPU processing load.  In this
-particular case, however, the problem is that the network is so small
-that it cannot really utilize the GPU fully.
+Tämä työ ei selvästikään hyödynnä GPU:ta hyvin, koska suurin osa ajasta
+kuluu CPU-laskentaan. Yleisesti voi kokeilla lisätä CPU-ytimiä
+tehostamaan datan latausta sekä kasvattaa batch-kokoa GPU-kuorman
+lisäämiseksi. Tässä erityistapauksessa ongelmana on kuitenkin se, että
+verkko on niin pieni, ettei se pysty täysimääräisesti hyödyntämään
+GPU:ta.
 
-More hints on how to view and interpret the output of the profiler can
-be found in the [PyTorch profiler with TensorBoard
-tutorial](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html#use-tensorboard-to-view-results-and-analyze-model-performance).
+Lisää vinkkejä profilerin tulosten tarkasteluun ja tulkintaan löytyy
+[PyTorch profiler + TensorBoard -tutoriaalista](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html#use-tensorboard-to-view-results-and-analyze-model-performance).
 
 
-## More information
+## Lisätietoja { #more-information }
 
-- [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
-- [PyTorch documentation](https://pytorch.org/docs/stable/index.html)
+- [CSC:n Machine learning -opas](../support/tutorials/ml-guide.md)
+- [PyTorch-dokumentaatio](https://pytorch.org/docs/stable/index.html)
+- [LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)

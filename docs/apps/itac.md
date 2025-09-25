@@ -1,28 +1,29 @@
 ---
 tags:
   - Free
+catalog:
+  name: Intel Trace Analyzer and Collector (ITAC)
+  license_type: Free
+  available_on:
+    - Puhti
+  unchecked: true
 ---
 
-# Intel Trace Analyzer and Collector (ITAC)
+# Intel Trace Analyzer and Collector (ITAC) { #intel-trace-analyzer-and-collector-itac }
 
-Intel Trace Analyzer and Collector (ITAC) is an MPI profiling and tracing tool
-that can be used to understand and visualize the behavior of an MPI code and to
-identify hotspots and reasons for poor parallel scaling and MPI performance. 
-The tool is available only on Puhti and at the moment it supports only the applications 
-compiled with the Intel MPI library.
+Intel Trace Analyzer and Collector (ITAC) on MPI-profilointi- ja jäljitystyökalu, jonka avulla voidaan ymmärtää ja visualisoida MPI-koodin käyttäytymistä sekä tunnistaa kuumat kohdat ja heikon rinnakkaisskaalauksen ja MPI-suorituskyvyn syyt. Työkalu on saatavilla vain Puhtissa ja toistaiseksi se tukee vain Intel MPI -kirjastolla käännettyjä sovelluksia.
 
-## Available
+## Saatavilla { #available }
 
 Puhti: 2021.6.0
 
-## License
+## Lisenssi { #license }
 
-Usage is possible for both academic and commercial purposes.
+Käyttö on mahdollista sekä akateemisiin että kaupallisiin tarkoituksiin.
 
-## Collecting traces
+## Jäljitysten kerääminen { #collecting-traces }
 
-For simple MPI tracing, no recompilation is needed, and it is enough to add following 
-settings into a normal batch job script:
+Yksinkertaista MPI-jäljitystä varten uudelleenkäännöstä ei tarvita, vaan riittää, että lisäät seuraavat asetukset tavalliseen eräajon skriptiin:
 
 ```bash
 module load intel-oneapi-itac
@@ -31,47 +32,36 @@ export LD_PRELOAD=libVT.so
 srun myprog
 ```
 
-Trace Collector includes also other components, e.g. for fail-safe MPI tracing and correctness
-checking, which are used by replacing `libVT` with the particular component. More details about
-different components can be found in the [Intel documentation](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/introduction.html).
+Trace Collector sisältää myös muita komponentteja, esim. vikasietoiseen MPI-jäljitykseen ja oikeellisuuden tarkistukseen, joita käytetään korvaamalla `libVT` kyseisellä komponentilla. Lisätietoja eri komponenteista löytyy [Intelin dokumentaatiosta](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/introduction.html).
 
-Trace Collector allows also [tracing of user defined events](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/tracing-user-defined-events.html). However, this always requires recompilation of the 
-application. As tracing can generate very large files even for relatively small applications,
-it is often useful to [filter the collected data](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/filtering-trace-data.html).
+Trace Collector mahdollistaa myös [käyttäjän määrittelemien tapahtumien jäljityksen](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/tracing-user-defined-events.html). Tämä vaatii kuitenkin aina sovelluksen uudelleenkääntämisen. Koska jäljitys voi tuottaa erittäin suuria tiedostoja jopa suhteellisen pienille sovelluksille, kerätyn datan [suodattaminen](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/filtering-trace-data.html) on usein hyödyllistä.
 
-The collected data are saved in a series of `<executable>.stf` files in the running directory. 
+Kerätty data tallennetaan ajohakemistoon sarjaan `<executable>.stf`-tiedostoja. 
 
-### Known issues
+### Tunnetut ongelmat { #known-issues }
 
-- In Fortran programs, MPI tracing works only with `mpi` module (i.e. not with `use mpi_f08`)
-- Collector exits with error `Failed writing buffer to flush file "/tmp/xxx.dat": No space left on device`.
-- As the `/tmp/` in compute nodes is small, temporary files might need to be stored in the running 
-  directory by setting `export VT_FLUSH_PREFIX=$PWD`
+- Fortran-ohjelmissa MPI-jäljitys toimii vain `mpi`-moduulin kanssa (eli ei `use mpi_f08`)
+- Collector keskeytyy virheeseen `Failed writing buffer to flush file "/tmp/xxx.dat": No space left on device`.
+- Koska laskentanoodeilla oleva `/tmp/` on pieni, väliaikaistiedostot voi olla tarpeen tallentaa ajohakemistoon asettamalla `export VT_FLUSH_PREFIX=$PWD`
 
-## Analyzing the traces
+## Jäljitysten analysointi { #analyzing-the-traces }
 
-In order to improve the performance of the graphical user interface, 
-we recommend using the [Puhti web interface remote desktop](../computing/webinterface/desktop.md) when carrying out the analysis. 
-The analyzer is started on the host terminal with the command (note that the `intel-oneapi-itac` module needs to be loaded):
+Graafisen käyttöliittymän suorituskyvyn parantamiseksi suosittelemme käyttämään [Puhti-verkkokäyttöliittymän etätyöpöytää](../computing/webinterface/desktop.md) analyysia tehtäessä. Analysointiohjelma käynnistetään isäntäkoneen terminaalissa komennolla (huomaa, että `intel-oneapi-itac`-moduuli tulee ladata):
 
 ```bash
 traceanalyzer <executable>.stf
 ```
 
-The Trace Analyzer can show the timeline of each process and map each MPI
-call between the tasks. For each performance issue, the following information
-is provided: description, affected processes, and source locations.
+Trace Analyzer voi näyttää kunkin prosessin aikajanan ja kartoittaa MPI-kutsut tehtävien välillä. Kullekin suorituskykyongelmalle esitetään seuraavat tiedot: kuvaus, vaikutuksen kohteena olevat prosessit sekä lähdesijainnit.
 
-Intel Trace Analyzer can be used also for investigating OTF2 formatted traces 
-produced by other performance tools, such as [ScoreP/Scalasca](scalasca.md). 
-This can be achieved by starting the analyzer:
+Intel Trace Analyzeria voidaan käyttää myös muiden suorituskykutyökalujen, kuten [ScoreP/Scalasca](scalasca.md), tuottamien OTF2-muotoisten jäljitysten tarkasteluun. Tämä onnistuu käynnistämällä analysointiohjelma:
 
 ```bash
 traceanalyzer
 ```
 
-and selecting then the OTF2 file via the "Open" dialog.
+ja valitsemalla sitten OTF2-tiedosto Open-valintaikkunan kautta.
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Intel documentation](https://www.intel.com/content/www/us/en/developer/tools/oneapi/trace-analyzer-documentation.html)
+* [Intelin dokumentaatio](https://www.intel.com/content/www/us/en/developer/tools/oneapi/trace-analyzer-documentation.html)

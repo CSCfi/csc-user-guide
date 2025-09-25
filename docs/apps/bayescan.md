@@ -1,43 +1,48 @@
 ---
 tags:
   - Free
+catalog:
+  name: BayeScan
+  description: Tool for identifying candidate loci under natural selection based on allele frequencies in populations
+  description_fi: Työkalu luonnonvalinnan kohteena olevien kandidaattilokusten tunnistamiseen populaatioiden alleelifrekvenssien perusteella
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# BayeScan
+# BayeScan { #bayescan }
 
-BayeScan aims at identifying candidate loci under natural selection from genetic data, using differences in allele frequencies 
-between populations. The analysis is based on the multinomial-Dirichlet model. 
+BayeScanin tavoitteena on tunnistaa luonnonvalinnan kohteena olevat kandidaattilokukset geneettisestä datasta hyödyntämällä populaatioiden välisten alleelifrekvenssien eroja. Analyysi perustuu multinomi-Dirichlet-malliin. 
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
+Vapaasti käytettävissä ja avoimen lähdekoodin [GNU GPLv3] -lisenssillä (https://www.gnu.org/licenses/gpl-3.0.html)
 
-## Available
+## Saatavuus { #available }
 
 * Puhti: 2.1 
 
-## Usage
+## Käyttö { #usage }
 
-To use BayeScan, first run command
+Käyttääksesi BayeScania, suorita ensin komento
 
 ```bash
 module load biokit
 ```
 
-After that you can launch BayeScan with a command like:
+Tämän jälkeen voit käynnistää BayeScanin esimerkiksi komennolla:
 
 ```bash
 bayescan_2.1 -threads 1 test_binary_AFLP.txt 
 ```
 
-With bayescan_2.1, it is important to define the number of threads
-always explicitly. This is because, by default, BayeScan tries
-to use all available cores.
+bayescan_2.1-ohjelmaa käytettäessä on tärkeää määritellä säikeiden lukumäärä aina nimenomaisesti. Tämä johtuu siitä, että oletuksena BayeScan yrittää käyttää kaikkia saatavilla olevia ytimiä.
 
-On Puhti, BayeScan tasks should be executed as batch jobs.
-Below is a sample batch job file for BayeScan:
+Puhti-ympäristössä BayeScan-tehtävät tulee ajaa erätöinä. Alla on esimerkkieräajotiedosto BayeScanille:
 
 ```bash
 #!/bin/bash
@@ -55,18 +60,17 @@ module load biokit
 bayescan_2.1 -threads ${SLURM_CPUS_PER_TASK} test_binary_AFLP.txt > bayescan_omp.out
 ```
 
-The script above reserves 8 hours of computing time, 6 GB of memory and 4 computing cores. The `XXXXXX` in the `--account` definition
-should be replaced with the ID number of your computing project. The job can be submitted to the batch job system with command:
+Yllä oleva skripti varaa 8 tuntia laskenta-aikaa, 6 Gt muistia ja 4 laskentaydintä. `--account`-määrittelyn `XXXXXX` tulee korvata oman laskentaprojektisi tunnuksella. Työ voidaan lähettää eräajojärjestelmään komennolla:
 
 ```bash
 sbatch script
 ```
 
-Don't use BayeScan with more than 8 cores (except if you have verified that your task really benefits from larger core numbers).
+Älä käytä BayeScania yli 8 ytimellä (ellei ole varmistettu, että tehtäväsi todella hyötyy suuremmasta ytimien määrästä).
 
-More instructions for running batch jobs can be found form [CSC batch job instructions](../computing/running/getting-started.md)
+Lisäohjeita erätöiden ajamiseen löytyy kohdasta [CSC:n eräajon ohjeet](../computing/running/getting-started.md)
 
-## More information
+## Lisätietoja { #more-information }
 
-* [BayeScan home page](http://cmpg.unibe.ch/software/BayeScan/index.html)
-* [BayeScan manual](http://cmpg.unibe.ch/software/BayeScan/files/BayeScan2.1_manual.pdf)
+* [BayeScanin kotisivu](http://cmpg.unibe.ch/software/BayeScan/index.html)
+* [BayeScanin käyttöopas](http://cmpg.unibe.ch/software/BayeScan/files/BayeScan2.1_manual.pdf)

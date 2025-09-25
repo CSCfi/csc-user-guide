@@ -1,70 +1,78 @@
 ---
 tags:
   - Free
+catalog:
+  name: HMMER
+  description: Toolkit to create and use sequence profile hidden Markov models
+  description_fi: Työkalupakki sekvenssiprofiliin perustuvien piilotettujen Markovin mallien luomiseen ja käyttöön
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
-# HMMER
+# HMMER { #hmmer }
 
-Hidden Markov Models (HMM) are mathematical tools that can be used to describe and analyze related or similar sequence areas. 
-HMM-models can be derived from multiple sequence alignments so that they contain position specific information about the 
-probabilities of having certain nucleotides or amino acids in each position of an alignment.
+Piilotetut Markovin mallit (HMM) ovat matemaattisia työkaluja, joilla voidaan kuvata ja analysoida toisiinsa liittyviä tai samankaltaisia sekvenssialueita. 
+HMM-mallit voidaan johtaa usean sekvenssin kohdistuksista siten, että ne sisältävät paikkakohtaista tietoa tiettyjen nukleotidien tai aminohappojen todennäköisyyksistä kussakin kohdistuksen kohdassa.
 
-The HMMER package contains tools to create and modify sequence alignment based HMM-models, use them to do database searches and extend sequence alignments.
+HMMER-paketti sisältää työkaluja sekvenssikohdistuksiin perustuviin HMM-malleihin: niiden luomiseen ja muokkaamiseen, tietokantahakujen tekemiseen sekä sekvenssikohdistusten laajentamiseen.
 
-Database searches with HMM profiles can require very long computing times in normal computers.
+HMM-profiileilla tehtävät tietokantahaut voivat vaatia tavallisilla tietokoneilla hyvin pitkiä laskenta-aikoja.
 
 [TOC]
 
-## License
+## Lisenssi { #license }
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Vapaa käyttää ja avoimen lähdekoodin [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) -lisenssin alla.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 3.2.1, 3.3.2, 3.4
 
-## Usage
+## Käyttö { #usage }
 
-To use default version of HMMER on Puhti, load the biokit module:
+Käyttääksesi Puhdissa HMMERin oletusversiota, lataa biokit-moduuli:
 
 ```bash
 module load biokit
 ```
 
-If you want to use some other version, load the particular version of the HMMER module. For example:
+Jos haluat käyttää jotain muuta versiota, lataa haluttu HMMER-moduulin versio. Esimerkiksi:
 
 ```bash
 module load hmmer/3.2.1
 ```
 
-After this, the command line options of each `hmmer` command can be checked with option `-h`. For example:
+Tämän jälkeen kunkin `hmmer`-komennon komentorivivalitsimet voi tarkistaa valitsimella `-h`. Esimerkiksi:
 
 ```bash
 hmmsearch -h
 ```
 
-### Pfam database
+### Pfam-tietokanta { #pfam-database }
 
-On Puhti, you can use Pfam-A database with HMMER commands. You can also create your own HMM databases.
-For example, comparing a protein sequence against a Pfam-A HMM-database could be performed with the following commands.
+Puhdissa voit käyttää Pfam-A-tietokantaa HMMER-komennoilla. Voit myös luoda omia HMM-tietokantoja.
+Esimerkiksi proteiinisekvenssin vertailu Pfam-A HMM -tietokantaa vasten voidaan tehdä seuraavilla komennoilla.
 
-First, open an interactive batch job session and load biokit:
+Avaa ensin interaktiivinen eräajon istunto ja lataa biokit:
 
 ```bash
 sinteractive -m 4G -c 4
 module load biokit
 ```
 
-With native HMMER, you can speed up the `hmmpfam` and `hmmserach` commands by using several
-processors. The number of processors, e.g. 4, to be used is indicated with option `--cpu 4`,
-but the number is better replaced with an environment variable which already has it, *i.e.* 
-`$SLURM_CPUS_PER_TASK`, so it's always in sync with the batch script request:
+Alkuperäisellä HMMER:llä voit nopeuttaa `hmmpfam`- ja `hmmserach`-komentoja käyttämällä useita
+suorittimia. Käytettävien suorittimien määrä, esim. 4, annetaan valitsimella `--cpu 4`,
+mutta on parempi käyttää ympäristömuuttujaa, jossa arvo on jo valmiina, *i.e.* 
+`$SLURM_CPUS_PER_TASK`, jolloin se on aina linjassa eräajon skriptin pyynnön kanssa:
 
 ```bash
 hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
 
-In Puhti, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
+Puhdissa HMMER-ajoja tulisi suorittaa interaktiivisina eräajoina tai tavallisina erätöinä. Tässä esimerkki eräajotiedostosta, joka käyttää 4 suoritinydintä:
 
 ```bash
 #!/bin/bash 
@@ -83,14 +91,14 @@ module load biokit
 hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
 
-The job is submitted with command (where *batch_job_file* is the name of your batch job file):
+Työ lähetetään komennolla (missä *batch_job_file* on eräajotiedostosi nimi):
 
 ```bash
 sbatch batch_job_file
 ```
 
-For more information on running batch jobs, see the [Computing User Guide](../computing/running/getting-started.md).
+Lisätietoja erätöiden ajamisesta: katso [Laskennan käyttöopas](../computing/running/getting-started.md).
 
-## More information
+## Lisätietoja { #more-information }
 
-* [HMMER user guide](http://eddylab.org/software/hmmer/Userguide.pdf)
+* [HMMER-käyttöopas](http://eddylab.org/software/hmmer/Userguide.pdf)

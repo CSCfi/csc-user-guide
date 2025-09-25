@@ -1,113 +1,124 @@
 ---
 tags:
   - Free
+catalog:
+  name: OpenFOAM
+  description: Open source C++ tool box for continuum mechanics problems
+  description_fi: Avoimen lähdekoodin C++-työkalupakki jatkuvan mekaniikan ongelmiin
+  license_type: Free
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
-# OpenFOAM
+# OpenFOAM { #openfoam }
 
-[OpenFOAM](https://www.openfoam.com/) (for "Open-source Field Operation And Manipulation") is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, most prominently including computational fluid dynamics (CFD). OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to solid dynamics and electromagnetics ([by OpenCFD Ltd](https://www.openfoam.com/)).
+[OpenFOAM](https://www.openfoam.com/) (lyhenne sanoista "Open-source Field Operation And Manipulation") on C++-työkalupakki räätälöityjen numeeristen ratkaisinten sekä esi-/jälkikäsittelytyökalujen kehittämiseen jatkuvan mekaniikan ongelmien ratkaisemiseksi, erityisesti laskennalliseen virtausdynamiikkaan (CFD). OpenFOAM sisältää laajan ominaisuusvalikoiman, jolla voidaan ratkaista kaikkea kemiallisia reaktioita, turbulenssia ja lämmönsiirtoa sisältävistä monimutkaisista virtausilmiöistä aina kiinteän aineen dynamiikkaan ja sähkömagnetismiin ([OpenCFD Ltd:n mukaan](https://www.openfoam.com/)).
 
-There are three different variants of OpenFOAM, of which at CSC - IT Center for Science computer platforms, are currently installed different versions from [OpenFOAM Foundation](https://cfd.direct/) and [OpenCFD Ltd](https://www.openfoam.com).
+OpenFOAMista on kolme eri varianttia, joista CSC:n (IT Center for Science) laskenta-alustoille on tällä hetkellä asennettu eri versioita [OpenFOAM Foundationilta](https://cfd.direct/) ja [OpenCFD Ltd:ltä](https://www.openfoam.com).
 
-## License
+## License { #license }
 
-OpenFOAM is freely available and open source, and is licensed under the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.en.html) (Gnu GPL or GPL), with GPL license typical [characteristics for exploitation](https://openfoam.org/licence/). OpenFOAM® is registered trademark of OpenCFD Ltd, licensed to the OpenFOAM Foundation.
+OpenFOAM on vapaasti saatavilla ja avoimen lähdekoodin ohjelmisto, ja se on lisensoitu [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.en.html) -lisenssillä (Gnu GPL tai GPL), GPL-lisenssille tyypillisine [hyödyntämisen ominaisuuksineen](https://openfoam.org/licence/). OpenFOAM® on OpenCFD Ltd:n rekisteröity tavaramerkki, joka on lisensoitu OpenFOAM Foundationille.
 
-## Available
+## Available { #available }
 
-Different versions of OpenFOAM, provided by OpenFOAM Foundation and OpenCFD, are installed on [Puhti, Mahti and LUMI servers](../computing/available-systems.md).
+OpenFOAM Foundationin ja OpenCFD:n toimittamia eri OpenFOAM-versioita on asennettuna [Puhti-, Mahti- ja LUMI-palvelimille](../computing/available-systems.md).
 
-## Usage
+## Usage { #usage }
 
-After logging in to the server, give the command
+Kun olet kirjautunut palvelimelle, anna komento
 
 ```bash
 module spider openfoam
 ```
 
-On LUMI, you need to first load the module environment
+Lumilla sinun täytyy ensin ladata moduuliympäristö
 
 ```bash
 module use /appl/local/csc/modulefiles
 module spider openfoam
 ```
 
-The command lists available OpenFOAM versions on the server. To get more information about a specific version, for example, about OpenFOAM Foundation's version 10, use the command
+Komento listaa palvelimella saatavilla olevat OpenFOAM-versiot. Lisätietoja tietystä versiosta, esimerkiksi OpenFOAM Foundationin versiosta 10, saat komennolla
 
 ```bash
 module spider openfoam/10
 ```
 
-To launch a specific version (say, version 10), give the command
+Käynnistääksesi tietyn version (esim. version 10), anna komento
 
 ```bash
 module load openfoam/10
 ```
 
-OpenCFD's versions are recognized by a version string starting with letter _v_, i.e., to launch version openfoam/v2206, give the command
+OpenCFD:n versiot tunnistaa versiomerkkijonosta, joka alkaa kirjaimella v, eli käynnistääksesi version openfoam/v2206, anna komento
 
 ```bash
 module load openfoam/v2206
 ```
 
-Example files for a batch job script are available on the servers. After giving the launch command (`module load`, see above), the example script is the file
+Eräajon esimerkkiskriptit ovat saatavilla palvelimilla. Kun olet antanut käynnistyskomennon (`module load`, katso yllä), esimerkkiskripti on tiedosto
 
 ```bash
 $WM_PROJECT_INST_DIR/batch_script_examples/parjob_openfoam_<server>
 ```
 
-where `<server>` is either `puhti`, `mahti` or `lumi`. Copy that into your working directory for further modifications.
+missä `<server>` on joko `puhti`, `mahti` tai `lumi`. Kopioi se työhakemistoosi ja muokkaa tarpeen mukaan.
 
-### Use collated parallel I/O method on CSC's servers
+### Use collated parallel I/O method on CSC's servers { #use-collated-parallel-io-method-on-cscs-servers }
 
-- on CSC's computing servers, use OpenFOAM's [collated I/O method](https://openfoam.org/news/parallel-io/) whenever possible
-- using the collated method is absolutely necessary when the model size is large and a lot of disk I/O is necessary
+- CSC:n laskentapalvelimilla käytä OpenFOAMin [collated I/O -menetelmää](https://openfoam.org/news/parallel-io/) aina kun mahdollista
+- collated-menetelmän käyttö on ehdottoman välttämätöntä, kun malli on suuri ja levy-I/O:ta on paljon
 
-The file system used on CSC's computing platforms, Puhti, Mahti and LUMI, is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files. The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and if field variables are written to the disk every time step. Such I/O operations will cause the file system to become heavily overloaded, and the whole computing platform can get jammed even by a few simultaneous OpenFOAM users.
+CSC:n laskenta-alustoilla (Puhti, Mahti ja LUMI) käytössä oleva tiedostojärjestelmä on [Lustre](http://lustre.org/), joka on optimoitu lukemaan ja kirjoittamaan vähäistä määrää tiedostoja. OpenFOAMin tuottamien tulostiedostojen määrä voi helposti kasvaa erittäin suureksi, jopa miljooniin, jos verkkokoko on suuri ja kenttämuuttujat kirjoitetaan levylle jokaisella aika-askeleella. Tällaiset I/O-operaatiot kuormittavat tiedostojärjestelmää raskaasti, ja koko laskenta-alusta voi jumiutua jo muutamasta samanaikaisesta OpenFOAM-käyttäjästä.
 
-The above described traditional parallel I/O method of OpenFOAM can be replaced in the latest versions of OpenFOAM with the collated parallel I/O method, where the output data is written only in few files. Considering HPC platforms using parallel files systems, this has been a significant improvement to OpenFOAM.
+Edellä kuvattu perinteinen rinnakkais-I/O voidaan korvata OpenFOAMin uusimmissa versioissa collated-rinnakkais-I/O-menetelmällä, jossa tulosaineisto kirjoitetaan vain muutamaan tiedostoon. Rinnakkaisia tiedostojärjestelmiä käyttäville HPC-alustoille tämä on ollut merkittävä parannus OpenFOAMissa.
 
-In test runs on CSC's servers with the collated I/O method, significant difference in throughput time has not been recognized compared to non-collated method. In some tests, collated method has shown to be slightly faster. Our recommendation is to use collated method whenever it is practicable.
+CSC:n palvelimilla tehdyissä koesuorituksissa collated I/O -menetelmällä ei ole havaittu merkittävää eroa läpimenoajassa verrattuna perinteiseen menetelmään. Joissakin testeissä collated-menetelmä on ollut hieman nopeampi. Suosituksemme on käyttää collated-menetelmää aina, kun se on käytännöllistä.
 
-#### An example
+#### An example { #an-example }
 
-Mahti server contains 128 cores per node. If the total subdomain number in the model is 256, a user may allocate two full nodes for the solver run. Decomposition batch job can then be done using the command
+Mahti-palvelimessa on 128 ydintä per solmu. Jos mallin alialueiden kokonaismäärä on 256, käyttäjä voi varata kaksi täyttä solmua ratkaisimen ajolle. Hajotus (decomposition) voidaan tehdä eräajossa komennolla
 
 ```bash
 decomposePar -fileHandler collated -ioRanks '(0 128 256)'
 ```
 
-and two directories `processors256_0-127` and `processors256_128-255` are created. For the solver run, the command will then be
+ja tällöin luodaan kaksi hakemistoa `processors256_0-127` ja `processors256_128-255`. Ratkaisimen ajoon komento on tällöin
 
 ```bash
 pimpleFoam -parallel -fileHandler collated -ioRanks '(0 128 256)'
 ```
 
-In that way, 128 processes are launched on both nodes, and on each node one process is a master process. Reconstruction of the data is done in the batch job with the command
+Tällä tavalla molemmissa solmuissa käynnistyy 128 prosessia, ja kummassakin solmussa yksi prosessi toimii pääprosessina. Datan rekonstruointi tehdään eräajossa komennolla
 
 ```bash
 reconstructPar
 ```
 
-In this example, the pressure results of domains 0 to 127 per time step are written into a single file. In a non-collated method, the same results would have been written into 128 separate files. This tremendous decrease in the number of output files happens naturally with all the rest of the field variables also.
+Tässä esimerkissä alueiden 0–127 paineen tulokset per aika-askel kirjoitetaan yhteen tiedostoon. Perinteisellä menetelmällä samat tulokset olisi kirjoitettu 128 erilliseen tiedostoon. Tämä valtava tulostiedostojen määrän väheneminen toteutuu luonnollisesti myös kaikille muille kenttämuuttujille.
 
-I/O operations in the collated method are based on threaded sub-processes, and therefore do not cause any time overhead for the simulation compared to non-collated method.
+Collated-menetelmän I/O-toiminnot perustuvat säikeistettyihin aliprosesseihin, eikä niistä siksi aiheudu aikasanktioita simuloinnille verrattuna perinteiseen menetelmään.
 
-#### Example batch job scripts for collated method usage on Mahti
+#### Example batch job scripts for collated method usage on Mahti { #example-batch-job-scripts-for-collated-method-usage-on-mahti }
 
-The example scripts for separate batch runs for decomposition, solver and reconstruction are in the folder (`module load` command should have been run to access these files)
+Erilliset esimerkkiskriptit hajotukselle, ratkaisulle ja rekonstruoinnille löytyvät hakemistosta (pääsy tiedostoihin edellyttää, että `module load` -komento on suoritettu)
 
 ```bash
 $WM_PROJECT_INST_DIR/batch_script_examples
 ```
 
-Please note that, on Mahti, decomposition and reconstruction must be done using the [interactive queue](../computing/running/batch-job-partitions.md).
+Huomaa, että Mahtilla hajotus ja rekonstruointi on tehtävä [interaktiivisessa jonossa](../computing/running/batch-job-partitions.md).
 
-## Support
+## Support { #support }
 
-If you encounter any issue while using OpenFOAM on CSC's servers, please send an email to [CSC Service Desk](../support/contact.md).
+Jos kohtaat ongelmia käyttäessäsi OpenFOAMia CSC:n palvelimilla, lähetä sähköpostia [CSC Service Deskiin](../support/contact.md).
 
-## More information
+## More information { #more-information }
 
 - [OpenFOAM Foundation](https://openfoam.org/)
 - [OpenFOAM by OpenCFD](https://www.openfoam.com/)

@@ -1,48 +1,59 @@
 ---
 tags:
   - Other
+catalog:
+  name: VASP
+  description: Ab initio DFT electronic structures
+  description_fi: Ab initio -DFT -pohjaiset elektroniset rakenteet
+  license_type: Other
+  disciplines:
+    - Physics
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
-# VASP
+# VASP { #vasp }
 
-[VASP](https://www.vasp.at/) is an ab initio DFT program for computing
-electronic structures of up to few hundreds of atoms.
+[VASP](https://www.vasp.at/) on ab initio -DFT-ohjelma, jolla voidaan laskea
+enintään muutamien satojen atomien elektronisia rakenteita.
 
-This page briefly describes how to use VASP on mahti.csc.fi. Usage on
-puhti.csc.fi is very similar. That said, VASP is a program the usage of
-which requires some experience. It is advised that new VASP users start
-out with a supervisor or an experienced colleague.
+Tällä sivulla kuvataan lyhyesti VASP:n käyttö mahti.csc.fi-järjestelmässä. Käyttö
+puhti.csc.fi:ssä on hyvin samankaltaista. VASP:n käyttö edellyttää kuitenkin
+jonkin verran kokemusta; uusien VASP-käyttäjien suositellaan aloittavan
+ohjaajan tai kokeneen kollegan kanssa.
 
-## Available
+## Saatavilla { #available }
 
-See available VASP versions in with command
+Katso saatavilla olevat VASP-versiot komennolla
 
 ```console
 module avail vasp
 ```
 
-## License
+## Lisenssi { #license }
 
-The usage of VASP requires a license, which must be acquired directly
-from the developers of the software.
+VASP:n käyttö edellyttää lisenssiä, joka on hankittava suoraan
+ohjelmiston kehittäjiltä.
 
 !!! warning ""
-    After acquiring the license, please send email to
-    [CSC Service Desk](../support/contact.md), including the email address
-    you have registered for the VASP license and your username at CSC.
+    Lisenssin hankkimisen jälkeen lähetä sähköpostia
+    [CSC Service Desk](../support/contact.md) -palveluun ja kerro
+    VASP-lisenssiin rekisteröimäsi sähköpostiosoite sekä CSC-käyttäjätunnuksesi.
 
-## Usage
+## Käyttö { #usage }
 
-Precompiled VASP executables and pseudopotentials are available
-through the module environment. Use the command
+Esikäännetyt VASP-suoritettavat ja pseudopotentiaalit ovat saatavilla
+moduuliympäristön kautta. Käytä komentoa
 
 ```console
 module show vasp
 ```
 
-to see more detailed information.
+saadaksesi tarkempia tietoja.
 
-### An example batch job script for a small test
+### Esimerkkieräajon skripti pientä testiä varten { #an-example-batch-job-script-for-a-small-test }
 
 ```bash
 #!/bin/bash
@@ -56,35 +67,37 @@ module load vasp
 srun vasp_std
 ```
 
-For more options and details, see how to create batch job scripts for
-[Puhti](../computing/running/creating-job-scripts-puhti.md) and
+Lisää vaihtoehtoja ja yksityiskohtia: katso ohjeet eräajon skriptien
+luomiseen palveluille
+[Puhti](../computing/running/creating-job-scripts-puhti.md) ja
 [Mahti](../computing/running/creating-job-scripts-mahti.md).
 
-### VASP tutorials in JupyterLab
+### VASP-oppaat JupyterLabissa { #vasp-tutorials-in-jupyterlab }
 
-[VASP tutorials](https://www.vasp.at/tutorials/latest/) can also be
-followed using JupyterLab from the
-[Mahti web interface](https://www.mahti.csc.fi). Open the *Jupyter* app,
-and from *Settings* -> *Python*, select *Custom module* and type in
-*py4vasp*. When submitting jobs from the JupyterLab terminal window to
-compute nodes, first load module `vasp`, and then use a command similar to
+[VASP-oppaat](https://www.vasp.at/tutorials/latest/) voidaan myös käydä
+läpi JupyterLabissa
+[Mahti-verkkokäyttöliittymän](https://www.mahti.csc.fi) kautta. Avaa
+sovellus *Jupyter*, ja kohdasta *Settings* -> *Python* valitse
+*Custom module* ja kirjoita *py4vasp*. Kun lähetät töitä JupyterLabin
+terminaali-ikkunasta laskentanoodeille, lataa ensin moduuli `vasp`,
+ja käytä sitten esimerkiksi komentoa
 
 ```console
 srun -p test -A <project> -t 5 -n 2 vasp_std
 ```
 
-instead of the `mpirun ...` command shown in the tutorial.
+oppaassa esitetyn `mpirun ...` -komennon sijaan.
 
-### Performance optimization
+### Suorituskyvyn optimointi { #performance-optimization }
 
-First, the performance of VASP depends crucially on the parameters in
-the INCAR file that control how the different k-points, bands and FFT
-coefficients are distributed among the MPI tasks, and that the correct
-version (std/gam/ncl) of the executable is used.
+Ensinnäkin VASP:n suorituskyky riippuu ratkaisevasti INCAR-tiedoston
+parametreista, jotka määräävät, miten k-pisteet, kaistat ja FFT-kertoimet
+jaetaan MPI-tehtäville, sekä siitä, että suoritettavan oikea versio
+(std/gam/ncl) on käytössä.
 
-Second, the provided prebuilt executables are built as "vanilla" as
-possible and provide a reasonable baseline. The performance
-optimization for large experiments should be done on a per case basis.
-The commands that created the prebuilt executables are in
-`$VASPDIR/README.sh`, and can be used as a starting point
-for building more optimized and/or otherwise modified executables.
+Toiseksi tarjolla olevat esikäännetyt suoritettavat on rakennettu
+mahdollisimman “vanilla”-muotoon ja tarjoavat kohtuullisen lähtötason.
+Suorituskyvyn optimointi suuriin ajoihin kannattaa tehdä tapauskohtaisesti.
+Komennot, joilla esikäännetyt suoritettavat on luotu, löytyvät tiedostosta
+`$VASPDIR/README.sh`, ja niitä voi käyttää lähtökohtana
+optimoidumpien ja/tai muuten muokattujen suoritettavien rakentamiseen.

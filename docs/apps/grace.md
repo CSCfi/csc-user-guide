@@ -1,37 +1,44 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
+catalog:
+  name: Grace
+  description: Plotting tool for xvg-files in particular
+  description_fi: Piirtotyökalu erityisesti xvg-tiedostoille
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+    - Puhti
 ---
 
-# Grace
+# Grace { #grace }
 
-Grace is foremost a plotting tool, and e.g. GROMACS produces tailored input for
-it, but Grace can also be used for some numerical analyses.
+Grace on ensisijaisesti piirtotyökalu, ja esim. GROMACS tuottaa sille räätälöityä syötettä, mutta Gracea voidaan käyttää myös joihinkin numeerisiin analyyseihin.
 
-## Available
+## Saatavilla { #available }
 
 * Puhti: 5.1.25
 
-## License
+## Lisenssi { #license }
 
 * [GPL](https://plasma-gate.weizmann.ac.il/Grace/doc/GPL.html)
 
-## Usage
+## Käyttö { #usage }
 
-Initialize Grace with:
+Lataa grace-moduuli komennolla:
 
 ```bash
 module load grace
 ```
 
-And start with `xmgrace` or show a plot directly with `xmgrace input.xvg`.
+Käynnistä komennolla `xmgrace` tai näytä kaavio suoraan komennolla `xmgrace input.xvg`.
 
-Note, that you need remote graphics to work with Grace. An easy way is through the
-[Puhti web interface remote desktop](../computing/webinterface/desktop.md).
+Huomaa, että Gracen käyttö edellyttää etägrafiikkaa. Helppo tapa on käyttää [Puhti web -käyttöliittymän etätyöpöytää](../computing/webinterface/desktop.md).
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Grace home page](https://plasma-gate.weizmann.ac.il/Grace/)
-* [Grace user guide](https://plasma-gate.weizmann.ac.il/Grace/doc/UsersGuide.html)
+* [Gracen kotisivu](https://plasma-gate.weizmann.ac.il/Grace/)
+* [Gracen käyttöopas](https://plasma-gate.weizmann.ac.il/Grace/doc/UsersGuide.html)

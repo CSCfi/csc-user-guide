@@ -1,31 +1,44 @@
-# NoMachine
+---
+tags:
+catalog:
+  name: NoMachine
+  description:
+  description_fi:
+  license_type:
+  disciplines:
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
+  unchecked: true
+---
 
-!!! warning "NoMachine at CSC discontinued on 25th of May 2023"
+# NoMachine { #nomachine }
 
-    The NoMachine remote desktop service will be discontinued at CSC on 25th May 2023,
-    at the end of the current licensing period.
+!!! warning "NoMachine CSC:llä lopetetaan 25. toukokuuta 2023"
+
+    NoMachine-etätyöpöytäpalvelu lopetetaan CSC:llä 25. toukokuuta 2023,
+    nykyisen lisenssikauden päättyessä.
 
 
-The service is superseded by web interfaces on CSC's supercomputers:
+Palvelun korvaavat CSC:n supertietokoneiden verkkokäyttöliittymät:
 
-* [Web interfaces for Puhti and Mahti](../computing/webinterface/index.md)
-* Similar web interface will be opened for LUMI in the near future.
+* [Puhtin ja Mahtin verkkokäyttöliittymät](../computing/webinterface/index.md)
+* Vastaava verkkokäyttöliittymä avataan LUMIin lähitulevaisuudessa.
 
-## Replacements
+## Korvaavat palvelut { #replacements }
 
-* For a generic graphical remote desktop, the
-[Desktop application](../computing/webinterface/desktop.md) can be launched from the web
-interface.
-* For a shell (e.g. a persistent shell on a compute node), have a look at [the shell applications](../computing/webinterface/index.md#shell) on the web interface.
-* Available as interactive applications.
+* Yleistä graafista etätyöpöytää varten [Työpöytäsovellus](../computing/webinterface/desktop.md) voidaan käynnistää verkkokäyttöliittymästä.
+* Komentotulkkia varten (esim. pysyvä komentotulkki laskentasolmussa) tutustu verkkokäyttöliittymän [shell-sovelluksiin](../computing/webinterface/index.md#shell).
+* Saatavilla interaktiivisina sovelluksina.
     * [Jupyter](../computing/webinterface/jupyter.md)
     * [Julia-Jupyter](../computing/webinterface/julia-on-jupyter.md)
     * [MATLAB](../computing/webinterface/matlab.md)
     * [RStudio](../computing/webinterface/rstudio.md)
     * [TensorBoard](../computing/webinterface/tensorboard.md)
     * [Visual Studio Code](../computing/webinterface/vscode.md)
-* Some applications are available with GPU acceleration. See
-[Accelerated visualization](../computing/webinterface/accelerated-visualization.md).
+* Jotkin sovellukset ovat saatavilla GPU-kiihdytyksellä. Katso
+[Kiihdytetty visualisointi](../computing/webinterface/accelerated-visualization.md).
 
-**If you have difficulties in migrating to use the web interfaces, please don't hesitate to
-[contact us](../support/contact.md)!**
+**Jos siirtyminen verkkokäyttöliittymien käyttöön tuottaa vaikeuksia, ota rohkeasti
+[meihin yhteyttä](../support/contact.md)!**
