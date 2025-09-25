@@ -10,7 +10,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 <div class="grid cards csc-quick-links" markdown>
 
-- #### Reasearch data
+- #### Research data
 
     ---
 
