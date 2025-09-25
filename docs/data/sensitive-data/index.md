@@ -44,6 +44,8 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
 
+    [Video tutorials](videotutorials.md)
+
     [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
 
     [Useful terminology :material-arrow-right:](sd-terminology.md)
