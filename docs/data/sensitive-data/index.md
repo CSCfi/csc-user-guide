@@ -2,8 +2,6 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-</div>
-
 
 
 - #### Store and analyse research data
