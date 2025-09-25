@@ -5,16 +5,15 @@ Please note that having a negative Billing Unit balance will result in restricti
 
 ## Available Billing Unit packages
 
-These are the available Billing Unit packages in [MyCSC](https://my.csc.fi) portal. 
-| Package   |     CPU      |  GPU  | Storage   |  Cloud |
-|-----------|:------------:|:-----:|:---------:|------: |
-| Small     | 60 000  | 10 000  | 30 000  |  30 000 |
-| Medium    | < 600 000  |  < 100 000 |  < 300 000 | < 300 000 |
-| Large     | < 6 000 000 | < 1 000 000 | < 3 000 000 | < 3 000 000 |
+These are the available Billing Unit packages in [MyCSC](https://my.csc.fi) portal.
 
+| Package   | CPU         | GPU         | Storage     | Cloud       |
+|:----------|:-----------:|:-----------:|:-----------:|------------:|
+| Small (S) | 60 000      | 10 000      | 30 000      | 30 000      |
+| Medium (M)| < 600 000   | < 100 000   | < 300 000   | < 300 000   |
+| Large (L) | < 6 000 000 | < 1 000 000 | < 3 000 000 | < 3 000 000 |
 
-
-## How to submit a resource application:
+## How to submit a resource application
 
 1. Login to [MyCSC](https://my.csc.fi).
 2. Choose _Projects_ in the navigation menu on the left.
@@ -46,7 +45,7 @@ Starting from Autumn 2025, unused Billing Units will be deprecated if left unuse
 
 ### Billing Unit deprecation example
 
-As an example, if a project with 40,000 CPU Billing Units and 25,000 GPU Billing Units remaining has been granted 60,000 CPU Billing Units and 135,000 GPU Billing Units in March, the available Billing Units after the grant would be 100,000 CPU Billing Units and 160,000 GPU Billing Units. This means in September it is checked, if the project has used at least 40% of these (or 40,000 CPU BUs and 64,000 GPU BUs), and if not, the leftover BUs are cut so that 60% of the resources are left. Then in next year’s March, it is checked if the project has used 80% of the resources (so 80,000 CPU BUs and 128,000 GPU BUs) and again, if it has not, the resources are cut correspondingly. If the project has used more than the threshold, no resources are cut. If the project is granted new resources, the timer for the resource cuts is reset again. 
+As an example, if a project with 40,000 CPU Billing Units and 25,000 GPU Billing Units remaining has been granted 60,000 CPU Billing Units and 135,000 GPU Billing Units in March, the available Billing Units after the grant would be 100,000 CPU Billing Units and 160,000 GPU Billing Units. This means in September it is checked, if the project has used at least 40% of these (or 40,000 CPU BUs and 64,000 GPU BUs), and if not, the leftover BUs are cut so that 60% of the resources are left. Then in next year’s March, it is checked if the project has used 80% of the resources (so 80,000 CPU BUs and 128,000 GPU BUs) and again, if it has not, the resources are cut correspondingly. If the project has used more than the threshold, no resources are cut. If the project is granted new resources, the timer for the resource cuts is reset again.
 
 Please see the chart below how the resource timer is reset.
 
