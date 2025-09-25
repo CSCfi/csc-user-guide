@@ -1,8 +1,16 @@
+# Sensitive Data (SD) services for research: user guide
+
+Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<div class="grid cards csc-quick-links csc-quick-links--landing" markdown>
 
-- ### Store and analyse research data
+### Quick links to key topics
+
+<div class="grid cards csc-quick-links" markdown>
+
+- #### Reasearch data
 
     ---
 
@@ -16,54 +24,62 @@
 
     [Reuse with SD Apply :material-arrow-right:](sd-apply.md)
 
-- ## User guides
+
+- #### Secondary use of health and social data
 
     ---
 
-    [Quantum Computing Guide :material-arrow-right:](computing/quantum-computing/overview.md)
+    [Start here with **Findata permit** :material-arrow-right:](findata-permit.md)
 
-    [LUMI User Guide :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
+    [Start here with **Public Register permit** :material-arrow-right:](single-register-permit.md)
 
-    [Allas User Guide :material-arrow-right:](data/Allas/index.md)
-    
-    [Python Usage Guide :material-arrow-right:](support/tutorials/python-usage-guide.md)
+    [Analyse with SD Desktop for secondary use :material-arrow-right:](sd-desktop-audited.md)
 
-    [Machine Learning Guide :material-arrow-right:](support/tutorials/ml-guide.md)
+    [Submit secondary use data :material-arrow-right:](single-register-submission.md)
 
-    [Sensitive Data Services Guide :material-arrow-right:](data/sensitive-data/index.md)
 
-    [Fairdata Services Guides :material-open-in-new:](https://www.fairdata.fi/en/fairdata-quick-guide/){ target=_blank }
-
-- ## Tutorials & courses
+- #### Additional Resources
 
     ---
 
-    [CSC Computing Environment :material-open-in-new:](https://csc-training.github.io/csc-env-eff/){ target=_blank }
+    [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
 
-    [Elements of Supercomputing :material-open-in-new:](https://edukamu.fi/elements-of-supercomputing/){ target=_blank }
+    [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
 
-    [Linux basics for CSC :material-arrow-right:](support/tutorials/env-guide/index.md)
+    [Useful terminology :material-arrow-right:](sd-terminology.md)
 
-    [Managing data on scratch :material-arrow-right:](support/tutorials/clean-up-data.md)
-
-    [High-throughput computing :material-arrow-right:](computing/running/throughput.md)
-
-    [Creating a virtual machine in Pouta :material-arrow-right:](cloud/pouta/launch-vm-from-web-gui.md)
+    [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
 
 </div>
 
 
+### Links to services
 
+<div class="grid csc-quick-links csc-quick-links--portals" markdown>
 
+[Create and manage CSC account with MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC user portal" target=_blank }
 
+[Store and share with SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Sensitive Data (SD) Connect" target=_blank }
 
+[Analyse with SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Sensitive Data (SD) Desktop" target=_blank }
 
-
-
-
-
-
-
-  
+[Reuse with SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Sensitive Data (SD) Apply" target=_blank }
 
 </div>
+
+
+### Service breaks
+
+* SD services undergo regular maintenance on the **first Wednesday of every month**, for full details please visit [Service Breaks page in _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/service-breaks){ target=_blank }
+
+
+### Support
+
+!!! info "Do you have any questions? Would you like to discuss how SD services can support your research project?"
+
+       - [Contact us](../../support/contact.md), subject: *Sensitive Data services*
+       - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
+       - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
+
+
+Sensitive Data (SD) Services - [Cookie policy](sd-cookie-policy.md)
