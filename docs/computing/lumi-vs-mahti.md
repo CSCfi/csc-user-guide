@@ -54,7 +54,7 @@ Note that LUMI consortium country projects (e.g. Finnish LUMI projects) use diff
 
 ## Billing
 
-LUMI does not share the same billing units as other CSC services like Mahti. However, the billing model is similar in that there are different units for CPU compute, GPU compute and storage resources, and that granted resources are periodically cut if left unused.
+LUMI does not share the same Billing Units as other CSC services like Mahti. However, the billing model is similar in that there are different units for CPU compute, GPU compute and storage resources, and that granted resources are periodically cut if left unused.
 
 [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
 

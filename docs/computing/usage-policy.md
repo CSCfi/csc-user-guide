@@ -63,9 +63,9 @@ Puhti and Mahti GPUs should only be used for workloads that greatly benefit
 from GPU capacity compared to using CPUs or which can't be run on CPUs. In
 particular AI/ML workloads are prioritized, since many of them cannot be done
 at all on CPUs. A good rule of thumb is to compare the
-[billing unit (BU)](../accounts/billing.md) usage (_e.g._ with
+[Billing Unit (BU)](../accounts/billing.md) usage (_e.g._ with
 [`seff`](./performance.md#quick-start-efficiency-report-with-seff)
-or the [billing unit calculator](https://research.csc.fi/billing-units/#buc))
+or the [Billing Unit calculator](https://research.csc.fi/billing-units/#buc))
 of the job on GPUs against CPUs and select the one using less. One CPU BU and one 
 GPU BU are equal in terms of cost.
 
@@ -88,13 +88,13 @@ See [Conda best practices](../support/tutorials/conda.md) for more information.
     Please consider the [Tykky container wrapper](containers/tykky.md) for easy
     containerization of Conda and pip environments.
 
-## Running out of billing units
+## Running out of Billing Units
 
-When a project runs out of billing units, the ability to use
+When a project runs out of Billing Units, the ability to use
 the service will be limited in three phases.  If you are still
 actively using the project you can lift the limitations by
 [applying](../accounts/how-to-apply-for-billing-units.md) for more
-billing units.
+Billing Units.
 
 In the first phase the ability to submit new jobs is limited:
 
@@ -124,7 +124,7 @@ in MyCSC.
 
 In the third phase the project is closed after a 60-day grace period
 if you have run out of BUs of any type. If the project still has a
-negative amount of billing units of any type after 60 days, it will be
+negative amount of Billing Units of any type after 60 days, it will be
 closed.
 
 

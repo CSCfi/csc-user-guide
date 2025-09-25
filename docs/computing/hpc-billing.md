@@ -25,7 +25,7 @@ is billed separately. More precisely:
 
 Puhti is a heterogeneous system with CPU, GPU and IO nodes and nodes with
 varying amounts of memory. Moreover, it is possible to use only a fraction of a
-node and its various resources. The billing scheme charges billing units (BU)
+node and its various resources. The billing scheme charges Billing Units (BU)
 in a fair way based on the reserved amount of node resources. 
 
 On Puhti's [CPU partitions](running/batch-job-partitions.md#puhti-cpu-partitions) the

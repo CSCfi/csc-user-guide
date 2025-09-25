@@ -1,9 +1,9 @@
-# Virtual machine flavors and billing unit rates
+# Virtual machine flavors and Billing Unit rates
 
 Currently, Pouta will bill for the use of 3 resources: storage volumes, floating IPs and virtual machines. The account of use of resources is done in increments of one hour. A good way to estimate usage cost is the [Billing unit calculator](https://research.csc.fi/resources/#buc) utility. All these resources consume Cloud Billing Units, for more information about Billing in CSC, visit the [Billing](../../accounts/billing.md) page.
 
 - **Storage volumes**: 3,5 Cloud BU / TiB hour. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes Cloud BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems.
-- **Floating IPs**: 0,2 Cloud BU / hour. Every floating IP reserved to the project is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume cloud billing units.
+- **Floating IPs**: 0,2 Cloud BU / hour. Every floating IP reserved to the project is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume Cloud Billing Units.
 - **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume Cloud BUs regardless whether you are using them or not. This means that a shut down or suspended virtual machine still consumes Cloud BUs, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their Cloud BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
 
 \* **Cloud BU**: Cloud Billing Units
@@ -26,7 +26,7 @@ Additional quota can be requested by sending an email to [csc service desk](../.
 ## cPouta flavors
 
 The following tables list the available virtual machine flavors in cPouta and their
-cloud billing unit coefficients.
+Cloud Billing Unit coefficients.
 Note that the default cPouta user account
 allows users to launch only a subset of the available virtual machine
 flavors.
@@ -97,7 +97,7 @@ See more details on the [GPU flavors](#cpouta_3) section.
 ## ePouta flavors
 
 The following tables list the available virtual machine flavors in ePouta and their
-billing unit coefficients.
+Billing Unit coefficients.
 
 ### Standard flavors
 

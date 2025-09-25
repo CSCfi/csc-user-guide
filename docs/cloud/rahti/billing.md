@@ -3,14 +3,14 @@
 ## Terminology
 
 * Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
-* Cloud billing unit (Cloud BU): Billing units assigned to Cloud resource usage.
+* Cloud Billing Unit (Cloud BU): Billing units assigned to Cloud resource usage.
 * CSC computing project: A placeholder for the user's resources information - including: the number of Cloud BUs and the CSC
 services which are available for use.
 * Rahti project: A Kubernetes namespace with additional annotations.
 
 ## Billing model
 
-Cloud billing units usage of given CSC project are calculated by scraping the usage data from all Rahti projects associated with that CSC project.
+Cloud Billing Units usage of given CSC project are calculated by scraping the usage data from all Rahti projects associated with that CSC project.
 These calculations are based on:
 
 * Pod core.
@@ -19,8 +19,8 @@ These calculations are based on:
 
 If the current usage is lower than the minimum requested resource, the requested resource is used for the calculations.
 
-The rate at which cloud billing units are consumed depends on the size of the
-resources. Cloud billing units are consumed as follows:
+The rate at which Cloud Billing Units are consumed depends on the size of the
+resources. Cloud Billing Units are consumed as follows:
 
 | Resource         | Cloud Billing units |
 |------------------|---------------------|
@@ -55,8 +55,8 @@ The memory usage is 1 GiB and the request is 512 MiB. The same goes for memory u
 <!--
 ## Billing unit calculator
 
-For an estimate of the billing units the services you plan on using will consume, please refer to the
-billing unit calculator below. The [billing unit calculator can also be found at MyCSC](https://my.csc.fi/buc/).
+For an estimate of the Billing Units the services you plan on using will consume, please refer to the
+Billing Unit calculator below. The [Billing Unit calculator can also be found at MyCSC](https://my.csc.fi/buc/).
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 

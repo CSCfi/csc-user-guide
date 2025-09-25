@@ -20,7 +20,7 @@ You can check the default limits of scratch and projappl areas from the table be
 | projappl&nbsp;(Mahti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
 | scratch&nbsp;(Mahti)   |   1 TiB      |  200&nbsp;TiB&nbsp;(<&nbsp;40&nbsp;TiB)    | 1 000 000                 | 20&nbsp;000&nbsp;000&nbsp;(<&nbsp;10&nbsp;000&nbsp;000)               |
 
-Note that the extended quota consumes your storage billing units regardless of how
+Note that the extended quota consumes your Storage Billing Units regardless of how
 much data you actually have in the directory. [See billing](billing.md) for
 details. Furthermore, even after the quota is increased, the automatic cleaning
 process will continue removing idle files from the scratch directory.
@@ -33,8 +33,8 @@ any large datasets in the CSC environment, so you should not hesitate to request
 To increase your Allas quota, please send a request to: servicedesk@csc.fi 
 In the request, define what Allas project you are using, how large storage space is needed and what kind of data will be stored to Allas. If you have a data management plan available, please include it as an attachment. 
 
-Note that storing data in Allas consumes storage billing units. In Allas, billing is based on the amount of data stored. The rate is 1 storage BU/TiBh, 
-i.e. 1 TB of data stored in Allas consumes 24 storage billing units in a day and 8760 storage billing units in a year. [How to apply for billing units](how-to-apply-for-billing-units.md)
+Note that storing data in Allas consumes Storage Billing Units. In Allas, billing is based on the amount of data stored. The rate is 1 storage BU/TiBh, 
+i.e. 1 TB of data stored in Allas consumes 24 Storage Billing Units in a day and 8760 Storage Billing Units in a year. [How to apply for Billing Units](how-to-apply-for-billing-units.md)
 
 ## Increasing the storage capacity in IDA
 

@@ -1,7 +1,7 @@
-# How to view billing unit usage
+# How to view Billing Unit usage
 
-Consumption of CSC's resources is mainly measured in billing units. IDA and
-Kaivos do not consume billing units; they only have quota limits for each
+Consumption of CSC's resources is mainly measured in Billing Units. IDA and
+Kaivos do not consume Billing Units; they only have quota limits for each
 project.
 
 Check your BU consumption:
@@ -20,7 +20,7 @@ In the usage plot, you can:
 
 !!! Note
 
-    Do not confuse quotas with billing units. Quotas are service-specific
+    Do not confuse quotas with Billing Units. Quotas are service-specific
     limits to keep the usage within limits. See the instructions under
     Computing, Cloud and Data for instructions how the remaining quotas
     can be followed up in each service.

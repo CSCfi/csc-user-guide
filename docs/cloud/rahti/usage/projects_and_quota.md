@@ -34,7 +34,7 @@ csc_project: 1000123
 ```
 
 This would make it so that any usage within that Rahti project is billed
-to the cloud billing unit quota of project_1000123. Note that project_1000123 must
+to the Cloud Billing Unit quota of project_1000123. Note that project_1000123 must
 have Rahti service access and you must be a member of that computing project,
 or the OpenShift project creation will fail.
 

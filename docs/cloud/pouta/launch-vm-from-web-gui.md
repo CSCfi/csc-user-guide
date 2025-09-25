@@ -234,7 +234,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
         If the flavour type has an ephemeral disk (for example, [I/O flavours](./vm-flavors-and-billing.md#io-flavors)), a new volume is only created for the root disk. [Ephemeral disks](./ephemeral-storage.md) are removed when the VM is deleted.
 
 
-1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create, from the available flavours and by clicking the up arrow. See [Virtual machine flavors and billing unit rates](vm-flavors-and-billing.md) for a complete list and descriptions. You can also expand the flavour to check the impact on your quota.
+1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create, from the available flavours and by clicking the up arrow. See [Virtual machine flavors and Billing Unit rates](vm-flavors-and-billing.md) for a complete list and descriptions. You can also expand the flavour to check the impact on your quota.
 
     ![Select the instance flavour](../img/pouta-launch-instance-flavor.png 'Select the instance flavour')
 
@@ -296,7 +296,7 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
 !!! warning "IP billing"
 
-    Allocated floating IPs are billed at the rate of 0,2 Cloud BU/hr. See the [Virtual machine flavors and billing unit rates](./vm-flavors-and-billing.md) for more information.
+    Allocated floating IPs are billed at the rate of 0,2 Cloud BU/hr. See the [Virtual machine flavors and Billing Unit rates](./vm-flavors-and-billing.md) for more information.
 
 Now we can go to the [Connecting to your virtual machine](connecting-to-vm.md) section and log in to the new Virtual Machine.
 

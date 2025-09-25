@@ -31,7 +31,7 @@ CPU Efficiency: 94.47% of 01:18:00 core-walltime
 Job Wall-clock time: 00:01:57
 Memory Utilized: 22.13 GB (estimated maximum)
 Memory Efficiency: 14.16% of 156.25 GB (3.91 GB/core)
-Job consumed 1.81 CSC billing units based on following used resources
+Job consumed 1.81 CSC Billing Units based on following used resources
 CPU BU: 1.30
 Mem BU: 0.51
 ```

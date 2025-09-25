@@ -6,7 +6,7 @@ consumption depends on the BU flavor and service, as described in more detail
 in our [billing models](../../accounts/billing.md).
 
 See how to
-[apply for more billing units](../../accounts/how-to-apply-for-billing-units.md).
+[apply for more Billing Units](../../accounts/how-to-apply-for-billing-units.md).
 
 ## Batch job resource usage
 

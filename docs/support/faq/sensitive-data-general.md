@@ -30,25 +30,25 @@ There is no backup service available for SD Connect (storage and share) and SD D
 
 
 ## Are CSC Sensitive Data service free of charge?
-The Sensitive Data Services are free of charge for Finnish academics, according to CSC [General Terms of use](https://research.csc.fi/general-terms-of-use). However, each service consumes resources: billing units for their use and quota for storage space allocation. 
+The Sensitive Data Services are free of charge for Finnish academics, according to CSC [General Terms of use](https://research.csc.fi/general-terms-of-use). However, each service consumes resources: Billing Units for their use and quota for storage space allocation. 
 
 **Billing units:**
 
 SD Desktop consumes Cloud Billing Units type while SD Connect (Allas) consumes Storage Billing Units type.
 
-* You can find out how many billing units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/billing-units#buc). Here you can estimate the services usage cost in billing units or in euros.
+* You can find out how many Billing Units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/billing-units#buc). Here you can estimate the services usage cost in Billing Units or in euros.
 
-* Once you have estimated how many billing units your project would need every year, you can apply for more resources following these [instructions](../../accounts/how-to-apply-for-billing-units.md). 
+* Once you have estimated how many Billing Units your project would need every year, you can apply for more resources following these [instructions](../../accounts/how-to-apply-for-billing-units.md). 
 
 **Quotas:**
 
 * When you create a new CSC project and service access for SD Connect, you have a default quota (or storage space) of about 10 TB. If you need more storage space, you can write to servicedesk@csc.fi and apply for more. 
 
-* The costs for storage space in SD Connect (both quota and billing units) up to around 100–200 TB is free of charge for academic research use. 
+* The costs for storage space in SD Connect (both quota and Billing Units) up to around 100–200 TB is free of charge for academic research use. 
 
 * If you plan to store more than 200 TB of data for more than 1-2 years, a separate discussion and an agreement are needed.
 
-One important note is that once you end your research and submit your manuscript, you can then use specific services to store part of your data in our repositories (SD Submit or Federated EGA). In this case, the data is stored (under controlled access) for longer periods, and  CSC maintains two copies of it, and you do not need to have a CSC project or consume billing units.
+One important note is that once you end your research and submit your manuscript, you can then use specific services to store part of your data in our repositories (SD Submit or Federated EGA). In this case, the data is stored (under controlled access) for longer periods, and  CSC maintains two copies of it, and you do not need to have a CSC project or consume Billing Units.
 
 
 ## Do I need any particular expertise to set up a private workspace with SD Connect and SD Desktop?

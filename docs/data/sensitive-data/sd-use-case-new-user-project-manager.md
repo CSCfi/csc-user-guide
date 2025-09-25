@@ -15,7 +15,7 @@ You need access to SD services for processing research data. Whether you are the
 2. [Create new CSC project](#2-create-new-csc-project)
 3. [Data protection](#3-data-protection)
 4. [Activate SD Services for your project](#4-activate-sd-services-for-your-project)
-5. [Apply resources (billing units) for your project](#5-apply-billing-units-for-your-project)
+5. [Apply resources (Billing Units) for your project](#5-apply-billing-units-for-your-project)
 6. [If you have a research team, add them to be your project members](#6-if-you-have-a-research-team-add-them-to-be-your-project-members)
 7. [Closing your project and data retention](#7-closing-your-project-and-data-retention)
 8. [Log into SD Services](#8-log-into-sd-services)
@@ -81,13 +81,13 @@ If you need assistance with the above points or support to verify if SD service 
 ![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices1.png)
 
 
-### 5. Apply billing units for your project
+### 5. Apply Billing Units for your project
 
 #### Every active CSC project consumes both Billing Units (BUs) and storage quota.
 
 1. **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes.
 
-CSC uses different types of billing units to measure resource usage based on the service:
+CSC uses different types of Billing Units to measure resource usage based on the service:
 
 - SD Desktop consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources.
   
@@ -110,9 +110,9 @@ Each new project starts with **10,000 BUs**, usually enough for initial testing 
 
 #### SD Connect BU consumption
 
-SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes billing units at a rate of **1.3 Storage BUs per TB per hour**.
+SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.3 Storage BUs per TB per hour**.
 
-Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
+Here’s a table summarizing the Billing Units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
 | **Storage Size** | ** Storage Billing Units (6 Months)** | ** Storage Billing Units (1 Year)** |
 |------------------|------------------------------|----------------------------|
@@ -125,7 +125,7 @@ Here’s a table summarizing the billing units required for storing data in **SD
 
 Analysing data in SD Desktop consumes **Cloud Billing Units** based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
 
-Here’s a table summarizing the billing units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
+Here’s a table summarizing the Billing Units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
 
 | Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units (6 Months) | Cloud Billing Units (1 Year) |
 |----------------|---------------------------|--------------------------|------------------------|
@@ -138,16 +138,16 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 ![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
 
 
-#### What happens if your project runs out of billing units?
+#### What happens if your project runs out of Billing Units?
 
-Once all the billing units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
+Once all the Billing Units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
 
 - all virtual desktops currently running will automatically be paused
 - you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
-- your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
+- your data remains unaffected and will not be deleted, even in cases where the total Billing Units reach zero or enter negative values.
 
 !!! Note
-    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
+    Each project member will receive a notification via email from the MyCSC portal when the Billing Units for your CSC project are about to end.
 
 
 

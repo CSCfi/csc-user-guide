@@ -1,9 +1,9 @@
 # Why is a user called 'system' using our resources
 
 In the
-[billing unit usage statistics displayed at MyCSC](../../accounts/how-to-view-billing-unit-usage.md)
+[Billing Unit usage statistics displayed at MyCSC](../../accounts/how-to-view-billing-unit-usage.md)
 you can often see resources used by a user called 'system'. You and other
-project members have also used these billing units.
+project members have also used these Billing Units.
 
 There are two reasons why the usage is associated with the system and not with
 any particular user.

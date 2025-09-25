@@ -126,7 +126,7 @@ Project info updated: 2025-09-02 15:12
 
 The command reports the owner of the project, title, start and end dates. In
 addition the command prints out the budgeting information for the project: how
-many billing units of each type have been granted to your project, how many have
+many Billing Units of each type have been granted to your project, how many have
 been used and how many still remain.
 
 The [disk areas](disk.md) of your projects can be checked with the command:

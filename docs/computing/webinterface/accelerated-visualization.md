@@ -25,7 +25,7 @@ The Accelerated visualization app enables using visualization applications with 
     
     * `gputest` has 15 minute time limit, but should usually be available immediately or very soon.
     * `gpu` enables longer usage of application, but might have also longer wait time in the queue.
-    * In terms of billing units, GPU computing time is ~60x more expensive than CPU time (see [Billing](../hpc-billing.md)). Thus, please keep the accelerated visualization application open only when you are actually using it. Use the `Delete` button on `My interactive Sessions` page to finish working.
+    * In terms of Billing Units, GPU computing time is ~60x more expensive than CPU time (see [Billing](../hpc-billing.md)). Thus, please keep the accelerated visualization application open only when you are actually using it. Use the `Delete` button on `My interactive Sessions` page to finish working.
 
 ## Connecting
 There are two options for connecting to the Accelerated Visualization app:

@@ -10,6 +10,6 @@ available for cases where we are unable to provide free access or sufficient
 resources.
 
 Accounting and billing is based on Cloud Billing Units. Academic users can
-apply for more free billing units through the
+apply for more free Billing Units through the
 [CSC customer portal MyCSC](https://my.csc.fi). Paying customers should contact
 [CSC Service Desk](../contact.md).
