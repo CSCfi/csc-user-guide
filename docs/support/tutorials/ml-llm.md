@@ -208,7 +208,7 @@ model = AutoModelForCausalLM.from_pretrained(
    ...
 )
 ```
-You can use it in our fine-tuning LLMs example (see section above) with the --4bit argument. Alternatively, see [our Github repository](link) for an example to quantize a model using bitsandbytes and running inference with the quantized model using Puhti, Mahti or LUMI.
+You can use it in our fine-tuning LLMs example (see section above) with the --4bit argument. Alternatively, see [our Github repository](link) for a full example to quantize a model using bitsandbytes on Puhti, Mahti or LUMI.
 
 ### Using GPTQ Quantization
 
@@ -235,7 +235,7 @@ model = AutoModelForCausalLM.from_pretrained(
 
 GPTQ supports different backends for faster inference such as **Marlin** (optimized for A100) and **ExLlamaV2** (optimized for LLaMA models on consumer GPUs). To enable a specific backend, pass `backend="marlin"` or `exllama_config={"version": 2}` to `GPTQConfig`.
 
-A [blog post by Hugging Face](https://huggingface.co/blog/overview-quantization-transformers) compares bitsandbytes and GPTQ features which can be helpful in deciding which one is more suitable for your use case. See also our [Github repository](link) for an example to quantize a model using GPTQ with Hugging Face Transformers on Puhti, Mahti or LUMI.
+A [blog post by Hugging Face](https://huggingface.co/blog/overview-quantization-transformers) compares bitsandbytes and GPTQ features which can be helpful in deciding which one is more suitable for your use case. See also our [Github repository](link) for a full example to quantize a model using GPTQ with Hugging Face Transformers on Puhti, Mahti or LUMI.
 
 ### Using GPTQ Quantization via LLM Compressor
 
@@ -251,7 +251,7 @@ recipe = GPTQModifier(targets="Linear", scheme="W4A16", ignore=["lm_head"])
 # Apply GPTQ using a small calibration dataset (internally sampled by your script/flags)
 oneshot(model=model, dataset="HuggingFaceH4/ultrachat_200k", recipe=recipe)
 ```
-See an example to quantize a model using GPTQ via LLM Compressor on Puhti, Mahti or LUMI in [our Github repository](link).
+See a full example to quantize a model using GPTQ via LLM Compressor on Puhti, Mahti or LUMI in [our Github repository](link).
 
 ### Using AWQ Quantization via LLM Compressor
 
@@ -271,7 +271,7 @@ oneshot(
     recipe=recipe,
 )
 ```
-See an example to quantize a model using AWQ via LLM Compressor on Puhti, Mahti or LUMI in [our Github repository](link).
+See a full example to quantize a model using AWQ via LLM Compressor on Puhti, Mahti or LUMI in [our Github repository](link).
 
 ## Retrieval-augmented generation (RAG)
 
