@@ -10,7 +10,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 <div class="grid cards csc-quick-links" markdown>
 
-- #### Store and analyse research data
+- #### Research data
 
     ---
 
@@ -20,14 +20,10 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     [Analyse with SD Desktop :material-arrow-right:](sd_desktop.md)
 
-
-- #### Publish and reuse research data
-
-    ---
-
     [Publish with Federated EGA :material-arrow-right:](federatedega.md)
 
     [Reuse with SD Apply :material-arrow-right:](sd-apply.md)
+
 
 
 - #### Secondary use of health and social data
@@ -48,6 +44,8 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
     ---
 
     [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
+
+   [VIdeo tutorials :material-arrow-right:](videotutorials.md)
 
     [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
 
