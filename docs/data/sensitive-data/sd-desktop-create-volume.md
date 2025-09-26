@@ -25,13 +25,11 @@ Volumes consume billing units per GB per hour, starting from the moment they are
 
 If you have a dataset larger than 1000 GB contact [CSC Service Desk](../../support/contact.md).
 
-
 | Name   | Size (GB) | Cost (BU/h) |
 |--------|-----------|-------------|
 | Large  | 1000      | 3.5         |
 | Medium | 500       | 1.75        |
 | Small  | 200       | 0.7         |
-
 
 3. Write **optional** description or note about the volume to help your team members understand its purpose and contents.
 
