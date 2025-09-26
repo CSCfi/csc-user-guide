@@ -84,7 +84,7 @@ Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEG
 
 !!! note
     - The data is encrypted with tools designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) standard.
-    - In case you have collaborators working with you during the metadata submission, bear in ming that only the user who uploads the data files can see them in the inbox during metadata submission and submit Run and Analysis metadata.
+    - In case you have collaborators working with you during the metadata submission, bear in mind that only the user who uploads the data files can see them in the inbox during metadata submission and submit Run and Analysis metadata.
 
 You can carry out the encryption and upload steps using:
 
