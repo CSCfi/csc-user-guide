@@ -2,11 +2,10 @@
 
 These step-by-step video tutorials are already included in the User Guide, but here they are organized for easier access and viewing.
 
-
 ## Overvivew
 
-
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## SD Connect: data storage, transfer or collection
 
@@ -45,7 +44,6 @@ Upcoming
 
 
 ### Step 4: Working with virtual desktop 
-
 
 #### Limitations, available applications (R Studio outdated)
 
