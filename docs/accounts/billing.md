@@ -12,7 +12,7 @@ See the [Billing Unit and price calculator](https://research.csc.fi/billing-unit
 **The billing rates for the services are as follows:**
 
 * [Puhti and Mahti billing](../computing/hpc-billing.md)
-* Allas object storage billing:  1 TiB consumes **1** storage BU per hour. Only actual
+* Allas object storage billing:  1 TiB consumes **1** Storage BU per hour. Only actual
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
 * [Rahti billing](../cloud/rahti/billing.md)

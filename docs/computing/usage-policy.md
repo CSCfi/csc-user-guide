@@ -98,13 +98,13 @@ Billing Units.
 
 In the first phase the ability to submit new jobs is limited:
 
-* If you run out of storage BUs, no new jobs can be submitted to any
+* If you run out of Storage BUs, no new jobs can be submitted to any
 partition 
 * If you run out of CPU BUs, no new jobs can be submitted to CPU partitions
 * If you run out of GPU BUs, no new jobs can be submitted to GPU partitions
 
 In other words, running out of CPU or GPU BUs only affects the
-corresponding partition type, while storage BUs affect all. Jobs that
+corresponding partition type, while Storage BUs affect all. Jobs that
 are running are not interrupted and will run until completion/timeout.
 
 
@@ -114,7 +114,7 @@ and `/scratch` folders is disabled. No data is deleted, it is only
 access that is disabled. Data will, however, still be removed from
 `/scratch` during the [normal cleaning process](#disk-cleaning). Note that
 having negative balance for CPU or GPU BUs does not trigger this step,
-only a negative storage BU balance.
+only a negative Storage BU balance.
 
 
 If you are not using a project actively we encourage you to migrate any data
