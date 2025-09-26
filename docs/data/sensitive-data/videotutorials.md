@@ -10,13 +10,13 @@ These step-by-step video tutorials are already included in the User Guide, but h
 
     ---
 
-    <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   jhjh
 
 - :material-view-grid-plus:{ .lg .middle } **Another one**
 
     ---
 
-    <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    jhjh
 
 </div>
 
