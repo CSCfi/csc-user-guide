@@ -4,7 +4,7 @@ These step-by-step video tutorials are already included in the User Guide, but h
 
 
 
-???+ default "Overview"
+??? default "Overview"
     <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
@@ -18,6 +18,13 @@ These step-by-step video tutorials are already included in the User Guide, but h
 ### Step 1: Upload and download files via user interface
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+??? default "Optional: Using SD Connect for data transfer to a different research group"
+    <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+??? default "Using SD Connect for data collection with a different research group"
+    <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Optional: Using SD Connect for data transfer to a different research group 
 
