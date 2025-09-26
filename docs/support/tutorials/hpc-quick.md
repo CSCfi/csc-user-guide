@@ -246,7 +246,7 @@ at CSC.
       [adding members to an existing one](../../accounts/how-to-add-members-to-project.md)
     - [Adding service access for a project](../../accounts/how-to-add-service-access-for-project.md)
     - [Billing](../../accounts/billing.md) and
-      [applying for billing units](../../accounts/how-to-apply-for-billing-units.md)
+      [applying for Billing Units](../../accounts/how-to-apply-for-billing-units.md)
     - [Changing your password](../../accounts/how-to-change-password.md)
     - [MyCSC customer portal](https://my.csc.fi)
 

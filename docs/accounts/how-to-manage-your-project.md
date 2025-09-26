@@ -4,7 +4,7 @@ CSC Project needs to be extended yearly.
 
 * Project members receive reminders about the project expiration.
 * The Project Manager can extend the project in [MyCSC](https://my.csc.fi)
-* When granted new billing units (BU) project is extended automatically by a year.
+* When granted new Billing Units (BU) project is extended automatically by a year.
 * Projects that use [Fairdata IDA](https://ida.fairdata.fi/) will be extended automatically.
 
 !!! Note

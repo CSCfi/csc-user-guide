@@ -16,7 +16,7 @@ The end result will be a "virtual private data center", as the servers on the cu
 
     * Use case description and why it needs to be hosted in ePouta.
     * Mention that no existing resource can be used and a new one must be created.
-    * Estimation of resources needed, and for how long these resources will be used. You can check the [VM flavors and billing](vm-flavors-and-billing.md#epouta-flavors) page to see what VMs are available and stimate the number of Billing units needed.
+    * Estimation of resources needed, and for how long these resources will be used. You can check the [VM flavors and billing](vm-flavors-and-billing.md#epouta-flavors) page to see what VMs are available and estimate the number of Billing Units needed.
     * IPs of the administration machines that will need to create, modify and delete VMs.
 
 1. Once the ticket has been created, it is necessary to wait. CSC will contact the necessary network teams to setup the infrastructure. You will be only contacted upon completion, or if any question arises.

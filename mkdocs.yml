@@ -268,10 +268,10 @@ nav:
       - Adding members to your project: accounts/how-to-add-members-to-project.md
       - Adding service access for your project: accounts/how-to-add-service-access-for-project.md
       - Managing your project: accounts/how-to-manage-your-project.md
-      - Applying for billing units: accounts/how-to-apply-for-billing-units.md
+      - Applying for Billing Units: accounts/how-to-apply-for-billing-units.md
       - Increasing disk quotas: accounts/how-to-increase-disk-quotas.md
       - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
-      - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
+      - Reviewing Billing Unit usage: accounts/how-to-view-billing-unit-usage.md
       - Billing: accounts/billing.md
       - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md

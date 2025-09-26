@@ -65,7 +65,7 @@
         <rect x="245.5" y="110.5" width="150" height="30" style="fill:none;"/>
         <g transform="matrix(1,0,0,1,316,129)">
             <g>
-                <text x="-63.536px" y="0px" style="font-family:'Helvetica';font-size:12px;">x 3 = 4.03 BUs per hour</text>
+                <text x="-63.536px" y="0px" style="font-family:'Helvetica';font-size:12px;">x 3 = 4.03 *Cloud BUs per hour</text>
             </g>
         </g>
         <rect x="195.5" y="105.5" width="60" height="20" style="fill:none;"/>

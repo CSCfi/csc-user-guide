@@ -40,8 +40,8 @@ The most common causes are:
   job.
 * The job was executed directly `./script_name.sh` or `bash script_name.sh`,
   while it should be submitted with `sbatch script_name.sh`.
-* Your project has ran out of billing units. See
-  [How to apply for more billing units](../../accounts/how-to-apply-for-billing-units.md).
+* Your project has ran out of Billing Units. See
+  [How to apply for more Billing Units](../../accounts/how-to-apply-for-billing-units.md).
 
 ## Requested node configuration is not available
 

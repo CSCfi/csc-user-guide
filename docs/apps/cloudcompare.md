@@ -26,7 +26,7 @@ The following versions of CloudCompare are available in **Puhti**:
 - CloudCompare 2.12.4 for GPU partitions. Plugins: qEDL, qPDALIO, qAnimation and qPCV.
 - CloudCompare 2.10.3 for CPU partitions with more plugins than the GPU version.
 
-GPU version is faster, but consumes also a lot more billing units. Also queues to GPU partitions may be longer.
+GPU version is faster, but consumes GPU Billing Units instead of CPU Billing Units (see [Billing](../computing/hpc-billing.md) for details). Also queues to GPU partitions may be longer.
 
 ## Usage
 Both versions of CloudCompare are available in [Puhti web interface](https://puhti.csc.fi).

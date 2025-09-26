@@ -268,14 +268,14 @@ Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 * TensorBoard
 * Visual Studio Code
 
-## New policy on Puhti and Mahti for projects that have run out of billing units, 22.5.2023
+## New policy on Puhti and Mahti for projects that have run out of Billing Units, 22.5.2023
 
 In addition to limiting access to compute resources upon running out of billing
 units, now also access to storage will be limited on Puhti and Mahti. Please read
-[running out of billing units](../../computing/usage-policy.md#running-out-of-billing-units)
+[running out of Billing Units](../../computing/usage-policy.md#running-out-of-billing-units)
 for more details. To give all projects time to react, the policy will be enforced
 starting June 21, 2023. Please login to MyCSC to check if you have projects that
-have a negative amount of billing units. When logging in to Puhti using ssh or
+have a negative amount of Billing Units. When logging in to Puhti using ssh or
 the web interface you will also receive warnings and information on how much time
 remains before access is removed.
 

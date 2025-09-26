@@ -235,7 +235,7 @@ $ openstack server create $POUTA_INSTANCE_NAME \
 ```
 The parameters of the command are as follows:
 
-* **flavor** determines the amount of resources (CPU, memory) that are allocated for virtual machine, see the [Virtual machine flavors and billing unit rates](../vm-flavors-and-billing.md) for more information.
+* **flavor** determines the amount of resources (CPU, memory) that are allocated for virtual machine, see the [Virtual machine flavors and Billing Unit rates](../vm-flavors-and-billing.md) for more information.
 * **image** specifies the image of the operating system to be used to build the virtual machine, see the [Basic information about images](../images.md) for a list of the available alternative images.
 * **key-name** specifies the public key to be configured inside the virtual machine.
 

@@ -358,8 +358,8 @@ Note that some Maestro tools or workflows use multiple modules and hence license
 or tokens from multiple modules. Typically, one running instance of a module (a job or
 a subjob) requires several tokens. For example, Desmond and Glide jobs take 8 tokens each.
 
-CPU time (billing units) is a different resource and has nothing to do with license tokens.
-When you run out of billing units, you or your project manager can
+CPU time (Billing Units) is a different resource and has nothing to do with license tokens.
+When you run out of Billing Units, you or your project manager can
 [apply for more via the MyCSC portal](../../accounts/how-to-apply-for-billing-units.md).
 
 ## Fizzled jobs

@@ -7,9 +7,9 @@
 
 The _Access Control List_ (ACL) mechanism can be used to control other Allas users' access to your buckets.
 
-### Billing unit
+### Billing Unit
 
-_Billing units_ describe the consumption of computing and storage resources in the CSC systems. In Allas, the amount of data stored consumes billing units.
+_Billing Units_ (BU) describe the consumption of computing (CPU BU, GPU BU, Cloud BU) and storage resources (Storage BU) in the CSC systems. In Allas, the amount of data stored consumes Storage Billing Units.
 
 See [Billing and Quotas](./introduction.md#billing-and-quotas)
 
