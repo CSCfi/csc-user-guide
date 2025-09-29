@@ -85,6 +85,11 @@ You are now in Puhti and can open a folder and edit files remotely. Notice that
 you can also transfer files to Puhti/Mahti by dragging and dropping them to VS
 Code.
 
+!!! note
+    Latest versions of VS Code may give out-of-memory error when trying to
+    connect to CSC supercomputers.
+    [See this FAQ for workarounds](../faq/vscode-out-of-memory.md).
+
 ### Configuring CSC software environments in VS Code Remote SSH
 
 Due to usage of the [module](../../computing/modules.md) system and singularity

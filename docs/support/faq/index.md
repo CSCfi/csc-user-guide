@@ -13,6 +13,7 @@
 * [How to write good support requests to CSC Service Desk](../support-howto.md)
 * [My SSH keys do not work](ssh-keys-not-working.md)
 * [I have questions about the billing unit renewal (2025)](bu-renewal.md)
+* [Connecting to CSC supercomputers using VS Code fails with out-of-memory error](vscode-out-of-memory.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
