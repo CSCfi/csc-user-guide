@@ -112,13 +112,12 @@ one project to be reported with the `-p` option. For example:
 Project: project_2012345        Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"
 Start: 2019-08-20 End: 2029-10-23 Status: open
-Budget:     410000 Used          0 Remain:     410000
-Billing Units      Budget        Used      Remain
+Billing units      Budget        Used      Remain
 -------------      ------        ----      ------
-CPU:                60000          20       59980
-GPU:                 1000          30         970
-Storage:           300000          40      299960
-Cloud:                400          10         390
+CPU BU:             60000          20       59980
+GPU BU:              1000          30         970
+Storage BU:        300000          40      299960
+Cloud BU:             400          10         390
 Latest resource grant: 2025-01-31
 -----------------------------------------------------------------
 Project info updated: 2025-09-02 15:12
