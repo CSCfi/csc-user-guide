@@ -32,7 +32,7 @@ The maximum volume size per database instance is currently 200 GiB.
 |--- |:---:|:---:|
 | Backups | GiB usage | 0.003 |
 
-Automatic daily backups are stored for 90 days and they consume Billing Units based on total backup usage.
+Automatic daily backups are stored for 90 days and they consume Cloud Billing Units based on total backup usage.
 
 
 ## Quotas
