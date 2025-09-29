@@ -48,6 +48,8 @@ Notes on the data above: CPU efficiency has been very good (96%) and memory
 efficiency 71%. That's fine as only about 2 GB was left unused. A few GB
 safety margin for total memory is advised.
 
+Note that the example output above refers to old CSC BUs.
+
 ## Custom queries to Slurm accounting
 
 You can check the time and memory usage of a completed job also with `sacct`

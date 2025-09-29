@@ -1,7 +1,7 @@
 # Applying for Billing Units
 
 If your project is running low on Billing Units, you're expected to apply for more. You need to estimate your consumption and submit your Billing Unit application in the [MyCSC](https://my.csc.fi) portal. Your application will be reviewed by the CSC resource allocation team and, depending on your resource needs, you'll be awarded appropriate resources.
-Please note that having a negative Billing Unit balance will result in restrictions on our services.
+Please note that having a negative Billing Unit balance will result in restricted service access.
 
 ## Available Billing Unit packages
 
@@ -41,13 +41,15 @@ application. [See our contact details here](../support/contact.md).
 
 ## Billing Unit deprecation
 
-Starting from Autumn 2025, unused Billing Units will be deprecated if left unused. To improve the predictability of service usage and reduce unused resources, Billing Units for academic projects will be periodically reduced if not utilized. This policy does not target commercial CSC projects. Every six months, counted from the last Billing Unit grant, the amount of used and unused Billing Units is checked and, if less than 40% of the available Billing Units after the last grant have been used, the units are cut accordingly. The goal is to encourage projects to use their resource grants, so no resources are cut from projects using Billing Units.
+Starting from October 2025, unused Billing Units will be deprecated if left unused. To improve the predictability of service usage and reduce unused resources, Billing Units for academic projects will be periodically reduced if not utilized. This policy does not target commercial CSC projects.
+
+Every six months, counted from the last Billing Unit grant, the amount of used and unused Billing Units is checked and, if less than 40% of the available Billing Units after the last grant have been used, the units are cut accordingly. The goal is to encourage projects to use their resource grants, so no resources are cut from projects using Billing Units.
 
 ### Billing Unit deprecation example
 
-As an example, if a project with 40,000 CPU Billing Units and 25,000 GPU Billing Units remaining has been granted 60,000 CPU Billing Units and 135,000 GPU Billing Units in March, the available Billing Units after the grant would be 100,000 CPU Billing Units and 160,000 GPU Billing Units. This means in September it is checked, if the project has used at least 40% of these (or 40,000 CPU BUs and 64,000 GPU BUs), and if not, the leftover BUs are cut so that 60% of the resources are left. Then in next year’s March, it is checked if the project has used 80% of the resources (so 80,000 CPU BUs and 128,000 GPU BUs) and again, if it has not, the resources are cut correspondingly. If the project has used more than the threshold, no resources are cut. If the project is granted new resources, the timer for the resource cuts is reset again.
+As an example, suppose a project with 40,000 CPU Billing Units and 25,000 GPU Billing Units remaining has been granted 60,000 CPU Billing Units and 135,000 GPU Billing Units **in March**, so that the available Billing Units after the grant are 100,000 CPU Billing Units and 160,000 GPU Billing Units. Then, it will be checked **in September** if the project has used **at least 40%** of these resources (i.e. 40,000 CPU BUs and 64,000 GPU BUs). If not, the leftover BUs are cut so that 60% of the resources remain. Then, **in next year’s March**, it is checked if the project has used **at least 80%** of the resources (i.e. 80,000 CPU BUs and 128,000 GPU BUs). Again, if it has not, the resources are cut accordingly. If the project has used more than the threshold, no resources are cut.
 
-Please see the chart below how the resource timer is reset.
+If the project is granted new resources, the timer for the next resource cut may be reset depending on the grant size. Please see the diagram below for how the timer is reset.
 
 ```mermaid
 flowchart TD
@@ -63,8 +65,8 @@ flowchart TD
     C3["CSC resource allocation
        group approval (every 3
        weeks)"]
-    D{"Is application larger
-      than 0.5x of remaining
+    D{"Grant larger than
+      50% of remaining
       BUs?"}
     E1["Next cutter date
        unchanged"]

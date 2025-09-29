@@ -17,7 +17,8 @@ used (CPU Efficiency) and how much of the allocated memory was actually used
     you may add the `seff` command to the end of your batch job script to
     always get an efficiency report for your jobs: `seff $SLURM_JOBID`
 
-Example output for a single node job:
+Example output for a single node job (note: example refers to old CSC BUs, to be updated):
+
 ```bash
 puhti-login12:~$ seff 366910
 Job ID: 366910

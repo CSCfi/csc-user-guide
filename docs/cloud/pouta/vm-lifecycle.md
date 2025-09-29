@@ -23,8 +23,8 @@ nodes and are thus billed normally as explained in [Pouta flavors and billing](v
 
 ### Shut off
 The virtual machine is not running and is *powered
-off*. However, a shut off virtual machine still consumes billing
-units in the same way as an **active** one. This is
+off*. However, a shut off virtual machine still consumes Billing
+Units in the same way as an **active** one. This is
 because active/powered off virtual machines consume the same computing
 resources on one of our compute nodes as explained in [Pouta flavors and billing](vm-flavors-and-billing.md).
 
@@ -164,8 +164,8 @@ unable to recover it, please contact cloud-support@csc.fi.
 
 ### Resize your virtual machine
 Resizing a virtual machine is a
-good utility in Pouta, and helps save cloud billing
-units. Based on your project requirements, you can scale your virtual machine up or
+good utility in Pouta, and helps save Cloud Billing
+Units. Based on your project requirements, you can scale your virtual machine up or
 down to other flavors. Scaling down your
 virtual machine when it has less computational workload frees up
 compute resources and saves Cloud Billing Units. Later on,
