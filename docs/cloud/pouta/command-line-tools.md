@@ -27,11 +27,11 @@ that uses the common OpenStack command line tool.
 - [python-openstackclient](https://docs.openstack.org/releasenotes/python-openstackclient/)==5.5.0
 - [python-cinderclient](https://docs.openstack.org/releasenotes/python-cinderclient/)==7.4.1
 - [python-glanceclient](https://docs.openstack.org/releasenotes/python-glanceclient/)==3.3.0
-- [python-heatclient](https://docs.openstack.org/releasenotes/python-heatclient/)==2.1.0
-- [python-keystoneclient](https://docs.openstack.org/releasenotes/python-keystoneclient/)==4.0.0
-- [python-neutronclient](https://docs.openstack.org/releasenotes/python-neutronclient/)==7.2.1
+- [python-heatclient](https://docs.openstack.org/releasenotes/python-heatclient/)==2.3.0
+- [python-keystoneclient](https://docs.openstack.org/releasenotes/python-keystoneclient/)==4.2.0
+- [python-neutronclient](https://docs.openstack.org/releasenotes/python-neutronclient/)==7.3.0
 - [python-novaclient](https://docs.openstack.org/releasenotes/python-novaclient/)==17.4.0
-- [python-swiftclient](https://docs.openstack.org/releasenotes/python-swiftclient/)==3.9.0
+- [python-swiftclient](https://docs.openstack.org/releasenotes/python-swiftclient/)==3.11.0
 
 More information: [OpenStackClient pip module](https://pypi.org/project/python-openstackclient/)  
 
