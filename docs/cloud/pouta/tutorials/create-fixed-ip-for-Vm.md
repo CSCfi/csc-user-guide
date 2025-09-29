@@ -22,7 +22,7 @@ Follow the procedure:
 
 4. Now, while launching an instance, got to **Network Ports** and use this port. 
 
-![launch-instance](../../img/launch-instance.png) 
+![launch-instance](../../img/launch-instance-network-ports.png) 
 
 ### Reserve IP to re-launch a VM
 Procedure is almost same with few additional steps:
