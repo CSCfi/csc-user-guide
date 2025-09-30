@@ -39,13 +39,13 @@ Billing Unit applications cannot be edited after submission, but you
 can ask us to reject them, after which you can submit another
 application. [See our contact details here](../support/contact.md).
 
-## Billing Unit deprecation
+## Billing Unit depreciation
 
-Starting from October 2025, unused Billing Units will be deprecated if left unused. To improve the predictability of service usage and reduce unused resources, Billing Units for academic projects will be periodically reduced if not utilized. This policy does not target commercial CSC projects.
+Starting from October 2025, unused Billing Units will be depreciated if left unused. To improve the predictability of service usage and reduce unused resources, Billing Units for academic projects will be periodically reduced if not utilized. This policy does not target commercial CSC projects.
 
 Every six months, counted from the last Billing Unit grant, the amount of used and unused Billing Units is checked and, if less than 40% of the available Billing Units after the last grant have been used, the units are cut accordingly. The goal is to encourage projects to use their resource grants, so no resources are cut from projects using Billing Units.
 
-### Billing Unit deprecation example
+### Billing Unit depreciation example
 
 As an example, suppose a project with 40,000 CPU Billing Units and 25,000 GPU Billing Units remaining has been granted 60,000 CPU Billing Units and 135,000 GPU Billing Units **in March**, so that the available Billing Units after the grant are 100,000 CPU Billing Units and 160,000 GPU Billing Units. Then, it will be checked **in September** if the project has used **at least 40%** of these resources (i.e. 40,000 CPU BUs and 64,000 GPU BUs). If not, the leftover BUs are cut so that 60% of the resources remain. Then, **in next year’s March**, it is checked if the project has used **at least 80%** of the resources (i.e. 80,000 CPU BUs and 128,000 GPU BUs). Again, if it has not, the resources are cut accordingly. If the project has used more than the threshold, no resources are cut.
 
