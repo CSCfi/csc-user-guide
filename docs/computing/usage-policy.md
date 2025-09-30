@@ -64,8 +64,7 @@ from GPU capacity compared to using CPUs or which can't be run on CPUs. In
 particular AI/ML workloads are prioritized, since many of them cannot be done
 at all on CPUs. A good rule of thumb is to compare the
 [Billing Unit (BU)](../accounts/billing.md) usage (_e.g._ with
-[`seff`](./performance.md#quick-start-efficiency-report-with-seff)
-or the [Billing Unit calculator](https://research.csc.fi/billing-units/#buc))
+[`seff`](./performance.md#quick-start-efficiency-report-with-seff))
 of the job on GPUs against CPUs and select the one using less. One CPU BU and one 
 GPU BU are equal in terms of cost.
 

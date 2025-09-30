@@ -36,7 +36,7 @@ The Sensitive Data Services are free of charge for Finnish academics, according 
 
 SD Desktop consumes Cloud Billing Units type while SD Connect (Allas) consumes Storage Billing Units type.
 
-* You can find out how many Billing Units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/billing-units#buc). Here you can estimate the services usage cost in Billing Units or in euros.
+* You can find out how many Billing Units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/billing-units#buc) (*temporarily unavailable*). Here you can estimate the services usage cost in Billing Units or in euros.
 
 * Once you have estimated how many Billing Units your project would need every year, you can apply for more resources following these [instructions](../../accounts/how-to-apply-for-billing-units.md). 
 
@@ -44,7 +44,7 @@ SD Desktop consumes Cloud Billing Units type while SD Connect (Allas) consumes S
 
 * When you create a new CSC project and service access for SD Connect, you have a default quota (or storage space) of about 10 TB. If you need more storage space, you can write to servicedesk@csc.fi and apply for more. 
 
-* The costs for storage space in SD Connect (both quota and Billing Units) up to around 100–200 TB is free of charge for academic research use. 
+* The costs for storage space in SD Connect (both quota and Storage Billing Units) up to around 100–200 TB is free of charge for academic research use. 
 
 * If you plan to store more than 200 TB of data for more than 1-2 years, a separate discussion and an agreement are needed.
 
