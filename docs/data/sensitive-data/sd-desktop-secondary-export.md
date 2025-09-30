@@ -16,6 +16,9 @@ Please ensure you reserve enough time for the export process. It may take us a f
 6. All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be added back to the CSC project, if your project is still ongoing;
 7. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect.
 
+!!! Note
+    When requesting export, remember to agree on the export date with all project members, because the virtual desktops will be unavailable during the export. In addition, remember to save all your work before the export, because software and processes can be interrupted during the export.
+
 ![Exporting results from virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Exporting_secondary_use_data.png)
 
 

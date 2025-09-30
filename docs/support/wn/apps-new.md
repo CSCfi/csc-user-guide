@@ -1,5 +1,11 @@
 # Applications
 
+## HADDOCK3 available on LUMI, 12.9.2025
+
+The latest version of [HADDOCK3](../../apps/haddock3.md) suitable for
+large scale ligand/protein/antibody docking and integrative modelling
+is available on LUMI, including example batch jobs.
+
 ## Python Data 3.12-25.09 now the default version, 12.9.2025
 
 A new version of [Python Data](../../apps/python-data.md)
