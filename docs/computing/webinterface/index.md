@@ -46,6 +46,7 @@ Please note that logging in to Puhti and Mahti web interfaces requires
         - Jupyter
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
+        - MATLAB
         - MLflow
         - RStudio
         - TensorBoard
@@ -56,7 +57,6 @@ Please note that logging in to Puhti and Mahti web interfaces requires
         - COMSOL
         - ParaView
         - VMD
-    - MATLAB
 
 ### Shell
 
