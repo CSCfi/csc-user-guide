@@ -208,7 +208,7 @@ model = AutoModelForCausalLM.from_pretrained(
    ...
 )
 ```
-You can use it in our fine-tuning LLMs example (see section above) with the --4bit argument. Alternatively, see [our Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/BitsAndBytes) for a full example to quantize a model using bitsandbytes on Puhti, Mahti or LUMI.
+You can use it in our fine-tuning LLMs example (see section above) with the --4bit argument. Alternatively, see our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/BitsAndBytes) for a full example to quantize a model using bitsandbytes on Puhti, Mahti or LUMI.
 
 ### Using GPTQ Quantization
 
@@ -273,7 +273,7 @@ oneshot(
     recipe=recipe,
 )
 ```
-See a full example to quantize a model using AWQ via LLM Compressor on Puhti, Mahti or LUMI in [our Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/AWQ).
+See a full example to quantize a model using AWQ via LLM Compressor on Puhti, Mahti or LUMI in our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/AWQ).
 
 ## Retrieval-augmented generation (RAG)
 
