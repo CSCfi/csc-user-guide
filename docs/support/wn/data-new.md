@@ -1,5 +1,13 @@
 # Data management
 
+## The Kaivos database service will be decommissioned by the end of the year 2025
+
+The [Kaivos database service](../../data/kaivos/overview.md) will be
+decommissioned by the end of the year 2025. The Kaivos database service is no
+longer available to new users. The service will be replaced by Pukki database
+service. Instructions related to the use of Pukki database service can be
+found in the [Pukki user guide](../../cloud/dbaas/index.md).
+
 ## Sensitive Data (SD) Desktop export problem: quick workaround, 18.8.2025
 
 Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager.  
