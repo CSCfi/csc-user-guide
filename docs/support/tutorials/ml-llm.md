@@ -252,7 +252,7 @@ recipe = GPTQModifier(targets="Linear", scheme="W4A16", ignore=["lm_head"])
 # The dataset below ("HuggingFaceH4/ultrachat_200k") is only an example—replace with one suited to your model.
 oneshot(model=model, dataset="HuggingFaceH4/ultrachat_200k", recipe=recipe)
 ```
-See a full example to quantize a model using GPTQ via LLM Compressor on Puhti, Mahti or LUMI in [our Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/GPTQ).
+See a full example to quantize a model using GPTQ via LLM Compressor on Puhti, Mahti or LUMI in our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/GPTQ).
 
 ### Using AWQ Quantization via LLM Compressor
 
