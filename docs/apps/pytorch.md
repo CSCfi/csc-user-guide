@@ -203,7 +203,7 @@ To check the exact packages and versions included in the loaded module you can
 run:
 
 ```text
-list-packages
+module list-packages
 ```
 
 
