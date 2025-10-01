@@ -83,4 +83,5 @@ grant or the latest depreciation check.
 
 ## More information
 
+* Documentation: [Billing of CSC's services](../../accounts/billing.md)
 * Blog: [Billing Unit renewal schedule and changes](https://research.csc.fi/2025/06/02/billing-unit-renewal-schedule-and-changes/) (Research.csc.fi)
