@@ -90,7 +90,6 @@ CSC uses different types of Billing Units to measure resource usage based on the
 - SD Desktop consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources.
   
 - SD Connect consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
-BUs  while quota limits the amount of storage space available.
 
 Each new project starts with **3,000** Cloud and Storage BUs, usually enough for initial testing but you need to plan how many BUs you will need for **1 year**.
 
