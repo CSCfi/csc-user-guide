@@ -16,6 +16,9 @@ catalog:
 Collection of Python libraries for data analytics and machine learning.
 
 !!! info "News"
+     **12.9.2025** Installed `python-data/3.12-25.09` with newer packages of popular Python 
+     modules.
+
      **2.5.2024** Installed `python-data/3.10-24.04` with newer packages of popular Python 
      modules.
 
@@ -42,7 +45,11 @@ allow.
 
 Current versions are:
 
-- (default version) `python-data/3.10-24.04`: installed in April 2024,
+- (default version) `python-data/3.12-25.09`: installed in September 2025,
+  includes for example Scikit-learn 1.7.2, SciPy 1.16.1, Pandas 2.3.2
+  and JupyterLab 4.4.7.
+
+- `python-data/3.10-24.04`: installed in April 2024,
   includes for example Scikit-learn 1.4.2, SciPy 1.13.0, Pandas 2.2.2
   and JupyterLab 4.1.6.
 

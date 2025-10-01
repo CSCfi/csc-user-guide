@@ -85,6 +85,8 @@ plugins:
         "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
         "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
         "computing/allas.md": "data/Allas/allas-hpc.md"
+        "computing/containers/creating.md": "computing/containers/overview.md"
+        "computing/containers/run-existing.md": "computing/containers/overview.md"
         # renamed files:
         "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
         "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
@@ -176,6 +178,7 @@ plugins:
         "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
         "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
         "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+        "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
 
 
 markdown_extensions:
@@ -311,11 +314,10 @@ nav:
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md
       - Performance analysis: computing/performance.md
-      - Containers:
+      - Apptainer containers:
           - computing/containers/overview.md
-          - Running containers: computing/containers/run-existing.md
-          - Creating containers: computing/containers/creating.md
-          - Container wrapper (Tykky): computing/containers/tykky.md
+          - Examples: computing/containers/examples.md
+          - Tykky: computing/containers/tykky.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md

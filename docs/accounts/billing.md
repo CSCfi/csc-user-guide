@@ -38,9 +38,11 @@ Allas) is not linked to a specific user account and is reported as "other".
 
 
 
-## Restricted service access when billing units have been consumed
+## Restricted service access and CSC Project closure when billing units have been consumed
 
 When all billing units in your CSC Project have been consumed, service usage can be limited in services that consume billing units. You can track your CSC Project's billing unit usage via MyCSC as described above. You can regain full access to your services by applying for additional billing units using the MyCSC portal.
+
+You will be notified before your CSC Project's billing units run out. When an academic CSC project has run out of of billing units, the project members have 60 days to apply for additional billing units. If the billing units run out and after 60 days, the CSC project still has a negative amount of billing units, it will be closed.
 
 Detailed information on how services are currently limiting the use when billing units run out:
 
