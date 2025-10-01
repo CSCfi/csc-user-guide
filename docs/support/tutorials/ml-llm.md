@@ -1,7 +1,8 @@
 # Working with large language models on supercomputers
 
 This guide gives some examples and hints on how to work with large
-language models (LLMs) on CSC's supercomputers.
+language models (LLMs) on CSC's supercomputers. It is part of our
+[Machine learning guide](ml-guide.md).
 
 ## LLMs and GPU memory
 

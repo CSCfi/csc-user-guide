@@ -1,4 +1,7 @@
 # Accessing your MariaDB instance
+!!! warning "MariaDB in Pukki is still in beta"
+    This means that it hasn't been tested as extensively as PostgreSQL, and there might still be
+    large changes to how Pukki manages MariaDB database instances.
 
 ## Graphical user interface
 You can find a non-comprehensive list of different graphical interfaces for using MariaDB on
