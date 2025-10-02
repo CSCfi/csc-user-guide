@@ -6,18 +6,16 @@ from git import Repo
 from classes import DocsHook
 
 
-PageStatus = namedtuple("PageStatus", "head, status")
-
 class PreviewHook(DocsHook):
-    MKDOCS_HOOK_NAME = "preview-hook"
     ENVIRONMENT_KEY = "environment"
     PREVIEW_ENVIRONMENT = "preview"
+
+    PageStatus = namedtuple("PageStatus", "head, status")
 
     def __init__(self, **kwargs):
         super().__init__(self, **kwargs)
 
         self.environment = None
-        self.startup_command = None
         self.docs_dir = None
         self.cwd = Path.cwd()
         self.repo = Repo(self.cwd)
@@ -39,26 +37,23 @@ class PreviewHook(DocsHook):
 
     @property
     def is_preview_build(self):
-        return self.environment == self.PREVIEW_ENVIRONMENT and \
-               self.startup_command in ("build", "serve")
-
-    def on_startup(self, command, dirty):
-        self.startup_command = command
-        return None
+        return self.environment == self.PREVIEW_ENVIRONMENT
 
     def on_config(self, config):
         self.environment = config.extra[self.ENVIRONMENT_KEY]
         self.docs_dir = Path(config.docs_dir)
+
         if self.is_preview_build:
             self._logger.info(f"preview build, commit {self.repo.head.commit.hexsha}")
+
         return None
 
     def on_page_context(self, context, page, config, nav):
         if self.is_preview_build and "page" in context:
             setattr(context["page"],
                     "git",
-                    PageStatus(head=self.repo.head.commit.hexsha,
-                               status=self.__get_status(page)))
+                    self.PageStatus(head=self.repo.head.commit.hexsha,
+                                    status=self.__get_status(page)))
             return context
         else:
             return None
