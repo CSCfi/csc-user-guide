@@ -1,5 +1,17 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 29 and 14, 2.10.2025
+
+* CPU, GPU, storage and cloud billing units are now visible in the web interfaces.
+* The login method will no longer default to Haka login and can instead be freely selected.
+* MATLAB has been added to Mahti, but requires a license.
+* MATLAB version selection has been added to Puhti.
+* MATLAB on Puhti now allows using non-CSC licenses from your MathWorks account.
+* VSCode updated to 1.104.1.
+* TurboVNC updated to 3.2 in the Desktop app.
+* Rclone updated to 1.71.1
+* Open OnDemand updated to 4.0.7.
+
 ## Puhti and Mahti web interfaces updated to release 28 and 13, 19.8.2025
 
 * Rclone updated to 1.70.3

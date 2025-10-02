@@ -1,10 +1,13 @@
 # MATLAB
 
-The app will start a MATLAB session on Puhti with the specified resources.
-Currently, only the R2023b release with Parallel Computing and Compiler SDK toolboxes is installed.
+The app will start a MATLAB session  with the specified resources.
+On Puhti, the version can be selected from any of the supported modules, and on Mahti, version R2024b is used.
 
-In addition to computing resources, partition and project, there is an **optional** "License file" field.
-With it you can specify path to your own home organisation's license server to obtain MATLAB license
-from there instead. This option is useful, for example, in situations where all CSC's MATLAB licences are already reserved.
+![MATLAB form options](../../img/ood_matlab_form.png){ with="400" }
 
-For documentation on using MATLAB, see the [MATLAB documentation](../../apps/matlab.md).
+The MATLAB app on Puhti allows you to use your CSC license. On Mahti, or if the CSC license is not
+selected on Puhti, you will need to log in with your MathWorks account to use your own license.
+
+![MATLAB form options](../../img/ood_matlab_license.png)
+
+For documentation on using MATLAB and details of available versions, see the [MATLAB documentation](../../apps/matlab.md).
