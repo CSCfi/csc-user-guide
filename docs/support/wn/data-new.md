@@ -124,7 +124,7 @@ We have updated the Heavy Computation virtual desktop option with the following 
 
 - Identifier: hpc.6.28 core (previously 5.32)
 
-- Cost: 65 billing units/hour (previously 52)
+- Cost: 65 Billing Units/hour (previously 52)
 
 This change only affects new virtual desktops created after January 15. 
 
@@ -185,11 +185,11 @@ User guide is available [here](../../data/sensitive-data/sd_connect.md)
 
 As of September 6, 2023, we have introduced two significant changes to our service usage according to CSC's data retention policies, which are currently in effect:
 
-* Billing Unit consumption: when all billing units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional billing units are allocated to the project.
+* Billing Unit consumption: when all Billing Units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional Billing Units are allocated to the project.
 
 * CSC Project closure: content stored within the SD Desktop and SD Connect services is subject to permanent deletion 90 days after the closure of a CSC project. **It is important to note that once data is deleted, it cannot be restored.**
 
-To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when billing units have been consumed and when a  CSC project is scheduled for closure.
+To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when Billing Units have been consumed and when a  CSC project is scheduled for closure.
 
 ## SD Desktop: Ubuntu OS now available, 8.9.2023
 

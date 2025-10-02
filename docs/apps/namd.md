@@ -74,7 +74,7 @@ The data also shows the following things:
   mode instead of regular GPU-offloading. See more details in the
   [NAMD user guide](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node102.html).
 * Remember that using more resources to get results faster is also more
-  expensive in terms of consumed billing units. To avoid wasting resources,
+  expensive in terms of consumed Billing Units. To avoid wasting resources,
   ensure that your job actually benefits from increasing the number of cores.
   You should get at least a 1.5-fold speedup when doubling the amount of
   resources.

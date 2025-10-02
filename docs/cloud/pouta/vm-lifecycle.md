@@ -1,4 +1,4 @@
-# VM lifecycle & saving BUs
+# VM lifecycle & saving Cloud BUs
 
 This article explains the different states that virtual machine instances
 can have and their effect on resource usage.
@@ -8,7 +8,7 @@ Different states of virtual machines have different
 resource requirements for the underlying hardware and are therefore
 billed differently. Knowing about these different states in Pouta 
 helps you make better decisions on how to maintain your infrastructure.
-This also helps you to save billing units. 
+This also helps you to save Cloud Billing Units. 
 
 ## States
 
@@ -23,14 +23,14 @@ nodes and are thus billed normally as explained in [Pouta flavors and billing](v
 
 ### Shut off
 The virtual machine is not running and is *powered
-off*. However, a shut off virtual machine still consumes billing
-units in the same way as an **active** one. This is
+off*. However, a shut off virtual machine still consumes Billing
+Units in the same way as an **active** one. This is
 because active/powered off virtual machines consume the same computing
 resources on one of our compute nodes as explained in [Pouta flavors and billing](vm-flavors-and-billing.md).
 
 !!! warning
 
-    A *shut off* virtual machine still consumes billing units. To stop
+    A *shut off* virtual machine still consumes Cloud Billing Units. To stop
     consuming, select the *shelved* state.
 
 ### Pause
@@ -90,7 +90,7 @@ use. They cannot be recovered, and all data stored in the virtual
 machine is deleted, excluding any attached volumes. Once the virtual
 machine is deleted, you are no longer billed for it.
 
-## Save Your billing units
+## Save your Cloud Billing Units
 
 The figure below illustrates the state transitions between
 states.
@@ -104,13 +104,13 @@ The full list of states and their behaviors: [OpenStack documentation](https:/
 In order to transition between states, you have two main options, use the [Command line client tools](command-line-tools.md), or use the webinterface.
 From the web interface you can transition your VM to all these states. In the main page of the Pouta web interface, open the **Instances** view. Under the **Actions** column, you will be able to see a drop-down menu with all the possible options.
 
-![Save your billing units](../../img/Save-Your-billing-units.png)
+![Save your Cloud Billing Units](../../img/Save-Your-billing-units.png)
 
-There are many other practices which help save billing units:
+There are many other practices which help save Cloud Billing Units:
 
 ### Automated provisioning
 Automated provisioning and configuration
-of your virtual machines helps save billing units. For
+of your virtual machines helps save Cloud Billing Units. For
 example, you can tear down your unused virtual machines with automatic
 provisioning and configuration when you no longer need them. Later when
 you need them again, you can provision new virtual machines from
@@ -130,9 +130,9 @@ virtual machine from this volume. It will have the same file system
 state as the previously deleted virtual machine. You can attach this
 volume to any other virtual machine and access the file system of the
 deleted virtual machine. It is billed as a normal volume in
-billing units, which is cheaper than a running virtual
+Cloud Billing Units, which is cheaper than a running virtual
 machine. Creating virtual machines with this utility and deleting them
-when not needed helps save your billing unit
+when not needed helps save your Cloud Billing Unit
 allocation. One great option is that you can easily delete your
 virtual machine and start a new one with the same volume
 and a new flavor. This makes it possible to easily scale
@@ -150,7 +150,7 @@ Depending on your project requirements, you can change the state of your virtual
 machines:
 
 -   In case you are going on a long vacation and want to save 
-    billing units, you can shelve your virtual machines.
+    Cloud Billing Units, you can shelve your virtual machines.
 -   If you no longer require your virtual machine, you can delete it
     after copying all essential data from it to a volume.
 
@@ -164,11 +164,11 @@ unable to recover it, please contact cloud-support@csc.fi.
 
 ### Resize your virtual machine
 Resizing a virtual machine is a
-good utility in Pouta, and helps save billing
-units. Based on your project requirements, you can scale your virtual machine up or
+good utility in Pouta, and helps save Cloud Billing
+Units. Based on your project requirements, you can scale your virtual machine up or
 down to other flavors. Scaling down your
 virtual machine when it has less computational workload frees up
-compute resources and saves billing units. Later on,
+compute resources and saves Cloud Billing Units. Later on,
 depending on your computational workload, you can scale up your virtual
 machines. Please note that you can resize to another flavor from another *family* but it's **highly not recommended!**.
 You may lose data during this process and CSC is not responsible. We recommend to only resize to the flavors of the
