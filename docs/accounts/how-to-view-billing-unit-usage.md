@@ -1,6 +1,6 @@
 # How to view Billing Unit usage
 
-Consumption of CSC's resources is mainly measured in billing units. Fairdata
+Consumption of CSC's resources is mainly measured in Billing Units. Fairdata
 IDA does not consume Billing Units; it only has a quota limit for each project.
 
 Check your BU consumption:
