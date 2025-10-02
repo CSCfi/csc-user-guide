@@ -1,23 +1,31 @@
-# Applying for billing units
+# Applying for Billing Units
 
-**Billing Units** (BUs) are used to allocate resources to users' projects. You
-can apply for Billing Units in [MyCSC](https://my.csc.fi) portal and CSC grants
-BUs to projects. [Usage consumes billing units](billing.md) but
-**no actual payment** is required. However, the amount of billing units must
-always remain positive.
+If your project is running low on Billing Units, you're expected to apply for more. You need to estimate your consumption and submit your Billing Unit application in the [MyCSC](https://my.csc.fi) portal. Your application will be reviewed by the CSC resource allocation team and, depending on your resource needs, you'll be awarded appropriate resources.
+Please note that having a negative Billing Unit balance will result in restricted service access.
 
-Submit a resource application:
+## Available Billing Unit packages
+
+These are the available Billing Unit packages in [MyCSC](https://my.csc.fi) portal.
+
+| Package   | CPU         | GPU         | Storage     | Cloud       |
+|:----------|:-----------:|:-----------:|:-----------:|------------:|
+| Small (S) | 60 000      | 10 000      | 30 000      | 30 000      |
+| Medium (M)| < 600 000   | < 100 000   | < 300 000   | < 300 000   |
+| Large (L) | < 6 000 000 | < 1 000 000 | < 3 000 000 | < 3 000 000 |
+
+## How to submit a resource application
 
 1. Login to [MyCSC](https://my.csc.fi).
 2. Choose _Projects_ in the navigation menu on the left.
 3. Choose a project.
 4. Under _Resource Applications_, click _Apply for Resources_.
-5. Fill in the application and click _Apply_.
-6. A link to the submitted application shows up under _Resource applications_,
+5. You review your current services and apply for new ones
+6. Fill in the application and click _Apply_.
+7. A link to the submitted application shows up under _Resource applications_,
    where you can view its details and status. You and your project manager will
    also receive email notifications about the submission.
-7. When the application has been processed, you will receive another
-   email to inform how many billing units have been granted.
+8. When the application has been processed, you will receive another
+   email to inform how many Billing Units have been granted.
 
 !!! Note
 
@@ -25,8 +33,53 @@ Submit a resource application:
     publications, project results etc. This information is used to evaluate
     your application and incomplete applications may be denied.
 
-    All members of a project can submit billing unit applications.
+    All members of a project can submit Billing Unit applications.
 
-Billing unit applications cannot be edited after submission, but you
+Billing Unit applications cannot be edited after submission, but you
 can ask us to reject them, after which you can submit another
 application. [See our contact details here](../support/contact.md).
+
+## Billing Unit depreciation
+
+Starting from October 2025, unused Billing Units will be depreciated if left unused. To improve the predictability of service usage and reduce unused resources, Billing Units for academic projects will be periodically reduced if not utilized. This policy does not target commercial CSC projects.
+
+Every six months, counted from the last Billing Unit grant, the amount of used and unused Billing Units is checked and, if less than 40% of the available Billing Units after the last grant have been used, the units are cut accordingly. The goal is to encourage projects to use their resource grants, so no resources are cut from projects using Billing Units.
+
+### Billing Unit depreciation example
+
+As an example, suppose a project with 40,000 CPU Billing Units and 25,000 GPU Billing Units remaining has been granted 60,000 CPU Billing Units and 135,000 GPU Billing Units **in March**, so that the available Billing Units after the grant are 100,000 CPU Billing Units and 160,000 GPU Billing Units. Then, it will be checked **in September** if the project has used **at least 40%** of these resources (i.e. 40,000 CPU BUs and 64,000 GPU BUs). If not, the leftover BUs are cut so that 60% of the resources remain. Then, **in next year’s March**, it is checked if the project has used **at least 80%** of the resources (i.e. 80,000 CPU BUs and 128,000 GPU BUs). Again, if it has not, the resources are cut accordingly. If the project has used more than the threshold, no resources are cut.
+
+If the project is granted new resources, the timer for the next resource cut may be reset depending on the grant size. Please see the diagram below for how the timer is reset.
+
+```mermaid
+flowchart TD
+    A(("Resource
+       application
+       is made"))
+    B{Application
+      size?}
+    C1["Automatic grant
+       (instant)"]
+    C2["Monitor approval
+       (2-3 days)"]
+    C3["CSC resource allocation
+       group approval (every 3
+       weeks)"]
+    D{"Grant larger than
+      50% of remaining
+      BUs?"}
+    E1["Next cutter date
+       unchanged"]
+    E2["Next cutter date
+       pushed forward"]
+
+    A-->B
+    B-->|S|C1
+    B-->|M|C2
+    B-->|L|C3
+    C1-->D
+    C2-->D
+    C3-->D
+    D-->|No|E1
+    D-->|Yes|E2
+```
