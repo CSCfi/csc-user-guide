@@ -63,8 +63,9 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key>
 ## Graphical connection
 
 Displaying graphics, such as GUIs and plots, over an SSH connection requires
-a window system. Most macOS and Linux systems have a server program for the X
-window system (X11) installed by default.
+a window system. Linux systems have a server program for the X window system
+(X11) installed by default. On macOS you need to install one separately, for
+example [XQuartz](https://www.xquartz.org/).
 
 To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
 (trusted X11 forwarding) option when launching the SSH client:

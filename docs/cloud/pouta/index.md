@@ -54,13 +54,13 @@ Other useful links are:
 
 ## Using Pouta
 
-* [Virtual machine flavors and billing unit rates](vm-flavors-and-billing.md)
+* [Virtual machine flavors and Billing Unit rates](vm-flavors-and-billing.md)
 * [Launching a virtual machine with the cPouta web interface](launch-vm-from-web-gui.md)
 * [DNS names for virtual machines](additional-services.md#dns-services-in-cpouta)
 * [Connecting to your virtual machine](connecting-to-vm.md)
 * [Command line client tools](command-line-tools.md)
     * [Installing command line tools](install-client.md)
-* [Virtual machine lifecycle and saving billing units](vm-lifecycle.md)
+* [Virtual machine lifecycle and saving Billing Units](vm-lifecycle.md)
 * [Orchestration with Heat](tutorials/heat-orchestration.md)
 * [Application development practises in Pouta](application-dev.md)
 * [Creating and uploading virtual machine images](adding-images.md)

@@ -1,7 +1,7 @@
-# How to view billing unit usage
+# How to view Billing Unit usage
 
 Consumption of CSC's resources is mainly measured in billing units. Fairdata
-IDA does not consume billing units; it only has a quota limit for each project.
+IDA does not consume Billing Units; it only has a quota limit for each project.
 
 Check your BU consumption:
 
@@ -15,15 +15,16 @@ In the usage plot, you can:
 * View the monthly usage by user by hovering the mouse over the bars
 * Select or unselect certain users by clicking their username
 * Switch between cumulative and regular view
+* Switch between different BU types (CPU, GPU, Storage and Cloud)
 
 !!! Note
 
-    Do not confuse quotas with billing units. Quotas are service-specific
+    Do not confuse quotas with Billing Units. Quotas are service-specific
     limits to keep the usage within limits. See the instructions under
     Computing, Cloud and Data for instructions how the remaining quotas
     can be followed up in each service.
 
-You can often see usage information of an 'other' user. See the explanation
+You can often see usage information of an 'system' user. See the explanation
 in FAQ:
 
-* [Who 'unknown' is using our resources](../support/faq/who-unknown-is-using-our-resources.md)
+* [Who is the user 'system' using our resources](../support/faq/who-unknown-is-using-our-resources.md)
