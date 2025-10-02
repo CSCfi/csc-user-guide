@@ -1,3 +1,4 @@
+{% from "partials/commit.html" import commit_link %}
 {% macro page_url(src) %}
   {{ (pages|selectattr("src_uri", "eq", src)|first).page.url|url }}
 {% endmacro %}
@@ -51,8 +52,8 @@
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       {% include "partials/copyright.html" %}
-      {% if page and page.meta and page.meta["head_sha"] %}
-          <pre class="commit-sha">commit {{ page.meta["head_sha"] | string }}</pre>
+      {% if page and page.git %}
+      {{ commit_link(page.git.head, config.repo_url, status=page.git.status) }}
       {% endif %}
       {% if config.extra.social %}
         {% include "partials/social.html" %}
