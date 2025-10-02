@@ -62,8 +62,11 @@
   margin-top: 0px;
 }
 
-.disclaimer .preview-commit > a {
+.disclaimer .preview-commit > .preview-commit-link {
   font-family: monospace;
+  font-weight: var(--csc-font-weight--bold);
+  color: var(--c-link-500);
+  text-decoration: underline;
 }
 
 .disclaimer .button-row {
