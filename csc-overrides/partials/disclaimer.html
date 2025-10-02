@@ -19,7 +19,7 @@
 
     const getAcknowledgedDisclaimers = () => {
       try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY))
+        return JSON.parse(sessionStorage.getItem(STORAGE_KEY))
       } catch (e) {
         console.error(e)
         return null
@@ -28,7 +28,7 @@
 
     const setAcknowledgedDisclaimers = disclaimersObject => {
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(disclaimersObject))
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(disclaimersObject))
       } catch (e) {
         console.error(e)
       }
