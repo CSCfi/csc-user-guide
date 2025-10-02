@@ -1,10 +1,10 @@
 # Cloud services
 
-## Pukki DBaaS replaces Kaivos database service, 13.8.2025
+## Pukki DBaaS replaces Kaivos database service, XX.XX.2026
 
-Kaivos database service (kaivos.csc.fi) will shut down on XX.XX.202X. We
-recommend taking [Pukki DBaaS](../../cloud/dbaas/index.md) into use if
-you need to run SQL databases at CSC.
+Kaivos database service (kaivos.csc.fi) has been decommissioned on
+XX.XX.2026. We recommend taking [Pukki DBaaS](../../cloud/dbaas/index.md)
+into use if you need to run SQL databases at CSC.
 
 ## New Pouta VM launcher
 
