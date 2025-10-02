@@ -38,7 +38,7 @@ CPU Efficiency: 96.13% of 04:11:20 core-walltime
 Job Wall-clock time: 00:06:17
 Memory Utilized: 5.55 GB (estimated maximum)
 Memory Efficiency: 71.04% of 7.81 GB (200.00 MB/core)
-Job consumed 4.27 CSC billing units based on following used resources
+Job consumed 4.27 CSC Billing Units based on following used resources
 Billed project: project_2001234
 CPU BU: 4.19
 Mem BU: 0.08
@@ -47,6 +47,8 @@ Mem BU: 0.08
 Notes on the data above: CPU efficiency has been very good (96%) and memory
 efficiency 71%. That's fine as only about 2 GB was left unused. A few GB
 safety margin for total memory is advised.
+
+Note that the example output above refers to old CSC BUs.
 
 ## Custom queries to Slurm accounting
 

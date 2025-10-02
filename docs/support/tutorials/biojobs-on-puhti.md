@@ -176,7 +176,7 @@ when the time reservation runs out, whether it is finished or not.
 
 On the other hand reserving too much time is not that big of a
 problem. The job will finish when the last task of the job
-finishes. Your job will only consume billing units according to the
+finishes. Your job will only consume Billing Units according to the
 actual elapsed time, not according to reservation.
 
 It is OK to reserve the maximum time allowed in the partition you are

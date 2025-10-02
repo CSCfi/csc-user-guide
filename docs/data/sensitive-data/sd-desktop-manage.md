@@ -67,7 +67,7 @@ When you want to access the data saved in the detached volume, you can attach it
 
 ## Pausing or unpausing a virtual desktop
 
-You can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
+You can pause a virtual desktop. In this manner, the desktop will stop consuming Cloud Billing Units.
 
 ### Pausing a virtual desktop
 
@@ -93,7 +93,7 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
 
 !!! note
-    Resuming a paused desktop is only possible for active CSC projects with available billing units. 
+    Resuming a paused desktop is only possible for active CSC projects with available Cloud Billing Units.
 
 ![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
 
