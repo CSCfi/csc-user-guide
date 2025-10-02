@@ -35,6 +35,11 @@ class PreviewHook(DocsHook):
 
         return None
 
+    def on_startup(self, command, dirty):
+        self.startup_command = command
+
+        return None
+
     @property
     def is_preview_build(self):
         return self.environment == self.PREVIEW_ENVIRONMENT
@@ -53,7 +58,9 @@ class PreviewHook(DocsHook):
             setattr(context["page"],
                     "git",
                     self.PageStatus(head=self.repo.head.commit.hexsha,
-                                    status=self.__get_status(page)))
+                                    status=(self.__get_status(page)
+                                            if self.startup_command == "serve"
+                                            else None)))
             return context
         else:
             return None
