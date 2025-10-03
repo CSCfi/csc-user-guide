@@ -34,18 +34,57 @@ You need access to SD services for processing research data. Whether you are the
 - Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
 - You will get your CSC user account confirmation via email.
 
-### 2. Create new CSC project
+### 2. Create a new CSC project
 
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
-- On the top of the page choose **New project**
-- Fill in the project name and project description. You can edit these later if needed.
-- Choose the Project category to be **Academic** (if you are a researcher and a member of Finnish higher education institution)
-- If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
-- Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
-- Finally, read and accept the terms of use.
-- Click **Create new project**.
+- On the top of the page choose **New project**. 
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Academic.png)
+#### 2.1 Choose project category
+- In the new window choose the Project category to be **Academic** (if you are a researcher and a member of Finnish higher education institution).
+- If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
+- Click **Next**.
+
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Academic_1025.png)
+
+#### 2.2 Fill in the project details
+- Fill in the project name and project description. You can edit these later if needed.
+- Click **Next**.
+
+#### 2.3 Activate SD Services for your project
+
+- Select **SD Connect**. Allas will be added automatically as it is the underlying storage solution.
+- Select **SD Desktop**.
+- Click **Next**.
+
+![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Services_1025.png)
+
+
+#### 2.4 Apply Billing Units for your project
+
+**Every active CSC project consumes both Billing Units (BUs) and storage quota.**
+
+**Billing Units (BUs)** are used to track how much computing power and processing time your project consumes.
+
+CSC uses different types of Billing Units to measure resource usage based on the service:
+
+- SD Desktop consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources.
+  
+- SD Connect consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
+
+Each new project starts with **3,000** Cloud and Storage BUs, usually enough for initial testing. You can apply for more billing units later, read more.
+
+- Select **Base 3000 BUs** under Cloud Resource Package.
+- Select **Base 3000 BUs** under Storage Resource Package.
+- Click **Next**. 
+
+![Add billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Resources_1025.png)
+
+#### 2.5 Confirmation
+
+- Under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
+- Read and accept the terms of use.
+- Click **Submit**. 
+- Wait for your project being created. When project is ready, you'll be redirected to project page.
 
 ### 3. Data protection
 
@@ -68,30 +107,10 @@ If you need assistance with the above points or support to verify if SD service 
 5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
 6. [Service Level Agreement](../../data/sensitive-data/sd-services-sla.pdf)
 
-![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
+![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Descriptionof_1025.png)
 
-### 4. Activate SD Services for your project
 
-- Services are added through **Services** window in the bottom right of the project page. Click **Add services**.
-- Select **SD Connect**. Allas will be added automatically as it is the underlying storage solution.
-- Select **SD Desktop**.
-- Click **Add selected services**.
-
-![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices1.png)
-
-### 5. Apply Billing Units for your project
-
-#### Every active CSC project consumes both Billing Units (BUs) and storage quota
-
-1. **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes.
-
-CSC uses different types of Billing Units to measure resource usage based on the service:
-
-- SD Desktop consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources.
-  
-- SD Connect consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
-
-Each new project starts with **3,000** Cloud and Storage BUs, usually enough for initial testing but you need to plan how many BUs you will need for **1 year**.
+### 4. Apply for more billing units 
 
 **You can then apply for more BUs for your CSC project in MyCSC portal**:
 
