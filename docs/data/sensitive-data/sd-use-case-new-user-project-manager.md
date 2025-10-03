@@ -99,6 +99,12 @@ Each new project starts with **3,000** Cloud and Storage BUs, usually enough for
 
   Click **Apply for resources** and follow the step by step instructions.
 
+
+
+  ??? default "Collapsible default (click to reveal content)"
+
+    Some content hidden by default.
+
 1. The **quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed by contacting  service desk _(subject: Increase Allas quota)_.
 
 #### SD Connect BU consumption
