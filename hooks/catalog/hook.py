@@ -13,8 +13,8 @@ from .export import JSONExport, DocsExport
 
 
 class CatalogHook(DocsHook):
-    def __init__(self, name="catalog"):
-        super().__init__(self, name=name)
+    def __init__(self, **kwargs):
+        super().__init__(self, **kwargs)
 
         self.__index_filenames = \
             ("index.md", "by_discipline.md", "by_system.md")

@@ -13,7 +13,8 @@ Also note that:
   CSC has allocated more quota than there is space, hence it is not even possible for all users
   to use their `scratch` folders for longer term storage.
 * There are **no backups** of `scratch` disk area. Do not trust it to store all of your research data.
-* Removing files may decrease the BU consumption of your project, since you are billed for excess disk usage beyond 1 TiB.
+* Removing files may decrease the Storage BU consumption of your project, since you are
+  [billed](../../computing/hpc-billing.md#scratch-disk-billing) for excess disk usage beyond 1 TiB.
 
 We kindly ask all users to help to keep disk usage manageable, and performance reasonable.
 Please do the following tasks:

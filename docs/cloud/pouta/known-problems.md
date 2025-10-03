@@ -24,10 +24,6 @@
     name after a rebuild or reboot. If you want to be sure that the
     correct device gets mounted to the same path every time it is a good
     idea to use UUIDs instead of paths.
--   Ubuntu-20.04 images and hpc.6 flavor are unable to boot. A bug prevents
-    instances with Ubuntu 20.04 (created or updated) and flavor hpc.6.*
-    from booting. We expect a future update to fix this, but in the meantime
-    avoid this combination.
 
 ## EC2 tools (euca2ools)
 

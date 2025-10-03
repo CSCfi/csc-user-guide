@@ -52,9 +52,16 @@
   background-color: var(--md-accent-bg-color);
 }
 
-footer .md-footer-meta.md-typeset pre.commit-sha {
-  color: pink;
+footer .preview-commit {
+  color: var(--c-accent-200);
   font-size: small;
+}
+
+footer .preview-commit > a.preview-commit-link {
+  font-family: monospace;
+  font-weight: var(--csc-font-weight--bold);
+  font-size: medium;
+  color: var(--c-accent-500);
 }
 
 footer .md-footer-meta.md-typeset a {

@@ -83,7 +83,8 @@ Non-sensitive data (or open data) needs to be submitted in appropriate archives.
 Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEGA needs to be encrypted.
 
 !!! note
-    The data is encrypted with tools designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) standard.
+    - The data is encrypted with tools designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) standard.
+    - In case you have collaborators working with you during the metadata submission, bear in mind that only the user who uploads the data files can see them in the inbox during metadata submission and submit Run and Analysis metadata.
 
 You can carry out the encryption and upload steps using:
 
@@ -163,17 +164,17 @@ Log in to the submitter portal by using the EGA credentials (username: usually y
 
 Using the submitter portal, you can register the following metadata objects:
 
-* **Study**. Information about the sequencing study. The title should be a 3–20-word introduction of the project, and the description should be a 3 - 5 sentences definition of the project with some background, goal and details.
+* **Study**. Information about the sequencing study. The title should be a 3–20-word introduction of the project, and the description should be a 3 - 5 sentences definition of the project with some background, goal and details. Study's metadata will be publicly available on the EGA website.
 
-* **Samples**. Information about the sequencing samples in the experiment or analysis. You can also do a batch upload for samples.
+* **Samples**. Information about the sequencing samples in the experiment or analysis. You can also do a batch upload for samples. Samples’ metadata are subject to being identifiable, and thus only accessible by authorized data requesters, with the exception of *alias*, *title*, *subject_id*, *gender* and *phenotype*. It is the submitter’s responsibility not to submit sensitive metadata in these public fields. Also, anonymised fields that pinpoint the sample record in archivals - sample’s EGA stable ID (EGAN…), BioSample ID (SAMEA…) and submitter’s center name - are publicly available on the EGA website.
 
-* **Experiments**. Information about the sequencing methods, protocols, and machines.
+* **Experiments**. Information about the sequencing methods, protocols, and machines. Experiments' metadata will be publicly available on the EGA website.
 
-* **Runs**. Information about the files containing the raw data generated in a run of sequencing. Samples, experiments, and files are linked through runs. Appropriate object for FASTQ and BAM/CRAM submissions. You can also do a batch upload for runs.
+* **Runs**. Information about the files containing the raw data generated in a run of sequencing. Samples, experiments, and files are linked through runs. Appropriate object for FASTQ and BAM/CRAM submissions. You can also do a batch upload for runs. Runs' metadata will be publicly available on the EGA website.
 
-* **Analysis**. References the analysis files, which can include processed data (VCF), specific type of raw data (BAM/BAI or CRAM/CRAI) or phenotypic information. Associated with samples and study. The analysis is an EGA specific metadata object that links Samples to Files. If you don't have any analysis files, you can proceed without Analysis metadata.
+* **Analysis**. References the analysis files, which can include processed data (VCF), specific type of raw data (BAM/BAI or CRAM/CRAI) or phenotypic information. Associated with samples and study. The analysis is an EGA specific metadata object that links Samples to Files. If you don't have any analysis files, you can proceed without Analysis metadata. Analysis' metadata will be publicly available on the EGA website.
 
-* **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy, which includes access application link and is created by CSC helpdesk. The title should be a 3–20-word overview of the dataset content, and the description should be a 3 - 4 sentences definition of the dataset content, including sample number and details, file type and technology/experimentation used.
+* **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy, which includes access application link and is created by CSC helpdesk. The title should be a 3–20-word overview of the dataset content, and the description should be a 3 - 4 sentences definition of the dataset content, including sample number and details, file type and technology/experimentation used. Dataset's metadata will be publicly available on the EGA website.
 
 When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
 
