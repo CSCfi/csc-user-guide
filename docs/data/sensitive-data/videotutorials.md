@@ -3,11 +3,6 @@
 These step-by-step video tutorials are already included in the User Guide, but here they are organized for easier access and viewing.
 
 
-
-??? default "Overview"
-    <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 ## Overvivew
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -23,7 +18,7 @@ These step-by-step video tutorials are already included in the User Guide, but h
 ??? default "Optional: Using SD Connect for data transfer to a different research group"
     <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-??? default "Using SD Connect for data collection with a different research group"
+??? default "Optional: Using SD Connect for data collection with a different research group"
     <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Optional: Using SD Connect for data transfer to a different research group 
