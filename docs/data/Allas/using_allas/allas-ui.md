@@ -95,6 +95,11 @@ To copy a bucket:
 1. Click on the **Options** button next to the bucket.
 2. Select **Copy**.
 
+## Creating Subfolders Inside a Bucket
+
+You can create subfolders inside a bucket in two ways:
+1. "Drag & Drop" empty folders when [uploading](#uploading-objects).
+2. Inside the bucket view click **Create folder** and name your subfolder.
 
 ## Downloading Objects and Buckets
 
