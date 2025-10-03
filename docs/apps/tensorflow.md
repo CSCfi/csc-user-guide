@@ -85,7 +85,7 @@ normal. For other commands, you need to prefix them with
 `apptainer_wrapper exec`, for example `apptainer_wrapper exec
 huggingface-cli`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md).
+containers](../computing/containers/overview.md#running-containers).
 
 Some modules support [Horovod](https://horovod.ai/), which is our
 recommended framework for multi-node jobs, i.e., jobs needing more

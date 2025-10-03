@@ -26,20 +26,38 @@ The process is simple:
 
 2. Tag the image you want to push:
    ```sh
-   sudo docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
+   sudo docker tag almalinux:10 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/almalinux:<tag>
    ```
    _Replace {YOUR_RAHTI_PROJECT_NAME} by the name of your project._
    _Please note that YOUR_RAHTI_PROJECT_NAME here is the Rahti project name (AKA namespace name), and does not refer to CSC project._
 
 4. Push your image:
    ```sh
-   sudo docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
+   sudo docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/almalinux:<tag>
    ```
 
 You should be able to see your images in your project:
 ![Image Streams](../../img/image_streams_rahti4.png)
 
 Alternatively you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
+
+!!! warning "Troubleshooting"
+
+    If you receive this error when attempting to push your image:
+
+    ```
+    unknown: unexpected status from HEAD request to https://image-registry.apps.2.rahti.csc.fi/v2/{YOUR_RAHTI_PROJECT_NAME}/{YOUR_IMAGE_NAME}/manifests/sha256:834e7b0d913dd73e8616810c2c3a199cd8a3618e981f75eea235e0920d601ce4: 500
+    ```
+
+    You must create the `ImageStream` before pushing.
+
+    Run this command:
+
+    ```
+    oc create imagestream {YOUR_IMAGE_NAME}
+    ```
+
+[oc](../usage/cli.md) must be installed locally on your machine.
 
 ## Using Manually Cached Images
 

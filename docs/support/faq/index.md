@@ -12,7 +12,8 @@
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
 * [How to write good support requests to CSC Service Desk](../support-howto.md)
 * [My SSH keys do not work](ssh-keys-not-working.md)
-* [I have questions about the billing unit renewal (2025)](bu-renewal.md)
+* [I have questions about the Billing Unit renewal (2025)](bu-renewal.md)
+* [Connecting to CSC supercomputers using VS Code fails with out-of-memory error](vscode-out-of-memory.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -28,7 +29,7 @@
 * [How to solve issues with multi-factor authentication (MFA)](issues-with-mfa.md)
 * [How to create a CSC user account?](how-to-create-CSC-user-account.md)
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
-* [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
+* [Why is a user called 'system' using our resources](who-unknown-is-using-our-resources.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
 * [I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?](how-to-change-organization.md)
 * [A foreign researcher is joining our research group as a visiting scientist. Can they receive an academic CSC user account?](can-visitors-get-user-accounts.md)
@@ -47,6 +48,7 @@
 * [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
 * [How do I create my own Python environment?](../tutorials/python-usage-guide.md#creating-your-own-python-environments)
 * [How to troubleshoot Python installation problems?](python-package-trouble.md)
+* [How to avoid Python pip cache filling up my home directory](python-pip-cache.md)
 
 ## Allas
 
@@ -115,7 +117,7 @@
 * [What type of data can I process using the services?](sensitive-data-general.md#what-type-of-data-can-i-process-using-the-services)
 * [Do you provide a backup service?](sensitive-data-general.md#do-you-provide-a-backup-service) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
-* [Do I need any particular experties to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-experties-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
+* [Do I need any particular expertise to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-expertise-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
 * [How long does it take to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#how-long-does-it-take-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
 
 ### Encryption

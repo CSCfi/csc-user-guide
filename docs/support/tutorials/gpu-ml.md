@@ -88,7 +88,7 @@ manager](./python-usage-guide.md#installing-python-packages-to-existing-modules)
 
 For more complex software requirements, we recommend using
 [tykky](../../computing/containers/tykky.md) or [creating your own
-Apptainer container](../../computing/containers/creating.md).
+Apptainer container](../../computing/containers/overview.md#building-container-images).
 
 
 ## Running GPU jobs

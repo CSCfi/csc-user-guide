@@ -43,7 +43,7 @@ The forms and policies are public in SD Apply, so these should not include any s
 To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
 1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/pouta/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
-2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
+2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA account, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
 
 [![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)
 
@@ -78,6 +78,8 @@ Where:
 
 You can now encrypt and transfer the dataset securely. While there are multiple methods available for this task, we recommend utilising the graphical user interface SDA (Sensitive Data Archive) Uploader tool. Installing this simple application may require special permission from your system administration, but it will conveniently enable the tool to establish the secure connection using the SSH keys you've already tested, encrypt the files with [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry), and upload them. 
 
+This means the SSH keys you have created are used to form the connection to CSC, while the separate public encryption key is used to encrypt the data, so that the researchers can use it in SD Desktop.
+
 #### 4.1 Upload with the SDA Uploader tool
 
 With the SDA Uploader tool, you need to collect all the data to one folder on your computer before transfer.
@@ -107,7 +109,7 @@ With the SDA Uploader tool, you need to collect all the data to one folder on yo
 
 #### 4.2 Advanced options
 
-This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  command line (CLI, option 2 below) options for Linux, Mac and Windows. More information about the tool in the GitHub repository. Alternatively, you can encrypt the data with Crypt4GH (also GUI available, option 3 below) and send the data directly with SFTP on command line. With each option, you need to use CSC public key for encryption.
+This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  command line (CLI, option 1 below) options for Linux, Mac and Windows. More information about the tool in the [GitHub repository](https://github.com/CSCfi/sda-uploader/?tab=readme-ov-file#cli-demo). Alternatively, you can encrypt the data with Crypt4GH (also GUI available, option 2 below) and send the data directly with SFTP on command line. With each option, you need to use [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry) to encrypt the files. This key is separate from your ssh keys.
 
 ##### Advanced option 1
 

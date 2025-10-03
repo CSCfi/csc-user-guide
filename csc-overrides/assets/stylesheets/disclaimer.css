@@ -1,0 +1,89 @@
+#disclaimer-container {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 10;
+  margin: 0 auto;
+  max-width: calc(100vw / 3);
+}
+
+.disclaimer {
+  display: none;
+  border-style: solid;
+  border-width: var(--csc-admonition-border-width);
+  border-radius: var(--csc-admonition-border-radius);
+  background-color: var(--c-white);
+  padding: 0 .6rem;
+  font-size: medium;
+  box-shadow: var(--csc-box-shadow--quicklinks);
+  transition: scale 125ms;
+}
+
+.disclaimer.preview {
+  border-color: var(--csc-admonition-info-border-color);
+}
+
+.disclaimer > .disclaimer-title {
+  margin: unset;
+  padding: .4rem .6rem .4rem 2rem;
+  margin: 0 -.6rem;
+  position: relative;
+  font-weight: var(--csc-font-weight--bold);
+}
+
+.disclaimer > .disclaimer-title:before {
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  position: absolute;
+  left: .6rem;
+}
+
+.disclaimer.preview > .disclaimer-title:before {
+  -webkit-mask-image: var(--md-admonition-icon--info);
+  mask-image: var(--md-admonition-icon--info);
+  background-color: var(--csc-admonition-info-border-color);
+}
+
+.disclaimer > .disclaimer-content {
+  margin-top: 0;
+  font-style: italic;
+  color: var(--c-error-600);
+}
+
+.disclaimer .preview-commit {
+  font-size: small;
+  margin-top: 0px;
+}
+
+.disclaimer .preview-commit > .preview-commit-link {
+  font-family: monospace;
+  font-weight: var(--csc-font-weight--bold);
+  color: var(--c-link-500);
+  text-decoration: underline;
+}
+
+.disclaimer .button-row {
+  margin: .6em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.disclaimer .button-row > a {
+  padding: .6em;
+  cursor: pointer;
+  color: var(--c-primary-600);
+  font-weight: var(--csc-font-weight--bold);
+}
+
+.disclaimer .button-row > a[href] {
+  border-radius: var(--csc-button-border-radius);
+  background-color: var(--c-primary-600);
+  color: var(--c-white);
+}

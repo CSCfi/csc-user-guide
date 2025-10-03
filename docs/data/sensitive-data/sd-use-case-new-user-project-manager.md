@@ -4,7 +4,6 @@
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**
 
-
 ## Use case
 
 You need access to SD services for processing research data. Whether you are the manager of a research team or working independently, you can use SD Connect to store, share, and transfer research data. Optionally, your team can also analyse the data stored in SD Connect using SD Desktop.
@@ -15,7 +14,7 @@ You need access to SD services for processing research data. Whether you are the
 2. [Create new CSC project](#2-create-new-csc-project)
 3. [Data protection](#3-data-protection)
 4. [Activate SD Services for your project](#4-activate-sd-services-for-your-project)
-5. [Apply resources (billing units) for your project](#5-apply-billing-units-for-your-project)
+5. [Apply resources (Billing Units) for your project](#5-apply-billing-units-for-your-project)
 6. [If you have a research team, add them to be your project members](#6-if-you-have-a-research-team-add-them-to-be-your-project-members)
 7. [Closing your project and data retention](#7-closing-your-project-and-data-retention)
 8. [Log into SD Services](#8-log-into-sd-services)
@@ -67,6 +66,7 @@ If you need assistance with the above points or support to verify if SD service 
 3. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
 4. The GDPR form (Description of processing activity ) that can be downloaded from your CSC project
 5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+6. [Service Level Agreement](../../data/sensitive-data/sd-services-sla.pdf)
 
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
@@ -79,49 +79,48 @@ If you need assistance with the above points or support to verify if SD service 
 
 ![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices1.png)
 
+### 5. Apply Billing Units for your project
 
-### 5. Apply billing units for your project
+#### Every active CSC project consumes both Billing Units (BUs) and storage quota
 
-The Billing Unit (BU) is CSC’s metric for tracking resource consumption for each CSC projects. As each service consumes billing units. When starting a project, consider your resource needs, including storage and billing units consumption. Each project starts with 10,000 billing units, typically enough for initial testing.
+1. **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes.
 
-You should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
+CSC uses different types of Billing Units to measure resource usage based on the service:
 
-- See the table below for estimating your billing unit consumption.
-- Apply more billing units for your CSC project by clicking **"Apply for resources"** in Resources window.
-- You will get more info after your application to your MyCSC inbox.
-- You can always ask help from Service Desk _Subject: SD Services_
+- SD Desktop consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources.
+  
+- SD Connect consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
 
-#### What happens if your project runs out of billing units?
+Each new project starts with **3,000** Cloud and Storage BUs, usually enough for initial testing but you need to plan how many BUs you will need for **1 year**.
 
-Once all the billing units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
+**You can then apply for more BUs for your CSC project in MyCSC portal**:
 
-- all virtual desktops currently running will automatically be paused
-- you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
-- your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
+- Login to [MyCSC](https://my.csc.fi), click on your CSC project. In the new view, scroll down and go to the **Resources** window.
 
-!!! Note
-    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
+  Click **Apply for resources** and follow the step by step instructions.
+
+1. The **quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed by contacting  service desk _(subject: Increase Allas quota)_.
 
 #### SD Connect BU consumption
 
-SD Connect stores data to Allas. Default storage space for SD Connect/Allas is 10 TB, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_. Storing data in SD Connect/Allas consumes billing units at a rate of **1 billing unit per TB per hour**. This means that storing 1 TB of data in SD Connect/Allas consumes 24 billing units daily and 8760 billing units annually.
+SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.3 Storage BUs per TB per hour**.
 
-Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
+Here’s a table summarizing the Storage Billing Units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
-| **Storage Size** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
+| Storage Size |  Storage Billing Units (6 Months) |  Storage Billing Units (1 Year) |
 |------------------|------------------------------|----------------------------|
-| 500 GB (0.5 TB) | 2,160 units | 4,320 units |
-| 1 TB | 4,320 units | 8,640 units |
-| 10 TB | 43,200 units | 86,400 units |
-| 100 TB | 432,000 units | 864,000 units |
+| 500 GB (0.5 TB) | 2,847 units | 5,694  units |
+| 1 TB | 5,694 units | 11,388 units |
+| 10 TB | 56,940 units | 113,880 units |
+| 100 TB | 569,400 units | 1,138,800 units |
 
 #### SD Desktop BU consumption
 
-Analysing data in SD Desktop consumes billing units based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
+Analysing data in SD Desktop consumes **Cloud Billing Units** based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
 
-Here’s a table summarizing the billing units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
+Here’s a table summarizing the Cloud Billing Units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
 
-| Desktop Option | Billing Rate (units/hour) | Billing Units (6 Months) | Billing Units (1 Year) |
+| Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units (6 Months) | Cloud Billing Units (1 Year) |
 |----------------|---------------------------|--------------------------|------------------------|
 | Small Computation | 5.2 | 22,464 | 44,928 |
 | Medium Computation | 10.4 | 44,928 | 89,856 |
@@ -131,14 +130,25 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 
 ![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
 
+#### What happens if your project runs out of Billing Units?
+
+Once all the Cloud Billing Units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
+
+- all virtual desktops currently running will automatically be paused
+- you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
+- your data remains unaffected and will not be deleted, even in cases where the total Billing Units reach zero or enter negative values.
+
+!!! Note
+    Each project member will receive a notification via email from the MyCSC portal when the Billing Units for your CSC project are about to end.
+
 ### 6. If you have a research team, add them to be your project members
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
 - Add members from **Members** window. Click **Add members**.
 - In the new window you can search and add members from your own organization.
-- If you need to add members from other organizations you can create a invitation link by clicking **Invitation link**. 
-    - Generate link and use it in email or webpage. 
-    - People can apply a membership for your project by clicking the invite link. 
+- If you need to add members from other organizations you can create a invitation link by clicking **Invitation link**.
+    - Generate link and use it in email or webpage.
+    - People can apply a membership for your project by clicking the invite link.
     - After that you have to approve them to be member of your project in MyCSC through **Members** window in **Membership applications** tab.
 
 ![Add project members button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers1.png)
@@ -146,7 +156,6 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 ![Search and add members.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers2.png)
 
 ![Generate invitation link.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers3.png)
-
 
 !!! Note
     Each CSC project members must also create a MyCSC user account (this happens when they apply membership to your project) and activate the MFA.
@@ -161,7 +170,6 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 !!! Note
     Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
-
 
 ![Close project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_CloseProject.png)
 

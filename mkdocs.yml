@@ -85,6 +85,8 @@ plugins:
         "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
         "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
         "computing/allas.md": "data/Allas/allas-hpc.md"
+        "computing/containers/creating.md": "computing/containers/overview.md"
+        "computing/containers/run-existing.md": "computing/containers/overview.md"
         # renamed files:
         "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
         "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
@@ -176,6 +178,7 @@ plugins:
         "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
         "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
         "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+        "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
 
 
 markdown_extensions:
@@ -265,10 +268,10 @@ nav:
       - Adding members to your project: accounts/how-to-add-members-to-project.md
       - Adding service access for your project: accounts/how-to-add-service-access-for-project.md
       - Managing your project: accounts/how-to-manage-your-project.md
-      - Applying for billing units: accounts/how-to-apply-for-billing-units.md
+      - Applying for Billing Units: accounts/how-to-apply-for-billing-units.md
       - Increasing disk quotas: accounts/how-to-increase-disk-quotas.md
       - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
-      - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
+      - Reviewing Billing Unit usage: accounts/how-to-view-billing-unit-usage.md
       - Billing: accounts/billing.md
       - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md
@@ -311,11 +314,10 @@ nav:
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md
       - Performance analysis: computing/performance.md
-      - Containers:
+      - Apptainer containers:
           - computing/containers/overview.md
-          - Running containers: computing/containers/run-existing.md
-          - Creating containers: computing/containers/creating.md
-          - Container wrapper (Tykky): computing/containers/tykky.md
+          - Examples: computing/containers/examples.md
+          - Tykky: computing/containers/tykky.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
