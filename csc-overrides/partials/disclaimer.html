@@ -1,7 +1,7 @@
 {% from "partials/commit.html" import commit_link %}
 <div id="disclaimer-container">
   <div class="disclaimer preview">
-    <p class="disclaimer-title">You are viewing a developmental build</p>
+    <p class="disclaimer-title">You are viewing a development build</p>
     <p class="disclaimer-content">The content on this page has not been approved for release.</p>
     {% if page and page.git %}
     {{ commit_link(page.git.head, config.repo_url, status=page.git.status) }}
