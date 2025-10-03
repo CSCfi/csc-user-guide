@@ -1,5 +1,11 @@
 # Cloud services
 
+## Pukki DBaaS replaces Kaivos database service, XX.XX.2026
+
+Kaivos database service (kaivos.csc.fi) has been decommissioned on
+XX.XX.2026. We recommend taking [Pukki DBaaS](../../cloud/dbaas/index.md)
+into use if you need to run SQL databases at CSC.
+
 ## New Pouta VM launcher
 
 We deployed a new VM launcher when creating a VM on Pouta. Our [documentation](../../cloud/pouta/launch-vm-from-web-gui.md#launching-a-virtual-machine) has been updated accordingly. Take a look at it!

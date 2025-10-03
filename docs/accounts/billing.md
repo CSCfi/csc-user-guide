@@ -24,7 +24,7 @@ CSC's services are free of charge for academic research, teaching or training fo
 
     For LUMI billing, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
 
-    The use of Fairdata IDA and Kaivos doesn't consume Billing Units.
+    The use of Fairdata IDA doesn't consume Billing Units.
 
 ## Monitoring Billing Unit consumption
 
