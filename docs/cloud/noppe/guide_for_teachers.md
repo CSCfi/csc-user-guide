@@ -195,7 +195,7 @@ docker run -p 8888:8787 <yourimagename>
 For the docker image to be used in your application. You need to host it somewhere, e.g. DockerHub or Rahti registry. 
 Once you have it hosted somewhere, provide the link to your image in the application : `Manage Workspaces` > `Applications` > `Edit application` > `Container image`.
 
-### Creating custom images
+## Creating custom images
 
 You can also create customized versions of Noppe public images in Noppe. This feature
 is currently in beta testing and limited to adding Apt and Pip packages to Jupyter
@@ -205,6 +205,11 @@ To create a custom image in Noppe, open Manage workspaces from the left panel, s
 the workspace you need to run an application with a custom image and open
 Custom Images -tab. Here you can create a customized version of one of Noppe’s
 Jupyter images. You can also create a new version of an existing image.
+
+1. Press the Create custom image button in the top right-hand corner of the page to open the creation wizard.
+2. Give the image a name and select the base image.
+3. To add apk, pip or conda-forge packages, click the relevant button and enter the names of the packages you want.
+4. Finally, click the Build button.
 
 After creating a custom image, you can select it in Application create/edit dialog.
 
