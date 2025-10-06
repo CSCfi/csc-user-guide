@@ -124,7 +124,7 @@ Here are the recipes that can be built with Apptainer using fakeroot on Puhti an
 - [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
 - [Python with uv package manager](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
 - [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
-- [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/matlab/r2024b)
+- [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/mathworks)
 - [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
 - [R environment](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity/4.5.1-fakeroot)
 - [PyTorch](https://github.com/CSCfi/singularity-recipes/tree/main/pytorch-fakeroot/2.6)

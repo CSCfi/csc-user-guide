@@ -16,3 +16,9 @@
   {% endblock breadcrumbs %}
   {{ super() }}
 {% endblock content %}
+{% block footer %}
+  {{ super() }}
+  {% if config.extra.environment == "preview" %}
+    {% include "partials/disclaimer.html" %}
+  {% endif %}
+{% endblock footer %}

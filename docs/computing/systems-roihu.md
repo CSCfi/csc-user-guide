@@ -10,9 +10,25 @@
 
 ```mermaid
 graph LR;
-    A{{Roihu will be installed at the **end of 2025**}}-->B;
-    B{{Four-week pilot phase in **February 2026**}}-->C;
-    C{{Roihu available for all users in **March 2026**}}-->D{{Puhti & Mahti end-of-life **later during 2026**}};
+    A{{"**September 2025**
+        Roihu installation
+        in progress"}} --> B;
+    B{{"**February 2026**
+        Pilot phase
+        starts"}} --> C;
+    C{{"**March 2026**
+        Roihu general
+        availability (GA)"}} --> D;
+    D{{"**One month after Roihu GA**
+        Puhti *computing
+        services* shut down"}} --> E;
+    E{{"**July 2026**
+        Puhti *storage
+        services* shut down"}} --> F;
+    F{{"**August 2026**
+        Mahti
+        shut down"}}
+    style A fill:#dceeceff;
 ```
 
 ## Compute

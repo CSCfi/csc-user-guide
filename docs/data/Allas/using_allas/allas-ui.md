@@ -107,6 +107,7 @@ To copy a bucket:
 
 ## Removing Objects and Buckets
 
-- **Buckets**: Empty the bucket first, then click **Options** > **Delete** next to the bucket.
+- **Buckets**: Click **Options** > **Delete** next to the bucket.
+- **Folders**: Click **Delete** next to an folder.
 - **Objects**: Click **Delete** next to an object.
 
