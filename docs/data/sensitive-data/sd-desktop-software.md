@@ -69,7 +69,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 -  Next, please send an email to [CSC Service Desk](../../support/contact.md) (subject: SD Desktop)  letting  them know you would like access to the Software Installer and including the project  Share ID by pastinng it in the message. Once the Service Desk confirms access, the installer will be available via the SD Desktop service.
 
 
-    ![(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
+    ![ShareID](images/connect/UseCase_ShareID.png)
 
 ### Step2: SD Software Installer on your virtual desktop
 
