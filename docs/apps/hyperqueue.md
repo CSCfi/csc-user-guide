@@ -35,13 +35,21 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Usage
 
-Initialize the recommended version of HyperQueue on Puhti and Mahti like this:
+Load the default version of HyperQueue on Puhti and Mahti like this:
 
 ```bash
 module load hyperqueue
 ```
 
+To load a specific version, use:
+
+```bash
+module load hyperqueue/<version>
+```
+
+Replace `<version>` with suitable version number ([see above](#available)).
 Use `module spider` to locate other versions.
+
 To access CSC's HyperQueue modules on LUMI,
 remember to first run `module use /appl/local/csc/modulefiles`.
 
