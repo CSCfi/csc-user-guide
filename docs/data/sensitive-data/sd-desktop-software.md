@@ -71,7 +71,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 
     ![ShareID](images/connect/UseCase_ShareID.png)
 
-### Step2: SD Software Installer on your virtual desktop
+### Step 2: bring the SD Software Installer on your virtual desktop
 
 - Log in to [SD Desktop service](https://sd-desktop.csc.fi) and access your virtual desktop. Here open the **Data Gateway** application, select SD Connect and enter your CSC username and password. Next click on Open. Do not close the Data Gateway application.
 - If the software installation help tools are enabled for your project, then you should have folder `tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD-Connect/your-project-name`).
@@ -87,7 +87,7 @@ need to right-click the and select _Allow Launching_ before you can use the inst
     [![sd-installer](images/desktop/sd-installer2.png)](images/desktop/sd-installer2.png)  
     **Figure 2.** SD Software installer
 
-### Step 3: usage
+### Step 3: install new tools
 
 - In order to use the installer, you must have an active Data Gateway connection running and
 mounting of the SD Connect data should be done through the default location in the file system
@@ -102,7 +102,7 @@ users of the virtual desktop.
 Thus, you should start the application once after the installation, to make sure that the process is completed. After that
 the installed software should work also when Data Gateway connection has not been opened.
 
-#### Step 4: Software installation for project members 
+### Step 4: installation for project members 
 
 All installed tools are stored in the Shared Directory, inside a folder called sd-tools, which is accessible to all project members. However, they don’t automatically appear on each user’s desktop. To make it accessible, project memebers need to take one quick step—choosing between two options:
 
@@ -120,11 +120,6 @@ The project member can follow the steps shown earlier: open the Data Gateway, co
 - Choose Text Input
 
 - copy the command   /shared-directory/sd-dash-tools/bin/use-sd-tools
-1.	slash  shared dash directory 
-2.	slash sd dash tools 
-3.	slash bin
-4.	slash use dash sd slash tools
-
 
 - and paste it into  he input bar in the lower part of the scree and press Enter
 
