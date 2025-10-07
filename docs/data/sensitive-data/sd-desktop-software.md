@@ -115,7 +115,7 @@ The project member can follow the steps shown earlier: open the Data Gateway, co
 
 - Right-click on the desktop and select “Open Terminal”
 
-- Press Ctrl + Alt + Shift to activate copy-paste fucntion
+- Press Ctrl + Alt + Shift to activate copy-paste function
 
 - Choose Text Input
 
