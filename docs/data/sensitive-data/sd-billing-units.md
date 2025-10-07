@@ -1,6 +1,8 @@
 # Billing units
 
-!!! default "Billing Units"
+
+
+!!! default "Billing Units and quota"
 
      **Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
      
