@@ -42,9 +42,9 @@ You need access to SD services for processing research data. Whether you are the
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **New project**. 
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Create1_1025.png)
+![MyCSC navigation.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Create1_1025.png)
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Create3_1025.png)
+![Create new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Create3_1025.png)
 
 ---
 
@@ -88,9 +88,15 @@ You need access to SD services for processing research data. Whether you are the
      
      **The quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
 
+     [Information about billing units](./sd-billing-units.md)
+
 - Select **S 30 000 BUs** under Cloud Resource Package.
 - Select **S 30 000 BUs** under Storage Resource Package.
-- Click **Next**. 
+- Click **Next**.
+- In the next view, click **Add publications**. You can search or add publications manually. If you don't have publications directly related to this work yet, any past publication from your research group will be fine. Click **Add**.
+- Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
+- Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. Press **Next**.
+- In the last view, you can review the project description and field on science. Finally, you can click **Submit**.
 
 ![Add billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Resources_1025.png)
 
@@ -128,20 +134,35 @@ If you need assistance with the above points or support to verify if SD service 
 
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Descriptionof_1025.png)
 
+---
 
 ### 4. Apply for more billing units 
 
 You can apply for more BUs for your CSC project in MyCSC portal.
 
-- Sign in to MyCSC with you Haka or Virtu credentials.
-- Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
-- Select the correct project.
-- In the project page, scroll down to Resources window. Click **Apply for resources**.
-
+1. Sign in to MyCSC with you Haka or Virtu credentials.
+2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
+3. Choose a project and click to open it.
+4. In the new view, scroll down to **Resources** window and click **Apply for resources**. A new window will appear (this might take up to 8 seconds).
 ![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
+5. In the new window you will see the services you have active in the project (in gray). Press **Next**.
+![Continue to billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_MoreBUs_1025.png)
+6. In the second view, click on the Billing Units package you need (e.g. M) for:
+    - Cloud Billing Unit type (used by SD Desktop)
+    - Storage Billing Units type (for SD Connect)
+    - Click **Next**.
+7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. If you don't have publications directly related to this work yet, any past publication from your research group will be fine. Click **Add**.
+    - Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
+    - Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
+    - Click **Next**.
+9. In the last view, you can review the project description and field on science. Finally, you can click **Submit**.
 
 
-### 6. If you have a research team, add them to be your project members
+
+
+---
+
+### 5. If you have a research team, add them to be your project members
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
 - Add members from **Members** window. Click **Add members**.
@@ -156,7 +177,9 @@ You can apply for more BUs for your CSC project in MyCSC portal.
 !!! Note
     Each CSC project members must also create a MyCSC user account (this happens when they apply membership to your project) and activate the MFA.
 
-### 7. Closing your project and data retention
+---
+
+### 6. Closing your project and data retention
 
 The default lifetime of a CSC project is one year, after which it will be automatically closed and all data deleted. As a project manager, you can either extend the project duration or directly close your project after completing your research.  As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure) via the MyCSC portal.
 
@@ -169,7 +192,9 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ![Close project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_CloseProject.png)
 
-### 8. Log into SD Services
+---
+
+### 7. Log into SD Services
 
 - Now all the preparations are ready and you can start using the services (links to related user guides):
 
