@@ -10,14 +10,13 @@ You need access to SD services for processing research data. Whether you are the
 
 ## Solution
 
-1. [Create a CSC account](#1-create-a-csc-account)
-2. [Create new CSC project](#2-create-new-csc-project)
+1. [Create CSC account](#1-create-csc-account)
+2. [Create CSC project](#2-create-new-csc-project)
 3. [Data protection](#3-data-protection)
-4. [Activate SD Services for your project](#4-activate-sd-services-for-your-project)
-5. [Apply resources (Billing Units) for your project](#5-apply-billing-units-for-your-project)
-6. [If you have a research team, add them to be your project members](#6-if-you-have-a-research-team-add-them-to-be-your-project-members)
-7. [Closing your project and data retention](#7-closing-your-project-and-data-retention)
-8. [Log into SD Services](#8-log-into-sd-services)
+4. [Applying for more Billing Units](#4-apply-for-more-billing-units)
+5. [If you have a research team, add them to be your project members](#5-if-you-have-a-research-team-add-them-to-be-your-project-members)
+6. [Closing your project and data retention](#6-closing-your-project-and-data-retention)
+7. [Log into SD Services](#7-log-into-sd-services)
 
 ![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
@@ -26,29 +25,43 @@ You need access to SD services for processing research data. Whether you are the
 
 ## Step by step tutorial
 
-### 1. Create a CSC account
+### 1. Create CSC account
 
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
 - Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
 - Fill in your information on the Sign up page.
+- You will receive with instructions how to complete the registration. 
 - Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
-- You will get your CSC user account confirmation via email.
+- Enable two-step authentication (MFA). 
 
-### 2. Create a new CSC project
+---
 
+### 2. Create new CSC project
+
+- Sign in to MyCSC with you Haka or Virtu credentials.
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **New project**. 
+
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Create1_1025.png)
+
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Create3_1025.png)
+
+---
 
 #### 2.1 Choose project category
 - In the new window choose the Project category to be **Academic** (if you are a researcher and a member of Finnish higher education institution).
 - If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
 - Click **Next**.
 
-![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Academic_1025.png)
+![Create new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Academic_1025.png)
+
+---
 
 #### 2.2 Fill in the project details
 - Fill in the project name and project description. You can edit these later if needed.
 - Click **Next**.
+
+---
 
 #### 2.3 Activate SD Services for your project
 
@@ -58,26 +71,30 @@ You need access to SD services for processing research data. Whether you are the
 
 ![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Services_1025.png)
 
+---
 
 #### 2.4 Apply Billing Units for your project
 
-**Every active CSC project consumes both Billing Units (BUs) and storage quota.**
 
-**Billing Units (BUs)** are used to track how much computing power and processing time your project consumes.
+!!! default "Billing Units"
 
-CSC uses different types of Billing Units to measure resource usage based on the service:
+     **Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
+     
+     **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
+     
+     - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
+     - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
+     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can apply for more billing units later in MyCSC.
+     
+     **The quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
 
-- SD Desktop consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources.
-  
-- SD Connect consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
-
-Each new project starts with **3,000** Cloud and Storage BUs, usually enough for initial testing. You can apply for more billing units later, read more.
-
-- Select **Base 3000 BUs** under Cloud Resource Package.
-- Select **Base 3000 BUs** under Storage Resource Package.
+- Select **S 30 000 BUs** under Cloud Resource Package.
+- Select **S 30 000 BUs** under Storage Resource Package.
 - Click **Next**. 
 
 ![Add billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Resources_1025.png)
+
+---
 
 #### 2.5 Confirmation
 
@@ -85,6 +102,8 @@ Each new project starts with **3,000** Cloud and Storage BUs, usually enough for
 - Read and accept the terms of use.
 - Click **Submit**. 
 - Wait for your project being created. When project is ready, you'll be redirected to project page.
+
+---
 
 ### 3. Data protection
 
@@ -112,19 +131,14 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 4. Apply for more billing units 
 
-**You can then apply for more BUs for your CSC project in MyCSC portal**:
+You can apply for more BUs for your CSC project in MyCSC portal.
 
-- Login to [MyCSC](https://my.csc.fi), click on your CSC project. In the new view, scroll down and go to the **Resources** window.
+- Sign in to MyCSC with you Haka or Virtu credentials.
+- Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
+- Select the correct project.
+- In the project page, scroll down to Resources window. Click **Apply for resources**.
 
-  Click **Apply for resources** and follow the step by step instructions.
-
-
-
-  ??? default "Collapsible default (click to reveal content)"
-
-    Some content hidden by default.
-
-1. The **quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is **10 TB**, which you can expand up to 200 TB as needed by contacting  service desk _(subject: Increase Allas quota)_.
+![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
 
 #### SD Connect BU consumption
 
@@ -153,8 +167,6 @@ Here’s a table summarizing the Cloud Billing Units required for using **SD des
 | Small GPU Computation | 78 | 341,640 | 683,748 |
 | Big Picture project | 195 | 854,100 | 1,708,770 |
 
-![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
-
 #### What happens if your project runs out of Billing Units?
 
 Once all the Cloud Billing Units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
@@ -177,10 +189,6 @@ Once all the Cloud Billing Units for your CSC project have been used up, **acces
     - After that you have to approve them to be member of your project in MyCSC through **Members** window in **Membership applications** tab.
 
 ![Add project members button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers1.png)
-
-![Search and add members.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers2.png)
-
-![Generate invitation link.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers3.png)
 
 !!! Note
     Each CSC project members must also create a MyCSC user account (this happens when they apply membership to your project) and activate the MFA.
