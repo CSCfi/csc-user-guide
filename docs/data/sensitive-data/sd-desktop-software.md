@@ -61,7 +61,13 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 ### Step 1: send a request
 
 - Log in to the [SD Connect service](https://sd-connect.csc.fi) and if you haven't used the service before, please upload a small test file to a folder first. Currently, there is a technical issue that affects users who have not yet uploaded any files.
-- In SD Connect user interface, please check what is the Share ID of your CSC project. The share ID is a unique 32-digit code associated with a CSC project, on the top left corner of the user interface. Send it via email to [CSC Service Desk](../../support/contact.md) (subject: SD Services) indicating that you wish that the SD software installer would be made available for your project.
+
+-  On the homepage, look for the “Copy Share ID” icon next to the project selection menu. By clicking on it you can  copy your project’s Share ID. This is a unique code of 32 letters and numbers that we’ll use to share the installer application with your project.
+
+-  Example Share ID: 71bbe38a3cd398b48b1f2582dc00297p
+
+-  Next, please send an email to [CSC Service Desk](../../support/contact.md) (subject: SD Desktop)  letting  them know you would like access to the Software Installer and including the project  Share ID by pastinng it in the message. Once the Service Desk confirms access, the installer will be available via the SD Desktop service.
+
 
     ![(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
 
@@ -86,13 +92,48 @@ need to right-click the and select _Allow Launching_ before you can use the inst
 - In order to use the installer, you must have an active Data Gateway connection running and
 mounting of the SD Connect data should be done through the default location in the file system
 (_Projects_ directory in the users home directory).
+
 - The installer shows a panel of buttons that allow you to install a software by just clicking the button.
 The available software include graphical and command line applications. For graphical applications, a launching icon is added
 to the desktop. All software is installed to directory `/shared-directory/sd-tools/` where the installation is available for all the
 users of the virtual desktop.
+
 - In case of some applications, part of the installation process occurs only when the application is started for the first time.
 Thus, you should start the application once after the installation, to make sure that the process is completed. After that
 the installed software should work also when Data Gateway connection has not been opened.
+
+#### Step 4: Software installation for project members 
+
+All installed tools are stored in the Shared Directory, inside a folder called sd-tools, which is accessible to all project members. However, they don’t automatically appear on each user’s desktop. To make it accessible, project memebers need to take one quick step—choosing between two options:
+
+4.1 Using the Software Installer:
+
+The project member can follow the steps shown earlier: open the Data Gateway, copy the installer to the desktop, launch it, and select the tool needed. The installer will detect the tool in the shared folder, skip setup, and automatically create a desktop icon and update the  terminal. 
+
+
+4.2 Using a terminal command. In this case the Data Gateway connection is not needed:
+
+- Right-click on the desktop and select “Open Terminal”
+
+- Press Ctrl + Alt + Shift to activate copy-paste fucntion
+
+- Choose Text Input
+
+- copy the command   /shared-directory/sd-dash-tools/bin/use-sd-tools
+1.	slash  shared dash directory 
+2.	slash sd dash tools 
+3.	slash bin
+4.	slash use dash sd slash tools
+
+
+- and paste it into  he input bar in the lower part of the scree and press Enter
+
+
+In this case as well, the icon will be added to the desktop and the terminal environment will be updated.
+
+
+
+
 
 ## Customisation via Apptainer and Podman
 
