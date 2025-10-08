@@ -565,7 +565,7 @@ nav:
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
               - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-      - Publish and reuse:
+      - Publish and reuse research data:
           - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
               - Publish data: data/sensitive-data/fega-submission.md
