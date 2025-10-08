@@ -50,7 +50,6 @@ You need access to SD services for processing research data. Whether you are the
 
 #### 2.1 Choose project category
 - In the new window choose the Project category to be **Academic** (if you are a researcher and a member of Finnish higher education institution).
-- If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
 - Click **Next**.
 
 ![Create new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Academic_1025.png)
@@ -59,6 +58,7 @@ You need access to SD services for processing research data. Whether you are the
 
 #### 2.2 Fill in the project details
 - Fill in the project name and project description. You can edit these later if needed.
+- If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
 - Click **Next**.
 
 ---
