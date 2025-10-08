@@ -67,7 +67,6 @@ nav:
       - Supertietokoneen tallennustila:
           - computing/disk.md
           - Lustre-tiedostojärjestelmä: computing/lustre.md
-          - Allas-objektitallennustila: computing/allas.md
       - Moduuliympäristö: computing/modules.md
       - Töiden ajaminen:
           - computing/running/getting-started.md
@@ -88,11 +87,10 @@ nav:
           - Korkean suorituskyvyn kirjastot: computing/hpc-libraries.md
       - Virheenkorjaus: computing/debugging.md
       - Suorituskyvyn analyysi: computing/performance.md
-      - Kontit:
+      - Apptainer-kontit:
           - computing/containers/overview.md
-          - Konttien ajaminen: computing/containers/run-existing.md
-          - Konttien luominen: computing/containers/creating.md
-          - Konttikääre (Tykky): computing/containers/tykky.md
+          - Esimerkkejä: computing/containers/examples.md
+          - Tykky: computing/containers/tykky.md
       - Verkkokäyttöliittymä:
           - computing/webinterface/index.md
           - Yhteyden muodostaminen: computing/webinterface/connecting.md
@@ -113,16 +111,12 @@ nav:
               - Visual Studio Code: computing/webinterface/vscode.md
       - Kvanttilaskenta:
           - computing/quantum-computing/overview.md
-          - Kvasi QLM:
-              - Kvasin käyttö: computing/quantum-computing/kvasi/kvasi.md
-              - Kvasin laskutus: computing/quantum-computing/kvasi/kvasi-billing.md
-          - Helmi:
-              - Helmi-projektit: computing/quantum-computing/helmi/helmi-projects.md
-              - Helmin käyttö LUMIn kautta: computing/quantum-computing/helmi/helmi-from-lumi.md
-              - Ensimmäinen kvanttityö: computing/quantum-computing/helmi/first-quantum-job.md
-              - Tekniset tiedot: computing/quantum-computing/helmi/helmi-specs.md
-              - FiQCI-osio: computing/quantum-computing/helmi/fiqci-partition.md
-              - Ajaminen Helmillä: computing/quantum-computing/helmi/running-on-helmi.md
+          - Projektit: computing/quantum-computing/projects.md
+          - Käyttö LUMIn kautta: computing/quantum-computing/access.md
+          - Ensimmäinen kvanttityö: computing/quantum-computing/first-quantum-job.md
+          - Tekniset tiedot: computing/quantum-computing/specs.md
+          - FiQCI-osio: computing/quantum-computing/fiqci-partition.md
+          - Kvanttitöiden ajaminen: computing/quantum-computing/running-quantum-jobs.md
   - Pilvipalvelut:
       - cloud/index.md
       - Noppe:
@@ -148,7 +142,6 @@ nav:
               - cloud/pouta/configuration.md
               - Virtuaalikoneen elinkaari ja laskentayksiköiden säästäminen: cloud/pouta/vm-lifecycle.md
               - Virtuaalikonetyypit ja laskentayksikköhinnat: cloud/pouta/vm-flavors-and-billing.md
-              - Laskutusperiaatteet ja kiintiöt: cloud/pouta/accounting.md
               - Levykuvat:
                   - cloud/pouta/images.md
                   - Virtuaalikoneiden levykuvien luominen, muuntaminen, lataaminen ja jakaminen: cloud/pouta/adding-images.md
@@ -207,7 +200,8 @@ nav:
                   - Käyttöoikeudet: cloud/dbaas/mariadb-permissions.md
 
           - Edistyneemmät ominaisuudet: cloud/dbaas/advanced.md
-          - Tietokantainstanssin levyn koon muuttaminen: cloud/dbaas/resize-volume.md
+          - Tietokantainstanssin levyjen koon muuttaminen: cloud/dbaas/resize-volume.md
+          - Tietokantainstanssien uudelleenkoonti: cloud/dbaas/resize-volume.md
       - Rahti:
           - cloud/rahti/index.md
           - Mikä on Rahti:
@@ -291,17 +285,19 @@ nav:
           - Yleiset virheilmoitukset: data/Allas/using_allas/error_messages.md
           - Allas-objektitallennustilaan liittyvät termit ja käsitteet: data/Allas/terms_and_concepts.md
           - Allas-asiakasohjelmat:
+              - Allas-yhteyden määritys: data/Allas/using_allas/allas-conf.md
               - Allas Web-käyttöliittymä: data/Allas/using_allas/allas-ui.md
+              - Puhti/Mahti web-käyttöliittymä: computing/webinterface/file-browser.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
               - Python S3-rajapinnalla: data/Allas/using_allas/python_boto3.md
-              - Python SWIFT-rajapinnalla: data/Allas/using_allas/python_swift.md
+              - Python Swift-rajapinnalla: data/Allas/using_allas/python_swift.md
               - Rclone laskentaympäristöstä: data/Allas/using_allas/rclone.md
               - Rclone työasemalta: data/Allas/using_allas/rclone_local.md
               - Swift: data/Allas/using_allas/swift_client.md
               - S3cmd: data/Allas/using_allas/s3_client.md
-              - Web-käyttöliittymä: data/Allas/using_allas/web_client.md
+              - Pouta web-käyttöliittymä: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
       - Kaivos-tietokantapalvelu:
           - data/kaivos/overview.md
@@ -314,7 +310,7 @@ nav:
           # Python MySQL API at CSC:
   - Arkaluonteinen data:
       - data/sensitive-data/index.md
-      - Palvelun valinta: data/sensitive-data/choose-a-service.md
+      - Sisällysluettelo: data/sensitive-data/sd-services-toc.md
       - Tallenna ja analysoi:
           - Aloita tästä:
               - data/sensitive-data/sd-access.md
