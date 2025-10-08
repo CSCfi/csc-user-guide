@@ -101,7 +101,7 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! Note ""
     ### 5. CSC adds members to your project
     - Please wait that Sensitive Data Support -team adds your research team to your project
-    - Note! All team members must have a [CSC-account](#1-create-a-csc-account), so they can become project members.
+    - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
 
 !!! Note ""
     ### 6. CSC activates SD Desktop -service for your project
