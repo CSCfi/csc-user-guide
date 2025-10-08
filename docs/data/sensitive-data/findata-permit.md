@@ -54,7 +54,7 @@ You need to access SD Desktop. You have a permit from Findata.
 ---
 
 #### 2.1 Choose project category
-- In the new window choose the Project category to be **Secondary** (if you are a researcher and a member of Finnish higher education institution).
+- In the new window choose the Project category to be **Secondary**.
 - Click **Next**.
 
 ![Create new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Secondary_1025.png)
