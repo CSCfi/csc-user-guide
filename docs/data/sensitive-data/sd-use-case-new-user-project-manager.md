@@ -84,11 +84,11 @@ You need access to SD services for processing research data. Whether you are the
      
      - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
      - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
-     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can apply for more billing units later in MyCSC.
+     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can [apply for more billing units](#4-apply-for-more-billing-units) in MyCSC portal.
      
      **The quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
 
-     [Information about billing units](./sd-billing-units.md)
+     [More information about billing units](./sd-billing-units.md)
 
 - Select **S 30 000 BUs** under Cloud Resource Package.
 - Select **S 30 000 BUs** under Storage Resource Package.
@@ -138,7 +138,7 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 4. Apply for more billing units 
 
-You can apply for more BUs for your CSC project in MyCSC portal.
+You can apply for more BUs for your CSC project in MyCSC portal. [More information about billing units](./sd-billing-units.md)
 
 1. Sign in to MyCSC with you Haka or Virtu credentials.
 2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).

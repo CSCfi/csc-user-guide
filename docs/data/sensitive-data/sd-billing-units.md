@@ -10,7 +10,7 @@
      
      - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
      - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
-     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can apply for more billing units later in MyCSC.
+     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can [apply for billing units](sd-use-case-new-user-project-manager.md#4-apply-for-more-billing-units) in MyCSC portal.
      
      **The quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
      
