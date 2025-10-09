@@ -23,6 +23,10 @@ template: home.html
 
     [Puhti ja Mahti Yleiskatsaus :material-arrow-right:](computing/index.md)
 
+    [Pilvipalveluiden yleiskatsaus :material-arrow-right:](cloud/index.md)
+
+    [Mikä on DBaaS :material-arrow-right:](cloud/dbaas/what-is-dbaas.md)
+
     [Aloittaminen LUMI:n kanssa :material-open-in-new:](https://docs.lumi-supercomputer.eu/firststeps/getstarted/){ target=_blank }
 
     [Kuinka saada tukea :material-arrow-right:](support/contact.md)
@@ -36,6 +40,8 @@ template: home.html
     [LUMI-käyttäjäopas :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
 
     [Allas-käyttäjäopas :material-arrow-right:](data/Allas/index.md)
+
+    [Python-käyttöopas :material-arrow-right:](support/tutorials/python-usage-guide.md)
 
     [Koneoppimisen opas :material-arrow-right:](support/tutorials/ml-guide.md)
 
@@ -56,6 +62,8 @@ template: home.html
     [Tietojen hallinta raakatilassa :material-arrow-right:](support/tutorials/clean-up-data.md)
 
     [Suurnopeuslaskenta :material-arrow-right:](computing/running/throughput.md)
+
+    [Virtuaalikoneen luominen Pouta-palvelussa :material-arrow-right:](cloud/pouta/launch-vm-from-web-gui.md)
 
 </div>
 
