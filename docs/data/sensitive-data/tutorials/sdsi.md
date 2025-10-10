@@ -1,30 +1,37 @@
 # Submitting jobs from SD Desktop to the HPC environment of CSC
 
 The limited computing capacity of a SD Desktop virtual machines can prevent running heavy analysis tasks
-for sensitive data. This document describes, how heavy compting tasks can be submitted form SD Desktop
+for sensitive data. This document describes, how heavy computing tasks can be submitted form SD Desktop
 to the Puhti HPC cluster.
 
 Please note following details that limit the usage of this procedure:
-   * The service is not yet in full production. Access will be provided by a request for projects that have computing tasks that are compatible with the current satus of the service. Contact servicedesk@csc.fi the enable this service.
-   * The job submission tools will work only for approved projects.
+   * The service is not yet in full production. Access will be provided by a request for projects that have computing tasks that are compatible with the current status of the service. Contact servicedesk@csc.fi the enable this service.
+   * The *sdsi-client* job submission tool, described in this document, will work only for the approved projects.
    * Each job reserves always one, and only one, full Puhti node for your task. Try to construct your batch job so that it uses effectively all the 40 computing cores of one Puhti node.
    * The input files that the job uses must be uploaded to SD Connect before the job submission. Even though the job is submitted from SD Desktop, you can't utilize any files from the SD Desktop VM in the batch job.
    * The jobs submitted from SD Desktop to Puhti have higher security level that normal Puhti jobs but lower than that of SD Desktop.  
 
+# Security aspects
+
+The increased security of the computing tasks that are submitted with the sdsi-client is based on two main features:
+   1. Both input and output data are stored and transported in encrypted format. Encryption is done automatically using the SD Connect methodology.
+   2. For the actual analysis the data is temporarily decrypted to the local disk area of a compute node that is fully reserved for only this one job. Thus there can't be other users in the node during the execution of the job, which effectively eliminates the possibility that other users could access the disk areas, memory or process list of the node during the processing. All the data will be removed from local disk of the node when the job ends.
+
+
 
 # Getting stared 
 
-Add Puhti service to your project and contact CSC (sevicedesk@csc.fi) and request that Puhti access will be created for your SD Desktop environment. In this process a robot account will be created for your project and a project specific server process is launched for you project by CSC.
-
-The job submission is done with command `sdsi-client`. This command can be added to your SD desktop machine by installing `CSC Tools` with [SD tool installer](../sd-desktop-software.md) to your SD Desktop machine.
+Add Puhti service to your project. Next, contact CSC (sevicedesk@csc.fi) and request that Puhti access will be created for your SD Desktop environment. If CSC evaluates your use case suitable for this service, a robot account will be created for your project and a project specific server process is launched for you project by CSC.
 
 # Submitting jobs
 
+Job submission is done in SD Desktop with command `sdsi-client`. This command can be added to your SD desktop machine by installing `CSC Tools` with [SD tool installer](../sd-desktop-software.md) to your SD Desktop machine.
+
 ## Data Upload
 
-The batch jobs submitted by sdsi-client read the input data from SD Connect service. Thus all the input data must be uploaded to SD Connect before the job is submitted. Note that you can't use data in the local disks of your SD Desktop virtual machine or unencrypted files as input files for your batch job. However, local files in Puhti can be used, if the access permissions allow all group members to use the data.
+The batch jobs submitted by sdsi-client read the input data from the SD Connect service. Thus all the input data must be uploaded to SD Connect before the job is submitted. Note that you can't use data in the local disks of your SD Desktop virtual machine or unencrypted files in SD Connect as input files for your batch job. However, local files in Puhti can be used, if the access permissions allow all group members to use the data.
 
-Thus the first step in constructing a sensitive data batch job is to upload the input data to SD Connect.
+Thus the first step in submitting a sensitive data batch job is to upload the input data to SD Connect.
 
 ## Constructing a batch job file
 
@@ -61,7 +68,7 @@ The batch job defined in the file can be submitted with command:
 ```text  
 sdsi-client new -input job1.sdsi
 ```
-The submission command will ask for your CSC password, after which it submits the task and it prints the ID number of the job.
+The submission command will ask for your CSC password, after which it submits the task to thae batch job queue. After submission the command prints the ID number of the job.
 You can use this ID number to check the status of your job. For example for job 123456 you can check the status in *SD Desk desktop* with command:
 
 ```text
@@ -79,15 +86,14 @@ The task submitted with sdsi-client is transported to the batch job system of Pu
 where it is processed among other batch jobs. The resource requirements for the batch job: computing time, memory, local disk size, GPUs, are 
 set according to the values defined in the _sbatch:_ section in the job description file.
 
-The actual computing starts only when a suitable Puhti node is available. Queueing times may be long as 
-the jobs always reserves one full node with sufficient local disk and memory.
+The actual computing starts only when a suitable Puhti node is available. Queueing times may be long as the jobs always reserves one full node with sufficient local disk and memory.
 
 The execution of the actual computing includes following steps:
 
    1. The input files, defined in the job description file, are downloaded and decrypted to the 
    local temporary disk space of the computing node.
 
-   2. Commands defined is the _run:_ section are executed.
+   2. Commands defined in the _run:_ section are executed.
 
    3. Output files are encrypted and uploaded to SD Connect.
 
@@ -105,19 +111,15 @@ The results are uploaded from Puhti to SD Connect into bucket named as: *sdhpc-r
     sdhpc-results-2008749/123456/slurm.err.tar.c4gh
     sdhpc-results-2008749/123456/slurm.out.tar.c4gh
 ```
- You can change the output bucket with sdsi-client option `-bucket bucket-name`. Note that the bucket 
- name must be unique in this case too.
+ You can change the output bucket with sdsi-client option `-bucket bucket-name`. Note that the bucket name must be unique in this case too.
 
 
 ## Running serial jobs effectively
 
-The jobs that sdsi-client submits reserve always one full Puhti node. These nodes have 40 computing cores 
-so you should use these batch jobs for tasks that can utilize multiple computing cores. 
-Preferably all 40. 
+The jobs that sdsi-client submits reserve always one full Puhti node. These nodes have 40 computing cores so you should use these batch jobs for tasks that can utilize multiple computing cores. Preferably all 40. 
 
 In the previous example, the actual computing task consisted of calculating md5 
-checksums for two files. The command used, `md5sum`, is able to use just one computing core so
-the job waisted resources as 40 cores were reserved but only one was used.
+checksums for two files. The command used, `md5sum`, is able to use just one computing core so the job waisted resources as 40 cores were reserved but only one was used.
 
 However if you need to calculate a large amount of unrelated tasks that are able to use only one 
 or few computing cores, you can use tools like _gnuparallel_, _nextfllow_ or _snakemake_ to submit several
