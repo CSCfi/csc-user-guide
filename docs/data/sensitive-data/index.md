@@ -2,13 +2,11 @@
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
-SD services support secure processing of sensitive data. To help you get started, it's important to first identify the legal basis for your data processing, as this determines how the services can be accessed and used.
+SD services support secure processing of sensitive data. The legal basis for your data processing this determines how the services can be accessed and used. To select the correct user guide, begin by identifying the type of sensitive data data you are processing:
 
-Choose Your Path Based on the Legal Basis:
+* Research Data (e.g. consented data collected for scientific studies): Ii you're working with data collected for research purposes, follow the guide tailored for storing, analyzing, publishing, or reusing research data.
 
-Research Data (e.g. consented data collected for scientific studies): If you're working with data collected for research purposes, follow the guide tailored for storing, analyzing, publishing, or reusing research data.
-
-Secondary Use of Health and Social Data (e.g. register data from Findata or other public authorities): If you're using data for secondary purposes, such as registry-based research or analysis, follow the guide designed for processing register data in compliance with Finnish legislation.
+* Secondary Use of Health and Social Data (e.g. register data from Findata or other public authorities): if you're using data for secondary purposes, such as registry-based research or analysis, follow the guide designed for processing register data in compliance with Finnish legislations (Act on secondary use and Findata regulation). 
 
 Each guide provides step-by-step instructions, recommended workflows, and access details specific to your data type and legal framework.
 
