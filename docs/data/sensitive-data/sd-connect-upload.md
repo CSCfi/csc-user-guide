@@ -64,8 +64,8 @@ You can create a folder and upload files to it later.
 ## Features in SD Connect
 
 * [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
+* [Share](./sd-connect-share.md)
 * [Delete](./sd-connect-delete.md)
 * [Command line interface](./sd-connect-command-line-interface.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)
