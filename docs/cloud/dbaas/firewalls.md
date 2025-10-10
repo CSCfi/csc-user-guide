@@ -1,93 +1,117 @@
+# Palomuurien käyttö Pukissa { #using-firewalls-in-pukki }
 
-# Palomuurien käyttö Pukissa {#using-firewalls-in-pukki}
+Kaikilla tietokantainstansseilla on omat palomuurinsa. Käyttäjät ovat vastuussa siitä, että palomuurisäännöt ovat tiukat. Palomuurisääntöjen tulisi olla auki vain niille IP-osoitteille, joita tarvitaan. Löysät palomuurisäännöt ovat todennäköisesti yksi suurimmista tietoturvariskeistä, ja asia on otettava vakavasti. Vaikka tietokannassasi ei olisi "salaisia" tietoja, sitä ei saa pitää avoimena koko maailmalle. Jos haluat jakaa tietojasi, tee se välityspalvelimen (proxy) tai sellaisten palvelujen kautta, jotka käyttävät tietokantaa taustapalveluna. Tietokannan portin jättäminen avoimeksi internetissä on varma keino houkutella haitallisia toimijoita kohdistamaan hyökkäyksiä tietokantaasi.
 
-Kaikilla tietokantaesiintymillä on omat palomuurinsa. Käyttäjien vastuulla on varmistaa, että palomuurisäännöt ovat tiukat. Palomuurisääntöjen tulisi olla auki vain niille IP-osoitteille, joita tarvitaan. Löyhät palomuurisäännöt ovat todennäköisesti yksi suurimmista tietoturvariskeistä, ja ne tulee ottaa vakavasti. Vaikka tietokannassasi ei olisi mitään "salaista" tietoa, sitä ei silti saa jättää avoimeksi maailmalle. Jos haluat jakaa tietojasi, sinun tulisi tehdä se välityspalvelimen tai muiden palveluiden kautta, jotka voivat käyttää tietokantaa taustajärjestelmänä. Tietokantaportin jättäminen auki internetissä on varma tapa houkutella pahantahtoisia toimijoita kohdistamaan hyökkäyksiä tietokantaasi.
+## Palomuurien hallinta { #how-to-manage-firewalls }
 
-## Palomuurien hallinta {#how-to-manage-firewalls}
+Voit muuttaa palomuureja [verkkokäyttöliittymästä](https://pukki.dbaas.csc.fi) olemassa oleville instansseille painamalla "Update Instance".
 
-Voit muuttaa palomuureja [verkkokäyttöliittymässä](https://pukki.dbaas.csc.fi) olemassa olevissa
-esiintymissä painamalla "Päivitä esiintymä".
+[openstack CLI](cli.md) -työkalulla voit käyttää komentoa `opsenstack database instance update --help`.
+Huomaa, että komento korvaa olemassa olevat palomuurisäännöt, mikä tarkoittaa, että sinun on asetettava kaikki
+palomuurin avaukset joka kerta, kun päivität instanssin palomuureja `--allowed-cidr`-lipulla.
 
-[openstack CLI](cli.md) -työkalulla voit käyttää `opsenstack database instance update --help` -komentoa.
-Huomaa, että komento korvaa olemassa olevat palomuurisäännöt, mikä tarkoittaa, että sinun on määritettävä
-kaikki palomuurin avaukset joka kerta, kun päivität palomuurit esiintymälle `--allowed-cidr` -lipulla.
+## Julkisen IP-osoitteesi selvittäminen { #finding-your-public-ip-address }
 
-## Yksittäinen IP tai verkko-osa {#single-ip-or-subnet}
+Jos et tiedä julkista IPv4-osoitettasi, voit tarkistaa sen seuraavasti:
 
-Lisäämällä "CIDR-ilmaisun" `/32` IP:n loppuun, kuten `192.168.0.1/32`, tarkoittaa, että sallitaan vain kyseinen IP.
+* Komentorivi:
 
-On myös mahdollista sallia verkko-osa esimerkiksi `/24`, jos halutaan sallia koko verkko esim.
-toimistoverkko. Pienin sallittu maski on `/22`, mikä on 1024 IP-osoitteelle.
-Pukki ei salli `0.0.0.0/0`, koska olisi liian helppoa asettaa tämä arvo ja unohtaa, että tietokantaesiintymään pääsee käsiksi koko internetistä.
+```
+curl ifconfig.me -4
+```
 
-## Palomuurin avaukset muista CSC-palveluista {#firewall-openings-from-other-csc-services}
+* Selain:
 
-Jotta voit käyttää tietokantaasi muista CSC-palveluista, sinun on sallittava jonkin verran saapuvaa liikennettä.
-Tämä tehdään sallimalla verkko-osa.
+Käy sivulla [IP address](https://www.whatismyip.com).
 
-### cPouta {#cpouta}
+Käytä palautettua IP-osoitetta CIDR-muodossa päätteenä `/32`, jotta vain kyseinen IP sallitaan.
+Esimerkiksi:
 
-* Jos palvelimellasi, josta haluat yhdistää tietokantaesiintymiin, on "kelluva IP"
-(julkinen IP), sinun on sallittava se IP Pukissa.
-* Jos palvelimellasi ei ole kelluvaa IP:tä, sinun on sallittava reitittimien "Ulkoiset kiinteät IP:t".
-Voit löytää IP:n Pouta-verkkokäyttöliittymästä kohdasta Verkko -> Reitittimet -> Tietty reititin ->
-"Ulkoiset kiinteät IP:t"
+```
+192.168.0.1/32
+```
 
-### ePouta {#epouta}
+## Yksittäisen IP:n, aliverkon tai useiden tiettyjen IP-osoitteiden salliminen { #allowing-single-ip-subnet-or-multiple-specific-ips }
 
-On tärkeää muistaa, että kaikki liikenne ePoudasta Pukkiin kulkee "internetin yli",
-mikä saattaa olla ristiriidassa sen kanssa miksi valitsit ePoudan käyttääksesi alunperin.
+Kun lisäät IP-osoitteen perään "CIDR-notaation" `/32` (kuten `192.168.0.1/32`), sallitaan vain kyseinen IP-osoite.
 
-1. Jos haluat silti sallia pääsyn Pukkiin, sinun on varmistettava, että organisaatiosi palomuurit
-sallivat liikenteen tietokantaesiintymääsi Pukissa.
-2. Jos käytät "julkista IP-aluetta" ePoudassa, voit yksinkertaisesti päivittää tietokantaesiintymäsi
-uudella IP-osoitteella "CIDR-ilmaisun" (liite) `/32` kanssa.
+Voit myös sallia aliverkon, esimerkiksi `/24`, jos haluat sallia kokonaisen verkon, esim.
+toimistoverkkosi. Pienin sallittu peite on `/22`, joka on 1024 IP-osoitetta.
+Pukki ei salli `0.0.0.0/0`, koska tämän arvon asettaminen olisi liian helppoa ja saattaisit unohtaa, että
+tietokantainstanssisi on tällöin saavutettavissa koko internetistä.
 
-### Rahti {#rahti}
+Useita tiettyjä IP-osoitteita voi sallia syöttämällä kukin omana `/32`-merkintänään pilkuilla erotettuna, esim.
+`192.168.0.1/32,192.168.0.2/32,192.168.0.3/32`.
 
-Rahti käyttää `86.50.229.150/32` yhteisenä lähtevänä IP-osoitteena. Huomaa, että jos käytät
-Rahtia yhteisellä lähtevällä IP-osoitteella, kaikki muut Rahti-asiakkaat voivat päästä käsiksi tietokantaasi,
-mikä tekee entistä tärkeämmäksi käyttää vahvaa käyttäjätunnusta ja salasanaa tietokantaasi.
+## Palomuurin avaukset muista CSC-palveluista { #firewall-openings-from-other-csc-services }
 
-Lisätietoa löytyy [Rahtin turvallisuusoppaasta](../rahti/security-guide.md)
+Jotta voit käyttää tietokantaasi muista CSC:n palveluista, sinun on sallittava jonkin verran saapuvaa liikennettä.
+Tämä tehdään sallimalla aliverkkoja.
 
-### Noppe {#noppe}
-Jos sinun on päästävä käsiksi Pukkisi tietokantaesiintymään Noppesta, sinun on sallittava tämä IP
-`193.167.189.137/32`. Huomaa, että myös kaikki muut Notebook-käyttäjät pääsevät tietokantaesiintymiin,
-joten on tärkeää käyttää vahvoja salasanoja tietokantakäyttäjissäsi.
+### cPouta { #cpouta }
 
-### Puhti {#puhti}
+* Jos palvelimella, jolta haluat muodostaa yhteyden tietokantainstansseihisi, on "floating IP"
+(julkinen IP), salli kyseinen IP Pukissa.
+* Jos palvelimellasi ei ole floating IP:tä, sinun on sallittava reitittimien "External Fixed IPs".
+Löydät IP-osoitteen Poutan verkkokäyttöliittymästä kohdasta Network -> Routers -> kyseinen reititin ->
+"External Fixed IPs"
 
-Päästäksesi Pukkisi tietokantaan kirjautumis- ja laskentasolmuisista voit sallia tämän:
+### ePouta { #epouta }
+
+On tärkeää muistaa, että kaikki liikenne ePoudasta Pukkiin kulkee "internetin" yli,
+mikä saattaa olla ristiriidassa sen kanssa, miksi valitsit ePoudan alun perin.
+
+1. Jos haluat silti sallia pääsyn Pukkiin, sinun on varmistettava, että kotiorganisaatiosi palomuurit
+sallivat liikenteen Pukin tietokantainstanssiisi.
+2. Jos käytät "public IP rangea" ePoudassa, voit päivittää tietokantainstanssisi
+uudella IP-osoitteella käyttäen "CIDR-notaation" (päätteen) `/32`.
+
+### Rahti { #rahti }
+
+Rahti käyttää jaettua lähtevää IP-osoitetta `86.50.229.150/32`. Huomaa, että jos käytät
+Rahtia jaetulla lähtevällä IP-osoitteella, kaikki muut Rahti-asiakkaat voivat päästä tietokantaasi,
+mikä tekee entistä tärkeämmäksi käyttää vahvaa käyttäjätunnusta ja salasanaa tietokannassasi.
+
+Lisätietoja löytyy kohdasta [Rahti security guide](../rahti/security-guide.md)
+
+### Noppe { #noppe }
+
+Jos tarvitset pääsyn Pukki-tietokantainstanssiisi Noppesta, sinun on sallittava tämä IP
+`193.167.189.137/32`. Huomaa, että myös kaikki muut Notebook-käyttäjät pääsevät tällöin
+tietokantainstansseihisi, joten on tärkeää käyttää vahvoja salasanoja tietokantakäyttäjälle.
+
+### Puhti { #puhti }
+
+Kun käytät Pukki-tietokantaasi Puhtin kirjautumis- ja laskentasolmuista, voit sallia tämän:
 
 ```
 86.50.164.176/28
 ```
 
 <!--
-Jos haluat vieläkin tiukempia sääntöjä, voit rajoittaa sen vain näihin
-puhti-nat-[1,2].csc.fi ja puhti-login[11-15].csc.fi
+If one would like to have even strictre rules one could limit it only these
+puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
 -->
 
-### Mahti {#mahti}
+### Mahti { #mahti }
 
-Päästäksesi Pukkisi tietokantaan Mahdilta kirjautumis- ja laskentasolmuisista voit sallia tämän:
+Kun käytät Pukki-tietokantaasi Mahtista sekä kirjautumis- että laskentasolmuista, voit sallia tämän:
 
 ```
 86.50.165.192/27
 ```
 
 <!--
-Vaihtoehdoista:
+Some alternatives:
 86.50.165.192/27
 86.50.165.200/30 + 86.50.165.208/28
 86.50.165.200/30 + 86.50.165.208/29 + 86.50.165.216/32
 86.50.165.200/30 + 86.50.165.211/32 + 86.50.165.212/30 + 86.50.165.216/32
 -->
 
-### LUMI {#lumi}
+### LUMI { #lumi }
 
-Päästäksesi Pukkisi tietokantaan LUMI:sta sinun on sallittava seuraava CIDR:
+Kun käytät Pukki-tietokantaasi LUMIsta, sinun tulee sallia seuraava CIDR:
 
 ```
 193.167.209.160/28

@@ -1,222 +1,224 @@
-# FEGA-tietojen uudelleenkäytön mahdollistaminen {#enabling-reuse-of-fega-data}
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-CSC:ssä tallennetun ja valvotun saatavuuden alaisena julkaistun datan käyttöoikeutta hallinnoi rekisterinpitäjä tai heidän edustajansa SD Apply -palvelussa. Jotta voit mahdollistaa FEGA:an (Finnish Federated EGA) tallennettujen tietokokonaisuuksien uudelleenkäytön, sinun tulee lisätä organisaatiosi tarjoamat tietokokonaisuudet SD Apply -katalogiin. Huomioithan, että jos käytät SD Apply -palvelua hallitaksesi FEGA:an tallennettujen tietokokonaisuuksien käyttöoikeuksia, organisaatiollasi tulee olla palvelusopimus CSC:n kanssa. Lue lisää [FEGA:n oikeudellisista sopimuksista](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
+# FEGA-datan uudelleenkäytön mahdollistaminen { #enabling-reuse-of-fega-data }
 
-Rekisterinpitäjänä SD Apply -palvelussa olet vastuussa:
+CSC:lle tallennettuihin ja kontrolloidun käyttöoikeuden piirissä julkaistuihin datoihin pääsyn hallinnoi SD Apply -palvelussa rekisterinpitäjä tai hänen edustajansa. Jotta Suomen Federated EGA:ssa (FEGA) säilytettyjen aineistojen uudelleenkäyttö olisi mahdollista, sinun on lisättävä organisaatiosi tarjoamat aineistot SD Applyn luetteloon. Huomaa, että kun käytät SD Applyta FEGA:ssa säilytettävien aineistojen käyttöoikeuksien hallintaan, organisaatiollasi on oltava CSC:n kanssa voimassa oleva palvelusopimus. Lue lisää [FEGA:n oikeudellisista sopimuksista](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
 
-* Tietokokonaisuuksien lisäämisestä SD Apply -katalogiin hakemuslomakkeen ja käytäntöjen kanssa.
-* Edustajien (Data Access Committee, DAC) nimeämisestä, jotka hallinnoivat käyttöoikeuspyyntöjä organisaatiosi tietokokonaisuuksiin.
-* Datan uudelleenkäyttökäytäntöjen määrittelemisestä.
+Rekisterinpitäjänä SD Applyssa vastaat seuraavista:
 
-## Tietosuojatoimikunnan (DAC) muodostaminen {#forming-a-data-access-committee-dac}
+* Aineistojen lisääminen SD Applyn luetteloon yhdessä hakemuslomakkeen ja käytäntöjen kanssa.
+* Edustajien (Data Access Committee, DAC) nimeäminen käsittelemään organisaatiosi aineistoihin kohdistuvia käyttöoikeuspyyntöjä.
+* Datan käyttöoikeuskäytäntöjen määrittely uudelleenkäyttöä varten.
 
-Ennen kuin alat lisätä tietoja SD Apply -palveluun, suosittelemme keskustelemaan organisaatiossasi yleisen tietosuojatoimikunnan (DAC) muodostamisen mahdollisuudesta, joka hallinnoi pääsyä kaikkiin tietokokonaisuuksiin, joiden rekisterinpitäjä organisaatiosi on.
+## Data Access Committee (DAC) -toimikunnan perustaminen { #forming-a-data-access-committee-dac }
 
-DAC on vastuussa:
+Ennen kuin alat lisätä tietoja SD Applyhin, suosittelemme keskustelemaan organisaatiosi sisällä yleisen Data Access Committee (DAC) -toimikunnan perustamisesta, joka hallinnoi pääsyä kaikkiin aineistoihin, joiden rekisterinpitäjänä organisaatiosi toimii. 
 
-- **Uusien FEGA-lähetysten koordinoinnista ja hyväksynnästä organisaationsa sisällä**: Tarkastamalla tietokokonaisuudet, jotka lähetetään Federated EGA:an organisaationsa hallinnassa.
-- **Organisaation tietokokonaisuuksien käyttöoikeuksien hallinnasta**: Arvioimalla DAC:n hallinnoimien tietokokonaisuuksien käyttöoikeuspyyntöjä varmistaakseen määriteltyjen käytäntöjen, määräysten ja eettisten ohjeiden noudattamisen.
+DAC vastaa:
 
-## Tietokokonaisuuden lisääminen SD Apply -katalogiin {#adding-a-dataset-to-catalogue-in-sd-apply}
+- **Uusien FEGA-lähetysten koordinointi ja hyväksyntä organisaation sisällä**: Sen arviointi, mitkä aineistot lähetetään Federated EGAan organisaation nimissä ja rekisterinpitäjänä.
+- **Pääsyn hallinta organisaation aineistoihin**: DAC:n hallinnoimiin aineistoihin kohdistuvien käyttöoikeuspyyntöjen arviointi, jotta noudatetaan määriteltyjä käytäntöjä, säädöksiä ja eettisiä ohjeita.
 
-![SD Apply Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD_Apply_infographic.png)
+## Aineiston lisääminen SD Applyn luetteloon { #adding-a-dataset-to-catalogue-in-sd-apply }
 
-Tietokokonaisuuksien lisääminen SD Apply -palveluun ensimmäistä kertaa tapahtuu läheisessä yhteistyössä CSC:n Service Deskin kanssa, koska prosessi voi olla hieman monimutkainen. Varaa aikaa prosessille ja valmistaudu keskustelemaan oikeudellisen tiimisi kanssa tietojen uudelleenkäyttöön tarvittavista sopimuksista. Alla on yleisiä ohjeita, jotka ohjaavat sinua prosessin läpi.
+![SD Apply -infografiikka](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD_Apply_infographic.png)
 
-## Vaiheittainen opas {#step-by-step-guide}
+Aineistojen lisääminen SD Applyhin ensimmäistä kertaa tehdään tiiviissä yhteistyössä CSC Service Deskin kanssa, koska prosessi voi olla hieman monimutkainen. Varaa aikaa prosessille ja valmistaudu keskustelemaan lakitiimisi kanssa datan uudelleenkäyttöön tarvittavista sopimuksista. Alla on yleiset ohjeet prosessin tueksi.
 
-### 1. Pyydä organisaatioprofiilia {#request-for-organization-profile}
+## Vaiheittainen ohje { #step-by-step-guide }
 
-Ennen kuin voit lisätä tietoja SD Apply -palveluun, CSC Service Desk luo organisaatioprofiilin ja asettaa sinut organisaation ylläpitäjäksi.
+### 1. Pyydä organisaatioprofiilia { #1-request-for-organization-profile }
 
-1. Lähetä sähköpostia osoitteeseen servicedesk@csc.fi aiheenaan "SD services" pyytääksesi profiilin luomista.
-2. Kirjaudu [SD Apply -palveluun](https://sd-apply.csc.fi/).
-3. Ilmoita Service Deskille, että olet kirjautunut sisään. Service Desk lisää sinut oikeaan organisaatioon.
-4. Service Desk ilmoittaa sinulle, kun voit aloittaa tietokokonaisuuksien lisäämisen SD Apply -palveluun. 
+Ennen kuin voit lisätä tietoja SD Applyhin, CSC Service Deskin tulee luoda organisaatioprofiili ja asettaa sinut organisaation ylläpitäjäksi. 
 
-!!! huomautus
-    Käytä aina samaa identiteetin tarjoajaa (Haka/Virtu tai CSC-tunnus) kirjauduttaessa SD Apply -palveluun, koska roolisi ja hallinnoimasi tietokokonaisuudet ovat yhteydessä kirjautumisidentiteettiisi.
+1. Lähetä sähköpostia osoitteeseen servicedesk@csc.fi aiheella "SD services" ja pyydä profiilin luontia.
+2. Kirjaudu sisään [SD Apply -palveluun](https://sd-apply.csc.fi/).
+3. Ilmoita Service Deskille, että olet kirjautunut sisään. Service Desk liittää sinut oikeaan organisaatioon.
+4. Service Desk ilmoittaa, kun voit aloittaa aineistojen lisäämisen SD Applyhin. 
 
-### 2. Lisää tietokokonaisuus katalogiesineeksi {#add-dataset-as-catalogue-item}
+!!! note
+    Käytä aina samaa tunnistautumispalvelua (Haka/Virtu tai CSC-kirjautuminen) kirjautuessasi SD Applyhin, koska roolisi ja hallinnoimasi aineistot ovat sidottuja kirjautumistunnisteeseesi.
 
-Katalogiesine mahdollistaa hakijan hakea käyttöoikeutta tietokokonaisuuteesi. Kun lisäät tietokokonaisuuksia SD Apply -palveluun haettavaksi, sinun tulee ensin luoda:
+### 2. Lisää aineisto luettelokohteena { #2-add-dataset-as-catalogue-item }
 
-* **Lomake:** hakijat käyttävät hakemuslomaketta hakeakseen käyttöoikeuksia.
-* **Käytäntö (valinnainen):** Datan käyttöoikeussopimukset, jotka kuvaavat, miten hakijat voivat käyttää uudelleen dataa.
-* **DAC:** Tietosuojatoimikunta käsittelee hakemuksia.
-* **Tunniste:** tekninen tunniste tietokokonaisuudelle, esimerkiksi DOI.
+Luettelokohde mahdollistaa hakijalle aineistoosi pääsyn hakemisen. Kun lisäät aineistoja haettavaksi SD Applyn kautta, sinun on ensin luotava:
 
-Sitten yhdistät nämä kohteet luomalla katalogiesineen. Voit myös käyttää uudelleen olemassa olevia kohteita.
+* **Lomake:** hakijat käyttävät hakemuslomaketta käyttöoikeuden hakemiseen.
+* **Käytäntö (valinnainen):** käyttöehdot ja sopimukset, jotka kuvaavat, miten hakijat voivat uudelleenkäyttää dataa.
+* **DAC:** Data Access Committee käsittelee hakemukset.
+* **Tunniste:** aineiston tekninen tunniste, esimerkiksi DOI.
 
-!!! huomautus
-    Sinun on luotava lomake, käytäntö, DAC ja tunniste **ennen** kuin luot katalogiesineen.
+Sen jälkeen yhdistät nämä kohteet luomalla luettelokohteen. Voit myös käyttää olemassa olevia kohteita uudelleen. 
 
-### 2.1. Luo hakemuslomake {#create-an-application-form}
+!!! note
+    Sinun on luotava lomake-, käytäntö-, DAC- ja tunniste-kohteet ennen luettelokohteen luomista.
 
-Rekisterinpitäjä määrittelee, mitä tietoja hakijan on annettava hakemuslomakkeessa saadakseen pääsyn dataan.
+### 2.1. Luo hakemuslomake { #2-1-create-an-application-form }
 
-1. Kirjaudu SD Apply -palveluun ja siirry kohtaan Administration > Forms.
+Rekisterinpitäjä määrittelee, mitä tietoja hakijan on annettava hakemuslomakkeella saadakseen pääsyn dataan.
+
+1. Kirjaudu SD Applyhin ja siirry kohtaan Administration > Forms.
 2. Valitse **Create form**.
-3. Anna lomakkeelle kuvaileva nimi. Nimi näkyy lomakeluettelossa auttamaan sen löytämisessä, mutta sitä ei näytetä hakijalle.
+3. Anna lomakkeelle kuvaava nimi. Nimi näkyy lomakelistassa hakemisen helpottamiseksi, mutta se ei näy hakijalle.
 4. Anna lomakkeelle otsikko. Tämä näytetään hakijalle. 
-5. Lisää kenttiä, jotka haluat sisällyttää hakemukseen. Esikatselu oikealla puolella näyttää, miten hakija näkisi hakemuslomakkeen. Lomakkeen kenttävalinnat selitetään tarkemmin alla.
-6. Valitse **Tallenna**, kun olet valmis lomakkeen kanssa.
+5. Lisää kentät, jotka haluat lomakkeeseen. Esikatselu oikealla näyttää, miltä hakemuslomake näyttää hakijalle. Lomakekenttien vaihtoehdot on selitetty tarkemmin alla.
+6. Valitse **Save**, kun olet valmis.
 
-!!! huomautus
-    Voit muokata lomaketta vain niin kauan kuin sitä ei ole yhdistetty katalogiesineeseen.
+!!! note
+    Voit muokata lomaketta vain niin kauan kuin sitä ei ole liitetty luettelokohteeseen.
 
-Voit sisällyttää sopimusten osat, jotka on täytettävä suoraan SD Apply -hakemuslomakkeeseen. Loppusopimuksen sisältö voidaan toimittaa PDF-liitteenä ja lisätä käytännöksi SD Apply -palveluun, jolloin hakijat voivat tarkistaa ja hyväksyä ehdot sähköisesti pyytäessään pääsyä tietokokonaisuuteen. Tällä tavalla hakijat voivat täyttää tarvittavat osiot SD Apply -palvelun sisällä ja hyväksyä käyttöehdot ilman paperien manuaalista allekirjoittamista. Keskustele tästä mahdollisuudesta organisaatiosi oikeudellisen tiimin kanssa.
+Voit sisällyttää sopimuksista ne osat, jotka hakijan tulee täyttää, suoraan SD Applyn hakemuslomakkeeseen. Loppu sopimussisällöstä voidaan toimittaa PDF-liitteenä ja lisätä käytännöksi (policy) SD Applyhin, jolloin hakijat voivat tarkistaa ja hyväksyä ehdot sähköisesti pyytäessään pääsyä aineistoon. Näin hakijat voivat täyttää tarvittavat osiot SD Applyssa ja hyväksyä käyttöehdot ilman manuaalista allekirjoitusta. Keskustele tästä mahdollisuudesta organisaatiosi lakitiimin kanssa.
 
-#### Lomakekenttien selitykset {#form-fields-explained}
+#### Lomakekenttien selitykset { #form-fields-explained }
 
 - **Hakemuksen otsikko**: Käytä tätä kenttää, jos haluat hakijoiden antavan hakemukselleen nimen.
-- **Vaihtoehtolista**: Käytä vaihtoehtolistaa, jos haluat hakijan valitsevan yhden annetuistä vaihtoehdoista. ID-koodi on vaihtoehdon tunniste. Se näytetään esimerkiksi raporteissa, mutta hakija näkee vain etikettikentän. Esimerkiksi: Voit laittaa "Y" ID-koodiksi kyllä-vaihtoehdolle ja "N" ei-vaihtoehdolle.
-- **Monivalintalista**: Käytä monivalintalistaa, jos haluat hakijan valitsevan yhden tai useamman annetuista vaihtoehdoista.
-- **Taulukko**: Tarjoa sarakkeiden joukko taulukolle. Hakija voi lisätä niin monta riviä kuin haluaa. Kaikki sarakkeet ovat pakollisia jokaiselle riville. Voit vaatia hakijaa täyttämään vähintään yhden rivin.
-- **Sähköpostiosoite**: Sähköpostiosoitekenttä tarkistaa hakijan antaman sähköpostiosoitteen.
-- **Liite**: Hakija voi lisätä yhden tai useamman liitteen.
-- **Etiketti**: Käytä etikettejä kuvaavin teksteinä, jos haluat antaa hakijalle lisätietoja, kuten ohjeita jostakin kentästä.
-- **Otsikko**: Harkitse otsikoiden käyttämistä, jos haluat jakaa hakemuslomakkeen osioihin.
-- **Puhelinnumero**: Puhelinnumero kansainvälisessä muodossa (E.164), esimerkiksi +14155552671.
-- **IP-osoite**: IP-osoitekenttä tarkistaa hakijan antaman IP-osoitteen IPv4- tai IPv6-muodoissa. IP-osoite ei saa kuulua tunnettuun yksityiseen alueeseen.
+- **Valintalista**: Käytä valintalistaa, jos haluat hakijan valitsevan yhden annetuista vaihtoehdoista. ID-koodi on vaihtoehdon tunniste. Se näkyy esimerkiksi raporteissa, mutta hakija näkee vain selitekentät. Esimerkiksi: Voit asettaa "Y" ID-koodiksi Kyllä-vaihtoehdolle ja "N" Ei-vaihtoehdolle.
+- **Monivalintalista**: Käytä monivalintalistaa, jos haluat hakijan voivan valita yhden tai useamman annetuista vaihtoehdoista.
+- **Taulukko**: Määritä taulukon sarakkeet. Hakija voi lisätä niin monta riviä kuin haluaa. Kaikki sarakkeet ovat pakollisia jokaisella rivillä. Voit vaatia vähintään yhden rivin täyttämistä.
+- **Sähköpostiosoite**: Kenttä validoi hakijan antaman sähköpostiosoitteen.
+- **Liite**: Hakija voi lisätä yhden tai useampia liitteitä.
+- **Selite**: Käytä selitteitä kuvailevana tekstinä, jos haluat antaa hakijalle lisätietoja, kuten ohjeita, jostakin kentästä.
+- **Otsikko**: Harkitse otsikoiden käyttöä, jos haluat jakaa hakemuslomakkeen osiin.
+- **Puhelinnumero**: Puhelinnumero kansainvälisessä muodossa (E.164), esim. +14155552671.
+- **IP-osoite**: Kenttä validoi hakijan antaman IP-osoitteen IPv4- tai IPv6-muodossa. IP-osoite ei saa kuulua yksityiseen osoiteavaruuteen.
 
-#### Ehdollisten kenttien luominen {#creating-conditional-fields}
+#### Ehdollisten kenttien luominen { #creating-conditional-fields }
 
-Tarvittaessa voit luoda kenttiä, jotka ovat piilotettuja tai näkyvät hakijalle riippuen heidän vastauksistaan.
+Tarvittaessa voit luoda kenttiä, jotka ovat hakijalta piilossa tai näkyvissä hänen vastaustensa perusteella.
 
-Esimerkiksi voit luoda vaihtoehtolistan "Haluatko lisätä liitteitä?" Kyllä - Ei. Jos hakija valitsee "Kyllä", liitekenttä näytetään hakijalle. Jos he valitsevat "Ei", he eivät näe liitekenttää.
+Voit esimerkiksi luoda valintalistan "Haluatko lisätä liitteitä?" Kyllä - Ei. Jos hakija valitsee "Kyllä", liitekenttä näytetään hakijalle. Jos hän valitsee "Ei", liitekenttä ei näy.
 
-!!! huomautus
-    Ehdolliset kentät toimivat vain vaihtoehto- ja monivalintakenttien kanssa.
+!!! note
+    Ehdolliset kentät toimivat vain Valintalista- ja Monivalintalista-kenttien kanssa.
 
-1. Luo **Vaihtoehto** ja täytä vaihtoehdot
-2. Luo toinen kenttä mistä tahansa kenttätyypistä.
-3. Valitse juuri luomassasi kentässä Lisäasetukset > Näkyvä > Vain jos
-4. Kenttä: Etsi aiemmin luomasi vaihtoehtolista pudotusvalikosta
-5. Sisältää yhden arvoista: Valitse, milloin haluat kentän olevan näkyvissä. Tässä esimerkissä Kenttä 2 "Lisää yksi tai useampi liite" näytetään, jos hakija valitsee "Kyllä"-vaihtoehdon Kenttä 1:stä, "Haluatko lisätä liitteitä?".
+1. Luo **Valintalista** ja lisää vaihtoehdot.
+2. Luo toinen kenttä mitä tahansa kenttätyyppiä.
+3. Valitse juuri luomassasi kentässä Additional settings > Visible > Only if.
+4. Field: Etsi aiemmin luomasi Valintalista pudotusvalikosta.
+5. Has one of the values: Valitse, milloin lista näytetään. Tässä esimerkissä Kenttä 2 "Lisää yksi tai useampi liite" näytetään, jos hakija valitsee "Kyllä"-vaihtoehdon Kentässä 1 "Haluatko lisätä liitteitä?".
 
-Voit testata kuinka kentät toimivat esikatseluosiossa sivun oikealla puolella.
+Voit testata kenttien toiminnan sivun oikeassa reunassa olevassa esikatselussa.
 
-### 2.2. Luo käytäntö {#create-a-policy}
+### 2.2. Luo käytäntö { #2-2-create-a-policy }
 
-Käytännöt määrittelevät sopimukset ja käyttöehdot, jotka hakijan on hyväksyttävä voidakseen käyttää dataa. Käytännöt näytetään osana hakemuslomaketta ja jokaisen tutkimusryhmän jäsenen, joka hakee käyttöoikeutta, on hyväksyttävä käytännöt ennen kuin he voivat käyttää dataa.
+Käytännöt määrittävät sopimukset ja käyttöehdot, jotka hakijan on hyväksyttävä voidakseen käyttää dataa. Käytännöt näytetään osana hakemuslomaketta, ja jokaisen käyttöoikeutta hakevan tutkimusryhmän jäsenen on hyväksyttävä käytännöt ennen kuin he voivat käyttää dataa.
 
-Voit luoda kolmea erilaista käytäntöä:
+Voit luoda kolmen tyyppisiä käytäntöjä:
 
-- **Ulkoinen linkki**: Tarjoa linkki ulkoiselle sivulle käyttöehdoilla. Käytä linkkejä esimerkiksi, jos haluat lisensoida resurssejasi standardisoiduilla lisensseillä, kuten [Creative Commons](https://creativecommons.org/choose/?lang=fi).
-- **Sisäinen teksti**: Kirjoita käyttöehdot hakemuslomakkeeseen. Hakija näkee sen normaalina tekstinä lomakkeessa.
-- **Liite**: Tallenna tiedosto, jonka hakija voi ladata ja hyväksyä, kun hän täyttää hakemuslomakkeen. Suosittelemme PDF-muodon käyttöä. Suosittelemme laatimaan politiikkaliitteet siten, että hakija voi hyväksyä ne sähköisesti SD Apply -palvelussa hyväksymällä käyttöehdot.
+- **Ulkoinen linkki**: Lisää linkki ulkoiselle sivulle, jolla on käyttöehdot. Käytä linkkejä esimerkiksi silloin, kun lisensoit resurssejasi standardilisensseillä, kuten [Creative Commons](https://creativecommons.org/choose/?lang=en).
+- **Upotettu teksti**: Kirjoita käyttöehdot suoraan hakemuslomakkeeseen. Hakija näkee ne normaalina tekstinä hakemuslomakkeessa.
+- **Liite**: Lataa tiedosto, jonka hakija voi ladata ja hyväksyä täyttäessään hakemuslomaketta. Suosittelemme PDF-muotoa. Suosittelemme laatimaan liitteen siten, että hakija voi hyväksyä ehdot sähköisesti SD Applyssa.
 
-#### Datan käyttöoikeuskäytännöt Finnish Federated EGA:ssa {#data-access-policies-in-the-finnish-federated-ega}
+#### Datan käyttöpolitiikat Suomen Federated EGA:ssa { #data-access-policies-in-the-finnish-federated-ega }
 
-Tietojen siirto Finnish Federated EGA:han vaatii joukon oikeudellisia sopimuksia: palvelusopimus Federated EGA:lle ja datan käyttöoikeussopimus, mukaan lukien datan siirtosopimus.
+Datan tallettaminen Suomen Federated EGA:han edellyttää sarjaa oikeudellisia sopimuksia: Federated EGA -palvelusopimus sekä Data Access Agreement, joka sisältää Data Transfer Agreement -sopimuksen. 
 
-**Data Access Agreement**: Data Access Agreement (DAA) on sopimus tietosuojatoimikunnan (DAC) ja hakijan välillä, joka hakee käyttöoikeutta datan uudelleenkäyttöä varten. DAA:n kautta rekisterinpitäjä voi määritellä ehdot ja rajoitukset datan uudelleenkäytölle, mukaan lukien datan käytön, julkaisun, latauksen ja käyttöoikeuden hallinnointia koskevat käytännöt. DAA:n tulisi myös sisältää Data Transfer Agreement (DTA), joka on tarpeen, kun tutkijat EU/ETA:n ulkopuolisilta alueilta käyttävät dataa SD Desktopin kautta. DAA ja DTA sisällytetään SD Apply -palvelun politiikoihin. Lisätietoja saat ottamalla yhteyttä kotiorganisaatiosi oikeudellisiin palveluihin. Voit [ladata esimerkkimallin](https://ega-archive.org/assets/files/Example_DAA.doc), jonka EGA on tarjoanut.
+**Data Access Agreement**: Data Access Agreement (DAA) on sopimus Data Access Committee (DAC) -toimikunnan ja dataa uudelleenkäyttöön hakevan hakijan välillä. DAA:n avulla rekisterinpitäjä voi määritellä datan uudelleenkäytön ehdot ja rajoitukset, mukaan lukien datan käytön, julkaisemisen, lataamisen ja pääsyn säännöt. DAA:n tulisi sisältää myös Data Transfer Agreement (DTA), joka on tarpeen, kun EU/ETA-alueen ulkopuoliset tutkijat käyttävät dataa SD Desktopin kautta. DAA ja DTA sisällytetään SD Applyn käytäntöihin. Lisätietoja saat oman organisaatiosi lakipalveluista. Voit [ladata esimerkkipohjan](https://ega-archive.org/assets/files/Example_DAA.doc), jonka EGA on toimittanut.
 
-Konsultoi organisaatiosi oikeudellisia asiantuntijoita määrittääksesi sopivat datan käyttöoikeuskäytännöt tähän tarkoitukseen.
+Kysy organisaatiosi lakiasiantuntijoilta sopivat datan käyttöpolitiikat tähän tarkoitukseen.  
 
-Käytännöt ovat valinnaisia. Et voi muokata käytäntöä sen luomisen ja tallentamisen jälkeen.
+Käytännöt ovat valinnaisia. Käytäntöä ei voi muokata sen luomisen ja tallentamisen jälkeen.
 
-### 2.3. Luo DAC {#create-a-dac}
+### 2.3. Luo DAC { #2-3-create-a-dac }
 
-Luomalla DAC:n asetat tietosuojatoimikunnan (DAC) jäsenet hakemuskäsittelijöiksi. He hyväksyvät tai hylkäävät datahaun tietokokonaisuuksien käyttöoikeuspyynnöt ja saavat sähköposti-ilmoitukset uusista hakemuksista.
+Luomalla DAC:n määrität Data Access Committee (DAC) -toimikunnan jäsenet hakemusten käsittelijöiksi. He hyväksyvät tai hylkäävät organisaatiosi aineistoihin kohdistuvat käyttöoikeuspyynnöt ja saavat ilmoituksia uusista hakemuksista sähköpostitse.
 
-Voit valita kahden eri prosessin välillä: dynaaminen prosessi ja päätösprosessi. Valitse organisaatiollesi parhaiten sopiva. Muista antaa DAC:lle kuvaileva nimi, jotta löydät sen helpommin myöhemmin.
+Voit valita kahdesta eri prosessista: oletusprosessi ja päättäjäprosessi. Valitse organisaatiollesi parhaiten soveltuva. Muista antaa DAC:lle kuvaava nimi, jotta löydät sen myöhemmin helpommin.
 
-- **Oletusprosessi**: DAC-jäsenet vastaavat täysin hakemusten hyväksymisestä tai hylkäämisestä. Lisäksi voi olla arvioijia ja päättäjiä. Vain yhden DAC-jäsenen on hyväksyttävä hakemus.
+- **Oletusprosessi**: DAC:n jäsenet vastaavat täysimääräisesti hakemusten hyväksymisestä tai hylkäämisestä. Lisäksi mukana voi olla arvioijia ja päättäjiä. Vain yhden DAC-jäsenen täytyy hyväksyä hakemus. 
 
-- **Päättäjäprosessi**: Oletusprosessin rajoitettu versio. DAC-jäsenillä ei ole valtuuksia hyväksyä tai hylätä hakemuksia. Heidän on pyydettävä erillistä päättäjäkäyttäjää hyväksymään tai hylkäämään hakemus.
+- **Päättäjäprosessi**: Oletusprosessin rajoitettu versio. DAC:n jäsenillä ei ole valtuuksia hyväksyä tai hylätä hakemuksia. Heidän on pyydettävä erillistä päättäjäkäyttäjää hyväksymään tai hylkäämään hakemus. 
 
-#### DAC-jäsenten nimeäminen {#assign-dac-members}
+#### Määritä DAC-jäsenet { #assign-dac-members }
 
-Lisää DAC-jäsenet hakemuksen käsittelijöiksi etsimällä käyttäjää käyttäjänimellä tai valitsemalla sen pudotusvalikosta. Suosittelemme **nimittämään enemmän kuin yhden käsittelijän DAC:lle** varmistaaksesi, että hakemuksia käsittelemään on tarpeeksi käsittelijöitä.
+Lisää DAC-jäsenet hakemusten käsittelijöiksi etsimällä käyttäjää käyttäjänimellä tai valitsemalla hänet pudotusvalikosta. Suosittelemme **määrittämään enemmän kuin yhden käsittelijän DAC:iin**, jotta hakemuksia on riittävästi käsittelemässä. 
 
-!!! huomautus
-    Voit **löytää vain ne käsittelijät, jotka ovat kirjautuneet SD Apply -palveluun**. Jos et löydä etsimääsi käsittelijää, pyydä häntä kirjautumaan sisään ja yritä uudelleen.
+!!! note
+    Löydät **vain sellaiset käsittelijät, jotka ovat aiemmin kirjautuneet SD Applyhin**. Jos et löydä etsimääsi käsittelijää, pyydä häntä kirjautumaan sisään ja yritä uudelleen.
 
-Jos haluat piilottaa hakemuksen käsittelijöiden (DAC, arvioijat, päättäjät) nimet hakijalta, valitse valintaruutu *Anonymized handling*.
+Jos haluat piilottaa hakemusten käsittelijöiden (DAC, arvioijat, päättäjät) nimet hakijalta, valitse valintaruutu *Anonymized handling*.
 
-DAC-jäsenet eivät saa ilmoitusta, kun heidät on nimetty käsittelijäksi, mutta he saavat sähköpostia uusista hakemuksista.
+DAC:n jäsenille ei lähetetä ilmoitusta silloin, kun heidät on lisätty käsittelijöiksi, mutta he saavat sähköposteja uusista hakemuksista.
 
-#### Lisää lomake DAC:lle {#add-a-form-to-a-dac}
+#### Lisää lomake DAC:iin { #add-a-form-to-a-dac }
 
-Jos tiedät, että kaikki organisaatiosi hallinnoimat tietokokonaisuudet SD Apply -palvelussa käyttävät samaa hakemuslomaketta, voit yhdistää luomasi lomakkeen DAC:llä valitsemalla lomakkeen pudotusvalikosta.
+Jos tiedät, että kaikki organisaatiosi SD Applyssa hallinnoimat aineistot käyttävät samaa hakemuslomaketta, voit liittää luomasi lomakkeen DAC:iin valitsemalla sen pudotusvalikosta.  
 
-Jos haluat esittää tietokokonaisuuskohtaisia kysymyksiä hakijalta, voit luoda kaksi hakemuslomaketta ja yhdistää yleisiä kysymyksiä sisältävän lomakkeen DAC:lle ja toisen tietokokonaisuuskohtaisia kysymyksiä sisältävän lomakkeen katalogiesineelle. Tällöin hakija näkee hakemuslomakkeet kahdessa osassa ja täyttää molemmat lomakkeet.
+Jos haluat kysyä hakijalta aineistokohtaisia kysymyksiä, voit luoda kaksi hakemuslomaketta ja liittää yleiset kysymykset sisältävän lomakkeen DAC:iin ja aineistokohtaiset kysymykset sisältävän lomakkeen luettelokohteeseen. Tällöin hakija näkee hakemuksen kahtena osana ja täyttää molemmat.
 
-#### Lisää käytäntö DAC:lle {#add-a-policy-to-a-dac}
+#### Lisää käytäntö DAC:iin { #add-a-policy-to-a-dac }
 
-Jos tiedät, että kaikilla organisaatiosi SD Apply -palvelussa hallinnoimilla tietokokonaisuuksilla on samat käyttöehdot ja sopimukset, voit yhdistää luomasi käytännöt DAC:lle valitsemalla ne pudotusvalikosta.
+Jos tiedät, että kaikilla organisaatiosi SD Applyssa hallinnoimilla aineistoilla on samat käyttöehdot ja sopimukset, voit liittää luomasi käytännöt DAC:iin valitsemalla ne pudotusvalikosta.
 
-Valitettavasti meillä on tällä hetkellä tekninen rajoitus PDF-liitteiden kokoon, joka on 1 MB. **Ole hyvä ja optimoi PDF-tiedostosi ennen lisäämistä SD Apply -palveluun**.
+Valitettavasti meillä on tällä hetkellä tekninen rajoitus, jonka vuoksi PDF-liitteiden maksimikoko on 1 MB. **Optimoi PDF-tiedostosi ennen kuin lisäät sen SD Applyhin**.  
 
-Tällä tavoin nämä käytännöt lisätään automaattisesti kaikkiin katalogiesineisiin, jotka käyttävät samaa DAC:ta. Voit myös lisätä tietokokonaisuuskohtaisia käyttöehtoja yhdistämällä käytännön tunnisteeseen.
+Tällä tavalla nämä käytännöt lisätään automaattisesti kaikkiin luettelokohteisiin, joissa käytetään samaa DAC:ia. Voit myös lisätä aineistokohtaiset käyttöehdot liittämällä käytännön tunnisteeseen.
 
-### 2.4. Luo tunniste {#create-a-identifier}
+### 2.4. Luo tunniste { #2-4-create-a-identifier }
 
-Kun tutkija lähettää tietoja Federated EGA:lle, hän saa yksilöllisen tunnisteen tietokokonaisuudelleen, esimerkiksi EGAD12345. Jotta tietokokonaisuus olisi saatavilla uudelleenkäyttöön SD Apply -palvelussa, FEGA-lähettäjän tulisi lähettää tämä tunniste rekisterinpitäjälle, jotta se voidaan lisätä SD Apply -palveluun.
+Kun tutkija toimittaa dataa Federated EGA:han, hän saa aineistolleen yksilöllisen tunnisteen, esimerkiksi EGAD12345. Jotta aineisto olisi haettavissa uudelleenkäyttöön SD Applyn kautta, FEGA-lähettäjän tulee toimittaa tämä tunniste rekisterinpitäjälle, jotta se voidaan lisätä SD Applyhin. 
 
-1. Lisää tunniste, jonka FEGA-lähettäjä on antanut sinulle tunnistekenttään.
-2. Valitse käytännöt, jotka haluat liittää tunnisteeseesi, valitsemalla luomasi käytännöt pudotusvalikosta. Käytännöt ovat valinnaisia.
+1. Lisää FEGA-lähettäjän toimittama tunniste tunniste-kenttään. 
+2. Valitse käytännöt, jotka haluat liittää tunnisteeseen, valitsemalla luomasi käytännöt pudotusvalikosta. Käytännöt ovat valinnaisia.
 
-!!! huomautus
-    Et voi muokata tunnistetta sen luomisen ja tallentamisen jälkeen. Jos haluat muuttaa jotain tunnisteen luomisen jälkeen, sinun tulee luoda uusi tunniste ja arkistoida vanha.
+!!! note
+    Et voi muokata tunnistetta sen luomisen ja tallentamisen jälkeen. Jos haluat muuttaa jotakin tunnisteen luomisen jälkeen, luo uusi tunniste ja arkistoi vanha.
 
-### 2.5. Luo katalogiesine {#create-a-catalogue-item}
+### 2.5. Luo luettelokohde { #2-5-create-a-catalogue-item }
 
-Katalogiesine yhdistää luomasi kohteet yhdeksi tietokokonaisuudeksi, johon hakija voi hakea käyttöoikeutta.
+Luettelokohde yhdistää luomasi kohteet yhdeksi aineistoksi, johon hakija voi hakea käyttöoikeutta. 
 
-1. Kirjoita kuvaileva nimi tietokokonaisuudelle otsikkokenttään. Se helpottaa hakijan tunnistamista, mihin tietokokonaisuuteen he haluavat hakea käyttöoikeutta.
-2. Jos tietokokonaisuudesta on lisätietoja toisella verkkosivulla, voit lisätä linkin *Lisätietoa*-kenttään.
-3. Valitse luomasi DAC pudotusvalikosta.
-4. Valitse tunniste haluamallesi tietokokonaisuudelle SD Apply -palveluun tunnisteen pudotusvalikosta.
-5. Jos et yhdistänyt lomaketta DAC:lle, valitse luomasi hakemuslomake pudotusvalikosta.
+1. Anna otsikkokenttään aineistoa kuvaava nimi. Se helpottaa hakijoita tunnistamaan, mihin aineistoon he haluavat hakea pääsyä.
+2. Jos aineistosta on lisätietoja toisella verkkosivulla, voit lisätä linkin More info -kenttään.
+3. Valitse luomasi DAC DAC-pudotusvalikosta.
+4. Valitse SD Applyhin lisättävän aineiston tunniste tunnisteen pudotusvalikosta.
+5. Jos et liittänyt lomaketta DAC:iin, valitse luomasi hakemuslomake pudotusvalikosta.
 6. Valitse kategoriaksi FEGA.
-7. **Ota katalogiesine käyttöön, jotta se näkyy hakijoille**. Katalogiesine on alun perin poistettu käytöstä, joten kukaan ei voi hakea siihen käyttöoikeutta ennen kuin se otetaan käyttöön. Kun olet ottanut käyttöön katalogiesineen, se näytetään tietokokonaisuutena Katalogisivulla.
+7. **Ota luettelokohde käyttöön, jotta se näkyy hakijoille**. Luettelokohde on aluksi poistettu käytöstä, eikä kukaan voi hakea siihen pääsyä ennen sen käyttöönottoa. Kun otat luettelokohteen käyttöön, se näkyy aineistona Catalogue-sivulla.
 
-#### Katalogiesineiden muokkaus {#editing-catalogue-items}
+#### Luettelokohteiden muokkaaminen { #editing-catalogue-items }
 
-Voit muokata katalogiesineen nimeä, organisaatiota ja lisätietolinkkejä valitsemalla muokkaa.
+Voit muokata luettelokohteen nimeä, organisaatiota ja lisätietolinkkejä valitsemalla Muokkaa.
 
-!!! huomautus
-    Tallentamisen jälkeen et voi muokata katalogiesineeseen yhdistettyä lomaketta, DAC:ta tai tunnistetta. Muokkaaminen ei myöskään ole mahdollista, kun jokin osa katalogiesineestä on poistettu käytöstä.
+!!! note
+    Tallennuksen jälkeen et voi muokata luettelokohteeseen liitettyä lomaketta, DAC:ia tai tunnistetta. Muokkaus ei myöskään ole mahdollista, kun jokin luettelokohteen osa on poistettu käytöstä.
 
-Jos haluat muuttaa yhden tai useamman katalogiesineiden hakemuslomaketta ja/tai DAC:ta, valitse muokattavat katalogiesineet klikkaamalla valintaruutua ja valitse sitten **Päivitä katalogiesine**.
+Jos haluat muuttaa yhden tai useamman luettelokohteen hakemuslomaketta ja/tai DAC:ia, valitse muokattavat luettelokohteet valintaruudulla ja valitse **Update catalogue item**.
 
-Tämä **poistaa käytöstä ja arkistoi vanhan katalogiesineen** ja luo uuden päivitetyn katalogiesineen. Tämä tarkoittaa, että hakijat eivät näe tai hae pääsyä vanhaan katalogiesineeseen enää.
+Tämä **poistaa käytöstä ja arkistoi vanhan luettelokohteen** ja luo uuden päivitetyn luettelokohteen. Tämä tarkoittaa, että hakijat eivät enää näe vanhaa luettelokohdetta eivätkä voi hakea siihen pääsyä.
 
-## Lisää tietokokonaisuuksia organisaatiosi alle {#adding-more-datasets-under-your-organisation}
+## Lisää aineistoja organisaatiosi alle { #adding-more-datasets-under-your-organisation }
 
-Kun olet kerran luonut lomakkeen, tarvittavat käytännöt ja DAC:n, voit käyttää näitä kohteita uudelleen tulevissa tietokokonaisuuksien lähetyksissä, jos tietokokonaisuuksilla on sama DAC.
+Kun olet kerran luonut lomakkeen, tarvittavat käytännöt ja DAC:n, voit käyttää näitä kohteita uudelleen tulevissa aineistolisäyksissä, jos aineistoilla on sama DAC.
 
-Lisää uusi tietokokonaisuus SD Apply -katalogiin samalla DAC:lla:
+Uuden aineiston lisääminen SD Applyn luetteloon samalla DAC:illa:
 
-1. Luo uusi **tunniste**. FEGA-lähettäjän tulisi toimittaa sinulle yksilöllinen tunniste tietokokonaisuudelleen.
-2. Luo **katalogiesine** yhdistämällä aiemmin luomasi kohteet (tunniste, lomake, DAC)
-3. Ota katalogiesine käyttöön, jotta se näkyy hakijoille.
+1. Luo uusi **tunniste**. FEGA-lähettäjän tulee toimittaa sinulle aineistonsa yksilöllinen tunniste. 
+2. Luo **luettelokohde** yhdistämällä aiemmin luomasi kohteet (tunniste, lomake, DAC).
+3. Ota luettelokohde käyttöön, jotta se näkyy hakijoille.
 
-Varmista, että tarvittavat sopimukset on joko yhdistetty käyttämääsi DAC:iin tai jokaiseen uuteen tunnisteeseen, jonka lisäät SD Apply -palveluun.
+Varmista, että tarvittavat sopimukset on liitetty joko käyttämääsi DAC:iin tai jokaiseen SD Applyhin lisäämääsi uuteen tunnisteeseen.
 
-## Kohteiden poistaminen käytöstä ja arkistointi {#disabling-and-arching-items}
+## Kohteiden poistaminen käytöstä ja arkistointi { #disabling-and-archiving-items }
 
 Voit poistaa käytöstä ja arkistoida kaikki kohteet. Poistaminen ei ole mahdollista, koska haluamme tarjota täyden tapahtumahistorian tietoturvasyistä.
 
-### Kohteiden poistaminen käytöstä {#disabling-items}
+### Kohteiden poistaminen käytöstä { #disabling-items }
 
-Kun poistat kohteen, esimerkiksi lomakkeen, käytöstä, sitä **ei voi enää käyttää uusissa katalogiesineissä**. Poistetut kohteet piilotetaan pudotusvalikoista.
+Kun poistat kohteen, esimerkiksi lomakkeen, käytöstä, sitä **ei voi enää käyttää uusissa luettelokohteissa**. Käytöstä poistetut kohteet piilotetaan pudotusvalikoista.
 
-**Jos poistat käytöstä katalogiesineen**, hakija ei voi enää hakea siihen käyttöoikeutta. Jos hakija on kuitenkin hakenut katalogiesineeseen käyttöoikeutta ennen poistamista, käsittelijä voi silti viimeistellä hakemusprosessin hyväksymällä tai hylkäämällä hakemuksen.
+**Jos poistat luettelokohteen käytöstä**, hakija ei voi enää hakea siihen pääsyä. Jos hakija on kuitenkin hakenut pääsyä luettelokohteeseen ennen käytöstä poistamista, käsittelijä voi edelleen viedä hakemuksen käsittelyn loppuun ja hyväksyä tai hylätä hakemuksen.
 
-Voit ottaa poistetut kohteet uudelleen käyttöön.
+Voit ottaa käytöstä poistetut kohteet uudelleen käyttöön.
 
-### Arkistointi {#archiving}
+### Arkistointi { #archiving }
 
-Arkistointi **piilottaa kohteen hallintanäkymästä ja hakijoilta**. Jos haluat tarkastella arkistoituja kohteita, valitse **Näytä arkistoidut**. Suosittelemme arkistoimaan vanhat, ei enää käytössä olevat kohteet.
+Arkistointi **piilottaa kohteen hallintanäkymästä ja hakijoilta**. Jos haluat tarkastella arkistoituja kohteita, valitse **Display archived**. Suosittelemme arkistoimaan vanhat kohteet, jotka eivät ole enää käytössä.
 
-Voit poistaa arkistoinnin arkistoiduilta kohteilta.
+Voit poistaa kohteiden arkistoinnin.
 
-Käsittelijöille ilmoitetaan, jos katalogiesine, johon hakija on hakenut käyttöoikeutta, on poistettu käytöstä tai arkistoitu.
+Käsittelijöille näytetään varoitus, jos luettelokohde, johon hakija on hakenut pääsyä, on poistettu käytöstä tai arkistoitu. 
 
-## Tuki {#support}
+## Tuki { #support }
 
-Jos sinulla on kysyttävää SD Apply -palvelun käytöstä, ota yhteyttä [CSC Service Deskiin](../../support/contact.md) (aihe: SD Apply).
+Jos sinulla on kysyttävää SD Applyn käytöstä, ota yhteyttä [CSC Service Deskiin](../../support/contact.md) (aihe: SD Apply).

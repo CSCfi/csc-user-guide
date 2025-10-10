@@ -1,191 +1,79 @@
-# Working with large language models on supercomputers
+# Työskentely suurten kielimallien kanssa supertietokoneilla { #working-with-large-language-models-on-supercomputers }
 
-This guide gives some examples and hints on how to work with large
-language models (LLMs) on CSC's supercomputers.
+Tämä opas antaa esimerkkejä ja vinkkejä siitä, miten suurten kielimallien (LLM) kanssa työskennellään CSC:n supertietokoneilla. Se on osa [koneoppimisopastamme](ml-guide.md).
 
-## LLMs and GPU memory
+## LLM:t ja GPU-muisti { #llms-and-gpu-memory }
 
-If you are doing inference (using a model, rather than training), you
-can in some cases do without a GPU, for example if the model is small
-enough or has been reduced by quantization. However, in most other
-cases you will need to use a GPU.
+Jos teet inferenssiä (käytät mallia, etkä kouluta sitä), voit joissain tapauksissa pärjätä ilman GPU:ta, esimerkiksi jos malli on riittävän pieni tai sitä on pienennetty kvantisoinnilla. Useimmissa muissa tapauksissa tarvitset kuitenkin GPU:n.
 
-In order to use an LLM (or any neural network) with a GPU, the model
-needs to be loaded into the GPU memory (VRAM). LLMs can be very large
-and here the size of the GPU memory becomes critical. You can refer to
-[our table of GPU stats](gpu-ml.md#puhti-mahti-or-lumi) for the full
-details, but our GPUs have VRAM memory as follows:
+Jotta LLM:ää (tai mitä tahansa neuroverkkoa) voidaan käyttää GPU:lla, malli on ladattava GPU-muistiin (VRAM). LLM:t voivat olla hyvin suuria, ja tällöin GPU-muistin koko on kriittinen. Voit katsoa tarkemmat tiedot [GPU-tilastoistamme](gpu-ml.md#puhti-mahti-or-lumi), mutta GPU:idemme VRAM-muistit ovat seuraavat:
 
-- 32 GB on Puhti (NVIDIA V100)
-- 40 GB on Mahti (NVIDIA A100)
-- 64 GB on LUMI (single GCD of an AMD MI250x)
+- 32 GB Puchtissa (NVIDIA V100)
+- 40 GB Mahtissa (NVIDIA A100)
+- 64 GB LUMIssa (yhden GCD:n AMD MI250x)
 
-The model size in memory depends on how the weights are
-stored. Typically a regular floating point value in a computer is
-stored in a format called fp32, which uses 32 bits of memory, or 4
-bytes (remember 8 bits = 1 byte). In deep learning, 16 bit floating
-point formats (fp16 of bf16) have been used for a long time to speed
-up part of the computation. These use 2 bytes of memory per
-weight. Recently, as model sizes have grown, even lower-precision
-formats, going down to 8 or even 4 bits, have become more
-common. Common quantization methods include
-[GPTQ](https://arxiv.org/abs/2210.17323),
-[SpQR](https://arxiv.org/abs/2306.03078) and
-[GGML/GGUF](https://huggingface.co/docs/hub/en/gguf). If you are
-unfamiliar with quantization, see for example [this online guide on
-quantization for
-LLMs](https://www.datacamp.com/tutorial/quantization-for-large-language-models).
+Mallin koko muistissa riippuu siitä, miten painot tallennetaan. Tyypillisesti tavallinen liukuluku tallennetaan muodossa fp32, joka käyttää 32 bittiä muistia eli 4 tavua (muista: 8 bittiä = 1 tavu). Syväoppimisessa 16-bittisiä liukulukumuotoja (fp16 tai bf16) on käytetty pitkään nopeuttamaan osaa laskennasta. Nämä käyttävät 2 tavua muistia per paino. Viime aikoina, kun mallien koot ovat kasvaneet, vielä pienempää tarkkuutta käyttävät muodot, aina 8 tai jopa 4 bittiin, ovat yleistyneet. Yleisiä kvantisointimenetelmiä ovat [GPTQ](https://arxiv.org/abs/2210.17323), [SpQR](https://arxiv.org/abs/2306.03078) ja [GGML/GGUF](https://huggingface.co/docs/hub/en/gguf). Jos kvantisointi ei ole tuttua, katso esimerkiksi [tämä verkkoguide kvantisoinnista LLM:ille](https://www.datacamp.com/tutorial/quantization-for-large-language-models).
 
-The model size in memory is then the number of parameters times the
-number of bytes needed for storing a single weight. For example a 30
-billion parameter model with fp16 takes up 60 GB of memory. In
-practice [for inference there's up to 20% overhead][1] so you might
-actually need around 70 GB of memory, and thus even a single GCD in
-LUMI might not be enough for our example model. If you would instead
-store that model with 4 bit quantization, it would be about 0.5 bytes
-per parameter, so around 15 GB for our example (or around 18 GB with
-overhead).
+Mallin koko muistissa on parametrien lukumäärä kerrottuna yhden painon tallentamiseen tarvittavien tavujen määrällä. Esimerkiksi 30 miljardin parametrin malli fp16-muodossa vie 60 GB muistia. Käytännössä [inferenssissä on jopa 20 % overheadia][1], joten saatat tarvita noin 70 GB muistia, eikä edes yksi GCD LUMIssa välttämättä riitä esimerkkimallille. Jos sen sijaan tallennat mallin 4 bitin kvantisoinnilla, se on noin 0,5 tavua parametria kohden, eli noin 15 GB esimerkissämme (tai noin 18 GB overheadin kanssa).
 
-For training a lot more memory is needed as not only the model, but
-also the optimizer states, gradients and activations need to be
-stored. As a *very* rough estimate, around 4-6x the model size (in GB)
-is needed for fine-tuning a model, but this depends a lot on the
-details. So for our example 30B parameter fp16 model, it might require
-60 GB x 6 = 360 GB of GPU memory for training! We'll discuss ways to
-solve this problem in the sections below. See the [Transformer Math
-101 blog post by EleutherAI for more details][1].
+Koulutuksessa muistia tarvitaan huomattavasti enemmän, koska mallin lisäksi myös optimoijan tilat, gradientit ja aktivoinnit on säilytettävä. Hyvin karkeana arviona hienosäätöön tarvitaan noin 4–6 kertaa mallin koko (GB), mutta tämä riippuu paljon yksityiskohdista. Esimerkin 30B parametrin fp16-mallille tämä voisi tarkoittaa 60 GB x 6 = 360 GB GPU-muistia koulutusta varten! Käsittelemme keinoja ratkaista tätä ongelmaa alla. Katso myös [EleutherAI:n Transformer Math 101 -blogikirjoitus][1].
 
-## Fine-tuning LLMs
+## LLM:ien hienosäätö { #fine-tuning-llms }
 
-We have a [git repository with some example scripts for doing LLM
-fine-tuning on Puhti, Mahti or LUMI][2]. The example uses the [Hugging
-Face (HF) libraries][3] and in particular the HF Trainer to train a
-given model (taken from the HF model repositories) with the IMDb movie
-review dataset. The task itself might not make much sense, it's just
-used to demonstrate the technical task of fine-tuning a model with a
-given dataset.
+Meillä on [git-repositorio, jossa on esimerkkiskriptejä LLM:ien hienosäätöön Puhtissa, Mahtissa tai LUMIssa][2]. Esimerkki käyttää [Hugging Face (HF) -kirjastoja][3] ja erityisesti HF Traineria kouluttamaan tietty malli (HF:n mallirepositorioista) IMDb-elokuva-arvosteluaineistolla. Itse tehtävä ei välttämättä ole järin mielekäs, vaan tarkoitus on demonstroida mallin hienosäädön teknistä toteutusta annetulla aineistolla.
 
-The examples, by default, use the [EleutherAI/gpt-neo-1.3B][4] model,
-as it will fit into the memory of a single GPU in Puhti. Given that
-it's a 1.37 billion parameter model with 32 bit weights, according to
-our rule-of-thumb, mentioned above, it might require up to 1.37x4x6 =
-32 GB of memory for training, so it should just fit into the 32 GB
-maximum of Puhti's V100 (if we're lucky).
+Esimerkit käyttävät oletuksena [EleutherAI/gpt-neo-1.3B][4] -mallia, koska se mahtuu yhden GPU:n muistiin Puhtissa. Koska kyseessä on 1,37 miljardin parametrin malli 32-bittisillä painoilla, peukalosääntömme mukaan se saattaa vaatia jopa 1,37x4x6 = 32 GB muistia koulutuksessa, joten sen pitäisi juuri ja juuri mahtua Puhtin V100:n 32 GB maksimimuistiin (jos olemme onnekkaita).
 
-The repository has basic launch scripts for Puhti, Mahti and LUMI for
-a single GPU, a full node (4 GPUs or Puhti/Mahti and 8 GPUs on LUMI)
-and two full nodes (8 respectively 16 GPUs). The Slurm scripts are
-essentially the same as for any PyTorch DDP runs, see our [Multi-GPU
-and multi-node ML guide](ml-multi.md#pytorch-ddp) for examples, or
-just take a look at [the scripts in the GitHub repository][2]:
+Repositoriossa on peruskäynnistysskriptit Puhtiin, Mahtiin ja LUMIin yhdelle GPU:lle, kokonaiselle solmulle (4 GPU:ta Puhtissa/Mahtissa ja 8 GPU:ta LUMIssa) ja kahdelle kokonaiselle solmulle (vastaavasti 8 tai 16 GPU:ta). Slurm-skriptit ovat käytännössä samoja kuin missä tahansa PyTorch DDP -ajoissa; katso [oppaamme monen GPU:n ja monen solmun ML:stä](ml-multi.md#pytorch-ddp) esimerkkejä tai vilkaise suoraan [GitHub-repositorion skriptejä][2]:
 
-- [`run-finetuning-puhti-gpu1.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu1.sh) - fine-tuning on Puhti with 1 GPU
-- [`run-finetuning-puhti-gpu4.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4.sh) - fine-tuning on Puhti with one full node (4 GPUs)
-- [`run-finetuning-puhti-gpu8.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8.sh) - fine-tuning on Puhti with two full nodes (8 GPUs in total)
+- [`run-finetuning-puhti-gpu1.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu1.sh) – hienosäätö Puhtissa yhdellä GPU:lla
+- [`run-finetuning-puhti-gpu4.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4.sh) – hienosäätö Puhtissa yhdellä kokonaisella solmulla (4 GPU:ta)
+- [`run-finetuning-puhti-gpu8.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8.sh) – hienosäätö Puhtissa kahdella kokonaisella solmulla (yhteensä 8 GPU:ta)
 
-(The repository also has scripts for Mahti and LUMI if you check the
-[file listing][2].)
+(Repositoriossa on myös skriptejä Mahtiin ja LUMIin; katso [tiedostolistausta][2].)
 
-The basic multi-GPU versions are all using PyTorch Distributed Data
-Parallel (DDP) mode, in which each GPU has a full copy of the
-model. Only the training data is distributed across the different
-GPUs. This means that the full model must fit into a single GPU.
+Perus monen GPU:n versiot käyttävät kaikki PyTorch Distributed Data Parallel (DDP) -tilaa, jossa jokaisella GPU:lla on täysi kopio mallista. Vain koulutusdata jaetaan eri GPU:ille. Tämä tarkoittaa, että koko mallin on mahduttava yhdelle GPU:lle.
 
-If your model doesn't fit into a single GPU on Puhti, it might work on
-Mahti or LUMI, but first check with the rule-of-thumb calculation
-mentioned above if there's even a chance of that! If not, read on for
-PEFT and FSDP approaches.
+Jos mallisi ei mahdu yhdelle GPU:lle Puhtissa, se saattaa toimia Mahtissa tai LUMIssa, mutta tarkista ensin yllä mainitulla peukalosäännöllä, onko se edes mahdollista! Jollei, lue eteenpäin PEFT- ja FSDP-lähestymistavoista.
 
-### Using PEFT and LoRA
+### PEFT ja LoRA { #using-peft-and-lora }
 
-If your model would fit into the GPU memory, it is still possible that
-all the extra memory needed by the overhead of the fine-tuning process
-will not fit (you will notice this quickly as the program crashes with
-a CUDA or ROCm out-of-memory error!). Then the solution may be to use
-the [Parameter Efficient Fine-Tuning (PEFT)][5] library which trains a
-smaller number of extra parameters, which reduces the training
-overhead a substantially. PEFT supports many methods including
-[LoRA](https://arxiv.org/abs/2106.09685) and
-[QLoRA](https://arxiv.org/abs/2305.14314).
+Vaikka mallisi mahtuisi GPU-muistiin, on silti mahdollista, että hienosäätöprosessin vaatima lisämuisti ei mahdu (tämän huomaa nopeasti, kun ohjelma kaatuu CUDA- tai ROCm out-of-memory -virheeseen!). Tällöin ratkaisuna voi olla [Parameter Efficient Fine-Tuning (PEFT)][5] -kirjasto, joka kouluttaa pienemmän määrän lisäparametreja ja vähentää näin koulutuksen overheadia merkittävästi. PEFT tukee monia menetelmiä, kuten [LoRA](https://arxiv.org/abs/2106.09685) ja [QLoRA](https://arxiv.org/abs/2305.14314).
 
-PEFT will typically have about 10% of the original number of
-parameters, but the amount of GPU memory saved varies depending on the
-situation. We have seen savings from 5% to 60%.
+PEFT:llä parametrien määrä on tyypillisesti noin 10 % alkuperäisestä, mutta GPU-muistin säästö vaihtelee tilanteen mukaan. Olemme nähneet säästöjä 5–60 %.
 
-PEFT is very easy to enable, see the [PEFT quicktour][6] for an
-example. PEFT can be enabled in the example above simply by adding the
-flag `--peft`. It might pay to [dig a bit deeper into the best
-parameters for using LoRA for example][8].
+PEFT on hyvin helppo ottaa käyttöön; katso [PEFT quicktour][6] esimerkkiä varten. Yllä olevaan esimerkkiin PEFT voidaan ottaa käyttöön lisäämällä lippu `--peft`. Kannattaa myös [perehtyä hieman syvemmin esimerkiksi LoRA:n hyviin parametreihin][8].
 
+### Accelerate ja FSDP { #using-accelerate-and-fsdp }
 
-### Using Accelerate and FSDP
+Suuremmille malleille, jotka eivät mahdu GPU-muistiin (edes inferenssissä), tarvitset lähestymistavan, joka jakaa itse mallin (sekä koulutuksen overheadin) useille GPU:ille. Emme voi enää pitää täyttä kopiota mallista jokaisessa GPU:ssa.
 
-For larger models that do not fit into the GPU memory (even for
-inference), you need to use an approach that splits the actual model
-(and the training overhead) over multiple GPUs. We can no longer
-retain a full copy of the model in each GPU.
+Hyvä lähestymistapa, jota PyTorch tukee natiivisti, on [Fully Sharded Data Parallel (FSDP)][7]. FSDP:ssä mallin parametreja, gradientteja ja optimoijan tiloja ei säilytetä kokonaan jokaisessa GPU:ssa, vaan ne jaetaan (shardataan) kaikkien GPU:iden kesken ja kootaan yhteen vain silloin, kun niitä tarvitaan kulloisessakin koulutusvaiheessa.
 
-A good approach, which is supported natively in PyTorch is [Fully
-Sharded Data Parallel (FSDP)][7]. In FSDP the model parameters,
-gradients and optimizer states are not stored completely in each GPU,
-but are split up (sharded) between all GPUs and only gathered together
-as needed in the current stage of the training.
+Ehkä helpoin tapa ottaa FSDP käyttöön suurilla kielimalleilla on käyttää Hugging Facen Accelerate-kehystä. PyTorch-skriptiin ei tarvita muutoksia; riittää, että vaihdetaan `accelerate`-käynnistimeen. [GitHub-repositoriossamme][2] on esimerkkiskriptit ajamiseen yhdellä tai kahdella täydellä solmulla Puhtissa:
 
-Perhaps the easiest way to take FSDP into use for large language models
-is to use Hugging Face's Accelerate framework. No changes are needed
-to the PyTorch script, one only needs to change to the `accelerate`
-launcher. [Our GitHub repository][2] has example scripts for launching
-on one or two full nodes on Puhti:
+- [`run-finetuning-puhti-gpu4-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4-accelerate.sh) – hienosäätö Puhtissa yhdellä kokonaisella solmulla Acceleratella
+- [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh) – hienosäätö Puhtissa kahdella kokonaisella solmulla Acceleratella
 
-- [`run-finetuning-puhti-gpu4-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4-accelerate.sh) - fine-tuning on Puhti with one full node using Accelerate
-- [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh) - fine-tuning on Puhti with two full nodes using Accelerate
+(Repositoriossa on myös skriptejä Mahtiin ja LUMIin; katso [tiedostolistausta][2].)
 
-(The repository also has scripts for Mahti and LUMI if you check the
-[file listing][2].)
+[Moni-GPU- ja monisolmu-ML-oppaassamme](ml-multi.md#accelerate) on myös Slurm-esimerkkiskriptejä Acceleraten ja FSDP:n käyttöön.
 
-Our [Multi-GPU and multi-node ML guide](ml-multi.md#accelerate) also
-has Slurm script examples for using Accelerate with FSDP.
+Kaksi huomioitavaa asiaa Acceleratea käytettäessä:
 
-There are two things to note when using Accelerate: 
+1. `accelerate`-käynnistin odottaa konfiguraatio-YAML-tiedostoa. Olemme tarjonneet kaksi esimerkkiä GitHub-repositoriossa: `accelerate_config.yaml` perusesimerkkinä ja `accelerate_config_fsdp.yaml` FSDP:tä varten. Nämä konfigit käyttävät järkeviä oletusparametreja, mutta niitä voi olla hyödyllistä säätää – erityisesti [tutustu FSDP:n parametreihin][9].
 
-1. The `accelerate` launcher expects to have a configuration YAML
-   file. We have provided two examples in the GitHub repository,
-   `accelerate_config.yaml` for a basic example and
-   `accelerate_config_fsdp.yaml` for using FSDP. These configs use
-   reasonable default parameters, but it might be useful to tweak
-   those, especially [take a look at FSDP's parameters][9].
+2. Monisolmuajoissa `accelerate`-käynnistin pitää käynnistää erikseen jokaisessa solmussa asettamalla `--machine_rank`-argumentti solmun järjestysluvun mukaan (0=ensimmäinen solmu, 1=toinen solmu jne.). Voimme käyttää `$SLURM_NODEID`-muuttujaa tämän asettamiseen, mutta tarvitsemme shell-kikan, jotta arvoa ei evaluoida ennen kuin komento ajetaan kyseisessä solmussa. (Katso skripti [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh) esimerkkinä siitä, miten tämä tehdään.)
 
-2. For multi-node runs you need to launch the `accelerate` launcher
-   separately on each node with the `--machine_rank` argument set
-   according to the rank of the node (0=first node, 1=second node
-   etc). We can use the `$SLURM_NODEID` variable to set this, but we
-   need to use a shell trick so that it isn't evaluated until it
-   actually runs in the specific node. (See the script
-   [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh)
-   for an example of how this can be done.)
+Voit käyttää myös PEFT:iä (LoRA) Acceleraten kanssa lisäämällä `--peft` esimerkkiskriptiimme.
 
-You can also use PEFT (LoRA) with Accelerate with the `--peft` in our
-example script.
+### Vaihtoehtoiset trainerit { #alternative-trainers }
 
-### Alternative trainers
+Vaihtoehto Hugging Facen perinteiselle Trainerille LLM:ien hienosäätöön on [TRL](https://huggingface.co/docs/trl/index)-kirjaston [SFTTrainer](https://huggingface.co/docs/trl/main/en/sft_trainer). Näitä ei käsitellä tässä oppaassa. Suosittelemme tutustumaan esimerkiksi [tähän Hugging Facen hienosäätöoppaaseen](https://huggingface.co/blog/mlabonne/sft-llama3), joka kattaa myös [Unsloth-kirjaston](https://github.com/unslothai/unsloth).
 
-An alternative to the standard Hugging Face Trainer for fine-tuning
-LLMs is the
-[SFTTrainer](https://huggingface.co/docs/trl/main/en/sft_trainer) from
-the [TRL](https://huggingface.co/docs/trl/index) library. These are
-not covered in this guide. We recommend checking for example [this
-fine-tuning guide from Hugging
-Face](https://huggingface.co/blog/mlabonne/sft-llama3), which also
-covers the [Unsloth library](https://github.com/unslothai/unsloth).
+## Kvantisoinnin käyttäminen { #using-quantization }
 
-
-## Using quantization
-
-Using the `bitsandbytes` library, you can also use 4-bit
-quantization. [Quantization has been integrated into Hugging Face
-Transformers as
-well](https://huggingface.co/blog/4bit-transformers-bitsandbytes).
-
+`bitsandbytes`-kirjaston avulla voit käyttää myös 4-bittistä kvantisointia. [Kvantisointi on integroitu myös Hugging Face Transformersiin](https://huggingface.co/blog/4bit-transformers-bitsandbytes).
 
 ```python
 from transformers import BitsAndBytesConfig
@@ -204,53 +92,30 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 ```
 
-In our example script this can be tried with the `--4bit`
-argument. This will decrease even further the memory requirements.
+Esimerkkiskriptissämme tätä voi kokeilla `--4bit`-argumentilla. Tämä pienentää muistivaatimuksia entisestään.
 
-## Retrieval-augmented generation (RAG)
+## Retrieval-augmented generation (RAG) { #retrieval-augmented-generation-(rag) }
 
-[Retrieval-augmented generation (RAG)][RAG] is a way of using a
-pre-trained large language model together with the user's own dataset
-without needing any computationally expensive fine-tuning or
-retraining of the model.  In brief, this works by performing a search
-on the dataset and using the top results as additional context for the
-language model.
+[Retrieval-augmented generation (RAG)][RAG] on tapa käyttää valmiiksi koulutettua suurta kielimallia yhdessä käyttäjän oman aineiston kanssa ilman laskennallisesti kallista hienosäätöä tai mallin uudelleenkoulutusta. Lyhyesti: tämä toimii tekemällä haun aineistoon ja käyttämällä parhaita tuloksia lisäkontekstina kielimallille.
 
-In RAG the search is a critical part of the system, as a failed search
-will give the LLM the wrong context, which easily causes the LLM to
-generate irrelevant information. For efficient search one can utilize
-embedding models and fast vector search methods. See our [RAG-60K
-repository][RAG-60K] for an example of how to utilize supercomputers
-to prepare a Faiss vector store using state-of-the-art embedding
-models.
+RAG:ssa haku on järjestelmän kriittinen osa, sillä epäonnistunut haku antaa LLM:lle väärän kontekstin, mikä helposti johtaa epäolennaiseen generointiin. Tehokasta hakua varten voi hyödyntää upotusmalleja (embedding) ja nopeita vektorihautamenetelmiä. Katso [RAG-60K-repositoriomme][RAG-60K] esimerkkinä siitä, miten supertietokoneita hyödynnetään Faiss-vektorivaraston valmistelussa huippuluokan upotusmalleilla.
 
-## Inference
+## Inferenssi { #inference }
 
-Inference, that is using the model rather than training it, is usually
-much simpler. Our [example git repository][2] has an inference example
-in `inference-demo.py` and `run-inference-puhti.sh`. If your model
-doesn't fit into a single GPU, you can simple reserve more GPUs and
-then let Hugging Face sort it out by setting `device_map='auto'` when
-loading the model, for example:
+Inferenssi, eli mallin käyttäminen sen kouluttamisen sijaan, on yleensä paljon yksinkertaisempaa. [Esimerkkirepositoriossamme][2] on inferenssiesimerkki tiedostoissa `inference-demo.py` ja `run-inference-puhti.sh`. Jos mallisi ei mahdu yhdelle GPU:lle, voit yksinkertaisesti varata useampia GPU:ita ja antaa Hugging Facen hoitaa jaon asettamalla `device_map='auto'` mallia ladatessa, esimerkiksi:
 
 ```python
 model = AutoModelForCausalLM.from_pretrained(args.model, device_map='auto')
 ```
 
-### Inference with Ollama
+### Inferenssi Ollaamalla { #inference-with-ollama }
 
-[Ollama](https://ollama.com/) is a popular tool for using LLMs, as it
-supports [several state-of-the-art models](https://ollama.com/library)
-which can be accessed via an API. Ollama has been designed to run as a
-service, and is thus not directly suited to running as a batch job on
-supercomputers. However, it can be run as part of a batch job by
-starting the service at the start of the job, and stopping when the
-job ends.
+[Ollama](https://ollama.com/) on suosittu työkalu LLM:ien käyttöön, sillä se tukee [useita huipputason malleja](https://ollama.com/library), joihin pääsee käsiksi API:n kautta. Ollama on suunniteltu ajettavaksi palveluna, joten se ei suoraan sovellu eräajoon supertietokoneilla. Sitä voi kuitenkin ajaa osana eräajoa käynnistämällä palvelun työn alussa ja pysäyttämällä sen työn lopussa.
 
-First, you can install Ollama into your project folder like this:
+Ensin voit asentaa Ollaman projektikansioosi näin:
 
 ```bash
-cd /projappl/project_2001234  # replace with the appropriate path for you
+cd /projappl/project_2001234  # korvaa sinulle sopivalla polulla
 mkdir ollama
 cd ollama
 wget https://ollama.com/download/ollama-linux-amd64.tgz
@@ -258,9 +123,7 @@ tar xzf ollama-linux-amd64.tgz
 rm ollama-linux-amd64.tgz
 ```
 
-On LUMI you have to do this additionally (in the same directory as
-above). Note that with the additional ROCm files, the installation
-takes 14 GB of disk space!
+LUMIssa sinun on tehtävä lisäksi seuraavat vaiheet (samassa hakemistossa kuin yllä). Huomaa, että lisätyillä ROCm-tiedostoilla asennus vie 14 GB levytilaa!
 
 ```bash
 wget https://ollama.com/download/ollama-linux-amd64-rocm.tgz
@@ -268,29 +131,17 @@ tar xzf ollama-linux-amd64-rocm.tgz
 rm ollama-linux-amd64-rocm.tgz
 ```
 
-In your batch job you then just need to start the service with `ollama
-serve`. After that your job can access the API in `localhost` at port
-`11434`.  It's also a good idea to setup the environment variable
-`OLLAMA_MODELS` to point to the project scratch, as it will otherwise
-download huge model files to your home directory.  See our [example
-Slurm script `run-ollama.sh` for running with Ollama][11].
+Eräajossasi sinun tarvitsee sitten vain käynnistää palvelu komennolla `ollama serve`. Tämän jälkeen työsi voi käyttää APIa `localhostissa` portissa `11434`. On myös hyvä asettaa ympäristömuuttuja `OLLAMA_MODELS` osoittamaan projektin scratchiin, koska muuten suuret mallipaketit latautuvat kotihakemistoosi. Katso [esimerkkimme Slurm-skriptistä `run-ollama.sh` Ollaaman ajamiseen][11].
 
-The [`ai-inference-examples`][14] repository also has some examples of
-running Ollama on a full node with 4 GPUs on Puhti and 8 GPUs on LUMI.
+Repositoriossa [`ai-inference-examples`][14] on myös esimerkkejä Ollaaman ajamisesta kokonaisella solmulla, jossa on 4 GPU:ta Puhtissa ja 8 GPU:ta LUMIssa.
 
-### Inference with vLLM
+### Inferenssi vLLM:llä { #inference-with-vllm }
 
-[vLLM][12] is another library for running LLM inference. vLLM supports
-[offline batched inference][13] which is the mode most suitable for
-running in a supercomputer. This runs just as a normal Python batch
-job.
+[vLLM][12] on toinen kirjasto LLM-inferenssiin. vLLM tukee [offline-eräajoin tehtävää inferenssiä][13], mikä on supertietokoneajoon parhaiten sopiva tila. Tämä ajetaan kuten tavallinen Python-eräajo.
 
-In some situations there's still a need for an OpenAI-compatible
-server, for example when interfacing with other programs. [Example
-scripts for running vLLM on Puhti, Mahti and LUMI can be found in our
-`ai-inference-examples` repository][14]. There's also an example of
-running on multiple nodes using Ray.
+Tässä on käyttäjän toimittama esimerkki suuren aineiston tehokkaaseen käsittelyyn vLLM:llä: <https://github.com/TurkuNLP/ECCO-ocr-large-run>.
 
+Joissain tilanteissa tarvitaan silti OpenAI-yhteensopivaa palvelinta, esimerkiksi kun rajapintoja käytetään muihin ohjelmiin. [Esimerkkiskriptit vLLM:n ajamiseen Puhtissa, Mahtissa ja LUMIssa löytyvät `ai-inference-examples` -repositoriostamme][14]. Siellä on myös esimerkki ajosta usealla solmulla Rayn avulla.
 
 [1]: https://blog.eleuther.ai/transformer-math/
 [2]: https://github.com/CSCfi/llm-fine-tuning-examples

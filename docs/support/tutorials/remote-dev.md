@@ -1,72 +1,121 @@
-# Skriptien kehittäminen etäyhteydellä {#developing-scripts-remotely}
+# Skriptien kehittäminen etänä { #developing-scripts-remotely }
 
-!!! warning "Varoitus: Tämä alue voi sisältää haasteita!"
-    Skriptien kehittäminen etäyhteydellä voi olla hyödyllistä, mutta se on altis yhteysongelmille ja muille vaikeasti diagnosoitaville ongelmille. Jos kohtaat ongelmia kehitettäessä skriptejä etäyhteydellä, emme valitettavasti voi taata niiden ratkaisemista puolestasi. Erityisesti todellisten laskelmien suorittaminen HPC-järjestelmissä etäyhteydellä VS Code ei ole tuettu.
+!!! warning "Täällä vaanii lohikäärmeitä!"
+    Vaikka skriptien kehittäminen etänä voi olla hyödyllistä, se on altis
+    yhteysongelmille ja muille vaikeasti selvitettäville ongelmille. Jos kohtaat
+    ongelmia kehittäessäsi skriptejä etänä, emme valitettavasti voi taata,
+    että pystymme ratkaisemaan ne puolestasi. Erityisesti laskentojen ajaminen
+    HPC-järjestelmissä etä-VS Coden kautta ei ole tuettua.
 
-    Suosittelemme käyttämään [VSCode](../../computing/webinterface/vscode.md), [Jupyter](../../computing/webinterface/jupyter.md) ja [RStudio](../../computing/webinterface/rstudio.md) sovelluksia, jotka ovat saatavilla supertietokoneidemme web-käyttöliittymissä skriptin tai koodin kehittämiseen HPC:ssä.
+    Suosittelemme käyttämään superkoneidemme verkkokäyttöliittymissä
+    saatavilla olevia [VSCode](../../computing/webinterface/vscode.md)-,
+    [Jupyter](../../computing/webinterface/jupyter.md)- ja
+    [RStudio](../../computing/webinterface/rstudio.md)‑sovelluksia skriptaamiseen
+    tai koodin kehittämiseen HPC:ssä.
 
-On kätevää käyttää IDE-ympäristöä, kuten Visual Studio Codea, muokkaamaan ja kehittämään skriptejä, joita suoritat Puhti-, Mahti- tai cPouta-virtuaalikoneessa.
+IDE:n, kuten Visual Studio Coden, käyttäminen voi olla kätevää Puhtissa, Mahtissa
+tai cPouta‑virtuaalikoneessa ajettavien skriptien muokkaamiseen ja kehittämiseen.
 
-* Ei ole tarpeen käyttää komentorivipohjaisia tekstieditoreja kuten vi, vim tai nano.
-* Ei ole tarpeen siirtää tiedostoja edestakaisin paikallisen tietokoneesi ja Puhti/Mahti/cPoutan välillä.
+* Ei tarvetta käyttää komentorivieditoreita kuten vi, vim tai nano.
+* Ei tarvetta siirtää tiedostoja edestakaisin paikallisen koneesi ja
+  Puhti/Mahti/cPouta‑ympäristön välillä.
 
-Tämä ohje sisältää joitain asennus- ja käyttöohjeita VS Codea varten.
+Tässä ohjeessa on joitakin asennus- ja käyttöohjeita VS Codelle.
 
-## Visual Studio Code Remote SSH lisäosan kanssa {#visual-studio-code-with-remote-ssh-plugin}
+## Visual Studio Code ja Remote SSH -laajennus { #visual-studio-code-with-remote-ssh-plugin }
 
-Visual Studio Code on laajalti käytetty avoimen lähdekoodin koodieditori, jota voidaan käyttää etäyhteydellä **Remote SSH** laajennuksen avulla. Se soveltuu erinomaisesti Python- ja bash-skripteille, mutta sitä voidaan käyttää minkä tahansa ohjelmointikielen kanssa. VS Codelle on saatavilla monia laajennuksia. Jupyter-muistiinpanojen ajamiseen suosittelemme kuitenkin ensisijaisesti HPC-verkkokäyttöliittymissämme saatavilla olevaa [Jupyter-sovellusta](../../computing/webinterface/jupyter.md).
+Visual Studio Code on laajasti käytetty avoimen lähdekoodin editori, jota voi käyttää
+etänä **Remote SSH** ‑laajennuksen avulla. Se sopii erinomaisesti Python‑ ja bash‑
+skripteihin, mutta sitä voi käyttää minkä tahansa ohjelmointikielen kanssa. VS Codelle
+on saatavilla runsaasti laajennuksia. Jupyter‑muistikirjojen ajamiseen suosittelemme
+kuitenkin ensisijaisesti superkoneidemme verkkokäyttöliittymissä saatavilla olevaa
+[Jupyter‑sovellusta](../../computing/webinterface/jupyter.md).
 
-### Asennus {#installation}
+### Asennus { #installation }
 
-Voit asentaa VS Coden tietokoneellesi [VS Coden verkkosivulta](https://code.visualstudio.com) ja Remote SSH lisäosan ohjelman Laajennukset-välilehdeltä.
+Voit asentaa VS Coden tietokoneellesi
+[VS Coden sivuilta](https://code.visualstudio.com) ja Remote SSH ‑
+laajennuksen ohjelman Extensions‑välilehdeltä.
 
-![Remote SSH lisäosa Visual Studio Codessa](../../img/VSCode_remote_extension.png 'Remote SSH extension')
+![Remote SSH ‑laajennus Visual Studio Codessa](../../img/VSCode_remote_extension.png 'Remote SSH extension')
 
 !!! note
-    **Windows-käyttäjät** tarvitsevat myös SSH-asiakkaan asennettuna, sillä PuTTy ei ole tuettu.
+    **Windows‑käyttäjät** tarvitsevat myös asennetun SSH‑asiakasohjelman, sillä PuTTy ei ole tuettu.
 
-    Jos sinulla on ylläpitäjän oikeudet, voit [ottaa OpenSSH:n käyttöön Windows 10:ssä](https://docs.microsoft.com/en-gb/windows-server/administration/openssh/openssh_install_firstuse).
+    Jos sinulla on ylläpito‑oikeudet, voit
+    [ottaa OpenSSH:n käyttöön Windows 10:ssä](https://docs.microsoft.com/en-gb/windows-server/administration/openssh/openssh_install_firstuse). 
 
-    Jos sinulla ei ole ylläpitäjän oikeuksia, voit asentaa [Git for Windowsin täältä](https://gitforwindows.org/) ja määrittää VS Coden käyttämään Gitiin sisältyvää SSH-asiakasta (**File** -> **Preferences** -> **Settings** -> etsi **"Remote SSH Path"** ja lisää polkusi `ssh.exe`-tiedostoon, esim. `C:\Users\<YOUR_USER>\AppData\Local\Programs\Git\usr\bin\ssh.exe`). Saatat myös joutua poistamaan "useLocalServer"-asetuksen käytöstä, jos kohtaat ongelmia VS Coden käyttäessä Windows-käyttäjänimeäsi CSC-käyttäjänimesi sijaan.
+    Jos sinulla ei ole ylläpito‑oikeuksia, voit asentaa
+    [Git for Windowsin täältä](https://gitforwindows.org/) ja määrittää VS
+    Coden käyttämään Gitin mukana tulevaa SSH‑asiakasta (**File** -> **Preferences** ->
+    **Settings** -> hae **"Remote SSH Path"** ja lisää polku
+    `ssh.exe`‑tiedostoosi, esim.
+    `C:\Users\<YOUR_USER>\AppData\Local\Programs\Git\usr\bin\ssh.exe`). Saatat
+    myös joutua poistamaan käytöstä asetuksen "useLocalServer", jos kohtaat
+    ongelmia, joissa VS Code käyttää Windows‑käyttäjänimeäsi CSC‑käyttäjänimen sijaan.
 
-### Käyttö {#usage}
+### Käyttö { #usage }
 
 !!! note
-    Yhdistääksesi CSC:n supertietokoneisiin SSH-asiakkaalla, sinun on asetettava SSH-avaimet ja lisättävä julkinen avain MyCSC-portaaliin. [Lue ohjeet täältä](../../computing/connecting/ssh-keys.md).
+    Yhdistääksesi CSC:n superkoneisiin SSH‑asiakkaalla sinun on luotava SSH‑
+    avaimet ja lisättävä julkinen avaimesi MyCSC‑portaaliin.
+    [Lue ohjeet täältä](../../computing/connecting/ssh-keys.md).
 
-Kun olet asettanut SSH-avaimet, lisännyt julkisen avaimen MyCSC-alustalle ja asentanut Remote SSH -laajennuksen, siirry Remote Explorer -välilehdelle VS Codessa ja lisää uusi etäkone **+**-symbolista. Kun VS Code kysyy SSH-komentoa, kirjoita
+Kun olet luonut SSH‑avaimet, lisännyt julkisen avaimen MyCSC:hen ja asentanut
+Remote SSH ‑laajennuksen, siirry VS Codessa Remote Explorer ‑välilehdelle ja lisää uusi
+etäkone **+**‑symbolista. Kun VS Code pyytää SSH‑komentoa, kirjoita
 
 ```bash
 ssh <csc_username>@puhti.csc.fi
 ```
 
-Lisäksi sinun täytyy valita konfiguraatiotiedosto, johon se tallentaa tämän yhteyden.
+Lisäksi sinun on valittava asetustiedosto (config), johon yhteys tallennetaan.
 
-![SSH-etäyhteyden lisääminen](../../img/VSCode_add_connection.png 'Adding SSH connection')
+![SSH‑etäyhteyden lisääminen](../../img/VSCode_add_connection.png 'Adding SSH connection')
 
-Katso myös [Muista isäntien ja erityisasetukset](https://code.visualstudio.com/docs/remote/ssh#_remember-hosts-and-advanced-settings) -osio VS Coden dokumentaatiosta saadaksesi lisätietoja.
+Katso myös VS Coden dokumentaation kohta
+[Remember hosts and advanced settings](https://code.visualstudio.com/docs/remote/ssh#_remember-hosts-and-advanced-settings)
+lisätietoja varten.
 
-Tämän jälkeen voit yhdistää uuteen isäntään.
+Tämän jälkeen voit muodostaa yhteyden uuteen isäntään.
 
-![Yhdistäminen isäntään VSCodessa](../../img/VSCode_connect_to_host.png 'Connecting to host')
+![Yhteyden muodostaminen isäntään VS Codessa](../../img/VSCode_connect_to_host.png 'Connecting to host')
 
-Olet nyt Puhdissa ja voit avata kansion ja muokata tiedostoja etäyhteydellä. Huomaa, että voit myös siirtää tiedostoja Puhtiin/Mahtiin vetämällä ja pudottamalla ne VS Codeen.
+Olet nyt Puhtissa ja voit avata kansion ja muokata tiedostoja etänä. Huomaa, että
+voit myös siirtää tiedostoja Puhtiin/Mahtiin vetämällä ja pudottamalla ne
+VS Codeen.
 
-### CSC-ohjelmisto-ympäristöjen määrittäminen VS Code Remote SSH:ssä {#configuring-csc-software-environments-in-vs-code-remote-ssh}
+!!! note
+    VS Coden uusimmat versiot voivat antaa muistin loppu ‑virheen yrittäessäsi
+    yhdistää CSC:n superkoneisiin.
+    [Katso tästä UKK:sta kiertotiet](../faq/vscode-out-of-memory.md).
 
-Moduulijärjestelmän ja singularity-säilöjen käytön vuoksi ohjelmisto-ympäristöjen lataamiseen, VS Code Remote SSH -laajennus ei joskus pysty oikein tunnistamaan asennettuja ohjelmistoja, erityisesti Python-ympäristöissä. Tämä tarkoittaa, että esimerkiksi koodin täydennysvihjeet ja monet muut kätevät ominaisuudet eivät toimi. Joitakin lisäasetuksia tarvitaan, jotta VS Code mahdollistaa nämä.
+### CSC:n ohjelmistoympäristöjen määrittäminen VS Code Remote SSH:ssa { #configuring-csc-software-environments-in-vs-code-remote-ssh }
 
-Tämä vaatii yleensä SSH-etäkäskyn ajamista yhdistettäessä ja vaihtelee tarkasti käyttötapasi mukaan - yksityiskohtaiset ohjeet tarvittavista komennoista on lueteltu alla muutamissa esimerkeissä. Kaikissa tapauksissa sinun on
+Koska [module](../../computing/modules.md)‑järjestelmää ja singularity‑
+kontteja käytetään ohjelmistoympäristöjen lataamiseen, VS Code Remote SSH
+ei joskus pysty tunnistamaan oikein asennettuja ohjelmistoja, erityisesti
+Python‑ympäristöissä. Tämä tarkoittaa, että esim. koodin täydennysehdotukset
+ja monet muut kätevät ominaisuudet eivät toimi. Jotta VS Code voi ottaa nämä
+käyttöön, tarvitaan lisämäärityksiä.
 
-1. Ota etäkomennot käyttöön Visual Studio Code Remote-SSH-laajennuksessa:  
-   Avaa asetukset-näyttö (`Ctrl ,`) ja kirjoita "enable remote command" hakukenttään. `Enable Remote Command` -asetuksen pitäisi näkyä ensimmäisenä hakutuloksena. Varmista, että se on käytössä (näyttää ruksin).
-   ![Etäkomennon mahdollistaminen Remote SSH -laajennuksessa](../../img/VSCode_enable_remote_command.png)
+Tämä edellyttää tyypillisesti SSH‑etäkomennon ajamista yhteyden muodostamisen
+yhteydessä ja vaihtelee käyttötapauksesi mukaan – alla on kuvattu muutamien
+esimerkkien tarkat komennot. Kaikissa tapauksissa sinun tulee kuitenkin
 
-2. Määritä yhteys etäkomennolla SSH-konfigurointitiedostossa:  
-   Avaa SSH-konfigurointitiedosto (`Ctrl Shift p` tai `F1`) ja kirjoita
-   `ssh configuration`, sitten `Remote-SSH: Open SSH Configuration File` -vaihtoehdon pitäisi ilmestyä ensimmäisenä tuloksena. Napsauta sitä.
+1. Ottaa etäkomennot käyttöön Visual Studio Coden Remote‑SSH‑laajennuksessa:  
+   Avaa asetukset‑näkymä (`Ctrl ,`) ja kirjoita hakukenttään "enable remote command".
+   `Enable Remote Command` ‑asetus pitäisi näkyä ensimmäisenä hakutuloksena. Varmista,
+   että se on käytössä (näkyy pysäytysrasti/valintamerkki).
+   ![Remote Commandin käyttöönotto Remote SSH ‑laajennuksessa](../../img/VSCode_enable_remote_command.png)
 
-3. Lisää nyt avattuun tiedostoon uusi lohko seuraavasti ja tallenna tiedosto:
+2. Määritä yhteys etäkomennolla SSH‑asetustiedostossasi:  
+   Avaa SSH‑asetustiedosto (`Ctrl Shift p` tai `F1`) ja kirjoita
+   `ssh configuration`, jolloin `Remote-SSH: Open SSH Configuration File`
+   näkyy ensimmäisenä tuloksena. Napsauta sitä.
+
+3. Lisää nyt avautuneeseen tiedostoon uusi lohko seuraavasti ja tallenna
+   tiedosto:
    ```text
    Host puhti-software-environment
         HostName puhti.csc.fi
@@ -74,76 +123,119 @@ Tämä vaatii yleensä SSH-etäkäskyn ajamista yhdistettäessä ja vaihtelee ta
         RemoteCommand <remote_command>
    ```
 
-   Säädä `HostName` järjestelmään, johon haluat yhdistää. Voit valita vapaasti etiketin `Host`-koodin jälkeen (`puhti-software-environment`), ja näin se näkyy etäisännän valinnassa VS Code Remote SSH -laajennuksessa, kun teet yhteyden. Suosittelemme antamaan jokaiselle järjestelmän ja ohjelmisto-ympäristön yhdistelmälle tunnistettavan nimen (esim., `puhti-pytorch`). Jos olet tallentanut SSH-avaimesi muussa kuin oletussijainnissa, lisää `IdentityFile <polku_avain_tiedostoon>` yllä esitettyyn isännän konfiguraatiolohkoon.
+   Säädä `HostName` sen järjestelmän mukaiseksi, johon haluat yhdistää. Voit
+   vapaasti valita `Host`‑rivin nimen (`puhti-software-environment`), ja tällä
+   nimellä yhteys näkyy VS Coden Remote SSH ‑laajennuksen etäisäntien valikossa.
+   Suosittelemme antamaan jokaiselle käytössäsi olevan järjestelmä+ympäristö‑
+   yhdistelmälle helposti tunnistettavan nimen (esim. `puhti-pytorch`). Jos olet
+   tallentanut SSH‑avaimesi muuhun kuin oletuspaikkaan, lisää `IdentityFile <path_to_your_keyfile>`
+   yllä olevaan isäntäkonfiguraatiolohkoon.
 
-#### CSC-moduulien lataaminen {#loading-csc-modules}
+#### CSC‑moduulien lataaminen { #loading-csc-modules }
 
-Voit ladata moduulin VS Code -etäyhteyteen seuraavalla `remote_command`:lla:
+Voit ladata moduulin VS Coden etäyhteyteen seuraavalla
+`remote_command`‑komennolla:
 
 ```bash
 bash -c "source /appl/profile/zz-csc-env.sh; module load <your_module>; singularity_wrapper shell"
 ```
 
-LUMI:ssa sinun tarvitsee käyttää
+LUMIssa sinun tulee sen sijaan käyttää
 
 ```bash
 module use /appl/local/csc/modulefiles/; module load <your_module>; singularity_wrapper shell
 ```
 
-`<your_module>` on moduuli (tai moduulit), jonka haluat ladata, esimerkiksi `pytorch`.
+`<your_module>` on ladattava moduuli (tai moduulit), esim. `pytorch`.
 
 !!! note
-    `singularity_wrapper shell` -osuus yllä olevassa `remote_command`:ssa olettaa, että moduuli on rakennettu käyttäen singularity-säilöä, mikä on totta useimmissa tapauksissa. Jos tämä ei kuitenkaan toimi, yritä korvata se `bash`:lla.
+    Yllä olevassa `remote_command`‑komennossa oleva `singularity_wrapper shell`
+    olettaa, että moduuli on rakennettu singularity‑kontin avulla, mikä pitää
+    paikkaansa useimmissa tapauksissa. Jos tämä ei toimi, kokeile vaihtaa se
+    muotoon `bash`.
 
-#### CSC-moduulien lataaminen lisäpakettien kanssa (Python) {#loading-csc-modules-with-additional-packages-python}
+#### CSC‑moduulien lataaminen lisäpaketeilla (Python) { #loading-csc-modules-with-additional-packages-python }
 
-Jos ympäristösi perustuu CSC:n moduuliin, mutta olet asentanut joitakin lisäpaketteja joko `venv`:n kautta tai `pip install --user`:in avulla (katso myös [Python-ohjeemme](python-usage-guide.md#installing-python-packages-to-existing-modules)), sinun on käytettävä seuraavaa `remote_command`:ia (Puhti/Mahti):
+Jos ympäristösi perustuu CSC‑moduuliin, mutta olet asentanut sen päälle
+lisäpaketteja joko `venv`:n kautta tai komennolla `pip install --user` (katso
+myös
+[Python‑käyttöohjeemme](python-usage-guide.md#installing-python-packages-to-existing-modules)),
+sinun tulee käyttää seuraavaa `remote_command`‑komentoa (Puhtissa/Mahtissa):
 
-* `pip`-asennus mukautettuun `PYTHONUSERBASE`:een:  
-  Lisää `export PYTHONUSERBASE=<your_pip_user_base_dir>;` ennen `singularity_wrapper shell`:ia, eli Puhti/Mahti:ssa `remote_command` muuttuu:
+* `pip`‑asennus omaan `PYTHONUSERBASE`:iin:  
+  Lisää `export PYTHONUSERBASE=<your_pip_user_base_dir>;` ennen
+  `singularity_wrapper shell` ‑komentoa, eli Puhtissa/Mahtissa `remote_command`
+  on:
   ```bash
   bash -c "source /appl/profile/zz-csc-env.sh; module load <your_module>; export PYTHONUSERBASE=<your_pip_user_base_dir>;  singularity_wrapper shell"
   ```
 
 * `venv`:  
-  Lisää `export APPTAINERENV_PREPEND_PATH='<your_venv_dir>/bin/'` ennen `singularity_wrapper shell` -komentoa – saatat myös joutua [valitsemaan Python-tulkki, jota VS Code käyttää](https://code.visualstudio.com/docs/python/environments#_select-and-activate-an-environment) venv:n tarjoamaksi tulkiksi.
+  Lisää `export APPTAINERENV_PREPEND_PATH='<your_venv_dir>/bin/'` ennen
+  `singularity_wrapper shell` ‑komentoa – saatat myös joutua
+  [valitsemaan VS Codessa käytettävän Python‑tulkkiympäristön](https://code.visualstudio.com/docs/python/environments#_select-and-activate-an-environment)
+  venvin tarjoamaksi.
 
 !!! note
-    Valitettavasti tuki venv:lle on tällä hetkellä rajoitettu ympäristöihin, jotka on asetettu singularity-säilön sisällä. Aseta venv seuraavasti järjestelmän terminaalissa:
+    Valitettavasti venvin tuki on tällä hetkellä rajattu ympäristöihin, jotka
+    luodaan singularity‑kontin sisältä. Voit luoda venvin tekemällä seuraavat
+    vaiheet järjestelmän terminaalissa:
 
-    1. Lataa vastaava (perus)moduuli: `module load <your_module>`
-    2. Astu säilöympäristöön: `singularity_wrapper shell`
+    1. Lataa (pohja)moduuli: `module load <your_module>`
+    2. Siirry kontin ympäristöön: `singularity_wrapper shell`
     3. Luo virtuaaliympäristö:
        `python -m venv --system-site-packages <path_where_to_create_the_venv_directory>`
 
-    Vaihe 2 on ratkaiseva - jos luot venv:n säilön ulkopuolelta, se ei toimi säilön sisällä ja siten ei VS Code -etäasennuksen kanssa, joka on kuvattu yllä.
+    Kohta 2 on ratkaiseva – jos luot venvin kontin ulkopuolella, se ei toimi
+    kontin sisällä eikä siten tämän VS Coden etäasetuksen kanssa.
 
-#### Tykky-säilöjen lataaminen (Python) {#loading-tykky-containers-python}
+#### Tykky‑konttien lataaminen (Python) { #loading-tykky-containers-python }
 
-Yhdistääksesi mukautettuun Python-ympäristön säilöön, joka on luotu [Tykky-säilötyökaluillamme](../../computing/containers/tykky.md), käytä seuraavaa `remote_command`:ia:
+Yhdistääksesi Tykky‑konttikääreellämme luotuun omaan Python‑ympäristökonttiin
+([Tykky container wrapper](../../computing/containers/tykky.md)), käytä
+seuraavaa `remote_command`‑komentoa:
 
 ```bash
 <tykky_installation_dir>/bin/_debug_shell
 ```
 
-missä `<tykky_installation_dir>` on polku, johon Tykky-säilöasennus on tehty.
+missä `<tykky_installation_dir>` on polku, johon Tykky‑ympäristö asennettiin.
 
-Kun olet yhdistänyt etäympäristöön VS Codessa, sisäänrakennettu terminaali tulisi näyttää kehoteviivan
+Kun olet yhdistänyt etäympäristöön VS Codessa, integroidun terminaalin kehotteen
+tulisi näyttää tältä
 
 ```bash
 Apptainer>
 ```
 
-mikä ilmaisee, että käytössäsi on kuori Tykky-säilön sisällä.
+mikä osoittaa, että sinulla on shell Tykky‑kontin sisällä.
 
-Lopuksi sinun on [valittava VS Coden käyttämä Python-tulkki](https://code.visualstudio.com/docs/python/environments#_select-and-activate-an-environment) seuraavasti: `/<SYSTEM>_TYKKY_*/miniconda/envs/env1/bin/python`, missä `<SYSTEM>` on korvautumatunnus `PUHTI`, `MAHTI`, `LUMI` ja `*` on satunnaisten merkkien jono.
+Lopuksi sinun tulee
+[valita VS Codessa käytettävä Python‑tulkki](https://code.visualstudio.com/docs/python/environments#_select-and-activate-an-environment)
+poluksi `/<SYSTEM>_TYKKY_*/miniconda/envs/env1/bin/python`, missä `<SYSTEM>`
+on yksi seuraavista: `PUHTI`, `MAHTI`, `LUMI`, ja `*` on satunnaismerkkijono.
 
-![Python-tulkin valinta VS Codessa tykky-säilöympäristöissä](../../img/VSCode_select_interpreter_tykky.png)
+![Python‑tulkin valinta VS Codessa Tykky‑konttiympäristöille](../../img/VSCode_select_interpreter_tykky.png)
 
 !!! note
-    Tämä VS Code -etäasennus ei anna sinun muokata säilön sisältöä, mukaan lukien uusien pakettien asennus pipin tai condan avulla. Muokkaa säilöä [tykky-ohjeiden](../../computing/containers/tykky.md#modifying-a-conda-installation) mukaisesti konfiguroidun VS Code -etäasennuksen ulkopuolella.
+    Et voi muokata kontin sisältöä tämän VS Coden etäyhteyden kautta, mukaan
+    lukien uusien pakettien asentaminen pipillä tai condalla. Muokkaa konttia
+    [Tykkyn ohjeiden](../../computing/containers/tykky.md#modifying-a-conda-installation)
+    mukaisesti määritellyn VS Coden etäyhteyden ulkopuolella.
 
-### Koodin ajaminen {#running-the-code}
+### Koodin suorittaminen { #running-the-code }
 
-Älä suorita mitään laskelmia HPC:llä VS Code -terminaali-välilehden kautta tai käyttämällä VS Coden virheenkorjaustyökaluja. Tämä suorittaa koodin oletusarvoisesti kirjautumissolmussa, mikä ei ole tarkoitettu vaativille laskelmille. Kokoonpano on yleensäkin hafragile.
+Älä aja mitään laskentaa HPC:ssä VS Coden Terminal‑välilehden kautta tai
+VS Coden debuggaajia käyttäen. Tällöin koodi ajettaisiin oletuksena
+kirjautumissolmussa, joka ei ole tarkoitettu raskaaseen laskentaan.
+Kokoonpano on myös yleisesti ottaen herkkä ongelmille.
 
+## VSCode Remote -tunnelit { #vscode-remote-tunnels }
+
+VSCode tarjoaa myös [Remote
+Tunnel](https://code.visualstudio.com/docs/remote/tunnels) ‑ominaisuuden
+vaihtoehtona SSH:lle. **VSCode dev tunnels** ‑ominaisuus on
+tarkoituksella poistettu käytöstä Puhtissa ja Mahtissa
+tietoturvasyistä, koska se antaisi kolmannelle osapuolelle mahdollisuuden
+kontrolloida pääsyä CSC:n superkoneisiin. Suosittelemme käyttämään sen
+sijaan Remote SSH ‑ominaisuutta (kuvattu yllä).

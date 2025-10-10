@@ -1,45 +1,34 @@
-# Running Nextflow pipelines on supercomputers
+# Nextflow-työnkulkujen ajaminen supertietokoneilla { #running-nextflow-pipelines-on-supercomputers }
 
-[Nextflow](https://www.nextflow.io/) is a scientific workflow manager and provides built-in support for
-HPC-friendly containers such as Apptainer (= Singularity). One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf.
+[Nextflow](https://www.nextflow.io/) on tieteellisten työnkulkujen hallintajärjestelmä, joka tarjoaa sisäänrakennetun tuen HPC-ympäristöihin sopiville konteille, kuten Apptainerille (= Singularity). Nextflow’n etuina on, että varsinaisen putkiston toiminnallinen logiikka on erotettu suoritusympäristöstä. Sama skripti voidaan siis suorittaa eri ympäristöissä vaihtamalla suoritusympäristöä koskematta itse putkiston koodiin. Nextflow käyttää `executor`-tietoja päättääkseen missä työ ajetaan. Kun executor on määritetty, Nextflow lähettää jokaisen prosessin puolestasi määritetylle työnjononhallintajärjestelmälle.
 
-Default executor is `local` where processes are run in the computer where Nextflow is launched. Several other [executors](https://www.nextflow.io/docs/latest/executor.html) are supported, the CSC computing environments best suit SLURM and HyperQueue executors.
+Oletus-executor on `local`, jolloin prosessit ajetaan koneella, jolta Nextflow käynnistetään. Useita muita [executoreita](https://www.nextflow.io/docs/latest/executor.html) on tuettu; CSC:n laskentaympäristöihin sopivat parhaiten SLURM- ja HyperQueue-executorit.
 
-There are many other high-throughput tools and workflow managers for scientific computing and selecting the right tool can sometimes be challenging. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of relevant tools.
+Tieteellisessä laskennassa on monia muitakin korkean läpimenon työkaluja ja työnkulkumoottoreita, ja sopivan työkalun valinta voi joskus olla haastavaa. Katso yleiskuva [korkean läpimenon laskennan ja työnkulkujen sivulta](../../computing/running/throughput.md).
 
-## Installation
+## Asennus { #installation }
  
-### Nextflow
+### Nextflow { #nextflow }
 
-Nextflow itself is available as a module on Puhti, Mahti and LUMI. Specific versions available are described on the [Nextflow main page](../../apps/nextflow.md).
+Nextflow on saatavilla moduulina Puhti-, Mahti- ja LUMI-järjestelmissä. Saatavilla olevat versiot on kuvattu [Nextflow’n pääsivulla](../../apps/nextflow.md).
 
-### Installation of tools used in Nextflow
+### Nextflow'n käyttämien työkalujen asennus { #installation-of-tools-used-in-nextflow }
 
-#### Local installations
+#### Paikalliset asennukset { #local-installations }
 
-By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files). See also how to [create containers](../../computing/containers/creating.md).
+Oletuksena Nextflow odottaa, että analyysityökalut ovat saatavilla paikallisesti. Työkalut voidaan aktivoida olemassa olevista [moduuleista](../../apps/by_discipline.md) tai [omista moduuliasennuksista](../../computing/modules.md#using-your-own-module-files). Katso myös, miten [luot kontteja](../../computing/containers/overview.md#building-container-images).
     
-#### On-the-fly Apptainer installations
+#### Lennosta tehtävät Apptainer-asennukset { #on-the-fly-apptainer-installations }
 
-Containers can be smoothly integrated with Nextflow pipelines. No additional
-modifications to Nextflow scripts are needed except for enabling the
-Apptainer engine in the Nextflow configuration
-file. Nextflow can pull remote container images as Apptainer
-from container registries on the fly. The remote container images are
-usually specified in the Nextflow script or configuration file by simply
-prefixing the image name with `shub://` or `docker://`. It is also possible to
-specify a different Apptainer image for each process definition in the
-Nextflow pipeline script.
+Kontit voidaan integroida sujuvasti Nextflow-putkistoihin. Nextflow-skripteihin ei tarvita muita muutoksia kuin Apptainer-moottorin käyttöönotto Nextflow’n konfiguraatiotiedostossa. Nextflow voi noutaa etäkonnikuvat Apptainer-muotoon konttirekistereistä lennossa. Etäkonnikuvat määritetään yleensä Nextflow-skriptissä tai -asetustiedostossa lisäämällä kuvan nimen eteen `shub://` tai `docker://`. On myös mahdollista määrittää jokaiselle prosessille oma Apptainer-kuva Nextflow-putkistoskriptissä.
 
-Most Nextflow pipelines pull the needed container images on the fly. However,
-when multiple images are needed in a pipeline, it is a good idea to prepare the
-containers locally before launching the Nextflow pipeline. 
+Useimmat Nextflow-putkistot noutavat tarvittavat konttikuvat lennossa. Jos putkistossa tarvitaan kuitenkin useita kuvia, on hyvä valmistella kontit paikallisesti ennen Nextflow-putkiston käynnistämistä. 
 
-Practical considerations:
+Käytännön huomioita:
 
-* Apptainer is installed on login and compute nodes and does not require loading a separate module on CSC supercomputers.
-* For binding folders or using other [Apptainer settings](https://www.nextflow.io/docs/latest/reference/config.html#apptainer) use `nextflow.config` file.
-* If you are directly pulling multiple Apptainer images on the fly, please use the NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, first request NVMe disk space and then set Apptainer temporary folders as environmental variables.
+* Apptainer on asennettu kirjautumis- ja laskentasolmuille eikä vaadi erillisen moduulin lataamista CSC:n supertietokoneilla.
+* Kansiokytkentöjä varten tai muihin [Apptainer-asetuksiin](https://www.nextflow.io/docs/latest/reference/config.html#apptainer) käytä `nextflow.config`-tiedostoa.
+* Jos noudat useita Apptainer-kuvia suoraan lennossa, käytä laskentasolmun NVMe-levyä Apptainer-kuvien tallennukseen. Pyydä tätä varten eräajotiedostossa ensin NVMe-levytilaa ja aseta sitten Apptainerin väliaikaiskansiot ympäristömuuttujiin.
 
 ```bash title="batch_job.sh"
 #SBATCH --gres=nvme:100   # Request 100 GB of space to local disk
@@ -49,26 +38,25 @@ export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
 ```
 
 !!! warning
-    Although Nextflow supports also Docker containers, these can't be used as such on supercomputers due to the lack of administrative privileges for normal users.
+    Vaikka Nextflow tukee myös Docker-kontteja, niitä ei voi käyttää sellaisenaan supertietokoneilla, koska tavallisilla käyttäjillä ei ole tarvittavia ylläpito-oikeuksia.
 
-## Usage
+## Käyttö { #usage }
 
-Nextflow pipelines can be run in different ways in the supercomputer environment:
+Nextflow-putkistoja voi ajaa supertietokoneympäristössä useilla tavoilla:
 
-1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or testing very small workflows.
-2. With batch job and local executor. Useful for small and medium size workflows.
-3. With batch job and SLURM executor. This can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, with many small jobs. Could be used, if each job step for each file takes at least 30 min.
-4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Well-suited for cases, when the workflow includes a lot of small job steps with many input files (high-troughput computing).
+1. [Interaktiivisessa tilassa](../../computing/running/interactive-usage.md) paikallisella executorilla ja rajatuilla resursseilla. Käyttökelpoinen lähinnä debuggaamiseen tai hyvin pienten työnkulkujen testaukseen.
+2. Eräajona paikallisella executorilla. Sopii pienille ja keskisuurille työnkuluille.
+3. Eräajona SLURM-executorilla. Voi käyttää useita solmuja ja eri SLURM-osastoja (CPU ja GPU), mutta voi aiheuttaa merkittävää overheadia monien pienten töiden myötä. Käytä, jos kunkin tiedoston kunkin työvaiheen kesto on vähintään 30 minuuttia.
+4. Eräajona HyperQueuea alatyöjononhallintana käyttäen. Voi hyödyntää useita solmuja saman eräajoallokaation sisällä; asetus on monimutkaisin. Sopii hyvin, kun työnkulussa on paljon lyhyitä työaskelia ja paljon syötetiedostoja (korkean läpimenon laskenta).
 
-For general introduction to batch jobs, see [example job scripts for Puhti](../../computing/running/example-job-scripts-puhti.md).
+Yleisesittelyn eräajoista löydät täältä: [esimerkkieräajot Puhtille](../../computing/running/example-job-scripts-puhti.md).
 
 !!! Note
-    Whenever you're unsure how to run your workflow efficiently, don't hesitate
-    to [contact CSC Service Desk](../contact.md).
+    Jos olet epävarma työnkulun tehokkaasta ajotavasta, ota rohkeasti yhteyttä [CSC Service Deskiin](../contact.md).
 
-### Nextflow script
+### Nextflow-skripti { #nextflow-script }
 
-The following minimalist example demonstrates the basic syntax of a Nextflow script.
+Seuraava minimalistinen esimerkki havainnollistaa Nextflow-skriptin perussyntaksia.
 
 ```nextflow title="workflow.nf"
 #!/usr/bin/env nextflow
@@ -100,9 +88,9 @@ workflow {
 }
 
 ```
-This script defines one process named `sayHello`. This process takes a set of greetings from different languages and then writes each one to a separate file in a random order.
+Tämä skripti määrittelee yhden prosessin nimeltä `sayHello`. Prosessi ottaa joukon tervehdyksiä eri kielillä ja kirjoittaa jokaisen omaan tiedostoonsa satunnaisessa järjestyksessä.
 
-The resulting terminal output would look similar to the text shown below:
+Päätteessä näkyvä tuloste näyttää suunnilleen tältä:
 
 ```bash
 N E X T F L O W  ~  version 23.04.3
@@ -111,22 +99,21 @@ executor >  local (5)
 [a0/bdf83f] process > sayHello (5) [100%] 5 of 5 ✔
 ```
 
-### Running Nextflow pipeline with local executor interactively
+### Nextflow-työnkulun ajo paikallisella executorilla interaktiivisesti { #running-nextflow-pipeline-with-local-executor-interactively }
 
-To run Nextflow in [interactive session](../../computing/running/interactive-usage.md):
+Ajaaksesi Nextflow’n [interaktiivisessa istunnossa](../../computing/running/interactive-usage.md):
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load nextflow/23.04.3                     # Load nextflow module
 nextflow run workflow.nf
 ```
 
-!!! info "Note"
-    Please do not launch heavy Nextflow workflows on login nodes.
+!!! info "Huom."
+    Älä käynnistä raskaita Nextflow-työnkulkuja kirjautumissolmuissa.
 
-### Running Nextflow with local executor in a batch job
+### Nextflow'n ajo paikallisella executorilla eräajona { #running-nextflow-with-local-executor-in-a-batch-job }
 
-To launch a Nextflow job as a regular batch job that executes all job tasks in the same job
-allocation, create the batch job file:
+Käynnistääksesi Nextflow’n erätyönä, joka suorittaa kaikki työtehtävät samassa eräajoallokaatiossa, luo eräajotiedosto:
 
 ```bash title="nextflow_local_batch_job.sh"
 #!/bin/bash
@@ -145,22 +132,22 @@ nextflow run workflow.nf <options>
 # nextflow run nf-core/scrnaseq  -profile test,singularity -resume --outdir .
 ```
 
-Finally, submit the job to the supercomputer:
+Lähetä lopuksi työ supertietokoneelle:
 
 ```
 sbatch nextflow_local_batch_job.sh
 ```
 
-### Running Nextflow with SLURM executor 
+### Nextflow'n ajo SLURM-executorilla { #running-nextflow-with-slurm-executor }
 
-If the workflow includes only limited number of individual jobs/job steps [SLURM executor of Nextflow](https://www.nextflow.io/docs/latest/executor.html#slurm) could be considered.
+Jos työnkulku sisältää vain rajallisen määrän erillisiä töitä/työvaiheita, voidaan harkita Nextflow’n [SLURM-executoria](https://www.nextflow.io/docs/latest/executor.html#slurm).
 
-The first batch job file reserves resources only for Nextflow itself. Nextflow then creates further SLURM jobs for workflow's processes. The SLURM jobs created by Nextflow may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise it may overload SLURM.
+Ensimmäinen eräajotiedosto varaa resurssit vain Nextflow’lle itselleen. Nextflow luo tämän jälkeen työnkulun prosesseille omat SLURM-työt. Nextflow’n luomat SLURM-työt voidaan jakaa useille supertietokoneen solmuille, ja eri työnkulkusäännöille voidaan käyttää eri osastoja, esimerkiksi CPU:ta ja GPU:ta. SLURM-executoria kannattaa käyttää vain, jos työvaiheet kestävät vähintään 20–30 minuuttia; muuten SLURM voi kuormittua liikaa.
 
 !!! warning
-    Please do not use SLURM executor, if your workflow includes a lot of short processes. It would overload SLURM. Use HyperQueue executor instead.
+    Älä käytä SLURM-executoria, jos työnkulussa on paljon lyhyitä prosesseja. Se kuormittaa SLURMia. Käytä sen sijaan HyperQueue-executoria.
 
-To enable the SLURM executor, set the `process.xx` settings in [nextflow.config file](https://www.nextflow.io/docs/latest/config.html). The settings are similar to [batch job files](../../computing/running/example-job-scripts-puhti.md).
+Ota SLURM-executor käyttöön asettamalla `process.xx`-asetukset [nextflow.config-tiedostossa](https://www.nextflow.io/docs/latest/config.html). Asetukset ovat samankaltaisia kuin [eräajotiedostoissa](../../computing/running/example-job-scripts-puhti.md).
 
 ```bash title="nextflow.config"
 profiles {
@@ -180,7 +167,7 @@ profiles {
 }
 ```
 
-Create the batch job file, note the usage of a profile.
+Luo eräajotiedosto; huomaa profiilin käyttö.
 
 ```bash title="nextflow_slurm_batch_job.sh"
 #!/bin/bash
@@ -197,21 +184,21 @@ module load nextflow/23.04.3
 nextflow run workflow.nf -profile puhti
 ```
 
-Finally, submit the job to the supercomputer:
+Lähetä lopuksi työ supertietokoneelle:
 
 ```
 sbatch nextflow_slurm_batch_job.sh
 ```
 
-This will submit each process of your workflow as a separate batch job to Puhti supercomputer.
+Tämä lähettää työnkulun jokaisen prosessin erillisenä erätyönä Puhti-supertietokoneelle.
 
 
-### Running Nextflow with HyperQueue executor
+### Nextflow'n ajo HyperQueue-executorilla { #running-nextflow-with-hyperqueue-executor }
 
-[HyperQueue meta-scheduler](../../apps/hyperqueue.md) executer is suitable, if your workflow includes a lot of short processes and you need several nodes for the computation. However, the executor settings can be complex depending on the pipeline.
+[HyperQueue-metaaikataulutin](../../apps/hyperqueue.md) sopii, jos työnkulussa on paljon lyhyitä prosesseja ja tarvitset useita solmuja laskentaan. Asetukset voivat kuitenkin olla monimutkaisia putkistosta riippuen.
 
-Here is a batch script for running a
-[nf-core pipeline](https://nf-co.re/pipelines):
+Tässä esimerkissä on eräajotiedosto
+[nf-core-putkiston](https://nf-co.re/pipelines) ajamiseen:
 
 ```bash title="nextflow_hyperqueue_batch_job.sh"
 #!/bin/bash
@@ -264,19 +251,18 @@ hq worker stop all
 hq server stop
 ```
 
-Finally, submit the job to the supercomputer:
+Lähetä lopuksi työ supertietokoneelle:
 
 ```
 sbatch nextflow_hyperqueue_batch_job.sh
 ```
 
-## More information
+## Lisätietoja { #more-information }
 
-* [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
-* [CSC's Nextflow documentation](../../apps/nextflow.md)
-* [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
-  * [Full code Nextflow example from Antoni Gołoś with 3 different executors for Puhti](https://github.com/antonigoo/LIPHE-processing/tree/nextflow/workflow)
-* [General guidelines for high-throughput computing in CSC's HPC environment](../../computing/running/throughput.md)
-* [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
-* [CSC's HyperQueue documentation](../../apps/hyperqueue.md) 
-
+* [Virallinen Nextflow-dokumentaatio](https://www.nextflow.io/docs/latest/index.html)
+* [CSC:n Nextflow-dokumentaatio](../../apps/nextflow.md)
+* [Antoni Gołośin diplomityö: automatisoitujen työnkulkulähestymistapojen vertailu supertietokoneilla](https://urn.fi/URN:NBN:fi:aalto-202406164397)
+  * [Antoni Gołośin täydellinen Nextflow-esimerkki, jossa 3 eri executoria Puhtille](https://github.com/antonigoo/LIPHE-processing/tree/nextflow/workflow)
+* [Yleiset ohjeet korkean läpimenon laskentaan CSC:n HPC-ympäristössä](../../computing/running/throughput.md)
+* [Virallinen HyperQueue-dokumentaatio](https://it4innovations.github.io/hyperqueue/stable/)
+* [CSC:n HyperQueue-dokumentaatio](../../apps/hyperqueue.md)

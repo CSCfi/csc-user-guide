@@ -1,25 +1,25 @@
+# Pidä Docker-kuvat pieninä { #keeping-docker-images-small }
 
-# Pienien docker-kuvien säilyttäminen
+On tärkeää pitää Docker-kuvat pieninä. Mitä pienempi kuva on, sitä nopeammin se vedetään, mikä nopeuttaa käyttöönottoja sekä tuotanto- että kehitysympäristöissä. Lisäksi suuremmat kuvat poistetaan solmujen välimuistista aiemmin. Rahtin sisäiseen rekisteriin tallennetun kuvan enimmäiskoko on 5GB. Yli 1GB:n kuvia pidetään jo hyvin suurina.
 
-On tärkeää pitää docker-kuvat pieninä. Mitä pienempi kuva on, sitä nopeammin se vedetään, nopeuttaen käyttöönottoja sekä tuotanto- että kehitysympäristöissä. Lisäksi, suuremmat kuvat poistetaan solmujen välimuistista nopeammin. Rahtin sisäisessä rekisterissä tallennetun kuvan enimmäiskoko on 5 GB. Yli 1 GB kokoisia kuvia pidetään jo hyvin suurina.
+## Ole tarkkana sen suhteen, mitä kuvaan lisätään { #be-mindful-about-what-is-added-to-the-image }
 
-## Huolehdi, mitä kuvaan lisätään {#be-mindful-about-what-is-added-to-the-image}
+Ensimmäinen tapa pitää kuva pienenä on yksinkertaisesti olla lisäämättä tarpeettomia tiedostoja. Kehitysvaiheessa on tavallista asentaa kirjastojen tai muiden riippuvuuksien täydet lähdekoodit, esimerkiksi Linux-ytimen otsakepaketit. Näitä lähdekoodeja ei kuitenkaan enää tarvita tuotantokäytössä.
 
-Ensimmäinen tapa pitää kuva pienenä on yksinkertaisesti olla lisäämättä tarpeettomia tiedostoja. Kehityksessä on yleistä asentaa kirjastojen tai muiden riippuvuuksien täydelliset lähteet, kuten esimerkiksi Linuxin ytimen otsikot. Nämä lähteet eivät ole enää tarpeellisia tuotantoympäristöissä.
+## Pidä data kuvan ulkopuolella { #keep-data-out-of-the-image }
 
-## Pidä data kuvan ulkopuolella {#keep-data-out-of-the-image}
+Kuvien tulisi sisältää vain sovelluksen ajonaikainen ympäristö. Tämä tarkoittaa, että sovelluksen suorittamiseen tarvittavaa dataa ei tule lisätä kuvaan. Näin kuva ei ainoastaan pysy pienempänä, vaan myös vältytään uudelleenrakennukselta datan muuttuessa. Data voidaan tallentaa [ulkoiseen volyymiin](../storage/persistent.md) (PVC), joka liitetään Podiin käynnistyksen yhteydessä, tai se voidaan tallentaa [Allakseen](../../../data/Allas/index.md) ja ladata käynnistyksen aikana tai tarvittaessa on-demand. Datan tallentaminen Allakseen edellyttää sovellukselta (tai esilataus-skriptiltä) lisälogiikkaa, joka tietää, missä data sijaitsee ja miten se noudetaan.
+data voidaan tallentaa ulkoiseen volyymiin (PVC), joka liitetään Podiin käynnistyksessä, tai se voidaan tallentaa
 
-Kuvien tulisi sisältää vain sovelluksen suoritusympäristö. Tämä tarkoittaa sitä, että sovelluksen suorittamiseen tarvittavaa dataa ei tulisi lisätä kuvaan. Näin paitsi kuva on pienempi, myös vältämme uuden rakentamisen, kun data muuttuu. Data voidaan tallentaa [ulkoiseen volyymiin](../storage/persistent.md) (PVC), joka liitetään Pod:iin käynnistyksen yhteydessä, tai se voidaan tallentaa [Allakseen](../../../data/Allas/index.md) ja ladata käynnistyksen yhteydessä tai tarvittaessa kysynnän aikana. Datan tallentaminen Allakseen vaatii lisälogiikkaa sovelluksessa (tai esilatausskriptissä), jotta ymmärretään, missä data sijaitsee ja miten se noudetaan.
+## Vähennä kerrosten määrää { #reduce-the-number-of-layers }
 
-## Vähennä kerrosten määrää {#reduce-the-number-of-layers}
-
-Jokaiselle `Dockerfile`-komennolle (`RUN`, `COPY`, `CMD`, `EXPOSE`, ...), lisätään uusi kerros docker-kuvaan. Jokainen kerros tallennetaan erotuksena edellisestä. Tämä tarkoittaa, että jos jotain dataa lisätään yhdessä kerroksessa, mutta poistetaan seuraavassa, kuva sisältää silti kyseisen datan. Jotta näkisit, kuinka paljon dataa jokainen kerros lisää kuvaan, voit käyttää:
+Jokaisesta `Dockerfile`-ohjeesta (`RUN`, `COPY`, `CMD`, `EXPOSE`, ...) syntyy uusi kerros Docker-kuvaan. Jokainen kerros tallennetaan edelliseen verrattuna erotuksena. Tämä tarkoittaa, että jos dataa lisätään yhdessä kerroksessa ja poistetaan seuraavassa, kuva sisältää silti kyseisen datan. Nähdäksesi, kuinka paljon kukin kerros lisää kuvan kokoa, voit käyttää:
 
 `docker history image_name`
 
-Kierrä kerrosten määrän vähentämiseksi:
+Kerrosten määrän vähentämiseen on kolme lähestymistapaa:
 
-* Yhdistä kerrokset `Dockerfile`-tiedostossa. Joskus on useita `RUN`-komentoja peräkkäin. Ne voidaan helposti yhdistää käyttämällä `&&`:
+* Yhdistä kerroksia `Dockerfile`-tiedostossa. Joskus peräkkäin on useita `RUN`-ohjeita. Ne voi yhdistää käyttämällä `&&`:
 
 ```Dockerfile
 RUN apt update
@@ -34,7 +34,7 @@ RUN apt update && \
     apt install git
 ```
 
-* Käytä monivaiheisia rakennelmia (Tämä ominaisuus esiteltiin docker v17.05:ssa). Monivaiheisten rakennelmien idea on, että saman `Dockerfile`-tiedoston sisällä on useita `FROM`-komentoja, joista jokainen `FROM` aloittaa uuden vaiheen rakenteella eikä kanna tiedostoja edellisiltä vaiheilta, mutta sallii tiedostojen kopioinnin aikaisemmista vaiheista. Tässä käytetty malli on rakentaa sovellus ensimmäisessä vaiheessa ja kopioida sitten toisessa vaiheessa vain käännetty sovellus, jättäen taakseen lähteet ja muut kompilaation alituotteet, joita emme tarvitse sovelluksen suorittamiseen. Esimerkiksi:
+* Käytä monivaiheisia koonteja (ominaisuus esiteltiin docker v17.05:ssa). Monivaiheisen koonnin idea on käyttää useita `FROM`-komentoja samassa `Dockerfile`-tiedostossa; jokainen `FROM` aloittaa uuden vaiheen eikä kanna tiedostoja edellisestä vaiheesta, mutta mahdollistaa tiedostojen kopioinnin aiemmista vaiheista. Tyypillinen malli on kääntää sovellus ensimmäisessä vaiheessa ja kopioida toisessa vaiheessa vain käännetty sovellus, jättäen lähdekoodit ja muut käännöstuotteet pois, koska niitä ei tarvita ajonaikaisesti. Esimerkiksi:
 
 ```Dockerfile
 FROM golang:1.21
@@ -50,19 +50,18 @@ COPY --from=0 /bin/hello /bin/hello
 CMD ["/bin/hello"]
 ```
 
-Esimerkki on otettu [Monivaiheisten rakennelmien käyttö](https://docs.docker.com/develop/develop-images/multistage-build/) artikkelista Dockerin dokumentaatiossa.
+Esimerkki on otettu Dockerin dokumentaation artikkelista [Use multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/).
 
-* Käytä [docker build --squash](https://docs.docker.com/engine/reference/commandline/build/#squash). Docker yhdistää kuvan yhdeksi kerrokseksi. Tämä tarkoittaa, että jos `Dockerfile`-tiedostosi tuottaa useita kerroksia, jotka muokkaavat samoja tiedostoja, tallennetaan vain tiedostojen lopullinen tila. Samoin, jos tiedosto luodaan yhdessä kerroksessa ja poistetaan myöhemmin toisessa, tiedostoa ei tallenneta kuvaan.
+* Käytä [docker build --squash](https://docs.docker.com/engine/reference/commandline/build/#squash) -toimintoa. Docker litistää kuvan yhdeksi kerrokseksi. Tämä tarkoittaa, että jos `Dockerfile` tuottaa useita kerroksia, jotka muokkaavat samoja tiedostoja, vain tiedostojen lopullinen tila tallennetaan. Samoin, jos tiedosto luodaan yhdessä kerroksessa ja poistetaan myöhemmässä, sitä ei tallenneta kuvaan.
 
-## Käytä pientä peruskuvaa {#use-a-small-base-image}
+## Käytä pientä peruskuvaa { #use-a-small-base-image }
 
-Kun luodaan kuvaa, peruskuvan valitseminen on tärkeä tehtävä. Tiettyyn tarpeeseen on melkein aina tarjolla useita peruskuvia. Nämä peruskuvat voivat olla sisällöltään, ylläpidoltaan, turvallisuudeltaan, kooltaan jne. hyvin erilaisia. On hyvä käytäntö arvioida saatavilla olevia kuvia ja tehdä vertailuja niiden välillä. Usein ei ole hyvä idea ottaa ensimmäistä satunnaista kuvaa, jonka löydät, ja siirtää se tuotantoon. Yksi peruskuva, joka on hyvin yleisesti käytetty ja josta on paljon dokumentaatiota saatavilla, on [Alpine Linux](https://www.alpinelinux.org).
+Kuvaa luotaessa peruskuvan valinta on tärkeä tehtävä. Usein tiettyyn tarpeeseen on saatavilla useita peruskuvia. Nämä peruskuvat voivat erota paljonkin sisällön, ylläpidettävyyden, turvallisuuden, koon jne. osalta. On hyvä käytäntö arvioida saatavilla olevia kuvia ja vertailla niitä keskenään. Usein ei ole hyvä idea ottaa ensimmäinen satunnainen kuva ja viedä se tuotantoon. Yksi hyvin yleisesti käytetty ja runsaasti dokumentoitu peruskuva on [Alpine Linux](https://www.alpinelinux.org).
 
-> Alpine Linux on tietoturvaorientoitunut, kevyt Linux-jakelu, joka perustuu **musl libc**:hen ja **busybox**:iin.
+> Alpine Linux on tietoturvaan suuntautunut, kevyt Linux-jakelu, joka perustuu **musl libc** -kirjastoon ja **busybox**-työkaluihin.
 
-Tällä hetkellä Alpine:n peruskuva (`docker.io/alpine`) on vain 5.61 MB. Vertailun vuoksi Ubuntu:n ja CentOS:n peruskuvien koot ovat vastaavasti 72.9 MB ja 209 MB. Suurin haitta, joka Alpine:lla on toisiin peruskuviin verrattuna, on se, että jotkin sovellukset eivät ole yhteensopivia [musl libc](https://en.wikipedia.org/wiki/Musl):n kanssa ja vaativat `glibc`:n. Berat tai CentOS:in valikoima ohjelmistoja on myös laajempi kuin Alpine:ssa.
+Tällä hetkellä Alpinelle (`docker.io/alpine`) on saatavilla peruskuva, jonka koko on vain 5.61 MB. Vertailun vuoksi Ubuntun ja AlmaLinuxin peruskuvien koot ovat vastaavasti 72.9 MB ja 189 MB. Suurin Alpinella muihin peruskuviin verrattuna oleva haitta on, että jotkin sovellukset eivät ole yhteensopivia [musl libc](https://en.wikipedia.org/wiki/Musl):n kanssa ja vaativat `glibc`:n. Alpinella on myös suppeampi ohjelmistovalikoima pakettivarastoissa kuin Ubuntulla tai AlmaLinuxilla.
 
-## Käytä `.dockerignore` {#use-dockerignore}
+## Käytä `.dockerignore`-tiedostoa { #use-dockerignore }
 
-`.dockerignore` toimii samalla tavalla kuin `gitignore`, luoden mustan listan tiedostoista, joita ei lisätä kuvaan. Näin on mahdollista sulkea pois tiedostoja, joita ei tarvita sovelluksen suorittamiseen.
-
+`.dockerignore` toimii samalla tavalla kuin `gitignore`: se luo luettelon tiedostoista, joita ei lisätä kuvaan. Näin voidaan jättää pois tiedostot, joita ei tarvita sovelluksen suorittamiseen.

@@ -1,54 +1,56 @@
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-# Aloita täältä: CSC-tilin luominen ja P2-palveluiden käyttäminen {#start-here-creating-a-csc-account-and-accessing-sensitive-data-services}
+# Aloita tästä: luo CSC-tili ja käytä Sensitive Data -palveluja { #start-here-creating-a-csc-account-and-accessing-sensitive-data-services }
 
-Jos olet uusi P2-palveluiden käyttäjä, tämä osio on sinua varten. Täällä opit luomaan tilin ja CSC-projektin. Opit myös hallitsemaan projektisi resurssien kulutusta (tässä kutsutaan laskutusyksiköiksi), tallennustilaa ja mitä tiedoillesi tapahtuu projektin päättyessä.
+Jos olet uusi Sensitive Data (SD) -palvelujen käyttäjä, tämä osio on sinulle. Täällä opit luomaan käyttäjätilin ja CSC-projektin. Opit myös hallitsemaan projektisi resurssien kulutusta (tässä kutsutaan nimellä Billing Unit), tallennustilaa sekä mitä tiedoillesi tapahtuu projektin päättyessä.
 
-Seuraamasi vaiheet riippuvat roolistasi tutkimusryhmässä:
+Noudatettavat vaiheet riippuvat roolistasi tutkimusryhmässä:
 
 1. [Lue projektipäällikön vastuut](#project-manager)
 
 2. [Lue projektijäsenen vastuut](#project-member)
 
-3. [Valitse seuraavaksi opetusohjelma](#select-tutorial)
+3. [Seuraavaksi valitse opas](#select-tutorial)
 
 
-### Projektipäällikkö {#project-manager}
+### Projektipäällikkö { #project-manager }
 
-Projektipäällikkö on CSC-projektin ensisijainen käyttäjä, joka vastaa projektin ja projektijäsenten hallinnasta. Hän toimii tiedonhallintavastaavana (tai akateemisen organisaation edustajana).
+Projektipäällikkö on CSC-projektin ensisijainen käyttäjä ja vastaa projektin ja projektin jäsenten hallinnasta. Hän toimii rekisterinpitäjänä (tai akateemisen organisaation edustajana).
 
-Vastuisiin kuuluu:
+Vastuut sisältävät:
 
-* CSC-projektien luominen ja hallinnointi MyCSC-portaalissa.
+* CSC-projektien luominen ja hallinta MyCSC-portaalissa.
   
-* Projektijäsenten lisääminen ja hallinnointi.
+* Projektin jäsenten lisääminen ja hallinta.
   
-* Projektin elinkaaren, tallennustilan ja resurssien (tässä kutsutaan laskutusyksiköiksi) hallinnointi.
+* Projektin elinkaaren, tallennustilan ja resurssien (tässä: Billing Units) hallinta.
   
-* Päätös siitä, mitkä palvelut soveltuvat datan käsittelyyn lisäämällä palveluita MyCSC-portaalissa.
+* Päättäminen siitä, mitkä palvelut soveltuvat tietojen käsittelyyn, lisäämällä palvelut MyCSC-portaalissa.
   
-* Datan vienti SD-työpöydältä (vain projektipäälliköt voivat tehdä tämän).
+* Tietojen vieminen SD Desktopista (vain projektipäälliköt voivat tehdä tämän).
 
 
-### Projektijäsen {#project-member}
+### Projektin jäsen { #project-member }
 
-Projektijäsen on henkilö, joka liittyy olemassa olevaan CSC-projektiin (projekteihin voi lisää vain projektipäällikkö).
+Projektin jäsen on henkilö, joka liittyy olemassa olevaan CSC-projektiin (vain projektipäällikkö voi lisätä).
   
-* Kaikilla projektijäsenillä on yhtäläinen pääsy projektin sisältöön (esim. tiedonkäyttöoikeudet).
+* Kaikilla projektin jäsenillä on yhtäläinen pääsy projektin sisältöön (esim. tietojen käyttöoikeus).
   
-* **SD Connect:** projektijäsenet voivat ladata, purkaa ja poistaa tiedostoja samalla tavalla kuin projektipäällikkö.
+* **SD Connect:** projektin jäsenet voivat lähettää, ladata ja poistaa tiedostoja samalla tavalla kuin projektipäällikkö.
   
-* **SD-työpöytä:** projektijäsenet voivat ladata ja analysoida dataa, mutta he eivät voi viedä mitään SD-työpöydältä. Vain projektipäällikkö voi viedä dataa SD-työpöydältä.
+* **SD Desktop:** projektin jäsenet voivat ladata dataa ja analysoida sitä, mutta he eivät voi viedä mitään SD Desktopista. Vain projektipäällikkö voi viedä tietoja SD Desktopista.
   
-* Projektijäsenet eivät voi lisätä palveluita MyCSC-portaalin kautta.
+* Projektin jäsenet eivät voi lisätä palveluja MyCSC-portaalin kautta.
 
 
-## Valitse opetusohjelma: {#select-tutorial}
 
-* [Vaihe vaiheelta -opetusohjelma projektipäällikölle](./sd-use-case-new-user-project-manager.md)
-
-* [Vaihe vaiheelta -opetusohjelma projektijäsenelle](./sd-use-case-new-user-project-member.md)
+## Valitse opas: { #select-tutorial }
 
 
-!!! Huomio
-    Jos kohtaat vaikeuksia näiden vaiheiden kanssa, ole hyvä ja ota yhteyttä meihin osoitteessa servicedesk@csc.fi (aihe: Herkkän tiedon palvelut). Tarjoamme vaiheittaista online-tukea, joka opastaa sinut prosessin läpi.
+* [Vaiheittainen opas projektipäällikölle](./sd-use-case-new-user-project-manager.md)
 
+* [Vaiheittainen opas projektin jäsenelle](./sd-use-case-new-user-project-member.md)
+
+
+!!! Note
+    Jos kohtaat näissä vaiheissa vaikeuksia, ota meihin yhteyttä osoitteessa servicedesk@csc.fi (aihe: Sensitive Data services). Tarjoamme vaiheittaisen tuen verkossa ja opastamme sinut prosessin läpi.

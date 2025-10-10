@@ -1,24 +1,27 @@
-# Laajenna volyymi {#expand-a-volume}
+# Laajenna volyymi { #expand-a-volume }
 
-Koska dynaaminen volyymilaajennus ei ole aktivoitu, jos muokataan suoraan `YAML`-objektissa volyymin kokoa, syntyy virhe kuten tämä:
+Koska volyymien dynaaminen laajennus ei ole käytössä, jos muokkaat suoraan `YAML`-objektissa volyymin kokoa, palautetaan esimerkiksi tällainen virhe:
 
 ```sh
 (...)
 # * spec: Forbidden: spec is immutable after creation except resources.requests for bound claims
 (...)
 ```
+!!! warning ""
+    Kun kasvatat PersistentVolumeClaimin (PVC) kokoa, on suositeltavaa käyttää kokoja, jotka ovat **8 GiB** kerrannaisia (esim. 16 GiB, 32 GiB, 64 GiB, 128 GiB jne.).  
+    Muut arvot eivät välttämättä toimi, ja koon kasvatus saattaa epäonnistua hiljaisesti.
 
-Tällöin on noudatettava hieman käsityöläismäisempää menettelyä:
+Tämän jälkeen on noudatettava manuaalisempaa menettelyä:
 
 * Luo uusi volyymi halutulla koolla
 
 ![Luo uusi volyymi](../../img/Create-new-volume.png)
 
-* Skaalaa alas se käyttöönotto, johon uudelleen koottava volyymi on liitetty.
+* Skaalaa alas se deployment, joka liittää (mounttaa) muutettavan volyymin.
 
-![Pienennä skaalaa](../../img/Scale-down.png)
+![Skaalaa alas](../../img/Scale-down.png)
 
-* Liitä vanha ja uusi volyymi toiseen Pod-konttiin. Paras vaihtoehto on luoda uusi käyttöönotto, luoda tiedosto nimeltä `two-volumes.yaml` ja korvata molempien volyymien nimet:
+* Liitä vanha ja uusi volyymi toiseen Podiin. Paras vaihtoehto on luoda uusi deployment, tehdä `two-volumes.yaml` -niminen tiedosto ja korvata molempien volyymien nimet:
 
 ```yaml
 apiVersion: apps/v1
@@ -71,12 +74,12 @@ oc rsh deploy/two-volumes rsync -vrlpD /old/ /new/
 oc delete deploy/two-volumes
 ```
 
-* Vaihda volyymi siinä käyttöönotossa, jossa volyymi on liitetty, se on kohdassa **template > spec > volumes** kohdassa `claimName`.
+* Vaihda volyymit siinä deploymentissa, joka liitti volyymin; se löytyy kohdan **template > spec > volumes** alta kentässä `claimName`.
 
 ```sh
-oc edit deploy/<käyttöönoton nimi>
+oc edit deploy/<name of deployment>
 ```
 
-* Lopuksi skaalaa käyttöönotto takaisin ylös.
+* Lopuksi skaalaa deployment takaisin ylös.
 
-Tarkistaaksesi, että toimenpide onnistui, voit siirtyä siihen `Pod`-konttiin, johon volyymi on liitetty, ja tarkistaa uuden koon.
+Voit varmistaa toimenpiteen onnistuneen menemällä sellaiseen `Pod`iin, joka liittää volyymin, ja tarkistamalla uuden koon.

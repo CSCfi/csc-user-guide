@@ -1,179 +1,192 @@
-# Datan toimittaminen {#data-submission}
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-Alla on askel-askeleelta -ohjeet biolääketieteellisen datan lataamiseen, kuvaamiseen ja julkaisemiseen Suomen Federated EGA:n kautta. **Huomaa, että tämä prosessi voi olla pitkä** (minkä tahansa yksittäisen kuukauden ja kuuden kuukauden väliltä), mutta tarjoamme tukea ja ohjausta koko prosessin ajan.
+# Aineiston toimittaminen { #data-submission }
 
-Tässä käyttäjän oppaassa kuvattu prosessi on erityinen datasetin lähettämiseen Suomen FEGA:han. Keskus EGA ja muut FEGA-solmut käyttävät eri datan lähetysprosesseja.
+Alta löydät vaiheittaiset ohjeet biolääketieteellisen datan lataamiseen, kuvaamiseen ja julkaisemiseen Finnish Federated EGA -palvelun (FEGA) kautta. Huomioithan, että prosessi voi olla pitkäkestoinen (noin yhdestä kuuteen kuukautta), mutta tarjoamme tukea ja ohjausta koko prosessin ajan.
 
-Lähetyspyynnöt käsitellään vastaanottojärjestyksessä.
+Tässä käyttöoppaassa kuvattu prosessi on tarkoitettu nimenomaan aineistojen toimittamiseen Finnish FEGAan. Central EGA ja muut FEGA-solmut käyttävät erilaisia aineistojen toimitusprosesseja.
 
-!!! Huomio
-    Ennen kuin aloitat, on keskeistä varmistaa, että palvelusopimus Federated EGA -palvelulle on olemassa CSC:n (datankäsittelijänä) ja kotiorganisaatiosi (tai datan rekisterinpitäjän) välillä. **Aloita toimituksen valmistelu hyvissä ajoin** (jopa ennen kuin lähetät käsikirjoituksesi tieteelliseen lehteen) ottamalla yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md) (aihe: Federated EGA) ja kotiorganisaatiosi oikeudellisiin palveluihin.
+Toimituspyynnöt käsitellään saapumisjärjestyksessä.
 
-## Vaihe 1: Oikeudelliset sopimukset, Datan Käyttökomitea ja Politiikat {#step-1-legal-agreements-data-access-committee-and-policies}
+!!! Note
+    Ennen kuin aloitat, on tärkeää varmistaa, että Federated EGA -palveluun liittyvä palvelusopimus on voimassa CSC:n (käsittelijä) ja kotiorganisaatiosi (tai rekisterinpitäjän) välillä. Aloita aineiston valmistelu hyvissä ajoin (jo ennen käsikirjoituksen lähettämistä tieteelliseen lehteen) ottamalla yhteyttä [CSC Service Deskiin](../../support/contact.md) (aihe: Federated EGA) sekä kotiorganisaatiosi lakipalveluihin.
 
-Datan tallettaminen Suomen Federated EGA:lle edellyttää sarjaa oikeudellisia sopimuksia: Federated EGA -palvelusopimusta ja Datan Käyttösopimusta, joka sisältää Datansiirtosopimuksen. Nämä sopimukset sekä datan siihen liittyvä käyttöoikeuksien hallinta ovat datan rekisterinpitäjän vastuulla. Lähetetyn datan rekisterinpitäjä on yleensä tutkimusta tukevan akateemisen organisaation. Datan omistus ei muutu tämän palvelun käytön myötä.
+## Vaihe 1: Oikeudelliset sopimukset, Data Access Committee ja Policies { #step-1-legal-agreements-data-access-committee-and-policies }
 
-Fegan käytön kattavat [CSC:n ilmaiset käyttötapaukset](https://research.csc.fi/free-of-charge-use-cases) suomalaista akateemista tutkimuskäyttöä varten, mutta maksuton käyttö ei sisällä pakollista varmuuskopiota tiedoista. Varmuuskopiointia voidaan ostaa lisäpalveluna FEGAssa tai lähettävä organisaatio voi sopia muista varmuuskopiointitavoista CSC:n kanssa tehdyssä sopimuksessa. Lisää tietoa FEGAn sisäisen varmuuskopiopalvelun hinnoista löytyy [hinnoitteluasiakirjasta](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf){ target=_blank }. Lähetyspalvelu on saatavilla vain suomalaisille käyttäjille.
+Aineiston tallettaminen Finnish Federated EGAan edellyttää useita oikeudellisia sopimuksia: Federated EGA -palvelusopimus sekä Data Access Agreement -sopimus, joka sisältää Data Transfer Agreementin. Nämä sopimukset sekä aineiston myöhempi käyttöoikeuksien hallinta ovat rekisterinpitäjän vastuulla. Toimitetun datan rekisterinpitäjä on tavallisesti tutkimusta koordinoiva akateeminen organisaatio. Datan omistajuus ei muutu tämän palvelun käytön myötä.
 
-Alla löydät lisätietoa tarpeellisista oikeudellisista sopimuksista ja datan käyttöoikeuksien hallinnasta:
+Datan toimittaminen FEGAan kuuluu [CSC:n maksuttomien](https://research.csc.fi/free-of-charge-use-cases) käyttötapausten piiriin suomalaisen akateemisen tutkimuksen osalta, mutta maksuttomuus ei sisällä datan pakollista varmuuskopiota. Varmuuskopiointitila voidaan hankkia FEGA:n lisäpalveluna, tai organisaatio voi sopia varmuuskopion muista säilytystavoista CSC:n kanssa tehtävässä sopimuksessa. Lisätietoa FEGA:n sisäisen varmuuskopiointipalvelun hinnoittelusta löytyy [hinnoitteludokumentista](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf){ target=_blank }. Toimituspalvelu on käytettävissä vain suomalaisille käyttäjille.
 
-* **Palvelusopimus Federated EGA:lle**: organisaatiollasi (tai datan rekisterinpitäjällä) on oltava erityinen palvelusopimus CSC:n (datankäsittelijänä) kanssa ennen Suomen Federated EGA -palvelun käyttöä. Tämä palvelusopimus sisältää Datankäsittelysopimuksen (DPA), joka määrittelee datankäsittelyn yksityiskohdat, kuten sen laajuuden ja tarkoituksen sekä rekisterinpitäjän ja käsittelijän väliset oikeudet ja velvollisuudet. Varmista, että organisaatiossasi on FEGA-palvelusopimus ennen lähetysprosessin aloittamista. Jos organisaatiollasi ei ole sopimusta, ota meihin yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md) (aihe: Federated EGA).
+Lisätietoa vaadittavista sopimuksista ja käyttöoikeuksien hallinnasta:
 
-* **Datan Käyttösopimus**: Datan Käyttösopimus (DAA) on sopimus Datan Käyttökomitean (DAC) ja hakijan välillä, joka hakee pääsyä dataan uudelleenkäyttöä varten. Datan Käyttösopimuksen kautta datan rekisterinpitäjä voi määritellä ehdot ja rajoitukset datan uudelleenkäytölle, mukaan lukien dataan liittyvät käytännöt, julkaisut, lataamiset ja käyttöoikeudet. Datan käyttösopimukseen tulisi myös sisältyä Datansiirtosopimus (DTA), joka on tarpeen, kun ei-EU/ei-ETA-alueiden tutkijat käyttävät dataa SD Desktopin kautta. DAA ja DTA liitetään datan käyttöpolitiikkoihin (katso seuraava kappale). Lisätietoa varten ota yhteyttä oman organisaatiosi Datan Käyttökomiteaan tai oikeudellisiin palveluihin. Voit löytää esimerkkimallin [täältä](https://ega-archive.org/assets/files/Example_DAA.doc).
+* Palvelusopimus Federated EGAan: organisaatiollasi (tai rekisterinpitäjällä) tulee olla erillinen palvelusopimus CSC:n (käsittelijä) kanssa ennen Finnish Federated EGA -palveluun pääsyä. Tämä palvelusopimus sisältää tietojenkäsittelysopimuksen (DPA), joka määrittelee käsittelyn laajuuden ja tarkoituksen sekä rekisterinpitäjän ja käsittelijän oikeudet ja velvollisuudet. Varmista, että organisaatiollasi on FEGA-palvelusopimus ennen toimitusprosessin aloittamista. Jos sopimusta ei ole, ota yhteyttä [CSC Service Deskiin](../../support/contact.md) (aihe: Federated EGA).
 
-* **Datan Käyttökomitea ja Politiikat**: Datan Käyttökomiteasta (DAC) ja Politiikoista vastaa datan rekisterinpitäjä. Datan käyttö sekä DAC ja Poliittinen informaatio hallitaan erillisessä palvelussa nimeltään [SD Apply](./sd-apply.md). Organisaatioilla voi olla yleiset DAC:t ja Politiikat, joita käytetään kaikille samasta organisaatiosta lähetetyille dataseteille. Vain datasettiin liittyvä datan käyttöhakemuslinkki on ainutlaatuinen jokaiselle datasetille. Tämä linkki luodaan, kun datasi submissions on kirjattu FEGA-submissions-portaaliin, ja datasetin ainutlaatuinen tunnus yhdistetään DAC:hen, Politiikoihin ja hakemuslomakkeeseen SD Apply:ssä. Varmistaaksesi, että organisaatiollasi on sopiva DAC ja Politiikat datasetillesi, ota yhteyttä oman organisaatiosi edustajiin tai [CSC:n palvelupisteeseen](../../support/contact.md) saadaksesi lisäohjeita.
+* Data Access Agreement: Data Access Agreement (DAA) on sopimus Data Access Committeen (DAC) ja datan uudelleenkäyttöä hakevan hakijan välillä. DAA:n kautta rekisterinpitäjä voi määritellä datan uudelleenkäytön ehdot ja rajoitteet, mukaan lukien käytön, julkaisun, latauksen ja pääsyn periaatteet. DAA:n tulisi sisältää myös Data Transfer Agreement (DTA), jota tarvitaan, kun EU/ETA-alueen ulkopuoliset tutkijat käyttävät dataa SD Desktopin kautta. DAA ja DTA sisällytetään data access -käytäntöihin (ks. seuraava kappale). Lisätietoja saat kotiorganisaatiosi Data Access Committeelta tai lakipalveluista. Löydät [esimerkkipohjan täältä](https://ega-archive.org/assets/files/Example_DAA.doc).
 
-## Vaihe 2: Yleisten tietojen antaminen toimituksesta {#step-2-general-information-of-the-submission}
+* Data Access Committee ja Policies: Data Access Committee (DAC) ja Policies hallinnoi rekisterinpitäjä. Datan käyttöoikeudet sekä DAC- ja Policy-tiedot hallitaan erillisessä [SD Apply](./sd-apply.md) -palvelussa. Organisaatioilla voi olla yleiset DAC:t ja Policies, joita käytetään kaikille samasta organisaatiosta toimitetuille aineistoille. Vain datasettiin liittyvä käyttöoikeushakemuksen linkki on datasetti-kohtainen. Linkki luodaan, kun toimitus on viimeistelty FEGA:n lähetysportaalissa ja datasetin yksilöivä tunniste on yhdistetty DAC:iin, Policies-käytäntöihin ja hakemuslomakkeeseen SD Apply:ssa. Varmistaaksesi, että organisaatiollasi on datasetillesi sopivat DAC ja Policies, ota yhteyttä oman organisaatiosi edustajiin tai [CSC Service Deskiin](../../support/contact.md) lisäohjeita varten.
 
-Suomen Federated EGA -palvelulle tapahtuva lähetyksen aloitus alkaa ottamalla yhteyttä Suomen FEGA-helpdeskiin ja antamalla yleisiä tietoja lähetyksestä. Mieluiten tämä tieto jaetaan ensin organisaation DAC:lle, joka voi sitten lähettää tiedot FEGA-helpdeskiin hyväksyessään lähetyksen.
+## Vaihe 2: Toimituksen yleiset tiedot { #step-2-general-information-of-the-submission }
 
-Lähetysprosessin aloittamiseksi, täytä [yleislomake](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/fega-general-information.pdf) yhteystiedoilla, tietoja lähetyksen tyypistä ja datan rekisterinpitäjästä, tai anna sama tieto sähköpostiviestissä. Lähetä lähetyspyyntö oman organisaatiosi DAC:lle, jolloin he voivat toimittaa tarvittavat tiedot sähköpostitse [CSC:n palvelupisteeseen](../../support/contact.md) (aihe: Federated EGA).
+Toimitus Finnish Federated EGA -palveluun alkaa ottamalla yhteyttä Finnish FEGA -tukeen ja toimittamalla toimituksen yleiset tiedot. Mieluiten tämä tieto jaetaan ensin organisaation DAC:lle, joka voi sen jälkeen lähettää tiedot FEGA-tukeen omalla hyväksynnällään.
 
-## Vaihe 3: Tunnisteet {#step-3-credentials}
+Aloittaaksesi toimitusprosessin, täytä [yleiset tiedot -lomake](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/fega-general-information.pdf), johon merkitään yhteystiedot, tiedot toimituksen tyypistä ja rekisterinpitäjästä, tai toimita samat tiedot sähköpostilla. Lähetä toimituspyyntö organisaatiosi DAC:lle, joka voi toimittaa vaaditut tiedot sähköpostitse [CSC Service Deskiin](../../support/contact.md) (aihe: Federated EGA).
 
-Kun oikeudelliset sopimukset datan rekisterinpitäjän ja CSC:n välillä on saatu päätökseen ja organisaation DAC on hyväksynyt lähetyksen, voit rekisteröityä [EGA-verkkosivulle](https://ega-archive.org/register/) luodaksesi keskitetyt EGA-tunnukset. Saat aktivointilinkin sähköpostitse rekisteröintisi hyväksynnän jälkeen keskitetyn EGA:n puolesta. Aktivoi tunnuksesi ja ota yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md) päästäksesi Suomen FEGA:n lähettäjäksi. Lisäksi anna IP-osoite, josta siirrät tiedot FEGAlle, jotta voit muodostaa yhteyden FEGA-inboxiin.
+## Vaihe 3: Tunnukset { #step-3-credentials }
 
-!!! huomio
-    Keskitetyt EGA-tunnukset, mukaan lukien käyttäjätunnus (yleensä sähköpostiosoitteesi) ja salasana, tarvitaan salaukseen ja datan lataamiseen Suomen FEGAan ja metadatan toimittamiseen lähettäjäportaalin kautta.
+Kun rekisterinpitäjän ja CSC:n väliset sopimukset on viimeistelty ja organisaation DAC on hyväksynyt toimituksen, voit rekisteröityä [EGA:n sivuilla](https://ega-archive.org/register/) luodaksesi Central EGA -tunnukset. Saat sähköpostitse aktivointilinkin, kun rekisteröintisi on hyväksytty Centraali-EGA:ssa. Aktivoituasi tunnuksesi, ota yhteyttä [CSC Service Deskiin](../../support/contact.md), jotta sinut lisätään Finnish FEGA -toimittajaksi. Lisäksi ilmoita se IP-osoite, josta siirrät dataa FEGAan, jotta voit muodostaa yhteyden FEGA:n inboxiin.
 
-## Vaihe 4: Tiedostomuodot {#step-4-data-formats}
+!!! note
+    Central EGA -tunnuksia, eli käyttäjätunnusta (yleensä sähköpostiosoitteesi) ja salasanaa, tarvitaan datan salaukseen ja lataukseen Finnish FEGAan sekä metatietojen toimittamiseen lähettäjäportaalissa.
 
-Ennen kuin lataat tiedot FEGAlle, sinun on valmisteltava datasetit ja varmistettava datan oikeat tiedostomuodot. Alla on lueteltu joitakin hyväksyttyjä formaatteja.
+## Vaihe 4: Datan muodot { #step-4-data-formats }
 
-!!! huomio
-    Datasetti määritellään yleensä tiedostojoukkona, joka kuuluu samaan kokeeseen ja datatyyppiin. Yksi tutkimus voi sisältää useita datasettejä. Tutkimuksesi voi sisältää sekä herkkää tietoa (esim. ihmisen geneettisiä tai fenotyyppisiä tietoja) että ei-herkkää tietoa (esim. virussequensseja, metaboliitteja). Vain herkkä data voidaan lähettää FEGAlle. Ei-herkät tiedot voidaan julkaista avoimesti asianmukaisissa arkistoissa. Tässä tapauksessa arkistossa generoituja näytteiden tunnusten tulee olla viitattavissa FEGAn toimituksessa.
+Ennen datan lataamista FEGAan sinun tulee valmistella datasetit ja varmistaa datamuodot. Alla on joitakin esimerkkejä hyväksytyistä muodoista.
 
-**Herkkä Data**:
+!!! note
+    Datasetti määritellään yleensä joukoksi tiedostoja, jotka kuuluvat samaan kokeeseen ja datatyyppiin. Yksi tutkimus voi sisältää useita datasettejä. Tutkimukseesi voi kuulua sekä arkaluonteista (esim. ihmisen geneettinen tai fenotyyppinen tieto) että ei-arkaluonteista dataa (esim. virussekvenssit, metaboliitit). Vain arkaluonteinen data voidaan toimittaa FEGAan. Ei-arkaluonteinen data voidaan julkaista avoimesti sopivissa repositorioissa. Tällöin repositoriossa luodut näyte-ID:t tulisi viitata FEGA-toimituksessa.
 
-- **sekvenssitieto**: CRAM, BAM, FASTQ, VCF muodot
+### Arkaluonteinen data { #sensitive-data }
 
-- **metagenomiikka**: EGA on ottanut käyttöön [Minimum Information about any (x) Sequence (MIxS)](https://www.gensc.org/pages/projects/mixs-gsc-project.html) standardit kuvaamaan tämän tyyppistä tietoa.
+* sekvenssidata: CRAM-, BAM-, FASTQ-, VCF-formaatit
 
-- **fenotyyppinen tieto**: Ei erityistä muotoa. Jos mahdollista, suosittelemme käyttämään Experimental Factor Ontologies. Tarkista oikeat ontologiatermit ja kuvaa fenotyyppiset tietosi [Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols/ontologies/efo) joka on kehitetty EMBL-EBI:ssa.
+* metagenomiikka: EGA on ottanut käyttöön [Minimum Information about any (x) Sequence (MIxS)](https://www.gensc.org/pages/projects/mixs-gsc-project.html) -standardit tämän datatyypin kuvaamiseen.
 
-- **linkitystiedostot**: Jos saman tutkimuksen ei-herkät datasetit on toimitettu tiettyyn arkistoon, näytteet voidaan linkittää FEGAan toimitettuun herkkään tietoon saman näytteen osalta. Datasetissä tulisi olla erilaiset anonymisoidut näytetunnukset kussakin arkistossa. Asianmukaisessa arkistossa saadut tunnukset voivat sitten olla viittauksia FEGA-lähetyksessä. Esimerkiksi näytteen tunnus voidaan linkittää lisättyyn `.txt`-tiedostoon, joka voidaan lisätä yhteen yllä mainituista herkkistä dataseteistä.
+* fenotyyppinen tieto: Ei erityistä formaattia. Mahdollisuuksien mukaan suosittelemme Experimental Factor Ontologies -ontologioiden käyttöä. Etsi sopivat ontologiatermit ja kuvaa fenotyyppiset tietosi EMBL-EBI:n kehittämän [Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols/ontologies/efo) -palvelun avulla.
 
-!!! huomio
-    FEGA ei tue **taulukkodataa**. Saat lisää tietoa taulukkomuotoisista toimituksista ja niiden toimittamisesta EGA-verkkosivulla [täältä](https://ega-archive.org/submission/metadata/submission/array/).
+* linkitystiedostot: Jos samaan tutkimukseen kuuluvia ei-arkaluonteisia datasettejä on toimitettu tiettyyn repositorioon, näytteet voidaan linkittää samaa näytettä koskevaan FEGA:an toimitettuun arkaluonteiseen tietoon. Dataseteillä tulee olla eri anonymisoidut näyte-ID:t kussakin arkistossa. Sopivassa arkistossa saadut ID:t voidaan sitten viitata FEGA-toimituksessa. Esimerkiksi näyte-ID voidaan linkittää erillisessä `.txt`-tiedostossa, joka voidaan liittää johonkin yllä mainituista arkaluonteisista dataseteistä.
 
-**Ei-herkkä data**:
+!!! note
+    FEGA ei tue array-aineistoa. Lue lisää array-pohjaisista toimituksista ja siitä, miten array-pohjaiset datasetit toimitetaan [EGA:n verkkosivulla](https://ega-archive.org/submission/metadata/submission/array/).
 
-Ei-herkkä data (tai avoin data) tulee toimittaa asianmukaisiin arkistoihin. Esimerkiksi sekvenssit ENA [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), variantit EVA [European Variation Archive](https://www.ebi.ac.uk/eva/), taulukkodataa [ArrayExpress – functional genomics data](https://www.ebi.ac.uk/arrayexpress/), fenotyypit [BioSamples](https://www.ebi.ac.uk/biosamples/) ja GWAS-yhteenvetotilastot [GWAS Catalog](https://www.ebi.ac.uk/gwas/).
+### Fenotyyppinen data { #phenotypic-data }
 
-!!! huomio
-    Katso lisää tietoa datatyypeistä ja formaateista [Submission FAQ EGA-sivulla](https://ega-archive.org/submission/metadata/submission/FAQ/) tai ota yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md) (aihe: Federated EGA).
+Jotta voit toimittaa arkaluonteista fenotyyppistä dataa FEGAan,
 
-## Vaihe 5: Datan salaus ja lataaminen {#step-5-data-encryption-and-upload}
+1. valitse fenotyyppiseen dataan sopiva metatietomalli,
+2. järjestä data valitun metatietomallin mukaisesti,
+3. tallenna tiedot tekstitiedostoon tai muuhun sopivaan formaattiin, ja
+4. toimita fenotyyppinen data datasetiksi.
 
-Seuraavaksi voit ladata datan Suomen FEGAlle. Jokainen datatiedosto, joka ladataan Suomen FEGAlle, on salattava.
+### COVID-19-data { #covid-19-data }
 
-!!! huomio
-    Data on salattu työkalujen avulla, jotka on suunniteltu salaamaan ja jakamaan ihmisen geneettistä dataa Global Alliance for Genomics and Health (GA4GH) -standardin mukaisesti.
+Jos toimitat COVID-19:n fenotyyppistä kliinistä dataa FEGAan, käytä [Bernasconi ym. (2021)](https://doi.org/10.1093/bib/bbaa359) määrittelemää metatietomallia. Tämä edistää tutkimusten välistä yhteentoimivuutta.
 
-Voit suorittaa salauksen ja latausvaiheet käyttämällä:
+### Ei-arkaluonteinen data { #non-sensitive-data }
 
-- **Vaihtoehto 1 - Fi-FEGA lataussovellus**. Fi-FEGA lataussovellusta (graafinen käyttöliittymä, GUI) voidaan käyttää tiedostojen tai kansioiden salaamiseen ja lataamiseen Suomen FEGAlle.
+Ei-arkaluonteinen (tai avoin) data tulee toimittaa tarkoitukseen sopiviin arkistoihin. Esimerkiksi sekvenssit ENA:han [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), variantit EVA:an [European Variation Archive](https://www.ebi.ac.uk/eva/), array-pohjaiset [ArrayExpress – functional genomics data](https://www.ebi.ac.uk/arrayexpress/), fenotyypit [BioSamples](https://www.ebi.ac.uk/biosamples/) ja GWAS-yhteenvetotilastot [GWAS Catalogiin](https://www.ebi.ac.uk/gwas/).
+
+!!! note
+    Lisätietoa datatyypeistä ja -muodoista löydät [EGA:n Submission FAQ -sivulta](https://ega-archive.org/submission/metadata/submission/FAQ/) tai ottamalla yhteyttä [CSC Service Deskiin](../../support/contact.md) (aihe: Federated EGA).
+
+## Vaihe 5: Datan salaus ja lataus { #step-5-data-encryption-and-upload }
+
+Seuraavaksi voit ladata datan Finnish FEGAan. Jokainen Finnish FEGAan ladattava tiedosto on salattava.
+
+!!! note
+    - Data salataan GA4GH-standardin (Global Alliance for Genomics and Health) mukaisilla työkaluilla, jotka on suunniteltu ihmisen geneettisen datan salaamiseen ja jakamiseen.
+    - Jos sinulla on yhteistyökumppaneita metatietojen toimituksessa, huomioi, että vain tiedostot ladannut käyttäjä näkee ne inboxissa metatietojen toimituksen aikana ja voi toimittaa Run- ja Analysis-metadataa.
+
+Voit suorittaa salauksen ja latauksen käyttäen:
+
+* Vaihtoehto 1 – Fi-FEGA-lataussovellus. Fi-FEGA-lataussovellusta (graafinen käyttöliittymä, GUI) voidaan käyttää tiedostojen tai kansioiden salaamiseen ja automaattiseen lataukseen Finnish FEGAan.
 
 tai
 
-- **Vaihtoehto 2 - Komentorivikäyttöliittymä**. Datansalaus crypt4gh CLI:llä ja datan lataaminen sftp CLI:llä. Jos haluat käyttää komentorivikäyttöliittymää, löydät tietoa salaus- ja latausvaiheista alla.
+* Vaihtoehto 2 – Komentorivikäyttöliittymä. Datan salaus crypt4gh-CLI:llä ja datan lataus sftp-CLI:llä. Jos haluat käyttää komentoriviä, löydät tiedot salaus- ja latausvaiheista alta.
 
-### Vaihtoehto 1 - Fi-FEGA lataussovellus
+### Vaihtoehto 1 – Fi-FEGA-lataussovellus { #option-1-fi-fega-upload-application }
 
-1. Voit ladata Fi-FEGA lataussovelluksen, joka on erityisesti suunnattu käyttämällesi käyttöjärjestelmälle [GitHub-ist](https://github.com/CSCfi/sda-uploader/releases): Linux, Mac tai Windows, valitse sdagui-vaihtoehdoista. Kun lataat ja purat tiedoston, löydät sovelluksen latauskansiostasi. Kun avaat sovelluksen, saatat kohdata virheilmoituksen. Tässä tapauksessa valitse *Lisätietoja* ja varmista, että julkaisija on CSC-IT Center for Science (suomeksi CSC-Tieteen tietotekniikan keskus Oy) ja valitse *Suorita silti*.
+1. Voit ladata käyttöjärjestelmäsi mukaisen Fi-FEGA-lataussovelluksen [GitHub-repositorysta](https://github.com/CSCfi/sda-uploader/releases): Linux, Mac tai Windows, valitse sdagui-vaihtoehdoista. Ladattuasi ja purettuasi paketin löydät sovelluksen latauskansiostasi. Kun avaat sovelluksen, saatat kohdata virheilmoituksen. Tällöin klikkaa kohtausta Lisää tietoja (More info), varmista että julkaisija on CSC-IT Center for Science (suomeksi: CSC–Tieteen tietotekniikan keskus Oy) ja valitse Suorita silti (Run anyway).
 
-2. Lataa seuraavaksi [Suomen FEGAn julkinen salausavain](https://a3s.fi/fega-public-keys/fega-pubkey-c4gh.pub).
+2. Lataa seuraavaksi [Finnish FEGA:n julkinen salausavain](https://a3s.fi/fega-public-keys/fega-pubkey-c4gh.pub).
 
-3. Avaa lataussovellus ja klikkaa *Lataa vastaanottajan julkinen avain*. Tämä avaa tiedostoselaimen, jota voit käyttää valitaksesi Suomen FEGAn julkisen salausavaimen (`fega-pubkey-c4gh.pub`). Klikkaa sitten *Avaa*.
+3. Avaa lataussovellus ja klikkaa kohtaa Load recipient public key. Tämä avaa tiedostoselaimen, josta voit valita Finnish FEGA:n julkisen salausavaimen (`fega-pubkey-c4gh.pub`). Klikkaa sitten Open.
 
-4. Klikkaa *Valitse tiedosto ladattavaksi* tai *Valitse hakemisto ladattavaksi* ladataksesi yksittäisen tiedoston tai kokonaisen kansion.
+4. Klikkaa Select file to upload tai Select directory to upload ladataksesi yksittäisen tiedoston tai kokonaisen kansion.
 
-5. Seuraavaksi sinun on täytettävä SFTP (tai turvallinen yhteys) tunnukset, jotka vastaavat keskitettyä EGA-tilitunnustasi. Kirjoita SFTP-käyttäjätunnukseen EGA-käyttäjänimesi (yleensä tämä on sähköpostiosoitteesi). Kirjoita SFTP-palvelimelle seuraava: `admin.sd.csc.fi:50529`. SFTP-avaimen lataamista ei vaadita tietojen lataamiseen FEGAan.
+5. Seuraavaksi täytä SFTP- (eli suojatun yhteyden) tunnukset, jotka vastaavat Central EGA -tilisi käyttäjätunnusta. Kirjoita SFTP Username -kenttään EGA-käyttäjätunnuksesi (yleensä sähköpostiosoitteesi). Kirjoita SFTP Server -kenttään: `admin.sd.csc.fi:50529`. SFTP-avainta ei tarvitse ladata FEGA-latauksia varten.
 
-6. Klikkaa *Salaa ja lataa tiedostot*. Työkalu kysyy SFTP-salasanaa, mikä vastaa keskitettyä EGA-tilisalasanasi. Kun klikkaat OK, sovellus aloittaa tiedon salauksen ja lataamisen.
+6. Klikkaa Encrypt and upload files. Työkalu pyytää SFTP-salasanaa, joka on Central EGA -tilisi salasana. Klikattuasi OK sovellus aloittaa datan salauksen ja latauksen.
 
-7. Sovelluksessa ei ole edistymispalkkia. Tiedon salaaminen ja lataaminen voi kestää minuutteja tai jopa useita tunteja datasetin koosta riippuen. Datansiirto on onnistuneesti valmis, kun sovelluksen toimintaloki näyttää seuraavan viestin: `Yhdistäminen SFTP:stä. SFTP-yhteys on katkaistu.` Kun prosessi on valmis, voit nähdä tiedostot [lähettäjäportaalissa](https://submission.finland.ega-archive.org/) siirtymällä Tiedostot-sivulle oikean yläkulman valikosta.
+7. Sovelluksessa ei ole edistymispalkkia. Datan salaus ja lataus voivat kestää minuuteista useisiin tunteihin datasetin koosta riippuen. Lataus on onnistuneesti valmis, kun sovelluksen lokissa näkyy viesti: `Disconnecting SFTP. SFTP has been disconnected.` Kun prosessi on valmis, näet tiedostot [lähettäjäportaalissa](https://submission.finland.ega-archive.org/) menemällä Files-sivulle oikean yläkulman valikosta.
 
-[![Fi-FEGA upload application](images/fega/fega_upload.png)](images/fega/fega_upload.png)
+[![Fi-FEGA-lataussovellus](images/fega/fega_upload.png)](images/fega/fega_upload.png)
 
-### Vaihtoehto 2 - Komentorivikäyttöliittymä
-**Datansalaus crypt4gh CLI:llä**:
+### Vaihtoehto 2 – Komentorivikäyttöliittymä { #option-2-command-line-interface }
 
-1. Python 3.6+ vaaditaan Crypt4GH-salaustyökalun käyttämiseen. Jos tarvitset apua Pythonin asennuksessa, seuraa [näitä ohjeita](https://www.python.org/downloads/release/python-3810/).
+Datan salaus crypt4gh-CLI:llä:
 
-2. Avaa terminaali ja asenna Crypt4GH suoraan pip-työkalun avulla:
+1. Python 3.6+ vaaditaan Crypt4GH-salaustyökalun käyttöön. Jos tarvitset apua Pythonin asennuksessa, noudata [näitä ohjeita](https://www.python.org/downloads/release/python-3810/).
 
-    ```
+2. Avaa pääte (terminal) ja asenna Crypt4GH suoraan pip-työkalulla:
+
+    ```bash
     pip install crypt4gh
     ```
 
-3. Salataksesi tiedoston [Suomen FEGAn julkisella salausavaimella](https://a3s.fi/fega-public-keys/fega-pubkey-c4gh.pub) käytä ```crypt4gh encrypt```-komentoa:
+3. Salaa tiedosto käyttäen [Finnish FEGA:n julkista salausavainta](https://a3s.fi/fega-public-keys/fega-pubkey-c4gh.pub) komennolla ```crypt4gh encrypt```:
 
+    ```bash
+    crypt4gh encrypt  --recipient_pk fega-pubkey-c4gh.pub < example_file.txt > example_file.txt.c4gh
     ```
-    $ crypt4gh encrypt  --recipient_pk fega-pubkey-c4gh.pub < example_file.txt > example_file.txt.c4gh
-    ```
 
-    Missä syntaksi `--recipient_pk` määrittää julkisen avaimen, joka käytetään datan salaukseen. Tässä tapauksessa Suomen FEGAn julkinen avain. `example_file.txt` määrittelee syötetiedoston ja `example_file.txt.c4gh` on tulosteena salattu tiedosto.
+    Tässä `--recipient_pk` määrittelee salaukseen käytettävän julkisen avaimen (tässä Finnish FEGA:n avain). `example_file.txt` on syötetiedosto ja `example_file.txt.c4gh` on salattu tulostiedosto.
 
-**Datansiirto sftp CLI:llä (oletus Linuxissa ja MacOS:ssa)**:
+Datan lataus SFTP-CLI:llä (oletuksena Linuxissa ja macOS:ssä):
 
-1. Avaa terminaali ja avaa SFTP-yhteys seuraavaa syntaksia käyttäen, missä `ega_user` on EGA-tunnuksesi (yleensä tämä on sähköpostiosoitteesi):
+1. Avaa pääte ja muodosta SFTP-yhteys seuraavalla komennolla, jossa `ega_user` on EGA-tunnuksesi käyttäjänimi (yleensä sähköpostiosoitteesi):
 
-    ```
+    ```bash
     sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 50529 ega_user@admin.sd.csc.fi
     ```
 
-    Salasanana käytä keskitettyä EGA-tiliäsi (salasana).
+    Salasanaksi käytä Central EGA -tilisi salasanaa.
 
-2. Siirrä salatut tiedostot tai hakemisto *put-komennolla*, kun olet yhdistettynä sftp:hen.
+2. Siirrä salatut tiedostot tai kansio komennolla put, kun olet yhteydessä sftp:hen.
 
-    ```
+    ```bash
     sftp> put example_file.txt.c4gh
     ```
 
-    Tiedonsiirto voi kestää minuutteja tai jopa useita tunteja, datasetin koosta riippuen.
+    Lataus voi kestää minuuteista useisiin tunteihin datasetin koosta riippuen.
 
-3. Odota prosessin valmistumista ennen yhteyden katkaisemista. Kun prosessi on valmis, sinun pitäisi nähdä tiedostot [lähettäjäportaalissa](https://submission.finland.ega-archive.org/) siirtymällä Tiedostot-sivulle oikean yläkulman valikosta. Kun olet varmistanut, että prosessi on valmis, voit katkaista SFTP-yhteyden komennolla `exit`. On tärkeää katkaista yhteys, kun olet valmis siirron.
+3. Odota prosessin valmistumista ennen yhteyden sulkemista. Kun prosessi on valmis, sinun pitäisi nähdä tiedostot [lähettäjäportaalissa](https://submission.finland.ega-archive.org/) menemällä Files-sivulle oikean yläkulman valikosta. Kun olet varmistanut, että prosessi on päättynyt, voit sulkea SFTP-yhteyden komennolla `exit`. On tärkeää katkaista yhteys, kun lataus on valmis.
 
-## Vaihe 6: Metadatan toimittaminen {#step-6-metadata-submission}
+## Vaihe 6: Metatietojen toimittaminen { #step-6-metadata-submission }
 
-Seuraavaksi voit kuvailla kaikki tiedot, jotka liittyvät tutkimukseesi, eli ei-herkkää julkista metadataa, käyttäen [Suomen FEGA:n lähettäjäportaalin](https://submission.finland.ega-archive.org/). Julkinen metadata julkaistaan EGA-verkkosivustolla, jotta datan löytäminen ja uudelleenkilpailu helpottuisi.
+Seuraavaksi voit kuvata tutkimukseesi liittyvät tiedot, eli ei-arkaluonteiset julkiset metatiedot, käyttämällä [Finnish FEGA -lähettäjäportaalia](https://submission.finland.ega-archive.org/). Julkiset metatiedot julkaistaan EGA:n verkkosivulla, jotta datan löydettävyys ja uudelleenkäyttö helpottuvat.
 
-Tulet saamaan esittelyn lähettäjäportaalista alla olevasta videosta tai ottamalla tuen käyttöön portaalissa klikaten keltaista kirjaikonia oikeassa yläkulmassa ollessasi kirjautuneena sisään.
-
+Voit tutustua lähettäjäportaaliin alla olevasta videosta tai ottamalla käyttöön portaalin opastuskierroksen klikkaamalla keltaista kirjakuvaketta oikeassa yläkulmassa, kun olet kirjautuneena sisään.
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/eDTNIE8Ex0g?si=QJlYwfAGERAHN-e9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Kirjaudu lähettäjäportaaliin käyttämällä EGA:n tunnuksia (käyttäjänimi: yleensä sähköpostiosoitteesi ja salasana).
+Kirjaudu lähettäjäportaaliin EGA-tunnuksillasi (käyttäjätunnus: yleensä sähköpostiosoitteesi, ja salasana).
 
-Käyttäen lähettäjäportaalia, voit rekisteröidä seuraavat metadataobjektit:
+Lähettäjäportaalissa voit rekisteröidä seuraavat metatieto-objektit:
 
-- **Tutkimus**. Tietoa sekvenssitutkimuksesta. Otsikon tulisi olla 3–20 sanan mittainen esittely projektista ja kuvauksen pitäisi olla 3–5 lauseen mittainen määritelmä projektista sisältäen taustaa, tavoite ja yksityiskohtia.
+* Study. Tiedot sekvensointitutkimuksesta. Otsikon tulisi olla 3–20 sanan pituinen johdanto projektiin, ja kuvauksen 3–5 virkettä, jotka määrittelevät projektin taustan, tavoitteen ja yksityiskohtia. Studyn metatiedot ovat julkisesti saatavilla EGA:n verkkosivulla.
 
-- **Näytteet**. Tietoa sekvenssinäytteistä kokeessa tai analyysissä. Halutessasi voit tehdä näytteiden erälatauksen.
+* Samples. Tiedot kokeen tai analyysin sekvensointinäytteistä. Voit tehdä myös näytteiden eräsiirron. Samples-matatiedot voivat olla tunnistettavia, ja siksi ne ovat vain valtuutettujen datan hakijoiden saatavilla, poikkeuksena alias, title, subject_id, gender ja phenotype. On toimittajan vastuulla, ettei näihin julkisiin kenttiin lähetetä arkaluonteisia metatietoja. Lisäksi anonymisoidut kentät, jotka yksilöivät näytteen arkistoissa – näytteen EGA-stabiili ID (EGAN…), BioSample ID (SAMEA…) ja toimittajan center name – ovat julkisesti nähtävissä EGA:n verkkosivulla.
 
-- **Kokeet**. Tietoa sekvensointimenetelmistä, -protokollista ja -laitteista.
+* Experiments. Tiedot sekvensointimenetelmistä, -protokollista ja -laitteista. Experiments-matatiedot ovat julkisesti saatavilla EGA:n verkkosivulla.
 
-- **Ajatukset**. Tietoa tiedostoista, jotka sisältävät raakadatan, joka on luotu sekvenssisuorituksen ajossa. Näytteet, kokeet ja tiedostot liitetään toisiinsa ajatusten avulla. Asianmukainen objekti FASTQ ja BAM/CRAM -toimituksille. Halutessasi voit tehdä ajatusten erälatauksen.
+* Runs. Tiedot tiedostoista, jotka sisältävät ajon aikana tuotetun raakadatan. Samples-, experiments- ja files-objektit linkittyvät Runs-objektien kautta. Sopiva objekti FASTQ- ja BAM/CRAM-toimituksille. Voit tehdä myös runien eräsiirron. Runs-metatiedot ovat julkisesti saatavilla EGA:n verkkosivulla.
 
-- **Analyysi**. Viittaa analyysitiedondoihin, jotka voivat sisältää käsiteltyä dataa (VCF), tietyntyyppisiä raakatiedostoja (BAM/BAI tai CRAM/CRAI) tai fenotyyppistä tietoa. Liitettynä näytteisiin ja tutkimukseen. Analyysi on EGA-spesifinen metadataobjekti, joka linkittää Näytteet tiedostoihin. Jos sinulla ei ole analyysitiedostoja, voit edetä ilman Analyysimetadataa.
+* Analysis. Viittaukset analyysitiedostoihin, jotka voivat sisältää käsiteltyä dataa (VCF), tietyn tyyppistä raakadataa (BAM/BAI tai CRAM/CRAI) tai fenotyyppistä tietoa. Liitetään Samples- ja Study-objekteihin. Analysis on EGA-spesifinen metatieto-objekti, joka liittää Samples-objektit Files-objekteihin. Jos sinulla ei ole analyysitiedostoja, voit edetä ilman Analysis-metatietoja. Analysis-metatiedot ovat julkisesti saatavilla EGA:n verkkosivulla.
 
-- **Dataset**. Sisältää tiedostokokoelman, joka on organisoitu ajatusten ja/tai analyysien alle ja joihin sovelletaan rajoitettua käyttöoikeutta. Liitettynä Politiikkaan, joka sisältää käyttöoikeuskyselylinkin ja joka luodaan CSC:n helpdeskin kautta. Otsikon tulisi olla 3–20 sanan kattava näkymä datasetin sisällöstä ja kuvauksen pitäisi olla 3–4 lauseen määritelmä datasetin sisällöstä, sisältäen näytetiedot ja yksityiskohdat, tiedostotyypin ja käytetyn teknologian/koemenetelmän.
+* Dataset. Sisältää kokoelman datatiedostoja, jotka on organisoitu Runs- ja/tai Analysis-objektien alle ja joiden käyttö on kontrolloitua. Liitetään Policy-objektiin, joka sisältää käyttöoikeushakemuksen linkin ja jonka CSC helpdesk luo. Otsikon tulisi olla 3–20 sanan mittainen katsaus datasetin sisältöön, ja kuvauksen 3–4 virkettä, joissa määritellään datasetin sisältö, mukaan lukien näytteiden lukumäärä ja yksityiskohdat, tiedostotyyppi ja käytetty teknologia/menetelmä. Dataset-metatiedot ovat julkisesti saatavilla EGA:n verkkosivulla.
 
-Kun olet täyttänyt kaiken metadatan, voit viimeistellä toimituksen, jolloin lähetys siirtyy Suomen FEGAn helpdeskille hyväksyttäväksi ja julkaistavaksi. Jokaiselle näistä objekteista annetaan pysyvä tunniste tai ainutlaatuinen yksilöllinen tunnusnumero datan julkaisun jälkeen.
+Kun olet täyttänyt kaikki metatiedot, voit viimeistellä toimituksen, jolloin se siirtyy Finnish FEGA -tukeen hyväksyntää ja julkaisua varten. Datan julkaisun jälkeen kullekin objektille annetaan pysyvä tunniste eli yksilöllinen accession-numero.
 
-!!! huomio
-    
-    - Metadatatoimittamiseen dataset-kohtaisesti **Politiikka**-kohde on luotava erikseen CSC:n helpdeskin kautta ennen kuin se voidaan valita lähettäjäportaalissa. Tämä Politiikka-metadataobjekti yhdistää datasetin datankäyttösovellukseen, jonka organisaatiosi luo SD Applyssä (katso {#step-1-legal-agreements-data-access-committee-and-policies}).
+!!! note
+    * Dataset-kohtainen Policy-kohde metatietoja varten täytyy luoda erikseen CSC:n helpdeskin toimesta ennen kuin sen voi valita lähettäjäportaalissa. Tämä Policy-metatietokohde liittää datasetin organisaatiosi SD Apply:ssa luomaan data access -hakemukseen (ks. [Vaihe 1](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies)).
+    * Study-, Samples- ja Experiment-metatiedot voidaan rekisteröidä ennen tiedostojen lataamista, kun taas Run- ja Analysis-objekteja ei voi rekisteröidä ennen kuin tiedostot on ladattu Finnish FEGAan. Voit valita Policy-kohteen toimituksellesi vasta sen jälkeen, kun olet rekisteröinyt kaikki muut metatiedot, samalla kun rekisteröit Dataset-metatiedot.
 
-    - **Tutkimus**, **Näytteet** ja **Kokeet** -metadata voidaan rekisteröidä ennen tiedostojen lataamista, kun taas **Ajatukset** ja **Analyysi**-objekteja ei voida rekisteröidä ennen kuin tiedostot on ladattu Suomen FEGAlle. Voit valita **Politiikan** lähetykseesi vasta, kun olet rekisteröinyt kaiken muun metadatan, kun rekisteröit **Dataset**-metadatan.
-    
-## Vaihe 7: Datan julkaiseminen {#step-7-data-release}
+## Vaihe 7: Datan julkaisu { #step-7-data-release }
 
-Jotta lähetyksesi hyväksyttäisiin ja julkaistaisiin, kirjoita [CSC:n palvelupisteeseen](../../support/contact.md) vahvistaaksesi, että lähetys voidaan julkaista.
+Saat hyväksynnän ja julkaisun etenemään lähettämällä viestin [CSC Service Deskiin](../../support/contact.md) ja vahvistamalla, että toimitus voidaan julkaista.
 
-CSC-helpdesk suorittaa julkaisuprosessin. Saat vahvistuksen onnistuneesta lähetyksestä ja soveltuvat tunnukset julkaisua, apurahoja ym. varten CSC-helpdeskiltä.
+CSC:n helpdesk viimeistelee julkaisuprosessin. Saat vahvistuksen onnistuneesta toimituksesta sekä julkaisuun, apurahahakemuksiin jne. soveltuvat accession-tunnisteet CSC:n helpdeskiltä.
 
-!!! huomio
-
-    Jos joku haluaa hakea pääsyä datasettiisi, joka on tallennettu Suomen FEGAlle, heidän tulee klikata datasetin hakemuslinkkiä EGA-verkkosivuilla. Linkki ohjaa käyttäjän hakemuslomakkeeseen SD Applyssä. SD Apply on palvelu, joka on tarkoitettu herkkien datasetien käyttöoikeuksien hakemiseen ja hallintaan CSC:lle. Erillinen [ohje](./sd-apply-access.md) on saatavilla datankäyttöoikeuksien hakemiseen.
+!!! note
+    Jos joku haluaa hakea pääsyä Finnish FEGA:ssa säilytettävään datasettiisi, hänen tulee klikata datasetin hakemuslinkkiä EGA:n verkkosivulla. Linkki ohjaa käyttäjän SD Apply -palvelun hakemuslomakkeeseen. SD Apply on palvelu, jossa haetaan ja hallitaan käyttöoikeuksia CSC:llä säilytettäviin arkaluonteisiin datasetteihin. Datan käyttöoikeuden hakemiseen on erillinen [ohje](./sd-apply-access.md).

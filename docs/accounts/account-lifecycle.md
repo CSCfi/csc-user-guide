@@ -1,89 +1,106 @@
-
-# CSC käyttäjätilin elinkaari {#csc-user-account-lifecycle}
-
-!!! note
-    CSC lähettää ilmoituksia ja ohjeita sähköpostitse hyvissä ajoin ennen kuin
-    käyttäjätilit tai salasanat vanhenevat. Pidä sähköpostiyhteystietosi ajan
-    tasalla. Jos sinulla on ongelmia tilien tai kirjautumisten kanssa, ota yhteyttä
-    [CSC Service Desk](../support/contact.md).
-
-CSC käyttäjätilisi salasana on voimassa yhden vuoden. Saat CSC:ltä ilmoituksia,
-kun salasanasi on vanhenemassa. Vanhentunut salasana ei estä sinua käyttämästä
-CSC käyttäjätiliäsi, jos käytät jotain seuraavista kolmesta kirjautumismenetelmästä:
-Haka, Virtu tai SSH-avainpari. Nämä kolme kirjautumismenetelmää ohittavat
-käytännössä CSC käyttäjätilin salasanan tarpeen. **Suosittelemme kuitenkin
-vahvasti vaihtamaan salasanasi ajoissa**.
-
-Jos CSC käyttäjätilisi salasana vanhenee etkä voi kirjautua Hakan, Virtun tai SSH-avaimien kautta, 
-ota yhteyttä [CSC Service Desk](../support/contact.md).
-
-[MyCSC](https://my.csc.fi) on asiakasportaalimme, jossa asiakkaamme voivat
-tarkastella projektiensa tilannetta ja käyttäjätiliensä tietoja. MyCSC:ssä voit
-myös [vaihtaa CSC käyttäjätilisi salasanan](how-to-change-password.md).
-MyCSC ja muut CSC:n palvelut tarjoavat yhden tai useamman alla mainitun
-kirjautumismenetelmän.
-
-## CSC käyttäjätili {#csc-user-account}
-
-Tässä kirjautumismenetelmässä käytät CSC:n luomaa käyttäjätiliä ja
-asettamaasi salasanaa. Kaikilla käyttäjillä, joilla on pääsy CSC:n palveluihin,
-on CSC käyttäjätili, vaikka he käyttäisivät vain jotain alla mainituista
-kirjautumismenetelmistä.
-
-## Haka {#haka}
-
-Tämä kirjautumismenetelmä on saatavilla suomalaisille yliopistoille,
-ammattikorkeakouluille ja tutkimuslaitoksille. Tässä menetelmässä käytät
-kotiorganisaatiosi käyttäjätiliä ja salasanaa CSC:n tarjoaman tilin sijaan.
-Tämä toimii, koska ainutlaatuinen käyttäjätunnus kotiorganisaatiostasi on
-liitetty CSC käyttäjätiliisi.
-
-Jos käytät tätä kirjautumismenetelmää, sinun täytyy kirjautua CSC:n palveluihin
-Hakan kautta vähintään kerran puoleen vuoteen, jotta CSC käyttäjätilisi pysyy
-aktiivisena.
-
-## Virtu {#virtu}
-
-Tämä kirjautumismenetelmä on saatavilla valtion virastoille. Samankaltaisesti
-kuin Haka, tässä menetelmässä käytät kotiorganisaatiosi käyttäjätiliä ja
-salasanaa CSC:n tarjoaman tilin sijaan. Tämä toimii, koska ainutlaatuinen
-käyttäjätunnus kotiorganisaatiostasi on liitetty CSC käyttäjätiliisi.
-
-Jos käytät tätä kirjautumismenetelmää, sinun täytyy kirjautua CSC:n palveluihin
-Virtun kautta vähintään kerran puoleen vuoteen, jotta CSC käyttäjätilisi pysyy
-aktiivisena.
-
-## LS Login {#ls-login}
-
-LS Login on Euroopan biotieteiden tutkimusinfrastruktuurien
-(LS RI) autentikointipalvelu, joka on EOSC-Life-hankkeen kautta
-perustettu yhteisöalusta ja jota ylläpitää Masarykin yliopisto, Brno, CZ.
-Myös tässä menetelmässä ainutlaatuinen LS Login -käyttäjätunnus on liitetty
-CSC käyttäjätiliisi, mikä mahdollistaa autentikoinnin CSC:n palveluissa.
-
-## SSH-avaimet {#ssh-keys}
-
-SSH-avaimet ovat toiminnallisesti samankaltaisia käyttäjätunnusten ja salasanojen
-kanssa ja tarjoavat keinon käyttää CSC:n järjestelmiä turvallisesti, mutta ilman
-tarvetta kirjoittaa käyttäjätunnusta ja salasanaa manuaalisesti joka kerta. Vain
-tietty alajoukko CSC:n palveluista tukee SSH-avaimia. Esimerkiksi ne eivät ole
-tuettuja yhdessäkään selaimen perustuvassa kirjautumismenetelmässä.
-
-SSH-avaimet on liitetty CSC käyttäjätiliisi ja ne toimivat vertaamalla
-julkista avainta, jonka olet ladannut tiettyyn CSC-järjestelmään, siihen
-yksityiseen avaimeen, jonka säilytät turvallisesti paikallisella tietokoneellasi.
-
-[Katso ohjeet SSH-avainten asettamiseksi](../computing/connecting/ssh-keys.md).
-
-## Käyttäjätilien vanheneminen {#expiration-of-user-accounts}
-
-Jos sinulle on myönnetty tili määräajaksi, tili vanhentuu ajanjakson päättyessä.
-Haka- tai Virtu kirjautumismenetelmillä luodut tilit validoidaan säännöllisesti.
-Seuraavia menetelmiä voidaan itsenäisesti käyttää kirjautumiseen palveluista
-riippuen: Haka, Virtu, salasana tai SSH-avaimet.
-
-Käyttäjätilit voidaan sulkea, jos niiden omistajaan ei saada yhteyttä, esimerkiksi
-kun sähköpostit palaavat takaisin.
+# CSC-käyttäjätilin elinkaari { #csc-user-account-lifecycle }
 
 !!! note
-    Jos haluat lopettaa tilisi, ota yhteyttä [CSC Service Desk](../support/contact.md).
+    CSC lähettää sähköpostitse hyvissä ajoin ennen kuin käyttäjätilit tai
+    salasanat vanhenevat ilmoituksia ja ohjeita. Pidä sähköpostiyhteystietosi
+    ajan tasalla. Jos sinulla on ongelmia tileissä tai kirjautumisessa, ota
+    yhteyttä [CSC Service Deskiin](../support/contact.md).
+
+CSC-käyttäjätilisi salasana on voimassa yhden vuoden. Saat CSC:ltä ilmoituksia,
+kun salasanasi on vanhenemassa. Vanhentunut salasana ei estä pääsyä
+CSC-käyttäjätilillesi, jos käytät jotakin seuraavista kolmesta
+kirjautumistavasta: Haka, Virtu tai SSH-avaimet. Nämä kolme kirjautumistapaa
+kiertävät käytännössä tarpeen käyttää CSC-käyttäjätilin salasanaa.
+Siitä huolimatta **suosittelemme vahvasti vaihtamaan salasanasi ajoissa**.
+
+Jos CSC-käyttäjätilisi salasana vanhenee etkä voi kirjautua Hakan, Virtun tai
+SSH-avainten avulla, ole hyvä ja
+[ota yhteyttä CSC Service Deskiin](../support/contact.md).
+
+[MyCSC](https://my.csc.fi) on asiakasportaalimme, jossa asiakkaamme näkevät
+projektiensa tilan ja käyttäjätiliensä tiedot. MyCSC:ssä voit myös
+[vaihtaa CSC-käyttäjätilisi salasanan](how-to-change-password.md). MyCSC ja
+muut CSC:n palvelut tarjoavat yhden tai useamman alla mainituista
+kirjautumistavoista.
+
+## CSC-käyttäjätili { #csc-user-account }
+
+Tässä kirjautumistavassa käytät CSC:n sinulle luomaa käyttäjätiliä ja
+asettamaasi salasanaa. Kaikilla käyttäjillä, joille on myönnetty pääsy CSC:n
+palveluihin, on CSC-käyttäjätili, vaikka he käyttäisivätkin vain jotakin alla
+mainituista kirjautumistavoista.
+
+## Haka { #haka }
+
+Tämä kirjautumistapa on käytettävissä suomalaisissa yliopistoissa,
+ammattikorkeakouluissa ja tutkimuslaitoksissa. Tässä kirjautumistavassa käytät
+kotiorganisaatiosi käyttäjätiliä ja salasanaa CSC:n tarjoaman käyttäjätilin
+sijaan. Tämä toimii, koska kotiorganisaatiosi yksilöllinen käyttäjätunniste
+liitetään CSC-käyttäjätiliisi.
+
+Jos käytät tätä kirjautumistapaa, sinun on kirjauduttava CSC:n palveluihin
+Hakan kautta vähintään kerran kuudessa kuukaudessa, jotta CSC-käyttäjätilisi
+pysyy aktiivisena.
+
+## Virtu { #virtu }
+
+Tämä kirjautumistapa on käytettävissä valtion viranomaisille. Kuten Hakassa,
+tässä kirjautumistavassa käytät kotiorganisaatiosi käyttäjätiliä ja salasanaa
+CSC:n tarjoaman käyttäjätilin sijaan. Tämä toimii, koska kotiorganisaatiosi
+yksilöllinen käyttäjätunniste liitetään CSC-käyttäjätiliisi.
+
+Jos käytät tätä kirjautumistapaa, sinun on kirjauduttava CSC:n palveluihin
+Virtun kautta vähintään kerran kuudessa kuukaudessa, jotta CSC-käyttäjätilisi
+pysyy aktiivisena.
+
+## LS Login { #ls-login }
+
+LS Login on European Life Science Research Infrastructures (LS RI) -yhteisön
+tunnistuspalvelu. LS RI on EOSC-Life-projektin kautta perustettu ja Masarykin
+yliopiston (Brno, CZ) operoima yhteisöalusta. Myös tässä yksilöllinen
+LS Login -käyttäjätunniste liitetään CSC-käyttäjätiliisi, mikä mahdollistaa
+tunnistautumisen CSC:n palveluihin.
+
+## SSH-avaimet { #ssh-keys }
+
+SSH-avaimet ovat toiminnallisesti samankaltaisia kuin käyttäjätunnukset ja
+salasanat ja tarjoavat turvallisen tavan käyttää CSC:n järjestelmiä ilman,
+että käyttäjätunnusta ja salasanaa tarvitsee kirjoittaa joka kerta. Vain osa
+CSC:n palveluista tukee SSH-avaimia. Esimerkiksi selainpohjaisissa
+kirjautumistavoissa niitä ei tueta.
+
+SSH-avaimet liitetään CSC-käyttäjätiliisi, ja ne toimivat vertaamalla tiettyyn
+CSC-järjestelmään lataamaasi julkista avainta paikallisella tietokoneellasi
+turvallisesti säilytettävään yksityiseen avaimeen.
+
+[Katso ohjeet SSH-avainten käyttöönottoon](../computing/connecting/ssh-keys.md).
+
+## Käyttäjätilien vanheneminen { #expiration-of-user-accounts }
+
+Jos sinulle on myönnetty tili määräajaksi, tili vanhenee kauden päättyessä.
+Hakan tai Virtun kautta luodut tilit validoidaan säännöllisesti. Seuraavia
+menetelmiä voidaan palvelusta riippuen käyttää kirjautumiseen toisistaan
+riippumatta: Haka, Virtu, salasana tai SSH-avaimet.
+
+Käyttäjätilejä voidaan sulkea, jos omistajaan ei saada yhteyttä, eli
+sähköpostit palautuvat.
+
+## Etkö enää tarvitse CSC-käyttäjätiliäsi tai vaihdatko organisaatiota? { #dont-need-your-csc-user-account-anymore-or-changing-organisation }
+
+Jos et enää tarvitse CSC-käyttäjätiliäsi, tallenna kaikki projektin tiedot,
+joita sinä tai muut tarvitsette, ja sulje projektit, jos niitä ei enää käytetä.
+Jos olet projektin jäsen, projektipäällikkö voi tarvittaessa sulkea projektin
+MyCSC-portaalissa. Jos olet projektipäällikkö, voit myös nimetä projektille
+uuden projektipäällikön.
+
+Tärkeintä on varmistaa, että projektin tiedot ovat tallessa ja muilla projektin
+jäsenillä on pääsy tietoihin. Kun tiedot ovat turvallisesti talletettu,
+[ota meihin yhteyttä](../support/contact.md) ja kuvaile tilanteesi sekä
+luettele tarvittavat muutokset.
+
+Jos siirryt toiseen organisaatioon, [ota meihin yhteyttä](../support/contact.md)
+ja kuvaile tilanteesi sekä luettele tarvittavat muutokset.
+
+!!! Note
+    Jos haluat lopettaa tilisi, ole hyvä ja
+    [ota yhteyttä CSC Service Deskiin](../support/contact.md).

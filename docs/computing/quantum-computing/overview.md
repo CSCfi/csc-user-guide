@@ -1,35 +1,47 @@
-
 ---
 search:
   boost: 4
 ---
 
-# Yleiskatsaus {#overview}
-
-Kvanttitietokoneet eroavat klassisista vastineistaan peruslaskentaoperaattoreiden osalta. Ennen kuin QPU:t voidaan ottaa käyttöön, ne vaativat räätälöityjä ohjelmia ja algoritmeja. [Finnish Quantum-Computing Infrastructure](https://fiqci.fi) FiQCI tarjoaa pääsyn kvanttitietokoneiden resursseihin CSC:n palveluportaalien kautta.
-
-## Helmi {#helmi}
-
-**5 Qubitin Kvanttitietokone**
-
-Helmi, Suomen ensimmäinen kvanttitietokone, on VTT:n ja IQM Quantum Computersin yhteiskehittämä. Tällä hetkellä Helmillä on 5 kubittia. Helmillä käyttäjät voivat suorittaa kvanttiohjelmia ja -algoritmeja todellisella, fyysisellä laitteella.
-
-Pääsy Helmiin tapahtuu LUMI-supertietokoneympäristön kautta. Käyttäjien on haettava kvanttitietoprojektia LUMIssa, joka mahdollistaa pääsyn Helmiin LUMIn työnhallintajärjestelmän (SLURM) kautta. Projektihakemus tehdään [MyCSC:n](../../accounts/how-to-create-new-project.md) kautta.
-
-Lisätietoa lukemalla:
-
-* [Teknisempi kuvaus Helmistä](./helmi/helmi-specs.md).
-* [Erityiset ohjeet LUMI Helmi -osio](./helmi/fiqci-partition.md)
-* [Helmin käytön aloittaminen](./helmi/helmi-from-lumi.md)
-* [LUMI-dokumentaatiosivu](https://docs.lumi-supercomputer.eu/)
+!!! warning "HUOMAUTUS: QPU-ajan seuranta"
+    Käytetty QPU-aika ei vielä näy oikein MyCSC:ssä. Käyttö kirjautuu kuitenkin oikein sisäisesti,
+    ja korjaamme parhaillaan MyCSC:ssä näkyvää aikaa. Jos sinulla on kysyttävää, voit ottaa meihin yhteyttä osoitteessa
+    [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi). 
 
 
-## Kvasi {#kvasi}
+# Yleiskatsaus { #overview }
 
-**Kvanttioppimiskone**
+Kvanttitietokoneet poikkeavat klassisista vastineistaan peruslaskentaoperaattoreiden osalta. Ennen kuin QPU:ita voidaan hyödyntää, ne vaativat räätälöityjä ohjelmia ja algoritmeja. [Finnish Quantum-Computing Infrastructure](https://fiqci.fi) FiQCI tarjoaa pääsyn kvanttilaskennan resursseihin CSC:n palveluportaaleiden kautta.
 
-Kvasi on edistynyt kvanttitietokonesimulaattori/emulaattori. Kvasin avulla käyttäjä voi tutkia ja kehittää algoritmeja kvanttitietokoneita varten. Lue täältä [yksityiskohtaiset ohjeet käyttöön](../quantum-computing/kvasi/kvasi.md).
+## Kvanttitietokoneet { #quantum-computers }
 
-Kvasi tarjoaa ekosysteemin kvanttialgoritmien kehittämiseen ja simuloimiseen sekä ideaalissa että realistisessa, meluisassa tilanteessa. Kvasin avulla voit optimoida algoritmisi tiettyä laitteistokokoonpanoa (QPU) varten, jossa on tietty kubittiyhteys ja tietyt perusporttioperaatiot.
+### Helmi (VTT Q5) { #helmi-vtt-q5 }
 
-Algoritmit voidaan kehittää joko laitteistotasoa lähellä käyttäen Atos Quantum Assembler (AQASM) -kieltä tai korkeammalla tasolla Python-pohjaisen kielen ja käyttövalmiiden kirjastojen avulla. QLM sisältää useita valmiita esimerkkejä. Voit myös ladata ja suorittaa paikallisesti [myQLM](../quantum-computing/kvasi/kvasi.md#myqlm) - kevyemmän version QLM-ekosysteemistä.
+Helmi, Suomen ensimmäinen kvanttitietokone, on VTT:n ja IQM Quantum Computersin yhteiskehittämä. Se tarjoaa 5-kubitisen järjestelmän, jonka avulla käyttäjät voivat suorittaa kvanttiohjelmia ja -algoritmeja fyysisellä kvanttilaitteella.
+
+Pääsy Helmiin järjestetään LUMI-supertietokoneympäristön kautta. Käyttäjien tulee hakea LUMIin kvanttilaskentaprojektia, joka antaa pääsyn Helmiin LUMIn ajonhallinnan (SLURM) kautta. Projektia haetaan [MyCSC:n](../../accounts/how-to-create-new-project.md) kautta.
+
+
+### VTT Q50 { #vtt-q50 }
+
+Q50 on 53-kubitinen kvanttitietokone, jonka ovat myös kehittäneet yhdessä VTT ja IQM Quantum Computers.
+
+Samoin kuin Helmiin, myös Q50:een pääsee LUMI-supertietokoneympäristön kautta. Käyttäjien tulee hakea LUMIin kvanttilaskentaprojektia. Hyväksymisen jälkeen Q50:een pääsee LUMIn ajonhallinnan (SLURM) avulla.
+Katso [Open Call](https://fiqci.fi/publications/2025-03-04-Q50-Call-1_2025) -julkaisusta tarkemmat ohjeet Q50-käyttöoikeuden projektihakemuksesta.
+
+
+Lisälukemista:
+
+* [Teknisempi kuvaus kvanttitietokoneista](./specs.md).
+* [fiqci-osion erityisohjeet](./fiqci-partition.md)
+* [Helmi/Q50: käytön aloitus](./access.md)
+* [LUMI:n dokumentaatiosivu](https://docs.lumi-supercomputer.eu/)
+
+
+## Simulaattorit { #simulators }
+
+### Qiskit { #qiskit }
+
+LUMI-supertietokone tukee nyt kvanttialgoritmien simulointia jopa 44 kubittiin saakka Qiskitilla, IBM:n avoimen lähdekoodin kvanttilaskentakehyksellä. Tämän ansiosta tutkijat voivat tutkia ja testata laajamittaisia kvanttialgoritmeja valmistautuakseen kvanttietuun.
+
+Lisätietoja löytyy tästä [blogikirjoituksesta](https://fiqci.fi/publications/2025-04-01-LUMI-quantum-simulations-qiskit-aer)

@@ -1,68 +1,70 @@
-# Tallenna ja jaa herkkää dataa SD Connect -palvelulla
+[Kayttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
+
+# Tallenna ja jaa Sensitive Data Connectin avulla { #store-and-share-with-sensitive-data-connect }
 
 - [Yleiskatsaus](#overview)
-- [Keskeiset ominaisuudet](#key-features)
+- [Tärkeimmät ominaisuudet](#key-features)
 - [Rajoitukset](#limitations)
-- [Lokakuu 2024: Merkittävä palvelupäivitys](#overview-of-sd-connect-new-features)
+- [Lokakuu 2024: merkittävä palvelupäivitys](#overview-of-sd-connect-new-features)
 - [Seuraavat askeleesi tässä oppaassa](#features-in-sd-connect)
 
-## Yleiskatsaus {#overview}
+## Yleiskatsaus { #overview }
 
-Sensitive Data (SD) Connect mahdollistaa herkkien tutkimusdatan turvallisen tallentamisen ja jakamisen. Se salaa tiedostot automaattisesti latauksen aikana ja purkaa salauksen latauksen aikana helppokäyttöisen käyttöliittymän kautta. Yli 100 GB:n tiedostoille on saatavilla komentorivityökalu, joka tarjoaa myös automaattisen avainten hallinnan.
+Sensitive Data (SD) Connect mahdollistaa arkaluonteisen tutkimusdatan turvallisen tallennuksen ja jakamisen. Se salaa tiedostot automaattisesti lähetyksen (upload) yhteydessä ja purkaa salauksen latauksen (download) yhteydessä helppokäyttöisen käyttöliittymän kautta. Yli 100 GB:n tiedostoille on saatavilla komentorivityökalu, joka tarjoaa myös automaattisen avaintenhallinnan.
 
-SD Connect tukee myös yhteisöllistä tutkimusta, mahdollistaen tiedon keräämisen ja jakamisen alustan sisällä. Tallennetut tiedostot ovat salattuja ja niihin voi päästä analysoimaan, lisäämään huomautuksia tai muokkaamaan SD Desktopin avulla.
+SD Connect tukee myös yhteistyötä tutkimuksessa mahdollistaen datan keruun ja jakamisen suoraan alustalla. Tallennetut tiedostot ovat salattuja, ja niihin voidaan päästä käsiksi analysointia, annotointia tai muokkausta varten SD Desktopin kautta.
 
-Voit selata manuaalin pääaiheita tämän sivun vasemman laidan navigointipalkin tai hakutoiminnon avulla.
+Voit selailla käyttöoppaan pääaiheita tämän sivun vasemman reunan navigointipalkin tai hakutoiminnon avulla.
 
-## Keskeiset ominaisuudet {#key-features}
+## Tärkeimmät ominaisuudet { #key-features }
 
-- Käyttäjäystävällinen käyttöliittymä, täysin yhteensopiva Chrome-verkkoselaimen kanssa.
-- Käytettävissä verkkoselaimen kautta tietokoneeltasi (Mac, Linux tai Windows) ja mistä tahansa sijainnista (ei tarvetta asentaa erityisiä ohjelmia tai käyttää VPN:ää).
-- Enintään 100 GB:n tiedostot salataan ja puretaan automaattisesti latauksen aikana verkkoselaimen kautta. Suuremmille tiedostoille on saatavilla ohjelmallinen työkalu (SD-lock/unlock). Automaattinen salausavainten hallinta.
-- Parannettu kirjautumisturvallisuus monivaiheisen tunnistautumisen (MFA) avulla.
-- Tukee minkä tahansa tiedostotyypin salausta ja tallennusta: tekstitiedostot, kuvat, äänitiedostot, videot ja geneettiset tiedot (oletustila 10 TB, jos tarvitaan lisää tilaa, [ota yhteyttä CSC Service Desk](../../support/contact.md))
+- Käyttäjäystävällinen käyttöliittymä, joka on täysin yhteensopiva Chrome-verkkoselaimen kanssa.
+- Käyttö selaimen kautta tietokoneeltasi (Mac, Linux tai Windows) ja mistä tahansa sijainnista (ei tarvetta asentaa erillisiä ohjelmia tai käyttää VPN:ää).
+- Jopa 100 GB:n tiedostot salataan ja salaus puretaan automaattisesti selaimen kautta tapahtuvan lähetyksen ja latauksen yhteydessä. Suurempia tiedostoja varten on käytettävissä ohjelmallinen työkalu (SD-lock/unlock). Salausavainten hallinta on automatisoitu.
+- Parannettu kirjautumisturva monivaiheisella todennuksella (MFA).
+- Tukee minkä tahansa tiedostotyypin salausta ja tallennusta: tekstitiedostot, kuvat, äänitiedostot, videot ja geneettinen data (oletustila 10 TB; jos tarvitset lisää tilaa, [ota yhteyttä CSC Service Deskiin](../../support/contact.md)).
 
-## Rajoitukset {#limitations}
+## Rajoitukset { #limitations }
 
 Tunnetut väliaikaiset ongelmat:
 
-- Firefox yksityisessä tilassa ei ole tuettu.
-- Tiedostojen merkitseminen ei ole tällä hetkellä tuettu.
-- Ennen vuotta 2013 luodut CSC-projektit eivät ole yhteensopivia nykyisen käyttöliittymän kanssa, eikä niitä näytetä. Jos tarvitset apua, ota meihin yhteyttä.  
-- Lokakuussa 2024 SD Connect päivitettiin. Aiemman version tiedostot ovat yhä yhteensopivia, mutta saatat kohdata ongelmia tiedostomuotojen muutosten vuoksi. Vaiheittaiset ohjeet aiemmalla versiolla tallennettujen tiedostojen lataamiseen [löydät tältä sivulta](./sd-connect-download.md)
+- Firefoxin yksityinen selaustila ei ole tuettu.
+- Tiedostojen tägäystä ei tällä hetkellä tueta.
+- Ennen vuotta 2013 luodut CSC-projektit eivät ole yhteensopivia nykyisen käyttöliittymän kanssa eikä niitä näytetä. Tarvitessasi apua, ota yhteyttä.  
+- Lokakuussa 2024 SD Connect päivitettiin. Aiemman version tiedostot ovat yhä yhteensopivia, mutta tiedostomuotojen muutokset voivat aiheuttaa ongelmia. Vaiheittaiset ohjeet aiemmalla versiolla talletettujen tiedostojen lataamiseen löydät [tältä sivulta](./sd-connect-download.md))
 
-Yleiset huomiot:
+Yleisiä huomioita:
 
-- SD Connect perustuu objektin tallennusratkaisuun. Tiedostoja kutsutaan objekteiksi, ne tallennetaan tiedostosegmentteinä eikä niitä voi muokata suoraan. Kaikkien SD Connectiin tallennettujen tiedostojen (herkkien tai ei-herkkien, esim. skriptejä) on oltava salattuja.
-- Tallennustila pysyy saatavilla niin kauan kuin CSC-projekti on aktiivinen. Kaikki tiedot poistetaan 90 päivää tilin päättymisen tai projektin sulkemisen jälkeen, CSC:n [yleisten käyttöehtojen](https://research.csc.fi/general-terms-of-use) mukaisesti.
-- CSC ei tarjoa varmuuskopiointia SD Connect:iin tallennetuille tiedoille. Siksi suosittelemme ylläpitämään **varmuuskopioita** tärkeistä tietojoukoistasi.
-- SD Connect -palvelu tukee vain salattujen tiedostojen käsittelyä, oli kyseessä sitten herkkä tai ei-herkkä tieto (esim. skriptit).
+- SD Connect perustuu objektitallennukseen. Tiedostoja kutsutaan objekteiksi; ne tallennetaan tiedostosegmenteiksi eikä niitä voi muokata suoraan. Kaikki SD Connectiin tallennetut tiedostot (arkaluonteiset tai ei-arkaluonteiset, esim. skriptit) on salattava.
+- Tallennustila on käytettävissä niin kauan kuin CSC-projekti on aktiivinen. Kaikki data poistetaan 90 päivän kuluttua tilin päättämisestä tai projektin sulkemisesta [CSC:n yleisten käyttöehtojen](https://research.csc.fi/general-terms-of-use) mukaisesti.
+- CSC ei tarjoa varmuuskopioita SD Connectiin tallennetusta datasta. Suosittelemme siksi ylläpitämään tärkeistä aineistoista **varmuuskopiot**.
+- SD Connect -palvelu tukee vain salattujen tiedostojen käsittelyä, olivatpa ne arkaluonteisia tai eivät (esim. skriptit).
 
-!!! Huomautus
-    SD Connect ei sovellu terveys- ja sosiaalidatan toissijaisesta käytöstä annetun lain mukaisen datan käsittelyyn. Tarkista [SD Desktop toissijaiseen käyttöön](./sd-desktop-audited.md) saadaksesi tietoa tarkemmista vaatimuksista.
+!!! Note
+    SD Connect ei sovellu tietojen käsittelyyn Lain sosiaali- ja terveystietojen toissijaisesta käytöstä mukaisesti. Tarkat vaatimukset löydät sivulta [SD Desktop toissijaiseen käyttöön](./sd-desktop-audited.md).
 
-## SD Connectin uusien ominaisuuksien yleiskuvaus {#overview-of-sd-connect-new-features}
+## Katsaus SD Connectin uusiin ominaisuuksiin { #overview-of-sd-connect-new-features }
 
-Lokakuussa 2024 esittelimme useita parannuksia alkuperäiseen versioon parantaaksemme käyttäjäkokemusta, turvallisuutta, suorituskykyä ja automaatiota. Alla on yhteenveto keskeisistä uusista ominaisuuksista ja niiden eroista aiempaan versioon verrattuna.
+Lokakuussa 2024 otimme käyttöön useita parannuksia alkuperäiseen versioon parantaaksemme käyttökokemusta, turvallisuutta, suorituskykyä ja automaatiota. Alla on yhteenveto keskeisistä uusista ominaisuuksista ja niiden eroista verrattuna aiempaan versioon.
 
-| Ominaisuus | SD Connect uusi versio | SD Connect aiempi versio (lopetettu) |
-|------------|------------------------|-------------------------------------|
-|Palvelun pääsy [MyCSC](https://my.csc.fi) kautta|Edellyttää CSC-tiliä ja projektia, SD Connect -palvelun pääsyä ja monivaiheisen tunnistautumisen käyttöönottoa CSC-tililläsi|Edellyttää CSC-tiliä ja projektia sekä Allas-palvelun käyttöä|
-|Käyttöliittymä|Uudistettu käyttäjäpalautteeseen perustuen|Vakiokäyttöliittymä|
-|Automaattinen salaus ja lataus|Lataus käyttöliittymien kautta tukee enintään 100 GB:n tiedostoja, suuremmat tiedostot voidaan ladata komentorivin kautta automaattisesti|Rajoitettu tiedostoihin < 1 GB|
-|Automaattinen salauksenpurku ja lataus|Saatavana kansioille tai yksittäisille tiedostoille kaikille projektin jäsenille|Ei saatavilla|
-|Avaimenhallinta|Automaattisesti palvelun tarjoama|Ei saatavilla|
-|Salattujen tiedostojen lataaminen|Ei sallittu; kaikki tiedostot salataan latauksen yhteydessä|Vapaaehtoinen; salaamattomia tiedostoja voisi ladata|
-|Kansion jakaminen|Tukee kolmea erilaista tiedon jakamista: tiedonsiirtoon, keräämiseen tai yhteisanalyysiin SD Desktopilla (ilman mahdollisuutta ladata ylimääräisiä kopioita tiedostoista)|Jakaminen oli tuettu vain manuaalisen salauksen ja purun avulla|
-|Komentorivityökalu|SD Lock/Unlock tarjoaa automaattisen avaimenhallinnan, tämä vaatii väliaikaisen tokenin käytön|Saatavilla mutta edellytti manuaalista salausta eikä tukenut automaattista avaimenhallintaa|
-|Yhteensopivuus Allas-palvelun kanssa|Lokakuun 7. päivän 2024 jälkeen ladatut tiedostot näkyvät Allasissa, mutta niitä ei voi ladata suoraan sieltä; koko voi olla virheellinen|Tiedostot näkyvät ja ovat ladattavissa|
+| Ominaisuus | SD Connect uusi versio | SD Connect aiempi versio (poistettu käytöstä) |
+|---------|----------------|----------------------------------------|
+|Palveluun pääsy via [MyCSC](https://my.csc.fi)|Vaatii CSC-tilin ja -projektin, SD Connect -palveluoikeuden sekä monivaiheisen todennuksen käytössä CSC-tililläsi|Vaatii CSC-tilin ja -projektin sekä Allas-palveluoikeuden|
+|Käyttöliittymä|Uudistettu käyttäjäpalautteen pohjalta|Vakiokäyttöliittymä|
+|Automaattinen salaus ja lähetys|Käyttöliittymien kautta lähetettäessä tuetaan jopa 100 GB:n tiedostoja; suuremmat tiedostot voidaan lähettää automaattisesti komentorivin kautta|Rajoittuu tiedostoihin < 1 GB|
+|Automaattinen salauksen purku ja lataus|Saatavilla kansioille tai yksittäisille tiedostoille kaikille projektin jäsenille|Ei saatavilla|
+|Avaintenhallinta|Palvelun tarjoama automaattisesti|Ei saatavilla|
+|Valmiiksi salattujen tiedostojen lähettäminen|Ei sallittu; kaikki tiedostot salataan lähetyksen yhteydessä|Valinnainen; salaamattomia tiedostoja saattoi lähettää|
+|Kansioiden jakaminen|Tukee kolmea erilaista datanjakoa: siirtoon, keruuseen tai yhteisanalyysiin SD Desktopissa (ilman mahdollisuutta ladata tiedostoista ylimääräisiä kopioita)|Jakaminen tuki vain manuaalista salausta ja salauksen purkua|
+|Komentorivityökalu|SD Lock/Un-lock tarjoaa automatisoidun avaintenhallinnan; tämä edellyttää väliaikaista token-käyttöoikeutta|Saatavilla, mutta vaati manuaalisen salauksen eikä tukenut automaattista avaintenhallintaa|
+|Yhteensopivuus Allaksen kanssa|7.10.2024 jälkeen lähetetyt tiedostot näkyvät Allaksessa, mutta niitä ei voi ladata suoraan sieltä; koko voi olla virheellinen|Tiedostot näkyivät ja olivat ladattavissa|
 
-## SD Connectin ominaisuudet {#features-in-sd-connect}
+## SD Connectin ominaisuudet { #features-in-sd-connect }
 
-- [Kirjaudu sisään](./sd-connect-login.md)
-- [Lataa](./sd-connect-upload.md)
-- [Jaa](./sd-connect-share.md)
-- [Lataa alas](./sd-connect-download.md)
-- [Poista](./sd-connect-delete.md)
-- [Komentorivikäyttöliittymä](./sd-connect-command-line-interface.md)
-- [Vianetsintä](./sd-connect-troubleshooting.md)
+- [Kirjautuminen](./sd-connect-login.md)
+- [Lähetys](./sd-connect-upload.md)
+- [Jakaminen](./sd-connect-share.md)
+- [Lataus](./sd-connect-download.md)
+- [Poistaminen](./sd-connect-delete.md)
+- [Komentorajapinta](./sd-connect-command-line-interface.md)
+- [Vianmääritys](./sd-connect-troubleshooting.md)

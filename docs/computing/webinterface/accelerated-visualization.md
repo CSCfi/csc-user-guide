@@ -1,8 +1,7 @@
+# Kiihdytetty visualisointi { #accelerated-visualization }
+Kiihdytetty visualisointi -sovellus mahdollistaa visualisointisovellusten käytön GPU-kiihdytyksellä Puhti-laskentasolmulla.
 
-# Kiihtyvytetty visualisointi
-Kiihtyvytetty visualisointi -sovellus mahdollistaa visualisointisovellusten käytön GPU-kiihdytyksellä Puhti-laskentayksikössä.
-
-## Saatavilla olevat sovellukset {#available-applications}
+## Saatavilla olevat sovellukset { #available-applications }
 * [Abaqus CAE](../../apps/abaqus.md)
 * [Ansys Workbench](../../apps/ansys.md)
 * [Blender](../../apps/blender.md)
@@ -12,37 +11,36 @@ Kiihtyvytetty visualisointi -sovellus mahdollistaa visualisointisovellusten käy
 * [VisIt](../../apps/visit.md)
 * [VMD](../../apps/vmd.md)
 
-## Käynnistäminen {#launching}
-1. Avaa `Kiihtyvytetty visualisointi` -sivu sovelluksissa.
+## Käynnistäminen { #launching }
+1. Avaa `Accelerated visualization` -sivu kohdasta Apps.
 2. Määritä tarvittavat resurssit. Yksi GPU varataan.
 3. Käynnistä sovellus.
-4. Yhdistä työpöydälle.
-5. Käynnistä visualisointisovellus sovellusvalikosta, joka löytyy joko vasemmasta yläkulmasta tai napsauttamalla hiiren kakkospainikkeella työpöytää.
+4. Yhdistä työpöytään.
+4. Käynnistä visualisointisovellus sovellusvalikosta, joka löytyy joko vasemmasta yläkulmasta tai napsauttamalla työpöytää hiiren oikealla painikkeella.
 
-!!! Huomio
+!!! Note
 
-    Huomioita GPU-osuuksista:
+    Huomioita GPU-osioista:
+    
+    * `gputest`-osion aikaraja on 15 minuuttia, mutta sen pitäisi yleensä olla heti tai hyvin pian käytettävissä.
+    * `gpu` mahdollistaa pidemmän sovelluksen käytön, mutta jonotusaika voi olla myös pidempi.
+    * Laskutusyksiköissä GPU-laskenta-aika on noin 60 kertaa kalliimpaa kuin CPU-aika (ks. [Billing](../hpc-billing.md)). Pidä siis kiihdytetty visualisointi -sovellus auki vain, kun käytät sitä aktiivisesti. Lopeta työ käyttämällä `Delete`-painiketta `My interactive Sessions` -sivulla.
 
-    * `gputest`:illä on 15 minuutin aikaraja, mutta sen pitäisi yleensä olla saatavilla heti tai hyvin pian.
-    * `gpu` mahdollistaa sovelluksen pidemmän käytön, mutta jonotusaika voi olla pidempi.
-    * GPU-laskenta-aika on ~60x kalliimpaa laskutusyksiköissä, joten pidä kiihtyvytetty visualisointi -sovellus auki vain, kun todella käytät sitä. Käytä `Poista`-painiketta `Omat interaktiiviset istunnot` -sivulla lopettaaksesi työskentelyn.
+## Yhdistäminen { #connecting }
+On kaksi tapaa muodostaa yhteys Accelerated Visualization -sovellukseen:
 
-## Yhdistäminen {#connecting}
-Kiihtyvytetty visualisointi -sovellukseen voi yhdistää kahdella tavalla:
-
-1. **Verkkoselaimella**.
-noVNC-yhteys-välilehteä voidaan käyttää sovellukseen yhdistämiseen verkkoselaimella valitsemalla haluttu pakkaus ja laatu ja sitten napsauttamalla `Käynnistä työpöytä`.
-Suosittelemme selaimen käyttöä useimmille käyttäjille.
+1. Verkkoselaimella.
+noVNC Connection -välilehteä voidaan käyttää sovellukseen yhdistämiseen verkkoselaimella valitsemalla haluttu pakkaus ja laatu ja napsauttamalla sitten `Launch Desktop`.
+Selainyhteyttä suositellaan useimmille käyttäjille.
 ![](../../img/ood-vnc-connect.png)
-2. **VNC-asiakasohjelmalla**.
-Parempaa suorituskykyä varten voit käyttää natiivin VNC-asiakasohjelmaa, kuten RealVNC tai TigerVNC.
-Ohjeet natiivien VNC-asiakasohjelmien käyttöön löytyvät Käyttöohjeet-välilehdeltä.
+2. VNC-asiakasohjelmalla.
+Parempaa suorituskykyä varten voit käyttää natiivia VNC-asiakasohjelmaa, kuten RealVNC:tä tai TigerVNC:tä.
+Ohjeet natiiveille VNC-asiakasohjelmille löytyvät välilehdeltä Native instructions.
 Tämä edellyttää VNC-asiakasohjelman asentamista paikalliselle koneellesi.
 
-## Sovelluksen käyttäminen {#using-the-app}
+## Sovelluksen käyttö { #using-the-app }
+Accelerated Visualization -sovellusta käytetään samalla tavalla kuin [Työpöytäsovellusta](desktop.md). Kuitenkin kiihdytettyjen sovellusten pikakuvakkeita ei luoda työpöydälle automaattisesti. Voit luoda pikakuvakkeet vetämällä halutun sovelluksen sovellusvalikosta työpöydälle.
 
-Kiihtyvytettyä visualisointi -sovellusta käytetään samalla tavalla kuin [Työpöytä-sovellusta](desktop.md). Kuitenkaan kiihtyvätettyjen sovellusten pikavalintoja ei automaattisesti luoda työpöydälle. Luodaksesi pikavalintoja voit vetää halutun sovelluksen sovellusvalikosta työpöydälle.
+Huomaa, että jos ajat sovelluksia, jotka eivät hyödy GPU-kiihdytyksestä, sinun kannattaa käyttää sen sijaan [Työpöytäsovellusta](desktop.md). Vain sovellukset, joiden nimessä on loppuliite `(Accelerated)`, hyötyvät GPU:sta.
 
-Huomaa, että jos käytät sovelluksia, jotka eivät hyödy GPU-kiihdytyksestä, sinun pitäisi käyttää [Työpöytä-sovellusta](desktop.md). Vain sovellukset, joiden päädyssä on `(Kiihtyvytetty)`, hyötyvät GPU:sta.
-
-Lisätietoja omien sovellustesi ajamisesta Kiihtyvyttä visualisointi -sovelluksessa löydät [konttien luomisen sivulta](../containers/creating.md#using-gpu-from-containers-in-interactive-sessions-in-puhti).
+Lisätietoja omien sovellusten ajamisesta Accelerated Visualization -sovelluksessa löydät sivulta [creating containers page](../containers/examples.md#example-accelerated-visualization-application).

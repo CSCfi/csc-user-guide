@@ -1,39 +1,16 @@
+# Tunnetut ongelmat ja rajoitukset { #known-problems-and-limitations }
 
-# Known problems and limitations {#known-problems-and-limitations}
+## Instanssit { #instances }
 
-## Instances {#instances}
+-   **Instanssien tilannevedot epäonnistuvat joskus. Tämä jättää instanssin suspended-tilaan. Ongelman kiertämiseksi suosittelemme käyttäjiä sammuttamaan virtuaalikoneen ennen tilannevedon ottamista.**
+-   Tilannevedosta käynnistetyt lapsi-instanssit, jotka on luotu olemassa olevan vanhemman instanssin perusteella, eivät sisällä valmiiksi määriteltyä suojausryhmää. 
+    Valitse sopiva suojausryhmä lapsi-instansseille ennen niiden käynnistämistä.
+-   Ko'on muuttaminen saman flavor-perheen sisällä (standard.*) on mahdollista, paitsi IO-flavoreille. Ko'on muuttaminen flavor-perheiden välillä ei useimmiten toimi erilaisten tallennustaustajärjestelmien vuoksi. Jos käytät juurilevylle volyymia, jotkin koon muutokset perheiden välillä toimivat. Jos käytät juurilevylle imagea, se voi olla riskialtista. Testaa koon muutokset aina ensin kertakäyttöisellä virtuaalikoneella. Jos virtuaalikoneesi päätyvät tilaan "error", ota yhteyttä meihin.
+-   Verkko: Samaa kelluvaa IP-osoitetta on mahdollista lisätä useille instansseille API:n avulla. Mitään varoitusta tai virhettä ei anneta. Viimeinen API-kutsu jää voimaan.
+-   Volyymit: Ei ole takeita, että laitenimet pysyvät samoina uudelleenrakennuksen tai uudelleenkäynnistyksen jälkeen. Jos haluat varmistaa, että oikea laite liitetään aina samaan polkuun, on hyvä käyttää polkujen sijaan UUID:itä.
 
--   **Instance-kuvat saattavat joskus epäonnistua. Tämä jättää
-    instanssin keskeytettyyn tilaan. Tämän ongelman välttämiseksi suosittelemme,
-    että käyttäjät sammuttavat VM:nsä ennen kuvan ottamista.**
--   Käytettäessä olemassa olevan emoinstanssin kuvasnapshottia luodut
-    lapsi-instanssit eivät sisällä ennalta määriteltyä
-    tietoturvaryhmää. Valitse sopiva tietoturvaryhmä
-    lapsi-instansseille ennen niiden käynnistämistä.
--   Lajiperheiden sisäinen koon muuttaminen (standard.*) on
-    mahdollista, paitsi IO-mauille. Muuttaminen lajiperheiden
-    välillä toimii harvoin erilaisten tallennusalustojen vuoksi.
-    Jos käytät levyä juurilevynä, jotkin lajiperheiden
-    väliset muutokset toimivat. Jos käytät kuvaa juurilevynä,
-    se saattaa olla vaarallista. Testaa aina muutokset ensin
-    väliaikaisella VM:llä. Jos virtuaalikoneesi päätyvät "virhe"
-    tilaan, ota meihin yhteyttä.
--   Verkko: Saman kelluvan IP-osoitteen lisääminen
-    useisiin instansseihin API:n kautta on mahdollista. Ei
-    varoitusta tai virhettä ilmene. Viimeinen API-kutsu
-    on se, joka vaikuttaa.
--   Levyt: Laitteiden nimien säilyminen uudelleenrakennuksen tai
-    uudelleenkäynnistyksen jälkeen ei ole taattua. Jos haluat
-    varmistaa, että oikea laite liitetään aina samaan
-    polkuun, on hyvä idea käyttää UUID:eja polkujen sijaan.
--   Ubuntu-20.04-kuvat ja hpc.6-maut eivät pysty käynnistymään. 
-    Bug aiheuttaa, että Ubuntu 20.04 -instanssit (luodut tai päivitetyt) 
-    ja maku hpc.6.* eivät pysty käynnistymään. Odotamme tulevan
-    päivityksen korjaavan tämän, mutta vältä toistaiseksi tätä yhdistelmää.
+## EC2-työkalut (euca2ools) { #ec2-tools-euca2ools }
 
-## EC2 tools (euca2ools) {#ec2-tools-euca2ools}
+-   EC2:tä ei tällä hetkellä tueta. EC2-tunnuksia voi kuitenkin käyttää objektitallennuksen kanssa.
 
--   EC2 ei ole tällä hetkellä tuettu. EC2-tunnuksia voi kuitenkin käyttää
-    objektitallennuksen kanssa.
-
-## [Pouta FAQ entries](../../support/faq/index.md#pouta) {#pouta-faq-entries}
+## [Pouta UKK-kohdat](../../support/faq/index.md#pouta) { #pouta-faq-entries }

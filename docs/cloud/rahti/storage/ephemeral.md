@@ -1,7 +1,6 @@
+# Väliaikainen tallennustila { #ephemeral-storage }
 
-# Lyhytaikainen tallennustila {#ephemeral-storage}
-
-Kun paikallista lyhytaikaista (väliaikaista) tallennustilaa tarvitaan, tulee käyttää `emptyDir`:ia. Se on solmulle paikallista, Rahdissa tämä on RAID-1 SSD-tallennustilaa. Sitä voidaan jakaa useiden konttien kesken samassa Podissa, ja se on Rahdin *nopein* käytettävissä oleva tiedostojärjestelmä, mutta se **menetetään, kun Podi tapetaan tai käynnistetään uudelleen**. Se määritetään suoraan Podin määritelmässä:
+Kun tarvitaan paikallista väliaikaista tallennustilaa, tulee käyttää `emptyDir`-volyymiä. Se on solmukohtainen; Rahtissa tämä on RAID-1 SSD -tallennusta. Se voidaan jakaa useiden saman Podin konttien kesken, ja se on Rahtissa saatavilla oleva nopein tiedostojärjestelmä, mutta se menetetään, kun Pod tapetaan tai käynnistetään uudelleen. Se määritellään suoraan Pod-määrittelyssä:
 
 *`podWithEmptydDir.yaml`*:
 
@@ -18,12 +17,12 @@ spec:
     emptyDir: {}
   containers:
   - name: container-a
-    image: centos:7
+    image: almalinux:10
     volumeMounts:
     - mountPath: /outputdata
       name: volume-a
   - name: container-b
-    image: centos:7
+    image: almalinux:10
     volumeMounts:
     - mountPath: /interm
       name: volume-a
@@ -31,9 +30,9 @@ spec:
 
 ![emptyDir](../../img/pods-and-storage-emptydir.drawio.svg)
 
-## Muistin käyttäminen tallennusalustana {#using-memory-as-medium}
+## Muistin käyttäminen tallennusvälineenä { #using-memory-as-medium }
 
-`emptyDir` voidaan tehdä vielä nopeammaksi käyttämällä muistia tallennusalustana, ts. käyttämällä `tmpfs`:ää. Tämän lähestymistavan kaksi haittaa verrattuna tavanomaiseen `emptyDir`:iin on, että (1) muisti on jaettu kaikkien Podin prosessien kanssa, joten suurin mahdollinen koko on sama kuin Podin muistiraja, ja (2) jos `emptyDir` (yhdessä Podin prosessien kanssa) käyttää kaiken saatavilla olevan muistin, Podi tapetaan. Tämä voidaan luoda lisäämällä `medium: Memory` `emptyDir`-kohdan alle. On suositeltavaa asetettaa `sizeLimit` pienemmäksi kuin Podin muistiraja.
+`emptyDir`-volyymin voi tehdä vielä nopeammaksi käyttämällä muistia tallennusvälineenä, eli käyttämällä `tmpfs`:ää. Tällä lähestymistavalla on kaksi haittaa verrattuna tavalliseen `emptyDir`-volyymiin: (1) muisti on jaettu kaikkien Podin prosessien kesken, joten sen enimmäiskoko on sama kuin `Pod`-muistiraja, ja (2) jos `emptyDir` yhdessä Podin prosessien kanssa käyttää kaiken käytettävissä olevan muistin, Pod tapetaan. Voit luoda sellaisen lisäämällä `medium: Memory` `emptyDir`-kohdan alle. On suositeltavaa määrittää `sizeLimit` arvoon, joka on pienempi kuin Podin muistiraja.
 
 * `podWithEmptyDirMemory.yaml`
 

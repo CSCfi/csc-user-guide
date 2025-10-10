@@ -1,71 +1,63 @@
-# Termit ja käsitteet
+# Termit ja käsitteet { #terms-and-concepts }
 
 [TOC]
 
-### Käyttövaltuuslista {#access-control-list}
+### Käyttöoikeusluettelo { #access-control-list }
 
-_Käyttövaltuuslista_ (Access Control List, ACL) -mekanismia voidaan käyttää hallitsemaan muiden Allas-käyttäjien pääsyä sinun bucket-teihisi.
+_Menetelmää Käyttöoikeusluettelo_ (ACL) voidaan käyttää hallitsemaan muiden Allas-käyttäjien pääsyä säiliöihisi.
 
-### Laskutusyksikkö {#billing-unit}
+### Laskutusyksikkö { #billing-unit }
 
-_Laskutusyksiköt_ kuvaavat tietokone- ja tallennusresurssien käyttöä CSC-järjestelmissä. Allaksessa tallennettu datamäärä kuluttaa laskutusyksiköitä.
+_Laskutusyksiköt_ (BU) kuvaavat laskennan (CPU BU, GPU BU, Cloud BU) ja tallennusresurssien (Storage BU) kulutusta CSC:n järjestelmissä. Allaksessa tallennettu datamäärä kuluttaa tallennuksen laskutusyksiköitä (Storage BU).
 
 Katso [Laskutus ja kiintiöt](./introduction.md#billing-and-quotas)
 
-### Ämpäri {#bucket}
+### Säiliö { #bucket }
 
-_Ämpäri_ on objektille tarkoitettu säiliö, joka voi sisältää myös metatietoja, jotka kuvaavat ämpäriä.
+_Säiliö_ on objektien säilytysastia, joka voi sisältää myös säiliötä kuvaavia metatietoja.
 
-### Tarkistussumma {#checksum}
+### Tarkistussumma { #checksum }
 
-_Tarkistussumma_ on laskettu merkkijono, jolla voidaan tarkistaa, onko objekti muuttunut (datan eheys). Voit näyttää tarkistussumman komennolla `md5sum`.
+_Tarkistussumma_ on objektista laskettu hajautearvo, jonka avulla voidaan havaita, onko objekti muuttunut (tiedon eheys).
+Voit näyttää tarkistussumman komennolla `md5sum`.
 
-### Asiakasohjelma {#client}
+### Asiakasohjelma { #client }
 
-_Asiakasohjelmaa_ käytetään objektitallennuspalvelun, kuten Allas, käyttämiseen. Asiakkaita on monenlaisia:
+_Asiakasohjelmaa_ käytetään objektitallennuspalveluun, kuten Allakseen, pääsyyn. Allakseen voi ottaa yhteyden useilla eri [asiakasohjelmilla](accessing_allas.md).
 
-* **Verkkoselaimeen perustuva käyttö**:
-    - [Allas-verkkokäyttöliittymä](./using_allas/allas-ui.md) – käyttäjäystävällinen graafinen käyttöliittymä ämpärien hallintaan, objektien lataamiseen ja jakamiseen.
-    - [OpenStack Horizon -verkkokäyttöliittymä](./using_allas/web_client.md) – yksinkertainen verkkokäyttöliittymä pienten tiedostojen (≤5 GiB) hallintaan Allaksessa.
+### Metatiedot { #metadata }
 
-* **Komentoriviasiakkaat**, kuten:
-    - [Swift](./using_allas/swift_client.md) ja [s3cmd](./using_allas/s3_client.md) – edistyneille käyttäjille, jotka tarvitsevat objektisäilytyksen tarkempaa hallintaa.
+_Metatiedot_ kuvaavat objektia tai säiliötä. Niiden avulla voidaan hakea objekteja.
+Niitä käytetään _avain–arvo_ -pareina (esimerkiksi, nimi: John).
 
-* **Ohjelmoitava rajapinta (API)** niille, jotka integroituvat Allakseen ohjelmistosovellusten kanssa.
+### Objektin elinkaari { #object-lifecycle }
 
-### Metatiedot {#metadata}
+_Objektin elinkaari_ voidaan määrittää poistamaan objektit Allaksesta automaattisesti. Elinkaari määritetään säiliötasolla, jossa voidaan määritellä useita vanhenemisaikoja. Elinkaari kohdistetaan säiliön objekteihin niiden täsmäävien tunnisteiden (tags) ja/tai etuliitteiden (prefixes) perusteella. Katso esimerkki [s3-asiakasohjelman dokumentaatiosta](./using_allas/s3_client.md#setting-up-an-object-lifecycle)
 
-_Metatiedot_ kuvaavat objektia tai ämpäriä ja niitä voidaan käyttää objektien hakemiseen. Näitä käytetään _avain-arvo_-pareina (esimerkiksi nimi: John).
+### Objektitallennus { #object-storage }
 
-### Objektin elinkaari {#object-lifecycle}
+_Objektitallennus_ tarkoittaa tietojen tallennusta, jossa dataa hallitaan objekteina tiedostojen tai lohkojen sijaan. Tyypillisesti objekti koostuu itse datasta, metatiedoista ja yksilöllisestä tunnisteesta. Yleisesti data voi olla mitä tahansa, esim. kuva tai ääni.
 
-_Objektin elinkaari_ voidaan määrittää poistamaan objektit automaattisesti Allaksesta. Elinkaari määritetään ämpärin tasolla, jossa voidaan määrittää useita vanhenemisjaksoja. Elinkaari koskee ämpärin objekteja niiden vastaavien tunnisteiden ja/tai etuliitteiden perusteella. Katso esimerkki [s3-asiakasohjelman dokumentaatiosta](./using_allas/s3_client.md#setting-up-an-object-lifecycle).
+### OpenStack { #openstack }
 
-### Objektitallennus {#object-storage}
+[OpenStack](https://www.openstack.org/)-pilvihallinnan middleware_ voidaan käyttää Allakseen pääsyyn.
 
-_Objektitallennus_ viittaa tietokoneen tietotallennukseen, joka hallitsee dataa objekteina tiedostojen tai lohkojen sijasta. Tyypillisesti objekti koostuu itse datasta, metatiedoista ja yksilöllisestä tunnisteesta. Yleisesti ottaen data voi olla mitä tahansa, esim. kuva tai ääni.
 
-### OpenStack {#openstack}
+### Näennäiskansio { #pseudo-folder }
 
-_OpenStack-pilvihallinnan middlewarea_ voidaan käyttää Allakseen pääsyyn. [OpenStack Horizon -verkkokäyttöliittymä](./using_allas/web_client.md) tarjoaa perustoimintoja datanhallintaan Allaksessa.
+Säiliöt eivät voi sisältää toisia säiliöitä. Voit kuitenkin käyttää niin sanottuja _näennäiskansioita_.
 
-Katso lisätietoja [OpenStackista](https://www.openstack.org/).
-
-### Pseudokansio {#pseudo-folder}
-
-Ämpäreissä ei voi olla muita ämpäreitä. Voit kuitenkin käyttää niin kutsuttuja _pseudokansioita_.
-
-Jos objektin nimi sisältää vinoviivan `/`, se tulkitaan kansion erottimeksi. Näitä näytetään kansiolistauksina, kun pääset dataan verkkokäyttöliittymän kautta. Nämä pseudokansiot lisätään automaattisesti, jos lataat kokonaisia kansioita komentoriviasiakkaalla.
+Jos objektin nimessä on kauttaviiva `/`, sitä tulkitaan kansioerottimena. Nämä näytetään kansiolistoina, kun dataa käytetään joillakin asiakkailla, esimerkiksi verkkokäyttöliittymissä. Nämä näennäiskansiot lisätään automaattisesti, jos lataat kokonaisia kansioita komentoriviasiakkaalla.
 
 Esimerkiksi, jos lisäät kaksi objektia
 ```bash
 fishes/salmon.png
 fishes/bass.png
 ```
-ämpäriin, listatessasi ämpärin näet kansion nimeltä _fishes_ ja kaksi tiedostoa siinä.
+säiliöön, säiliön listaus näyttää kansion nimeltä _fishes_ ja kaksi sen sisällä olevaa tiedostoa.
 
-## Kiintiö {#quota}
+## Kiintiö { #quota }
 
-_Allaksen kiintiö_ määrittää suurimman sallitun datamäärän (kapasiteetin), jonka projekti saa tallentaa Allakseen.
+_Allas-kiintiö_ määrittää suurimman datamäärän (kapasiteetin), jonka projekti saa tallentaa Allakseen.
 
 Katso [Laskutus ja kiintiöt](./introduction.md#billing-and-quotas)

@@ -1,88 +1,106 @@
+# Puchtin ja Mahtin verkkokäyttöliittymät { #web-interfaces-for-puhti-and-mahti }
 
-# Puhtin ja Mahtin verkkokäyttöliittymät {#web-interfaces-for-puhti-and-mahti}
+## Johdanto { #intro }
 
-## Johdanto {#intro}
-
-Puhtin ja Mahtin verkkokäyttöliittymiä osoitteissa
+Puchtin ja Mahtin verkkokäyttöliittymiä
 [www.puhti.csc.fi](https://www.puhti.csc.fi) ja
-[www.mahti.csc.fi](https://www.mahti.csc.fi) voidaan käyttää supertietokoneiden
-käyttöön pelkän verkkoselaimen avulla. LUMIn verkkokäyttöliittymä on saatavilla
-osoitteessa [www.lumi.csc.fi](https://www.lumi.csc.fi), katso
-[LUMIn dokumentaatio](https://docs.lumi-supercomputer.eu/runjobs/webui/)
-lisätietoja varten.
+[www.mahti.csc.fi](https://www.mahti.csc.fi) voidaan käyttää superkoneisiin
+pääsemiseen pelkällä verkkoselaimella. LUMIn verkkokäyttöliittymä on myös
+saatavilla osoitteessa [www.lumi.csc.fi](https://www.lumi.csc.fi), katso
+lisätietoja [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/)
+-sivulta.
+
+Huomaa, että kirjautuminen Puchtin ja Mahtin verkkokäyttöliittymiin edellyttää
+**monivaiheista tunnistautumista**.
+[Lisätietoja Connecting-sivulla](connecting.md).
 
 !!! warning "Laajuus"
-    HPC-verkkokäyttöliittymät soveltuvat parhaiten **interaktiivisiin työkuormiin**, jotka kuluttavat
-    **kohtuullisen määrän laskentaresursseja**. Joitakin esimerkkejä ovat **datan esikäsittely ja jälkikäsittely**
-    Jupyter Notebooksissa käyttäen **enintään muutamaa kymmentä CPU-ydintä**, **pienimuotoiset AI/ML-kokeet** käyttäen
-    **yhtä GPU:ta** ja **datan visualisointitehtäviä**.
+    HPC-verkkokäyttöliittymät soveltuvat parhaiten **interaktiivisiin työnkuormiin**, jotka käyttävät **vain kohtuullisen määrän laskentaresursseja**. Esimerkkejä ovat **datan esikäsittely ja jälkikäsittely** Jupyter Notebooksissa käyttäen **korkeintaan joitakin kymmeniä CPU-ytimiä**, **pienimuotoiset AI/ML-kokeilut** käyttäen **yhtä GPU:ta**, sekä **datan visualisointi**. Tämän vuoksi interaktiivisten ajojen enimmäiskesto on rajattu 16 tuntiin.
 
-    Huomioithan, että verkkokäyttöliittymän interaktiiviset sovellukset eivät sovi **monen solmun** ja **moni-GPU-tehtäviin**.
-    Tällaiset työkuormat tulisi ihanteellisesti suorittaa tavallisina
-    [eräajoina](../running/getting-started.md). Jos eräajot ja HPC-ympäristön komentorivikäyttö ovat sinulle uusia,
-    suosittelemme [CSC Laskentaympäristö](https://csc-training.github.io/csc-env-eff/)
-    itseopiskelumateriaaleja, jotta saat parhaan hyödyn irti CSC:n supertietokoneista.
+    Huomaa, että verkkokäyttöliittymien interaktiiviset sovellukset **eivät** sovellu **monisolmullisiin** tai **usean GPU:n** ajoihin. Tällaiset työnkuormat kannattaa suorittaa mieluiten tavanomaisina
+    [eräajoina](../running/getting-started.md). Jos eräajot ja HPC-ympäristön komentorivin käyttö ovat sinulle uusia, suosittelemme
+    [CSC Computing Environment](https://csc-training.github.io/csc-env-eff/)
+    -itseopiskelumateriaaleja, jotta saat parhaan hyödyn CSC:n superkoneista.
 
-## Saatavilla olevat ominaisuudet {#available-features}
+## Saatavilla olevat ominaisuudet { #available-features }
 
-- **Puhtin ja Mahtin verkkokäyttöliittymissä saatavilla olevat ominaisuudet:**
-    - Tiedostojen tarkastelu, lataaminen, lähettäminen ja siirtäminen Allaksen, supertietokoneen ja oman tietokoneesi välillä
-    - Shellin avaaminen kirjautumissolmussa
-    - Pysyvän shellin avaaminen laskentasolmussa
-    - Käynnissä olevien erätöiden tarkastelu
-    - Levykiintiöiden ja projektistatuksen tarkastelu
-    - Interaktiivisten sovellusten käynnistäminen ja niihin yhdistäminen suoraan selaimesta:
+- **Toiminnot, jotka ovat saatavilla sekä Puchtin että Mahtin verkkokäyttöliittymissä:**
+    - Näytä, lataa, lähetä ja siirrä tiedostoja Allaksen, superkoneen ja oman tietokoneesi välillä
+    - Avaa shell kirjautumissolmussa
+    - Avaa pysyvä shell laskentasolmussa
+    - Tarkastele käynnissä olevia eräajoja
+    - Tarkastele levykiintiöitä ja projektin tilaa
+    - Käynnistä interaktiivisia sovelluksia ja yhdistä niihin suoraan selaimesta:
         - Työpöytä sovelluksilla kuten Maestro ja VMD
         - Julia-Jupyter
         - Jupyter
-        - Jupyter kursseille: Interaktiivinen Jupyter istunto erityisesti kursseille
+        - Jupyter for courses: Erityisesti kursseja varten tarkoitettu interaktiivinen Jupyter-istunto
+        - MATLAB
         - MLflow
         - RStudio
         - TensorBoard
         - Visual Studio Code
-- **Puhtissa vain saatavilla olevat sovellukset:**
+- **Vain Puhtissa saatavilla olevat sovellukset:**
     - Kiihdytetty visualisointi sovelluksilla:
         - Blender
         - COMSOL
         - ParaView
         - VMD
-    - MATLAB
 
-### Shell {#shell}
+### Shell { #shell }
 
-_Shell_-sovellusten avulla voidaan käyttää supertietokoneen komentoriviä verkkokäyttöliittymän kautta. Voit joko avata yhteyden kirjautumissolmuihin tai pysyvämmän shellin laskentasolmuihin. Lisätietoja löytyy [Shell](shell.md)-sivulta.
+_Shell_-sovelluksilla voit käyttää superkoneen komentoriviä verkkokäyttöliittymän kautta. Voit avata yhteyden joko kirjautumissolmuille tai pysyvämmän shellin laskentasolmuille. Lisätietoja sivulla
+[Shell](shell.md).
 
-### Tiedostoselain {#file-browser}
+### Tiedostoselain { #file-browser }
 
-_Tiedostot_-sovelluksen avulla voit hallita tiedostoja supertietokoneella ja käyttää tallennuspalveluita, kuten Allasta ja IDA:a. Lisätietoja saat [Tiedostot ja tallennuspalvelut](file-browser.md)-sivulta.
+_Files_-sovelluksella voit hallita tiedostojasi superkoneella ja käyttää tallennuspalveluja kuten Allasta ja IDA:a. Lisätietoja sivulla
+[Files and storage services](file-browser.md).
 
-### Aktiiviset työtehtävät {#active-jobs}
+### Aktiiviset ajot { #active-jobs }
 
-Viime aikoina suoritetut ja käynnissä olevat eräajot näkyvät _Tehtävät_-osiossa ylävalikossa valitsemalla _Aktiiviset työtehtävät_. Täällä voit tarkastella töidesi nykyistä tilaa ja millaisia resursseja on pyydetty. Käynnissä olevan työn poistaminen peruuttaa työn.
+Viimeaikaisia ja käynnissä olevia eräajoja voi tarkastella yläreunan
+navigointipalkin _Jobs_-osiosta valitsemalla _Active jobs_. Täällä voit nähdä
+töidesi senhetkisen tilan ja pyydetyt resurssit. Käynnissä olevan työn
+poistaminen peruuttaa työn. 
 
-Tulevaisuudessa saattaa olla mahdollista lähettää erätöitä verkkokäyttöliittymän kautta, mutta toistaiseksi suositeltu tapa käynnistää standardierätyöt on käyttää `sbatch` shellistä.
+Jatkossa eräajojen lähettäminen verkkokäyttöliittymän kautta saattaa olla
+mahdollista, mutta toistaiseksi suositeltu tapa käynnistää tavanomaiset
+eräajot on käyttää shellistä komentoa `sbatch`.
 
-### Projektinäkymä {#project-view}
+### Projektinäkymä { #project-view }
 
-Ylävalikon _Työkalut_-osiossa _Projektinäkymä_-toiminnolla voit tarkastella supertietokoneiden nykyisiä levy- ja projektikohtaisia laskentayksikkökiintiöitä. Lisätietoja on [Projektinäkymä](project-view.md)-sivulla.
+Yläreunan _Tools_-osion alta löytyvällä _Project view_ -toiminnolla voit
+tarkastella superkoneiden ajantasaisia levy- ja projektin Billing Unit
+-kiintiöitä. Lisätietoja sivulla [Project view](project-view.md).
 
-### Interaktiiviset sovellukset {#interactive-apps}
+### Interaktiiviset sovellukset { #interactive-apps }
 
-_Interaktiiviset sovellukset_ ovat ohjelmia, joita voidaan käynnistää ja ajaa laskentasolmuilla ja jotka tarjoavat graafisen käyttöliittymän. Nämä ovat sovelluksia, kuten Jupyter Notebook, RStudio ja Visual Studio Code. Täydellinen luettelo sovelluksista ja erityisiä ohjeita löytyy [Interaktiiviset sovellukset](apps.md)-sivulta.
+_Interaktiiviset sovellukset_ ovat ohjelmia, jotka voidaan käynnistää ja ajaa
+laskentasolmuissa ja jotka tarjoavat graafisen käyttöliittymän. Esimerkkejä
+ovat Jupyter Notebook, RStudio ja Visual Studio Code. Täydellinen luettelo
+sovelluksista ja tarkemmat ohjeet löytyvät sivulta
+[Interaktiiviset sovellukset](apps.md).
 
 !!! info-label
-    Jos interaktiivinen sovellus ei käynnisty tai ei toimi odotetusti, voit poistaa istunnon ja yrittää käynnistää sovelluksen uudelleen. Katso myös [Vianmääritys](apps.md#troubleshooting).
+    Jos interaktiivinen sovellus ei käynnisty tai ei toimi odotetusti, voit
+    poistaa istunnon ja yrittää käynnistää sovelluksen uudelleen. Katso myös
+    [Vianmääritys](apps.md#troubleshooting).
 
-### Partitiot ja resurssit {#partitions-and-resources}
+### Partitiot ja resurssit { #partitions-and-resources }
 
 !!! warning-label
-    Vain muutama Puhtin ja Mahtin partitiosta on käytettävissä verkkokäyttöliittymissä. Joillakin sovelluksilla on myös suppeampi valikoima saatavilla olevia partitioita kuin toisilla.
+    Vain osa Puchtin ja Mahtin partitioista on käytettävissä verkkokäyttöliittymissä. Joillakin sovelluksilla on myös toisia rajallisempi valikoima käytettävissä olevia partitioita.  
+    Verkkokäyttöliittymissä ajettavien töiden enimmäiskesto on 16 tuntia, jotta interaktiivisten resurssien jonotusajat pysyvät lyhyinä. Jos työsi vaativat tätä pidempiä aikoja, suosittelemme ajamaan ohjelmistosi
+    [eräajoina](../running/getting-started.md).
 
-**Puhtin verkkokäyttöliittymässä** käytettävissä ovat `interaktiivinen`, `pieni`, `testi`, `gpu` ja `gputest` partitiot. `gpu` tai `gputest` partition valitseminen varaa yhden Nvidia V100 GPU:n. Katso
-[Puhtin partitiot -sivu](../running/batch-job-partitions.md#puhti-partitions) yleistä tietoa Puhtin jonoista.
+**Puchtin verkkokäyttöliittymässä** partitioista `interactive`, `small`, `test`, `gpu` ja
+`gputest` ovat käytettävissä. Valitsemalla `gpu`- tai `gputest`-partition
+varataan yksi Nvidia V100 -GPU. Yleistä tietoa Puchtin jonoista löytyy sivulta
+[Puhti partitions page](../running/batch-job-partitions.md#puhti-partitions).
 
-**Mahtin verkkokäyttöliittymässä** käytettävissä ovat `interaktiivinen`, `pieni` ja `gpusmall` partitiot. `gpusmall` procurement partition varaa osittaisen Nvidia A100 GPU:n (a100_1g.5g), jonka laskentakapasiteetti on 1/7 täydestä A100:sta. Lisätietoja Mahtin jaetuista GPU:ista saat 
-[Mahtin partitiot -sivulta](../running/batch-job-partitions.md#mahti-partitions).
-```
-
-I preserved all original links and markdown formatting per your instructions and added explicit anchors for each translated header to maintain the internal links.
+**Mahtin verkkokäyttöliittymässä** partitioista `interactive`, `small` ja `gpusmall`
+ovat käytettävissä. Valitsemalla `gpusmall`-partition varataan jaettu Nvidia
+A100 -GPU (a100_1g.5g), jossa on 1/7 täyden A100:n laskentatehosta. Lisätietoja
+Mahtin jaetuista GPU:ista löytyy sivulta
+[Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).

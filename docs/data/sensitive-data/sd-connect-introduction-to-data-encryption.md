@@ -1,32 +1,38 @@
-# Johdanto tietojen salaukseen yhteensopivana Herkkä tieto -palvelujen kanssa {#introduction-to-data-encryption-compatible-with-sensitive-data-services}
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
+
+# Johdanto Sensitive Data -palveluiden kanssa yhteensopivaan tietojen salaukseen { #introduction-to-data-encryption-compatible-with-sensitive-data-services }
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/dI1Py_1gA-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-CSC:n pilvipalveluihin SD Connectin kautta tai ohjelmallisesti siirrettävä herkkä tieto on salattava. Tämän luvun ohjeiden mukaisesti salatut tiedostot ovat yhteensopivia ja käytettävissä kaikkien Herkkä tieto (SD) -palvelukomponenttien kautta. Näin salatut tiedostot, jotka tallennetaan SD Connect -palveluun, ovat saatavilla analysointia varten (SD Desktop -palvelun avulla) tai julkaisua ja uudelleenkäyttöä varten hallitun pääsyn alaisina (SD Submitin, Federated EGA:n tai SD Applyn kautta).
 
-!!! Huom
-    Tietojen salaaminen ei vaadi teknistä osaamista, mutta se edellyttää tutustumista seuraavaan käyttäjän oppaaseen ja video-oppaisiin. Tarjoamme myös askel-askeleelta ohjeistusta verkossa tai asiakaspalvelun kautta. Jos sinulla on kysyttävää tai tarvitset ohjeiden alla selvennystä, älä epäröi [ottaa yhteyttä](../../support/contact.md) (aihe: Herkkä tieto).
+SD Connectin avulla tai ohjelmallisesti CSC:n pilvipalveluihin ladattavat arkaluonteiset tiedot on salattava. Tässä luvussa annettujen ohjeiden mukaisesti salatut tiedostot ovat yhteensopivia ja käytettävissä kaikkien Sensitive Data (SD) -palvelukomponenttien kautta. Näin SD Connect -palveluun tallennetut salatut tiedostot ovat käytettävissä analysointiin (SD Desktop -palvelulla) tai julkaisuun ja uudelleenkäyttöön valvotun pääsyn piirissä (SD Submitin, Federated EGA:n tai SD Applyn kautta). 
 
-Olemme integroineet salauksen automatisoituna askeleena SD Connect -käyttöliittymässä, erityisesti alle 1 Gt:n kokoisia tiedostoja varten. Kaikki SD Connectin kautta ladatut tiedot salataan automaattisesti Herkkä tieto -palvelujen julkisella salausavaimella. Voit kuitenkin valita erilaisia vaihtoehtoja tietojen salaamiseen analysointia tai jakamista varten.
+!!! Note
+    Tietojen salaaminen ei vaadi teknistä asiantuntemusta, mutta edellyttää perehtymistä alla olevaan käyttöoppaaseen ja video-oppaisiin. Tarjoamme myös vaiheittaiset ohjeet verkossa tai palvelupisteen kautta. Jos sinulla on kysyttävää tai alla olevat ohjeet kaipaavat täsmennystä, älä epäröi [ottaa yhteyttä](../../support/contact.md) (aihe: Sensitive Data). 
 
-Palvelut käyttävät lyhyesti sanottuna _epäsymmetristä salausta_, joka perustuu kahteen toisiinsa liitettyyn salausavaimeen:
+Salaus on integroitu SD Connect -käyttöliittymään automaattiseksi vaiheeksi, erityisesti alle 1 Gt:n tiedostoille. Kaikki SD Connectin kautta ladatut tiedot salataan automaattisesti Sensitive Data -palveluiden julkisella salausavaimella. Voit kuitenkin valita erilaisia vaihtoehtoja tietojesi salaamiseen analysointia tai jakamista varten. 
 
-   * Julkista avainta käytetään tietojen salaukseen. Julkista avainta ei voi käyttää tietojen purkamiseen. Voit jakaa julkisen avaimesi muiden kanssa, esim. yhteistyökumppaniesi kanssa, jolloin he voivat salata tietoja julkisella avaimesi.
+Lyhyesti: palvelut käyttävät menetelmää nimeltä _asymmetrinen salaus_, joka perustuu kahteen toisiinsa kytkeytyvään salausavaimeen:
 
-   * Salainen avain (tunnetaan myös yksityisenä avaimena) käytetään tiedoston purkamiseen, joka on salattu vastaavalla julkisella avaimella. Tämä avain on suojattu salasanalla, eikä sitä saa jakaa muille.
+   * Julkista avainta käytetään tietojen salaamiseen. Julkisella avaimella ei voi purkaa salausta. Voit jakaa julkisen avaimesi muille, esimerkiksi yhteistyökumppaneillesi, jolloin he voivat salata aineistoa julkisella avaimellasi. 
 
-Kun käytät SD Connectia tietojen lataamiseen CSC:hen, sinulla on useita mahdollisuuksia salaukseen:
+   * Salaisella avaimella (myös yksityinen avain) puretaan sellaisen tiedoston salaus, joka on salattu vastaavalla julkisella avaimella. Tämä avain on suojattu salasanalla eikä sitä saa jakaa muille. 
 
-1. Oletusvaihtoehto data-analyysille:
 
-      * Oletuksena olevilla salausvaihtoehdoilla voit ladata tiedot SD Connectin kautta verkkoselaimellasi data-analyysia varten. Tiedostot salataan automaattisesti ja ovat käytettävissä analyysissä SD Desktopin kautta. Voit kuitenkin purkaa tiedostot ladattuasi ne takaisin kannettavaasi tai organisaatiosi tietojenkäsittely-ympäristöön. Kehitämme uutta ominaisuutta, joka tarjoaa automaattista purkamista SD Connectin kautta. Lisätietoja varten [ota yhteyttä](../../support/contact.md) (Herkkä tieto).
+Kun käytät SD Connectia tietojen lähettämiseen CSC:lle, sinulla on useita salausvaihtoehtoja:
 
-2. Useiden salausavainten lisääminen tietojen tallennukseen, jakamiseen ja siirtoon:
+1. Oletusvaihtoehto tietojen analysointiin:
+
+      * Oletussalausasetuksilla voit ladata tiedot SD Connectin kautta verkkoselaimella analysointia varten. Tiedostot salataan automaattisesti ja ovat analysoitavissa SD Desktopin kautta. Et kuitenkaan voi purkaa tiedostojen salausta sen jälkeen, kun olet ladannut ne omalle tietokoneellesi tai organisaatiosi laskentaympäristöön. Kehitämme tämän vuoksi uutta ominaisuutta, joka mahdollistaa automaattisen salauksen purun SD Connectin kautta. Lisätietoja: [ota yhteyttä](../../support/contact.md) (Sensitive Data).
+
+2. Useiden salausavainten lisääminen tietojen tallennusta, jakamista ja siirtoa varten:
    
-      * Voit ladata tiedot SD Connectin kautta verkkoselaimen avulla ja lisätä julkisen salausavaimesi. Tiedostot salataan oletuksena SD-palveluiden avulla, mutta voit myös lisätä oman salausavaimesi. Tällä tavoin voit myös ladata ja purkaa tiedot tarvittaessa.
+      *  Voit ladata tiedot SD Connectin kautta verkkoselaimella ja lisätä julkisen salausavaimesi. Tiedostot salataan oletuksena SD-palveluiden avaimella, mutta voit lisäksi lisätä oman salausavaimesi. Tällä tavoin voit myös ladata ja purkaa tietojen salauksen tarvittaessa.
+         
+      *  Voit ladata tiedot SD Connectin kautta verkkoselaimella ja lisätä useita salausavaimia, esimerkiksi oman julkisen salausavaimesi sekä yhteistyökumppanisi julkisen salausavaimen. Myös tässä tapauksessa tiedostot salataan oletuksena SD-palveluiden salausavaimella ja ne ovat analysoitavissa SD Desktopin kautta. Lisäksi sekä sinä että yhteistyökumppanisi voitte tarvittaessa ladata ja purkaa tietojen salauksen.
 
-      * Voit ladata tiedot SD Connectin kautta verkkoselaimellasi ja lisätä useita salausavaimia. Esimerkiksi, julkinen salausavaimesi ja yhteistyökumppanisi julkinen salausavain. Myös tässä tapauksessa tiedostot salataan oletuksena SD-palveluiden salausavaimella ja ovat saatavilla data-analyysiin SD Desktopin kautta. Lisäksi sinä ja yhteistyökumppanisi voitte myös ladata ja purkaa tiedot tarvittaessa.
+   
+Tämä salausmenetelmä perustuu Crypt4GH-työkaluun, joka alun perin kehitettiin ihmisen geneettisen datan salaamiseen ja jakamiseen [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) -standardin mukaisesti. Crypt4GH:ta voidaan käyttää minkä tahansa tiedoston (kuvat, ääni, video, tekstitiedostot jne.) salaamiseen.
+CSC on kehittänyt yksinkertaisen sovelluksen, jonka avulla voit **luoda omat salausavaimesi**. 
 
-Tämä salausmenetelmä perustuu Crypt4GH:ään, työkaluun, joka on alun perin suunniteltu ihmisen geneettisten tietojen salaamiseen ja jakamiseen [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) -standardin mukaisesti. Crypt4GH:ta voidaan käyttää minkä tahansa tiedoston (kuva, ääni, video, tekstitiedostot jne.) salaamiseen. CSC on kehittänyt yksinkertaisen sovelluksen, jonka avulla voit **luoda salausavaimesi**.
-
-Seuraavissa kappaleissa kuvataan kaikki tarvittavat askeleet salausavainten luomiseen, tietojen lataamiseen ja salaamiseen SD Connectin avulla sekä tiedostojen purkamiseen, kun ne on ladattu takaisin tietokoneellesi. Tietenkin voit myös suorittaa jokaisen näistä vaiheista ohjelmallisesti.
+Seuraavissa kappaleissa kuvataan kaikki tarvittavat vaiheet: salausavainten luonti, tietojen lähetys ja salaus SD Connectin avulla sekä tiedostojen salauksen purku sen jälkeen, kun olet ladannut ne takaisin tietokoneellesi. Voit luonnollisesti suorittaa jokaisen näistä vaiheista myös ohjelmallisesti.

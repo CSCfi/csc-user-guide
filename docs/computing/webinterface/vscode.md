@@ -1,45 +1,58 @@
+# Visual Studio Code { #visual-studio-code }
+Visual Studio Code -interaktiivista sovellusta voidaan käyttää koodin muokkaamiseen ja ajamiseen Puhtissa tai Mahtissa.
+Varmista, että lataat oikeat moduulit ennen istunnon käynnistämistä, jotta debugger toimii oikein.
 
-# Visual Studio Code
-Visual Studio Code -interaktiivista sovellusta voidaan käyttää koodin muokkaamiseen ja ajamiseen Puhtissa tai Mahtissa. Varmista, että lataat oikeat moduulit ennen istunnon käynnistämistä, jotta debugger toimisi oikein.
-
-Lomakkeessa voit valita VSCode-version sekä kaikki moduulit, joita haluat käyttää:
+Lomakkeessa voit valita VSCode-version sekä haluamasi moduulit:
 ![VSCode-asetukset](../../img/ood-vscode-settings.png).
 
-## Laajennukset {#extensions}
-Laajennuksia voidaan asentaa VSCode:n laajennusvälilehdellä. Laajennusten riippuvuudet tulee ladata tai asentaa, jotta laajennukset toimisivat oikein. Esimerkiksi `go`-moduuli on ladattava ennen kuin `golang`-laajennukset asennetaan VSCodeen.
 
-## Python {#python}
-Sovelluslomakkeessa voit valita, mitä Python-moduulia ja -versiota haluat käyttää VSCoressa. Saatavilla olevat moduulit ovat samat kuin [Jupyter-sovelluksessa](./jupyter.md). Varmista, että valitset oikean Python-version VSCoden alapalkista tai Jupyter-muistikirjan käynnistyksen yhteydessä, sillä oikeaa Pythonia ei aina valita automaattisesti.
+## Laajennukset { #extensions }
+Laajennukset voidaan asentaa VSCoden Extensions-välilehdeltä.
+Laajennusten riippuvuudet on ladattava tai asennettava, jotta ne toimivat oikein.
+Esim. `go`-moduuli on ladattava ennen `golang`-laajennusten asentamista VSCodeen.
 
-## C/C++ {#c-cpp}
-Käytettävä kääntäjä voidaan valita interaktiivista sovellusta käynnistettäessä. C/C++-laajennus ei ole tällä hetkellä saatavilla laajennusvälilehdellä, ja se on asennettava manuaalisesti. Katso [alla oleva osio](#manual-installation-of-extensions) saadaksesi ohjeet.
+## Python { #python }
+Sovelluslomakkeessa voit valita, mitä Python-moduulia ja -versiota haluat käyttää VSCodessa. Saatavilla olevat moduulit ovat samat kuin [Jupyter-sovelluksessa](./jupyter.md).
+Varmista, että valitset oikean Python-version VSCoden alariviltä tai Jupyter-muistikirjaa käynnistettäessä, sillä oikea Python ei aina valikoidu automaattisesti.
 
-Kääntäjän vaihtaminen Intel-kääntäjän ja gcc:n välillä työtilassa saattaa aiheuttaa ongelmia. Useimmat ongelmat voidaan ratkaista poistamalla käynnistys- ja rakennusmääritykset ja luomalla ne uudelleen.
+## C/C++ { #cc }
 
-## Julia Language {#julia-language}
-Voimme käyttää [**Julia Language**](../../apps/julia.md) -ohjelmointikieltä lataamalla Julia-moduulin, kuten `julia/1.8.5`, VSCoressa istunnon käynnistämisen yhteydessä. CSC on asentanut [Julia for Visual Studio Code](https://www.julia-vscode.org/) -laajennuksen tukemaan Julia-ohjelmointikielen ominaisuuksia.
+Käytettävän kääntäjän voi valita interaktiivista sovellusta käynnistettäessä.
+C/C++-laajennus ei toistaiseksi ole saatavilla Extensions-välilehdellä ja se on asennettava manuaalisesti.
+Katso ohjeet [alla olevasta osiosta](#manual-installation-of-extensions).
 
-## Laajennusten manuaalinen asennus {#manual-installation-of-extensions}
+Kääntäjän vaihtaminen Intelin kääntäjän ja gcc:n välillä työtilassa voi aiheuttaa ongelmia.
+Useimmat ongelmat ratkeavat poistamalla käynnistys- ja käännösasetukset ja luomalla ne uudelleen.
 
-Lisensointisyistä VSCode-sovellus verkkoliittymässä käyttää laajennuksiin
-[Open VSX -rekisteriä](https://open-vsx.org/), eikä virallista
-[Visual Studio Marketplacea](https://marketplace.visualstudio.com). Tämä tarkoittaa, että jotkin laajennukset eivät ole saatavilla VSCode:n laajennusvälilehdellä. Esimerkkejä ovat C/C++ ja GithHub Copilot -laajennukset. Näiden laajennusten asentaminen manuaalisesti laajennuspakettitiedostoista on kuitenkin mahdollista.
+## Julia-kieli { #julia-language }
+Voimme käyttää [**Julia-kieltä**](../../apps/julia.md) lataamalla Julia-moduulin, kuten `julia/1.8.5`, VSCoden istuntoa käynnistettäessä.
+CSC on asentanut [Julia for Visual Studio Code](https://www.julia-vscode.org/) -laajennuksen Julia-kielen ominaisuuksien tueksi.
+
+
+## Laajennusten manuaalinen asennus { #manual-installation-of-extensions }
+
+Lisensoinnin vuoksi verkkokäyttöliittymän VSCode-sovellus käyttää laajennuksille [Open VSX Registryä](https://open-vsx.org/) virallisen
+[Visual Studio Marketplacen](https://marketplace.visualstudio.com) sijaan. Tämä tarkoittaa, että jotkin laajennukset
+eivät ole saatavilla VSCoden Extensions-välilehdellä. Esimerkkejä ovat C/C++- ja GitHub Copilot -laajennukset.
+Näiden laajennusten manuaalinen asennus laajennuspaketeista on kuitenkin mahdollista.
 
 Laajennuksen asennus:
 
-1. Avaa VSCode __paikallisessa tietokoneessasi__ ja avaa laajennuksen sivu.
-2. Klikkaa hammasrataskuvaketta ja valitse *Lataa VSIX*. Huomaa, että jos laajennus on jo asennettu,
-   latausvaihtoehto ei ehkä ole käytettävissä.  
-   ![cpptools VSIX:n lataaminen](../../img/ood-vscode-cpptools-vsix.png).
-3. Valitse avautuvasta valikosta *Linux x64* -versio.
-4. Lataa laajennuspaketti, esimerkiksi `ms-vscode.cpptools-1.x.x@linux-x64.vsix`, Puhtiin tai Mahtiin, esimerkiksi käyttämällä verkkoliittymän tiedostoselainta.
-5. Avaa VSCode __verkkoliittymässä__ ja siirry laajennusvälilehdelle.
-6. Napsauta kolmea pistettä ylhäällä avataksesi valikon VSCode:n laajennusvälilehdellä.
-7. Napsauta *Asenna VSIX:stä...*  
-   ![VSIX:n asentaminen](../../img/ood-vscode-install-cpptools.png).
+1. Avaa VSCode __paikallisella tietokoneellasi__, ja avaa laajennuksen sivu.
+2. Napsauta ratas-kuvaketta ja valitse sen jälkeen *Download VSIX*. Huomaa, että jos laajennus on jo
+   asennettu, latausvaihtoehto ei välttämättä ole käytettävissä.  
+![cpptools VSIX:n lataus](../../img/ood-vscode-cpptools-vsix.png).
+3. Valitse avautuvasta valikosta versio *Linux x64*.
+4. Siirrä laajennuspaketti, esim. `ms-vscode.cpptools-1.x.x@linux-x64.vsix`, Puhtiin tai Mahtiin,
+   esimerkiksi verkkokäyttöliittymän tiedostoselaimen avulla.
+5. Avaa VSCode __verkkokäyttöliittymässä__ ja siirry Extensions-välilehdelle.
+6. Napsauta VSCoden Extensions-välilehdellä ylhäällä olevaa kolmen pisteen valikkoa.
+7. Valitse *Install from VSIX...*  
+![VSIX:n asennus](../../img/ood-vscode-install-cpptools.png).
 8. Siirry hakemistoon, johon latasit `.vsix`-tiedoston, ja valitse tiedosto.
-9. Jos asennus onnistui, sinua kehotetaan lataamaan istunto uudelleen laajennuksen aktivoimiseksi.
+9. Jos asennus onnistui, saat kehotteen ladata istunnon uudelleen laajennuksen aktivoimiseksi.
 
-## Vianmääritys {#troubleshooting}
-Jos VSCode ei toimi kunnolla, voit tyhjentää asetukset ja käynnistää sovelluksen uudelleen. Tämä voidaan tehdä poistamalla kansio `~/.local/share/csc-vscode`.
 
+## Vianmääritys { #troubleshooting }
+
+- Jos VSCode ei toimi oikein, voit tyhjentää asetukset ja käynnistää sovelluksen uudelleen. Tämä onnistuu poistamalla kansion `~/.local/share/csc-vscode`.

@@ -1,19 +1,19 @@
-
-# MariaDB
-!!! warning "MariaDB Pukissa on vielä beta"
-    Tämä tarkoittaa, että sitä ei ole testattu yhtä perusteellisesti kuin PostgreSQL:ää, ja saattaa olla
-    että Pukki tekee vielä suuria muutoksia siihen, miten MariaDB-tietokantainstansseja hallitaan. Toivomme voivamme siirtyä pois beta-vaiheesta huhtikuussa 2025.
+# MariaDB { #mariadb }
+!!! warning "MariaDB Pukissa on edelleen beetavaiheessa"
+    Tämä tarkoittaa, että sitä ei ole testattu yhtä laajasti kuin PostgreSQL:ää, ja saattaa edelleen olla
+    suuria muutoksia siihen, kuinka Pukki hallinnoi MariaDB-tietokanta-instansseja. 
 
 * [Kuinka käyttää MariaDB-tietokantaasi](mariadb-accessing.md)
-* [Kuinka luoda tietokantakäyttäjiä ja muokata käyttäjäoikeuksia](mariadb-permissions.md)
+* [Kuinka luoda tietokantakäyttäjiä ja muokata käyttäjien käyttöoikeuksia](mariadb-permissions.md)
 
-# Tietokantamoottori ja varmuuskopiot {#database-engine-and-backups}
+# Tietokantamoottori ja varmuuskopiot { #database-engine-and-backups }
 
-MariaDB-tietokantainstanssit Pukissa käyttävät oletuksena InnoDB:tä, koska suurin osa testauksesta on suoritettu sen avulla.
-Vaihtaminen toisiin moottoreihin, kuten Aria, saattaa aiheuttaa ongelmia varmuuskopioiden kanssa, joten kannattaa harkita tarkkaan, kuinka tarpeellista se on ennen kuin vaihtaa pois InnoDB:stä.
-Lisätietoa tietokantamoottoreista löytyy
+Pukin MariaDB-tietokanta-instanssit käyttävät oletuksena InnoDB:tä, koska suurin osa testauksesta on tehty sillä.
+Vaihtaminen muihin moottoreihin, kuten Ariaan, voi aiheuttaa ongelmia varmuuskopioiden kanssa, joten ennen InnoDB:stä
+siirtymistä kannattaa huolellisesti arvioida, kuinka tarpeellista se on.
+Lisätietoja tietokantamoottoreista löytyy
 [MariaDB:n virallisesta dokumentaatiosta](https://mariadb.com/kb/en/storage-engines/).
 
-## Hyödyllisiä linkkejä MariaDB:n käyttöön {#useful-links-when-using-mariadb}
-  * [MariaDB client](https://mariadb.com/kb/en/mariadb-client/)
-  * [MariaDB SQL-lausekerakenne](https://mariadb.com/kb/en/sql-statements-structure/)
+## Hyödyllisiä linkkejä MariaDB:n käyttöön { #useful-links-when-using-mariadb }
+  * [MariaDB-asiakasohjelma](https://mariadb.com/kb/en/mariadb-client/)
+  * [MariaDB SQL -lauseiden rakenne](https://mariadb.com/kb/en/sql-statements-structure/)

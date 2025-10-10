@@ -1,113 +1,112 @@
+[ Käyttöoppaan sisällysluettelo :material-arrow-right: ](sd-services-toc.md)
 
-# Aineiston saatavuus tietojen hakijalle
+# Tietoihin pääsy hakijalle { #data-access-for-data-applicant }
 
-## Vaihe 1: Hae pääsyä {#step-1-apply-for-access}
+## Vaihe 1: Hae käyttöoikeutta { #step-1-apply-for-access }
 
-Saadaksesi pääsyn tiettyyn Finnish FEGA:n isännöimään aineistoon, siirry [EGA-verkkosivustolle](https://ega-archive.org/studies) ja etsi haluamasi tutkimus, aineisto tai DAC sivun yläosan hakukentän avulla. Siirry sitten Tutkimus-näkymässä Dataset ID:n (EGADNNNN) avulla Dataset-näkymään ja klikkaa linkkiä "Kuka hallitsee pääsyä tähän aineistoon." Tämän linkin kautta pääset SD Apply -hakemuslomakkeelle. SD Apply on palvelu, jossa haetaan pääsyoikeuksia CSC:ssa tallennettuihin arkaluonteisiin aineistoihin.
+Päästäksesi Finnish FEGA -palvelussa isännöityyn tiettyyn aineistoon siirry [EGA-sivustolle](https://ega-archive.org/studies) ja etsi haluamasi tutkimus, aineisto tai DAC sivun yläreunan hakukentän avulla. Avaa tutkimuksenäkymästä Dataset ID (EGADNNNN). Aineistonäkymässä kohdassa “Who controls access to this dataset” klikkaa linkkiä, jonka kautta pääset täyttämään hakemuslomakkeen SD Apply -palvelussa. SD Apply on palvelu, jolla haetaan käyttöoikeuksia CSC:llä säilytettäviin arkaluontoisiin aineistoihin. 
 
-[![EGA-verkkosivuston tutkimus ja aineistonäkymä](images/fega/fega_search.png)](images/fega/fega_search.png)
-
-!!! note
-    EGA-verkkosivustolta löydät myös aineistoja, jotka sijaitsevat muualla kuin Suomessa, kuten keskitetystä EGA:sta tai muista FEGA-soluista. Tämä työskentelytapa on kuitenkin erityisesti suomalaisessa FEGA:ssa isännöityjä aineistoja varten.
-
-Vaihtoehtoisesti, jos tiedät dataset ID:n, voit etsiä sen [SD Apply Catalogue](https://sd-apply.csc.fi/catalogue) -sivulta FEGA-kategoriasta. Huomaa, että sinun tulee kirjautua sisään hakeaksesi pääsyä.
-
-## Vaihe 2: Kirjaudu SD Apply -palveluun {#step-2-login-to-sd-apply}
-
-Kirjaudu [SD Apply](https://sd-apply.csc.fi) -palveluun käyttämällä identiteettipalveluntarjoajaasi (Haka, Virtu tai ELIXIR login) tai CSC-tunnuksillasi. Käyttöliittymä on yhteensopiva kaikkien nykyaikaisten selainten kanssa.
+[![EGA webpage study and dataset view](images/fega/fega_search.png)](images/fega/fega_search.png)
 
 !!! note
-    Käytä aina samaa identiteettipalveluntarjoajaa (esim. Haka, CSC) kirjautuessasi SD Apply -palveluun, sillä kaikki toimintasi yhdistetään kirjautumisidentiteettiisi. Sinun on myös käytettävä tätä samaa kirjautumistapaa SD Desktop -palvelussa saadaksesi pääsyn SD Apply -dataan.
+    EGA-sivustolla on myös aineistoja, joita isännöidään Suomen ulkopuolella, keskitetyn EGA:n tai muiden FEGA-solmujen kautta. Tämä työnkulku on kuitenkin tarkoitettu nimenomaan Finnish FEGA:ssa isännöidyille aineistoille. 
 
-[![SD Apply -kirjautumissivu](images/apply/apply_login.png)](images/apply/apply_login.png)
+Vaihtoehtoisesti, jos tiedät aineiston tunnisteen, voit etsiä sitä [SD Apply Catalogue](https://sd-apply.csc.fi/catalogue) -sivulta FEGA-kategoriasta. Huomaa, että sinun on kirjauduttava sisään hakeaksesi käyttöoikeutta.
 
-## Vaihe 3: Täytä hakemus {#step-3-fill-application}
+## Vaihe 2: Kirjaudu SD Apply -palveluun { #step-2-login-to-sd-apply }
 
-Kirjautumisen jälkeen pääset SD Apply -luettelosivulle. Tältä sivulta voit etsiä tiettyä aineistoa ja aloittaa hakemusprosessin.
+Kirjaudu [SD Apply](https://sd-apply.csc.fi) -palveluun käyttäen omaa tunnistuspalveluasi (Haka, Virtu tai ELIXIR login) tai CSC-tunnuksia. Käyttöliittymä toimii kaikilla nykyaikaisilla verkkoselaimilla.
 
-Aloita uusi hakemus napsauttamalla *Lisää ostoskoriin* datasetin nimen vieressä. Voit valita useita aineistoja, ja ne kaikki näkyvät ostoskorissasi "Luettelo"-otsikon alla. Napsauttamalla *Hae*, sinut ohjataan hakemuslomakkeelle.
+!!! note
+    Käytä aina samaa tunnistuspalvelua (esim. Haka, CSC), kun kirjaudut SD Apply -palveluun, koska kaikki toimintosi liitetään kirjautumisidentiteettiisi. Sinun on käytettävä samaa kirjautumistapaa myös SD Desktop -palvelussa saadaksesi pääsyn SD Applyn aineistoihin.
 
-[![SD Apply "Luettelo"-sivu](images/apply/apply_catalogue.png)](images/apply/apply_catalogue.png)
+[![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
 
-## Vaihe 4: Lähetä hakemus {#step-4-submit-the-application}
+## Vaihe 3: Täytä hakemus { #step-3-fill-application }
 
-Noudata hakemuslomakkeen ohjeita ja täytä tarvittavat kentät. Pääsy aineistoon myönnetään vain yhteen, nimettyyn tarkoitukseen.
+Kirjautumisen jälkeen siirryt SD Apply Catalogue -sivulle. Tällä sivulla voit etsiä halutun aineiston ja aloittaa hakemusprosessin. 
 
-**Jäsenien kutsuminen hakemukseen**:
+Aloita uusi hakemus klikkaamalla aineiston nimen vieressä olevaa kohtaa *Add to cart*. Voit valita useita aineistoja; ne näkyvät ostoskorissasi "Catalogue"-otsikon alla. Klikkaamalla *Apply* siirryt hakemuslomakkeelle.
 
-Kaikki, jotka käsittelevät tai joilla on suora tai epäsuora pääsy aineistoon, katsotaan tutkimusryhmän jäseniksi ja heidän tulee olla nimettynä Hakijat-kentässä.
+[![SD Apply "Catalogue" page](images/apply/apply_catalogue.png)](images/apply/apply_catalogue.png)
 
-- Lisää tutkimusryhmäsi jäsenet hakemukseen napsauttamalla *Kutsu jäsen* ja antamalla heidän nimensä ja sähköpostiosoitteensa. Kutsutut tutkimusryhmän jäsenet saavat sähköpostin, ja seuraamalla sähköpostissa olevaa kutsulinkkiä he voivat kirjautua SD Apply -palveluun ja liittyä hakemukseen. SD Apply -palvelussa heidän on hyväksyttävä tietojen käytön ehdot ja datapääsy-sopimus, jonka rekisterinpitäjä on määritellyt.
-- Kun hakemus on hyväksytty, kaikki hakemuksen jäsenet saavat pääsyn samoihin aineistoihin, kun he ovat hyväksyneet sopimukset ja käyttöehdot SD Apply -palvelussa.
+## Vaihe 4: Lähetä hakemus { #step-4-submit-the-application }
 
-**Käyttöehdot**:
+Seuraa hakemuslomakkeen ohjeita ja täytä vaaditut kentät. Käyttöoikeus aineistoon myönnetään vain yhtä, ennalta määriteltyä tarkoitusta varten. 
 
-Tietojen käytön ja uudelleenkäytön ehdot ja sopimukset (esimerkiksi datapääsy-sopimus), jotka rekisterinpitäjä on määritellyt, ovat kaikki lueteltuna "Käyttöehdot" alla. Kun olet lukenut ja ymmärtänyt ehdot, napsauta *Hyväksy käyttöehdot*.
+**Jäsenten kutsuminen hakemukseen**:
 
-Ennen hakemuksen lähettämistä varmista, että:
+Kaikki, jotka käsittelevät aineistoa tai joilla on siihen suora tai epäsuora pääsy, katsotaan tutkimusryhmän jäseniksi ja heidät on nimettävä Applicants-kentässä. 
 
-- Haet pääsyä oikeisiin aineistoihin. Nämä näkyvät resurssit-kentässä.
-- Olet lisännyt kaikki tutkimusryhmän jäsenet hakijakenttään.
-- Olet täyttänyt kaikki tarvittavat tiedot hakemuslomakkeelle.
+- Lisää tutkimusryhmäsi jäsenet hakemukseen klikkaamalla *Invite member* ja antamalla heidän nimensä ja sähköpostiosoitteensa. Kutsutut tutkimusryhmän jäsenet saavat sähköpostin, ja seuraamalla sähköpostin kutsulinkkiä he voivat kirjautua SD Apply -palveluun ja liittyä hakemukseen. SD Apply -palvelussa heidän on hyväksyttävä data controllerin määrittelemät käyttöehdot ja Data Access Agreement. 
+- Kun hakemus on hyväksytty, kaikille hakemuksen jäsenille myönnetään pääsy samoihin aineistoihin, kunhan he ovat hyväksyneet SD Apply -palvelussa sopimukset ja käyttöehdot.
 
-Lähettääksesi hakemuksesi, valitse **Lähetä hakemus** kohdasta **Toiminnot** (oikeassa yläkulmassa).
+**Käyttöehdot**: 
 
-- Lähettämisen jälkeen et voi muokata tai poistaa hakemusta, mutta voit edelleen poistaa jäseniä. Jos haluat muokata hakemusta, pyydä tietojen rekisterinpitäjää palauttamaan hakemus sinulle muokattavaksi.
-- Käyttääksesi vanhaa hakemustasi uuden hakemuksen pohjana valitse **Kopioi uutena hakemuksena** kohdasta **Toiminnot** (oikeassa yläkulmassa). Vanhasta hakemuksesta peräisin olevat liitteet kopioidaan myös.
+Data controllerin määrittelemät aineiston käyttöä ja uudelleenkäyttöä koskevat ehdot ja sopimukset (esim. Data Access Agreement) on lueteltu kohdassa Terms of use. Luettuasi ja ymmärrettyäsi ehdot klikkaa *Accept terms of use*.
 
-[![SD Apply -hakemuslomake](images/apply/apply_application.png)](images/apply/apply_application.png)
+Ennen hakemuksen lähettämistä varmista:
 
-## Vaihe 5: Odota hyväksyntää {#step-5-wait-for-approval}
+- Haet käyttöoikeutta oikeisiin aineistoihin. Nämä näkyvät Resources-kentässä.
+- Olet lisännyt kaikki tutkimusryhmän jäsenet Applicants-kenttään.
+- Olet täyttänyt kaikki tarvittavat tiedot hakemuslomakkeelle. 
 
-Kun olet lähettänyt hakemuksesi, se lähetetään Data Access Committee (DAC) -toimikunnalle, joka arvioi hakemuksesi ja joko myöntää tai evää pääsyn aineistoon. Saat sähköposti-ilmoituksen DAC:n päätöksestä. Voit seurata hyväksyntäprosessia ja lukea mahdollisia kommentteja "Tila"-osiossa hakemuslomakkeen yläosassa.
+Lähettääksesi hakemuksen valitse **Send application** kohdasta **Actions** (yläoikealla). 
 
-Jos tietojen rekisterinpitäjä tarvitsee lisätietoja hakemuksestasi, he voivat palauttaa hakemuksesi sinulle. Muokataksesi hakemusta, seuraa sähköpostissa olevaa linkkiä tai kirjaudu SD Apply -palveluun, siirry hakemukseen ja valitse *Näytä*. Näet tiedonsaantitoimikunnan kommentit Tila-osiossa. Kun olet tehnyt tarvittavat muutokset, valitse *Lähetä hakemus*.
+ - Lähettämisen jälkeen et voi muokata tai poistaa hakemusta, mutta voit yhä poistaa jäseniä. Jos haluat muokata hakemusta, pyydä data controlleria palauttamaan hakemus sinulle muokattavaksi. 
+ - Jos haluat käyttää aiempaa hakemustasi uuden hakemuksen pohjana, valitse **Copy as new application** kohdasta **Actions** (yläoikealla). Myös vanhan hakemuksen liitteet kopioidaan.
 
-Kaikki hakemuksesi ja niiden tilat löytyvät SD Apply -palvelun "Hakemukset"-välilehdeltä. Saat sähköposti-ilmoituksen aina, kun hakemuksesi tila muuttuu.
+[![SD Apply application form](images/apply/apply_application.png)](images/apply/apply_application.png)
 
-[![SD Apply "Hakemukset" -välilehti](images/apply/apply_state.png)](images/apply/apply_state.png)
+## Vaihe 5: Odota hyväksyntää { #step-5-wait-for-approval }
 
-## Vaihe 6: Projektin jäsenet liittyvät hakemukseen {#step-6-project-members-join-the-application}
+Kun olet lähettänyt hakemuksen, se välitetään Data Access Committeelle (DAC), joka arvioi hakemuksesi ja myöntää tai evää käyttöoikeuden aineistoon. Saat sähköposti-ilmoituksen DAC:n päätöksestä. Voit seurata hyväksyntäprosessia ja lukea mahdolliset kommentit hakemuslomakkeen yläreunan "State"-osiosta. 
 
-Jos olet kutsunut jäsenet hakemukseen, he saavat kutsusähköpostin.
+Jos data controller tarvitsee lisätietoja hakemuksestasi, hän voi palauttaa hakemuksen sinulle. Muokataksesi hakemusta, seuraa sähköpostissa olevaa linkkiä tai kirjaudu SD Apply -palveluun, siirry hakemukseen ja valitse *View*. Näet Data Access Committeen kommentit State-osiosta. Kun olet tehnyt tarvittavat muutokset, valitse *Send application*.
 
-Päästäkseen käsiksi aineistoon kaikkien jäsenten tulee:
+Löydät kaikki hakemuksesi ja näet niiden tilan SD Apply -palvelun "Applications"-välilehdeltä. Saat sähköposti-ilmoituksen aina, kun hakemuksesi tila muuttuu.
 
-1. Klikata sähköpostissa olevaa linkkiä ja kirjautua sisään SD Apply -palveluun. He siirtyvät hakemussivulle.
-2. Vierittä alaspäin "Käyttöehdot" -osioon.
-3. Lue käyttöehdot ja napsauta **Hyväksy käyttöehdot**.
+[![SD Apply Applications tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
-![SD Apply käyttöehdot](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_Termsofuse.png)
+## Vaihe 6: Projektin jäsenet liittyvät hakemukseen { #step-6-project-members-join-the-application }
 
-## Vaihe 7: Käyttö SD Desktop -palveluun {#step-7-access-sd-desktop}
+Jos olet kutsunut jäseniä hakemukseen, he saavat kutsusähköpostin.
 
-Kun hakemuksesi on hyväksytty, saat ilmoituksen ja lisäohjeita sähköpostitse. Voit nyt käyttää dataa SD Desktopissa, yksityisessä pilvilaskentaympäristössä.
+Saadakseen pääsyn aineistoon jokaisen jäsenen tulee:
 
-Lue lisää kuinka luoda CSC-projekti ja käyttää SD Desktopia:
+1. Klikata sähköpostin linkkiä ja kirjautua SD Apply -palveluun. He siirtyvät hakemussivulle.
+3. Vierittää alas Term of use -osioon.
+4. Lukea käyttöehdot ja klikata **Accept terms of use**.
 
-* [Access SD Desktop](./sd-access.md)
+![SD Apply terms of use](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_Termsofuse.png)
 
-## Vaihe 8: Käyttö aineistoon {#step-8-access-the-data}
 
-Kun kirjaudut virtuaalityöasemallesi, voit käyttää dataa Data Gateway -sovelluksen avulla. Seuraa näitä ohjeita:
+## Vaihe 7: Pääsy SD Desktopiin { #step-7-access-sd-desktop }
 
-* [Create virtual desktop](./sd-desktop-create.md)
-* [Import data to virtual desktop](./sd-desktop-access.md) Käytä SD Apply -vaihtoehtoa Data Gatewayssä
-* [Working with virtual desktop](./sd-desktop-working.md)
+Kun hakemuksesi on hyväksytty, saat ilmoituksen ja lisäohjeet sähköpostitse. Pääset nyt käyttämään aineistoa SD Desktopissa, joka on yksityinen pilvilaskentaympäristö. 
 
-Kun kirjaudut SD Desktopiin, muista käyttää samaa kirjautumistapaa, jota käytit kirjautuessasi SD Apply -palveluun.
+Lue lisää CSC-projektin luomisesta ja SD Desktopiin pääsystä:
 
-## Vaihe 9: Vie tulokset {#step-9-export-your-results}
+* [Pääsy SD Desktopiin](./sd-access.md)
 
-Kun analyysisi on valmis, voit viedä tulokset laskentaympäristöstä. Tämän jälkeen aineiston käyttö päättyy. Saadaksesi pääsyn samaan aineistoon, sinun täytyy aloittaa uusi hakuprosessi. Noudata näitä ohjeita:
+## Vaihe 8: Pääsy aineistoon { #step-8-access-the-data }
 
-* [Export data from virtual desktop](./sd-desktop-export.md)
+Kun olet kirjautunut virtuaalityöpöydällesi, voit käyttää aineistoa Data Gateway -sovelluksella. Toimi näin:
 
-## Tuki {#support}
+* [Luo virtuaalityöpöytä](./sd-desktop-create.md)
+* [Tuo data virtuaalityöpöydälle](./sd-desktop-access.md) Käytä Data Gatewayn SD Apply -vaihtoehtoa
+* [Työskentely virtuaalityöpöydällä](./sd-desktop-working.md)
 
-Jos sinulla on kysymyksiä SD Apply -palvelun käytöstä, ole hyvä ja ota yhteyttä [CSC Service Desk](../../support/contact.md) (aihe: SD Apply).
+Kun kirjaudut SD Desktopiin, muista käyttää samaa kirjautumistapaa kuin SD Apply -palvelussa. 
 
-Jos sinulla on kysyttävää hakemuslomakkeesta tai aineistosta, johon haet pääsyä, ota yhteyttä rekisterinpitäjään tai Data Access Committeeen.
-```
+## Vaihe 9: Vie tuloksesi { #step-9-export-your-results }
 
-I've translated the markdown content while keeping all internal links, formatting, and screenshots intact. The original header IDs have been anchored to their Finnish translations to maintain internal linking functionality.
+Kun analyysisi on valmis, voit viedä tulokset laskentaympäristöstä. Tämän jälkeen käyttöoikeus aineistoon päättyy. Jos haluat päästä käsiksi samaan aineistoon myöhemmin, sinun on aloitettava uusi hakemusprosessi. Toimi näin:
+
+* [Vie dataa virtuaalityöpöydältä](./sd-desktop-export.md)
+
+## Tuki { #support }
+
+Jos sinulla on kysyttävää SD Apply -palvelun käytöstä, ota yhteyttä [CSC Service Deskiin](../../support/contact.md) (aihe: SD Apply).
+
+Jos sinulla on kysyttävää hakemuslomakkeesta tai aineistosta, johon haet käyttöoikeutta, ota yhteyttä data controlleriin tai Data Access Committeeen (DAC).

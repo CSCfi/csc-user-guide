@@ -1,51 +1,72 @@
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-# Tietojen lataaminen ja salaaminen {#uploading-and-encrypting-data}
+# Datan lataaminen ja salaaminen { #uploading-and-encrypting-data }
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Tietosi salataan automaattisesti, kun lataat tietoja SD Connectiin. Tämä sopii kaikille tiedostotyypeille ja -muodoille, mutta on tuettu vain tiedostoille, joiden koko on enintään 100 GB, ja kansioille, jotka ovat pienempiä kuin 1 TB. Suurempia tiedostoja tai kansioita voidaan ladata [ohjelmallisesti](./sd-connect-command-line-interface.md).
+Datasi salataan automaattisesti, kun lataat aineistoa SD Connectiin. Tämä sopii kaikille tiedostotyypeille ja -muodoille, mutta sitä tuetaan vain enintään 100 Gt:n tiedostoille ja alle 1 Tt:n kansioille. Suuremmat tiedostot tai kansiot voidaan ladata [ohjelmallisesti](./sd-connect-command-line-interface.md).
 
-!!! Huomautus
-    Jos käytät palvelua ensimmäistä kertaa, selaimessasi saattaa ilmestyä ponnahdusikkuna, joka pyytää sinua hyväksymään evästeet. Ole hyvä ja klikkaa Hyväksy, jotta tiedostojen ja kansioiden lataaminen mahdollistuu.
+!!! Note
+    Jos käytät palvelua ensimmäistä kertaa, selaimeesi saattaa ilmestyä ponnahdusikkuna, jossa pyydetään hyväksymään evästeet. Napsauta "Accept" ottaaksesi tiedostojen ja kansioiden lataamisen käyttöön.
 
-## Lataaminen ja tiedostojen salaaminen uuteen kansioon {#upload-and-encrypt-files-to-a-new-folder}
+## Lataa ja salaa tiedostot uuteen kansioon { #upload-and-encrypt-files-to-a-new-folder }
 
 1. Kirjaudu SD Connectiin.
 2. Valitse oikea CSC-projekti vasemmasta yläkulmasta.
-3. Napsauta **Lataa** oikeassa yläkulmassa.
-4. Uudessa ikkunassa nimeä tiedostojesi kohdekansio.
-5. Napsauta **Valitse tiedostot** avataksesi selainikkunan ja valitse tiedostot ladattavaksi. Jos haluat ladata kansioita, vedä ja pudota ne ikkunaan. Napsauta **Lataa**, jotta automaattinen salaus ja lataus alkaa.
-6. Ilmoitus latauksen tilasta ilmestyy ja on näkyvissä, kunnes lataus on valmis. Ilmoitus sisältää myös linkin kohdekansioon.
-7. Kun lataus on valmis, salatut tiedostot ovat saatavilla ladattavaksi ja jaettavaksi SD Connectin kautta tai analysointia, muokkausta tai merkintöjen lisäämistä varten SD Desktopin kautta.
+3. Napsauta oikeassa yläkulmassa **Upload**.
+4. Nimeä uudessa ikkunassa tiedostoillesi kohdekansio.
+5. Napsauta **Select Files** avataksesi selausikkunan ja valitse ladattavat tiedostot. Jos haluat ladata kansioita, vedä ja pudota ne ikkunaan. Napsauta **Upload** käynnistääksesi automaattisen salauksen ja latauksen.
+6. Ilmoitus latauksen tilasta tulee näkyviin ja pysyy näkyvissä, kunnes lataus on valmis. Ilmoituksessa on myös linkki kohdekansioon.
+7. Kun lataus on valmis, salatuissa tiedostoissa on .c4gh-pääte, mikä tarkoittaa, että salaus on onnistunut.
+8. Nyt tiedostot ovat ladattavissa ja jaettavissa SD Connectissa tai analysoitavissa, muokattavissa tai annotoitavissa SD Desktopin kautta.
 
-!!! Info "Kansioiden nimet"
+!!! info "Kansion nimet"
 
-    - Kansion nimien on oltava yksilöllisiä kaikissa olemassa olevissa kansioissa kaikissa projekteissa SD Connectissä ja Allaksessa (pilvitallennusratkaisu, jonka pohjalta SD Connect on kehitetty). Jos et voi luoda uutta kansiota, joku toinen projekti saattaa jo käyttää valitsemaasi nimeä. Tämän tilanteen välttämiseksi on hyvä käyttää projektikohtaisia tunnisteita (esimerkiksi projektin ID-numero tai lyhenne) kansion nimessä.
-    - Vältä välilyöntejä ja erikoismerkkejä; käytä latinalaisia aakkosia (a-z), numeroita (0-9), väliviivaa (-), alaviivaa (_) ja pistettä (.). Muista, että kaikki kansion nimet ovat julkisia; älä sisällytä mitään luottamuksellisia tietoja.
-    - Kansion nimiä ei voi muokata jälkeenpäin.
+    * Kansion nimen tulee alkaa pienellä kirjaimella tai numerolla.
+    * Kansion nimen tulee olla 3–63 merkkiä pitkä.
+    * Käytä latinalaisia aakkosia (a–z), numeroita (0–9) ja väliviivaa (-).
+    * Suuria kirjaimia, alaviivaa (_) sekä diakriittisiä tai erityismerkeillä varustettuja kirjaimia (åäöe') ei sallita.
+    * Kansionimien on oltava yksilöllisiä kaikissa SD Connectin ja Allaksen projekteissa. Jos et voi luoda uutta kansiota, jokin toinen projekti saattaa jo käyttää valitsemaasi nimeä. Tämän välttämiseksi on hyvä käytäntö sisällyttää kansionimeen projektikohtaisia tunnisteita (esim. projektin ID-numero tai lyhenne).
+    * Muista, että kaikki kansionimet ovat julkisia; älä sisällytä niihin luottamuksellista tietoa.
+    * Kansionimiä ei voi muuttaa jälkikäteen.
 
-## Lataaminen ja tiedostojen salaaminen olemassa olevaan kansioon {#upload-and-encrypt-files-to-an-existing-folder}
 
-1. Valitse oikea kansio (tuplaklikkaamalla).
-2. Napsauta **Lataa** oikeassa yläkulmassa ja noudata yllä olevan kappaleen vaiheita 4–6.
 
-!!! Varoitus "Varoitus"
+![SD Connect – lataus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
-    Samassa CSC-projektissa olevat jäsenet voivat ladata ja purkaa tietoja SD Connectista. Tämä voidaan rajoittaa jakamalla tiedostoja **Vain luku SD Desktopiin** -oikeudella. [Lisätietoa käyttöesimerkistä](./sd-connect-share-read-to-sd-desktop.md)
 
-!!! Huomautus "Lisähuomioita"
+## Lataa ja salaa tiedostot olemassa olevaan kansioon { #upload-and-encrypt-files-to-an-existing-folder }
 
-    - Suurten tiedostojen (> 100 GB) lataaminen voi kestää tunteja, ja lataus keskeytyy 8 tunnin jälkeen.
-    - Käyttöliittymä voi hidastua, kun kussakin kansiossa on yli 2500 tiedostoa. Tässä tapauksessa käytä [komentorivityökaluja lataamiseen ja automaattiseen avainten hallintaan](./sd-connect-command-line-interface.md). 
-    - Tiedostoja ei voi muokata SD Connectissä; lataa ne muokattaviksi tai käytä niitä SD Desktopin kautta.
-    - Tiedostojen lataaminen alikansioihin ei ole tällä hetkellä tuettua.
-    - SD Connect näyttää salatut tiedostosi virtuaalisina kansioina. Suunnittele kansiorakenteesi huolellisesti — järjestele tiedostoja projektien, teemojen tai loogisten rakenteiden mukaan parantaaksesi saavutettavuutta ja työnkulkua. Tämä auttaa myös, kun jaat käyttöoikeuksia muille. Lisäapua saa CSC:n asiakaspalvelusta (aihe: Arkaluontoiset tiedot).
+1. Valitse oikea kansio (kaksoisnapsauttamalla).
+2. Napsauta oikeassa yläkulmassa **Upload** ja seuraa yllä olevan kappaleen vaiheita 4–6.
 
-## Ominaisuudet SD Connectissä {#features-in-sd-connect}
+## Luo kansio { #create-a-folder }
 
-* [Lataaminen](./sd-connect-upload.md)
+Voit luoda kansion ja ladata tiedostot siihen myöhemmin.
+
+1. Napsauta **Create folder**.
+2. Nimeä kansiosi.
+3. Napsauta **Save**.
+
+![SD Connect – Luo kansio](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_CreateFolder.png)
+
+!!! warning "Varoitus"
+
+    Samassa CSC-projektissa olevat jäsenet voivat ladata ja purkaa salauksen SD Connectista. Tätä voidaan rajoittaa jakamalla tiedostoja käyttöoikeudella **Read to SD Desktop**. [Lue käyttötapauksesta](./sd-connect-share-read-to-sd-desktop.md)
+
+!!! Note "Lisähuomioita"
+
+    - Suuret tiedostot (> 100 Gt) voivat viedä tunteja latautua, ja lataukset keskeytyvät 8 tunnin jälkeen.
+    - Käyttöliittymä voi hidastua, kun yhdessä kansiossa on yli 2500 tiedostoa. Tällöin käytä [komentorivityökaluja lataukseen ja avainten automatisoituun hallintaan](./sd-connect-command-line-interface.md).
+    - Tiedostoja ei voi muokata SD Connectissa; lataa ne muokattavaksi tai käytä niitä SD Desktopin kautta.
+    - Tiedostojen lataaminen alikansioihin ei toistaiseksi ole tuettua.
+    - SD Connect näyttää salatut tiedostosi virtuaalisina kansioina. Suunnittele kansionrakenne huolellisesti—järjestä tiedostot projektien, teemojen tai loogisten kokonaisuuksien mukaan parantaaksesi löydettävyyttä ja työnkulkua. Tämä helpottaa myös käyttöoikeuksien jakamista muille. Tarvittaessa ota yhteyttä CSC Service Deskiin (aihe: Sensitive data).
+
+## SD Connectin ominaisuudet { #features-in-sd-connect }
+
+* [Lähetys](./sd-connect-upload.md)
 * [Jakaminen](./sd-connect-share.md)
-* [Lataaminen alas](./sd-connect-download.md)
+* [Lataus](./sd-connect-download.md)
 * [Poistaminen](./sd-connect-delete.md)
 * [Komentorivikäyttöliittymä](./sd-connect-command-line-interface.md)
 * [Vianmääritys](./sd-connect-troubleshooting.md)

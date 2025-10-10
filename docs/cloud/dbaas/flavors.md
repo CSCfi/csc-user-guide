@@ -1,11 +1,10 @@
+# DBaaS-instanssikoot ja hinnat { #dbaas-flavors-and-prices }
 
-# DBaaS-mallit ja hinnat {#dbaas-flavors-and-prices}
+Tietokanta-instanssit isännöidään cPoutassa. Laskutus perustuu flavoriin (tietokanta-instanssin koko), tietokannan volyymin kokoon ja varmuuskopioiden käyttömäärään. Kaikki nämä resurssit kuluttavat **Cloud Billing Units** -yksiköitä. Lisätietoja CSC:n laskutuksesta löytyy sivulta [Laskutus](../../accounts/billing.md).
 
-Tietokantainstanssit isännöidään cPouta-alustalla. Laskutus perustuu malliin (tietokantainstanssin koko), tietokannan volyymin kokoon ja varmuuskopioiden käyttömäärään.
+## Flavor-tyypit { #flavor-types }
 
-## Mallityypit {#flavor-types}
-
-| Malli | Ytimet | Muisti (MB) | Laskutusyksiköt / tunti |
+| Flavor | Ytimet | Muisti (MB) | Cloud Billing Units / tunti |
 |--- |:---:|:---:|:---:|
 | standard.small   | 2 | 2000  | 2  |
 | standard.medium  | 3 | 4000  | 4  |
@@ -14,36 +13,37 @@ Tietokantainstanssit isännöidään cPouta-alustalla. Laskutus perustuu malliin
 | standard.xxlarge | 8 | 32000 | 25 |
 | standard.3xlarge | 8 | 64000 | 50 |
 | hpc.5.16core    | 16 | 59392 | 60 |
-<!-- pitäisikö tämän mallin olla täällä: | hpc.6.32core    | 32 | 116 | 120 | -->
-<!--- Meidän pitäisi luultavasti poistaa standard.3xlarge, jotta voimme tukea hpc.5.16core -->
+<!-- should this flavor exist here: | hpc.6.32core    | 32 | 116 | 120 | -->
+<!--- We should probably remove standard.3xlarge in favor of supporting hpc.5.16core -->
 
 
-## Volyymit {#volumes}
+## Volyymit { #volumes }
 
-| Resurssityyppi | Yksikkö | Laskutusyksiköt / GiB tunti |
+| Resurssityyppi | Yksikkö | Cloud Billing Units / GiB-tunti |
 |--- |:---:|:---:|
-| Volyymit | Varattu GiB | 0,01 |
+| Volyymit | Varattu GiB | 0.01 |
 
-Tietokantainstanssin maksimaalinen volyymin koko on tällä hetkellä 200 GiB.
+Yksittäisen tietokanta-instanssin suurin volyymikoko on tällä hetkellä 200 GiB.
 
-## Varmuuskopiot {#backups}
 
-| Resurssityyppi | Yksikkö | Laskutusyksiköt / GiB tunti |
+
+## Varmuuskopiot { #backups }
+| Resurssityyppi | Yksikkö | Cloud Billing Units / GiB-tunti |
 |--- |:---:|:---:|
-| Varmuuskopiot | Käytetty GiB | 0,003 |
+| Varmuuskopiot | GiB-käyttö | 0.003 |
 
-Automaattiset päivittäiset varmuuskopiot säilytetään 90 päivää ja ne kuluttavat laskutusyksiköitä varmuuskopioiden kokonaiskäytön perusteella.
+Automaattiset päivittäiset varmuuskopiot säilytetään 90 päivää, ja ne kuluttavat Cloud Billing Units -yksiköitä varmuuskopioiden kokonaiskäytön perusteella.
 
-## Kiintiöt {#quotas}
+
+## Kiintiöt { #quotas }
 
 Oletuskiintiöt
 
 | Resurssityyppi | Määrä |
 |--- |:---:|
-| Maksimi manuaaliset varmuuskopiot | 1000      |
-| Maksimi tietokantainstanssien määrä | 5         |
-| Maksimi muistin käyttö          | 20000 MB |
-| Maksimi volyymin varaus         | 50 GiB    |
+| Enimmäismäärä manuaalisia varmuuskopioita | 1000      |
+| Tietokanta-instanssien enimmäismäärä | 5         |
+| Muistin enimmäiskäyttö | 20000 MB |
+| Varatun volyymin enimmäiskoko | 50 GiB    |
 
-Jos tarvitset käyttää enemmän tai suurempia tietokantoja kuin mitä oletuskiintiö sallii, voit aina lähettää
-pyynnön [ServiceDeskille](mailto:servicedesk@csc.fi).
+Jos tarvitset oletuskiintiötä suurempia tai useampia tietokantoja, voit aina lähettää pyynnön [ServiceDesk](mailto:servicedesk@csc.fi).

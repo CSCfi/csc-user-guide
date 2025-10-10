@@ -1,78 +1,183 @@
+# VM:n elinkaari ja Cloud BU:iden säästäminen { #vm-lifecycle-saving-cloud-bus }
 
-# VM:n elinkaari & BU:iden säästäminen {#vm-lifecycle-saving-bus}
+Tässä artikkelissa selitetään virtuaalikoneinstanssien eri tilat
+ja niiden vaikutus resurssien käyttöön.
 
-Tämä artikkeli selittää, mitä eri tiloja virtuaalikone-instansseilla voi olla ja miten ne vaikuttavat resurssien käyttöön.
+Kuten muillakin pilvitarjoajilla, myös Poutan virtuaalikoneilla on elinkaari. 
+Eri virtuaalikoneiden tiloilla on erilaiset
+vaatimukset taustalla olevalle laitteistolle, ja siksi
+laskutus on erilaista. Poutan eri tilojen tunteminen
+auttaa sinua tekemään parempia päätöksiä infrastruktuurisi ylläpidosta.
+Tämä auttaa myös säästämään Cloud-laskutusyksiköitä. 
 
-[TOC]
+## Tilat { #states }
 
-Samoin kuin muut pilvipalveluntarjoajat, myös Poutan virtuaalikoneilla on elinkaari. Virtuaalikoneiden eri tiloilla on erilaiset resurssivaatimukset taustalla olevalle laitteistolle, ja sen vuoksi niistä laskutetaan eri tavalla. Tietämällä nämä eri tilat Poutassa voit tehdä parempia päätöksiä infrastruktuurisi ylläpitämiseksi. Tämä auttaa sinua myös säästämään laskentayksikköjä.
+Poutan virtuaalikoneiden päätilat:
 
-## Tilat {#states}
+### Aktiivinen { #active }
+Virtuaalikone on aktiivinen, kun se
+on *power on* -tilassa. Se pysyy aktiivisena
+riippumatta siitä, käytätkö sitä vai et. Aktiivisessa tilassa olevat
+virtuaalikoneet käyttävät laskentaresursseja yhdellä laskentasolmuistamme
+ja ne laskutetaan normaalisti kuten kohdassa [Pouta flavors and billing](vm-flavors-and-billing.md) on selitetty.
 
-Poutassa virtuaalikoneiden pääasialliset tilat ovat:
-
-### Aktiivinen {#active}
-Virtuaalikone on aktiivinen, kun se on *virta päällä* -tilassa. Se pysyy tässä tilassa, olipa se käytössä tai ei. Aktiivinen tila kuluttaa laskentaresursseja yhdeltä laskentasolmuistamme, ja siten siitä laskutetaan normaalisti, kuten on selitetty kohdassa [Pouta-maut ja laskutus](vm-flavors-and-billing.md).
-
-### Sammutettu {#shut-off}
-Virtuaalikone ei ole käynnissä ja on *virta pois* -tilassa. Sammutettu virtuaalikone kuluttaa kuitenkin laskentayksiköitä samoin kuin **aktiivinen** tila. Tämä johtuu siitä, että aktiiviset/sammutetut virtuaalikoneet kuluttavat samat laskentaresurssit yhdeltä laskentasolmuistamme, kuten on selitetty kohdassa [Pouta-maut ja laskutus](vm-flavors-and-billing.md).
+### Sammutettu { #shut-off }
+Virtuaalikone ei ole käynnissä ja se on *powered
+off*. Kuitenkin *shut off* -tilassa oleva virtuaalikone kuluttaa edelleen
+laskutusyksiköitä samalla tavalla kuin **aktiivinen**. Tämä johtuu siitä, että
+aktiiviset/sammutetut virtuaalikoneet käyttävät samoja laskentaresursseja
+yhdellä laskentasolmuistamme kuten kohdassa [Pouta flavors and billing](vm-flavors-and-billing.md) on selitetty.
 
 !!! warning
 
-    *Sammutettu* virtuaalikone kuluttaa edelleen laskentayksiköitä. Jos et halua kuluttaa lisää, valitse *hyllytetty* tila.
+    *Shut off* -tilassa oleva virtuaalikone kuluttaa edelleen Cloud-laskutusyksiköitä. 
+    Kulutuksen lopettamiseksi valitse *shelved*-tila.
 
-### Tauko {#pause}
-Virtuaalikoneen tauottaminen pysäyttää kaikki virtuaalikoneessa käynnissä olevat prosessit ja tallentaa koko koneen tilan (muisti, sovellustila jne.) isäntälaskentasolmulle. Et voi käyttää virtuaalikonettasi tai isännöityjä sovelluksia, kun virtuaalikone on *tauko* -tilassa. Jotkut sovellukset saattavat kärsiä haittavaikutuksista tauon aikana, joten tätä tilaa ei suositella tuotantosovelluksille. Jotkin vanhat laskennalliset tehtävät saattavat hyötyä taukotilasta, mutta modernit työnkulut eivät yleensä käytä tätä tilaa. Virtuaalikoneen tauottamisesta laskutetaan samalla tavalla kuin **aktiivisena** olevaa virtuaalikonetta.
+### Keskeytetty (pause) { #pause }
+Virtuaalikoneen keskeyttäminen (pause) pysäyttää kaikki virtuaalikoneessa
+ajossa olevat prosessit ja tallentaa koko koneen tilan
+(muistin, sovellusten tilan jne.) isäntälaskentasolmulle. Et
+voi käyttää virtuaalikonetta tai siellä olevia sovelluksia, kun
+virtuaalikone on *paused*-tilassa. Jotkin sovellukset voivat
+kärsiä sivuvaikutuksista keskeytyksen aikana, joten tätä tilaa ei
+suositella tuotantokäyttöön. Jotkin vanhat laskentatyöt
+voivat hyötyä pause-tilasta, mutta moderneissa työnkuluissa sitä
+ei yleensä käytetä. Pause-tilassa olevaa virtuaalikonetta laskutetaan samalla tavalla
+kuin **aktiivista** virtuaalikonetta.
 
-### Keskeytä {#suspend}
-Virtuaalikoneen keskeyttäminen tallentaa sen nykyisen tilan virtuaalikoneen isäntälaskentasolmulle. Virtuaalikone voidaan käynnistää uudelleen samassa tilassa kuin ennen keskeyttämistä, mutta laskentaresurssit (todelliset ytimet, laskentasolmut jne.) voivat olla erilaiset kuin ennen keskeytystä. Et voi käyttää konettasi, kun se on *keskeytetty* -tilassa. Keskeytetyssä tilassa olevista virtuaalikoneista laskutetaan kuten **aktiivisista** virtuaalikoneista. Keskeyttäminen ei yleensä ole käytössä moderneissa työnkuluissa.
+!!! warning
 
-### Hyllytetty {#shelved}
-Hyllyttäminen tarkoittaa virtuaalikoneen sammuttamista ja sen poistamista isäntälaskentasolmulta. Tämä vapauttaa virtuaalikoneelle varatut laskentaresurssit. Kaikkien muiden liitettyjen resurssien tila, kuten tiedostojärjestelmä, kelluvat IP-osoitteet, verkkokonfiguraatio jne., tallennetaan keskitettyyn tallennustilaan. Huomaa, että virtuaalikoneen hyllyttäminen **ei** vähennä hankkeen käyttämien resurssien määrää, ainoastaan virtuaalikoneen laskutus pysähtyy.
+    "Paused"-tilassa oleva virtuaalikone voidaan sammuttaa huoltotoimenpiteiden aikana.
 
-Hyllyttäminen toimii parhaiten standardimaulle, jotka on jo varustettu keskitettyyn tallennuspalveluumme. Hyllyttäminen voi olla hidasta maulle, jotka käyttävät paikallista tallennusta, varsinkin suurempien makujen kohdalla, koska data täytyy kopioida paikallisen ja keskitetyn tallennuksen välillä. Harvoissa tapauksissa, jos kaikki laskentaresurssimme ovat käytössä, emme ehkä pysty purkamaan virtuaalikonettasi hyllyltä, ennen kuin toinen käyttäjä vapauttaa laskentaresursseja. Huomautus: kelluvia IP-osoitteita, levytilaa jne. ei voi poistaa virtuaalikoneesta ennen kuin se on purettu hyllyltä. Jos kelluvan IP-kiintiösi on kaksi ja yksi niistä on liitetty hyllytettyyn virtuaalikoneeseen, sinulla on vain yksi jäljellä. **Huomaa** että ohimenevä tallennus IO- tai TB-maussa **ei** ole hyllyllä.
+### Keskeytetty (suspend) { #suspend }
+Virtuaalikoneen suspendointi tallentaa sen nykyisen tilan
+virtuaalikoneen isäntälaskentasolmulle. Virtuaalikone voidaan
+palauttaa samaan tilaan kuin ennen keskeytystä, mutta
+laskentaresurssit (ytimet, laskentasolmut jne.) voivat olla eri
+kuin ennen keskeytystä. Et voi käyttää virtuaalikonetta, kun se on
+*suspended*-tilassa. Suspendoituja virtuaalikoneita laskutetaan samalla tavalla
+kuin **aktiivisia** virtuaalikoneita. Suspendia ei yleisesti käytetä
+moderneissa työnkuluissa.
 
-### Poista {#terminate}
-Poistaminen (tai deletointi) poistaa virtuaalikoneen hankkeestasi ja vapauttaa käytössä olevat laskentaresurssit. Niitä ei voi palauttaa, ja kaikki virtuaalikoneeseen tallennetut tiedot poistetaan, lukuun ottamatta liitettyjä levyjä. Kun virtuaalikone on poistettu, sitä ei enää laskuteta.
+!!! warning
 
-## Säästä laskentayksikköjäsi {#save-your-billing-units}
+    "Suspended"-tilassa oleva virtuaalikone voidaan sammuttaa huoltotoimenpiteiden aikana.
 
-Alla oleva kuva havainnollistaa tilojen välistä siirtymistä.
+### Hyllytetty (shelved) { #shelved }
+Hyllyttäminen tarkoittaa virtuaalikoneen sammuttamista ja sen poistamista isäntälaskentasolmulta. 
+Tämä vapauttaa virtuaalikoneelle varatut laskentaresurssit. 
+Kaikkien muiden siihen liittyvien resurssien tila, esimerkiksi tiedostojärjestelmä,
+kelluvat IP-osoitteet, verkko­konfiguraatio jne., tallennetaan kuitenkin keskitettyyn tallennuspalveluumme. 
+Huomaa, että virtuaalikoneen hyllyttäminen **ei** vähennä projektin käyttämien
+resurssien määrää, vaan ainoastaan kyseisen virtuaalikoneen laskutus lakkaa.
+
+Hyllytys toimii parhaiten standardeilla flavor-vaihtoehdoilla, jotka ovat jo valmiiksi keskitetyn 
+tallennuspalvelumme tukemia. Hyllytys voi olla hidasta flavor-vaihtoehdoilla, jotka käyttävät paikallista tallennusta,
+varsinkin isommilla fl avoreilla, koska data täytyy kopioida paikallisen ja keskitetyn
+tallennuksen välillä. Harvinaisissa tapauksissa, jos kaikki laskentaresurssimme ovat käytössä,
+emme välttämättä pysty poistamaan virtuaalikonettasi hyllyltä (unshelve) ennen kuin toinen käyttäjä vapauttaa
+laskentaresursseja. Huomaa myös, että kelluvia IP-osoitteita, volum eja jne. ei voi irrottaa
+virtuaalikoneesta ennen kuin se on otettu pois hyllyltä. Jos sinulla on kelluvien IP-osoitteiden kiintiö
+kaksi ja toinen niistä on liitetty hyllytettyyn virtuaalikoneeseen, sinulla on käytettävissä vain yksi. 
+**Huom.** IO- tai TB-flavorien efemeeristä tallennusta ei **hyllytetä**.
+
+### Lopetus { #terminate }
+Lopetus (tai poisto) poistaa virtuaalikoneen
+projektistasi ja vapauttaa käytössä olleet laskentaresurssit.
+Niitä ei voi palauttaa, ja kaikki virtuaalikoneelle tallennettu data
+poistetaan, lukuun ottamatta mahdollisesti liitettyjä volumeja. Kun
+virtuaalikone on poistettu, sitä ei enää laskuteta.
+
+## Säästä Cloud-laskutusyksiköitä { #save-your-cloud-billing-units }
+
+Alla oleva kuva havainnollistaa tilojen välisiä siirtymiä.
 
 ![Virtuaalikoneen elinkaari](../../img/instance-lifecycle-1.png)
 
-Yllä olevassa osiossa käsittelimme Poutan virtuaalikoneiden päätiloja. Teoreettisesti on olemassa myös muita tiloja. Täydellinen luettelo tiloista ja niiden käyttäytymisestä: [OpenStack dokumentaatio](https://developer.openstack.org/api-guide/compute/server_concepts.html).
+Edellä käsiteltiin Poutan virtuaalikoneiden päätilat.
+Teoriassa on olemassa myös muita tiloja.
+Täydellinen luettelo tiloista ja niiden toiminnasta: [OpenStack documentation](https://developer.openstack.org/api-guide/compute/server_concepts.html).
 
-Jotta voit siirtyä tilojen välillä, sinulla on kaksi päävaihtoehtoa käyttää [komentoriviasiakastyökaluja](command-line-tools.md) tai käyttää verkkoliittymää. Poutan verkkoliittymän pääsivulla avaa **Instanssit** näkymä. **Toiminnot** sarakkeen alla näet avattavan valikon, jossa on kaikki mahdolliset vaihtoehdot.
+Tilojen välillä siirtymiseksi sinulla on kaksi päävaihtoehtoa: käytä [Command line client tools](command-line-tools.md) -työkaluja tai käytä verkkokäyttöliittymää.
+Verkkokäyttöliittymästä voit siirtää VM:ääsi kaikkiin näihin tiloihin. Poutan verkkokäyttöliittymän etusivulla avaa **Instances**-näkymä. Sarakkeessa **Actions** näet pudotusvalikon, jossa ovat kaikki mahdolliset toiminnot.
 
-![Säästä laskentayksikköjäsi](../../img/Save-Your-billing-units.png)
+![Säästä Cloud-laskutusyksiköitä](../../img/Save-Your-billing-units.png)
 
-On monia muita käytäntöjä, jotka auttavat säästämään laskentayksiköitä:
+On monia muitakin käytäntöjä, jotka auttavat säästämään Cloud-laskutusyksiköitä:
 
-### Automaattinen provisiointi {#automated-provisioning}
-Automaattinen virtuaalikoneiden provisiointi ja konfigurointi auttaa säästämään laskentayksiköitä. Esimerkiksi voit poistaa käyttämättömät virtuaalikoneesi automaattisella provisioinnilla ja konfiguroinnilla, kun et enää tarvitse sitä. Myöhemmin, kun tarvitset niitä uudelleen, voit luoda uudet virtuaalikoneet alusta alkaen. Tietosi tulisi aina tallentaa levylle, ja virtuaalikoneet tulisi käynnistää, kun tarvitset laskentaa.
+### Automaattinen provisiointi { #automated-provisioning }
+Virtuaalikoneidesi automaattinen provisiointi ja konfigurointi
+auttaa säästämään Cloud-laskutusyksiköitä. Esimerkiksi
+voit purkaa (teardown) käyttämättömät virtuaalikoneesi automaattisen
+provisioinnin ja konfiguroinnin avulla, kun et enää tarvitse niitä. Myöhemmin, kun
+tarvitset niitä taas, voit ottaa uudet virtuaalikoneet käyttöön
+alusta alkaen. Datan tulisi aina sijaita volumella, ja virtuaali­
+koneet tulisi käynnistää vain, kun tarvitset laskentaa. 
 
-Esimerkki, kuinka automatisoida työvirta Heatillä, Ansiblellä ja Dockerilla käyttöönottaaksesi Etherpadin, joka sisältää sekä klusteroidun tietokannan että tasapainotuksen: <https://github.com/CSCfi/etherpad-deployment-demo>
+Esimerkki työnkulun automatisoinnista Heatilla, Ansiblella ja Dockerilla Etherpadin
+käyttöönottoon klusteroidulla tietokannalla ja kuormantasauksella: <https://github.com/CSCfi/etherpad-deployment-demo>
 
-### Käynnistä kuvasta {#boot-from-image}
-Hyödyllinen työkalu Poutassa on oman virtuaalikoneen luominen käyttäen *käynnistä kuvasta (luo uusi levy)* -vaihtoehtoa. Tässä tapauksessa, vaikka poistaisit virtuaalikoneen, koko tiedostojärjestelmän tila tallennetaan pysyvään levyyn keskitettyyn tallennuspalveluumme. Voit käynnistää uuden virtuaalikoneen tältä levyltä. Se tulee olemaan sama tiedostojärjestelmätila kuin aiemmin poistetulla virtuaalikoneella. Voit liittää tämän levyn mihin tahansa muuhun virtuaalikoneeseen ja käyttää poistetun virtuaalikoneen tiedostojärjestelmää. Se laskutetaan kuten normaali levy laskentayksiköissä, mikä on halvempaa kuin käynnissä oleva virtuaalikone. Virtuaalikoneiden luominen tällä työkalulla ja niiden poistaminen, kun niitä ei tarvita, auttaa säästämään laskentayksikköjen allokointia. Yksi hieno vaihtoehto on, että voit helposti poistaa virtuaalikoneesi ja aloittaa uuden saman levyn ja uuden maun kanssa. Tämä tekee mahdolliseksi helposti skaalata pienemmästä virtuaalikoneen mausta suurimpaan virtuaalikoneen makuun.
+### Käynnistä levykuvasta { #boot-from-image }
+Hyödyllinen toiminto
+Poutassa on oman virtuaalikoneen luominen *Boot from image
+(creates new  volume)* -vaihtoehdolla. Tällöin, vaikka poistaisit
+virtuaalikoneesi, koko tiedostojärjestelmän tila tallennetaan
+pysyvälle volumelle keskitettyyn tallennuspalveluumme. Voit käynnistää uuden
+virtuaalikoneen tästä volumesta. Siinä on sama tiedostojärjestelmän
+tila kuin aiemmin poistetussa virtuaalikoneessa. Voit myös liittää tämän
+volumen mihin tahansa toiseen virtuaalikoneeseen ja käyttää poistetun
+virtuaalikoneen tiedostojärjestelmää. Sitä laskutetaan normaalina volumena
+Cloud-laskutusyksiköissä, mikä on edullisempaa kuin käynnissä oleva virtuaali­
+kone. Virtuaalikoneiden luominen tällä tavalla ja niiden poistaminen,
+kun et tarvitse niitä, auttaa säästämään Cloud-laskutusyksikkö­
+allokaatiotasi. Suuri etu on, että voit helposti poistaa
+virtuaalikoneen ja käynnistää uuden samalla volumella
+ja uudella flavorilla. Tämä mahdollistaa helpon skaalauksen
+pienemmästä virtuaalikoneen flavorista suurimpiin
+flavoreihin.
 
 !!! info
 
-    Tällainen skaalaaminen ei ole suositeltavaa IO-, GPU- tai TB-maulle, sillä ohimenevät tallennustiedot menetetään tässä prosessissa.
+    Tällainen skaalaus ei ole suositeltavaa IO-, GPU- tai TB-flavoreille,
+    koska efemeerinen tallennusdata menetetään tässä
+    prosessissa.
 
-### Valitse sopiva tila virtuaalikoneellesi {#select-a-suitable-state-of-your-virtual-machine}
-Hankkeesi vaatimusten mukaan voit muuttaa virtuaalikoneidesi tilaa:
+### Valitse virtuaalikoneellesi sopiva tila { #select-a-suitable-state-of-your-virtual-machine }
+Projektisi vaatimuksista riippuen voit vaihtaa virtuaalikoneidesi
+tilaa:
 
--   Jos olet menossa pitkälle lomalle ja haluat säästää laskentayksiköitä, voit hyllyttää virtuaalikoneesi.
--   Jos et enää tarvitse virtuaalikonettasi, voit poistaa sen kopioituasi kaikki olennaiset tiedot siitä levylle.
+-   Jos olet lähdössä pitkälle lomalle ja haluat säästää 
+    Cloud-laskutusyksiköitä, voit hyllyttää virtuaalikoneesi.
+-   Jos et enää tarvitse virtuaalikonetta, voit poistaa sen
+    kopioituasi ensin kaiken oleellisen datan volumelle.
 
-Voit siirtyä eri tilojen välillä Pouta-kojelautaa, komentorivityökaluja tai REST API:ja käyttäen riippuen projektisi kokoonpanosta. Yleisimmin käytettyjä tiloja virtuaalikoneille ovat aktiivinen, sammutettu, hyllytetty ja poistettu. Saattaa olla tapauksia, kun virtuaalikoneesi siirtyy _virhe_ -tilaan. Virhe tilassa olevista virtuaalikoneista laskutetaan edelleen. Jos virtuaalikoneesi siirtyy virhetilaan etkä pysty palauttamaan sitä, ota yhteyttä cloud-support@csc.fi.
+Voit siirtyä eri tilojen välillä Pouta-hallintapaneelissa,
+komentorivityökaluilla tai REST API:eilla projektisi asetuksista riippuen. 
+Yleisimmät tilat virtuaalikoneille ovat aktiivinen, sammutettu,
+hyllytetty ja poistettu. Saattaa esiintyä tilanteita, joissa virtuaalikoneesi
+siirtyy _error_-tilaan. Virhetilassa olevista virtuaalikoneista laskutetaan edelleen.
+Jos virtuaalikoneesi menee virhetilaan etkä
+pysty palauttamaan sitä, ota yhteyttä osoitteeseen cloud-support@csc.fi.
 
-### Muuta virtuaalikoneesi kokoa {#resize-your-virtual-machine}
-Virtuaalikoneen koon muuttaminen on hyvä työkalu Poutassa, ja auttaa säästämään laskentayksiköitä. Projektisi vaatimusten perusteella voit skaalata virtuaalikonettasi ylös tai alas muihin makuihin. Virtuaalikoneen skaalaaminen alas, kun sillä on vähemmän laskennallista kuormitusta, vapauttaa laskentaresursseja ja säästää laskentayksiköitä. Myöhemmin, tietokantojasi muokattaessa voit skaalata virtuaalikoneitasi ylöspäin laskennallisista töistäsi riippuen. Huomaa, että voit muuttaa koon toiseen makuun toisesta *perheestä*, mutta tätä **ei suositella!**. Voit menettää tietoja tämän prosessin aikana, eikä CSC ole vastuussa. Suosittelemme koon muuttamista saman *perheen* makuihin. Esimerkiksi, jos käytät standardiperheen makua, voit muuttaa koon vain toiseen perheen makuun. Kun koon muutos on valmis, virtuaalikoneen tila näyttää aluksi _vahvista koon muutos_. Tässä kohdassa sinun täytyy uudelleen varmistaa, että virtuaalikoneesi koon muutos on toteutettu odotetulla tavalla. Ko
+### Muuta virtuaalikoneesi kokoa { #resize-your-virtual-machine }
+Virtuaalikoneen koon muuttaminen on
+hyödyllinen toiminto Poutassa ja auttaa säästämään
+Cloud-laskutusyksiköitä. Projektisi vaatimuksista riippuen voit skaalata virtuaalikonettasi ylös tai
+alas muihin fl avoreihin. Skaalaaminen alaspäin, kun laskentakuorma on pieni, vapauttaa
+laskentaresursseja ja säästää Cloud-laskutusyksiköitä. Myöhemmin
+laskentakuorman kasvaessa voit skaalata virtuaalikoneita ylöspäin. Huomaa, että voit muuttaa kokoa toiseen flavoriin toisesta *family*:sta, mutta tätä **ei suositella lainkaan!**.
+Saatat menettää dataa tämän prosessin aikana, eikä CSC vastaa siitä. Suosittelemme muuttamaan kokoa vain saman
+*family*n flavoreihin. Jos käytät esimerkiksi standardi-
+familyn flavorea, voit muuttaa sen vain toiseen standardi-familyn
+flavoriin. Kun koon muutos valmistuu, virtuaalikoneen tila näyttää ensin
+_verify resize_. Tässä vaiheessa sinun täytyy vahvistaa, että
+virtuaalikone on muuttunut odotetulla tavalla. Koon muuttaminen aiheuttaa
+katkon virtuaalikoneelle, kunnes koko prosessi on
+valmis. Huomaa, että koon muuttaminen ei ole yhtä jouhevaa kuin yllä kuvattu _boot
+from volume_ -vaihtoehto. Jos tiedät etukäteen, että haluat joskus muuttaa
+virtuaalikoneiden kokoa, käynnistäminen volumelta
+virtuaalikonetta luotaessa antaa enemmän
+joustavuutta.  
+Lisätietoja instanssin koon muuttamisesta [täältä](../../support/faq/how-to-resize-in-pouta.md)
 
-ko muutoksella on virtuaalikoneen käyttökatkos, kunnes koko prosessi on valmis. Huomaa, että koon muuttaminen ei ole niin sulava kuin _käynnistä levystä_ -vaihtoehdon käyttö. Jos tiedät etukäteen, että haluat joskus muuttaa virtuaalikoneiden kokoa, käytä levyltä käynnistämistä, kun virtuaalikonetta käynnistellä antaa enemmän joustavuutta.  
-Lisätietoja instanssin koon muuttamisesta [täällä](../../support/faq/how-to-resize-in-pouta.md)
-
-[Pouta-maut ja laskutus]: vm-flavors-and-billing.md
+  [Pouta flavors and billing]: vm-flavors-and-billing.md

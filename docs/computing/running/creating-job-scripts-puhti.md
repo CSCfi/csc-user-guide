@@ -1,209 +1,258 @@
+# Eräajotyön skripti Puhtille { #creating-a-batch-job-script-for-puhti }
 
-# Erän työskriptin luominen Puhtille {#creating-a-batch-job-script-for-puhti}
-
-Erän työskripti sisältää varattavien resurssien määrittelyt työtä varten ja komentojen, jotka käyttäjä haluaa suorittaa.
+Eräajotyön skripti sisältää määrittelyt työlle varattavista resursseista sekä komennot, jotka käyttäjä haluaa suorittaa.
 
 [TOC]
 
-## Peruserän työskripti {#a-basic-batch-job-script}
+## Perus eräajotyön skripti { #a-basic-batch-job-script }
 
-Esimerkki yksinkertaisesta erätyöskriptistä:
+Esimerkki yksinkertaisesta eräajotyön skriptistä:
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=myTest           # Työn nimi
-#SBATCH --account=<projekt>         # Laskutusprojekti, on määritettävä!
-#SBATCH --time=02:00:00             # Työn enimmäiskesto
-#SBATCH --mem-per-cpu=2G            # Muisti per varattu ydin
-#SBATCH --partition=small           # Työjono (osasto)
-##SBATCH --mail-type=BEGIN          # Poista kommentti käytön mahdollistamiseksi
+#SBATCH --job-name=myTest           # Job name
+#SBATCH --account=<project>         # Billing project, has to be defined!
+#SBATCH --time=02:00:00             # Max. duration of the job
+#SBATCH --mem-per-cpu=2G            # Memory to reserve per core
+#SBATCH --partition=small           # Job queue (partition)
+##SBATCH --mail-type=BEGIN          # Uncomment to enable mail
 
-module load myprog/1.2.3            # Lataa tarvittavat moduulit
+module load myprog/1.2.3            # Load required modules
 
-srun myprog -i input -o output      # Suorita ohjelma pyydetyillä resursseilla
+srun myprog -i input -o output      # Run program using requested resources
 ```
 
-Ensimmäinen rivi `#!/bin/bash` osoittaa, että tiedosto tulisi tulkita Bash-skriptinä.
+Ensimmäinen rivi `#!/bin/bash` kertoo, että tiedosto tulkitaan Bash-skriptinä.
 
-Rivit, jotka alkavat `#SBATCH`, ovat argumentteja (direktiivejä) erän työjärjestelmälle. Nämä esimerkit käyttävät vain pientä osaa vaihtoehdoista. Katso kaikki mahdolliset vaihtoehdot [Slurmin dokumentaatiosta](https://slurm.schedmd.com/sbatch.html).
+Rivit, jotka alkavat `#SBATCH`, ovat eräajojärjestelmälle annettavia argumentteja (direktiivejä). Nämä esimerkit käyttävät vain pientä osaa vaihtoehdoista. Kaikki vaihtoehdot löytyvät
+[Slurm-dokumentaatiosta](https://slurm.schedmd.com/sbatch.html).
 
-Yleinen `#SBATCH`-vaihtoehdon syntaksi:
+`#SBATCH`-option yleinen syntaksi:
 
 ```bash
 #SBATCH option_name argument
 ```
 
-Esimerkissä,
+Esimerkissämme
 
 ```bash
 #SBATCH --job-name=myTest
 ```
 
-asettaa työn nimen *myTest*. Sitä voidaan käyttää työn tunnistamiseen jonossa ja muissa listauksissa.
+asettaa työn nimeksi *myTest*. Nimeä voidaan käyttää työn tunnistamiseen jonossa ja muissa listauksissa.
 
 ```bash
 #SBATCH --account=<project>
 ```
 
-asettaa työn laskutusprojektin. Korvaa `<project>` projektisi Unix-ryhmällä. Löydät sen [MyCSC](https://my.csc.fi) -sivustolta *Projektit*-välilehdeltä. [Lisätietoja laskutuksesta](../../accounts/billing.md).
+asettaa työn laskutusprojektin. Korvaa `<project>` projektisi Unix-ryhmällä. Löydät sen [MyCSC:stä](https://my.csc.fi) välilehdeltä *Projects*. [Lisätietoja laskutuksesta](../../accounts/billing.md).
 
-!!! warning "Muista määritellä laskutusprojekti"
-    Laskutusprojekti-argumentti on pakollinen. Jos sitä ei aseteta, aiheutuu virhe:
+!!! warning "Muista määrittää laskutusprojekti"
+    Laskutusprojekti on pakollinen. Sen puuttuminen aiheuttaa virheen:
 
     ```text
     sbatch: error: AssocMaxSubmitJobLimit
-    sbatch: error: Erätyön lähetys epäonnistui: Työ rikkoo laskenta/laatupolitiikkaa (työnlähetysraja, käyttäjän koon ja/tai aikarajat)
+    sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)
     ```
 
-Ajonaikainen varaus asetetaan `--time`-vaihtoehdolla:
+Ajoaikavaraus asetetaan `--time`-optiolla:
 
 ```bash
 #SBATCH --time=02:00:00
 ```
 
-Aika annetaan muodossa `hh:mm:ss` (valinnaisesti `d-hh:mm:ss`, missä `d` on _päivät_). Enimmäisajakelu riippuu valitusta jonosta. **Kun ajanvaraus päättyy, työ keskeytetään riippumatta siitä, onko se valmis vai ei**, joten ajanvarauksien tulisi olla riittävän pitkiä. Huomaa, että työ kuluttaa laskutusyksiköitä todellisen käyntiaikansa mukaan.
+Aika annetaan muodossa `hh:mm:ss` (vaihtoehtoisesti `d-hh:mm:ss`, missä
+`d` on _päivät_). Suurin sallittu ajoaika riippuu valitusta jonosta. **Kun
+aikavaraus päättyy, työ keskeytetään riippumatta siitä, onko se valmistunut vai ei**, joten ajoajan tulisi olla riittävän pitkä. Huomaa, että työ kuluttaa laskutusyksiköitä todellisen ajoajansa mukaan.
 
 ```bash
 #SBATCH --mem-per-cpu=2G
 ```
 
-asettaa vaaditun muistin per pyydetty CPU-ydin. Jos pyydetty muisti ylitetään, työ keskeytetään.
+asettaa vaaditun muistin per pyydetty CPU-ydin. Jos pyydetty muisti ylittyy, työ keskeytetään.
 
-Osasto (jono) on asetettava työn vaatimusten mukaan. Esimerkiksi:
+Jono (partition) tulee valita työn vaatimusten mukaan. Esimerkiksi:
 
 ```bash
 #SBATCH --partition=small
 ```
 
-!!! info "Saatavilla olevat osastot"
-    [Katso saatavilla olevat erätyöosastot](batch-job-partitions.md).
+!!! info "Saatavilla olevat jonot"
+    [Katso käytettävissä olevat eräajojonot](batch-job-partitions.md).
 
-Käyttäjä voi saada ilmoituksen sähköpostitse, kun työ *alkaa* käyttämällä `--mail-type`-vaihtoehtoa
+Käyttäjälle voidaan lähettää sähköpostiilmoitus, kun työ *käynnistyy*, käyttämällä
+`--mail-type`-optiota
 
 ```bash
-##SBATCH --mail-type=BEGIN          # Poista kommentti käytön mahdollistamiseksi
+##SBATCH --mail-type=BEGIN          # Uncomment to enable mail
 ```
 
-Muita hyödyllisiä argumentteja (useita argumentteja erotetaan pilkulla) ovat `END` ja `FAIL`. Oletuksena sähköpostit lähetetään CSC-tiliisi liitettyyn sähköpostiosoitteeseen. Tämä voidaan ohittaa käyttämällä `--mail-user=`-vaihtoehtoa.
+Muita hyödyllisiä arvoja (useita arvoja erotetaan pilkulla) ovat `END`
+ja `FAIL`. Oletuksena sähköposti lähetetään CSC-tiliisi liitettyyn osoitteeseen. Tämä voidaan ohittaa `--mail-user=`-optiolla.
 
-Kun määritellyt kaikki vaadittavat resurssit erätyöskriptissä, aseta tarvittava ympäristö lataamalla sopivat moduulit. Huomaa, että moduulien tulee olla käytettävissä erätöihin, niiden on oltava ladattuna erätyöskriptissä. [Lisätietoja ympäristömoduuleista](../modules.md).
+Kun olet määrittänyt kaikki tarvittavat resurssit eräajotyön skriptissä, määritä
+vaadittu ympäristö lataamalla sopivat moduulit. Huomaa, että jotta moduulit ovat
+käytettävissä eräajoissa, ne on ladattava eräajotyön skriptissä.
+[Lisätietoja ympäristömoduleista](../modules.md).
 
 ```bash
 module load myprog/1.2.3
 ```
 
-Lopuksi käynnistämme sovelluksemme pyydetyillä resursseilla `srun`-komennolla:
+Lopuksi käynnistämme sovelluksen pyydetyillä resursseilla `srun`-komennolla:
 
 ```bash
 srun myprog -i input -o output
 ```
 
-## Sarja- ja jaetun muistin erätyöt {#serial-and-shared-memory-batch-jobs}
+## Sarja- ja jaetun muistin erätyöt { #serial-and-shared-memory-batch-jobs }
 
-Sarja- ja jaetun muistin työt tulee suorittaa yhdellä laskentayksiköllä. Siksi työt ovat rajoitettuina yksiköiden saatavilla oleviin laitteistomäärityksiin. Puhtilla jokaisella yksiköllä on kaksi prosessoria, joista kummassakin on 20 ydintä, eli yhteensä 40 ydintä. [Katso tarkemmat tekniset tiedot Puhtista](../systems-puhti.md).
+Sarja- ja jaetun muistin työt on ajettava yhden laskentasolmun sisällä. Siksi
+työt ovat rajoitettu solmujen laitteistomääritysten mukaan. Puhtissa jokaisessa solmussa on kaksi suoritinta, joissa kussakin on 20 ydintä, eli yhteensä 40 ydintä.
+[Katso lisää teknisiä tietoja Puhtista](../systems-puhti.md).
 
-`#SBATCH`-vaihtoehtoa `--cpus-per-task` käytetään määrittelemään, montako laskentaydintä erätyö käyttää. Vaihtoehto `--nodes=1` varmistaa, että kaikki varatut ytimet sijaitsevat samassa yksikössä, ja `--ntasks=1` määrää kaikki varatut laskentaytimet samalle tehtävälle.
+`#SBATCH`-optio `--cpus-per-task` määrittää, montako laskentaydintä
+eräajotyön tehtävä käyttää. Optio `--nodes=1` varmistaa, että kaikki varatut ytimet sijaitsevat samassa solmussa, ja `--ntasks=1`
+kohdistaa kaikki varatut laskentaytimet samalle tehtävälle.
 
-Kierrettyjen työtehtävien osalta `--mem`-vaihtoehtoa suositellaan muistivarauksen tekemiseen. Tämä vaihtoehto määrittelee vaaditun muistin määrän *per yksikkö*. Huomaa, että jos käytät `--mem-per-cpu`-vaihtoehtoa sen sijaan, työn kokonaismuistipyyntö on muistipyyntö per CPU-ydin (`--mem-per-cpu`) kerrottuna varattujen ytimien lukumäärällä (`--cpus-per-task`). **Siksi, jos muutat ytimien lukumäärää, tarkista myös, että muistivaraus on sopiva.**
+Säikeisiin perustuvissa töissä muistin varaamiseen suositellaan `--mem`-optiota.
+Tämä optio määrittää vaaditun muistimäärän *solmua kohti*. Huomaa, että jos
+käytät `--mem-per-cpu`-optiota, työn kokonaismuistipyyntö on
+per CPU-ydin pyydetty muisti (`--mem-per-cpu`) kerrottuna varattujen ytimien määrällä
+(`--cpus-per-task`). **Siksi, jos muutat ytimien määrää,
+tarkista myös, että muistivaraus on sopiva.**
 
-Tyypillisesti tehokkain käytäntö on sovittaa varattujen ytimien lukumäärä (`--cpus-per-task`) ohjelman käyttämien säikeiden tai prosessien lukumäärään. Katso kuitenkin aina [sovelluskohtaiset yksityiskohdat](../../apps/index.md).
+Tyypillisesti tehokkain käytäntö on sovittaa varattujen ytimien määrä
+(`--cpus-per-task`) sovelluksen käyttämien säikeiden tai prosessien määrään.
+Tarkista kuitenkin aina [sovelluskohtaiset ohjeet](../../apps/index.md).
 
-Jos ohjelmalla on komentorivivaihtoehto säikeiden/prosessien/ytimien määrän asettamiseen, sitä tulee aina käyttää varmistamaan, että ohjelmisto toimii odotetusti. Jotkut ohjelmat käyttävät oletuksena vain yhtä ydintä, vaikka useampia varattaisiin. 
+Jos sovelluksessa on komentorivivalitsin säikeiden/prosessien/ytimien määrän
+asettamiseen, sitä tulisi aina käyttää, jotta ohjelmisto toimii odotetusti. Jotkin sovellukset käyttävät oletuksena vain yhtä ydintä, vaikka useampia olisi varattu.
 
-Muihin ohjelmiin saattaa yrittää käyttää kaikkia yksikön ytimiä, vaikka vain osa olisi varattu. Ympäristömuuttuja `$SLURM_CPUS_PER_TASK`, joka tallentaa `--cpus-per-task`-arvon, voidaan käyttää luvun sijasta määritettäessä käytettävien ytimien määrää. Tämä on hyödyllistä, sillä komentoa ei tarvitse muokata, jos `--cpus-per-task` muuttuu myöhemmin.
+Toiset sovellukset saattavat yrittää käyttää kaikkia solmun ytimiä, vaikka vain osa
+olisi varattu. Ympäristömuuttuja `$SLURM_CPUS_PER_TASK`, joka sisältää
+`--cpus-per-task`-arvon, voidaan käyttää numeron sijaan määritettäessä käytettävien ytimien määrää. Tästä on hyötyä, koska komentoa ei tarvitse muuttaa, jos `--cpus-per-task`-arvoa vaihdetaan myöhemmin.
 
-Käytä lopuksi ympäristömuuttujaa `OMP_NUM_THREADS` asettamaan sovelluksen käyttämien säikeiden määrä. Esimerkiksi,
+Lopuksi käytä ympäristömuuttujaa `OMP_NUM_THREADS` määrittääksesi sovelluksen
+käyttämien säikeiden määrän. Esimerkiksi:
 
 ```bash
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 ```
 
-## MPI-pohjaiset erätyöt {#mpi-based-batch-jobs}
+## MPI-pohjaiset erätyöt { #mpi-based-batch-jobs }
 
-MPI-töissä jokaisella tehtävällä on oma muistinsä. Siksi tehtävät voidaan jakaa useille yksiköille.
+MPI-töissä jokaisella tehtävällä on oma muistivarauksensa. Siten tehtävät voidaan
+jakaa useille solmuille.
+ 
+Aseta MPI-tehtävien lukumäärä:
 
-Aseta MPI-tehtävien määrä seuraavasti:
-
-```bash
-#SBATCH --ntasks=<mpi-tehtävien_lukumäärä>
+``` bash
+#SBATCH --ntasks=<number_of_mpi_tasks>
 ```
+ 
+Jos tarvitaan hienojakoisempaa hallintaa, tarkka solmujen määrä ja tehtävien määrä
+per solmu voidaan määrittää optioilla `--nodes` ja `--ntasks-per-node`.
+Tämä on tyypillisesti suositeltavaa, jotta tehtävät eivät leviäisi
+tarpeettoman monelle solmulle,
+[katso Performance checklist](./performance-checklist.md#limit-unnecessary-spreading-of-parallel-tasks-in-puhti).
 
-Jos tarvitaan tarkempaa hallintaa, tarkka yksiköiden määrä ja tehtävien määrä per yksikkö voidaan määritellä `--nodes` ja `--ntasks-per-node` avulla. Tätä suositellaan yleensä tehtävien tarpeettoman leviämisen välttämiseksi useille yksiköille, [katso Suorituskykyvaroituslista](./performance-checklist.md#vältä-paralleelitöiden-tarpeetonta-leviämistä-puhtilla).
+Muistin pyytäminen `--mem-per-cpu`-optiolla on suositeltavaa.
 
-On suositeltavaa pyytää muistia käyttämällä `--mem-per-cpu`-vaihtoehtoa.
+!!! info "MPI-ohjelmien ajaminen"
+    - MPI-ohjelmia **ei tule** käynnistää `mpirun`- tai `mpiexec`-komennoilla. Käytä
+      niiden sijaan `srun`:ia.
+    - MPI-moduuli on ladattava eräajotyön skriptissä, jotta ohjelma
+      toimii oikein.
 
-!!! info "MPI-ohjelmien suorittaminen"
-    - MPI-ohjelmia **ei tule** käynnistää `mpirun` tai `mpiexec`. Käytä `srun` sen sijaan.
-    - MPI-moduuli on ladattava erätyöskriptiin, jotta ohjelma toimisi asianmukaisesti.
+## Hybridi-erätyöt { #hybrid-batch-jobs }
 
-## Hybridit erätyöt {#hybrid-batch-jobs}
+Hybriditöissä jokaiselle tehtävälle varataan useita ytimiä. Kukin tehtävä käyttää sitten jotain muuta
+rinnakkaistusta kuin MPI:tä työn suorittamiseen. Yleisin strategia on, että
+jokainen MPI-tehtävä käynnistää useita säikeitä OpenMP:tä käyttäen. Pyydä lisää
+ytimiä per MPI-tehtävä käyttämällä argumenttia `--cpus-per-task`. Oletusarvo on
+yksi ydin per tehtävä.
 
-Hybriditöissä jokaiselle tehtävälle varataan useita ytimiä. Kukin tehtävä käyttää sitten muuta rinnakkaistamista kuin MPI työn tekemiseen. Yksi yleisimmistä strategioista on, että jokainen MPI-tehtävä käynnistää useita säikeitä OpenMP:n avulla. Ytimiä per MPI-tehtävä voidaan pyytää `--cpus-per-task`-argumentilla. Oletusarvo on yksi ydin per tehtävä.
+Optimaalinen suhde tehtävien määrän ja ytimien määrän välillä per tehtävä vaihtelee
+sovelluskohtaisesti. Sopiva yhdistelmä löytyy kokeilemalla.
 
-Optimaalinen suhde tehtävien lukumäärän ja ytimien lukumäärän välillä vaihtelee sovelluksittain. Testausta tarvitaan optimaalisen yhdistelmän löytämiseksi sovellukseesi.
-
-!!! info "Säikeet per tehtävä hybrid MPI/OpenMP:ssa"
-    Aseta OpenMP-säikeiden lukumäärä per MPI-tehtävä eräskriptissäsi ympäristömuuttujilla `OMP_NUM_THREADS` ja `SLURM_CPUS_PER_TASK`:
+!!! info "Säikeet per tehtävä hybridissä MPI/OpenMP-töissä"
+    Aseta OpenMP-säikeiden määrä per MPI-tehtävä eräskriptissä käyttäen
+    ympäristömuuttujia `OMP_NUM_THREADS` ja `SLURM_CPUS_PER_TASK`:
 
     ```bash
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     ```
 
-## Lisäresurssit erätöissä {#additional-resources-in-batch-jobs}
+## Lisäresurssit erätöissä { #additional-resources-in-batch-jobs }
 
-### Paikallinen tallennus {#local-storage}
+### Paikallinen tallennustila { #local-storage }
 
-Jotkut Puhtin yksiköt sisältävät nopeaa paikallista tallennustilaa (NVMe) töitä varten. Paikallisen tallennustilan käyttöä suositellaan I/O-intensiivisille sovelluksille eli töille, jotka esimerkiksi lukevat ja kirjoittavat paljon pieniä tiedostoja. [Näe lisätietoja](../disk.md#tilapäiset-paikalliset-levyt).
+Joissakin Puhtin solmuissa on nopea paikallinen tallennustila (NVMe) töiden käytettävissä.
+Paikallisen tallennustilan käyttöä suositellaan I/O-intensiivisille sovelluksille, eli töille,
+jotka esimerkiksi lukevat ja kirjoittavat paljon pieniä tiedostoja.
+[Katso lisätietoja](../disk.md#temporary-local-disk-areas).
 
-Paikallinen tallennustila saatavilla:
+Paikallinen tallennustila on saatavilla:
 
-* GPU-yksiköissä osastoissa `gpu` ja `gputest` (max. 3600 GB per yksikkö)
-* I/O-yksiköissä jaettuna `small`, `large`, `longrun` ja `interactive` -osastoille (max 1490/3600 GB per yksikkö)
-* BigMem-yksikössä osastoissa `hugemem` ja `hugemem_longrun` (max. 5960 GB per yksikkö)
+* GPU-solmuissa `gpu`- ja `gputest`-jonoissa (max. 3600 GB per solmu)
+* I/O-solmuissa, joita jakavat `small`-, `large`-, `longrun`- ja `interactive`-
+  jonot (max. 1490/3600 GB per solmu)
+* BigMem-solmuissa `hugemem`- ja `hugemem_longrun`-jonoissa (max. 5960 GB
+  per solmu)
 
-Pyydä paikallista tallennustilaa käyttämällä `--gres`-lippua eräskriptissä:
+Pyydä paikallista tallennustilaa eräskriptissä `--gres`-asetuksella:
 
 ```bash
-#SBATCH --gres=nvme:<paikallisen_tallennustilan_koko_per_yksikkö_GB>
+#SBATCH --gres=nvme:<local_storage_space_per_node_in_GB>
 ```
 
-Tilavuus annetaan GB:ina (maksimikoot katso listasta yllä). Pyydäksesi esimerkiksi 100 GB tallennustilaa, käytä vaikkapa `--gres=nvme:100`. Paikallinen tallennusvaraus on per yksikkö -pohjainen.
+Tilamäärä annetaan gigatavuina (tarkista enimmäiskoot yllä olevasta listasta).
+Esimerkiksi 100 GB:n tallennustilaa varten käytä optiota `--gres=nvme:100`. Paikallinen
+tallennusvaraus on solmukohtainen.
 
-Käytä ympäristömuuttujaa `$LOCAL_SCRATCH` erätyöskripteissäsi käyttääksesi paikallista tallennustilaa jokaisessa yksikössä. Esimerkiksi suuren datasetti-paketin purkamiseksi paikalliseen tallennustilaan:
+Käytä ympäristömuuttujaa `$LOCAL_SCRATCH` eräskripteissä päästäksesi käsiksi
+paikalliseen tallennustilaan kussakin solmussa. Esimerkiksi suuren
+aineistopaketin purkamiseen paikalliseen tallennustilaan:
 
 ```bash
 tar xf my-large-dataset.tar.gz -C $LOCAL_SCRATCH
 ```
 
-!!! warning "Muista palauttaa tiedostot"
-    Paikallistallennustila, jota varataan työllesi, tyhjennetään työn päätyttyä. Siksi, jos kirjoitat tietoja paikalliseen levyyn työn aikana, muista siirtää kaikki, mitä haluat säilyttää, jaetulle levyn alueelle työn lopuksi. Erityisesti käskyt, joilla tiedot siirretään, on annettava eräskriptissä, koska et voi enää käyttää paikallistallennustilaa, kun erätyö on valmis. Esimerkiksi kopioi joitakin tulostiedostoja takaisin hakemistoon, josta erätyö lähetettiin:
+!!! warning "Muista siirtää datasi talteen"
+    Työllesi varattu paikallinen tallennustila tyhjennetään työn
+    päätyttyä. Jos siis kirjoitat dataa paikalliselle levylle työn aikana, muista
+    siirtää kaikki säilytettävä tieto jaetulle levyalueelle työn lopuksi. Erityisesti, komennot datan siirtämiseksi on annettava eräskriptissä, koska et voi enää
+    käyttää paikallista tallennustilaa työn valmistuttua. Esimerkiksi kopioidaksesi joitakin tulostiedostoja takaisin hakemistoon, josta erätyö lähetettiin:
 
     ```bash
     mv $LOCAL_SCRATCH/my-important-output.log $SLURM_SUBMIT_DIR
     ```
 
-### GPU:t {#gpus}
+### GPU:t { #gpus }
 
-Puhtilla on 320 Nvidia Tesla V100 GPU:ta. GPU:t ovat käytettävissä `gpu` ja `gputest` osastoissa ja niitä voidaan pyytää seuraavasti:
-
-```bash
-#SBATCH --gres=gpu:v100:<gpgpu:t_yksikköä_kohtia>
-```
-
-`--gres`-varaus on per yksikkö -pohjainen. Jokaisessa GPU-yksikössä on 4 GPU:ta.
-
-Useita resursseja voidaan pyytää pilkulla erotellulla listalla. Pyytääksesi sekä GPU:ta että paikallista tallennustilaa:
+Puhtissa on 320 Nvidia Tesla V100 -GPU:ta. GPU:t ovat käytettävissä `gpu`- ja
+`gputest`-jonoissa ja ne voidaan pyytää seuraavasti:
 
 ```bash
-#SBATCH --gres=gpu:v100:<gpus_per_yksikkö>,nvme:<paikallinen_tallennustila_per_yksikkö>
+#SBATCH --gres=gpu:v100:<number_of_gpus_per_node>
 ```
 
-Esimerkiksi pyytääksesi 1 GPU ja 10 GB NVMe-tallennustilaa kulloinenkin vaihtoehto olisi `--gres=gpu:v100:1,nvme:10`.
+`--gres`-varaus on solmukohtainen. Yhdessä GPU-solmussa on 4 GPU:ta.
 
-## Lisätietoja {#more-information}
+Useita resursseja voidaan pyytää pilkulla eroteltuna listana. Pyytääksesi
+sekä GPU:n että paikallisen tallennustilan:
 
-* [Puhtin esimerkki eräskriptit](example-job-scripts-puhti.md)
-* [Saatavilla olevat erätyöosastot](batch-job-partitions.md)
-* [Erätyökoulutusmateriaalit](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/)
-* [Slurmin dokumentaatio](https://slurm.schedmd.com/documentation.html)
+```bash
+#SBATCH --gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
+```
 
+Esimerkiksi pyytääksesi 1 GPU:n ja 10 GB NVMe-tallennustilaa, optio on
+`--gres=gpu:v100:1,nvme:10`.
+
+## Lisätietoja { #more-information }
+
+* [Puhti-esimerkkieräskriptit](example-job-scripts-puhti.md)
+* [Käytettävissä olevat eräajojonot](batch-job-partitions.md)
+* [Erätyöjen koulutusmateriaalit](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/)
+* [Slurm-dokumentaatio](https://slurm.schedmd.com/documentation.html)

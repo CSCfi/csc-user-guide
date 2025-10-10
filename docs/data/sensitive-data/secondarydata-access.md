@@ -1,33 +1,40 @@
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-# Aloita tästä: Toissijaisen käytön terveys- tai sosiaalidatan käyttö Sensitive Data -palveluiden kautta
+# Aloita tästä: Pääsy toissijaisen käytön terveys- tai sosiaalidataan Sensitive Data -palveluiden kautta { #start-here-accessing-secondary-use-health-or-social-data-via-sensitive-data-services }
 
-## CSC-projekti mahdollistaa palvelun käytön {#csc-project-enables-service-usage}
+## CSC-projekti mahdollistaa palvelun käytön { #csc-project-enables-service-usage }
 
-CSC-palveluiden käyttö perustuu CSC-projekteihin, joita hallinnoidaan MyCSC-asiakasportaalissa. Jokaisella CSC-projektilla on ensisijainen käyttäjä eli **projektipäällikkö**, joka luo projektin ja hallinnoi sen resursseja ja elinkaarta. Projektipäällikkö on yleensä tutkimusryhmän johtaja. Hän toimii myös yhteyshenkilönä CSC:n ja tutkimusryhmän välillä. Kun projekti käsittelee datasettiä, johon Findata tai yksittäinen rekisteri on myöntänyt luvan, CSC lisää projektin jäseniä ja aktivoi SD Desktop -palvelun.
+CSC:n palveluiden käyttö perustuu MyCSC-asiakasportaalissa hallinnoituihin CSC-projekteihin. Jokaisella CSC-projektilla on ensisijainen käyttäjä eli **projektipäällikkö**, joka luo projektin ja hallinnoi sen resursseja ja elinkaarta. Projektipäällikkö on yleensä tutkimusryhmän vetäjä. Hän toimii myös CSC:n ja tutkimusryhmän välisenä yhteyshenkilönä. Kun projektissa käsitellään aineistoa, johon Findata tai yksittäinen rekisteri on myöntänyt luvan, CSC lisää projektin jäsenet ja aktivoi SD Desktop -palvelun.
 
-### 1. Testaa tavallinen SD Desktop {#test-regular-sd-desktop}
 
-Voit luoda testiprojektin ja testata tavallista SD Desktop -ympäristöä itsenäisesti varmistaaksesi, että SD Desktop sopii tarpeisiisi. [Ohjeet tavalliseen SD Desktop -ympäristöön pääsystä](sd-use-case-new-user-project-manager.md).
+### 1. Testaa tavallista SD Desktopia { #1-test-regular-sd-desktop }
 
-Jos tarvitset ohjelmistoa, joka ei ole oletuksena saatavilla SD Desktopissa, ota yhteyttä [Service Deskiin](../../support/contact.md) (*Aihe: Sensitive Data, Secondary use*) hyvissä ajoin - jopa ennen dataluvan hakemista.
+Voit luoda testiprojektin ja kokeilla tavallista SD Desktopia itsenäisesti varmistaaksesi, että SD Desktop sopii tarpeisiisi. [Ohjeet tavalliseen SD Desktopiin pääsyyn](sd-use-case-new-user-project-manager.md). 
 
-!!! Huomio
-    * [SD Connect](sd_connect.md), palvelu jota käytetään arkaluontoisen tutkimusdatan tallentamiseen, on **ei käytettävissä rekisteridatan käsittelyyn**. Virtuaalisessa työpöydässä ei ole mahdollista tuoda suoraan mitään lisädataa, skriptejä tai ohjelmistoja.
+Jos tarvitset ohjelmistoa, jota ei ole SD Desktopissa oletuksena, ota hyvissä ajoin yhteyttä [Service Deskiin](../../support/contact.md) (*Aihe: Sensitive Data, Secondary use*) - jopa ennen tietoluvan hakemista.
 
-### 2. Hae lupaa {#apply-for-permit}
+!!! Note
+    [SD Connect](sd_connect.md), palvelu arkaluonteisten tutkimusaineistojen tallentamiseen, ei ole käytettävissä rekisteriaineistojen käsittelyyn. Virtuaalityöpöydälle ei ole mahdollista tuoda suoraan mitään lisäaineistoa, skriptiä tai ohjelmistoa. 
 
-#### Findata-luvan hakeminen {#applying-for-findata-permit}
 
-Pääsy toissijaiseen käyttöön tarkoitettuun terveys- tai sosiaalidataan julkisista rekistereistä vaatii luvan **Findata**-viranomaiselta. Ohjeet dataluvan hakemiseen löydät [Findatan verkkosivuilta](https://findata.fi/en/permits/){ target="_blank" }.
 
-Luvan saamisen jälkeen voit aloittaa palveluiden käyttöönoton prosessin CSC:n kanssa. Seuraavaksi käymme läpi vaiheet, jotka tulee suorittaa datasetin käyttämiseksi SD Desktopissa:
+### 2. Hae lupaa { #2-apply-for-permit }
 
-[Askeltarkka opas Findatan datasetin käyttämiseen SD Desktopissa](findata-permit.md)
+#### Findata-luvan hakeminen { #applying-for-findata-permit }
 
-#### Yksittäisen rekisteriluvan hakeminen {#applying-single-register-permit}
+Pääsy julkisten rekisterien terveys- tai sosiaalidataan toissijaista käyttöä varten edellyttää luvan hankkimista viranomaiselta Findatalta. Ohjeet tietoluvan hakemiseen löytyvät [Findatan verkkosivuilta](https://findata.fi/en/permits/){ target="_blank" }.
 
-Pääsy toissijaiseen käyttöön tarkoitettuun terveys- tai sosiaalidataan yksittäisistä rekistereistä vaatii luvan kyseiseltä rekisteriltä. Voit saada lisää tietoa rekistereiltä.
+Saatuasi luvan voit aloittaa palveluun pääsyn valmistelun CSC:n kanssa. Alla käymme läpi vaiheet, jotka tulee tehdä, jotta saat aineiston käyttöösi SD Desktopissa:
 
-Luvan saamisen jälkeen voit aloittaa palveluiden käyttöönoton prosessin CSC:n kanssa. Tämä prosessi eroaa hieman Findata-luvan prosessista. Seuraavaksi käymme läpi vaiheet, jotka tulee suorittaa datasetin käyttämiseksi SD Desktopissa:
+[Vaiheittainen opas: aineistojen käyttö Findatasta SD Desktopissa](findata-permit.md)
 
-[Askeltarkka opas datasetin käyttämiseen yksittäisestä rekisteristä SD Desktopissa](single-register-permit.md)
+!!! Note
+    Kuten Findata lupaehtojensa mukaisesti toteaa, luvanhaltijan on tarkistettava mahdollisimman pian käyttöoikeuden saatuaan, että luovutettu data vastaa lupaa. Epäillyt virheet on ilmoitettava lupaviranomaiselle 3 kuukauden kuluessa siitä, kun luvanhaltija on saanut pääsyn luovutettuun dataan. **Kolmen kuukauden määräaika virheiden ilmoittamiselle alkaa jo, kun Findata siirtää datan CSC:lle,** riippumatta siitä, onko luvanhaltijalla valmiina virtuaalikoneen kautta pääsy dataan vai ei. Siksi suosittelemme aloittamaan valmistelut dataan pääsyä varten hyvissä ajoin.
+
+#### Yksittäisen rekisterin luvan hakeminen { #applying-single-register-permit }
+
+Pääsy yksittäisten rekisterien terveys- tai sosiaalidataan toissijaista käyttöä varten edellyttää kyseisen rekisterin lupaa. Lisätietoja saat rekistereistä.
+
+Saatuasi luvan voit aloittaa palveluun pääsyn valmistelun CSC:n kanssa. Tämä prosessi poikkeaa hieman Findata-luvan mukaisesta pääsyprosessista. Alla käymme läpi vaiheet, jotka tulee tehdä, jotta saat aineiston käyttöösi SD Desktopissa:
+
+[Vaiheittainen opas: aineistojen käyttö yksittäisestä rekisteristä SD Desktopissa](single-register-permit.md)

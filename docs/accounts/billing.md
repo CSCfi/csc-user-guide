@@ -1,45 +1,47 @@
-
 ---
 search:
   boost: 2
 ---
 
-# Laskutus {#billing}
+# Laskutus { #billing }
 
-CSC:n palvelut ovat maksuttomia akateemiselle tutkimukselle, opetukselle tai koulutukselle
-suomalaisille korkeakouluille ja valtion tutkimuslaitoksille.
+CSC:n palvelut ovat maksuttomia akateemiseen tutkimukseen, opetukseen tai koulutukseen suomalaisiin korkeakouluihin ja valtion tutkimuslaitoksiin kuuluville jäsenille. **Laskutusyksiköitä** (BU:t) käytetään resurssien allokointiin käyttäjien projekteille, jotka hyödyntävät palveluitamme. CSC:n palvelut kuluttavat palvelusta ja käyttötavasta riippuen neljää erilaista laskutusyksikkötyyppiä (CPU, GPU, Cloud, Storage). Voit [hakea laskutusyksiköitä MyCSC-portaalissa](how-to-apply-for-billing-units.md), ja CSC myöntää BU:ita projekteille. Käyttö kuluttaa laskutusyksiköitä, mutta **varsinaista maksua ei vaadita**.
 
-Katso [Laskutuksen yksikön ja hinnan laskin](https://research.csc.fi/billing-units#buc){:target="_blank"}
-sivustolta research.csc.fi.
+<!-- Katso sivustolta research.csc.fi [Laskutusyksikkö- ja hintalaskuri](https://research.csc.fi/billing-units#buc){:target="_blank"}. -->
 
-**Palvelujen laskutushinnat ovat seuraavat:**
+**Palvelujen laskutusperusteet ovat seuraavat:**
 
-* [Puhti ja Mahti laskutus](../computing/hpc-billing.md)
-* Allas-objektitallennuksen laskutus: 1 TiB kuluttaa **1** BU tunnissa. Vain Allas-palveluun tallennettu
-  data laskutetaan.
-* [Pouta laskutus](../cloud/pouta/accounting.md)
-* [Rahti laskutus](../cloud/rahti/billing.md)
-* [Kvasi laskutus](../computing/quantum-computing/kvasi/kvasi-billing.md)
-* [SD Connect ja SD Desktop laskutus](../data/sensitive-data/sd-use-case-new-user-project-manager.md#sd-connect-bu-consumption)
+* [Puhti- ja Mahti-laskutus](../computing/hpc-billing.md)
+* Allas-objektitallennuksen laskutus: 1 TiB kuluttaa **1** tallennus-BU:n tunnissa. Vain Allakseen tallennettu todellinen data laskutetaan.
+* [Pouta-laskutus](../cloud/pouta/vm-flavors-and-billing.md)
+* [Rahti-laskutus](../cloud/rahti/billing.md)
+* [SD Connectin ja SD Desktopin laskutus](../data/sensitive-data/sd-use-case-new-user-project-manager.md#sd-connect-bu-consumption)
 
-!!! info "Huomio"
 
-    Lumille [katso LUMI-dokumentaatiosta](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
+
+!!! info "Huom."
+
+    LUMIn laskutuksesta ks. [LUMIn dokumentaatio](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
 
     Fairdata IDA:n ja Kaivoksen käyttö ei kuluta laskutusyksiköitä.
 
-## Laskutusyksikön kulutuksen seuranta {#monitoring-billing-unit-consumption}
+## Laskutusyksiköiden kulutuksen seuranta { #monitoring-billing-unit-consumption }
 
-_My Projects_ -sivulla [MyCSC:ssa](https://my.csc.fi) voit tutkia laskutusyksiköiden kulutusta ja hakea
-lisää laskutusyksiköitä. Siellä voit helposti tarkistaa, kuka kulutti laskutusyksiköitä, milloin niitä kulutettiin 
-ja missä palvelussa. Huomaa, että tallennukseen liittyvää laskutusyksikön kulutusta (Puhti/Mahti Scratch -kansioissa ja Allaksessa) 
-ei ole yhdistetty tiettyyn käyttäjätiliin, vaan se raportoidaan "muut".
+_My Projects_ -sivulla palvelussa [MyCSC](https://my.csc.fi) voit tarkastella
+laskutusyksiköiden kulutusta ja hakea lisää laskutusyksiköitä. Siellä voit helposti
+tarkistaa, kuka kulutti laskutusyksiköitä, milloin ne kulutettiin ja missä
+palvelussa. Huomaa, että tallennukseen liittyvä laskutusyksiköiden kulutus (Puhti/Mahti Scratch -kansioissa ja
+Allaksessa) ei ole sidottu tiettyyn käyttäjätiliin ja raportoidaan nimellä "other" tai "system".
 
-## Rajoitettu palvelun käyttöoikeus, kun laskutusyksiköt on kulutettu {#restricted-service-access-when-billing-units-have-been-consumed}
 
-Kun kaikki laskutusyksiköt CSC-projektistasi on kulutettu, palveluiden käyttöä voidaan rajoittaa niissä palveluissa, jotka kuluttavat laskutusyksiköitä. Voit seurata CSC-projektisi laskutusyksikön kulutusta MyCSC:n kautta edellä kuvatulla tavalla. Voit saada täyden käyttöoikeuden palveluihin hakemalla lisää laskutusyksiköitä MyCSC-portaalin kautta.
 
-Yksityiskohtaista tietoa siitä, miten palvelut rajoittavat käyttöä, kun laskutusyksiköt loppuvat:
+## Palvelujen käytön rajoittaminen ja CSC-projektin sulkeminen, kun laskutusyksiköt on käytetty { #restricted-service-access-and-csc-project-closure-when-billing-units-have-been-consumed }
+
+Kun kaikki laskutusyksiköt (CPU, GPU, Storage tai Cloud) CSC-projektissasi on käytetty, palveluiden käyttöä voidaan rajoittaa niissä palveluissa, jotka kuluttavat laskutusyksiköitä. Voit seurata CSC-projektisi laskutusyksiköiden käyttöä MyCSC:ssä kuten yllä kuvattu. Saat palveluihin täyden käytön takaisin [hakemalla lisää laskutusyksiköitä MyCSC-portaalin kautta](how-to-apply-for-billing-units.md).
+
+Sinulle ilmoitetaan ennen kuin CSC-projektisi laskutusyksiköt ovat loppumassa. Kun akateemisen CSC-projektin laskutusyksiköt loppuvat, projektin jäsenillä on 60 päivää aikaa hakea lisää laskutusyksiköitä. Jos laskutusyksiköt loppuvat eikä 60 päivän jälkeen lisäyksiköitä ole myönnetty ja CSC-projektilla on yhä negatiivinen määrä laskutusyksiköitä, projekti suljetaan.
+
+Yksityiskohtaiset tiedot siitä, miten palveluiden käyttöä tällä hetkellä rajoitetaan, kun laskutusyksiköt loppuvat:
 
 * [Puhti ja Mahti](../computing/usage-policy.md#running-out-of-billing-units)
 * [Sensitive Data Desktop](../data/sensitive-data/sd-use-case-new-user-project-manager.md#what-happens-if-your-project-runs-out-of-billing-units)

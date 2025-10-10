@@ -1,46 +1,52 @@
-# Terveyden ja sosiaalialan tietojen toissijaisen käytön Sensitiivinen Data -työpöytä {#sensitive-data-desktop-for-secondary-use-of-health-and-social-data}
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-Sensitiivinen Data (SD) -työpöytä on rekisteröity ympäristö terveyden ja sosiaalialan tietojen (rekisteritiedot) toissijaiseen käyttöön. Pääsy palveluun vaatii luvan tietojen käsittelijältä, joka voi olla Findata tai yksittäinen rekisteri. SD-työpöytä on verkkokäyttöliittymä, jonka avulla voit hallita (aloittaa, käyttää, poistaa) virtuaalista työpöytää (teknisesti määriteltynä virtuaalikoneena) suoraan web-selaimeltasi. Virtuaalisen työpöydän avulla voit käyttää luvan saaneita tietoaineistoja. Palvelun käyttö ei vaadi aikaisempaa tietämystä pilvilaskennasta tai ohjelmointitaitoja.
+# Sensitive Data Desktop terveys- ja sosiaalidatan toissijaiseen käyttöön { #sensitive-data-desktop-for-secondary-use-of-health-and-social-data }
+
+Sensitive Data (SD) Desktop on rekisteröity ympäristö terveys- ja sosiaalidatan (rekisteriaineistojen) toissijaiseen käyttöön. Pääsy palveluun edellyttää lupaa rekisterinpitäjältä, joka voi olla Findata tai yksittäinen rekisterinpitäjä. SD Desktop on selainkäyttöliittymä, jonka avulla voit hallita (käynnistää, käyttää, poistaa) virtuaalista työpöytää (teknisesti virtuaalikone) suoraan verkkoselaimestasi. Virtuaalityöpöydän kautta pääset käsiksi luvitettuihin aineistoihin. Palvelun käyttö ei edellytä aiempaa pilvilaskennan tuntemusta tai ohjelmointiosaamista.
 
 Sisältö:
 
-* [Keskeiset ominaisuudet](./sd-desktop-audited.md#key-features)
-* [Rajoitukset](./sd-desktop-audited.md#limitations)
-* [Ennen aloittamista](./sd-desktop-audited.md#before-you-start)
+ * [Keskeiset ominaisuudet](./sd-desktop-audited.md#key-features)
 
-## Keskeiset ominaisuudet {#key-features}
+ * [Rajoitukset](./sd-desktop-audited.md#limitations)
 
-* Auditointi suoritettu Findata-säädösten mukaisesti.
+ * [Ennen kuin aloitat](./sd-desktop-audited.md#before-you-start) 
 
-* Käytettävissä mistä tahansa käyttöjärjestelmästä (Mac, Linux tai Windows) verkon yli (esim. Google Chrome, Firefox) julkisesta internetistä (ilman tarvetta asentaa asiakasohjelmaa tai käyttää VPN:ää).
+    
+## Keskeiset ominaisuudet { #key-features }
 
-* Vain saman CSC-projektin jäsenet voivat käyttää samaa virtuaalista työpöytää.
+* Auditoitu Findatan määräysten mukaisesti.
 
-* Kirjautumisen jälkeen SD-työpöydälle käyttäjä voi aloittaa valmiiksi rakennetun laskentaympäristön (Linux Ubuntu OS) tarvittaessa; tarjolla olevat vaihtoehdot tukevat yksinkertaisten tilastollisten analyysien tekemistä sekä koneoppimista.
+* Käytettävissä miltä tahansa käyttöjärjestelmältä (Mac, Linux tai Windows) web-selaimen (esim. Google Chrome, Firefox) kautta julkisesta internetistä (ilman erillistä asiakasohjelmaa tai VPN:ää).
 
-* Säädösten noudattamiseksi toissijaiseen käyttöön tarkoitettuja virtuaalipöytiä on täysin eristetty internetistä ja muista palveluista: voit käyttää vain tietoja, joita olet pyytänyt tietojen käsittelijältä;
+* Vain saman CSC-projektin jäsenet voivat käyttää samaa virtuaalityöpöytää.
 
-* SD-työpöytää voidaan käyttää kaikenlaisten tietojen käsittelyyn: tekstitiedostot, kuvat, äänitiedostot, video ja geneettiset tiedot. Virtuaalinen työpöytä sisältää kuitenkin [rajallisen joukon etukäteen asennettua ohjelmistoa](../../data/sensitive-data/sd-desktop-secondary-working.md#default-software-available-in-sd-desktop) (avoimen lähdekoodin). Lisäohjelmistojen asentaminen virtuaaliseen työpöytään on rajoitettua. Ota aina yhteyttä servicedesk@csc.fi ohjelmistotarpeistasi ennen kuin aloitat tietojen kanssa työskentelyn.
+* Kirjautumisen jälkeen käyttäjä voi käynnistää valmiiksi rakennetun laskentaympäristön (Linux Ubuntu -käyttöjärjestelmä) tarpeen mukaan; tarjolla olevat vaihtoehdot mahdollistavat kaiken yksinkertaisesta tilastollisesta analyysistä koneoppimiseen.
 
-## Rajoitukset {#limitations}
+* Sääntelyn noudattamiseksi toissijaisen käytön virtuaalityöpöydät on eristetty täysin internetistä ja muista palveluista: pääset käsiksi vain niihin aineistoihin, joita olet pyytänyt rekisterinpitäjältä;
 
-* Säädösten noudattamiseksi toissijaiseen käyttöön tarkoitettu SD-työpöytä on **täysin eristetty internetistä ja muista palveluista**. Voit esimerkiksi avata Firefox-verkkoselaimen, mutta et pysty päästä millekään internetin sivustolle.
+* SD Desktopia voidaan käyttää kaiken tyyppisten aineistojen käsittelyyn: tekstitiedostot, kuvat, äänitiedostot, video ja geneettinen data. Virtuaalityöpöydällä on kuitenkin [rajoitettu valikoima valmiiksi asennettua ohjelmistoa](../../data/sensitive-data/sd-desktop-secondary-working.md#default-software-available-in-sd-desktop) (avoimen lähdekoodin). Lisäohjelmistojen asentaminen virtuaalityöpöydälle on rajoitettua. Ota aina yhteyttä servicedesk@csc.fi ohjelmistotarpeista ennen kuin aloitat aineistojen parissa työskentelyn.
 
-* **Datan ja ohjelmiston tuonti on rajoitettua SD-työpöydässä**. Et voi turvallisuussyistä tuoda mitään dataa tai ohjelmistoa itse. Jos työskentelet tietoaineiston kanssa, johon olet saanut luvan tietojen käsittelijältä, ainoa tapa päästä käsiksi dataan analysointia varten on käyttää erityistä sovellusta nimeltä **Data Gateway**.
+## Rajoitukset { #limitations }
 
-* **Datan vienti SD-työpöydältä on myös rajoitettua**. Vain *ei-herkkiä* tuloksia voidaan viedä työtilasta, ja ne voi viedä vain CSC-projektin johtaja. Ohjeet tulostesi viemiseen annetaan seuraavassa kappaleessa.
+* Sääntelyn noudattamiseksi toissijaisen käytön SD Desktop on täysin eristetty internetistä ja muista palveluista. Voit esimerkiksi avata Firefox-selaimen, mutta et pääse millekään verkkosivulle.
 
-* Lopuksi, emme vielä tarjoa virtuaalista työpöytää Windows-käyttöjärjestelmällä tai GPU:illa.
+* **Datan ja ohjelmistojen tuonti SD Desktopiin on rajoitettua**. Et voi turvallisuussyistä tuoda itse mitään dataa tai ohjelmistoja. Jos työskentelet aineiston kanssa, johon olet saanut luvan rekisterinpitäjältä, ainoa tapa päästä analysoitavan datan äärelle on käyttää erillistä sovellusta nimeltä **Data Gateway**. 
 
-## Ennen aloittamista {#before-you-start}
+* **Datan vienti SD Desktopista on myös rajoitettua**. Vain ei-sensitiivisiä tuloksia voidaan viedä työtilasta, ja viennin voi tehdä ainoastaan CSC-projektin vastuuhenkilö. Ohjeet tulosten vientiin esitetään seuraavassa kappaleessa.
 
-* Sinulla on oltava Findatan tai yksittäisen rekisterin myöntämä tietolupa ennen kuin aloitat palvelun käyttöprosessin CSC:llä.
 
-* Kaikki tietyn CSC-projektin jäsenet voivat käyttää samaa laskentaympäristöä. Tällä hetkellä on mahdollista käynnistää 3 virtuaalista työpöytää (tai laskentaympäristöä) kullekin CSC-projektille. Jokaisella CSC-projektilla on oma yksityinen työpöytä, ja kukin työpöytä on eristetty muista CSC-projekteista tai CSC-tileistä.
+* Lopuksi: emme toistaiseksi tarjoa Windows-käyttöjärjestelmällä tai GPU:illa varustettua virtuaalityöpöytää. 
 
-* Auditoinnin SD-työpöydällä on muutamia tärkeitä rajoituksia: CSC-projektia hallinnoi palvelupiste ja tiedonsiirto on rajoitettua (mukaan lukien käyttäjän omat skriptit ja ohjelmat).
+## Ennen kuin aloitat { #before-you-start }
 
-* Kun tietolupasi vanhenee, et voi enää käyttää virtuaalista työpöytääsi. Jatkaaksesi työskentelyä saman projektin kanssa, sinun on lähetettävä muutoshakemus tietojen käsittelijälle. Muussa tapauksessa varmista, että pyydät kaikkien tuloksiesi vientiä ennen tietolupasi voimassaoloajan päättymistä. Vanhenneen projektin ja kaikki tiedot poistetaan 90 päivän kuluttua CSC:n tietojen säilytyskäytännön mukaisesti.
+* Sinulla tulee olla Findatan tai yksittäisen rekisterinpitäjän myöntämä tietolupa ennen kuin aloitat palveluun pääsyn hakemisen CSC:ssä.
 
-!!! Huomio
-    Suosittelemme, että **[otat yhteyttä CSC:n palvelupisteeseen](../../support/contact.md) hyvissä ajoin etukäteen**, jopa ennen tietoluvan hakemista, jos tarvitset **työpöydällä ei oletuksena olevia ohjelmistoja**.
+* Kaikki tiettyyn CSC-projektiin kuuluvat jäsenet voivat käyttää samaa laskentaan tarkoitettua virtuaalityöpöytää. Tällä hetkellä kunkin CSC-projektin puitteissa on mahdollista käynnistää 3 virtuaalityöpöytää (tai laskentaympäristöä). Jokaisella CSC-projektilla on oma yksityinen työpöytänsä, ja kukin työpöytä on eristetty muista CSC-projekteista ja -tileistä.
+
+* Auditoinnin läpäisseessä SD Desktopissa on joitakin tärkeitä rajoituksia: CSC-projektia hallinnoi Service Desk, ja tiedonsiirto on rajoitettua (mukaan lukien käyttäjien omat skriptit ja ohjelmat).
+
+* Kun tietolupasi vanhenee, et enää pääse virtuaalityöpöydällesi. Jos haluat jatkaa työskentelyä saman projektin parissa, sinun on lähetettävä muutoshakemus rekisterinpitäjälle. Muussa tapauksessa pyydä kaikkien tulostesi vienti ennen tietolupasi voimassaolon päättymistä. Vanhentunut projekti ja kaikki data poistetaan 90 päivän kuluttua CSC:n tietojen säilytyspolitiikan mukaisesti.
+
+!!! Note
+    Suosittelemme, että **[otat yhteyttä CSC Service Deskiin](../../support/contact.md) hyvissä ajoin**, jopa ennen tietoluvan hakemista, jos tarvitset ohjelmistoa, jota ei ole oletuksena saatavilla työpöydällä.

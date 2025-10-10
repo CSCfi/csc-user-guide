@@ -1,85 +1,90 @@
+# Laskutus { #billing }
 
-# Laskutus
+## Terminologia { #terminology }
 
-## Terminologia {#terminology}
+* Laskutusyksikkö (BU): CSC:n laskutuksessa käytettävä yksikkö – kukin resurssi kuluttaa tietyn määrän BU:ita tunnissa.
+* Pilvilaskutusyksikkö (Cloud BU): Pilviresurssien käyttöön kohdistetut laskutusyksiköt.
+* CSC:n laskentaprojekti: Käyttäjän resurssitiedot sisältävä kohde – mukaan lukien Cloud BU -määrä ja käytettävissä olevat CSC-palvelut.
+* Rahti-projekti: Kubernetes-nimiavaruus lisäannotaatioilla.
 
-* Laskutusyksikkö (BU): Yksikkö, jota käytetään laskutuksessa CSC:ssä - jokainen resurssi kuluttaa tietyn määrän BUs tunnissa.
-* CSC laskentaprojekti: Käyttäjän resurssitiedon säilytyspaikka - sisältää: BUs-määrän ja CSC-palvelut, jotka ovat käytettävissä.
-* Rahti-projekti: Kubernetes-namespace lisäannotaatioilla.
+## Laskutusmalli { #billing-model }
 
-## Laskutusmalli {#billing-model}
+Tietyn CSC-projektin Cloud BU -kulutus lasketaan keräämällä käyttödata kaikista kyseiseen CSC-projektiin liitetyistä Rahti-projekteista.
+Nämä laskelmat perustuvat:
 
-CSC-projektiin liittyvien Rahti-projektien käyttöaineistot kerätään laskentayksiköiden käyttötarkoituksen laskemiseksi. Nämä laskelmat perustuvat:
+* Podin CPU-ytimiin.
+* Podin muistiin.
+* Pysyviin volyymeihin.
 
-* Pod-ydin.
-* Pod-muisti.
-* Pysyvät levyt.
+Jos todellinen käyttö on pienempi kuin pyydetty vähimmäisresurssi, laskennassa käytetään pyydettyä resurssia.
 
-Jos nykyinen käyttö on alle vähimmäisresurssin, laskelmissa käytetään pyydettyä resurssia.
+Cloud BU:iden kulutusnopeus riippuu resurssien koosta. Cloud BU:ita kulutetaan seuraavasti:
 
-Se, kuinka nopeasti laskutusyksiköitä kulutetaan, riippuu resurssien koosta. Laskutusyksiköitä kulutetaan seuraavasti:
-
-| Resurssi        | Laskutusyksiköt |
-|-----------------|-----------------|
-| Podi-ydintunti  | 1               |
-| Podi RAM GiB tunti | 1,5           |
-| Tallennus TiB tunti | 3            |
+| Resurssi         | Pilvilaskutusyksiköt |
+|------------------|----------------------|
+| Pod-ydintunti    | 1                    |
+| Pod RAM GB -tunti| 1,5                  |
+| Tallennus TiB -tunti | 3                |
 
 
 !!! info
 
-    Tällä hetkellä Rahti ei laskuta tallennetuista kuvista.
+    Tällä hetkellä Rahti ei laskuta tallennetuista imageista.
 
-Katsotaanpa esimerkki. Luot podin seuraavilla määrityksillä:
+Katsotaan esimerkki. Luot podin seuraavilla määrityksillä:
 
 * 1 ydin
 * 512 MiB RAM
 
-nykyinen todellinen käyttö on:
+ja todellinen tämänhetkinen käyttö on:
 
 * 0,5 ydintä
 * 1 GiB RAM
 
-Luot myös pysyvän 10 GiB levyn ja liität sen podiin. Kustannukset BUs:ssä voidaan laskea seuraavasti:
+Luot myös 10 GiB:n pysyvän volyymin ja liität sen podiin. Kustannus Cloud BU:ina lasketaan seuraavasti:
 
-Ydin käyttö on 0,5 ydintä ja pyyntö on 1 ydintä. BU-kulutusasteen mukaan 1 > 0,5 joten käytetään 1.
+Ydinkäyttö on 0,5 ydintä ja pyyntö 1 ydin. Cloud BU -kulutussäännön mukaan 1 > 0,5, joten laskennassa käytetään arvoa 1.
 
-Muistin käyttö on 1 GiB ja pyyntö on 512 MiB. Sama pätee muistinkäyttöön 1 GiB > 512 MiB, joten käytetään 1 GiB
+Muistinkäyttö on 1 GiB ja pyyntö 512 MiB. Sama pätee muistiin: 1 GiB > 512 MiB, joten laskennassa käytetään 1 GiB.
 
 ![BU-laskenta](../img/BU-calculation.drawio.svg)
 
 <!--
-## Laskutusyksikkölaskuri
+## Laskutusyksikkölaskuri { #billing-unit-calculator }
 
-Arvio laskutusyksiköistä, joita aiotut palvelut kuluttavat, katso laskutusyksikkölaskuri. [Myöhempi löytää laskutusyksikkölaskuri MyCSC:stä](https://my.csc.fi/buc/).
+Arvioidaksesi, kuinka paljon aiot käyttämiesi palvelujen laskutusyksiköitä kuluu, katso alla olevaa
+laskuria. [Laskuri löytyy myös MyCSC:stä](https://my.csc.fi/buc/).
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 
 -->
-## Kustannusmuutos siirryttäessä Rahdista 1 Rahtiin {#cost-change-when-migrating-from-rahti-1-to-rahti}
+## Kustannusmuutos siirryttäessä Rahti 1:stä Rahtiin { #cost-change-when-migrating-from-rahti-1-to-rahti }
 
-Kun siirrytään Rahdista 1 Rahtiin, BU-laskenta muuttuu. Laskennan pääasialliset erot ovat:
+Siirtymisen yhteydessä Cloud BU -laskenta muuttuu. Tärkeimmät erot laskennassa ovat:
 
-* Rahti 1:ssä BU:t lasketaan pyydettyjen resurssien perusteella, kun taas Rahtissa BU:t lasketaan nykyisten käyttötapojen mukaan. Jos nykyinen käyttö on alle vähimmäisresurssin, laskennassa käytetään pyydettyä resurssia.
-* Podi-ydintunnin BU Rahti 1:ssä on 0,5 ja Rahtissa 1.
-* Podin RAM GiB tunnin BU Rahti 1:ssä on 1, kun taas Rahtissa se on 1,5.
+* Rahti 1:ssä laskenta perustuu pyydettyihin resursseihin, kun taas Rahtissa se perustuu toteutuneeseen käyttöön. Jos toteutunut käyttö on pienempi kuin pyydetty vähimmäisresurssi, laskennassa käytetään pyydettyä resurssia.
+* Cloud BU podin ydintunnista on Rahti 1:ssä 0,5 ja Rahtissa 1.
+* Cloud BU podin RAM GiB -tunnista on Rahti 1:ssä 1, kun taas Rahtissa se on 1,5.
 
-Huomio: Tallennus TiB tunnin BU on sama eli 3.
+Huom.: Cloud BU tallennuksen TiB-tunnista on sama eli 3.
 
-Joten yllä olevassa esimerkissä BU-laskelma Rahti 1:lle on
+Näin ollen yllä olevan esimerkin Cloud BU -laskenta Rahti 1:ssä on
 
-![BU-laskenta Rahdille 1](./images/Rahti1BU.drawio.svg)
+![Cloud BU -laskenta Rahti 1:ssä](./images/Rahti1BU.drawio.svg)
 
-Oletusrajat Rahtissa voidaan asettaa alemmaksi kuin oletusmääräraja. Siinä missä Rahti 1:ssä oletusraja on sama kuin oletusmääräraja. Lisätietoja [Siirtyminen Rahtiin](../rahti/rahti-migration.md). Tämä voi vähentää oletuskustannuksia käyttäjälle. Samalle esimerkille BU Rahdille 1:
+Rahtissa oletusrajat voidaan asettaa pienemmiksi kuin oletuskiintiö. Rahti 1:ssä oletusraja on sama kuin oletuskiintiö. Lisätietoja: [Siirtyminen Rahtiin](../rahti/rahti-migration.md). Tämä voi pienentää käyttäjän oletuskustannuksia. Sama esimerkki, Cloud BU Rahti 1:lle:
 
-![Oletuskustannus Rahdille 1](./images/Rahti1Requests.drawio.svg)
+![Oletuskustannus Rahti 1:ssä](./images/Rahti1Requests.drawio.svg)
 
-ja Rahtissa BU on rajoissa:
+ja Rahtissa Cloud BU sijoittuu
+rajojen väliin:
 
-![Oletusrajoitukset Rahdille](./images/RahtiLimits.drawio.svg)
+![Rahtin oletusrajat](./images/RahtiLimits.drawio.svg)
 
-ja pyynnöt:
+ja pyyntöjen:
 
-![Oletuspyynnöt Rahdille](./images/RahtiRequest.drawio.svg)
+![Rahtin oletuspyynnöt](./images/RahtiRequest.drawio.svg)
 
-Huomio: Tallennus TiB tunnin BU on pidetty samana eli 3.
+Huom.: Tallennuksen TiB-tunnin Cloud BU on oletettu samaksi eli 3.
+
+!!! info "\* **Cloud BU**: Pilvilaskutusyksikkö"

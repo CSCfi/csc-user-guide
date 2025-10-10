@@ -1,12 +1,13 @@
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-# Uudelleenkäyttö arkaluontoisten tietojen kanssa {#reuse-with-sensitive-data-apply}
+# Uudelleenkäyttö Sensitive Data Applyn avulla { #reuse-with-sensitive-data-apply }
 
-Arkaluontoisten tietojen (SD) Apply on palvelu, joka mahdollistaa pääsyoikeuksien hakemisen CSC:ssä tallennettuihin arkaluontoisiin tietoaineistoihin. Käytännössä se on yksinkertainen verkkokäyttöliittymä, joka opastaa sinua hakemusprosessin aikana.
+Sensitive Data (SD) Apply on palvelu CSC:hen tallennettujen arkaluonteisten aineistojen käyttöoikeuksien hakemiseen. Käytännössä se on yksinkertainen verkkokäyttöliittymä, joka opastaa sinua hakuprosessin aikana.
 
-Jokaisella kontrolloidun pääsyn alle julkaistulla arkaluontoisella tietoaineistolla on Data Access Committee (DAC). DAC on yksi tai useampi nimetty henkilö, joka vastaa tietojen käyttöoikeuden myöntämisestä ulkopuolisille hakijoille (tai pyytäjille) tiettyjen käytäntöjen mukaisesti. SD Apply helpottaa tiedonhakijan ja DAC:n välistä viestintää automatisoimalla hakuprosessin, varmistamalla tarvittavien tietojen saatavuuden ja tarjoamalla tietueen hakemushistoriasta. Kun hakemus on tarkasteltu ja hyväksytty, tiedonhakija voi analysoida tietoaineistoja suoraan SD Desktopissa – pilvilaskentaympäristössä, joka on osa [CSC:n arkaluontoisten tietojen palvelut tutkimukseen](https://research.csc.fi/sensitive-data-services-for-research).
+Jokaisella kontrolloidun pääsyn alaisena julkaistulla arkaluonteisella aineistolla on siihen liitetty Data Access Committee (DAC). DAC on elin, joka koostuu yhdestä tai useammasta nimetyistä henkilöstä ja vastaa aineistojen käyttöoikeuksien myöntämisestä ulkoisille hakijoille (tai pyynnön esittäjille) ennalta määriteltyjen periaatteiden mukaisesti. SD Apply helpottaa hakijan ja DAC:n välistä viestintää automatisoimalla hakuprosessin, varmistamalla tarvittavien tietojen saatavuuden ja tarjoamalla kirjauksen hakemushistoriasta. Kun hakemus on käsitelty ja hyväksytty, hakija voi analysoida aineistoja suoraan SD Desktopissa – pilvilaskenta­ympäristössä, joka on osa [CSC Sensitive Data Services for research](https://research.csc.fi/sensitive-data-services-for-research) -palvelukokonaisuutta.
 
-Seuraava on vaiheittainen opas SD Apply -palveluun, joka kuvaa:
+Seuraavassa on vaiheittainen opas SD Apply -palveluun, joka havainnollistaa: 
 
-- **[Hakea pääsyä FEGA-tietoihin](./sd-apply-access.md)**
-- **[Hyväksyä pääsy FEGA-tietoihin](./sd-apply-approval.md)**
-- **[Mahdollistaa FEGA-tietojen uudelleenkäyttö](./sd-apply-dac.md)**
+- **[Hae pääsyä FEGA-aineistoihin](./sd-apply-access.md)**
+- **[Hyväksy pääsy FEGA-aineistoihin](./sd-apply-approval.md)**
+- **[Mahdollista FEGA-aineistojen uudelleenkäyttö](./sd-apply-dac.md)**

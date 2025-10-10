@@ -1,118 +1,124 @@
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-# Kansioiden ja tiedostojen lataaminen {#downloading-folders-and-files}
+# Kansioiden ja tiedostojen lataaminen { #downloading-folders-and-files }
 
-Voit helposti ladata kansioita tai yksittäisiä tiedostoja SD Connect -käyttöliittymästä.
+Voit ladata kansioita tai yksittäisiä tiedostoja helposti SD Connect -käyttöliittymästä.
 
-**Automaattinen salauksen purku on saatavilla vain tiedostoille, jotka on ladattu ja automaattisesti salattu käyttöliittymän kautta 1. lokakuuta 2024 jälkeen**. Sitä vastoin tiedostot, jotka on ladattu ennen 1. lokakuuta 2024, on salattu manuaalisesti salausavaimellasi ja ne on purettava manuaalisesti latauksen jälkeen. Vaikka molemmat tiedostotyypit käyttävät samaa .c4h-päätettä, jos latauksen aikana näet viestin "Pyydettyjä tiedostoja ei voitu purkaa", se osoittaa, että tiedosto on salattu manuaalisesti ja sen purkaminen vaatii lisävaiheen. Jos tarvitset apua, älä epäröi ottaa meihin yhteyttä.
+**Automaattinen salauksen purku on saatavilla vain tiedostoille, jotka on lähetetty käyttöliittymän kautta 1.10.2024 jälkeen ja salattu automaattisesti.** Sen sijaan ennen 1.10.2024 ladatut tiedostot salattiin manuaalisesti käyttämällä omaa salausavaintasi ja ne on purettava manuaalisesti latauksen jälkeen. Vaikka molemmissa tiedostotyypeissä on sama `.c4h`-pääte, jos näet latauksen aikana viestin "Requested files could not be decrypted", se tarkoittaa, että tiedosto on salattu manuaalisesti ja sen purkaminen vaatii lisävaiheen. Jos tarvitset apua, ota meihin rohkeasti yhteyttä.
 
 1. [Lataus ja automaattinen salauksen purku](#download-and-automated-decryption)
 2. [Lataus ja manuaalinen salauksen purku](#download-and-manual-decryption)
 
-!!! Huom
-    Jos käytät palvelua ensimmäistä kertaa, selaimesi voi näyttää ponnahdusikkunan, jossa pyydetään hyväksymään evästeet. Klikkaa Hyväksy saadaksesi latauksen alkamaan.
+!!! Note
+    Jos käytät palvelua ensimmäistä kertaa, selaimeen voi ilmestyä ponnahdusikkuna, jossa pyydetään hyväksymään evästeet. Käynnistä lataus napsauttamalla Accept.
 
-## Lataus ja automaattinen salauksen purku {#download-and-automated-decryption}
+## Lataus ja automaattinen salauksen purku { #download-and-automated-decryption }
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Koskee tiedostoja ja kansioita, jotka on ladattu SD Connect -käyttöliittymän kautta 1. lokakuuta 2024 jälkeen.
+Koskee tiedostoja ja kansioita, jotka on ladattu SD Connect -käyttöliittymän kautta 1.10.2024 jälkeen.
 
-### Kansion lataaminen {#downloading-folder}
+### Kansion lataaminen { #downloading-folder }
 
-1. Löydä oikea kansio Kaikki kansiot -välilehdeltä.
-2. Klikkaa **Lataa** haluamasi kansion oikealla puolella.
-3. Tiedostot puretaan automaattisesti. Etsi ladatut tiedostot tietokoneeltasi (esimerkiksi Lataukset-kansio).
+1. Etsi oikea kansio All folders -välilehdeltä.
+2. Napsauta haluamasi kansion oikealta puolelta kohtaa **Download**.
+3. Tiedostojen salaus puretaan automaattisesti. Löydät ladatut tiedostot tietokoneeltasi (esimerkiksi Downloads-kansiosta).
 
-### Yksittäisten tiedostojen lataaminen {#downloading-individual-files}
+![SD Connect: kansion lataus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Download.png)
 
-1. Löydä oikea kansio Kaikki kansiot -välilehdeltä ja klikkaa nähdäksesi tiedostot.
+### Yksittäisten tiedostojen lataaminen { #downloading-individual-files }
+
+1. Etsi oikea kansio All folders -välilehdeltä ja avaa se nähdäksesi tiedostot.
 2. Etsi oikeat tiedostot.
-3. Klikkaa **Lataa** kunkin tiedoston oikealla puolella, jonka haluat ladata.
-4. Tiedostot puretaan automaattisesti. Tiedostot ladataan ja puretaan automaattisesti, yleensä lataukset-kansioon. Älä avaa kansiota ennen kuin lataus on valmis välttääksesi virheitä. Ladatulla kansiolla on .tar-pääte, kaksoisklikkaa avataksesi sisällön uuteen kansioon.
+3. Napsauta kunkin ladattavan tiedoston oikealta puolelta **Download**.
+4. Salaus puretaan automaattisesti. Tiedostot latautuvat ja purkautuvat automaattisesti, yleensä Downloads-kansioon. Älä avaa kansiota ennen kuin lataus on valmis virheiden välttämiseksi. Ladatun kansion tiedostopääte on `.tar`; pura sisältö kaksoisnapsauttamalla, jolloin se avautuu uuteen kansioon.
 
-!!! Varoitus
-    Jos kohtaat viestin 'Jotkin ladatut tiedostot vaativat manuaalista purkamista.' latauksen aikana, se tarkoittaa, että joitain kansiosi tiedostoja on ladattu SD Connectin vanhemmalla versiolla, jolloin automaattinen purku ei ole käytettävissä. Ratkaistaksesi tämän, seuraa näitä [ohjeita](#download-and-manual-decryption). Lisäavuksi, [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
+!!! Warning
+    Jos kohtaat latauksen aikana viestin 'Some downloaded files need manual decryption.', se tarkoittaa, että osa kansion tiedostoista on ladattu SD Connectin vanhemmalla versiolla, jolloin automaattinen salauksen purku ei ole käytettävissä. Ratkaistaksesi asian noudata näitä [ohjeita](#download-and-manual-decryption). Tarvittaessa [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
 
-### Lataaminen Firefoxilla: vianetsintä {#downloading-via-firefox-troubleshooting}
+![SD Connect: tiedostojen lataus](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Downloadfiles.png)
 
-Firefox on tuettu selain; kuitenkin voit törmätä ongelmiin, joissa lataus ei ala.
 
-Jos käytät palvelua ensimmäistä kertaa tai olet tyhjentänyt selaimen historia- ja evästeet, voi ilmestyä ponnahdusikkuna, jossa pyydetään hyväksymään evästeet. Tämä ponnahdusikkuna ilmestyy vain, kun klikkaat Lataa, eikä välttämättä ole heti näkyvissä, koska se ilmestyy selaimen yläriville. Klikkaa Hyväksy saadaksesi latauksen alkamaan.
+### Lataaminen Firefoxilla: vianmääritys { #downloading-via-firefox-troubleshooting }
 
-Jos olet käyttänyt palvelua aiemmin, mutta lataus ei yhtäkkiä ala, noudata näitä ohjeita (tämä prosessi on tehtävä vain kerran):
+Firefox on tuettu selain; kuitenkin lataus ei välttämättä aina käynnisty.
 
-1. Selaimessasi, klikkaa **Työkalut** > **Selaimen työkalut** > **Web Developers -työkalut** (tai paina näppäimistölläsi F12 Windowsissa tai Fn+F12 Macilla).
-2. Uusi ikkuna aukeaa selaimesi alareunaan. Klikkaa **Sovellus**-välilehteä.
-3. Kohdassa **Service Worker**, klikkaa **Poista rekisteröinti**.
-4. Voit sulkea **Web Developers -työkalut** ikkunan.
-5. Päivitä selaimesi ja lataa tiedostot näiden [ohjeiden](#downloading-individual-files) mukaan.
+Jos käytät palvelua ensimmäistä kertaa tai olet tyhjentänyt selaushistorian ja evästeet, voi ilmestyä ponnahdusikkuna, jossa pyydetään hyväksymään evästeet. Tämä ponnahdus näkyy vasta, kun napsautat Download, eikä se välttämättä ole heti näkyvissä, sillä se ilmestyy selaimen yläreunan palkkiin. Käynnistä lataus napsauttamalla Accept." 
 
-![SD Connect lataus Firefoxilla](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
+Jos olet käyttänyt palvelua aiemmin, mutta lataus ei yllättäen enää käynnisty, toimi näin (tämä tarvitsee tehdä vain kerran):
 
-![SD Connect lataus Firefoxilla](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
+1. Selaimessa valitse **Tools** > **Browser Tools** > **Web Developer Tools** (tai näppäimistöltä F12 Windowsilla tai Fn+F12 Macilla).
+2. Selainikkunan alaosaan avautuu uusi ikkuna. Napsauta välilehteä **Application**.
+3. **Service Worker** -kohdan vierestä valitse **Unregister**.
+4. Voit sulkea **Web Developer Tools** -ikkunan.
+5. Päivitä selain ja lataa tiedostot noudattaen näitä [ohjeita](#downloading-individual-files).
 
-## Lataus ja manuaalinen salauksen purku {#download-and-manual-decryption}
 
-Koskee tiedostoja, jotka on ladattu SD Connect -käyttöliittymän kautta ennen lokakuuta 2024. Nämä tiedostot pysyvät salattuina latauksen jälkeen, ja sinun täytyy purkaa ne manuaalisesti tietokoneellasi Crypt4GH-sovelluksella noudattamalla annettuja ohjeita:
+![SD Connect: lataus Firefoxilla](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
 
-Huomioi, että voit purkaa vain yhden tiedoston kerralla. Jos sinun täytyy purkaa useita tiedostoja kerralla, komentorivi-optio on saatavilla. Lisäavuksi, [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
+![SD Connect: lataus Firefoxilla](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
 
-### 1.1 Valmistelu
+## Lataus ja manuaalinen salauksen purku { #download-and-manual-decryption }
+
+Koskee tiedostoja, jotka on ladattu SD Connect -käyttöliittymän kautta ennen lokakuuta 2024. Nämä tiedostot säilyvät salattuina latauksen jälkeen, ja sinun on purettava niiden salaus manuaalisesti omalla kannettavallasi Crypt4GH-sovelluksella seuraavia ohjeita noudattaen:
+
+Huomaa, että voit purkaa salauksen vain yhdestä tiedostosta kerrallaan. Jos sinun täytyy purkaa useita tiedostoja kerralla, käytettävissä on komentorivivaihtoehto. Lisäohjeita varten [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
+
+### 1.1 Valmistelut { #1.1-preparation }
 
 - **Pidä yksityinen salausavaimesi saatavilla.** Jos et muista käytettyä avainta, ole hyvä ja [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
 
-- **Lataa Crypt4GH-graffinen käyttöliittymä tietokoneellesi.** Tämä työkalu on tarpeen tiedostojen purkamista varten. Jos kohtaat ongelmia työkalun asentamisessa, erityisesti IT-osaston tarjoamalla tietokoneella, [ota yhteyttä meihin saadaksesi apua](../../support/contact.md).
-- Asenna Crypt4GH-sovellus: CSC on kehittänyt yksinkertaisen sovelluksen, joka sallii sinun luoda salausavaimia ja purkaa dataa tarvittaessa. Lataa käyttöjärjestelmällesi sopiva versio [GitHub-repositorista](https://github.com/CSCfi/crypt4gh-gui): <!-- (linkkejä tulee päivittää) -->
+- **Lataa Crypt4GH:n graafinen käyttöliittymä kannettavallesi.** Työkalu on välttämätön tiedostojen salauksen purkamista varten. Jos kohtaat ongelmia työkalun asennuksessa, erityisesti IT-osastosi tarjoamalla kannettavalla, [ota meihin yhteyttä saadaksesi apua](../../support/contact.md).
+- Asenna Crypt4GH-sovellus: CSC on kehittänyt yksinkertaisen sovelluksen, jonka avulla voit luoda salausavaimet ja purkaa salauksen tarvittaessa. Lataa käyttöjärjestelmällesi sopiva versio [GitHub-repositorysta](https://github.com/CSCfi/crypt4gh-gui): <!-- (links need to be updated) -->
       - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
       - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
       - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
 
-      Tarkista, että Windows-työkalu on digitaalisti allekirjoitettu CSC - IT Center for Science toimesta. Latauksen jälkeen löydät Crypt4GH-sovelluksen lataukset-kansiostasi. Kun avaat sovelluksen ensimmäistä kertaa, saatat kohdata virheilmoituksen. Tällöin klikkaa _Lisätietoja_ ja vahvista, että julkaisija on CSC-IT Center for Science (tai suomeksi CSC-Tieteen tietotekniikan keskus Oy) ja klikkaa sitten _Suorita silti_.
+      Tarkista, että Windowsille tarkoitettu työkalu on CSC - IT Center for Sciencein digitaalisesti allekirjoittama. Latauksen jälkeen löydät Crypt4GH-sovelluksen Downloads-kansiostasi. Kun avaat sovelluksen ensimmäistä kertaa, saatat kohdata virheilmoituksen. Tällöin napsauta _More info_ ja varmista, että julkaisija on CSC-IT Center for Science (tai suomeksi CSC-Tieteen tietotekniikan keskus Oy), ja napsauta sitten _Run anyway_.
 
-### 1.2 Lataa tiedostot SD Connectista {#download-the-files-from-sd-connect}
+### 1.2 Tiedostojen lataaminen SD Connectista { #1.2-download-the-files-from-sd-connect }
 
-Pääsy SD Connectiin ja etsi tarvitsemasi tiedostot. Voit ladata joko koko säiliön tai yksittäisiä tiedostoja. Latauksen lopussa käyttöliittymä näyttää viestin: "Joillakin ladatuista tiedostoista tarvitaan manuaalista purkamista."
-   ![Joillakin pyydetyistä tiedostoista ei voitu purkaa.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
+Avaa SD Connect ja etsi tarvitsemasi tiedostot. Voit ladata joko koko bucketin tai yksittäisiä tiedostoja. Latauksen lopussa käyttöliittymä näyttää viestin: "Some downloaded files need manual decryption."
+   ![Joidenkin pyydettyjen tiedostojen salausta ei voitu purkaa.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
 
-### 1.3 Tiedoston päätteen vaihtaminen {#change-the-file-extension}
+### 1.3 Tiedostopäätteen muuttaminen { #1.3-change-the-file-extension }
 
-Tiedostojen lataamisen jälkeen sinun täytyy muokata niiden päätettä. Napsauta hiiren oikealla painikkeella tiedostoa, valitse "Nimeä uudelleen" ja lisää `.c4gh` tiedostonimen loppuun. Jos avataan tekstieditorilla, tiedostot ovat edelleen salattuja.
-   ![Tiedostojen lataamisen jälkeen sinun täytyy muokata niiden päätettä.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
+Latauksen jälkeen sinun täytyy muokata tiedostopäätteitä. Napsauta tiedostoa hiiren oikealla painikkeella, valitse "Rename" ja lisää tiedostonimen loppuun `.c4gh`. Vaikka avaat tiedoston tekstieditorissa, se on edelleen salattu.
+   ![Latauksen jälkeen sinun täytyy muokata tiedostopäätteitä.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
 
-### 1.4 Tiedostojen purkaminen Crypt4gh-sovelluksella {#decrypt-the-files-with-the-crypt4gh-application}
+### 1.4 Tiedostojen salauksen purku Crypt4gh-sovelluksella { #1.4-decrypt-the-files-with-the-crypt4gh-application }
 
 [Video](https://youtu.be/SQJ8QEKV7BE)
 
-Seuraavaksi voit purkaa tiedoston Crypt4GH-sovelluksella ja salaisella salausavaimellasi. Valitettavasti tällä hetkellä ainoastaan yksittäisiä tiedostoja voidaan purkaa.
-      1. Avaa Crypt4GH-sovellus ja klikkaa _Lataa yksityinen avain_.
-      2. Klikkaa _Valitse tiedosto_ ja lataa tiedosto, jonka haluat purkaa.
-      3. Klikkaa _Avaa_.
-      4. Seuraavaksi klikkaa _Pura tiedosto_.
-      5. Työkalu pyytää sinua kirjoittamaan salaisen avaimen salasanan. Paina _ok_.
+Seuraavaksi voit purkaa tiedoston salauksen Crypt4GH-sovelluksella ja salaisella salausavaimellasi. Valitettavasti tällä hetkellä on mahdollista käsitellä vain yksittäisiä tiedostoja.
+      1. Avaa Crypt4GH-sovellus ja napsauta _load Your Private Key_.
+      2. Napsauta _Select File_ ja lataa tiedosto, jonka salauksen haluat purkaa.
+      3. Napsauta _Open_.
+      4. Seuraavaksi napsauta _Decrypt File_.
+      5. Työkalu pyytää syöttämään salaisen avaimen salasanan. Paina _ok_.
 
-      Salaisen avaimen täytyy vastata avointa avainta, jota käytettiin datan salaamiseen.
+      Salaisen avaimen on vastattava julkista avainta, jolla data salattiin.
 
-!!! Huom
-    Salauksen purkamisen tapauksessa julkisen avaimen lisääminen ei ole pakollista, mutta jos sinulla on yksityisen avaimen haltijan, joka on salannut tiedoston, voit käyttää sitä varmistaaksesi salausallekirjoituksen. Jos et valitse julkista avainta, aktiviteettiloki näyttää seuraavan (purkaus suoritetaan joka tapauksessa):
+!!! Note
+    Salauksen purkamista varten julkisen avaimen lisääminen ei ole pakollista, mutta jos sinulla on sen henkilön julkinen avain, joka salasi tiedoston, voit käyttää sitä salauksen allekirjoituksen varmentamiseen. Jos et valitse julkista avainta, tapahtumaloki näyttää seuraavaa (salaus puretaan joka tapauksessa):
 
     ```text
-    Lähettäjän julkista avainta ei ole asetettu, aitoutta ei vahvisteta.
+    Sender public key has not been set, authenticity will not be verified.
     ```
 
-Jos salauksen purkaminen onnistuu, aktiviteettiloki näyttää seuraavan:
+Jos salauksen purku onnistuu, tapahtumaloki näyttää seuraavaa:
 
 ```text
-Purkaminen..... Purku on valmis Purettu tiedosto: C:/users/käyttäjänimi/esimerkkikansio/esimerkkitiedosto
+Decrypting..... Decryption has finished Decrypted file: C:/users/username/exampledirectory/examplefile
 ```
 
-Purettu tiedosto ei enää näytä `.c4gh` päätettä ja se tallennetaan samaan kansioon, josta alkuperäinen tiedosto ladattiin.
+Puretussa tiedostossa ei ole enää `.c4gh`-päätettä ja se tallennetaan samaan kansioon, josta alkuperäinen tiedosto ladattiin.
 
-## Ominaisuudet SD Connectissa {#features-in-sd-connect}
+## SD Connectin ominaisuudet { #features-in-sd-connect }
 
 - [Lähetys](./sd-connect-upload.md)
 - [Jakaminen](./sd-connect-share.md)
-- [Lataaminen](./sd-connect-download.md)
+- [Lataus](./sd-connect-download.md)
 - [Poistaminen](./sd-connect-delete.md)
-- [Komentoriviliittymä](./sd-connect-command-line-interface.md)
-- [Vianetsintä](./sd-connect-troubleshooting.md)
-
+- [Komentorivikäyttöliittymä](./sd-connect-command-line-interface.md)
+- [Vianmääritys](./sd-connect-troubleshooting.md)

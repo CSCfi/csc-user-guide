@@ -1,80 +1,83 @@
+# Kuinka muuttaa instanssin tai taltion kokoa Poutassa { #how-to-resize-an-instance-or-volume-in-pouta }
+## Instanssin koon muuttaminen { #resize-an-instance }
+### Tilannevedon (snapshotin) käyttäminen { #using-a-snapshot }
+Alkuperäisessä instanssissasi saattaa ilmetä suorituskykyongelmia ja haluat ehkä ajaa instanssia suuremmalla flavorilla?  
+Voit toimia ottamalla instanssistasi tilannevedon ja käynnistämällä uuden instanssin uudella flavorilla käyttäen tilannevedosta.  
+Lisätietoja tilannevedoksista ja etenemisestä löydät [täältä](../../cloud/pouta/snapshots.md).
 
-# Kuinka muuttaa instanssin tai levyn kokoa Poutassa
-## Muuta instanssin kokoa {#resize-an-instance}
-### Käyttämällä tilannevedosta {#using-a-snapshot}
-Kohtaatko suorituskykyongelmia alkuperäisellä instanssillasi ja haluaisit ajaa instanssisi suuremmalla maulla?  
-On mahdollista edetä ottamalla tilannevedos instanssistasi ja sitten käynnistämällä uusi instanssi uudella maulla tilannevedosta käyttäen.  
-Voit löytää enemmän tietoa tilannevedoksista [täältä](../../cloud/pouta/snapshots.md) ja miten edetä.
+### Koonmuutos-toiminnon käyttäminen { #using-the-resize-functionality }
 
-### Käyttämällä koonmuutos-toimintoa {#using-the-resize-functionality}
-!!! Warning
-    [I/O maut](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) ja [GPU maut](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) eivät voi vaihtaa eri makuperheeseen. Suosittelemme käyttämään [tilannevedoksia](../../cloud/pouta/snapshots.md#launching-an-instance-from-a-volume-snapshot).
+- [I/O flavors](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) ja [GPU flavors](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) -flavoreja ei voi muuttaa koonmuutos-toiminnolla, koska juurilevyn ja efemeerisen levyn dataa ei kopioida sen yhteydessä. Tämä tarkoittaa, että kone ei välttämättä käynnisty ja konsolissa näkyy viesti "No bootable device". Suosittelemme käyttämään [snapshoteja](../../cloud/pouta/snapshots.md#launching-a-snapshot-from-the-web-interface).
+
+!!! Warning    
+    Muista, että snapshotia luotaessa vain juurilevyn sisältö säilyy. Jos sinulla on dataa efemeerisellä levyllä (yleensä hakemistossa `/mnt`), voit varmuuskopioida sen [taltiolle](../../cloud/pouta/persistent-volumes.md) tai `Allakseen` käyttäen työkalua kuten [rclone](../../data/Allas/using_allas/rclone.md) tai [s3cmd](../../data/Allas/using_allas/s3_client.md)
 
 !!! Warning  
-    On mahdollista muuttaa kokoa `standard` makuperheestä `hpc` makuperheeseen. Mikään ei estä sinua tekemästä tätä, mutta se on **erittäin epäsuositeltavaa!**  
-    Voit menettää tietoja prosessin aikana ja CSC ei ole vastuussa. Suosittelemme muuttamaan kokoa vain saman makuperheen makuihin (paitsi I/O maut, katso yllä).
+    On mahdollista muuttaa koosta `standard`-flavorin *perheestä* `hpc`-flavorin *perheeseen*. Mikään ei estä tekemästä niin, mutta sitä **ei todellakaan suositella!**  
+    Saatat menettää dataa prosessin aikana, eikä CSC ole vastuussa. Suosittelemme muuttamaan kokoa vain saman *perheen* flavorien välillä.
 
-Instanssisi **Toimintovalikossa** valitse **Muuta kokoa** aloittaaksesi prosessin:
+Instanssisi **Actions**-valikosta valitse **Resize** aloittaaksesi prosessin:  
 
-![muuta-kokoa-nappi](img/resize_button.png)
+![resize-button](img/resize_button.png)
 
-Ikkuna avautuu. Valitse uusi maku:
+Ikkuna avautuu. Valitse uusi flavor:
 
-![muuta-kokoa-ikkuna](img/resize_window.png)
+![resize-windows](img/resize_window.png)
 
-Klikkaa **Muuta kokoa**
+Valitse **Resize**
 
-Odota muutama minuutti ja prosessin aikana sinua pyydetään vahvistamaan koonmuutos:
+Odota muutama minuutti. Prosessin aikana sinulta pyydetään koonmuutoksen vahvistusta:
 
-![vahvista-koko](img/confirm_resize.png)
+![confirm-resize](img/confirm_resize.png)
 
-Kun instanssisi on tilassa `Vahvista koonmuutos/Siirrä`, voit yhdistää instanssiisi tarkistaaksesi, että kaikki toimii hienosti, koska se on jo muunnettu uuteen makuun.  
-Jos huomaat jotain vialla, voit palauttaa edelliseen tilaan `Palauta koonmuutos/Siirrä` -napilla pudotusvalikosta.
+
+Kun instanssisi tila on `Confirm Resize/Migrate`, voit yhdistää instanssiin ja tarkistaa, että kaikki toimii, koska instanssi on jo muunnettu uuteen flavoriin.  
+Jos huomaat jotain ongelmia, voit palata edelliseen tilaan pudotusvalikon painikkeella `Revert Resize/Migrate`.  
 
 !!! error-label  
-    Huomaa, että automaattinen vahvistusprosessi käynnistetään kolmen päivän kuluttua tilasta `Vahvista tai palauta koonmuutos/Siirrä`.
+    Huomaa, että kolmen päivän kuluttua tilasta `Confirm or Revert Resize/Migrate` käynnistyy automaattinen vahvistusprosessi
 
-Kun prosessi on päättynyt, sinun pitäisi olla instanssisi uuden maun kanssa.
+Kun prosessi on valmis, instanssillasi pitäisi olla uusi flavor.
 
-## Muuta levyn kokoa {#resize-a-volume}
+## Taltion koon muuttaminen { #resize-a-volume }
 !!! Notes  
-    Voit ainoastaan laajentaa levyä. Tällä hetkellä levyn kutistamista ei tueta Openstackissa.
+    Voit ainoastaan kasvattaa taltion kokoa. Taltion pienentäminen ei tällä hetkellä ole tuettu Openstackissa.
 
-Pouta antaa sinun luoda [ulkoisia levyjä](../../cloud/pouta/storage.md). Jos alkuperäinen levysi on liian pieni, voit muuttaa sen kokoa.
+Poutassa voit luoda [ulkoisia taltioita](../../cloud/pouta/storage.md). Jos alkuperäinen taltiokokosi on liian pieni, voit muuttaa sitä.
 
 !!! Note
-    Jos levysi on kytketty instanssiisi, sinun täytyy irrottaa se voidaksesi muuttaa kokoa
+    Jos taltiotasi käytetään instanssissa (se on liitettynä), sinun täytyy irrottaa se ennen koon muuttamista
 
-Levyt-sivulta, **Toimintavalikossa** klikkaa **Laajenna levyä**:
+Volumes-sivulla, **Actions**-valikosta, valitse **Extend Volume**:
 
-![muuta-levyn-kokoa](img/resize_volume.png)
+![resize-volume](img/resize_volume.png)
 
-Ikkuna avautuu. Syötä uusi levysi määrä:
+Ikkuna avautuu. Anna taltion uusi koko:
 
-![muuta-levyn-kokoa-ikkuna](img/resize_volume_window.png)
+![resize-volume-window](img/resize_volume_window.png)
 
-Klikkaa **Laajenna levyä**
+Valitse **Extend Volume**
 
-Sinun pitäisi nähdä levysi uusi koko.
+Näet nyt taltion uuden koon.
 
-Voit nyt liittää uuden levyn takaisin instanssiisi.
+Voit nyt liittää taltion takaisin instanssiisi.
 
-## Mukauta levyn kokoa luotaessa instanssia {#customize-disk-size-when-creating-the-instance}
+## Instanssia luotaessa levyn koon mukauttaminen { #customize-disk-size-when-creating-the-instance }
 
-Mukauttaaksesi juurilevyn kokoa instanssin luomisen aikana (tilannevedoksen sijaan), noudata näitä vaiheita:
+Voit mukauttaa juurilevyn kokoa instanssin luonnin yhteydessä (snapshotin käytön sijaan) seuraavasti:
 
-1. Mene kohtaan **Projekti > Laskenta > Instanssit** ja klikkaa **Käynnistä Instanssi**.
-2. **Yksityiskohdat**-osiossa:
-   - **Instanssin nimi**: Syötä nimi instanssillesi.
-   - **Maku**: Valitse sopiva maku, kuten `standard.tiny` (oletus 80 GB levytilalla).
-   - **Instanssin käynnistyslähde**: Valitse **Käynnistä kuvasta (luo uusi volyymi)**.
-   - **Kuvan nimi**: Valitse kuva, jota haluat käyttää (esim. AlmaLinux-8).
-   - **Laitteen koko**: Säädä juuriosion kokoa haluamaasi kokoon, kuten kuvassa (esim. 200 GB oletus 80 GB:n sijaan).
+1. Siirry kohtaan **Project > Compute > Instances** ja valitse **Launch Instance**.
+2. **Details**-osiossa:
+   - **Instance Name**: Anna instanssillesi nimi.
+   - **Flavor**: Valitse sopiva flavor, kuten `standard.tiny` (oletusarvoisesti 80 GB levytilaa).
+   - **Instance Boot Source**: Valitse **Boot from image (creates a new volume)**.
+   - **Image Name**: Valitse käytettävä levykuva (esim. AlmaLinux-8).
+   - **Device Size**: Säädä juuritaltion koko haluamaksesi, kuten kuvassa (esim. 200 GB oletuksen 80 GB:n sijaan).
    
-   - Tämä kenttä antaa sinulle mahdollisuuden mukauttaa juuriosion kokoa makun oletuslevykokoa suuremmaksi, kuten alla olevassa kuvassa.
+   - Tämä kenttä mahdollistaa juuritaltion koon mukauttamisen flavorin oletuslevykokoa suuremmaksi, kuten alla olevassa kuvassa.
 
-3. Kun olet konfiguroinut loput asetusvaihtoehdot (turvallisuus, verkotus jne.), klikkaa **Käynnistä**.
+3. Kun olet määrittänyt loput asetukset (turvallisuus, verkko jne.), valitse **Launch**.
 
-![cloud_pouta_koosta_muokattu_levy](img/cloud_pouta_resize_custome_disk.png)
+![cloud_pouta_resize_custome_disk](img/cloud_pouta_resize_custome_disk.png)
 
-Jos haluat mieluummin laajentaa levyä tilannevedosta käyttäen, vieraile [Levyn tilannevedokset](../../cloud/pouta/snapshots.md#volume-snapshots) saadaksesi tarkempia ohjeita.
+Jos haluat sen sijaan laajentaa taltiota snapshotin avulla, katso tarkemmat ohjeet kohdasta [Volume snapshots](../../cloud/pouta/snapshots.md#volume-snapshots).

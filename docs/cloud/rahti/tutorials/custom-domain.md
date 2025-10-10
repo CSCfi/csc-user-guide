@@ -1,32 +1,13 @@
-# Tärkeät ohjeet käännöksissä sisäisten linkkien säilyttämiseksi
-
-1. Linkkien otsikoihin dokumentissa on toimittava edelleen käännöksen jälkeen.
-2. Jokaiselle käännetylle otsikolle on lisättävä selkeä ankkuri alkuperäisellä englanninkielisellä otsikko-ID:llä.
-3. Esimerkki:
-   Alkuperäinen: ## Installation Guide
-   Käännetty: ## Asennusopas {#installation-guide}
-4. ID-muodon tulisi olla alkuperäinen englanninkielinen otsikkoteksti pienillä kirjaimilla, välit viivoilla eroteltuina.
-5. Huomaa, ettei koskaan pitäisi olla kahta viivaa peräkkäin, esim. otsikko "A & B" on englanniksi ankkurina A-B (ei A--B vaikka on kaksi välilyöntiä).
-
-Lisäohjeet:
-4. Säilytä kaikki Markdown-muotoilu ja -rakenne.
-5. Säilytä kaikki linkit ja niiden URL:it.
-6. Älä käännä koodiblokkeja tai niiden sisältöä.
-7. Säilytä kaikki HTML-tunnisteet ja niiden attribuutit.
-8. Älä käännä muuttujien nimiä tai koodikatkelmia.
-9. Älä käännä kuvatiedostojen nimiä tai polkuja.
-
-Tässä käännettävä sisältö:
-
 !!! warning "Keskitaso"
-    Sinulla tulee olla tuntemusta OpenShift CLI -työkalusta [oc](../usage/cli.md) ja OpenShift [Routes](../concepts.md#route) API:sta.  
-    Tieto siitä, miten internet-sertifikaatit toimivat, on plussaa.
+    Tarvitset OpenShiftin CLI-työkalun [oc](../usage/cli.md) ja OpenShiftin [Routes](../concepts.md#route) -rajapinnan tuntemusta  
+    Tietämys internet-varmenteiden toiminnasta on plussaa.
 
-# Mukautetut verkkotunnukset ja suojattu tiedonsiirto {#custom-domain-names-and-secure-transport}
+# Mukautetut verkkotunnukset ja suojattu tiedonsiirto { #custom-domain-names-and-secure-transport }
 
-Mukautetut verkkotunnukset ja HTTPS-suojattu tiedonsiirto toteutetaan reittiobjektin tasolla. Ne hallitaan avainsanoilla `spec.host` ja `spec.tls`.
+Mukautetut verkkotunnukset ja HTTPS:n tarjoama suojattu tiedonsiirto toteutetaan Route-objektin tasolla. Niitä ohjataan avainsanoilla `spec.host` ja
+`spec.tls`.
 
-Oletetaan, että haluat käyttää `my-custom-dns-name.replace.this.com` mukautettuna verkkotunnuksena. Mukautetun verkkotunnuksen julkinen DNS CNAME -tietue (`my-custom-dns-name...`) tulee osoittaa `router.2.rahtiapp.fi`:hin. DNS-tietueen päivitys on asiakkaan vastuulla ja riippuu verkkotunnuksen rekisteröintimenettelyistä. Sitten mukautettu DNS-nimi itse sijoitetaan reittiobjektin `spec.host`-kohtaan:
+Oletetaan, että haluat käyttää mukautettuna verkkotunnuksena `my-custom-dns-name.replace.this.com`. Julkisen DNS:n CNAME-tietueen tuolle mukautetulle nimelle (`my-custom-dns-name...`) tulee osoittaa kohteeseen `router.2.rahtiapp.fi`. DNS-tietueen päivittäminen on asiakkaan vastuulla ja riippuu verkkotunnuksen rekisteröijän käytännöistä. Tämän jälkeen mukautettu DNS-nimi lisätään Route-objektin `spec.host`-kenttään:
 
 *`route-with-dns.yaml`*:
 
@@ -45,11 +26,11 @@ spec:
     weight: 100
 ```
 
-!!! info "Testaa DNS"
+!!! Info "Testaa DNS"
 
-    Ennen kuin DNS-muutos on päivitetty ja aktiivinen, on mahdollista käyttää [hosts-tiedostoa](https://en.wikipedia.org/wiki/Hosts_\(file\)) luodaksesi kyseisen DNS-tietueen omaan tietokoneeseesi.
+    Ennen kuin DNS-tietue on päivitetty ja käytössä, voit käyttää [hosts-tiedostoa](https://en.wikipedia.org/wiki/Hosts_\(file\)) luodaksesi kyseisen DNS-tietueen omaan tietokoneeseesi.
 
-TLS-sertifikaatit ja yksityiset avaimet sijoitetaan `spec.tls`-kenttään, esimerkiksi:
+TLS-varmenteet ja yksityiset avaimet asetetaan kenttään `spec.tls`, esimerkiksi:
 
 ```yaml
 apiVersion: v1
@@ -80,32 +61,33 @@ spec:
       -----END PRIVATE KEY-----
 ```
 
-Tämä määritelmä luo reitin, jossa yksityinen avain on sijoitettu kohtaan `spec.tls.key` ja sertifikaatit kohtaan `spec.tls.certificate`. Tässä esimerkissä HTTP-liikenne uudelleenohjataan käyttämään HTTPS-protokollaa johtuen `Redirect`-asetuksesta `spec.tls.insecureEdgeTerminationPolicy`:ssa. TLS-termineeraus hoidetaan reittiobjektin toimesta, siten, että liikenne palvelun `serve` ja sen välillä on salaamatonta (`spec.tls.termination: edge`). Muut termineerauspolitiikat:
+Tämä määrittely luo reitin, jossa yksityinen avain on `spec.tls.key`-kentässä ja varmenteet `spec.tls.certificate`-kentässä. Tässä esimerkissä HTTP-liikenne ohjataan käyttämään HTTPS-protokollaa `spec.tls.insecureEdgeTerminationPolicy`-asetuksen `Redirect` vuoksi. TLS-terminointi hoidetaan Route-objektissa siten, että palveluun `serve` tuleva ja siitä lähtevä liikenne ei ole salattua (`spec.tls.termination: edge`). Muita terminointikäytäntöjä:
 
-* `passthrough`: Oletetaan, että TLS-yhteys katkaistaan sisäisesti podissa ja ohjataan salattu liikenne eteenpäin.
-* `reencrypt`: Katkaise TLS-yhteys reitittimessä ja avaa toinen suojattu yhteys, joka tulee katkaista podissa.
+* `passthrough`: Oletetaan, että TLS-yhteys päätetään sisäisesti podissa, ja välitetään salattu liikenne sellaisenaan.
+* `reencrypt`: Päätetään TLS-yhteys reitittimeen ja avataan toinen suojattu yhteys, joka tulee päättää podissa.
 
-Katso selitys [Verkkoreitit](../networking.md#routes)-sivulta.
+Katso selitys sivulla [Networking routes](../networking.md#routes).
 
 !!! warning
 
-    Kohtele aina kentän `spec.tls.key` sisältöä reittiobjekteissa erityisellä huolella, koska yksityistä TLS-avain ei koskaan tulisi altistaa epäluotetuille osapuolille.
+    Käsittele aina erityisellä varovaisuudella Route-objektien `spec.tls.key`-kentän sisältöä, koska yksityistä TLS-avainta ei tule koskaan paljastaa
+    luottamattomille osapuolille.
 
-## ACME-protokolla, automaattiset sertifikaatit {#acme-protocol-automatic-certificates}
+## ACME-protokolla, automaattiset varmenteet { #acme-protocol-automatic-certificates }
 
-Automatic Certificate Management Environment (ACME) -protokolla on viestintäprotokolla sertifikaattiviranomaisten ja niiden käyttäjien palvelimien välisten vuorovaikutusten automatisointiin. [letsencrypt.org](https://letsencrypt.org/) on voittoa tavoittelematon sertifikaattiviranomainen, joka tarjoaa **ilmaisia** ja **avoimia** sertifikaatteja käyttämällä ACME-protokollaa. On mahdollista **hankkia** ja **uudistaa** automaattisesti kelvollisia sertifikaatteja Let's Encryptiltä. On olemassa muitakin sertifikaatin tarjoajia, jotka tukevat ACME-protokollaa, mutta keskitymme Let's Encryptiin, koska se on tunnetuin. Tässä dokumentoimme kaksi menetelmää, **cert-manager** ja **ACME controller**.
+Automatic Certificate Management Environment (ACME) on viestintäprotokolla, joka automatisoi varmentajien ja käyttäjien palvelimien välisen vuorovaikutuksen. [letsencrypt.org](https://letsencrypt.org/) on voittoa tavoittelematon varmentaja, joka tarjoaa maksuttomia ja avoimia varmenteita ACME-protokollaa käyttäen. Let's Encryptiltä on mahdollista hankkia ja uusia automaattisesti kelvollisia varmenteita. On olemassa muitakin ACME-protokollaa tukevia varmentajia, mutta keskitymme Let's Encryptiin, koska se on tunnetuin. Tässä dokumentoimme kaksi menetelmää: **cert-manager** ja **ACME controller**.
 
-### Cert-manager {#cert-manager}
+### Cert-manager { #cert-manager }
 
-Tämä on suositeltu vaihtoehto Let's Encrypt -sertifikaattien hankkimiseksi ja uusimiseksi. Sertifikaatin saamiseksi prosessissa luodaan 3 API-objektia: `Issuer`, `Certificate` ja `Ingress`. Voimme tehdä tämän verkkoliittymän tai komentorivin kautta. Tässä tapauksessa verkkoliittymä ei ole juuri helpompi kuin komentorivi, joten käytämme komentorivitapaa.
+Tämä on suositeltu tapa hankkia ja uusia Let's Encrypt -varmenteet. Varmenteen hankkiminen edellyttää kolmen API-objektin luomista: `Issuer`, `Certificate` ja `Ingress`. Tämä voidaan tehdä verkkokäyttöliittymällä tai komentoriviltä. Koska tässä tapauksessa verkkokäyttöliittymä ei ole juurikaan komentoriviä helpompi, käytämme komentoriviä.
 
-![Cert manager](../../img/cert-manager.png)
+![Cert-manager](../../img/cert-manager.png)
 
-1. Ensimmäiseksi, tavalliseen tapaan, sinun tulee [asentaa oc](../usage/cli.md#how-to-install-the-oc-tool) ja [kirjautua Rahhtiin](../usage/cli.md#how-to-login-with-oc). Sitten sinun tulee [luoda Rahhti-projekti](../usage/projects_and_quota.md#creating-a-project). Varmista lopuksi, että olet oikeassa projektissa: `oc project <project_name>`.
+1. Ensin, kuten tavallista, sinun tulee [asentaa oc](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) ja [kirjautua Rahtiin](../usage/cli.md#how-to-login-with-oc). Sen jälkeen sinun tulee [luoda Rahti-projekti](../usage/projects_and_quota.md#creating-a-project). Lopuksi varmista, että olet oikeassa projektissa: `oc project <project_name>`.
 
-1. Tarkista kahdesti, että verkkotunnus on olemassa. Let's Encrypt tarvitsee varmistuksen siitä, että hallitset kyseistä verkkotunnusta, ja se tekee tämän lähettämällä HTTP-pyynnön todelliseen verkkotunnukseen ja odottamalla vastausta. Testataksesi sen kirjoita verkkotunnus selaimeen ja varmista, että Rahti2 vastaa asianmukaisesti.
+1. Tarkista kahdesti, että verkkotunnus on olemassa. Let's Encryptin täytyy varmistaa, että hallinnoit kyseistä verkkotunnusta. Se tekee tämän lähettämällä HTTP-pyynnön kyseiseen verkkotunnukseen ja odottaa siihen asianmukaista vastausta. Testataksesi tämän, syötä verkkotunnus selaimeen ja varmista, että Rahti vastaa odotetusti.
 
-1. Sitten sinun tarvitsee luoda `Issuer`:
+1. Seuraavaksi sinun tulee luoda `Issuer`:
 
     ```sh
     echo "apiVersion: cert-manager.io/v1
@@ -114,25 +96,25 @@ Tämä on suositeltu vaihtoehto Let's Encrypt -sertifikaattien hankkimiseksi ja 
       name: letsencrypt
     spec:
       acme:
-        # Sinun tulee korvata tämä sähköpostiosoite omallasi.
-        # Let's Encrypt käyttää tätä ottaakseen sinuun yhteyttä vanhenevista
-        # sertifikaateista ja tilisi liittyvistä ongelmista.
+        # You must replace this email address with your own.
+        # Let's Encrypt will use this to contact you about expiring
+        # certificates, and issues related to your account.
         email: <EMAIL>
         server: https://acme-v02.api.letsencrypt.org/directory
         privateKeySecretRef:
-          # Salainen resurssi, jota käytetään tilin yksityisen avaimen tallentamiseen.
+          # Secret resource that will be used to store the account's private key.
           name: example-issuer-account-key
-        # Lisää yksi haastesratkaisu, HTTP01 käyttäen nginx
+        # Add a single challenge solver, HTTP01 using nginx
         solvers:
         - http01:
             ingress:
               ingressClassName: openshift-default" | oc create -f -
     ```
 
-    - Sinun tulee korvata `<EMAIL>` omalla sähköpostiosoitteellasi. Tämä luo automaattisesti tilin Let's Encryptille ja lähettää ilmoitusviestejä.
-    - Jos haluat käyttää muuta palveluntarjoajaa kuin Let's Encrypt, sinun on asetettava erilainen `server`-parametri ja ehkä lisättävä jonkinlainen todennustapa. Tämä riippuu suoraan käytetystä palveluntarjoajasta, joten emme pysty auttamaan siinä, mutta se saattaa vaatia vain pienten rivien muokkaamista yllä olevaan esimerkkiin.
+    - Sinun tulee korvata `<EMAIL>` omalla sähköpostiosoitteellasi. Tämän avulla luodaan automaattisesti tili Let's Encryptiin ja lähetetään ilmoitussähköpostit.
+    - Jos haluat käyttää muuta varmentajaa kuin Let's Encrypt, sinun täytyy asettaa eri `server`-parametri ja mahdollisesti lisätä jokin todennustapa. Tämä riippuu suoraan käytetystä palveluntarjoajasta, joten emme pysty auttamaan siinä tarkemmin, mutta sen pitäisi vaatia vain muutaman rivin muuttamista yllä olevaan esimerkkiin.  
 
-1. Kun `Issuer` on luotu, voit luoda sertifikaatin:
+1. Kun `Issuer` on luotu, voit luoda varmenteen:
 
     ```sh linenums="1"
     echo "apiVersion: cert-manager.io/v1
@@ -151,9 +133,9 @@ Tämä on suositeltu vaihtoehto Let's Encrypt -sertifikaattien hankkimiseksi ja 
           - <HOSTNAME>" | oc create -f -
     ```
 
-    - Sinun tulee korvata `<HOSTNAME>` molemmilla riveillä **12** ja **14**, sillä verkkotunnuksella, jolle haluat saada sertifikaatin.
+    - Sinun tulee korvata `<HOSTAME>` riveillä **12** ja **14** sillä verkkotunnuksella, jolle haluat hankkia varmenteen.
 
-1. Jos kaikki meni odotetusti, uusi `Secret` nimeltään `hostname-tls` on juuri luotu. Salaisuudella pitäisi olla kaksi tietuesisältöä: `tls.crt` ja `tls.key`. Nyt viimeinen vaihe on luoda `Ingress`:
+1. Jos kaikki sujui odotetusti, uusi `Secret` nimeltä `hostname-tls` on juuri luotu. Salaisuudessa pitäisi olla kaksi data-avainta: `tls.crt` ja `tls.key`. Nyt jäljellä on vain `Ingress`-objektin luominen:
 
     ```sh
     echo "apiVersion: networking.k8s.io/v1
@@ -179,28 +161,28 @@ Tämä on suositeltu vaihtoehto Let's Encrypt -sertifikaattien hankkimiseksi ja 
     status: {}" | oc create -f -
     ```
 
-    - Sinun tulee korvata `<HOSTNAME>` samalla isäntänimellä, jota käytit `Certificate`-kohdassa.
-    - Sinun tulee korvata `<SERVICE>` ja `<PORT>` vastaavalla palvelulla ja portilla, joka tarjoaa verkkosivuston, jolle tarvitset sertifikaatin.
+    - Sinun tulee korvata `<HOSTNAME>` samalla nimellä, jota käytit `Certificate`-objektissa.
+    - Sinun tulee korvata `<SERVICE>` ja `<PORT>` kyseistä verkkosivua palvelevalla palvelulla ja portilla.
 
-!!! info "Ingress vs Route"
-    `Ingress` ja `Route` ovat kaksi tapaa ratkaista sama käyttötapaus. Ne lähestyvät sitä eri tavalla.
+!!! Info "Ingress vs Route"
+    `Ingress` ja `Route` ratkaisevat saman käyttötapauksen kahdella eri tavalla. Ne lähestyvät ongelmaa eri tavoin.
 
-Jos kaikki meni hyvin, sinulla pitäisi olla voimassa oleva sertifikaatti.
+Jos kaikki meni hyvin, sinulla pitäisi olla voimassa oleva varmenne.
 
-### OpenShift ACME controller {#openshift-acme-controller}
+### OpenShift ACME -ohjain { #openshift-acme-controller }
 
-!!! info "Vanhentunut"
-    OpenShift ACME -ohjain on arkistoitu vuodesta 2023 lähtien. Tämä tarkoittaa, että vaikka se toimii edelleen (kirjoitushetkellä), se saattaa lakata toimimasta, jos esimerkiksi Let's Encrypt tekee muutoksia ACME-protokollan API-toteutukseen.
+!!! Info "Vanhentunut"
+    OpenShift ACME -ohjain on arkistoitu vuodesta 2023 lähtien. Tämä tarkoittaa, että vaikka se toimiikin (kirjoitushetkellä), se saattaa lakata toimimasta, jos esimerkiksi Let's Encrypt muuttaa ACME:n API-toteutustaan.
 
-Reitit voivat automaattisesti hankkia "let's encrypt" -sertifikaatin kolmannen osapuolen [openshift-acme controller](https://github.com/tnozicka/openshift-acme) avulla. Prosessi on yksinkertainen:
+Reitit voivat hankkia Let's Encrypt -varmenteen automaattisesti kolmannen osapuolen [openshift-acme -ohjaimella](https://github.com/tnozicka/openshift-acme). Prosessi on yksinkertainen:
 
-* Kloonaa [openshift-acme controller](https://github.com/tnozicka/openshift-acme) -repo.
+* Kloonaa [openshift-acme -ohjaimen](https://github.com/tnozicka/openshift-acme) repositorio.
 
 ```sh
 git clone https://github.com/tnozicka/openshift-acme.git
 ```
 
-* Koko prosessi on dokumentoitu tiedostossa [README.md](https://github.com/tnozicka/openshift-acme/blob/master/README.md). Suosittelemme [Single namespace](https://github.com/tnozicka/openshift-acme/tree/master/deploy#single-namespace) -menetelmää. Se asentaa ohjaimen sisälle Rahti-projektiisi ja toimii vain projektiin määrittelemiesi `Route`-reititysten osalta:
+* Koko prosessi on dokumentoitu tiedostossa [README.md](https://github.com/tnozicka/openshift-acme/blob/master/README.md). Suosittelemme menetelmää [Single namespace](https://github.com/tnozicka/openshift-acme/tree/master/deploy#single-namespace). Se asentaa ohjaimen Rahti-projektisi sisälle ja se toimii vain kyseisessä projektissa määrittelemiisi `Route`-objekteihin:
 
 ```sh
 cd openshift-acme
@@ -208,13 +190,13 @@ oc apply -f deploy/single-namespace/{role,serviceaccount,issuer-letsencrypt-live
 oc create rolebinding openshift-acme --role=openshift-acme --serviceaccount="$( oc project -q ):openshift-acme" --dry-run -o yaml | oc apply -f -
 ```
 
-* Lisää annotaatio reitille, johon tarvitset sertifikaatin.
+* Lisää annotaatio siihen Route-objektiin, johon tarvitset varmenteen.
 
 ```sh
 oc annotate route <route_name> kubernetes.io/tls-acme='true'
 ```
 
-* Odota muutama minuutti. Ohjain huomaa, että annotaatio on lisätty, ja se aloittaa sertifikaattipyynnön, validoi pyynnön, myöntää sertifikaatin ja lopuksi lisää sen reitille. Se lisää myös annotaation reititykseen, joka selvittää tilan:
+* Odota muutama minuutti. Ohjain havaitsee, että annotaatio on lisätty, ja aloittaa prosessin: varmenteen pyytäminen, pyynnön validointi, varmenteen myöntäminen ja lopuksi sen lisääminen Route-objektiin. Se lisää myös `Route`-objektiin annotaation tilan kanssa:
 
 ```yaml
   annotations:
@@ -227,11 +209,11 @@ oc annotate route <route_name> kubernetes.io/tls-acme='true'
     kubernetes.io/tls-acme: 'true'
 ```
 
-Sertifikaatti on valmis. Ohjain huolehtii sertifikaatin kelvollisuuden tarkistamisesta ja sen uusimisesta tarvittaessa (kolmen kuukauden välein).
+Varmenne on valmis. Ohjain huolehtii varmenteen voimassaolon tarkistamisesta ja sen uusimisesta tarvittaessa (joka kolmas kuukausi).
 
-### Vianmääritys {#troubleshooting}
+### Vianmääritys { #troubleshooting }
 
-Jos sertifikaattiasi ei ole automaattisesti uusittu, voit tarkistaa sen tilan reitityksen `annotations`-osasta. On olemassa bugi, jossa päiväys muuttuu 31. joulukuuta 1. tammikuuta, ja vuosi nollautuu **0001**. Jos näin on, yksinkertaisesti poista tämä osio annotaatioista (voit löytää sen selaamalla **Järjestelmänvalvojan näkymää** > **Verkko** > **Reitit** > Valitse reitti > YAML-välilehti):
+Jos varmennettasi ei ole uusittu automaattisesti, voit tarkistaa sen tilan `Route`-objektin `annotations`-osiosta. Päivämäärän vaihtumisessa 31. joulukuuta -> 1. tammikuuta on bugi, jossa vuosi nollautuu arvoon **0001**. Jos näin on, poista tämä osio annotaatioista (löydät sen reittiä selaamalla: **Administrator view** > **Networking** > **Routes** > Select your route > YAML tab):
 
 ```yaml
     acme.openshift.io/status: |
@@ -242,4 +224,4 @@ Jos sertifikaattiasi ei ole automaattisesti uusittu, voit tarkistaa sen tilan re
         startedAt: "0001-01-01T00:00:01.006145385Z"
 ```
 
-**Tallenna** ja lataa konfiguraatio uudelleen. Päivämäärän tulisi korjautua.
+**Save** ja lataa kokoonpano uudelleen. Päivämäärän pitäisi korjaantua.

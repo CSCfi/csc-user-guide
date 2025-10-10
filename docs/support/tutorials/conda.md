@@ -1,51 +1,48 @@
-# Conda best practices for CSC supercomputers
+# Condan parhaat käytännöt CSC:n supertietokoneilla { #conda-best-practices-for-csc-supercomputers }
 
-!!! warning "Do not install Conda environments directly on the parallel file system of CSC supercomputers!"
-    [CSC has deprecated the use of Conda environments](../../computing/usage-policy.md#conda-installations)
-    that are installed _directly_ on the parallel file system of CSC supercomputers
-    (e.g. `/scratch`, `/projappl`, `$HOME`). This is due to performance issues of
-    Conda-based environments on shared file systems, causing long start-up delays
-    and system-wide slowdowns when running Python scripts.
+!!! warning "Älä asenna Conda-ympäristöjä suoraan CSC:n supertietokoneiden rinnakkaistiedostojärjestelmiin!"
+    [CSC on poistanut käytöstä Conda-ympäristöt](../../computing/usage-policy.md#conda-installations),
+    jotka on asennettu _suoraan_ CSC:n supertietokoneiden rinnakkaistiedostojärjestelmään
+    (esim. `/scratch`, `/projappl`, `$HOME`). Tämä johtuu jaetuilla tiedostojärjestelmillä
+    toimivien Conda-pohjaisten ympäristöjen suorituskykyongelmista, jotka aiheuttavat pitkiä
+    käynnistysviiveitä ja järjestelmänlaajuisia hidastumisia Python-skriptejä ajettaessa.
 
-Conda environments typically contain tens or even hundreds of thousands of
-files, and starting a Conda application requires reading a large number of them.
-Unfortunately, all parallel file systems, which are optimized for a large number of
-clients, have a poor single-client performance. You will notice this as longer
-initial start up times for Conda applications and extra stress on the Lustre
-metadata server.
+Conda-ympäristöt sisältävät tyypillisesti kymmeniä tai jopa satoja tuhansia tiedostoja,
+ja Conda-sovelluksen käynnistäminen edellyttää suuren määrän näistä tiedostoista lukemista.
+Valitettavasti kaikki rinnakkaistiedostojärjestelmät, jotka on optimoitu suurelle määrälle
+asiakkaita, tarjoavat heikon suorituskyvyn yksittäiselle asiakkaalle. Huomaat tämän pidempinä
+alkukäynnistysaikoina Conda-sovelluksille sekä lisäkuormana Lustre-metatietopalvelimelle.
 
-**Conda can still be used indirectly**. As an alternative to direct Conda usage,
-we recommend:
+**Condaa voidaan silti käyttää epäsuorasti**. Vaihtoehtona suoralle Condan käytölle suosittelemme:
 
-1. **Use CSC's pre-installed environments available through the module system**
+1. **Käytä CSC:n moduulijärjestelmän kautta saatavilla olevia esiasennettuja ympäristöjä**
 
-    Check if any of
-    [CSC's pre-installed environments](../../apps/python.md#pre-installed-python-environments)
-    would be suitable for your project. If the existing environment is missing a few
-    critical packages, you can often install the missing packages on your own.
+    Tarkista, sopisiko jokin
+    [CSC:n esiasennetuista ympäristöistä](../../apps/python.md#pre-installed-python-environments)
+    projektiisi. Jos olemassa olevasta ympäristöstä puuttuu muutama kriittinen paketti, voit usein
+    asentaa puuttuvat paketit itse.
 
-    Our [Python usage guide](python-usage-guide.md#installing-python-packages-to-existing-modules)
-    and [R application page](../../apps/r-env.md#r-package-installations) contain further
-    details on how to install your own packages on top of our modules. You can also
-    [contact CSC Service Desk](../contact.md) with requests for missing packages.
+    [Pythonin käyttöoppassaamme](python-usage-guide.md#installing-python-packages-to-existing-modules)
+    ja [R-sovellussivulla](../../apps/r-env.md#r-package-installations) on lisätietoja siitä,
+    kuinka voit asentaa omia pakettejasi moduuliemme päälle. Voit myös
+    [ottaa yhteyttä CSC Service Deskiin](../contact.md) puuttuvia paketteja koskevissa pyynnöissä.
 
-2. **Create a containerized Conda or pip environment using CSC's Tykky tool**
+2. **Luo kontitettu Conda- tai pip-ympäristö CSC:n Tykky-työkalulla**
 
-    CSC has developed
-    [a tool for wrapping Conda or pip installations](../../computing/containers/tykky.md)
-    into a smaller set of files using Apptainer and SquashFS technologies. The tool is
-    available as a pre-installed module and is also used for CSC's own installations.
+    CSC on kehittänyt
+    [työkalun Conda- tai pip-asennusten paketoimiseksi](../../computing/containers/tykky.md)
+    pienemmäksi tiedostojoukoksi Apptainer- ja SquashFS-teknologioita hyödyntäen. Työkalu on
+    saatavilla esiasennettuna moduulina, ja CSC käyttää sitä myös omissa asennuksissaan.
 
-3. **Use your own custom containers**
+3. **Käytä omia mukautettuja kontteja**
 
-    This is a great alternative for developing software locally on a workstation,
-    and then deploying it on another workstation, cluster, or on cloud platforms.
-    CSC's supercomputers support Apptainer containers, which are are just single
-    large files for Lustre, thus avoiding much of the problems. Many software
-    projects offer Docker containers which can often be easily converted into
-    Apptainer format. Inside the container you can naturally use for example
-    Conda to manage the packages without causing any file system issues.
+    Tämä on erinomainen vaihtoehto, kun kehität ohjelmistoa paikallisesti työasemalla ja otat sen
+    sitten käyttöön toisella työasemalla, klusterissa tai pilvialustoilla. CSC:n supertietokoneet
+    tukevat Apptainer-kontteja, jotka ovat Lustren kannalta vain yksittäisiä suuria tiedostoja,
+    mikä välttää suuren osan ongelmista. Monet ohjelmistoprojektit tarjoavat Docker-kontteja,
+    jotka voidaan usein helposti muuntaa Apptainer-muotoon. Kontin sisällä voit luonnollisesti
+    käyttää esimerkiksi Condaa pakettien hallintaan aiheuttamatta tiedostojärjestelmäongelmia.
 
-    Use [Tykky](../../computing/containers/tykky.md) to convert an existing Docker
-    container to Apptainer or read our documentation on
-    [how to create your own Apptainer container](../../computing/containers/creating.md).
+    Käytä [Tykkya](../../computing/containers/tykky.md) olemassa olevan Docker-kontin muuntamiseen
+    Apptaineriksi tai lue dokumentaatiostamme,
+    [kuinka luot oman Apptainer-kontin](../../computing/containers/overview.md#building-container-images).

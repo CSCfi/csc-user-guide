@@ -1,36 +1,47 @@
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-# Tiedostojen ja kansioiden poistaminen
+# Tiedostojen ja kansioiden poistaminen { #deleting-files-and-folders }
 
-Voit poistaa pääkansioita, alikansioita tai yksittäisiä tiedostoja SD Connect -palvelusta.
+Voit poistaa pääkansioita, alikansioita tai yksittäisiä tiedostoja SD Connectista.
 
-## Tiedostojen poistaminen {#deleting-files}
+## Tiedostojen poistaminen { #deleting-files }
 
-1. Etsi oikea kansio Kaikki kansiot -välilehdeltä.
-2. Napsauta **Poista** kunkin poistettavan tiedoston oikealta puolelta.
-3. Jos sinun tarvitsee poistaa useita tiedostoja, valitse **Näyttöasetukset** datataulukon oikeasta yläkulmasta ja valitse avattavasta valikosta **Näytä tiedostopolkuina**. Valitse sitten samasta valikosta **Piilota sivutus**. Nyt kaikki tiedostot näytetään yhdellä sivulla.
-4. Valitse valintaruutu datataulukon vasemmasta yläkulmasta. Nyt voit poistaa kaikki tiedostot käyttämällä työkalupalkkia, joka ilmestyy datataulukon yläosaan.
+1. Etsi oikea kansio Kaikki kansiot -välilehdeltä ja napsauta nähdäksesi tiedostot.
+2. Napsauta kunkin poistettavan tiedoston oikealla puolella olevaa **Delete**-painiketta.
+3. Jos sinun täytyy poistaa useita tiedostoja, valitse **Display options** tietotaulukon oikeasta yläkulmasta ja valitse pudotusvalikosta **Display as file paths**. Valitse sitten samasta valikosta **Hide pagination**. Nyt kaikki tiedostot näytetään yhdellä sivulla.
+4. Valitse valintaruutu tietotaulukon vasemmassa yläkulmassa. Nyt voit poistaa kaikki tiedostot käyttämällä työkalupalkkia, joka näkyy tietotaulukon yläreunassa.
 
-## Alikansion poistaminen {#deleting-subfolder}
+![SD Connect Poista tiedosto](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Deletefile.png)
 
-Alikansio poistuu automaattisesti, kun kaikki sen tiedostot on poistettu.
+![SD Connect Näyttöasetukset](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_DisplayOptions.png)
+
+![SD Connect Poista tiedostoja](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Deletefiles.png)
+
+
+## Alikansion poistaminen { #deleting-subfolder }
+
+Alikansio poistetaan automaattisesti, kun kaikki sen tiedostot on poistettu.
 
 1. Etsi oikea kansio Kaikki kansiot -välilehdeltä ja napsauta nähdäksesi tiedostot.
 2. Etsi oikea alikansio ja avaa se.
-3. Napsauta **Poista** kunkin poistettavan tiedoston oikealta puolelta.
+3. Seuraa kohtia 2–4 osiossa [Tiedostojen poistaminen](#deleting-files)
 
-## Pääkansion poistaminen {#deleting-main-folder}
+## Kansion poistaminen { #deleting-folder }
 
-Sinun täytyy ensin poistaa kaikki pääkansion tiedostot.
+Sinun täytyy ensin poistaa kaikki kansion tiedostot.
 
-1. Etsi oikea kansio Kaikki kansiot -välilehdeltä.
-2. Poista kansio valitsemalla **Poista** kansion oikealta puolelta.
+1. Etsi oikea kansio Kaikki kansiot -välilehdeltä ja napsauta nähdäksesi tiedostot.
+2. Seuraa kohtia 2–4 osiossa [Tiedostojen poistaminen](#deleting-files)
+3. Palaa Kaikki kansiot -näkymään. Valitse kansion oikealta puolelta **Options** ja sitten **Delete**.
 
-## Ominaisuudet SD Connect -palvelussa {#features-in-sd-connect}
+![SD Connect Poista kansio](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Deletefolder.png)
 
-* [Tallenna](./sd-connect-upload.md)
+
+## SD Connectin toiminnot { #features-in-sd-connect }
+
+* [Lähetä](./sd-connect-upload.md)
 * [Jaa](./sd-connect-share.md)
 * [Lataa](./sd-connect-download.md)
 * [Poista](./sd-connect-delete.md)
 * [Komentoriviliittymä](./sd-connect-command-line-interface.md)
-* [Vianetsintä](./sd-connect-troubleshooting.md)
-
+* [Vianmääritys](./sd-connect-troubleshooting.md)

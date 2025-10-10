@@ -1,11 +1,12 @@
+# MATLAB { #matlab }
 
-# MATLAB {#matlab}
+Sovellus käynnistää MATLAB-istunnon määritetyillä resursseilla.
+Puhtissa version voi valita mistä tahansa tuetuista moduuleista, ja Mahtissa käytetään versiota R2024b.
 
-Sovellus käynnistää MATLAB-istunnon Puhtilla tarvitsemasi resursseilla.
-Tällä hetkellä on asennettuna vain R2023b-julkaisu Parallel Computing ja Compiler SDK -työkaluilla.
+![MATLAB-lomakkeen valinnat](../../img/ood_matlab_form.png){ with="400" }
 
-Laskentaresurssien, osion ja projektin lisäksi on olemassa **valinnainen** "Lisenssitiedosto" -kenttä.
-Sen avulla voit määrittää oman kotiorganisaatiosi lisenssipalvelimen polun saadaksesi MATLAB-lisenssin
-sieltä. Tämä vaihtoehto on hyödyllinen esimerkiksi tilanteissa, joissa kaikki CSC:n MATLAB-lisenssit ovat jo varattuja.
+Puhtin MATLAB-sovelluksella voit käyttää CSC-lisenssiäsi. Mahtissa, tai jos CSC-lisenssiä ei ole valittu Puhtissa, sinun on kirjauduttava sisään MathWorks-tililläsi käyttääksesi omaa lisenssiäsi.
 
-MATLAB:in käyttödokumentaatio löytyy [MATLAB-dokumentaatio](../../apps/matlab.md).
+![MATLAB-lomakkeen valinnat](../../img/ood_matlab_license.png)
+
+Tietoa MATLABin käytöstä ja saatavilla olevista versioista on [MATLABin dokumentaatiossa](../../apps/matlab.md).

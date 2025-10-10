@@ -1,58 +1,58 @@
-# Turvaohjeet Poutaa varten {#security-guidelines-for-pouta}
+# Poutan tietoturvaohjeet { #security-guidelines-for-pouta }
 
-!!! warning "Turvavastuu"
+!!! warning "Tietoturvavastuu"
 
-    Käyttäjät ovat vastuussa hallinnassaan olevien resurssien ja infrastruktuurin turvallisuudesta. Tähän kuuluu, mutta ei rajoitu: **virtuaalikoneet**, **verkkokonfiguraatio**, **käyttäjätilit**, ...
+    Käyttäjät ovat vastuussa hallinnassaan olevien resurssien ja infrastruktuurin tietoturvasta. Tämä koskee muun muassa: **virtuaalikoneet**, **verkkomääritykset**, **käyttäjätilit**, ...
 
-!!! info "Tietoturvaraportit"
+!!! info "Tietoturvailmoitukset"
 
-    Jos olet löytänyt kriittisen tietoturva-aukon tai epäilet, että koneesi on vaarantunut, ota meihin heti yhteyttä osoitteessa <servicedesk@csc.fi>.
+    Jos olet löytänyt vakavan tietoturvahaavoittuvuuden tai epäilet, että koneesi on vaarantunut, ota meihin välittömästi yhteyttä osoitteessa <servicedesk@csc.fi>.
 
-Tämä lista turvaohjeista ei ole tarkoitettu kattamaan kaikkia mahdollisia tapauksia ja skenaarioita, vaan toimimaan lähtökohtana kaikkien turvallisuuden säilyttämiseksi.
+Tämä tietoturvaohjeiden luettelo ei kata kaikkia mahdollisia tapauksia ja tilanteita, vaan toimii lähtökohtana turvallisuuden varmistamiseksi. 
 
-## Verkkoyhteydet {#network}
+## Verkko { #network }
 
-On erittäin tärkeää pitää verkkokonfiguraatiosi mahdollisimman turvallisena, koska se on portti, jota mikä tahansa tunkeilija käyttää järjestelmääsi sisäänpääsemiseen. On suhteellisen helppoa soveltaa joitain hyviä käytäntöjä, jotka antavat ylimääräisen turvakerroksen. Muutamia strategioita on suositeltavaa.
+On erittäin tärkeää pitää verkkomääritykset mahdollisimman turvallisina, sillä niiden kautta tunkeutuja pyrkii järjestelmään. On melko helppoa ottaa käyttöön hyviä käytäntöjä, jotka tuovat lisäsuojakerroksen. Muutamia strategioita suositellaan. 
 
-### Rajoittava palomuuri (luettelointi) {#restrictive-firewall-white-listing}
+### Rajoittava palomuuri (sallittulistaus) { #restrictive-firewall-white-listing }
 
-Virtuaalikoneesi pitäisi olla konfiguroitu siten, että ne sallivat vain sovelluksesi vaatimat vähimmäiskäytöt. Oletusarvoisesti virtuaalikoneilla ei ole ulkoista pääsyä, eli yksikään portti ei ole avoinna oletusarvoisesti julkiselle Internetille. Jotta niihin voisi yhdistää tai tarjota minkäänlaista palvelua, pääsy on lisättävä nimenomaisesti. On tärkeää avata vain ne portit, jotka on avattava, ja avata ne vain mahdollisimman vähille IP-osoitteille.
+Virtuaalikoneidesi instanssit tulisi konfiguroida sallimaan vain sovelluksesi toiminnan kannalta välttämätön pääsy. Oletusarvoisesti virtuaalikoneilla ei ole ulkoista pääsyä, eli yhtäkään porttia ei ole oletuksena avattu julkiseen internetiin. Niihin yhdistäminen tai minkä tahansa palvelun tarjoaminen edellyttää pääsyn erikseen sallimista. On tärkeää avata vain ne portit, jotka on pakko avata, ja rajata avaukset mahdollisimman harvoihin IP-osoitteisiin.
 
-Jokaisessa Poutassa toimivassa virtuaalikoneessa on kaksi palomuuria: virtuaalikoneen oma palomuuri (netfilter/iptables) ja Poutan turvaryhmät. Keskitymme vain Poutan turvaryhmiin, koska ne ovat helpoin tapa soveltaa joukko monimutkaisia palomuurisääntöjä joukkoon virtuaalisia koneita. Tässä on esimerkki turvaryhmästä, joka antaa pääsyn porttiin 22/SSH vain neljälle aliverkolle:
+Jokaisessa Poutassa toimivassa virtuaalikoneessa on kaksi palomuuria: itse virtuaalikoneen palomuuri (netfilter/iptables) ja Pouta Security groups. Keskitymme tässä Poutan security groupseihin, koska niiden avulla on helpointa soveltaa monimutkaisia palomuurisääntöjä joukkoon virtuaalikoneita. Tässä esimerkki security groupista, joka sallii pääsyn porttiin 22/SSH vain neljästä aliverkosta:
 
-![Rajattu-SSH](../../img/restricted-ssh-security-group.png)
+![Rajoitettu SSH](../../img/restricted-ssh-security-group.png)
 
-Nämä neljä aliverkkoa voisivat olla neljä julkista verkkoaluetta, joita organisaatiosi käyttää toimistoverkossaan.
+Nämä neljä aliverkkoa voivat olla organisaatiosi toimistoverkossa käyttämät neljä julkista osoitealuetta.
 
-Turvaryhmät ovat helppoja konfiguroida ja helppoja visualisoida. Tämä on näkymä virtuaalikoneen yksikkösivulta:
+Security groupsit on helppo määrittää ja niiden tilaa on helppo havainnollistaa. Tämä näkymä on virtuaalikoneen instanssisivulta:
 
-![Rajattu API SSH](../../img/restricted-api-ssh.png)
+![Rajoitettu API SSH](../../img/restricted-api-ssh.png)
 
-näet, että jokainen avaus on siellä näytetty.
+näet, että jokainen avaus näkyy siellä. 
 
-### Tarpeettomien palveluiden poistaminen käytöstä {#disable-unneeded-services}
+### Poista tarpeettomat palvelut käytöstä { #disable-unneeded-services }
 
-Älä aja tarpeettomia palveluita virtuaalikoneellasi, vaikka ne eivät olekaan ulkopuolelle saavutettavissa. Mitä enemmän palveluita ajat, sitä suurempi on hyökkäyspinta, jota tunkeilijat voivat hyödyntää. Älä esimerkiksi ota käyttöön omaa sähköpostipalvelinta. Jos sinun tarvitsee lähettää sähköpostia cPoutasta, käytä [Poutan SMTP-palvelinta](additional-services.md#sending-e-mail-from-cpouta). Jos tämä SMTP-palvelin ei kata käyttötapaustasi, ota yhteyttä osoitteeseen <servicedesk@csc.fi>.
+Älä aja tarpeettomia palveluita virtuaalikoneella, vaikka niihin ei pääsisikään ulkopuolelta. Mitä enemmän palveluja ajat, sitä enemmän hyökkäyspinta-alaa tunkeutujilla on hyödynnettävänä. Esimerkiksi älä ota käyttöön omaa sähköpostipalvelinta. Jos sinun täytyy lähettää sähköpostia cPoudasta, käytä [Poutan SMTP-palvelinta](additional-services.md#sending-e-mail-from-cpouta). Jos tämä SMTP-palvelin ei kata käyttötapaustasi, ota yhteyttä <servicedesk@csc.fi>.
 
-### Käytä turvallisia protokollia {#use-secure-protocols}
+### Käytä suojattuja protokollia { #use-secure-protocols }
 
-Käytä aina, kun mahdollista, salattuja ja turvallisia viestintäprotokollia välttääksesi man-in-the-middle -hyökkäykset; nämä ovat tapauksia, joissa joku saa pääsyn viestintääsi ja voi lukea menevät tiedot, kuten julkisessa WIFI:ssä. Esimerkiksi: älä käytä HTTP:tä, käytä sen sijaan HTTPS:ää. Älä käytä FTP:tä tiedostojen siirtoon, käytä sen sijaan FTPS:ää, SFTP:tä tai S3:a.
+Käytä aina kun mahdollista salattuja ja turvallisia viestintäprotokollia man-in-the-middle-hyökkäysten välttämiseksi; tällöin joku pääsee väliin ja voi lukea liikennettä, kuten julkisessa WiFi-verkossa. Esimerkiksi: älä käytä HTTP:tä, vaan HTTPS:ää. Älä käytä tiedostonsiirtoon FTP:tä, vaan FTPS:ää, SFTP:tä tai S3:ta.
 
-### Käytä tunkeutumisen havaitsemisohjelmistoja {#use-intrusion-detection-software}
+### Käytä tunkeutumisen havaitsemiseen tarkoitettuja ohjelmistoja { #use-intrusion-detection-software }
 
-Työkalut kuten [denyhosts](https://github.com/denyhosts/denyhosts) tai [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban) analysoivat lokitiedostoja ja estävät IP-osoitteet, jotka yrittävät tehdä bruteforce-hyökkäyksiä sovellukseesi. Ne ovat erittäin tehokkaita työkaluja, mutta niitä on käytettävä huolellisesti, sillä ne voivat johtaa vääriin positiivisiin, eli estää IP-osoitteet, joita ei pitäisi estää.
+Työkalut kuten [denyhosts](https://github.com/denyhosts/denyhosts) ja [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban) analysoivat lokitiedostoja ja estävät IP-osoitteita, jotka yrittävät murtautua palveluusi brute force -hyökkäyksillä. Ne ovat tehokkaita työkaluja, mutta niitä on käytettävä varoen, sillä ne voivat aiheuttaa vääriä positiivisia, eli estää IP-osoitteita, joita ei pitäisi estää. 
 
-## Ohjelmisto {#software}
+## Ohjelmistot { #software }
 
-Turvallisen ohjelmiston ajaminen on myös erittäin tärkeää. Täysin turvallisten ohjelmistojen kehittäminen ei ole triviaalitehtävä, mutta on olemassa yksinkertaisia strategioita, jotka auttavat tässä tehtävässä.
+Turvallisten ohjelmistojen ajaminen on myös erittäin tärkeää. Täysin turvallisen ohjelmiston kehittäminen ei ole triviaalitehtävä, mutta on olemassa yksinkertaisia keinoja, jotka auttavat. 
 
-### Asenna vain tunnetuista lähteistä {#only-install-from-reputable-sources}
+### Asenna vain luotettavista lähteistä { #only-install-from-reputable-sources }
 
-Ole tarkkana ohjelmiston asennuslähteiden suhteen. Asenna vain ohjelmistoa tunnetuista lähteistä. Jos mahdollista, käytä jakelun pakettienhallintaa (`yum`, `dnf`, `apt`, ...). Pakettienhallinta tekee ohjelmistojen asennuksen, päivittämisen ja poistamisen helpoksi. Jos haluttua ohjelmistoa ei ole saatavilla jakelun pakettienhallinnan varastossa, on käytettävä virallista lähdettä. Seuraa tarvitsemasi ohjelmiston virallisella verkkosivulla annettuja ohjeita. Jos tarjolla on useampi lähde, harkitse sellaista, joka tarjoaa helpomman elinkaaren (asukas/päivitys/poisto/...), kuten [snap](https://en.wikipedia.org/wiki/Snap_(software)) tai [flatpak](https://en.wikipedia.org/wiki/Flatpak).
+Ole tarkkana asentamiesi ohjelmistojen lähteiden kanssa. Asenna ohjelmistoja vain luotettavista lähteistä. Käytä mahdollisuuksien mukaan jakelun paketinhallintaa (`yum`, `dnf`, `apt`, ...). Paketinhallinta helpottaa ohjelmistojen asennusta, päivittämistä ja poistamista. Jos haluttua ohjelmistoa ei ole jakelun pakettivarastossa, käytä virallista lähdettä. Seuraa tarvitsemasi ohjelmiston virallisella sivustolla annettuja ohjeita. Jos tarjolla on useampi lähde, harkitse sellaista, joka tarjoaa helpomman elinkaaren (asennus/päivitys/poisto/...), kuten [snap](https://en.wikipedia.org/wiki/Snap_(software)) tai [flatpak](https://en.wikipedia.org/wiki/Flatpak).
 
-### Automaattiset ohjelmistopäivitykset {#automatic-software-updates}
+### Automaattiset ohjelmistopäivitykset { #automatic-software-updates }
 
-Kaikissa käyttöjärjestelmissä on mahdollisuus tehdä päivityksiä automaattisesti. Jos suoritat säännöllisiä päivityksiä, altistut vähemmän tunnetuille tietoturvaongelmille. On yleistä, että korjaus on saatavilla ennen tietoturvaongelman julkistamista.
+Kaikissa käyttöjärjestelmissä on mahdollisuus asentaa päivityksiä automaattisesti. Säännöllisesti päivittämällä altistut vähemmän tunnetuille tietoturvaongelmille. Usein korjaus on saatavilla jo ennen kuin haavoittuvuudesta julkaistaan tietoa.
 
 Centos 8:ssa ja uudemmissa käytössä on `dnf-automatic`:
 
@@ -61,7 +61,7 @@ sudo yum install dnf-automatic -y
 systemctl enable --now dnf-automatic-install.timer
 ```
 
-`yum-cron` Centos 7:lle:
+`yum-cron` Centos 7:lle (ja vanhemmille RedHat-sukuisille jakeluille):
 
 ```yaml
 sudo yum install yum-cron -y
@@ -71,42 +71,42 @@ sudo systemctl start yum-cron.service
 
 `unattended-upgrades` Ubuntulle:
 
-```yaml
+```yml
 sudo apt install unattended-upgrades
 ```
 
-Jokaisella käyttöjärjestelmäversiona on oma tapa aktivoida tämä.
+Jokaisessa käyttöjärjestelmäversiossa tämän aktivointi tapahtuu omalla tavallaan.
 
-!!! info "Ydinpäivitykset" {#kernel-updates}
+!!! info "Ytimen päivitykset" 
 
-    Jotkut päivitykset, kuten ydinpäivitykset, vaativat virtuaalikoneiden uudelleenkäynnistämisen. Suunnittele tämä osaksi säännöllistä ylläpitoa.
+    Jotkin päivitykset, kuten ytimen päivitykset, vaativat virtuaalikoneiden uudelleenkäynnistyksen. Huomioi tämä säännöllisessä ylläpidossa.
 
-Jos käyttötapauksesi ei tue automaattisia päivityksiä, mikä on yleistä erittäin saatavilla olevissa kokoonpanoissa, varmista, että aikataulutat säännöllisesti kunnossapitot aikoja, joissa ohjelmistopäivitys on aikataulutettu.
+Jos käyttötapauksesi ei tue automaattisia päivityksiä, mikä on yleistä korkean käytettävyyden ympäristöissä, varmista että aikataulutat säännölliset huoltoikkunat, joiden aikana ohjelmistopäivitykset tehdään.
 
-* **Tilaa käyttöjärjestelmäsi tietoturvailmoitukset**, jos käyttöjärjestelmässäsi ilmenee tietoturvaongelma, sinun on saatava selville se mahdollisimman pian. Voit tilata asiaankuuluvan postituslistan, RSS-syötteen, ... seurata kaikkea, mikä vaatii kiireellisiä toimenpiteitä.
+* **Tilaa käyttöjärjestelmäsi tietoturvatiedotteet**, jos käyttöjärjestelmässäsi ilmenee tietoturvaongelma, sinun on saatava siitä tieto mahdollisimman pian. Voit tilata sopivan postituslistan, RSS-syötteen, ... pysyäksesi ajan tasalla kiireellisistä toimenpiteistä.
 
-### Ole tarkkana virtuaalikoneen käyttäjätilien suhteen {#be-mindful-about-the-user-accounts-in-the-vm}
+### Kiinnitä huomiota virtuaalikoneen käyttäjätileihin { #be-mindful-about-the-user-accounts-in-the-vm }
 
-Pidä silmällä järjestelmäsi käytössä olevia käyttäjätilejä. Jotkin sovellukset luovat oletustilejä, jotka ovat tarpeettomia tai jopa suoraan turvattomia. Ihannetapauksessa tilejä voisi olla kolme:
+Pidä silmällä järjestelmässäsi käytössä olevia käyttäjätilejä. Jotkin sovellukset luovat oletustilejä, jotka ovat tarpeettomia tai jopa suoraan turvattomia. Ihanne voisi olla kolme tiliä:
 
-* `root`, jolla on ssh pois käytöstä ja ei salasanaa. Tämä on oletus [Pouta VM -kuvissa](images.md).
-* Käyttäjätili, jolla on sysadminin pääsyoikeus, johon voi päästä vain ssh-avainten kautta ja jolla on sudo-oikeudet. Pouta VM -kuvat tarjoavat tämän käyttäjän esikonfiguroituna, käyttäjän nimi riippuu jakelusta (`cloud-user`, `centos` tai `ubuntu`), katso yllä olevaa dokumentaatiota lisätietojen saamiseksi.
-* ja lisää palvelutasoiset tilit, jotka suorittavat vain yhden palvelun eikä niillä ole kirjautumismahdollisuutta, ei etä- eikä paikalliskäyttö.
+* `root`, jolla ssh on pois käytöstä eikä salasanaa. Tämä on oletus [Poutan VM-kuvissa](images.md).
+* Järjestelmänvalvojan käyttäjätili, johon pääsee vain SSH-avaimilla ja jolla on sudo-oikeudet. Poutan VM-kuvissa tämä käyttäjä on esiasetettuna; käyttäjän nimi riippuu jakelusta (`cloud-user`, `centos` tai `ubuntu`), katso lisätietoja yllä olevasta dokumentaatiosta.
+* sekä käyttäjätason tilit, jotka ajavat yksittäistä palvelua eikä niillä ole kirjautumismahdollisuutta, ei etänä eikä paikallisesti. 
 
-Älä aktivoi salasanalla kirjautumista, **käytä SSH-avaimia** sen sijaan. Salasanat voidaan, riittävällä ajalla ja laskentateholla, arvata brutaalivoimatoimien avulla. Keskimääräinen SSH-palvelin käsittelee tuhansia tällaisia hyökkäyksiä joka viikko. Kun käytät SSH-avaimia, käytetään haaste-vastaus-autentikointia. Tämä tarkoittaa sitä, että jokaisessa kirjautumisessa kysytään erilainen haaste ja oikea vastaus on erilainen. Mitään salaisuutta (salasanaa tai avainta) ei koskaan matkusteta verkon ylitse.
+Älä salli salasanoilla kirjautumista, **käytä SSH-avaimia** sen sijaan. Salasanat voidaan riittävällä ajalla ja laskentateholla arvata brute force -hyökkäyksillä. Keskimääräinen SSH-palvelin kohtaa tuhansia tällaisia yrityksiä joka viikko. Kun käytät SSH-avaimia, käytössä on haaste-vastaus-todennus. Tämä tarkoittaa, että joka kirjautumisella esitetään eri haaste ja oikea vastaus on eri. Yhtään salaista tietoa (salasanaa tai avainta) ei koskaan siirry verkon yli 
 
-Suoja salasanalla SSH-avaimesi ja varmista, ettei avaimesi koskaan poistu laitteesta, jossa se luotiin.
+Suojaa SSH-avaimesi salasanalla ja varmista, ettei avaimesi koskaan poistu laitteesta, jolla se luotiin.
 
-* Älä tallenna julkisia avaimia (saati yksityisiä) kuvassa, jota käytetään VM:n luomiseen. Pouta clouds tarjoaa metatietopalvelun, jotta voit ladata julkisia avaimia käynnistyksen yhteydessä. Tämä on suositeltavaa, koska se varmistaa, että jos avaimesi vaarantuu, pääsy kyseisestä avaimesta voidaan poistaa kaikista käynnissä olevista instansseista eikä yhdelläkään uudella instanssilla ole koskaan tätä julkista avainta.
+* Älä tallenna julkisia avaimia (saati yksityisiä) VM:n luomiseen käytettävään imageen. Poutan pilvet tarjoavat metatietopalvelun, jonka avulla voit ladata julkiset avaimet käynnistyksen yhteydessä. Tätä suositellaan, sillä jos avaimesi vaarantuu, kyseisen avaimen käyttöoikeus voidaan poistaa kaikista käynnissä olevista instansseista, eikä uusi instanssi koskaan saa tätä julkista avainta.
 
-### Pidä kirjaa sovellustesi lokitiedostoista {#keep-logs-of-your-applications}
+### Pidä sovellustesi lokit { #keep-logs-of-your-applications }
 
-Käytä kirjauskäytännön parhaita käytäntöjä:
+Käytä lokituksessa parhaita käytäntöjä:
 
-- Varmista, että palvelut kirjaavat turvalliseen sijaintiin, joka on mahdollisimman väärinkäytönkestävä.
-- Säilytä lokit kohtuullisen pitkän aikaa.
-- Harkitse myös kirjautumista etäpalvelimelle.
+- Varmista, että palvelut lokittavat turvalliseen, mahdollisimman väärentämisen kestävään sijaintiin.
+- Säilytä lokit kohtuullisen pitkään.
+- Harkitse lokien lähettämistä myös etäpalvelimelle.
 
-*Toistettu ystävällisellä luvalla <a
+*Uudelleenkäytetty ystävällisellä luvalla lähteestä <a
 href="https://support.ehelp.edu.au/support/solutions"
 class="external-link">NeCTAR</a>.*

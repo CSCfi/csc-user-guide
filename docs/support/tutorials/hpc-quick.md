@@ -1,274 +1,252 @@
-# Getting started with supercomputing at CSC
+# Superlaskennan käytön aloitus CSC:llä { #getting-started-with-supercomputing-at-csc }
 
-You have signed up for your
-[user account](../../accounts/how-to-create-new-user-account.md)
-and first [CSC project](../../accounts/how-to-create-new-project.md), and are
-now ready to scale up your computing! This page provides guidance for getting
-started with using our HPC resources.
+Olet luonut [käyttäjätilin](../../accounts/how-to-create-new-user-account.md)
+ja ensimmäisen [CSC-projektisi](../../accounts/how-to-create-new-project.md), joten olet valmis skaalaamaan laskentasi! Tällä sivulla annetaan ohjeita CSC:n HPC-resurssien käytön aloittamiseen.
 
-It is recommended that new users complete the *CSC Computing Environment*
-course, which provides an in-depth introduction to CSC services. The next live
-teaching instance can be found in the
-[CSC training calendar](https://csc.fi/en/trainings/training-calendar/).
-A
-[self-learning implementation](https://csc.fi/en/training-calendar/csc-computing-environment-self-learning/)
-is also available. The
-[course materials](https://csc-training.github.io/csc-env-eff/) are accessible
-without having to sign up, and are very useful by themselves.
+Uusille käyttäjille suositellaan suorittamaan kurssi
+*CSC Computing Environment*, joka tarjoaa perusteellisen johdatuksen CSC:n palveluihin. Seuraavan live-opetuskerran löydät
+[CSC:n koulutuskalenterista](https://csc.fi/en/trainings/training-calendar/).
+Myös
+[itsepohjainen versio](https://csc.fi/en/training-calendar/csc-computing-environment-self-learning/)
+on saatavilla.
+[Kurssimateriaalit](https://csc-training.github.io/csc-env-eff/) ovat käytettävissä ilman ilmoittautumista ja ovat sellaisinaan erittäin hyödyllisiä.
 
-For a more general introduction to HPC, we recommend the
-[*Elements of Supercomputing*](https://edukamu.fi/elements-of-supercomputing/)
-online course.
+Yleisempänä johdantona HPC:hen suosittelemme
+verkko­kurssia [*Elements of Supercomputing*](https://edukamu.fi/elements-of-supercomputing/).
 
-!!! note "Need support?"
+!!! note "Tarvitsetko tukea?"
 
-    Do not hesitate to [contact the CSC Service Desk](../contact.md) if you
-    have any questions about using CSC services. We are happy to help!
+    Älä epäröi [ottaa yhteyttä CSC Service Deskiin](../contact.md), jos sinulla on kysyttävää CSC:n palveluiden käytöstä. Autamme mielellämme!
 
-## Which system should I use?
+## Mitä järjestelmää minun kannattaa käyttää? { #which-system-should-i-use }
 
-### Puhti
+### Puhti { #puhti }
 
-New users are recommended to start working on the
-[Puhti supercomputer](../../computing/available-systems.md#puhti).
-Compared to Mahti, it has much more
-[pre-installed software](../../apps/by_system.md#puhti), more GPU nodes, and
-typically more available memory per CPU core. Additionally, GPU nodes and some
-CPU nodes on Puhti have
-[fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
+Uusien käyttäjien suositellaan aloittavan työskentely
+[Puhti-super­tieto­koneella](../../computing/available-systems.md#puhti).
+Verrattuna Mahtiin sillä on huomattavasti enemmän
+[esiasennettuja ohjelmistoja](../../apps/by_system.md#puhti), enemmän GPU-solmuja ja
+tyypillisesti enemmän muistia CPU-ydintä kohden. Lisäksi Puhtin GPU-solmuilla ja joillakin CPU-solmuilla on
+[nopea paikallinen NVMe-tallennus](../../computing/disk.md#temporary-local-disk-areas).
 
-### Mahti
+### Mahti { #mahti }
 
-If you know that your computations are highly parallelizable, you should
-consider running them on the
-[Mahti supercomputer](../../computing/available-systems.md#mahti).
-Compared to Puhti, Mahti has many more CPU nodes and cores per node. Mahti is
-intended for computations that are able to effectively utilize at least an
-entire CPU node.
+Jos tiedät, että laskentasi on erittäin hyvin rinnakkaistettavissa, kannattaa harkita niiden ajamista
+[Mahti-super­tieto­koneella](../../computing/available-systems.md#mahti).
+Verrattuna Puhtiin Mahtissa on huomattavasti enemmän CPU-solmuja ja ytimiä per solmu. Mahti on
+tarkoitettu laskentaan, joka pystyy tehokkaasti hyödyntämään vähintään kokonaisen CPU-solmun.
 
-Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
-are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
-also suitable for demanding [machine learning](ml-guide.md) applications.
-In contrast to Puhti, only the GPU nodes on Mahti have fast local NVMe storage
-available.
+Lisäksi, vaikka Mahtissa on vähemmän GPU-solmuja kuin Puhtissa, Mahtin A100-GPU:t
+ovat huomattavasti tehokkaampia kuin Puhtin V100-GPU:t, mikä tekee Mahtista
+sopivan myös vaativiin [koneoppimisen](ml-guide.md) sovelluksiin.
+Toisin kuin Puhtissa, Mahtissa nopea paikallinen NVMe-tallennus on käytettävissä
+vain GPU-solmuissa.
 
-### LUMI
+### LUMI { #lumi }
 
-The [LUMI supercomputer](../../computing/available-systems.md#lumi)
-is one of the fastest in the world. It is intended primarily
-for running computations that benefit from the large amount of high-performance
-GPUs in its LUMI-G hardware partition. Whereas the GPUs on Puhti and Mahti are
-manufactured by Nvidia, the LUMI GPUs are made by AMD, so make sure that your
-GPU applications are able to run on AMD GPUs. LUMI has
-[its own documentation pages](https://docs.lumi-supercomputer.eu/).
+[LUMI-super­tieto­kone](../../computing/available-systems.md#lumi)
+on yksi maailman nopeimmista. Se on tarkoitettu ensisijaisesti
+ajoihin, jotka hyötyvät sen LUMI-G-laitteisto-osion suuresta määrästä tehokkaita GPU:ita. Siinä missä Puhtin ja Mahtin GPU:t
+valmistaa Nvidia, LUMIn GPU:t ovat AMD:n, joten varmista, että
+GPU-sovelluksesi toimivat AMD:n GPU:illa. LUMIlla on
+[omat dokumentaatiosivunsa](https://docs.lumi-supercomputer.eu/).
 
-!!! note "On supercomputing"
+!!! note "Superlaskennasta"
 
-    CSC supercomputers offer resources that, when properly used, are well-beyond
-    what the most sophisticated consumer devices are capable of. However, *you are
-    not the only one using them*. On your personal workstation, you have, in
-    principle, immediate access to resources. On a supercomputer, which is a shared
-    system, you must typically queue for them, since their demand tends to be higher
-    than their supply. See our [usage policy](../../computing/usage-policy.md)
-    for more information.
+    CSC:n supertietokoneet tarjoavat resursseja, jotka oikein käytettynä ylittävät selvästi sen, mihin kehittyneimmätkään kuluttajalaitteet pystyvät. Muista kuitenkin, että *et ole niiden ainoa käyttäjä*. Henkilökohtaisella työasemallasi pääset periaatteessa resursseihin heti käsiksi. Supertietokone on jaettu järjestelmä, jossa resursseihin täytyy yleensä jonottaa, koska kysyntä on usein suurempaa kuin tarjonta. Katso lisätietoja [käyttöpolitiikastamme](../../computing/usage-policy.md).
 
-    It is also worth keeping in mind that running your computations on a
-    supercomputer only improves performance if you play to its strengths.
-    Supercomputers are powerful because they allow for
-    [parallel computing](https://en.wikipedia.org/wiki/Parallel_computing).
-    If your code is not written to take advantage of multiple CPU cores, or one or
-    more GPUs, there might be no benefit over running it on your own workstation.
-    However, high memory and/or storage requirements, as well as availability of
-    pre-installed software and licenses are other factors which may make using
-    CSC supercomputers attractive for you.
+    On myös hyvä muistaa, että laskentojen ajaminen supertietokoneella parantaa suorituskykyä vain, jos hyödynnät sen vahvuuksia.
+    Supertietokoneet ovat tehokkaita, koska ne mahdollistavat
+    [rinnakkaislaskennan](https://en.wikipedia.org/wiki/Parallel_computing).
+    Jos koodiasi ei ole kirjoitettu käyttämään useita CPU-ytimiä tai yhtä tai useampaa GPU:ta, siitä ei välttämättä ole hyötyä verrattuna oman työaseman käyttöön.
+    Toisaalta suuret muisti- ja/tai tallennusvaatimukset sekä esiasennetut ohjelmistot ja lisenssit ovat tekijöitä, jotka voivat tehdä CSC:n supertietokoneiden käytöstä sinulle houkuttelevaa.
 
-## How to access CSC supercomputers?
+## Miten pääsen käyttämään CSC:n supertietokoneita? { #how-to-access-csc-supercomputers }
 
-### Web interface
+### Verkkokäyttöliittymä { #web-interface }
 
-Puhti, Mahti and LUMI each have
-[their own web interface](../../computing/webinterface/index.md), which allows
-interacting with the supercomputer through a web browser. The web interface is a
-good choice for interactive computing, such as analyzing, exploring and
-visualizing data. For this purpose, the web interface features multiple
-interactive applications, like
+Puhtilla, Mahtilla ja LUMIlla on jokaisella
+[oma verkkokäyttöliittymänsä](../../computing/webinterface/index.md), jonka kautta
+voi käyttää supertietokonetta selaimella. Verkkokäyttöliittymä on hyvä valinta
+vuorovaikutteiseen laskentaan, kuten datan analysointiin, tutkimiseen ja
+visualisointiin. Tätä varten verkkokäyttöliittymässä on useita
+vuorovaikutteisia sovelluksia, kuten
 [Visual Studio Code](../../computing/webinterface/vscode.md),
-[Jupyter](../../computing/webinterface/jupyter.md) and
-[RStudio](../../computing/webinterface/rstudio.md). In addition, it provides a
-[desktop environment](../../computing/webinterface/desktop.md) featuring
-software with graphical user interfaces (GUIs), as well as an
-[accelerated visualization app](../../computing/webinterface/accelerated-visualization.md)
-for GPU-accelerated visualization and rendering. For demanding computation,
-like running full-scale simulations or training neural networks, you should use
-the command-line interface, since it allows you to access more resources and
-schedule your jobs.
+[Jupyter](../../computing/webinterface/jupyter.md) ja
+[RStudio](../../computing/webinterface/rstudio.md). Lisäksi se tarjoaa
+[työpöytäympäristön](../../computing/webinterface/desktop.md), jossa on
+graafisia käyttöliittymiä (GUI) käyttäviä ohjelmistoja, sekä
+[kiihdytetyn visualisointisovelluksen](../../computing/webinterface/accelerated-visualization.md)
+GPU-kiihdytettyä visualisointia ja renderöintiä varten. Vaativaan laskentaan,
+kuten täysimittaisten simulaatioiden ajamiseen tai neuroverkkojen kouluttamiseen,
+kannattaa käyttää komentorivikäyttöliittymää, koska sen avulla pääset käsiksi
+suurempiin resursseihin ja voit ajastaa työsi.
 
 - [Puhti web interface](https://www.puhti.csc.fi)
 - [Mahti web interface](https://www.mahti.csc.fi)
 - [LUMI web interface](https://www.lumi.csc.fi)
 
-### Command-line interface
+### Komentorivikäyttöliittymä { #command-line-interface }
 
-While many of the interactive applications in the web interface, such as
-Jupyter and RStudio, are easy to use and thus a good starting point for using
-CSC supercomputers, their computing capacity is limited to relatively
-low-resource interactive usage. If you need access to more resources (e.g.
-multiple CPU nodes or GPUs) or if your work requires efficiency over
-interactivity, it is a good idea to switch to using the text-based command-line
-interface to interact directly with the supercomputer's
-[Linux operating system](./env-guide/index.md). While this way of working may
-seem archaic, it is truly powerful once you get used to it.
+Vaikka monet verkkokäyttöliittymän vuorovaikutteisista sovelluksista, kuten
+Jupyter ja RStudio, ovat helppokäyttöisiä ja siten hyvä lähtökohta CSC:n
+supertietokoneiden käyttöön, niiden laskentakapasiteetti on rajattu
+melko pieniresurssiseen vuorovaikutteiseen käyttöön. Jos tarvitset enemmän
+resursseja (esim. useita CPU-solmuja tai GPU:ita) tai jos työsi vaatii
+vuorovaikutteisuuden sijaan tehokkuutta, kannattaa siirtyä käyttämään
+tekstipohjaista komentorivikäyttöliittymää ja toimimaan suoraan supertietokoneen
+[Linux-käyttöjärjestelmässä](./env-guide/index.md). Tapa voi vaikuttaa
+vanhanaikaiselta, mutta siihen tottuessa se on erittäin tehokas.
 
-The CLI allows you to
-[submit your computations as batch jobs](../../computing/running/getting-started.md)
-to the SLURM job scheduler, which runs them as soon as the requested resources
-are available. Importantly, the batch job system ensures that your jobs are run
-on the *compute nodes* opposed to the *login nodes*,
-which are [**not** intended for heavy computing](../../computing/usage-policy.md).
-Another benefit of batch jobs is that running computations does not necessitate
-being tied to your workstation. While setting up this automation can require
-some more planning on your part, in the long run it makes your work more
-efficient as well as more reproducible both to yourself and other parties, such
-as reviewers and collaborators.
+CLI:n avulla voit
+[lähettää laskentasi erätöinä](../../computing/running/getting-started.md)
+SLURM-jonohallintaan, joka ajaa ne heti, kun pyydetyt resurssit
+ovat saatavilla. Tärkeää on, että eräajojärjestelmä varmistaa töidesi ajon
+*laskentasolmuissa* eikä *kirjautumissolmuissa*,
+joita [**ei ole** tarkoitettu raskaaseen laskentaan](../../computing/usage-policy.md).
+Eräajojen etuna on myös se, että laskentojen ajaminen ei sido sinua
+työasemaasi. Vaikka tämän automatisoinnin käyttöönotto vaatii hieman
+suunnittelua, pitkällä aikavälillä se tekee työstäsi sekä tehokkaampaa että
+toistettavampaa niin itsellesi kuin muillekin, kuten arvioijille ja
+yhteistyökumppaneille.
 
-You can access the command-line interface either by
-using the [shell applications](../../computing/webinterface/shell.md)
-featured in the web interfaces or by
-[using an SSH client on your own workstation](../../computing/connecting/index.md#using-an-ssh-client).
+Pääset komentorivikäyttöliittymään joko
+käyttämällä verkkokäyttöliittymien
+[kuoriosovelluksia](../../computing/webinterface/shell.md) tai
+[käyttämällä omalla työasemallasi SSH-asiakasta](../../computing/connecting/index.md#using-an-ssh-client).
 
-!!! note "Connecting with SSH"
-    Please note that connecting to CSC supercomputers from the command-line
-    using an SSH client requires that you first set up SSH keys and add your
-    public key to the MyCSC customer portal. Using SSH keys and MyCSC for
-    adding your public key to a supercomputer is a much more secure way of
-    authenticating than traditional passwords or manually managed SSH keys.
+!!! note "Yhteyden muodostaminen SSH:lla"
+    Huomaa, että muodostettaessa yhteyttä CSC:n supertietokoneisiin
+    komentoriviltä SSH-asiakkaalla sinun on ensin otettava käyttöön SSH-avaimet
+    ja lisättävä julkinen avaimesi MyCSC-asiakasportaaliin. SSH-avainten ja
+    MyCSC:n käyttäminen julkisen avaimesi lisäämiseen supertietokoneelle on
+    huomattavasti turvallisempi todennustapa kuin perinteiset salasanat tai
+    manuaalisesti hallitut SSH-avaimet.
 
-    [Read the detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
+    [Lue yksityiskohtaiset ohjeet SSH-avainten käyttöönotosta ja käytöstä](../../computing/connecting/ssh-keys.md).
 
-## How to work with software and data?
+## Kuinka työskennellä ohjelmistojen ja datan kanssa? { #how-to-work-with-software-and-data }
 
-### Software
+### Ohjelmistot { #software }
 
-A variety of useful [scientific computing software](../../apps/index.md) is
-available on CSC supercomputers. Puhti is especially distinguished in this
-regard, having over a hundred pre-installed programs. Our application pages
-include batch job script examples and guidelines for running the software
-efficiently on CSC supercomputers. We highly recommend using them as a
-starting point!
+CSC:n supertietokoneilla on saatavilla monipuolinen valikoima
+[scientific computing -ohjelmistoja](../../apps/index.md). Tässä suhteessa Puhti
+erottuu edukseen: sillä on yli sata esiasennettua ohjelmaa. Sovellussivuillamme
+on eräajoskriptiesimerkkejä ja ohjeita ohjelmistojen ajamiseen
+tehokkaasti CSC:n supertietokoneilla. Suosittelemme lämpimästi käyttämään niitä
+lähtökohtana!
 
-CSC supercomputers use [environment modules](../../computing/modules.md) for
-managing software environments. These modules cover everything from
-[compilers](../../computing/installing.md#compiling) and
-[programming languages](../../apps/by_discipline.md#mathematics-and-statistics)
-to workflow utilities like
-[Nextflow](../../apps/nextflow.md) and [Snakemake](../../apps/snakemake.md).
-Running most of the installed software efficiently requires using the
-[command-line interface](#command-line-interface), so it is extremely useful to
-have a working knowledge of the
-[basics of the Linux operating system](./env-guide/index.md).
+CSC:n supertietokoneilla ohjelmisto­ympäristöjä hallitaan
+[ympäristömoduuleilla](../../computing/modules.md). Moduulit kattavat kaiken
+[kääntäjistä](../../computing/installing.md#compiling) ja
+[ohjelmointikielistä](../../apps/by_discipline.md#mathematics-and-statistics)
+työnkulkuvälineisiin, kuten
+[Nextflow](../../apps/nextflow.md) ja [Snakemake](../../apps/snakemake.md).
+Useimpien asennettujen ohjelmistojen tehokas ajaminen edellyttää
+[komentorivikäyttöliittymän](#command-line-interface) käyttöä, joten on erittäin
+hyödyllistä hallita
+[Linux-käyttöjärjestelmän perusteet](./env-guide/index.md).
 
-While the pre-installed software covers a wide variety of use cases, it is also
-possible to install your own applications on CSC supercomputers. The process
-often differs from carrying out installations on your own computer, so make
-sure to familiarize yourself with our
-[installation instructions](../../computing/installing.md). For compiling HPC
-applications we have various
-[compilers](../../computing/installing.md#compiling),
-[high-performance libraries](../../computing/hpc-libraries.md) and other
-utilities available to facilitate this. Note that some installations, such as
-complex Python environments, benefit from
-[containerization](../../computing/containers/overview.md).
+Vaikka esiasennetut ohjelmistot kattavat laajan kirjon käyttötapauksia, omien
+sovellusten asentaminen CSC:n supertietokoneille on myös mahdollista. Prosessi
+poikkeaa usein oman koneen asennuksista, joten tutustu
+[asennusohjeisiimme](../../computing/installing.md). HPC-sovellusten kääntämistä
+varten käytettävissä on erilaisia
+[kääntäjiä](../../computing/installing.md#compiling),
+[korkean suorituskyvyn kirjastoja](../../computing/hpc-libraries.md) ja muita
+työkaluja tämän helpottamiseksi. Huomaa, että jotkin asennukset, kuten
+monimutkaiset Python-ympäristöt, hyötyvät
+[kontituksesta](../../computing/containers/overview.md).
 
-You may also wish to develop your own scripts and programs instead of using existing
-software. It is most efficient to start writing and testing your code on your
-own device, since running it on a shared system (which supercomputers are)
-inevitably introduces some overhead. You should only start running your scripts
-on a supercomputer once you are ready for testing them on a larger scale or
-using specific resources like GPUs.
+Saatat haluta myös kehittää omia skriptejäsi ja ohjelmiasi valmiiden ohjelmistojen
+sijaan. Tehokkainta on aloittaa koodin kirjoittaminen ja testaaminen omalla
+laitteellasi, koska ajaminen jaetussa järjestelmässä (jollaisia supertietokoneet ovat)
+tuo väistämättä jonkin verran ylimääräistä kuormaa. Siirry ajamaan skriptejäsi
+supertietokoneella vasta, kun olet valmis testaamaan niitä suuremmassa mittakaavassa
+tai käyttämään erityisresursseja, kuten GPU:ita.
 
-!!! note "Checking availability"
+!!! note "Saatavuuden tarkistaminen"
 
-    If you have a piece of scientific software in mind, it is quite probable
-    that we have it installed on Puhti. Besides browsing Docs CSC, you can search
-    for software on the command-line using the command
-    `module spider <search-pattern>`. Most often the name of the software module
-    is simply the name of the software itself, and even if your search pattern
-    does not match the module name exactly, the search is case-insensitive and
-    supports partial matches.
+    Jos sinulla on mielessä jokin tieteellinen ohjelmisto, on varsin todennäköistä,
+    että se on asennettuna Puhtiin. Docs CSC:n selaamisen lisäksi voit etsiä
+    ohjelmistoja komentoriviltä komennolla
+    `module spider <search-pattern>`. Usein ohjelmistomoduulin nimi on yksinkertaisesti
+    ohjelmiston nimi, ja vaikka hakukuviosi ei täsmäisi moduulin nimeen täysin,
+    haku ei ole kirjainkoosta riippuvainen ja tukee osittaisia osumia.
 
-### Data storage
+### Datan tallennus { #data-storage }
 
-CSC supercomputers provide distinct [disk areas](../../computing/disk.md) for
-different data storage purposes. The *project-based* shared storage can be found
-under `/scratch/<project>`. This folder is shared by *all users* in a project
-and has a default quota of 1 TB.
+CSC:n supertietokoneilla on erilliset
+[levyalueet](../../computing/disk.md) eri datan­tallennus­tarkoituksiin.
+*Projektilähtöinen* jaettu tallennus löytyy polusta `/scratch/<project>`.
+Tämä kansio on jaettu projektin *kaikkien käyttäjien* kesken ja sen
+oletuskiintiö on 1 Tt.
 
-Please note that the **scratch disk is not meant for long-term data storage**
-and, on Puhti, files that have not been used for 180 days will be automatically
-removed. We recommend the
-[Allas object storage service](../../data/Allas/introduction.md) for storing
-research data that is not actively used on the supercomputers. See
-[guidelines for managing data on Puhti and Mahti scratch disks](clean-up-data.md)
-for more information. Also note that sensitive data must not be processed or
-stored on CSC supercomputers. For this purpose we have separate
-[sensitive data services](../../data/sensitive-data/index.md).
+Huomaa, että **scratch-levy ei ole tarkoitettu pitkäaikaiseen säilytykseen** ja Puhtissa
+tiedostot, joita ei ole käytetty 180 päivään (kun scratch-kiintiö on alle 5 TiB)
+tai 90 päivään (kun scratch-kiintiö on 5 TiB tai enemmän), poistetaan automaattisesti. Suosittelemme
+[Allas-objektitallennuspalvelua](../../data/Allas/introduction.md) tutkimusdatan
+säilyttämiseen silloin, kun sitä ei aktiivisesti käytetä supertietokoneilla. Katso
+[lisäohjeet datan hallintaan Puhtin ja Mahtin scratch-levyillä](clean-up-data.md).
+Huomaa myös, että arkaluonteista dataa ei saa käsitellä tai säilyttää CSC:n
+supertietokoneilla. Tätä tarkoitusta varten meillä on erilliset
+[arkaluonteisen datan palvelut](../../data/sensitive-data/index.md).
 
-CSC supercomputers also have a persistent project-based storage with a default
-quota of 50 GB. It is located under  
-`/projappl/<project>` and recommended, for example, for custom software
-installations. Additionally, each user can store up to 10 GB of data in their
-personal home directory (`$HOME`).
+CSC:n supertietokoneilla on myös pysyvä projektilähtöinen tallennus, jonka
+oletuskiintiö on 50 Gt. Se sijaitsee polussa  
+`/projappl/<project>` ja sitä suositellaan esimerkiksi omien ohjelmistojen
+asennuksiin. Lisäksi jokaisella käyttäjällä on käytettävissään enintään 10 Gt
+dataa henkilökohtaisessa kotihakemistossaan (`$HOME`).
 
-[Moving data](../../data/moving/index.md) between a supercomputer and a local
-workstation is easy using the
-[web interface file browser](../../data/moving/web-interface.md) or
-command-line file transfer tools like [scp](../../data/moving/scp.md) and
-[rsync](../../data/moving/rsync.md). You can also use the
-[Linux wget utility](../../data/moving/wget.md) to download data to
-a supercomputer directly from a website or FTP server.
+[Datan siirtäminen](../../data/moving/index.md) supertietokoneen ja paikallisen
+työaseman välillä on helppoa käyttämällä
+[verkkokäyttöliittymän tiedostoselainta](../../data/moving/web-interface.md) tai
+komentorivin siirtotyökaluja, kuten [scp](../../data/moving/scp.md) ja
+[rsync](../../data/moving/rsync.md). Voit myös käyttää
+[Linuxin wget-apuohjelmaa](../../data/moving/wget.md) ladataksesi dataa
+suoraan verkkosivulta tai FTP-palvelimelta supertietokoneelle.
 
-!!! note "CSC does not back up your data!"
-    None of the disk areas are automatically backed up by CSC. This means that
-    data accidentally deleted by the user cannot be recovered in any way. To
-    avoid unintended data loss, make sure to regularly back up your data, for
-    example to Allas or your own organization's storage systems.
+!!! note "CSC ei varmuuskopioi dataasi!"
+    Yhtäkään levyaluetta ei varmuuskopioida automaattisesti CSC:ssä. Tämä tarkoittaa,
+    että käyttäjän vahingossa poistamaa dataa ei voida millään tavalla palauttaa.
+    Vältä tahatonta datan menetystä varmuuskopioimalla säännöllisesti, esimerkiksi
+    Allakseen tai oman organisaatiosi tallennusjärjestelmiin.
 
-## Useful links
+## Hyödyllisiä linkkejä { #useful-links }
 
-You can use the navigation sidebar or the search function to find more
-information about using CSC HPC services. Here we have included links to pages
-that we think are particularly useful when getting started with supercomputing
-at CSC.
+Voit käyttää navigointisivupalkkia tai hakua löytääksesi lisää
+tietoa CSC:n HPC-palveluiden käytöstä. Alla on linkkejä sivuille,
+joista on erityisesti hyötyä superlaskennan aloittamisessa CSC:llä.
 
-=== "User accounts and projects"
-    - [Creating a new user account](../../accounts/how-to-create-new-user-account.md)
-    - [Creating a new project](../../accounts/how-to-create-new-project.md) and
-      [adding members to an existing one](../../accounts/how-to-add-members-to-project.md)
-    - [Adding service access for a project](../../accounts/how-to-add-service-access-for-project.md)
-    - [Billing](../../accounts/billing.md) and
-      [applying for billing units](../../accounts/how-to-apply-for-billing-units.md)
-    - [Changing your password](../../accounts/how-to-change-password.md)
-    - [MyCSC customer portal](https://my.csc.fi)
+=== "Käyttäjätilit ja projektit"
+    - [Uuden käyttäjätilin luominen](../../accounts/how-to-create-new-user-account.md)
+    - [Uuden projektin luominen](../../accounts/how-to-create-new-project.md) ja
+      [jäsenten lisääminen olemassa olevaan projektiin](../../accounts/how-to-add-members-to-project.md)
+    - [Palveluoikeuksien lisääminen projektille](../../accounts/how-to-add-service-access-for-project.md)
+    - [Laskutus](../../accounts/billing.md) ja
+      [Laskentayksiköiden hakeminen](../../accounts/how-to-apply-for-billing-units.md)
+    - [Salasanan vaihtaminen](../../accounts/how-to-change-password.md)
+    - [MyCSC-asiakasportaali](https://my.csc.fi)
 
-=== "Computing"
-    - [Overview](../../computing/index.md)
-    - [Usage policy](../../computing/usage-policy.md)
-    - [Connecting to supercomputers](../../computing/connecting/index.md)
-    - [Running batch jobs](../../computing/running/getting-started.md) and
-      [available batch job partitions](../../computing/running/batch-job-partitions.md)
-    - [Pre-installed applications](../../apps/index.md) and
-      [how to install custom software](../../computing/installing.md)
-    - [LUMI user guide](https://docs.lumi-supercomputer.eu/)
+=== "Laskenta"
+    - [Yleiskatsaus](../../computing/index.md)
+    - [Käyttöpolitiikka](../../computing/usage-policy.md)
+    - [Yhteyden muodostaminen supertietokoneisiin](../../computing/connecting/index.md)
+    - [Eräajojen suorittaminen](../../computing/running/getting-started.md) ja
+      [käytettävissä olevat eräajopartiot](../../computing/running/batch-job-partitions.md)
+    - [Esiasennetut sovellukset](../../apps/index.md) ja
+      [oman ohjelmiston asennusohjeet](../../computing/installing.md)
+    - [LUMI:n käyttäjäopas](https://docs.lumi-supercomputer.eu/)
 
-=== "Training materials and tutorials"
-    - [*CSC Computing Environment* course materials](https://csc-training.github.io/csc-env-eff/)
-    - [Linux basics tutorial](../tutorials/env-guide/index.md)
-    - [Machine learning guide](ml-guide.md)
-    - [Using Python on CSC supercomputers](python-usage-guide.md)
-    - [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
-    - Other [tutorials](index.md) and
-      [training materials](../training-material/index.md)
+=== "Koulutusmateriaalit ja oppaat"
+    - [*CSC Computing Environment* -kurssin materiaalit](https://csc-training.github.io/csc-env-eff/)
+    - [Linuxin perusteet -opas](../tutorials/env-guide/index.md)
+    - [Koneoppimisen opas](ml-guide.md)
+    - [Pythonin käyttö CSC:n supertietokoneilla](python-usage-guide.md)
+    - [Datan hallinta Puhti- ja Mahti-scratch-levyillä](clean-up-data.md)
+    - Muut [oppaat](index.md) ja
+      [koulutusmateriaalit](../training-material/index.md)
 
-=== "Support"
-    - [Frequently asked questions](../faq/index.md)
+=== "Tuki"
+    - [Usein kysytyt kysymykset](../faq/index.md)
     - [CSC Service Desk](../contact.md)

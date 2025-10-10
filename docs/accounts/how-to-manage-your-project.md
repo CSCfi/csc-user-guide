@@ -1,56 +1,60 @@
-# Kuinka hallita projektejasi
+# Kuinka hallita projektejasi { #how-to-manage-your-projects }
 
-CSC-projekti tulee uusia vuosittain.
+CSC-projekti on pidennettävä vuosittain.
 
-* Projektin jäsenet saavat muistutuksia projektin vanhenemisesta.
-* Projektipäällikkö voi uusia projektin [MyCSC](https://my.csc.fi)-palvelussa.
-* Kun projektille myönnetään uusia laskentayksiköitä (BU), projekti pitenee automaattisesti vuodella.
-* Projektit, jotka käyttävät [Fairdata IDA](https://ida.fairdata.fi/), pitenevät automaattisesti.
+* Projektin jäsenet saavat muistutuksia projektin päättymisestä.
+* Projektipäällikkö voi pidentää projektia [MyCSC:ssä](https://my.csc.fi)
+* Kun projektille myönnetään uusia Billing Unitseja (BU), projekti pitenee automaattisesti vuodella.
+* Fairdata IDA -palvelua käyttävät projektit pitenevät automaattisesti.
 
-!!! Huomio
+!!! Note
+    Projektipäällikön CSC-tilin deaktivointi sulkee projektin kaikilta projektin jäseniltä.
 
-    Projektipäällikön CSC-tilin inaktivointi sulkee projektin kaikilta projektin jäseniltä.
+* Projektipäällikön CSC-käyttäjätili on pidettävä aktiivisena. CSC lähettää sähköpostitse ilmoituksia ja ohjeita ennen kuin käyttäjätunnukset tai salasanat vanhenevat. Huomaa, että aktiivinen käyttäjätili ei pidennä projektia.
+* Pidä käyttäjätiedot, kuten sähköpostiosoite, ajan tasalla.
+* Tarvittaessa projektipäällikkö on vastuussa projektipäällikön tehtävien siirtämisestä toiselle projektin jäsenelle.
 
-* Projektipäällikön CSC-tili tulee pitää aktiivisena vaihtamalla salasana vuosittain ja pitämällä käyttäjätiedot kuten sähköpostiosoite ajan tasalla. Tarvittaessa projektipäällikkö on vastuussa projektipäällikön tehtävien siirtämisestä toiselle projektin jäsenelle.
+Käyttäjät ovat ensisijaisesti vastuussa [datan siirtämisestä](../data/moving/index.md) tai projektin sisällön poistamisesta itse ennen kuin projekti suljetaan. 
+Jos et ole varma CSC-projektisi tai -tilisi tilasta, kirjaudu [MyCSC:hen](https://my.csc.fi) pidentämään projektiasi tai vaihtamaan tilisi salasanaa.
+Jos haluat sulkea projektisi, vaihtaa tilisi sähköpostiosoitteen tai vaihtaa projektipäällikön, ole hyvä ja [ota yhteyttä ServiceDeskiin](../support/contact.md)
 
-Käyttäjät ovat ensisijaisesti vastuussa [datan siirtämisestä](../data/moving/index.md) tai projektin sisällön poistamisesta itse ennen projektin sulkeutumista.
-Jos olet epävarma CSC-projektisi tai tilisi tilasta, kirjaudu sisään [MyCSC](https://my.csc.fi) uusiaksesi projektisi tai muuttaaksesi tilisi salasanaa.
-Jos haluat sulkea projektisi, vaihtaa tilisi sähköpostiosoitetta tai projektipäällikköä, ole hyvä ja [ota yhteyttä ServiceDeskiin](../support/contact.md).
+## Projektin keston pidentäminen { #project-lifetime-extension }
 
-## Projektin keston pidentäminen {#project-lifetime-extension}
+Voit hakea projektille yhden vuoden mittaista keston pidennystä.
+Huomaa, että [opiskelijaprojektien](../support/tutorials/student_quick.md) enimmäiskesto on 6 kuukautta eikä niitä voi pidentää.
 
-Voit hakea projektin alkuperäistä keston pidennystä yhdellä vuodella.
-Huomioithan, että [Opiskelijaprojektien](../support/tutorials/student_quick.md) enimmäiskesto on 6 kuukautta, eikä niitä voi pidentää.
+1. Kirjaudu sisään [MyCSC:hen](https://my.csc.fi).
+1. Valitse vasemman laidan navigaatiovalikosta kohta _Projects_.
+1. Valitse projekti, jota haluat pidentää
+1. Napsauta 'Extend'-painiketta
+1. Hyväksy muutokset napsauttamalla 'Apply'-painiketta
+1. Projektisi kesto on nyt pidentynyt yhdellä vuodella.
 
-1. Kirjaudu sisään [MyCSC](https://my.csc.fi).
-1. Valitse _Projektit_ vasemmalla olevasta navigointivalikosta.
-1. Valitse projekti, jota haluat pidentää.
-1. Klikkaa 'Pidennä' painiketta.
-1. Hyväksy muutokset klikkaamalla 'Hae' painiketta.
-1. Projektisi kesto on nyt pidennetty yhdellä vuodella.
 
-## Projektin sulkeminen {#project-closure}
+## Projektin päättäminen { #project-closure }
 
-CSC-projektit sulkeutuvat automaattisesti päättymispäivänään. Ennen CSC-projektin päättymistä kaikki projektin jäsenet saavat useita sähköposti-ilmoituksia sulkemisesta. Projektipäällikkö voi pidentää CSC-projektia ennen sen sulkeutumista.
+CSC-projektit sulkeutuvat automaattisesti päättymispäivänään. Ennen CSC-projektin päättymistä kaikki projektin jäsenet saavat useita sähköposti-ilmoituksia tulevasta sulkemisesta. Projektipäällikkö voi pidentää CSC-projektia ennen sen sulkeutumista.
 
-Projektipäällikkö voi myös sulkea CSC-projektin aikaisemmin MyCSC-portaalin kautta. Projektin jäsenet saavat ilmoituksen, kun CSC-projekti on suljettu. Huomioithan, että sisällöt palveluissa poistetaan CSC-projektin sulkemisen jälkeen, ellei toisin ole sovittu. Jos haluat säilyttää jotain sisältöä (esim. data, ohjelmistot, palvelimet, järjestelmät tai prosessit), vie ja poista ne CSC:n palveluista ennen CSC-projektin päättymispäivää.
+Projektipäällikkö voi myös sulkea CSC-projektin aiemmin MyCSC-portaalissa. Projektin jäsenille ilmoitetaan, kun CSC-projekti on suljettu. Huomaa, että palvelujen sisältö poistetaan CSC-projektin sulkemisen jälkeen, ellei toisin ole sovittu. Jos haluat säilyttää jotain sisältöä (esim. dataa, ohjelmistoja, palvelimia, järjestelmiä tai prosesseja), vie ja poista ne CSC:n palveluista ennen CSC-projektin päättymispäivää.
 
-Jos CSC-projektin sulkeminen oli tahatonta, projektipäällikön tulisi ottaa yhteyttä CSC:hen mahdollisimman pian osoitteessa servicedesk@csc.fi. Projektipäällikön pyynnöstä CSC-projekti voidaan avata uudelleen tai tilapäinen pääsy palveluihin voidaan myöntää.
+Jos CSC-projektin sulkeminen tapahtui vahingossa, projektipäällikön tulee ottaa CSC:hen yhteyttä mahdollisimman pian osoitteeseen servicedesk@csc.fi. Projektipäällikön pyynnöstä CSC-projekti voidaan avata uudelleen tai palveluihin voidaan myöntää tilapäinen käyttöoikeus.
 
-Sisältöä ei voi palauttaa 90 päivän jälkeen CSC-projektin sulkeutumisesta.
+Sisältöä ei voi enää palauttaa 90 päivän kuluttua CSC-projektin sulkemisesta.
 
-#### Kun projekti on suljettu {#when-the-project-is-closed}
+#### Kun projekti on suljettu { #when-the-project-is-closed }
 
-Käyttäjät eivät voi käyttää projektin hakemia palveluita ja kaikki sisällöt palveluissa poistetaan 90 päivän kuluttua projektin sulkemisesta.
+Käyttäjät eivät pysty käyttämään projektia varten haettuja palveluja, ja kaikki palveluiden sisältö poistetaan 90 päivää projektin sulkemisen jälkeen.
 
 | Palvelu | Mitä tapahtuu, kun projekti on suljettu |
 | -- | -- |
-| Allas, Fairdata IDA, SD Connect | Projekti on poistettu käytöstä, eikä käyttäjät voi enää käyttää palvelua projektin kontekstissa. |
-| Mahti ja Puhti | Uusia Slurm-tehtäviä ei voi lähettää. Käyttäjät eivät voi enää käyttää projektin dataa. |
-| cPouta ja ePouta | Projekti on poistettu käytöstä, eikä käyttäjät voi enää käyttää palvelua projektin kontekstissa. Kaikki projektin virtuaalikoneet sammutetaan. |
-| Rahti | Projektin pod-kvota asetetaan nollaan ja kaikki työkuormat pysäytetään. |
-| SD Desktop | Työpöydät keskeytetään, projekti ei voi käynnistää uusia työpöytiä. |
+| Allas, Fairdata IDA, SD Connect | Projekti poistetaan käytöstä, eivätkä käyttäjät voi käyttää palvelua projektin puitteissa. |
+| Mahti ja Puhti | Uusia Slurm-tehtäviä ei voi lähettää. Käyttäjät eivät enää pääse käsiksi projektin dataan. |
+| cPouta ja ePouta | Projekti poistetaan käytöstä, eivätkä käyttäjät voi käyttää palvelua projektin puitteissa. Kaikki projektin virtuaalikoneet sammutetaan. |
+| Rahti | Projektin pod-kiintiö asetetaan arvoon 0 ja kaikki työkuormat pysäytetään. |
+| SD Desktop | Työpöydät keskeytetään, eikä projekti voi käynnistää uusia työpöytiä. |
 
-!!! Huomio 
 
-    Kaikki sisältö palveluissa poistetaan 90 päivän kuluttua projektin sulkemisesta. Jos tarvitset varmistuksen kaikkien sisältöjen poistamisesta palveluista, ole hyvä ja ota yhteyttä ServiceDesk:iin.
+
+!!! Note 
+    
+    Kaikki palveluiden sisältö poistetaan 90 päivää projektin sulkemisen jälkeen. Jos tarvitset vahvistuksen siitä, että kaikki sisältö on poistettu palveluista, ota yhteyttä Service Deskiin.

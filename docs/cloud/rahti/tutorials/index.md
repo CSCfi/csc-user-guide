@@ -1,23 +1,33 @@
-# Opetusohjelmat
+# Opetusohjelmat { #tutorials }
 
-* [4cat, sovelluksen käyttöönotto ja mukauttaminen](4cat.md)
-* [Tietokantojen käyttö Rahtissa CSC:n supertietokoneilta](connect-database-hpc.md)
-* [Kehittyneet verkkoPolitiikat](advanced-NetworkPolicies-networking.md)
-* [Salli kuvien nouto yhdestä Rahti-projektista toiseen](allow-pull-from-other-projects.md)
-* [Annotaatiot](annotations.md)
-* [CI/CD Rahtissa](ci_cd_introduction.md)
-* [Mukautetut verkkotunnukset ja suojattu tiedonsiirto](custom-domain.md)
-* [Staattisen verkkopalvelimen käyttöönotto komentorivin avulla](deploy_static_webserver_cli.md)
-* [Staattisen verkkopalvelimen käyttöönotto verkkokäyttöliittymän avulla](deploy_static_webserver_webconsole.md)
-* [Kustomize](kustomize.md)
-* [Pilvipalveluiden oppiminen kehittämällä ja käyttöönotolla verkkosovelluksen](web-app-dev-cloud.md)
-* [Monivaiheiset rakenteet](multi-stage-builds.md)
-* [OAuth2 Välityspalvelin](oauth2.md)
-* [Podin (anti) affiniteetti](pod-affinity.md)
-* [Käänteinen välityspalvelimen tunnistus käyttämällä sivuvaunusäiliötä](sidecar_proxy_authentication.md)
-* [Sähköpostin lähettäminen Rahtista](email.md)
-* [HTTP-uudelleenohjauksen määrittäminen Rahtiin](http-redirector.md)
-* [Lyhyt johdanto YAML](yaml_introduction.md)
-* [Webhooks](webhooks.md)
+## Perustaso { #basic-level }
 
-Meillä on myös [FAQ](../../../support/faq/index.md#rahti) Rahtia varten. Tutustu siihen.
+* 🟢 [Staattisen verkkopalvelimen käyttöönotto verkkokäyttöliittymän avulla](deploy_static_webserver_webconsole.md)
+* 🟢 [Verkkosivuston käyttöönotto Gitistä](deploy_from_git.md)
+* 🟢 [HTTP-uudelleenohjauksen määrittäminen Rahdissa](http-redirector.md)
+* 🟢 [Lyhyt johdanto YAMLiin](yaml_introduction.md)
+* 🟢 [Webhookit](webhooks.md)
+* 🟢 [Salli konttikuvien nouto yhdestä Rahti-projektista toiseen](allow-pull-from-other-projects.md)
+* 🟢 [Annotaatiot](annotations.md)
+
+## Keskitaso { #middle-level }
+
+* 🟠 [Mukautetut verkkotunnukset ja suojattu liikenne](custom-domain.md)
+* 🟠 [Staattisen verkkopalvelimen käyttöönotto komentorivin avulla](deploy_static_webserver_cli.md)
+* 🟠 [Monivaiheiset buildit](multi-stage-builds.md)
+* 🟠 [OAuth2 Proxy](oauth2.md)
+* 🟠 [Podien (anti)affiniteetti](pod-affinity.md)
+* 🟠 [Sähköpostin lähettäminen Rahdista](email.md)
+
+
+## Edistynyt taso { #advanced-level }
+
+* 🔴 [4cat, sovelluksen käyttöönotto ja mukauttaminen](4cat.md)
+* 🔴 [Tietokantoihin pääsy Rahdissa CSC:n supertietokoneilta](connect-database-hpc.md)
+* 🔴 [Edistyneet NetworkPolicyt](advanced-NetworkPolicies-networking.md)
+* 🔴 [CI/CD Rahdissa](ci_cd_introduction.md)
+* 🔴 [Kustomize](kustomize.md)
+* 🔴 [Opi pilvilaskentaa kehittämällä ja ottamalla käyttöön verkkosovellus](web-app-dev-cloud.md)
+* 🔴 [Käänteisen välityspalvelimen todennus sidecar-konttia käyttäen](sidecar_proxy_authentication.md)
+
+Meillä on myös Rahdin [UKK](../../../support/faq/index.md#rahti). Tutustu siihen.

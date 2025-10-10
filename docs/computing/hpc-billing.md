@@ -1,39 +1,51 @@
-# Laskutus
+# Laskutus { #billing }
 
-## Puhti-laskentayksiköiden laskutus {#puhti-compute-billing}
+## Mahti-laskennan laskutus { #mahti-compute-billing }
 
-Puhti on heterogeeninen järjestelmä, jossa on CPU-, GPU- ja IO-solmuja sekä solmuja, joilla on vaihtelevia määriä muistia. Lisäksi voi käyttää vain osaa solmusta ja sen erilaisista resursseista. Laskutusjärjestelmä veloittaa laskentayksiköitä (BU) oikeudenmukaisesti varattujen solmuresurssien määrän perusteella.
+Mahtin CPU-osioissa ajot kuluttavat CPU BU -yksiköitä joko varattujen solmujen määrän (solmupohjainen allokaatio) tai varattujen ytimien määrän (ydinpohjainen allokaatio) perusteella. Muistista ei veloiteta erikseen, mutta paikallisen levytilan käytöstä veloitetaan erikseen. Tarkemmin:
 
-Laskutusjärjestelmässä laskentatyön BU-kulutusnopeus riippuu lineaarisesti pyydettyjen ytimien, pyydettyjen GPU:iden ja pyydetyn muistin määrästä. Tarkemmin sanottuna:
+* Solmupohjaisissa osioissa jokainen varattu CPU-solmu kuluttaa **100** CPU BU -yksikköä tunnissa.
+* Ydinpohjaisissa osioissa jokainen ydin kuluttaa **1** CPU BU -yksikön tunnissa, ja jokainen varattu NVMe-levyn GiB kuluttaa **0.01** CPU BU -yksikköä tunnissa.
 
-* Jokainen varattu ydin kuluttaa **1** BU tunnissa.
-* Jokainen varattu GiB muisti kuluttaa **0.1** BU tunnissa.
-* Jokainen varattu NVMe-levyn GiB (jos saatavilla) kuluttaa **0.006** BU tunnissa.
-* Jokainen varattu GPU kuluttaa **60** BU tunnissa.
+Mahtin GPU-osioissa ajot kuluttavat GPU BU -yksiköitä varattujen GPU:iden lukumäärän perusteella. Muistista ei veloiteta erikseen, mutta paikallisen levytilan käytöstä veloitetaan erikseen. Tarkemmin:
 
-Kokonais-BU-kulutus tunnissa on edellä mainittujen termien summa:
+* Jokainen varattu A100-GPU kuluttaa **100** GPU BU -yksikköä tunnissa, eli yhteensä **400** GPU BU -yksikköä tunnissa täydellä GPU-solmulla.
+* A100-GPU:n seitsemäsosa (a100_1g.5gb) kuluttaa **15** GPU BU -yksikköä tunnissa.
+* Jokainen varattu NVMe-levyn GiB kuluttaa **0.01** GPU BU -yksikköä tunnissa.
+
+## Puhti-laskennan laskutus { #puhti-compute-billing }
+
+Puhti on heterogeeninen järjestelmä, jossa on CPU-, GPU- ja IO-solmuja sekä solmuja vaihtelevilla muistimäärillä. Lisäksi on mahdollista käyttää vain osaa solmusta ja sen erilaisista resursseista. Laskutusmalli veloittaa laskutusyksiköitä (BU) oikeudenmukaisesti varattujen solmuresurssien määrän perusteella. 
+
+Puhtin [CPU-osioissa](running/batch-job-partitions.md#puhti-cpu-partitions) ajot kuluttavat CPU BU -yksiköitä. Laskentatyön CPU BU -kulutusnopeus riippuu lineaarisesti pyydettyjen ytimien lukumäärästä, pyydetyn paikallisen tallennustilan määrästä sekä pyydetyn muistin määrästä. Tarkemmin:
+
+* Jokainen varattu ydin kuluttaa **1** CPU BU -yksikön tunnissa.
+* Jokainen varattu GiB muistia kuluttaa **0.1** CPU BU -yksikköä tunnissa.
+* Jokainen varattu NVMe-levyn GiB (jos saatavilla) kuluttaa **0.006** CPU BU -yksikköä tunnissa.
 
 ```
-Kokonais-BU = ( Ytimet * 1 + MuistiGiB:t * 0.1 + NVMeGiB:t * 0.006 + GPU:t * 60 ) * Seinäaikatunnit
+Total CPU BU = ( NCores * 1 + MemGiBs * 0.1 + NVMeGiBs * 0.006 ) * Walltime hours
 ```
 
-## Mahti-laskentayksiköiden laskutus {#mahti-compute-billing}
+Puhtin [GPU-osioissa](running/batch-job-partitions.md#puhti-gpu-partitions) ajot kuluttavat GPU BU -yksiköitä. Laskentatyön GPU BU -kulutusnopeus riippuu lineaarisesti pyydettyjen GPU:iden ja ytimien lukumäärästä, pyydetyn paikallisen tallennustilan määrästä sekä pyydetyn muistin määrästä. Tarkemmin:
 
-Toisin kuin Puhtissa, Mahtissa resursseja käytetään ja laskutetaan per solmu kaikissa normaaliosastoissa. Interaktiivisessa osastossa, jota voi käyttää interaktiiviseen työhön sekä pienimuotoiseen esi- ja jälkikäsittelyyn, käyttö laskutetaan per CPU-ydin. Mahtin GPU-solmut laskutetaan varattujen GPU:iden lukumäärän mukaisesti. Muistia ei laskuteta erikseen.
+* Jokainen varattu GPU kuluttaa **60** GPU BU -yksikköä tunnissa.
+* Jokainen varattu ydin kuluttaa **1** GPU BU -yksikön tunnissa.
+* Jokainen varattu GiB muistia kuluttaa **0.1** GPU BU -yksikköä tunnissa.
+* Jokainen varattu NVMe-levyn GiB (jos saatavilla) kuluttaa **0.006** GPU BU -yksikköä tunnissa.
 
-* Kokonaisissa erikoisosastoissa jokainen varattu CPU-solmu kuluttaa **100** BU tunnissa.
-* `interactive` ja `small` osastoissa jokainen ydin kuluttaa **1** BU tunnissa ja jokainen varattu NVMe-levyn GiB kuluttaa **0.01** BU tunnissa.
-* Jokainen varattu A100 GPU kuluttaa **100** BU tunnissa, tai yhteensä **400** BU tunnissa täydelle GPU-solmulle.
-* Yksi seitsemäsosa A100 GPU:sta (a100_1g.5gb) kuluttaa **15** BU tunnissa 
+```
+Total GPU BU = ( NCores * 1 + MemGiBs * 0.1 + NVMeGiBs * 0.006 + NGPUs * 60 ) * Walltime hours
+```
 
-## Väliaikaisen levyn laskutus {#scratch-disk-billing}
+## Scratch-levytilan laskutus { #scratch-disk-billing }
 
-Puhtilla ja Mahtilla on sama laskutus väliaikaistallennukselle. Käyttö 1 TiB asti on maksutonta. 
+Puhtissa ja Mahtissa scratch-tallennuksen laskutus on sama. Käyttö 1 TiB:iin asti on maksutonta. 
 
-* Liiallinen käyttö yli 1 TiB laskutetaan: 1 TiB kuluttaa **5** BU tunnissa.
+* Ylimenevä käyttö yli 1 TiB:n laskutetaan: 1 TiB kuluttaa **5** Storage BU -yksikköä tunnissa.
 
-## ProjAppl-levyn laskutus {#projappl-disk-billing}
+## ProjAppl-levytilan laskutus { #projappl-disk-billing }
 
-Puhtilla ja Mahtilla on sama laskutus ProjAppl-tallennukselle. Käyttö 50 GiB asti on maksutonta. 
+Puhtissa ja Mahtissa ProjAppl-tallennuksen laskutus on sama. Käyttö 50 GiB:iin asti on maksutonta. 
 
-* Liiallinen käyttö yli 50 GiB laskutetaan: 1 TiB kuluttaa **5** BU tunnissa.
+* Ylimenevä käyttö yli 50 GiB:n laskutetaan: 1 TiB kuluttaa **5** Storage BU -yksikköä tunnissa.

@@ -1,46 +1,58 @@
-# Vie tietoja ohjelmallisesti virtuaalisesta työpöydästä
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-## Taustatiedot
+# Vie dataa ohjelmallisesti virtuaalityöpöydältä { #export-data-programmatically-from-the-virtual-desktop }
 
-### SD Desktopin tietojen vienti vaatii manuaalista salausta {#data-export-from-sd-desktop-requires-manual-encryption}
+## Taustatietoja { #background-information }
 
-SD Connectin päivitys lokakuussa 2024 lisäsi SD Desktopiin automaattisen avainhallinnan. Tämä ominaisuus mahdollistaa suorien latausten ja tiedostojen lataamisen SD Connectin kautta. Työkalut, jotka vievät tietoja SD Desktopista SD Connectiin, eivät kuitenkaan vielä ole yhteensopivia automaattisen avainhallinnan kanssa. *SD Desktopin tietojen vienti on edelleen manuaalinen prosessi, joka vaatii Crypt4GH-työkaluja ja oman salausavaimparin luomista*. Koska SD Connect saattaa tallentaa tiedostoja, jotka on salattu näillä kahdella tavalla mutta samalla .c4gh-päätteellä, suosittelemme luomaan erillisen kansion SD Desktop -viennille. Tämä auttaa erottamaan:
+### SD Desktopista tehtävä datan vienti edellyttää manuaalista salausta { #data-export-from-sd-desktop-requires-manual-encryption }
 
-- tiedostot, jotka on salattu manuaalisesti omalla salausavaimparilla (viety SD Desktopista).
-- tiedostot, jotka on automaattisesti salattu SD Connectin avulla palvelun hallitsemilla avaimilla.
+Lokakuun 2024 SD Connect -päivitys toi SD Desktopiin automatisoidun avainhallinnan. Ominaisuuden ansiosta SD Connectin kautta voi tehdä suoria lähetyksiä ja latauksia. 
+Datan (esim. tulosten) vientiin SD Desktopista SD Connectiin käytettävät työkalut eivät kuitenkaan vielä ole yhteensopivia automaattisen avainhallinnan kanssa.
+Tästä syystä *datan vienti SD Desktopista on edelleen manuaalinen prosessi, joka edellyttää Crypt4GH-työkalujen käyttöä ja oman salausavainparin luomista*.
+Koska SD Connect voi sisältää kahdella eri menetelmällä salattuja tiedostoja, mutta kummassakin tapauksessa tiedostopääte on .c4gh,
+  suosittelemme luomaan erillisen kansion SD Desktop -vientejä varten. Tämä helpottaa erottelemaan:
 
-### Vain projektipäälliköt voivat viedä tietoja {#only-project-managers-can-export-data}
+- omalla avainparillasi manuaalisesti salatut tiedostot (viety SD Desktopista).
+- SD Connectin kautta automaattisesti salatut tiedostot, joiden salausavaimia hallinnoi palvelu.
 
-Virtuaalinen työpöytäsi on eristetty internetistä turvallisuussyistä. Ainoastaan CSC:n projektipäällikkö voi viedä tuloksia tai tietoja suojatusta työtilasta käyttämällä **Data Gateway** -sovellusta tai airlock-käyttöliittymätyökalua (komentorivi). Tulokset viedään SD Connectiin, mistä ne ovat ladattavissa tietokoneellesi. Latauksen jälkeen tiedostot on vielä purettava manuaalisesti salausta. 
+### Vain projektipäälliköt voivat viedä dataa { #only-project-managers-can-export-data }
 
-!!! Huomio
-    - Vain yksi tiedosto voidaan viedä kerrallaan. Viedäksesi useita tiedostoja, pakkaa ne ensin yhdeksi kansioksi.
-    - Yli 30 GB:n tiedostot on pilkottava pienemmiksi osiksi ennen vientiä.
+Virtuaalityöpöytäsi on tietoturvasyistä eristetty internetistä. Vain CSC-projektin projektipäällikkö voi viedä tuloksia tai dataa suojatusta työtilasta käyttäen **Data Gateway** 
+-sovellusta tai Airlock-komentorivityökalua. Tulokset viedään SD Connectiin, josta ne voidaan ladata omalle tietokoneellesi.
+Latauksen jälkeen tiedostot on edelleen purettava manuaalisesti.
+ 
+!!! Note
+    - Vain yksi tiedosto voidaan viedä kerrallaan. Jos haluat viedä useita tiedostoja, pakkaa ne ensin yhdeksi kansioksi.
+    - Yli 30 Gt:n tiedostot on jaettava pienempiin osiin ennen vientiä.
 
-## Vaihe vaiheelta {#step-by-step}
+## Vaihe vaiheelta { #step-by-step }
 
-Tässä esimerkissä luomme ensin avainparisi (salasanalla suojatun _yksityisen avaimen_ ja _julkisen avaimen_, jonka voit jakaa yhteistyökumppaneiden kanssa). Lataamme julkisen avaimen SD Connectiin ja tuomme sen SD Desktopiin. SD Desktopissa salataan vietävät tiedostot julkisella avaimella ja viedään ne SD Connectiin / Allakseen airlock CLI:n avulla. Lopuksi lataamme tiedostot SD Connectista/Allaksesta ja puramme ne paikallisessa ympäristössämme käytössä olevaa salaista salausavainta käyttäen.
+Tässä esimerkissä luomme ensin avainparisi (salasanalla suojatun _salaisen avaimen_ ja _julkisen avaimen_, jonka voi jakaa yhteistyökumppaneille). Lataamme julkisen avaimen SD Connectiin 
+ja tuomme sen SD Desktopiin. SD Desktopissa salaamme vietävät tiedostot julkisella avaimella ja viemme ne SD Connectiin/Allakseen Airlock-CLI:n avulla. 
+Lopuksi lataamme tiedostot SD Connectista/Allaksesta ja puramme niiden salauksen paikallisessa ympäristössä vastaavalla salaisella avaimella. 
 
-1. Lataa ja asenna Crypt4GH-salaus CLI-työkalu
-2. Luo salausavaimesi pari
-3. Lataa julkinen avaimesti SD Connectiin / Allakseen
-4. Tuo julkinen avain virtuaaliseen työpöytään
+1. Lataa ja asenna Crypt4GH-salaustyökalu komentoriville
+2. Luo salausavainparisi
+3. Lataa julkinen avaimesi SD Connectiin / Allakseen
+4. Tuo julkinen avain virtuaalityöpöydälle
 5. Salaa tiedostot julkisella avaimellasi
-6. Vie tiedostot SD Desktopista airlockin kautta
-7. Lataa tiedostot SD Connectista / Allaksesta ja muuta niiden tiedostomuotoa
-8. Pura tiedostot crypt4GH-salaus CLI-työkalulla
-9. Edistyneet: Varmistuskopiot ja tuki
+6. Vie tiedostot SD Desktopista Airlockin kautta
+7. Lataa tiedosto SD Connectista / Allaksesta ja muuta päätteet
+8. Pura salaus Crypt4GH-komentorivityökalulla
+9. Edistynyt: Varmuuskopiot ja tuki
 
-!!! info "Saatavilla oleva tuki"
-    Ota meihin yhteyttä sähköpostilla osoitteeseen servicedesk@csc.fi (aihe: SD Desktop). Ohjaamme sinut vientiprosessin läpi online-tapaamisessa.
 
-## 1. Lataa ja asenna Crypt4GH-salaus CLI-työkalu {#download-and-install-the-crypt4gh-encryption-cli-tool}
+!!! info "Tukea saatavilla"
+    Ota meihin yhteyttä osoitteessa servicedesk@csc.fi (aihe: SD Desktop). Opastamme sinut vientiprosessin läpi etätapaamisessa.
 
-Dokumentaation ja lisätietojen saamiseksi voit tarkistaa [Crypt4GH-salausohjelman](https://github.com/EGA-archive/crypt4gh.git) sivun.
 
-**Python 3.6+ vaaditaan** Crypt4GH-salausohjelman käyttämiseen. Jos tarvitset apua Pythonin asentamisessa, noudata [näitä ohjeita](https://www.python.org/downloads/release/python-3810/).
+## 1. Lataa ja asenna Crypt4GH-salaustyökalu komentoriville { #1-download-and-install-the-crypt4gh-encryption-cli-tool }
 
-1. Asenna Crypt4GH-salaus CLI-työkalu
+Dokumentaation ja lisätietojen vuoksi voit tutustua sivuun [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git).
+
+**Python 3.6+ vaaditaan** Crypt4GH-salaustyökalun käyttöön. Jos tarvitset apua Pythonin asennuksessa, seuraa [näitä ohjeita](https://www.python.org/downloads/release/python-3810/).
+
+1. Asenna Crypt4GH-salaustyökalu
 
       Voit asentaa Crypt4GH:n suoraan pip-työkalulla:
 
@@ -48,7 +60,7 @@ Dokumentaation ja lisätietojen saamiseksi voit tarkistaa [Crypt4GH-salausohjelm
       pip install crypt4gh     
       ```
 
-      tai, jos haluat uusimmat lähteet GitHubista:
+      tai, jos haluat uusimmat lähdekoodit GitHubista:
 
       ```bash
       pip install -r crypt4gh/requirements.txt
@@ -61,7 +73,7 @@ Dokumentaation ja lisätietojen saamiseksi voit tarkistaa [Crypt4GH-salausohjelm
       pip install git+https://github.com/EGA-archive/crypt4gh.git
       ```
 
-      Tavallinen `-h`-lippu näyttää sinulle työkalun tukemat eri vaihtoehdot:
+      Tavallinen `-h`-valitsin näyttää työkalun tukemat eri vaihtoehdot:
 
       ```bash
       $ crypt4gh -h
@@ -90,170 +102,185 @@ Dokumentaation ja lisätietojen saamiseksi voit tarkistaa [Crypt4GH-salausohjelm
          C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
       ```
 
-      Huomaat ehkä, että crypt4gh käyttää `--sk` vaihtoehtoa yksityiselle avaimelle. Tämä saattaa tuntua oudolta, mutta ilmeisesti crypt4gh käyttää termiä _secure key_ yksityiselle avaimelle, joten `sk`, ja sen seurauksena `pk` viittaa julkiseen avaimeseen eikä yksityiseen avaimeen.
+      Saatat huomata, että crypt4gh käyttää yksityisestä avaimesta valitsinta `--sk`. Tämä voi tuntua oudolta, mutta crypt4gh käyttää termiä _secure key_ 
+      yksityisestä avaimesta, siksi `sk`, ja vastaavasti `pk` viittaa julkiseen avaimeen eikä yksityiseen avaimeen.
 
-## 2. Luo salausavaimesi pari {#generate-your-encryption-key-pair}
 
-```
-crypt4gh-keygen`-komentoa käyttämällä voit luoda yksityiset ja julkiset avaimet:
 
-```
-bash
-$ crypt4gh-keygen --sk mykey.sec --pk mykey.pub
-Luodaan julkinen/yksityinen Crypt4GH-avainpari.
-Anna salasana kohteeseen mykey.sec (tyhjä ilman salasanaa):
-Anna salasana kohteeseen mykey.sec (uudelleen):
-Yksityinen avain on tallennettu tiedostoon mykey.sec
-Julkinen avain on tallennettu tiedostoon mykey.pub
-```
+## 2. Luo salausavainparisi { #2-generate-your-encryption-key-pair }
 
-jossa `--sk mykey.sec` on yksityinen (salainen, sk) avain ja `--pk mykey.pub` on julkinen avain (pk). Työkalu kysyy sinulta salasanan (salasanan) yksityiselle avaimellesi. Turvallisuussyistä salasana ei näy kirjoittaessasi sitä, joten työkalu pyytää sinua syöttämään sen uudelleen varmistaaksesi, ettei kirjoitusvirheitä ole tapahtunut (tai teet samat virheet kahdesti). Käytäthän vahvaa salasanaa!
 
-!!! Huomio
-Jos kadotat tai unohdat yksityisen avaimen tai sen salasanan, et voi purkaa tiedostojen salausta. Älä jaa yksityistä avaimea tai salasanaa.
+      Luo yksityinen ja julkinen avaimesi komennolla `crypt4gh-keygen`:
 
-!!! Huomio
-Sinun tarvitsee luoda avaimet vain kerran ja käyttää niitä kaikkiin salaustarpeisiisi, mutta voit tietysti halutessasi luoda erilliset avaimet salausta varten.
+      ```bash
+      $ crypt4gh-keygen --sk mykey.sec --pk mykey.pub
+      Generating public/private Crypt4GH key pair.
+      Enter passphrase for mykey.sec (empty for no passphrase): 
+      Enter passphrase for mykey.sec (again): 
+      Your private key has been saved in mykey.sec
+      Your public key has been saved in mykey.pub
+      ```
 
-- Avaimet tallennetaan samaan kansioon, jossa sovellus sijaitsee (esim. **Lataukset**-kansio).
-- Suosittelemme avainparin tallentamista erilliseen kansioon ja nimeämistä kuvaavilla nimillä (esim. `export_public.pub` ja `export_secret.key`). Yleisiä ongelmia syntyy, kun avaimia on kadotettu tai sekoitettu.
-- Suosittelemme avainparin testaamista salaamalla ja purkamalla jonkin testitiedoston.
+      missä `--sk mykey.sec` on yksityinen (salainen, sk) avaimesi ja `--pk mykey.pub` on julkinen avaimesi (pk). 
+      Työkalu pyytää sinua antamaan salasanan (passphrase) yksityiselle avaimellesi. Tietoturvasyistä salasanaa ei näytetä kirjoittaessasi,
+      joten työkalu pyytää sen kahdesti varmistaakseen, ettei kirjoitusvirheitä tullut
+      (tai teit samat virheet kahdesti). Käytäthän vahvaa salasanaa!
 
-!!! varoitus
-Jos kadotat tai unohdat salaisen avaimen tai salasanan, et voi purkaa tiedostoja.
-- **Älä jaa** salaista avaintasi tai salasanaasi.
-- Sinun tarvitsee **luoda avaimet vain kerran** kaikille salaus tarpeille, mutta voit halutessasi myös luoda erillisiä avaimia eri projekteille.
+    !!! Note
+        Jos kadotat tai unohdat yksityisen avaimesi tai sen salasanan, et pysty purkamaan tiedostojen salausta. Älä jaa yksityistä avaintasi tai salasanaasi.
 
-## 3. Lataa julkinen avain SD Connectiin {#upload-the-public-key-to-sd-connect}
+    !!! Note
+        Avaimet tarvitsee luoda vain kerran ja voit käyttää niitä kaikkiin salaus­tarpeisiisi, mutta halutessasi voit toki luoda erillisiä avainpareja eri tarkoituksiin.
+
+
+   - Avaimet tallennetaan samaan kansioon, jossa sovellus sijaitsee (esim. **Downloads**-kansio). 
+   - Suosittelemme tallentamaan avainparin omaan kansioonsa ja nimeämään ne kuvaavasti (esim. `export_public.pub` ja `export_secret.key`). Yleisiä ongelmia syntyy, kun avaimet menevät sekaisin tai hukkuvat.
+   - Suosittelemme testaamaan avainparin toimivuuden salaamalla ja purkamalla jonkin testitiedoston.
+
+   
+!!! warning
+    - Jos kadotat tai unohdat salaisen avaimesi tai salasanan, et pysty purkamaan tiedostojesi salausta.
+    - **Älä jaa** salaista avaintasi tai salasanaasi.
+    - **Luo avaimet vain kerran** kaikkia salaus­tarkoituksia varten, mutta voit halutessasi luoda erilliset avaimet eri projekteille.
+
+
+
+## 3. Lataa julkinen avain SD Connectiin { #3-upload-the-public-key-to-sd-connect }
 
 Voit tuoda julkisen salausavaimen lataamalla sen SD Connectin käyttöliittymän kautta.
 
-1. [Kirjaudu sisään](./sd-connect-login.md) SD Connect -käyttöliittymään.
+1. [Kirjaudu sisään](./sd-connect-login.md) SD Connectin käyttöliittymään.
 2. Valitse oikea CSC-projekti vasemmasta yläkulmasta.
-3. Napsauta **Lataa** oikeassa yläkulmassa.
-4. Uudessa ikkunassa määritä tiedostoillesi kohdekansio (esim. **project_export**).
-5. Napsauta **Valitse tiedostot** avataksesi selausikkunan ja valitse julkinen salausavain (esim. .pub-tiedosto). Napsauta **Lataa** aloittaaksesi tiedoston salauksen ja lataamisen.
-6. Kun lataus on valmis, salausavain tulee näkyviin virtuaalisessa työpöydässäsi.
+3. Napsauta **Upload** oikeassa yläkulmassa.
+4. Nimeä avautuvassa ikkunassa kohdekansio tiedostoillesi (esim. **project_export**).
+5. Napsauta **Select Files** avataksesi tiedostoselaimen ja valitse julkinen salausavain (esim. .pub-tiedosto). Napsauta **Upload** aloittaaksesi automaattisen salauksen ja latauksen.
+6. Kun lataus on valmis, salausavain näkyy virtuaalityöpöydältäsi.
 
-## 4. Tuo julkinen avain virtuaaliseen työpöytään {#import-the-public-key-inside-the-virtual-desktop}
+## 4. Tuo julkinen avain virtuaalityöpöydälle { #4-import-the-public-key-inside-the-virtual-desktop }
 
-1. [Pääset](./sd-desktop-access-vm.md) virtuaaliseen työpöytääsi.
-2. Avaa Data Gateway -sovellus, etsi hakemisto, johon julkinen avain tallennettiin.
-3. Käytä kopioi/liitä -toimintoa liittääksesi julkisen avaimen virtuaaliseen työpöytään (tai komentoriville), se puretaan automaattisesti.
+1. [Siirry](./sd-desktop-access-vm.md) virtuaalityöpöydällesi.
+2. Avaa Data Gateway -sovellus ja siirry hakemistoon, johon julkinen avain tallennettiin.
+3. Käytä kopioi/liitä-toimintoa liittääksesi julkisen avaimesi virtuaalityöpöydälle (tai terminaaliin); se puretaan automaattisesti.
 
-## 5. Salaa tiedostot {#encrypt-the-file}
+## 5. Salaa tiedosto { #5-encrypt-the-file }
 
-### Useiden tiedostojen vienti {#exporting-multiple-files}
+### Useiden tiedostojen vienti { #exporting-multiple-files }
 
-Viedessäsi useita tiedostoja, voi olla kätevää kerätä ne ensin yhteen kansioon, sitten pakata kansio `tar`- tai `zip`- komennoilla. Tämän jälkeen voit salata kaikki tiedot yhtenä tiedostona.
+Useiden tiedostojen viennissä on usein kätevää kerätä ne ensin yhteen kansioon ja pakata kansio `tar`- tai `zip`-komennoilla. Tämän jälkeen voit salata kaiken datan yhtenä tiedostona.
 
-### Salaa tiedosto tai kansio {#encrypt-the-file-or-folder}
 
-1. Avaa terminaali (napsauta hiiren oikeaa painiketta) ja käytä julkista avaintasi salataksesi tiedostot, jotka haluat viedä. Krypt4GH on esiasennettu ja käytettävissä jokaisella virtuaalisella työpöydällä komentoriviltä.
+### Salaa tiedosto tai kansio { #encrypt-the-file-or-folder }
 
-   Salauskomennon syntaksi on seuraava:
+1. Avaa terminaali (hiiren oikealla) ja käytä julkista avaimesi salataksesi vietävät tiedostot. Crypt4GH on esiasennettu jokaiseen virtuaalityöpöytään ja käytettävissä komentoriviltä.
 
-   ```text
-   crypt4gh encrypt --recipient_pk public-key < input > output
-   ```
-
-   Tässä:
-   - `public-key` on julkinen avaintiedostosi (esim. `your-username.pub`).
-   - `input` on tiedosto, jonka haluat viedä (esim. `my_results.csv`).
-   - `output` on salattu tiedosto (esim. `my_results.csv.c4gh`).
-
-   **Esimerkki:**
-
-   ```text
-   crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
-   ```
-
-## 6. Vie salatut tiedostot virtuaalisesta työpöydästä {#export-the-encrypted-files-from-the-virtual-desktop}
-
-Kun tiedostot on salattu, vain CSC-projektipäällikkö voi viedä ne _Data Gateway_ sovelluksen tai _Airlock_ komentorivityökalun avulla.
-
-!!! Huomio
-    Airlock-työkalu tukee enintään 30 GB:n tiedostojen vientiä. Suuremmat tiedostot tai tietoaineistot on pilkottava pienempiin osiin ennen vientiä.
-
-1. Avaa terminaali (napsauta oikealla) ja käytä seuraavaa syntaksia:
+    Salauskomennon syntaksi:
 
     ```text
-    airlock-client <<käyttäjänimi>> <<data_output_bucket>> <<tiedostonimi>>
+    crypt4gh encrypt --recipient_pk public-key < input > output
     ```
 
-    - `käyttäjänimi` on CSC-tilisi käyttäjänimi.
-    - `data_output_bucket` on nimi, jonka annat tulosten viennissä käytettävälle korille. Airlock-työkalu luo korun automaattisesti samaan CSC-projektiin kuin työpöytäsi.
-    - `tiedostonimi` on salatun tiedoston nimi, jonka haluat viedä.
+    Tässä:
+    - `public-key` on julkisen avaimesi tiedosto (esim. `your-username.pub`).
+    - `input` on vietävä tiedosto (esim. `my_results.csv`).
+    - `output` on salattu tiedosto (esim. `my_results.csv.c4gh`).
 
-    **Esimerkki:**
+    Esimerkki:
+
+    ```text
+    crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
+    ```
+
+## 6. Vie salatut tiedostot virtuaalityöpöydältä { #6-export-the-encrypted-files-from-the-virtual-desktop }
+
+Kun tiedostot on salattu, vain CSC-projektin projektipäällikkö voi viedä ne _Data Gateway_ -sovelluksella tai _Airlock_-komentoriviasiakkaalla.
+
+!!! Note
+    Airlock-asiakas tukee enintään 30 Gt:n tiedostojen vientiä. Tätä suuremmat tiedostot tai aineistot on jaettava pienempiin osiin ennen vientiä.
+
+1. Avaa terminaali (hiiren oikealla) ja käytä seuraavaa syntaksia:
+
+    ```text
+    airlock-client <<username>> <<data_output_bucket>> <<filename>>
+    ```
+
+    - `username` on CSC-käyttäjätunnuksesi.
+    - `data_output_bucket` on nimenäsi ämpärille (bucket), johon tulokset viedään. Airlock-asiakas luo tämän ämpärin automaattisesti samaan CSC-projektiin kuin Desktopisi kuuluu.
+    - `filename` on sen salatun tiedoston nimi, jonka haluat viedä.
+
+    Esimerkki:
 
     ```text
     airlock-client cscuser analysis-2022 results-03.csv.c4gh
     ```
 
-2. Paina **Enter** ja anna salasana, kun sitä pyydetään.
+2. Paina **Enter** ja anna salasanasi, kun sitä pyydetään.
 
-!!! Huomio
-    Jos yrität ladata salaamatonta tiedostoa, Data Gateway -sovellus tai Airlock-työkalu salaa sen automaattisesti Sensitive Data -palveluiden julkisella avaimella ja vie sen SD Connectiin. Voit ladata tämän tiedoston, mutta et voi purkaa sen salausta. Tiedosto on kuitenkin yhteensopiva muiden SD Desktop -virtuaalisten työasemien kanssa.
+!!! Note
+    Jos yrität ladata salaamattoman tiedoston, Data Gateway -sovellus tai Airlock-asiakas salaa sen automaattisesti CSC:n Sensitive Data -palvelun julkisella avaimella ja vie sen SD Connectiin. Voit ladata tämän tiedoston, mutta et pysty purkamaan sen salausta. Tiedosto on kuitenkin yhteensopiva muiden SD Desktop -virtuaalikoneiden kanssa.
 
-## 7. Lataa tiedostot SD Connectista/Allaksesta ohjelmallisesti ja pura salaus salausavaimellasi {#download-the-files-from-sd-connect-allas-programmatically-and-decrypt-them-with-your-encryption-key}
 
-Voit käyttää mitä tahansa Allas-yhteensopivaa työkalua tai käyttöliittymää ladataksesi salatun tiedoston paikalliselle tietokoneellesi.
-Esimerkiksi _rclone_ komentorivityökalujen avulla latauskomento (kun Allas-yhteys on avattu) voisi olla seuraavanlainen:
+
+## 7. Lataa tiedostot SD Connectista/Allaksesta ohjelmallisesti ja pura niiden salaus omalla salausavaimellasi { #7-download-the-files-from-sd-connect-allas-programmatically-and-decrypt-them-with-your-encryption-key }
+
+Voit käyttää mitä tahansa Allas-yhteensopivaa työkalua tai käyttöliittymää salatun tiedoston lataamiseen paikalliselle tietokoneellesi.
+Esimerkiksi _rclone_-komentorivityökalulla latauskomento (kun Allas-yhteys on avattu)
+voisi olla seuraava:
 
 ```text
 rclone copy allas:analysis-2022/results-03.csv.c4gh ./
 ```
-Tämä komento kopioi tiedoston _results-03.csv.c4gh_ paikalliselle tietokoneellesi. Tämän jälkeen sinun on vielä suoritettava salauksen purku erillisenä vaiheena. (katso alla)
+Tämä komento kopioi tiedoston _results-03.csv.c4gh_ paikalliselle koneellesi. Tämän jälkeen sinun tulee vielä purkaa salaus erillisessä vaiheessa (katso alla).
 
-Jos sinulla on paikallisella tietokoneellasi asennettuna CSC:n kehittämät Allas-komennot (`a-put` ja `a-get`), voit yhdistää latauksen ja
-salauksen purun yhdeksi komennoksi. Tämä tapahtuu määrittämällä salainen avain `--sk`-vaihtoehdolla. Esimerkiksi:
+Jos sinulla on CSC:n kehittämät Allas-komennot (`a-put` ja `a-get`) asennettuina paikalliselle koneellesi, voit yhdistää lataus- ja salauksen purku -vaiheet yhdeksi komennoksi. Tämä tehdään määrittämällä salainen avain valitsimella `--sk`. Esimerkiksi:
 
 ```text
 a-get --sk export_secret.key analysis-2022/results-03.csv.c4gh
 ```
-Yllä oleva komento kysyy salaisen avaimen salasanaa ja tuottaa käyttövalmiin salauksen purkamaasi tiedoston paikalliselle tietokoneellesi (tässä tapauksessa _results-03.csv_).
+Yllä oleva komento kysyy salaisen avaimen salasanan ja tuottaa valmiiksi puretun tiedoston paikalliselle koneellesi (tässä tapauksessa _results-03.csv_).
 
-## 8. Pura tiedostot Crypt4gh CLI työkaluilla {#decrypt-the-files-with-the-crypt4gh-cli-tools}
 
-!!! Huomio
-    Alla on vaihe vaiheelta esimerkki yhden tiedoston purkamisesta.
 
-Tiedoston purkaaksesi tarvitset yksityisen avaimen, joka vastaa yhtä salauksen aikana käytetyistä julkisista avaimista. Oletetaan esimerkissämme, että tutkimusryhmä A purkaa salauksen tiedostosta, jonka olet lähettänyt heille. Tiedoston purkamiseen he käyttävät komentoa `crypt4gh decrypt`:
+## 8. Pura tiedostojen salaus Crypt4gh-komentorivityökaluilla { #8-decrypt-the-files-with-the-crypt4gh-cli-tools }
 
-```bash
-crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg
-```
+!!! Note
+    Alla on vaiheittainen esimerkki yhden tiedoston salauksen purkamisesta.
 
-jossa `--sk groupA.sec` on vastaava yksityinen avain, joka vastaa yhtä salauksessa käytetyistä julkisista avaimista. `crypt4gh` komento käyttää vain
-standardi syötettä (stdin) ja standardilähtöä (stdout), joten sinun on käytettävä shellin uudelleenohjaus: `<` tarkoittaa syöttötiedostoa ja `>` tarkoittaa tulostiedostoa,
-joten `<dog.jpg.c4gh` lukee salatun tiedoston nimeltään `dog.jpg.c4gh` ja `>dog.jpg` kirjoittaa puretun tiedoston nimeltään `dog.jpg`.
+Tiedoston salauksen purkamiseen tarvitset yksityisen avaimen, joka vastaa jotakin salauksessa käytetyistä julkisista avaimista. Oletetaan esimerkissä, että tutkimusryhmä A purkaa heille lähettämäsi tiedoston salauksen. Salausta puretaan komennolla `crypt4gh decrypt`:
 
-Komentosarja pyytää käyttäjää syöttämään yksityisen avaimen salasanan (passphrase). Turvallisuussyistä salasana ei näy kirjoittaessasi sitä.
+      ```bash
+      crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg
+      ```
 
-!!! Huomio
-    Jos purat tiedoston SD Desktopissa ja CSC:n Sensitive Data -palveluiden julkista avainta on käytetty salauksessa, purku tapahtuu automaattisesti, eikä sinun tarvitse määrittää mitään purkuavaimia.
+      missä `--sk groupA.sec` on yksityinen avain, joka vastaa jotakin salauksessa käytettyä julkista avainta. `crypt4gh`-komento käyttää vain 
+      vakiotuloa (stdin) ja vakiopoistuloa (stdout), joten sinun on käytettävä kuoriredirektioita: `<` määrittää syötetiedoston ja `>` määrittää tulostetiedoston, 
+      joten `<dog.jpg.c4gh` lukee salatun tiedoston nimeltä `dog.jpg.c4gh` ja `>dog.jpg` kirjoittaa puretun tiedoston nimeltä `dog.jpg`.
 
-Jos sinun on purettava suuren määrän tiedostoja, tarkista tutoriaali [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
+      Komento pyytää käyttäjää antamaan yksityisen avaimen salasanan (passphrase). Tietoturvasyistä salasanaa ei näytetä kirjoittaessasi.
 
-[Lisätietoja datan salauksesta](sd-connect-command-line-interface.md)
+!!! Note
+    Jos purat salauksen SD Desktopissa ja salauksessa on käytetty CSC Sensitive Data -palvelun julkista avainta, purku tapahtuu automaattisesti eikä sinun tarvitse määrittää purkuavaimia.
 
-## Edistyneet: Varmistuskopiot {#advanced:-back-up-copies}
+Jos sinun tarvitsee purkaa salaus suuresta määrästä tiedostoja, katso opas [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
 
-Jos projektin jäsenet tarvitsevat varmuuskopioita tärkeistä tiedostoista, projektipäällikkö voi käynnistää varmuuskopiopalvelimen prosessin, jota projektin jäsenet
-voivat hyödyntää varmuuskopioiden tekemiseen. Tarkempia tietoja löytyy: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
+[Lisätietoja tietojen salauksesta](sd-connect-command-line-interface.md)
 
-## Lisää tukea: {#more-support}
+    
+## Edistynyt: varmuuskopiot { #advanced-back-up-copies }
 
-Salaa ja lataa tiedostoja komentorivin kautta, tarkista [tämä tutoriaali](sequencing_center_tutorial.md), joka osoittaa kuinka käyttää
-crypt4gh työkalua tiedostojen lataamiseen Allakseen (näkyvissä SD Connectista).
+Jos projektin jäsenet tarvitsevat tärkeistä tiedostoista varmuuskopioita, projektipäällikkö voi käynnistää varmuuskopalvelinprosessin, jota projektin jäsenet voivat 
+hyödyntää varmuuskopiointiin. Lisätietoja: [SD Desktopin varmuuskopipalvelimen opas](./tutorials/backup_sd_desktop.md).
 
-Alla lisätietoa crypt4GH CLI:stä:
+## Lisätukea: { #more-support }
 
-Dokumentaation ja lisätietojen saamiseksi voit tarkistaa [Crypt4gh Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) sivun.
+Komentorivillä salaukseen ja lataukseen, katso [tämä opas](sequencing_center_tutorial.md), jossa havainnollistetaan crpt4gh-työkalun käyttöä 
+tiedostojen lataamiseen Allakseen (näkyy SD Connectista).
 
-Jos sinun on purettava suuren määrän tiedostoja, tarkista tutoriaali [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
+Alla lisätietoa Crypt4GH CLI:stä:
 
-## Seuraavat askeleesi tässä oppaassa {#your-next-steps-in-this-guide}
+Dokumentaation ja lisätietojen vuoksi voit tutustua sivuun [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git).
+
+Jos sinun tarvitsee purkaa salaus suuresta määrästä tiedostoja, katso opas [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
+
+## Seuraavat askeleesi tässä oppaassa { #your-next-steps-in-this-guide }
 
 * [Vianmääritys](./sd-desktop-troubleshooting.md)

@@ -1,68 +1,68 @@
-
-# SSH-asiakasohjelma macOS:ssä ja Linuxissa {#ssh-client-on-macos-and-linux}
+# SSH-asiakasohjelma macOSissa ja Linuxissa { #ssh-client-on-macos-and-linux }
 
 --8<-- "auth-update-ssh.md"
 
-Unix-pohjaisissa järjestelmissä, kuten macOS:ssä ja Linuxissa, on suositeltavaa yhdistää CSC:n supertietokoneisiin käyttämällä esiasennettua pääteohjelmaa. OpenSSH-asiakasohjelma on yleensä esiasennettuna macOS- ja Linux-järjestelmissä.
+Unix-tyyppisissä järjestelmissä, kuten macOSissa ja Linuxissa, suositellaan muodostamaan yhteys CSC:n supertietokoneisiin valmiiksi asennetun pääteohjelman avulla. OpenSSH-asiakas on tavallisesti esiasennettuna macOS- ja Linux-järjestelmissä.
 
-## SSH-avainten luominen {#generating-ssh-keys}
+## SSH-avainten luominen { #generating-ssh-keys }
 
-Yhteyden muodostaminen CSC:n supertietokoneisiin SSH-asiakkaan avulla edellyttää SSH-avainten asettamista. macOS:ssä ja Linuxissa voit käyttää `ssh-keygen`-komentorivityökalua SSH-avainten luomiseen:
+Yhteyden muodostaminen CSC:n supertietokoneisiin SSH-asiakkaalla edellyttää SSH-avainten käyttöönottoa. macOSissa ja Linuxissa voit käyttää komentorivityökalua ssh-keygen SSH-avainten luomiseen:
 
 ```bash
 ssh-keygen -a 100 -t ed25519
 ```
 
-Sinua pyydetään antamaan salalause. Valitse turvallinen salalause. Sen tulisi olla vähintään 8 merkkiä pitkä ja sisältää numeroita, kirjaimia ja erikoismerkkejä. Älä koskaan jätä salalausetta tyhjäksi!
+Sinua pyydetään syöttämään salasanalause. Valitse turvallinen salasanalause. Sen tulee olla vähintään 8 merkkiä pitkä ja sisältää numeroita, kirjaimia ja erikoismerkkejä. Älä koskaan jätä salasanalauseetta tyhjäksi!
 
-Tuetut avaintyypit ovat Ed25519 ja RSA 2048:sta 16384:ään. **Suosittelemme voimakkaasti Ed25519:**tä. Jos valitset RSA:n, käytä vähintään 4096 bittiä.
+Tuetut avaintyypit ovat Ed25519 ja RSA 4096–16384. Suosittelemme vahvasti Ed25519:tä.
 
-Kun olet luonut SSH-avainparin, sinun on lisättävä **julkinen avain** MyCSC-portaaliin.
-[Lue ohjeet tästä](ssh-keys.md#adding-public-key-in-mycsc).
+Kun olet luonut SSH-avainparin, sinun on lisättävä julkinen avain MyCSC-portaaliin.
+[Lue ohjeet täältä](ssh-keys.md#adding-public-key-in-mycsc).
 
-Saatat haluta myös määrittää [todennusagentin](#authentication-agent) tekemään SSH-avainten käytöstä helpompaa.
+Voit halutessasi ottaa käyttöön myös [todennusagentin](#authentication-agent), mikä helpottaa SSH-avainten käyttöä.
 
 !!! note "SSH-avainten käyttö"
-    Katso sivu [SSH-avainten asettaminen](ssh-keys.md) yleistä tietoa varten SSH-avainten käytöstä todennukseen. Huomaa, että julkisen avaimen lisääminen MyCSC:hen on pakollista – suoraan CSC:n supertietokoneelle kopioiminen ei toimi!
+    Katso sivu [SSH-avainten käyttöönotosta](ssh-keys.md) yleistä tietoa varten SSH-avainten käytöstä todennuksessa. Huomaa, että julkisen avaimesi lisääminen MyCSC:hen on pakollista – sen kopioiminen suoraan CSC:n supertietokoneelle ei toimi!
 
-## Peruskäyttö {#basic-usage}
+## Peruskäyttö { #basic-usage }
 
-Kun olet asettanut SSH-avaimet ja lisännyt julkisen avaimen MyCSC:hen, voit luoda etä-SSH-yhteyden avaamalla pääte ja suorittamalla:
-
-```bash
-# Korvaa <käyttäjänimi> CSC-käyttäjätunnuksellasi ja
-# <isäntä> "puhti":lla tai "mahti":lla
-
-ssh <käyttäjänimi>@<isäntä>.csc.fi
-```
-
-Jos olet tallentanut SSH-avain tiedostosi muuta kuin oletusnimellä tai muuhun kuin oletuspaikkaan, sinun on kerrottava `ssh`-komennolle, mistä etsiä avainta. Käytä -i-vaihtoehtoa seuraavasti:
+Kun SSH-avaimet on otettu käyttöön ja julkinen avain lisätty MyCSC:hen, voit luoda etä-SSH-yhteyden avaamalla päätteen ja suorittamalla:
 
 ```bash
-# Korvaa <käyttäjänimi> CSC-käyttäjätunnuksellasi ja
-# <isäntä> "puhti":lla tai "mahti":lla
+# Replace <username> with the name of your CSC user account and
+# <host> with "puhti" or "mahti"
 
-ssh <käyttäjänimi>@<isäntä>.csc.fi -i /polku/avaintiedostoon
+ssh <username>@<host>.csc.fi
 ```
 
-## Graafinen yhteys {#graphical-connection}
-
-Grafiikan, kuten käyttöliittymien ja kuvaajien, näyttäminen SSH-yhteyden kautta vaatii ikkunointijärjestelmän. Useimmissa macOS- ja Linux-järjestelmissä on oletuksena X-ikkunointijärjestelmän (X11) palvelinohjelma asennettuna.
-
-Ota käyttöön grafiikan näyttäminen SSH:n kautta käyttämällä -X (X11-välitys) tai -Y (luotettu X11-välitys) vaihtoehtoa, kun käynnistät SSH-asiakkaan:
+Jos tallensit SSH-avaintiedoston muulla kuin oletusnimellä tai muuhun kuin oletussijaintiin, sinun on kerrottava `ssh`-komennolle, mistä avain löytyy. Käytä valitsinta `-i` seuraavasti:
 
 ```bash
-ssh -X <käyttäjänimi>@<isäntä>.csc.fi
+# Replace <username> with the name of your CSC user account,
+# <host> with "puhti" or "mahti" and <path-to-private-key>
+# with the path to your SSH private key
+
+ssh <username>@<host>.csc.fi -i <path-to-private-key>
 ```
 
-Lisätietoja X11-välitysvaihtoehdoista saat suorittamalla `man ssh` pääteohjelmassa.
+## Graafinen yhteys { #graphical-connection }
 
-## Todennusagentti {#authentication-agent}
+Grafiikan, kuten käyttöliittymien ja kuvaajien, näyttäminen SSH-yhteyden yli edellyttää ikkunointijärjestelmää. Linux-järjestelmissä X-ikkunointijärjestelmän (X11) palvelinohjelma on asennettu oletuksena. macOSissa se täytyy asentaa erikseen, esimerkiksi [XQuartz](https://www.xquartz.org/).
 
-Välttääksesi salalauseen syöttämisen joka kerta, kun yhdistät CSC:n supertietokoneeseen, voi `ssh-agent`-työkalu pitää avaimiasi muistissa. Ohjelman toiminta riippuu järjestelmästäsi:
+Salli grafiikan näyttäminen SSH:n yli käyttämällä valitsinta `-X` (X11-välitys) tai `-Y` (luotettu X11-välitys), kun käynnistät SSH-asiakkaan:
 
-- Linux-järjestelmissä `ssh-agent` on tyypillisesti määritetty ja suoritetaan automaattisesti kirjautumisen yhteydessä, eikä se vaadi lisätoimenpiteitä.
-- macOS-järjestelmissä sinun pitäisi lisätä seuraavat rivit `~/.ssh/config`-tiedostoon (luo tiedosto, jos se ei ole olemassa):
+```bash
+ssh -X <username>@<host>.csc.fi
+```
+
+Lisätietoja X11-välityksen valitsimista saat ajamalla `man ssh` terminaalissa.
+
+## Todennusagentti { #authentication-agent }
+
+Välttääksesi salasanalauseen kirjoittamisen joka kerta, kun yhdistät CSC:n supertietokoneeseen, `ssh-agent`-apuohjelma voi pitää avaimesi muistissa. Ohjelman toiminta riippuu järjestelmästäsi:
+
+- Linux-järjestelmissä `ssh-agent` on tyypillisesti asetettu ja käynnistyy automaattisesti kirjautumisen yhteydessä, eikä vaadi sinulta lisätoimia.
+- macOS-järjestelmissä sinun kannattaa lisätä seuraavat rivit tiedostoon `~/.ssh/config` (luo tiedosto, jos sitä ei ole):
 
     ```text
     Host *
@@ -70,27 +70,21 @@ Välttääksesi salalauseen syöttämisen joka kerta, kun yhdistät CSC:n supert
         AddKeysToAgent yes
     ```
 
-Olettamalla, että SSH-yksityinen avain on tallennettu `~/.ssh/id_ed25519`, lisää se todennusagenttiin suorittamalla:
+Jos SSH-yksityinen avaimesi on tallennettu polkuun `~/.ssh/id_ed25519`, lisää se todennusagenttiin ajamalla:
 
 ```bash
 ssh-add ~/.ssh/id_ed25519
 ```
 
-### SSH-agentin välitys {#ssh-agent-forwarding}
+### SSH-agentin välitys { #ssh-agent-forwarding }
 
-Agentin välitys on hyödyllinen mekanismi, jossa SSH-asiakas on määritetty sallimaan SSH-palvelimen käyttää paikallista `ssh-agent`:ia palvelimella kuten se olisi paikallinen siellä. Tämä tarkoittaa käytännössä sitä, että voit esimerkiksi yhdistää Puhtista Mahtiin käyttämällä paikallisessa koneessasi asetettuja Mahtin SSH-avaimia eli sinun ei tarvitse luoda uutta avainsarjaa Puhtissa. Agentin välitys on myös hyvin kätevä, jos sinun täytyy työntää yksityiseen Git-repositorioon Puhtista tai Mahtista.
+Agentin välitys on kätevä mekanismi, jossa SSH-asiakas on konfiguroitu sallimaan, että SSH-palvelin käyttää paikallista `ssh-agent`-ohjelmaasi palvelimella ikään kuin se olisi paikallinen siellä. Tämä tarkoittaa käytännössä, että voit esimerkiksi yhdistää Puhtista Mahtiin käyttäen paikalliskoneellesi Mahtia varten määritettyjä SSH-avaimia; toisin sanoen sinun ei tarvitse luoda uutta SSH-avainparia Puhtiin. Agentin välitys on myös erittäin kätevä, jos sinun tarvitsee tehdä push yksityiseen Git-repositorioon Puhtista tai Mahtista tai kopioida dataa Puhtin ja Mahtin välillä.
 
-Jos haluat ottaa agentin välityksen käyttöön, lisää rivi `ForwardAgent yes` paikalliseen `~/.ssh/config`-tiedostoon:
-
-```text
-Host *
-    ForwardAgent yes
-```
-
-Toinen vaihtoehto on yksinkertaisesti sisällyttää -A-lippu `ssh`-komentoosi:
+Ota agentin välitys käyttöön lisäämällä `-A`-lippu `ssh`-komentoosi:
 
 ```bash
-ssh -A <käyttäjänimi>@<isäntä>.csc.fi
+ssh -A <username>@<host>.csc.fi
 ```
 
-Lisätietoja `ssh-agent`:sta saat [asianmukaisesta SSH Academy -oppaasta](https://www.ssh.com/academy/ssh/agent).
+Lisätietoja ohjelmasta `ssh-agent` löytyy
+[aiheeseen liittyvästä SSH Academy -oppaasta](https://www.ssh.com/academy/ssh/agent).

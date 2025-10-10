@@ -1,30 +1,30 @@
-# Orkestrointi Heatillä {#orchestration-with-heat}
+# Orkestrointi Heatilla { #orchestration-with-heat }
 
-Tässä artikkelissa esitellään virtuaalikoneiden palveluorkestrointi OpenStack Heatia hyödyntäen Poudalle.
+Tässä artikkelissa esitellään Poutassa käytettävissä oleva OpenStack Heat -pohjainen virtuaalikonepalveluiden orkestrointi.
 
-Voit käyttää tätä ominaisuutta verkkokäyttöliittymän vasemmassa paneelissa tai OpenStackin tai Heatin komentoriviohjelmalla. Orkestrointi tarjoaa helpon tavan luoda koko infrastruktuuri uudelleenkäytettävän ja ihmisen luettavissa olevan mallin avulla. Malli voi kuvata monia infrastruktuurin komponentteja, kuten palvelimia, levyjä ja kelluvia IP-osoitteita. Samassa tiedostossa voi liittää levyt ja IP-osoitteet tiettyihin instansseihin. Malli voi myös määrittää useita instansseja, jotka on yhdistetty tiettyihin verkkoihin, joista joillakin on kelluvia IP-osoitteita ja joillakin levy. Tiedostoa voi myös käyttää olemassa olevan infrastruktuurin muokkaamiseen.
+Voit käyttää tätä ominaisuutta verkkokäyttöliittymän vasemman reunan paneelista tai OpenStack- tai Heat-komentorivityökalulla. Orkestrointi tarjoaa helpon tavan luoda koko infrastruktuuri uudelleenkäytettävän ja ihmisen luettavan mallin avulla. Malli voi kuvata monia infrastruktuurin komponentteja, kuten palvelimia, levyjä ja julkisia (floating) IP-osoitteita. Samassa tiedostossa levyt ja IP-osoitteet voidaan liittää tiettyihin instansseihin. Malli voi myös määrittää useita instansseja liitettynä tiettyihin verkkoihin siten, että osalla on julkiset IP-osoitteet ja osalla levy liitettynä. Tiedostoa voidaan käyttää myös olemassa olevan infrastruktuurin muokkaamiseen.
 
-### Orkestrointi verkkokäyttöliittymän kautta {#orchestration-via-the-web-user-interface}
+### Orkestrointi verkkokäyttöliittymän kautta { #orchestration-via-the-web-user-interface }
 
 !!! info
 
-    Sinun tulisi käyttää "2018-08-31" ("rocky") tai vanhempia [Heatin malliversioina](https://docs.openstack.org/heat/latest/template_guide/hot_spec.html#rocky). Uudempien malliversioiden ominaisuudet eivät ehkä ole tuettuja.
+    Sinun tulisi käyttää Heat-mallin versiona "2021-04-16" ("wallaby") tai vanhempaa [Heat template version](https://docs.openstack.org/heat/latest/template_guide/hot_spec.html#wallaby). Uusimpien malliversioiden ominaisuudet eivät välttämättä ole tuettuja. 
 
-Nämä ohjeet tarjoavat yksinkertaisen esimerkin pinojen asettamisesta verkkokäyttöliittymän kautta. Luodaksesi Heat-pinon, klikkaa "Stacks" linkkiä _Orchestration_ valikossa. Avaamassa näkymä näyttää kaikki olemassa olevat pinot ja tarjoaa painikkeen "Launch Stack" uuden pinon käynnistämiseen. Ikkunassa, joka avautuu "Launch Stack" painikkeen jälkeen, voit ladata olemassa olevan luomasi mallin tai voit aloittaa pinosi konfiguroinnin. Mallin valinta on pakollista, ja mallin tiedot voidaan myös antaa suorana syötteenä, kuten kuvassa esitetään. Huomaa, että kuva sisältää kelvollisen, mutta yksinkertaisen esimerkin mallista, joka rakentaa kaksi instanssia ja näyttää ensimmäisen instanssin IP-osoitteen.
+Nämä ohjeet esittävät yksinkertaisen esimerkin pinon (stack) luomisesta verkkokäyttöliittymän kautta. Luodaksesi Heat-pinon klikkaa _Orchestration_-valikon "Stacks"-linkkiä. Avautuvassa näkymässä näet kaikki olemassa olevat pinot ja painikkeen "Launch Stack" uuden pinon käynnistämiseen. Ikkunassa, joka avautuu "Launch Stack" -painiketta napsautettaessa, voit ladata aiemmin tekemäsi mallin tai aloittaa pinon määrittelyn. Mallin valinta on pakollista, ja mallin voi myös antaa suoraan tekstikenttään kuten alla olevassa kuvassa. Huomaa, että kuvassa on kelvollinen, joskin yksinkertainen malliesimerkki, joka luo kaksi instanssia ja näyttää ensimmäisen instanssin IP-osoitteen.
 
-![Mallin valinta](../../../img/stacks-view.png)
+![Mallin valinta](../../img/stacks-view.png)  
 
 Tässä esimerkki:  
 ```yaml
-heat_template_version: rocky # Kuten yllä mainittu, voit käyttää joko päivämäärää tai nimeä
+heat_template_version: wallaby # As mentioned above, you can either use the date or the name
 
-description: Yksinkertainen malli yhden instanssin käyttöönottamiseksi cPoudassa
+description: Simple template to deploy a single instance in cPouta
 
 resources:
   instance0:
     type: OS::Nova::Server
     properties:
-      image: Ubuntu-22.04
+      image: Ubuntu-24.04
       flavor: standard.small
       key_name: my-key
       networks:
@@ -33,7 +33,7 @@ resources:
   instance1:
     type: OS::Nova::Server
     properties:
-      image: Centos-7
+      image: AlmaLinux-9
       flavor: standard.small
       key_name: my-key
       networks:
@@ -41,28 +41,28 @@ resources:
 
 outputs:
   network0:
-    description: Tulosta instance0:n verkot
+    description: Output the networks of instance0
     value: { get_attr: [instance0, networks] }
   network1:
-    description: Tulosta instance1:n verkko
+    description: Output the network of instance1
     value: { get_attr: [instance1, networks]}
 ```
 
-Kun valitset "Next", verkkokäyttöliittymä kysyy pinoasi nimeä ja salasanaasi. Tämän jälkeen voit käynnistää pinon. Kun pino on rakennettu, sen hallinta onnistuu orkestroinnin _Stacks_ näkymässä. Pinon osana rakennetut kohteet löytyvät vastaavista valikoista. Tässä tapauksessa molemmat instanssit näkyvät ja niitä voi hallita instanssivalikossa. Pinon Yleiskatsaus-välilehdessä (Orchestration -&gt; Stacks -&gt; klikkaa pinoa) näet myös esimerkissä määritellyn "outputs" osion määritykset. Poistaaksesi kaikki pinon mallin luomat komponentit, paina yksinkertaisesti "Delete Stack" pinot-sivulla.
+Kun valitset "Next", verkkokäyttöliittymä pyytää pinon nimen ja salasanasi. Tämän jälkeen voit käynnistää pinon. Kun pino on rakennettu, sitä voi hallita orkestroinnin _Stacks_-näkymästä. Pinossa luodut kohteet löytyvät omista valikoistaan. Tässä tapauksessa kaksi instanssia näkyvät ja niitä voi hallita instanssien valikossa. Pinon Overview-välilehdellä (Orchestration -&gt; Stacks -&gt; klikkaa pinoa) näet myös "outputs"-osiossa määritetyt tulosteet esimerkin mukaisesti. Poistaaksesi kaikki pinon luomat komponentit, paina "Delete Stack" Stacks-sivulla.
 
-### Orkestroinnin käyttö komentoriviasiakkaalla {#using-orchestration-with-the-command-line-client}
+### Orkestroinnin käyttö komentorivityökalulla { #using-orchestration-with-the-command-line-client }
 
 !!! info
 
     Varmista, että `python-heatclient` on asennettu. Voit asentaa sen komennolla `pip install python-heatclient` (https://pypi.org/project/python-heatclient/)
 
-Heatin käyttö onnistuu OpenStackin komentoriviasiakkaalla, mutta tällä hetkellä voit käyttää myös vanhentunutta Heatin komentoriviasiakasta. Luo pino komentorivillä:
+Heatia voi käyttää OpenStackin komentorivityökalulla, ja toistaiseksi voit käyttää myös vanhentunutta Heat-komentorivityökalua. Luo pino komentoriviltä:
 
 ```sh
 openstack stack create -t /path/to/my/stack.yml my-heat-stack
 ```
 
-Näytä uudenluodun pinon yksityiskohdat muiden olemassa olevien pinojen joukossa, syötä komento `openstack stack list`:
+Näytä uuden pinon tiedot muiden pinojen joukossa komennolla `openstack stack list`:
 
     openstack stack list
     +--------------------------------------+---------------+-----------------+----------------------+--------------+
@@ -71,55 +71,55 @@ Näytä uudenluodun pinon yksityiskohdat muiden olemassa olevien pinojen joukoss
     | 98077bd5-9d69-47c3-98db-b0e19a60b1fa | my-heat-stack | CREATE_COMPLETE | 2016-06-08T07:34:46Z | None         |
     +--------------------------------------+---------------+-----------------+----------------------+--------------+
 
-### Selitykset {#explanations}
+### Selitykset { #explanations }
 Malli koostuu kahdesta pääosiosta:  
 - Käytetty versio (`heat_template_version`)  
-- Resurssi(t) (`resources`)  
+- Resurssit (`resources`)  
 
 Lisäksi on valinnaisia osioita, kuten:  
 - Kuvaus (`description`)  
-- Parametriryhmä(t) (`parameter_groups`)  
-- Parametri(t) (`parameters`)  
+- Parametriryhmät (`parameter_groups`)  
+- Parametrit (`parameters`)  
 - Tulosteet (`outputs`)  
-- Ehto(t) (`conditions`)  
+- Ehdot (`conditions`)  
 
-Tässä yksityiskohtaisesti jokaisesta osiosta:  
+Alla on tarkempi kuvaus kustakin osiosta:  
 
 `heat_template_version`  
-&nbsp;&nbsp;&nbsp;&nbsp; Ilmoittaa, että YAML-dokumentti on HOT (Heat Orchestration Template) -malli määritellyllä versiolla.
+    Ilmaisee, että YAML-asiakirja on HOT (Heat Orchestration Template) -malli määritetyllä versiolla.
 
 `description`  
-&nbsp;&nbsp;&nbsp;&nbsp; Mahdollistaa mallin kuvauksen antamisen.
+    Mahdollistaa mallin kuvauksen antamisen.
 
 `parameter_groups`  
-&nbsp;&nbsp;&nbsp;&nbsp; Mahdollistaa syöteparametrien ryhmittelyn ja parametrien tarjoamisjärjestyksen määrittämisen.
+    Mahdollistaa syöteparametrien ryhmittelyn ja järjestyksen määrittelyn.
 
 `parameters`  
-&nbsp;&nbsp;&nbsp;&nbsp; Mahdollistaa syöteparametrien määrittämisen, jotka on annettava mallin käyttöönotossa.
+    Mahdollistaa syöteparametrien määrittelyn, jotka on annettava mallin instansioinnin yhteydessä.
 
 `resources`  
-&nbsp;&nbsp;&nbsp;&nbsp; Sisältää mallin yksittäisten resurssien julistuksen.
+    Sisältää mallin yksittäisten resurssien määrittelyt.
 
 `outputs`  
-&nbsp;&nbsp;&nbsp;&nbsp; Mahdollistaa tuotettujen parametrien määrittämisen, kun malli on instantoitu.
+    Mahdollistaa tulosteparametrien määrittelyn, jotka ovat saatavilla mallin instansioinnin jälkeen.
 
 `conditions`  
-&nbsp;&nbsp;&nbsp;&nbsp; Sisältää lausekkeita, joita voidaan käyttää rajoittamaan resurssin luomista tai ominaisuuden määrittämistä.
+    Sisältää lausekkeita, joilla voidaan rajoittaa, milloin resurssi luodaan tai milloin ominaisuus määritellään.
 
-### Edistynyt esimerkki: mallin luominen yhden tai useamman instanssin rakentamiseksi {#advanced-example-create-a-template-to-build-one-or-more-instances}
-Suunnitelmana on:  
-- Luo parametrien tiedosto Openstack Heatille.  
-- Luo kaksi Openstack Heat -mallia: yksi instanssien määrälle (OS::Heat::ResourceGroup) ja toinen käyttöönoton spesifikaatiolle.  
-- Luo Ansible-skripti käyttöönoton automatisoimiseksi.  
+### Edistynyt esimerkki: luo malli yhden tai useamman instanssin luontiin { #advanced-example-create-a-template-to-build-one-or-more-instances }
+Suunnitelma:  
+- Luo OpenStack Heatia varten parametrityt tiedosto.  
+- Luo kaksi OpenStack Heat -mallia: toinen instanssien määrälle (OS::Heat::ResourceGroup) ja toinen käyttöönoton määrittelylle.  
+- Luo Ansible-skripti käyttöönoton automatisointiin.  
 
 !!! info
 
-    Asenna seuraavat työkalut:  
+    Seuraavat työkalut on oltava asennettuna:  
     - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)  
     - python-openstackclient (`pip install python-openstackclient`)  
     - python-heatclient (`pip install python-heatclient`)  
 
-Ensiksi, voit luoda `heat_params.yaml` tiedoston, joka sisältää erilaisia muuttujia käytettäväksi instanssissasi. Käytä omia arvojasi:  
+Ensin voit luoda tiedoston `heat_params.yaml`, joka sisältää instanssiasi varten käytettäviä muuttujia. Käytä omia arvojasi:  
 
 ```yaml
 parameter_defaults:
@@ -130,35 +130,35 @@ parameter_defaults:
   count:
 ```
 
-Toiseksi, kaksi Openstack Heat -mallia. Ensimmäiseen otamme edelliset esimerkkimme muutamin muutoksin. Nimitämme sen `heat_stack_vm.yaml`:  
+Toiseksi, kaksi OpenStack Heat -mallia. Ensimmäiseen otamme aiemman esimerkin pienin muutoksin. Nimeämme sen `heat_stack_vm.yaml`:  
 
 ```yaml
-heat_template_version: rocky # Kuten yllä mainittu, voit käyttää joko päivämäärää tai nimeä
+heat_template_version: wallaby # As mentioned above, you can either use the date or the name
 
-description: Yksinkertainen malli yhden tai usean instanssin käyttöönottamiseksi cPoudassa
+description: Simple template to deploy a single or several instance(s) in cPouta
 
-parameters: # Koska loimme heat_params.yaml, ne haetaan tästä tiedostosta
+parameters: # Since we created a heat_params.yaml, they will be retrieved from this file
   ssh_key_name:
-    description: SSH-avaimen nimi
+    description: SSH key name
     type: string
   vm_name:
-    description: VM:n nimi
+    description: Name for the VM
     type: string
   vm_flavor:
-    description: VM:n flavor
+    description: Flavor for the VM
     type: string
   vm_image:
-    description: VM:n kuva
+    description: Image for the VM
     type: string
   vm_network:
-    description: VM:n verkko
+    description: Network for the VM
     type: string
 
 resources:
   instance:
     type: OS::Nova::Server
     properties:
-      name: { get_param: vm_name } # Tämä arvo haetaan servers_group.yaml tiedostosta. Katso alla.
+      name: { get_param: vm_name } # This value will be retrieved from servers_group.yaml file. See after.
       image: { get_param: vm_image }
       flavor: { get_param: vm_flavor }
       key_name: { get_param: ssh_key_name }
@@ -167,20 +167,20 @@ resources:
 
 outputs:
   network:
-    description: Tulosta instanssien verkostot
+    description: Output the networks of instance
     value: { get_attr: [instance, networks] }
 ```
 
-Kolmanneksi, luomme tiedoston nimeltä `servers_group.yaml`, [ResourceGroup](https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Heat::ResourceGroup), joka mahdollistaa instanssiemme skaalaamisen:  
+Kolmanneksi luomme tiedoston `servers_group.yaml`, [ResourceGroupin](https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Heat::ResourceGroup), jonka avulla voimme skaalata instansseja:  
 
 ```yaml
-heat_template_version: rocky
+heat_template_version: wallaby
 
-description: Resource Group yhden tai useamman instanssin käyttöönottoa varten
+description: Resource Group to deploy one or several instance(s)
 
-parameters: # Parametri haetaan heat_params.yaml tiedostosta.
+parameters: # Parameter retrieves from heat_params.yaml file.
   count:
-    description: Resurssien määrä
+    description: Number of resources
     type: string
 
 resources:
@@ -189,49 +189,49 @@ resources:
     properties:
       count: { get_param: count }
       resource_def:
-        type: heat_stack_vm.yaml # Määrittelimme aiemman mallimme.
+        type: heat_stack_vm.yaml # We defined our previous template.
         properties:
-          vm_name: test-stack-%index% # Arvo %index% kasvaa, jos luodaan useampi kuin yksi VM.
+          vm_name: test-stack-%index% # Value %index% will be increased if more than one vm is created.
 
 outputs:
   print_out:
     value: { get_attr: [instances_group, network] }
 ```
 
-Lopuksi, luomme ansible-skriptin, joka rakentaa ja ottaa käyttöön vm-instanssimme. Nimetään se `build-heat-stack.yaml`:  
+Lopuksi luomme Ansible-skriptin, joka rakentaa ja ottaa käyttöön VM:t. Nimetään se `build-heat-stack.yaml`:  
 
 ```yaml
 - hosts: localhost
   gather_facts: false
   vars:
-    heat_environment_file: "heat_params.yaml" # Varmista, että tiedosto sijaitsee build-heat-stack.yaml tasolla
+    heat_environment_file: "heat_params.yaml" # Be sure that the file is located at the same level as build-heat-stack.yaml
 
   tasks:
-    - name: Rakenna Heat-stack VM
+    - name: Build a Heat stack VM
       register: heat_stack
       os_stack:
         name: "{{ stack_name }}"
         state: present
-        template: "servers_group.yaml" # Varmista, että tiedosto sijaitsee build-heat-stack.yaml tasolla
+        template: "servers_group.yaml" # Be sure that the file is located at the same level as build-heat-stack.yaml
         environment: 
           - "{{ heat_environment_file }}"
 
-    - name: Tulosta verkko
+    - name: Print out network
       debug:
         var: heat_stack
 ```
 
-Aja cPouta-projektisi ympäristöön (`source project_xxxxx.sh`) ja suorita komento:   
+Lataa cPouta-projektisi (`source project_xxxxx.sh`) ja suorita komento:   
 ```sh
 ansible-playbook -e stack_name="test-stack" build-heat-stack.yaml`
 ```
 
-Jos kaikki sujui hyvin, voit tarkistaa pinon luoduksi, joko käyttämällä cPoutan verkkoliittymää tai kirjoittamalla komento: `openstack stack list`.  
-Voit myös tarkistaa luodut instanssit: `openstack server list`.
+Jos kaikki meni hyvin, voit tarkistaa, että pino luotiin joko cPoudan web-käyttöliittymästä tai komennolla: `openstack stack list`.  
+Voit myös tarkistaa luodut instanssit: `openstack server list`.  
 
-Jos poistat pinon, kaikki siitä luodut resurssit poistetaan myös.
+Jos poistat pinon, myös kaikki sen luomat resurssit poistetaan.
 
-### Heatin ohjeet ja komennon viitteet {#heat-guidelines-and-command-references}
+### Heat-ohjeet ja komentoviitteet { #heat-guidelines-and-command-references }
 
-Lisätietoja saatavilla OpenStackin [Heatin wikistä](https://wiki.openstack.org/wiki/Heat). Täydellinen viite OpenStackin komentoriviasiakkaalle löytyy [komentoriviviitteestä](http://docs.openstack.org/cli-reference/openstack.html).  
-Tässä esimerkki GitHubistamme yhden tai useamman instanssin käyttöönotosta nginx:lla [Lue lisää GitHub-reposta](https://github.com/CSCfi/heat-openstack-example){ target="_blank" }
+Lisätietoja löytyy OpenStackin [Heat-wikistä](https://wiki.openstack.org/wiki/Heat). OpenStackin komentorivityökalun täydellinen viite löytyy [komentoriviviitteestä](http://docs.openstack.org/cli-reference/openstack.html).  
+Esimerkki GitHubissa yhden tai useamman instanssin käyttöönotosta nginxin kanssa: [Lue lisää GitHub-reposta](https://github.com/CSCfi/heat-openstack-example){ target="_blank" }

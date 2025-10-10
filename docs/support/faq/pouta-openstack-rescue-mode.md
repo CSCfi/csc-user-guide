@@ -1,13 +1,12 @@
+# Miten pelastaa instansseja? { #how-to-rescue-instances }
 
-# Kuinka pelastaa instansseja? {#how-to-rescue-instances}
+OpenStack tarjoaa pelastustilan (rescue mode) VM:ien palauttamiseen. Sen avulla voidaan käynnistää virtuaalikone eri levykuvasta. Tästä on apua, kun virtuaalikone ei käynnisty esimerkiksi kernel panicin, täyden levyn tai yksityisen avaimen katoamisen vuoksi. Käynnistämällä eri levykuvasta voit liittää ja muokata nykyisen levyn tiedostoja ja korjata ongelman.
 
-OpenStack tarjoaa pelastustilan virtuaalikoneiden palauttamiseen. Tämä komento antaa mahdollisuuden käynnistää VM eri kuvasta. Tätä voi käyttää, kun virtuaalikone ei käynnisty ytimen paniikin vuoksi, levy on täynnä tai yksinkertaisesti olet menettänyt pääsyn yksityiseen avaimeen. Kun voit käynnistää eri kuvasta, voit liittää nykyisen levysi ja muokata tiedostoja sekä korjata ongelman.
+## Oireet { #symptoms }
 
-## Oireet {#symptoms}
+### Kernel panic { #kernel-panic }
 
-### Kernel Panic {#kernel-panic}
-
-Tarkista instanssin konsoliloki (verkkokäyttöliittymä: **Instances** > `<your instance>` > **Log**)
+Tarkista instanssisi Console Log (web-käyttöliittymä: **Instances** > `<your instance>` > **Log**)
 
 ```sh
 [    1.041853] Loading compiled-in X.509 certificates
@@ -46,9 +45,9 @@ Tarkista instanssin konsoliloki (verkkokäyttöliittymä: **Instances** > `<your
 [    1.107997] Kernel Offset: 0x5a00000 from 0xffffffff81000000 (relocation range:0xffffffff80000000-0xffffffffbfffffff)
 ```
 
-Loki kertoo, että instanssia ei voitu käynnistää, koska se ei löytänyt juurihakemistoa "Kernel panic - not syncing: VFS: Unable to mount root fs onunknown-block(0,0)". Korjauksena on käyttää aiempaa, toimivaa ydintä. Koska et voi käynnistää palvelinta, sinun on tehtävä korjaus volyymille (käynnistystiedostot) käyttämällä toista instanssia.
+Loki kertoo, ettei instanssi pystynyt käynnistymään, koska rootia ei löydy: "Kernel panic - not syncing: VFS: Unable to mount root fs onunknown-block(0,0)". Korjauksena on käyttää aiempaa, toimivaa kerneliä. Koska et voi käynnistää palvelinta, korjaus täytyy tehdä volyymiin (boot-tiedostot) toista instanssia käyttäen.
 
-### Pääsy estetty
+### Pääsy estetty { #access-denied }
 
 Ongelma voi olla niinkin yksinkertainen kuin:
 
@@ -57,13 +56,13 @@ $ ssh cloud-user@<floating-ip>
 cloud-user@<floating-ip>: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
 ```
 
-## Kuinka korjata ongelma, nova rescue {#how-to-fix-the-issue-nova-rescue}
+## Kuinka korjata ongelma, nova rescue { #how-to-fix-the-issue-nova-rescue }
 
-Huomioi, että minkä tahansa ongelman korjaamiseen on aina useita tapoja, tämä FAQ on pääasiassa tarkoitettu näyttämään yksi tapa korjata tällaisia ongelmia. Samalla kun sinulla on mahdollisuus muokata Grub-käynnistysparametreja, juuriyksittäisellä tilalla pääsy on oletuksena poistettu käytöstä turvallisuussyistä. Pelastustoimenpiteen suorittaminen tapahtuu seuraavasti:
+Huomaa, että ongelman voi korjata monella tavalla; tämä UKK näyttää yhden tavan ratkaista tällaisia ongelmia. Samalla kun voit muokata Grubin käynnistysparametreja, rootin single-tilan pääsy on oletuksena estetty tietoturvasyistä. Pelastustoimenpide etenee seuraavasti:
 
-1. Sinun täytyy olla asentanut [OpenStack komentorivityökalut](../../cloud/pouta/install-client.md). Sinun täytyy kirjautua sisään ja katsoa [Määritä terminaaliympäristösi OpenStackille](../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack) viitteeksi.
+1. Sinulla tulee olla asennettuna [OpenStackin komentorivityökalut](../../cloud/pouta/install-client.md). Lisäksi sinun pitää kirjautua; katso viite [Configure your terminal environment for OpenStack](../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack).
 
-1. Hae palvelimen ID ja tallenna se ympäristömuuttujaan nimeltään: `INSTANCE_UUID`:
+1. Hae palvelimen ID ja tallenna se ympäristömuuttujaan nimeltä `INSTANCE_UUID`:
 
 	```sh
 	$ openstack server list
@@ -75,7 +74,7 @@ Huomioi, että minkä tahansa ongelman korjaamiseen on aina useita tapoja, täm�
 
 	```
 
-1. Hae kuvan ID. Voit tallentaa ID:n ympäristömuuttujaan `IMAGE_UUID`. Sinun tulisi käyttää samaa kuvaa kuin instanssisi: (ID saattaa vaihdella alla olevassa esimerkissä)
+1. Hae levykuvan ID. Voit tallentaa sen ympäristömuuttujaan `IMAGE_UUID`. Käytä samaa levykuvaa kuin instanssissasi: (ID voi poiketa alla olevasta esimerkistä)
 
 	```sh
 	$ openstack image list
@@ -99,7 +98,7 @@ Huomioi, että minkä tahansa ongelman korjaamiseen on aina useita tapoja, täm�
 	openstack server stop $INSTANCE_UUID
 	```
 
-1. Varmista, että VM on sammutettu:
+1. Varmista, että VM on pysäytetty:
 	
 	```sh
 	openstack server list
@@ -107,13 +106,13 @@ Huomioi, että minkä tahansa ongelman korjaamiseen on aina useita tapoja, täm�
 
 	Tilan pitäisi olla `SHUTOFF`
 
-1. Voit nyt käynnistää instanssin pelastusmoodissa:
+1. Voit nyt käynnistää instanssin pelastustilan:
 
 	```sh
 	openstack server rescue --image $IMAGE_UUID $INSTANCE_UUID
 	```
 
-1. Varmista, että instanssi on pelastusmoodissa:
+1. Varmista, että instanssi on rescue-tilassa:
 
 	```sh
 	openstack server list
@@ -121,70 +120,125 @@ Huomioi, että minkä tahansa ongelman korjaamiseen on aina useita tapoja, täm�
 
 	Tilan pitäisi olla `RESCUE`
 
-## Yhdistäminen {#connecting}
+## Yhteyden muodostaminen { #connecting }
 
-### Ssh:n käyttäminen {#using-ssh}
+### SSH:n käyttö { #using-ssh }
 
-Pelastuskuva saa samat SSH-avaimet, jotka on määritetty pelastettavassa VM:ssä, joten sinun pitäisi pystyä ssh:lla yhdistämään instanssiin käyttämällä samoja käyttäjätunnuksia sekä IP-osoitetta kuin normaalisti.
+Pelastuskuva perii samat SSH-avaimet, jotka on määritetty pelastamassasi VM:ssä, joten sinun pitäisi pystyä yhdistämään instanssiin samoilla käyttäjillä ja IP-osoitteella kuin normaalistikin.
 
 ```sh
 ssh <default-user>@<floating-ip>
 ```
 
-Saat tämän varoituksen: `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`. Tämä viittaa niin kutsuttuihin `host keys` avaimiin, jotka tallennetaan VM:n levylle ja muuttuvat, koska käynnistät eri levyllä. Korjaa se poistamalla instanssin IP-osoite tiedostosta `~/.ssh/known_hosts`. Vaihtoehtoinen tapa on suorittaa seuraava komento:
+Saat varoituksen: `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`. Tämä liittyy niin sanottuihin `host keys` -avaimiin. Ne tallennetaan VM:n levylle ja muuttuvat, koska käynnistät eri levyltä. Korjaa poistamalla instanssisi IP-osoitetta vastaava rivi tiedostosta `~/.ssh/known_hosts`. Vaihtoehtoisesti voit suorittaa seuraavan komennon:
 
 ```sh
 ssh-keygen -f "~/.ssh/known_hosts" -R "$INSTANCE_IP"
 ```
 
-### Poutan verkkokonsolin käyttäminen (Cirrosilla) {#using-poutas-web-console-with-cirros}
+### Poutan verkkokonsolin käyttäminen (Cirrosin kanssa) { #using-poutas-web-console-with-cirros }
 
-Joissain tapauksissa, kuten silloin, kun olet menettänyt yksityisen SSH-avaimen, sinun täytyy käyttää Poutan verkkokonsolia. Tämän toimiakseen sinun täytyy valita **Cirros** kuva edellisessä vaiheessa 3.
+Joissakin tapauksissa, kuten yksityisen SSH-avaimen kadotessa, sinun on käytettävä Poutan verkkokonsolia. Jotta tämä toimii, valitse yllä kohdassa 3 kuva **Cirros**.
 
-Kirjaudu sisään Poutan verkkokäyttöliittymään: <https://pouta.csc.fi>. Etsi instanssisi ja klikkaa `console`.
+Kirjaudu Poutan web-käyttöliittymään: <https://pouta.csc.fi>. Etsi instanssisi ja napsauta `console`.
 
-![Verkkokonsoli](/img/pouta-web-console.png)
+![Web console](/img/pouta-web-console.png)
 
-Käyttäjätunnus ja salasana pitäisi olla tulostettu konsolin tekstiin, kirjautumistietojen yläpuolelle.
+Käyttäjätunnus ja salasana tulostuvat konsolin tekstiin kirjautumisruudun yläpuolelle.
 
 !!! Warning "Cirros"
-    Cirros kuva on pieni Linux-jakelukuva, jossa on rajallinen ohjelmistotuki ja tietoturvapäivitykset. Sitä tulisi käyttää vain pelastustoimintaan, kun normaalinen SSH-yhteys ei ole mahdollinen.
+    Cirros-levykuva on pieni Linux-jakelu, jossa on rajallinen ohjelmistotuki ja tietoturvapäivitykset. Sitä tulisi käyttää vain pelastustoimiin, kun normaali SSH-yhteys ei ole mahdollinen.
 
-## Levyn liittäminen {#mount-the-disk}
+	Cirros ei tue XFS-tiedostojärjestelmää, jota Almalinux käyttää.
 
-1. Tarkista, mitä levyjä sinulla on. Jos sinulla ei ole muita liitettyjä levyjä, sen pitäisi näyttää tältä:
+## Liitä levy { #mount-the-disk }
+
+1. Tarkista, mitä volyymeja on. Jos sinulla ei ole muita liitettyjä volyymeja, näkymä näyttää suunnilleen tältä:
 
 	```sh
-	$ lsblk
-	NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-	vda    253:0    0  10G  0 disk
-	└─vda1 253:1    0  10G  0 part
-	vdb    253:16   0  80G  0 disk
-	└─vdb1 253:17   0  80G  0 part /
+	$ lsblk
+	NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+	vda     253:0    0  3.5G  0 disk
+	├─vda1  253:1    0  2.5G  0 part /
+	├─vda14 253:14   0    4M  0 part
+	├─vda15 253:15   0  106M  0 part
+	└─vda16 259:0    0  913M  0 part
+	vdb     253:16   0   80G  0 disk
+	├─vdb1  253:17   0   79G  0 part
+	├─vdb14 253:30   0    4M  0 part
+	├─vdb15 253:31   0  106M  0 part /boot/efi
+	└─vdb16 259:1    0  913M  0 part /boot
 	```
 
-1. Nyt haluat liittää `vdb1` hakemistoon `/tmp/mnt` ja mennä siihen hakemistoon:
+1. Liitä nyt `vdb1` hakemistoon `/tmp/mnt` ja siirry siihen:
 
 	```sh
 	$ sudo mkdir -p /tmp/mnt
 	$ sudo mount /dev/vdb1 /tmp/mnt/
 	```
 
-## Käynnistyslataimen (Grub) muuttaminen {#change-bootloader-grub}
+## Muokkaa käynnistyslataajaa (Grub) { #edit-bootloader-grub }
 
-1. Ota varmuuskopio grubista:
+Joskus ongelma johtuu viallisesta kernelistä. Voit muokata Grubia näyttämään käynnistysvalikon koneen käynnistyessä.
+
+1. Tunnista `boot`-osio aiemmin ajetun `lsblk`-komennon tulosteesta.
+
+1. Tässä esimerkissä `boot`-osio on `/dev/vdb16`. Aja nämä komennot tarvittavien tiedostojärjestelmien liittämiseksi: (`root`-osio on jo liitetty. Katso kohta [above](#mount-the-disk))
 
 	```sh
-	$ cp /tmp/mnt/boot/grub2/grub.cfg /tmp/mnt/root/grub.cfg.bak-$(date +"%F")
+	sudo mount /dev/vdb16 /tmp/mnt/boot
+	sudo mount --bind /dev /tmp/mnt/dev
+	sudo mount --bind /sys /tmp/mnt/sys
+	sudo mount --bind /proc /tmp/mnt/proc
 	```
 
-1. Avaa `/tmp/mnt/boot/grub2/grub.cfg` suosikkieditorillasi. Poista ensimmäinen `menuentry` osio.
+1. Seuraavaksi muokataan grubbia. Muokattavat tiedostot ovat hieman erilaisia `Almalinux`- ja `Ubuntu`-järjestelmissä:
 
-    *HUOM:* Tämä ei välttämättä ole oikea ratkaisu juuri sinun ongelmaasi. Ensimmäinen menuentry on yleensä uusin ja oletuksena käytettävä ydin.
+	#### Almalinux { #almalinux }
 
-## `chroot`in käyttäminen `/` kansion muuttamiseen {#use-chroot-to-change-the-folder}
+	```sh
+	sudo vi /tmp/mnt/etc/default/grub
+	```
 
-Jos instanssissasi on ongelmia rikkoutuneiden pakettien tai ajureiden vuoksi, voit siirtyä alkuperäiseen ja korjata ongelmat seuraavien komentojen avulla:
+	Muuta `GRUB_TIMEOUT` arvoon `15` (esimerkiksi). Tallenna ja poistu.
+
+	#### Ubuntu { #ubuntu }
+
+	```sh
+	sudo vi /tmp/mnt/etc/default/grub.d/50-cloudimg-settings.cfg
+	```
+
+	Muuta `GRUB_TIMEOUT` arvoon `15` (esimerkiksi). Tallenna ja poistu.
+
+	```sh
+	sudo vi /tmp/mnt/etc/default/grub
+	```
+
+	Muuta `GRUB_TIMEOUT_STYLE` arvoon `menu`. Tallenna ja poistu.
+
+1. Päivitetään nyt grub tekemiemme muutosten mukaiseksi. Aja nämä komennot:
+
+	#### Almalinux { #almalinux }
+
+	```sh
+	sudo chroot /tmp/mnt
+	sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+	```
+
+	#### Ubuntu { #ubuntu }
+
+	```sh
+	sudo chroot /tmp/mnt
+	update-grub
+	```
+
+Nyt voit poistua VM:stä ja perua rescue-tilan noudattamalla ohjetta [here](#get-out-of-rescue)
+
+Kun VM käynnistyy, näet käynnistysvalikon ja voit valita toisen kernelin.
+
+## Käytä `chroot`-komentoa vaihtamaan `/`-hakemistoa { #use-chroot-to-change-the-folder }
+
+Jos instanssissasi on ongelmia rikkinäisten pakettien tai ajureiden vuoksi, voit siirtyä alkuperäiseen ympäristöösi ja korjata ongelmat seuraavilla komennoilla:
 
 ```sh
 $ sudo mv /tmp/mnt/etc/resolv.conf{,.bak}
@@ -192,33 +246,33 @@ $ sudo cp /etc/resolv.conf /tmp/mnt/etc/resolv.conf
 $ sudo chroot /tmp/mnt
 ```
 
-`chroot` on nyt vaihtanut juurikansion `/` hakemistoksi `/tmp/mnt/` (VM:n levyn osio). Voit tehdä minkä tahansa korjauksen tai muutoksen, kuten paketin asennuksen tai poistamisen.
+`chroot` on nyt vaihtanut juurihakemiston `/` polkuun `/tmp/mnt/` (VM:si levyosio). Voit tehdä tarvittavat korjaukset, kuten poistaa tai asentaa paketteja uudelleen.
 
-## Poistu pelastustilasta {#get-out-of-rescue}
+## Poistu pelastustilasta { #get-out-of-rescue }
 
-1. Kirjaudu ulos instansseista ja `unrescue` instanssi:
+1. Kirjaudu ulos instansseista ja aja `unrescue` instanssille:
 
 	```sh
 	openstack server unrescue $INSTANCE_UUID
 	```
 
-1. Kannattaa tarkistaa, että uudelleenkäynnistys toimii ytimen uudelleenasennuksen jälkeen:
+1. On suositeltavaa varmistaa, että uudelleenkäynnistys toimii kernelin uudelleenasennuksen jälkeen:
 
 	```sh
 	ssh <default-user>@<floating-ip> reboot
 	```
 
-    odota, että käynnistyy ja yhdistä ssh:lla uudelleen:
+    odota käynnistymistä ja muodosta SSH-yhteys uudelleen:
 
 	```sh
 	ssh <default-user>@<floating-ip>
 	```
 
-    Sen pitäisi toimia kuten ennen tapausta.
+    Sen pitäisi toimia kuten ennen häiriötä.
 
-## Jos instanssisi käynnistyy käynnistettävästä volyymista {#if-your-instance-boot-from-a-bootable-volume}
+## Jos instanssisi käynnistyy käynnistettävältä volyymiltä { #if-your-instance-boot-from-a-bootable-volume }
 
-Jos olet tässä tapauksessa:
+Jos olet tässä tilanteessa:
 
 ```
 $ openstack server list
@@ -228,10 +282,10 @@ $ openstack server list
 | 8bbffd1b-99b2-494a-9501-890db20fc2a7 | machine           | ACTIVE | project_200xxxx=192.168.1.0, 123.45.67.89      | N/A (booted from volume) | standard.small  |
 ```
 
-Voit käynnistää uuden koneen ja liittää volumyn muokataksesi tiedostoja.
+Voit käynnistää uuden koneen ja liittää volyymin muokataksesi tiedostoja.
 
 !!! Warning  
-    Ennen kuin poistat koneen, varmista, ettei volyymiä poisteta automaattisesti. Voit tarkistaa tämän ajamalla seuraavan komennon:
+    Ennen kuin poistat koneen, varmista, ettei volyymi poistu automaattisesti. Voit tarkistaa tämän ajamalla komennon:
 
 	```sh
 	$ openstack server show $INSTANCE_UUID | grep 'volumes_attached'
@@ -239,17 +293,17 @@ Voit käynnistää uuden koneen ja liittää volumyn muokataksesi tiedostoja.
       volumes_attached   | delete_on_termination='False', id='6183d89e-59ac-4b25-b2d5-ef802fd5ef82'
 	```
 
-1. Poista kone, joka käynnistyy volyymista
+1. Poista volyymiltä käynnistyvä kone
 
     ```sh
     $ openstack server delete $INSTANCE_UUID
     ```
 
-1. Luo uusi kone (käynnistetään kuvasta) ja liitä volyymi
+1. Luo uusi kone (käynnistys levykuvasta) ja liitä volyymi
 
-1. Liitä kelluva IP ja yhdistä siihen
+1. Liitä kelluva IP-osoite (Floating IP) ja yhdistä siihen
 
-1. SSH:lla vastaluotuun koneeseen ja tunnista volyymi. Todennäköisesti vdb1 on etsimäsi osio.
+1. Ota SSH-yhteys uuteen koneeseen ja tunnista volyymi. vdb1 on todennäköisesti etsimäsi osio.
 
     ```sh
     $ lsblk
@@ -267,13 +321,13 @@ Voit käynnistää uuden koneen ja liittää volumyn muokataksesi tiedostoja.
     └─vdb16 259:1    0  913M  0 part
     ```
 
-1. Luo liitäntäpiste ja liitä osio
+1. Luo liitoskohta ja liitä osio
    
 	```sh
 	$ sudo mkdir -p /tmp/mnt
 	$ sudo mount /dev/vdb1 /tmp/mnt/
 	```
 
-1. Voit nyt muokata tarvitsemiasi tiedostoja `/tmp/mnt`
+1. Voit nyt muokata tarvitsemiasi tiedostoja hakemistossa `/tmp/mnt`
 
-Kun olet valmis, voit yksinkertaisesti sammuttaa VM:n, irrottaa volyymin ja käynnistää uuden koneen käynnistettävällä volyymilla.
+Kun olet valmis, voit yksinkertaisesti sammuttaa virtuaalikoneen, irrottaa volyymin ja käynnistää uuden koneen käynnistettävällä volyymilla.

@@ -1,17 +1,31 @@
+# Suuren läpimenon laskenta GROMACSilla { #high-throughput-computing-with-gromacs }
 
-# Suurelaskentainen laskenta GROMACSin kanssa {#high-throughput-computing-with-gromacs}
+!!! info "Huom."
+    Suuren läpimenon simulaatiot voivat helposti tuottaa *paljon* dataa, joten suunnittele
+    etukäteen datanhallinta (datan kulku, tallennustarpeet) ja analyysiputket.
+    Älä epäröi [ottaa yhteyttä CSC Service Deskiin](../contact.md), jos olet epävarma
+    mistä tahansa työnkulun osa-alueesta.
 
-!!! info "Huomio"
-    Suurelaskentaiset simulaatiot voivat helposti tuottaa *paljon* dataa, joten suunnittele
-    datanhallintasi (datavirta, tallennustarpeet) ja analyysiputket etukäteen. Älä epäröi [ottaa yhteyttä CSC-palvelupisteeseen](../contact.md), jos olet epävarma mistään työnkulkuusi liittyvästä asiasta.
+GROMACS sisältää sisäänrakennetun `multidir`-toiminnallisuuden, jonka avulla käyttäjät voivat
+ajaa useita samanaikaisia simulaatioita yhden Slurm-varauksen puitteissa. Tämä on erinomainen
+vaihtoehto suuren läpimenon käyttötapauksiin, joissa tavoitteena on ajaa useita samankaltaisia,
+mutta riippumattomia ajoja. Huomionarvoista on, että useita `sbatch`- tai `srun`-kutsuja ei tarvita,
+mikä vähentää kuormaa eräjonojärjestelmässä. Harkitse tätä vaihtoehtoa, jos ajat suuren läpimenon
+työnkulkuja tai tehostetun näytteenoton ajoja, kuten replikanvaihtoa tai vapaan energian
+simulaatioita, joissa käytetään ensemblipohjaisia etäisyys- tai orientaatiorajoitteita.
 
-GROMACS sisältää sisäänrakennetun `multidir`-toiminnallisuuden, joka mahdollistaa useiden samanaikaisten simulaatioiden suorittamisen yhden Slurm-varauksen sisällä. Tämä on erinomainen vaihtoehto suurelaskentaisille käyttötilanteille, joissa tavoitteena on suorittaa useita samanlaisia, mutta riippumattomia, tehtäviä. Merkittävästi, useita `sbatch` tai `srun` komentoja ei tarvita, mikä vähentää eräjonojärjestelmän kuormitusta. Mieti tätä vaihtoehtoa, jos suoritat suurelaskentaisia työnkulkuja tai tehostettuja näytteenottoja, kuten replikanvaihtoa tai vapaan energian simulaatioita ensemblepohjaisia etäisyys- tai orientaatiorajoituksia käyttäen.
+`multidir`-toiminnon toinen hyöty on, että sitä voidaan käyttää pienten järjestelmien rinnakkaisen
+suorituksen tehokkuuden parantamiseen. Käynnistämällä useita trajektorioita per GPU (tai CPU-solmu)
+kunkin riippumattoman simulaation yhteinen läpimeno kasvaa paremman resurssien hyödyntämisen ansiosta.
+Tämä on erityisen hyödyllistä pienten järjestelmien suorituskyvyn maksimoimiseksi LUMI-G:llä sekä
+Mahtilla, jossa voidaan varata vain kokonaisia CPU-solmuja.
 
-Toinen `multidir` hyöty on, että sitä voidaan käyttää pienten järjestelmien rinnakkaistehokkuuden lisäämiseen. Käynnistämällä useita trajektoreja per GPU (tai CPU-solmu), jokaisen riippumattoman simulaation kokonaisteho kasvaa paremman resurssien hyödyntämisen kautta. Tämä on erityisen hyödyllistä pienten järjestelmien suorituskyvyn maksimoimiseksi LUMI-G:llä sekä Mahtissa, missä vain kokonaisia CPU-solmuja voidaan varata.
+## Esimerkkieräskripti Mahtille { #example-batch-script-for-mahti }
 
-## Esimerkki eräkäsittelyskripti Mahtille {#example-batch-script-for-mahti}
-
-Tämä esimerkki mukauttaa [lysozyma-tutoriaalin](http://www.mdtutorials.com/gmx/lysozyme/) tuotanto-osan huomioimalla 8 samankaltaista järjestelmän kopiota, jotka on tasapainotettu erilaisilla nopeusinitiaalilla. Kunkin kopion syötteet on nimetty identtisesti `md_0_1.tpr` ja sijoitettu alihakemistoihin `run*` kuten alla kuvataan `tree`-komennon tuloksena.
+Tämä esimerkki mukauttaa [lysozyme-oppaasta](http://www.mdtutorials.com/gmx/lysozyme/)
+tuotantovaiheen siten, että tarkastellaan 8 samankaltaista kopiota järjestelmästä, jotka on
+tasapainotettu eri nopeusinitialisoinneilla. Kunkin kopion syötteet on nimetty samalla tavalla
+`md_0_1.tpr` ja sijoitettu alihakemistoihin `run*`, kuten alla `tree`-komennon tuloste osoittaa.
 
 ```console
 $ tree
@@ -43,7 +57,7 @@ $ tree
 #SBATCH --nodes=1
 #SBATCH --account=<project>
 
-# tämä skripti suorittaa 128 ytimisen gromacs multidir työtä (8 simulaatiota, 16 ydintä per simulaatio)
+# this script runs a 128 core gromacs multidir job (8 simulations, 16 cores per simulation)
 
 module purge
 module load gromacs-env
@@ -53,15 +67,27 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -multidir run* -s md_0_1.tpr -dlb yes
 ```
 
-Antamalla komennon `sbatch multidir.sh` päähakemistossa, kaikki simulaatiot suoritetaan samanaikaisesti käyttäen yhtä kokonaista Mahti-solmua ilman hyperlangoitusta siten, että jokaiselle järjestelmälle annetaan 16 ydintä. Koska järjestelmät alustoitettiin eri nopeuksilla, saamme 8 erilaista trajektoria ja parannetun vaiheavaruuden näytteenoton (katso RMSD-analyysi alla). Tämä on hyvä tapa nopeuttaa näytteenottoa, jos järjestelmäsi ei skaalaudu kokonaiseen Mahti-solmuun.
+Ajamalla `sbatch multidir.sh` ylähakemistossa kaikki simulaatiot ajetaan samanaikaisesti
+yhdellä täydellä Mahti-solmulla ilman hyperthreadingia siten, että jokaiselle järjestelmälle
+varataan 16 ydintä. Koska järjestelmät alustettiin erilaisilla nopeuksilla, saamme 8 erillistä
+trajektoria ja paremman vaiheavaruuden näytteenoton (katso RMSD-analyysi alla). Tämä on
+erinomainen tapa nopeuttaa näytteenottoa, jos järjestelmäsi ei skaalaudu kokonaiselle
+Mahti-solmulle.
 
-![Simuloitujen replikaatioiden keskineliöjuuripoikkeamat](../../img/multidir-rmsd.svg 'Simuloitujen replikaatioiden keskineliöjuuripoikkeamat')
+![Simuloitujen replikoiden keskineliöpoikkeamat](../../img/multidir-rmsd.svg 'Simuloitujen replikoiden keskineliöpoikkeamat')
 
-## Esimerkki eräkäsittelyskripti LUMI:lle {#example-batch-script-for-lumi}
+## Esimerkkieräskripti LUMIlle { #example-batch-script-for-lumi }
 
-Keskikokoiset ja suuret järjestelmät (muutamia 100k–1M+ atomeja) kykenevät tyypillisesti hyödyntämään useita GPU:ita LUMI:lla tehokkaasti. Monet pienemmät käyttötilanteet toimivat hyvin myös yhdellä GCD:llä (puoli GPU:ta), mutta mitä pienemmäksi järjestelmä saa, sitä huonommin se pystyy hyödyntämään kiihdyttimen koko kapasiteettia.
+Keskikokoiset ja suuret järjestelmät (muutama 100k–1M+ atomia) pystyvät tyypillisesti
+hyödyntämään useita GPU:ita tehokkaasti LUMIlla. Monet pienemmät käyttötapaukset toimivat
+myös hyvin yhdellä GCD:llä (puoli GPU:ta), mutta mitä pienempi järjestelmä on, sitä heikommin
+se pystyy hyödyntämään kiihdyttimen koko kapasiteettia.
 
-`multidir`-ominaisuudella voidaan lisätä pienten järjestelmien GPU:n hyödyntämistä ajamalla useita trajektoreita per GCD. Alla on esimerkki eräkäsittelyskriptistä, joka käynnistää 4 trajektoria per GCD kahden GPU-solmun (16 GCD:n) resurssivarauksessa. Kukin 64 `.tpr`-tiedostoista on järjestetty erillisiin hakemistoihin `run1` kautta `run64`, kuten Mahti-esimerkin kanssa yllä.
+`multidir`-ominaisuutta voidaan käyttää parantamaan pienten järjestelmien GPU-hyödyntämistä
+ajamalla useita trajektorioita per GCD. Alla on esimerkkieräskripti, joka käynnistää
+4 trajektoria per GCD kahden GPU-solmun (16 GCD:tä) resurssivarauksella. Kukin 64 `.tpr`
+-tiedostosta on järjestetty erillisiin hakemistoihin `run1`–`run64`, vastaavasti kuin
+yllä olevassa Mahti-esimerkissä.
 
 ```bash
 #!/bin/bash
@@ -73,7 +99,7 @@ Keskikokoiset ja suuret järjestelmät (muutamia 100k–1M+ atomeja) kykenevät 
 #SBATCH --ntasks-per-node=32
 
 module use /appl/local/csc/modulefiles
-module load gromacs/2024.4-gpu
+module load gromacs/2025.2-gpu
 
 export OMP_NUM_THREADS=1
 
@@ -98,15 +124,24 @@ CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
 srun --cpu-bind=${CPU_BIND} ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -multidir run*
 ```
 
-Huomaa, että pyydettyjen MPI-tehtävien määrän tulisi olla jaollinen itsenäisten syötteiden määrällä, tässä tapauksessa 1 tehtävä per syöte. Koska LUMI-G solmussa on vain 56 CPU-ydintä käytettävissä, käytämme vain yhtä säiettä per tehtävä. Lisätietoja CPU-GPU sitomisesta löytyy [GROMACS-sovellussivulta](../../apps/gromacs.md#notes-about-binding-and-multi-gpu-simulations-on-lumi) sekä [LUMI-dokumenteista](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
+Huomaa, että pyydettyjen MPI-tehtävien määrän tulisi olla riippumattomien syötteiden
+määrän monikerta; tässä tapauksessa 1 tehtävä per syöte. Koska LUMI-G-solmua kohden on
+vain 56 CPU-ydintä, käytämme vain yhtä säiettä per tehtävä. Lisätietoja CPU–GPU-sidonnasta
+löydät sekä [GROMACS-sovellussivulta](../../apps/gromacs.md#notes-about-binding-and-multi-gpu-simulations-on-lumi)
+että [LUMI Docsista](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
 
-Alla oleva kuvaaja näyttää kokonaisläpäisyn, joka saadaan ajamalla useita replikaatioita 96k atomin alkoholi dehydrogenaasi (ADH) benchmarkista kahdella LUMI-G solmulla (2 fs aikajakso). Kun trajektorien määrä per GCD nostetaan yhdestä neljään, kokonaisuus suorituskyky (jokaisen riippumattoman trajektorin summa) kasvaa noin yhden mikrosekunnin päivässä paremman GPU:n hyödyntämisen ansiosta. Koska kukin simulaatio on itsenäinen, tätä käyttötapausta voitaisiin laajentaa suurelle solmujoukolle maksimaalisen läpäisyn saamiseksi.
+Alla oleva kuvaaja näyttää kokonaisläpimenon, joka saadaan ajamalla 96k atomin alkoholidehydrogenaasi
+(ADH) -vertailutestiä kahdella LUMI-G-solmulla (2 fs aika-askel) useina replikoina. Kun
+trajektorien määrä per GCD kasvatetaan yhdestä neljään, kokonais­suorituskyky (kunkin
+riippumattoman trajektorian summa) kasvaa noin yhdellä mikrosekunnilla päivässä paremman
+GPU-hyödyntämisen ansiosta. Koska kukin simulaatio on riippumaton, tämän käyttötapauksen
+voi skaalata erittäin suurelle solmujen määrälle maksimaalisen läpimenon saavuttamiseksi.
 
-![GCD-jako LUMI-G:llä multidir-toiminnolla](../../img/adh.png 'GCD-jako LUMI-G:llä multidir-toiminnolla')
+![GCD-jakaminen LUMI-G:llä käyttäen multidir-toimintoa](../../img/adh.png 'GCD-jakaminen LUMI-G:llä käyttäen multidir-toimintoa')
 
-## Lisätietoa {#more-information}
+## Lisätietoja { #more-information }
 
 * [GROMACS-sovellussivu](../../apps/gromacs.md)
-* [Virallinen GROMACS-dokumentaatio: Usean simulaation suorittaminen](https://manual.gromacs.org/current/user-guide/mdrun-features.html#running-multi-simulations)
-* [GROMACS:n ajaminen LUMI:lla työpaja-aineistot](https://zenodo.org/records/10610643)
-* [Juliste GROMACS:n suorituskyvystä LUMI:lla](https://zenodo.org/records/10696768)
+* [Virallinen GROMACS-dokumentaatio: Usean samanaikaisen simulaation ajaminen](https://manual.gromacs.org/current/user-guide/mdrun-features.html#running-multi-simulations)
+* [GROMACS LUMIlla -työpajan materiaalit](https://zenodo.org/records/10610643)
+* [Posteri GROMACSin suorituskyvystä LUMIlla](https://zenodo.org/records/10696768)

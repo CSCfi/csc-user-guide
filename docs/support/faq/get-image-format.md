@@ -1,15 +1,22 @@
+# Miksi Rahti ei löydä tätä Docker-kuvaa? { #why-rahti-cannot-find-this-docker-image }
 
-# Miksi Rahti ei löydä tätä docker-kuvaa? {#why-rahti-cannot-find-this-docker-image}
+!!! error "Kuvien noutaminen DockerHubista"
+    Viimeisimmän käyttöön otetun Rahti-version (OpenShift 4.17) myötä kuvien noutamiseen tuli konfiguraatiomuutos. Jotkin kuvat on kovakoodattu noudettaviksi tietyistä rekistereistä (kuten JFrogista).
+    Vaikutusten minimoimiseksi ja virheiden välttämiseksi DockerHubista kuvia noudettaessa käytä täysin määriteltyä kuvan nimeä.
 
-![Could not load image](img/Could_not_load_image_metadata.png)
+    Esimerkiksi sen sijaan, että käyttäisit `image: mongo:latest`, käytä `image: docker.io/library/mongo:latest`.
 
-Usein tälle ongelmalle on yksinkertaisia syitä. Ehkä kuvassa on kirjoitusvirhe, tai kuva on saatettu poistaa sen jälkeen, kun se viimeksi vedettiin onnistuneesti. Nämä kaksi ongelmaa ovat yleisiä, ja siksi on syytä tarkistaa kuvalähde kaksoiskuittauksella.
+    Tämä toiminta korjataan OpenShift 4.18:ssa. Arvioitua valmistumisaikaa (ETA) ei toistaiseksi ole.
 
-![Failed to pull image](img/Failed_to_pull_image.png)
+![Kuvaa ei voitu ladata](img/Could_not_load_image_metadata.png)
 
-## Yksityinen kuva {#private-image}
+Usein tähän ongelmaan on yksinkertaisia syitä. Ehkä kuvan nimessä on kirjoitusvirhe, tai kuva on poistettu sen jälkeen, kun se on viimeksi onnistuneesti noudettu. Nämä kaksi ongelmaa ovat yleisiä, joten kuvan lähde kannattaa tarkistaa huolellisesti.
 
-Toinen syy voi olla se, että kuva on yksityinen. Tässä tapauksessa on tarpeen määrittää `docker-registry`-salaisuus käyttäjätilillä, jolla on tarvittavat oikeudet vetää kuva. Esimerkiksi, kun kuva on tallennettu Docker-hubiin:
+![Kuvan nouto epäonnistui](img/Failed_to_pull_image.png)
+
+## Yksityinen kuva { #private-image }
+
+Toinen syy voi olla, että kuva on yksityinen. Tällöin on tarpeen määrittää `docker-registry`-salaisuus tilitunnuksella, jolla on vaaditut oikeudet kuvan noutamiseen. Esimerkiksi Docker Hubissa sijaitsevaa kuvaa varten:
 
 ```bash
 oc create secret docker-registry <SECRET-NAME> \
@@ -23,34 +30,32 @@ oc create secret docker-registry <SECRET-NAME> \
 oc secrets link default <SECRET-NAME> --for=pull
 ```
 
-**Huom**: Korvaa paikkamerkit oikealla käyttäjänimellä, salasanalla, sähköpostilla ja sopivalla nimellä salaisuudelle (ilman <>).
+**Huomautus**: Korvaa paikkamerkit todellisella käyttäjätunnuksella, salasanalla, sähköpostilla ja salaisuudelle sopivalla nimellä (ilman <>-merkkejä).
 
-Löydät lisätietoja artikkelista [How to add docker hub credentials to a project](docker_hub_login.md).
+Lisätietoja löydät artikkelista [Kuinka lisätä Docker Hub -tunnukset projektiin](docker_hub_login.md).
 
-## Ei tuettu kuvamuoto {#unsupported-image-format}
+## Ei tuettu kuvamuoto { #unsupported-image-format }
 
-Tavallista harvinaisempi ongelma on, kun kuvan muoto ei ole tuettu Rahtin nykyisessä versiossa (v3.11), joka käyttää vanhentunutta Docker-clienttä. Tällä hetkellä on kaksi Docker-kuvamuotoa, docker (`application/vnd.docker.container.image.v1+json`) ja OCI (`application/vnd.oci.image.manifest.v1+json`), joista Rahtin nykyinen versio tukee vain `docker`-muotoa.
+Hankalampi ongelma on, kun kuvan formaattia ei tueta nykyisessä Rahti-versiossa (v3.11), joka käyttää vanhaa docker-asiakasta. Tällä hetkellä on kaksi docker-kuvaformaattia, docker (`application/vnd.docker.container.image.v1+json`) ja OCI (`application/vnd.oci.image.manifest.v1+json`); nykyinen Rahti-versio tukee vain `docker`-formaattia.
 
-Kun vanhaa clienttiä käytetään yrittäen vetää uudempaa muotoa olevaa kuvaa, ei clientti löydä sitä ja palauttaa virheen `repository does not exist` tai `Error response from daemon: missing signature key`. Helpoin tapa tarkistaa kuvan `mediaType` on käyttää komentoa `docker manifest inspect <image>:<tag>`. Tämä komento näyttää kuvan mediatyypin ja kunkin sen kerroksen tyypin.
+Kun vanhaa asiakasta käytetään yrittämään noutaa uudemmassa formaatissa olevaa kuvaa, asiakas ei löydä sitä ja palauttaa virheen `repository does not exist` tai `Error response from daemon: missing signature key`. Helpoin tapa tarkistaa kuvan `mediaType` on käyttää komentoa `docker manifest inspect <image>:<tag>`. Tämä komento näyttää kuvan ja sen kerrosten mediatyypin.
 
-## Kierratysratkaisut {#workarounds}
+## Väliaikaiset ratkaisut { #workarounds }
 
-* Yksinkertainen ratkaisu on vetää kuva yhteensopivaa clienttiä käyttäen, uudelleen-tägätä se ja puskea Rahtin sisäiseen rekisteriin. Tämä äsken pushaettu kuva käyttää vanhaa docker-muotoa. Seuraa linkkiä saadaksesi ohjeen [How to manually cache images in Rahti's registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md).
+* Yksinkertainen korjaus on noutaa kuva yhteensopivalla asiakkaalla, merkitä se uudelleen ja puskea se Rahtin sisäiseen rekisteriin. Tämä uusi, rekisteriin työnnetty kuva käyttää vanhaa docker-formaattia. Ohje: [Kuinka välimuistittaa kuvia käsin Rahtin rekisteriin](../../cloud/rahti/images/Using_Rahti_integrated_registry.md).
 
-* Jos kuva on tiimisi rakentama, voit käyttää [buildah](https://buildah.io)-työkalua. Sen avulla voi rakentaa docker-kuvia ilman ylimääräisiä oikeuksia, joita `docker build` vaatii, ja vaikka oletuksena se rakentaa OCI-muotoisen kuvan, sillä on vaihtoehto käyttää docker-muotoa:
+* Jos tiimisi rakensi kuvan, [buildah](https://buildah.io)-työkalua voidaan käyttää. Sen avulla voi rakentaa docker-kuvia ilman `docker build` -komennon edellyttämiä lisäoikeuksia, ja vaikka oletuksena se rakentaa kuvan `OCI`-formaattiin, siinä on valitsin, jolla voi käyttää `docker`-formaattia:
 
 ```bash
 buildah bud -t image/name:tag --format=docker
 ```
 
-* [Skopeo](https://github.com/containers/skopeo) on työkalu, joka suorittaa erilaisia toimintoja konttikuville ja kuva-rekistereille.
-Voit käyttää sitä kopioimaan DockerHubista Rahtin sisäiseen rekisteriin, ja se muuntaa kuvan automaattisesti `docker`-muotoon. Tässä on esimerkki:
+* [Skopeo](https://github.com/containers/skopeo) on apuohjelma, joka suorittaa erilaisia toimintoja konttikuville ja kuvavarastoille.
+Sitä voi käyttää kopioimaan DockerHubista Rahtin sisäiseen rekisteriin, ja se muuntaa kuvan automaattisesti `docker`-formaattiin. Esimerkki:  
 
-Ensin sinun täytyy olla yhteydessä Rahtiin. Kun olet yhteydessä, kirjoita tämä komento kopioidaksesi Docker-kuva DockerHubista Rahtin sisäiseen rekisteriin:
+Ensin sinun täytyy olla yhteydessä Rahtiin. Yhteyden jälkeen suorita tämä komento kopioidaksesi Docker-kuvan DockerHubista Rahtin sisäiseen rekisteriin:    
 
 ```
 skopeo copy docker://publisher/image:tag --dest-creds $(oc whoami):$(oc whoami -t) docker://docker-registry.rahti.csc.fi/project/image:tag
 ```
-
-_Vaihda 'project' Rahti-projektillasi, 'image' haluamallasi kuvalla ja 'tag' haluamallasi tägillä_
-
+_Korvaa 'project' Rahti-projektillasi, 'image' halutulla kuvan nimellä ja 'tag' halutulla tagilla_

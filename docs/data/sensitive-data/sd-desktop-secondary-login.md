@@ -1,19 +1,21 @@
-# Kirjaudu SD Desktop -järjestelmään {#log-into-sd-desktop}
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-## Edellytykset {#prerequisites}
+# Kirjaudu SD Desktopiin { #log-into-sd-desktop }
 
-* [Toisen asteen terveys- tai sosiaalitietojen käyttö Sensitive Data -palveluiden kautta](secondarydata-access.md)
+## Edellytykset { #prerequisites }
 
-## Vaihe vaiheelta {#step-by-step}
+* [Toisiokäyttöön tarkoitetun terveys- tai sosiaalidatan käyttö Sensitive Data -palveluiden kautta](secondarydata-access.md)
+
+## Vaihe vaiheelta { #step-by-step }
     
-1. Mene kirjautumissivulle: **[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi){ target="_blank" }**.
-2. Kirjaudu sisään MyCSC-tunnuksilla tai Haka-tunnuksilla. Syötä käyttäjänimesi ja salasanasi.
-3. Sinun on vahvistettava henkilöllisyytesi toisella vahvistusvaiheella (esim. moniportainen todennus, MFA). Syötä vahvistuskoodi, jonka saat MFA-mobiilisovelluksestasi (esim. Google Authenticator).
-4. Paina *Jatka*.
+1. Siirry kirjautumissivulle: **[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi){ target="_blank" }**.
+2. Kirjaudu MyCSC-tunnuksilla tai Haka-tunnistautumisella. Anna käyttäjätunnuksesi ja salasanasi.
+3. Sinun tulee vahvistaa henkilöllisyytesi toisella vahvistusvaiheella (eli monivaiheinen tunnistautuminen, MFA). Syötä vahvistuskoodi MFA-mobiilisovelluksestasi (esim. Google Authenticator).
+4. Paina *Continue*.
 
-[![Todennus](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
+[![Tunnistautuminen](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
-* [Luo virtuaalinen työpöytä](sd-desktop-secondary-create.md)
+* [Luo virtuaalityöpöytä](sd-desktop-secondary-create.md)
 * [Tuo dataa analysoitavaksi Data gatewayn avulla](sd-desktop-secondary-access.md)
-* [Työskentely työpöydälläsi: vinkkejä, olennaista, ohjelmistot](sd-desktop-secondary-working.md)
-* [Hallitse virtuaalista työpöytää](sd-desktop-secondary-manage.md)
+* [Työskentely työpöydälläsi: vinkit, perusasiat, ohjelmistot](sd-desktop-secondary-working.md)
+* [Hallinnoi virtuaalityöpöytää](sd-desktop-secondary-manage.md)

@@ -1,18 +1,18 @@
-# Virtuaalisten konekuvien luominen, muuntaminen, lataaminen ja jakaminen {#creating-converting-uploading-and-sharing-virtual-machine-images}
+# Virtuaalikoneiden levykuvien luominen, muuntaminen, lataaminen ja jakaminen { #creating-converting-uploading-and-sharing-virtual-machine-images }
 
-Tässä artikkelissa kerrotaan, miten hallitset kuvia Poutassa.
+Tässä artikkelissa kerrotaan, miten levykuvia hallitaan Poutassa.
 
 [TOC]
 
-## Kuvien luominen {#creating-images}
+## Levykuvien luominen { #creating-images }
 
-Uusien virtuaalisten konekuvien luomiseen on kaksi erilaista vaihtoehtoa: kuvan luominen alusta tai virtuaalikoneen käynnistäminen olemassa olevan kuvan pohjalta, käynnissä olevan koneen muutosten tekeminen ja muutosten tallentaminen uutena kuvana luomalla tilannevedos.
+Uusia virtuaalikoneiden levykuvia voi luoda kahdella tavalla: luomalla kuvan tyhjästä tai käynnistämällä virtuaalikoneen olemassa olevan kuvan perusteella, tekemällä muutokset käynnissä olevaan koneeseen ja tallentamalla muutokset uutena kuvana luomalla tilannevedos (snapshot).
 
-### Kuvan luominen olemassa olevan kuvan pohjalta {#creating-an-image-based-on-an-existing-image}
+### Levykuvan luominen olemassa olevan kuvan pohjalta { #creating-an-image-based-on-an-existing-image }
 
-Käynnistä virtuaalikone jollakin saatavilla olevista kuvista joko Horizonin verkkokäyttöliittymän kautta tai komennorivikäyttöliittymän avulla.
+Käynnistä virtuaalikone käyttämällä jotakin saatavilla olevista kuvista joko Horizon-verkkokäyttöliittymän kautta tai komentoriviltä.
 
-Instanssin käynnistäminen komentoriviltä:
+Instanssin käynnistys komentoriviltä:
 
 ```bash
 openstack server create --flavor <flavor> \
@@ -23,7 +23,7 @@ openstack server create --flavor <flavor> \
 --security-group <additional security group> <name of server>
 ```
 
-Kirjaudu sisään ja tee tarvittavat muutokset. Varmistaaksesi yhtenäiset tilannevedokset, ne tulisi luoda vain sammutetuista instansseista. Sammuta ensin instanssisi:
+Kirjaudu sisään ja tee tarvittavat muutokset. Johdonmukaisten tilannevedosten varmistamiseksi tilannevedokset tulisi luoda vain sammutetuista instansseista. Sammuta ensin virtuaalikoneesi:
 
 ```bash
 openstack server stop <name of vm>
@@ -35,29 +35,29 @@ Luo sitten tilannevedos koneen nykyisestä tilasta:
 openstack server image create --name <name of snapshot to create> <name of vm>
 ```
 
-Tilannevedoksen luomisessa kestää jonkin aikaa. Kun se on valmis, se näkyy uutena kuvana. Jos tarvitset alkuperäisen instanssin, voit käynnistää sen tilannevedoksen luomisen jälkeen.
+Tilannevedoksen luominen kestää hetken. Kun se on valmis, se näkyy uutena kuvana. Jos tarvitset alkuperäistä instanssia, voit käynnistää sen, kun tilannevedos on luotu.
 
 ```bash
 openstack server start <name of vm>
 ```
 
-Verkkokäyttöliittymässä kohdassa **Compute | Instances**, instanssikohtaiset Create Snapshot -valikot toimivat samalla tavalla kuin yllä oleva CLI-komento. Luodut tilannevedokset näkyvät kohdassa **Compute | Images**.
+Verkkokäyttöliittymässä kohdassa **Compute | Instances** instanssikohtaiset Create Snapshot -valinnat tekevät saman kuin yllä oleva CLI-komento. Luodut tilannevedokset ilmestyvät osioon **Compute | Images**.
 
-![Snapshot menu](/img/horizon-snapshot-menu.png)
+![Tilannevedos-valikko](/img/horizon-snapshot-menu.png)
 
-### Kuvan luominen alusta {#creating-an-image-from-scratch}
+### Levykuvan luominen tyhjästä { #creating-an-image-from-scratch }
 
-On olemassa useita työkaluja kuvien luomiseen alusta. Nämä työkalut voidaan jakaa työkaluihin, jotka liittyvät käyttöjärjestelmän ajamiseen virtuaalikoneessa kuvan asentamiseksi, ja työkaluihin, jotka tekevät muutoksia peruskuvaan ilman virtuaalikoneen ajamista. Kutsumme näitä "asennuspohjaisiksi työkaluiksi" ja "peruskuvatyökaluiksi".
+Levykuvien luomiseen tyhjästä on useita työkaluja. Ne voidaan jakaa kahteen ryhmään: työkaluihin, joissa ajetaan käyttöjärjestelmää virtuaalikoneessa kuvan asennusta ja konfigurointia varten, sekä työkaluihin, jotka ottavat peruskuvan ja tekevät siihen muutoksia ilman virtuaalikoneen ajamista. Kutsumme näitä nimillä ”asennuspohjaiset työkalut” ja ”peruskuvapohjaiset työkalut”.
 
 <table> <colgroup> <col style="width: 33%" /> <col style="width: 33%"
 /> <col style="width: 33%" /> </colgroup> <thead> <tr class="header">
-<th> </th> <th>Asennuspohjaiset työkalut</th> <th>Peruskuvatyökalut</th>
+<th> </th> <th>Asennuspohjaiset työkalut</th> <th>Peruskuvapohjaiset työkalut</th>
 </tr> </thead> <tbody> <tr class="odd"> <td>Edut</td> <td><ul>
-<li>Helppo käyttää ja ymmärtää</li> <li>Tuttu työnkulku kaikille, jotka tuntevat manuaalisen käyttöjärjestelmän asennuksen</li> </ul></td> <td><ul>
-<li>Nopea</li> <li>Mahdollisuus automatisoida</li> <li>Tuottaa pieniä kuvia</li> <li>Tuottaa pilville sopivia kuvia ilman muutoksia</li> </ul></td> </tr> <tr class="even"> <td>Haitat</td>
-<td><ul> <li>Hidas</li> <li>Päivitykset ovat hankalia</li> <li>On huolehdittava, että kuvat ovat pilvi-kelpoisia alustavan asennuksen jälkeen</li>
+<li>Helppo käyttää ja ymmärtää</li> <li>Tuttu työnkulku kaikille, jotka tuntevat manuaalisen OS-asennuksen</li> </ul></td> <td><ul>
+<li>Nopea</li> <li>Mahdollista automatisoida</li> <li>Tuottaa pieniä kuvia</li> <li>Tuottaa pilviympäristöihin sopivia kuvia ilman lisämuokkauksia</li> </ul></td> </tr> <tr class="even"> <td>Haitat</td>
+<td><ul> <li>Hidas</li> <li>Päivitykset hankalia</li> <li>Kuva on tehtävä pilvivalmiiksi alkuasennuksen jälkeen</li>
 <li>Tuotetut kuvat voivat olla melko suuria</li> </ul></td> <td><ul>
-<li>Voi olla vaikea mukauttaa kuvia</li> </ul></td> </tr> <tr
+<li>Kuvien räätälöinti voi olla vaikeaa</li> </ul></td> </tr> <tr
 class="odd"> <td>Esimerkkejä</td> <td><a
 href="http://linux.die.net/man/1/virt-install">virt-install</a>, <a
 href="https://virt-manager.org/">virt-manager</a>, <a
@@ -68,59 +68,59 @@ href="https://www.virtualbox.org/">VirtualBox</a></td> <td><a
 
 Yleinen työnkulku asennuspohjaisia työkaluja käytettäessä:
 
-1. Hanki asennusmedia tai verkkoinstallaatiolinkki.
-2. Käynnistä virtuaalikone ja osoita se asennusmediaan tai verkkoinstallaatiolinkkiin.
-3. Käy läpi asennusohjelma.
-      - Tämä vaihe voidaan tarvittaessa automatisoida esimerkiksi [Kickstart]-työkaluilla.
-4. Kun asennus on valmis, sammuta virtuaalikone ja käytä lisätyökaluja kuvan valmisteluun pilvikäyttöön.
+1. Hanki asennusmedia tai verkkoasennuslinkki.
+2. Käynnistä virtuaalikone ja ohjaa se asennusmedialle tai verkkoasennuslinkkiin.
+3. Suorita asennusohjelma.
+      - Tämän vaiheen voi halutessa automatisoida esim. työkalulla [Kickstart].
+4. Kun asennus on valmis, sammuta VM ja tee lisämuokkaukset, jotta kuva on valmis pilvikäyttöön.
 
-Yleinen työnkulku peruskuvatyökaluja käytettäessä:
+Yleinen työnkulku peruskuvapohjaisia työkaluja käytettäessä:
 
-1. Mukauta tarvittaessa asetustiedostoja, joita käytetään lopullisen kuvan luomiseen.
-2. Määritä sopivat mukautusparametrit.
+1. Räätälöi tarvittaessa konfiguraatiotiedostot, joita käytetään lopullisen kuvan luontiin.
+2. Määritä sopivat räätälöintiparametrit.
 3. Suorita komento lopullisen kuvan tuottamiseksi.
 
-Saat lisätietoa kuvien luomisesta erittäin kattavasta [OpenStackin virtuaalikonekuvien oppaasta]. Erityisesti katso luvut [kuvien luominen manuaalisesti] ja [työkalujen tuki kuvien luomiselle].
+Lisätietoa levykuvien luonnista löytyy perusteellisesta oppaasta [OpenStack virtual machine image guide]. Katso erityisesti luvut [creating images manually] ja [tool support for creating images].
 
-#### Huomioitavaa alusta alkaen kuvia luotaessa {#caveats-to-keep-in-mind-when-creating-images-from-scratch}
+#### Huomioitavaa levykuvien luonnissa tyhjästä { #caveats-to-keep-in-mind-when-creating-images-from-scratch }
 
-Nämä varoitukset on yleensä otettava huomioon vain käytettäessä asennuspohjaisia kuvanluontimenetelmiä. Peruskuvia käyttävät työkalut on yleensä erityisesti suunniteltu luomaan pilvikuvia, joten ne huolehtivat näistä varoituksista puolestasi. Jos päätät käyttää asennuspohjaista menetelmää kuvan luontiin, sinun kannattaa harkita [virt-sysprep]-työkalua, joka huolehtii useimmista pilvikäyttöä varten tarvittavista muutoksista yhdellä komentorivikomennolla. Tässä luvussa luetellaan joitakin varoituksia, jotka on käsiteltävä ennen kuvan valmiutta pilville.
+Nämä huomiot koskevat yleensä vain asennuspohjaisia menetelmiä. Peruskuvia käyttävät työkalut on yleensä suunniteltu nimenomaan pilvikuvien luontiin, joten ne hoitavat nämä puolestasi. Jos päätät käyttää asennuspohjaista menetelmää, tutustu erinomaiseen työkaluun [virt-sysprep], joka tekee suurimman osan pilvikäyttöä varten tarvittavista muokkauksista yhdellä komennolla. Tässä luvussa listataan joitakin asioita, jotka on käsiteltävä ennen kuin kuva on valmis pilviympäristöihin.
 
-#### cloud-init {#cloud-init}
+#### cloud-init { #cloud-init }
 
-On olemassa [cloud-init]-niminen työkalu, joka on asennettava kaikkiin kuviin, joita käytetään Pouta-pilvissä. Tätä työkalua käytetään tiettyihin tehtäviin, jotka on suoritettava, kun virtuaalikone käynnistyy ensimmäisen kerran, kuten **SSH-isäntäavainten luominen ja käyttäjän SSH-julkisten avainten lisääminen.**
+Työkalu nimeltä [cloud-init] on asennettava kaikkiin kuviin, joita käytetään Pouta-pilvissä. Sitä käytetään tiettyihin tehtäviin, jotka ajetaan virtuaalikoneen ensimmäisellä käynnistyskerralla, kuten SSH-isäntäavainten luontiin ja käyttäjän julkisten SSH-avainten lisäämiseen.
 
-#### Käyttäjätilit (voidaan tehdä [virt-sysprep]) {#user-accounts}
+#### Käyttäjätilit (voi tehdä työkalulla [virt-sysprep]) { #user-accounts-can-be-done-with-virt-sysprep }
 
-Pilvikuvissa pitäisi olla vain minimaalinen joukko käyttäjätilejä. Todennäköisesti niissä pitäisi olla vain yksi tavallinen geneerinen käyttäjätili (esim. "cloud-user" CSC:n tarjoamilla oletuskuvilla) ja pääkäyttäjän tili.
+Pilvikuvissa tulisi olla vain minimaalinen määrä käyttäjätilejä. Useimmiten niissä tulisi olla vain yksi tavallinen geneerinen käyttäjätili (esim. ”cloud-user” CSC:n oletuskuvissa) ja root-käyttäjä.
 
-#### SSH-isäntäavaimet (voidaan tehdä [virt-sysprep]) {#ssh-host-keys}
+#### SSH-isäntäavaimet (voi tehdä työkalulla [virt-sysprep]) { #ssh-host-keys-can-be-done-with-virt-sysprep }
 
-Pilvissä käytettävissä kuvissa ei saa olla SSH-isäntäavaimia, sillä niiden olemassaolo kuvassa tarkoittaisi, että jokaisella kuvan avulla luodulla palvelimella olisi sama identiteetti SSH:n näkökulmasta. Tämä on myös turvallisuusriski, sillä kuka tahansa, jolla on pääsy kuvafileeseen, voisi esittää mitä tahansa kuvan avulla käynnistettyä palvelinta. Uudet SSH-isäntäavaimet on luotava _cloud-init_:n avulla (katso yllä) heti, kun virtuaalikone käynnistetään ensimmäisen kerran.
+Pilvessä käytettävissä kuvissa ei saa olla valmiiksi SSH-isäntäavaimia, koska niiden mukanaolo tarkoittaisi, että jokaisella kuvasta käynnistetyllä palvelimella olisi SSH:n näkökulmasta sama identiteetti. Tämä on myös tietoturvariski, sillä kuka tahansa kuvatiedostoon käsiksi pääsevä voisi esiintyä miltä tahansa kyseisellä kuvatiedostolla käynnistetyltä palvelimelta. Uudet SSH-isäntäavaimet tulee generoida _cloud-initin_ toimesta (ks. yllä) virtuaalikoneen ensimmäisellä käynnistyskerralla.
 
-#### Verkkoliitännän tila (voidaan tehdä [virt-sysprep]) {#network-interface-ordering}
+#### Verkkoliittymien järjestys (voi tehdä työkalulla [virt-sysprep]) { #network-interface-ordering-can-be-done-with-virt-sysprep }
 
-Linux-ytimen _udev_-laitteenhallinnalla on toiminto, joka kiinnittää tietyn verkkoliitännän nimen tiettyyn MAC-osoitteeseen. Tämä ei ole hyvä, jos samassa verkossa halutaan luoda useita virtuaalikoneita kuvan perusteella, sillä kaikilla virtuaalikoneilla on eri MAC-osoitteet. Tämä ei myöskään ole hyvä idea, jos luot tilannevedoksen virtuaalikoneesta ja yrität käyttää tilannevedosta uuden virtuaalikoneen käynnistämiseen, sillä tilannevedos muistaa vanhan virtuaalikoneen MAC-osoitteen, jota käytettiin tilannevedoksen luomiseen. Paras tapa tehdä tämä on käyttää _virt-sysprep_-työkalua.
+Linux-ytimen _udev_-laitehallinta kiinnittää tietyn verkkoliittymän nimen tiettyyn MAC-osoitteeseen. Tämä ei ole hyvä, jos samasta kuvasta luodaan useita virtuaalikoneita, koska kaikilla on eri MAC-osoite. Se on huono myös silloin, jos luot tilannevedoksen virtuaalikoneesta ja yrität käyttää sitä uuden koneen käynnistämiseen: tällöin se muistaa vanhan virtuaalikoneen MAC-osoitteen. Paras tapa hoitaa tämä on käyttää _virt-sysprep_-työkalua.
 
-#### Partitiointi {#partitioning}
+#### Osiointi { #partitioning }
 
-Kun partitoit Linux-kuvaa, sinun pitäisi varmistaa, että juuripartitio on ensimmäinen ja ainoa partitiokansio. Virtuaalikoneen käynnistysprosessin aikana OpenStack lisää SSH-avaimet ensimmäiseen partitiokansioon /root/.ssh-hakemistoon, mikä tarkoittaa, että tämän partitiokansio on oltava juuripartitio eikä esimerkiksi /boot. Kirjautuminen ei ole mahdollista ilman pääkäyttäjän salasanaa, ellei avaimia ole asetettu oikein.
+Kun osioit Linux-kuvaa, varmista että juuriosio on ensimmäinen ja ainoa osio. Virtuaalikoneen käynnistysprosessin aikana OpenStack lisää SSH-avaimet ensimmäiselle osiolle hakemiston /root/.ssh alle, mikä tarkoittaa, että tämän osion on oltava juuriosio, ei esim. /boot. Kirjautuminen ei onnistu ilman root-salasanaa, ellei avaimia lisätä oikein.
 
-#### ACPI-daemon {#acpi-daemon}
+#### ACPI-daemon { #acpi-daemon }
 
-ACPI-daemonilla vastaanotetaan virtuaalikoneen virtajärjestelmän hallintaan liittyviä komentoja. Sinun pitäisi asentaa ACPI-daemon konekuville, jotta ne voidaan sammuttaa/käynnistää uudelleen oikein pilviliittymästä.
+ACPI-daemonia käytetään vastaanottamaan virtuaalikoneen virranhallintaan liittyviä komentoja. Asenna ACPI-daemon konekuviin, jotta sammutus/uudelleenkäynnistys toimii oikein pilvikäyttöliittymästä.
 
-#### Hotplug {#hotplug}
+#### Hotplug { #hotplug }
 
-Jotta tilavuuksia voitaisiin käyttää, sinun pitäisi käyttää *ACPI hotplug* -ominaisuutta. Tämä on oletusarvoisesti kytketty päälle CentOS 6:ssa ja uudemmissa versioissa, mutta Ubuntussa sinun on lisättävä rivi "*acpiphp*" tiedostoon */etc/modules*. Muiden jakelujen osalta tarkista, miten ladata *acpiphp* käynnistyksen aikana jakelun asiakirjoista.
+Jotta voit käyttää levyjä (volumes), sinun on oltava *ACPI hotplug* käytössä. Tämä on oletuksena päällä CentOS 6:ssa ja uudemmissa, mutta Ubuntussa sinun on lisättävä rivi ”*acpiphp*” tiedostoon */etc/modules*. Muissa distroissa tarkista jakelun dokumentaatiosta, miten *acpiphp* ladataan käynnistyksessä.
 
-## Kuvien muuntaminen {#converting-images}
+## Levykuvien muuntaminen { #converting-images }
 
-Kun teet tilannevedoksen virtuaalikoneesta, OpenStack luo kuvan _raw_-muodossa. Nämä kuvat vievät yleensä niin monta gigatavua kuin virtuaalikoneen juurilevyllä on kapasiteettia riippumatta siitä, kuinka monta gigatavua asiakas tosiasiallisesti käyttää. Tämän seurauksena tilannevedosten ottaminen voi nopeasti tyhjentää kuva-alueelle käytettävissä olevan tilan.
+Kun virtuaalikoneesta otetaan tilannevedos, OpenStack luo kuvan _raw_-muodossa. Nämä kuvat vievät tyypillisesti yhtä monta gigatavua kuin virtuaalikoneen juurilevyn kapasiteetti, riippumatta asiakkaan datan todellisesta määrästä. Seurauksena tilannevedokset voivat nopeasti kuluttaa levykuville varatun tilan.
 
-Ratkaisu tähän ongelmaan on muuntaa tilannevedoksesta saatu kuva tiiviimpiin muotoihin, kuten _qcow2_, joka tallentaa vain asiakkaan tiedot. Tätä varten ladataan raakakuva, muutetaan se qcow2-muotoon ja ladataan vastasaadut kuvat OpenStackiin. Koska raakakuvat voivat viedä monia gigatavuja, emme suosittele suorittamaan tätä toimintoa henkilökohtaisella tietokoneella, vaan käytämme sen sijaan apuna olevaa virtuaalikonetta Poutassa. Seuraavassa esitetään menettelytapa väliaikaisen virtuaalikoneen avulla.
+Ratkaisu tähän on muuntaa tilannevedoksesta saatu kuva kompaktimpaan muotoon, kuten _qcow2_:een, joka tallentaa vain asiakasdatan. Tätä varten ladataan raw-kuva, muunnetaan se qcow2-muotoon ja ladataan uusi kuva takaisin OpenStackiin. Koska raw-kuvat voivat olla hyvin suuria, emme suosittele tämän tekemistä henkilökohtaisella tietokoneella, vaan apuna käytettävässä virtuaalikoneessa Poutassa. Alla esitellään menettely käyttäen väliaikaista virtuaalikonetta.
 
-1. Oletamme, että olemme juuri tehneet tilannevedoksen virtuaalikoneesta ja olemme näin ollen saaneet kuvan _myVmSnapshot_. Ensimmäinen vaihe on luoda väliaikainen virtuaalikone, jota käytämme myVmSnapshotin muuntamiseen. Virtuaalikoneella pitäisi olla tarpeeksi tilaa isännöidä myVmSnapshotia ja sen tiivistettyä versiota samanaikaisesti. Koska tiivistetty versio on pienempi tai yhtä suuri kuin myVmSnapshot, varma valinta on valita maku, joka pystyy hallitsemaan kahdesti myVmSnapshotin koon. Esimerkiksi, jos myVmSnapshotilla on koko 80GB, sopiva virtuaalikoneen maku on io.160GB, koska siinä on 160 GB tilapäistä tallennustilaa. Käyttöjärjestelmä voi olla esimerkiksi CentOS-7.
+1. Oletetaan, että olemme juuri ottaneet virtuaalikoneesta tilannevedoksen ja saaneet kuvan _myVmSnapshot_. Ensimmäinen vaihe on luoda väliaikainen virtuaalikone, jota käytämme myVmSnapshotin muuntamiseen. Virtuaalikoneessa on oltava riittävästi tilaa sekä myVmSnapshotille että sen kompaktimmalle versiolle yhtä aikaa. Koska kompakti versio on pienempi tai yhtä suuri kuin myVmSnapshot, varma valinta on ottaa flavor, joka kykenee tallettamaan vähintään kaksinkertaisesti myVmSnapshotin koon. Jos myVmSnapshot on esimerkiksi kooltaan 80 GB, sopiva flavor apuvirtuaalikoneelle on io.160GB, koska siinä on 160 GB efemeeristä tallennustilaa. Käyttöjärjestelmä voi olla esimerkiksi `AlmaLinux-9`.
    ```bash
    openstack server create --flavor <flavor> \
    --image <image uuid> \
@@ -129,68 +129,146 @@ Ratkaisu tähän ongelmaan on muuntaa tilannevedoksesta saatu kuva tiiviimpiin m
    --security-group default \
    --security-group <additional security group> snapshotConverter
    ```
-   Virtuaalikoneen perustamiseen liittyvät lisävaatimukset ovat i) julkisen kelluvan IP-osoitteen ja ii) SSH-yhteyden mahdollistaminen, jotta voimme tosiasiallisesti kirjautua virtuaalikoneeseen.
+   Ainoa lisävaatimus virtuaalikoneen käyttöönotolle on i) julkisen kelluvan IP-osoitteen liittäminen ja ii) SSH:n salliminen, jotta voimme kirjautua koneelle.
 
-2. Kun virtuaalikone on käynnissä, kopioimme OpenStack RC File v3-tiedoston cPouta/ePouta-laitteeseen virtuaalikoneeseen. Jos sinulla ei ole vielä tällaista tiedostoa, katso
-   [tämä opas](install-client.md#configure-your-terminal-environment-for-openstack) saadaksesi kopion.
+2. Kun virtuaalikone on käynnissä, kopioi OpenStack RC File v3 -tiedosto cPouta/ePouta-käyttöä varten virtuaalikoneeseen. Jos sinulla ei vielä ole tätä tiedostoa, katso ohjeet:
+   [this guide](install-client.md#configure-your-terminal-environment-for-openstack)
+   tiedoston hankkimiseksi.
    ```bash
    scp <project_name_here>-openrc.sh cloud-user@<floating_ip>:/home/cloud-user/
    ```
-   Kirjaudu virtuaalikoneeseen ja käytä tiedostoa tunnistetietojesi lataamiseksi.
+   Kirjaudu virtuaalikoneelle ja lataa tunnistetietosi tiedostosta.
    ```bash
    source <project_name_here>-openrc.sh
    ```
 
-3. Jotta vois ⚙️ thesaurus_register{DEFINITION}   no translation.
+3. Jotta voimme tallettaa tilannevedoksesta saadun kuvan, efemeerinen tallennustila on alustettava oikein. Katso ohjeet:
+   [our guide](ephemeral-storage.md). Tämän vaiheen jälkeen oletamme, että efemeerinen levy on liitetty hakemistoon _/mnt_.
+4. Seuraavaksi asennamme tarvittavat perustyökalut.
+   ```bash
+   sudo yum install python3 python3-virtualenv screen qemu-img
+   ```
+   Luomme Python 3 -virtuaaliympäristön, jota käytämme cPouta/ePouta-yhteyksiin, ja aktivoimme sen.
+   ```bash
+   virtualenv-3 env
+   source env/bin/activate
+   ```
+   Asennamme nyt työkalut, joilla keskustelemme cPouta/ePoutan kanssa.
+   ```bash
+   pip install python-openstackclient==3.11.0 openstacksdk==0.9.17 os-client-config==1.27.0 osc-lib==1.6.0
+   ```
+5. Seuraavaksi ladataan tilannevedoksesta saatu kuva. Siirry efemeerisen tallennustilan hakemistoon.
+   ```bash
+   cd /mnt
+   ```
+   Vaikka se ei ole pakollista, suosittelemme tässä vaiheessa avaamaan _screen_-session, jonka avulla prosessi voi jatkua taustalla ilman, että terminaalia täytyy pitää auki prosessin valmistumiseen asti.
+   ```bash
+   screen -S converter
+   ```
+   Annetaan komento tilannevedoksesta saadun kuvan lataamiseksi.
+   ```bash
+   openstack image save --file myVmSnapshotRaw.raw <id_of_myVmSnapshot>
+   ```
+   Kuvan koon vuoksi prosessi kestää muutamia minuutteja. Voit poistua screen-sessiosta painamalla CTRL+A ja sen jälkeen CTRL+D. Voit palata sessioon milloin tahansa komennolla:
+   ```bash
+   screen -r converter
+   ```
+6. Kun edellinen komento on valmistunut, on aika muuntaa kuva.
+   ```bash
+   qemu-img convert -f raw -O qcow2 myVmSnapshotRaw.raw myVmSnapshotQcow2.qcow2
+   ```
+   Kuten aiemmin mainittiin, qcow2-muoto tallentaa vain varsinaisen asiakasdatan sen sijaan, että se kopioisi juurilevyn 1:1. Jos asiakasdatan määrä on huomattavasti pienempi kuin juurilevyn kokonaiskapasiteetti, myös qcow2-kuva on huomattavasti pienempi kuin raw-kuva.
 
-a
-  
-  The modification of option in v1.09 is not just about the output, the default will use the same output_pc but the FPU with a same epsilon goes parallel kro.
+7. Kun muunnos on valmis, uusi kuva voidaan ladata OpenStackiin.
+   ```bash
+   openstack image create --disk-format qcow2 --file myVmSnapshotQcow2.qcow2 myVmSnapshotCompact 
+   ```
+   Jos toimenpide onnistuu, raw-muotoinen kuva voidaan poistaa OpenStackista.
+   ```bash
+   openstack image delete <id_of_myVmSnapshot>
+   ```
+   Voit säilyttää apuvirtuaalikoneen tulevia muunnoksia varten tai poistaa sen heti käytön jälkeen.
+   ```bash
+   openstack server delete <id_of_snapshotConverter>
+   ```
 
-  We general set up the path on disk images on the RPI guide, but the biggest advantage it has (unsurprisingly), will be due out of ebcdic .   char rewrite(spokorris) as goth moederene.
-   
- tää koskee   nice size mutex
-metainokju LTD
+## Levykuvien lataaminen { #uploading-images }
 
->$$ 
+Levykuvia voi ladata joko verkkokäyttöliittymästä tai _openstack_-komentorivityökalulla.
 
-+9 
+Ennen lataamista sinun on tiedettävä, missä muodossa ladattava kuva on. Todennäköisimmät vaihtoehdot ovat _qcow2_ ja _raw_. Voit selvittää tyypin _file_-komennolla. Tältä _qcow2_-kuva näyttää:
 
-&R
+```bash
+$ file images/Ubuntu-15.10-Phoronix.qcow2
+images/Ubuntu-15.10-Phoronix.qcow2: Qemu Image, Format: Qcow (v3), 10737418240 bytes
+```
 
->successfully delete the test image 
+Ja tältä _raw_-kuva näyttää:
 
---
+```bash
+$ file images/Ubuntu-14.04-old.raw
+images/Ubuntu-14.04-old.raw: x86 boot sector; partition 1: ID=0x83, active, starthead 0, startsector 16065, 20948760 sectors, code offset 0x63
+```
 
-http://fileos.csc.fi/
+Lataus komentoriviltä:
 
-socket_path=$KAKL
+```bash
+openstack image create --disk-format <disk format> --private --file <image file to upload> <name of image to create>
+```
 
-NAT features the operative g.down# is deadspacekr
-ZEN-ALTOS 
+Tämä lataa kuvan. Ennen kuin kuva on käyttökelpoinen, kestää hetken.
 
->sin (version 5 or 9.8)
-     <$APT gitosstract    
+Jos haluat käyttää verkkokäyttöliittymää, voit ladata kuvia kohdassa **Compute | Images** painamalla **Create Image** -painiketta:
 
-> IP!!
--1 > o ny$$nché=print wot+wi,
+![Kuvan lataus](/img/horizon-image-upload2.png)
 
-addtoreal$$$$@FUS ##clone <> sop und
-    shows        
-        @aws-03-w-glide>20279-^^@wl-break~
-          $web-p
+Näet seuraavan valintaikkunan:
 
+![Kuvan latauksen valintaikkuna](/img/horizon-image-upload-dialog.png)
 
+Tässä esimerkissä luomme kuvan nimeltä _Alpine-linux_. Voit halutessasi lisätä kuvalle **Image Description** -kenttään kuvauksen omaa käyttöä varten. Tietoturvasyistä tuemme kuvien lataamista vain omalta työasemaltasi, eikä julkisten URL-osoitteiden kautta lataaminen ole mahdollista. Tässä esimerkissä olemme siis valinneet paikallisen kuvatiedoston **Browse**-painikkeella. Koska kuvamme on ISO-tyyppinen, olemme valinneet sen **Format**-pudotusvalikosta. Kaikki muut kentät paitsi **Image Sharing | Visibility** voivat jäädä oletusarvoihinsa. **Image Sharing | Visibility** -kohdassa varmista, että asetat kuvan näkyvyydeksi _Private_. Tavalliset käyttäjät eivät voi luoda julkisia kuvia tietoturvasyistä. Jos yrität ladata kuvan ja asettaa näkyvyydeksi _Public_, saat virheilmoituksen. Kun asetat näkyvyydeksi _Private_, ladattu kuva on yksityinen OpenStack-projektillesi, ja vain projektisi jäsenet voivat käyttää sitä.
 
-          
-            .
+## Levykuvien jakaminen Pouta-projektien välillä { #sharing-images-between-pouta-projects }
 
-             cob>          (scrollssffeet)
-           
-orne /run/kif coded
-reset.define({
-                                                
-                                    apis: [["cp-set-open", 1, 2]]
-                                                
-                                           }
+Voit jakaa kuvia eri Pouta-projektien välillä komentorivityökaluilla. Kuvien jakaminen projektien välillä ei tällä hetkellä ole mahdollista Poutan verkkokäyttöliittymässä. Kun kuva on jaettu, se näkyy molemmissa projekteissa eli sekä luovuttajalla että vastaanottajalla.
 
+Huomaa, että jakaminen toimii saman pilviympäristön sisällä: voit jakaa kuvia cPouta-projektista toiseen, mutta et cPouta- ja ePouta-projektien välillä.
+
+1. Hanki ensin jaettavan kuvan UUID (`<your-image-UUID>`). Listaa nykyisen projektin kaikki kuvat komennolla:
+
+    ```sh
+    openstack image list
+    ```
+
+1. Seuraavaksi tarvitset kohdeprojektin UUID:n (`<destination-project-UUID>`). Voit listata käytettävissä olevat projektisi komennolla:
+
+    ```sh
+    openstack project list
+    ```
+
+1. Kun sinulla on molemmat UUID:t, varmista ensin, että kuva on **shared**-varianttia, jos se ei sitä jo ole:
+
+    ```bash
+    openstack image set --shared <your-image-UUID>
+    ```
+
+1. Käynnistä sitten jako suorittamalla seuraava _openstack_-komento lähtöprojektissa:
+
+    ```bash
+    openstack image add project <your-image-UUID> <destination-project-UUID>
+    ```
+
+1. Lopuksi kohdeprojektin on hyväksyttävä jäsenyys. Tätä varten sinun tai kollegasi tulee suorittaa seuraava glance-komento vastaanottavassa projektissa:
+
+    ```bash
+    openstack image set --accept <your-image-UUID>
+    ```
+
+[GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
+[Kickstart]: https://github.com/rhinstaller/pykickstart/blob/master/docs/kickstart-docs.rst
+[OpenStack virtual machine image guide]: http://docs.openstack.org/image-guide/index.html
+[creating images manually]: http://docs.openstack.org/image-guide/create-images-manually.html
+[tool support for creating images]: http://docs.openstack.org/image-guide/create-images-automatically.html
+[virt-sysprep]: http://libguestfs.org/virt-sysprep.1.html
+[cloud-init]: https://cloudinit.readthedocs.org/en/latest/
+[glance]: https://research.csc.fi/pouta-install-client

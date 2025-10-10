@@ -1,82 +1,81 @@
-# How to migrate a PostgreSQL database to Pukki
+# PostgreSQL-tietokannan siirtäminen Pukkiin { #how-to-migrate-a-postgresql-database-to-pukki }
 
-## Introduction
+## Johdanto { #introduction }
 
-This tutorial walks you through migrating a PostgreSQL database to Pukki, CSC's Database-as-a-Service (DBaaS) platform. This step-by-step guide will show you how to export your existing database, import it into Pukki, and verify your migration was successful.
+Tämä opas opastaa sinut PostgreSQL-tietokannan migroinnissa Pukkiin, CSC:n Database-as-a-Service (DBaaS) -alustalle. Vaiheittainen ohje näyttää, miten viet nykyisen tietokantasi, tuot sen Pukkiin ja varmistat, että migraatio onnistui.
 
-!!! Warning "Ensure Sufficient Disk Space and Resource Allocation" 
-    **On Your Machine**: The `pg_dump` command writes the database dump file to your local machine / server (where the command is executed). Ensure that your machine has enough free disk space to store the dump file. The size of the dump depends on the volume of data and the chosen format (plain SQL or directory).
+!!! Warning "Varmista riittävä levytila ja resurssien allokointi" 
+    **Koneellasi**: `pg_dump`-komento kirjoittaa tietokannan dump-tiedoston paikalliselle koneellesi/palvelimellesi (sinne, missä komento ajetaan). Varmista, että koneellasi on tarpeeksi vapaata levytilaa dump-tiedoston tallentamiseen. Dumpin koko riippuu datan määrästä ja valitusta formaatista (pelkkä SQL tai hakemisto).
     
-    **On the DBaaS Instance**: Projects on Pukki have [default quotas and volume limits](../../cloud/dbaas/flavors.md). If your database requires more resources (e.g., a larger volume size, more memory, or additional instances), contact [ServiceDesk](mailto:servicedesk@csc.fi) to request an increase to your default quota (include your project number).
+    **DBaaS-instanssissa**: Pukin projekteilla on [oletuskiintiöt ja levytilan rajat](../../cloud/dbaas/flavors.md). Jos tietokantasi tarvitsee enemmän resursseja (esim. suuremman levykapasiteetin, enemmän muistia tai lisäinstansseja), ota yhteyttä [ServiceDeskiin](mailto:servicedesk@csc.fi) pyytääksesi oletuskiintiösi nostoa (liitä mukaan projektinumerosi).
 
-## Step 1: Set Up Your Pukki PostgreSQL Instance
+## Vaihe 1: Luo Pukkiin PostgreSQL-instanssi { #step-1-set-up-your-pukki-postgresql-instance }
 
-Before you can migrate your database, you need to create a new PostgreSQL instance on Pukki where the data from your current database will be imported. 
-You can do this by either using the [Web interface](../../cloud/dbaas/web-interface.md) or the [Command Line Interface](../../cloud/dbaas/cli.md).
+Ennen kuin voit migroida tietokantasi, sinun on luotava Pukkiin uusi PostgreSQL-instanssi, johon nykyisen tietokantasi data tuodaan. 
+Voit tehdä tämän käyttämällä joko [verkkokäyttöliittymää](../../cloud/dbaas/web-interface.md) tai [komentorivityökalua](../../cloud/dbaas/cli.md).
 
-!!! Warning "Allowed CIDRs"
-    Make sure you add your [IP address](https://www.whatismyip.com/) in the format `$IP/32` in the [Allowed CIDRs](../../cloud/dbaas/firewalls.md#single-ip-or-subnet). If you want to allow multiple IP-addresses you need to separate them by a comma `,`. By default the database is created **without** any Allowed CIDRs which means that you won't be able to connect to your database.
+!!! Warning "Sallitut CIDR:t"
+    Muista lisätä oma [IP-osoitteesi](https://www.whatismyip.com/) muodossa `$IP/32` kohtaan [Sallitut CIDR:t](../../cloud/dbaas/firewalls.md#allowing-single-ip-subnet-or-multiple-specific-ips). Jos haluat sallia useita IP-osoitteita, erottele ne pilkulla `,`. Oletuksena tietokanta luodaan **ilman** sallittuja CIDR-verkkoja, mikä tarkoittaa, ettet pysty yhdistämään tietokantaasi.
 
-## Step 2: Export Your Current PostgreSQL Database
+## Vaihe 2: Vie nykyinen PostgreSQL-tietokantasi { #step-2-export-your-current-postgresql-database }
 
-To migrate your database, you must first create a backup or "dump" of your existing database. This backup contains the schema and data that will be imported into Pukki. PostgreSQL provides [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) for creating backups/"dumps".
+Migroidaksesi tietokannan sinun on ensin luotava varmuuskopio eli "dump" nykyisestä tietokannastasi. Tämä varmuuskopio sisältää skeeman ja datan, jotka tuodaan Pukkiin. PostgreSQL tarjoaa työkalun [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) varmuuskopioiden/"dumpien" luomiseen.
 
-- Open a terminal on the server where your current PostgreSQL database is hosted.
+- Avaa terminaali palvelimella, jossa nykyinen PostgreSQL-tietokantasi sijaitsee.
 
-- Run the `pg_dump` command to export your database as a plain SQL file:
+- Suorita `pg_dump`-komento viedäksesi tietokannan pelkkänä SQL-tiedostona:
     ```bash
     pg_dump --user ${USERNAME} --host ${PUBLIC_IP} --format p ${DATABASE_NAME} > database_backup.sql
     ```
-    - `--format p`: Specifies the plain-text SQL format for the output.
-    - `database_backup.sql`: The name of the output file.
+    - `--format p`: Määrittää lähdön pelkän tekstin SQL-muodossa.
+    - `database_backup.sql`: Tulostiedoston nimi.
 
-- If your database is large, consider creating a parallel dump using the directory format for faster processing:
+- Jos tietokantasi on suuri, harkitse rinnakkaisen dumpin luomista hakemistomuodossa nopeampaa käsittelyä varten:
     ```bash
     pg_dump --user ${USERNAME} --host ${PUBLIC_IP} --format d --jobs 4 --file /path/to/dir ${DATABASE_NAME}
     ```
-    - `--format d`: Specifies the directory format.
-    - `--jobs 4`: Uses 4 parallel jobs for faster export.
-    - `--file /path/to/dir`: Directory where the dump files will be saved.
+    - `--format d`: Määrittää hakemistomuodon.
+    - `--jobs 4`: Käyttää 4 rinnakkaista tehtävää nopeampaan vientiin.
+    - `--file /path/to/dir`: Hakemisto, johon dump-tiedostot tallennetaan.
 
+## Vaihe 3: Tuo dump Pukkiin { #step-3-import-the-dump-into-pukki }
 
-## Step 3: Import the Dump into Pukki
+Kun olet luonut varmuuskopion/"dumpin", seuraava vaihe on tuoda se Pukin PostgreSQL-instanssiin. Näin varmistetaan, että alkuperäisen tietokannan data ja skeema palautuvat uuteen ympäristöön.
 
-After creating a backup/"dump", the next step is to import it into the Pukki PostgreSQL instance. This step ensures that the data and schema from your original database are restored in the new environment.
-
-- If you used `pg_dump` with the plain SQL format (`--format p`), follow these steps:
-    - Use psql to import the SQL file directly into the Pukki database:
+- Jos käytit `pg_dump`-työkalua pelkän SQL:n muodossa (`--format p`), toimi näin:
+    - Käytä psql-työkalua tuodaksesi SQL-tiedoston suoraan Pukin tietokantaan:
     ```bash
     psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME} --file database_backup.sql
     ```
-    - `--file database_backup.sql`: Path to the dump file.
+    - `--file database_backup.sql`: Polku dump-tiedostoon.
 
-- If you used the directory format (`--format d`) for the dump, use `pg_restore` to restore the database:
-    - Use `pg_restore` with parallel jobs to import the directory format dump:
+- Jos käytit dumpille hakemistomuotoa (`--format d`), käytä `pg_restore`-työkalua tietokannan palauttamiseen:
+    - Käytä `pg_restore`-työkalua rinnakkaistehtävillä tuodaksesi hakemistomuotoisen dumpin:
     ```bash
     pg_restore --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME} --jobs 4 /path/to/dir
     ```
-    - `--jobs 4`: Number of jobs.
-    - `/path/to/dir`: Path to the directory containing the dump files.
+    - `--jobs 4`: Tehtävien lukumäärä.
+    - `/path/to/dir`: Polku hakemistoon, joka sisältää dump-tiedostot.
 
-## Step 4: Verify the Migration
+## Vaihe 4: Varmista migraation onnistuminen { #step-4-verify-the-migration }
 
-After importing the data, it’s important to verify that the migration was successful. This ensures that all tables, schema, and data were correctly transferred to the Pukki database. You can do this by running basic queries on the Pukki instance to confirm the structure and content of the database.
+Datan tuonnin jälkeen on tärkeää varmistaa, että migraatio onnistui. Näin varmistetaan, että kaikki taulut, skeema ja data siirtyivät oikein Pukin tietokantaan. Voit tehdä tämän ajamalla peruskyselyitä Pukin instanssissa ja tarkistamalla tietokannan rakenteen ja sisällön.
 
-- Connect to the Pukki database:
+- Yhdistä Pukin tietokantaan:
     ```bash
     psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
     ```
-    - Replace `${USERNAME}`, `${PUBLIC_IP}`, and `${DATABASE_NAME}` with your actual username, host, and database name.
+    - Korvaa `${USERNAME}`, `${PUBLIC_IP}` ja `${DATABASE_NAME}` omalla käyttäjänimelläsi, isäntänimelläsi ja tietokantasi nimellä.
 
-- Run a query to count the rows in a key table:
+- Aja kysely, joka laskee rivien määrän keskeisessä taulussa:
     ```sql
     SELECT COUNT(*) FROM table_name;
     ```
-    - Replace `table_name` with a table that contains important data in your database.
-    - Run the same query on your original database and ensure the row counts match.
+    - Korvaa `table_name` taululla, joka sisältää tärkeää dataa tietokannassasi.
+    - Aja sama kysely alkuperäisessä tietokannassasi ja varmista, että rivimäärät täsmäävät.
 
-- Check for specific data in critical tables:
+- Tarkista tiettyjä tietoja kriittisistä tauluista:
     ```sql
     SELECT * FROM table_name LIMIT 5;
     ```
-    - Review the results to confirm the data integrity.
+    - Tarkista tulokset varmistaaksesi datan eheyden.

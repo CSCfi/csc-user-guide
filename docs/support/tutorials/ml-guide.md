@@ -1,106 +1,114 @@
-
 ---
-title: Koneoppimisopas
+title: Machine learning guide
+title_fi: Koneoppimisen opas
 ---
 
-# Koneoppimisopas
+# Koneoppimisen opas { #machine-learning-guide }
 
-Tämä opas auttaa käyttäjiä, jotka haluavat käyttää CSC:n laskentaresursseja koneoppimiseen.
+Tämän oppaan tarkoitus on auttaa käyttäjiä, jotka haluavat tehdä koneoppimista CSC:n
+laskentaresursseilla.
 
-## Koneoppimisoppaan alaluvut {#machine-learning-guide-subsections}
+## Koneoppimisen oppaan alaluvut { #machine-learning-guide-subsections }
 
-Tämän sivun lisäksi tämä opas sisältää seuraavat alaluvut:
+Tämän sivun lisäksi opas sisältää seuraavat alaluvut:
 
-- [**Koneoppimisen aloittaminen CSC:llä**](ml-starting.md)
+- [**Koneoppimisen aloitus CSC:llä**](ml-starting.md)
 - [**GPU-kiihdytetty koneoppiminen**](gpu-ml.md)
-- [**Datan tallennus koneoppimiseen**](ml-data.md)
-- [**Moni-GPU ja moni-konesolmu koneoppiminen**](ml-multi.md)
-- [**Hyperparametrien haku**](hyperparameter_search.md)
-- [**Koneoppimisprosessien hallinta CSC:n supertietokoneilla**](ml-workflows.md)
-- &#127381; [**Suurten kielimallien käyttö supertietokoneilla**](ml-llm.md)
+- [**Koneoppimisen datan tallennus**](ml-data.md)
+- [**Moni-GPU- ja monisolmuinen koneoppiminen**](ml-multi.md)
+- [**Hyperparametrihaku**](hyperparameter_search.md)
+- [**Koneoppimisen työnkulkujen hallinta CSC:n supertietokoneilla**](ml-workflows.md)
+- [**Suurten kielimallien käyttö supertietokoneilla**](ml-llm.md)
 
-## Minkä CSC-palvelun pitäisi valita? {#what-csc-service-to-use}
+## Mitä CSC:n palvelua kannattaa käyttää? { #what-csc-service-to-use }
 
-CSC tarjoaa useita palveluita, jotka saattavat olla merkityksellisiä koneoppimiskäyttäjille:
+CSC tarjoaa useita palveluja, jotka voivat olla relevantteja koneoppimisen käyttäjille:
 
 - [Supertietokoneet, Puhti, Mahti](../../computing/index.md) ja
-  [LUMI](https://docs.lumi-supercomputer.eu/) ovat monikäyttäjäklustereita ja
-  tarjoavat korkeimman laskentatehon, mukaan lukien GPU-kiihdytyksen
-  keskitetysti hallitussa ohjelmistoympäristössä.
+  [LUMI](https://docs.lumi-supercomputer.eu/) ovat monikäyttäjäklustereita
+  ja tarjoavat korkeimman laskentatehon, mukaan lukien GPU-
+  kiihdytyksen keskitetysti hallitussa ohjelmistoympäristössä,
 
-- [Pouta](../../cloud/pouta/index.md) tarjoaa oman virtuaalipalvelimen, jossa on
-  täysi hallinta ohjelmistoympäristöstä, mutta rajoitettu laskentateho verrattuna
-  supertietokoneisiin. 
+- [Pouta](../../cloud/pouta/index.md) tarjoaa oman virtuaalipalvelimen, jossa sinulla on täysi
+  hallinta ohjelmistoympäristöön, mutta laskentateho on rajoitetumpi
+  verrattuna supertietokoneisiin,
 
-- [Rahti](../../cloud/rahti/index.md) tarjoaa enemmän automatisoidun konttipohjaisen
-  pilviympäristön, joka on erityisen hyödyllinen verkkopalveluiden käyttöönottoa varten.
+- [Rahti](../../cloud/rahti/index.md) tarjoaa automatisoidumman konttipohjaisen
+  pilviympäristön, joka on erityisen kätevä verkkopalvelujen käyttöönotossa.
 
-**Suosittelemme käyttämään CSC:n supertietokoneita**, ellei tarvitse
-hyvin monimutkaista ohjelmistoympäristöä tai käsittele arkaluonteista
-dataa. Näissä tapauksissa Pouta saattaa olla oikea valinta, ja 
-tarjoamme myös ePouta-vaihtoehdon korkean turvallisuuden 
-vaatimuksiin.
+**Suosituksemme on käyttää CSC:n supertietokoneita**, ellei sinulla ole tarvetta
+erittäin monimutkaiselle ohjelmistoympäristölle tai ellei työsi liity arkaluonteiseen
+dataan. Näissä tapauksissa Pouta voi olla oikea valinta, ja tarjoamme myös
+ePouta-version, joka soveltuu korkean tietoturvan vaatimuksiin.
 
-Jos kehität palvelua, esimerkiksi haluat ottaa käyttöön koulutetun
-mallin palveluna, Pouta tai Rahti saattavat olla tarpeellisimpia.
+Jos kehität palvelua, esimerkiksi haluat ottaa koulutetun mallin käyttöön palveluna,
+Pouta tai Rahti voivat olla sinulle sopivimmat.
 
-Jos olet epävarma oikeasta palvelusta, älä epäröi
-[ottaa yhteyttä palvelupisteeseemme](../contact.md) ja kerro
-laskentarpeesi.
+Jos olet epävarma, mitä palvelua käyttää, ota rohkeasti
+[yhteyttä palvelupisteeseemme](../contact.md) ja kerro laskentatarpeistasi.
 
-## CSC:n supertietokoneet {#cscs-supercomputers}
 
-Useimpien koneoppimistarpeiden osalta CSC:n supertietokoneet ovat
-paras valinta. Nämä ovat satojen (tai tuhansien) tietokoneiden
-klustereita, joista osa tarjoaa GPU-kiihdytyksen. Supertietokoneet ovat
-monikäyttäjäjärjestelmiä, joten yksittäiset käyttäjät ovat rajattuja
-ohjelmistojen asentamisessa, ja kuten minkä tahansa jaetun resurssin
-kanssa, on noudatettava [käyttöpolitiikkaa](../../computing/usage-policy.md)
-jotta palvelu pysyy käytettävänä.
+## CSC:n supertietokoneet { #cscs-supercomputers }
+
+Suurimpaan osaan koneoppimistarpeista CSC:n supertietokoneet ovat oikea
+valinta. Ne ovat satojen (tai tuhansien) koneiden klustereita, joista osa
+tarjoaa GPU-kiihdytyksen. Supertietokoneet ovat monikäyttäjäjärjestelmiä,
+joten yksittäisten käyttäjien oikeudet ohjelmistojen asennukseen ovat rajatut,
+ja kuten minkä tahansa jaetun resurssin kanssa, on noudatettava [käyttö-
+politiikkaa](../../computing/usage-policy.md), jotta palvelu säilyy
+käyttökelpoisena.
 
 CSC ylläpitää kahta kansallista supertietokonetta: Puhti ja Mahti, sekä
-eurooppalaista LUMI-supertietokonetta. Jos [et ole varma, mikä
-supertietokone valita, lue keskustelu täältä](gpu-ml.md#puhti-mahti-or-lumi).
+eurooppalaista LUMI-supertietokonetta. Jos [et ole varma, minkä
+supertietokoneen valitsisit, lue tämä keskustelu](gpu-ml.md#puhti-mahti-or-lumi).
 
-Jos olet uusi käyttäjä, lue [miten pääset Puhti ja Mahti](../../computing/index.md#accessing-puhti-and-mahti)
-ja [miten voit lähettää laskentatehtäviä](../../computing/running/getting-started.md).
-Jos olet valinnut LUMI lue [LUMI-aloitussivu](https://docs.lumi-supercomputer.eu/firststeps/).
+Jos olet uusi käyttäjä, lue ohjeet [Puhtin ja Mahtin käyttöön
+pääsystä](../../computing/index.md#accessing-puhti-and-mahti) sekä [kuinka
+ajotöitä ajetaan](../../computing/running/getting-started.md). Jos olet
+valinnut LUMIn, lue [LUMIn aloitussivu](https://docs.lumi-supercomputer.eu/firststeps/).
 
-Sekä [Puhti että Mahti tarjoavat verkkokäyttöliittymän](../../computing/webinterface/index.md),
-johon pääsee osoitteista [www.puhti.csc.fi](https://www.puhti.csc.fi) ja
-[www.mahti.csc.fi](https://www.mahti.csc.fi). Verkkokäyttöliittymän kautta
-voi helposti käynnistää esimerkiksi Jupyter Notebook -istunnon TensorFlow- tai PyTorch-kirjastojen kanssa.
+Sekä [Puhtilla että Mahtilla on
+verkkokäyttöliittymä](../../computing/webinterface/index.md), johon
+pääset osoitteista [www.puhti.csc.fi](https://www.puhti.csc.fi) ja
+[www.mahti.csc.fi](https://www.mahti.csc.fi), vastaavasti. Verkkokäyttöliittymän
+kautta voi helposti käynnistää esimerkiksi Jupyter Notebook -istunnon
+TensorFlowin tai PyTorchin kanssa.
 
-Tutustu myös alalukuihin, jotka käsittelevät [tehokasta GPU:n
-käyttöä](gpu-ml.md), [suurten tietoaineistojen käsittelyä](ml-data.md),
-ja [moni-GPU ja moni-konesolmu tehtäviä](ml-multi.md).
+Katso myös alaluvut, jotka liittyvät [tehokkaaseen GPU:n
+hyödyntämiseen](gpu-ml.md), [suurten datasettien käsittelyyn](ml-data.md)
+ja [moni-GPU- ja monisolmuajoihin](ml-multi.md).
 
-## Pilvipalvelut {#cloud-services}
 
-### Pouta {#pouta}
+## Pilvipalvelut { #cloud-services }
 
-On joitakin käyttötapauksia, joissa supertietokoneet eivät ole oikea ratkaisu,
+### Pouta { #pouta }
+
+On tilanteita, joissa supertietokoneet eivät ole oikea ratkaisu,
 ja saatat tarvita [virtuaalipalvelimen **Poutassa**](../../cloud/pouta/index.md).
-Tyypillisiä esimerkkejä ovat:
+Tyypillisiä esimerkkejä:
 
 - erittäin monimutkainen ohjelmistoympäristö,
-- tarve root-käyttöoikeudelle,
-- laskenta, johon liittyy arkaluonteista dataa.
+- tarve root-oikeuksiin,
+- laskenta, joka sisältää arkaluonteista dataa.
 
-Poutassa saat oman virtuaalipalvelimen, jossa sinulla on root- eli 
-pääkäyttäjän oikeudet. [HPC- ja GPU-muodot ovat
+Poutassa saat oman virtuaalipalvelimen, jossa sinulla on root- tai ylläpitäjä-
+oikeudet. [HPC- ja GPU-kokoonpanot ovat
 saatavilla](../../cloud/pouta/vm-flavors-and-billing.md#hpc-flavors) raskaaseen
-laskentatarpeeseen, mutta laskentateho on silti pienempi kuin 
-supertietokoneessa.
+laskentaan, mutta laskentaresurssit ovat aina pienemmät kuin
+supertietokoneissa.
 
-Arkaluonteista dataa sisältävän laskennan tapauksissa tarjoamme myös
-ePouta-vaihtoehdon, joka on tarkoitettu korkean tietoturvan vaatimuksiin.
-ePoutassa virtuaalipalvelin integroidaan olemassa olevaan verkkoinfrastruktuuriin.
+Erittäin arkaluonteista dataa sisältävään laskentaan tarjoamme myös ePouta-version,
+joka soveltuu korkean tietoturvan vaatimuksiin. ePoutassa virtuaalipalvelin
+integroidaan olemassa olevaan verkko-infrastruktuuriisi.
 
-Katso [Pouta-dokumentaatiomme, miten hakea käyttöoikeutta](../../cloud/pouta/index.md).
+Katso [Poutan dokumentaatiosta, miten haet
+käyttöoikeutta](../../cloud/pouta/index.md).
 
-## Lisää lukemista CSC:n dokkareissa {#further-reading-in-docs-csc}
 
-* [Pythonin rinnakkaisajot](python-usage-guide.md#python-parallel-jobs)
-* [Dask-ohje](dask-python.md)
-* [Korkean läpäisyn laskenta ja työnkulut](../../computing/running/throughput.md)
+## Lisälukemista Docs CSC:ssä { #further-reading-in-docs-csc }
+
+* [Pythonin rinnakkaistyöt](python-usage-guide.md#python-parallel-jobs)
+* [Dask-opas](dask-python.md)
+* [Läpimenolaskenta ja työnkulut](../../computing/running/throughput.md)
+
+LUMI-käyttäjille: katso myös LUMIn käyttäjätuen laatima [LUMI AI -opas](https://github.com/Lumi-supercomputer/LUMI-AI-Guide).

@@ -1,13 +1,11 @@
+# Allas-verkkokäyttöliittymä { #allas-web-ui }
 
-# Allas Web UI
+Allas Web UI tarjoaa helppokäyttöisen verkkokäyttöliittymän CSC:n objektivarastopalvelulle, Allakselle.
 
-Allas Web UI tarjoaa helppokäyttöisen verkkokäyttöliittymän CSC:n objektitallennuspalveluun, Allakseen.
-
-## Aloittaminen {#getting-started}
+## Aloitus { #getting-started }
 
 1. Siirry osoitteeseen [https://allas.csc.fi](https://allas.csc.fi) ja kirjaudu sisään.
-2. Valitse projektisi **Valitse projekti** -valikosta.
-
+2. Valitse projektisi **Select Project** -pudotusvalikosta.
 
 === "Kirjautumissivu"
     ![Allas Web UI -kirjautuminen](img/Allas-UI-login.png){ width=80% }
@@ -15,94 +13,95 @@ Allas Web UI tarjoaa helppokäyttöisen verkkokäyttöliittymän CSC:n objektita
 === "Pääsivu"
     ![Pääsivu](img/Allas-UI-main.png){ width=80% }
 
-## Kaukalon luominen {#creating-a-bucket}
+## Säiliön luominen { #creating-a-bucket }
 
-Kaukalo on objektiesi tallennussäiliö. Luodaksesi sellaisen noudata näitä ohjeita:
+Säiliö on objektiesi säilytyskontti. Luo säiliö seuraavasti:
 
-1. Klikkaa **Luo kaukalo**.
-2. Syötä kaukalon nimi (nimiä ei voi muokata myöhemmin. Katso [kaukalon nimeämisohjeet](../introduction.md#naming-buckets)).
-3. (Valinnainen) Lisää tageja paremman organisoinnin ja hakutoimintojen vuoksi.
-4. Klikkaa **Tallenna**.
+1. Napsauta **Create bucket**.
+2. Anna säiliön nimi (nimiä ei voi muuttaa myöhemmin. Katso [säiliön nimeämisen tarkistuslista](../introduction.md#naming-buckets-and-objects)).
+3. (Valinnainen) Lisää tunnisteita (tags) parempaa organisointia ja hakua varten.
+4. Napsauta **Save**.
 
-![Luo kaukalo](img/Allas-UI-bucket.png){ width=80% }
-<br>Uuden kaukalon luominen
+![Säiliön luominen](img/Allas-UI-bucket.png){ width=80% }
+<br>Uuden säiliön luominen
 
-## Objektien lataaminen {#uploading-objects}
+## Objektien lähettäminen { #uploading-objects }
 
-Voit ladata objekteja kahdella tavalla:
+Voit lähettää objekteja kahdella tavalla:
 
-### Lataaminen pääsivulta: {#uploading-from-the-main-page}
-1. Paina **Lataa**-painiketta hallintapaneelissa.
-2. Syötä kaukalon nimi (nimiä ei voi muokata myöhemmin. Katso [kaukalon nimeämisohjeet](../introduction.md#naming-buckets)).
-3. Valitse/”Raahaa ja pudota” objekteja ja klikkaa **Lataa**.
-4. Uusi kaukalo, joka sisältää objektit, luodaan.
+### Lähettäminen pääsivulta: { #uploading-from-the-main-page }
 
+1. Napsauta koontinäytössä **Upload**-painiketta.
+2. Anna säiliön nimi (nimiä ei voi muuttaa myöhemmin. Katso [säiliön nimeämisen tarkistuslista](../introduction.md#naming-buckets-and-objects)).
+3. Valitse tai "Drag & Drop" -toiminnolla vedä ja pudota objektit ja napsauta **Upload**.
+4. Luodaan uusi säiliö, joka sisältää objektit.
 
-### Lataaminen olemassa olevaan kaukaloon: {#uploading-to-an-existing-bucket}
-1. Klikkaa olemassa olevaa kaukaloa.
-2. Paina **Lataa**-painiketta.
-3. Valitse/”Raahaa ja pudota” objekteja ja klikkaa **Lataa** tallentaaksesi ne valittuun kaukaloon.
+### Lähettäminen olemassa olevaan säiliöön: { #uploading-to-an-existing-bucket }
 
-=== "Lataaminen pääsivulta"
+1. Napsauta olemassa olevaa säiliötä.
+2. Paina **Upload**-painiketta.
+3. Valitse tai "Drag & Drop" -toiminnolla vedä ja pudota objektit ja napsauta **Upload** tallentaaksesi ne valittuun säiliöön.
+
+=== "Lähettäminen pääsivulta"
     ![Allas Web UI -kirjautuminen](img/Allas-UI-upload1.png){ width=80% }
 
-=== "Lataaminen olemassa olevaan kaukaloon"
+=== "Lähettäminen olemassa olevaan säiliöön"
     ![Pääsivu](img/Allas-UI-upload2.png){ width=80% }
 
-## Kaukalojen tarkastelu ja hallinta {#viewing-and-managing-buckets}
+## Säiliöiden tarkasteleminen ja hallinta { #viewing-and-managing-buckets }
 
-Kaukalojen luomisen ja objektien lataamisen jälkeen voit tarkastella ja hallita niitä helposti.
+Kun olet luonut säiliöitä ja lähettänyt objekteja, niiden tarkastelu ja hallinta on helppoa.
 
-1. Pääasiallinen hallintapaneeli listaa kaikki kaukalosi.
-2. Klikkaa kaukalon nimeä nähdäksesi sen sisällön.
-3. Käytä **[Lataa](#downloading-objects-and-buckets)**, **[Jaa](#sharing-a-bucket)** tai **Valinnat** -painikkeita (*[Kopioi](#copying-a-bucket)*, *Muokkaa tageja*, *[Poista](#removing-objects-and-buckets)*) objektien ja kaukaloiden toimenpiteille.
+1. Päänäkymä listaa kaikki säiliösi.
+2. Napsauta säiliön nimeä nähdäksesi sen sisällön.
+3. Käytä **[Download](#downloading-objects-and-buckets)**-, **[Share](#sharing-a-bucket)**- tai **Options**-valikon ( *[Copy](#copying-a-bucket)*, *Edit tags*, *[Delete](#removing-objects-and-buckets)* ) painikkeita toimintoihin objekteille ja säiliöille.
 
-![Hallintapaneeli](img/Allas-UI-dashboard.png){ width=80% }
-<br>Kaukalojen hallinta Allaksessa
+![Koontinäyttö](img/Allas-UI-dashboard.png){ width=80% }
+<br>Säiliöiden hallinta Allaksessa
 
-## Kaukalon jakaminen {#sharing-a-bucket}
+## Säiliön jakaminen { #sharing-a-bucket }
 
-Kaukalon jakamiseksi noudata näitä ohjeita:
+Jaa säiliö seuraavasti:
 
-1. **Hanki Jako-ID**:
-    - Jos jaat toiseen projektisi: Vaihda siihen projektiin, paina **Kopioi Jako-ID**, ja palaa alkuperäiseen projektiisi.
-    - Jos jaat toisen käyttäjän projektiin: Pyydä häntä kopioimaan Jako-ID ja lähettämään se sinulle.
-2. Etsi kaukalo, jonka haluat jakaa, klikkaa **Jaa** ja liitä kopioitu Jako-ID.
-3. **Valitse oikeudet**:
-    - **Siirrä dataa**: Mahdollistaa lataamisen ja kopioimisen.
-    - **Tee yhteistyötä**: Mahdollistaa lataamisen ja poistamisen.
-    - **Katso**: Vain lukuoikeudet.
-4. Klikkaa **Jaa** viimeistelläksesi prosessin.
-5. Näet jakamasi kaukalot **Jaetut kaukalot** -välilehdellä.
-6. Näet sinulle jaetut kaukalot **Sinulle jaetut kaukalot** -välilehdellä.
+1. **Hanki Share ID**:
+    - Jos jaat toiseen omaan projektiisi: Vaihda kyseiseen projektiin, paina **Copy Share ID** ja palaa sitten alkuperäiseen projektiisi.
+    - Jos jaat toisen käyttäjän projektiin: Pyydä heitä kopioimaan oma Share ID ja lähettämään se sinulle.
+2. Etsi jaettava säiliö, napsauta **Share** ja liitä kopioitu Share ID.
+3. **Valitse käyttöoikeudet**:
+    - **Transfer data**: sallii lataamisen ja kopioinnin.
+    - **Collaborate**: sallii lähettämisen ja poistamisen.
+    - **View**: lukuoikeus.
+4. Viimeistele napsauttamalla **Share**.
+5. Näet jakamasi säiliöt **Buckets you have shared** -välilehdellä.
+6. Näet sinulle jaetut säiliöt **Buckets shared with you** -välilehdellä.
 
-**Huom:** Voit aina poistaa jaon kaukalosta klikkaamalla **Jaa** ja painamalla **Poista**.
+Huom: Voit aina poistaa säiliön jaon napsauttamalla **Share** ja painamalla **Delete**.
 
-=== "Jakamisoikeudet"
-    ![Jakamisoikeudet](img/Allas-UI-share.png){ width=80% }
+=== "Jako-oikeudet"
+    ![Jako-oikeudet](img/Allas-UI-share.png){ width=80% }
 
-=== "Jaetut kaukalot"
-    ![Jaetut kaukalot](img/Allas-UI-shared.png){ width=80% }
+=== "Jakamasi säiliöt"
+    ![Jakamasi säiliöt](img/Allas-UI-shared.png){ width=80% }
 
-## Kaukalon kopiointi {#copying-a-bucket}
+## Säiliön kopioiminen { #copying-a-bucket }
 
-**Käyttötapaus**: Jos haluat säilyttää kaukalossa olevan datan samalla kun suoritat testejä tai muutoksia, voit kopioida sen ja työskennellä kopiolla vaikuttamatta alkuperäiseen.
+**Käyttötapaus**: Jos haluat säilyttää säiliön datan samalla kun teet testejä tai muutoksia, voit kopioida säiliön ja työskennellä kaksoiskappaleen kanssa ilman, että alkuperäinen muuttuu.
 
-Kaukalon kopioimiseksi:
+Kopioi säiliö seuraavasti:
 
-1. Klikkaa **Valinnat**-painiketta kaukalon vieressä.
-2. Valitse **Kopioi**.
+1. Napsauta säiliön vieressä olevaa **Options**-painiketta.
+2. Valitse **Copy**.
 
-## Objektien ja kaukaloiden lataaminen {#downloading-objects-and-buckets}
+## Objektien ja säiliöiden lataaminen { #downloading-objects-and-buckets }
 
 !!! warning ""
-    Kaukaloiden tai kansioiden lataaminen, jotka ovat suurempia kuin **5 GiB**, ei tällä hetkellä ole tuettu. Suurempia latauksia varten käytä mieluummin **[Komentorivityökaluja](./rclone.md)**.
+    Yli **5 GiB** kokoisten säiliöiden tai kansioiden lataaminen ei toistaiseksi ole tuettu. Suurempia latauksia varten harkitse **[Command Line Tools](../accessing_allas.md#commandline-tools)** -työkalujen käyttöä.
 
-
-1. Klikkaa **Lataa**-painiketta kaukalon / objektin vieressä.
+1. Napsauta **Download**-painiketta säiliön/objektin vieressä.
 2. Tiedosto tallennetaan paikalliselle järjestelmällesi.
 
-## Objektien ja kaukaloiden poistaminen {#removing-objects-and-buckets}
+## Objektien ja säiliöiden poistaminen { #removing-objects-and-buckets }
 
-- **Kaukalot**: Tyhjennä ensin kaukalo, sitten klikkaa **Valinnat** > **Poista** kaukalon vieressä.
-- **Objektit**: Klikkaa **Poista** objektin vieressä.
+- **Buckets**: Napsauta säiliön vieressä **Options** > **Delete**.
+- **Folders**: Napsauta kansion vieressä **Delete**.
+- **Objects**: Napsauta objektin vieressä **Delete**.

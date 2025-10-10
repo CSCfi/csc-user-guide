@@ -1,134 +1,138 @@
+[Käyttöoppaan sisällysluettelo :material-arrow-right:](sd-services-toc.md)
 
-# Levyjen ja virtuaalisten työpöytien hallinta {#managing-volumes-and-virtual-desktops}
+# Taltioden ja virtuaalityöpöytien hallinta { #managing-volumes-and-virtual-desktops }
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Hallitse virtuaalisia työpöytiä SD Desktop -palvelussa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## SD Desktop -hallinta {#sd-desktop-management}
+## SD Desktopin hallinta { #sd-desktop-management }
 
-SD Desktop -palvelun avulla voit helposti hallita levyjä sekä keskeyttää, käynnistää uudelleen tai poistaa virtuaalisia työpöytiäsi. Työpöytien hallinta tapahtuu **SD Desktop -hallinta** -sivulla.
+SD Desktop -palvelulla voit hallita taltioita sekä keskeyttää, käynnistää uudelleen tai poistaa virtuaalityöpöytiäsi. Työpöytien hallinta tapahtuu sivulla **SD Desktop management**.
 
-* [Levyn irrottaminen ja liittäminen](#detaching-and-attaching-a-volume)
-* [Virtuaalisen työpöydän keskeyttäminen tai jatkaminen](#pausing-or-unpausing-a-virtual-desktop)
-* [Virtuaalisen työpöydän uudelleenkäynnistys](#rebooting-a-virtual-desktop)
-* [Virtuaalisen työpöydän poistaminen](#deleting-a-virtual-desktop)
+* [Taltion irrottaminen ja liittäminen](#detaching-and-attaching-a-volume)
+* [Virtuaalityöpöydän keskeyttäminen ja jatkaminen](#pausing-or-unpausing-a-virtual-desktop)
+* [Virtuaalityöpöydän käynnistäminen uudelleen](#rebooting-a-virtual-desktop)
+* [Virtuaalityöpöydän poistaminen](#deleting-a-virtual-desktop)
 
-!!! Huom
-    Nämä vaihtoehdot ovat saatavilla vain virtuaalisille työpöydille, jotka on luotu 2. helmikuuta 2023 jälkeen. Ole hyvä ja [ota yhteyttä palvelupisteeseen](../../support/contact.md), jos työskentelet vanhempien työpöytien kanssa.
+!!! Note
+    Nämä toiminnot ovat käytettävissä vain virtuaalityöpöydille, jotka on luotu 2.2.2023 jälkeen. Ota yhteyttä [asiakastukeen](../../support/contact.md), jos työskentelet vanhempien työpöytien kanssa. 
 
-![Siirry SD Desktop -hallintaan.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
+![Siirry SD Desktopin hallintaan.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
-## Levyn irrottaminen ja liittäminen {#detaching-and-attaching-a-volume}
+## Taltion irrottaminen ja liittäminen { #detaching-and-attaching-a-volume }
 
-### Levyn irrottaminen virtuaalisesta työpöydästä {#detach-a-volume-from-your-virtual-desktop}
+Valinnalla **Detach volume** irrotat taltion virtuaalityöpöydästäsi. Taltio ja sen sisältö säilytetään samassa CSC-projektissa, jossa se alun perin luotiin. Voit verrata tätä toimenpidettä kannettavan tietokoneen kiintolevyn irrottamiseen tai liittämiseen. Irrotettu taltio voidaan liittää uuteen SD Desktop -virtuaalikoneeseen käynnistyksen yhteydessä. Näin voit käyttää taltioita datan siirtämiseen vanhasta virtuaalikoneesta uuteen.
 
-**Irrota levy** -vaihtoehdon avulla voit helposti irrottaa levyn virtuaalisesta työpöydästäsi. Levy ja sen sisältö tallennetaan samaan CSC-projektiin, jossa se alun perin luotiin. Tätä toimintoa voi verrata kiintolevyn irrottamiseen tai liittämiseen kannettavaan tietokoneeseen.
+### Ennen irrottamista { #before-detaching }
 
-1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Siirry oikeaan virtuaaliseen työpöytään etusivulla kohdassa **Kaikki yhteydet**.
+Ennen taltion irrottamista on hyvä asettaa tiedostojen ja kansioiden käyttöoikeudet niin, että kaikilla projektin jäsenillä on sekä luku- että kirjoitusoikeus kaikkeen taltion dataan. Tämä johtuu siitä, että uudessa virtuaalikoneessa, jossa taltioita käytetään myöhemmin, konekohtaiset käyttäjätunnusnumerot ja käyttäjätilit voivat poiketa alkuperäisestä virtuaalikoneesta. Käytännössä tämä tarkoittaa, että dataa omistava käyttäjätili saattaa vaihtua.
 
-2. Tallenna ja sulje kaikki levyllä olevat tiedostot tietojen korruptoitumisen estämiseksi ja kirjaudu ulos virtuaalisesta työpöydästä.
+Voit tehdä tämän käyttöoikeusmäärityksen Linux-komennolla `pre-volume-detach`, jonka saat käyttöön asentamalla `CSC Tools` -työkalut [SD-työkalujen asennusohjelmalla](./sd-desktop-software.md#customisation-via-sd-software-installer). Komento korjaa sekä käynnissä olevan käyttäjän oikeudet että tarkistaa, onko muita käyttäjiä, joiden tulisi suorittaa komento myös. Lisäksi komento mahdollistaa kotihakemistosi varmuuskopion tekemisen taltiolle, jotta voit tuoda kotihakemistosi sisällön uuteen virtuaalikoneeseen.
 
-3. Napsauta etusivulla **SD Desktop -hallinta**.
+### Irrota taltio virtuaalityöpöydästäsi { #detach-a-volume-from-your-virtual-desktop }
 
-4. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä ja napsauta samassa rivissä oikealla puolella **Irrota levy**. Vahvista toiminto ilmoituksen kautta.
+1. [Kirjaudu](./sd-desktop-login.md) sisään SD Desktopiin. Avaa oikea virtuaalityöpöytä etusivun **All connections** -kohdasta.
 
-![Irrota levy.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
+2. Tallenna ja sulje kaikki taltiolla olevat tiedostot tietojen vioittumisen estämiseksi ja kirjaudu ulos virtuaalityöpöydältä.
 
-### Levy liittäminen uuteen virtuaaliseen työpöytään {#attach-a-volume-to-a-new-virtual-desktop}
+3. Napsauta etusivulla **SD Desktop management**.
 
-Kun haluat käyttää irrotetun levyn dataa, voit liittää sen uuteen virtuaaliseen työpöytään.
+4. Sivun alaosassa, kohdassa **Available desktops**, valitse oikea virtuaalityöpöytä ja napsauta samassa rivissä oikealla **Detach volume**.
+Vahvista toimenpide ilmoituksen kautta.
 
-1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Napsauta etusivulla **SD Desktop -hallinta**.
+![Irrota taltio.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
 
-2. Sivun alareunassa, kohdassa Työpöydän valinta, valitse tarvittavat vaihtoehdot (CSC-projekti, käyttöjärjestelmä jne.). Noudata näiden [ohjeiden](./sd-desktop-create.md) vaiheita 1-2.
+### Liitä taltio uuteen virtuaalityöpöytään { #attach-a-volume-to-a-new-virtual-desktop }
 
-3. Kohdassa **Lisää ulkoinen levy (valinnainen)** napsauta **Valitse olemassa olevista levyistä**. Ponnahdusvalikko näyttää saatavilla olevat, samassa CSC-projektissa tallennetut levyt. Jätä kentät **Levyn koko** ja **Levyn nimi** tyhjiksi.
+Kun haluat käyttää irrotetulle taltiolle tallennettua dataa, voit liittää sen uuteen virtuaalityöpöytään.
 
-4. Napsauta **Luo työpöytä**.
+1. [Kirjaudu](./sd-desktop-login.md) sisään SD Desktopiin. Napsauta etusivulla **SD Desktop management**.
 
-!!! huom
-    - Irrotettua levyä ei voi liittää olemassa olevaan virtuaaliseen työpöytään, vaan ainoastaan uusiin virtuaalisiin työpöytiin luomisvaiheessa.
-    - Irrotetun levyn sisältöä ei voida käyttää tai poistaa.
-    - Jos haluat poistaa tai käyttää levyn sisältöä, liitä se työpöytäympäristöön samalla käyttöjärjestelmällä työpöydän luomisvaiheessa.
-    - Levyjä ei voi siirtää tai siirtää CSC-projektien välillä turvallisuussyistä.
+2. Sivun alaosassa, kohdassa Desktop selection, valitse tarvittavat asetukset (CSC-projekti, käyttöjärjestelmä jne.). Seuraa vaiheita 1–2 näissä [ohjeissa](./sd-desktop-create.md).
 
-![Liitä levy.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
+3. Kohdassa **Add External Volume (optional)** valitse **Choose from existing volumes**. Pudotusvalikko näyttää samassa CSC-projektissa olevat käytettävissä olevat taltiot. Jätä kentät **Volume size** ja **Volume name** tyhjiksi. 
 
+4. Napsauta **Create desktop**.
 
-## Virtuaalisen työpöydän keskeyttäminen tai jatkaminen {#pausing-or-unpausing-a-virtual-desktop}
+!!! note
+    - Irrotettua taltiota ei voi liittää olemassa olevaan virtuaalityöpöytään, vaan ainoastaan uusiin virtuaalityöpöytiin luontivaiheessa. 
+    - Irrotetun taltion sisältöä ei voi käyttää tai poistaa.
+    - Poistaaksesi tai käyttääksesi taltion sisältöä, liitä se työpöytään, jossa on sama käyttöjärjestelmä, työpöydän luontivaiheessa. 
+    - Taltioita ei voi siirtää tai siirtää CSC-projektien välillä tietoturvasyistä.
 
-Voit keskeyttää virtuaalisen työpöydän. Tällä tavoin työpöytä lakkaa kuluttamasta laskutusyksikköjä.
+![Liitä taltio.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
 
-### Virtuaalisen työpöydän keskeyttäminen {#pausing-a-virtual-desktop}
+## Virtuaalityöpöydän keskeyttäminen ja jatkaminen { #pausing-or-unpausing-a-virtual-desktop }
 
-1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Siirry oikeaan virtuaaliseen työpöytään etusivulla kohdassa **Kaikki yhteydet**.
+Voit keskeyttää virtuaalityöpöydän. Tällöin työpöytä lakkaa kuluttamasta Cloud Billing Units -yksiköitä.
 
-2. Sulje kaikki ohjelmat, tallenna tai sulje kaikki tiedostot ja kirjaudu ulos virtuaalisesta työpöydästä tietojen korruptoitumisen estämiseksi.
+### Virtuaalityöpöydän keskeyttäminen { #pausing-a-virtual-desktop }
 
-3. SD Desktopin etusivulla napsauta **Siirry SD Desktop -hallintaan**.
+1. [Kirjaudu](./sd-desktop-login.md) sisään SD Desktopiin. Avaa oikea virtuaalityöpöytä etusivun **All connections** -kohdasta.
 
-4. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä ja napsauta samassa rivissä oikealla puolella **Keskeytä työpöytä**.
+2. Sulje kaikki ohjelmat, tallenna tai sulje kaikki tiedostot ja kirjaudu ulos virtuaalityöpöydältä tietojen vioittumisen estämiseksi. 
 
-5. Vahvista toiminto ilmoituksen kautta. Työpöydän keskeyttäminen voi kestää jopa 30 minuuttia.
+3. Napsauta SD Desktopin etusivulla **Go To SD Desktop Management**.
 
-!!! huom
-    Et voi käyttää tai irrottaa levyä, kun työpöytä on keskeytetty.
+4. Sivun alaosassa, kohdassa **Available desktops**, valitse oikea virtuaalityöpöytä ja napsauta samassa rivissä oikealla **Pause desktop**. 
+
+5. Vahvista toimenpide ilmoituksen kautta. Työpöydän keskeyttäminen voi kestää jopa 30 minuuttia.
+
+!!! note
+    Et voi käyttää tai irrottaa taltioita, kun työpöytä on keskeytettynä.
 
 ![Keskeytä työpöytä.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Pause_desktop.png)
 
-### Virtuaalisen työpöydän jatkaminen {#resuming-a-virtual-desktop}
+### Virtuaalityöpöydän jatkaminen { #resuming-a-virtual-desktop }
 
-1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. SD Desktopin etusivulla napsauta **Siirry SD Desktop -hallintaan**.
+1. [Kirjaudu](./sd-desktop-login.md) sisään SD Desktopiin. Napsauta SD Desktopin etusivulla **Go To SD Desktop Management**.
 
-2. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä. Napsauta samassa rivissä oikealla **Vaihtoehdot** ja valitse **Jatka**.
+2. Sivun alaosassa, kohdassa **Available desktops**, valitse oikea virtuaalityöpöytä. Napsauta samassa rivissä oikealla **Options** ja valitse **Resume**.
 
-!!! huom
-    Keskeytetyn työpöydän jatkaminen on mahdollista vain aktiivisille CSC-projekteille, joissa on saatavilla laskutusyksiköitä.
+!!! note
+    Keskeytetyn työpöydän jatkaminen on mahdollista vain aktiivisissa CSC-projekteissa, joilla on käytettävissä Cloud Billing Units -yksiköitä.
 
 ![Jatka työpöytää.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
 
+## Virtuaalityöpöydän käynnistäminen uudelleen { #rebooting-a-virtual-desktop }
 
-## Virtuaalisen työpöydän uudelleenkäynnistys {#rebooting-a-virtual-desktop}
+Jos virtuaalityöpöytäsi tai jokin ohjelmisto ei vastaa, voit käynnistää sen uudelleen. Uudelleenkäynnistyksen jälkeen kaikki virtuaalityöpöydälle tallennetut tiedostot ja ohjelmistot ovat edelleen käytettävissä.
 
-Jos virtuaalinen työpöytäsi tai ohjelmistosi lakkaa vastaamasta, voit käynnistää sen uudelleen. Uudelleenkäynnistyksen jälkeen kaikki virtuaaliseen työpöytään tallennetut tiedostot ja ohjelmistot pysyvät saatavilla.
+!!! Note
+    Jos Data Gateway -sovellus lakkaa vastaamasta taustalla käynnissä olevien vanhojen istuntojen vuoksi, työpöytää ei tarvitse käynnistää uudelleen. Voit sen sijaan käyttää päätettä prosessin tunnistamiseen ja pysäyttämiseen. Tarvittaessa ota yhteyttä [CSC Service Deskiin](../../support/contact.md), aihe "Sensitive data."
 
-!!! Huom
-    Jos Data Gateway -sovellus lakkaa vastaamasta taustalla toimivien vanhojen istuntojen vuoksi, sinun ei tarvitse käynnistää työpöytääsi uudelleen. Sen sijaan voit käyttää päätettä prosessin tunnistamiseen ja pysäyttämiseen. Apua saat [CSC-palvelupisteestä](../../support/contact.md), aihekenttä "Sensitiivinen data."
+Työpöydän käynnistäminen uudelleen:
 
-Työpöydän uudelleenkäynnistäminen:
+1. [Kirjaudu](./sd-desktop-login.md) sisään SD Desktopiin. Avaa oikea virtuaalityöpöytä etusivun **All connections** -kohdasta.
 
-1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. Siirry oikeaan virtuaaliseen työpöytään etusivulla kohdassa **Kaikki yhteydet**.
-
-2. Sulje kaikki ohjelmat ja varmista, että tallennat tai suljet kaikki tiedostot tietojen korruptoitumisen estämiseksi.
-
-3. SD Desktopin etusivulla napsauta **Siirry SD Desktop -hallintaan**.
-   
-4. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä. Napsauta samassa rivissä oikealla **Vaihtoehdot** ja valitse **Uudelleenkäynnistä**.
-
-5. Vahvista toiminto ilmoituksen kautta. Työpöydän uudelleenkäynnistäminen voi kestää jopa 30 minuuttia.
+2. Sulje kaikki ohjelmat ja varmista, että tallennat tai suljet kaikki tiedostot tietojen vioittumisen estämiseksi.
+    
+3. Napsauta SD Desktopin etusivulla **Go To SD Desktop Management**.
+    
+4. Sivun alaosassa, kohdassa **Available desktops**, valitse oikea virtuaalityöpöytä. Napsauta samassa rivissä oikealla **Options** ja valitse **Reboot**.
+    
+5. Vahvista toimenpide ilmoituksen kautta. Työpöydän uudelleenkäynnistys voi kestää jopa 30 minuuttia.
 
 ![Käynnistä työpöytä uudelleen.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
 
-## Virtuaalisen työpöydän poistaminen {#deleting-a-virtual-desktop}
+## Virtuaalityöpöydän poistaminen { #deleting-a-virtual-desktop }
 
-Analyysisi päätyttyä voit poistaa virtuaalisen työpöydän, mukaan lukien ulkoisen levyn ja kaikki siihen tallennetut tiedostot. Tätä toimintoa ei voi perua:
+Analyysisi lopuksi voit poistaa virtuaalityöpöytäsi, mukaan lukien ulkoisen taltion ja kaikki sinne tallennetut tiedostot. Tätä toimintoa ei voi perua:
 
-1. [Kirjaudu sisään](./sd-desktop-login.md) SD Desktopiin. SD Desktopin etusivulla napsauta **Siirry SD Desktop -hallintaan**.
+1. [Kirjaudu](./sd-desktop-login.md) sisään SD Desktopiin. Napsauta SD Desktopin etusivulla **Go To SD Desktop Management**.
 
-2. Sivun alareunassa, kohdassa **Saatavilla olevat työpöydät**, valitse oikea virtuaalinen työpöytä. Napsauta samassa rivissä oikealla **Vaihtoehdot** ja valitse **Poista**.
+2. Sivun alaosassa, kohdassa **Available desktops**, valitse oikea virtuaalityöpöytä. Napsauta samassa rivissä **Options** oikealla ja valitse **Delete**.
 
-!!! Huom
-    Ota yhteyttä kaikkiin projektin jäseniin ennen virtuaalisen työpöydän poistamista. Tällä toiminnolla poistat koko työtilan, mukaan lukien kaikki tiedostot, jotka on tallennettu virtuaaliseen työpöytään tai ulkoiseen levyyn muiden projektin jäsenten toimesta.
+!!! Note
+    Ota yhteyttä kaikkiin projektin jäseniin ennen virtuaalityöpöydän poistamista. Tällä toimenpiteellä poistat koko työtilan, mukaan lukien kaikki muut projektin jäsenet virtuaalityöpöydälle tai ulkoiselle taltiolle tallentamat tiedostot. 
 
 ![Poista työpöytä.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Delete_desktop.png)
 
+## Seuraavat vaiheet tässä oppaassa { #your-next-steps-in-this-guide }
 
-## Seuraavat vaiheet tässä oppaassa {#your-next-steps-in-this-guide}
-
-* [Virtuaaliseen työpöytään siirtyminen](./sd-desktop-access-vm.md)
-* [Työskentely työpöydän kanssa: vinkkejä ja perusteita](./sd-desktop-working.md)
-* [Mukauttaminen - ohjelmistot ja työkalut](./sd-desktop-software.md)
-* [Tietojen tuominen](./sd-desktop-access.md)
-* [Tietojen vienti käyttöliittymän kautta](./sd-desktop-export.md)
-* [Ohjelmallinen tiedonvienti](./sd-desktop-export-commandline.md)
-* [Vianetsintä](./sd-desktop-troubleshooting.md)
-
+* [Virtuaalityöpöydälle kirjautuminen](./sd-desktop-access-vm.md)
+* [Työskentely työpöydällä: vinkit ja perusasiat](./sd-desktop-working.md)
+* [Mukauttaminen – ohjelmistot ja työkalut](./sd-desktop-software.md)
+* [Datan tuonti](./sd-desktop-access.md)
+* [Datan vienti käyttöliittymän kautta](./sd-desktop-export.md)
+* [Datan vienti ohjelmallisesti](./sd-desktop-export-commandline.md)
+* [Vianmääritys](./sd-desktop-troubleshooting.md)

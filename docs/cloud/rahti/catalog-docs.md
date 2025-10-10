@@ -1,22 +1,34 @@
+# Rahti-luettelo { #rahti-catalog }
 
-# Rahti-katalogi
+Rahti tarjoaa heti käyttövalmiina sovellusten ja sovelluskomponenttien (kuten tietokantojen) luettelon. Tämän lisäksi CSC lisää luetteloon valikoidun joukon sovelluksia. Nämä sovellukset toimitetaan ”sellaisinaan”. Seuraamme ylävirran toimittajan Redhatin julkaisemia päivityksiä. Emme pysty päivittämään niitä oma-aloitteisesti. Jos tarvitset apua sovelluksen uudemman version käyttöönotossa, ota yhteyttä Service Deskiin osoitteessa <servicedesk@csc.fi>. Jokainen pyyntö käsitellään tapauskohtaisesti.
 
-Rahti tarjoaa valmiina sovellusten ja sovellusten komponenttien (kuten tietokantojen) katalogin. Lisäksi CSC lisää valikoidun ryhmän sovelluksia katalogiin. Nämä sovellukset toimitetaan "sellaisina kuin ne ovat". Seuraamme Redhatin, ylälähteen toimittajan, tarjoamia päivityksiä. Emme pysty päivittämään niitä itsenäisesti ennaltaehkäisevästi. Jos tarvitset apua sovelluksen uudemman version käyttöönottamiseksi, ole hyvä ja ota yhteyttä Service Deskiin osoitteessa <servicedesk@csc.fi>. Jokainen pyyntö käsitellään yksitellen.
+Lisätietoja: virallinen GitHub-repositorio [oletusarvoisille OpenShift Helm -kaavioille](https://github.com/openshift-helm-charts/charts)
 
-Lisätietoja saat pääsemällä [oletus Openshift Helm Chartien GitHub-repositorioon](https://github.com/openshift-helm-charts/charts)
+Mallipohjista löydät GitHub-repositorion täältä: [OpenShiftin oletusmallit](https://github.com/sclorg/)
 
-Mallipohjista löydät GitHub-resitorion täältä: [Openshift oletusmallipohjat](https://github.com/sclorg/)
+Voit tutustua myös [Red Hat Ecosystem Catalogiin](https://catalog.redhat.com/). Tämä luettelo sisältää uusimmat konttikuvajulkaisut.  
+Löydät ohjeet, kuinka tuoda kuvat omaan nimiavaruuteesi/Rahti-projektiisi.
 
-Voit myös tarkastella [RedHat-ekosysteemikatalogia](https://catalog.redhat.com/). Tämä katalogi sisältää uusimmat kuvajulkaisut.  
-Löydät ohjeet siitä, miten kuvat tuodaan nimialueeseesi/Rahti-projektiisi.
+## Miten luetteloon pääsee WebUI:n avulla { #how-to-access-the-catalog-using-the-webui }
 
-## Kuinka käyttää katalogia WebUI:n avulla {#how-to-access-the-catalog-using-the-webui}
+!!! warning "Rahti Helm -kaaviot"
 
-Voit selata katalogia verkkokäyttöliittymästä kirjauduttuasi (1) Rahtiin ja sitten (2) siirtymällä kehittäjän näkymään ja napsauttamalla `+Lisää`.
+    Alkaen 29. syyskuuta 2025 Bitnami muuttaa katalogiaan koskevaa käytäntöä. Lue lisää [täältä](https://github.com/bitnami/containers/issues/83267)  
+    - Nykyiset kuvat siirretään [Bitnami Legacy -repositorioon](https://hub.docker.com/u/bitnamilegacy) eikä niitä enää päivitetä.  
+    - Jotkin kuvat ovat edelleen saatavilla [Bitnami Secure Images](https://hub.docker.com/u/bitnamisecure) -palvelussa, mutta vain `latest`-tunnisteella.  
+    - Jos haluat jatkossakin saada kuvia uusimmilla päivityksillä ja käyttää eri tunnisteita, sinun on tilattava [Bitnami Secure Images](https://www.arrow.com/globalecs/uk/products/bitnami-secure-images/) -palvelun täysi versio  
+        
+    Jotkin Helm-kaavioistamme käyttivät `Bitnami`-kuvia. Helm-kaaviomme on nyt tarkoitettu testausta/kehitystä varten, koska ne käyttävät `bitnamilegacy`- ja/tai `bitnamisecure`-docker-repositorioita.  
+        
+    Bitnami-projekti julkaisee kuitenkin edelleen lähdekoodinsa osoitteessa [bitnami/containers](https://github.com/bitnami/containers) Apache 2 -lisenssillä. Voit rakentaa kuvan ja sitten lähettää (push) sen CSC-projektiisi.
+    
+    Lisätietoja kuvien lähettämisestä (push) löydät [täältä](./images/Using_Rahti_integrated_registry.md)
 
-![+Lisää](../img/rahti-catalog.png)
+Voit selata luetteloa web-käyttöliittymästä, kun (1) kirjaudut Rahtiin ja sitten (2) vaihdat Developer-näkymään ja napsautat `+Add`.
 
-!!! Huomautus "Rahti 1 -mallit Rahtissa"
-    Useimmat aiemmat mallipohjat on siirretty Rahtin Helm Charteiksi. Jos haluat käyttää Rahti 1 -mallia Rahtissa, löydät repositorion tästä [linkistä](https://github.com/CSCfi/rahti-1-templates).  
-    CSC ei enää päivitä näitä vanhoja mallipohjia, ainoastaan Helm Charteja.
+![+Add](../img/rahti-catalog.png)
 
+
+!!! Note "Rahti 1 -mallipohjat Rahtissa"
+    Useimmat aiemmista mallipohjista on siirretty Helm-kaavioiksi Rahtia varten. Jos haluat käyttää Rahti 1 -mallipohjaa Rahtissa, löydät repositorion tästä [linkistä](https://github.com/CSCfi/rahti-1-templates).  
+    CSC ei enää päivitä näitä vanhoja mallipohjia, ainoastaan Helm-kaavioita.

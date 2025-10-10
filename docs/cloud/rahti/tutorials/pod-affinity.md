@@ -1,15 +1,15 @@
-!!! warning "Keskitason varoitus"
-Tämä opas käyttää OpenShift CLI -työkalua [oc](../usage/cli.md)
+!!! warning "Keskitaso"
+    Tässä opetusohjelmassa käytetään OpenShiftin komentorivityökalua [oc](../usage/cli.md)
 
-Kubernetesiin liittyvien ympäristöjen tuntemusta vaaditaan
+    Kubernetes-ympäristön tuntemus on edellytys
 
-# Podin (anti)yhteensopivuus {#pod-antiaffinity}
+# Podien (anti)affiniteetti { #pod-anti-affinity }
 
-Pod-yhteensopivuus ja antiaffiniteetti mahdollistavat sen säätämisen, missä nodeissa Podisi ajoitetaan, perustuen niissä nodeissa jo ajossa olevien Podien labeleihin. Tätä yleistä ideaa voidaan käyttää myös valitsemaan (tai välttämään) tiettyjä nodeja, joilla on tiettyjä laitteistokonfiguraatioita kuten GPU.
+Pod-affiniteetin ja -anti-affiniteetin avulla voit rajoittaa, mille solmuille podit ajoitetaan, perustuen kyseisellä solmulla jo ajossa olevien podien tunnisteisiin. Tätä periaatetta voi käyttää myös tiettyjen solmujen valitsemiseen (tai välttämiseen), esimerkiksi kun ne sisältävät tietynlaisen laitteistokokoonpanon, kuten GPU:n.
 
-Tämä on hyödyllistä, koska joskus (yhteensopivuus) on hyvä varmistaa, että kaksi Podia jakavat saman liitetyn levyn ja välttää verkon synkronointiongelmia, tai päinvastoin, (antiaffiniteetti) varmistaa, että kaksi Podia eivät jaa samaa palvelinta ja siten lisätä sovelluksen käytettävyyttä.
+Tämä on hyödyllistä, koska joskus (affiniteetti) halutaan varmistaa, että kaksi podia käyttää samaa liitettyä taltiota ja välttää verkon synkronointiongelmia, tai päinvastoin (anti-affiniteetti) varmistaa, että kaksi podia ei jaa samaa palvelinta ja näin parantaa sovelluksen käytettävyyttä.
 
-Tässä esimerkissä haluamme, että `wes-deployment`-nimisen sovelluksen Podit ajetaan samassa nodessa kuin `celery-worker`-nimiset Podit, jotta ne voivat molemmat liittää saman levytallennustilan (joka voidaan liittää vain yhdelle fyysiselle nodelle).
+Tässä käyttöönottoesimerkissä haluamme, että `wes-deployment`in podit ajetaan samassa solmussa kuin `celery-worker`in podit, jotta ne voivat liittää saman tallennustaltion (joka voidaan liittää vain yhteen fyysiseen solmuun).
 
 ```diff
 diff --git a/charts/wes/templates/wes/wes-deployment.yaml b/charts/wes/templates/wes/wes-deployment.yaml
@@ -33,9 +33,9 @@ index 93ca230..e64349b 100644
        initContainers:
 ```
 
-`affinity`-lohko tulee sijoittaa `spec`-kohdan alle. Käyttääksesi tätä toisessa sovelluksessa, sinun tarvitsee muuttaa vain `value` ja ehkä `key`, jotta se vastaa haluamasi Podin **Label**-paria, johon haluat yhteensopivuutta. Podin **Label**-tiedot ovat nähtävissä komentorivillä tai verkkokäyttöliittymässä.
+`affinity`-lohkon tulee sijaita `spec`-osion alla. Jos tätä sovelletaan toiseen käyttöönottoon, tarvitsee muuttaa vain `value` ja mahdollisesti `key` siten, että ne vastaavat sitä `key`- ja `value`-paria, joka kuuluu siihen podin **tunnisteeseen**, johon halutaan affiniteetti. Podin **tunnisteet** on mahdollista nähdä komentoriviltä tai verkkokäyttöliittymästä.
 
-![Labelit](../../img/celery-worker.png)
+![Tunnisteet](../../img/celery-worker.png)
 
 Ja komentoriviltä:
 
@@ -45,14 +45,46 @@ Name:           celery-worker-6777488df4-s9tc7
 Namespace:      wes
 Priority:       0
 Node:           rahti-comp-io-s25-d/192.168.54.13
-Start Time:     Ke, 17 Tammi 2024 14:55:57 +0200
+Start Time:     Wed, 17 Jan 2024 14:55:57 +0200
 Labels:         app=celery-worker
                 deployment=celery-worker-57
 (...)
 ```
 
-Kun `affinity`-lohko on lisätty tähän käyttöönottotiedostoon, ajastusalgoritmi tulee (uudelleen)käynnistämään `wes-deployment`-sovelluksen Podit samaan nodeen, jossa `celery-worker` on ajettu. Koska käytetty politiikka on `requiredDuringSchedulingIgnoredDuringExecution`, jos valitussa nodessa ei ole tilaa, sovelluksen käyttöönotto ei onnistu. Toinen politiikka on `preferredDuringSchedulingIgnoredDuringExecution`, mikä tarkoittaa, että ajastus ei epäonnistu, jos tilaa ei ole valitussa nodessa, sillä ne ajoitetaan eri nodeen.
+Kun tähän käyttöönottoon lisätään `affinity`-lohko, ajoitin käynnistää (uudelleen) `wes-deployment`in podit samalle solmulle, jossa `celery-worker` on käynnissä. Koska käytössä oleva käytäntö on `requiredDuringSchedulingIgnoredDuringExecution`, jos valitussa solmussa ei ole tilaa, käyttöönotto ei onnistu. Toinen käytäntö on `preferredDuringSchedulingIgnoredDuringExecution`, mikä tarkoittaa, että ajoitus ei epäonnistu, vaikka valitussa solmussa ei olisi tilaa, vaan podit ajoitetaan toiselle solmulle.
 
-Lisätietoja ja esimerkkejä löytyy:
+Podien anti-affiniteetin osalta syntaksi on hieman erilainen. Tässä esimerkki:
+
+```diff
+diff --git a/charts/wes/templates/wes/wes-deployment.yaml b/charts/wes/templates/wes/wes-deployment.yaml
+index 93ca230..e64349b 100644
+--- a/charts/wes/templates/wes/wes-deployment.yaml
++++ b/charts/wes/templates/wes/wes-deployment.yaml
+@@ -12,6 +12,16 @@ spec:
+       labels:
+         app: {{ .Values.wes.appName }}
+     spec:
++      affinity:
++        podAntiAffinity:
++          requiredDuringSchedulingIgnoredDuringExecution:
++          - weight: 100
++            podAffinityTerm:
++              labelSelector:
++                matchExpressions:
++                - key: app
++                  operator: In
++                  values:
++                  - celery-worker
++            topologyKey: "kubernetes.io/hostname"
+       initContainers:
+```
+
+Anti-affiniteettia varten tarvitaan kaksi uutta avainta:
+
+- `weight` (alue 1–100): Ajoitin suosii podien ajoittamista solmuihin, jotka täyttävät anti-affiniteetin ehdot. Eniten suosittu solmu on se, jonka painojen summa on suurin; toisin sanoen jokaiselle solmulle, joka täyttää kaikki ajoitusvaatimukset (resurssipyynnöt, requiredDuringScheduling-anti-affiniteetin ehdot jne.), lasketaan summa käymällä tämän kentän alkiot läpi ja lisäämällä summaan kentän "weight", jos solmussa on podeja, jotka vastaavat kyseistä podAffinityTerm-arvoa; suurimman summan saaneet solmut ovat ensisijaisia. Kaikkien osuneiden WeightedPodAffinityTerm-kenttien painot lasketaan solmukohtaisesti yhteen, jotta löydetään ensisijaiset solmut.
+
+- `podAffinityTerm`: Määrittelee joukon podeja, joiden kanssa tämän podin ei tule sijaita samassa paikassa (anti-affiniteetti), missä samasijainti tarkoittaa ajamista solmussa, jonka tunnisteen avaimen <topologyKey> arvo vastaa minkä tahansa kyseisen podijoukon podin ajosolmun arvoa.
+
+Lisätietoja ja lisää esimerkkejä löydät täältä:
 
 <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity>

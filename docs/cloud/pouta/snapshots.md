@@ -1,61 +1,62 @@
-
-# Tilannevedokset {#snapshots}
+# Tilannevedokset { #snapshots }
 
 Sisällysluettelo
 
 [TOC]
 
-Tässä artikkelissa kerrotaan, miten käytetään [tilannevedoksia](https://docs.openstack.org/arch-design/common/glossary.html#term-snapshot){target="_blank"} tallentamaan ja säilyttämään Pouta-virtuaalikoneen tiedostojärjestelmän tilaa.
+Tässä artikkelissa kerrotaan, miten [tilannevedoksia](https://docs.openstack.org/arch-design/common/glossary.html#term-snapshot){target="_blank"} käytetään tallentamaan ja säilyttämään Pouta‑virtuaalikoneen tiedostojärjestelmän tila.
 
-## Tilannevedostyypit {#types-of-snapshots}
+## Tilannevedostyypit { #types-of-snapshots }
 
-OpenStackissa käytetään kahta tilannevedostyyppiä: [kuva](https://docs.openstack.org/arch-design/common/glossary.html#image){target="_blank"} (instanssi) -tilannevedokset ja [levy](https://docs.openstack.org/arch-design/common/glossary.html#term-volume){target="_blank"} tilannevedokset. Molempia tilannevedostyyppejä voidaan hyödyntää uutta instanssia luotaessa. Kuvatilannevedokset ovat yleisempiä.
+OpenStackissa on kaksi tilannevedostyyppiä: [levykuva](https://docs.openstack.org/arch-design/common/glossary.html#image){target="_blank"} (instanssi)tilannevedokset ja [taltio](https://docs.openstack.org/arch-design/common/glossary.html#term-volume){target="_blank"}tilannevedokset. Molempia tilannevedostyyppejä voidaan käyttää uutta instanssia luotaessa. Levykuvatilannevedokset ovat yleisempiä.
 
-### Instanssi-tilannevedos {#instance-snapshot}
+### Instanssin tilannevedos { #instance-snapshot }
 
-#### Instanssi-tilannevedos verkkokäyttöliittymästä {#instance-snapshot-from-the-web-interface}
+#### Instanssin tilannevedos verkkokäyttöliittymästä { #instance-snapshot-from-the-web-interface }
 
-Valitse "Instanssit" -välilehti "Laskenta" -kategoriasta vasemman puolen valikosta (**1**). Valitse listalta virtuaalikone, josta haluat ottaa tilannevedoksen, ja paina "Luo tilannevedos" -painiketta "Toiminnot" -sarakkeessa (**2**).
+Valitse vasemman reunan valikosta 'Compute'‑osion 'Instances'‑välilehti (**1**).
+Valitse listasta virtuaalikone, josta haluat ottaa tilannevedoksen, ja napsauta
+'Actions'‑sarakkeessa painiketta 'Create Snapshot' (**2**).
 
-![Luodaan tilannevedos verkkokäyttöliittymästä.](../img/cloud_pouta_vm_snapshot_1.svg)
+![Tilannevedoksen luonti verkkokäyttöliittymästä.](../img/cloud_pouta_vm_snapshot_1.svg)
 
-Anna tilannevedokselle kuvaava nimi (**3**) ja klikkaa "Luo tilannevedos" (**4**) aloittaaksesi prosessin.
+Anna tilannevedokselle kuvaava nimi (**3**) ja käynnistä prosessi napsauttamalla 'Create Snapshot' (**4**).
 
 ![Tilannevedoksen nimeäminen ja luonnin käynnistäminen.](../img/cloud_pouta_vm_snapshot_2.svg)
 
-Voit päästä käsiksi tilannevedosten listaan "Kuvat" -välilehdeltä.
+Pääset tilannevedosluetteloon 'Images'‑välilehdeltä.
 
-#### Instanssi-tilannevedos komentoriviltä {#instance-snapshot-from-the-cli}
+#### Instanssin tilannevedos komentoriviltä { #instance-snapshot-from-the-cli }
 
 !!! info
 
-    Varmista, että olet ladannut OpenStackin RC-tiedoston ja pystyt kommunikoimaan OpenStack-ympäristösi kanssa.
+    Varmista, että olet lähteyttänyt OpenStackin RC‑tiedoston ja että yhteys OpenStack‑ympäristöösi toimii.
 
-Käytä seuraavaa [komentoa](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server.html#server-list){target="_blank"} tarkistaaksesi saatavilla olevien instanssien listan:
+Tarkista käytettävissä olevat instanssit seuraavalla [komennolla](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server.html#server-list){target="_blank"}:
 
-```bash
+```
 $ openstack server list
 ```
 
-Tuloksen pitäisi näyttää suunnilleen tältä:
+Tulos näyttää suunnilleen tältä:
 
-```bash
+```
 +--------------------------------------+--------------------+--------+---------------------------------------------+--------------+----------------+
-| ID                                   | Nimi               | Tila   | Verkot                                      | Kuva         | Flavor         |
+| ID                                   | Name               | Status | Networks                                    | Image        | Flavor         |
 +--------------------------------------+--------------------+--------+---------------------------------------------+--------------+----------------+
 | db2214e7-2175-4a82-9e3b-0a1892a6066a | important-linux-vm | ACTIVE | project_2007938=192.168.1.10, 86.50.230.174 | Ubuntu-22.04 | standard.small |
 +--------------------------------------+--------------------+--------+---------------------------------------------+--------------+----------------+
 ```
 
-Valitse haluttu instanssi joko ID:n tai nimen perusteella ja anna seuraava [komento](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server-image.html){target="_blank"}:
+Valitse haluamasi instanssi joko tunnisteen (ID) tai nimen perusteella ja suorita seuraava [komento](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server-image.html){target="_blank"}:
 
-```bash
+```
 $ openstack server image create --name important-linux-vm-snapshot-20320912-cli important-linux-vm
 ```
 
-Tässä käytetään palvelininstanssin nimeä ID:n sijaan. Tilannevedoksen nimi voidaan määrittää `--name`-parametrilla.
+Tässä käytettiin instanssin nimeä tunnisteen sijaan. Tilannevedoksen nimen voi määrittää `--name`‑parametrilla. 
 
-```bash
+```
 +------------+-------------------------------------------------------------------------------------------------------------------------------+
 | Field      |                                                                                                                               |
 +------------+-------------------------------------------------------------------------------------------------------------------------------+
@@ -76,55 +77,59 @@ Tässä käytetään palvelininstanssin nimeä ID:n sijaan. Tilannevedoksen nimi
 +------------+-------------------------------------------------------------------------------------------------------------------------------+
 ```
 
-Voit käyttää seuraavaa [komentoa](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/image-v2.html#image-list){target="_blank"} varmistaaksesi, että tilannevedos on onnistuneesti otettu:
+Voit varmistaa tilannevedoksen onnistuneen luonnin seuraavalla [komennolla](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/image-v2.html#image-list){target="_blank"}:
 
-```bash
+```
 $ openstack image list
 ```
 
-Komennon tuloksen pitäisi näyttää tältä:
+Komennon tulosteen pitäisi näyttää suunnilleen tältä:
 
-```bash
+```
 +--------------------------------------+------------------------------------------+--------+
 | ID                                   | Name                                     | Status |
 +--------------------------------------+------------------------------------------+--------+
-| 5c057d87-5353-4f3c-a7a9-bffbbb99da4c | CentOS-7                                 | active |
-| 1585f871-f9c3-47ec-a3ff-1b80bce0b0eb | CentOS-7-Cuda                            | active |
-| 500e4de4-23fb-4cc1-bac7-83c43a8cb7eb | CentOS-8-Stream                          | active |
-| bef0ff50-1aaa-48af-95b2-910bf1da7dc9 | Ubuntu-18.04                             | active |
-| 5842526b-c835-4ad7-b572-4a8fe87752d1 | Ubuntu-20.04                             | active |
-| 41c7cd7e-8e10-4ced-a89e-41f159fe49fd | Ubuntu-22.04                             | active |
-| 3a9aad67-0f9c-4493-b574-17fe28d40afc | cirros                                   | active |
+| 143ccb94-50cd-4030-8d6b-d749e91ca52f | AlmaLinux-8                              | active |
+| 45bbe30b-2168-4155-8fdf-85450a5cbdcf | AlmaLinux-9                              | active |
+| f35fafee-bd55-412d-9125-01e7216918de | CentOS-9-Stream                          | active |
+| 020ec67a-4fdc-4131-8442-29f69a5e82f9 | Ubuntu-18.04                             | active |
+| 75457f65-fbe2-4159-875f-fd053bba66b0 | Ubuntu-20.04                             | active |
+| ce9b602b-7d46-4255-bca0-038f26e99db4 | Ubuntu-22.04                             | active |
+| 7ccf2de3-2953-4d66-8ace-f6ed5a0cb092 | Ubuntu-24.04                             | active |
+| ec5efcc0-689c-45a3-bffc-2439218adb00 | cirros                                   | active |
 | 14b2de4d-a5de-453a-bee0-f0b506198760 | important-linux-vm-snapshot-20320912     | active |
 | 5b92fd8b-d7e2-471c-bfbc-27c3041e54f7 | important-linux-vm-snapshot-20320912-cli | active |
 +--------------------------------------+------------------------------------------+--------+
 ```
 
-Kuvatilannevedokset tallentavat tietyn instanssin juurilevyn tilan ja niitä voidaan tyypillisesti käyttää käynnistettävinä kuvina.
+Levykuvatilannevedokset sisältävät kyseisen instanssin juurilevyn tilan, ja
+niitä voidaan yleensä käyttää käynnistettävinä levykuvina.
 
-!!! varoitus
+!!! warning
 
-    Mahdollista [väliaikaislevyä](ephemeral-storage.md) ei sisällytetä tilannevedokseen.
+    Mahdollinen [väliaikaislevy](ephemeral-storage.md) ei sisälly tilannevedokseen.
 
-#### Tilannevedoksen käynnistäminen verkkokäyttöliittymästä {#launching-a-snapshot-from-the-web-interface}
+#### Tilannevedoksen käynnistäminen verkkokäyttöliittymästä { #launching-a-snapshot-from-the-web-interface }
 
-Kuvatilannevedoksia käytetään kuten mitä tahansa muuta kuvaa. Voit käynnistää yhden "Kuvat" näkymästä tai "Instanssit" näkymästä ("Käynnistä instanssi" -painike).
+Levykuvatilannevedoksia käytetään kuten muitakin levykuvia. Voit käynnistää sellaisen
+'Images'‑näkymästä tai 'Instances'‑näkymästä ('Launch Instance' ‑painike).
 
-Anna uuden instanssin perusasetukset (**1**). Valitse "Käynnistä tilannevedoksesta" (**2**) instanssin käynnistyslähteeksi ja valitse "Tilannevedosinstanssi" valikosta tilannevedos, jonka haluat käynnistää (**3**).
+Anna uuden instanssin perustiedot (**1**). Valitse käynnistyslähteeksi 'Boot from snapshot'
+(**2**) ja valitse tilannevedosten listasta (**3**) se, jonka haluat käynnistää.
 
 ![Käynnistä tilannevedokseen perustuva instanssi.](../img/cloud_pouta_vm_snapshot_3.svg)
 
-#### Tilannevedoksen käynnistäminen komentoriviltä {#launching-a-snapshot-from-the-cli}
+#### Tilannevedoksen käynnistäminen komentoriviltä { #launching-a-snapshot-from-the-cli }
 
-Tilannevedos voidaan myös käynnistää komentoriviltä käyttäen seuraavaa [komentoa](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server.html#server-create){target="_blank"}:
+Tilannevedoksen voi käynnistää myös komentoriviltä seuraavalla [komennolla](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server.html#server-create){target="_blank"}:
 
-```bash
+```
 $ openstack server create --flavor standard.small --image important-linux-vm-snapshot-20320912 important-linux-vm-RECOVERED
 ```
 
-Komennon viimeinen parametri on uuden instanssin nimi. Jälleen kerran, tuloksen tulisi olla samankaltainen kuin alla:
+Komennon viimeinen parametri on uuden instanssin nimi. Tulosteen pitäisi jälleen olla samankaltainen kuin alla:
 
-```bash
+```
 +-----------------------------+-----------------------------------------------------------------------------+
 | Field                       | Value                                                                       |
 +-----------------------------+-----------------------------------------------------------------------------+
@@ -158,197 +163,216 @@ Komennon viimeinen parametri on uuden instanssin nimi. Jälleen kerran, tuloksen
 +-----------------------------+-----------------------------------------------------------------------------+
 ```
 
-Kun olet käynnistänyt uuden instanssin tilannevedoksesta (olipa kyseessä verkkokäyttöliittymä tai CLI), "Instanssit" -näkymä näyttää tältä.
+Kun uusi instanssi on käynnistetty tilannevedoksesta (verkkokäyttöliittymästä tai komentoriviltä),
+'Instances'‑näkymä näyttää tältä.
 
 ![Käynnissä olevat instanssit](../img/cloud_pouta_vm_snapshot_4.svg)
 
-Muutamia seikkoja:
+Huomioitavaa:
 
- * Uusi instanssi saa oman IP-osoitteen, jos DHCP:tä käytetään (**1**).
- * Vaikka SSH-avainparia ei näytetä uuden instanssin Avainpari-sarakkeessa (**2**), se on edelleen olemassa, koska tilannevedos on tarkka kopio vanhasta instanssista.
- * Mitään sidontoja, kuten julkiseen IP-osoitteeseen, ei automaattisesti muuteta vanhasta instanssista uuteen (**3**).
- * Mitään levykarttoja ei myöskään automaattisesti konfiguroida uudelleen, jos haluat käyttää niitä uuden instanssin kanssa.
+ * Uusi instanssi saa oman IP‑osoitteensa, jos DHCP on käytössä (**1**).
+ * Vaikka SSH‑avainparia ei näytetä uuden instanssin Key Pair ‑sarakkeessa (**2**), se on silti olemassa, koska tilannevedos on täsmällinen kopio vanhasta instanssista.
+ * Sidoksia (esim. julkiseen IP‑osoitteeseen) ei siirretä automaattisesti vanhasta instanssista uuteen (**3**).
+ * Myös mahdolliset taltiokytkennät on määritettävä uudelleen, jos haluat käyttää niitä uuden instanssin kanssa.
 
-#### Instanssin tilannevedoksen lataaminen {#downloading-an-instance-snapshot}
+#### Instanssin tilannevedoksen lataaminen { #downloading-an-instance-snapshot }
 
-On mahdollista ladata kuva, mukaan lukien kuvatilannevedokset, mutta vain komentoriviltä. Vaiheet ovat seuraavat:
+Levykuvan, mukaan lukien levykuvatilannevedokset, voi ladata vain komentoriviltä. Toimi näin:
 
 !!! Info
-    Jotta voit suorittaa nämä komennot, sinun täytyy [asentaa openstack client](install-client.md) ja [kirjautua Poutaan](install-client.md#configure-your-terminal-environment-for-openstack).
+    Näiden komentojen suorittaminen edellyttää, että [asennat OpenStack‑asiakasohjelman](install-client.md) ja [kirjaudut Poutaan](install-client.md#configure-your-terminal-environment-for-openstack).
 
-1. Listaa kaikki kuvaprojektin kuvat:
+2. Listaa projektin kaikki levykuvat:
 
     ```sh
     $ openstack image list
 
     +--------------------------------------+------------------------------------------+--------+
-    | ID                                   | Nimi                                     | Tila   |
+    | ID                                   | Name                                     | Status |
     +--------------------------------------+------------------------------------------+--------+
-    | 5c057d87-5353-4f3c-a7a9-bffbbb99da4c | CentOS-7                                 | aktiivinen |
-    | 1585f871-f9c3-47ec-a3ff-1b80bce0b0eb | CentOS-7-Cuda                            | aktiivinen |
-    | 500e4de4-23fb-4cc1-bac7-83c43a8cb7eb | CentOS-8-Stream                          | aktiivinen |
-    | bef0ff50-1aaa-48af-95b2-910bf1da7dc9 | Ubuntu-18.04                             | aktiivinen |
-    | 5842526b-c835-4ad7-b572-4a8fe87752d1 | Ubuntu-20.04                             | aktiivinen |
-    | 41c7cd7e-8e10-4ced-a89e-41f159fe49fd | Ubuntu-22.04                             | aktiivinen |
-    | 3a9aad67-0f9c-4493-b574-17fe28d40afc | cirros                                   | aktiivinen |
-    | 14b2de4d-a5de-453a-bee0-f0b506198760 | important-linux-vm-snapshot-20320912     | aktiivinen |
-    | 5b92fd8b-d7e2-471c-bfbc-27c3041e54f7 | important-linux-vm-snapshot-20320912-cli | aktiivinen |
+    | 143ccb94-50cd-4030-8d6b-d749e91ca52f | AlmaLinux-8                              | active |
+    | 45bbe30b-2168-4155-8fdf-85450a5cbdcf | AlmaLinux-9                              | active |
+    | f35fafee-bd55-412d-9125-01e7216918de | CentOS-9-Stream                          | active |
+    | 020ec67a-4fdc-4131-8442-29f69a5e82f9 | Ubuntu-18.04                             | active |
+    | 75457f65-fbe2-4159-875f-fd053bba66b0 | Ubuntu-20.04                             | active |
+    | ce9b602b-7d46-4255-bca0-038f26e99db4 | Ubuntu-22.04                             | active |
+    | 7ccf2de3-2953-4d66-8ace-f6ed5a0cb092 | Ubuntu-24.04                             | active |
+    | ec5efcc0-689c-45a3-bffc-2439218adb00 | cirros                                   | active |
+    | 14b2de4d-a5de-453a-bee0-f0b506198760 | important-linux-vm-snapshot-20320912     | active |
+    | 5b92fd8b-d7e2-471c-bfbc-27c3041e54f7 | important-linux-vm-snapshot-20320912-cli | active |
     +--------------------------------------+------------------------------------------+--------+
     ```
 
-2. Kopioi haluamasi kuvan (tilannevedoksen) ID ja suorita `openstack image save` -komento, kuten tämä:
+1. Kopioi ladattavan levykuvan (tilannevedoksen) tunniste (ID) ja aja `openstack image save` ‑komento, esim. näin:
 
     ```sh
     openstack image save 14b2de4d-a5de-453a-bee0-f0b506198760 >./important-linux-vm-snapshot-20320912.raw
     ```
 
-3. Muutaman minuutin kuluttua saat tiedoston, jossa on kuva (tilannevedos).
+1. Muutaman minuutin kuluttua saat tiedoston, joka sisältää levykuvan (tilannevedoksen).
 
-### Levytilannevedokset {#volume-snapshots}
+### Taltiotilannevedokset { #volume-snapshots }
 
-#### Levytilannevedos verkkokäyttöliittymästä {#volume-snapshot-from-the-web-interface}
+#### Taltiotilannevedos verkkokäyttöliittymästä { #volume-snapshot-from-the-web-interface }
 
-Valitse "Levy" -välilehti Levyjen alta vasemman puolen valikosta (**1**). Valitse listalta levy, josta haluat ottaa tilannevedoksen, ja laajenna "Toiminnot" -valikko. Valitse listasta "Luo tilannevedos" -vaihtoehto (**2**).
+Valitse vasemman reunan valikosta kohdasta 'Volumes' 'Volumes'‑välilehti (**1**). Valitse listasta taltio,
+josta haluat ottaa tilannevedoksen, ja avaa 'Actions'‑valikko.
+Valitse listasta 'Create Snapshot' (**2**).
 
-![Levytilannevedos verkkokäyttöliittymästä](../img/cloud_pouta_vm_snapshot_5.svg)
+![Taltiotilannevedos verkkokäyttöliittymästä](../img/cloud_pouta_vm_snapshot_5.svg)
 
-Anna tilannevedokselle kuvaava nimi (**3**) ja paina "Luo levytilannevedos" (**4**) aloittaaksesi prosessin.
+Anna tilannevedokselle kuvaava nimi (**3**) ja käynnistä prosessi napsauttamalla 'Create Volume Snapshot' (**4**).
 
 ![Tilannevedoksen nimeäminen ja luonnin käynnistäminen.](../img/cloud_pouta_vm_snapshot_6.svg)
 
-#### Levytilannevedos komentoriviltä {#volume-snapshot-from-the-cli}
+#### Taltiotilannevedos komentoriviltä { #volume-snapshot-from-the-cli }
 
-Käytä seuraavaa [komentoa](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/volume.html#volume-list){target="_blank"} tarkistaaksesi saatavilla olevat levyt:
+Tarkista käytettävissä olevat taltiot seuraavalla [komennolla](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/volume.html#volume-list){target="_blank"}:
 
-```bash
+```
 $ openstack volume list
 ```
 
-Tuloksen pitäisi näyttää suunnilleen tältä:
+Tulos näyttää suunnilleen tältä:
 
-```bash
+```
 +--------------------------------------+---------------+-----------+------+-------------+
-| ID                                   | Nimi          | Tila      | Koko | Liitetty    |
+| ID                                   | Name          | Status    | Size | Attached to |
 +--------------------------------------+---------------+-----------+------+-------------+
-| 27698e6c-92e2-41b6-bd6f-667a17495c3d | backup-volume | saatavilla |  100 |             |
+| 27698e6c-92e2-41b6-bd6f-667a17495c3d | backup-volume | available |  100 |             |
 +--------------------------------------+---------------+-----------+------+-------------+
 ```
 
-Valitse haluamasi levy joko ID:n tai nimen perusteella ja anna seuraava [komento](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/volume-snapshot.html){target="_blank"}:
+Valitse haluamasi taltio joko tunnisteen (ID) tai nimen perusteella ja suorita seuraava [komento](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/volume-snapshot.html){target="_blank"}:
 
-```bash
+```
 $ openstack volume snapshot create --volume backup-volume snapshot-of-a-backup-volume-cli
 ```
 
-Tilannevedoksen nimi ilmoitetaan viimeisenä argumenttina. Komento tuottaa seuraavanlaista tulosta:
+annetun komennon viimeinen argumentti on tilannevedoksen nimi. Komento tuottaa seuraavanlaisen tulosteen:
 
-```bash
+```
 +-------------+--------------------------------------+
-| Kenttä      | Arvo                                 |
+| Field       | Value                                |
 +-------------+--------------------------------------+
 | created_at  | 2032-09-12T14:03:09.496299           |
-| kuvaus      | None                                 |
+| description | None                                 |
 | id          | 890c4b19-44e6-4b6e-88a7-1806d6d8e3e1 |
-| nimi        | snapshot-of-a-backup-volume-cli      |
+| name        | snapshot-of-a-backup-volume-cli      |
 | properties  |                                      |
-| koko        | 100                                  |
-| tila        | creating                             |
+| size        | 100                                  |
+| status      | creating                             |
 | updated_at  | None                                 |
 | volume_id   | 27698e6c-92e2-41b6-bd6f-667a17495c3d |
 +-------------+--------------------------------------+
 ```
 
-Listataksesi kaikki levytilannevedokset, käytä [komentoa](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/volume-snapshot.html#volume-snapshot-list){target="_blank"}:
+Listataksesi kaikki taltiotilannevedokset, käytä [komentoa](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/volume-snapshot.html#volume-snapshot-list){target="_blank"}:
 
-```bash
+```
 $ openstack volume snapshot list
 ```
 
-saadaksesi tällaisen listauksen:
+saat seuraavanlaisen listauksen:
 
-```bash
+```
 +--------------------------------------+---------------------------------+-------------+-----------+------+
-| ID                                   | Nimi                            | Kuvaus      | Tila      | Koko |
+| ID                                   | Name                            | Description | Status    | Size |
 +--------------------------------------+---------------------------------+-------------+-----------+------+
-| 890c4b19-44e6-4b6e-88a7-1806d6d8e3e1 | snapshot-of-a-backup-volume-cli | None        | saatavilla |  100 |
-| 53f74334-54c1-41fa-bfde-4bbb41a36900 | snapshot-of-a-backup-volume     |             | saatavilla |  100 |
+| 890c4b19-44e6-4b6e-88a7-1806d6d8e3e1 | snapshot-of-a-backup-volume-cli | None        | available |  100 |
+| 53f74334-54c1-41fa-bfde-4bbb41a36900 | snapshot-of-a-backup-volume     |             | available |  100 |
 +--------------------------------------+---------------------------------+-------------+-----------+------+
 ```
 
-#### Instanssin käynnistäminen levytilannevedoksesta {#launching-an-instance-from-a-volume-snapshot}
+#### Instanssin käynnistäminen taltiotilannevedoksesta { #launching-an-instance-from-a-volume-snapshot }
 
-Jos tietyt ehdot täyttyvät (levytilannevedos on käynnistettävä, sisältää käynnistettävän käyttöjärjestelmän jne.), uusi instanssi voidaan käynnistää levytilannevedoksesta.
+Jos tietyt vaatimukset täyttyvät (taltiotilannevedos on käynnistettävä,
+sisältää käyttöjärjestelmän jne.), uusi instanssi voidaan
+käynnistää taltiotilannevedoksesta.
 
-Jälleen kerran, levytilannevedosinstanssin käynnistäminen toimii kuten minkä tahansa muun kuvan käynnistäminen.
+Taltiotilannevedoksesta käynnistäminen toimii kuten minkä tahansa muun levykuvan käynnistäminen.
 
-Anna uuden instanssin perusasetukset (**1**). Valitse "Käynnistä levytilannevedoksesta (luo uuden levyn)" (**2**) instanssin käynnistyslähteeksi ja valitse "Levytilannevedos" valikosta tilannevedos, jonka haluat käynnistää (**3**).
+Anna uuden instanssin perustiedot (**1**). Valitse
+käynnistyslähteeksi 'Boot from volume snapshot (creates a new volume)' (**2**) ja valitse
+'Volume Snapshot' ‑kohtaan listasta (**3**) se tilannevedos, jonka haluat käynnistää.
 
-![Käynnistä levytilannevedokseen perustuva instanssi.](../img/cloud_pouta_vm_snapshot_7.svg)
+![Käynnistä taltiotilannevedokseen perustuva instanssi.](../img/cloud_pouta_vm_snapshot_7.svg)
 
-Palvelinimagen käynnistämisen levytilannevedoksesta käyttämällä komentoriviä on hieman pidempi prosessi, eikä sitä käsitellä tässä artikkelissa. Kuitenkin, jos olet kiinnostunut, voit löytää lisää tietoa virallisesta OpenStack [dokumentaatiosta](https://docs.openstack.org/ocata/user-guide/cli-nova-launch-instance-from-volume.html){target="_blank"}.
+Palvelimen käynnistäminen taltiotilannevedoksesta komentoriviltä 
+on hieman pidempi prosessi eikä sitä käsitellä 
+tässä artikkelissa. Lisätietoja löytyy kuitenkin OpenStackin virallisesta [dokumentaatiosta](https://docs.openstack.org/ocata/user-guide/cli-nova-launch-instance-from-volume.html){target="_blank"}.
 
-#### Levytilannevedoksen lataaminen {#downloading-a-volume-snapshot}
+#### Taltiotilannevedoksen lataaminen { #downloading-a-volume-snapshot }
 
-Levytilannevedosta ei ole mahdollista ladata suoraan OpenStackista, ei verkkokäyttöliittymästä eikä komentoriviltä. Mutta on mahdollista epäsuorasti ladata tilannevedoksen sisältö. Perusidea on luoda levy levytilannevedoksesta ja liittää sitten se uusi levy VM:ään. Kun tämä on tehty, on mahdollista ladata yksittäisiä tiedostoja tai koko levy.
+Taltiotilannevedosta ei voi ladata suoraan OpenStackista, ei verkkokäyttöliittymästä eikä komentoriviltä. Mutta tilannevedoksen sisältö on mahdollista ladata epäsuorasti. Perusidea on luoda taltiotilannevedoksesta uusi taltio ja liittää tämä taltio virtuaalikoneeseen. Kun tämä on tehty, on mahdollista ladata yksittäisiä tiedostoja tai koko taltio yhtenä tiedostona.
 
-1. Luo levy tilannevedoksesta:
+1. Luo taltio tilannevedoksesta:
 
-    ![Luo levy](../img/cloud_pouta_vm_snapshot_8.svg)
+    ![Luo taltio](../img/cloud_pouta_vm_snapshot_8.svg)
 
-    ![Luo levy](../img/cloud_pouta_vm_snapshot_9.svg)
+    ![Luo taltio](../img/cloud_pouta_vm_snapshot_9.svg)
 
-    Aseta `Levy Nimi` joksikin, joka selvästi tunnistaa levyn tilannevedokseksi, koska kun prosessi on ohi, sinun täytyy poistaa tämä levy.
-    !!! Info "Kommentorivin käyttö"
+    Aseta kenttään `Volume Name` nimi, josta käy selvästi ilmi, että kyse on tilannevedoksesta luodusta taltiosta, sillä prosessin päätyttyä tämä taltio tulee poistaa.
+    !!! Info "Komentorivin käyttö"
         `openstack volume create --snapshot b4f95381-e56d-4080-95e4-935c66528005 test-snapshot`
 
-        ID `b4f95381-e56d-4080-95e4-935c66528005` vastaa tilannevedosta, jonka haluamme palauttaa, ja `test-snapshot` on uuden luodun levyn nimi.
+        Tunnus `b4f95381-e56d-4080-95e4-935c66528005` viittaa palautettavaan tilannevedokseen, ja `test-snapshot` on uuden luodun taltion nimi.
 
-2. Nyt sinun täytyy liittää levy VM:ään. Voit käyttää olemassa olevaa VM:ää tai [luoda uuden VM:n](launch-vm-from-web-gui.md). Kun sinulla on VM valmiina, sinun täytyy liittää levy siihen:
+1. Liitä taltio virtuaalikoneeseen. Voit käyttää olemassa olevaa virtuaakonetta tai [luoda uuden](launch-vm-from-web-gui.md). Kun virtuaalikone on valmiina, liitä taltio siihen:
 
-    ![Hallitse Kiinnityksiä](../img/cloud_pouta_vm_snapshot_10.svg)
+    ![Hallinnoi liitoksia](../img/cloud_pouta_vm_snapshot_10.svg)
 
-    ![Hallitse Levykiinnityksiä](../img/cloud_pouta_vm_snapshot_11.svg)
+    ![Hallitse taltion liitoksia](../img/cloud_pouta_vm_snapshot_11.svg)
 
-    !!! Info "Kommentorivin käyttö"
+    !!! Info "Komentorivin käyttö"
         `openstack server add volume salto 1a0c583d-1981-4246-9b7f-23865c1884c1`
 
-         `salto` on VM:n nimi, id vastaa vasta luotua levyä.
+         `salto` on virtuaalikoneen nimi, ja tunnus viittaa äsken luotuun taltioon.
 
-3. Kun levy on liitetty, sinun täytyy liittää levyn kansio VM:ään. Ensin sinun täytyy tietää laitteen nimi. Tiedot löytyvät "Kiinnitetty"-kentästä Levyjen taulukossa.
+1. Kun taltio on liitetty, se on liitettävä (mount) virtuaalikoneen hakemistoon. Tarvitset ensin laitteen nimen. Tieto löytyy Volumes‑taulukon kentästä 'Attached To'.
 
-     ![Kiinnitetty](../img/attached_to.png)
+     !['Attached To'](../img/attached_to.png)
 
-4. [Kirjaudu VM:ään SSH:n kautta](connecting-to-vm.md) ja liitä kansio:
+1. [Kirjaudu virtuaalikoneeseen SSH:n kautta](connecting-to-vm.md) ja liitä hakemisto:
 
     ```sh
     sudo mount /dev/vdb /mnt
     ```
 
-    Tässä tapauksessa laite on `/dev/vdb` ja kansio `/mnt`.
+    Yllä olevassa esimerkissä laite on `/dev/vdb` ja hakemisto `/mnt`.
 
-5. Kun kansio on liitetty, voit käyttää `scp`:tä tai `rsync`:iä saadaksesi yksittäisiä tiedostoja:
+1. Kun taltio on liitetty, voit hakea yksittäisiä tiedostoja hakemistosta komennolla `scp` tai `rsync`:
 
     ```sh
     scp salto:/mnt/important-file .
     ```
 
-    Tässä tapauksessa käytämme `scp`:tä, jossa isäntä-nimi on `salto` ja palautettava tiedosto on `important-file`. Toisaalta jos haluat saada kaikki tiedostot pakatuksi `tar`-tiedostoon, voit suorittaa jotain tällaista:
+    Tässä käytetään `scp`:tä; isäntänimi on `salto` ja haettava tiedosto on `important-file`. Jos haluat noutaa kaikki tiedostot pakattuna `tar`‑tiedostona, aja esimerkiksi:
 
     ```sh
     $ ssh salto "sudo tar czf - /mnt/" > file.tar.gz
     ```
 
-6. Kun olet saanut tarvitsemasi tiedostot, sinun täytyy siivota:
+1. Kun olet hakenut tarvitsemasi tiedostot, suorita siivous:
 
-    * Irrota levy `umount /mnt`.
-    * Irrota levy VM:stä.
-    * Poista levy, jonka loit vaiheessa 1.
+    * Irrota taltio: `umount /mnt`.
+    * Irrota taltio virtuaalikoneesta.
+    * Poista vaiheessa 1 luotu taltio.
 
-## Yleisiä huomioita {#general-considerations}
+## Yleisiä huomioita { #general-considerations }
 
-Suosittelemme sammuttamaan instanssin ja irrottamaan levyt ennen tilannevedosten ottamista. Tämä on paras tapa varmistaa, että tiedostojärjestelmä on johdonmukaisessa tilassa.
+Suosittelemme sammuttamaan instanssin ja irrottamaan taltiot
+ennen tilannevedoksen ottamista. Näin varmistat parhaiten,
+että tiedostojärjestelmä tallentuu johdonmukaisessa tilassa.
 
-Huomaa, että tilannevedokset eivät aina ole paras tapa saada instanssi ennalta määritettyyn tilaan. Vakaampaa ratkaisua varten suosittelemme konfiguroinnin automatisointityökaluja, kuten [Ansible](https://github.com/ansible/ansible){target="_blank"} ja [Puppet](https://github.com/puppetlabs/puppet){target="_blank"}. Näiden työkalujen avulla ympäristö luodaan tyhjästä ja sisältö palautetaan aiemmasta ympäristöstä, sen sijaan että käytettäisiin tilannevedoksia.
+Huomaa, että tilannevedokset eivät aina ole paras tapa saada
+instanssi ennalta määriteltyyn tilaan. Vankempaan ratkaisuun
+suositellaan konfiguraatioautomaatiotyökaluja, kuten [Ansible](https://github.com/ansible/ansible){target="_blank"}
+ja [Puppet](https://github.com/puppetlabs/puppet){target="_blank"}.
+Tilannevedosten sijaan näillä työkaluilla luodaan
+ympäristö alusta lähtien ja palautetaan sen jälkeen aiemman
+ympäristön sisältö.
 
-Ei ole rajoitusta sille, kuinka monta tilannevedosta voi ottaa, mutta kohteliaisuuden vuoksi tilannevedokset kannattaa pitää minimissä ja poistaa tarpeettomat.
-
+Tilannevedosten määrää ei ole rajoitettu,
+mutta yleisenä kohteliaisuutena niitä kannattaa pitää mahdollisimman vähän
+ja poistaa tarpeettomat.

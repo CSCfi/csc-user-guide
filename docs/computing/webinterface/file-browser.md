@@ -1,77 +1,77 @@
+# Tiedostoselain ja tallennuspalveluihin pääsy verkkokäyttöliittymistä { #file-browser-and-accessing-storage-services-from-the-web-interfaces }
 
-# Tiedostoselain ja tallennuspalveluiden käyttäminen verkkoliittymistä {#file-browser-and-accessing-storage-services-from-the-web-interfaces}
-
-Tiedostoselain voidaan avata _Tiedostot_-osiosta ylävalikossa (tämä näyttää luettelon kaikista projektin levyaluesista) tai käyttämällä kotikansion pikakuvaketta aloitussivun (koontinäytön) _Kiinnitetyt sovellukset_ -näkymässä. Tiedostoselaimessa voit ladata/siirtää tiedostoja, luoda uusia tiedostoja ja kansioita tai avata komentokehotteen nykyisessä kansiossa. Sitä voidaan käyttää myös datan siirtämiseen Allas-palveluiden, LUMI-O:n, IDA:n ja supertietokoneen välillä.
+Tiedostoselaimen voi avata yläreunan navigointipalkin _Files_-osiosta (tässä näkyy luettelo kaikista projektien levyalueista) tai käyttämällä kotihakemistoosi johtavaa pikakuvaketta aloitussivun (dashboard) _Pinned Apps_ -näkymässä. Tiedostoselaimessa voit lähettää/noutaa tiedostoja, luoda uusia tiedostoja ja hakemistoja tai avata komentokuoren nykyisessä hakemistossa. Sitä voi käyttää myös datan siirtämiseen Allaksen, LUMI-O:n, IDA:n ja superkoneen välillä.
 
 !!! warning "Tärkeää"
-    Pidä tiedostoselainta auki, kunnes tiedostonsiirto on valmis, jotta varmistetaan, että se onnistuu. Huomaa myös, että ladatut tiedostot korvaavat olemassa olevat samannimiset tiedostot _ilman erillistä kyselyä_! Tällä hetkellä yksittäisten tiedostojen maksimikoko on **10 GB**.
+    Pidä tiedostoselaimen välilehti auki tiedonsiirron aikana, jotta siirto valmistuu onnistuneesti. Huomaa myös, että lähetetyt tiedostot korvaavat samannimiset olemassa olevat tiedostot _ilman varmistuskyselyä_! Tällä hetkellä yksittäisen tiedoston lähetyksen enimmäiskoko on **10 GB**.
 
-Tiedostoon napsauttamalla sitä avataan vain katselutilassa. Lisää vaihtoehtoja, kuten muokkaaminen, nimetäminen ja poistaminen, saa painikkeella, jossa on kolme pistettä tiedostonimen vieressä.
+Tiedostoa napsauttamalla se avautuu vain luku -tilaan. Lisätoimintoja, kuten muokkaus, uudelleennimeäminen ja poistaminen, saat esiin tiedostonimen vieressä olevasta kolmen pisteen painikkeesta. 
 
-Tiedostoselaimeen kuuluu yksinkertainen tekstieditori. Muutamia tärkeitä huomioita editorista:
+Tiedostoselaimessa on mukana yksinkertainen tekstieditori. Tärkeitä huomioita editorista:
 
-- Jos muutoksia ei ole tehty, _tallenna_-painike on harmaana.
-- _Tallenna nimellä_ -toimintoa ei ole.
-- Käyttäjää ei varoiteta, jos lukuoikeudellinen tiedosto avataan editorissa. Täten muutokset eivät tule voimaan tiedostossa.
+- Jos muutoksia ei ole tehty, _save_-painike on harmaana.
+- _save-as_-toimintoa ei ole.
+- Käyttäjää ei ilmoiteta, jos editorilla avataan kirjoitussuojattu (read-only) tiedosto. Tällöin muutoksia ei tallenneta tiedostoon.
 
-## Allas ja LUMI-O pääsy {#accessing-allas-and-lumi-o}
+## Pääsy Allakseen ja LUMI-O:hon { #accessing-allas-and-lumi-o }
 
-Verkkoliittymien tiedostoselaimesta pääsee myös käyttämään **[Allas-objektitallennuspalvelua](../../computing/allas.md)**.
+**[Allas-objektivarastopalveluun](../../data/Allas/index.md)** pääsee myös verkkokäyttöliittymistä tiedostoselaimen kautta.
 
-Autentikoinnin määrittäminen Alttaa varten:
+Allaksen todennuksen määrittäminen: 
 
-1. Avaa _Pilvitallennuskonfiguraatio_-sovellus joko _Kiinnitetyt sovellukset_-osiossa tai työkalut-pudotusvalikossa.
-2. Kun avaat sovelluksen, sinulta kysytään CSC-salasana sivun alareunassa.
-3. Kun olet tunnistautunut salasanallasi, voit luoda sekä S3- että Swift-yhteyksiä, joita kutsutaan myös remotes, Allakseen. Jokainen remote on voimassa vain yhden projektin ajan, mutta voit luoda useita remotes, jotka kattavat eri projektit.
-4. Luodut remotes ovat näkyvissä _Tiedostot_-pudotusvalikossa sekä tiedostoselaimessa (esim. `s3allas-project_2001234`).
+1. Avaa _Cloud storage configuration_ -sovellus joko _Pinned Apps_ -näkymästä tai yläreunan _Tools_-pudotusvalikosta.
+2. Kun avaat sovelluksen, sinua pyydetään syöttämään CSC-salasanasi sivun alaosassa.
+3. Kun olet tunnistautunut salasanallasi, voit luoda sekä S3- että Swift-yhteyksiä (remotes) Allakseen. Kukin remote on voimassa vain yhdessä projektissa, mutta voit luoda useita remoteja eri projekteja varten.
+4. Luodut remotet näkyvät yläreunan _Files_-pudotusvalikossa sekä tiedostoselaimessa (esim. `s3allas-project_2001234`).
 
-!!! info "Huomaa"
-    Swift- ja S3-protokollat eivät ole täysin yhteensopivia keskenään, erityisesti yli 5 GB kokoisissa tiedostoissa. Lisätietoja protokollien eroista löytyy [Allas-protokollat](../../data/Allas/introduction.md#protocols).
+!!! info "Huomautus"
+    Swift- ja S3-protokollat eivät ole täysin yhteensopivia keskenään, erityisesti yli 5 Gt:n tiedostojen osalta. Lisätietoja protokollien eroista: [Allaksen protokollat](../../data/Allas/introduction.md#protocols).
 
-**[LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/)** on myös käytettävissä tiedostoselaimen kautta.
+**[LUMI-O:ta](https://docs.lumi-supercomputer.eu/storage/lumio/)** voi myös käyttää tiedostoselaimen kautta.
 
-LUMI-O:n autentikoinnin määrittäminen:
+LUMI-O:n todennuksen määrittäminen:
 
-1. Avaa _Pilvitallennuskonfiguraatio_-sovellus joko _Kiinnitetyt sovellukset_-osiossa tai _Työkalut_-pudotusvalikossa.
-2. Valitse _Configure new remotes_-osiossa LUMI-O-välilehti.
-3. Valitse projekti, johon autentikointi luodaan, sekä haluatko s3cmd-konfiguraatiota ja julkista remotea.
+1. Avaa _Cloud storage configuration_ -sovellus joko _Pinned Apps_ -näkymästä tai yläreunan _Tools_-pudotusvalikosta.
+2. Valitse LUMI-O-välilehti _Configure new remotes_ -osiossa.
+3. Valitse projekti, jolle todennus luodaan, sekä haluatko s3cmd-määrityksen ja julkisen remoten.
 
 !!! warning "Julkiset LUMI-O-remotet"
-    Julkisesti LUMI-O-remotelle ladatut tiedostot (esim. `lumi-462001234-public`) voivat olla kenen tahansa saatavilla URL-osoitteella `https://<project-number>.lumidata.eu/<bucket_name>`. Ole varovainen, ettet lataa yksityisiä tietoja sinne.
+    Julkisiin LUMI-O-remoteihin (esim. `lumi-462001234-public`) ladattuihin tiedostoihin pääsee kuka tahansa URL-osoitteella
+    `https://<project-number>.lumidata.eu/<bucket_name>`. Varo, ettet lataa sinne yksityistä dataa.
 
-Kun olet määrittänyt yhteyden Alttaan/LUMI-O-on verkkoliittymässä, voit käyttää tiedostoselainta päästäksesi Alttaan/LUMI-O-on samalla tavalla kuin pääsy jaettuun tiedostojärjestelmään supertietokoneissa.
+Kun olet määrittänyt yhteyden Allakseen/LUMI-O:hon verkkokäyttöliittymästä, voit käyttää tiedostoselainta päästäksesi Allakseen/LUMI-O:hon samaan tapaan kuin superkoneiden jaettuun tiedostojärjestelmään.
 
-Huomaa, että määritetyt remotet, jotka eivät ole saavutettavissa esimerkiksi vanhentuneen autentikoinnin tai verkkoyhteysongelmien vuoksi, eivät näy _Tiedostot_-pudotusvalikossa.
+Huomaa, että remotet, joihin ei päästä esimerkiksi vanhentuneen todennuksen tai verkkoyhteysongelmien vuoksi, eivät näy _Files_-pudotusvalikossa.
 
-!!! warning "Suuria tiedostoja"
-    Suurten tiedostojen lataaminen paikalliselta tietokoneeltasi Alttaan verkkoliittymien kautta ei ole tällä hetkellä suositeltavaa teknisten rajoitusten vuoksi.
+!!! warning "Suuret tiedostot"
+    Suurten tiedostojen lähettäminen paikalliselta koneelta Allakseen verkkokäyttöliittymien kautta ei toistaiseksi ole suositeltavaa teknisten rajoitteiden vuoksi.
 
-Jos et enää tarvitse määritettyä remotea, voit perua sen pääsytunnuksen remoteluettelosta tai poistaa remoten konfiguraatiosta. Remotet, joita ei ole konfiguroitu Pilvitallennuskonfiguraatio-sovelluksen kautta, ovat myös näkyvissä ja ne voidaan poistaa, mutta niiden pääsytunnuksia ei voi peruuttaa.
-![Pilvitallennuskonfiguraatio-ohjelman remote-lista](../../img/ood_cloud_storage_conf_table.png)
+Jos et enää tarvitse määritettyä remotea, voit peruuttaa sen käyttöoikeustunnuksen remotelistassa tai poistaa remoten kokoonpanosta. Myös remotet, joita ei ole määritetty _Cloud storage configuration_ -sovelluksella, näkyvät ja ne voidaan poistaa, mutta niiden käyttöoikeustunnuksia ei voi peruuttaa.
+![Cloud storage configuration -työkalun remote-luettelo](../../img/ood_cloud_storage_conf_table.png)
 
-## IDA:n käyttäminen {#accessing-ida}
+## Pääsy IDA:an { #accessing-ida }
 
-[IDA-tallennuspalvelua](../../data/ida/using_ida.md) voidaan myös käyttää verkkoliittymistä. Kuitenkin, jotkut keskeiset ominaisuudet, kuten datan siirtäminen valmistelualueelta lukitusalueelle, ovat mahdollisia vain [IDA:n verkkoliittymän](https://ida.fairdata.fi) kautta.
+[IDA-tallennuspalvelua](../../data/ida/using_ida.md) voidaan käyttää myös verkkokäyttöliittymistä. Joitakin keskeisiä toimintoja, kuten datan siirtäminen staging-alueelta frozen-alueelle, on kuitenkin mahdollista tehdä vain [IDA:n verkkokäyttöliittymässä](https://ida.fairdata.fi).
 
-IDA:n käyttö Puhti/Mahti-verkkoliittymistä edellyttää, että se konfiguroidaan käytettäväksi Rclonella kirjautumisnodessa seuraavasti:
+Jotta IDA:ta voi käyttää Puhti/Mahti-verkkokäyttöliittymistä, se on ensin määritettävä Rclonen käyttöön kirjautumissolmun komentokuoressa seuraavasti:
 
 ```
 module load allas
 rclone config
 ```
 
-Rclone-konfiguraatioiden käyttöliittymässä, luo uusi remote seuraavilla asetuksilla:
+Luo Rclonen määritysikkunassa uusi remote seuraavilla asetuksilla:
 
-1. Tallennus: WebDAV (#45)
+1. Storage: WebDAV (#45)
 2. URL: <https://ida.fairdata.fi/remote.php/webdav/>
-3. Toimittaja: Nextcloud (#1)
-4. Käyttäjätunnus: CSC-käyttäjätunnuksesi
-5. Salasana:
-     1. Kirjaudu sisään [IDA:n verkkoliittymään](https://ida.fairdata.fi).
-     2. Siirry oikeassa yläkulmassa asetuksiin.
-     3. Siirry _Tietoturva_-välilehteen ja luo uusi sovellussalasana.
-     4. Kopioi salasana ja liitä se Rclone-konfiguraation käyttöliittymään.
-6. Pääsytunnus: Jätä tyhjäksi
-7. Laajennettu konfiguraatio: Ei
+3. Vendor: Nextcloud (#1)
+4. Username: CSC-käyttäjätunnuksesi
+5. Password:
+      1. Kirjaudu [IDA:n verkkokäyttöliittymään](https://ida.fairdata.fi).
+      2. Siirry oikean yläkulman asetuksiin.
+      3. Avaa _Security_-välilehti ja luo uusi sovellussalasana.
+      4. Kopioi salasana ja liitä se Rclonen määritysikkunaan.
+6. Bearer token: Jätä tyhjäksi
+7. Advanced config: No
 
-Kun Rclone-konfiguraatio on valmis, käynnistä Puhti/Mahti-verkkoliittymä uudelleen valitsemalla _Käynnistä verkkopalvelin uudelleen_ apuvalikosta ylävalikon oikealla puolella. IDA:n tiedostoselaimeen voi nyt päästä, jossa voit ladata/siirtää, siirtää ja muokata tiedostoja valmistelualueella, sekä katsoa ja ladata tiedostoja jäädytetyltä alueelta.
+Kun Rclone-määritys on valmis, käynnistä Puhti/Mahti-verkkokäyttöliittymä uudelleen valitsemalla _Help_-valikosta yläoikealta _Restart web server_. IDA on nyt käytettävissä tiedostoselaimessa, jossa voit lähettää, ladata, siirtää ja muokata tiedostoja staging-alueella sekä katsella ja ladata tiedostoja frozen-alueelta.

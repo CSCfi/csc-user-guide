@@ -1,56 +1,56 @@
-# Kuvaputken asettaminen
+# Kuvien käsittelyputken käyttöönotto { #setting-up-a-pipeline-for-images }
 
-## Tavoitteet {#objectives}
+## Tavoitteet { #objectives }
 
-* Tutustua siihen, miten useita pilvipalveluja voidaan käyttää yhdessä.
-* Tutustua siihen, miten pilvipalveluja voidaan käyttää niiden komentorajapintojen avulla.
+* Harjoittele, miten useita pilvipalveluja käytetään yhdessä.
+* Harjoittele pilvipalvelujen käyttöä niiden komentorivityökaluilla.
 
-Opetus keskittyy seuraaviin palveluihin:
+Tässä ohjeessa keskitytään seuraaviin palveluihin:
 
-* [Allas](../../../data/Allas/introduction.md), meidän objektitallennuspalvelumme
-* [cPouta](../index.md), meidän julkinen pilvipalvelumme
-* [Pukki](../../dbaas/what-is-dbaas.md), meidän tilauspohjainen tietokantapalvelumme
+* [Allas](../../../data/Allas/introduction.md), objektivarastopalvelumme
+* [cPouta](../index.md), julkinen pilvipalvelumme
+* [Pukki](../../dbaas/what-is-dbaas.md), tilauspohjainen tietokantapalvelumme
 
-## Johdanto {#introduction}
+## Johdanto { #introduction }
 
-Haluamme asettaa yksinkertaisen putken, joka muuttaa sille annetut kuvat.
+Haluamme pystyttää yksinkertaisen putken, joka muuntaa sille syötteenä annetut kuvat.
 
-![kuvasputki-kaavio](../../img/picture-pipeline-diagram.png)
+![picture-pipeline-diagram](../../img/picture-pipeline-diagram.png)
 
-Ensiksi lataamme kuvat työasemaltamme Allasilla olevaan säiliöön.
-cPoutassa oleva virtuaalikone ottaa kuvat säiliöstä ja lataa ne paikallisesti.
-Virtuaalikone muuntaa kuvat ja kirjaa suoritetun toiminnon Pukissa isännöityyn tietokantaan.
-Lopulta virtuaalikone lataa muutetut kuvat toiseen säiliöön Allasissa.
-Voimme sitten ladata muutetut kuvat työasemallemme säiliöstä.
+Ensin lähetämme kuvat työasemaltamme Allaksen bucketiin.
+cPoutassa ajettava virtuaalikone noutaa kuvat bucketista ja lataa ne paikallisesti.
+Virtuaalikone muuntaa kuvat ja kirjaa tehdyn toimen tietokantaan, joka on Pukissa.
+Lopuksi virtuaalikone lataa muunnetut kuvat toiseen Allaksen bucketiin.
+Tämän jälkeen voimme ladata muunnetut kuvat bucketista takaisin työasemallemme.
 
-Tämän opetusmateriaalin tarkoituksessa muokattu kuva vastaa yksinkertaisesti syötekuvaa, jonka värit on käännetty, toisinaan kutsutaan "käännetyksi".
+Tämän ohjeen yksinkertaisuuden vuoksi muunnettu kuva on alkuperäinen kuva, jonka värit on invertoitu, joskus kutsutaan myös “käännetyksi”.
 
-## Vaihe 1: säiliöiden luominen Allasissa {#step-1-creating-buckets-in-allas}
+## Vaihe 1: bucketien luominen Allakseen { #step-1-creating-buckets-in-allas }
 
-Avaamme uuden pääteikkunan, johon viittaamme käyttämällä nimeä `terminal_allas`.
-Käytämme `terminal_allas`-päätettä kaikille Allasiin liittyville komennoille.
+Avaamme uuden pääteikkunan, johon viittaamme nimellä `terminal_allas`.
+Käytämme `terminal_allas`-päätettä kaikkiin Allakseen liittyviin komentoihin.
 
-Jotta voimme luoda säiliöitä Allasissa, meillä on oltava toimiva komentorajapinta sitä varten.
-Jos emme ole aiemmin asentaneet tällaista rajapintaa työasemallemme, noudatamme [s3cmd:n asentamista ja konfigurointia koskevia ohjeita](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
+Luodaksemme bucketteja Allakseen tarvitsemme toimivan komentorivikäyttöliittymän.
+Ellei sellaista ole aiemmin työasemalle asennettu, seuraamme ohjetta [s3cmd:n asentaminen ja määrittäminen](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
 
-Voimme testata komentorajapinnan oikeaa toimintaa yksinkertaisesti listaamalla kaikki projektissamme tällä hetkellä olevat säiliöt.
-Esimerkki komennosta ja sen odotetusta tulosteesta:
+Voimme testata komentorivityökalun toiminnan listaamalla projektimme nykyiset bucketit.
+Esimerkki komennosta ja odotetusta tulosteesta:
 ```
 $ s3cmd ls
 2021-07-14 15:14  s3://bucket1
 2020-01-14 17:40  s3://bucket2
 ...
 ```
-Huomaa, että lista voi olla myös tyhjä, jos emme ole aiemmin luoneet säiliötä projektissamme.
+Huomaa, että lista voi olla myös tyhjä, jos emme ole aiemmin luoneet bucketteja projektiimme.
 
-Nyt luomme syöttö- ja tulossaavad putkillemme säiliöt.
-Ensiksi määrittelemme säiliöiden nimet ympäristömuuttujiin:
+Luomme nyt putkeamme varten syöte- ja tulosbucketit.
+Määritellään ensin bucketien nimet ympäristömuuttujiin:
 ```
 $ export INPUT_BUCKET="input_bucket"
 $ export OUTPUT_BUCKET="output_bucket"
 ```
 
-Käytämme sitten seuraavia komentoja säiliöiden luomiseen:
+Luodaan bucketit seuraavilla komennoilla:
 ```
 $ s3cmd mb s3://$INPUT_BUCKET
 Bucket 's3://input_bucket/' created
@@ -58,26 +58,26 @@ $ s3cmd mb s3://$OUTPUT_BUCKET
 Bucket 's3://output_bucket/' created
 ```
 
-!!! huom
-    Säiliöiden nimet täytyy olla uniikkeja. 
-    Jos toinen käyttäjä on jo valinnut saman nimen, säiliön luomiskomento epäonnistuu:
+!!! warning
+    Bucketien nimien on oltava yksilöllisiä.
+    Jos toinen käyttäjä on jo valinnut saman nimen, luonti epäonnistuu:
     ```
     $ s3cmd mb s3://$INPUT_BUCKET
     ERROR: Bucket 'input_bucket' already exists
     ERROR: S3 error: 409 (BucketAlreadyExists)
     ```
-    Tässä tapauksessa voimme yksinkertaisesti yrittää komentoa eri nimellä.
+    Tällöin voit vain yrittää uudelleen eri nimellä.
 
-## Vaihe 2: tietokannan luominen Pukkiin {#step-2-creating-a-database-in-pukki}
+## Vaihe 2: tietokannan luominen Pukkiin { #step-2-creating-a-database-in-pukki }
 
-Avaamme toisen pääteikkunan, johon viittaamme käyttämällä nimeä `terminal_pukki`.
-Käytämme `terminal_pukki`-päätettä kaikille Pukkiin liittyville komennoille.
+Avaamme toisen pääteikkunan, johon viittaamme nimellä `terminal_pukki`.
+Käytämme `terminal_pukki`-päätettä kaikkiin Pukkiin liittyviin komentoihin.
 
-Toimivan komentorajapinnan olemassaolo Pukkille on edellytys oppimateriaalin jatkamiselle.
-Jos emme ole sitä aikaisemmin asentaneet, noudatamme [Pukki-komentorajapinnan asentamista ja konfigurointia koskevia ohjeita](../../dbaas/cli.md#getting-started).
+Pukin komentorivityökalun toimivuus on edellytys ohjeen jatkamiselle.
+Ellei sitä ole aiemmin määritetty, seuraamme ohjetta [Pukin komentorivityökalun asentaminen ja määrittäminen](../../dbaas/cli.md#getting-started).
 
-Voimme testata komentorajapinnan oikeaa toimintaa yksinkertaisesti listaamalla käytettävissä olevat tietokantatyypit.
-Esimerkki komennosta ja sen odotetusta tulosteesta:
+Voimme testata työkalun toiminnan listaamalla saatavilla olevat tietokantatyypit.
+Esimerkki komennosta ja odotetusta tulosteesta:
 ```
 $ openstack datastore list
 +--------------------------------------+------------+
@@ -88,16 +88,16 @@ $ openstack datastore list
 +--------------------------------------+------------+
 ```
 
-Nyt luomme tietokannan, jota käytämme putkiston toimintojen kirjaamiseen.
-Ensin määrittelemme muutamia ympäristömuuttujia, joita käytämme myöhemmin:
+Luomme nyt tietokannan, jota käytämme putken toimien lokittamiseen.
+Määritellään ensin muutama ympäristömuuttuja myöhempää käyttöä varten:
 ```
-$ export DB_INSTANCE_NAME="pipeline_db_instance" # tietokanta-instanssin nimi Pukissa
-$ export DB_NAME="pipeline_db" # tietokannan nimi
-$ export DB_USERNAME="db_admin" # tietokantaan konfiguroitavan käyttäjän nimi
-$ export DB_PASSWORD="xxxxxx" # laita tähän tietokantaan konfiguroitavan käyttäjän salasana
+$ export DB_INSTANCE_NAME="pipeline_db_instance" # name of the database instance in Pukki
+$ export DB_NAME="pipeline_db" # name of the database
+$ export DB_USERNAME="db_admin" # name of the user to be configured in the database
+$ export DB_PASSWORD="xxxxxx" # put here the password for the user to be configured in the database 
 ```
 
-Luomme sitten varsinaisen tietokanta-instanssin antamalla seuraavan komennon:
+Luodaan varsinainen tietokanta-ajuri seuraavalla komennolla:
 ```
 $ openstack database instance create $DB_INSTANCE_NAME \
 --flavor standard.small \
@@ -107,16 +107,16 @@ $ openstack database instance create $DB_INSTANCE_NAME \
 --is-public \
 --size 1
 ```
-Komennon parametrit ovat seuraavat:
+Komennon parametrit:
 
-* **flavor** määrittää tietokanta-instanssille osoitettujen resurssien (CPU, muisti) määrän, lisätietoja katso [DBaaS-makrot ja hinnat](../../dbaas/flavors.md).
-* **databases** on lista tietokanta-instanssiin luotavista tietokanoista, tässä tapauksessa tilanne yhden tietokannan kanssa.
-* **users** on lista tunnisteista muodossa *käyttäjänimi:salasana*, tietokantojen käyttäjien konfigurointia varten, tässä tapauksessa tilanne yhden credentials-parin kanssa.
-* **datastore** määrittää käytettävän tietokannan tyypin, esim., postgresql tai mariadb.
-* **is-public** määrittää, että tietokanta-instanssin tulisi olla julkisesti saavutettavissa.
+* **flavor** määrittää tietokanta-instanssille varattujen resurssien (CPU, muisti) määrän; katso lisätiedot kohdasta [DBaaS-flavorit ja hinnat](../../dbaas/flavors.md).
+* **databases** on lista instanssiin luotavista tietokannoista; tässä yksi tietokanta.
+* **users** on lista tunnuksista muodossa *käyttäjä:salasana*; tässä yksi tunnuspari.
+* **datastore** määrittää käytettävän tietokantatyypin, esim. postgresql tai mariadb.
+* **is-public** tekee instanssista julkisesti saavutettavan.
 * **size** on tietokannan koko gigatavuina.
 
-Komennon tuloste pitäisi olla seuraavanlainen:
+Komennon tuloste on samankaltainen kuin alla:
 ```
 +--------------------------+--------------------------------------+
 | Field                    | Value                                |
@@ -139,33 +139,33 @@ Komennon tuloste pitäisi olla seuraavanlainen:
 +--------------------------+--------------------------------------+
 ```
 
-## Vaihe 3: virtuaalikoneen luominen cPoutaan {#step-3-creating-virtual-machine-in-cpouta}
+## Vaihe 3: virtuaalikoneen luominen cPoutassa { #step-3-creating-virtual-machine-in-cpouta }
 
-Avaamme kolmannen pääteikkunan, johon viittaamme käyttämällä nimeä `terminal_pouta`.
-Käytämme `terminal_pouta`-päätettä kaikille cPoutaan liittyville komennoille.
+Avaamme kolmannen pääteikkunan, johon viittaamme nimellä `terminal_pouta`.
+Käytämme `terminal_pouta`-päätettä kaikkiin cPoutaan liittyviin komentoihin.
 
-Samoin kuin Allasin ja Pukin osalta, oppimateriaalin jatkaminen vaatii myös toimivan komentorajapinnan olemassaolon cPoutaan.
-Seuraamme [cPouta-komentorajapinnan asentamista ja konfigurointia koskevia ohjeita](../install-client.md), jos emme ole jo tehneet sitä.
+Samoin kuin Allaksen ja Pukin kanssa, tarvitsemme toimivan komentorivityökalun myös cPoutaan.
+Seuraamme ohjetta [cPoutan komentorivityökalun asentaminen ja määrittäminen](../install-client.md), ellei sitä ole vielä tehty.
 
-!!! huom
-    Vaikkakin Pukki ja cPouta ovat monilla tavoilla samanlaisia, niiden komentorajapinnat ovat erilaisia, eikä niitä saa käyttää keskenään.
-    Esimerkiksi, Pukki-komentojen suorittaminen cPoutan konfiguroidussa päätelaitteessa johtaa seuraavaan virheeseen:
+!!! warning
+    Vaikka Pukin ja cPoutan komentorivityökalut ovat monin tavoin samankaltaisia, ne ovat eri työkalut eikä niitä voi käyttää ristiin.
+    Esimerkiksi Pukin komentojen ajaminen cPoutaan määritetyssä päätteessä johtaa seuraavaan virheeseen:
     ```
-    julkista päätepistettä tietokantapalvelulle regionOne-alueella ei löydy
+    public endpoint for database service in regionOne region not found
     ```
-    Jotta vältetään tämän kaltaisia ongelmia, tulee käyttää kahta eri päätettä niiden kanssa työskentelyyn.
+    Käytä kahta eri päätettä, yksi kummallekin palvelulle, välttääksesi tällaiset ongelmat.
     
-    Jos haluat tarkistaa, mille palvelulle nykyinen päätelaitteesi on konfiguroitu, voit kirjoittaa seuraavan komennon:
+    Jos haluat tarkistaa, mille palvelulle nykyinen pääte on määritetty, voit antaa seuraavat komennot:
     ```
     $ printenv | grep OS_AUTH_URL
-    OS_AUTH_URL=https://pukki.dbaas.csc.fi:5000/v3 # saatatelaitteemme on konfiguroitu Pukkille
+    OS_AUTH_URL=https://pukki.dbaas.csc.fi:5000/v3 # our terminal is configured for Pukki
     
     $ printenv | grep OS_AUTH_URL
-    OS_AUTH_URL=https://pouta.csc.fi:5001/v3 # päätelaitteemme on konfiguroitu cPoutalle
+    OS_AUTH_URL=https://pouta.csc.fi:5001/v3 # our terminal is configured for cPouta
     ```
 
-Voit testata komentorajapinnan oikeaa toimintaa näyttämällä esimerkiksi jonkin muodon ominaisuuksia.
-Esimerkki komennosta ja sen odotetusta tulosteesta:
+Voimme testata komentorivikäyttöliittymän toiminnan esimerkiksi tarkastelemalla yhden flavorin ominaisuuksia.
+Esimerkki komennosta ja sen tulosteesta:
 ```
 $ openstack flavor show standard.tiny
 +----------------------------+--------------------------------------+
@@ -186,29 +186,29 @@ $ openstack flavor show standard.tiny
 +----------------------------+--------------------------------------+
 ```
 
-Nyt kun työskentelemme cPoutan kanssa, ensimmäisenä askeleena luomme avainparin, jota käytämme pääsemään virtuaalikoneelle, kun se on käynnissä.
-Luodaksemme uuden avainparin, määrittelemme ensin sen nimen ympäristömuuttujan avulla ja suorita sitten erikoiskomento:
+Koska nyt toimimme cPoutassa, ensimmäiseksi luomme avainparin, jolla kirjaudumme virtuaalikoneelle sen käynnistyttyä.
+Määritellään avainparin nimi ympäristömuuttujaan ja luodaan se:
 ```
 $ export POUTA_KEYPAIR="mykeypair"
 $ ssh-keygen -t rsa -b 2048 -f $POUTA_KEYPAIR -N ''
 ```
 
-Varmistamme, että komento on luonut kaksi tiedostoa nykyiseen kansioon työasemaltamme.
+Tarkistetaan, että komento loi kaksi tiedostoa työasemamme nykyiseen kansioon.
 ```
 $ ls $POUTA_KEYPAIR*
 mykeypair mykeypair.pub
 ```
-Ensimmäinen tiedosto, ilman `.pub`-päätettä, vastaa yksityistä avainta, kun taas `.pub` päätteinen tiedosto vastaa julkista avainta.
-Yksityinen avain ei saisi koskaan poistua työasemaltasi, eli sitä ei pitäisi kopioida minnekään muualle.
-Sen sijaan julkinen avain voidaan vapaasti kopioida ja jakaa paikkoihin, joissa haluat käyttää juuri luotua avainparia.
-Tätä varten lataamme julkisen avaimen cPoutaan antamalla seuraavan komennon:
+Ensimmäinen tiedosto ilman `.pub`-päätettä on yksityinen avain ja `.pub`-päätteinen on julkinen avain.
+Yksityisen avaimen ei tule koskaan poistua työasemaltasi, eli sitä ei tarvitse kopioida minnekään muualle.
+Sen sijaan julkisen avaimen voi kopioida ja jakaa vapaasti niihin kohteisiin, joihin haluat päästä juuri luodulla avainparilla.
+Lähetetään julkinen avain cPoutaan komennolla:
 ```
 $ openstack keypair create $POUTA_KEYPAIR \
 --public-key $POUTA_KEYPAIR.pub 
 ```
-Komennon **public-key**-parametri määrittää polun julkisen avaindin tiedostoon.
+Parametri **public-key** määrittää polun julkisen avaimen tiedostoon.
 
-Komennon tuloste on seuraavanlainen:
+Komennon tuloste on samankaltainen kuin alla:
 ```
 +-------------+-------------------------------------------------+
 | Field       | Value                                           |
@@ -219,26 +219,26 @@ Komennon tuloste on seuraavanlainen:
 +-------------+-------------------------------------------------+
 ```
 
-Luomme nyt virtuaalikoneen, jota käytämme putkemme runkoon.
-Ensin määrittelemme virtuaalikoneen nimen ympäristömuuttujana:
+Luodaan nyt virtuaalikone, jota käytämme putkessamme.
+Määritellään ensin virtuaalikoneen nimi ympäristömuuttujaan:
 ```
 $ export POUTA_INSTANCE_NAME="pipeline_vm"
 ```
 
-Komento, jolla luomme virtuaalikoneen, on seuraava:
+Luodaan virtuaalikone komennolla:
 ```
 $ openstack server create $POUTA_INSTANCE_NAME \
 --flavor standard.tiny \
 --image Ubuntu-24.04 \
 --key-name $POUTA_KEYPAIR
 ```
-Komennon parametrit ovat seuraavat:
+Komennon parametrit:
 
-* **flavor** määrittää virtuaalikoneelle osoitettujen resurssien (CPU, muisti) määrän, lisätietoja katso [Virtuaalikoneen muodot ja laskutusyksikön hinnat](../vm-flavors-and-billing.md).
-* **image** määrittää käyttöjärjestelmän kuvauksen, jota käytetään virtuaalikoneen rakentamiseen, katso [Perustiedot kuvista](../images.md) vaihtoehtoisten kuvien lista.
-* **key-name** määrittää virtuaalikoneeseen konfiguroitavan julkisen avaimen.
+* **flavor** määrittää virtuaalikoneelle varatut resurssit (CPU, muisti); katso lisätiedot kohdasta [Virtuaalikoneiden flavorit ja Billing Unit -hinnat](../vm-flavors-and-billing.md).
+* **image** määrittää käyttöjärjestelmäkuvan, josta virtuaalikone rakennetaan; katso vaihtoehdot kohdasta [Perustietoa levykuvista](../images.md).
+* **key-name** määrittää virtuaalikoneeseen asennettavan julkisen avaimen.
 
-Komennon tuloste on seuraavanlainen:
+Komennon tuloste on samankaltainen kuin alla:
 ```
 +-----------------------------+------------------------------------------------------+
 | Field                       | Value                                                |
@@ -273,35 +273,35 @@ Komennon tuloste on seuraavanlainen:
 +-----------------------------+------------------------------------------------------+
 ```
 
-## Vaihe 4: putken konfigurointi {#step-4-configuring-the-pipeline}
+## Vaihe 4: putken määrittäminen { #step-4-configuring-the-pipeline }
 
-Nyt kun olemme rakentaneet kaikki komponentit, konfiguroimme ne toimimaan putkena.
-Ensiksi konfiguroimme virtuaalikoneen siten, että voimme käyttää sitä työasemaltamme.
-Sitten varmistamme, että virtuaalikone voi toimia Allasinsa sisältämien säiliöiden kanssa.
-Määrittelemme myös tietokanta-instanssimme Pukissa hyväksymään liikenteen virtuaalikoneelta.
-Lopulta asennamme ja konfiguroimme työkalut, jotka mahdollistavat putken toiminnan virtuaalikoneessa.
+Nyt kun kaikki osat on luotu, määritämme ne toimimaan putkena.
+Ensin määritämme virtuaalikoneen sallimaan pääsyn työasemaltamme.
+Seuraavaksi varmistamme, että virtuaalikone pystyy käsittelemään Allaksen bucketteja.
+Määritämme myös Pukin tietokanta-instanssin hyväksymään liikenteen virtuaalikoneelta.
+Lopuksi asennamme ja konfiguroimme virtuaalikoneeseen työkalut, joita putki tarvitsee toimiakseen.
 
-### Liikenteen salliminen työasemalta virtuaalikoneelle {#allowing-traffic-from-workstation-to-virtual-machine}
+### Työaseman liikenteen salliminen virtuaalikoneelle { #allowing-traffic-from-workstation-to-virtual-machine }
 
-Oletuksena virtuaalikone ei salli saapuvaa liikennettä Internetistä estääkseen luvattomat pääsyyritykset.
-Pääsy virtuaalikoneelle säädellään _turvallisuusryhmien_ ja niiden sisältämien sääntöjen avulla.
-Näin ollen luomme uuden turvallisuusryhmän yhdellä säännöllä, joka sallii pääsyn virtuaalikoneelle työasemaltamme.
+Oletuksena virtuaalikone ei salli saapuvaa liikennettä internetistä luvattomien pääsyyritysten estämiseksi.
+Pääsyä virtuaalikoneelle säädellään suojausryhmillä (security groups) ja niiden säännöillä.
+Luomme siis uuden suojausryhmän yhdellä säännöllä, joka sallii pääsyn virtuaalikoneelle työasemaltamme.
 
-Palaamme `terminal_pouta`-laitteeseen.
+Palataan `terminal_pouta`-päätteeseen.
 
-Ensiksi selvitämme, mikä on työasemamme julkisesti käytetty ip-osoite ja tallennamme sen ympäristömuuttujaan antamalla seuraavan komennon:
+Selvitämme ensin työasemamme julkisen IP-osoitteen ja talletamme sen ympäristömuuttujaan:
 ```
 $ export WORKSTATION_IP=$(curl -4 ifconfig.me)
 
 ```
 
-Luomme uuden turvallisuusryhmän määrittelemällä ensin sen nimen ympäristömuuttujaan ja antamalla sitten erikoiskomennon:
+Luomme uuden suojausryhmän määrittelemällä ensin sen nimen ympäristömuuttujaan ja ajamalla komennon:
 ```
 $ export POUTA_SEC_GROUP_NAME="pipeline_security_group"
 $ openstack security group create $POUTA_SEC_GROUP_NAME
 ```
 
-Tuloste näyttää seuraavanlaiselta:
+Tuloste näyttää tältä:
 ```
 +-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Field           | Value                                                                                                                                                                      |
@@ -320,20 +320,20 @@ Tuloste näyttää seuraavanlaiselta:
 +-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
 
-Lisäämme säännön, joka sallii pääsyn suorittamalla seuraavan komennon:
+Lisätään sääntö, joka sallii pääsyn:
 ```
 $ openstack security group rule create $POUTA_SEC_GROUP_NAME \
 --remote-ip $WORKSTATION_IP/32 \
 --dst-port 22 \
 --protocol tcp
 ```
-Komennon parametrit ovat seuraavat:
+Komennon parametrit:
 
-* **remote-ip** määrittää ip-osoitteiden joukon, jolle sääntö on määritelty. Etäpäätepisteet vastaavat liikenteen lähteitä.
-* **dst-port** määrittää, mille kohteen portille sääntö on määritelty. Kohdeportti vastaa liikenteen kohdetta.
-* **protocol** määrittää protokollan, johon sääntö on määritelty. Tässä tapauksessa sääntö huomioi vain TCP-liikenteen.
+* **remote-ip** määrittää IP-osoitteet, joihin sääntö kohdistuu. Nämä ovat liikenteen lähdeosoitteita.
+* **dst-port** määrittää kohteen portin, johon sääntö kohdistuu. Tämä on liikenteen kohdeportti.
+* **protocol** määrittää protokollan. Tässä säännössä huomioidaan vain TCP-liikenne.
 
-Tuloste on seuraavanlainen:
+Tuloste on samankaltainen kuin alla:
 ```
 +-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Field             | Value                                                                                                                                                                      |
@@ -358,24 +358,24 @@ Tuloste on seuraavanlainen:
 +-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
 
-Nyt sovellamme turvallisuusryhmän aiemmin luotuun virtuaalikoneeseen niin, että tämä juuri luotu sääntö koskee sen liikennettä.
+Lisätään suojausryhmä aiemmin luotuun virtuaalikoneeseen, jotta uusi sääntö vaikuttaa sen liikenteeseen.
 ```
 $ openstack server add security group $POUTA_INSTANCE_NAME $POUTA_SEC_GROUP_NAME
 ```
-Jos komento onnistuu, se ei näytä tulostetta.
+Onnistuneessa tapauksessa komento ei näytä tulostetta.
 
-### Yhteyden muodostaminen virtuaalikoneelle {#connecting-to-the-virtual-machine}
+### Yhteyden muodostaminen virtuaalikoneeseen { #connecting-to-the-virtual-machine }
 
-Virtuaalikone on nyt konfiguroitu sallimaan liikenteen työasemaltamme, mutta se ei ole vielä saavutettavissa.
-Virtuaalikoneelle annetaan yksityinen IP-osoite käynnistyksen yhteydessä, mutta sille ei määritetä automaattisesti julkista IP:tä, joka vaaditaan yhteyden muodostamiseen virtuaalikoneeseen Internetistä.
+Virtuaalikone on nyt määritetty sallimaan liikenne työasemaltamme, mutta siihen ei vielä pääse käsiksi.
+Virtuaalikoneelle annetaan käynnistyksessä yksityinen IP-osoite, mutta sille ei automaattisesti tule julkista IP-osoitetta, jota tarvitaan internetin yli yhdistämiseen.
 
-Palaamme `terminal_pouta`-laitteeseen.
-Hankimme uuden osoitteen antamalla seuraavan komennon:
+Palataan `terminal_pouta`-päätteeseen.
+Hankitaan uusi osoite komennolla:
 ```
 $ openstack floating ip create public
 ```
 
-Tuloste on seuraavanlainen:
+Tuloste on samankaltainen kuin alla:
 ```
 +---------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Field               | Value                                                                                                                                                                                                |
@@ -402,68 +402,68 @@ Tuloste on seuraavanlainen:
 | updated_at          | 2025-02-04T13:13:38Z                                                                                                                                                                                 |
 +---------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
-Erityisesti merkitsemme ylös kentän `floating_ip_address` arvon ympäristömuuttujaan:
+Kirjataan erityisesti talteen `floating_ip_address`-kentän arvo ympäristömuuttujaan:
 ```
-$ export POUTA_FLOATING_IP="xxx.xxx.xxx.xxx" # laita tähän kelluvan IP-osoitteen arvo
+$ export POUTA_FLOATING_IP="xxx.xxx.xxx.xxx" # put here the value returned for floating_ip_address
 ```
 
-Yhdistämme nyt saadun osoitteen virtuaalikoneeseemme antamalla seuraavan komennon:
+Liitetään saatu osoite virtuaalikoneeseemme:
 ```
 $ openstack server add floating ip $POUTA_INSTANCE_NAME $POUTA_FLOATING_IP
 ```
-Jos komento onnistuu, se ei näytä tulostetta.
+Onnistuneessa tapauksessa komento ei näytä tulostetta.
 
 Kaikki on nyt valmista.
-Voimme testata yhteyden muodostamista virtuaalikoneeseemme antamalla seuraavan komennon:
+Voimme testata yhteyttä virtuaalikoneeseen komennolla:
 ```
 $ ssh -i $POUTA_KEYPAIR ubuntu@$POUTA_FLOATING_IP
 ```
 
-Mahdollisesti meille esitetään seuraava kysymys:
+Todennäköisesti meiltä kysytään seuraavaa:
 ```
-Virheellistä laitetta 'xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx)' ei voi todentaa. 
-ED25519 avain on sormenjälki SHA256:waKe82wIU0HYSGpRFCBOx0n6GOvH108nkJ+koosOF80.
-Tätä avainta ei tunneta millään muilla nimillä
-Haluatko varmasti jatkaa yhteyden muodostamista (yes/no/[fingerprint])?
+The authenticity of host 'xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx)' can't be established.
+ED25519 key fingerprint is SHA256:waKe82wIU0HYSGpRFCBOx0n6GOvH108nkJ+koosOF80.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
-Voimme turvallisesti vastata `yes` ja painaa Enter-näppäintä, mikä lopulta johtaa meidät virtuaalikoneelle:
+Voimme vastata turvallisesti `yes` ja painaa Enter, minkä jälkeen päädymme virtuaalikoneelle:
 ```
-Haluatko varmasti jatkaa yhteyden muodostamista (yes/no/[fingerprint])? yes
-Varoitus: Lisätty 'xxx.xxx.xxx.xxx' (ED25519) pysyvästi tiedostoon known hosts.
-Tervetuloa Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-51-generic x86_64)
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'xxx.xxx.xxx.xxx' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-51-generic x86_64)
 
 ...
 
-Ylläpitäjänä (käyttäjänä "root") voit suorittaa komennon "sudo <komento>".
-Ks. "man sudo_root" lisätietoa varten.
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
 
 ubuntu@pipeline-vm:~$
 ```
 
-Lähdemme hetkeksi `terminal_pouta`, palaamme kun on aika asentaa ja konfiguroida työkalut sen sisällä.
+Jätämme `terminal_pouta`-päätteen hetkeksi ja palaamme siihen, kun on aika asentaa ja määrittää työkalut virtuaalikoneessa.
 
-### Liikenteen salliminen virtuaalikoneelta tietokantaan {#allowing-traffic-from-virtual-machine-to-database}
+### Liikenteen salliminen virtuaalikoneelta tietokantaan { #allowing-traffic-from-virtual-machine-to-database }
 
-Oletuksena tietokanta-instanssimme Pukkissa ei salli mitään saapuvaa liikennettä.
-Haluamme konfiguroida sen niin, että se hyväksyy liikenteen virtuaalikoneeltamme cPoutassa.
+Oletuksena Pukin tietokanta-instanssi ei hyväksy saapuvaa liikennettä.
+Haluamme määrittää sen niin, että se hyväksyy liikenteen cPoutan virtuaalikoneeltamme.
 
-Siirrymme `terminal_pukki`-laitteeseen.
-Ennen kuin aloitamme toiminnan tietokanta-instanssin kanssa, on huomattava, että yhdessä päätelaitteessa määritellyt ympäristömuuttujat eivät leviä automaattisesti muihin päätelaitteisiin.
-Tämän vuoksi meidän on määritettävä kelluva IP-osoite, joka on annettu virtuaalikoneelle cPoutassa, ympäristömuuttujaksi myös tässä päätelaitteessa.
+Siirrytään `terminal_pukki`-päätteeseen.
+Ennen kuin jatkamme tietokanta-instanssin parissa, huomaa että yhdessä päätteessä määritetyt ympäristömuuttujat eivät siirry automaattisesti toiseen.
+Siksi meidän on määritettävä cPoutan virtuaalikoneelle annettu floating IP myös tässä päätteessä ympäristömuuttujaan.
 ```
-$ export POUTA_FLOATING_IP="xxx.xxx.xxx.xxx" # laita tähän sama arvo, joka on annettu samaan muuttujaan terminal_pouta-laitteessa
+$ export POUTA_FLOATING_IP="xxx.xxx.xxx.xxx" # put here the same value assigned to the same variable in terminal_pouta
 ```
 
-Annamme sitten seuraavan komennon:
+Ajetaan sitten seuraava komento:
 ```
 $ openstack database instance update $DB_INSTANCE_NAME \
 --allowed-cidr $POUTA_FLOATING_IP/32
 ```
-Komennon **allowed-cidr**-parametri määrittää ip-osoitteiden joukon, joille liikenne tietokanta-instanssille on sallittua.
+Parametri **allowed-cidr** määrittää IP-osoitejoukon, josta liikenne tietokanta-instanssiin sallitaan.
 
-Jos komento onnistuu, se ei näytä tulostetta.
-Voimme kuitenkin tarkistaa onnistuneen toiminnan katsomalla tietokanta-instanssimme tietoja:
+Onnistuneessa tapauksessa komento ei näytä tulostetta.
+Voimme kuitenkin tarkistaa, että muutos meni perille, katsomalla instanssin tiedot:
 ```
 $ openstack database instance show $DB_INSTANCE_NAME
 +--------------------------+-----------------------------------------------------------------------------------------------------------+
@@ -479,85 +479,85 @@ $ openstack database instance show $DB_INSTANCE_NAME
 | flavor                   | d4a2cb9c-99da-4e0f-82d7-3313cca2b2c2                                                                      |
 | id                       | 2f347948-9460-4ac0-a588-32187c8b6ab1                                                                      |
 | ip                       | 192.168.215.98, xxx.xxx.xxx.xxx                                                                           |
-| naam                     | pipeline_db_instance                                                                                      |
+| name                     | pipeline_db_instance                                                                                      |
 | operating_status         | HEALTHY                                                                                                   |
-| julkinen                 | False                                                                                                     |
+| public                   | False                                                                                                     |
 | region                   | regionOne                                                                                                 |
 | service_status_updated   | 2025-02-04T13:16:10                                                                                       |
 | status                   | ACTIVE                                                                                                    |
-| päivitetty               | 2025-02-04T13:16:52                                                                                       |
+| updated                  | 2025-02-04T13:16:52                                                                                       |
 | volume                   | 1                                                                                                         |
 | volume_used              | 0.08                                                                                                      |
 +--------------------------+-----------------------------------------------------------------------------------------------------------+
 ```
-Näemme, että virtuaalikoneen kelluva IP-osoite on nyt listattu kohdassa `allowed_cidrs`.
+Näemme, että virtuaalikoneemme floating IP on nyt listattuna `allowed_cidrs`-kentässä.
 
-Näyttämissä tiedoissa huomaa myös tietokanta-instanssimme julkisen IP-osoitteen, jota tarvitsemme seuraavissa vaiheissa.
-Kentän `addresses` rivi sisältää kaksi osaa: osoitteen, joka on merkitty `private`, ja toisen, joka on merkitty `public`.
-Palaamme `terminal_pouta`-laitteeseen, missä olemme vielä kirjautuneina virtuaalikoneeseemme cPoutassa, ja määrittelemme ympäristömuuttujaksi tietokannan julkisen osoitteen, koska tarvitsemme sitä myöhemmin konfiguroinnissa.
+Edellisen komennon tulosteesta poimimme myös tietokanta-instanssin julkisen IP-osoitteen, jota tarvitsemme myöhemmin.
+`addresses`-rivi sisältää kaksi osaa: yksityisen osoitteen (private) ja julkisen osoitteen (public).
+Palataan `terminal_pouta`-päätteeseen, jossa olemme edelleen kirjautuneena cPoutan virtuaalikoneelle, ja tallennetaan tietokannan julkinen osoite ympäristömuuttujaan myöhempää käyttöä varten.
 ```
-$ export DB_PUBLIC_IP="xxx.xxx.xxx.xxx" # laita tähän tietokanta-instanssin julkinen ip-osoite Pukissa
+$ export DB_PUBLIC_IP="xxx.xxx.xxx.xxx" # put here the public ip address of the database instance in Pukki
 ```
 
-### Virtuaalikoneen pääsyn konfigurointi Allasiin {#configuring-access-from-virtual-machine-to-allas}
+### Pääsyn määrittäminen virtuaalikoneelta Allakseen { #configuring-access-from-virtual-machine-to-allas }
 
-Työasemamme tavoin myös virtuaalikone on konfiguroitava pääsemään Allasissa isännöityihin säiliöihin.
+Samoin kuin työasemalla, myös virtuaalikone on määritettävä siten, että se pääsee käsiksi Allaksen bucketteihin.
 
-`terminal_pouta`-päätteessä seuraamme [ohjeita s3cmd:n asennuksesta ja konfiguroinnista](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd) virtuaalikoneen sisältä.
-Kun s3cmd on konfiguroitu, testaamme, että kaikki toimii oikein listaamalla Allasin säiliömme:
+`terminal_pouta`-päätteessä seuraamme virtuaalikoneessa ohjetta [s3cmd:n asentaminen ja määrittäminen](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
+Kun s3cmd on konfiguroitu, testaamme toiminnan listaamalla Allaksen bucketit:
 ```
 $ s3cmd ls
 2025-01-16 14:59  s3://input_bucket
 2025-01-16 14:59  s3://output_bucket
 ```
-Huomaamme, että voimme nähdä kaksi säiliötä, jotka olemme luoneet aikaisemmin opetusmateriaalissa.
-Näin ollen olemme varmistaneet, että virtuaalikone pääsee nyt kunnolla Allasissa oleviin säiliöihin.
+Huomaamme, että näemme kaksi aiemmin luomaamme buckettia.
+Olemme siis varmistaneet, että virtuaalikone pääsee käsiksi Allaksen bucketteihin.
 
-### Virtuaalikoneen pääsyn konfigurointi tietokantaan {#configuring-access-from-virtual-machine-to-database}
+### Pääsyn määrittäminen virtuaalikoneelta tietokantaan { #configuring-access-from-virtual-machine-to-database }
 
-Tässä vaiheessa opetusmateriaalia liikenne virtuaalikoneelta voi saavuttaa Pukin tietokannan.
-Tällä hetkellä virtuaalikoneella ei kuitenkaan ole tietoa siitä, missä tietokanta löytyy, eli sen julkista IP-osoitetta, eikä myöskään niitä tunnuksia, joita käytetään tietokantaan pääsemiseen.
-Siksi konfiguroimme seuraavaksi tietokantayhteyden virtuaalikoneessa.
+Tässä vaiheessa virtuaalikoneelta lähtevä liikenne pääsee Pukin tietokantaan.
+Virtuaalikoneella ei kuitenkaan vielä ole tietoa siitä, missä tietokanta sijaitsee (julkinen IP-osoite) tai mitä tunnuksia käytetään.
+Määritetään siis yhteys tietokantaan virtuaalikoneelta.
 
-Pysymme `terminal_pouta`-päätteellä.
-Aluksi asennamme työkalun, jota tarvitsemme puhuaksemme tietokannan kanssa:
+Pysytään `terminal_pouta`-päätteessä.
+Asennetaan ensin työkalu, jolla voimme keskustella tietokannan kanssa:
 ```
 $ sudo apt update ; sudo apt install postgresql-client
 ```
 
-Määrittelemme sitten kaikki ympäristömuuttujat, joita tarvitsemme yhdistääksemme ja päästäksemme Pukin tietokantaan.
+Määritetään sitten kaikki tarvittavat ympäristömuuttujat tietokantaan yhdistämistä varten:
 ```
-$ export DB_NAME="pipeline_db" # tietokannan nimi
-$ export DB_USERNAME="db_admin" # tietokannan käyttäjä
-$ export DB_PASSWORD="xxxxxx" # laita tähän tietokannan käyttäjän salasana
+$ export DB_NAME="pipeline_db" # name of the database
+$ export DB_USERNAME="db_admin" # name of the user configured for the database
+$ export DB_PASSWORD="xxxxxx" # put here the password of the user configured for the database
 ```
 
-Määrittelemme myös postgresql-salasanatiedoston, jota voidaan sitten käyttää helposti tietokantaan yhdistämiseen komentoriviltä.
+Määritellään myös PostgreSQL:n salasanatiedosto, jonka avulla komentorivityökalulla on helppo yhdistää tietokantaan:
 ```
 $ echo "$DB_PUBLIC_IP:5432:$DB_NAME:$DB_USERNAME:$DB_PASSWORD" >> ~/.pgpass
 $ chmod 0600 ~/.pgpass
 ```
-Lisätietoja postgresql-salasanatiedostosta löytyy sen omalta [kelvisivulta](https://www.postgresql.org/docs/current/libpq-pgpass.html).
+Lisätietoja PostgreSQL:n salasanatiedostosta löytyy sen [viitesivulta](https://www.postgresql.org/docs/current/libpq-pgpass.html).
 
-Testataan nyt tietokantaan pääsyä.
-`terminal_pouta`-päätteessä suorita seuraava komento:
+Testataan nyt yhteyttä tietokantaan.
+Aja `terminal_pouta`-päätteessä:
 ```
 $ psql -h "$DB_PUBLIC_IP" -d "$DB_NAME" -U "$DB_USERNAME"
 ```
-Saat seuraavan kehotteen, joka osoittaa onnistuneen yhteyden tietokantaan:
+Saat seuraavan kehotteen, mikä kertoo, että yhteys tietokantaan onnistui:
 ```
-psql (16.6 (Ubuntu 16.6-0ubuntu0.24.04.1), palvelin 17.2 (Debian 17.2-1.pgdg110+1))
-VAROITUS: psql:n suuri versio 16, palvelimen suuri versio 17.
-         Joitakin psql-ominaisuuksia ei ehkä toimi.
-SSL-yhteys (protokolla: TLSv1.3, salaus: TLS_AES_256_GCM_SHA384, pakkaus: off)
-Kirjoita "help" saadaksesi apua.
+psql (16.6 (Ubuntu 16.6-0ubuntu0.24.04.1), server 17.2 (Debian 17.2-1.pgdg110+1))
+WARNING: psql major version 16, server major version 17.
+         Some psql features might not work.
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
+Type "help" for help.
 
 pipeline_db=>
 ```
-Mennäksesi takaisin virtuaalikoneelle kirjoita vain `exit` ja paina `Enter`.
+Palaa virtuaalikoneen komentoriville kirjoittamalla `exit` ja painamalla Enter.
 
-Kun olemme yhteydessä tietokantaamme, valmistelemme sen isännöimään tietoa, jota lähetämme siihen käsitellessämme kuvia.
-Suoritamme seuraavan komennon luodaksemme taulukon, joka isännöi tietoa kuvista:
+Kun yhteys tietokantaan toimii, valmistellaan se vastaanottamaan käsittelyä koskevat tiedot.
+Luodaan taulu, johon tallennetaan kuvien käsittelyä koskevat tiedot:
 ```
 $ psql \
 -h "$DB_PUBLIC_IP" \
@@ -565,29 +565,154 @@ $ psql \
 -U "$DB_USERNAME" \
 -c "CREATE TABLE IF NOT EXISTS log_records (timestamp varchar(25) primary key, negated_picture_name text, negated_picture_hash text)"
 ```
-Komennon parametrit ovat seuraavat:
+Komennon parametrit:
 
-* **h** on isäntänimi, eli ip-osoite, jossa tietokanta on löydettävissä.
+* **h** on isäntänimi, eli tietokannan IP-osoite.
 * **d** on tietokannan nimi.
-* **U** on käyttäjänimi, jota käytetään tietokantaan autentikoitumiseen.
-* **c** on komento, joka annetaan tietokantaan itsessään. Komento on kirjoitettu tietokannan käyttämällä syntaksilla.
+* **U** on käyttäjätunnus, jolla tunnistaudutaan tietokantaan.
+* **c** on tietokannassa suoritettava komento. Komento kirjoitetaan tietokannan syntaksilla.
 
-Jos komento onnistui, pääte vastaa yksinkertaisesti merkkijonolla `CREATE TABLE`.
-Tietokanta on nyt konfiguroitu putkellemme.
+Onnistuneessa tapauksessa terminaali vastaa `CREATE TABLE`.
+Tietokanta on nyt konfiguroitu putkeamme varten.
 
-### Kuvanmuuntoskriptin asentaminen {#installing-picture-transforming-script}
+### Kuvien muunnosskriptin asentaminen { #installing-picture-transforming-script }
 
-Viimeisenä osana konfigurointifaasia asennamme skriptin, joka huolehtii Allasista ja Pukista keskustelemisesta, sekä syötteen muuntamisesta.
-Tätä varten asennamme ensin työkalun kuvien muuntamiseen.
-`terminal_pouta`-päätteessä suorita:
+Konfiguroinnin viimeinen osa on skriptin asentaminen. Skripti huolehtii Allaksen ja Pukin kanssa kommunikoinnista sekä kuvan muuntamisesta.
+Asennetaan ensin kuvien muunnostyökalu.
+Aja `terminal_pouta`-päätteessä:
 ```
 $ sudo apt install imagemagick
 ```
 
-Kun työkalu on asennettu kaikilla sen riippuvuuksilla, suoritamme:
+Kun työkalu on asennettu riippuvuuksineen, suoritetaan:
 ```
 $ nano pipeline_script.sh
 ```
-Näemme vilkkuvan kursorin ikkunan vasemmassa yläkulmassa, mikä osoittaa, että voimme nyt kirjoittaa uuteen `pipeline_script.sh`-nimiseen tiedostoomme.
-Kopioimme ja liitämme seuraavan sisällön.
-Muistathan vaihtaa skriptin alussa määritellyt ympäristömuutt
+Näet vilkkuvan kohdistimen ikkunan vasemmassa yläkulmassa, mikä kertoo, että voit nyt kirjoittaa uuteen tiedostoon `pipeline_script.sh`.
+Kopioi ja liitä alla oleva sisältö.
+Muista vaihtaa skriptin alussa määritetyt ympäristömuuttujat omaan ympäristöösi sopiviksi.
+```
+#!/bin/bash
+
+### NB! Change the value of these environment variables to match your setup
+export INPUT_BUCKET="input_bucket"
+export OUTPUT_BUCKET="output_bucket"
+export DB_PUBLIC_IP="xxx.xxx.xxx.xxx"
+export DB_NAME="pipeline_db"
+export DB_USERNAME="db_admin"
+###
+
+
+
+export NEGATED_PREFIX="negated_"
+
+(
+# perform the task if the lock is free, otherwise exit
+flock -n 200 || exit 1
+# iterate over the pictures in the bucket
+for PICTURE_URL in $(s3cmd ls s3://$INPUT_BUCKET | awk '{ print $4 }')
+do
+        # get the current timestamp
+        TIMESTAMP=$(date +%FT%T)
+        # get the picture
+        PICTURE_NAME=$(echo "$PICTURE_URL" | awk -F '/' '{ print $NF }')
+        s3cmd get "$PICTURE_URL" "$PICTURE_NAME"
+        # compute the negated
+        NEGATED_PICTURE_NAME="$NEGATED_PREFIX$PICTURE_NAME"
+        convert -negate "$PICTURE_NAME" "$NEGATED_PICTURE_NAME"
+        # compute hash of the result
+        NEGATED_PICTURE_HASH=$(sha256sum "$NEGATED_PICTURE_NAME" | awk '{ print $1 }')
+        # log to the db that this was done
+        psql -h "$DB_PUBLIC_IP" -d "$DB_NAME" -U "$DB_USERNAME" -c "INSERT INTO log_records (timestamp, negated_picture_name, negated_picture_hash) VALUES ('$TIMESTAMP', '$NEGATED_PICTURE_NAME', '$NEGATED_PICTURE_HASH')"
+        # push the negated picture to the output bucket
+        s3cmd put "$NEGATED_PICTURE_NAME" s3://$OUTPUT_BUCKET
+        # delete the local copies of the pictures
+        rm "$PICTURE_NAME" "$NEGATED_PICTURE_NAME"
+        # delete the picture from the input bucket
+        s3cmd del "$PICTURE_URL"
+        # sleep 1 sec
+        sleep 1
+done
+) 200>/var/lock/pipeline_script_lock
+```
+Kun olet valmis, paina näppäinyhdistelmää `CTRL + X`.
+Terminaali kysyy, tallennetaanko muutokset; vastaa painamalla `y`.
+Saat vielä mahdollisuuden muuttaa tiedoston nimen.
+Nykyinen nimi kelpaa, joten paina Enter ja palaat takaisin terminaalinäkymään.
+
+Skriptissä on nyt putken logiikka, mutta se ei vielä käynnisty automaattisesti.
+Aja `terminal_pouta`-päätteessä seuraavat komennot:
+```
+$ chmod +x /home/ubuntu/pipeline_script.sh
+$ crontab -l > crontab_list
+$ echo "* * * * * /home/ubuntu/pipeline_script.sh" >> crontab_list
+$ crontab crontab_list
+```
+
+Nyt skripti on ajastettu ajettavaksi minuutin välein.
+Olemme valmiita testaamaan putken toimintaa.
+
+## Vaihe 5: putken testaaminen { #step-5-testing-the-pipeline }
+
+Valitse haluamasi kuva ja kopioi se työasemasi kotihakemistoon.
+Esimerkkinä tässä kuvamme polussa `~/cat1.jpg`:
+
+![picture-cat](../../img/cat1.jpg)
+
+Lähetetään kuva putken läpi.
+`terminal_allas`-päätteessä siirry ensin kotihakemistoon ja lataa kuva Allakseen:
+```
+$ cd ~
+$ s3cmd put cat1.jpg s3://$INPUT_BUCKET
+upload: 'cat1.jpg' -> 's3://input_bucket/cat1.jpg'  [1 of 1]
+ 133275 of 133275   100% in    0s     2.47 MB/s  done
+```
+
+Odotetaan noin minuutti, tarkistetaan bucketin sisältö ja huomataan, että se on tyhjä.
+```
+$ s3cmd ls s3://$INPUT_BUCKET
+$
+```
+Putki on siis ottanut kuvan bucketista ja käsitellyt sen.
+
+Tarkistetaan, löytyykö tietokannasta merkintä kuvan muunnoksesta.
+Aja `terminal_pouta`-päätteessä:
+```
+$ psql \
+-h "$DB_PUBLIC_IP" \
+-d "$DB_NAME" \
+-U "$DB_USERNAME" \
+-c "select * from log_records where negated_picture_name like '%cat1%'"
+```
+Saat samankaltaisen tulosteen kuin alla:
+```
+      timestamp      | negated_picture_name |                        negated_picture_hash                        
+---------------------+--------------------+------------------------------------------------------------------
+ 2025-02-04T12:01:01 | negated_cat1.jpg   | 50cc363c1528371cf9526d1fddead5f37f3004f11e9f24b72ea210db58dee095
+(1 row)
+```
+Tuloste kertoo, että putki on käsitellyt alkuperäisen `cat1.jpg`-kuvan ja tuottanut tulokseksi `negated_cat1.jpg`-kuvan.
+
+Katsotaan muunnettua kuvaa.
+`terminal_allas`-päätteessä varmistetaan ensin, että kuva löytyy toisesta bucketista.
+Ladataan se sitten kotihakemistoon:
+```
+$ s3cmd ls s3://$OUTPUT_BUCKET
+2025-02-04 12:01       140798  s3://output_bucket/negated_cat1.jpg
+$ s3cmd get s3://$OUTPUT_BUCKET/negated_cat1.jpg .
+download: 's3://output_bucket/negated_cat1.jpg' -> './negated_cat1.jpg'  [1 of 1]
+ 140798 of 140798   100% in    0s     2.12 MB/s  done
+```
+
+Voimme vihdoin ihailla aherruksemme tulosta!
+
+![picture-negated-cat](../../img/negated_cat1.jpg)
+
+## Yhteenveto { #conclusion }
+
+Rakensimme automatisoidun työnkulun kuvien muuntamiseksi käyttäen kolmea eri pilvipalvelua.
+Tässä ohjeessa työnkulku on vain yksinkertainen menettely kuvan kääntämiseksi invertoituun versioon, mutta sen päälle voi rakentaa konkreettisempiakin käyttötapauksia.
+Muutama keskeinen oppi:
+
+* Kun käytät useita pilvipalveluja yhtä aikaa, voi olla hyödyllistä käyttää yhtä pääteikkunaa per palvelu. Vaikka se ei ole välttämätöntä, se helpottaa eri palveluiden tunnusten järjestyksessä pitämistä, esim. jos käytät Allasta projektista `X` ja cPoutaa projektista `Y`.
+* Oletuksena cPoutassa ja Pukissa ajettavat instanssit eivät hyväksy saapuvaa liikennettä. Pääsy tällaisiin instansseihin on aina määriteltävä erikseen suojausryhmillä ja sallitulla CIDR-listauksella.

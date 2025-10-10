@@ -1,43 +1,42 @@
-# Luo kiinteä IP VM:lle
+# Luo kiinteä IP-osoite VM:lle { #create-a-fixed-ip-for-a-vm }
 
-## Johdanto {#introduction}
+## Johdanto { #introduction }
 
-On yksinkertainen prosessi tietää/kiinnittää VM:n IP-osoite ennen sen käynnistämistä. Myös IP voidaan varata, jos haluat käynnistää VM:n uudelleen.
+VM:n IP-osoitteen voi helposti määrittää kiinteäksi ennen sen käynnistämistä. Lisäksi IP-osoitteen voi varata, jos haluat käynnistää VM:n uudelleen.
 
-### Kiinnitä IP-osoite ennen VM:n käynnistämistä {#fix-ip-address-before-launching-a-vm}
+### Määritä IP-osoite kiinteäksi ennen VM:n käynnistämistä { #fix-ip-address-before-launching-a-vm }
 
-Noudata seuraavaa menettelyä:
+Toimi seuraavasti:
 
-1. Projektisi valikossa, mene **Verkot** ja napsauta `project_XXXXXXX-network` linkkiä, missä XXXXXXX on projektinumero.
+1. Projektisi valikossa siirry kohtaan **Networks** ja napsauta linkkiä `project_XXXXXXX-network`, jossa XXXXXXX on projektisi numero.
 
 ![Projekti](../../img/project.png)
 
-2. Siirry **Portit**-välilehteen ja napsauta **Luo portti** oikeassa yläkulmassa.
+2. Siirry **Ports**-välilehdelle ja napsauta oikeassa yläkulmassa **Create Port**.
 
-![Projekti-verkko](../../img/project-network.png)
+![Projektiverkko](../../img/project-network.png)
 
-3. Dialogi-ikkuna ilmestyy seuraavan kuvan mukaisesti. Syötä nimi ja napsauta **Luo**.
+3. Valintaikkuna avautuu kuten seuraavassa kuvassa. Anna nimi ja napsauta **Create**.
 
-![Luo-portti](../../img/Create-port-unspecified.png)
+![Portin luonti](../../img/Create-port-unspecified.png)
 
-4. Nyt, kun käynnistät instanssia, siirry **Verkkoportit** ja käytä tätä porttia.
+4. Nyt instanssia käynnistäessä siirry kohtaan **Network Ports** ja käytä tätä porttia. 
 
-![käynnistä-instanssi](../../img/launch-instance.png)
+![Käynnistä instanssi](../../img/launch-instance-network-ports.png) 
 
-### Varaa IP uudelleenkäynnistettävälle VM:lle {#reserve-ip-to-re-launch-a-vm}
+### Varaa IP VM:n uudelleenkäynnistystä varten { #reserve-ip-to-re-launch-a-vm }
+Menettely on lähes sama, mutta sisältää muutamia lisävaiheita:
 
-Menettely on melkein sama muutamalla lisäaskeleella:
-
-1. Kirjoita muistiin nykyisen VM:n IP-osoite ja turvallisuusryhmien lista.
+1. Kirjoita ylös nykyisen VM:n IP-osoite ja sen suojausryhmien luettelo.
 
 2. Sammuta VM.
 
 3. Ota tilannekuva.
 
-4. Napsauta projektisi verkon **Portit**.
+4. Klikkaa projektisi verkon kohdalla **Ports**.
 
-5. Poista nykyisen VM:si IP:tä vastaava portti. Tämä johtuu siitä, että kyseinen portti on automaattisesti luotu eikä sitä voi osoittaa mihinkään muuhun VM:ään kuin siihen, johon se on tällä hetkellä osoitettu. Poistonappi on Toiminnot-kohdassa.
+5. Poista nykyisen VM:n IP-osoitteeseen liittyvä portti. Tämä portti on luotu automaattisesti eikä sitä voi liittää mihinkään muuhun VM:ään kuin siihen, johon se on tällä hetkellä liitetty. Poistopainike löytyy kohdasta **Actions**. 
 
-6. Nyt, luo portti edellä mainitulla tavalla. Tässä, **Määritä IP-osoite tai aliverkko**, vaihda se **Kiinteä IP-osoite**. Uusi kenttä ilmestyy, syötä siihen nykyisen VM:si IP-osoite.
+6. Luo nyt portti edellä kuvatulla tavalla. Muuta kohdassa **Specify IP address or subnet** valinnaksi **Fixed IP Address**. Näkyviin tulee uusi kenttä; syötä siihen nykyisen VM:si IP-osoite.
 
-7. Käytä tätä porttia, kun käynnistät VM:ää.
+7. Käytä tätä porttia VM:ää käynnistettäessä.

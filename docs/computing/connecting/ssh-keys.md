@@ -1,55 +1,81 @@
-# SSH-avainten määrittäminen {#setting-up-ssh-keys}
+# SSH-avainten käyttöönotto { #setting-up-ssh-keys }
 
-[SSH-avaimet](https://www.ssh.com/academy/ssh-keys) tarjoavat kätevämmän ja turvallisemman tunnistuksen. Niiden määrittäminen on kaksivaiheinen prosessi, ja se on tarpeen, jotta voit käyttää CSC:n supertietokoneita SSH-asiakkaan avulla.
+--8<-- "auth-update-ssh.md"
 
-1. [Luo SSH-avaimet paikallisella työasemallasi](#generating-ssh-keys).
-    - SSH-avaimet luodaan aina parina, johon kuuluu yksi _julkinen avain_ ja yksi _yksityinen avain_. Luo nämä avaimet laitteella, jota aiot käyttää CSC:n supertietokoneisiin yhdistämiseen.
+[SSH-avaimet](https://www.ssh.com/academy/ssh-keys) tarjoavat kätevämmän ja
+turvallisemman todennuksen. Niiden käyttöönotto on kaksivaiheinen prosessi ja
+se vaaditaan, jotta voit muodostaa yhteyden CSC:n supertietokoneisiin SSH-asiakkaalla.
+
+1. [Luo SSH-avaimet omalla työasemallasi](#generating-ssh-keys).
+    - SSH-avaimet luodaan aina pareittain: yksi _julkinen avain_ ja yksi
+      _yksityinen avain_. Luo avaimet sille laitteelle, jota aiot käyttää
+      yhteyden muodostamiseen CSC:n supertietokoneisiin.
 2. [Kopioi julkinen avain työasemaltasi MyCSC:hen](#copying-public-key-to-supercomputer).
-    - Jotta SSH-yhteys voidaan todentaa avainparin avulla, sinun on kopioitava julkinen avain MyCSC:hen. **Älä kopioi yksityistä avainta.** Huomaa, että julkisen avaimen kopioiminen suoraan CSC:n supertietokoneisiin työkaluilla, kuten `ssh-copy-id`, ei toimi.
+    - Avainparilla todennettavaa SSH-yhteyttä varten sinun tulee kopioida
+      julkinen avain MyCSC:hen. **Älä kopioi yksityistä avainta.** Huomaa,
+      että julkisen avaimen kopioiminen suoraan CSC:n supertietokoneille
+      työkaluilla kuten `ssh-copy-id` ei toimi.
 
-Lisätietoa SSH-avaimista löydät:
+Lisätietoja SSH-avaimista:
 
-- [Opetus: SSH-avainten määrittäminen CSC:ssä](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
-- [UKK: SSH-avainten ongelmien korjaaminen](../../support/faq/ssh-keys-not-working.md).
+- [Opas: SSH-avainten käyttöönotto CSC:llä](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+- [UKK: SSH-avaimiin liittyvien ongelmien vianmääritys](../../support/faq/ssh-keys-not-working.md).
 
 !!! warning
-    Yksityistä avainta ei tule **koskaan** jakaa kenenkään kanssa, ei edes CSC:n henkilökunnalle. Sen tulee olla tallennettuna vain paikallisella työasemalla.
+    Yksityistä avainta ei tule **koskaan** jakaa kenellekään, ei edes CSC:n
+    henkilökunnalle. Sen tulee olla tallennettuna vain paikalliselle työasemalle.
 
-## SSH-avainten luominen {#generating-ssh-keys}
+## SSH-avainten luominen { #generating-ssh-keys }
 
-Jos haluat tietää, miten luoda SSH-avaimet paikallisella työasemallasi, katso järjestelmäkohtaiset ohjeet:
+Lue järjestelmäkohtaiset ohjeet, kuinka luot SSH-avaimet paikallisella
+työasemallasi:
 
 1. [Unix-pohjaiset järjestelmät](ssh-unix.md) (macOS ja Linux)
 2. [Windows-järjestelmät](ssh-windows.md)
 
-Voit palata näihin ohjeisiin, kun sinua pyydetään nimeämään ja valitsemaan avainten tallennuspaikka. Seuraavat ohjeet olettavat, että olet SSH-avaimen luontidialogissa.
+Voit palata näihin ohjeisiin, kun sinulta kysytään avainten tiedostonimeä ja
+tallennussijaintia. Seuraavat ohjeet olettavat, että olet SSH-avaimen
+luontidialogissa.
 
-Jos et ole aiemmin määrittänyt SSH-avaimia, voit hyväksyä oletusnimen ja sijainnin painamalla `ENTER`. Jos oletusnimen käyttäminen kuitenkin ylikirjoittaisi olemassa olevan avaimen, saat varoituksen, joka näyttää tältä:
+Jos et ole aiemmin ottanut SSH-avaimia käyttöön, voit hyväksyä oletusnimen ja
+-sijainnin painamalla `ENTER`. Jos oletustiedostonimen käyttäminen kuitenkin
+ylikirjoittaisi olemassa olevan avaimen, saat seuraavan varoituksen:
 
 ```text
 /home/<username>/.ssh/id_ed25519 already exists. Overwrite (y/n)?
 ```
 
-Yleisesti ottaen et halua ylikirjoittaa olemassa olevia avaimia, joten kirjoita `n`, suorita `ssh-keygen` uudelleen ja syötä eri tiedostonimi, kun sitä pyydetään. Katso myös osio
-[SSH-avaintiedostot, joiden nimi tai sijainti ei ole oletus](#ssh-key-file-with-non-default-name-or-location).
+Yleensä olemassa olevia avaimia ei kannata ylikirjoittaa, joten syötä `n`,
+aja `ssh-keygen` uudelleen ja anna eri tiedostonimi, kun sitä kysytään. Katso
+myös osio
+[SSH-avaintiedosto ei-oletusnimellä tai -sijainnissa](#ssh-key-file-with-non-default-name-or-location).
 
-Seuraavaksi sinua pyydetään valitsemaan salasana. Valitse turvallinen salasana. Sen tulisi olla vähintään 8 merkkiä pitkä ja sisältää numeroita, kirjaimia ja erikoismerkkejä.
+Seuraavaksi sinulta kysytään salalausetta. Valitse turvallinen salalause.
+Sen tulisi olla vähintään 8 merkkiä pitkä ja sisältää numeroita, kirjaimia ja
+erikoismerkkejä.
 
 !!! warning
-    Älä koskaan jätä salasanaa tyhjäksi, kun luot SSH-avaimen paria!
+    Älä koskaan jätä salalausetta tyhjäksi luodessasi SSH-avainparia!
 
-### SSH-avaintiedosto, jonka nimi tai sijainti ei ole oletus {#ssh-key-file-with-non-default-name-or-location}
+### SSH-avaintiedosto ei-oletusnimellä tai -sijainnissa { #ssh-key-file-with-non-default-name-or-location }
 
-Jos haluat tallentaa avainparisi muualle kuin oletuspaikkaan (muualle kuin `~/.ssh/` tai `C:\Users\<username>\.ssh\`), määritä avainten sijainti `.ssh/config`-tiedostossa tai käyttämällä tunnistautumisagenttia (katso järjestelmäkohtaiset ohjeet). Voit myös käyttää `ssh`-komennon `-i`-vaihtoehtoa seuraavasti:
+Jos haluat tallentaa avainparisi muuhun kuin oletussijaintiin (muualle kuin
+`~/.ssh/` tai `C:\Users\<username>\.ssh\`), määritä avaimen sijainti
+`.ssh/config`-tiedostossa tai käytä todennusagenttia (katso
+järjestelmäkohtaiset ohjeet). Voit myös käyttää `ssh`-komennon `-i`-valintaa
+seuraavasti:
 
 ```bash
-# Korvaa <username> CSC:n käyttäjätilisi nimellä ja
-# <host> arvolla "puhti" tai "mahti"
+# Replace <username> with the name of your CSC user account and
+# <host> with "puhti" or "mahti"
 
 ssh <username>@<host>.csc.fi -i /<path-to-key-files>/<private-key>
 ```
 
-Jos aiot käyttää RStudioa, Jupyter-muistikirjoja tai jotain muuta, missä paikalliselta työasemaltasi yhdistäminen laskentasolmuun vaatii tunneloinnin kirjautumissolmun kautta, määritä agentti-siirto ja yksityisen avaimen polku `.ssh/config`-tiedostoon seuraavasti:
+Jos aiot käyttää RStudioa, Jupyter-työkirjoja tai jotain muuta, missä
+yhteyden muodostaminen paikalliselta työasemalta laskentasolmulle vaatii
+kulkemista kirjautumissolmun kautta, ota käyttöön agentin välitys ja määritä
+polku yksityiselle avaimelle `.ssh/config`-tiedostossa seuraavasti:
 
 ```bash
 Host <host>.csc.fi
@@ -62,43 +88,73 @@ Host *.bullx
   IdentityFile /<path-to-key-files>/<private-key>
 ```
 
-## Julkisen avaimen kopiointi supertietokoneelle {#copying-public-key-to-supercomputer}
+## Julkisen avaimen kopioiminen supertietokoneelle { #copying-public-key-to-supercomputer }
 
-Ainoa tapa kopioida julkinen avain supertietokoneelle on MyCSC-asiakasportaalin kautta.
-[Lue ohjeet täältä](ssh-keys.md#adding-public-key-in-mycsc).
+Ainoa tapa kopioida julkinen avain supertietokoneelle on MyCSC-asiakasportaalin
+kautta.
+[Lue ohjeet alta](ssh-keys.md#adding-public-key-in-mycsc).
 
-### Julkisen avaimen lisääminen MyCSC:hen {#adding-public-key-in-mycsc}
+### Julkisen avaimen lisääminen MyCSC:hen { #adding-public-key-in-mycsc }
 
 Voit lisätä julkisen avaimesi
 [MyCSC-asiakasportaalissa](https://my.csc.fi) seuraavasti:
 
-1. Kirjaudu MyCS:hen CSC- tai Haka/Virtu-tunnuksillasi.
-2. Valitse _Profiili_ vasemmasta navigaatiosta tai oikean yläkulman valikosta.
-3. Etsi _SSH JULKISET AVAIMET_ -osio ja valitse _+ Lisää avain_. Turvatoimena sinua pyydetään kirjautumaan uudelleen, jos on kulunut useita minuutteja viimeisestä portaalikirjautumisestasi.
-4. Syötä avainparillesi _Otsikko_, esim. "my-ssh-key".
-5. Liitä **julkinen** SSH-avaimesi _Avaimen_ kenttään. Tuettuja avaintyyppejä ovat Ed25519 ja RSA 2048 - 16384. **Suosittelemme vahvasti Ed25519:**. Jos valitset RSA:n, käytä vähintään 4096 bittiä.
-6. Valitse _Lisää_.
-7. Uuden avaimesi pitäisi nyt näkyä _SSH JULKISET AVAIMET_ -kohdassa. Huomioi, että uuden avaimesi aktivointi voi kestää jopa tunnin. Jos se kestää kauemmin, ota yhteyttä [CSC:n palvelupisteeseen](../../support/contact.md).
+1. Kirjaudu MyCSC:hen CSC- tai Haka/Virtu-tunnuksillasi.
+2. Valitse _Profile_ vasemmasta navigaatiosta tai oikean yläkulman
+   pudotusvalikosta.
+3. Etsi _SSH PUBLIC KEYS_ -osio ja valitse _+ Add key_. Turvallisuussyistä
+   sinua pyydetään kirjautumaan uudelleen, jos edellisestä kirjautumisesta
+   portaaliin on kulunut muutama minuutti.
 
-Käyttäjät voivat tarkistaa julkiset avaimensa Puhtissa tai Mahtissa seuraavilla komennoilla:
+    ![Lisää avain](https://a3s.fi/docs-files/ssh-no-keys.png 'Lisää avain')
+
+4. Lisää julkinen avaimesi joko
+    1. lataamalla julkisen avaimen tiedosto _Upload file_ -välilehdellä, tai
+    2. liittämällä sen sisältö käsin _Manual input_ -välilehden _Key_-kenttään.
+       Lisää tällöin myös avaimelle _Title_, esim. "my-ssh-key".
+
+        === "Lataa tiedosto"
+            ![Lataa tiedosto](https://a3s.fi/docs-files/ssh-upload-file.png 'Lataa tiedosto')
+
+        === "Manuaalinen syöttö"
+            ![Manuaalinen syöttö](https://a3s.fi/docs-files/ssh-manual-input.png 'Manuaalinen syöttö')
+
+5. Valitse _Upload_ tai _Add_.
+6. Näet nyt uuden avaimesi listattuna _SSH PUBLIC KEYS_ -osiossa. Huomaa, että
+   avaimen aktivoituminen voi kestää jopa tunnin. Jos kestää pidempään, ole
+   hyvä ja
+   [ota yhteyttä CSC Service Deskiin](../../support/contact.md).
+
+    ![Uusi avain lisätty](https://a3s.fi/docs-files/ssh-key-added.png 'Uusi avain lisätty')
+
+!!! warning "Tuetut avaintyypit ja muotoilu"
+    Tuetut avaintyypit ovat Ed25519 ja RSA 4096–16384. **Suosittelemme
+    vahvasti Ed25519-avainta**.
+
+    Julkisen avaimen tulee koostua SSH-avaintyypistä, avainjonosta ja
+    valinnaisesta kommentista, eroteltuna yksittäisillä välilyönneillä. Varmista,
+    että koko SSH-avain on samalla rivillä, eikä mukaan ole lisätty muita
+    välilyöntimerkkejä kuin tavallisia välilyöntejä. Jos avain on väärin
+    muotoiltu, näytetään virheilmoitus. Oikein muotoiltu avain näyttää tältä:
+    ```
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7 optional-comment
+    ```
+
+Käyttäjät voivat tarkistaa julkiset avaimensa Puhtissa tai Mahtissa
+seuraavilla komennoilla:
 
 ```bash
-# Tarkista tiedoston aikaleima (edellisen synkronoinnin aika)
+# Check timestamp of file (time of previous sync)
 ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
 
-# Tarkista sen sisältö (julkiset avaimet)
+# Check its contents (public keys)
 cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
 ```
 
-Jos olet lisännyt useita avaimia MyCSC:hen, niiden pitäisi kaikki näkyä samassa `${USER}.pub` tiedostossa.
+Jos olet lisännyt useita avaimia MyCSC:hen, niiden tulisi kaikki näkyä samassa
+`${USER}.pub`-tiedostossa.
 
-!!! info "Vaadittu avainformaatiomuoto"
-    Julkisen avaimesi tulisi koostua SSH-avaintyypistä ja avainsekvenssistä, erotettuna yhdellä välilyönnillä. Varmista, että lisäät koko SSH-avaimen samalle riville äläkä lisää muita välilyöntejä kuin normaaleja välilyöntimerkkejä. Jos avaimesi on väärin muotoiltu, näytetään virheilmoitus. Oikein muotoiltu avain näyttää tältä:
-    ```
-    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
-    ```
+## Lisätietoja { #more-information }
 
-## Lisätietoja {#more-information}
-
-- [Opetus SSH-avainten määrittämisestä CSC:ssä](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
-- [Ongelmien ratkaiseminen SSH-avaintein kanssa](../../support/faq/ssh-keys-not-working.md)
+- [Opas SSH-avainten käyttöönottoon CSC:llä](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+- [SSH-avaimiin liittyvien ongelmien vianmääritys](../../support/faq/ssh-keys-not-working.md)

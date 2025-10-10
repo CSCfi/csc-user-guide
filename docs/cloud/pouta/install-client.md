@@ -1,49 +1,70 @@
-# OpenStackin komentorivityökalujen asennus pakettienhallintatyökalujen avulla
+# OpenStack-komentorivityökalujen asennus pakettienhallintatyökaluilla { #openstack-command-line-tool-installation-using-package-manager-tools }
 
-Tämä artikkeli kuvaa, kuinka asentaa OpenStackin komentorivityökalut Ubuntu-, Red Hat- ja OS X -pohjaisiin järjestelmiin hallitaksesi tehokkaasti OpenStackin eri ominaisuuksia. Asennusohjeet perustuvat Pythonin _pip_-pakettiin. Kun pip on asennettu, vaiheet ovat samat kaikille järjestelmille.
+Tässä artikkelissa kuvataan, miten OpenStackin komentorivityökalut asennetaan
+Ubuntu-, Red Hat- ja OS X -pohjaisiin järjestelmiin
+OpenStackin eri ominaisuuksien tehokkaaseen hallintaan.
+Asennusohjeet perustuvat Pythonin _pip_-pakettiin. Kun pip on
+paikallaan, vaiheet ovat samat kaikissa järjestelmissä.
 
 !!! info
 
-    Jos sinulla ei ole pääkäyttäjän/ylläpitäjän oikeuksia siihen järjestelmään, jossa haluat käyttää komentorivin asiakasohjelmia, katso [virtuaaliympäristöihin liittyvät ohjeet](#optional-installation-in-a-python-virtual-environment).
+    Jos sinulla ei ole root-/ylläpitäjäoikeuksia
+    siihen järjestelmään, jossa haluat ajaa komentoriviasiakkaita,
+    katso ohjeet [virtuaaliympäristöistä](#optional-installation-in-a-python-virtual-environment).
 
-Asennus Windowsiin on myös mahdollista, mutta se ei kuulu tämän oppaan piiriin. Rackspace ylläpitää [opasta python-novaclientin asentamiseen Windowsiin](https://docs.rackspace.com/support/how-to/install-python-novaclient-on-windows/).
+Windowsiin asentaminen on myös mahdollista, mutta se ei kuulu tämän
+oppaan piiriin. Rackspace ylläpitää opasta [python-novaclientin asentamiseen Windowsissa](https://docs.rackspace.com/support/how-to/install-python-novaclient-on-windows/).
 
-Suosittelemme ensin tutustumaan [Poutan web-käyttöliittymään](launch-vm-from-web-gui.md) ja keskeisiin käsitteisiin.
+Suosittelemme ensin tutustumaan [Pouta-verkkokäyttöliittymään](launch-vm-from-web-gui.md) ja keskeisiin käsitteisiin.
 
-## OpenStackin komentorivityökalujen yleiskatsaus {#overview-of-the-openstack-command-line-tools}
+## OpenStackin komentorivityökalujen yleiskuvaus { #overview-of-the-openstack-command-line-tools }
 
-On olemassa yleinen komentorivityökalu nimeltä "openstack", jota voi käyttää useimpien OpenStackin asioiden hallintaan. OpenStackin tiettyjen toiminnallisuuksien, kuten verkkojen hallintaan tarkoitetun "neutronin" ja virtuaalikonekuvien hallintaan tarkoitetun "glancen", hallintaan on myös yksittäisiä työkaluja. Useimmissa tapauksissa yleistä openstack-työkalua tulisi käyttää. Muut työkalut ovat OpenStack-projektin hylkäämiä, ja niitä tarvitaan yleensä vain, jos sinulla on skriptejä, jotka ovat niistä riippuvaisia, tai jos sinun täytyy suorittaa tiettyjä hallinnollisia komentoja.
+On olemassa yleiskäyttöinen komentorivityökalu nimeltä "openstack",
+jolla voidaan hallita suurinta osaa OpenStackin toiminnoista. Lisäksi on
+erillisiä työkaluja tiettyjen OpenStack-toiminnallisuuksien hallintaan, kuten
+"neutron" verkkojen hallintaan ja "glance" virtuaalikonekuvien
+hallintaan. Useimmissa tapauksissa tulisi käyttää yleistä openstack-
+työkalua. Muut työkalut ovat OpenStack-projektissa vanhentuneita
+(deprecated) ja niitä tarvitaan yleensä vain, jos sinulla on niistä riippuvia skriptejä
+tai jos sinun on ajettava tiettyjä hallinnollisia
+komentoja.
 
 | Työkalun nimi | Paketin nimi | Käyttötarkoitus |
 |-----------|------------------------|------------------------------------------------------------------------------------------------|
-| openstack | python-openstackclient | Koko OpenStackin hallinta                                                                    |
-| nova      | python-novaclient      | Virtuaalikoneiden hallinta ja rajallinen toiminnallisuus, kuten volyymeiden ja kuvien hallinta. |
-| neutron   | python-neutronclient   | Virtuaaliverkkojen ja reitittimien hallinta.                                                 |
-| glance    | python-glanceclient    | Virtuaalikonekuvien hallinta.                                                               |
-| cinder    | python-cinderclient    | Virtuaalikoneisiin liitettävien volyymeiden hallinta.                                       |
-| swift     | python-swiftclient     | Objektien hallinta Swift-API:n avulla                                                       |
+| openstack | python-openstackclient | Koko OpenStackin hallinta |
+| nova      | python-novaclient      | Virtuaalikoneiden hallinta sekä rajattu toiminnallisuus esim. volyymien ja kuvien hallintaan. |
+| neutron   | python-neutronclient   | Virtuaaliverkkojen ja reitittimien hallinta. |
+| glance    | python-glanceclient    | Virtuaalikonekuvien hallinta. |
+| cinder    | python-cinderclient    | Virtuaalikoneisiin liitettävien volyymien hallinta. |
+| swift     | python-swiftclient     | Objektien hallinta Swift API:n avulla |
 
-### Valmistelu {#preparation}
+### Valmistelut { #preparation }
 
-Valmistellaksesi varsinaisten komentorivityökalujen asennusta, asennamme pipin ja Pythonin kehityspaketit.
+Varsinaisten komentorivityökalujen asennusta varten asennetaan pip ja Pythonin kehityspaketit.
 
 !!! info
 
-    Oletamme tässä, että sinulla on jo Python asennettuna. Tämä on todennäköistä, jos käytät jotain käyttöjärjestelmistä, joista meillä on ohjeet täällä.
+    Oletamme tässä, että sinulla on Python jo asennettuna. Tämä on
+    todennäköistä, jos käytät jotakin käyttöjärjestelmää,
+    jolle tässä annamme ohjeita.
 
-Ota selvää, onko Python asennettu ja mikä versio:
+Selvitä, onko Python asennettu ja mikä versio on käytössä:
 
 ~~~~
 python --version
 ~~~~
 
-Tarvitset Python 3:n tai uudemman version, jotta voit asentaa komentorivityökalut. Jos käytät edes suhteellisen tuoretta käyttöjärjestelmäversiota, tämän ei pitäisi olla ongelma. Jos kuitenkin käytät vanhempaa kuin version 7 Red Hat -pohjaista järjestelmää, et pysty asentamaan Python 3:sta normaalisti. Katso alla oleva huomautus RHEL/CentOS 6 -käyttäjille.
+Tarvitset Python 3:n tai uudemman, jotta voit asentaa komentorivi-
+asiakastyökalut. Jos käytät edes suhteellisen tuoretta käyttöjärjestelmäversiota,
+tämän ei pitäisi olla ongelma. Jos sinulla kuitenkin on Red Hat -pohjainen
+järjestelmä, joka on vanhempi kuin versio 7, et voi asentaa Python 3:a
+tavanomaisella tavalla. Emme tue RHEL/CentOS 7:ää vanhempia versioita.
 
-Jos syystä tai toisesta Pythonia ei ole asennettu, asenna se [ensiksi].
+Jos sinulla ei jostain syystä ole Pythonia asennettuna, ole hyvä ja [install it first].
 
-#### Valmistelu: Ubuntu-pohjaiset järjestelmät {#preparation-ubuntu-based-systems}
+#### Valmistelut: Ubuntu-pohjaiset järjestelmät { #preparation-ubuntu-based-systems }
 
-Jos käytät Ubuntu 16.04:ää tai uudempaa:
+Jos käytössä on Ubuntu 16.04 tai uudempi:
 
 ~~~~
 sudo apt install python3-pip python3-dev
@@ -53,17 +74,13 @@ Versioille, jotka ovat vanhempia kuin 16.04:
 
     sudo apt-get install python3-pip python3-dev
 
-#### Valmistelu: Red Hat -pohjaiset järjestelmät {#preparation-red-hat-based-systems}
+#### Valmistelut: Red Hat -pohjaiset järjestelmät { #preparation-red-hat-based-systems }
 
-Jos käytät versiota 7 tai uudempaa:
+Jos käytössä on versio 7 tai uudempi:
 
     sudo yum install python3-pip python3-devel
 
-!!! warning
-
-    Jos käytät RHEL/CentOS 6:ta, uusin oletuksena saatavilla oleva Python-versio on 2.6. Tämä on liian vanha uusimpien OpenStack-asiakasohjelmien käyttöön. On mahdollista asentaa Python 3 myös näihin käyttöjärjestelmiin, mutta se ei kuulu tämän oppaan piiriin. Lisätietoja Python 3:n asentamisesta löytyy [SoftwareCollections.orgista]. Kun olet tehnyt tämän, voit noudattaa yllä olevia ohjeita uudemmille Red Hat -pohjaisille järjestelmille.
-
-#### Valmistelu: OS X -järjestelmät {#preparation-os-x-systems}
+#### Valmistelut: OS X -järjestelmät { #preparation-os-x-systems }
 
 Lataa uusin [Python setuptools](https://pypi.python.org/pypi/setuptools)"
 
@@ -72,84 +89,126 @@ Asenna työkalut ja pip:
     sudo python ez_setup.py
     sudo /usr/local/bin/easy_install pip
 
-### Openstack-työkalun asentaminen (kaikki käyttöjärjestelmät) {#installing-the-openstack-tool-all-operating-systems}
+### Openstack-työkalun asennus (kaikki käyttöjärjestelmät) { #installing-the-openstack-tool-all-operating-systems }
 
 Tästä eteenpäin asennusohjeet ovat samat kaikille käyttöjärjestelmille.
 
-#### Vaihtoehtoinen: Asennus Pythonin virtuaaliympäristössä {#optional-installation-in-a-python-virtual-environment}
+#### Valinnainen: asennus Pythonin virtuaaliympäristöön { #optional-installation-in-a-python-virtual-environment }
 
-Jos ajat tietokoneellasi myös muita Python-ohjelmistoja kuin OpenStackin komentorivityökaluja, suosittelemme käyttämään Pythonin virtuaaliympäristöjä. Pythonin virtuaaliympäristöt ovat tapa luoda eristetty joukko Python-paketteja, jotka ovat saatavilla vain kyseisessä virtuaaliympäristössä. Ne ovat erittäin käteviä Python-asennuksen pitämiseksi siistinä ja hallittavana. Tarvitset niitä myös, jos haluat asentaa komentorivityökalut tietokoneelle, johon sinulla ei ole pääkäyttäjän oikeuksia. Siinä tapauksessa ylläpitäjäsi täytyy asentaa sinulle Python, pip ja virtualenv Python-paketti. Lisätietoa virtuaaliympäristöistä löytyy [The Hitchhiker's Guide to Pythonista].
+Jos käytät OpenStackin komentorivityökalujen lisäksi muita Python-
+ohjelmia tietokoneellasi, suosittelemme Pythonin virtuaaliympäristöjen käyttöä.
+Pythonin virtuaaliympäristöt mahdollistavat eristetyn Python-pakettijoukon,
+joka on käytettävissä vain kyseisessä virtuaaliympäristössä. Ne ovat kätevä tapa
+pitää Python-asennuksesi siistinä ja hallittavana. Tarvitset niitä myös, jos
+haluat asentaa komentoriviasiakkaat tietokoneeseen, johon sinulla ei ole
+pääkäyttäjäoikeuksia. Tällöin järjestelmänvalvojan tulee asentaa puolestasi
+Python, pip ja virtualenv-Python-paketti. Lisätietoja virtuaaliympäristöistä:
+[The Hitchhiker's Guide to Python].
 
-Tässä annamme perusohjeet yksinkertaisen virtuaaliympäristön perustamiseksi asiakasohjelmien asentamista varten. Jos et halua käyttää virtuaaliympäristöjä, voit ohittaa nämä vaiheet ja siirtyä suoraan pip-asennusohjeisiin.
+Tässä annamme perusohjeet yksinkertaisen virtuaaliympäristön
+luomiseksi asiakastyökalujen asennusta varten. Jos et halua käyttää
+virtuaaliympäristöjä, voit ohittaa nämä vaiheet ja siirtyä suoraan
+pip-asennusohjeisiin.
 
 Asenna ensin python3-venv-paketti. Ubuntussa:
 
     sudo apt install python3-venv
 
-Huomaa, että Red Hat -pohjaisissa järjestelmissä ei tarvitse asentaa erillistä pakettia.
+Huomaa, että Red Hat -pohjaisissa järjestelmissä erillistä pakettia ei tarvitse asentaa.
 
-Luo hakemisto virtuaaliympäristöille. Annamme sille tietyn nimen, mutta voit myös antaa sille jonkin muun nimen:
+Luo hakemisto virtuaaliympäristöillesi. Annamme sille tässä tietyn nimen, mutta voit käyttää myös muuta nimeä:
 
     mkdir python_virtualenvs
 
-Mene hakemistoon ja luo uusi virtuaaliympäristö:
+Siirry hakemistoon ja luo uusi virtuaaliympäristö:
 
     cd python_virtualenvs
     python3 -m venv osclient
 
-Tämä luo uuden hakemiston nimeltä "osclient" "python_virtualenvs"-hakemistoon. Tämä hakemisto sisältää kaiken, mitä asennat virtuaaliympäristön sisään. Se sisältää myös skriptin ympäristön aktivointia varten, joka sinun täytyy suorittaa seuraavaksi:
+Tämä luo uuden "osclient"-nimisen hakemiston
+"python_virtualenvs"-hakemistoon. Tämä hakemisto sisältää
+kaiken, mitä asennat virtuaaliympäristöön. Se sisältää myös ympäristön
+aktivointiskriptin, joka täytyy ajaa seuraavaksi:
 
     source osclient/bin/activate
 
 Aktivoinnin jälkeen kaikki Python- tai
-pip-komennot suoritetaan virtuaaliympäristön kontekstissa. Jos jatkat nyt alla olevien asennusohjeiden kanssa, kaikki paketit asennetaan vasta luomaasi virtuaaliympäristöön. Tiedät, että "osclient"-virtuaaliympäristö on aktivoitu, kun näet tekstin "(osclient)" kehotteesi edessä käyttämässäsi komentorivissä. Jos asennat komentorivityökalut virtuaaliympäristössä, ne ovat käytettävissä ainoastaan kyseisessä virtuaaliympäristössä.
+pip-komennot suoritetaan virtuaaliympäristön kontekstissa. Jos
+jatkat nyt alla olevien asennusohjeiden mukaan, kaikki paketit
+asennetaan juuri luomaasi virtuaaliympäristöön. Tiedät, että
+"osclient"-virtuaaliympäristö on aktivoitu, kun näet
+kuoren kehotteessa tekstin "(osclient)". Jos asennat komentoriviasiakkaat
+virtuaaliympäristöön, ne ovat käytettävissä vain kyseisessä virtuaaliympäristössä.
 
-Asennuksen jälkeen, jos haluat poistaa virtuaaliympäristön käytöstä, voit yksinkertaisesti kirjoittaa:
+Asennuksen jälkeen, jos haluat poistaa virtuaaliympäristön käytöstä,
+voit yksinkertaisesti kirjoittaa:
 
     deactivate
 
-Huomaa, että tämä tekee myös sen, että mitkään asentamistasi komentorivityökaluista eivät ole käytettävissä ennen kuin aktivoit virtuaaliympäristön uudelleen.
+Huomaa, että tämän tekeminen tarkoittaa myös sitä, että mitkään asentamasi
+komentorivityökalut eivät ole käytettävissä ennen kuin aktivoit
+virtuaaliympäristön uudelleen.
 
-#### Asiakasohjelmien asentaminen pipin avulla {#installing-the-client-tools-using-pip}
+#### Asiakastyökalujen asennus pipillä { #installing-the-client-tools-using-pip }
 
-OpenStack tarjoaa joukon Python-työkaluja eri toimintojen hallintaan. Jokaisella OpenStackin alakomponentilla on oma työkalunsa. OpenStack tarjoaa myös yhteisen työkalun *python-openstackclient*. Helpoin tapa asentaa useimmat komentorivityökalut on asentaa python-openstackclient. Sen tulisi vetää useita muita asiakasohjelmia riippuvuuksina. Jos tarvitsem
-
-asiakasohjelman, joka puuttuu jopa sen jälkeen, kun olet asentanut python-openstackclientin, katso tämän sivun alussa olevaa taulukkoa nähdäksesi asennettavien pakettien listan.
+OpenStack tarjoaa joukon Python-työkaluja toimintojensa eri osa-alueiden
+hallintaan. Jokaisella OpenStackin osakomponentilla on oma työkalunsa. Lisäksi
+on yhteinen jaettu työkalu
+*python-openstackclient*. Helpoin tapa asentaa suurin osa
+komentorivityökaluista on asentaa python-openstackclient. Sen pitäisi
+tuoda useita muita asiakkaita riippuvuuksina. Jos jokin tarvitsemasi työkalu
+puuttuu vielä python-openstackclientin asentamisen jälkeen, katso
+tämän sivun alussa olevaa taulukkoa asennettavista paketeista.
 
 !!! info
 
-    Jos seurasit ohjeita virtuaaliympäristön perustamiseksi, poista alla olevista komennoista "sudo". Koska asennat omaan virtuaaliympäristöösi, et halua suorittaa komentoja pääkäyttäjänä.
+    Jos seurasit virtuaaliympäristön luonnin ohjeita, poista "sudo"
+    alla olevien komentojen alusta. Koska asennat omaan virtuaaliympäristöösi, et
+    halua ajaa komentoja pääkäyttäjänä.
 
-Asenna python-openstackclient pipin avulla:
+Asenna python-openstackclient pipillä:
 
     sudo pip install python-openstackclient
 
-Jos haluat myös asentaa kaikki tämän sivun alussa luetellut palvelukohtaiset työkalut:
+Jos haluat lisäksi asentaa kaikki sivun alussa luetellut palvelukohtaiset työkalut:
 
     sudo pip install python-keystoneclient python-novaclient python-glanceclient python-neutronclient
 
-Riippuen tietokoneesi kokoonpanosta, jotkut riippuvuudet saattavat puuttua. Virheilmoitus `ImportError: No module named <module>` voidaan yleensä korjata asentamalla puuttuva moduuli pipin avulla ja toistamalla edellinen epäonnistunut komento. Joissakin asennuksen aikana esiintyvissä virheissä setuptoolsin tai pipin päivittäminen saattaa auttaa. Päivitä paketti:
+Riippuen tietokoneesi kokoonpanosta jotkin riippuvuudet saattavat olla
+hukassa. Virheilmoitus `ImportError: No module named
+<module>` korjaantuu yleensä asentamalla puuttuva moduuli
+pipillä ja toistamalla edellinen, epäonnistunut komento. Joissakin
+asennusvirheissä setuptoolsin tai pipin päivittäminen voi auttaa.
+Päivitä paketti:
 
     sudo pip install -U python_module_to_be_upgraded
 
-### Määritä terminaaliympäristösi OpenStackia varten {#configure-your-terminal-environment-for-openstack}
+### Määritä päätteen ympäristö OpenStackia varten { #configure-your-terminal-environment-for-openstack }
 
-Ympäristömuuttujat on asetettava ennen kuin voit käyttää asiakasohjelmaa. Voit asettaa ne OpenStackin web-käyttöliittymän tarjoaman skriptin avulla. Voit ladata tämän skriptin seuraavasta URL-osoitteesta kirjautumisen jälkeen:
+Ympäristömuuttujat on asetettava ennen kuin voit käyttää
+asiakasta. Voit asettaa ne OpenStackin web-käyttöliittymän
+tarjoamalla skriptillä. Voit ladata tämän skriptin seuraavasta URL-osoitteesta
+kirjautumisen jälkeen:
 
 > <a
 > href="https://pouta.csc.fi/dashboard/project/api_access/"
 > class="external-link">https://pouta.csc.fi/dashboard/project/api_access/</a>
 
-Voit ladata tämän web-käyttöliittymässä siirtymällä API Access -osioon ja painamalla Download OpenStack RC File v3.
+Lataa skripti web-käyttöliittymässä siirtymällä
+kohtaan *API Access* ja painamalla *Download OpenStack RC File v3.*
 
-![RC-tiedosto esimerkki](../../img/pouta-openrc.png)
+![RC-tiedoston esimerkki](../../img/pouta-openrc.png)
 
-Kun sinulla on openrc-skripti verkkokäyttöliittymästä, voit lisätä ympäristömuuttujat:
+Kun sinulla on web-käyttöliittymästä ladattu openrc-skripti, voit lisätä
+ympäristömuuttujat:
 
     source <project_name_here>-openrc.sh
 
-Sinulta kysytään salasanaa. *Käytäthän CSC-tilisi salasanaa*, sillä komentoriviliittymä ei vielä tue yhdistettyjen tilien, kuten Haka tai Virtu, tunnistetietojen käyttöä. Tämän jälkeen nykyisessä terminaalisessiossa on oikeat ympäristömuuttujat komentorivityökalujen käyttöä varten. Sinun täytyy tehdä tämä uudelleen, jos avaat uuden terminaalin.
+Sinua pyydetään syöttämään salasana. *Käytä CSC-tunnuksesi salasanaa*, koska komentorivikäyttöliittymä ei vielä tue
+linkitettyjen tunnusten, kuten Haka tai Virtu, käyttöä. Tämän jälkeen
+nykyisessä pääteistunnossa on oikeat ympäristömuuttujat komentorivityökalujen käyttöä
+varten. Sinun on tehtävä tämä uudelleen, jos avaat uuden päätteen.
 
-  [ensiksi]: http://docs.python-guide.org/en/latest/starting/installation/
+  [install it first]: http://docs.python-guide.org/en/latest/starting/installation/
   [SoftwareCollections.org]: https://www.softwarecollections.org/en/
   [The Hitchhiker's Guide to Python]: http://docs.python-guide.org/en/latest/dev/virtualenvs/

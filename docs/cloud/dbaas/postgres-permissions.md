@@ -1,89 +1,89 @@
-# PostgreSQL-luvat
+# PostgreSQL-käyttöoikeudet { #postgresql-permissions }
 
-## PostgreSQL 17 -luvat {#postgresql-17-permissions}
+## PostgreSQL 17:n käyttöoikeudet { #postgresql-17-permissions }
 
-PostgreSQL 17 -tietokantaesiintymissä sinun on annettava käyttäjille selkeä lupa käyttää tietokantaa, jotta he voivat luoda tauluja kyseisen tietokannan julkisessa skeemassa. Tämä voidaan tehdä seuraavasti komentorivityökaluilla.
+PostgreSQL 17 -tietokanta-instansseissa käyttäjille on annettava nimenomaisesti pääsy tietokantaan, jotta he voivat luoda tauluja kyseisen tietokannan public-skeemaan. Tämä onnistuu seuraavasti komentorivityökaluilla.
 
-Kun luot uutta käyttäjää, voit käyttää `--database`-lippua myöntääksesi käyttäjälle oikeuden luoda uusia tauluja tietyn tietokannan julkisessa skeemassa:
-
-```sh
-openstack database user create $INSTNACE_ID $USER_NAME $USER_PASSWORD --database $DATABASE_NAME
-```
-
-Komento käyttäjälle taulujen luomisoikeuden myöntämiseksi olemassa olevaan tietokantaan:
+Kun luot uuden käyttäjän, voit käyttää lippua `--database` myöntääksesi käyttäjälle oikeuden luoda uusia tauluja tietyn tietokannan public-skeemaan:
 
 ```sh
-openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
+openstack database user create $INSTANCE_ID $USER_NAME $USER_PASSWORD --database $DATABASE_NAME
 ```
 
-Web-käyttöliittymä mahdollistaa myös käyttäjien luomisen ja heidän oikeuksiensa muokkaamisen.
+Komento, jolla myönnetään olemassa olevalle tietokantakäyttäjälle oikeus luoda tauluja:
+```sh
+openstack database user grant access $INSTANCE_ID $USER_NAME $DATABASE_NAME
+```
 
-Uuden käyttäjän luominen tietokantayhteydellä:
+Verkkokäyttöliittymässä voi myös luoda käyttäjiä ja muokata heidän käyttöoikeuksiaan.
 
-1. Valitse esiintymä Esiintymät-sivulta
-2. Siirry Käyttäjät-välilehdelle
-3. Paina Luo käyttäjä
+Uuden käyttäjän luominen, jolla on pääsy tietokantaan:
 
-Voit myös muokata olemassa olevien käyttäjien oikeuksia Käyttäjät-välilehdeltä valitsemalla 'Hallinnoi käyttöoikeuksia' toimintovalikon 'Toiminnot'-sarakkeesta.
+  1. Valitse instanssi Instances-sivulta
+  2. Siirry sen Users-välilehdelle
+  3. Paina Create User
 
-Taustalla Pukki tekee pohjimmiltaan
+Voit myös muokata olemassa olevien käyttäjien oikeuksia Users-välilehdellä valitsemalla 'Manage Access' pudotusvalikosta 'Actions'-sarakkeessa.
 
-### Käyttäjän antaminen vain lukuoikeuksiin tauluun {#giving-a-user-read-only-access-to-a-table}
+Se, mitä Pukki tekee taustalla, on käytännössä
 
+### Taulun lukuoikeuden antaminen käyttäjälle { #giving-a-user-read-only-access-to-a-table }
 Taulun omistajana tai pääkäyttäjänä voit suorittaa seuraavan SQL-komennon:
 
 ```sql
 GRANT SELECT ON ${table} TO ${user};
 ```
 
-### Käyttäjän antaminen luku- ja kirjoitusoikeuksiin tauluun {#giving-a-user-read-write-access-to-a-table}
+### Taulun luku- ja kirjoitusoikeuden antaminen käyttäjälle { #giving-a-user-read-write-access-to-a-table }
 
-Jos haluat sallia käyttäjien lisätä, muokata, poistaa ja lukea rivejä tietokannassasi, voit antaa käyttäjälle seuraavat oikeudet:
+Jos haluat sallia käyttäjien lisätä, muokata, poistaa ja lukea rivejä tietokannassasi, voit myöntää käyttäjälle seuraavat oikeudet:
 
 ```sql
 GRANT SELECT, INSERT, UPDATE, DELETE ON ${table} TO ${user};
 ```
 
-## Muutokset PostgreSQL 14:n ja 17:n välillä {#changes-between-postgresql-14-and-17}
 
-PostgreSQL 15 toi hyvin spesifin muutoksen oletusoikeuksiin, mikä vaikuttaa siihen, miten Pukki hallitsee käyttäjiä ja heidän käyttöoikeuksiaan.
+## Muutokset PostgreSQL 14:n ja 17:n välillä { #changes-between-postgresql-14-and-17 }
 
-### Erot Pukin tavassa hallita tietokantakäyttöä {#differences-in-how-pukki-manages-database-access}
+PostgreSQL 15 toi nimenomaisen muutoksen oletusoikeuksiin, mikä vaikuttaa siihen, miten Pukki hallitsee käyttäjiä ja heidän käyttöoikeuksiaan.
 
-PostgreSQL 14:ssä tietokannan käyttäjille myönnetyt oletusoikeudet sallivat heidän luoda uusia tauluja minkä tahansa tietokantainstanssin julkisessa skeemassa. PostgreSQL 15 peruutti `create`-oikeuden kaikilta tietokannan käyttäjiltä (paitsi tietokannan omistajalta) julkisessa skeemassa, jota käytetään oletuksena skeemana. Nyt uusille käyttäjille on annettava selkeästi `create`-oikeus skeemaan, yleensä tietokannan oletusjulkiseen skeemaan.
+### Eroja siinä, miten Pukki hallitsee tietokantapääsyä { #differences-in-how-pukki-manages-database-access }
 
-Yksinkertaistettuna, kun käyttäjän oikeuksia peruutetaan tai myönnetään PostgreSQL 14 -tietokannassa Pukissa, oikeuksia muuttava kysely näyttää tältä:
+PostgreSQL 14:ssä tietokantakäyttäjille myönnetyt oletusoikeudet sallivat heidän luoda uusia tauluja minkä tahansa tietokannan public-skeemaan kyseisessä tietokanta-instanssissa. PostgreSQL 15 poisti `create`-oikeuden kaikilta tietokantakäyttäjiltä (paitsi tietokannan omistajalta) public-skeemasta, jota käytetään oletusskeemana. Nyt uusille käyttäjille on nimenomaisesti annettava `create`-oikeus skeemaan, tavallisesti tietokannan oletus-`public`-skeemaan.
+
+Tiivistettynä: kun Pukissa myönnetään tai perutaan käyttäjän pääsy PostgreSQL 14 -tietokantaan, käyttöoikeuksia muuttava kysely näyttää jotakuinkin tältä:
 
 ```sql
 GRANT|REVOKE ALL ON DATABASE ${DATABASE} TO|FROM ${USER};
 ```
 
-PostgreSQL 17 -tietokantaesiintymässä sama verkkokäyttöliittymä tai CLI-työkalukomennot johtaisivat seuraavanlaiseen oikeuksia muuttavaan kyselyyn:
+PostgreSQL 17 -instanssissa samat web-käyttöliittymän tai CLI-työkalun komennot tuottavat tällaisen käyttöoikeuksia muuttavan kyselyn:
 
 ```sql
 GRANT|REVOKE ALL ON SCHEMA public TO|FROM ${USER};
 ```
 
-Voit aina ottaa käyttöön pääkäyttäjäoikeudet tietokantaesiintymässä ja kirjautua sisään pääkäyttäjänä muuttaaksesi oikeuksia vapaammin.
+Voit aina ottaa pääkäyttäjäoikeuden käyttöön tietokanta-instanssissa ja kirjautua root-käyttäjänä muokataksesi oikeuksia vapaammin.
 
-## Huomautus käyttöoikeuksista {#a-note-about-privileges}
 
-Jos sinulla on vähän tai ei lainkaan aiempaa kokemusta PostgreSQL:stä, suosittelemme tutustumaan siihen, miten PSQL:n oikeudet toimivat tietokantojen, skeemojen ja taulujen kanssa. [Tässä on yksi opastus, josta voi olla hyötyä.](https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/)
+## Huomio käyttöoikeuksista { #a-note-about-privileges }
 
-Välttääksesi sekaannusta, muista, että PostgreSQL 14:ssä oletusoikeudet sallivat jokaiselle käyttäjälle yhteyden kaikkiin tietokantoihin ja taulujen luomisen oletusjulkiseen skeemaan. He eivät voi käyttää olemassa olevia tauluja tai muita skeemoja ilman selkeää lupaa, mutta eivät myöskään voi luoda uusia skeemoja.
+Jos sinulla on vain vähän tai ei lainkaan aiempaa kokemusta PostgreSQL:stä, suosittelemme tutustumaan siihen, miten PSQL:n käyttöoikeudet liittyvät toisiinsa tietokantojen, skeemojen ja taulujen kanssa. [Tässä on yksi opas, josta voi olla hyötyä.](https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/)
 
-Tyypillisesti PSQL:ssä objektin omistajalla (objekti voi olla tietokanta, skeema, taulu jne.) on ainoastaan oikeuksia siihen, ellei toisin mainita. Tämä, yhdistettynä oikeuksien rajoittumiseen hierarkian 'alas', voi johtaa sekaannuksiin. Oikeuksien antaminen skeemalle ei välttämättä anna oikeuksia sen sisältämiin tauluihin. Lisätietoja varten, [tässä on viralliset oikeusasiakirjat.](https://www.postgresql.org/docs/14/ddl-priv.html)
+Välttääksesi sekaannusta, pidä mielessä, että PostgreSQL 14:ssä oletusoikeudet sallivat jokaisen käyttäjän yhdistää mihin tahansa tietokantaan ja luoda tauluja oletusarvoiseen 'public'-skeemaan. He eivät kuitenkaan pääse olemassa oleviin tauluihin tai muihin skeemoihin ilman erillistä lupaa, eivätkä he voi luoda uusia skeemoja.
 
-### Käyttöoikeuksien esimerkkikäyttö {#example-usage-of-privileges}
+Tyypillisesti PSQL:ssä objektin (objekti voi olla tietokanta, skeema, taulu jne.) omistajalla on ainoana siihen liittyviä oikeuksia, ellei toisin määritellä. Tämä yhdessä sen kanssa, että oikeudet eivät "valu" hierarkiassa alaspäin, voi aiheuttaa sekaannusta. Oikeudet skeemaan eivät merkitse mitään oikeuksia sen sisältämiin tauluihin. Lisälukemiseksi [tässä viralliset ohjeet oikeuksista.](https://www.postgresql.org/docs/14/ddl-priv.html)
 
-Nämä kyselyt sallivat example_userin valita tietoja example_table:sta. Huomaa, että molemmat kyselyt ovat identtisiä, kunhan hakupolkua ei ole muutettu.
+### Esimerkki käyttöoikeuksien käytöstä { #example-usage-of-privileges }
+
+Nämä kyselyt sallivat example_user-roolille tiedon lukemisen taulusta example_table. Huomaa, että nämä kaksi kyselyä ovat identtisiä, kunhan hakupolkua ei ole muutettu.
 
 ```
 GRANT SELECT ON example_table TO example_user;
 GRANT SELECT ON public.example_table TO example_user;
 ```
 
-Huomaa, että example_user tarkoittaa tässä roolia, joka voi myös olla ryhmä. Nämä kyselyt luovat uuden ryhmän, määrittävät käyttäjän siihen ja antavat oikeudet valita tietoja kaikista tauluista julkisessa skeemassa.
+Pidä mielessä, että example_user tarkoittaa tässä roolia, joka voi olla myös ryhmä. Nämä kyselyt luovat uuden ryhmän, liittävät siihen käyttäjän ja myöntävät oikeudet lukea tietoja kaikista tauluista public-skeemassa.
 
 ```
 CREATE ROLE example_group;
@@ -91,4 +91,4 @@ GRANT example_group TO example_user;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO example_group;
 ```
 
-Helpottaaksemme käyttöoikeuksien hallintaa suosittelemme luomaan ryhmiä ja määrittämään niihin käyttäjiä relevanttien sijaan kuin oikeuksien säätämistä yksittäisten käyttäjien kohdalla.
+Käyttöoikeuksien hallinnan helpottamiseksi suosittelemme luomaan ryhmiä ja liittämään käyttäjät sopiviin ryhmiin sen sijaan, että säätäisit oikeuksia käyttäjäkohtaisesti.

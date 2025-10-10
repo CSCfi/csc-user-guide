@@ -1,15 +1,14 @@
+# Datan siirtäminen CSC:n ja paikallisen työaseman välillä { #moving-data-between-csc-and-local-workstation }
 
-# Datan siirtäminen CSC:n ja paikallisen työaseman välillä {#moving-data-between-csc-and-local-workstation}
+Datan siirtämiseen on monia tapoja. Valitse alta tarpeisiisi parhaiten sopiva.
 
-Datan siirtämiseen on monia tapoja, valitse
-alta se, joka sopii tarpeisiisi parhaiten.
-
-* [Tiedostojen kopioiminen scp:n avulla](scp.md)
-* [Tiedostojen siirtäminen HPC:n verkkoliittymien kautta](web-interface.md)
+* [Tiedostojen kopiointi scp:n avulla](scp.md)
+* [Tiedostojen siirtäminen HPC-verkkokäyttöliittymien avulla](web-interface.md)
 * [Graafiset tiedostonsiirtotyökalut](graphical_transfer.md)
-* [Datan siirto ja synkronointi rsyncin avulla](rsync.md)
-* [Useiden pienten tiedostojen tehokas siirto käyttämällä tar ja SSH](tar_ssh.md)
-* [Datan lataaminen verkkosivuilta CSC:lle käyttäen wgetiä](wget.md)
-* [Tiedostojen jakaminen ja siirtäminen Funet FileSenderilla](funet.md)
+* [rsyncin käyttö tiedonsiirtoon ja synkronointiin](rsync.md)
+* [tarin ja SSH:n käyttö monien pienten tiedostojen tehokkaaseen siirtoon](tar_ssh.md)
+* [wgetin käyttö datan lataamiseen verkkosivuilta CSC:lle](wget.md)
+* [Tiedostojen jakaminen ja siirtäminen Funet FileSenderin avulla](funet.md)
 * [Datan siirtäminen IDA:n ja CSC:n laskentaympäristön välillä](../ida/using_ida.md)
-* [Etälevyasemat](disk_mount.md)
+* [Etälevyjen liittäminen](disk_mount.md)
+* [Datan kopiointi Allaksen ja IDA:n välillä Puhtin kautta](copy_allas_ida.md)

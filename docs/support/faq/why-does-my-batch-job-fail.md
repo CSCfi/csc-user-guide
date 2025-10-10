@@ -1,8 +1,8 @@
-# Miksi eräajoni epäonnistuu? {#why-does-my-batch-job-fail}
+# Miksi eräajoni epäonnistuu? { #why-does-my-batch-job-fail }
 
-Alla on yleisiä virheilmoituksia, joita saatat kohdata eräajon epäonnistuessa, sekä neuvoja niiden korjaamiseksi.
+Alla on yleisiä virheilmoituksia, joita voit saada työn epäonnistuessa, sekä ohjeita niiden korjaamiseksi.
 
-## Virheellinen tili tai tili/osa-yhdistelmä määritelty {#invalid-account-or-account-partition-combination-specified}
+## Virheellinen tili tai tili/partitio-yhdistelmä määritetty { #invalid-account-or-account-partition-combination-specified }
 
 Täydellinen virheilmoitus on seuraava:
 
@@ -10,17 +10,19 @@ Täydellinen virheilmoitus on seuraava:
 sbatch: error: Batch job submission failed: Invalid account or account/partition combination specified
 ```
 
-Tämä virheilmoitus viittaa Slurm-valintoihin `--account=<project>` ja `--partition`. Yleisimmät syyt ovat:
+Tämä virheilmoitus viittaa Slurm-asetuksiin `--account=<project>` ja
+`--partition`. Yleisimmät syyt ovat:
 
 * Projektia ei ole olemassa.
-* Projekti on olemassa, mutta et ole sen jäsen. Katso, kuinka
-  [lisätä jäsen projektiin](../../accounts/how-to-add-members-to-project.md)
-* Olet projektin jäsen, mutta projektia ei ole otettu käyttöön Puhti-alustalla. Katso kuinka
-  [lisätä palvelun käyttöoikeus projektille](../../accounts/how-to-add-service-access-for-project.md).
-* Osa ei ole olemassa.
-* Osa on olemassa, mutta projektisi ei ole sallittu siinä.
+* Projekti on olemassa, mutta et ole sen jäsen. Katso, miten
+  [lisäät jäsenen projektiin](../../accounts/how-to-add-members-to-project.md)
+* Olet projektin jäsen, mutta projektia ei ole otettu käyttöön Puhtissa. Katso,
+  miten
+  [lisäät projektille palveluoikeuden](../../accounts/how-to-add-service-access-for-project.md).
+* Partitiota ei ole olemassa.
+* Partitio on olemassa, mutta projektiasi ei ole siinä aktivoitu.
 
-## Työ rikkoo laskutuksen/QOS-käytäntöä {#job-violates-accounting-qos-policy}
+## Työ rikkoo accounting/QOS-käytäntöä { #job-violates-accounting-qos-policy }
 
 Täydellinen virheilmoitus on seuraava:
 
@@ -32,15 +34,15 @@ sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (
 Yleisimmät syyt ovat:
 
 * Työskriptistä puuttuu `--account`-parametri.
-* Projektilasi sisältää liikaa töitä järjestelmässä, joko suoritettavana tai jonossa.
-  Huomaa, että sisäisesti Slurm laskee jokaisen työn eräajotyössä erilliseksi
+* Projektillasi on liikaa töitä järjestelmässä, joko käynnissä tai jonossa.
+  Huomaa, että Slurm laskee array-työssä jokaisen yksittäisen työn erilliseksi
   työksi.
-* Työ suoritettiin suoraan `./script_name.sh` tai `bash script_name.sh` komennolla,
-  kun se tulisi lähettää `sbatch script_name.sh` komennolla.
-* Projektisi on käyttänyt loppuun laskutusyksikkönsä. Katso
-  [Kuinka hakea lisää laskutusyksiköitä](../../accounts/how-to-apply-for-billing-units.md).
+* Työ ajettiin suoraan `./script_name.sh` tai `bash script_name.sh`,
+  vaikka se pitäisi lähettää jonoon komennolla `sbatch script_name.sh`.
+* Projektisi Billing Unitit ovat loppuneet. Katso
+  [kuinka hakea lisää Billing Unitteja](../../accounts/how-to-apply-for-billing-units.md).
 
-## Pyydetty solmukonfiguraatio ei ole saatavilla {#requested-node-configuration-is-not-available}
+## Pyydetty solmukokoonpano ei ole saatavilla { #requested-node-configuration-is-not-available }
 
 Täydellinen virheilmoitus on seuraava:
 
@@ -50,10 +52,11 @@ sbatch: error: Batch job submission failed: Requested node configuration is not 
 
 Yleisimmät syyt ovat:
 
-* Pyydetään esimerkiksi GPU:ta tai NVMe:ä osassa, jossa niitä ei ole.
-* Pyydetään esimerkiksi enemmän muistia tai aikaa kuin valittu osuus voi tarjota. Erityisesti
-  käytettäessä `--mem-per-cpu`-lippua muistin määrittämiseksi, huomaa, että tämä kerrotaan
-  pyydettyjen suoritun määrä (1 tehtävää kohden) ja tuloksen on oltava valitun osuus
-  rajojen sisällä.
+* Pyydät esimerkiksi GPU:ta tai NVMe:tä partiosta, jossa niitä ei ole.
+* Pyydät esimerkiksi enemmän muistia tai aikaa kuin valittu partitio tarjoaa. Erityisesti, jos
+  käytät `--mem-per-cpu`-lippua muistin määrittämiseen, huomaa, että tämä kerrotaan
+  pyydettyjen suoritinytimien määrällä (oletuksena 1 per tehtävä) ja lopputuloksen on oltava
+  valitun partition rajoissa.
 
-Katso [eräajojen osat](../../computing/running/batch-job-partitions.md) saadaksesi lisätietoa resurssien saatavuudesta kussakin jonossa.
+Katso [eräajon partitioista](../../computing/running/batch-job-partitions.md) lisätietoja
+kussakin jonossa saatavilla olevista resursseista.

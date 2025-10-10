@@ -1,17 +1,15 @@
+# Miksi käyttäjä nimeltä 'system' käyttää resurssejamme { #why-is-a-user-called-system-using-our-resources }
 
-# Kuka 'tuntematon' käyttää resurssejamme {#who-unknown-is-using-our-resources}
+MyCSC:ssä näytetyissä
+[Billing Unit -käyttötilastoissa](../../accounts/how-to-view-billing-unit-usage.md)
+näet usein resursseja, joita käyttää käyttäjä nimeltä 'system'. Myös sinä ja muut
+projektin jäsenet olette käyttäneet näitä Billing Unit -yksiköitä.
 
-[billing unit käyttötilastot, joita näytetään MyCSC:ssä](../../accounts/how-to-view-billing-unit-usage.md)
-näet usein resursseja, joita käyttää 'tuntematon' käyttäjä. Sinä ja muut projektin
-jäsenet olette myös käyttäneet näitä laskutusyksiköitä.
+On kaksi syytä siihen, miksi käyttö kirjautuu käyttäjälle system eikä yksittäiselle käyttäjälle.
 
-Käytölle on kaksi syytä, miksi se ei ole yhdistetty tiettyyn käyttäjään.
-
-1. Resurssi kuuluu koko projektille, ei yksittäiselle käyttäjälle. Tällaisia
-   resursseja ovat Puhti'n scratch-hakemiston kiintiöt ja ePouta'n NetApp-kiintiöt.
-   Kelluvat IP-osoitteet cPouta:ssa ja ePouta:ssa ovat myös jaettuja resursseja.
-1. MyCSC:n käyttämä raportointitietokanta menettää tiedot siitä, kuka käyttäjä
-   todella on. Tällä hetkellä käyttäjä saattaa jäädä tuntemattomaksi lyhytikäisillä
-   virtuaalikoneilla cPouta:ssa ja ePouta:ssa. Rahti:n tapauksessa kaikki käyttö
-   rekisteröidään tällä hetkellä ilman käyttäjätietoja.
-
+1. Resurssi kuuluu koko projektille, ei yksittäiselle käyttäjälle. Tällaisia resursseja ovat Puhtin scratch-hakemistojen kiintiöt ja ePoutan NetApp-kiintiöt.
+   Myös cPoutan ja ePoutan kelluvat IP-osoitteet ovat jaettuja resursseja.
+2. MyCSC:n käyttämä raportointitietokanta hukkaa tiedon siitä, kuka todellinen
+   käyttäjä on. Tällä hetkellä käyttäjä voi jäädä tuntemattomaksi lyhytikäisissä
+   virtuaalikoneissa cPoutassa ja ePoutassa. Rahtin tapauksessa kaikki käyttö
+   kirjataan toistaiseksi ilman käyttäjätietoja.

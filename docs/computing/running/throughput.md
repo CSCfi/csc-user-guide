@@ -1,131 +1,131 @@
+# Läpimenolaskenta ja työnkulut { #high-throughput-computing-and-workflows }
 
-# Suuriteholaskenta ja työnkulut {#high-throughput-computing-and-workflows}
+Läpimenolaskennalla (HTC) tarkoitetaan suuren määrän töitä ajamista, mikä toteutetaan usein automaatiolla, skripteillä ja työnkulkujen hallintajärjestelmillä. Työnkulkujen automatisointi säästää aikaa ja vähentää manuaalisia virheitä. Työnkulut ovat usein hyvin tapauskohtaisia, eikä useinkaan löydy menetelmää, joka toimisi sellaisenaan tietyssä sovelluksessa.
 
-Suuriteholaskenta (HTC) viittaa suureen määrään työtehtäviä, joita usein mahdollistavat automaatio, skriptit ja työnkulkumanagerit. Työnkulkujen automatisointi säästää aikaa ja vähentää manuaalisia virheitä. Työnkulut ovat usein hyvin spesifisiä, ja harvoin löytyy tapa, joka toimisi suoraan tiettyyn sovellukseen.
+Tällä sivulla esitellään kriittisiä näkökohtia, joita kannattaa huomioida läpimenotyönkulkuja suunniteltaessa, ja autetaan rajaamaan oikea työkalujoukko omaan käyttötapaukseen. Kun valitset huolellisesti sopivimman teknologiakokonaisuuden, työsi seisovat vähemmän jonossa, I/O-operaatiot tehostuvat ja koko HPC-järjestelmän suorituskyky säilyy vakaana ja nopeana kaikille käyttäjille.
 
-Tämä sivu esittelee joitakin kriittisiä asioita, jotka sinun tulisi huomioida suunnitellessasi suuritehoisia työnkulkuja. Se auttaa myös rajaamaan oikean työkalusarjan tarpeisiisi. Valitsemalla huolellisesti soveltuvimman teknologia-stackin, työtehtäväsi jonottavat vähemmän, IO-operaatiot toimivat tehokkaammin ja koko HPC-järjestelmän suorituskyky pysyy vakaan nopeana kaikille käyttäjille.
+## Yleiset ohjeet { #general-guidelines }
 
-## Yleiset ohjeet {#general-guidelines}
+### Läpimenotöiden ajo ja hallinta { #running-and-managing-high-throughput-jobs }
 
-### Suuritehoisten työtehtävien suorittaminen ja hallinta {#running-and-managing-high-throughput-jobs}
+Sisältyykö työnkulkuusi huomattava määrä (lyhyitä) erätöitä? Tämä on läpimenolaskennan tyypillinen piirre, johon viitataan usein termillä ”task farming”. Se aiheuttaa kuitenkin haasteita eräajon ajoitusjärjestelmille, kuten HPC-järjestelmissä käytettävälle Slurmillle. Suuri määrä töitä (käynnistetty `sbatch`-komennolla) ja työvaiheita (käynnistetty `srun`-komennolla) tuottaa liikaa lokidataa ja hidastaa Slurmia. Lyhyillä töillä on myös suuri ajoitusylipää, mikä tarkoittaa, että yhä suurempi osa ajasta kuluu jonossa laskennan sijaan.
 
-Sisältääkö työnkulkusi merkittävän määrän (lyhyitä) erätehtäviä? Tämä on tyypillistä suuriteholaskennalle, jota usein kutsutaan "tehtäväviljelyksi". Se aiheuttaa kuitenkin ongelmia, kuten erätehtävien suorittamisjärjestelijöille, kuten Slurmille, jota käytetään HPC-järjestelmissä. Suuri määrä tehtäviä (käynnistetty `sbatch` komennolla) ja tehtävävaiheita (käynnistetty `srun` komennolla) tuottavat liiallista lokitietoa ja hidastavat Slurmia. Lyhyillä tehtävillä on myös suuri ajoituskustannus, mikä tarkoittaa sitä, että yhä suurempi osa ajasta kuluu jonossa olemiseen laskennan sijaan.
+Jotta läpimenolaskenta olisi mahdollista ilman edellä mainittuja ongelmia, työt ja työvaiheet kannattaa pakata siten, että `sbatch`- ja `srun`-kutsuja tarvitaan mahdollisimman vähän. Ensimmäinen ja paras vaihtoehto on tarkistaa, tarjoaako käyttämäsi ohjelmisto [built-in option for farming-type workloads]. Tämä pätee sovelluksiin kuten [CP2K][cp2k], [GROMACS][gmx], [LAMMPS][lmp], Python ja R.
 
-Jotta suuriteholaskenta mahdollistuisi ilman yllä mainittuja ongelmia, pitäisi työt ja työvaiheet pakata niin, että ne voidaan suorittaa minimaalisilla `sbatch`- ja `srun`-kutsuilla. Ensimmäinen ja paras vaihtoehto on tarkistaa, onko käyttämässäsi ohjelmistossa sisäänrakennettua tukea viljelytyyppisille työkuormille. Tämä koskee muun muassa sovelluksia kuten [CP2K][cp2k], [GROMACS][gmx], [LAMMPS][lmp], Python ja R.
+Jos ohjelmistossasi ei ole integroitua tukea farming-tyyppisille kuormille, toinen vaihtoehto on käyttää ulkoisia työkaluja, kuten [HyperQueue] tai [GNU Parallel]. Huomaa, että jotkin työkalut, esimerkiksi [FireWorks], voivat silti luoda paljon työvaiheita, vaikka ne mahdollistavatkin kätevästi toisiinsa mahdollisesti riippuvuussuhteessa olevien alatehtävien pakkaamisen yhdeksi erätyöksi.
 
-Jos sisäänrakennettu tuki viljelytyyppiselle työkuormalle ei ole käytettävissä ohjelmistossasi, toinen vaihtoehto on käyttää ulkoisia työkaluja kuten [HyperQueue] tai [GNU Parallel]. Huomaa, että jotkin työkalut, kuten [FireWorks], voivat silti luoda paljon työvaiheita, vaikka ne sallivatkin pakata omat, mahdollisesti keskinäisriippuvat tehtäväsi suoritettavaksi yhtenä erätehtävänä.
+!!!info "Huom."
+    Sinun ei tarvitse käyttää `srun`-komentoa, jos aiot ajaa työnkulussasi sarjatöitä (serial). Moni työvaihe voidaan välttää yksinkertaisesti jättämällä turhat `srun`-kutsut pois.
 
-!!!info "Huom"
-    Sinun ei tarvitse antaa `srun`-komentoa, jos aiot suorittaa *sarjallisia* tehtäviä osana HTC-työnkulkua. Paljon työvaiheita voidaan välttää yksinkertaisesti poistamalla tarpeettomat `srun`-kutsut.
-
-Voit käyttää alla olevaa kaaviota karsiaksesi sopivimmat teknologiat suuriteholaskentatyönkulkusi käyttöön. Huomaa, että tämä ei ole kattava lista ja muut työkalut saattavat myös sopia tapaukseesi. Nämä työkalut toimivat yleensä hyvin HTC-käyttötapauksissa, joissa on noin 100 ala-tehtävää (tai jopa enemmän, jos alatehtävät hyödyntävät enintään yhtä solmua kerrallaan, katso [HyperQueue]). Jos työnkulkuusi sisältyy satoja tai tuhansia *monisolmu* alatehtäviä, otathan [yhteyttä CSC:n palvelupisteeseen], sillä tämä saattaa vaatia erityisratkaisuja. Älä kuitenkaan epäröi ottaa meihin yhteyttä myös, jos sinulla on muita huolenaiheita liittyen työnkulkusi toteuttamiseen.
+Voit käyttää alla olevaa vuokaaviota sopivimpien tekniikoiden valintaan läpimenotyönkulkuusi. Huomaa, että tämä ei ole täydellinen lista, ja muutkin työkalut voivat toimia käyttötapauksessasi. Nämä työkalut toimivat yleensä hyvin HTC-käyttötapauksissa, joissa on noin 100 alatehtävää (tai enemmänkin, jos alatehtävät käyttävät korkeintaan yhtä solmua kukin; katso [HyperQueue]). Jos työnkulussasi on satoja tai tuhansia monisolmuisia alatehtäviä, ole hyvä ja [contact CSC Service Desk], sillä tämä voi vaatia erityisratkaisuja. Älä kuitenkaan epäröi ottaa yhteyttä myös muissa työnkulun toteutukseen liittyvissä kysymyksissä.
 
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
-    C(Onko ohjelmistossasi sisäänrakennettu HTC-vaihtoehto?) -->|Kyllä| D("Käytä, jos sopii käyttötapaukseen:<br><a href='/support/tutorials/gromacs-throughput/'>GROMACS</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, <a href='/apps/amber/#high-throughput-computing-with-amber'>Amber</a>,<br> Python, R")
-    C -->|Ei| E(Yhden vai monisolmuisen alatehtävät?)
-    E -->|Yhden| F(Riippuvuuksia alatehtävien välillä?)
-    E -->|Monisolmuinen| G(<a href='/computing/running/fireworks/'>FireWorks</a>)
-    F -->|Riippuvuuksia| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-tutorial/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
-    F -->|Ei riippuvuuksia| K(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
+    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/support/tutorials/gromacs-throughput/'>GROMACS</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, <a href='/apps/amber/#high-throughput-computing-with-amber'>Amber</a>,<br> Python, R ")
+    C -->|No| E(Single- or multi-node subtasks?)
+    E -->|Single| F(Dependencies between subtasks?)
+    E -->|Multi-node| G(<a href='/computing/running/fireworks/'>FireWorks</a>)
+    F -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-tutorial/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
+    F -->|No| K(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
 ```
 
-Kvalitatiivinen yleiskatsaus Hydra Cloud System (HTC) työkalujen ominaisuuksista ja kyvykkyyksistä, joita CSC suosittelee, on esitetty alla.
+Alla on esitetty laadullinen yleiskuva joistakin CSC:n suosittelemien HTC-työkalujen ominaisuuksista ja kyvykkyyksistä.
 
 ||[Nextflow]|[Snakemake]|[HyperQueue]|[FireWorks]|[Array jobs]|[GNU Parallel]|
 ||:------:|:-------:|:--:|:-------:|:--------:|:----------:|
-|Ei liiallista IO:ta|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|
-|Pakkaa työtehtävät/työvaiheet|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Ei](../../img/x-circle.svg 'Ei')|NA|
-|Helppo asettaa|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|
-|Riippuvuuden tuki|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Ei](../../img/x-circle.svg 'Ei')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Ei](../../img/x-circle.svg 'Ei')|![Ei](../../img/x-circle.svg 'Ei')|
-|Automaattinen konttien integraatio|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Ei](../../img/x-circle.svg 'Ei')|![Ei](../../img/x-circle.svg 'Ei')|
-|Virheiden hallinta|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Ei](../../img/x-circle.svg 'Ei')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Ei](../../img/x-circle.svg 'Ei')|![Kyllä](../../img/check-circle.svg 'Kyllä')|
-|MPI/OpenMP-paralleelia alatehtävät|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Ei](../../img/x-circle.svg 'Ei')|
-|Slurmin integraatio |![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Kyllä](../../img/check-circle.svg 'Kyllä')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|
-|Moniosainten tuki|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|![Osa/muistutus/epävarma](../../img/alert.svg 'Osa/muistutus/epävarma')|?|?|![Ei](../../img/x-circle.svg 'Ei')|![Ei](../../img/x-circle.svg 'Ei')|
+|Ei liiallista I/O|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
+|Pakkaa työt/työvaiheet|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![No](../../img/x-circle.svg 'No')|NA|
+|Helppo ottaa käyttöön|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
+|Riippuvuuksien tuki|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|
+|Automaattinen kontti-integraatio|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|
+|Virheistä toipuminen|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|
+|MPI/OpenMP-rinnakkaiset alatehtävät|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|
+|Slurm-integraatio |![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|
+|Usean osion tuki|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|?|?|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|
 
-*[Ei liiallista IO:ta]: Työnkulku työkalu ei tuota paljon ylimääräisiä tiedostoja/kansioita
-*[Pakkaa työtehtävät/työvaiheet]: Työnkulku työkalu pystyy pakkaamaan useita työtehtäviä (työvaiheita) suoritettavaksi yhtenä työtehtävänä (työvaiheena)
-*[Helppo asettaa]: Työnkulku työkalu on helppo asentaa ja asettaa
-*[Riippuvuuden tuki]: Työnkulku työkalu tukee riippuvuuksia alatehtävien välillä
-*[Automaattinen konttien integraatio]: Työnkulku työkalu tukee automaattista konttien suorittamista ilman ylimääräistä työtä
-*[Virheiden hallinta]: Työnkulku työkalu tukee virheiden tunnistamista/lokitusta ja epäonnistuneiden alatehtävien uudelleenkäynnistämistä
-*[MPI/OpenMP-paralleelia alatehtävät]: Työnkulku työkalu tukee MPI/OpenMP-paralleelia alatehtäviä
-*[Slurmin integraatio]: Työnkulku työkalu integroituu hyvin Slurmiin
-*[Moniosainten tuki]: Työnkulku työkalu tukee erilaisten HPC-jakojen käyttöä yhdessä työnkulussa, kuten GPU ja CPU-jaot.
+*[Ei liiallista I/O]: Työnkulkuväline ei tuota paljon ylimääräisiä tiedostoja/hakemistoja
+*[Pakkaa työt/työvaiheet]: Työnkulkuväline pystyy pakkaamaan useita töitä (työvaiheita) suoritettavaksi yhtenä työnä (työvaiheena)
+*[Helppo ottaa käyttöön]: Työnkulkuväline on helppo asentaa ja ottaa käyttöön
+*[Riippuvuuksien tuki]: Työnkulkuväline tukee alatehtävien välisiä riippuvuuksia
+*[Automaattinen kontti-integraatio]: Työnkulkuväline tukee konttien automaattista suoritusta ilman lisätyötä
+*[Virheistä toipuminen]: Työnkulkuväline tukee virheiden havaitsemista/lokittamista ja epäonnistuneiden alatehtävien uudelleenkäynnistystä
+*[MPI/OpenMP-rinnakkaiset alatehtävät]: Työnkulkuväline tukee MPI/OpenMP-rinnakkaisia alatehtäviä
+*[Slurm-integraatio]: Työnkulkuväline integroituu hyvin Slurmiin
+*[Usean osion tuki]: Työnkulkuväline tukee eri HPC-osioiden käyttöä samassa työnkulussa, esimerkiksi GPU- ja CPU-osiot.
 
-### Syöte/tulostus tehokkuus {#input-output-efficiency}
+### I/O-tehokkuus { #inputoutput-efficiency }
 
-Usein, kun ajetaan monta rinnakkaista työtehtävää, syöte/tulostus (IO:n) tehokkuuden ongelma tulee esiin. Jos teet paljon IO-operaatioita (tiedostojen lukeminen ja kirjoittaminen) suuritehoisissa työnkuluissa, sinun tulisi kiinnittää erityistä huomiota *missä* nämä toiminnot suoritetaan. CSC:n supertietokoneet käyttävät [Lustre]a rinnakkaisena hajautettuna tiedostojärjestelmänä. Se on suunniteltu suurten tiedostojen tehokkaaseen rinnakkaiseen IO:hon, mutta kun käsitellään monia pieniä tiedostoja, IO:sta tulee nopeasti pullonkaula. Tärkeää on, että intensiiviset IO-operaatiot uhkaavat heikentää tiedostojärjestelmän suorituskykyä kaikille käyttäjille, minkä vuoksi ne tulisi siirtää pois Lustresta.
+Usein monia rinnakkaisia töitä ajettaessa nousee esiin sisään-/uloslukuoperaatioiden (I/O) tehokkuus. Jos työnkuluissasi on paljon I/O-toimintoja (tiedostojen luku ja kirjoitus), on erityisen tärkeää kiinnittää huomiota siihen, missä nämä toiminnot tehdään. CSC:n supertietokoneet käyttävät [Lustre]-tiedostojärjestelmää rinnakkaisena ja hajautettuna tiedostojärjestelmänä. Se on suunniteltu suurten tiedostojen tehokkaaseen rinnakkaiseen I/O:hon, mutta kun käsitellään suurta määrää pieniä tiedostoja, I/O voi nopeasti muodostua pullonkaulaksi. Tehokas I/O kuormittaa lisäksi tiedostojärjestelmää ja voi heikentää kaikkien käyttäjien suorituskykyä, joten I/O-intensiiviset työt tulisi siirtää pois Lustrelta.
 
 Jos sinun täytyy lukea ja kirjoittaa tuhansia tiedostoja HTC-työnkulussa, käytä:
 
-* [Nopeaa paikallista NVMe-levyä] Puhtilla ja Mahtilla
-* [Ramdiskia] (`/dev/shm`) Mahtin CPU-jakojen kanssa solmukohtaisilla allokaatioilla (vain jos tiedät mitä teet!)
-* Jos sovellustasi voidaan suorittaa [Singularity-konttina], toinen hyvä vaihtoehto on [liittää datasetit SquashFS:llä]. Luo datastasi, mahdollisesti tuhansista tiedostoista koostuva SquashFS kuva, mikä vähentää sen yhdeksi tiedostoksi Lustre:n näkökulmasta. Liittäminen kuvaan Singularity-suoritukseen tekee siitä tavanomaisen kansion kontin sisällä.
-* Jos joudut käyttämään Lustrea IO-raskaille tehtäville, varmista, että hyödynnät [tiedostojen raititus.]
+* [Fast local NVMe disk] Puhtissa ja Mahtissa
+* [Ramdisk] (`/dev/shm`) Mahtin CPU-osioissa, joissa on solmupohjainen varaus (vain jos tiedät mitä teet!)
+* Jos sovelluksesi voidaan ajaa [Singularity container] -konttina, toinen hyvä vaihtoehto on [mount your datasets with SquashFS]. Aineistosta SquashFS-kuvan luominen (vaikka se koostuisi tuhansista tiedostoista) kutistaa sen Lustren näkökulmasta yhdeksi tiedostoksi. Kun kuva liitetään Singularity-ajoon, se kuitenkin näkyy kontin sisällä tavallisena hakemistona.
+* Jos sinun on pakko käyttää Lustrea I/O-raskaisiin tehtäviin, hyödynnä [file striping]
 
-Riippumatta siitä, suoritatko HTC-työnkulkuja, toinen IO-tehokkuuteen vaikuttava tärkeä seikka on se, miten sovelluksesi on asennettu. [CSC on hylännyt Conda-ympäristöjen suoran käytön] niiden tuomien valtavien tiedostomäärien vuoksi. Suuri osa näistä tiedostoista luetaan joka kerta, kun Conda-ohjelmaa suoritetaan, aiheuttaen kohtuuttoman kuormituksen Lustrelle ja järjestelmänlaajuisia hidastuksia. **Conda-ympäristöt ja muut sovellukset, jotka lukevat tuhansia tiedostoja käynnistyessään, tulisi siksi konttisoida**. [Kontti kääretyökalu Tykky] on tuotu käytettäväksi tämän helpottamiseksi.
+Riippumatta siitä, ajatko HTC-työnkulkuja vai et, toinen I/O-tehokkuuteen vaikuttava tärkeä tekijä on se, miten sovelluksesi on asennettu. [CSC has deprecated the direct usage of Conda environments] johtuen niiden valtavasta tiedostomäärästä. Merkittävä osa näistä tiedostoista luetaan aina, kun Conda-sovellus käynnistetään, mikä kuormittaa Lustrea liikaa ja aiheuttaa järjestelmätason hidastumista. **Conda-ympäristöt ja muut sovellukset, jotka lukevat käynnistyksessä tuhansia tiedostoja, tulisi siksi kontittaa**. Tämän helpottamiseksi on tarjolla [container wrapper tool Tykky].
 
-Lisätietoja [kuinka työskennellä tehokkaasti Lustarella on dokumentoitu täällä]. Katso myös alla oleva kaavio ohjenuorana oikeiden teknologioiden valitsemiseen IO:lle intensiivisiin työnkulkuihin.
+Lisätietoja siitä, [how to work efficiently with Lustre are documented here]. Katso myös alla olevaa vuokaaviota ohjenuorana valitessasi sopivimpia tekniikoita I/O-intensiivisiin työnkulkuihin.
 
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
-    A(Onko sovelluksesi kontisoitu?) -->|Kyllä| B(<a href='/computing/containers/run-existing/#mounting-datasets-with-squashfs'>Liitä datasetti SquashFS:llä</a>)
-    A -->|Ei| C(Ajatko Conda/pip ympäristöä?)
-    C -->|Kyllä| D(<a href='/computing/containers/tykky/'>Kontisoi se Tykkyllä</a>)
+    A(Is your application containerized?) -->|Yes| B(<a href='/computing/containers/run-existing/#mounting-datasets-with-squashfs'>Mount your dataset with SquashFS</a>)
+    A -->|No| C(Are you running a Conda/pip environment?)
+    C -->|Yes| D(<a href='/computing/containers/tykky/'>Containerize it with Tykky</a>)
     D --> B
-    C -->|Ei| E(Ajatko Puhtilla tai Mahtilla?)
-    E -->|Mahti| F(keskikokoinen/suuri jako?)
-    F -->|Kyllä| G(<a href='/computing/disk/#compute-nodes-without-local-ssd-nvme-disks'>Käytä ramdiskia</a>)
-    F -->|Ei| H(<a href='/computing/disk/#compute-nodes-with-local-ssd-nvme-disks'>Käytä nopeaa paikallista NVMe-levyä</a>)
+    C -->|No| E(Are you running on Puhti or Mahti?)
+    E -->|Mahti| F(medium/large partition?)
+    F -->|Yes| G(<a href='/computing/disk/#compute-nodes-without-local-ssd-nvme-disks'>Use ramdisk</a>)
+    F -->|No| H(<a href='/computing/disk/#compute-nodes-with-local-ssd-nvme-disks'>Use fast local NVMe disk</a>)
     E -->|Puhti| H
-    B -->|Ei| E
-    B -->|Kyllä| I(Valmis)
+    B -->|No| E
+    B -->|Yes| I(Done)
     I -.-> E
-    G -->|Ei, minun on käytettävä Lustrea| J(<a href='/computing/lustre/#file-striping-and-alignment'>Käytä tiedostojen raititusta</a>)
-    H -->|Ei, minun on käytettävä Lustrea| J
+    G -->|No, I have to use Lustre| J(<a href='/computing/lustre/#file-striping-and-alignment'>Use file striping</a>)
+    H -->|No, I have to use Lustre| J
 ```
 
-!!!warning "Huom"
-    Ethän varaa GPU-solmuja pelkästään solmun NVMe-levyn hyödyntämistä varten. Suorita GPU:illa vain, jos koodisi on GPU-yhteensopiva ja saa hyötyä resurssien käytöstä, [katso käyttöpolitiikka]. Muistathan, että Puhtin CPU-solmuilla on myös NVMe-levyt. Jos sinulla on kysymyksiä työnkulkusi erityispiirteistä, otathan yhteyttä [CSC:n palvelupisteeseen].
+!!!warning "Huom."
+    Älä varaa GPU-solmuja pelkästään solmun NVMe-levyn takia. GPU:ita varten koodisi täytyy tukea GPU-laskentaa ja hyötyä resursseista, [see usage policy]. Muista, että myös Puhtin CPU-solmuissa on NVMe-levyt. Jos sinulla on kysymyksiä omaan työnkulkuusi liittyen, [contact CSC Service Desk].
 
-## Lisätietoa työnkuluista ja tehokkaasta IO:sta {#more-information-on-workflows-and-efficient-io}
+## Lisätietoja työnkuluista ja tehokkaasta I/O:sta { #more-information-on-workflows-and-efficient-io }
 
-### Työkalut, jotka suorittavat useita työtehtäviä yhdellä skriptillä {#general-tools-that-run-multiple-jobs-with-one-script}
+### Yleiset työkalut, joilla ajetaan useita töitä yhdellä skriptillä { #general-tools-that-run-multiple-jobs-with-one-script }
 
-* [Array jobs] on natiiviratkaisu Slurmissa, joka mahdollistaa useiden itsenäisten työtehtävien lähettämisen yhdellä komennolla
-* [GNU Parallel] opas näyttää kuinka suorittaa tehokkaasti erittäin suuri määrä sarjallisia työtehtäviä ilman, että Slurmin lokit pursuavat. Voit myös korvata GNU Parallel:in `xargs`-komennolla, katso [xargsjob.sh] esimerkiksi.
-* [FireWorks] on työnkulkutyökalu monimutkaisille riippuvuuksille ja monisolmuisille alatehtäville
-* [HyperQueue] on työkalu tehokkaalle alasolmustehtävien ajoitukselle
-* [Nextflow] on suosittu työnkulkutyökalu työtehtäville, joilla on riippuvuuksia
-* [Snakemake] on suosittu työnkulkutyökalu työtehtäville, joilla on riippuvuuksia
+* [Array jobs] on Slurmin oma työkalu useiden toisistaan riippumattomien töiden lähettämiseen yhdellä komennolla
+* [GNU Parallel] -opas näyttää, miten hyvin suuri määrä sarjatöitä ajetaan tehokkaasti paisuttamatta Slurmin lokia. Voit korvata GNU Parallelin myös `xargs`-komennolla; katso esimerkki [xargsjob.sh].
+* [FireWorks] on työnkulkuväline monimutkaisille riippuvuuksille ja monisolmuisille alatehtäville
+* [HyperQueue] on työkalu tehokkaaseen alisolmutason tehtävien ajoitukseen
+* [Nextflow] on suosittu työnkulkuväline töille, joilla on riippuvuuksia
+* [Snakemake] on suosittu työnkulkuväline töille, joilla on riippuvuuksia
+  
 
-### Tieteelle spesifiset työnkulkutyökalut ja opit {#science-specific-workflow-tools-and-tutorials}
-* [Data storage guide for machine learning] selittää, missä kannattaa työskennellä ML datojen kanssa, ja kuinka käyttää jaettua tiedostojärjestelmää tehokkaasti
+### Tiedealakohtaiset työnkulkuvälineet ja -oppaat { #science-specific-workflow-tools-and-tutorials }
+* [Data storage guide for machine learning] selittää, missä ML-dataa kannattaa käsitellä ja miten jaettua tiedostojärjestelmää käytetään tehokkaasti
 * [Farming Gaussian jobs with HyperQueue]
 
-### Työnkulkutyökalut, jotka integroituvat yleisesti käytettyihin simulaatio-ohjelmistoihin {#workflow-tools-integrated-into-common-simulation-software}
+### Yleisiin simulointiohjelmistoihin integroidut työnkulkuvälineet { #workflow-tools-integrated-into-common-simulation-software }
 
-Seuraavat sisäänrakennetut työkalut mahdollistavat useiden simulaatioiden ajon rinnakkain yhdessä Slurm-työvaiheessa. Jos käytät jotakin alla mainituista sovelluksista, harkitse näitä ensisijaisena vaihtoehtona suuriteholaskentatyönkulkujen toteuttamiseen.
+Seuraavilla sisäänrakennetuilla työkaluilla voi ajaa useita simulointeja rinnakkain yhdessä Slurm-työvaiheessa. Jos käytät jotakin alla olevista sovelluksista, harkitse näitä ensimmäisenä vaihtoehtona läpimenotyönkulkujen toteuttamiseen.
 
-* [GROMACS monisuunta vaihtoehto][gmx]
-* [CP2K:n FARMING -tila][cp2k] (tukee alatehtävien riippuvuuksia)
-* [LAMMPS monijaetun kytkin][lmp]
-* [Amber monipmemd][amber-multi-pmemd]
+* [GROMACS multidir -vaihtoehto][gmx]
+* [CP2K:n FARMING-tila][cp2k] (tukee alitöiden välisiä riippuvuuksia)
+* [LAMMPSin multi-partition -kytkin][lmp]
+* [Amber multi-pmemd][amber-multi-pmemd]
 * Python:
-    * [Python rinnakkaiset työtehtävät](../../support/tutorials/python-usage-guide.md#python-parallel-jobs)
-    * [CSC Dask oppitunti](../../support/tutorials/dask-python.md)
-    * [CSC koneoppimisopas](../../support/tutorials/ml-guide.md)
+    * [Pythonin rinnakkaistyöt](../../support/tutorials/python-usage-guide.md#python-parallel-jobs)
+    * [CSC:n Dask-opas](../../support/tutorials/dask-python.md)
+    * [CSC:n koneoppaan opas](../../support/tutorials/ml-guide.md)
 * R:
-    * [Rinnakkaiset työtehtävät käyttäen R:ää](../../support/tutorials/parallel-r.md)
-    * [R targets kirjasto](https://docs.ropensci.org/targets/)
+    * [R:n rinnakkaistyöt](../../support/tutorials/parallel-r.md)
+    * [R targets -kirjasto](https://docs.ropensci.org/targets/)
 
-### Yleiset työkalut ja opit tehokkaaseen IO:hon {#general-tools-and-tutorials-for-efficient-io}
+### Yleiset työkalut ja oppaat tehokkaaseen I/O:hon { #general-tools-and-tutorials-for-efficient-io }
 
-* [Nopeat levykokonaisuudet CSC:n laskentaympäristössä]
+* [Fast disk areas in CSC computing environment]
 
 [built-in option for farming-type workloads]: throughput.md#workflow-tools-integrated-into-common-simulation-software
 [gmx]: ../../support/tutorials/gromacs-throughput.md
@@ -142,8 +142,8 @@ Seuraavat sisäänrakennetut työkalut mahdollistavat useiden simulaatioiden ajo
 [Lustre]: ../lustre.md
 [Fast local NVMe disk]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
 [Ramdisk]: ../disk.md#compute-nodes-without-local-ssd-nvme-disks
-[Singularity container]: ../containers/run-existing.md
-[mount your datasets with SquashFS]: ../containers/run-existing.md#mounting-datasets-with-squashfs
+[Singularity container]: ../containers/overview.md
+[mount your datasets with SquashFS]: ../containers/overview.md#reading-datasets-from-squashfs-file
 [file striping]: ../lustre.md#file-striping-and-alignment
 [CSC has deprecated the direct usage of Conda environments]: ../../support/tutorials/conda.md
 [container wrapper tool Tykky]: ../containers/tykky.md

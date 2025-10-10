@@ -1,20 +1,19 @@
-
 !!! success "Perustaso"
-    HTTP-uudelleenohjauksen asettaminen Rahtissa on hyvin yksinkertaista käyttäen verkkopalvelinta kuten nginx:ä. Voimme ohjata käytännössä mihin tahansa URL:iin hyvin monimutkaisilla logiikoilla. Tässä opetusohjelmassa pidämme sen yksinkertaisena ja ohjaamme yksinkertaisesti eri isäntään, mutta säilytämme URL:n polun.
+    HTTP-uudelleenohjauksen määrittäminen Rahtissa on erittäin helppoa nginxin kaltaisella verkkopalvelimella. Voimme ohjata käytännössä mihin tahansa URL-osoitteeseen hyvinkin monimutkaisilla säännöillä. Tässä ohjeessa pidämme sen yksinkertaisena ja ohjaamme toiseen isäntään, mutta säilytämme URL-osoitteen polun.
 
-# HTTP-uudelleenohjauksen asettaminen Rahtissa {#setup-a-http-redirection-in-rahti}
+# Määritä HTTP-uudelleenohjaus Rahtissa { #setup-a-http-redirection-in-rahti }
 
-## Menettely {#procedure}
+## Menettely { #procedure }
 
-1. Ota käyttöön NGINX-kuva. On suositeltavaa käyttää `bitnami/nginx`
+1. Ota käyttöön NGINX-kuva. Suosittelemme käyttämään `bitnami/nginx`
 
     ![bitnami/nginx](../../img/bitnami-nginx-deploy.png)
 
-1. Lisää reitti URL:llä, johon haluat ohjata. Jos vierailet URL:ssä, sinun pitäisi nähdä "nginx tervetuloa -sivu"
+1. Lisää Route sen URL-osoitteen kanssa, jonka haluat uudelleenohjata. Kun vierailet URL-osoitteessa, sinun pitäisi nähdä "nginx welcome page"
 
     ![route](../../img/create-route-nginx.png)
 
-1. Lisää ConfigMap-palvelin uudelleenohjauslohkolla. Siirry kohtaan **Workloads > ConfigMaps**, klikkaa **Create ConfigMap**. **Nimi** käytetään myöhemmin, kun ConfigMap asennetaan. **Avain** on tiedoston nimi, ja **Arvo** tiedoston sisältö.
+1. Lisää ConfigMap, jossa on palvelimen uudelleenohjauslohko. Siirry kohtaan **Workloads > ConfigMaps**, valitse **Create ConfigMap**. **Name**-arvoa käytetään myöhemmin ConfigMapin liittämisessä. **Key** on tiedoston nimi ja **Value** tiedoston sisältö. 
 
     ```nginx
     #default.conf
@@ -25,12 +24,12 @@
     }
     ```
 
-    Tässä esimerkissä `test.com` on alkuperäinen URL, ja `test2.com` on se, johon käyttäjä ohjataan.
+    Tässä esimerkissä `test.com` on alkuperäinen URL ja `test2.com` on se, jonne käyttäjä uudelleenohjataan.
 
-1. Asenna Configmap nginx-sijoitteluun volyymina. Siirry sijoitteluun ja lisää seuraava koodi YAML-tiedostoon.
+1. Liitä ConfigMap nginx-deploymentsiin taltiona. Siirry deploymenttiin ja lisää seuraava koodi YAML-tiedostoon.
 
-   ```
-   spec:
+    ```yaml
+    spec:
         containers:
           volumeMounts:
           - mountPath: /opt/bitnami/nginx/conf/server_blocks
@@ -40,14 +39,14 @@
               defaultMode: 420
               name: nginx-config
             name: nginx-conf
-   ```
+    ```
 
-    Tässä esimerkissä nginx-conf on ConfigMapin **nimi**, nginx-config on **avain** ja ConfigMap on asennettava sijaintiin `/opt/bitnami/nginx/conf/server_blocks/`, muilla kuvilla nginx-konfiguraatio saattaa sijaita eri hakemistoissa.
+    Tässä esimerkissä nginx-conf on configMapin **name**, nginx-config on **key**, ja ConfigMap on liitettävä polkuun `/opt/bitnami/nginx/conf/server_blocks/`. Muut imaget saattavat tallentaa nginxin konfiguraation eri kansioihin.
 
-## Lisää isäntäalueita {#add-more-host-domains}
+## Lisää useampia isäntäverkkotunnuksia { #add-more-host-domains }
 
-Jos sinun täytyy ohjata useampia kuin yksi isäntäalue, voit käyttää samaa nginxiä. Sinun tarvitsee vain (1) lisätä uusi reitti uudella isännällä ja (2) lisätä uusi palvelinlohko olemassa olevaan ConfigMapiin. Jotta nginx ottaa uuden konfiguraation käyttöön, voit poistaa Podin tai siirtyä Podin terminaaliin ja ajaa `nginx -s reload`.
+Jos sinun täytyy ohjata useampi kuin yksi isäntäverkkotunnus, voit käyttää samaa nginx-palvelinta. Sinun tarvitsee vain (1) lisätä uusi Route uudella isännällä ja (2) lisätä uusi server-lohko olemassa olevaan ConfigMapiin. Jotta nginx ottaa uuden konfiguraation käyttöön, voit joko poistaa Podin tai mennä Podin terminaaliin ja suorittaa `nginx -s reload`.
 
-## Yhteenveto ja lisätietoja {#conclusion-and-more}
+## Yhteenveto ja muuta { #conclusion-and-more }
 
-Nginx on tehokas verkkopalvelin. Voit käyttää sitä myös HTTP-välityspalvelimena ja kuormantasaimena. Lisätietoja saat dokumentaatiosta osoitteessa <https://nginx.org/en/docs/>.
+Nginx on tehokas verkkopalvelin. Voit käyttää sitä myös HTTP-välityspalvelimena ja kuormantasaajana. Lisätietoja on dokumentaatiossa: <https://nginx.org/en/docs/>.

@@ -1,30 +1,22 @@
+# Kuinka arvioida, kuinka paljon muistia eräajoni tarvitsee? { #how-to-estimate-how-much-memory-my-batch-job-needs }
 
-# Kuinka arvioida, kuinka paljon muistia erätehtäväni tarvitsee? {#how-to-estimate-how-much-memory-my-batch-job-needs}
+Työn tarkkojen resurssivaatimusten arvioiminen etukäteen on hankalaa. Aloita tarkistamalla ohjelmiston dokumentaatio: kertovatko kehittäjät tyypillisestä muistin käytöstä. Voit hyödyntää myös aiempien, vastaavien valmiiden ajojen tietoja.
 
-On vaikeaa arvioida työtehtävien resurssivaatimuksia etukäteen. Tarkista ensin
-ohjelmiston dokumentaatiosta, antavatko kehittäjät mitään tietoa tyypillisestä
-muistin käytöstä. Voit myös käyttää aiempaa tietoa samanlaisista valmiista
-tehtävistä.
+## seff - Slurmin tehokkuus { #seff-slurm-efficiency }
 
-## seff - Slurm EFFiciency {#seff---slurm-efficiency}
-
-`seff` tulostaa yhteenvedon pyydetyistä ja käytetyistä resursseista sekä
-käynnissä oleville että valmistuneille erätehtäville:
+`seff` tulostaa yhteenvedon pyydetyistä ja käytetyistä resursseista sekä käynnissä oleville että päättyneille eräajoille:
 
 ```
 seff <slurm jobid>
 ```
 
-Voit myös lisätä `seff`-komennon eräkäsikirjoituksesi loppuun tulostamaan
-muistin käytön työn lopussa stdoutiin.
+Voit myös lisätä `seff`-komennon eräajon skriptin loppuun, jolloin muistin käyttö tulostuu työn päättyessä standarditulosteeseen.
 
 ```
 seff $SLURM_JOBID
 ```
 
-Huomaa, että `seff` ei näytä tietoja *käynnissä* olevista tehtävistä, jotka on
-käynnistetty ilman `srun`-komentoa, mutta tilastot ovat hyviä, kun työ päättyy.
-`seff` näyttää myös koottuja tietoja GPU:n käytön tehokkuudesta.
+Huomaa, että `seff` ei näytä tietoja käynnissä olevista ajoista, jotka on käynnistetty ilman `srun`-komentoa, mutta tilastot ovat saatavilla työn päätyttyä. `seff` näyttää myös koosteita GPU-käytön tehokkuudesta.
 
 ```
 [user@puhti-login11 ~]$ seff 22361601
@@ -39,37 +31,31 @@ CPU Efficiency: 96.13% of 04:11:20 core-walltime
 Job Wall-clock time: 00:06:17
 Memory Utilized: 5.55 GB (estimated maximum)
 Memory Efficiency: 71.04% of 7.81 GB (200.00 MB/core)
-Job consumed 4.27 CSC billing units based on following used resources
+Job consumed 4.27 CSC Billing Units based on following used resources
 Billed project: project_2001234
 CPU BU: 4.19
 Mem BU: 0.08
 ```
 
-Yllä olevien tietojen huomiot: CPU-tehokkuus on ollut erittäin hyvä (96 %) ja
-muistitehokkuus 71 %. Tämä on hyvä, sillä vain noin 2 GB jäi käyttämättä. On
-suositeltavaa jättää muutaman GB turvamarginaali kokonaismuistin suhteen.
+Huomioita yllä olevista tiedoista: Suorittimen tehokkuus on ollut erittäin hyvä (96 %) ja muistin tehokkuus 71 %. Tämä on hyvä, sillä käyttämättä jäi vain noin 2 GB. Kokonaismuistille suositellaan muutaman gigatavun varmuusmarginaalia.
 
-## Räätälöidyt kyselyt Slurm-laskutukseen {#custom-queries-to-slurm-accounting}
+Huomaa, että yllä oleva esimerkkituloste viittaa CSC:n vanhoihin BU:ihin.
 
-Voit tarkistaa suoritetun työn ajan ja muistin käytön myös `sacct`-komennolla:
+## Mukautetut haut Slurmin kirjanpitoon { #custom-queries-to-slurm-accounting }
+
+Voit tarkistaa päättyneen työn ajan ja muistin käytön myös `sacct`-komennolla:
 
 ```bash
 sacct -o jobid,reqmem,maxrss,averss,elapsed -j <slurm jobid>
 ```
 
-missä `-o`-lippu määrittää tulosteen seuraavasti:
+missä `-o`-valitsin määrittelee tulosteen seuraavasti:
 
-* `jobid` = Slurm-työn ID jatkeineen työn vaiheille.
-* `reqmem` = Muisti, jota pyysit Slurmista.
-* `maxrss` = Suurin määrä muistia, jota joku prosessi on käyttänyt missä tahansa
-  työn kohdassa. Tämä pätee suoraan sarjatyötehtäviin. Rinnakkaisille töille
-  sinun on kerrottava ytimien lukumäärällä (max. 40 Puhti-koneella, koska tämä 
-  raportoidaan vain siitä solmusta, jossa käytettiin eniten muistia).
-* `averss` = Keskimääräinen muistin käyttö per prosessi (tai ydin). Kokonaismuistin
-  käytön saamiseksi kerro tämä ytimien lukumäärällä (max. 40 Puhti-koneella, eli
-  täydellä nodella) siinä tapauksessa, että pyydät muistia
-  `--mem=<value>` etkä `--mem-per-cpu=<value>`.
-* `elapsed` = Aika, joka kului työn suorittamiseen.
+- `jobid` = Slurmin työn tunniste, johon sisältyvät myös työn vaiheiden laajenteet.
+- `reqmem` = Muistimäärä, jonka pyysit Slurmilta.
+- `maxrss` = Suurin minkä tahansa prosessin kyseisessä työssä milloinkin käyttämä muistimäärä. Tämä pätee suoraan sarja-ajoihin. Rinnakkaisajoissa arvo on kerrottava ytimien lukumäärällä (Puhdissa enintään 40), koska tieto raportoidaan vain siltä solmulta, joka käytti eniten muistia.
+- `averss` = Prosessia (tai ydintä) kohti keskimäärin käytetty muisti. Kokonaismuistin käytön saat kertomalla tämän ydinten määrällä (Puhdissa enintään 40, eli koko solmu), jos pyydät muistia muodossa `--mem=<value>` etkä `--mem-per-cpu=<value>`.
+- `elapsed` = Aika, joka työn valmistumiseen kului.
 
 Esimerkiksi sama työ kuin yllä:
 
@@ -83,41 +69,21 @@ JobID            ReqMem     MaxRSS     AveRSS    Elapsed
 22361601.0                 145493K  139994035   00:06:17 
 ```
 
-Huomioi seuraavat asiat:
+Huomaa seuraavat seikat:
 
-* Rivillä, jotka sisältävät `.ba+` ja `.ex+`-päätteitä, liittyvät erätehtävän
-  asetuksiin, sinun ei tarvitse huolehtia niistä tässä vaiheessa.
-* Olet pyytänyt 200 MB per ydin eli yhteensä 40 x 200 MB = 8000 MB 
-  (= 7.81 GB kuten `seff` raportoi).
-* Tehtäväsi on käyttänyt enintään 145493 KB muistia, eli 142 MB per ydin. 
-  Kertomalla tämä ytimien lukumäärällä (40) saadaan kokonaismuistin käyttöön
-  5683 MB = 5.55 GB (kuten myös `seff` raportoi).
-* Kuuden minuutin erätehtävä on liian lyhyt! Jos sinulla on monta tällaista 
-  työtä, suorita ne peräkkäin samassa työssä erillisinä työnvaiheina. Nyt
-  työn perustamiskustannukset ovat merkittävät verrattuna varsinaiseen
-  laskentaan.
+- Rivit, joiden job step -tunnisteet päättyvät `.ba+` ja `.ex+`, liittyvät eräajon alustukseen; sinun ei tarvitse tässä vaiheessa välittää niistä.
+- Olet pyytänyt 200 MB per ydin, eli yhteensä 40 × 200 MB = 8000 MB (= 7,81 GB `seff`-raportin mukaan).
+- Työsi on käyttänyt enimmillään 145493 KB, eli 142 MB muistia per ydin. Kertomalla ytimien määrällä (40) saadaan kokonaismuistin käytöksi 5683 MB = 5,55 GB (kuten `seff` myös raportoi).
+- 6 minuutin eräajo on liian lyhyt! Jos sinulla on monta tällaista ajoa, suorita ne peräkkäin samassa työssä erillisinä job steppeinä. Muuten työn alustuksen aiheuttama overhead on merkittävä suhteessa varsinaiseen laskentaan.
 
-!!! info "Muistiyksiköistä huomautus"
-    Muistiyksiköissä käytetään binäärisiä etuliitteitä. Esimerkiksi 1 GB = 1024 MB = 
-    1024² KB. Siksi yksikkömuunnokset voivat tuntua hämmentäviltä.
+!!! info "Huomio muistiyksiköistä"
+    Muistiyksiköissä käytetään binäärisiä etuliitteitä. Esimerkiksi 1 GB = 1024 MB =
+    1024² KB. Tämän vuoksi yksikkömuunnokset voivat vaikuttaa hämmentäviltä.
 
-## Yleisiä ohjeita ja vinkkejä {#general-guidelines-and-tips}
+## Yleisiä ohjeita ja vinkkejä { #general-guidelines-and-tips }
 
-Muista, että samanlainen mutta silti uusi työ saattaa tarvita viime kädessä
-erilaisia resursseja. Jos yliarvioit tarvittavan suoritusajan, työ saattaa
-joutua jonoon pidemmäksi aikaa kuin olisi tarpeen. Mitään resursseja ei kuitenkaan
-haaskata tai laskuteta. Tässä huomattava ero (jonotuksen kannalta) on se, onko
-työ alle 3 päivää vai enemmän. `longrun`-osaston töillä on alhaisempi prioriteetti
-ja ne ovat jonossaan pidempään.
+Muista, että samankaltaisellakin, mutta uudella ajolla voi lopulta olla erilaiset tarpeet. Jos yliarvioit tarvittavan ajoajan, työsi saattaa jonottaa tarpeettoman pitkään. Resursseja ei kuitenkaan tuhlata eikä laskuteta. Jonotuksen kannalta merkittävä raja on, onko työn kesto alle vai yli 3 päivää. `longrun`-partitiossa olevilla töillä on alempi prioriteetti ja ne jonottavat pidempään.
 
-Kuitenkin, **jos yliarvioit muistin tarpeen, resursseja haaskataan**. Mieti
-tätä: jos työsi käyttää vain 4 ydintä, mutta koko solmun muistin, niin muut
-työt eivät mahdu siihen solmuun ja jäljelle jäävät *N* - 4 ydintä jäävät
-käyttämättä. Myös koko muistivaatimus - käytetty tai ei - laskutetaan laskenta-
-kiintiöstäsi.
+Sen sijaan, jos yliarvioit muistin tarpeen, resursseja tuhlataan. Mieti tätä: jos työsi käyttää vain 4 ydintä, mutta kaiken solmun muistin, muille töille ei jää tilaa ja solmun jäljelle jäävät *N* - 4 ydintä jäävät tyhjäkäynnille. Lisäksi koko pyydetty muistimäärä – käytit sitä tai et – veloitetaan laskentakiintiöstäsi.
 
-Huomaa, että jos työsi **tarvitsee** muistia, on täysin sallittua varata koko
-solmun muisti, mutta älä varaa sitä "varmuuden vuoksi" tai siksi, ettet tiedä,
-kuinka paljon työ tarvitsee. Voit saada arvion aiemmista samanlaisista töistä
-kysymällä tämän tiedon yllä näytettyjen komentojen avulla. Tarvitset vain
-Slurm-työn tunnuksen näiden töiden kohdalla.
+Huomaa, että jos työsi tarvitsee muistia, on täysin ok varata koko solmun muisti. Älä kuitenkaan varaa sitä ”varmuuden vuoksi” tai siksi, ettet tiedä, kuinka paljon työ tarvitsee. Saat arvion aiemmista samankaltaisista ajoista kysymällä tiedot yllä esitetyillä komennoilla. Tarvitset vain niiden töiden Slurm-työtunnuksen.

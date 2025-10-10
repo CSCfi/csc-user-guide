@@ -1,8 +1,10 @@
+# Paljonko Poutan käyttö maksaa? { #what-does-it-cost-to-use-pouta }
 
-# Mitä Poutan käyttäminen maksaa? {#what-does-it-cost-to-use-pouta}
+Poutan käyttö on suomalaisessa akateemisessa käytössä maksutonta, jos projektihakemus hyväksytään. Tämä noudattaa samaa prosessia kuin CSC:n HPC-järjestelmissä. Tarkemman selityksen saat kohdasta
+[Poutan käyttöpolitiikka](../../cloud/pouta/vm-flavors-and-billing.md).
 
-Poutan käyttö on ilmaista suomalaiseen akateemiseen käyttöön, jos projektihakemus hyväksytään. Tämä käyttää samaa prosessia kuin CSC:n HPC-järjestelmät. Yksityiskohtaisen selityksen saat kohdasta [Pouta Usage policy](../../cloud/pouta/vm-flavors-and-billing.md).
+[Akateeminen ja kaupallinen hinnoittelu](https://research.csc.fi/purchasing) on myös saatavilla tapauksiin, joissa emme pysty tarjoamaan maksutonta käyttöä tai riittäviä resursseja.
 
-[Akateeminen ja kaupallinen hinnoittelu](https://research.csc.fi/purchasing) on myös saatavilla tapauksille, joissa emme pysty tarjoamaan ilmaista pääsyä tai riittäviä resursseja.
-
-Kirjanpito ja laskutus perustuvat samoihin laskutusyksiköihin, joita käytetään CSC:n HPC-järjestelmissä. Akateemiset käyttäjät voivat hakea lisää ilmaisia laskutusyksiköitä [CSC:n asiakasportaalin MyCSC](https://my.csc.fi) kautta. Maksavien asiakkaiden tulisi ottaa yhteyttä [CSC Service Desk](../contact.md).
+Käytön kirjanpito ja laskutus perustuvat Cloud-laskutusyksiköihin. Akateemiset käyttäjät voivat hakea lisää maksuttomia laskutusyksiköitä
+[CSC:n asiakasportaalin MyCSC](https://my.csc.fi) kautta. Maksavien asiakkaiden tulisi olla yhteydessä
+[CSC Service Deskiin](../contact.md).

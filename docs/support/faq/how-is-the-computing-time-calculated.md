@@ -1,17 +1,10 @@
+# Miten laskenta-aika lasketaan? { #how-is-the-computing-time-calculated }
 
-# Miten laskenta-aika lasketaan? {#how-is-the-computing-time-calculated}
+HPC CPU-, HPC GPU-, pilvi- ja tallennusresurssien hinnoittelu perustuu vastaavasti CPU-, GPU-, Cloud- ja Storage-laskutusyksiköihin (BU:t). BU-kulutuksen tuntihinta riippuu BU-tyypistä ja palvelusta, kuten on kuvattu tarkemmin [laskutusmalleissamme](../../accounts/billing.md).
 
-Laskennan, pilvipalveluiden ja tallennuspalveluiden hinnoittelu perustuu laskentayksiköihin
-(BUs). Laskentayksikön tuntihinta riippuu palvelusta, kuten on kuvattu tarkemmin
-[billing models](../../accounts/billing.md) -dokumentissa.
+Katso, miten
+[haet lisää laskutusyksiköitä](../../accounts/how-to-apply-for-billing-units.md).
 
-Voit käyttää
-[laskentayksikön laskuria](https://research.csc.fi/billing-units#buc)
-arvioidaksesi laskentayksikkösi käyttöä eri tilanteissa.
+## Eräajotehtävän resurssien käyttö { #batch-job-resource-usage }
 
-Katso, miten voit
-[hakemuslisäykseen laskentayksiköille](../../accounts/how-to-apply-for-billing-units.md).
-
-## Eräajon resurssinkulutus {#batch-job-resource-usage}
-
-Laskutus perustuu resursseihin, jotka on myönnetty eräajollesi. Esimerkiksi, jos pyydät 24 tuntia ja 4 ydintä, mutta tehtävä päättyy kahden tunnin jälkeen, projektiltasi laskutetaan 2 x 4 ydin tuntia. Vaikka pyydät 24 tuntia jonotusjärjestelmästä, sinua ei laskuteta 24 tunnista, koska resurssit vapautuvat muille käyttäjille, kun tehtäväsi päättyy. Huomaa kuitenkin, että laskutus ei perustu todelliseen suorittimen käyttöön, joten vaikka koodisi käyttäisi vain vähän suoritinta, esimerkiksi tehottoman rinnakkaistamisen vuoksi, kaikki tehtävällesi varatut resurssit laskutetaan silti.
+Laskutus perustuu resursseihin, jotka on myönnetty eräajotehtävällesi. Esimerkiksi jos pyydät 24 tuntia ja 4 ydintä, mutta työ päättyy kahden tunnin jälkeen, projektiltasi laskutetaan 2 x 4 ydintuntia. Vaikka pyytäisit jonojärjestelmästä 24 tuntia, sinulta ei laskuteta 24 tuntia, koska resurssit vapautuvat muiden käyttäjien käyttöön, kun työsi päättyy. Huomaa kuitenkin, että laskutus ei perustu todelliseen CPU-käyttöön, joten jos koodisi käyttää vain vähän suoritinta, esim. tehottoman rinnakkaistamisen vuoksi, kaikista työllesi varatuista resursseista laskutetaan silti.

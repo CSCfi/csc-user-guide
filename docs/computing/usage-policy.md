@@ -1,57 +1,78 @@
-
-# Käyttöehdot
+# Käyttöpolitiikka { #usage-policy }
 
 !!! info "Lisätietoja"
-    [Yleiset käyttöehdot CSC:n palveluille tutkimuksen ja
-    opetuksen tarpeisiin](https://research.csc.fi/general-terms-of-use)
+    [General Terms of Use for CSC's Services for Research and
+    Education](https://research.csc.fi/general-terms-of-use)
 
-## Sisäänkirjautumissolmut {#login-nodes}
+## Kirjautumissolmut { #login-nodes }
 
-Kun kirjaudut CSC:n supertietokoneille, päädyt klusterin johonkin sisäänkirjautumissolmuun. Näitä sisäänkirjautumissolmuja käyttää kaikki käyttäjät, eivätkä ne ole **tarkoitettu** raskaille laskutoimituksille.
+Kun kirjaudut CSC:n superkoneille, päädyt klusterin johonkin kirjautumissolmuun. Nämä kirjautumissolmut ovat kaikkien käyttäjien yhteiskäytössä, eikä niitä ole tarkoitettu raskaaseen laskentaan.
 
-Sisäänkirjautumissolmuja tulisi käyttää vain:
+Kirjautumissolmuja tulee käyttää vain:
 
 * kääntämiseen
-* erätehtävien hallintaan
-* tietojen siirtämiseen
-* **kevyisiin** esi- ja jälkikäsittelyihin
+* eräajojen hallintaan
+* datan siirtämiseen
+* **kevyeen** esi- ja jälkikäsittelyyn
 
-Tässä **kevyt** tarkoittaa **yksiytimisiä tehtäviä**, jotka valmistuvat **minuuteissa** ja vaativat enintään **alle 1 GiB** muistia. Kaikki muut tehtävät tulee suorittaa laskentasolmuissa joko normaaleina [erätehtävinä](running/getting-started.md) tai [interaktiivisina erätehtävinä](running/interactive-usage.md). Ohjelmat, jotka eivät noudata näitä sääntöjä, lopetetaan ilman varoitusta.
+Tässä **kevyt** tarkoittaa **yksiytimisiä töitä**, jotka valmistuvat **minuuteissa** ja joiden muistitarve on **alle 1 GiB**. Kaikki muut tehtävät tulee suorittaa laskentasolmuissa joko normaaleina [eräajoina](running/getting-started.md) tai [interaktiivisina eräajoina](running/interactive-usage.md). Näitä sääntöjä rikkovat ohjelmat lopetetaan ilman varoitusta.
 
 !!! warning "Tärkeää"
-    Sisäänkirjautumissolmut eivät ole tarkoitettu pitkiä tai raskaita prosesseja varten.
+    Kirjautumissolmut eivät ole tarkoitettu pitkiin tai raskaisiin prosesseihin.
 
-## Levytilan puhdistus {#disk-cleaning}
+## Levytilan siivous { #disk-cleaning }
 
-Jokaisella projektilla on levytila hakemistossa `/scratch/<project>`. Tämä nopea rinnakkaisscratch-tila on tarkoitettu aktiivisessa käytössä oleville tiedoille. Jotta varmistetaan, että rinnakkaislevyjärjestelmä ei lopu tallennustilasta ja suorituskyky pysyy hyväksyttävänä,
-[CSC poistaa automaattisesti tiedostoja](../support/tutorials/clean-up-data.md#automatic-removal-of-files),
-jotka eivät ole olleet käytössä pitkään aikaan. Rinnakkaisen tiedostojärjestelmän suorituskyky alkaa heikentyä, kun se täyttyy, ja mitä enemmän se täyttyy, sitä hitaammaksi suorituskyky tulee.
+Jokaisella projektilla on levytyötilaa hakemistossa `/scratch/<project>`. Tämä nopea rinnakkaistallennustila on tarkoitettu aktiivisesti käytössä oleville aineistoille. Jotta rinnakkaislevyjärjestelmä ei täyttyisi ja suorituskyky pysyisi hyväksyttävänä,
+[CSC poistaa automaattisesti Puhtin scratch-tilasta tiedostoja](../support/tutorials/clean-up-data.md#automatic-removal-of-files),
+joita ei ole käytetty pitkään aikaan. Rinnakkaisen tiedostojärjestelmän suorituskyky alkaa heiketä sen täyttyessä, ja mitä täydempi se on, sitä hitaammaksi suorituskyky muuttuu.
 
-Nykyinen käytäntö Puhtissa on, että tiedostot, joita ei ole käytetty **6 kuukauteen** tai pidempään, poistetaan. Tämä puhdistus tapahtuu säännöllisesti ja käyttäjille ilmoitetaan aina vähintään 1 kuukausi etukäteen. CSC tarjoaa myös listoja tiedostoista, jotka aiotaan poistaa, ja ohjeet tärkeiden tiedostojen siirtämiseksi sopivampiin levyjärjestelmiin.
+Tämä siivous tehdään säännöllisesti, ja joka kerta käyttäjille ilmoitetaan vähintään 1 kuukautta etukäteen. CSC tarjoaa myös listoja poistettavista tiedostoista sekä ohjeita, miten tärkeät tiedostot voi siirtää sopivammille tallennusjärjestelmille.
 
-Samanlainen menettely tuodaan käyttöön Mahtissa, mutta se ei ole vielä käytössä. Käytännön mukaisesti käyttäjien tulisi pitää vain aktiivisessa käytössä olevaa dataa scratch-tilassa.
+**Siivous on tiukempi projekteille, joilla on suuremmat kiintiöt**:
 
-## GPU-solmut {#gpu-nodes}
+* Projekteissa, joiden **scratch-kiintiö on 5 TiB tai enemmän**, tiedostot, joita ei ole käytetty (avattu, luettu, muokattu) viimeisen **90 päivän** aikana, poistetaan.
+* Muille projekteille, joilla on **pienemmät scratch-kiintiöt**, tiedostot, joita ei ole käytetty (avattu, luettu, muokattu) viimeisen **180 päivän** aikana, poistetaan.
 
-Puhtin ja Mahtin GPU:ita tulisi käyttää vain työkuormiin, jotka hyötyvät suuresti GPU-kapasiteetista verrattuna prosessorien käyttöön, tai joita ei voi suorittaa prosessoreilla. Erityisesti AI/ML-työkuormat ovat etusijalla, koska monet niistä eivät voi ollenkaan suorittaa prosessoreilla. Hyvä nyrkkisääntö on verrata työn [laskentayksiköiden (BU)](../accounts/billing.md) käyttöä (_esim._ [`seff`](./performance.md#quick-start-efficiency-report-with-seff) tai [laskentayksikkölaskuria](https://research.csc.fi/billing-units/#buc)) GPU:illa prosessoreihin ja valita vähiten käyttävä.
+Voit käyttää komentoa `csc-workspaces` nähdäksesi, minkä siivousjakson piirissä projektisi ovat.
 
-Puhtille ja Mahtille tämä tarkoittaa, että CPU-ytimien täysi solmu vastaa suunnilleen yhtä GPU:ta. Kuitenkin, koska Puhtilla ja Mahtilla on enemmän prosessorikapasiteettia kuin GPU-kapasiteettia, saatat päästä prosessoreihin vähemmällä jonottamisella. Huomaa, että
-[LUMI:lla on paljon GPU-kapasiteettia](https://docs.lumi-supercomputer.eu/hardware/lumig/),
-joka on myös "halvempaa" laskettuna BU-arvoissa, ja LUMI:lla on parempi käyttää GPU:ita, jos mahdollista tutkimuksessasi. Joka tapauksessa varmista aina, että käytät resursseja tehokkaasti.
+**Mahti:** Vastaava menettely otetaan käyttöön Mahtissa, jos levytilan käyttö kasvaa riittävästi. Periaate on edelleen se, että scratch-tilassa tulisi säilyttää vain aktiivisesti käytössä olevaa dataa.
 
-## Conda-asennukset {#conda-installations}
+## GPU-solmut { #gpu-nodes }
 
-Koska Conda-pohjaisten ympäristöjen suorituskyky rinnakkaisilla tiedostojärjestelmillä on ongelmallinen, CSC on hylännyt _suoran_ Conda-asennusten käytön. Tämä tarkoittaa, että kaikki Conda-ympäristöt, joita aiot käyttää, on asennettava konttiin. Katso lisää [Conda parhaat käytännöt](../support/tutorials/conda.md).
+Puhtin ja Mahtin GPU:ita tulisi käyttää vain työkuormiin, jotka hyötyvät selvästi GPU-kapasiteetista verrattuna CPU:ihin, tai joita ei voi ajaa CPU:illa. Erityisesti AI/ML-työkuormia priorisoidaan, sillä monia niistä ei voi tehdä lainkaan CPU:illa. Hyvä nyrkkisääntö on verrata työn [Billing Unit (BU)](../accounts/billing.md) -kulutusta (_esim._ komennolla
+[`seff`](./performance.md#quick-start-efficiency-report-with-seff))
+GPU:illa ja CPU:illa ja valita se, joka kuluttaa vähemmän. Yksi CPU-BU ja yksi GPU-BU ovat kustannuksiltaan samanarvoisia.
+
+Puhtissa ja Mahtissa tämä tarkoittaa, että täysi CPU-ytimien solmu vastaa karkeasti yhtä GPU:ta. Koska Puhtissa ja Mahtissa on kuitenkin CPU-kapasiteettia enemmän kuin GPU-kapasiteettia, CPU:ihin voi päästä jonottamalla vähemmän. Huomaa, että [LUMIssa on paljon GPU-kapasiteettia](https://docs.lumi-supercomputer.eu/hardware/lumig/), joka on BU-mittarilla myös ”halvempaa”, ja LUMIssa on parempi käyttää GPU:ita, jos se on tutkimuksessasi mahdollista. Joka tapauksessa varmista aina, että käytät resursseja tehokkaasti.
+
+## Conda-asennukset { #conda-installations }
+
+Conda-pohjaisissa ympäristöissä on suorituskykyongelmia rinnakkaisilla tiedostojärjestelmillä, joten CSC on luopunut Conda-asennusten suorasta käytöstä. Tämä tarkoittaa, että kaikki käytettävät Conda-ympäristöt on asennettava kontin sisään. Katso lisätietoja: [Conda best practices](../support/tutorials/conda.md).
 
 !!! info "Tykky"
-    Harkitse [Tykky-konttikääre](containers/tykky.md) Conda- ja pip-ympäristöjen helppoon kontitukseen.
+    Harkitse [Tykky-konttikäärettä](containers/tykky.md) Conda- ja pip-ympäristöjen helppoon kontitukseen.
 
-## Laskentayksiköiden loppuminen {#running-out-of-billing-units}
+## Laskentayksiköiden loppuminen { #running-out-of-billing-units }
 
-Puhtissa ja Mahtissa käyttäjät tarvitsevat laskentayksiköitä palvelujen käyttämiseen. Kun projektilta loppuu laskentayksiköt, mahdollisuus palvelun käyttöön rajoittuu kahdessa vaiheessa. Heti laskentayksiköiden päättymisen jälkeen uusia töitä ei voi lähettää. Käynnissä olevia töitä ei katkaista ja ne jatkuvat valmistumiseen/aikarajan umpeutumiseen saakka. 30 päivän siirtymäkauden jälkeen pääsy `/projappl` ja `/scratch` kansioihin estetään. Mitään tietoja ei poisteta, vain pääsy estetään. Tiedot poistetaan kuitenkin edelleen `/scratch` normaalin puhdistusprosessin aikana.
+Kun projektin Billing Unitit loppuvat, palvelun käyttöä rajoitetaan kolmessa vaiheessa. Jos käytät projektia edelleen aktiivisesti, voit poistaa rajoitukset [hakemalla](../accounts/how-to-apply-for-billing-units.md) lisää Billing Uniteja.
 
-Jos et käytä projektia aktiivisesti, kannustamme sinua siirtämään kaikki tarvitsemiasi tietoja 30 päivän siirtymäkauden aikana ja sitten [sulkemaan projektin](../accounts/how-to-manage-your-project.md#project-closure)
-MyCSC:ssä.
+Ensimmäisessä vaiheessa rajoitetaan uusien töiden lähettämistä:
 
-Jos käytät projektia edelleen aktiivisesti, voit saada pääsyn laskentaresursseihin ja tallennustiloihin [hakemalla](../accounts/how-to-apply-for-billing-units.md)
-lisää laskentayksiköitä.
+* Jos Storage-BU:t loppuvat, uusia töitä ei voi lähettää mihinkään partitioon
+* Jos CPU-BU:t loppuvat, uusia töitä ei voi lähettää CPU-partitioihin
+* Jos GPU-BU:t loppuvat, uusia töitä ei voi lähettää GPU-partitioihin
+
+Toisin sanoen CPU- tai GPU-BU:jen loppuminen vaikuttaa vain vastaavan tyyppisiin partitoihin, mutta Storage-BU:t vaikuttavat kaikkiin. Käynnissä olevia töitä ei keskeytetä, vaan ne ajetaan loppuun tai aikakatkaistaan.
+
+Toisessa vaiheessa rajoitetaan datan käyttöä. Kun Storage-BU:t loppuvat, alkaa 30 päivän armonaika, jonka jälkeen pääsy hakemistoihin `/projappl` ja `/scratch` estetään. Mitään dataa ei poisteta, ainoastaan pääsy estetään. Dataa poistetaan kuitenkin edelleen `/scratch`-tilasta [normaalin siivousprosessin](#disk-cleaning) mukaisesti. Huomaa, että negatiivinen CPU- tai GPU-BU-saldo ei käynnistä tätä vaihetta, ainoastaan negatiivinen Storage-BU-saldo.
+
+Jos et käytä projektia aktiivisesti, kannustamme siirtämään tarvitsemasi datan 30 päivän armonaikana ja sen jälkeen [sulkemaan projektin](../accounts/how-to-manage-your-project.md#project-closure) MyCSC:ssä. 
+
+Kolmannessa vaiheessa projekti suljetaan 60 päivän armonaikana, jos minkä tahansa tyyppiset BU:t ovat loppu. Jos projektilla on edelleen negatiivinen määrä minkä tahansa tyyppisiä Billing Uniteja 60 päivän jälkeen, projekti suljetaan.
+
+## CSC:n hallinnoima Slurm-työnhallinta { #slurm-job-management-by-csc }
+
+* CSC ei muuta työn parametreja, kuten kestoa tai prioriteettia. 
+* CSC voi lopettaa töitä, jos resursseja käytetään väärin. Esim. jos resurssit
+  (CPU-ytimet, GPU:t, muisti) ovat pahasti alikäytössä tai IO kuormittaa
+  tallennusjärjestelmää liikaa.
