@@ -37,8 +37,8 @@ the **Slurm** batch job system at CSC.
           [available batch job partitions](batch-job-partitions.md).
         - Always ensure your job is actually using the resources you request.
           For example, do not request multiple CPU cores if your job only can
-          use one, or ten times the memory you really need. See
-          [FAQ](../../support/faq/how-much-memory-my-job-needs.md).
+          use one. Also, do not request ten times the memory you really need.
+          See [FAQ](../../support/faq/how-much-memory-my-job-needs.md).
         - [Interactive tasks](interactive-usage.md) (other than compiling,
           moving data and light pre- and post-processing) are to be done via
           the batch job system, not on the login nodes.
