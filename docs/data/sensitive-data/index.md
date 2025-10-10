@@ -2,13 +2,15 @@
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services.
 
-* To access CSC's SD Services, it's important to first identify the type of sensitive data  your research involves, whether it's research data (e.g., consented data collected for scientific studies) or secondary use of health and social data  (e.g., register data from Findata or other public authorities). 
+To access CSC's SD Services, it's important to first identify the type of sensitive data  your research involves, whether it is:
 
-* This determines the appropriate CSC project type used for access  (Academic or Findata) available services and determines the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read-only mode. 
+* research data (e.g., consented data collected for scientific studies)
+  
+* or secondary use of health and social data  (e.g., register data from Findata or other public authorities). 
 
-* If you are getting started, please explore  the use cases examples to find the right tools for your research. For further support, don’t hesitate to contact us. 
+This determines the appropriate CSC project type used for access (Academic or Findata) available services and determines the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read-only mode. 
 
-* Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
+Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
