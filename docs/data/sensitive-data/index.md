@@ -60,8 +60,7 @@ Each guide provides step-by-step instructions, recommended workflows and access 
 
 ### Quick access webpage to SD Services
 
-For a convenient access of all SD service, visit and bookmark the [Quick Access webpage to SD Services](https://research.csc.fi/sensitive-data/sensitive-data-sd-services-for-research/links-to-services/). This external page provides a centralized list of services, making it easy to explore and access the tools you need.
-
+For convenient access of SD services, visit and bookmark the [Quick sccess webpage](https://research.csc.fi/sensitive-data/sensitive-data-sd-services-for-research/links-to-services/). This external page provides a centralized list, making it easy to access the services you need.
 
 
 ### Service breaks
