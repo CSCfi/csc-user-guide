@@ -54,7 +54,15 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 
 </div>
 
+### Additional Resources
 
+- [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
+
+- [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
+
+- [Useful terminology :material-arrow-right:](sd-terminology.md)
+
+- [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
 
 ### Quick access webpage to SD Services
 
