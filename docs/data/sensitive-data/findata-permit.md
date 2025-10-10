@@ -54,7 +54,7 @@ You need to access SD Desktop. You have a permit from Findata.
 ---
 
 #### 2.1 Choose project category
-- In the new window choose the Project category to be **Secondary**.
+- In the new window choose the Project category to be **Secondary use**.
 - Click **Next**.
 
 ![Create new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Secondary_1025.png)
