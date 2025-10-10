@@ -18,7 +18,7 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 
 ### Quick links to user guides
 
-<div class="grid cards csc-quick-links" markdown>
+<div class="grid cards csc-quick-links csc-quick-links--compact" markdown>
 
 - #### Research data: store and analyse
 
