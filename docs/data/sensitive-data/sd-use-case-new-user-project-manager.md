@@ -138,7 +138,7 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 4. Apply for more billing units 
 
-You can apply for more BUs for your CSC project in MyCSC portal. [More information about billing units](./sd-billing-units.md)
+You can apply for more BUs for your CSC project in MyCSC portal. [More information about billing units in the next section in this user guide](./sd-billing-units.md)
 
 1. Sign in to MyCSC with you Haka or Virtu credentials.
 2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
