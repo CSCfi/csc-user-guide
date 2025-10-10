@@ -54,5 +54,6 @@ If you have already created a CSC account and are part of a CSC project, you can
 * [Importing data ](./sd-desktop-access.md)
 * [Exporting data  via user interface](./sd-desktop-export.md)
 * [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Using HPC resources for sensitive data](./tutorials/sdsi-md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
 
