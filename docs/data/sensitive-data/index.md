@@ -6,68 +6,17 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. The legal basi
   
 * Secondary Use of Health and Social Data (e.g. register data from Findata or other public authorities) under the Finish Act on Secondary use and Findata regulation. 
 
-Each guide provides step-by-step instructions,video tutorials, recommended workflows and access details specific to the data type and legal framework. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
+Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-# quick try
-
-<div class="grid cards csc-quick-links csc-quick-links" markdown>
-
-  
-- ## Reasarch data 1
-
-    ---
-
-    [CSC Accounts and Projects :material-arrow-right:](accounts/index.md)
-
-    [Getting started with supercomputing :material-arrow-right:](support/tutorials/hpc-quick.md)
-
-    [Puhti and Mahti Overview :material-arrow-right:](computing/index.md)
-
-    [Cloud services Overview :material-arrow-right:](cloud/index.md)
-
-    
-- ## Reaserch data 2
-
-    ---
-
-    [Quantum Computing Guide :material-arrow-right:](computing/quantum-computing/overview.md)
-
-    [LUMI User Guide :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
-
-    [Allas User Guide :material-arrow-right:](data/Allas/index.md)
-    
-    [Python Usage Guide :material-arrow-right:](support/tutorials/python-usage-guide.md)
-
-    
-
-- ## Health data 3
-
-    ---
-
-    [CSC Computing Environment :material-open-in-new:](https://csc-training.github.io/csc-env-eff/){ target=_blank }
-
-    [Elements of Supercomputing :material-open-in-new:](https://edukamu.fi/elements-of-supercomputing/){ target=_blank }
-
-    [Linux basics for CSC :material-arrow-right:](support/tutorials/env-guide/index.md)
-
-    [Managing data on scratch :material-arrow-right:](support/tutorials/clean-up-data.md)
-
-    [High-throughput computing :material-arrow-right:](computing/running/throughput.md)
-
-    [Creating a virtual machine in Pouta :material-arrow-right:](cloud/pouta/launch-vm-from-web-gui.md)
-
-</div>
 
 
 ### Quick links to key topics
 
 <div class="grid cards csc-quick-links" markdown>
 
-- #### Reserach data:
-   store and analyse
+- #### Reserach data: store and analyse
 
     ---
 
@@ -78,8 +27,7 @@ Each guide provides step-by-step instructions,video tutorials, recommended workf
     [Analyse with SD Desktop :material-arrow-right:](sd_desktop.md)
 
 
-- #### Research data:
-  publish and reuse 
+- #### Research data: publish and reuse 
 
     ---
 
