@@ -2,26 +2,16 @@
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
-SD services support secure processing of sensitive data. **The legal basis for data processing determines how you can access the services, specifically what type of CSC project is required, and which workflows and tools are available.** To select the correct user guide, begin by identifying the type of sensitive data data you are processing:
+SD services support secure processing of sensitive data. The legal basis for data processing determines how you can access the services, specifically what type of CSC project is required, and which workflows and tools are available. To select the correct user guide, begin by identifying the type of sensitive data data you are processing:
 
-* Research data (e.g. consented data collected for scientific studies): if you're working with data collected for research purposes, follow the guide tailored for storing, analyzing, publishing, or reusing research data.
-
-* Secondary Use of Health and Social Data (e.g. register data from Findata or other public authorities): if you're using data for secondary purposes, such as registry-based research or analysis, follow the guide designed for processing register data in compliance with Finnish legislations (Act on secondary use and Findata regulation). 
+* Research data (e.g. consented data collected for scientific studies)
+  
+* Secondary Use of Health and Social Data (e.g. register data from Findata or other public authorities)
 
 Each guide provides step-by-step instructions, recommended workflows and access details specific to your data type and legal framework.
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
-
-
-
-
-
-
-
 
 
 
