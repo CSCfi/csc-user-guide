@@ -16,7 +16,7 @@ CSC's services are free of charge for academic research, teaching or training fo
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
 * [Rahti billing](../cloud/rahti/billing.md)
-* [SD Connect and SD Desktop billing](../data/sensitive-data/sd-use-case-new-user-project-manager.md#sd-connect-bu-consumption)
+* [SD Connect and SD Desktop billing](../data/sensitive-data/sd-billing-units.md)
 
 
 
@@ -45,7 +45,8 @@ You will be notified before your CSC Project's Billing Units run out. When an ac
 Detailed information on how services are currently limiting the use when Billing Units run out:
 
 * [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
-* [Sensitive Data Desktop](../data/sensitive-data/sd-use-case-new-user-project-manager.md#what-happens-if-your-project-runs-out-of-billing-units)
+* [Sensitive Data Desktop](../data/sensitive-data/sd-billing-units.md#what-happens-if-your-project-runs-out-of-billing-units)
+
 
 
 

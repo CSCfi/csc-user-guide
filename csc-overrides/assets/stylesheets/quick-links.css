@@ -20,9 +20,17 @@
 }
 
 .grid.csc-quick-links.csc-quick-links--landing {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28ch), 1fr));
   max-width: calc(var(--csc-content-width) / 1.66);
   margin: 1em auto;
+}
+
+.grid.csc-quick-links.csc-quick-links--compact {
+  max-width: var(--csc-content-width);
+}
+
+.grid.csc-quick-links.csc-quick-links--landing,
+.grid.csc-quick-links.csc-quick-links--compact {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28ch), 1fr));
 }
 
 .grid.csc-quick-links.csc-quick-links--portals {
