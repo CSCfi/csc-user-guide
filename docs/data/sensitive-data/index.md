@@ -15,11 +15,23 @@ Each guide provides step-by-step instructions, recommended workflows and access 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ### Quick links to key topics
 
 <div class="grid cards csc-quick-links" markdown>
 
-- #### Reserach data: store and analyse
+- #### Reserach data:
+   store and analyse
 
     ---
 
@@ -30,7 +42,8 @@ Each guide provides step-by-step instructions, recommended workflows and access 
     [Analyse with SD Desktop :material-arrow-right:](sd_desktop.md)
 
 
-- #### Research data: publish and reuse 
+- #### Research data:
+  publish and reuse 
 
     ---
 
