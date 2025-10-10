@@ -1,8 +1,8 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Start here: creating a CSC account and accessing Sensitive Data services 
+# Start here: creating a CSC account and a CSC project Academic type
 
-If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to create an account and a CSC project. You will learn also how to manage your project's resources consumption (here called Billing Unit), storage space and what happens to your data upon project closure.
+If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to create an account and a CSC project Academic type to store and analyse sensitive research data (e.g. consented data). You will learn also how to manage your project's resources consumption (here called Billing Unit), storage space (here called quota) and what happens to your data upon project closure.
 
 The steps you need to follow depend on your role in the research team:
 
@@ -23,7 +23,7 @@ Responsibilities include:
   
 * Adding and managing project members.
   
-* Managing project lifetime, storage space, and resources (here called Billing Units).
+* Managing project lifetime, storage space (quota) and resources (here called Billing Units).
   
 * Deciding which services are suitable for data processing by adding services in the MYCSC portal.
   
