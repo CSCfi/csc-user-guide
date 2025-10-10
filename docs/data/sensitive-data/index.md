@@ -13,6 +13,64 @@ Each guide provides step-by-step instructions,video tutorials, recommended workf
 
 
 
+<div class="grid cards csc-quick-links csc-quick-links--landing" markdown>
+
+- ## Overview
+
+    ---
+Welcome to the user guide for CSC's Sensitive Data (SD) services. The legal basis for data processing determines how you can access the services, what type of CSC project is required (academic or Findata type) which workflows and tools are available. To select the correct user guide, begin by identifying the type of sensitive data data you are processing:
+
+* Research data (e.g. consented data collected for scientific studies)
+  
+* Secondary Use of Health and Social Data (e.g. register data from Findata or other public authorities) under the Finish Act on Secondary use and Findata regulation. 
+
+Each guide provides step-by-step instructions,video tutorials, recommended workflows and access details specific to the data type and legal framework. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
+   
+- ## Reasarch data 1
+
+    ---
+
+    [CSC Accounts and Projects :material-arrow-right:](accounts/index.md)
+
+    [Getting started with supercomputing :material-arrow-right:](support/tutorials/hpc-quick.md)
+
+    [Puhti and Mahti Overview :material-arrow-right:](computing/index.md)
+
+    [Cloud services Overview :material-arrow-right:](cloud/index.md)
+
+    
+- ## Reaserch data 2
+
+    ---
+
+    [Quantum Computing Guide :material-arrow-right:](computing/quantum-computing/overview.md)
+
+    [LUMI User Guide :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
+
+    [Allas User Guide :material-arrow-right:](data/Allas/index.md)
+    
+    [Python Usage Guide :material-arrow-right:](support/tutorials/python-usage-guide.md)
+
+    
+
+- ## Health data 3
+
+    ---
+
+    [CSC Computing Environment :material-open-in-new:](https://csc-training.github.io/csc-env-eff/){ target=_blank }
+
+    [Elements of Supercomputing :material-open-in-new:](https://edukamu.fi/elements-of-supercomputing/){ target=_blank }
+
+    [Linux basics for CSC :material-arrow-right:](support/tutorials/env-guide/index.md)
+
+    [Managing data on scratch :material-arrow-right:](support/tutorials/clean-up-data.md)
+
+    [High-throughput computing :material-arrow-right:](computing/running/throughput.md)
+
+    [Creating a virtual machine in Pouta :material-arrow-right:](cloud/pouta/launch-vm-from-web-gui.md)
+
+</div>
+
 
 ### Quick links to key topics
 
