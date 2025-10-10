@@ -16,7 +16,7 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-### Quick links to key topics
+### Quick links to user guides
 
 <div class="grid cards csc-quick-links" markdown>
 
