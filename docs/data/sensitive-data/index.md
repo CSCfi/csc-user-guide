@@ -20,7 +20,7 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 
 <div class="grid cards csc-quick-links" markdown>
 
-- #### Reserach data: store and analyse
+- #### Research data: store and analyse
 
     ---
 
