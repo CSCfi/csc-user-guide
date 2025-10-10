@@ -2,13 +2,13 @@
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services.
 
-To access CSC's SD Services, it's important to first identify the type of sensitive data  your research involves, whether it is:
+To access CSC's SD Services, it is important to first identify the type of sensitive data  your research involves, whether it is:
 
-* research data (e.g., consented data collected for scientific studies)
+* research data (e.g. consented data collected for scientific studies)
   
-* or secondary use of health and social data  (e.g., register data from Findata or other public authorities). 
+* or secondary use of health and social data  (e.g. register data provided by the Finnish Social and Health Data Permit Authority Findata or a public register). 
 
-This determines the appropriate CSC project type used for access (Academic or Findata) available services and determines the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read-only mode. 
+This determines the appropriate CSC project type used for access (Academic or Findata) and the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read-only mode. 
 
 Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
