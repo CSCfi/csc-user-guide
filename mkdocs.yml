@@ -539,11 +539,11 @@ nav:
   - Sensitive data:
       - data/sensitive-data/index.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
-      - Research data Store and analyse: 
+      - Research data - Store and analyse: 
           - Start here:
               - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
-              - Apply for billing units: data/sensitive-data/sd-billing-units.md
+              - SD Services billing units: data/sensitive-data/sd-billing-units.md
               - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
           - Store with SD Connect:
               - data/sensitive-data/sd_connect.md
@@ -566,7 +566,7 @@ nav:
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
               - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-      - Research data Publish and reuse:
+      - Research data - Publish and reuse:
           - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
               - Publish data: data/sensitive-data/fega-submission.md
