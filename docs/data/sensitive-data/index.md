@@ -2,7 +2,7 @@
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
-SD services support secure processing of sensitive data. The legal basis for your data processing determines how you can access the services, specifically what type of CSC project is required, and which workflows and tools are available to you. To select the correct user guide, begin by identifying the type of sensitive data data you are processing:
+SD services support secure processing of sensitive data. **The legal basis for data processing determines how you can access the services, specifically what type of CSC project is required, and which workflows and tools are available to your project.** To select the correct user guide, begin by identifying the type of sensitive data data you are processing:
 
 * Research data (e.g. consented data collected for scientific studies): if you're working with data collected for research purposes, follow the guide tailored for storing, analyzing, publishing, or reusing research data.
 
