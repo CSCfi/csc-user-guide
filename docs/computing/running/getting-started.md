@@ -22,15 +22,15 @@ the **Slurm** batch job system at CSC.
           a lot of jobs will decrease the initial priority score of
           your jobs. The priority score will then increase gradually as your
           job waits in the queue.
-    2. **The starting time of a job cannot be predicted accurately.**
+    1. **The starting time of a job cannot be predicted accurately.**
         - It depends heavily on the actual runtimes of all other users' jobs
           and whether new jobs are submitted. See
           [FAQ](../../support/faq/when-will-my-job-run.md).
-    3. **Computational resources (e.g. runtime, memory, number of cores) are
+    1. **Computational resources (e.g. runtime, memory, number of cores) are
        requested explicitly.**
         - If the reserved time or memory limits are exceeded, the job will be
           terminated automatically!
-    4. **Jobs that misuse resources will be terminated without warning.**
+    1. **Jobs that misuse resources will be terminated without warning.**
         - Always ensure your jobs are suitable for the partition (queue) you
           are using. For example, do not run in a GPU partition if you do not
           request GPUs in your batch job. See
