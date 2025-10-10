@@ -2,6 +2,17 @@
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
+SD services support secure processing of sensitive data. To help you get started, it's important to first identify the legal basis for your data processing, as this determines how the services can be accessed and used.
+
+Choose Your Path Based on the Legal Basis:
+
+Research Data (e.g. consented data collected for scientific studies): If you're working with data collected for research purposes, follow the guide tailored for storing, analyzing, publishing, or reusing research data.
+
+Secondary Use of Health and Social Data (e.g. register data from Findata or other public authorities): If you're using data for secondary purposes, such as registry-based research or analysis, follow the guide designed for processing register data in compliance with Finnish legislation.
+
+Each guide provides step-by-step instructions, recommended workflows, and access details specific to your data type and legal framework.
+
+
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
@@ -14,7 +25,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     ---
 
-    [Start here: Accessing Sensitive Data services :material-arrow-right:](sd-access.md)
+    [Start here: crete an account and a CSC project academic type](sd-access.md)
 
     [Store with SD Connect :material-arrow-right:](sd_connect.md)
 
@@ -42,35 +53,14 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     [Submit secondary use data :material-arrow-right:](single-register-submission.md)
 
-
-- #### Additional Resources
-
-    ---
-
-    [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
-
-    [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
-
-    [Useful terminology :material-arrow-right:](sd-terminology.md)
-
-    [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
-
 </div>
 
 
-### Links to services
 
-<div class="grid csc-quick-links csc-quick-links--portals" markdown>
+### Quick access webpage to SD Services
 
-[Create and manage CSC account with MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC user portal" target=_blank }
+For a convenient overview of all SD service components, visit and bookmark the [Quick Aacess webpage to SD Services](https://research.csc.fi/sensitive-data/sensitive-data-sd-services-for-research/links-to-services/). This external page provides a centralized list of services, making it easy to explore and access the tools you need.
 
-[Store and share with SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Sensitive Data (SD) Connect" target=_blank }
-
-[Analyse with SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Sensitive Data (SD) Desktop" target=_blank }
-
-[Reuse with SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Sensitive Data (SD) Apply" target=_blank }
-
-</div>
 
 
 ### Service breaks
