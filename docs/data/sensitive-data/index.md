@@ -24,7 +24,7 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 
     ---
 
-    [Start here: crete an account and a CSC project academic type](sd-access.md)
+    [Start here: crete an account and a CSC project academic type](sd-store-and-analyze-research-data.md)
 
     [Store with SD Connect :material-arrow-right:](sd_connect.md)
 
