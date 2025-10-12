@@ -1,5 +1,7 @@
 # Copying files using scp
 
+--8<-- "auth-update-ssh.md"
+
 Copying files between different Linux, macOS and Windows machines can be done
 with the `scp` command. Thus, you can use `scp` to transport data between CSC
 and your local computer, or between different file systems at CSC.
@@ -16,6 +18,21 @@ machine is:
 ```bash
 scp username@server:/path/to/file /path/to/local/destination
 ```
+
+!!! info "Non-standard location or name for SSH keys"
+    If you have stored your SSH key file with a non-default name or in a
+    non-default location (somewhere else than `~/.ssh/id_<algorithm>`), you
+    must specify where `scp` should look for the key using the `-i` option,
+    e.g:
+
+    ```bash
+    scp -i /path/to/sshkey /path/to/file username@server:/path/to/remote/destination
+    ```
+
+    The rest of this page assumes the key is stored in a default location using
+    a standard name, so the `-i` flag is omitted.
+
+## Using scp to copy data between your local computer and Puhti
 
 For example, the command to copy a local file `data.txt` from the current
 directory to the home directory of user `bob` on Puhti would be:
@@ -65,3 +82,22 @@ scp *.txt bob@puhti.csc.fi:~/
 By default, the copied files are treated as new files, but if you add option
 `-p` to the `scp` command, then the copied file will inherit the timestamp and
 access mode information from the original file.
+
+## Using scp to copy data directly between CSC supercomputers
+
+To copy data directly between CSC supercomputers, `scp` must be able to access
+the SSH keys you've set up on your local workstation for authenticating to CSC
+supercomputers. This is accomplished by forwarding your SSH agent to the
+supercomputer you're first connecting to.
+
+- [SSH agent forwarding instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding)
+- [SSH agent forwarding instructions for Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding)
+
+After this, `scp` can be used to copy data directly between CSC supercomputers
+using the same syntax as above. For example, the command to copy a file
+`data.txt` from directory `/scratch/project_2001234` on Puhti to the same
+directory on Mahti would be:
+
+```bash
+scp /scratch/project_2001234/data.txt bob@mahti.csc.fi:/scratch/project_2001234
+```
