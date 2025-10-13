@@ -27,7 +27,7 @@ Please note that there will be slight adjustment in BU prices of Rahti from year
 |------------------|------------------|---------------------|
 | Pod core hour    | 1                   |1.05
 | Pod RAM GB hour  | 1.5                 |1.6
-| Storage TiB hour | 3                   |3.5
+| Storage TiB hour | 3                   |3.6
 
 
 !!! info

@@ -25,8 +25,8 @@ Additional quota can be requested by sending an email to [csc service desk](../.
 
 ## cPouta flavors
 
-The following tables list the available virtual machine flavors in cPouta and their Cloud Billing Unit coefficients.Note that the default cPouta user account allows users to launch only a subset of the available virtual machine flavors.
-Please note that there will be slight adjustment in BU prices of standard and I/O floavors of cPouta from year 2026 as shown in the tables. 
+The following tables list the available virtual machine flavors in cPouta and their Cloud Billing Unit coefficients. Note that the default cPouta user account allows users to launch only a subset of the available virtual machine flavors.
+Also note that there will be slight adjustment in BU prices of standard and I/O floavors of cPouta from year 2026 as shown in the tables. 
 
 ### Standard flavors
 
