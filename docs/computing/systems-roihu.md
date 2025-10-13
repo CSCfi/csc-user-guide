@@ -65,6 +65,8 @@ single-thread performance.
 | V    | 4               | AMD Turin 9335<br>Nvidia L40 | 2 x 32 cores (x86) @ 3.40 GHz<br>2 x GPUs | 384<br>2 x 48 | 0.96 |
 | GPU  | 132             | Nvidia GH200   | 4 x 72 cores (ARM)<br>4 x GPUs | 4 x 120<br>4 x 96 | 0.96 |
 
+The operating system of Roihu will be Red Hat Enterprise Linux 9 (RHEL9).
+
 ## Storage
 
 Roihu will have two independent flash-based DDN EXAScaler Lustre file systems –
