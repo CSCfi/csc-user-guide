@@ -63,7 +63,7 @@ You need to access SD Desktop. You have a permit from Findata.
 
 #### 2.2 Fill in the project details
 - Fill in the project name and project description. You can edit these later if needed.
-- Choose "Yes" for the field: **We handle personal data in this project**.
+- Choose **"Yes"** for the field: **We handle personal data in this project**.
 - Click **Next**.
 
 ---
