@@ -41,10 +41,11 @@ The table below lists the most commonly used options:
 |`--partial` |        |Keep partially transferred files|
 |`--progress`|        |Show progress during transfer|
 |`-P`        |        |Same as `--partial --progress`|
+|`-u`        |        |Skip files that are newer on the receiver|
 
 !!! warning
-    `rsync` will always overwrite any changes made to the target, even if they
-    are newer than the source!
+    `rsync` will by default overwrite any changes made to the target, even if
+    they are newer than the source! Use option `-u` to avoid this.
 
 ## Using rsync to transfer data between your local computer and Puhti
 
