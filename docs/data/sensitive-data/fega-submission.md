@@ -208,7 +208,7 @@ If you have uploaded more files to the FEGA inbox than you have used in your sub
 2. With the command `-ls -h` you can open a list of files and directories still in the inbox. If your submissions has already been approved by FI-FEGA helpdesk, you will only see the files and folders that haven't been used in your submission.
 
 3. Next, you can proceed to removing all the files and directories you are not going to use in any of your submissions. You need to do this for each file and directory separately using the following syntax:
-       ```bash
+    ```bash
     rm /file_name.c4gh
     ```
     When the file is removed successfully, you will be shown the following info and directed back to the original directory:
