@@ -95,7 +95,7 @@ See more details on the [GPU flavors](#cpouta_3) section.
 
 The following tables list the available virtual machine flavors in ePouta and their
 Billing Unit coefficients.
-Please note that there will be slight adjustment in BU prices of standard, I/O floavors of ePouta from year 2026 as shown in the tables.
+Please note that there will be slight adjustment in BU prices of standard and I/O floavors of ePouta from year 2026 as shown in the tables.
 
 ### Standard flavors
 
