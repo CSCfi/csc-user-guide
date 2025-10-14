@@ -209,7 +209,7 @@ If you have uploaded more files to the FEGA inbox than you have used in your sub
     ```bash
     rm /file_name.c4gh
     ```
-    When file is removed successfully, you will be shown the info about the removal and directed back to the original directory as shown below:
+    When the file is removed successfully, you will be shown the following info and directed back to the original directory:
 
    ```bash
    Removing /file_name.c4gh
