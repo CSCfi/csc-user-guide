@@ -332,6 +332,7 @@ nav:
               - Julia on Jupyter: computing/webinterface/julia-on-jupyter.md
               - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
               - MATLAB: computing/webinterface/matlab.md
+              - MATLAB (updated): computing/webinterface/matlab-updated.md
               - MLflow: computing/webinterface/mlflow.md
               - RStudio: computing/webinterface/rstudio.md
               - TensorBoard: computing/webinterface/tensorboard.md
