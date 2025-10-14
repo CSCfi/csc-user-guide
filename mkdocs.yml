@@ -297,12 +297,12 @@ nav:
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
+          - Available batch job partitions: computing/running/batch-job-partitions.md
           - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
           - Puhti example scripts: computing/running/example-job-scripts-puhti.md
           - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
           - Mahti example scripts: computing/running/example-job-scripts-mahti.md
           - Submitting a job: computing/running/submitting-jobs.md
-          - Available batch job partitions: computing/running/batch-job-partitions.md
           - High throughput: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
           - Performance checklist: computing/running/performance-checklist.md
