@@ -95,7 +95,7 @@ See more details on the [GPU flavors](#cpouta_3) section.
 
 The following tables list the available virtual machine flavors in ePouta and their
 Billing Unit coefficients.
-Please note that there will be slight adjustment in BU prices of standard, I/O and GPU floavors of ePouta from year 2026 as shown in the tables.
+Please note that there will be slight adjustment in BU prices of standard, I/O floavors of ePouta from year 2026 as shown in the tables.
 
 ### Standard flavors
 
@@ -155,13 +155,13 @@ See more details on the [High memory flavors](#epouta_4) section.
 
 ### GPU flavors
 
-|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h<br/>(current)|Cloud<br/>Billing<br/>Units<br/>/h<br/>(2026)|
-|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| gpu.1.1gpu | 14 | 1 | 117 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 60  |60  |
-| gpu.1.2gpu | 28 | 2 | 234 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 120 |120 |
-| gpu.1.4gpu | 56 | 4 | 468 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 240 |240 |
-| gpu.2.1gpu | 20 | 1 | 180 | 80 | 1000 | 1080 | 9 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 100 |100 |
-| gpu.3.1gpu | 12 | 1 | 219 | 80 | 1500 | 1580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 150  |120 
+|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h<br/>|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| gpu.1.1gpu | 14 | 1 | 117 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 60  |
+| gpu.1.2gpu | 28 | 2 | 234 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 120 |
+| gpu.1.4gpu | 56 | 4 | 468 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 240 |
+| gpu.2.1gpu | 20 | 1 | 180 | 80 | 1000 | 1080 | 9 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 100 |
+| gpu.3.1gpu | 12 | 1 | 219 | 80 | 1500 | 1580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 150  |
 
 Note that both the root and the ephemeral disks of the GPU flavors are hosted on solid-state drives (SSDs).
 
