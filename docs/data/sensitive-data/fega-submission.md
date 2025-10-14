@@ -208,8 +208,7 @@ If you have uploaded more files to the FEGA inbox than you have used in your sub
 2. With the command `-ls -h` you can open a list of files and directories still in the inbox. If your submissions has already been approved by FI-FEGA helpdesk, you will only see the files and folders that haven't been used in your submission.
 
 3. Next, you can proceed to removing all the files and directories you are not going to use in any of your submissions. You need to do this for each file and directory separately using the following syntax:
-
-    ```bash
+       ```bash
     rm /file_name.c4gh
     ```
     When the file is removed successfully, you will be shown the following info and directed back to the original directory:
@@ -218,6 +217,6 @@ If you have uploaded more files to the FEGA inbox than you have used in your sub
    Removing /file_name.c4gh
    sftp>
    ```
-    After this, you can continue to the next file or directory, or you can move on to the next step, if you have removed all files and directories.
+   After this, you can continue to the next file or directory, or you can move on to the next step, if you have removed all files and directories.
    
-4. After you have deleted all the unnecessary files in your FEGA SFTP inbox, you can disconnect the SFTP connection with the command `exit`.
+5. After you have deleted all the unnecessary files in your FEGA SFTP inbox, you can disconnect the SFTP connection with the command `exit`.
