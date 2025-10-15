@@ -77,7 +77,7 @@ CSC provides an application that simplifies encryption key generation and data d
 * Decrypt a test file with Crypt4gh application
     1. Load your **private key**.
     2. Select the encrypted test file.
-    3. Click **Encrypt file**. 
+    3. Click **Decrypt file**. 
     4. Insert password.
     5. If you encrypted test file can be opened after decrypting you know that keys work and you can proceed.
 

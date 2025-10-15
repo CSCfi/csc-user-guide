@@ -1,27 +1,37 @@
 # Sensitive Data (SD) services for research: user guide
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
+Welcome to the user guide for CSC's Sensitive Data (SD) services.
+
+To access CSC's SD Services, it is important to first identify the type of sensitive data  your research involves, whether it is:
+
+* research data (e.g. consented data collected for scientific studies)
+  
+* or secondary use of health and social data  (e.g. register data provided by the Finnish Social and Health Data Permit Authority Findata or a public register). 
+
+This determines the appropriate CSC project type used for access (Academic or Findata) and the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read-only mode. 
+
+Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
+
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+### Quick links to user guides
 
-### Quick links to key topics
+<div class="grid cards csc-quick-links csc-quick-links--compact" markdown>
 
-<div class="grid cards csc-quick-links" markdown>
-
-- #### Store and analyse research data
+- #### Research data: store and analyse
 
     ---
 
-    [Start here: Accessing Sensitive Data services :material-arrow-right:](sd-access.md)
+    [Start here: crete an account and a CSC project academic type](sd-store-and-analyze-research-data.md)
 
     [Store with SD Connect :material-arrow-right:](sd_connect.md)
 
     [Analyse with SD Desktop :material-arrow-right:](sd_desktop.md)
 
 
-- #### Publish and reuse research data
+- #### Research data: publish and reuse 
 
     ---
 
@@ -42,35 +52,21 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
     [Submit secondary use data :material-arrow-right:](single-register-submission.md)
 
-
-- #### Additional Resources
-
-    ---
-
-    [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
-
-    [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
-
-    [Useful terminology :material-arrow-right:](sd-terminology.md)
-
-    [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
-
 </div>
 
+### Additional Resources
 
-### Links to services
+- [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
 
-<div class="grid csc-quick-links csc-quick-links--portals" markdown>
+- [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
 
-[Create and manage CSC account with MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC user portal" target=_blank }
+- [Useful terminology :material-arrow-right:](sd-terminology.md)
 
-[Store and share with SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Sensitive Data (SD) Connect" target=_blank }
+- [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
 
-[Analyse with SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Sensitive Data (SD) Desktop" target=_blank }
+### Quick access webpage to SD Services
 
-[Reuse with SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Sensitive Data (SD) Apply" target=_blank }
-
-</div>
+For convenient access of SD services, visit and bookmark the [Quick access webpage](https://research.csc.fi/sensitive-data/sensitive-data-sd-services-for-research/links-to-services/). This external page provides a centralized list, making it easy to access the services you need.
 
 
 ### Service breaks
@@ -85,3 +81,6 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
        - [Contact us](../../support/contact.md), subject: *Sensitive Data services*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
        - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
+
+
+Sensitive Data (SD) Services - [Cookie policy](sd-cookie-policy.md)

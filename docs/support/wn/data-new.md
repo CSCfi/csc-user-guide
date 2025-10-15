@@ -1,7 +1,14 @@
 # Data management
 
+## The Kaivos database service will be decommissioned by the end of the year 2025
 
-## Sensitive Data (SD) Desktop export problem: quick workaround 
+The [Kaivos database service](../../data/kaivos/overview.md) will be
+decommissioned by the end of the year 2025. The Kaivos database service is no
+longer available to new users. The service will be replaced by Pukki database
+service. Instructions related to the use of Pukki database service can be
+found in the [Pukki user guide](../../cloud/dbaas/index.md).
+
+## Sensitive Data (SD) Desktop export problem: quick workaround, 18.8.2025
 
 Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager.  
 To resolve this issue, a one time workaround is available. It must be applied per virtual desktop, either via graphical interfaces (Data Gateway and SD Tool Installer) or programmatically.
@@ -11,59 +18,50 @@ Step by step instructions:
 ### 1) Via Graphical Interface
 
 If you don’t already have the SD Tool installer, email servicedesk@csc.fi (subject: SD services) and include your [project’s SD Connect share ID to request access](../../data/sensitive-data/sd-connect-share.md).
-      
+
 - Log in to your virtual desktop and refresh access in Data Gateway to get the latest version of the tools. 
-
 - If not already on the virtual desktop, copy the SD Tool installer there (using the copy-paste function). Right-click it, select **Allow Launching**, and open the SD Tool installer.
-
 - Click **Update CA Certificate** in the SD Tool installer and confirm from the installer’s message box that the update is done.
-
 - Close the SD Tool installer, disconnect from Data Gateway and log out from the virtual desktop. 
-
 - You can now log in to the virtual desktop again and continue with exports as usual.
-
-
 
 ### 2) Programmatically
 
- Log in to your virtual desktop.  Open the terminal (right-click).
+Log in to your virtual desktop.  Open the terminal (right-click).
 
 - Open the clipboard with the key combination `Ctrl + Alt + Shift` and activate the copy-paste function by selecting Input method → Text input. 
-   The Clipboard panel will close automatically after the selection, and the input bar will appear at the bottom of the virtual desktop.
+  The Clipboard panel will close automatically after the selection, and the input bar will appear at the bottom of the virtual desktop.
 
--  Copy the following commands into the input bar. They will be visible in the terminal.  
-   You can paste them with `Ctrl + C` or by right-clicking.
+- Copy the following commands into the input bar. They will be visible in the terminal.  
+  You can paste them with `Ctrl + C` or by right-clicking.
 
-```bash
-mkdir -p /shared-directory/.certs
-````
+    ```bash
+    mkdir -p /shared-directory/.certs
+    ```
 
-**Press Enter**
+    **Press Enter**
 
-```bash
-cp $FS_CERTS /shared-directory/.certs/
-```
+    ```bash
+    cp $FS_CERTS /shared-directory/.certs/
+    ```
 
-**Press Enter**
+    **Press Enter**
 
-```bash
-openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null \
-| awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
->> /shared-directory/.certs/ca.crt
-```
+    ```bash
+    openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null \
+    | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
+    >> /shared-directory/.certs/ca.crt
+    ```
 
-**Press Enter**
+    **Press Enter**
 
-```bash
-echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
-```
+    ```bash
+    echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
+    ```
 
-**Press Enter**
+    **Press Enter**
 
--  **Log out** from the virtual desktop and try the export again.
-
-
-
+- **Log out** from the virtual desktop and try the export again.
 
 ## Temporary workaround for importing files from SD Connect into SD Desktop, 3.6.2025 <a id="sd-workaround"></a>
 
@@ -126,7 +124,7 @@ We have updated the Heavy Computation virtual desktop option with the following 
 
 - Identifier: hpc.6.28 core (previously 5.32)
 
-- Cost: 65 billing units/hour (previously 52)
+- Cost: 65 Billing Units/hour (previously 52)
 
 This change only affects new virtual desktops created after January 15. 
 
@@ -187,11 +185,11 @@ User guide is available [here](../../data/sensitive-data/sd_connect.md)
 
 As of September 6, 2023, we have introduced two significant changes to our service usage according to CSC's data retention policies, which are currently in effect:
 
-* Billing Unit consumption: when all billing units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional billing units are allocated to the project.
+* Billing Unit consumption: when all Billing Units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional Billing Units are allocated to the project.
 
 * CSC Project closure: content stored within the SD Desktop and SD Connect services is subject to permanent deletion 90 days after the closure of a CSC project. **It is important to note that once data is deleted, it cannot be restored.**
 
-To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when billing units have been consumed and when a  CSC project is scheduled for closure.
+To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when Billing Units have been consumed and when a  CSC project is scheduled for closure.
 
 ## SD Desktop: Ubuntu OS now available, 8.9.2023
 
