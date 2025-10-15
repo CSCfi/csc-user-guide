@@ -18,7 +18,8 @@
 {% endblock content %}
 {% block footer %}
   {{ super() }}
-  {% if config.extra.environment == "preview" %}
+  {% if config.extra.environment == "preview" or
+        config.theme.language != "en" %}
     {% include "partials/disclaimer.html" %}
   {% endif %}
 {% endblock footer %}
