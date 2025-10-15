@@ -23,6 +23,14 @@ catalog:
 
 ## License
 MATLAB is proprietary software.
+We can use a network license provided by a license server or online license provided by MathWorks.
+The following MATLAB functions provide information about license and the installation:
+
+- `license` returns the license number currently in use.
+- `version` return the MATLAB version.
+- `ver` returns MATLAB version, license number and the names and versions of all installed toolboxes.
+
+All toolboxes are installed to the MATLAB installations on the supercomputer, however using a specific toolbox requires that your license allows it
 
 <!--
 ## Available
@@ -61,16 +69,43 @@ The academic license allows use only for teaching and academic research at a deg
 -->
 
 
-## MATLAB web application
-We can also use the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
-First, we need to log into [www.puhti.csc.fi](https://www.puhti.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
-Next, we can press the MATLAB icon to choose the MATLAB web application.
+## Overview
 
+There are three primary ways to use MATLAB on supercomputer.
+
+1) MATLAB web application for interactive use.
+Allows users to use their own license via online license.
+
+2) MATLAB command line interface for basic interactive and batch computing.
+
+3) MATLAB parallel server for general batch computing.
+User send workload from local MATLAB to the supercomputer's MATLAB workers.
+User can use the same toolboxes that are available in their local MATLAB.
+MATLAB workers on the supercomputer use license provided by the supercomputer.
+Currently, only available for Puhti.
+
+
+## MATLAB web application
+
+TODO: image of web interface
+
+We recommend using the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
+The web interface allows you to use your own license such as campus license and all the toolboxes associated with the license.
+Start by logging into the web interface of the cluster you want to use, that is, [www.puhti.csc.fi](https://www.puhti.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
+Then press the MATLAB icon to choose the MATLAB web application.
+
+In the submit form, select appropriate resources for your session.
 We recommend atleast 8 GB of memory before launching the MATLAB application.
 The MATLAB web application by itself consumes around 4 GB of memory.
 
+TODO: image of license gui
+
 You will be presented with MATLAB web application license GUI.
 Login with your MathWorks credentials.
+
+TODO: image of matlab web application
+
+Loading MATLAB web interface takes couple of minutes.
 
 
 ## MATLAB command-line interface
@@ -111,7 +146,7 @@ export MLM_LICENSE_FILE="license-file-or-server"
 ```
 
 
-## Parallel computing on MATLAB
+## Parallel computing
 In MATLAB, we can parallelize code using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
 Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
 
