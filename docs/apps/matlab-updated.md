@@ -24,57 +24,55 @@ catalog:
 ## License
 MATLAB is proprietary software.
 We can use a network license provided by a license server or online license provided by MathWorks.
-The following MATLAB functions provide information about license and the installation:
-
-- `license` returns the license number currently in use.
-- `version` return the MATLAB version.
-- `ver` returns MATLAB version, license number and the names and versions of all installed toolboxes.
-
-All toolboxes are installed to the MATLAB installations on the supercomputer, however using a specific toolbox requires that your license allows it
+The following MATLAB functions provide information about license and the installation: `license` returns the license number currently in use; `version` returns the MATLAB version; `ver` returns MATLAB version, license number and the names and versions of all installed toolboxes.
+On the supercomputers, the MATLAB installation includes all of the toolboxes which is shown if you run the `ver` function.
+However, using a specific toolbox requires that your license allows it.
 
 <!--
-## Available
-### Puhti - Interactive MATLAB
-Puhti has MATLAB installations for interactive use and batch jobs.
-The interactive MATLAB is intended for temporary, light pre- and postprocessing of data.
-It is available as follows:
-
-- License: Academic
-- Versions: from R2023a to R2024b
-- Toolboxes: Parallel Computing Toolbox.
-  There are 2 licenses for each toolbox.
-
-### Puhti - MATLAB Parallel Server
-MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MATLAB installation to Puhti.
-It is available as follows:
-
-- License: Academic
-- Versions: from R2021a to R2025a
-- Toolboxes: MATLAB Parallel Server.
-  There is license for using upto 500 computing cores simultaneously.
-  Furthermore, toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
-
 The academic license allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
-If you are a user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
-### LUMI - Interactive MATLAB
-LUMI has MATLAB an installation for interactive use.
+- Systems: Puhti, Mahti
+- Network license: `1766@license4.csc.fi`
+- License type: Academic
+- Licenses: 
+  * 5 MATLAB
+  * 2 Parallel Computing Toolbox.
+  * 500 MATLAB Parallel Server
 
+---
+
+The academic license allows use only for teaching and academic research at a degree-granting institutes.
+
+- Systems: LUMI
+- Network license: `1766@license10.csc.fi`
 - License: Academic
-- Versions: from R2023b to R2024a
-- Toolboxes: Simulink, Control System Toolbox, Curve Fitting Toolbox, Deep Learning Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Signal Processing Toolbox, Statistics and Machine Learning Toolbox, Wavelet Toolbox.
-  There are 25 licenses of each toolbox.
+- Licenses:
+  * 25 MATLAB
+  * 25 Simulink
+  * 25 Control System Toolbox
+  * 25 Curve Fitting Toolbox
+  * 25 Deep Learning Toolbox
+  * 25 Global Optimization Toolbox
+  * 25 Image Processing Toolbox
+  * 25 Optimization Toolbox
+  * 25 Parallel Computing Toolbox
+  * 25 Signal Processing Toolbox
+  * 25 Statistics and Machine Learning Toolbox
+  * 25 Wavelet Toolbox.
 
-The academic license allows use only for teaching and academic research at a degree-granting institute.
+---
+
+If you are a user from a commercial company or research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
 -->
 
 
 ## Overview
 
-There are three primary ways to use MATLAB on supercomputer.
+There are three ways to use MATLAB on CSC supercomputers.
 
 1) MATLAB web application for interactive use.
 Allows users to use their own license via online license.
+Versions from R2023b to R2025a
 
 2) MATLAB command line interface for basic interactive and batch computing.
 
@@ -82,7 +80,7 @@ Allows users to use their own license via online license.
 User send workload from local MATLAB to the supercomputer's MATLAB workers.
 User can use the same toolboxes that are available in their local MATLAB.
 MATLAB workers on the supercomputer use license provided by the supercomputer.
-Currently, only available for Puhti.
+Currently, only available on Puhti, versions from R2021a to R2025a
 
 
 ## MATLAB web application
@@ -146,7 +144,7 @@ export MLM_LICENSE_FILE="license-file-or-server"
 ```
 
 
-## Parallel computing
+## Parallel computing toolbox
 In MATLAB, we can parallelize code using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
 Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
 
@@ -195,9 +193,24 @@ funcParallel(2)
 delete(pool);
 ```
 
-With MATLAB Parallel Server we can also create parallel pools to Puhti and run parallel code there.
+It also possible to use GPUs in MATLAB.
+We can query the available GPU devices as follows:
 
-<!-- TODO: Constructs for using GPUs are also available. -->
+```matlab
+gpuDevice
+```
+
+We can perform computation on GPUs as follows:
+
+```matlab
+A_gpu = gpuArray(rand(1000, 1000));
+B_gpu = gpuArray(rand(1000, 1000));
+C_gpu = A_gpu * B_gpu;
+% gather results back to GPU
+C_cpu = gather(C_gpu);
+```
+
+Only Nvidia GPUs are supported.
 
 
 ## MATLAB Parallel Server
