@@ -18,7 +18,7 @@ hide:
 
 ### 1.1 Store and analyse research data
 
-* [Start here: Creating a CSC project academic type](sd-access.md)
+* [Start here: Creating a CSC project academic type](sd-store-and-analyze-research-data.md)
     * [Access as a project manager](sd-use-case-new-user-project-manager.md)
     * [Access as a project member](sd-use-case-new-user-project-member.md)
 
