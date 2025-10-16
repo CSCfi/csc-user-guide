@@ -143,6 +143,22 @@ Use a different license:
 export MLM_LICENSE_FILE="license-file-or-server"
 ```
 
+## Threading
+
+Linear algebra operations, element-wise operations on large arrays and builtin mathematical operations
+
+```matlab
+maxNumCompThreads
+```
+
+```matlab
+maxNumCompThreads(2)
+```
+
+```matlab
+n = str2num(getenv('SLURM_CPUS_PER_TASK'))
+maxNumCompThreads(n)
+```
 
 ## Parallel computing toolbox
 In MATLAB, we can parallelize code using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
