@@ -109,9 +109,10 @@ The MATLAB web application by itself consumes around 4 GB of memory.
 4. You will be presented with MATLAB web application license GUI.
 Select Online License Manager to login with your MathWorks credentials.
 Alternatively, select Network License Manager to use network license.
-![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
+    - ![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
 
-5. Loading MATLAB web interface takes couple of minutes.
+5. MATLAB application takes couple of minutes to load.
+Then press Connect to MATLAB and the web application will open.
 
 
 ## MATLAB command-line interface
