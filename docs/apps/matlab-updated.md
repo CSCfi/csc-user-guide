@@ -16,17 +16,21 @@ catalog:
 ---
 
 # MATLAB
+
 [MATLAB](https://mathworks.com/products/matlab.html) is a high-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
 
 [TOC]
 
 
 ## License
-MATLAB is proprietary software.
-We can use a network license provided by a license server or online license provided by MathWorks.
-The following MATLAB functions provide information about license and the installation: `license` returns the license number currently in use; `version` returns the MATLAB version; `ver` returns MATLAB version, license number and the names and versions of all installed toolboxes.
-On the supercomputers, the MATLAB installation includes all of the toolboxes which is shown if you run the `ver` function.
-However, using a specific toolbox requires that your license allows it.
+
+MATLAB is proprietary software that requires a valid license to use.
+Additionally, each toolbox requires its own separate license for access to its functionality.
+
+While MATLAB installations on the supercomputers include all available toolboxes, installation alone does not grant usage rights.
+You must have a valid license for each specific toolbox you wish to use.
+
+License options are covered in the following sections.
 
 <!--
 The academic license allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
@@ -81,6 +85,9 @@ User send workload from local MATLAB to the supercomputer's MATLAB workers.
 User can use the same toolboxes that are available in their local MATLAB.
 MATLAB workers on the supercomputer use license provided by the supercomputer.
 Currently, only available on Puhti, versions from R2021a to R2025a
+
+
+We can use a network license provided by a license server or online license provided by MathWorks.
 
 
 ## MATLAB web application
@@ -143,7 +150,7 @@ Use a different license:
 export MLM_LICENSE_FILE="license-file-or-server"
 ```
 
-## Threading
+## Automatic threading
 
 Linear algebra operations, element-wise operations on large arrays and builtin mathematical operations
 
@@ -160,7 +167,9 @@ n = str2num(getenv('SLURM_CPUS_PER_TASK'))
 maxNumCompThreads(n)
 ```
 
+
 ## Parallel computing toolbox
+
 In MATLAB, we can parallelize code using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
 Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
 
@@ -230,7 +239,9 @@ Only Nvidia GPUs are supported.
 
 
 ## MATLAB Parallel Server
+
 ### Local configuration
+
 Puhti's MATLAB Parallel Server (MPS) allows users to send batch jobs from a local MATLAB session to the Puhti cluster.
 Using Puhti MPS requires a local MATLAB installation with a supported MATLAB version and the Parallel Computing Toolbox and access to the Puhti cluster.
 We can configure MPS on a local computer using the following instructions.
@@ -244,6 +255,7 @@ We can configure MPS on a local computer using the following instructions.
 
 
 #### Linux and MacOS
+
 Step 1: Run in shell:
 
 ```bash
@@ -279,6 +291,7 @@ configCluster
 ```
 
 #### Windows
+
 Step 1: Run in Windows Powershell:
 
 ```bash
@@ -315,6 +328,7 @@ configCluster
 
 
 ### Submitting single and multithreaded jobs
+
 Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
 Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to the empty string `''`.
 Furthermore, `CPUsPerNode` is set automatically by the `batch` command, thus we unset it.
@@ -354,6 +368,7 @@ Also, we should disable MATLAB from adding the local MATLAB search path to the r
 
 
 ### Submitting GPU jobs
+
 We can create a GPU reservation by setting the appropriate values for the `Partition`, `GpuCard`, and `GPUsPerNode` properties.
 For example, a single GPU reservation looks as follows:
 
@@ -380,6 +395,7 @@ j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false
 
 
 ### Submitting parallel pool
+
 Let's create a reservation:
 
 ```matlab
@@ -409,6 +425,7 @@ For example, a job that needs eight cores will consume nine CPU cores.
 
 
 ### Querying jobs and output
+
 To retrieve a list of currently running or completed jobs, use
 
 ```matlab
