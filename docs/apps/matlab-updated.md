@@ -74,16 +74,16 @@ If you are a user from a commercial company or research institute, please [conta
 
 We offer three ways to use MATLAB on CSC supercomputers. The best choice depends on your needs.
 
-1) **MATLAB web application** is best for interactive use.
+1. **MATLAB web application** is best for interactive use.
 It works like the desktop version and lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
 You can also use a network license.
 Available on Puhti, Mahti, and LUMI.
 
-2) **MATLAB command line interface** is good for basic interactive and batch work.
+2. **MATLAB command line interface** is good for basic interactive and batch work.
 Requires a network license.
 Available on Puhti, Mahti, and LUMI.
 
-3) **MATLAB parallel server** is best for batch computing.
+3. **MATLAB parallel server** is best for batch computing.
 You can send jobs from your local MATLAB to the supercomputer.
 Your local toolboxes work on the supercomputer too.
 The supercomputer workers use CSC's network license.
@@ -94,25 +94,24 @@ All options support MATLAB versions R2023b to R2025a. The parallel server also s
 
 ## MATLAB web application
 
-TODO: image of web interface
+![MATLAB web application](./img/matlab-ood-interface.png){width=800}
 
-We recommend using the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
-The web interface allows you to use your own license such as campus license and all the toolboxes associated with the license.
-Start by logging into the web interface of the cluster you want to use, that is, [www.puhti.csc.fi](https://www.puhti.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
-Then press the MATLAB icon to choose the MATLAB web application.
+We recommend using the [web interface](../computing/webinterface/index.md) for using MATLAB interactively.
 
-In the submit form, select appropriate resources for your session.
+1. Start by logging into the web interface of the cluster you want to use: [www.puhti.csc.fi](https://www.puhti.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
+
+2. Then press the MATLAB icon to choose the MATLAB web application.
+
+3. In the submit form, select appropriate resources for your session.
 We recommend atleast 8 GB of memory before launching the MATLAB application.
 The MATLAB web application by itself consumes around 4 GB of memory.
 
-TODO: image of license gui
+4. You will be presented with MATLAB web application license GUI.
+Select Online License Manager to login with your MathWorks credentials.
+Alternatively, select Network License Manager to use network license.
+![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
 
-You will be presented with MATLAB web application license GUI.
-Login with your MathWorks credentials.
-
-TODO: image of matlab web application
-
-Loading MATLAB web interface takes couple of minutes.
+5. Loading MATLAB web interface takes couple of minutes.
 
 
 ## MATLAB command-line interface
@@ -152,7 +151,7 @@ Use a different license:
 export MLM_LICENSE_FILE="license-file-or-server"
 ```
 
-## Automatic threading
+## Builtin threading
 
 Linear algebra operations, element-wise operations on large arrays and builtin mathematical operations
 
