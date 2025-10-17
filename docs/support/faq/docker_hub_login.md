@@ -89,4 +89,4 @@ If the error persists, you may check two things:
 
   and see that our secret was mounted in that path.
 
-In case you need more information, please consult the [upstream image pull secrets](https://docs.openshift.com/container-platform/3.11/dev_guide/managing_images.html#using-image-pull-secrets) upstream documentation.
+In case you need more information, please consult the [upstream image pull secrets](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/images/managing-images) upstream documentation.
