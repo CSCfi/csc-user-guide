@@ -72,24 +72,24 @@ If you are a user from a commercial company or research institute, please [conta
 
 ## Overview
 
-We offer three ways to use MATLAB on CSC supercomputers.
-The best choice for you depends on your use case.
+We offer three ways to use MATLAB on CSC supercomputers. The best choice depends on your needs.
 
-1) **MATLAB web application** is recommended for interactive use.
-It provides similar experience as the desktop application.
-In the web application you can use your own license, such as home, individual, student or campus-wide license, allowing you to use all of the toolboxes associated with that license.
+1) **MATLAB web application** is best for interactive use.
+It works like the desktop version and lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
 You can also use a network license.
-Versions from R2023b to R2025a are available on Puhti, Mahti and LUMI.
+Available on Puhti, Mahti, and LUMI.
 
-2) **MATLAB command line interface** for basic interactive and batch computing.
-You need to use a network license.
-Versions from R2023b to R2025a are available on Puhti, Mahti and LUMI.
+2) **MATLAB command line interface** is good for basic interactive and batch work.
+Requires a network license.
+Available on Puhti, Mahti, and LUMI.
 
-3) **MATLAB parallel server** is recommended for batch computing.
-It allows sending workloads from local MATLAB to workers on the supercomputer.
-It shares your local license with the supercomputer such that the same toolboxes that are available to you locally are available on the supercomputer's workers.
-MATLAB workers on the supercomputer require a license which is provided by CSC's network license.
-Versions from R2021a to R2025a are available on Puhti.
+3) **MATLAB parallel server** is best for batch computing.
+You can send jobs from your local MATLAB to the supercomputer.
+Your local toolboxes work on the supercomputer too.
+The supercomputer workers use CSC's network license.
+Available on Puhti only.
+
+All options support MATLAB versions R2023b to R2025a. The parallel server also supports older versions back to R2021a.
 
 
 ## MATLAB web application
