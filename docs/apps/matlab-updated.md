@@ -72,22 +72,24 @@ If you are a user from a commercial company or research institute, please [conta
 
 ## Overview
 
-There are three ways to use MATLAB on CSC supercomputers.
+We offer three ways to use MATLAB on CSC supercomputers.
+The best choice for you depends on your use case.
 
-1) MATLAB web application for interactive use.
-Allows users to use their own license via online license.
-Versions from R2023b to R2025a
+1) **MATLAB web application** is recommended for interactive use.
+It provides similar experience as the desktop application.
+In the web application you can use your own license, such as home, individual, student or campus-wide license, allowing you to use all of the toolboxes associated with that license.
+You can also use a network license.
+Versions from R2023b to R2025a are available on Puhti, Mahti and LUMI.
 
-2) MATLAB command line interface for basic interactive and batch computing.
+2) **MATLAB command line interface** for basic interactive and batch computing.
+You need to use a network license.
+Versions from R2023b to R2025a are available on Puhti, Mahti and LUMI.
 
-3) MATLAB parallel server for general batch computing.
-User send workload from local MATLAB to the supercomputer's MATLAB workers.
-User can use the same toolboxes that are available in their local MATLAB.
-MATLAB workers on the supercomputer use license provided by the supercomputer.
-Currently, only available on Puhti, versions from R2021a to R2025a
-
-
-We can use a network license provided by a license server or online license provided by MathWorks.
+3) **MATLAB parallel server** is recommended for batch computing.
+It allows sending workloads from local MATLAB to workers on the supercomputer.
+It shares your local license with the supercomputer such that the same toolboxes that are available to you locally are available on the supercomputer's workers.
+MATLAB workers on the supercomputer require a license which is provided by CSC's network license.
+Versions from R2021a to R2025a are available on Puhti.
 
 
 ## MATLAB web application
