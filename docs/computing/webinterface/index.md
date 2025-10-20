@@ -46,6 +46,7 @@ Please note that logging in to Puhti and Mahti web interfaces requires
         - Jupyter
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
+        - MATLAB
         - MLflow
         - RStudio
         - TensorBoard
@@ -56,7 +57,6 @@ Please note that logging in to Puhti and Mahti web interfaces requires
         - COMSOL
         - ParaView
         - VMD
-    - MATLAB
 
 ### Shell
 
@@ -85,7 +85,7 @@ using `sbatch` from the shell.
 ### Project view
 
 Using the _Project view_ under the _Tools_ section in the top navbar, you can
-view  current disk and project billing unit quotas on the supercomputers. For
+view  current disk and project Billing Unit quotas on the supercomputers. For
 more information, see the [Project view](project-view.md) page.
 
 ### Interactive apps

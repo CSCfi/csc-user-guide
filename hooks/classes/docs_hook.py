@@ -36,5 +36,8 @@ class DocsHook:
     def _get_config_dict(cls, name):
         config_filepath = Path.cwd() / cls.HOOKS_DIR / name / cls.CONFIG_FILENAME
 
-        with open(config_filepath, "r") as config_file:
-            return yaml.safe_load(config_file)
+        try:
+            with open(config_filepath, "r") as config_file:
+                return yaml.safe_load(config_file)
+        except FileNotFoundError:
+            return None

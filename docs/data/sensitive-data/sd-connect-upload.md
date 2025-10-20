@@ -4,7 +4,7 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats, but it is supported only for files up to 100 GB and folders smaller than 1 TB. Largers files or folders can be and uploaded [programmatically](./sd-connect-command-line-interface.md).
+Your data is automatically encrypted when you upload files to SD Connect, while is automatically decrypted during download, as the service provide automated key management.  This is suitable for all file types and formats, but it is supported only for files up to 100 GB.  Largers files or folders can be uploaded [programmatically](./sd-connect-command-line-interface.md). Note that all proeject memmbers can uplaod and download files stored in the same CSC project. 
 
 !!! Note
     If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable uploading files and folders.
@@ -17,7 +17,8 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 4. In the new window, name the destination folder for your files.
 5. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
 6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
-7. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
+7. Once the upload is finished, the encrypted files will display the extentsion .c4gh, this means that they have been successfully encrypted. 
+8. Now the files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
 
 !!! info "Folder names"
 
@@ -64,8 +65,8 @@ You can create a folder and upload files to it later.
 ## Features in SD Connect
 
 * [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
+* [Share](./sd-connect-share.md)
 * [Delete](./sd-connect-delete.md)
 * [Command line interface](./sd-connect-command-line-interface.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)

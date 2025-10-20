@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-* [Access SD Connect and SD Desktop for the first time](./sd-access.md#)
+* [Access SD Connect and SD Desktop for the first time](sd-store-and-analyze-research-data.md)
 
 ## Step by step
 

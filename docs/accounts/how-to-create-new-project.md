@@ -7,16 +7,17 @@ search:
 
 A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu) is required for creating new projects.
 
-1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account.
+1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account **or** Haka/Virtu account.
 2. Choose **Projects** in the navigation menu on the left.
-3. On the top of the page choose **+ New project**.
-4. Fill in the **Project name** and **Project description.**
-5. Choose the **Project category**. Available categories are:
+3. On the right click  **+ New project**.
+4. Choose the **Project category**. Available categories are:
 	* [Academic](how-to-create-new-project.md#academic)
-	* [Commercial](how-to-create-new-project.md#commercial)
 	* [Course](how-to-create-new-project.md#course)
 	* [LUMI](how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
-6. After you have created the project, remember to add [Service](how-to-add-service-access-for-project.md) to the project.
+5. Fill in the **Project name**, **Project description** and all the required fields.
+6. Select the services you want to use in this project.
+7. Adjust the resource packages for your project. 
+8. Read and accept the terms of use.
 
 ![New Project creation view.](../img/mycsc-create-new-project.png){width=400}
 

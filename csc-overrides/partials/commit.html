@@ -1,0 +1,8 @@
+{% macro commit_link(head, repo_url, status=none) -%}
+<p class="preview-commit">Built from commit <a class="preview-commit-link" target="_blank"
+    href="{{ repo_url ~ 'commit/' ~ head }}">{{ head }}</a>
+  {% if status is not none %}
+  {{ " (" ~ status ~ ")" }}
+  {% endif %}
+</p>
+{% endmacro %}
