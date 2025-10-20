@@ -95,7 +95,7 @@ The parallel server also supports older versions back to R2021a.
 
 ## MATLAB web application
 
-![MATLAB web application](./img/matlab-ood-interface.png){width=800}
+![MATLAB web application](./img/matlab-ood-interface.png){width=1000}
 
 We recommend using the [web interface](../computing/webinterface/index.md) for using MATLAB interactively.
 
@@ -162,27 +162,12 @@ Use a different license:
 export MLM_LICENSE_FILE="license-file-or-server"
 ```
 
-## Builtin threading
+## Builtin threading and parallel computing toolbox
 
-Linear algebra operations, element-wise operations on large arrays and builtin mathematical operations
+MATLAB's linear algebra operations, element-wise operations on large arrays and builtin mathematical operations have builtin threading which is controlled by `maxNumCompThreads`.
+MATLAB typically sets it automatically to the correct value.
 
-```matlab
-maxNumCompThreads
-```
-
-```matlab
-maxNumCompThreads(2)
-```
-
-```matlab
-n = str2num(getenv('SLURM_CPUS_PER_TASK'))
-maxNumCompThreads(n)
-```
-
-
-## Parallel computing toolbox
-
-In MATLAB, we can parallelize code using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
+We can also parallelize code in MATLAB using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
 Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
 
 ```matlab
