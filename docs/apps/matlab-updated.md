@@ -156,11 +156,12 @@ We can also run MATLAB scripts using the batch mode as follows:
 matlab -batch <script>
 ```
 
-Use a different license:
+You can use a different license by setting the following environment variable before starting MATLAB:
 
 ```bash
-export MLM_LICENSE_FILE="license-file-or-server"
+export MLM_LICENSE_FILE="port@mylicenseserver.com"
 ```
+
 
 ## Builtin threading and parallel computing toolbox
 
@@ -170,7 +171,7 @@ MATLAB typically sets it automatically to the correct value.
 We can also parallelize code in MATLAB using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
 Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
 
-```matlab
+```matlab title="funcSerial.m"
 function t = funcSerial(n)
 t0 = tic;
 for idx = 1:n
@@ -188,7 +189,7 @@ funcSerial(2)
 
 We can parallelize the function using the parallel for-loop construct, `parfor`, written into `funcParallel.m` file as follows:
 
-```matlab
+```matlab title="funcParallel.m"
 function t = funcParallel(n)
 t0 = tic;
 parfor idx = 1:n
