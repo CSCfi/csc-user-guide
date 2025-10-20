@@ -89,7 +89,8 @@ Your local toolboxes work on the supercomputer too.
 The supercomputer workers use CSC's network license.
 Available on Puhti only.
 
-All options support MATLAB versions R2023b to R2025a. The parallel server also supports older versions back to R2021a.
+All options support MATLAB versions R2023b to R2025a.
+The parallel server also supports older versions back to R2021a.
 
 
 ## MATLAB web application
@@ -113,6 +114,15 @@ Alternatively, select Network License Manager to use network license.
 
 5. MATLAB application takes couple of minutes to load.
 Then press Connect to MATLAB and the web application will open.
+
+If you are trying to log in using MathWorks credentials, but the MATLAB license GUI automatically loads the CSC license server, you need to clear the cached credentials first.
+To do this:
+
+1. Open the **Login node shell** application in the web interface.
+2. Run the following command to remove the cached credentials:
+   ```bash
+   rm -rf "$HOME/.matlab/MWI"
+   ```
 
 
 ## MATLAB command-line interface
