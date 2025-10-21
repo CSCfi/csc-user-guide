@@ -166,7 +166,7 @@ export MLM_LICENSE_FILE="port@mylicenseserver.com"
 ## Builtin threading and parallel computing toolbox
 
 MATLAB's linear algebra operations, element-wise operations on large arrays and builtin mathematical operations have builtin threading which is controlled by `maxNumCompThreads`.
-MATLAB typically sets it automatically to the correct value.
+MATLAB typically sets it automatically to the correct value, even in Slurm jobs.
 
 We can also parallelize code in MATLAB using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
 Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
@@ -217,6 +217,7 @@ delete(pool);
 ```
 
 It also possible to use GPUs in MATLAB.
+Only Nvidia GPUs are supported.
 We can query the available GPU devices as follows:
 
 ```matlab
@@ -232,8 +233,6 @@ C_gpu = A_gpu * B_gpu;
 % gather results back to GPU
 C_cpu = gather(C_gpu);
 ```
-
-Only Nvidia GPUs are supported.
 
 
 ## MATLAB Parallel Server
@@ -329,22 +328,19 @@ configCluster
 
 Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
 Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to the empty string `''`.
-Furthermore, `CPUsPerNode` is set automatically by the `batch` command, thus we unset it.
-For example, a simple CPU reservation looks as follows:
+For example, a simple CPU reservation looks as follows, just replace `<project>` to your project, otherwise the script will fail:
+
+<!-- getCommonSubmitArgs.m -->
 
 ```matlab
 c = parcluster;
-% Replace 'project_id' to your project identifier, otherwise the script will fail.
-c.AdditionalProperties.ComputingProject = 'project_id';
-c.AdditionalProperties.Partition = 'small';
-c.AdditionalProperties.WallTime = '00:15:00';
-c.AdditionalProperties.CPUsPerNode = '';
-c.AdditionalProperties.MemPerCPU = '4g';
-c.AdditionalProperties.GpuCard = '';
+c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
+c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
+c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
+c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
+c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
+c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
 c.AdditionalProperties.GPUsPerNode = '';
-c.AdditionalProperties.EmailAddress = '';
-% You can reserve multiple threads by increasing the NumThreads value.
-c.NumThreads = 1;
 ```
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
@@ -367,22 +363,18 @@ Also, we should disable MATLAB from adding the local MATLAB search path to the r
 
 ### Submitting GPU jobs
 
-We can create a GPU reservation by setting the appropriate values for the `Partition`, `GpuCard`, and `GPUsPerNode` properties.
+We can create a GPU reservation by setting the appropriate values for the `Partition`, `GPUCard`, and `GPUsPerNode` properties.
 For example, a single GPU reservation looks as follows:
 
 ```matlab
 c = parcluster;
-% Replace 'project_id' to your project identifier, otherwise the script will fail.
-c.AdditionalProperties.ComputingProject = 'project_id';
-c.AdditionalProperties.Partition = 'gpu';
-c.AdditionalProperties.WallTime = '00:15:00';
-c.AdditionalProperties.CPUsPerNode = 1;
-c.AdditionalProperties.MemPerCPU = '4g';
-c.AdditionalProperties.GpuCard = 'v100';
-c.AdditionalProperties.GPUsPerNode = 1;
-c.AdditionalProperties.EmailAddress = '';
-% You can reserve multiple threads by increasing the NumThreads value.
-c.NumThreads = 10;
+c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
+c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition>
+c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
+c.NumThreads = 10;                                      % --cpus-per-task=<NumThreads>
+c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
+c.AdditionalProperties.GPUCard = 'v100';                % --gres=gpu:<GPUCard>:<GPUsPerNode>
+c.AdditionalProperties.GPUsPerNode = '1';
 ```
 
 Now, we can submit a simple GPU job that queries the available GPU device as follows:
@@ -398,17 +390,13 @@ Let's create a reservation:
 
 ```matlab
 c = parcluster;
-% Replace 'project_id' to your project identifier, otherwise the script will fail.
-c.AdditionalProperties.ComputingProject = 'project_id';
-c.AdditionalProperties.Partition = 'small';
-c.AdditionalProperties.WallTime = '00:15:00';
-c.AdditionalProperties.CPUsPerNode = '';
-c.AdditionalProperties.MemPerCPU = '4g';
-c.AdditionalProperties.GpuCard = '';
+c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
+c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
+c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
+c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
+c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
+c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
 c.AdditionalProperties.GPUsPerNode = '';
-c.AdditionalProperties.EmailAddress = '';
-% You can reserve multiple threads per worker by increasing the NumThreads value.
-c.NumThreads = 1;
 ```
 
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
@@ -420,6 +408,23 @@ j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddCli
 
 Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
 For example, a job that needs eight cores will consume nine CPU cores.
+
+Use partition large when requesting over 39 workers:
+
+```matlab
+c = parcluster;
+c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
+c.AdditionalProperties.Partition = 'large';             % --partition=<Partition>
+c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
+c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
+c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
+c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
+c.AdditionalProperties.GPUsPerNode = '';
+```
+
+```matlab
+j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+```
 
 
 ### Querying jobs and output
