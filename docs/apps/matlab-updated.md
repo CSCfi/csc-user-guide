@@ -216,22 +216,23 @@ funcParallel(2)
 delete(pool);
 ```
 
-It also possible to use GPUs in MATLAB.
-Only Nvidia GPUs are supported.
-We can query the available GPU devices as follows:
+It also possible to use GPUs in MATLAB, but only Nvidia GPUs are supported.
+We can query the available GPU devices and perform computation on the GPU as follows:
 
-```matlab
+```matlab title="funcGPU.m"
+function C = funcGPU(n)
 gpuDevice
+A_gpu = gpuArray(rand(n, n));
+B_gpu = gpuArray(rand(n, n));
+C_gpu = A_gpu * B_gpu;
+C = gather(C_gpu);
+end
 ```
 
-We can perform computation on GPUs as follows:
+Let's run the function:
 
 ```matlab
-A_gpu = gpuArray(rand(1000, 1000));
-B_gpu = gpuArray(rand(1000, 1000));
-C_gpu = A_gpu * B_gpu;
-% gather results back to GPU
-C_cpu = gather(C_gpu);
+funcGPU
 ```
 
 
