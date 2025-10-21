@@ -327,7 +327,7 @@ configCluster
 ### Submitting single and multithreaded jobs
 
 Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
-Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to the empty string `''`.
+Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to a empty string.
 For example, a simple CPU reservation looks as follows, just replace `<project>` to your project, otherwise the script will fail:
 
 <!-- getCommonSubmitArgs.m -->
@@ -354,7 +354,7 @@ MATLAB will store the path to your key and will not request it again in future s
 We can submit a simple test job that returns the current working directory as follows:
 
 ```matlab
-j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
 ```
 
 In the example, we set the working directory to the home directory by setting `'CurrentFolder'` to `'.'`.
@@ -374,13 +374,13 @@ c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
 c.NumThreads = 10;                                      % --cpus-per-task=<NumThreads>
 c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
 c.AdditionalProperties.GPUCard = 'v100';                % --gres=gpu:<GPUCard>:<GPUsPerNode>
-c.AdditionalProperties.GPUsPerNode = '1';
+c.AdditionalProperties.GPUsPerNode = 1;
 ```
 
 Now, we can submit a simple GPU job that queries the available GPU device as follows:
 
 ```matlab
-j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
 ```
 
 
@@ -403,7 +403,7 @@ Now, we can use the batch command to create a parallel pool of workers by settin
 For example, we can submit a parallel job to eight cores as follows:
 
 ```matlab
-j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddClientPath', false);
 ```
 
 Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
