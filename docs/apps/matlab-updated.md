@@ -169,7 +169,7 @@ MATLAB's linear algebra operations, element-wise operations on large arrays and 
 MATLAB typically sets it automatically to the correct value, even in Slurm jobs.
 
 We can also parallelize code in MATLAB using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
-Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
+Consider the following serial code that pauses for one second `n` times and measures the execution time:
 
 ```matlab title="funcSerial.m"
 function t = funcSerial(n)
@@ -187,7 +187,7 @@ The following serial execution should run for around two seconds:
 funcSerial(2)
 ```
 
-We can parallelize the function using the parallel for-loop construct, `parfor`, written into `funcParallel.m` file as follows:
+We can parallelize the function using the parallel for-loop construct, `parfor` as follows:
 
 ```matlab title="funcParallel.m"
 function t = funcParallel(n)
@@ -232,7 +232,7 @@ end
 Let's run the function:
 
 ```matlab
-funcGPU
+funcGPU(1000)
 ```
 
 
