@@ -554,6 +554,12 @@ project-qpu-allocations
 project-qpu-allocations <project_xxxx>
 ```
 
+Alternatively, you can achieve the same result by using the project-qpu-allocations tool directly.
+
+```bash
+/appl/local/quantum/resource-checker/project-qpu-allocations
+```
+
 ## Further Reading
 * [Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/)
 * [Jupyter on Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/)
