@@ -1,0 +1,22 @@
+{% set lang = config.theme.language %}
+{% set desc_key = "description" if lang == "en" else "description_" ~ lang %}
+
+{%- macro link(app) -%}
+{% set external = not app.url.startswith(config.site_url) %}
+{% set href = app.url if external else app.page.url | url %}
+{%- set props -%}
+href="{{ href }}"{% if external %} target="_blank"{% endif %}
+{%- endset -%}
+{%- set text -%}
+{{ app.name | string() }}{%- if external -%}&nbsp;<span class="twemoji">{%- include ".icons/material/open-in-new.svg" -%}</span>{%- endif -%}
+{%- endset -%}
+<a {{ props }}>{{ text }}</a>
+{%- endmacro -%}
+
+{%- macro description(app) -%}
+&nbsp;&mdash;&nbsp;{{ app[desc_key] }}
+{%- endmacro -%}
+
+{%- macro app_item(app) -%}
+<li>{{ link(app) }}{{ description(app) }}</li>
+{%- endmacro -%}

@@ -17,7 +17,7 @@ class CatalogHook(DocsHook):
         super().__init__(self, **kwargs)
 
         self.__index_filenames = \
-            ("index.md", "by_discipline.md", "by_system.md")
+            ("by_system.md",)
 
     def on_config(self, config):
         self.__catalog_config = \
@@ -30,12 +30,13 @@ class CatalogHook(DocsHook):
         for _, warning in warnings:
             self._logger.warning(warning)
 
+        self.__lang = config.theme.get("language", "en")
         self.__catalog = Catalog(self.__catalog_config)
         self.__appendix = Appendix(self.__catalog_config)
         self.__json_export = JSONExport(self.__catalog,
                                         self.__catalog_config)
         self.__docs_export = DocsExport(self.__catalog,
-                                        self.__catalog_config)
+                                        self.__catalog_config, lang_code=self.__lang)
 
         for app_meta in self.__appendix.external_apps:
             self.__catalog.collect_app(AppendixApp(app_meta))
@@ -65,7 +66,7 @@ class CatalogHook(DocsHook):
     @event_priority(100)
     def _on_page_markdown_sooner(self, markdown, page, config, files):
         if (catalog_meta := page.meta.get("catalog")) is not None:
-            app = DocsApp(catalog_meta, page)
+            app = DocsApp(catalog_meta, page, lang_code=self.__lang)
 
             for message in app.warnings:
                 self._logger.warning(message)
@@ -99,18 +100,17 @@ class CatalogHook(DocsHook):
             self.__docs_export.add_page(Path(config.docs_dir) / dirname / filepath.name, content)
 
             return content
+
         else:
             return None
 
     on_page_markdown = CombinedEvent(_on_page_markdown_sooner,
                                      _on_page_markdown_later)
 
-    # Not used for now.
-    #
-    # def on_page_context(self, context, page, config, nav):
-    #     return (context | {"catalog": self.__catalog.asdict()}
-    #             if page.meta.get("template") == "sw-catalog/apps-index.html"
-    #             else None)
+    def on_page_context(self, context, page, config, nav):
+        return (context | dict(catalog=self.__docs_export.get_page_context(page))
+                if page.meta.get("template") == "apps-index.html"
+                else None)
 
     def on_post_build(self, config):
         self.__json_export.write()

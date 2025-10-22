@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Union
 
 import humps
+from markdown.extensions.toc import slugify, unique as unique_slug
 
 from .catalog import Catalog
 from .config import CatalogConfig
@@ -37,44 +38,6 @@ class DocsExport:
     """
 
     _markdown_stubs = {
-        "index.md": """---
-hide:
-  - toc
----
-
-# Applications
-
-!!! default "Cannot find the application you are looking for?"
-    * [See here for ways to install software yourself](../computing/installing.md).
-    * You may also [contact CSC Service Desk](../support/contact.md) with your software
-      installation request. Given enough requests, we may consider pre-installing a particular
-      application, or purchasing a license for it if the software in question is proprietary.
-    * Although we cannot promise to pre-install all requested applications, CSC Service Desk
-      is happy to support you in installing software yourself.
-
-- [By discipline](by_discipline.md)
-- [By availability](by_system.md)
-- [By license](by_license.md)
-
-
-""",
-        "by_discipline.md": """---
-hide:
-  - toc
----
-
-# Applications by discipline
-
-!!! default "Note"
-    In addition to technical support, CSC also provides expert consulting in
-    questions related to sciences and methods. For more details, see our
-    [science-specific support pages at research.csc.fi](https://research.csc.fi/sciences)
-    or directly [contact our Service Desk](../support/contact.md).
-
-[TOC]
-
-
-""",
         "by_system.md": """---
 hide:
   - toc
@@ -98,10 +61,59 @@ Interactive web applications available on
 """
     }
 
-    def __init__(self, catalog: Catalog, config: CatalogConfig):
+    def __init__(self, catalog: Catalog, config: CatalogConfig, lang_code="en"):
         self.__catalog = catalog
         self.__config = config
+        self.__lang = lang_code
         self.__pages: dict[Path, str] = {}
+
+    def __get_anchor_id(self, heading: str, ids: set) -> str:
+        slug = unique_slug(slugify(heading, "-"), ids)
+        ids.add(slug)
+
+        return slug
+
+    def __get_translation(self, group: str, key: tuple[str, str]) -> str:
+        item_key, value = key
+
+        group_en = self.__config.listing_order.get(group)
+        for item in group_en:
+            if item.get(item_key, "") == value:
+                return item.get(f"{item_key}_{self.__lang}", "")
+
+        return ""
+
+    def __get_system_description(self, name: str):
+        for system in self.__config.listing_order.systems:
+            if system.get("name", "") == name:
+                return (system.get("description", "")
+                        if self.__lang == "en"
+                        else system.get(f"description_{self.__lang}"))
+
+    def __get_discipline_context(self) -> dict:
+        ids = set()
+
+        return [{"name": (discipline
+                          if self.__lang == "en"
+                          else self.__get_translation("disciplines", ("name", discipline))),
+                 "id": self.__get_anchor_id(discipline, ids),
+                 "apps": apps}
+                for discipline, apps
+                in self.__catalog.by_discipline.items()]
+
+    def __get_systems_context(self) -> dict:
+        pass
+
+    def get_page_context(self, page) -> dict:
+        contexts = {
+            "index": dict(alphabetical=self.__catalog.alphabetical),
+            "by_discipline": dict(by_discipline=self.__get_discipline_context()),
+            "by_availability": dict(by_availability=self.__get_systems_context())
+        }
+
+        return contexts.get(Path(page.file.src_uri).stem, {})
+
+
 
     def __internal_link(self, app):
         uri_prefix = f"{Path(self.__config.export_filepath).parent.name}/"
@@ -130,18 +142,6 @@ Interactive web applications available on
 
         return f"- {app_link}{app_description}\n"
 
-    def __alpha_toc_item(self, char):
-        return f"- [{char.upper()}](#{char.lower()})\n"
-
-    def __alpha_toc(self, app_group: dict) -> str:
-        return f"""## Applications in alphabetical order
-
-<div class="alpha-toc" markdown>
-
-{"".join(self.__alpha_toc_item(char) for char in app_group.keys())}
-</div>
-"""
-
     def __app_section(self, heading, apps: list[dict]):
         links = "\n".join(map(self.__app_link, apps))
         return (
@@ -157,17 +157,6 @@ Interactive web applications available on
 
     def add_page(self, filepath: Path, content: str):
         self.__pages[filepath] = content
-
-    def append_index(self, markdown):
-        toc = self.__alpha_toc(self.__catalog.alphabetical)
-        sections = self.__sections(self.__catalog.alphabetical)
-
-        return "\n\n".join((markdown, toc, sections))
-
-    def append_by_discipline(self, markdown):
-        sections = self.__sections(self.__catalog.by_discipline)
-
-        return "\n\n".join((markdown, sections))
 
     def append_by_system(self, markdown):
         sections = self.__sections(self.__catalog.by_availability)

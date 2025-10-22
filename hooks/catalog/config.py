@@ -36,13 +36,22 @@ class CatalogConfig:
             return super().run_validation(os.path.join(self.site_dir, value))
 
 
-    class _ListingOrder(base.Config):
-        license_types = c.ListOfItems(c.Type(str))
-        disciplines = c.ListOfItems(c.Type(str))
-        systems = c.ListOfItems(c.Type(str))
-
-
     def __new__(cls, mkdocs_config: d.MkDocsConfig, config_dict: dict):
+        class _DisciplinesItem(base.Config):
+            name = c.Type(str)
+            name_fi = c.Type(str)
+            fallback = c.Optional(c.Type(bool))
+
+        class _SystemsItem(base.Config):
+            name = c.Type(str)
+            description = c.Type(str)
+            description_fi = c.Type(str)
+
+        class _ListingOrder(base.Config):
+            license_types = c.ListOfItems(c.Type(str))
+            disciplines = c.ListOfItems(c.SubConfig(_DisciplinesItem))
+            systems = c.ListOfItems(c.SubConfig(_SystemsItem))
+
         class _AppendixItem(base.Config):
             name = c.Type(str)
             description = c.Type(str)
@@ -53,7 +62,7 @@ class CatalogConfig:
         class _CatalogConfig(base.Config):
             export_filepath = cls._ExportFile(exists=False, site_dir=mkdocs_config.site_dir)
             export_props = c.ListOfItems(c.Choice(cls.APP_PROPS))
-            listing_order = c.SubConfig(cls._ListingOrder)
+            listing_order = c.SubConfig(_ListingOrder)
             appendix = c.ListOfItems(c.SubConfig(_AppendixItem))
 
         config = _CatalogConfig()

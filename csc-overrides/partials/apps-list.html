@@ -1,0 +1,48 @@
+{% from "partials/apps-list-item.html" import app_item with context %}
+{% set lang = config.theme.language | string() %}
+
+{% macro as_heading(heading) %}
+<h2 id="{{ heading.id }}">{{ heading.name }}</h2>
+{% endmacro %}
+{% macro as_link(heading) %}
+<a href="{{ '#' ~ heading.id }}">{{ heading.name }}</a>
+{% endmacro %}
+
+
+{% macro app_list() %}
+{% if "alphabetical" in catalog %}
+<div class="alpha-toc">
+  <ul>
+    {%- for letter in catalog.alphabetical %}
+    <li><a href="{{ '#' ~ letter }}">{{ letter | string() | upper() }}</a></li>
+    {% endfor -%}
+  </ul>
+</div>
+{%- for letter, apps in catalog.alphabetical | items() %}
+<h3 id="{{ letter | string() }}">{{ letter | string() | upper() }}</h3>
+<ul>
+  {%- for app in apps %}
+  {{ app_item(app) }}
+  {% endfor -%}
+</ul>
+{% endfor -%}
+{% elif "by_discipline" in catalog %}
+<div>
+  <ul>
+    {%- for section in catalog.by_discipline %}
+    <li>{{ as_link(section) }}</li>
+    {% endfor -%}
+  </ul>
+  {%- for section in catalog.by_discipline %}
+  {{ as_heading(section) }}
+  <ul>
+    {%- for app in section.apps %}
+    {{ app_item(app) }}
+    {% endfor -%}
+  </ul>
+  {% endfor -%}
+</div>
+{% endif %}
+
+<pre>{{ catalog | pprint() }}</pre>
+{% endmacro %}
