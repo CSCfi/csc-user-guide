@@ -163,23 +163,27 @@ export MLM_LICENSE_FILE="port@mylicenseserver.com"
 ```
 
 
-## Builtin threading and parallel computing toolbox
+## Computational threads and parallel computing toolbox
 
 MATLAB's linear algebra operations, element-wise operations on large arrays and builtin mathematical operations have builtin threading which is controlled by `maxNumCompThreads`.
 MATLAB typically sets it automatically to the correct value, even in Slurm jobs.
+You can compare the effects of setting one versus two threads for matrix multiplication by running the following MATLAB script:
 
-```matlab
+```matlab title="compthreads.m"
 A = rand(1000, 1000);
+
 % One thread
 maxNumCompThreads(1);
 t0 = tic;
 B = A*A;
 t1 = toc(t0);
-% Two threads 
+
+% Two threads
 maxNumCompThreads(2);
 t2 = tic;
 C = A*A;
 t3 = toc(t2);
+
 % Compare times
 fprintf("One thread : %d\nTwo threads: %d\n", t1, t3);
 ```
