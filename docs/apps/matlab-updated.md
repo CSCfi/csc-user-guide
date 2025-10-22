@@ -168,6 +168,22 @@ export MLM_LICENSE_FILE="port@mylicenseserver.com"
 MATLAB's linear algebra operations, element-wise operations on large arrays and builtin mathematical operations have builtin threading which is controlled by `maxNumCompThreads`.
 MATLAB typically sets it automatically to the correct value, even in Slurm jobs.
 
+```matlab
+A = rand(1000, 1000);
+% One thread
+maxNumCompThreads(1);
+t0 = tic;
+B = A*A;
+t1 = toc(t0);
+% Two threads 
+maxNumCompThreads(2);
+t2 = tic;
+C = A*A;
+t3 = toc(t2);
+% Compare times
+fprintf("One thread : %d\nTwo threads: %d\n", t1, t3);
+```
+
 We can also parallelize code in MATLAB using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
 Consider the following serial code that pauses for one second `n` times and measures the execution time:
 
