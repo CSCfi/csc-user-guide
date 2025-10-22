@@ -184,7 +184,7 @@ end
 The following serial execution should run for around two seconds:
 
 ```matlab
-funcSerial(2)
+t_serial = funcSerial(2)
 ```
 
 We can parallelize the function using the parallel for-loop construct, `parfor` as follows:
@@ -204,7 +204,7 @@ We can create a parallel pool using two processes and run the parallel code with
 
 ```matlab
 pool = parpool('Processes', 2);
-funcParallel(2)
+t_processes = funcParallel(2)
 delete(pool);
 ```
 
@@ -212,7 +212,7 @@ Same using parallel pool with threads:
 
 ```matlab
 pool = parpool('Threads', 2);
-funcParallel(2)
+t_threads = funcParallel(2)
 delete(pool);
 ```
 
@@ -221,7 +221,7 @@ We can query the available GPU devices and perform computation on the GPU as fol
 
 ```matlab title="funcGPU.m"
 function C = funcGPU(n)
-gpuDevice
+gpuDevice();
 A_gpu = gpuArray(rand(n, n));
 B_gpu = gpuArray(rand(n, n));
 C_gpu = A_gpu * B_gpu;
@@ -232,7 +232,7 @@ end
 Let's run the function:
 
 ```matlab
-funcGPU(1000)
+C = funcGPU(1000);
 ```
 
 
@@ -280,12 +280,12 @@ unzip "$HOME/Downloads/mps_puhti.zip" -d "$HOME/.matlab/mps_puhti"
 Step 5: Run in MATLAB:
 ```matlab
 addpath(fullfile(getenv("HOME"), ".matlab", "mps_puhti"))
-savepath
+savepath()
 ```
 
 Step 6: Run in MATLAB:
 ```matlab
-configCluster
+configCluster()
 ```
 
 #### Windows
@@ -316,12 +316,12 @@ Expand-Archive -Path "$env:USERPROFILE\Downloads\mps_puhti.zip" -DestinationPath
 Step 5: Run in MATLAB:
 ```matlab
 addpath(fullfile(getenv("APPDATA"), "Mathworks", "MATLAB", "mps_puhti"))
-savepath
+savepath()
 ```
 
 Step 6: Run in MATLAB:
 ```matlab
-configCluster
+configCluster()
 ```
 
 
@@ -334,14 +334,14 @@ For example, a simple CPU reservation looks as follows, just replace `<project>`
 <!-- getCommonSubmitArgs.m -->
 
 ```matlab
-c = parcluster;
+c = parcluster();
 c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
 c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
 c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
 c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
 c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
 c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
-c.AdditionalProperties.GPUsPerNode = '';
+c.AdditionalProperties.GPUsPerNode = 0;
 ```
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
@@ -368,7 +368,7 @@ We can create a GPU reservation by setting the appropriate values for the `Parti
 For example, a single GPU reservation looks as follows:
 
 ```matlab
-c = parcluster;
+c = parcluster();
 c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
 c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition>
 c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
@@ -390,14 +390,14 @@ j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false
 Let's create a reservation:
 
 ```matlab
-c = parcluster;
+c = parcluster();
 c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
 c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
 c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
 c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
 c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
 c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
-c.AdditionalProperties.GPUsPerNode = '';
+c.AdditionalProperties.GPUsPerNode = 0;
 ```
 
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
@@ -413,7 +413,7 @@ For example, a job that needs eight cores will consume nine CPU cores.
 Use partition large when requesting over 39 workers:
 
 ```matlab
-c = parcluster;
+c = parcluster();
 c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
 c.AdditionalProperties.Partition = 'large';             % --partition=<Partition>
 c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
@@ -424,7 +424,7 @@ c.AdditionalProperties.GPUsPerNode = '';
 ```
 
 ```matlab
-j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddClientPath', false);
 ```
 
 
@@ -433,7 +433,10 @@ j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddC
 To retrieve a list of currently running or completed jobs, use
 
 ```matlab
-c = parcluster;
+c = parcluster();
+```
+
+```matlab
 c.Jobs
 ```
 
