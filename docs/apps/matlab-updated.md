@@ -222,18 +222,30 @@ end
 To run parallel code, we need to create a parallel pool using processes or threads and then run the parallel code.
 We can create a parallel pool using two processes and run the parallel code with the same argument as serial but it should only take around one second:
 
-```matlab
-pool = parpool('Processes', 2);
-t_processes = funcParallel(2)
+```matlab title="funcProcesses.m"
+function t = funcProcesses(n)
+pool = parpool('Processes', n);
+t = funcParallel(n);
 delete(pool);
+end
+```
+
+```matlab
+t_processes = funcProcesses(2)
 ```
 
 Same using parallel pool with threads:
 
-```matlab
-pool = parpool('Threads', 2);
-t_threads = funcParallel(2)
+```matlab title="funcThreads.m"
+function t = funcThreads(n)
+pool = parpool('Threads', n);
+t = funcParallel(n)
 delete(pool);
+end
+```
+
+```matlab
+t_threads = funcProcesses(2)
 ```
 
 It also possible to use GPUs in MATLAB, but only Nvidia GPUs are supported.
@@ -346,20 +358,17 @@ We can configure MPS on a local computer using the following instructions.
     ```
 
 
-### Serial, parallel and GPU single node jobs
+### Single node serial, parallel and GPU jobs
 
 Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
 Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to a empty string.
 For example, a simple CPU reservation looks as follows, just replace `<project>` to your project, otherwise the script will fail:
-
 We can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
 
-We can submit a simple test job that returns the current working directory as follows:
+=== "Serial"
 
-=== "Single thread"
-
-    ```matlab
+    ```matlab title="serial.m"
     c = parcluster();
     c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
     c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
@@ -371,9 +380,9 @@ We can submit a simple test job that returns the current working directory as fo
     j = batch(c, @funcSerial, 1, {2}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
     ```
 
-=== "Multithreading or multiprocessing"
+=== "Parallel"
 
-    ```matlab
+    ```matlab title="parallel.m"
     c = parcluster();
     c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
     c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
@@ -382,12 +391,12 @@ We can submit a simple test job that returns the current working directory as fo
     c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
     c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
     c.AdditionalProperties.GPUsPerNode = 0;
-    j = batch(c, @funcParallel, 1, {2}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
+    j = batch(c, @funcThreads, 1, {2}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
     ```
 
 === "GPU"
 
-    ```matlab
+    ```matlab title="gpu.m"
     c = parcluster();
     c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
     c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition>
@@ -407,10 +416,6 @@ MATLAB will store the path to your key and will not request it again in future s
 In the example, we set the working directory to the home directory by setting `'CurrentFolder'` to `'.'`.
 Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by setting `'AutoAddClientPath'` to `false`.
 
-We can create a GPU reservation by setting the appropriate values for the `Partition`, `GPUCard`, and `GPUsPerNode` properties.
-For example, a single GPU reservation looks as follows:
-Now, we can submit a simple GPU job that queries the available GPU device as follows:
-
 
 ### Multinode jobs
 
@@ -418,7 +423,7 @@ Let's create a reservation:
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
 For example, we can submit a parallel job to fifty cores as follows:
 
-```matlab
+```matlab title="pool.m"
 c = parcluster();
 c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
 c.AdditionalProperties.Partition = 'large';             % --partition=<Partition>
