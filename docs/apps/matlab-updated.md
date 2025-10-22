@@ -346,92 +346,77 @@ We can configure MPS on a local computer using the following instructions.
     ```
 
 
-### Submitting single and multithreaded jobs
+### Serial, parallel and GPU single node jobs
 
 Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
 Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to a empty string.
 For example, a simple CPU reservation looks as follows, just replace `<project>` to your project, otherwise the script will fail:
 
-<!-- getCommonSubmitArgs.m -->
-
-```matlab
-c = parcluster();
-c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
-c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
-c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
-c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
-c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
-c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
-c.AdditionalProperties.GPUsPerNode = 0;
-```
-
-Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
+We can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
+
+We can submit a simple test job that returns the current working directory as follows:
+
+=== "Single thread"
+
+    ```matlab
+    c = parcluster();
+    c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
+    c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
+    c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
+    c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
+    c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
+    c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
+    c.AdditionalProperties.GPUsPerNode = 0;
+    j = batch(c, @funcSerial, 1, {2}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
+    ```
+
+=== "Multithreading or multiprocessing"
+
+    ```matlab
+    c = parcluster();
+    c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
+    c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
+    c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
+    c.NumThreads = 2;                                       % --cpus-per-task=<NumThreads>
+    c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
+    c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
+    c.AdditionalProperties.GPUsPerNode = 0;
+    j = batch(c, @funcParallel, 1, {2}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
+    ```
+
+=== "GPU"
+
+    ```matlab
+    c = parcluster();
+    c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
+    c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition>
+    c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
+    c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
+    c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
+    c.AdditionalProperties.GPUCard = 'v100';                % --gres=gpu:<GPUCard>:<GPUsPerNode>
+    c.AdditionalProperties.GPUsPerNode = 1;
+    j = batch(c, @funcGPU, 1, {1000}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
+    ```
 
 The first time you submit a job, MATLAB will prompt you to choose between password or SSH key authentication.
 Password authentication is no longer supported on Puhti, so you must select SSH key authentication.
 Provide the path to your private key and enter the password for the private key if one exists.
 MATLAB will store the path to your key and will not request it again in future sessions.
 
-We can submit a simple test job that returns the current working directory as follows:
-
-```matlab
-j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
-```
-
 In the example, we set the working directory to the home directory by setting `'CurrentFolder'` to `'.'`.
 Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by setting `'AutoAddClientPath'` to `false`.
 
-
-### Submitting GPU jobs
-
 We can create a GPU reservation by setting the appropriate values for the `Partition`, `GPUCard`, and `GPUsPerNode` properties.
 For example, a single GPU reservation looks as follows:
-
-```matlab
-c = parcluster();
-c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
-c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition>
-c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
-c.NumThreads = 10;                                      % --cpus-per-task=<NumThreads>
-c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
-c.AdditionalProperties.GPUCard = 'v100';                % --gres=gpu:<GPUCard>:<GPUsPerNode>
-c.AdditionalProperties.GPUsPerNode = 1;
-```
-
 Now, we can submit a simple GPU job that queries the available GPU device as follows:
 
-```matlab
-j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
-```
 
-
-### Submitting parallel pool
+### Multinode jobs
 
 Let's create a reservation:
-
-```matlab
-c = parcluster();
-c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
-c.AdditionalProperties.Partition = 'small';             % --partition=<Partition>
-c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
-c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
-c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
-c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
-c.AdditionalProperties.GPUsPerNode = 0;
-```
-
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
-For example, we can submit a parallel job to eight cores as follows:
-
-```matlab
-j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddClientPath', false);
-```
-
-Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
-For example, a job that needs eight cores will consume nine CPU cores.
-
-Use partition large when requesting over 39 workers:
+For example, we can submit a parallel job to fifty cores as follows:
 
 ```matlab
 c = parcluster();
@@ -442,11 +427,11 @@ c.NumThreads = 1;                                       % --cpus-per-task=<NumTh
 c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
 c.AdditionalProperties.GPUCard = '';                    % --gres=gpu:<GPUCard>:<GPUsPerNode>
 c.AdditionalProperties.GPUsPerNode = '';
-```
-
-```matlab
 j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddClientPath', false);
 ```
+
+Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
+For example, a job that needs fifty cores will consume nine CPU cores.
 
 
 ### Querying jobs and output
@@ -481,6 +466,11 @@ fetchOutputs(j)
 
 Data that has been written to files on the cluster needs to be retrieved directly from the file system.
 
+Query efficiency of a job:
+
+```matlab
+seff(j)
+```
 
 <!--
 Once we've identified the job we want, we can retrieve the results as we've done previously.
