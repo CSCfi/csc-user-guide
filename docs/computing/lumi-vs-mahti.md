@@ -29,7 +29,7 @@ Lisätietoja käyttötiloista löytyy [LUMI access -sivulta Services for Researc
 
 ## Ohjelmistojen asennuskäytäntö { #software-installation-policy }
 
-Kuten Mahtissa, CSC tarjoaa LUMIin valmiiksi asennettuina moduuleina joitakin usein käytettyjä sovelluksia. Luettelo niistä löytyy sekä [CSC Docsista](../apps/by_system.md#lumi) että [LUMI Docsista](https://docs.lumi-supercomputer.eu/software/local/csc/).
+Kuten Mahtissa, CSC tarjoaa LUMIin valmiiksi asennettuina moduuleina joitakin usein käytettyjä sovelluksia. Luettelo niistä löytyy sekä [CSC Docsista](../apps/by_availability.md#lumi) että [LUMI Docsista](https://docs.lumi-supercomputer.eu/software/local/csc/).
 
 Oman ohjelmiston asennuksen helpottamiseksi LUMIin on tarjolla [EasyBuild-työkalu](https://docs.lumi-supercomputer.eu/software/installing/easybuild/) yhdessä [asennusreseptien](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib) (EasyConfig-tiedostot) kanssa, joiden avulla voit asentaa lisäsovelluksia kotihakemistoosi tai projektihakemistoihin. Lisäksi käytettävissä on [konttikääre](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/), joka on identtinen [Tykky-työkalun](containers/tykky.md) kanssa, ja jonka avulla asennukset voidaan kääriä Apptainer-/Singularity-konttiin. Tätä suositellaan erityisesti Conda- ja pip-ympäristöille rinnakkaisen tiedostojärjestelmän kuorman keventämiseksi.
 

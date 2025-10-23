@@ -15,7 +15,7 @@ hide:
       neuvoo mielellään sovellusten asennuksessa.
 
 - [Tieteenalan mukaan :material-arrow-right:](by_discipline.md)
-- [Saatavuuden mukaan :material-arrow-right:](by_system.md)
+- [Saatavuuden mukaan :material-arrow-right:](by_availability.md)
 - [Lisenssin mukaan :material-arrow-right:](by_license.md)
 
 

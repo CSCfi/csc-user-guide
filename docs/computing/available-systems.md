@@ -20,7 +20,7 @@ Puhti-supertietokone, Intel-suorittimiin perustuva Atos BullSequana X400 -kluste
 
 Lisäksi on 80 GPU-solmua, joissa on yhteensä 320 Nvidia Volta V100 -GPU:ta. Tämä osio soveltuu kaikenlaisille GPU:ita hyödyntäville työkuormille, jopa usealle solmulle skaalautuville raskaille tekoälymalleille.
 
-Puhtiin on asennettu laaja valikoima [tieteellistä ohjelmistoa](../apps/by_system.md#puhti).
+Puhtiin on asennettu laaja valikoima [tieteellistä ohjelmistoa](../apps/by_availability.md#puhti).
 
 - [Puhtin teknisempi kuvaus](systems-puhti.md)
 
@@ -30,7 +30,7 @@ Mahti-supertietokone, AMD-suorittimiin perustuva Atos BullSequana XH2000 -järje
 
 Lisäksi on 24 GPU-solmua, joissa on yhteensä 96 Nvidia Ampere A100 -GPU:ta. Tämä osio soveltuu kaikenlaisille GPU:ita hyödyntäville työkuormille, jopa usealle solmulle skaalautuville raskaille tekoälymalleille. Osa A100-GPU:ista on jaettu pienemmiksi GPU:iksi, joissa on yksi seitsemäsosa täyden A100-GPU:n laskenta- ja muistikapasiteetista. Näitä voidaan käyttää interaktiivisiin työkuormiin, kursseihin ja koodin kehittämiseen.
 
-Mahtiin asennetun [tieteellisen ohjelmiston](../apps/by_system.md#mahti) valikoima on rajatumpi kuin Puhtissa.
+Mahtiin asennetun [tieteellisen ohjelmiston](../apps/by_availability.md#mahti) valikoima on rajatumpi kuin Puhtissa.
 
 - [Mahtin teknisempi kuvaus](systems-mahti.md)
 

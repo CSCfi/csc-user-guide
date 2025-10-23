@@ -25,7 +25,7 @@ verkko­kurssia [*Elements of Supercomputing*](https://edukamu.fi/elements-of-su
 Uusien käyttäjien suositellaan aloittavan työskentely
 [Puhti-super­tieto­koneella](../../computing/available-systems.md#puhti).
 Verrattuna Mahtiin sillä on huomattavasti enemmän
-[esiasennettuja ohjelmistoja](../../apps/by_system.md#puhti), enemmän GPU-solmuja ja
+[esiasennettuja ohjelmistoja](../../apps/by_availability.md#puhti), enemmän GPU-solmuja ja
 tyypillisesti enemmän muistia CPU-ydintä kohden. Lisäksi Puhtin GPU-solmuilla ja joillakin CPU-solmuilla on
 [nopea paikallinen NVMe-tallennus](../../computing/disk.md#temporary-local-disk-areas).
 
