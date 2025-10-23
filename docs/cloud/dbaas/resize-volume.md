@@ -2,6 +2,10 @@
 
 When you first create a database instance, you specify the size of the volume the instance has in use. If you later on notice that the size is not enough, you can resize the volume either from the web interface or from the CLI. Note that you can only increase the size of the volume, not decrease.  
 
+## Checking volume usage in the web interface
+
+You can check your current volume usage for your instance in the web interface. Go `Database` -> `Instances` and locate the instance you want to check the usage for. The usage is listed under specs in the overview tab.
+
 ## Precautions  
 
 Resizing the volume should not affect your data, but you can make a backup of your instance manually before resizing to prevent any data loss.
