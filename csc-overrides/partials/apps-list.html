@@ -1,48 +1,77 @@
 {% from "partials/apps-list-item.html" import app_item with context %}
-{% set lang = config.theme.language | string() %}
+{% from "partials/apps-list-phrases.html" import phrase with context %}
 
-{% macro as_heading(heading) %}
-<h2 id="{{ heading.id }}">{{ heading.name }}</h2>
-{% endmacro %}
-{% macro as_link(heading) %}
-<a href="{{ '#' ~ heading.id }}">{{ heading.name }}</a>
+{% macro as_heading(item) %}
+<h2 id="{{ item.id }}">{{ item.name }}</h2>
 {% endmacro %}
 
+{% macro as_link(item, append=none, tag=false) %}
+{% set name = item.name ~ " " ~ append if not append is none else item.name %}
+{% set text %}
+{% if tag %}
+<span class="md-tag">{{ name }}</span>
+{% else %}
+{{ name }}
+{% endif %}
+{% endset %}
+<a href="{{ '#' ~ item.id }}">{{ text }}</a>
+{% endmacro %}
 
-{% macro app_list() %}
-{% if "alphabetical" in catalog %}
-<div class="alpha-toc">
+{% macro as_toc(items, alpha=false, suffix=none) %}
+<div class="catalog-toc">
   <ul>
-    {%- for letter in catalog.alphabetical %}
-    <li><a href="{{ '#' ~ letter }}">{{ letter | string() | upper() }}</a></li>
+    {%- for item in items %}
+    {% if alpha %}
+    {% set name = item | string | upper %}
+    {% elif not suffix is none %}
+    {% set name = item.name ~ " " ~ suffix %}
+    {% else %}
+    {% set name = item.name %}
+    {% endif %}
+    {% set id = item.id if not alpha else item | string %}
+    {% set toc_item = {"name": name, "id": id} %}
+    <li>{{ as_link(toc_item, tag=true) }}</li>
     {% endfor -%}
   </ul>
 </div>
-{%- for letter, apps in catalog.alphabetical | items() %}
-<h3 id="{{ letter | string() }}">{{ letter | string() | upper() }}</h3>
+{% endmacro %}
+
+{% macro as_list(apps) %}
 <ul>
   {%- for app in apps %}
   {{ app_item(app) }}
   {% endfor -%}
 </ul>
-{% endfor -%}
-{% elif "by_discipline" in catalog %}
-<div>
-  <ul>
-    {%- for section in catalog.by_discipline %}
-    <li>{{ as_link(section) }}</li>
-    {% endfor -%}
-  </ul>
-  {%- for section in catalog.by_discipline %}
-  {{ as_heading(section) }}
-  <ul>
-    {%- for app in section.apps %}
-    {{ app_item(app) }}
-    {% endfor -%}
-  </ul>
-  {% endfor -%}
-</div>
-{% endif %}
+{% endmacro %}
 
-<pre>{{ catalog | pprint() }}</pre>
+{% macro apps_list() %}
+{% if "alphabetical" in catalog %}
+{{ as_toc(catalog.alphabetical, alpha=true) }}
+{%- for letter, apps in catalog.alphabetical | items %}
+<h3 id="{{ letter | string }}">{{ letter | string | upper }}</h3>
+{{ as_list(apps) }}
+{% endfor -%}
+
+{% elif "by_discipline" in catalog %}
+{{ as_toc(catalog.by_discipline) }}
+{%- for section in catalog.by_discipline %}
+{{ as_heading(section) }}
+{{ as_list(section.apps) }}
+{% endfor -%}
+
+{% elif "by_availability" in catalog %}
+<p>{{ phrase("Applications available on") }}</p>
+{{ as_toc(catalog.by_availability.on_systems) }}
+<p>{{ phrase("Interactive web applications available on") }}</p>
+{{ as_toc(catalog.by_availability.on_web, suffix=phrase("web interface")) }}
+{%- for system in catalog.by_availability.on_systems %}
+{{ as_heading(system) }}
+{{ as_list(system.apps) }}
+{% endfor -%}
+{%- for system in catalog.by_availability.on_web %}
+{% set web_system = {"name": system.name ~ " " ~ phrase("web interface"), "id": system.id} %}
+{{ as_heading(web_system) }}
+{{ as_list(system.apps) }}
+{% endfor -%}
+{% endif %}
 {% endmacro %}

@@ -16,9 +16,6 @@ class CatalogHook(DocsHook):
     def __init__(self, **kwargs):
         super().__init__(self, **kwargs)
 
-        self.__index_filenames = \
-            ("by_system.md",)
-
     def on_config(self, config):
         self.__catalog_config = \
             CatalogConfig(config, self._config_dict)
@@ -43,28 +40,7 @@ class CatalogHook(DocsHook):
 
         return None
 
-    # Lower priority to avoid warning from mkdocs-redirects plugin
-    @event_priority(50)
-    def on_files(self, files, config):
-        for filename in self.__index_filenames:
-            base_uri = Path(self.__catalog_config.export_filepath).parent
-            src_uri = base_uri.relative_to(config.site_dir) / filename
-            stub = self.__docs_export.get_stub(filename)
-
-            file_obj = MkDocsFile.generated(config,
-                                            src_uri,
-                                            content=stub,
-                                            inclusion=InclusionLevel.INCLUDED)
-
-            if files.get_file_from_path(src_uri) is not None:
-                files.remove(file_obj)
-
-            files.append(file_obj)
-
-        return files
-
-    @event_priority(100)
-    def _on_page_markdown_sooner(self, markdown, page, config, files):
+    def on_page_markdown(self, markdown, page, config, files):
         if (catalog_meta := page.meta.get("catalog")) is not None:
             app = DocsApp(catalog_meta, page, lang_code=self.__lang)
 
@@ -82,31 +58,6 @@ class CatalogHook(DocsHook):
 
         return None
 
-    @event_priority(-100)
-    def _on_page_markdown_later(self, markdown, page, config, files):
-        src_uri = page.file.src_uri
-        filepath = Path(src_uri)
-        dirname, *segments = filepath.parts
-
-        if (dirname == "apps"
-            and len(segments) == 1
-            and segments[0] in self.__index_filenames):
-
-            # For now, set 'edit_url' to point to the Python module
-            # responsible for generating the apps index pages:
-            page.edit_url = urljoin(config.repo_url, "edit/master/hooks/catalog/export.py")
-
-            content = self.__docs_export.append_content(filepath, markdown)
-            self.__docs_export.add_page(Path(config.docs_dir) / dirname / filepath.name, content)
-
-            return content
-
-        else:
-            return None
-
-    on_page_markdown = CombinedEvent(_on_page_markdown_sooner,
-                                     _on_page_markdown_later)
-
     def on_page_context(self, context, page, config, nav):
         return (context | dict(catalog=self.__docs_export.get_page_context(page))
                 if page.meta.get("template") == "apps-index.html"
@@ -114,9 +65,6 @@ class CatalogHook(DocsHook):
 
     def on_post_build(self, config):
         self.__json_export.write()
-
-        if config.extra.get("environment") == "test":
-            self.__docs_export.write_sources()
 
         return None
 

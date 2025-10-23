@@ -1,0 +1,24 @@
+{% set lang = config.theme.language %}
+
+{%- macro translate(phrase_string, lang_code) -%}
+{% set lookup = {
+  "Applications available on": {
+    "fi": "Sovellukset saatavilla järjestelmässä"
+  },
+  "Interactive web applications available on": {
+    "fi": "Interaktiiviset web-sovellukset saatavilla järjestelmässä"
+  },
+  "web interface": {
+    "fi": "web-käyttöliittymä"
+  }
+}%}
+{{ lookup[phrase_string][lang_code] }}
+{%- endmacro -%}
+
+{%- macro phrase(phrase_string) -%}
+{%- if lang != "en" %}
+{{ translate(phrase_string, lang_code=lang)}}
+{% else %}
+{{ phrase_string }}
+{% endif -%}
+{%- endmacro -%}

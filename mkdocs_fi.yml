@@ -366,7 +366,7 @@ nav:
   - Sovellukset:
       - apps/index.md
       - Tieteenaloittain: apps/by_discipline.md
-      - Saatavuuden mukaan: apps/by_system.md
+      - Saatavuuden mukaan: apps/by_availability.md
       - Lisenssin mukaan: apps/by_license.md
   - UKK: support/faq/index.md
   - Tutoriaalit: support/tutorials/index.md

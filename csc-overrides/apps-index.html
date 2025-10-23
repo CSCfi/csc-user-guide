@@ -5,8 +5,8 @@
 {% endblock breadcrumbs %}
 {% include "partials/tags.html" %}
 {{ page.content }}
-{% from "partials/apps-list.html" import app_list with context %}
-{{ app_list() }}
+{% from "partials/apps-list.html" import apps_list with context %}
+{{ apps_list() }}
 {% include "partials/source-file.html" %}
 {% include "partials/feedback.html" %}
 {% endblock content %}
