@@ -272,9 +272,11 @@ C = funcGPU(1000);
 
 ### Local configuration
 
-Puhti's MATLAB Parallel Server (MPS) allows users to send batch jobs from a local MATLAB session to the Puhti cluster.
-Using Puhti MPS requires a local MATLAB installation with a supported MATLAB version and the Parallel Computing Toolbox and access to the Puhti cluster.
-We can configure MPS on a local computer using the following instructions.
+MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the user's computer to the Puhti cluster's MATLAB workers.
+Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, SSH access to the Puhti cluster and client configuration that is explained below.
+
+<!-- TODO: explain SSH configuration on Linux, Windows, MacOS, link to SSH docs page -->
+<!-- TODO: improve plugin installation instructions -->
 
 === "Manual configuration"
 
@@ -360,11 +362,15 @@ We can configure MPS on a local computer using the following instructions.
 
 ### Single node serial, parallel and GPU jobs
 
-Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
-Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to a empty string.
-For example, a simple CPU reservation looks as follows, just replace `<project>` to your project, otherwise the script will fail:
-We can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
-It returns a job object which we can use to access the output of the submitted job.
+!!! info
+    The first time you submit a job, MATLAB will prompt you to choose between password or SSH key authentication.
+    Password authentication is no longer supported on Puhti, so you must select SSH key authentication.
+    Provide the path to your private key and enter the password for the private key if one exists.
+    MATLAB will store the path to your key and will not request it again in future sessions.
+
+We define the resource reservation using [`parcluster`](https://www.mathworks.com/help/parallel-computing/parcluster.html) and submit the function or script the cluster using [`batch`](http://www.mathworks.com/help/distcomp/batch.html).
+The `parcluster` object is stateful, thus we explicitly unset properties when they are unused, such as GPUs for CPU only jobs.
+You can use the following examples, just replace `<project>` to your project, such as `project_2001234`, and modify the resource reservation to suit your needs.
 
 === "Serial"
 
@@ -408,23 +414,21 @@ It returns a job object which we can use to access the output of the submitted j
     j = batch(c, @funcGPU, 1, {1000}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
     ```
 
-The first time you submit a job, MATLAB will prompt you to choose between password or SSH key authentication.
-Password authentication is no longer supported on Puhti, so you must select SSH key authentication.
-Provide the path to your private key and enter the password for the private key if one exists.
-MATLAB will store the path to your key and will not request it again in future sessions.
-
-In the example, we set the working directory to the home directory by setting `'CurrentFolder'` to `'.'`.
+In the example, we set the working directory to the home directory in the cluster by setting `'CurrentFolder'` to `'.'`.
 Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by setting `'AutoAddClientPath'` to `false`.
+These examples reserve 1 MATLAB Parallel Server license on the cluster for the duration of the job.
 
 
 ### Multinode jobs
 
-!!! note
+!!! warning
     Multinode jobs do not seem to work in r2025a.
 
-Let's create a reservation:
-Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
-For example, we can submit a parallel job to 50 cores as follows:
+We can also create a parallel pool of workers by setting the `'Pool'` argument to the amount of workers we want to reserve (translates to `--ntasks=<PoolSize>` in the Slurm reservation).
+The `parcluster` resources tell how much resources are reserved per worker.
+We should reserve pool in this way when we need more workers that can fit into a single node, otherwise we can reserve parallel job as was described in the previous section and use reserve pool with threads or processes.
+
+Here is an example of parallel pool with 50 workers as follows:
 
 ```matlab title="pool.m"
 c = parcluster();
@@ -438,8 +442,9 @@ c.AdditionalProperties.GPUsPerNode = '';
 j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddClientPath', false);
 ```
 
-Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
-For example, a job that needs 50 cores will consume 51 CPU cores.
+Note that the parallel pool will always request one additional processes to manage the pool of workers.
+This example reserves 51 MATLAB Parallel Server license on the cluster for the duration of the job.
+<!-- TODO: puhti has 500 MATLAB Parallel Server licenses shared by all users. -->
 
 
 ### Querying jobs and output

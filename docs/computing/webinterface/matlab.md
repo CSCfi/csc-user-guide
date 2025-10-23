@@ -1,5 +1,7 @@
 # MATLAB
 
+<!-- TODO: redirect to apps/matlab.md, remove the page -->
+
 The app will start a MATLAB session  with the specified resources.
 On Puhti, the version can be selected from any of the supported modules, and on Mahti, version R2024b is used.
 
