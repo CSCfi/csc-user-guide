@@ -6,7 +6,7 @@ hide:
 
 # Sovellukset tieteenalan mukaan
 
-!!! default "Note"
+!!! default "Huomautus"
     Teknisen tuen lisäksi CSC tarjoaa myös neuvontaa tieteisiin
     sekä menetelmiin liittyvissä kysymyksissä. Lisätietoja saat
     [tiedealakohtaisilta tukisivuilta research.csc.fi -sivustolla
