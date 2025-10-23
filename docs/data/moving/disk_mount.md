@@ -1,5 +1,7 @@
 # Remote disk mounts
 
+--8<-- "auth-update-ssh.md"
+
 With remote disk mounts you can access your CSC directories in a way that
 resembles the usage of an external disk or USB memory stick. Using this
 approach normally requires installing some extra software to your local
@@ -36,10 +38,18 @@ mkdir csc_home
 sshfs kayttaja@puhti.csc.fi:/users/kayttaja csc_home
 ```
 
-!!! Note
-    On macOS you might need to add the `-o defer_permissions` option to the
-    `sshfs` command in case you are getting `Permission denied` errors after
-    mounting.
+!!! info "Note"
+    If you have stored your SSH key file with a non-default name or in a
+    non-default location (somewhere else than `~/.ssh/id_<algorithm>`), you
+    must specify where to look for the key as follows:
+
+    ```bash
+    sshfs username@hostname:/path/to/dir /path/to/mountpoint -o IdentityFile=/path/to/key
+    ```
+
+    Also, on macOS you might need to add the `-o defer_permissions` option to
+    the `sshfs` command in case you are getting `Permission denied` errors
+    after mounting.
 
 The first command creates an empty directory that will be used as the mount
 point in the second command. When the remote mount is established, you can use
