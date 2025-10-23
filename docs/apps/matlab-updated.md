@@ -419,9 +419,12 @@ Also, we should disable MATLAB from adding the local MATLAB search path to the r
 
 ### Multinode jobs
 
+!!! note
+    Multinode jobs do not seem to work in r2025a.
+
 Let's create a reservation:
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
-For example, we can submit a parallel job to fifty cores as follows:
+For example, we can submit a parallel job to 50 cores as follows:
 
 ```matlab title="pool.m"
 c = parcluster();
@@ -436,7 +439,7 @@ j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddC
 ```
 
 Note that the parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
-For example, a job that needs fifty cores will consume nine CPU cores.
+For example, a job that needs 50 cores will consume 51 CPU cores.
 
 
 ### Querying jobs and output
