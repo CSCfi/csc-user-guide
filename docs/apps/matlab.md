@@ -426,7 +426,7 @@ These examples reserve 1 MATLAB Parallel Server license on the cluster for the d
 
 We can also create a parallel pool of workers by setting the `'Pool'` argument to the amount of workers we want to reserve (translates to `--ntasks=<PoolSize>` in the Slurm reservation).
 The `parcluster` resources tell how much resources are reserved per worker.
-We should reserve pool in this way when we need more workers that can fit into a single node, otherwise we can reserve parallel job as was described in the previous section and use reserve pool with threads or processes.
+**We should reserve pool in this way when we need more workers that can fit into a single node, otherwise we can reserve parallel job as was described in the previous section and use reserve pool with threads or processes.**
 
 Here is an example of parallel pool with 50 workers as follows:
 
@@ -444,64 +444,42 @@ j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddC
 
 Note that the parallel pool will always request one additional processes to manage the pool of workers.
 This example reserves 51 MATLAB Parallel Server license on the cluster for the duration of the job.
-<!-- TODO: puhti has 500 MATLAB Parallel Server licenses shared by all users. -->
+Puhti has 500 MATLAB Parallel Server licenses shared by all users.
 
 
 ### Querying jobs and output
 
-To retrieve a list of currently running or completed jobs, use
+Get handle on the parcluster object:
 
 ```matlab
 c = parcluster();
 ```
 
-```matlab
-c.Jobs
-```
-
-Get a handle to the job with sequence number 1
+Retrieve last 5 jobs:
 
 ```matlab
-j = c.Jobs(1);
+c.Jobs(end-4:end)
 ```
 
-Once we have a handle to the cluster, we'll call the `findJob` method to search for the job with the specified job ID, on example below `ID = 11`.
+Retrieve job by its identifier:
 
 ```matlab
-j = findJob(c, 'ID', 11);
+j = c.findJob('ID', 11);
 ```
 
-Once the job has been completed, we can fetch the function outputs as follows:
+We can fetch the function outputs of a completed job as follows:
 
 ```matlab
-fetchOutputs(j)
+result = j.fetchOutputs()
 ```
 
-Data that has been written to files on the cluster needs to be retrieved directly from the file system.
-
-Query efficiency of a job:
+We can also query the efficiency of a job:
 
 ```matlab
 seff(j)
 ```
 
-<!--
-Once we've identified the job we want, we can retrieve the results as we've done previously.
-If the job has produced an error, we can call the `getDebugLog` method to view the error log file.
-The error log can be lengthy and is not shown here.
-
-As an example, we will retrieve the debug log of the serial job.
-
-```matlab
-getDebugLog(j.Parent, j.Tasks(1))
-```
-
-For debugging, retrieve the log file.
-
-```matlab
-getDebugLog(j.Parent ,j)
-```
--->
+Data that has been written to files on the cluster needs to be retrieved directly from the file system for example using `scp`.
 
 
 <!--
