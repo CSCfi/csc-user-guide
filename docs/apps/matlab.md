@@ -276,88 +276,44 @@ MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the 
 Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, SSH access to the Puhti cluster and client configuration that is explained below.
 
 <!-- TODO: explain SSH configuration on Linux, Windows, MacOS, link to SSH docs page -->
-<!-- TODO: improve plugin installation instructions -->
 
-=== "Manual configuration"
+```matlab title="configure_mps_puhti.m"
+% Define local MATLAB configuration directory.
+if ispc()
+    % Windows
+    confroot = fullfile(getenv("APPDATA"), "Mathworks", "MATLAB");
+elseif isunix() || ismac()
+    % Unix (Linux) or MacOS
+    confroot = fullfile(getenv("HOME"), ".matlab");
+else
+     % Operating system not supported
+     exit();
+end
 
-    1. Log in and out to Puhti via SSH client to ensure you have a home directory.
-    2. Download the configuration script archive [**mps_puhti.zip**](https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip) for Puhti.
-    3. Create a local MATLAB configuration directory.
-    4. Extract the configurations to the configuration directory.
-    5. Add the directory to the unzipped configuration files to MATLAB's path using `addpath` and `savepath` functions in MATLAB.
-    6. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt.
+% Path to where the ZIP file is downloaded.
+confzip = fullfile(confroot, "mps_puhti.zip");
+delete(confzip);  % remove previous zipfile
 
-=== "Linux and MacOS (shell and matlab)"
+% Path to the directory where configuration files are extracted.
+confdir = fullfile(confroot, "mps_puhti");
+rmdir(confdir, 's');  % remove previous config directory
 
-    Step 1: Run in shell:
+% Download the configuration files as a ZIP file.
+websave(confzip, "https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip")
 
-    ```bash
-    ssh <username>@puhti.csc.fi exit
-    ```
+% Extract the configuration files to the configuration directory.
+unzip(confzip, confdir)
 
-    Step 2: Run in shell:
+% Persist path to the configuration files.
+addpath(confdir)
+savepath()
+```
 
-    ```bash
-    curl --location --output "$HOME/Downloads/mps_puhti.zip" https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip
-    ```
+Finally, configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt:
 
-    Step 3: Run in shell:
-
-    ```bash
-    mkdir -p "$HOME/.matlab"
-    ```
-
-    Step 4: Run in shell:
-    ```bash
-    unzip "$HOME/Downloads/mps_puhti.zip" -d "$HOME/.matlab/mps_puhti"
-    ```
-
-    Step 5: Run in MATLAB:
-    ```matlab
-    addpath(fullfile(getenv("HOME"), ".matlab", "mps_puhti"))
-    savepath()
-    ```
-
-    Step 6: Run in MATLAB:
-    ```matlab
-    configCluster()
-    ```
-
-=== "Windows (powershell and matlab)"
-
-    Step 1: Run in Windows Powershell:
-
-    ```bash
-    ssh <username>@puhti.csc.fi exit
-    ```
-
-    Step 2: Run in Windows Powershell:
-
-    ```powershell
-    Invoke-WebRequest -Uri "https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip" -OutFile "$env:USERPROFILE\Downloads\mps_puhti.zip"
-    ```
-
-    Step 3: Run in Windows Powershell:
-
-    ```powershell
-    New-Item -Path "$env:APPDATA\Mathworks\MATLAB" -ItemType Directory -Force 
-    ```
-
-    Step 4: Run in Windows Powershell:
-    ```powershell
-    Expand-Archive -Path "$env:USERPROFILE\Downloads\mps_puhti.zip" -DestinationPath "$env:APPDATA\Mathworks\MATLAB\mps_puhti"
-    ```
-
-    Step 5: Run in MATLAB:
-    ```matlab
-    addpath(fullfile(getenv("APPDATA"), "Mathworks", "MATLAB", "mps_puhti"))
-    savepath()
-    ```
-
-    Step 6: Run in MATLAB:
-    ```matlab
-    configCluster()
-    ```
+```matlab
+configCluster();
+```
 
 
 ### Single node serial, parallel and GPU jobs
