@@ -273,11 +273,10 @@ C = funcGPU(1000);
 ### Local configuration
 
 MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the user's computer to the Puhti cluster's MATLAB workers.
-Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, SSH access to the Puhti cluster and client configuration that is explained below.
+Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Puhti cluster and a user-side configuration.
+You can run the MATLAB script to for the user-side configuration:
 
-<!-- TODO: explain SSH configuration on Linux, Windows, MacOS, link to SSH docs page -->
-
-```matlab title="configure_mps_puhti.m"
+```matlab title="MATLAB script"
 % Define local MATLAB configuration directory.
 if ispc()
     % Windows
@@ -311,7 +310,7 @@ savepath()
 
 Finally, configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt:
 
-```matlab
+```matlab title="MATLAB script"
 configCluster();
 ```
 
