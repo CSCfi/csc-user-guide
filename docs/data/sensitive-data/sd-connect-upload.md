@@ -64,11 +64,11 @@ You can create a folder and upload files to it later.
     - Uploading files into subfolders is currently not supported.
     - SD Connect displays your encrypted files as virtual folders. Plan your folder structure carefully—organize files by projects, themes, or logical structures to improve accessibility and workflow. This also helps when sharing access with others. For assistance, contact CSC Service Desk (subject: Sensitive data).
 
-## Features in SD Connect
+## The next steps in this guide 
 
 * [Upload](./sd-connect-upload.md)
 * [Download](./sd-connect-download.md)
-* [Share](./sd-connect-share.md)
 * [Delete](./sd-connect-delete.md)
+* [Share](./sd-connect-share.md)
 * [Command line interface](./sd-connect-command-line-interface.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)
