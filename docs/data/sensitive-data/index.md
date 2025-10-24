@@ -8,7 +8,7 @@ To access CSC's SD Services, it is important to first identify the type of sensi
   
 * or secondary use of health and social data  (e.g. register data provided by the Finnish Social and Health Data Permit Authority Findata or a public register). 
 
-This determines the appropriate CSC project type used for access (Academic or Findata) and the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read-only mode. 
+This determines the appropriate CSC project type used for access (Academic or Secondary use respectively) and the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read only mode. 
 
 Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
@@ -54,15 +54,7 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 
 </div>
 
-### Additional Resources
 
-- [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
-
-- [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
-
-- [Useful terminology :material-arrow-right:](sd-terminology.md)
-
-- [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
 
 ### Quick access webpage to SD Services
 
