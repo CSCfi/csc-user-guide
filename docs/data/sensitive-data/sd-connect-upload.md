@@ -4,7 +4,9 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Your data is automatically encrypted when you upload files to SD Connect, while is automatically decrypted during download, as the service provide automated key management.  This is suitable for all file types and formats, but it is supported only for files up to 100 GB.  Largers files or folders can be uploaded [programmatically](./sd-connect-command-line-interface.md). Note that all proeject memmbers can uplaod and download files stored in the same CSC project. 
+!!! info "Share ID"
+
+    Your data is automatically encrypted when you upload files to SD Connect, while is automatically decrypted during download, as the service provide automated key management.  This is suitable for all file types and formats, but it is supported      only for files up to 100 GB.  Largers files or folders can be uploaded [programmatically](./sd-connect-command-line-interface.md). Note that all proeject memmbers can uplaod and download files stored in the same CSC project. 
 
 !!! Note
     If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable uploading files and folders.
