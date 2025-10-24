@@ -106,6 +106,7 @@ We recommend using the [web interface](../computing/webinterface/index.md) for u
 3. In the submit form, select appropriate resources for your session.
 We recommend atleast 8 GB of memory before launching the MATLAB application.
 The MATLAB web application by itself consumes around 4 GB of memory.
+    - ![MATLAB OOD form](./img/matlab-ood-form.png){width=400}
 
 4. You will be presented with MATLAB web application license GUI.
 Select Online License Manager to login with your MathWorks credentials.

@@ -179,6 +179,7 @@ plugins:
         "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
         "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
         "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
+        "computing/webinterface/matlab.md": "apps/matlab.md"
 
 
 markdown_extensions:
