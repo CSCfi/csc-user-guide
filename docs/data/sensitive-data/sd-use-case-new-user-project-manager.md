@@ -89,7 +89,7 @@ You need access to SD services for processing research data. Whether you are the
      **The storage quota** limits the amount of storage space available:
      
      - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
-     - Default volume quota for each virtual desktop is up to 200 TB. This is the storage space used to import files from SD Connect to ASd Desktop for the analysis phase. You can export the volume, before any data has been imported to it, by wiriting to servicedesk@csc.fi (subject: SD Desktop). 
+     - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expant the volume, before any data has been imported to it, by wiriting to servicedesk@csc.fi (subject: SD Desktop). 
 
      [More information about billing units](./sd-billing-units.md)
 
