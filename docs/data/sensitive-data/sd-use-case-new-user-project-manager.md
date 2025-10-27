@@ -13,9 +13,9 @@ You need access to SD services for processing research data. Whether you are the
 1. [Create CSC account](#1-create-csc-account)
 2. [Create CSC project](#2-create-new-csc-project)
 3. [Data protection](#3-data-protection)
-4. [If you have a research team, add them to be your project members](#5-if-you-have-a-research-team-add-them-to-be-your-project-members)
-5. [Closing your project and data retention](#6-closing-your-project-and-data-retention)
-6. [Planning for resources consumption and login ](#7-log-into-sd-services)
+4. [If you have a research team, add them to be your project members](#4-if-you-have-a-research-team-add-them-to-be-your-project-members)
+5. [Closing your project and data retention](#5-closing-your-project-and-data-retention)
+6. [Planning for resources consumption and login ](#6-planning-for-resources-consumption-and-login)
 
 ![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
