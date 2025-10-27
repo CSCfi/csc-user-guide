@@ -182,8 +182,6 @@ SD Connect:
   
 SD Desktop:
 
-- [SD Desktop overwvire and key features](./sd_desktop.md)
+- [SD Desktop overview and key features](./sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)
-
-
 
