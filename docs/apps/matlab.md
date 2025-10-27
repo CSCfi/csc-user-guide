@@ -81,6 +81,7 @@ We recommend using the [web interface](../computing/webinterface/index.md) for u
 1. Start by logging into the web interface of the cluster you want to use: [www.puhti.csc.fi](https://www.puhti.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
 
 2. Then press the MATLAB icon to choose the MATLAB web application.
+    - ![MATLAB OOD pinned apps](./img/matlab-ood-pinned-apps.png){width=400}
 
 3. In the submit form, select appropriate resources for your session.
 We recommend at least 8 GB of memory before launching the MATLAB application.
