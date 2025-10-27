@@ -5,6 +5,7 @@ Both the CSC project manager and project members are responsible for monitoring 
 Please note that after each Billing Units application, there is a two week period during which you cannot submit another request, thus make sure to apply for resources in advance. You will be notified via email when your project’s Billing Units are running low, so you can apply for more in time and avoid service interruptions.
 
 
+
 !!! default "Billing Units and quota"
 
      **Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
@@ -14,7 +15,7 @@ Please note that after each Billing Units application, there is a two week perio
      - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
      - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
      
-     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can [apply for billing units](sd-use-case-new-user-project-manager.md#4-apply-for-more-billing-units) in MyCSC portal.
+     - 30 000 Cloud and Storage BUs is usually enough for initial testing. Next, you should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. The instructions below will guide you through the process.
       
       **The storage quota** limits the amount of storage space available:
  
@@ -22,10 +23,11 @@ Please note that after each Billing Units application, there is a two week perio
       - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expant the volume, before any data has       been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
 
 
-1. [SD Connect BU consumption](#1-create-csc-account)
-2. [SD Desktop BU consmption](#2-create-new-csc-project)
-3. [What happens if your project runs out of Billing Units?](#3-data-protection)
-4. [Apply for more billing units ](#5-if-you-have-a-research-team-add-them-to-be-your-project-members)
+1. [SD Connect BU consumption](#sd-connect-bu-consumption)
+2. [SD Desktop BU consmption](#sd-desktop-bu-consumption)
+3. [What happens if your project runs out of Billing Units?](#what-happens-if-your-project-runs-out-of-billing-units)
+4. [Apply for more billing units ](#apply-for-more-billing-units)
+5. [Log into SD Services](#log-into-sd-services)
 
 
 
