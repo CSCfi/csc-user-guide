@@ -173,7 +173,7 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ### 6. Planning for resources consumption and login
 
-Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need. You can learn more in the next section. You can also delegate this task to one of the CSC project members and you can start directly using the services (links to related user guides):
+Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need. You can learn more in the next [section](./sd-billing-units.md). You can also delegate this task to one of the CSC project members and you can start directly using the services (links to related user guides):
 
 SD Connect:
 
