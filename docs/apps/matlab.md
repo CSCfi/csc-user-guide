@@ -429,6 +429,12 @@ We can fetch the function outputs of a completed job as follows:
 result = j.fetchOutputs()
 ```
 
+We can read the output of the job as follows:
+
+```matlab
+diary(j)
+```
+
 We can also query the efficiency of a job:
 
 ```matlab
