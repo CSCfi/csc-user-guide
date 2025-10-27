@@ -65,10 +65,10 @@ CSC provides the following licenses, shared between all users, for **academic** 
 === "LUMI"
 
     Network license `1766@license10.csc.fi` that provides the following academic licenses for LUMI: 25 MATLAB, 25 Simulink, 25 Control System Toolbox, 25 Curve Fitting Toolbox, 25 Deep Learning Toolbox, 25 Global Optimization Toolbox, 25 Image Processing Toolbox, 25 Optimization Toolbox, 25 Parallel Computing Toolbox, 25 Signal Processing Toolbox, 25 Statistics and Machine Learning Toolbox, 25 Wavelet Toolbox.
-    The academic license allows use only for teaching and academic research at a degree-granting institutes.
+    The academic license allows use only for teaching and academic research at degree-granting institutes.
 
 !!! info
-    If you are a user from a commercial company or research institute you must bring and use your own **commercial** license.
+    If you are a user from a commercial company or research institute, you must bring and use your own **commercial** license.
     Please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
 
@@ -83,16 +83,16 @@ We recommend using the [web interface](../computing/webinterface/index.md) for u
 2. Then press the MATLAB icon to choose the MATLAB web application.
 
 3. In the submit form, select appropriate resources for your session.
-We recommend atleast 8 GB of memory before launching the MATLAB application.
+We recommend at least 8 GB of memory before launching the MATLAB application.
 The MATLAB web application by itself consumes around 4 GB of memory.
     - ![MATLAB OOD form](./img/matlab-ood-form.png){width=400}
 
-4. You will be presented with MATLAB web application license GUI.
-Select Online License Manager to login with your MathWorks credentials.
-Alternatively, select Network License Manager to use network license.
+4. You will be presented with the MATLAB web application license GUI.
+Select Online License Manager to log in with your MathWorks credentials.
+Alternatively, select Network License Manager to use a network license.
     - ![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
 
-5. MATLAB application takes couple of minutes to load.
+5. MATLAB application takes a couple of minutes to load.
 Then press Connect to MATLAB and the web application will open.
 
 If you are trying to log in using MathWorks credentials, but the MATLAB license GUI automatically loads the CSC license server, you need to clear the cached credentials first.
@@ -168,7 +168,7 @@ t3 = toc(t2);
 fprintf("One thread : %d\nTwo threads: %d\n", t1, t3);
 ```
 
-We can also parallelize code in MATLAB using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
+We can also parallelize code in MATLAB using the high-level constructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
 Consider the following serial code that pauses for one second `n` times and measures the execution time:
 
 ```matlab title="funcSerial.m"
@@ -187,7 +187,7 @@ The following serial execution should run for around two seconds:
 t_serial = funcSerial(2)
 ```
 
-We can parallelize the function using the parallel for-loop construct, `parfor` as follows:
+We can parallelize the function using the parallel for-loop construct, `parfor`, as follows:
 
 ```matlab title="funcParallel.m"
 function t = funcParallel(n)
@@ -200,7 +200,7 @@ end
 ```
 
 To run parallel code, we need to create a parallel pool using processes or threads and then run the parallel code.
-We can create a parallel pool using two processes and run the parallel code with the same argument as serial but it should only take around one second:
+We can create a parallel pool using two processes and run the parallel code with the same argument as the serial version, but it should only take around one second:
 
 ```matlab title="funcProcesses.m"
 function t = funcProcesses(n)
@@ -214,12 +214,12 @@ end
 t_processes = funcProcesses(2)
 ```
 
-Same using parallel pool with threads:
+The same using a parallel pool with threads:
 
 ```matlab title="funcThreads.m"
 function t = funcThreads(n)
 pool = parpool('Threads', n);
-t = funcParallel(n)
+t = funcParallel(n);
 delete(pool);
 end
 ```
@@ -228,7 +228,7 @@ end
 t_threads = funcProcesses(2)
 ```
 
-It also possible to use GPUs in MATLAB, but only Nvidia GPUs are supported.
+It is also possible to use GPUs in MATLAB, but only Nvidia GPUs are supported.
 We can query the available GPU devices and perform computation on the GPU as follows:
 
 ```matlab title="funcGPU.m"
