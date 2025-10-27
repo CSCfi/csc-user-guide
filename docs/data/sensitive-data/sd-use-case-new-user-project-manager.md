@@ -13,10 +13,9 @@ You need access to SD services for processing research data. Whether you are the
 1. [Create CSC account](#1-create-csc-account)
 2. [Create CSC project](#2-create-new-csc-project)
 3. [Data protection](#3-data-protection)
-4. [Applying for more Billing Units](#4-apply-for-more-billing-units)
-5. [If you have a research team, add them to be your project members](#5-if-you-have-a-research-team-add-them-to-be-your-project-members)
-6. [Closing your project and data retention](#6-closing-your-project-and-data-retention)
-7. [Log into SD Services](#7-log-into-sd-services)
+4. [If you have a research team, add them to be your project members](#5-if-you-have-a-research-team-add-them-to-be-your-project-members)
+5. [Closing your project and data retention](#6-closing-your-project-and-data-retention)
+6. [Log into SD Services](#7-log-into-sd-services)
 
 ![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
@@ -83,10 +82,14 @@ You need access to SD services for processing research data. Whether you are the
      **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
      
      - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
-     - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
-     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can [apply for more billing units](#4-apply-for-more-billing-units) in MyCSC portal.
+     - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure
      
-     **The storage quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
+     - 30 000 Cloud and Storage BUs is usually enough for initial testing. 
+     
+     **The storage quota** limits the amount of storage space available:
+     
+     - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
+     - Default volume quota for each virtual desktop is up to 200 TB. This is the storage space used to import files from SD Connect to ASd Desktop for the analysis phase. You can export the volume, before any data has been imported to it, by wiriting to servicedesk@csc.fi (subject: SD Desktop). 
 
      [More information about billing units](./sd-billing-units.md)
 
@@ -134,35 +137,8 @@ If you need assistance with the above points or support to verify if SD service 
 
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Descriptionof_1025.png)
 
----
 
-### 4. Apply for more billing units 
-
-You can apply for more BUs for your CSC project in MyCSC portal. [More information about billing units in the next section in this user guide](./sd-billing-units.md)
-
-1. Sign in to MyCSC with you Haka or Virtu credentials.
-2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
-3. Choose a project and click to open it.
-4. In the new view, scroll down to **Resources** window and click **Apply for resources**. A new window will appear (this might take up to 8 seconds).
-![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
-5. In the new window you will see the services you have active in the project (in gray). Press **Next**.
-![Continue to billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_MoreBUs_1025.png)
-6. In the second view, click on the Billing Units package you need (e.g. M) for:
-    - Cloud Billing Unit type (used by SD Desktop)
-    - Storage Billing Units type (for SD Connect)
-    - Click **Next**.
-7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. If you don't have publications directly related to this work yet, any past publication from your research group will be fine. Click **Add**.
-    - Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
-    - Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
-    - Click **Next**.
-9. In the last view, you can review the project description and field on science. Finally, you can click **Submit**.
-
-
-
-
----
-
-### 5. If you have a research team, add them to be your project members
+### 4. If you have a research team, add them to be your project members
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
 - Add members from **Members** window. Click **Add members**.
@@ -179,7 +155,7 @@ You can apply for more BUs for your CSC project in MyCSC portal. [More informati
 
 ---
 
-### 6. Closing your project and data retention
+### 5. Closing your project and data retention
 
 The default lifetime of a CSC project is one year, after which it will be automatically closed and all data deleted. As a project manager, you can either extend the project duration or directly close your project after completing your research.  As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure) via the MyCSC portal.
 
