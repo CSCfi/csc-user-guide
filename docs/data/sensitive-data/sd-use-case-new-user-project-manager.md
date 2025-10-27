@@ -15,7 +15,7 @@ You need access to SD services for processing research data. Whether you are the
 3. [Data protection](#3-data-protection)
 4. [If you have a research team, add them to be your project members](#5-if-you-have-a-research-team-add-them-to-be-your-project-members)
 5. [Closing your project and data retention](#6-closing-your-project-and-data-retention)
-6. [Log into SD Services](#7-log-into-sd-services)
+6. [Planning for resources consumption and login ](#7-log-into-sd-services)
 
 ![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
@@ -170,9 +170,10 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ---
 
-### 7. Log into SD Services
 
-- Now all the preparations are ready and you can start using the services (links to related user guides):
+### 6. Planning for resources consumption and login
+
+Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need. You can learn more in the next section. You can also delegate this task to one of the CSC project members and you can start directly using the services (links to related user guides):
 
 SD Connect:
 
@@ -183,3 +184,6 @@ SD Desktop:
 
 - [SD Desktop overwvire and key features](./sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)
+
+
+
