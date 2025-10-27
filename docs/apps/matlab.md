@@ -92,7 +92,7 @@ Select Online License Manager to log in with your MathWorks credentials.
 Alternatively, select Network License Manager to use a network license.
     - ![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
 
-5. MATLAB application takes a couple of minutes to load.
+5. The MATLAB application takes a couple of minutes to load.
 Then press Connect to MATLAB and the web application will open.
 
 If you are trying to log in using MathWorks credentials, but the MATLAB license GUI automatically loads the CSC license server, you need to clear the cached credentials first.
@@ -145,7 +145,7 @@ export MLM_LICENSE_FILE="port@mylicenseserver.com"
 
 ## Computational threads and parallel computing toolbox
 
-MATLAB's linear algebra operations, element-wise operations on large arrays and builtin mathematical operations have builtin threading which is controlled by `maxNumCompThreads`.
+MATLAB's linear algebra operations, element-wise operations on large arrays, and builtin mathematical operations have builtin threading, which is controlled by `maxNumCompThreads`.
 MATLAB typically sets it automatically to the correct value, even in Slurm jobs.
 You can compare the effects of setting one versus two threads for matrix multiplication by running the following MATLAB script:
 
@@ -214,7 +214,7 @@ end
 t_processes = funcProcesses(2)
 ```
 
-The same using a parallel pool with threads:
+Here's the same using a parallel pool with threads:
 
 ```matlab title="funcThreads.m"
 function t = funcThreads(n)
@@ -253,8 +253,8 @@ C = funcGPU(1000);
 ### Local configuration
 
 MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the user's computer to the Puhti cluster's MATLAB workers.
-Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Puhti cluster and a user-side configuration.
-You can run the MATLAB script to for the user-side configuration:
+Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Puhti cluster, and a user-side configuration.
+You can run the MATLAB script for the user-side configuration:
 
 ```matlab title="MATLAB script"
 % Define local MATLAB configuration directory.
@@ -288,7 +288,7 @@ addpath(confdir)
 savepath()
 ```
 
-Finally, configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt:
+Finally, configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supplying your username to the prompt:
 
 ```matlab title="MATLAB script"
 configCluster();
@@ -303,9 +303,9 @@ configCluster();
     Provide the path to your private key and enter the password for the private key if one exists.
     MATLAB will store the path to your key and will not request it again in future sessions.
 
-We define the resource reservation using [`parcluster`](https://www.mathworks.com/help/parallel-computing/parcluster.html) and submit the function or script the cluster using [`batch`](http://www.mathworks.com/help/distcomp/batch.html).
-The `parcluster` object is stateful, thus we explicitly unset properties when they are unused, such as GPUs for CPU only jobs.
-You can use the following examples, just replace `<project>` to your project, such as `project_2001234`, and modify the resource reservation to suit your needs.
+We define the resource reservation using [`parcluster`](https://www.mathworks.com/help/parallel-computing/parcluster.html) and submit the function or script to the cluster using [`batch`](http://www.mathworks.com/help/distcomp/batch.html).
+The `parcluster` object is stateful, thus we explicitly unset properties when they are unused, such as GPUs for CPU-only jobs.
+You can use the following examples; just replace `<project>` with your project, such as `project_2001234`, and modify the resource reservation to suit your needs.
 
 === "Serial"
 
@@ -359,11 +359,11 @@ These examples reserve 1 MATLAB Parallel Server license on the cluster for the d
 !!! warning
     Multinode jobs do not seem to work in r2025a.
 
-We can also create a parallel pool of workers by setting the `'Pool'` argument to the amount of workers we want to reserve (translates to `--ntasks=<PoolSize>` in the Slurm reservation).
-The `parcluster` resources tell how much resources are reserved per worker.
-**We should reserve pool in this way when we need more workers that can fit into a single node, otherwise we can reserve parallel job as was described in the previous section and use reserve pool with threads or processes.**
+We can also create a parallel pool of workers by setting the `'Pool'` argument to the number of workers we want to reserve (translates to `--ntasks=<PoolSize>` in the Slurm reservation).
+The `parcluster` resources tell how many resources are reserved per worker.
+**We should reserve a pool in this way when we need more workers than can fit into a single node; otherwise, we can reserve a parallel job as was described in the previous section and reserve a pool with threads or processes.**
 
-Here is an example of parallel pool with 50 workers as follows:
+Here is an example of a parallel pool with 50 workers as follows:
 
 ```matlab title="pool.m"
 c = parcluster();
@@ -377,26 +377,26 @@ c.AdditionalProperties.GPUsPerNode = '';
 j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddClientPath', false);
 ```
 
-Note that the parallel pool will always request one additional processes to manage the pool of workers.
-This example reserves 51 MATLAB Parallel Server license on the cluster for the duration of the job.
+Note that the parallel pool will always request one additional process to manage the pool of workers.
+This example reserves 51 MATLAB Parallel Server licenses on the cluster for the duration of the job.
 Puhti has 500 MATLAB Parallel Server licenses shared by all users.
 
 
 ### Querying jobs and output
 
-Get handle on the parcluster object:
+Get a handle on the parcluster object:
 
 ```matlab
 c = parcluster();
 ```
 
-Retrieve last 5 jobs:
+Retrieve the last 5 jobs:
 
 ```matlab
 c.Jobs(end-4:end)
 ```
 
-Retrieve job by its identifier:
+Retrieve a job by its identifier:
 
 ```matlab
 j = c.findJob('ID', 11);
@@ -420,7 +420,7 @@ We can also query the efficiency of a job:
 seff(j)
 ```
 
-Data that has been written to files on the cluster needs to be retrieved directly from the file system for example using `scp`.
+Data that has been written to files on the cluster needs to be retrieved directly from the file system, for example, using `scp`.
 
 
 <!--
