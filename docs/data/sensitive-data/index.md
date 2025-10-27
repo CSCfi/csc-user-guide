@@ -1,19 +1,8 @@
 # Sensitive Data (SD) services for research: user guide
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services.
-
-To access CSC's SD Services, it is important to first identify the type of sensitive data  your research involves, whether it is:
-
-* research data (e.g. consented data collected for scientific studies)
-  
-* or secondary use of health and social data  (e.g. register data provided by the Finnish Social and Health Data Permit Authority Findata or a public register). 
-
-This determines the appropriate CSC project type used for access (Academic or Secondary use respectively) and the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read only mode. 
+Welcome to the user guide for CSC's Sensitive Data (SD) services. These guides are structured based on the type of data involved in your research and the legal grounds for its processing**. Start by identifing the type of confidantial or sensitive data your research involves, whether it is: **research data** (e.g. consented data collected for scientific studies) or **health and social data for seconday use** (e.g. register data provided by the Finnish Social and Health Data Permit Authority, Findata, or a public register). This determines the appropriate CSC project type used to access the services and the access rights for project members.
 
 Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
-
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ### Quick links to user guides
@@ -55,6 +44,8 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 </div>
 
 
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Quick access webpage to SD Services
 
