@@ -32,43 +32,6 @@ You must have a valid license for each specific toolbox you wish to use.
 
 License options are covered in the following sections.
 
-<!--
-The academic license allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
-
-- Systems: Puhti, Mahti
-- Network license: `1766@license4.csc.fi`
-- License type: Academic
-- Licenses: 
-  * 5 MATLAB
-  * 2 Parallel Computing Toolbox.
-  * 500 MATLAB Parallel Server
-
----
-
-The academic license allows use only for teaching and academic research at a degree-granting institutes.
-
-- Systems: LUMI
-- Network license: `1766@license10.csc.fi`
-- License: Academic
-- Licenses:
-  * 25 MATLAB
-  * 25 Simulink
-  * 25 Control System Toolbox
-  * 25 Curve Fitting Toolbox
-  * 25 Deep Learning Toolbox
-  * 25 Global Optimization Toolbox
-  * 25 Image Processing Toolbox
-  * 25 Optimization Toolbox
-  * 25 Parallel Computing Toolbox
-  * 25 Signal Processing Toolbox
-  * 25 Statistics and Machine Learning Toolbox
-  * 25 Wavelet Toolbox.
-
----
-
-If you are a user from a commercial company or research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
--->
-
 
 ## Overview
 
@@ -91,6 +54,22 @@ Available on Puhti only.
 
 All options support MATLAB versions R2023b to R2025a.
 The parallel server also supports older versions back to R2021a.
+
+CSC provides the following licenses, shared between all users, for **academic** use:
+
+=== "Puhti and Mahti"
+
+    Network license `1766@license4.csc.fi` that provides the following academic licenses for Puhti and Mahti: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
+    The academic license allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
+
+=== "LUMI"
+
+    Network license `1766@license10.csc.fi` that provides the following academic licenses for LUMI: 25 MATLAB, 25 Simulink, 25 Control System Toolbox, 25 Curve Fitting Toolbox, 25 Deep Learning Toolbox, 25 Global Optimization Toolbox, 25 Image Processing Toolbox, 25 Optimization Toolbox, 25 Parallel Computing Toolbox, 25 Signal Processing Toolbox, 25 Statistics and Machine Learning Toolbox, 25 Wavelet Toolbox.
+    The academic license allows use only for teaching and academic research at a degree-granting institutes.
+
+!!! info
+    If you are a user from a commercial company or research institute you must bring and use your own **commercial** license.
+    Please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
 
 ## MATLAB web application
