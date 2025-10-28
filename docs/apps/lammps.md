@@ -1,31 +1,54 @@
 ---
 tags:
   - Free
+catalog:
+  name: LAMMPS
+  description: Fast molecular dynamics engine with large force field selection
+  license_type: Free
+  disciplines:
+    - Chemistry
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # LAMMPS
 
 LAMMPS is a "Molecular Dynamics Simulator" which supports a wide variety of
 [different force fields](https://docs.lammps.org/Intro_features.html#ff). CSC
-does not have a general purpose installation of LAMMPS as each user typically
-needs a more or less customized version. Please read below how to create yours.
+provides a general purpose installation of LAMMPS, but it does not include all
+[optional packages and plugins](https://docs.lammps.org/Packages.html) that are
+available. Thus, you may have to build your own custom version depending on
+your needs. Please read the instructions below.
 
 [TOC]
 
 ## Available
 
-* Puhti: Instructions and CMake files available for building in
-  `/appl/soft/chem/lammps/`
-* Mahti: Instructions and CMake files available for building in
-  `/appl/soft/chem/lammps/`
-* LUMI: Instructions and CMake files available for building in
-  `/appl/local/csc/soft/chem/lammps`
+=== "Puhti"
+    | Release        | Available modules  | Notes |
+    |:--------------:|:-------------------|:-----:|
+    | 29 August 2024 | `lammps/29Aug2024` | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2) |
 
-!!! info "Note"
-    Don't use prebuilt binaries, but take a look at the instructions below for
-    configuring and compiling LAMMPS for optimal performance. Don't hesitate to
-    [contact CSC Service Desk](../support/contact.md) if you encounter any
-    problems!
+    * Instructions for building your own custom versions available at
+      `/appl/soft/chem/lammps/custom`.
+
+=== "Mahti"
+    | Release        | Available modules  | Notes |
+    |:--------------:|:-------------------|:-----:|
+    | 29 August 2024 | `lammps/29Aug2024` | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2) |
+
+    * Instructions for building your own custom versions available at
+      `/appl/soft/chem/lammps/custom`.
+
+=== "LUMI"
+    | Release        | Available modules  | Notes |
+    |:--------------:|:-------------------|:-----:|
+    | 29 August 2024 | `lammps/29Aug2024-cpu`<br>`lammps/29Aug2024-gpu` | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2)<br>GPU-version ([Kokkos](https://docs.lammps.org/Speed_kokkos.html)) available |
+
+    * Instructions for building your own custom versions available at
+      `/appl/local/csc/soft/chem/lammps/custom`.
 
 ## License
 
@@ -34,15 +57,35 @@ Public License (GPL).
 
 ## Usage
 
-1. Navigate to `/appl/soft/chem/lammps/` on Puhti/Mahti, or
-   `/appl/local/csc/soft/chem/lammps` on LUMI.
-2. If you can't find a pre-downloaded source code (e.g.
-   `stable_2Aug2023.tar.gz`) or the LAMMPS version is not suitable, download it
-   yourself from the [LAMMPS home page](https://lammps.org/download.html).
-3. Read the compilation instructions, e.g. `lammps-cpu-instruction.txt`.
-4. Select the packages you want to include and compile the software following
+Load a module installed by CSC and check which packages are available. For
+example:
+
+```bash
+module load lammps/29Aug2024
+lmp -help
+```
+
+On LUMI, you need to first activate CSC's local software stack before you can
+see and load the module. For example:
+
+```bashs
+module use /appl/local/csc/modulefiles
+module load lammps/29Aug2024-gpu
+lmp -help
+```
+
+If the pre-installed module does not include the packages you need, you may
+install your own custom version as follows:
+
+1. Navigate to `/appl/soft/chem/lammps/custom` on Puhti/Mahti, or
+   `/appl/local/csc/soft/chem/lammps/custom` on LUMI.
+2. Read the compilation instructions, e.g. `lammps-cpu-instruction.txt`.
+3. Select the packages you want to include and compile the software following
    the instructions.
-5. Example input and batch scripts are available in the `example` directory.
+4. Test your installation.
+    1. Example inputs are available in the
+       [LAMMPS GitHub repository](https://github.com/lammps/lammps/tree/develop/bench).
+    2. Example batch scripts are available [below](#batch-script-examples).
 
 !!! info "Compile using the fast local disk"
     Please compile in `$TMPDIR` on Puhti/Mahti for faster performance and
@@ -61,15 +104,82 @@ Public License (GPL).
     When running, it is recommended to set the number of MPI tasks per node to
     be equal to the number of physical GPUs on the node (GCDs on LUMI).
     Assigning multiple MPI tasks to the same GPU is usually only faster if some
-    portions of the input script have not been ported to use Kokkos. See
-    [the LAMMPS documentation](https://docs.lammps.org/Speed_kokkos.html) for
-    more details.
+    parts of the input script have not been ported to use Kokkos.
+    [See the LAMMPS documentation for more details](https://docs.lammps.org/Speed_kokkos.html).
 
-Consult these pages for generic instructions about running jobs:
+### Batch script examples
 
-* [How to create batch jobs on Puhti](../computing/running/creating-job-scripts-puhti.md)
-* [How to create batch jobs on Mahti](../computing/running/creating-job-scripts-mahti.md).
-* [How to create batch jobs on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/batch-job/)
+=== "Puhti (pure MPI)"
+    ```bash
+    !/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=40
+
+    module purge
+    module load lammps/29Aug2024
+
+    srun lmp -in in.script
+    ```
+
+=== "Mahti (hybrid MPI/OpenMP)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=medium
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=4
+    #SBATCH --ntasks-per-node=64
+    #SBATCH --cpus-per-task=2
+
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+    module purge
+    module load lammps/29Aug2024
+
+    srun lmp -in in.script -sf omp
+    ```
+
+=== "LUMI-C (hybrid MPI/OpenMP)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=4
+    #SBATCH --ntasks-per-node=64
+    #SBATCH --cpus-per-task=2
+
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+    module use /appl/local/csc/modulefiles
+    module load lammps/29Aug2024-cpu
+
+    srun lmp -in in.script -sf omp
+    ```
+
+=== "LUMI-G (GPU)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --gpus-per-node=8
+
+    export OMP_NUM_THREADS=1
+    export OMP_PROC_BIND=spread
+    export OMP_PLACES=threads
+    export MPICH_GPU_SUPPORT_ENABLED=1
+
+    module use /appl/local/csc/modulefiles
+    module load lammps/29Aug2024-gpu
+
+    srun lmp -in in.script -k on g ${SLURM_GPUS_ON_NODE} -sf kk -pk kokkos
+    ```
 
 ### Performance notes
 
@@ -87,6 +197,13 @@ CPUs and GPUs on Mahti and LUMI. The system contains 16M atoms.
 * Smaller systems are best run on CPUs or a single GPU (or by sharing one GPU
   among multiple independent trajectories using multi-replica simulations,
   [see below](#high-throughput-computing-with-lammps)).
+* Launching multiple OpenMP threads per MPI task may boost CPU performance. Use
+  `-sf omp` command-line switch and set `OMP_NUM_THREADS` environment variable
+  to activate OpenMP threading for all styles that support it. Note that the
+  product of MPI tasks (`--ntasks-per-node`) and threads/task
+  (`--cpus-per-task`) should not exceed the physical number of cores on a node,
+  otherwise performance will suffer. See e.g.
+  [the Mahti example above](#batch-script-examples).
 
 ### High-throughput computing with LAMMPS
 
@@ -108,9 +225,8 @@ for Puhti below.
 #SBATCH --mem-per-cpu=100
 
 module purge
-module load gcc/11.3.0 openmpi/4.1.4 fftw/3.3.10-mpi-omp
+module load lammps/29Aug2024
 
-export PATH="/path/to/your/lammps/installation/bin:${PATH}"
 export OMP_NUM_THREADS=1
 
 srun lmp -in loop.lammps -partition 24x5
@@ -147,9 +263,9 @@ a GPU) among all 24 replicas could look like:
 #SBATCH --ntasks-per-node=24
 #SBATCH --gpus-per-node=1
 
-module load PrgEnv-amd craype-x86-trento craype-accel-amd-gfx90a rocm cray-fftw
+module use /appl/local/csc/modulefiles
+module load lammps/29Aug2024-gpu
 
-export PATH="/path/to/your/lammps/installation/bin:${PATH}"
 export MPICH_GPU_SUPPORT_ENABLED=1
 export OMP_NUM_THREADS=1
 export OMP_PROC_BIND=spread

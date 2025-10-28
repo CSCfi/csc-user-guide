@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: JAX
+  description: Autograd and XLA, brought together for high-performance machine learning
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # JAX
@@ -59,7 +69,7 @@ those provided by installed packages should work as normal.
 For other commands, you may need to prefix them with
 `apptainer_wrapper exec`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md).
+containers](../computing/containers/overview.md#running-containers).
 
 
 ## Additional packages

@@ -92,7 +92,7 @@ running multiple trajectories per GCD. Below is an example batch script that lau
 to the Mahti example above.
 
 ```bash
-!/bin/bash
+#!/bin/bash
 #SBATCH --partition=standard-g
 #SBATCH --account=<project>
 #SBATCH --time=01:00:00
@@ -101,7 +101,7 @@ to the Mahti example above.
 #SBATCH --ntasks-per-node=32
 
 module use /appl/local/csc/modulefiles
-module load gromacs/2024.4-gpu
+module load gromacs/2025.2-gpu
 
 export OMP_NUM_THREADS=1
 

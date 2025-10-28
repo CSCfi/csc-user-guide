@@ -7,17 +7,20 @@ search:
 
 A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu) is required for creating new projects.
 
-1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account.
+1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account **or** Haka/Virtu account.
 2. Choose **Projects** in the navigation menu on the left.
-3. On the top of the page choose **+ New project**.
-4. Fill in the **Project name** and **Project description.**
-5. Choose the **Project category**. Available categories are:
+3. On the right click  **+ New project**.
+4. Choose the **Project category**. Available categories are:
 	* [Academic](how-to-create-new-project.md#academic)
-	* [Commercial](how-to-create-new-project.md#commercial)
 	* [Course](how-to-create-new-project.md#course)
 	* [LUMI](how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
+5. Fill in the **Project name**, **Project description** and all the required fields.
+6. Select the services you want to use in this project.
+7. Adjust the resource packages for your project. 
+8. Read and accept the terms of use.
 
 ![New Project creation view.](../img/mycsc-create-new-project.png){width=400}
+
 ## Academic
 
 Academic project category is reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} and they can be created only by members of Finnish higher education institutions, state research institutes and CSC.
@@ -74,7 +77,7 @@ For further information on LUMI projects please visit [Users in Finland](https:/
 
 A student can be the project manager of the student project. Please read the [Getting started with the Student Project](../support/tutorials/student_quick.md) carefully and then you can continue with the instructions below.
 
-The student category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to support student's work with higher educational institutes' courses and thesis work.
+The student category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases) use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to support student's work with higher educational institutes' courses and thesis work.
 
 1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account.
 2. Choose **Projects** in the navigation menu on the left.
@@ -88,3 +91,36 @@ The student category is reserved for [free-of-charge](https://research.csc.fi/fr
 10. Click **Create project**.
 
 If you wish, you can add other members to your project. The easiest way to do so is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
+
+## Right to create CSC projects based on Haka affiliation
+
+Here we describe how the Haka identity linked to your CSC account affects your right to create academic, course and student type CSC projects. During your Haka login we get information about your position in your home organisation. Below this information about your position is called "Haka affiliation information". In the table below you can see how Haka affiliation affects on the right to create and act as the Project Manager of a CSC Project. 
+
+| Haka Affiliation ([eduPersonScopedAffiliation](https://wiki.eduuni.fi/spaces/CSCHAKA/pages/256884450/funetEduPersonSchema2dot5#funetEduPersonSchema2dot5-eduPersonScopedAffiliation)) | Description ([from Haka documentation](https://wiki.eduuni.fi/spaces/CSCHAKA/pages/256884450/funetEduPersonSchema2dot5#funetEduPersonSchema2dot5-eduPersonAffiliation)) | Academic Project | Course Project | Student Project |
+| -- | -- | -- | -- | -- |
+| `faculty@org.fi` | research and education workers at laboratories and institutes; e.g. professors, researchers, lecturers, assistants, whether employed by the institution or some other organisation (such as Academy of Finland). Docents may be affiliated as faculty, if they are actively involved in research or education in an institute. | ✅ | ✅ | ❌ |
+| `staff@org.fi` | administrational workers at the institution, whether employed by the institution or some other organisation | ✅ | ✅ | ❌ |
+| `employee@org.fi` |a person actually employed by the institution  | ✅ | ✅ | ❌ |
+| `student@org.fi` (without being faculty, staff or employee) | a student who has registered as being present (läsnäoleva). | ❌ | ❌ | ✅ |
+| `member@org.fi` (without being faculty, staff or employee) | This value covers all categories mentioned above plus students taking qualifying education courses, further education courses or open university and further education center students (pätevöitymiseen tähtäävä täydennyskoulutus, muu täydennyskoulutus, avoin yliopisto/korkeakoulu, täydennyskoulutuskeskuksen opiskelijat). | ❌ | ❌ | ✅ |
+
+In addition, you may have one or more of the following Haka affiliation information types, but these do not give you the right to create CSC Projects: `affiliate@org.fi`, `alum@org.fi`, `library-walk-in@org.fi`
+
+More information about the policy in [Prerequisites and responsibilities for a CSC project manager](https://research.csc.fi/terms-of-use/prerequisites-for-a-project-manager/).
+
+_Note_: If you are not eligible to be the Project Manager yourself, you might have a supervisor or colleague that can create a CSC Project and add you as a CSC project member.
+
+### Checking your Haka affiliation information
+
+You can check your Haka attributes in MyCSC portal:
+
+1. Go to [https://my.csc.fi/userinfo](https://my.csc.fi/userinfo) and click on **Retrieve userinfo**
+2. Log in with your organization's Haka ID
+3. Your affiliations are in the **eduPersonScopedAffiliation** section
+
+### Problems with the Haka affiliation information
+- If you cannot create a CSC Project, please log in to MyCSC again with Haka to update you Haka affiliation information.
+- If you think that your Haka affiliation information may be incorrect, please contact your home organisation.
+
+
+

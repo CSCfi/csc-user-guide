@@ -10,17 +10,24 @@ csc-workspaces
 An example output is shown below:
 
 ```text
-Personal home folder        Quota
---------------------------------------------------------------------------
-/users/jdoe                 Capacity:     653M/10G   Files:    .68k/100k
+[kkayttaj@puhti-login11 ~]$ csc-workspaces 
 
-Project applications        Quota
---------------------------------------------------------------------------
-/projappl/project_2000040   Capacity:   283.5M/50G   Files:    .37k/100k
+Disk area               Capacity(used/max)  Files(used/max)  Cleanup
+----------------------------------------------------------------------
+Personal home folder
 
-Project scratch             Quota
---------------------------------------------------------------------------
-/scratch/project_2000040    Capacity:   1.098T*/1T   Files:   .02k/1000k
+/users/kkayttaj                 4.4G/10G         24K/100K        n/a
+----------------------------------------------------------------------
+Project: project_2000123 "Project X"
+
+/projappl/project_2000123        24G/50G         36K/100K        n/a
+/scratch/project_2000123        103G/1.0T       389K/1.0M       180d
+----------------------------------------------------------------------
+Project: project_2001234 "Project Y"
+
+/projappl/project_2001234        85G/100G       282K/600K        n/a
+/scratch/project_2001234       7.2T*/7.0T       2.7M/5.0M        90d
+----------------------------------------------------------------------
 ```
 
 The asterisk (`*`) indicates which quota is exceeded. To be able to create
@@ -34,7 +41,7 @@ can [apply for more quota](../../accounts/how-to-increase-disk-quotas.md).
     creation of excessive numbers of files which cause extra load on the Lustre
     parallel file system used in the HPC environment. This manifests as
     prolonged startup times and disk slowness affecting all users.
-    
+
     If you need to use Conda on CSC supercomputers, we require that you
     [containerize](../../computing/containers/overview.md) your environment,
     see [usage policy](../../computing/usage-policy.md#conda-installations). To
@@ -44,8 +51,8 @@ can [apply for more quota](../../accounts/how-to-increase-disk-quotas.md).
 If you are new to containers, you can consult the following relevant sections
 of tutorials which are collected as part of previous CSC courses:
 
- - [Using CSC HPC Environment Efficiently course](https://csc-training.github.io/csc-env-eff/)
- - [Containers and Workflows in Bioinformatics course](https://yetulaxman.github.io/containers-workflows/)
+* [Using CSC HPC Environment Efficiently course](https://csc-training.github.io/csc-env-eff/)
+* [Containers and Workflows in Bioinformatics course](https://yetulaxman.github.io/containers-workflows/)
 
 ## I have deleted many files, but still get disk quota exceeded warning?
 
@@ -68,3 +75,6 @@ lue $HOME
 ```
 
 [See also this LUE tutorial](https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-lue.html).
+
+If you are a Python user and you notice that `.cache/pip` seems to be the culprit, 
+see our FAQ entry on [how to configure the pip cache](../faq/python-pip-cache.md).

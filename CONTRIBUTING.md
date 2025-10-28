@@ -58,7 +58,8 @@ must use pull requests.
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
- - When creating a new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs for example). For new software (=apps) pages, add them to by_discipline.md. **Do not** manually edit by_license.md or index.md files under apps since these are automatically generated. See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-panel).
+ - When creating a new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs for example). See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-panel).
+    - For new software (Applications) pages, see [this FAQ entry](FAQ.md#how-do-i-add-a-new-applications-page) on how to include them on the Applications index pages. **Do not edit these index pages by hand!**
  - Make a pull request for your work to be added to Master
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it. See the [FAQ](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do) for instructions.
     - Assign one or more reviewers, try to choose someone who knows the _content_. See also the [FAQ](FAQ.md#how-and-who-should-i-ask-to-review-my-pr).
@@ -194,6 +195,8 @@ A newbie-friendly guide on how to set up the necessary tools on Windows is avail
 
 ## Building the website using the included Dockerfile
 
+**This has some drawbacks, see [below](#development-container) for an alternative.**
+
 You can also create a Docker container to host the docs. First build
 an image from the included Dockerfile.
 
@@ -211,6 +214,69 @@ sudo docker run --rm -it -p 80:8000 --name csc-user-guides csc-user-guides
 This will run a web server on your laptop in port 80. You can view the
 content of the user guides by pointing your browser to
 [localhost](http://localhost).
+
+### Development container
+
+A [Containerfile](development/Containerfile.development) is included for building a container image with live-reload support.
+
+#### Usage with rootless _Podman_
+
+First, build the container image with the command
+
+```bash
+podman build -t docs-development -f development/Containerfile.development .
+```
+
+Then, start a container&mdash;bind-mounting the repository directory (`./`) to `/csc-user-guide` inside the container and publishing the port `8000`&mdash;with
+
+```bash
+podman run -it -v ./:/csc-user-guide -p 8000:8000 localhost/docs-development:latest serve
+```
+
+The site should be up at `localhost:8000` momentarily.
+
+If you define an alias `mkdocs` for the Podman command like so
+
+```bash
+alias mkdocs='podman run -it -v ./:/csc-user-guide -p 8000:8000 localhost/docs-development:latest'
+```
+
+running the container is almost like running a regular installation of _MkDocs_:
+
+```console
+$ mkdocs --help
+Usage: mkdocs [OPTIONS] COMMAND [ARGS]...
+
+  MkDocs - Project documentation with Markdown.
+
+Options:
+  -V, --version         Show the version and exit.
+  -q, --quiet           Silence warnings
+  -v, --verbose         Enable verbose output
+  --color / --no-color  Force enable or disable color and wrapping for the output. Default is auto-detect.
+  -h, --help            Show this message and exit.
+
+Commands:
+  build      Build the MkDocs documentation.
+  get-deps   Show required PyPI packages inferred from plugins in mkdocs.yml.
+  gh-deploy  Deploy your documentation to GitHub Pages.
+  new        Create a new MkDocs project.
+  serve      Run the builtin development server.
+```
+
+#### Building with upgraded Python dependencies
+
+The file [development/packages.txt](development/packages.txt) contains the currently used Python packages without explicit versions. To build an image with the latest versions for the packages available to _pip_ on the base image (`rockylinux:8`), include `--build-args upgrade=true` for the build command (possibly using a different tag, such as `docs-upgrade`):
+
+```bash
+podman build -t docs-upgrade -f development/Containerfile.development --build-args upgrade=true .
+```
+
+The image now has the latest available Python packages installed instead of the versions frozen in [requirements.txt](requirements.txt). The upgraded environment can now be, for example, frozen into `requirements.txt` with
+
+```bash
+podman run --entrypoint '["/bin/bash", "-c", "pip3 freeze"]' localhost/docs-upgrade:latest > requirements.txt
+```
 
 ## Finding pages that might be outdated
 

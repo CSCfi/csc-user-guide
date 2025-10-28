@@ -11,6 +11,9 @@
 * [I need a Database, where can I deploy it?](database.md)
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
 * [How to write good support requests to CSC Service Desk](../support-howto.md)
+* [My SSH keys do not work](ssh-keys-not-working.md)
+* [I have questions about the Billing Unit renewal (2025)](bu-renewal.md)
+* [Connecting to CSC supercomputers using VS Code fails with out-of-memory error](vscode-out-of-memory.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -23,9 +26,10 @@
 ## Accounts
 * [I cannot login. What to do?](i-cannot-login.md)
 * [I forgot MyCSC password. How do I get a new one?](new-password.md)
+* [How to solve issues with multi-factor authentication (MFA)](issues-with-mfa.md)
 * [How to create a CSC user account?](how-to-create-CSC-user-account.md)
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
-* [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
+* [Why is a user called 'system' using our resources](who-unknown-is-using-our-resources.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
 * [I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?](how-to-change-organization.md)
 * [A foreign researcher is joining our research group as a visiting scientist. Can they receive an academic CSC user account?](can-visitors-get-user-accounts.md)
@@ -44,6 +48,7 @@
 * [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
 * [How do I create my own Python environment?](../tutorials/python-usage-guide.md#creating-your-own-python-environments)
 * [How to troubleshoot Python installation problems?](python-package-trouble.md)
+* [How to avoid Python pip cache filling up my home directory](python-pip-cache.md)
 
 ## Allas
 
@@ -52,10 +57,11 @@
 * [Is it possible to move data in Allas to new project?](is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](is-it-possible-to-make-data-in-allas-read-only.md)
 * [What to do for data in Allas after project ends?](what-to-do-for-data-in-allas-after-project-ends.md)
+* [How to make a bucket public?](how-to-make-a-bucket-public.md)
 
 ## Pouta
 
-* [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
+* [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-cpouta.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
 * [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
@@ -68,6 +74,7 @@
 * [How to resize an instance or volume in Pouta?](how-to-resize-in-pouta.md)
 * [How to use cPouta for Remote Desktop](how-to-use-cpouta-for-remote-desktop.md)
 * [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
+* [Is nested virtualization supported on Pouta?](is-nested-virtualization-supported.md)
 * [Is Pouta backed up?](is-pouta-backed-up.md)
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
@@ -86,6 +93,7 @@
 * [How to transfer data to Rahti?](transfer_data_rahti.md)
 * [Protecting against DDoS Attacks](DDos.md)
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
+* [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
 ## Sensitive Data Services for research
@@ -109,7 +117,7 @@
 * [What type of data can I process using the services?](sensitive-data-general.md#what-type-of-data-can-i-process-using-the-services)
 * [Do you provide a backup service?](sensitive-data-general.md#do-you-provide-a-backup-service) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
-* [Do I need any particular experties to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-experties-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
+* [Do I need any particular expertise to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-expertise-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
 * [How long does it take to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#how-long-does-it-take-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
 
 ### Encryption

@@ -1,5 +1,105 @@
 # Data management
 
+## The Kaivos database service will be decommissioned by the end of the year 2025
+
+The [Kaivos database service](../../data/kaivos/overview.md) will be
+decommissioned by the end of the year 2025. The Kaivos database service is no
+longer available to new users. The service will be replaced by Pukki database
+service. Instructions related to the use of Pukki database service can be
+found in the [Pukki user guide](../../cloud/dbaas/index.md).
+
+## Sensitive Data (SD) Desktop export problem: quick workaround, 18.8.2025
+
+Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager.  
+To resolve this issue, a one time workaround is available. It must be applied per virtual desktop, either via graphical interfaces (Data Gateway and SD Tool Installer) or programmatically.
+
+Step by step instructions:
+
+### 1) Via Graphical Interface
+
+If you don’t already have the SD Tool installer, email servicedesk@csc.fi (subject: SD services) and include your [project’s SD Connect share ID to request access](../../data/sensitive-data/sd-connect-share.md).
+
+- Log in to your virtual desktop and refresh access in Data Gateway to get the latest version of the tools. 
+- If not already on the virtual desktop, copy the SD Tool installer there (using the copy-paste function). Right-click it, select **Allow Launching**, and open the SD Tool installer.
+- Click **Update CA Certificate** in the SD Tool installer and confirm from the installer’s message box that the update is done.
+- Close the SD Tool installer, disconnect from Data Gateway and log out from the virtual desktop. 
+- You can now log in to the virtual desktop again and continue with exports as usual.
+
+### 2) Programmatically
+
+Log in to your virtual desktop.  Open the terminal (right-click).
+
+- Open the clipboard with the key combination `Ctrl + Alt + Shift` and activate the copy-paste function by selecting Input method → Text input. 
+  The Clipboard panel will close automatically after the selection, and the input bar will appear at the bottom of the virtual desktop.
+
+- Copy the following commands into the input bar. They will be visible in the terminal.  
+  You can paste them with `Ctrl + C` or by right-clicking.
+
+    ```bash
+    mkdir -p /shared-directory/.certs
+    ```
+
+    **Press Enter**
+
+    ```bash
+    cp $FS_CERTS /shared-directory/.certs/
+    ```
+
+    **Press Enter**
+
+    ```bash
+    openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null \
+    | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
+    >> /shared-directory/.certs/ca.crt
+    ```
+
+    **Press Enter**
+
+    ```bash
+    echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
+    ```
+
+    **Press Enter**
+
+- **Log out** from the virtual desktop and try the export again.
+
+## Temporary workaround for importing files from SD Connect into SD Desktop, 3.6.2025 <a id="sd-workaround"></a>
+
+We're currently having a technical issue where some files can't be imported from SD Connect to SD Desktop using the Data Gateway app (both the interface and command-line tool). You will see an "input/output error" for these files. Not all files are affected, only certain ones.
+
+We are still investigating the underlying cause of this problem. In the meantime, you can use this workaround to access and copy files.
+
+### Step 1: Open the connection between SD Desktop and SD Connect
+
+1. Login to your virtual desktop, close and disconnect Data Gateway application.
+2. On the left side navigation bar, open the terminal and type the following command:
+
+    ```bash
+    go-fuse -http_timeout=60
+    ```
+
+3. Press Enter. The tool will next ask your CSC username and CSC password.
+4. Write your username, press Enter, enter your password and press Enter. Note, characters will not be displayed when you enter the password.
+
+    ![Open connection.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-Temp1.png)
+
+After a few seconds the tool will display:
+
+```text
+INFO [DATE] Data Gateway database completed
+INFO [DATE] Mounting Data Gateway at home/username/Projects
+```
+
+This means that now the connection is open and all the files are displayed in the project folder. Do not close the terminal until you have access to all the files you are interested in.
+
+### Step 2: Open the project folder
+
+1. On the left navigation bar, double click to open the folder icon called Files.
+2. In the new window, on the bottom of the navigation bar you can now locate the Projects folder.
+3. Once you click on it, you can display all you the files stored in SD Connect and copy them inside your Desktop.
+4. To close the connection, click on the Unmount icon next to the Projects folder icon.
+
+    ![Open connection.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-Temp2.png)
 
 ## Sensitive Data (SD) Connect: new command line tools for automated key management, 02.2025
 
@@ -24,7 +124,7 @@ We have updated the Heavy Computation virtual desktop option with the following 
 
 - Identifier: hpc.6.28 core (previously 5.32)
 
-- Cost: 65 billing units/hour (previously 52)
+- Cost: 65 Billing Units/hour (previously 52)
 
 This change only affects new virtual desktops created after January 15. 
 
@@ -85,11 +185,11 @@ User guide is available [here](../../data/sensitive-data/sd_connect.md)
 
 As of September 6, 2023, we have introduced two significant changes to our service usage according to CSC's data retention policies, which are currently in effect:
 
-* Billing Unit consumption: when all billing units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional billing units are allocated to the project.
+* Billing Unit consumption: when all Billing Units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional Billing Units are allocated to the project.
 
 * CSC Project closure: content stored within the SD Desktop and SD Connect services is subject to permanent deletion 90 days after the closure of a CSC project. **It is important to note that once data is deleted, it cannot be restored.**
 
-To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when billing units have been consumed and when a  CSC project is scheduled for closure.
+To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when Billing Units have been consumed and when a  CSC project is scheduled for closure.
 
 ## SD Desktop: Ubuntu OS now available, 8.9.2023
 

@@ -1,8 +1,107 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 29 and 14, 2.10.2025
+
+* CPU, GPU, storage and cloud billing units are now visible in the web interfaces.
+* The login method will no longer default to Haka login and can instead be freely selected.
+* MATLAB has been added to Mahti, but requires a license.
+* MATLAB version selection has been added to Puhti.
+* MATLAB on Puhti now allows using non-CSC licenses from your MathWorks account.
+* VSCode updated to 1.104.1.
+* TurboVNC updated to 3.2 in the Desktop app.
+* Rclone updated to 1.71.1
+* Open OnDemand updated to 4.0.7.
+
+## Puhti and Mahti web interfaces updated to release 28 and 13, 19.8.2025
+
+* Rclone updated to 1.70.3
+* TensorBoard now waits until it has fully launched before allowing the user to connect.
+* Desktop app now uses module reset instead of module restore.
+* Some security and performance improvements have been made.
+* Open OnDemand updated to 4.0.6.
+
+## Puhti and Mahti web interfaces updated to release 26 and 12, 6.5.2025
+
+* Jobs in the web interfaces have been limited to a maximum of 16 hours to improve queueing times.
+* VSCode now sets python.defaultInterpreterPath to help identifying the correct Python interpreter.
+* Virtual environments in the Jupyter app now work better with some modules, e.g. geoconda.
+* The email on session start option has been added to all interactive apps.
+* Open OnDemand updated to version 4.0.3.
+
+## New data cleaning policy on Puhti, 17.4.2025
+
+On Puhti there is a process to clean (delete) old files in scratch that are not
+in active use. To ensure the system remains usable, we are changing the
+[cleaning policy](../../computing/usage-policy.md#disk-cleaning).
+
+**The new policy is**:
+
+* If project has a **scratch quota of 5 TiB or more**, cleaning will target
+  files that have not been accessed (opened, read, modified) in the last **90
+  days**.
+* For other projects with smaller scratch quotas the cleaning policy is
+  unchanged. Cleaning will target files that have not been accessed (opened,
+  read, modified) in the last **180 days**.
+
+You can use the `csc-workspaces` command to see which cleaning cycle your
+projects are subject to.
+
+## Puhti and Mahti web interfaces updated to release 25 and 11, 7.4.2025
+
+* Mahti: [RStudio](../../computing/webinterface/rstudio.md) has been added.
+* RStudio now queries available r-env version dynamically.
+* VSCode updated to 1.98.2.
+* Python module selection has been added to VSCode.
+* Interactive app launch settings can now be saved and restored later. See [Saved interactive app settings](../../computing/webinterface/apps.md#saved-interactive-app-settings) for how to use them.
+* Interactive app form labels and descriptions have been improved.
+* The default amount of local disk for interactive apps has been reduced.
+* The performance of the web interfaces has been improved.
+* Open OnDemand updated to version 4.0.2.
+
+## Starting April 22 2025, multi-factor authentication is required to login to web interfaces of Puhti and Mahti, 2.4.2025 <a id="mfa"></a>
+
+**Change:** Starting April 22 2025, multi-factor authentication (MFA) will be
+required to
+[login to the web interfaces of Puhti and Mahti](../../computing/webinterface/connecting.md).
+
+**Action:**  Test whether MFA is already enabled for Haka logins by your home
+organization. [Please use the test page in MyCSC](https://my.csc.fi/test-mfa)
+(select **Haka MFA**). It is highly preferred to use the Haka MFA of your home organization, if possible.
+If Haka MFA is not enabled or if your home organization does not offer Haka,
+[please activate **CSC MFA** following these instructions](../../accounts/mfa.md#how-to-activate-csc-mfa).
+
+**Motivation:** With this change we are improving the security of our
+computing, data, and cloud services.
+[Read more about MFA in the blog on the research.csc.fi website](https://research.csc.fi/2025/04/02/multi-factor-authentication/).
+
+Please contact [CSC Service Desk](../../support/contact.md) if you have any
+questions or need support with activating MFA.
+
+## Starting April 14 2025, SSH login to Puhti and Mahti will only work with SSH keys added in MyCSC, 25.3.2025 <a id="ssh-key"></a>
+
+**Change:** Starting April 14 2025, only SSH keys added through MyCSC will
+allow you to login to Puhti or Mahti with SSH. Traditional password-based
+authentication and SSH keys stored in your personal `~/.ssh/authorized_keys`
+file will no longer work. Note that the Puhti and Mahti web interfaces are not
+affected by this change and login sessions can be launched within the web
+browser as before.
+
+**Action:** To access Puhti and Mahti login nodes with SSH, you must create SSH
+keys and add your public key to MyCSC.
+[See here for detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
+
+**Motivation:** The purpose of implementing this change is to improve the
+security of our computing, data, and cloud services. Password-based logins
+are vulnerable, as are manually managed SSH keys. Implementing MyCSC key
+management significantly strengthens user identity verification.
+
+Please contact [CSC Service Desk](../../support/contact.md) if you have any
+questions or need support with taking SSH keys into use.
+
 ## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
 
-Mahti has expanded its capabilities with a new small partition
+Mahti has expanded its capabilities with a
+[new small partition](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
 featuring 56 compute nodes (7168 cores), each equipped with 3500 GiB
 of local NVMe storage. This partition introduces flexible CPU
 core-based allocation, allowing users to reserve individual cores
@@ -181,14 +280,14 @@ Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 * TensorBoard
 * Visual Studio Code
 
-## New policy on Puhti and Mahti for projects that have run out of billing units, 22.5.2023
+## New policy on Puhti and Mahti for projects that have run out of Billing Units, 22.5.2023
 
 In addition to limiting access to compute resources upon running out of billing
 units, now also access to storage will be limited on Puhti and Mahti. Please read
-[running out of billing units](../../computing/usage-policy.md#running-out-of-billing-units)
+[running out of Billing Units](../../computing/usage-policy.md#running-out-of-billing-units)
 for more details. To give all projects time to react, the policy will be enforced
 starting June 21, 2023. Please login to MyCSC to check if you have projects that
-have a negative amount of billing units. When logging in to Puhti using ssh or
+have a negative amount of Billing Units. When logging in to Puhti using ssh or
 the web interface you will also receive warnings and information on how much time
 remains before access is removed.
 

@@ -1,5 +1,5 @@
 site_name: Docs CSC
-site_url: https://docs.csc.fi/
+site_url: !ENV [SITE_URL, "https://docs.csc.fi"]
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 
 repo_name: CSCfi/csc-user-guide
@@ -9,6 +9,15 @@ edit_uri: edit/master/docs/
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
+  landing_banner:
+    path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
+    image: example-banner.png
+    title: Example banner now up on landing page
+    link: https://example.org/courses/example-course/
+    description: |-
+      Banner for upcoming example course.
+      Second line for example description.
+    visible: false
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
     provider: custom
@@ -29,18 +38,31 @@ extra:
             Thank you! Your feedback is appreciated.
       exclude:
         - ref.md
+  short_description: User guides and tutorials
+  social:
+    - icon: material/github
+      link: https://github.com/CSCfi/
+    - icon: material/linkedin
+      link: https://www.linkedin.com/company/csc---it-center-for-science/
+    - icon: material/instagram
+      link: https://www.instagram.com/CSCfi/
+    - icon: material/facebook
+      link: https://www.facebook.com/CSCfi/
+    - icon: material/youtube
+      link: https://www.youtube.com/c/CSCfi
 
 hooks:
+  - hooks/catalog.py
   - hooks/archives.py
   - hooks/preview.py
 
 plugins:
-  - tags:
-      tags_file: apps/by_license.md
+  - tags
   - search
   - git-revision-date-localized:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
       fallback_to_build_date: true
+      ignored_commits_file: .git-revision-date-ignore-revs
       type: date
       custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
       locale: en
@@ -62,6 +84,9 @@ plugins:
         "support/faq/cannot-login-from-nomachine.md": "apps/nomachine.md"
         "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
         "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
+        "computing/allas.md": "data/Allas/allas-hpc.md"
+        "computing/containers/creating.md": "computing/containers/overview.md"
+        "computing/containers/run-existing.md": "computing/containers/overview.md"
         # renamed files:
         "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
         "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
@@ -73,6 +98,15 @@ plugins:
         "cloud/concepts.md": "cloud/index.md"
         "apps/alpha.md": "apps/index.md"
         "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
+        "computing/cProfile.md": "apps/cProfile.md"
+        "computing/compute-san.md": "apps/compute-san.md"
+        "computing/cuda-gdb.md": "apps/cuda-gdb.md"
+        "computing/gdb.md": "apps/gdb.md"
+        "computing/ncu.md": "apps/ncu.md"
+        "computing/nsys.md": "apps/nsys.md"
+        "computing/nvprof.md": "apps/nvprof.md"
+        "computing/pdb.md": "apps/pdb.md"
+        "data/Allas/allas-examples.md": "data/Allas/allas-hpc.md"
         # files moved to Allas:
         # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
         "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -87,6 +121,9 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
+        "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
+        # Pouta
+        "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
         # Rahti2 to Rahti:
         "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
         "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
@@ -133,16 +170,31 @@ plugins:
         "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
         "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
         "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
+        "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/projects.md"
+        "computing/quantum-computing/helmi/helmi-from-lumi.md": "computing/quantum-computing/access.md"
+        "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/first-quantum-job.md"
+        "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/specs.md"
+        "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/fiqci-partition.md"
+        "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
+        "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
+        "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+        "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
+
 
 markdown_extensions:
+  - md_in_html
   - footnotes
   - admonition
   - abbr
   - attr_list
   - def_list
   - pymdownx.details
+  - pymdownx.blocks.caption
   - pymdownx.tabbed:
       alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.snippets:
       base_path: csc-overrides/assets/snippets
       auto_append:
@@ -157,16 +209,27 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
   name: material
   language: en
   custom_dir: csc-overrides
-  logo: assets/images/logo.png
+  logo: assets/images/logo.svg
   favicon: assets/images/logo.png
   icon:
     repo: material/git
     edit: material/pencil
+    admonition:
+      info: material/information
+      success: material/check-circle
+      warning: material/alert
+    # Error admonition type is not in Material for MkDocs,
+    # so the following icon is a literal definition in
+    # csc-overrides/assets/stylesheets/admonition.css
+      # error: material/close-circle
   palette:
     scheme: csc
     primary: custom
@@ -205,12 +268,12 @@ nav:
       - Adding members to your project: accounts/how-to-add-members-to-project.md
       - Adding service access for your project: accounts/how-to-add-service-access-for-project.md
       - Managing your project: accounts/how-to-manage-your-project.md
-      - Applying for billing units: accounts/how-to-apply-for-billing-units.md
+      - Applying for Billing Units: accounts/how-to-apply-for-billing-units.md
       - Increasing disk quotas: accounts/how-to-increase-disk-quotas.md
       - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
-      - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
+      - Reviewing Billing Unit usage: accounts/how-to-view-billing-unit-usage.md
       - Billing: accounts/billing.md
-      - Multi-factor Authentication: accounts/mfa.md
+      - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md
       - FMI: accounts/fmi.md
   - Computing:
@@ -221,25 +284,25 @@ nav:
           - computing/available-systems.md
           - Puhti: computing/systems-puhti.md
           - Mahti: computing/systems-mahti.md
+          - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md
+          - Setting up SSH keys: computing/connecting/ssh-keys.md
           - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
           - SSH client on Windows: computing/connecting/ssh-windows.md
-          - Setting up SSH keys: computing/connecting/ssh-keys.md
       - Supercomputer storage:
           - computing/disk.md
           - Lustre filesystem: computing/lustre.md
-          - Allas object storage: computing/allas.md
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
+          - Available batch job partitions: computing/running/batch-job-partitions.md
           - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
           - Puhti example scripts: computing/running/example-job-scripts-puhti.md
           - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
           - Mahti example scripts: computing/running/example-job-scripts-mahti.md
           - Submitting a job: computing/running/submitting-jobs.md
-          - Available batch job partitions: computing/running/batch-job-partitions.md
           - High throughput: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
           - Performance checklist: computing/running/performance-checklist.md
@@ -251,11 +314,10 @@ nav:
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md
       - Performance analysis: computing/performance.md
-      - Containers:
+      - Apptainer containers:
           - computing/containers/overview.md
-          - Running containers: computing/containers/run-existing.md
-          - Creating containers: computing/containers/creating.md
-          - Container wrapper (Tykky): computing/containers/tykky.md
+          - Examples: computing/containers/examples.md
+          - Tykky: computing/containers/tykky.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
@@ -276,16 +338,12 @@ nav:
               - Visual Studio Code: computing/webinterface/vscode.md
       - Quantum computing:
           - computing/quantum-computing/overview.md
-          - Kvasi QLM:
-              - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
-              - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
-          - Helmi:
-              - Helmi projects: computing/quantum-computing/helmi/helmi-projects.md
-              - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
-              - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
-              - Technical details: computing/quantum-computing/helmi/helmi-specs.md
-              - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
-              - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
+          - Projects: computing/quantum-computing/projects.md
+          - Access through LUMI: computing/quantum-computing/access.md
+          - First quantum job: computing/quantum-computing/first-quantum-job.md
+          - Technical details: computing/quantum-computing/specs.md
+          - FiQCI partition: computing/quantum-computing/fiqci-partition.md
+          - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:
@@ -341,6 +399,7 @@ nav:
               - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
+              - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -368,7 +427,8 @@ nav:
                   - Permissions: cloud/dbaas/mariadb-permissions.md
 
           - More advanced features: cloud/dbaas/advanced.md
-          - Resizing database instance volume: cloud/dbaas/resize-volume.md
+          - Resizing database instance volumes: cloud/dbaas/resize-volume.md
+          - Rebuilding database instances: cloud/dbaas/rebuild-database.md
       - Rahti:
           - cloud/rahti/index.md
           - What is Rahti:
@@ -411,6 +471,7 @@ nav:
               - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
               - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
               - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
+              - Deploying from Git: cloud/rahti/tutorials/deploy_from_git.md
               - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
@@ -452,16 +513,19 @@ nav:
           - Common Error Messages: data/Allas/using_allas/error_messages.md
           - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
           - Allas clients:
+              - Allas connection configuration: data/Allas/using_allas/allas-conf.md          
+              - Allas web UI: data/Allas/using_allas/allas-ui.md
+              - Puhti/Mahti web UI: computing/webinterface/file-browser.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
               - Python with S3: data/Allas/using_allas/python_boto3.md
-              - Python with SWIFT: data/Allas/using_allas/python_swift.md
+              - Python with Swift: data/Allas/using_allas/python_swift.md
               - Rclone from Computing environment: data/Allas/using_allas/rclone.md
               - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
               - Swift: data/Allas/using_allas/swift_client.md
               - S3cmd: data/Allas/using_allas/s3_client.md
-              - Web GUI: data/Allas/using_allas/web_client.md
+              - Pouta web UI: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
       - Kaivos database service:
           - data/kaivos/overview.md
@@ -474,19 +538,20 @@ nav:
           # Python MySQL API at CSC:
   - Sensitive data:
       - data/sensitive-data/index.md
-      - Choose service: data/sensitive-data/choose-a-service.md
-      - Store and analyse:
+      - Table of contents: data/sensitive-data/sd-services-toc.md
+      - Research data - Store and analyse: 
           - Start here:
-              - data/sensitive-data/sd-access.md
+              - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
+              - SD Services billing units: data/sensitive-data/sd-billing-units.md
               - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
           - Store with SD Connect:
               - data/sensitive-data/sd_connect.md
               - Login to SD Connect: data/sensitive-data/sd-connect-login.md
               - Upload: data/sensitive-data/sd-connect-upload.md
-              - Share: data/sensitive-data/sd-connect-share.md
               - Download: data/sensitive-data/sd-connect-download.md
               - Delete: data/sensitive-data/sd-connect-delete.md
+              - Share: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
           - Analyse with SD Desktop:
@@ -501,7 +566,7 @@ nav:
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
               - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-      - Publish and reuse:
+      - Research data - Publish and reuse:
           - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
               - Publish data: data/sensitive-data/fega-submission.md
@@ -528,10 +593,11 @@ nav:
           - Instructions for registers: data/sensitive-data/single-register-submission.md
       - Terminology: data/sensitive-data/sd-terminology.md
   - Applications:
-      - apps/index.md
-      - By discipline: apps/by_discipline.md
-      - By availability: apps/by_system.md
+      - apps/index.md                        # These three files don't exist on disk
+      - By discipline: apps/by_discipline.md # as they are generated by catalog-hook
+      - By availability: apps/by_system.md   # when the site is built by MkDocs.
       - By license: apps/by_license.md
+
   - FAQ: support/faq/index.md
   - Tutorials: support/tutorials/index.md
   - Training material: support/training-material/index.md

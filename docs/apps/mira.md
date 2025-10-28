@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: MIRA
+  description: Whole genome shotgun and EST sequence Assembler
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # MIRA

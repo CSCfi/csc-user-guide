@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Entrez Direct
+  description: Entrez direct - command line tool to search and retrieve data from NCBI
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Entrez Direct

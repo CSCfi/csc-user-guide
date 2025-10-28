@@ -1,7 +1,8 @@
 # Working with large language models on supercomputers
 
 This guide gives some examples and hints on how to work with large
-language models (LLMs) on CSC's supercomputers.
+language models (LLMs) on CSC's supercomputers. It is part of our
+[Machine learning guide](ml-guide.md).
 
 ## LLMs and GPU memory
 
@@ -179,33 +180,101 @@ Face](https://huggingface.co/blog/mlabonne/sft-llama3), which also
 covers the [Unsloth library](https://github.com/unslothai/unsloth).
 
 
-## Using quantization
+## Quantization
 
-Using the `bitsandbytes` library, you can also use 4-bit
-quantization. [Quantization has been integrated into Hugging Face
-Transformers as
-well](https://huggingface.co/blog/4bit-transformers-bitsandbytes).
+Quantization is a process that converts the weights and activations within an LLM from high-precision values, such as 32-bit floating-point, to lower-precision ones, such as an 8-bit integer. This leads to a significant decrease in overall model size, leading to smaller memory needs with a slight drop in accuracy. You can learn more about quantization for example in [this tutorial](https://www.datacamp.com/tutorial/quantization-for-large-language-models).
 
+Quantization can be done during inference or training phase. Post-Training Quantization (PTQ) involves quantizing a pre-trained model during the inference phase. Quantization-Aware Training (QAT) is applied during training to simulate the effects of quantization, resulting in a model more robust to quantization noise. This guide focuses on Post-Training Quantization.
+
+It can take hours to quantize very large models, but luckily many models already have a quantized version available, for example in Hugging Face. You can look for quantized models by a suffix in the model name indicating a quantization method, such as [AWQ](https://arxiv.org/abs/2306.00978), [GPTQ](https://arxiv.org/abs/2210.17323), or [GGUF](https://huggingface.co/docs/hub/en/gguf), or alternatively, model precision, such as 8bit or 4bit. 
+
+### Using bitsandbytes quantization
+
+The [bitsandbytes library from Hugging Face Transformers](https://huggingface.co/docs/transformers/en/quantization/bitsandbytes) offers runtime quantization, which compresses weights to 8-bit or 4-bit on-the-fly during inference to save memory.
 
 ```python
-from transformers import BitsAndBytesConfig
+from transformers import BitsAndBytesConfig, AutoModelForCausalLM
+
 bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.bfloat16,
-    bnb_4bit_use_double_quant=True,
-    bnb_4bit_quant_storage=torch.bfloat16,
+   load_in_4bit=True,
+   bnb_4bit_quant_type="nf4",
+   bnb_4bit_compute_dtype=torch.bfloat16,
+   bnb_4bit_use_double_quant=True,
+   bnb_4bit_quant_storage=torch.bfloat16,
+)
+
+model = AutoModelForCausalLM.from_pretrained(
+   args.model,
+   quantization_config=bnb_config,
+   ...
+)
+```
+You can use it in our fine-tuning LLMs example (see section above) with the `--4bit` argument. Alternatively, see our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/BitsAndBytes) for a full example to quantize a model using bitsandbytes on Puhti, Mahti or LUMI.
+
+### Using GPTQ quantization
+
+In addition to bitsandbytes, Hugging Face Transformers has also integrated [Gradient Post-Training Quantization (GPTQ)](https://huggingface.co/docs/transformers/en/quantization/gptq). 
+[GPTQ](https://arxiv.org/abs/2210.17323) performs row-wise quantization of weight matrices, optimizing each row individually so that the quantized weights closely approximate the original values with minimal reconstruction error.  
+
+Unlike runtime quantization libraries such as bitsandbytes, GPTQ performs a one-time compression step using a calibration dataset, resulting in a new quantized model that can be saved and loaded without requiring the original full-precision weights. To use GPTQ quantization from transformers, create a [GPTQConfig](https://huggingface.co/docs/transformers/v4.56.2/en/main_classes/quantization#transformers.GPTQConfig) class with the number of bits to quantize to, a dataset to calibrate the weights for quantization, and a tokenizer.
+
+```python
+from transformers import GPTQConfig, AutoModelForCausalLM
+
+gptq_config = GPTQConfig(
+    bits=4,            
+    dataset="c4",        
+    tokenizer=tokenizer   
 )
 
 model = AutoModelForCausalLM.from_pretrained(
     args.model,
-    quantization_config=bnb_config,
+    quantization_config=gptq_config,
     ...
 )
 ```
 
-In our example script this can be tried with the `--4bit`
-argument. This will decrease even further the memory requirements.
+GPTQ supports different backends for faster inference such as Marlin (optimized for A100) and ExLlamaV2 (optimized for LLaMA models on consumer GPUs). To enable a specific backend, pass `backend="marlin"` or `exllama_config={"version": 2}` to `GPTQConfig`.
+
+A [blog post by Hugging Face](https://huggingface.co/blog/overview-quantization-transformers) compares bitsandbytes and GPTQ features which can be helpful in deciding which one is more suitable for your use case. See also our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/GPTQ) for a full example to quantize a model using GPTQ with Hugging Face Transformers on Puhti, Mahti or LUMI.
+
+### Using GPTQ quantization via LLM Compressor
+
+Another way of doing quantization, is using the GPTQ modifier from the [LLM Compressor](https://github.com/vllm-project/llm-compressor) library. LLM Compressor is a post-training compression toolkit for Hugging Face models. It applies a *recipe* (e.g., GPTQ quantization) to an already-trained model and saves a compressed checkpoint that loads back into `transformers`. At runtime, it swaps the model’s linear layers for compressed kernels so generation uses quantized matrix multiplications without changing your inference code. GPTQModifier is the quantization recipe component that runs GPTQ and quantizes weights to for example W4A16 (4-bit weights, 16-bit activations) using a small calibration set and lets you quantize target layers (e.g., `Linear`) and ignore heads (e.g., `lm_head`) to preserve output quality. 
+
+```python
+from llmcompressor.entrypoints.oneshot import oneshot
+from llmcompressor.modifiers.quantization import GPTQModifier
+
+# Define a GPTQ recipe: 4-bit weights (W4A16), target Linear layers, skip the LM head
+recipe = GPTQModifier(targets="Linear", scheme="W4A16", ignore=["lm_head"])
+
+# Apply GPTQ using a small calibration dataset (internally sampled by your script/flags).
+# The dataset below ("HuggingFaceH4/ultrachat_200k") is only an example—replace with one suited to your model.
+oneshot(model=model, dataset="HuggingFaceH4/ultrachat_200k", recipe=recipe)
+```
+See a full example to quantize a model using GPTQ via LLM Compressor on Puhti, Mahti or LUMI in our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/GPTQ).
+
+### Using AWQ quantization via LLM Compressor
+
+Using the LLM Compressor library, you can also quantize a model with [**Activation-Aware Weight Quantization**](https://arxiv.org/pdf/2306.00978) (AWQ). AWQ observes that not all weights in an LLM contribute equally to model performance. By protecting only \~1% of the most salient weight channels, quantization error can be significantly reduced. These salient channels are identified based on activation distributions rather than raw weight values.
+
+```python 
+from llmcompressor.entrypoints.oneshot import oneshot
+from llmcompressor.modifiers.quantization import GPTQModifier
+
+# Define AWQ recipe: 4-bit weights (W4A16_ASYM), target Linear layers, skip LM head
+recipe = [AWQModifier(targets=["Linear"], scheme="W4A16_ASYM", ignore=["lm_head"])]
+
+# Apply AWQ with a small calibration set (dataset can be your own or a public one)
+# The dataset below ("HuggingFaceH4/ultrachat_200k") is only an example—replace with one suited to your model.
+oneshot(  
+    model=model,  
+    dataset="HuggingFaceH4/ultrachat_200k",  # uses 'validation' split by default inside your script/flags
+    recipe=recipe,
+)
+```
+See a full example to quantize a model using AWQ via LLM Compressor on Puhti, Mahti or LUMI in our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/AWQ).
 
 ## Retrieval-augmented generation (RAG)
 
@@ -284,6 +353,9 @@ running Ollama on a full node with 4 GPUs on Puhti and 8 GPUs on LUMI.
 [offline batched inference][13] which is the mode most suitable for
 running in a supercomputer. This runs just as a normal Python batch
 job.
+
+Here is a user-contributed example for processing a big dataset with
+vLLM efficiently: <https://github.com/TurkuNLP/ECCO-ocr-large-run>.
 
 In some situations there's still a need for an OpenAI-compatible
 server, for example when interfacing with other programs. [Example

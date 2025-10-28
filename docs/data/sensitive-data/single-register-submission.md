@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Submitting secondary use health and social data for research use via SD Apply
 
 These instructions are for data controllers who have issued a data permit for a research project and need to make their data available on SD Desktop.
@@ -28,20 +30,20 @@ After the first log in, CSC service desk can create an organizational profile fo
 
 ### Step 2: Creating objects in SD Apply
 
-After you have been set as the owner of the organization profile, you should create a license and a workflow for the organization in SD Apply. You can also create an application form that the applicant has to fill in when they submit a data access request. Forms are optional so if you don't need to ask applicant to provide more information, e.g. to confirm the journal number when they send the access request, you don't need to create one. 
+After you have been set as the owner of the organization profile, you should create a policy and a DAC (Data Access Committee) for the organization in SD Apply. You can also create an application form that the applicant has to fill in when they submit a data access request. Forms are optional so if you don't need to ask applicant to provide more information, e.g. to confirm the journal number when they send the access request, you don't need to create one. 
 
 1. Navigate to SD Apply Administration tab
-2. Select Licenses tab and then **create license**. License specifies the terms of use for the data, which the applicants need to approve when they send the data access application. Since in this case, the terms have already been defined in the data permit, you can for example refer to the data permit in the license text. You can use the inline text as license type for short texts.  
-3. Next, navigate to Workflows tab and **create workflow**. Workflow defines who will manage the data access applications of the organization in SD services. These named users will always receive a notification via email about new access applications and can approve or reject the applications in SD Apply.  
+2. Select Policies tab and then **create Policy**. Policy specifies the terms of use for the data, which the applicants need to approve when they send the data access application. Since in this case, the terms have already been defined in the data permit, you can for example refer to the data permit in the policy text. You can use the inline text as policy type for short texts.  
+3. Next, navigate to DACs tab and **create DAC**. DAC (Data Access Committee) defines the persons who will manage the data access applications of the organization in SD services. These named users will always receive a notification via email about new access applications and can approve or reject the applications in SD Apply.  
 
-The forms and licenses are public in SD Apply, so these should not include any sensitive information. These objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Resource** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
+The forms and policies are public in SD Apply, so these should not include any sensitive information. These objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Identifier** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
 
 ### Step 3: Establishing a secure SSH connection with CSC
 
 To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
 1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/pouta/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
-2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
+2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA account, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
 
 [![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)
 
@@ -76,6 +78,8 @@ Where:
 
 You can now encrypt and transfer the dataset securely. While there are multiple methods available for this task, we recommend utilising the graphical user interface SDA (Sensitive Data Archive) Uploader tool. Installing this simple application may require special permission from your system administration, but it will conveniently enable the tool to establish the secure connection using the SSH keys you've already tested, encrypt the files with [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry), and upload them. 
 
+This means the SSH keys you have created are used to form the connection to CSC, while the separate public encryption key is used to encrypt the data, so that the researchers can use it in SD Desktop.
+
 #### 4.1 Upload with the SDA Uploader tool
 
 With the SDA Uploader tool, you need to collect all the data to one folder on your computer before transfer.
@@ -105,7 +109,7 @@ With the SDA Uploader tool, you need to collect all the data to one folder on yo
 
 #### 4.2 Advanced options
 
-This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  command line (CLI, option 2 below) options for Linux, Mac and Windows. More information about the tool in the GitHub repository. Alternatively, you can encrypt the data with Crypt4GH (also GUI available, option 3 below) and send the data directly with SFTP on command line. With each option, you need to use CSC public key for encryption.
+This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  command line (CLI, option 1 below) options for Linux, Mac and Windows. More information about the tool in the [GitHub repository](https://github.com/CSCfi/sda-uploader/?tab=readme-ov-file#cli-demo). Alternatively, you can encrypt the data with Crypt4GH (also GUI available, option 2 below) and send the data directly with SFTP on command line. With each option, you need to use [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry) to encrypt the files. This key is separate from your ssh keys.
 
 ##### Advanced option 1
 
@@ -166,7 +170,7 @@ To start processing applications, follow the link in your email or log in direct
 
 ### Step 2: Process the application
 
-In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
+In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. 
 
 [![SD Apply "Actions" tab and application](images/apply/apply_dac.png)](images/apply/apply_dac.png)
 

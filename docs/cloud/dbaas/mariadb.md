@@ -1,9 +1,7 @@
 # MariaDB
 !!! warning "MariaDB in Pukki is still in beta"
     This means that it hasn't been tested as extensively as PostgreSQL, and there might still be
-    large changes to how Pukki manages MariaDB database instances. We hope to move out of beta in
-    March 2025.
-
+    large changes to how Pukki manages MariaDB database instances. 
 
 
 * [How to access your MariaDB database](mariadb-accessing.md)

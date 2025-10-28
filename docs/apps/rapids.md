@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: RAPIDS
+  description: Suite of libraries for data analytics and machine learning on GPUs
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # RAPIDS
@@ -49,7 +58,7 @@ as Singularity). Wrapper scripts have been provided so that common
 commands such as `python`, `python3`, `pip` and `pip3` should work as
 normal. For other commands, you need to prefix them with
 `apptainer_wrapper exec`. For more information, see
-[CSC's general instructions on how to run Apptainer containers](../computing/containers/run-existing.md).
+[CSC's general instructions on how to run Apptainer containers](../computing/containers/overview.md#running-containers).
 
 ## License
 

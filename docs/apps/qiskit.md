@@ -1,14 +1,24 @@
 ---
 tags:
   - Free
+catalog:
+  name: Qiskit
+  description: open-source toolkit for useful quantum computing
+  license_type: Free
+  disciplines:
+    - Quantum
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Qiskit
 
 Qiskit is an open-source software for working with quantum computers at the level of circuits, pulses, and algorithms. 
 This page contains information in regard to running Quantum simulations using qiskit inside of a singularity container.
-For information pertaining to running jobs on Helmi using qiskit please refer to this documentation: 
-[Running on Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
+For information pertaining to running jobs on the physical quantum computers using qiskit please refer to this documentation: 
+[Running quantum jobs](../computing/quantum-computing/running-quantum-jobs.md).
 
 !!! info "News"
      **19.02.2025** Installed `qiskit/1.3.2` in a singularity container on LUMI with all major Qiskit packages and
@@ -79,7 +89,7 @@ Qiskit-related package should be included in the module provided by CSC, please
 All modules are based on containers using Apptainer (previously known as Singularity).
 Wrapper scripts have been provided so that common commands such as `python`,
 `python3`, `pip` and `pip3` should work as normal. For more information, see
-[CSC's general instructions on how to run Apptainer containers](../computing/containers/run-existing.md).
+[CSC's general instructions on how to run Apptainer containers](../computing/containers/overview.md#running-containers).
 
 ## License
 

@@ -204,8 +204,8 @@ workflows.
 [Lustre]: ../lustre.md
 [Fast local NVMe disk]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
 [Ramdisk]: ../disk.md#compute-nodes-without-local-ssd-nvme-disks
-[Singularity container]: ../containers/run-existing.md
-[mount your datasets with SquashFS]: ../containers/run-existing.md#mounting-datasets-with-squashfs
+[Singularity container]: ../containers/overview.md
+[mount your datasets with SquashFS]: ../containers/overview.md#reading-datasets-from-squashfs-file
 [file striping]: ../lustre.md#file-striping-and-alignment
 [CSC has deprecated the direct usage of Conda environments]: ../../support/tutorials/conda.md
 [container wrapper tool Tykky]: ../containers/tykky.md
@@ -213,5 +213,5 @@ workflows.
 [Data storage guide for machine learning]: ../../support/tutorials/ml-data.md
 [xargsjob.sh]: https://a3s.fi/pub/xargsjob.sh
 [see usage policy]: ../usage-policy.md#gpu-nodes
-[Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
+[Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/data-io/tutorial-fastdisks.html
 [Farming Gaussian jobs with HyperQueue]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html

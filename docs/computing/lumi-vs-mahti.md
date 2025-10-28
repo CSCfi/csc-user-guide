@@ -10,7 +10,7 @@ Mahti has only a few (24) GPU-nodes available, while LUMI-C is flanked by [LUMI-
 
 To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Note that LUMI-projects have a finite duration ([see below](lumi-vs-mahti.md#finite-time-projects)) and cannot be used for running on the national resources and vice versa.
 
-Furthermore, accessing LUMI is only possible using SSH keys, meaning that you cannot use passwords to connect through SSH like on Mahti. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting/ssh-keys.md) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
+Furthermore, accessing LUMI is only possible using SSH keys uploaded to MyCSC, meaning that you cannot use passwords to connect through SSH. This authentication method is also in use on Mahti (and Puhti) since 14 April 2025. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting/ssh-keys.md) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
 
 Similar to Puhti and Mahti, LUMI can, however, also be accessed through a [web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/).
 
@@ -54,7 +54,9 @@ Note that LUMI consortium country projects (e.g. Finnish LUMI projects) use diff
 
 ## Billing
 
-Billing on LUMI differs from Mahti. The consumption of billing units (BUs) depends for example on which partition you are running on, as well as on whether you are using CPU, GPU (LUMI-G/LUMI-D) or storage resources, thus amounting to three different billing currencies. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
+LUMI does not share the same Billing Units as other CSC services like Mahti. However, the billing model is similar in that there are different units for CPU compute, GPU compute and storage resources, and that granted resources are periodically cut if left unused.
+
+[See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
 
 ## Sensitive data
 

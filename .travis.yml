@@ -6,6 +6,10 @@ python:
   - "3.11"
 before_install:
   - curl -L https://git.io/misspell | BINDIR=~/.local/bin sh
+env:
+  global:
+    - ENABLED_GIT_REVISION_DATE=false
+    - MKDOCS_ENV=test
 script:
 
   # Checks all files for commonly misspelled English words with client9's misspell

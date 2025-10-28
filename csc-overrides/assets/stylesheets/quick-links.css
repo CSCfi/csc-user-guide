@@ -1,0 +1,42 @@
+.grid.csc-quick-links h2,
+.grid.csc-quick-links h3,
+.grid.csc-quick-links h4,
+.grid.csc-quick-links h5,
+.grid.csc-quick-links h6 {
+  font-size: large;
+}
+
+.grid.csc-quick-links {
+  text-wrap: balance;
+}
+
+.grid.csc-quick-links.csc-quick-links--landing > ul > :first-child {
+  grid-column: 1 / -1;
+  padding-bottom: 2rem;
+}
+
+.grid.csc-quick-links.csc-quick-links--landing > ul > :first-child > ul li {
+  margin-bottom: 0;
+}
+
+.grid.csc-quick-links.csc-quick-links--landing {
+  max-width: calc(var(--csc-content-width) / 1.66);
+  margin: 1em auto;
+}
+
+.grid.csc-quick-links.csc-quick-links--compact {
+  max-width: var(--csc-content-width);
+}
+
+.grid.csc-quick-links.csc-quick-links--landing,
+.grid.csc-quick-links.csc-quick-links--compact {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28ch), 1fr));
+}
+
+.grid.csc-quick-links.csc-quick-links--portals {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24ch), 1fr));
+}
+
+.grid.csc-quick-links.csc-quick-links--portals .md-button {
+  width: 100%;
+}

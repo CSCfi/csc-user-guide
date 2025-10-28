@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Picard Tools
+  description: Tools for working with SAM,BAM,CRAM and VCF files
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Picard Tools

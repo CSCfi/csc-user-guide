@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: GDAL
+  description: for geospatial data formats
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # GDAL

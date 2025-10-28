@@ -8,17 +8,17 @@ You can access this feature in the web user interface's left hand panel or using
 
 !!! info
 
-    You should use "2018-08-31" ("rocky") or older as the [Heat template
-    version](https://docs.openstack.org/heat/latest/template_guide/hot_spec.html#rocky). Features in newer template versions may not be supported. 
+    You should use "2021-04-16" ("wallaby") or older as the [Heat template
+    version](https://docs.openstack.org/heat/latest/template_guide/hot_spec.html#wallaby). Features in newer template versions may not be supported. 
 
 
 These instructions provide a simple example on how to set up a stack via the web user interface. To create a Heat stack, click the "Stacks" link in the _Orchestration_ menu. The opened view displays all existing stacks and provides the button "Launch Stack" to launch a new stack. In the window which was opened after clicking the "Launch  Stack" button, you can upload an existing template that you created or you can start configuring your stack. Selecting a template is mandatory, and the template data can also be provided as direct input, as depicted in the picture below. Note that this picture contains a valid, yet simple example of a template which builds two instances and displays the IP address of the first instance.
 
-![Template selection](../../../img/stacks-view.png)  
+![Template selection](../../img/stacks-view.png)  
 
 Here is the example:  
 ```yaml
-heat_template_version: rocky # As mentioned above, you can either use the date or the name
+heat_template_version: wallaby # As mentioned above, you can either use the date or the name
 
 description: Simple template to deploy a single instance in cPouta
 
@@ -26,7 +26,7 @@ resources:
   instance0:
     type: OS::Nova::Server
     properties:
-      image: Ubuntu-22.04
+      image: Ubuntu-24.04
       flavor: standard.small
       key_name: my-key
       networks:
@@ -35,7 +35,7 @@ resources:
   instance1:
     type: OS::Nova::Server
     properties:
-      image: Centos-7
+      image: AlmaLinux-9
       flavor: standard.small
       key_name: my-key
       networks:
@@ -136,7 +136,7 @@ parameter_defaults:
 Second, two Openstack Heat templates. For the first one, we'll take our previous examples with some modifications. We call it `heat_stack_vm.yaml`:  
 
 ```yaml
-heat_template_version: rocky # As mentioned above, you can either use the date or the name
+heat_template_version: wallaby # As mentioned above, you can either use the date or the name
 
 description: Simple template to deploy a single or several instance(s) in cPouta
 
@@ -177,7 +177,7 @@ outputs:
 Third, we'll create a file called `servers_group.yaml`, a [ResourceGroup](https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Heat::ResourceGroup), which allows us to scale our instances:  
 
 ```yaml
-heat_template_version: rocky
+heat_template_version: wallaby
 
 description: Resource Group to deploy one or several instance(s)
 

@@ -1,5 +1,6 @@
 # Copying data between Allas and IDA via Puhti
 
+
 ## Copying data from Allas to IDA via Puhti
 
 In order to be able to copy data from Allas to IDA with this procedure, you
@@ -46,7 +47,7 @@ Download the data from Allas to that new directory. You should use the same
 protocol as was used to originally upload the data to Allas. If the data was
 uploaded with command-line tools, preferably also use the same command-line
 tool. More information about the Allas tools on Puhti is available at
-[Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms).
+[Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md).
 
 In our example case the data was originally uploaded to Allas with a-commands,
 so the user uses `a-get` to download the data:
@@ -102,7 +103,7 @@ ida upload -p 2000002 survey_2021 survey_2021
 ```
 
 More examples can be found in the
-[GitHub repository of the IDA command-line tool](https://github.com/CSCfi/ida2-command-line-tools#examples).
+[GitHub repository of the IDA command-line tool](https://github.com/CSCfi/fairdata-ida-v3/tree/master/cli#examples).
 
 If the user has already configured the IDA command-line tool, then the upload
 command uses that configuration. If not, then the upload command asks the user
@@ -114,15 +115,85 @@ for their username and password in IDA.
 If you do not need to continue working with the data on Puhti after uploading
 it to IDA, remove it from the scratch disk area of Puhti to free up disk space.
 
+
 ## Copying data from IDA to Allas via Puhti
 
-In order to copy data from IDA to Allas with this procedure, you need to be a
+In order to copy data from IDA to Allas, you need to be a
 member of a project that has Allas and Puhti services in use. On the IDA side,
 you either need to be a member of a project which has IDA service in use, or
 the data in question needs to be publicly available for downloading. Note that
 the projects in Allas, Puhti and IDA do not need to be the same.
 
-In short, there are four steps to follow:
+### Automatic copying with ida2allas tool
+
+If you wish to move a complete directory from IDA to Allas object storage service without
+any changes or rearrangements, you can use command line tool _ida2allas_. This tool is available 
+in Puhti server at CSC. 
+
+#### 1. Connect to Puhti
+
+We recommend that you run the data transfer process in one of the login nodes of the Puhti.
+(Login nodes can be used in this case as the data transfer process is not computationally heavy).
+The easiest way to open a login node session in Puhti is to use the WWW interface of Puhti:
+
+   * [Puhti Web interface](https://www.puhti.csc.fi)
+
+In the web interface, choose *Login node shell* from the *Tools* menu. This opens a
+terminal session where you can set up connections to IDA and Allas and where you can
+execute the data transport process.
+
+
+#### 2. Establishing connections
+
+First, open the Allas connection using the S3 protocol with the following commands:
+
+```text
+module load allas
+allas-conf -m S3
+```
+
+The _allas-conf_ command will prompt you to enter your CSC password. The Haka password is not accepted.
+After that you will choose the Allas project where the data will be copied.
+
+
+Next, establish the IDA connection with the commands:
+
+```text
+module load ida
+ida_configure
+```
+
+The configuration process will ask for your _IDA project number_ and  _app password_ that you can get from [IDA web interface](https://ida.fairdata.fi).
+If you already have a working IDA connection configured, you can choose not to overwrite the `.ida-config` and `.netrc` files. In that case, you won’t need to retrieve a new IDA key from the web interface.
+
+#### 3. Data transfer
+
+Data transfer is launched with the command:
+
+```text
+ida2allas
+```
+
+The program will first ask whether to fetch data from the IDA staging area or the frozen area.
+
+Then it will list the folders in the selected IDA area and prompt you to choose the folder to transfer.
+
+Finally, the program will list the buckets (storage folders) in Allas and ask you to select the one where you want to transfer the data. You can also create a new bucket. Do not use uppercase letters, spaces, or special characters in the name of the bucket. Further, note that bucket names must be unique compared to any Allas project. Thus it is a good habit to add some project specific part to the bucket name.  
+
+In case of large (over 100 GiB) data transfers you can start the transfer with the commands:
+
+```text
+screen
+ida2allas
+```
+
+In the example above, _screen_ command launches a virtual terminal session where the _ida2allas_ command will continue running even if the connection to Puhti would be lost.
+
+
+
+### Manual data transfer from IDA to Allas
+
+If you don't want to copy a complete IDA directory to Allas or if you want to rearrange the data, then you need to do the data transfer in four steps:
 
 1. Download the data from IDA to Puhti scratch disk
 2. Rearrange the data on the scratch disk, if necessary
@@ -190,7 +261,7 @@ cd /scratch/project_2000012/xferdir
 curl -fOJ "https://ida191.csc.fi:4430/download?token=18f6e5b7edae4f12a8a654ea22d57aa9.PA0p5PMqnzvgcXAU0Lw9SuVcyoQGgV8Ugnk3GEppU0b4UUhGWRLP8FRHB2MvyUTjPA0p5PMqnzvgcXAU0Lw9SuVcyoQGgV8Ugnk3GEppU0b4UUhGWRLP8FRHB2MvyUTjPA0p5PMqnzvgcXAU0Lw9SuVcyoQGgV8Ugnk3G_e3668097e34d437484e15d53624e7905=76679a7a-367c-474f-9e8c-c3869a106e2f_ehr3hd76&package=76679a7a-367c-474f-9e8c-c3869a106e2f_ehr3hd76.zip"
 ```
 
-### Step 2. Rearrange the data on scratch, if necessary
+#### Step 2. Rearrange the data on scratch, if necessary
 
 In case you would like to rearrange the data or remove parts of it, you can do
 it on the scratch disk before you upload it to Allas.
@@ -204,7 +275,7 @@ cd /scratch/project_2000012/xferdir
 unzip testi.zip
 ```
 
-### Step 3. Upload the data to Allas
+#### Step 3. Upload the data to Allas
 
 The easiest way to upload the data to Allas is using the `a-put` command.
 `a-put` uploads a directory as one archived object to Allas. It needs enough
@@ -217,7 +288,7 @@ a-put <directory_or_file>
 ```
 
 More information about the Allas tools on Puhti is available at
-[Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms).
+[Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md).
 
 Continuing our example, assuming the unzipped data to be uploaded to Allas is
 in a directory `experiment_data`, it can be uploaded with `a-put` as:
@@ -229,7 +300,7 @@ cd /scratch/project_2000012/xferdir
 a-put experiment_data
 ```
 
-### Step 4. Clean the Puhti scratch
+#### Step 4. Clean the Puhti scratch
 
 If you do not need to continue working with the data on Puhti after uploading
 it to Allas, remove it from the scratch disk area of Puhti to free up disk

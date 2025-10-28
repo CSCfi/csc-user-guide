@@ -3,15 +3,19 @@
 
 @import url(./admonition.css);
 @import url(./announcement.css);
+@import url(./banner.css);
 @import url(./breadcrumbs.css);
 @import url(./content.css);
 @import url(./feedback.css);
 @import url(./footer.css);
 @import url(./pre-header.css);
 @import url(./header.css);
-@import url(./landing.css);
+@import url(./quick-links.css);
 @import url(./sidebars.css);
 @import url(./tags.css);
+@import url(./title.css);
 @import url(./video.css);
+@import url(./catalog.css);
+@import url(./disclaimer.css);
 
 @import url(./sensitive-data.css);

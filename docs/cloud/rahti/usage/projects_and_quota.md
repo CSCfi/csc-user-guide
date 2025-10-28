@@ -34,7 +34,7 @@ csc_project: 1000123
 ```
 
 This would make it so that any usage within that Rahti project is billed
-to the billing unit quota of project_1000123. Note that project_1000123 must
+to the Cloud Billing Unit quota of project_1000123. Note that project_1000123 must
 have Rahti service access and you must be a member of that computing project,
 or the OpenShift project creation will fail.
 
@@ -184,8 +184,8 @@ The user can set the limits explicitly within the available quota, but if no lim
 
 |Type|CPU|Memory|
 |:-:|:-:|:-:|
-|limits|250m|2500Mi|
-|requests|50m|500Mi|
+|limits|500m|1Gi|
+|requests|100m|500Mi|
 
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 

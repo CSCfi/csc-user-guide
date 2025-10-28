@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Lazypipe
+  description: A stand-alone pipeline for identifying viruses in host-associated or environmental samples
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Lazypipe
@@ -17,7 +25,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-Lazypipe 3.0 is available in Puhti.
+Lazypipe 3.1 is available in Puhti.
 
 ## Usage
 
@@ -32,7 +40,7 @@ module load lazypipe
 Now Lazypipe starts with commands:
 
 ```bash
-cp /appl/soft/bio/lazypipe/3.0/lazypipe/config.yaml config.yaml
+cp /appl/soft/bio/lazypipe/3.1/lazypipe/config.yaml config.yaml
 echo tmpdir: \"$(pwd)/tmpdir\" >> config.yaml
 echo res: \"$(pwd)/tmpdir\" >> config.yaml
 lazypipe.pl -h
@@ -45,26 +53,15 @@ and submits the job to batch job system of Puhti. The command uses the same comm
 as the `lazypipe.pl` command. In addition `sbatch-lazypipe` asks user to define batch job resources
 (account, run time, memory, number of cores).
 
-For example, to execute the [Example 1](https://www.helsinki.fi/en/projects/lazypipe/examples) from the
-Lazypipe User manual, you would first need to download the reads and reference genome to your scratch directory in Puhti
-(in real cases you will get these input files from your own sources):
+For example, to execute main analysis steps on a M15 sample data (Illumina PE from mink feces) run the following commands:
 
 ```bash
-mkdir /scratch/my_project/data
-mkdir /scratch/my_project/hostgen
-cp /appl/soft/bio/lazypipe/3.0/lazypipe/data/samples/M15small_R*.fastq /scratch/my_project/data
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/900/108/605/GCA_900108605.1_NNQGG.v01/GCA_900108605.1_NNQGG.v01_genomic.fna.gz -P /scratch/my_project/hostgen/
-```
-
-When you have the data available you can submit the task with commands:
-
-```bash
-cd /scratch/my_project
+cd /scratch/my_project 
 module load r-env
-module load biokit
-module load lazypipe
-sbatch-lazypipe -1 data/M15/M15small_R1.fastq -S M15 -p main --anns norm\
---hostgen genomes_host/GCA_900108605.1_NNQGG.v01_genomic.fna.gz -v
+module load biokit 
+module load lazypipe 
+
+sbatch-lazypipe -1 /appl/soft/bio/lazypipe/3.1/lazypipe/data/samples/M15small_R*.fastq -S M15 -p main --flt Neovison_vison --anns vi.nt -vnorm 
 ```
 
 When the `sbatch-lazypipe` is executed, it interactively asks information that is
@@ -79,6 +76,20 @@ used if no new value is defined):
    
 After that your Lazypipe task is submitted to the batch job system for execution.
 
+## Additional commands 
+
+Listing reference databases available for Lazypipe module: 
+
+```bash
+lazypipe.pl --databases 
+```
+
+Listing background filters available for Lazypipe module: 
+
+```bash
+lazypipe.pl --filters 
+```
+ 
 ## More information
 
 *   [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe)

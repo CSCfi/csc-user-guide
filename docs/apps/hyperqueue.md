@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: HyperQueue
+  description: Scheduler for sub-node tasks
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # HyperQueue
@@ -25,13 +35,21 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Usage
 
-Initialize the recommended version of HyperQueue on Puhti and Mahti like this:
+Load the default version of HyperQueue on Puhti and Mahti like this:
 
 ```bash
 module load hyperqueue
 ```
 
-Use `module spider` to locate other versions. 
+To load a specific version, use:
+
+```bash
+module load hyperqueue/<version>
+```
+
+Replace `<version>` with suitable version number ([see above](#available)).
+Use `module spider` to locate other versions.
+
 To access CSC's HyperQueue modules on LUMI,
 remember to first run `module use /appl/local/csc/modulefiles`.
 
@@ -52,7 +70,7 @@ until all are done or the batch job time limit is reached.
 
 Let's assume we have a `tasks` file with a list of commands we want to run using
 eight threads each. **Do not use `srun` in the commands!** HyperQueue will launch
-the tasks using the allocated resources as requested. For example, 
+the tasks using the allocated resources as requested. For example,
 
 ```text
 command1 arguments1
@@ -93,7 +111,7 @@ directory structure looks as follows:
 └── task      # Executable task script for HyperQueue
 ```
 
-**Task**
+#### Task
 
 We assume that HyperQueue tasks are independent and run on a single node.
 Here is an example of a simple, executable `task` script written in Bash.
@@ -106,7 +124,7 @@ sleep 1
 The overhead per task is around 0.1 milliseconds.
 Therefore, we can efficiently execute even very small tasks.
 
-**Batch job**
+#### Batch job
 
 In a Slurm batch job, each Slurm task corresponds to one HyperQueue worker.
 We can increase the number of workers by increasing the number of Slurm tasks.
@@ -174,7 +192,7 @@ allocation.
     #SBATCH --time=00:15:00
     ```
 
-**Module**
+#### Module
 
 We load the HyperQueue module to make the `hq` command available.
 
@@ -182,7 +200,7 @@ We load the HyperQueue module to make the `hq` command available.
 module load hyperqueue
 ```
 
-**Server**
+#### Server
 
 Next, we specify where HyperQueue places the server files.
 All `hq` commands respect this variable, so we set it before using any `hq` commands.
@@ -212,9 +230,9 @@ hq server start &
 until hq job list &> /dev/null ; do sleep 1 ; done
 ```
 
-**Workers**
+#### Workers
 
-</--
+<!--
 Next, we start HyperQueue workers in the background with the number of CPUs and the amount
 of memory defined in the batch script. We access those values using the `SLURM_CPU_PER_TASK`
 and `SLURM_MEM_PER_CPU` environment variables. By starting the workers using the `srun`
@@ -261,7 +279,7 @@ srun --overlap --cpu-bind=none --mpi=none hq worker start \
 hq worker wait "$SLURM_NTASKS"
 ```
 
-**Computing tasks**
+#### Computing tasks
 
 Now we can submit tasks with `hq submit` to the server, which executes them on the
 available workers. It is a non-blocking command; thus, we do not need to run it in
@@ -286,7 +304,7 @@ complex task dependencies, we can use HyperQueue as the executor for other workf
 managers, such as [Snakemake](#using-snakemake-or-nextflow-with-hyperqueue) or
 [Nextflow](#using-snakemake-or-nextflow-with-hyperqueue).
 
-**Stopping the workers and the server**
+#### Stopping the workers and the server
 
 Once we are done running all of our tasks, we shut down the workers and server to
 avoid a false error from Slurm when the job ends.
@@ -325,17 +343,13 @@ is requested.
 
 === "Single node"
 
-    File: `task`
-
-    ```bash
+    ```bash title="task"
     #!/bin/bash
     echo "Hello from task $HQ_TASK_ID!" > "output/$HQ_TASK_ID.out"
     sleep 1
     ```
 
-    File: `batch.sh`
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small
@@ -382,35 +396,27 @@ is requested.
 
     The archive `input.tar.gz` used in this example extracts into `input` directory.
 
-    File: `extract`
-
-    ```bash
+    ```bash title="extract"
     #!/bin/bash
     tar xf input.tar.gz -C "$LOCAL_SCRATCH"
     mkdir -p "$LOCAL_SCRATCH/output"
     ```
 
-    File: `task`
-
-    ```bash
+    ```bash title="task"
     #!/bin/bash
     cd "$LOCAL_SCRATCH"
     cat "input/$HQ_TASK_ID.inp" > "output/$HQ_TASK_ID.out"
     sleep 1
     ```
 
-    File: `archive`
-
-    ```bash
+    ```bash title="archive"
     #!/bin/bash
     cd "$LOCAL_SCRATCH"
     tar czf "output-$SLURMD_NODENAME.tar.gz" output
     cp "output-$SLURMD_NODENAME.tar.gz" "$SLURM_SUBMIT_DIR"
     ```
 
-    File: `batch.sh`
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=large

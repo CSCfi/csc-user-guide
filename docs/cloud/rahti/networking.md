@@ -1,3 +1,5 @@
+# Networking
+
 ## Ipv4
 
 All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs in this document and Rahti's system itself are ipv4 only, no ipv6 IP is used.
@@ -70,7 +72,7 @@ Any existing possible domain name could potentially be used in Rahti, but the DN
     router-default.apps.2.rahti.csc.fi has address 195.148.21.61
     ```
 
-* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](tutorials/custom-domain.md#lets-encrypt).
+* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](./tutorials/custom-domain.md#acme-protocol-automatic-certificates).
 
 Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
 
@@ -329,5 +331,5 @@ In Rahti, the way `Route`s and `LoadBalancer` services manage traffic during dep
 
 In contrast, `LoadBalancer` services distribute traffic not only to new pods but also continue to send requests to old or terminating pods. This behavior occurs because these services rely on periodic updates from [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/), which can delay the exclusion of terminating pods from traffic distribution. This difference in handling traffic can be useful to understand, as it affects how deployment strategies should be handled for application updates.
 
-For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.openshift.com/container-platform/4.15/applications/deployments/route-based-deployment-strategies.html#deployments-proxy-shard_route-based-deployment-strategies).
+For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/building_applications/deployments#route-based-deployment-strategies).
 To avoid disruptions when using external load balancer services, you can adopt the principle of a [blue-green deployment](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)

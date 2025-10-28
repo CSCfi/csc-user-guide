@@ -7,7 +7,7 @@ an external dependency or improve performance.
 
 The process is simple:
 
-1. [Install](../usage/cli.md#how-to-install-the-oc-tool) and [login with OC](../usage/cli.md#how-to-login-with-oc).
+1. [Install](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login with OC](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui).
 
 1. With a terminal, connect to the Rahti registry:
     ```sh
@@ -26,20 +26,38 @@ The process is simple:
 
 2. Tag the image you want to push:
    ```sh
-   sudo docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
+   sudo docker tag almalinux:10 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/almalinux:<tag>
    ```
    _Replace {YOUR_RAHTI_PROJECT_NAME} by the name of your project._
    _Please note that YOUR_RAHTI_PROJECT_NAME here is the Rahti project name (AKA namespace name), and does not refer to CSC project._
 
 4. Push your image:
    ```sh
-   sudo docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
+   sudo docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/almalinux:<tag>
    ```
 
 You should be able to see your images in your project:
 ![Image Streams](../../img/image_streams_rahti4.png)
 
 Alternatively you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
+
+!!! warning "Troubleshooting"
+
+    If you receive this error when attempting to push your image:
+
+    ```
+    unknown: unexpected status from HEAD request to https://image-registry.apps.2.rahti.csc.fi/v2/{YOUR_RAHTI_PROJECT_NAME}/{YOUR_IMAGE_NAME}/manifests/sha256:834e7b0d913dd73e8616810c2c3a199cd8a3618e981f75eea235e0920d601ce4: 500
+    ```
+
+    You must create the `ImageStream` before pushing.
+
+    Run this command:
+
+    ```
+    oc create imagestream {YOUR_IMAGE_NAME}
+    ```
+
+[oc](../usage/cli.md) must be installed locally on your machine.
 
 ## Using Manually Cached Images
 
@@ -54,7 +72,7 @@ Finally select the new image.
 
 ## Access Control for the Rahti Integrated Registry
 
-Rahti allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html).
+Rahti allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/index).
 
 ### 1. **Anonymous Access** (`system:anonymous`)
 

@@ -1,7 +1,16 @@
 ---
-title: TensorFlow
 tags:
   - Free
+catalog:
+  name: TensorFlow
+  description: Deep learning library for Python
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # TensorFlow
@@ -76,7 +85,7 @@ normal. For other commands, you need to prefix them with
 `apptainer_wrapper exec`, for example `apptainer_wrapper exec
 huggingface-cli`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md).
+containers](../computing/containers/overview.md#running-containers).
 
 Some modules support [Horovod](https://horovod.ai/), which is our
 recommended framework for multi-node jobs, i.e., jobs needing more

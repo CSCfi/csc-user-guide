@@ -1,3 +1,5 @@
+# Keeping docker images small
+
 It is important to keep docker images small. The smaller the image is, the faster it will be pulled, speeding up deployments, both in production and development environments. In addition, bigger images get deleted from the nodes cache sooner. The maximum size for an image stored in Rahti's internal registry is 5GB. Images over 1GB are already considered very big images.
 
 ## Be mindful about what is added to the image
@@ -58,7 +60,7 @@ When creating an image, choosing the base image is an important task. There are 
 
 > Alpine Linux is a security-oriented, lightweight Linux distribution based on **musl libc** and **busybox**.
 
-Currently the base image for Alpine (`docker.io/alpine`) is only 5.61 MB. For comparison, the sizes of Ubuntu's and CentOS' base images are 72.9 MB and 209 MB respectively. The biggest drawback that Alpine has versus other base images is that some applications are not compatible with [musl libc](https://en.wikipedia.org/wiki/Musl) and require `glibc`. Alpine will also have a smaller selection of software available in the repositories than Ubuntu or CentOS.
+Currently the base image for Alpine (`docker.io/alpine`) is only 5.61 MB. For comparison, the sizes of Ubuntu's and AlmaLinux' base images are 72.9 MB and 189 MB respectively. The biggest drawback that Alpine has versus other base images is that some applications are not compatible with [musl libc](https://en.wikipedia.org/wiki/Musl) and require `glibc`. Alpine will also have a smaller selection of software available in the repositories than Ubuntu or AlmaLinux.
 
 ## Use `.dockerignore`
 

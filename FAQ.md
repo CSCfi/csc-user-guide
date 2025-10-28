@@ -22,11 +22,12 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [Which Markdown features/extensions are available?](#which-markdown-featuresextensions-are-available)
   - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
+  - [How do I include a new software page on the "Applications" index pages](#how-do-i-add-a-new-applications-page)
   - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
   - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
-
+  - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
 
 ## How to include my new page in the navigation panel?
 
@@ -153,6 +154,8 @@ You can preview how the Docs CSC page would look like with your changes included
 ### Locally using the MkDocs tool
 
 This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. MkDocs comes with it's own preview server for a quick local preview of your edits. You can install the requirements for running Docs CSC locally (all of the following commands are to be run while in the root directory of the cloned repository) with Pip or Conda (recommended).
+
+Alternatively, see [CONTRIBUTING.md](CONTRIBUTING.md#building-the-website-using-the-included-dockerfile) for instructions for Docker/Podman.
 
 #### Venv
 
@@ -350,15 +353,79 @@ Make sure to "un-uncomment" every other line, since only a single line may be in
 
 Documentation for _Material for MkDocs_ has a [search feature](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search) including **previews** for the icon database. The path of the icon file can be determined by examining the shortcode. For example, the path `.icons/material/information.svg` above corresponds to the shortcode `:material-information:` shown in the search.
 
+## How do I add a new "Applications" page?
+
+To include a new software page on the "Applications" index pages
+(`apps/index.md`, `apps/by_system.md`, `apps/by_license.md`, `apps/by_discipline`),
+you must add a YAML front matter at the beginning of the file (before the page title)
+with appropriate metadata. The frontmatter should look like this:
+
+```yaml
+---
+tags:
+  - <license type>
+catalog:
+  name: <software name>
+  description: <short description>
+  license_type: <license type>
+  disciplines:
+    - <discipline a>
+    - <discipline b>
+    - ...
+  available_on:
+    - web_interfaces:
+        - <system 1>
+        - <system 2>
+        - ...
+    - <system 1>
+    - <system 2>
+    - <system 3>
+    - ...
+---
+```
+
+For example, the front matter of MATLAB is:
+
+```yaml
+---
+tags:
+  - Academic
+catalog:
+  name: MATLAB
+  description: High-level technical computing language
+  license_type: Academic
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
+---
+```
+
+> [!IMPORTANT]
+> **Do not** edit the index pages by hand, as they are populated automatically by a script using the front matter data when the website is built.
+
+See also:
+
+* [How do I add a license tag to an application page?](#how-do-i-add-a-license-tag-to-an-application-page)
+* [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
+
 ## How do I add a license tag to an application page?
 
-The license tag is added inside a YAML front matter. The first lines in the Markdown file should be
-the front matter. Please note the enclosing dashes. A template for the front matter is
+The license tag is added inside the YAML front matter. Temporarily, the license type should be placed as a
+list item under `tags:` _and_ as a string in `license_type:`:
 
 ```yaml
 ---
 tags:
   - <license>
+catalog:
+  # ...
+  license_type: <license>
+  # ...
 ---
 ```
 
@@ -369,35 +436,21 @@ The application will then be included on the Applications by license page automa
 
 ## How do I tag an application as available under a web interface?
 
-As with [adding a license tag](#how-do-I-add-a-license-tag-to-an-application-page), an application
-can be tagged as available in a particular web interface. The application will then be listed under
-that web interface on the _Applications by availability_ page. The tags for web interfaces that an
-application is available on are added under the `system` key in the front matter.
+In the YAML front matter. The following would, for example, tag the application as available on
+Puhti, Mahti _and_ Puhti web interface.
 
 ```yaml
 ---
-system:
-  - www-<system1>
-  - www-<system2>
+catalog:
+  # ...
+  available_on:
+    - Puhti
+    - Mahti
+    - web_interfaces:
+        - Puhti
+  # ...
 ---
 ```
-
-where `<system1>` or `<system2>` is one of the systems where a web interface is available, for
-example (prefixed with `www-`) `mahti` or `puhti`.
-
-As a temporary workaround, to prevent an application getting listed under a system for merely
-mentioning the system, edit the [skip_system.txt](scripts/skip_system.txt) file.
-
-```text
-Workaround:
-
-...
-
-SKIP_<system1> application.md
-SKIP_<system2> application.md
-```
-
-where `<system1>` and `<system2>` are as above.
 
 ## How do I add footnotes?
 
@@ -418,3 +471,7 @@ search:
 ```
 Start with low values.  
 More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#usage)
+
+## How do I redirect incoming links
+
+The [STYLEGUIDE.md](STYLEGUIDE.md#redirecting-pages) describes how to add redirection for a URL.

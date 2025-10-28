@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Exporting data from virtual desktop via user interface
 
 ## Prerequisites
@@ -75,7 +77,7 @@ CSC provides an application that simplifies encryption key generation and data d
 * Decrypt a test file with Crypt4gh application
     1. Load your **private key**.
     2. Select the encrypted test file.
-    3. Click **Encrypt file**. 
+    3. Click **Decrypt file**. 
     4. Insert password.
     5. If you encrypted test file can be opened after decrypting you know that keys work and you can proceed.
 
@@ -96,6 +98,16 @@ CSC provides an application that simplifies encryption key generation and data d
 4. In the new window, name the destination folder for your files (e.g. **project_export**).
 5. Click **Select Files** to open a browser window and choose the public enycrption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
 6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
+
+!!! info "Folder names"
+
+    * Folder name should start with a lowercase letter or a number.
+    * Folder name should be between 3 and 63 characters long.
+    * Use Latin alphabets (a-z), numbers (0-9) and dash (-). 
+    * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
+    * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
+    * Remember, all folder names are public; please do not include any confidential information.
+    * Folder names can't be modified afterwards.
 
 
 ## 4. Import the public key inside the virtual desktop

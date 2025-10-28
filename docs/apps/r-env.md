@@ -1,37 +1,52 @@
 ---
 tags:
   - Other
+catalog:
+  name: r-env
+  description: R, RStudio Server, SAGA and TensorFlow
+  license_type: Other
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # r-env
 
-`r-env` is an [Apptainer container](../computing/containers/run-existing.md) including R and RStudio Server, and several other features to facilitate their use. 
+`r-env` is an [Apptainer container](../computing/containers/overview.md#running-containers) including R and RStudio Server, and several other features to facilitate their use. 
 
 - R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
 
+!!! info "News"
+  **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.    
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).  
+
 ## Available
 
-`r-env` includes 1400+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
+`r-env` includes 1500+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-Current modules and versions supported on Puhti:
+Current modules and versions supported on Puhti and Mahti:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | TensorFlow version | CmdStan version |
-| ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------| ------------------ | --------------- |
-| r-env/442               | February 12 2025    | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.18.0             | 2.36.0          |
-| r-env/440               | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.9.1              | 2.35.0          |
-| r-env/432               | January 15 2024     | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.9.1              | 2.34.1          |
-| r-env/430               | June 07 2023        | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.9.1              | 2.32.2          |
-| r-env/422               | March 06 2023       | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.9.1              | 2.32.1          |
-| r-env/421               | June 29 2022        | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.9.1              | 2.30.1          |
+| Module name (R version) | Puhti / Mahti | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | CmdStan version |
+| ----------------------- | ------------- | ------------------- | -------------------- | ---------------------- | ----------------| --------------- |
+| r-env/451 (default)     | X / X         | July 7 2025         | 3.21                 | 2025.05.1-513          | 2025.2.0        | 2.36.0          |
+| r-env/442               | X / X         | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
+| r-env/440               | X / -         | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.35.0          |    
+| r-env/432               | X / -         | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.34.1          | 
+| r-env/430               | X / -         | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.32.2          |    
+| r-env/422               | X / -         | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.32.1          | 
+| r-env/421               | X / -         | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.30.1          | 
 
 
 Other software and libraries:
 
-- Open MPI 4.1.2 (with Mellanox OFED™ software)
+- Open MPI (with Mellanox OFED™ software) 4.1.7 (r-env/451) , 4.1.2 (from r-env/421 to r-env 442)
+- TensorFlow 2.19.0 (r-env/451), 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
 - cget 0.2.0
 
 ## Licenses
@@ -283,7 +298,7 @@ arrays <- commandArgs(trailingOnly = TRUE)
 
 *Jobs using `doMPI` (with `foreach`)*
 
-The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we could modify the `srun` command at the end of the batch job file:
+The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we replace `--cpus-per-task=8` with `--ntasks=8`. In addition, we could modify the `srun` command at the end of the batch job file:
 
 ```bash
 srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
@@ -666,17 +681,17 @@ The `r-env` module includes several packages that make use of [Stan](https://mc-
 *Using R with the CmdStan backend* 
 
 The `r-env` module comes with a separate [CmdStan](https://github.com/stan-dev/cmdstan) installation that is specific to each module version.
-To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/442` this would be done as follows:
+To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/451` this would be done as follows:
 
 ```r
-cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/442-stan/cmdstan-2.36.0")
+cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/451-stan/cmdstan-2.36.0")
 ```
 
 If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 ```r
 # Set R version
-export RVER=442
+export RVER=451
 
 # Launch R after binding CmdStan
 SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"
@@ -751,7 +766,7 @@ To use R packages installed in `/projappl`, add the following to the beginning o
 .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
-Alternatively, you can add the desired changes to an `.Renviron` file (only when not using RStudio):
+Alternatively, you can add the desired changes to an `.Renviron` file:
 
 ```bash
 echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
@@ -775,18 +790,19 @@ When prompted about an existing LaTeX distribution, answer `yes` to continue the
 
 The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data. 
 
-Accessing Allas via the `r-env` module can be done as follows. First configure Allas by running these commands before launching an interactive shell session:
+Accessing Allas via the `r-env` module can be done as follows. First configure [Allas connection for S3](../data/Allas/using_allas/allas-conf.md#s3-connection):
 
 ```bash
 module load allas
-allas-conf --mode s3cmd
+allas-conf --mode S3
 ```
 
-After [starting an interactive session and launching R / RStudio Server](#interactive-use-on-a-compute-node), you can now access your bucket list as follows. Note that, for this to work, you will need to have the `allas` module loaded and the argument `region=''` added to the `bucketlist()` function:
+To get the list of your buckets:
 
 ```r
 library(aws.s3)
-bucketlist(region='')
+options("cloudyr.aws.default_region" = "")
+bucketlist()
 ```
 
 ## Citation
