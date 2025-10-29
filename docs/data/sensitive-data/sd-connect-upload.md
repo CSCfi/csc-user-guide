@@ -4,12 +4,25 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-!!! info "Share ID"
+Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically. Once files are uploaded and stored, the service begins consuming billing units. The default storage quota is 10 TB. When this limit is reached, uploads will no longer be accepted until additional storage is allocated.
 
-    Your data is automatically encrypted when you upload files to SD Connect, while is automatically decrypted during download, as the service provide automated key management.  This is suitable for all file types and formats, but it is supported      only for files up to 100 GB.  Largers files or folders can be uploaded [programmatically](./sd-connect-command-line-interface.md). Note that all proeject memmbers can uplaod and download files stored in the same CSC project. 
+Note !!!
 
-!!! Note
-    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable uploading files and folders.
+     All members of the same CSC project have access to upload and download files stored via SD Connect. To restrict data access for specific project members, please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
+
+
+## Step by step
+
+### 1. Plan the folders structure before uploading
+
+SD Connect is based on a cloud object storage infrastructure. This means that once files are uploaded, they are internally split into segments to optimize storage and performance. This segmentation is not visible through the user interface, but it has important implications for how data should be managed. Once files are uploaded to SD Connect, they cannot be edited or changed. Therefore, it is important to plan ahead how datasets and files will be organized in SD Connect before you start uploading.
+
+To keep things simple and avoid problems, we recommend creating a separate folder for each experiment or dataset. Try to use clear folder names so it’s easy to find things later and avoid putting too many files in one folder (each folder has a limit of 500.000 segmented files). 
+
+
+## Accept cockies
+
+File uploads are supported in Google Chrome and Mozilla Firefox (incognito mode not supported) browsers. On first use, a browser pop-up may request cookie consent. Accepting cookies enables file and folder uploads. This action is required only once.
 
 ## Upload and encrypt files to a new folder
 
