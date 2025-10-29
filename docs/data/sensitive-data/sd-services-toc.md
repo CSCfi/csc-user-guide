@@ -21,6 +21,7 @@ hide:
 * [Start here: Creating a CSC project academic type](sd-store-and-analyze-research-data.md)
     * [Access as a project manager](sd-use-case-new-user-project-manager.md)
     * [Access as a project member](sd-use-case-new-user-project-member.md)
+    * [Resource planning for your CSC Project](sd-billing-units.md)
 
 #### 1.1.1 Store and share with SD Connect
 
@@ -86,13 +87,10 @@ hide:
  
 ### 3. Additional Resources
 
-- [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
-
-- [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
-
-- [Useful terminology :material-arrow-right:](sd-terminology.md)
-
-- [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
+* [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
+* [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
+* [Useful terminology :material-arrow-right:](sd-terminology.md)
+* [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
 
 ## 4. Tutorials (advanced)
 
