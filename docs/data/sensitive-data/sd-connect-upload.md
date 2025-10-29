@@ -4,15 +4,15 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically. Once files are uploaded and stored, the service begins consuming billing units. The default storage quota is 10 TB. When this limit is reached, uploads will no longer be accepted until additional storage is allocated.
+Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically.
 
 !!! Note
-     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission. [Read        about use case](./sd-connect-share-read-to-sd-desktop.md) and please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
+     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission to a diferent CSC project Academic type. Please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
 
 
 ## Step by step
 
-#### 1. Plan the number of folders needed
+### 1. Plan the number of folders needed
 
 SD Connect is built on a cloud object storage infrastructure. Files can only be uplaoded into top-level or 'main folders' creatd with SD Connect:  a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
@@ -60,6 +60,7 @@ On first use, a browser pop-up may request cookie consent. Accepting cookies ena
 7. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
 8. Once the upload is finished, the encrypted files will display the extentsion .c4gh, this means that they have been successfully encrypted. 
 9. Now the files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation once imported via SD Desktop.
+10. Once files are uploaded and stored, the service begins consuming billing units. The default storage quota is 10 TB. When this limit is reached, uploads will no longer be accepted until additional storage is allocated.
 
 
 
