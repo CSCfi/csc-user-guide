@@ -22,16 +22,33 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 1. Find correct folder from All folders tab.
 2. Click **Download** on right side of the folder you want to download.
-3. Files are decrypted automatically. Locate downloaded files from your computer (for example Downloads folder).
+3. Locate the doaloded folder from your computer (for example Downloads folder). 
 
 ![SD Connect Download folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Download.png)
 
 ### Downloading individual files
 
 1. Find correct folder from All folders tab and click to view files.
-2. Find corrects files.
-3. Click **Download** on right side of each file you want to download.
-4. Files are decrypted automatically. Files will download and decrypt automatically, usually to downloads folder. Do not open the folder until the download is complete to avoid errors. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
+   
+3. Find corrects files.
+   
+5. Click **Download** on right side of each file you want to download.
+   
+7. Accept Cookies (if prompted): A pop-up may appear asking for cookie consent.The download will not start unless cookies are accepted.
+   
+9. Wait for the Download to Complete: a progress bar will indicate the download status. Once it finishes, check the downloads folder:
+
+Here you may see two files:
+
+.tar file: this is the actual file containing your downloaded folder. 
+.tar.part file: this is a temporary file created while the .tar file is still downloading. It indicates that the download is in progress.
+
+If both the .tar and .tar.part files are still visible, the download is still in progress. The browser will continue the download in the background.
+
+!!! Note
+    Do not open or extract any of the files until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This indicates that the download has completed successfully.
+    
+11. Files are decrypted automatically. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
 
 !!! Warning
     If you encounter the message 'Some downloaded files need manual decryption.' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
