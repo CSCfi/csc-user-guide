@@ -1,57 +1,20 @@
-.md-typeset .app-heading-row {
-  display: flex;
-  justify-content: start;
-  align-content: center;
-  margin: 0 0 1.25em;
-}
-
-.md-typeset .app-heading {
-  margin: unset;
-}
-
-.md-typeset .app-description {
-  font-weight: 300;
-  text-align: center;
-  color: var(--c-tertiary-800);
-  margin-left: .5ch;
-}
-
-.md-typeset .app-heading-row .app-description {
-  font-size: 1.50em;
-}
-
-.md-typeset .app-link {
-  margin-right: 1em;
-}
-
-.md-typeset nav .app-tags {
-  margin: 0 0 .75em;
-}
-
-.md-typeset c-accordion-item {
-  margin-bottom: 1em;
-}
-
-.md-typeset .alpha-toc {
+.md-typeset .catalog-toc {
   max-width: 80%;
 }
 
-.md-typeset .alpha-toc ul {
+.md-typeset .catalog-toc ul {
   display: flex;
   justify-content: start;
   flex-wrap: wrap;
   margin-left: 0;
+  gap: .25em;
 }
 
-.md-typeset .alpha-toc ul li {
+.md-typeset .catalog-toc ul li {
   list-style-type: none;
-  margin: 0 .25em;
-  text-align: center;
+  margin: 0;
 }
 
-.md-typeset .alpha-toc a {
-  padding: .125em .5em;
-  border-radius: 25%;
-  font-size: large;
-  font-weight: var(--csc-font-weight--bold);
+.md-typeset .catalog-toc ul li a:hover {
+  background-color: unset;
 }

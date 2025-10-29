@@ -1,0 +1,29 @@
+{%- macro link(app) -%}
+{% set external = app.page is none %}
+{% set internal = not external and not app.is_appendix_app %}
+{% set href = app.url %}
+{%- set props -%}
+href="{{ href }}"{% if external %} target="_blank"{% endif %}
+{%- endset -%}
+{% if external %}
+{% set icon = ".icons/material/open-in-new.svg" %}
+{% elif not internal %}
+{% set icon = ".icons/material/arrow-right-bold-box-outline.svg" %}
+{% endif %}
+{%- set text -%}
+{{ app.name | string }}{%- if external or not internal -%}&nbsp;<span class="twemoji">{%- include icon -%}</span>{%- endif -%}
+{%- endset -%}
+<a {{ props }}>{{ text }}</a>
+{%- endmacro -%}
+
+{%- macro description(app) -%}
+{%- if app.description -%}
+&nbsp;&mdash;&nbsp;{{ app.description }}
+{%- else -%}
+*
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro app_item(app) -%}
+<li>{{ link(app) }}{{ description(app) }}</li>
+{%- endmacro -%}
