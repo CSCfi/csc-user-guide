@@ -70,12 +70,12 @@ On first use, a browser pop-up may request cookie consent. Accepting cookies ena
 ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
 
-### Upload and encrypt files to an existing folder
+## Upload and encrypt files to an existing folder
 
 1. Select the correct folder (by double-click).
 2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph.
 
-## Create a folder
+### Create a folder
 
 You can create a folder and upload files to it later.
 
