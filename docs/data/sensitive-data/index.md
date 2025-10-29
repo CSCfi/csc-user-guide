@@ -1,15 +1,14 @@
 # Sensitive Data (SD) services for research: user guide
 
-Welcome to the user guides for CSC's Sensitive Data (SD) services. 
-
-**These guides are structured based on the type of data involved in your research and the legal grounds for its processing**. Start by identifing the type of confidantial or sensitive data your research involves, whether it is: **research data** (e.g. consented data collected for scientific studies) or **health and social data for seconday use** (e.g. register data provided by the Finnish Social and Health Data Permit Authority, Findata, or a public register). This determines the appropriate CSC project type used to access the services and the access rights for project members.
-
-Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
+Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ### Quick links to user guides
+
+**These guides are structured based on the type of data involved in your research and the legal grounds for its processing**. Start by identifing the type of confidantial or sensitive data your research involves, whether it is: **research data** (e.g. consented data collected for scientific studies) or **health and social data for seconday use** (e.g. register data provided by the Finnish Social and Health Data Permit Authority, Findata, or a public register). This determines the appropriate CSC project type used to access the services and the access rights for project members.
+
 
 <div class="grid cards csc-quick-links csc-quick-links--compact" markdown>
 
@@ -46,7 +45,6 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
     [Submit secondary use data :material-arrow-right:](single-register-submission.md)
 
 </div>
-
 
 
 
