@@ -255,6 +255,11 @@ C = funcGPU(1000);
 
 MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the user's computer to the Puhti cluster's MATLAB workers.
 Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Puhti cluster, and a user-side configuration.
+
+!!! note
+    If you are using PuTTY, the private key **must** be exported as OpenSSH key.
+    The `.ppk` format does not work.
+
 You can run the MATLAB script for the user-side configuration:
 
 ```matlab title="MATLAB script"
@@ -272,11 +277,17 @@ end
 
 % Path to where the ZIP file is downloaded.
 confzip = fullfile(confroot, "mps_puhti.zip");
-delete(confzip);  % remove previous zipfile
+% Remove previous zipfile if exists
+if exist(confzip, "file") == 2
+    delete(confzip);
+end
 
 % Path to the directory where configuration files are extracted.
 confdir = fullfile(confroot, "mps_puhti");
-rmdir(confdir, 's');  % remove previous config directory
+% Remove previous zipdir if exists
+if exist(confdir, "dir") == 7
+    rmdir(confdir, 's');
+end
 
 % Download the configuration files as a ZIP file.
 websave(confzip, "https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip")
