@@ -47,9 +47,11 @@ When creating folders in SD Connect, specific naming rules must be followed to e
     * Folder names can't be modified afterwards.
 
 
-### 3. Accept cockies
+### 3. Accept cookies
 
-File uploads are supported in Google Chrome and Mozilla Firefox (incognito mode not supported) browsers. On first use, a browser pop-up may request cookie consent. Accepting cookies enables file and folder uploads. This action is required only once.
+File uploads are supported in Google Chrome and Mozilla Firefox (incognito mode not supported) browsers. 
+
+On first use, a browser pop-up may request cookie consent. Accepting cookies enables file and folder uploads. This action is required only once.
 
 ### 4. Upload and encrypt files to a new folder
 
