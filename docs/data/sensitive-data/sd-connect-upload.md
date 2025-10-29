@@ -6,9 +6,8 @@
 
 Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically. Once files are uploaded and stored, the service begins consuming billing units. The default storage quota is 10 TB. When this limit is reached, uploads will no longer be accepted until additional storage is allocated.
 
-Note !!!
-
-     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission. [Read about use case](./sd-connect-share-read-to-sd-desktop.md) and please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
+!!! Note
+     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission. [Read        about use case](./sd-connect-share-read-to-sd-desktop.md) and please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
 
 
 ## Step by step
@@ -23,7 +22,7 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 
 - **Upload duration**: Uploading large files or large batches may take several hours. Uploads are automatically stopped after 8 hours.
   
-- - **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance. When an SD Connect folder contains more than 2,500 files, the interface may become slower. In such cases, it is recommended to use the command-line tools for uploading and automated key management.
+-  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance. When an SD Connect folder contains more than 2,500 files, the interface may become slower. In such cases, it is recommended to use the command-line tools for uploading and automated key management.
 
 
 ### 2. Plan folder names
@@ -35,13 +34,11 @@ When creating folders in SD Connect, specific naming rules must be followed to e
  * Folder name can not be modified after their creation. 
 
 **Folder names must**:
-
     * start with a lowercase letter or a number.
     *  be between 3 and 63 characters long.
     * Use Latin alphabets (a-z), numbers (0-9) and dash (-).
     
 **Folder names must not contain**:
-      
     * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
     * all folder names are public; please do not include any confidential information.
     * Folder names can't be modified afterwards.
