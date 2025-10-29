@@ -13,41 +13,50 @@ Note !!!
 
 ## Step by step
 
-### 1. Plan the number of folders needed 
+#### 1. Plan the number of folders needed
 
-SD Connect is based on a cloud object storage infrastructure. This means that:
+SD Connect is built on a cloud object storage infrastructure. Files can only be uplaoded into top-level or 'main folders' creatd with SD Connect:  a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
-- once files are uploaded, they are split into segments to optimize storage and performance. This segmentation is not visible through the user interface, but it has important implications for how data should be managed. The user interface might be slower when there are more than 2500 files for each folder. In this case please user the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
+- **Once files are uploaded to SD Connect, they cannot be edited or modified**.  It is therefore important to plan the folder structure in advance. To simplify data management and avoid issues, it is recommended to create a separate folder for each dataset or experiment. Avoid placing too many files in a single folder, each folder can contain up to 500.000 segmented files.The user interface might be slower when there are more than 2500 files for each folder. In this case please user the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
+
+- **Subfolders not supported**: Uploading files into subfolders is not supported.
+
+- **Upload duration**: Uploading large files or large batches may take several hours. Uploads are automatically stopped after 8 hours.
   
--  ** Once files are uploaded to SD Connect, they cannot be edited or changed**. Therefore, it is important to plan ahead how datasets and files will be organized in SD Connect before you start uploading. To keep things simple and avoid problems, we recommend creating a separate folder for each experiment or dataset. Try to use clear folder names so it’s easy to find things later and avoid putting too many files in one folder (each folder has a limit of 500.000 segmented files).
+- - **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance. When an SD Connect folder contains more than 2,500 files, the interface may become slower. In such cases, it is recommended to use the command-line tools for uploading and automated key management.
 
--  Uplaods into subfolders is not supported
 
--  Large files /uplaods may take hours to upload and uploads stop after 8 hours.
-
-#### 2. Plan folder names
+### 2. Plan folder names
   
- !!! info "Folder names"
+When creating folders in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. Note: these rules apply only to top-level folders created in the service, not to subfolders uploaded from a local computer. 
 
-    * Folder name should start with a lowercase letter or a number.
-    * Folder name should be between 3 and 63 characters long.
-    * Use Latin alphabets (a-z), numbers (0-9) and dash (-). 
+ * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
+   
+ * Folder name can not be modified after their creation. 
+
+**Folder names must**:
+
+    * start with a lowercase letter or a number.
+    *  be between 3 and 63 characters long.
+    * Use Latin alphabets (a-z), numbers (0-9) and dash (-).
+    
+**Folder names must not contain**:
+      
     * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
-    * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
-    * Remember, all folder names are public; please do not include any confidential information.
+    * all folder names are public; please do not include any confidential information.
     * Folder names can't be modified afterwards.
 
 
-## 3. Accept cockies
+### 3. Accept cockies
 
 File uploads are supported in Google Chrome and Mozilla Firefox (incognito mode not supported) browsers. On first use, a browser pop-up may request cookie consent. Accepting cookies enables file and folder uploads. This action is required only once.
 
-## 4. Upload and encrypt files to a new folder
+### 4. Upload and encrypt files to a new folder
 
 1. Log in to SD Connect.
 2. Select the correct CSC project in the top left corner.
 3. Click **Upload** in the top right corner.
-4. In the new window, name the destination folder for your files taking into consideration that soem caractes are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é) (please see parapgh 2). 
+4. In the new window, name the destination folder for your files taking into consideration that some caractes are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é) (please see paragraph 2). 
 5. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
 7. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
 8. Once the upload is finished, the encrypted files will display the extentsion .c4gh, this means that they have been successfully encrypted. 
@@ -58,7 +67,7 @@ File uploads are supported in Google Chrome and Mozilla Firefox (incognito mode 
 ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
 
-## Upload and encrypt files to an existing folder
+### Upload and encrypt files to an existing folder
 
 1. Select the correct folder (by double-click).
 2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph.
