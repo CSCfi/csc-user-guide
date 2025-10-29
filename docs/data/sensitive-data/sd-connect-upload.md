@@ -27,21 +27,24 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 
 ### 2. Plan folder names
   
-When creating folders in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. Note: these rules apply only to top-level folders created in the service, not to subfolders uploaded from a local computer. 
+When creating folders in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. 
 
- * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
-   
- * Folder name can not be modified after their creation. 
+!!! Note
+    Top level folder name can not be modified after their creation with SD Connect. 
+    These rules apply only to top-level folders created in the service, not to subfolders uploaded from a local computer. 
 
 **Folder names must**:
-    * start with a lowercase letter or a number.
-    *  be between 3 and 63 characters long.
-    * Use Latin alphabets (a-z), numbers (0-9) and dash (-).
+
+* start with a lowercase letter or a number.
+* be between 3 and 63 characters long.
+* use Latin alphabets (a-z), numbers (0-9) and dash (-).
+* be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
     
 **Folder names must not contain**:
-    * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
-    * all folder names are public; please do not include any confidential information.
-    * Folder names can't be modified afterwards.
+
+* Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
+* all folder names are public; please do not include any confidential information.
+* Folder names can't be modified afterwards.
 
 
 ### 3. Accept cookies
