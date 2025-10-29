@@ -89,7 +89,6 @@ You can create a folder and upload files to it later.
 
 ## The next steps in this guide 
 
-* [Upload](./sd-connect-upload.md)
 * [Download](./sd-connect-download.md)
 * [Delete](./sd-connect-delete.md)
 * [Share](./sd-connect-share.md)
