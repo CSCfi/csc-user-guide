@@ -7,7 +7,7 @@
 Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically.
 
 !!! Note
-     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission to a diferent CSC project Academic type. Please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
+     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission to a different CSC project Academic type. Please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
 
 
 ## Step by step
@@ -82,7 +82,7 @@ On first use, a browser pop-up may request cookie consent. Accepting cookies ena
 You can create a folder and upload files to it later.
 
 1. Click **Create folder**.
-2. Name your folder taking into consideration that soem caractes are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é) (please see pargraph 2). 
+2. Name your folder taking into consideration that some caracters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é) (please see pargraph 2). 
 3. Click **Save**.
 
 ![SD Connect Create folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_CreateFolder.png)
