@@ -32,15 +32,15 @@ This document provides instructions on how you can install SD Connect command li
 
 ## 2. Plan the number of folders needed
 
-SD Connect is built on a cloud object storage infrastructure. Files can only be uplaoded into top-level or 'main folders' creatd with SD Connect:  a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
+SD Connect is built on a cloud object storage infrastructure. Files can only be uplaoded into top-level or 'main folders' creatd with SD Connect:  a top-level 'container or bucket' used to store files or folders. This has several implications for how your data should be organized and managed:
 
-- **Once files are uploaded to SD Connect, they cannot be edited or modified**.  It is therefore important to plan the folder structure in advance. To simplify data management and avoid issues, it is recommended to create a separate folder for each dataset or experiment. Avoid placing too many files in a single folder, each folder can contain up to 500.000 segmented files.The user interface might be slower when there are more than 2500 files for each folder. In this case please user the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
+- **Once files are uploaded to SD Connect, they cannot be edited or modified**.  It is therefore important to plan the folder structure in advance. To simplify data management and avoid issues, it is recommended to create a separate folder for each dataset or experiment. Avoid placing too many files in a single folder, each folder can contain up to 500.000 segmented files.
 
 - **Subfolders not supported**: Uploading files into subfolders is not supported.
 
-- **Upload duration**: Uploading large files or large batches may take several hours. Uploads are automatically stopped after 8 hours.
+- **Upload duration**: Uploading large datstes or large batches may take several hours. Uploads are automatically stopped after 8 hours.
   
--  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance. When an SD Connect folder contains more than 2,500 files, the interface may become slower. In such cases, it is recommended to use the command-line tools for uploading and automated key management.
+-  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance. 
 
 
 ## 3. Plan folder names
