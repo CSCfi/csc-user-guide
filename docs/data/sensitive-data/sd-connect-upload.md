@@ -7,14 +7,14 @@
 Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically.
 
 !!! Note
-     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission to a different CSC project Academic type. Please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
+     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission to a different CSC project Academic type. Please contact servicedesk@csc.fi (subject: SD Connect) for assistance.            
 
 
 ## Step by step
 
 ### 1. Plan the number of folders needed
 
-SD Connect is built on a cloud object storage infrastructure. Files can only be uplaoded into top-level or 'main folders' creatd with SD Connect:  a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
+SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into top-level or 'main folders' created with SD Connect:  a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
 - **Once files are uploaded to SD Connect, they cannot be edited or modified**.  It is therefore important to plan the folder structure in advance. To simplify data management and avoid issues, it is recommended to create a separate folder for each dataset or experiment. Avoid placing too many files in a single folder, each folder can contain up to 500.000 segmented files.
 
@@ -24,7 +24,7 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
   
 -  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance.
     
-- The user interface might be slower when there are more than 2500 files for each folder. In this case please user the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
+- The user interface might be slower when there are more than 2500 files for each folder. In this case please use the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
 
 
 ### 2. Plan folder names
@@ -40,7 +40,7 @@ When creating folders in SD Connect, specific naming rules must be followed to e
 * start with a lowercase letter or a number.
 * be between 3 and 63 characters long.
 * use Latin alphabets (a-z), numbers (0-9) and dash (-).
-* be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
+* be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project specific identifiers (e.g., project ID number or acronym) in the folder name.
     
 **Folder names must not contain**:
 
@@ -63,7 +63,7 @@ On first use, a browser pop-up may request cookie consent. Accepting cookies ena
 4. In the new window, name the destination folder for your files taking into consideration that some caractes are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é) (please see paragraph 2). 
 5. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
 7. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
-8. Once the upload is finished, the encrypted files will display the extentsion .c4gh, this means that they have been successfully encrypted. 
+8. Once the upload is finished, the encrypted files will display the extension .c4gh, this means that they have been successfully encrypted. 
 9. Now the files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation once imported via SD Desktop.
 10. Once files are uploaded and stored, the service begins consuming billing units. The default storage quota is 10 TB. When this limit is reached, uploads will no longer be accepted until additional storage is allocated.
 
@@ -82,7 +82,7 @@ On first use, a browser pop-up may request cookie consent. Accepting cookies ena
 You can create a folder and upload files to it later.
 
 1. Click **Create folder**.
-2. Name your folder taking into consideration that some caracters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é) (please see pargraph 2). 
+2. Name your folder taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é) (please see paragraph 2). 
 3. Click **Save**.
 
 ![SD Connect Create folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_CreateFolder.png)
