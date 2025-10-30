@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+  unchecked: true
 ---
 
 # Bioconda
