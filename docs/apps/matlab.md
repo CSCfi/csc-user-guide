@@ -97,14 +97,15 @@ Alternatively, select Network License Manager to use a network license.
 5. The MATLAB application takes a couple of minutes to load.
 Then press Connect to MATLAB and the web application will open.
 
-If you are trying to log in using MathWorks credentials, but the MATLAB license GUI automatically loads the CSC license server, you need to clear the cached credentials first.
-To do this:
+!!! error
+    If you are trying to log in using MathWorks credentials, but the MATLAB license GUI automatically loads the CSC license server, you need to clear the cached credentials first.
+    To do this:
 
-1. Open the **Login node shell** application in the web interface.
-2. Run the following command to remove the cached credentials:
-   ```bash
-   rm -rf "$HOME/.matlab/MWI"
-   ```
+    1. Open the **Login node shell** application in the web interface.
+    2. Run the following command to remove the cached credentials:
+       ```bash
+       rm -rf "$HOME/.matlab/MWI"
+       ```
 
 
 ## MATLAB command-line interface
@@ -273,6 +274,7 @@ end
 
 % Path to where the ZIP file is downloaded.
 confzip = fullfile(confroot, "mps_puhti.zip");
+
 % Remove previous zipfile if exists
 if exist(confzip, "file") == 2
     delete(confzip);
@@ -280,6 +282,7 @@ end
 
 % Path to the directory where configuration files are extracted.
 confdir = fullfile(confroot, "mps_puhti");
+
 % Remove previous zipdir if exists
 if exist(confdir, "dir") == 7
     rmdir(confdir, 's');
@@ -314,7 +317,7 @@ c = parcluster();
 cscWorkspaces(c);
 ```
 
-!!! info
+!!! error
     If you are using PuTTY to generate SSH keys, you **must** export the private key as **OpenSSH key** and use it with MATLAB Parallel Server.
     The PuTTY Private Key format (`.ppk`) will **not** work.
 
