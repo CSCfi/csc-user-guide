@@ -257,9 +257,9 @@ C = funcGPU(1000);
 MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the user's computer to the Puhti cluster's MATLAB workers.
 Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Puhti cluster, and a user-side configuration.
 
-!!! note
-    If you are using PuTTY, the private key **must** be exported as OpenSSH key.
-    The PuTTY Private Key format (`.ppk`) does **not** work with MATLAB Parallel Server.
+!!! info
+    If you are using PuTTY to generate SSH keys, you **must** export the private key as **OpenSSH key** and use it with MATLAB Parallel Server.
+    The PuTTY Private Key format (`.ppk`) will **not** work.
 
 You can run the MATLAB script for the user-side configuration:
 
