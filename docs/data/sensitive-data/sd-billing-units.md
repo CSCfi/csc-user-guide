@@ -20,11 +20,11 @@ Please note that after each Billing Units application, there is a two week perio
       **The storage quota** limits the amount of storage space available:
  
       - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
-      - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expant the volume, before any data has       been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
+      - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has       been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
 
 
 1. [SD Connect BU consumption](#sd-connect-bu-consumption)
-2. [SD Desktop BU consmption](#sd-desktop-bu-consumption)
+2. [SD Desktop BU consumption](#sd-desktop-bu-consumption)
 3. [What happens if your project runs out of Billing Units?](#what-happens-if-your-project-runs-out-of-billing-units)
 4. [Apply for more billing units ](#apply-for-more-billing-units)
 5. [Log into SD Services](#log-into-sd-services)
@@ -72,9 +72,9 @@ Once all the Cloud Billing Units for your CSC project have been used up, **acces
     
 ### Apply for more billing units 
 
-You can apply for more BUs for your CSC project in MyCSC portal. Please note that after each application, there is a two week period during which you cannot submit another Biliing units (BUs) request, thus make sure to apply for resources in advance.
+You can apply for more BUs for your CSC project in MyCSC portal. Please note that after each application, there is a two week period during which you cannot submit another Billing units (BUs) request, thus make sure to apply for resources in advance.
 
-1. Sign in to MyCSC with you Haka or Virtu credentials.
+1. Sign in to MyCSC with your Haka or Virtu credentials.
 2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
 3. Choose a project and click to open it.
 4. In the new view, scroll down to **Resources** window and click **Apply for resources**. A new window will appear (this might take up to 8 seconds).
@@ -89,7 +89,7 @@ You can apply for more BUs for your CSC project in MyCSC portal. Please note tha
     - Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
     - Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
     - Click **Next**.
-9. In the last view, you can review the project description and field on science. Finally, you can click **Submit**.
+9. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
 
 ### Log into SD Services
@@ -103,6 +103,6 @@ SD Connect:
   
 SD Desktop:
 
-- [SD Desktop overwvire and key features](./sd_desktop.md)
+- [SD Desktop overview and key features](./sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)
     
