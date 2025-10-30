@@ -90,6 +90,7 @@ The MATLAB web application by itself consumes around 4 GB of memory.
 
 4. You will be presented with the MATLAB web application license GUI.
 Select Online License Manager to log in with your MathWorks credentials.
+If you don't have MathWorks account, you need to [create a MathWorks account](https://www.mathworks.com/mwaccount/account/create) with your university's or organization's email address.
 Alternatively, select Network License Manager to use a network license.
     - ![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
 
@@ -258,7 +259,7 @@ Using MPS requires the following configuration on the user's computer: MATLAB in
 
 !!! note
     If you are using PuTTY, the private key **must** be exported as OpenSSH key.
-    The `.ppk` format does not work.
+    The PuTTY Private Key format (`.ppk`) does **not** work with MATLAB Parallel Server.
 
 You can run the MATLAB script for the user-side configuration:
 
