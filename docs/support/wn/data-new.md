@@ -173,7 +173,8 @@ If you have used the service before, but the download suddenly no longer starts,
 2. A new window will open at the bottom of your browser. Click **Application** tab.
 3. Next to **Service Worker**, click **Unregister**.
 4. You can close **Web Developer Tools** window.
-5. Refresh your browser and download files following these [instructions](#downloading-individual-files).
+5. Refresh your browser and download files.
+
 
 
 ![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
