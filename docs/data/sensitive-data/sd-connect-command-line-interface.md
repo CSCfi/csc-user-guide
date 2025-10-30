@@ -12,9 +12,9 @@ Note that files have been uploaded ** before February 2025**  were manually encr
 
 
 
-- [1. Background information](#background-information)
--  2. Plan the number of folders needed
--  3. Plan folder names
+- [1. Background information](#1-background-information)
+- [2. Plan the number of folders neede](#2-plan-the-number-of-folders-needed)
+- [3. Plan folder names](
 - [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
 - [Command line tools and manual encryption](#command-line-tools-and-manual-decryption)
 - [Tutorials](#tutorials)
