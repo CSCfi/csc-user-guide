@@ -2,12 +2,12 @@
 
 # Command Line Interface and automated key management
 
-SD Connect command line tool, **sd-lock-util**, as well as **a-put** and **a-get** commands support SD Connect compatible data upload and download with automatic encryption and decryption. After upload, the data can be edited or analysed once imported in Sd Desktop. Small files (less than 50 GB) can also be downloaded via SD Connect user inertface, which provides also automated decryption.
+SD Connect command line tool, **sd-lock-util**, as well as **a-put** and **a-get** commands support SD Connect compatible data upload and download with automatic encryption and decryption. After upload, the data can be edited or analysed once imported in Sd Desktop. Small files (less than 50 GB) can also be downloaded via SD Connect user interface, which provides also automated decryption.
 
 Note that files have been uploaded ** before February 2025**  were manually encrypted using your encryption key pair and will still need to be decrypted manually after download.
 
 !!! Note
-     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission to a diferent CSC project Academic type. Please contact servicedesk@csc.fi (suject: SD Connect) for assistance.            
+     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission to a different CSC project Academic type. Please contact servicedesk@csc.fi (subject: SD Connect) for assistance.            
 
 
 
@@ -32,13 +32,13 @@ This document provides instructions on how you can install SD Connect command li
 
 ## 2. Plan the number of folders needed
 
-SD Connect is built on a cloud object storage infrastructure. Files can only be uplaoded into top-level or 'main folders' creatd with SD Connect:  a top-level 'container or bucket' used to store files or folders. This has several implications for how your data should be organized and managed:
+SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into top-level or 'main folders' created with SD Connect:  a top-level 'container or bucket' used to store files or folders. This has several implications for how your data should be organized and managed:
 
 - **Once files are uploaded to SD Connect, they cannot be edited or modified**.  It is therefore important to plan the folder structure in advance. To simplify data management and avoid issues, it is recommended to create a separate folder for each dataset or experiment. Avoid placing too many files in a single folder, each folder can contain up to 500.000 segmented files.
 
 - **Subfolders not supported**: Uploading files into subfolders is not supported.
 
-- **Upload duration**: Uploading large datstes or large batches may take several hours. Uploads are automatically stopped after 8 hours.
+- **Upload duration**: Uploading large datasets or large batches may take several hours. Uploads are automatically stopped after 8 hours.
   
 -  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance. 
 
@@ -56,7 +56,7 @@ When creating folders in SD Connect, specific naming rules must be followed to e
 * start with a lowercase letter or a number.
 * be between 3 and 63 characters long.
 * use Latin alphabets (a-z), numbers (0-9) and dash (-).
-* be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
+* be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project specific identifiers (e.g., project ID number or acronym) in the folder name.
     
 **Folder names must not contain**:
 
