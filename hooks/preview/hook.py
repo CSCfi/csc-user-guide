@@ -7,15 +7,11 @@ from classes import DocsHook
 
 
 class PreviewHook(DocsHook):
-    ENVIRONMENT_KEY = "environment"
-    PREVIEW_ENVIRONMENT = "preview"
-
     PageStatus = namedtuple("PageStatus", "head, status")
 
     def __init__(self, **kwargs):
         super().__init__(self, **kwargs)
 
-        self.environment = None
         self.docs_dir = None
         self.cwd = Path.cwd()
         self.repo = Repo(self.cwd)
@@ -40,21 +36,15 @@ class PreviewHook(DocsHook):
 
         return None
 
-    @property
-    def is_preview_build(self):
-        return self.environment == self.PREVIEW_ENVIRONMENT
-
     def on_config(self, config):
-        self.environment = config.extra[self.ENVIRONMENT_KEY]
         self.docs_dir = Path(config.docs_dir)
 
-        if self.is_preview_build:
-            self._logger.info(f"preview build, commit {self.repo.head.commit.hexsha}")
+        self._logger.info(f"preview build, commit {self.repo.head.commit.hexsha}")
 
         return None
 
     def on_page_context(self, context, page, config, nav):
-        if self.is_preview_build and "page" in context:
+        if "page" in context:
             setattr(context["page"],
                     "git",
                     self.PageStatus(head=self.repo.head.commit.hexsha,
