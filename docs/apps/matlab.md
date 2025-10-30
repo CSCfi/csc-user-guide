@@ -90,20 +90,22 @@ The MATLAB web application by itself consumes around 4 GB of memory.
 
 4. You will be presented with the MATLAB web application license GUI.
 Select Online License Manager to log in with your MathWorks credentials.
+If you don't have MathWorks account, you need to [create a MathWorks account](https://www.mathworks.com/mwaccount/account/create) with your university's or organization's email address.
 Alternatively, select Network License Manager to use a network license.
     - ![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
 
 5. The MATLAB application takes a couple of minutes to load.
 Then press Connect to MATLAB and the web application will open.
 
-If you are trying to log in using MathWorks credentials, but the MATLAB license GUI automatically loads the CSC license server, you need to clear the cached credentials first.
-To do this:
+!!! error
+    If you are trying to log in using MathWorks credentials, but the MATLAB license GUI automatically loads the CSC license server, you need to clear the cached credentials first.
+    To do this:
 
-1. Open the **Login node shell** application in the web interface.
-2. Run the following command to remove the cached credentials:
-   ```bash
-   rm -rf "$HOME/.matlab/MWI"
-   ```
+    1. Open the **Login node shell** application in the web interface.
+    2. Run the following command to remove the cached credentials:
+       ```bash
+       rm -rf "$HOME/.matlab/MWI"
+       ```
 
 
 ## MATLAB command-line interface
@@ -255,9 +257,9 @@ C = funcGPU(1000);
 
 MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the user's computer to the Puhti cluster's MATLAB workers.
 Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Puhti cluster, and a user-side configuration.
-You can run the MATLAB script for the user-side configuration:
+Install the user-side configuration files by running the following MATLAB script:
 
-```matlab title="MATLAB script"
+```matlab title="mps_puhti.m"
 % Define local MATLAB configuration directory.
 if ispc()
     % Windows
@@ -272,38 +274,55 @@ end
 
 % Path to where the ZIP file is downloaded.
 confzip = fullfile(confroot, "mps_puhti.zip");
-delete(confzip);  % remove previous zipfile
+
+% Remove previous zipfile if exists
+if exist(confzip, "file") == 2
+    delete(confzip);
+end
 
 % Path to the directory where configuration files are extracted.
 confdir = fullfile(confroot, "mps_puhti");
-rmdir(confdir, 's');  % remove previous config directory
+
+% Remove previous zipdir if exists
+if exist(confdir, "dir") == 7
+    rmdir(confdir, 's');
+end
 
 % Download the configuration files as a ZIP file.
-websave(confzip, "https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip")
+websave(confzip, "https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip");
 
 % Extract the configuration files to the configuration directory.
-unzip(confzip, confdir)
+unzip(confzip, confdir);
 
 % Persist path to the configuration files.
-addpath(confdir)
-savepath()
+addpath(confdir);
+savepath();
 ```
 
-Finally, configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supplying your username to the prompt:
+Next, let's configure a cluster profile that allows your MATLAB to submit jobs to Puhti.
+Supply your Puhti username to the prompt.
 
 ```matlab title="MATLAB script"
 configCluster();
 ```
 
+Finally, we can test connection from MATLAB to Puhti.
+The first time you connect, MATLAB will prompt you to choose between password or SSH key authentication.
+You **must** select the SSH key authentication, provide the path to your private key and enter the password for the private key if one exists.
+Password authentication is no longer supported on Puhti.
+MATLAB will store the path to your key and will not request it again in future sessions.
+
+```matlab title="MATLAB script"
+c = parcluster();
+cscWorkspaces(c);
+```
+
+!!! error
+    If you are using PuTTY to generate SSH keys, you **must** export the private key as **OpenSSH key** and use it with MATLAB Parallel Server.
+    The PuTTY Private Key format (`.ppk`) will **not** work.
+
 
 ### Single node serial, parallel and GPU jobs
-
-!!! info
-    The first time you submit a job, MATLAB will prompt you to choose between password or SSH key authentication.
-    Password authentication is no longer supported on Puhti, so you must select SSH key authentication.
-    Provide the path to your private key and enter the password for the private key if one exists.
-    MATLAB will store the path to your key and will not request it again in future sessions.
-
 We define the resource reservation using [`parcluster`](https://www.mathworks.com/help/parallel-computing/parcluster.html) and submit the function or script to the cluster using [`batch`](http://www.mathworks.com/help/distcomp/batch.html).
 The `parcluster` object is stateful, thus we explicitly unset properties when they are unused, such as GPUs for CPU-only jobs.
 You can use the following examples; just replace `<project>` with your project, such as `project_2001234`, and modify the resource reservation to suit your needs.
