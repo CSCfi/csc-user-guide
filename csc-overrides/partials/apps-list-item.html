@@ -19,7 +19,7 @@ href="{{ href }}"{% if external %} target="_blank"{% endif %}
 {%- macro description(app) -%}
 {%- if app.description -%}
 &nbsp;&mdash;&nbsp;{{ app.description }}
-{%- else -%}
+{%- elif app.unchecked -%}
 *
 {%- endif -%}
 {%- endmacro -%}
