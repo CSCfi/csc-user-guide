@@ -1,22 +1,14 @@
 # Sensitive Data (SD) services for research: user guide
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services.
-
-To access CSC's SD Services, it is important to first identify the type of sensitive data  your research involves, whether it is:
-
-* research data (e.g. consented data collected for scientific studies)
-  
-* or secondary use of health and social data  (e.g. register data provided by the Finnish Social and Health Data Permit Authority Findata or a public register). 
-
-This determines the appropriate CSC project type used for access (Academic or Findata) and the data import and export workflows. How the CSC project type is used also determines whether project members can download files or only access them in read-only mode. 
-
-Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
-
+Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ### Quick links to user guides
+
+
+
 
 <div class="grid cards csc-quick-links csc-quick-links--compact" markdown>
 
@@ -24,7 +16,9 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 
     ---
 
-    [Start here: crete an account and a CSC project academic type](sd-store-and-analyze-research-data.md)
+    [Start here: create an account and a CSC project academic type](sd-store-and-analyze-research-data.md)
+
+    [Resource planning for your CSC project](sd-billing-units.md)
 
     [Store with SD Connect :material-arrow-right:](sd_connect.md)
 
@@ -54,15 +48,8 @@ Each guide provides step-by-step instructions and video tutorials. Use the left 
 
 </div>
 
-### Additional Resources
-
-- [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
-
-- [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
-
-- [Useful terminology :material-arrow-right:](sd-terminology.md)
-
-- [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
+!!! Note
+    **The guides are structured based on the type of data involved in your research and the legal grounds for its processing**. Start by identifying the type of confidential or sensitive data your research       involves, whether it is: **research data** (e.g. consented data collected for scientific studies) or **health and social data for secondary use** (e.g. register data provided by the Finnish Social and        Health Data Permit Authority, Findata, or a public register). This will also determine the appropriate CSC project type used to access the services and the access rights for project members.
 
 ### Quick access webpage to SD Services
 

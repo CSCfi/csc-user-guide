@@ -23,7 +23,7 @@ Responsibilities include:
   
 * Adding and managing project members.
   
-* Managing project lifetime, storage space (quota) and resources (here called Billing Units).
+* Managing project lifetime, storage space (quota) and resources (here called Billing Units) via the MyCSC portal. 
   
 * Deciding which services are suitable for data processing by adding services in the MYCSC portal.
   
@@ -41,6 +41,8 @@ The project member is a person who joins to existing CSC project (can only be ad
 * **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop.
   
 * Project mebers can not add services via the MyCSC portal.
+  
+* Project memebers can apply for storage space (quota) and resources (here called Billing Units) via the MyCSC portal. 
 
 
 
@@ -50,6 +52,7 @@ The project member is a person who joins to existing CSC project (can only be ad
 * [Step by step tutorial for project manager](./sd-use-case-new-user-project-manager.md)
 
 * [Step by step tutorial for project member](./sd-use-case-new-user-project-member.md)
+
 
 
 !!! Note

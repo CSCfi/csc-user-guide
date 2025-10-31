@@ -17,11 +17,11 @@
 
 ![SD Connect login](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Login.png)
 
-## Features in SD Connect
+## Your next steps in this guide 
 
 * [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
 * [Delete](./sd-connect-delete.md)
+* [Share](./sd-connect-share.md)
 * [Command line interface](./sd-connect-command-line-interface.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)

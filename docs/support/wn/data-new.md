@@ -161,6 +161,27 @@ On Monday October 7 SD Connect service has been upgraded. Please note, this upgr
 * If you have any questions or need assistance, please [contact CSC Service Desk](../contact.md) (subject: Sensitive Data).
 * Join us every Wednesday for the CSC Research Support Coffee session at 14:00 Finnish time for questions and support: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success). For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
 
+### SD Connect Downloading via Firefox: troubleshooting
+
+Firefox is a supported browser; however you might encounter issues where the download does not start.
+
+If this is your first time using the service, or if you have cleared your browser history and cookies, a pop-up may appear asking you to accept cookies. This pop-up only appears when you click on Download and may not be immediately visible, as it appears on the top bar of the browser. Please click Accept to enable the download to start." 
+
+If you have used the service before, but the download suddenly no longer starts, follow these steps (this process only needs to be done once):
+
+1. In your browser, click **Tools** > **Browser Tools** > **Web Developer Tools** (or on your keyboard press F12 for Windows or Fn+F12 on your Mac).
+2. A new window will open at the bottom of your browser. Click **Application** tab.
+3. Next to **Service Worker**, click **Unregister**.
+4. You can close **Web Developer Tools** window.
+5. Refresh your browser and download files.
+
+
+
+![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
+
+![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
+
+
 ## SD Desktop: CentOS 7 will no longer be supported after June 2024
 
 We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops.
