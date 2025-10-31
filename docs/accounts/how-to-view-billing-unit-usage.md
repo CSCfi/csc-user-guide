@@ -1,15 +1,14 @@
 # How to view Billing Unit usage
 
-Consumption of CSC's resources is mainly measured in Billing Units. IDA and
-Kaivos do not consume Billing Units; they only have quota limits for each
-project.
+Consumption of CSC's resources is mainly measured in Billing Units. Fairdata
+IDA does not consume Billing Units; it only has a quota limit for each project.
 
 Check your BU consumption:
 
 1. Login to [MyCSC](http://my.csc.fi).
-1. Choose _Projects_ in the navigation menu on the left.
-1. Choose a project.
-1. The usage is shown under _Resource Usage_.
+2. Choose _Projects_ in the navigation menu on the left.
+3. Choose a project.
+4. The usage is shown under _Resource Usage_.
 
 In the usage plot, you can:
 
