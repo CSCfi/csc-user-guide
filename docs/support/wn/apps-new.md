@@ -551,7 +551,7 @@ and Mahti. [See release notes here](https://www.turbomole.org/turbomole/release-
 ## CSC software collection on LUMI, 31.1.2023
 
 Applications pre-installed by CSC on the LUMI supercomputer can now be viewed in the
-[application list grouped by availability](../../apps/by_system.md). For a comprehensive
+[application list grouped by availability](../../apps/by_availability.md). For a comprehensive
 list of available EasyBuild recipes for personal or project-specific installations, see
 the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
 

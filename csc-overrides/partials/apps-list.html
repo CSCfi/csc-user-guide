@@ -1,0 +1,76 @@
+{% from "partials/apps-list-item.html" import app_item with context %}
+
+{% macro as_heading(item, alpha=false) %}
+{% set level = 2 if not alpha else 3 %}
+{% set name = item.name if not alpha else item.name | upper %}
+<h{{ level }} id="{{ item.id }}">{{ name }}</h{{ level }}>
+{% endmacro %}
+
+{% macro as_link(item, append=none, tag=false) %}
+{% set name = item.name ~ " " ~ append if not append is none else item.name %}
+{% set text %}
+{% if tag %}
+<span class="md-tag">{{ name }}</span>
+{% else %}
+{{ name }}
+{% endif %}
+{% endset %}
+<a href="{{ '#' ~ item.id }}">{{ text }}</a>
+{% endmacro %}
+
+{% macro as_toc(items, alpha=false, suffix=none) %}
+<div class="catalog-toc">
+  <ul>
+    {%- for item in items %}
+    {% if alpha %}
+    {% set name = item.name | upper %}
+    {% elif not suffix is none %}
+    {% set name = item.name ~ "&nbsp;" ~ suffix %}
+    {% else %}
+    {% set name = item.name %}
+    {% endif %}
+    {% set description = "" if not item.description else "&nbsp;&mdash;&nbsp;" ~ item.description %}
+    {% set toc_item = {"name": name ~ description, "id": item.id} %}
+    <li>{{ as_link(toc_item, tag=true) }}</li>
+    {% endfor -%}
+  </ul>
+</div>
+{% endmacro %}
+
+{% macro as_list(apps) %}
+<ul>
+  {%- for app in apps %}
+  {{ app_item(app) }}
+  {% endfor -%}
+</ul>
+{% endmacro %}
+
+{% macro as_groups(section, alpha=false) %}
+{{ as_toc(section, alpha=alpha) }}
+{%- for item in section %}
+{{ as_heading(item, alpha=alpha) }}
+{{ as_list(item.apps)}}
+{% endfor -%}
+{% endmacro %}
+
+{% macro apps_list() %}
+{% if "index" in catalog %}
+{{ as_groups(catalog.index, alpha=true) }}
+{% elif "by_discipline" in catalog %}
+{{ as_groups(catalog.by_discipline) }}
+{% elif "by_availability" in catalog %}
+<p>Applications available on</p>
+{{ as_toc(catalog.by_availability.on_systems) }}
+<p>Interactive web applications available on</p>
+{{ as_toc(catalog.by_availability.on_web, suffix="web interface") }}
+{%- for system in catalog.by_availability.on_systems %}
+{{ as_heading(system) }}
+{{ as_list(system.apps) }}
+{% endfor -%}
+{%- for system in catalog.by_availability.on_web %}
+{% set web_system = {"name": system.name ~ " " ~ "web interface", "id": system.id} %}
+{{ as_heading(web_system) }}
+{{ as_list(system.apps) }}
+{% endfor -%}
+{% endif %}
+{% endmacro %}

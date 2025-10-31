@@ -2,9 +2,6 @@
 tags:
 catalog:
   name: NoMachine
-  description:
-  license_type:
-  disciplines:
   available_on:
     - LUMI
     - Puhti

@@ -229,10 +229,10 @@ mkdocs serve --dirtyreload
 You can also run the tests locally with
 
 ```bash
-bash tests/run_tests.sh
+MKDOCS_ENV=test bash tests/run_tests.sh
 ```
 
-The tests depend on the Conda environment, so remember to activate it before running them, or use `conda run -n docs-env bash tests/run_tests.sh`.
+The tests depend on the Conda environment, so remember to activate it before running them, or use `conda run -n docs-env MKDOCS_ENV=test bash tests/run_tests.sh`.
 
 #### Scripts
 
