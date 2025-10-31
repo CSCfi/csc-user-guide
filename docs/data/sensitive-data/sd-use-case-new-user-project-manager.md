@@ -13,10 +13,9 @@ You need access to SD services for processing research data. Whether you are the
 1. [Create CSC account](#1-create-csc-account)
 2. [Create CSC project](#2-create-new-csc-project)
 3. [Data protection](#3-data-protection)
-4. [Applying for more Billing Units](#4-apply-for-more-billing-units)
-5. [If you have a research team, add them to be your project members](#5-if-you-have-a-research-team-add-them-to-be-your-project-members)
-6. [Closing your project and data retention](#6-closing-your-project-and-data-retention)
-7. [Log into SD Services](#7-log-into-sd-services)
+4. [If you have a research team, add them to be your project members](#4-if-you-have-a-research-team-add-them-to-be-your-project-members)
+5. [Closing your project and data retention](#5-closing-your-project-and-data-retention)
+6. [Planning for resources consumption and login ](#6-planning-for-resources-consumption-and-login)
 
 ![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
@@ -38,7 +37,7 @@ You need access to SD services for processing research data. Whether you are the
 
 ### 2. Create new CSC project
 
-- Sign in to MyCSC with you Haka or Virtu credentials.
+- Sign in to MyCSC with your Haka or Virtu credentials.
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **New project**. 
 
@@ -83,10 +82,14 @@ You need access to SD services for processing research data. Whether you are the
      **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
      
      - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
-     - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
-     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can [apply for more billing units](#4-apply-for-more-billing-units) in MyCSC portal.
+     - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure
      
-     **The storage quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
+     - 30 000 Cloud and Storage BUs is usually enough for initial testing. 
+     
+     **The storage quota** limits the amount of storage space available:
+     
+     - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
+     - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
 
      [More information about billing units](./sd-billing-units.md)
 
@@ -96,7 +99,7 @@ You need access to SD services for processing research data. Whether you are the
 - In the next view, click **Add publications**. You can search or add publications manually. If you don't have publications directly related to this work yet, any past publication from your research group will be fine. Click **Add**.
 - Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
 - Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. Press **Next**.
-- In the last view, you can review the project description and field on science. Finally, you can click **Submit**.
+- In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
 ![Add billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Resources_1025.png)
 
@@ -107,7 +110,7 @@ You need access to SD services for processing research data. Whether you are the
 - Under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
 - Read and accept the terms of use.
 - Click **Submit**. 
-- Wait for your project being created. When project is ready, you'll be redirected to project page.
+- Wait for your project is being created. When project is ready, you'll be redirected to project page.
 
 ---
 
@@ -123,7 +126,7 @@ When transferring personal or sensitive data outside the EEA, ensure you have th
 
 #### 3.2 Contact your organization’s legal office
 
-If you need assistance with the above points or support to verify if SD service are suitable for processing your research data, contact your organization's [data protection officer or legal service](../../accounts/when-your-project-handles-personal-data.md#contact-information-of-finnish-universities-data-protection-legal-offices). You can provide them with supporting documents such as:
+If you need assistance with the above points or support to verify if SD services are suitable for processing your research data, contact your organization's [data protection officer or legal service](../../accounts/when-your-project-handles-personal-data.md#contact-information-of-finnish-universities-data-protection-legal-offices). You can provide them with supporting documents such as:
 
 1. [Technical and Organizational Measures (TOMS)](../../data/sensitive-data/technical-organisational-sec-measures.pdf)
 2. Service descriptions of [SD Connect](https://research.csc.fi/-/sd-connect) and [SD Desktop](https://research.csc.fi/en/-/sd-desktop)
@@ -134,40 +137,13 @@ If you need assistance with the above points or support to verify if SD service 
 
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Descriptionof_1025.png)
 
----
 
-### 4. Apply for more billing units 
+### 4. If you have a research team, add them to be your project members
 
-You can apply for more BUs for your CSC project in MyCSC portal. [More information about billing units in the next section in this user guide](./sd-billing-units.md)
-
-1. Sign in to MyCSC with you Haka or Virtu credentials.
-2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
-3. Choose a project and click to open it.
-4. In the new view, scroll down to **Resources** window and click **Apply for resources**. A new window will appear (this might take up to 8 seconds).
-![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
-5. In the new window you will see the services you have active in the project (in gray). Press **Next**.
-![Continue to billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_MoreBUs_1025.png)
-6. In the second view, click on the Billing Units package you need (e.g. M) for:
-    - Cloud Billing Unit type (used by SD Desktop)
-    - Storage Billing Units type (for SD Connect)
-    - Click **Next**.
-7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. If you don't have publications directly related to this work yet, any past publication from your research group will be fine. Click **Add**.
-    - Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
-    - Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
-    - Click **Next**.
-9. In the last view, you can review the project description and field on science. Finally, you can click **Submit**.
-
-
-
-
----
-
-### 5. If you have a research team, add them to be your project members
-
-- Go to project page and select the correct project (Left side menu or hamburger menu).
+- Go to project page and select the correct project (left side menu or hamburger menu).
 - Add members from **Members** window. Click **Add members**.
 - In the new window you can search and add members from your own organization.
-- If you need to add members from other organizations you can create a invitation link by clicking **Invitation link**.
+- If you need to add members from other organizations you can create an invitation link by clicking **Invitation link**.
     - Generate link and use it in email or webpage.
     - People can apply a membership for your project by clicking the invite link.
     - After that you have to approve them to be member of your project in MyCSC through **Members** window in **Membership applications** tab.
@@ -179,7 +155,7 @@ You can apply for more BUs for your CSC project in MyCSC portal. [More informati
 
 ---
 
-### 6. Closing your project and data retention
+### 5. Closing your project and data retention
 
 The default lifetime of a CSC project is one year, after which it will be automatically closed and all data deleted. As a project manager, you can either extend the project duration or directly close your project after completing your research.  As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure) via the MyCSC portal.
 
@@ -194,9 +170,10 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ---
 
-### 7. Log into SD Services
 
-- Now all the preparations are ready and you can start using the services (links to related user guides):
+### 6. Planning for resources consumption and login
+
+Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need. You can learn more in the next [section](./sd-billing-units.md). You can also delegate this task to one of the CSC project members and you can start directly using the services (links to related user guides):
 
 SD Connect:
 
@@ -205,5 +182,6 @@ SD Connect:
   
 SD Desktop:
 
-- [SD Desktop overwvire and key features](./sd_desktop.md)
+- [SD Desktop overview and key features](./sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)
+
