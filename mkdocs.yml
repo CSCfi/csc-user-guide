@@ -543,8 +543,8 @@ nav:
           - Start here:
               - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
-              - SD Services billing units: data/sensitive-data/sd-billing-units.md
-              - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Access as project members: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Resource planning for your CSC Project: data/sensitive-data/sd-billing-units.md
           - Store with SD Connect:
               - data/sensitive-data/sd_connect.md
               - Login to SD Connect: data/sensitive-data/sd-connect-login.md
