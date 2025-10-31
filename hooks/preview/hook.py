@@ -31,6 +31,9 @@ class PreviewHook(DocsHook):
 
         return None
 
+    def on_pre_build(self, **_):
+        self._logger.info(f"preview build, commit {self.repo.head.commit.hexsha}")
+
     def on_startup(self, command, dirty):
         self.startup_command = command
 
@@ -38,8 +41,6 @@ class PreviewHook(DocsHook):
 
     def on_config(self, config):
         self.docs_dir = Path(config.docs_dir)
-
-        self._logger.info(f"preview build, commit {self.repo.head.commit.hexsha}")
 
         return None
 

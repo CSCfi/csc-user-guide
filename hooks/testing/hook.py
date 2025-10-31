@@ -1,28 +1,35 @@
+from mkdocs.plugins import event_priority
+
 from classes import DocsHook
-from .utils import check_license, find_fixmes
+from .tests import DocsTests
 
 
 class TestingHook(DocsHook):
     def __init__(self, **kwargs):
         super().__init__(self, **kwargs)
 
+    @event_priority(100)
+    def on_pre_build(self, **_):
+        self._logger.info("test build")
+
+    @event_priority(-100)
     def on_files(self, files, **_):
-        for file in files:
-            if file.is_documentation_page():
-                fixmes = find_fixmes(file.content_string)
-                if fixmes:
-                    lines = ', '.join(map(lambda i: str(i+1), fixmes))
-                    message = f"FIXME found on {file.src_uri} line(s) {lines}"
-                    self._logger.warning(message)
+        DocsTests.no_fixmes_are_present_in_documentation_sources(files)
 
         return None
 
+    @event_priority(-100)
     def on_post_page(self, output, page, **_):
-        if "catalog" in page.meta \
-            and not page.meta.get("catalog", {}).get("unchecked"):
-
-            if not check_license(output):
-                message = f"No licensing information found on app page {page.file.src_uri}"
-                self._logger.warning(message)
+        DocsTests.app_page_contains_license_heading(output, page)
 
         return None
+
+    @event_priority(-100)
+    def on_post_build(self, **_):
+        warnings = DocsTests.get_report()
+
+        if warnings:
+            for message in warnings:
+                self._logger.warning(message)
+        else:
+            self._logger.info("All tests passed.")

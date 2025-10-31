@@ -1,7 +1,15 @@
 from .parsers import LicenseParser
 
 
-def check_license(markup):
+def is_app_page(page_obj):
+    try:
+        catalog = page_obj.meta["catalog"]
+    except KeyError:
+        return False
+    else:
+        return not catalog.get("unchecked", False)
+
+def contains_license_heading(markup):
     parser = LicenseParser()
     parser.feed(markup)
 
