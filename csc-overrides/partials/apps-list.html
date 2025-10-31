@@ -25,11 +25,12 @@
     {% if alpha %}
     {% set name = item.name | upper %}
     {% elif not suffix is none %}
-    {% set name = item.name ~ " " ~ suffix %}
+    {% set name = item.name ~ "&nbsp;" ~ suffix %}
     {% else %}
     {% set name = item.name %}
     {% endif %}
-    {% set toc_item = {"name": name, "id": item.id} %}
+    {% set description = "" if not item.description else "&nbsp;&mdash;&nbsp;" ~ item.description %}
+    {% set toc_item = {"name": name ~ description, "id": item.id} %}
     <li>{{ as_link(toc_item, tag=true) }}</li>
     {% endfor -%}
   </ul>
