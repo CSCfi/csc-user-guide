@@ -4,13 +4,13 @@
 
 We have improved our instructions on moving data directly between CSC
 supercomputers using utilities such as [scp](../../data/moving/scp.md) and
-[rsync](../../data/moving/rsync.md). Notably, now that SSH keys are required to
-authenticate to CSC supercomputers, we've added instructions on how to enable
-SSH agent forwarding on
-[Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and
-[Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding). This
-is a requirement to be able to connect directly between CSC supercomputers to,
-for example, transfer data efficiently.
+[rsync](../../data/moving/rsync.md). Notably, now that SSH keys are required for
+authentication on CSC supercomputers, we've added instructions on how to enable
+SSH agent forwarding
+[on Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and
+[on Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding). This
+is a requirement for being able to directly connect between CSC supercomputers in
+order to, for example, transfer data efficiently.
 
 ## Puhti and Mahti web interfaces updated to release 29 and 14, 2.10.2025
 
