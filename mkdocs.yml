@@ -401,6 +401,7 @@ nav:
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
+              - Ray - A Machine learning framework for cloud: cloud/pouta/tutorials/Ray-ML-cloud.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md

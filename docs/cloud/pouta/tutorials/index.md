@@ -7,5 +7,6 @@
 * [Orchestration with Heat](heat-orchestration.md)
 * [SSH Key-pair](ssh-key.md)
 * [Setting up a pipeline for pictures](picture-pipeline.md)
+* [Ray-ML workload distribution on pouta VMs](Ray-ML-cloud.md)
 
 We also have an [FAQ](../../../support/faq/index.md#pouta) for Pouta. Take a look at it.
