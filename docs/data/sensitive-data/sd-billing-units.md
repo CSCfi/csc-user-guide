@@ -1,4 +1,8 @@
-# Billing units
+# Resource planning for your CSC Project
+
+Both the CSC project manager and project members are responsible for monitoring the resources consumed by their CSC project: Billing Units (BUs) and storage quota. When creating a project, you can apply for the default amount of resources, which will be granted immediately. However, it’s important to plan ahead for the next six months of usage and apply for additional resources twice a year. 
+
+Please note that after each Billing Units application, there is a two week period during which you cannot submit another request, thus make sure to apply for resources in advance. You will be notified via email when your project’s Billing Units are running low, so you can apply for more in time and avoid service interruptions.
 
 
 
@@ -10,10 +14,22 @@
      
      - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
      - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
-     - 30 000 Cloud and Storage BUs is usually enough for initial testing. You can [apply for billing units](sd-use-case-new-user-project-manager.md#4-apply-for-more-billing-units) in MyCSC portal.
      
-     **The quota** limits the amount of storage space available. Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
-     
+     - 30 000 Cloud and Storage BUs is usually enough for initial testing. Next, you should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. The instructions below will guide you through the process.
+      
+      **The storage quota** limits the amount of storage space available:
+ 
+      - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
+      - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has       been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
+
+
+1. [SD Connect BU consumption](#sd-connect-bu-consumption)
+2. [SD Desktop BU consumption](#sd-desktop-bu-consumption)
+3. [What happens if your project runs out of Billing Units?](#what-happens-if-your-project-runs-out-of-billing-units)
+4. [Apply for more billing units ](#apply-for-more-billing-units)
+5. [Log into SD Services](#log-into-sd-services)
+
+
 
 #### SD Connect BU consumption
 
@@ -52,3 +68,41 @@ Once all the Cloud Billing Units for your CSC project have been used up, **acces
 
 !!! Note
     Each project member will receive a notification via email from the MyCSC portal when the Billing Units for your CSC project are about to end.
+
+    
+### Apply for more billing units 
+
+You can apply for more BUs for your CSC project in MyCSC portal. Please note that after each application, there is a two week period during which you cannot submit another Billing units (BUs) request, thus make sure to apply for resources in advance.
+
+1. Sign in to MyCSC with your Haka or Virtu credentials.
+2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
+3. Choose a project and click to open it.
+4. In the new view, scroll down to **Resources** window and click **Apply for resources**. A new window will appear (this might take up to 8 seconds).
+![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
+5. In the new window you will see the services you have active in the project (in gray). Press **Next**.
+![Continue to billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_MoreBUs_1025.png)
+6. In the second view, click on the Billing Units package you need (e.g. M) for:
+    - Cloud Billing Unit type (used by SD Desktop)
+    - Storage Billing Units type (for SD Connect)
+    - Click **Next**.
+7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. If you don't have publications directly related to this work yet, any past publication from your research group will be fine. Click **Add**.
+    - Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
+    - Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
+    - Click **Next**.
+9. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
+
+
+### Log into SD Services
+
+- Now all the preparations are ready and you can start using the services (links to related user guides):
+
+SD Connect:
+
+- [SD Connect overview and key features](./sd_connect.md)
+- [SD Connect login instructions](./sd-connect-login.md)
+  
+SD Desktop:
+
+- [SD Desktop overview and key features](./sd_desktop.md)
+- [SD Desktop login instructions](sd-desktop-login.md)
+    
