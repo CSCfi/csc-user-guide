@@ -17,7 +17,7 @@ In addition to this page, this guide contains the following subsections:
 - [**Multi-GPU and multi-node machine learning**](ml-multi.md)
 - [**Hyperparameter search**](hyperparameter_search.md)
 - [**Managing machine learning workflows on CSC's supercomputers**](ml-workflows.md)
-- &#127381; [**Working with large language models on supercomputers**](ml-llm.md)
+- [**Working with large language models on supercomputers**](ml-llm.md)
 
 ## What CSC service to use?
 

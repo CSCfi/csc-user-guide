@@ -107,20 +107,26 @@ This command shows information for all your CSC projects. You can select just
 one project to be reported with the `-p` option. For example:
 
 ```bash
-[kkayttaj@puhti ~]$ csc-projects -p project_2012345
+[kkayttaj@puhti-login11 ~]$ csc-projects -p project_2012345
 -----------------------------------------------------------------
-Project: project_2012345    Owner: Kalle Käyttäjä
+Project: project_2012345        Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"
-Start: 2015-12-17 End: 2022-03-16 Status: open
-Budget:   1174188  Used   1115284 Remain:      58904
-Latest resource grant: 2019-03-04
+Start: 2019-08-20 End: 2029-10-23 Status: open
+Billing units      Budget        Used      Remain
+-------------      ------        ----      ------
+CPU BU:             60000          20       59980
+GPU BU:              1000          30         970
+Storage BU:        300000          40      299960
+Cloud BU:             400          10         390
+Latest resource grant: 2025-01-31
 -----------------------------------------------------------------
+Project info updated: 2025-09-02 15:12
 ```
 
 The command reports the owner of the project, title, start and end dates. In
 addition the command prints out the budgeting information for the project: how
-many billing units have been granted to your project, how many have been used
-and how many still remain.
+many Billing Units of each type have been granted to your project, how many have
+been used and how many still remain.
 
 The [disk areas](disk.md) of your projects can be checked with the command:
 

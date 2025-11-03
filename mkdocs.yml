@@ -268,10 +268,10 @@ nav:
       - Adding members to your project: accounts/how-to-add-members-to-project.md
       - Adding service access for your project: accounts/how-to-add-service-access-for-project.md
       - Managing your project: accounts/how-to-manage-your-project.md
-      - Applying for billing units: accounts/how-to-apply-for-billing-units.md
+      - Applying for Billing Units: accounts/how-to-apply-for-billing-units.md
       - Increasing disk quotas: accounts/how-to-increase-disk-quotas.md
       - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
-      - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
+      - Reviewing Billing Unit usage: accounts/how-to-view-billing-unit-usage.md
       - Billing: accounts/billing.md
       - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md
@@ -297,12 +297,12 @@ nav:
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
+          - Available batch job partitions: computing/running/batch-job-partitions.md
           - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
           - Puhti example scripts: computing/running/example-job-scripts-puhti.md
           - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
           - Mahti example scripts: computing/running/example-job-scripts-mahti.md
           - Submitting a job: computing/running/submitting-jobs.md
-          - Available batch job partitions: computing/running/batch-job-partitions.md
           - High throughput: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
           - Performance checklist: computing/running/performance-checklist.md
@@ -540,18 +540,19 @@ nav:
   - Sensitive data:
       - data/sensitive-data/index.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
-      - Store and analyse:
+      - Research data - Store and analyse: 
           - Start here:
-              - data/sensitive-data/sd-access.md
+              - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
-              - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Access as project members: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Resource planning for your CSC Project: data/sensitive-data/sd-billing-units.md
           - Store with SD Connect:
               - data/sensitive-data/sd_connect.md
               - Login to SD Connect: data/sensitive-data/sd-connect-login.md
               - Upload: data/sensitive-data/sd-connect-upload.md
-              - Share: data/sensitive-data/sd-connect-share.md
               - Download: data/sensitive-data/sd-connect-download.md
               - Delete: data/sensitive-data/sd-connect-delete.md
+              - Share: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
           - Analyse with SD Desktop:
@@ -566,7 +567,7 @@ nav:
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
               - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-      - Publish and reuse:
+      - Research data - Publish and reuse:
           - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
               - Publish data: data/sensitive-data/fega-submission.md

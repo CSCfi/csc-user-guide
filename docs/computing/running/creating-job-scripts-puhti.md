@@ -73,7 +73,7 @@ Time is provided using the format `hh:mm:ss` (optionally `d-hh:mm:ss`, where
 `d` is _days_). The maximum runtime depends on the selected queue. **When the
 time reservation ends, the job is terminated regardless of whether it has
 finished or not**, so the time reservations should be sufficiently long. Note
-that a job consumes billing units according to its actual runtime.
+that a job consumes Billing Units according to its actual runtime.
 
 ```bash
 #SBATCH --mem-per-cpu=2G

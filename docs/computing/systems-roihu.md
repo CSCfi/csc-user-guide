@@ -10,9 +10,25 @@
 
 ```mermaid
 graph LR;
-    A{{Roihu will be installed at the **end of 2025**}}-->B;
-    B{{Four-week pilot phase in **February 2026**}}-->C;
-    C{{Roihu available for all users in **March 2026**}}-->D{{Puhti & Mahti end-of-life **later during 2026**}};
+    A{{"**September 2025**
+        Roihu installation
+        in progress"}} --> B;
+    B{{"**February 2026**
+        Pilot phase
+        starts"}} --> C;
+    C{{"**March 2026**
+        Roihu general
+        availability (GA)"}} --> D;
+    D{{"**One month after Roihu GA**
+        Puhti *computing
+        services* shut down"}} --> E;
+    E{{"**July 2026**
+        Puhti *storage
+        services* shut down"}} --> F;
+    F{{"**August 2026**
+        Mahti
+        shut down"}}
+    style A fill:#dceeceff;
 ```
 
 ## Compute
@@ -49,6 +65,8 @@ single-thread performance.
 | V    | 4               | AMD Turin 9335<br>Nvidia L40 | 2 x 32 cores (x86) @ 3.40 GHz<br>2 x GPUs | 384<br>2 x 48 | 0.96 |
 | GPU  | 132             | Nvidia GH200   | 4 x 72 cores (ARM)<br>4 x GPUs | 4 x 120<br>4 x 96 | 0.96 |
 
+The operating system of Roihu will be Red Hat Enterprise Linux 9 (RHEL9).
+
 ## Storage
 
 Roihu will have two independent flash-based DDN EXAScaler Lustre file systems –
@@ -56,8 +74,8 @@ a 6.0 PiB scratch space and a 0.5 PiB storage system for project applications
 and users' personal home directories. Separate file systems will ensure
 responsiveness of home and projappl even under heavy scratch usage.
 
-The peak I/O performance of Roihu scratch space is expected to be around 200
-GB/s for read and 170 GB/s for write. The home and projappl will have read and
+The peak I/O performance of Roihu scratch space is expected to be around 560
+GB/s for read and 280 GB/s for write. The home and projappl will have read and
 write bandwidths of 120 GB/s and 100 GB/s, respectively.
 
 Contrary to Puhti and Mahti, all Roihu CPU and GPU nodes will have a small 960

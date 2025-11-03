@@ -83,7 +83,8 @@ Non-sensitive data (or open data) needs to be submitted in appropriate archives.
 Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEGA needs to be encrypted.
 
 !!! note
-    The data is encrypted with tools designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) standard.
+    - The data is encrypted with tools designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) standard.
+    - In case you have collaborators working with you during the metadata submission, bear in mind that only the user who uploads the data files can see them in the inbox during metadata submission and submit Run and Analysis metadata.
 
 You can carry out the encryption and upload steps using:
 
@@ -163,17 +164,17 @@ Log in to the submitter portal by using the EGA credentials (username: usually y
 
 Using the submitter portal, you can register the following metadata objects:
 
-* **Study**. Information about the sequencing study. The title should be a 3–20-word introduction of the project, and the description should be a 3 - 5 sentences definition of the project with some background, goal and details.
+* **Study**. Information about the sequencing study. The title should be a 3–20-word introduction of the project, and the description should be a 3 - 5 sentences definition of the project with some background, goal and details. Study's metadata will be publicly available on the EGA website.
 
-* **Samples**. Information about the sequencing samples in the experiment or analysis. You can also do a batch upload for samples.
+* **Samples**. Information about the sequencing samples in the experiment or analysis. You can also do a batch upload for samples. Samples’ metadata are subject to being identifiable, and thus only accessible by authorized data requesters, with the exception of *alias*, *title*, *subject_id*, *gender* and *phenotype*. It is the submitter’s responsibility not to submit sensitive metadata in these public fields. Also, anonymised fields that pinpoint the sample record in archivals - sample’s EGA stable ID (EGAN…), BioSample ID (SAMEA…) and submitter’s center name - are publicly available on the EGA website.
 
-* **Experiments**. Information about the sequencing methods, protocols, and machines.
+* **Experiments**. Information about the sequencing methods, protocols, and machines. Experiments' metadata will be publicly available on the EGA website.
 
-* **Runs**. Information about the files containing the raw data generated in a run of sequencing. Samples, experiments, and files are linked through runs. Appropriate object for FASTQ and BAM/CRAM submissions. You can also do a batch upload for runs.
+* **Runs**. Information about the files containing the raw data generated in a run of sequencing. Samples, experiments, and files are linked through runs. Appropriate object for FASTQ and BAM/CRAM submissions. You can also do a batch upload for runs. Runs' metadata will be publicly available on the EGA website.
 
-* **Analysis**. References the analysis files, which can include processed data (VCF), specific type of raw data (BAM/BAI or CRAM/CRAI) or phenotypic information. Associated with samples and study. The analysis is an EGA specific metadata object that links Samples to Files. If you don't have any analysis files, you can proceed without Analysis metadata.
+* **Analysis**. References the analysis files, which can include processed data (VCF), specific type of raw data (BAM/BAI or CRAM/CRAI) or phenotypic information. Associated with samples and study. The analysis is an EGA specific metadata object that links Samples to Files. If you don't have any analysis files, you can proceed without Analysis metadata. Analysis' metadata will be publicly available on the EGA website.
 
-* **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy, which includes access application link and is created by CSC helpdesk. The title should be a 3–20-word overview of the dataset content, and the description should be a 3 - 4 sentences definition of the dataset content, including sample number and details, file type and technology/experimentation used.
+* **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy, which includes access application link and is created by CSC helpdesk. The title should be a 3–20-word overview of the dataset content, and the description should be a 3 - 4 sentences definition of the dataset content, including sample number and details, file type and technology/experimentation used. Dataset's metadata will be publicly available on the EGA website.
 
 When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
 
@@ -189,3 +190,37 @@ CSC helpdesk will complete the release process. You will receive confirmation of
 
 !!! note
     If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying and managing access rights to sensitive datasets stored at CSC. There is a separate [guide](./sd-apply-access.md) for applying data access.
+
+## Step 8: Remove unused files from inbox
+
+If you have uploaded more files to the FEGA inbox than you have used in your submission, and you are not planning to use those files in any other submission, you need to remove the unnecessary files from the inbox manually after your submission has been approved. You can do this with a couple of simple command line commands.
+
+!!! note
+    As a representative of the data controller, you are responsible to make sure there is no data remaining in the inbox. If the excess data are not removed from the inbox by the submitter, the data will remain in the inbox indefinitely.
+
+1. First, you need to connect to the FEGA SFTP inbox. Open a terminal and open the SFTP connection with the following syntax, where `ega_user` is the EGA credentials username (usually this is your email address):
+
+    ```bash
+    sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 50529 ega_user@admin.sd.csc.fi
+    ```
+
+    For the password, use your Central EGA account password.
+
+2. With the command `-ls -h` you can open a list of files and directories still in the inbox. If your submissions has already been approved by FI-FEGA helpdesk, you will only see the files and folders that haven't been used in your submission.
+
+3. Next, you can proceed to removing all the files and directories you are not going to use in any of your submissions. You need to do this for each file and directory separately using the following syntax:
+
+    ```bash
+    rm /file_name.c4gh
+    ```
+
+    When the file is removed successfully, you will be shown the following info and directed back to the original directory:
+
+    ```bash
+    Removing /file_name.c4gh
+    sftp>
+    ```
+
+    After this, you can continue to the next file or directory, or you can move on to the next step, if you have removed all files and directories.
+
+4. After you have deleted all the unnecessary files in your FEGA SFTP inbox, you can disconnect the SFTP connection with the command `exit`.

@@ -21,8 +21,9 @@ Currently supported pennylane versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 0.41.1  | `pennylane-lightning/0.41.1-gpu`     | X     | default version |
-| 0.40.0  | `pennylane-lightning/0.40.0-gpu`     | X     |                 |
+| 0.43.0  | `pennylane-lightning/0.43.0-gpu`     | X     | default version |
+| 0.42.0  | `pennylane-lightning/0.42.0-gpu`     | X     |                 |
+| 0.41.1  | `pennylane-lightning/0.41.1-gpu`     | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -53,10 +54,10 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```bash
-module load pennylane-lightning/0.41.1-gpu
+module load pennylane-lightning/0.43.0-gpu
 ```
 
-where `0.41.1-gpu` is the specified version
+where `0.43.0-gpu` is the specified version
 
 This command will also show all available versions:
 
