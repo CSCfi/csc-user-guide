@@ -33,6 +33,12 @@ The commands to use:
 
 5. Verify with your preferred tool that your database is working as expected.
 
+!!! warning "Certain PostgreSQL upgrades will cause databases to be reindexed"
+    The libraries used by PostgreSQL internally for collation might change between datastore versions.
+    When this happens, a full reindex of all databases is required to prevent issues with data consistency.
+    This reindexing can take a considerable amount of time, especially with large databases containing complex indexes.
+    Please plan your database upgrades accordingly.
+
 ## Major database upgrades
 
 Major version upgrades are no different from the user's point of view, but there's a bit more happening in the background, which creates more possible points of failure.
