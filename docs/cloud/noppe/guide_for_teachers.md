@@ -28,7 +28,7 @@ Instead of a course you can also use Noppe for collaboration. The workflow is si
     * [Docker image sources in noppe-public-images repository.](https://github.com/CSCfi/noppe-public-images)
     * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
     * If you would need a few R/Python packages extra compared to existing images, it likely is easiest to add them run-time by the user.
-* To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
+* To create your own custom image, see [Creating custom images](#creating-custom-images) below.
 
 ### 3. Create an application in the workspace
 
@@ -83,8 +83,34 @@ Once the content is ready, you can invite course participants / collaborators by
 Once the co-instructors/co-organizers/collaborators have signed in, you can find their name in the `members` tab (under `manage workspaces`), to give them rights to change things and see other participants sessions, `promote to co-owner` from the Menu column next to the members name.
 Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. For collaboration purposes, all collaborators should have co-owner rights, to be able to write to the shared folder in the workspace.
 
-## Creating custom Docker images
-If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Noppe. Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
+## Creating custom images
+If you cannot find a suitable image for your intended application, you will need to create your own custom image for Noppe.
+
+### 1. Create a custom image using Noppe
+
+Image can be created in Noppe.
+
+Requirements:
+
+* [Access](#1-become-a-workspace-owner-and-create-a-workspace) to manage workspaces.
+
+Steps to create your own custom image using Noppe:
+
+* Open `Manage workspaces` from the left panel and create a new or edit an existing workspace.
+* Select the 'Custom Images' tab at the top of the page.
+    * Click the 'Create custom image' button.
+* Custom image:
+    * Name: Enter a descriptive name.
+    * Base image: Select the base image you wish to customise.
+    * Packages: Click the `+ apt`, `+ pip` and/or `+ conda-forge` buttons to add a package to the base image. Enter the name(s) of each package.
+    * Click the `Build` button to start creating the custom image.
+* Please wait for the build system to pick up and finish the job.
+
+Once the build has been completed successfully, the custom image will be available in the workspace's Application form  under the 'Container Image' section in the `Custom Images in this workspace` tab.
+
+### 2. Create a custom image using own computer
+
+Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
 
 Requirements: 
 
@@ -93,11 +119,11 @@ Requirements:
 
 Steps to create your own custom Docker image:
 
-### Create a Dockerfile  
+#### Create a Dockerfile  
    
 Dockerfile contains a set of instructions to build a docker image. If unfamiliar with Dockerfile, see for example [Docker 101](https://www.paigeniedringhaus.com/blog/docker-101-fundamentals-the-dockerfile) and [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
    
-#### Jupyter notebook example
+##### Jupyter notebook example
 For JupyterLab with some conda packages use the following as minimal example:
 
  ``` 
@@ -119,7 +145,7 @@ For JupyterLab with some conda packages use the following as minimal example:
  # the user set here will be the user that students will use 
  USER $NB_USER
 
- ### Installing the needed conda packages and jupyter lab extensions. 
+ #### Installing the needed conda packages and jupyter lab extensions. 
  # Run conda clean afterwards in same layer to keep image size lower
  RUN conda install --yes -c conda-forge <your-packages-here> \
    && conda clean -afy
@@ -194,30 +220,6 @@ docker run -p 8888:8787 <yourimagename>
 
 For the docker image to be used in your application. You need to host it somewhere, e.g. DockerHub or Rahti registry. 
 Once you have it hosted somewhere, provide the link to your image in the application : `Manage Workspaces` > `Applications` > `Edit application` > `Container image`.
-
-## Creating custom images
-
-You can also create customized versions of Noppe public images in Noppe. This feature
-is currently in beta testing and limited to adding Apt and Pip packages to Jupyter
-images.
-
-To create a custom image in Noppe, open Manage workspaces from the left panel, select
-the workspace you need to run an application with a custom image and open
-Custom Images -tab. Here you can create a customized version of one of Noppe’s
-Jupyter images. You can also create a new version of an existing image.
-
-1. Press the Create custom image button in the top right-hand corner of the page to open the creation wizard.
-2. Give the image a name and select the base image.
-3. To add apk, pip or conda-forge packages, click the relevant button and enter the names of the packages you want.
-4. Finally, click the Build button.
-
-After creating a custom image, you can select it in Application create/edit dialog.
-
-Note:
-
-    - Custom images are publicly available and can be used by anyone with the URL
-    - Custom images are removed when the workspace expires. There is a grace period of 6 months.
-    - Custom images URL and registry implementation are subject to change. Use custom images with caution outside Noppe
 
 ## Adding Python packages to an existing workspace 
 
