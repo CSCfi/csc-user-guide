@@ -3,6 +3,20 @@
 LUMI uses SingularityCE instead of Apptainer.
 The instructions from [Apptainer containers](./overview.md) apply with certain modifications.
 
+## Running containers
+
+```bash
+singularity exec container.sif mycommand
+```
+
+```bash
+singularity exec --bind="/pfs,/users,/projappl,/scratch,/project,/flash" container.sif mycommand
+```
+
+```bash
+singularity exec --rocm container.sif mycommand
+```
+
 ## Temporary directory
 
 On LUMI, we use `/tmp` as the temporary directory.
