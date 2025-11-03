@@ -152,6 +152,7 @@ ray start --head --port=6379
 ``` 
 ray start --address=<head-node-address:port>
 ```
+
 * Now, you can use Ray in your python code. Ray will now spread work across all the VMs automatically.
 
 ```
