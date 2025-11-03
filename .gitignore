@@ -12,3 +12,6 @@ __pycache__/
 docs/apps/index.md
 docs/apps/by_discipline.md
 docs/apps/by_system.md
+
+
+docs-env/*
