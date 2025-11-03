@@ -1,33 +1,50 @@
 # LUMI
+
 LUMI uses SingularityCE instead of Apptainer.
+The instructions from [Apptainer containers](./overview.md) apply with certain modifications.
 
-On LUMI, Singulairity will use `/tmp` as the temporary directory is `/tmp`.
-On login node, `/tmp` is a local disk.
-On compute node `/tmp` is a tmpfs and limited by memory.
-Reserve enough memory, the job is killed if the requsted limit is exceeded.
+## Temporary directory
 
-Interactive job
+On LUMI, we use `/tmp` as the temporary directory.
+SingularityCE bind mounts it by default to the build environment.
+Therefore, manually bind mounting temporary directory is not required.
 
-```bash
-srun --account project_id --partition small --time 0:15:00 --mem 8000 --cpus-per-task 1 --pty bash
-```
+## Cache diretory
 
-Cache directory can be changed if needed:
+SingularityCE cache directory can be changed if needed:
 
 ```bash
 export SINGULARITY_CACHEDIR=/scratch/project_id/$USER/.singularity
 ```
 
-We can use [proot](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/systools/#the-proot-command) to build containers instead of fakeroot.
-Do not use the `--fakeroot` flag with Singularity, it does not behave in the same way as with Apptainer.
+## Build location
+
+On the login node, we can build container images that are small enough that they do not run into memory limits.
+Virtual memory in LUMI is quite large (64 GB) and preset to the hard limit, thus it is not required to adjust it.
+
+We must build large container images on the compute node via a slurm job.
+For example, we can reserve an interactive slurm job as follows, just replace `myproject` with your project:
+
+```bash
+srun --account myproject --partition small --time 0:15:00 --mem 8000 --cpus-per-task 1 --pty bash
+```
+
+On compute node `/tmp` is a tmpfs which is limited by memory.
+We must request memory that is at least twice the size of the uncompressed size of you container image (SIF file) to avoid running out of memory.
+
+## Building SIF image
+
+In LUMI, we need to use [proot](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/systools/#the-proot-command) to build SIF images with SingularityCE.
 We can load proot as follows:
 
 ```bash
 module load LUMI systools
 ```
 
-Then, we can build container images:
+Then, we can build container images in the standard way as follows:
 
 ```bash
 singularity build container.sif container.def
 ```
+
+Do not use the `--fakeroot` flag with SingularityCe in LUMI, it does not behave in the same way as with Apptainer.
