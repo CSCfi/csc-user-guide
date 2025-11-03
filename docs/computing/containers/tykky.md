@@ -235,7 +235,10 @@ session](../../computing/running/interactive-usage.md#sinteractive-on-puhti):
 
 ```bash
 # Start interactive session, here with 12 GB memory and 15 GB local disk (increase if needed)
+# In Puhti:
 sinteractive --account <project> --time 1:00:00 --mem 12000 --tmp 15
+# In Mahti:
+sinteractive --account <project> --time 1:00:00 --cores 8 --tmp 15
 
 # Load Tykky
 module purge

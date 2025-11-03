@@ -43,16 +43,15 @@ Content cannot be retrieved after 90 days from the CSC Project closure.
 
 #### When the Project is closed
 
-Users are not able to use the services which have been applied for the Project and all content in services will be deleted 90 days after Project closure.
+Users are not able to use the services which have been applied for the Project and all content in services will be deleted 90 days after Project closure, unless otherwise agreed. For example, published data may be kept in the Fairdata IDA service in accordance with the service's terms of use.
 
-| Service | What happens when Project is closed |
+| Service | What happens right after Project is closed |
 | -- | -- |
 | Allas, Fairdata IDA, SD Connect | Project is disabled, and users will not be able to use the service in the context of the Project. |
 | Mahti and Puhti | No new Slurm jobs can be submitted. Users cannot access the Project data anymore. |
 | cPouta and ePouta | Project is disabled, and users will not be able to use the service in the context of the Project. All virtual machines of the Project will be powered off. |
 | Rahti | Project pod quota is set to 0 and all workloads are stopped. |
 | SD Desktop | Desktops are paused, Project can't launch new desktops. |
-
 
 
 !!! Note 

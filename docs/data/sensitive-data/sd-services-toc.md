@@ -12,15 +12,16 @@ hide:
     
     2. **Secondary use of health and social data, register data** provided by the Findata authority or a public register: follow the guide designed for analyzing register data and comply with the Finnish legal requirements. 
     
-    Not sure which guide fits your case? Email us at servicedesk@csc.fi with the subject line "SD Services"
+    Not sure which guide fits your case or new to CSC's SD services? Email us at servicedesk@csc.fi with the subject line "SD Services"
 
 ## 1. Research data
 
 ### 1.1 Store and analyse research data
 
-* [Start here: Creating a CSC project academic type](sd-access.md)
+* [Start here: Creating a CSC project academic type](sd-store-and-analyze-research-data.md)
     * [Access as a project manager](sd-use-case-new-user-project-manager.md)
     * [Access as a project member](sd-use-case-new-user-project-member.md)
+    * [Resource planning for your CSC Project](sd-billing-units.md)
 
 #### 1.1.1 Store and share with SD Connect
 
@@ -83,8 +84,15 @@ hide:
     * [Import data](sd-desktop-secondary-access.md)  
     * [Export data](sd-desktop-secondary-export.md)  
     * [Troubleshooting](sd-desktop-secondary-troubleshooting.md)
+ 
+### 3. Additional Resources
 
-## 3. Tutorials
+* [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
+* [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
+* [Useful terminology :material-arrow-right:](sd-terminology.md)
+* [SD Services homepage on _research.csc.fi_ website :material-open-in-new:](https://research.csc.fi/sensitive-data-services-for-research/){ target=_blank }
+
+## 4. Tutorials (advanced)
 
 Please note: some of this tutorials require prior knowledge of SD services or advanced coding skills.
 

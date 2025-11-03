@@ -114,10 +114,7 @@ user interfaces. Alternatively, graphics can also be displayed over an SSH
 connection using X11 forwarding. See the operating system-specific instructions:
 
 * [X11 forwarding on Linux and macOS](ssh-unix.md#graphical-connection)
-* X11 forwarding on Windows:
-    * [PowerShell](ssh-windows.md#graphical-connection-powershell)
-    * [PuTTY](ssh-windows.md#graphical-connection-putty)
-    * [MobaXterm](ssh-windows.md#graphical-connection-mobaxterm)
+* [X11 forwarding on Windows](ssh-windows.md#graphical-connection)
 
 ### Advanced usage
 
