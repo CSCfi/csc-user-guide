@@ -1,4 +1,4 @@
-# Ray: A Machine learning framwork for cloud
+# Ray: A Machine learning framework for cloud
 
 ## Introduction
 
@@ -19,7 +19,7 @@ You can find more details from [here](https://docs.ray.io/en/latest/ray-overview
 
 ## Ray framework
 
-Ray framework consist of three layrs: 
+Ray framework consist of three layers: 
 
 ### Ray Core
 
@@ -92,11 +92,11 @@ You can install Ray on your VMs by:
 pip install -U ray
 
 ```
-More informatio about installation is available [here](https://docs.ray.io/en/latest/ray-overview/installation.html)
+More information about installation is available [here](https://docs.ray.io/en/latest/ray-overview/installation.html)
 
 ### On single VM
 
-If you have single VM with multiple cores, for example, 6 CPU and 1 GPU, Ray can use al of them automatically. You need to install ray on that machine and you can use that directly in your python code. You can check the diffrence in time taken by a code when running normally(sequential processing) and when using Ray(parallel processing). 
+If you have single VM with multiple cores, for example, 6 CPU and 1 GPU, Ray can use al of them automatically. You need to install ray on that machine and you can use that directly in your python code. You can check the difference in time taken by a code when running normally (sequential processing) and when using Ray (parallel processing). 
 
 When you are not using Ray, it will do sequential computation. Try this code
 ``` 
@@ -133,9 +133,9 @@ print(results)
 print("Time taken:", time.time() - start)
 
 ```
-In this code, when you are initialinzing Ray, it will automatically distribute the tasks according to available resources. If you have 6 CPU cores, It will reduce the time to almost 1/6. 
+In this code, when you are initializing Ray, it will automatically distribute the tasks according to the available resources. If you have 6 CPU cores, It will reduce the time to almost 1/6. 
 
-As you can see in both code, only diffrence is that in second code, after `import Ray`, a decorator `@ray.remote` is added and function call is with `.remote()`. This tells Ray to run the function in parallel across many CPUs or GPUs. The logic inside the function does not need to change. Your program works the same way — the only extra step is that Ray takes care of distributing the work to available resources (like multiple CPU cores or multiple VMs). So instead of rewriting your whole code, you only make a small change in how you call functions. This is what makes Ray easy to use — you get faster performance and scalability with almost no code change.
+As you can see in both code, the only difference is that in the second code, after `import Ray`, a decorator `@ray.remote` is added and a function call is with `.remote()`. This tells Ray to run the function in parallel across many CPUs or GPUs. The logic inside the function does not need to change. Your program works the same way — the only extra step is that Ray takes care of distributing the work to available resources (like multiple CPU cores or multiple VMs). So instead of rewriting your whole code, you only make a small change in how you call functions. This is what makes Ray easy to use — you get faster performance and scalability with almost no code change.
 
 ### On multiple VMs
 
@@ -152,7 +152,7 @@ ray start --head --port=6379
 ``` 
 ray start --address=<head-node-address:port>
 ```
-* Now, you can use Ray in your python code. Ray will now spread work across all VMs automatically.
+* Now, you can use Ray in your python code. Ray will now spread work across all the VMs automatically.
 
 ```
 import ray
