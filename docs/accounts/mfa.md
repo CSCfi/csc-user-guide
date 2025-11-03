@@ -21,6 +21,11 @@ CSC is gradually rolling out MFA across all of our services. Currently, the foll
 * **Puhti web interface**
 * **Mahti web interface**
 * **MyCSC**
+* **Pouta web interface**
+* **Rahti web interface**
+* **Pukki web interface**
+* **Allas web interface**
+
   
 ## MFA Instructions for users logging in with Haka credentials
 

@@ -12,17 +12,21 @@ You can either select applications to run in the application catalog that is
 visible when first logging in or launch any applications using the
 primitives described in the [background](../concepts.md) chapter.
 
-Log in at <https://rahti.csc.fi/>.
+1. Log in at <https://rahti.csc.fi/>.
 
-!!! Warning "User not found"
-    If you get an error message similar to this please read through the article [Getting access](../access.md).
-    ![Error_no_user](../../img/openshift_error_no_user.png)  
+    !!! Warning "User not found"
+        If you get an error message similar to this please read through the article [Getting access](../access.md).
+        ![Error_no_user](../../img/openshift_error_no_user.png)  
 
 
-Choose the RAHTI-2 environment and click the 'Login page' button.
+1. Click the 'Login page' button.
 
-After logging in you should see a page like this:
+    > [MFA required] Since November 25th 2025
 
-![OpenShift main page](../../img/openshift_main_page_4.png)
+    Multi Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../../accounts/mfa.md)
 
-Proceed to [create a project](projects_and_quota.md) for running your applications.
+1. After logging in you should see a page like this:
+
+    ![OpenShift main page](../../img/openshift_main_page_4.png)
+
+1. Proceed to [create a project](projects_and_quota.md) for running your applications.
