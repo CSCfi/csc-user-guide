@@ -7,11 +7,11 @@ The instructions from [Apptainer containers](./overview.md) apply with certain m
 
 On LUMI, we use `/tmp` as the temporary directory.
 SingularityCE bind mounts it by default to the build environment.
-Therefore, manually bind mounting temporary directory is not required.
+Therefore, manually bind mounting the temporary directory is not required.
 
-## Cache diretory
+## Cache directory
 
-SingularityCE cache directory can be changed if needed:
+The SingularityCE cache directory can be changed if needed:
 
 ```bash
 export SINGULARITY_CACHEDIR=/scratch/project_id/$USER/.singularity
@@ -29,10 +29,10 @@ For example, we can reserve an interactive slurm job as follows, just replace `m
 srun --account myproject --partition small --time 0:15:00 --mem 8000 --cpus-per-task 1 --pty bash
 ```
 
-On compute node `/tmp` is a tmpfs which is limited by memory.
-We must request memory that is at least twice the size of the uncompressed size of you container image (SIF file) to avoid running out of memory.
+On the compute node `/tmp` is a tmpfs which is limited by memory.
+We must request memory that is at least twice the size of the uncompressed size of your container image (SIF file) to avoid running out of memory.
 
-## Building SIF image
+## Building an SIF image
 
 In LUMI, we need to use [proot](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/systools/#the-proot-command) to build SIF images with SingularityCE.
 We can load proot as follows:
@@ -47,4 +47,4 @@ Then, we can build container images in the standard way as follows:
 singularity build container.sif container.def
 ```
 
-Do not use the `--fakeroot` flag with SingularityCe in LUMI, it does not behave in the same way as with Apptainer.
+Do not use the `--fakeroot` flag with SingularityCE in LUMI, as it does not behave in the same way as with Apptainer.
