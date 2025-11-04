@@ -120,11 +120,11 @@ project has that have been targeted for automatic removal.
 
 Run `lcleaner --help` on the login nodes to see what options LCleaner supports.
 
-In addition to lcleaner, [Puhti web interface](https://puhti.csc.fi) provides a graphical tool
+In addition to lcleaner, [Puhti web interface](https://www.puhti.csc.fi) provides a graphical tool
 "File Deletion Explorer (beta)" to inspect the purge lists. This tool can be found in the
-web interface from the "Tools" drop down menu. It can visualize the purge list contents in
+web interface under the "Tools" drop-down menu. It can visualize the purge list contents in a
 treemap, show size distribution of the files, and do file name suffix analysis. You can also filter
-files based on the file path and name, and output the filtered lists in text files for later
+files based on the file path and name, and output the filtered lists as text files for later
 operations on the command line.
 
 ### LCleaner examples
