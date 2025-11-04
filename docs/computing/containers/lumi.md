@@ -2,16 +2,23 @@
 
 LUMI uses SingularityCE instead of Apptainer.
 The instructions from [Apptainer containers](./overview.md) apply with certain modifications.
+We use the command `singularity` instead of `apptainer`.
 
 ## Running containers
+
+We can run commands from a container as follows:
 
 ```bash
 singularity exec container.sif mycommand
 ```
 
+On LUMI, we can bind mount common disk areas to the container as follows:
+
 ```bash
 singularity exec --bind="/pfs,/users,/projappl,/scratch,/project,/flash" container.sif mycommand
 ```
+
+We can also enable ROCm support for AMD GPUs on LUMI as follows:
 
 ```bash
 singularity exec --rocm container.sif mycommand
@@ -48,7 +55,7 @@ We must request memory that is at least twice the size of the uncompressed size 
 
 ## Building an SIF image
 
-In LUMI, we need to use [proot](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/systools/#the-proot-command) to build SIF images with SingularityCE.
+On LUMI, we need to use [proot](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/systools/#the-proot-command) to build SIF images with SingularityCE.
 We can load proot as follows:
 
 ```bash
@@ -61,4 +68,4 @@ Then, we can build container images in the standard way as follows:
 singularity build container.sif container.def
 ```
 
-Do not use the `--fakeroot` flag with SingularityCE in LUMI, as it does not behave in the same way as with Apptainer.
+Do not use the `--fakeroot` flag with SingularityCE on LUMI, as it does not behave in the same way as with Apptainer.
