@@ -5,6 +5,7 @@
 * A new File Deletion Explorer tool has been added for testing, see more information [here](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
 * Default MATLAB memory has been increased to 8GB.
 * The Allas Swift integration now generates correct storage URLs.
+* Open OnDemand updated to 4.0.8.
 
 ## Instructions on moving data between CSC supercomputers improved, 30.10.2025
 
