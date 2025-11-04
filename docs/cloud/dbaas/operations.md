@@ -37,7 +37,8 @@ The commands to use:
     The libraries used by PostgreSQL internally for collation might change between datastore versions.
     When this happens, a full reindex of all databases is required to prevent issues with data consistency.
     This reindexing can take a considerable amount of time, especially with large databases containing complex indexes.
-    Currently upgrading from 17.5 or earlier to 17.6 or newer or upgrading from major version 14 to 17 triggers the reindexing.
+    Currently upgrading from 17.5 or earlier to 17.6 or newer triggers the reindexing. Upgrading between
+    minor versions of PostgreSQL 14 also triggers the reindexing, as does upgrading from major version 14 to 17.
     Please plan your database upgrades accordingly.
 
 ## Major database upgrades
