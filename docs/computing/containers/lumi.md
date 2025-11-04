@@ -54,7 +54,23 @@ srun --account myproject --partition small --time 0:15:00 --mem 8000 --cpus-per-
 On the compute node `/tmp` is a tmpfs which is limited by memory.
 We must request memory that is at least twice the size of the uncompressed size of your container image (SIF file) to avoid running out of memory.
 
-### Building an SIF image
+### Building an SIF image from definition file
+
+We can write SingularityCE definition files using the `.def` file extension.
+Here is a simple example of container definition:
+
+```sh title="container.def"
+Bootstrap: docker
+From: docker.io/opensuse/leap:15.5
+
+%post
+    # Replace the failing commands with always succeeding dummies.
+    cp /usr/bin/true /usr/sbin/useradd
+    cp /usr/bin/true /usr/sbin/groupadd
+
+    # Continue to install software into the container normally.
+    zypper --non-interactive update
+```
 
 On LUMI, we need to use [proot](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/systools/#the-proot-command) to build SIF images with SingularityCE.
 We can load proot as follows:
@@ -70,3 +86,42 @@ singularity build container.sif container.def
 ```
 
 Do not use the `--fakeroot` flag with SingularityCE on LUMI, as it does not behave in the same way as with Apptainer.
+
+<!--
+### Developing with interactive sandbox
+
+We can also build sandboxes with SingularityCE and proot.
+Sandboxes are useful for interactive development of containers.
+We should create the sandbox to the temporary directory, not on the Lustre parallel file system.
+
+Load proot first:
+
+```bash
+module load LUMI systools
+```
+
+We can initialize a sandbox from a base image as follows:
+
+```bash
+singularity build --sandbox --fix-perms /tmp/opensuse-leap docker://docker.io/opensuse/leap:15.5
+```
+
+Then we can run a shell in the sandbox to install software into it:
+
+```bash
+singularity shell --writable --contain --cleanenv --no-home --bind=/tmp /tmp/opensuse-leap
+```
+
+We can use the same tricks to replace the failing commands in the sandbox:
+
+```bash
+cp /usr/bin/true /usr/sbin/useradd
+cp /usr/bin/true /usr/sbin/groupadd
+```
+
+Now, we can install software normally:
+
+```bash
+zypper --non-interactive update
+```
+-->
