@@ -88,6 +88,10 @@ If you cannot find a suitable image for your intended application, you will need
 
 ### 1. Create a custom image using Noppe
 
+!!! info "Preview version"
+
+    The preview version of Noppe's custom image creation tool has limited functionality. To access full customisation options, refer to the [2. Create a custom image using own computer](#2-create-a-custom-image-using-own-computer).
+
 Image can be created in Noppe.
 
 Requirements:
@@ -106,7 +110,9 @@ Steps to create your own custom image using Noppe:
     * Click the `Build` button to start creating the custom image.
 * Please wait for the build system to pick up and finish the job.
 
-Once the build has been completed successfully, the custom image will be available in the workspace's Application form  under the 'Container Image' section in the `Custom Images in this workspace` tab.
+Once the build has been completed successfully, the custom image will be available in the workspace's Application form under the 'Container Image' section in the `Custom Images in this workspace` tab.
+
+Any custom images created in Noppe are tied to the workspace in which they were created.
 
 ### 2. Create a custom image using own computer
 
