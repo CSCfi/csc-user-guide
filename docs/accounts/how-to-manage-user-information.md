@@ -14,8 +14,8 @@ Edit profile information:
     
 ### When you change your organisation
 
-When you are changing your organisation please send us the email address of your new organisation to servicedesk@csc.fi.
-We will reply and send you the instructions on how to link the new Haka or Virtu-ID with your user account. 
+If you are changing to another organisation,
+[contact us](../support/contact.md) and provide a full description of your situation including a list of required changes.
 
 
 ## How to link your CSC user account to external authentication sources

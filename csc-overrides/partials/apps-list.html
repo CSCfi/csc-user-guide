@@ -1,8 +1,13 @@
+{% set lang = config.theme.language | string %}
+{% set desc_key = "description" if lang == "en" else "description_" ~ lang %}
+
 {% from "partials/apps-list-item.html" import app_item with context %}
 {% from "partials/apps-list-phrases.html" import phrase with context %}
 
-{% macro as_heading(item) %}
-<h2 id="{{ item.id }}">{{ item.name }}</h2>
+{% macro as_heading(item, alpha=false) %}
+{% set level = 2 if not alpha else 3 %}
+{% set name = item.name if not alpha else item.name | upper %}
+<h{{ level }} id="{{ item.id }}">{{ name }}</h{{ level }}>
 {% endmacro %}
 
 {% macro as_link(item, append=none, tag=false) %}
@@ -22,14 +27,14 @@
   <ul>
     {%- for item in items %}
     {% if alpha %}
-    {% set name = item | string | upper %}
+    {% set name = item.name | upper %}
     {% elif not suffix is none %}
-    {% set name = item.name ~ " " ~ suffix %}
+    {% set name = item.name ~ "&nbsp;" ~ suffix | trim %}
     {% else %}
     {% set name = item.name %}
     {% endif %}
-    {% set id = item.id if not alpha else item | string %}
-    {% set toc_item = {"name": name, "id": id} %}
+    {% set description = "" if not item.description else "&nbsp;&mdash;&nbsp;" ~ item.description %}
+    {% set toc_item = {"name": name ~ description, "id": item.id} %}
     <li>{{ as_link(toc_item, tag=true) }}</li>
     {% endfor -%}
   </ul>
@@ -44,21 +49,19 @@
 </ul>
 {% endmacro %}
 
+{% macro as_groups(section, alpha=false) %}
+{{ as_toc(section, alpha=alpha) }}
+{%- for item in section %}
+{{ as_heading(item, alpha=alpha) }}
+{{ as_list(item.apps)}}
+{% endfor -%}
+{% endmacro %}
+
 {% macro apps_list() %}
-{% if "alphabetical" in catalog %}
-{{ as_toc(catalog.alphabetical, alpha=true) }}
-{%- for letter, apps in catalog.alphabetical | items %}
-<h3 id="{{ letter | string }}">{{ letter | string | upper }}</h3>
-{{ as_list(apps) }}
-{% endfor -%}
-
+{% if "index" in catalog %}
+{{ as_groups(catalog.index, alpha=true) }}
 {% elif "by_discipline" in catalog %}
-{{ as_toc(catalog.by_discipline) }}
-{%- for section in catalog.by_discipline %}
-{{ as_heading(section) }}
-{{ as_list(section.apps) }}
-{% endfor -%}
-
+{{ as_groups(catalog.by_discipline) }}
 {% elif "by_availability" in catalog %}
 <p>{{ phrase("Applications available on") }}</p>
 {{ as_toc(catalog.by_availability.on_systems) }}

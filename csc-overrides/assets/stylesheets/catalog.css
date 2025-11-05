@@ -18,3 +18,31 @@
 .md-typeset .catalog-toc ul li a:hover {
   background-color: unset;
 }
+
+.md-typeset .catalog-toc ul li a[href^="#mahti"] .md-tag {
+  color: var(--c-accent-800);
+  border-color: var(--c-accent-800);
+}
+
+.md-typeset .catalog-toc ul li a[href^="#mahti"] .md-tag:is(:active, :hover) {
+  background-color: var(--c-accent-100);
+}
+
+.md-typeset .catalog-toc ul li a[href^="#puhti"] .md-tag {
+  color: var(--c-info-800);
+  border-color: var(--c-info-800);
+}
+
+.md-typeset .catalog-toc ul li a[href^="#puhti"] .md-tag:is(:active, :hover) {
+  background-color: var(--c-info-100);
+}
+
+.md-typeset .catalog-toc ul li a[href^="#lumi"] .md-tag {
+  color: var(--c-black);
+  border-color: var(--c-black);
+}
+
+.md-typeset .catalog-toc ul li a[href^="#lumi"] .md-tag:is(:active, :hover) {
+  background-color: var(--c-black);
+  color: var(--c-white);
+}

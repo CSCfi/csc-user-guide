@@ -64,6 +64,7 @@ hooks:
   - hooks/catalog.py
   - hooks/archives.py
   - hooks/preview.py
+  - hooks/testing.py
 
 plugins:
   tags: {}
@@ -132,6 +133,7 @@ plugins:
       # for convenience:
       "glossary.md": "support/glossary.md"
       "archives.md": "support/contact.md#archives"
+      "roihu.md": "computing/systems-roihu.md"
       "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
       # Pouta
       "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
@@ -411,6 +413,7 @@ nav:
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
+              - Ray - A Machine learning framework for cloud: cloud/pouta/tutorials/Ray-ML-cloud.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -554,8 +557,8 @@ nav:
           - Start here:
               - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
-              - SD Services billing units: data/sensitive-data/sd-billing-units.md
-              - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Access as project members: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Resource planning for your CSC Project: data/sensitive-data/sd-billing-units.md
           - Store with SD Connect:
               - data/sensitive-data/sd_connect.md
               - Login to SD Connect: data/sensitive-data/sd-connect-login.md

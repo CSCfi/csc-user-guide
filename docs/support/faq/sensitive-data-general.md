@@ -36,7 +36,7 @@ The Sensitive Data Services are free of charge for Finnish academics, according 
 
 SD Desktop consumes Cloud Billing Units type while SD Connect (Allas) consumes Storage Billing Units type.
 
-* You can find out how many Billing Units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/billing-units#buc) (*temporarily unavailable*). Here you can estimate the services usage cost in Billing Units or in euros.
+* You can find out how many Billing Units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/billing-units#buc). Here you can estimate the services usage cost in Billing Units or in euros.
 
 * Once you have estimated how many Billing Units your project would need every year, you can apply for more resources following these [instructions](../../accounts/how-to-apply-for-billing-units.md). 
 

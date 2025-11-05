@@ -16,9 +16,9 @@
 {%- endmacro -%}
 
 {%- macro phrase(phrase_string) -%}
-{%- if lang != "en" %}
-{{ translate(phrase_string, lang_code=lang)}}
-{% else %}
+{%- if lang != "en" -%}
+{{ translate(phrase_string, lang_code=lang) }}
+{%- else -%}
 {{ phrase_string }}
-{% endif -%}
+{%- endif -%}
 {%- endmacro -%}

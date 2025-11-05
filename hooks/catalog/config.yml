@@ -10,6 +10,9 @@ export_props:
   - available_on
   - url
 
+# Template file used in rendering app index pages
+index_template: apps-index.html
+
 listing_order:
   # The literal order of categories on the app index pages. Categories
   # not included (string-valued) and categories with fallback key set to
@@ -50,7 +53,7 @@ listing_order:
       description_fi: "CSC:n supertietokone massiiviseen rinnakkaislaskentaan"
     - name: Puhti
       description: "CSC supercomputer for small and medium jobs"
-      description_fi: "CSC:n supertietokone jotakinjotakin FIXME"
+      description_fi: "CSC:n supertietokone pienille sekä keskisuurille laskentatöille"
     - name: LUMI
       description: "EuroHPC supercomputer for CPU and especially GPU jobs"
       description_fi: "EuroHPC:n supertietokone CPU- ja etenkin GPU-laskentaan"
@@ -60,64 +63,64 @@ appendix:
     description: "Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data"
     disciplines:
       - "Biosciences"
-    url: "https://chipster.csc.fi/"
+    doc: "https://chipster.csc.fi/"
 
   - name: "MaxQuant"
     description: "A proteomics software for processing of Mass-spectromtery data"
     disciplines:
       - "Biosciences"
-    src: "support/tutorials/MaxQuant-tutorial.md"
+    doc: "support/tutorials/MaxQuant-tutorial.md"
 
   - name: "eBay's tsv-tools"
     description: "Utilities for manipulating large tabular data files"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
-    url: "http://urn.fi/urn:nbn:fi:lb-202006081"
+    doc: "http://urn.fi/urn:nbn:fi:lb-202006081"
 
   - name: "Finnish Tagtools"
     description: "Finnish Tagtools"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
-    url: "http://urn.fi/urn:nbn:fi:lb-201908161"
+    doc: "http://urn.fi/urn:nbn:fi:lb-201908161"
 
   - name: "finnish-parse"
     description: "Dependency Parser for Finnish"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
-    url: "http://urn.fi/urn:nbn:fi:lb-2017030801"
+    doc: "http://urn.fi/urn:nbn:fi:lb-2017030801"
 
   - name: "HFST"
     description: "Helsinki Finite-State Transducer Technology"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
-    url: "http://urn.fi/urn:nbn:fi:lb-20140730183"
+    doc: "http://urn.fi/urn:nbn:fi:lb-20140730183"
 
   - name: "HFST-fi"
     description: "Helsinki Finite-State Technology for Finnish"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
-    url: "http://urn.fi/urn:nbn:fi:lb-201509034"
+    doc: "http://urn.fi/urn:nbn:fi:lb-201509034"
 
   - name: "HFST-sv"
     description: "Helsinki Finite-State Technology for Swedish"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
-    url: "http://urn.fi/urn:nbn:fi:lb-201509035"
+    doc: "http://urn.fi/urn:nbn:fi:lb-201509035"
 
   - name: "Kaldi"
     description: "Kaldi Speech Recognition Toolkit"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
-    url: "http://urn.fi/urn:nbn:fi:lb-2019121020"
+    doc: "http://urn.fi/urn:nbn:fi:lb-2019121020"
 
   - name: "UDPipe"
     description: "UDPipe Kielipankki version"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
-    url: "http://urn.fi/urn:nbn:fi:lb-201902131"
+    doc: "http://urn.fi/urn:nbn:fi:lb-201902131"
 
   - name: "MySQL"
     description: "MySQL database client"
     disciplines:
       - "Miscellaneous"
-    src: "data/kaivos/overview.md"
+    doc: "data/kaivos/overview.md"

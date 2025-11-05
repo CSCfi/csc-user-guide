@@ -3,6 +3,7 @@ from pathlib import Path
 
 import humps
 from markdown.extensions.toc import slugify, unique as unique_slug
+from markdown.extensions.toc import slugify, unique as unique_slug
 
 from .catalog import Catalog
 from .config import CatalogConfig
@@ -58,19 +59,30 @@ class DocsExport:
                         if self.__lang == "en"
                         else system.get(f"description_{self.__lang}"))
 
-    def __get_disciplines_context(self) -> dict:
+    def __get_alphabetical_context(self) -> tuple[list, set[str]]:
         ids = set()
 
-        return [{"name": self.__get_discipline_name(discipline),
+        return ([{"name": letter,
+                 "id": self.__get_anchor_id(letter, ids),
+                 "apps": apps}
+                for letter, apps
+                in self.__catalog.alphabetical.items()],
+                ids,)
+
+    def __get_disciplines_context(self) -> tuple[list, set[str]]:
+        ids = set()
+
+        return ([{"name": self.__get_discipline_name(discipline),
                  "id": self.__get_anchor_id(discipline, ids),
                  "apps": apps}
                 for discipline, apps
-                in self.__catalog.by_discipline.items()]
+                in self.__catalog.by_discipline.items()],
+                ids,)
 
-    def __get_systems_context(self) -> dict:
+    def __get_systems_context(self) -> tuple[dict, set[str]]:
         ids = set()
 
-        return dict(on_systems=[{"name": system,
+        return (dict(on_systems=[{"name": system,
                                  "id": self.__get_anchor_id(system, ids),
                                  "description": self.__get_system_description(system),
                                  "apps": apps}
@@ -80,13 +92,18 @@ class DocsExport:
                              "id": self.__get_anchor_id(f"{system} web interface", ids),
                              "apps": apps}
                             for system, apps
-                            in self.__catalog.by_web_availability.items()])
+                            in self.__catalog.by_web_availability.items()]),
+                ids,)
 
-    def get_page_context(self, page) -> dict:
-        contexts = {
-            "index": dict(alphabetical=self.__catalog.alphabetical),
-            "by_discipline": dict(by_discipline=self.__get_disciplines_context()),
-            "by_availability": dict(by_availability=self.__get_systems_context())
+    def get_page_context(self, page) -> tuple[dict, set]:
+        page_key = Path(page.file.src_uri).stem
+
+        func_lookup = {
+            "index": self.__get_alphabetical_context,
+            "by_discipline": self.__get_disciplines_context,
+            "by_availability": self.__get_systems_context
         }
+        context, ids = func_lookup.get(page_key, lambda *_: ({},set()))()
 
-        return contexts.get(Path(page.file.src_uri).stem, {})
+        return (dict(catalog={page_key: context}),
+                ids,)

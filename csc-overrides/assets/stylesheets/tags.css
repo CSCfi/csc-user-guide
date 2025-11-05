@@ -1,17 +1,24 @@
 .md-typeset .md-tag {
-  border: 1px solid var(--md-primary-fg-color);
-  color: var(--md-primary-fg-color);
-  background-color: transparent;
+  border: 1px solid var(--c-link-700);
+  color: var(--c-link-700);
+  background-color: var(--c-white);
   border-radius: 15px;
   font-weight: 400;
   text-decoration: none;
-}
-
-.md-typeset :target>.md-tag {
-  color: var(--md-primary-bg-color);
-  background-color: var(--md-primary-fg-color);
+  transition:
+    color 125ms,
+    background-color 125ms;
 }
 
 .md-typeset .md-tag:is(:active, :hover) {
-  background-color: var(--md-accent-bg-color);
+  background-color: var(--c-link-100);
+}
+
+.md-typeset :target>.md-tag {
+  color: var(--c-white);
+  background-color: var(--c-link-700);
+}
+
+.md-typeset :target>.md-tag:is(:active, :hover) {
+  background-color: var(--c-link-500);
 }
