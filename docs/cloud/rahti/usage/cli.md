@@ -82,7 +82,9 @@ oc policy add-role-to-user system:image-pusher -z pusher
 docker login -p $(oc create token pusher) -u unused image-registry.apps.2.rahti.csc.fi
 ```
 
-This service account token, the one you get with `oc sa get-token pusher` does not expire.
+<s>This service account token, the one you get with `oc sa get-token pusher` does not expire.</s>
+
+Since OKD 4.11, `oc sa get-token` is deprecated (See [changelog](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/release_notes/ocp-4-11-release-notes#ocp-4-11-deprecated-features)). Use the command `oc create token` instead. It will generate a new token for the service account.
 
 ## CLI cheat sheet
 
