@@ -1,0 +1,26 @@
+// These assume that Conda is installed in the default location
+// and that 'docs-env' has the requirements installed.
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "MkDocs",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${userHome}/miniconda3/envs/docs-env/bin/mkdocs",
+      "args": ["serve"],
+      "env": {"MKDOCS_ENV": "preview"},
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "MkDocs with testing-hook",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${userHome}/miniconda3/envs/docs-env/bin/mkdocs",
+      "args": ["serve"],
+      "env": {"MKDOCS_ENV": "test"},
+      "console": "integratedTerminal"
+    }
+  ]
+}
