@@ -59,12 +59,12 @@ CSC provides the following licenses, shared between all users, for **academic** 
 
 === "Puhti and Mahti"
 
-    Network license `1766@license4.csc.fi` that provides the following academic licenses for Puhti and Mahti: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
-    The academic license allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
+    A network license `1766@license4.csc.fi` provides the following academic licenses for Puhti and Mahti: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
+    The academic license allows use only for affiliates, that is, staff and students, of Finnish higher education institutions.
 
 === "LUMI"
 
-    Network license `1766@license10.csc.fi` that provides the following academic licenses for LUMI: 25 MATLAB, 25 Simulink, 25 Control System Toolbox, 25 Curve Fitting Toolbox, 25 Deep Learning Toolbox, 25 Global Optimization Toolbox, 25 Image Processing Toolbox, 25 Optimization Toolbox, 25 Parallel Computing Toolbox, 25 Signal Processing Toolbox, 25 Statistics and Machine Learning Toolbox, 25 Wavelet Toolbox.
+    A network license `1766@license10.csc.fi` provides the following academic licenses for LUMI: 25 MATLAB, 25 Simulink, 25 Control System Toolbox, 25 Curve Fitting Toolbox, 25 Deep Learning Toolbox, 25 Global Optimization Toolbox, 25 Image Processing Toolbox, 25 Optimization Toolbox, 25 Parallel Computing Toolbox, 25 Signal Processing Toolbox, 25 Statistics and Machine Learning Toolbox, 25 Wavelet Toolbox.
     The academic license allows use only for teaching and academic research at degree-granting institutes.
 
 !!! info
@@ -76,7 +76,7 @@ CSC provides the following licenses, shared between all users, for **academic** 
 
 ![MATLAB web application](./img/matlab-ood-interface.png){width=1000}
 
-We recommend using the [web interface](../computing/webinterface/index.md) for using MATLAB interactively.
+We recommend using the [web interface](../computing/webinterface/index.md) to use MATLAB interactively.
 
 1. Start by logging into the web interface of the cluster you want to use: [www.puhti.csc.fi](https://www.puhti.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
 
@@ -90,7 +90,7 @@ The MATLAB web application by itself consumes around 4 GB of memory.
 
 4. You will be presented with the MATLAB web application license GUI.
 Select Online License Manager to log in with your MathWorks credentials.
-If you don't have MathWorks account, you need to [create a MathWorks account](https://www.mathworks.com/mwaccount/account/create) with your university's or organization's email address.
+If you don't have a MathWorks account, you need to [create a MathWorks account](https://www.mathworks.com/mwaccount/account/create) with your university's or organization's email address.
 Alternatively, select Network License Manager to use a network license.
     - ![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
 
@@ -148,7 +148,7 @@ export MLM_LICENSE_FILE="port@mylicenseserver.com"
 
 ## Computational threads and parallel computing toolbox
 
-MATLAB's linear algebra operations, element-wise operations on large arrays, and builtin mathematical operations have builtin threading, which is controlled by `maxNumCompThreads`.
+MATLAB's linear algebra operations, element-wise operations on large arrays, and built-in mathematical operations have built-in threading, which is controlled by `maxNumCompThreads`.
 MATLAB typically sets it automatically to the correct value, even in Slurm jobs.
 You can compare the effects of setting one versus two threads for matrix multiplication by running the following MATLAB script:
 
@@ -306,7 +306,7 @@ Supply your Puhti username to the prompt.
 configCluster();
 ```
 
-Finally, we can test connection from MATLAB to Puhti.
+Finally, we can test the connection from MATLAB to Puhti.
 The first time you connect, MATLAB will prompt you to choose between password or SSH key authentication.
 You **must** select the SSH key authentication, provide the path to your private key and enter the password for the private key if one exists.
 Password authentication is no longer supported on Puhti.
@@ -318,7 +318,7 @@ cscWorkspaces(c);
 ```
 
 !!! error
-    If you are using PuTTY to generate SSH keys, you **must** export the private key as **OpenSSH key** and use it with MATLAB Parallel Server.
+    If you are using PuTTY to generate SSH keys, you **must** export the private key as an **OpenSSH key** and use it with MATLAB Parallel Server.
     The PuTTY Private Key format (`.ppk`) will **not** work.
 
 
@@ -377,13 +377,13 @@ These examples reserve 1 MATLAB Parallel Server license on the cluster for the d
 ### Multinode jobs
 
 !!! warning
-    Multinode jobs do not seem to work in r2025a.
+    Multinode jobs do not seem to work in R2025a.
 
 We can also create a parallel pool of workers by setting the `'Pool'` argument to the number of workers we want to reserve (translates to `--ntasks=<PoolSize>` in the Slurm reservation).
-The `parcluster` resources tell how many resources are reserved per worker.
+The `parcluster` resources specify how many resources are reserved per worker.
 **We should reserve a pool in this way when we need more workers than can fit into a single node; otherwise, we can reserve a parallel job as was described in the previous section and reserve a pool with threads or processes.**
 
-Here is an example of a parallel pool with 50 workers as follows:
+Here is an example of a parallel pool with 50 workers:
 
 ```matlab title="pool.m"
 c = parcluster();
