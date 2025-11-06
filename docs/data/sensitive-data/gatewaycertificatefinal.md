@@ -31,6 +31,7 @@ To resolve this issue, a one-time workaround is available. Each user must apply 
 
 7. Copy and paste the following script into the input field:
 
+```bash
 -----script-starts-here-this-line-is-not-part-of-script------------------
 
 #!/bin/bash
@@ -66,6 +67,7 @@ fi
 echo "Logout and start a new session to take the updated certificates in use."
  
 -----script-ends-here-this-line-is-not-part-of-script------------------ 
+```
 
 
 8. The script will appear in the Gedit document.
