@@ -94,8 +94,7 @@ To resolve this issue, a one-time workaround is available. Each user must apply 
 
 
 !!! Note
-
-   If you encounter any difficulties with these steps, feel free to contact us at **servicedesk@csc.fi (sunbject: SD Services)**. We’re happy to assist you via an online meeting.
+    If you encounter any difficulties with these steps, feel free to contact us at **servicedesk@csc.fi (sunbject: SD Services)**. We’re happy to assist you via an online meeting.
 
 
 
