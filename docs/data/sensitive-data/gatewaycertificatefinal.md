@@ -2,7 +2,7 @@
 
 Virtual desktops created before **November 5, 2025** may display the following error:
 
-> **Initializing Data Gateway failed**
+**Initializing Data Gateway failed**
 
 To resolve this issue, a one-time workaround is available. Each user must apply it by following the steps below.
 
