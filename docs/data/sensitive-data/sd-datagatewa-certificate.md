@@ -1,9 +1,10 @@
-
+#Fix
 
 
 Virtual desktops created before November 5 2025 display an error that blocks Data Gateway application: Inizializing Data Gateway failed. 
 
 To resolve this issue, a one time workaround is available. It must be applied per by each user by following these steps:
+
 
 1. conncet to your virtual desktop, right click and click on open in terminal. 
 
