@@ -32,36 +32,42 @@ To resolve this issue, a one-time workaround is available. Each user must apply 
 7. Copy and paste the following script into the input field:
 
     ```bash
-    #!/bin/bash
-    # Run this script if DataGateway does not work 
+-----script-starts-here-this-line-is-not-part-of-script------------------
 
-    echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> $HOME/.profile
+#!/bin/bash
+# Run this script if DataGateway does not work 
 
-    if [[ ! -e /shared-directory/.certs/ca.crt ]]; then
-        mkdir -p /shared-directory/.certs
-        cp /usr/local/share/ca-certificates/ca.crt /shared-directory/.certs/
-    fi 
+echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> $HOME/.profile
 
-    check1=$(grep -c "CooV2DCfiEJlIsKz" /shared-directory/.certs/ca.crt)
-    check2=$(grep -c "TGAl5j07G7ZIuK3Q" /shared-directory/.certs/ca.crt)
+if [[ ! -e /shared-directory/.certs/ca.crt ]]; then
+mkdir -p /shared-directory/.certs
+cp /usr/local/share/ca-certificates/ca.crt /shared-directory/.certs/
+fi 
 
-    if [[ $check1 -eq 1 && $check2 -eq 1 ]]; then
-        echo "Certificates have already been updated"
-    else
-        if [[ $check1 -eq 0 ]]; then
-            openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null | \
-            awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
-            >> /shared-directory/.certs/ca.crt
-        fi
+check1=$(grep -c "CooV2DCfiEJlIsKz" /shared-directory/.certs/ca.crt )
+check2=$(grep -c "TGAl5j07G7ZIuK3Q" /shared-directory/.certs/ca.crt )
 
-        if [[ $check2 -eq 0 ]]; then
-            openssl s_client -showcerts -verify 5 -connect terminal.sd.csc.fi:8443 < /dev/null | \
-            awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
-            >> /shared-directory/.certs/ca.crt
-        fi
-    fi
+if [[ $check1 -eq 1 && $check2 -eq 1 ]]; then
+echo "Certificates have already been updated"
+else
 
-    echo "Logout and start a new session to take the updated certificates in use."
+if [[ $check1 -eq 0 ]]; then
+openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null | \
+awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
+>> /shared-directory/.certs/ca.crt
+fi
+
+if [[ $check2 -eq 0 ]]; then
+openssl s_client -showcerts -verify 5 -connect terminal.sd.csc.fi:8443 < /dev/null | \
+awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
+>> /shared-directory/.certs/ca.crt
+fi
+fi
+
+echo "Logout and start a new session to take the updated certificates in use."
+ 
+
+-----script-ends-here-this-line-is-not-part-of-script------------------ 
     ```
 
 8. The script will appear in the Gedit document.
