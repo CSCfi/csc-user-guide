@@ -130,7 +130,7 @@ You've now completed all required steps. Log out of the virtual desktop and rela
 
 ## Final steps for project members
 
-If you have been using the SD Software Installer and one of the memeber of the project has completed the process above, you can simply:
+If you have been using the SD Software Installer and one of the member of the project has completed the process above, you can simply:
 
 1.. **Connect to your virtual desktop**, right-click and select **Open in Terminal**.
 
