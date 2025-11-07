@@ -74,25 +74,25 @@ CSC provides the following licenses, shared between all users, for **academic** 
 
 ## MATLAB web application
 
-![MATLAB web application](./img/matlab-ood-interface.png){width=1000}
+![MATLAB web application](https://a3s.fi/docs-files/apps/matlab-ood-interface.png){width=1000}
 
 We recommend using the [web interface](../computing/webinterface/index.md) to use MATLAB interactively.
 
 1. Start by logging into the web interface of the cluster you want to use: [www.puhti.csc.fi](https://www.puhti.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
 
 2. Then press the MATLAB icon to choose the MATLAB web application.
-    - ![MATLAB OOD pinned apps](./img/matlab-ood-pinned-apps.png){width=400}
+    - ![MATLAB OOD pinned apps](https://a3s.fi/docs-files/apps/matlab-ood-pinned-apps.png){width=400}
 
 3. In the submit form, select appropriate resources for your session.
 We recommend at least 8 GB of memory before launching the MATLAB application.
 The MATLAB web application by itself consumes around 4 GB of memory.
-    - ![MATLAB OOD form](./img/matlab-ood-form.png){width=400}
+    - ![MATLAB OOD form](https://a3s.fi/docs-files/apps/matlab-ood-form.png){width=400}
 
 4. You will be presented with the MATLAB web application license GUI.
 Select Online License Manager to log in with your MathWorks credentials.
 If you don't have a MathWorks account, you need to [create a MathWorks account](https://www.mathworks.com/mwaccount/account/create) with your university's or organization's email address.
 Alternatively, select Network License Manager to use a network license.
-    - ![MATLAB license GUI](./img/matlab-ood-license-menu.png){width=400}
+    - ![MATLAB license GUI](https://a3s.fi/docs-files/apps/matlab-ood-license-menu.png){width=400}
 
 5. The MATLAB application takes a couple of minutes to load.
 Then press Connect to MATLAB and the web application will open.
