@@ -92,16 +92,13 @@ echo "Logout and start a new session to take the updated certificates in use."
 
 Step 8. The script will appear in the Gedit document.
 
-
-Step 9. Press again **Ctrl + Alt + Shift** to open the clipboard and then select **Input method: None** to close it. 
-
-Step 10. Click **Save** in the top-right corner of Gedit, then close the editor. A file named `dg-fix` will appear on your desktop.
+Step 9. Click **Save** in the top-right corner of Gedit, then close the editor. A file named `dg-fix` will appear on your desktop.
 
 ![Gedit](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-8.png)
 
 ![dg-fix file](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-9.png)
 
-Step 11. In the terminal, type the following command:
+Step 10. In the terminal, type or copy the following command and press Enter:
 
     ```bash
     chmod a+rwx dg-fix
