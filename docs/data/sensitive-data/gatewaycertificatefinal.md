@@ -51,6 +51,7 @@ Step 7. Copy and paste the following script into the input field:
 
 ![Copy and paste into the inout field](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-7.png)
 
+```bash
 #!/bin/bash
 # Run this script if DataGateway does not work 
 
@@ -81,7 +82,11 @@ awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&
 fi
 fi
 
-echo "Logout and start a new session to take the updated certificates in use."
+echo "Logout and start a new session to take the updated certificates in use." 
+```
+
+
+
 Step 8. The script will appear in the Gedit document.
 
 Step 9. Click **Save** in the top-right corner of Gedit, then close the editor. A file named `dg-fix` will appear on your desktop.
