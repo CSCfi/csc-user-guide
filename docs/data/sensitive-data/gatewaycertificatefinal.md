@@ -4,8 +4,11 @@ The Data Gateway application can no longer be opened on all virtual desktops cre
 
 ![Gateway doesn't open](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-1.png)
 
-**A one time workaround is available and must be applied by each virtual desktop user**. If you have previously used the SD Software Installer, one project member completes the full process but others only need to perform the final step.
+**A one time workaround is available and must be applied by each virtual desktop user**. 
 
+* If you **have** previously used the SD Software Installer in the virtual desktop, **one project member** completes [the full process](#full-process) but others only need to perform [the final step](#final-steps-for-project-members).
+
+* If you **haven't** previously used the SD Software Installer in the virtual desktop, **all project members** need to complete [the full process](#full-process).
 
 
 ## Step-by-Step Instructions
