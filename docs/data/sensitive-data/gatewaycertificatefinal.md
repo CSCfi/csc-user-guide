@@ -1,4 +1,4 @@
-#  Data Gateway error
+#  Data Gateway error workaround
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/Data_Gateway_korjaus.pdf){ target="_blank" }**
 
@@ -52,9 +52,6 @@ Step 7. Copy and paste the following script into the input field:
 ![Copy and paste into the inout field](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-7.png)
 
 ```bash
-#!/bin/bash
-# Run this script if DataGateway does not work 
-
 echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> $HOME/.profile
 
 if [[ ! -e /shared-directory/.certs/ca.crt ]]; then
