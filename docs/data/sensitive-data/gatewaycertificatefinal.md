@@ -119,7 +119,7 @@ You've now completed all required steps. Log out of the virtual desktop and rela
 
 
 !!! Note
-    If you encounter any difficulties with these steps, feel free to contact us at **servicedesk@csc.fi (sunbject: SD Services)**. We’re happy to assist you via an online meeting.
+    If you encounter any difficulties with these steps, feel free to contact us at **servicedesk@csc.fi (subject: SD Services)**. We’re happy to assist you via an online meeting.
 
 
 ## Final steps for project members
