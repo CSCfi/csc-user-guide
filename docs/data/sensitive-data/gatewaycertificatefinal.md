@@ -1,5 +1,7 @@
 #  Data Gateway error
 
+**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/Data_Gateway_korjaus.pdf){ target="_blank" }**
+
 The Data Gateway application can no longer be opened on all virtual desktops created **before November 5, 2025** and shows the error: "Initializing Data Gateway failed." 
 
 ![Gateway doesn't open](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-1.png)
