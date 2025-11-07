@@ -91,15 +91,13 @@ echo "Logout and start a new session to take the updated certificates in use."
 8. The script will appear in the Gedit document.
 
 
-9. Press again **Ctrl + Alt + Shift** to open the clipboard and then select **Input method: None** to close it. 
-
-10. Click **Save** in the top-right corner of Gedit, then close the editor. A file named `dg-fix` will appear on your desktop.
+9. Click **Save** in the top-right corner of Gedit, then close the editor. A file named `dg-fix` will appear on your desktop.
 
 ![Gedit](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-8.png)
 
 ![dg-fix file](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-9.png)
 
-11. In the terminal, type the following command:
+10. In the terminal, type or copy the following command:
 
     ```bash
     chmod a+rwx dg-fix
@@ -110,14 +108,14 @@ You've now completed all required steps. Log out of the virtual desktop and rela
 
 ![In terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-10.png)
 
-12. *(Optional)* If you have previously used the SD software installer, you can make the tool available to other users of the same virtual desktop by copying this commands in the terminal:
+11. *(Optional)* If you have previously used the SD software installer, you can make the tool available to other users of the same virtual desktop by copying this commands in the terminal:
 
     ```bash
     cp dg-fix /shared-directory/sd-tools/bin/
     ```
 
 
-13. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
+12. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
 
 
 !!! Note
@@ -136,4 +134,4 @@ If you have been using the SD Software Installer and one of the member of the pr
     dg-fix
     ```
 
-13. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
+3. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
