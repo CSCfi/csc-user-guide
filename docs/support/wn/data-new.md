@@ -1,5 +1,10 @@
 # Data management
 
+## Sensitive Data (SD) Desktop: Data agteway error workwround, 7.11.2025
+
+The Data Gateway application can no longer be opened on all virtual desktops created before November 5, 2025 and shows the error: "Initializing Data Gateway failed." A one time workaround is available and must be applied by each virtual desktop user. [Step by step instructions and video tutorial](../../data/sensitive-data/gatewaycertificatefinal.md).
+
+
 ## The Kaivos database service will be decommissioned by the end of the year 2025
 
 The [Kaivos database service](../../data/kaivos/overview.md) will be
