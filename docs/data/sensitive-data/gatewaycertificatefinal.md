@@ -97,7 +97,7 @@ echo "Logout and start a new session to take the updated certificates in use."
 
 ![dg-fix file](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-9.png)
 
-10. In the terminal, type or copy the following command:
+10. In the terminal, type or copy the following command and press enter:
 
     ```bash
     chmod a+rwx dg-fix
