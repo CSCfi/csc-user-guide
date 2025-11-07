@@ -9,17 +9,11 @@ The Data Gateway application can no longer be opened on all virtual desktops cre
 **A one time workaround is available and must be applied by each virtual desktop user**. 
 
 * If you **have** previously used the SD Software Installer in the virtual desktop, **one project member** completes [the full process](#full-process) but others only need to perform [the final step](#final-steps-for-project-members).
-
 * If you **haven't** previously used the SD Software Installer in the virtual desktop, **all project members** need to complete [the full process](#full-process).
-
-
-
-
 
 ## Step-by-Step Instructions
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3pgpG2Kosb4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 ### Full process
 
@@ -29,9 +23,10 @@ Step 1. **Connect to your virtual desktop**, right-click and select **Open in Te
 
 Step 2. Test if another project member has already added the fixing tool. Type the following command and press Enter:
 
-    ```bash
-    dg-fix
-    ```
+```bash
+dg-fix
+```
+
 ![Type in terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-3.png)
 
 Step 3. If the terminal responds with `command not found`, continue with the steps below. 
@@ -40,9 +35,9 @@ Step 3. If the terminal responds with `command not found`, continue with the ste
 
 Step 4. Type the following command and press Enter:
 
-    ```bash
-    gedit dg-fix
-    ```
+```bash
+gedit dg-fix
+```
 
 Step 5. This opens the **Gedit text editor**. Make sure the editor view is active by clicking inside it.
 
@@ -100,26 +95,23 @@ Step 9. Click **Save** in the top-right corner of Gedit, then close the editor. 
 
 Step 10. In the terminal, type or copy the following command and press Enter:
 
-    ```bash
-    chmod a+rwx dg-fix
-    ./dg-fix
-    ```
+```bash
+chmod a+rwx dg-fix
+./dg-fix
+```
 
 ![In terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-10.png)
 
 Step 12. *(Optional)* If you have previously used the SD software installer, you can make the tool available to other users of the same virtual desktop by copying this commands in the terminal:
 
-    ```bash
-    cp dg-fix /shared-directory/sd-tools/bin/
-    ```
-
+```bash
+cp dg-fix /shared-directory/sd-tools/bin/
+```
 
 Step 13. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
 
-
 !!! Note
     If you encounter any difficulties with these steps, feel free to contact us at **servicedesk@csc.fi (subject: SD Services)**. We’re happy to assist you via an online meeting.
-
 
 ## Final steps for project members
 
@@ -129,8 +121,8 @@ Step 1. **Connect to your virtual desktop**, right-click and select **Open in Te
 
 Step 2. Type the folloging command and press enter:
 
-    ```bash
-    dg-fix
-    ```
+```bash
+dg-fix
+```
 
 Step 3. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
