@@ -11,7 +11,13 @@ The Data Gateway application can no longer be opened on all virtual desktops cre
 * If you **haven't** previously used the SD Software Installer in the virtual desktop, **all project members** need to complete [the full process](#full-process).
 
 
+
+
+
 ## Step-by-Step Instructions
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3pgpG2Kosb4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ### Full process
 
