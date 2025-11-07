@@ -1,13 +1,14 @@
 #  Data Gateway error
 
-Virtual desktops created before **November 5, 2025** may display the following error:
+The Data Gateway application can no longer be opened on all virtual desktops created **before November 5, 2025** and shows the error: "Initializing Data Gateway failed." 
 
-**Initializing Data Gateway failed**
+**A one time workaround is available and must be applied by each virtual desktop user**. If you have previously used the SD Software Installer, one project member completes the full process but others only need to perform the final step.
 
-To resolve this issue, a one-time workaround is available. Each user must apply it by following the steps below.
 
 
 ## Step-by-Step Instructions
+
+### Full process
 
 1. **Connect to your virtual desktop**, right-click and select **Open in Terminal**.
 
@@ -83,24 +84,30 @@ echo "Logout and start a new session to take the updated certificates in use."
     ./dg-fix
     ```
 
-12. *(Optional)* If you're using the SD software installer, you can make the tool available to other users:
+12. *(Optional)* If you have previously used the SD software installer, you can make the tool available to other users of the same virtual desktop by copying this commands int eh terninal:
 
     ```bash
     cp dg-fix /shared-directory/sd-tools/bin/
     ```
 
-    Other users can then run the fix by typing:
 
-    ```bash
-    dg-fix
-    ```
-
-13. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will open automatically and the error will no longer be displayed.
-
+13. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
 
 
 !!! Note
     If you encounter any difficulties with these steps, feel free to contact us at **servicedesk@csc.fi (sunbject: SD Services)**. We’re happy to assist you via an online meeting.
 
 
+## Final steps for project members
 
+If you have been using the SD Software Installer and one of the memeber of the project has completed the process above, yuo can simply :
+
+1.. **Connect to your virtual desktop**, right-click and select **Open in Terminal**.
+
+2. Type the folloging command and press enter:
+
+    ```bash
+    dg-fix
+    ```
+
+13. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
