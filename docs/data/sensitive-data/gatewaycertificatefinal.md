@@ -55,8 +55,6 @@ The Data Gateway application can no longer be opened on all virtual desktops cre
 ![Copy and paste into the inout field](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-7.png)
 
 ```bash
------script-starts-here-this-line-is-not-part-of-script------------------
-
 #!/bin/bash
 # Run this script if DataGateway does not work 
 
@@ -87,9 +85,7 @@ awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&
 fi
 fi
 
-echo "Logout and start a new session to take the updated certificates in use."
- 
------script-ends-here-this-line-is-not-part-of-script------------------ 
+echo "Logout and start a new session to take the updated certificates in use." 
 ```
 
 8. The script will appear in the Gedit document.
