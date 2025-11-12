@@ -583,7 +583,7 @@ nav:
               - data/sensitive-data/secondarydata-access.md
               - Access with Findata permit: data/sensitive-data/findata-permit.md
               - Access with register permit: data/sensitive-data/single-register-permit.md
-              - Resource planning for your CSC Project: data/sensitive-data/sd-secondarydata-billing-units.md
+              - Resource planning for your CSC Project: data/sensitive-data/sd-secondaryuse-billing-units.md
           - Analyse with SD Desktop for secondary use:
               - data/sensitive-data/sd-desktop-audited.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
