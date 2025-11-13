@@ -64,9 +64,10 @@ After copying files to volume, adjust permissions for folders and files to enabl
     * Open the **Permissions** tab.
     * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
         1. Owner -> Access -> Select “Create and delete files”.
-        2. Others -> Access -> Select “Create and delete files”.
-        3. Close the permission tab (top left corner).
-        4. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
+        2. Group -> Access -> Select “Create and delete files”.
+        3. Others -> Access -> Select “Create and delete files”.
+        4. Close the permission tab (top left corner).
+        5. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
 
