@@ -69,11 +69,11 @@ After copying files to volume, adjust permissions for folders and files to enabl
         3. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         4. Click **Change**.
 
-Note that if you open the enclosed file permission settings again it looks like the settings haven't changed even though the permissions have been set correctly. 
-
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions3.png)
 
 Now all project members with access can view and analyze files.
+
+Note that if you open the enclosed file permission settings again it looks like the settings haven't changed even though the permissions have been set correctly. 
 
 ### 4. Close Data Gateway
 
