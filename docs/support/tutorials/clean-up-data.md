@@ -113,12 +113,19 @@ The file system tools which CSC uses to generate the list of files to remove wil
 which are quite verbose and difficult to read. By using the LCleaner tool described in the next section,
 users can get the relevant information in a more user-friendly format.
 
-## Using LCleaner to check which files will be automatically removed
+## Using LCleaner and the web interface to check which files will be automatically removed
 
 LCleaner is a tool developed by CSC, which is intended to help you to discover what files your
 project has that have been targeted for automatic removal.
 
 Run `lcleaner --help` on the login nodes to see what options LCleaner supports.
+
+In addition to lcleaner, [Puhti web interface](https://www.puhti.csc.fi) provides a graphical tool
+"File Deletion Explorer (beta)" to inspect the purge lists. This tool can be found in the
+web interface under the "Tools" drop-down menu. It can visualize the purge list contents in a
+treemap, show size distribution of the files, and do file name suffix analysis. You can also filter
+files based on the file path and name, and output the filtered lists as text files for later
+operations on the command line.
 
 ### LCleaner examples
 

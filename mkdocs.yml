@@ -121,6 +121,7 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
+        "roihu.md": "computing/systems-roihu.md"
         "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
         # Pouta
         "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
@@ -297,12 +298,12 @@ nav:
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
+          - Available batch job partitions: computing/running/batch-job-partitions.md
           - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
           - Puhti example scripts: computing/running/example-job-scripts-puhti.md
           - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
           - Mahti example scripts: computing/running/example-job-scripts-mahti.md
           - Submitting a job: computing/running/submitting-jobs.md
-          - Available batch job partitions: computing/running/batch-job-partitions.md
           - High throughput: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
           - Performance checklist: computing/running/performance-checklist.md
@@ -318,6 +319,7 @@ nav:
           - computing/containers/overview.md
           - Examples: computing/containers/examples.md
           - Tykky: computing/containers/tykky.md
+          - LUMI: computing/containers/lumi.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
@@ -400,6 +402,7 @@ nav:
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
+              - Ray - A Machine learning framework for cloud: cloud/pouta/tutorials/Ray-ML-cloud.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -539,18 +542,19 @@ nav:
   - Sensitive data:
       - data/sensitive-data/index.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
-      - Store and analyse:
+      - Research data - Store and analyse: 
           - Start here:
-              - data/sensitive-data/sd-access.md
+              - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
-              - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Access as project members: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Resource planning for your CSC Project: data/sensitive-data/sd-billing-units.md
           - Store with SD Connect:
               - data/sensitive-data/sd_connect.md
               - Login to SD Connect: data/sensitive-data/sd-connect-login.md
               - Upload: data/sensitive-data/sd-connect-upload.md
-              - Share: data/sensitive-data/sd-connect-share.md
               - Download: data/sensitive-data/sd-connect-download.md
               - Delete: data/sensitive-data/sd-connect-delete.md
+              - Share: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
           - Analyse with SD Desktop:
@@ -565,7 +569,7 @@ nav:
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
               - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-      - Publish and reuse:
+      - Research data - Publish and reuse:
           - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
               - Publish data: data/sensitive-data/fega-submission.md

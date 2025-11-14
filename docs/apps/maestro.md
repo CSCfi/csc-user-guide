@@ -35,8 +35,8 @@ self-learning materials.
 
 ## Available
 
-* Puhti: 2023.4, 2024.1, 2024.2, 2024.3, 2024.4, 2025.1, 2025.2, 2025.3
-* Mahti: 2023.4, 2024.1, 2024.2, 2024.3, 2024.4, 2025.1, 2025.2, 2025.3
+* Puhti: 2024.1, 2024.2, 2024.3, 2024.4, 2025.1, 2025.2, 2025.3, 2025.4
+* Mahti: 2024.1, 2024.2, 2024.3, 2024.4, 2025.1, 2025.2, 2025.3, 2025.4
 
 A two-year cleaning cycle is applied on the Maestro modules on CSC supercomputers.
 Specifically, this means that module versions older than two years will be removed.
