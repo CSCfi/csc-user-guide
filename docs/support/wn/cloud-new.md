@@ -1,6 +1,6 @@
 # Cloud services
 
-## Allas WEB UI improvements, 14.11.2025
+## Allas Web UI improvements, 14.11.2025
 
 [Allas-UI](../../data/Allas/using_allas/allas-ui.md) has been updated with several new features that make managing data in Allas easier:
 
