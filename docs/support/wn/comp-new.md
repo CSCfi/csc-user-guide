@@ -1,5 +1,36 @@
 # Computing environment
 
+## Puhti web interface updated to release 30, 5.11.2025
+
+* A new File Deletion Explorer tool has been added for testing, see more information [here](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
+* Default MATLAB memory has been increased to 8GB.
+* The Allas Swift integration now generates correct storage URLs.
+* Open OnDemand updated to 4.0.8.
+
+## Instructions on moving data between CSC supercomputers improved, 30.10.2025
+
+We have improved our instructions on moving data directly between CSC
+supercomputers using utilities such as [scp](../../data/moving/scp.md) and
+[rsync](../../data/moving/rsync.md). Notably, now that SSH keys are required for
+authentication on CSC supercomputers, we've added instructions on how to enable
+SSH agent forwarding
+[on Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and
+[on Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding). This
+is a requirement for being able to directly connect between CSC supercomputers in
+order to, for example, transfer data efficiently.
+
+## Puhti and Mahti web interfaces updated to release 29 and 14, 2.10.2025
+
+* CPU, GPU, storage and cloud billing units are now visible in the web interfaces.
+* The login method will no longer default to Haka login and can instead be freely selected.
+* MATLAB has been added to Mahti, but requires a license.
+* MATLAB version selection has been added to Puhti.
+* MATLAB on Puhti now allows using non-CSC licenses from your MathWorks account.
+* VSCode updated to 1.104.1.
+* TurboVNC updated to 3.2 in the Desktop app.
+* Rclone updated to 1.71.1
+* Open OnDemand updated to 4.0.7.
+
 ## Puhti and Mahti web interfaces updated to release 28 and 13, 19.8.2025
 
 * Rclone updated to 1.70.3
@@ -268,14 +299,14 @@ Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 * TensorBoard
 * Visual Studio Code
 
-## New policy on Puhti and Mahti for projects that have run out of billing units, 22.5.2023
+## New policy on Puhti and Mahti for projects that have run out of Billing Units, 22.5.2023
 
 In addition to limiting access to compute resources upon running out of billing
 units, now also access to storage will be limited on Puhti and Mahti. Please read
-[running out of billing units](../../computing/usage-policy.md#running-out-of-billing-units)
+[running out of Billing Units](../../computing/usage-policy.md#running-out-of-billing-units)
 for more details. To give all projects time to react, the policy will be enforced
 starting June 21, 2023. Please login to MyCSC to check if you have projects that
-have a negative amount of billing units. When logging in to Puhti using ssh or
+have a negative amount of Billing Units. When logging in to Puhti using ssh or
 the web interface you will also receive warnings and information on how much time
 remains before access is removed.
 

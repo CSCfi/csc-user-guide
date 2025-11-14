@@ -1,5 +1,18 @@
 # Data management
 
+## Sensitive Data (SD) Desktop: Data gateway error workaround, 7.11.2025
+
+The Data Gateway application can no longer be opened on all virtual desktops created before November 5, 2025 and shows the error: "Initializing Data Gateway failed." A one time workaround is available and must be applied by each virtual desktop user. [Step by step instructions and video tutorial](../../data/sensitive-data/gatewaycertificatefinal.md).
+
+
+## The Kaivos database service will be decommissioned by the end of the year 2025
+
+The [Kaivos database service](../../data/kaivos/overview.md) will be
+decommissioned by the end of the year 2025. The Kaivos database service is no
+longer available to new users. The service will be replaced by Pukki database
+service. Instructions related to the use of Pukki database service can be
+found in the [Pukki user guide](../../cloud/dbaas/index.md).
+
 ## Sensitive Data (SD) Desktop export problem: quick workaround, 18.8.2025
 
 Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager.  
@@ -116,7 +129,7 @@ We have updated the Heavy Computation virtual desktop option with the following 
 
 - Identifier: hpc.6.28 core (previously 5.32)
 
-- Cost: 65 billing units/hour (previously 52)
+- Cost: 65 Billing Units/hour (previously 52)
 
 This change only affects new virtual desktops created after January 15. 
 
@@ -153,6 +166,27 @@ On Monday October 7 SD Connect service has been upgraded. Please note, this upgr
 * If you have any questions or need assistance, please [contact CSC Service Desk](../contact.md) (subject: Sensitive Data).
 * Join us every Wednesday for the CSC Research Support Coffee session at 14:00 Finnish time for questions and support: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success). For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
 
+### SD Connect Downloading via Firefox: troubleshooting
+
+Firefox is a supported browser; however you might encounter issues where the download does not start.
+
+If this is your first time using the service, or if you have cleared your browser history and cookies, a pop-up may appear asking you to accept cookies. This pop-up only appears when you click on Download and may not be immediately visible, as it appears on the top bar of the browser. Please click Accept to enable the download to start." 
+
+If you have used the service before, but the download suddenly no longer starts, follow these steps (this process only needs to be done once):
+
+1. In your browser, click **Tools** > **Browser Tools** > **Web Developer Tools** (or on your keyboard press F12 for Windows or Fn+F12 on your Mac).
+2. A new window will open at the bottom of your browser. Click **Application** tab.
+3. Next to **Service Worker**, click **Unregister**.
+4. You can close **Web Developer Tools** window.
+5. Refresh your browser and download files.
+
+
+
+![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
+
+![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
+
+
 ## SD Desktop: CentOS 7 will no longer be supported after June 2024
 
 We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops.
@@ -177,11 +211,11 @@ User guide is available [here](../../data/sensitive-data/sd_connect.md)
 
 As of September 6, 2023, we have introduced two significant changes to our service usage according to CSC's data retention policies, which are currently in effect:
 
-* Billing Unit consumption: when all billing units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional billing units are allocated to the project.
+* Billing Unit consumption: when all Billing Units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional Billing Units are allocated to the project.
 
 * CSC Project closure: content stored within the SD Desktop and SD Connect services is subject to permanent deletion 90 days after the closure of a CSC project. **It is important to note that once data is deleted, it cannot be restored.**
 
-To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when billing units have been consumed and when a  CSC project is scheduled for closure.
+To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when Billing Units have been consumed and when a  CSC project is scheduled for closure.
 
 ## SD Desktop: Ubuntu OS now available, 8.9.2023
 

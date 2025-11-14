@@ -26,27 +26,35 @@ Note, `seff` won't show data for *running* jobs that have been launched without
 aggregate data on GPU usage efficiency.
 
 ```
-[user@puhti-login11 ~]$ seff 22361601
-Job ID: 22361601
+[kkayttaj@puhti-login11 logs]$ seff 29221065
+Job ID: 29221065
 Cluster: puhti
-User/Group: user/user
+User/Group: kkayttaj/kkayttaj
 State: COMPLETED (exit code 0)
-Nodes: 1
+Nodes: 2
 Cores per node: 40
-CPU Utilized: 04:01:36
-CPU Efficiency: 96.13% of 04:11:20 core-walltime
-Job Wall-clock time: 00:06:17
-Memory Utilized: 5.55 GB (estimated maximum)
-Memory Efficiency: 71.04% of 7.81 GB (200.00 MB/core)
-Job consumed 4.27 CSC billing units based on following used resources
-Billed project: project_2001234
-CPU BU: 4.19
-Mem BU: 0.08
+CPU Utilized: 16:01:21
+CPU Efficiency: 97.17% of 16:29:20 core-walltime
+Job Wall-clock time: 00:12:22
+Memory Utilized: 23.68 GB (estimated maximum)
+Memory Efficiency: 6.38% of 371.09 GB (185.55 GB/node)
+Job consumed 24.14 CSC billing units based on following used resources
+Billed project: project_2001659
+CPU usage: 16.49 CPU BU
+Mem usage: 7.65 CPU BU
 ```
 
-Notes on the data above: CPU efficiency has been very good (96%) and memory
-efficiency 71%. That's fine as only about 2 GB was left unused. A few GB
-safety margin for total memory is advised.
+Notes on the data above: CPU efficiency has been very good (97%). Memory
+efficiency is, however, quite poor (6%). In this case it is OK because the job
+requests two full nodes and is able to all CPU resources very efficiently. In
+other words, no other user would be able to use the leftover memory on these
+nodes anyway, since all CPU resources are exhausted.
+
+If your job is not able to make use of full nodes, it is important to request
+memory more carefully. A few GB safety margin for the total memory is advised
+to avoid the job crashing due to out-of-memory error. Start small with short
+test jobs, and increase the memory accordingly if your job crashes. This is
+better than requesting a huge amount "just in case".
 
 ## Custom queries to Slurm accounting
 
