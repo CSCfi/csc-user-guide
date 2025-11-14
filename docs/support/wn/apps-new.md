@@ -1,5 +1,12 @@
 # Applications
 
+## Schrödinger Maestro 2025.4, 13.11.2025
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2025.4 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
 ## HADDOCK3 available on LUMI, 12.9.2025
 
 The latest version of [HADDOCK3](../../apps/haddock3.md) suitable for
