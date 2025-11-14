@@ -2,7 +2,6 @@ import re
 from string import Template
 from functools import reduce
 
-from mkdocs.structure.pages import Page
 from mkdocs.exceptions import PluginError
 
 
@@ -62,11 +61,12 @@ class DocsApp(App):
         "available_on": "availability information"
     }
 
-    def __init__(self, meta: dict, page: Page):
+    def __init__(self, page, **kwargs):
         self.__warnings = []
         self.page = page
-        self.url = page.canonical_url
-        super().__init__(meta)
+        self.url = page.canonical_url or ""
+        self.is_appendix_app = False
+        super().__init__(page.meta.get("catalog"), **kwargs)
 
     def __check_property(self, prop_name, value):
         value_missing = value is None or len(value) < 1
@@ -130,10 +130,12 @@ class DocsApp(App):
 
 
 class AppendixApp(App):
-    def __init__(self, meta, url=None):
+    def __init__(self, meta: dict, page=None):
+        self.page = page
+        self.__url = meta.doc.get("url") or page.canonical_url
+        self.external = page is None
+        self.is_appendix_app = True
         super().__init__(meta)
-        self.page = meta.get("page")
-        self.__url = url if url is not None else meta.get("url")
 
     @property
     def url(self):

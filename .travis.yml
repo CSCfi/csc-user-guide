@@ -37,9 +37,8 @@ script:
   # Use long slurm flags
   - bash tests/check_long_slurm_flags.sh
   # There should be no FIXME entires present
-  - bash tests/check_fixme.sh
+# (moved to MkDocs hook) - bash tests/check_fixme.sh
   # Test that no files are masked by folder/index.md
   - bash tests/check_masked.sh
   # Test that all apps have an entry for license
-  - bash tests/check_licenses.sh
-
+# (moved to MkDocs hook) - bash tests/check_licenses.sh
