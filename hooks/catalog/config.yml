@@ -14,13 +14,14 @@ export_props:
 index_template: apps-index.html
 
 listing_order:
-  # The literal order of categories on the app index pages. Categories
-  # not included (string-valued) and categories with fallback key set to
-  # true (mapping-valued) will appear (in undefined order) below the categories
-  # listed here.
+  # The literal order of categories on the app index pages.
   #
-  # Examples include the license type 'Other' and the 'Miscellaneous'
-  # discipline.
+  # Categories not included below (string-valued) and categories
+  # with the 'fallback' key set to 'true' (mapping-valued) will
+  # appear (in undefined order) below the categories listed here.
+  #
+  # Examples include the license type 'Other' (not included below)
+  # and the 'Miscellaneous' discipline (fallback: true).
   license_types:
     - Free
     - Academic
@@ -46,6 +47,11 @@ listing_order:
       description: "EuroHPC supercomputer for CPU and especially GPU jobs"
 
 appendix:
+  # An appendix of apps that don't have their own page under 'apps/'.
+  #
+  # The 'doc' key may point to a page in Docs
+  # (something/something/something.md) or to an external page
+  # (https://example.org/example_page).
   - name: "Chipster"
     description: "Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data"
     disciplines:
