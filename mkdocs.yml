@@ -81,8 +81,6 @@ plugins:
   - redirects:
       redirect_maps:
         # deprecation:
-        "support/tutorials/nomachine-usage.md": "apps/nomachine.md"
-        "support/faq/cannot-login-from-nomachine.md": "apps/nomachine.md"
         "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
         "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
         "computing/allas.md": "data/Allas/allas-hpc.md"

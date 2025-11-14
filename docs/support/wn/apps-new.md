@@ -522,7 +522,7 @@ first of them, [Puhti web interface](../../computing/webinterface/index.md), has
 researchers, the number of users is still rapidly increasing and now represents 36% of all users.
 Similar web interfaces will be opened for both Mahti and LUMI, in the near future. For replacements
 in specific use cases, please see
-[the application page for NoMachine](../../apps/nomachine.md#replacements).
+[the application page for NoMachine **(page has been removed)**](#nomachine-will-no-longer-be-available-on-cscs-supercomputers-952023).
 
 ## Gromacs and CP2K now available on LUMI, 19.4.2023
 
@@ -574,8 +574,8 @@ and Mahti. [See release notes here](https://manual.gromacs.org/2022.4/release-no
 
 ## License for Materials and Discovery Studio no longer available, 3.1.2023
 
-The national [Materials Studio](../../apps/materialsstudio.md) and
-[Discovery Studio](../../apps/discovery-studio.md) licenses provided by CSC ended at the end of 2022.
+The national [Materials Studio **(page has been removed)**](#license-for-materials-and-discovery-studio-no-longer-available-312023) and
+[Discovery Studio **(page has been removed)**](#license-for-materials-and-discovery-studio-no-longer-available-312023) licenses provided by CSC ended at the end of 2022.
 Please consider using, e.g., [Maestro](../../apps/maestro.md) or [AMS](../../apps/ams.md)
 instead.
 
@@ -655,8 +655,8 @@ modifications to the `r-env` module setup, older R versions are currently unavai
 
 ## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
 
-CSC has been providing a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
-and [Materials Studio](../../apps/materialsstudio.md). Due to small usage and the availability of
+CSC has been providing a national academic license for [Discovery Studio  **(page has been removed)**](#discovery-studio-and-material-studio-license-discontinued-in-2023-2582022)
+and [Materials Studio **(page has been removed)**](#discovery-studio-and-material-studio-license-discontinued-in-2023-2582022). Due to small usage and the availability of
 overlapping tools ([Maestro](../../apps/maestro.md)), the license will not be continued after this
 year. This means that in 2023 these molecular modeling tools can't be used any more at CSC nor on
 users' own computers. Please contact [Service Desk](../contact.md) if you need help in moving your
