@@ -5,6 +5,7 @@ for sensitive data. This document describes, how heavy computing tasks can be su
 to the Puhti HPC cluster.
 
 Please note following details that limit the usage of this procedure:
+
    * The service is not yet in full production. Access will be provided by a request for projects that have computing tasks that are compatible with the current status of the service. Contact servicedesk@csc.fi the enable this service.
    * The *sdsi-client* job submission tool, described in this document, will work only for the approved projects.
    * Each job reserves always one, and only one, full Puhti node for your task. Try to construct your batch job so that it uses effectively all the 40 computing cores of one Puhti node.
@@ -14,6 +15,7 @@ Please note following details that limit the usage of this procedure:
 # Security aspects
 
 The increased security of the computing tasks that are submitted with the sdsi-client is based on two main features:
+
    1. Both input and output data are stored and transported in encrypted format. Encryption is done automatically using the SD Connect methodology.
    2. For the actual analysis the data is temporarily decrypted to the local disk area of a compute node that is fully reserved for only this one job. Thus there can't be other users in the node during the execution of the job, which effectively eliminates the possibility that other users could access the disk areas, memory or process list of the node during the processing. All the data will be removed from local disk of the node when the job ends.
 
@@ -92,11 +94,8 @@ The execution of the actual computing includes following steps:
 
    1. The input files, defined in the job description file, are downloaded and decrypted to the 
    local temporary disk space of the computing node.
-
-   2. Commands defined in the _run:_ section are executed.
-
+   2. Commands defined in the _run:_ section are executed
    3. Output files are encrypted and uploaded to SD Connect.
-
    4. Local temporary disk space is cleaned.
 
 
