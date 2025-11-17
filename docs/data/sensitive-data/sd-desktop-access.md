@@ -64,9 +64,10 @@ After copying files to volume, adjust permissions for folders and files to enabl
     * Open the **Permissions** tab.
     * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
         1. Owner -> Access -> Select “Create and delete files”.
-        2. Others -> Access -> Select “Create and delete files”.
-        3. Close the permission tab (top left corner).
-        4. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
+        2. Group -> Access -> Select “Create and delete files”.
+        3. Others -> Access -> Select “Create and delete files”.
+        4. Close the permission tab (top left corner).
+        5. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
 
@@ -74,15 +75,16 @@ After copying files to volume, adjust permissions for folders and files to enabl
 
 2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder.
     * Set permissions to:
-        1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”. 
-        2. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        3. Click **Change**.
-        4. Close the permission tab (top left corner).
-        5. The orange lock icon will no longer be visible next to the files and can now be edited by all project members.
+        1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        2. Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        3. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        4. Click **Change**.
+        5. Close the permission tab (top left corner).
+        6. The orange lock icon will no longer be visible next to the files and can now be edited by all project members.     
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
 
-
+Note that if you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 ### 4. Close Data Gateway
 
