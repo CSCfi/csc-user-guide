@@ -1,23 +1,23 @@
 # Submitting jobs from SD Desktop to the HPC environment of CSC
 
 The limited computing capacity of a SD Desktop virtual machines can prevent running heavy analysis tasks
-for sensitive data. This document describes, how heavy computing tasks can be submitted form SD Desktop
+for sensitive data. This document describes, how heavy computing tasks can be submitted from SD Desktop
 to the Puhti HPC cluster.
 
 Please note following details that limit the usage of this procedure:
 
-   * The service is not yet in full production. Access will be provided by a request for projects that have computing tasks that are compatible with the current status of the service. Contact servicedesk@csc.fi the enable this service.
+   * The service is not yet in full production. Access can be requested for projects that have computing tasks that are compatible with the current status of the service. Contact servicedesk@csc.fi the enable this service.
    * The *sdsi-client* job submission tool, described in this document, will work only for the approved projects.
    * Each job reserves always one, and only one, full Puhti node for your task. Try to construct your batch job so that it uses effectively all the 40 computing cores of one Puhti node.
    * The input files that the job uses must be uploaded to SD Connect before the job submission. Even though the job is submitted from SD Desktop, you can't utilize any files from the SD Desktop VM in the batch job.
-   * The jobs submitted from SD Desktop to Puhti have higher security level that normal Puhti jobs but lower than that of SD Desktop.  
+   * The jobs submitted from SD Desktop to Puhti have higher security level than normal Puhti jobs but lower than that of SD Desktop.   
 
 # Security aspects
 
 The increased security of the computing tasks that are submitted with the sdsi-client is based on two main features:
 
    1. Both input and output data are stored and transported in encrypted format. Encryption is done automatically using the SD Connect methodology.
-   2. For the actual analysis the data is temporarily decrypted to the local disk area of a compute node that is fully reserved for only this one job. Thus there can't be other users in the node during the execution of the job, which effectively eliminates the possibility that other users could access the disk areas, memory or process list of the node during the processing. All the data will be removed from local disk of the node when the job ends.
+   2. For the actual analysis the data is temporarily decrypted to the local disk area of a compute node that is fully reserved for only this one job. Thus there are no other users in the node during the execution of the job, and other users cannot access the disk areas, memory or process list of the node during the processing. The technical and operational measures that implements this key restriction are described in the Puhti TOMs.
 
 
 
@@ -124,7 +124,7 @@ However if you need to calculate a large amount of unrelated tasks that are able
 or few computing cores, you can use tools like _gnuparallel_, _nextfllow_ or _snakemake_ to submit several
 computing tasks to be executed in the same time.
 
-In the examples below we have a tar-arcvive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`. The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks so that all 40 cores are effectively used.
+In the examples below we have a tar-arcHive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`. The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks so that all 40 cores are effectively used.
  
 ### GNUparallel
 
