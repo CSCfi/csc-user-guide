@@ -7,7 +7,7 @@ The Data Gateway application can no longer be opened on all virtual desktops cre
 
 ## The Kaivos database service will be decommissioned by the end of the year 2025
 
-The [Kaivos database service](../../data/kaivos/overview.md) will be
+The Kaivos database service will be
 decommissioned by the end of the year 2025. The Kaivos database service is no
 longer available to new users. The service will be replaced by Pukki database
 service. Instructions related to the use of Pukki database service can be
