@@ -1,5 +1,14 @@
 # Cloud services
 
+## Allas Web UI improvements, 14.11.2025
+
+[Allas-UI](../../data/Allas/using_allas/allas-ui.md) has been updated with several new features that make managing data in Allas easier:
+
+- You can now create empty folders, either using the “New folder” button or by drag-and-dropping an empty directory during upload.
+- Bulk deletes are now supported — buckets or subfolders no longer need to be empty before deletion.
+- Files uploaded are now saved to the correct folder path instead of always going to the root of the bucket.
+- A new "back" button allows you to easily navigate back to the parent folder/bucket when browsing your data.
+
 ## New Pouta VM launcher
 
 We deployed a new VM launcher when creating a VM on Pouta. Our [documentation](../../cloud/pouta/launch-vm-from-web-gui.md#launching-a-virtual-machine) has been updated accordingly. Take a look at it!
