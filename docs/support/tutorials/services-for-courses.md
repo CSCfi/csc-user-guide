@@ -33,6 +33,8 @@ Please note that reservation requests may be declined, so it is good practice to
 
 HPCs have guidance on reservations in two categories: Typical and maximum possible. Please note that these requests may be denied or reduced, as with any other resource request at CSC. In practice, requests at the maximum level should only be made for major or high-priority events. Only request the needed resources, and provide an explanation as to why you require them (you may require less than the amounts specified below).
 
+_Alternative text view (table view below):_
+
 #### Puhti
 
 *Typical reservation*
@@ -67,6 +69,15 @@ HPCs have guidance on reservations in two categories: Typical and maximum possib
       - GPU: A dedicated reservation can include a maximum of 28 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) (1 node).
       - Reservations are valid for a maximum of 12 hours per day and can be requested in time slots (e.g. 08:00–20:00 or 12:00–24:00).
 - Maximum total of ten days.
+
+_Alternative table view:_
+
+| System | Reservation Type | CPU Limit | Memory per Node | GPU Limit | Daily Time Window | Max Total Days |
+|--------|------------------|-----------|------------------|-----------|--------------------|----------------|
+| Puhti | Typical | 2 nodes (2×40 cores) | 192 GB | – | 08:00–17:00 | 5 |
+| | Maximum | 5 nodes (200 cores) | 192 GB | 4 GPU nodes | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
+| Mahti | Typical | 2 M-nodes (2×128 cores) | 256 GB | 14 GPU slices (1 node) | 08:00–17:00 | 5 |
+| | Maximum | 8 M-nodes (8×128 cores) | 256 GB | 28 GPU slices (1 node) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
 
 ### Noppe
 
