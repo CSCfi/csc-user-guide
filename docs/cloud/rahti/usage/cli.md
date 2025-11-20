@@ -64,13 +64,26 @@ After login with `oc`, it is possible to use the command to generate a token (`o
 !!! info "sudo use"
     Some docker client setups require to run the `docker` client as root using `sudo`. In this case the `oc login` command needs to also be run using `sudo`. This is because the login information is stored in the user's home directory, only the user that runs `oc login` is logged in to Rahti.
 
-    As a general recommendation, it is better to use other "rootless" runtimes like podman, when possible. It is also possible to configure Docker as non-root user. In order to do so, in most Linux distributions, you just need to type this command:  
+    As a general recommendation, it is better to use other "rootless" runtimes like podman, when possible. It is also possible to configure Docker as non-root user. In order to do so, in most Linux distributions, you just need to type this command: 
+
+    If you have installed `docker.io`:
     
     ```sh
     sudo usermod -aG docker $USER
     ```
 
+    If you have installed Docker Snap (> Ubuntu 22):
+
+    ```sh
+    sudo addgroup --system docker
+    sudo adduser $USER docker
+    newgrp docker
+    sudo snap disable docker
+    sudo snap enable docker
+    ```
+
     And then log out and log back to have the group membership re-evaluated.
+
 
 ### Using a service account token
 
