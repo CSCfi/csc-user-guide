@@ -107,5 +107,6 @@ You can find Rahti tutorials in [Cloud Services > Rahti > Tutorials](../../cloud
 
 ## CSC Resources for Courses
 
+* [CSC Services for courses](services-for-courses.md)
 * [A Puhti webinterface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
 * [Noppe environment for creating custom notebooks](../../cloud/noppe/guide_for_teachers.md#creating-custom-images)
