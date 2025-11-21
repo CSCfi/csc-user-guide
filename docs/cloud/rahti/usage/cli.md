@@ -99,7 +99,7 @@ docker login -p $(oc create token pusher) -u unused image-registry.apps.2.rahti.
 
 Since OKD 4.11, `oc sa get-token` is deprecated (See [changelog](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/release_notes/ocp-4-11-release-notes#ocp-4-11-deprecated-features)). Use the command `oc create token` instead. It will generate a new token for the service account.
 
-For example, you can run `oc create token --duration=87600h` to create a token valid for 10 years.
+For example, you can run `oc create token pusher --duration=87600h` to create a token valid for 10 years.
 
 ## CLI cheat sheet
 
