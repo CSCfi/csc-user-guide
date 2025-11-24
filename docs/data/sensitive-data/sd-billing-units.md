@@ -132,17 +132,21 @@ You can apply for more BUs for your CSC project in MyCSC portal. Please note tha
  
  L Large  3000.000 BUs, Processed on average within 1-3 days by a Resource Officer 
  
- 
-    - Click **Next**.
+Click **Next**.
 
 7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. **Note: Undestandably, if you don't have publications related to this work yet, you can add here any past publication from your research group, even if the project is not directly related**
  
  Click **Add**.
  
-    - Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
-    - Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
-    - Click **Next**.
+Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
+
+Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
+
+Click **Next**.
+
 10. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
+
+When teh Biling Units will be assigned to the CSC Project you will receive an email notification. 
 
 
 ### Log into SD Services
