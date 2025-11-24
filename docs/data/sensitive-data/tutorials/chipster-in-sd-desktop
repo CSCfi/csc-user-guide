@@ -1,0 +1,25 @@
+Running Chipster in SD Desktop
+
+Chipster is a user-friendly analysis software for high-throughput Life science data 
+such as Visium, single-cell and bulk RNA-seq. Chipster provides a web interface to 
+over 500 analysis tools that can be combided into workflows. 
+
+The publick Chipster server, availabel in https://chipster.csc.fi is not intended 
+for prcessing sensitive data. This document describes how you can install your own 
+Chipster server to an SD Desktop virtual machine for analyzing sensitive data.
+
+  Before installation
+
+Installing a Chipster server requires significant storage resources and running it 
+requires plenty of memory. Because of that you should apply for at least 1 TB volume 
+for the virtual machine where you plan to install chipster. Further, as some applications 
+in Chipster require significant amount of memory the flavor of the SD Desktop virtual 
+machine should medium computation or heavy computation.
+
+Note that all the users of a SD Desktop mechine can use the same Chipster server. In these 
+cases it is good practice to assing a one user as a "Chipster managers" that install an 
+manage the Chipster server.
+
+Installatio
+
+First contact CSC serviedesk to get the Chipster installatin files available 
