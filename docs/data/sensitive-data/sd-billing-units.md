@@ -1,20 +1,21 @@
 # Resource planning for your CSC Project
 
-Both the CSC project manager and project members are responsible for monitoring the resources consumed by their CSC project: Billing Units (BUs) and storage quota. When creating a project, you can apply for the default amount of resources, which will be granted immediately. However, it’s important to plan ahead for the next six months of usage and apply for additional resources twice a year. 
+**Both the CSC project manager and project members are responsible for monitoring the resources consumed by their CSC project: Billing Units (BUs) and storage quota**. When creating a project, you can apply for the default amount of resources, which will be granted immediately. However, it’s important to plan ahead for the next six months of usage and apply for additional resources twice a year. 
+
+!!! Note 
+    Please note that after each Billing Units application, **there is a two week period during which you cannot submit another request**, thus make sure to apply for resources in advance. You will be notified via email        when your project’s Billing Units are running low, so you can apply for more in time and avoid service interruptions.
 
 
 
 In the following section, you will learn:
 
-- What Are Cloud and Storage-Type Billing Units and Quota?
+- What are Cloud and Storage Billing Units and quota
 
-- What Happens If Your Project Runs Out of Billing Units?
+- What happens if your project runs out of Billing Units?
 
-- Apply for more billing units: step by step
+- Determine the appropriate Billing Units Package (Basic, Small, Medium or Large)
 
-
-!!! Note 
-    Please note that after each Billing Units application, **there is a two week period during which you cannot submit another request**, thus make sure to apply for resources in advance. You will be notified via email when your project’s Billing Units are running low, so you can apply for more in time and avoid service interruptions.
+- Appply for more billing units in the MyCSC portal
 
 
 
@@ -22,17 +23,19 @@ In the following section, you will learn:
 
 **Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
      
-**Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
+- **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
      
-     - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
-     - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
+- **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
+
+- **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
      
-     - 30 000 Cloud and Storage BUs is usually enough for initial testing. Next, you should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. The instructions below will guide you through the process.
+- 30 000 Cloud and Storage BUs is usually enough for initial testing. Next, you should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. The instructions below will guide you through the process.
       
 **The storage quota** limits the amount of storage space available:
  
-      - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
-      - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
+- Default quota (or storage space) for each CSC project with for **SD Connect enabled is 10 TB**, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
+
+- Default **volume quota for each virtual desktop is up to 200 GB**. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
 
 
 
@@ -48,7 +51,13 @@ Once all the Cloud Billing Units for your CSC project have been used up, **acces
     Each project member will receive a notification via email from the MyCSC portal when the Billing Units for your CSC project are about to end.
 
     
-## Apply for more billing units: step by step
+Once all quota has been used:
+
+- Data upload to SD Connect will no longer be possible
+- Data import to SD Desktop will no loner be possible
+
+ ## Plan for the appropriate Billing Units Package (Basic, Small, Medium or Large)
+
 
 Estimate the Billing Units your project will consume in the next six months for SD Desktop (Cloud) and SD Connect (Storage).  Plase before starting note:
 
@@ -58,9 +67,6 @@ Estimate the Billing Units your project will consume in the next six months for 
 
 - after each Billing Units application, **there is a two week period during which you cannot submit another request**. If you are unsure what billing units package you need to       apply for, pelase contact us at servicedesk@csc.fi
 
-
-
-### Step 1: choose the correct BU package (Basic, small, medium or large) you need to apply for
 
 
 #### SD Desktop: cloud type billing units
@@ -75,7 +81,7 @@ Here’s a table summarizing the Cloud Billing Units required for using **SD des
 | Medium Computation | 10.4 | 44,928 |Small package, 3 times a year: 30.000 BUs assigned immediately  |
 | Heavy Computation | 65 | 280,800 |  Medium package, 2 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
 | Small GPU Computation | 78 | 341,640 | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
-| Big Picture project | 195 | 854,100 | Large package, 2 times a year: 3.0000.000 Bus  |
+| Big Picture project | 195 | 854,100 | Large package, 2 times a year: 3.0000.000 Bus Processed on average within 1-3 days by a Resource Officer |
 
 
 
@@ -97,7 +103,7 @@ Here’s a table summarizing the Storage Billing Units required for storing data
 
 
 
-### Step 1: appply for more billing units in the MyCSC portal
+## Appply for more billing units in the MyCSC portal
 
 
 You can apply for more BUs for your CSC project in MyCSC portal. Please note that after each application, there is a two week period during which you cannot submit another Billing units (BUs) request, thus make sure to apply for resources in advance.
@@ -109,13 +115,27 @@ You can apply for more BUs for your CSC project in MyCSC portal. Please note tha
 ![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
 5. In the new window you will see the services you have active in the project (in gray). Press **Next**.
 ![Continue to billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_MoreBUs_1025.png)
-6. In the second view, click on the Billing Units package you need (e.g. M) for:
-    - Cloud Billing Unit type (used by SD Desktop)
-    - Storage Billing Units type (for SD Connect)
-    - Click **Next**.
-7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually.
 
- Note: If you don't have publications directly related to this work yet, you can add here any past publication from your research group, even if the project is not directly related
+6. In the second view, click on the Billing Units package you need for
+   
+    - Cloud Billing Unit type (used by SD Desktop)
+   
+    - Storage Billing Units type (for SD Connect)
+  
+ The package available are:
+ 
+ B Basic 2.500 BUs, assigend immediately
+ 
+ S Small 30.000 BUs, assigned immediately
+ 
+ M Medium  300.000 BUs, Processed on average within 1-3 days by a Resource Officer 
+ 
+ L Large  3000.000 BUs, Processed on average within 1-3 days by a Resource Officer 
+ 
+ 
+    - Click **Next**.
+
+7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. **Note: Undestandably, if you don't have publications related to this work yet, you can add here any past publication from your research group, even if the project is not directly related**
  
  Click **Add**.
  
