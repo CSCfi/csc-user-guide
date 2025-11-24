@@ -2,63 +2,41 @@
 
 Both the CSC project manager and project members are responsible for monitoring the resources consumed by their CSC project: Billing Units (BUs) and storage quota. When creating a project, you can apply for the default amount of resources, which will be granted immediately. However, it’s important to plan ahead for the next six months of usage and apply for additional resources twice a year. 
 
-Please note that after each Billing Units application, there is a two week period during which you cannot submit another request, thus make sure to apply for resources in advance. You will be notified via email when your project’s Billing Units are running low, so you can apply for more in time and avoid service interruptions.
+
+
+In the following section, you will learn:
+
+- What Are Cloud and Storage-Type Billing Units and Quota?
+
+- What Happens If Your Project Runs Out of Billing Units?
+
+- Apply for more billing units: step by step
+
+
+!!! Note 
+    Please note that after each Billing Units application, **there is a two week period during which you cannot submit another request**, thus make sure to apply for resources in advance. You will be notified via email when your project’s Billing Units are running low, so you can apply for more in time and avoid service interruptions.
 
 
 
-!!! default "Billing Units and quota"
+## What are Cloud and Storage Billing Unitsty pe and quota
 
-     **Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
+**Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
      
-     **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
+**Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
      
      - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
      - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
      
      - 30 000 Cloud and Storage BUs is usually enough for initial testing. Next, you should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. The instructions below will guide you through the process.
       
-      **The storage quota** limits the amount of storage space available:
+**The storage quota** limits the amount of storage space available:
  
       - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
-      - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has       been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
-
-
-1. [SD Connect BU consumption](#sd-connect-bu-consumption)
-2. [SD Desktop BU consumption](#sd-desktop-bu-consumption)
-3. [What happens if your project runs out of Billing Units?](#what-happens-if-your-project-runs-out-of-billing-units)
-4. [Apply for more billing units ](#apply-for-more-billing-units)
-5. [Log into SD Services](#log-into-sd-services)
+      - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
 
 
 
-#### SD Connect BU consumption
-
-SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.3 Storage BUs per TB per hour**.
-
-Here’s a table summarizing the Storage Billing Units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
-
-| Storage Size |  Storage Billing Units (6 Months) |  Storage Billing Units (1 Year) |
-|------------------|------------------------------|----------------------------|
-| 500 GB (0.5 TB) | 2,847 units | 5,694  units |
-| 1 TB | 5,694 units | 11,388 units |
-| 10 TB | 56,940 units | 113,880 units |
-| 100 TB | 569,400 units | 1,138,800 units |
-
-#### SD Desktop BU consumption
-
-Analysing data in SD Desktop consumes **Cloud Billing Units** based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
-
-Here’s a table summarizing the Cloud Billing Units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
-
-| Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units (6 Months) | Cloud Billing Units (1 Year) |
-|----------------|---------------------------|--------------------------|------------------------|
-| Small Computation | 5.2 | 22,464 | 44,928 |
-| Medium Computation | 10.4 | 44,928 | 89,856 |
-| Heavy Computation | 65 | 280,800 |  561,600 |
-| Small GPU Computation | 78 | 341,640 | 683,748 |
-| Big Picture project | 195 | 854,100 | 1,708,770 |
-
-#### What happens if your project runs out of Billing Units?
+## What happens if your project runs out of Billing Units?
 
 Once all the Cloud Billing Units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
 
@@ -70,7 +48,57 @@ Once all the Cloud Billing Units for your CSC project have been used up, **acces
     Each project member will receive a notification via email from the MyCSC portal when the Billing Units for your CSC project are about to end.
 
     
-### Apply for more billing units 
+## Apply for more billing units: step by step
+
+Estimate the Billing Units your project will consume in the next six months for SD Desktop (Cloud) and SD Connect (Storage).  Plase before starting note:
+
+- Unused Billing Units expire every six months, so request only what you need.
+
+- If your virtual desktop has been paused because all billing Units have been already consumed, apply for the Small Package (30,000 BUs). It will be assigned immediately so you can resume work. After two weeks, review if more units are needed.
+
+- after each Billing Units application, **there is a two week period during which you cannot submit another request**. If you are unsure what billing units package you need to       apply for, pelase contact us at servicedesk@csc.fi
+
+
+
+### Step 1: choose the correct BU package you need to apply for
+
+
+#### SD Desktop: cloud type billing units
+
+Analysing data in SD Desktop consumes **Cloud Billing Units** based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
+
+Here’s a table summarizing the Cloud Billing Units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
+
+| Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units ( consumed in 6 months) | Select the correct BU Package in My.csc.fi and application frequency |
+|----------------|---------------------------|--------------------------|------------------------|
+| Small Computation | 5.2 | 22,464 |Small package, 2 times a year: 30.000 BUs assigned immediately| 
+| Medium Computation | 10.4 | 44,928 |Small package, 3 times a year: 30.000 BUs assigned immediately  |
+| Heavy Computation | 65 | 280,800 |  Medium package, 2 times a year: 300.000 BUs |
+| Small GPU Computation | 78 | 341,640 | Medium package, 3 times a year: 300.000 BUs  |
+| Big Picture project | 195 | 854,100 | Large package, 2 times a year: 3.0000.000 Bus  |
+
+
+
+
+#### SD Connect: storage type billing units
+
+SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.3 Storage BUs per TB per hour**.
+
+Here’s a table summarizing the Storage Billing Units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
+
+| Storage Size |  Storage Billing Units (consumed in 6 months) |  Select the correct BU Package in My.csc.fi and application frequency |
+|------------------|------------------------------|----------------------------|
+| 500 GB (0.5 TB) | 2,847 units | Basic package, 3 times a year: 2.500 BUs assigned immediately |
+| 1 TB | 5,694 units | Small package, 2 times a year: 30.000 BUs assigned immediately |
+| 10 TB | 56,940 units | Small package, 3 times a year: 30.000 BUs assigned immediately  |
+| 100 TB | 569,400 units | Medium package, 3 times a year: 300.000 BUs |
+
+
+
+
+
+### Step 1: appply for more billing units in the MyCSC portal
+
 
 You can apply for more BUs for your CSC project in MyCSC portal. Please note that after each application, there is a two week period during which you cannot submit another Billing units (BUs) request, thus make sure to apply for resources in advance.
 
@@ -85,11 +113,16 @@ You can apply for more BUs for your CSC project in MyCSC portal. Please note tha
     - Cloud Billing Unit type (used by SD Desktop)
     - Storage Billing Units type (for SD Connect)
     - Click **Next**.
-7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. If you don't have publications directly related to this work yet, any past publication from your research group will be fine. Click **Add**.
+7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually.
+
+ Note: If you don't have publications directly related to this work yet, you can add here any past publication from your research group, even if the project is not directly related
+ 
+ Click **Add**.
+ 
     - Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
     - Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
     - Click **Next**.
-9. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
+10. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
 
 ### Log into SD Services
