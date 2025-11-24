@@ -18,7 +18,7 @@ In the following section, you will learn:
 
 
 
-## What are Cloud and Storage Billing Unitsty pe and quota
+## What are Cloud and Storage Billing Units and quota
 
 **Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
      
@@ -60,7 +60,7 @@ Estimate the Billing Units your project will consume in the next six months for 
 
 
 
-### Step 1: choose the correct BU package you need to apply for
+### Step 1: choose the correct BU package (Basic, small, medium or large) you need to apply for
 
 
 #### SD Desktop: cloud type billing units
