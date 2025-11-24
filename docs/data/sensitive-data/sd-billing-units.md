@@ -73,8 +73,8 @@ Here’s a table summarizing the Cloud Billing Units required for using **SD des
 |----------------|---------------------------|--------------------------|------------------------|
 | Small Computation | 5.2 | 22,464 |Small package, 2 times a year: 30.000 BUs assigned immediately| 
 | Medium Computation | 10.4 | 44,928 |Small package, 3 times a year: 30.000 BUs assigned immediately  |
-| Heavy Computation | 65 | 280,800 |  Medium package, 2 times a year: 300.000 BUs |
-| Small GPU Computation | 78 | 341,640 | Medium package, 3 times a year: 300.000 BUs  |
+| Heavy Computation | 65 | 280,800 |  Medium package, 2 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
+| Small GPU Computation | 78 | 341,640 | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
 | Big Picture project | 195 | 854,100 | Large package, 2 times a year: 3.0000.000 Bus  |
 
 
@@ -91,7 +91,7 @@ Here’s a table summarizing the Storage Billing Units required for storing data
 | 500 GB (0.5 TB) | 2,847 units | Basic package, 3 times a year: 2.500 BUs assigned immediately |
 | 1 TB | 5,694 units | Small package, 2 times a year: 30.000 BUs assigned immediately |
 | 10 TB | 56,940 units | Small package, 3 times a year: 30.000 BUs assigned immediately  |
-| 100 TB | 569,400 units | Medium package, 3 times a year: 300.000 BUs |
+| 100 TB | 569,400 units | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer. |
 
 
 
