@@ -1,6 +1,6 @@
 # Cloud services
 
-## New database minor versions available in Pukki
+## New database minor versions available in Pukki, 25.11.2025
 
 PostgreSQL 17.7 and 14.20 and MariaDB 11.4.8 are now available in Pukki DBaaS. See [PostgreSQL's](https://www.postgresql.org/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/) and [MariaDB's](https://mariadb.com/docs/release-notes/community-server/11.4/11.4.8) documentation for release notes.
 
