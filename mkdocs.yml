@@ -121,6 +121,7 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
+        "roihu.md": "computing/systems-roihu.md"
         "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
         # Pouta
         "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
@@ -318,6 +319,7 @@ nav:
           - computing/containers/overview.md
           - Examples: computing/containers/examples.md
           - Tykky: computing/containers/tykky.md
+          - LUMI: computing/containers/lumi.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
@@ -400,6 +402,7 @@ nav:
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
+              - Ray - A Machine learning framework for cloud: cloud/pouta/tutorials/Ray-ML-cloud.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
