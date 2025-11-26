@@ -106,7 +106,7 @@ Here’s a table summarizing the Storage Billing Units required for storing data
 
 
 
-## Appply for more billing units in the MyCSC portal
+## Apply for more billing units in the MyCSC portal
 
 
 You can apply for more BUs for your CSC project in MyCSC portal. Please note that after each application, there is a two week period during which you cannot submit another Billing units (BUs) request, thus make sure to apply for resources in advance.
