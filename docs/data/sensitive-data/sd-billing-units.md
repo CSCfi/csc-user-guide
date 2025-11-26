@@ -58,7 +58,7 @@ In the following section, you will learn:
 - Data import to SD Desktop will no loner be possible
   
 
- ## Step 1: plan for the appropriate Billing Units Package
+## Determine the appropriate Billing Units Package
 
 Estimate the Billing Units your project will consume over the next six months for SD Desktop (Cloud BUs Type) and SD Connect (Storag Bus typee) using the examples provided below. This will help you determine which package to apply for in the MY.csc.fi portal. Before you begin, please note:
 
