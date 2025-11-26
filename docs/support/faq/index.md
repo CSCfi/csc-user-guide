@@ -96,6 +96,10 @@
 * [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
+## Applications
+
+* [Deprecated apps](deprecated-apps.md)
+
 ## Sensitive Data Services for research
 
 ### Access and authentication

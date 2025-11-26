@@ -80,12 +80,17 @@ plugins:
   - section-index
   - redirects:
       redirect_maps:
-        # deprecation:
+        # reorganization:
         "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
         "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
         "computing/allas.md": "data/Allas/allas-hpc.md"
         "computing/containers/creating.md": "computing/containers/overview.md"
         "computing/containers/run-existing.md": "computing/containers/overview.md"
+        "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
+        # deprecation:
+        "apps/nomachine.md": "support/faq/deprecated-apps.md"
+        "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
+        "apps/discovery-studio.md": "support/faq/deprecated-apps.md"
         # renamed files:
         "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
         "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
