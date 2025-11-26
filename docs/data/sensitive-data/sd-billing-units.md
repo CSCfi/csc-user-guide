@@ -124,16 +124,6 @@ You can apply for more BUs for your CSC project in MyCSC portal. Please note tha
     - Cloud Billing Unit type (used by SD Desktop)
    
     - Storage Billing Units type (for SD Connect)
-  
- The package available are:
- 
- B Basic 2.500 BUs, assigend immediately
- 
- S Small 30.000 BUs, assigned immediately
- 
- M Medium  300.000 BUs, Processed on average within 1-3 days by a Resource Officer 
- 
- L Large  3000.000 BUs, Processed on average within 1-3 days by a Resource Officer 
  
 Click **Next**.
 
@@ -141,9 +131,9 @@ Click **Next**.
  
  Click **Add**.
  
-Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
+8. Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
 
-Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
+9. Next, you need to fill in two more fields: Short overview of (expected) results and Program, software, methods used. 
 
 Click **Next**.
 
