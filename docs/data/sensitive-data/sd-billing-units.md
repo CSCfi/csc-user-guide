@@ -13,7 +13,7 @@ In the following section, you will learn:
 
 - [What happens if your project runs out of Billing Units](#what-happens-if-your-project-runs-out-of-billing-units)
 
-- [Step 1: Determine the appropriate Billing Units Package](#step-1-plan-for-the-appropriate-billing-units-package)
+- [Step 1: Determine the appropriate Billing Units Package](#determine-the-appropriate-billing-units-package)
 
 - [Step 2: Apply for more billing units in the MyCSC portal](#apply-for-more-billing-units-in-the-mycsc-portal)
 
