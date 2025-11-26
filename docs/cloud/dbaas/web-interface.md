@@ -1,6 +1,9 @@
 # Getting started with DBaaS from the Web interface
 
 You can log into DBaaS by going to [pukki.dbaas.csc.fi](https://pukki.dbaas.csc.fi).
+> [MFA required] Since November 25th 2025
+
+ - Multi Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../accounts/mfa.md)
 
 ## Creating a new database instance
 

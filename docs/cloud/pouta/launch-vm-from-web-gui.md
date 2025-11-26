@@ -28,6 +28,10 @@ Before creating a Virtual Machine you need these two prerequisites:
 
 1. A **CSC account**. Accounts can be created following [How to create new CSC user account](../../accounts/how-to-create-new-user-account.md).
 
+    > [MFA required] Since November 18th 2025 in ePouta and since November 25th 2025 in cPouta
+
+1. Multi Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../accounts/mfa.md)
+
 1. A **CSC project** with the **cPouta** or the **ePouta** service enabled. You can [Create a new project](../../accounts/how-to-create-new-project.md), or ask to be added to an existing one. The project needs to have the suitable service enabled. You can follow [Applying for cPouta access](../../accounts/how-to-add-service-access-for-project.md). **But** If you need to store or process **sensitive data**, you must use ePouta instead and [Apply for ePouta access](ePouta-access.md).
 
 ## Selecting the CSC project
