@@ -139,7 +139,7 @@ Click **Next**.
 
 10. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
-When teh Biling Units will be assigned to the CSC Project you will receive an email notification. 
+When the Biling Units will be assigned to the CSC Project you will receive an email notification. 
 
 
 ### Log into SD Services
