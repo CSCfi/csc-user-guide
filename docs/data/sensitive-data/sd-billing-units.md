@@ -15,7 +15,7 @@ In the following section, you will learn:
 
 - [Step 1: Determine the appropriate Billing Units Package (Basic, Small, Medium or Large)](#step-1-plan-for-the-appropriate-billing-units-package-basic-small-medium-or-large)
 
-- [Step 2: Appply for more billing units in the MyCSC portal]
+- [Step 2: Appply for more billing units in the MyCSC portal](#apply-for-more-billing-units-in-the-mycsc-portal)
 
 
 
