@@ -11,9 +11,9 @@ In the following section, you will learn:
 
 - [What are Cloud and Storage Billing Units and quota](#what-are-cloud-and-storage-billing-units-and-quota)
 
-- What happens if your project runs out of Billing Units
+- [What happens if your project runs out of Billing Units](#what-happens-if-your-project-runs-out-of-billing-units)
 
-- Step 1: Determine the appropriate Billing Units Package (Basic, Small, Medium or Large)
+- [Step 1: Determine the appropriate Billing Units Package (Basic, Small, Medium or Large)]
 
 - Step 2: Appply for more billing units in the MyCSC portal
 
