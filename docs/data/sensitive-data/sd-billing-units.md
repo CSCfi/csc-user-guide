@@ -13,7 +13,7 @@ In the following section, you will learn:
 
 - [What happens if your project runs out of Billing Units](#what-happens-if-your-project-runs-out-of-billing-units)
 
-- [Step 1: Determine the appropriate Billing Units Package (Basic, Small, Medium or Large)](#step-1-plan-for-the-appropriate-billing-units-package-basic-small-medium-or-large)
+- [Step 1: Determine the appropriate Billing Units Package](#step-1-plan-for-the-appropriate-billing-units-package)
 
 - [Step 2: Apply for more billing units in the MyCSC portal](#apply-for-more-billing-units-in-the-mycsc-portal)
 
@@ -58,7 +58,7 @@ In the following section, you will learn:
 - Data import to SD Desktop will no loner be possible
   
 
- ## Step 1: plan for the appropriate Billing Units Package (Basic, Small, Medium or Large)
+ ## Step 1: plan for the appropriate Billing Units Package
 
 Estimate the Billing Units your project will consume over the next six months for SD Desktop (Cloud BUs Type) and SD Connect (Storag Bus typee) using the examples provided below. This will help you determine which package to apply for in the MY.csc.fi portal. Before you begin, please note:
 
