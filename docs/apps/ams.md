@@ -19,8 +19,8 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 
 ## Available
 
--   Puhti: ADF, Version 2024.102
--   Mahti: ADF, Version 2024.102
+-   Puhti: AMS, Version 2024.102, 2025.105
+-   Mahti: AMS, Version 2024.102, 2025.105
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
@@ -34,13 +34,13 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 Initialize AMS:
 
 ```bash
-module load ams/2024.102
+module load ams/2025.105
 ```
 
 ### Example batch scripts
 
 !!! warning "Note"
-    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the [fast local storage (NVMe)](../computing/running/creating-job-scripts-puhti.md#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage (NVMe) on [Puhti](../computing/running/creating-job-scripts-puhti.md#local-storage) or [Mahti](../computing/running/example-job-scripts-mahti.md#local-disk-and-small-partition). Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
 
 === "Puhti"
@@ -54,7 +54,7 @@ module load ams/2024.102
     #SBATCH --time=00:15:00           # time as `hh:mm:ss`
     #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
     module purge
-    module load ams/2024.102
+    module load ams/2025.105
     export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
     mkdir -p $SCM_TMPDIR
     # Create an example input file from the examples 
@@ -73,7 +73,7 @@ module load ams/2024.102
     #SBATCH --time=00:15:00           # time as `hh:mm:ss`
     #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
     #SBATCH --gres=nvme:100           # requested local disk space in GB
-    module load ams/2024.102
+    module load ams/2025.105
     export SCM_TMPDIR=$LOCAL_SCRATCH
     # Create an example input file from the examples
     sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
@@ -84,16 +84,36 @@ module load ams/2024.102
     
     ```bash
     #!/bin/bash
+    #SBATCH --partition=small
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=128 # MPI tasks per node
+    #SBATCH --account=yourproject # insert here the project to be billed
+    #SBATCH --time=00:20:00       # time as `hh:mm:ss`
+    #SBATCH --gres=nvme:100
+    module purge
+    module load ams/2025.105
+    export SCM_TMPDIR=$LOCAL_SCRATCH
+    mkdir -p $SCM_TMPDIR
+    
+    # Create an example input file from the examples
+    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
+    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
+    ```
+
+=== "Mahti, local disk"
+
+    ```bash
+    #!/bin/bash
     #SBATCH --partition=medium
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=128 # MPI tasks per node
     #SBATCH --account=yourproject # insert here the project to be billed
     #SBATCH --time=00:20:00       # time as `hh:mm:ss`
     module purge
-    module load ams/2024.102
+    module load ams/2025.105
     export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
     mkdir -p $SCM_TMPDIR
-    
+
     # Create an example input file from the examples
     sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
