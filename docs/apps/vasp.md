@@ -39,7 +39,7 @@ from the developers of the software.
 !!! warning ""
     After acquiring the license (or after you have been added to an existing license),
     please send an email to [CSC Service Desk](../support/contact.md), including your
-    username at CSC, and the email address you have registered for the VASP license in
+    _username_ at CSC, and the _email address_ you have registered for the VASP license in
     the [VASP Portal](https://vasp.at).
 
 ## Usage
