@@ -11,13 +11,14 @@ extra:
   announcement_visible: true # Controls the visibility of the announcement bar
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
-    image: example-banner.png
-    title: Example banner now up on landing page
-    link: https://example.org/courses/example-course/
+    image: roihu.png
+    title: Roihu supercomputer – coming in spring 2026!
+    link: /computing/systems-roihu/
     description: |-
-      Banner for upcoming example course.
-      Second line for example description.
-    visible: false
+      Puhti and Mahti will be decommissioned in August 2026 and replaced by
+      Roihu, CSC's next-generation supercomputer offering enhanced performance
+      and capabilities.
+    visible: true
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
     provider: custom
