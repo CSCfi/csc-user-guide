@@ -437,7 +437,7 @@ nav:
                   - Error log: cloud/dbaas/perftune-mariadb-errorlog.md
                   - Common issues: cloud/dbaas/perftune-mariadb.md
               - PostgreSQL:
-                  - Importance of PostgresSQL log: cloud/dbaas-perftune-postgresql-log.md
+                  - Importance of PostgresSQL log: cloud/dbaas/perftune-postgresql-log.md
                   - Common issues: cloud/dbaas/perftune-postgresql.md
       - Rahti:
           - cloud/rahti/index.md
