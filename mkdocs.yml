@@ -306,6 +306,13 @@ nav:
                   - Permissions: cloud/dbaas/postgres-permissions.md
           - More advanced features: cloud/dbaas/advanced.md
           - Resizing database instance volume: cloud/dbaas/resize-volume.md
+          - Common performance issues with databases:
+              - MariaDB:
+                  - Error log: cloud/dbaas/perftune-mariadb-errorlog.md
+                  - Common issues: cloud/dbaas/perftune-mariadb.md
+              - PostgreSQL:
+                  - Importance of PostgresSQL log: cloud/dbaas-perftune-postgresql-log.md
+                  - Common issues: cloud/dbaas/perftune-postgresql.md
       - Rahti 2:
           - cloud/rahti2/index.md
           - What is Rahti: cloud/rahti2/rahti-what-is.md
