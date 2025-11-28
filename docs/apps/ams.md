@@ -80,7 +80,27 @@ module load ams/2025.105
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
     ```
 
+
 === "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=medium
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=128 # MPI tasks per node
+    #SBATCH --account=yourproject # insert here the project to be billed
+    #SBATCH --time=00:20:00       # time as `hh:mm:ss`
+    module purge
+    module load ams/2025.105
+    export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
+    mkdir -p $SCM_TMPDIR
+
+    # Create an example input file from the examples
+    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
+    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
+    ```
+
+=== "Mahti, local disk"
     
     ```bash
     #!/bin/bash
@@ -95,25 +115,6 @@ module load ams/2025.105
     export SCM_TMPDIR=$LOCAL_SCRATCH
     mkdir -p $SCM_TMPDIR
     
-    # Create an example input file from the examples
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
-
-=== "Mahti, local disk"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=medium
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128 # MPI tasks per node
-    #SBATCH --account=yourproject # insert here the project to be billed
-    #SBATCH --time=00:20:00       # time as `hh:mm:ss`
-    module purge
-    module load ams/2025.105
-    export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
-    mkdir -p $SCM_TMPDIR
-
     # Create an example input file from the examples
     sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
