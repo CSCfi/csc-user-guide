@@ -1,17 +1,20 @@
 # How to resize an instance or volume in Pouta
 ## Resize an instance
 ### Using a snapshot
-We might face performance issue with your initial instance and you'd like to run your instance with a bigger flavor?  
+You might face performance issue with your initial instance and you'd like to run your instance with a bigger flavor?  
 It's possible to proceed by taking a snapshot of your instance and then boot the new instance with the new flavor using the snapshot.  
 You can find more information about snapshot [here](../../cloud/pouta/snapshots.md) and how to proceed.
 
 ### Using the resize functionality 
+
+- [I/O flavors](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) and [GPU flavors](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) cannot be resized because data in the root and ephemeral disks are not copied when the resize functionality is used. This means that your machine won't be able to boot and the message "No bootable device" will be displayed in the console. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-a-snapshot-from-the-web-interface).
+
 !!! Warning    
-    [I/O flavors](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) and [GPU flavors](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) cannot be resized to a different family flavors. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-an-instance-from-a-volume-snapshot).
+    Keep in mind that when creating a snapshot, only the contents of the root disk will be preserved. If you have data located in the ephemeral disk (usually in the `/mnt` directory), you can back up your data in a [volume](../../cloud/pouta/persistent-volumes.md) or in `Allas` using a tool such as [rclone](../../data/Allas/using_allas/rclone.md) or [s3cmd](../../data/Allas/using_allas/s3_client.md)
 
 !!! Warning  
     It's possible to resize from a `standard` flavor *family* to a `hpc` flavor *family*. Nothing will prevent you to do that but it's **highly not recommended!**  
-    You may lose data during the process and CSC is not responsible. We recommend to only resize to the flavors of the same *family* (except for I/O flavors, see above).
+    You may lose data during the process and CSC is not responsible. We recommend to only resize to the flavors of the same *family*.
 
 In the **Actions** menu of your instance, choose **Resize** to begin the process:  
 

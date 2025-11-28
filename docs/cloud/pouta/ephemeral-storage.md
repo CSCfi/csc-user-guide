@@ -2,10 +2,13 @@
 
 Some Pouta virtual machine [flavors](vm-flavors-and-billing.md) have an *ephemeral storage* in
 addition to the root disk. This works as additional storage for the
-duration of the instance. This storage is not saved with the instance.
-This storage **does not** get saved when you create a snapshot of an
-image. It is not copied along with resizes or migrations. It is
-especially important to note regarding the io.\* flavors that the
+duration of the instance. 
+
+!!! Warning "Warning"
+    This storage is not saved with the instance. This storage **does not** get saved when you create a snapshot of an
+    image. It is not copied along with resizes or migrations.
+
+It is especially important to note regarding the io.\* flavors that the
 storage is based on RAID0 arrays optimized for performance, providing
 no redundancy whatsoever. Regarding io.2.\* flavors, the storage is based on RAID1, offering
 more safety, avoiding the loss of files.

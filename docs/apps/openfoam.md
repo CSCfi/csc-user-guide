@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: OpenFOAM
+  description: Open source C++ tool box for continuum mechanics problems
+  license_type: Free
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # OpenFOAM
@@ -101,7 +111,7 @@ The example scripts for separate batch runs for decomposition, solver and recons
 $WM_PROJECT_INST_DIR/batch_script_examples
 ```
 
-Please note that, on Mahti, decomposition and reconstruction must be done using the [interactive queue](../../computing/running/batch-job-partitions/).
+Please note that, on Mahti, decomposition and reconstruction must be done using the [interactive queue](../computing/running/batch-job-partitions.md).
 
 ## Support
 

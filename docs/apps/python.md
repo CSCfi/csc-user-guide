@@ -1,6 +1,15 @@
 ---
 tags:
   - Free
+catalog:
+  name: Python
+  description: The programming language and its modules at CSC
+  license_type: Free
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # Python
@@ -31,7 +40,7 @@ using different development environments and doing parallel processing
 with Python.
 
 It is generally recommended to use one of
-[pre-installed Python environments](python.md#pre-installed-python-environments)
+[pre-installed Python environments](./python.md#pre-installed-python-environments)
 for computing,
 since these already contain the essential libraries for most uses.
 If for some reason one wishes to use Python without loading an environment
@@ -59,26 +68,30 @@ python3.9
 Puhti and Mahti have several pre-installed
 [environment modules](../computing/modules.md) containing
 Python environments made for different science areas.
-For more details about the Python versions and libraries that are available
-for a module, please see the corresponding application page by opening
-one of the links in the table below.
 
-| Module name | Purpose | Package list |
-|-|-|-|
-| [biopythontools](biopython.md) | bioinformatics | [open](https://a3s.fi/python-pkg-lists/biopythontools.txt) |
-| [geoconda](geoconda.md) | geoinformatics | [open](https://a3s.fi/python-pkg-lists/geoconda.txt) |
-| [jax](jax.md) | JAX ML framework | [open](https://a3s.fi/python-pkg-lists/jax.txt) |
-| [python-data](python-data.md) | data analysis and ML utilities | [open](https://a3s.fi/python-pkg-lists/python-data.txt) |
-| [pytorch](pytorch.md) | PyTorch ML framework | [open](https://a3s.fi/python-pkg-lists/pytorch.txt) |
-| [qiskit](qiskit.md) | quantum computing | [open](https://a3s.fi/python-pkg-lists/qiskit.txt) |
-| [tensorflow](tensorflow.md) | TensorFlow ML framework | [open](https://a3s.fi/python-pkg-lists/tensorflow.txt) |
+| Module name | Purpose |
+|-|-|
+| [biopythontools](biopython.md) | bioinformatics |
+| [geoconda](geoconda.md) | geoinformatics |
+| [jax](jax.md) | JAX ML framework |
+| [python-data](python-data.md) | data analysis and ML utilities |
+| [pytorch](pytorch.md) | PyTorch ML framework |
+| [qiskit](qiskit.md) | quantum computing |
+| [tensorflow](tensorflow.md) | TensorFlow ML framework |
 
 To use any of the above environments, simply load the corresponding module
 using the `module load` command.
-For example:
 
 ```bash
-module load python-data
+module load <MODULE_NAME>  # e.g. module load python-data
+```
+
+To see the Python libraries included in a module, you can run the following
+line. The `-s` option
+[excludes packages installed by the user](https://docs.python.org/3/using/cmdline.html#cmdoption-s).
+
+```bash
+python3 -sm pip list
 ```
 
 Typically, after activating a Python-based module, the `python3` command points
@@ -87,6 +100,19 @@ wider set of available packages. You can always check the Python version
 with the command `python3 --version`, and the full path of the command with
 `which python3` (to see if you are using the system Python or one from the
 modules listed above).
+
+!!! info ""
+
+    Note that most of the pre-installed Python environment modules are
+    self-contained and mutually exclusive environments, so it does not
+    make sense to for example load both python-data and pytorch
+    modules. The module loaded last will be the only active one, and
+    the module load command will warn about this, for example:
+
+    ```
+    Lmod is automatically replacing "python-data/3.10-24.04" with "pytorch/2.5".
+    ```
+
 
 ### Custom Python environments
 

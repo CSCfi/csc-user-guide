@@ -51,33 +51,18 @@ installed. If you wish to use the library in another Python environment, you can
 use `pip` to
 [add it on top of an existing module](../../../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-## Configuring S3 credentials
+### Credentials for accessing one CSC project
 
-### Credentials for accessing a single project
-
-The easiest way to set up S3 credentials for using `boto3` is by
-[configuring an S3 connection on a CSC supercomputer](s3_client.md#configuring-s3-connection-in-supercomputers).
-After running `allas-conf --mode s3cmd`, the credentials are stored in
-`~/.aws/credentials`, which is the default location where `boto3` looks for
-them. You can also define another location for the credentials file by
-modifying the `AWS_SHARED_CREDENTIALS_FILE` environment variable.
-
-If you wish to access Allas from a personal workstation,
-you can simply copy the credentials file to your device
-[using a file transfer tool](../../moving/index.md) like `scp`.
-If you want `boto3` to find the credentials automatically
-without having to modify `AWS_SHARED_CREDENTIALS_FILE`,
-make sure that you also copy the parent directory as in the example
-below.
-
-```bash
-# Copy the credentials file and its parent directory to your home directory
-scp -r <username>@<hostname>.csc.fi:~/.aws $HOME
+```text
+module load allas
+allas-conf -m S3
 ```
 
-### Credentials for accessing multiple projects
+`boto3` is internally using `aws`-library, so if you want to [copy your credentials](allas-conf.md#s3-connection-details) outside the supercomputer, follow instructions for `aws`.
 
-Using `allas-conf --mode s3cmd` is straightforward,
+### Credentials for accessing multiple CSC projects
+
+Using `allas-conf -m S3` is straightforward,
 but it overwrites the existing credentials file when run,
 making it somewhat tedious to work with multiple projects.
 Therefore, it is recommended to use the 
@@ -117,7 +102,13 @@ You can now use these credentials to
 S3 credentials configured only for one project:
 ```python
 # Create resource using credentials from the default location
+# With newer versions of aws-library:
+#   - defining endpoint here is not any more mandatory, if it is given in the config file.
+#   - two checksum settings must be added that moving objects to/from Allas would work
+
 import boto3
+os.environ["AWS_REQUEST_CHECKSUM_CALCULATION"] = "when_required"
+os.environ["AWS_RESPONSE_CHECKSUM_VALIDATION"] = "when_required"
 
 s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
 ```
@@ -131,6 +122,9 @@ s3_credentials = '<credentials-file>'   # e.g. '~/.boto3_credentials'
 s3_profile = 's3allas-<project>'        # e.g. 's3allas-project_2001234'
 
 os.environ['AWS_SHARED_CREDENTIALS_FILE'] = s3_credentials
+os.environ["AWS_REQUEST_CHECKSUM_CALCULATION"] = "when_required"
+os.environ["AWS_RESPONSE_CHECKSUM_VALIDATION"] = "when_required"
+
 s3_session = boto3.Session(profile_name=s3_profile)
 s3_resource = s3_session.resource('s3', endpoint_url='https://a3s.fi')
 ```

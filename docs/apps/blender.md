@@ -1,9 +1,18 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
-  - www-lumi
+catalog:
+  name: Blender
+  description: 3D modeling, visualization and rendering software
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
 ---
 
 # Blender

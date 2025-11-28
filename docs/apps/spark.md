@@ -1,6 +1,13 @@
 ---
 tags:
   - Free
+catalog:
+  name: Spark
+  description: High-performance distributed computing framework
+  license_type: Free
+  disciplines:
+    - Data Analytics and Machine Learning
+  unchecked: true
 ---
 
 # Spark
@@ -66,7 +73,7 @@ You can see your new cluster getting provisioned in *Overview*-page. When provis
 
 Deploying Spark template creates you Jupyter notebook UI, Spark master and Spark workers according to worker replica variable described above.
 
-Scaling the cluster can be done from *Overview* by increasing spark-worker pod amount with up and down arrows on right side of pod count icon. Decrease all pods to zero to shut down your cluster to save billing units. 
+Scaling the cluster can be done from *Overview* by increasing spark-worker pod amount with up and down arrows on right side of pod count icon. Decrease all pods to zero to shut down your cluster to save Cloud Billing Units. 
 
 ### Short descriptions about the deployed components
 - **Jupyter notebook** : lets you type the spark code in Python or R format and also provides you an option of running a terminal which can for example, used for uploading data to allas for long term storage. The URL for accessing the notebook can be found by clicking on the dropdown and then look for Routes which has the URL. By default, any notebook you launch in Jupyter, is connected to your cluster.

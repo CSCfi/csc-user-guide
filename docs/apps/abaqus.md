@@ -1,6 +1,14 @@
 ---
 tags:
   - Academic
+catalog:
+  name: ABAQUS
+  description: Dassault Systemes' SIMULIA academic research suite
+  license_type: Academic
+  disciplines:
+    - Computational Engineering
+  available_on:
+    - Puhti
 ---
 
 # ABAQUS

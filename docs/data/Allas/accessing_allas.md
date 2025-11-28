@@ -1,145 +1,117 @@
 # Accessing Allas
 
-## Gaining access
 
-**Allas** access is based on CSC's customer projects. To be able to use Allas, you need to be a member of 
-a CSC project that has the permission to use Allas. If you do not have a CSC account, you must first register as a CSC user
-and join or start a computing project for which Allas has been enabled. This can be done in the
-MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi).
+![Allas access clients](img/allas-access-flavors.png)
 
-Once you have Allas enabled you can access it from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
+The four main options for accessing Allas are:
 
+* Web browser interfaces 
+* Command-line tools 
+* Graphical tools
+* Other tools: Python and R libraries etc
 
-## Accessing Allas from the web browser
+The tool lists below are not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
+You can cross-use the Allas clients as long as you access Allas with the same protocol (Swift or S3).
+
+When choosing the tool for accessing Allas, consider:
+
+* Ease of getting started: web interfaces do not need installation and the connection configuration is easy.
+* Ease of use: web interface and graphical tools are in general easier to get started for basic tasks.
+* The amount of data you have to move, the web interfaces are not suitable for for big data transfers.
+* Your other workflow, Python or R libraries may be useful, if you use these programming languages already for other tasks.
+* The operating system of your local machine, some command-line and graphical tools support only Linux/Mac or Windows.
+* [Allas protocol](introduction.md#protocols) of your choice, many of the command-line and graphical tools support only Swift or S3. 
+* [Packaging of files](introduction.md#file-sizes-and-packaging), in case of moving many files, `a-tools` packages them by default to a .tar file and adds metadata, other tools usually move files as they are.
+* Sensitity of your data, for sensitive data use [tools that support client side encryption](allas_encryption.md).
+
+To use Allas from Puhti or Mahti, see [Tutorial for using Allas in CSC supercomputers](allas-hpc.md).
+
+## Web browser interfaces
 
 At the moment CSC provides several web browser interfaces for Allas:
 
-The **WWW interfaces of Puhti and Mahti** are connected to Allas. 
-These interfaces allow you transfer files and directories between your local computer and Allas as well as
-between CSC supercomputers and Allas.
+| Web interface  | Instructions |SWIFT support | S3 support | Use cases | Limits |
+| ----- | ------------- | ---------- | --------- | ------- | ------- |
+| [Allas web UI](https://allas.csc.fi)  | [Instructions](./using_allas/allas-ui.md) | <font color="green">&#x2714;</font> |   | General first choice, share data with another project | Max 5 GB files)
+| [Puhti web UI](https://www.puhti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Puhti or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
+| [Mahti web UI](https://www.mahti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Mahti or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
+| [cPouta web UI](https://pouta.csc.fi) | [Instructions](./using_allas/web_client.md)  | <font color="green">&#x2714;</font> |  | Make your bucket public | Max 5 GB files, uploading/downloading only a single file at a time. | 
+| [SD Connect ](https://sd-connect.csc.fi) | [Instructions](../sensitive-data/sd_connect.md) | <font color="green">&#x2714;</font> |  | Sensitive data | |
 
-* [Instructions for using Allas in Puhti and Mahti web interfaces](../../computing/webinterface/file-browser.md)
-* [Puhti web interface](https://www.puhti.csc.fi)
-* [Mahti web interface](https://www.mahti.csc.fi)
+## Commandline tools
 
+To access Allas with **command line commands**, client software supporting the _Swift_ or _S3_ protocol is required. This is the most flexible way to access Allas, but it is a little bit more complicated to get started.  
 
-The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic functions for data management in Allas. This interface can only be used for files smaller than 5 GB.
+| Tools | SWIFT support | S3 support | Linux/Mac | Windows |
+| ----- | ------------- | ---------- | --------- | ------- |
+| [a-commands](./using_allas/a_commands.md) | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | - |
+| [rclone](./using_allas/rclone.md)  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |  <font color="green">&#x2714;</font> | 
+| [swift python-swiftclient](./using_allas/swift_client.md) | <font color="green">&#x2714;</font> |   | <font color="green">&#x2714;</font> |   |
+| [s3cmd](./using_allas/s3_client.md) |  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |   |
+| [aws-cli](https://s3browser.com/) |   | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 
-* [Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
-* [cPouta Web Interface](https://pouta.csc.fi)
+Additionally for exmple `curl` and `wget` can be used for downloading public objects or objects with temporary URLs.
 
+## Graphical tools
 
-**SD Connect** provides an interface for storing and sharing sensitive data. 
-This service is based on Allas but we don't recommend it for other than sensitive data.
+| Tools | SWIFT support | S3 support | Linux/Mac | Windows |
+| ----- | ------------- | ---------- | --------- | ------- |
+| [Cyberduck](./using_allas/cyberduck.md) | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| [WinSCP](https://winscp.net/eng/index.php)  |  | <font color="green">&#x2714;</font> |  |  <font color="green">&#x2714;</font> | 
+| [S3browser](https://s3browser.com/) |  |  <font color="green">&#x2714;</font> |  | <font color="green">&#x2714;</font>  |
 
-* [SD Connect instructions](../sensitive-data/sd_connect.md)
-* [SD Connect interface](https://sd-connect.csc.fi)
+WinSCP has generally rather slow data transfer speed for S3, so likely not suitable for bigger amounts of data.
 
-
-
-## Accessing Allas in the CSC computing environment and other Linux platforms
-
-CSC supercomputers Puhti and Mahti support many different command line tools for using Allas, These include
-
-* [**a-tools**](./using_allas/a_commands.md) for basic use: (Swift, optionally S3)
-* [**rclone**](./using_allas/rclone.md) providing some advanced functions:** (Swift, optionally S3) 
-* [**swift**](./using_allas/swift_client.md) python client that provides wide range of functionalities (Swift)
-* [**s3cmd**](./using_allas/s3_client.md) an S3 client and persistent Allas connections:** (S3)
-
-Note that the tools listed above utilize two different protocols: _Swift_ and _S3_. Data uploaded using one protocol is not necessary compatible with another protocol. 
-
-The software listed above can also be used on other devices, for example a virtual machine running in cPouta or your own laptop.
-
-In Puhti and Mahti the Allas tools listed above are installed by CSC and provided through _allas_ module.
-In order to use Allas in Puhti or Mahti, first load the Allas module:
-```text
-module load allas
-```
-Allas access for a specific project using swift protocol can then be enabled:
-```text
-allas-conf
-```
-To enable S3 protocol, use option `-m S3`
-```text
-allas-conf -m S3
-```
-The `allas-conf` command prompts for your CSC password (the same that you use to login to CSC servers). It lists your Allas projects and asks you to define a project (if not already defined as an argument). `allas-conf` generates an `rclone` configuration file for the Allas service and authenticates the connection to the selected project. `allas-conf` enables you to use only one Allas project at a time in one session. The project you are using in Allas does not need to match the project you are using in Puhti or Mahti, and you can switch to another project by running `allas-conf` again.
-
-In the case of the Swift protocol, the authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables and is valid for up to eight hours. However, you can refresh the authentication at any time by running `allas-conf` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
-
-In the case of the S3 protocol, the authentication information is stored in configuration files located in your home directory on the device. The same authentication is used for all login sessions and it does not have an expiration time.
-
-Once an Allas connection is configured, you can start using the object storage with the tools listed above. 
-
-Basic Allas operations with different tools.
-
-| Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	Download file _data1.txt_ from bucket _buck_123_ |
-|-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
-| [a-commands](using_allas/a_commands.md) |`a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
-| [rclone (swift)](using_allas/rclone.md) |`rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`|
-| [rclone (S3)](using_allas/rclone.md) |`rclone ls s3allas:buck_123` | `rclone copy data1.txt s3allas:buck_123/` |	`rclone copy s3allas:buck_123/data1.txt ./`|
-| [Swift](using_allas/swift_client.md) |`swift list buck_123` | `swift upload buck_123 data1.txt` |	`swift download buck_123 data1.txt` |
-| [s3cmd](using_allas/s3_client.md)\*	 |`s3cmd ls s3://buck_123` |	`s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
-
-
-
-## Accessing Allas with Windows or Mac
-
-In addition to the Web interfaces listed above, you can access Allas from you Windows or Mac computer with locally installed client software. 
-For example following tools can be used:
-
-* [Cyberduck](./using_allas/cyberduck.md) provides easy to use graphical interface for moving data between local computer and Allas.
-* [Rclone](./using_allas/rclone_local.md) is a command line tool that provides a very effective way to use Allas on any operating system.
-* [a-tools](./using_allas/a_commands.md) are Allas-specific commands that can be installed on macOS and Linux devices, but not ones running a Windows operating system.
-
-The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
-
-## Copying files directly between object storages
-
-Rclone can also be used to directly copy files from another object storage (e.g. [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), [Google cloud](https://cloud.google.com/learn/what-is-object-storage), [CREODIAS](https://creodias.eu/cloud/cloudferro-cloud/storage-2/object-storage/),...) to Allas. For this both credentials need to be stored in a Rclone configuration file in the users home directory (`.config/rclone/rclone.conf`). An example is shown below:
-
-```
-[s3allas]
-type = s3
-provider = Other
-env_auth = false
-access_key_id = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-endpoint = a3s.fi
-acl = private
-
-[otherobjectstorage]
-type = s3
-provider = Other
-env_auth = false
-access_key_id = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
-secret_access_key = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
-endpoint = yourotherendpoint.com
-acl = private
-```
-The configuration for Allas is added automatically when configuring Allas in s3 mode 
-
-`source allas_conf --mode s3cmd` .
-
-After creating/updating this file, Rclone can be used to copy files
-
-`rclone copy otherobjectstorage:bucket-x/object-y  s3allas:bucket-z/object-a`
-
-or list files from either Allas or the other object storage by using the respective name
-
-`rclone lsf otherobjectstorage: `.
-
-## Other ways of accessing Allas
+## Other tools: Python and R libraries etc
 
 * Python:
-   * [Python with SWIFT](using_allas/python_swift.md)
-   * [Python with S3 with `boto3`](using_allas/python_boto3.md).
-   * [Geoscience related examples how Allas can be used in Python scripts](https://github.com/csc-training/geocomputing/tree/master/python/allas)
-* [Nextcloud front end](allas-nextcloud.md) Can be set up in Pouta to get additional functionality.
+    * [Python with SWIFT](using_allas/python_swift.md)
+    * [Python with S3 with `boto3`](using_allas/python_boto3.md).
+    * [Geoscience related examples how Allas can be used in Python scripts](https://github.com/csc-training/geocomputing/tree/master/python/allas)
 * R
-  * [aws.s3 R package](https://cloud.r-project.org/web/packages/aws.s3/index.html) can be used for working with Allas with S3 protocol
-  * [Geoscience related example how Allas can be used in R scripts](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R), inc. aws.s3 set up.
+    * [aws.s3 R package](https://cloud.r-project.org/web/packages/aws.s3/index.html) can be used for working with Allas with S3 protocol
+    * [Geoscience related example how Allas can be used in R scripts](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R), inc. aws.s3 set up.
+* [Nextcloud front end](allas-nextcloud.md) Can be set up in Pouta to get additional functionality.
 
+These Python and R libraries can be installed to all operating systems.
 
+## Clients comparison
 
+A _web client_ is suitable for using the basic functions. *a-commands* offer easy-to-use functions for using Allas either via a personal computer or supercomputer. Power users might want to consider the clients _rclone_, _Swift_ and _s3cmd_. The table displays the core functions of the power clients concerning data management in Allas.
 
+| | Allas Web UI | a-commands | rclone | Swift | s3cmd |
+| :----- | :-----: | :----: | :----: | :-----: | :----: |
+| Usage | _Basic_ | _Basic_ | _Power_ |_Power_ | _Power_ |
+| **Create buckets** | <font color="green">&#x2714;</font> |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Upload objects** | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **List** | | | | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>  |
+| **Download** | | | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font> | |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Remove** | | | | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>&#8226;&#8226; | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>&#8226;&#8226; |
+| **Managing access rights** | | | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private |  | <font color="green">&#x2714;</font>| | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp URLs | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Set lifecycle policies** | | | | | <font color="green">&#x2714;</font> |
+| **Move objects** | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Edit metadata** | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Download whole project** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | |
+| **Remove whole project** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | |
+
+<div align="right">&#8226;&#8226; Only empty buckets</div>
+
+## Files larger than 5 GB
+
+Files larger than 5 GB are divided into smaller segments during upload. 
+
+* Most tools split large files automatically
+* With _Swift_, you can use the _Static Large Object_: [swift with large files](using_allas/swift_client.md#files-larger-than-5-gb)
+
+After upload, s3cmd connects these segments into one large object, but in case of swift based uploads (a-put, rclone , swift) the large files are also stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would use _a-put_ to upload a large file to bucket _123-dataset_ the actual data would be stored as several pieces into bucket _123-dataset_segments_. The target bucket _123_dataset_ would contain just a front object that contains information what segments make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the _segments_ buckets at all and objects inside these buckets should not be deleted or modified. 
+
+It is important not to mix Swift and S3, as these protocols are not fully mutually compatible.

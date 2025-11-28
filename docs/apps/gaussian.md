@@ -1,26 +1,33 @@
 ---
 tags:
   - Other
+catalog:
+  name: Gaussian
+  description: Versatile computational chemistry package
+  license_type: Other
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # Gaussian
 
-Gaussian is a versatile program package providing various capabilities for electronic
-structure modeling.
-
-[TOC]
+Gaussian is a versatile program package providing various capabilities for
+electronic structure modeling.
 
 ## Available
 
-- Puhti: G16RevC.02
-- Mahti: G16RevC.02
+- Puhti: `G16RevC.02`
+- Mahti: `G16RevC.02`
 
 ## License
 
-CSC has acquired a full commercial license for Gaussian. Gaussian is available for use by
-all approved account holders, subject to some license restrictions. To be able to use
-Gaussian at CSC **your user-id has to be added to Gaussian users group. Send a request to
-[CSC Service Desk](../support/contact.md).**
+CSC has acquired a full commercial license for Gaussian. It is available to all
+approved account holders, subject to license restrictions. To use Gaussian at
+CSC, **your user ID must be added to the Gaussian user group.** Send a request
+to the [CSC Service Desk](../support/contact.md).
 
 ## Usage
 
@@ -33,91 +40,154 @@ module load gaussian/G16RevC.02
 Standard jobs are then conveniently submitted by using the `subg16` script:
 
 ```bash
-subg16 time jobname <billing project id>
+subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
 ```
 
-Run the plain subg16 command for details.
+where:
 
-For optimal performance of Gaussian jobs on CSC's servers it is beneficial to make some
-efficiency considerations. Some hints on how to estimate memory and disk requirements can
-be found [here](http://gaussian.com/running/?tabid=3).
+- `hhh:mm:ss` is the requested maximum wall time in hours, minutes and seconds.
+- `jobname` is the name of the input file, excluding the `.com` extension.
+- `[NVMe disk]` (optional) is the request for fast local NVMe disk in GB.
 
-### Using local disk on Puhti
-
-Particularly some wave function-based electron correlation methods can
-be very disk I/O intensive. Such jobs benefit from using the fast
-[NMVE local disk](../../computing/running/creating-job-scripts-puhti/#local-storage)
-on Puhti. Using local disk for such jobs will also reduce the overall load on the
-Lustre parallel file system.
-
-On Puhti, you can request your Gaussian job to use local disk by submitting the
-job with the `subg16_nvme` script:
-
-```bash
-subg16_nvme time jobname <billing project id> diskspace
-```
-
-The requested disk space is given in GB.
+Run `subg16` without arguments to display more details.
 
 ## Performance considerations
 
-Here we give a brief example on what type of resources can affect the performance
-of Gaussian and how these should be taken into consideration. We are using
-[α-Tocopherol](https://en.wikipedia.org/wiki/%CE%91-Tocopherol) (a type of vitamin
-E) as input structure.
+For optimal performance of Gaussian jobs on CSC's servers, it is beneficial to
+make some efficiency considerations. Some hints on how to estimate memory and
+disk requirements can be found [here](http://gaussian.com/running/?tabid=3).
+There is also a nice summary provided by
+[NRIS on the topic](https://documentation.sigma2.no/software/application_guides/gaussian/gaussian_tuning.html).
 
-For a `b3lyp/cc-pVDZ, %mem=10GB` single-point calculation the results are:
+Gaussian provides a large number of computational models, each with different
+performance characteristics depending on available resources.
 
-| platform/cores      | wall time (hh:mm:ss) |  billing units       |
-| ------------------: | -------------------: |  ------------------: |
-| Puhti/10            | 00:04:19             |  0.73                |
-| mem=20/10           | 00:04:11             |  0.85                |
-|      /20            | 00:02:16             |  0.80                |
-|      /40            | 00:01:14             |  0.85                |
-| Mahti/128           | 00:00:53             |  1.47                |
+### Parallel calculations
 
-For this particular case, the scaling is reasonable up to a full Puhti node. Increasing
-the memory reservation from 10 GB to 20 GB, doesn't speed up the calculation but only
-increases its cost. The job is slightly faster on Mahti using 128 cores compared to
-40 cores on Puhti, but the cost is significantly higher.
+The number of cores allocated for a job is set in the input file using the
+`%NProcShared` flag.
 
-If we do the same calculation but increase the size of the basis set to `b3lyp/cc-pVTZ`
-the results are:
+In general, **the optimal number of cores is quite low**, so it is a good idea
+to start with some test runs on a representative job using a small number of
+cores, such as `%NProcShared=4`. Based on the test results, you can determine
+the appropriate resources for actual production runs.
 
-| platform/cores      | wall time (hh:mm:ss) |  billing units       |
-| ------------------: | -------------------: |  ------------------: |
-| Puhti/40            | 00:12:48             |  10.27               |
-| Mahti/128           | 00:06:30             |  10.83               |
+Increasing the number of cores does not always improve performance and may even
+degrade it.
 
-Here we notice that the calculation on Mahti is twice as fast as on Puhti, but the cost
-is about the same.
+### Memory
 
-For a wave function-based method like `MP2/cc-pVDZ`, the reserved memory (mem=), as
-well as use of local disk (nvme) significantly affects the performance:
+Memory reservation in Gaussian is controlled using the `%Mem` flag in the input
+file, where you specify the total amount of memory to be allocated for the
+calculation.
 
-| platform/cores      | wall time (hh:mm:ss) |  billing units       |
-| ------------------: | -------------------: |  ------------------: |
-| Puhti, mem=40/10    | 00:37:55             |  8.94                |
-|        mem=80/10    | 00:19:32             |  5.91                |
-|        mem=80/20    | 00:16:08             |  7.57                |
-|        mem=160/20   | 00:16:25             |  9.89                |
-|  nvme, mem=80/20    | 00:12:40             |  7.57                |
-|        mem=160/40   | 00:11:21             | 10.62                |
-|        mem=80/40    | 00:11:59             |  9.62                |
-|  nvme, mem=160/40   | 00:09:29             |  9.06                |
-|  nvme, mem=80/40    | 00:09:23             |  7.72                |
-| Mahti/128           | 00:14:30             | 24.17                |
+For parallel jobs, Gaussian shares memory across multiple cores. Since much of
+the data can be shared among threads, there is only a weak dependence of memory
+usage on the number of cores. This means that increasing the number of cores
+typically does not require a proportional increase in memory allocation.
 
-From these results we conclude that 80 GB seems to be the optimal memory allocation and
-that the use of local disk clearly improves the performance. The speedup when going from
-20 to 40 cores, and using local disk is 1.35, that is below the
-[recommended minimum of 1.5](../../accounts/how-to-access-mahti-large-partition/#scalability-testing).
-Hence, the most efficient resource usage would correspond to 20 cores, 80 GB of memory and local disk
-on Puhti. For this type of calculation Mahti isn't the optimal choice.
+The overall memory requirement depends on the method, basis set, and number of
+cores. For more information, see
+[Gaussian's official documentation](https://gaussian.com/techsupport/).
+
+There are also some tools, like
+[GaussMem](https://massimiliano-arca.itch.io/gaussmem), that can help estimate
+memory needs.
+
+!!! info "Note"
+    On Mahti, each reserved CPU core is allocated **1.875 GiB of memory**. The
+    only way to request more memory is to reserve additional cores. As a
+    result, the optimal number of cores used by Gaussian may sometimes be lower
+    than the number of reserved cores, depending on memory requirements.
+
+### Using local disk (NVMe)
+
+For disk I/O intensive jobs, such as highly correlated methods like **MP2**,
+**CCSD(T)**, and property calculations like **vibrational frequency
+calculations**, using the fast **NVMe local disk** on
+[Puhti](../computing/running/creating-job-scripts-puhti.md#local-storage) or
+[Mahti](../computing/running/creating-job-scripts-mahti.md#local-storage) can
+significantly improve performance. Using local disk for such jobs will also
+reduce the overall load on the Lustre parallel file system.
+
+```bash
+subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
+```
+
+### Estimating optimal resources
+
+Before running large-scale calculations, it's crucial to determine the **most
+efficient** use of computational resources. Overallocating cores or memory can
+lead to wasted resources and, in some cases, even slower performance.
+
+#### **Step-by-Step Approach**
+
+1. **Start small** – Begin with a test job using a modest number of cores
+   (e.g., `%NProcShared=4`).
+2. **Monitor performance** – After the job completes, use the `seff` command to
+   check CPU utilization, memory efficiency, and job runtime.
+3. **Gradually increase resources** – Double the core count in steps (e.g., 4 →
+   8 → 16) and observe the impact on performance.
+4. **Identify the efficiency plateau** – If the speedup gained by doubling the
+   cores falls below 1.5, further increases are likely inefficient.
+5. **Consider disk and memory needs** – Some methods (e.g., **MP2, CCSD(T),
+   frequency calculations**) benefit more from sufficient memory and fast local
+   disk (NVMe) than additional cores. Insufficient memory or slow disk I/O can
+   cause bottlenecks and poor scaling.
+
+Efficient resource allocation ensures faster runs, minimizes queuing times, and
+avoids unnecessary system load.
+
+### Performance example
+
+Here, we provide a brief example of how different resource allocations affect
+Gaussian's performance and what factors should be considered. We use
+[α-Tocopherol](https://en.wikipedia.org/wiki/%CE%91-Tocopherol) (a type of
+vitamin E) as the input structure. The input file is available at
+[vitamin_e.com](https://a3s.fi/gaussian/vitamin_e.com).
+
+The tests were conducted in a **production environment**, where job
+interference may introduce performance fluctuations. Additionally, some
+variability arises from the arbitrary placement of allocated cores within a
+node. This internal hierarchy can influence performance.
+
+First, we compare the runtime and scaling of a `b3lyp/cc-pVDZ, %mem=10GB, 10GB
+NVMe` single-point calculation. This calculation requires only modest memory
+and disk resources, so increasing them should not affect performance.
+
+![Gaussian Performance](../img/g16_perf_1.png)
+
+For this specific case, the scaling on Puhti starts to level off beyond 30
+cores, while on Mahti, the scaling continues at a reasonable level up to about
+80 cores.
+
+If we perform the same calculation but increase the size of the basis set to
+`b3lyp/cc-pVTZ`, the `%mem=10GB, 10GB NVMe` allocation is still sufficient for
+all requirements.
+
+![Gaussian Performance](../img/g16_perf_2.png)
+
+For this larger calculation, the scaling on Puhti remains good up to a full
+node. On Mahti, however, the scaling begins to level off around 100 cores.
+
+For a wave function-based method like `MP2/cc-pVDZ, %mem=100GB, 200GB NVMe`,
+both the reserved memory and the use of local disk (NVMe) have a significant
+impact on performance, as shown in the following graph:
+
+![Gaussian Performance](../img/g16_perf_3.png)
+
+On Puhti, the speedup levels off at around 25 cores, while on Mahti, the
+performance gain continues up to approximately 35 cores.
+
+Tests on Puhti highlight the importance of allocating sufficient memory.
+Additionally, the notable performance improvement from using local disk (NVMe)
+over the standard scratch disk (about 30% faster!) indicates that local disk
+should always be the preferred option for these types of calculations.
 
 ## References
 
-- [How to cite Gaussian](http://gaussian.com/citation_b01/) in your publications.
+- [How to cite Gaussian](http://gaussian.com/citation_b01/) in your
+  publications.
 
 ## More information
 

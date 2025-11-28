@@ -51,3 +51,32 @@
 .csc-footer__link:is(:active, :hover) {
   background-color: var(--md-accent-bg-color);
 }
+
+footer .preview-commit {
+  color: var(--c-accent-200);
+  font-size: small;
+}
+
+footer .preview-commit > a.preview-commit-link {
+  font-family: monospace;
+  font-weight: var(--csc-font-weight--bold);
+  font-size: medium;
+  color: var(--c-accent-500);
+}
+
+footer .md-footer-meta.md-typeset a {
+  transition:
+    transform 125ms,
+    color 125ms;
+}
+
+footer .md-footer-meta.md-typeset a:is(:hover,:active) {
+  color: var(--md-footer-fg-color--lighter);
+  background-color: unset;
+  transform: scale(1.25);
+}
+
+footer .md-social__link svg {
+  max-height: 1rem;
+  vertical-align: middle;
+}

@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: SAMtools
+  description: Utilities for managing SAM/BAM formatted alignment files
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # SAMtools

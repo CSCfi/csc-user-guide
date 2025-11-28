@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Diamond
+  description: Sequence similarity search tool for proteins and nucloeotides
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Diamond
@@ -21,7 +29,7 @@ Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl
 
 ## Available
 
-* Puhti: 2.0.15, 2.1.6
+* Puhti: 2.0.15, 2.1.6, 2.1.10
 
 ## Usage
 

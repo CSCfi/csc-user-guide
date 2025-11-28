@@ -1,4 +1,4 @@
-# Why my private SSH key does not work in Rahti 2?
+# Why my private SSH key does not work in Rahti?
 
 You may need a SSH key pair for the case of a build from a private GitHub repository.  
 This article can help you to debug why your keys are not working.
@@ -25,7 +25,7 @@ $ ssh-keygen -l -f repo-openshift-builder.pub
 
 ## Passphrase protected key
 
-Another common reason for failure is when the private key is protected by a passphrase. Even though it is generally recommended to protect a private key with a passphrase when storing the key in a workstation, Rahti 2 does not have any mechanism to store the passphrase and will then fail to use the key. To check if a private key is protected with a passphrase, you may use the same command above to generate the public key, If the key is protected, the command will ask for the password.
+Another common reason for failure is when the private key is protected by a passphrase. Even though it is generally recommended to protect a private key with a passphrase when storing the key in a workstation, Rahti does not have any mechanism to store the passphrase and will then fail to use the key. To check if a private key is protected with a passphrase, you may use the same command above to generate the public key, If the key is protected, the command will ask for the password.
 
 ## Miscellaneous format errors
 

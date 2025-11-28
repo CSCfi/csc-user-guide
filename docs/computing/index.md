@@ -1,8 +1,16 @@
 # Overview
 
-!!! Note
-    For an overview of the LUMI supercomputer, see [the LUMI
-    documentation](https://docs.lumi-supercomputer.eu/hardware/).
+!!! warning "Puhti and Mahti retirement in 2026"
+    Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
+    next-generation supercomputer offering enhanced performance and
+    capabilities.
+
+    * Puhti computing services will be shut down one month after Roihu general
+      availability in spring 2026.
+    * Puhti storage will remain accessible at least until the end of June 2026.
+    * Mahti will be shut down in August 2026.
+
+    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
 Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users
 since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is
@@ -17,8 +25,16 @@ since 2021 (Mahti AI) with Nvidia Ampere GPUs. See [specifications](available-sy
 for details on the systems and [this page for an outline of differences between LUMI-C and
 Mahti](lumi-vs-mahti.md).
 
+Puhti and Mahti will be replaced in 2026 by CSC's next national supercomputer
+called **Roihu**. [Read more about Roihu here](systems-roihu.md).
+
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
 basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
+
+!!! note
+    For an overview of the LUMI supercomputer, see
+    [the LUMI documentation](https://docs.lumi-supercomputer.eu/hardware/).
+
 
 ## Accessing Puhti and Mahti
 
@@ -36,7 +52,9 @@ of this user guide.
 
 ## Connecting to the supercomputers
 
-Connect using an ssh client:
+--8<-- "auth-update-ssh.md"
+
+Connect using an SSH client:
 
 ```bash
 ssh yourcscusername@puhti.csc.fi
@@ -52,21 +70,23 @@ This will connect you to one of the login nodes. If you need to connect
 to a specific login node, use the command:
 
 ```bash
-ssh yourcscusername@puhti-login<number 11-12,14-15>.csc.fi
+ssh yourcscusername@puhti-login[11-12,14-15].csc.fi
 ```
 
 or
 
 ```bash
-ssh yourcscusername@mahti-login<number 11-12>.csc.fi
+ssh yourcscusername@mahti-login[11-12,14-15].csc.fi
 ```
 
 Where `yourcscusername` is the username you get from CSC.
 
 For more details, see the [connecting](connecting/index.md) page.
 
-Puhti can also be accessed via the [Puhti web interface](webinterface/index.md)
-available at [www.puhti.csc.fi](https://www.puhti.csc.fi).
+Puhti and Mahti can also be accessed via their respective
+[web interfaces](webinterface/index.md) available at
+[www.puhti.csc.fi](https://www.puhti.csc.fi) and
+[www.mahti.csc.fi](https://www.mahti.csc.fi).
 
 ### Scalability
 
@@ -74,7 +94,7 @@ Don't allocate more resources to your job than it can use efficiently. This
 needs to be verified for each new code and job type (different input) by a
 scaling test. The policy is that the job should be **at least 1.5 times faster**
 when you double the resources (cores). [Instructions for performing a scalability
-test](../../support/tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job).
+test](../support/tutorials/cmdline-handson.md#scaling-test-for-an-mpi-parallel-job).
 Please also consider [other important factors related to performance.](performance.md)
 
 ## Projects and quotas
@@ -97,20 +117,26 @@ This command shows information for all your CSC projects. You can select just
 one project to be reported with the `-p` option. For example:
 
 ```bash
-[kkayttaj@puhti ~]$ csc-projects -p project_2012345
+[kkayttaj@puhti-login11 ~]$ csc-projects -p project_2012345
 -----------------------------------------------------------------
-Project: project_2012345    Owner: Kalle Käyttäjä
+Project: project_2012345        Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"
-Start: 2015-12-17 End: 2022-03-16 Status: open
-Budget:   1174188  Used   1115284 Remain:      58904
-Latest resource grant: 2019-03-04
+Start: 2019-08-20 End: 2029-10-23 Status: open
+Billing units      Budget        Used      Remain
+-------------      ------        ----      ------
+CPU BU:             60000          20       59980
+GPU BU:              1000          30         970
+Storage BU:        300000          40      299960
+Cloud BU:             400          10         390
+Latest resource grant: 2025-01-31
 -----------------------------------------------------------------
+Project info updated: 2025-09-02 15:12
 ```
 
 The command reports the owner of the project, title, start and end dates. In
 addition the command prints out the budgeting information for the project: how
-many billing units have been granted to your project, how many have been used
-and how many still remain.
+many Billing Units of each type have been granted to your project, how many have
+been used and how many still remain.
 
 The [disk areas](disk.md) of your projects can be checked with the command:
 

@@ -10,12 +10,17 @@ available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the
 [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for
 more details.
 
+Please note that logging in to Puhti and Mahti web interfaces requires
+**multi-factor authentication**.
+[More information on the Connecting page](connecting.md).
+
 !!! warning "Scope"
     The HPC web interfaces are best suited for **interactive workloads** that
     consume a **modest amount of computational resources**. Some examples are
     **pre- and post-processing of data** in Jupyter Notebooks using
     **at most a few tens of CPU cores**, **small-scale AI/ML experiments**
-    using a **single GPU**, and **data visualization** tasks.
+    using a **single GPU**, and **data visualization** tasks. As such, the
+    maximum length of interactive jobs is limited to 16 hours.
 
     Please note that the interactive applications in the web interfaces are
     **not** suitable for **multi-node** and **multi-GPU jobs**. Such workloads
@@ -41,7 +46,9 @@ more details.
         - Jupyter
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
+        - MATLAB
         - MLflow
+        - RStudio
         - TensorBoard
         - Visual Studio Code
 - **Apps available in Puhti only:**
@@ -50,8 +57,6 @@ more details.
         - COMSOL
         - ParaView
         - VMD
-    - RStudio
-    - MATLAB
 
 ### Shell
 
@@ -80,8 +85,15 @@ using `sbatch` from the shell.
 ### Project view
 
 Using the _Project view_ under the _Tools_ section in the top navbar, you can
-view  current disk and project billing unit quotas on the supercomputers. For
+view  current disk and project Billing Unit quotas on the supercomputers. For
 more information, see the [Project view](project-view.md) page.
+
+### File Deletion Explorer (beta)
+
+The File Deletion Explorer is a tool in beta, that can be used on Puhti to
+inspect the purge lists for scratch cleaning. See more details on the
+[Managing data on Puhti and Mahti scratch disks page](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
+
 
 ### Interactive apps
 
@@ -100,7 +112,11 @@ specific instructions, see the [Interactive apps](apps.md) page.
 !!! warning-label
     Only a few partitions of Puhti and Mahti are available for use in the web
     interfaces. Some apps also have a more limited set of partitions available
-    than others.
+    than others.  
+    The maximum length of jobs in the web interfaces is 16 hours to keep the
+    queueing times for interactive resources short. If you have work that
+    requires longer jobs than that, we recommend that you run your software as
+    [batch jobs](../running/getting-started.md).
 
 In the **Puhti web interface**, the `interactive`, `small`, `test`, `gpu` and
 `gputest` partitions are available. Selecting the `gpu` or `gputest` partition
@@ -108,8 +124,8 @@ will allocate one Nvidia V100 GPU. See the
 [Puhti partitions page](../running/batch-job-partitions.md#puhti-partitions)
 for general information about queues on Puhti.
 
-In the **Mahti web interface**, the `interactive` and `gpusmall` partitions are
-available. Selecting the `gpusmall` partition will allocate a split Nvidia A100
-GPU (a100_1g.5g) with 1/7th of the compute capacity of a full A100. For more
-details about the split GPUs on Mahti, see the
+In the **Mahti web interface**, the `interactive`, `small` and `gpusmall`
+partitions are available. Selecting the `gpusmall` partition will allocate a
+split Nvidia A100 GPU (a100_1g.5g) with 1/7th of the compute capacity of a full
+A100. For more details about the split GPUs on Mahti, see the
 [Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).

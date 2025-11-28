@@ -5,7 +5,18 @@ search:
 
 # Technical details about Puhti
 
-### Compute
+!!! warning "Puhti step-wise retirement during spring and summer 2026"
+    Puhti will be gradually decommissioned during spring and summer 2026 and
+    replaced by Roihu, CSC's next-generation supercomputer offering enhanced
+    performance and capabilities.
+
+    * Puhti computing services will be shut down one month after Roihu general
+      availability in spring 2026.
+    * Puhti storage will remain accessible at least until the end of June 2026.
+
+    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
+
+## Compute
 
 **Puhti** has a total of **682 CPU nodes**, with a theoretical peak
 performance of 1,8 petaflops. Each node is equipped with two Intel
@@ -18,7 +29,7 @@ fat tree with a blocking factor of approximately 2:1.
 
 The **Puhti AI** artificial intelligence partition has a total of **80 GPU
 nodes** with a total peak performance of 2,7 petaflops. Each node has
-two latest generation Intel Xeon processors, code name _Cascade Lake_,
+two Intel Xeon processors, code name _Cascade Lake_,
 with 20 cores each running at 2,1 GHz. They also have four Nvidia
 Volta V100 GPUs with 32 GB of memory each. The nodes are equipped with
 384 GB of main memory and 3,6 TB of fast local storage. This partition
@@ -28,7 +39,7 @@ interconnect network connectivity providing 200 Gbps of aggregate
 bandwidth in a non-blocking fat-tree topology.
 
 
-### Nodes
+## Nodes
 
 
 | Name      |  Number of nodes |  Compute       | Cores                  | Memory  | Local disk |
@@ -45,7 +56,7 @@ In addition to the compute nodes above, Puhti has two login nodes with 40 cores 
 [local disk](disk.md#login-nodes) each.
 
 
-### Storage
+## Storage
 
 Puhti has a 4.8 PB Lustre parallel storage system providing space for
 [home](disk.md#home-directory), [project](disk.md#projappl-directory) and

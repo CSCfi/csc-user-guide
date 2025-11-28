@@ -1,6 +1,6 @@
 # Connecting to your virtual machine
 
-This article describes several ways to connect to a running virtual machine. In order to create a Virtual Machine, check out [Creating a virtual machine in Pouta](../launch-vm-from-web-gui/).
+This article describes several ways to connect to a running virtual machine. In order to create a Virtual Machine, check out [Creating a virtual machine in Pouta](launch-vm-from-web-gui.md).
 
 !!! info "Password access disabled"
 
@@ -82,7 +82,7 @@ Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) fo
 
         ssh -A cloud-user@public-ip
 
-    By enabling agent forwarding, you enable the ssh agent running on the remote Virtual Machine to make use of the keys which are loaded in the ssh agent of your local workstation. You can use this feature to use the "Bastion host model", where only one single machine, the bastion host, in the cluster has Floating IP and outside access, and the rest of the machines are accessed through the bastion.
+By enabling agent forwarding, you enable the ssh agent running on the remote Virtual Machine to make use of the keys which are loaded in the ssh agent of your local workstation. You can use this feature to use the "Bastion host model", where only one single machine, the bastion host, in the cluster has Floating IP and outside access, and the rest of the machines are accessed through the bastion.
 
     1. Assign a floating IP to one of your instances
     1. ssh to the instance enabling agent forwarding
@@ -90,11 +90,11 @@ Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) fo
 
     Using these steps, you need only a single public IP instead of one public IP for each of the instances.
 
-    **Warning**: using agent forwarding has some [security implications](https://blog.wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#thevulnerability)
+    **Warning**: using agent forwarding has some [security implications](https://wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#the-vulnerability)
 
 ### Putty
 
-Open Putty, after following the instructions at [windows-putty](/cloud/pouta/launch-vm-from-web-gui/#windows-putty) you should have a saved session with the private key stored on it.
+Open Putty, after following the instructions at [windows-putty](./launch-vm-from-web-gui.md#windows-putty) you should have a saved session with the private key stored on it.
 
 * Load the saved session.
 
@@ -105,42 +105,6 @@ Open Putty, after following the instructions at [windows-putty](/cloud/pouta/lau
 * Click **Open**, a new window to the instance will be opened
 
 Next time you need to use Putty to connect this instance, you will just need to **Load** the corresponding saved session and click **Open**.
-
-## Troubleshooting
-
-### port 22: Connection timed out
-
-If you are not able to connect to your VM, the first thing to double check are the security groups, in the [Firewalls and security groups](../launch-vm-from-web-gui/#firewalls-and-security-groups) article there is a guide on how to set them up correctly.
-
-If the problem persists you may check the firewall setup of your local institution.
-
-!!! info "Permission denied"
-    Incorrectly configured Security Groups, can lead to permissions denied errors due to the fact that the VM needs to fetch the public SSH keys on its first start. If the network is not configured properly, the public key may not be added and no access will be configured.
-
-### REMOTE HOST IDENTIFICATION HAS CHANGED
-
-Sometimes Floating IPs are reused with different Virtual Machines at different times. By default SSH will have `stricthostkeychecking=yes` configured, and will show you the error message:
-
-```sh
-$ ssh cloud-user@86.50.xxx.xxx
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-Someone could be eavesdropping on you right now (man-in-the-middle attack)!
-It is also possible that a host key has just been changed.
-The fingerprint for the ECDSA key sent by the remote host is
-SHA256:JURkzITHXHGavwz6fAahou5g4ii1q9CVuzLyImH5+tI.
-Please contact your system administrator.
-Add correct host key in /home/yyyy/.ssh/known_hosts to get rid of this message.
-Offending ECDSA key in /home/yyyy/.ssh/known_hosts:28
-  remove with:
-  ssh-keygen -f "/home/yyyy/.ssh/known_hosts" -R "86.50.xxx.xxx"
-ECDSA host key for 86.50.xxx.xxx has changed and you have requested strict checking.
-Host key verification failed.
-```
-
-You can safely do as it suggests and remove the entry. But only if you are **sure** that it is the first time you connect to said IP since it has been **assigned to a new instance**, or since the instance has been **reinstalled**.
 
 ## `root` administrator access on a virtual machine
 
@@ -181,4 +145,11 @@ Once there is a password based account, with no remote login allowed:
 !!! warning "Non ASCII characters problems"
     *Umlaut* characters, such as *ä* or *ö*, do not work in the virtual
     console for most keymaps.
+
+
+## Troubleshooting
+
+If you have any issue connecting to your new Pouta Virtual Machine, please check out our [Why can't I connect to my virtual machine in Pouta?](../../support/faq/why-cant-i-connect-to-my-vm-in-pouta.md) article.
+
+
 

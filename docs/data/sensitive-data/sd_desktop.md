@@ -1,5 +1,13 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
 # Analyze and compute with Sensitive Data Desktop
+
+
+- [Overview](#overview)
+- [Key features](#key-features)
+- [Limitations](#limitations)
+- [Your next steps in this guide](#your-next-steps-in-this-guide)
+
 
 ## Overview
 
@@ -32,4 +40,19 @@ You can browse the main topics of this section using the navigation bar on the r
 !!! Note 
     The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
 
+
+## Your next steps in this guide
+
+If you have already created a CSC account and are part of a CSC project, you can proceed with the following steps:
+
+* [Login to SD Desktop](./sd-desktop-login.md)
+* [Create virtual desktops](./sd-desktop-create.md)
+* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
+* [Accessing virtual desktop](./sd-desktop-access-vm.md)
+* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
 

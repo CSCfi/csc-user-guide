@@ -1,0 +1,32 @@
+FROM rockylinux:8
+
+RUN dnf --assumeyes install \
+      epel-release \
+      python3.11 \
+      python3.11-pip \
+      git \
+      findutils &&\
+    dnf clean all
+
+WORKDIR /dev_dir
+COPY ./development/packages.txt ./packages.txt
+COPY ./requirements.txt ./requirements.txt
+
+ARG upgrade=false
+RUN if [ $upgrade = true ]; \
+    then requirements_file=packages.txt; \
+    else requirements_file=requirements.txt; \
+    fi; \
+    pip3 install \
+      --root-user-action=ignore \
+      --requirement=$requirements_file \
+      --use-pep517 \
+      --no-cache-dir
+
+WORKDIR /csc-user-guide
+
+COPY --chmod=500 ./development/entrypoint.bash /entrypoint.bash
+
+EXPOSE 8000
+
+ENTRYPOINT ["/entrypoint.bash"]

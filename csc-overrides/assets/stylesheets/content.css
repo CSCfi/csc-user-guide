@@ -1,5 +1,5 @@
 main > .md-main__inner.md-grid {
-  margin-top: 1rem;
+  margin-top: unset;
   max-width: var(--csc-content-width);
 }
 
@@ -52,7 +52,7 @@ main > .md-main__inner.md-grid {
 
 [dir="ltr"] .md-typeset blockquote {
   border-left: 4px solid var(--md-primary-fg-color);
-  border-radius: var(--csc-border-radius);
+  border-radius: 4px;
   color: var(--md-primary-fg-color);
 }
 
@@ -65,6 +65,36 @@ main > .md-main__inner.md-grid {
 }
 
 .md-typeset .md-button {
-  border-radius: var(--csc-border-radius);
+  border: var(--csc-button-border-width) solid currentColor;
+}
+
+.md-typeset .md-button.md-button--primary {
+  border: none;
+}
+
+.md-typeset .md-button,
+.md-typeset .md-button.md-button--primary {
+  border-radius: var(--csc-button-border-radius);
   text-decoration: none;
+}
+
+.md-typeset .md-button:focus,
+.md-typeset .md-button:hover {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .md-button:focus,
+.md-typeset .md-button:hover {
+  background-color: var(--c-primary-200);
+}
+
+.md-typeset .md-button.md-button--primary:focus,
+.md-typeset .md-button.md-button--primary:hover {
+  background-color: var(--c-primary-400);
+  color: var(--md-primary-bg-color);
+}
+
+.md-typeset figcaption {
+  color: var(--c-tertiary-700);
 }

@@ -1,181 +1,197 @@
-# Virtual machine flavors and billing unit rates
+# Virtual machine flavors and Billing Unit rates
 
-This article lists the types (flavors) of virtual machines and their
-cost in billing units.
+Currently, Pouta will bill for the use of 3 resources: storage volumes, floating IPs and virtual machines. The account of use of resources is done in increments of one hour. A good way to estimate usage cost is the [Billing Unit calculator](https://research.csc.fi/resources/#buc) utility. All these resources consume Cloud Billing Units, for more information about Billing in CSC, visit the [Billing](../../accounts/billing.md) page.
 
-[TOC]
+- **Storage volumes**: 3,5 Cloud BU / TiB hour. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes Cloud BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems. Please note that the price of Pouta volumes will be 3,6 Cloud BU / TiB hour for standard volume and 1,8 Cloud BU / TiB hour for capacity volume from year 2026. 
+- **Floating IPs**: 0,2 Cloud BU / hour. Every floating IP reserved to the project is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume Cloud Billing Units.
+- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume Cloud BUs regardless whether you are using them or not. This means that a shut down or suspended virtual machine still consumes Cloud BUs, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their Cloud BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
 
-The cPouta and ePouta services consume the same billing units as 
-Puhti and Mahti. You can find more information in the [CSC computing environment articles].
+\* **Cloud BU**: Cloud Billing Units
 
-Users can create virtual machines with larger or
-smaller compute resources based on their needs. The virtual
-machine *flavors* available in cPouta and ePouta are listed below in
-separate tables.
-Please note that the values for the memory of each flavor (in GiB) are approximated.
+## Quotas
+
+Each Pouta project has this initial default quota:
+
+| Resource | Default |
+|--------------:|:--------|
+| Instances | 8 |
+| Cores | 8 |
+| Memory | 32 GB |
+| Floating IPs | 2 |
+| Storage | 1 TB |
 
 
-## Flavor notation
-
-We use symbols to describe some of the features of the flavors we offer.
-A short descripion of the notation used follows.
-
-### Power redundancy
-
-For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
-
-* ![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg) **NONE** - The node is not protected from sudden power losses. **A fault in the power provisioning of the node might make the virtual machine temporarily unreachable**.
-* ![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg) **FULL** - The node is protected from sudden power losses (UPS).
-
-### Data redundancy
-
-Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
-For customer data, there are three possible values of redundancy.  
-We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
-
-* ![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg) **NONE** - The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
-* ![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg) **BASIC** - The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
-* ![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for ephemeral disk data redundancy level FULL](../../img/circle_icons/e100.svg) **FULL** - The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.
-
-### Network redundancy
-
-For the network reachability of the virtual machine, there are two possible values of redundancy.
-
-* ![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg) **NONE** - The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.
-* ![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg) **FULL** - The node hosting the virtual machine is connected to the cloud platform with an additional failover link.
-
-### Other symbols
-
-* ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) - Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.
+Additional quota can be requested by sending an email to [csc service desk](../../support/contact.md) and explaining your use case. Every request is evaluated based on user needs versus available resources. We always aim to have enough free resources for every quota granted, but please note that there is no warranty. In some cases specific hardware, linked to specific virtual machine flavors may be full, so you would not be able to provision them even if you have the quota to do so.
 
 ## cPouta flavors
 
-The following tables list the available virtual machine flavors in cPouta and their
-billing unit coefficients.
-Note that the default cPouta user account
-allows users to launch only a subset of the available virtual machine
-flavors.
+The following tables list the available virtual machine flavors in cPouta and their Cloud Billing Unit coefficients. Note that the default cPouta user account allows users to launch only a subset of the available virtual machine flavors.
+Also note that there will be slight adjustment in BU consumption rates of standard and I/O floavors of cPouta from year 2026 as shown in the tables. 
 
 ### Standard flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|standard.tiny   |1|0.9 |80 |0 |80 |0.9  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|0.25 |
-|standard.small  |2|1.9  |80 |0 |80 |0.9  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|0.5  |
-|standard.medium |3|3.9 |80 |0 |80 |1.3|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|1    |
-|standard.large  |4|7.8 |80 |0 |80 |1.9|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|2    |
-|standard.xlarge |6|15 |80 |0 |80 |2.5|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|4    |
-|standard.xxlarge|8|31 |80 |0 |80 |3.8|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|8    |
-|standard.3xlarge|8|62 |80 |0 |80 |7.7|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|16   |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h<br/>(current)|Cloud<br/>Billing<br/>Units<br/>/h<br/>(2026)|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|standard.tiny   |1|0.9 |80 |0 |0.9  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|0.25 |0.26 |
+|standard.small  |2|1.9  |80 |0 |0.9  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|0.50 |0.52 |
+|standard.medium |3|3.9 |80 |0 |1.3|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|1    |1.05 |
+|standard.large  |4|7.8 |80 |0 |1.9|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|2    |2.10 |
+|standard.xlarge |6|15 |80 |0 |2.5|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|4    |4.20 |
+|standard.xxlarge|8|31 |80 |0 |3.8|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|8    |8.40 |
+|standard.3xlarge|8|62 |80 |0 |7.7|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|16   |16.80 |
+
+See more details on the [Standard flavors](#cpouta) section.
 
 ### HPC flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| hpc.6.14core    | 14 | 88  | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 23 |
-| hpc.6.28core    | 28 | 176 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 45 |
-| hpc.6.56core   | 56 | 352 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 90 |
-| hpc.6.112core   | 112| 705 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 180 |
-| hpc.5.16core    | 16 | 58  | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 20 |
-| hpc.5.32core    | 32 | 116 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 40 |
-| hpc.5.64core   | 64 | 232 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 80 |
-| hpc.5.128core   | 128| 464 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 160 |
-| hpc.4.5core     | 5  | 21  | 80 | 0 | 80 | 4.2   |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 6   |
-| hpc.4.10core    | 10 | 42  | 80 | 0 | 80 | 4.2   |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 12  |
-| hpc.4.20core    | 20 | 85  | 80 | 0 | 80 | 4.2 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 25  |
-| hpc.4.40core    | 40 | 171 | 80 | 0 | 80 | 4.2 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 50  |
-| hpc.4.80core    | 80 | 343 | 80 | 0 | 80 | 4.2 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 100 |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
+|-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| hpc.6.14core    | 14 | 88  | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 23 |
+| hpc.6.28core    | 28 | 176 | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 45 |
+| hpc.6.56core   | 56 | 352 | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 90 |
+| hpc.6.112core   | 112| 705 | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 180 |
+| hpc.5.16core    | 16 | 58  | 80 | 0 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 20 |
+| hpc.5.32core    | 32 | 116 | 80 | 0 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 40 |
+| hpc.5.64core   | 64 | 232 | 80 | 0 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 80 |
+| hpc.5.128core   | 128| 464 | 80 | 0 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 160 |
+| hpc.4.5core     | 5  | 21  | 80 | 0 | 4.2   |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 6   |
+| hpc.4.10core    | 10 | 42  | 80 | 0 | 4.2   |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 12  |
+| hpc.4.20core    | 20 | 85  | 80 | 0 | 4.2 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 25  |
+| hpc.4.40core    | 40 | 171 | 80 | 0 | 4.2 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 50  |
+| hpc.4.80core    | 80 | 343 | 80 | 0 | 4.2 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 100 |
 
+See more details on the [HPC flavors](#cpouta_1) section.
 
 ### I/O flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| io.70GB  | 2  | 9.7 | 20 | 70  | 90  | 4.8   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 3  |
-| io.160GB | 4  | 19 | 20 | 160 | 180 | 4.7   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 6  |
-| io.340GB | 8  | 39 | 20 | 340 | 360 | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 12 |
-| io.700GB | 16 | 78 | 20 | 700 | 720 | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 24 |
-| io.2.80GB  | 2  | 12,7 | 80 | 80  | 160  | 6.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 6  |
-| io.2.240GB  | 4 | 26 | 80 | 240  | 320  | 6.6 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 12  |
-| io.2.550GB  | 8  | 54 | 80 | 550  | 630  | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 24  |
-| io.2.1200GB  | 16  | 107 | 80 | 1200  | 1280  | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 48  |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h<br/>(current)|Cloud<br/>Billing<br/>Units<br/>/h<br/>(2026)|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| io.70GB  | 2  | 9.7 | 20 | 70  | 90  | 4.8   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 3  |3.15 |
+| io.160GB | 4  | 19 | 20 | 160 | 180 | 4.7   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 6  |6.30 |
+| io.340GB | 8  | 39 | 20 | 340 | 360 | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 12 |12.60 |
+| io.700GB | 16 | 78 | 20 | 700 | 720 | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 24 |25.20 |
+| io.2.80GB  | 2  | 12,7 | 80 | 80  | 160  | 6.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 6  | 6  |
+| io.2.240GB  | 4 | 26 | 80 | 240  | 320  | 6.6 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 12  |12 |
+| io.2.550GB  | 8  | 54 | 80 | 550  | 630  | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 24  |24 |
+| io.2.1200GB  | 16  | 107 | 80 | 1200  | 1280  | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 48  |48 |
 
 Note that both the root and the ephemeral disks of all I/O flavors are hosted on solid-state drives (SSDs).
 
+See more details on the [I/O flavors](#cpouta_2) section.
+
 ### GPU flavors
 
-|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| gpu.1.1gpu | 14 | 1 | 117 | 80 |0 | 80 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 60  |
-| gpu.1.2gpu | 28 | 2 | 234 | 80 |0 | 80 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 120 |
-| gpu.1.4gpu | 56 | 4 | 468 | 80 |0 | 80 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 240 |
+|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| gpu.1.1gpu | 14 | 1 | 117 | 80 |0 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 60  |
+| gpu.1.2gpu | 28 | 2 | 234 | 80 |0 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 120 |
+| gpu.1.4gpu | 56 | 4 | 468 | 80 |0 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 240 |
 
 Note that the root disks of all GPU flavors are hosted on solid-state drives (SSDs).
+
+See more details on the [GPU flavors](#cpouta_3) section.
 
 ## ePouta flavors
 
 The following tables list the available virtual machine flavors in ePouta and their
-billing unit coefficients.
+Billing Unit coefficients.
+Please note that there will be slight adjustment in BU consumption rates of standard and I/O floavors of ePouta from year 2026 as shown in the tables.
 
 ### Standard flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| standard.tiny    | 1 | 0.9  | 80 | 0 | 80 | 0.9   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 0.25 |
-| standard.small   | 2 | 1.9  | 80 | 0 | 80 | 0.9   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 0.5  |
-| standard.medium  | 3 | 3.9  | 80 | 0 | 80 | 1.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 1    |
-| standard.large   | 4 | 7.8  | 80 | 0 | 80 | 1.9 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 2    |
-| standard.xlarge  | 6 | 15 | 80 | 0 | 80 | 2.5 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 4    |
-| standard.xxlarge | 8 | 31 | 80 | 0 | 80 | 3.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 8    |
-| standard.3xlarge | 8 | 62 | 80 | 0 | 80 | 7.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 16   |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h<br/>(current)|Cloud<br/>Billing<br/>Units<br/>/h<br/>(2026)|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| standard.tiny    | 1 | 0.9  | 80 | 0 | 0.9   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 0.25 |0.26 |
+| standard.small   | 2 | 1.9  | 80 | 0 | 0.9   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 0.5  | 0.52 |
+| standard.medium  | 3 | 3.9  | 80 | 0 | 1.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 1    |1.05 |
+| standard.large   | 4 | 7.8  | 80 | 0 | 1.9 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 2    |2.10 |
+| standard.xlarge  | 6 | 15 | 80 | 0 |  2.5 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 4    | 4.20 |
+| standard.xxlarge | 8 | 31 | 80 | 0 |  3.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 8    |8.40 |
+| standard.3xlarge | 8 | 62 | 80 | 0 |  7.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 16   |16.80 |
+
+See more details on the [Standard flavors](#epouta) section.
 
 ### HPC flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| hpc.6.14core    | 14 | 88  | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 25 |
-| hpc.6.28core    | 28 | 176 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 50 |
-| hpc.6.56core   | 56 | 352 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 100 |
-| hpc.6.112core   | 112| 705 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 200 |
-| hpc.5.16core    | 16 | 58  | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 22.5 |
-| hpc.5.32core    | 32 | 116 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 45 |
-| hpc.5.64core   | 64 | 232 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 90 |
-| hpc.5.128core   | 128| 464 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 180 |
-| hpc.4.5core          | 5  | 21  | 80 | 0 | 80 | 4.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 8   |
-| hpc.4.10core         | 10 | 43  | 80 | 0 | 80 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 15  |
-| hpc.4.20core         | 20 | 87  | 80 | 0 | 80 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 30  |
-| hpc.4.40core         | 40 | 175 | 80 | 0 | 80 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 60  |
-| hpc.4.80core         | 80 | 351 | 80 | 0 | 80 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 120 |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| hpc.6.14core    | 14 | 88  | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 25 |
+| hpc.6.28core    | 28 | 176 | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 50 |
+| hpc.6.56core   | 56 | 352 | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 100 |
+| hpc.6.112core   | 112| 705 | 80 | 0 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 200 |
+| hpc.5.16core    | 16 | 58  | 80 | 0 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 22.5 |
+| hpc.5.32core    | 32 | 116 | 80 | 0 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 45 |
+| hpc.5.64core   | 64 | 232 | 80 | 0 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 90 |
+| hpc.5.128core   | 128| 464 | 80 | 0 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 180 |
+| hpc.4.5core          | 5  | 21  | 80 | 0 | 4.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 8   |
+| hpc.4.10core         | 10 | 43  | 80 | 0 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 15  |
+| hpc.4.20core         | 20 | 87  | 80 | 0 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 30  |
+| hpc.4.40core         | 40 | 175 | 80 | 0 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 60  |
+| hpc.4.80core         | 80 | 351 | 80 | 0 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 120 |
+
+See more details on the [HPC flavors](#epouta_1) section.
 
 ### I/O flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| io.2.80GB         | 2  | 12,7 | 80 | 80  | 160  | 6.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 6  |
-| io.2.240GB        | 4  | 26  | 80 | 240  | 320  | 6.6 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 12  |
-| io.2.550GB        | 8  | 54  | 80 | 550  | 630  | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 24  |
-| io.2.1200GB       | 16 | 107 | 80 | 1200 | 1280 | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 48  |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h<br/>(current)|Cloud<br/>Billing<br/>Units<br/>/h<br/>(2026)|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| io.2.80GB         | 2  | 12,7 | 80 | 80  | 160  | 6.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 6  |6.30 |
+| io.2.240GB        | 4  | 26  | 80 | 240  | 320  | 6.6 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 12  |12.60 |
+| io.2.550GB        | 8  | 54  | 80 | 550  | 630  | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 24  |25 |
+| io.2.1200GB       | 16 | 107 | 80 | 1200 | 1280 | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 48  |50 |
+
+See more details on the [I/O flavors](#epouta_2) section.
 
 ### High memory flavors
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) tb.3.480RAM  | 56 | 480  | 20 | 1650 | 1730 | 8.5  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 110 |
-| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) tb.3.1470RAM | 80 | 1470 | 80 | 2500 | 2580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 320 |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| tb.3.480RAM  | 56 | 480  | 20 | 1650 | 1730 | 8.5  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 110 |
+| tb.3.1470RAM | 80 | 1470 | 80 | 2500 | 2580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 320 |
 
 Note that the root disks of all high memory flavors are hosted on solid-state drives (SSDs), while the ephemeral disks are hosted using NVM Express (NVMe).
 
+See more details on the [High memory flavors](#epouta_4) section.
+
 ### GPU flavors
 
-|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| gpu.1.1gpu | 14 | 1 | 117 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 60  |
-| gpu.1.2gpu | 28 | 2 | 234 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 120 |
-| gpu.1.4gpu | 56 | 4 | 468 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 240 |
-| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) gpu.2.1gpu | 20 | 1 | 180 | 80 | 1000 | 1080 | 9 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 100 |
-| gpu.3.1gpu | 12 | 1 | 219 | 80 | 1500 | 1580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 150  |
+|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h<br/>|
+|-:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| gpu.1.1gpu | 14 | 1 | 117 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 60  |
+| gpu.1.2gpu | 28 | 2 | 234 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 120 |
+| gpu.1.4gpu | 56 | 4 | 468 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 240 |
+| gpu.2.1gpu | 20 | 1 | 180 | 80 | 1000 | 1080 | 9 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 100 |
+| gpu.3.1gpu | 12 | 1 | 219 | 80 | 1500 | 1580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 150  |
 
 Note that both the root and the ephemeral disks of the GPU flavors are hosted on solid-state drives (SSDs).
+
+See more details on the [GPU flavors](#epouta_3) section.
+
+## Flavor notation
+
+We use symbols to describe some of the features of the flavors we offer.
+A short description of the notation used follows.
+
+- **Power redundancy**, For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
+- **Data redundancy**, Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
+For customer data, there are three possible values of redundancy.
+We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
+- **Network redundancy**, For the network reachability of the virtual machine, there are two possible values of redundancy.
+
+|Type|Icon||Description|
+|-:|:-:|:-:|:-|
+|Power|![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")|**NONE**|The node is not protected from sudden power losses. **A fault in the power provisioning of the node might make the virtual machine temporarily unreachable**.|
+|Power|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")|**FULL**|The node is protected from sudden power losses (UPS).|
+|Data|![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")|**NONE**|The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.|
+|Data|![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")|**BASIC**|The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.|
+|Data|![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for ephemeral disk data redundancy level FULL](../../img/circle_icons/e100.svg "Ephemeral Disk")|**FULL**|The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.|
+|Network|![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg "Network")|**NONE**|The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.|
+|Network|![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|**FULL**|The node hosting the virtual machine is connected to the cloud platform with an additional failover link.|
+|Other|![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg)||Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.|
+
+* [RAID 0](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0) spreads the data across two or more disks. It is used for an increased I/O performance. It provides no fault tolerance or redundancy, the failure of one drive will cause the entire array to fail.
+
+* [RAID 1](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_1) mirrors the data across two or more disks. Reads are usually fast operations, but writes are as fast as the slowest disk. The failure of one drive does not lose any data.
 
 ## Which type of flavor should I use?
 
@@ -187,7 +203,7 @@ Typical use cases:
 -   Software development
 
 These are generic flavors that are useful for running regular web
-services such as a web server with a database backend. 
+services such as a web server with a database backend.
 They provide better availability compared to the
 HPC flavors.
 
@@ -200,14 +216,17 @@ workloads. The virtual CPUs used in these instances are
 overcommitted, which means 32 hyperthreaded CPU cores are used to
 provide more than 32 virtual cores.
 
-**Flavor characteristics:**
+#### cPouta
 
--   Redundant power
--   CPU: Varies
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node or disk failures may cause downtime, but instances
-    are recoverable.
+|Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|standard.\*|Yes|Various|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
+
+#### ePouta
+
+|Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|standard.\*|Yes|Various|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
 
 ### **HPC flavors**
 
@@ -220,64 +239,21 @@ the HPC flavors. The availability of these instances is not as high
 as the standard flavors, but you get better performance. The HPC
 flavors have faster CPUs and no overcommitment of CPU cores.
 
-**cPouta HPC flavor characteristics:**
+#### cPouta
 
-**hpc.6.\*:**
+|Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**hpc.6.\***|Yes|AMD EPYC 9734 112-Core|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
+|**hpc.5.\***|Yes|AMD EPYC 7702 64-Core|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
+|**hpc.4.\***|No|Intel(R)    Xeon(R)   Gold    6148   CPU@2.40GHz ***hyper-threading***|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
 
--   Redundant power
--   CPU:  AMD EPYC 9734 112-Core Processor,
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node failure may cause downtime, but instances
-    are recoverable.
+#### ePouta
 
-**hpc.5.\*:**
-
--   Redundant power
--   CPU:  AMD EPYC 7702 64-Core Processor,
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node failure may cause downtime, but instances
-    are recoverable.
-
-**hpc.4.\*:**
-
--   No redundant power
--   CPU: Intel(R)    Xeon(R)   Gold    6148   CPU    @   2.40GHz,
-    ***hyper-threading***
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node or disk failures may cause downtime, but instances
-    are recoverable.
-
-**ePouta HPC flavor characteristics:**
-
-**hpc.6.\*:**
-
--   Redundant power
--   CPU:  AMD EPYC 9734 112-Core Processor,
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node failure may cause downtime, but instances
-    are recoverable.
-
-**hpc.5.\*:**
-
--   Redundant power
--   CPU:  AMD EPYC 7702 64-Core Processor,
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node failure may cause downtime, but instances
-    are recoverable.
-
-**hpc.4\*:**
-
--   Redundant power
--   CPU: Intel(R) Xeon(R) CPU Gold 6148, with hyper-threading
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node or disk failures may cause downtime, but instances
-    are recoverable.
+|Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**hpc.6.\***|Yes|AMD EPYC 9734 112-Core Processor|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
+|**hpc.5.\***|Yes|AMD EPYC 7702 64-Core Processor|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
+|**hpc.4\***|Yes|Intel(R) Xeon(R) CPU Gold 6148, with hyper-threading|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
 
 ### **I/O flavors**
 
@@ -306,44 +282,21 @@ The availability of these instances is not as high as the
 standard flavors, but the I/O
 performance is significantly better.
 
-**cPouta IO flavor characteristics:**
+!!! Warning "RAID-0 is Non-redundant"
+    Flavors with RAID-0 disks are non-redundant, this means that a single disk failure will lead to data loss.
 
-**io.70GB-700GB:**
+#### cPouta
 
-!!! Note  
-    These servers have non-redundant disks, and you may expect data loss in case of disk failure.  
-    These virtual machines can not be migrated nor resized to a different family flavor.
+|Flavor family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**io.70GB-700GB**|No|Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading|Redundant 10 Gb/s or 40 Gb/s|Local SSD disks, RAID-0|- Instances can be lost due to a single-node or disk failure.<br/>- Instances can not be migrated nor resized to a different family flavor.|
+|**io.2.\***|Yes|AMD EPYC 7282 16-Core Processor|Redundant 25 Gb/s|Local NVMe disk, RAID-1|- Instance can be lost due to a single-node or multiple simultaneous disk failures.<br/>- Instances can not be resized to a different family flavor.|
 
--   Redundant power
--   CPU: Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading
--   Network: Redundant 10 Gb/s or 40 Gb/s
--   Flavor disk: Local SSD disks, RAID-0
--   Instances can be lost due to a single-node or disk failure.
+#### ePouta
 
-**io.2.\*:**
-
-!!! Note  
-    These virtual machines can not be resized to a different family flavor.
-
--   Redundant power
--   CPU: AMD EPYC 7282 16-Core Processor
--   Network: Redundant 25 Gb/s
--   Flavor disk: Local NVMe disk, RAID-1
--   Instance can be lost due to a single-node or multiple simultaneous disk failures.
-
-
-**ePouta IO flavor characteristics:**
-
-**io.2.\*:**
-
-!!! Note  
-    These virtual machines can not be resized to a different family flavor.
-
--   Redundant power
--   CPU: AMD EPYC 7313 16-Core Processor
--   Network: Redundant 25 Gb/s
--   Flavor disk: Local NVMe disk, RAID-1
--   Instance can be lost due to a single-node or multiple simultaneous disk failures.
+|Flavor family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**io.2.\***|Yes|AMD EPYC 7313 16-Core Processor|Redundant 25 Gb/s|Local NVMe disk, RAID-1|Instance can be lost due to a single-node or multiple simultaneous disk failures.<br/>These virtual machines can not be resized to a different family flavor.|
 
 ### GPU flavors
 
@@ -400,49 +353,24 @@ downtime of instances during the maintenance of the hardware.
 Users also have the possibility to use NVIDIA Volta V100 GPGPUs in the
 batch system [Puhti](../../computing/systems-puhti.md).
 
-**cPouta flavor characteristics:**
+#### cPouta
 
-**gpu.1.\*:**
+|Flavor family|Redundant<br/>power|GPU|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|**gpu.1.\***|No|NVIDIA Tesla P100 (16 GB)|Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading|Redundant 10 Gb/s|Local SSD disks, RAID-1|Instance can be lost due to a single-node or multiple simultaneous disk failures.|
 
--   GPU: NVIDIA Tesla P100 (16 GB)
--   CPU: Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading
--   Network: Redundant 10 Gb/s
--   Flavor disk: Local SSD disks, RAID-1
--   No redundant power
--   Instance can be lost due to a single-node or multiple simultaneous disk failures.
+#### ePouta
 
-**ePouta flavor characteristics:**
+|Flavor family|Redundant<br/>power|GPU|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|**gpu.1.\***|Yes|NVIDIA Tesla P100 (16 GB)|Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading|Redundant 10 Gb/s|Local SSD disks, RAID-1|Instance can be lost due to a single-node or disk failure.|
+|**gpu.2.\***|Yes|NVIDIA Tesla V100 (16 GB)|Intel(R) Xeon(R) Gold 6148, with hyper-threading|Redundant 10 Gb/s|Local SSD disks, RAID-0|NUMA Aware: yes (CPU &lt;&gt; memory, not PCI devices)<br/>Instance can be lost due to a single-node or disk failure.|
+|**gpu.3.\***|Yes|NVIDIA A100 (40 GB)|AMD EPYC 7402 24-Core Processor|Redundant 10 Gb/s|Local NVMe disks|Instance can be lost due to a single-node or disk failure.<br/>Multi-Instance GPU (MIG) functionality supported|
 
-**gpu.1.\*:**
+### High memory flavors
 
--   GPU: NVIDIA Tesla P100 (16 GB)
--   CPU: Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading
--   Network: Redundant 10 Gb/s
--   Flavor disk: Local SSD disks, RAID-1
--   Redundant power
--   Instance can be lost due to a single-node or disk failure.
-
-**gpu.2.\*:**
-
--   GPU: NVIDIA Tesla V100 (16 GB)
--   CPU: Intel(R) Xeon(R) Gold 6148, with hyper-threading
--   NUMA Aware: yes (CPU &lt;&gt; memory, not PCI devices)
--   Network: Redundant 10 Gb/s
--   Flavor disk: Local SSD disks, RAID-0
--   Redundant power
--   Instance can be lost due to a single-node or disk failure.
-
-**gpu.3.\*:**
-
--   GPU: NVIDIA A100 (40 GB)
--   CPU: AMD EPYC 7402 24-Core Processor
--   Network: Redundant 10 Gb/s
--   Flavor disk: Local NVMe disks
--   Redundant power
--   Instance can be lost due to a single-node or disk failure.
--   Multi-Instance GPU (MIG) functionality supported
-
-### High memory flavors (only in ePouta)
+!!! warning "High memory flavors are only in ePouta"
+    High memory flavors are only available in ePouta.
 
 Typical use cases:
 
@@ -465,18 +393,13 @@ VM or create a snapshot of the source VM. **Please note** that all
 ephemeral disk data will be lost in the process and will not be stored
 in the snapshot because only the TB VM root disk is stored in the snapshot.
 
-**Flavor characteristics:**
+#### ePouta
 
-**tb.3.\*:**
+|Flavor family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**tb.3.\***|Yes|Intel(R) Xeon(R) CPU  E5-2680 v4, with hyper-threading<br/>**or**<br/>Intel(R) Xeon(R) CPU E5-2698 v4, with hyper-threading|Redundant 25 Gb/s|Local SSD disks, RAID-0|Instances can be lost due to a single-node or disk failure.|
 
--   Redundant power
--   CPU: Intel(R) Xeon(R) CPU  E5-2680 v4, with hyper-threading **or**
-    Intel(R) Xeon(R) CPU E5-2698 v4, with hyper-threading
--   Network: Redundant 25 Gb/s
--   Flavor disk: Local SSD disks, RAID-0
--   Instances can be lost due to a single-node or disk failure.
-
-## Deprecated flavors
+### Deprecated flavors
 
 This is the set of original flavors that has been available
 since the launch. **You should not launch any new virtual machines using
@@ -485,7 +408,7 @@ virtual machines that use these flavors will continue to
 work.** We will maintain these flavors for a period of time,
 but they will be removed at some point in the near future.
 
-|Flavor|Cores|Memory <br/>(GiB)|Root<br/> disk <br/>(GB)|Ephemeral<br/> disk <br/>(GB)|Total<br/> disk <br/>(GB)|Memory/<br/> core <br/>(GiB)|Redundancy|Billing<br/> Units<br/>/h|
+|Flavor|Cores|Memory <br/>(GiB)|Root<br/> disk <br/>(GB)|Ephemeral<br/> disk <br/>(GB)|Total<br/> disk <br/>(GB)|Memory/<br/> core <br/>(GiB)|Redundancy|Cloud<br/>Billing<br/> Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | hpc-gen1.1core  | 1  | 3.7 | 80 (RAID0)  | 0            | 80  | 3.7 | | 2  |
 | hpc-gen1.4core  | 4  | 15  | 80 (RAID0)  | 0            | 80  | 3.7 | | 8  |
@@ -494,8 +417,8 @@ but they will be removed at some point in the near future.
 | hpc-gen2.2core  | 2  | 10  | 80 (RAID0)  | 0            | 80  | 5   | | 4  |
 | hpc-gen2.8core  | 8  | 40  | 80 (RAID0)  | 0            | 80  | 5   | | 15 |
 | hpc-gen2.16core | 16 | 80  | 80 (RAID0)  | 0            | 80  | 5   | | 30 |
-| hpc-gen2.24core | 24 | 117 | 80 | 0 | 80 | 4.8 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg)    | 30  |
-| hpc-gen2.48core | 48 | 234 | 80 | 0 | 80 | 4.8 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg)    | 60  |
+| hpc-gen2.24core | 24 | 117 | 80 | 0 | 80 | 4.8 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg "Network")    | 30  |
+| hpc-gen2.48core | 48 | 234 | 80 | 0 | 80 | 4.8 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg "Network")    | 60  |
 | tiny            | 1  | 1   | 10  (RAID0) | 110 (RAID0)  | 120 | 1   | | 2  |
 | mini            | 1  | 3.5 | 10  (RAID0) | 110 (RAID0)  | 120 | 1.7 | | 2  |
 | small           | 4  | 15  | 10  (RAID0) | 220  (RAID0) | 230 | 3.8 | | 8  |
@@ -507,19 +430,19 @@ but they will be removed at some point in the near future.
 | hpc.medium.haswell    | 8  | 40  | 80         | 0            | 80    | 5    | | 20  |
 | hpc.large.haswell     | 16 | 80  | 80         | 0            | 80    | 5    | | 40  |
 | hpc.xlarge.haswell    | 32 | 156 | 80         | 0            | 80    | 5    | | 80  |
-| hpc.fullnode.haswell | 46 | 242 | 80 | 0 | 80 | 5.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 72  |
+| hpc.fullnode.haswell | 46 | 242 | 80 | 0 | 80 | 5.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 72  |
 | hpc.medium.westmere   | 8  | 14  | 80         | 0            | 80    | 1.8  | | 8   |
 | hpc.large.westmere    | 16 | 28  | 80         | 0            | 80    | 1.8  | | 16  |
 | hpc.xlarge.westmere   | 23 | 41  | 80         | 0            | 80    | 1.8  | | 24  |
 | hpc.largemem.westmere | 23 | 90  | 80         | 0            | 80    | 4    | | 36  |
-| hpc.3.28core         | 28 | 120 | 80 | 0 | 80 | 4.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 48  |
-| hpc.3.56core         | 56 | 240 | 80 | 0 | 80 | 4.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 96  |
-| io.haswell.2core  | 2  | 9.7  | 20 | 70   | 90   | 4.8   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 4.5 |
-| io.haswell.4core  | 4  | 19  | 20 | 160  | 180  | 4.7   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 9   |
-| io.haswell.8core  | 8  | 39  | 20 | 350  | 370  | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 18  |
-| io.haswell.16core | 16 | 78  | 20 | 700  | 720  | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 36  |
-| io.haswell.32core | 32 | 156 | 20 | 1400 | 1420 | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 72  |
-| io.haswell.46core | 46 | 242 | 20 | 2100 | 2120 | 5.2  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 108 |
+| hpc.3.28core         | 28 | 120 | 80 | 0 | 80 | 4.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 48  |
+| hpc.3.56core         | 56 | 240 | 80 | 0 | 80 | 4.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 96  |
+| io.haswell.2core  | 2  | 9.7  | 20 | 70   | 90   | 4.8   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 4.5 |
+| io.haswell.4core  | 4  | 19  | 20 | 160  | 180  | 4.7   |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 9   |
+| io.haswell.8core  | 8  | 39  | 20 | 350  | 370  | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 18  |
+| io.haswell.16core | 16 | 78  | 20 | 700  | 720  | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 36  |
+| io.haswell.32core | 32 | 156 | 20 | 1400 | 1420 | 4.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 72  |
+| io.haswell.46core | 46 | 242 | 20 | 2100 | 2120 | 5.2  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 108 |
 | tb.4.735RAM  | 80 | 735  | 80 (SSD/RAID0) | 3300 (SSD/RAID0)  | 3380  | 9.2  || 220 (350) |
 | tb.westmere.32core    | 32 | 488 | 80 (RAID6) | 3250 (RAID6) | 3330 | 15.2 || 200 |
 | tb.westmere.64core    | 64 | 976 | 80 (RAID6) | 6500 (RAID6) | 6580 | 15.2 || 400 |

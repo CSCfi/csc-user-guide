@@ -1,5 +1,142 @@
 # Data management
 
+## Sensitive Data (SD) Desktop: Data gateway error workaround, 7.11.2025
+
+The Data Gateway application can no longer be opened on all virtual desktops created before November 5, 2025 and shows the error: "Initializing Data Gateway failed." A one time workaround is available and must be applied by each virtual desktop user. [Step by step instructions and video tutorial](../../data/sensitive-data/gatewaycertificatefinal.md).
+
+
+## The Kaivos database service will be decommissioned by the end of the year 2025
+
+The [Kaivos database service](../../data/kaivos/overview.md) will be
+decommissioned by the end of the year 2025. The Kaivos database service is no
+longer available to new users. The service will be replaced by Pukki database
+service. Instructions related to the use of Pukki database service can be
+found in the [Pukki user guide](../../cloud/dbaas/index.md).
+
+## Sensitive Data (SD) Desktop export problem: quick workaround, 18.8.2025
+
+Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager.  
+To resolve this issue, a one time workaround is available. It must be applied per virtual desktop, either via graphical interfaces (Data Gateway and SD Tool Installer) or programmatically.
+
+Step by step instructions:
+
+### 1) Via Graphical Interface
+
+If you don’t already have the SD Tool installer, email servicedesk@csc.fi (subject: SD services) and include your [project’s SD Connect share ID to request access](../../data/sensitive-data/sd-connect-share.md).
+
+- Log in to your virtual desktop and refresh access in Data Gateway to get the latest version of the tools. 
+- If not already on the virtual desktop, copy the SD Tool installer there (using the copy-paste function). Right-click it, select **Allow Launching**, and open the SD Tool installer.
+- Click **Update CA Certificate** in the SD Tool installer and confirm from the installer’s message box that the update is done.
+- Close the SD Tool installer, disconnect from Data Gateway and log out from the virtual desktop. 
+- You can now log in to the virtual desktop again and continue with exports as usual.
+
+### 2) Programmatically
+
+Log in to your virtual desktop.  Open the terminal (right-click).
+
+- Open the clipboard with the key combination `Ctrl + Alt + Shift` and activate the copy-paste function by selecting Input method → Text input. 
+  The Clipboard panel will close automatically after the selection, and the input bar will appear at the bottom of the virtual desktop.
+
+- Copy the following commands into the input bar. They will be visible in the terminal.  
+  You can paste them with `Ctrl + C` or by right-clicking.
+
+    ```bash
+    mkdir -p /shared-directory/.certs
+    ```
+
+    **Press Enter**
+
+    ```bash
+    cp $FS_CERTS /shared-directory/.certs/
+    ```
+
+    **Press Enter**
+
+    ```bash
+    openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null \
+    | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
+    >> /shared-directory/.certs/ca.crt
+    ```
+
+    **Press Enter**
+
+    ```bash
+    echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
+    ```
+
+    **Press Enter**
+
+- **Log out** from the virtual desktop and try the export again.
+
+## Temporary workaround for importing files from SD Connect into SD Desktop, 3.6.2025 <a id="sd-workaround"></a>
+
+We're currently having a technical issue where some files can't be imported from SD Connect to SD Desktop using the Data Gateway app (both the interface and command-line tool). You will see an "input/output error" for these files. Not all files are affected, only certain ones.
+
+We are still investigating the underlying cause of this problem. In the meantime, you can use this workaround to access and copy files.
+
+### Step 1: Open the connection between SD Desktop and SD Connect
+
+1. Login to your virtual desktop, close and disconnect Data Gateway application.
+2. On the left side navigation bar, open the terminal and type the following command:
+
+    ```bash
+    go-fuse -http_timeout=60
+    ```
+
+3. Press Enter. The tool will next ask your CSC username and CSC password.
+4. Write your username, press Enter, enter your password and press Enter. Note, characters will not be displayed when you enter the password.
+
+    ![Open connection.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-Temp1.png)
+
+After a few seconds the tool will display:
+
+```text
+INFO [DATE] Data Gateway database completed
+INFO [DATE] Mounting Data Gateway at home/username/Projects
+```
+
+This means that now the connection is open and all the files are displayed in the project folder. Do not close the terminal until you have access to all the files you are interested in.
+
+### Step 2: Open the project folder
+
+1. On the left navigation bar, double click to open the folder icon called Files.
+2. In the new window, on the bottom of the navigation bar you can now locate the Projects folder.
+3. Once you click on it, you can display all you the files stored in SD Connect and copy them inside your Desktop.
+4. To close the connection, click on the Unmount icon next to the Projects folder icon.
+
+    ![Open connection.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-Temp2.png)
+
+## Sensitive Data (SD) Connect: new command line tools for automated key management, 02.2025
+
+We are excited to announce that, starting February 2025, new command line tools are available for automated key management with SD Connect. These tools allow you to upload and download files (using a-commands) and manage encryption keys automatically (using lock-unlock commands). After encrypting and uploading data programmatically, you can access it via the SD Connect user interface or SD Desktop. Please note that these tools require coding skills. A step-by-step guide is provided below to help you get started.
+
+Important: files uploaded programmratically before February 2025 were manually encrypted with your encryption key and will require manual decryption after download.
+
+Contiure reading: [user guide](../../data/sensitive-data/sd-connect-command-line-interface.md)
+
+For questions, support or traning, don't hesitate to conact us at servicedesk@csc.fi (subject: SD Connect)
+
+
+## SD Desktop, upgrade Heavy Computation option, 15.01.2025
+
+We have updated the Heavy Computation virtual desktop option with the following specifications:
+
+- Cores: 28 (previously 32)
+
+- Memory: 176 GB (previously 116)
+
+- Root Disk: 80 GB 
+
+- Identifier: hpc.6.28 core (previously 5.32)
+
+- Cost: 65 Billing Units/hour (previously 52)
+
+This change only affects new virtual desktops created after January 15. 
+
+Existing virtual desktops are not affected and will continue to operate as usual.
+
+
+
 ## SD Connect major upgrade, 7.10.2024
 
 On Monday October 7 SD Connect service has been upgraded. Please note, this upgrade will not affect your data. Files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part: ​​
@@ -29,6 +166,27 @@ On Monday October 7 SD Connect service has been upgraded. Please note, this upgr
 * If you have any questions or need assistance, please [contact CSC Service Desk](../contact.md) (subject: Sensitive Data).
 * Join us every Wednesday for the CSC Research Support Coffee session at 14:00 Finnish time for questions and support: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success). For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
 
+### SD Connect Downloading via Firefox: troubleshooting
+
+Firefox is a supported browser; however you might encounter issues where the download does not start.
+
+If this is your first time using the service, or if you have cleared your browser history and cookies, a pop-up may appear asking you to accept cookies. This pop-up only appears when you click on Download and may not be immediately visible, as it appears on the top bar of the browser. Please click Accept to enable the download to start." 
+
+If you have used the service before, but the download suddenly no longer starts, follow these steps (this process only needs to be done once):
+
+1. In your browser, click **Tools** > **Browser Tools** > **Web Developer Tools** (or on your keyboard press F12 for Windows or Fn+F12 on your Mac).
+2. A new window will open at the bottom of your browser. Click **Application** tab.
+3. Next to **Service Worker**, click **Unregister**.
+4. You can close **Web Developer Tools** window.
+5. Refresh your browser and download files.
+
+
+
+![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
+
+![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
+
+
 ## SD Desktop: CentOS 7 will no longer be supported after June 2024
 
 We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops.
@@ -53,11 +211,11 @@ User guide is available [here](../../data/sensitive-data/sd_connect.md)
 
 As of September 6, 2023, we have introduced two significant changes to our service usage according to CSC's data retention policies, which are currently in effect:
 
-* Billing Unit consumption: when all billing units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional billing units are allocated to the project.
+* Billing Unit consumption: when all Billing Units allocated to a CSC project have been consumed, access to the SD Desktop service will be restricted, and virtual desktops associated with the project will be automatically paused. This means that users will temporarily lose access to the SD Desktop service until additional Billing Units are allocated to the project.
 
 * CSC Project closure: content stored within the SD Desktop and SD Connect services is subject to permanent deletion 90 days after the closure of a CSC project. **It is important to note that once data is deleted, it cannot be restored.**
 
-To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when billing units have been consumed and when a  CSC project is scheduled for closure.
+To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when Billing Units have been consumed and when a  CSC project is scheduled for closure.
 
 ## SD Desktop: Ubuntu OS now available, 8.9.2023
 

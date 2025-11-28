@@ -30,7 +30,7 @@ are meant for things like moving data and setting up and managing your
 batch jobs. You should not run actual jobs on the login nodes. There
 are only two login nodes and they are shared by everybody. Running big
 jobs on them can make the system slow and unresponsive for all
-(More details in our [usage policy](../../../computing/usage-policy)).
+(More details in our [usage policy](../../computing/usage-policy.md)).
 
 Jobs should be run in the compute nodes. This is done using the *batch
 job system* also called a *scheduler* or a *workload manager*. The
@@ -176,7 +176,7 @@ when the time reservation runs out, whether it is finished or not.
 
 On the other hand reserving too much time is not that big of a
 problem. The job will finish when the last task of the job
-finishes. Your job will only consume billing units according to the
+finishes. Your job will only consume Billing Units according to the
 actual elapsed time, not according to reservation.
 
 It is OK to reserve the maximum time allowed in the partition you are

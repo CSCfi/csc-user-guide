@@ -43,14 +43,27 @@ If you know that your computations are highly parallelizable, you should
 consider running them on the
 [Mahti supercomputer](../../computing/available-systems.md#mahti).
 Compared to Puhti, Mahti has many more CPU nodes and cores per node. Mahti is
-intended for computations that are able to effectively utilize at least an
-entire CPU node.
+mainly intended for computations that are able to effectively utilize at least
+an entire CPU node, but there are also partitions available offering core-based
+allocations for smaller jobs. Like Puhti, GPU nodes and some CPU nodes on Mahti
+have
+[fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
 
 Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
 are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
 also suitable for demanding [machine learning](ml-guide.md) applications.
-In contrast to Puhti, only the GPU nodes on Mahti have fast local NVMe storage
-available.
+
+### Roihu (coming in spring 2026)
+
+Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
+next-generation supercomputer offering enhanced performance and capabilities.
+
+- Puhti computing services will be shut down one month after Roihu general
+  availability in spring 2026.
+- Puhti storage will remain accessible at least until the end of June 2026.
+- Mahti will be shut down in August 2026.
+
+[Learn more about Roihu here!](../../computing/systems-roihu.md)
 
 ### LUMI
 
@@ -119,9 +132,9 @@ interface to interact directly with the supercomputer's
 [Linux operating system](./env-guide/index.md). While this way of working may
 seem archaic, it is truly powerful once you get used to it.
 
-The CLI allows you to 
+The CLI allows you to
 [submit your computations as batch jobs](../../computing/running/getting-started.md)
-to the SLURM job scheduler, which runs them as soon as the requested resources
+to the Slurm job scheduler, which runs them as soon as the requested resources
 are available. Importantly, the batch job system ensures that your jobs are run
 on the *compute nodes* opposed to the *login nodes*,
 which are [**not** intended for heavy computing](../../computing/usage-policy.md).
@@ -134,7 +147,16 @@ as reviewers and collaborators.
 You can access the command-line interface either by
 using the [shell applications](../../computing/webinterface/shell.md)
 featured in the web interfaces or by
-[using an SSH client on your own workstation](../../computing/connecting/index.md).
+[using an SSH client on your own workstation](../../computing/connecting/index.md#using-an-ssh-client).
+
+!!! note "Connecting with SSH"
+    Please note that connecting to CSC supercomputers from the command-line
+    using an SSH client requires that you first set up SSH keys and add your
+    public key to the MyCSC customer portal. Using SSH keys and MyCSC for
+    adding your public key to a supercomputer is a much more secure way of
+    authenticating than traditional passwords or manually managed SSH keys.
+
+    [Read the detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
 
 ## How to work with software and data?
 
@@ -195,8 +217,8 @@ under `/scratch/<project>`. This folder is shared by *all users* in a project
 and has a default quota of 1 TB.
 
 Please note that the **scratch disk is not meant for long-term data storage**
-and, on Puhti, files that have not been used for 180 days will be automatically
-removed. We recommend the
+and, on Puhti, files that have not been used for 180 days (scratch quota less than 5 TiB)
+or 90 days (scratch quota 5 TiB or more) will be automatically removed. We recommend the
 [Allas object storage service](../../data/Allas/introduction.md) for storing
 research data that is not actively used on the supercomputers. See
 [guidelines for managing data on Puhti and Mahti scratch disks](clean-up-data.md)
@@ -237,7 +259,7 @@ at CSC.
       [adding members to an existing one](../../accounts/how-to-add-members-to-project.md)
     - [Adding service access for a project](../../accounts/how-to-add-service-access-for-project.md)
     - [Billing](../../accounts/billing.md) and
-      [applying for billing units](../../accounts/how-to-apply-for-billing-units.md)
+      [applying for Billing Units](../../accounts/how-to-apply-for-billing-units.md)
     - [Changing your password](../../accounts/how-to-change-password.md)
     - [MyCSC customer portal](https://my.csc.fi)
 

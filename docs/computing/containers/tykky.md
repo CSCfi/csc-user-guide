@@ -10,8 +10,8 @@ Tykky use cases:
 - Conda installations, based on Conda `environment.yml`.
 - Pip installations, based on pip `requirements.txt`.
 - Container installations, based on existing Docker or Apptainer/Singularity images.
-    - This includes installations from the Bioconda channel, see [this tutorial for
-      an example](../../support/tutorials/bioconda-tutorial.md).
+    - This includes installations from the Bioconda channel, see
+      [this tutorial for an example](../../support/tutorials/bioconda-tutorial.md).
 
 Tykky wraps installations inside an Apptainer/Singularity container to improve startup
 times, reduce I/O load, and lessen the number of files on large parallel file systems.
@@ -46,12 +46,17 @@ module load tykky
 
 ## Conda-based installation
 
-First, make sure that you have read and understood the license terms for Miniconda
-and any used channels before using the command.
+!!! note "About licensing"
+    If you use environments installed with Tykky versions older than 0.4.0,
+    please ensure that you have read and understood the license terms for
+    Miniconda and any used channels before using the command.
+    
+    - [Anaconda terms of service](https://legal.anaconda.com/policies/en?name=terms-of-service#anaconda-terms-of-service).
+    - [Miniconda end-user license agreement](https://legal.anaconda.com/policies/en?name=terms-of-service#offering-description-miniconda).
+    - [Anaconda terms of service FAQs](https://www.anaconda.com/pricing/terms-of-service-faqs).
 
-- [Miniconda end-user license agreement](https://legal.anaconda.com/policies/en?name=offering-specific-terms#miniconda).
-- [Anaconda terms of service](https://legal.anaconda.com/policies/en/?name=terms-of-service#terms-of-service).
-- [A blog entry on Anaconda commercial edition](https://www.anaconda.com/blog/anaconda-commercial-edition-faq).
+    Tykky versions 0.4.0 and later use Miniforge, for which the above license restrictions do not apply.
+    [See Tykky release history](https://github.com/CSCfi/hpc-container-wrapper/releases).
 
 1) Create a **Conda environment file** `env.yml`:
 
@@ -226,11 +231,14 @@ wrap-container -w /path/inside/container <container> --prefix <install_dir>
 With very large installations the resources available on the login node might
 not be enough, resulting in Tykky failing with a `MemoryError`. In this case, the
 installation needs to be done on a compute node, for example using an [interactive
-session](../../computing/running/interactive-usage.md#sinteractive-in-puhti):
+session](../../computing/running/interactive-usage.md#sinteractive-on-puhti):
 
 ```bash
 # Start interactive session, here with 12 GB memory and 15 GB local disk (increase if needed)
+# In Puhti:
 sinteractive --account <project> --time 1:00:00 --mem 12000 --tmp 15
+# In Mahti:
+sinteractive --account <project> --time 1:00:00 --cores 8 --tmp 15
 
 # Load Tykky
 module purge

@@ -1,6 +1,14 @@
 ---
 tags:
   - Academic
+catalog:
+  name: TmoleX
+  description: GUI for setting up and analyzing TURBOMOLE jobs
+  license_type: Academic
+  disciplines:
+    - Chemistry
+  available_on:
+    - Puhti
 ---
 
 # TmoleX
@@ -33,7 +41,7 @@ academic (i.e. degree-granting) institutes.
 Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using
 your CSC/Haka user account.
 
-1. From there [launch a Desktop](../../computing/webinterface/desktop/#launching). 
+1. From there [launch a Desktop](../computing/webinterface/desktop.md#launching). 
 2. Open a `Terminal` and load the TURBOMOLE module `module load turbomole/7.8`.
 3. Start TmoleX with the command `TmoleX24`.
 4. Select `New Project` and define a suitable project in the `File Name` slot

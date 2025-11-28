@@ -6,11 +6,14 @@
 * [How to get access to Puhti](how-to-get-puhti-access.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
-* [How can I move data between CSC and my local computer?](../../data/moving)
+* [How can I move data between CSC and my local computer?](../../data/moving/index.md)
 * [Disk quota exceeded](disk-quota-exceeded.md)
 * [I need a Database, where can I deploy it?](database.md)
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
 * [How to write good support requests to CSC Service Desk](../support-howto.md)
+* [My SSH keys do not work](ssh-keys-not-working.md)
+* [I have questions about the Billing Unit renewal (2025)](bu-renewal.md)
+* [Connecting to CSC supercomputers using VS Code fails with out-of-memory error](vscode-out-of-memory.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -22,10 +25,11 @@
 
 ## Accounts
 * [I cannot login. What to do?](i-cannot-login.md)
-* [I forgot my CSC password. How do I get a new one?](new-password.md)
+* [I forgot MyCSC password. How do I get a new one?](new-password.md)
+* [How to solve issues with multi-factor authentication (MFA)](issues-with-mfa.md)
 * [How to create a CSC user account?](how-to-create-CSC-user-account.md)
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
-* [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
+* [Why is a user called 'system' using our resources](who-unknown-is-using-our-resources.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
 * [I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?](how-to-change-organization.md)
 * [A foreign researcher is joining our research group as a visiting scientist. Can they receive an academic CSC user account?](can-visitors-get-user-accounts.md)
@@ -40,6 +44,12 @@
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
 
+## Python on supercomputers
+* [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+* [How do I create my own Python environment?](../tutorials/python-usage-guide.md#creating-your-own-python-environments)
+* [How to troubleshoot Python installation problems?](python-package-trouble.md)
+* [How to avoid Python pip cache filling up my home directory](python-pip-cache.md)
+
 ## Allas
 
 * [How to move data from Puhti to Allas and vice versa?](how-to-move-data-between-puhti-and-allas.md)
@@ -47,41 +57,44 @@
 * [Is it possible to move data in Allas to new project?](is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](is-it-possible-to-make-data-in-allas-read-only.md)
 * [What to do for data in Allas after project ends?](what-to-do-for-data-in-allas-after-project-ends.md)
+* [How to make a bucket public?](how-to-make-a-bucket-public.md)
 
 ## Pouta
 
-* [How to use cPouta for Remote Desktop](how-to-use-pouta-for-remote-desktop.md)
-* [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
-* [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
-* [How to mount my Allas S3 bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
-* [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
+* [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-cpouta.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
-* [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
-* [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
+* [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
 * [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
-* [Can I access my CSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
-* [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
-* [Is Pouta backed up?](is-pouta-backed-up.md)
 * [How can I store data on Pouta?](how-to-store-data-in-pouta.md)
-* [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
-* [How to rescue a Pouta instance](pouta-openstack-rescue-mode.md)
+* [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
+* [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
 * [How to get Allas S3 credentials](how-to-get-Allas-s3-credentials.md)
+* [How to mount my Allas S3 bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
+* [How to rescue a Pouta instance](pouta-openstack-rescue-mode.md)
 * [How to resize an instance or volume in Pouta?](how-to-resize-in-pouta.md)
+* [How to use cPouta for Remote Desktop](how-to-use-cpouta-for-remote-desktop.md)
+* [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
+* [Is nested virtualization supported on Pouta?](is-nested-virtualization-supported.md)
+* [Is Pouta backed up?](is-pouta-backed-up.md)
+* [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
+* [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
+* [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
 
-## Rahti 1
+## Rahti
 
-* [Why Rahti cannot find this docker image?](get-image-format.md)
-
-## Rahti 2
-
-* [Protecting against DDoS Attacks](DDos.md)
-* [Do you offer in Rahti 2 SSL certificates?](rahti-ssl-certificates.md)
-* [Why this container report permission denied errors?](why-this-container-does-not-work.md)
-* [Does Rahti 2 support UDP connections?](rahti-udp.md)
-* [Why my SSH key does not work in Rahti 2?](ssh-clone.md)
+* [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
+* [Does Rahti support UDP connections?](rahti-udp.md)
+* [How to add docker hub credentials to a project](docker_hub_login.md)
+* [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)
+* [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
-* [How to pull images from Rahti v1 registry](pull-from-rahtiv1-registry.md)
-
+* [How to package a Kubernetes application with Helm](helm.md)
+* [How to run an ad-hoc interactive container](oc-run.md)
+* [How to transfer data to Rahti?](transfer_data_rahti.md)
+* [Protecting against DDoS Attacks](DDos.md)
+* [Why my SSH key does not work in Rahti?](ssh-clone.md)
+* [Why Rahti cannot find this docker image?](get-image-format.md)
+* [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
 ## Sensitive Data Services for research
 
@@ -104,7 +117,7 @@
 * [What type of data can I process using the services?](sensitive-data-general.md#what-type-of-data-can-i-process-using-the-services)
 * [Do you provide a backup service?](sensitive-data-general.md#do-you-provide-a-backup-service) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
-* [Do I need any particular experties to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-experties-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
+* [Do I need any particular expertise to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-expertise-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
 * [How long does it take to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#how-long-does-it-take-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
 
 ### Encryption

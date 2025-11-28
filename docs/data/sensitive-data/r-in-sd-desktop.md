@@ -5,19 +5,19 @@ contains R and RStudio installations and over 1000 commonly used R libraries. Ho
 are nearly 20 000 libraries in the CRAN repository and over 2000 libraries in the Bioconductor 
 repository, it is quite common that some library that you would like to use is not included in the default selection.
 
-This document describes the usage of help tools that you can use to add RStudio 4.2.2 and missing R libraries to your SD Desktop environment. 
+This document describes the usage of help tools that you can use to add RStudio 4.4.2 and missing R libraries to your SD Desktop environment. 
 The process described here is the first prototype implementation of this service and it is likely the change in the future.
 
 ## Requirements
 
-In order to get access to the installation tool, you need to **send a request to [CSC Service desk](/support/contact/)**.
+In order to get access to the installation tool, you need to **send a request to [CSC Service desk](/support/contact.md)**.
 In the request, indicate that you wish that the SD Desktop software installation help tools would be made available for your project. 
 You must also include to the message the **Project identifier string** of your project.
 
 You can check this random string for example in the [SD Connect service](https://sd-connect.csc.fi). There you find the 
 Project Identifier in the **User information** view. 
 
-## Installing RStudio 4.2.2
+## Installing RStudio 4.4.2
 
 Log in to your SD Desktop and open **Data Gateway**. If the software installation help tools are enabled for your project, then you should have folder: 
 `tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD Connect/your-project-name`).
@@ -27,7 +27,7 @@ Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer.
 
 **Figure 1.** Copying `sd-installer.desktop` file to SD desktop.
  
-Double click the copy of `sd-installer.desktop` to start the software installation tool. Use this tool to install _RStudio 4.2.2_ 
+Double click the copy of `sd-installer.desktop` to start the software installation tool. Use this tool to install _RStudio 4.4.2_ 
 to your SD Desktop virtual machine if you have not yet done so. The installation takes several minutes. 
 
 [![sd-installer](/data/sensitive-data/images/desktop/sd-installer2.png)](/data/sensitive-data/images/desktop/sd-installer2.png)

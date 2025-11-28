@@ -13,7 +13,8 @@ Also note that:
   CSC has allocated more quota than there is space, hence it is not even possible for all users
   to use their `scratch` folders for longer term storage.
 * There are **no backups** of `scratch` disk area. Do not trust it to store all of your research data.
-* Removing files may decrease the BU consumption of your project, since you are billed for excess disk usage beyond 1 TiB.
+* Removing files may decrease the Storage BU consumption of your project, since you are
+  [billed](../../computing/hpc-billing.md#scratch-disk-billing) for excess disk usage beyond 1 TiB.
 
 We kindly ask all users to help to keep disk usage manageable, and performance reasonable.
 Please do the following tasks:
@@ -29,7 +30,7 @@ Please do the following tasks:
   medium sized data transfers, in particular when you have a large amount of small files.
   These tools make the usage of Allas safer, and can make your data management easier.
   For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md).
-  A tutorial for data transfer is available at [allas-examples](../../data/Allas/allas-examples.md).
+  A tutorial for data transfer is available at [Allas HPC tutorial](../../data/Allas/allas-hpc.md).
 * **Archive files** that should be available longer than the lifetime of compute projects.
   Options for this can be for example your organizations own storage systems, or
   [IDA safe storage for research data](https://www.fairdata.fi/en/).
@@ -57,8 +58,10 @@ size information. Run `man lfs-find` for further instructions and information on
 
 ## Automatic removal of files
 
-There is a policy of removing files older than 180 days from `scratch` (not `projappl`) to ensure
-that only actively used data resides on the disk (currently implemented only on Puhti).
+There is a [policy](../../computing/usage-policy.md#disk-cleaning) of removing files
+older than **180 days** (`scratch` quota less than 5 TiB) or **90 days** (`scratch` quota
+5 TiB or more) from `scratch` (not `projappl`) to ensure that only actively used data
+resides on the disk (currently implemented only on Puhti).
 
 Files that will be deleted in the next clean up are listed in so called "purge lists" files.
 These are split up by project, and can be found on Lustre at one of the locations below.
@@ -110,12 +113,19 @@ The file system tools which CSC uses to generate the list of files to remove wil
 which are quite verbose and difficult to read. By using the LCleaner tool described in the next section,
 users can get the relevant information in a more user-friendly format.
 
-## Using LCleaner to check which files will be automatically removed
+## Using LCleaner and the web interface to check which files will be automatically removed
 
 LCleaner is a tool developed by CSC, which is intended to help you to discover what files your
 project has that have been targeted for automatic removal.
 
 Run `lcleaner --help` on the login nodes to see what options LCleaner supports.
+
+In addition to lcleaner, [Puhti web interface](https://www.puhti.csc.fi) provides a graphical tool
+"File Deletion Explorer (beta)" to inspect the purge lists. This tool can be found in the
+web interface under the "Tools" drop-down menu. It can visualize the purge list contents in a
+treemap, show size distribution of the files, and do file name suffix analysis. You can also filter
+files based on the file path and name, and output the filtered lists as text files for later
+operations on the command line.
 
 ### LCleaner examples
 

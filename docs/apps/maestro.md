@@ -1,9 +1,19 @@
 ---
 tags:
   - Academic
-system:
-  - www-puhti
-  - www-mahti
+catalog:
+  name: Maestro
+  description: Versatile drug discovery and materials modeling suite
+  license_type: Academic
+  disciplines:
+    - Chemistry
+    - Biosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+        - Mahti
+    - Puhti
+    - Mahti
 ---
 
 # Maestro
@@ -25,13 +35,26 @@ self-learning materials.
 
 ## Available
 
-* Puhti: 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3, 2024.4
-* Mahti: 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3, 2024.4
+* Puhti: 2024.1, 2024.2, 2024.3, 2024.4, 2025.1, 2025.2, 2025.3, 2025.4
+* Mahti: 2024.1, 2024.2, 2024.3, 2024.4, 2025.1, 2025.2, 2025.3, 2025.4
 
 A two-year cleaning cycle is applied on the Maestro modules on CSC supercomputers.
 Specifically, this means that module versions older than two years will be removed.
 This policy is enforced to free up disk space and encourage use of the latest versions
 which tend to be more performant and have less bugs.
+
+!!! info "Maestro versions older than 2023.1 will not work after 13.3.2025!"
+    Schrödinger has taken into use a
+    [new license manager](https://www.schrodinger.com/life-science/learn/white-paper/new-schrodinger-license-manager/),
+    which does not support Maestro versions older than 2023.1. Consequently,
+    **CSC's will no longer be able to provide a license for Maestro versions
+    2022.4 and older after 13th of March 2025**. If not done already, please
+    migrate to using versions 2023.1 or later as soon as possible!
+
+    Please note that CSC's Schrödinger Maestro
+    [license configuration instructions](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
+    have also been updated accordingly.
+    [See more details below](#local-installation).
 
 !!! info "Some notes about warnings"
     Maestro gives a warning for using a `schrodinger.hosts` file from your home
@@ -47,22 +70,16 @@ which tend to be more performant and have less bugs.
 ## License
 
 Maestro is available for all academic users in Finland: staff and students, for academic
-purposes. Please consult the [EULA](https://www.schrodinger.com/maestro-academic-eula)
+purposes. Please consult the [EULA](https://www.schrodinger.com/eula)
 for the exact definition. Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens. If licenses run out, contact
-us via [ServiceDesk](/support/contact/).
+us via [ServiceDesk](../support/contact.md).
 
 ## Usage
 
 It is recommended to download and install Maestro on your own computer, see below.
 
 ### Local installation
-
-!!! info "Maestro versions 2024.3 onward use a new license manager"
-    Please note that the
-    [license configuration instructions](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
-    have been updated for Maestro versions 2024.3 and later, which use the new
-    Schrödinger License Manager (SLM).
 
 Maestro can be installed on a Linux, Mac or Windows computer. Download the
 appropriate files from [the Schrödinger website](https://www.schrodinger.com/).
@@ -149,7 +166,7 @@ bash your_script_name.sh
     [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but
     the performance may be somewhat slow and submitted jobs may end up fizzled. Also,
     **no long/heavy tasks** should be done on the login nodes. Please consult the
-    [Usage policy](../../computing/usage-policy) page for more details.
+    [Usage policy](../computing/usage-policy.md) page for more details.
 
 !!! info "Note for Windows users"
     **Windows** users may need to edit the script created by the GUI a little.

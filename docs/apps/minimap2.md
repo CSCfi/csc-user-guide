@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Minimap2
+  description: Short read aligner
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Minimap2
@@ -21,7 +29,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Puhti: 2.24
+* Puhti: 2.24, 2.28
 * Chipster graphical user interface
 
 ## Usage

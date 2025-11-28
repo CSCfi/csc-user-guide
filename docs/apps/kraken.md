@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: Kraken
+  description: Taxonomic sequence classification system
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # Kraken

@@ -1,14 +1,17 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Federated European Genome-phenome Archive (FEGA)
 
 Federated European Genome-phenome Archive (FEGA) is a service for storing and publishing human genetic and phenotypic data consented for research. The service is based on a European network of local repositories. CSC hosts Finnish FEGA. Please note that this user guide is specific for Finnish FEGA service.
 
-You can use FEGA either to submit, apply or approve access to biomedical datasets. The service allows you to store sensitive research data under controlled access in Finland. At the same time, the public study information (metadata) is made internationally available in central [European Genome-phenome Archive](https://ega-archive.org/studies) (EGA). Each dataset is associated with a Data Access Committee (DAC), which evaluates data access applications and can grant or deny data access for re-use. If the application is approved, the applicant can directly access and analyse the sensitive data in a secure and private cloud workspace using CSC Sensitive Data Services for research. FEGA requires a separate contract. Choose the correct user guide below:
+You can use FEGA either to submit, apply or approve access to biomedical datasets. The service allows you to store sensitive research data under controlled access in Finland. At the same time, the public study information (metadata) is made internationally available in central [European Genome-phenome Archive](https://ega-archive.org/studies) (EGA). Each dataset is associated with a Data Access Committee (DAC), which evaluates data access applications and can grant or deny data access for re-use. If the application is approved, the applicant can directly access and analyse the sensitive data in a secure and private cloud workspace using CSC Sensitive Data Services for research. Submitting data to FEGA requires a separate contract. Choose the correct user guide below:
 
 ## I want to ...
 
-### [... access data.](./fega-application.md)
-### [... approve data access.](./fega-dac.md)
-### [... submit data.](./fega-submission.md)
+- **[Publish data in FEGA](./fega-submission.md)**
+- **[Apply access to FEGA data](./sd-apply-access.md)**
+- **[Approve access to FEGA data](./sd-apply-approval.md)**
+- **[Enable reuse of FEGA data](./sd-apply-dac.md)**
 
 <br/>
 

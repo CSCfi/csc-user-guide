@@ -25,7 +25,7 @@ The tools used in the workflow can be installed in following ways:
     * If all Snakemake rules use the same module(s), load it before running snakemake commands.
     * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
 2. Own custom installations as Apptainer containers:
-    * Apptainer container can be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
+    * Apptainer container can be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/overview.md#building-container-images).
     * See Snakemake's [Running jobs in containers](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) for changes required in Snakemake file and command.
     * For binding folders or using other Apptainer flags, use [--apptainer-args option](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) of `snakemake` command.
     * Sometimes it might be necessary to [define the shell inside the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#handling-shell-executable). 
@@ -96,6 +96,9 @@ rule capitalise:
                 tr '[:lower:]' '[:upper:]' < {input} > {output}
                 """
 ```
+
+For more complicated workflows, you can do argument parsing and transformations programmatically using Snakemake's
+[job properties file](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties).
 
 ### Running Snakemake workflow with local executor interactively
 The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for [interactive partition](../../computing/running/batch-job-partitions.md).

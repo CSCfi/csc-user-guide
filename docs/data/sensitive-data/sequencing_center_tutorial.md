@@ -1,5 +1,9 @@
 # Using Allas storage service to receive sensitive research data
 
+This document provides an example of how a research group can use Allas service to receive **sensitive data** from external 
+data provider like a sequencing center. In many cases [SD Connect](sd-connect-sharing-for-import.md), provides you a more easy way to receive sensitive data but in some cases, SD Connect can't be used. For example, SD Connect is not able to provide you an encrypted file that you could later on decrypt in an environment that does not have internet connection.
+
+## Allas
 
 Allas storage service is a general purpose data storage service maintained by CSC. 
 It provides free-of-charge storage space for academic research projects at Finnish universities and research institutes. 
@@ -9,9 +13,6 @@ Allas is however not intended for data archiving. You must remove your data from
 There is no automatic backup processes in Allas. In technical level Allas is very reliable and fault-tolerant, 
 but if you, or some of your project members, remove or overwrite some data in Allas, 
 it is permanently lost. Thus, you might consider making a backup copy of your data to some other location.
-
-This document provides an example of how a research group can use Allas service to receive **sensitive data** from external 
-data provider like a sequencing center. 
 
 The steps 1 (Obtaining storage space in Allas), and 2 (Generating encryption keys) require some work, 
 but they need to be done only once. Once you have the keys in place you can move directly to step 3 when you 
@@ -34,16 +35,17 @@ Create a CSC account by logging in to MyCSC with Haka or Virtu.
 
 ### Step 1.2. Create or join a project
 
-In addition to CSC user account, new users must either join a CSC computing project 
-or set up a new computing project. You can use the same project to access other 
-CSC services too like Puhti, cPouta, or SD desktop.
 
-Create a CSC project in MyCSC and apply access to Allas. See if you are eligible to act as a project manager. 
-If your work belongs to any of the free-of-charge use cases, select 'Academic' as the project type. 
-As a project manager, you can invite other users as members to your project. 
+In addition to CSC user account, users must either join an existing CSC computing project 
+or set up a new computing project. You can use the same project to access other 
+CSC services too like SD Desktop, SD Connect pt Puhti.
+
+If you are eligible to act as a [project manager](https://research.csc.fi/prerequisites-for-a-project-manager), you can create a new CSC project in MyCSC and apply access to Allas.
+Select 'Academic' as the project type.  As a project manager, you can invite other users as members to your project. 
 
 If you wish to be joined to an existing project, please ask the project manager to add your CSC user account to the 
 project member list.
+
 
 ### Step 1.3. Add Allas access for your project
 
@@ -138,7 +140,7 @@ sensitive data services of CSC.
             * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-#### Cretating encryption keys via command line tools
+#### Creating encryption keys via command line tools
 
 In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
 

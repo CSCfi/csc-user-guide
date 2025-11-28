@@ -47,7 +47,7 @@ The following guidelines apply to the SLURM partitions on Puhti:
    and/or CPU cores is continuously available, your job will sit in the queue
    for as long as it takes for the requested amount of memory to become
    free. It is thus recommended to only request the amount of memory that is
-   necessary for running your job. Additionally, the amount of billing units
+   necessary for running your job. Additionally, the amount of CPU/GPU Billing Units
    consumed by your job is affected by the amount of memory requested, not
    the amount which was actually used. See
    [how to estimate your memory requirements](../../support/faq/how-much-memory-my-job-needs.md).
@@ -67,8 +67,8 @@ Puhti features the following partitions for submitting jobs to CPU nodes:
 | `small`           | 3 days        | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
 | `large`           | 3 days        | 1040             | 26           | M, L, IO                          | 373 GiB                | 3600 GiB                               |
 | `longrun`         | 14 days       | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
-| `hugemem`         | 3 days        | 160              | 4            | XL, BM                            | 1496 GiB               | n/a                                    |
-| `hugemem_longrun` | 14 days       | 40               | 1            | XL, BM                            | 1496 GiB               | n/a                                    |
+| `hugemem`         | 3 days        | 160              | 4            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
+| `hugemem_longrun` | 14 days       | 40               | 1            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
 
 ### Puhti GPU partitions
 
@@ -97,7 +97,7 @@ run two simultaneous jobs on the Puhti `interactive` partition.
 
 ## Mahti partitions
 
-### Mahti CPU partitions
+### Mahti CPU partitions with node-based allocation
 
 Mahti features the following partitions for submitting jobs to CPU nodes. Jobs
 submitted to these partitions occupy
@@ -106,7 +106,7 @@ and make it inaccessible to other jobs. Thus, your job should ideally be able
 to utilize all 128 cores available on each reserved node efficiently. Although
 in certain situations it may be worthwhile to
 [undersubscribe nodes](creating-job-scripts-mahti.md#undersubscribing-nodes),
-note that your job will still consume billing units based on the amount of
+note that your job will still consume CPU Billing Units based on the amount of
 reserved *nodes*, not CPU cores.
 
 Some partitions are only available under special conditions. The `large`
@@ -124,6 +124,37 @@ accessible to
 | `large`   | 36 hours      | 128                   | 20–200           | CPU                               | 256 GiB            | n/a                                    | [scalability test]              |
 | `gc`      | 36 hours      | 128                   | 200–700          | CPU                               | 256 GiB            | n/a                                    | [Grand Challenge project]       |
 
+### Mahti CPU partitions with core-based allocation
+
+Two CPU partitions on Mahti allow you to reserve cores instead of
+full nodes. These are the `small` partition and the `interactive`
+partition. In these partitions jobs are allocated 1.875 GiB of memory
+for each reserved CPU core, and the only way to reserve more memory is
+to reserve more cores. These partitions are also special in that you
+can reserve local storage on the node. It is important that you only
+request local storage if you are able to make use of it, and no more
+than you need. Since the local storage is limited, requesting a large
+amount of storage may increase your queueing time.
+
+The `interactive` partition on Mahti is intended for
+[interactive pre- and post-processing tasks](./interactive-usage.md). It
+allows reserving CPU resources without occupying an entire node, which means
+that other jobs may also access the same node. You can run up to 8
+simultaneous jobs on the `interactive` partition and reserve at most 32 cores,
+i.e., you may have one job using 32 cores, 8 jobs using 4 cores each, or
+anything in between.
+
+The `small` partition is intended for batch processing of small scale
+CPU compute workloads, that do not need a full node. It is also able
+to support applications that need local storage to perform
+optimally. Many workloads that have traditionally used Puhti, may
+benefit from this partition.
+
+| Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
+|---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
+| `small`       | 3 days        | 128              | 1            | CPU with NVMe                     | 240 GiB                | 3500 GiB                               |
+| `interactive` | 7 days        | 32               | 1            | CPU, CPU with NVMe                | 60 GiB                 | 3500 GiB                               |
+
 ### Mahti GPU partitions
 
 Mahti features the following partitions for submitting jobs to GPU nodes.
@@ -132,9 +163,9 @@ each reserved GPU.
 
 | Partition   | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |-------------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `gputest`   | 15 minutes    | 4           | 128              | 1            | GPU                               | 490 GiB                | 3800 GiB                               |
-| `gpusmall`  | 36 hours      | 2           | 64               | 1            | GPU                               | 490 GiB                | 3800 GiB                               |
-| `gpumedium` | 36 hours      | 24          | 768              | 6            | GPU                               | 490 GiB                | 3800 GiB                               |
+| `gputest`   | 15 minutes    | 4           | 128              | 1            | GPU                               | 490 GiB                | 3500 GiB                               |
+| `gpusmall`  | 36 hours      | 2           | 64               | 1            | GPU                               | 490 GiB                | 3500 GiB                               |
+| `gpumedium` | 36 hours      | 24          | 768              | 6            | GPU                               | 490 GiB                | 3500 GiB                               |
 
 !!! info "Fair use of GPU nodes on Mahti"
     You should reserve **no more than 32 CPU cores per GPU**.
@@ -153,22 +184,6 @@ To reserve a GPU slice, use `sinteractive` with the `-g` option, or include the
 `--gres=gpu:a100_1g.5gb:1` option together with specifying the `gpusmall`
 partition in your batch script. For more information, see the instructions on
 [creating GPU batch jobs on Mahti](creating-job-scripts-mahti.md#gpu-batch-jobs).
-
-### Mahti `interactive` partition
-
-The `interactive` partition on Mahti is intended for
-[interactive pre- and post-processing tasks](./interactive-usage.md). It
-allows reserving CPU resources without occupying an entire node, which means
-that other jobs may also access the same node. You can run up to 8
-simultaneous jobs on the `interactive` partition and reserve at most 32 cores,
-i.e. you may have one job using 32 cores, 8 jobs using 4 cores each, or
-anything in between. Mahti interactive jobs are allocated 1.875 GiB of memory
-for each reserved CPU core, and the only way to reserve more memory is to
-reserve more cores.
-
-| Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `interactive` | 7 days        | 32               | 1            | CPU                               | 60 GiB                 | n/a                                    |
 
 <!-- Links -->
 [Grand Challenge project]: https://research.csc.fi/grand-challenge-proposals

@@ -53,7 +53,7 @@ You can start the download by pressing the _Download_ button.
 
 ![Funet FileSender download page](/img/funet_download.png)
 
-You can also right click the download button and select _Copy Link_ to
+You can also right click the _Download_ button and select _Copy Link_ to
 get the download URL to the file. The URL can then be used to download the file
 using another tool, for example [`wget`](wget.md):
 
@@ -62,39 +62,40 @@ wget "https://filesender.funet.fi/download.php?token=4da0-b98e-3290c6471469&file
 ```
 
 !!! note "Note"
-    When downloading data from Funet FileSender with `wget` you must enclose
-    the download link with quotation marks and use option `-O` to define a file
-    name that will be used for the downloaded data.
+    1. When downloading data from Funet FileSender with `wget` you must enclose
+       the download link with quotation marks and use option `-O` to define a file
+       name that will be used for the downloaded data.
+    2. The `wget` method only works when downloading individual files. Copying
+       and using the URL of the _Download as single (.zip/.tar) file_ button to
+       download multiple files at once as an archive will unfortunately not
+       work.
 
 ## Using FileSender from the command-line
 
 FileSender can also be used from the command-line using a Python 3 utility
-script. These instructions have been adapted from the
-[AARNet Knowledge Base](https://support.aarnet.edu.au/hc/en-us/articles/5276533711887-Use-FileSender-from-the-command-line).
+script.
 
 Assuming you are on a Linux server (e.g. Puhti or Mahti):
 
 1. Download the `filesender.py` Python tool:
 
     ```bash
-    wget "https://filesender.aarnet.edu.au/clidownload.php" -O filesender.py
+    wget https://raw.githubusercontent.com/filesender/filesender/refs/tags/filesender-2.57/scripts/client/filesender.py
     ```
 
-2. Create a new folder `~/.filesender` in your home directory and download a
-   client configuration file there:
+2. Create a new folder `~/.filesender` in your home directory:
 
     ```bash
     mkdir -p ~/.filesender
-    wget "https://filesender.aarnet.edu.au/clidownload.php?config=1" -O ~/.filesender/filesender.py.ini
     ```
 
-3. Edit the `~/.filesender/filesender.py.ini` files as follows (decrease the
-   preservation time if needed):
+3. Create a `~/.filesender/filesender.py.ini` client configuration file as
+   follows (decrease the preservation time if needed):
 
     ```ini
     [system]
     base_url = https://filesender.funet.fi/rest.php
-    default_transfer_days_valid = 21
+    default_transfer_days_valid = 7
 
     [user]
     username = <your username>
@@ -111,5 +112,5 @@ Assuming you are on a Linux server (e.g. Puhti or Mahti):
    `recipient@example.com`) with:
 
     ```bash
-    python3 filesender.py -r recipient@example.com data.tar.gz
+    python3 filesender.py -r recipient@example.com ./data.tar.gz
     ```

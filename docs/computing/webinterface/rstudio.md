@@ -1,9 +1,61 @@
-The RStudio application will launch a RStudio session on Puhti
-with the specified resources using the selected
-[r-env](../../apps/r-env.md) version.
+# RStudio
 
-Selecting Multithreaded will set `OMP_NUM_THREADS`
-to the number of requested CPU cores.
+The RStudio application will launch an RStudio session with the specified resources using the
+selected [R environment (r-env) version](../../apps/r-env.md#available)).
 
-The user is automatically logged in to the rstudio session
-when pressing the **Connect to RStudio Server** button.
+The user is automatically logged in to the RStudio session when pressing the **Connect to RStudio
+Server** button.
+
+Selecting **Multithreaded** will set the environment variable `OMP_NUM_THREADS`, controlling the number
+of OpenMP threads, to the number of requested CPU cores. See [r-env documentation on
+threading](../../apps/r-env.md#improving-performance-using-threading) for more details.
+
+!!! note "When to use RStudio?"
+    RStudio sessions are meant for interactive work, for example R script development and running
+    light and medium-heavy analyses up to a few hours. Long, memory-intensive, or otherwise
+    resource-heavy tasks are best carried out as [non-interactive batch
+    jobs](../../apps/r-env.md#non-interactive-use).
+
+## Frequently asked questions about RStudio
+
+### RStudio is not starting and I see a grey screen. What should I do?
+
+If an RStudio session fails to start or RStudio is extremely slow, first try resetting your
+RStudio user state as described below. These steps will clean up leftover data from previous interrupted RStudio
+sessions in two hidden folders in the user's home directory: `.config/rstudio` and `.local/share/rstudio`. These folders can be either renamed (to keep the contents) or deleted (if you are sure the contents are not needed).
+
+**Option 1:** Use the file viewer in the web interface:
+
+1. In the top left corner of the web interface dashboard, choose **Files** and **Home Directory**.
+2. Click **Show dotfiles**.
+3. Delete or rename the `rstudio` folders under `.config` and `.local` -> `share`. 
+
+**Option 2:** Use a terminal (for example a login node shell in the web interface) to delete or
+rename these folders. Here is an example how renaming would work:
+
+`mv ~/.config/rstudio ~/.config/rstudio-old`  
+`mv ~/.local/share/rstudio ~/.local/share/rstudio-old`
+
+If after this RStudio still fails to start or remains very slow, please [contact CSC Service
+Desk](../../support/contact.md).
+
+### How do I install an R package?
+
+The R environment has over 1400 pre-installed R packages packages ready to use. The easiest
+way to check if a package is available is to try to load it with `library(packagename)`. If a
+package is missing, you can install it yourself for your project by following the [instructions for R package
+installation](../../apps/r-env.md#r-package-installations), or you can [contact CSC Service
+Desk](../../support/contact.md) for a general installation available to all users.
+
+### How do I change the directory shown in the RStudio files panel?
+
+By default, the files panel shows your home directory on the supercomputer. To change the directory,
+click the three dots on the top right of the panel. In the box that appears, type the target
+directory, for example `/scratch/<project>`.
+
+![Changing RStudio Files panel directory](../../img/rstudio_change_directory.png 'Changing RStudio Files panel directory')
+
+## More information
+
+For more information on the R environment, see the [r-env documentation](../../apps/r-env.md).
+If you have a question, please [contact CSC Service Desk](../../support/contact.md).

@@ -1,6 +1,14 @@
 ---
 tags:
   - Other
+catalog:
+  name: LAStools
+  description: for LiDAR datasets
+  license_type: Other
+  disciplines:
+    - Geosciences
+  available_on:
+    - Puhti
 ---
 
 # LAStools
@@ -13,20 +21,22 @@ tags:
 
 LAStools is included in following modules:
 
-* lastools: 2023 (more exactly 230914) and 2022 (220613)
+* lastools: 2025 (more exactly 250304), 2023 (230914) and 2022 (220613)
 * geoconda: 3.11.9, 3.10.9 and 3.10.6 (all with older 20171231)
 
 Load one of these modules, for example the newest version (default):
 
 `module load lastools` 
 
-The 2023 version of LAStools is based on the new native Linux version of LAStools and requires `64` at the end of all tools. You can test that the LAStools module is loaded successfully with
+The 2025 and 2023 versions of LAStools are based on the new [native Linux version of LAStools](https://rapidlasso.de/lastools-linux/) and requires `64` at the end of all tools. You can test that the LAStools module is loaded successfully with
 
 `lasinfo64 -h`
 
 For all older versions, for example in the **geoconda** module, you will need to omit the 64 at the end of the tool name, for example:
 
 `lasinfo -h`
+
+For using licensed tools for testing, use `-demo` in the command, see [Lastools documentation](https://rapidlasso.de/lastools-test-and-validate-in-demo-mode/) for more information.  
 
 ### LAStools commands
 
@@ -42,7 +52,9 @@ All lastool installations in Puhti include the open source tools of LAStools.
 * laszip - compresses the LAS files in a completely lossless manner
 * txt2las - converts LIDAR data from ASCII text to binary LAS format
 
-The 2023 version includes also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. See the License for terms of use for these tools. [The native Linux version of LAStools](https://rapidlasso.de/release-of-lastoolslinux/) does not currently support multi-core processing.
+The 2025 and 2023 version includes also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. 2025 version has additionally: `blast2dem64, demdiff64, demzip64, e572las64, lascopcindex64, laslicman64, lasplanes64, lasprobe64 and shp2las64`. See the License for terms of use for these tools. 
+
+2023 version does not support multi-core processing, but 2025 version does.
 
 In Puhti, only the command line tools are available, without the graphical user interface.
 
@@ -106,9 +118,15 @@ Citation of the software depends on which license was used:
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
 ## Installation
-**2023 version** was installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipy](https://github.com/CSCfi/singularity-recipes/blob/main/lastools/lastools_2023.def) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+**2025 and 2023 versions** were installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipies](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
 
-`wrap-container -w /opt/LAStools lastools.sif --prefix 2023`
+```
+#2025
+wrap-container -w /opt/LAStools/bin lastools_2025.sif --prefix 2025
+
+#2023
+wrap-container -w /opt/LAStools lastools.sif --prefix 2023
+```
 
 **2022 version** was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
 

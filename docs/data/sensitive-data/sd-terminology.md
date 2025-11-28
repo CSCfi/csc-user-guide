@@ -1,8 +1,10 @@
-## Useful terminology: services and technical aspects
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
+# Useful terminology: services and technical aspects
 
 **Allas**: CSC's cloud storage service. SD Connect is an interface that facilitates sensitive data encryption and storage in Allas. Users can also access Allas programmatically with interfaces for non-sensitive data.
 
-**Billing units**: billing units are used to monitor the resource. SD Connect and SD Desktop usage consume billing units. 
+**Billing Units**: Billing Units are used to monitor the resource. SD Connect and SD Desktop usage consume Storage and Cloud Billing Units, respectively.
 
 **Bucket/Container**: These terms refer to the main folder (technically called root folder) where encrypted files are stored in SD Connect/Allas. The bucket/container name is visible on the internet. You can have multiple buckets in the same project (up to 1000), but each bucket must have a unique name throughout the storage system (including other projects). By default, the data in a bucket is accessible just to the project members. However, you can share and grant access to other CSC projects or users with SD Connect.
 

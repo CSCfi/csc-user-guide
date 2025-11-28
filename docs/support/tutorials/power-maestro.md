@@ -323,7 +323,7 @@ and the time spent waiting in the queue will be wasted.
 ## Optimal disk usage
 
 The Schrödinger HOSTs in Puhti have not been configured to use the
-[local NVMe disk](../../../computing/running/creating-job-scripts-puhti/#local-storage),
+[local NVMe disk](../../computing/running/creating-job-scripts-puhti.md#local-storage),
 which is available only on some of the compute nodes. Since most jobs don't
 gain speed advantage from NVMe disk, you'll likely queue less by not asking
 for it. If your job performs a lot of I/O operations, please contact
@@ -354,28 +354,13 @@ You can check the currently available licenses (tokens) with:
 $SCHRODINGER/run lictool status
 ```
 
-!!! info "Note for older Maestro versions"
-    If you are using Maestro version 2024.2 or older, the above command will
-    not work. In this case, you can check the currently available licenses
-    (tokens) with:
-
-    ```bash
-    $SCHRODINGER/utilities/licutil -avail
-    ```
-
-    and currently used licenses (tokens) with:
-
-    ```bash
-    $SCHRODINGER/utilities/licutil -used
-    ```
-
 Note that some Maestro tools or workflows use multiple modules and hence licenses
 or tokens from multiple modules. Typically, one running instance of a module (a job or
 a subjob) requires several tokens. For example, Desmond and Glide jobs take 8 tokens each.
 
-CPU time (billing units) is a different resource and has nothing to do with license tokens.
-When you run out of billing units, you or your project manager can
-[apply for more via the My CSC portal](../../accounts/how-to-apply-for-billing-units.md).
+CPU time (CPU Billing Units) is a different resource and has nothing to do with license tokens.
+When you run out of Billing Units, you or your project manager can
+[apply for more via the MyCSC portal](../../accounts/how-to-apply-for-billing-units.md).
 
 ## Fizzled jobs
 

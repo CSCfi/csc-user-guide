@@ -1,8 +1,18 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
+catalog:
+  name: QGIS
+  description: General purpose GIS software family for viewing, editing and analysing geospatial data
+  license_type: Free
+  disciplines:
+    - Geosciences
+  available_on:
+    - web_interfaces:
+        - LUMI
+        - Puhti
+    - LUMI
+    - Puhti
 ---
 
 # QGIS
@@ -40,8 +50,14 @@ qgis
 
 ### QGIS in LUMI
 
-Until LUMI web interface is available, QGIS needs to be used with
-[SSH X11 forwarding](../computing/connecting/index.md#graphical-connection).
+For using QGIS, open it in LUMI web interface:
+
+1. Log in to [LUMI web interface](https://lumi.csc.fi). 
+2. Open [Desktop app](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/). 
+3. After launching the Desktop, open the newest version of QGIS from the Menu in the bottom left corner (under Other).
+    * You can drag-and-drop the icon to your desktop for easier access in the future
+
+If you want to use the CLI, open `Terminal Emulator` from the Menu in the bottom left corner and start QGIS:
 
 ```
 module use /appl/local/csc/modulefiles

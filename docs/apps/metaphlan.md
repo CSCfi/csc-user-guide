@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: MetaPhlAn
+  description: Profiling the composition of microbial communities with metagenomic data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # MetaPhlAn
@@ -17,7 +25,7 @@ Free to use and open source under [MIT License](https://github.com/biobakery/Met
 
 ## Available
 
-*   Puhti: 4.0.2, 4.0.3, 4.0.6
+*   Puhti: 4.0.2, 4.0.3, 4.0.6, 4.1.1
 
 ## Usage
 

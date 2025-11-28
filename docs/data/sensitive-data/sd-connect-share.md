@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Sharing folders
 
 !!! info "Share ID"
@@ -62,7 +64,6 @@ The recipient project's members can only access the folder content in SD Desktop
 * [Upload](./sd-connect-upload.md)
 * [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
-* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
 * [Delete](./sd-connect-delete.md)
 * [Command line interface](./sd-connect-command-line-interface.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)

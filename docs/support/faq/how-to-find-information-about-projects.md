@@ -1,7 +1,7 @@
 # How can I find information about my projects?
 
-By logging in to our customer portal [My CSC](https://my.csc.fi). You can see
-your projects, their project numbers, managers and billing unit status on the
+By logging in to our customer portal [MyCSC](https://my.csc.fi). You can see
+your projects, their project numbers, managers and Billing Unit status on the
 [*Projects* sub-page](https://my.csc.fi/projects).
 
 Please see also:

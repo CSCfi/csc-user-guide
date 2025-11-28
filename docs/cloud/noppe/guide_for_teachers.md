@@ -11,7 +11,7 @@ Instead of a course you can also use Noppe for collaboration. The workflow is si
 
 ### 1. Become a workspace owner and create a workspace
 * Login to Noppe using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
-  If you don't have a CSC account yet, [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
+  If you don't have a CSC account yet, [see the instructions on how to create new user account](../../accounts/how-to-create-new-user-account.md).
 * Open `Manage workspaces` from the left panel and create a new workspace.
     * Workspace type:
       * Fixed-time course with limited lifetime: Valid for limited months.
@@ -28,7 +28,7 @@ Instead of a course you can also use Noppe for collaboration. The workflow is si
     * [Docker image sources in noppe-public-images repository.](https://github.com/CSCfi/noppe-public-images)
     * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
     * If you would need a few R/Python packages extra compared to existing images, it likely is easiest to add them run-time by the user.
-* To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
+* To create your own custom image, see [Creating custom images](#creating-custom-images) below.
 
 ### 3. Create an application in the workspace
 
@@ -83,8 +83,40 @@ Once the content is ready, you can invite course participants / collaborators by
 Once the co-instructors/co-organizers/collaborators have signed in, you can find their name in the `members` tab (under `manage workspaces`), to give them rights to change things and see other participants sessions, `promote to co-owner` from the Menu column next to the members name.
 Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. For collaboration purposes, all collaborators should have co-owner rights, to be able to write to the shared folder in the workspace.
 
-## Creating custom Docker images
-If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Noppe. Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
+## Creating custom images
+If you cannot find a suitable image for your intended application, you will need to create your own custom image for Noppe.
+
+### 1. Create a custom image using Noppe
+
+!!! info "Preview version"
+
+    The preview version of Noppe's custom image creation tool has limited functionality. To access full customisation options, refer to the [2. Create a custom image using own computer](#2-create-a-custom-image-using-own-computer).
+
+Image can be created in Noppe.
+
+Requirements:
+
+* [Access](#1-become-a-workspace-owner-and-create-a-workspace) to manage workspaces.
+
+Steps to create your own custom image using Noppe:
+
+* Open `Manage workspaces` from the left panel and create a new or edit an existing workspace.
+* Select the 'Custom Images' tab at the top of the page.
+    * Click the 'Create custom image' button.
+* Custom image:
+    * Name: Enter a descriptive name.
+    * Base image: Select the base image you wish to customise.
+    * Packages: Click the `+ apt`, `+ pip` and/or `+ conda-forge` buttons to add a package to the base image. Enter the name(s) of each package.
+    * Click the `Build` button to start creating the custom image.
+* Please wait for the build system to pick up and finish the job.
+
+Once the build has been completed successfully, the custom image will be available in the workspace's Application form under the 'Container Image' section in the `Custom Images in this workspace` tab.
+
+Any custom images created in Noppe are tied to the workspace in which they were created.
+
+### 2. Create a custom image using own computer
+
+Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
 
 Requirements: 
 
@@ -93,11 +125,11 @@ Requirements:
 
 Steps to create your own custom Docker image:
 
-### Create a Dockerfile  
+#### Create a Dockerfile  
    
 Dockerfile contains a set of instructions to build a docker image. If unfamiliar with Dockerfile, see for example [Docker 101](https://www.paigeniedringhaus.com/blog/docker-101-fundamentals-the-dockerfile) and [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
    
-#### Jupyter notebook example
+##### Jupyter notebook example
 For JupyterLab with some conda packages use the following as minimal example:
 
  ``` 
@@ -119,7 +151,7 @@ For JupyterLab with some conda packages use the following as minimal example:
  # the user set here will be the user that students will use 
  USER $NB_USER
 
- ### Installing the needed conda packages and jupyter lab extensions. 
+ #### Installing the needed conda packages and jupyter lab extensions. 
  # Run conda clean afterwards in same layer to keep image size lower
  RUN conda install --yes -c conda-forge <your-packages-here> \
    && conda clean -afy
@@ -177,6 +209,8 @@ with our cloud hosts. This can be done using "docker buildx".
 docker buildx build --platform linux/amd64 ....
 ```
 
+Note also that with Mac you might need to disable Rosetta.
+
 Another alternative is to build the image on an x64 VM, for example on pouta.csc.fi.
 
 * Test your image. 
@@ -188,12 +222,20 @@ Another alternative is to build the image on an x64 VM, for example on pouta.csc
 docker run -p 8888:8787 <yourimagename>
 ```
 
+### Upload and link the image to your application
+
+For the docker image to be used in your application. You need to host it somewhere, e.g. DockerHub or Rahti registry. 
+Once you have it hosted somewhere, provide the link to your image in the application : `Manage Workspaces` > `Applications` > `Edit application` > `Container image`.
+
 ## Adding Python packages to an existing workspace 
 
-This section is about how to add packages to the workspace _after_ you have built the Docker image. 
-You do not need to always create a new custom image.
+You can add pip packages to existing Python applications without building a new image by installing them to your 
+`my-work` or `shared` folders. The process is slightly tedious, because by principle Docker images are designed to be 
+immutable, and building a new image with the needed installations is preferred.
 
-To install additional libraries to your persistent personal directory, please use ```pip```.
+The following steps are for `my-work` installation. Note that `my-work` is user specific and not shared with your course 
+participants. If your course participants need to access the installed packages, use the `shared` folder, to which only 
+the workspace owner has write permissions.
 
 1. Open Terminal in JupyterLab.
 2. Create a new folder for installation files in my-work.
@@ -206,13 +248,63 @@ export PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>
 pip install --user the_new_package_name
 ```
 
-Finally, delete the existing session and open application settings under "Edit application".
+Finally, exit and delete the existing session and open application settings under "Edit application".
 Add `PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>` to Environment variables. Use the name of the folder you
 created earlier. After this, new application sessions will have the installed packages available.
 
+## Adding R packages to an existing RStudio application
+
+You can add R packages to existing RStudio applications without building a new image by installing them to your 
+`my-work` or `shared` folders. The process is slightly tedious, because by principle Docker images are designed to be 
+immutable, and building a new image with the needed installations is preferred.
+
+The process is as follows (detailed instructions below):
+
+1. Open terminal in RStudio
+2. Create a new folder for installation files in `my-work` or `shared`
+3. Set the environment variable `R_LIBS_USER` to point to your newly created folder in application settings
+4. Install the package to the newly created folder in `my-work` or `shared`
+
+### Installation process in detail
+
+The following steps are for `my-work` installation. Note that `my-work` is user specific and not shared with your course 
+participants. If your course participants need to access the installed packages, use the `shared` folder, to which only 
+the workspace owner has write permissions.
+
+Start a session for your RStudio application, open the terminal and create a new folder for the installations (here 
+named `R-packages`, but you can use a different name):
+```
+mkdir /home/rstudio/my-work/R-packages
+```
+
+Next, exit and delete the session. Open `Edit application` and set the following to "Environment variables":
+
+```
+R_LIBS_USER=/home/rstudio/my-work/R-packages
+```
+
+If you used a different name for your folder, remember to change it.
+
+Open a new session for the application. The path set in the environment variable should be visible in `.libPaths()`:
+
+```
+> .libPaths()
+[1] "/usr/local/lib/R/site-library" "/usr/local/lib/R/library" "/home/rstudio/my-work/R-packages"
+```
+
+Now you can install packages to the new folder, e.g.:
+
+```
+install.packages("jsonlite", lib="/home/rstudio/my-work/R-packages")
+library(jsonlite)
+```
+
+The installed packages are available in all new sessions.
+
+
 ## Security guidelines for Workspace owners
 
-- Noppe is not intended for sensitive data. Do not store sensitive data or data sets.
+- Noppe is not audited for sensitive data.
 - Share join code only with users you wish to join your workspace.
 - If you are creating custom images for your course, do not store any keys or sensitive data in the image.
 - Delete the workspace as soon as the course is over.

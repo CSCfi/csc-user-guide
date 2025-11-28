@@ -1,6 +1,14 @@
 ---
 tags:
   - Free
+catalog:
+  name: SALMON
+  description: Program to produce transcript-level quantification estimates from RNA-seq data
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - Puhti
 ---
 
 # SALMON

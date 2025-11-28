@@ -1,10 +1,8 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # How to get access to SD Desktop with a single register permit
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/bMaBl0IED74" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_yksittainenRekisteri.pdf){ target="_blank" }**
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/AlGQoj5V0jQ" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Use case
 
@@ -18,15 +16,13 @@ You need to access SD Desktop. You have a permit from a single register.
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
-7. [Accept SD Desktop terms of use](#7-accept-sd-desktop-terms-of-use)
-8. [Activate MFA](#8-activate-mfa)
-9. [CSC project is ready](#9-your-csc-project-is-ready)
-10. [Apply for access to the dataset with SD Apply](#10-apply-for-access-to-the-dataset-with-sd-apply)
-11. Register processes application, please wait
-12. [Send approved application to CSC](#12-send-approved-application-to-csc)
+7. [CSC project is ready](#7-your-csc-project-is-ready)
+8. [Apply for access to the dataset with SD Apply](#8-apply-for-access-to-the-dataset-with-sd-apply)
+9. Register processes application, please wait
+10. [Send approved application to CSC](#10-send-approved-application-to-csc)
 
 
-### 1. Create a CSC account 
+### 1. Create a CSC account
 
 !!! warning-label
     Team manager
@@ -34,25 +30,51 @@ You need to access SD Desktop. You have a permit from a single register.
     Team member
 
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu). 
+- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
 - Fill in your information on the Sign up page.
-- Set your password using 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
- - You will receive your CSC user account confirmation via email.
+- You will receive with instructions how to complete the registration. 
+- Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
+- Enable two-step authentication (MFA). 
+
+---
 
 ### 2. Create new CSC project
 
 !!! warning-label
     Team manager
 
-- Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
-- On the top of the page choose **”New project”**.
+- Sign in to MyCSC with you Haka or Virtu credentials.
+- Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
+- On the top of the page choose **New project**. 
+
+![MyCSC navigation.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Create1_1025.png)
+
+![Create new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Create3_1025.png)
+
+---
+
+#### 2.1 Choose project category
+- In the new window choose the Project category to be **Secondary use**.
+- Click **Next**.
+
+![Create new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Secondary_1025.png)
+
+---
+
+#### 2.2 Fill in the project details
 - Fill in the project name and project description. You can edit these later if needed.
-- Choose the Project category to be **“Findata”**.
-- Fill all required fields. Read and accept the terms of use.
-- Click **“Create a project”**.
+- Choose "Yes" for the field: **We handle personal data in this project**.
+- Click **Next**.
 
-![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
+---
+#### 2.3 Confirmation
 
+- Under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
+- Read and accept the terms of use.
+- Click **Submit**. 
+- Wait for your project being created. When project is ready, you'll be redirected to project page.
+
+---
 
 ### 3. Fill GDPR document
 
@@ -63,7 +85,7 @@ You need to access SD Desktop. You have a permit from a single register.
 - The document appears when you create a new project. You can edit this document later.
 - Your home organization is the **data controller**. [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
 
-![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
+![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
 ### 4. Contact CSC service desk
 
@@ -79,42 +101,15 @@ You need to access SD Desktop. You have a permit from a single register.
 !!! Note ""
     ### 5. CSC adds members to your project
     - Please wait that Sensitive Data Support team adds your research team to your project
-    - Note! All team members must have a [CSC-account](#1-create-a-csc-account), so they can become project members.
+    - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
 
 !!! Note ""
     ### 6. CSC activates SD Desktop -service for your project
     - Please wait that Sensitive Data Support team activates SD Desktop service for your project.
     - You will receive an email notification, when everything is ready.
 
-### 7. Accept SD Desktop terms of use
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
-
-- If you haven't accepted the terms of use before, please go to MyCSC - navigate to the project view - see left side **Service** list - click SD Desktop and **accept the terms of use**.
-- Please note that every team member must accept the SD Desktop terms of use.
-
-![How to approve terms of use.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse.png)
-
-### 8. Activate MFA
-
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
-
-- You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
-- Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
-- Go to the **Profile** page (Left side menu or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking **''Activate''**.
-- This will create a QR code which you can read with your authentication application (for example Google Authenticator).
-- Your authentication application will provide a verification code which you can now write to MyCSC **Verification code** field and click **“Verify”**.
-
-![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
-
-### 9. Your CSC project is ready!
+### 7. Your CSC project is ready
 
 !!! warning-label
     Team manager
@@ -124,7 +119,7 @@ You need to access SD Desktop. You have a permit from a single register.
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC.
 
-### 10. Apply for access to the dataset with SD Apply
+### 8. Apply for access to the dataset with SD Apply
 
 !!! warning-label
     Team manager
@@ -157,11 +152,11 @@ You are now on the Applications page.
 ![SD Apply application](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_Application.png)
 
 !!! Note ""
-    ### 11. Wait for approval from data controller
+    ### 9. Wait for approval from data controller
     * After you have sent the application, it will be forwarded to the data controller, who approves or rejects it. 
     * You will receive an email notification whenever the state of your application changes.
 
-### 12. Send approved application to CSC
+### 10. Send approved application to CSC
 
 * Login to SD Apply: [https://sd-apply.csc.fi](https://sd-apply.csc.fi).
 * Find your application and click **''PDF''** under **Actions**.

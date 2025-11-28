@@ -1,40 +1,50 @@
 /* Museo Sans font */
 @import url("https://use.typekit.net/csv4mjm.css");
 /* CSC Design System custom properties */
-@import url(https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@2.1.11/dist/styles/css/theme.css);
+@import url(https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@2.3.0/dist/styles/css/theme.css);
 
 :root {
   --md-text-font: "museo-sans";
 
-  --csc-admonition-default--border: var(--c-primary-600);
-  --csc-admonition-default-label--fg: var(--c-primary-900);
-  --csc-admonition-default-label--bg: var(--c-primary-200);
-  --csc-admonition-info--border: var(--c-info-600);
-  --csc-admonition-info-label--fg: var(--c-info-900);
-  --csc-admonition-info-label--bg: var(--c-info-200);
-  --csc-admonition-success--border: var(--c-success-600);
-  --csc-admonition-success-label--fg: var(--c-success-900);
-  --csc-admonition-success-label--bg: var(--c-success-200);
-  --csc-admonition-warning--border: var(--c-warning-600);
-  --csc-admonition-warning-label--fg: var(--c-warning-900);
-  --csc-admonition-warning-label--bg: var(--c-warning-200);
-  --csc-admonition-error--border: var(--c-error-600);
-  --csc-admonition-error-label--fg: var(--c-error-900);
-  --csc-admonition-error-label--bg: var(--c-error-200);
+  --csc-admonition-default-text-color: var(--c-primary-800);
+  --csc-admonition-default-background-color: var(--c-primary-200);
+  --csc-admonition-default-border-color: var(--c-primary-600);
+  --csc-admonition-info-text-color: var(--c-info-800);
+  --csc-admonition-info-background-color: var(--c-info-200);
+  --csc-admonition-info-border-color: var(--c-info-600);
+  --csc-admonition-success-text-color: var(--c-success-800);
+  --csc-admonition-success-background-color: var(--c-success-200);
+  --csc-admonition-success-border-color: var(--c-success-600);
+  --csc-admonition-warning-text-color: var(--c-warning-800);
+  --csc-admonition-warning-background-color: var(--c-warning-200);
+  --csc-admonition-warning-border-color: var(--c-warning-600);
+  --csc-admonition-error-text-color: var(--c-error-800);
+  --csc-admonition-error-background-color: var(--c-error-200);
+  --csc-admonition-error-border-color: var(--c-error-600);
+
+  --csc-admonition-border-width: 2px 2px 2px 12px;
+  --csc-admonition-border-radius: 6px;
+
+  --csc-admonition-label-font-size: 14px;
+  --csc-admonition-label-box-shadow: currentColor 0px 0px 0px 1px inset;
+  --csc-admonition-label-padding: 4px 16px;
+
+  --csc-button-border-width: 2px;
+  --csc-button-border-radius: 4px;
 
   --csc-header-height: 71px;
   --csc-content-width: 72rem;
 
-  --csc-border-radius: 4px;
   --csc-border: 1px solid var(--c-tertiary-200);
 
-  --csc-box-shadow--header: 2px 4px 10px #00000029;
+  --csc-box-shadow--header: 0px 8px 8px -2px #00000029;
   --csc-box-shadow--quicklinks: 2px 4px 10px #00000029;
-  --csc-box-shadow--dropdown: 0px 4px 4px 0px #00000040;
 
   --csc-font-weight--regular: 500;
   --csc-font-weight--bold: 700;
 
   --csc-admonition--fg: #806420;
   --csc-admonition--bg: #FDF3D1;
+
+  --md-admonition-icon--error: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12 6.47 2 12 2m3.59 5L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"></path></svg>');
 }

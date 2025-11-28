@@ -1,5 +1,7 @@
 # Connecting to CSC supercomputers
 
+--8<-- "auth-update-ssh.md"
+
 There are two main ways of connecting to CSC supercomputers.
 
 1. The traditional way to connect to a supercomputer is
@@ -36,6 +38,12 @@ typically come with a pre-installed SSH client. See the instructions for
 
 ## Using an SSH client
 
+Logging in to Puhti and Mahti using an SSH client requires that you have
+[set up SSH keys](ssh-keys.md) and
+[added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc).
+Traditional password-based authentication and public keys stored in your
+personal `~/.ssh/authorized_keys` file will **not** work.
+
 Unix-based systems like macOS and Linux typically come with a pre-installed
 terminal program called simply *Terminal*. The instructions for using an
 [SSH client on macOS and Linux](ssh-unix.md) show how to connect to a CSC
@@ -46,16 +54,25 @@ over SSH, there are multiple programs that can be used for this. The
 instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
 popular options.
 
+Once you have set up SSH keys and added your public key to MyCSC, use a
+command like below to connect over SSH:
+
+```bash
+# Replace <username> with the name of your CSC user account and
+# <host> with "puhti" or "mahti"
+
+ssh <username>@<host>.csc.fi
+```
+
+!!! note
+    It might take up to one hour for your new key to become active after adding
+    it to MyCSC.
+
 Once the SSH connection to the supercomputer is open, you can interact with it
 by issuing Linux commands using the Bash shell program. An introduction to
 working on the Linux command-line can be found in our
 [Linux basics tutorial for CSC](../../support/tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
-
-!!! note "SSH keys"
-    When you connect over SSH, you can log in using your CSC account password, but
-    it is more convenient and secure to [set up SSH keys](ssh-keys.md) and use
-    them for authentication.
 
 ### First connection
 
@@ -97,10 +114,7 @@ user interfaces. Alternatively, graphics can also be displayed over an SSH
 connection using X11 forwarding. See the operating system-specific instructions:
 
 * [X11 forwarding on Linux and macOS](ssh-unix.md#graphical-connection)
-* X11 forwarding on Windows:
-    * [PowerShell](ssh-windows.md#graphical-connection-powershell)
-    * [PuTTY](ssh-windows.md#graphical-connection-putty)
-    * [MobaXterm](ssh-windows.md#graphical-connection-mobaxterm)
+* [X11 forwarding on Windows](ssh-windows.md#graphical-connection)
 
 ### Advanced usage
 
@@ -165,4 +179,4 @@ ssh <host>
 
 Some editors like Visual Studio Code and Notepad++ can be used to
 [work on files remotely](../../support/tutorials/remote-dev.md)
-using an appropriate plugin.
+using an appropriate plugin. **However, this is not recommended.**

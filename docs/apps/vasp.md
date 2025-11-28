@@ -1,6 +1,16 @@
 ---
 tags:
   - Other
+catalog:
+  name: VASP
+  description: Ab initio DFT electronic structures
+  license_type: Other
+  disciplines:
+    - Physics
+    - Chemistry
+  available_on:
+    - Puhti
+    - Mahti
 ---
 
 # VASP
@@ -27,9 +37,10 @@ The usage of VASP requires a license, which must be acquired directly
 from the developers of the software.
 
 !!! warning ""
-    After acquiring the license, please send email to
-    [CSC Service Desk](../support/contact.md), including the email address
-    you have registered for the VASP license and your username at CSC.
+    After acquiring the license (or after you have been added to an existing license),
+    please send an email to [CSC Service Desk](../support/contact.md), including your
+    _username_ at CSC, and the _email address_ you have registered for the VASP license in
+    the [VASP Portal](https://vasp.at).
 
 ## Usage
 

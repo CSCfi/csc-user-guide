@@ -60,25 +60,18 @@ AWS_SECRET_ACCESS_KEY=yyy
 AWS_DEFAULT_REGION=regionOne
 ```
 
-The end-point URL is not needed for Amazon S3, but is needed for other services. Unfortunately it can not be given via `credentials` file, but needs to be given to GDAL as environment variable. For example to set Allas end-point: Windows command shell: `set AWS_S3_ENDPOINT=a3s.fi` or Linux/Max: `export AWS_S3_ENDPOINT=a3s.fi`
+The end-point URL is not needed for Amazon S3, but is needed for other services. Unfortunately it can not be given via configuration files, but needs to be set as environment variable for GDAK for each session when S3 is used. 
+For example to set Allas end-point: 
+
+* Windows command shell: `set AWS_S3_ENDPOINT=a3s.fi`
+* Linux/Mac: `export AWS_S3_ENDPOINT=a3s.fi`
 
 #### S3 connection set up for Allas 
 
-On CSC supercomputers the easiest option to set up Allas connection details is to use [allas-conf command](../../../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers):
+The easiest way to set up S3 configuration for `GDAL` is by
+[configuring an S3 connection on a CSC supercomputer](../../../data/Allas/using_allas/allas-conf.md#s3-connection). 
 
-```
-module load allas
-allas-conf --mode s3cmd
-```
-
-* `module load allas` sets AWS_S3_ENDPOINT environment variable, which needs to be run each time S3 is used.
-* `allas-conf --mode s3cmd` writes the keys and region name to `credentials` file (also prints them to Terminal) and must be run only when using first time or when changing the CSC project.
-
-After this, you are ready to use GDAL or GDAL-based tools on supercomputers.
-
-If you want to use Allas on some other machine, then copy `~/.aws/credentials` file from supercomputer to the other machine and set `AWS_S3_ENDPOINT` as described above.
-
-If you are not using CSC supercomputers, you can install `allas-conf` to your Linux/Mac machine, follow the instructions in [CSC's Allas command line interface utilities repository](https://github.com/CSCfi/allas-cli-utils). 
+GDAL requires additionally that Allas endpoint is given as AWS_S3_ENDPOINT environment variable, see the commands above.
 
 #### S3 connection set up for Copernicus Data Space Ecosystem (CDSE)
 

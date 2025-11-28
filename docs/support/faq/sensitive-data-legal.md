@@ -63,7 +63,7 @@ It defines:
 Any organization that stores or processes personal information regarding EU citizens is obliged to comply with the GDPR. 
 
 ## What are the roles of CSC and its service users under GDPR?  
-In GDPR terms, CSC is always a data processor acting on behalf of a data controller. GDPR also requires that this relationship be done in writing. Therefore, the data controller (a group leader, researcher, research organization or their legal representative) needs to sign the Data Processing Agreement with the CSC, a legal contract. CSC never acts as a data controller, but our services give CSC users all the instruments necessary to manage the access to sensitive data. The CSC service user remains fully responsible for the data and is required to choose a service that complies with the security level needed for the data. 
+In GDPR terms, CSC is always a data processor acting on behalf of a data controller. GDPR also requires that this relationship be done in writing. Therefore, the data controller (a group leader, researcher, research organization or their legal representative) needs to sign the Data Processing Agreement with the CSC, a legal contract. CSC never acts as a data controller, but our services give CSC users all the instruments necessary to manage the access to sensitive data. The CSC service user remains fully responsible for the data and is required to choose a service that complies with the security level needed for the data.
 
 ## I am not sure if the data I am working with is sensitive or not. Where can I find support?
 If you need assistance to verify if SD service are suitable for processing your research data, contact your organization's data protection officer or legal office. You can provide them with supporting documents such as:
@@ -84,7 +84,7 @@ Contact information of Finnish universities data protection / legal offices
 | University of Eastern Finland  | tietosuoja@uef.fi <br />[Data protection policy](https://www.uef.fi/en/data-protection)  |
 | University of Helsinki  | tietosuoja@helsinki.fi <br />[Data protection policy](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
 | University of Jyväskylä  | tietosuoja@jyu.fi <br />[Data protection policy](https://www.jyu.fi/en/data-privacy-at-the-university-of-jyvaskyla) |
-| University of Lapland  | tietosuoja@ulapland.fi <br />[Data protection policy](https://www.ulapland.fi/EN/About-us/Our-principles/Data-protection) |
+| University of Lapland  | tietosuoja@ulapland.fi <br />[Data protection policy](https://ulapland.fi/en/university/our-principles/data-protection) |
 | University of Oulu  | dpo@oulu.fi <br />[Data protection policy](https://www.oulu.fi/en/data-privacy-notice) |
 | University of Tampere  | dpo@tuni.fi <br />[Data protection policy](https://www.tuni.fi/en/research/responsible-science-and-research/data-protection) |
 | University of Turku  | dpo@utu.fi <br />tietosuoja@utu.fi <br />[Data protection policy](https://www.utu.fi/en/privacy/notice) |

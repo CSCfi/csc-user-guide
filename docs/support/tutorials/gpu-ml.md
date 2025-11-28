@@ -84,11 +84,11 @@ module use /appl/soft/ai/singularity/modulefiles/
 In many cases, our existing modules provide the required framework, but some
 packages are missing. In this case you can often load the appropriate module and
 then [install additional packages for personal use with the `pip` package
-manager](../../apps/python.md#installing-python-packages-to-existing-modules).
+manager](./python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 For more complex software requirements, we recommend using
 [tykky](../../computing/containers/tykky.md) or [creating your own
-Apptainer container](../../computing/containers/creating.md).
+Apptainer container](../../computing/containers/overview.md#building-container-images).
 
 
 ## Running GPU jobs

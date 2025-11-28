@@ -5,8 +5,7 @@ search:
 
 # How to create new CSC user account
 
-There are two different types of CSC user accounts: ordinary accounts for general use (which you can get with or
-without Haka or Virtu) and machine-to-machine robot accounts for managing services.
+There are two different types of CSC user accounts: ordinary accounts for general use (which you can get with or without Haka or Virtu) and machine-to-machine robot accounts for managing services.
 
 !!! Note
 
@@ -17,22 +16,19 @@ without Haka or Virtu) and machine-to-machine robot accounts for managing servic
 ## Getting an account with Haka or Virtu
 
 !!! Note 
-    If you are trying to access the [LUMI web interface](https://www.lumi.csc.fi) or [LUMI-O](https://www.auth.lumidata.eu),
+    If you are trying to access the [LUMI web interface](https://www.lumi.csc.fi) or [LUMI-O](https://auth.lumidata.eu),
     please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/) on how to get an account.
 
-If your home organization is a member of the Haka or Virtu federation, you
-can create an account yourself.
+If your home organization is a member of the Haka or Virtu federation, you can create an account yourself. For registration, you will need a mobile device that has an authentication app for setting up the multi-factor authentication
 
 1. Go to [MyCSC](http://my.csc.fi).
-1. Click _Log in_ or _Getting started_.
-1. Click _Virtu_ or _Haka_ depending on which federation your home
-organization is a member of.
+1. Click _Create account_
+1. Click _Virtu_ or _Haka_ depending on which federation your home organization is a member of.
 1. Select your home organization and log in to their identity service.
 1. Fill in your information on the _Sign up_ page.
-1. Set your password using 12 characters or more, containing both upper
-and lowercase letters and at least one number. No special characters are
-allowed.
-1. You will receive your CSC user account information via email.
+1. You will receive an email message containing a link to MyCSC where you can set your CSC account password.
+1. If you are signing up with _Virtu_ you will be prompted to [set up your CSC MFA](../accounts/mfa.md#how-to-activate-csc-mfa) after setting your CSC accounts password. If you are signing up with _Haka_, you might already have a working MFA login integrated with your Haka login, and you will be asked to sign in with the Haka MFA. If your home organisation doesn't provide Haka MFA, you will be guided to set up CSC MFA.
+1. You will receive a confirmation via email after successfully registering your CSC user account.
 
 ## Getting an account without Haka or Virtu
 
@@ -57,11 +53,13 @@ If you are attending a course which is utilising CSC's services you need to crea
 
 ### For organisers/teachers
 
-CSC does not provide temporary training specific user accounts for courses anymore. If the participant does not yet have a user account, it needs to be created. The course organiser can then invite participants to the course project. If you're not able to create CSC user accounts, please [contact CSC Service Desk](../support/contact.md).
+CSC does not provide temporary training specific user accounts for courses. If the participant does not yet have a user account, it needs to be created. The course organiser can then invite participants to the course project.
 
-Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance as soon as you have the list of the participants. And when the project is ready you are able to start sending out the invitations to your participants. 
+Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance. And when the project is ready you are able to start sending out the invitations to the course participants. 
 
 Please see instructions on [how to create the course project](how-to-create-new-project.md#course)
+
+If you need assistance, please [contact CSC Service Desk](../support/contact.md).
 
 
 ## Getting a machine-to-machine robot account
@@ -76,12 +74,4 @@ information to servicedesk@csc.fi.
 * The CSC service your service uses (e.g. cPouta, Rahti)
 * Your mobile number (to which the password are sent via SMS)
 
-## Expiration of user accounts
 
-If you have been granted an account for a fixed period, the account expires when the period ends. Accounts created with Haka or Virtu do not have an end date, and they remain valid as long as the account's password is changed once a year.
-
-All accounts are immediately terminated if their owner is not reachable, i.e. emails bounce back.
-
-!!! Note
-
-    If you want to terminate your account please contact <mailto:servicedesk@csc.fi>

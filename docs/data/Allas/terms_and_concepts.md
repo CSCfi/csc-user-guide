@@ -7,9 +7,9 @@
 
 The _Access Control List_ (ACL) mechanism can be used to control other Allas users' access to your buckets.
 
-### Billing unit
+### Billing Unit
 
-_Billing units_ describe the consumption of computing and storage resources in the CSC systems. In Allas, the amount of data stored consumes billing units.
+_Billing Units_ (BU) describe the consumption of computing (CPU BU, GPU BU, Cloud BU) and storage resources (Storage BU) in the CSC systems. In Allas, the amount of data stored consumes Storage Billing Units.
 
 See [Billing and Quotas](./introduction.md#billing-and-quotas)
 
@@ -24,11 +24,7 @@ You can display the checksum using the command `md5sum`.
 
 ### Client
 
-The _client software_ is used to access an object storage service, such as Allas. There are three types of clients:
-
- * Web browser based access via the [OpenStack Horizon web interface](./using_allas/web_client.md) for basic graphical usage.
- * Command-line clients such as [Swift](./using_allas/swift_client.md) and [s3cmd](./using_allas/s3_client.md) for power users.
- * _Programmable interface_ (API) for those who integrate software.
+The _client software_ is used to access an object storage service, such as Allas. Allas can be accessed with several different [clients](accessing_allas.md).
 
 ### Metadata
 
@@ -45,16 +41,14 @@ _Object storage_ refers to a computer data storage that manages data as objects 
 
 ### OpenStack
 
-The _OpenStack cloud management middleware_ can be used to access Allas.
-The [OpenStack Horizon web interface](./using_allas/web_client.md) offers some basic functionalities for data management in Allas.
+The [OpenStack](https://www.openstack.org/) cloud management middleware_ can be used to access Allas.
 
-See [OpenStack](https://www.openstack.org/) for more information.
 
 ### Pseudo folder
 
 Buckets cannot contain other buckets. You can, however, use so-called _pseudo folders_.
 
-If an object's name contains a forward slash `/`, it is interpreted as a folder separator. These are shown as folder listings when accessing the data via the web interface. These pseudo folders are automatically added if you upload whole folders using a command line client.
+If an object's name contains a forward slash `/`, it is interpreted as a folder separator. These are shown as folder listings when accessing the data via come clients, for example the web interfaces. These pseudo folders are automatically added if you upload whole folders using a command line client.
 
 For example, if you add two objects
 ```bash

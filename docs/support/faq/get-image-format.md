@@ -1,5 +1,13 @@
 # Why Rahti cannot find this docker image?
 
+!!! error "Pulling images from DockerHub"
+    Since the last Rahti version deployed (OpenShift 4.17) there is a configuration change when pulling images. Some images are hardcoded. It will pull from a specific repository (like JFrog).
+    To minimise the impact and avoid errors when pulling the image from DockerHub, you must use the fully qualified image name.
+
+    For example, instead of using `image: mongo:latest`, you should use `image: docker.io/library/mongo:latest`.
+
+    This behavior will be fixed in OpenShift 4.18. We don't have ETA for now.
+
 ![Could not load image](img/Could_not_load_image_metadata.png)
 
 Often there are simple causes for this problem. Maybe there is a typo in the image name, or the image might have been removed since the last time it was successfully pulled. These two problems are common, and as such, it is worth double-checking the image source.
@@ -24,7 +32,7 @@ oc secrets link default <SECRET-NAME> --for=pull
 
 **Note**: Substitute placeholders with actual username, password, email, and an appropriate name for the secret (without <>).
 
-You can find more information in the [How to add docker hub credentials to a project](../../../cloud/tutorials/docker_hub_login/) article.
+You can find more information in the [How to add docker hub credentials to a project](docker_hub_login.md) article.
 
 ## Unsupported image format
 
@@ -35,7 +43,7 @@ When an old client is used to try to pull an image with the newer format, the cl
 
 ## Workarounds
 
-* A trivial fix is to pull the image using a compatible client, re-tag it, and push it to Rahti's internal registry. This newly pushed image will be using the old docker format. Follow the link for a guide on [How to manually cache images in Rahti's registry](../../../cloud/rahti2/images/Using_Rahti_2_integrated_registry).
+* A trivial fix is to pull the image using a compatible client, re-tag it, and push it to Rahti's internal registry. This newly pushed image will be using the old docker format. Follow the link for a guide on [How to manually cache images in Rahti's registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md).
 
 * If the image was built by your team, the [buildah](https://buildah.io) tool can be used. It allows to build docker images without the extra privileges the `docker build` requires, and even though by default it will build an image using the `OCI` format, it has an option to use the `docker` format instead:
 

@@ -28,7 +28,7 @@
 * Kylli Ek, CSC: [Using Paituli data in Puhti supercomputer](https://a3s.fi/gis-workshops/spatial_puhti_2022/Paituli_eng_221207.pdf).
 * Kylli Ek, CSC: [Finding data of specific time and area using STAC](https://github.com/csc-training/geocomputing/tree/master/python/STAC)
 * Hands-on/demo Puhti web interface
-    * What is the[Puhti web interface](https://www.puhti.csc.fi/public/welcome.html)and what can I use it for?
+    * What is the [Puhti web interface](https://www.puhti.csc.fi/) and what can I use it for?
     * R usecase: RStudio
         * [Using Paituli data and a basic batch job](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
         * [Using virtual rasters with R](https://github.com/csc-training/geocomputing/blob/master/R/virtual_rasters.R)

@@ -1,6 +1,16 @@
 ---
 tags:
   - Free
+catalog:
+  name: Julia Language
+  description:  High-level, high-performance dynamic programming language for numerical computing
+  license_type: Free
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - LUMI
+    - Puhti
+    - Mahti
 ---
 
 # Julia Language

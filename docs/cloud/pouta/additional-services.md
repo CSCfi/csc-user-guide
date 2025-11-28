@@ -4,8 +4,6 @@ This article gives two examples on how to access some additional supporting serv
 in Pouta. These services are not strictly part of cPouta, but they provide extra
 functionality to make the service more useful.
 
-[TOC]
-
 ## Sending e-mail from cPouta
 
 Sometimes you need to be able to send e-mail from a cPouta virtual
@@ -104,7 +102,7 @@ cPouta does not currently offer integrated name service management.
 All our floating IPs are by default mapped to a hostname, for example:
 
 ```
-vm0120.kaj.pouta.csc.fi has address 86.50.168.120
+fip-86-50-168-120.kaj.poutavm.fi has address 86.50.168.120
 ```
 
 These default DNS records do also have the reverse DNS entry. To find the hostname of a floating IP, you can use `host` command:
@@ -113,18 +111,19 @@ These default DNS records do also have the reverse DNS entry. To find the hostna
 host -a <floating IP address>
 ```
 
-And the result is `vmXXXX.kaj.pouta.csc.fi` listed in the output:
+And the result is `fip-AAA-BBB-CCC-DDD.kaj.poutavm.fi` listed in the output:
 
 ```
 ...
 ;; ANSWER SECTION:
-x.x.x.x.in-addr.arpa. xxx IN     PTR     vmXXXX.kaj.pouta.csc.fi.
+x.x.x.x.in-addr.arpa. 1667 IN	PTR fip-x-x-x-x.kaj.pouta.csc.fi.
 ```
+!!! warning "Do not use these DNS records (`fip-XXX...`) on production"
+    These DNS records are only suitable for development and testing use. We **do not recommend** to use them on production services. For production services, we recommend to use a Custom DNS name, as explained below.
 
 ### Custom DNS name
 
-In some cases you would like to use your own DNS name, a different one to the predefined one explained above, for example `mywesite.myuniversity.fi`. To create this new DNS name, you need to contact your DNS provider (in the example the administrators of `myuniversity.fi`) and request the new DNS record to point to your floating IP. Once created, the DNs record will take few minutes to propagate through the internet and will be visible globally.
-
+In some cases you would like to use your own DNS name, a different one to the predefined one explained above, for example `mywesite.myuniversity.fi`. To create this new DNS name, you need to contact your DNS provider (in the example the administrators of `myuniversity.fi`) and request the new DNS `A` record to point to your floating IP. Once created, the DNS record will take few minutes to propagate through the internet and will be visible globally.
 
 In most cases, these forward DNS records (`name -> IP`) are enough.But some services will also require the reverse DNS lookups (`IP -> name`) to work. This means that we have to
 configure Pouta's DNS server to say that the floating IP you are using

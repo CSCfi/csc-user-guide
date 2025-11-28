@@ -1,8 +1,16 @@
 ---
 tags:
   - Free
-system:
-  - www-puhti
+catalog:
+  name: Grace
+  description: Plotting tool for xvg-files in particular
+  license_type: Free
+  disciplines:
+    - Biosciences
+  available_on:
+    - web_interfaces:
+        - Puhti
+    - Puhti
 ---
 
 # Grace

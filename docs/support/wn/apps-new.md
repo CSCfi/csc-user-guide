@@ -1,5 +1,149 @@
 # Applications
 
+## AMS 2025 available on Puhti and Mahti, 27.11.2025
+
+[AMS](../../apps/ams.md) has been updated to version 2025.105 on both Mahti and Puhti
+and set as the default module. The [AMS2025 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2025/)
+summarize major changes and improvements.
+
+## Schrödinger Maestro 2025.4, 13.11.2025
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2025.4 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## HADDOCK3 available on LUMI, 12.9.2025
+
+The latest version of [HADDOCK3](../../apps/haddock3.md) suitable for
+large scale ligand/protein/antibody docking and integrative modelling
+is available on LUMI, including example batch jobs.
+
+## Python Data 3.12-25.09 now the default version, 12.9.2025
+
+A new version of [Python Data](../../apps/python-data.md)
+`python-data/3.12-25.09` has been installed, with the newest versions
+of popular data analytics packages. It has also been set as the default
+version.
+
+## GROMACS 2025.2, 13.8.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.2 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.2/release-notes/2025/2025.2.html)
+for a list of all new features and improvements.
+
+## Schrödinger Maestro 2025.3, 7.8.2025
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2025.3 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## CP2K 2025.1 available on Puhti, Mahti and LUMI, 6.8.2025
+
+[CP2K](../../apps/cp2k.md) 2025.1 has been installed and set as the default
+module on Puhti, Mahti and LUMI. See
+[release notes](https://github.com/cp2k/cp2k/releases/tag/v2025.1)
+for a list of new features, fixes and breaking changes.
+
+## R 4.5.1 in r-env, 22.7.2025
+
+R version 4.5.1 is now available in [r-env](../../apps/r-env.md) in Puhti and Mahti and is set as the default version.
+
+## PyTorch 2.7.1 available on Puhti, Mahti and LUMI, 8.7.2025
+
+PyTorch 2.7.1 is now available on Puhti, Mahti and LUMI, and set as
+the default version. It includes the most recent versions of popular
+packages such as Hugging Face transformers, vLLM and FAISS. SGLang is
+now available for Mahti only. See our [PyTorch module documentation
+for more information](../../apps/pytorch.md#available).
+
+## Schrödinger Maestro 2025.2, 15.5.2025
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2025.2 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## GROMACS 2025.1, 7.5.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.1 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.1/release-notes/2025/2025.1.html)
+for a list of all new features and improvements.
+
+## Geoconda 3.12.10, 6.5.2025
+
+[geoconda](../../apps/geoconda.md) version 3.12.10 has been added
+and set as the default module on Puhti. Besides package updates, it includes a several new packages: `access`, `contectily`, `dask-image`, `duckdb`, `esda`, `geocube`, `geodatasets`, `geoplot`, `h3-py`, `jupyter-resource-usage`, `pandana`, `pyrosm`, `pysheds`, `rio-cogeo` and `urbanaccess`. From packages available in previous geoconda, `wrf-python` and `xarray_leaflet` unfortunately could not be added this time.
+
+## PyTorch 2.6.0 available on Puhti and Mahti, 10.4.2025
+
+PyTorch 2.6.0 is now available on Puhti and Mahti, and set as the
+default version. It includes the most recent versions of popular packages
+such as Hugging Face transformers, vLLM and FAISS. PyTorch geometric
+and related packages are no longer included, as they do not support
+newer versions of PyTorch. See our [PyTorch module documentation for
+more information](../../apps/pytorch.md#available).
+
+## R in Mahti, 7.4.2025
+
+R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The [new small partition on Mahti](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
+
+## Tykky 0.4.2, 27.2.2025
+
+The newest version of Tykky (0.4.2) installed and set as default
+version on Puhti and Mahti. See the [Tykky releases page to see what's
+new](https://github.com/CSCfi/hpc-container-wrapper/releases/tag/v0.4.2).
+
+## R 4.4.2 in r-env, 25.2.2025
+
+R version 4.4.2 is now available in [r-env](../../apps/r-env.md) in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
+
+## JAX 0.4.38 available on Puhti, Mahti and LUMI, 0.5.0 available on Puhti and Mahti, 19.02.2025
+
+[JAX](../../apps/jax.md) 0.4.38 has now been installed on Puhti,
+Mahti and LUMI. This has been made the default version on LUMI.
+
+Additionally, JAX 0.5.0 has been installed on Puhti and Mahti
+and made the default version there. There is currently no support
+for ROCm for this JAX version and it has not been installed to LUMI.
+JAX 0.5.0 comes with [breaking changes](https://github.com/jax-ml/jax/releases/tag/jax-v0.5.0).
+If your code is incompatible, you can consider upgrading it or falling back to 0.4.38.
+
+On LUMI, the 0.4.38 module fixes memory allocation instabilities that were present in 0.4.30.
+
+## Snakemake and Nextflow tutorials significantly improved
+
+Tutorials with major updates available for workflow tools: [Snakemake](../tutorials/snakemake-puhti.md) and [Nextflow](../tutorials/nextflow-tutorial.md). The tutorial describe different options for the installing and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
+
+## Schrödinger Maestro 2025.1, 6.2.2025
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2025.1 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## Molpro 2024.3 is available on Puhti and Mahti, 3.2.2025
+
+Molpro has been updated to version [2024.3](../../apps/molpro.md). Previously available only on Puhti, this latest version is now also on Mahti. See the [Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes) for details on new features, bug fixes, and improvements.
+
+## PyTorch 2.5.1 available on Puhti, Mahti and LUMI, 20.12.2024
+
+PyTorch 2.5.1 is now available on Puhti, Mahti and LUMI. All the
+regular packages are included. The LUMI module now has experimental
+support for FAISS. See our [PyTorch module documentation for more
+information](../../apps/pytorch.md#available).
+
+## Maestro versions older than 2023.1 will not work after 13.3.2025
+
+Schrödinger has taken into use a
+[new license manager](https://www.schrodinger.com/life-science/learn/white-paper/new-schrodinger-license-manager/),
+which does not support [Maestro](../../apps/maestro.md) versions older than 2023.1. Consequently, **CSC
+will no longer be able to provide a license for Maestro versions 2022.4 and
+older after 13th of March 2025**. If not done already, please migrate to using
+versions 2023.1 or later as soon as possible! See our Maestro page for details on
+[how to configure licensing for your local Maestro installation](../../apps/maestro.md#local-installation).
+
 ## GROMACS 2024.4, 7.11.2024
 
 [GROMACS](../../apps/gromacs.md) 2024.4 is now available on Puhti, Mahti and LUMI.
@@ -446,7 +590,7 @@ instead.
 A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
 task farming, *i.e.* high-throughput computing workflows where the intention is to run many
 similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
-details](../../apps/hyperqueue.md#sbatch-hq).
+details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq-tool).
 
 ## PyTorch 1.13, 9.12.2022
 

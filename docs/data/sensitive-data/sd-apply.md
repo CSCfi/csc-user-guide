@@ -1,3 +1,5 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Reuse with Sensitive Data Apply
 
 Sensitive Data (SD) Apply is a service for applying access rights to sensitive datasets stored at CSC. In practice, it is a simple web user interface that guides you during the application process.
@@ -6,6 +8,6 @@ Each sensitive dataset that is published under controlled access is associated w
 
 The following is a step-by-step guide to SD Apply that illustrates: 
 
-- **[Data access for Data Applicant](./sd-apply-access.md)**
-- **[Data approval for Data Access Committee (DAC)](./sd-apply-approval.md)**
-
+- **[Apply access to FEGA data](./sd-apply-access.md)**
+- **[Approve access to FEGA data](./sd-apply-approval.md)**
+- **[Enable reuse of FEGA data](./sd-apply-dac.md)**

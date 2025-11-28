@@ -1,10 +1,14 @@
+[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
+
 # Data export from virtual desktop
 
-Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data.
+Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data. The exported results will be send to the data permit authority Findata for scrutiny. 
+
+Please ensure you reserve enough time for the export process. It may take us a few days to respond to your request, and once the results are sent to scrutiny, the scrutiny process will take up to seven business days.
 
 **In order to export the results at the end of your analysis, you need to:**
 
-1. Make sure your results **do not contain any sensitive data**;
+1. Make sure your results **do not contain any sensitive data**. Read more about producing anonymous results from [Findata's website](https://findata.fi/en/services-and-instructions/producing-anonymous-results/);
 2. Collect all the results into a same folder and name it as **Results**;
 3. Place the **Results** folder into the **shared-directory** on your Desktop;
 4. Download and complete Findata's [summary form for verifying the anonymity of the results](https://findata.fi/summary-form-verifying-anonymity-of-results);
@@ -12,23 +16,14 @@ Your virtual desktop is completely isolated from the internet and other services
 6. All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be added back to the CSC project, if your project is still ongoing;
 7. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect.
 
+!!! Note
+    When requesting export, remember to agree on the export date with all project members, because the virtual desktops will be unavailable during the export. In addition, remember to save all your work before the export, because software and processes can be interrupted during the export.
+
 ![Exporting results from virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Exporting_secondary_use_data.png)
 
-## Deleting virtual desktop
 
-### Deleting a desktop
 
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved on it. You cannot undo this action:
-
- 1. On [SD Desktop Homepage](https://sd-desktop.csc.fi), click **Go to SD Desktop management**.
- 2. Under *Available desktops* select the correct virtual Desktop. On the right side, click **Options** and **Delete Desktop**.
-
-[![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
-
-!!! Note
-    The virtual desktop **should not be deleted before all the results have been exported.** Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved on the virtual desktop or on the external volume by other project members.
-
-### End of data access and data deletion policies
+# End of data access and data deletion policies
 
 Access to the data will be denied after the data permit expires. If you want to continue accessing the data after the original validity period ends, you need to send an *amendment application* to the data controller to extend the validity of the permit.
 

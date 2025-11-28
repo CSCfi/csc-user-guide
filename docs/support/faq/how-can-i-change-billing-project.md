@@ -10,7 +10,7 @@ selecting the project first.
 * In **Allas**, the project to use is specified using the
   [`allas-conf` command](../../data/Allas/accessing_allas.md).
 * In **cPouta** or **ePouta**, you
-  [select the project from the dropdown menu of the OpenStack Horizon UI](../../cloud/pouta/launch-vm-from-web-gui.md#preparatory-steps).
+  [select the project from the dropdown menu of the OpenStack Horizon UI](../../cloud/pouta/launch-vm-from-web-gui.md#prerequisites).
 * In **Rahti**,
-  [OpenShift projects are mapped to CSC projects using the *Description* field](../../cloud/rahti2/usage/projects_and_quota.md)
+  [OpenShift projects are mapped to CSC projects using the *Description* field](../../cloud/rahti/usage/projects_and_quota.md)
   of the OpenShift project.
