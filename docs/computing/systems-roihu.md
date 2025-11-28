@@ -31,10 +31,11 @@ graph LR;
     style A fill:#dceeceff;
 ```
 
-Roihu will be installed in the same datacenter as LUMI, meaning that the system
-will be brought up without disturbing Puhti and Mahti services. There will also
-be a margin between Roihu general availability and the decommissioning of Puhti
-and Mahti to enable users to migrate to Roihu without a break in HPC access.
+**Roihu** will be installed in the same datacenter as LUMI, meaning that the
+system will be brought up without disturbing Puhti and Mahti services. There
+will also be a margin between Roihu general availability and the
+decommissioning of Puhti and Mahti to enable users to migrate to Roihu without
+a break in HPC access.
 
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
@@ -91,15 +92,15 @@ a 6.0 PiB Scratch space and a 0.5 PiB storage system for project applications
 and users' personal Home directories. Separate file systems will ensure
 responsiveness of Home and ProjAppl even under heavy Scratch usage.
 
-The Scratch space of Roihu will be about ten times more performant than Puhti
-Scratch. The peak I/O performance of Roihu Scratch is expected to be around 560
-GB/s for read and 280 GB/s for write. The Home and ProjAppl will have read and
-write bandwidths of 120 GB/s and 100 GB/s, respectively.
+The Scratch disk of Roihu will be more than ten times as performant as Puhti
+Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected to
+be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl will
+have read and write bandwidths of 120 GB/s and 100 GB/s, respectively.
 
 Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
 have not been accessed in the last 180 days to avoid inactive data accumulating
-on the system. For longer-term storage and sharing of datasets, we will
-introduce a new disk area called **ProjData**. ProjData access and quotas will
+on the system. For longer-term storage and sharing of datasets we will
+introduce a new disk area called **ProjData**. ProjData access and quota will
 be applied for and managed in MyCSC, and the disk area will have its own
 billing model.
 
@@ -124,8 +125,13 @@ partition there will be four 200 Gb/s links per node, one for each GPU.
 ## Software and programming environment
 
 We intend to provide a comprehensive stack of pre-installed HPC libraries and
-scientific software on Roihu as on Puhti and Mahti. The programming environment
-of Roihu will otherwise be similar to Mahti, including e.g.
+scientific software on Roihu similar to Puhti and Mahti. Some older and less
+used software and software versions may, however, be deprecated. Please also
+note that any software compiled on Puhti and Mahti will most likely need to be
+recompiled on Roihu. More information will be included in the migration guide.
+
+The programming environment of Roihu will otherwise be similar to Mahti,
+including e.g.
 
 * GNU compiler stack
 * AOCC compiler stack
