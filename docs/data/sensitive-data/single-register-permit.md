@@ -8,6 +8,8 @@
 
 You need to access SD Desktop. You have a permit from a single register.
 
+<iframe width="280" height="155" srcdoc="https://youtu.be/WfT6OAN0d04?si=QhAnbRKojxQYUlNw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Solution
 
 1. [Create a CSC account](#1-create-a-csc-account) 
