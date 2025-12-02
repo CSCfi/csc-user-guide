@@ -8,7 +8,7 @@
 
 You need to access SD Desktop. You have a permit from a single register.
 
-<iframe width="280" height="155" srcdoc="https://www.youtu.be/WfT6OAN0d04?si=QhAnbRKojxQYUlNw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/watch?v=WfT6OAN0d04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Solution
 
