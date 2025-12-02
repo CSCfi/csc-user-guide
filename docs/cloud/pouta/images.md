@@ -89,5 +89,5 @@ you are unsure, CentOS and Ubuntu are better choices 99% of the time.
 ## Image metadata
 Images updated since November of 2025 might have metadata reporting the type and version of
 the operating system (os_type, os_distro). That information allow OpenStack to create
-[ephemeral](ephemeral-storage.md) disks with the more appropiate format ext4 instead of vfat. Be
+[ephemeral](ephemeral-storage.md) disks with the more appropriate format ext4 instead of vfat. Be
 aware that this might affect your workflow or automations.
