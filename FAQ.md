@@ -23,8 +23,10 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
   - [How do I include a new software page on the "Applications" index pages](#how-do-i-add-a-new-applications-page)
-  - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
-  - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
+    - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
+    - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
+    - [How do I add scientific disciplines to an application page?](#how-do-i-add-scientific-disciplines-to-an-application-page)
+    - [What if there is no application page, but the application still needs to be listed on the index pages?](#what-if-there-is-no-application-page-but-the-application-still-needs-to-be-listed-on-the-index-pages)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
   - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
@@ -229,10 +231,10 @@ mkdocs serve --dirtyreload
 You can also run the tests locally with
 
 ```bash
-bash tests/run_tests.sh
+MKDOCS_ENV=test bash tests/run_tests.sh
 ```
 
-The tests depend on the Conda environment, so remember to activate it before running them, or use `conda run -n docs-env bash tests/run_tests.sh`.
+The tests depend on the Conda environment, so remember to activate it before running them, or use `conda run -n docs-env MKDOCS_ENV=test bash tests/run_tests.sh`.
 
 #### Scripts
 
@@ -356,7 +358,7 @@ Documentation for _Material for MkDocs_ has a [search feature](https://squidfunk
 ## How do I add a new "Applications" page?
 
 To include a new software page on the "Applications" index pages
-(`apps/index.md`, `apps/by_system.md`, `apps/by_license.md`, `apps/by_discipline`),
+(`apps/index.md`, `apps/by_discipline`, `apps/by_availability.md`, `apps/by_license.md`),
 you must add a YAML front matter at the beginning of the file (before the page title)
 with appropriate metadata. The frontmatter should look like this:
 
@@ -405,18 +407,47 @@ catalog:
 ---
 ```
 
+A missing name causes even preview builds to stop immediately with an error:
+
+```text
+ERROR   -  Error reading page 'apps/doom.md':
+ERROR   -  Every application in the Software Catalog must have a name
+```
+
+Other missing values in the front matter will generate a warning:
+
+```text
+WARNING -  catalog-hook: Doc file 'apps/doom.md' is for an application, but the YAML front matter does not ...
+```
+
+> [!WARNING]
+> Warnings are **not** allowed in the test automation, so while the site can be built with warnings for a preview (local or Rahti), all of the fields must be defined for a branch to be merged into the master branch.
+
+To include an app page without warnings for missing fields, the app may be marked as "unchecked".
+by defining a boolean-valued key `unchecked: true` inside `catalog:`.:
+
+```yaml
+---
+catalog:
+  name: A name is still required
+  # ...
+  unchecked: true
+---
+```
+
 > [!IMPORTANT]
-> **Do not** edit the index pages by hand, as they are populated automatically by a script using the front matter data when the website is built.
+> **Do not** attempt to _include apps_ on `apps/index.md`, `apps/by_discipline`, `apps/by_availability.md`, `apps/by_license.md` pages by hand, as the indices are populated automatically by a script using the front matter data when the website is built.
 
 See also:
 
 * [How do I add a license tag to an application page?](#how-do-i-add-a-license-tag-to-an-application-page)
 * [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
+* [The 'catalog-hook' configuration file](hooks/catalog/config.yml)
 
-## How do I add a license tag to an application page?
+### How do I add a license tag to an application page?
 
 The license tag is added inside the YAML front matter. Temporarily, the license type should be placed as a
-list item under `tags:` _and_ as a string in `license_type:`:
+single list item under `tags:` _and_ as a string in `license_type:`:
 
 ```yaml
 ---
@@ -432,9 +463,10 @@ catalog:
 where `<license>` is one of the predefined license categories: `Academic`, `Free`, `Non-commercial` or
 `Other`; case sensitive, without the angle brackets.
 
-The application will then be included on the Applications by license page automatically.
+The application will then be included under the appropriate license category on the
+[Applications by license page](https://docs.csc.fi/apps/by_license) automatically.
 
-## How do I tag an application as available under a web interface?
+### How do I tag an application as available under a web interface?
 
 In the YAML front matter. The following would, for example, tag the application as available on
 Puhti, Mahti _and_ Puhti web interface.
@@ -451,6 +483,49 @@ catalog:
   # ...
 ---
 ```
+
+### How do I add scientific disciplines to an application page?
+
+Similarly to license and availability above. The disciplines are to be listed under `disciplines:`:
+
+```yaml
+---
+catalog:
+  # ...
+  disciplines:
+    - Biosciences
+    - Chemistry
+  # - ...
+  # ...
+---
+```
+
+The application will then be listed under each of those disciplines on the
+[Applications by discipline page](https://docs.csc.fi/apps/by_discipline) automatically.
+
+See [the 'catalog-hook' configuration file](hooks/catalog/config.yml) for a list of predefined
+disciplines.
+
+### What if there is no application page, but the application still needs to be listed on the index pages?
+
+There is an appendix for including such applications. It resides in [the 'catalog-hook' configuration file](hooks/catalog/config.yml). The list `appendix:` contains entries such as
+
+```yaml
+appendix:
+  - name: "Chipster"
+    description: "Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data"
+    disciplines:
+      - "Biosciences"
+    doc: "https://chipster.csc.fi/"
+  - name: "MaxQuant"
+    description: "A proteomics software for processing of Mass-spectromtery data"
+    disciplines:
+      - "Biosciences"
+    doc: "support/tutorials/MaxQuant-tutorial.md"
+# - ...
+```
+
+where `doc:` can point either to an external page or a `.md` source file on Docs. For the other fields, see the instructions for application pages above. The fields `name:`, `description:`, `disciplines:` and `doc:` are all required and no other fields are allowed.
 
 ## How do I add footnotes?
 

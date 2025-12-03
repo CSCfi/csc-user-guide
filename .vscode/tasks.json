@@ -96,7 +96,7 @@
                 "focus": false,
                 "panel": "dedicated",
             },
-            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} bash ${workspaceFolder}/tests/run_tests.sh",
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} MKDOCS_ENV=test bash ${workspaceFolder}/tests/run_tests.sh",
             "windows": {
                 "command": "Write-Host \"The Test task is not configured for running on Windows.\"",
             },
