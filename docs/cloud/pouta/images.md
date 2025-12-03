@@ -4,7 +4,7 @@
 
 CSC provides a set of standard images that are well suited for cloud
 use. In most cases, you can use these images instead of creating your
-own. The images are created automatically using _diskimage-builder_.
+own. The images are created automatically using _imagebuilder_.
 If you are interested in the details of how
 these images are created, see this [GitHub page]. The images are
 updated at regular intervals so that they contain the latest security
@@ -25,7 +25,6 @@ The images provided by CSC are mostly the same as upstream.
 though there are some exceptions to this rule.
 * We make sure that the images are updated before releasing them,
 so that we are sure that they work.
-* The `-Cuda` images come preinstalled with the latest CUDA drivers.
 * We enable automatic updates.
 * We disable password login.
 * We sometimes add some nice-to-have packages such as _vim_ or _ntp_. We try to
@@ -84,7 +83,7 @@ VMs, and you should always delete the instance when you are done with
 testing. There is very little reason for end-users using this image, and if
 you are unsure, CentOS and Ubuntu are better choices 99% of the time.
 
-[GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
+[GitHub page]: https://github.com/CSCfi/imagebuilder
 
 ## Image metadata
 Images updated since November of 2025 might have metadata reporting the type and version of
