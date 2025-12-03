@@ -48,9 +48,9 @@ To access Allas with **command line commands**, client software supporting the _
 | [rclone](./using_allas/rclone.md)  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |  <font color="green">&#x2714;</font> | 
 | [swift python-swiftclient](./using_allas/swift_client.md) | <font color="green">&#x2714;</font> |   | <font color="green">&#x2714;</font> |   |
 | [s3cmd](./using_allas/s3_client.md) |  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |   |
-| [aws-cli](https://s3browser.com/) |   | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| [aws-cli](https://aws.amazon.com/cli/) |   | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 
-Additionally for exmple `curl` and `wget` can be used for downloading public objects or objects with temporary URLs.
+Additionally for example `curl` and `wget` can be used for downloading public objects or objects with temporary URLs.
 
 ## Graphical tools
 

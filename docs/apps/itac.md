@@ -3,10 +3,12 @@ tags:
   - Free
 catalog:
   name: Intel Trace Analyzer and Collector (ITAC)
+  description: MPI profiling and tracing tool
+  disciplines:
+    - Miscellaneous
   license_type: Free
   available_on:
     - Puhti
-  unchecked: true
 ---
 
 # Intel Trace Analyzer and Collector (ITAC)

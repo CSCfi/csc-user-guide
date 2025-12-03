@@ -31,9 +31,9 @@ Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using 
 
 1. From there [launch a Desktop](../computing/webinterface/desktop.md#launching). 
 2. Open a `Terminal` and move to a suitable working directory.
-3. Load the AMS module `module load ams/2023.104`.
-4. Start the input builder `amsinput` and construct your job.
-5. Save the job (`File-> Save As ...`).
+3. Load the AMS module `module load ams/2025.105`.
+4. Start the input builder `amsinput`. The startup may take some time, so please be patient.
+5. Build your job and save it (`File-> Save As ...`).
 
 Short jobs can be started directly from the GUI (`File-> Run`), but longer jobs should be submitted to the batch queue. 
 All saved jobs, both calculated and uncalculated, can be found in the GUI under `SCM-> Jobs`.
@@ -47,7 +47,7 @@ Before you submit a job to the batch queue you have to define what resources it 
 6. `Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" `   
 Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.
 7. `Use Local Batch: yes`  
-8. `Prolog command: source /appl/profile/zz-csc-env.sh; module load ams/2023.104; export SCM_TMPDIR=$PWD; export FORT_TMPDIR=$SCM_TMPDIR`
+8. `Prolog command: source /appl/profile/zz-csc-env.sh; module load ams/2025.105; export SCM_TMPDIR=$PWD; export FORT_TMPDIR=$SCM_TMPDIR`
    This initiates the AMS environment.
 
 Select the job you want to submit (`SCM-> Jobs`), the queue you want to use (`Queue`) and submit the job `Job-> Run`.  
@@ -82,7 +82,7 @@ The download starts without entering a user ID and the password for users of Saf
 #### 3. Install
 
 *a. Windows:* run the exe with Administrator privileges, accepting all defaults.  
-*b. Mac:* open the dmg and drag the AMS2023.xxx item to the Applications directory.  
+*b. Mac:* open the dmg and drag the AMS2025.xxx item to the Applications directory.  
 *c. Linux:* untar the tgz and source the `amsbashrc.sh` in the AMS installation directory.
 
 For more detailed information, see the [AMS installation manual](https://www.scm.com/doc/Installation/index.html).
@@ -90,7 +90,7 @@ For more detailed information, see the [AMS installation manual](https://www.scm
 #### 4. Run
 
 *a. Windows:* double-click the **AMSjobs** shortcut  
-*b. Mac:* run the **AMS2023.xxx** application  
+*b. Mac:* run the **AMS2025.xxx** application  
 *c. Linux:* set up your environment, run `$AMSBIN/adfjobs`
 
 When you start AMS for the first time you will be prompted for your username,
@@ -115,4 +115,4 @@ Before you submit a job to the batch queue you have to define what resources it 
 6. `Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" `  
 Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.  
 7. `Use Local Batch: no`
-8. `Prolog command: source /appl/profile/zz-csc-env.sh;source /appl/soft/chem/AMS/ams2022.103/ams_csc.bash;export SCM_TMPDIR=/scratch/<yourproject>; export FORT_TMPDIR=$SCM_TMPDIR`
+8. `Prolog command: source /appl/profile/zz-csc-env.sh;source /appl/soft/chem/AMS/ams2025.105/ams_csc.bash;export SCM_TMPDIR=/scratch/<yourproject>; export FORT_TMPDIR=$SCM_TMPDIR`

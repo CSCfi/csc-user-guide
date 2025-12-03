@@ -1,5 +1,11 @@
 # Computing environment
 
+## Puhti and Mahti web interface updated to release 31 and 15, 3.12.2025
+
+* The File Deletion Explorer tool now exports correctly when multiple projects are used (Puhti).
+* Default MATLAB memory has been increased to 8GB (Mahti).
+* Open OnDemand updated to 4.0.8 (Mahti).
+
 ## Puhti web interface updated to release 30, 5.11.2025
 
 * A new File Deletion Explorer tool has been added for testing, see more information [here](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
