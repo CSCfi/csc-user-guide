@@ -1,5 +1,14 @@
 # Deprecated apps
 
+Occasionally, CSC may need to deprecate certain pre-installed software or
+software versions. This may, for example, be due to discontinued licenses or
+incompatibility of non-actively maintained software with updating computing
+environments.
+
+A list of deprecated software, the reasons behind the deprecation and
+recommended alternatives can be found below. If you have questions, please
+[contact CSC Service Desk](../contact.md).
+
 ---
 
 ## Bioconda
