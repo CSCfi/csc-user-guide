@@ -1,5 +1,11 @@
 # Applications
 
+## AMS 2025 available on Puhti and Mahti, 27.11.2025
+
+[AMS](../../apps/ams.md) has been updated to version 2025.105 on both Mahti and Puhti
+and set as the default module. The [AMS2025 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2025/)
+summarize major changes and improvements.
+
 ## Schrödinger Maestro 2025.4, 13.11.2025
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2025.4 has been installed

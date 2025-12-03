@@ -43,14 +43,27 @@ If you know that your computations are highly parallelizable, you should
 consider running them on the
 [Mahti supercomputer](../../computing/available-systems.md#mahti).
 Compared to Puhti, Mahti has many more CPU nodes and cores per node. Mahti is
-intended for computations that are able to effectively utilize at least an
-entire CPU node.
+mainly intended for computations that are able to effectively utilize at least
+an entire CPU node, but there are also partitions available offering core-based
+allocations for smaller jobs. Like Puhti, GPU nodes and some CPU nodes on Mahti
+have
+[fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
 
 Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
 are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
 also suitable for demanding [machine learning](ml-guide.md) applications.
-In contrast to Puhti, only the GPU nodes on Mahti have fast local NVMe storage
-available.
+
+### Roihu (coming in spring 2026)
+
+Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
+next-generation supercomputer offering enhanced performance and capabilities.
+
+- Puhti computing services will be shut down one month after Roihu general
+  availability in spring 2026.
+- Puhti storage will remain accessible at least until the end of June 2026.
+- Mahti will be shut down in August 2026.
+
+[Learn more about Roihu here!](../../computing/systems-roihu.md)
 
 ### LUMI
 
@@ -121,7 +134,7 @@ seem archaic, it is truly powerful once you get used to it.
 
 The CLI allows you to
 [submit your computations as batch jobs](../../computing/running/getting-started.md)
-to the SLURM job scheduler, which runs them as soon as the requested resources
+to the Slurm job scheduler, which runs them as soon as the requested resources
 are available. Importantly, the batch job system ensures that your jobs are run
 on the *compute nodes* opposed to the *login nodes*,
 which are [**not** intended for heavy computing](../../computing/usage-policy.md).
