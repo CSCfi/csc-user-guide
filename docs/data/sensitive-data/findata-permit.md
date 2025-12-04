@@ -11,7 +11,7 @@
 
 You need to access SD Desktop. You have a permit from Findata.
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/C5n92UiUbPc?si=FKfnl-mVNCmpQcEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/C5n92UiUbPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Solution
 
