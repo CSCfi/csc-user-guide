@@ -38,7 +38,7 @@ There are also 80 GPU nodes, with total of 320 Nvidia Volta V100 GPUs. This
 partition is suitable for all kinds workloads capable of utilizing GPUs, even
 heavy AI models that span multiple nodes.
 
-Puhti has a wide selection of [scientific software](../apps/by_system.md#puhti)
+Puhti has a wide selection of [scientific software](../apps/by_availability.md#puhti)
 installed.
 
 - [A more technical description of Puhti](systems-puhti.md)
@@ -64,7 +64,7 @@ into smaller GPUs with one seventh of the compute and memory capacity of a full
 A100 GPU. These can be used for interactive workloads, courses and code
 development.
 
-The selection of installed [scientific software](../apps/by_system.md#mahti) in
+The selection of installed [scientific software](../apps/by_availability.md#mahti) in
 Mahti is more limited than in Puhti.
 
 - [A more technical description of Mahti](systems-mahti.md)

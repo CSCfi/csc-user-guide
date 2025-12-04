@@ -1,6 +1,7 @@
 import re
 import subprocess
 import sys
+from glob import glob
 def run_bash(command):
     command_as_list=command.split(" ")
     Output=subprocess.run(command_as_list,stdout=subprocess.PIPE,stderr=subprocess.PIPE)#,capture_output=True)
@@ -71,7 +72,8 @@ class Docs:
                 if(pars[0]!='#'):
                     self.whitelist.append(pars)
 
-        
+        # Add docs/apps/*.md to whitelist as the files are handled by the MkDocs hook
+        self.whitelist.extend(glob('docs/apps/*.md'))
 
 
     def file_exists(self,file_path):
