@@ -71,6 +71,10 @@ It's worth keeping in mind that with the root credentials enabled you can make
 breaking changes to your database. It's recommended to only use the root user when
 you need to make changes that actually require it.
 
+Keep in mind that when you create a new database instance by restoring from a backup,
+any parameter changes done with root access via `ALTER SYSTEM` commands in the original
+instance are discarded.
+
 ### How to enable root from the Web interface
 
 1. Log in to the web interface where you can see all your existing instances.
