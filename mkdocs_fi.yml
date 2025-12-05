@@ -91,6 +91,7 @@ nav:
           - computing/containers/overview.md
           - Esimerkkejä: computing/containers/examples.md
           - Tykky: computing/containers/tykky.md
+          - LUMI: computing/containers/lumi.md
       - Verkkokäyttöliittymä:
           - computing/webinterface/index.md
           - Yhteyden muodostaminen: computing/webinterface/connecting.md

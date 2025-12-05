@@ -1,11 +1,11 @@
-FROM image-registry.apps.2.rahti.csc.fi/docs-csc-development/docs-csc-builder AS builder
+ARG builder_image
+FROM ${builder_image} AS builder
 
 ARG repo_org=CSCfi
 ARG repo_name=csc-user-guide
 ARG repo_branch=master
-ARG config_file=mkdocs.yml
 
-ADD .git-revision-date-ignore-revs "${config_file}" .
+ADD .git-revision-date-ignore-revs mkdocs.yml .
 
 RUN \
   git clone --no-checkout \
@@ -26,8 +26,7 @@ RUN \
     bash scripts/generate_${feat}.sh; \
   done \
 && \
-  mkdocs build --site-dir=/tmp/site \
-               --config-file="${config_file}"
+  mkdocs build --site-dir=/tmp/site
 
 
 FROM registry.access.redhat.com/ubi8/nginx-124
