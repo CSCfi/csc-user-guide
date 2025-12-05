@@ -42,6 +42,12 @@ includes cases where the course participants need access to GPUs or larger CPU r
 software stack is used for the course assignments. The systems support both traditional batch processing compute tasks, 
 as well as web-based tools such as Jupyter notebooks and RStudio via the [web interface](../../computing/webinterface/index.md). Course organizers are even able to create customized Jupyter notebook environments for their course in the [Jupyter for courses](../../computing/webinterface/jupyter-for-courses.md) app.
 
+!!! info "Service breaks"
+
+   Please note that the first Tuesday and Wednesday each month are reserved for regular maintenance breaks. You should never rely on the services being available on those days.
+
+   
+   
 Please note that course projects are subject to the same Slurm job priority policies as regular
 computing projects, meaning that course participants may need to queue for resources
 if the system is under heavy use.
