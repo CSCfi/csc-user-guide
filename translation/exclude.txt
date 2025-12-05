@@ -1,0 +1,7 @@
+# Excluded entirely:
+ref.md
+
+# Excluded from (re-)translation:
+apps/index.md
+apps/by_discipline.md
+apps/by_availability.md

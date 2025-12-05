@@ -1,0 +1,103 @@
+ARG builder_image
+FROM ghcr.io/restic/restic AS restic_snapshots
+
+ARG lang
+
+RUN \
+  restic --json snapshots --path /tmp/docs/${lang} \
+                          --latest 1 \
+    > /tmp/snapshots.json \
+&& \
+  restic restore latest --path /tmp/docs/${lang} --target /tmp/stale_translation
+
+
+FROM ${builder_image} AS builder_translate
+
+ARG repo_org=CSCfi
+ARG repo_name=csc-user-guide
+ARG repo_branch=master
+
+ARG lang
+ENV LANG_CODE=${lang}
+
+COPY --from=restic_snapshots /tmp/snapshots.json .
+COPY --from=restic_snapshots /tmp/stale_translation /tmp/fresh_translation
+
+ADD translation translation
+
+USER 0
+RUN \
+  chown -R 1001:0 /tmp/fresh_translation
+USER 1001
+
+RUN \
+  git clone --no-checkout \
+            --single-branch \
+            --branch=${repo_branch} \
+    https://github.com/${repo_org}/${repo_name} \
+    /tmp/src \
+&& \
+  git -C /tmp/src sparse-checkout init --no-cone \
+&& \
+  git -C /tmp/src sparse-checkout set docs \
+&& \
+  git -C /tmp/src checkout \
+&& \
+  python3 translation/refresh_translation.py /tmp/src \
+                                             /tmp/fresh_translation \
+                                             /tmp/commit_sha.txt
+
+
+FROM restic_snapshots AS restic_backup
+
+ARG lang
+
+COPY --from=builder_translate /tmp/fresh_translation /tmp/docs/${lang}
+COPY --from=builder_translate /tmp/commit_sha.txt /tmp
+
+RUN \
+  cd /tmp/docs/${lang} \
+&& \
+  restic backup --tag "$(cat /tmp/commit_sha.txt)" \
+                --exclude '.*' \
+                --iexclude '* !*.md' \
+                --skip-if-unchanged \
+         ./
+
+
+FROM builder_translate AS builder_mkdocs
+
+ARG lang
+
+USER 0
+ADD .git-revision-date-ignore-revs mkdocs_${lang}.yml .
+RUN \
+  mv /tmp/src/{.git,docs} . \
+&& \
+  cp --recursive \
+     --no-dereference \
+     --remove-destination \
+    /tmp/fresh_translation/* docs \
+&& \
+  chown -R 1001:0 ./
+USER 1001
+
+RUN \
+  for feat in new glossary; do \
+    bash scripts/generate_${feat}.sh; \
+  done \
+&& \
+  mkdocs build --site-dir=/tmp/site \
+               --config-file="mkdocs_${lang}.yml"
+
+
+FROM registry.access.redhat.com/ubi8/nginx-124
+
+LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
+
+COPY --from=builder_mkdocs /tmp/site "${NGINX_APP_ROOT}/src"
+ADD nginx.conf "${NGINX_CONF_PATH}"
+
+EXPOSE 8000/tcp
+
+CMD nginx
