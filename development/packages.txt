@@ -6,3 +6,6 @@ mkdocs-redirects
 mkdocs-section-index
 feedparser
 pyhumps
+
+# Used for translating the content
+openai
