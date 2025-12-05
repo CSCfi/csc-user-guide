@@ -27,50 +27,7 @@ The services are listed in alphabetical order.
 
     CSC's next national supercomputer Roihu, a BullSequana XH3000 hybrid system, will replace the Puhti and Mahti supercomputers. More information about [Roihu](../../computing/systems-roihu.md).
 
-Courses using the HPC should have fewer than 50 people. To ensure students have access to the necessary resources, reservations should be made well in advance (i.e. several weeks beforehand) to guarantee capacity during practical sessions. Reservations allocate supercomputer nodes to your project, meaning that only course's students can use them. This ensures reasonable queuing times, even if the system is in heavy use. 
-
-Please note that reservation requests may be declined, so it is good practice to request one when planning the course. If students are completing the course independently over a longer period, they can use the standard queuing system and its limits. In that case, it is your project's BUs that provide guidance on reasonable resource usage.
-
-HPCs have guidance on reservations in two categories: Typical and maximum possible. Please note that these requests may be denied or reduced, as with any other resource request at CSC. In practice, requests at the maximum level should only be made for major or high-priority events. Only request the needed resources, and provide an explanation as to why you require them (you may require less than the amounts specified below).
-
-_Alternative text view (table view below):_
-
-#### Puhti
-
-*Typical reservation*
-
-- Each day:
-      - CPU: A dedicated reservation can include a maximum of two regular nodes (2 x 40 cores and 2 x 192 GB).
-      - Reservations are valid from 08:00 to 17:00 at most.
-- A maximum of five days in total.
-
-*Maximum reservation*
-
-- Each day:
-      - CPU: A dedicated reservation can include a maximum of five regular nodes (200 cores).
-      - GPU: A dedicated reservation can include a maximum of four GPU nodes.
-      - The reservation is valid for a maximum of 12 hours per day. Timeslots can be requested (e.g. 08:00–20:00 or 12:00–24:00).
-- A maximum of ten days in total.
-
-#### Mahti
-
-*Typical reservation*
-
-- Each day:
-      - CPU: A dedicated reservation can include a maximum of two regular M-nodes (2x128 cores and 2x256 GB).
-      - GPU: A dedicated reservation can include a maximum of 14 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) (1 node).
-      - Reservations are valid from 08:00 to 17:00
-- Maximum total of five days.
-
-*Maximum reservation*
-
-- Each day:
-      - CPU: A dedicated reservation can include a maximum of eight regular M-nodes (8 x 128 cores and 8 x 256 GB).
-      - GPU: A dedicated reservation can include a maximum of 28 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) (1 node).
-      - Reservations are valid for a maximum of 12 hours per day and can be requested in time slots (e.g. 08:00–20:00 or 12:00–24:00).
-- Maximum total of ten days.
-
-_Alternative table view:_
+The guidelines for booking Puhti and Mahti services for a course are given below.
 
 | System | Reservation Type | CPU Limit | Memory per Node | GPU Limit | Daily Time Window | Max Total Days |
 |--------|------------------|-----------|------------------|-----------|--------------------|----------------|
@@ -78,6 +35,8 @@ _Alternative table view:_
 | | Maximum | 5 nodes (200 cores) | 192 GB | 4 GPU nodes | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
 | Mahti | Typical | 2 M-nodes (2×128 cores) | 256 GB | 14 GPU slices (1 node) | 08:00–17:00 | 5 |
 | | Maximum | 8 M-nodes (8×128 cores) | 256 GB | 28 GPU slices (1 node) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
+
+You can find the services' documentation here: [Computing](../../computing/index.md).
 
 ### Noppe
 
