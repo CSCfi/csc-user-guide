@@ -83,7 +83,7 @@ containers in CSC's computing environment can be found from the links below:
 Best practice guidelines on installing own Python and R packages can be found in
 the Python, R and Tykky container wrapper pages below.
 
-- [Installing Python packages and environments](../apps/python.md)
+- [Installing Python packages and environments](../support/tutorials/python-usage-guide.md)
 - [Containerizing Conda and pip environments with Tykky](containers/tykky.md)
 - [R package installations](../apps/r-env.md#r-package-installations)
 
