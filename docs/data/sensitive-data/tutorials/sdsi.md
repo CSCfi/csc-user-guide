@@ -14,11 +14,14 @@ Please note following details that limit the usage of this procedure:
 
 # Security aspects
 
-The increased security of the computing tasks that are submitted with the sdsi-client is based on two main features:
+The Puhti cluster of CSC provides a secure and well maintaned environment for comitational research and data analysis.
+The [Technical and Organizational Measures (TOMs) in the Puhti Supercomputer Service](https://research.csc.fi/puhti-service-description/puhti-toms/) give detailed information about the security measures of the cluster.
+
+The sensitive data job submission using sdsi-client provides even increased security level for using Puhti.
+The increased security is based on two main features:
 
    1. Both input and output data are stored and transported in encrypted format. Encryption is done automatically using the SD Connect methodology.
    2. For the actual analysis the data is temporarily decrypted to the local disk area of a compute node that is fully reserved for only this one job. Thus there are no other users in the node during the execution of the job, and other users cannot access the disk areas, memory or process list of the node during the processing. The technical and operational measures that implements this key restriction are described in the Puhti TOMs.
-
 
 
 # Getting stared 
