@@ -1,14 +1,12 @@
 ARG builder_image
 FROM ghcr.io/restic/restic AS restic_snapshots
 
-ARG lang
-
 RUN \
-  restic --json snapshots --path /tmp/docs/${lang} \
+  restic --json snapshots --path /tmp/docs/${LANG_CODE} \
                           --latest 1 \
     > /tmp/snapshots.json \
 && \
-  restic restore latest --path /tmp/docs/${lang} --target /tmp/stale_translation
+  restic restore latest --path /tmp/docs/${LANG_CODE} --target /tmp/stale_translation
 
 
 FROM ${builder_image} AS builder_translate
@@ -16,9 +14,6 @@ FROM ${builder_image} AS builder_translate
 ARG repo_org=CSCfi
 ARG repo_name=csc-user-guide
 ARG repo_branch=master
-
-ARG lang
-ENV LANG_CODE=${lang}
 
 COPY --from=restic_snapshots /tmp/snapshots.json .
 COPY --from=restic_snapshots /tmp/stale_translation /tmp/fresh_translation
@@ -50,13 +45,11 @@ RUN \
 
 FROM restic_snapshots AS restic_backup
 
-ARG lang
-
-COPY --from=builder_translate /tmp/fresh_translation /tmp/docs/${lang}
+COPY --from=builder_translate /tmp/fresh_translation /tmp/docs/${LANG_CODE}
 COPY --from=builder_translate /tmp/commit_sha.txt /tmp
 
 RUN \
-  cd /tmp/docs/${lang} \
+  cd /tmp/docs/${LANG_CODE} \
 && \
   restic backup --tag "$(cat /tmp/commit_sha.txt)" \
                 --exclude '.*' \
@@ -67,10 +60,8 @@ RUN \
 
 FROM builder_translate AS builder_mkdocs
 
-ARG lang
-
 USER 0
-ADD .git-revision-date-ignore-revs mkdocs_${lang}.yml .
+ADD .git-revision-date-ignore-revs mkdocs_${LANG_CODE}.yml .
 RUN \
   mv /tmp/src/{.git,docs} . \
 && \
@@ -88,7 +79,7 @@ RUN \
   done \
 && \
   mkdocs build --site-dir=/tmp/site \
-               --config-file="mkdocs_${lang}.yml"
+               --config-file="mkdocs_${LANG_CODE}.yml"
 
 
 FROM registry.access.redhat.com/ubi8/nginx-124
