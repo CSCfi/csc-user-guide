@@ -1,7 +1,9 @@
 # CSC Services for Courses
 
-This guide will explain how to use the course project type with CSC's
-high-performance computing (HPC) and cloud services.
+This guide will explain how to use CSC's high-performance computing (HPC) and cloud services when 
+arranging courses, and provide advice for selecting the right service.
+
+With the exception of Noppe, all other services require you to use a course project type to provide access and resources for your students.  To use the Noppe service, you don't need any MyCSC project, or even a CSC user account. [By whom and how can Noppe be used?](../../cloud/noppe/index.md#who-and-how-can-noppe-be-used)
 
 Staff members from higher education institutions and state research 
 institutes can create a MyCSC course project. The procedure is as follows:
@@ -10,9 +12,6 @@ institutes can create a MyCSC course project. The procedure is as follows:
    2. Create a [MyCSC course project](../../accounts/how-to-create-new-project.md)
    3. Activate wanted [service](../../accounts/how-to-add-service-access-for-project.md)
 
-!!! tip "Noppe"
-    You don't need a MyCSC project to use the Noppe service.
-    [Who and how can Noppe be used?](../../cloud/noppe/index.md#who-and-how-can-noppe-be-used)
 
 ## Available services
 
@@ -38,9 +37,12 @@ The services are listed in alphabetical order.
     will replace the Puhti and Mahti supercomputers. More information about
     [Roihu](../../computing/systems-roihu.md).
 
+Mahti and Puhti are ideal platforms for smaller courses with typically less than 50 participants who benefit from the characteristics of the platforms. This 
+includes cases where the course participants need access to GPUs or larger CPU resources, and cases where the existing 
+software stack is used for the course assignments. The systems support both traditional batch processing compute tasks, 
+as well as web-based tools such as Jupyter notebooks and RStudio via the [web interface](../../computing/webinterface/index.md). Course organizers are even able to create customized Jupyter notebook environments for their course in the [Jupyter for courses](../../computing/webinterface/jupyter-for-courses.md) app.
 
-The course project can host a maximum of 50 students at a time. Please note that
-course projects are subject to the same Slurm job priority policies as regular
+Please note that course projects are subject to the same Slurm job priority policies as regular
 computing projects, meaning that course participants may need to queue for resources
 if the system is under heavy use.
 
