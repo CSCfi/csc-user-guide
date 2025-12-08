@@ -21,13 +21,9 @@ see [Advanced images](adding-images.md)
 
 The images provided by CSC are mostly the same as upstream.
 
-* Most of the images come with the pre-configured username `cloud-user`,
-though there are some exceptions to this rule.
 * We make sure that the images are updated before releasing them,
 so that we are sure that they work.
-* We enable automatic updates.
 * We disable password login.
-* We sometimes add some nice-to-have packages such as _vim_ or _ntp_. We try to
 keep the additional packages at a minimum.
 
 ## Images
@@ -37,7 +33,6 @@ keep the additional packages at a minimum.
 |CentOS-9-Stream |**cloud-user** |no  |
 |AlmaLinux-8     |**almalinux**  |no  |
 |AlmaLinux-9     |**almalinux**  |no  |
-|Ubuntu-18.04    |**ubuntu**     |no  |
 |Ubuntu-20.04    |**ubuntu**     |no  |
 |Ubuntu-22.04    |**ubuntu**     |no  |
 |Ubuntu-24.04    |**ubuntu**     |no  |
@@ -63,10 +58,9 @@ distribution effectively takes the role that CentOS used to have before the
 switch to the -Stream versions. Note that these are the upstream versions of the
 AlmaLinux images, and their default username is `almalinux` instead of `cloud-user`.
 
-### Ubuntu-24.04, 22.04, 20.04 and 18.04 LTS
-Some like chocolate, some like strawberry. This is the choice for those that
-do not want to use CentOS. Note that these are the upstream versions of the
-Ubuntu images, and their default username is `ubuntu` instead of `cloud-user`.
+### Ubuntu-24.04, 22.04 and 20.04
+Note that these are the upstream versions of the Ubuntu images, and their default
+username is `ubuntu` instead of `cloud-user`.
 
 ## Snowflake images
 These images you should probably not use without a really good
