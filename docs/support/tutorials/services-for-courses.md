@@ -1,18 +1,26 @@
-# Using CSC services for courses
+# How to organize a course using CSC resources
 
 CSC services can be used for educational purposes in accordance with our
 [free-of-charge use policy](https://research.csc.fi/free-of-charge-use/). This
 guide outlines how to organize a course using [Noppe](#noppe) and
-[CSC supercomputers Puhti and Mahti](#puhti-and-mahti), including advice on how
-to select the right service for your needs.
+[CSC supercomputers Puhti and Mahti](#puhti-and-mahti), including advice on
+[how to select the most suitable service for your needs](#which-service-should-i-choose).
 
 ## Noppe
+
+### Overview
+
+Motivation why to use Noppe here.
 
 ### Instructions
 
 #### Teacher
 
+[Please see the guide for teachers](../../cloud/noppe/guide_for_teachers.md).
+
 #### Student
+
+[Please see the guide for student](../../cloud/noppe/guide_for_students.md).
 
 ## Puhti and Mahti
 
@@ -44,28 +52,37 @@ students**. Ideally, teachers should target a smaller number of around 25
 participants. For larger courses the free resources and allowed resource
 reservations may not support the requested amount of users.
 
+It is also recommended to request an advance resource reservation for courses
+to guarantee the availability of resources.
+[Read more below](#advance-resource-reservation).
+
 !!! warning "Service breaks"
     Please note that the first Tuesday and Wednesday of each month are reserved
     for regular maintenance breaks. You should never rely on the services being
     available on those days.
 
-### Prerequisites
+### Instructions
 
 #### Teacher
 
 1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
 2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
-3. [Add Puhti and/or Mahti service access to the project](../../accounts/how-to-add-service-access-for-project.md).
+3. [Add Puhti and/or Mahti service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
 4. Invite students to the project either by
-    * [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
-    * [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+5. [Request an advance resource reservation](#advance-resource-reservation).
+6. Prepare the course content.
+    1. [Consult the documentation](../../computing/index.md).
+    2. [Contact CSC Service Desk if you need support](../contact.md).
 
 #### Student
 
 1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
 2. Join the course project:
     1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
-    2. If you've been added directly to the course project, no actions are required.
+    2. If you've been added directly to the course project, no further actions are required to join the course project.
+3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
 
 ### Advance resource reservation
 
@@ -73,20 +90,63 @@ Course projects are subject to the same Slurm job priority policies as regular
 computing projects, meaning that **course participants may need to queue for
 resources** if the system is under heavy use. To ensure the availability of
 resources at the time of the course session(s), we recommend requesting for an
-_advance resource reservation_.
+_advance resource reservation_. Please note:
 
 * The resource reservation must be requested **at least 14 days** before
   the start of the course via [CSC Service Desk](../contact.md).
 * The request should be motivated and include
-    1. the number of participants,
-    2. the resources planned for the course,
-    3. timetable showing the schedule of the course.
+    1. The course project number,
+    2. the number of participants,
+    3. the resources planned for the course,
+    4. timetable showing the schedule of the course.
 * The maximum amount and type of reservable resources are outlined in the
   table below.
 
     | System | Approval | CPU limit | GPU limit | Max. daily time window | Max. course days in total |
-    |--------|------------------|-------------------|-----------|--------------------|----------------|
+    |--------|----------|-----------|-----------|------------------------|---------------------------|
     | Puhti  | Automatic | 2 nodes (80 cores) | 0 | 08:00–17:00 | 5 |
     |        | CSC Resource Allocation Group | 5 nodes (200 cores) | 4 nodes (16 GPUs) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
     | Mahti  | Automatic | 2 nodes (256 cores) | 14 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) | 08:00–17:00 | 5 |
     |        | CSC Resource Allocation Group | 8 nodes (1024 cores) | 56 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
+
+A granted advance resource reservation will be visible in the form for
+launching an interactive session in the web interfaces. Note that the option
+will be greyed out until the start of the reservation.
+
+In batch job scripts, the advance resource reservation is activated using the
+Slurm directive:
+
+```bash
+#SBATCH --reservation=<reservation name>
+```
+
+Please note that the project number and partition must match what has been
+specified for the advance resource reservation.
+
+## Which service should I choose?
+
+The following table compares Noppe vs. Puhti and Mahti in order to help
+selecting the most suitable service for your course.
+
+| Feature | | Noppe | Puhti | Mahti |
+|---------|---------|:-----:|:-----:|:-----:|
+| Prerequisites | | | | |
+| | CSC course project required | &#10060; | &#9989; | &#9989; |
+| | Teacher needs CSC account | &#9989; | &#9989; | &#9989; |
+| | Students need CSC accounts | &#10060; | &#9989; | &#9989; |
+| User interface | | | | |
+| | Web interface | &#9989; | &#9989; | &#9989; |
+| | Command-line interface | &#10060; | &#9989; | &#9989; |
+| Graphical apps | | | | |
+| | Jupyter Notebooks | &#9989; | &#9989; | &#9989; |
+| | RStudio | &#9989; | &#9989; | &#9989; |
+| | MATLAB | &#10060; | &#9989; | &#9989; |
+| | TensorBoard | &#10060; | &#9989; | &#9989; |
+| | MLflow | &#10060; | &#9989; | &#9989; |
+| | VS Code | &#10060; | &#9989; | &#9989; |
+| | Remote desktop | &#10060; | &#9989; | &#9989; |
+| | Remote desktop with GPU acceleration | &#10060; | &#9989; | &#10060; |
+| Resources | | |
+| | CPU | &#9989; | &#9989; | &#9989; |
+| | GPU | &#10060; | &#9989; | &#9989; |
+| | Shared storage quota | 20 GiB | 1 TiB | 1 TiB |
