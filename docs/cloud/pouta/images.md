@@ -20,11 +20,8 @@ see [Advanced images](adding-images.md)
 ## The main features of the images provided by CSC
 
 The images provided by CSC are mostly the same as upstream.
-
-* We make sure that the images are updated before releasing them,
+We make sure that the images are updated before releasing them,
 so that we are sure that they work.
-* We disable password login.
-keep the additional packages at a minimum.
 
 ## Images
 
