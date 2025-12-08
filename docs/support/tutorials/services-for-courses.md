@@ -1,85 +1,92 @@
-# CSC Services for Courses
+# Using CSC services for courses
 
-This guide will explain how to use CSC's high-performance computing (HPC) and cloud services when 
-arranging courses, and provide advice for selecting the right service.
+CSC services can be used for educational purposes in accordance with our
+[free-of-charge use policy](https://research.csc.fi/free-of-charge-use/). This
+guide outlines how to organize a course using [Noppe](#noppe) and
+[CSC supercomputers Puhti and Mahti](#puhti-and-mahti), including advice on how
+to select the right service for your needs.
 
-With the exception of Noppe, all other services require you to use a course project type to provide access and resources for your students.  To use the Noppe service, you don't need any MyCSC project, or even a CSC user account. [By whom and how can Noppe be used?](../../cloud/noppe/index.md#who-and-how-can-noppe-be-used)
+## Noppe
 
-Staff members from higher education institutions and state research 
-institutes can create a MyCSC course project. The procedure is as follows:
+### Instructions
 
-   1. Have a [CSC account](../../accounts/how-to-create-new-user-account.md)
-   2. Create a [MyCSC course project](../../accounts/how-to-create-new-project.md)
-   3. Activate wanted [service](../../accounts/how-to-add-service-access-for-project.md)
+#### Teacher
 
+#### Student
 
-## Available services
+## Puhti and Mahti
 
-The following services are available to support you in delivering your course.
-All services except Noppe require an active MyCSC project with the relevant
-service enabled.
+!!! info "Puhti and Mahti will be retired in 2026"
+    Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
+    next-generation supercomputer offering enhanced performance and
+    capabilities. Please take this into account when planning courses for 2026.
 
-Applying for more quota depends on the services; see the
-details below. The medium (M) billing unit package is the default package
-granted for course projects. This should cover most use cases.
+    [Learn more about Roihu :material-arrow-right:](../../computing/systems-roihu.md)
 
-The services are listed in alphabetical order.
+### Overview
 
-### Allas
+CSC supercomputers Mahti and Puhti are ideal platforms for organizing courses
+that benefit from HPC resources or aim to teach how to use and run computations
+on supercomputing platforms. This includes cases where the course participants
+need access to GPUs or larger CPU resources, and cases where the existing
+software stack is used for the course assignments.
 
-### cPouta
+The systems support both traditional command-line
+[batch processing compute tasks](../../computing/running/getting-started.md), as well as
+web-based tools such as Jupyter Notebooks and RStudio via the
+[web interfaces](../../computing/webinterface/index.md). Course organizers are
+even able to create customized Jupyter Notebook environments for their course
+using the
+[Jupyter for Courses](../../computing/webinterface/jupyter-for-courses.md) app.
 
-### Mahti and Puhti (HPC)
+Please note that courses using CSC supercomputers can have **at maximum 50
+students**. Ideally, teachers should target a smaller number of around 25
+participants. For larger courses the free resources and allowed resource
+reservations may not support the requested amount of users.
 
-!!! info "Next HPC: Roihu"
+!!! warning "Service breaks"
+    Please note that the first Tuesday and Wednesday of each month are reserved
+    for regular maintenance breaks. You should never rely on the services being
+    available on those days.
 
-    CSC's next national supercomputer Roihu, a BullSequana XH3000 hybrid system,
-    will replace the Puhti and Mahti supercomputers. More information about
-    [Roihu](../../computing/systems-roihu.md).
+### Prerequisites
 
-Mahti and Puhti are ideal platforms for smaller courses with typically less than 50 participants who benefit from the characteristics of the platforms. This 
-includes cases where the course participants need access to GPUs or larger CPU resources, and cases where the existing 
-software stack is used for the course assignments. The systems support both traditional batch processing compute tasks, 
-as well as web-based tools such as Jupyter notebooks and RStudio via the [web interface](../../computing/webinterface/index.md). Course organizers are even able to create customized Jupyter notebook environments for their course in the [Jupyter for courses](../../computing/webinterface/jupyter-for-courses.md) app.
+#### Teacher
 
-!!! info "Service breaks"
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
+3. [Add Puhti and/or Mahti service access to the project](../../accounts/how-to-add-service-access-for-project.md).
+4. Invite students to the project either by
+    * [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+    * [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
 
-   Please note that the first Tuesday and Wednesday each month are reserved for regular maintenance breaks. You should never rely on the services being available on those days.
+#### Student
 
-   
-   
-Please note that course projects are subject to the same Slurm job priority policies as regular
-computing projects, meaning that course participants may need to queue for resources
-if the system is under heavy use.
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. Join the course project:
+    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
+    2. If you've been added directly to the course project, no actions are required.
 
-To ensure the availability of resources at the time of the course session(s)
-and thus avoid queuing, an _advance resource reservation_ may be requested for
-the course. In this case, please
-[contact CSC Service Desk](../../support/contact.md) **at least 14 days beforehand**.
+### Advance resource reservation
 
-The request should be motivated and include:
+Course projects are subject to the same Slurm job priority policies as regular
+computing projects, meaning that **course participants may need to queue for
+resources** if the system is under heavy use. To ensure the availability of
+resources at the time of the course session(s), we recommend requesting for an
+_advance resource reservation_.
 
-1. the number of participants,
-2. the resources planned for the course,
-3. and a timetable showing the schedule of the course.
+* The resource reservation must be requested **at least 14 days** before
+  the start of the course via [CSC Service Desk](../contact.md).
+* The request should be motivated and include
+    1. the number of participants,
+    2. the resources planned for the course,
+    3. timetable showing the schedule of the course.
+* The maximum amount and type of reservable resources are outlined in the
+  table below.
 
-The guidelines for booking Puhti and Mahti services for a course are given below.
-
-| System | Reservation Type | CPU Limit | Memory per Node | GPU Limit | Daily Time Window | Max Total Days |
-|--------|------------------|-----------|------------------|-----------|--------------------|----------------|
-| Puhti | Typical | 2 nodes (2×40 cores) | 192 GB | – | 08:00–17:00 | 5 |
-| | Maximum | 5 nodes (200 cores) | 192 GB | 4 GPU nodes | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
-| Mahti | Typical | 2 M-nodes (2×128 cores) | 256 GB | 14 GPU slices (1 node) | 08:00–17:00 | 5 |
-| | Maximum | 8 M-nodes (8×128 cores) | 256 GB | 28 GPU slices (1 node) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
-
-You can find the services' documentation here: [Computing](../../computing/index.md).
-
-### Noppe
-
-### Pukki DBaaS
-
-### Rahti
-
-### SD Desktop
-
-
+    | System | Approval | CPU limit | GPU limit | Max. daily time window | Max. course days in total |
+    |--------|------------------|-------------------|-----------|--------------------|----------------|
+    | Puhti  | Automatic | 2 nodes (80 cores) | 0 | 08:00–17:00 | 5 |
+    |        | CSC Resource Allocation Group | 5 nodes (200 cores) | 4 nodes (16 GPUs) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
+    | Mahti  | Automatic | 2 nodes (256 cores) | 14 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) | 08:00–17:00 | 5 |
+    |        | CSC Resource Allocation Group | 8 nodes (1024 cores) | 56 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
