@@ -1,5 +1,11 @@
 # Applications
 
+## GROMACS 2025.4, 9.12.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.4 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.4/release-notes/2025/2025.4.html)
+for a list of all new features and improvements.
+
 ## AMS 2025 available on Puhti and Mahti, 27.11.2025
 
 [AMS](../../apps/ams.md) has been updated to version 2025.105 on both Mahti and Puhti
