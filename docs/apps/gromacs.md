@@ -52,7 +52,7 @@ with plenty of analysis scripts.
     |2023.1   |`gromacs/2023.1`
     |2023.2   |`gromacs/2023.2`
     |2023.3   |`gromacs/2023.3`
-    |2024.0   |`gromacs/2024`s
+    |2024.0   |`gromacs/2024`
     |2024.1   |`gromacs/2024.1`
     |2024.2   |`gromacs/2024.2`
     |2024.3   |`gromacs/2024.3`
