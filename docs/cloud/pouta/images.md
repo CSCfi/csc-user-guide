@@ -14,7 +14,7 @@ It is possible that for some use cases the automatically created
 images are not suitable. In this case, it is possible to create your
 own images and use them instead. However, there are some caveats
 to consider when creating your own images that you would not
-need to consider when using the default images. For more information,,
+need to consider when using the default images. For more information,
 see [Advanced images](adding-images.md)
 
 ## The main features of the images provided by CSC
