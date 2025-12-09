@@ -1,10 +1,95 @@
 # How to organize a course using CSC resources
 
+```mermaid
+graph LR;
+    A["Create a CSC
+       user account"] --> B;
+    B["Create a MyCSC
+       Course project"] --> C;
+    C["Activate
+       service(s)"] --> D;
+    D["Invite
+       students"] --> E;
+    E["Creat content"]
+```
+ 
 CSC services can be used for educational purposes in accordance with our
 [free-of-charge use policy](https://research.csc.fi/free-of-charge-use/). This
 guide outlines how to organize a course using [Noppe](#noppe) and
 [CSC supercomputers Puhti and Mahti](#puhti-and-mahti), including advice on
 [how to select the most suitable service for your needs](#which-service-should-i-choose).
+
+## Allas
+
+### Overview
+
+Allas is a Ceph-based object storage system. It is designed for storing and sharing large
+volumes of data. Data can be accessed from other CSC services, such as cPouta, Puhti and
+Mahti, or directly via the website: <https://allas.csc.fi>.
+
+Data can be accessed using tools and programming languages based on S3 or Swift interfaces.
+
+### Instructions
+
+#### Teacher
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
+3. [Add Allas service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
+4. If you need to restrict access to data to students only, invite them to the project:
+    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+5. Prepare the course content.
+    1. [Consult the documentation](../../data/Allas/index.md).
+    2. [Contact CSC Service Desk if you need support](../contact.md).
+
+#### Student
+
+If the course-related data is not publicly available but is shared:
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. Join the course project:
+    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
+    2. If you've been added directly to the course project, no further actions are required to join the course project.
+3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
+
+## cPouta
+
+### Overview
+
+cPouta is an infrastructure-as-a-service (IaaS) platform based on OpenStack technology.
+It is ideal for use cases requiring an internet-connected Linux server.
+
+A variety of virtual machine options are available, ranging from small machines to
+I/O-intensive or GPU-enabled ones. These virtual machines can be connected to
+the internet via a public IPv4 address.
+
+The OpenStack platform can be administered either through the web interface or
+using command line tools.
+
+### Instructions
+
+#### Teacher
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
+3. [Add cPouta service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
+4. If students need to create or modify IaaS components, invite them to the project:
+    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+5. Prepare the course content.
+    1. [Consult the documentation](../../cloud/pouta/index.md).
+    2. [Contact CSC Service Desk if you need support](../contact.md).
+
+#### Student
+
+If access to the OpenStack control plane is required:
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. Join the course project:
+    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
+    2. If you've been added directly to the course project, no further actions are required to join the course project.
+3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
 
 ## Noppe
 
@@ -150,3 +235,107 @@ selecting the most suitable service for your course.
 | | CPU | &#9989; | &#9989; | &#9989; |
 | | GPU | &#10060; | &#9989; | &#9989; |
 | | Shared storage quota | 20 GiB | 1 TiB | 1 TiB |
+
+## Pukki
+
+### Overview
+
+Pukki is a Database-as-a-service (DBaaS), where you can launch a new database
+"with a simple click". Pukki automates away the database maintenance and
+administrative tasks of other services so that the teacher can focus on using/teaching
+the actual topic of databases.
+
+Instead of manually setting up your own database that you have to maintain yourself,
+you can use DBaaS to manage the tedious tasks of provisioning, configuring, maintaining,
+updating, documenting and backing up your database.
+
+### Instructions
+
+#### Teacher
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
+3. [Add Pukki service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
+4. If students need to create own DBaaS instances, invite them to the project:
+    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+5. Prepare the course content.
+    1. [Consult the documentation](../../cloud/dbaas/index.md).
+    2. [Contact CSC Service Desk if you need support](../contact.md).
+
+#### Student
+
+If access to create your own database instances is required:
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. Join the course project:
+    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
+    2. If you've been added directly to the course project, no further actions are required to join the course project.
+3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
+
+## Rahti
+
+### Overview
+
+Rahti is an orchestration service for containers that runs on OKD. Educators
+can launch services to be used on a course, or Rahti can form part of the course itself.
+The service is for example useful for teaching CI/CD pipelines.
+
+Like cPouta, Rahti offers similar multipurpose technology, but without the burden
+of having to maintain the operating system yourself. A variety of ready-made templates
+can be used with just one click, saving you the trouble of installing services as you
+would in cPouta.
+
+### Instructions
+
+#### Teacher
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
+3. [Add Rahti service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
+4. If students need to launch their own workloads in Rahti, invite them to the project:
+    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+5. Prepare the course content.
+    1. [Consult the documentation](../../cloud/rahti/index.md).
+    2. [Contact CSC Service Desk if you need support](../contact.md).
+
+#### Student
+
+If access to the container environment is required:
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. Join the course project:
+    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
+    2. If you've been added directly to the course project, no further actions are required to join the course project.
+3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
+
+## Sensitive Data (SD) Desktop
+
+### Overview
+
+Sensitive Data (SD) Desktop allows you to analyze sensitive research data from
+your web browser securely. With this user interface, you can easily manage
+a virtual computer (here called desktop, technically defined as virtual machine).
+
+### Instructions
+
+#### Teacher
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
+3. [Add Sensitive Data (SD) Desktop service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
+4. Invite students to the project either by
+    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+5. Prepare the course content.
+    1. [Consult the documentation](../../data/sensitive-data/sd_desktop/index.md).
+    2. [Contact CSC Service Desk if you need support](../contact.md).
+
+#### Student
+
+1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+2. Join the course project:
+    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
+    2. If you've been added directly to the course project, no further actions are required to join the course project.
+3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
