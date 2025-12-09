@@ -4,7 +4,7 @@
 graph LR;
     A["Create a CSC
        user account"] --> B;
-    B["Create a MyCSC
+    B["Create a CSC
        Course project"] --> C;
     C["Activate
        service(s)"] --> D;
@@ -16,19 +16,19 @@ graph LR;
 CSC services can be used for educational purposes in accordance with our
 [free-of-charge use policy](https://research.csc.fi/free-of-charge-use/).
 
-The maximum lifetime of a MyCSC course project, including all its enabled services,
-is six months. It is not possible to extend or transfer an existing MyCSC course project.
+The maximum lifetime of a CSC Course project, including all its enabled services,
+is six months. It is not possible to extend or transfer an existing CSC Course project.
 
 This guide outlines how to organize a course using [Allas](#allas), [cPouta](#cpouta),
 [Noppe](#noppe), [CSC supercomputers Puhti and Mahti](#puhti-and-mahti), [Pukki](#pukki),
-[Rahti](#rahti) and [SD Desktop](#sd-desktop). The guide also includes advice on
+[Rahti](#rahti) and [SD Desktop](#sensitive-data-sd-desktop). The guide also includes advice on
 [how to select the most suitable service for your needs](#which-service-should-i-choose).
 
 ## Allas
 
 !!! info
     Please note that the data will only be available for the duration of
-    the MyCSC Course project.
+    the CSC Course project.
 
 ### Overview
 
@@ -225,7 +225,7 @@ selecting the most suitable service for your course.
 | Feature | | Noppe | Puhti | Mahti |
 |---------|---------|:-----:|:-----:|:-----:|
 | Prerequisites | | | | |
-| | CSC course project required | &#10060; | &#9989; | &#9989; |
+| | CSC Course project required | &#10060; | &#9989; | &#9989; |
 | | Teacher needs CSC account | &#9989; | &#9989; | &#9989; |
 | | Students need CSC accounts | &#10060; | &#9989; | &#9989; |
 | User interface | | | | |
@@ -262,7 +262,7 @@ updating, documenting and backing up your database.
 
 !!! info
     If each student needs their own Pukki DBaaS instance, they should create
-    a MyCSC student project and activate the Pukki service within that project.
+    a CSC Student project and activate the Pukki service within that project.
 
 #### Teacher
 
@@ -278,7 +278,7 @@ updating, documenting and backing up your database.
 
 #### Student
 
-Follow these instructions to find out how to create a student project: [Getting started with CSC services for students](student_quick/index.md)
+Follow these instructions to find out how to create a student project: [Getting started with CSC services for students](student_quick.md)
 
 Then, add Pukki service to that project.
 
@@ -297,27 +297,36 @@ would in cPouta.
 
 ### Instructions
 
+!!! info
+    If students should not have access to others' Rahti environments,
+    they should use a CSC Student project instead.
+
 #### Teacher
 
 1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
 2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
 3. [Add Rahti service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
-4. If students need to launch their own workloads in Rahti, invite them to the project:
-    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
-    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+4. Based on the nature of your course:
+    1. If each student needs isolated Rahti namespace environment, ask them to create a student project.
+    2. If students sharing and seeing each other's environments is not a problem,
+       invite students to the project either by
+        1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+        2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
 5. Prepare the course content.
     1. [Consult the documentation](../../cloud/rahti/index.md).
     2. [Contact CSC Service Desk if you need support](../contact.md).
 
 #### Student
 
-If access to the container environment is required:
-
-1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
-2. Join the course project:
-    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
-    2. If you've been added directly to the course project, no further actions are required to join the course project.
-3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
+1. If an isolated Rahti namespace environment is required, follow these instructions
+to find out how to create a student project: [Getting started with CSC services for students](student_quick.md)
+    1. then, add Rahti service to that project.
+2. Or if an access to a shared container environment is required:
+    1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+    2. Join the course project:
+        1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
+        2. If you've been added directly to the course project, no further actions are required to join the course project.
+    3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
 
 ## Sensitive Data (SD) Desktop
 
@@ -338,7 +347,7 @@ a virtual computer (here called desktop, technically defined as virtual machine)
     1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
     2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
 5. Prepare the course content.
-    1. [Consult the documentation](../../data/sensitive-data/sd_desktop/index.md).
+    1. [Consult the documentation](../../data/sensitive-data/sd_desktop.md).
     2. [Contact CSC Service Desk if you need support](../contact.md).
 
 #### Student
