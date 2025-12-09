@@ -14,12 +14,21 @@ graph LR;
 ```
  
 CSC services can be used for educational purposes in accordance with our
-[free-of-charge use policy](https://research.csc.fi/free-of-charge-use/). This
-guide outlines how to organize a course using [Noppe](#noppe) and
-[CSC supercomputers Puhti and Mahti](#puhti-and-mahti), including advice on
+[free-of-charge use policy](https://research.csc.fi/free-of-charge-use/).
+
+The maximum lifetime of a MyCSC course project, including all its enabled services,
+is six months. It is not possible to extend or transfer an existing MyCSC course project.
+
+This guide outlines how to organize a course using [Allas](#allas), [cPouta](#cpouta),
+[Noppe](#noppe), [CSC supercomputers Puhti and Mahti](#puhti-and-mahti), [Pukki](#pukki),
+[Rahti](#rahti) and [SD Desktop](#sd-desktop). The guide also includes advice on
 [how to select the most suitable service for your needs](#which-service-should-i-choose).
 
 ## Allas
+
+!!! info
+    Please note that the data will only be available for the duration of
+    the MyCSC Course project.
 
 ### Overview
 
@@ -251,27 +260,27 @@ updating, documenting and backing up your database.
 
 ### Instructions
 
+!!! info
+    If each student needs their own Pukki DBaaS instance, they should create
+    a MyCSC student project and activate the Pukki service within that project.
+
 #### Teacher
 
 1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
 2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
 3. [Add Pukki service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
-4. If students need to create own DBaaS instances, invite them to the project:
-    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
-    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+4. Based on the nature of your course:
+    1. In case of one database, use its tools to create accounts for students.
+    2. If each student needs their own database, ask them to create a student project.
 5. Prepare the course content.
     1. [Consult the documentation](../../cloud/dbaas/index.md).
     2. [Contact CSC Service Desk if you need support](../contact.md).
 
 #### Student
 
-If access to create your own database instances is required:
+Follow these instructions to find out how to create a student project: [Getting started with CSC services for students](student_quick/index.md)
 
-1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
-2. Join the course project:
-    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
-    2. If you've been added directly to the course project, no further actions are required to join the course project.
-3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
+Then, add Pukki service to that project.
 
 ## Rahti
 
