@@ -103,6 +103,18 @@ cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
 If you have added multiple keys to MyCSC, they should all be visible in the
 same `${USER}.pub` file.
 
+## Required for Roihu: Signing your public key
+
+Motivation.
+
+### Option 1: MyCSC
+
+Instructions here.
+
+### Option 2: Utility tool
+
+Instructions here.
+
 ## More information
 
 - [Tutorial on setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
