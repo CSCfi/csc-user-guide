@@ -4,6 +4,10 @@ All virtual desktops created before 8 September 2023 use an operating system tha
 
 **NOTE: Correct access permissions must be set before detaching the volume to avoid permanent data loss. To assist you, we offer step-by-step online sessions on the following dates. Please confirm your preferred time slot, the process should take about one hour.**
 
+Available time slots:
+
+
+
 
 
 
