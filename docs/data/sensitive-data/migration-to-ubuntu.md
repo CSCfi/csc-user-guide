@@ -1,4 +1,23 @@
-# Virtual desktops: migration from Cent0S7 to Ubuntu
+# Virtual desktops: migration to new operatign systhem: Cent0S7 to Ubuntu
+
+All virtual desktops created before 8 September 2023 use an operating system that will no longer be supported in 2026. To keep your data, you must save it to the virtual desktop’s volume and migrate it to a new Ubuntu-based virtual desktop. Below you can find the exact steps needed. 
+
+**NOTE: Correct access permissions must be set before detaching the volume to avoid permanent data loss. To assist you, we offer step-by-step online sessions on the following dates. Please confirm your preferred time slot, the process should take about one hour.**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 All virtual desktop created before 8.9.2023 are based on the operating systehm that is no longer supported in 2026. For thsi reason, if data stored in the virtual desktopa are still needed, each user needs to save all the dat in their virtual desktop's volume and follow the process before to migrate the volume to a new virtual desktop.
 
