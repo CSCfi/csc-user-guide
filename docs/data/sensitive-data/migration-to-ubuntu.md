@@ -96,9 +96,34 @@ Note that if you open the enclosed file permission settings again, it looks like
 
 - On the SD Desktop service homepage, click **SD Desktop management**.
 
--  At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
+- At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
+
+
+### Detach a volume from your virtual desktop
+
+When you want to access the data saved in the detached volume, you can attach it to a new virtual desktop.
+
+1. [Log in](./sd-desktop-login.md) to SD Desktop. On the homepage, click **SD Desktop management**.
+
+2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, Linus Ubuntu22 as operating system etc). 
+
+3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdown will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
+
+4. Finally, click *Create desktop*. Please be aware that the confirmation notification may take up to 30 seconds to appear. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
+
+![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
+
+
+
+
+** Before february 2024? 23 not possible to detach reattach volule
+gateway prbably not working
+
+
+
+
 
 
 
