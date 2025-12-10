@@ -527,7 +527,7 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Some content hidden by default.
 
-??? error "Collapsible error  (click to reveal content)"
+??? error "Collapsible error (click to reveal content)"
 
     Some content hidden by default.
 ```

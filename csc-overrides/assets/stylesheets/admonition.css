@@ -121,6 +121,8 @@
   margin-bottom: 0;
 }
 
+
+/* Default (not the fallback) admonition type */
 .md-typeset .admonition.default,
 .md-typeset details.default {
   border-color: var(--csc-admonition-default-border-color);
@@ -146,6 +148,8 @@
   background-color: var(--csc-admonition-default-background-color);
 }
 
+
+/* Info admonition type */
 .md-typeset .admonition.info,
 .md-typeset details.info {
   border-color: var(--csc-admonition-info-border-color);
@@ -171,6 +175,8 @@
   background-color: var(--csc-admonition-info-background-color);
 }
 
+
+/* Success admonition type */
 .md-typeset .admonition.success,
 .md-typeset details.success {
   border-color: var(--csc-admonition-success-border-color);
@@ -195,6 +201,8 @@
   background-color: var(--csc-admonition-success-background-color);
 }
 
+
+/* Warning admonition type */
 .md-typeset .admonition.warning,
 .md-typeset details.warning {
   border-color: var(--csc-admonition-warning-border-color);
@@ -220,6 +228,8 @@
   background-color: var(--csc-admonition-warning-background-color);
 }
 
+
+/* Error admonition type */
 .md-typeset .admonition.error,
 .md-typeset details.error {
   border-color: var(--csc-admonition-error-border-color);
