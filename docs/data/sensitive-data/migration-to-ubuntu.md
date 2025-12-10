@@ -1,4 +1,4 @@
-# Virtual desktops: migration to new operatign systhem: Cent0S7 to Ubuntu
+# SD Desktop action required: migrate to a supported version before 2026
 
 All virtual desktops created before 8 September 2023 use an operating system that will no longer be supported in 2026. To keep your data, you must save it to the virtual desktop’s volume and migrate it to a new Ubuntu-based virtual desktop. Below you can find the exact steps needed. 
 
