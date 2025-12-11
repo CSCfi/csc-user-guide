@@ -6,7 +6,10 @@ RUN \
                           --latest 1 \
     > /tmp/snapshots.json \
 && \
-  restic restore latest --path /tmp/docs/${LANG_CODE} --target /tmp/stale_translation
+  restic restore --exclude-xattr '*' \
+                 --path /tmp/docs/${LANG_CODE} \
+                 --target /tmp/stale_translation \
+           latest
 
 
 FROM ${builder_image} AS builder_translate
