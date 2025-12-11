@@ -123,9 +123,12 @@ gateway prbably not working
 
 
 
+## Datea Gatewat certificate
+source $HOME/.profile
+sda-fuse
 
-
-
+## Airlock export
+intructions
 
 
 All virtual desktop created before 8.9.2023 are based on the operating systehm that is no longer supported in 2026. For thsi reason, if data stored in the virtual desktopa are still needed, each user needs to save all the dat in their virtual desktop's volume and follow the process before to migrate the volume to a new virtual desktop.
@@ -134,7 +137,7 @@ Following the process below and setting correct access premission before detachi
 
 
 
-
+https://github.com/CSCfi/csc-user-guide/blob/fm-centos/docs/data/sensitive-data/migration-to-ubuntu.md
 
 
 
