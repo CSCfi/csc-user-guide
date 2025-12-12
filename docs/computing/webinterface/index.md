@@ -88,6 +88,13 @@ Using the _Project view_ under the _Tools_ section in the top navbar, you can
 view  current disk and project Billing Unit quotas on the supercomputers. For
 more information, see the [Project view](project-view.md) page.
 
+### File Deletion Explorer (beta)
+
+The File Deletion Explorer is a tool in beta, that can be used on Puhti to
+inspect the purge lists for scratch cleaning. See more details on the
+[Managing data on Puhti and Mahti scratch disks page](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
+
+
 ### Interactive apps
 
 _Interactive apps_ are programs that can be launched and run on the compute

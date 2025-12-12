@@ -29,7 +29,7 @@ For more details on the access modes, see the [LUMI access page on the Services 
 
 ## Software installation policy
 
-Similar to Mahti, CSC offers some frequently used applications as pre-installed modules on LUMI. A list of these can be found in [CSC Docs](../apps/by_system.md#lumi) as well as [LUMI Docs](https://docs.lumi-supercomputer.eu/software/local/csc/).
+Similar to Mahti, CSC offers some frequently used applications as pre-installed modules on LUMI. A list of these can be found in [CSC Docs](../apps/by_availability.md#lumi) as well as [LUMI Docs](https://docs.lumi-supercomputer.eu/software/local/csc/).
 
 To facilitate installing own software on LUMI, the [EasyBuild tool](https://docs.lumi-supercomputer.eu/software/installing/easybuild/) is provided along with [installation recipes](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib) (EasyConfig files) using which you can install additional applications to your home or project directories. Additionally, a [container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/) identical to the [Tykky tool](containers/tykky.md) is provided as a means to wrap installations inside an Apptainer/Singularity container. This is recommended especially for Conda and pip environments to alleviate the load on the parallel filesystem.
 
