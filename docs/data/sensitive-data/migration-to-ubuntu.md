@@ -22,7 +22,7 @@ Available time slots:
   
 - Log in with MyCSC-credentials or Haka. Enter your username and password.
   
-- You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator) from your organisation via HAKA or the one provided by CSC when using CSC usarname and passwrod (more informations available [here](../../accounts/mfa.md#multi-factor-authentication-mfa-guide). 
+- You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator) from your organisation via HAKA or the one provided by CSC when using CSC username and password (more information available [here](../../accounts/mfa.md#multi-factor-authentication-mfa-guide). 
 
 - Press Continue
 
@@ -36,7 +36,7 @@ Available time slots:
 3.  Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
 
 !!! note
-    If you encouter a black screen, your veitual desktop might be paused. To resume it, on the SD Desktop homepage, click **Go To SD Desktop Management**.
+    If you encounter a black screen, your virtual desktop might be paused. To resume it, on the SD Desktop homepage, click **Go To SD Desktop Management**.
 
 4. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
 
@@ -77,7 +77,7 @@ Adjust permissions for folders and files to enable access for other project memb
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
 
-2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder.
+2. Next select **Change Permissions for Enclosed Files** to adjust file permissions inside the folder.
     * Set permissions to:
         1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         2. Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
@@ -101,13 +101,13 @@ Adjust permissions for folders and files to enable access for other project memb
 !![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
 
 
-### Attach the volume to a new virtaul desktop with Linux Ubuntu22 operating systhem
+### Attach the volume to a new virtual desktop with Linux Ubuntu22 operating system
 
 You can attach the volume  to a new virtual desktop by:
 
 1. On the service homepage, click **SD Desktop management**.
 
-2. Selection all the necessary options: CSC project number, Operating systehm: Linus Ubuntu22, name, virtual desktop option. 
+2. Selection all the necessary options: CSC project number, Operating system: Linux Ubuntu 22, name, virtual desktop option. 
 
 3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdown will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
 
@@ -132,7 +132,7 @@ You can attach the volume  to a new virtual desktop by:
 3.  Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
 
 !!! note
-    If you encouter a black screen, your veitual desktop might be paused. To resume it, on the SD Desktop homepage, click **Go To SD Desktop Management**.
+    If you encounter a black screen, your virtual desktop might be paused. To resume it, on the SD Desktop homepage, click **Go To SD Desktop Management**.
 
 4. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
 
@@ -143,9 +143,9 @@ You can attach the volume  to a new virtual desktop by:
 
 ![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
 
-## Step 2: update the ailock component
+## Step 2: update the airlock component
 
-If the virtual desktop has not been used in a long time, the airlcok component used for data export needs to be updated. Infact, Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager. To resolve this issue, a one time workaround is available. 
+If the virtual desktop has not been used in a long time, the airlock component used for data export needs to be updated. In fact, virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager. To resolve this issue, a one time workaround is available. 
 
 Log in to your virtual desktop.  Open the terminal (right-click).
 
