@@ -14,6 +14,8 @@ Available time slots:
 # Moving volume to a new virtual desktop: step by step
 
 
+
+
 ## Step 1: Login to SD Desktop and second verification step
     
 - Go to login page: https://sd-desktop.csc.fi
@@ -115,14 +117,84 @@ You can attach the volume  to a new virtual desktop by:
 
 
 
-# When the virtual desktop does not have a volume: 
+# When the virtual desktop does not have a volume
 
-## Datea Gatewat certificate
+## Data export via airlock
+
+
+
+## Step 1: access your virtual desktop
+
+1. All your virtual desktops are listed at the home page under **All connections**.
+
+2. Select project (e.g. `project_NNNNN`) and click **plus icon**.
+  
+3.  Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
+
+!!! note
+    If you encouter a black screen, your veitual desktop might be paused. To resume it, on the SD Desktop homepage, click **Go To SD Desktop Management**.
+
+4. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
+
+!!! note
+    Resuming a paused desktop is only possible for active CSC projects with available Cloud Billing Units.
+
+![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
+
+![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
+
+## Step 2: update the ailock component
+
+If the virtual desktop has not been used in a long time, the airlcok component used for data export needs to be updated. Infact, Virtual desktops created before August 2025 display an incorrect error that blocks data export via the Data Gateway application and programmatically, even when accessed by the CSC Project Manager. To resolve this issue, a one time workaround is available. 
+
+Log in to your virtual desktop.  Open the terminal (right-click).
+
+- Open the clipboard with the key combination `Ctrl + Alt + Shift` and activate the copy-paste function by selecting Input method → Text input. 
+  The Clipboard panel will close automatically after the selection, and the input bar will appear at the bottom of the virtual desktop.
+
+- Copy the following commands into the input bar. They will be visible in the terminal.  
+  You can paste them with `Ctrl + C` or by right-clicking.
+
+    ```bash
+    mkdir -p /shared-directory/.certs
+    ```
+
+    **Press Enter**
+
+    ```bash
+    cp $FS_CERTS /shared-directory/.certs/
+    ```
+
+    **Press Enter**
+
+    ```bash
+    openssl s_client -showcerts -verify 5 -connect aai.sd.csc.fi:443 < /dev/null \
+    | awk '/-----BEGIN CERTIFICATE-----/{c++} c==3{print}/-----END CERTIFICATE-----/&&c==3{exit}' \
+    >> /shared-directory/.certs/ca.crt
+    ```
+
+    **Press Enter**
+
+    ```bash
+    echo "export FS_CERTS=/shared-directory/.certs/ca.crt" >> ~/.profile
+    ```
+
+    **Press Enter**
+
+- **Log out** from the virtual desktop and try the export again.
+
+## Step 3: encrypt and export files
+
+Ask for support to servicedesk@csc.fi (SD services) for planning this step. 
+
+
+
+
+
+## Datea Gatewat certificate update
+
+
 source $HOME/.profile
 sda-fuse
-
-## Airlock export
-intructions
-
 
 
