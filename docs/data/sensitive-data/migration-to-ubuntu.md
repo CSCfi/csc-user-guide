@@ -190,11 +190,3 @@ Ask for support to servicedesk@csc.fi (SD services) for planning this step.
 
 
 
-
-## Datea Gatewat certificate update
-
-
-source $HOME/.profile
-sda-fuse
-
-
