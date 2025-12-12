@@ -110,4 +110,4 @@ Please note: some of this tutorials require prior knowledge of SD services or ad
 
 ## 4. Misc
 * [Useful terminology: services and technical aspects](sd-terminology.md)
-* [Cent0SD migrationt o Ubuntu](./migration-to-ubuntu.md)
+* [Cent0S7 migrationt o Ubuntu](./migration-to-ubuntu.md)
