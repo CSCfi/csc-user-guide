@@ -22,7 +22,7 @@ Available time slots:
   
 - Log in with MyCSC-credentials or Haka. Enter your username and password.
   
-- You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator) from your organisation via HAKA or the one provided by CSC when using CSC usarname and passwrod (more informations available here: https://docs.csc.fi/accounts/mfa/).
+- You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator) from your organisation via HAKA or the one provided by CSC when using CSC usarname and passwrod (more informations available [here](../../accounts/mfa).
 
 - Press Continue
 
