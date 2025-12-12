@@ -185,8 +185,7 @@ Log in to your virtual desktop.  Open the terminal (right-click).
 
 ## Step 3: encrypt and export files
 
-Ask for support to servicedesk@csc.fi (SD services) for planning this step. 
-
+Contact servicedesk@csc.fi (SD services) for assistance in planning this step.
 
 
 
