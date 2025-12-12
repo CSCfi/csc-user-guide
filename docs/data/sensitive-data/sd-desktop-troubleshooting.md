@@ -2,6 +2,20 @@
 
 # Troubleshooting
 
+## Probelms in accessing virtual desktop 
+
+###  Launched a new Desktop, but now the screen is black/frozen. 
+### Cannot log in to SD Desktop 
+### Cannot turn off my Desktop. 
+### Cannot access paused Desktop.     
+### Me and my colleague are members of the same CSC project. I cannot see the data they have analysed/edited in our private Desktop.
+
+## Probelsm is accessing data
+
+
+## Problems related to data access /Data Gtaeway applicatopmn
+
+
 | Problem               |                                                                                                                                    | Possible solution                                                                                                                                                                                                                                                                                                                |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Access                | Launched a new Desktop, but now the screen is black/frozen.                                                                       | The creation of a new Desktop can take up to 30 minutes. Come back later.                                                                                                                                                                                                                                                        |
