@@ -22,16 +22,16 @@ This article lists some basic commands for some of the most common
 operations in OpenStack. For each of the operations, we show a command
 that uses the common OpenStack command line tool.
 
-##### These recommended versions of the OpenStack commands should work with the current version of ePouta and cPouta (Wallaby).
+##### These recommended versions of the OpenStack commands should work with the current version of ePouta and cPouta (Xena).
 
-- [python-openstackclient](https://docs.openstack.org/releasenotes/python-openstackclient/)==5.5.0
-- [python-cinderclient](https://docs.openstack.org/releasenotes/python-cinderclient/)==7.4.1
-- [python-glanceclient](https://docs.openstack.org/releasenotes/python-glanceclient/)==3.3.0
-- [python-heatclient](https://docs.openstack.org/releasenotes/python-heatclient/)==2.3.0
-- [python-keystoneclient](https://docs.openstack.org/releasenotes/python-keystoneclient/)==4.2.0
-- [python-neutronclient](https://docs.openstack.org/releasenotes/python-neutronclient/)==7.3.0
-- [python-novaclient](https://docs.openstack.org/releasenotes/python-novaclient/)==17.4.0
-- [python-swiftclient](https://docs.openstack.org/releasenotes/python-swiftclient/)==3.11.0
+- [python-openstackclient](https://docs.openstack.org/releasenotes/python-openstackclient/)==5.6.2
+- [python-cinderclient](https://docs.openstack.org/releasenotes/python-cinderclient/)==8.1.0
+- [python-glanceclient](https://docs.openstack.org/releasenotes/python-glanceclient/)==3.5.0
+- [python-heatclient](https://docs.openstack.org/releasenotes/python-heatclient/)==2.4.0
+- [python-keystoneclient](https://docs.openstack.org/releasenotes/python-keystoneclient/)==4.3.0
+- [python-neutronclient](https://docs.openstack.org/releasenotes/python-neutronclient/)==7.6.0
+- [python-novaclient](https://docs.openstack.org/releasenotes/python-novaclient/)==17.6.0
+- [python-swiftclient](https://docs.openstack.org/releasenotes/python-swiftclient/)==3.12.0
 
 More information: [OpenStackClient pip module](https://pypi.org/project/python-openstackclient/)  
 
