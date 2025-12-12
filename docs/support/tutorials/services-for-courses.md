@@ -10,7 +10,7 @@ graph LR;
        service(s)"] --> D;
     D["Invite
        students"] --> E;
-    E["Creat content"]
+    E["Create content"]
 ```
  
 CSC services can be used for educational purposes in accordance with our
@@ -64,13 +64,19 @@ If the course-related data is not publicly available but is shared:
 
 ## cPouta
 
+!!! info
+    Please note that the resources will only be available for the duration of
+    the CSC Course project. Also if each student needs to manage own virtual
+    infrastructure, they should create a CSC Student project and activate
+    the cPouta service within that project.
+
 ### Overview
 
 cPouta is an infrastructure-as-a-service (IaaS) platform based on OpenStack technology.
-It is ideal for use cases requiring an internet-connected Linux server.
+It is ideal for use cases requiring an internet-accessible Linux server.
 
 A variety of virtual machine options are available, ranging from small machines to
-I/O-intensive or GPU-enabled ones. These virtual machines can be connected to
+I/O-intensive or GPU-enabled ones. These virtual machines can be accessed from
 the internet via a public IPv4 address.
 
 The OpenStack platform can be administered either through the web interface or
@@ -83,22 +89,32 @@ using command line tools.
 1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
 2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
 3. [Add cPouta service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
-4. If students need to create or modify IaaS components, invite them to the project:
-    1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
-    2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
+4. Based on the nature of your course:
+    1. In case of an infrastructure with few machines and an access, use Linux's own
+       tools to create accounts for students.
+    2. If each student needs their own virtual infrastructure, ask them to create a student project.
+    3. If students need to modify shared infrastructure, invite them to the project:
+        1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link) (recommended)
+        2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
 5. Prepare the course content.
     1. [Consult the documentation](../../cloud/pouta/index.md).
     2. [Contact CSC Service Desk if you need support](../contact.md).
 
+!!! warning "Sufficient quota"
+    If you end up using a shared cPouta virtual infrastructure with a large number of students,
+    please ensure that the project quota is sufficient. If not, either request an increase
+    to the quota (<servicedesk@csc.fi>) or ask the students to create their own CSC Student projects instead.
+
 #### Student
 
-If access to the OpenStack control plane is required:
-
-1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
-2. Join the course project:
-    1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
-    2. If you've been added directly to the course project, no further actions are required to join the course project.
-3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
+1. In case of an own cPouta virtual infrastructure, follow these instructions to find out how to create
+   a student project: [Getting started with CSC services for students](student_quick.md). Then, add cPouta service to that project.
+2. If access to the teacher's CSC Course project's OpenStack control plane is required:
+    1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
+    2. Join the course project:
+        1. If you've been sent a project invitation link, [accept the invitation in MyCSC](../../accounts/how-to-add-members-to-project.md#member).
+        2. If you've been added directly to the course project, no further actions are required to join the course project.
+    3. [Accept the relevant terms of service in MyCSC](../../accounts/how-to-add-service-access-for-project.md#member).
 
 ## Noppe
 
@@ -278,9 +294,8 @@ updating, documenting and backing up your database.
 
 #### Student
 
-Follow these instructions to find out how to create a student project: [Getting started with CSC services for students](student_quick.md)
-
-Then, add Pukki service to that project.
+1. Follow these instructions to find out how to create a student project: [Getting started with CSC services for students](student_quick.md)
+    2. Then, add Pukki service to that project.
 
 ## Rahti
 
@@ -298,7 +313,7 @@ would in cPouta.
 ### Instructions
 
 !!! info
-    If students should not have access to others' Rahti environments,
+    If students should **not** have access to others' Rahti environments,
     they should use a CSC Student project instead.
 
 #### Teacher
