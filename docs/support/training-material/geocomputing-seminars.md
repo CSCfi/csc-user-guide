@@ -1,5 +1,11 @@
 # Geocomputing seminars
 
+
+## LUMI supercomputer for geospatial companies (2025)
+
+* Kylli Ek, Jyrki Savolainen, Katri Tegel, CSC: [slides](https://webinars.a3s.fi/2025-09-04-lumi-supercomputer-for-geospatial-companies.pdf), [video](https://video.csc.fi/media/t/0_91jtaebg)
+   * From 2023 similar seminar: Tapio Friberg, ICEYE, [ICEYE LUMI usecase](https://gis-seminars.a3s.fi/2023-06-08-lumi-for-gis-iceye-use-case.pdf)
+
 ## Machine Learning with spatial data seminar (2024)
 
 * Samantha Wittke, CSC: [Intro & Welcome](https://gis-seminars.a3s.fi/2024-02-27/GeoML_seminar_intro.pdf)
@@ -14,11 +20,6 @@
 * Jere Raninen, FGI: [Building detection from Lidar data using 3DUNet](https://gis-seminars.a3s.fi/2024-02-27/JereRaninen_NLS.pdf)
 * Emilia Hattula, FGI: [How the diversity of training data improves the 2D UNet building detection](https://gis-seminars.a3s.fi/2024-02-27/EmiliaHattula_NLS.pdf)
 * [Questions and discussion](https://gis-seminars.a3s.fi/2024-02-27/GeoML_seminar_2024_questions_discussion.pdf)
-
-## LUMI supercomputer for geospatial companies (2023)
-
-* Samantha Wittke, Markus Koskela, Juhani Huttunune, CSC, [Geocomputing in LUMI and access options for companies](https://gis-seminars.a3s.fi/2023-06-08-lumi-for-gis.pdf)
-* Tapio Friberg, ICEYE, [ICEYE LUMI usecase](https://gis-seminars.a3s.fi/2023-06-08-lumi-for-gis-iceye-use-case.pdf)
 
 ## CSC and GeoPortti services for research using spatial data (2022)
 
