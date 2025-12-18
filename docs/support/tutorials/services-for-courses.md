@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # How to organize a course using CSC resources
 
 CSC services can be used for educational purposes in accordance with our
@@ -323,8 +328,12 @@ This guide outlines how to organize a course using [Allas](#allas), [cPouta](#cp
     Sensitive Data (SD) Desktop allows you to analyze sensitive research data from
     your web browser securely. With this user interface, you can easily manage
     a virtual computer (here called desktop, technically defined as virtual machine).
+    SD Desktop is designed for managing sensitive data from any research field and for
+    diverse purposes.
 
     ## Instructions
+
+
 
     ### Teacher
 
