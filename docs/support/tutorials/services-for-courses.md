@@ -11,10 +11,37 @@ CSC services can be used for educational purposes in accordance with our
 The maximum lifetime of a CSC Course project, including all its enabled services,
 is six months. It is not possible to extend or transfer an existing CSC Course project.
 
-This guide outlines how to organize a course using [Allas](#allas), [cPouta](#cpouta),
-[Noppe](#noppe), [CSC supercomputers Puhti and Mahti](#puhti-and-mahti), [Pukki](#pukki),
-[Rahti](#rahti) and [SD Desktop](#sensitive-data-sd-desktop). The guide also includes advice on
-[how to select the most suitable service for your needs](#which-service-should-i-choose).
+This guide outlines how to organize a course using Allas, cPouta, Noppe,
+CSC supercomputers Puhti and Mahti, Pukki, Rahti and SD Desktop. Please see the details
+below.
+
+=== "Which service(s) to choose?"
+
+    The following table compares Noppe vs. Puhti and Mahti in order to help
+    selecting the most suitable service for your course.
+
+    | Feature | | Noppe | Puhti | Mahti |
+    |---------|---------|:-----:|:-----:|:-----:|
+    | Prerequisites | | | | |
+    | | CSC Course project required | &#10060; | &#9989; | &#9989; |
+    | | Teacher needs CSC account | &#9989; | &#9989; | &#9989; |
+    | | Students need CSC accounts | &#10060; | &#9989; | &#9989; |
+    | User interface | | | | |
+    | | Web interface | &#9989; | &#9989; | &#9989; |
+    | | Command-line interface | &#10060; | &#9989; | &#9989; |
+    | Graphical apps | | | | |
+    | | Jupyter Notebooks | &#9989; | &#9989; | &#9989; |
+    | | RStudio | &#9989; | &#9989; | &#9989; |
+    | | MATLAB | &#10060; | &#9989; | &#9989; |
+    | | TensorBoard | &#10060; | &#9989; | &#9989; |
+    | | MLflow | &#10060; | &#9989; | &#9989; |
+    | | VS Code | &#10060; | &#9989; | &#9989; |
+    | | Remote desktop | &#10060; | &#9989; | &#9989; |
+    | | Remote desktop with GPU acceleration | &#10060; | &#9989; | &#10060; |
+    | Resources | | |
+    | | CPU | &#9989; | &#9989; | &#9989; |
+    | | GPU | &#10060; | &#9989; | &#9989; |
+    | | Shared storage quota | 20 GiB | 1 TiB | 1 TiB |
 
 === "Allas"
 
@@ -216,34 +243,6 @@ This guide outlines how to organize a course using [Allas](#allas), [cPouta](#cp
 
     Please note that the project number and partition must match what has been
     specified for the advance resource reservation.
-
-    ## Which service should I choose?
-
-    The following table compares Noppe vs. Puhti and Mahti in order to help
-    selecting the most suitable service for your course.
-
-    | Feature | | Noppe | Puhti | Mahti |
-    |---------|---------|:-----:|:-----:|:-----:|
-    | Prerequisites | | | | |
-    | | CSC Course project required | &#10060; | &#9989; | &#9989; |
-    | | Teacher needs CSC account | &#9989; | &#9989; | &#9989; |
-    | | Students need CSC accounts | &#10060; | &#9989; | &#9989; |
-    | User interface | | | | |
-    | | Web interface | &#9989; | &#9989; | &#9989; |
-    | | Command-line interface | &#10060; | &#9989; | &#9989; |
-    | Graphical apps | | | | |
-    | | Jupyter Notebooks | &#9989; | &#9989; | &#9989; |
-    | | RStudio | &#9989; | &#9989; | &#9989; |
-    | | MATLAB | &#10060; | &#9989; | &#9989; |
-    | | TensorBoard | &#10060; | &#9989; | &#9989; |
-    | | MLflow | &#10060; | &#9989; | &#9989; |
-    | | VS Code | &#10060; | &#9989; | &#9989; |
-    | | Remote desktop | &#10060; | &#9989; | &#9989; |
-    | | Remote desktop with GPU acceleration | &#10060; | &#9989; | &#10060; |
-    | Resources | | |
-    | | CPU | &#9989; | &#9989; | &#9989; |
-    | | GPU | &#10060; | &#9989; | &#9989; |
-    | | Shared storage quota | 20 GiB | 1 TiB | 1 TiB |
 
 === "Pukki"
 
