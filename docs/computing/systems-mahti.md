@@ -5,6 +5,13 @@ search:
 
 # Technical details about Mahti
 
+!!! warning "Mahti retirement in August 2026"
+    Mahti will be decommissioned in August 2026 and replaced by Roihu, CSC's
+    next-generation supercomputer offering enhanced performance and
+    capabilities.
+
+    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
+
 ## Compute nodes
 
 **Mahti** has a total of **1404** CPU nodes and **24** GPU nodes. The

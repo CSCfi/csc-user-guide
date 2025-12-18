@@ -1,5 +1,23 @@
 # Cloud services
 
+## Small changes in Pouta's cloud images creation, 2.12.2025
+
+Since end of November of 2025, newly created Public images in Pouta will create the ephemeral partitions as ext4 instead of vfat. This won't be
+an issue for most people but in some cases, you might expect a certain file system format.
+
+## New database minor versions available in Pukki, 25.11.2025
+
+PostgreSQL 17.7 and 14.20 and MariaDB 11.4.8 are now available in Pukki DBaaS. See [PostgreSQL's](https://www.postgresql.org/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/) and [MariaDB's](https://mariadb.com/docs/release-notes/community-server/11.4/11.4.8) documentation for release notes.
+
+## Allas Web UI improvements, 14.11.2025
+
+[Allas-UI](../../data/Allas/using_allas/allas-ui.md) has been updated with several new features that make managing data in Allas easier:
+
+- You can now create empty folders, either using the “New folder” button or by drag-and-dropping an empty directory during upload.
+- Bulk deletes are now supported — buckets or subfolders no longer need to be empty before deletion.
+- Files uploaded are now saved to the correct folder path instead of always going to the root of the bucket.
+- A new "back" button allows you to easily navigate back to the parent folder/bucket when browsing your data.
+
 ## New Pouta VM launcher
 
 We deployed a new VM launcher when creating a VM on Pouta. Our [documentation](../../cloud/pouta/launch-vm-from-web-gui.md#launching-a-virtual-machine) has been updated accordingly. Take a look at it!

@@ -1,4 +1,4 @@
-# Moving data between CSC and local workstation
+# Moving data between CSC services and to/from local workstation
 
 There are many ways to move data, please select
 below the one that suits your needs best.

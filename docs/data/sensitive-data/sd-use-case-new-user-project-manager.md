@@ -105,11 +105,16 @@ You need access to SD services for processing research data. Whether you are the
 
 ---
 
-#### 2.5 Confirmation
+#### 2.5 Terms of Use and Data Processing Agreement
 
-- Under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
-- Read and accept the terms of use.
-- Click **Submit**. 
+In the next view, under Terms of Use for the project:
+
+1. ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
+   
+2. Read and accept the General Terms of use for CSC's Sevices for Research. Note: this will include the [CSC’s Personal Data Processing Agreement (DPA)](https://research.csc.fi/terms-of-use/data-processing-agreement/)
+   
+- Click **Submit**.
+  
 - Wait for your project is being created. When project is ready, you'll be redirected to project page.
 
 ---
@@ -173,7 +178,7 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ### 6. Planning for resources consumption and login
 
-Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need. You can learn more in the next [section](./sd-billing-units.md). You can also delegate this task to one of the CSC project members and you can start directly using the services (links to related user guides):
+Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need for the next six months. You can learn more in the next [section](./sd-billing-units.md). You can also delegate this task to one of the CSC project members and you can start directly using the services (links to related user guides):
 
 SD Connect:
 

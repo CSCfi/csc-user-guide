@@ -21,7 +21,7 @@ If the current usage is lower than the minimum requested resource, the requested
 
 The rate at which Cloud Billing Units are consumed depends on the size of the
 resources. 
-Please note that there will be slight adjustment in BU prices of Rahti from year 2026 as shown in the table:
+Please note that there will be slight adjustment in BU consumption rates of Rahti from year 2026 as shown in the table:
 
 | Resource         | Cloud Billing Units<br>(current) |Cloud Billing Units<br>(2026) |
 |------------------|------------------|---------------------|
