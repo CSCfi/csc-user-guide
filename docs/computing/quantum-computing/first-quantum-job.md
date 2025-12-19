@@ -22,6 +22,10 @@ You can then see the list of available *modules* with `module avail`. The quantu
 
 ```bash
 module load fiqci-vtt-qiskit
+
+or 
+
+module load fiqci-vtt-qiskit/17.8 #To use Helmi
 ```
 
 ## Creating your first quantum program
@@ -170,7 +174,7 @@ To run your quantum programme on LUMI you will need to submit the job through th
     # Using Helmi
 
     module use /appl/local/quantum/modulefiles
-    module --ignore_cache load "fiqci-vtt-qiskit"
+    module --ignore_cache load "fiqci-vtt-qiskit/17.8"
     export DEVICES=("Q5")
     srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u first_quantum_job.py"
     ```

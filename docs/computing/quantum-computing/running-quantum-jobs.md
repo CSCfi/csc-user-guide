@@ -103,7 +103,7 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module --ignore_cache load "fiqci-vtt-qiskit"
+    module --ignore_cache load "fiqci-vtt-qiskit/17.8"
     export DEVICES=("Q5")
     srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
     ```
