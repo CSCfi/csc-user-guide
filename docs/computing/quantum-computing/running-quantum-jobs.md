@@ -44,8 +44,8 @@ The current supported software versions are:
 
 | Software | LUMI_Module_name | Versions |
 |----------|-------------|----------|
-| IQM client | fiqci-vtt-qiskit/fiqci-vtt-cirq | >= 22.3, <= 23.0 |
-| IQM client | fiqci-vtt-qiskit/17.8 or fiqci-vtt-cirq/16.2 | ≥ 33.0.0, < 34.0.0 |
+| IQM client | fiqci-vtt-qiskit/fiqci-vtt-cirq | ≥ 33.0.0, < 34.0.0 |
+| IQM client | fiqci-vtt-qiskit/17.8 or fiqci-vtt-cirq/16.2 | >= 22.3, <= 23.0 |
 
 Here is an example batch script to submit a quantum job
 
@@ -169,7 +169,7 @@ In Qiskit python scripts you will need to include the following:
 
     DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
 
-    provider = IQMProvider(DEVICE_CORTEX_URL)
+    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="q50")
     backend = provider.get_backend()
 
     shots = 1000  # Set the number of shots you wish to run with
@@ -237,7 +237,7 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     import cirq
     from iqm.cirq_iqm.iqm_sampler import IQMSampler
 
-    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL', quantum_computer="q50")
+    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
 
     sampler = IQMSampler(DEVICE_CORTEX_URL, quantum_computer="q50")
 
