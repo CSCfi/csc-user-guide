@@ -117,6 +117,7 @@ module load qiskit/1.1.1
 Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores in a single node for Puhti and Mahti and all CPU/GPU resources on a single node using the LUMI standard-g partition:
 
 === "Puhti"
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=aer_job
@@ -135,6 +136,7 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     ```
 
 === "Mahti"
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=aer_job
@@ -152,6 +154,7 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     ```
 
 === "LUMI"
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=aer_job
@@ -183,6 +186,7 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
 Example `<myprog>.py` python script for single node simulations. Do note that this code is just to highlight the syntax and only works on a single node. For LUMI simulations, reference the table below for resource requirements relative to the amount of qubits you wish to simulate.
 
 === "Puhti"
+
     ```Python
     from qiskit import QuantumCircuit
     from qiskit_aer import AerSimulator
@@ -210,6 +214,7 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
     ```
 
 === "Mahti"
+
     ```Python
     from qiskit import QuantumCircuit
     from qiskit_aer import AerSimulator
@@ -237,6 +242,7 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
     ```
 
 === "LUMI"
+
     ```Python
     from qiskit import QuantumCircuit, transpile
     from qiskit.transpiler import CouplingMap
@@ -300,6 +306,7 @@ Submit the script with `sbatch <sbatch_script_name>.sh`
 Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multiple LUMI nodes in the standard-g partition using all GPUs and all CPU cores on a node. This is for simulations involving 35 qubits or more (up to a maximum 45* qubits - see table below for recommended resource allocations based on amount of qubits you wish to simulate ):
 
 === "LUMI"
+
     ```bash
     #!/bin/bash
     ## Here is an example sbatch script for a 38 qubit quantum volume simulation (myprog_MPI.py) using 16 nodes 
@@ -327,6 +334,7 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
 *reference recommended resource allocation table below
 
 === "LUMI"
+
     ```Python
     from qiskit import QuantumCircuit, transpile
     from qiskit.transpiler import CouplingMap
