@@ -272,7 +272,7 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
     transpiled_circuit = transpile(circuit, simulator, coupling_map=coupling_map, optimization_level=0)
     
     ## RUN THE SIMULATION
-    result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enabled=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
+    result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enable=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
     
     ## GATHER THE RESULTS AND SOME ADDITIONAL METADATA
     counts = result_statevec.get_counts()
@@ -364,7 +364,7 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
     transpiled_circuit = transpile(circuit, simulator, coupling_map=coupling_map, optimization_level=0)
     
     ## RUN THE SIMULATION
-    result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enabled=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
+    result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enable=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
     
     ## GATHER THE RESULTS AND SOME ADDITIONAL METADATA
     counts = result_statevec.get_counts()
