@@ -1,5 +1,11 @@
 # Applications
 
+## GROMACS 2025.4, 9.12.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.4 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.4/release-notes/2025/2025.4.html)
+for a list of all new features and improvements.
+
 ## AMS 2025 available on Puhti and Mahti, 27.11.2025
 
 [AMS](../../apps/ams.md) has been updated to version 2025.105 on both Mahti and Puhti
@@ -528,7 +534,7 @@ first of them, [Puhti web interface](../../computing/webinterface/index.md), has
 researchers, the number of users is still rapidly increasing and now represents 36% of all users.
 Similar web interfaces will be opened for both Mahti and LUMI, in the near future. For replacements
 in specific use cases, please see
-[the application page for NoMachine](../../apps/nomachine.md#replacements).
+[the apps deprecation page](../../support/faq/deprecated-apps.md#nomachine).
 
 ## Gromacs and CP2K now available on LUMI, 19.4.2023
 
@@ -564,7 +570,7 @@ and Mahti. [See release notes here](https://www.turbomole.org/turbomole/release-
 ## CSC software collection on LUMI, 31.1.2023
 
 Applications pre-installed by CSC on the LUMI supercomputer can now be viewed in the
-[application list grouped by availability](../../apps/by_system.md). For a comprehensive
+[application list grouped by availability](../../apps/by_availability.md). For a comprehensive
 list of available EasyBuild recipes for personal or project-specific installations, see
 the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
 
@@ -580,8 +586,8 @@ and Mahti. [See release notes here](https://manual.gromacs.org/2022.4/release-no
 
 ## License for Materials and Discovery Studio no longer available, 3.1.2023
 
-The national [Materials Studio](../../apps/materialsstudio.md) and
-[Discovery Studio](../../apps/discovery-studio.md) licenses provided by CSC ended at the end of 2022.
+The national [Materials Studio](../../support/faq/deprecated-apps.md#materials-studio) and
+[Discovery Studio](../../support/faq/deprecated-apps.md#discovery-studio) licenses provided by CSC ended at the end of 2022.
 Please consider using, e.g., [Maestro](../../apps/maestro.md) or [AMS](../../apps/ams.md)
 instead.
 
@@ -661,8 +667,8 @@ modifications to the `r-env` module setup, older R versions are currently unavai
 
 ## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
 
-CSC has been providing a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
-and [Materials Studio](../../apps/materialsstudio.md). Due to small usage and the availability of
+CSC has been providing a national academic license for [Discovery Studio](../../support/faq/deprecated-apps.md#discovery-studio)
+and [Materials Studio](../../support/faq/deprecated-apps.md#materials-studio). Due to small usage and the availability of
 overlapping tools ([Maestro](../../apps/maestro.md)), the license will not be continued after this
 year. This means that in 2023 these molecular modeling tools can't be used any more at CSC nor on
 users' own computers. Please contact [Service Desk](../contact.md) if you need help in moving your

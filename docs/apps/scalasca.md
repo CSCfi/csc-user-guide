@@ -3,11 +3,13 @@ tags:
   - Free
 catalog:
   name: Scalasca
+  description: Performance profiler for parallel programs
+  disciplines:
+    - Miscellaneous
   license_type: Free
   available_on:
     - Puhti
     - Mahti
-  unchecked: true
 ---
 
 # Scalasca
