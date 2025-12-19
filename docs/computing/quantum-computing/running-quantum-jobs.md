@@ -169,7 +169,7 @@ In Qiskit python scripts you will need to include the following:
 
     DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
 
-    provider = IQMProvider(DEVICE_CORTEX_URL)
+    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="q50")
     backend = provider.get_backend()
 
     shots = 1000  # Set the number of shots you wish to run with
