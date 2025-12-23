@@ -65,5 +65,5 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Other ArcGIS tools in CSC's computing environment
 
-*   ArcGIS Pro is available only for Windows operating system, which is unfortunatelly not supported in CSC's computing environment.
+*   ArcGIS Pro is available only for Windows operating system, which is unfortunately not supported in CSC's computing environment.
 *   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for large scale spatial data analysis. These ArcGIS server products usually support Linux operating system and can be installed to [cPouta](../cloud/pouta/index.md).
