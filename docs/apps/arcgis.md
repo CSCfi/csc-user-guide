@@ -15,7 +15,6 @@ catalog:
 !!! info "Note"
     CSC had an ArcGIS consortium until 31.12.2025. From 2026 onwards CSC does not provide ArcGIS licenses for Finnish universities.
 
-
 The [ArcGIS API for Python](https://developers.arcgis.com/python/) is a powerful, modern Pythonic library that supports the latest releases of ArcGIS Enterprise and ArcGIS Online and provides a consistent programmatic experience for scripting and automating across the ArcGIS product suite. It is used for three key workflows:
 
 * GIS organization administration: management of users, groups, items, and servers, customizing the look and feel of your ArcGIS Enterprise or ArcGIS Online organization
@@ -28,7 +27,6 @@ Puhti ArcGIS Python API installation is based on [ESRI's arcgis_learn metapackag
 
 Some parts of ArcGIS Python API require logging in to your home organization's ArcGIS Online. 
 
-
 ## Available
 
 ArcGIS Python API is available in Puhti:
@@ -37,10 +35,13 @@ ArcGIS Python API is available in Puhti:
 * 2.1.0.3 in `arcgis-python-api` module
 
 ## Usage
+
 Load the module
+
 ```bash
 module load arcgis-python-api
 ```
+
 To check the exact packages and versions included in the loaded module:
 
 ```bash
@@ -66,5 +67,5 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Other ArcGIS tools in CSC's computing environment
 
-*   ArcGIS Pro is available only for Windows operating system, which is unfortunately not supported in CSC's computing environment.
-*   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for large scale spatial data analysis. These ArcGIS server products usually support Linux operating system and can be installed to [cPouta](../cloud/pouta/index.md).
+* ArcGIS Pro is available only for Windows operating system, which is unfortunately not supported in CSC's computing environment.
+* ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for large scale spatial data analysis. These ArcGIS server products usually support Linux operating system and can be installed to [cPouta](../cloud/pouta/index.md).
