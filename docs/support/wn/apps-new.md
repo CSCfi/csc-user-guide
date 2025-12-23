@@ -1,5 +1,11 @@
 # Applications
 
+## CSC ArcGIS consortium for Finnish universities ends on 31.12.2025
+
+For over 20 years CSC organized ArcGIS consortium for Finnish universities, providing licenses to ArcGIS software, 
+ESRI Virtual Campus and Finnish street and road datasets. The consortium and access to the licensed products ends on 31.12.2025. 
+For 2026 onwards universities buy their ESRI/ArcGIS-licenses directly from ESRI Finland.
+
 ## GROMACS 2025.4, 9.12.2025
 
 [GROMACS](../../apps/gromacs.md) 2025.4 is now available on Puhti, Mahti and LUMI.
