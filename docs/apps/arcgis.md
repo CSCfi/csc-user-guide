@@ -13,7 +13,7 @@ catalog:
 # ArcGIS Python API
 
 !!! info "Note"
-    CSC had ArcGIS consortium until 31.12.2025. From 2026 onwards CSC does not provide ArcGIS licenses for Finnish universities.
+    CSC had an ArcGIS consortium until 31.12.2025. From 2026 onwards CSC does not provide ArcGIS licenses for Finnish universities.
 
 
 The [ArcGIS API for Python](https://developers.arcgis.com/python/) is a powerful, modern Pythonic library that supports the latest releases of ArcGIS Enterprise and ArcGIS Online and provides a consistent programmatic experience for scripting and automating across the ArcGIS product suite. It is used for three key workflows:
