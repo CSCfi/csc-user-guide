@@ -50,7 +50,8 @@ module load vasp/6.5.1
 request_license_key.sh
 ```
 
-The `request_license_key.sh` script will ask user's VASP Portal username and password.
+The `request_license_key.sh` script will ask user's VASP Portal username and password. This
+license model is currently in beta stage.
 
 # Usage
 
