@@ -135,7 +135,10 @@ in a module provided by CSC, do not hesitate to contact our
         ```
 
     ---
-
+    
+!!! info "Pip installations that require compilation"
+        When building from source, the `--no-build-isolation` flag can be used to compile the package using the active module instead of pip creating an isolated build environment. 
+        In addition, you can use the verbose `-v`flag to see what pip is doing inside the environment.
 
 !!! warning 
 
