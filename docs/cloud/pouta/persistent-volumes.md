@@ -3,13 +3,66 @@
 This article describes one of the options to store data in Pouta which
 survive turning off the virtual machine.
 
-Persistent volumes, as the name says, remain even when instances are
-removed. They can be attached to or detached from virtual machines
-while they are running.
+Persistent volumes remain even when instances are removed. They can be
+attached to or detached from virtual machines while they are running.
 
-Persistent volumes use a CEPH cluster. If I/O performance is critical,
-you should not use this kind of volume - it will access your data via
-the network, which inherently causes some latency.
+Persistent volumes use a Ceph cluster. Because data is accessed over the
+network, persistent volumes introduce additional latency and are therefore
+not recommended for latency‑critical or high‑performance workloads. See
+[ephemeral storage](./storage.md).
+
+## Volume Types: Standard vs. Capacity
+
+Pouta provides two persistent volume types: **Standard** and **Capacity**. Both
+use the same Ceph backend, but they differ in performance behavior and cost.
+
+### Standard Volumes
+
+Standard volumes offer predictable performance and are suitable for workloads
+that require responsive storage.
+
+**Key characteristics:**
+- **Better I/O performance** and **lower latency**
+- Suitable for most general‑purpose workloads
+- **More expensive** than Capacity volumes
+
+**Best for:**
+- Frequently accessed or active data
+- Applications needing stable responsiveness
+- Moderate database workloads
+- Active log processing
+
+**Not ideal for:**
+- **High‑performance or latency‑critical workloads — consider using local NVMe
+  or [ephemeral storage](./storage.md) instead**
+- Large datasets where storage cost dominates
+
+---
+
+### Capacity Volumes
+
+Capacity volumes are designed for storing **large amounts of data** where access
+frequency and performance requirements are low.
+
+**Key characteristics:**
+- Lower I/O performance
+- Higher latency compared to Standard volumes
+- Optimized for bulk and long‑term storage
+- Less expensive than Standard volumes
+
+**Best for:**
+- Infrequently accessed (“cold”) datasets
+- Long‑term archival storage
+- Backups, snapshots, research datasets
+- Log retention, *as long as the logs are not written actively to the
+  volume* (for example, storing rotated or compressed logs after processing)
+
+**Not suitable for:**
+- Live databases
+- Regularly accessed or performance‑sensitive workloads
+- High‑throughput applications
+- Storing active log files due to latency and write limits
+- Any workload requiring low latency
 
 ## Creating and attaching a volume in the Pouta web interface
 
@@ -41,7 +94,12 @@ Persistent volumes can also be created and attached using the command
 line interface:
 
 ```
-openstack volume create --description "<description>" --size <size> <name>
+openstack volume create --description "<description>" --size <size> --type <type> <name>
+```
+
+List volume types:
+```
+openstack volume type list --long
 ```
 
 List existing volumes:
@@ -214,7 +272,7 @@ Similar to the previous persistent volume creation you can identify the volume b
 Finally we need to grow the filesystem of the volume, so that the additional space can be used. Assuming that the filesystem in the volume is xfs, we can grow the filesystem with the following command:
 
     sudo xfs_growfs /dev/vdb
-    
+
 To verify that the filesystem has now the expected size, you can use the following command:
 
     sudo xfs_info /dev/vdb
