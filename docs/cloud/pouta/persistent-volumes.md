@@ -45,12 +45,14 @@ Capacity volumes are designed for storing **large amounts of data** where access
 frequency and performance requirements are low.
 
 **Key characteristics:**
+
 - Lower I/O performance
 - Higher latency compared to Standard volumes
 - Optimized for bulk and long‑term storage
 - Less expensive than Standard volumes
 
 **Best for:**
+
 - Infrequently accessed (“cold”) datasets
 - Long‑term archival storage
 - Backups, snapshots, research datasets
@@ -58,6 +60,7 @@ frequency and performance requirements are low.
   volume* (for example, storing rotated or compressed logs after processing)
 
 **Not suitable for:**
+
 - Live databases
 - Regularly accessed or performance‑sensitive workloads
 - High‑throughput applications
