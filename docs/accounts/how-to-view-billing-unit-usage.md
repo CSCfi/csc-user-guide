@@ -6,9 +6,9 @@ IDA does not consume Billing Units; it only has a quota limit for each project.
 Check your BU consumption:
 
 1. Login to [MyCSC](http://my.csc.fi).
-2. Choose _Projects_ in the navigation menu on the left.
-3. Choose a project.
-4. The usage is shown under _Resource Usage_.
+1. Choose _Projects_ in the navigation menu on the left.
+1. Choose a project.
+1. The usage is shown under _Resource Usage_.
 
 In the usage plot, you can:
 
