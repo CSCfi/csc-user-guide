@@ -17,6 +17,7 @@ Be aware that the backup feature is still in development and should not be used 
 
 * Backups are stored encrypted in Allas. This is worth to keep in mind if you want to take your own backup (you should probably store them somewhere else than Allas nor cPouta).
 * When "restoring" a backup it will create a new instance with a new IP. So be aware that you might need to update your egress firewalls in your service.
+* Keep in mind that any parameter changes done to the original database instance with root access using `ALTER SYSTEM` commands are discarded when creating a new database instance by restoring from a backup.
 * If you have any concerns, do not hesitate to contact [CSC Service Desk](../../support/contact.md).
 * All your database data and backups are stored in the CSC Kajaani datacenter. If the datacenter has catastrophic data loss, you may lose all your data.
 * If you are using the DBaaS service for really important projects/data, it is worth considering to also take your own backups that are stored somewhere else than CSC in case of disaster.
@@ -46,4 +47,4 @@ Backups can be made manually.
 
 ## Restoring and/or verifying backup
 
-Restoring a backup is the same process as creating a new instance. This can be done from the [web interface](web-interface.md) as well as the [CLI](cli.md) .
+Restoring a backup is the same process as creating a new instance. This can be done from the [web interface](web-interface.md) as well as the [CLI](cli.md). It is recommended to always specify the same database version for the new instance as was used in the original instance when the backup was taken.

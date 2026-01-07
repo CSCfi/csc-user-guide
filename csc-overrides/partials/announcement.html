@@ -4,9 +4,9 @@
   a comment (#) to a statement (%)) a line below. Only a
   single line can be uncommented at a time.
 #}
-{# import ".icons/material/coffee.svg" as icon #}
+{% import ".icons/material/coffee.svg" as icon %}
 {# import ".icons/material/chat.svg" as icon #}
-{% import ".icons/material/information.svg" as icon %}
+{# import ".icons/material/information.svg" as icon #}
 {# import ".icons/material/alert.svg" as icon #}
 {# import ".icons/material/wrench.svg" as icon #}
 {# import ".icons/material/rocket-launch.svg" as icon #}
@@ -15,10 +15,11 @@
 {# import ".icons/material/dna.svg" as icon #}
 {# import ".icons/material/atom.svg" as icon #}
 {# import ".icons/material/telescope.svg" as icon #}
+{# import ".icons/material/fire.svg" as icon #}
 <div class="announcement-icon">{{ icon }}</div>
 {# Put the announcement, in HTML, right under this comment! #}
 <p>
-CSC's Billing Units have been renewed! <a href="{{ base_url | url }}/support/faq/bu-renewal/">Read the FAQ to learn more about the change</a>.
+Welcome to our weekly research support coffee hour on Zoom! <a href="https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/" target="_blank">Click here for more information.</a>
 </p>
 {# ...and right above _this_ comment. #}
 <div class="announcement-icon announcement-icon-end">{{ icon }}</div>

@@ -6,8 +6,22 @@ from .config import CatalogConfig
 
 
 class Catalog:
+    @staticmethod
+    def is_exportable(app):
+        attrs = ("unchecked", "warnings",)
+
+        return not any(hasattr(app, attr) and bool(getattr(app, attr))
+                       for attr in attrs)
+
     def __init__(self, config: CatalogConfig):
-        self.__ordered = config.listing_order
+        self.__ordered = {key: (values
+                                if all(type(value) is str for value in values)
+                                else [value.get("name", "")
+                                      for value
+                                      in values
+                                      if not value.get("fallback")])
+                          for key, values
+                          in config.listing_order.items()}
         self.__apps: list[App] = []
         self.__disciplines = set()
         self.__licenses = set()
@@ -57,7 +71,8 @@ class Catalog:
              if prop in app and app[prop]}
             for app in [app_obj.asdict()
                         for app_obj
-                        in self.__sorted_apps]]}
+                        in self.__sorted_apps
+                        if self.is_exportable(app_obj)]]}
 
     def __get_sort_key(self, order_by: list[str]) -> Callable[[str], OrderedValue]:
         return lambda value: OrderedValue(value, order_by)

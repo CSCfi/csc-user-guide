@@ -72,7 +72,7 @@ Finally select the new image.
 
 ## Access Control for the Rahti Integrated Registry
 
-Rahti allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html).
+Rahti allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/index).
 
 ### 1. **Anonymous Access** (`system:anonymous`)
 

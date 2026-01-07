@@ -34,6 +34,19 @@ Operations `allas-backup` can be used for:
  - `allas-backup restore <snapshot_id>`  
  	Retrieves the data of the snapshot in the local environment. 
 	By default, stored data is restored to the local directory. Other locations can be defined with the _-target_ option.
+    Existing local files will not be overwritten. Only missing files will be retrieved.
+   
+ - `allas-backup restore-overwrite <snapshot_id>`  
+    Retrieves the data of the given snapshot to the local environment. 
+    By default the stored data is restored to the local directory.
+    Other locations can be defined with -target option.
+    Existing local files will be overwritten.
+    
+ - `allas-backup restore-newer <snapshot_id>`  
+    Retrieves the data of the given snapshot to the local environment. 
+    By default the stored data is restored to the local directory.
+    Other locations can be defined with -target option.
+    Existing local files will be overwritten only if the file in the snapshot has a newer time stamp than the local file.     
 
  - `allas-backup dump <snapshot_id> -f <file>`  
     Retrieve contents of a file in the snapshot.

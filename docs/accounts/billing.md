@@ -7,16 +7,16 @@ search:
 
 CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes. **Billing Units** (BUs) are used to allocate resources for users' projects using our services. CSC's services consume four different Billing Units (CPU, GPU, Cloud, Storage) based on the service and type of usage. You can [apply for Billing Units in MyCSC portal](how-to-apply-for-billing-units.md) and CSC grants BUs to projects. Usage consumes Billing Units but **no actual payment** is required.
 
-<!-- See the [Billing Unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"} at research.csc.fi. -->
+See the [Billing Unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"} at research.csc.fi.
 
 **The billing rates for the services are as follows:**
 
 * [Puhti and Mahti billing](../computing/hpc-billing.md)
-* Allas object storage billing:  1 TiB consumes **1** Storage BU per hour. Only actual
+* Allas object storage billing:  1 TiB consumes **1** Storage BU per hour currently and from year 2026, 1 TiB will consume 1.05 Storage BU per hour. Only actual
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
 * [Rahti billing](../cloud/rahti/billing.md)
-* [SD Connect and SD Desktop billing](../data/sensitive-data/sd-use-case-new-user-project-manager.md#sd-connect-bu-consumption)
+* [SD Connect and SD Desktop billing](../data/sensitive-data/sd-billing-units.md)
 
 
 
@@ -45,7 +45,8 @@ You will be notified before your CSC Project's Billing Units run out. When an ac
 Detailed information on how services are currently limiting the use when Billing Units run out:
 
 * [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
-* [Sensitive Data Desktop](../data/sensitive-data/sd-use-case-new-user-project-manager.md#what-happens-if-your-project-runs-out-of-billing-units)
+* [Sensitive Data Desktop](../data/sensitive-data/sd-billing-units.md#what-happens-if-your-project-runs-out-of-billing-units)
+
 
 
 

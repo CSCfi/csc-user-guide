@@ -20,13 +20,14 @@ These calculations are based on:
 If the current usage is lower than the minimum requested resource, the requested resource is used for the calculations.
 
 The rate at which Cloud Billing Units are consumed depends on the size of the
-resources. Cloud Billing Units are consumed as follows:
+resources. 
+Please note that there will be slight adjustment in BU consumption rates of Rahti from year 2026 as shown in the table:
 
-| Resource         | Cloud Billing Units |
-|------------------|---------------------|
-| Pod core hour    | 1                   |
-| Pod RAM GB hour  | 1,5                 |
-| Storage TiB hour | 3                   |
+| Resource         | Cloud Billing Units<br>(current) |Cloud Billing Units<br>(2026) |
+|------------------|------------------|---------------------|
+| Pod core hour    | 1                   |1.05
+| Pod RAM GB hour  | 1.5                 |1.6
+| Storage TiB hour | 3                   |3.6
 
 
 !!! info
