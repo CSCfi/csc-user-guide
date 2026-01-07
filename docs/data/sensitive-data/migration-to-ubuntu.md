@@ -107,7 +107,7 @@ You can attach the volume  to a new virtual desktop by:
 
 1. On the service homepage, click **SD Desktop management**.
 
-2. Selection all the necessary options: CSC project number, Operating system: **Defualt Linux Ubuntu 22**, name, virtual desktop option. 
+2. Selection all the necessary options: CSC project number, Operating system: **Default Linux Ubuntu 22**, name, virtual desktop option. 
 
 3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdown will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
 
