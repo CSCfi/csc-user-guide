@@ -3,8 +3,8 @@
 Access can be granted to the following services:
 
 * Supercomputers **Puhti** and **Mahti**
-* Cloud services **cPouta** and **Rahti**
-* Storage services **Allas**, **IDA** and **Pukki DBaaS**
+* Cloud services **cPouta**, **Rahti** and **Pukki DBaaS**
+* Storage services **Allas** and **IDA**
 * Sensitive data services **SD Services**
 
 Service access has a two-step approval:
