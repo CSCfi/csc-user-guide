@@ -1,14 +1,14 @@
-# SD Desktop action required: migrate to a supported version before 2026
+# SD Desktop action required: migrate to a supported version in January 2026
 
 All virtual desktops created before 8 September 2023 use an operating system that will no longer be supported in 2026. To keep your data, you must save it to the virtual desktop’s volume and migrate it to a new Ubuntu-based virtual desktop. Below you can find the exact steps needed. 
 
-**NOTE: Correct access permissions must be set before detaching the volume from your virtual desktop to avoid permanent data loss. To assist you, we offer step-by-step online sessions on the dates below. Please confirm your preferred time slot, the process should take about one hour.**
+**NOTE: Correct access permissions must be set before detaching the volume from your virtual desktop to avoid permanent data loss. To assist you, we offer step-by-step online sessions on the dates below. Please confirm your preferred time slot via email, the process should take about one hour.**
 
 Available time slots:
 
-- Mondays at 12:00: December 15, December 22, January 12, January 19
+- Mondays at 12:00
   
-- Thursdays at 14:00: December 11, December 18, January 15
+- Thursdays at 14:00
 
 
 # Moving volume to a new virtual desktop: step by step
@@ -20,7 +20,7 @@ Available time slots:
     
 - Go to login page: https://sd-desktop.csc.fi
   
-- Log in with MyCSC-credentials or Haka. Enter your username and password.
+- Log in with MyCSC credentials or Haka. Enter your username and password.
   
 - You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator) from your organisation via HAKA or the one provided by CSC when using CSC username and password (more information available [here](../../accounts/mfa.md#multi-factor-authentication-mfa-guide). 
 
@@ -107,7 +107,7 @@ You can attach the volume  to a new virtual desktop by:
 
 1. On the service homepage, click **SD Desktop management**.
 
-2. Selection all the necessary options: CSC project number, Operating system: Linux Ubuntu 22, name, virtual desktop option. 
+2. Selection all the necessary options: CSC project number, Operating system: **Defualt Linux Ubuntu 22**, name, virtual desktop option. 
 
 3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdown will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
 
@@ -120,7 +120,6 @@ You can attach the volume  to a new virtual desktop by:
 # When the virtual desktop does not have a volume
 
 ## Data export via airlock
-
 
 
 ## Step 1: access your virtual desktop
