@@ -3,7 +3,7 @@
 
 We are releasing a new volume type in Pouta: Capacity Volumes. Capacity Volumes are designed for workloads that require large amounts of storage at a lower cost, such as data archiving, backups, and big data applications. Capacity Volumes offer a cost-effective solution for storing large datasets.
 
-You can check this [link](../../cloud/pouta/persistent-storage.md#capacity-volumes) for more information about Capacity Volumes.
+You can check this [link](../../cloud/pouta/persistent-volumes.md#capacity-volumes) for more information about Capacity Volumes.
 
 ## Small changes in Pouta's cloud images creation, 2.12.2025
 
