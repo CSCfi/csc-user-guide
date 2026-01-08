@@ -9,7 +9,7 @@ attached to or detached from virtual machines while they are running.
 Persistent volumes use a Ceph cluster. Because data is accessed over the
 network, persistent volumes introduce additional latency and are therefore
 not recommended for latency‑critical or high‑performance workloads. See
-[Ephemeral storage](../ephemeral-storage.md)
+[Ephemeral storage](ephemeral-storage.md)
 
 ## Volume Types: Standard vs. Capacity
 
@@ -36,7 +36,7 @@ that require responsive storage.
 **Not ideal for:**
 
 - High‑performance or latency‑critical workloads, which perform better on VM
-  flavors with [Ephemeral storage](../ephemeral-storage.md).
+  flavors with [Ephemeral storage](ephemeral-storage.md).
 - Large datasets where storage cost dominates
 
 ### Capacity Volumes
