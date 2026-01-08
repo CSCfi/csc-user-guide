@@ -81,7 +81,7 @@ Here’s a table summarizing the Cloud Billing Units required for using **SD des
 | Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units ( consumed in 6 months) | Select the correct BU Package in My.csc.fi and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
 | Small Computation | 5.2 | 22,464 |Small package, 2 times a year: 30.000 BUs assigned immediately| 
-| Medium Computation | 10.4 | 44,928 |Small package, 3 times a year: 30.000 BUs assigned immediately  |
+| Medium Computation | 10.92 | 47,174 |Small package, 3 times a year: 30.000 BUs assigned immediately  |
 | Heavy Computation | 65 | 280,800 |  Medium package, 2 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
 | Small GPU Computation | 78 | 341,640 | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
 | Big Picture project | 195 | 854,100 | Large package, 2 times a year: 900.00 Bus Generally processed every three weeks by the CSC's Resource Allocation Group |
@@ -91,16 +91,16 @@ Here’s a table summarizing the Cloud Billing Units required for using **SD des
 
 #### SD Connect: storage type billing units
 
-SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.3 Storage BUs per TB per hour**.
+SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.365 Storage BUs per TB per hour**.
 
 Here’s a table summarizing the Storage Billing Units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
 | Storage Size |  Storage Billing Units (consumed in 6 months) |  Select the correct BU Package in My.csc.fi and application frequency |
 |------------------|------------------------------|----------------------------|
-| 500 GB (0.5 TB) | 2,847 units | Basic package, 3 times a year: 2.500 BUs assigned immediately |
-| 1 TB | 5,694 units | Small package, 2 times a year: 30.000 BUs assigned immediately |
-| 10 TB | 56,940 units | Small package, 3 times a year: 30.000 BUs assigned immediately  |
-| 100 TB | 569,400 units | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
+| 500 GB (0.5 TB) | 2,987  units | Basic package, 3 times a year: 2.500 BUs assigned immediately |
+| 1 TB | 5,967 units | Small package, 2 times a year: 30.000 BUs assigned immediately |
+| 10 TB | 59,757 units | Small package, 3 times a year: 30.000 BUs assigned immediately  |
+| 100 TB | 597,570 units | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
 
 
 
