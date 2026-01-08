@@ -1,6 +1,6 @@
 # SSH client on macOS and Linux
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 On Unix-based systems like macOS and Linux, it is recommended to connect to CSC
 supercomputers using the pre-installed terminal program. The OpenSSH client

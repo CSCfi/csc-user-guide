@@ -1,6 +1,6 @@
 # Setting up SSH keys
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 [SSH keys](https://www.ssh.com/academy/ssh-keys) provide more convenient and
 secure authentication. Setting them up is a two-step process, and is required
@@ -103,12 +103,13 @@ cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
 If you have added multiple keys to MyCSC, they should all be visible in the
 same `${USER}.pub` file.
 
-## Signing your public key for connecting to Roihu
+## Signing your public key
 
-To connect to Roihu using SSH, you must first sign your public key to get a so
-called **SSH certificate**. SSH certificates significantly improve the security
-of the system by introducing an additional authentication factor for SSH
-logins.
+!!! info "The following is a requirement for connecting to Roihu only"
+
+To connect to Roihu using SSH, you must sign your public key to get a so called
+**SSH certificate**. SSH certificates significantly improve the security of the
+system by introducing an additional authentication factor for SSH logins.
 
 **SSH certficates are valid for 24 hours at a time**. Once your certificate
 expires, a new one must be signed following either of the processes below.
@@ -130,6 +131,9 @@ expires, a new one must be signed following either of the processes below.
 
     ![Download SSH certificate](https://a3s.fi/docs-files/download-ssh-cert.png 'Download SSH certificate')
 
+6. The SSH certificate will be valid for 24 hours. Once it expires, return to
+   step 1.
+
 ### Option 2: Utility tool
 
 Instructions here.
@@ -138,3 +142,5 @@ Instructions here.
 
 - [Tutorial on setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
 - [Troubleshooting issues with SSH keys](../../support/faq/ssh-keys-not-working.md)
+- [Connecting to CSC supercomputers with SSH on Linux and macOS](ssh-unix.md)
+- [Connecting to CSC supercomputers with SSH on Windows](ssh-windows.md)
