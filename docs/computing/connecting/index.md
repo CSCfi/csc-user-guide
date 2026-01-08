@@ -45,7 +45,7 @@ Logging in to CSC supercomputers using an SSH client requires that you have
 Please note that traditional password-based authentication and public keys
 stored in your personal `~/.ssh/authorized_keys` file will **not** work.
 **Connecting to Roihu** will additionally require that you've
-[signed your public key](ssh-keys.md#signing-your-public-key-for-connecting-to-roihu)
+[signed your public key](ssh-keys.md#signing-public-key)
 to obtain a time-based SSH certificate that is used for authentication. A given
 SSH certificate is valid for 24 hours, after which a new one must be generated
 by signing your public key again.
