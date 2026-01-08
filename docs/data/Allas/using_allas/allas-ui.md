@@ -5,6 +5,9 @@ Allas Web UI provides a simple-to-use web user interface for CSC Object Storage 
 ## Getting Started
 
 1. Go to [https://allas.csc.fi](https://allas.csc.fi) and log in.
+ > [MFA required] Since November 25th 2025
+
+ - Multi Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../../accounts/mfa.md)
 2. Select your project from the **Select Project** dropdown menu.
 
 
@@ -95,6 +98,12 @@ To copy a bucket:
 1. Click on the **Options** button next to the bucket.
 2. Select **Copy**.
 
+## Creating Subfolders Inside a Bucket
+
+You can create subfolders inside a bucket in two ways:
+
+1. "Drag & Drop" empty folders when [uploading](#uploading-objects).
+2. Inside the bucket view click **Create folder** and name your subfolder.
 
 ## Downloading Objects and Buckets
 

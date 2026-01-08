@@ -11,13 +11,14 @@ extra:
   announcement_visible: true # Controls the visibility of the announcement bar
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
-    image: example-banner.png
-    title: Example banner now up on landing page
-    link: https://example.org/courses/example-course/
+    image: roihu.png
+    title: Roihu supercomputer – coming in spring 2026!
+    link: /computing/systems-roihu/
     description: |-
-      Banner for upcoming example course.
-      Second line for example description.
-    visible: false
+      Puhti and Mahti will be decommissioned in August 2026 and replaced by
+      Roihu, CSC's next-generation supercomputer offering enhanced performance
+      and capabilities.
+    visible: true
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
     provider: custom
@@ -55,6 +56,7 @@ hooks:
   - hooks/catalog.py
   - hooks/archives.py
   - hooks/preview.py
+  - hooks/testing.py
 
 plugins:
   - tags
@@ -74,19 +76,29 @@ plugins:
         - support/whats-new.md
         - apps/index.md
         - apps/by_discipline.md
-        - apps/by_system.md
+        - apps/by_availability.md
         - apps/by_license.md
   - section-index
   - redirects:
       redirect_maps:
-        # deprecation:
-        "support/tutorials/nomachine-usage.md": "apps/nomachine.md"
-        "support/faq/cannot-login-from-nomachine.md": "apps/nomachine.md"
+        # reorganization:
         "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
         "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
         "computing/allas.md": "data/Allas/allas-hpc.md"
         "computing/containers/creating.md": "computing/containers/overview.md"
         "computing/containers/run-existing.md": "computing/containers/overview.md"
+        "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
+        # deprecation:
+        "apps/nomachine.md": "support/faq/deprecated-apps.md"
+        "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
+        "apps/discovery-studio.md": "support/faq/deprecated-apps.md"
+        "data/kaivos/kaivos-account.md": "data/kaivos/index.md"
+        "data/kaivos/kaivos_batch_job.md": "data/kaivos/index.md"
+        "data/kaivos/kaivos_client_in_puhti.md": "data/kaivos/index.md"
+        "data/kaivos/kaivos_import.md": "data/kaivos/index.md"
+        "data/kaivos/kaivos_perl.md": "data/kaivos/index.md"
+        "data/kaivos/kaivos_remote.md": "data/kaivos/index.md"
+        "data/kaivos/overview.md": "data/kaivos/index.md"
         # renamed files:
         "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
         "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
@@ -97,6 +109,7 @@ plugins:
         "computing/overview.md": "computing/index.md"
         "cloud/concepts.md": "cloud/index.md"
         "apps/alpha.md": "apps/index.md"
+        "apps/by_system.md": "apps/by_availability.md"
         "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
         "computing/cProfile.md": "apps/cProfile.md"
         "computing/compute-san.md": "apps/compute-san.md"
@@ -121,6 +134,7 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
+        "roihu.md": "computing/systems-roihu.md"
         "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
         # Pouta
         "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
@@ -318,6 +332,7 @@ nav:
           - computing/containers/overview.md
           - Examples: computing/containers/examples.md
           - Tykky: computing/containers/tykky.md
+          - LUMI: computing/containers/lumi.md
       - Web interface:
           - computing/webinterface/index.md
           - Connecting: computing/webinterface/connecting.md
@@ -400,6 +415,7 @@ nav:
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
+              - Ray - A Machine learning framework for cloud: cloud/pouta/tutorials/Ray-ML-cloud.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -527,15 +543,6 @@ nav:
               - S3cmd: data/Allas/using_allas/s3_client.md
               - Pouta web UI: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
-      - Kaivos database service:
-          - data/kaivos/overview.md
-          - Getting a database account: data/kaivos/kaivos-account.md
-          - MySQL client programs at CSC: data/kaivos/kaivos_client_in_puhti.md
-          - Data import and export: data/kaivos/kaivos_import.md
-          - Using MySQL client through batch job system: data/kaivos/kaivos_batch_job.md
-          - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
-          - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
-          # Python MySQL API at CSC:
   - Sensitive data:
       - data/sensitive-data/index.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
@@ -543,8 +550,8 @@ nav:
           - Start here:
               - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
-              - SD Services billing units: data/sensitive-data/sd-billing-units.md
-              - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Access as project members: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Resource planning for your CSC Project: data/sensitive-data/sd-billing-units.md
           - Store with SD Connect:
               - data/sensitive-data/sd_connect.md
               - Login to SD Connect: data/sensitive-data/sd-connect-login.md
@@ -580,6 +587,7 @@ nav:
               - data/sensitive-data/secondarydata-access.md
               - Access with Findata permit: data/sensitive-data/findata-permit.md
               - Access with register permit: data/sensitive-data/single-register-permit.md
+              - Resource planning for your CSC Project: data/sensitive-data/sd-secondaryuse-billing-units.md
           - Analyse with SD Desktop for secondary use:
               - data/sensitive-data/sd-desktop-audited.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
@@ -593,9 +601,9 @@ nav:
           - Instructions for registers: data/sensitive-data/single-register-submission.md
       - Terminology: data/sensitive-data/sd-terminology.md
   - Applications:
-      - apps/index.md                        # These three files don't exist on disk
-      - By discipline: apps/by_discipline.md # as they are generated by catalog-hook
-      - By availability: apps/by_system.md   # when the site is built by MkDocs.
+      - apps/index.md
+      - By discipline: apps/by_discipline.md
+      - By availability: apps/by_availability.md
       - By license: apps/by_license.md
 
   - FAQ: support/faq/index.md

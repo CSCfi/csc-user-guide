@@ -2,14 +2,25 @@
 
 # Command Line Interface and automated key management
 
-SD Connect command line tool, **sd-lock-util**, as well as **a-put** and **a-get** commands support SD Connect compatible data upload and download with automatic encryption and decryption. After upload, the data can be downloaded through the SD Connect web interface and SD Desktop too.  Note that files have been uploaded before February 2025 and were manually encrypted using your encryption key and will still need to be decrypted manually after download.
+SD Connect command line tool, **sd-lock-util**, as well as **a-put** and **a-get** commands support SD Connect compatible data upload and download with automatic encryption and decryption. After upload, the data can be edited or analysed once imported in Sd Desktop. Small files (less than 50 GB) can also be downloaded via SD Connect user interface, which provides also automated decryption.
 
-- [Background information](#background-information)
+Note that files have been uploaded ** before February 2025**  were manually encrypted using your encryption key pair and will still need to be decrypted manually after download.
+
+!!! Note
+     All members of the same CSC project have access to upload and download files stored via SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission to a different CSC project Academic type. Please contact servicedesk@csc.fi (subject: SD Connect) for assistance.            
+
+
+
+
+- [1. Background information](#1-background-information)
+- [2. Plan the number of folders needed](#2-plan-the-number-of-folders-needed)
+- [3. Plan folder names](#3-plan-folder-names)
 - [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
 - [Command line tools and manual encryption](#command-line-tools-and-manual-decryption)
 - [Tutorials](#tutorials)
 
-## Background information
+
+## 1. Background information
 
 SD Connect is part of CSC's Sensitive Data Services, offering a free and secure data processing environment for academic research projects at Finnish universities and research institutes. SD Connect enhances the Allas object storage system by adding an automatic encryption layer, enabling secure storage of sensitive data. Data stored in SD Connect can also be accessed through SD Desktop service. While SD Connect is typically accessed via the SD Connect Web interface, command-line tools may offer a more efficient way to manage data in certain situations.
 
@@ -17,6 +28,45 @@ This document provides instructions on how you can install SD Connect command li
 
 !!! Note
     Allas itself does not differentiate between data uploaded via SD Connect (user interface or command line tools) and data uploaded to Allas using different methods. Data buckets may contain a mix of SD Connect data, other encrypted data, and regular data. It is the user's responsibility to manage data types within the buckets. However, it is recommended to store SD Connect data in separate buckets and folders to avoid mixing different data types.
+
+
+## 2. Plan the number of folders needed
+
+SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into top-level or 'main folders' created with SD Connect:  a top-level 'container or bucket' used to store files or folders. This has several implications for how your data should be organized and managed:
+
+- **Once files are uploaded to SD Connect, they cannot be edited or modified**.  It is therefore important to plan the folder structure in advance. To simplify data management and avoid issues, it is recommended to create a separate folder for each dataset or experiment. Avoid placing too many files in a single folder, each folder can contain up to 500.000 segmented files.
+
+- **Subfolders not supported**: Uploading files into subfolders is not supported.
+
+- **Upload duration**: Uploading large datasets or large batches may take several hours. Uploads are automatically stopped after 8 hours.
+  
+-  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance. 
+
+
+## 3. Plan folder names
+  
+When creating folders in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. 
+
+!!! Note
+    Top level folder name can not be modified after their creation with SD Connect. 
+    These rules apply only to top-level folders created in the service, not to subfolders uploaded from a local computer. 
+
+**Folder names must**:
+
+* start with a lowercase letter or a number.
+* be between 3 and 63 characters long.
+* use Latin alphabets (a-z), numbers (0-9) and dash (-).
+* be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project specific identifiers (e.g., project ID number or acronym) in the folder name.
+    
+**Folder names must not contain**:
+
+* Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
+* all folder names are public; please do not include any confidential information.
+* Folder names can't be modified afterwards.
+
+
+
+
 
 ## Command line tools and automated key management
 

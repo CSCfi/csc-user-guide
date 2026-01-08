@@ -7,12 +7,12 @@ search:
 
 CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes. **Billing Units** (BUs) are used to allocate resources for users' projects using our services. CSC's services consume four different Billing Units (CPU, GPU, Cloud, Storage) based on the service and type of usage. You can [apply for Billing Units in MyCSC portal](how-to-apply-for-billing-units.md) and CSC grants BUs to projects. Usage consumes Billing Units but **no actual payment** is required.
 
-<!-- See the [Billing Unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"} at research.csc.fi. -->
+See the [Billing Unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"} at research.csc.fi.
 
 **The billing rates for the services are as follows:**
 
 * [Puhti and Mahti billing](../computing/hpc-billing.md)
-* Allas object storage billing:  1 TiB consumes **1** Storage BU per hour currently and from year 2026, 1 TiB will consume 1.05 Storage BU per hour. Only actual
+* Allas object storage billing:  1 TiB consumes **1.05** Storage BU per hour. Only actual
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
 * [Rahti billing](../cloud/rahti/billing.md)
@@ -24,7 +24,7 @@ CSC's services are free of charge for academic research, teaching or training fo
 
     For LUMI billing, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
 
-    The use of Fairdata IDA and Kaivos doesn't consume Billing Units.
+    The use of Fairdata IDA doesn't consume Billing Units.
 
 ## Monitoring Billing Unit consumption
 
