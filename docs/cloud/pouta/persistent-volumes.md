@@ -297,3 +297,41 @@ You can now expand the volume by passing the volume ID and the new size:
 ```
 openstack volume set <volume-id> --size <volume-size>
 ```
+
+## Change your volume type using the Pouta web interface
+
+Log in to the Pouta web interface and navigate to the *Volumes* view. Click the arrow symbol next to the **Edit Volume** button for the volume you want to change the type of and select **Change Volume Type**.
+
+![Change Volume Type](../img/change_volume_type_option.png)
+
+In the **Volume Type** selector, choose either **Standard** or **Capacity** depending on your needs and select **On Demand** for the **Migration Policy**. Finally, click the **Change Volume Type** button.
+
+![Change Volume Type windows](../img/change_volume_type_window.png)
+
+Depending on the volume size, the type change operation may take some time. You can monitor the progress in the *Volumes* view. Once the volume status changes back to **Available** or **In-use**, the type change has been completed.
+
+For example, a volume of size 2 TB takes about ~15 minutes.
+
+## Change your volume type using CLI
+
+You can realize the volume type change using the command line interface:
+
+1. First, list the type of volumes available in your project:
+
+```sh
+openstack volume type list --long
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------+-------------------------+
+| ID                                   | Name                 | Is Public | Description                                                              | Properties              |
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------+-------------------------+
+| 2a0e6c60-f717-4f38-ad8b-69faf7bb2b8d | capacity             | True      | Capacity volumes stored on a Ceph backend                                |                         |
+| 025a0a92-8485-443f-bd61-d68b87389447 | standard.multiattach | True      | Multiattachable standard volumes. Available upon request to servicedesk. | multiattach='<is> True' |
+| a54f3f3b-0b10-477c-a5eb-1ecce0ec082a | standard             | True      | Volumes stored on a Ceph backend                                         |                         |
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------+-------------------------+
+```
+
+Now, you can change the volume type by executing:
+
+```sh
+openstack volume set --type VOLUME_TYPE_NAME_OR_ID --retype-policy on-demand YOUR_VOLUME_NAME_OR_ID
+```
+
