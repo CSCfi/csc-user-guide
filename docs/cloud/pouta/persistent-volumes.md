@@ -59,7 +59,7 @@ frequency and performance requirements are low.
 - Log retention, *as long as the logs are not written actively to the
   volume* (for example, storing rotated or compressed logs after processing)
 
-**Not suitable for:**
+**Not ideal for:**
 
 - Live databases
 - Regularly accessed or performance‑sensitive workloads
