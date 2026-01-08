@@ -350,17 +350,22 @@ Calibration data (or quality metrics set) may be necessary for publishing work p
 
 Here is a brief description of the figures which are given when querying:
 
-| Figure                          | Description                                                                                                                                                                           |     |     |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| T1 Time (s)                     | The T1 time is called the longitudinal relaxation rate and describes how quickly the excited state of the qubit returns to its ground state.                                          |     |     |
-| T2 Time (s)                     | The T2 time is called the transverse relaxation rate and describes loss of coherence of a superposition state.                                                                        |     |     |
-| T2 Echo Time (s)                | The T2 echo time describes the loss of coherence of the superposition state of the qubit. It is more precise than the T2 Time as it is less susceptible to low-frequency noise.       |     |     |
-| Single shot readout fidelity    | This describes the fidelity when performing single shot readouts of the qubit state. Single-shot readout prepares 50% of the qubit states in the excited and 50% in the ground state. |     |     |
-| Single shot readout 01 error    | The error in assigning an excited state ('1') when the state is in the ground state ('0').                                                                                            |     |     |
-| Single shot readout 10 error    | The error in assigning a ground state ('0') when the state is in the excited state ('1').                                                                                             |     |     |
-| Fidelity 1QB gates averaged     | This is calculated from Randomized Benchmarking and describes the average gate fidelity when a random sequence of single qubit Clifford gates is applied.                             |     |     |
-| Fidelity 2QB Cliffords averaged | This is calculated from Randomized Benchmarking, showing the average Clifford gate fidelity.                                                                                          |     |     |
-| CZ gate fidelity                | The controlled-z gate fidelity calculated through interleaved randomized benchmarking, where the controlled-z gate is interleaved.                                                    |     |     |
+| Figure | Key | Description |  |  |
+|---|---|---|---|---|
+| T1 Time (s) | `t1_time` | The T1 time is called the longitudinal relaxation rate and describes how quickly the excited state of the qubit returns to its ground state. |  |  |
+| T2 Time (s) | `t2_time` | The T2 time is called the transverse relaxation rate and describes loss of coherence of a superposition state. |  |  |
+| T2 Echo Time (s) |  `t2_echo_time` | The T2 echo time describes the loss of coherence of the superposition state of the qubit. It is more precise than the T2 Time as it is less susceptible to low-frequency noise. |  |  |
+| Readout fidelity | `measure_fidelity_ssro_fidelity` | This describes the fidelity when performing single shot readouts of the qubit state. Single-shot readout prepares 50% of the qubit states in the excited and 50% in the ground state. |  |  |
+| Single shot readout 01 error | `measure_fidelity_ssro_error_0_to_1` | The error in assigning an excited state ('1') when the state is in the ground state ('0'). |  |  |
+| Single shot readout 10 error | `measure_fidelity_ssro_error_1_to_0` | The error in assigning a ground state ('0') when the state is in the excited state ('1'). |  |  |
+| Single qubit gate fidelity | `prx_rb_fidelity` | This is calculated from Randomized Benchmarking and describes the average gate fidelity when a random sequence of single qubit Clifford gates is applied. |  |  |
+| Fidelity 2QB Cliffords averaged |  `clifford_rb_fidelity` | This is calculated from Randomized Benchmarking, showing the average Clifford gate fidelity. |  |  |
+| CZ gate fidelity |  `cz_irb_fidelity` | The controlled-z gate fidelity calculated through interleaved randomized benchmarking, where the controlled-z gate is interleaved. |  |  |
+| MCM fidelity |  `measure_ssro_fidelity` | The fidelity of a mid-circuit measurement. |  |  |
+| QNDness fidelity | `measure_qndness_fidelity` | Quantum non-demolition (QND) fidelity describes the probability that the qubits quantum state is preserved after a mid-circuit measurement operation.  |  |  |
+| QNDness 0 | `measure_qndness_qndness_0` | The QND fidelity for the ground state. It represents the probability that a qubit initially in the ground state remains in the ground state after being measured. |  |  |
+| QNDness 1 | `measure_qndness_qndness_1` | The QND fidelity for the first excited state. It represents the probability that a qubit initially in the first excited state remains in the first excited state after being measured. |  |  |
+| QNDness repeatability | `measure_qndness_repeatability` | Repeatability of mid-circuit measurement outcomes. The probability that the second measurement outcome agrees with the first. This metric includes readout discrimination errors meaning that if the readout fidelity is poor, repeatability will be low even if the measurement is non-destructive. |  |  |
 
 
 For further information on the calibration data contact [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) or the [CSC Service Desk](../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
