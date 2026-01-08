@@ -97,10 +97,10 @@ Here’s a table summarizing the Storage Billing Units required for storing data
 
 | Storage Size |  Storage Billing Units (consumed in 6 months) |  Select the correct BU Package in My.csc.fi and application frequency |
 |------------------|------------------------------|----------------------------|
-| 500 GB (0.5 TB) | 2,847 units | Basic package, 3 times a year: 2.500 BUs assigned immediately |
-| 1 TB | 5,694 units | Small package, 2 times a year: 30.000 BUs assigned immediately |
-| 10 TB | 56,940 units | Small package, 3 times a year: 30.000 BUs assigned immediately  |
-| 100 TB | 569,400 units | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
+| 500 GB (0.5 TB) | 2,987  units | Basic package, 3 times a year: 2.500 BUs assigned immediately |
+| 1 TB | 5,967 units | Small package, 2 times a year: 30.000 BUs assigned immediately |
+| 10 TB | 59,757 units | Small package, 3 times a year: 30.000 BUs assigned immediately  |
+| 100 TB | 597,570 units | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
 
 
 
