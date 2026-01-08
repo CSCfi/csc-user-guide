@@ -103,13 +103,32 @@ cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
 If you have added multiple keys to MyCSC, they should all be visible in the
 same `${USER}.pub` file.
 
-## Required for Roihu: Signing your public key
+## Signing your public key for connecting to Roihu
 
-Motivation.
+To connect to Roihu using SSH, you must first sign your public key to get a so
+called **SSH certificate**. SSH certificates significantly improve the security
+of the system by introducing an additional authentication factor for SSH
+logins.
+
+**SSH certficates are valid for 24 hours at a time**. Once your certificate
+expires, a new one must be signed following either of the processes below.
 
 ### Option 1: MyCSC
 
-Instructions here.
+1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
+2. Select _Profile_ from the left-hand navigation or the dropdown menu in the
+   top-right corner.
+3. Locate _SSH PUBLIC KEYS_ section and click the three vertical dots next to
+   the public key you want to sign.
+4. Click _Sign SSH key_. As a security measure, you are asked to log in again.
+
+    ![Sign SSH key](https://a3s.fi/docs-files/sign-ssh-key.png 'Sign SSH key')
+
+5. To download the certificate, click the three vertical dots next to your
+   public key again and select _Download SSH certificate_. We advice saving the
+   certificate in the default folder for SSH-related files (e.g. `~/.ssh`).
+
+    ![Download SSH certificate](https://a3s.fi/docs-files/download-ssh-cert.png 'Download SSH certificate')
 
 ### Option 2: Utility tool
 
