@@ -19,6 +19,14 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
+    **9.1.2026** PyTorch 2.9.1 installed to Puhti and Mahti, and made the
+    default version. Apex was removed, since the library has been
+    deprecated for a long time already. Added litgpt, ultralytics, sahi and torchgeo.
+    
+    New PyTorch versions for LUMI are being prepared by the [new LUMI AI
+    Factory](https://lumi-ai-factory.eu/) and are expected to be released
+    during the early spring.
+
     **8.7.2025** PyTorch 2.7.1 installed to Puhti and Mahti, and made the
     default version. This version includes
     [SGLang](https://docs.sglang.ai/), note however that SGLang only
@@ -95,7 +103,8 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.7.1   | `pytorch/2.7`  | X     | X     | X    | Default                    |
+| 2.9.1   | `pytorch/2.9`  | X     | X     | -    | Default on Puhti, Mahti    |
+| 2.7.1   | `pytorch/2.7`  | X     | X     | X    | Default on LUMI            |
 | 2.6.0   | `pytorch/2.6`  | X     | X     | -    |                            |
 | 2.5.1   | `pytorch/2.5`  | X     | X     | X    |                            |
 | 2.4.1   | `pytorch/2.4`  | -     | -     | X    |                            |
@@ -187,7 +196,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load pytorch/2.7
+module load pytorch/2.9
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries,
@@ -229,7 +238,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.7
+    module load pytorch/2.9
     srun python3 myprog.py <options>
     ```
 
@@ -243,7 +252,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.7
+    module load pytorch/2.9
     srun python3 myprog.py <options>
     ```
 
