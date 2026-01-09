@@ -35,7 +35,6 @@ basics of [Linux command line usage](../support/tutorials/env-guide/index.md) be
     For an overview of the LUMI supercomputer, see
     [the LUMI documentation](https://docs.lumi-supercomputer.eu/hardware/).
 
-
 ## Accessing Puhti and Mahti
 
 To be able to use CSC's supercomputers, you need to have a CSC user account that
@@ -52,7 +51,7 @@ of this user guide.
 
 ## Connecting to the supercomputers
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 Connect using an SSH client:
 

@@ -1,6 +1,6 @@
 # Using rsync for data transfer and synchronization
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 **Rsync** is a data transfer tool that can be used much like the `scp` command.
 When transferring data, `rsync` checks the difference between the source and

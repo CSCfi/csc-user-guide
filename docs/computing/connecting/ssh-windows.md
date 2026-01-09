@@ -1,6 +1,6 @@
 # SSH client on Windows
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 There are various programs that can be used for creating a remote SSH
 connection on a Windows system. This page provides instructions for three
