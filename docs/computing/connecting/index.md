@@ -39,16 +39,15 @@ typically come with a pre-installed SSH client. See the instructions for
 
 Logging in to CSC supercomputers using an SSH client requires that you have
 
-1. [set up SSH keys](ssh-keys.md) and
-2. [added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc).
+1. [set up SSH keys](ssh-keys.md),
+2. [added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc),
+   and
+3. [signed your public key](ssh-keys.md#signing-public-key) to
+   obtain a time-based SSH certificate. **This step is only required when
+   connecting to Roihu**.
 
 Please note that traditional password-based authentication and public keys
 stored in your personal `~/.ssh/authorized_keys` file will **not** work.
-**Connecting to Roihu** will additionally require that you've
-[signed your public key](ssh-keys.md#signing-public-key)
-to obtain a time-based SSH certificate that is used for authentication. A given
-SSH certificate is valid for 24 hours, after which a new one must be generated
-by signing your public key again.
 
 Unix-based systems like macOS and Linux typically come with a pre-installed
 terminal program called simply *Terminal*. The instructions for using an
@@ -153,8 +152,8 @@ The available login nodes are:
 |-|-|-|-|
 | `puhti-login11` | `mahti-login11` | `roihu-cpu-login1` | `roihu-gpu-login1` |
 | `puhti-login12` | `mahti-login12` | `roihu-cpu-login2` | `roihu-gpu-login2` |
-| `puhti-login14` | `mahti-login14` | `roihu-cpu-login3` | `roihu-gpu-login3` |
-| `puhti-login15` | `mahti-login15` | `roihu-cpu-login4` | `roihu-gpu-login4` |
+| `puhti-login14` | `mahti-login14` | `roihu-cpu-login3` |                    |
+| `puhti-login15` | `mahti-login15` | `roihu-cpu-login4` |                    |
 
 This also applies to compute nodes, although just the ones where you have a
 job running. Use the `squeue` command to see which node(s) your job is on, and

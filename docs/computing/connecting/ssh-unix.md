@@ -47,44 +47,66 @@ generating an SSH key pair!**
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc). To
+connect to Roihu, you must also
+[sign your public key](ssh-keys.md#signing-public-key) to obtain a time-based
+SSH certificate which is required for authentication.
 
 You may also wish to configure [authentication agent](#authentication-agent) to
 make using SSH keys more convenient.
 
 ## Basic usage
 
-After setting up SSH keys and adding your public key to MyCSC, you can create a
-remote SSH connection by opening the terminal and running:
+After setting up SSH keys, adding your public key to MyCSC, and downloading an
+SSH certificate (required for Roihu only), you can create a remote SSH
+connection by opening the terminal and running:
 
 ```bash
 # Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
+# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
 
 ssh <username>@<host>.csc.fi
 ```
 
-### SSH key file with non-default name or location
+This assumes that the SSH keys (and certificate for Roihu) are saved in a standard
+location using standard naming:
 
-If you have stored your SSH key file with a non-default name or in a
-non-default location (somewhere else than `~/.ssh/id_<algorithm>`), you must
-tell the `ssh` command where to look for the key. Use option `-i` as follows:
+- Private key: `~/.ssh/id_<algorithm>`
+- Public key: `~/.ssh/id_<algorithm>.pub`
+- Certificate: `~/.ssh/id_<algorithm>-cert.pub`
+
+where `<algorithm>` is either `ed25519` or `rsa`.
+
+### SSH key or certificate file with non-default name or location
+
+If you have stored your SSH key and/or certificate file with a non-default name
+or in a non-default location, you must tell the `ssh` command where to look for
+these files. Use option `-i` as follows:
 
 ```bash
 # Replace <username> with the name of your CSC user account,
-# <host> with "puhti" or "mahti" and <path-to-private-key>
-# with the path to your SSH private key
+# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu",
+# <path-to-private-key> with the path to your SSH private key and
+# <path-to-certificate> with the path to your SSH certificate file (Roihu only)
 
-ssh <username>@<host>.csc.fi -i <path-to-private-key>
+ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 ```
 
 Alternatively, you may specify the key location in the `~/.ssh/config` file:
 
 ```bash
-Host <host>.csc.fi
+Host <host>
   HostName <host>.csc.fi
   User <csc-username>
   IdentityFile <path-to-private-key>
+  CertificateFile <path-to-certificate>
+```
+
+The `~/.ssh/config` file above would allow you to log in to `<host>` simply
+using:
+
+```bash
+ssh <host>
 ```
 
 ## Graphical connection
@@ -125,8 +147,21 @@ Assuming your SSH private key is stored in `~/.ssh/id_ed25519`, add it to the
 authentication agent by running:
 
 ```bash
-ssh-add ~/.ssh/id_ed25519
+$ ssh-add ~/.ssh/id_ed25519
+Enter passphrase for ~/.ssh/id_ed25519: # enter key passphrase here
+Identity added: ~/.ssh/id_ed25519
+Certificate added: ~/.ssh/id_ed25519-cert.pub
 ```
+
+!!! info "Note regarding authentication agent and SSH certificates"
+    To ensure that your SSH certificate is also added to the agent, you must
+    either
+
+    1. place your SSH certificate in the same folder as your SSH private
+    key and name it as `<key-name>-cert.pub`, or
+    2. specify its location using the `CertificateFile` directive in your SSH
+       config file,
+       [see example above](#ssh-key-or-certificate-file-with-non-default-name-or-location).
 
 For more information about `ssh-agent`, see the
 [relevant SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).
@@ -141,11 +176,12 @@ For more information about `ssh-agent`, see the
 Agent forwarding is a useful mechanism where the SSH client is configured to
 allow an SSH server to use your local `ssh-agent` on the server as if it was
 local there. This means in practice that you can, for example, connect directly
-from Puhti to Mahti using the SSH keys you have set up on your local machine,
-i.e. you do not need to create a new set of SSH keys on CSC supercomputers.
+between CSC supercomputers using the SSH keys you have set up on your local
+machine, i.e. you do not need to create a new set of SSH keys on CSC
+supercomputers.
 
-Agent forwarding is also very handy if you need to copy data between Puhti and
-Mahti, or, for example, push to a private Git repository from CSC
+Agent forwarding is also very handy if you need to copy data directly between
+CSC supercomputers, or, for example, push to a private Git repository from CSC
 supercomputers.
 
 To enable agent forwarding, include the `-A` flag to your `ssh` command:
