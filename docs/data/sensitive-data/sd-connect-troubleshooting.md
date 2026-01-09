@@ -2,6 +2,57 @@
 
 # Troubleshooting
 
+
+[Service access :material-arrow-down:{ .lg .middle } ](#service-access) 
+[Buckets and folders :material-arrow-down:{ .lg .middle } ](#buckets-and-folders) 
+
+
+
+
+---
+
+#### :material-account:{ .lg .middle } Service access
+
+??? default "I can not access SD Connect."
+
+    Verify in the MyCSC portal if your CSC project has service access to SD Connect and accepted CSC’s terms of use. 
+    
+    Link your Haka account to your CSC account.
+    
+    SD Connect is not supported during private browsing with Firefox (incognito mode)
+
+??? default "I can not access SD Connect, an error tells me that it was not possible to perform elevation/authentication."
+
+    Activate multi-factor authentication (MFA) on your CSC profile in the MyCSC portal (necessary since October 2024). [See more details here](../../accounts/mfa.md).
+
+---
+
+#### :material-pail:{ .lg .middle } Buckets and folders
+
+??? default "I can not create a new folder."
+
+    Try using a unique folder name that doesn’t contain special characters. Select the correct CSC project in the SD Connect user interface.
+
+??? default "I can't find a folder."
+
+    Check if the folder is stored under a different project. If someone has shared the folder with you, you can find it under the Shared to section and copy it. If someone shared the folder with you, they could have revoked the sharing permissions.
+
+??? default "I can't delete an empty folder."
+
+    If the folder has been created in November or December 2022, contact CSC Service Desk (subject: sensitive data).
+
+
+## Features in SD Connect
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)
+
+
+
 | Problem | Description | Solution |
 |---------|-------------|----------|
 |Service access|I can not access SD Connect|1. Verify in the MyCSC portal if your CSC project has service access to SD Connect and accepted CSC’s terms of use.<br>2. Link your Haka account to your CSC account.<br>3. SD Connect is not supported during private browsing with Firefox (incognito mode).|
@@ -20,12 +71,3 @@
 |Shared folder|I cannot upload data into a shared folder|Only folders shared with 'collect' permissions allow data uploads.|
 ||I cannot download the content of a shared folder|Only folders shared with 'transfer' or 'collect' permissions allows you to download a copy of the content.|
 |Tags|Adding tag does not work|Currently tag feature is not supported|
-
-## Features in SD Connect
-
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
-* [Command line interface](./sd-connect-command-line-interface.md)
-* [Troubleshooting](./sd-connect-troubleshooting.md)
