@@ -21,7 +21,9 @@ Machine learning framework for Python.
 
     **9.1.2026** PyTorch 2.9.1 installed to Puhti and Mahti, and made the
     default version. Apex was removed, since the library has been
-    deprecated for a long time already. Added litgpt, ultralytics, sahi and torchgeo.
+    deprecated for a long time already. SGLang is also not included in
+    this version due to incompatibilities with libraries required by
+    vLLM. Added litgpt, ultralytics, sahi and torchgeo.
     
     New PyTorch versions for LUMI are being prepared by the [new LUMI AI
     Factory](https://lumi-ai-factory.eu/) and are expected to be released
