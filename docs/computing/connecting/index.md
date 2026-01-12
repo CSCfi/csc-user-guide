@@ -112,18 +112,16 @@ should again verify the new key against fingerprints provided by CSC.
     | WC9Lb5tmKDzUJqsQjaZLvp9T7LTs3aMUYSIy2OCdtgg | ssh_host_ecdsa_key.pub (ECDSA)     |
     | tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
     | 0CxM3ECpD2LhAnMfHnm3YaXresvHrhW4cevvcPb+HNw | ssh_host_rsa_key.pub (RSA)         |
-=== "Roihu CPU"
+=== "Roihu (pilot phase)"
     | SHA256 checksum                             | Key                                |
     |---------------------------------------------|------------------------------------|
-    | TBA | ssh_host_ecdsa_key.pub (ECDSA)     |
-    | TBA | ssh_host_ed25519_key.pub (ED25519) |
-    | TBA | ssh_host_rsa_key.pub (RSA)         |
-=== "Roihu GPU"
-    | SHA256 checksum                             | Key                                |
-    |---------------------------------------------|------------------------------------|
-    | TBA | ssh_host_ecdsa_key.pub (ECDSA)     |
-    | TBA | ssh_host_ed25519_key.pub (ED25519) |
-    | TBA | ssh_host_rsa_key.pub (RSA)         |
+    | NnNuy5xLxXDhDyBTVCtRbGNSMmTTKdnH6dlomerCg14 | ssh_host_ecdsa_key.pub (ECDSA)     |
+    | mAkMF6xpb4wc1eq+vPc4q4mo7YvcL4GHxe8XauPqGas | ssh_host_ed25519_key.pub (ED25519) |
+    | IHUo4GZOYH8V9qlcv155iP3w/83SdlS6E2jOb/z01hE | ssh_host_rsa_key.pub (RSA)         |
+
+!!! info "Roihu host keys"
+    For security reasons, Roihu host keys will be rotated after the pilot
+    phase. Expect the checksums above to change before Roihu is in production.
 
 ### Graphical connection
 

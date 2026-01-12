@@ -36,7 +36,7 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
     Generally, you do not want to overwrite existing keys, so enter `n`, run
     `ssh-keygen` again and enter a different file name when prompted. See also
     the section on
-    [SSH key files with non-default name or location](#ssh-key-file-with-non-default-name-or-location).
+    [SSH key files with non-default name or location](#ssh-key-or-certificate-file-with-non-default-name-or-location).
 
     Next, you will be asked for a passphrase. Please choose a secure
     passphrase. It should be at least 8 characters long and contain numbers,
@@ -97,7 +97,7 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
     Generally, you do not want to overwrite existing keys, so enter `n`, run
     `ssh-keygen` again and enter a different file name when prompted. See also
     the section on
-    [SSH key files with non-default name or location](#ssh-key-file-with-non-default-name-or-location).
+    [SSH key files with non-default name or location](#ssh-key-or-certificate-file-with-non-default-name-or-location).
 
     Next, you will be asked for a passphrase. Please choose a secure
     passphrase. It should be at least 8 characters long and contain numbers,
@@ -108,11 +108,13 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc). To
+connect to Roihu, you must also
+[sign your public key](ssh-keys.md#signing-public-key) to obtain a time-based
+SSH certificate which is required for authentication.
 
-You may also wish to configure
-[authentication agent](#authentication-agent) to make using SSH keys
-more convenient.
+You may also wish to configure [authentication agent](#authentication-agent) to
+make using SSH keys more convenient.
 
 ## Basic usage
 
@@ -125,10 +127,19 @@ to a CSC supercomputer.
 
     ```bash
     # Replace <username> with the name of your CSC user account and
-    # <host> with "puhti" or "mahti"
+    # <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
 
     ssh <username>@<host>.csc.fi
     ```
+
+    This assumes that the SSH keys (and certificate for Roihu) are saved in a standard
+    location using standard naming:
+
+    - Private key: `~/.ssh/id_<algorithm>`
+    - Public key: `~/.ssh/id_<algorithm>.pub`
+    - Certificate: `~/.ssh/id_<algorithm>-cert.pub`
+
+    where `<algorithm>` is either `ed25519` or `rsa`.
 
     Alternatively, you may
     [connect using the GUI following this tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html#connecting-from-windows).
@@ -144,13 +155,13 @@ to a CSC supercomputer.
     | **Port** | `22` |
     | **Connection type** | `SSH` |
 
-    When creating a remote connection using PuTTY, select the private key file
-    under `Connection --> SSH --> Auth --> Credentials`. If you want the private
-    key to be used each time you connect, save your session to store your choice.
-    Finally, click `Open` and enter your CSC username and SSH key passphrase.
+    When creating a remote connection using PuTTY, select the private key and
+    certificate files (if connecting to Roihu) under
+    `Connection --> SSH --> Auth --> Credentials`. Finally, click `Open` and
+    enter your CSC username and SSH key passphrase.
 
-    If you are connecting for the first time, PuTTY will ask if you trust the host.
-    Click `Accept`.
+    If you are connecting for the first time, PuTTY will ask if you trust the
+    host. Click `Accept`.
 
 === "PowerShell"
 
@@ -158,10 +169,19 @@ to a CSC supercomputer.
 
     ```bash
     # Replace <username> with the name of your CSC user account and
-    # <host> with "puhti" or "mahti"
+    # <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
 
     ssh <username>@<host>.csc.fi
     ```
+
+    This assumes that the SSH keys (and certificate for Roihu) are saved in a standard
+    location using standard naming:
+
+    - Private key: `~/.ssh/id_<algorithm>`
+    - Public key: `~/.ssh/id_<algorithm>.pub`
+    - Certificate: `~/.ssh/id_<algorithm>-cert.pub`
+
+    where `<algorithm>` is either `ed25519` or `rsa`.
 
     !!! warning "Corrupted MAC on input"
         When connecting using the OpenSSH client software on Windows, you might
@@ -172,7 +192,7 @@ to a CSC supercomputer.
 
 ---
 
-### SSH key file with non-default name or location
+### SSH key or certificate file with non-default name or location
 
 If you are connecting via the MobaXterm terminal or PowerShell, and have stored
 your SSH key file with a non-default name or in a non-default location
