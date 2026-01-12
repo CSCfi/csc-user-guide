@@ -8,14 +8,7 @@ typically comes pre-installed on macOS and Linux systems.
 
 ## Generating SSH keys
 
-!!! info "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys and certificates for authentication.
-    Please note that it is mandatory to add your public key to MyCSC – copying
-    it directly to a CSC supercomputer does not work!
-
-    Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
-    recommend Ed25519**.
+--8<-- "using-ssh-keys.md"
 
 Connecting to CSC supercomputers using an SSH client requires setting up SSH
 keys. On macOS and Linux, you can use the `ssh-keygen` command-line utility for
@@ -111,6 +104,8 @@ ssh <host>
 
 ## Graphical connection
 
+--8<-- "graphical-connection.md"
+
 Displaying graphics, such as GUIs and plots, over an SSH connection requires
 a window system. Linux systems have a server program for the X window system
 (X11) installed by default. On macOS you need to install one separately, for
@@ -177,10 +172,7 @@ For more information about `ssh-agent`, see the
 
 ### SSH agent forwarding
 
-!!! warning "Note"
-    You should only forward your SSH agent to remote servers that you trust and
-    only when you really need it. Forwarding your SSH agent by default to any
-    server you connect to is considered insecure.
+--8<-- "ssh-agent-forwarding.md"
 
 Agent forwarding is a useful mechanism where the SSH client is configured to
 allow an SSH server to use your local `ssh-agent` on the server as if it was

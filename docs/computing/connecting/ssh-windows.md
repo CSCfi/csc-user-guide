@@ -8,14 +8,7 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
 
 ## Generating SSH keys
 
-!!! info "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication. Please note that it is
-    mandatory to add your public key to MyCSC – copying it directly to a CSC
-    supercomputer does not work!
-
-    Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
-    recommend Ed25519**.
+--8<-- "using-ssh-keys.md"
 
 === "MobaXterm"
 
@@ -196,10 +189,7 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key>
 
 ## Graphical connection
 
-!!! info "Note"
-    For performance reasons, we generally recommend using the
-    [HPC web interfaces](../webinterface/index.md) to run applications which
-    require displaying graphics.
+--8<-- "graphical-connection.md"
 
 === "MobaXterm"
 
@@ -287,10 +277,7 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key>
 
 ### SSH agent forwarding
 
-!!! warning "Note"
-    You should only forward your SSH agent to remote servers that you trust and
-    only when you really need it. Forwarding your SSH agent by default to any
-    server you connect to is considered insecure.
+--8<-- "ssh-agent-forwarding.md"
 
 Agent forwarding is a useful mechanism where the SSH client is configured to
 allow an SSH server to use your local `ssh-agent` on the server as if it was
