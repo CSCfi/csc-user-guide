@@ -133,8 +133,18 @@ expires, a new one must be signed following either of the processes below.
     ![Sign SSH key](https://a3s.fi/docs-files/sign-ssh-key.png 'Sign SSH key')
 
 5. Download the certificate by clicking the three vertical dots next to your
-   public key and selecting _Download SSH certificate_. We advice saving the
-   certificate in the default folder for SSH-related files (e.g. `~/.ssh`).
+   public key and selecting _Download SSH certificate_.
+
+    !!! info "Where to store the SSH certificate?"
+        We **strongly** advice saving the certificate in the default folder for
+        SSH-related files (e.g. `~/.ssh`). Specifically, storing the certificate
+        in the same directory as your SSH private key **and** naming it as
+        `<private-key-name>-cert.pub` will simplify connecting, working with SSH
+        agent, etc.
+
+        For example, if you've stored your SSH private key in
+        `~/.ssh/id_ed25519`, please save your SSH certificate as
+        `~/.ssh/id_ed25519-cert.pub`
 
     ![Download SSH certificate](https://a3s.fi/docs-files/download-ssh-cert.png 'Download SSH certificate')
 

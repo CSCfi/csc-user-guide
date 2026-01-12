@@ -38,7 +38,7 @@ Overwrite (y/n)?
 Generally, you do not want to overwrite existing keys, so enter `n`, run
 `ssh-keygen` again and enter a different file name when prompted. See also the
 section on
-[SSH key files with non-default name or location](#ssh-key-file-with-non-default-name-or-location).
+[SSH key files with non-default name or location](#ssh-key-or-certificate-file-with-non-default-name-or-location).
 
 Next, you will be asked for a passphrase. Please choose a secure
 passphrase. It should be at least 8 characters long and contain numbers,
@@ -154,14 +154,23 @@ Certificate added: ~/.ssh/id_ed25519-cert.pub
 ```
 
 !!! info "Note regarding authentication agent and SSH certificates"
-    To ensure that your SSH certificate is also added to the agent, you must
-    either
+    Please observe that your SSH certificate is only added to the agent if it
+    is stored in the same directory as your private key **and** named as
+    `<private-key-name>-cert.pub`. In this case, `ssh-add` will output:
 
-    1. place your SSH certificate in the same folder as your SSH private
-    key and name it as `<key-name>-cert.pub`, or
-    2. specify its location using the `CertificateFile` directive in your SSH
-       config file,
-       [see example above](#ssh-key-or-certificate-file-with-non-default-name-or-location).
+    ```bash
+    Certificate added: ~/.ssh/id_ed25519-cert.pub
+    ```
+
+    If the certificate is stored and/or named in any other way, it **cannot**
+    be added to the authentication agent because OpenSSH uses hard-coded naming
+    conventions. 
+    
+    This is not an issue if you specify the custom path to the SSH certificate
+    [as outlined above](#ssh-key-or-certificate-file-with-non-default-name-or-location).
+    However, if you intend to connect to Roihu via a jump host (e.g. another
+    CSC supercomputer), also the SSH certificate must be added to the agent so
+    that it can be properly forwarded. [Read more below](#ssh-agent-forwarding).
 
 For more information about `ssh-agent`, see the
 [relevant SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).
@@ -176,8 +185,8 @@ For more information about `ssh-agent`, see the
 Agent forwarding is a useful mechanism where the SSH client is configured to
 allow an SSH server to use your local `ssh-agent` on the server as if it was
 local there. This means in practice that you can, for example, connect directly
-between CSC supercomputers using the SSH keys you have set up on your local
-machine, i.e. you do not need to create a new set of SSH keys on CSC
+between CSC supercomputers using the SSH keys (and certificates) you have on
+your local machine, i.e. you do not need to create a new set of SSH keys on CSC
 supercomputers.
 
 Agent forwarding is also very handy if you need to copy data directly between
@@ -193,8 +202,15 @@ ssh -A <username>@<host>.csc.fi
 Once connected, you may verify that SSH agent forwarding worked by running:
 
 ```bash
-ssh-add -l
+$ ssh-add -l
 ```
 
-If you see the fingerprint(s) of your SSH key(s) listed, agent forwarding is
-working.
+If you see the fingerprint(s) of your SSH key(s) and certificate(s) listed,
+agent forwarding is working. Associated SSH keys and certificates in the
+authentication agent have the same fingerprints and are annotated with
+`<ALGORITHM>` and `<ALGORITHM>-CERT`, respectively. For example:
+
+```text
+256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519)
+256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519-CERT)
+```
