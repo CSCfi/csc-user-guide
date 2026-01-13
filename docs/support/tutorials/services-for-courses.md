@@ -133,17 +133,26 @@ below.
 
 === "Noppe"
 
-    Motivation why to use Noppe here.
+    The Noppe service is a cloud platform that gives end users easy access to web applications.
+    Web applications, such as JupyterLab, RStudio and VS Code Server, provide consistent, installation-free
+    environments.
+
+    You do not need a MyCSC project to use the Noppe service.
 
     ## Instructions
 
+    Educators can create workspaces and use their own teaching materials. Students can then
+    either join these workspaces or access the self-learning web applications.
+
     ### Teacher
 
-    [Please see the guide for teachers](../../cloud/noppe/guide_for_teachers.md).
+    [Please see the guide for teachers](../../cloud/noppe/guide_for_teachers.md) for more detailed
+    instructions.
 
     ### Student
 
-    [Please see the guide for student](../../cloud/noppe/guide_for_students.md).
+    [Please see the guide for student](../../cloud/noppe/guide_for_students.md) for more detailed
+    instructions.
 
 === "Puhti and Mahti"
 
