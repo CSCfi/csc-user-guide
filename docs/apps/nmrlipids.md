@@ -28,20 +28,22 @@ overlay databank structure as described in the [databank publication](https://ww
     |:-------:|:-------------------------------|
     |v1.3.0       | |
 
-The usage of NMRLipids database requires cloning
-[NMRLipids data structure](https://github.com/NMRlipids/FAIRMD_lipids) to
+The usage of NMRLipids database requires cloning the
+[NMRLipids Database](https://github.com/NMRlipids/FAIRMD_lipids) to
 your scratch folder and creating a symbolic link from the trajectory pointers 
 to the already downloaded (large) raw data located at
 `/pfs/lustrep4/appl/local/csc/datasets/NMRLipids/BilayerData/Simulations` on LUMI.
-The detailed instructions and scripts are available [here](https://github.com/NMRLipids/FAIRMD_lipids/discussions/362)
+
+The detailed instructions, including how to build a container on LUMI to use the data,
+are available [here](https://github.com/NMRLipids/FAIRMD_lipids/discussions/362)
 
 ## License
 
-NMRLipids database is licensed under the GNU General Public License v3.0 (GPL-3.0).
+The NMRLipids database is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
 ## Usage
 
-### Example batch scripts for LUMI
+### Example batch script for LUMI
 
 Once the NMRLipids Database is symlinked and corresponding database software image
 is built as instructed above, one can use the following batch job template on LUMI as shown below: 
