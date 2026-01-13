@@ -3,7 +3,7 @@ tags:
   - Academic
 catalog:
   name: NMRLipids
-  description: TBA
+  description: NMRLipids databank containing MD simulations
   license_type: Academic
   disciplines:
     - Chemistry
@@ -13,7 +13,7 @@ catalog:
 
 # NMRLipids
 
-[NMRlipids Databank](https://github.com/NMRLipids/BilayerData), recently referred to as FAIRMD BilayerData, is a community-driven repository of atomistic molecular dynamic simulations of biologically relevant lipid membranes curated within the NMRlipids open collaboration. The effiort is designed to improve the Findability, Accessibility, Interoperability, and Reuse (FAIR) of MD simulation data. NMRlipids databank is implemented using overlay databank structure as described in the [databank publication](https://www.nature.com/articles/s41467-024-45189-z)
+[NMRLipids Databank](https://github.com/NMRlipids/FAIRMD_lipids)is a community-driven repository of atomistic molecular dynamic simulations of biologically relevant lipid membranes curated within the NMRlipids open collaboration. The effiort is designed to improve the Findability, Accessibility, Interoperability, and Reuse (FAIR) of MD simulation data. NMRlipids databank is implemented using overlay databank structure as described in the [databank publication](https://www.nature.com/articles/s41467-024-45189-z)
 
 [TOC]
 
@@ -36,7 +36,7 @@ NMRLipids database is licensed under the GNU General Public License v3.0 (GPL-3.
 
 ### Example batch scripts for LUMI
 
-Once the NMRLipids Database ymlinked and NMRlipid singularity is built,  one can use batch job template on LUMI as shown below: 
+Once the NMRLipids Database is symlinked and corresponding database software imageis built as instructed above,  one can use the following batch job template on LUMI as shown below: 
 
 ```
 #!/bin/bash
