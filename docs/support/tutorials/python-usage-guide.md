@@ -46,7 +46,7 @@ in a module provided by CSC, do not hesitate to contact our
     pip install whatshap
     ```
     
-    !!! warning 
+    !!! warning
     The virtual environment needs to be created with the correct python module activated, i.e., the environment where you intend to use the new packages. 
     You can check which python your venv refers to with: `readlink <venv_name>/bin/python3`.
     
