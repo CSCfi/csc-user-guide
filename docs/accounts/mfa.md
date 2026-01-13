@@ -64,7 +64,7 @@ If you are using CSC login and have forgotten your CSC user account password, [*
 
 ### Step 2: Scan QR code
 
-Scan the QR code shown in the MyCSC portal using your authentication app. Below you can see an example image of a QR code.
+**Open the authentication app** and scan the QR code shown in the MyCSC portal using your authentication app. Below you can see an example image of a QR code.
 
 ![scan QR code](images/small/mfa-scan-qr-code.png 'Scan the QR code')
 

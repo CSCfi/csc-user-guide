@@ -13,10 +13,10 @@ graph LR;
     A{{"**September 2025**
         Roihu installation
         in progress"}} --> B;
-    B{{"**February 2026**
+    B{{"**March 2026**
         Pilot phase
         starts"}} --> C;
-    C{{"**March 2026**
+    C{{"**April 2026**
         Roihu general
         availability (GA)"}} --> D;
     D{{"**One month after Roihu GA**
@@ -68,7 +68,7 @@ a total of 480 GiB CPU memory per node. This gives a total of 528 GPUs and
 38 016 CPU cores in the whole GPU partition.
 
 The system will also provide four visualization nodes with two Nvidia L40 GPUs
-each, as well as four high-memory CPU nodes with 3 TiB memory and higher
+each, as well as four high-memory CPU nodes with 6 TiB memory and higher
 single-thread performance.
 
 ### Nodes
@@ -77,7 +77,7 @@ single-thread performance.
 |:-----|----------------:|---------------:|-------------------------------:|-------------:|----------------:|
 | M    | 414             | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 768          | 0.96            |
 | L    | 72              | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 1536         | 0.96            |
-| XL   | 4               | AMD Turin 9555 | 2 x 64 cores (x86) @ 3.20 GHz  | 3072         | 15.36           |
+| XL   | 4               | AMD Turin 9555 | 2 x 64 cores (x86) @ 3.20 GHz  | 6144         | 15.36           |
 | V    | 4               | AMD Turin 9335<br>Nvidia L40 | 2 x 32 cores (x86) @ 3.40 GHz<br>2 x GPUs | 384<br>2 x 48 | 15.36 |
 | GPU  | 132             | Nvidia GH200   | 4 x 72 cores (ARM)<br>4 x GPUs | 4 x 120<br>4 x 96 | 0.96 |
 
@@ -143,8 +143,8 @@ interactive access and running graphical user interfaces.
 
 ## More information
 
-* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2025-11-25.pdf)
-  (updated 2025-11-25)
+* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2025-12-19.pdf)
+  (updated 2025-12-19)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
