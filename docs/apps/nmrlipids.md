@@ -13,7 +13,11 @@ catalog:
 
 # NMRLipids
 
-[NMRLipids Databank](https://github.com/NMRlipids/FAIRMD_lipids)is a community-driven repository of atomistic molecular dynamic simulations of biologically relevant lipid membranes curated within the NMRlipids open collaboration. The effiort is designed to improve the Findability, Accessibility, Interoperability, and Reuse (FAIR) of MD simulation data. NMRlipids databank is implemented using overlay databank structure as described in the [databank publication](https://www.nature.com/articles/s41467-024-45189-z)
+[NMRLipids Databank](https://github.com/NMRlipids/FAIRMD_lipids)is a community-driven repository 
+of atomistic molecular dynamic simulations of biologically relevant lipid membranes curated within 
+the NMRlipids open collaboration. The effiort is designed to improve the Findability, Accessibility,
+Interoperability, and Reuse (FAIR) of MD simulation data. NMRlipids databank is implemented using 
+overlay databank structure as described in the [databank publication](https://www.nature.com/articles/s41467-024-45189-z)
 
 [TOC]
 
@@ -24,9 +28,12 @@ catalog:
     |:-------:|:-------------------------------|
     |v1.3.0       | |
 
-The usage of NMRLipids database requires cloning [NMRLipids Database](https://github.com/NMRlipids/FAIRMD_lipids) and creating a symbolic link from the cloned data to the actaul raw data located at
-/pfs/lustrep4/appl/local/csc/datasets/NMRLipids/BilayerData/Simulations on LUMI.
-Detailed installation instructions are available [here](https://github.com/NMRLipids/FAIRMD_lipids/discussions/362)
+The usage of NMRLipids database requires cloning
+[NMRLipids data structure](https://github.com/NMRlipids/FAIRMD_lipids) to
+your scratch folder and creating a symbolic link from the trajectory pointers 
+to the already downloaded (large) raw data located at
+`/pfs/lustrep4/appl/local/csc/datasets/NMRLipids/BilayerData/Simulations` on LUMI.
+The detailed instructions and scripts are available [here](https://github.com/NMRLipids/FAIRMD_lipids/discussions/362)
 
 ## License
 
@@ -36,7 +43,8 @@ NMRLipids database is licensed under the GNU General Public License v3.0 (GPL-3.
 
 ### Example batch scripts for LUMI
 
-Once the NMRLipids Database is symlinked and corresponding database software imageis built as instructed above,  one can use the following batch job template on LUMI as shown below: 
+Once the NMRLipids Database is symlinked and corresponding database software image
+is built as instructed above, one can use the following batch job template on LUMI as shown below: 
 
 ```
 #!/bin/bash
@@ -65,10 +73,12 @@ srun singularity exec \
 
 ## References
 
-If you use the NMRlipids databank in your publications, ease always cite the NMRlipids [Databank publication](https://www.nature.com/articles/s41467-024-45189-z), as well as the trajectory entries and related publications whenever appropriate
+If you use the NMRlipids databank in your publications, ease always cite the NMRlipids
+[Databank publication](https://www.nature.com/articles/s41467-024-45189-z),
+as well as the trajectory entries and related publications whenever appropriate
 
 ## More Information
 
 - [The NMRlipids database home page](https://www.databank.nmrlipids.fi/) has an extensive manual
-and useful information.
+and useful information
 - [FAIRMD NMRLipids](https://github.com/NMRLipids/FAIRMD_lipids)
