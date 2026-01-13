@@ -13,7 +13,7 @@ catalog:
 
 # NMRLipids
 
-[NMRLipids Databank](https://github.com/NMRlipids/FAIRMD_lipids)is a community-driven repository 
+[NMRLipids Databank](https://github.com/NMRlipids/FAIRMD_lipids) is a community-driven repository 
 of atomistic molecular dynamic simulations of biologically relevant lipid membranes curated within 
 the NMRlipids open collaboration. The effiort is designed to improve the Findability, Accessibility,
 Interoperability, and Reuse (FAIR) of MD simulation data. NMRlipids databank is implemented using 
@@ -30,7 +30,7 @@ overlay databank structure as described in the [databank publication](https://ww
 
 The usage of NMRLipids database requires cloning the
 [NMRLipids Database](https://github.com/NMRlipids/FAIRMD_lipids) to
-your scratch folder and creating a symbolic link from the trajectory pointers 
+your scratch folder and creating symbolic links from the trajectory pointers 
 to the already downloaded (large) raw data located at
 `/pfs/lustrep4/appl/local/csc/datasets/NMRLipids/BilayerData/Simulations` on LUMI.
 
@@ -75,7 +75,7 @@ srun singularity exec \
 
 ## References
 
-If you use the NMRlipids databank in your publications, ease always cite the NMRlipids
+If you use the NMRlipids databank in your publications, pease always cite the NMRlipids
 [Databank publication](https://www.nature.com/articles/s41467-024-45189-z),
 as well as the trajectory entries and related publications whenever appropriate
 
