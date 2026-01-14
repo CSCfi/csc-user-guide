@@ -34,7 +34,8 @@ your scratch folder and creating symbolic links from the trajectory pointers
 to the already downloaded (large) raw data located at
 `/pfs/lustrep4/appl/local/csc/datasets/NMRLipids/BilayerData/Simulations` on LUMI.
 The raw data files (trajectories) require ~3 TiB of disk and downloading _them_ would take days,
-but with the procedure outlined below, you can start working with them in minutes. 
+and consume _your_ storage resources, but with the procedure outlined below,
+you can start working with Databank in minutes. 
 
 The detailed instructions, including how to build a container on LUMI to use the data,
 are available [here](https://github.com/NMRLipids/FAIRMD_lipids/discussions/362)
