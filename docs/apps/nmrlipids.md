@@ -80,7 +80,7 @@ srun singularity exec \
 
 If you use the NMRlipids databank in your publications, please always cite the NMRlipids
 [Databank publication](https://www.nature.com/articles/s41467-024-45189-z),
-as well as the trajectory entries and related publications whenever appropriate
+as well as, the trajectory entries and related publications whenever appropriate.
 
 ## More Information
 
