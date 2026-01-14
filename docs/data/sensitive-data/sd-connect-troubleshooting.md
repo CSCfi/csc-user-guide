@@ -5,6 +5,7 @@
 
 [Service access :material-arrow-down:{ .lg .middle } ](#service-access) 
 [Buckets and folders :material-arrow-down:{ .lg .middle } ](#buckets-and-folders) 
+[Accessing files :material-arrow-down:{ .lg .middle } ](#accessing-files) 
 
 
 
@@ -40,6 +41,42 @@
 ??? default "I can't delete an empty folder."
 
     If the folder has been created in November or December 2022, contact CSC Service Desk (subject: sensitive data).
+
+
+---
+
+#### :material-file-multiple:{ .lg .middle } Accessing files
+
+??? default "I can not see my CSC project."
+
+    CSC projects created before 2013 are not supproted by the user interface. Please contact us for support.
+
+---
+
+#### :material-lock:{ .lg .middle } Manual encrypting and decryption
+
+??? default "Cannot open or decrypt files downloaded from SD Connect"
+
+    If the folder has been created in November or December 2022, contact CSC Service Desk (subject: sensitive data).
+
+---
+
+#### :material-upload:{ .lg .middle } Uploading and downloading data
+
+??? default "I am trying to upload a large file/folder with the user interface, and the upload is not responding"
+
+    Files or folders larger than 100 GB should be uploaded programmatically. SD Connect user interface supports only data uploads that last up to 8 hours.
+
+---
+
+#### :material-share-variant:{ .lg .middle } Sharing data
+
+??? default "I can't upload data into a shared folder."
+
+    Only folders shared with Collaborate permissions allow data uploads.
+
+
+
 
 
 ## Features in SD Connect
