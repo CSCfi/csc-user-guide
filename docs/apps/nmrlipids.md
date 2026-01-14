@@ -87,3 +87,4 @@ as well as the trajectory entries and related publications whenever appropriate
 - [The NMRlipids database home page](https://www.databank.nmrlipids.fi/) has an extensive manual
 and useful information
 - [FAIRMD NMRLipids](https://github.com/NMRLipids/FAIRMD_lipids)
+- The NMRLipids Database entry on Etsin [urn:nbn:fi:fd-62944050-6891-3b29-bdd1-383383ae7151](https://etsin.fairdata.fi/dataset/ad24584e-b98c-4ea7-94ef-08ae6012c936)
