@@ -96,8 +96,7 @@ SD Lock/Unlock provides automated key management; requires temporary token acces
 > * **Compatibility with Allas**:
 Files uploaded after October 7, 2024 are visible in Allas but not downloadable directly; size may be incorrect.
 
-### Previous Version (Discontinued)
-
+### Previous version (discontinued):
 
 > * **Service Access via MyCSC**:
 Requires CSC account and project and Allas service access.
