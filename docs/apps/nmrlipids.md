@@ -35,10 +35,10 @@ to the already downloaded (large) raw data located at
 `/pfs/lustrep4/appl/local/csc/datasets/NMRLipids/BilayerData/Simulations` on LUMI.
 The raw data files (trajectories) require ~3 TiB of disk and downloading _them_ would take days,
 and consume _your_ storage resources, but with the procedure outlined below,
-you can start working with Databank in minutes. 
+you can start working with the Databank in minutes. 
 
 The detailed instructions, including how to build a container on LUMI to use the data,
-are available [here](https://github.com/NMRLipids/FAIRMD_lipids/discussions/362)
+are available in [this GitHub discussion](https://github.com/NMRLipids/FAIRMD_lipids/discussions/362)
 
 ## License
 
@@ -78,7 +78,7 @@ srun singularity exec \
 
 ## References
 
-If you use the NMRlipids databank in your publications, please always cite the NMRlipids
+If you use the NMRlipids Databank in your publications, please always cite the NMRlipids
 [Databank publication](https://www.nature.com/articles/s41467-024-45189-z),
 as well as, the trajectory entries and related publications whenever appropriate.
 
