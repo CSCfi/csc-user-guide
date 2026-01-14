@@ -303,6 +303,8 @@ openstack volume set <volume-id> --size <volume-size>
 !!! warning
     Before changing the volume type, ensure that the volume is in the **Available** state. It is recommended to unmount the volume and detach it from your machine before proceeding with the type change.
 
+    The operation may take some time depending on your volume size, during which the volume will be temporarily unavailable.
+
 Log in to the Pouta web interface and navigate to the *Volumes* view. Click the arrow symbol next to the **Edit Volume** button for the volume you want to change the type of and select **Change Volume Type**.
 
 ![Change Volume Type](../img/change_volume_type_option.png)
