@@ -22,7 +22,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 <div class="grid cards" markdown>
 
-- :material-check-circle-outline:{ .lg .middle } **Key features**
+- :material-check-circle-outline:{ .lg .middle .csc-color-brightgreen } **Key features**
 
     ---
 
@@ -32,7 +32,7 @@ You can browse through the main topics of the manual using the navigation bar on
     - Enhanced login security with multi-factor authentication (MFA).
     - Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, if additional space is required, [contact CSC Service Desk](../../support/contact.md)).
 
-- :material-alert-outline:{ .lg .middle } **Limitations**
+- :material-alert-outline:{ .lg .middle .csc-color-warning } **Limitations**
 
     ---
 
@@ -47,7 +47,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 <div class="grid cards" markdown>
 
-- :material-information-outline:{ .lg .middle } **General considerations**
+- :material-information-outline:{ .lg .middle .csc-color-info } **General considerations**
 
     ---
 

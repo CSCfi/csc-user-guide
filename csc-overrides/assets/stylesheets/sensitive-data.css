@@ -1,3 +1,16 @@
 .csc-sd-choose {
   margin-right: 16px;
 }
+
+
+.csc-color-brightgreen {
+  color: #4EA663;
+}
+
+.csc-color-warning {
+  color: #FF5800;
+}
+
+.csc-color-info {
+  color: #338593;
+}
