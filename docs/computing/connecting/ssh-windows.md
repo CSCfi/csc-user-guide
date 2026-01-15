@@ -195,16 +195,17 @@ to a CSC supercomputer.
 ### SSH key or certificate file with non-default name or location
 
 If you are connecting via the MobaXterm terminal or PowerShell, and have stored
-your SSH key file with a non-default name or in a non-default location
-(somewhere else than `~/.ssh/id_<algorithm>`), you must tell the `ssh` command
-where to look for the key. Use option `-i` as follows:
+your SSH key and/or certificate file with a non-default name or in a
+non-default location (somewhere else than `~/.ssh/id_<algorithm>`), you must
+tell the `ssh` command where to look for these files. Use option `-i` as
+follows:
 
 ```bash
 # Replace <username> with the name of your CSC user account,
 # <host> with "puhti" or "mahti" and <path-to-private-key>
 # with the path to your SSH private key
 
-ssh <username>@<host>.csc.fi -i <path-to-private-key>
+ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 ```
 
 ## Graphical connection
@@ -261,7 +262,7 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key>
     
     1. Toggle the option `Use internal SSH agent "MobAgent"`.
     2. Click the `+` button and select the private key you want to load at
-       MobAgent startup.
+       MobAgent startup. 
     3. Click `OK` and restart MobaXterm. You'll be prompted to enter your key
        passphrase.
     4. You may now connect to CSC supercomputers without having to type your

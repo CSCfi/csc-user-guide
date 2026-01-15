@@ -118,10 +118,16 @@ should again verify the new key against fingerprints provided by CSC.
     | NnNuy5xLxXDhDyBTVCtRbGNSMmTTKdnH6dlomerCg14 | ssh_host_ecdsa_key.pub (ECDSA)     |
     | mAkMF6xpb4wc1eq+vPc4q4mo7YvcL4GHxe8XauPqGas | ssh_host_ed25519_key.pub (ED25519) |
     | IHUo4GZOYH8V9qlcv155iP3w/83SdlS6E2jOb/z01hE | ssh_host_rsa_key.pub (RSA)         |
+=== "Roihu (general availability)"
+    | SHA256 checksum                             | Key                                |
+    |---------------------------------------------|------------------------------------|
+    | h3YVzmNucpxTXcxag8D2TaC21jH8/6LGNNCCOgRDaTU | ssh_host_ecdsa_key.pub (ECDSA)     |
+    | YNdesHbXhxN0hKD4mWvYGQONebjRqY+CGXDqPiZyByQ | ssh_host_ed25519_key.pub (ED25519) |
+    | cXJ5h3Z9fgu0wVpC2kDIpjdsrFsJF/bfyWegQXsfQpU | ssh_host_rsa_key.pub (RSA)         |
 
-!!! info "Roihu host keys"
-    For security reasons, Roihu host keys will be rotated after the pilot
-    phase. Expect the checksums above to change before Roihu is in production.
+!!! info "Note"
+    For security reasons, Roihu host keys will be changed after the pilot
+    phase.
 
 ### Graphical connection
 

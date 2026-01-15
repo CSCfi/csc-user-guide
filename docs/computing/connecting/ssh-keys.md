@@ -121,7 +121,46 @@ system by introducing an additional authentication factor for SSH logins.
 **SSH certficates are valid for 24 hours at a time**. Once your certificate
 expires, a new one must be signed following either of the processes below.
 
-### Option 1: MyCSC
+### Option 1: Certificate helper tool
+
+1. Download the certificate helper tool here. (FIXME)
+2. Run the tool:
+
+    === "Linux & macOS"
+
+        1. Open terminal and execute:
+
+            ```bash
+            # Replace <arch> with "linux-amd64", "darwin-amd64" or "darwin-arm64"
+            # <username> with your CSC user name and <path-to-public-key> with the
+            # path to your SSH public key
+
+            csc-cert-<arch> -u <username> <path-to-public-key>
+            ```
+
+        2. If you have an earlier certificate which is still valid, the tool
+           exits.
+        3. If signing is needed, a login URL and QR code are displayed. Follow
+           the link and authenticate.
+        4. Copy the code displayed into your terminal and enter your SSH key
+           passphrase. The signed certificate is then downloaded and added to
+           your SSH agent. The signed certificate is saved as `<key>-cert.pub`
+           (e.g., `~/.ssh/id_ed25519-cert.pub`).
+        3. Each SSH certificate is valid for 24 hours. The expiration time can be
+           checked by running the tool again.
+
+    === "Windows"
+
+        4. Open PowerShell and execute:
+
+            ```bash
+            # Replace <username> with your CSC user name and
+            # <path-to-public-key> with the path to your SSH public key
+    
+            csc-cert-windows-amd64.exe -u <username> <path-to-public-key>
+            ```
+
+### Option 2: MyCSC
 
 1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
 2. Select _Profile_ from the left-hand navigation or the dropdown menu in the
@@ -137,10 +176,10 @@ expires, a new one must be signed following either of the processes below.
 
     !!! info "Where to store the SSH certificate?"
         We **strongly** advice saving the certificate in the default folder for
-        SSH-related files (e.g. `~/.ssh`). Specifically, storing the certificate
-        in the same directory as your SSH private key **and** naming it as
-        `<private-key-name>-cert.pub` will simplify connecting, working with SSH
-        agent, etc.
+        SSH-related files (e.g. `~/.ssh`). Specifically, storing the
+        certificate in the same directory as your SSH private key **and**
+        naming it as `<key>-cert.pub` will simplify connecting, working with
+        SSH agent, etc.
 
         For example, if you've stored your SSH private key in
         `~/.ssh/id_ed25519`, please save your SSH certificate as
@@ -154,10 +193,6 @@ expires, a new one must be signed following either of the processes below.
     ```bash
     ssh-keygen -L -f <path-to-certificate> | grep "Valid"
     ```
-
-### Option 2: Utility tool
-
-Instructions here.
 
 ## More information
 
