@@ -70,6 +70,10 @@ wget "https://filesender.funet.fi/download.php?token=4da0-b98e-3290c6471469&file
        download multiple files at once as an archive will unfortunately not
        work.
 
+## Upload vouchers
+
+The upload voucher is a one-time permit to use the service for sending a file. To create the voucher, [login to FileSender with your browser](https://filesender.funet.fi) and move to the "Guests" tab. Enter an email address and send a voucher. The receiver doesn't need to login.
+
 ## Using FileSender from the command-line
 
 FileSender can also be used from the command-line using a Python 3 utility
