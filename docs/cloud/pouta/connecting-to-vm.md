@@ -35,7 +35,10 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
 * Click in the machine name and check that there is a security group that allow SSH connections from your current IP. See the [security group](launch-vm-from-web-gui.md#firewalls-and-security-groups) article for more information on how to create a SSH security group.
 
-* Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. Different distributions/images have different user names. Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, have a look to the [Images](./images.md#images) documentation article, the information there is kept up to date with any addition or change.
+* Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. **Different distributions/images have different user names** (for example in Ubuntu images, the user is `ubuntu`). Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, the default upstream username is kept,as we try to provide images as similar as possible to the upstream official ones.
+
+!!! Info "List of usernames and images"
+    For an updated list of users and images, please have a look to the [Images](./images.md#images) documentation article. 
 
 !!! Info
 
