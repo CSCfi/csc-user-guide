@@ -51,7 +51,7 @@ make using SSH keys more convenient.
 ## Basic usage
 
 After setting up SSH keys, adding your public key to MyCSC, and downloading an
-SSH certificate (required for Roihu only), you can create a remote SSH
+SSH certificate (**required for Roihu only**), you can create a remote SSH
 connection by opening the terminal and running:
 
 ```bash

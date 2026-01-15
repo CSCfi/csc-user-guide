@@ -123,7 +123,7 @@ expires, a new one must be signed following either of the processes below.
 
 ### Option 1: Certificate helper tool
 
-1. Download the certificate helper tool here. (FIXME)
+1. Download the certificate helper tool here.
 2. Run the tool:
 
     === "Linux & macOS"
@@ -146,12 +146,12 @@ expires, a new one must be signed following either of the processes below.
            passphrase. The signed certificate is then downloaded and added to
            your SSH agent. The signed certificate is saved as `<key>-cert.pub`
            (e.g., `~/.ssh/id_ed25519-cert.pub`).
-        3. Each SSH certificate is valid for 24 hours. The expiration time can be
+        5. Each SSH certificate is valid for 24 hours. The expiration time can be
            checked by running the tool again.
 
     === "Windows"
 
-        4. Open PowerShell and execute:
+        6. Open PowerShell and execute:
 
             ```bash
             # Replace <username> with your CSC user name and

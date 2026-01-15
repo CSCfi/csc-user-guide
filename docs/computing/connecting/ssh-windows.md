@@ -118,8 +118,9 @@ make using SSH keys more convenient.
 
 ## Basic usage
 
-After setting up SSH keys and adding your public key to MyCSC, you can connect
-to a CSC supercomputer.
+After setting up SSH keys, adding your public key to MyCSC and downloading an
+SSH certificate (**required for Roihu only**) you can connect to a CSC
+supercomputer.
 
 === "MobaXterm"
 
@@ -156,7 +157,7 @@ to a CSC supercomputer.
     | **Connection type** | `SSH` |
 
     When creating a remote connection using PuTTY, select the private key and
-    certificate files (if connecting to Roihu) under
+    certificate file (**only if connecting to Roihu**) under
     `Connection --> SSH --> Auth --> Credentials`. Finally, click `Open` and
     enter your CSC username and SSH key passphrase.
 
@@ -268,6 +269,24 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
     4. You may now connect to CSC supercomputers without having to type your
        passphrase again.
 
+    **To connect to Roihu**, you may also with add your SSH certificate to the
+    agent. In this case, you must first "combine" the certificate and the SSH
+    private key.
+
+    1. Open MobaKeyGen from the Tools tab.
+    2. Load your private key (`File --> Load private key`).
+    3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+    4. Save the private key and restart MobaXterm.
+    5. Your private key including the certificate is now loaded into the agent
+       and you can sign in to Roihu either using the local terminal or the GUI
+       without having to type your SSH passphrase.
+
+    If you're using the local terminal instead of the MobaXterm GUI, you can
+    also simply use the OpenSSH commands to add your keys and certificates to
+    the authentication agent. In this case, start the SSH agent by running
+    `eval "$(ssh-agent -s)"` and follow the
+    [instructions for Linux](ssh-unix.md#authentication-agent).
+
 === "PuTTY"
 
     To avoid having to type your passphrase every time you connect, you can use
@@ -286,6 +305,19 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
        will notice that Pageant is running, retrieve the key automatically from
        Pageant, and use it to authenticate. You may now open as many PuTTY
        sessions as you like without having to type your passphrase again.
+
+    **To connect to Roihu**, you may also with add your SSH certificate to the
+    agent. In this case, you must first "combine" the certificate and the SSH
+    private key.
+
+    1. Open PuTTYgen.
+    2. Load your private key (`File --> Load private key`).
+    3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+    4. Save the private key and add it to Pageant following the steps above. A
+       successfully combined key and certificate will show up as `Ed25519 cert`
+       in Pageant.
+    5. You can now sign in to Roihu using PuTTY without having to type your SSH
+       passphrase.
 
 === "PowerShell"
 
