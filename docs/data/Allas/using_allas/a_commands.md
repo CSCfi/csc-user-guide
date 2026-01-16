@@ -7,18 +7,18 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 
 | `a`-command | Help text | Function |
 | :--- | :--- | :--- |
-| [`a-put`:material-arrow-down:](#a-put)| [GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md)|Upload a file or directory to Allas |
-| [`a-check`:material-arrow-down:](#a-check) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)| Check if all the objects, that `a-put` should have created, are found in Allas |
-| [`a-list`:material-arrow-down:](#a-list) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md)| List buckets and objects in Allas |
-| [`a-publish`:material-arrow-down:](#a-publish) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-publish.md)|Upload a file to Allas into a bucket that allows public access over the internet |
-| [`a-flip`:material-arrow-down:](#a-flip) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md)|Upload a file temporarily to Allas into a bucket that allows public access over the internet |
-| [`a-get`:material-arrow-down:](#a-get) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-get.md)| Download a stored dataset (object) from Allas |
-| [`a-find`:material-arrow-down:](#a-find)|[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-find.md)|Search and locate data uploaded with `a-put` |
-| [`a-delete`:material-arrow-down:](#a-delete) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-delete.md)| Delete an object in Allas |
-| [`a-info`:material-arrow-down:](#a-info) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-info.md)| Display information about an object in Allas |
-| [`a-access`:material-arrow-down:](#a-access) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-access.md)| Control access permissions of a bucket in Allas |
-| `a-stream` |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-stream.md)|Stream the content of an object to standard output |
-| `a-encrypt` |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-encrypt.md)|Make an encrypted copy of an object uploaded in Allas |
+| [`a-put`:material-arrow-down:](#a-put)| [GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md){ target=_blank}|Upload a file or directory to Allas |
+| [`a-check`:material-arrow-down:](#a-check) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md){ target=_blank }| Check if all the objects, that `a-put` should have created, are found in Allas |
+| [`a-list`:material-arrow-down:](#a-list) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md){ target=_blank }| List buckets and objects in Allas |
+| [`a-publish`:material-arrow-down:](#a-publish) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-publish.md){ target=_blank }|Upload a file to Allas into a bucket that allows public access over the internet |
+| [`a-flip`:material-arrow-down:](#a-flip) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md){ target=_blank }|Upload a file temporarily to Allas into a bucket that allows public access over the internet |
+| [`a-get`:material-arrow-down:](#a-get) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-get.md)| Download a stored dataset (object){ target=_blank } from Allas |
+| [`a-find`:material-arrow-down:](#a-find)|[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-find.md){ target=_blank }|Search and locate data uploaded with `a-put` |
+| [`a-delete`:material-arrow-down:](#a-delete) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-delete.md){ target=_blank }| Delete an object in Allas |
+| [`a-info`:material-arrow-down:](#a-info) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-info.md){ target=_blank }| Display information about an object in Allas |
+| [`a-access`:material-arrow-down:](#a-access) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-access.md){ target=_blank }| Control access permissions of a bucket in Allas |
+| `a-stream` |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-stream.md){ target=_blank }|Stream the content of an object to standard output |
+| `a-encrypt` |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-encrypt.md){ target=_blank }|Make an encrypted copy of an object uploaded in Allas |
 
 In addition to the above commands, there are separate tools for other purposes:
 
@@ -26,9 +26,9 @@ In addition to the above commands, there are separate tools for other purposes:
  * [`allas-backup`](./a_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
  * `allas-mount` : Mount a bucket in allas to be used as a read-only directory in the local environment.
  * `allas-health-check` : Check the integrity of over 5 GB objects in Allas.
- * [`allas-dir-to-bucket`](https://github.com/CSCfi/allas-cli-utils/blob/master/help/allas-dir-to-bucket.md) : copy a local file or directory to Allas. Parallel upload processes are used for over 5GB files.
+ * [`allas-dir-to-bucket`:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/allas-dir-to-bucket.md){ target=_blank } : copy a local file or directory to Allas. Parallel upload processes are used for over 5GB files.
  
-If you use the `a`-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
+If you use the `a`-commands outside the supercomputers, check the [allas-cli-utils documentation:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md){ target=_blank } for how to install these tools.
 
 Below we discuss briefly of the most frequetly used features of `a`-commands. New features are added to `a`-commands every now and then and they may not be covered in the examples below. Use the help option `--help` to check the command specific information. For example:
 ```bash
@@ -457,4 +457,4 @@ will compress the data during the upload process (that would normally not be the
 a-put --nc my_data.b
 ```
  
-You can check most commonly used settings from this sample [`.a_tools_conf`](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf) file. Copy the sample file to your home directory and un-comment and define the variables you wish to use.
+You can check most commonly used settings from this sample [`.a_tools_conf`:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf){ target=_blank } file. Copy the sample file to your home directory and un-comment and define the variables you wish to use.
