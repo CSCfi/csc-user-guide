@@ -188,11 +188,14 @@ expires, a new one must be signed following either of the processes below.
     ![Download SSH certificate](https://a3s.fi/docs-files/download-ssh-cert.png 'Download SSH certificate')
 
 6. Each SSH certificate is valid for 24 hours. The expiration time can be
-   checked with command:
+   checked with command (Linux, macOS, MobaXterm terminal, PowerShell):
 
     ```bash
     ssh-keygen -L -f <path-to-certificate> | grep "Valid"
     ```
+
+    If using PuTTY or MobaXterm GUI, the validity period can be checked by
+    [adding the certificate to your private key in PuTTYgen or MobaKeyGen](ssh-windows.md#authentication-agent) (look for _Certificate info_).
 
 ## More information
 

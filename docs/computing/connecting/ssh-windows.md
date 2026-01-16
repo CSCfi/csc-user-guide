@@ -276,6 +276,7 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
     1. Open MobaKeyGen from the Tools tab.
     2. Load your private key (`File --> Load private key`).
     3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+       The validity period can be checked by selecting `Certificate info`.
     4. Save the private key and restart MobaXterm.
     5. Your private key including the certificate is now loaded into the agent
        and you can sign in to Roihu either using the local terminal or the GUI
@@ -313,6 +314,7 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
     1. Open PuTTYgen.
     2. Load your private key (`File --> Load private key`).
     3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+       The validity period can be checked by selecting `Certificate info`.
     4. Save the private key and add it to Pageant following the steps above. A
        successfully combined key and certificate will show up as `Ed25519 cert`
        in Pageant.
@@ -335,11 +337,12 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 Agent forwarding is a useful mechanism where the SSH client is configured to
 allow an SSH server to use your local `ssh-agent` on the server as if it was
 local there. This means in practice that you can, for example, connect directly
-from Puhti to Mahti using the SSH keys you have set up on your local machine,
-i.e. you do not need to create a new set of SSH keys on CSC supercomputers.
+between CSC supercomputers using the SSH keys (and certificates) you have on
+your local machine, i.e. you do not need to create a new set of SSH keys on CSC
+supercomputers.
 
-Agent forwarding is also very handy if you need to copy data between Puhti and
-Mahti, or, for example, push to a private Git repository from CSC
+Agent forwarding is also very handy if you need to copy data directly between
+CSC supercomputers, or, for example, push to a private Git repository from CSC
 supercomputers.
 
 === "MobaXterm"
@@ -378,5 +381,15 @@ Once connected, you may verify that SSH agent forwarding worked by running:
 ssh-add -l
 ```
 
-If you see the fingerprint(s) of your SSH key(s) listed, agent forwarding is
-working.
+If you see the fingerprint(s) of your SSH key(s) and certificate(s) listed,
+agent forwarding is working. Associated SSH keys and certificates in the
+authentication agent have the same fingerprints and are annotated with
+`<ALGORITHM>` and `<ALGORITHM>-CERT`, respectively. For example:
+
+```text
+256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519)
+256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519-CERT)
+```
+
+If you're using a combined SSH key and certificate file (PuTTYgen and
+MobaKeyGen methods), you should only see the `<ALGORITHM-CERT>` line.
