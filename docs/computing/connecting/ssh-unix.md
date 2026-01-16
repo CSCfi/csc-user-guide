@@ -167,6 +167,11 @@ Certificate added: ~/.ssh/id_ed25519-cert.pub
     CSC supercomputer), also the SSH certificate must be added to the agent so
     that it can be properly forwarded. [Read more below](#ssh-agent-forwarding).
 
+If you are using
+[CSC's certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool)
+to sign and download SSH certificates, all of the above will be taken care of
+automatically.
+
 For more information about `ssh-agent`, see the
 [relevant SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).
 

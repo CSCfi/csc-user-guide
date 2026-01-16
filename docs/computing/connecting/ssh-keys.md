@@ -123,6 +123,15 @@ expires, a new one must be signed following either of the processes below.
 
 ### Option 1: Certificate helper tool
 
+The certificate helper is a tool developed by CSC to simplify the process of
+signing and downloading SSH certificates. It is a Python script, so please
+ensure that you have Python installed on your computer. Installation
+instructions are available in the
+[Python Beginners Guide](https://wiki.python.org/moin/BeginnersGuide/Download).
+Contact your local IT-support if you need assistance. If Python for some reason
+cannot be installed on your computer, fall back to [Option 2](#option-2-mycsc)
+instead.
+
 1. Download the certificate helper tool here.
 2. Run the tool:
 
@@ -131,34 +140,50 @@ expires, a new one must be signed following either of the processes below.
         1. Open terminal and execute:
 
             ```bash
-            # Replace <arch> with "linux-amd64", "darwin-amd64" or "darwin-arm64"
-            # <username> with your CSC user name and <path-to-public-key> with the
-            # path to your SSH public key
+            # Replace <username> with your CSC user name and
+            # <path-to-public-key> with the path to your SSH public key
 
-            csc-cert-<arch> -u <username> <path-to-public-key>
+            python3 csc-cert.py -u <username> <path-to-public-key>
             ```
 
         2. If you have an earlier certificate which is still valid, the tool
            exits.
-        3. If signing is needed, a login URL and QR code are displayed. Follow
-           the link and authenticate.
-        4. Copy the code displayed into your terminal and enter your SSH key
-           passphrase. The signed certificate is then downloaded and added to
-           your SSH agent. The signed certificate is saved as `<key>-cert.pub`
-           (e.g., `~/.ssh/id_ed25519-cert.pub`).
-        5. Each SSH certificate is valid for 24 hours. The expiration time can be
-           checked by running the tool again.
+        3. If signing is needed, a login URL is displayed. Follow the link and
+           authenticate.
+        4. Copy the 6-digit code displayed into your terminal and enter your
+           SSH key passphrase. The signed certificate is then downloaded and
+           added to your SSH agent. The signed certificate is saved as
+           `<key>-cert.pub` (e.g., `~/.ssh/id_ed25519-cert.pub`).
+        5. Each SSH certificate is valid for 24 hours. The expiration time can
+           be checked by running the tool again.
 
     === "Windows"
 
-        6. Open PowerShell and execute:
+        1. Optional, but helpful:
+           [Install WinSCP](https://winscp.net/eng/docs/installation) and
+           [start the Pageant authentication agent](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant)
+           that comes bundled with PuTTY to automatically add SSH key and
+           certificate to SSH agent.
+        2. Open PowerShell and execute:
 
             ```bash
             # Replace <username> with your CSC user name and
             # <path-to-public-key> with the path to your SSH public key
     
-            csc-cert-windows-amd64.exe -u <username> <path-to-public-key>
+            python3 csc-cert.py -u <username> <path-to-public-key>
             ```
+
+        3. If you have an earlier certificate which is still valid, the tool
+           exits.
+        4. If signing is needed, a login URL is displayed. Follow the link and
+           authenticate.
+        5. Copy the displayed 6-digit code into PowerShell and enter your SSH
+           key passphrase. The signed certificate is then downloaded (and added
+           to your SSH agent if you have WinSCP installed and Pageant running).
+           The signed certificate is saved as `<key>-cert.pub` (e.g.,
+           `C:\Users\<username>\.ssh\id_ed25519-cert.pub`).
+        6. Each SSH certificate is valid for 24 hours. The expiration time can
+           be checked by running the tool again.
 
 ### Option 2: MyCSC
 
@@ -195,7 +220,8 @@ expires, a new one must be signed following either of the processes below.
     ```
 
     If using PuTTY or MobaXterm GUI, the validity period can be checked by
-    [adding the certificate to your private key in PuTTYgen or MobaKeyGen](ssh-windows.md#authentication-agent) (look for _Certificate info_).
+    [adding the certificate to your private key in PuTTYgen or MobaKeyGen](ssh-windows.md#authentication-agent)
+    (look for _Certificate info_).
 
 ## More information
 
