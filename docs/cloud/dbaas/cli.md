@@ -120,7 +120,7 @@ Create a new user (`--databases` is optional):
 openstack database user create $INSTANCE_ID $USER_NAME $PASSWORD --databases $DATABASE_NAME
 ```
 
-### Removing users from a database
+#### Removing users from a database
 
 Deleting an user can be done by running:
 
