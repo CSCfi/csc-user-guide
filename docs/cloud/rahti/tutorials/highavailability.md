@@ -227,7 +227,7 @@ The URL was auto-generated based on the service name and the namespace name, but
 
 At this moment we have a working application, but we lack monitoring.
 
-![Postgres HTML Exporter](../../img/Postgres HTML Exporter.png)
+![Postgres HTML Exporter](../../img/Postgres-HTML-Exporter.png)
 
 ## Monitoring
 
@@ -368,7 +368,7 @@ The application we deployed is a toy, you can play with it to really understand 
 
 There are few ways this deployment can be expanded:
 
-- Make PostgreSQL high available, or migrate the database to the [Pukki](../../dbaas.md) service.
+- Make PostgreSQL high available, or migrate the database to the [Pukki](../../dbaas/index.md) service.
 - Create tables on the PostgreSQL database and add some data to it.
 - Replace this app by other that you have developed and see how the replicas behave.
 - Play with [autoscaling](../../../support/faq/addHorizontalAutoscaler.md).
