@@ -15,8 +15,8 @@ additional programs.
 You can use Funet FileSender to share your files with anybody. The receiver
 doesn't need any authentication for downloading the file from FileSender. If
 you don't belong to Haka, you need a colleague who can send you an
-_upload voucher_. The voucher is a one-time permit to use the service for
-sending a file.
+[_upload voucher_](#upload-vouchers). The voucher is a one-time permit to use
+the service for sending a file.
 
 ## Uploading data to FileSender
 
@@ -69,6 +69,14 @@ wget "https://filesender.funet.fi/download.php?token=4da0-b98e-3290c6471469&file
        and using the URL of the _Download as single (.zip/.tar) file_ button to
        download multiple files at once as an archive will unfortunately not
        work.
+
+## Upload vouchers
+
+The upload voucher is a one-time permit to use the service for sending a file.
+To create a voucher,
+[login to FileSender with your browser](https://filesender.funet.fi) and move
+to the _Guests_ tab. Enter an email address and send a voucher. The receiver
+doesn't need to login.
 
 ## Using FileSender from the command-line
 

@@ -35,22 +35,32 @@ bamtools
 Below you can find a list of software that can be installed with auto-apptainer. The list can be outdated. You can get an up-to-date
 list by running command `auto-apptainer` in SD Desktop.
 
+*  allelecount-4.2.1
 *  bamtools_2.5.2--hd03093a_1
 *  bcftools_1.20
 *  bedtools_2.31.0
-*  bwa_0.7.17
+*  cnvkit-0.9.12
 *  deepvariant_1.5.0
-*  finnish-nertag
+*  EIG_8.0.0
 *  hisat2_2.2.1--h87f3376_5
+*  htseq-2.0.3
+*  image-to-text
+*  kneaddata-0.12.0
+*  kneaddata-0.12.1
+*  mpv-0.34.1
+*  p7zio
+*  pdf2searchablepdf
+*  picard
 *  python3-for-medimaging
-*  regenie_3.0.1
 *  samtools_1.17-2023-06
 *  seqtk_v1.3-1-deb_cv1
 *  stringtie_2.2.0--ha025227_1
-*  taguette
+*  taguette.info
+*  trimgalore-0.6.9
 *  vcftools_v0.1.16-1
-*  vsearch_2.23.0--h6a68c12_0
+*  vsearch_2.23.0
 *  weeder_2.0--h9f5acd7_7
+
 
 
 
