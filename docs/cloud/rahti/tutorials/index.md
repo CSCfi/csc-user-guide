@@ -18,6 +18,7 @@
 * 🟠 [OAuth2 Proxy](oauth2.md)
 * 🟠 [Pod (anti) affinity](pod-affinity.md)
 * 🟠 [Sending e-mail from Rahti](email.md)
+* 🟠 [How to deploy a High Available application in Rahti](highavailability.md)
 
 
 ## Advanced level
