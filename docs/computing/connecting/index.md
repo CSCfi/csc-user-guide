@@ -80,6 +80,18 @@ working on the Linux command-line can be found in our
 [Linux basics tutorial for CSC](../../support/tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
 
+```mermaid
+%%{init: {'theme': 'default', }}%%
+flowchart TD
+    A(<a href='ssh-keys.md'>Set up SSH keys</a>,
+    before first usage)
+    A -->| | B(<a href='ssh-keys.md#signing-public-key'>Get SSH certificate</a>,
+    **every day**)
+    B -->| |C(Connect to supercomputer:
+    - <a href='ssh-unix.md'>Linux/Max</a>
+    - <a href='ssh-windows.md/'>Windows</a>)
+```
+
 ### First connection
 
 When connecting to a given supercomputer for the first time, the SSH client
