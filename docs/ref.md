@@ -1168,6 +1168,91 @@ The [Grids feature from _Material for MkDocs_](https://squidfunk.github.io/mkdoc
   </div>
 </div>
 
+
+### With colors
+
+```html title="Grid with colors"
+<div class="grid cards" markdown>
+
+- :material-dna:{ .lg .middle } **Accent**
+  { .csc-grid-card-accent }
+
+    ---
+
+    Science!
+
+- :material-information:{ .lg .middle } **Info**
+  { .csc-grid-card-info }
+
+    ---
+
+    This.
+
+- :material-check-circle:{ .lg .middle } **Success**
+  { .csc-grid-card-success }
+
+    ---
+
+    Do!
+
+- :material-alert:{ .lg .middle } **Warning**
+  { .csc-grid-card-warning }
+
+    ---
+
+    Don't!
+
+- :material-close-circle:{ .lg .middle } **Error**
+  { .csc-grid-card-error }
+
+    ---
+
+    Why?!
+
+</div>
+```
+
+<div class="result" markdown>
+  <div class="grid cards" markdown>
+
+  - :material-dna:{ .lg .middle } **Accent**
+    { .csc-grid-card-accent }
+
+      ---
+
+      Science!
+
+  - :material-information:{ .lg .middle } **Info**
+    { .csc-grid-card-info }
+
+      ---
+
+      This.
+
+  - :material-check-circle:{ .lg .middle } **Success**
+    { .csc-grid-card-success }
+
+      ---
+
+      Do!
+
+  - :material-alert:{ .lg .middle } **Warning**
+    { .csc-grid-card-warning }
+
+      ---
+
+      Don't!
+
+  - :material-close-circle:{ .lg .middle } **Error**
+    { .csc-grid-card-error }
+
+      ---
+
+      Why?!
+
+  </div>
+</div>
+
 [^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
 [^2]:
     Here's another footnote. Though, this one's a _barefootnote_!  
