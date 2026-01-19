@@ -1,6 +1,6 @@
 # SSH client on Windows
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 There are various programs that can be used for creating a remote SSH
 connection on a Windows system. This page provides instructions for three
@@ -8,14 +8,7 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
 
 ## Generating SSH keys
 
-!!! info "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication. Please note that it is
-    mandatory to add your public key to MyCSC – copying it directly to a CSC
-    supercomputer does not work!
-
-    Supported key types are Ed25519 and RSA 4096 through 16384. **We strongly
-    recommend Ed25519**.
+--8<-- "using-ssh-keys.md"
 
 === "MobaXterm"
 
@@ -43,7 +36,7 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
     Generally, you do not want to overwrite existing keys, so enter `n`, run
     `ssh-keygen` again and enter a different file name when prompted. See also
     the section on
-    [SSH key files with non-default name or location](#ssh-key-file-with-non-default-name-or-location).
+    [SSH key files with non-default name or location](#ssh-key-or-certificate-file-with-non-default-name-or-location).
 
     Next, you will be asked for a passphrase. Please choose a secure
     passphrase. It should be at least 8 characters long and contain numbers,
@@ -104,7 +97,7 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
     Generally, you do not want to overwrite existing keys, so enter `n`, run
     `ssh-keygen` again and enter a different file name when prompted. See also
     the section on
-    [SSH key files with non-default name or location](#ssh-key-file-with-non-default-name-or-location).
+    [SSH key files with non-default name or location](#ssh-key-or-certificate-file-with-non-default-name-or-location).
 
     Next, you will be asked for a passphrase. Please choose a secure
     passphrase. It should be at least 8 characters long and contain numbers,
@@ -115,16 +108,19 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc). To
+connect to Roihu, you must also
+[sign your public key](ssh-keys.md#signing-public-key) to obtain a time-based
+SSH certificate which is required for authentication.
 
-You may also wish to configure
-[authentication agent](#authentication-agent) to make using SSH keys
-more convenient.
+You may also wish to configure [authentication agent](#authentication-agent) to
+make using SSH keys more convenient.
 
 ## Basic usage
 
-After setting up SSH keys and adding your public key to MyCSC, you can connect
-to a CSC supercomputer.
+After setting up SSH keys, adding your public key to MyCSC and downloading an
+SSH certificate (**required for Roihu only**) you can connect to a CSC
+supercomputer.
 
 === "MobaXterm"
 
@@ -132,10 +128,19 @@ to a CSC supercomputer.
 
     ```bash
     # Replace <username> with the name of your CSC user account and
-    # <host> with "puhti" or "mahti"
+    # <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
 
     ssh <username>@<host>.csc.fi
     ```
+
+    This assumes that the SSH keys (and certificate for Roihu) are saved in a standard
+    location using standard naming:
+
+    - Private key: `~/.ssh/id_<algorithm>`
+    - Public key: `~/.ssh/id_<algorithm>.pub`
+    - Certificate: `~/.ssh/id_<algorithm>-cert.pub`
+
+    where `<algorithm>` is either `ed25519` or `rsa`.
 
     Alternatively, you may
     [connect using the GUI following this tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html#connecting-from-windows).
@@ -151,13 +156,13 @@ to a CSC supercomputer.
     | **Port** | `22` |
     | **Connection type** | `SSH` |
 
-    When creating a remote connection using PuTTY, select the private key file
-    under `Connection --> SSH --> Auth --> Credentials`. If you want the private
-    key to be used each time you connect, save your session to store your choice.
-    Finally, click `Open` and enter your CSC username and SSH key passphrase.
+    When creating a remote connection using PuTTY, select the private key and
+    certificate file (**only if connecting to Roihu**) under
+    `Connection --> SSH --> Auth --> Credentials`. Finally, click `Open` and
+    enter your CSC username and SSH key passphrase.
 
-    If you are connecting for the first time, PuTTY will ask if you trust the host.
-    Click `Accept`.
+    If you are connecting for the first time, PuTTY will ask if you trust the
+    host. Click `Accept`.
 
 === "PowerShell"
 
@@ -165,10 +170,19 @@ to a CSC supercomputer.
 
     ```bash
     # Replace <username> with the name of your CSC user account and
-    # <host> with "puhti" or "mahti"
+    # <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
 
     ssh <username>@<host>.csc.fi
     ```
+
+    This assumes that the SSH keys (and certificate for Roihu) are saved in a standard
+    location using standard naming:
+
+    - Private key: `~/.ssh/id_<algorithm>`
+    - Public key: `~/.ssh/id_<algorithm>.pub`
+    - Certificate: `~/.ssh/id_<algorithm>-cert.pub`
+
+    where `<algorithm>` is either `ed25519` or `rsa`.
 
     !!! warning "Corrupted MAC on input"
         When connecting using the OpenSSH client software on Windows, you might
@@ -179,27 +193,25 @@ to a CSC supercomputer.
 
 ---
 
-### SSH key file with non-default name or location
+### SSH key or certificate file with non-default name or location
 
 If you are connecting via the MobaXterm terminal or PowerShell, and have stored
-your SSH key file with a non-default name or in a non-default location
-(somewhere else than `~/.ssh/id_<algorithm>`), you must tell the `ssh` command
-where to look for the key. Use option `-i` as follows:
+your SSH key and/or certificate file with a non-default name or in a
+non-default location (somewhere else than `~/.ssh/id_<algorithm>`), you must
+tell the `ssh` command where to look for these files. Use option `-i` as
+follows:
 
 ```bash
 # Replace <username> with the name of your CSC user account,
 # <host> with "puhti" or "mahti" and <path-to-private-key>
 # with the path to your SSH private key
 
-ssh <username>@<host>.csc.fi -i <path-to-private-key>
+ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 ```
 
 ## Graphical connection
 
-!!! info "Note"
-    For performance reasons, we generally recommend using the
-    [HPC web interfaces](../webinterface/index.md) to run applications which
-    require displaying graphics.
+--8<-- "graphical-connection.md"
 
 === "MobaXterm"
 
@@ -251,11 +263,30 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key>
     
     1. Toggle the option `Use internal SSH agent "MobAgent"`.
     2. Click the `+` button and select the private key you want to load at
-       MobAgent startup.
+       MobAgent startup. 
     3. Click `OK` and restart MobaXterm. You'll be prompted to enter your key
        passphrase.
     4. You may now connect to CSC supercomputers without having to type your
        passphrase again.
+
+    **To connect to Roihu**, you may also with add your SSH certificate to the
+    agent. In this case, you must first "combine" the certificate and the SSH
+    private key.
+
+    1. Open MobaKeyGen from the Tools tab.
+    2. Load your private key (`File --> Load private key`).
+    3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+       The validity period can be checked by selecting `Certificate info`.
+    4. Save the private key and restart MobaXterm.
+    5. Your private key including the certificate is now loaded into the agent
+       and you can sign in to Roihu either using the local terminal or the GUI
+       without having to type your SSH passphrase.
+
+    If you're using the local terminal instead of the MobaXterm GUI, you can
+    also simply use the OpenSSH commands to add your keys and certificates to
+    the authentication agent. In this case, start the SSH agent by running
+    `eval "$(ssh-agent -s)"` and follow the
+    [instructions for Linux](ssh-unix.md#authentication-agent).
 
 === "PuTTY"
 
@@ -276,6 +307,20 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key>
        Pageant, and use it to authenticate. You may now open as many PuTTY
        sessions as you like without having to type your passphrase again.
 
+    **To connect to Roihu**, you may also with add your SSH certificate to the
+    agent. In this case, you must first "combine" the certificate and the SSH
+    private key.
+
+    1. Open PuTTYgen.
+    2. Load your private key (`File --> Load private key`).
+    3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+       The validity period can be checked by selecting `Certificate info`.
+    4. Save the private key and add it to Pageant following the steps above. A
+       successfully combined key and certificate will show up as `Ed25519 cert`
+       in Pageant.
+    5. You can now sign in to Roihu using PuTTY without having to type your SSH
+       passphrase.
+
 === "PowerShell"
 
     To avoid having to type your passphrase every time you connect,
@@ -287,19 +332,17 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key>
 
 ### SSH agent forwarding
 
-!!! warning "Note"
-    You should only forward your SSH agent to remote servers that you trust and
-    only when you really need it. Forwarding your SSH agent by default to any
-    server you connect to is considered insecure.
+--8<-- "ssh-agent-forwarding.md"
 
 Agent forwarding is a useful mechanism where the SSH client is configured to
 allow an SSH server to use your local `ssh-agent` on the server as if it was
 local there. This means in practice that you can, for example, connect directly
-from Puhti to Mahti using the SSH keys you have set up on your local machine,
-i.e. you do not need to create a new set of SSH keys on CSC supercomputers.
+between CSC supercomputers using the SSH keys (and certificates) you have on
+your local machine, i.e. you do not need to create a new set of SSH keys on CSC
+supercomputers.
 
-Agent forwarding is also very handy if you need to copy data between Puhti and
-Mahti, or, for example, push to a private Git repository from CSC
+Agent forwarding is also very handy if you need to copy data directly between
+CSC supercomputers, or, for example, push to a private Git repository from CSC
 supercomputers.
 
 === "MobaXterm"
@@ -338,5 +381,15 @@ Once connected, you may verify that SSH agent forwarding worked by running:
 ssh-add -l
 ```
 
-If you see the fingerprint(s) of your SSH key(s) listed, agent forwarding is
-working.
+If you see the fingerprint(s) of your SSH key(s) and certificate(s) listed,
+agent forwarding is working. Associated SSH keys and certificates in the
+authentication agent have the same fingerprints and are annotated with
+`<ALGORITHM>` and `<ALGORITHM>-CERT`, respectively. For example:
+
+```text
+256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519)
+256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519-CERT)
+```
+
+If you're using a combined SSH key and certificate file (PuTTYgen and
+MobaKeyGen methods), you should only see the `<ALGORITHM-CERT>` line.

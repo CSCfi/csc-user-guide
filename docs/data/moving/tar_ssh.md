@@ -1,6 +1,6 @@
 # Using Tar over SSH to move many files
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 Linux tools such as `scp` and `rsync` are commonly used to transfer files
 between a remote server and a local machine. However, these tools are not

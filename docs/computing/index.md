@@ -12,7 +12,7 @@
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
-Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users
+Puhti, Mahti and Roihu are CSC's supercomputers. Puhti has been available for CSC users
 since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is
 one of the pan-European pre-exascale supercomputers, located in CSC's data
 center in Kajaani. The CPU partition of LUMI (LUMI-C) has been available since
@@ -35,8 +35,7 @@ basics of [Linux command line usage](../support/tutorials/env-guide/index.md) be
     For an overview of the LUMI supercomputer, see
     [the LUMI documentation](https://docs.lumi-supercomputer.eu/hardware/).
 
-
-## Accessing Puhti and Mahti
+## Accessing CSC supercomputers
 
 To be able to use CSC's supercomputers, you need to have a CSC user account that
 belongs to a computing project which has access to the respective supercomputers.
@@ -52,41 +51,46 @@ of this user guide.
 
 ## Connecting to the supercomputers
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 Connect using an SSH client:
 
 ```bash
-ssh yourcscusername@puhti.csc.fi
+ssh username@puhti.csc.fi
+# or
+ssh username@mahti.csc.fi
 ```
 
-or
+Roihu has separate login nodes for the CPU and GPU partitions:
 
 ```bash
-ssh yourcscusername@mahti.csc.fi
+ssh username@roihu-cpu.csc.fi
+# or
+ssh username@roihu-gpu.csc.fi
 ```
 
 This will connect you to one of the login nodes. If you need to connect
 to a specific login node, use the command:
 
 ```bash
-ssh yourcscusername@puhti-login[11-12,14-15].csc.fi
+ssh username@puhti-login[11-12,14-15].csc.fi
+# or
+ssh username@mahti-login[11-12,14-15].csc.fi
+# or
+ssh username@roihu-cpu-login[1-4].csc.fi
+# or
+ssh username@roihu-gpu-login[1-2].csc.fi
 ```
 
-or
-
-```bash
-ssh yourcscusername@mahti-login[11-12,14-15].csc.fi
-```
-
-Where `yourcscusername` is the username you get from CSC.
+Where `username` is the username you get from CSC.
 
 For more details, see the [connecting](connecting/index.md) page.
 
-Puhti and Mahti can also be accessed via their respective
+Puhti, Mahti and Roihu can also be accessed via their respective
 [web interfaces](webinterface/index.md) available at
-[www.puhti.csc.fi](https://www.puhti.csc.fi) and
-[www.mahti.csc.fi](https://www.mahti.csc.fi).
+[www.puhti.csc.fi](https://www.puhti.csc.fi),
+[www.mahti.csc.fi](https://www.mahti.csc.fi) and
+[www.roihu.csc.fi](https://www.mahti.csc.fi).
 
 ### Scalability
 
@@ -144,13 +148,13 @@ The [disk areas](disk.md) of your projects can be checked with the command:
 csc-workspaces
 ```
 
-## Using Puhti and Mahti
+## Using CSC supercomputers
 
 * [Systems](available-systems.md): What computational resources are available
 * [Usage policy](usage-policy.md): Usage policy of CSC supercomputers
 * [Connecting](connecting/index.md): How to connect to  CSC supercomputers
-* [Puhti web interface](webinterface/index.md): How to connect to Puhti using the web
-  interface
+* [Web interfaces](webinterface/index.md): How to connect to CSC supercomputers
+  using the web interfaces
 * [Disk areas](disk.md): What places are there for storing data on CSC
   supercomputers
 * [Modules](modules.md): How to find the programs you need

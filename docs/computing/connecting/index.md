@@ -1,6 +1,6 @@
 # Connecting to CSC supercomputers
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 There are two main ways of connecting to CSC supercomputers.
 
@@ -22,8 +22,7 @@ For instructions on connecting to the LUMI supercomputer, please see the
 ## Using the web interface
 
 The [web interface](../webinterface/index.md) is a good platform
-for using graphical applications on the Puhti and Mahti supercomputers.
-It hosts
+for using graphical applications on CSC supercomputers. It hosts
 [interactive applications for select programs](../webinterface/apps.md)
 like Jupyter and RStudio, and for other GUI programs you can use the
 [remote desktop](../webinterface/desktop.md) interface.
@@ -34,15 +33,21 @@ will keep running even if you close your browser or lose your internet
 connection. The shell applications are especially convenient for users whose
 workstation has a Windows operating system, since Windows does not
 typically come with a pre-installed SSH client. See the instructions for
-[connecting to Puhti and Mahti web interfaces](../webinterface/connecting.md).
+[connecting to HPC web interfaces](../webinterface/connecting.md).
 
 ## Using an SSH client
 
-Logging in to Puhti and Mahti using an SSH client requires that you have
-[set up SSH keys](ssh-keys.md) and
-[added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc).
-Traditional password-based authentication and public keys stored in your
-personal `~/.ssh/authorized_keys` file will **not** work.
+Logging in to CSC supercomputers using an SSH client requires that you have
+
+1. [set up SSH keys](ssh-keys.md),
+2. [added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc),
+   and
+3. [signed your public key](ssh-keys.md#signing-public-key) to
+   obtain a time-based SSH certificate. **This step is only required when
+   connecting to Roihu**.
+
+Please note that traditional password-based authentication and public keys
+stored in your personal `~/.ssh/authorized_keys` file will **not** work.
 
 Unix-based systems like macOS and Linux typically come with a pre-installed
 terminal program called simply *Terminal*. The instructions for using an
@@ -54,12 +59,13 @@ over SSH, there are multiple programs that can be used for this. The
 instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
 popular options.
 
-Once you have set up SSH keys and added your public key to MyCSC, use a
-command like below to connect over SSH:
+Once you have set up SSH keys, added your public key to MyCSC, and signed it to
+generate an SSH certificate (only required for Roihu), use a command like below
+to connect over SSH:
 
 ```bash
 # Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
+# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
 
 ssh <username>@<host>.csc.fi
 ```
@@ -106,6 +112,22 @@ should again verify the new key against fingerprints provided by CSC.
     | WC9Lb5tmKDzUJqsQjaZLvp9T7LTs3aMUYSIy2OCdtgg | ssh_host_ecdsa_key.pub (ECDSA)     |
     | tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
     | 0CxM3ECpD2LhAnMfHnm3YaXresvHrhW4cevvcPb+HNw | ssh_host_rsa_key.pub (RSA)         |
+=== "Roihu (pilot phase)"
+    | SHA256 checksum                             | Key                                |
+    |---------------------------------------------|------------------------------------|
+    | NnNuy5xLxXDhDyBTVCtRbGNSMmTTKdnH6dlomerCg14 | ssh_host_ecdsa_key.pub (ECDSA)     |
+    | mAkMF6xpb4wc1eq+vPc4q4mo7YvcL4GHxe8XauPqGas | ssh_host_ed25519_key.pub (ED25519) |
+    | IHUo4GZOYH8V9qlcv155iP3w/83SdlS6E2jOb/z01hE | ssh_host_rsa_key.pub (RSA)         |
+=== "Roihu (general availability)"
+    | SHA256 checksum                             | Key                                |
+    |---------------------------------------------|------------------------------------|
+    | h3YVzmNucpxTXcxag8D2TaC21jH8/6LGNNCCOgRDaTU | ssh_host_ecdsa_key.pub (ECDSA)     |
+    | YNdesHbXhxN0hKD4mWvYGQONebjRqY+CGXDqPiZyByQ | ssh_host_ed25519_key.pub (ED25519) |
+    | cXJ5h3Z9fgu0wVpC2kDIpjdsrFsJF/bfyWegQXsfQpU | ssh_host_rsa_key.pub (RSA)         |
+
+!!! info "Note"
+    For security reasons, Roihu host keys will be changed after the pilot
+    phase.
 
 ### Graphical connection
 
@@ -125,17 +147,17 @@ the login nodes on the system. However, you can also use your SSH client to
 connect to a specific login node:
 
 ```bash
-ssh <username>@<host>-login<id>.csc.fi  # e.g. 'puhti-login11.csc.fi'
+ssh <username>@<host>-login<id>.csc.fi  # e.g. 'roihu-gpu-login1.csc.fi'
 ```
 
 The available login nodes are:
 
-| Puhti | Mahti |
-|-|-|
-| `puhti-login11` | `mahti-login11` |
-| `puhti-login12` | `mahti-login12` |
-| `puhti-login14` | `mahti-login14` |
-| `puhti-login15` | `mahti-login15` |
+| Puhti | Mahti | Roihu CPU | Roihu GPU |
+|-|-|-|-|
+| `puhti-login11` | `mahti-login11` | `roihu-cpu-login1` | `roihu-gpu-login1` |
+| `puhti-login12` | `mahti-login12` | `roihu-cpu-login2` | `roihu-gpu-login2` |
+| `puhti-login14` | `mahti-login14` | `roihu-cpu-login3` |                    |
+| `puhti-login15` | `mahti-login15` | `roihu-cpu-login4` |                    |
 
 This also applies to compute nodes, although just the ones where you have a
 job running. Use the `squeue` command to see which node(s) your job is on, and
