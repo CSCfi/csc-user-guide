@@ -1,13 +1,18 @@
 # Data management
 
+## The Kaivos database service has been decommissioned, 2.1.2026
+
+The Kaivos database service has been decommissioned. The service is replaced by
+Pukki DBaaS. Instructions related to the use of Pukki can be found in the
+[Pukki user guide](../../cloud/dbaas/index.md).
+
 ## Sensitive Data (SD) Desktop: Data gateway error workaround, 7.11.2025
 
 The Data Gateway application can no longer be opened on all virtual desktops created before November 5, 2025 and shows the error: "Initializing Data Gateway failed." A one time workaround is available and must be applied by each virtual desktop user. [Step by step instructions and video tutorial](../../data/sensitive-data/gatewaycertificatefinal.md).
 
-
 ## The Kaivos database service will be decommissioned by the end of the year 2025
 
-The [Kaivos database service](../../data/kaivos/overview.md) will be
+The Kaivos database service will be
 decommissioned by the end of the year 2025. The Kaivos database service is no
 longer available to new users. The service will be replaced by Pukki database
 service. Instructions related to the use of Pukki database service can be

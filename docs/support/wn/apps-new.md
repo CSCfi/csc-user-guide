@@ -1,5 +1,23 @@
 # Applications
 
+## PyTorch 2.9.1 available on Puhti and Mahti, 9.1.2026
+
+PyTorch 2.9.1 is now available on Puhti and Mahti, and set as the
+default version. It includes the most recent versions of popular
+packages such as Hugging Face transformers, vLLM and FAISS. Apex was
+removed, since the library has been deprecated for a long time
+already. New libraries include litgpt, ultralytics, sahi and
+torchgeo. See our [PyTorch module documentation for more
+information](../../apps/pytorch.md#available).
+
+## CSC ArcGIS consortium for Finnish universities ends on 31.12.2025
+
+For over 20 years CSC organized an ArcGIS consortium for Finnish universities,
+providing licenses to ArcGIS software, ESRI Virtual Campus, and Finnish street
+and road datasets. The consortium and access to the licensed products ends on
+31.12.2025. From 2026 onwards, universities should buy their ESRI/ArcGIS licenses
+directly from ESRI Finland.
+
 ## GROMACS 2025.4, 9.12.2025
 
 [GROMACS](../../apps/gromacs.md) 2025.4 is now available on Puhti, Mahti and LUMI.
