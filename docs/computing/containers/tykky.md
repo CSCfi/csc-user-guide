@@ -56,7 +56,7 @@ dependencies installed. It will run in a container, but thanks to tykky, it will
 as if it was running directly on the normal system.
 
 If you add the `bin/` directory in your `$PATH` environment variable, the "containerized" commands
-will be run by default, instead of eg. a system-provided `python3`. You can also have a [module
+will be run by default, instead of the normal system-provided `python3`. You can also have a [module
 file](../modules.md) do this for you, and in fact that is how many of the modules in the CSC
 environment have been produced.
 
