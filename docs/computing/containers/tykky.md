@@ -43,12 +43,17 @@ module load tykky
 
 ## Overview
 
-Tykky provides commands ending in `-containerize` (`pip-`, `conda-`) and starting with `wrap-`
-(`-container`, `-install`). They all produce a container, and place in a given target directory a
-`bin/` subdirectory, which contains executables for you to run. For example, if you are making an
-environment with Python libraries, `bin/python3` would behave like a Python with those dependencies
-installed. It will run in a container, but thanks to tykky, it will be able to see the file system
-without you needing to think about it.
+Tykky provides the commands `conda-containerize` and `pip-containerize` which produce a
+containerized environment based on a Conda environment file or a pip requirements file
+respectively. The command `wrap-install` wraps an existing Conda installation into a container. The
+command `wrap-container` takes an existing container and adds wrapper scripts to make it work in the
+same way as other tykky-based environments.
+
+In all cases, a containerized environment is produced into a given target directory. That directory
+will contain a `bin/` subdirectory with executables to run. For example, if you are making an
+environment with Python libraries, `bin/python3` would behave like a Python with the given
+dependencies installed. It will run in a container, but thanks to tykky, it will work transparently
+as if it was running directly on the normal system.
 
 If you add the `bin/` directory in your `$PATH` environment variable, the "containerized" commands
 will be run by default, instead of eg. a system-provided `python3`. You can also have a [module
