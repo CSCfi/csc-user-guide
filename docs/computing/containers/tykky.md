@@ -60,11 +60,10 @@ will be run by default, instead of the normal system-provided `python3`. You can
 file](../modules.md) do this for you, and in fact that is how many of the modules in the CSC
 environment have been produced.
 
-If you would like a less permanent containerized environment, tykky has a "venv-like" environmant
-feature. You can activate a tykky installation with `tykky activate <install_dir>`, where
-`<install_dir>` is the directory tykky used during installation. Your prompt will then show
-`(install_dir)`, and the installed executables will be automatically used. You can get back to
-your previous environment with `tykky deactivate`.
+Instead of manually modifying `$PATH`, you can also activate a tykky installation with `tykky
+activate <install_dir>`, where `<install_dir>` is the target directory tykky used during
+installation. Your prompt will then show `(install_dir)`, and the installed executables will be
+automatically used. You can get back to your previous environment with `tykky deactivate`.
 
 ## Conda-based installation
 
