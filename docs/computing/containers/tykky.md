@@ -21,12 +21,9 @@ either the whole host file system or a limited subset is visible during executio
 and installation. This means that it's possible to wrap installations using e.g
 `mpi4py` relying on the host-provided MPI installation.
 
-This documentation covers a subset of the functionality and focuses on Conda and
-Python. Most advanced use-cases are not covered here yet.
-
-!!! Warning
-    As Tykky is still under development, some of the more advanced features might
-    change with respect to exact usage and API.
+This documentation covers a subset of the functionality and focuses on Conda and Python. A few
+advanced use-cases are not covered here - for those, see the `README` in the [GitHub
+repository](https://github.com/CSCfi/hpc-container-wrapper).
 
 ## Tykky module
 
@@ -264,8 +261,3 @@ rsync -al <username>@puhti.csc.fi:<install_dir> .
 ## More complicated example
 
 [Example in tool repository](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md).
-
-## How it works
-
-See the `README` in the source code repository. The source code can be found in the
-[GitHub repository](https://github.com/CSCfi/hpc-container-wrapper).
