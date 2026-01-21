@@ -8,7 +8,7 @@ checking the
 [CSC Computing Environment self-learning course materials](https://csc-training.github.io/csc-env-eff/).
 
 To access Roihu, you need a CSC user account and project that has Roihu service
-enabled. [Read more here](../../../accounts/index.md).
+enabled. [Read more here](../../accounts/index.md).
 
 [TOC]
 
@@ -30,17 +30,17 @@ Connecting to Roihu using an SSH client requires that you have:
       generated.
 
 Read the detailed
-[instructions for managing SSH keys and certificates](../../../computing/connecting/ssh-keys.md).
+[instructions for managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).
 
 Once you have set up SSH keys and obtained a valid SSH certificate, connect
 using an SSH client:
 
-* [Instructions for Linux/macOS](../../../computing/connecting/ssh-unix.md).
-* [Instructions for Windows](../../../computing/connecting/ssh-windows.md).
+* [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md).
+* [Instructions for Windows](../../computing/connecting/ssh-windows.md).
 
 !!! info "Note: Roihu has separate login nodes for CPU and GPU partitions"
     Roihu has
-    [different CPU architectures on the CPU and GPU nodes](../../../computing/systems-roihu.md#compute).
+    [different CPU architectures on the CPU and GPU nodes](../../computing/systems-roihu.md#compute).
     Hence, there are separate login nodes for building and running programs on
     the respective nodes: `roihu-cpu.csc.fi` and `roihu-gpu.csc.fi`. For
     example, connect to one of the CPU login nodes using a command-line SSH
@@ -62,7 +62,7 @@ The simplest way to connect to Roihu is to use the web interface.
 
 1. Go to [www.roihu.csc.fi](https://www.roihu.csc.fi).
 2. Log in using your Haka, Virtu or CSC user account.
-   [Multi-factor authentication (MFA)](../../../accounts/mfa.md) is required.
+   [Multi-factor authentication (MFA)](../../accounts/mfa.md) is required.
 
 ## Migrating research data
 
@@ -90,5 +90,5 @@ examples
 
 ## More information
 
-* [Roihu system overview](../../../computing/systems-roihu.md)
+* [Roihu system overview](../../computing/systems-roihu.md)
 * [CSC Computing Environment self-learning materials](https://csc-training.github.io/csc-env-eff/)

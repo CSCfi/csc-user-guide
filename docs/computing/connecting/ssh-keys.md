@@ -194,6 +194,8 @@ The following instructions illustrate only basic usage.
         6. Each SSH certificate is valid for 24 hours. The expiration time can
            be checked by running the tool again.
 
+---
+
 ### Option 2: MyCSC
 
 1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
