@@ -44,8 +44,22 @@ Logging in to CSC supercomputers using an SSH client requires that you have
    and
 3. [signed your public key](ssh-keys.md#signing-public-key) to obtain a
    time-based SSH certificate.
-    * The final step is only required when connecting to Roihu and must be
+    * Step 3. is only required when connecting to Roihu and must be
       repeated every 24 hours.
+
+```mermaid
+flowchart LR
+    A(**Before first connection:**
+      <a href='ssh-keys/'>Set up SSH keys</a>)
+    A --> B{Connecting
+            to Roihu?}
+    B -->|yes| C(**Once every 24 hours:**
+                 <a href='ssh-keys/#signing-public-key'>Get a new SSH certificate</a>)
+    C --> D(<a href='ssh-unix/'>SSH with Linux/macOS</a>
+            or
+            <a href='ssh-windows/'>SSH with Windows</a>)
+    B -->|no| D
+```
 
 Please note that traditional password-based authentication and public keys
 stored in your personal `~/.ssh/authorized_keys` file will **not** work.
@@ -80,22 +94,6 @@ by issuing Linux commands using the Bash shell program. An introduction to
 working on the Linux command-line can be found in our
 [Linux basics tutorial for CSC](../../support/tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
-
-In summary:
-
-```mermaid
-flowchart LR
-    A(**Before first connection:**
-      <a href='ssh-keys/'>Set up SSH keys</a>)
-    A --> B{Connecting
-            to Roihu?}
-    B -->|yes| C(**Once every 24 hours:**
-                 <a href='ssh-keys/#signing-public-key'>Get a new SSH certificate</a>)
-    C --> D(<a href='ssh-unix/'>SSH with Linux/macOS</a>
-            or
-            <a href='ssh-windows/'>SSH with Windows</a>)
-    B -->|no| D
-```
 
 ### First connection
 
@@ -203,9 +201,11 @@ supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
 (e.g. `~/.ssh/config`).
 
 ```bash
-Host <host>  # e.g. "puhti"
+Host <host>  # e.g. "roihu-cpu"
     HostName <host>.csc.fi
     User <csc-username>
+    IdentityFile <path-to-private-key>
+    CertificateFile <path-to-certificate>  # Required for Roihu only
 ```
 
 Now you can connect to the host simply by running:
@@ -213,9 +213,3 @@ Now you can connect to the host simply by running:
 ```bash
 ssh <host>
 ```
-
-#### Remote development
-
-Some editors like Visual Studio Code and Notepad++ can be used to
-[work on files remotely](../../support/tutorials/remote-dev.md)
-using an appropriate plugin. **However, this is not recommended.**
