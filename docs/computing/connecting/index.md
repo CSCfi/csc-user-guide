@@ -42,9 +42,10 @@ Logging in to CSC supercomputers using an SSH client requires that you have
 1. [set up SSH keys](ssh-keys.md),
 2. [added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc),
    and
-3. [signed your public key](ssh-keys.md#signing-public-key) to
-   obtain a time-based SSH certificate. **This step is only required when
-   connecting to Roihu**.
+3. [signed your public key](ssh-keys.md#signing-public-key) to obtain a
+   time-based SSH certificate.
+    * The final step is only required when connecting to Roihu and must be
+      repeated every 24 hours.
 
 Please note that traditional password-based authentication and public keys
 stored in your personal `~/.ssh/authorized_keys` file will **not** work.
@@ -80,16 +81,20 @@ working on the Linux command-line can be found in our
 [Linux basics tutorial for CSC](../../support/tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
 
+In summary:
+
 ```mermaid
-%%{init: {'theme': 'default', }}%%
-flowchart TD
-    A(<a href='ssh-keys.md'>Set up SSH keys</a>,
-    before first usage)
-    A -->| | B(<a href='ssh-keys.md#signing-public-key'>Get SSH certificate</a>,
-    **every day**)
-    B -->| |C(Connect to supercomputer:
-    - <a href='ssh-unix.md'>Linux/Max</a>
-    - <a href='ssh-windows.md/'>Windows</a>)
+flowchart LR
+    A(**Before first connection:**
+      <a href='ssh-keys/'>Set up SSH keys</a>)
+    A --> B{Connecting
+            to Roihu?}
+    B -->|yes| C(**Once every 24 hours:**
+                 <a href='ssh-keys/#signing-public-key'>Get a new SSH certificate</a>)
+    C --> D(<a href='ssh-unix/'>SSH with Linux/macOS</a>
+            or
+            <a href='ssh-windows/'>SSH with Windows</a>)
+    B -->|no| D
 ```
 
 ### First connection

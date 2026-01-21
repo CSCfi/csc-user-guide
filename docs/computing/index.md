@@ -69,8 +69,8 @@ ssh username@roihu-cpu.csc.fi
 ssh username@roihu-gpu.csc.fi
 ```
 
-This will connect you to one of the login nodes. If you need to connect
-to a specific login node, use the command:
+These commands will connect you to one of the login nodes. If you need to
+connect to a specific login node, use the commands:
 
 ```bash
 ssh username@puhti-login[11-12,14-15].csc.fi

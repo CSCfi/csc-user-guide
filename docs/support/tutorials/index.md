@@ -19,8 +19,8 @@
 
 ## Roihu
 
-* [Getting started with Roihu](roihu/index.md)
-* [Roihu data migration guide](roihu/data-migration.md)
+* [Getting started with Roihu](roihu.md)
+* [Roihu data migration guide](roihu-data.md)
 
 ## Installation of tools on supercomputers
 

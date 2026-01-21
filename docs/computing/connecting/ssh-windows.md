@@ -392,4 +392,4 @@ authentication agent have the same fingerprints and are annotated with
 ```
 
 If you're using a combined SSH key and certificate file (PuTTYgen and
-MobaKeyGen methods), you should only see the `<ALGORITHM-CERT>` line.
+MobaKeyGen methods), you should only see the `<ALGORITHM>-CERT` line.
