@@ -33,6 +33,12 @@
 * [Running Nextflow pipelines](nextflow-tutorial.md)
 * [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
 
+## Resources for courses
+
+* [Organizing a course using CSC services](services-for-courses.md)
+* [A Puhti web interface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
+* [Noppe environment for creating custom notebooks](../../cloud/noppe/guide_for_teachers.md#creating-custom-images)
+
 ## Allas
 
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-hpc.md)
@@ -104,8 +110,3 @@ You can find Rahti tutorials in [Cloud Services > Rahti > Tutorials](../../cloud
 ## Visualisation
 
 * [Blender tutorial](blender-tutorial.md)
-
-## CSC Resources for Courses
-
-* [A Puhti webinterface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
-* [Noppe environment for creating custom notebooks](../../cloud/noppe/guide_for_teachers.md#creating-custom-images)
