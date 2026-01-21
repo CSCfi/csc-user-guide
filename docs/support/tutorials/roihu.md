@@ -3,7 +3,7 @@
 This is a quickstart guide for Roihu users. It is assumed that you have
 previously used CSC supercomputing resources like Puhti, Mahti or LUMI. If not,
 you can start by looking at our general
-[getting started with supercomputing guide](../hpc-quick.md). We also recommend
+[getting started with supercomputing guide](hpc-quick.md). We also recommend
 checking the
 [CSC Computing Environment self-learning course materials](https://csc-training.github.io/csc-env-eff/).
 
@@ -76,7 +76,7 @@ recommend that you:
 2. Move your data _directly_ from Puhti or Mahti to Roihu for performance and
    capacity management reasons.
 
-[Read our separate Roihu data migration guide here](data-migration.md).
+[Read our separate Roihu data migration guide here](roihu-data.md).
 
 ## Installing software
 
