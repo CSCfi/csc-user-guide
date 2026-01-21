@@ -3,13 +3,69 @@
 This article describes one of the options to store data in Pouta which
 survive turning off the virtual machine.
 
-Persistent volumes, as the name says, remain even when instances are
-removed. They can be attached to or detached from virtual machines
-while they are running.
+Persistent volumes remain even when instances are removed. They can be
+attached to or detached from virtual machines while they are running.
 
-Persistent volumes use a CEPH cluster. If I/O performance is critical,
-you should not use this kind of volume - it will access your data via
-the network, which inherently causes some latency.
+Persistent volumes use a Ceph cluster. Because data is accessed over the
+network, persistent volumes introduce additional latency and are therefore
+not recommended for latency‑critical or high‑performance workloads. See
+[Ephemeral storage](ephemeral-storage.md)
+
+## Volume Types: Standard vs. Capacity
+
+Pouta provides two persistent volume types: **Standard** and **Capacity**. Both
+use the same Ceph backend, but they differ in performance behavior and cost.
+
+### Standard Volumes
+
+Standard volumes offer predictable performance and are suitable for workloads
+that require responsive storage.
+
+**Key characteristics:**
+
+- Better I/O performance
+- Suitable for most general‑purpose workloads
+- More expensive than Capacity volumes
+
+**Best for:**
+
+- Frequently accessed or active data
+- Applications needing stable responsiveness
+- Moderate database workloads
+
+**Not ideal for:**
+
+- High‑performance or latency‑critical workloads, which perform better on VM
+  flavors with [Ephemeral storage](ephemeral-storage.md).
+- Large datasets where storage cost dominates
+
+### Capacity Volumes
+
+Capacity volumes are designed for storing **large amounts of data** where access
+frequency and performance requirements are low.
+
+**Key characteristics:**
+
+- Lower I/O performance
+- Higher latency compared to Standard volumes
+- Optimized for bulk and long‑term storage
+- Less expensive than Standard volumes
+
+**Best for:**
+
+- Infrequently accessed (“cold”) datasets
+- Long‑term archival storage
+- Backups, snapshots, research datasets
+- Log retention, *as long as the logs are not written actively to the
+  volume* (for example, storing rotated or compressed logs after processing)
+
+**Not ideal for:**
+
+- Live databases
+- Regularly accessed or performance‑sensitive workloads
+- High‑throughput applications
+- Storing active log files due to latency and write limits
+- Any workload requiring low latency
 
 ## Creating and attaching a volume in the Pouta web interface
 
@@ -41,7 +97,12 @@ Persistent volumes can also be created and attached using the command
 line interface:
 
 ```
-openstack volume create --description "<description>" --size <size> <name>
+openstack volume create --description "<description>" --size <size> --type <type> <name>
+```
+
+List volume types:
+```
+openstack volume type list --long
 ```
 
 List existing volumes:
@@ -214,7 +275,7 @@ Similar to the previous persistent volume creation you can identify the volume b
 Finally we need to grow the filesystem of the volume, so that the additional space can be used. Assuming that the filesystem in the volume is xfs, we can grow the filesystem with the following command:
 
     sudo xfs_growfs /dev/vdb
-    
+
 To verify that the filesystem has now the expected size, you can use the following command:
 
     sudo xfs_info /dev/vdb
@@ -236,3 +297,46 @@ You can now expand the volume by passing the volume ID and the new size:
 ```
 openstack volume set <volume-id> --size <volume-size>
 ```
+
+## Change your volume type using the Pouta web interface
+
+!!! warning
+    Before changing the volume type, ensure that the volume is in the **Available** state. It is recommended to unmount the volume and detach it from your machine before proceeding with the type change.
+
+    The operation may take some time depending on your volume size, during which the volume will be temporarily unavailable.
+
+Log in to the Pouta web interface and navigate to the *Volumes* view. Click the arrow symbol next to the **Edit Volume** button for the volume you want to change the type of and select **Change Volume Type**.
+
+![Change Volume Type](../img/change_volume_type_option.png)
+
+In the **Volume Type** selector, choose either **Standard** or **Capacity** depending on your needs and select **On Demand** for the **Migration Policy**. Finally, click the **Change Volume Type** button.
+
+![Change Volume Type windows](../img/change_volume_type_window.png)
+
+Depending on the volume size, the type change operation may take some time. You can monitor the progress in the *Volumes* view. Once the volume status changes back to **Available** or **In-use**, the type change has been completed.
+
+For example, a volume of size 2 TB takes about ~15 minutes.
+
+## Change your volume type using CLI
+
+You can realize the volume type change using the command line interface:
+
+1. First, list the type of volumes available in your project:
+
+```sh
+openstack volume type list --long
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------+-------------------------+
+| ID                                   | Name                 | Is Public | Description                                                              | Properties              |
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------+-------------------------+
+| 2a0e6c60-f717-4f38-ad8b-69faf7bb2b8d | capacity             | True      | Capacity volumes stored on a Ceph backend                                |                         |
+| 025a0a92-8485-443f-bd61-d68b87389447 | standard.multiattach | True      | Multiattachable standard volumes. Available upon request to servicedesk. | multiattach='<is> True' |
+| a54f3f3b-0b10-477c-a5eb-1ecce0ec082a | standard             | True      | Volumes stored on a Ceph backend                                         |                         |
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------+-------------------------+
+```
+
+Now, you can change the volume type by executing:
+
+```sh
+openstack volume set --type VOLUME_TYPE_NAME_OR_ID --retype-policy on-demand YOUR_VOLUME_NAME_OR_ID
+```
+

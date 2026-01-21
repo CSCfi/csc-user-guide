@@ -74,7 +74,7 @@ sudo dnf install -y novnc tigervnc-server
 Create a new user called `vncuser` for example.
 
 ```
-sudo adduser vncuser
+sudo useradd vncuser
 sudo passwd vncuser
 sudo su - vncuser
 ```
@@ -251,7 +251,7 @@ sudo apt install -y tigervnc-standalone-server
 Create a new user called `vncuser` for example.
 
 ```
-sudo adduser vncuser
+sudo useradd vncuser
 sudo su - vncuser
 ```
 
