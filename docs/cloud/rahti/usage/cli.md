@@ -76,7 +76,7 @@ After login with `oc`, it is possible to use the command to generate a token (`o
 
     ```sh
     sudo addgroup --system docker
-    sudo adduser $USER docker
+    sudo useradd $USER docker
     newgrp docker
     sudo snap disable docker
     sudo snap enable docker
