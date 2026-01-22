@@ -48,7 +48,7 @@ current level of identity assurance in [MyCSC](https://my.csc.fi) (select
 _Profile_ and scroll down to _Level of Identity Assurance_).
 
 Users with no or low LoA should read the
-[instructions on how to elevate their assurace level](../../accounts/strong-identification.md).
+[instructions on how to elevate their assurance level](../../accounts/strong-identification.md).
 
 ## 5. Will existing disk quota extensions on Puhti/Mahti automatically apply on Roihu as well?
 
