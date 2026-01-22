@@ -34,8 +34,7 @@ i.e. Finnish universities, universities of applied science, and state research
 institutes, with the details on how they may apply for Puhti hardware. Notably,
 each organization may only submit at most one (1) application.
 
-The deadline for the applications is 19 March 2026, and they should be sent to
-[CSC Service Desk](../../support/contact.md).
+The deadline for the applications is 19 March 2026.
 
 ## 4. Will current CSC accounts and projects be automatically migrated to Roihu?
 
