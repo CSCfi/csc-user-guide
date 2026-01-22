@@ -5,7 +5,11 @@
 
 ## Procedure
 
-1. Deploy an NGINX Image. It is recommended to use `bitnami/nginx`
+1. Deploy an NGINX Image. Start by clicking the 'Quick create' button on top right and select `Container images` option.
+
+    ![Quick create](../../img/quick-create.png)
+
+1. For this exercise it is recommended to use `bitnami/nginx`
 
     ![bitnami/nginx](../../img/bitnami-nginx-deploy.png)
 
@@ -13,12 +17,12 @@
 
     ![route](../../img/create-route-nginx.png)
 
-1. Add a ConfigMap with a server redirection block. Go to **Workloads > ConfigMaps**, click in **Create ConfigMap**. The **Name** will be later used when mounting the ConfigMap. The **Key** will be the name of the file, and the **Value** the content of the file. 
+1. Add a ConfigMap with a server redirection block. Go to **Workloads > ConfigMaps**, click in **Create ConfigMap**. The **Name** will be later used when mounting the ConfigMap. The **Key** will be the name of the file (e.g. `nginx.conf`), and the **Value** the content of the file. 
 
     ```nginx
-    #default.conf
+    #nginx.conf
     server {
-            listen *:8080;
+            listen 8080;
             server_name test.com;
             return 301 $scheme://test2.com$request_uri;
     }
@@ -26,19 +30,22 @@
 
     In this example, `test.com` is the original URL, and `test2.com`  is the one that the user will be redirected to.
 
-1. Mount the Configmap to the nginx deployment as a volume. Go to deployment and add following code in the YAML file.
+1. Mount the Configmap to the nginx deployment as a volume. Go to deployment and make the following additions in the YAML file.
 
     ```yaml
     spec:
-        containers:
-          volumeMounts:
-          - mountPath: /opt/bitnami/nginx/conf/server_blocks
-            name: nginx-conf
+      template:
+        spec:
           volumes:
-          - configMap:
-              defaultMode: 420
-              name: nginx-config
-            name: nginx-conf
+            - name: nginx-conf
+              configMap:
+                name: nginx-conf
+                defaultMode: 420
+          containers:
+            - name: nginx
+              volumeMounts:
+                - name: nginx-conf
+                  mountPath: /opt/bitnami/nginx/conf/server_blocks
     ```
 
     In this example, nginx-conf is the **name** of configMap, nginx-config is the **key** and the ConfigMap has to be mounted in `/opt/bitnami/nginx/conf/server_blocks/`, other images may store the nginx configuration in different folders.
