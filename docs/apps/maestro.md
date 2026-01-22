@@ -97,9 +97,9 @@ university or connected to it via VPN from home.
 !!! warning "Important note"
     Schrödinger version 2025.4 and later have the Job Server system enabled by
     default. Since this is not currently supported at CSC, users who rely on
-    CSC-provided schrodinger.hosts files to write input files to be run on CSC
-    supercomputers must configure their local installation to use the legacy
-    Job Control system. Please do the following:
+    CSC-provided `schrodinger.hosts` files to write input files to be run on
+    CSC supercomputers must configure their local installation to use the
+    legacy Job Control system. Please do the following:
 
     === "Linux / macOS"
 
