@@ -38,9 +38,17 @@ each organization may only submit at most one (1) application.
 
 CSC accounts and projects are not tied to specific services. In other words,
 the same CSC account and projects can be used for different CSC services,
-including Roihu. The only thing you need to do is to
-[add Roihu service access for your project](../../accounts/how-to-add-service-access-for-project.md)
-once Roihu is generally available.
+including Roihu.
+
+To be able to use Roihu, you will need to
+[add Roihu service access for your project](../../accounts/how-to-add-service-access-for-project.md).
+Additionally, all users of the project should have at least a **medium** level
+of identity assurance (LoA) to be able to access Roihu. You can view your
+current level of identity assurance in [MyCSC](https://my.csc.fi) (select
+_Profile_ and scroll down to _Level of Identity Assurance_).
+
+Users with no or low LoA should read the
+[instructions on how to elevate their assurace level](../../accounts/strong-identification.md).
 
 ## 5. Will existing disk quota extensions on Puhti/Mahti automatically apply on Roihu as well?
 
