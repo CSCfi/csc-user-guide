@@ -18,8 +18,8 @@ April 2026. Please observe that delays are still possible.
 
 Puhti compute resources will be shut down one month after Roihu general
 availability. This means that jobs can no longer be submitted. The storage
-will, however, remain accessible at least until the end of June 2026 to allow
-sufficient time for data migration, if needed.
+will, however, remain accessible at least until August 2026 to allow sufficient
+time for data migration, if needed.
 
 Mahti (both compute and storage) will be shut down in August 2026.
 
