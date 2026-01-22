@@ -143,6 +143,7 @@ interactive access and running graphical user interfaces.
 
 ## More information
 
+* [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2025-12-19.pdf)
   (updated 2025-12-19)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
