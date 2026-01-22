@@ -25,7 +25,7 @@ You will find the instructions on how to import the images into your namespace/R
     
     You can find more information on how to push images [here](./images/Using_Rahti_integrated_registry.md)
 
-You can browse the catalog from the webinterface after (1) logging in Rahti and then (2) switching to the Developer view and click in `+Add`.
+You can browse the catalog from the webinterface after (1) logging in Rahti and then (2) Clicking on `Home` -> `Software Catalog`.
 
 ![+Add](../img/rahti-catalog.png)
 
