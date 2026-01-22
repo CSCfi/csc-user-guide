@@ -12,7 +12,7 @@ the Roihu pilot phase will be able to start at the end of March 2026.
 Subsequently, the general availability of the system will be at the end of
 April 2026. Please observe that delays are still possible.
 
-[Read more about the tentative schedule here](../../computing/systems-roihu.md#schedule)
+[Read more about the tentative schedule here](../../computing/systems-roihu.md#schedule).
 
 ## 2. When will Puhti/Mahti be shut down?
 
@@ -89,7 +89,11 @@ while software built on the ARM login nodes will only run on the GPU nodes.
 Similarly, CPU and GPU Slurm jobs can only be submitted from the x86 and ARM
 login nodes, respectively.
 
-## 8. Will Roihu have pre-installed applications available like Puhti and Mahti?
+## 8. What operating system will Roihu have?
+
+The operating system of Roihu will be Red Hat Enterprise Linux (RHEL) 9.
+
+## 9. Will Roihu have pre-installed applications available like Puhti and Mahti?
 
 Yes, we intend to provide a comprehensive pre-installed stack of scientific
 software on Roihu like we currently do on Puhti and Mahti. However, please note
@@ -99,13 +103,19 @@ As before, missing software can be requested to be installed by CSC, and if
 there is enough demand, we will consider creating a system-wise installation.
 We cannot, however, promise to install everything that users might want.
 
-## 9. Will there be a web interface for Roihu like Puhti and Mahti have?
+## 10. Will Tykky be available on Roihu?
+
+Yes, [Tykky](../../computing/containers/tykky.md) (tool for creating
+containerized Conda etc. environments with wrapper scripts) will also be
+available on Roihu.
+
+## 11. Will there be a web interface for Roihu like Puhti and Mahti have?
 
 Yes. The Roihu web interface will provide easy access to the computing and
 storage resources of Roihu. Like the current web interfaces, the Roihu web
 interface will be particularly aimed at interactive workloads and running
 graphical applications like Jupyter Notebooks, RStudio, etc.
 
-## 10. I did not find an answer to my question here. Who should I contact?
+## 12. I did not find an answer to my question here. Who should I contact?
 
 Please send email to [CSC Service Desk](../contact.md). We are happy to help!
