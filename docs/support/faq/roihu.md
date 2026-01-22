@@ -34,6 +34,9 @@ i.e. Finnish universities, universities of applied science, and state research
 institutes, with the details on how they may apply for Puhti hardware. Notably,
 each organization may only submit at most one (1) application.
 
+The deadline for the applications is 19 March 2026, and they should be sent to
+[CSC Service Desk](../../support/contact.md).
+
 ## 4. Will current CSC accounts and projects be automatically migrated to Roihu?
 
 CSC accounts and projects are not tied to specific services. In other words,
@@ -62,14 +65,14 @@ No, users will have to move their data to Roihu themselves, if needed.
 To support data migration, CSC will provide a guide for transferring data
 efficiently to Roihu. The main take-home message of the guide is to only move
 data that you truly need. Dumping everything from Puhti and/or Mahti scratch to
-Roihu "just in case" is not acceptable.
+Roihu "just in case" is not acceptable. Roihu will implement a similar data
+cleanup cycle as Puhti and, as stated above, prior quota extensions on Puhti
+and/or Mahti will not be carried over to Roihu.
 
-Roihu will implement a similar data cleanup cycle as Puhti and, as stated
-above, prior quota extensions on Puhti and/or Mahti will not be carried over to
-Roihu.
-
-You can already now familiarize with the
-[different tools available for moving data to/from/between CSC services](../../data/moving/index.md).
+For performance and capacity management reasons we also highly recommend users
+to move their data directly from Puhti/Mahti to Roihu, not via Allas. You can
+already now familiarize with the
+[different tools available for moving data between CSC services](../../data/moving/index.md).
 
 ## 7. What kind of hardware will Roihu have?
 
