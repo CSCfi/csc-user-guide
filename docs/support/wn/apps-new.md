@@ -1,5 +1,23 @@
 # Applications
 
+## CSC chemistry software stack on LUMI updated, 22.1.2026
+
+The chemistry software stack maintained by CSC on LUMI
+(`/appl/local/csc/soft/chem`) has been recompiled following the recent major
+LUMI upgrade. Modules and instructions for the following software have been
+updated:
+
+* [Amber](../../apps/amber.md)
+* [CP2K](../../apps/cp2k.md)
+* [GROMACS](../../apps/gromacs.md)
+* [LAMMPS](../../apps/lammps.md)
+* [NAMD](../../apps/namd.md)
+* [Quantum ESPRESSO](../../apps/qe.md)
+
+At the same time, certain older module versions have been deprecated. In
+general, we recommend using the most recent software versions as they tend to
+have better performance and less bugs than older releases.
+
 ## PyTorch 2.9.1 available on Puhti and Mahti, 9.1.2026
 
 PyTorch 2.9.1 is now available on Puhti and Mahti, and set as the
