@@ -1,3 +1,6 @@
+!!! warning "Middle level"
+    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and [Helm](../../../support/faq/helm)
+
 # How to deploy a High Available application in Rahti
 
 This is a simple High Available web application deployment in Rahti. 
@@ -108,9 +111,9 @@ For the database we will use a template provided by Rahti:
 
 ```sh
 $ oc new-app --template=postgresql-ephemeral \
-  -p POSTGRESQL_USER=myuser \
-  -p POSTGRESQL_PASSWORD=mypassword \
-  -p POSTGRESQL_DATABASE=mydb \
+  -p POSTGRESQL_USER=postgres \
+  -p POSTGRESQL_PASSWORD=postgres \
+  -p POSTGRESQL_DATABASE=postgres \
   -p DATABASE_SERVICE_NAME=db \
   -n tutorial
 --> Deploying template "tutorial2/postgresql-ephemeral" to project tutorial
@@ -123,9 +126,9 @@ $ oc new-app --template=postgresql-ephemeral \
 
      The following service(s) have been created in your project: db.
      
-            Username: myuser
-            Password: mypassword
-       Database Name: mydb
+            Username: postgres
+            Password: postgres
+       Database Name: postgres
       Connection URL: postgresql://db:5432/
      
      For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.
@@ -134,9 +137,9 @@ $ oc new-app --template=postgresql-ephemeral \
         * Memory Limit=512Mi
         * Namespace=openshift
         * Database Service Name=db
-        * PostgreSQL Connection Username=myuser
-        * PostgreSQL Connection Password=mypassword
-        * PostgreSQL Database Name=mydb
+        * PostgreSQL Connection Username=postgres
+        * PostgreSQL Connection Password=postgres
+        * PostgreSQL Database Name=postgres
         * Version of PostgreSQL Image=10-el8
 
 --> Creating resources ...
