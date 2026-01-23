@@ -1,5 +1,3 @@
-{% set lang = config.theme.language %}
-
 {%- macro translate(phrase_string, lang_code) -%}
 {% set lookup = {
   "Applications available on": {
@@ -16,8 +14,8 @@
 {%- endmacro -%}
 
 {%- macro phrase(phrase_string) -%}
-{%- if lang != "en" -%}
-{{ translate(phrase_string, lang_code=lang) }}
+{%- if config.theme.language != "en" -%}
+{{ translate(phrase_string, lang_code=config.theme.language) }}
 {%- else -%}
 {{ phrase_string }}
 {%- endif -%}

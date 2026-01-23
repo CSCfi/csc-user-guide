@@ -1,19 +1,23 @@
-from pathlib import Path
-
 from classes import DocsHook
 from .config import CatalogConfig
 from .catalog import Catalog
-from .apps import App, DocsApp, AppendixApp
+from .apps import DocsApp, AppendixApp
 from .export import JSONExport, DocsExport
 
 
 class CatalogHook(DocsHook):
-
     def __init__(self, **kwargs):
         super().__init__(self, **kwargs)
+        self.__catalog = \
+            self.__context = \
+                self.__export = \
+                    self.__lang_code = None
+        self.__appendix_lookup = {}
+        self.__template_filename = ""
 
     def __init_catalog(self, config: CatalogConfig, lang_code="en") -> None:
         self.__catalog = Catalog(config)
+        self.__lang_code = lang_code
         self.__context = DocsExport(self.__catalog, config, lang_code=lang_code)
         self.__export = JSONExport(self.__catalog, config)
 
@@ -30,9 +34,10 @@ class CatalogHook(DocsHook):
                                   if item.doc.get("src") is not None}
 
     def __handle_app_page(self, page) -> None:
-        app = DocsApp(page)
+        app = DocsApp(page, lang_code=self.__lang_code)
 
-        for message in app.warnings: self._logger.warning(message)
+        for message in app.warnings:
+            self._logger.warning(message)
         self.__catalog.collect_app(app)
 
     def __handle_appendix_page(self, meta, page) -> None:
@@ -46,7 +51,8 @@ class CatalogHook(DocsHook):
     def __validate(self, config: CatalogConfig) -> None:
         warnings = config.validate()
 
-        for key, warning in warnings: self._logger.warning(f"{key}: {warning}")
+        for key, warning in warnings:
+            self._logger.warning(f"{key}: {warning}")
 
     def __handle_config(self, mkdocs_config) -> None:
         catalog_config = CatalogConfig(mkdocs_config, self._config_dict)

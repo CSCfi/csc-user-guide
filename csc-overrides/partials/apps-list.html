@@ -1,6 +1,3 @@
-{% set lang = config.theme.language | string %}
-{% set desc_key = "description" if lang == "en" else "description_" ~ lang %}
-
 {% from "partials/apps-list-item.html" import app_item with context %}
 {% from "partials/apps-list-phrases.html" import phrase with context %}
 
