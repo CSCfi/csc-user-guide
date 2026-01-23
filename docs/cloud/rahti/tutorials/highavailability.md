@@ -171,7 +171,7 @@ Press CTRL+C to quit
 ```
 
 !!! Info "oc delete pod"
-    You can always accelerate the process and delete the Pod that is crashing by running: `oc delete rahti-ha-tutorial-86467965d5-hn4hp -n tutorial`.
+    You can always accelerate the process and delete the Pod that is crashing by running: `oc delete pod <YOUR_POD_NAME> -n tutorial`.
 
 !!! Info "Single point of failure"
     The database we installed is **not really highly available**. It is not trivial to make PostgreSQL highly available. Explaining how to make this component high available will be too complicated for this tutorial, but there is plenty of documentation available on the internet about the topic.
