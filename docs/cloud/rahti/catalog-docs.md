@@ -40,8 +40,3 @@ You can browse the catalog from the webinterface after (1) logging in Rahti and 
 ![+Add](../img/rahti-catalog.png)
 
 Items labeled **Templates** or **Builder Images** are legacy. **Helm Charts** are recommended for new deployments.
-
-
-!!! Note "Rahti 1 templates in Rahti"
-    Most of the previous templates have been migrated to Helm Charts for Rahti. If you want to use a Rahti 1 template on Rahti, you can find the repo at this [link](https://github.com/CSCfi/rahti-1-templates).  
-    CSC will no longer update these legacy templates, only the Helm Charts.
