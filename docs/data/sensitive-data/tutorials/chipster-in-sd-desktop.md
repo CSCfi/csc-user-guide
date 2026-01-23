@@ -24,7 +24,7 @@ Note that all the users of the SD Desktop machine can use the same Chipster serv
 The installation process starts by contacting CSC servicedesk (servicedesk@csc.fi) to get the Chipster installation files available. 
 Include the [Share ID](../sd-desktop-software.md#step-1-send-a-request) of your CSC project to the request.
 
-Once you have access to the installation files, the actual isntallation process is simple.
+Once you have access to the installation files, the actual installation process is simple.
 Open DataGateway connection. Then use [SD Software installer](../sd-desktop-software.md#customisation-via-sd-software-installer) to install the *CSC tools* toolkit. Next open terminal and give command:
 
 ```text
