@@ -64,7 +64,7 @@ for today.
       service: volumev3
     ```
 
-    See the [Access rules](https://docs.openstack.org/keystone/victoria/user/application_credentials.html#access-rules) upstream documentation for more examples and help. Access Rules have a lot of granularity and it can be complex to craft the exact rules you need.
+    See the [Access rules](https://docs.openstack.org/keystone/victoria/user/application_credentials.html#access-rules) upstream documentation for more examples and help. Access Rules have a lot of granularity and it can be complex to craft the exact rules you need. See [Troubleshooting tips](#troubleshooting-tips) below for more information.
 
 9. The `Unrestricted (dangerous)` check-box will allow your application credentials to
 create new application credentials. You should never give an application or automation any credentials that have this permission.
@@ -128,25 +128,163 @@ See the comment on the file itself on how to use it.
 
     It is a good idea to test that the application credentials are allowed to do what you expect them to be able to do. It is also a good idea to verify that they are **NOT** allowed to do what you expect them not to be allowed to do.
 
+### Examples
+
+#### Credentials that can do every action
+
+This is the simplest possible example, but also the one that offers the least advantages versus just using your password. We are going to create application credentials that allow every action that a your user can do (but creating other application credentials or keystone trusts). The main advantage is that you do not need to use your password anymore to use Openstack command line of API operations, less exposure of your password is a good step for security.
+
+![I can do it all](../img/Application-Credentials-doitall.png)
+
+To do this you simply create an application credential leaving every field empty but the name and (for tests) the expiration date. Set any name that is descriptive and input a date not very far in the future.
+
+#### Credentials that only allow to list servers
+
+This is the opposite than the previous example, we want to only be able to list servers and their information. For this we only need to add to **Access Rules** this JSON:
+
+```json
+[
+  {
+   "service": "compute",
+   "method": "GET",
+   "path": "/v2.1/servers/**"
+  }
+]
+```
+
+So it looks like:
+
+![Application Credentials only list servers](../img/Application-Credentials-onlylistservers.png)
+
+Click in create, and download and source the YAML file with the credentials. After that you can try to run few commands.
+
+* These commands will work:
+
+  - openstack server list
+  - openstack server show <ID>
+  - openstack server event list <ID>
+
+* These commands will not:
+
+  - openstack server reboot <ID>
+  - openstack volume list
+  - ...
+
+  You can try to run these and other command and see what happens. A good learning technique is to run the command with the option `--debug`, so you can see all the API calls and you can add more methods to it.
+
+#### Credentials to create and delete servers
+
+This one could be more useful on a more realistic and useful scenario. The application credential we will create will allow to create and delete servers. One possible use is for an automatic system that manages a website and is prepares to create and delete VMs based on load. For such system to work, we need something that runs on a server and it is monitoring the load on the servers and based on some logic (mantain the total CPU load below 80%) connect to OpeStack's API and create or delete VMs. For anything that resides on a server, we always have to be aware that there is the possibility that credentials leak, and if this happens we do not want that to happen to an account password. We are not going to explain how such system can be deployed, only the application credentials part of it.
+
+The `JSON` we will use is:
+
+```json
+[
+  {
+    "service": "compute",
+    "method": "POST",
+    "path": "/v2.1/servers"
+  },
+  {
+    "service": "compute",
+    "method": "DELETE",
+    "path": "/v2.1/servers/*"
+  },
+  {
+    "service": "compute",
+    "method": "GET",
+    "path": "/v2.1/servers*"
+  },
+  {
+    "service": "image",
+    "method": "GET",
+    "path": "/v2/*"
+  },
+  {
+    "service": "network",
+    "method": "GET",
+    "path": "/v2.0/*"
+  },
+  {
+    "service": "network",
+    "method": "POST",
+    "path": "/v2.0/ports"
+  },
+  {
+    "service": "network",
+    "method": "DELETE",
+    "path": "/v2.0/ports/*"
+  },
+  {
+    "service": "placement",
+    "method": "GET",
+    "path": "/"
+  }
+]
+```
+
+The command we will run later to test the application credenials is:
+
+```sh
+openstack server create test-app-credentials --flavor standard.large --image Ubuntu-24.04
+```
+
 ### Troubleshooting tips
 
-  * You can review the application credentials by running:
+  1. First list the credentials that are active on the system by running:
 
     ```sh
-    $ openstack application credential list
+    openstack application credential list
     ```
 
-    and to see single application credential:
+    For example:
 
     ```sh
-    $ openstack application credential show <name>
+    $ openstack application credential list              
+    +----------------------------------+----------+----------------------------------+----------------+----------------------------+
+    | ID                               | Name     | Project ID                       | Description    | Expires At                 |
+    +----------------------------------+----------+----------------------------------+----------------+----------------------------+
+    | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | Test     | bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb | Test for docs  | 2026-02-01t00:00:00.000000 |
+    | cccccccccccccccccccccccccccccccc | Test2    | bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb | Test2 for docs | 2026-02-02t00:00:00.000000 |
+    | dddddddddddddddddddddddddddddddd | Test3    | bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb | Test3 for docs | 2026-02-03t00:00:00.000000 |
+    +----------------------------------+----------+----------------------------------+----------------+----------------------------+
     ```
 
-    It is also possible to see the rules on the [Application Credentials](https://pouta.csc.fi/dashboard/identity/application_credentials/) page by clicking on the name of the credential.
+    Review that the name and the ID correspond and that they are not expired.  
 
-    If you add `--debug` to any command you run, you will see a much more detailed output including API calls.
+  1. In order to see a single application credential:
 
-  * Before sourcing the application credentials file, make sure you do not have any other OpenStack variables (`env | grep OS`). Otherwise you will get this failure:
+    ```sh
+    openstack application credential show <name>
+    ```
+
+    For example:
+
+    ```
+    $ openstack application credential show Test
+    +--------------+---------------------------------------------------+
+    | Field        | Value                                             |
+    +--------------+---------------------------------------------------+
+    | description  | Test for docs                                     |
+    | expires_at   | 2026-02-01t00:00:00.000000                        |
+    | id           | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa                  |
+    | name         | Test                                              |
+    | project_id   | bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb                  |
+    | roles        | object_store_user creator member heat_stack_owner |
+    | system       | None                                              |
+    | unrestricted | False                                             |
+    | user_id      | exampleuser                                       |
+    +--------------+---------------------------------------------------+
+    ```
+  
+    It is also possible to see the rules on the [Application Credentials](https://pouta.csc.fi/dashboard/identity/application_credentials/) page by clicking on the name of the specific credential:
+
+    ![Application credentials](../img/ApplicationCredentials.png) 
+
+    !!! Info "See API calls" 
+        If you add `--debug` to any command you run, you will see a much more detailed output including API calls.
+
+  1. Before sourcing the application credentials file, make sure you do not have any other OpenStack variables (`env | grep OS`). Otherwise you will get this failure:
 
     ```sh
     $ openstack server list
@@ -155,6 +293,11 @@ See the comment on the file itself on how to use it.
 
     Please try again (the sourcing and the command) in a _clean_ terminal.
 
-  * In order to fine tune the Access Rules, you can see all the API endpoints in the [API access](https://pouta.csc.fi/dashboard/project/api_access/) page in the web interface. You can also see the same information by running the command `openstack catalog list`.
+  1. In order to fine tune the Access Rules, you can see the [Access rules](https://docs.openstack.org/keystone/victoria/user/application_credentials.html#access-rules) upstream documentation for more examples and help. Access Rules have a lot of granularity and it can be complex to craft the exact rules you need.
 
-  * The `Object Store` API is not within `Pouta`, but `Allas`. This means that they do not support `Access Rules`. If `Access Rules` are used no access to Allas will be possible using them, no matter the configuration used.
+  1. You can see the current list of API endpoints and its version in the [API Access](https://pouta.csc.fi/dashboard/project/api_access/) page. You will be asked to authenticate.
+
+    ![Xena API](../img/Xena-API.png)
+
+    !!! Error "Allas not supported by Application credentials"
+        The `Object Store` API is not within `Pouta`, but `Allas`. This means that Allas does not support `Access Rules`. If `Access Rules` are used, no access to Allas will be possible using them, no matter the configuration used.
