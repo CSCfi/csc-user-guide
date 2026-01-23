@@ -20,6 +20,6 @@ Note that all the users of a SD Desktop mechine can use the same Chipster server
 cases it is good practice to assing a one user as a "Chipster managers" that install an 
 manage the Chipster server.
 
-Installatio
+Installation
 
 First contact CSC serviedesk to get the Chipster installatin files available 
