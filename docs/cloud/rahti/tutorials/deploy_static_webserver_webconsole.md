@@ -11,14 +11,14 @@ How to set up a static web server in Rahti.
 2. In the Openshift web console, in left hand side menu, click on `Software Catalog` under `Home` dropdown list. 
     ![Select-httpd](../../img/select-http.png)
 
-3. To create an application, search for _Apache HTTP Server_, click the _Apache HTTP Server_, and select _Instantiate Template_ on the pop-up window on the right.
+3. To create an application, search and click _Apache HTTP Server_, since templets are deprecated now, please use builder image only. Now, click on  _create_ on the pop-up window on the right.
     ![Instantiate-template](../../img/click-template.png)
 
 4. Type in the source Git repository containing the content to be
-    served. Click _Create_ . Here, the sample content is used, and the application is created in the project namespace you provided.
+    served. You can also try sample by clicking on _Try sample_ . Now, Click _Create_ . The application will be created in the project namespace you provided.
     ![type-in-git](../../img/type-git.png)
 
-5. Click on _Topology_ under `Workloads` in the navigation panel to Navigate to the newly created project and Click name of the project from the graphical map of running applications. Select _Details_ on the pop-up window on the right. Now, the OpenShift dashboard should display information about the application.
+5. Click on _Topology_ under `Workloads` in the navigation panel to Navigate to the newly created project and Click name of the project from _project_ list . Select _Details_ on the pop-up window on the right. Now, the OpenShift dashboard should display information about the application.
     ![new-project-deployment-config](../../img/click-deploymentConfig.png)
 
  This application is available at _Resources_ on the pop-up window on the right under the last field _Routes_ .
