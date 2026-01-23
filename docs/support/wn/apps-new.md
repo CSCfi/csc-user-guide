@@ -18,6 +18,9 @@ At the same time, certain older module versions have been deprecated. In
 general, we recommend using the most recent software versions as they tend to
 have better performance and less bugs than older releases.
 
+Please contact [CSC Service Desk](../contact.md) if you notice any issues with
+the modules.
+
 ## PyTorch 2.9.1 available on Puhti and Mahti, 9.1.2026
 
 PyTorch 2.9.1 is now available on Puhti and Mahti, and set as the
