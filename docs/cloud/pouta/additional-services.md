@@ -105,9 +105,6 @@ All our floating IPs are by default mapped to a hostname, for example:
 fip-86-50-168-120.kaj.poutavm.fi has address 86.50.168.120
 ```
 
-!!! info "Retired `vmXXX` entries (27th October 2025)"
-    After the 27th October 2025 the old `vmXXX` DNS records will no be available. Contact us (<servicedesk@csc.fi>) if you have any question or issue.
-
 These default DNS records do also have the reverse DNS entry. To find the hostname of a floating IP, you can use `host` command:
 
 ```sh

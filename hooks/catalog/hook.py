@@ -6,6 +6,7 @@ from .export import JSONExport, DocsExport
 
 
 class CatalogHook(DocsHook):
+
     def __init__(self, **kwargs):
         super().__init__(self, **kwargs)
         self.__catalog = \

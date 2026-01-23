@@ -19,8 +19,12 @@ listing_order:
   # true (mapping-valued) will appear (in undefined order) below the categories
   # listed here.
   #
-  # Examples include the license type 'Other' and the 'Miscellaneous'
-  # discipline.
+  # Categories not included below (string-valued) and categories
+  # with the 'fallback' key set to 'true' (mapping-valued) will
+  # appear (in undefined order) below the categories listed here.
+  #
+  # Examples include the license type 'Other' (not included below)
+  # and the 'Miscellaneous' discipline (fallback: true).
   license_types:
     - Free
     - Academic
@@ -118,9 +122,3 @@ appendix:
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201902131"
-
-  - name: "MySQL"
-    description: "MySQL database client"
-    disciplines:
-      - "Miscellaneous"
-    doc: "data/kaivos/overview.md"

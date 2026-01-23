@@ -1,5 +1,17 @@
 # Systems
 
+!!! warning "Puhti and Mahti retirement in 2026"
+    Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
+    next-generation supercomputer offering enhanced performance and
+    capabilities.
+
+    * Puhti computing services will be shut down one month after Roihu general
+      availability in spring 2026.
+    * Puhti storage will remain accessible until August 2026.
+    * Mahti will be shut down in August 2026.
+
+    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
+
 CSC's computing environment consists of supercomputers Puhti and
 Mahti. Puhti and Mahti have a
 fairly similar compute environment, and there is a wide range of
@@ -11,25 +23,6 @@ In addition to the national resources, CSC's data center in Kajaani hosts the
 pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has
 been available since early 2022, while the largest partition of the system
 consisting of GPU-accelerated nodes became available in 2023.
-
-CSC's national supercomputers Puhti and Mahti will be replaced in 2026 by a new
-system, Roihu.
-
-## LUMI
-
-LUMI is one of the three European pre-exascale supercomputers. It's an HPE Cray
-EX supercomputer consisting of several partitions targeted for different use
-cases. The largest partition of the system is the "LUMI-G" partition consisting
-of GPU accelerated nodes using a future-generation AMD Instinct GPUs. In
-addition to this, there is a smaller CPU-only partition, "LUMI-C" that features
-AMD EPYC "Milan" CPUs and an auxiliary partition for data analytics with large
-memory nodes and some GPUs for data visualization. Besides partitions dedicated
-to computation, LUMI also offers several storage partitions for a total of 117
-PB of storage space.
-
-- [LUMI user documentation](https://docs.lumi-supercomputer.eu/)
-- [A more technical description of LUMI](https://docs.lumi-supercomputer.eu/hardware/)
-- [How does LUMI-C differ from Mahti?](lumi-vs-mahti.md)
 
 ## Puhti
 
@@ -76,7 +69,7 @@ Mahti is more limited than in Puhti.
 
 - [A more technical description of Mahti](systems-mahti.md)
 
-## Roihu (coming soon)
+## Roihu (coming in spring 2026)
 
 CSC's next national supercomputer Roihu, a BullSequana XH3000 hybrid system,
 will replace the Puhti and Mahti supercomputers. Roihu will be located in
@@ -84,3 +77,19 @@ CSC's Kajaani data center, and it is projected to be in researchers' use early
 2026.
 
 - [More information about Roihu](systems-roihu.md)
+
+## LUMI
+
+LUMI is one of the three European pre-exascale supercomputers. It's an HPE Cray
+EX supercomputer consisting of several partitions targeted for different use
+cases. The largest partition of the system is the "LUMI-G" partition consisting
+of GPU accelerated nodes using a future-generation AMD Instinct GPUs. In
+addition to this, there is a smaller CPU-only partition, "LUMI-C" that features
+AMD EPYC "Milan" CPUs and an auxiliary partition for data analytics with large
+memory nodes and some GPUs for data visualization. Besides partitions dedicated
+to computation, LUMI also offers several storage partitions for a total of 117
+PB of storage space.
+
+- [LUMI user documentation](https://docs.lumi-supercomputer.eu/)
+- [A more technical description of LUMI](https://docs.lumi-supercomputer.eu/hardware/)
+- [How does LUMI-C differ from Mahti?](lumi-vs-mahti.md)

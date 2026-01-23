@@ -3,7 +3,6 @@ from pathlib import Path
 
 import humps
 from markdown.extensions.toc import slugify, unique as unique_slug
-from markdown.extensions.toc import slugify, unique as unique_slug
 
 from .catalog import Catalog
 from .config import CatalogConfig
