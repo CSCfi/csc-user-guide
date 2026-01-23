@@ -46,7 +46,7 @@ def _translate_markdown(content,
             instructions=prompt_template.substitute(source=source_language,
                                                     target=target_language),
             input=content,
-            max_output_tokens=_estimate_max_tokens(openai_model, content)
+            #max_output_tokens=_estimate_max_tokens(openai_model, content)
         )
 
         return response.output_text
