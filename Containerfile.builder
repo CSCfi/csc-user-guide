@@ -1,4 +1,5 @@
-FROM ubi8/python-311
+ARG python_image=ubi8/python-311
+FROM ${python_image}
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 

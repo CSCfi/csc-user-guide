@@ -1,5 +1,9 @@
+ARG restic_image=ghcr.io/restic/restic
+ARG translator_image
 ARG builder_image
-FROM ghcr.io/restic/restic AS restic_snapshots
+ARG nginx_image=ubi8/nginx-124
+
+FROM ${restic_image} AS restic_snapshots
 
 RUN \
   restic --json snapshots --path /tmp/docs/${LANG_CODE} \
@@ -12,7 +16,7 @@ RUN \
            latest
 
 
-FROM ${builder_image} AS builder_translate
+FROM ${translator_image} AS translator
 
 ARG repo_org=CSCfi
 ARG repo_name=csc-user-guide
@@ -48,8 +52,8 @@ RUN \
 
 FROM restic_snapshots AS restic_backup
 
-COPY --from=builder_translate /tmp/fresh_translation /tmp/docs/${LANG_CODE}
-COPY --from=builder_translate /tmp/commit_sha.txt /tmp
+COPY --from=translator /tmp/fresh_translation /tmp/docs/${LANG_CODE}
+COPY --from=translator /tmp/commit_sha.txt /tmp
 
 RUN \
   cd /tmp/docs/${LANG_CODE} \
@@ -61,10 +65,12 @@ RUN \
          ./
 
 
-FROM builder_translate AS builder_mkdocs
+FROM ${builder_image} AS builder
 
 USER 0
 ADD .git-revision-date-ignore-revs mkdocs_${LANG_CODE}.yml .
+COPY --from=translator /tmp/fresh_translation /tmp/fresh_translation
+COPY --from=translator /tmp/.git /tmp/src/.git
 RUN \
   mv /tmp/src/{.git,docs} . \
 && \
@@ -85,11 +91,11 @@ RUN \
                --config-file="mkdocs_${LANG_CODE}.yml"
 
 
-FROM registry.access.redhat.com/ubi8/nginx-124
+FROM ${nginx_image}
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-COPY --from=builder_mkdocs /tmp/site "${NGINX_APP_ROOT}/src"
+COPY --from=builder /tmp/site "${NGINX_APP_ROOT}/src"
 ADD nginx.conf "${NGINX_CONF_PATH}"
 
 EXPOSE 8000/tcp
