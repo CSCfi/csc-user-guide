@@ -1,67 +1,62 @@
 #! /usr/bin/env python3
 """Refresh stale translation.
 """
-import os
 import sys
-import pathlib
 import logging
+import pathlib
 
 from git import Repo
 
+from translator import DEFAULTS
+from translator.repo import sparse_checkout, copy_git_dir
+from translator.utils import read_commit_sha, write_head_sha, batch, md_filter
+from translator.persistence import SwiftCache as TranslationCache
+from translator.pages import Translations
 from translator.api import translate_batch
-from translator.diff import handle_diff
-from translator.utils import (read_commit_sha,
-                              md_filter,
-                              get_diff,
-                              write_head_sha,
-                              batch)
+
 
 logger = logging.getLogger(__name__)
 
-# Get language code from environment
-try:
-    # Map language codes to language names
-    languages = {
-        "fi": "Finnish"
-    }
 
-    lang_code = os.environ["LANG_CODE"]
-    LANGUAGE = languages[lang_code]
-except KeyError:
-    logger.error("Missing or invalid LANG_CODE in environment.")
-    sys.exit(1)
+def _main(dest_dir: str, head_sha_output_path: str):
+    repo_path = sparse_checkout()
+    repo = Repo(repo_path)
 
+    head_commit_sha = repo.head.commit.hexsha
+    head_tree = repo.head.commit.tree[DEFAULTS.docs_dir]
+    latest_commit_sha = read_commit_sha()
+    latest_tree = repo.commit(latest_commit_sha).tree[DEFAULTS.docs_dir]
 
-def main(repo_dir: str, dest_dir: str, head_sha_output_path: str,
-         docs_dir="docs", batch_size=8):
-    """(Re-)translates Markdown files under repo_dir/docs_dir/, to language
-    correspondig to lang_code, if they have been changed between the commit
-    read from $CWD/snapshot.json and the HEAD of git repository in repo_dir.
+    logger.info("Handling diff %s...%s.",
+                latest_commit_sha,
+                head_commit_sha)
 
-    Translated Markdown files are placed in dest_dir, following the directory
-    structure in repo_dir. The commit hash of repo_dir HEAD is written to
-    head_sha_output_path.
-    """
-    git_repo = Repo(repo_dir)
-    commit_sha = read_commit_sha()
-    filtered_diff = filter(md_filter,
-                           get_diff(git_repo, docs_dir, commit_sha))
+    diff_index = latest_tree.diff(head_tree)
+    translations = Translations(repo_path / DEFAULTS.docs_dir,
+                                pathlib.Path(dest_dir),
+                                TranslationCache(repo_path))
+    for diff_obj in filter(md_filter, diff_index):
+        translations.append(diff_obj)
 
-    logger.info("Handling diff %s...%s",
-                commit_sha,
-                git_repo.head.commit.hexsha)
+    for page in translations.pending:
+        page.pending_operation()
 
-    files_to_translate = handle_diff(filtered_diff,
-                                     pathlib.Path(repo_dir) / docs_dir,
-                                     pathlib.Path(dest_dir))
+    n_pages = len(translations)
+    logger.info("%s pages to translate.",
+                "No" if n_pages < 1 else str(n_pages))
 
-    logger.info("%i files to translate", len(files_to_translate))
+    for file_batch in batch(translations, n=DEFAULTS.batch_size):
+        translate_batch(file_batch)
 
-    for file_batch in batch(files_to_translate, n=batch_size):
-        translate_batch(file_batch, LANGUAGE)
-
-    write_head_sha(git_repo, head_sha_output_path)
+    copy_git_dir(dest_dir)
+    write_head_sha(head_commit_sha, head_sha_output_path)
+    translations.complete()
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    try:
+        _main(sys.argv[1], sys.argv[2])
+    except IndexError as e:
+        logger.error("Error reading command-line arguments: %s", str(e))
+
+        raise

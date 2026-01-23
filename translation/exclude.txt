@@ -1,5 +1,6 @@
 # Excluded entirely:
 ref.md
+img/csc-quick-reference/README.md
 
 # Excluded from (re-)translation:
 apps/index.md

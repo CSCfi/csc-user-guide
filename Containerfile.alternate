@@ -21,33 +21,20 @@ FROM ${translator_image} AS translator
 ARG repo_org=CSCfi
 ARG repo_name=csc-user-guide
 ARG repo_branch=master
+ENV REPO_ORG=${repo_org}
+ENV REPO_NAME=${repo_name}
+ENV REPO_BRANCH=${repo_branch}
 
 COPY --from=restic_snapshots /tmp/snapshots.json .
 COPY --from=restic_snapshots /tmp/stale_translation /tmp/fresh_translation
-
-ADD translation translation
+ADD translation/exclude.txt .
 
 USER 0
-RUN \
-  chown -R 1001:0 /tmp/fresh_translation
+RUN chown -R 1001:0 /tmp/fresh_translation snapshots.json
 USER 1001
 
-RUN \
-  git clone --no-checkout \
-            --single-branch \
-            --branch=${repo_branch} \
-    https://github.com/${repo_org}/${repo_name} \
-    /tmp/src \
-&& \
-  git -C /tmp/src sparse-checkout init --no-cone \
-&& \
-  git -C /tmp/src sparse-checkout set docs \
-&& \
-  git -C /tmp/src checkout \
-&& \
-  python3 translation/refresh_translation.py /tmp/src \
-                                             /tmp/fresh_translation \
-                                             /tmp/commit_sha.txt
+RUN python3 refresh_translation.py /tmp/fresh_translation \
+                                   /tmp/commit_sha.txt
 
 
 FROM restic_snapshots AS restic_backup
@@ -62,15 +49,17 @@ RUN \
                 --exclude '.*' \
                 --iexclude '* !*.md' \
                 --skip-if-unchanged \
-         ./
+           ./
 
 
 FROM ${builder_image} AS builder
 
-USER 0
+ADD docs /tmp/src/docs
 ADD .git-revision-date-ignore-revs mkdocs_${LANG_CODE}.yml .
 COPY --from=translator /tmp/fresh_translation /tmp/fresh_translation
 COPY --from=translator /tmp/.git /tmp/src/.git
+
+USER 0
 RUN \
   mv /tmp/src/{.git,docs} . \
 && \

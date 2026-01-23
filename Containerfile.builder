@@ -3,11 +3,12 @@ FROM ${python_image}
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-USER 0
 ADD requirements.txt mkdocs.yml .
 ADD csc-overrides ./csc-overrides
 ADD hooks ./hooks
 ADD scripts ./scripts
+
+USER 0
 RUN \
   mkdir /tmp/src \
 && \
