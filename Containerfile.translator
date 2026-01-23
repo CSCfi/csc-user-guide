@@ -3,8 +3,7 @@ FROM ${python_image}
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-# ADD translation/requirements.txt translation/refresh_translation.py .
-ADD translation/requirements.txt translation/translation_dryrun.py .
+ADD translation/requirements.txt translation/refresh_translation.py .
 ADD translation/translator ./translator
 
 RUN \
