@@ -153,7 +153,7 @@ Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavaila
     Run 'oc status' to view your app.
 ```
 
-The template "PostgreSQL Ephemeral" uses memory to store the data, and it is used only for testing as when the Pod of the database is restarted the data is lost. If you want to have a proper production database, we recommend you use [Pukki DBaaS](../../dbaas/index.md).
+The template "PostgreSQL Ephemeral" uses memory to store the data, and it is used only for testing as when the Pod of the database is restarted the data is lost. If you want to have a proper production database, we recommend that you use [Pukki DBaaS](../../dbaas/index.md).
 
 After waiting for some time, the `rahti-ha-tutorial` Pod should restart by itself and the error will be fixed:
 
