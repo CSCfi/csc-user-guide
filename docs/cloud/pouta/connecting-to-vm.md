@@ -10,6 +10,15 @@ This article describes several ways to connect to a running virtual machine. In 
 
 First, you need to check the Virtual Machine status in the **Compute > Instances** view of the Pouta web interface.
 
+!!! warning "SSH keypairs are injected only at VM creation time"
+
+    The selected SSH keypair is injected into the virtual machine **only when the VM is created**.
+
+    Adding or changing a keypair in the Pouta web interface after the VM has already been created will not update the VM, and no new key will appear in `~/.ssh/authorized_keys`.
+
+    If SSH access is lost, use [rescue mode](../../support/faq/pouta-openstack-rescue-mode.md) to recover access.
+
+
 ![VM Status check](../../img/pouta-instance-details.png)
 
 **Figure** The Instances view of the cPouta web interface.
