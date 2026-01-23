@@ -76,7 +76,7 @@ So, in case of the above example the Cloud BU calculation for Rahti 1 is
 
 ![Cloud BU calculation for Rahti 1](./images/Rahti1BU.drawio.svg)
 
-Default limits in Rahti can be set lower than the default quota. Where in Rahti 1 default limit is same as default quota. For more details [Migration to Rahti](../rahti/rahti-migration.md). This can decrease the default costs for the user. For the same example the Cloud BU For Rahti 1:
+Default limits in Rahti can be set lower than the default quota. Where in Rahti 1 default limit is same as default quota. This can decrease the default costs for the user. For the same example the Cloud BU For Rahti 1:
 
 ![Default cost for Rahti 1](./images/Rahti1Requests.drawio.svg)
 
