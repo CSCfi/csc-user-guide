@@ -322,7 +322,7 @@ $ oc patch deployment rahti-ha-tutorial -n tutorial --type='merge' -p '{
       "metadata": {
         "annotations": {
           "prometheus.io/scrape": "true",
-          "prometheus.io/port": "5000",
+          "prometheus.io/port": "5000"
         }
       }
     }
