@@ -12,7 +12,7 @@ search:
 
     * Puhti computing services will be shut down one month after Roihu general
       availability in spring 2026.
-    * Puhti storage will remain accessible at least until the end of June 2026.
+    * Puhti storage will remain accessible until August 2026.
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
