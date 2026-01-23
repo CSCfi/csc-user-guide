@@ -11,7 +11,7 @@ This is a simple High Available web application deployment in Rahti.
 
 In the schema above you can see the end result that you will achieve at the end of this tutorial. We will deploy two URLs, one for the application itself (`app.rahtiapp.fi`), and the other for the monitoring dashboard(s) (`grafana-app.rahtiapp.fi`). The application run on the Frontend section and will have two replicas. The frontend is connected to a postgres database. The monitoring is provided by Grafana and Prometheus, two very commonly used software solutions for monitoring. Prometheus gathers the metrics exposed by the frontend and the database and grafana show the data in nice graphs.
 
-We will deploy each part step by ste, and describe them in more detail while doing so. 
+We will deploy each part step by step, and describe them in more detail while doing so. 
 
 ## Manual deployment
 
