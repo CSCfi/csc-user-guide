@@ -344,7 +344,7 @@ The last thing to do is to test grafana graphs by:
       sleep 1;
       ab -n 200 -c 1 \
           http://rahti-ha-tutorial-tutorial.2.rahtiapp.fi/$RANDOM &
-      ab -n 2000 -c 10 
+      ab -n 2000 -c 10 \
           http://rahti-ha-tutorial-tutorial.2.rahtiapp.fi/;
     done
     ```
