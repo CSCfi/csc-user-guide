@@ -7,12 +7,14 @@ import pathlib
 
 from git import Repo
 
-from translator import DEFAULTS
+from translator import DEFAULTS, TARGET_LANGUAGE
 from translator.repo import sparse_checkout, copy_git_dir
-from translator.utils import read_commit_sha, write_head_sha, batch, md_filter
+# from translator.utils import read_commit_sha, write_head_sha, batch, md_filter
+from translator.utils import read_commit_sha, write_head_sha, md_filter
 from translator.persistence import SwiftCache as TranslationCache
 from translator.pages import Translations
-from translator.api import translate_batch
+# from translator.api import translate_batch
+from translator.api import _translate_markdown
 
 
 logger = logging.getLogger(__name__)
@@ -45,8 +47,12 @@ def _main(dest_dir: str, head_sha_output_path: str):
     logger.info("%s pages to translate.",
                 "No" if n_pages < 1 else str(n_pages))
 
-    for file_batch in batch(translations, n=DEFAULTS.batch_size):
-        translate_batch(file_batch)
+    # for file_batch in batch(translations, n=DEFAULTS.batch_size):
+    #     translate_batch(file_batch)
+    for page in translations:
+        logger.info("Translating '%s' to '%s'.", page.path, TARGET_LANGUAGE)
+        result = _translate_markdown(page.original, TARGET_LANGUAGE)
+        page.write_translation(result)
 
     copy_git_dir(dest_dir)
     write_head_sha(head_commit_sha, head_sha_output_path)
