@@ -441,10 +441,16 @@ nav:
                   - cloud/dbaas/mariadb.md
                   - Accessing your database: cloud/dbaas/mariadb-accessing.md
                   - Permissions: cloud/dbaas/mariadb-permissions.md
-
           - More advanced features: cloud/dbaas/advanced.md
           - Resizing database instance volumes: cloud/dbaas/resize-volume.md
           - Rebuilding database instances: cloud/dbaas/rebuild-database.md
+          - Common performance issues with databases:
+              - MariaDB:
+                  - Error log: cloud/dbaas/perftune-mariadb-errorlog.md
+                  - Common issues: cloud/dbaas/perftune-mariadb.md
+              - PostgreSQL:
+                  - Importance of PostgresSQL log: cloud/dbaas/perftune-postgresql-log.md
+                  - Common issues: cloud/dbaas/perftune-postgresql.md
       - Rahti:
           - cloud/rahti/index.md
           - What is Rahti:
