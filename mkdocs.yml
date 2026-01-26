@@ -533,7 +533,7 @@ nav:
               - Allas connection configuration: data/Allas/using_allas/allas-conf.md          
               - Allas web UI: data/Allas/using_allas/allas-ui.md
               - Puhti/Mahti web UI: computing/webinterface/file-browser.md
-              - a-command: data/Allas/using_allas/a_commands.md
+              - a-commands: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
               - Python with S3: data/Allas/using_allas/python_boto3.md

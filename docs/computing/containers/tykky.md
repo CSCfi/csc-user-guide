@@ -21,12 +21,9 @@ either the whole host file system or a limited subset is visible during executio
 and installation. This means that it's possible to wrap installations using e.g
 `mpi4py` relying on the host-provided MPI installation.
 
-This documentation covers a subset of the functionality and focuses on Conda and
-Python. Most advanced use-cases are not covered here yet.
-
-!!! Warning
-    As Tykky is still under development, some of the more advanced features might
-    change with respect to exact usage and API.
+This documentation covers a subset of the functionality and focuses on Conda and Python. A few
+advanced use-cases are not covered here - for those, see the `README` in the [GitHub
+repository](https://github.com/CSCfi/hpc-container-wrapper).
 
 ## Tykky module
 
@@ -43,6 +40,30 @@ module purge
 ```bash
 module load tykky
 ```
+
+## Overview
+
+Tykky provides the commands `conda-containerize` and `pip-containerize` which produce a
+containerized environment based on a Conda environment file or a pip requirements file
+respectively. The command `wrap-install` wraps an existing Conda installation into a container. The
+command `wrap-container` takes an existing container and adds wrapper scripts to make it work in the
+same way as other tykky-based environments.
+
+In all cases, a containerized environment is produced into a given target directory. That directory
+will contain a `bin/` subdirectory with executables to run. For example, if you are making an
+environment with Python libraries, `bin/python3` would behave like a Python with the given
+dependencies installed. It will run in a container, but thanks to tykky, it will work transparently
+as if it was running directly on the normal system.
+
+If you add the `bin/` directory in your `$PATH` environment variable, the "containerized" commands
+will be run by default, instead of the normal system-provided `python3`. You can also have a [module
+file](../modules.md) do this for you, and in fact that is how many of the modules in the CSC
+environment have been produced.
+
+Instead of manually modifying `$PATH`, you can also activate a tykky installation with `tykky
+activate <install_dir>`, where `<install_dir>` is the target directory tykky used during
+installation. Your prompt will then show `(install_dir)`, and the installed executables will be
+automatically used. You can get back to your previous environment with `tykky deactivate`.
 
 ## Conda-based installation
 
@@ -264,8 +285,3 @@ rsync -al <username>@puhti.csc.fi:<install_dir> .
 ## More complicated example
 
 [Example in tool repository](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md).
-
-## How it works
-
-See the `README` in the source code repository. The source code can be found in the
-[GitHub repository](https://github.com/CSCfi/hpc-container-wrapper).
