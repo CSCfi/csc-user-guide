@@ -94,6 +94,33 @@ licensing to be able to *run* the software.
 requires that your computer is in the FUNET network, i.e. you're at the
 university or connected to it via VPN from home.
 
+!!! warning "Important note"
+    Schrödinger version 2025.4 and later have the Job Server system enabled by
+    default. Since this is not currently supported at CSC, users who rely on
+    CSC-provided `schrodinger.hosts` files to write input files to be run on
+    CSC supercomputers must configure their local installation to use the
+    legacy Job Control system. Please do the following:
+
+    === "Linux / macOS"
+
+        1. Open a terminal and run:
+
+            ```bash
+            $SCHRODINGER/utilities/feature_flags -d JOB_SERVER
+            ```
+
+        2. Restart Maestro if you had the GUI open when running the command.
+
+    === "Windows"
+        
+        1. Open the Schrödinger Command Prompt and run:
+
+            ```bash
+            featureflags off JOB_SERVER
+            ```
+        
+        2. Restart Maestro if you had the GUI open when running the command.
+
 ### Standalone usage on Puhti
 
 !!! info "Puhti vs. Mahti"

@@ -26,7 +26,7 @@ Please don't hesitate to [contact CSC Service Desk](../../support/contact.md) (s
 
 ## Customisation via SD Software Installer
 
-SD Software installer provides an easy-to-use tool to add some commonly used software to SD Desktop (Eg. Rstudio 4.2.2, Whisper, VSCode and GATK). SD Software installer is an application provided by CSC. Users can't add their own tools to the SD Software installer, but you can send requests for new tools to be added by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). To access the application, please follow the step-by-step tutorial below.  
+SD Software installer provides an easy-to-use tool to add some commonly used software to SD Desktop (Eg. Rstudio 4.5.1, Whisper, VSCode and GATK). SD Software installer is an application provided by CSC. Users can't add their own tools to the SD Software installer, but you can send requests for new tools to be added by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). To access the application, please follow the step-by-step tutorial below.  
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r--dx6Mgtug" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -34,14 +34,14 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 
 | **Category**           | **Tool** |
 |------------------------|----------|
-| **Statistics**         | [RStudio 4.4.2](r-in-sd-desktop.md) - R statistics tool with a graphical user interface and help tools for adding libraries. <br> *After installation, right-click the RStudio desktop icon and select: Allow launching.*|
-|                        | [PSPP](https://www.gnu.org/software/pspp/) - Open Source alternative for SPSS statistics tool. <br> *After installation, right-click the PSPP desktop icon and select: Allow launching.*|
-|                        | [Octave](https://octave.org/) - Matlab compatible scientific programming language with graphical user interface <br> *After installation, right-click the Octave desktop icon and select: Allow launching.*|
+| **Statistics**         | [RStudio 4.5.1](r-in-sd-desktop.md) - R statistics tool with a graphical user interface and help tools for adding libraries. <br> *After installation, right-click the RStudio desktop icon and select: Allow launching.*|
+|                        | [PSPP 2.0.1 ](https://www.gnu.org/software/pspp/) - Open Source alternative for SPSS statistics tool. <br> *After installation, right-click the PSPP desktop icon and select: Allow launching.*|
+|                        | [Octave 9.3.0](https://octave.org/) - Matlab compatible scientific programming language with graphical user interface <br> *After installation, right-click the Octave desktop icon and select: Allow launching.*|
 | **Imaging and Videos** | [Audacity](https://www.audacityteam.org/) - Sound editor. <br> *After installation, right-click the Audacity desktop icon and select: Allow launching.*|
 |                        | [ELAN 6.7](https://archive.mpi.nl/tla/elan/) - Annotation tool for audio and video recordings. <br> *After installation, right-click the ELAN desktop icon and select: Allow launching.*|
 |                        | [OpenShot 3.1.1](https://www.openshot.org/) - Video editor. <br> *This tool works only in Ubuntu 22-based virtual desktops. After installation, right-click the OpenShot desktop icon and select: Run as a program.*|
 |                        | [Praat](https://www.fon.hum.uva.nl/praat/) - Toolkit for speech and sound analysis.|
-|                        | [QuPath 0.4.2](https://github.com/qupath/qupath/) - Software for bioimage analysis.|
+|                        | [QuPath 0.6.0](https://github.com/qupath/qupath/) - Software for bioimage analysis.|
 |                        | [Whisper](./tutorials/whisper.md) - Automatic speech recognition.|
 | **Geosciences**        | [QGIS 3.1.1](https://qgis.org/en/site/) - A Free and Open Source Geographic Information System. <br> *[QGIS at CSC servers](../../apps/qgis.md)*|
 | **Biosciences**        | [GATK](https://gatk.broadinstitute.org/hc/en-us) - A genomic analysis toolkit focused on variant discovery.|
@@ -49,12 +49,14 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 |                        | [GCTB 2.05b](https://cnsgenomics.com/software/gctb/#Overview) - Genome-wide Complex Trait Bayesian analysis.|
 |                        | [IGV 2.16.2](https://igv.org/doc/desktop/) - Integrated Genomics Viewer. <br> *After installation, right-click the IGV desktop icon and select: Allow launching.*|
 |                        | [MultiQC 1.10](https://multiqc.info/) - NGS Read quality checking tool.|
+|                        | [PLINK2](https://www.cog-genomics.org/plink/2.0/) - whole genome association analysis toolset.|                   
 |                        | [PRSice 2.0](https://choishingwan.github.io/PRSice/) - Polygenic Risk Score software for calculating, applying, evaluating, and plotting the results of polygenic risk scores (PRS) analyses.|
 |                        | [Regenie 3.3](https://rgcgithub.github.io/regenie/) - Program for whole genome regression modelling of large genome-wide association studies.|
 |                        | [Salmon 1.9.0](https://combine-lab.github.io/salmon/) - Program to produce transcript-level quantification estimates from RNA-seq data. <br> *[Salmon 1.9.0 at CSC servers](../../apps/salmon.md)*|
 | **Miscellaneous**      | **CSC Tools**, includes: <br>[auto-apptainer](./tutorials/auto-apptainer.md) - Tool to add command line applications using the Apptainer container library provided by CSC.<br> [Backup tool](./tutorials/backup_sd_desktop.md) - Help tool to automate backup and export in SD Desktop.<br> [chipster-installer.sh](./tutorials/chipster-in-sd-desktop.md) - Tool to install local Chipster server to SD Desktop. |
 |                        | [add-python-lib](./tutorials/sd-pythonlibs.md) - Help tool to add Python libraries.|
 |                        | [ARX](https://arx.deidentifier.org/) - Data anonymization tool|
+|                        | [Etherpad](https://etherpad.org/) - tool for collaborative editing (requires Podman compatible virtual machine) | 
 |                        | [OpenRefine](https://openrefine.org/) - Data pre-prosessing and conversion tool for various data formats.|
 |                        | [VS Code 1.90.2](./tutorials/vscode.md) - Code editor. <br> *After installation, right-click the VS Code desktop icon and select: Allow launching.*|
 |                        | [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html) - Data mining software.|

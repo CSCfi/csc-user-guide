@@ -1,4 +1,18 @@
 # Cloud services
+## New Volume Type available in Pouta: Capacity Volumes, 14.1.2026
+
+We are releasing a new volume type in Pouta: Capacity Volumes. Capacity Volumes are designed for workloads that require large amounts of storage at a lower cost, such as data archiving, backups, and big data applications. Capacity Volumes offer a cost-effective solution for storing large datasets.
+
+You can check this [link](../../cloud/pouta/persistent-volumes.md#capacity-volumes) for more information about Capacity Volumes.
+
+## Small changes in Pouta's cloud images creation, 2.12.2025
+
+Since end of November of 2025, newly created Public images in Pouta will create the ephemeral partitions as ext4 instead of vfat. This won't be
+an issue for most people but in some cases, you might expect a certain file system format.
+
+## New database minor versions available in Pukki, 25.11.2025
+
+PostgreSQL 17.7 and 14.20 and MariaDB 11.4.8 are now available in Pukki DBaaS. See [PostgreSQL's](https://www.postgresql.org/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/) and [MariaDB's](https://mariadb.com/docs/release-notes/community-server/11.4/11.4.8) documentation for release notes.
 
 ## Allas Web UI improvements, 14.11.2025
 

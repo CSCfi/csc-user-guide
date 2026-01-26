@@ -21,6 +21,11 @@ CSC is gradually rolling out MFA across all of our services. Currently, the foll
 * **Puhti web interface**
 * **Mahti web interface**
 * **MyCSC**
+* **Pouta web interface**
+* **Rahti web interface**
+* **Pukki web interface**
+* **Allas web interface**
+
   
 ## MFA Instructions for users logging in with Haka credentials
 
@@ -59,7 +64,7 @@ If you are using CSC login and have forgotten your CSC user account password, [*
 
 ### Step 2: Scan QR code
 
-Scan the QR code shown in the MyCSC portal using your authentication app. Below you can see an example image of a QR code.
+**Open the authentication app** and scan the QR code shown in the MyCSC portal using your authentication app. Below you can see an example image of a QR code.
 
 ![scan QR code](images/small/mfa-scan-qr-code.png 'Scan the QR code')
 

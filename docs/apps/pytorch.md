@@ -19,12 +19,31 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
+    **23.1.2026** Since the LUMI service break 21.1.2026, the CSC PyTorch
+    installations no longer work with the fast Slingshot network due to
+    binary incompatibilities with the new drivers. This means that
+    multi-node jobs are expected to be 10-20% slower than before. 
+    See further [LUMI installation notes below](#lumi-note).
+    
+    **9.1.2026** PyTorch 2.9.1 installed to Puhti and Mahti, and made the
+    default version. Apex was removed, since the library has been
+    deprecated for a long time already. SGLang is also not included in
+    this version due to incompatibilities with libraries required by
+    vLLM. Added litgpt, ultralytics, sahi and torchgeo.
+    
+    New PyTorch versions for LUMI are being prepared by the [new LUMI AI
+    Factory](https://lumi-ai-factory.eu/) and are expected to be released
+    during the early spring.
+
     **8.7.2025** PyTorch 2.7.1 installed to Puhti and Mahti, and made the
     default version. This version includes
     [SGLang](https://docs.sglang.ai/), note however that SGLang only
     supports Mahti due to the older GPU architecture on Puhti.
     
     **26.6.2025** PyTorch 2.7.1 installed to LUMI, and made the default version. 
+    
+
+??? info "Older news (click to show)"
 
     **10.4.2025** PyTorch 2.6.0 installed to Puhti and Mahti, and made the
     default version. Includes the most recent versions of popular packages
@@ -33,7 +52,7 @@ Machine learning framework for Python.
     newer versions of PyTorch.
 
     **20.1.2025** PyTorch 2.5.1 set as the default version on all supercomputers.
-
+    
     **20.12.2024** PyTorch 2.5.1 with ROCm 6.2 added to LUMI. Includes all
     the usual packages plus experimental support for FAISS.
     
@@ -93,37 +112,42 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module         | Puhti | Mahti | LUMI | Notes                      |
-|:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.7.1   | `pytorch/2.7`  | X     | X     | X    | Default                    |
-| 2.6.0   | `pytorch/2.6`  | X     | X     | -    |                            |
-| 2.5.1   | `pytorch/2.5`  | X     | X     | X    |                            |
-| 2.4.1   | `pytorch/2.4`  | -     | -     | X    |                            |
-| 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
-| 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |
-| 2.2.2   | `pytorch/2.2`  | -     | -     | X    |                            |
-| 2.2.1   | `pytorch/2.2`  | X     | X     | -    |                            |
-| 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                            |
-| 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                            |
-| 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
-| 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
-| 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
-| 1.13.0  | `pytorch/1.13` | X     | X     | -    |                            |
-| 1.12.0  | `pytorch/1.12` | X     | X     | -    |                            |
-| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                            |
-| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -    |                            |
-| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -    |                            |
-| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                            |
-| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                            |
+| Version | Module         | Puhti | Mahti | (LUMI)<br/>*see notes below* | Notes                    |
+|:--------|----------------|:-----:|:-----:|------|:-------------------------|
+| 2.9.1   | `pytorch/2.9`  | X     | X     | -    | Default on Puhti, Mahti  |
+| 2.7.1   | `pytorch/2.7`  | X     | X     | (X)  | No Slingshot (see below) |
+| 2.6.0   | `pytorch/2.6`  | X     | X     | -    |                          |
+| 2.5.1   | `pytorch/2.5`  | X     | X     | (X)  |                          |
+| 2.4.1   | `pytorch/2.4`  | -     | -     | (X)  |                          |
+| 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers |
+| 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers |
+| 2.2.2   | `pytorch/2.2`  | -     | -     | (X)  |                          |
+| 2.2.1   | `pytorch/2.2`  | X     | X     | -    |                          |
+| 2.1.2   | `pytorch/2.1`  | -     | -     | (X)  |                          |
+| 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                          |
+| 2.0.1   | `pytorch/2.0`  | -     | -     | (X)  |                          |
+| 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                          |
+| 1.13.1  | `pytorch/1.13` | -     | -     | (X)  |                          |
+| 1.13.0  | `pytorch/1.13` | X     | X     | -    |                          |
+| 1.12.0  | `pytorch/1.12` | X     | X     | -    |                          |
+| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                          |
 
 Includes [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.
 
-Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
-(RHEL7) images, and are no longer fully supported. In particular MPI
-and Horovod are not expected to work anymore with these modules. If
-you still wish to access these versions, you need to enable old RHEL7
-modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
+!!! warning "<span id="lumi-note">LUMI installations</span>"
+
+    LUMI installations, marked with "(X)" in the table above, no longer support the fast
+    Slingshot network due to binary incompatibilities with the new drivers
+    installed in the LUMI service break 21.1.2026. This means that
+    multi-node jobs are expected to be 10-20% slower than before. For
+    single-node jobs, there is no difference. **For multi-node jobs on
+    LUMI, we recommend using the AMD-provided containers, which can be
+    found in the `/appl/local/containers/sif-images/` directory in
+    LUMI. See the [Environment setup section in the LUMI AI
+    Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/2-setting-up-environment)
+    for instructions on how to use these containers.**
+
 
 If you find that some package is missing, you can often install it
 yourself using `pip install`. It is recommended to use Python virtual
@@ -176,7 +200,7 @@ with:
 module load pytorch
 ```
 
-To access PyTorch on LUMI:
+To access PyTorch on LUMI - see the [caveats about the LUMI installation above](#lumi-note).
 
 ```text
 module use /appl/local/csc/modulefiles/
@@ -187,7 +211,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load pytorch/2.7
+module load pytorch/2.9
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries,
@@ -229,7 +253,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.7
+    module load pytorch/2.9
     srun python3 myprog.py <options>
     ```
 
@@ -243,7 +267,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.7
+    module load pytorch/2.9
     srun python3 myprog.py <options>
     ```
 
