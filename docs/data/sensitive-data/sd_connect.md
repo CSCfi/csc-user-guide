@@ -23,6 +23,7 @@ You can browse through the main topics of the manual using the navigation bar on
 <div class="grid cards" markdown>
 
 - :material-check-circle-outline:{ .lg .middle .csc-color-brightgreen } **Key features**
+{ .csc-grid-card-success }
 
     ---
 
