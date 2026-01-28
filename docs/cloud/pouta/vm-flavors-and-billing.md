@@ -2,9 +2,9 @@
 
 Currently, Pouta will bill for the use of 3 resources: storage volumes, floating IPs and virtual machines. The account of use of resources is done in increments of one hour. A good way to estimate usage cost is the [Billing Unit calculator](https://research.csc.fi/resources/#buc) utility. All these resources consume Cloud Billing Units, for more information about Billing in CSC, visit the [Billing](../../accounts/billing.md) page.
 
-- **Storage volumes**: 3,6 Cloud BU / TiB hour for standard volume and 1,8 Cloud BU / TiB hour for capacity volume. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes Cloud BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems.
-- **Floating IPs**: 0,2 Cloud BU / hour. Every floating IP reserved to the project is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume Cloud Billing Units.
-- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume Cloud BUs regardless whether you are using them or not. This means that a shut down or suspended virtual machine still consumes Cloud BUs, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their Cloud BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
+- **Storage volumes**: 3,6 Cloud BU / TiB hour for standard volume and 1,8 Cloud BU / TiB hour for capacity volume. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes Cloud BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems, and the total szie of the volume is reserved for the volume.
+- **Floating IPs**: 0,2 Cloud BU / hour. Every floating IP reserved to the project (even if it is not in use) is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume Cloud Billing Units.
+- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume Cloud BUs regardless whether you are using them or not. This means that a **shut down or suspended virtual machine still consumes Cloud BUs**, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their Cloud BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
 
 \* **Cloud BU**: Cloud Billing Units
 
@@ -170,19 +170,19 @@ See more details on the [GPU flavors](#epouta_3) section.
 We use symbols to describe some of the features of the flavors we offer.
 A short description of the notation used follows.
 
-- **Power redundancy**, For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
+- **Power redundancy**, For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy (none or full), see below.
 - **Data redundancy**, Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
 For customer data, there are three possible values of redundancy.
 We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
-- **Network redundancy**, For the network reachability of the virtual machine, there are two possible values of redundancy.
+- **Network redundancy**, For the network reachability of the virtual machine, there are two possible values of redundancy (none or full), see below.
 
 |Type|Icon||Description|
 |-:|:-:|:-:|:-|
 |Power|![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")|**NONE**|The node is not protected from sudden power losses. **A fault in the power provisioning of the node might make the virtual machine temporarily unreachable**.|
-|Power|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")|**FULL**|The node is protected from sudden power losses (UPS).|
+|Power|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")|**FULL**|The node is protected from sudden power losses by a Uninterruptible power supply (UPS).|
 |Data|![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")|**NONE**|The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.|
 |Data|![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")|**BASIC**|The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.|
-|Data|![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for ephemeral disk data redundancy level FULL](../../img/circle_icons/e100.svg "Ephemeral Disk")|**FULL**|The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.|
+|Data|![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for ephemeral disk data redundancy level FULL](../../img/circle_icons/e100.svg "Ephemeral Disk")|**FULL**|The disk is stored using multiple nodes in a fault-tolerant fashion ([CEPH](https://ceph.io/en/)), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.|
 |Network|![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg "Network")|**NONE**|The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.|
 |Network|![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|**FULL**|The node hosting the virtual machine is connected to the cloud platform with an additional failover link.|
 |Other|![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg)||Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.|
@@ -195,24 +195,16 @@ We also offer the possibility to store the data in a [persistent volume (FULL)](
 
 ### **Standard flavors**
 
-Typical use cases:
+These are generic flavors that are useful for running regular computation tasks like a web service or softwsre development. If you are unsure on what to use, this is the recommended choice for you. You can later [resize the instance](../../support/faq/how-to-resize-in-pouta.md) to a more suitable flavor afterwards when your application's are clearer.
 
--   Web services (non-HPC)
--   Software development
-
-These are generic flavors that are useful for running regular web
-services such as a web server with a database backend.
 They provide better availability compared to the
-HPC flavors.
-
-Cloud administrators can move these virtual machines from one host
-machine to another without causing a break in service. This means that
+HPC flavors. This is because cloud administrators can move these virtual machines from one host machine to another without causing a break in service. This means that
 you are likely less affected by maintenance.
 
 These flavors are not suitable for computationally intensive
 workloads. The virtual CPUs used in these instances are
-overcommitted, which means 32 hyperthreaded CPU cores are used to
-provide more than 32 virtual cores.
+**overcommitted**, which means 32 hyperthreaded CPU cores are used to
+provide more than 32 virtual cores. For these kind of tasks we recommend [HPC flavors](#hpc-flavors_2)
 
 #### cPouta
 
@@ -228,14 +220,10 @@ provide more than 32 virtual cores.
 
 ### **HPC flavors**
 
-Typical use cases:
-
--   Scientific applications
-
 If your use case is computationally intensive, you should use one of
 the HPC flavors. The availability of these instances is not as high
 as the standard flavors, but you get better performance. The HPC
-flavors have faster CPUs and no overcommitment of CPU cores.
+flavors have faster CPUs models and **no overcommitment of CPU cores**.
 
 #### cPouta
 
@@ -262,23 +250,19 @@ Typical use cases:
 -   Clustered databases
 
 I/O flavors are intended to provide the best I/O performance on the
-virtual machine root and ephemeral disks. 
+virtual machine root and ephemeral local disks. Typical use cases are the ones that will read from and/or write to intensely the disk.   
 
-As these instances are also tightly tied to the hardware, you may
-expect downtime of instances during the maintenance of the hardware.
+The availability of these instances is not as high as the standard flavors, but the I/O performance is significantly better.
+This is why, the instances of this flavor are tightly tied to the hardware, because of this you may
+expect downtime of instances during the maintenance of the hardware that runs them.
 
 The bulk of the storage is available as an ephemeral disk, typically
 in /dev/vdb.
 
 Often you want to create clusters of servers with the io.\*
 flavors. In these cases, you probably want to have your virtual
-machines land on different physical servers. This cannot currently be
-done in the web interface. To do this, please refer to the
-anti-affinity group commands in our [command line instructions].
-
-The availability of these instances is not as high as the
-standard flavors, but the I/O
-performance is significantly better.
+machines land on different physical servers. To do this, please follow the
+[Server Groups](launch-vm-from-web-gui.md#server-groups) documentation.
 
 #### cPouta
 
@@ -295,18 +279,11 @@ performance is significantly better.
 
 ### GPU flavors
 
-Typical use cases:
-
--   High performance compute applications leveraging GPUs
--   Machine and deep learning, e.g. [TensorFlow]
--   Rendering
-
 The GPU flavors are intended to provide high performance computing using
 GPGPU (General Purpose computing on Graphical Processing
 Units). GPGPUs can significantly speed up certain algorithms and
 applications.
-The GPGPUs are suitable for deep learning, scientific computing as
-well as for remote desktops, rendering or visualization.
+The GPGPUs are suitable for machine and deep learning like Large Language Models (LLMs), scientific computing, rendering or visualization.
 
 The GPGPU
 flavors are backed by local SSD on the servers. The SSDs in gpu.1 flavors
@@ -324,6 +301,8 @@ leveraging the GPGPUs.
 
 GPGPUs can be used for a lot of cool and interesting things,
 but please remember the resource usage must comply with the [Terms of Use].
+Also remember that the GPU flavor is the most demanded one on our platform,
+so if you are not using your GPU flavor VM, consider shelving or deleting it so others can use it. 
 
 Limitations and caveats: 
 
@@ -364,29 +343,20 @@ batch system [Puhti](../../computing/systems-puhti.md).
 
 ### High memory flavors
 
-!!! warning "High memory flavors are only in ePouta"
+!!! info "High memory flavors are only in ePouta"
     High memory flavors are only available in ePouta.
-
-Typical use cases:
-
--   Scientific applications requiring large amounts of memory
 
 These flavors have large amounts of memory and are meant for use cases
 which require and can utilize such amounts of memory. Typical use cases
 of these flavors include genome sequencing and analysis applications.
 
-The resize/migration functionalities do not work for these instances.
-
-If you need to move a workload from another type of VM to an instance with a high memory flavor, i.e., a TB instance, either move all data and install all applications manually
-on the new TB instance or create a snapshot of the source VM. Then
-convert that snapshot to a volume and use the volume to create the
-new TB-flavor VM.
-
-If you need to move a workload from a TB instance to another instance,
-either move all data and install all applications manually on a new
-VM or create a snapshot of the source VM. **Please note** that all
-ephemeral disk data will be lost in the process and will not be stored
-in the snapshot because only the TB VM root disk is stored in the snapshot.
+The resize/migration functionalities do not work for these instances. 
+If you need to resize one VM of this flavor you will need to, either create a new VM and move all data and install all applications manually
+on the new VM, either create a snapshot of the source VM, and then
+create a new VM with that smapsho. More information at the [resize the instance](../../support/faq/how-to-resize-in-pouta.md) article.
+**Please note** that all ephemeral disk data will be lost in the process and will not be stored
+in the snapshot because only the VM's root disk is stored in the snapshot.
+Never store on the ephemeral disk any valuable data that you have no a second safe copy.
 
 #### ePouta
 
