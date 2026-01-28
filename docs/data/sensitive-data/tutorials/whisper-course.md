@@ -73,6 +73,7 @@ When the interview is ready, open the browser on your phone or laptop and upload
 * Once the connection is established, minimize Data Gateway by clicking the “_” symbol in the upperright corner of the Data Gateway window.
 
 * Next, open the File Browser and navigate to your home directory (Home).
+![File browser](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/FileBrowser.png)
 
 * Continue through the following path: Projects → SD-Connect → project_2000828 → 2000828-social-data
 
