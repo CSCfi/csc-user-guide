@@ -276,4 +276,4 @@ class SwiftCache(TranslationCache):
             for f in failed:
                 logger.warning("Failed to delete cached '%s'.", f)
         else:
-            logger.info("Cache cleared for %s.", SWIFT.operation_opts.prefix)
+            logger.info("Cache cleared for %s.", SWIFT.operation_opts['prefix'])
