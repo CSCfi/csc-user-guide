@@ -6,9 +6,9 @@ import logging
 import tiktoken
 from openai import OpenAI, OpenAIError, APITimeoutError
 
-from .prompt import prompt_template
 from .constants import DEFAULTS
 from .utils import check_environment, get_language
+from .prompt import get_prompt
 from .pages import PageContentWrapper
 
 
@@ -46,8 +46,7 @@ def translate_markdown(content,
     try:
         response = client.responses.create(
             model=openai_model,
-            instructions=prompt_template.substitute(source=source_language,
-                                                    target=target_language),
+            instructions=get_prompt(target_lang_code),
             input=content,
             max_output_tokens=DEFAULTS.openai.max_tokens
             #max_output_tokens=_estimate_max_tokens(openai_model, content)

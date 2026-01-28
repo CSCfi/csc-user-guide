@@ -92,6 +92,25 @@ def get_excluded_filepaths(src_prefix):
         return []
 
 
+def get_dictionary(lang_code):
+    """Returns a dict of translation instructions for 'lang_code'.
+    """
+    dictionary_path = _get_config_filepath(DEFAULTS.dictionary_filename)
+    src = DEFAULTS.source_lang_code
+    tgt = lang_code
+    try:
+        with dictionary_path.open(mode="rt", encoding="utf-8") as dictionary:
+            entries = yaml.safe_load(dictionary)
+            return {entry[src]: entry[tgt]
+                    for entry
+                    in entries
+                    if all(key in entry for key in (src, tgt,))}
+    except FileNotFoundError as e:
+        logger.warning("Can't read translation dictionary: '%s'", str(e))
+
+        return {}
+
+
 def mkparents(path: pathlib.Path):
     """Creates parent directories for path.
     """

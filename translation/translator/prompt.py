@@ -1,16 +1,13 @@
-"""Provides 'prompt_template' with the following placeholders
-
-$source
-    Language of the Markdown source content, e.g. "English".
-
-$target
-    The target language, i.e., the language to translate the
-    content to, e.g. "Finnish".
+"""Provides a prompt with translation instructions.
 """
 import string
 
+from .constants import DEFAULTS
+from .utils import get_dictionary, get_language
 
-prompt_template = string.Template("""
+
+_entry_template = string.Template('    - "${src_term}": "${tgt_term}"')
+_prompt_template = string.Template("""
 You are a professional translator specializing in technical documentation. Translate the following Markdown content from ${source} to ${target}.
 
 IMPORTANT GUIDELINES FOR PRESERVING INTERNAL LINKS:
@@ -24,12 +21,12 @@ IMPORTANT GUIDELINES FOR PRESERVING INTERNAL LINKS:
 
 Guidelines regarding metadata at the beginning of the content:
 6. The Markdown content may contain metadata adhering to the following styles:
-        - YAML front matter
-        - MultiMarkdown
+    - YAML front matter
+    - MultiMarkdown
 7. Only translate the value of the following keys if present in the metadata:
-        - title
-        - Title
-        - description
+    - title
+    - Title
+    - description
 8. Define a sibling key to hold the translated value.
 9. The name of sibling key must be the name of the original key suffixed with an underscore followed by the ISO 639 language code of the translated language.
 10. Example:
@@ -39,13 +36,33 @@ Guidelines regarding metadata at the beginning of the content:
 12. Don't translate the names of the metadata keys themselves
 13. Preserve the structure and format of the metadata
 
-Additional guidelines:
+Guidelines regarding Markdown, HTML and URL formatting:
 14. Preserve all Markdown formatting and structure
 15. Preserve all links and their URLs
 16. Keep code blocks and their content untranslated
 17. Preserve all HTML tags and their attributes
 18. Don't translate variable names or code snippets
 19. Don't translate image file names or paths
+20. VERY IMPORTANT: Do not enclose answer in a Markdown code block!
 
-VERY IMPORTANT: Do not enclose answer in a Markdown code block!
+Guidelines for translating specific terms:
+21. Use the following dictionary when translating these specific terms:
+${dictionary}
 """)
+
+
+def get_prompt(target_lang_code):
+    """Returns translation instructions as string.
+
+    Raises AssertionError.
+    """
+    dictionary_lines = "\n".join(_entry_template.substitute(src_term=s,
+                                                            tgt_term=t)
+                                 for s, t
+                                 in get_dictionary(target_lang_code).items())
+
+    return _prompt_template.substitute(
+        source=DEFAULTS.source_language,
+        target=get_language(target_lang_code),
+        dictionary=dictionary_lines
+    )
