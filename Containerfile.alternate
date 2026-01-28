@@ -27,7 +27,7 @@ ENV REPO_BRANCH=${repo_branch}
 
 COPY --from=restic_snapshots /tmp/snapshots.json .
 COPY --from=restic_snapshots /tmp/stale_translation /tmp/fresh_translation
-ADD translation/exclude.txt .
+ADD translation/exclude.txt translation/dictionary.yml .
 
 USER 0
 RUN chown -R 1001:0 /tmp/fresh_translation snapshots.json
