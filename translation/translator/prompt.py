@@ -7,6 +7,11 @@ from .utils import get_dictionary, get_language
 
 
 _entry_template = string.Template('    - "${src_term}": "${tgt_term}"')
+_dictionary_template = string.Template("""
+Guidelines for translating specific terms:
+21. Use the following dictionary when translating these specific terms:
+${entries}
+""")
 _prompt_template = string.Template("""
 You are a professional translator specializing in technical documentation. Translate the following Markdown content from ${source} to ${target}.
 
@@ -44,9 +49,6 @@ Guidelines regarding Markdown, HTML and URL formatting:
 18. Don't translate variable names or code snippets
 19. Don't translate image file names or paths
 20. VERY IMPORTANT: Do not enclose answer in a Markdown code block!
-
-Guidelines for translating specific terms:
-21. Use the following dictionary when translating these specific terms:
 ${dictionary}
 """)
 
@@ -56,13 +58,15 @@ def get_prompt(target_lang_code):
 
     Raises AssertionError.
     """
+    dictionary_entries = get_dictionary(target_lang_code)
     dictionary_lines = "\n".join(_entry_template.substitute(src_term=s,
                                                             tgt_term=t)
                                  for s, t
-                                 in get_dictionary(target_lang_code).items())
+                                 in dictionary_entries.items())
+    dictionary = _dictionary_template.substitute(entries=dictionary_lines)
 
     return _prompt_template.substitute(
         source=DEFAULTS.source_language,
         target=get_language(target_lang_code),
-        dictionary=dictionary_lines
+        dictionary=dictionary if len(dictionary_entries) > 0 else ""
     )

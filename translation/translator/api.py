@@ -16,6 +16,7 @@ logger = logging.getLogger(__name__)
 
 try:
     check_environment("LANG_CODE")
+    prompt = get_prompt(os.getenv("LANG_CODE"))
 
     client = OpenAI()
     client.timeout.connect = DEFAULTS.openai.timeout
@@ -38,15 +39,13 @@ def _estimate_max_tokens(openai_model, input_content):
     return min(estimation, DEFAULTS.openai.max_tokens)
 
 
-def translate_markdown(content,
-                       target_lang_code=os.getenv("LANG_CODE"),
-                       openai_model=DEFAULTS.openai.model):
+def translate_markdown(content, openai_model=DEFAULTS.openai.model):
     """Translate Markdown content.
     """
     try:
         response = client.responses.create(
             model=openai_model,
-            instructions=get_prompt(target_lang_code),
+            instructions=prompt,
             input=content,
             max_output_tokens=DEFAULTS.openai.max_tokens
         )
