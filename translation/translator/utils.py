@@ -1,49 +1,65 @@
-"""Provides utility functions
+"""Provides utility functions.
 """
-import sys
+import os
 import pathlib
-import json
-import re
 import logging
-from datetime import datetime
 
-from . import DEFAULTS, LANG_CODE
+import yaml
+
+from .constants import DEFAULTS, LANG_CODE_MAP
 
 
 logger = logging.getLogger(__name__)
 
 
-def _has_lang_code(snapshot_paths):
-    lang_suffix = f"/{DEFAULTS.docs_dir}/{LANG_CODE}"
+def _get_config_filepath(filename: str) -> pathlib.Path:
+    module_path = pathlib.Path(__file__).parent
 
-    for path in snapshot_paths:
-        if path.endswith(lang_suffix):
-            return True
-
-    return False
+    return module_path.parent / filename
 
 
-def _snapshot_path_filter(snapshot):
-    return _has_lang_code(snapshot.get("paths", []))
+def _get_attrs(obj, attr_names):
+    """Returns a dict of attributes listed in attr_names for obj.
+    """
+    return {attr: getattr(obj, attr)
+            for attr
+            in dir(obj)
+            if attr in attr_names}
 
 
-def _is_sha1_hash(tag):
-    return re.match("^[0-9a-f]{40}$", tag, re.IGNORECASE) is not None
+def _check_language(lang_code):
+    """Asserts that 'lang_code' has a corresponding language name.
+    """
+    assert lang_code in LANG_CODE_MAP, f"Language '{lang_code}' not found."
 
 
-def _snapshot_datetime(snapshot):
-    isotime = snapshot.get("time", datetime.min.isoformat())
-    return datetime.fromisoformat(isotime)
+def get_language(lang_code):
+    """Returns the name of the language corresponding to 'lang_code'.
+
+    Raises AssertionError.
+    """
+    _check_language(lang_code)
+
+    return LANG_CODE_MAP[lang_code]
 
 
-def _find_commit_sha(snapshots):
-    lang_snapshots = filter(_snapshot_path_filter, snapshots)
-    for snapshot in sorted(lang_snapshots, key=_snapshot_datetime):
-        for tag in snapshot.get("tags", []):
-            if _is_sha1_hash(tag):
-                return tag
+def check_environment(env_var_names):
+    """Asserts that every variable in 'env_var_names' is defined in the
+    environment.
+    """
+    for var_name in env_var_names:
+        assert var_name in os.environ, f"{var_name} not found in environment"
 
-    return None
+
+def md_filter(diff_obj):
+    """Return True if diff_obj describes a Markdown file.
+    """
+    diff_attrs = _get_attrs(diff_obj, ("a_path", "b_path", "rename_to",))
+
+    return any(d_path.lower().endswith(".md")
+               for d_path
+               in _get_attrs(diff_obj, diff_attrs).values()
+               if isinstance(d_path, str))
 
 
 def batch(iterable, n):
@@ -54,11 +70,10 @@ def batch(iterable, n):
 
 
 def get_excluded_filepaths(src_prefix):
-    """Returns a list of file paths, relative to src_prefix, read from
-    __file__/../../exclude.txt.
+    """Returns a list of file paths, relative to src_prefix, to exclude from
+    translation.
     """
-    module_path = pathlib.Path(__file__).parent
-    excludes_path = module_path.parent / DEFAULTS.excludes_filename
+    excludes_path = _get_config_filepath(DEFAULTS.excludes_filename)
 
     try:
         with excludes_path.open(mode="rt", encoding="utf-8") as excludes:
@@ -74,64 +89,7 @@ def get_excluded_filepaths(src_prefix):
     except FileNotFoundError as e:
         logger.warning("Can't read list of excluded files: %s", str(e))
 
-    return []
-
-
-def read_commit_sha():
-    """Returns the first tag that is a SHA-1 hash, i.e. a hexadecimal string 40
-    characters in length, read from $CWD/snapshots.json produced by
-    'restic snapshots' command.
-    """
-    json_file = pathlib.Path.cwd() / "snapshots.json"
-    commit_sha = None
-
-    try:
-        with json_file.open(mode="rt", encoding="utf-8") as snapshot_json:
-            commit_sha = _find_commit_sha(json.load(snapshot_json))
-
-            assert commit_sha is not None, f"No SHA-1 found in {json_file}"
-    except FileNotFoundError as e:
-        logger.error("Can't read snapshots: %s", str(e))
-        sys.exit(1)
-    except AssertionError as e:
-        logger.error("Can't find commit SHA: '%s'", str(e))
-        sys.exit(1)
-
-    return commit_sha
-
-
-def _get_attrs(obj, attr_names):
-    """Returns a dict of attributes listed in attr_names for obj.
-    """
-    return {attr: getattr(obj, attr)
-            for attr
-            in dir(obj)
-            if attr in attr_names}
-
-
-def md_filter(diff_obj):
-    """Return True if diff_obj describes a Markdown file.
-    """
-    diff_attrs = _get_attrs(diff_obj, ("a_path", "b_path", "rename_to",))
-
-    return any(d_path.lower().endswith(".md")
-               for d_path
-               in _get_attrs(diff_obj, diff_attrs).values()
-               if isinstance(d_path, str))
-
-
-def write_head_sha(head_sha, output_path: str):
-    """Writes the head_sha into a file at output_path.
-    """
-    output_file = pathlib.Path(output_path)
-
-    try:
-        output_file.write_text(head_sha, encoding="utf-8")
-        logger.info("HEAD commit SHA written into '%s'",
-                    output_path)
-    except FileNotFoundError as e:
-        logger.error("Can't write HEAD commit SHA: %s", str(e))
-        sys.exit(1)
+        return []
 
 
 def mkparents(path: pathlib.Path):

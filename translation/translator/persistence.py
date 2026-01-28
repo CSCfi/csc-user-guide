@@ -1,5 +1,6 @@
 """Keep track of cached translations.
 """
+import os
 import logging
 import pathlib
 import tempfile
@@ -7,18 +8,53 @@ import shutil
 from functools import reduce
 from itertools import chain, takewhile
 from collections.abc import Iterable, Callable
+from types import SimpleNamespace
 
 from git import Repo
 from swiftclient.service import SwiftService, SwiftError, SwiftUploadObject
 
-from . import DEFAULTS, SWIFT, TARGET_LANGUAGE
+from .constants import DEFAULTS
+from .utils import check_environment, mkparents
 from .classes import TranslationCache, CachePath, FileWas, FileIs
-from .utils import mkparents
 
 
 logging.getLogger("requests").setLevel(logging.CRITICAL)
 logging.getLogger("swiftclient").setLevel(logging.ERROR)
 logger = logging.getLogger(__name__)
+
+
+def _restic_collision(swift_ns):
+    restic_repo = os.getenv("RESTIC_REPOSITORY")
+    if restic_repo is not None:
+        collision = f":{swift_ns.cache_container}:/{swift_ns.cache_prefix}"
+        return restic_repo.endswith(collision)
+    return False
+
+
+try:
+    check_environment(("LANG_CODE",
+                       "OS_AUTH_URL",
+                       "OS_APPLICATION_CREDENTIAL_ID",
+                       "OS_APPLICATION_CREDENTIAL_SECRET",
+                       "CACHE_CONTAINER",
+                       "CACHE_PREFIX",))
+
+    SWIFT = SimpleNamespace(
+        cache_container=os.getenv("CACHE_CONTAINER"),
+        cache_prefix=os.getenv("CACHE_PREFIX"),
+        service_opts={
+            "auth_version": "3",
+            "os_auth_type": "v3applicationcredential"
+        },
+        operation_opts={
+            "prefix": f"{os.getenv('CACHE_PREFIX')}/{os.getenv('LANG_CODE')}"
+        }
+    )
+
+    assert not _restic_collision(SWIFT), "Cache path collides with restic."
+except:
+    logger.error("Failed to initialize '%s'.", __name__)
+    raise
 
 
 class SwiftCache(TranslationCache):
@@ -240,4 +276,4 @@ class SwiftCache(TranslationCache):
             for f in failed:
                 logger.warning("Failed to delete cached '%s'.", f)
         else:
-            logger.info("Cache cleared for %s.", TARGET_LANGUAGE)
+            logger.info("Cache cleared for %s.", SWIFT.operation_opts.prefix)

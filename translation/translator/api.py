@@ -1,28 +1,33 @@
 """Translate Markdown content using the OpenAI API.
 """
-import sys
+import os
 import logging
 
 import tiktoken
 from openai import OpenAI, OpenAIError, APITimeoutError
 
-from . import DEFAULTS, TARGET_LANGUAGE
 from .prompt import prompt_template
+from .constants import DEFAULTS
+from .utils import check_environment, get_language
 from .pages import PageContentWrapper
 
 
 logger = logging.getLogger(__name__)
 
-#Configure OpenAI client
 try:
+    check_environment(("LANG_CODE",))
+
     client = OpenAI()
     client.timeout.connect = DEFAULTS.openai.timeout
     client.max_retries = DEFAULTS.openai.retries
-except OpenAIError as e:
-    logger.error("Failed to initialize OpenAI client: %s", str(e))
-    sys.exit(1)
-else:
+
     logger.info("OpenAI client initialized.")
+except OpenAIError:
+    logger.error("Failed to initialize OpenAI client.")
+    raise
+except:
+    logger.error("Failed to initialize '%s'.", __name__)
+    raise
 
 
 def _estimate_max_tokens(openai_model, input_content):
@@ -33,12 +38,10 @@ def _estimate_max_tokens(openai_model, input_content):
     return min(estimation, DEFAULTS.openai.max_tokens)
 
 
-def _translate_markdown(content,
-                        target_language,
-                        source_language=DEFAULTS.source_language,
-                        openai_model=DEFAULTS.openai.model):
-    """Translate Markdown content from source_language to target_language
-    using model openai_model.
+def translate_markdown(content,
+                       target_lang_code=os.getenv("LANG_CODE"),
+                       openai_model=DEFAULTS.openai.model):
+    """Translate Markdown content to target_language using model openai_model.
     """
     try:
         response = client.responses.create(
@@ -61,17 +64,12 @@ def _translate_markdown(content,
     return None
 
 
-def translate_batch(items, translator=_translate_markdown):
+def translate_batch(items, translator=translate_markdown):
     """Process multiple Markdown files in one translation request.
 
-    items
-        Iterable of DiffPath objects.
-
-    target_language
-        The target language, i.e., the language to translate the
-        content to, e.g. "Finnish".
+    Raises AssertionError.
     """
-
+    target_lang_name = get_language(os.getenv("LANG_CODE"))
     wrapped_content = PageContentWrapper(items)
 
     if wrapped_content.is_empty():
@@ -80,9 +78,8 @@ def translate_batch(items, translator=_translate_markdown):
 
     logger.info("Translating batch of %i files to %s...",
                 len(wrapped_content),
-                TARGET_LANGUAGE)
+                target_lang_name)
 
-    wrapped_content.translation = translator(str(wrapped_content),
-                                                 TARGET_LANGUAGE)
+    wrapped_content.translation = translator(str(wrapped_content))
     for page, translation_result in wrapped_content:
         page.write_translation(translation_result)

@@ -1,16 +1,36 @@
 #! /usr/bin/env python3
 """Clone and checkout git repository.
 """
+import os
 import logging
 import pathlib
 import shutil
+import tempfile
+from types import SimpleNamespace
 
 from git import Git
 
-from . import DEFAULTS, GIT
+from .constants import DEFAULTS
+from .utils import check_environment
 
 
 logger = logging.getLogger(__name__)
+
+try:
+    check_environment(("REPO_ORG", "REPO_NAME", "REPO_BRANCH",))
+
+    GIT = SimpleNamespace(
+        work_path=pathlib.Path(tempfile.mkdtemp()),
+        service="github.com",
+        repo=SimpleNamespace(
+            org=os.getenv("REPO_ORG"),
+            name=os.getenv("REPO_NAME"),
+            branch=os.getenv("REPO_BRANCH")
+        )
+    )
+except:
+    logger.error("Failed to initialize '%s'.", __name__)
+    raise
 
 
 def _get_clone_path():
