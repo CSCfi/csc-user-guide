@@ -280,14 +280,11 @@ The availability of these instances is not as high as the
 standard flavors, but the I/O
 performance is significantly better.
 
-!!! Warning "RAID-0 is Non-redundant"
-    Flavors with RAID-0 disks are non-redundant, this means that a single disk failure will lead to data loss.
-
 #### cPouta
 
 |Flavor family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|**io.70GB-700GB**|No|Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading|Redundant 10 Gb/s or 40 Gb/s|Local SSD disks, RAID-0|- Instances can be lost due to a single-node or disk failure.<br/>- Instances can not be migrated nor resized to a different family flavor.|
+|**io.70GB-700GB**|No|Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading|Redundant 10 Gb/s or 40 Gb/s|Local SSD disks, RAID-1|- Instances can be lost due to a single-node or multiple simultaneous disk failures.<br/>- Instances can not be migrated nor resized to a different family flavor.|
 |**io.2.\***|Yes|AMD EPYC 7282 16-Core Processor|Redundant 25 Gb/s|Local NVMe disk, RAID-1|- Instance can be lost due to a single-node or multiple simultaneous disk failures.<br/>- Instances can not be resized to a different family flavor.|
 
 #### ePouta
