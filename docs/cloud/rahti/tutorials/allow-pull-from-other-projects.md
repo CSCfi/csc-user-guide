@@ -23,7 +23,7 @@ The objective of this tutorial is to explain how to achieve an extra use case, p
 
         The command above will allow the group `system:serviceaccounts:bajor-test` to pull any image stored in `bajor-prod`. The group contains every service account of the project.
 
-    1. You can use the web interface, by going to the `Administrator` interface and then to `User Management > RoleBindings`. Finally click in the `Create binding` button and fill up the form as shown:
+    1. You can use the web interface, by navigating to the `User Management` then to `RoleBindings`. Finally click in the `Create binding` button and fill up the form as shown:
 
         ![Create RoleBinding](../../img/Create-RoleBinding.png)
 
