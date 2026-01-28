@@ -500,16 +500,17 @@ nav:
               - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
               - Deploying from Git: cloud/rahti/tutorials/deploy_from_git.md
               - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
+              - How to deploy a High Available application in Rahti: cloud/rahti/tutorials/highavailability.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
               - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
+              - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
               - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
               - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
               - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
               - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
               - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti/tutorials/webhooks.md
-              - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
