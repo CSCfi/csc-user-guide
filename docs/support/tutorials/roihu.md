@@ -66,13 +66,14 @@ The simplest way to connect to Roihu is to use the web interface.
 
 ## Migrating research data
 
-If you need to transfer research data from Puhti or Mahti to Roihu, we
-recommend that you:
+If you need to transfer research data from Puhti or Mahti to Roihu, we require
+that you:
 
 1. Carefully review your data before transferring it – **only move what you
-   really need!** Notably, previous extended disk quotas on Puhti or Mahti will
-   not be automatically moved to Roihu. Quota extensions on Roihu must be
-   separately applied for and properly motivated.
+   really need and check that you have enough space available on Roihu!**
+   Notably, previous extended disk quotas on Puhti or Mahti will not be
+   automatically moved to Roihu. Quota extensions on Roihu must be separately
+   applied for and properly motivated.
 2. Move your data _directly_ from Puhti or Mahti to Roihu for performance and
    capacity management reasons.
 
