@@ -32,12 +32,12 @@ def _restic_collision(swift_ns):
 
 
 try:
-    check_environment(("LANG_CODE",
-                       "OS_AUTH_URL",
-                       "OS_APPLICATION_CREDENTIAL_ID",
-                       "OS_APPLICATION_CREDENTIAL_SECRET",
-                       "CACHE_CONTAINER",
-                       "CACHE_PREFIX",))
+    check_environment("LANG_CODE",
+                      "OS_AUTH_URL",
+                      "OS_APPLICATION_CREDENTIAL_ID",
+                      "OS_APPLICATION_CREDENTIAL_SECRET",
+                      "CACHE_CONTAINER",
+                      "CACHE_PREFIX")
 
     SWIFT = SimpleNamespace(
         cache_container=os.getenv("CACHE_CONTAINER"),

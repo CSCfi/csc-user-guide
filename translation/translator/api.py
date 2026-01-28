@@ -15,7 +15,7 @@ from .pages import PageContentWrapper
 logger = logging.getLogger(__name__)
 
 try:
-    check_environment(("LANG_CODE",))
+    check_environment("LANG_CODE")
 
     client = OpenAI()
     client.timeout.connect = DEFAULTS.openai.timeout
@@ -41,7 +41,7 @@ def _estimate_max_tokens(openai_model, input_content):
 def translate_markdown(content,
                        target_lang_code=os.getenv("LANG_CODE"),
                        openai_model=DEFAULTS.openai.model):
-    """Translate Markdown content to target_language using model openai_model.
+    """Translate Markdown content.
     """
     try:
         response = client.responses.create(
@@ -49,7 +49,6 @@ def translate_markdown(content,
             instructions=get_prompt(target_lang_code),
             input=content,
             max_output_tokens=DEFAULTS.openai.max_tokens
-            #max_output_tokens=_estimate_max_tokens(openai_model, content)
         )
 
         return response.output_text

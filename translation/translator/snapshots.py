@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 try:
-    check_environment(("LANG_CODE",))
+    check_environment("LANG_CODE")
 except:
     logger.error("Failed to initialize '%s'.", __name__)
     raise

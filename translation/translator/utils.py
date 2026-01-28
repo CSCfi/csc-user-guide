@@ -43,7 +43,7 @@ def get_language(lang_code):
     return LANG_CODE_MAP[lang_code]
 
 
-def check_environment(env_var_names):
+def check_environment(*env_var_names):
     """Asserts that every variable in 'env_var_names' is defined in the
     environment.
     """
