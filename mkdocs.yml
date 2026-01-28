@@ -140,7 +140,7 @@ plugins:
         "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
         # Rahti2 to Rahti:
         "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
-        "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
+        "cloud/rahti2/rahti_faq.md": "cloud/rahti/rahti_faq.md"
         "cloud/rahti2/index.md": "cloud/rahti/index.md"
         "cloud/rahti2/advanced.md": "cloud/rahti/advanced.md"
         "cloud/rahti2/billing.md": "cloud/rahti/billing.md"
@@ -457,6 +457,7 @@ nav:
               - Web user interface: cloud/rahti/usage/getting_started.md
               - Command line tool: cloud/rahti/usage/cli.md
               - Moving into Rahti: cloud/rahti/moving-into.md
+              - Rahti FAQ: cloud/rahti/rahti_faq.md
           - Configuration:
               - Billing: cloud/rahti/billing.md
               - Projects and quota: cloud/rahti/usage/projects_and_quota.md
