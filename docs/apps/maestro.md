@@ -18,6 +18,15 @@ catalog:
 
 # Maestro
 
+!!! info "Online Schrödinger certification courses offered by CSC"
+    Users in scope of [CSC's Schrödinger license](#license) are eligible to
+    apply for free-of-charge access to participate in online certification
+    courses organized by Schrödinger. The offered *introductory* and
+    *intermediate* online courses focus on a range of topics related to drug
+    discovery and materials science.
+
+    [Read more and apply here :material-open-in-new:](https://csc.fi/en/training-calendar/online-schrodinger-certification-courses-offered-by-csc-3/)
+
 Schrödinger Maestro is a versatile molecular modeling environment. It has modules for
 *drug design* and *materials science*. It can be used to build, edit, run and analyze
 chemical model systems.
@@ -220,6 +229,7 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 * Schrödinger training materials overview
      * [Life science](https://www.schrodinger.com/life-science/learn/education/)
      * [Materials science](https://www.schrodinger.com/materials-science/learn/education/)
+     * [Apply for free-of-charge online course seats](https://csc.fi/en/training-calendar/online-schrodinger-certification-courses-offered-by-csc-3/)
 * Free learning resources at Schrödinger
      * [Life science](https://www.schrodinger.com/life-science/learn/education/free-learning-resources/)
      * [Materials science](https://www.schrodinger.com/materials-science/learn/education/free-learning-resources/)
