@@ -6,7 +6,7 @@ Before starting the work, make sure of the following:
 
 ### 1. You have a CSC user account
 
-If you do not have an account, [see instructions](https://docs.csc.fi/accounts/how-to-create-new-user-account/#getting-an-account-with-haka-or-virtu).
+If you do not have an account, [see instructions](./accounts/how-to-create-new-user-account/#getting-an-account-with-haka-or-virtu).
 
 Note that for this exercise you will need to use both your Haka and CSC accounts, so make sure you remember the password for your CSC account.
 
@@ -39,7 +39,7 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
 * Log in to [SD Connect service](https://sd-connect.csc.fi).
 * Select the correct project (2000828 or your own project). 
-* Go to the **folder2000828-social-data** and upload the recording from your phone using the [**Upload**](https://docs.csc.fi/data/sensitive-data/sd-connect-upload/) function. 
+* Go to the **folder2000828-social-data** and upload the recording from your phone using the [**Upload**](./sd-connect-upload/) function. 
 
 ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
