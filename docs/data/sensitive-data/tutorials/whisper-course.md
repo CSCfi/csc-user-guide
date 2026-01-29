@@ -6,13 +6,13 @@ Before starting the work, make sure of the following:
 
 ### 1. You have a CSC user account
 
-If you do not have an account, [see instructions](./accounts/how-to-create-new-user-account.md#how-to-create-new-csc-user-account)
+If you do not have an account, [see instructions](./how-to-create-new-user-account.md#how-to-create-new-csc-user-account)
 
 Note that for this exercise you will need to use both your Haka and CSC accounts, so make sure you remember the password for your CSC account.
 
 ### 2. You have two-factor authentication (MFA) enabled for your CSC account
 
-* [See instructions](https://docs.csc.fi/accounts/mfa/)
+* [See instructions](./accounts/mfa/)
 
 ### 3. You are member in a project that has SD Desktop and SD Connect enabled
  
