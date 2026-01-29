@@ -38,7 +38,7 @@ Pukki manages users and their access rights.
 
 Keep in mind when upgrading a database from PostgreSQL 14 to 17 that the existing permissions are
 kept intact. This means that a fresh PostgreSQL 17 instance will have some differences compared to
-one that was upgraded from PostgreSQL 14. You can read more about this on the 
+one that was upgraded from PostgreSQL 14. You can read more about this on the
 [permissions page](postgres-permissions.md).
 
 ## Some useful commands

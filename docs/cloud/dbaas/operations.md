@@ -46,6 +46,7 @@ The commands to use:
 Major version upgrades are no different from the user's point of view, but there's a bit more happening in the background, which creates more possible points of failure.
 
 Things that you need to take into account when doing a major database version upgrade:
+
 1. You have a recent enough backup that you can use if the upgrade fails.
 2. You have tested doing the upgrade on a database instance restored from a backup.
 3. You have reserved plenty of time for the upgrade.
@@ -53,6 +54,15 @@ Things that you need to take into account when doing a major database version up
 5. You have checked that your database instance has enough free disk space before starting the upgrade - we recommend having around twice as much free space as is being used.
 
 We recommend creating a new database instance from a recent backup and upgrading that instance to the desired database version, as you can then switch over to using the new database instance with the new database version at your leisure after making sure no problems cropped up. Drawbacks include having to switch to using a new IP address to connect to the database, though, and any changes made to the original database after the backup was taken will be lost.
+
+### Information regarding major database version EOLs
+
+Major database versions in Pukki will be made unavailable to create new database instances with
+half a year before their end-of-life date, and beginning on the end-of-life date any database
+instances remaining on the versions affected will be upgraded to a newer version by Pukki admins.
+Reminder emails will be sent to users with instances on the affected versions before this happens,
+and we highly recommend upgrading your database instances yourself in order to have more control
+over the resulting downtime.
 
 ## Deleting a database in your database instance
 
