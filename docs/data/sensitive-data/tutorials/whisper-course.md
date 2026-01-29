@@ -6,7 +6,7 @@ Before starting the work, make sure of the following:
 
 ### 1. You have a CSC user account
 
-If you do not have an account, [see instructions](./accounts/how-to-create-new-user-account.md/#getting-an-account-with-haka-or-virtu).
+If you do not have an account, [see instructions](./accounts/how-to-create-new-user-account.md#how-to-create-new-csc-user-account)
 
 Note that for this exercise you will need to use both your Haka and CSC accounts, so make sure you remember the password for your CSC account.
 
