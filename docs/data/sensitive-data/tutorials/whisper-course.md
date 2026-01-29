@@ -6,12 +6,12 @@ Before starting the work, make sure of the following:
 
 ### 1. You have a CSC user account
 
-If you do not have an account, [see instructions](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+If you do not have an account, [see instructions](../../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
 Note that for this exercise you will need to use both your Haka and CSC accounts, so make sure you remember the password for your CSC account.
 
 ### 2. You have two-factor authentication (MFA) enabled for your CSC account
 
-* [See instructions](../../accounts/mfa.md).
+* [See instructions](../../../accounts/mfa.md).
 
 ### 3. You are member in a project that has SD Desktop and SD Connect enabled
  
@@ -34,7 +34,7 @@ The interview can be a video or an audio recording. Do not make it longer than o
 
 ### 1.2 Upload the recording
 
-When the interview is ready, open the browser on your phone or laptop and upload the interview to the [SD Connect service](https://sd-connect.csc.fi).
+When the interview is ready, open the browser on your phone or laptop and upload the interview to the [SD Connect service](./sensitive-data/sd-connect-upload.md).
 
 * Log in to [SD Connect service](https://sd-connect.csc.fi).
 * Select the correct project (2000828 or your own project). 
