@@ -15,9 +15,9 @@ Note that for this exercise you will need to use both your Haka and CSC accounts
 
 ### 3. You are member in a project that has SD Desktop and SD Connect enabled
  
- * Log in to [MyCSC](https://my.csc.fi).
- * Go to the Projects page and open the correct project.
- * Scroll down to Services window.
+* Log in to [MyCSC](https://my.csc.fi).
+* Go to the Projects page and open the correct project.
+* Scroll down to Services window.
     * If SD Desktop and SD Connect appear in the list, they are active.
     * If they are missing, ask your project manager to activate them via the project page.
 
@@ -47,7 +47,6 @@ When the interview is ready, open the browser on your phone or laptop and upload
 ### 2.1. Log in to the virtual machine
 
 * Switch to your laptop and log in to the [SD Desktop service](https://sd-desktop.csc.fi).
-
 * After logging in, you will be in the **Connections** view of the SD Desktop service.
 * Scroll to **All connections** section and click the + sign in front of **project_2000828.** This opens a list of virtual machines currently running on the project.
 * Select **socialdatavm-1764247746**. This will open the virtual machine’s desktop in your browser window.
@@ -60,25 +59,21 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
 ![Open volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Volume.png)
 
-
 ### 2.2 Retrieving Data from SD Connect
 
 * Launch **Data Gateway** by clicking icon on the left side of desktop.
+
 ![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway1.png)
 
 * Select the option to connect to the SD Connect service. During login, you must enter your **CSC username and password** (Haka cannot be used here).
-
 * Once the connection is established, minimize Data Gateway by clicking the “_” symbol in the upperright corner of the Data Gateway window.
-
 * Next, open the File Browser and navigate to your home directory (Home).
+
 ![File browser](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FileBrowser.png)
 
 * Continue through the following path: Projects → SD-Connect → project_2000828 → 2000828-social-data
-
 * Copy the recording you made from the 2000828-social-data folder to the folder you created on the Volume disk. You can copy by right-clicking the file and selecting “Copy to”.
-
 * In the next dialog, the Volume disk can be found on the left side by expanding “+ Other locations”. Alternatively, you can open two file browser windows and drag the file from one folder to the other. Note that copying may take some time.
-
 * Once the file has been copied to your folder on the Volume disk, right-click it and select: “Open With Other Application”
 * Then choose: Video Player.
 * If the video player can play the beginning of the recording, the transfer was successful and you can close the player.
@@ -97,7 +92,7 @@ When the interview is ready, open the browser on your phone or laptop and upload
 #### 2.3.2 Using Whisper on the Command Line
 
 Navigate with the file browser to the folder you created on the Volume disk.
-Right-click an empty area in the folder and select:“Open in Terminal”
+Right-click an empty area in the folder and select: “Open in Terminal”
 This opens a terminal window where you can use Linux command-line commands.
 
 Commands are typed into the terminal window and executed by pressing Return/Enter.
