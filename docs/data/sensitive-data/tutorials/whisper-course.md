@@ -42,7 +42,6 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
 ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
-
 ## 2. Data analysis in SD Desktop
 
 ### 2.1. Log in to the virtual machine
@@ -84,7 +83,6 @@ When the interview is ready, open the browser on your phone or laptop and upload
 * Then choose: Video Player.
 * If the video player can play the beginning of the recording, the transfer was successful and you can close the player.
 
-
 ### 2.3 Automatic Speech Recognition
 
 #### 2.3.1 Whisper Installation
@@ -104,29 +102,44 @@ This opens a terminal window where you can use Linux command-line commands.
 
 Commands are typed into the terminal window and executed by pressing Return/Enter.
 
-The basic structure of commands is: 
-```command -option argument1 argument2```
+The basic structure of commands is:
 
-Use the commands ls and ls -l to list the contents of the directory:
- ```ls```
- ```ls -l```
+```bash
+command -option argument1 argument2
+```
+
+Use the commands `ls` and `ls -l` to list the contents of the directory:
+
+```bash
+ls
+ls -l
+```
 
 You can check that the whisper command is available by running:
-```whisper -help```
+
+```bash
+whisper -help
+```
 
 This command prints the usage instructions for whisper. According to the instructions, the basic syntax is:
 
-```whisper --model model-name --language language recording-file```
+```bash
+whisper --model model-name --language language recording-file
+```
 
 Check your recording file name by running ls again.
 Use the medium model. The command should look like this:
 
-```whisper --model medium --language fi VID_43455_888.mp4```
+```bash
+whisper --model medium --language fi VID_43455_888.mp4
+```
 
 Replace VID_43455_888.mp4 with your actual file name.
 The command will take some time to run. When it finishes, check the directory contents with:
 
-```ls -l```
+```bash
+ls -l
+```
 
 Then, in the file browser, open the .txt output file with LibreOffice Writer.
 LibreOffice is found from the ”show applications” in the lower left corner of SD Desktop.
