@@ -34,7 +34,7 @@ The interview can be a video or an audio recording. Do not make it longer than o
 
 ### 1.2 Upload the recording
 
-When the interview is ready, open the browser on your phone or laptop and upload the interview to the [SD Connect service](../sd-connect-upload.md).
+When the interview is ready, open the browser on your phone or laptop and upload the interview to the [SD Connect service](../sensitive-data/sd-connect-upload.md).
 
 * Log in to [SD Connect service](https://sd-connect.csc.fi).
 * Select the correct project (2000828 or your own project). 
