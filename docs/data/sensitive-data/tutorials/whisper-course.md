@@ -38,7 +38,7 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
 * Log in to [SD Connect service](https://sd-connect.csc.fi).
 * Select the correct project (2000828 or your own project). 
-* Go to the **folder2000828-social-data** and upload the recording from your phone using the [**Upload**](./sd-connect-upload.md) function. 
+* Go to the **folder2000828-social-data** and upload the recording from your phone using the [**Upload**](../sd-connect-upload.md) function. 
 
 ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
