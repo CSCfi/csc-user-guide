@@ -1,12 +1,19 @@
 # CSC’s Sensitive Data Services - Exercise
 
-Working in a system designed for sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply, and some workflows require new habits.
+Working in a system designed for sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply and some workflows require new habits.
+
 This tutorial can be used in two ways:
 
-**To learn Whisper transcription**: A simple, step‑by‑step guide for researchers who want to transcribe audio or video files within SD Services.
+**To learn Whisper transcription**: a simple, step‑by‑step guide for researchers who want to transcribe audio or video files within SD Services.
 
-**To practice using SD Services**: A hands‑on exercise for researchers new to the secure environment, helping them understand how it works and build confidence before handling real sensitive data.
+**To practice using SD Services**: a hands‑on exercise for researchers new to the secure environment, helping them understand how it works and build confidence before handling real sensitive data.
 
+
+### Before you start
+### Collecting sensitive material via SD Connect
+### Software installation and data analysis in SD Desktop
+### Using whisper for video or audio file transcription
+### Verifing transcription si ok
 
 
 ## Before the exercise
@@ -30,7 +37,7 @@ Note that for this exercise you will need to use both your Haka and CSC accounts
     * If SD Desktop and SD Connect appear in the list, they are active.
     * If they are missing, ask your project manager to activate them via the project page.
 
-## 1. Collecting sensitive material
+## 1. Collecting sensitive material via SD Connect
 
 ### 1.1 Record an interview
 
