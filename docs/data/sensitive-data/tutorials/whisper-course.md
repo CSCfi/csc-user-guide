@@ -4,35 +4,35 @@ Working in a system designed for sensitive data can feel very different from usi
 
 This tutorial can be used in two ways:
 
-**To learn Whisper transcription**: a simple, step‑by‑step guide for researchers who want to transcribe audio or video files within SD Services.
+**To learn how to use the automated spech recognition software Whisper**: a simple, step‑by‑step guide for researchers who want to transcribe audio or video files within SD Services.
 
 **To practice using SD Services**: a hands‑on exercise for researchers new to the secure environment, helping them understand how it works and build confidence before handling real sensitive data.
 
 
-- Before you start
+- 1. Before you start
   
-- Collecting sensitive material via SD Connect
+- 2. Collecting sensitive material via SD Connect
   
-- Software installation and data analysis in SD Desktop
+- 3. Sofware installation and data import via SD Dektop
   
-- Using whisper for video or audio file transcription
+- 4. Using whisper for video or audio file transcription and analysis
 
-  
+- anynomisation?
 
-## Before you start
+## 1. Before you start
 
 Before starting the work, make sure of the following:
 
-### 1. You have a CSC user account
+### 1.1. You have a CSC user account
 
 If you do not have an account, [see instructions](../../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
 Note that for this exercise you will need to use both your Haka and CSC accounts, so make sure you remember the password for your CSC account.
 
-### 2. You have two-factor authentication (MFA) enabled for your CSC account
+### 1.2. You have two-factor authentication (MFA) enabled for your CSC account
 
 * [See instructions](../../../accounts/mfa.md).
 
-### 3. You are member in a project that has SD Desktop and SD Connect enabled
+### 1.3. You are member in a project that has SD Desktop and SD Connect enabled
 
 * Log in to [MyCSC](https://my.csc.fi).
 * Go to the Projects page and open the correct project.
@@ -40,9 +40,9 @@ Note that for this exercise you will need to use both your Haka and CSC accounts
     * If SD Desktop and SD Connect appear in the list, they are active.
     * If they are missing, ask your project manager to activate them via the project page.
 
-## 1. Collecting sensitive material via SD Connect
+## 2. Collecting sensitive material via SD Connect
 
-### 1.1 Record an interview or downlaod example file
+### 2.1 Record an interview or downlaod example file
 
 Record a short interview with your phone or laptop, asking the person next to you the following things:
 
@@ -53,7 +53,7 @@ The interview can be a video or an audio recording. Do not make it longer than o
 
 Alternativerly you can downlaod this [example file](https://github.com/eglerean/handsondataprotection/blob/f4e70f010fc762ea88695da785e368dc37d92126/transcribe/JohnChowning041306_part1_1min.ogg)
 
-### 1.2 Upload the recording
+### 2.2 Upload the recording
 
 When the interview is ready, open the browser on your phone or laptop and upload the interview to the [SD Connect service](https://sd-connect.csc.fi).
 
@@ -63,39 +63,41 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
     ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
-## 2. Data analysis in SD Desktop
+## 3. Sofware installation and data import via SD Dektop
 
-
-### 2.1. Cretate a virtual desktop 
+### 3.1. Cretate a virtual desktop 
 
 If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
 
-If you are trying this tutorial on your own, switch to yourlapto, login to the [SD Desktop service](https://sd-desktop.csc.fi) and create a virtual desktop following [these steps](../sd-desktop-create.md)
+If you are trying this tutorial on your own, switch to yourlapto, login to the [SD Desktop service](https://sd-desktop.csc.fi) and create a virtual desktop following [these steps](../sd-desktop-create.md) and by choosing these options:
 
-Operating system: Default Ubuntu
-Virtual desktop option: Medium
-Storage volume: 200 GB
+- Operating system: Default Ubuntu
+  
+- Virtual desktop option: Medium
+  
+- Storage volume: 200 GB
 
 
-
-### 2.1. Log in to the virtual deskop
+### 3.2. Log in to the virtual deskop
 
 * Switch to your laptop and log in to the [SD Desktop service](https://sd-desktop.csc.fi).
 * After logging in, you will be in the **Connections** view of the SD Desktop service.
 * Scroll to **All connections** section and click the + sign in front of your CSC project or **project_2000828.** This opens a list of virtual desktop currently running on the project.
-* Select **socialdatavm-1764247746**. This will open the virtual machine’s desktop in your browser window.
+* Select **socialdatavm-1764247746**. This will open the virtual desktop in your browser window.
 
     ![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
 
-* Open the virtual machine’s Data Volume disk on the left side of desktop.
+* Open the virtual desktop’s Data Volume disk on the left side.
 * In the volume, create a new folder by right-clicking on an empty area and selecting “New Folder” from the menu.
 * Name the folder according to your username so that other users can easily identify the owner.
 
     ![Open volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Volume.png)
 
-### 2.2 Retrieving Data from SD Connect
+### 3.3 Retrieving Data from SD Connect
 
-* Launch **Data Gateway** by clicking icon on the left side of desktop.
+In this step, you will create a secure connection between your secure virtual desktop (your virtual computer) and the files you have stored in SD Connect, and then import those files into the virtual desktop. They will be automatically decrypted during the transfer, making them ready for analysis.
+
+* Launch **Data Gateway** application by clicking icon on the left side of desktop.
 
     ![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway1.png)
 
@@ -112,7 +114,27 @@ Storage volume: 200 GB
 * Then choose: Video Player.
 * If the video player can play the beginning of the recording, the transfer was successful and you can close the player.
 
-### 2.3 Automatic Speech Recognition
+
+### 3.4 Software installtion
+
+
+
+
+
+
+
+
+
+### 3.4 Automatic Speech Recognition
+
+### 2.41 Insalling Whisper on your virtual desktop
+
+If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
+
+
+
+
+
 
 #### 2.3.1 Whisper Installation
 
