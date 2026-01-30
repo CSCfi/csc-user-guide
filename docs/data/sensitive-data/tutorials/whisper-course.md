@@ -9,14 +9,17 @@ This tutorial can be used in two ways:
 **To practice using SD Services**: a hands‑on exercise for researchers new to the secure environment, helping them understand how it works and build confidence before handling real sensitive data.
 
 
-### Before you start
-### Collecting sensitive material via SD Connect
-### Software installation and data analysis in SD Desktop
-### Using whisper for video or audio file transcription
-### Verifing transcription si ok
+- Before you start
+  
+- Collecting sensitive material via SD Connect
+  
+- Software installation and data analysis in SD Desktop
+  
+- Using whisper for video or audio file transcription
 
+  
 
-## Before the exercise
+## Before you start
 
 Before starting the work, make sure of the following:
 
@@ -39,7 +42,7 @@ Note that for this exercise you will need to use both your Haka and CSC accounts
 
 ## 1. Collecting sensitive material via SD Connect
 
-### 1.1 Record an interview
+### 1.1 Record an interview or dowlaod example file
 
 Record a short interview with your phone or laptop, asking the person next to you the following things:
 
@@ -47,6 +50,8 @@ Record a short interview with your phone or laptop, asking the person next to yo
 * What has been so far most interesting in this seminar
 
 The interview can be a video or an audio recording. Do not make it longer than one minute. If possible, name the interview file in your device so that it is easy to identify (do not use spaces or special characters in the name).
+
+Alternativerly you can downlaod this [example file](https://github.com/eglerean/handsondataprotection/blob/main/transcribe/JohnChowning041306_part1_1min.ogg)
 
 ### 1.2 Upload the recording
 
@@ -154,5 +159,10 @@ ls -l
 
 Then, in the file browser, open the `.txt` output file with LibreOffice Writer.
 LibreOffice is found from the ”show applications” in the lower left corner of SD Desktop.
+
+How to add a file for transcription only in english
+How to get the transcritopn saved somehere an in which folmat
+how to play audio and check transcrptiona t the asme time.
+
 
 ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Apps.png)
