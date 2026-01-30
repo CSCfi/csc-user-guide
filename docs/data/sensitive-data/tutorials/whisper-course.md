@@ -210,6 +210,10 @@ whisper --model medium --language fi VID_43455_888.mp4 --output_dir foldername o
 
 **whisper --model medium --language en filename --output_dir foldername --output_format txt**
 
+**whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 (it takes 4 cores so it is fater, if there sis no otehr users in teh VM)
+
+**whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 --diarize pyannotate_v3.0 (it tried to recognise if there are several speakers (e.g. interview), but is makes htings slowwer for interviews)
+
 whisper --model medium --language en filename --output_dir . (if you sue dot it till put it in the current one?)
 
 whisper --model medium --language en filename --output_dir . (if you sue dot it till put it in the current one?)
@@ -218,6 +222,8 @@ Or we can tell user to open terminal in teh volume (or some sub directory in teh
 
 -0 (output folder)
 -f (for the format
+
+Threads (it will work faster)
 
 
 if you don't defien the language the first 30 seconds it wil try to figure it out but you can help. if you specify in finnish?
