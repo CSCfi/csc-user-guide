@@ -216,8 +216,16 @@ whisper --model medium --language en filename --output_dir . (if you sue dot it 
 
 Or we can tell user to open terminal in teh volume (or some sub directory in teh volume, or folder where you ahev the video file
 
+-0 (output folder)
+-f (for the format
+
 
 if you don't defien the language the first 30 seconds it wil try to figure it out but you can help. if you specify in finnish?
+
+Format file output: 
+
+srt subitle
+all you all them all of them
 
 
 ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Apps.png)
