@@ -1,4 +1,4 @@
-# CSC’s Sensitive Data Services - Exersice: utomated speak recognition with Whisper
+# CSC’s Sensitive Data Services - Exersice: Automated speech recognition with Whisper
 
 Working in a secure system designed for storing and analysing sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply and some workflows require new habits.
 
