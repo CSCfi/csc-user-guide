@@ -201,4 +201,23 @@ How to get the transcritopn saved somehere an in which folmat
 how to play audio and check transcrptiona t the asme time.
 
 
+
+To transcribe the file and get a file wiht the trascritopin, 
+
+```bash
+whisper --model medium --language fi VID_43455_888.mp4 --output_dir foldername or .will be saved in current folder
+```
+
+**whisper --model medium --language en filename --output_dir foldername --output_format txt**
+
+whisper --model medium --language en filename --output_dir . (if you sue dot it till put it in the current one?)
+
+whisper --model medium --language en filename --output_dir . (if you sue dot it till put it in the current one?)
+
+Or we can tell user to open terminal in teh volume (or some sub directory in teh volume, or folder where you ahev the video file
+
+
+if you don't defien the language the first 30 seconds it wil try to figure it out but you can help. if you specify in finnish?
+
+
 ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Apps.png)
