@@ -13,7 +13,7 @@ This tutorial can be used in two ways:
   
 - 2. Collecting sensitive material via SD Connect
   
-- 3. Sofware installation and data import via SD Dektop
+- 3. Data import via SD Dektop
   
 - 4. Using whisper for video or audio file transcription and analysis
 
@@ -63,7 +63,7 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
     ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
-## 3. Sofware installation and data import via SD Dektop
+## 3. Data import via SD Dektop
 
 ### 3.1. Create a virtual desktop 
 
@@ -117,44 +117,176 @@ In this step, you will create a secure connection between your virtual desktop (
 * If the video player can play the beginning of the recording, the transfer was successful and you can close the player.
 
 
-### 3.4 Software installation
+
+
+
+## 4 Using Whisper for video or audio file transcription and Automatic Speech Recognition
+
+
+### 4.1 Software installation
 
 If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
 
 If you are following this tutorial independently, please use the SD Software Installer to install Whisper on your virtual desktop by completing steps 1–4 as described [here](../sd-desktop-software.md/#customisation-via-sd-software-installer)
 
+### 4.2 Whisper Installation
 
+If course intructure or if another member of your CSC project has already installed Whisper on the virtual desktop, you can easily access the software by following the steps below:
 
-
-
-
-
-
-### 3.4 Automatic Speech Recognition
-
-### 2.41 Insalling Whisper on your virtual desktop
-
-
-#### 2.3.1 Whisper Installation
 
 * Navigate back to: Home → Projects → SD-Connect → project_2000828 → tools-for-sddesktop
-* Drag the file sd-installer-ubuntu22.desktop from this folder to your virtual machine’s desktop.
+* Copy the file sd-installer-ubuntu22.desktop from this folder  and paste it to virtual desktop.
 * Right-click the copied file on the desktop and select “Allow Launching”. Then double-click the file. This opens the installer tool.
 * Click the “Whisper” button in the tool to install the speech recognition software.
 
     ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/sd-installer1.png)
 
 
-
   COpy /paste depends on operating systehm
  Install Whistper / it will install VS Code (it will copy all the launch iconsof the software that otehr project member have installed in the sahred foler)
 
 
-#### 2.3.2 Using Whisper on the Command Line
+### 4.2 2 Using Whisper on the Command Line
 
-Navigate with the file browser to the folder you created on the Volume disk.
-Right-click an empty area in the folder and select: “Open in Terminal”.
-This opens a terminal window where you can use Linux command-line commands.
+Whisper will now be available from the command‑line tool (Terminal). You don’t need any programming experience to generate a transcript, simply follow the steps below. You can copy the commands using the copy‑paste clipboard in the virtual desktop, or type them manually.
+
+- Go to the Virtual Desktop Volume (from the left navigation panel) and open the folder where you saved the audio or video you want to transcribe.
+- Once you are inside that folder, right‑click an empty area in the folder and select: “Open in Terminal”. This will open a Terminal window where you can run the simple commands listed below. Please note that regular copy‑paste between your laptop and the virtual desktop is restricted for security reasons. However, you can still copy text to the virtual desktop using the special Clipboard feature. The Clipboard does not always work perfectly, this depends on your browser and laptop, so it may take a few tries to get used to it. Also, copy‑paste works only in one direction: from your computer to the virtual desktop. For more details on how the Clipboard works, see the [video tutorial and instructions here](../sd-desktop-working.md/#copy-paste-from-your-laptop-to-virtual-desktop). If you prefer, you can also type the commands manually. Below you will find simple examples with a detailed explanation.
+
+Commands are typed into the terminal window and executed by pressing Return/Enter.
+
+#### Simple command to transcribe a audio or video file to a test file in english
+
+To have the transcription of a simple audio /video file and have it saved in text format please type:
+
+whisper filename --model medium --language en --output_dir foldername --output_format txt
+
+
+Where: 
+
+- filename is the name of the file you want to transcribe, for example a file called interview.mp3
+- en is english
+- folder name is the name of the folder in which you want the text to be saved, for exampel a folder called transcripts
+- txt is the format you want the transcription saved to, text format
+
+Whister will then genrate a file called interview.txt
+
+Exampel with real names:
+
+whisper interview.mp3 --model medium --language en --output_dir transcripts --output_format txt
+
+
+To create a transcript from an audio or video file and save it as a text (.txt) file, type the following command in the Terminal:
+
+whisper filename --model medium --language en --output_dir foldername --output_format txt
+
+Where: 
+
+filename   This is the name of the file you want to transcribe  Example: interview.mp3
+
+--language en Use this if your audio is in English or change it to fi if t is in Finnish
+
+--output_dir foldername  This is the folder where the transcript will be saved.  Example: a folder called transcripts
+
+--output_format txt  This tells Whisper to save the transcript as a plain text file (.txt).
+
+
+Whisper automatically names the output file based on your original filename. For example, if your input file is: interview.mp3  Whisper will generate: interview.txt and save it inside the folder you have created and specified with --output_dir called transcrpts
+
+Example using real names:
+
+whisper interview.mp3 --model medium --language en --output_dir transcripts --output_format txt
+
+### Simpla command without specifing the folder output 
+
+If you run Whisper like this:
+
+whisper --model medium --language en filename --output_dir .
+
+The dot (.) means: “Save the output in the current folder I am in.” Whisper will place all generated files in the folder you are currently working in, the same one where you opened the Terminal.
+
+
+#### Simple command to transcribe a audio or video file faster
+
+
+If you want Whisper to transcribe your file more quickly, you can add the option:
+
+--threads 4
+
+Full example: 
+
+whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 
+
+
+This tells Whisper to use more computing resources in your virtual deskop (4 CPU cores), which often speeds up the transcription process.
+
+However, keep in mind: If other people or processes are using the same virtual machine, using too many threads may slow the system down, on machines with limited resources, setting a high number of threads may actually reduce performance.
+
+
+#### Simple command to transcribe a audio or video file where multiple people are speaking
+
+You can also ask Whisper to try to recognise different speakers in your audio (for example, in an interview) by adding:
+--diarize pyannotate_v3.0
+
+
+Full example: 
+
+whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 --diarize pyannotate_v3.0 
+
+This tells Whisper to run an extra step that attempts to label who is speaking when.
+
+However, please note: Diarization makes the transcription process significantly slower, especially for interviews or long recordings. The results are not always perfect and may require some manual correction.
+If you only need a simple transcript, we recommend not using diarization.
+
+
+### Simple command without defining the language
+
+If you don’t specify a language, Whisper will listen to the first ~30 seconds of your audio and try to guess the language automatically. This usually works well, but:
+
+- Automatic detection sometimes makes mistakes
+- It may take slightly longer
+- It can be confused by background noise or mixed languages
+
+To help Whisper and improve accuracy, it’s best to manually set the language when you already know it, for example Finnish:
+--language fi
+
+Full example: 
+
+whisper interview.mp3 --model medium --language fi --output_dir transcripts --output_format txt
+
+### Simple command to have several output fomats inlcuding subtitles
+
+
+Whisper can save your transcription in different file formats all at once with the command:
+--output_format all
+
+whisper interview.mp3 --model medium --language fi --output_dir transcripts --output_format all
+
+
+This will generate txt, srt, vtt, tsv, and json versions of your transcript.
+
+Here are the most common options that you can also specific instead of using all: 
+
+srt — Subtitle file
+Creates a subtitle file with timestamps, widely used for videos (e.g., YouTube subtitles).
+
+txt — Plain text
+Creates a simple text file without timestamps (easy to read or edit).
+
+vtt — Web subtitle format
+Similar to .srt, but used mainly for web players.
+
+tsv — Table-style output
+Creates a tab‑separated file containing timestamps and text — useful for analysis.
+
+ json — Structured output
+Saves the transcript in JSON format, including metadata.
+
+all — Everything
+
+
+
+### Advanced
 
 Commands are typed into the terminal window and executed by pressing Return/Enter.
 
@@ -200,43 +332,5 @@ ls -l
 Then, in the file browser, open the `.txt` output file with LibreOffice Writer.
 LibreOffice is found from the ”show applications” in the lower left corner of SD Desktop.
 
-How to add a file for transcription only in english
-How to get the transcritopn saved somehere an in which folmat
-how to play audio and check transcrptiona t the asme time.
-
-
-
-To transcribe the file and get a file wiht the trascritopin, 
-
-```bash
-whisper --model medium --language fi VID_43455_888.mp4 --output_dir foldername or .will be saved in current folder
-```
-
-**whisper --model medium --language en filename --output_dir foldername --output_format txt**
-
-**whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 (it takes 4 cores so it is fater, if there sis no otehr users in teh VM)
-
-**whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 --diarize pyannotate_v3.0 (it tried to recognise if there are several speakers (e.g. interview), but is makes htings slowwer for interviews)
-
-whisper --model medium --language en filename --output_dir . (if you sue dot it till put it in the current one?)
-
-whisper --model medium --language en filename --output_dir . (if you sue dot it till put it in the current one?)
-
-Or we can tell user to open terminal in teh volume (or some sub directory in teh volume, or folder where you ahev the video file
-
--0 (output folder)
--f (for the format
-
-Threads (it will work faster)
-
-
-if you don't defien the language the first 30 seconds it wil try to figure it out but you can help. if you specify in finnish?
-
-Format file output: 
-
-srt subitle
-all you all them all of them
-
-XXX
 
 ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Apps.png)
