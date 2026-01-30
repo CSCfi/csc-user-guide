@@ -1,6 +1,6 @@
 # CSC’s Sensitive Data Services - Exercise
 
-Working in a system designed for sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply and some workflows require new habits.
+Working in a secure system designed for storing and analysing sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply and some workflows require new habits.
 
 This tutorial can be used in two ways:
 
@@ -65,7 +65,7 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
 ## 3. Sofware installation and data import via SD Dektop
 
-### 3.1. Cretate a virtual desktop 
+### 3.1. Create a virtual desktop 
 
 If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
 
@@ -115,8 +115,9 @@ In this step, you will create a secure connection between your secure virtual de
 * If the video player can play the beginning of the recording, the transfer was successful and you can close the player.
 
 
-### 3.4 Software installtion
+### 3.4 Software installation
 
+If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
 
 
 
@@ -129,12 +130,6 @@ In this step, you will create a secure connection between your secure virtual de
 
 ### 2.41 Insalling Whisper on your virtual desktop
 
-If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
-
-
-
-
-
 
 #### 2.3.1 Whisper Installation
 
@@ -144,6 +139,10 @@ If you are following this tutorial as part of a course, you can skip this step a
 * Click the “Whisper” button in the tool to install the speech recognition software.
 
     ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/sd-installer1.png)
+
+
+
+  COpy /paste depends on operating systehm
 
 #### 2.3.2 Using Whisper on the Command Line
 
