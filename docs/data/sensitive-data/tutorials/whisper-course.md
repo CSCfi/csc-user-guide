@@ -143,6 +143,8 @@ If you are following this tutorial as part of a course, you can skip this step a
 
 
   COpy /paste depends on operating systehm
+ Install Whistper / it will install VS Code (it will copy all the launch iconsof the software that otehr project member have installed in the sahred foler)
+
 
 #### 2.3.2 Using Whisper on the Command Line
 
