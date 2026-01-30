@@ -1,5 +1,14 @@
 # CSC’s Sensitive Data Services - Exercise
 
+Working in a system designed for sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply, and some workflows require new habits.
+This tutorial can be used in two ways:
+
+**To learn Whisper transcription**: A simple, step‑by‑step guide for researchers who want to transcribe audio or video files within SD Services.
+
+**To practice using SD Services**: A hands‑on exercise for researchers new to the secure environment, helping them understand how it works and build confidence before handling real sensitive data.
+
+
+
 ## Before the exercise
 
 Before starting the work, make sure of the following:
