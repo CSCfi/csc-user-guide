@@ -121,7 +121,7 @@ In this step, you will create a secure connection between your virtual desktop (
 
 If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
 
-If you are following this tutorial independently, please use the SD Software Installer to install Whisper on your virtual desktop by completing steps 1–4 as described [here](sd-desktop-software.md/#customisation-via-sd-software-installer)
+If you are following this tutorial independently, please use the SD Software Installer to install Whisper on your virtual desktop by completing steps 1–4 as described [here](../sd-desktop-software.md/#customisation-via-sd-software-installer)
 
 
 
