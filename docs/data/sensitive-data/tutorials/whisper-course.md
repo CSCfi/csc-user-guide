@@ -159,8 +159,9 @@ Commands are typed into the terminal window and executed by pressing Return/Ente
 
 To have the transcription of a simple audio /video file and have it saved in text format please type:
 
+```bash
 whisper filename --model medium --language en --output_dir foldername --output_format txt
-
+```
 
 Where: 
 
@@ -173,12 +174,15 @@ Whister will then genrate a file called interview.txt
 
 Exampel with real names:
 
+```bash
 whisper interview.mp3 --model medium --language en --output_dir transcripts --output_format txt
-
+```
 
 To create a transcript from an audio or video file and save it as a text (.txt) file, type the following command in the Terminal:
 
+```bash
 whisper filename --model medium --language en --output_dir foldername --output_format txt
+```
 
 Where: 
 
@@ -195,14 +199,18 @@ Whisper automatically names the output file based on your original filename. For
 
 Example using real names:
 
+```bash
 whisper interview.mp3 --model medium --language en --output_dir transcripts --output_format txt
+```
 
 ### Simpla command without specifing the folder output 
 
 If you run Whisper like this:
 
-whisper --model medium --language en filename --output_dir .
 
+```bash
+whisper --model medium --language en filename --output_dir .
+```
 The dot (.) means: “Save the output in the current folder I am in.” Whisper will place all generated files in the folder you are currently working in, the same one where you opened the Terminal.
 
 
@@ -211,12 +219,15 @@ The dot (.) means: “Save the output in the current folder I am in.” Whisper 
 
 If you want Whisper to transcribe your file more quickly, you can add the option:
 
+```bash
 --threads 4
+```
 
 Full example: 
 
+```bash
 whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 
-
+```
 
 This tells Whisper to use more computing resources in your virtual deskop (4 CPU cores), which often speeds up the transcription process.
 
@@ -226,12 +237,16 @@ However, keep in mind: If other people or processes are using the same virtual m
 #### Simple command to transcribe a audio or video file where multiple people are speaking
 
 You can also ask Whisper to try to recognise different speakers in your audio (for example, in an interview) by adding:
---diarize pyannotate_v3.0
 
+```bash
+--diarize pyannotate_v3.0
+```
 
 Full example: 
 
+```bash
 whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 --diarize pyannotate_v3.0 
+```
 
 This tells Whisper to run an extra step that attempts to label who is speaking when.
 
@@ -248,20 +263,31 @@ If you don’t specify a language, Whisper will listen to the first ~30 seconds 
 - It can be confused by background noise or mixed languages
 
 To help Whisper and improve accuracy, it’s best to manually set the language when you already know it, for example Finnish:
+
+```bash
 --language fi
+```
 
 Full example: 
 
+```bash
 whisper interview.mp3 --model medium --language fi --output_dir transcripts --output_format txt
+```
 
 ### Simple command to have several output fomats inlcuding subtitles
 
 
 Whisper can save your transcription in different file formats all at once with the command:
+
+```bash
 --output_format all
+```
 
+Full example: 
+
+```bash
 whisper interview.mp3 --model medium --language fi --output_dir transcripts --output_format all
-
+```
 
 This will generate txt, srt, vtt, tsv, and json versions of your transcript.
 
