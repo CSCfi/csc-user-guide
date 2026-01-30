@@ -1,4 +1,4 @@
-# CSC’s Sensitive Data Services - Exercise
+# CSC’s Sensitive Data Services - Exersice: utomated speak recognition with Whisper
 
 Working in a secure system designed for storing and analysing sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply and some workflows require new habits.
 
@@ -77,6 +77,8 @@ If you are trying this tutorial on your own, switch to yourlapto, login to the [
   
 - Storage volume: 200 GB
 
+The virtual desktop will be ready for use in approximately 30 minutes.
+
 
 ### 3.2. Log in to the virtual deskop
 
@@ -95,7 +97,7 @@ If you are trying this tutorial on your own, switch to yourlapto, login to the [
 
 ### 3.3 Retrieving Data from SD Connect
 
-In this step, you will create a secure connection between your secure virtual desktop (your virtual computer) and the files you have stored in SD Connect, and then import those files into the virtual desktop. They will be automatically decrypted during the transfer, making them ready for analysis.
+In this step, you will create a secure connection between your virtual desktop (your virtual computer) and the files you have stored in SD Connect and then import those files into the virtual desktop. They will be automatically decrypted during the transfer, making them ready for analysis.
 
 * Launch **Data Gateway** application by clicking icon on the left side of desktop.
 
@@ -118,6 +120,8 @@ In this step, you will create a secure connection between your secure virtual de
 ### 3.4 Software installation
 
 If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
+
+If you are following this tutorial independently, please use the SD Software Installer to install Whisper on your virtual desktop by completing steps 1–4 as described [here](sd-desktop-software.md/#customisation-via-sd-software-installer)
 
 
 
