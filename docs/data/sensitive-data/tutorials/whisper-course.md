@@ -42,7 +42,7 @@ Note that for this exercise you will need to use both your Haka and CSC accounts
 
 ## 1. Collecting sensitive material via SD Connect
 
-### 1.1 Record an interview or dowlaod example file
+### 1.1 Record an interview or downlaod example file
 
 Record a short interview with your phone or laptop, asking the person next to you the following things:
 
@@ -65,11 +65,24 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
 ## 2. Data analysis in SD Desktop
 
-### 2.1. Log in to the virtual machine
+
+### 2.1. Cretate a virtual desktop 
+
+If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
+
+If you are trying this tutorial on your own, switch to yourlapto, login to the [SD Desktop service](https://sd-desktop.csc.fi) and create a virtual desktop following [these steps](../sd-desktop-create.md)
+
+Operating system: Default Ubuntu
+Virtual desktop option: Medium
+Storage volume: 200 GB
+
+
+
+### 2.1. Log in to the virtual deskop
 
 * Switch to your laptop and log in to the [SD Desktop service](https://sd-desktop.csc.fi).
 * After logging in, you will be in the **Connections** view of the SD Desktop service.
-* Scroll to **All connections** section and click the + sign in front of **project_2000828.** This opens a list of virtual machines currently running on the project.
+* Scroll to **All connections** section and click the + sign in front of your CSC project or **project_2000828.** This opens a list of virtual desktop currently running on the project.
 * Select **socialdatavm-1764247746**. This will open the virtual machine’s desktop in your browser window.
 
     ![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
