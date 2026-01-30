@@ -51,7 +51,7 @@ Record a short interview with your phone or laptop, asking the person next to yo
 
 The interview can be a video or an audio recording. Do not make it longer than one minute. If possible, name the interview file in your device so that it is easy to identify (do not use spaces or special characters in the name).
 
-Alternativerly you can downlaod this [example file](https://github.com/eglerean/handsondataprotection/blob/main/transcribe/JohnChowning041306_part1_1min.ogg)
+Alternativerly you can downlaod this [example file](transcribe/JohnChowning041306_part1_1min.ogg)
 
 ### 1.2 Upload the recording
 
