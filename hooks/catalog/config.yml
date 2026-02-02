@@ -40,7 +40,7 @@ listing_order:
       fallback: true
   systems:
     - name: Roihu
-      description: "CSC's next supercomputer replacing Puhti and Mahti"
+      description: "New CSC supercomputer replacing Puhti and Mahti"
     - name: Mahti
       description: "CSC supercomputer for massively parallel jobs"
     - name: Puhti
