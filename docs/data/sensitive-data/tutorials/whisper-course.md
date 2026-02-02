@@ -122,7 +122,7 @@ In this step, you will create a secure connection between your virtual desktop (
 
 
 
-## 4 Using Whisper for video or audio file transcription and Automatic Speech Recognition
+## 4 Accessing Whisper in the virtual deskotp
 
 
 ### 4.1 Installing Whisper (self‑paced setup)
@@ -143,11 +143,43 @@ If course instructure or if another member of your CSC project has already insta
 
     ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/sd-installer1.png)
 
+## 5 Your first steps with Whisper 
+
+Whisper is now ready to use in the Terminal, also called the command‑line tool. The Terminal is a simple window where you type instructions (called commands) and the virtual desktop carries them out. You don’t need any programming skills, just type or paste the commands exactly as shown in the steps below and Whisper will create your audio or video transcripts for you.
+
+You can enter commands in two ways:
+
+- type them manually in the Terminal or
+- paste them into the virtual desktop using the built‑in Clipboard tool.
+
+Important:
+
+Regular copy‑paste between your laptop and the virtual desktop is blocked for security reasons. However, you can still paste text into the virtual desktop using its special Clipboard feature. The Clipboard can behave differently depending on your browser and computer, so it might take a few tries to get used to. Also, the Clipboard only works one way: from your computer to the virtual desktop, not the other way around. For more details on how the Clipboard tool works, see the [video tutorial and instructions here](../sd-desktop-working.md/#copy-paste-from-your-laptop-to-virtual-desktop).
 
 
-### 4.2 2 Using Whisper on the Command Line
+### 5.1 Step 1: open the Terminal in the correct folder
 
-Whisper will now be available from the command‑line tool (Terminal). You don’t need any programming experience to generate a transcript, simply follow the steps below. You can copy the commands using the copy‑paste clipboard in the virtual desktop, or type them manually.
+When you open the Terminal inside the folder where your audio or video file is stored, Whisper automatically knows where to look for that file and where to save the results. This keeps the next steps simpler.
+
+1. Open the Virtual Desktop Volume (left navigation panel).
+   
+2. Go to the folder where your audio or video file is saved.
+   
+3. Right‑click on an empty area in that folder and select Open in Terminal.
+   
+→ A Terminal window opens in that folder.
+
+You can now type one of the commands below and press Enter to run them.
+
+
+
+
+Using Whisper 
+
+Whisper will now be available from the command‑line tool (Terminal). You don’t need any programming experience to generate a transcript, simply follow the steps below. 
+
+
+You can copy the commands using the copy‑paste clipboard in the virtual desktop, or type them manually.
 
 - Go to the Virtual Desktop Volume (from the left navigation panel) and open the folder where you saved the audio or video you want to transcribe.
 - Once you are inside that folder, right‑click an empty area in the folder and select: “Open in Terminal”. This will open a Terminal window where you can run the simple commands listed below. Please note that regular copy‑paste between your laptop and the virtual desktop is restricted for security reasons. However, you can still copy text to the virtual desktop using the special Clipboard feature. The Clipboard does not always work perfectly, this depends on your browser and laptop, so it may take a few tries to get used to it. Also, copy‑paste works only in one direction: from your computer to the virtual desktop. For more details on how the Clipboard works, see the [video tutorial and instructions here](../sd-desktop-working.md/#copy-paste-from-your-laptop-to-virtual-desktop). If you prefer, you can also type the commands manually. Below you will find simple examples with a detailed explanation.
