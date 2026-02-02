@@ -25,16 +25,16 @@ This tutorial can be used in two ways:
 
 Before starting the work, make sure of the following:
 
-### 1.1. You have a CSC user account
+### 1.1 You have a CSC user account
 
 If you do not have an account, [see instructions](../../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
 Note that for this exercise you will need to use both your Haka and CSC accounts, so make sure you remember the password for your CSC account.
 
-### 1.2. You have two-factor authentication (MFA) enabled for your CSC account
+### 1.2 You have two-factor authentication (MFA) enabled for your CSC account
 
 * [See instructions](../../../accounts/mfa.md).
 
-### 1.3. You are a member in a CSC project that has SD Desktop and SD Connect enabled
+### 1.3 You are a member in a CSC project that has SD Desktop and SD Connect enabled
 
 * Log in to [MyCSC](https://my.csc.fi).
 * Go to the Projects page and open the correct project.
@@ -67,11 +67,11 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
 ## 3. Data import via SD Desktop
 
-### 3.1. Create a virtual desktop 
+### 3.1 Create a virtual desktop 
 
 If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
 
-If you are trying this tutorial on your own, switch to yourlapto, login to the [SD Desktop service](https://sd-desktop.csc.fi) and create a virtual desktop following [these steps](../sd-desktop-create.md) and by choosing these options:
+If you are trying this tutorial on your own, switch to your laptop, log in to the [SD Desktop service](https://sd-desktop.csc.fi) and create a virtual desktop following [these steps](../sd-desktop-create.md) and by choosing these options:
 
 - Operating system: Default Ubuntu
   
@@ -82,11 +82,11 @@ If you are trying this tutorial on your own, switch to yourlapto, login to the [
 The virtual desktop will be ready for use in approximately 30 minutes.
 
 
-### 3.2. Log in to the virtual deskop
+### 3.2 Log in to the virtual deskop
 
 * Switch to your laptop and log in to the [SD Desktop service](https://sd-desktop.csc.fi).
 * After logging in, you will be in the **Connections** view of the SD Desktop service.
-* Scroll to **All connections** section and click the + sign in front of your CSC project or **project_2000828.** This opens a list of virtual desktop currently running on the project.
+* Scroll to **All connections** section and click the + sign in front of your CSC project or **project_2000828.** This opens a list of virtual desktops currently running on the project.
 * Select **socialdatavm-1764247746**. This will open the virtual desktop in your browser window.
 
     ![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
@@ -97,16 +97,16 @@ The virtual desktop will be ready for use in approximately 30 minutes.
 
     ![Open volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Volume.png)
 
-### 3.3 Retrieving Data from SD Connect
+### 3.3 Importing data from SD Connect to SD Desktop
 
 In this step, you will create a secure connection between your virtual desktop (your virtual computer) and the files you have stored in SD Connect and then import those files into the virtual desktop. They will be automatically decrypted during the transfer, making them ready for analysis.
 
-* Launch **Data Gateway** application by clicking icon on the left side of desktop.
+* Launch **Data Gateway** application by clicking the icon on the left side of desktop.
 
     ![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway1.png)
 
 * Select the option to connect to the SD Connect service. During login, you must enter your **CSC username and password** (Haka cannot be used here).
-* Once the connection is established, minimize Data Gateway by clicking the “_” symbol in the upperright corner of the Data Gateway window.
+* Once the connection is established, minimize Data Gateway by clicking the “_” symbol in the upper-right corner of the Data Gateway window.
 * Next, open the File Browser and navigate to your home directory (Home).
 
     ![File browser](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FileBrowser.png)
