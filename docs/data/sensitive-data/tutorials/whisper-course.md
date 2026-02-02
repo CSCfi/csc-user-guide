@@ -157,19 +157,22 @@ Important:
 Regular copy‑paste between your laptop and the virtual desktop is blocked for security reasons. However, you can still paste text into the virtual desktop using its special Clipboard feature. The Clipboard can behave differently depending on your browser and computer, so it might take a few tries to get used to. Also, the Clipboard only works one way: from your computer to the virtual desktop, not the other way around. For more details on how the Clipboard tool works, see the [video tutorial and instructions here](../sd-desktop-working.md/#copy-paste-from-your-laptop-to-virtual-desktop).
 
 
-### 5.1 Step 1: open the Terminal in the correct folder
+### 5.1 Open the Terminal in the correct folder
 
 When you open the Terminal inside the folder where your audio or video file is stored, Whisper automatically knows where to look for that file and where to save the results. This keeps the next steps simpler.
 
-1. Open the Virtual Desktop Volume (left navigation panel).
-   
-2. Go to the folder where your audio or video file is saved.
-   
-3. Right‑click on an empty area in that folder and select Open in Terminal.
-   
-→ A Terminal window opens in that folder.
+- Open the Virtual Desktop Volume (left navigation panel).
 
-You can now type one of the commands below and press Enter to run them.
+- Go to the folder where your audio or video file is saved.
+
+- Right‑click on an empty area in that folder and select Open in Terminal. A Terminal window opens in that folder.
+
+- You can now type one of the commands and press Enter to run them.
+
+Below you will find simple example commands that show how to use Whisper to transcribe an audio or video file and save the output. You can copy these commands and replace the example filenames and folder names with your own.
+
+
+
 
 
 
