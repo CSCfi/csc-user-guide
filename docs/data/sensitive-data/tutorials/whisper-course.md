@@ -101,12 +101,12 @@ The virtual desktop will be ready for use in approximately 30 minutes.
 
 In this step, you will create a secure connection between your virtual desktop (your virtual computer) and the files you have stored in SD Connect and then import those files into the virtual desktop. They will be automatically decrypted during the transfer, making them ready for analysis.
 
-* Launch **Data Gateway** application by clicking the icon on the left side of desktop.
+* Launch **Data Gateway** application by clicking the icon on the left side of the desktop.
 
     ![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway1.png)
 
 * Select the option to connect to the SD Connect service. During login, you must enter your **CSC username and password** (Haka cannot be used here).
-* Once the connection is established, minimize Data Gateway by clicking the “_” symbol in the upper-right corner of the Data Gateway window.
+* Once the connection is established, minimise Data Gateway by clicking the “_” symbol in the upper-right corner of the Data Gateway window.
 * Next, open the File Browser and navigate to your home directory (Home).
 
     ![File browser](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FileBrowser.png)
@@ -125,27 +125,24 @@ In this step, you will create a secure connection between your virtual desktop (
 ## 4 Using Whisper for video or audio file transcription and Automatic Speech Recognition
 
 
-### 4.1 Software installation
+### 4.1 Installing Whisper (self‑paced setup)
 
 If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
 
 If you are following this tutorial independently, please use the SD Software Installer to install Whisper on your virtual desktop by completing steps 1–4 as described [here](../sd-desktop-software.md/#customisation-via-sd-software-installer)
 
-### 4.2 Whisper Installation
+### 4.2 Accessing Whisper (if already installed)
 
-If course intructure or if another member of your CSC project has already installed Whisper on the virtual desktop, you can easily access the software by following the steps below:
-
+If course instructure or if another member of your CSC project has already installed Whisper on the virtual desktop, you can easily access the software by following the steps below:
 
 * Navigate back to: Home → Projects → SD-Connect → project_2000828 → tools-for-sddesktop
-* Copy the file sd-installer-ubuntu22.desktop from this folder  and paste it to virtual desktop.
+* Copy the file sd-installer-ubuntu22.desktop from this folder  and paste it to the virtual desktop.
 * Right-click the copied file on the desktop and select “Allow Launching”. Then double-click the file. This opens the installer tool.
 * Click the “Whisper” button in the tool to install the speech recognition software.
+* Note that this step will also install bu default VS Code and automatically add the launch icons for any software that other project members have placed in the shared folder.
 
     ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/sd-installer1.png)
 
-
-  COpy /paste depends on operating systehm
- Install Whistper / it will install VS Code (it will copy all the launch iconsof the software that otehr project member have installed in the sahred foler)
 
 
 ### 4.2 2 Using Whisper on the Command Line
