@@ -353,7 +353,7 @@ of these flavors include genome sequencing and analysis applications.
 The resize/migration functionalities do not work for these instances. 
 If you need to resize one VM of this flavor you will need to, either create a new VM and move all data and install all applications manually
 on the new VM, either create a snapshot of the source VM, and then
-create a new VM with that smapsho. More information at the [resize the instance](../../support/faq/how-to-resize-in-pouta.md) article.
+create a new VM with that snapshot. More information at the [resize the instance](../../support/faq/how-to-resize-in-pouta.md) article.
 **Please note** that all ephemeral disk data will be lost in the process and will not be stored
 in the snapshot because only the VM's root disk is stored in the snapshot.
 Never store on the ephemeral disk any valuable data that you have no a second safe copy.
