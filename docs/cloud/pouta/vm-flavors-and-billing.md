@@ -195,7 +195,7 @@ We also offer the possibility to store the data in a [persistent volume (FULL)](
 
 ### **Standard flavors**
 
-These are generic flavors that are useful for running regular computation tasks like a web service or softwsre development. If you are unsure on what to use, this is the recommended choice for you. You can later [resize the instance](../../support/faq/how-to-resize-in-pouta.md) to a more suitable flavor afterwards when your application's are clearer.
+These are generic flavors that are useful for running regular computation tasks like a web service or software development. If you are unsure on what to use, this is the recommended choice for you. You can later [resize the instance](../../support/faq/how-to-resize-in-pouta.md) to a more suitable flavor afterwards when your application's are clearer.
 
 They provide better availability compared to the
 HPC flavors. This is because cloud administrators can move these virtual machines from one host machine to another without causing a break in service. This means that
