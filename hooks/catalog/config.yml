@@ -39,6 +39,8 @@ listing_order:
     - name: "Miscellaneous"
       fallback: true
   systems:
+    - name: Roihu
+      description: "New CSC supercomputer"
     - name: Mahti
       description: "CSC supercomputer for massively parallel jobs"
     - name: Puhti
