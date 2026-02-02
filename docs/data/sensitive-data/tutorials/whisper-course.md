@@ -1,21 +1,23 @@
-# CSC’s Sensitive Data Services - Exersice: Automated speech recognition with Whisper
+# CSC’s Sensitive Data Services - Exercise: Automated speech recognition with Whisper
 
-Working in a secure system designed for storing and analysing sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply and some workflows require new habits.
+Working in a secure service designed for storing and analysing sensitive data can feel very different from using a regular computer. Tools may behave differently, extra security layers apply and some workflows require new habits.
 
 This tutorial can be used in two ways:
 
-**To learn how to use the automated spech recognition software Whisper**: a simple, step‑by‑step guide for researchers who want to transcribe audio or video files within SD Services.
+**To learn how to use the automated speech recognition software Whisper**: a simple, step‑by‑step guide for researchers who want to transcribe audio or video files within SD Services.
 
 **To practice using SD Services**: a hands‑on exercise for researchers new to the secure environment, helping them understand how it works and build confidence before handling real sensitive data.
 
 
-- 1. Before you start
+## Outline: 
+
+- 1. Before you start (
   
 - 2. Collecting sensitive material via SD Connect
   
 - 3. Data import via SD Dektop
   
-- 4. Using whisper for video or audio file transcription and analysis
+- 4. Using Whisper for video or audio file transcription and analysis
 
 - anynomisation?
 
@@ -32,7 +34,7 @@ Note that for this exercise you will need to use both your Haka and CSC accounts
 
 * [See instructions](../../../accounts/mfa.md).
 
-### 1.3. You are member in a project that has SD Desktop and SD Connect enabled
+### 1.3. You are a member in a CSC project that has SD Desktop and SD Connect enabled
 
 * Log in to [MyCSC](https://my.csc.fi).
 * Go to the Projects page and open the correct project.
@@ -42,16 +44,16 @@ Note that for this exercise you will need to use both your Haka and CSC accounts
 
 ## 2. Collecting sensitive material via SD Connect
 
-### 2.1 Record an interview or downlaod example file
+### 2.1 Record an interview or download example file
 
 Record a short interview with your phone or laptop, asking the person next to you the following things:
 
 * First name
-* What has been so far most interesting in this seminar
+* What has been most interesting in this first part of the seminar
 
-The interview can be a video or an audio recording. Do not make it longer than one minute. If possible, name the interview file in your device so that it is easy to identify (do not use spaces or special characters in the name).
+The interview can be a video or an audio recording. Do not make it longer than one minute. If possible, name the interview file on your device so that it is easy to identify (do not use spaces or special characters in the name).
 
-Alternativerly you can downlaod this [example file](https://github.com/eglerean/handsondataprotection/blob/f4e70f010fc762ea88695da785e368dc37d92126/transcribe/JohnChowning041306_part1_1min.ogg)
+Alternativerly you can download this [example file](https://github.com/eglerean/handsondataprotection/blob/f4e70f010fc762ea88695da785e368dc37d92126/transcribe/JohnChowning041306_part1_1min.ogg)
 
 ### 2.2 Upload the recording
 
@@ -63,7 +65,7 @@ When the interview is ready, open the browser on your phone or laptop and upload
 
     ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
-## 3. Data import via SD Dektop
+## 3. Data import via SD Desktop
 
 ### 3.1. Create a virtual desktop 
 
