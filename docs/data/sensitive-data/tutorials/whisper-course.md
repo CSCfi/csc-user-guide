@@ -169,7 +169,16 @@ When you open the Terminal inside the folder where your audio or video file is s
 
 - You can now type one of the commands and press Enter to run them.
 
+
+
+### 5.2 Simple commands
+
 Below you will find simple example commands that show how to use Whisper to transcribe an audio or video file and save the output. You can copy these commands and replace the example filenames and folder names with your own.
+
+
+
+
+
 
 
 
