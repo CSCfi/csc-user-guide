@@ -5,7 +5,7 @@
 
 ## Procedure
 
-1. Deploy an NGINX Image. Start by clicking the 'Quick create' button on top right and select `Container images` option.
+1. Deploy an NGINX Image. Start by clicking the '+ Add' button on top right and select `Container images` option.
 
     ![Quick create](../../img/quick-create.png)
 
@@ -13,7 +13,7 @@
 
     ![bitnami/nginx](../../img/bitnami-nginx-deploy.png)
 
-1. Add a Route with the URL that you want to redirect. If you visit the URL, you should see the "nginx welcome page"
+1. Add a Route by going to Networking -> Routes and clicking Create Route. Use the URL that you want to redirect. If you visit the URL, you should see the "nginx welcome page"
 
     ![route](../../img/create-route-nginx.png)
 
