@@ -57,16 +57,20 @@
 
     The YAML above contains the additions needed to make this example work. However, the example does not contain any extra lines that you might have, and adding new ones requires a bit of attention.  
 
-If you feel adventurous or manually editing YAML tedious, it is possible to create ConfigMap and VolumeMount with an `oc` command.
+If you feel adventurous or manually editing YAML tedious, it is possible to create ConfigMap and VolumeMount with an `oc` command. 
 
 ```bash
-$ echo '#nginx.conf
+echo '#nginx.conf
 server {
         listen 8080;
         server_name test.com;
         return 301 $scheme://test2.com$request_uri;
 }' | oc create configmap nginx-conf --from-file=nginx.conf=/dev/stdin
-$ oc set volume deployment/<deployment-name> --add \
+```
+You will need to replace the `<deployment-name>` with a valid value of your environment.
+
+```bash
+oc set volume deployment/<deployment-name> --add \
   --name=nginx-conf \
   --type=configmap \
   --configmap-name=nginx-conf \
@@ -74,7 +78,7 @@ $ oc set volume deployment/<deployment-name> --add \
   --containers=nginx
 ```
 
-This tutorial does not handle `oc` command in detail.
+This tutorial does not handle `oc` command in detail but you can get started with another tutorial: [Command line tool usage](../usage/cli.md).
 
 ## Add more host domains
 
