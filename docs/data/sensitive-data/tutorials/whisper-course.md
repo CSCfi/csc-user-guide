@@ -11,14 +11,17 @@ This tutorial can be used in two ways:
 
 ## Outline: 
 
-- 1. Before you start (
+- 1. Before you start 
   
 - 2. Collecting sensitive material via SD Connect
   
 - 3. Data import via SD Dektop
   
-- 4. Using Whisper for video or audio file transcription and analysis
+- 4. Accessing Whisper in the virtual deskotp
 
+- 5. Your first steps with Whisper 
+
+- open the transcripotopon with open office
 - anynomisation?
 
 ## 1. Before you start
@@ -120,9 +123,7 @@ In this step, you will create a secure connection between your virtual desktop (
 
 
 
-
 ## 4 Accessing Whisper in the virtual deskotp
-
 
 ### 4.1 Installing Whisper (self‑paced setup)
 
@@ -167,7 +168,6 @@ When you open the Terminal inside the folder where your audio or video file is s
 - Right‑click on an empty area in that folder and select Open in Terminal. A Terminal window opens in that folder.
 
 - You can now type one of the commands and press Enter to run them.
-
 
 
 ### 5.2 Beginner‑friendly commands
@@ -235,7 +235,7 @@ whisper interview.mp3 --model medium --language en --output_format txt --output_
 If your input audio file is called  interview.mp3 Whisper will create the trasncript interview.txt and save it in your the folder called transcripts. 
 
 
-#### 5.2.3 How to transcribe an audio or video file faster
+#### 5.2.3 How to transcribe a long audio or video file faster
 
 Now that you’ve learned how to create transcripts and save them in the format and location you want, you can start using Whisper to transcribe real audio or video files from your research.  If your recordings are long or large, you may want to speed up the transcription process by adding the option: 
 
@@ -258,39 +258,22 @@ Important notes:
 - 
 - On shared systems (for example, a virtual desktop other people also use), using many threads can slow down the entire machine for everyone.
 
-A safe starting point is to try --threads 2 or --threads 4, and increase only if teh virtual desktop optionis suitable. 
+A safe starting point is to try --threads 2 or --threads 4 and increase only if the virtual desktop option is suitable. 
 
 
 
+#### 5.2.4 How to transcribe a audio or video file where multiple people are speaking
 
-
-
-
-
-If you want Whisper to transcribe your file more quickly, you can add the option:
-
-```bash
---threads 4
-```
-
-Full example: 
-
-```bash
-whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 
-```
-
-This tells Whisper to use more computing resources in your virtual deskop (4 CPU cores), which often speeds up the transcription process.
-
-However, keep in mind: If other people or processes are using the same virtual machine, using too many threads may slow the system down, on machines with limited resources, setting a high number of threads may actually reduce performance.
-
-
-#### Simple command to transcribe a audio or video file where multiple people are speaking
-
-You can also ask Whisper to try to recognise different speakers in your audio (for example, in an interview) by adding:
+You can also ask Whisper to try to recognize different speakers in your audio (for example, in an interview) by adding:
 
 ```bash
 --diarize pyannotate_v3.0
 ```
+
+This tells Whisper to run an extra step that attempts to label who is speaking when.
+
+**However, please note**: Diarization makes the transcription process significantly slower, especially for interviews or long recordings. The results are not always perfect and may require some manual correction. If you only need a simple transcript, we recommend not using diarization.
+
 
 Full example: 
 
@@ -298,13 +281,9 @@ Full example:
 whisper --model medium --language en filename --output_dir foldername --output_format txt --threads 4 --diarize pyannotate_v3.0 
 ```
 
-This tells Whisper to run an extra step that attempts to label who is speaking when.
-
-However, please note: Diarization makes the transcription process significantly slower, especially for interviews or long recordings. The results are not always perfect and may require some manual correction.
-If you only need a simple transcript, we recommend not using diarization.
 
 
-### Simple command without defining the language
+### How to create a trasncript without defining the language
 
 If you don’t specify a language, Whisper will listen to the first ~30 seconds of your audio and try to guess the language automatically. This usually works well, but:
 
@@ -324,7 +303,7 @@ Full example:
 whisper interview.mp3 --model medium --language fi --output_dir transcripts --output_format txt
 ```
 
-### Simple command to have several output fomats inlcuding subtitles
+### How to create several output formats including subtitles
 
 
 Whisper can save your transcription in different file formats all at once with the command:
