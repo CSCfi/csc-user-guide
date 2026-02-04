@@ -175,7 +175,7 @@ When you open the Terminal inside the folder where your audio or video file is s
 Below you will find a list of simple example commands that show how to use Whisper to transcribe an audio or video file and save the output. You can copy these commands and replace the example filenames and folder names with your own.
 
 
-#### How to create an English transcript and save it as a text file
+#### 5.2.1 How to create an English transcript and save it as a text file
 
 To create a transcript from an audio or video file and save it as a text (.txt) file in the folder where your Terminal is currently open, type:
 
@@ -205,7 +205,7 @@ whisper interview.mp3 --model medium --language en --output_format txt --output_
 
 If your audio input file is called  interview.mp3 Whisper will create he transcript  interview.txt and save it in your current folder.
 
-### Specifing the folder output
+### 5.2.2 how to specify the folder output
 
 To create a transcript from an audio or video file and save it as a text (.txt) file in a folder you choose, type the following command in the Terminal:
 
@@ -234,18 +234,37 @@ whisper interview.mp3 --model medium --language en --output_format txt --output_
 
 If your input audio file is called  interview.mp3 Whisper will create the trasncript interview.txt and save it in your the folder called transcripts. 
 
-### Simpla command without specifing the folder output 
 
-If you run Whisper like this:
+#### 5.2.3 How to transcribe an audio or video file faster
 
+Now that you’ve learned how to create transcripts and save them in the format and location you want, you can start using Whisper to transcribe real audio or video files from your research.  If your recordings are long or large, you may want to speed up the transcription process by adding the option: 
 
 ```bash
-whisper --model medium --language en filename --output_dir .
+--threads 4
 ```
-The dot (.) means: “Save the output in the current folder I am in.” Whisper will place all generated files in the folder you are currently working in, the same one where you opened the Terminal.
+This tells Whisper to use 4 CPU cores. Using more cores usually speeds up the transcription process. You can think of cores as the “computing power” of your virtual desktop. The more cores you have, the more tasks it can handle at the same time—and the faster Whisper can process your audio.
+
+Full example: 
+
+```bash
+whisper filename --model medium --language en --output_format txt --output_dir foldername --threads 4
+```
+
+Important notes:
+
+- Using more threads can increase speed, but only up to the number of CPU cores available.
+- 
+- If too many threads are used on a machine with limited resources, performance can decrease.
+- 
+- On shared systems (for example, a virtual desktop other people also use), using many threads can slow down the entire machine for everyone.
+
+A safe starting point is to try --threads 2 or --threads 4, and increase only if teh virtual desktop optionis suitable. 
 
 
-#### Simple command to transcribe a audio or video file faster
+
+
+
+
 
 
 If you want Whisper to transcribe your file more quickly, you can add the option:
