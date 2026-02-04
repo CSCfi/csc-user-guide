@@ -42,6 +42,7 @@
 * [Which directory should I use to analyze many small files?](local_scratch_for_data_processing.md)
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
+* [Frequently asked questions about Roihu](roihu.md)
 
 ## Python on supercomputers
 * [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)

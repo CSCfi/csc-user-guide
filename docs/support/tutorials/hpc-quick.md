@@ -60,7 +60,7 @@ next-generation supercomputer offering enhanced performance and capabilities.
 
 - Puhti computing services will be shut down one month after Roihu general
   availability in spring 2026.
-- Puhti storage will remain accessible at least until the end of June 2026.
+- Puhti storage will remain accessible until August 2026.
 - Mahti will be shut down in August 2026.
 
 [Learn more about Roihu here!](../../computing/systems-roihu.md)

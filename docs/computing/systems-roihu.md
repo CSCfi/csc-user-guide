@@ -22,7 +22,7 @@ graph LR;
     D{{"**One month after Roihu GA**
         Puhti *computing
         services* shut down"}} --> E;
-    E{{"**July 2026**
+    E{{"**August 2026**
         Puhti *storage
         services* shut down"}} --> F;
     F{{"**August 2026**
@@ -40,12 +40,12 @@ a break in HPC access.
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
 means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
-however, remain accessible at least until the end of June 2026, after which
-Puhti will be retired completely. Mahti will be closed in August 2026.
+however, remain accessible until August 2026, after which Puhti will be retired
+completely. Mahti will be closed in August 2026.
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during spring 2026, at the very latest in June 2026. CSC will
-publish a detailed Roihu migration guide in early 2026.
+prepared to do it during spring 2026, at the very latest in August 2026. CSC
+will publish a detailed Roihu migration guide in early 2026.
 
 ## Compute
 
@@ -143,8 +143,9 @@ interactive access and running graphical user interfaces.
 
 ## More information
 
-* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2025-12-19.pdf)
-  (updated 2025-12-19)
+* [Frequently asked questions](../support/faq/roihu.md)
+* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2026-01-26.pdf)
+  (updated 2026-01-26)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
