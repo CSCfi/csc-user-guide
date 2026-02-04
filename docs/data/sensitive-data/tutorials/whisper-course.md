@@ -253,9 +253,9 @@ whisper filename --model medium --language en --output_format txt --output_dir f
 Important notes:
 
 - Using more threads can increase speed, but only up to the number of CPU cores available.
-- 
+  
 - If too many threads are used on a machine with limited resources, performance can decrease.
-- 
+  
 - On shared systems (for example, a virtual desktop other people also use), using many threads can slow down the entire machine for everyone.
 
 A safe starting point is to try --threads 2 or --threads 4 and increase only if the virtual desktop option is suitable. 
