@@ -121,7 +121,6 @@ In this step, you will create a secure connection between your virtual desktop (
 
 
 
-
 ## 4 Accessing Whisper in the virtual deskotp
 
 
@@ -135,7 +134,7 @@ If you are following this tutorial independently, please use the SD Software Ins
 
 If course instructure or if another member of your CSC project has already installed Whisper on the virtual desktop, you can easily access the software by following the steps below:
 
-* Navigate back to: Home → Projects → SD-Connect → project_2000828 → tools-for-sddesktop
+* In the Data agteway appication navigate to: Home → Projects → SD-Connect → project_2000828 → tools-for-sddesktop
 * Copy the file sd-installer-ubuntu22.desktop from this folder  and paste it to the virtual desktop.
 * Right-click the copied file on the desktop and select “Allow Launching”. Then double-click the file. This opens the installer tool.
 * Click the “Whisper” button in the tool to install the speech recognition software.
