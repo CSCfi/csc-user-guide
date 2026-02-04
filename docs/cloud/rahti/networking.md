@@ -14,8 +14,8 @@ From a networking point of view, namespaces are configured by default to provide
 
 ![Rahti Networking](../img/rahti-network.drawio.svg)
 
-!!! Note "Advanced networking"
-    In the Administrator menu, under `Networking > NetworkPolicies` it is possible to browse and edit the default network policies, but only in YAML format. Only change the [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) if you are really sure of what you are doing.
+!!! info "Advanced networking"
+    In the Rahti console menu, under `Networking > NetworkPolicies` it is possible to browse and edit the default network policies, but only in YAML format. Only change the [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) if you are really sure of what you are doing.
 
 ## Pods
 
@@ -74,25 +74,30 @@ Any existing possible domain name could potentially be used in Rahti, but the DN
 
 * Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](./tutorials/custom-domain.md#acme-protocol-automatic-certificates).
 
-Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
+Another aspect of routes is the IP allowlisting feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_allowlist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
 
-* This first example will white list a range of IPs (`193.166.[0-255].[1-254]`):
+* This first example will allow a range of IPs (`193.166.[0-255].[1-254]`):
 
     ```bash
-    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='193.166.0.0/16'
+    oc annotate route $route_name haproxy.router.openshift.io/ip_allowlist='193.166.0.0/16'
     ```
 
-* This other example will white list only a specific IP:
+* This other example will allow only a specific IP:
 
     ```bash
-    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='188.184.9.236'
+    oc annotate route $route_name haproxy.router.openshift.io/ip_allowlist='188.184.9.236'
     ```
 
 * And this example will combine both:
 
     ```bash
-    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='193.166.0.0/15 193.167.189.25'
+    oc annotate route $route_name haproxy.router.openshift.io/ip_allowlist='193.166.0.0/15 193.167.189.25'
     ```
+
+!!! warning
+    The old `haproxy.router.openshift.io/ip_whitelist` annotation is deprecated but still supported for compatibility.
+    It will be removed in a future version.
+
 
 ## Egress IPs
 
@@ -195,9 +200,9 @@ Labels:         app=mysql
 
 ##### **Using the Web Interface**
 
-On the web interface under `Developer`, go to the `Project` tab, press on `pods` and then choose the pod you want. You can see all the labels under `Labels`. Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
+On the web interface under `Workloads`, press on `pods` and then choose the pod you want. You can see all the labels under `Labels`. Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
 
-![rahti1](https://github.com/user-attachments/assets/75babfd9-12a1-498a-b7e7-c6e8f8ec72dc)
+![rahti](../img/rahti_label.png)
 
 
 #### How to make sure your service is pointing to the right pod
@@ -213,9 +218,9 @@ mysqllb   10.0.0.1:3306        10m
 
 ##### **Using the Web Interface**
 
-On the web interface under `Developer`, go to the `Project` tab, press on `Services` and choose the LoadBalancer service you just created. Under the `Pods` tab you should see the targeted pod. 
+On the web interface under `Networking`, press on `Services` and choose the LoadBalancer service you just created. Under the `Pods` tab you should see the targeted pod. 
 
-![rahti](https://github.com/user-attachments/assets/3651fc81-682d-40d4-8a2e-bae639c1c81b)
+![rahti](../img/rahti_pods.png)
 
 
 ### Share the same LoadBalancer IP among Services
@@ -263,8 +268,7 @@ spec:
 
 ### Add firewall IP blocking to a LoadBalancer Service
 
-It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that we can add a whitelist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`)
-that will be the only ones that will be able to access the service. This added to using secure protocols and safe password practises, can be a good improvement in security.
+It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that we can add an allowlist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`) that will be the only ones that will be able to access the service. This added to using secure protocols and safe password practises, can be a good improvement in security.
 
 The procedure to achieve this is the following:
 
@@ -331,5 +335,5 @@ In Rahti, the way `Route`s and `LoadBalancer` services manage traffic during dep
 
 In contrast, `LoadBalancer` services distribute traffic not only to new pods but also continue to send requests to old or terminating pods. This behavior occurs because these services rely on periodic updates from [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/), which can delay the exclusion of terminating pods from traffic distribution. This difference in handling traffic can be useful to understand, as it affects how deployment strategies should be handled for application updates.
 
-For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/building_applications/deployments#route-based-deployment-strategies).
+For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/building_applications/deployments#route-based-deployment-strategies).
 To avoid disruptions when using external load balancer services, you can adopt the principle of a [blue-green deployment](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)
