@@ -170,80 +170,69 @@ When you open the Terminal inside the folder where your audio or video file is s
 
 
 
-### 5.2 Simple commands
+### 5.2 Beginner‑friendly commands
 
-Below you will find simple example commands that show how to use Whisper to transcribe an audio or video file and save the output. You can copy these commands and replace the example filenames and folder names with your own.
-
-
+Below you will find a list of simple example commands that show how to use Whisper to transcribe an audio or video file and save the output. You can copy these commands and replace the example filenames and folder names with your own.
 
 
+#### How to create an English transcript and save it as a text file
 
-
-
-
-
-
-
-
-Using Whisper 
-
-Whisper will now be available from the command‑line tool (Terminal). You don’t need any programming experience to generate a transcript, simply follow the steps below. 
-
-
-You can copy the commands using the copy‑paste clipboard in the virtual desktop, or type them manually.
-
-- Go to the Virtual Desktop Volume (from the left navigation panel) and open the folder where you saved the audio or video you want to transcribe.
-- Once you are inside that folder, right‑click an empty area in the folder and select: “Open in Terminal”. This will open a Terminal window where you can run the simple commands listed below. Please note that regular copy‑paste between your laptop and the virtual desktop is restricted for security reasons. However, you can still copy text to the virtual desktop using the special Clipboard feature. The Clipboard does not always work perfectly, this depends on your browser and laptop, so it may take a few tries to get used to it. Also, copy‑paste works only in one direction: from your computer to the virtual desktop. For more details on how the Clipboard works, see the [video tutorial and instructions here](../sd-desktop-working.md/#copy-paste-from-your-laptop-to-virtual-desktop). If you prefer, you can also type the commands manually. Below you will find simple examples with a detailed explanation.
-
-Commands are typed into the terminal window and executed by pressing Return/Enter.
-
-#### Simple command to transcribe a audio or video file to a test file in english
-
-To have the transcription of a simple audio /video file and have it saved in text format please type:
+To create a transcript from an audio or video file and save it as a text (.txt) file in the folder where your Terminal is currently open, type:
 
 ```bash
-whisper filename --model medium --language en --output_dir foldername --output_format txt
+whisper filename --model medium --language en --output_format txt --output_dir .
 ```
 
-Where: 
+Where:
 
-- filename is the name of the file you want to transcribe, for example a file called interview.mp3
-- en is english
-- folder name is the name of the folder in which you want the text to be saved, for exampel a folder called transcripts
-- txt is the format you want the transcription saved to, text format
+filename   The name of the file you want to transcribe.   Example: interview.mp3
 
-Whister will then genrate a file called interview.txt
+--language en  Use this if your audio is in English.  Change it to fi for Finnish, or another language code if needed.
+    
+--output_format txt   Save the transcript as a plain text file (.txt).
 
-Exampel with real names:
+--output_dir .    The dot (.) means: “Save the output in the current folder I am in.” Whisper will place all generated files in the folder you are currently working in, the same one where you opened the Terminal.
+
+Whisper automatically names the output file based on your input filename.
+
+
+Example using real file names:
+
 
 ```bash
-whisper interview.mp3 --model medium --language en --output_dir transcripts --output_format txt
+whisper interview.mp3 --model medium --language en --output_format txt --output_dir .
 ```
 
-To create a transcript from an audio or video file and save it as a text (.txt) file, type the following command in the Terminal:
+If your audio input file is called  interview.mp3 Whisper will create he transcript  interview.txt and save it in your current folder.
+
+### Specifing the folder output
+
+To create a transcript from an audio or video file and save it as a text (.txt) file in a folder you choose, type the following command in the Terminal:
 
 ```bash
-whisper filename --model medium --language en --output_dir foldername --output_format txt
+whisper filename --model medium --language en --output_format txt --output_dir foldername
 ```
 
-Where: 
-
-filename   This is the name of the file you want to transcribe  Example: interview.mp3
-
---language en Use this if your audio is in English or change it to fi if t is in Finnish
-
---output_dir foldername  This is the folder where the transcript will be saved.  Example: a folder called transcripts
-
---output_format txt  This tells Whisper to save the transcript as a plain text file (.txt).
+Where:
 
 
-Whisper automatically names the output file based on your original filename. For example, if your input file is: interview.mp3  Whisper will generate: interview.txt and save it inside the folder you have created and specified with --output_dir called transcrpts
+filename   The name of the audio or video file you want to transcribe.  Example: interview.mp3
+
+--language en    Use this if your audio is in English.   Change it to another language code (for example fi for Finnish) if needed.
+
+--output_format txt    This tells Whisper to save the transcript as a plain text file.
+
+--output_dir foldername   This is the folder where Whisper will save the generated transcript. Replace foldername with the name of the folder you want to use.
+
+Whisper automatically names the output file based on your input filename.
 
 Example using real names:
 
 ```bash
-whisper interview.mp3 --model medium --language en --output_dir transcripts --output_format txt
+whisper interview.mp3 --model medium --language en --output_format txt --output_dir transcripts
 ```
+
+If your input audio file is called  interview.mp3 Whisper will create the trasncript interview.txt and save it in your the folder called transcripts. 
 
 ### Simpla command without specifing the folder output 
 
