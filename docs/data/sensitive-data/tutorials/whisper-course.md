@@ -21,8 +21,8 @@ This tutorial can be used in two ways:
 
 - 5. Your first steps with Whisper 
 
-- open the transcripotopon with open office
-- anynomisation?
+- 6 Accessing the trascript
+
 
 ## 1. Before you start
 
@@ -205,7 +205,7 @@ whisper interview.mp3 --model medium --language en --output_format txt --output_
 
 If your audio input file is called  interview.mp3 Whisper will create he transcript  interview.txt and save it in your current folder.
 
-### 5.2.2 how to specify the folder output
+#### 5.2.2 how to specify the folder output
 
 To create a transcript from an audio or video file and save it as a text (.txt) file in a folder you choose, type the following command in the Terminal:
 
@@ -283,7 +283,7 @@ whisper --model medium --language en filename --output_dir foldername --output_f
 
 
 
-### How to create a trasncript without defining the language
+### 5.2.5 How to create a trasncript without defining the language
 
 If you don’t specify a language, Whisper will listen to the first ~30 seconds of your audio and try to guess the language automatically. This usually works well, but:
 
@@ -303,7 +303,7 @@ Full example:
 whisper interview.mp3 --model medium --language fi --output_dir transcripts --output_format txt
 ```
 
-### How to create several output formats including subtitles
+### 5.2.6 How to create several output formats including subtitles
 
 
 Whisper can save your transcription in different file formats all at once with the command:
@@ -322,34 +322,43 @@ This will generate txt, srt, vtt, tsv, and json versions of your transcript.
 
 Here are the most common options that you can also specific instead of using all: 
 
-srt — Subtitle file
-Creates a subtitle file with timestamps, widely used for videos (e.g., YouTube subtitles).
+srt — Subtitle file Creates a subtitle file with timestamps, widely used for videos (e.g., YouTube subtitles).
 
-txt — Plain text
-Creates a simple text file without timestamps (easy to read or edit).
+txt — Plain text  Creates a simple text file without timestamps (easy to read or edit).
 
-vtt — Web subtitle format
-Similar to .srt, but used mainly for web players.
+vtt — Web subtitle format   Similar to .srt, but used mainly for web players.
 
-tsv — Table-style output
-Creates a tab‑separated file containing timestamps and text — useful for analysis.
+tsv — Table-style output Creates a tab‑separated file containing timestamps and text — useful for analysis.
 
- json — Structured output
-Saves the transcript in JSON format, including metadata.
+json — Structured output   Saves the transcript in JSON format, including metadata.
 
-all — Everything
+all — all formats
 
 
 
-### Advanced
-
+## 5.3 Advanced terminal usage for Whisper
+This section explains how to run Whisper using the terminal directly, how to check available commands, and how to inspect the files created during transcription.
 Commands are typed into the terminal window and executed by pressing Return/Enter.
+The basic structure of commands is:
+
+
+
+
+
+### Advanced terminal usage for Whisper
+
+
+This section explains how to run Whisper using the terminal directly, how to check available commands, and how to inspect the files created during transcription.
+Commands are typed into the terminal window and executed by pressing Return/Enter.
+The basic structure of commands is:
+
 
 The basic structure of commands is:
 
 ```bash
 command -option argument1 argument2
 ```
+#### 5.3.1 Checking your files in the terminal
 
 Use the commands `ls` and `ls -l` to list the contents of the directory:
 
@@ -357,6 +366,8 @@ Use the commands `ls` and `ls -l` to list the contents of the directory:
 ls
 ls -l
 ```
+
+#### 5.3.2 Checking that Whisper is installed
 
 You can check that the whisper command is available by running:
 
@@ -369,6 +380,8 @@ This command prints the usage instructions for whisper. According to the instruc
 ```bash
 whisper --model model-name --language language recording-file
 ```
+
+#### 5.3.3 Running Whisper manually
 
 Check your recording file name by running ls again.
 Use the medium model. The command should look like this:
@@ -384,8 +397,9 @@ The command will take some time to run. When it finishes, check the directory co
 ls -l
 ```
 
-Then, in the file browser, open the `.txt` output file with LibreOffice Writer.
-LibreOffice is found from the ”show applications” in the lower left corner of SD Desktop.
+## 6 Accessing the trascript
+
+You can then open the generated .txt file in LibreOffice Writer. LibreOffice is found under “Show Applications” in the lower‑left corner of the SD Desktop.
 
 
 ![Open apps](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Apps.png)
