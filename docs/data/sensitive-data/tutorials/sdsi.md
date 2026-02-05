@@ -10,7 +10,7 @@ Please note following details that limit the usage of this procedure:
    * The *sdsi-client* job submission tool, described in this document, will work only for the approved projects.
    * Each job reserves always one, and only one, full Puhti node for your task. Try to construct your batch job so that it uses effectively all the 40 computing cores of one Puhti node.
    * The input files that the job uses must be uploaded to SD Connect before the job submission. Even though the job is submitted from SD Desktop, you can't utilize any files from the SD Desktop VM in the batch job.
-   * The jobs submitted from SD Desktop to Puhti have higher security level than normal Puhti jobs but lower than that of SD Desktop.   
+   * The jobs submitted from SD Desktop to Puhti have higher security level than normal Puhti jobs but lower than of SD Desktop.   
 
 # Security aspects
 
@@ -127,7 +127,7 @@ However if you need to calculate a large amount of unrelated tasks that are able
 or few computing cores, you can use tools like _gnuparallel_, _nextfllow_ or _snakemake_ to submit several
 computing tasks to be executed in the same time.
 
-In the examples below we have a tar-arcHive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`. The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks so that all 40 cores are effectively used.
+In the examples below we have a tar-archive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`. The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks so that all 40 cores are effectively used.
  
 ### GNUparallel
 
