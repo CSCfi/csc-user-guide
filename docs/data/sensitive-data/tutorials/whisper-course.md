@@ -337,21 +337,10 @@ all — all formats
 
 
 ## 5.3 Advanced terminal usage for Whisper
-This section explains how to run Whisper using the terminal directly, how to check available commands, and how to inspect the files created during transcription.
-Commands are typed into the terminal window and executed by pressing Return/Enter.
-The basic structure of commands is:
-
-
-
-
-
-### Advanced terminal usage for Whisper
-
 
 This section explains how to run Whisper using the terminal directly, how to check available commands, and how to inspect the files created during transcription.
 Commands are typed into the terminal window and executed by pressing Return/Enter.
 The basic structure of commands is:
-
 
 The basic structure of commands is:
 
