@@ -255,6 +255,7 @@ theme:
     # so the following icon is a literal definition in
     # csc-overrides/assets/stylesheets/admonition.css
       # error: material/close-circle
+    alternate: octicons/globe-16
   palette:
     scheme: csc
     primary: custom
