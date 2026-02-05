@@ -135,7 +135,7 @@ If you are following this tutorial independently, please use the SD Software Ins
 
 If course instructure or if another member of your CSC project has already installed Whisper on the virtual desktop, you can easily access the software by following the steps below:
 
-* In the Data agteway appication navigate to: Home → Projects → SD-Connect → project_2000828 → tools-for-sddesktop
+* In the Data Gateway application navigate to: Home → Projects → SD-Connect → project_2000828 → tools-for-sddesktop
 * Copy the file sd-installer-ubuntu22.desktop from this folder  and paste it to the virtual desktop.
 * Right-click the copied file on the desktop and select “Allow Launching”. Then double-click the file. This opens the installer tool.
 * Click the “Whisper” button in the tool to install the speech recognition software.
@@ -232,7 +232,7 @@ Example using real names:
 whisper interview.mp3 --model medium --language en --output_format txt --output_dir transcripts
 ```
 
-If your input audio file is called  interview.mp3 Whisper will create the trasncript interview.txt and save it in your the folder called transcripts. 
+If your input audio file is called  interview.mp3 Whisper will create the transcript interview.txt and save it in your the folder called transcripts. 
 
 
 #### 5.2.3 How to transcribe a long audio or video file faster
@@ -283,7 +283,7 @@ whisper --model medium --language en filename --output_dir foldername --output_f
 
 
 
-### 5.2.5 How to create a trasncript without defining the language
+### 5.2.5 How to create a transcript without defining the language
 
 If you don’t specify a language, Whisper will listen to the first ~30 seconds of your audio and try to guess the language automatically. This usually works well, but:
 
