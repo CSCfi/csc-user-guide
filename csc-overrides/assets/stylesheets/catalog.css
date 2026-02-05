@@ -52,7 +52,6 @@
 }
 
 .md-typeset .catalog-toc ul li a[href^="#lumi"] .md-tag:is(:active, :hover) {
-  /* background-color: hsl(from black h s calc(l + 96)); */
   background-color: var(--c-black);
   color: var(--c-white);
 }

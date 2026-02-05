@@ -25,9 +25,10 @@ class JSONExport:
 
 
 class DocsExport:
-    def __init__(self, catalog: Catalog, config: CatalogConfig):
+    def __init__(self, catalog: Catalog, config: CatalogConfig, lang_code="en"):
         self.__catalog = catalog
         self.__config = config
+        self.__lang = lang_code
 
     def __get_anchor_id(self, heading: str, ids: set) -> str:
         slug = unique_slug(slugify(heading, "-"), ids)
@@ -35,10 +36,27 @@ class DocsExport:
 
         return slug
 
+    def __get_translation(self, group: str, key: tuple[str, str]) -> str:
+        item_key, value = key
+
+        group_en = self.__config.listing_order.get(group)
+        for item in group_en:
+            if item.get(item_key, "") == value:
+                return item.get(f"{item_key}_{self.__lang}", "")
+
+        return ""
+
+    def __get_discipline_name(self, discipline: str) -> str:
+        return (discipline
+                if self.__lang == "en"
+                else self.__get_translation("disciplines", ("name", discipline)))
+
     def __get_system_description(self, name: str) -> str:
         for system in self.__config.listing_order.systems:
             if system.get("name", "") == name:
-                return system.get("description", "")
+                return (system.get("description", "")
+                        if self.__lang == "en"
+                        else system.get(f"description_{self.__lang}"))
 
     def __get_alphabetical_context(self) -> tuple[list, set[str]]:
         ids = set()
@@ -53,7 +71,7 @@ class DocsExport:
     def __get_disciplines_context(self) -> tuple[list, set[str]]:
         ids = set()
 
-        return ([{"name": discipline,
+        return ([{"name": self.__get_discipline_name(discipline),
                  "id": self.__get_anchor_id(discipline, ids),
                  "apps": apps}
                 for discipline, apps

@@ -8,12 +8,14 @@ from .apps import App, DocsApp, AppendixApp
 
 class _DisciplinesItem(base.Config):
     name = c.Type(str)
+    name_fi = c.Type(str)
     fallback = c.Optional(c.Type(bool))
 
 
 class _SystemsItem(base.Config):
     name = c.Type(str)
     description = c.Type(str)
+    description_fi = c.Type(str)
 
 
 class _ListingOrder(base.Config):
@@ -52,17 +54,17 @@ class _DocSrc(c.BaseConfigOption):
         try:
             url = url_option.run_validation(value)
             return {"url": url}
-        except base.ValidationError:
+        except (base.ValidationError, TypeError):
             error = True
 
         try:
             src = file_option.run_validation(value)
             return {"src": src}
-        except base.ValidationError:
+        except (base.ValidationError, TypeError):
             error = True
 
         if error:
-            message = f"{value} is neither a valid URL nor a {file_option.name}."
+            message = f"'{value}' is neither a valid URL nor a {file_option.name}."
             raise base.ValidationError(message)
 
 

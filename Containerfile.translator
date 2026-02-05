@@ -1,0 +1,12 @@
+ARG python_image=ubi8/python-311
+FROM ${python_image}
+
+LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
+
+ADD translation/requirements.txt translation/refresh_translation.py .
+ADD translation/translator ./translator
+
+RUN \
+  pip install --upgrade pip \
+&& \
+  pip install --requirement requirements.txt

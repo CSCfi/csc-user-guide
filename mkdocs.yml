@@ -6,6 +6,8 @@ repo_name: CSCfi/csc-user-guide
 repo_url: https://github.com/CSCfi/csc-user-guide/
 edit_uri: edit/master/docs/
 
+docs_dir: docs/
+
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
@@ -51,148 +53,157 @@ extra:
       link: https://www.facebook.com/CSCfi/
     - icon: material/youtube
       link: https://www.youtube.com/c/CSCfi
+  alternate:
+    - name: Suomeksi
+      link: /fi/
+      lang: fi
+    - name: In English
+      link: /
+      lang: en
 
 hooks:
   - hooks/catalog.py
   - hooks/archives.py
   - hooks/preview.py
   - hooks/testing.py
+  - hooks/testing.py
 
 plugins:
-  - tags
-  - search
-  - git-revision-date-localized:
-      enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
-      fallback_to_build_date: true
-      ignored_commits_file: .git-revision-date-ignore-revs
-      type: date
-      custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
-      locale: en
-      timezone: Europe/Helsinki
-      exclude:
-        - index.md
-        - support/archives/*.md
-        - support/glossary.md
-        - support/whats-new.md
-        - apps/index.md
-        - apps/by_discipline.md
-        - apps/by_availability.md
-        - apps/by_license.md
-  - section-index
-  - redirects:
-      redirect_maps:
-        # reorganization:
-        "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
-        "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
-        "computing/allas.md": "data/Allas/allas-hpc.md"
-        "computing/containers/creating.md": "computing/containers/overview.md"
-        "computing/containers/run-existing.md": "computing/containers/overview.md"
-        "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
-        # deprecation:
-        "apps/nomachine.md": "support/faq/deprecated-apps.md"
-        "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
-        "apps/discovery-studio.md": "support/faq/deprecated-apps.md"
-        "data/kaivos/kaivos-account.md": "data/kaivos/index.md"
-        "data/kaivos/kaivos_batch_job.md": "data/kaivos/index.md"
-        "data/kaivos/kaivos_client_in_puhti.md": "data/kaivos/index.md"
-        "data/kaivos/kaivos_import.md": "data/kaivos/index.md"
-        "data/kaivos/kaivos_perl.md": "data/kaivos/index.md"
-        "data/kaivos/kaivos_remote.md": "data/kaivos/index.md"
-        "data/kaivos/overview.md": "data/kaivos/index.md"
-        # renamed files:
-        "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
-        "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
-        "cloud/csc_notebooks/data_persistence.md": "cloud/noppe/data_persistence.md"
-        "cloud/csc_notebooks/guide_for_students.md": "cloud/noppe/guide_for_students.md"
-        "cloud/csc_notebooks/guide_for_teachers.md": "cloud/noppe/guide_for_teachers.md"
-        "cloud/csc_notebooks/index.md": "cloud/noppe/index.md"
-        "computing/overview.md": "computing/index.md"
-        "cloud/concepts.md": "cloud/index.md"
-        "apps/alpha.md": "apps/index.md"
-        "apps/by_system.md": "apps/by_availability.md"
-        "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
-        "computing/cProfile.md": "apps/cProfile.md"
-        "computing/compute-san.md": "apps/compute-san.md"
-        "computing/cuda-gdb.md": "apps/cuda-gdb.md"
-        "computing/gdb.md": "apps/gdb.md"
-        "computing/ncu.md": "apps/ncu.md"
-        "computing/nsys.md": "apps/nsys.md"
-        "computing/nvprof.md": "apps/nvprof.md"
-        "computing/pdb.md": "apps/pdb.md"
-        "data/Allas/allas-examples.md": "data/Allas/allas-hpc.md"
-        # files moved to Allas:
-        # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
-        "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
-        # for URL consistency:
-        "sensitive-data.md": "data/sensitive-data/index.md"
-        "applications.md": "apps/index.md"
-        "faq.md": "support/faq/index.md"
-        "tutorials.md": "support/tutorials/index.md"
-        "training-material.md": "support/training-material/index.md"
-        "contact.md": "support/contact.md"
-        "whats-new.md": "support/whats-new.md"
-        # for convenience:
-        "glossary.md": "support/glossary.md"
-        "archives.md": "support/contact.md#archives"
-        "roihu.md": "computing/systems-roihu.md"
-        "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
-        # Pouta
-        "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
-        # Rahti2 to Rahti:
-        "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
-        "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
-        "cloud/rahti2/index.md": "cloud/rahti/index.md"
-        "cloud/rahti2/advanced.md": "cloud/rahti/advanced.md"
-        "cloud/rahti2/billing.md": "cloud/rahti/billing.md"
-        "cloud/rahti2/rahti-what-is.md": "cloud/rahti/rahti-what-is.md"
-        "cloud/rahti2/concepts.md": "cloud/rahti/concepts.md"
-        "cloud/rahti2/moving-into.md": "cloud/rahti/moving-into.md"
-        "cloud/rahti2/ext_docs.md": "cloud/rahti/ext_docs.md"
-        "cloud/rahti2/access.md": "cloud/rahti/access.md"
-        "cloud/rahti2/networking.md": "cloud/rahti/networking.md"
-        "cloud/rahti2/storage/index.md": "cloud/rahti/storage/index.md"
-        "cloud/rahti2/storage/persistent.md": "cloud/rahti/storage/persistent.md"
-        "cloud/rahti2/storage/expand-volumes.md": "cloud/rahti/storage/expand-volumes.md"
-        "cloud/rahti2/storage/volume-snapshot.md": "cloud/rahti/storage/volume-snapshot.md"
-        "cloud/rahti2/storage/ephemeral.md": "cloud/rahti/storage/ephemeral.md"
-        "cloud/rahti2/storage/objectstorage.md": "cloud/rahti/storage/objectstorage.md"
-        "cloud/rahti2/containers.md": "cloud/rahti/containers.md"
-        "cloud/rahti2/security-guide.md": "cloud/rahti/security-guide.md"
-        "cloud/rahti2/tutorials/index.md": "cloud/rahti/tutorials/index.md"
-        "cloud/rahti2/tutorials/allow-pull-from-other-projects.md": "cloud/rahti/tutorials/allow-pull-from-other-projects.md"
-        "cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md": "cloud/rahti/tutorials/deploy_static_webserver_webconsole.md"
-        "cloud/rahti2/tutorials/webhooks.md": "cloud/rahti/tutorials/webhooks.md"
-        "cloud/rahti2/tutorials/annotations.md": "cloud/rahti/tutorials/annotations.md"
-        "cloud/rahti2/tutorials/connect-database-hpc.md": "cloud/rahti/tutorials/connect-database-hpc.md"
-        "cloud/rahti2/tutorials/yaml_introduction.md": "cloud/rahti/tutorials/yaml_introduction.md"
-        "cloud/rahti2/tutorials/web-app-dev-cloud.md": "cloud/rahti/tutorials/web-app-dev-cloud.md"
-        "cloud/rahti2/tutorials/sidecar_proxy_authentication.md": "cloud/rahti/tutorials/sidecar_proxy_authentication.md"
-        "cloud/rahti2/tutorials/deploy_static_webserver_cli.md": "cloud/rahti/tutorials/deploy_static_webserver_cli.md"
-        "cloud/rahti2/tutorials/custom-domain.md": "cloud/rahti/tutorials/custom-domain.md"
-        "cloud/rahti2/tutorials/email.md": "cloud/rahti/tutorials/email.md"
-        "cloud/rahti2/tutorials/http-redirector.md": "cloud/rahti/tutorials/http-redirector.md"
-        "cloud/rahti2/tutorials/multi-stage-builds.md": "cloud/rahti/tutorials/multi-stage-builds.md"
-        "cloud/rahti2/tutorials/ci_cd_introduction.md": "cloud/rahti/tutorials/ci_cd_introduction.md"
-        "cloud/rahti2/tutorials/advanced-NetworkPolicies-networking.md": "cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md"
-        "cloud/rahti2/tutorials/pod-affinity.md": "cloud/rahti/tutorials/pod-affinity.md"
-        "cloud/rahti2/tutorials/kustomize.md": "cloud/rahti/tutorials/kustomize.md"
-        "cloud/rahti2/tutorials/4cat.md": "cloud/rahti/tutorials/4cat.md"
-        "cloud/rahti2/usage/cli.md": "cloud/rahti/usage/cli.md"
-        "cloud/rahti2/usage/projects_and_quota.md": "cloud/rahti/usage/projects_and_quota.md"
-        "cloud/rahti2/usage/getting_started.md": "cloud/rahti/usage/getting_started.md"
-        "cloud/rahti2/images/creating.md": "cloud/rahti/images/creating.md"
-        "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
-        "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
-        "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
-        "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/projects.md"
-        "computing/quantum-computing/helmi/helmi-from-lumi.md": "computing/quantum-computing/access.md"
-        "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/first-quantum-job.md"
-        "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/specs.md"
-        "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/fiqci-partition.md"
-        "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
-        "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
-        "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
-        "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
+  tags: {}
+  search:
+    lang: en
+  git-revision-date-localized:
+    enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
+    fallback_to_build_date: true
+    ignored_commits_file: .git-revision-date-ignore-revs
+    type: date
+    custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
+    locale: en
+    timezone: Europe/Helsinki
+    exclude:
+      - index.md
+      - support/archives/*.md
+      - support/glossary.md
+      - support/whats-new.md
+      - apps/index.md
+      - apps/by_discipline.md
+      - apps/by_availability.md
+      - apps/by_license.md
+  section-index: {}
+  redirects:
+    redirect_maps:
+      # reorganization:
+      "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
+      "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
+      "computing/allas.md": "data/Allas/allas-hpc.md"
+      "computing/containers/creating.md": "computing/containers/overview.md"
+      "computing/containers/run-existing.md": "computing/containers/overview.md"
+      "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
+      # deprecation:
+      "apps/nomachine.md": "support/faq/deprecated-apps.md"
+      "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
+      "apps/discovery-studio.md": "support/faq/deprecated-apps.md"
+      "data/kaivos/kaivos-account.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_batch_job.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_client_in_puhti.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_import.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_perl.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_remote.md": "data/kaivos/index.md"
+      "data/kaivos/overview.md": "data/kaivos/index.md"
+      # renamed files:
+      "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
+      "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
+      "cloud/csc_notebooks/data_persistence.md": "cloud/noppe/data_persistence.md"
+      "cloud/csc_notebooks/guide_for_students.md": "cloud/noppe/guide_for_students.md"
+      "cloud/csc_notebooks/guide_for_teachers.md": "cloud/noppe/guide_for_teachers.md"
+      "cloud/csc_notebooks/index.md": "cloud/noppe/index.md"
+      "computing/overview.md": "computing/index.md"
+      "cloud/concepts.md": "cloud/index.md"
+      "apps/alpha.md": "apps/index.md"
+      "apps/by_system.md": "apps/by_availability.md"
+      "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
+      "computing/cProfile.md": "apps/cProfile.md"
+      "computing/compute-san.md": "apps/compute-san.md"
+      "computing/cuda-gdb.md": "apps/cuda-gdb.md"
+      "computing/gdb.md": "apps/gdb.md"
+      "computing/ncu.md": "apps/ncu.md"
+      "computing/nsys.md": "apps/nsys.md"
+      "computing/nvprof.md": "apps/nvprof.md"
+      "computing/pdb.md": "apps/pdb.md"
+      "data/Allas/allas-examples.md": "data/Allas/allas-hpc.md"
+      # files moved to Allas:
+      # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
+      "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
+      # for URL consistency:
+      "sensitive-data.md": "data/sensitive-data/index.md"
+      "applications.md": "apps/index.md"
+      "faq.md": "support/faq/index.md"
+      "tutorials.md": "support/tutorials/index.md"
+      "training-material.md": "support/training-material/index.md"
+      "contact.md": "support/contact.md"
+      "whats-new.md": "support/whats-new.md"
+      # for convenience:
+      "glossary.md": "support/glossary.md"
+      "archives.md": "support/contact.md#archives"
+      "roihu.md": "computing/systems-roihu.md"
+      "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
+      # Pouta
+      "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
+      # Rahti2 to Rahti:
+      "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
+      "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
+      "cloud/rahti2/index.md": "cloud/rahti/index.md"
+      "cloud/rahti2/advanced.md": "cloud/rahti/advanced.md"
+      "cloud/rahti2/billing.md": "cloud/rahti/billing.md"
+      "cloud/rahti2/rahti-what-is.md": "cloud/rahti/rahti-what-is.md"
+      "cloud/rahti2/concepts.md": "cloud/rahti/concepts.md"
+      "cloud/rahti2/moving-into.md": "cloud/rahti/moving-into.md"
+      "cloud/rahti2/ext_docs.md": "cloud/rahti/ext_docs.md"
+      "cloud/rahti2/access.md": "cloud/rahti/access.md"
+      "cloud/rahti2/networking.md": "cloud/rahti/networking.md"
+      "cloud/rahti2/storage/index.md": "cloud/rahti/storage/index.md"
+      "cloud/rahti2/storage/persistent.md": "cloud/rahti/storage/persistent.md"
+      "cloud/rahti2/storage/expand-volumes.md": "cloud/rahti/storage/expand-volumes.md"
+      "cloud/rahti2/storage/volume-snapshot.md": "cloud/rahti/storage/volume-snapshot.md"
+      "cloud/rahti2/storage/ephemeral.md": "cloud/rahti/storage/ephemeral.md"
+      "cloud/rahti2/storage/objectstorage.md": "cloud/rahti/storage/objectstorage.md"
+      "cloud/rahti2/containers.md": "cloud/rahti/containers.md"
+      "cloud/rahti2/security-guide.md": "cloud/rahti/security-guide.md"
+      "cloud/rahti2/tutorials/index.md": "cloud/rahti/tutorials/index.md"
+      "cloud/rahti2/tutorials/allow-pull-from-other-projects.md": "cloud/rahti/tutorials/allow-pull-from-other-projects.md"
+      "cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md": "cloud/rahti/tutorials/deploy_static_webserver_webconsole.md"
+      "cloud/rahti2/tutorials/webhooks.md": "cloud/rahti/tutorials/webhooks.md"
+      "cloud/rahti2/tutorials/annotations.md": "cloud/rahti/tutorials/annotations.md"
+      "cloud/rahti2/tutorials/connect-database-hpc.md": "cloud/rahti/tutorials/connect-database-hpc.md"
+      "cloud/rahti2/tutorials/yaml_introduction.md": "cloud/rahti/tutorials/yaml_introduction.md"
+      "cloud/rahti2/tutorials/web-app-dev-cloud.md": "cloud/rahti/tutorials/web-app-dev-cloud.md"
+      "cloud/rahti2/tutorials/sidecar_proxy_authentication.md": "cloud/rahti/tutorials/sidecar_proxy_authentication.md"
+      "cloud/rahti2/tutorials/deploy_static_webserver_cli.md": "cloud/rahti/tutorials/deploy_static_webserver_cli.md"
+      "cloud/rahti2/tutorials/custom-domain.md": "cloud/rahti/tutorials/custom-domain.md"
+      "cloud/rahti2/tutorials/email.md": "cloud/rahti/tutorials/email.md"
+      "cloud/rahti2/tutorials/http-redirector.md": "cloud/rahti/tutorials/http-redirector.md"
+      "cloud/rahti2/tutorials/multi-stage-builds.md": "cloud/rahti/tutorials/multi-stage-builds.md"
+      "cloud/rahti2/tutorials/ci_cd_introduction.md": "cloud/rahti/tutorials/ci_cd_introduction.md"
+      "cloud/rahti2/tutorials/advanced-NetworkPolicies-networking.md": "cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md"
+      "cloud/rahti2/tutorials/pod-affinity.md": "cloud/rahti/tutorials/pod-affinity.md"
+      "cloud/rahti2/tutorials/kustomize.md": "cloud/rahti/tutorials/kustomize.md"
+      "cloud/rahti2/tutorials/4cat.md": "cloud/rahti/tutorials/4cat.md"
+      "cloud/rahti2/usage/cli.md": "cloud/rahti/usage/cli.md"
+      "cloud/rahti2/usage/projects_and_quota.md": "cloud/rahti/usage/projects_and_quota.md"
+      "cloud/rahti2/usage/getting_started.md": "cloud/rahti/usage/getting_started.md"
+      "cloud/rahti2/images/creating.md": "cloud/rahti/images/creating.md"
+      "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
+      "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
+      "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
+      "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/projects.md"
+      "computing/quantum-computing/helmi/helmi-from-lumi.md": "computing/quantum-computing/access.md"
+      "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/first-quantum-job.md"
+      "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/specs.md"
+      "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/fiqci-partition.md"
+      "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
+      "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
+      "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+      "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
 
 
 markdown_extensions:
@@ -244,6 +255,7 @@ theme:
     # so the following icon is a literal definition in
     # csc-overrides/assets/stylesheets/admonition.css
       # error: material/close-circle
+    alternate: octicons/globe-16
   palette:
     scheme: csc
     primary: custom
