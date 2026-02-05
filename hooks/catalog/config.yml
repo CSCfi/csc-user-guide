@@ -52,6 +52,8 @@ listing_order:
       name_fi: "Sekalaiset"
       fallback: true
   systems:
+    - name: Roihu
+      description: "New CSC supercomputer replacing Puhti and Mahti"
     - name: Mahti
       description: "CSC supercomputer for massively parallel jobs"
       description_fi: "CSC:n supertietokone massiiviseen rinnakkaislaskentaan"
