@@ -283,7 +283,7 @@ whisper --model medium --language en filename --output_dir foldername --output_f
 
 
 
-### 5.2.5 How to create a transcript without defining the language
+#### 5.2.5 How to create a transcript without defining the language
 
 If you don’t specify a language, Whisper will listen to the first ~30 seconds of your audio and try to guess the language automatically. This usually works well, but:
 
@@ -303,7 +303,7 @@ Full example:
 whisper interview.mp3 --model medium --language fi --output_dir transcripts --output_format txt
 ```
 
-### 5.2.6 How to create several output formats including subtitles
+#### 5.2.6 How to create several output formats including subtitles
 
 
 Whisper can save your transcription in different file formats all at once with the command:
@@ -336,7 +336,7 @@ all — all formats
 
 
 
-## 5.3 Advanced terminal usage for Whisper
+### 5.3 Advanced terminal usage for Whisper
 
 This section explains how to run Whisper using the terminal directly, how to check available commands, and how to inspect the files created during transcription.
 Commands are typed into the terminal window and executed by pressing Return/Enter.
@@ -347,7 +347,7 @@ The basic structure of commands is:
 ```bash
 command -option argument1 argument2
 ```
-#### 5.3.1 Checking your files in the terminal
+##### 5.3.1 Checking your files in the terminal
 
 Use the commands `ls` and `ls -l` to list the contents of the directory:
 
@@ -356,7 +356,7 @@ ls
 ls -l
 ```
 
-#### 5.3.2 Checking that Whisper is installed
+##### 5.3.2 Checking that Whisper is installed
 
 You can check that the whisper command is available by running:
 
