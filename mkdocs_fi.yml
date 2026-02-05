@@ -300,15 +300,6 @@ nav:
               - S3cmd: data/Allas/using_allas/s3_client.md
               - Pouta web-käyttöliittymä: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
-      - Kaivos-tietokantapalvelu:
-          - data/kaivos/overview.md
-          - Tietokantatilin hankkiminen: data/kaivos/kaivos-account.md
-          - MySQL-asiakasohjelmat CSC:llä: data/kaivos/kaivos_client_in_puhti.md
-          - Tietojen tuonti ja vienti: data/kaivos/kaivos_import.md
-          - MySQL-asiakkaan käyttö eräajopalvelun kautta: data/kaivos/kaivos_batch_job.md
-          - Kaivos.csc.fi:n käyttö suoraan paikalliselta tietokoneelta: data/kaivos/kaivos_remote.md
-          - Perl MySQL API:n käyttö CSC:llä: data/kaivos/kaivos_perl.md
-          # Python MySQL API at CSC:
   - Arkaluonteinen data:
       - data/sensitive-data/index.md
       - Sisällysluettelo: data/sensitive-data/sd-services-toc.md
