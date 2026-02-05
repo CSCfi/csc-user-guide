@@ -53,16 +53,17 @@ listing_order:
       fallback: true
   systems:
     - name: Roihu
-      description: "New CSC supercomputer replacing Puhti and Mahti"
+      description: "New national CSC supercomputer replacing Puhti and Mahti"
+      description_fi: "Uusi kansallinen CSC-supertietokone"
     - name: Mahti
       description: "CSC supercomputer for massively parallel jobs"
-      description_fi: "CSC:n supertietokone massiiviseen rinnakkaislaskentaan"
+      description_fi: "CSC-supertietokone massiiviseen rinnakkaislaskentaan"
     - name: Puhti
       description: "CSC supercomputer for small and medium jobs"
-      description_fi: "CSC:n supertietokone pienille sekä keskisuurille laskentatöille"
+      description_fi: "CSC-supertietokone pienille sekä keskisuurille laskentatöille"
     - name: LUMI
       description: "EuroHPC supercomputer for CPU and especially GPU jobs"
-      description_fi: "EuroHPC:n supertietokone CPU- ja etenkin GPU-laskentaan"
+      description_fi: "EuroHPC-supertietokone CPU- ja etenkin GPU-laskentaan"
 
 appendix:
   - name: "Chipster"
