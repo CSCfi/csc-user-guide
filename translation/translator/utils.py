@@ -97,6 +97,31 @@ def get_excluded_filepaths(src_prefix):
         return []
 
 
+def get_forced_filepaths(commit_sha, lang_code):
+    """Returns a list of file paths to include in the translation.
+    """
+    force_path = _get_config_filepath(DEFAULTS.force_filename)
+    try:
+        with force_path.open(mode="rt", encoding="utf-8") as force_yaml:
+            commits = yaml.safe_load(force_yaml) or {}
+            forced_paths = \
+                [pathlib.Path(path)
+                 for sha, paths
+                 in commits.items() for path, languages
+                                    in paths.items()
+                 if sha == commit_sha and (len(languages) == 0 or
+                                           lang_code in languages)]
+            n_forced_paths = len(forced_paths)
+            if n_forced_paths > 0:
+                logger.info("Forcing %i re-translations.", n_forced_paths)
+
+            return forced_paths
+    except FileNotFoundError as e:
+        logger.warning("Can't read list of forced files: '%s'", str(e))
+
+        return []
+
+
 def get_dictionary(lang_code):
     """Returns a dict of translation instructions for 'lang_code'.
     """

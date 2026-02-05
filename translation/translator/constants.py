@@ -11,6 +11,7 @@ DEFAULTS = SimpleNamespace(
     snapshots_filename="snapshots.json",
     excludes_filename="exclude.txt",
     dictionary_filename="dictionary.yml",
+    force_filename="force.yml",
     batch_size=4,
     source_lang_code="en",
     source_language="English",

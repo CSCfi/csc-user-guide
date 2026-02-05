@@ -5,126 +5,141 @@ import pathlib
 import shutil
 import string
 import logging
+from types import SimpleNamespace
 
-from .classes import TranslationCache, FileWas, FileIs, FileNeeds, DiffPath
+from git import Diff
+
+from .classes import PageTranslation, TranslationCache, FileWas, FileIs
 from .utils import get_excluded_filepaths, mkparents
 
 
 logger = logging.getLogger(__name__)
 
 
-class PageTranslation:
-    """Represents a documentation page to be translated, symlinked, deleted
-    or moved.
+class NewTranslation(PageTranslation):
+    """Subclass for pages in need of translation.
     """
-    def __init__(self,
-                 diff_path: DiffPath,
-                 operation: FileNeeds,
+    @classmethod
+    def for_path(cls,
+                 path: pathlib.Path,
+                 src_prefix: pathlib.Path,
+                 dest_prefix: pathlib.Path,
                  cache: TranslationCache):
-        self.__docs_src = diff_path.docs_src
-        self.__src_prefix = diff_path.src_prefix
-        self.__docs_dest = diff_path.docs_dest
-        self.__dest_prefix = diff_path.dest_prefix
-        self.__op = (operation.value
-                     if operation.value is None
-                     else getattr(self, operation.value))
+        """Returns an instance of NewTranslation for 'path'.
+        """
+        return cls(SimpleNamespace(b_path=str(path)),
+                                   src_prefix,
+                                   dest_prefix,
+                                   cache)
+
+    def __init__(self,
+                 diff_obj,
+                 src_prefix,
+                 dest_prefix,
+                 cache):
+        self.__path = diff_obj.b_path
+        self.__src_path = src_prefix / diff_obj.b_path
+        self.__dest_path = dest_prefix / diff_obj.b_path
         self.__cache = cache
+
+    def __handle_cached(self):
+        self.__cache.retrieve(self.path, self.__dest_path)
 
     @property
     def path(self) -> str:
-        """Path of the page.
-        """
-        return self.__docs_src
-
-    @property
-    def src(self) -> pathlib.Path:
-        """Concrete filesystem path where source is read from.
-        """
-        return self.__src_prefix / self.__docs_src
-
-    @property
-    def dest(self) -> pathlib.Path:
-        """Concrete filesystem path where translation is written to.
-        """
-        return self.__dest_prefix / self.__docs_dest
+        return self.__path
 
     @property
     def original(self) -> str:
-        """The content of the source file.
+        """The content of the source page.
         """
-        return self.src.read_text(encoding="utf-8")
+        return self.__src_path.read_text(encoding="utf-8")
 
     @property
     def pending_operation(self):
-        """The callable operation to be performed for this instance.
-
-        One of self.retrieve, self.move, self.delete, self.symlink or
-        None, in which case the file is set to be translated.
-        """
-        return self.__op
+        return (self.__handle_cached
+                if self.__cache.query(self.path) == FileIs.FRESH
+                else None)
 
     def write_translation(self, translated_content: str):
         """Writes translation result to destination file.
         """
-        try:
-            mkparents(self.dest)
-            self.dest.write_text(translated_content, encoding="utf-8")
-            logger.info("Translation result written to '%s'.", self.__docs_dest)
-            self.__cache.store(self.__docs_src, self.dest)
-        except TypeError:
-            logger.warning(
-                "Attempted to write '%s' to undefined destination.",
-                self.__docs_src
-            )
+        mkparents(self.__dest_path)
+        self.__dest_path.write_text(translated_content, encoding="utf-8")
+        logger.info("Translation result written to '%s'.", self.path)
+        self.__cache.store(self.path, self.__dest_path)
 
-    def retrieve(self):
-        """Retrieves cached translation and places it to destination.
-        """
-        try:
-            self.__cache.retrieve(self.__docs_src, self.dest)
-        except TypeError:
-            logger.warning(
-                "Attempted to retrieve '%s' with no destination.",
-                self.__docs_src
-            )
 
-    def move(self):
-        """Moves previously translated file with unchanged content.
-        """
-        try:
-            mkparents(self.dest)
-            self.src.move(self.dest)
-            logger.info("Moved '%s' to '%s'.",
-                        self.__docs_src,
-                        self.__docs_dest)
-        except TypeError:
-            logger.warning(
-                "Attempted to move '%s' to undefined destination.",
-                self.__docs_src
-            )
+class MovedTranslation(PageTranslation):
+    """Subclass for moved pages.
+    """
+    def __init__(self, diff_obj, prefix):
+        self.__docs_src = diff_obj.rename_from
+        self.__docs_dest = diff_obj.rename_to
+        self.__src_path = prefix / diff_obj.rename_from
+        self.__dest_path = prefix / diff_obj.rename_to
+        self.__content = self.__src_path.read_text(encoding="utf-8")
 
-    def delete(self):
-        """Deletes a previously translated file or a symlink.
-        """
-        self.src.unlink(missing_ok=True)
-        logger.info("Deleted '%s'.", self.__docs_src)
+    @property
+    def path(self) -> str:
+        return self.__docs_src
 
-    def symlink(self):
-        """Copies a symlink from source to destination. If destination is
-        symlink, i.e. it was modified, removes the existing symlink first.
-        """
-        try:
-            if self.dest.is_symlink():
-                self.dest.unlink()
+    def __handle_move(self):
+        mkparents(self.__dest_path)
+        self.__src_path.unlink(missing_ok=True, follow_symlinks=False)
+        self.__dest_path.write_text(self.__content, encoding="utf-8")
+        logger.info("Moved '%s' to '%s'.",
+                    self.__docs_src,
+                    self.__docs_dest)
 
-            mkparents(self.dest)
-            shutil.copy(self.src, self.dest, follow_symlinks=False)
-            logger.info("Symlinked '%s'.", self.__docs_src)
-        except TypeError:
-            logger.warning(
-                "Attempted to handle symlink '%s' with no destination.",
-                self.__docs_src
-            )
+    @property
+    def pending_operation(self):
+        return self.__handle_move
+
+
+class DeletedTranslation(PageTranslation):
+    """Subclass for deleted pages.
+    """
+    def __init__(self, diff_obj, prefix):
+        self.__docs_src = diff_obj.a_path
+        self.__dest_path = prefix / diff_obj.a_path
+
+    @property
+    def path(self) -> str:
+        return self.__docs_src
+
+    def __handle_delete(self):
+        self.__dest_path.unlink(missing_ok=True)
+        logger.info("Deleted '%s'.", self.path)
+
+    @property
+    def pending_operation(self):
+        return self.__handle_delete
+
+
+class SymlinkedTranslation(PageTranslation):
+    """Subclass for symlinked pages.
+    """
+    def __init__(self, diff_obj, src_prefix, dest_prefix):
+        self.__docs_src = diff_obj.b_path
+        self.__src_path = src_prefix / diff_obj.b_path
+        self.__dest_path = dest_prefix / diff_obj.b_path
+
+    @property
+    def path(self) -> str:
+        return self.__docs_src
+
+    def __handle_symlink(self):
+        if self.__dest_path.is_symlink():
+            self.__dest_path.unlink()
+
+        mkparents(self.__dest_path)
+        shutil.copy(self.__src_path, self.__dest_path, follow_symlinks=False)
+        logger.info("Symlinked '%s'.", self.path)
+
+    @property
+    def pending_operation(self):
+        return self.__handle_symlink
 
 
 class Translations:
@@ -136,15 +151,12 @@ class Translations:
                  cache: TranslationCache):
         self.__src_prefix = src_prefix
         self.__dest_prefix = dest_prefix
-        self.__translations: list[PageTranslation] = []
+        self.__translations: set[PageTranslation] = set()
         self.__excluded_files = get_excluded_filepaths(self.__src_prefix)
         self.__cache = cache
 
     def __iter__(self):
         yield from self.__pending_translation
-
-    def __getitem__(self, key):
-        return list(self.__pending_translation)[key]
 
     def __len__(self):
         return len(list(self.__pending_translation))
@@ -161,80 +173,73 @@ class Translations:
         return filter(lambda page: not callable(page.pending_operation),
                       self.__translations)
 
-    def __is_excluded(self, docs_src):
-        return any((self.__src_prefix / docs_src).samefile(excluded)
-                   for excluded in self.__excluded_files)
+    def __is_excluded(self, page_path):
+        result = any((self.__src_prefix / page_path).samefile(excluded)
+                     for excluded in self.__excluded_files)
+        if result:
+            logger.info("Ignored excluded file '%s'.", page_path)
 
-    def __new_diff_path(self, docs_src):
-        return DiffPath(
-            docs_src=docs_src,
-            src_prefix=self.__src_prefix,
-            docs_dest=docs_src,
-            dest_prefix=self.__dest_prefix
-        )
+        return result
 
-    def __handle_changed(self, diff_obj):
-        if self.__is_excluded(diff_obj.b_path):
-            logger.info("Ignored excluded file '%s'.", diff_obj.b_path)
-            return
+    def __is_symlink(self, page_path):
+        result = (self.__src_prefix / page_path).is_symlink()
 
-        if (self.__src_prefix / diff_obj.b_path).is_symlink():
-            logger.info("Found new symlink '%s'.", diff_obj.b_path)
-            self.__translations.append(
-                PageTranslation(
-                    self.__new_diff_path(diff_obj.b_path),
-                    FileNeeds.LINKING,
-                    self.__cache
-                )
-            )
-            return
+        if result:
+            logger.info("Found new symlink '%s'.", page_path)
 
-        operation = FileNeeds.TRANSLATION
-        status = self.__cache.query(diff_obj.b_path)
-        if status == FileIs.FRESH:
-            operation = FileNeeds.RETRIEVAL
-        elif status == FileIs.STALE:
-            logger.info("Found stale cache entry for '%s'.", diff_obj.b_path)
+        return result
 
-        self.__translations.append(
-            PageTranslation(
-                self.__new_diff_path(diff_obj.b_path),
-                operation,
-                self.__cache
-            )
-        )
+    def __add_page(self, page, replace=False):
+        if not self.__is_excluded(page.path):
+            if replace:
+                self.__translations.discard(page)
+            self.__translations.add(page)
 
-    def append(self, diff_obj):
-        """Appends a diff_obj for processing.
+    def include(self, *sources: [Diff | pathlib.Path]) -> None:
+        """Adds source pages for processing. Diff takes precedence over
+        pathlib.Path if source describes the same page.
         """
-        match diff_obj.change_type:
-            case FileWas.ADDED | FileWas.MODIFIED:
-                self.__handle_changed(diff_obj)
+        for src in sources:
+            page = None
 
-            case FileWas.MOVED:
-                moved_path = DiffPath(
-                    docs_src=diff_obj.rename_from,
-                    src_prefix=self.__dest_prefix,
-                    docs_dest=diff_obj.rename_to,
-                    dest_prefix=self.__dest_prefix
-                )
-                page = PageTranslation(moved_path,
-                                       FileNeeds.RELOCATION,
-                                       self.__cache)
-                self.__translations.append(page)
+            if isinstance(src, Diff):
+                diff_obj = src
+                match diff_obj.change_type:
+                    case FileWas.ADDED | FileWas.MODIFIED:
+                        page = (SymlinkedTranslation(diff_obj,
+                                                    self.__src_prefix,
+                                                    self.__dest_prefix)
+                                if self.__is_symlink(diff_obj.b_path)
+                                else NewTranslation(diff_obj,
+                                                    self.__src_prefix,
+                                                    self.__dest_prefix,
+                                                    self.__cache))
 
-            case FileWas.DELETED:
-                deleted_path = DiffPath(
-                    docs_src=diff_obj.a_path,
-                    src_prefix=self.__dest_prefix
-                )
-                page = PageTranslation(deleted_path,
-                                       FileNeeds.DELETION,
-                                       self.__cache)
-                self.__translations.append(page)
+                    case FileWas.MOVED:
+                        page = MovedTranslation(diff_obj, self.__dest_prefix)
 
-            case _:
-                return
+                    case FileWas.DELETED:
+                        page = DeletedTranslation(diff_obj, self.__dest_prefix)
+
+                    case _:
+                        continue
+
+            elif isinstance(src, pathlib.Path):
+                path_obj = src
+                src_path = self.__src_prefix / path_obj
+
+                if any((src_path.is_symlink(),
+                        not src_path.is_file(),
+                        not path_obj.name.endswith(".md"))):
+                    continue
+
+                page = NewTranslation.for_path(path_obj,
+                                               self.__src_prefix,
+                                               self.__dest_prefix,
+                                               self.__cache)
+
+            if page is not None:
+                self.__add_page(page, replace=isinstance(src, Diff))
 
     def complete(self):
         """Signals for completion of the translation.

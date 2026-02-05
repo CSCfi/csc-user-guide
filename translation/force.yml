@@ -1,0 +1,13 @@
+# Force a one-time re-translation of pages. If key is the commit sha corresponding to
+# latest translation, then pages are translated for listed languages. If language
+# list is empty, page is translated for every language.
+
+f4e51b7e98282c4d2c68ed8b7f5f2d6b98a8bb26:
+  "support/tutorials/env-guide/commands-for-data-processing.md": [fi]
+  "support/tutorials/env-guide/index.md": [fi]
+  "support/tutorials/env-guide/linux-bash-scripts.md": [fi]
+  "support/tutorials/env-guide/more-commands-for-managing-files.md": [fi]
+  "support/tutorials/env-guide/packing-and-compression-tools.md": [fi]
+  "support/tutorials/env-guide/text-and-image-processing.md": [fi]
+  "support/tutorials/env-guide/using-linux-in-command-line.md": [fi]
+  "support/tutorials/env-guide/working-with-bash-shell.md": [fi]
