@@ -11,17 +11,17 @@ This tutorial can be used in two ways:
 
 ## Outline: 
 
-- 1. Before you start 
+- [1. Before you start](#1-before-you-start)
   
-- 2. Collecting sensitive material via SD Connect
+- [2. Collecting sensitive material via SD Connect](#2-collecting-sensitive-material-via-sd-connect)
   
-- 3. Data import via SD Dektop
+- [3. Data import via SD Dektop](#3-data-import-via-sd-desktop)
   
-- 4. Accessing Whisper in the virtual deskotp
+- [4. Accessing Whisper in the virtual deskotp](#4-accessing-whisper-in-the-virtual-deskotp)
 
-- 5. Your first steps with Whisper 
+- [5. Your first steps with Whisper](#5-your-first-steps-with-whisper)
 
-- 6 Accessing the trascript
+- [6 Accessing the trascript](#6-accessing-the-trascript)
 
 
 ## 1. Before you start
