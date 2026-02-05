@@ -147,6 +147,10 @@ class SwiftCache(TranslationCache):
         self.__cached_paths = tuple(self.__download_cache(self.__local_path))
         self.__added_paths = []
 
+        n_cached = len(self.__cached_paths)
+        logger.info("%s cached translations.",
+                    f"Found {n_cached}" if n_cached > 0 else "No")
+
     def __del__(self):
         temp_path = pathlib.Path(tempfile.gettempdir())
         if self.__local_path.is_relative_to(temp_path):
@@ -208,7 +212,7 @@ class SwiftCache(TranslationCache):
                 logger.warning("Failed to cache '%s': %s", docs_src, str(e))
                 return iter(())
 
-    def __get_latest(self, docs_src: str) -> CachePath|None:
+    def __get_latest(self, docs_src: str) -> CachePath | None:
         paths = filter(lambda p: p.docs_src == docs_src, self.__cached_paths)
 
         return max(paths, key=lambda p: p.commit.committed_date, default=None)
@@ -240,10 +244,10 @@ class SwiftCache(TranslationCache):
                 return iter(())
 
     @property
-    def count(self) -> int:
+    def count(self):
         return len(self.__cached_paths)
 
-    def query(self, docs_src: str) -> FileIs:
+    def query(self, docs_src):
         latest = self.__get_latest(docs_src)
 
         return (FileIs.MISSING
@@ -252,12 +256,12 @@ class SwiftCache(TranslationCache):
                       if self.__has_changed(latest)
                       else FileIs.FRESH))
 
-    def store(self, docs_src: str, from_path: pathlib.Path):
+    def store(self, docs_src, from_path):
         for upload in self.__put_file(docs_src, from_path):
             path = self.__remove_prefix(upload)
-            logger.info("Created cache entry '%s'.", path)
+            logger.info("Created cache entry for '%s'.", path)
 
-    def retrieve(self, docs_src: str, to_path: pathlib.Path):
+    def retrieve(self, docs_src, to_path):
         latest = self.__get_latest(docs_src)
         try:
             local_path = latest.local
@@ -267,8 +271,6 @@ class SwiftCache(TranslationCache):
             logger.info("Retrieved '%s' from cache.", docs_src)
         except AttributeError:
             logger.warning("No cache entry for '%s' found.", docs_src)
-        except shutil.SameFileError:
-            logger.warning("Retrieved file already '%s' exists.", docs_src)
 
     def clear(self):
         failed = list(self.__clear_cache())

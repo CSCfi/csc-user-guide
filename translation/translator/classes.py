@@ -1,11 +1,11 @@
 """Class definitions for the translator.
 """
 import enum
-import typing
 import pathlib
 from abc import ABC, abstractmethod
+from typing import overload, NamedTuple, Callable
 
-from git.objects import Commit
+from git import Commit, Diff
 
 
 class FileWas(enum.StrEnum):

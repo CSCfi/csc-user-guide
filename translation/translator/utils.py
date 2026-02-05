@@ -3,6 +3,7 @@
 import os
 import pathlib
 import logging
+import itertools
 
 import yaml
 
@@ -62,11 +63,15 @@ def md_filter(diff_obj):
                if isinstance(d_path, str))
 
 
-def batch(iterable, n):
+def batched(iterable, n):
     """Yield successive n-sized batches from iterable.
     """
-    for i in range(0, len(iterable), n):
-        yield iterable[i:i + n]
+    # https://docs.python.org/3.11/library/itertools.html#itertools-recipes
+    if n < 1:
+        raise ValueError('n must be at least one')
+    it = iter(iterable)
+    while batch := tuple(itertools.islice(it, n)):
+        yield batch
 
 
 def get_excluded_filepaths(src_prefix):
@@ -76,10 +81,10 @@ def get_excluded_filepaths(src_prefix):
     excludes_path = _get_config_filepath(DEFAULTS.excludes_filename)
 
     try:
-        with excludes_path.open(mode="rt", encoding="utf-8") as excludes:
+        with excludes_path.open(mode="rt", encoding="utf-8") as excludes_json:
             paths = [line.strip()
                     for line
-                    in excludes.readlines()
+                    in excludes_json.readlines()
                     if not line.startswith("#")]
 
         return [pathlib.Path(src_prefix) / filepath
@@ -99,8 +104,8 @@ def get_dictionary(lang_code):
     src = DEFAULTS.source_lang_code
     tgt = lang_code
     try:
-        with dictionary_path.open(mode="rt", encoding="utf-8") as dictionary:
-            entries = yaml.safe_load(dictionary)
+        with dictionary_path.open(mode="rt", encoding="utf-8") as dict_yaml:
+            entries = yaml.safe_load(dict_yaml)
             return {entry[src]: entry[tgt]
                     for entry
                     in entries

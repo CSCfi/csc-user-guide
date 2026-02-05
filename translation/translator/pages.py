@@ -140,10 +140,6 @@ class Translations:
         self.__excluded_files = get_excluded_filepaths(self.__src_prefix)
         self.__cache = cache
 
-        n_cached_files = self.__cache.count
-        if n_cached_files > 0:
-            logger.info("Found %i cached translations.", n_cached_files)
-
     def __iter__(self):
         yield from self.__pending_translation
 
