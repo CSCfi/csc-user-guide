@@ -157,9 +157,9 @@ GNUparallel is enabled with command `module load parallel`.
 Next the tar file containing 1000 files is extracted to the temporary local disk area.
 Finally, the file listing of the .txt files in the extracted directory is guided to `parallel` command that runs the given command, `md5sum`, for each file (_{}_) using 40 parallel processes (`-j 40`).
 
-### nextfllow
+### NextFlow
 
-If you want to use NextFlow you must first upload a NextFlow task file (_md5sums.nf_ in this case) to SD Connect. This file defines the input files to be processed, commands to be executed and outputs to be created.  Note that you can't upload this file to the SD Connect form SD Desktop, but you must upload it for example from your own computer or from Puhti.
+If you want to use NextFlow you must first upload a NextFlow task file (_md5sums.nf_ in this case) to SD Connect. This file defines the input files to be processed, commands to be executed and outputs to be created.  Note that you can't upload this file to the SD Connect from SD Desktop, but you must upload it for example from your own computer or from Puhti.
 
 Content of NextFlow file _md5sums.nf_
 
