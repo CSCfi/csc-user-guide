@@ -2,7 +2,13 @@
 
 # Start here: creating a CSC account and a CSC project Academic type
 
-If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to create an account and a CSC project Academic type to store and analyse sensitive research data (e.g. consented data). You will learn also how to manage your project's resources consumption (here called Billing Unit), storage space (here called quota) and what happens to your data upon project closure.
+To use CSC Sensitive Data (SD) Services, every research team must first create a CSC project. Think of a CSC project as your shared workspace: all project members access the same data and the same SD tools. A CSC project is also where you define:
+
+- who is allowed to work or has access to the data
+- which CSC services your team can use
+- what type of data the project will process
+
+To work with sensitive research data (such as consented data), your project must be created as an Academic project type. This guide walks you through everything you need to begin—whether you are the project manager or a project member. Please note that this CSC project type is not suitable for processing register data under the Finnish Act on Seconday use of health and social data. 
 
 The steps you need to follow depend on your role in the research team:
 
@@ -15,13 +21,15 @@ The steps you need to follow depend on your role in the research team:
 
 ### Project Manager
 
-The project manager is the primary user of a CSC project, responsible for managing the project and project members. They act as the data controller (or academic organization representative).
+The project manager is the primary owner of the CSC project and acts as the representative of the Data Controller (typically the home organisation of the researchers). 
 
 Responsibilities include:
 
 * Creating and managing CSC projects in the MyCSC portal.
   
-* Adding and managing project members.
+* Defining data access by deciding who can join the project.
+
+* Define what type of data are processed (personal data or sensitive data) and describe it in the DEscriptionof processing acitivity form via the MYCSC portal. 
   
 * Managing project lifetime, storage space (quota) and resources (here called Billing Units) via the MyCSC portal. 
   
@@ -29,10 +37,16 @@ Responsibilities include:
   
 * Exporting data from SD Desktop (only project managers can do this).
 
+* Familairising with SD Services data retention policy. 
+
+According to CSC’s Terms of Use, only group leaders and postdoctoral researchers may serve as CSC project managers. The role can be delegated to other research specialists after project creation by submitting a request to servicedesk@csc.fi.
+
+
 
 ### Project Member
 
-The project member is a person who joins to existing CSC project (can only be added by the project manager).
+A project member is invited into a CSC project by the project manager. All members of the same project have equal access to project data stored in SD services.
+
   
 * All project members have equal access to the project's content (e.g. data access).
   
