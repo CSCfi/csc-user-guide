@@ -2,13 +2,14 @@
 
 # Start here: creating a CSC account and a CSC project Academic type
 
-To use CSC Sensitive Data (SD) Services, every research team must first create a CSC project. Think of a CSC project as your shared workspace: all project members access the same data and the same service. A CSC project is also where you define:
 
-- who is allowed to work or has access to the data
-- which CSC services your team can use
-- what type of data the project will process
 
-To work with sensitive research data (such as consented data), your project must be created as an Academic project type. This guide walks you through everything you need to begin, whether you are the project manager (group leaders and postdoctoral researchers)  or a project member (PhD or master students, international collaborators). Please note that this CSC project type is not suitable for processing register data under the Finnish Act on Seconday use of health and social data. 
+![CSC project Academic type](../sensitive-data/images/connect/academic-project.png)
+
+
+To use CSC Sensitive Data (SD) Services, every research team must first create a CSC project. Think of a CSC project as the shared workspace in which you canduct yoru research: all project members access the same data and the same services. A CSC project is also where you define: who is allowed to work or has access to the data, which CSC services your team can use, what type of data the project will process. To work with sensitive research data such as consented data, your CSC project must be created as an Academic CSC project type. 
+
+This guide walks you through everything you need to begin, whether you are the project manager (group leaders and postdoctoral researchers)  or a project member (PhD or master students, international collaborators). Please note that this CSC project type is not suitable for processing register data under the Finnish Act on Seconday use of health and social data. 
 
 The steps you need to follow depend on your role in the research team:
 
