@@ -6,12 +6,9 @@
 
 ![CSC project Academic type](../sensitive-data/images/connect/academic-project.png)
 
+To access CSC Sensitive Data (SD) Connect or Desktop, you should first create a CSC project. A CSC project serves as your team’s shared workspace: all members access the same data and services. It is also where you define who can access the data, which CSC services the team can use, and what types of data the project will handle. To work with sensitive research data (such as consented data or confidential data), the project must be created as an **Academic-type CSC project**.
 
-To use CSC Sensitive Data (SD) Services, every research team must first create a CSC project. Think of a CSC project as the shared workspace in which you canduct yoru research: all project members access the same data and the same services. A CSC project is also where you define: who is allowed to work or has access to the data, which CSC services your team can use, what type of data the project will process. To work with sensitive research data such as consented data, your CSC project must be created as an Academic CSC project type. 
-
-This guide walks you through everything you need to begin, whether you are the project manager (group leaders and postdoctoral researchers)  or a project member (PhD or master students, international collaborators). Please note that this CSC project type is not suitable for processing register data under the Finnish Act on Seconday use of health and social data. 
-
-The steps you need to follow depend on your role in the research team:
+This guide explains how to get started, whether you are a project manager or a project member. The steps you need to follow depend on your role in the research team:
 
 1. [Read project manager's responsibilities](#project-manager)
 
@@ -22,7 +19,7 @@ The steps you need to follow depend on your role in the research team:
 
 ### Project Manager
 
-The project manager is the primary owner of the CSC project and acts as the representative of the Data Controller (typically the home organisation of the researchers). 
+The project manager is the primary owner of the CSC project and acts as the representative of the Data Controller (typically the home organisation of the researchers). According to CSC’s Terms of Use, only group leaders and postdoctoral researchers may serve as CSC project managers. The role can be delegated to other research specialists after project creation by submitting a request to servicedesk@csc.fi.
 
 Responsibilities include:
 
@@ -40,8 +37,7 @@ Responsibilities include:
 
 * Familairising with SD Services data retention policy. 
 
-According to CSC’s Terms of Use, only group leaders and postdoctoral researchers may serve as CSC project managers. The role can be delegated to other research specialists after project creation by submitting a request to servicedesk@csc.fi.
-
+Please note: Academic-type CSC projects cannot be used for processing register data under the Finnish Act on Secondary Use of Health and Social Data.
 
 
 ### Project Member
