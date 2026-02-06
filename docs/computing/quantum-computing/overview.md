@@ -3,13 +3,6 @@ search:
   boost: 4
 ---
 
-!!! warning "NOTE: QPU time tracking"
-    Used QPU time does not yet display correctly in MyCSC. The usage is tracked correctly internally
-    and we are working on correcting the time visible in MyCSC. See the [viewing QPU usage](./running-quantum-jobs.md#viewing-qpu-usage-on-lumi) section for instructions on viewing your qpu-usage from the terminal.
-    If you have questions you can contact us at
-    [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi). 
-
-
 # Overview
 
 Quantum computers differ from their classical counterparts when it comes to the basic 
