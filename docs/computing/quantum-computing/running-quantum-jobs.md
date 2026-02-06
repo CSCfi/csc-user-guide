@@ -419,9 +419,9 @@ Click on launch to start your Jupyter session. This will launch Jupyter using th
 
 !["Qcs with LUMI web courses"](../../img/helmi_with_jupyter_for_courses_gui.png)
 
-## Viewing QPU Usage On LUMI
+## Viewing QPU Usage On LUMI and MyCSC
 
-You can now view QPU usage from the [MyCSC dashboard](https://my.csc.fi/dashboard). For viewing QPU usage from the terminal use the below method. The `lumi-allocations` command does not properly display QPU usage.
+You can now view QPU usage from the [MyCSC dashboard](https://my.csc.fi/dashboard). For viewing QPU usage from the terminal on LUMI use the method below. The `lumi-allocations` command does not properly display QPU usage.
 
 To view QPU usage, on your terminal, first load the fiqci-vtt-qiskit module, and then run the `project-qpu-allocations` command. This command will display your current QPU allocation and usage details for all your projects.
 
