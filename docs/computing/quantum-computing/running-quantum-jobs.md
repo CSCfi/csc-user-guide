@@ -1,9 +1,3 @@
-!!! warning "NOTE: QPU time tracking"
-    Used QPU time does not yet display correctly in MyCSC. The usage is tracked correctly internally
-    and we are working on correcting the time visible in MyCSC. See the [viewing QPU usage](#viewing-qpu-usage-on-lumi) section for instructions on viewing your qpu-usage from the terminal.
-    If you have questions you can contact us at
-    [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi). 
-
 !!! warning "Using Multiple backends"
     Currently, it is not possible to use Q50 and Helmi together because they run on different software versions. 
 
@@ -426,6 +420,8 @@ Click on launch to start your Jupyter session. This will launch Jupyter using th
 !["Qcs with LUMI web courses"](../../img/helmi_with_jupyter_for_courses_gui.png)
 
 ## Viewing QPU Usage On LUMI
+
+You can now view QPU usage from the [MyCSC dashboard](https://my.csc.fi/dashboard). For viewing QPU usage from the terminal use the below method. The `lumi-allocations` command does not properly display QPU usage.
 
 To view QPU usage, on your terminal, first load the fiqci-vtt-qiskit module, and then run the `project-qpu-allocations` command. This command will display your current QPU allocation and usage details for all your projects.
 
