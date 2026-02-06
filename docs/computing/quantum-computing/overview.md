@@ -3,6 +3,10 @@ search:
   boost: 4
 ---
 
+!!! info "NOTE: QPU time tracking"
+    You can now view QPU usage from the [MyCSC dashboard](https://my.csc.fi/dashboard).
+
+
 # Overview
 
 Quantum computers differ from their classical counterparts when it comes to the basic 
