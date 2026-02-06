@@ -13,11 +13,11 @@
     * After you have identified the data you need to transfer, check that it
       fits within the default disk quotas on Roihu:
 
-        | Disk area | Default size | Maximum size | Default file number limit | Maximum file number limit |
-        |-----------|-------------:|-------------:|--------------------------:|--------------------------:|
-        | home      | 15 GiB       | 15 GiB       | 150k                      | 150k                      |
-        | projappl  | 15 GiB       | 250 GiB (< 100 GiB) | 150k               | 2.5M (< 1M)         |
-        | scratch   | 1 TiB       | 100 TiB (< 20 TiB) | 1M            | 10M (< 5M)  |
+        | Disk area | Default size | Maximum size        | Default file number limit | Maximum file number limit |
+        |-----------|-------------:|--------------------:|--------------------------:|--------------------------:|
+        | home      | 15 GiB       | 15 GiB              | 150k                      | 150k                      |
+        | projappl  | 15 GiB       | 250 GiB (< 100 GiB) | 150k                      | 2.5M (< 1M)               |
+        | scratch   | 1 TiB        | 100 TiB (< 10 TiB)  | 1M                        | 10M (< 5M)                |
 
         Values is parentheses indicate automatically approved limits.
 
