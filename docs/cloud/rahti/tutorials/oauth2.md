@@ -128,7 +128,7 @@ data:
     }
 ```
 
-You can find more information about this configuration on the [OAuth2 Proxy website](https://oauth2-proxy.github.io/oauth2-proxy/configuration/integration)
+You can find more information about this configuration on the [OAuth2 Proxy website](https://oauth2-proxy.github.io/oauth2-proxy/configuration/integrations/nginx)
 
 The most important values to modify in this ConfigMap are:
 
