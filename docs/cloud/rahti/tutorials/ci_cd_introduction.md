@@ -91,5 +91,5 @@ This will delete all objects with the label `app: dockerfile-example`.
 
 In this tutorial, a simple CI/CD pipeline to build and deploy a static web page was created mainly
 using the Kubernetes objects _ImageStream_, _BuildConfig_, and _Deployment_. The pipeline
-can be further extended using dedicated tools and resources as [Jenkins](https://docs.openshift.com/container-platform/4.10/cicd/builds/understanding-image-builds.html#builds-strategy-pipeline-build_understanding-image-builds),
+can be further extended using dedicated tools and resources as [Jenkins](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/builds_using_buildconfig/understanding-image-builds),
 [Tekton](https://www.openshift.com/learn/topics/pipelines#tekton), and [Webhooks](webhooks.md).

@@ -74,7 +74,7 @@ sudo dnf install -y novnc tigervnc-server
 Create a new user called `vncuser` for example.
 
 ```
-sudo adduser vncuser
+sudo useradd vncuser
 sudo passwd vncuser
 sudo su - vncuser
 ```
@@ -188,7 +188,7 @@ server from your IP.
 Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH.
 More information on the [official website](https://guacamole.apache.org/)
 
-You can easily deploy guacamole using this [ansible script](https://github.com/trispera/ansible-openstack-guacamole)
+You can easily deploy guacamole using this [ansible script](https://github.com/cscfi/ansible-openstack-guacamole)
 
 Previously we deployed a new graphical server. In the `templates/user-mapping.xml.j2` file, 
 you have to specify a name, the local address of the server, and the port.
@@ -251,7 +251,7 @@ sudo apt install -y tigervnc-standalone-server
 Create a new user called `vncuser` for example.
 
 ```
-sudo adduser vncuser
+sudo useradd vncuser
 sudo su - vncuser
 ```
 

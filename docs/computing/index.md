@@ -1,11 +1,16 @@
 # Overview
 
-!!! Note
-    For an overview of CSC's next national supercomputer Roihu coming in 2026,
-    [see this page](systems-roihu.md).
+!!! warning "Puhti and Mahti retirement in 2026"
+    Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
+    next-generation supercomputer offering enhanced performance and
+    capabilities.
 
-    For an overview of the LUMI supercomputer, see
-    [the LUMI documentation](https://docs.lumi-supercomputer.eu/hardware/).
+    * Puhti computing services will be shut down one month after Roihu general
+      availability in spring 2026.
+    * Puhti storage will remain accessible until August 2026.
+    * Mahti will be shut down in August 2026.
+
+    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
 Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users
 since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is
@@ -25,6 +30,11 @@ called **Roihu**. [Read more about Roihu here](systems-roihu.md).
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
 basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
+
+!!! note
+    For an overview of the LUMI supercomputer, see
+    [the LUMI documentation](https://docs.lumi-supercomputer.eu/hardware/).
+
 
 ## Accessing Puhti and Mahti
 

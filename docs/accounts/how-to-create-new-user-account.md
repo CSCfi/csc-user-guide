@@ -74,4 +74,11 @@ information to servicedesk@csc.fi.
 * The CSC service your service uses (e.g. cPouta, Rahti)
 * Your mobile number (to which the password are sent via SMS)
 
-
+Once the account has been created, if you are using it with a CSC supercomputer, you also need to
+[generate a new SSH key pair](../computing/connecting/ssh-keys.md#generating-ssh-keys) for the robot
+account. Note that this cannot be set via MyCSC as with normal user accounts, as robot accounts
+cannot log in to MyCSC. Instead the project PI must log in to the supercomputer with the robot
+account username and *their own SSH keys* once in order to add the newly created robot account SSH
+public key to `.ssh/authorized_keys`. The 
+[`authorized_keys` approach is explained](../support/faq/how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md#adding-keys-to-authorized_keys),
+for example in the Pouta documentation in a slightly different context.

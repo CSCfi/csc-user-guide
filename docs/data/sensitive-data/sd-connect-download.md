@@ -4,7 +4,7 @@
 
 You can easily download folders or individual files from SD Connect user interface.
 
-**Automated decryption is available only for files uploaded and automatically encrypted via the user interface after October 1, 2024**. In contrast, files have been uplaoded before October 1 2024, were manually encrypted using your encryption key and will need to be decrypted manually after download. Although both file types use the same .c4h extension, if you see the message "Requested files could not be decrypted" during download, it indicates that the file was encrypted manually and its decryption will require an extra step. If you need any assistance, don't hesitate to contact us.
+**Automated decryption is available only for files uploaded and automatically encrypted via the user interface after October 1, 2024**. In contrast, files have been uploaded before October 1 2024, were manually encrypted using your encryption key and will need to be decrypted manually after download. Although both file types use the same .c4h extension, if you see the message "Requested files could not be decrypted" during download, it indicates that the file was encrypted manually and its decryption will require an extra step. If you need any assistance, don't hesitate to contact us.
 
 1. [Download and automated decryption](#download-and-automated-decryption)
 2. [Download and manual decryption](#download-and-manual-decryption)
@@ -22,41 +22,49 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 1. Find correct folder from All folders tab.
 2. Click **Download** on right side of the folder you want to download.
-3. Files are decrypted automatically. Locate downloaded files from your computer (for example Downloads folder).
+3. Accept cookies (if prompted): a pop-up may appear on the top bar of your browser, asking for cookie consent. The download will not start unless cookies are accepted.
+   
+4. Wait for the Download to complete: a progress bar will indicate the download status. Once it finishes, check the download folder on your local computer. Here you may see two files:
+
+- .tar file: this is the actual file containing your downloaded folder. 
+- .tar.part file: this is a temporary file created while the .tar file is still downloading. 
+- **If both the .tar and .tar.part files are still visible, the download is still in progress. The browser will continue the download in the background.**
+
+- Do not open or extract any of the files until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This indicates that the          download has completed successfully.
+    
+5. Files are decrypted automatically. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
+
+
 
 ![SD Connect Download folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Download.png)
 
 ### Downloading individual files
 
 1. Find correct folder from All folders tab and click to view files.
+   
 2. Find corrects files.
+   
 3. Click **Download** on right side of each file you want to download.
-4. Files are decrypted automatically. Files will download and decrypt automatically, usually to downloads folder. Do not open the folder until the download is complete to avoid errors. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
+   
+4. Accept Cookies (if prompted): A pop-up may appear asking for cookie consent on the top bar of your browser.The download will not start unless cookies are accepted.
+   
+5. Wait for the Download to complete: a progress bar will indicate the download status. Once it finishes, check the download folder on your local computer. Here you may see two files:
 
+- .tar file: this is the actual file containing your downloaded folder. 
+- .tar.part file: this is a temporary file created while the .tar file is still downloading. 
+- **If both the .tar and .tar.part files are still visible, the download is still in progress. The browser will continue the download in the background.**
+
+- Do not open or extract any of the files until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This indicates that the          download has completed successfully.
+    
+5. Files are decrypted automatically. The downloaded file has a .tar extension, double-click to extract the content in a new folder.
+
+    
 !!! Warning
     If you encounter the message 'Some downloaded files need manual decryption.' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
 ![SD Connect Download files](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Downloadfiles.png)
 
 
-### Downloading via Firefox: troubleshooting
-
-Firefox is a supported browser; however you might encounter issues where the download does not start.
-
-If this is your first time using the service, or if you have cleared your browser history and cookies, a pop-up may appear asking you to accept cookies. This pop-up only appears when you click on Download and may not be immediately visible, as it appears on the top bar of the browser. Please click Accept to enable the download to start." 
-
-If you have used the service before, but the download suddenly no longer starts, follow these steps (this process only needs to be done once):
-
-1. In your browser, click **Tools** > **Browser Tools** > **Web Developer Tools** (or on your keyboard press F12 for Windows or Fn+F12 on your Mac).
-2. A new window will open at the bottom of your browser. Click **Application** tab.
-3. Next to **Service Worker**, click **Unregister**.
-4. You can close **Web Developer Tools** window.
-5. Refresh your browser and download files following these [instructions](#downloading-individual-files).
-
-
-![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
-
-![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
 
 ## Download and manual decryption
 

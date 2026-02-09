@@ -55,21 +55,25 @@ After copying files to volume, adjust permissions for folders and files to enabl
     * Open the **Permissions** tab.
     * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
         1. Owner -> Access -> Select “Create and delete files”.
-        2. Others -> Access -> Select “Create and delete files”.
+        2. Group -> Access -> Select “Create and delete files”.
+        3. Others -> Access -> Select “Create and delete files”.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions1.png)
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions2.png)
 
-2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder.
+2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder. 
     * Set permissions to:
         1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”. 
-        2. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        3. Click **Change**.
+        2. Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        3. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        4. Click **Change**.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_FolderPermissions3.png)
 
 Now all project members with access can view and analyze files.
+
+Note that if you open the enclosed file permission settings again it looks like the settings haven't changed even though the permissions have been set correctly. 
 
 ### 4. Close Data Gateway
 

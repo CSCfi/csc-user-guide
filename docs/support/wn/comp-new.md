@@ -1,5 +1,30 @@
 # Computing environment
 
+## Puhti and Mahti web interface updated to release 31 and 15, 3.12.2025
+
+* The File Deletion Explorer tool now exports correctly when multiple projects are used (Puhti).
+* Default MATLAB memory has been increased to 8GB (Mahti).
+* Open OnDemand updated to 4.0.8 (Mahti).
+
+## Puhti web interface updated to release 30, 5.11.2025
+
+* A new File Deletion Explorer tool has been added for testing, see more information [here](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
+* Default MATLAB memory has been increased to 8GB.
+* The Allas Swift integration now generates correct storage URLs.
+* Open OnDemand updated to 4.0.8.
+
+## Instructions on moving data between CSC supercomputers improved, 30.10.2025
+
+We have improved our instructions on moving data directly between CSC
+supercomputers using utilities such as [scp](../../data/moving/scp.md) and
+[rsync](../../data/moving/rsync.md). Notably, now that SSH keys are required for
+authentication on CSC supercomputers, we've added instructions on how to enable
+SSH agent forwarding
+[on Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and
+[on Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding). This
+is a requirement for being able to directly connect between CSC supercomputers in
+order to, for example, transfer data efficiently.
+
 ## Puhti and Mahti web interfaces updated to release 29 and 14, 2.10.2025
 
 * CPU, GPU, storage and cloud billing units are now visible in the web interfaces.

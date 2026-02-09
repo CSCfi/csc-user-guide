@@ -4,7 +4,8 @@
   .info,
   .success,
   .warning,
-  .error
+  .error,
+  .training
 ) {
   display: none !important;
 }
@@ -22,13 +23,15 @@
   .info,
   .success,
   .warning,
-  .error
+  .error,
+  .training
 ) .admonition-title::before,
 .md-typeset details:not(
   .info,
   .success,
   .warning,
-  .error
+  .error,
+  .training
 ) > summary::before {
   display: none;
 }
@@ -54,13 +57,15 @@
   .info,
   .success,
   .warning,
-  .error
+  .error,
+  .training
 ) > .admonition-title,
 .md-typeset details:not(
   .info,
   .success,
   .warning,
-  .error
+  .error,
+  .training
 ) > summary {
   padding: .4rem 0 .4rem .6rem !important;
 }
@@ -70,7 +75,8 @@
   .info,
   .success,
   .warning,
-  .error
+  .error,
+  .training
 ) {
   border: unset;
   background-color: var(--csc-admonition--bg);
@@ -82,7 +88,8 @@
   .info-label,
   .success-label,
   .warning-label,
-  .error-label
+  .error-label,
+  .training-label
 ) > .admonition-title {
   display: none;
 }
@@ -92,7 +99,8 @@
   .info-label,
   .success-label,
   .warning-label,
-  .error-label
+  .error-label,
+  .training-label
 ) {
   max-width: max-content;
   line-height: 1;
@@ -107,11 +115,14 @@
   .info-label,
   .success-label,
   .warning-label,
-  .error-label
+  .error-label,
+  .training-label
 ) > :last-child {
   margin-bottom: 0;
 }
 
+
+/* Default (not the fallback) admonition type */
 .md-typeset .admonition.default,
 .md-typeset details.default {
   border-color: var(--csc-admonition-default-border-color);
@@ -137,6 +148,8 @@
   background-color: var(--csc-admonition-default-background-color);
 }
 
+
+/* Info admonition type */
 .md-typeset .admonition.info,
 .md-typeset details.info {
   border-color: var(--csc-admonition-info-border-color);
@@ -162,6 +175,8 @@
   background-color: var(--csc-admonition-info-background-color);
 }
 
+
+/* Success admonition type */
 .md-typeset .admonition.success,
 .md-typeset details.success {
   border-color: var(--csc-admonition-success-border-color);
@@ -186,6 +201,8 @@
   background-color: var(--csc-admonition-success-background-color);
 }
 
+
+/* Warning admonition type */
 .md-typeset .admonition.warning,
 .md-typeset details.warning {
   border-color: var(--csc-admonition-warning-border-color);
@@ -211,6 +228,8 @@
   background-color: var(--csc-admonition-warning-background-color);
 }
 
+
+/* Error admonition type */
 .md-typeset .admonition.error,
 .md-typeset details.error {
   border-color: var(--csc-admonition-error-border-color);
@@ -230,6 +249,28 @@
   background-color: var(--csc-admonition-error-background-color);
 }
 
+
+/* Training admonition type */
+.md-typeset .admonition.training,
+.md-typeset details.training {
+  border-color: var(--csc-admonition-training-border-color);
+}
+
+.md-typeset details.training:focus-within {
+  box-shadow: 0 0 0 .2rem color(from var(--csc-admonition-training-background-color) srgb r g b / .6);
+}
+
+.md-typeset .admonition.training > .admonition-title::before,
+.md-typeset details.training > summary::after,
+.md-typeset details.training > summary::before {
+  background-color: var(--csc-admonition-training-border-color);
+}
+
+.md-typeset details.training > summary {
+  background-color: var(--csc-admonition-training-background-color);
+}
+
+
 /* Error admonition type is not defined in Material for MkDocs,
    so here's the icon for it. Icons for the other admonitions
    are defined in mkdocs.yml, under theme.icon.admonition.*
@@ -244,4 +285,17 @@
   border-color: var(--csc-admonition-error-text-color) !important;
   color: var(--csc-admonition-error-text-color);
   background-color: var(--csc-admonition-error-background-color);
+}
+
+/* Same for training type */
+.md-typeset .admonition.training > .admonition-title::before,
+.md-typeset details.training > summary::before {
+  -webkit-mask-image: var(--md-admonition-icon--training);
+          mask-image: var(--md-admonition-icon--training);
+}
+
+.md-typeset .admonition.training-label {
+  border-color: var(--csc-admonition-training-text-color) !important;
+  color: var(--csc-admonition-training-text-color);
+  background-color: var(--csc-admonition-training-background-color);
 }

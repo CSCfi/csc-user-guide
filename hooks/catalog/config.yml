@@ -10,95 +10,106 @@ export_props:
   - available_on
   - url
 
+# Template file used in rendering app index pages
+index_template: apps-index.html
+
 listing_order:
-  # The literal order of categories on the app index pages. Categories
-  # not included will appear (in undefined order) below the categories
-  # listed here.
+  # The literal order of categories on the app index pages.
   #
-  # Examples include the license type 'Other' and the 'Miscellaneous'
-  # discipline.
+  # Categories not included below (string-valued) and categories
+  # with the 'fallback' key set to 'true' (mapping-valued) will
+  # appear (in undefined order) below the categories listed here.
+  #
+  # Examples include the license type 'Other' (not included below)
+  # and the 'Miscellaneous' discipline (fallback: true).
   license_types:
     - Free
     - Academic
     - Non-commercial
   disciplines:
-    - Biosciences
-    - Chemistry
-    - Computational Engineering
-    - Data Analytics and Machine Learning
-    - Geosciences
-    - Language Research and Other Digital Humanities and Social Sciences
-    - Mathematics and Statistics
-    - Physics
-    - Quantum
+    - name: "Biosciences"
+    - name: "Chemistry"
+    - name: "Computational Engineering"
+    - name: "Data Analytics and Machine Learning"
+    - name: "Geosciences"
+    - name: "Language Research and Other Digital Humanities and Social Sciences"
+    - name: "Mathematics and Statistics"
+    - name: "Physics"
+    - name: "Quantum"
+    - name: "Miscellaneous"
+      fallback: true
   systems:
-    - Puhti
-    - Mahti
-    - LUMI
+    - name: Roihu
+      description: "New CSC supercomputer replacing Puhti and Mahti"
+    - name: Mahti
+      description: "CSC supercomputer for massively parallel jobs"
+    - name: Puhti
+      description: "CSC supercomputer for small and medium jobs"
+    - name: LUMI
+      description: "EuroHPC supercomputer for CPU and especially GPU jobs"
 
 appendix:
-  - name: Chipster
-    description: Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
+  # An appendix of apps that don't have their own page under 'apps/'.
+  #
+  # The 'doc' key may point to a page in Docs
+  # (something/something/something.md) or to an external page
+  # (https://example.org/example_page).
+  - name: "Chipster"
+    description: "Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data"
     disciplines:
-      - Biosciences
-    url: https://chipster.csc.fi/
+      - "Biosciences"
+    doc: "https://chipster.csc.fi/"
 
-  - name: MaxQuant
-    description: A proteomics software for processing of Mass-spectromtery data
+  - name: "MaxQuant"
+    description: "A proteomics software for processing of Mass-spectromtery data"
     disciplines:
-      - Biosciences
-    src: support/tutorials/MaxQuant-tutorial.md
+      - "Biosciences"
+    doc: "support/tutorials/MaxQuant-tutorial.md"
 
-  - name: eBay's tsv-tools
-    description: Utilities for manipulating large tabular data files
+  - name: "eBay's tsv-tools"
+    description: "Utilities for manipulating large tabular data files"
     disciplines:
-      - Language Research and Other Digital Humanities and Social Sciences
-    url: http://urn.fi/urn:nbn:fi:lb-202006081
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-202006081"
 
-  - name: Finnish Tagtools
-    description: Finnish Tagtools
+  - name: "Finnish Tagtools"
+    description: "Finnish Tagtools"
     disciplines:
-      - Language Research and Other Digital Humanities and Social Sciences
-    url: http://urn.fi/urn:nbn:fi:lb-201908161
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-201908161"
 
-  - name: finnish-parse
-    description: Dependency Parser for Finnish
+  - name: "finnish-parse"
+    description: "Dependency Parser for Finnish"
     disciplines:
-      - Language Research and Other Digital Humanities and Social Sciences
-    url: http://urn.fi/urn:nbn:fi:lb-2017030801
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-2017030801"
 
-  - name: HFST
-    description: Helsinki Finite-State Transducer Technology
+  - name: "HFST"
+    description: "Helsinki Finite-State Transducer Technology"
     disciplines:
-      - Language Research and Other Digital Humanities and Social Sciences
-    url: http://urn.fi/urn:nbn:fi:lb-20140730183 
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-20140730183"
 
-  - name: HFST-fi
-    description: Helsinki Finite-State Technology for Finnish
+  - name: "HFST-fi"
+    description: "Helsinki Finite-State Technology for Finnish"
     disciplines:
-      - Language Research and Other Digital Humanities and Social Sciences
-    url: http://urn.fi/urn:nbn:fi:lb-201509034
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-201509034"
 
-  - name: HFST-sv
-    description: Helsinki Finite-State Technology for Swedish
+  - name: "HFST-sv"
+    description: "Helsinki Finite-State Technology for Swedish"
     disciplines:
-      - Language Research and Other Digital Humanities and Social Sciences
-    url: http://urn.fi/urn:nbn:fi:lb-201509035
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-201509035"
 
-  - name: Kaldi
-    description: Kaldi Speech Recognition Toolkit
+  - name: "Kaldi"
+    description: "Kaldi Speech Recognition Toolkit"
     disciplines:
-      - Language Research and Other Digital Humanities and Social Sciences
-    url: http://urn.fi/urn:nbn:fi:lb-2019121020 
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-2019121020"
 
-  - name: UDPipe
-    description: UDPipe Kielipankki version
+  - name: "UDPipe"
+    description: "UDPipe Kielipankki version"
     disciplines:
-      - Language Research and Other Digital Humanities and Social Sciences
-    url: http://urn.fi/urn:nbn:fi:lb-201902131 
-
-  - name: MySQL
-    description: MySQL database client
-    disciplines:
-      - Miscellaneous
-    src: data/kaivos/overview.md
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-201902131"
