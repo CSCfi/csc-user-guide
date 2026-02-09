@@ -6,6 +6,10 @@ be upgraded to use newer minor or major versions. For more detailed information 
 between all PostgreSQL versions, consult the
 [PostgreSQL documentation](https://www.postgresql.org/docs/release/).
 
+!!! warning "PostgreSQL 14 is approaching its end-of-life date"
+
+    As PostgreSQL 14's end-of-life date is set to arrive on 12th of November, 2026, support for it will be removed from Pukki by then. Users are recommended to upgrade their PostgreSQL 14 instances to PostgreSQL 17 before the EOL date, as restoring database instances from PostgreSQL 14 backups will stop working.
+
 ## Minor version upgrades
 
 Minor version upgrades in PostgreSQL (e.g. from 14.12 to 14.13) should have no breaking changes.
