@@ -8,7 +8,7 @@ How to set up a static web server in Rahti from a Git repository.
 
 1. Create a project. [Instructions](../usage/projects_and_quota.md)
 
-1. In the Openshift web console, switch to the Developer perspective. Select _Add_ from the navigation panel. To create an application, under Developer Catalog list Select _Import from Git_. 
+1. In the Openshift web console. Select the plus sign on the top right corner and then _Import from Git_. 
 
     ![click_git](../../../img/click_git.png)
 

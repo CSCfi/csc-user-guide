@@ -15,7 +15,7 @@ FROM nginx:alpine
 
 # support running as arbitrary user which belongs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx && \
-    chown nginx.root /var/cache/nginx /var/run /var/log/nginx && \
+    chown nginx:root /var/cache/nginx /var/run /var/log/nginx && \
     # users are not allowed to listen on privileged ports
     sed -i.bak 's/listen\(.*\)80;/listen 8081;/' /etc/nginx/conf.d/default.conf && \
     # Make /etc/nginx/html/ available to use
@@ -177,10 +177,12 @@ cat Dockerfile | oc new-build -D -
 
 ### Import from Git (Private Repositories) using the Web GUI
 
+Go to Builds -> BuildConfigs -> Create BuildConfig
+
 Deploying a private Git repository to Rahti involves setting up the necessary authentication to access your private repository. Without proper authentication, you will see the error "URL is valid but cannot be reached" (seen in the pictures below). Here's how to resolve this using two authentication methods:
 
 
-![oie_1671443U3OLpFT1](https://github.com/user-attachments/assets/a844e224-769e-4d9f-bba2-043ad5c9b258)
+![create_from_private_repo](../../img/create_rahti_from_private_repo.png)
 
 
 #### Option 1: Using a Token for Git Authentication
@@ -205,7 +207,7 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
     - Name the secret, under "Authentication type" choose "Basic Authentication"
     - Paste the token and create
 
-![oie_1672121lETtYQ6J](https://github.com/user-attachments/assets/4bd9450f-170b-4a9e-ae8c-df4700fb0be4)
+![create_rahti_source_secret](../../img/create_rahti_source_secret.png)
 
 
 #### Option 2: Using a Private SSH Key for Git Authentication
@@ -235,7 +237,7 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
     - Name the secret, under "Authentication type" choose "SSH Key"
     - Paste the contents of your private SSH key (`id_rsa`) and create
     - 
-![oie_16720584BbbOspb](https://github.com/user-attachments/assets/b1d47511-0ce6-4980-a732-895193895780)
+![create_rahti_from_private_repo_validated](../../img/create_rahti_from_private_repo_validated.png)
 
 
 ### Import from Git (Private Repositories) using the CLI

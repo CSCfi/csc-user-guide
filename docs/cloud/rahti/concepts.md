@@ -3,7 +3,7 @@
 The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-* [OpenShift concepts](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/about/welcome-index)
+* [OpenShift concepts](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/overview/index)
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
@@ -674,13 +674,18 @@ Every host with the pattern `*.2.rahtiapp.fi` or `*.rahtiapp.fi` will automatica
 !!! info "Default hostname"
     By default, the hostname of the Route is `metadata.name` + `-` + `project name` + `.2.rahtiapp.fi` unless otherwise specified in `spec.host`.
 
-## IP white listing
+## IP allowlisting
 
-It is possible to use annotations to enable **IP white listing**, where only a few IP ranges are allowed to get through the **route** and the rest of the internet is blocked. Security-wise it is highly encouraged to utilize IP white listing for services that are not meant to be visible to the entire internet. In order to add it to a route do:
+It is possible to use annotations to enable **IP allowlisting**, where only a few IP ranges are allowed to get through the **Route** and the rest of the internet is blocked. Security-wise it is highly encouraged to utilize IP allow list for services that are not meant to be visible to the entire internet. In order to add it to a route do:
 
 ```sh
-oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='192.168.1.0/24 10.0.0.1'
+oc annotate route <route_name> haproxy.router.openshift.io/ip_allowlist='192.168.1.0/24 10.0.0.1'
 ```
+
+!!! warning
+    The old `ip_whitelist` annotation is deprecated but still supported for compatibility.
+    It will be removed in a future version.
+
 
 !!! warning
 
