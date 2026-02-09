@@ -20,17 +20,13 @@ Rahti offers two methods for provisioning snapshots: through web interface and b
 
 ### Through web interface
 
-After making sure that PVC is not attached to any pod, Navigate to the 'VolumeSnapshot' section and click on 'Create VolumeSnapshot' to create a snapshot of your PVC. 
+After making sure that PVC is not attached to any pod, Navigate to the `VolumeSnapshot` section in `Storage` dropdown list of left hand side menu and click on 'Create VolumeSnapshot' to create a snapshot of your PVC. 
 
 ![Create Snap Shot](../../img/CreateSnapshot.png)
 
-To find volume snapshot, select 'Developer' view, click 'Project' in left hand side menu, in 'Invertory' section of 'Overview' tab last option is VolumeSnapshot. 
+Fill the required details. In PersistentVolumeClaim, select the PVC you want to attach, provide a `Name` to volume snapshot, select the default snapshot class `standard-csi` and click on `create`.
 
-![Volume Snap Shot](../../img/Volumesnapshot.png)
-
-Fill the required details. In PersistentVolumeClaim, select the PVC you want to attach, provide a name to volume snapshot, select the default snapshot class 'standard-csi' and click on 'create'.
-
-![Enter the details of Snap Shot](../../img/EnterSnapshotDetails.png)
+![Enter the details of Snap Shot](../../img/Volumesnapshot.png)
 
 
 ### Using CLI

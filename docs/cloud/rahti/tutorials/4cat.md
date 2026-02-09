@@ -504,7 +504,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     fixing permissions on existing directory /var/lib/postgresql/data ... initdb: error: could not change permissions of directory "/var/lib/postgresql/data": Operation not permitted
     ```
 
-    In this case we can see that this container image will never work in Rahti, as it needs to be able to change folder permissions. Luckily Rahti/Openshift provides a PostgreSQL template that is available in the developer catalog.
+    In this case we can see that this container image will never work in Rahti, as it needs to be able to change folder permissions. Luckily Rahti/Openshift provides a PostgreSQL template that is available in the Software Catalog.
 
     ![Developer Catalog](../../img/db-developer-catalog.png)
 
