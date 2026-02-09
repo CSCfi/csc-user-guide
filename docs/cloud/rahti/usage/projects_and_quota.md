@@ -50,7 +50,7 @@ instructions ](cli.md). For example, if your Rahti project is called
 *my-openshift-project*, you would run:
 
 ```bash
-oc get project my-openshift-project -o yaml
+oc get project project-name -o yaml
 ```
 
 This should produce the following output:
@@ -60,17 +60,28 @@ apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
   annotations:
-    ...
-  creationTimestamp: 2018-11-22T12:27:05Z
+    openshift.io/description: |-
+      csc_project: 1000123
+      This is along description of what this project does.
+    openshift.io/display-name: This is the project name
+    openshift.io/requester: user
+    openshift.io/sa.scc.mcs: s0:c29,c19
+    openshift.io/sa.scc.supplemental-groups: 1000850000/10000
+    openshift.io/sa.scc.uid-range: 1000850000/10000
+    security.openshift.io/MinimallySufficientPodSecurityStandard: restricted
+  creationTimestamp: "2026-01-21T07:18:07Z"
   labels:
     csc_project: "1000123"
-  name: my-openshift-project
-  resourceVersion: "72557736"
-  selfLink: /apis/project.openshift.io/v1/projects/my-openshift-project
-  uid: df4970e2-abd7-4417-adbf-531293c68cd6
+    kubernetes.io/metadata.name: project-name
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/audit-version: latest
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/warn-version: latest
+  name: project-name
+  resourceVersion: "12368468"
+  uid: b2e8d386-db85-4f59-87d4-d9ea02d598d5
 spec:
   finalizers:
-  - openshift.io/origin
   - kubernetes
 status:
   phase: Active
@@ -80,7 +91,7 @@ In the output above, you can find the associated CSC computing project under
 `metadata.labels.csc_project`. In this case, the project is `1000123`.
 This information is also available via a web interface.
 
-![Labels web UI](../../img/Labels-webui.png)
+![Labels web UI](../../img/Labels-webui.png){: style="height:632px;width:564px"}
 
 !!! info
 
@@ -91,14 +102,11 @@ This information is also available via a web interface.
 
 ## Creating a project
 
-First, click this [link](https://rahti.csc.fi/) to access the homepage of Rahti and click **Login Page** under *OpenShift 4.15*.  
+First, click this [link](https://rahti.csc.fi/) to access the homepage of Rahti and click **Login Page**.  
 
 After being logged in, click the blue "Create Project" button to create a project, and you will be presented with the following view:
 
-![OpenShift new project dialog](../../img/new_project_dialog_4.png)
-
-If you are in "Developer" view, click on "Projects: All projects" located in the topbar and "Create Project":
-![OpenShift new project dialog Developer](../../img/new_project_dialog_4_developer.png)  
+![OpenShift new project dialog](../../img/create_project_dialog.png){: style="height:500px;width:571px"}
 
 1. You *need* to pick a **unique name** that is not in use by any other project
 in the system.
@@ -107,8 +115,6 @@ in the system.
 
 > csc_project: 1000123
 
-![OpenShift Create Project](../../img/create_project_dialog_4.png)
-
 See the section about [accounts](../../../accounts/index.md).
 
 Once you have filled in the fields, click "Create", and you will see the application
@@ -116,7 +122,7 @@ catalog where you can pick an application template or import your
 own one.
 
 For more information about using the web interface, refer to the
-[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.15). You can find out which version of the documentation to look at in the web interface by
+[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.19). You can find out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
 ## CSC computing project quotas
@@ -209,7 +215,7 @@ You can give e.g. full admin, basic user, edit or read only access to other
 users and groups in the system for collaboration.
 
 You can edit project memberships in the web interface via **User Management ->
-RoleBindings**, in the `Administrator` menu. You can either give access rights to individual users, groups or Service Accounts by selecting either the _Users_,  _Groups_ or ServiceAccount.
+RoleBindings**. You can either give access rights to individual users, groups or Service Accounts by selecting either the _Users_,  _Groups_ or ServiceAccount.
 
 ![Create Role Binding](../../img/Create_role_binding.png)
 
@@ -222,7 +228,7 @@ You can find out your username in Rahti via the command line, by using the comma
 
 In order to delete a project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project"
 
-![Delete drop down](../../img/delete_project_menu.png)
+![Delete drop down](../../img/delete_project_menu.png){: style="height:197px;width:277px"}
 
 Then you will be asked to input the name of the project to prevent accidental deletions.
 
@@ -230,6 +236,7 @@ Then you will be asked to input the name of the project to prevent accidental de
 
     After the project has been confirmed for deletion, all resources will be deleted and there will be no way to restore them, including the data stored in the persistent volumes.
 
-![Project name dialog](../../img/delete_project_name.png)
+![Project name dialog](../../img/delete_project_name.png){: style="height:353px;width:606px"}
+
 
 After that, Rahti will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends on the amount of resources the project had. After that, Rahti will liberate the project name, and it will be possible to create an empty project with the same name.
