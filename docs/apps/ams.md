@@ -3,7 +3,7 @@ tags:
   - Academic
 catalog:
   name: AMS
-  description: Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
+  description: Modelling suite providing the ADF engine
   license_type: Academic
   disciplines:
     - Chemistry
