@@ -1,0 +1,37 @@
+ARG base_image=ubi8
+FROM ${base_image} as base
+
+LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
+
+WORKDIR /src
+
+ADD translation/requirements.txt \
+    translation/refresh.py \
+    translation/exclude.txt \
+    translation/force.yml \
+    translation/dictionary.yml \
+    ./
+ADD translation/translator/ ./translator/
+ADD translation/entrypoint.translator.bash /entrypoint.bash
+
+RUN \
+  dnf --assumeyes install \
+                    https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
+&& \
+  dnf --refresh --assumeyes install \
+                              python3.11 \
+                              python3.11-pip \
+                              restic \
+&& \
+  pip3 install --requirement requirements.txt \
+&& \
+  chmod 500 /entrypoint.bash
+
+ARG repo_org=CSCfi
+ARG repo_name=csc-user-guide
+ARG repo_branch=master
+ENV REPO_ORG=${repo_org}
+ENV REPO_NAME=${repo_name}
+ENV REPO_BRANCH=${repo_branch}
+
+ENTRYPOINT ["/entrypoint.bash"]

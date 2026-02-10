@@ -1,0 +1,16 @@
+ARG base_image=ubi8
+FROM ${base_image} as base
+
+LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
+
+ENV HOME=/home/default
+WORKDIR /src
+
+RUN \
+  mkdir ${HOME} \
+&& \
+  useradd -u 1001 -r -g 0 -d ${HOME} -c "Default User" default \
+&& \
+  chown -R 1001 ${HOME} ./
+
+ENV PATH=/home/default/.local/bin:${PATH}
