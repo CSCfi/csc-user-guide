@@ -1,6 +1,6 @@
 # Copying files using scp
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 Copying files between different Linux, macOS and Windows machines can be done
 with the `scp` command. Thus, you can use `scp` to transport data between CSC
