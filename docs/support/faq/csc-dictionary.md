@@ -46,18 +46,12 @@ Accelerated computing refers to using specialized hardware (e.g., GPUs) to
 speed up workloads that benefit from parallelism. LUMI‑G is specifically
 optimized for GPU‑accelerated workloads at very large scales.
 
-### Hybrid HPC (CPU + GPU)
-
-Many modern workloads run partly on the CPU and partly on GPUs. Hybrid
-architectures improve performance for deep learning, molecular dynamics and
-complex simulations.
-
 ## 2. Parallel Programming Concepts
 
 ### Distributed‑Memory Parallelism (MPI)
 
 MPI enables programs to run across multiple nodes by exchanging messages
-between processes. It is essential for large simulations on Mahti and LUMI.
+between processes. It is essential for large multi-node simulations.
 
 ### Shared‑Memory Parallelism (OpenMP)
 
@@ -68,36 +62,40 @@ nodes.
 ### Hybrid Parallelization
 
 Combines MPI between nodes and OpenMP threads within each node. This is often
-the best way to use multi‑core nodes efficiently on Mahti and LUMI.
+the best way to use multi‑core nodes efficiently.
 
 ### Embarrassingly Parallel Workloads
 
 Workloads where tasks do not depend on one another and can run independently.
-These run efficiently on HPC systems using job arrays or HTC‑style execution.
+These run efficiently on HPC systems using job arrays or other task
+farming-type execution.
 
 ### Scalability
 
-The ability of a workload to benefit from additional compute resources. Mahti
-is optimized for workloads that scale to many cores or nodes.
+The ability of a workload to benefit from additional compute resources. Unless
+the problem is embarrasingly parallel, scalability may often be limited by one
+or more factors such as communication bottlenecks or fraction of serial code.
+This is often the case with real HPC programs.
 
 ## 3. HPC Job Execution Concepts
 
 ### Batch Job
 
 A non‑interactive job submitted to the scheduler using a Slurm script. It
-specifies resources (cores, memory, time) and runs automatically when resources
-become available.
+specifies resources (cores, memory, time, etc.) and runs automatically when
+resources become available.
 
 ### Interactive Session
 
 A session on a compute node that allows immediate execution of commands. Useful
-for development, debugging, data exploration, or using notebooks.
+for development, debugging, data exploration, or using notebooks, but not for
+large-scale simulations. Batch jobs are better for these.
 
 ### Job Queue
 
 A waiting system where jobs are queued until required resources become
-available. The scheduler prioritizes jobs based on policies, reservations, and
-resource demand.
+available. The scheduler prioritizes jobs based on fair use policies,
+reservations, and resource demand.
 
 ### Slurm Scheduler
 
@@ -107,12 +105,15 @@ submission, queuing, resource allocation, and accounting.
 ### Job Array
 
 A Slurm feature allowing the submission of many similar jobs simultaneously.
-Ideal for embarrassingly parallel workloads.
+Ideal for embarrassingly parallel workloads, but should not be used for a huge
+number of jobs, especially if they are short. If you need to run hundreds of
+short jobs, consider packaging them within a single job to reduce the load on
+the scheduler.
 
 ### Resource Allocation
 
-Requesting CPU cores, GPUs, memory, storage, or time when submitting a job.
-Efficient resource allocation improves queueing efficiency.
+Requesting CPU cores, GPUs, memory, storage, runtime, etc. when submitting a
+job. Efficient resource allocation improves queueing efficiency.
 
 ## 4. Storage & Data Concepts
 
