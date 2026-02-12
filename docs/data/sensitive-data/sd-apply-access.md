@@ -4,18 +4,18 @@
 
 ## Step 1: Apply for access
 
-To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC using the search field at the top of the page. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. 
+To access a specific dataset stored in Finnish FEGA, navigate to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC using the search field at the top of the page. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under Access Policy, click on the link icon after the policy title which allows you to access the application form using SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. 
 
 [![EGA webpage study and dataset view](images/fega/fega_search.png)](images/fega/fega_search.png)
 
 !!! note
-    In the EGA webpage, you can also find datasets that are hosted outside Finland, in central EGA or other FEGA nodes. However, this workflow is specific for datasets that are hosted in Finnish FEGA. 
+    In the EGA webpage, you can also find datasets that are hosted outside Finland, in central EGA or other FEGA nodes. However, the process described here is specific for datasets that are stored in Finnish FEGA. 
 
 Alternatively, if you know the dataset ID you can search for it from [SD Apply Catalogue](https://sd-apply.csc.fi/catalogue) page under FEGA category. Note that you have to login to apply for access.
 
 ## Step 2: Login to SD Apply
 
-Login to [SD Apply](https://sd-apply.csc.fi) by using your identity provider (Haka, Virtu and ELIXIR login) or with CSC account credentials. The interface is compatible with all modern web browsers.
+Login to [SD Apply](https://sd-apply.csc.fi) by using your identity provider (Haka, Virtu and LSAAI login) or with CSC account credentials. The interface is compatible with all modern web browsers.
 
 !!! note
     Always use the same identity provider (e.g. Haka, CSC) when you log in to SD Apply because all your actions are connected to your login identity. You also have to use this same login method in the SD Desktop service to get access to the SD Apply data.
