@@ -1,5 +1,11 @@
 # HPC dictionary
 
+This dictionary focuses on *concepts*, *terminology*, and *technology* relevant
+to CSC's HPC environment. For a list of commonly used acronyms,
+[see the glossary](../glossary.md).
+
+---
+
 ## 1. Core HPC Concepts
 
 ### High‑Performance Computing (HPC)
@@ -46,6 +52,8 @@ Accelerated computing refers to using specialized hardware (e.g., GPUs) to
 speed up workloads that benefit from parallelism. LUMI‑G is specifically
 optimized for GPU‑accelerated workloads at very large scales.
 
+---
+
 ## 2. Parallel Programming Concepts
 
 ### Distributed‑Memory Parallelism (MPI)
@@ -76,6 +84,8 @@ The ability of a workload to benefit from additional compute resources. Unless
 the problem is embarrasingly parallel, scalability may often be limited by one
 or more factors such as communication bottlenecks, fraction of serial code or
 load imbalance. This is often the case with real HPC programs.
+
+---
 
 ## 3. HPC Job Execution Concepts
 
@@ -115,6 +125,8 @@ the scheduler.
 Requesting CPU cores, GPUs, memory, storage, runtime, etc. when submitting a
 job. Efficient resource allocation improves queueing efficiency.
 
+---
+
 ## 4. Storage & Data Concepts
 
 ### Allas Object Storage
@@ -138,6 +150,8 @@ machine learning or data pre-/post-processing.
 A low‑latency network connecting compute nodes in a cluster, crucial for MPI
 performance. CSC supercomputers use advanced fabrics to support large‑scale
 parallel workloads.
+
+---
 
 ## 5. Software & Environment Concepts
 
@@ -168,6 +182,8 @@ CSC provides optimized Python environments and guidance for effective Python
 usage on HPC, including virtual environments, HPC‑friendly libraries and
 container wrapper tools (Tykky).
 
+---
+
 ## 6. Performance Concepts
 
 ### Profiling
@@ -190,6 +206,8 @@ maximize performance. Critical for MPI workloads.
 
 The rate at which memory can feed data to the CPU/GPU. Many HPC workloads are
 memory‑bound rather than CPU‑bounded.
+
+---
 
 ## 7. CSC‑Specific Concepts
 
@@ -231,6 +249,8 @@ A web‑based interface for accessing CSC supercomputers. Provides file
 browsing, job submission, terminal access, and interactive applications
 including graphical user interfaces.
 
+---
+
 ## 8. Workflow & Research Computing Concepts
 
 ### Simulation Workflow
@@ -255,3 +275,5 @@ acceleration on CSC supercomputers, and stored in Allas object storage service.
 CSC's Pouta cloud allows customized environments, while HPC systems execute
 heavy computation. Cloud and HPC resources can be combined to enable advanced
 research use cases.
+
+---
