@@ -1,7 +1,5 @@
 # HPC dictionary
 
-[TOC]
-
 ## 1. Core HPC Concepts
 
 ### High‑Performance Computing (HPC)
@@ -82,7 +80,7 @@ These run efficiently on HPC systems using job arrays or HTC‑style execution.
 The ability of a workload to benefit from additional compute resources. Mahti
 is optimized for workloads that scale to many cores or nodes.
 
-## 1. HPC Job Execution Concepts
+## 3. HPC Job Execution Concepts
 
 ### Batch Job
 
@@ -223,8 +221,8 @@ Suitable for scalable MPI applications.
 
 ### LUMI
 
-One of the world’s fastest supercomputers, optimized for GPU‑accelerated
-workloads and advanced simulations at extreme scale. Located in CSC’s Kajaani
+One of the world's fastest supercomputers, optimized for GPU‑accelerated
+workloads and advanced simulations at extreme scale. Located in CSC's Kajaani
 datacenter.
 
 ### Roihu (coming 2026)
@@ -258,6 +256,6 @@ acceleration. CSC supports analytics workflows through HPC, Allas, and Pouta.
 
 ### Cloud + HPC Hybrid Workflows
 
-CSC’s Pouta cloud allows custom environments, while HPC systems execute heavy
+CSC's Pouta cloud allows custom environments, while HPC systems execute heavy
 computation. Together they support complete pipelines from web services to
 simulations.
