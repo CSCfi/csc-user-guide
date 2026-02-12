@@ -43,6 +43,8 @@ def translate_markdown(content, openai_model=DEFAULTS.openai.model):
     """Translate Markdown content.
     """
     try:
+        assert len(content) > 0, "Content must be non-empty"
+
         response = client.responses.create(
             model=openai_model,
             instructions=prompt,
@@ -51,6 +53,9 @@ def translate_markdown(content, openai_model=DEFAULTS.openai.model):
         )
 
         return response.output_text
+    except AssertionError as e:
+        logger.warning("Skipping translation: %s", str(e))
+        return None
     except APITimeoutError as e:
         logger.error("Request timed out: %s", str(e))
         raise
