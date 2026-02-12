@@ -174,12 +174,14 @@ class Translations:
                       self.__translations)
 
     def __is_excluded(self, page_path):
-        result = any((self.__src_prefix / page_path).samefile(excluded)
-                     for excluded in self.__excluded_files)
-        if result:
-            logger.info("Ignored excluded file '%s'.", page_path)
-
-        return result
+        try:
+            if any((self.__src_prefix / page_path).samefile(excluded)
+                    for excluded in self.__excluded_files):
+                logger.info("Ignored excluded file '%s'.", page_path)
+                return True
+            return False
+        except FileNotFoundError:
+            return False
 
     def __is_symlink(self, page_path):
         result = (self.__src_prefix / page_path).is_symlink()
