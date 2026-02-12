@@ -74,8 +74,8 @@ farming-type execution.
 
 The ability of a workload to benefit from additional compute resources. Unless
 the problem is embarrasingly parallel, scalability may often be limited by one
-or more factors such as communication bottlenecks or fraction of serial code.
-This is often the case with real HPC programs.
+or more factors such as communication bottlenecks, fraction of serial code or
+load imbalance. This is often the case with real HPC programs.
 
 ## 3. HPC Job Execution Concepts
 
@@ -130,19 +130,14 @@ intermediate files, but not intended for long‑term storage.
 ### Local NVMe Storage
 
 Some nodes (e.g., certain Puhti and Mahti nodes) contain extremely fast local
-SSD storage. Great for I/O‑heavy workflows such as genomics or ML
-preprocessing.
+SSD storage. Great for I/O‑heavy workflows such as genomics, quantum chemistry,
+machine learning or data pre-/post-processing.
 
 ### High-Speed Interconnect
 
 A low‑latency network connecting compute nodes in a cluster, crucial for MPI
 performance. CSC supercomputers use advanced fabrics to support large‑scale
 parallel workloads.
-
-### Data Management Workflow
-
-HPC workflows separate data into temporary scratch, long‑term object storage
-(Allas), and local project directories for efficient handling of large datasets.
 
 ## 5. Software & Environment Concepts
 
@@ -155,7 +150,7 @@ easy to switch between different versions of software stacks on CSC systems.
 
 Optimized math and communication libraries (e.g., BLAS, FFTW, ScaLAPACK)
 provide high‑performance numerical operations. CSC supplies several optimized
-versions adapted for Puhti and Mahti.
+versions adapted for CSC supercomputers.
 
 ### Compiler Toolchains
 
@@ -165,22 +160,20 @@ influence performance and must be compatible with linked libraries.
 ### Containers in HPC
 
 Containers provide isolated software environments for complex workflows. CSC
-supports containers through Singularity/Apptainer in HPC and Docker in cloud
-(Pouta).
+supports containers through Singularity/Apptainer on the HPC systems.
 
 ### Python in HPC
 
 CSC provides optimized Python environments and guidance for effective Python
-usage on Puhti and Mahti, including virtual environments and HPC‑friendly
-libraries.
+usage on HPC, including virtual environments, HPC‑friendly libraries and
+container wrapper tools (Tykky).
 
 ## 6. Performance Concepts
 
 ### Profiling
 
-Profiling examines how a program uses CPU time, memory, or I/O. Helps optimize
-HPC code for better performance.
-(General HPC concept; CSC recommends profiling in their guides.)
+Profiling examines how a program uses CPU time, memory, or I/O. Helps to
+identify performance bottlenecks and optimize HPC code for better performance.
 
 ### Vectorization
 
@@ -198,7 +191,7 @@ maximize performance. Critical for MPI workloads.
 The rate at which memory can feed data to the CPU/GPU. Many HPC workloads are
 memory‑bound rather than CPU‑bounded.
 
-## 7. CSC‑Specific HPC Operational Concepts
+## 7. CSC‑Specific Concepts
 
 ### CSC Project
 
@@ -207,18 +200,19 @@ Projects define resource quotas, user membership, and billing units.
 
 ### Billing Units (BUs)
 
-A unit measuring how much computational work a user or project consumes. Usage
-is calculated per CPU/GPU hour and storage consumption.
+A unit used to measure the computing or storage resource consumption of a CSC
+project. CSC BUs come in four different flavors: CPU BU, GPU BU, Cloud BU and
+Storage BU.
 
 ### Puhti
 
-A versatile supercomputer with many applications, significant GPU capacity, and
-NVMe-enabled nodes. Recommended for new users and general workloads.
+A versatile supercomputer with many pre-installed applications, GPU capacity,
+and NVMe-enabled nodes. Recommended for new users and general workloads.
 
 ### Mahti
 
 A massively parallel supercomputer optimized for large-scale CPU simulations.
-Suitable for scalable MPI applications.
+Suitable for scalable MPI applications. Mahti also has some GPU capacity and NVMe-enabled nodes, but less than Puhti and LUMI.
 
 ### LUMI
 
@@ -226,7 +220,7 @@ One of the world's fastest supercomputers, optimized for GPU‑accelerated
 workloads and advanced simulations at extreme scale. Located in CSC's Kajaani
 datacenter.
 
-### Roihu (coming 2026)
+### Roihu (coming in spring 2026)
 
 Roihu will replace Puhti and Mahti, providing next‑generation HPC
 capabilities with significantly increased performance.
@@ -234,7 +228,8 @@ capabilities with significantly increased performance.
 ### Open OnDemand (OOD)
 
 A web‑based interface for accessing CSC supercomputers. Provides file
-browsing, job submission, terminal access, and interactive applications.
+browsing, job submission, terminal access, and interactive applications
+including graphical user interfaces.
 
 ## 8. Workflow & Research Computing Concepts
 
@@ -242,7 +237,7 @@ browsing, job submission, terminal access, and interactive applications.
 
 A typical HPC simulation workflow consists of pre‑processing (data
 preparation), computation (running jobs), and post‑processing
-(analysis/visualization). HPC environments streamline this process.
+(analysis/visualization).
 
 ### Machine Learning in HPC
 
@@ -252,11 +247,11 @@ GPU‑based ML workloads.
 
 ### Data Analytics in HPC
 
-Large datasets can be processed efficiently using distributed computing and GPU
-acceleration. CSC supports analytics workflows through HPC, Allas, and Pouta.
+Large datasets can be processed efficiently using parallel computing and GPU
+acceleration on CSC supercomputers, and stored in Allas object storage service.
 
 ### Cloud + HPC Hybrid Workflows
 
-CSC's Pouta cloud allows custom environments, while HPC systems execute heavy
-computation. Together they support complete pipelines from web services to
-simulations.
+CSC's Pouta cloud allows customized environments, while HPC systems execute
+heavy computation. Cloud and HPC resources can be combined to enable advanced
+research use cases.
