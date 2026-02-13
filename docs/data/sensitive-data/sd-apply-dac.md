@@ -4,7 +4,7 @@
 
 Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
 
-As a data controller in SD Apply, you are responsible for:
+As a data controller, you are responsible for:
 
 * Adding your datasets to catalogue in SD Apply together with an application form and policies.
 * Designating representatives (a Data Access Committee, DAC) who manage the data access requests to your organization’s datasets.
@@ -41,9 +41,9 @@ Before you can add information to SD Apply, CSC service desk needs to create an 
 
 ### 2. Add dataset as catalogue item
 
-Cataloque item enables applicant to apply for access for your dataset. When you add datasets to be applied via SD Apply, you have to first create:
+Catalogue item enables applying access to your dataset via SD Apply. When you add datasets to SD Apply, you have to first create:
 
-* **Form:** applicants use the application form to apply for access rights.
+* **Form:** Application form where applicants can provide the reasoning for their data access request.
 * **Policy (optional):** Data access agreements which describe how applicants can re-use data.
 * **DAC:** Data Access Committee process applications.
 * **Identifier:** a technical identifier for the dataset, for example a DOI.
@@ -101,12 +101,12 @@ You can test how the fields work in the Preview section on the right of the page
 
 ### 2.2. Create a policy 
 
-Policies define the agreements and terms of use that the applicant has to accept to be able to use the data. Policies are shown as part of the application form and every research group member who applies for access has to accept the policies before they are able to access the data.
+Policies define the agreements and terms of use that the applicant has to accept to be able to access the data. Policies are shown as part of the application form and every research group member who applies for access has to accept the policies before they are able to access the data.
 
 You can create three types of policies:
 
 - **External link**: Provide a link to an external page with terms of use. Use links, for example, when you want to license your resources using standardised licenses, such as [Creative Commons](https://creativecommons.org/choose/?lang=en).
-- **Inline text**: Write the terms of use in the application form. The applicant will see it as normal text in the application form.
+- **Inline text**: Write the terms of use that will be show to applicant on the application form.
 - **Attachment**: Upload a file that the applicant can download and accept when they fill in the application form. We recommend using PDF format. We recommend drafting the policy attachments in the way that allows the applicant to agree to them by accepting the terms of use electronically in SD Apply.
 
 #### Data Access Policies in the Finnish Federated EGA
@@ -170,7 +170,7 @@ Catalogue item connects the items you have created into a single dataset to whic
 
 1. In the title field, provide a descriptive name for the dataset. It will make it easier for the applicants to recognise which dataset they want to apply access to.
 2. If there is more information about the dataset on another website, you can add a link to the More info field.
-3. Select the DAC you have created from the DAC drop-down.
+3. Select the DAC you have created from the drop-down.
 4. Select the identifier for the dataset you want to add to SD Apply from identifier drop-down.
 5. If you didn't connect the form to the DAC, select the application form you have created from the drop-down list.
 6. Select FEGA as category.
