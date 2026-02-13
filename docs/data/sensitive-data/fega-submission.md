@@ -9,11 +9,11 @@ The process described on this user guide is specific for submitting datasets to 
 !!! Note
     Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). **Please start preparing the submission well in advance** (even before submitting your manuscript to a scientific journal) by contacting [CSC Service Desk](../../support/contact.md) (subject: Federated EGA) and your home organization's Data Access Committee (DAC) or legal services.
 
-## Step 1: Legal agreements, Data Access Committee and Policies
+## Step 1: Legal agreements, Data Access Committee and Access Policies
 
 Data deposition to the Finnish Federated EGA requires a series of legal agreements: a Service Agreement for Federated EGA and a Data Access Agreement including a Data Transfer Agreement. These agreements, as well as the subsequent access management of the data, are the responsibility of the data controller. The data controller of the submitted data is usually the academic organization that has facilitated the research. The ownership of the data does not change by using this service.
 
-Submitting data to FEGA is covered by the [CSC's free-of-charge](https://research.csc.fi/free-of-charge-use-cases) use cases for Finnish academic research use, but the free use doesn't include a mandatory backup copy of the data. Backup storage can be bought as an additional service within FEGA, or submitting organisation can agree on other storage methods for the backup copy in the contract with CSC. More information about the price of FEGA's internal backup service in the [pricing document](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf){ target=_blank }. The submission service is available only for Finnish users.
+Submitting data to FEGA is covered by the [CSC's free-of-charge](https://research.csc.fi/free-of-charge-use-cases) use cases for Finnish academic research, but a mandatory backup copy of the data is not included in the free-of-charge use. Backup storage can be bought as an additional service within FEGA, or the data controller organisation can agree on other storage methods for the backup copy in the contract with CSC. More information about the price of FEGA's internal backup service in the [price list](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf){ target=_blank }. Only Finnish users can submit their research data to Finnish FEGA.
 
 Below, you can find more information about necessary legal agreements and data access management:
 
