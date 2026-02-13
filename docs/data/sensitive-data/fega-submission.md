@@ -194,7 +194,7 @@ CSC helpdesk will complete the release process. You will receive confirmation of
 If you have uploaded more files to the FEGA inbox than you have used in your submission, and you are not planning to use those files in any other submission, you need to remove the unnecessary files from the inbox manually after your submission has been approved. You can do this with a couple of simple command line commands.
 
 !!! note
-    As a representative of the data controller, you are responsible to make sure there is no data remaining in the inbox. If the excess data are not removed from the inbox by the submitter, the data will remain in the inbox indefinitely.
+    As a representative of the data controller, you are responsible to make sure there is no data remaining in the inbox. If unused data files are not removed from the inbox by the submitter, the files will remain in the inbox indefinitely.
 
 1. First, you need to connect to the FEGA SFTP inbox. Open a terminal and open the SFTP connection with the following syntax, where `ega_user` is the EGA credentials username (usually this is your email address):
 
