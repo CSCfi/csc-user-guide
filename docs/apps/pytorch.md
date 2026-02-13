@@ -137,16 +137,14 @@ GPU support via CUDA/ROCm.
 
 !!! warning "<span id="lumi-note">LUMI installations</span>"
 
-    LUMI installations, marked with "(X)" in the table above, no longer support the fast
-    Slingshot network due to binary incompatibilities with the new drivers
-    installed in the LUMI service break 21.1.2026. This means that
-    multi-node jobs are expected to be 10-20% slower than before. For
-    single-node jobs, there is no difference. **For multi-node jobs on
-    LUMI, we recommend using the AMD-provided containers, which can be
-    found in the `/appl/local/containers/sif-images/` directory in
-    LUMI. See the [Environment setup section in the LUMI AI
-    Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/2-setting-up-environment)
-    for instructions on how to use these containers.**
+    LUMI installations - marked with "(X)" in the table above - no longer
+    support the fast Slingshot network due to binary incompatibilities
+    with the new drivers installed in the LUMI service break
+    21.1.2026. This means that multi-node jobs are expected to be 10-20%
+    slower than before. For single-node jobs, there is no difference.
+    **The CSC PyTorch on LUMI can be considered as deprecated, and we
+    recommend using the [LUMI AI Factory-provided containers
+    instead](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).**
 
 
 If you find that some package is missing, you can often install it
