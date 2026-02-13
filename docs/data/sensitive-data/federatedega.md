@@ -24,9 +24,9 @@ You can use FEGA to submit biomedical datasets to be published under controlled 
 
 - **Data Access Committee (DAC)**. Individual or group of individuals who are controllers for a dataset stored at FEGA and are responsible for approving and rejecting access requests to that dataset.
 
-- **Data Applicant**. Individual who applies access to sensitive data or metadata that has been stored at FEGA.
+- **Data Applicant**. Individual who applies access to sensitive data that has been stored at FEGA.
 
-- **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access. The data submitter represents data owner organisation during the submission process.
+- **Data Submitter**. Individual who uploads data to FEGA for re-use under controlled access and describes it with metadata, which will be publicly available. The data submitter represents data owner organisation during the submission process.
 
 - **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
 
