@@ -28,7 +28,7 @@ You can use FEGA to submit biomedical datasets to be published under controlled 
 
 - **Data Submitter**. Individual who uploads data to FEGA for re-use under controlled access and describes it with metadata, which will be publicly available. The data submitter represents data owner organisation during the submission process.
 
-- **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
+- **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain in Finland under controlled access.
 
 !!! note
     For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for research webpage](https://research.csc.fi/sensitive-data-services-for-research).
