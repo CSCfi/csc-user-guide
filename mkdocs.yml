@@ -501,6 +501,11 @@ nav:
               - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
               - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti/tutorials/webhooks.md
+      - Satama:
+          - cloud/satama/index.md
+          - What is Satama:
+              - cloud/satama/what-is-satama.md
+
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
