@@ -2,6 +2,26 @@
 # latest translation, then pages are translated for listed languages. If language
 # list is empty, page is translated for every language.
 
+6035743912e3f001c88b882c3f6c44f7e49c9b31:
+  "accounts/how-to-access-mahti-large-partition.md": [fi]
+  "accounts/when-your-project-handles-personal-data.md": [fi]
+  "accounts/how-to-add-members-to-project.md": [fi]
+  "accounts/how-to-increase-disk-quotas.md": [fi]
+  "accounts/how-to-change-password.md": [fi]
+  "accounts/how-to-create-new-user-account.md": [fi]
+  "accounts/fmi.md": [fi]
+  "accounts/billing.md": [fi]
+  "accounts/account-lifecycle.md": [fi]
+  "accounts/how-to-add-service-access-for-project.md": [fi]
+  "accounts/mfa.md": [fi]
+  "accounts/how-to-apply-for-billing-units.md": [fi]
+  "accounts/how-to-manage-your-project.md": [fi]
+  "accounts/strong-identification.md": [fi]
+  "accounts/how-to-create-new-project.md": [fi]
+  "accounts/index.md": [fi]
+  "accounts/how-to-view-billing-unit-usage.md": [fi]
+  "accounts/how-to-manage-user-information.md": [fi]
+
 9e81688928aad68a38b0ed75d7812bf60250011f:
   "data/moving/tar_ssh.md": [fi]
   "data/moving/graphical_transfer.md": [fi]
