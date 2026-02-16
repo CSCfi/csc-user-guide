@@ -80,13 +80,13 @@ We will demonstrate a simple tutorial on how to create your NFS server with two 
 1. Mount manually
 
     ```
-    sudo mount <server_ip_adress>:/srv/nfs4 /mnt/nfs/share
+    sudo mount <server_ip_address>:/srv/nfs4 /mnt/nfs/share
     ```
 
     a. You can mount with some optimised parameters
 
     ```
-    sudo mount -o rsize=1048576,wsize=1048576,nconnect=4,noatime <server_ip_adress>:/srv/nfs4 /mnt/nfs/share/
+    sudo mount -o rsize=1048576,wsize=1048576,nconnect=4,noatime <server_ip_address>:/srv/nfs4 /mnt/nfs/share/
     ```
 
     - `rsize=1048576`: set the read block size to 1 MB (to be tested depending on bandwidth)
@@ -255,13 +255,13 @@ We will demonstrate a simple tutorial on how to create your NFS server with two 
 1. Mount manually. Since we are using `mount_path_pseudo = true` in the ganesha server, you must mount the share using the mount pseudo (`nfs`)
 
     ```
-    sudo mount <server_ip_adress>:/nfs /mnt/nfs/share
+    sudo mount <server_ip_address>:/nfs /mnt/nfs/share
     ```
 
     a. You can mount with some optimised parameters
 
     ```
-    sudo mount -o rsize=1048576,wsize=1048576,nconnect=4,noatime <server_ip_adress>:/nfs /mnt/nfs/share/
+    sudo mount -o rsize=1048576,wsize=1048576,nconnect=4,noatime <server_ip_address>:/nfs /mnt/nfs/share/
     ```
 
     - `rsize=1048576`: set the read block size to 1 MB (to be tested depending on bandwidth)
