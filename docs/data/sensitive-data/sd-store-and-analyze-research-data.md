@@ -40,9 +40,9 @@ The project member is a person who joins to existing CSC project (can only be ad
   
 * **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop.
   
-* Project mebers can not add services via the MyCSC portal.
+* Project members can not add services via the MyCSC portal.
   
-* Project memebers can apply for storage space (quota) and resources (here called Billing Units) via the MyCSC portal. 
+* Project members can apply for storage space (quota) and resources (here called Billing Units) via the MyCSC portal. 
 
 
 
