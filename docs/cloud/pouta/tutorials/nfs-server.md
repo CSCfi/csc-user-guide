@@ -2,8 +2,41 @@ In this section, we will learn how to set up a NFS server on cPouta.
 
 We will demonstrate a simple tutorial on how to create your NFS server with two services:
 
-- [NFS Kernel Server](https://documentation.ubuntu.com/server/how-to/networking/install-nfs/#)
-- [NFS Ganesha](https://github.com/nfs-ganesha/nfs-ganesha)
+### [NFS Kernel Server](https://documentation.ubuntu.com/server/how-to/networking/install-nfs/#)
+
+This is the built‑in NFS server available in all major Linux distributions (Ubuntu, Debian, CentOS, Rocky, AlmaLinux, etc.).
+
+Why choose it?
+
+- Stable, widely used, production‑proven
+
+- Easy to install and configure
+
+- Perfect for simple shared storage or lab environments
+
+- Works well as long as performance and scale needs are moderate
+
+### [NFS Ganesha](https://github.com/nfs-ganesha/nfs-ganesha)
+
+NFS‑Ganesha is a full NFS server that runs in userspace rather than kernel space.
+
+Why choose it?
+
+- Supports NFSv3, NFSv4.1, NFSv4.2
+
+- Can export many backend types, including:
+
+    - POSIX filesystems
+  
+    - CephFS
+
+    - GlusterFS
+  
+    - S3‑like object storage (via FSAL plugins)
+
+- Hot‑reloadable configuration
+
+- Good for scale‑out deployments
 
 ## NFS Kernel Server
 
