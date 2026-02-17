@@ -12,6 +12,7 @@ updated:
 * [GROMACS](../../apps/gromacs.md)
 * [LAMMPS](../../apps/lammps.md)
 * [NAMD](../../apps/namd.md)
+* [PLUMED](../../apps/plumed.md)
 * [Quantum ESPRESSO](../../apps/qe.md)
 
 At the same time, certain older module versions have been deprecated. In
