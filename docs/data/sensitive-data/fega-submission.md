@@ -90,7 +90,7 @@ You can carry out the encryption and upload steps using:
 
 or
 
-* **Option 2 - Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload steps below.
+* **Option 2 - Command-line interface (CLI)**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload steps below.
 
 ### Option 1 - Fi-FEGA upload application
 
