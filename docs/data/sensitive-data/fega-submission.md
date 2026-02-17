@@ -140,7 +140,7 @@ or
 
     For the password, use your Central EGA account password.
 
-2. Transfer the encrypted files or directory with the *put* command, when you are connected to sftp.
+2. Transfer the encrypted files or directory with the `put` command, when you are connected to sftp.
 
     ```bash
     sftp> put example_file.txt.c4gh
