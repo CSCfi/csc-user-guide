@@ -38,7 +38,7 @@ def _main(dest_dir: str, head_sha_output_path: str):
 
     head_commit_sha = repo.head.commit.hexsha
     head_tree = repo.head.commit.tree[DEFAULTS.docs_dir]
-    latest_commit_sha = read_commit_sha()
+    latest_commit_sha, k = read_commit_sha()
     latest_tree = repo.commit(latest_commit_sha).tree[DEFAULTS.docs_dir]
 
     logger.info("Handling diff %s...%s.",
@@ -49,7 +49,7 @@ def _main(dest_dir: str, head_sha_output_path: str):
                                 pathlib.Path(dest_dir),
                                 TranslationCache(repo_path))
 
-    forced = get_forced_filepaths(latest_commit_sha, lang_code)
+    forced = get_forced_filepaths(latest_commit_sha, k, lang_code)
     diff_index = filter(md_filter, latest_tree.diff(head_tree))
 
     translations.include(*chain(forced, diff_index))

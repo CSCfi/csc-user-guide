@@ -7,8 +7,7 @@ FROM ${restic_image} AS restic_snapshots
 
 RUN \
   restic --json snapshots --path /tmp/docs/${LANG_CODE} \
-                          --latest 1 \
-    > /tmp/snapshots.json \
+  > /tmp/snapshots.json \
 && \
   restic restore --exclude-xattr '*' \
                  --path /tmp/docs/${LANG_CODE} \

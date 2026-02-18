@@ -4,6 +4,7 @@ import os
 import pathlib
 import logging
 import itertools
+import functools
 
 import yaml
 
@@ -26,6 +27,9 @@ def _get_attrs(obj, attr_names):
             for attr
             in dir(obj)
             if attr in attr_names}
+
+def _commit_reducer(hashes, commit):
+    return hashes + list(commit)
 
 
 def _check_language(lang_code):
@@ -97,21 +101,31 @@ def get_excluded_filepaths(src_prefix):
         return []
 
 
-def get_forced_filepaths(commit_sha, lang_code):
-    """Returns a list of file paths to include in the translation.
+def get_forced_filepaths(commit_sha: str,
+                         k: int,
+                         lang_code: str) -> list[pathlib.Path]:
+    """Returns a list of file paths to include in the translation if 'k' is
+    less than or equal to the number of appearences of 'commit_sha'.
     """
     force_path = _get_config_filepath(DEFAULTS.force_filename)
     try:
         with force_path.open(mode="rt", encoding="utf-8") as force_yaml:
-            commits = yaml.safe_load(force_yaml) or {}
+            force = yaml.safe_load(force_yaml) or []
+            commit_list = functools.reduce(_commit_reducer, force, [])
+            count = commit_list.count(commit_sha)
+            forced_paths = []
 
-            forced_paths = \
-                [pathlib.Path(path)
-                 for sha, paths
-                 in commits.items() for path, languages
-                                    in paths.items()
-                 if sha == commit_sha and (len(languages) == 0 or
-                                           lang_code in languages)]
+            if k <= count:
+                for commit in force:
+                    paths = commit.get(commit_sha)
+                    if paths is not None:
+                        forced_paths = \
+                            [pathlib.Path(path)
+                             for path, languages
+                             in paths.items()
+                             if (len(languages) == 0 or
+                                 lang_code in languages)]
+                        break
 
             n_forced_paths = len(forced_paths)
             if n_forced_paths > 0:
