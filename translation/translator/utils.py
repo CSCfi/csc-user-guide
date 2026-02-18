@@ -104,6 +104,7 @@ def get_forced_filepaths(commit_sha, lang_code):
     try:
         with force_path.open(mode="rt", encoding="utf-8") as force_yaml:
             commits = yaml.safe_load(force_yaml) or {}
+
             forced_paths = \
                 [pathlib.Path(path)
                  for sha, paths
@@ -111,13 +112,14 @@ def get_forced_filepaths(commit_sha, lang_code):
                                     in paths.items()
                  if sha == commit_sha and (len(languages) == 0 or
                                            lang_code in languages)]
+
             n_forced_paths = len(forced_paths)
             if n_forced_paths > 0:
                 logger.info("Forcing %i re-translations.", n_forced_paths)
 
             return forced_paths
-    except FileNotFoundError as e:
-        logger.warning("Can't read list of forced files: '%s'", str(e))
+    except (FileNotFoundError, AttributeError) as e:
+        logger.warning("Failed to read list of forced files: '%s'", str(e))
 
         return []
 
