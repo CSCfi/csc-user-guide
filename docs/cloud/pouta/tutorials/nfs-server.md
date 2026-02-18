@@ -42,6 +42,9 @@ Why choose it?
 
 ### Server side
 
+!!! info "Access from the outside"  
+    This tutorial shows how to set up the access in a private network, typically two (or more) Pouta machines in the same CSC project. If you want to access the NFS server from the outside, don't forget to create a [Security Groups](../launch-vm-from-web-gui.md#firewalls-and-security-groups) that allows the port 2049. It might be also necessary if your machines have a Floating IP associated.
+
 !!! Note  
     The following commands were executed on Ubuntu 24.04 and AlmaLinux 9.
 
@@ -72,6 +75,7 @@ Why choose it?
     /srv/nfs4 192.168.1.0/24(rw,fsid=0,no_subtree_check,crossmnt)
     ```
 
+    - `192.168.1.0/24`: allow the clients in this IP range
     - `rw`: allow read and write
     - `fsid=0`: designate the exported root (mandatory for NFSv4).
     - `no_subtree_check`: disable the verification of the exported subtree (recommended)
@@ -127,6 +131,10 @@ Why choose it?
     - `nconnect=4`: open 4 parallels TCP connections for transfer (useful on low-latency networks)
     - `noatime`: remove the update of the access date with each read, reducing disk writes
 
+
+    !!! info  
+        You may need to add the 'insecure' option to allow macOS clients to access the share.
+
 1. You can test the Read/Write performance
    
     ```
@@ -145,6 +153,9 @@ Why choose it?
 ## NFS Ganesha
 
 ### Server side
+
+!!! info "Access from the outside"  
+    This tutorial shows how to set up the access in a private network, typically two (or more) Pouta machines in the same CSC project. If you want to access the NFS server from the outside, don't forget to create a [Security Groups](../launch-vm-from-web-gui.md#firewalls-and-security-groups) that allows the port 2049. It might be also necessary if your machines have a Floating IP associated.
 
 !!! Note  
     The following commands were executed on Ubuntu 24.04 and AlmaLinux 9.
@@ -301,6 +312,9 @@ Why choose it?
     - `wsize=1048576`: same but the write block
     - `nconnect=4`: open 4 parallels TCP connections for transfer (useful on low-latency networks)
     - `noatime`: remove the update of the access date with each read, reducing disk writes
+
+    !!! info  
+        You may need to add the 'insecure' option to allow macOS clients to access the share.
 
 1. You can test the Read/Write performance
    
