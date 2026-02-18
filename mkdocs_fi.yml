@@ -70,12 +70,12 @@ nav:
       - Moduuliympäristö: computing/modules.md
       - Töiden ajaminen:
           - computing/running/getting-started.md
+          - Saatavilla olevat erätyöjonot: computing/running/batch-job-partitions.md
           - Puhti-erätyöskriptin luominen: computing/running/creating-job-scripts-puhti.md
           - Puhti-esimerkkiskriptit: computing/running/example-job-scripts-puhti.md
           - Mahti-erätyöskriptin luominen: computing/running/creating-job-scripts-mahti.md
           - Mahti-esimerkkiskriptit: computing/running/example-job-scripts-mahti.md
           - Työn lähettäminen: computing/running/submitting-jobs.md
-          - Saatavilla olevat erätyöjonot: computing/running/batch-job-partitions.md
           - Suuri läpäisykyky: computing/running/throughput.md
           - Interaktiivinen käyttö: computing/running/interactive-usage.md
           - Suorituskyvyn tarkistuslista: computing/running/performance-checklist.md
@@ -174,6 +174,7 @@ nav:
               - SSH-avainpari: cloud/pouta/tutorials/ssh-key.md
               - Kiinteän IP-osoitteen luominen virtuaalikoneelle: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Kuvaputken asennus: cloud/pouta/tutorials/picture-pipeline.md
+              - Ray - Koneoppimisen sovelluskehys pilveen: cloud/pouta/tutorials/Ray-ML-cloud.md
       - Pukki:
           - cloud/dbaas/index.md
           - Mikä on DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -202,7 +203,7 @@ nav:
 
           - Edistyneemmät ominaisuudet: cloud/dbaas/advanced.md
           - Tietokantainstanssin levyjen koon muuttaminen: cloud/dbaas/resize-volume.md
-          - Tietokantainstanssien uudelleenkoonti: cloud/dbaas/resize-volume.md
+          - Tietokantainstanssien uudelleenkoonti: cloud/dbaas/rebuild-database.md
       - Rahti:
           - cloud/rahti/index.md
           - Mikä on Rahti:
@@ -215,6 +216,7 @@ nav:
               - Verkkokäyttöliittymä: cloud/rahti/usage/getting_started.md
               - Komentorivityökalu: cloud/rahti/usage/cli.md
               - Siirtyminen Rahtiin: cloud/rahti/moving-into.md
+              - Rahti UKK: cloud/rahti/rahti_faq.md
           - Konfigurointi:
               - Laskutus: cloud/rahti/billing.md
               - Projektit ja kiintiöt: cloud/rahti/usage/projects_and_quota.md
@@ -245,10 +247,13 @@ nav:
               - CI/CD Rahtissa: cloud/rahti/tutorials/ci_cd_introduction.md
               - Mukautetut verkkotunnukset ja suojattu tiedonsiirto: cloud/rahti/tutorials/custom-domain.md
               - Staattisen verkkopalvelimen käyttöönotto komentoriviltä: cloud/rahti/tutorials/deploy_static_webserver_cli.md
+              - Verkkopalvelimen käyttöönotto Gitistä: cloud/rahti/tutorials/deploy_from_git.md
               - Staattisen verkkopalvelimen käyttöönotto verkkokäyttöliittymällä: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
+              - Kuinka ottaa käyttöön korkean saatavuuden sovellus Rahdissa: cloud/rahti/tutorials/highavailability.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Opettele pilvilaskentaa kehittämällä ja julkaisemalla verkkosovellus: cloud/rahti/tutorials/web-app-dev-cloud.md
               - Monivaiheinen kääntäminen: cloud/rahti/tutorials/multi-stage-builds.md
+              - OAuth2-välityspalvelin: cloud/rahti/tutorials/oauth2.md
               - Pod (anti) yhteensopivuus: cloud/rahti/tutorials/pod-affinity.md
               - Käänteisen välityspalvelimen tunnistautuminen sivukontin avulla: cloud/rahti/tutorials/sidecar_proxy_authentication.md
               - Sähköpostin lähettäminen Rahtista: cloud/rahti/tutorials/email.md
@@ -303,18 +308,19 @@ nav:
   - Arkaluonteinen data:
       - data/sensitive-data/index.md
       - Sisällysluettelo: data/sensitive-data/sd-services-toc.md
-      - Tallenna ja analysoi:
+      - Tutkimusdata - Tallenna ja analysoi:
           - Aloita tästä:
               - data/sensitive-data/sd-access.md
               - Pääsy projektin vetäjänä: data/sensitive-data/sd-use-case-new-user-project-manager.md
               - Pääsy projektin jäsenenä: data/sensitive-data/sd-use-case-new-user-project-member.md
+              - Resurssisuunnittelu CSC-projektissa: data/sensitive-data/sd-billing-units.md
           - Tallenna SD Connectilla:
               - data/sensitive-data/sd_connect.md
               - Kirjautuminen SD Connectiin: data/sensitive-data/sd-connect-login.md
               - Lataaminen palveluun: data/sensitive-data/sd-connect-upload.md
-              - Jakaminen: data/sensitive-data/sd-connect-share.md
               - Lataaminen palvelusta: data/sensitive-data/sd-connect-download.md
               - Poistaminen: data/sensitive-data/sd-connect-delete.md
+              - Jakaminen: data/sensitive-data/sd-connect-share.md
               - Komentorivikäyttöliittymä: data/sensitive-data/sd-connect-command-line-interface.md
               - Vianetsintä: data/sensitive-data/sd-connect-troubleshooting.md
           - Analysoi SD Desktopilla:
@@ -329,7 +335,7 @@ nav:
               - Datan vienti käyttöliittymän kautta: data/sensitive-data/sd-desktop-export.md
               - Datan vienti ohjelmallisesti: data/sensitive-data/sd-desktop-export-commandline.md
               - Vianetsintä: data/sensitive-data/sd-desktop-troubleshooting.md
-      - Julkaise ja uudelleenkäytä:
+      - Tutkimusdata - Julkaise ja uudelleenkäytä:
           - Julkaise Federated EGA:lla:
               - data/sensitive-data/federatedega.md
               - Datan julkaiseminen: data/sensitive-data/fega-submission.md
@@ -343,6 +349,7 @@ nav:
               - data/sensitive-data/secondarydata-access.md
               - Findata-luvalla pääsy: data/sensitive-data/findata-permit.md
               - Rekisteriluvalla pääsy: data/sensitive-data/single-register-permit.md
+              - Resurssisuunnittelu CSC-projektissa: data/sensitive-data/sd-secondaryuse-billing-units.md
           - Analysoi SD Desktopilla toissijaiseen käyttöön:
               - data/sensitive-data/sd-desktop-audited.md
               - Kirjautuminen SD Desktopiin: data/sensitive-data/sd-desktop-secondary-login.md
