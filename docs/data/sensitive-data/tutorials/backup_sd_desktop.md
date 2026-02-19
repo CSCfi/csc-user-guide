@@ -13,8 +13,8 @@ Log in to your SD Desktop and open **Data Gateway**. If the software installatio
 `tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD-Connect/your-project-name`). If you don't find `tools-for-sd-desktop` 
 directory through Data Gateway **send a request to [CSC Service Desk](../../../support/contact.md)**. In the request, indicate that you wish that the SD Desktop software installation help tools would 
 be made available for your project. You must also include to the message the **Project identifier string** of your project.
-You can check this random string for example in the [SD Connect service](https://sd-connect.csc.fi). There you find the 
-Project Identifier in the **User information** view.
+You can check this random string for example by logging in to [SD Connect service](https://sd-connect.csc.fi). There you can copy the 
+Project Identifier by selecting **Copy Share ID** button next to your CSC project number.
 
 Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer.desktop` to your desktop.
 
