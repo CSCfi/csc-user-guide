@@ -168,13 +168,14 @@ nav:
           - Tutoriaalit:
               - cloud/pouta/tutorials/index.md
               - cPouta- ja ePouta-aiheiset videot: cloud/pouta/tutorials/pouta-videos.md
+              - Kiinteän IP-osoitteen luominen virtuaalikoneelle: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
+              - Luo hyppykone cPoutaan: cloud/pouta/tutorials/create-jumphost.md
               - Opettele pilvilaskentaa kehittämällä ja julkaisemalla verkkosovellus: cloud/pouta/tutorials/web-app-dev-cloud.md
               - Orkestrointi Heat-työkalulla: cloud/pouta/tutorials/heat-orchestration.md
-              - Luo hyppykone cPoutaan: cloud/pouta/tutorials/create-jumphost.md
-              - SSH-avainpari: cloud/pouta/tutorials/ssh-key.md
-              - Kiinteän IP-osoitteen luominen virtuaalikoneelle: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
-              - Kuvaputken asennus: cloud/pouta/tutorials/picture-pipeline.md
               - Ray - Koneoppimisen sovelluskehys pilveen: cloud/pouta/tutorials/Ray-ML-cloud.md
+              - NFS-palvelimen asennus: cloud/pouta/tutorials/nfs-server.md
+              - Kuvaputken asennus: cloud/pouta/tutorials/picture-pipeline.md
+              - SSH-avainpari: cloud/pouta/tutorials/ssh-key.md
       - Pukki:
           - cloud/dbaas/index.md
           - Mikä on DBaaS: cloud/dbaas/what-is-dbaas.md
