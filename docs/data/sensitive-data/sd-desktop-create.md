@@ -42,7 +42,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 ### 3. Add an external volume (virtual external hard drive)
 
-Add an external  volume to your virtual desktop, extending default storage (80 GB) up to 200 GB.
+Add an external  volume to your virtual desktop, extending default storage (80 GB) up to 200 GB. 
 
 1. Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
 
@@ -59,7 +59,7 @@ Add an external  volume to your virtual desktop, extending default storage (80 G
 Finally, click *Create desktop*. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
 
 !!! Note
-    After clicking "Create," please be aware that the confirmation notification may take up to 30 seconds to appear. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
+    After clicking "Create," please be patient and wait for the confirmation notification to appear which may take up to 1 minute. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
 
 ![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
 
@@ -69,13 +69,13 @@ Finally, click *Create desktop*. The operation is entirely automated and can tak
 
 * Each CSC project supports up to 6 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
-* All desktops come with a set of pre-installed open-source software managed by CSC. More informations about the list of pre-installed software and customisation is available [delete](./sd-desktop-software.md).
+* All desktops come with a set of pre-installed open-source software managed by CSC. Read more about [pre-installed software and customisation.](./sd-desktop-software.md).
 
 * **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. Unused desktops trigger email notifications after 14 days of inactivity.
   
 
 !!! info "Need assistance?"
-    If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "Sensitive data".
+    If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services".
 
 
 ## Your next steps in this guide
