@@ -20,7 +20,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 ### 2. Select
 
 1. correct CSC project
-2. operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
+2. operating system. We recommend to choose **Default Ubuntu22.04**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
 3. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
 4. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
 
