@@ -233,7 +233,7 @@ We execute the R script using the `apptainer_wrapper` command, which makes sure 
   
     # Run the R script
     srun apptainer_wrapper exec Rscript --no-save myscript.R
-  ```
+    ```
   
 === "Roihu"
     ``` bash
