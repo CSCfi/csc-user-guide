@@ -111,7 +111,7 @@ You can create three types of policies:
 
 #### Data Access Policies in the Finnish Federated EGA
 
-Data deposition to the Finnish Federated EGA requires a series of legal agreements: a Service Agreement for Federated EGA and a Data Access Agreement including a Data Transfer Agreement. 
+Data deposition to the Finnish Federated EGA requires several legal agreements: a Service Agreement for Federated EGA and a Data Access Agreement including a Data Transfer Agreement. 
 
 **Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, the data controller can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. The DAA should also include a Data Transfer Agreement (DTA), necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. DAA and DTA will be included in the Polcies in SD Apply. For further information, please contact your home organization's legal services. You can [download an example template](https://ega-archive.org/assets/files/Example_DAA.doc) provided by the EGA.
 
