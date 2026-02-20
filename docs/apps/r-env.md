@@ -34,19 +34,32 @@ catalog:
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-Current modules and versions supported on Puhti and Mahti:
+Current modules and versions supported on Puhti, Mahti and Roihu:
 
-| Module name (R version) | Puhti / Mahti | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | CmdStan version |
-| ----------------------- | ------------- | ------------------- | -------------------- | ---------------------- | ----------------| --------------- |
-| r-env/452 (default)     | X / X         | Jan 7 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0        | 2.38.0          |
-| r-env/451               | X / X         | July 7 2025         | 3.21                 | 2025.05.1-513          | 2025.2.0        | 2.36.0          |
-| r-env/442               | X / X         | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
-| r-env/440               | X / -         | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.35.0          |    
-| r-env/432               | X / -         | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.34.1          | 
-| r-env/430               | X / -         | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.32.2          |    
-| r-env/422               | X / -         | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.32.1          | 
-| r-env/421               | X / -         | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.30.1          | 
+=== "Puhti"
+    | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
+    |:-----------------------:|:--------------------|:--------------------:|:----------------------:|:--------------:|:---------------:|
+    | r-env/452 (default)     | Jan 7 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.38.0          |
+    | r-env/451               | July 7 2025         | 3.21                 | 2025.05.1-513          | 2025.2.0       | 2.36.0          |
+    | r-env/442               | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1       | 2.36.0          |
+    | r-env/440               | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0       | 2.35.0          |    
+    | r-env/432               | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0       | 2.34.1          | 
+    | r-env/430               | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0       | 2.32.2          |    
+    | r-env/422               | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0       | 2.32.1          | 
+    | r-env/421               | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0       | 2.30.1          | 
 
+=== "Mahti"
+    | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
+    |:-----------------------:|:--------------------|:--------------------:|:----------------------:|:--------------:|:---------------:|
+    | r-env/452 (default)     | Jan 7 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.38.0          |
+    | r-env/451               | July 7 2025         | 3.21                 | 2025.05.1-513          | 2025.2.0       | 2.36.0          |
+    | r-env/442               | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1       | 2.36.0          |
+
+=== "Roihu"
+    | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
+    |:-----------------------:|:--------------------|:--------------------:|:----------------------:|:--------------:|:---------------:|
+    | r-env/452 (default)     | Jan 7 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.38.0          |
+   
 
 Other software and libraries:
 
@@ -113,18 +126,20 @@ To use R interactively from the command line on a compute node, first start an i
 **Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../../computing/running/interactive-usage/)**. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local disk space for temporary files. Local disk space should always be reserved when using R interactively.
 
 === "Puhti"
-  ``` bash
-  sinteractive --account <project> --mem 4000 --tmp 10
-  ```
+    ``` bash
+    sinteractive --account <project> --mem 4000 --tmp 10
+    ```
+    
 === "Mahti"
-  ``` bash
-  # note that on Mahti, the available memory is determined by the number of cores (1.875 GiB each)
-  sinteractive --account <project> --cores 2 --tmp 10
-  ```
+    ``` bash
+    # note that on Mahti, the available memory is determined by the number of cores (1.875 GiB each)
+    sinteractive --account <project> --cores 2 --tmp 10
+    ```
+    
 === "Roihu"
-  ``` bash
-  sinteractive --account <project> --mem 4000 --tmp 10
-  ```
+    ``` bash
+    sinteractive --account <project> --mem 4000 --tmp 10
+    ```
 
 It is possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)).
 
@@ -164,89 +179,89 @@ Below is an example for submitting a serial single-processor R batch job. Note t
 We execute the R script using the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
 
 === "Puhti"
-  ``` bash
-  #!/bin/bash -l
-  #SBATCH --job-name=r_serial     # Job name
-  #SBATCH --account=<project>     # Billing project, has to be defined!
-  #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
-  #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
-  #SBATCH --partition=test        # Job queue (partition), in general use 'small'
-  #SBATCH --time=00:05:00         # Max. duration of the job
-  #SBATCH --cpus-per-task=1       # Number of cores
-  #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
-  #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
-  #SBATCH --mem-per-cpu=1000      # Memory to reserve per core
+    ``` bash
+    #!/bin/bash -l
+    #SBATCH --job-name=r_serial     # Job name
+    #SBATCH --account=<project>     # Billing project, has to be defined!
+    #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
+    #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
+    #SBATCH --partition=test        # Job queue (partition), in general use 'small'
+    #SBATCH --time=00:05:00         # Max. duration of the job
+    #SBATCH --cpus-per-task=1       # Number of cores
+    #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
+    #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
+    #SBATCH --mem-per-cpu=1000      # Memory to reserve per core
 
-  # Load the r-env module
-  module load r-env
+    # Load the r-env module
+    module load r-env
 
-  # Clean up .Renviron file in home directory
-  if test -f ~/.Renviron; then
-      sed -i '/TMPDIR/d' ~/.Renviron
-  fi
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
 
-  # Specify a temporary directory path
-  echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    # Specify a temporary directory path
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
-  # Run the R script
-  srun apptainer_wrapper exec Rscript --no-save myscript.R
-  ```
+    # Run the R script
+    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    ```
 
 === "Mahti"
-   ``` bash
-  #!/bin/bash -l
-  #SBATCH --job-name=r_serial     # Job name
-  #SBATCH --account=<project>     # Billing project, has to be defined!
-  #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
-  #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
-  #SBATCH --partition=test        # Job queue (partition), in general use 'small'
-  #SBATCH --time=00:05:00         # Max. duration of the job
-  #SBATCH --cpus-per-task=1       # Number of cores (1.8 GB of memory each)
-  #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
-  #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
+    ``` bash
+    #!/bin/bash -l
+    #SBATCH --job-name=r_serial     # Job name
+    #SBATCH --account=<project>     # Billing project, has to be defined!
+    #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
+    #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
+    #SBATCH --partition=test        # Job queue (partition), in general use 'small'
+    #SBATCH --time=00:05:00         # Max. duration of the job
+    #SBATCH --cpus-per-task=1       # Number of cores (1.8 GB of memory each)
+    #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
+    #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
 
-  # Load the r-env module
-  module load r-env
-
-  # Clean up .Renviron file in home directory
-  if test -f ~/.Renviron; then
-      sed -i '/TMPDIR/d' ~/.Renviron
-  fi
-
-  # Specify a temporary directory path
-  echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-
-  # Run the R script
-  srun apptainer_wrapper exec Rscript --no-save myscript.R
+    # Load the r-env module
+    module load r-env
+  
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+  
+    # Specify a temporary directory path
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+  
+    # Run the R script
+    srun apptainer_wrapper exec Rscript --no-save myscript.R
   ```
   
 === "Roihu"
-   ``` bash
-  #!/bin/bash -l
-  #SBATCH --job-name=r_serial     # Job name
-  #SBATCH --account=<project>     # Billing project, has to be defined!
-  #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
-  #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
-  #SBATCH --partition=test        # Job queue (partition), in general use 'small'
-  #SBATCH --time=00:05:00         # Max. duration of the job
-  #SBATCH --cpus-per-task=1       # Number of cores
-  #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
-  #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
-
-  # Load the r-env module
-  module load r-env
-
-  # Clean up .Renviron file in home directory
-  if test -f ~/.Renviron; then
-      sed -i '/TMPDIR/d' ~/.Renviron
-  fi
-
-  # Specify a temporary directory path
-  echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-
-  # Run the R script
-  srun apptainer_wrapper exec Rscript --no-save myscript.R
-  ```
+    ``` bash
+    #!/bin/bash -l
+    #SBATCH --job-name=r_serial     # Job name
+    #SBATCH --account=<project>     # Billing project, has to be defined!
+    #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
+    #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
+    #SBATCH --partition=test        # Job queue (partition), in general use 'small'
+    #SBATCH --time=00:05:00         # Max. duration of the job
+    #SBATCH --cpus-per-task=1       # Number of cores
+    #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
+    #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
+  
+    # Load the r-env module
+    module load r-env
+  
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+  
+    # Specify a temporary directory path
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+  
+    # Run the R script
+    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    ```
 
 In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cpus-per-task=1`), 1 GB of memory (`--mem-per-cpu=1000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
 
