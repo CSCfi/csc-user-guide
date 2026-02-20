@@ -8,8 +8,7 @@ containers, volumes and other resources created by users are always created
 within a project. You might need to wait a few hours after your access application is accepted, before you can 
 authenticate to Rahti.
 
-You can either select applications to run in the application catalog that is
-visible when first logging in or launch any applications using the
+You can either select applications to run from Home -> Software Catalog after [creating a project](projects_and_quota.md) or launch any applications using the
 primitives described in the [background](../concepts.md) chapter.
 
 1. Log in at <https://rahti.csc.fi/>.
