@@ -3,7 +3,7 @@ tags:
   - Other
 catalog:
   name: r-env
-  description: R, RStudio Server, SAGA and TensorFlow
+  description: R and RStudio Server
   license_type: Other
   disciplines:
     - Mathematics and Statistics
@@ -14,7 +14,7 @@ catalog:
 
 # r-env
 
-`r-env` is an [Apptainer container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use.
+`r-env` provides R and RStudio server, and several other features to facilitate their use. It runs in an [Apptainer container](../../computing/containers/run-existing/).
 
 -   R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -76,7 +76,7 @@ Other software and libraries:
 
 -   Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/). The exact license of a package can also be checked inside R: `packageDescription("package", fields="License")`. More information on [citing R and different R packages](#citation) (at the bottom of the page).
 
--   The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). Please consult also the [RStudio End User License Agreement](https://rstudio.com/about/eula/).
+-   The RStudio Server installation is based on the [Open Source Edition](https://posit.co/products/open-source/rstudio/) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). Please consult also the [RStudio End User License Agreement](https://rstudio.com/about/eula/).
 
 -   Open MPI is distributed under the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause) (details on the [Open MPI website](https://www.open-mpi.org/community/license.php)).
 
@@ -97,31 +97,36 @@ Licensing information within the `r-env` container is available in the file `/us
 
 ## Usage
 
-There are several ways to use R and the `r-env` module on Puhti:
+There are several ways to use R and the `r-env` module: (change: task -> options?)
 
 -   RStudio Server, which runs in [interactive jobs on a compute node](../../computing/running/interactive-usage/). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 
--   R console in the command line. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+-   R console in the command line in [interactive jobs on a compute node](../../computing/running/interactive-usage/). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 
--   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti and Mahti in general). Use this option for analyses that take long or require a lot of memory or cores.
+-   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general). Use this option for analyses that take long or require a lot of memory or cores.
 
-
-### Using RStudio Server: interactive work with RStudio
-
-The`r-env` module can be used to remotely launch RStudio Server on your web browser. For this, you have two options.
-
-**Option 1 (recommended). Using the [Puhti](www.puhti.csc.fi) or [Mahti](www.mahti.csc.fi) web interface**. This is the easiest way to launch R and RStudio on Puhti. If you are familiar with RStudio but new to supercomputers, start here. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md) and documentation for the [interactive RStudio app](../computing/webinterface/rstudio.md).
-
-!!! note RStudio Server is meant for interactive work that consumes a modest amount of computational resources. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as non-interactive batch jobs.
-
-**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
+-   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
 
-### Using the R console: interactive work in command line
+### Interactive use on a compute node
 
-To use R interactively from the command line on a compute node, first start an interactive shell session:
+***Using RStudio Server***
 
-**Option 1. In the [Puhti](www.puhti.csc.fi) or [Mahti](www.mahti.csc.fi) web interface, using the shell application**. Under *Tools* or on the front page, select *Compute node shell*. Select the resources, making sure to reserve local disk space for temporary tiles, and launch the session. 
+The`r-env` module can be used to remotely launch RStudio Server on your web browser.
+
+**The recommended way to launch RStudio** is to use the **[Puhti](www.puhti.csc.fi) or [Mahti](www.mahti.csc.fi) web interface**. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md) and documentation for the [interactive RStudio app](../computing/webinterface/rstudio.md).
+
+It is also possible to launch RStudio via SSH tunnelling.This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
+
+!!! note
+    RStudio Server is meant for interactive work that consumes a modest amount of computational resources. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as non-interactive batch jobs.
+
+
+***Using R console in an interactive shell session***
+
+To use R interactively from the command line on a compute node, first start an [interactive shell session](https://csc-training.github.io/csc-env-eff/hands-on/batch_jobs/interactive.html):
+
+**Option 1. In the [Puhti](www.puhti.csc.fi) or [Mahti](www.mahti.csc.fi) web interface, using the shell application**. Under *Tools* or on the front page, select *Compute node shell*. Select the resources, making sure to reserve local disk space for temporary files, and launch the session. 
 
 **Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../../computing/running/interactive-usage/)**. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local disk space for temporary files. Local disk space should always be reserved when using R interactively.
 
@@ -143,7 +148,7 @@ To use R interactively from the command line on a compute node, first start an i
 
 It is possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)).
 
-Once you have opened an interactive shell session, you can launch a command line version of R as follows (note that the command needs to be run on a compute node):
+Once you have opened an interactive shell session, you can **launch a command line version of R** as follows (note that the command needs to be run on a compute node):
 
 ``` bash
 module load r-env
@@ -163,7 +168,7 @@ apptainer_wrapper exec R --no-save
 
 ### Non-interactive batch jobs
 
-Further to interactive jobs, R scripts can be run non-interactively using batch job files. Batch jobs are recommended in particular for long and resource-heavy tasks. In addition to the following examples, [see the Puhti batch job documentation](../../computing/running/creating-job-scripts-puhti/) for more information. If you are new to batch jobs, check the materials of the [CSC Computing Environment on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/).Batch job files can be submitted to the batch job system on a login node as follows:
+Further to interactive jobs, R scripts can be run non-interactively using batch job files. Batch jobs are recommended in particular for long and resource-heavy tasks. In addition to the following examples, [see the Puhti batch job documentation](../../computing/running/creating-job-scripts-puhti/) for more information. If you are new to batch jobs, check the materials of the [CSC Computing Environment on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/). Batch job files are submitted to the batch job system on a login node as follows:
 
 ``` bash
 sbatch batch_job_file.sh
@@ -174,7 +179,7 @@ sbatch batch_job_file.sh
 Below is an example for submitting a serial single-processor R batch job. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. Actual R batch jobs should in most cases be run in the `small` partition.
 
 !!! note 
-    For batch jobs, make sure to define a project-specific temporary directory in `/scratch/<project>` or on [the fast local disk](. Specifying the temporary directory is important especially for memory-intensive jobs.
+    For batch jobs, make sure to define a project-specific temporary directory in `/scratch/<project>` or on [the fast local disk](../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 We execute the R script using the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
 
@@ -267,7 +272,8 @@ In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cp
 
 The command `module load r-env` loads the latest `r-env` version available. To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/440`.
 
-!!! info By default, R uses one CPU core. When you are working with R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs](LINK%20TO%20PAGE%20HERE).
+!!! info
+    By default, R uses one CPU core. When you are working with R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs](LINK%20TO%20PAGE%20HERE).
 
 ### R package installations
 
@@ -328,7 +334,8 @@ Alternatively, you can add the desired changes to an `.Renviron` file (only when
 echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 ```
 
-!!! note When using `r-env`, user-defined changes to R library paths must be specified inside an R session or in relation to an `.Renviron` file. Other changes (e.g. using `export` to modify environment variables) will not work due to the R installation running inside an Apptainer container. If your analysis would require changes that cannot be achieved through the above means, please contact us for a module-wide package installation.
+!!! note
+    When using `r-env`, user-defined changes to R library paths must be specified inside an R session or in relation to an `.Renviron` file. Other changes (e.g. using `export` to modify environment variables) will not work due to the R installation running inside an Apptainer container. If your analysis would require changes that cannot be achieved through the above means, please contact us for a module-wide package installation.
 
 ### Using fast local storage
 
@@ -336,33 +343,92 @@ For jobs that read and write large numbers of files (I/O-intensive analyses), [f
 
 An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior examples where it was set as `/scratch/<project>`.
 
-``` bash
-#!/bin/bash -l
-#SBATCH --job-name=r_serial_fastlocal
-#SBATCH --account=<project>
-#SBATCH --output=output_%j.txt
-#SBATCH --error=errors_%j.txt
-#SBATCH --partition=test
-#SBATCH --time=00:05:00
-#SBATCH --ntasks=1
-#SBATCH --nodes=1
-#SBATCH --mem-per-cpu=1000
-#SBATCH --gres=nvme:10
-
-# Load the module
-module load r-env
-
-# Clean up .Renviron file in home directory
-if test -f ~/.Renviron; then
-    sed -i '/TMPDIR/d' ~/.Renviron
-fi
-
-# Specify NVMe temp folder path
-echo "TMPDIR=$TMPDIR" >> ~/.Renviron
-
-# Run the R script
-srun apptainer_wrapper exec Rscript --no-save myscript.R
-```
+=== "Puhti"
+    ``` bash
+    #!/bin/bash -l
+    #SBATCH --job-name=r_serial_fastlocal
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=test
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --mem-per-cpu=1000
+    #SBATCH --gres=nvme:10
+    
+    # Load the module
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify NVMe temp folder path
+    echo "TMPDIR=$TMPDIR" >> ~/.Renviron
+    
+    # Run the R script
+    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    ```
+    
+=== "Mahti"
+    ``` bash
+    #!/bin/bash -l
+    #SBATCH --job-name=r_serial_fastlocal
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=test
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH --gres=nvme:10
+    
+    # Load the module
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify NVMe temp folder path
+    echo "TMPDIR=$TMPDIR" >> ~/.Renviron
+    
+    # Run the R script
+    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    ```
+    
+=== "Roihu"
+    ``` bash
+    #!/bin/bash -l
+    #SBATCH --job-name=r_serial_fastlocal
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=test
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH --gres=nvme:10
+    
+    # Load the module
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify NVMe temp folder path
+    echo "TMPDIR=$TMPDIR" >> ~/.Renviron
+    
+    # Run the R script
+    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    ```
 
 Further to temporary file storage, data sets for analysis can be stored on a fast local drive in the location specified by the variable `LOCAL_SCRATCH`. To enable R to find your data, you will need to indicate this location in your R script. After launching R, you can print out the location using the following command:
 
