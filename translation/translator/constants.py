@@ -7,7 +7,6 @@ LANG_CODE_MAP = {
     "fi": "Finnish"
 }
 DEFAULTS = SimpleNamespace(
-    docs_dir="docs",
     snapshots_filename="snapshots.json",
     excludes_filename="exclude.txt",
     dictionary_filename="dictionary.yml",

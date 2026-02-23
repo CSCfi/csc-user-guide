@@ -5,6 +5,7 @@ import re
 import pathlib
 import json
 import logging
+import functools
 from datetime import datetime
 
 from .constants import DEFAULTS
@@ -15,14 +16,18 @@ logger = logging.getLogger(__name__)
 
 
 try:
-    check_environment("LANG_CODE")
+    check_environment("LANG_CODE",
+                      "DOCS_DIR")
+
+    DOCS_DIR = os.getenv("DOCS_DIR")
+    LANG_CODE = os.getenv("LANG_CODE")
 except:
     logger.error("Failed to initialize '%s'.", __name__)
     raise
 
 
 def _has_lang_code(snapshot_paths):
-    lang_suffix = f"/{DEFAULTS.docs_dir}/{os.getenv('LANG_CODE')}"
+    lang_suffix = f"/{DOCS_DIR}/{LANG_CODE}"
 
     for path in snapshot_paths:
         if path.endswith(lang_suffix):
@@ -43,15 +48,22 @@ def _snapshot_datetime(snapshot):
     isotime = snapshot.get("time", datetime.min.isoformat())
     return datetime.fromisoformat(isotime)
 
+def _snapshot_reducer(tags, snapshot):
+    return tags + [tag
+                   for tag
+                   in snapshot.get("tags", [])
+                   if _is_sha1_hash(tag)]
 
 def _find_commit_sha(snapshots):
     lang_snapshots = filter(_snapshot_path_filter, snapshots)
-    for snapshot in sorted(lang_snapshots, key=_snapshot_datetime):
-        for tag in snapshot.get("tags", []):
-            if _is_sha1_hash(tag):
-                return tag
-
-    return None
+    tags = functools.reduce(_snapshot_reducer,
+                            sorted(lang_snapshots,
+                                   key=_snapshot_datetime,
+                                   reverse=True),
+                            [])
+    return ((tags[0], tags.count(tags[0]))
+            if len(tags) > 0
+            else (None, 0))
 
 
 def read_commit_sha():
@@ -61,10 +73,11 @@ def read_commit_sha():
     """
     json_file = pathlib.Path.cwd() / DEFAULTS.snapshots_filename
     commit_sha = None
+    count = 0
 
     try:
         with json_file.open(mode="rt", encoding="utf-8") as snapshot_json:
-            commit_sha = _find_commit_sha(json.load(snapshot_json))
+            commit_sha, count = _find_commit_sha(json.load(snapshot_json))
 
             assert commit_sha is not None, f"No SHA-1 found in {json_file}"
     except FileNotFoundError:
@@ -74,7 +87,7 @@ def read_commit_sha():
         logger.error("Can't find commit SHA.")
         raise
 
-    return commit_sha
+    return commit_sha, count
 
 
 def write_head_sha(head_sha, output_path: str):

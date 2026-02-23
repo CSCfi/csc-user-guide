@@ -1,37 +1,36 @@
-ARG base_image=ubi8
+ARG base_image=docs-csc/docs-csc-base:latest
 FROM ${base_image} as base
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-WORKDIR /src
+ARG restic_version
+COPY --from=ghcr.io/restic/restic:${restic_version} \
+     /usr/bin/restic \
+     /usr/bin/restic
 
-ADD translation/requirements.txt \
-    translation/refresh.py \
-    translation/exclude.txt \
-    translation/force.yml \
-    translation/dictionary.yml \
-    ./
-ADD translation/translator/ ./translator/
-ADD translation/entrypoint.translator.bash /entrypoint.bash
+ADD translation/requirements.txt ./
 
+ARG PIP_ROOT_USER_ACTION=ignore
 RUN \
-  dnf --assumeyes install \
-                    https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
+  pip3 install --upgrade pip \
 && \
-  dnf --refresh --assumeyes install \
-                              python3.11 \
-                              python3.11-pip \
-                              restic \
-&& \
-  pip3 install --requirement requirements.txt \
-&& \
-  chmod 500 /entrypoint.bash
+  pip3 install --requirement=requirements.txt
+
+ADD translation/translator/ ./translator/
+ADD translation/refresh_translation.py \
+    translation/clear_cache.py \
+    ./
+
+ADD --chown=0:0 \
+    --chmod=744 \
+  translation/entrypoint.translator.bash /entrypoint.bash
 
 ARG repo_org=CSCfi
 ARG repo_name=csc-user-guide
 ARG repo_branch=master
-ENV REPO_ORG=${repo_org}
-ENV REPO_NAME=${repo_name}
-ENV REPO_BRANCH=${repo_branch}
+ENV REPO_ORG=${repo_org} \
+    REPO_NAME=${repo_name} \
+    REPO_BRANCH=${repo_branch} \
+    DOCS_DIR=docs
 
 ENTRYPOINT ["/entrypoint.bash"]

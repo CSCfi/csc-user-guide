@@ -3,14 +3,16 @@ FROM ${base_image} as base
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-ENV HOME=/home/default
-WORKDIR /src
-
 RUN \
-  mkdir ${HOME} \
+  dnf --refresh --assumeyes install \
+                              python3.11 \
+                              python3.11-pip \
+                              git \
 && \
-  useradd -u 1001 -r -g 0 -d ${HOME} -c "Default User" default \
-&& \
-  chown -R 1001 ${HOME} ./
+  dnf clean all
 
-ENV PATH=/home/default/.local/bin:${PATH}
+ADD --chown=0:0 \
+    --chmod=744 \
+  scripts/sparse-clone.bash /sparse-clone.bash
+
+WORKDIR /src

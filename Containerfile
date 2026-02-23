@@ -1,39 +1,46 @@
-ARG builder_image
+ARG builder_image=docs-csc/docs-csc-builder:latest
+ARG server_image=ubi8/nginx-124
 FROM ${builder_image} AS builder
 
 ARG repo_org=CSCfi
 ARG repo_name=csc-user-guide
 ARG repo_branch=master
-
-ADD .git-revision-date-ignore-revs mkdocs.yml .
+ENV REPO_ORG=${repo_org} \
+    REPO_NAME=${repo_name} \
+    REPO_BRANCH=${repo_branch} \
+    CLONE_PATH=/tmp/${repo_name}
 
 RUN \
-  git clone --no-checkout \
-            --single-branch \
-            --branch=${repo_branch} \
-    https://github.com/${repo_org}/${repo_name} \
-    /tmp/src \
+  /sparse-clone.bash '!/*/' \
 && \
-  git -C /tmp/src sparse-checkout init --no-cone \
+  mv "${CLONE_PATH}/.git" ./ \
 && \
-  git -C /tmp/src sparse-checkout set docs \
-&& \
-  git -C /tmp/src checkout \
-&& \
-  mv /tmp/src/{.git,docs} ./ \
-&& \
+  rmdir "$CLONE_PATH"
+
+ADD csc-overrides/ csc-overrides/
+ADD docs/ docs/
+ADD hooks/ hooks/
+ADD scripts/convert.py \
+    scripts/generate_glossary.sh \
+    scripts/generate_new.sh \
+    scripts/
+ADD .git-revision-date-ignore-revs \
+    mkdocs.yml \
+    ./
+
+RUN \
   for feat in new glossary; do \
-    bash scripts/generate_${feat}.sh; \
+    bash "scripts/generate_${feat}.sh"; \
   done \
 && \
-  mkdocs build --site-dir=/tmp/site
+  mkdocs build --site-dir=/tmp/site/
 
 
-FROM registry.access.redhat.com/ubi8/nginx-124
+FROM ${server_image}
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-COPY --from=builder /tmp/site "${NGINX_APP_ROOT}/src"
+COPY --from=builder /tmp/site/ "${NGINX_APP_ROOT}/src/"
 ADD nginx.conf "${NGINX_CONF_PATH}"
 
 EXPOSE 8000/tcp

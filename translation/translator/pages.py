@@ -162,6 +162,12 @@ class Translations:
         return len(list(self.__pending_translation))
 
     @property
+    def is_empty(self):
+        """Predicate for empty collection.
+        """
+        return len(self.__translations) < 1
+
+    @property
     def pending(self):
         """Filtered objects with pending operations other than translation.
         """
@@ -241,10 +247,10 @@ class Translations:
             if page is not None:
                 self.__add_page(page, replace=isinstance(src, Diff))
 
-    def complete(self):
+    def complete(self, dump_path: str):
         """Signals for completion of the translation.
         """
-        self.__cache.clear()
+        self.__cache.dump(dump_path)
 
 
 class PageContentWrapper:

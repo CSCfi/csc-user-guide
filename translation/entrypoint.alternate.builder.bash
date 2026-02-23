@@ -4,39 +4,24 @@ set -o errexit \
     -o nounset
 shopt -s dotglob
 
-declare -gr CLONE_PATH=/tmp/${REPO_NAME:?} \
-            DOCS_DIR=docs \
-            TRANSLATION_MOUNT_PREFIX=/translations \
+export CLONE_PATH=/tmp/${REPO_NAME:?}
+declare -gr TRANSLATION_MOUNT_PREFIX=/translations \
             BUILD_WORKDIR=/tmp/site \
             BUILD_MOUNT_PREFIX=/site
+declare -gr SOURCE_DIR=${TRANSLATION_MOUNT_PREFIX}/${LANG_CODE:?} \
+            TARGET_DIR=${BUILD_MOUNT_PREFIX}/${LANG_CODE:?}
+declare -gra SPARSE_PATTERNS=(
+  "/${DOCS_DIR:?}/"
+  /csc-overrides/
+  /hooks/
+  /scripts/convert.py
+  /scripts/generate_glossary.sh
+  /scripts/generate_new.sh
+  /mkdocs.yml
+  "/mkdocs_${LANG_CODE:?}.yml"
+  /.git-revision-date-ignore-revs
+)
 
-if (( $# != 1 )) || (( ${#1} != 2 ))
-then
-  exit 0
-else
-  declare -gr TARGET_LANG_CODE=$1
-  export SITE_URL=${SITE_BASE_URL:?}/${TARGET_LANG_CODE}
-fi
-
-clone() {
-  git clone --filter=blob:none \
-            --no-checkout \
-        "https://github.com/${REPO_ORG:?}/${REPO_NAME:?}.git" \
-        "$CLONE_PATH"
-}
-
-sparse_checkout() {
-  git -C "$CLONE_PATH" sparse-checkout init --no-cone
-  git -C "$CLONE_PATH" sparse-checkout set \
-                                         "/${DOCS_DIR}" \
-                                         /csc-overrides \
-                                         /hooks \
-                                         /scripts \
-                                         mkdocs.yml \
-                                         "mkdocs_${TARGET_LANG_CODE}.yml" \
-                                         .git-revision-date-ignore-revs
-  git -C "$CLONE_PATH" checkout "${REPO_BRANCH:?}"
-}
 
 get_clone() {
   cp --recursive \
@@ -46,25 +31,23 @@ get_clone() {
 }
 
 get_translation() {
-  local -r source_dir="${TRANSLATION_MOUNT_PREFIX}/${TARGET_LANG_CODE}"
-
-  if [[ -d $source_dir ]] && \
-     ! [[ -z $(find "$source_dir" -mindepth 1 -maxdepth 1) ]]
+  if [[ -d $SOURCE_DIR ]] && \
+     [[ -n $(find "$SOURCE_DIR" -mindepth 1 -maxdepth 1) ]]
   then
     cp --recursive \
        --no-dereference \
        --force \
-      "${source_dir}/"* \
+      "${SOURCE_DIR}/"* \
       "./${DOCS_DIR}/"
   else
-    echo "No new translation for '${TARGET_LANG_CODE}', exiting..."
+    echo "No new translation for '${LANG_CODE:?}', exiting..."
     exit 0
   fi
 }
 
 build() {
   mkdocs build --site-dir="${BUILD_WORKDIR}/" \
-               --config-file="mkdocs_${TARGET_LANG_CODE}.yml"
+               --config-file="mkdocs_${LANG_CODE:?}.yml"
 }
 
 run_scripts() {
@@ -77,27 +60,20 @@ run_scripts() {
 cleanup_site() {
   rm --recursive \
      --force \
-    "${BUILD_MOUNT_PREFIX:?}/${TARGET_LANG_CODE:?}"*
+    "${TARGET_DIR:?}"*
 }
 
 copy_site() {
-  local -r target_dir="${BUILD_MOUNT_PREFIX:?}/${TARGET_LANG_CODE:?}"
-
-  if ! [[ -d $target_dir ]]
-  then
-    mkdir "$target_dir"
-  fi
+  mkdir  --parents "$TARGET_DIR"
 
   cp --recursive \
      --no-dereference \
     ${BUILD_WORKDIR}/* \
-    "$target_dir"
+    "$TARGET_DIR"
 }
 
 pre_build() {
-  clone \
-  && \
-  sparse_checkout \
+  /sparse-clone.bash "${SPARSE_PATTERNS[@]}" \
   && \
   get_clone \
   && \
