@@ -10,7 +10,7 @@
 ##
 # -w there's also a -w argument to misspell, it fixes the errors instead of just
 #   outputting them
-if find . -type f \( -name '*.yml' -o -name '*.md' \) -print0 | xargs -0 misspell -error;
+if find . -type f \( -name '*.yml' -o -name '*.md' \) -print0 | xargs -0 misspell -i 'exportfs' -error;
 then
   echo "No commonly misspelled English words found"
   exit 0

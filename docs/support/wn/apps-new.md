@@ -1,5 +1,19 @@
 # Applications
 
+## R 4.5.2 in r-env, 17.2.2026
+
+R version 4.5.2 is now available in [r-env](../../apps/r-env.md) in Puhti and Mahti and is set as the default version.
+
+## PyTorch 2.9.1 available on Puhti and Mahti, 9.1.2026
+
+PyTorch 2.9.1 is now available on Puhti and Mahti, and set as the
+default version. It includes the most recent versions of popular
+packages such as Hugging Face transformers, vLLM and FAISS. Apex was
+removed, since the library has been deprecated for a long time
+already. New libraries include litgpt, ultralytics, sahi and
+torchgeo. See our [PyTorch module documentation for more
+information](../../apps/pytorch.md#available).
+
 ## CSC ArcGIS consortium for Finnish universities ends on 31.12.2025
 
 For over 20 years CSC organized an ArcGIS consortium for Finnish universities,

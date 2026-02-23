@@ -18,6 +18,15 @@ catalog:
 
 # Maestro
 
+!!! info "Online Schrödinger certification courses offered by CSC"
+    Users in scope of [CSC's Schrödinger license](#license) are eligible to
+    apply for free-of-charge access to participate in online certification
+    courses organized by Schrödinger. The offered *introductory* and
+    *intermediate* online courses focus on a range of topics related to drug
+    discovery and materials science.
+
+    [Read more and apply here :material-open-in-new:](https://csc.fi/en/training-calendar/online-schrodinger-certification-courses-offered-by-csc-3/)
+
 Schrödinger Maestro is a versatile molecular modeling environment. It has modules for
 *drug design* and *materials science*. It can be used to build, edit, run and analyze
 chemical model systems.
@@ -93,6 +102,33 @@ licensing to be able to *run* the software.
 (logging in to Eduuni requires Haka authentication). Accessing the license
 requires that your computer is in the FUNET network, i.e. you're at the
 university or connected to it via VPN from home.
+
+!!! warning "Important note"
+    Schrödinger version 2025.4 and later have the Job Server system enabled by
+    default. Since this is not currently supported at CSC, users who rely on
+    CSC-provided `schrodinger.hosts` files to write input files to be run on
+    CSC supercomputers must configure their local installation to use the
+    legacy Job Control system. Please do the following:
+
+    === "Linux / macOS"
+
+        1. Open a terminal and run:
+
+            ```bash
+            $SCHRODINGER/utilities/feature_flags -d JOB_SERVER
+            ```
+
+        2. Restart Maestro if you had the GUI open when running the command.
+
+    === "Windows"
+        
+        1. Open the Schrödinger Command Prompt and run:
+
+            ```bash
+            featureflags off JOB_SERVER
+            ```
+        
+        2. Restart Maestro if you had the GUI open when running the command.
 
 ### Standalone usage on Puhti
 
@@ -193,6 +229,7 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 * Schrödinger training materials overview
      * [Life science](https://www.schrodinger.com/life-science/learn/education/)
      * [Materials science](https://www.schrodinger.com/materials-science/learn/education/)
+     * [Apply for free-of-charge online course seats](https://csc.fi/en/training-calendar/online-schrodinger-certification-courses-offered-by-csc-3/)
 * Free learning resources at Schrödinger
      * [Life science](https://www.schrodinger.com/life-science/learn/education/free-learning-resources/)
      * [Materials science](https://www.schrodinger.com/materials-science/learn/education/free-learning-resources/)

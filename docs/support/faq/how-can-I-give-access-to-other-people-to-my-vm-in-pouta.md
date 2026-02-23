@@ -8,10 +8,10 @@ It is a common use case (and a good practice for production services) that more 
 
 1. [Connect to the VM](../../cloud/pouta/connecting-to-vm.md) as the default user. This user has superuser privileges (`sudo`).
 
-1. Create the new user, see the [adduser](https://linux.die.net/man/8/adduser) manual for more information.
+1. Create the new user, see the [useradd](https://linux.die.net/man/8/useradd) manual for more information.
 
 	```sh
-	sudo adduser -m <user>
+	sudo useradd -m <user>
 	```
 
 !!! info "Substitute `<user>` by the username you want to create"
