@@ -99,9 +99,9 @@ Licensing information within the `r-env` container is available in the file `/us
 
 There are several ways to use R and the `r-env` module: (change: task -> options?)
 
--   RStudio Server, which runs in [interactive jobs on a compute node](../../computing/running/interactive-usage/). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+-   RStudio Server, which runs in [interactive jobs on a compute node](../../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 
--   R console in the command line in [interactive jobs on a compute node](../../computing/running/interactive-usage/). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+-   R console in the command line in [interactive jobs on a compute node](../../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 
 -   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general). Use this option for analyses that take long or require a lot of memory or cores.
 
@@ -114,7 +114,7 @@ There are several ways to use R and the `r-env` module: (change: task -> options
 
 The`r-env` module can be used to remotely launch RStudio Server on your web browser.
 
-**The recommended way to launch RStudio** is to use the **[Puhti](www.puhti.csc.fi) or [Mahti](www.mahti.csc.fi) web interface**. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md) and documentation for the [interactive RStudio app](../computing/webinterface/rstudio.md).
+**The recommended way to launch RStudio** is to use the **[Puhti or Mahti web interface](../computing/webinterface/index.md)**. See also the documentation for the [interactive RStudio app](../computing/webinterface/rstudio.md).
 
 It is also possible to launch RStudio via SSH tunnelling.This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
 
@@ -126,7 +126,7 @@ It is also possible to launch RStudio via SSH tunnelling.This option requires au
 
 To use R interactively from the command line on a compute node, first start an [interactive shell session](https://csc-training.github.io/csc-env-eff/hands-on/batch_jobs/interactive.html):
 
-**Option 1. In the [Puhti](www.puhti.csc.fi) or [Mahti](www.mahti.csc.fi) web interface, using the shell application**. Under *Tools* or on the front page, select *Compute node shell*. Select the resources, making sure to reserve local disk space for temporary files, and launch the session. 
+**Option 1. In the [supercomputer web interfaces](../computing/webinterface/index.md), using the shell application**. Under *Tools* or on the front page, select *Compute node shell*. Select the resources, making sure to reserve local disk space for temporary files, and launch the session. 
 
 **Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../../computing/running/interactive-usage/)**. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local disk space for temporary files. Local disk space should always be reserved when using R interactively.
 
