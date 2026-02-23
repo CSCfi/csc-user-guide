@@ -12,7 +12,7 @@ RUN \
   dnf clean all
 
 ADD --chown=0:0 \
-    --chmod=744 \
+    --chmod=774 \
   scripts/sparse-clone.bash /sparse-clone.bash
 
 WORKDIR /src

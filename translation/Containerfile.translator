@@ -22,7 +22,7 @@ ADD translation/refresh_translation.py \
     ./
 
 ADD --chown=0:0 \
-    --chmod=744 \
+    --chmod=774 \
   translation/entrypoint.translator.bash /entrypoint.bash
 
 ARG repo_org=CSCfi

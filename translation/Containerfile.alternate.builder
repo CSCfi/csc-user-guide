@@ -12,7 +12,7 @@ RUN \
   pip3 install --use-pep517 --requirement requirements.txt
 
 ADD --chown=0:0 \
-    --chmod=744 \
+    --chmod=774 \
   translation/entrypoint.alternate.builder.bash /entrypoint.bash
 
 ARG repo_org=CSCfi
