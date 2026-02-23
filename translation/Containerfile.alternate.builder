@@ -5,7 +5,7 @@ LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
 ADD requirements.txt ./
 
-ENV PIP_ROOT_USER_ACTION=ignore
+ARG PIP_ROOT_USER_ACTION=ignore
 RUN \
   pip3 install --upgrade pip \
 && \
