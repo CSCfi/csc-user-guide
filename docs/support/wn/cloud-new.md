@@ -1,7 +1,7 @@
 # Cloud services
-## PostgreSQL 14 EOL approaching in Pukki, 9.2.2026
+## PostgreSQL 14 EOL approaching in Pukki, 24.2.2026
 
-As PostgreSQL 14's end-of-life date is set to arrive on 12th of November, 2026, support for it will be removed from Pukki by then. Users are recommended to upgrade their PostgreSQL 14 instances to PostgreSQL 17 before the EOL date, as restoring database instances from PostgreSQL 14 backups will stop working. Instructions for upgrading can be found [here](../../cloud/dbaas/operations.md), and information on PostgreSQL version differences can be found [here](../../cloud/dbaas/postgres-versions.md).
+As PostgreSQL 14's end-of-life date is set to arrive on 12th of November, 2026, support for it will be removed from Pukki by then. Users are recommended to upgrade their PostgreSQL 14 instances to PostgreSQL 17 well before the EOL date, as restoring from PostgreSQL 14 backups will stop working. Starting on the EOL date, any remaining PostgreSQL 14 instances will be upgraded to 17 by Pukki admins. Instructions for performing the upgrade yourself can be found [here](../../cloud/dbaas/operations.md), and information on PostgreSQL version differences can be found [here](../../cloud/dbaas/postgres-versions.md).
 
 ## New Volume Type available in Pouta: Capacity Volumes, 14.1.2026
 

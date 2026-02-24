@@ -51,18 +51,19 @@ The commands to use:
 Major version upgrades are no different from the user's point of view,
 but there's a bit more happening in the background, which creates more possible points of failure.
 
-Things that you need to take into account when doing a major database version upgrade:
+Our recommended procedure for major version upgrades:
 
-1. You have a recent enough backup that you can use if the upgrade fails.
-2. You have tested doing the upgrade on a database instance restored from a backup.
-3. You have reserved plenty of time for the upgrade.
-4. You have considered if you'd benefit from using a larger instance flavor while upgrading.
+0. Reserve plenty of time for the upgrade process and familiarize yourself with any changes between the database versions
+1. Create a new backup of the database instance
+2. Restore the freshly created backup into a new database instance
+3. Upgrade the new database instance to your target datastore version
+4. Test that connections to the new instance work as expected and that your data looks correct
 
-We recommend creating a new database instance from a recent backup and upgrading that instance
-to the desired database version, as you can then switch over to using the new database instance
-with the new database version at your leisure after making sure no problems cropped up.
-Drawbacks include having to switch to using a new IP address to connect to the database,
-and any changes made to the original database after the backup was taken will be lost.
+After this, you can either move to use the new instance and delete the original one, or continue with
+upgrading the original instance and deleting the new one.
+Drawbacks with changing to the new instance include having to switch to use the new IP address
+for connections, and any changes made to the original database instance after the backup was taken
+will be lost.
 
 ### Information regarding major database version EOLs
 
