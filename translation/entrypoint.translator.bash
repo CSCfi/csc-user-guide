@@ -85,7 +85,9 @@ new_snapshot() {
                   --exclude '.*' \
                   --iexclude '* !*.md' \
                   --skip-if-unchanged \
-            ./
+            ./ \
+    && \
+    cd -
   fi
 }
 
