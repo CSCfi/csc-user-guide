@@ -16,7 +16,10 @@ ADD --chown=0:0 \
   scripts/sparse-clone.bash /sparse-clone.bash
 
 RUN \
-  mkdir --verbose \
-        --mode 774 \
+  mkdir --mode 774 /work \
+&& \
+  git config --system \
+             --add safe.directory \
     /work
+
 WORKDIR /work
