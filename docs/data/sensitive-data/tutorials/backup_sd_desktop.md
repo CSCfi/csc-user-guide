@@ -2,7 +2,7 @@
 
 For security reasons only the Project Manager can export data from SD Desktop. Thus, normal SD desktop users can not 
 make backup copies of the data that they have in SD Desktop. This tutorial demonstrates the usage of `backup_server.sh` 
-process and `sd-backup` commands that provide a way for SD Users to back up their data to SD Connect.
+process and `sd-backup` commands that provide a way for SD Users to back up their data to SD Connect. Note that as this tool uses SD Connect, it can't be used in projects that are used to analyze secondary use data, as these projects are not allowed to use SD Connect.
 
 ## Installation 
 
@@ -16,14 +16,13 @@ be made available for your project. You must also include to the message the **P
 You can check this random string for example in the [SD Connect service](https://sd-connect.csc.fi). There you find the 
 Project Identifier in the **User information** view.
 
-Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer.desktop` to your desktop.
+Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer-ubuntu22.desktop` to your desktop.
 
 [![Installing-sd-installer](../images/desktop/sd-installer1.png)](../images/desktop/sd-installer1.png)
 
-**Figure 1.** Copying `sd-installer.desktop` file to SD desktop.
+**Figure 1.** Copying `sd-installer-ubuntu22.desktop` file to SD desktop.
  
-Double-click the copy of `sd-installer.desktop` to start the software installation tool. Use this tool to install _SD Backup_ tool
-to your SD Desktop virtual machine if you have not yet done so. 
+Double-click the copy of `sd-installer-ubuntu22.desktop` to start the software installation tool. Use this tool to install _CSC Tools_ to your SD Desktop virtual machine if you have not yet done so. 
 
 ## Project Mangers Starts backup server
 
@@ -36,22 +35,20 @@ screen
 and then launch the backup process with command:
 
 ```text
-sd-backup-server.sh
+backup-server.sh
 ```
 
-When launched, `sd-backup-server.sh` asks for the CSC password of the Project Manager.
+When launched, `backup-server.sh` asks for the CSC password of the Project Manager.
 
 After that the project manager can leave the virtual session running in background by pressing:
 `Ctrl+a+d`.
 
-This way the `sd-backup-server.sh` command remains active in the virtual terminal session even when the connection to SD Desktop is closed.
+This way the `backup-server.sh` command remains active in the virtual terminal session even when the connection to SD Desktop is closed.
 
-The actual server process is very simple. It checks the content of the backup directory once in a minute and moves the contents of this directory 
-to a bucket in SD Connect. The data is encrypted with CSC public key so that the backups can be used only in SD Desktop environment.
+The actual server process is very simple. It checks the content of the backup directory once in a minute and moves the contents of this directory to a bucket in SD Connect. The data is encrypted with CSC public key so that the backups can be used only in SD Desktop environment.
 The default backup directory is `/shared-data/auto-backup` and target bucket in SD Connect is `sdd-backup-<virtual-machine-name>`. 
 
-Note that the server is not able to check if the given password was correct. If a wrong password was given then backup requests will fail. 
-Thus, it may be good to test the backup process once the server is running.
+Note that the server is not able to check if the given password was correct. If a wrong password was given then backup requests will fail. Thus, it may be good to test the backup process once the server is running.
 
 ## Doing backups
 
@@ -70,8 +67,7 @@ sd-backup directory
 
 The command copies the given file or directory to the backup directory from where the server process is able to move it to SD Connect.
 In SD Connect a timestamp is added to the file name in order to make the file name unique. In addition, a metadata file is
-created. This file contains information about the user who requested the backup, original host and location of the file. If backup is done for 
-a directory, then the content of the directory is stored as one tar-archive file and the metadata file will contain list of the backed-up files. 
+created. This file contains information about the user who requested the backup, original host and location of the file. If backup is done for a directory, then the content of the directory is stored as one tar-archive file and the metadata file will contain list of the backed-up files. 
  
 For example, for a file called `my_data.csv` that locates in SD Desktop virtual machine called `secserver-1683868755`, a backup command:
 
