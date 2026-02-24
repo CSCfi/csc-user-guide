@@ -81,7 +81,7 @@ run_scripts() {
 cleanup_site() {
   rm --recursive \
      --force \
-    "${TARGET_DIR:?}"*
+    "${TARGET_DIR:?}/"*
 }
 
 copy_site() {
