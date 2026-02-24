@@ -5,6 +5,7 @@ the most recent version available when creating new database instances, and exis
 be upgraded to use newer minor or major versions. For more detailed information on differences
 between all PostgreSQL versions, consult the
 [PostgreSQL documentation](https://www.postgresql.org/docs/release/).
+See also [this page](operations.md) for more information regarding database upgrades in Pukki.
 
 !!! warning "PostgreSQL 14 is approaching its end-of-life date"
 
