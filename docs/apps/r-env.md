@@ -133,7 +133,7 @@ To use R interactively from the command line on a compute node, first start an [
 
 **Option 1. In the [supercomputer web interfaces](../computing/webinterface/index.md), using the shell application**. Under *Tools* or on the front page, select *Compute node shell*. Select the resources, making sure to reserve local disk space for temporary files, and launch the session. 
 
-**Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../../computing/running/interactive-usage/)**. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local disk space for temporary files. Local disk space should always be reserved when using R interactively.
+**Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../../computing/running/interactive-usage.md)**. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local disk space for temporary files. Local disk space should always be reserved when using R interactively.
 
 === "Puhti"
     ``` bash
@@ -278,7 +278,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cp
 The command `module load r-env` loads the latest `r-env` version available. To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/440`.
 
 !!! info
-    By default, R uses one CPU core. When you are working with R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs]((../support/tutorials/parallel-r.md)).
+    By default, R uses one CPU core. When you are working with R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs](../support/tutorials/parallel-r.md).
 
 ### R package installations
 
@@ -540,7 +540,7 @@ citation("package") # for citing R packages
 
 ## Further information
 
--   Parallel R guide
+-   [Parallel R guide](../support/tutorials/parallel-r.md)
 
 -   [r-env container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity) (link to public GitHub repository)
 
