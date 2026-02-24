@@ -31,6 +31,10 @@ ARG repo_branch=master
 ENV REPO_ORG=${repo_org} \
     REPO_NAME=${repo_name} \
     REPO_BRANCH=${repo_branch} \
-    DOCS_DIR=docs
+    DOCS_DIR=docs \
+    RESTIC_CACHE=/.restic-cache
+
+RUN \
+  mkdir --mode 775 "${RESTIC_CACHE}"
 
 ENTRYPOINT ["/entrypoint.bash"]
