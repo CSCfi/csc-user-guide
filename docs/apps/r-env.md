@@ -133,7 +133,7 @@ To use R interactively from the command line on a compute node, first start an [
 
 **Option 1. In the [supercomputer web interfaces](../computing/webinterface/index.md), using the shell application**. Under *Tools* or on the front page, select *Compute node shell*. Select the resources, making sure to reserve local disk space for temporary files, and launch the session. 
 
-**Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../../computing/running/interactive-usage.md)**. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local disk space for temporary files. Local disk space should always be reserved when using R interactively.
+**Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../computing/running/interactive-usage.md)**. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local disk space for temporary files. Local disk space should always be reserved when using R interactively.
 
 === "Puhti"
     ``` bash
