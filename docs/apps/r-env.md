@@ -99,13 +99,18 @@ Licensing information within the `r-env` container is available in the file `/us
 
 There are several ways to use R and the `r-env` module: (change: task -> options?)
 
+***Interactive use: preparing your code and smaller analyses***
+
 -   RStudio Server, which runs in [interactive jobs on a compute node](../../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 
 -   R console in the command line in [interactive jobs on a compute node](../../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 
+-   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
+
+***Non-interactive use: in particular analyses that take long or require a lot of computing resources***
+
 -   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general). Use this option for analyses that take long or require a lot of memory or cores.
 
--   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
 
 ### Interactive use on a compute node
@@ -512,6 +517,12 @@ After [starting an interactive session and launching R / RStudio Server](#intera
 library(aws.s3)
 bucketlist(region='')
 ```
+
+## Serial batch jobs
+
+## Parallel batch jobs
+
+## Improving performance with threading
 
 ## Citation {#citation}
 
