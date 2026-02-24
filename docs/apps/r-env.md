@@ -14,7 +14,7 @@ catalog:
 
 # r-env
 
-`r-env` provides R and RStudio server, and several other features to facilitate their use. It runs in an [Apptainer container](../../computing/containers/run-existing/).
+`r-env` provides R and RStudio server, and several other features to facilitate their use. It runs in an [Apptainer container](../computing/containers/overview.md/#running-containers).
 
 -   R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -101,9 +101,9 @@ There are several ways to use R and the `r-env` module: (change: task -> options
 
 ***Interactive use: preparing your code and smaller analyses***
 
--   RStudio Server, which runs in [interactive jobs on a compute node](../../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+-   RStudio Server, which runs in [interactive jobs on a compute node](../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 
--   R console in the command line in [interactive jobs on a compute node](../../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+-   R console in the command line in [interactive jobs on a compute node](../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 
 -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
@@ -162,7 +162,7 @@ start-r
 
 **Interactive use on a login node**
 
-It is also possible to use the R console on the login node for light tasks. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/usage-policy#login-nodes).
+It is also possible to use the R console on the login node for light tasks. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes).
 
 To launch the R console on a login node, run the following commands:
 
@@ -173,7 +173,7 @@ apptainer_wrapper exec R --no-save
 
 ### Non-interactive batch jobs
 
-Further to interactive jobs, R scripts can be run non-interactively using batch job files. Batch jobs are recommended in particular for long and resource-heavy tasks. In addition to the following examples, [see the Puhti batch job documentation](../../computing/running/creating-job-scripts-puhti/) for more information. If you are new to batch jobs, check the materials of the [CSC Computing Environment on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/). Batch job files are submitted to the batch job system on a login node as follows:
+Further to interactive jobs, R scripts can be run non-interactively using batch job files. Batch jobs are recommended in particular for long and resource-heavy tasks. In addition to the following examples, [see the Puhti batch job documentation](../computing/running/creating-job-scripts-puhti.md) for more information. If you are new to batch jobs, check the materials of the [CSC Computing Environment on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/). Batch job files are submitted to the batch job system on a login node as follows:
 
 ``` bash
 sbatch batch_job_file.sh
@@ -278,7 +278,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cp
 The command `module load r-env` loads the latest `r-env` version available. To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/440`.
 
 !!! info
-    By default, R uses one CPU core. When you are working with R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs](LINK%20TO%20PAGE%20HERE).
+    By default, R uses one CPU core. When you are working with R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs]((../support/tutorials/parallel-r.md)).
 
 ### R package installations
 
@@ -522,7 +522,12 @@ bucketlist(region='')
 
 ## Parallel batch jobs
 
-## Improving performance with threading
+## Improving performance using threading
+
+## OpenMP / MPI hybrid jobs
+
+## Non-interactive use
+
 
 ## Citation {#citation}
 
