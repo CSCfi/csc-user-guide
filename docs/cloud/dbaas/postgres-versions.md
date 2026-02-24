@@ -12,23 +12,29 @@ between all PostgreSQL versions, consult the
 
 ## Minor version upgrades
 
-Minor version upgrades in PostgreSQL (e.g. from 14.12 to 14.13) should have no breaking changes.
+Minor version upgrades in PostgreSQL (e.g. from 17.6 to 17.7) should have no breaking changes.
 The upgrade process itself happens automatically in the background once initiated, and should only
 take a couple of minutes. It involves shutting down the existing server, installing the new version,
 and starting the server back up, without modifying the data itself in any way.
+
+Occasionally, however, the libraries used by PostgreSQL internally for collation
+(sorting, comparing, and ordering data) change between datastore versions.
+When this happens, a full reindex of all databases on the instance is required
+to prevent issues with data consistency. This reindexing can take a considerable
+amount of time, especially with large databases containing complex indexes.
+Currently upgrading from 17.5 or earlier to 17.6 or newer triggers the reindexing.
+Upgrading between minor versions of PostgreSQL 14 also triggers the reindexing.
 
 ## Major version upgrades
 
 Major version upgrades shouldn't be visibly different from minor version upgrades to a Pukki user,
 but there's a lot more going on under the hood, and an increased risk of something going wrong in
 the process. There's a real risk of data loss, and the user should be ready to create a new
-database instance from a backup in such a case.
+database instance from a backup in such a case. Additionally, the database reindexing mentioned above
+is always run after a major version upgrade.
 
 Before upgrading your database to a new major version, we heavily recommend using a backup of it
-to create a new database instance just for testing the upgrade first. Upgrading between major
-versions requires significantly more disk space than minor version upgrades, and if there isn't
-enough disk space available, the upgrade will fail. In these cases increasing volume size before
-attempting a major version upgrade is necessary.
+to create a new database instance just for testing the upgrade first.
 
 Downgrading to a previous major version is not possible in Pukki. The only way to return to an
 older major version is to restore an old backup from before the upgrade.
