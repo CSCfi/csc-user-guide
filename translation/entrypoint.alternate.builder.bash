@@ -61,8 +61,8 @@ get_translation() {
       "${SOURCE_DIR}/"* \
       "./${DOCS_DIR}/"
   else
-    echo "No new translation for '${LANG_CODE:?}', exiting..."
-    exit 0
+    echo "No translation for '${LANG_CODE:?}'." >&2
+    exit 1
   fi
 }
 
@@ -85,11 +85,9 @@ cleanup_site() {
 }
 
 copy_site() {
-  mkdir  --parents "$TARGET_DIR"
-
   cp --recursive \
      --no-dereference \
-    ${BUILD_WORKDIR}/* \
+    "${BUILD_WORKDIR}/"* \
     "$TARGET_DIR"
 }
 
