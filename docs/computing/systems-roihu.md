@@ -13,10 +13,10 @@ graph LR;
     A{{"**September 2025**
         Roihu installation
         in progress"}} --> B;
-    B{{"**March 2026**
+    B{{"**April 2026**
         Pilot phase
         starts"}} --> C;
-    C{{"**April 2026**
+    C{{"**May 2026**
         Roihu general
         availability (GA)"}} --> D;
     D{{"**One month after Roihu GA**
@@ -144,8 +144,8 @@ interactive access and running graphical user interfaces.
 ## More information
 
 * [Frequently asked questions](../support/faq/roihu.md)
-* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2026-01-26.pdf)
-  (updated 2026-01-26)
+* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
+  (updated 2026-02-25)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
