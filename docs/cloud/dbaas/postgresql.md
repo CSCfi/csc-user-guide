@@ -12,3 +12,4 @@ for managing PostgreSQL instances in Pukki.
   * [Managing users and their permissions](postgres-permissions.md)
   * [Information regarding different PostgreSQL versions in Pukki, and upgrading between them](postgres-versions.md)
   * [How to migrate a PostgreSQL database to Pukki](../../support/tutorials/pukki_data_migration.md)
+  * [Information regarding PostgreSQL 14 EOL in Pukki](postgres-14-eol.md)
