@@ -101,8 +101,8 @@ There are several ways to use R and the `r-env` module:
 
 ***Interactive use***
 
-!!! note
-    Interactive jobs are meant for preparing your code and smaller analyses and may use limited resources. Long and resource-intensive jobs are best run as non-interactive batch jobs.
+!!! note ""
+    **Interactive jobs** are meant for preparing your code and smaller analyses and may use limited resources. Long and resource-intensive jobs are best run as non-interactive batch jobs.
 
 -   RStudio Server, which runs in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
 
@@ -112,8 +112,8 @@ There are several ways to use R and the `r-env` module:
 
 ***Non-interactive use***
 
-!!! note
-    Always use non-interactive batch jobs for long or resource-intensive tasks.
+!!! note ""
+    Always use **non-interactive batch jobs** for long or resource-intensive tasks.
 
 -   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general).
 
@@ -128,8 +128,8 @@ The`r-env` module can be used to remotely launch RStudio Server on your web brow
 
 It is also possible to launch RStudio via SSH tunnelling.This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
 
-!!! note
-    RStudio Server is meant for interactive work that consumes a modest amount of computational resources. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as non-interactive batch jobs.
+!!! note ""
+    RStudio Server is meant for **interactive work that consumes a modest amount of computational resources**. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as non-interactive batch jobs.
 
 
 ***Using R console in an interactive shell session***
