@@ -21,7 +21,7 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 
 - **Encrypted upload policy**: uploading unencrypted files is no longer possible; all uploads are encrypted automatically.
 
-- **Advanced foldersharing**: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
+- **Advanced folder sharing**: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
 
 - **Command line tool improvements**: the new command line tools, called SD Lock/Un-lock, now supports automated key management using temporary tokens, automate encryption and decryption. 
 
