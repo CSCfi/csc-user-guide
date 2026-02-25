@@ -13,19 +13,30 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 
 - **Service access via MyCSC**: requires CSC account, CSC project membership, SD Connect service access and MFA.
 
-- **Redesigned web user interface**: modern layout based on direct user feedback (Google Chrome and Firfox supported). 
+- **Web user interface**:
+  
+- redesigned, modern layout based on direct user feedback (Google Chrome and Firfox supported).
 
-- **Improved upload and dowload perfomance**: upload through UI supports files up to 100 GB. Larger files can be uploaded  and encrypted automatically via command line. Available for both folders and single files for all project members.
+- improved upload and dowload perfomance: upload through UI supports files up to 100 GB. Larger files can be uploaded  and encrypted automatically via command line. Available for both folders and single files for all project members.
+  
+- advanced folder sharing: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
 
-- **Automated enryption, decryption and key management**: fully automated key management during encryption and decryption provided by the service, via web user interface and command line tools. 
+- **Automated encryption, decryption and key management**:
 
-- **Encrypted upload policy**: uploading unencrypted files is no longer possible; all uploads are encrypted automatically.
+fully automated key management during encryption and decryption provided by the service, via web user interface and command line tools. 
 
-- **Advanced folder sharing**: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
+- **Encrypted upload policy**:
 
-- **Command line tool improvements**: the new command line tools, called SD Lock/Un-lock, now supports automated key management using temporary tokens, automate encryption and decryption. 
+uploading unencrypted files is no longer possible; all uploads are encrypted automatically.
 
-- **Backward compatibility**: files uploaded with the service via user inetrface before 7 Oct 2024 will not be automatically decrypted. Files size may appear incorrect. 
+
+- **Command line tool improvements**:
+
+the new command line tools, SD Lock/Un-lock, now supports automated key management using temporary tokens, automate encryption and decryption. 
+
+- **Backward compatibility**:
+
+files uploaded with the service via user inetrface before 7 Oct 2024 will not be automatically decrypted. Files size may appear incorrect. 
 
 ## Feature comparison table
 
@@ -51,15 +62,21 @@ The original version introduced the foundational storage and encryption concept,
 
 - **Service access**: Required CSC account, CSC project and Allas service access.
 
-- **User interface**: basic interface for file operations.
+- **User interface**:
+  
+- basic interface for file operations.
+  
+- uploads with automated encryotion restricted to files under 1 GB.
 
-- **Limited upload size**: Uploads with automated encryotion restricted to files under 1 GB.
+- download: manual decryotion required.
+  
+- optional encryption: users could choose to upload unencrypted files.Sharing required manual encryption/decryption workflows.
 
-- **Download**: manual decryotion required.
+- **Key management**:
 
-- **Key management**: users needed to manage their own encryption keys.
+users needed to manage their own encryption keys.
 
-- **Optional encryption**: users could choose to upload unencrypted files.Sharing required manual encryption/decryption workflows.
+- **Command‑Line tool**:
 
-- **Command‑Line tool**: Required full manual encryption; no automated key management.
+required full manual encryption; no automated key management.
 
