@@ -11,47 +11,25 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 
 ## Key Features in v2.0.0
 
-### Service Access via MyCSC
+- Service Access via MyCSC: requires CSC account, project membership, SD Connect service access and MFA.
 
-Requires CSC account, project membership, SD Connect service access and MFA.
+- Redesigned web user interface: modern layout based on direct user feedback (Google Chrome and Firfox supported). 
 
+- Improved upload and dowload perfomance: upload through UI supports files up to 100 GB. Larger files can be uploaded  and encrypted automatically via command line. Available for both folders and single files for all project members.
 
-### Redesigned User Interface
+- Automated enryption, deryption and key management: fully automated key management during encryption and decryption provided by the service, via web user interface and command line tools. 
 
-Modern layout based on direct user feedback.
+- Encrypted upload policy: uploading unencrypted files is no longer possible; all uploads are encrypted automatically.
 
+- Advanced folder sharing: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
 
-### Improved upload and dowload perfomance
+- Command‑Line tool improvements: the new command line tools, called SD Lock/Un-lock, now supports automated key management using temporary tokens, automate encryption and decryption. 
 
-Upload through UI supports files up to 100 GB. Larger files can be uploaded automatically via command line. Available for both folders and single files for all project members.
-
-
-### Automated Key Management
-
-Fully automated key management during encryption and decryption provided by the service, via web user interface and command line tools. 
-
-
-### Encrypted Upload Policy
-
-Uploading unencrypted files is no longer possible; all uploads are encrypted automatically.
-
-
-### Advanced Folder Sharing
-
-Three supported modes: Data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
-
-
-### Command‑Line Tool Improvements
-
-The new command line tools, called SD Lock/Un-lock, now supports automated key management using temporary tokens.
-
-
-### Backward compatbolity
-Files uploaded before 7 Oct 2024 are visible in Allas (not downloadable; size may appear incorrect).
+- Backward compatbolity: files uploaded with the service via user inetrface before 7 Oct 2024 will not be automatically decrypted. Files size may appear incorrect. 
 
 
 
-| Feature | SD Connect v2.0.0 | SD Connect v1.0.0 (discontinued) |
+| Feature | SD Connect v2.0.0  (currentky in use)| SD Connect v1.0.0 (discontinued) |
 |---------|----------------|----------------------------------------|
 |Service access via [MyCSC](https://my.csc.fi)|Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC account|Requires CSC account and project and Allas service access|
 |User interface|Redesigned based on user feedback|Standard interface|
@@ -71,46 +49,17 @@ The original version introduced the foundational storage and encryption concept,
 
 ## Key Capabilities in v1.0.0
 
-### Service Access Requirements
+- Service access: Required CSC account, CSC project and Allas service access.
 
-Required CSC account, project, and Allas service access.
+- Standard user interface: basic interface for file operations.
 
+- Limited upload size: Uploads with automated encryotion restricted to files under 1 GB.
 
-### Standard User Interface
+- Download: manual decryotion required.
 
-Basic interface for file operations.
+- Key management: users needed to manage their own encryption keys.
 
+- Optional encryption: users could choose to upload unencrypted files.Sharing required manual encryption/decryption workflows.
 
-### Limited Upload Size
+- Command‑Line tool: Required full manual encryption; no automated key management.
 
-Uploads with automated encryotion restricted to files under 1 GB.
-
-
-### No Automated Decryption or Download
-
-Manual operations required.
-
-
-### Manual Key Management
-
-Users needed to manage their own encryption keys.
-
-
-### Optional Encryption
-
-Users could choose to upload unencrypted files.
-
-
-### Sharing Via Manual Processes
-
-Sharing required manual encryption/decryption workflows.
-
-
-### Command‑Line Tool
-
-Required full manual encryption; no automated key management.
-
-
-### Allas Compatibility
-
-Files visible and downloadable.
