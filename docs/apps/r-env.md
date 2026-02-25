@@ -97,20 +97,25 @@ Licensing information within the `r-env` container is available in the file `/us
 
 ## Usage
 
-There are several ways to use R and the `r-env` module: (change: task -> options?)
+There are several ways to use R and the `r-env` module:
 
-***Interactive use: preparing your code and smaller analyses***
+***Interactive use***
 
--   RStudio Server, which runs in [interactive jobs on a compute node](../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+!!! note
+    Interactive jobs are meant for preparing your code and smaller analyses and may use limited resources. Long and resource-intensive jobs are best run as non-interactive batch jobs.
 
--   R console in the command line in [interactive jobs on a compute node](../computing/running/interactive-usage.md). Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+-   RStudio Server, which runs in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
+
+-   R console in the command line in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
 
 -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
-***Non-interactive use: in particular analyses that take long or require a lot of computing resources***
+***Non-interactive use***
 
--   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general). Use this option for analyses that take long or require a lot of memory or cores.
+!!! note
+    Always use non-interactive batch jobs for long or resource-intensive tasks.
 
+-   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general).
 
 
 ### Interactive use on a compute node
@@ -119,7 +124,7 @@ There are several ways to use R and the `r-env` module: (change: task -> options
 
 The`r-env` module can be used to remotely launch RStudio Server on your web browser.
 
-**The recommended way to launch RStudio** is to use the **[Puhti or Mahti web interface](../computing/webinterface/index.md)**. See also the documentation for the [interactive RStudio app](../computing/webinterface/rstudio.md).
+**The recommended way to launch RStudio** is to use the [Puhti or Mahti web interface](../computing/webinterface/index.md). See also the documentation for the [interactive RStudio app](../computing/webinterface/rstudio.md).
 
 It is also possible to launch RStudio via SSH tunnelling.This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
 
@@ -131,24 +136,24 @@ It is also possible to launch RStudio via SSH tunnelling.This option requires au
 
 To use R interactively from the command line on a compute node, first start an [interactive shell session](https://csc-training.github.io/csc-env-eff/hands-on/batch_jobs/interactive.html):
 
-**Option 1. In the [supercomputer web interfaces](../computing/webinterface/index.md), using the shell application**. Under *Tools* or on the front page, select *Compute node shell*. Select the resources, making sure to reserve local disk space for temporary files, and launch the session. 
+**Option 1. In the [supercomputer web interfaces](../computing/webinterface/index.md), using the shell application**. *Compute node shell*. When selecting the resources, make sure to reserve local disk space for temporary files. 
 
-**Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../computing/running/interactive-usage.md)**. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local disk space for temporary files. Local disk space should always be reserved when using R interactively.
+**Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../computing/running/interactive-usage.md)**. As an example, the command below would launch a session with 4 GB of memory and 8 GB of local disk. Local disk space should always be reserved for temporary files when using R interactively.
 
 === "Puhti"
     ``` bash
-    sinteractive --account <project> --mem 4000 --tmp 10
+    sinteractive --account <project> --mem 4000 --tmp 8
     ```
     
 === "Mahti"
     ``` bash
     # note that on Mahti, the available memory is determined by the number of cores (1.875 GiB each)
-    sinteractive --account <project> --cores 2 --tmp 10
+    sinteractive --account <project> --cores 2 --tmp 8
     ```
     
 === "Roihu"
     ``` bash
-    sinteractive --account <project> --mem 4000 --tmp 10
+    sinteractive --account <project> --mem 4000 --tmp 8
     ```
 
 It is possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)).
@@ -173,7 +178,7 @@ apptainer_wrapper exec R --no-save
 
 ### Non-interactive batch jobs
 
-Further to interactive jobs, R scripts can be run non-interactively using batch job files. Batch jobs are recommended in particular for long and resource-heavy tasks. In addition to the following examples, [see the Puhti batch job documentation](../computing/running/creating-job-scripts-puhti.md) for more information. If you are new to batch jobs, check the materials of the [CSC Computing Environment on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/). Batch job files are submitted to the batch job system on a login node as follows:
+Further to interactive jobs, R scripts can be run non-interactively using batch job files (how to say this is the default supercomputer way without telling people to use too many resources?). Batch jobs are recommended in particular for long and resource-heavy tasks. In addition to the following examples, [see the Puhti batch job documentation](../computing/running/creating-job-scripts-puhti.md) for more information. If you are new to batch jobs, check the materials of the [CSC Computing Environment on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/). Batch job files are submitted to the batch job system on a login node as follows:
 
 ``` bash
 sbatch batch_job_file.sh
@@ -183,7 +188,7 @@ sbatch batch_job_file.sh
 
 Below is an example for submitting a serial single-processor R batch job. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. Actual R batch jobs should in most cases be run in the `small` partition.
 
-!!! note 
+!!! note "Remember to define temporary directory"
     For batch jobs, make sure to define a project-specific temporary directory in `/scratch/<project>` or on [the fast local disk](../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 We execute the R script using the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
@@ -277,7 +282,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cp
 
 The command `module load r-env` loads the latest `r-env` version available. To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/440`.
 
-!!! info
+!!! info "More than one CPU core?"
     By default, R uses one CPU core. When you are working with R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs](../support/tutorials/parallel-r.md).
 
 ### R package installations
