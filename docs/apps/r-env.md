@@ -101,8 +101,8 @@ There are several ways to use R and the `r-env` module:
 
 ***Interactive use***
 
-!!! note ""
-    **Interactive jobs** are meant for preparing your code and smaller analyses and may use limited resources. Long and resource-intensive jobs are best run as non-interactive batch jobs.
+!!! info ""
+    **Interactive jobs** are meant for preparing your code and smaller analyses and may use limited resources.
 
 -   RStudio Server, which runs in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
 
@@ -112,8 +112,8 @@ There are several ways to use R and the `r-env` module:
 
 ***Non-interactive use***
 
-!!! note ""
-    Always use **non-interactive batch jobs** for long or resource-intensive tasks.
+!!! info ""
+    **Non-interactive batch jobs** should be used for for long or resource-intensive tasks.
 
 -   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general).
 
@@ -188,8 +188,8 @@ sbatch batch_job_file.sh
 
 Below is an example for submitting a serial single-processor R batch job. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. Actual R batch jobs should in most cases be run in the `small` partition.
 
-!!! note "Remember to define temporary directory"
-    For batch jobs, make sure to define a project-specific temporary directory in `/scratch/<project>` or on [the fast local disk](../computing/running/creating-job-scripts-puhti.md#local-storage).
+!!! warning ""
+    In batch jobs, make sure to define a project-specific temporary directory in `/scratch/<project>` or on [the fast local disk](../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 We execute the R script using the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
 
@@ -283,7 +283,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cp
 The command `module load r-env` loads the latest `r-env` version available. To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/440`.
 
 !!! info "More than one CPU core?"
-    By default, R uses one CPU core. When you are working with R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs](../support/tutorials/parallel-r.md).
+    By default, R uses one CPU core. When you are working with an R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch jobs](../support/tutorials/parallel-r.md).
 
 ### R package installations
 
@@ -344,7 +344,7 @@ Alternatively, you can add the desired changes to an `.Renviron` file (only when
 echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 ```
 
-!!! note
+!!! note ""
     When using `r-env`, user-defined changes to R library paths must be specified inside an R session or in relation to an `.Renviron` file. Other changes (e.g. using `export` to modify environment variables) will not work due to the R installation running inside an Apptainer container. If your analysis would require changes that cannot be achieved through the above means, please contact us for a module-wide package installation.
 
 ### Using fast local storage
