@@ -99,31 +99,74 @@
         * [SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).
         * [SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
 
-## 2. Basic data migration
+## 2. Recommended data migration tools
 
-The following tools are suitable if:
+* [`rsync`](../../data/moving/rsync.md) is the preferred tool for transferring
+  data from Puhti or Mahti to Roihu. The following sections provide a few
+  examples of `rsync` usage.
+* In all examples it is assumed that you've connected to Puhti or Mahti and
+  have forwarded your SSH agent including your SSH keys and a valid SSH
+  certificate when connecting.
+* Before starting the transfer, please ensure that the target directory exists
+  and is writable.
 
-* Your data volume is relatively small (a few tens of GB).
-* Number of files is small (a few hundred).
-* There are no special requirements related to, for example, preservation of
-  file permissions or timestamps.
+### 2.1 Basic `rsync`
 
-### 2.1 `rsync`
+* Transfer directory `/scratch/project_2001234/folder-to-migrate` from
+  Puhti/Mahti to directory `/scratch/project_2001234/` on Roihu.
 
-### 2.2 `scp`
+    ```bash
+    rsync -aP /scratch/project_2001234/folder-to-migrate $USER@roihu-cpu.csc.fi:/scratch/project_2001234/
+    ```
 
-[`scp`](../../data/moving/scp.md) is useful only in the most simple cases.
-Assuming you've connected to Puhti/Mahti and forwarded your SSH agent
-(including SSH keys and a valid SSH certificate), run `scp` for example like
-this:
+    | Option | Description                                                                                                           |
+    |--------|-----------------------------------------------------------------------------------------------------------------------|
+    | `-a`   | Use archive mode: copy files and directories recursively, preserve access permissions, timestamps and symbolic links. |
+    | `-P`   | Keep partially transferred files and show progress during transfer.                                                   |
 
-```bash
-scp -r /scratch/project_2001234/folder-to-migrate/ $USER@roihu-cpu.csc.fi:/scratch/project_2001234/
-```
+* **This command is suitable if:**
+    1. Data compression is not necessary.
+    2. You are transferring your own files, or resulting file ownership on
+       Roihu does not matter.
 
-* Option `-r` means _recursive_, i.e. the directory `folder-to-migrate` and all
-  of its contents will be transferred to `/scratch/project_2001234/` on Roihu.
-  If you're just moving a single file, the `-r` can be left out.
+!!! info "The trailing `/` character has a meaning!"
+    A trailing `/` character affects what gets transferred _from the source_.
+    If the source path ends with `/`, then all contents of the directory will
+    get copied, but not the directory itself. To transfer the directory itself
+    (and the contents), leave out the trailing `/` (like in the example above).
+
+### 2.2 Data compression
+
+### 2.3 Using checksums to verify data integrity
+
+* `rsync` ensures data integrity using internal checksum mechanisms by default.
+  It is therefore not necessary to compute a checksum for your sda
+
+## 3. Advanced cases
+
+### 3.1 Running long transfer processes safely
+
+### 3.2 If file ownership matters
+
+## 2.2 Discouraged methods
+
+### 2.2.1 `scp`
+
+* [`scp`](../../data/moving/scp.md) performs poorly especially if your data
+  contains a lot of small files, so it is useful only in the most simple data
+  migration cases.
+
+* Assuming you've connected to Puhti/Mahti and forwarded your SSH agent
+  (including SSH keys and a valid SSH certificate), run `scp` for example like
+  this:
+
+   ```bash
+   scp -r /scratch/project_2001234/folder-to-migrate/ $USER@roihu-cpu.csc.fi:/scratch/project_2001234/
+   ```
+
+  * Option `-r` means _recursive_, i.e. the directory `folder-to-migrate` and all
+    of its contents will be transferred to `/scratch/project_2001234/` on Roihu.
+    If you're just moving a single file, the `-r` can be left out.
 
 Assuming you're on Roihu and you want to pull data from, for example, Puhti to
 your current working directory on Roihu, run `scp` like this:
@@ -132,12 +175,26 @@ your current working directory on Roihu, run `scp` like this:
 scp -r $USER@puhti.csc.fi:/scratch/project_2001234/folder-to-migrate/ .
 ```
 
-!!! warning "Note"
-    Do **not** use `scp` if your data contains a lot of small files. `scp` is
-    extremely slow for transferring a large number of small files.
+### 2.2.2 Using the web interfaces to migrate data
 
-## 3. Advanced cases
+Unfortunately, there is no good way that the Puhti or Mahti web interfaces can
+be used to move data directly to Roihu. There are some indirect ways, but none
+of them are efficient, which is why we primarily recommend the command-line
+based approaches above. The following options should therefore be considered as
+"last resort" choices.
 
-Read more here.
+1. Use the Puhti/Mahti web interface file browser to first download your data
+   locally, and then upload it to Roihu via the Roihu web interface. Note that
+   there is a **limit of 10 GB for individual file uploads**, so data larger
+   than this must be split into suitable chunks. Alternatively, you could use
+   [graphical file transfer utilities](../../data/moving/graphical_transfer.md)
+   to upload the data to Roihu since you've already downloaded it locally.
+2. If you have a LUMI project, you could use the Puhti/Mahti web interface
+   [Cloud storage configuration](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
+   app to set up a connection to LUMI-O, upload your data there, and then fetch
+   it from LUMI-O to Roihu.
 
-## 4. Final remarks
+!!! warning "Don't use Allas for migrating data to Roihu!"
+    It is strongly discouraged to use Allas for migrating data to Roihu
+    because it is running out of capacity. Please use LUMI-O if you must
+    migrate data to Roihu via object storage.

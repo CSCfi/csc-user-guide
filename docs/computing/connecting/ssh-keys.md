@@ -134,8 +134,8 @@ The following instructions illustrate only basic usage.
       Contact your local IT-support if you need assistance.
     - If Python for some reason cannot be installed on your computer, fall
       back to [Option 2](#option-2-mycsc) instead.
-2. [Download the certificate helper tool here](https://github.com/CSCfi/).
-3. Run the tool:
+1. [Download the certificate helper tool here](https://github.com/CSCfi/).
+1. Run the tool:
 
     === "Linux & macOS"
 
@@ -148,26 +148,25 @@ The following instructions illustrate only basic usage.
             python3 csc-cert.py -u <username> <path-to-public-key>
             ```
 
-        2. If you have an earlier certificate which is still valid, the tool
-            exits.
-        3. If signing is needed, a login URL is displayed. Follow the link and
-            authenticate.
-        4. Copy the 6-digit code displayed into your terminal and enter your
+        1. If you have an earlier certificate which is still valid, the tool 
+           prints the expiration time and exits.
+        1. If signing is needed, a login URL is displayed. Follow the link and
+           authenticate.
+        1. Copy the 6-digit code displayed into your terminal and enter your
            SSH key passphrase.
             - The signed certificate is automatically downloaded and added to
               your SSH agent. The signed certificate is saved as
               `<key>-cert.pub` (e.g., `~/.ssh/id_ed25519-cert.pub`).
-        5. Each SSH certificate is valid for 24 hours. The expiration time can
-           be checked by running the tool again.
+        1. [Connect to Roihu following these instructions](ssh-unix.md#basic-usage).
 
     === "Windows"
 
-        1. Optional, but helpful:
-            [Install WinSCP](https://winscp.net/eng/docs/installation) and
-            [start the Pageant authentication agent](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant)
-            that comes bundled with PuTTY to automatically add SSH key and
-            certificate to SSH agent.
-        2. Open PowerShell and execute:
+        1. Optional, but recommended:
+           [Install WinSCP](https://winscp.net/eng/docs/installation) and
+           [start the Pageant authentication agent](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant)
+           that comes bundled with PuTTY to automatically add SSH key and
+           certificate to SSH agent.
+        1. Open PowerShell and execute:
 
             ```bash
             # Replace <username> with your CSC user name and
@@ -181,66 +180,66 @@ The following instructions illustrate only basic usage.
                 helper script. You can still connect to Roihu using your
                 [favorite SSH client](ssh-windows.md#basic-usage).
 
-        3.  If you have an earlier certificate which is still valid, the tool
+        1.  If you have an earlier certificate which is still valid, the tool
             exits.
-        4.  If signing is needed, a login URL is displayed. Follow the link and
+        1.  If signing is needed, a login URL is displayed. Follow the link and
             authenticate.
-        5. Copy the displayed 6-digit code into PowerShell and enter your SSH
+        1. Copy the displayed 6-digit code into PowerShell and enter your SSH
            key passphrase.
             - The signed certificate is automatically downloaded and added to
               your SSH agent (if you have WinSCP installed and Pageant
               running). The signed certificate is saved as `<key>-cert.pub`
               (e.g., `C:\Users\<username>\.ssh\id_ed25519-cert.pub`).
-        6. Each SSH certificate is valid for 24 hours. The expiration time can
-           be checked by running the tool again.
+        1. [Connect to Roihu following these instructions](ssh-windows.md#basic-usage).
 
 ---
 
 ### Option 2: MyCSC
 
 1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
-2. Select _Profile_ from the left-hand navigation or the dropdown menu in the
+1. Select _Profile_ from the left-hand navigation or the dropdown menu in the
    top-right corner.
-3. Locate _SSH PUBLIC KEYS_ section and click the three vertical dots next to
+1. Locate _SSH PUBLIC KEYS_ section and click the three vertical dots next to
    the public key you want to sign.
-4. Click _Sign SSH key_. As a security measure, you are asked to log in again.
+1. Click _Sign and download SSH certificate_. As a security measure, you may be
+   asked to log in again.
 
-    ![Sign SSH key](https://a3s.fi/docs-files/sign-ssh-key.png 'Sign SSH key')
-
-5. Download the certificate by clicking the three vertical dots next to your
-   public key and selecting _Download SSH certificate_.
+    ![Sign and download SSH certificate](https://a3s.fi/docs-files/sign-download-ssh-cert.png 'Sign and download SSH certificate')
 
     !!! info "Where to store the SSH certificate?"
         We **strongly** advice saving the certificate in the default folder for
-        SSH-related files (e.g. `~/.ssh`). Specifically, storing the
-        certificate in the same directory as your SSH private key **and**
-        naming it as `<key>-cert.pub` will simplify connecting, working with
-        SSH agent, etc.
+        SSH-related files (e.g. `~/.ssh` or `C:\Users\<username>/.ssh`).
+        Specifically, storing the certificate in the same directory as your
+        SSH private key **and** naming it as `<key>-cert.pub` will simplify
+        connecting, working with SSH agent, etc.
 
         For example, if you've stored your SSH private key in
         `~/.ssh/id_ed25519`, please save your SSH certificate as
-        `~/.ssh/id_ed25519-cert.pub`
+        `~/.ssh/id_ed25519-cert.pub`.
 
-    ![Download SSH certificate](https://a3s.fi/docs-files/download-ssh-cert.png 'Download SSH certificate')
+1. Connect to Roihu following these instructions:
+      1. [Linux/macOS](ssh-unix.md#basic-usage)
+      2. [Windows](ssh-unix.md#basic-usage)
 
-6. Each SSH certificate is valid for 24 hours. The expiration time can be
-   checked as follows:
+    !!! info "Optional: Check when your SSH certificate will expire"
+        Each SSH certificate is valid for 24 hours. The expiration time can be
+        checked as follows:
 
-    === "Terminal (Linux, macOS, PowerShell, MobaXterm)"
+        === "Terminal (Linux, macOS, PowerShell, MobaXterm)"
 
-        1. Open a terminal client.
-        2. Run command:
+            1. Open a terminal client.
+            2. Run command:
 
-            ```bash
-            ssh-keygen -L -f <path-to-certificate> | grep "Valid"
-            ```
+                ```bash
+                ssh-keygen -L -f <path-to-certificate> | grep "Valid"
+                ```
 
-    === "GUI (PuTTY, MobaXterm)"
+        === "GUI (PuTTY, MobaXterm)"
 
-        3. Open PuTTYgen / MobaKeyGen.
-        4. Load your private key: _File_ :material-arrow-right: _Load private key_.
-        5. Add a certificate to the key: _Key_ :material-arrow-right: _Add certificate to key_.
-        6. Select _Certificate info_ to see the validity period among other info.
+            3. Open PuTTYgen / MobaKeyGen.
+            4. Load your private key: _File_ :material-arrow-right: _Load private key_.
+            5. Add a certificate to the key: _Key_ :material-arrow-right: _Add certificate to key_.
+            6. Select _Certificate info_ to see the validity period among other info.
 
     ---
 
