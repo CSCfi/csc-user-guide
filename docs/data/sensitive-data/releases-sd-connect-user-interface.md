@@ -1,6 +1,6 @@
 # SD Connect: release page
 
-This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and data‑sharing workflows.
+This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and backward compatibility. The service includes a web user inetrface and command line tools. 
 
 
 ## SD Connect v2.0.0 – Major Upgrades (User interface October 2024, Command Line tools February 2025)
@@ -21,13 +21,13 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 
 - **Encrypted upload policy**: uploading unencrypted files is no longer possible; all uploads are encrypted automatically.
 
-- **Advanced folder sharing**: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
+- **Advanced foldersharing**: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
 
-- **Command‑Line tool improvements**: the new command line tools, called SD Lock/Un-lock, now supports automated key management using temporary tokens, automate encryption and decryption. 
+- **Command line tool improvements**: the new command line tools, called SD Lock/Un-lock, now supports automated key management using temporary tokens, automate encryption and decryption. 
 
 - **Backward compatibility**: files uploaded with the service via user inetrface before 7 Oct 2024 will not be automatically decrypted. Files size may appear incorrect. 
 
-
+## Feature comparison table
 
 | Feature | SD Connect v2.0.0  (currently in use)| SD Connect v1.0.0 (discontinued) |
 |---------|----------------|----------------------------------------|
@@ -39,7 +39,7 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 |Uploading encrypted files|Not allowed; all files are encrypted during upload|Optional; unencrypted files could be uploaded|
 |Folder sharing|Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop (without the possibility of downloading extra copies of the files)|Sharing was supported only via manual encryption and decryption|
 |Command-line utility tool|SD Lock/Un-lock provide automated key management, this requires temporary token access|Available but required manual encryption and did not support automated key management|
-|Compatibility with Allas|Files uploaded with after October 7, 2024 are visible in Allas but not downloadable directly from it; size may be incorrect|Files visible and downloadable|
+|Bacward compatibility|Files uploaded with before October 7, 2024 are downloadable but can not be decrypoted automatically; size may be incorrect| |
 
 
 ## SD Connect v1.0.0 – Original release June 2021 (Discontinued)
