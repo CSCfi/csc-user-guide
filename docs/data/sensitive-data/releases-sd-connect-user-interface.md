@@ -1,11 +1,12 @@
-# SD Connect: release Page
+# SD Connect: release page
 
 This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and data‑sharing workflows.
 
 
-## SD Connect v2.0.0 – Major Enhancement Release ( User interface October 2024, Command Line tools February 2025)
+## SD Connect v2.0.0 – Major Upgrades (User interface October 2024, Command Line tools February 2025)
 
 ### Overview
+
 SD Connect v2.0.0 introduces a significantly improved user experience with a redesigned web user interface, automated encryption features and expanded sharing workflows.
 
 ## Key Features in v2.0.0
