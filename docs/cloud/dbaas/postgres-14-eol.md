@@ -6,9 +6,9 @@ As PostgreSQL 14's end-of-life date is set to arrive on 12th of November, 2026, 
 
 On the end-of-life date, 2026-11-12:
 
-    * PostgreSQL 14 will be disabled and cannot be used for new database instances
-        * This also means backups created from PostgreSQL 14 instances cannot be restored as new instances
-    * Pukki admins will start upgrading remaining PostgreSQL 14 instances to PostgreSQL 17
+* PostgreSQL 14 will be disabled and cannot be used for new database instances
+    * This also means backups created from PostgreSQL 14 instances cannot be restored as new instances
+* Pukki admins will start upgrading remaining PostgreSQL 14 instances to PostgreSQL 17
 
 ## What actions should I take?
 
