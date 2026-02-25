@@ -74,6 +74,8 @@ Reminder emails will be sent to users with instances on the affected versions be
 and we highly recommend upgrading your database instances yourself in order to have more control
 over the resulting downtime.
 
+For information about PostgreSQL 14 EOL in Pukki, see [this page](postgres-14-eol.md).
+
 ## Deleting a database in your database instance
 
 By default, your database user account does not have permissions to delete databases.
