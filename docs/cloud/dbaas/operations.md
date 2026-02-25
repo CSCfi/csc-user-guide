@@ -54,9 +54,9 @@ but there's a bit more happening in the background, which creates more possible 
 Our recommended procedure for major version upgrades:
 
 0. Reserve plenty of time for the upgrade process and familiarize yourself with any changes between the database versions
-1. Create a new backup of the database instance
+1. Create a new backup of the database instance (or use the most recent automatic backup)
 2. Restore the freshly created backup into a new database instance
-3. Upgrade the new database instance to your target datastore version
+3. Upgrade the new database instance to your target datastore version (we recommend using the most recent version available)
 4. Test that connections to the new instance work as expected and that your data looks correct
 
 After this, you can either move to use the new instance and delete the original one, or continue with
