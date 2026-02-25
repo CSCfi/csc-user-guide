@@ -3,7 +3,50 @@
 This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and backward compatibility. The service includes a web user inetrface and command line tools. 
 
 
-## SD Connect v2.0.0 – Major Upgrades (User interface October 2024, Command Line tools February 2025)
+## SD Connnect v3.0.0 (Upcoming)
+
+Major Upgrade: in testing pahse. 
+
+
+## Overview
+
+Major upgrade required because of a techincal change: CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This change improves long term stability but is not fully backward compatible, this might require file conversion. 
+
+**Additional technical details (for IT specialists)**: This update is part of a larger technical transition from the Swift protocol to a new based on S3‑compatible technology. Swift will be phased out by the end of 2026. Due to protocol differences, some bucket names, metadata, and legacy objects require adjustments to remain accessible and a conversion tool (SD Connect Converstion tool) must be used where needed. This update introduces the technical changes needed for SD Connect to keep working on the current storage system. SD Connect v3.0.0 serves as an interim step. Later on, all data will also need to be migrated to a new storage solution that CSC will deploy by the end of 2026 called Allas 2. 
+
+
+## Key features and changes
+
+- **Web user interface**: search function removed, tag function removed, last activity removed, number of objects in a folder and folder size removed from the main view but available inside the main folder, sorting removed. Only Chrome currently supprted. Uploding FOlders not currently suppoorted. 
+
+- **Command Line tools**: provides same functionalities but the updated version needs to be installed locally. 
+
+- **New bucket/ main folder naming restrictions**: Supported: 3–63 characters, lowercase letters/numbers/hyphens, must start & end with letter/number. Not supported: upper case, special characters, underscore. Note: this does nto affect subfolders or files. 
+
+- **Techinical changes**: the underlying storage protocol is transitioning from OpenStack Swift to the Amazon S3 (Simple Storage Service) API standard. This is a significant technical change that affects how data is uploaded, stored, and accessed inside the service via web user interface and commandl line tools. While the new S3‑based backend improves long‑term stability and ecosystem compatibility, it also introduces a number of unavoidable changes in functionality.
+
+-**SD Connect conversion tool**: a simple graphical user interface or command‑line tool that helps convert files uploaded using SD Connect v1–2 to the new version. The tool:
+
+Converts incompatible bucket names to a supported format and migrates the renamed buckets
+Restores correct file sizes for older objects
+Restores file access for items affected by the protocol change
+Restores sharing permissions so shared folders become visible and usable again
+
+
+- **Backward compatibility and SD Connect conversion tool**: files uploaded with a previuos version of the service may not be temparatly accessible unless converted to a new file format via the SD Connect onversion tool provided by CSC. 
+
+Buckets with incompatible names: data stored in these buckets will not be accessible after upgrade. Users must run the conversion tool to rename the bucket, convert files in the new format and restore access.
+
+Buckets with compatible names: data will remain accessible. Some files may temporarily appear with a file size of “0” in the user interface. Running the conversion tool will correct the metadata and display the proper file sizes. This step is recommended but can be postponed until the full migration to the new storage solution at the end of 2026, when all remaining adjustments will be handled.
+
+Shared buckets: shared buckets will no longer appear in the web interface after the transition.
+The conversion tool should be run to restore visibility of sharing permissions. 
+
+
+
+## SD Connect v2.0.0 (Currently in use)
+
+Major Upgrades: user interface October 2024, Command Line tools February 2025
 
 ## Overview
 
@@ -38,7 +81,9 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 |Bacward compatibility|Files uploaded with before October 7, 2024 are downloadable but can not be decrypoted automatically; size may be incorrect| |
 
 
-## SD Connect v1.0.0 – Original release June 2021 (Discontinued)
+## SD Connect v1.0.0 (Discontinued)
+
+Original release June 2021 
 
 ## Overview
 The original version introduced the foundational storage and encryption concept, requiring more manual steps for secure handling of data. It has since been replaced by the new SD Connect.
