@@ -5,13 +5,13 @@ This page summarizes the major releases of SD Connect, highlighting improvements
 
 ## SD Connect v2.0.0 – Major Upgrades (User interface October 2024, Command Line tools February 2025)
 
-### Overview
+## Overview
 
 SD Connect v2.0.0 introduces a significantly improved user experience with a redesigned web user interface, automated encryption features and expanded sharing workflows.
 
-## Key Features in v2.0.0
+## Key features
 
-- Service Access via MyCSC: requires CSC account, project membership, SD Connect service access and MFA.
+- Service sccess via MyCSC: requires CSC account, CSC project membership, SD Connect service access and MFA.
 
 - Redesigned web user interface: modern layout based on direct user feedback (Google Chrome and Firfox supported). 
 
@@ -42,12 +42,12 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 |Compatibility with Allas|Files uploaded with after October 7, 2024 are visible in Allas but not downloadable directly from it; size may be incorrect|Files visible and downloadable|
 
 
-## SD Connect v1.0.0 – Original Release June 2021 (Discontinued)
+## SD Connect v1.0.0 – Original release June 2021 (Discontinued)
 
 ## Overview
 The original version introduced the foundational storage and encryption concept, requiring more manual steps for secure handling of data. It has since been replaced by the new SD Connect.
 
-## Key Capabilities in v1.0.0
+## Key features 
 
 - Service access: Required CSC account, CSC project and Allas service access.
 
