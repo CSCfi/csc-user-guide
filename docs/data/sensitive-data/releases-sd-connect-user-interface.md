@@ -29,7 +29,7 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 
 
 
-| Feature | SD Connect v2.0.0  (currentky in use)| SD Connect v1.0.0 (discontinued) |
+| Feature | SD Connect v2.0.0  (currently in use)| SD Connect v1.0.0 (discontinued) |
 |---------|----------------|----------------------------------------|
 |Service access via [MyCSC](https://my.csc.fi)|Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC account|Requires CSC account and project and Allas service access|
 |User interface|Redesigned based on user feedback|Standard interface|
