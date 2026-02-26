@@ -32,13 +32,13 @@ Restores file access for items affected by the protocol change
 Restores sharing permissions so shared folders become visible and usable again
 
 
-- **Backward compatibility and SD Connect conversion tool**: files uploaded with a previuos version of the service may not be temparatly accessible unless converted to a new file format via the SD Connect onversion tool provided by CSC. 
+- **Backward compatibility**: files uploaded with a previuos version of the service may not be temparatly accessible unless converted to a new file format via the SD Connect onversion tool provided by CSC. 
 
-Buckets with incompatible names: data stored in these buckets will not be accessible after upgrade. Users must run the conversion tool to rename the bucket, convert files in the new format and restore access.
+- Buckets with incompatible names: data stored in these buckets will not be accessible after upgrade. Users must run the conversion tool to rename the bucket, convert files in the new format and restore access.
 
-Buckets with compatible names: data will remain accessible. Some files may temporarily appear with a file size of “0” in the user interface. Running the conversion tool will correct the metadata and display the proper file sizes. This step is recommended but can be postponed until the full migration to the new storage solution at the end of 2026, when all remaining adjustments will be handled.
+- Buckets with compatible names: data will remain accessible. Some files may temporarily appear with a file size of “0” in the user interface. Running the conversion tool will correct the metadata and display the proper file sizes. This step is recommended but can be postponed until the full migration to the new storage solution at the end of 2026, when all remaining adjustments will be handled.
 
-Shared buckets: shared buckets will no longer appear in the web interface after the transition.
+- Shared buckets: shared buckets will no longer appear in the web interface after the transition.
 The conversion tool should be run to restore visibility of sharing permissions. 
 
 
