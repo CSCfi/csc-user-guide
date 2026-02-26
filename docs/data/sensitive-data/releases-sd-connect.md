@@ -63,15 +63,14 @@ The conversion tool should be run to restore visibility of sharing permissions.
 
 | Feature | SD Connect v2.0.0  (currently in use)| SD Connect v1.0.0 (discontinued) |
 |---------|----------------|----------------------------------------|
-|Service access via [MyCSC](https://my.csc.fi)|Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC account|Requires CSC account and project and Allas service access|
-|User interface|Redesigned based on user feedback|Standard interface|
-|Automated encryption and upload|Upload via user interfaces supports files up to 100 GB, larger files can be automatically uploaded during upload via command line|Limited to files < 1 GB|
-|Automated decryption and download|Available for folders or single files for all project members|Not available|
-|Key management|Automatically provided by the service|Not available|
-|Uploading encrypted files|Not allowed; all files are encrypted during upload|Optional; unencrypted files could be uploaded|
-|Folder sharing|Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop (without the possibility of downloading extra copies of the files)|Sharing was supported only via manual encryption and decryption|
-|Command-line utility tool|SD Lock/Un-lock provide automated key management, this requires temporary token access|Available but required manual encryption and did not support automated key management|
-|Bacward compatibility|Files uploaded with before October 7, 2024 are downloadable but can not be decrypoted automatically; size may be incorrect| |
+|Service access via [MyCSC](https://my.csc.fi)|No chnages |Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC accountRequires CSC account and project and Allas service acces|
+|User interface|search fucntion removed; tags fucntion removed, terminology: main folder now called bucket, bucket size and nummber of files no longer displayed in hoempage, sorting no longer supported, Firefox not supported|
+|Automated encryption and upload| No chnages. Restrictions in bucket naming.|Upload via user interfaces supports files up to 100 GB, larger files can be automatically uploaded during upload via command line|
+|Automated decryption and download|No changes. Backward compatibility issues due to restricitons in bucket naming.|Available for folders or single files for all project members|
+|Key management|No chnages|Automatically provided by the service|
+|Folder sharing| No changes. Backward compatibility issues, sharing needs to be converted or redone. |Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop|
+|Command-line utility tool| User needs to insall updated tool|SD Lock/Un-lock provide automated key management, this requires temporary token|
+|Bacward compatibility|Files uploaded with previous versions of SD Connect may be temporarily inaccessible until they are converted to the new format, or they may be accessible but show an incorrect file size. | |
 
 
 
