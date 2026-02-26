@@ -12,8 +12,6 @@ Version shortcuts:
 
 
 
-
-
 ## SD Connnect v3.0.0 Upcoming
 
 Major Upgrade: in testing pahse. 
@@ -29,34 +27,24 @@ Later on, all data will also need to be migrated to a new storage solution that 
 
 - **Web user interface**: search function removed, tag function removed, last activity removed, number of objects in a folder and folder size removed from the main view but available inside the main folder, sorting removed. Only Chrome currently supprted. Uploding FOlders not currently suppoorted.
 
-![connectv3-ui](images/connect/connectv3-ui.png)
-
 - **Command Line tools**: provides same functionalities but the updated version needs to be installed locally. 
 
 - **New bucket/ main folder naming restrictions**: Supported: 3–63 characters, lowercase letters/numbers/hyphens, must start & end with letter/number. Not supported: upper case, special characters, underscore. Note: this does nto affect subfolders or files. 
 
 - **Techinical changes**: the underlying storage protocol is transitioning from OpenStack Swift to the Amazon S3 (Simple Storage Service) API standard. This is a significant technical change that affects how data is uploaded, stored, and accessed inside the service via web user interface and commandl line tools. While the new S3‑based backend improves long‑term stability and ecosystem compatibility, it also introduces a number of unavoidable changes in functionality.
 
--**SD Connect conversion tool**: a simple graphical user interface or command‑line tool that helps convert files uploaded using SD Connect v1–2 to the new version. The tool:
-
-Converts incompatible bucket names to a supported format and migrates the renamed buckets
-Restores correct file sizes for older objects
-Restores file access for items affected by the protocol change
-Restores sharing permissions so shared folders become visible and usable again
+- **SD Connect conversion tool**: a simple graphical user interface or command‑line tool that helps convert files uploaded using SD Connect v1–2 to the new version. The tool: Converts incompatible bucket names to a supported format and migrates the renamed buckets, Restores correct file sizes for older objects, Restores file access for items affected by the protocol change, Restores sharing permissions so shared folders become visible and usable again
 
 
 - **Backward compatibility**: files uploaded with a previuos version of the service may not be temparatly accessible unless converted to a new file format via the SD Connect onversion tool provided by CSC. 
 
 - Buckets with incompatible names: data stored in these buckets will not be accessible after upgrade. Users must run the conversion tool to rename the bucket, convert files in the new format and restore access.
 
-    ![connectv3-incompatible-name](images/connect/connectv3-incompatible-name.png)
-
 - Buckets with compatible names: data will remain accessible. Some files may temporarily appear with a file size of “0” in the user interface. Running the conversion tool will correct the metadata and display the proper file sizes. This step is recommended but can be postponed until the full migration to the new storage solution at the end of 2026, when all remaining adjustments will be handled.
 
 - Shared buckets: shared buckets will no longer appear in the web interface after the transition.
 The conversion tool should be run to restore visibility of sharing permissions. 
 
-  ![connectv3-compatible-name](images/connect/connect-compatible-name.png)
 
 
 ## Feature comparison table
@@ -72,6 +60,12 @@ The conversion tool should be run to restore visibility of sharing permissions.
 |Command-line utility tool| User needs to insall updated tool|SD Lock/Un-lock provide automated key management, this requires temporary token|
 |Bacward compatibility|Files uploaded with previous versions of SD Connect may be temporarily inaccessible until they are converted to the new format, or they may be accessible but show an incorrect file size. | |
 
+
+![connectv3-ui](images/connect/connectv3-ui.png)
+
+![connectv3-incompatible-name](images/connect/connectv3-incompatible-name.png)
+
+![connectv3-compatible-name](images/connect/connect-compatible-name.png)
 
 
 
