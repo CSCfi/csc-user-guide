@@ -58,7 +58,7 @@ The conversion tool should be run to restore visibility of sharing permissions.
 |Key management|No chnages|Automatically provided by the service|
 |Folder sharing| No changes. Backward compatibility issues, sharing needs to be converted or redone. |Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop|
 |Command-line utility tool| User needs to insall updated tool|SD Lock/Un-lock provide automated key management, this requires temporary token|
-|Bacward compatibility|Files uploaded with previous versions of SD Connect may be temporarily inaccessible until they are converted to the new format, or they may be accessible but show an incorrect file size. | |
+|Backward compatibility|Files uploaded with previous versions of SD Connect may be temporarily inaccessible until they are converted to the new format, or they may be accessible but show an incorrect file size. | |
 
 
 ![connectv3-ui](images/connect/connectv3-ui.png)
