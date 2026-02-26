@@ -3,7 +3,17 @@
 This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and backward compatibility. The service includes a web user inetrface and command line tools. 
 
 
-## SD Connnect v3.0.0 (Upcoming)
+[SD Connect v3.0.0 upcoming in 2026)](#sd-connnect-v300-upcoming)
+
+[SD Connect v2.0.0 Currently in use](#sd-connect-v200-currently-in-use)
+
+[SD Connect v1.0.0 Discontinued](#sd-connect-v100-discontinued)
+
+
+
+
+
+## SD Connnect v3.0.0 Upcoming
 
 Major Upgrade: in testing pahse. 
 
@@ -38,14 +48,16 @@ Restores sharing permissions so shared folders become visible and usable again
 
 - Buckets with incompatible names: data stored in these buckets will not be accessible after upgrade. Users must run the conversion tool to rename the bucket, convert files in the new format and restore access.
 
+    ![connectv3-incompatible-name](images/connect/connectv3-incompatible-name.png)
+
 - Buckets with compatible names: data will remain accessible. Some files may temporarily appear with a file size of “0” in the user interface. Running the conversion tool will correct the metadata and display the proper file sizes. This step is recommended but can be postponed until the full migration to the new storage solution at the end of 2026, when all remaining adjustments will be handled.
 
 - Shared buckets: shared buckets will no longer appear in the web interface after the transition.
 The conversion tool should be run to restore visibility of sharing permissions. 
 
-  [connectv3-compatible-name](./images/connect/connect-compatible-name.png)
+  ![connectv3-compatible-name](images/connect/connect-compatible-name.png)
 
-## SD Connect v2.0.0 (Currently in use)
+## SD Connect v2.0.0 Currently in use
 
 Major Upgrades: user interface October 2024, Command Line tools February 2025
 
@@ -82,7 +94,7 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 |Bacward compatibility|Files uploaded with before October 7, 2024 are downloadable but can not be decrypoted automatically; size may be incorrect| |
 
 
-## SD Connect v1.0.0 (Discontinued)
+## SD Connect v1.0.0 Discontinued
 
 Original release June 2021 
 
