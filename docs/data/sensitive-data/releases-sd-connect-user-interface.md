@@ -10,9 +10,8 @@ Major Upgrade: in testing pahse.
 
 ## Overview
 
-Major upgrade required because of a techincal change: CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This change improves long term stability but is not fully backward compatible, this might require file conversion. 
-
-**Additional technical details (for IT specialists)**: This update is part of a larger technical transition from the Swift protocol to a new based on S3‑compatible technology. Swift will be phased out by the end of 2026. Due to protocol differences, some bucket names, metadata, and legacy objects require adjustments to remain accessible and a conversion tool (SD Connect Converstion tool) must be used where needed. This update introduces the technical changes needed for SD Connect to keep working on the current storage system. SD Connect v3.0.0 serves as an interim step. Later on, all data will also need to be migrated to a new storage solution that CSC will deploy by the end of 2026 called Allas 2. 
+Major upgrade required because of a techincal change: transition from the Swift protocol to a new based on S3‑compatible technology. CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This SD Connect version improves long term stability but is not fully backward compatible, this might require file conversion. 
+Later on, all data will also need to be migrated to a new storage solution that CSC will deploy by the end of 2026 called Allas 2. 
 
 
 ## Key features and changes
