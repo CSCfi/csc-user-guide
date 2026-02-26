@@ -4,7 +4,7 @@ This page summarizes the major releases of SD Connect, highlighting improvements
 
 Version shortcuts:
 
-[SD Connect v3.0.0 Upcoming, no clear timeline](#sd-connnect-v300-upcoming)
+[SD Connect v3.0.0 Upcoming ](#sd-connnect-v300-upcoming)
 
 [SD Connect v2.0.0 Currently in use](#sd-connect-v200-currently-in-use)
 
@@ -12,9 +12,9 @@ Version shortcuts:
 
 
 
-## SD Connnect v3.0.0 Upcoming
+## SD Connnect v3.0.0 
 
-Major Upgrade: in testing pahse. 
+Upcoming, in testing pahse. 
 
 
 ## Overview
@@ -71,7 +71,7 @@ The conversion tool should be run to restore visibility of sharing permissions.
 
 ## SD Connect v2.0.0 Currently in use
 
-Major Upgrades: user interface October 2024, Command Line tools February 2025
+Major upgrade: user interface released October 2024, Command Line tools released February 2025
 
 ## Overview
 
