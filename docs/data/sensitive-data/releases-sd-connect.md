@@ -2,8 +2,9 @@
 
 This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and backward compatibility. The service includes a web user inetrface and command line tools. 
 
+Version shortcuts:
 
-[SD Connect v3.0.0 upcoming in 2026)](#sd-connnect-v300-upcoming)
+[SD Connect v3.0.0 Upcoming in 2026](#sd-connnect-v300-upcoming)
 
 [SD Connect v2.0.0 Currently in use](#sd-connect-v200-currently-in-use)
 
@@ -56,6 +57,24 @@ Restores sharing permissions so shared folders become visible and usable again
 The conversion tool should be run to restore visibility of sharing permissions. 
 
   ![connectv3-compatible-name](images/connect/connect-compatible-name.png)
+
+
+## Feature comparison table
+
+| Feature | SD Connect v2.0.0  (currently in use)| SD Connect v1.0.0 (discontinued) |
+|---------|----------------|----------------------------------------|
+|Service access via [MyCSC](https://my.csc.fi)|Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC account|Requires CSC account and project and Allas service access|
+|User interface|Redesigned based on user feedback|Standard interface|
+|Automated encryption and upload|Upload via user interfaces supports files up to 100 GB, larger files can be automatically uploaded during upload via command line|Limited to files < 1 GB|
+|Automated decryption and download|Available for folders or single files for all project members|Not available|
+|Key management|Automatically provided by the service|Not available|
+|Uploading encrypted files|Not allowed; all files are encrypted during upload|Optional; unencrypted files could be uploaded|
+|Folder sharing|Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop (without the possibility of downloading extra copies of the files)|Sharing was supported only via manual encryption and decryption|
+|Command-line utility tool|SD Lock/Un-lock provide automated key management, this requires temporary token access|Available but required manual encryption and did not support automated key management|
+|Bacward compatibility|Files uploaded with before October 7, 2024 are downloadable but can not be decrypoted automatically; size may be incorrect| |
+
+
+
 
 ## SD Connect v2.0.0 Currently in use
 
