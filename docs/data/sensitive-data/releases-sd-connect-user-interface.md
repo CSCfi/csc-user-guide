@@ -18,7 +18,7 @@ Later on, all data will also need to be migrated to a new storage solution that 
 
 - **Web user interface**: search function removed, tag function removed, last activity removed, number of objects in a folder and folder size removed from the main view but available inside the main folder, sorting removed. Only Chrome currently supprted. Uploding FOlders not currently suppoorted.
 
-  [connectv3-ui](./images/connectconnect-compatible-name.png)
+  [connectv3-ui](./images/connect/connectv3-ui.png)
 
 - **Command Line tools**: provides same functionalities but the updated version needs to be installed locally. 
 
@@ -43,7 +43,7 @@ Restores sharing permissions so shared folders become visible and usable again
 - Shared buckets: shared buckets will no longer appear in the web interface after the transition.
 The conversion tool should be run to restore visibility of sharing permissions. 
 
-
+  [connectv3-compatible-name](./images/connect/connect-compatible-name.png)
 
 ## SD Connect v2.0.0 (Currently in use)
 
