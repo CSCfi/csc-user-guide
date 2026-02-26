@@ -27,7 +27,7 @@ Later on, all data will also need to be migrated to a new storage solution that 
 
 - **Web user interface**: search function removed, tag function removed, last activity removed, number of objects in a folder and folder size removed from the main view but available inside the main folder, sorting removed. Only Chrome currently supprted. Uploding FOlders not currently suppoorted.
 
-- **Command Line tools**: provides same functionalities but the updated version needs to be installed locally. 
+- **Command Line tools**: SD Lock-unlock V3.0.0 provides same functionalities but the updated version needs to be installed locally. SD Lock-unlock V2 will no longer be fucntional. 
 
 - **New bucket/ main folder naming restrictions**: Supported: 3–63 characters, lowercase letters/numbers/hyphens, must start & end with letter/number. Not supported: upper case, special characters, underscore. Note: this does nto affect subfolders or files. 
 
@@ -36,7 +36,7 @@ Later on, all data will also need to be migrated to a new storage solution that 
 - **SD Connect conversion tool**: a simple graphical user interface or command‑line tool that helps convert files uploaded using SD Connect v1–2 to the new version. The tool: Converts incompatible bucket names to a supported format and migrates the renamed buckets, Restores correct file sizes for older objects, Restores file access for items affected by the protocol change, Restores sharing permissions so shared folders become visible and usable again
 
 
-- **Backward compatibility**: files uploaded with a previuos version of the service may not be temparatly accessible unless converted to a new file format via the SD Connect onversion tool provided by CSC. 
+- **Backward compatibility**: files uploaded with a previuos version of the service may not be temporarly accessible unless converted to a new file format via the SD Connect onversion tool provided by CSC. 
 
 - Buckets with incompatible names: data stored in these buckets will not be accessible after upgrade. Users must run the conversion tool to rename the bucket, convert files in the new format and restore access.
 
@@ -52,12 +52,12 @@ The conversion tool should be run to restore visibility of sharing permissions.
 | Feature | SD Connect v2.0.0  (currently in use)| SD Connect v1.0.0 (discontinued) |
 |---------|----------------|----------------------------------------|
 |Service access via [MyCSC](https://my.csc.fi)|No chnages |Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC accountRequires CSC account and project and Allas service acces|
-|User interface|search fucntion removed; tags fucntion removed, terminology: main folder now called bucket, bucket size and nummber of files no longer displayed in hoempage, sorting no longer supported, Firefox not supported|
+|User interface|search fucntion removed; tags function removed, terminology: main folder now called bucket, bucket size and nummber of files no longer displayed in hoempage, sorting no longer supported, Firefox not supported|
 |Automated encryption and upload| No chnages. Restrictions in bucket naming.|Upload via user interfaces supports files up to 100 GB, larger files can be automatically uploaded during upload via command line|
 |Automated decryption and download|No changes. Backward compatibility issues due to restricitons in bucket naming.|Available for folders or single files for all project members|
 |Key management|No chnages|Automatically provided by the service|
 |Folder sharing| No changes. Backward compatibility issues, sharing needs to be converted or redone. |Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop|
-|Command-line utility tool| User needs to insall updated tool|SD Lock/Un-lock provide automated key management, this requires temporary token|
+|Command-line utility tool| User needs to insall updated tool, SD lock-unloc V3, as previuos version will no longer be functional. |SD Lock/Un-lock provide automated key management, this requires temporary token|
 |Backward compatibility|Files uploaded with previous versions of SD Connect may be temporarily inaccessible until they are converted to the new format, or they may be accessible but show an incorrect file size. | |
 
 
