@@ -1,4 +1,13 @@
 # Cloud services
+
+## Allas Web UI updates, 26.02.2026
+
+The [Allas Web UI](../../data/Allas/using_allas/allas-ui.md) has been updated with the following new features:
+
+- Buckets can now be made public directly from the web interface.
+- Objects can be previewed in the browser when the content type is supported.
+- A new **Info** view shows detailed object metadata, including content type, size, ETag, checksum, and last modified date
+
 ## New Volume Type available in Pouta: Capacity Volumes, 14.1.2026
 
 We are releasing a new volume type in Pouta: Capacity Volumes. Capacity Volumes are designed for workloads that require large amounts of storage at a lower cost, such as data archiving, backups, and big data applications. Capacity Volumes offer a cost-effective solution for storing large datasets.

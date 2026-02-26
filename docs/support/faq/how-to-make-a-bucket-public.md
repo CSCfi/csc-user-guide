@@ -2,10 +2,28 @@
 
 By default Allas buckets are only accessible using authentication (See [Accessing Allas](../../data/Allas/accessing_allas.md) ), but it is possible to make a bucket public. Making a bucket public means that every file and directory on the bucket will be accessible without any kind of authentication from anywhere on the internet using the HTTPS protocol.
 
-!!! Info "Allas UI does not support public buckets (yet)"
-    At this moment it is not possible to make buckets public from <allas.csc.fi>. The plans are to add this feature in the future.
+!!! warning "Public access"
+    Anyone with the URL can access all objects in a public bucket.
+    Do not store sensitive or personal data in public buckets.
 
-To do this, we need to go to [Pouta's web interface](https://pouta.csc.fi) and:
+To do this, you have two options:
+
+## Allas Web Interface
+
+Go to [Allas web interface](https://allas.csc.fi) and:
+
+1. On the main dashboard you can see the `Public Access` column.
+2. Click the checkbox to make the bucket public.
+3. Press on the link. This will open a new tab with the public URL. 
+4. Append the file name to the url to see it publicly.
+5. Check again the checkbox to make the bucket private.
+
+![Public-Buckets](../../data/Allas/using_allas/img/public-bucket.png){ width=80% }
+<br>Making a bucket public
+
+## Pouta Web Interface
+
+Go to [Pouta's web interface](https://pouta.csc.fi) and:
 
 1. Navigate to **Object Store** > **Containers**. This will open the "Containers" page with a list of every bucket on the selected CSC Project.
 1. Click on the bucket name, the bucket information will appear:
