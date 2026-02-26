@@ -68,10 +68,11 @@ Other software and libraries:
 - cget 0.2.0
 
 
-!!! info "New users"  
-   Add instructions here on how to get started, or link to a tutorial
-
-
+??? info "Starting points for new superusers (click to show)"  
+   [Getting started with CSC's supercomputers](https://docs.csc.fi/support/tutorials/hpc-quick/)
+   [CSC Computing Environment course materials](https://csc-training.github.io/csc-env-eff/=
+   [Tutorial on running interactive R jobs and R batch jobs](https://docs.csc.fi/support/tutorials/cmdline-handson/)
+  
 ## Licenses
 
 -   Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/). The exact license of a package can also be checked inside R: `packageDescription("package", fields="License")`. More information on [citing R and different R packages](#citation) (at the bottom of the page).
@@ -99,32 +100,32 @@ Licensing information within the `r-env` container is available in the file `/us
 
 There are several ways to use R and the `r-env` module:
 
-***Interactive use***
+- ***Interactive use***
 
 !!! info ""
     **Interactive jobs** are meant for preparing your code and smaller analyses and may use limited resources.
 
--   RStudio Server, which runs in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
+  -   RStudio Server, which runs in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
 
--   R console in the command line in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
+  -   R console in the command line in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
 
--   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
+  -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
-***Non-interactive use***
+- ***Non-interactive use***
 
 !!! info ""
-    **Non-interactive batch jobs** should be used for for long or resource-intensive tasks.
+    **Non-interactive batch jobs** should be used in particular for long or resource-intensive tasks.
 
--   Non-interactive batch jobs without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general).
+  -   Non-interactive [batch jobs](../computing/running/getting-started.md) without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general).
 
 
 ### Interactive use on a compute node
 
-***Using RStudio Server***
+***1. Using RStudio Server***
 
 The`r-env` module can be used to remotely launch RStudio Server on your web browser.
 
-**The recommended way to launch RStudio** is to use the [Puhti or Mahti web interface](../computing/webinterface/index.md). See also the documentation for the [interactive RStudio app](../computing/webinterface/rstudio.md).
+**The recommended way to launch RStudio is to use the [Puhti or Mahti web interface](../computing/webinterface/index.md)**. See also the documentation for the [interactive RStudio app](../computing/webinterface/rstudio.md).
 
 It is also possible to launch RStudio via SSH tunnelling.This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
 
@@ -132,13 +133,13 @@ It is also possible to launch RStudio via SSH tunnelling.This option requires au
     RStudio Server is meant for **interactive work that consumes a modest amount of computational resources**. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as non-interactive batch jobs.
 
 
-***Using R console in an interactive shell session***
+***2. Using R console in an interactive shell session***
 
 To use R interactively from the command line on a compute node, first start an [interactive shell session](https://csc-training.github.io/csc-env-eff/hands-on/batch_jobs/interactive.html):
 
-**Option 1. In the [supercomputer web interfaces](../computing/webinterface/index.md), using the shell application**. *Compute node shell*. When selecting the resources, make sure to reserve local disk space for temporary files. 
+**Option 1.** In the [supercomputer web interfaces](../computing/webinterface/index.md), open a shell session with the *Compute node shell* tool. When selecting the resources, make sure to reserve local disk space for temporary files. 
 
-**Option 2. When connecting to the supercomputer with an SSH client on your own workstation, open a shell session on the `interactive` partition using the [`sinteractive` command](../computing/running/interactive-usage.md)**. As an example, the command below would launch a session with 4 GB of memory and 8 GB of local disk. Local disk space should always be reserved for temporary files when using R interactively.
+**Option 2.** When [connecting to the supercomputer with an SSH client on your own workstation](../computing/connecting.md/#using-an-ssh-client), open a shell session on the `interactive` partition using the [`sinteractive` command](../computing/running/interactive-usage.md). As an example, the command below would launch a session with 4 GB of memory and 8 GB of local disk. Local disk space should always be reserved for temporary files when using R interactively.
 
 === "Puhti"
     ``` bash
