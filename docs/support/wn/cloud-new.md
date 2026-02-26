@@ -1,4 +1,8 @@
 # Cloud services
+## PostgreSQL 14 EOL approaching in Pukki, 25.2.2026
+
+As PostgreSQL 14's end-of-life date is set to arrive on 12th of November, 2026, support for it will be removed from Pukki by then. Users are recommended to upgrade their PostgreSQL 14 instances to PostgreSQL 17 well before the EOL date, as restoring from PostgreSQL 14 backups will stop working. Starting on the EOL date, any remaining PostgreSQL 14 instances will be upgraded to 17 by Pukki admins. [Further information can be found on this page](../../cloud/dbaas/postgres-14-eol.md).
+
 ## New Volume Type available in Pouta: Capacity Volumes, 14.1.2026
 
 We are releasing a new volume type in Pouta: Capacity Volumes. Capacity Volumes are designed for workloads that require large amounts of storage at a lower cost, such as data archiving, backups, and big data applications. Capacity Volumes offer a cost-effective solution for storing large datasets.
