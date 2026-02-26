@@ -4,18 +4,18 @@ See [the page on firewalls](firewalls.md) for instructions on opening access to 
 
 ## Graphical user interface
 
-A popular tool for working with PostgreSQL databases is pgAdmin, which can be found [here](https://www.pgadmin.org/). It can be installed as a desktop application, or on a server to be accessed via its web GUI. Note that it can not be installed on the Pukki database instance, and the DBaaS team does not provide support for it, as we are more comfortable using the CLI tools.
+A popular tool for working with PostgreSQL databases is pgAdmin, which can be found [here](https://www.pgadmin.org/). It can be installed as a desktop application, or on a server to be accessed via its web GUI. Note that it can not be installed on the Pukki database instance, and the Pukki team does not provide support for it, as we are more comfortable using the CLI tools.
 
 ## Command-line
 
 1. Install the `postgresql` command line tool. Note that some Linux distributions might provide ancient versions of it by default. Please consult [this page](https://www.postgresql.org/download/) for detailed installation instructions.
-2. Find the public IP of your database instance from its Overview tab in the web GUI, or with `openstack database instance list`.
+2. Find the public IP address of your database instance from its Overview tab in the web GUI, or with `openstack database instance list`.
 3. Use the following commands to access your PostgreSQL instance from the command line:
    ```
    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
    ```
 
-   If your application is using a configuration file The syntax normally looks something like this:
+   If your application is using a configuration file the syntax should look something like this:
 
    ```
    postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
@@ -46,8 +46,7 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
    ```
    module load psql
    ```
-4. Store your database password in your home directory. This is needed if you want to use
-   PostgreSQL from a batch job. You can do it by creating a file with the necessary credentials:
+4. To use PostgreSQL from a batch job, you need to store your database password in a file in your home directory:
     1. Create a file `~/.pgpass` with the following content (modify the placeholder variables accordingly):
     ```
     $PUBLIC_IP:5432:*:$USERNAME:$PASSWORD
@@ -107,7 +106,7 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
 ### Show table descriptions
 
 ```sql
-\d $TABEL_NAME
+\d $TABLE_NAME
 ```
 
 ### Change database
@@ -136,7 +135,7 @@ SHOW ALL;
 select * from pg_user;
 ```
 
-This is also visible from the web interface or the OpenStack CLI. Note that the PostgreSQL user is a service user, i.e. the user that the DBaaS uses to communicate with your database.
+This is also visible from the web interface or the OpenStack CLI. Note that the PostgreSQL user is a service user, i.e. the user that Pukki uses to communicate with your database.
 
 ### Extended display
 
