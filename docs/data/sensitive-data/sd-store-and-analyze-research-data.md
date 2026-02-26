@@ -78,6 +78,6 @@ A project member is invited into a CSC project by the project manager. All membe
 
 
 !!! Note
-    If you encounter any difficulties with these steps, feel free to reach out to us at servicedesk@csc.fi (subject: Sesntive Data services). We provide step-by-step online support to guide you through the process.
+    If you encounter any difficulties with these steps, feel free to reach out to us at servicedesk@csc.fi (subject: Sensitive Data services). We provide step-by-step online support to guide you through the process.
 
 
