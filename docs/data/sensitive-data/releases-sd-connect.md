@@ -4,7 +4,7 @@ This page summarizes the major releases of SD Connect, highlighting improvements
 
 Version shortcuts:
 
-[SD Connect v3.0.0 Upcoming in 2026](#sd-connnect-v300-upcoming)
+[SD Connect v3.0.0 Upcoming, no clear timeline](#sd-connnect-v300-upcoming)
 
 [SD Connect v2.0.0 Currently in use](#sd-connect-v200-currently-in-use)
 
