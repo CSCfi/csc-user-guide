@@ -438,6 +438,7 @@ nav:
                   - PostgreSQL version differences: cloud/dbaas/postgres-versions.md
                   - Extensions and parameters: cloud/dbaas/postgres-extensions.md
                   - Permissions: cloud/dbaas/postgres-permissions.md
+                  - PostgreSQL 14 EOL: cloud/dbaas/postgres-14-eol.md
               - MariaDB:
                   - cloud/dbaas/mariadb.md
                   - Accessing your database: cloud/dbaas/mariadb-accessing.md
