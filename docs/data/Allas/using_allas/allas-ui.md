@@ -217,7 +217,7 @@ If you need a different name, copy the bucket and give the copy a new name.
 ### Why can’t I download buckets or folders larger than 5 GiB?
 
 The web interface currently has a **5 GiB download limit** for buckets and folders. 
-For larger downloads, use the **Command Line Tools**, which are designed for large-scale data transfers.
+For larger downloads, use the **[Command Line Tools](../accessing_allas.md#commandline-tools)**, which are designed for large-scale data transfers.
 
 This limitation will be removed in the upcoming S3 version.
 
