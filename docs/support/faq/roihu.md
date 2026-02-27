@@ -8,9 +8,9 @@ Installation of new supercomputers is a complex process. Thus, it is hard to
 provide an exact date for when Roihu will be generally available.
 
 However, based on the current progress of the installation, CSC estimates that
-the Roihu pilot phase will be able to start at the end of March 2026.
-Subsequently, the general availability of the system will be at the end of
-April 2026. Please observe that delays are still possible.
+the Roihu pilot phase will be able to start in April 2026. Subsequently, the
+general availability of the system will be in May 2026. Please observe that
+delays are still possible.
 
 [Read more about the tentative schedule here](../../computing/systems-roihu.md#schedule).
 
