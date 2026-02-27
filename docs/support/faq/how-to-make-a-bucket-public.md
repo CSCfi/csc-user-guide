@@ -16,7 +16,7 @@ Go to [Allas web interface](https://allas.csc.fi) and:
 2. Click the checkbox to make the bucket public.
 3. Press on the link. This will open a new tab with the public URL. 
 4. Append the file name to the url to see it publicly.
-5. Check again the checkbox to make the bucket private.
+5. Uncheck to make the bucket private.
 
 ![Public-Buckets](../../data/Allas/using_allas/img/public-bucket.png){ width=80% }
 <br>Making a bucket public

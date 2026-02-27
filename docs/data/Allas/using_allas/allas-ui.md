@@ -182,7 +182,7 @@ You can create subfolders inside a bucket in two ways:
 ### Why does preview download the file instead of showing it?
 
 The preview feature depends on the object’s **Content Type**.  
-If the content type is not supported by the browser, the file will be downloaded instead of displayed.
+If the content type is not supported by the browser, the file will be downloaded rather than displayed.
 
 You can check the content type of an object by clicking the **Info** button.  
 Common previewable types include images, PDFs, and text files.
@@ -223,9 +223,9 @@ This limitation will be removed in the upcoming S3 version.
 
 ---
 
-### Why don’t I see creation date or checksum for some objects?
+### Why don’t I see the creation date or the checksum for some objects?
 
-Creation date and checksum information are available **only for objects uploaded via the Allas Web UI**.  
+The creation date and the checksum information are available **only for objects uploaded via the Allas Web UI**.  
 Objects uploaded using other tools (such as command line clients) may not include this metadata.
 
 ---
