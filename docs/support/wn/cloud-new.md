@@ -1,4 +1,13 @@
 # Cloud services
+
+## Allas Web UI updates, 26.02.2026
+
+The [Allas Web UI](../../data/Allas/using_allas/allas-ui.md) has been updated with the following new features:
+
+- Buckets can now be made public directly from the web interface.
+- Objects can be previewed in the browser when the content type is supported.
+- A new **Info** view shows detailed object metadata, including content type, size, ETag, checksum, and last modified date
+
 ## PostgreSQL 14 EOL approaching in Pukki, 25.2.2026
 
 As PostgreSQL 14's end-of-life date is set to arrive on 12th of November, 2026, support for it will be removed from Pukki by then. Users are recommended to upgrade their PostgreSQL 14 instances to PostgreSQL 17 well before the EOL date, as restoring from PostgreSQL 14 backups will stop working. Starting on the EOL date, any remaining PostgreSQL 14 instances will be upgraded to 17 by Pukki admins. [Further information can be found on this page](../../cloud/dbaas/postgres-14-eol.md).
