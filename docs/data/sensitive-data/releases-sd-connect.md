@@ -90,7 +90,7 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 
 - **Service access via MyCSC**: requires CSC account, CSC project membership, SD Connect service access and MFA.
 
-- **Web user interface**: redesigned, modern layout based on direct user feedback (Google Chrome and Firfox supported). Improved upload and dowload perfomance: upload through UI supports files up to 100 GB. Larger files can be uploaded  and encrypted automatically via command line. Available for both folders and single files for all project members. Advanced folder sharing: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
+- **Web user interface**: redesigned, modern layout based on direct user feedback (Google Chrome and Firfox supported). Improved upload and dowload performance: upload through UI supports files up to 100 GB. Larger files can be uploaded  and encrypted automatically via command line. Available for both folders and single files for all project members. Advanced folder sharing: for data transfer, collaboration and read only via SD Desktop. Prevents unnecessary copies of data.
 
 - **Automated encryption, decryption and key management**: fully automated key management during encryption and decryption provided by the service, via web user interface and command line tools. 
 
