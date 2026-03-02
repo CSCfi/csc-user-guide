@@ -55,25 +55,10 @@ select the library that should be installed.
 This tool does not check for internal library dependencies, and quite often the first installation attempt fails. 
 In these cases you should check the names of the missing libraries and install them first.
 
-For example, search term _fusion_ finds 8 libraries. In this case we want to install _DNAfusion_ (`DNAfusion_1.0.0.tar.gz`), 
+For example, search term _fusion_ finds 7 libraries. In this case we want to install _DNAfusion_ (`DNAfusion_1.10.0.tar.gz`), 
 that is listed as the first in the list, so the installation is started by pressing _1_ and then _Enter_.
 
-In this case, the installation however fails as DNAfusion depends on a library which is not yet installed. 
-In this kind of situations you need to check the names of the missing libraries from the error message and install them first. 
-You can give the name of the library as an argument to the add-R-library command. 
-For example in this case the missing library, _bamsignals_, can be added with command:
-
-```text
-add-R-library bamsignals
-```
-
-After which you can install DNAfusion
-
-```text
-add-R-library DNAfusion
-```
-
-The additional libraries are installed to location `/shared-directory/sd-toold/apps/R/lib` where they are available for
+The new libraries are installed to location `/shared-directory/sd-toold/apps/R/lib` where they are available for
 all the users of the virtual machine. This is not a default location of R libraries so you must define the location in your 
 R code with command:
 

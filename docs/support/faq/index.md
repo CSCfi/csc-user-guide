@@ -42,6 +42,7 @@
 * [Which directory should I use to analyze many small files?](local_scratch_for_data_processing.md)
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
+* [Frequently asked questions about Roihu](roihu.md)
 
 ## Python on supercomputers
 * [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
@@ -81,6 +82,7 @@
 
 ## Rahti
 
+* [Rahti FAQ – common tasks and UI usage](../../cloud/rahti/rahti_faq.md)
 * [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
 * [Does Rahti support UDP connections?](rahti-udp.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
@@ -94,6 +96,7 @@
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
 * [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
+
 
 ## Applications
 

@@ -19,6 +19,15 @@
   background-color: unset;
 }
 
+.md-typeset .catalog-toc ul li a[href^="#roihu"] .md-tag {
+  color: var(--c-warning-800);
+  border-color: var(--c-warning-800);
+}
+
+.md-typeset .catalog-toc ul li a[href^="#roihu"] .md-tag:is(:active, :hover) {
+  background-color: var(--c-warning-100);
+}
+
 .md-typeset .catalog-toc ul li a[href^="#mahti"] .md-tag {
   color: var(--c-accent-800);
   border-color: var(--c-accent-800);

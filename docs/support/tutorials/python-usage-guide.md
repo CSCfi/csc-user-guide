@@ -45,7 +45,12 @@ in a module provided by CSC, do not hesitate to contact our
     source <venv_name>/bin/activate
     pip install whatshap
     ```
-
+    
+    !!! warning
+    
+        The virtual environment needs to be created with the correct python module activated, i.e., the environment where you intend to use the new packages. 
+        You can check which python your venv refers to with: `readlink <venv_name>/bin/python3`.
+    
     Unlike for example Tykky, `venv` creates a new directory for the
     environment, so there is no need for you to create one beforehand.
     Do not forget to use the `--system-site-packages` flag when creating
@@ -130,7 +135,10 @@ in a module provided by CSC, do not hesitate to contact our
         ```
 
     ---
-
+    
+!!! info "Pip installations that require compilation"
+    When building from source, the `--no-build-isolation` flag can be used to compile the package using the active module instead of pip creating an isolated build environment. 
+    In addition, it can be useful to use the verbose `-v`flag to see what pip is doing inside the environment.
 
 !!! warning 
 
