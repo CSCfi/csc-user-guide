@@ -18,7 +18,7 @@ Upcoming, in testing phase.
 
 
 !!! Note
-    More detailed documentation, support materials and user guidance will be published closer to the official release.
+    More detailed documentation, support materials, guidance and webvinars will be published closer to the official release.
 
 
 ## Overview
