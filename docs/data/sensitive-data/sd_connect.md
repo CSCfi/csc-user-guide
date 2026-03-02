@@ -5,7 +5,6 @@
 - [Overview](#overview)
 - [Key features](#key-features)
 - [Limitations](#limitations)
-- [October 2024 major service upgrade](#overview-of-sd-connect-new-features)
 - [Your next steps in this guide](#features-in-sd-connect)
 
 ## Overview
