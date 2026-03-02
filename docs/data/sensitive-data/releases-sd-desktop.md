@@ -27,7 +27,7 @@ SD Desktop v3 introduces a completely redesigned interface that is more intuitiv
 
 - **Support for multiple volumes on the same virtual desktop**: A single virtual desktop can now use multiple volumes simultaneously.
 
-- **New Data Gateway function**s: Data export formt the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
+- **New Data Gateway functions**: Data export formt the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
 
 - **Backward compatibility**: Existing virtual desktops will continue to work, but import/export may be interrupted. Users can either:
 
