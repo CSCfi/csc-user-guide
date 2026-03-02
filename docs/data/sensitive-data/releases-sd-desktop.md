@@ -29,7 +29,7 @@ SD Desktop v3 introduces a completely redesigned interface that is more intuitiv
 
 - **New Data Gateway function**s: Data export formt the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
 
-**Backward compatibility**: Existing virtual desktops will continue to work, but import/export may be interrupted. Users can either:
+- **Backward compatibility**: Existing virtual desktops will continue to work, but import/export may be interrupted. Users can either:
 
 - create a new virtual desktop and move the old volume to it, this option enables all new SD Desktop v3 features.
 
