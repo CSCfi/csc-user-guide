@@ -1,10 +1,10 @@
 # SD Connect: release page
 
-This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and backward compatibility. The service includes a web user inetrface and command line tools. 
+This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and backward compatibility. The service includes a web user interface and command-line tools. 
 
 Version shortcuts:
 
-[SD Connect v3.0.0 Upcoming ](#sd-connnect-v300-upcoming)
+[SD Connect v3.0.0 Upcoming ](#sd-connect-v300)
 
 [SD Connect v2.0.0 Currently in use](#sd-connect-v200-currently-in-use)
 
@@ -12,53 +12,59 @@ Version shortcuts:
 
 
 
-## SD Connnect v3.0.0 
+## SD Connect v3.0.0 
 
-Upcoming, in testing pahse. 
+Upcoming, in testing phase. 
 
 
 ## Overview
 
-Major upgrade required because of a techincal change: transition from the Swift protocol to a new based on S3‑compatible technology. CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This SD Connect version improves long term stability but is not fully backward compatible, this might require file conversion. 
+Major upgrade required because of a technical change: transition from the Swift protocol to a new based on S3‑compatible technology. CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This SD Connect version improves long term stability but is not fully backward compatible, this might require file conversion. 
 Later on, all data will also need to be migrated to a new storage solution that CSC will deploy by the end of 2026 called Allas 2. 
 
 
 ## Key features and changes
 
-- **Web user interface**: search function removed, tag function removed, last activity removed, number of objects in a folder and folder size removed from the main view but available inside the main folder, sorting removed. Only Chrome currently supprted. Uploding FOlders not currently suppoorted.
+- **Web user interface**: search function removed, tag function removed, last activity removed, number of objects in a folder and folder size removed from the main view but available inside the main folder, sorting removed. In this version, the main folder is renamed as a bucket. Only Chrome currently supported. Uploading folders inside a bucket not yet supported.
 
-- **Command Line tools**: SD Lock-unlock V3.0.0 provides same functionalities but the updated version needs to be installed locally. SD Lock-unlock V2 will no longer be fucntional. 
+- **Command Line tools**: SD Lock-unlock V3.0.0 provides same functionalities but the updated version needs to be installed locally. SD Lock-unlock V2 will no longer be functional. 
 
-- **New bucket/ main folder naming restrictions**: Supported: 3–63 characters, lowercase letters/numbers/hyphens, must start & end with letter/number. Not supported: upper case, special characters, underscore. Note: this does nto affect subfolders or files. 
+- **New bucket/ main folder naming restrictions**: Supported: 3–63 characters, lowercase letters/numbers/hyphens, must start & end with letter/number. Not supported: upper case, special characters, underscore. Note: this does not affect folders or files stored inside the bucket. 
 
-- **Techinical changes**: the underlying storage protocol is transitioning from OpenStack Swift to the Amazon S3 (Simple Storage Service) API standard. This is a significant technical change that affects how data is uploaded, stored, and accessed inside the service via web user interface and commandl line tools. While the new S3‑based backend improves long‑term stability and ecosystem compatibility, it also introduces a number of unavoidable changes in functionality.
+- **Technical changes**: the underlying storage protocol is transitioning from OpenStack Swift to the Amazon S3 API standard. This is a significant technical change that affects how data is uploaded, stored and accessed inside the service via web user interface and commandl line tools. While the new S3‑based backend improves long‑term stability and infrastructure compatibility, it also affects backward compatibility, meaning that some older files or bucket names may need to be converted to function properly.
 
-- **SD Connect conversion tool**: a simple graphical user interface or command‑line tool that helps convert files uploaded using SD Connect v1–2 to the new version. The tool: Converts incompatible bucket names to a supported format and migrates the renamed buckets, Restores correct file sizes for older objects, Restores file access for items affected by the protocol change, Restores sharing permissions so shared folders become visible and usable again
-
-
-- **Backward compatibility**: files uploaded with a previuos version of the service may not be temporarly accessible unless converted to a new file format via the SD Connect onversion tool provided by CSC. 
-
-- Buckets with incompatible names: data stored in these buckets will not be accessible after upgrade. Users must run the conversion tool to rename the bucket, convert files in the new format and restore access.
-
-- Buckets with compatible names: data will remain accessible. Some files may temporarily appear with a file size of “0” in the user interface. Running the conversion tool will correct the metadata and display the proper file sizes. This step is recommended but can be postponed until the full migration to the new storage solution at the end of 2026, when all remaining adjustments will be handled.
-
-- Shared buckets: shared buckets will no longer appear in the web interface after the transition.
-The conversion tool should be run to restore visibility of sharing permissions. 
+- **SD Connect conversion tool**: A simple graphical user interface and command‑line tool is available to help convert files uploaded using SD Connect v1–2 to the new version. The tool:converts incompatible bucket names to a supported format by renaming them. Restores correct file sizes. Restores sharing permissions so that shared folders become visible and usable again
 
 
+- **Backward compatibility**: Files uploaded with a previous version of the service may not be temporarily accessible unless they are converted to the new file format using the SD Connect conversion tool provided by CSC.
 
-## Feature comparison table
+Buckets with incompatible names: Data stored in buckets with unsupported names will not be accessible after the upgrade. Users must run the conversion tool to rename the bucket, convert the files to the new format, and restore access.
 
-| Feature | SD Connect v2.0.0  (currently in use)| SD Connect v1.0.0 (discontinued) |
-|---------|----------------|----------------------------------------|
-|Service access via [MyCSC](https://my.csc.fi)|No chnages |Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC accountRequires CSC account and project and Allas service acces|
-|User interface|search fucntion removed; tags function removed, terminology: main folder now called bucket, bucket size and nummber of files no longer displayed in hoempage, sorting no longer supported, Firefox not supported|
-|Automated encryption and upload| No chnages. Restrictions in bucket naming.|Upload via user interfaces supports files up to 100 GB, larger files can be automatically uploaded during upload via command line|
-|Automated decryption and download|No changes. Backward compatibility issues due to restricitons in bucket naming.|Available for folders or single files for all project members|
-|Key management|No chnages|Automatically provided by the service|
-|Folder sharing| No changes. Backward compatibility issues, sharing needs to be converted or redone. |Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop|
-|Command-line utility tool| User needs to insall updated tool, SD lock-unloc V3, as previuos version will no longer be functional. |SD Lock/Un-lock provide automated key management, this requires temporary token|
-|Backward compatibility|Files uploaded with previous versions of SD Connect may be temporarily inaccessible until they are converted to the new format, or they may be accessible but show an incorrect file size. | |
+Buckets with compatible names: Data will remain accessible. However, some files may temporarily appear with a file size of “0” in the user interface. Running the conversion tool will correct the metadata and display the proper file sizes. This step is recommended but can be postponed until the full migration to the new storage solution at the end of 2026.
+
+Shared buckets: Shared buckets will no longer appear in the web interface after the transition. Running the conversion tool will restore the visibility of sharing permissions.
+
+
+
+
+
+
+
+## **Feature comparison table**
+
+| **Feature**                           | **SD Connect V3 (new)**                                                                                                                                                                               | **SD Connect v2.0.0 (discontinued)**                                                                                           |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Service access via MyCSC**          | No changes.                                                                                 |  Requires CSC account and project, SD Connect service access, and multi‑factor authentication enabled on your CSC account.                                       |
+| **User interface**                    | Search function removed; tags removed; terminology updated (main folder now called *bucket*); bucket size and number of files no longer displayed on the homepage; sorting no longer supported; Firefox not supported. | —                                                                                                                              |
+| **Automated encryption and upload**   | No changes. Bucket‑naming restrictions apply.                                                                                                                                                                          | Upload via user interface supports files up to 100 GB; larger files can be uploaded automatically using the command‑line tool. |
+| **Automated decryption and download** | No changes. Backward compatibility issues may occur due to bucket‑naming restrictions.                                                                                                                                 | Available for folders or single files for all project members.                                                                 |
+| **Key management**                    | No changes.                                                                                                                                                                                                            | Automatically handled by the service.                                                                                          |
+| **Folder sharing**                    | No changes. Some backward compatibility issues may occur; sharing may need to be converted or recreated.                                                                                                               | Supports three types of data sharing: data transfer, collection, or collaborative analysis on SD Desktop.                      |
+| **Command‑line utility tool**         | Users must install the updated tool, **SD Lock‑unlock v3**, as the previous version will no longer be functional.                                                                                                      | **SD Lock/Unlock** provides automated key management; requires a temporary token.                                              |
+| **Backward compatibility**            | Files uploaded with previous versions may be temporarily inaccessible until converted to the new format, or they may appear with an incorrect file size.                                                               | —                                                                                                                              |
+
+
+## Visual comparison: old vs. new
 
 
 ![connectv3-ui](images/connect/connectv3-ui.png)
