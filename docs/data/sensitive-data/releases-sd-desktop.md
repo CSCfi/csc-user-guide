@@ -35,9 +35,6 @@ SD Desktop v3 introduces a completely redesigned interface that is more intuitiv
 
 - import the new Data Gateway into the current desktop: import/export works, but attaching new or multiple volumes will not be available.
 
-Here is a **clean, clear, Markdown-ready feature comparison table** for **SD Desktop v2 vs SD Desktop v3**, based on the categories you listed and the changes you previously provided.
-
-I filled in the information using your descriptions and kept the style consistent with the SD Connect table.
 
 
 ## Feature comparison table: 
