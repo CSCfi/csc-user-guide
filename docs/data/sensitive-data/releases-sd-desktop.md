@@ -56,5 +56,5 @@ I filled in the information using your descriptions and kept the style consisten
 
 ![desktopv3-ui](images/desktop/desktop-new-ui.png)
 
-![desktopv3-gateway](images/desktop/desktop-new.gateway.png)
+![desktopv3-gateway](images/desktop/desktop-new-gateway.png)
 
