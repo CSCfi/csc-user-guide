@@ -9,7 +9,7 @@
 
 In the following section, you will learn:
 
-- [What are Cloud and Storage Billing Units and quota](#what-are-cloud-and-storage-billing-units-and-quota)
+- [What are Cloud and Storage Billing Units and storage quota](#what-are-cloud-and-storage-billing-units-and-quota)
 
 - [What happens if your project runs out of Billing Units](#what-happens-if-your-project-runs-out-of-billing-units)
 
@@ -19,60 +19,55 @@ In the following section, you will learn:
 
 
 
-## What are Cloud and Storage Billing Units and quota
+## What are Billing Units and storage quota
 
-1. **Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
+**Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
      
-- **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
-     
-- **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
+**Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
 
+- **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources.
 - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure.
+- 30 000 Cloud and Storage BUs is usually enough for initial testing. 
      
-- 30 000 Cloud and Storage BUs is usually enough for initial testing. Next, you should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. The instructions below will guide you through the process.
-      
-2. **The storage quota** limits the amount of storage space available:
- 
-- Default quota (or storage space) for each CSC project with for **SD Connect enabled is 10 TB**, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
+**The storage quota** limits the amount of storage space available:
 
-- Default **volume quota for each virtual desktop is up to 200 GB**. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
-
+ - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
+ - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
 
 
 ## What happens if your project runs out of Billing Units?
 
-1. Once all the Cloud Billing Units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
+When your CSC project runs out of Cloud Billing Units, you will have a **limited access** to the SD Desktop. This means:
 
 - All virtual desktops currently running will automatically be paused.
-- You will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources.
-- Your data remains unaffected and will not be deleted, even in cases where the total Billing Units reach zero or enter negative values.
+- You will not be able to access the virtual desktops content's or unpause them, until you have applied for more Billing Units.
+- Your data will remain unaffected and will not be deleted, even if your total amount of Billing Units reach zero or drop below zero.
 
 !!! Note
     Each project member will receive a notification via email from the MyCSC portal when the Billing Units for your CSC project are about to end.
 
     
-2. Once all quota (or storage space) has been used:
+Once all quota (or storage space) has been used:
 
-- Data upload to SD Connect will no longer be possible
+- Data upload to SD Connect will no longer be possible.
+- Data import to SD Desktop will no longer be possible.
   
-- Data import to SD Desktop will no loner be possible
-  
 
-## Determine the appropriate Billing Units Package
+## Determine the appropriate Billing Units package
 
-Estimate the Billing Units your project will consume over the next six months for SD Desktop (Cloud BUs Type) and SD Connect (Storag Bus typee) using the examples provided below. This will help you determine which package to apply for in the MY.csc.fi portal. Before you begin, please note:
+Estimate the Billing Units your project will consume over the next six months for SD Desktop (Cloud Billing Units) and SD Connect (Storage Billing Units) using the examples provided below. This will help you determine which package to apply for via MyCSC portal. Before you begin, please note:
 
 - Unused Billing Units expire every six months, so request only what you need.
 
 - The Basic, Small and Medium packages have fixed Billing Unit (BU) allocations, while the Large package is flexible and can be defined by you, up to a maximum of 3,000,000 BUs.
 
-- If your virtual desktop has been paused because all billing Units have been already consumed, apply for the Small Package (30,000 BUs). It will be assigned immediately so you can resume work. After two weeks, review if more units are needed.
+- If your virtual desktop has been paused because all billing Units have been already consumed, apply for the Small Package (30,000 BUs). It will be assigned immediately, allowing you to resume work. After two weeks, review your usage to see if additional units are needed.
 
-- after each Billing Units application, **there is a two week period during which you cannot submit another request**. If you are unsure what billing units package you need to apply for, pelase contact us at servicedesk@csc.fi
+- After each Billing Units application, **there is a two week period during which you cannot submit another request**. If you are unsure what Billing Units package you need to apply for, please contact us at servicedesk@csc.fi.
 
 
 
-#### SD Desktop: cloud type billing units
+#### SD Desktop: Cloud Billing Units
 
 Analysing data in SD Desktop consumes **Cloud Billing Units** based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
 
@@ -89,7 +84,7 @@ Here’s a table summarizing the Cloud Billing Units required for using **SD des
 
 
 
-#### SD Connect: storage type billing units
+#### SD Connect: Storage Billing Units
 
 SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.365 Storage BUs per TB per hour**.
 
@@ -106,10 +101,10 @@ Here’s a table summarizing the Storage Billing Units required for storing data
 
 
 
-## Apply for more billing units in the MyCSC portal
+## Apply for more billing units via MyCSC portal
 
 
-You can apply for more BUs for your CSC project in MyCSC portal. Please note that after each application, there is a two week period during which you cannot submit another Billing units (BUs) request, thus make sure to apply for resources in advance.
+You can apply for more BUs for your CSC project via MyCSC portal. Please note that after each application, there is a two week period during which you cannot submit another Billing units (BUs) request, thus make sure to apply for resources in advance.
 
 1. Sign in to MyCSC with your Haka or Virtu credentials.
 2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
