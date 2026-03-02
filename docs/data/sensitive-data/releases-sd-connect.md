@@ -17,6 +17,10 @@ Version shortcuts:
 Upcoming, in testing phase. 
 
 
+!!! Note
+    More detailed documentation, support materials and user guidance will be published closer to the official release.
+
+
 ## Overview
 
 Major upgrade required because of a technical change: transition from the Swift protocol to a new based on S3‑compatible technology. CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This SD Connect version improves long term stability but is not fully backward compatible, this might require file conversion. 
