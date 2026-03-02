@@ -54,4 +54,7 @@ I filled in the information using your descriptions and kept the style consisten
 
 ## Visual comparison: old vs. new
 
+![desktopv3-ui](images/desktop/desktop-new-ui.png)
+
+![desktopv3-gateway](images/desktop/desktop-new.gateway.png)
 
