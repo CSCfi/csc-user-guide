@@ -4,7 +4,7 @@ This page summarizes the major releases of SD Desktop, highlighting improvements
 
 Version shortcuts:
 
-- [SD Desktop v3.0.0 Upcoming ](#sd-connect-v300)
+- [SD Desktop v3.0.0 Upcoming ](#sd-desktop-v300)
 
 
 ## SD Desktop v3.0.0 
@@ -41,7 +41,7 @@ Here is a **clean, clear, Markdown-ready feature comparison table** for **SD Des
 I filled in the information using your descriptions and kept the style consistent with the SD Connect table.
 
 
-## **Feature comparison table: 
+## Feature comparison table: 
 
 | **Feature**                    | **SD Desktop v3 (new, upcoming)**                                                                                     | **SD Desktop v1 (current)**                                                             |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
