@@ -1,4 +1,4 @@
-# SD Connect: release page
+# Release page: SD Connect
 
 This page summarizes the major releases of SD Connect, highlighting improvements in usability, security, automation and backward compatibility. The service includes a web user interface and command-line tools. 
 
