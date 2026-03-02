@@ -1,6 +1,6 @@
-# Releases: SD Desktop
+# SD Desktop: releases
 
-This page summarizes the major releases of SD Desktop, highlighting improvements in usability, security, automation and backward compatibility. The service includes a web user interface. 
+This page summarizes the major releases of SD Desktop, highlighting improvements in usability, security, automation and backward compatibility. 
 
 Version shortcuts:
 
@@ -11,14 +11,13 @@ Version shortcuts:
 
 Upcoming, in testing phase.
 
+## Overview
+
+SD Desktop v3 introduces a completely redesigned interface that is more intuitive, easier to use, and developed in close collaboration with users. This version focuses on improving usability, flexibility in volumes management and authomation. 
 
 !!! Note
     More detailed documentation, support materials, guidance and webvinars will be published closer to the official release.
 
-
-## Overview
-
-SD Desktop v3 introduces a completely redesigned interface that is more intuitive, easier to use, and developed in close collaboration with users. This version focuses on improving usability, flexibility in volumes management and authomation. 
 
 ## Key features and changes
 
@@ -49,7 +48,7 @@ I filled in the information using your descriptions and kept the style consisten
 | **User interface**             | Completely redesigned interface, more intuitive and user‑friendly, built with user feedback.                | Older interface with limited usability and less intuitive workflow.                     |
 | **Virtual machine management** | Attach/detach volumes while the virtual desktop is running; support for multiple volumes; updated workflow. | Volume can only be added during creation pahse; only one volume supported       |
 | **Volume management**          | Multiple volumes supported on a single VM; real‑time attach/detach operations.                              | Single volume per VM                                |
-| **Data Gateway application**   | automated encryption during export, no username/password needed, improved performace.                  |  manual credentials required, no automated encryption during export. |
+| **Data Gateway application**   | automated encryption during export, no username/password needed, improved performance.                  |  manual credentials required, no automated encryption during export. |
 
 
 ## Visual comparison: old vs. new
