@@ -17,14 +17,14 @@ project.
 This guide outlines service-specific details on how to organize courses using
 the services in scope of the CSC Course project type:
 
-* [Allas](#allas)
-* [cPouta](#cpouta)
-* [Puhti & Mahti](#puhti-and-mahti)
-* [Pukki](#pukki)
-* [Rahti](#rahti)
-* [SD Services](#sd-services)
+* Allas
+* cPouta
+* Puhti & Mahti
+* Pukki
+* Rahti
+* SD Services
 
-The [Noppe](#noppe) service, using which does not require a CSC project, is
+The Noppe service, using which does not require a CSC project, is
 also covered.
 
 If you're unsure which services would be suitable for your course,
@@ -32,7 +32,7 @@ If you're unsure which services would be suitable for your course,
 
 ## Which services are suitable for my course?
 
-| My course needs ... | [Allas](#allas) | [cPouta](#cpouta) | [Noppe](#noppe) | [Puhti & Mahti](#puhti-and-mahti) | [Pukki](#pukki) | [Rahti](#rahti) | [SD Services](#sd-services) |
+| My course needs ... | Allas | cPouta | Noppe | Puhti & Mahti | Pukki | Rahti | SD Services |
 |-|-|-|-|-|-|-|-|
 | Computing resources | &#10060; | &#9989; | &#9989; | &#9989; | &#10060; | &#9989; | &#9989; |
 | **Lots** of computing resources | &#10060; | &#10060; | &#10060; | &#9989; | &#10060; | &#10060; | &#10060; |
@@ -105,7 +105,7 @@ If you're unsure which services would be suitable for your course,
     machines to I/O-intensive or GPU-enabled ones. These virtual machines can
     be accessed from the internet via a public IPv4 address. If your course
     requires substantial computing resources, the HPC platforms
-    [Puhti and Mahti](#puhti-and-mahti) are recommended instead.
+    Puhti and Mahti are recommended instead.
 
     The OpenStack platform can be administered either through the web interface
     or using command-line tools.
