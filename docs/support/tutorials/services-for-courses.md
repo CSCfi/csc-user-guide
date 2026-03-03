@@ -17,22 +17,22 @@ project.
 This guide outlines service-specific details on how to organize courses using
 the services in scope of the CSC Course project type:
 
-* Allas
-* cPouta
-* Puhti & Mahti
-* Pukki
-* Rahti
-* SD Services
+* <a href="#allas">Allas</a>
+* <a href="#cpouta">cPouta</a>
+* <a href="#puhti-and-mahti">Puhti & Mahti</a>
+* <a href="#pukki">Pukki</a>
+* <a href="#rahti">Rahti</a>
+* <a href="#sd-services">SD Services</a>
 
-The Noppe service, using which does not require a CSC project, is
-also covered.
+The <a href="#noppe">Noppe</a> service, using which does not require a CSC
+project, is also covered.
 
 If you're unsure which services would be suitable for your course,
 [see the table below](#which-services-are-suitable-for-my-course).
 
 ## Which services are suitable for my course?
 
-| My course needs ... | Allas | cPouta | Noppe | Puhti & Mahti | Pukki | Rahti | SD Services |
+| My course needs ... | <a href="#allas">Allas</a> | <a href="#cpouta">cPouta</a> | <a href="#noppe">Noppe</a> | <a href="#puhti-and-mahti">Puhti & Mahti</a> | <a href="#pukki">Pukki</a> | <a href="#rahti">Rahti</a> | <a href="#sd-services">SD Services</a> |
 |-|-|-|-|-|-|-|-|
 | Computing resources | &#10060; | &#9989; | &#9989; | &#9989; | &#10060; | &#9989; | &#9989; |
 | **Lots** of computing resources | &#10060; | &#10060; | &#10060; | &#9989; | &#10060; | &#10060; | &#10060; |
@@ -105,7 +105,7 @@ If you're unsure which services would be suitable for your course,
     machines to I/O-intensive or GPU-enabled ones. These virtual machines can
     be accessed from the internet via a public IPv4 address. If your course
     requires substantial computing resources, the HPC platforms
-    Puhti and Mahti are recommended instead.
+    <a href="#puhti-and-mahti">Puhti and Mahti</a> are recommended instead.
 
     The OpenStack platform can be administered either through the web interface
     or using command-line tools.
