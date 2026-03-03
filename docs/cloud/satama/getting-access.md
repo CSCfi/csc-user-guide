@@ -6,6 +6,9 @@
 In order to use the Satama container registry with a CSC account, you need:
 
 1. A CSC user account. You can check which is your "CSC username" in [MyCSC profile page](https://my.csc.fi/profile). You can also change the password from there. If you don't have a CSC account already, you can create one by following [Create a new CSC user account](../../accounts/how-to-create-new-user-account.md)
+
+Multi Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../accounts/mfa.md)
+
 2. A CSC project with Satama service enabled. To create a new CSC project, follow [Create a new CSC project](../../accounts/how-to-create-new-project.md) or ask to be added to an existing project. The project should have Satama service enabled to access. Follow [Apply for Satama access](../../accounts/how-to-add-service-access-for-project.md) to enable Satama in your CSC project.
 
 
