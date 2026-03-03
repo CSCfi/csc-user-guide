@@ -3,8 +3,13 @@
 !!! warning "Recommendations"
     Before using Satama, we recommend that you familiarise yourself with containers.
    
-Satama is a cloud-native container image registry for CSC. It is based on [Harbor](https://goharbor.io/docs/2.13.0/) which extends the capabilities of Docker Hub. Satama provides a secure and centralized place for users to push and pull container images, just like Docker Hub, but with added features such as role-based access control, vulnerability scanning, and image signing. Satama simplifies image management by allowing users to push, pull, and organize container images efficiently while ensuring that only verified and authorized images are deployed across environments.
+Satama is a cloud-native container image registry for CSC. It is based on [Harbor](https://goharbor.io/docs/2.13.0/) which extends the capabilities of Docker Hub. 
 
+Satama provides a secure and centralized location for users to push, pull, and manage container images within CSC’s infrastructure. While it offers functionality similar to Docker Hub, it includes additional enterprise features such as role-based access control (RBAC), vulnerability scanning, image signing, and detailed audit logging.
+
+By using Satama, teams can organize images into projects, control who can access or modify them, and ensure that only verified and authorized images are deployed across cloud and HPC environments. Built-in security features such as vulnerability scanning and SBOM generation help users understand image contents and identify potential risks before deployment.
+
+Satama simplifies image lifecycle management by enabling consistent versioning, structured organization, and controlled sharing of container images. This ensures reproducibility, reliability, and compliance across development, research, and production workloads.
 
 ## When should I choose Satama
 
