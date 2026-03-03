@@ -66,7 +66,7 @@ includes following python packages:
 -   [pysal] - spatial analysis functions.    
 -   [pdal](https://pdal.io/) - for lidar data
 -   [pyntcloud](https://pyntcloud.readthedocs.io/) - for working with 3D point clouds.
--   [pysheds](https://mdbartos.github.io/pysheds/) - for watershed delineation. NEW 2025
+-   [pysheds](https://github.com/pysheds/pysheds) - for watershed delineation. NEW 2025
 -   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs.  [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   [python-cdo](https://pypi.org/project/cdo/) - scripting interface to CDO (Climate Data Operators).
 -   **[rasterio]** - access to geospatial raster data.
