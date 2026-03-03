@@ -49,7 +49,7 @@ class Catalog:
 
     @property
     def __sorted_apps(self):
-        return sorted(self.__apps, key=lambda app: app.name)
+        return sorted(self.__apps, key=lambda app: app.name.lower())
 
     def __collect_systems(self, availability):
         for item in availability:
