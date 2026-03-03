@@ -32,7 +32,7 @@ At the moment CSC provides several web browser interfaces for Allas:
 
 | Web interface  | Instructions |SWIFT support | S3 support | Use cases | Limits |
 | ----- | ------------- | ---------- | --------- | ------- | ------- |
-| [Allas web UI](https://allas.csc.fi)  | [Instructions](./using_allas/allas-ui.md) | <font color="green">&#x2714;</font> |   | General first choice, share data with another project | Max 5 GB files)
+| [Allas web UI](https://allas.csc.fi)  | [Instructions](./using_allas/allas-ui.md) | <font color="green">&#x2714;</font> |   | General first choice, share data with another project, make buckets public | Max 5 GB downloads |
 | [Puhti web UI](https://www.puhti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Puhti or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
 | [Mahti web UI](https://www.mahti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Mahti or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
 | [cPouta web UI](https://pouta.csc.fi) | [Instructions](./using_allas/web_client.md)  | <font color="green">&#x2714;</font> |  | Make your bucket public | Max 5 GB files, uploading/downloading only a single file at a time. | 
@@ -92,9 +92,9 @@ A _web client_ is suitable for using the basic functions. *a-commands* offer eas
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font> | |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Remove** | | | | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>&#8226;&#8226; | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>&#8226;&#8226; |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>&#8226;&#8226; |
 | **Managing access rights** | | | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private |  | <font color="green">&#x2714;</font>| | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font> |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp URLs | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Set lifecycle policies** | | | | | <font color="green">&#x2714;</font> |
