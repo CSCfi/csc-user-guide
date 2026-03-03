@@ -1,5 +1,10 @@
 # Training & tutorials
 
+## New guide on how to organize courses using CSC services published, 2.3.2026
+
+A new guide on how to organize courses using CSC services has been published.
+[Read the guide here](../tutorials/services-for-courses.md)!
+
 ## Renewed research.csc.fi website launched, 26.02.2025
 
 In addition to a fresh new look, the _Services for research_ website has been restructured based on feedback from our users and following best User Interface and User Experience (UI/UX) design practices. The content has also been streamlined in a way which we hope will make finding information about CSC’s services easier. One of the new features&mdash;a pre-header for navigating between different CSC websites&mdash;has also been introduced to Docs CSC. [Read the blog at research.csc.fi to learn more.](https://research.csc.fi/2025/01/23/renewed-research-csc-fi-website-aims-to-clarify-cscs-service-offering-and-improve-end-user-communication/){ target=_blank }
