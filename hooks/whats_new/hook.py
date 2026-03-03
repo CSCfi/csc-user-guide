@@ -1,6 +1,4 @@
-"""Generate links to What's new entries for
-  - docs/index.md
-  - docs/support/whats-new.md
+"""Generate links to What's new entries.
 """
 import pathlib
 import functools
@@ -12,7 +10,9 @@ from .parser import WhatsNewParser
 
 
 class WhatsNewHook(DocsHook):
-    """Generate What's new entries.
+    """List What's new entries on
+        - docs/index.md (cutoff)
+        - docs/support/whats-new.md
     """
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
