@@ -38,7 +38,7 @@ If you're unsure which services would be suitable for your course,
 | **Lots** of computing resources | &#10060; | &#10060; | &#10060; | &#9989; | &#10060; | &#10060; | &#10060; |
 | **GPU** computing resources | &#10060; |  &#9989; | &#10060; | &#9989; | &#10060; | &#10060; | &#10060; |
 | **File** storage resources | &#10060; | &#9989; | &#9989; | &#9989; | &#10060; |  &#9989; | &#9989; |
-| **Object** storage resources | &#9989; | &#9989; | &#10060; | &#10060; | &#10060; |  &#9989; | &#9989; |
+| **Object** storage resources | &#9989; | &#10060; | &#10060; | &#10060; | &#10060; |  &#10060; | &#9989; |
 | A database | &#10060; | &#9989; | &#10060; | &#10060; | &#9989; | &#9989; | &#10060; |
 | Access to pre-installed (scientific) software | &#10060; | &#10060; | &#9989; | &#9989; | &#10060; | &#10060; | &#9989; |
 | Process or store sensitive data | &#10060; | &#10060; | &#10060; | &#10060; | &#10060; | &#10060; | &#9989; |
