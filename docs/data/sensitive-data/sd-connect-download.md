@@ -45,7 +45,6 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 3. **Accept cookies** if needed: A pop-up window may appear at the top of your browser asking for cookie consent. The download will not start until cookies have been accepted.
 
-
 4. **Wait for the download to complete**: a progress bar will show the download status. Once finished, open your local download folder, where you may see two files:
 
     * .tar file – This is the actual file containing your downloaded folder.
