@@ -33,16 +33,16 @@ The project manager has either added you to a CSC project or sent you an invitat
 * **Option A:** Project manager has already added you as a member. Check your email for a notification and log in to MyCSC to find the project.
 * **Option B:** You received an invitation link via email. Click the link to apply for membership, and the project manager will approve your membership application.
 
-### 3. Log into SD Services
+### 3. Log into services
 
-- Now all the preparations are ready and you can start using the services (links to related user guides):
+- Now all the preparations are ready and you can start using the services. Below you'll find links to related user guides:
 
-SD Connect:
+**SD Connect:**
 
 - [SD Connect overview and key features](./sd_connect.md)
 - [SD Connect login instructions](./sd-connect-login.md)
   
-SD Desktop:
+**SD Desktop:**
 
 - [SD Desktop overwvire and key features](./sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)

@@ -31,12 +31,9 @@ In the following section, you will learn:
      
 **The storage quota** limits the amount of storage space available:
 
-The default storage quota for each CSC project with SD Connect enabled is 10 TB. If needed, the quota can be increased up to 200 TB by contacting the Service Desk (subject: Increase Allas quota).
+- The default storage quota for each CSC project with SD Connect enabled is 10 TB. If needed, the quota can be increased up to 200 TB by contacting the Service Desk (subject: Increase Allas quota).
 
-When starting a new virtual desktop, the user can create a new volume and define its desired size. The user can set the volume's size to a maximum of 200 GB. This storage space is used to import files from SD Connect to SD Desktop for the analysis phase. The volume can be expanded before any data has been imported into it by contacting servicedesk@csc.fi
- (subject: SD Desktop).
-
-The Volume appears on the virtual desktop in the same way as a USB flash drive or an external hard drive appears on your own computer.
+- When starting a new virtual desktop, the user can create a new volume and define its desired size. The user can set the volume's size to a maximum of 200 GB. This storage space is used to import files from SD Connect to SD Desktop for the analysis phase. The volume can be expanded before any data has been imported into it by contacting servicedesk@csc.fi(subject: SD Desktop). Volume appears on the virtual desktop in the same way as a USB flash drive or an external hard drive appears on your own computer.
 
 
 ## What happens if your project runs out of Billing Units?
@@ -141,16 +138,16 @@ Click **Next**.
 When the Biling Units will be assigned to the CSC Project you will receive an email notification. 
 
 
-### Log into SD Services
+### Log into services
 
-- Now all the preparations are ready and you can start using the services (links to related user guides):
+- Now all the preparations are ready and you can start using the services. Below you'll find links to related user guides:
 
-SD Connect:
+**SD Connect:**
 
 - [SD Connect overview and key features](./sd_connect.md)
 - [SD Connect login instructions](./sd-connect-login.md)
   
-SD Desktop:
+**SD Desktop:**
 
 - [SD Desktop overview and key features](./sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)
