@@ -104,7 +104,7 @@ includes following python packages:
 -   [stackstac](https://stackstac.readthedocs.io/) - STAC data to xarray, [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC/stacstac(old)). Has not been updated lately, use rather `odc-stac`.
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas. [Allas Swift example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_Swift.py).
 -   [urbanaccess](https://udst.github.io/urbanaccess) - for computing GTFS transit and OpenStreetMap pedestrian networks for accessibility analysis. Only in 3.12.10
--   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details.
+-   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details. 3.14.3 includes also Whitebox Workflows for Python.
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [cf_xarray](https://cf-xarray.readthedocs.io/en/latest/) - interpret Climate and Forecast metadata convention attributes present on xarray objects. NEW 2026
     -   [flox](https://flox.readthedocs.io/en/latest/) - fast GroupBy reductions for Xarray. NEW 2026
