@@ -11,15 +11,16 @@ Multi Factor Authentication (MFA) is required when login. For more information, 
 
 2. A CSC project with Satama service enabled. To create a new CSC project, follow [Create a new CSC project](../../accounts/how-to-create-new-project.md) or ask to be added to an existing project. The project should have Satama service enabled to access. Follow [Apply for Satama access](../../accounts/how-to-add-service-access-for-project.md) to enable Satama in your CSC project.
 
-
 Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) in case you
 need assistance.
 
 ## Add Individual Members to Project
 
-You can add individual users to an existing project and assign a role to them ,if you have project admin role. Satama enforces role-based access control to ensure that only authorized users can perform specific actions.
+If you have project admin role, you can add individual users to an existing project and assign a role to them. Satama enforces role-based access control to ensure that only authorized users can perform specific actions.
 
-When you click on your project, click on **Members** tab
+The user must be added to MyCSC project and should login to Satama platform once before giving access to Satama project. 
+
+To add user, click on your project and click on **Members** tab
 
 ![Add Member](img/add_member.png)
 
