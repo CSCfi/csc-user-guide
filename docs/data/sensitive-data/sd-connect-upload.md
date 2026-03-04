@@ -7,7 +7,7 @@
 Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically.
 
 !!! Note
-     All members of a CSC project can upload and download files stored in the project via SD Connect. To restrict access, files can be shared with another CSC project of type Academic using Read to SD Desktop permission. For assistance, please contact servicedesk@csc.fi (subject: SD Connect).      
+     All members of a CSC project can upload and download files via SD Connect. To restrict access, files can be shared with another CSC project (Academic type) using Read to SD Desktop permission. For assistance, please contact servicedesk@csc.fi (subject: SD Connect). 
 
 
 ## Step by step
@@ -65,17 +65,15 @@ On first use, your browser may prompt you to accept cookies. Accepting cookies a
 5. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
 6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
 7. Once the upload is finished, the encrypted files will display the extension .c4gh, this means that they have been successfully encrypted. 
-8. Now the files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation once imported via SD Desktop.
-9. Once files are uploaded and stored, the service begins consuming billing units. The default storage quota is 10 TB. When this limit is reached, uploads will no longer be accepted until additional storage is allocated.
 
-
+Now the files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation once imported via SD Desktop. Once files are uploaded and stored, the service begins consuming billing units. The default storage quota is 10 TB. When this limit is reached, uploads will no longer be accepted until additional storage is allocated.
 
 ![SD Connect Upload](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Upload.png)
 
 
 ## 5. Upload and encrypt files to an existing folder
 
-1. Select the correct folder (by double-click).
+1. Select the correct folder.
 2. Click **Upload** in the top right corner and follow steps from 5 to 9 in above paragraph.
 
 ### 6. Create a folder
