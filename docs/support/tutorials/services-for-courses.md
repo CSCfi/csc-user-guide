@@ -36,13 +36,14 @@ If you're unsure which services would be suitable for your course,
 |-|-|-|-|-|-|-|-|
 | Computing resources | &#10060; | &#9989; | &#9989; | &#9989; | &#10060; | &#9989; | &#9989; |
 | **Lots** of computing resources | &#10060; | &#10060; | &#10060; | &#9989; | &#10060; | &#10060; | &#10060; |
-| *File* storage resources | &#10060; | &#9989; | &#9989; | &#9989; | &#10060; |  &#9989; | &#9989; |
-| *Object* storage resources | &#9989; | &#9989; | &#10060; | &#10060; | &#10060; |  &#9989; | &#9989; |
+| **GPU** computing resources | &#10060; |  &#9989; | &#10060; | &#9989; | &#10060; | &#10060; | &#10060; |
+| **File** storage resources | &#10060; | &#9989; | &#9989; | &#9989; | &#10060; |  &#9989; | &#9989; |
+| **Object** storage resources | &#9989; | &#10060; | &#10060; | &#10060; | &#10060; |  &#10060; | &#9989; |
 | A database | &#10060; | &#9989; | &#10060; | &#10060; | &#9989; | &#9989; | &#10060; |
 | Access to pre-installed (scientific) software | &#10060; | &#10060; | &#9989; | &#9989; | &#10060; | &#10060; | &#9989; |
-| To process or store sensitive data | &#10060; | &#10060; | &#10060; | &#10060; | &#10060; | &#10060; | &#9989; |
+| Process or store sensitive data | &#10060; | &#10060; | &#10060; | &#10060; | &#10060; | &#10060; | &#9989; |
 | A multipurpose service allowing flexible course setups | &#10060; | &#9989; | &#10060; | &#9989; | &#10060; | &#9989; | &#10060; |
-| A purpose-built service focusing on specific use cases | &#9989; | &#10060; | &#9989; | &#10060; | &#9989; | &#10060; | &#9989; |
+| Haka login for students (CSC account not required) | &#10060; | &#10060; | &#9989; | &#10060; | &#10060; |&#10060; | &#10060; |
 
 ## Service-specific instructions
 
@@ -59,6 +60,9 @@ If you're unsure which services would be suitable for your course,
 
     Data can be accessed using tools and programming languages based on S3 or
     Swift interfaces.
+
+    Allas can be used also for sharing course materials. If the materials are
+    public, students do not need CSC user accounts. 
 
     ## Instructions
 
@@ -165,7 +169,9 @@ If you're unsure which services would be suitable for your course,
     environments tailored for educational usage in particular.
 
     !!! info
-        Note that you do **not** need a CSC project to use the Noppe service!
+        Note that students do **not** need a CSC project to _use_ the Noppe
+        service. The teacher needs a CSC account, though. Students can log in
+        using several options, including Haka and Virtu.
 
     ## Instructions
 
