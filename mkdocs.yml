@@ -507,9 +507,9 @@ nav:
               - cloud/satama/what-is-satama.md
           - Getting Started:
               - Getting Access: cloud/satama/getting-access.md
-              - Project Configuration: cloud/satama/project-configuration.md
               - Web User Interface: cloud/satama/ui.md
               - Command Line Tool: cloud/satama/cli.md
+              - Project Configuration: cloud/satama/project-configuration.md
 
   - Data:
       - data/index.md

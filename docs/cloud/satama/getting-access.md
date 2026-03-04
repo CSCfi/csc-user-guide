@@ -17,7 +17,17 @@ need assistance.
 
 ## Add Individual Members to Project
 
-You can add individual users to an existing project and assign a role to them. Satama enforces role-based access control to ensure that only authorized users can perform specific actions. The primary roles are Limited Guest, Guest, Developer, Maintainer, and Project Admin.
+You can add individual users to an existing project and assign a role to them ,if you have project admin role. Satama enforces role-based access control to ensure that only authorized users can perform specific actions.
+
+When you click on your project, click on **Members** tab
+
+![Add Member](img/add_member.png)
+
+A pop window will open. You can add the username of the member in project and add role of that member.
+
+![Add Role](img/add_role.png)
+
+The primary roles are Limited Guest, Guest, Developer, Maintainer, and Project Admin.
 
 * **Limited Guest** can pull images but cannot push, and they cannot see logs or the other members of a project.
 * **Guest** has read-only permission, they can only retag and pull images.
