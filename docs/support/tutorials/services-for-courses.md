@@ -169,9 +169,9 @@ If you're unsure which services would be suitable for your course,
     environments tailored for educational usage in particular.
 
     !!! info
-        Note that students do **not** need a CSC project to _use_ the Noppe
-        service. The teacher needs a CSC account, though. Students can log in
-        using several options, including Haka and Virtu.
+        Note that students do **not** need a CSC account or project to _use_
+        the Noppe service. The teacher needs a CSC account, though. Students
+        can log in using several options, including Haka and Virtu.
 
     ## Instructions
 
