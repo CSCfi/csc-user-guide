@@ -85,10 +85,10 @@ a full GH200 superchips.
 
 ### Roihu pilot partitions
 
-| Partition        | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-roihu.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|------------------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `pilotcpu`       | 15 minutes    | 8           | 80               | 2            | GPU                               | 373 GiB                | 3600 GiB                               |
-| `pilotgpu`       | 48 hours      | 80          | 800              | 20           | GPU                               | 373 GiB                | 3600 GiB                               |
+| Partition        | Time limit | Min nodes | Max nodes | [Node types](../systems-roihu.md#nodes) | Max memory per node | Max local storage per node |
+|------------------|------------|-----------|-----------|-----------------------------------------|---------------------|----------------------------|
+| `pilotcpu`       | 24 hours   | 1         | 200       | M, L                                    | 1536 GiB            | 950 GB                     |
+| `pilotgpu`       | 48 hours   | 1         | 60        | GPU                                     | 480 GiB             | XXX GB                     |
 
 ## Puhti partitions
 

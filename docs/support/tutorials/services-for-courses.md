@@ -274,8 +274,8 @@ If you're unsure which services would be suitable for your course,
         |--------|----------|-----------|-----------|------------------------|---------------------------|
         | Puhti  | Automatic | 2 nodes (80 cores) | 0 | 08:00–17:00 | 5 |
         |        | CSC Resource Allocation Group | 5 nodes (200 cores) | 4 nodes (16 GPUs) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
-        | Mahti  | Automatic | 2 nodes (256 cores) | 14 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) | 08:00–17:00 | 5 |
-        |        | CSC Resource Allocation Group | 8 nodes (1024 cores) | 56 [GPU slices](../../computing/running/batch-job-partitions.md#gpu-slices) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
+        | Mahti  | Automatic | 2 nodes (256 cores) | 14 [GPU slices](../../computing/running/batch-job-partitions.md#mahti-gpu-slices) | 08:00–17:00 | 5 |
+        |        | CSC Resource Allocation Group | 8 nodes (1024 cores) | 56 [GPU slices](../../computing/running/batch-job-partitions.md#mahti-gpu-slices) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
 
     A granted advance resource reservation will be visible in the form for
     launching an interactive session in the Puhti and Mahti web interfaces.
