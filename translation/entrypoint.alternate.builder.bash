@@ -19,9 +19,6 @@ declare -gra SPARSE_PATTERNS=(
   "/${DOCS_DIR:?}/"
   /csc-overrides/
   /hooks/
-  /scripts/convert.py
-  /scripts/generate_glossary.sh
-  /scripts/generate_new.sh
   "${CONFIG_FILES[@]/#//}"
 )
 
@@ -71,13 +68,6 @@ build() {
                --config-file="mkdocs_${LANG_CODE:?}.yml"
 }
 
-run_scripts() {
-  for feat in new glossary
-  do
-    bash scripts/generate_${feat}.sh
-  done
-}
-
 cleanup_site() {
   rm --recursive \
      --force \
@@ -101,9 +91,7 @@ pre_build() {
       get_config
     fi
   } && \
-  get_translation \
-  && \
-  run_scripts
+  get_translation
 }
 
 post_build() {

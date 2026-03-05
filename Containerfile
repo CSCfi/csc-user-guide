@@ -20,20 +20,11 @@ RUN \
 ADD csc-overrides/ csc-overrides/
 ADD docs/ docs/
 ADD hooks/ hooks/
-ADD scripts/convert.py \
-    scripts/generate_glossary.sh \
-    scripts/generate_new.sh \
-    scripts/
 ADD .git-revision-date-ignore-revs \
     mkdocs.yml \
     ./
 
-RUN \
-  for feat in new glossary; do \
-    bash "scripts/generate_${feat}.sh"; \
-  done \
-&& \
-  mkdocs build --site-dir=/tmp/site/
+RUN mkdocs build --site-dir=/tmp/site/
 
 
 FROM ${server_image}
