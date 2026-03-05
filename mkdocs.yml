@@ -311,6 +311,8 @@ nav:
       - Running jobs:
           - computing/running/getting-started.md
           - Available batch job partitions: computing/running/batch-job-partitions.md
+          - Create Roihu batch jobs: computing/running/creating-job-scripts-roihu.md
+          - Roihu example scripts: computing/running/example-job-scripts-roihu.md
           - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
           - Puhti example scripts: computing/running/example-job-scripts-puhti.md
           - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
