@@ -12,7 +12,7 @@ Files uploaded to SD Connect are automatically encrypted and decrypted during do
 
 ## Step by step
 
-### 1. Plan the number of folders needed
+### 1. Plan the number of top-level folders (buckets) needed
 
 SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into top-level folder or techincally called bucket created with SD Connect:  a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
@@ -27,7 +27,7 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 - The user interface might be slower when there are more than 2500 files for each folder. In this case please use the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
 
 
-### 2. Plan folder names
+### 2. Plan top-level folder (bucket) names
   
 When creating folders in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. 
 
