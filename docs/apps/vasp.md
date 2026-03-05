@@ -31,7 +31,7 @@ See available VASP versions in with command
 module avail vasp
 ```
 
-## License
+## License prior to version 6.5.1
 
 The usage of VASP requires a license, which must be acquired directly
 from the developers of the software.
@@ -42,6 +42,10 @@ added to an existing license, please send an email to [CSC Service Desk](../supp
 including your _username_ at CSC, and the _email address_ you have registered for the VASP
 license in the [VASP Portal](https://vasp.at).
 
+## License for version 6.5.1
+
+VASP version 6.5.1 is available in mahti.csc.fi.
+
 VASP versions from 6.5.1 onwards require license file '~/.vasp/vasp_license'. The license file
 is downloaded from the VASP portal with commands
 
@@ -50,8 +54,18 @@ module load vasp/6.5.1
 request_license_key.sh
 ```
 
-The `request_license_key.sh` script will ask user's VASP Portal username and password. This
-license model is currently in beta stage.
+The `request_license_key.sh` script will ask user's VASP Portal username and password.
+
+This license model is currently in beta stage. The license information in the beta stage license
+server is not necessarily in sync with the data in [VASP Portal](https://vasp.at). Until the
+new license schema is rolled out properly, the owner of the license can download the vasp
+source file vasp.6.5.1.tgz from the portal to `/projappl/<project name>` directory in
+mahti.csc.fi, and build the executables and run the tests with
+
+```console
+export SLURM_ACCOUNT=<project name>
+bash /appl/soft/phys/vasp/6.5.1/gcc-11.2.0/README-no-license.sh
+```
 
 # Usage
 

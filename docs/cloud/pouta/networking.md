@@ -76,7 +76,7 @@ Click on **Add Interface**
 ```sh
 $ openstack network create test-network
 $ openstack subnet create --dns-nameserver 193.166.4.24 --dns-nameserver 193.166.4.25 \
-    --network $(openstack network list -f value -c ID -c Name|grep -v public|cut -d " " -f1) \
+    --network $(openstack network list -f value -c ID -c Name|grep test-network|cut -d " " -f1) \
     --subnet-range 192.168.0.1/24 --allocation-pool start=192.168.0.10,end=192.168.0.30 test-network
 $ openstack router create test-router
 $ openstack router set --external-gateway public test-router

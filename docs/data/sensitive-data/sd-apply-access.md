@@ -87,8 +87,7 @@ Once your application has been approved, you will receive a notification and fur
 
 Read more how to create a CSC project and access SD Desktop:
 
-* [Access SD Desktop](./sd-access.md)
-
+* [Access SD Desktop](./sd-store-and-analyze-research-data.md)
 ## Step 8: Access the data
 
 Once you sign in to your virtual desktop, you can access the data using Data Gateway application. Follow these steps:

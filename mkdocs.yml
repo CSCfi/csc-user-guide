@@ -66,6 +66,8 @@ hooks:
   - hooks/archives.py
   - hooks/preview.py
   - hooks/testing.py
+  - hooks/whats-new.py
+  - hooks/glossary.py
 
 plugins:
   - tags
@@ -448,6 +450,7 @@ nav:
                   - PostgreSQL version differences: cloud/dbaas/postgres-versions.md
                   - Extensions and parameters: cloud/dbaas/postgres-extensions.md
                   - Permissions: cloud/dbaas/postgres-permissions.md
+                  - PostgreSQL 14 EOL: cloud/dbaas/postgres-14-eol.md
               - MariaDB:
                   - cloud/dbaas/mariadb.md
                   - Accessing your database: cloud/dbaas/mariadb-accessing.md
@@ -613,6 +616,9 @@ nav:
               - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
           - Instructions for registers: data/sensitive-data/single-register-submission.md
       - Terminology: data/sensitive-data/sd-terminology.md
+      - SD Services – Version history:
+        - SD Connect releases: data/sensitive-data/releases-sd-connect.md
+        - SD Desktop releases: data/sensitive-data/releases-sd-desktop.md
   - Applications:
       - apps/index.md
       - By discipline: apps/by_discipline.md
