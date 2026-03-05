@@ -57,6 +57,8 @@ hooks:
   - hooks/archives.py
   - hooks/preview.py
   - hooks/testing.py
+  - hooks/whats-new.py
+  - hooks/glossary.py
 
 plugins:
   - tags
