@@ -93,7 +93,7 @@ includes following python packages:
 -   [r5py](https://r5py.readthedocs.io) - for rapid realistic routing on multimodal transport networks, see [below how to set memory correctly](#r5py-memory-settings) for r5py.
 -   [shap](https://shap.readthedocs.io/en/latest/) - for explaining the output of any machine learning model. NEW 2026
 -   [sentinelhub](https://sentinelhub-py.readthedocs.io/en/latest/index.html) - for working with new Sentinel Hub services.
--   [sentinelsat] - downloading Sentinel images, [sentinelsat example in CSC geocomputing Github] (https://github.com/csc-training/geocomputing/tree/master/python/sentinel). Not in 3.14.3.
+-   [sentinelsat] - downloading Sentinel images, [sentinelsat example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel). Not in 3.14.3.
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
 -   [scikit-gstat](https://scikit-gstat.readthedocs.io/en/latest/) - for variogram analysis. NEW 2026
 -   **[scikit-learn]** - machine learning for Python. [Spatial machine learning scikit-learn (shallow learning) exercises](https://github.com/csc-training/geocomputing/tree/master/machineLearning)
@@ -112,7 +112,7 @@ includes following python packages:
     -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray extension for tiled map plotting. Not in 3.12.10 and 3.14.3
     -   [xclim](https://xclim.readthedocs.io/en/stable/) - for climate analysis. NEW 2026
 -   [xgboost](https://xgboost.readthedocs.io/) - Gradient Boosting machine learning algorithms. NEW 2026
--   [zarr](https://zarr.readthedocs.io/en/stable/) - for readinga and writing data to Zarr format. NEW 2026
+-   [zarr](https://zarr.readthedocs.io/en/stable/) - for reading and writing data to Zarr format. NEW 2026
 
 -   And many more, for retrieving the full list use:
     `list-packages`

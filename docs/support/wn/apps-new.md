@@ -2,7 +2,7 @@
 
 ## Geoconda 3.14.3, 5.3.2026
 
-New version of geoconda has been added to Puhti and Mahti. In this version unusally many new Python-libraries have been added, 
+New version of geoconda has been added to Puhti and Mahti. In this version unusually many new Python-libraries have been added, 
 but also several (unmaintained) libraries have been removed. See [geoconda](..//../apps/geoconda.md) page for all details.
 
 ## R 4.5.2 in r-env, 17.2.2026
