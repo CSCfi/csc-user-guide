@@ -18,7 +18,7 @@ need assistance.
 
 If you have project admin role, you can add individual users to an existing project and assign a role to them. Satama enforces role-based access control to ensure that only authorized users can perform specific actions.
 
-The user must be added to MyCSC project and should login to Satama platform once before giving access to Satama project. 
+The user must be added to MyCSC project and should login to Satama platform once. This will automatically create a username at Satama. This username can be used to give access to your Satama project. 
 
 To add user, click on your project and click on **Members** tab
 
@@ -34,7 +34,7 @@ The primary roles are Limited Guest, Guest, Developer, Maintainer, and Project A
 * **Guest** has read-only permission, they can only retag and pull images.
 * **Developer** can both push and pull images.
 * **Maintainer** have extended rights, such as the ability to scan images, view replications jobs, and delete images and helm charts.
-* **Project Administrators** can manage project members, assign roles, configure project settings and starting a vulnerability scan.
+* **Project Admin** can manage project members, assign roles, configure project settings and starting a vulnerability scan.
 
 If you find that you cannot perform certain actions, such as pushing an image or initiating a scan, it’s likely due to insufficient permissions. In such cases, you should contact your project administrator to adjust your role or confirm your access level. You can check detail permission of the role [here](https://goharbor.io/docs/2.14.0/administration/managing-users/user-permissions-by-role/). 
 
