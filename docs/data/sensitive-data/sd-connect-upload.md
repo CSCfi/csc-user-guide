@@ -14,7 +14,7 @@ Files uploaded to SD Connect are automatically encrypted and decrypted during do
 
 ### 1. Plan the number of top-level folders (buckets) needed
 
-SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into top-level folder or techincally called bucket created with SD Connect:  a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
+SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into top-level folder or technically called bucket created with SD Connect:  a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
 - **Once files are uploaded to SD Connect, they cannot be edited or modified**.  It is therefore important to plan the top-level folder structure in advance. To simplify data management and avoid issues, it is recommended to create a separate folder for each dataset or experiment. Avoid placing too many files in a single folder, each folder can contain up to 500.000 segmented files.
 
@@ -32,8 +32,8 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 When creating folders in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. 
 
 !!! Note
-    Top-level folder (butckect) name can not be modified after their creation with SD Connect. 
-    These rules apply only to top-level folders created in the service, not to subfolders ot files uploaded from a local computer. 
+    Top-level folder (bucket) name can not be modified after their creation with SD Connect. 
+    These rules apply only to top-level folders created in the service, not to subfolders or files uploaded from a local computer. 
 
 **Top-level folder (buckets) names must**:
 
@@ -42,7 +42,7 @@ When creating folders in SD Connect, specific naming rules must be followed to e
 * use Latin alphabets (a-z), numbers (0-9) and dash (-).
 * be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project specific identifiers (e.g., project ID number or acronym) in the folder name.
     
-**Tope-level folder (bueckts) names must not contain**:
+**Top-level folder (buckets) names must not contain**:
 
 * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
 * all folder names are public; please do not include any confidential information.
