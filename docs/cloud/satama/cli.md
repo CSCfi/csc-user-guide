@@ -85,3 +85,7 @@ Docker will upload all the image layers to Satama. If it’s the first time push
 
 Please note that if you encounter a “permission denied” error, it usually indicates that you don’t have push access to that project, and you should contact your project administrator.
 
+If an image is no longer needed locally, it can be removed to free disk space.
+```
+docker rmi IMAGE_NAME:TAG
+```
