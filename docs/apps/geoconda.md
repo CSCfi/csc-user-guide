@@ -41,9 +41,9 @@ includes following python packages:
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   [geocube](https://corteva.github.io/geocube/stable/readme.html) - convert geopandas vector data into rasterized xarray data. NEW 2025
 -   [geodatasets](https://geodatasets.readthedocs.io/) download and cache spatial data example files. NEW 2025
+-   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [geoparquet-io](https://geoparquet.io/) - fast reader for GeoParquet files. NEW 2026
 -   [geoplot](https://residentmario.github.io/geoplot/index.html) - geospatial plotting library. Only in 3.12.10
--   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [geopy](https://geopy.readthedocs.io/) - client for several popular geocoding web services.
 -   [geoviews](https://geoviews.org/) - geographic visualizations for HoloViews. NEW 2026
 -   [geo2ml](https://github.com/mayrajeo/geo2ml) - for preparing spatial data for machine learning. Not in 3.14.3.
