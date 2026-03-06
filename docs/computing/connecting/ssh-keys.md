@@ -180,10 +180,10 @@ The following instructions illustrate only basic usage.
                 helper script. You can still connect to Roihu using your
                 [favorite SSH client](ssh-windows.md#basic-usage).
 
-        1.  If you have an earlier certificate which is still valid, the tool
-            exits.
-        1.  If signing is needed, a login URL is displayed. Follow the link and
-            authenticate.
+        1. If you have an earlier certificate which is still valid, the tool 
+           prints the expiration time and exits.
+        1. If signing is needed, a login URL is displayed. Follow the link and
+           authenticate.
         1. Copy the displayed 6-digit code into PowerShell and enter your SSH
            key passphrase.
             - The signed certificate is automatically downloaded and added to
@@ -219,7 +219,7 @@ The following instructions illustrate only basic usage.
 
 1. Connect to Roihu following these instructions:
       1. [Linux/macOS](ssh-unix.md#basic-usage)
-      2. [Windows](ssh-unix.md#basic-usage)
+      1. [Windows](ssh-unix.md#basic-usage)
 
     !!! info "Optional: Check when your SSH certificate will expire"
         Each SSH certificate is valid for 24 hours. The expiration time can be
@@ -228,7 +228,7 @@ The following instructions illustrate only basic usage.
         === "Terminal (Linux, macOS, PowerShell, MobaXterm)"
 
             1. Open a terminal client.
-            2. Run command:
+            1. Run command:
 
                 ```bash
                 ssh-keygen -L -f <path-to-certificate> | grep "Valid"
@@ -236,10 +236,10 @@ The following instructions illustrate only basic usage.
 
         === "GUI (PuTTY, MobaXterm)"
 
-            3. Open PuTTYgen / MobaKeyGen.
-            4. Load your private key: _File_ :material-arrow-right: _Load private key_.
-            5. Add a certificate to the key: _Key_ :material-arrow-right: _Add certificate to key_.
-            6. Select _Certificate info_ to see the validity period among other info.
+            1. Open PuTTYgen / MobaKeyGen.
+            1. Load your private key: _File_ :material-arrow-right: _Load private key_.
+            1. Add a certificate to the key: _Key_ :material-arrow-right: _Add certificate to key_.
+            1. Select _Certificate info_ to see the validity period among other info.
 
     ---
 

@@ -138,42 +138,43 @@ program's behavior depends on your system:
         AddKeysToAgent yes
     ```
 
-Assuming your SSH private key is stored in `~/.ssh/id_ed25519`, add it to the
-authentication agent by running:
+- Assuming your SSH private key and certificate (required for Roihu only) are
+  stored in `~/.ssh/id_ed25519` and `~/.ssh/id_ed25519-cert.pub`, add them to
+  the authentication agent by running:
 
-```bash
-$ ssh-add ~/.ssh/id_ed25519
-Enter passphrase for ~/.ssh/id_ed25519: # enter key passphrase here
-Identity added: ~/.ssh/id_ed25519
-Certificate added: ~/.ssh/id_ed25519-cert.pub
-```
+    ```bash
+    $ ssh-add ~/.ssh/id_ed25519
+    Enter passphrase for ~/.ssh/id_ed25519: # enter key passphrase here
+    Identity added: ~/.ssh/id_ed25519
+    Certificate added: ~/.ssh/id_ed25519-cert.pub
+    ```
 
-!!! info "Authentication agent and SSH certificates"
-    Please observe that your SSH certificate is only added to the agent if it
-    is stored in the same directory as your private key **and** named as
-    `<private-key-name>-cert.pub`. In this case, `ssh-add` will output:
+    **This step is done automatically if you use the
+    [CSC certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool)
+    to sign and download your SSH certificate!**
+
+!!! warning "Important note if you're <u>not</u> using the certificate helper tool"
+    Users downloading SSH certificates
+    [manually from MyCSC](ssh-keys.md#option-2-mycsc) **must** store it in the
+    same directory as the SSH private key **and** name it as
+    `<private-key-name>-cert.pub` to be able to add it to SSH agent with
+    `ssh-add` command. If successful, `ssh-add` outputs:
 
     ```bash
     Certificate added: ~/.ssh/id_ed25519-cert.pub
     ```
 
-    If the certificate is stored and/or named in any other way, it **cannot**
-    be added to the authentication agent because OpenSSH uses hard-coded naming
-    conventions. 
+    **If the certificate is stored and/or named in any other way, it cannot be
+    added to the authentication agent because OpenSSH uses hard-coded naming
+    conventions.**
     
-    This is not an issue if you specify the custom path to the SSH certificate
-    [as outlined above](#ssh-key-or-certificate-file-with-non-default-name-or-location).
-    However, if you intend to connect to Roihu via a jump host (e.g. another
-    CSC supercomputer), also the SSH certificate must be added to the agent so
-    that it can be properly forwarded. [Read more below](#ssh-agent-forwarding).
-
-    **Note! If you are using
-    [CSC's certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool)
-    to sign and download SSH certificates, all of the above will be taken care of
-    automatically.**
-
-For more information about `ssh-agent`, see the
-[relevant SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).
+    * If you intend to connect to Roihu via a jump host (e.g. when transferring
+      data from another CSC server to Roihu), also the SSH certificate must be
+      added to the SSH agent so that it can be properly forwarded.
+    * Alternatively, you may connect to Roihu and **pull** data from servers
+      that do not require a SSH certificate (e.g. Puhti or Mahti). In this case
+      it is enough to forward only your SSH keys.
+    * [Read more about SSH agent forwarding below](#ssh-agent-forwarding).
 
 ### SSH agent forwarding
 
@@ -182,8 +183,8 @@ For more information about `ssh-agent`, see the
 Agent forwarding is a useful mechanism where the SSH client is configured to
 allow an SSH server to use your local `ssh-agent` on the server as if it was
 local there. This means in practice that you can, for example, connect directly
-between CSC supercomputers using the SSH keys (and certificates) you have on
-your local machine, i.e. you do not need to create a new set of SSH keys on CSC
+between CSC supercomputers using the SSH keys and certificates you have on your
+local machine, i.e. you do not need to create a new set of SSH keys on CSC
 supercomputers.
 
 Agent forwarding is also very handy if you need to copy data directly between

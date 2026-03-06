@@ -255,6 +255,15 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 
 ## Authentication agent
 
+!!! warning "CSC certificate helper is recommended to simplify working with SSH agent on Windows"
+    [The certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool)
+    developed by CSC simplifies the process of signing and downloading SSH
+    certificates for connecting to Roihu. Importantly, it also automatically
+    adds your SSH keys and certificate to the Pageant SSH agent.
+
+    **The following instructions are for users who are not using the
+    certificate helper.**
+
 === "MobaXterm"
 
     To avoid having to type your passphrase every time you connect, enable the
@@ -273,12 +282,12 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
     agent. In this case, you must first "combine" the certificate and the SSH
     private key.
 
-    1. Open MobaKeyGen from the Tools tab.
-    2. Load your private key (`File --> Load private key`).
-    3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+    5. Open MobaKeyGen from the Tools tab.
+    6. Load your private key (`File --> Load private key`).
+    7. Add a valid certificate to the key (`Key --> Add certificate to key`).
        The validity period can be checked by selecting `Certificate info`.
-    4. Save the private key and restart MobaXterm.
-    5. Your private key including the certificate is now loaded into the agent
+    8. Save the private key and restart MobaXterm.
+    9. Your private key including the certificate is now loaded into the agent
        and you can sign in to Roihu either using the local terminal or the GUI
        without having to type your SSH passphrase.
 
@@ -337,8 +346,8 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 Agent forwarding is a useful mechanism where the SSH client is configured to
 allow an SSH server to use your local `ssh-agent` on the server as if it was
 local there. This means in practice that you can, for example, connect directly
-between CSC supercomputers using the SSH keys (and certificates) you have on
-your local machine, i.e. you do not need to create a new set of SSH keys on CSC
+between CSC supercomputers using the SSH keys and certificates you have on your
+local machine, i.e. you do not need to create a new set of SSH keys on CSC
 supercomputers.
 
 Agent forwarding is also very handy if you need to copy data directly between

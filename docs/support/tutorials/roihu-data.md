@@ -18,30 +18,29 @@
 
 ### 1.1 Review and clean up your data before migration
   
-* Like on Puhti and Mahti, Roihu scratch disk is not intended for long-term
-  data storage, but should only be used for data that is in active use.
-  Thus, **only move data that you truly need**.
-* Good data hygiene reduces transfer time and load on the file system, as well
-  as eliminates the risk of moving redundant or duplicate data.
-* Roihu will implement a similar disk cleaning policy as Puhti, meaning
-  that files that have not been accessed in 180 days will be deleted.
-* We recommend using the [LUE tool](lue.md) to identify where you have lots of
-  data. Avoid using other tools such as `du` or `find` as they may cause a lot
-  of load on the file system. Simple usage example (run `lue -h` for other
-  options):
+* Roihu scratch disk is not intended for long-term data storage, but should
+  only be used for data that is in active use. Thus, **only move data that you
+  truly need**.
+    * Good data hygiene reduces transfer time and load on the file system, as
+      well as eliminates the risk of moving redundant or duplicate data. Roihu
+      will implement a similar disk cleaning policy as Puhti, meaning that
+      files that have not been accessed in 180 days will be deleted.
+    * We recommend using the [LUE tool](lue.md) to identify where you have lots of
+      data. Avoid using tools such as `du` or `find` as they may cause a lot of
+      load on the file system. Simple usage example (run `lue -h` for other
+      options):
 
-    ```bash
-    module load lue
-    lue <directory-to-analyze>
-    ```
+        ```bash
+        module load lue
+        lue <directory-to-analyze>
+        ```
 
 * Other tips:
     * Remove or exclude temporary files (cached data, intermediate results,
-      logs, unused checkpoint files, core dumps, etc.).
-    * It is best to re-build your applications on Roihu, so do not move
-      compiled programs or pre-built environments, unless they are
-      containerized. Note that all applications, including containers, that
-      target Roihu's ARM-based GPU nodes must be re-built regardless.
+      logs, unnecessary checkpoint files, core dumps, etc.).
+    * Apptainer containers built for CPUs can be moved to Roihu. Do **not**
+      move containers targeting GPUs or any native installations from Puhti or
+      Mahti to Roihu.
 
 ### 1.2 Ensure that you have enough disk space on Roihu
 
@@ -66,40 +65,41 @@
 
 * Like any other CSC service, access to Roihu must be enabled for your project
   via [MyCSC](https://my.csc.fi).
-* Also note that each user must have at least a **medium** level of identity
+* Note also that users must have at least a **medium** level of identity
   assurance (LoA) to be able to access Roihu. You can check your LoA on your
   [profile page in MyCSC](https://my.csc.fi/profile), and
   [elevate it if needed following these instructions](../../accounts/strong-identification.md).
 
 ### 1.4 Transfer your data directly from Puhti/Mahti to Roihu
 
-* For performance and capacity management reasons, it is not recommended to
-  transfer data to Roihu via Allas or your local workstation. Instead, CSC
-  recommends using command-line based tools such as
-  [`rsync`](../../data/moving/rsync.md) to directly push or pull data from
-  Puhti/Mahti to Roihu.
+* It is **not** recommended to transfer data to Roihu via Allas or your local
+  workstation. Instead, CSC recommends using command-line based tools such as
+  [`rsync`](../../data/moving/rsync.md) to **directly transfer data from
+  Puhti/Mahti to Roihu.**
 
-### 1.5 Authenticating to Roihu over SSH
+!!! warning "Extremely important"
 
-* In addition to SSH keys, a signed SSH certificate is required to authenticate
-  to Roihu. Each certificate is valid for 24 hours.
-    * [Read the instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
-* To transfer data directly from Puhti/Mahti to Roihu, you must make sure to
-  **forward your SSH agent** when connecting to the system on which the data
-  transfer process is initiated.
-    * If a data transfer process is launched on Puhti/Mahti (i.e., you _push_
-      data from Puhti/Mahti), your forwarded SSH agent must hold your SSH keys
-      **and** a valid SSH certificate so that a connection to Roihu can be
-      formed.
-    * If a data transfer process is launched on Roihu (i.e., you _pull_ data
-      from Puhti/Mahti), it is enough that your forwarded SSH agent only holds
-      your SSH keys. However, you still need an SSH certificate to login to
-      Roihu in the first place (while useful, it does not have to be added to
-      your SSH agent).
-        * [SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).
-        * [SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
+    ### 1.5 Connecting to Roihu requires SSH certificates
 
-## 2. Recommended data migration tools
+    * In addition to SSH keys, a signed SSH certificate is required to connect to
+      Roihu over SSH. Each certificate is valid for 24 hours.
+        * [Read the instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
+    * To transfer data directly from Puhti/Mahti to Roihu, you must
+      **forward your SSH agent** when connecting to the system where you launch the
+      data transfer process.
+        * If a data transfer process is launched on Puhti/Mahti (i.e., you _push_
+          data from Puhti/Mahti), your forwarded SSH agent must hold your SSH keys
+          **and** a valid SSH certificate so that a connection to Roihu can be
+          formed.
+        * If a data transfer process is launched on Roihu (i.e., you _pull_ data
+          from Puhti/Mahti), it is enough that your forwarded SSH agent only holds
+          your SSH keys. However, you still need an SSH certificate to login to
+          Roihu in the first place (while useful, it does not have to be added to
+          your SSH agent).
+            * [SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).
+            * [SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
+
+## 2. Recommended basic data migration 
 
 * [`rsync`](../../data/moving/rsync.md) is the preferred tool for transferring
   data from Puhti or Mahti to Roihu. The following sections provide a few
