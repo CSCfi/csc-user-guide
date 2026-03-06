@@ -509,7 +509,23 @@ nav:
               - Getting Access: cloud/satama/getting-access.md
               - Web User Interface: cloud/satama/ui.md
               - Command Line Tool: cloud/satama/cli.md
-              - Project Configuration: cloud/satama/project-configuration.md
+          - Configuration:
+              - Billing: cloud/satama/billing.md
+              -	Quota: cloud/satama/quota.md
+          - Project Configuration: cloud/satama/project-configuration.md
+              - Project Visibility:
+              -	Deployment Security:
+              -	Vulnerability Scanning:
+              -	SBOM Generation:
+              - CVE Allowlist:
+              - Audit Logs:
+              - Tag Retention Policy:
+              - Tag Immutability:
+              - Robot Account:
+          - Known Issues: 
+          - Best Parctices:
+          - Tutorials:
+          
 
   - Data:
       - data/index.md
