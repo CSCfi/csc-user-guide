@@ -94,8 +94,8 @@ Like Puhti and Mahti, Roihu uses the
 * [Description of the different Slurm partitions on Roihu](../../computing/running/batch-job-partitions.md).
     * Note that there are different login nodes for users targeting the CPU and GPU
 partitions, respectively: `roihu-cpu.csc.fi` and `roihu-gpu.csc.fi`.
-* [Instructions on how to submit jobs on Roihu](../../computing/running/creating-job-scripts-roihu.md).
-* [Example batch job scripts for Roihu](../../computing/running/example-job-scripts-puhti.md).
+* Instructions on how to submit jobs on Roihu.
+* Example batch job scripts for Roihu.
 
 More information about billing [here](../../accounts/billing.md) and common queuing
 system error messages in the [FAQ](../faq/why-does-my-batch-job-fail.md).

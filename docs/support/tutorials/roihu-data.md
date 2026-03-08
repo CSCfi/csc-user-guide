@@ -89,7 +89,7 @@
 
 * It is **not** recommended to transfer data to Roihu via Allas or your local
   workstation. Instead, CSC recommends using command-line based tools such as
-  [`rsync`](#2-recommended-basic-data-migration) to **directly transfer data
+  [`rsync`](#2-recommended-data-migration-methods) to **directly transfer data
   from Puhti/Mahti to Roihu.**
 
 !!! warning "Extremely important"
@@ -263,7 +263,7 @@ than thousands of small ones.
     Archiving creates new data on the disk. If your dataset is large, you may
     end up running out of disk quota since the operation will essentially
     double your disk usage (unless the archive is also
-    [compressed](#24-data-compression)).
+    [compressed](#31-data-compression)).
 
     A trick to avoid creating new data on Puhti disk is to pipe the output of
     `tar` to Roihu directly over SSH. Use the command:
