@@ -118,7 +118,7 @@ To connect to Roihu using SSH, you must sign your public key to get a so called
 **SSH certificate**. SSH certificates significantly improve the security of the
 system by introducing an additional authentication factor for SSH logins.
 
-**SSH certficates are valid for 24 hours at a time**. Once your certificate
+**SSH certificates are valid for 24 hours at a time**. Once your certificate
 expires, a new one must be signed following either of the processes below.
 
 ### Option 1: Certificate helper tool

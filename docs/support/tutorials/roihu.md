@@ -29,8 +29,7 @@ Connecting to Roihu using an SSH client requires that you have:
     * Each certificate is valid for 24 hours, after which a new one must be
       generated.
 
-Read the detailed
-[instructions for managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).
+**[Read the detailed instructions for managing SSH keys and certificates here](../../computing/connecting/ssh-keys.md).**
 
 Once you have set up SSH keys and obtained a valid SSH certificate, connect
 using an SSH client:
@@ -38,12 +37,16 @@ using an SSH client:
 * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md).
 * [Instructions for Windows](../../computing/connecting/ssh-windows.md).
 
-!!! info "Note: Roihu has separate login nodes for CPU and GPU partitions"
+!!! info "Roihu has separate login nodes for CPU and GPU partitions"
     Roihu has
     [different CPU architectures on the CPU and GPU nodes](../../computing/systems-roihu.md#compute).
-    Hence, there are separate login nodes for building and running programs on
-    the respective nodes: `roihu-cpu.csc.fi` and `roihu-gpu.csc.fi`. For
-    example, connect to one of the CPU login nodes using a command-line SSH
+    Hence, there are separate login nodes for building programs and submitting
+    jobs to the respective nodes:
+    
+    1. **`roihu-cpu.csc.fi`**
+    2. **`roihu-gpu.csc.fi`**
+    
+    For example, connect to one of the CPU login nodes using a command-line SSH
     client like this:
 
     ```bash
@@ -74,10 +77,9 @@ that you:
    Notably, previous extended disk quotas on Puhti or Mahti will not be
    automatically moved to Roihu. Quota extensions on Roihu must be separately
    applied for and properly motivated.
-2. Move your data _directly_ from Puhti or Mahti to Roihu for performance and
-   capacity management reasons.
+2. Move your data **directly** from Puhti or Mahti to Roihu.
 
-[Read our separate Roihu data migration guide here](roihu-data.md).
+**[Read the detailed instructions in the Roihu data migration guide](roihu-data.md).**
 
 ## Installing software
 
@@ -86,8 +88,17 @@ architecture considerations
 
 ## Running your first job
 
-Document: module system, Slurm queues, performance considerations, link to
-examples
+Like Puhti and Mahti, Roihu uses the
+[Slurm](https://slurm.schedmd.com/documentation.html) batch job system.
+
+* [Description of the different Slurm partitions on Roihu](../../computing/running/batch-job-partitions.md).
+    * Note that there are different login nodes for users targeting the CPU and GPU
+partitions, respectively: `roihu-cpu.csc.fi` and `roihu-gpu.csc.fi`.
+* [Instructions on how to submit jobs on Roihu](../../computing/running/creating-job-scripts-roihu.md).
+* [Example batch job scripts for Roihu](../../computing/running/example-job-scripts-puhti.md).
+
+More information about billing [here](../../accounts/billing.md) and common queuing
+system error messages in the [FAQ](../faq/why-does-my-batch-job-fail.md).
 
 ## More information
 

@@ -143,6 +143,7 @@ interactive access and running graphical user interfaces.
 
 ## More information
 
+* [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
   (updated 2026-02-25)
