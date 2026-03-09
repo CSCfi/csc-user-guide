@@ -513,7 +513,7 @@ nav:
               - Billing: cloud/satama/billing.md
               - Quota: cloud/satama/quota.md
           - Project Configuration: 
-              -	cloud/satama/project_configuration.md
+              - cloud/satama/project_configuration.md
               - Project Visibility: cloud/satama/project_visibility.md
               - Deployment Security: cloud/satama/deployment_security.md
               - Vulnerability Scanning: cloud/satama/vulnerability_scanning.md
@@ -523,9 +523,10 @@ nav:
               - Tag Retention Policy: cloud/satama/tag_retention.md
               - Tag Immutability: cloud/satama/tag_immutability.md
               - Robot Account: cloud/satama/robot_account.md
-          - Known Issues: 
-          - Best Parctices:
+          - Known Issues: cloud/satama/known_issues.md
+          - Best Practices: cloud/satama/best_practices.md
           - Tutorials:
+               - cloud/satama/tutorials/index.md
           
 
   - Data:
