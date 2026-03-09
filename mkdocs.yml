@@ -512,7 +512,8 @@ nav:
           - Configuration:
               - Billing: cloud/satama/billing.md
               -	Quota: cloud/satama/quota.md
-          - Project Configuration: cloud/satama/project_configuration.md
+          - Project Configuration: 
+              -	cloud/satama/project_configuration.md
               - Project Visibility: cloud/satama/project_visibility.md
               -	Deployment Security: cloud/satama/deployment_security.md
               -	Vulnerability Scanning: cloud/satama/vulnerability_scanning.md
