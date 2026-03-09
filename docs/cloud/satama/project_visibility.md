@@ -1,4 +1,4 @@
-## Project Visibility
+# Project Visibility
  
   Project type can be set to Public or Private. By default, all projects are private. To make your project public, check the box in front of public. 
   

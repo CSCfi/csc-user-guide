@@ -1,4 +1,4 @@
-## Tag Immutability
+# Tag Immutability
 
 Tag immutability prevents container image tags from being overwritten or modified after they are pushed.
 

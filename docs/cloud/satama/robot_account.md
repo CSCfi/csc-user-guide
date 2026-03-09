@@ -1,4 +1,4 @@
-## Robot Account
+# Robot Account
 
 Robot accounts in Satama are special service accounts designed for automated processes, such as CI/CD pipelines, deployment systems, or build servers, that need to interact with the registry without using a personal user account. Unlike regular user accounts, which are tied to individual identities and may expire or change, robot accounts provide stable credentials that can be used by systems to perform operations like pushing and pulling images programmatically. 
 

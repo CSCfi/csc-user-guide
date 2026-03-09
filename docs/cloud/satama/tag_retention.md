@@ -1,4 +1,4 @@
-## Tag Retention Policy
+# Tag Retention Policy
 
 Container registries can accumulate many image versions over time. Tag retention policies help automatically remove unused or old image tags to save storage space.
 

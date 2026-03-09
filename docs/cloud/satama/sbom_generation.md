@@ -1,4 +1,4 @@
-## SBOM Generation
+# SBOM Generation
 
 SBOM (Software Bill of Materials) generation in Satama provides users with a clear inventory of the components, libraries, and dependencies included in a container image. 
 

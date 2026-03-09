@@ -1,4 +1,4 @@
-## CVE Allowlist
+# CVE Allowlist
 
 A CVE Allowlist is used to ignore specific vulnerabilities that are known but accepted temporarily.
 

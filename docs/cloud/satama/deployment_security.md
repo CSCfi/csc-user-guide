@@ -1,4 +1,4 @@
-## Deployment Security
+# Deployment Security
  
  This section controls image verification and vulnerability enforcement.
  
