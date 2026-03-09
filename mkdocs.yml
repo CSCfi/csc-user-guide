@@ -504,24 +504,24 @@ nav:
       - Satama:
           - cloud/satama/index.md
           - What is Satama:
-              - cloud/satama/what-is-satama.md
+              - cloud/satama/what_is_satama.md
           - Getting Started:
-              - Getting Access: cloud/satama/getting-access.md
+              - Getting Access: cloud/satama/getting_access.md
               - Web User Interface: cloud/satama/ui.md
               - Command Line Tool: cloud/satama/cli.md
           - Configuration:
               - Billing: cloud/satama/billing.md
               -	Quota: cloud/satama/quota.md
-          - Project Configuration: cloud/satama/project-configuration.md
-              - Project Visibility:
-              -	Deployment Security:
-              -	Vulnerability Scanning:
-              -	SBOM Generation:
-              - CVE Allowlist:
-              - Audit Logs:
-              - Tag Retention Policy:
-              - Tag Immutability:
-              - Robot Account:
+          - Project Configuration: cloud/satama/project_configuration.md
+              - Project Visibility: cloud/satama/project_visibility.md
+              -	Deployment Security: cloud/satama/deployment_security.md
+              -	Vulnerability Scanning: cloud/satama/vulnerability_scanning.md
+              -	SBOM Generation: cloud/satama/sbom_generation.md
+              - CVE Allowlist: cloud/satama/cve_allowlist.md
+              - Audit Logs: cloud/satama/audit_logs.md
+              - Tag Retention Policy: cloud/satama/tag_retention.md
+              - Tag Immutability: cloud/satama/tag_immutability.md
+              - Robot Account: cloud/satama/robot_account.md
           - Known Issues: 
           - Best Parctices:
           - Tutorials:

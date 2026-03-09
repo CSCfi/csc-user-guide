@@ -10,6 +10,10 @@ To generate your CLI secret, log in to the Satama web interface, click on your u
 
  Within this page, you will see a section labeled **CLI Secret**. If you have not generated one before, click **Generate New Secret**, and Satama will display a unique string of characters. This secret should be copied and stored securely. It acts like a personal API key and can be revoked or regenerated at any time.
 
+!!! warning "Known Issue"
+
+    If you see errors such as “unauthorized” , your session token may have expired. In this case, log out from the Satama web UI and log in again. This will refresh the token, copy that and then authenticate again using Docker/Podman.
+
 You can log in from the terminal using this secret by running the following command:
 
 To log in using Docker:
@@ -47,7 +51,7 @@ For example,
 ```
 docker login satama.csc.fi -u robot@test-project+test
 ```
-You will be prompted to enter your password. Add this CLI secret of the robot account. If you don't have credentials, please ask your project admin.
+You will be prompted to enter your password. Add CLI secret of the robot account. If you don't have credentials, please ask your project admin.
 
 ## Pulling an Image
 

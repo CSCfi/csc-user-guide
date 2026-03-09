@@ -11,6 +11,7 @@ Click on **Satama** button and it will take to login options. Use HAKA/MyCSC/Vir
 ![Personal Dashboard](img/personal_dashboard.png)
 
 The interface is organized into two main levels:
+
 1. System-Level Navigation (left sidebar)
 2. Project-Level Navigation (top tabs inside a project)
 
@@ -59,4 +60,4 @@ Each tab in this menu provides access to a different part of the project and all
 
 * **Configuration** tab contains project-level settings that control security and behavior of the project. Here, users can configure project visibility (public or private), enable automatic vulnerability scanning, enable SBOM generation, configure deployment security rules, and manage the CVE allowlist.
 
-To know more about project configuration, please read [Project congiguration](project-configuration.md).
+To know more about project configuration, please read [Project configuration](project-configuration.md).
