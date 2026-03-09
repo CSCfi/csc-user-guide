@@ -515,9 +515,9 @@ nav:
           - Project Configuration: 
               -	cloud/satama/project_configuration.md
               - Project Visibility: cloud/satama/project_visibility.md
-              -	Deployment Security: cloud/satama/deployment_security.md
-              -	Vulnerability Scanning: cloud/satama/vulnerability_scanning.md
-              -	SBOM Generation: cloud/satama/sbom_generation.md
+              - Deployment Security: cloud/satama/deployment_security.md
+              - Vulnerability Scanning: cloud/satama/vulnerability_scanning.md
+              - SBOM Generation: cloud/satama/sbom_generation.md
               - CVE Allowlist: cloud/satama/cve_allowlist.md
               - Audit Logs: cloud/satama/audit_logs.md
               - Tag Retention Policy: cloud/satama/tag_retention.md
