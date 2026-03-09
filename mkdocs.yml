@@ -511,7 +511,7 @@ nav:
               - Command Line Tool: cloud/satama/cli.md
           - Configuration:
               - Billing: cloud/satama/billing.md
-              -	Quota: cloud/satama/quota.md
+              - Quota: cloud/satama/quota.md
           - Project Configuration: 
               -	cloud/satama/project_configuration.md
               - Project Visibility: cloud/satama/project_visibility.md
