@@ -20,8 +20,8 @@ graph LR;
         Roihu general
         availability (GA)"}} --> D;
     D{{"<b>One month after Roihu GA</b>
-        Puhti *computing
-        services* shut down"}} --> E;
+        Puhti <i>computing
+        services</i> shut down"}} --> E;
     E{{"<b>August 2026</b>
         Puhti <i>storage
         services</i> shut down"}} --> F;
