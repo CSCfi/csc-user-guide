@@ -128,7 +128,7 @@ SD Desktop consumes Cloud Billing Units type (BU). You should estimate your proj
 
 You can apply (for free) for billing units in the MyCSC portal:
 
-- Log in to https://my.csc.fi
+- Log in to MyCSC
 - On the left navigation bar select Projects and in the new view click on your CSC project
 - Scroll down and under Resources, on the right corner, click on Apply for resources
 - In the new window you will see the services you have active in the project (in gray). Press Next.
