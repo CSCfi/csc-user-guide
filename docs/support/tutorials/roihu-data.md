@@ -55,7 +55,7 @@
     |-----------|-----------------------|-------------:|--------------------:|--------------------------:|----------------------------:|
     | Home      | `/users/$USER`        | 15 GiB       | 15 GiB              | 150k                      | 150k                        |
     | ProjAppl  | `/projappl/<project>` | 15 GiB       | 250 GiB (< 100 GiB) | 150k                      | 2.5M (< 1M)                 |
-    | ProjData  | `/projdata/<project>` | n/a          | n/a                 | n/a                       | n/a                         |
+    | ProjData  | `/projdata/<project>` | 0 GiB        | case-by-case        | 0                         | case-by-case                |
     | Scratch   | `/scratch/<project>`  | 1 TiB        | 100 TiB (< 10 TiB)  | 1M                        | 10M (< 5M)                  |
 
     [^1]: Values in parentheses indicate automatically approved limits.
@@ -71,7 +71,7 @@
     to get access to a new disk area on Roihu – **ProjData**. This disk area
     allows storing datasets on the disk for a longer timer (no cleaning,
     lifetime is limited by the data project lifetime). Read access to the data
-    can be shared 
+    can be shared globally, or with specific project IDs.
 
     Dataset projects and ProjData quotas are applied for and managed via
     [MyCSC](https://my.csc.fi). ProjData quota consumes Storage BUs.
@@ -105,7 +105,7 @@
         1. **[SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).**
         2. **[SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).**
     * We **strongly** recommend using the
-      [certificate helper tool](../../computing/connecting/ssh-keys.md#option-1-certificate-helper-tool)
+      [certificate helper tool](../../computing/connecting/ssh-keys.md#option-1-certificate-helper-tool-recommended)
       developed by CSC to simplify the process.
 
 ## 2. Recommended data migration methods

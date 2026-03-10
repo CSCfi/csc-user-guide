@@ -256,19 +256,25 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 ## Authentication agent
 
 !!! warning "CSC certificate helper is recommended to simplify working with SSH agent on Windows"
-    [The certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool)
+    [The certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
     developed by CSC simplifies the process of signing and downloading SSH
     certificates for connecting to Roihu. Importantly, it also automatically
     adds your SSH keys and certificate to the Pageant SSH agent.
 
-    **The following instructions are for users who are not using the
-    certificate helper.**
-
 === "MobaXterm"
 
-    To avoid having to type your passphrase every time you connect, enable the
-    MobAgent authentication agent in the program settings (`Settings -->
-    Configuration --> SSH --> SSH agents`).
+    To avoid having to type your passphrase every time you connect using
+    MobaXterm, you have two options.
+
+    If you're using the local terminal instead of the MobaXterm GUI, you can
+    simply use the OpenSSH commands to add your keys and certificates to the
+    authentication agent. In this case, start the SSH agent by running
+    `eval "$(ssh-agent -s)"` and follow the
+    [instructions for Linux](ssh-unix.md#authentication-agent).
+
+    If you're using the MobaXterm GUI to connect, enable the MobAgent
+    authentication agent in the program settings (`Settings --> Configuration
+    --> SSH --> SSH agents`).
     
     1. Toggle the option `Use internal SSH agent "MobAgent"`.
     2. Click the `+` button and select the private key you want to load at
@@ -290,12 +296,6 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
     9. Your private key including the certificate is now loaded into the agent
        and you can sign in to Roihu either using the local terminal or the GUI
        without having to type your SSH passphrase.
-
-    If you're using the local terminal instead of the MobaXterm GUI, you can
-    also simply use the OpenSSH commands to add your keys and certificates to
-    the authentication agent. In this case, start the SSH agent by running
-    `eval "$(ssh-agent -s)"` and follow the
-    [instructions for Linux](ssh-unix.md#authentication-agent).
 
 === "PuTTY"
 
@@ -332,10 +332,28 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 
 === "PowerShell"
 
-    To avoid having to type your passphrase every time you connect,
-    you can
-    [configure the Windows SSH agent](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement?source=recommendations#user-key-generation)
-    to store your keys in memory for the duration of your local login session.
+    `ssh-agent` service is usually stopped or disabled in Windows by default,
+    and starting it requires administrator privileges.
+
+    Run the following commands in an elevated PowerShell prompt:
+
+    ```powershell
+    # Configure ssh-agent to start automatically.
+    Get-Service ssh-agent | Set-Service -StartupType Automatic
+    
+    # Start the service.
+    Start-Service ssh-agent
+    
+    # The following command should return a status of Running.
+    Get-Service ssh-agent
+    
+    # Load your key files into ssh-agent.
+    ssh-add $env:USERPROFILE\.ssh\id_ed25519
+    ```
+
+    After you add the key to the `ssh-agent` service on your client, the
+    `ssh-agent` service automatically retrieves the local private key (and
+    certificate) and passes it to your SSH client.
 
 ---
 

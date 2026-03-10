@@ -124,8 +124,8 @@ terminal.
 ## Authentication agent
 
 To avoid having to type your passphrase every time you connect to a CSC
-supercomputer, the `ssh-agent` utility can hold your keys in memory. The
-program's behavior depends on your system:
+supercomputer, the `ssh-agent` utility can hold your SSH keys and certificates
+in memory. The program's behavior depends on your system:
 
 - On Linux systems, `ssh-agent` is typically configured and run automatically at
   login and requires no additional actions on your part.
@@ -150,7 +150,7 @@ program's behavior depends on your system:
     ```
 
     **This step is done automatically if you use the
-    [CSC certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool)
+    [CSC certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
     to sign and download your SSH certificate!**
 
 !!! warning "Important note if you're <u>not</u> using the certificate helper tool"

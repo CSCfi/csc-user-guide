@@ -112,7 +112,7 @@ same `${USER}.pub` file.
 
 ## Signing public key
 
-!!! info "The following is a requirement for connecting to Roihu only"
+!!! warning "The following is a requirement for connecting to Roihu only"
 
 To connect to Roihu using SSH, you must sign your public key to get a so called
 **SSH certificate**. SSH certificates significantly improve the security of the
@@ -121,12 +121,12 @@ system by introducing an additional authentication factor for SSH logins.
 **SSH certificates are valid for 24 hours at a time**. Once your certificate
 expires, a new one must be signed following either of the processes below.
 
-### Option 1: Certificate helper tool
+### Option 1: Certificate helper tool (recommended)
 
 The certificate helper is a Python tool developed by CSC to simplify the
 process of signing and downloading SSH certificates. A detailed documentation
-of the tool is available in the [source repository](https://github.com/CSCfi/).
-The following instructions illustrate only basic usage.
+of the tool is available in the source repository (TBA). The following
+instructions illustrate only basic usage.
 
 1. Ensure that you have Python installed on your computer.
     - Instructions are available in the
@@ -134,63 +134,95 @@ The following instructions illustrate only basic usage.
       Contact your local IT-support if you need assistance.
     - If Python for some reason cannot be installed on your computer, fall
       back to [Option 2](#option-2-mycsc) instead.
-1. [Download the certificate helper tool here](https://github.com/CSCfi/).
-1. Run the tool:
+2. [Download the certificate helper tool here](https://gitlab.ci.csc.fi/compen/hpc-environment/certificate-helper-tool/-/blob/main/csc_cert.py).
+3. Run the `csc_cert.py` tool:
 
     === "Linux & macOS"
 
+        1. Optional, but **strongly recommended:** Ensure that
+           [`ssh-agent`](ssh-unix.md#authentication-agent) is running to
+           automatically add SSH key and certificate to SSH agent.
         1. Open terminal and execute:
 
             ```bash
             # Replace <username> with your CSC user name and
             # <path-to-public-key> with the path to your SSH public key
 
-            python3 csc-cert.py -u <username> <path-to-public-key>
+            python3 csc_cert.py -u <username> <path-to-public-key>
             ```
 
-        1. If you have an earlier certificate which is still valid, the tool 
+            * The command above assumes that the path to `csc_cert.py` is in
+              your `$PATH` environment variable, or that you are in the same
+              directory as the script. If not, make sure to provide the full
+              path to `csc_cert.py`.
+
+        2. If you have an earlier certificate which is still valid, the tool 
            prints the expiration time and exits.
-        1. If signing is needed, a login URL is displayed. Follow the link and
+        3. If signing is needed, a login URL is displayed. Follow the link and
            authenticate.
-        1. Copy the 6-digit code displayed into your terminal and enter your
+        4. Copy the 6-digit code displayed into your terminal and enter your
            SSH key passphrase.
             - The signed certificate is automatically downloaded and added to
-              your SSH agent. The signed certificate is saved as
+              your SSH agent.
+            - The signed certificate is saved as
               `<key>-cert.pub` (e.g., `~/.ssh/id_ed25519-cert.pub`).
-        1. [Connect to Roihu following these instructions](ssh-unix.md#basic-usage).
+        5. **[Connect to Roihu following these instructions](ssh-unix.md#basic-usage)**.
 
     === "Windows"
 
-        1. Optional, but recommended:
+        6. Optional, but **strongly recommended**:
            [Install WinSCP](https://winscp.net/eng/docs/installation) and
            [start the Pageant authentication agent](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant)
-           that comes bundled with PuTTY to automatically add SSH key and
-           certificate to SSH agent.
-        1. Open PowerShell and execute:
+           that comes bundled with
+           [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) to
+           automatically add SSH key and certificate to SSH agent.
+            * If you install WinSCP without admin rights, make sure to add
+              `WinSCP.exe` to your Path environment variable. Search for the
+              _Edit environment variables for your account_ settings menu.
+            * Alternatively, if you intend to connect to Roihu from a terminal
+              (PowerShell or MobaXterm), it is possible to use `ssh-agent`
+              instead. See the instructions for
+              [MobaXterm](ssh-windows.md#mobaxterm_3) and
+              [PowerShell](ssh-windows.md#powershell_3).
+
+        7. Open PowerShell and execute:
 
             ```bash
             # Replace <username> with your CSC user name and
-            # <path-to-public-key> with the path to your SSH public key
+            # <path-to-public-or-ppk-key> with the path to your SSH public key
+            # (.pub) or PuTTY key (.ppk)
 
-            python3 csc-cert.py -u <username> <path-to-public-key>
+            python3 csc_cert.py -u <username> <path-to-public-or-ppk-key>
             ```
+            
+            * The command above assumes that the path to `csc_cert.py` is in your
+              Path environment variable, or that you are in the same directory as
+              the script. If not, make sure to provide the full path to
+              `csc_cert.py`.
 
             !!! info "Note"
                 PowerShell is just needed to run the certificate
                 helper script. You can still connect to Roihu using your
                 [favorite SSH client](ssh-windows.md#basic-usage).
 
-        1. If you have an earlier certificate which is still valid, the tool 
+                If you intend to use PowerShell to connect to Roihu, make sure
+                to provide `csc_cert.py` your OpenSSH public key (`.pub`).
+                Providing a PuTTY `.ppk` key will create a certificate file
+                that is only compatible with PuTTY or MobaXterm.
+
+        8.  If you have an earlier certificate which is still valid, the tool 
            prints the expiration time and exits.
-        1. If signing is needed, a login URL is displayed. Follow the link and
+        9.  If signing is needed, a login URL is displayed. Follow the link and
            authenticate.
-        1. Copy the displayed 6-digit code into PowerShell and enter your SSH
+        10. Copy the displayed 6-digit code into PowerShell and enter your SSH
            key passphrase.
             - The signed certificate is automatically downloaded and added to
               your SSH agent (if you have WinSCP installed and Pageant
-              running). The signed certificate is saved as `<key>-cert.pub`
-              (e.g., `C:\Users\<username>\.ssh\id_ed25519-cert.pub`).
-        1. [Connect to Roihu following these instructions](ssh-windows.md#basic-usage).
+              running).
+            - The signed certificate is saved as `<key>-cert.pub` or
+              `<key>-cert.ppk` (e.g.,
+              `C:\Users\<username>\.ssh\id_ed25519-cert.ppk`).
+        11. **[Connect to Roihu following these instructions](ssh-windows.md#basic-usage)**.
 
 ---
 

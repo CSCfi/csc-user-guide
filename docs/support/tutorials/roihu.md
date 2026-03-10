@@ -59,6 +59,9 @@ using an SSH client:
     the CPU nodes, while software built on `roihu-gpu.csc.fi` can only be run
     on the GPU nodes. Importantly, this applies also to Python environments.
 
+    **Note that you may access your files from all login nodes because they all
+    use the same shared file system.**
+
 ### Roihu web interface
 
 The simplest way to connect to Roihu is to use the web interface.
@@ -83,22 +86,7 @@ that you:
 
 ## Installing software
 
-Document: compilers, MPI, HPC libraries, pre-installed applications, CPU/GPU
-architecture considerations
-
 ## Running your first job
-
-Like Puhti and Mahti, Roihu uses the
-[Slurm](https://slurm.schedmd.com/documentation.html) batch job system.
-
-* [Description of the different Slurm partitions on Roihu](../../computing/running/batch-job-partitions.md).
-    * Note that there are different login nodes for users targeting the CPU and GPU
-partitions, respectively: `roihu-cpu.csc.fi` and `roihu-gpu.csc.fi`.
-* Instructions on how to submit jobs on Roihu.
-* Example batch job scripts for Roihu.
-
-More information about billing [here](../../accounts/billing.md) and common queuing
-system error messages in the [FAQ](../faq/why-does-my-batch-job-fail.md).
 
 ## More information
 
