@@ -22,6 +22,7 @@ You need to access SD Desktop. You have a permit from Findata.
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
 7. [CSC project is ready](#7-your-csc-project-is-ready)
+8. [Apply for Billing Units](#8-apply-for-billing-units)
 
 
 ### 1. Create a CSC account
@@ -120,3 +121,21 @@ You need to access SD Desktop. You have a permit from Findata.
 
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-secondary-login.md).
+
+### 8. Apply for Billing Units
+
+SD Desktop consumes Cloud Billing Units type (BU). You should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. More information about [Billing Units](sd-billing-units.md).
+
+You can apply (for free) for billing units in the MyCSC portal:
+
+- Log in to https://my.csc.fi
+- On the left navigation bar select Projects and in the new view click on your CSC project
+- Scroll down and under Resources, on the right corner, click on Apply for resources
+- In the new window you will see the services you have active in the project (in gray). Press Next.
+- In the second view, click on the Billing Units package you need (e.g. M) for:
+- Cloud Billing Unit type (used by SD Desktop)
+- Click Next.
+- you will be guided to upload or add information about a publication related to your research. If you don't have a publication yet, you can also upload your research plan, or any old publication related to your research group.
+- In the last view, you can review the project description and field of science. Finally, you can click Submit.
+
+Small BU applications (s) are automatically approved.
