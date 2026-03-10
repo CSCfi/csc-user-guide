@@ -69,9 +69,9 @@ Other software and libraries:
 
 
 ??? info "Starting points for new superusers (click to show)"  
-   [Getting started with CSC's supercomputers](../support/tutorials/hpc-quick/)
-   [CSC Computing Environment course materials](https://csc-training.github.io/csc-env-eff/=
-   [Tutorial on running interactive R jobs and R batch jobs](../support/tutorials/cmdline-handson/)
+   [Getting started with CSC's supercomputers](../support/tutorials/hpc-quick.md)
+   [CSC Computing Environment course materials](https://csc-training.github.io/csc-env-eff/)
+   [Tutorial on running interactive R jobs and R batch jobs](../support/tutorials/cmdline-handson.md)
   
 ## Licenses
 
