@@ -101,22 +101,5 @@
                 "command": "Write-Host \"The Test task is not configured for running on Windows.\"",
             },
         },
-        {
-            "label": "Docs CSC: Generate",
-            "detail": "Run the scripts for generating the 'What's new', 'Apps' and 'Glossary' pages",
-            "type": "shell",
-            "icon": {
-                "id": "terminal",
-                "color": "terminal.ansiMagenta",
-            },
-            "presentation": {
-                "focus": false,
-                "panel": "dedicated",
-            },
-            "command": "[ \"${input:confirmation}\" = \"yes\" ] && for s in ${workspaceFolder}/scripts/generate_*.sh; do bash $s; done || exit 0",
-            "windows": {
-                "command": "Write-Host \"The Generate task is not configured for running on Windows.\"",
-            },
-        },
     ],
 }
