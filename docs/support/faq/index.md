@@ -97,6 +97,9 @@
 * [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
+## Satama
+
+* [Satama Known issues](../../cloud/satama/known_issues.md) 
 
 ## Applications
 
