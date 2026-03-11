@@ -22,8 +22,10 @@ After adding all details, click on **Next** button.
 
 Here, you can add permissions you want to give to this robot account. Here, you can specify which actions the robot account can perform, such as pushing, pulling, or deleting images. You can also give full permissions by selecting all. Now, click on **Finish** Button.
 
+## Save the Credentials
 Once created, Satama generates a robot username and a secret key that must be copied immediately, as it cannot be retrieved later. The credentials can be used in Docker/Podman CLI or CI tools by logging in with a command like
 
+## Authenticate Using the Robot Account
 Log in using robot account:
 ```
 docker login satama.csc.fi -u <your-robot account> 
@@ -32,4 +34,6 @@ For example,
 ```
 docker login satama.csc.fi -u robot@test-project+test
 ```
+
+## Use the Robot Account in Automation
 Robot accounts are especially useful for continuous integration pipelines that automatically build and publish container images, since they enable secure, auditable, and controlled access without requiring a human user. By using robot accounts, consistent automation workflows can be maintained while keeping individual user credentials private and ensuring compliance with least-privilege principles.
