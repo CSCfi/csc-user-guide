@@ -509,11 +509,9 @@ nav:
               - Getting Access: cloud/satama/getting_access.md
               - Web User Interface: cloud/satama/ui.md
               - Command Line Tool: cloud/satama/cli.md
-          - Configuration:
-              - Billing: cloud/satama/billing.md
-              - Quota: cloud/satama/quota.md
+              - Billing and Quota: cloud/satama/billing_and_quota.md
           - Project Configuration: 
-              - cloud/satama/project_configuration.md
+              -	cloud/satama/project_configuration.md
               - Project Visibility: cloud/satama/project_visibility.md
               - Deployment Security: cloud/satama/deployment_security.md
               - Vulnerability Scanning: cloud/satama/vulnerability_scanning.md
@@ -524,9 +522,12 @@ nav:
               - Tag Immutability: cloud/satama/tag_immutability.md
               - Robot Account: cloud/satama/robot_account.md
           - Known Issues: cloud/satama/known_issues.md
-          - Best Practices: cloud/satama/best_practices.md
-          - Tutorials:
-               - cloud/satama/tutorials/index.md
+          - Best Parctices: cloud/satama/best_practics.md
+          - Tutorials: 
+              - cloud/satama/tutorials/index.md
+              - Clean Up Old Tags: cloud/satama/tutorials/cleanup.md
+              - Push Your First Image: cloud/satama/tutorials/push_image.md
+
           
 
   - Data:
