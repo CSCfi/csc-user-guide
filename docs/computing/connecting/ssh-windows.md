@@ -259,43 +259,33 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
     [The certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
     developed by CSC simplifies the process of signing and downloading SSH
     certificates for connecting to Roihu. Importantly, it also automatically
-    adds your SSH keys and certificate to the Pageant SSH agent.
+    adds your SSH keys and certificate to your OpenSSH and/or Pageant
+    authentication agent.
 
 === "MobaXterm"
 
-    To avoid having to type your passphrase every time you connect using
-    MobaXterm, you have two options.
+    MobaXterm supports three different SSH agents – Pageant, MobAgent and
+    Windows `ssh-agent`. They can all be used at the same time if you wish. If
+    you use the CSC certificate helper tool for managing SSH certificates for
+    Roihu, **we recommend using Pageant**.
 
-    If you're using the local terminal instead of the MobaXterm GUI, you can
-    simply use the OpenSSH commands to add your keys and certificates to the
-    authentication agent. In this case, start the SSH agent by running
-    `eval "$(ssh-agent -s)"` and follow the
-    [instructions for Linux](ssh-unix.md#authentication-agent).
-
-    If you're using the MobaXterm GUI to connect, enable the MobAgent
-    authentication agent in the program settings (`Settings --> Configuration
-    --> SSH --> SSH agents`).
+    Authentication agents are enabled in the program settings (`Settings -->
+    Configuration --> SSH --> SSH agents`).
     
-    1. Toggle the option `Use internal SSH agent "MobAgent"`.
-    2. Click the `+` button and select the private key you want to load at
-       MobAgent startup. 
-    3. Click `OK` and restart MobaXterm. You'll be prompted to enter your key
+    1. Toggle the SSH agent(s) you wish to use:
+        1. For **MobAgent**, you need to click the `+` button and select the
+           private key(s) you want to load at startup.
+        2. For **Pageant** (PuTTY agent), you must make sure Pageant is running
+           and holds the keys/certificates you wish to use.
+           [See the PuTTY tab for instructions](#putty_3).
+        3. For **`ssh-agent`** (Windows SSH agent), you must make sure
+           `ssh-agent` service is running and holds the keys/certificates you
+           wish to use.
+           [See the PowerShell tab for instructions](#powershell_3).
+    2. Click `OK` and restart MobaXterm. You'll be prompted to enter your key
        passphrase.
-    4. You may now connect to CSC supercomputers without having to type your
+    3. You may now connect to CSC supercomputers without having to type your
        passphrase again.
-
-    **To connect to Roihu**, you may also with add your SSH certificate to the
-    agent. In this case, you must first "combine" the certificate and the SSH
-    private key.
-
-    5. Open MobaKeyGen from the Tools tab.
-    6. Load your private key (`File --> Load private key`).
-    7. Add a valid certificate to the key (`Key --> Add certificate to key`).
-       The validity period can be checked by selecting `Certificate info`.
-    8. Save the private key and restart MobaXterm.
-    9. Your private key including the certificate is now loaded into the agent
-       and you can sign in to Roihu either using the local terminal or the GUI
-       without having to type your SSH passphrase.
 
 === "PuTTY"
 
@@ -310,25 +300,11 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
        no keys, so the list box will be empty.
     3. Press the `Add Key` button to add a key to Pageant.
     4. Find your private key file in the `Select Private Key File` dialog, and
-       press `Open`. Pageant will ask you to enter the key passhphrase.
+       press `Open`. Pageant will ask you to enter the key passphrase.
     5. Now start PuTTY and open an SSH session to any CSC supercomputer. PuTTY
        will notice that Pageant is running, retrieve the key automatically from
        Pageant, and use it to authenticate. You may now open as many PuTTY
        sessions as you like without having to type your passphrase again.
-
-    **To connect to Roihu**, you may also with add your SSH certificate to the
-    agent. In this case, you must first "combine" the certificate and the SSH
-    private key.
-
-    1. Open PuTTYgen.
-    2. Load your private key (`File --> Load private key`).
-    3. Add a valid certificate to the key (`Key --> Add certificate to key`).
-       The validity period can be checked by selecting `Certificate info`.
-    4. Save the private key and add it to Pageant following the steps above. A
-       successfully combined key and certificate will show up as `Ed25519 cert`
-       in Pageant.
-    5. You can now sign in to Roihu using PuTTY without having to type your SSH
-       passphrase.
 
 === "PowerShell"
 
@@ -356,6 +332,52 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
     certificate) and passes it to your SSH client.
 
 ---
+
+!!! warning "Important note if you're <u>not</u> using the certificate helper tool"
+    Users downloading SSH certificates
+    [manually from MyCSC](ssh-keys.md#option-2-mycsc) must perform some extra
+    steps to be able to add their certificate to SSH agents.
+    
+    === "MobAgent & Pageant"
+
+        To add your SSH certificate to MobAgent or PuTTY, you must first
+        "combine" the certificate and the PuTTY `.ppk` private key.
+
+        1. Open MobaKeyGen (_Tools_ tab of MobaXterm) or PuTTYgen.
+        2. Load your private key (`File --> Load private key`).
+        3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+           The validity period can be checked by selecting `Certificate info`.
+        4. Save the private key as `<key>-cert.ppk`, e.g. 
+           `id_ed25519-cert.ppk`.
+        5. The new private key including the certificate can now be added to
+           MobAgent and/or Pageant following the previous instructions. A
+           successfully combined key and certificate will show up as `Ed25519
+           cert` in MobAgent/Pageant.
+
+    === "Windows SSH agent"
+
+        Users of Windows `ssh-agent` **must** make sure to store their manually
+        downloaded SSH certificate in the same directory as the SSH private key
+        **and** name it as `<private-key-name>-cert.pub` to be able to add it
+        to SSH agent with `ssh-add` command. If successful, `ssh-add` outputs:
+
+        ```bash
+        Certificate added: C:\Users\<username>\.ssh\id_ed25519-cert.pub
+        ```
+
+        **If the certificate is stored and/or named in any other way, it cannot be
+        added to the authentication agent because OpenSSH uses hard-coded naming
+        conventions.**
+
+    **Please note**:
+
+    * If you intend to connect to Roihu via a jump host (e.g. when transferring
+    data from another CSC server to Roihu), also the SSH certificate **must**
+    be added to the SSH agent so that it can be properly forwarded.
+    * Alternatively, you may connect to Roihu and **pull** data from servers
+    that do not require a SSH certificate (e.g. Puhti or Mahti). In this case
+    it is enough to forward only your SSH keys.
+    * [Read more about SSH agent forwarding below](#ssh-agent-forwarding).
 
 ### SSH agent forwarding
 

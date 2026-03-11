@@ -61,8 +61,8 @@ connection by opening the terminal and running:
 ssh <username>@<host>.csc.fi
 ```
 
-This assumes that the SSH keys (and certificate for Roihu) are saved in a standard
-location using standard naming:
+This assumes that the SSH keys (and certificate for Roihu) are saved in a
+standard location using standard naming:
 
 - Private key: `~/.ssh/id_<algorithm>`
 - Public key: `~/.ssh/id_<algorithm>.pub`

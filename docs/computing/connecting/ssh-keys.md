@@ -124,9 +124,10 @@ expires, a new one must be signed following either of the processes below.
 ### Option 1: Certificate helper tool (recommended)
 
 The certificate helper is a Python tool developed by CSC to simplify the
-process of signing and downloading SSH certificates. A detailed documentation
-of the tool is available in the source repository (TBA). The following
-instructions illustrate only basic usage.
+process of signing and downloading an SSH certificate, and adding it to your
+SSH authentication agent. A detailed documentation of the tool is available in
+the source repository (TBA). The following instructions illustrate only basic
+usage.
 
 1. Ensure that you have Python installed on your computer.
     - Instructions are available in the
@@ -176,14 +177,12 @@ instructions illustrate only basic usage.
            that comes bundled with
            [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) to
            automatically add SSH key and certificate to SSH agent.
-            * If you install WinSCP without admin rights, make sure to add
+            * If you install WinSCP without admin rights, you must add
               `WinSCP.exe` to your Path environment variable. Search for the
               _Edit environment variables for your account_ settings menu.
-            * Alternatively, if you intend to connect to Roihu from a terminal
-              (PowerShell or MobaXterm), it is possible to use `ssh-agent`
-              instead. See the instructions for
-              [MobaXterm](ssh-windows.md#mobaxterm_3) and
-              [PowerShell](ssh-windows.md#powershell_3).
+            * If you intend to connect to Roihu using PowerShell, it is
+              possible to use `ssh-agent` instead of Pageant and WinSCP.
+              [See the instructions for starting `ssh-agent` in PowerShell](ssh-windows.md#authentication-agent).
 
         7. Open PowerShell and execute:
 
@@ -219,7 +218,7 @@ instructions illustrate only basic usage.
             - The signed certificate is automatically downloaded and added to
               your SSH agent (if you have WinSCP installed and Pageant
               running).
-            - The signed certificate is saved as `<key>-cert.pub` or
+            - The signed certificate is saved as `<key>-cert.pub` and/or
               `<key>-cert.ppk` (e.g.,
               `C:\Users\<username>\.ssh\id_ed25519-cert.ppk`).
         11. **[Connect to Roihu following these instructions](ssh-windows.md#basic-usage)**.
@@ -249,7 +248,7 @@ instructions illustrate only basic usage.
         `~/.ssh/id_ed25519`, please save your SSH certificate as
         `~/.ssh/id_ed25519-cert.pub`.
 
-1. Connect to Roihu following these instructions:
+1. **Connect to Roihu following these instructions**:
       1. [Linux/macOS](ssh-unix.md#basic-usage)
       1. [Windows](ssh-unix.md#basic-usage)
 
