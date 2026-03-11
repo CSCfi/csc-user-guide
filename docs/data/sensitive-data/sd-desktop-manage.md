@@ -6,7 +6,8 @@
 
 With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens on the **SD Desktop management** page.
 
-* [Detaching and attaching a volume](#detaching-and-attaching-a-volume)
+* [Detaching and attaching a volume](#detaching-a-volume)
+* [Attaching a volume](#attach-a-volume-to-a-new-virtual-desktop)
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
