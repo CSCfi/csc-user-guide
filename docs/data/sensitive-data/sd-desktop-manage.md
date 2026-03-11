@@ -56,7 +56,7 @@ When you want to access the data saved in the detached volume, you can attach it
 !!! note
     - A detached volume can not be attached to an existing virtual desktop, only to new virtual desktops during creation phase. 
     - The content of a detached volume can not be accessed or deleted.
-    - If you want to access or delete content on the destached volume, you need to create a new desktop that uses same operating system as the volume and attach volume to it at the creation phase.
+    - If you want to access or delete content on the detached volume, you need to create a new desktop that uses same operating system as the volume and attach volume to it at the creation phase.
     - Volumes can not be moved or transferred between CSC projects for security reasons.
 
 ![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
