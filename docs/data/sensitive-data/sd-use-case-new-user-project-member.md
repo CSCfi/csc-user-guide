@@ -12,7 +12,7 @@ You need access to SD services for processing research data. You are member of a
 
 1. [Create a CSC account](#1-create-a-csc-account)
 2. [Join to CSC project](#2-join-to-csc-project)
-3. [Log into SD Services](#3-log-into-sd-services)
+3. [Log into SD Services](#3-log-into-services)
 
 ![How to get started as project member.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Member.png)
 
@@ -35,7 +35,7 @@ The project manager has either added you to a CSC project or sent you an invitat
 
 ### 3. Log into services
 
-- Now all the preparations are ready and you can start using the services. Below you'll find links to related user guides:
+- Now all the preparations are ready and you can start using the Sensitive Data services. Below you'll find links to related user guides:
 
 **SD Connect:**
 
