@@ -20,9 +20,11 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 ### 2. Select
 
 1. correct CSC project
-2. operating system. We recommend to choose **Default Ubuntu22.04**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
-3. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
-4. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
+2. operating system. **Please select Default Ubuntu 22.04** as the operating system.
+Choosing another option will cause the virtual desktop to stop working. Other operating systems are only available after contacting the service desk and following specific instructions.
+
+4. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
+5. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
 
 ![Virtual desktop selections.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
 
@@ -56,10 +58,12 @@ Add an external  volume to your virtual desktop, extending default storage (80 G
 
 ### 4. Create virtual desktop
 
-Finally, click *Create desktop*. The process is fully automated and may take up to 30 minutes. If you try to access the virtual desktop during this time, you will see an error asking you to try again later.
+Finally, click *Create desktop*. 
 
 !!! Note
-    After clicking "Create," wait up to 1 minute for the confirmation notification. If you’re unsure whether the desktop was created, contact the service desk. We apologize for any inconvenience.
+    After clicking "Create," please be aware that the confirmation notification may take up to 90 seconds to appear at the bottom of the page. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
+
+The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
 
 ![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
 

@@ -18,7 +18,7 @@ In this case you can share your data folder to Team B with **Transfer data** -pe
 
 ## Step by step tutorial
 
-Both teams should have their own CSC project and SD Connect activated. If you don't have one yet, please follow instructions from [Start here](sd-store-and-analyze-research-data.md) and return to this tutorial after you have set up the CSC project.
+Both teams should have their own CSC project and SD Connect activated. If you don't have one yet, please follow instructions from [Start here](./sd-store-and-analyze-research-data.md) and return to this tutorial after you have set up the CSC project.
 
 1. Ask from Team B for their project Share ID. They find it from their SD Connect.
 ![(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
