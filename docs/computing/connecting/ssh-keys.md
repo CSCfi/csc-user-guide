@@ -225,8 +225,6 @@ usage.
 
 ---
 
-!!! info "Removing expired SSH certificates from SSH agent"
-
 ### Option 2: MyCSC
 
 1. Log in to MyCSC with your CSC or Haka/Virtu credentials.

@@ -19,18 +19,19 @@ machine is:
 scp username@server:/path/to/file /path/to/local/destination
 ```
 
-!!! info "Non-standard location or name for SSH keys"
-    If you have stored your SSH key file with a non-default name or in a
-    non-default location (somewhere else than `~/.ssh/id_<algorithm>`), you
-    must specify where `scp` should look for the key using the `-i` option,
-    e.g:
+!!! info "Non-standard location or name for SSH keys and/or certificates"
+    If you have stored your SSH key or certificate file with a non-default name
+    or in a non-default location (somewhere else than `~/.ssh/id_<algorithm>`
+    and `~/.ssh/id_<algorithm>-cert.pub`), you must specify where `scp` should
+    look for the files using the `-i` option, e.g:
 
     ```bash
-    scp -i /path/to/sshkey /path/to/file username@server:/path/to/remote/destination
+    scp -i /path/to/sshkey -i /path/to/cert /path/to/file <username>@<host>:/path/to/remote/destination
     ```
 
-    The rest of this page assumes the key is stored in a default location using
-    a standard name, so the `-i` flag is omitted.
+    The rest of this page assumes the key and certificate are stored in a
+    default location using standard naming, so the `-i` flag is omitted. Note
+    that SSH certificates are required for connecting to Roihu only.
 
 ## Using scp to copy data between your local computer and Puhti
 
@@ -87,8 +88,9 @@ access mode information from the original file.
 
 To copy data directly between CSC supercomputers, `scp` must be able to access
 the SSH keys you've set up on your local workstation for authenticating to CSC
-supercomputers. This is accomplished by forwarding your SSH agent to the
-supercomputer you're first connecting to.
+supercomputers. For Roihu, a valid SSH certificate is also needed. This is
+accomplished by forwarding your SSH agent including your SSH keys (and
+certificate) to the supercomputer you're first connecting to.
 
 - [SSH agent forwarding instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding)
 - [SSH agent forwarding instructions for Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding)

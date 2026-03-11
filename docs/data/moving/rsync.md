@@ -71,21 +71,25 @@ rsync -rP <username>@puhti.csc.fi:/path/to/target/folder /path/to/local
 ```
 
 !!! info "Note"
-    If you have stored your SSH key file with a non-default name or in a
-    non-default location (somewhere else than `~/.ssh/id_<algorithm>`), you can
+    If you have stored your SSH key and/or certificate file with a non-default
+    name or in a non-default location (somewhere else than
+    `~/.ssh/id_<algorithm>` or `~/.ssh/id_<algorithm>-cert.pub`), you can
     specify where `rsync` should look for the key using the `-e` option. For
     example:
 
     ```bash
-    rsync -rP -e "ssh -i /path/to/private/key" /path/to/local/folder <username>@puhti.csc.fi:/path/to/target
+    rsync -rP -e "ssh -i /path/to/private/key -i /path/to/certificate" /path/to/local/folder <username>@<host>:/path/to/target 
     ```
+
+    Note that SSH certificates are required for connecting to Roihu only.
 
 ## Using rsync to transfer data directly between CSC supercomputers
 
 To transfer data directly between CSC supercomputers, you must be able to access
 the SSH keys you've set up on your local workstation for authenticating to CSC
-supercomputers. This is accomplished by forwarding your SSH agent to the
-supercomputer you're first connecting to.
+supercomputers. For Roihu, a valid SSH certificate is also needed. This is
+accomplished by forwarding your SSH agent including your SSH keys (and
+certificate) to the supercomputer you're first connecting to.
 
 - [SSH agent forwarding instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding)
 - [SSH agent forwarding instructions for Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding)
