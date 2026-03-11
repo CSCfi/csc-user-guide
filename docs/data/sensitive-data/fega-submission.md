@@ -177,7 +177,7 @@ Using the submitter portal, you can register the following metadata objects:
 When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After data release, each of these objects will be assigned with a permanent identifier (EGA ID).
 
 !!! note
-    * Dataset specific **Policy** item for the metadata submission need to be created separately by CSC helpdesk before it can be selected in the submitter portal. This Policy metadata item links the dataset to the data access application created by your organisation in SD Apply (see [Step 1](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies)).
+    * Dataset specific **Policy** item for the metadata submission need to be created separately by CSC helpdesk before it can be selected in the submitter portal. This Policy metadata item links the dataset to the data access application created by your organisation in SD Apply (see [Step 1](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-access-policies)).
     * **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, while you are registering **Dataset** metadata.
 
 ## Step 7: Data release
