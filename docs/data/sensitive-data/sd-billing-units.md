@@ -15,7 +15,7 @@ In the following section, you will learn:
 
 - [Step 1: Determine the appropriate Billing Units Package](#determine-the-appropriate-billing-units-package)
 
-- [Step 2: Apply for more billing units in the MyCSC portal](#apply-for-more-billing-units-in-the-mycsc-portal)
+- [Step 2: Apply for more billing units in the MyCSC portal](#apply-for-more-billing-units-via-mycsc-portal)
 
 
 
