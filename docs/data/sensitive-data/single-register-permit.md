@@ -19,9 +19,10 @@ You need to access SD Desktop. You have a permit from a single register.
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
 7. [CSC project is ready](#7-your-csc-project-is-ready)
-8. [Apply for access to the dataset with SD Apply](#8-apply-for-access-to-the-dataset-with-sd-apply)
-9. Register processes application, please wait
-10. [Send approved application to CSC](#10-send-approved-application-to-csc)
+8. [Apply for Billing Units](#8-apply-for-billing-units)
+9. [Apply for access to the dataset with SD Apply](#8-apply-for-access-to-the-dataset-with-sd-apply)
+10. Register processes application, please wait
+11. [Send approved application to CSC](#10-send-approved-application-to-csc)
 
 
 ### 1. Create a CSC account
@@ -121,7 +122,25 @@ You need to access SD Desktop. You have a permit from a single register.
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC.
 
-### 8. Apply for access to the dataset with SD Apply
+### 8. Apply for Billing Units
+
+SD Desktop consumes Cloud Billing Units type (BU). You should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. More information about [Billing Units](sd-billing-units.md).
+
+You can apply (for free) for billing units in the MyCSC portal:
+
+- Log in to MyCSC
+- On the left navigation bar select Projects and in the new view click on your CSC project
+- Scroll down and under Resources, on the right corner, click on Apply for resources
+- In the new window you will see the services you have active in the project (in gray). Press Next.
+- In the second view, click on the Billing Units package you need (e.g. M) for:
+- Cloud Billing Unit type (used by SD Desktop)
+- Click Next.
+- you will be guided to upload or add information about a publication related to your research. If you don't have a publication yet, you can also upload your research plan, or any old publication related to your research group.
+- In the last view, you can review the project description and field of science. Finally, you can click Submit.
+
+Small BU applications (s) are automatically approved.
+
+### 9. Apply for access to the dataset with SD Apply
 
 !!! warning-label
     Team manager
@@ -154,11 +173,11 @@ You are now on the Applications page.
 ![SD Apply application](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_Application.png)
 
 !!! Note ""
-    ### 9. Wait for approval from data controller
+    ### 10. Wait for approval from data controller
     * After you have sent the application, it will be forwarded to the data controller, who approves or rejects it. 
     * You will receive an email notification whenever the state of your application changes.
 
-### 10. Send approved application to CSC
+### 11. Send approved application to CSC
 
 * Login to SD Apply: [https://sd-apply.csc.fi](https://sd-apply.csc.fi).
 * Find your application and click **''PDF''** under **Actions**.
