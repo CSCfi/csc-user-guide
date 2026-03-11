@@ -9,7 +9,7 @@
 
 In the following section, you will learn:
 
-- [What are Cloud and Storage Billing Units and storage quota](#what-billing-units-and-storage-quota)
+- [What are Cloud and Storage Billing Units and storage quota](#what-are-billing-units-and-storage-quota)
 
 - [What happens if your project runs out of Billing Units](#what-happens-if-your-project-runs-out-of-billing-units)
 
