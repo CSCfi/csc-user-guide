@@ -225,6 +225,8 @@ usage.
 
 ---
 
+!!! info "Removing expired SSH certificates from SSH agent"
+
 ### Option 2: MyCSC
 
 1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
@@ -262,15 +264,22 @@ usage.
             1. Run command:
 
                 ```bash
+                # Replace <path-to-certificate> with the path to your OpenSSH
+                # certificate file (.pub)
+
                 ssh-keygen -L -f <path-to-certificate> | grep "Valid"
                 ```
 
         === "GUI (PuTTY, MobaXterm)"
 
-            1. Open PuTTYgen / MobaKeyGen.
-            1. Load your private key: _File_ :material-arrow-right: _Load private key_.
-            1. Add a certificate to the key: _Key_ :material-arrow-right: _Add certificate to key_.
-            1. Select _Certificate info_ to see the validity period among other info.
+            2. Open PuTTYgen / MobaKeyGen.
+            3. Load your `.ppk` private key:
+                * _File_ :material-arrow-right: _Load private key_
+            4. Add a certificate (`.pub`) to the key (unless already included
+               in the `.ppk` file):
+                * _Key_  :material-arrow-right: _Add certificate to key_
+            5. Select _Certificate info_ to see the validity period among other
+               info.
 
     ---
 

@@ -276,12 +276,11 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
         1. For **MobAgent**, you need to click the `+` button and select the
            private key(s) you want to load at startup.
         2. For **Pageant** (PuTTY agent), you must make sure Pageant is running
-           and holds the keys/certificates you wish to use.
-           [See the PuTTY tab for instructions](#putty_3).
+           and holds the keys/certificates you wish to use. See the PuTTY tab
+           for instructions.
         3. For **`ssh-agent`** (Windows SSH agent), you must make sure
            `ssh-agent` service is running and holds the keys/certificates you
-           wish to use.
-           [See the PowerShell tab for instructions](#powershell_3).
+           wish to use. See the PowerShell tab for instructions.
     2. Click `OK` and restart MobaXterm. You'll be prompted to enter your key
        passphrase.
     3. You may now connect to CSC supercomputers without having to type your
