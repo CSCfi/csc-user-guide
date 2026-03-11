@@ -13,7 +13,7 @@
 **Disk quota**: storage space available to CSC's services users. SD Connect has a default quota of 10 TB. You can apply for more storage space by writing to [CSC Service Desk](../../support/contact.md). 
 
 
-**Multi-factor Authentication**: When you log in to the SD Desktop service, you must undergo an extra verification step next to provide a username and password. In this way, your account is more secure. The extra verification step is called: "Two-Step Verification" or "Multifactor Authentication", because you are proving your identity via a different method. In this case, you need to type in a one-time code (6 digits) obtained by opening a mobile app. The code is unique and valid for a limited amount of time.
+**Multi-factor Authentication**: When you log in to the SD Desktop service, you must undergo an additional/second verification step next to provide a username and password. In this way, your account is more secure. The addtional verification step is called: "Two-Step Verification" or "Multifactor Authentication", because you are proving your identity via a different method. In this case, you need to type in a one-time code (6 digits) obtained by opening a mobile app. The code is unique and valid for a limited amount of time.
 
 **Object**: the technical name for a file stored in a cloud object storage like Allas (or uploaded to CSC via SD Connect). This definition underlines that files stored in SD Connect / Allas can not be directly modified unless transferred or copied into a computing environment. Still, they can be accessed in read-only mode from a cloud computing environment (e.g. SD Desktop). 
 

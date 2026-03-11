@@ -50,16 +50,16 @@ Add an external  volume to your virtual desktop, extending default storage (80 G
 
 * It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive. Please note that after the virtual desktop is set up, the volume can only be extended with additional storage if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*.
 
-* **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
+* **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a USB stick to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
 
 ![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
 
 ### 4. Create virtual desktop
 
-Finally, click *Create desktop*. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
+Finally, click *Create desktop*. The process is fully automated and may take up to 30 minutes. If you try to access the virtual desktop during this time, you will see an error asking you to try again later.
 
 !!! Note
-    After clicking "Create," please be patient and wait for the confirmation notification to appear which may take up to 1 minute. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
+    After clicking "Create," wait up to 1 minute for the confirmation notification. If you’re unsure whether the desktop was created, contact the service desk. We apologize for any inconvenience.
 
 ![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
 
@@ -71,7 +71,7 @@ Finally, click *Create desktop*. The operation is entirely automated and can tak
 
 * All desktops come with a set of pre-installed open-source software managed by CSC. Read more about [pre-installed software and customisation.](./sd-desktop-software.md).
 
-* **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. Unused desktops trigger email notifications after 14 days of inactivity.
+* **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. You will receive email notifications after 14 days of inactivity.
   
 
 !!! info "Need assistance?"
