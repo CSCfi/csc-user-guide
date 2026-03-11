@@ -35,6 +35,17 @@ For example, use the following settings for connecting to Puhti:
 Click _Connect_. If it is the first time you're connecting, FileZilla will ask
 if you trust the host, and then prompt you for your SSH key passphrase.
 
+!!! warning "Important: Connecting to Roihu"
+    There is no way to manually provide FileZilla an SSH certificate for
+    connecting to Roihu. Instead, to form a connection to Roihu using
+    FileZilla, please ensure that you've got Pageant SSH agent running and that
+    it holds a valid SSH certificate. FileZilla will then fetch it from the
+    agent automatically.
+
+    [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
+    We recommend using the
+    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-1-certificate-helper-tool-recommended).
+
 Once the connection is opened, FileZilla shows two interactive file listings
 side by side. On the left side you have your local file system and on the right
 site the remote file system (e.g. files on Puhti). You can change your location
