@@ -527,9 +527,7 @@ nav:
               - cloud/satama/tutorials/index.md
               - Clean Up Old Tags: cloud/satama/tutorials/cleanup.md
               - Push Your First Image: cloud/satama/tutorials/push_image.md
-
-          
-
+              
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
