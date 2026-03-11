@@ -20,9 +20,9 @@ You need to access SD Desktop. You have a permit from a single register.
 6. CSC activates SD Desktop for your project, please wait
 7. [CSC project is ready](#7-your-csc-project-is-ready)
 8. [Apply for Billing Units](#8-apply-for-billing-units)
-9. [Apply for access to the dataset with SD Apply](#8-apply-for-access-to-the-dataset-with-sd-apply)
+9. [Apply for access to the dataset with SD Apply](#9-apply-for-access-to-the-dataset-with-sd-apply)
 10. Register processes application, please wait
-11. [Send approved application to CSC](#10-send-approved-application-to-csc)
+11. [Send approved application to CSC](#11-send-approved-application-to-csc)
 
 
 ### 1. Create a CSC account
