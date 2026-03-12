@@ -1,6 +1,6 @@
 # Remote disk mounts
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 With remote disk mounts you can access your CSC directories in a way that
 resembles the usage of an external disk or USB memory stick. Using this
