@@ -87,6 +87,23 @@ Click the _Advanced_ button and open the _SSH_ > _Authentication_ tab. Enter
 the path to your SSH private key in the _Private key file_ field and click
 _OK_.
 
+!!! warning "Important: Connecting to Roihu"
+    If you're connecting to Roihu, please specify a `.ppk` file that includes a
+    valid SSH certificate in the _Private key file_ field (e.g.
+    `C:\Users\<username>\.ssh\id_ed25519-cert.ppk`).
+    
+    Alternatively, if you've added this key to Pageant, you can simply leave
+    the _Private key file_ field empty – WinSCP will fetch it from the agent
+    automatically if you've toggled the _Attempt authentication using Pageant_
+    option in the _SSH_ > _Authentication_ tab (on by default). Please note
+    that if you specify a key that does **not** include a valid certificate,
+    WinSCP will try to use this instead of Pageant. It is thus important that
+    you leave the field empty.
+
+    [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
+    We recommend using the
+    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-1-certificate-helper-tool-recommended).
+
 ![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
 
 Click _Login_ to connect. If it is the first time you're connecting, WinSCP
