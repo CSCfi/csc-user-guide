@@ -18,4 +18,4 @@ To understand more about Satama and how to use this, please read following topic
 * [Known Issues](known_issues.md)
 * [Best Practices](best_practices.md)
 * [Tutorials](tutorials/index.md)
-* [FAQ](../../../support/faq/index.md#satama)
+* [FAQ](../../support/faq/index.md#satama)
