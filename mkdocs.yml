@@ -37,8 +37,8 @@ extra:
           description: No! This page needs to be improved.
           note: >-
             Thank you! Your feedback is appreciated.
-      exclude:
-        - ref.md
+    exclude:
+      - ref.md
   short_description: User guides and tutorials
   social:
     - icon: material/github
@@ -57,6 +57,8 @@ hooks:
   - hooks/archives.py
   - hooks/preview.py
   - hooks/testing.py
+  - hooks/whats-new.py
+  - hooks/glossary.py
 
 plugins:
   - tags
@@ -194,7 +196,6 @@ plugins:
         "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
         "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
 
-
 markdown_extensions:
   - md_in_html
   - footnotes
@@ -243,7 +244,7 @@ theme:
     # Error admonition type is not in Material for MkDocs,
     # so the following icon is a literal definition in
     # csc-overrides/assets/stylesheets/admonition.css
-      # error: material/close-circle
+    # error: material/close-circle
   palette:
     scheme: csc
     primary: custom
@@ -409,13 +410,15 @@ nav:
           - Tutorials:
               - cloud/pouta/tutorials/index.md
               - cPouta and ePouta related videos: cloud/pouta/tutorials/pouta-videos.md
+              - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
+              - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
               - Learn cloud computing by developing and deploying a web application: cloud/pouta/tutorials/web-app-dev-cloud.md
               - Orchestration with Heat: cloud/pouta/tutorials/heat-orchestration.md
-              - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
-              - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
-              - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
-              - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
               - Ray - A Machine learning framework for cloud: cloud/pouta/tutorials/Ray-ML-cloud.md
+              - Set up a NFS server: cloud/pouta/tutorials/nfs-server.md
+              - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
+              - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
+
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -437,6 +440,7 @@ nav:
                   - PostgreSQL version differences: cloud/dbaas/postgres-versions.md
                   - Extensions and parameters: cloud/dbaas/postgres-extensions.md
                   - Permissions: cloud/dbaas/postgres-permissions.md
+                  - PostgreSQL 14 EOL: cloud/dbaas/postgres-14-eol.md
               - MariaDB:
                   - cloud/dbaas/mariadb.md
                   - Accessing your database: cloud/dbaas/mariadb-accessing.md
@@ -558,7 +562,7 @@ nav:
           - Common Error Messages: data/Allas/using_allas/error_messages.md
           - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
           - Allas clients:
-              - Allas connection configuration: data/Allas/using_allas/allas-conf.md          
+              - Allas connection configuration: data/Allas/using_allas/allas-conf.md
               - Allas web UI: data/Allas/using_allas/allas-ui.md
               - Puhti/Mahti web UI: computing/webinterface/file-browser.md
               - a-commands: data/Allas/using_allas/a_commands.md
@@ -575,7 +579,7 @@ nav:
   - Sensitive data:
       - data/sensitive-data/index.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
-      - Research data - Store and analyse: 
+      - Research data - Store and analyse:
           - Start here:
               - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
@@ -629,6 +633,9 @@ nav:
               - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
           - Instructions for registers: data/sensitive-data/single-register-submission.md
       - Terminology: data/sensitive-data/sd-terminology.md
+      - SD Services – Version history:
+        - SD Connect releases: data/sensitive-data/releases-sd-connect.md
+        - SD Desktop releases: data/sensitive-data/releases-sd-desktop.md
   - Applications:
       - apps/index.md
       - By discipline: apps/by_discipline.md

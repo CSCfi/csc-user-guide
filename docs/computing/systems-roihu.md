@@ -10,22 +10,22 @@
 
 ```mermaid
 graph LR;
-    A{{"**September 2025**
+    A{{"<b>September 2025</b>
         Roihu installation
         in progress"}} --> B;
-    B{{"**March 2026**
+    B{{"<b>April 2026</b>
         Pilot phase
         starts"}} --> C;
-    C{{"**April 2026**
+    C{{"<b>May 2026</b>
         Roihu general
         availability (GA)"}} --> D;
-    D{{"**One month after Roihu GA**
-        Puhti *computing
-        services* shut down"}} --> E;
-    E{{"**August 2026**
-        Puhti *storage
-        services* shut down"}} --> F;
-    F{{"**August 2026**
+    D{{"<b>One month after Roihu GA</b>
+        Puhti <i>computing
+        services</i> shut down"}} --> E;
+    E{{"<b>August 2026</b>
+        Puhti <i>storage
+        services</i> shut down"}} --> F;
+    F{{"<b>August 2026</b>
         Mahti
         shut down"}}
     style A fill:#dceeceff;
@@ -144,8 +144,8 @@ interactive access and running graphical user interfaces.
 ## More information
 
 * [Frequently asked questions](../support/faq/roihu.md)
-* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2026-01-26.pdf)
-  (updated 2026-01-26)
+* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
+  (updated 2026-02-25)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
