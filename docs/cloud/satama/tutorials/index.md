@@ -1,7 +1,7 @@
 # Tutorials
 
 * [Push Your First Image](push_image.md)
-* [Pull an Image](../cli.md/#pulling-an-image)
+* [Pull an Image](../cli.md#pulling-an-image)
 * [Explore Image in UI](../ui.md)
 * [Robot Accounts for Automation](../robot_account.md)
 * [Vulnerability Scanning](../vulnerability_scanning.md)

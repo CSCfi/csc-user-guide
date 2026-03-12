@@ -22,4 +22,4 @@ A good way to estimate usage cost is the [Billing Unit calculator](https://resea
 
 # Quota
 
-The default quota for a new project is **50 GB**, but this can be increased if needed. If you need more resources than the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are handled on a case-by-case basis depending on the currently available resources in Satama and the use case.
+The default quota for a new project is **50 GB**, but this can be increased if needed. If you need more resources than the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../support/contact.md) for instructions. Quota requests are handled on a case-by-case basis depending on the currently available resources in Satama and the use case.

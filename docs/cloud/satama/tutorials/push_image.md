@@ -18,12 +18,12 @@ Here you should see your image
 
 Before pushing the image to Satama, it must be tagged with the registry path.
 
-For a detailed explanation of tagging images, see [Tag image](../cli.md/#tagging-an-image)
+For a detailed explanation of tagging images, see [Tag image](../cli.md#tagging-an-image)
 
 
 ## Step 3: Authenticate to Satama
 
-Log in to Satama by personal [CLI token](../cli.md/#logging-in-to-satama-using-personal-cli-secret) or by [Robot account](../cli.md/#logging-in-to-satama-using-robot-account). 
+Log in to Satama by personal [CLI token](../cli.md#logging-in-to-satama-using-personal-cli-secret) or by [Robot account](../cli.md#logging-in-to-satama-using-robot-account). 
 
 ## Step 4: Push the Image
 Push the tagged image to the registry.
@@ -35,4 +35,4 @@ For more detail about [pushing image](../cli.md#pushing-an-image)
 
 After pushing the image, open the Satama Web UI and verify that the repository and tag appear in your project.
 
-You can learn more about navigating the [Web interface](../ui.md/#project-level-navigation-top-tabs-inside-a-project) 
+You can learn more about navigating the [Web interface](../ui.md#project-level-navigation-top-tabs-inside-a-project) 

@@ -41,7 +41,7 @@ Once you’ve logged in successfully, Docker/Podman will save your credentials l
 
 It is recommended to use robot accounts instead of personal credentials to login specially when it is used in automated workflow. Robot accounts provide secure token-based authentication and can be limited to specific projects.
 
-To know more about robot account, read [robot account](project-configuration.md/#robot-account) .
+To know more about robot account, read [robot account](robot_account.md) .
 
 Log in using robot account:
 ```
