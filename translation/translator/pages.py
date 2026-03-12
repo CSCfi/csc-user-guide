@@ -180,8 +180,10 @@ class Translations:
                       self.__translations)
 
     def __is_excluded(self, page_path):
-        result = any((self.__src_prefix / page_path).samefile(excluded)
-                     for excluded in self.__excluded_files)
+        src_path = self.__src_prefix / page_path
+        result = any(src_path.samefile(excluded)
+                     for excluded in self.__excluded_files
+                     if src_path.exists())
         if result:
             logger.info("Ignored excluded file '%s'.", page_path)
 
