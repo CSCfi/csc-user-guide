@@ -4,11 +4,11 @@
  
  Administrators can enforce security policies such as:
  
- ### Allowing only signed images
+### Allowing only signed images
  
  Two image signature verification mechanisms are there, cosign and Notation. If enabled, only signed images can be deployed. It ensures image integrity and authenticity. 
 
- ### Preventing the use of vulnerable images
+### Preventing the use of vulnerable images
  
  If 'Prevent vulnerable images from running' is enabled, Satama blocks deployment of images that contain vulnerabilities above a selected severity level. 
  

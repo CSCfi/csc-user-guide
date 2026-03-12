@@ -522,7 +522,7 @@ nav:
               - Tag Immutability: cloud/satama/tag_immutability.md
               - Robot Account: cloud/satama/robot_account.md
           - Known Issues: cloud/satama/known_issues.md
-          - Best Parctices: cloud/satama/best_practics.md
+          - Best Parctices: cloud/satama/best_practices.md
           - Tutorials: 
               - cloud/satama/tutorials/index.md
               - Clean Up Old Tags: cloud/satama/tutorials/cleanup.md
