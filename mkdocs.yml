@@ -505,6 +505,33 @@ nav:
               - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
               - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti/tutorials/webhooks.md
+      - Satama:
+          - cloud/satama/index.md
+          - What is Satama:
+              - cloud/satama/what_is_satama.md
+          - Getting Started:
+              - Getting Access: cloud/satama/getting_access.md
+              - Web User Interface: cloud/satama/ui.md
+              - Command Line Tool: cloud/satama/cli.md
+              - Billing and Quota: cloud/satama/billing_and_quota.md
+          - Project Configuration: 
+              - cloud/satama/project_configuration.md
+              - Project Visibility: cloud/satama/project_visibility.md
+              - Deployment Security: cloud/satama/deployment_security.md
+              - Vulnerability Scanning: cloud/satama/vulnerability_scanning.md
+              - SBOM Generation: cloud/satama/sbom_generation.md
+              - CVE Allowlist: cloud/satama/cve_allowlist.md
+              - Audit Logs: cloud/satama/audit_logs.md
+              - Tag Retention Policy: cloud/satama/tag_retention.md
+              - Tag Immutability: cloud/satama/tag_immutability.md
+              - Robot Account: cloud/satama/robot_account.md
+          - Known Issues: cloud/satama/known_issues.md
+          - Best Practices: cloud/satama/best_practices.md
+          - Tutorials: 
+              - cloud/satama/tutorials/index.md
+              - Clean Up Old Tags: cloud/satama/tutorials/cleanup.md
+              - Push Your First Image: cloud/satama/tutorials/push_image.md
+              
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
