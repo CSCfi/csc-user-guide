@@ -10,22 +10,22 @@
 
 ```mermaid
 graph LR;
-    A{{"**September 2025**
+    A{{"<b>September 2025</b>
         Roihu installation
         in progress"}} --> B;
-    B{{"**February 2026**
+    B{{"<b>April 2026</b>
         Pilot phase
         starts"}} --> C;
-    C{{"**March 2026**
+    C{{"<b>May 2026</b>
         Roihu general
         availability (GA)"}} --> D;
-    D{{"**One month after Roihu GA**
-        Puhti *computing
-        services* shut down"}} --> E;
-    E{{"**July 2026**
-        Puhti *storage
-        services* shut down"}} --> F;
-    F{{"**August 2026**
+    D{{"<b>One month after Roihu GA</b>
+        Puhti <i>computing
+        services</i> shut down"}} --> E;
+    E{{"<b>August 2026</b>
+        Puhti <i>storage
+        services</i> shut down"}} --> F;
+    F{{"<b>August 2026</b>
         Mahti
         shut down"}}
     style A fill:#dceeceff;
@@ -40,12 +40,12 @@ a break in HPC access.
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
 means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
-however, remain accessible at least until the end of June 2026, after which
-Puhti will be retired completely. Mahti will be closed in August 2026.
+however, remain accessible until August 2026, after which Puhti will be retired
+completely. Mahti will be closed in August 2026.
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during spring 2026, at the very latest in June 2026. CSC will
-publish a detailed Roihu migration guide in early 2026.
+prepared to do it during spring 2026, at the very latest in August 2026. CSC
+will publish a detailed Roihu migration guide in early 2026.
 
 ## Compute
 
@@ -68,7 +68,7 @@ a total of 480 GiB CPU memory per node. This gives a total of 528 GPUs and
 38 016 CPU cores in the whole GPU partition.
 
 The system will also provide four visualization nodes with two Nvidia L40 GPUs
-each, as well as four high-memory CPU nodes with 3 TiB memory and higher
+each, as well as four high-memory CPU nodes with 6 TiB memory and higher
 single-thread performance.
 
 ### Nodes
@@ -77,7 +77,7 @@ single-thread performance.
 |:-----|----------------:|---------------:|-------------------------------:|-------------:|----------------:|
 | M    | 414             | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 768          | 0.96            |
 | L    | 72              | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 1536         | 0.96            |
-| XL   | 4               | AMD Turin 9555 | 2 x 64 cores (x86) @ 3.20 GHz  | 3072         | 15.36           |
+| XL   | 4               | AMD Turin 9555 | 2 x 64 cores (x86) @ 3.20 GHz  | 6144         | 15.36           |
 | V    | 4               | AMD Turin 9335<br>Nvidia L40 | 2 x 32 cores (x86) @ 3.40 GHz<br>2 x GPUs | 384<br>2 x 48 | 15.36 |
 | GPU  | 132             | Nvidia GH200   | 4 x 72 cores (ARM)<br>4 x GPUs | 4 x 120<br>4 x 96 | 0.96 |
 
@@ -143,8 +143,9 @@ interactive access and running graphical user interfaces.
 
 ## More information
 
-* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2025-11-25.pdf)
-  (updated 2025-11-25)
+* [Frequently asked questions](../support/faq/roihu.md)
+* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
+  (updated 2026-02-25)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!

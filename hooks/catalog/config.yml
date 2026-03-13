@@ -39,6 +39,8 @@ listing_order:
     - name: "Miscellaneous"
       fallback: true
   systems:
+    - name: Roihu
+      description: "New CSC supercomputer replacing Puhti and Mahti"
     - name: Mahti
       description: "CSC supercomputer for massively parallel jobs"
     - name: Puhti
@@ -111,9 +113,3 @@ appendix:
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201902131"
-
-  - name: "MySQL"
-    description: "MySQL database client"
-    disciplines:
-      - "Miscellaneous"
-    doc: "data/kaivos/overview.md"

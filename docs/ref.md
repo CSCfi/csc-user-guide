@@ -405,8 +405,10 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     `warning-label`,
     `error`,
     `error-label`,
-    `success` or
-    `success-label`.
+    `success`,
+    `success-label`,
+    `training` or
+    `training-label`.
     Perhaps a suitable one would just simply be: `note`.
 
 !!! note ""
@@ -430,8 +432,10 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     `warning-label`,
     `error`,
     `error-label`,
-    `success` or
-    `success-label`.
+    `success`,
+    `success-label`,
+    `training` or
+    `training-label`.
     Perhaps a suitable one would just simply be: `note`.
 
 !!! note ""
@@ -523,7 +527,7 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Some content hidden by default.
 
-??? error "Collapsible error  (click to reveal content)"
+??? error "Collapsible error (click to reveal content)"
 
     Some content hidden by default.
 ```
@@ -655,7 +659,78 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 </div>
 
 
-#### Inline admonitions
+### Special admonition to denote external training material
+
+```markdown
+!!! training "External training material available"
+
+    Type qualifier: `training`
+```
+
+<div class="result" markdown>
+
+!!! training "External training material available"
+
+    Type qualifier: `training`
+
+</div>
+
+
+#### Variations
+
+```markdown
+???+ training "Collapsible training"
+
+    Some content shown by default (click on title to hide).
+
+??? training "Collapsible training (click to reveal content)"
+
+    Some content hidden by default.
+```
+
+<div class="result" markdown>
+
+???+ training "Collapsible training"
+
+    Some content shown by default (click on title to hide).
+
+??? training "Collapsible training (click to reveal content)"
+
+    Some content hidden by default.
+
+</div>
+
+```markdown
+!!! training ""
+
+    Type qualifier: `training ""`
+
+```
+
+<div class="result" markdown>
+
+!!! training ""
+
+    Type qualifier: `training ""`
+
+</div>
+
+```markdown
+!!! training-label
+
+    Label type available with type qualifier `training-label`.
+```
+
+<div class="result" markdown>
+
+!!! training-label
+
+    Label type available with type qualifier `training-label`.
+
+</div>
+
+
+### Inline admonitions
 
 ````markdown
 For inline admonitions, you first define the admonition as either
@@ -1089,6 +1164,91 @@ The [Grids feature from _Material for MkDocs_](https://squidfunk.github.io/mkdoc
       ---
 
       Yay!
+
+  </div>
+</div>
+
+
+### With colors
+
+```html title="Grid with colors"
+<div class="grid cards" markdown>
+
+- :material-dna:{ .lg .middle } **Accent**
+  { .csc-grid-card-accent }
+
+    ---
+
+    Science!
+
+- :material-information:{ .lg .middle } **Info**
+  { .csc-grid-card-info }
+
+    ---
+
+    This.
+
+- :material-check-circle:{ .lg .middle } **Success**
+  { .csc-grid-card-success }
+
+    ---
+
+    Do!
+
+- :material-alert:{ .lg .middle } **Warning**
+  { .csc-grid-card-warning }
+
+    ---
+
+    Don't!
+
+- :material-close-circle:{ .lg .middle } **Error**
+  { .csc-grid-card-error }
+
+    ---
+
+    Why?!
+
+</div>
+```
+
+<div class="result" markdown>
+  <div class="grid cards" markdown>
+
+  - :material-dna:{ .lg .middle } **Accent**
+    { .csc-grid-card-accent }
+
+      ---
+
+      Science!
+
+  - :material-information:{ .lg .middle } **Info**
+    { .csc-grid-card-info }
+
+      ---
+
+      This.
+
+  - :material-check-circle:{ .lg .middle } **Success**
+    { .csc-grid-card-success }
+
+      ---
+
+      Do!
+
+  - :material-alert:{ .lg .middle } **Warning**
+    { .csc-grid-card-warning }
+
+      ---
+
+      Don't!
+
+  - :material-close-circle:{ .lg .middle } **Error**
+    { .csc-grid-card-error }
+
+      ---
+
+      Why?!
 
   </div>
 </div>

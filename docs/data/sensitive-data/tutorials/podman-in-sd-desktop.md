@@ -2,10 +2,10 @@
 
 
 !!! Note
-    Podman is not available at the moment.
+    Podman is only available in SD Desktop virtual machines where the operating system is Podman Ubuntu 22.04. Note that with this version, running sessions in the background doesn't currently work. 
 
 
-The [Podman](https://podman.io/) container manager is available in Ubuntu 22-based SD Desktop virtual machines.
+The [Podman](https://podman.io/) container manager is available in Podman Ubuntu 22-based SD Desktop virtual machines.
 Podman is able to use Docker containers and thus it can be used to replace Docker in your SD Desktop workflows.
 
 As SD Desktop doesn't have access to software container repositories, 

@@ -5,7 +5,6 @@
 - [Overview](#overview)
 - [Key features](#key-features)
 - [Limitations](#limitations)
-- [October 2024 major service upgrade](#overview-of-sd-connect-new-features)
 - [Your next steps in this guide](#features-in-sd-connect)
 
 ## Overview
@@ -43,21 +42,6 @@ General considerations:
 !!! Note
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
 
-## Overview of SD Connect new features
-
-In October 2024 we introduced several enhancements over the original version to improve user experience, security, performance, and automation. Below is a summary of the key new features and their differences compared to the previous version.
-
-| Feature | SD Connect new version | SD Connect previous version (discontinued) |
-|---------|----------------|----------------------------------------|
-|Service access via [MyCSC](https://my.csc.fi)|Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC account|Requires CSC account and project and Allas service access|
-|User interface|Redesigned based on user feedback|Standard interface|
-|Automated encryption and upload|Upload via user interfaces supports files up to 100 GB, larger files can be automatically uploaded during upload via command line|Limited to files < 1 GB|
-|Automated decryption and download|Available for folders or single files for all project members|Not available|
-|Key management|Automatically provided by the service|Not available|
-|Uploading encrypted files|Not allowed; all files are encrypted during upload|Optional; unencrypted files could be uploaded|
-|Folder sharing|Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop (without the possibility of downloading extra copies of the files)|Sharing was supported only via manual encryption and decryption|
-|Command-line utility tool|SD Lock/Un-lock provide automated key management, this requires temporary token access|Available but required manual encryption and did not support automated key management|
-|Compatibility with Allas|Files uploaded with after October 7, 2024 are visible in Allas but not downloadable directly from it; size may be incorrect|Files visible and downloadable|
 
 ## Features in SD Connect
 

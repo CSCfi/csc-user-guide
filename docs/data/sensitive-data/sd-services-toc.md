@@ -104,9 +104,11 @@ Please note: some of this tutorials require prior knowledge of SD services or ad
 * [Extending SD Desktop software environment with your own Apptainer containers](./creating_containers.md)
 * [Install VS Code in SD Desktop](./tutorials/vscode.md)
 * [Install Whisper in SD Desktop](./tutorials/whisper.md)
+* [Whisper step by step tutorial](./tutorials/whisper-course.md)
 * [Podman in SD Desktop](./tutorials/podman-in-sd-desktop.md)
 * [Running temporary PostgreSQL database in SD Desktop](./tutorials/postgresql.md)
 * [Using Allas storage service to receive sensitive research data](./sequencing_center_tutorial.md)
 
 ## 4. Misc
 * [Useful terminology: services and technical aspects](sd-terminology.md)
+* [SD Desktop: Cent0S7 migration to Ubuntu](./migration-to-ubuntu.md)

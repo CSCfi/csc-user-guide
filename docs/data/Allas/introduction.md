@@ -64,7 +64,7 @@ In the request, define what Allas project you are using, how large storage space
 
 Note that the data stored in Allas
 [consume Storage Billing Units of the project](../../accounts/billing.md).
-In Allas, billing is based on the amount of data stored. The current rate is 1 Storage BU/TiBh, i.e. 1 TiB of data stored in Allas consumes 24 Storage BU in a day and 8760 Storage BU in a year. Please note that this rate will increase to 1.05 Storage BU/TiBh from year 2026, i.e. 1 TiB of data stored in Allas will consume 25.2 Storage BU in a day and 9198 Storage BU in a year.
+In Allas, billing is based on the amount of data stored. The rate is 1.05 Storage BU/TiBh, i.e. 1 TiB of data stored in Allas consumes 25.2 Storage BU in a day and 9198 Storage BU in a year.
 
 Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 

@@ -72,35 +72,93 @@ Finally select the new image.
 
 ## Access Control for the Rahti Integrated Registry
 
-Rahti allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/index).
+Rahti provides granular control over access to the integrated image registry, allowing you to manage permissions based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/authentication_and_authorization/index).
 
-### 1. **Anonymous Access** (`system:anonymous`)
+As a Rahti user, you can choose how broadly your stored images are exposed for different scenarios.
 
-This refers to users who access the registry without providing any authentication credentials. In this scenario, they have no identity attached to their requests.
+### Use case 1: Publicly pullable images through the internet
 
-- **How to enable**: Use the following command to allow anonymous users to pull images from your project's registry:
+This method allows **all images** within a Rahti project to be pulled by **anyone on the internet**.
+
+!!! info "Expose selected images only"
+
+    If you need to only make one or more specific images see [Use case 3](../images/Using_Rahti_integrated_registry.md#use-case-3-granular-control-over-publicly-exposing-specific-image-recommended)
+
+
+- **How to enable**: Use one of the following commands to allow anyone pulling images from your Rahti project:
+
   ```bash
-  oc policy add-role-to-user registry-viewer system:anonymous -n <project>
+  oc policy add-role-to-user "system:image-puller" "system:anonymous" -n <project>
+  # OR
+  oc policy add-role-to-group "system:image-puller" "system:unauthenticated" -n <project>
   ```
-- **Use case**: Suitable for cases where you want to make images publicly accessible, allowing anyone to view or pull images without logging in.
 
-### 2. **Unauthenticated Access** (`system:unauthenticated`)
+- **How to disable**: Use one of the following commands to revert above changes:
 
-This group includes all users who are accessing the system without valid authentication credentials, including anonymous users but potentially also used automated systems, scripts or external services  that do not need to be authenticate.
-
-- **How to enable**: Grant unauthenticated users access with the command:
   ```bash
-  oc policy add-role-to-user registry-viewer system:unauthenticated -n <project>
+  oc policy remove-role-from-user "system:image-puller" "system:anonymous" -n <project>
+  # OR
+  oc policy remove-role-from-group "system:image-puller" "system:unauthenticated" -n <project>
   ```
-- **Use case**: This is broader than `system:anonymous` and is useful for systems or services to access your registry without authentication.
 
-### 3. **Authenticated Access** (`system:authenticated`)
+### Use case 2: Pullable images for all Rahti users, groups, serviceaccounts, and projects
 
-Authenticated users are those who have successfully logged in using valid credentials (e.g., OAuth tokens).
+This method allows **all images** within a project to be pulled by **any authenticated Rahti user**, including other projects and service accounts inside Rahti.
 
-- **How to enable**: To allow all authenticated users to access the registry:
+- **How to enable**: Use the following command to allow anyone pulling images from your Rahti project:
+
   ```bash
-  oc policy add-role-to-user registry-viewer system:authenticated -n <project>
+  oc policy add-role-to-group "system:image-puller" "system:authenticated" -n <project>
   ```
-- **Use case**: This allows any user with valid credentials to view or pull images, useful for restricting access.
 
+- **How to disable**: Use the following command to revert above changes:
+
+  ```bash
+  oc policy remove-role-from-group "system:image-puller" "system:authenticated" -n <project>
+  ```
+
+### Use case 3: Granular control over publicly exposing specific image (Recommended)
+
+This method provides fine-grained control, allowing you to expose **only selected imagestreams** to unauthenticated users on the internet.
+It is a more secure alternative to Use case 1 because it exposes only what you explicitly choose.
+
+- **How to enable**: For this, you are required to create a custom role and rolebinding in your Rahti project. 
+
+  ```bash
+  # Select your project
+  oc project my-project
+
+  # Creating custom role
+  # oc create role <ROLE_NAME> --verb=get --resource=imagestreams.image.openshift.io/layers --resource-name=<IMAGE_NAME>
+  oc create role my-image-puller --verb=get --resource=imagestreams.image.openshift.io/layers --resource-name=MY_IMAGE_NAME # Repeat the option --resource-name to select more Imagestreams
+
+  # Create custom rolebinding
+  # oc create rolebinding <RB_NAME> --role=<ROLE_NAME> --user="system:anonymous"
+  oc create rolebinding my-image-puller --role=my-image-puller --user="system:anonymous" # Alternative to --user, you can use --group="system:unauthenticated"
+  ```
+
+- **How to disable**: Use the following commands to revert above changes:
+
+  ```bash
+  # Delete the role and rolebinding
+  
+  oc delete rolebinding my-image-puller
+  oc delete role my-image-puller
+  ```
+
+### Use case 4: Exposing the images from one Rahti project to another Rahti project (cross-namespace pulling)
+
+This method enables one Rahti project to pull images from another project.
+It is useful when different namespaces need to share base images.
+
+- **How to enable**: To do so, you need to allow a certain `serviceaccount` from the other namespace be able to pull the image.
+
+  ```bash
+  oc policy add-role-to-group -n <project-that-has-the-image> "system:image-puller" "system:serviceaccounts:<project-that-pulls-the-image>"
+  ```
+
+- **How to disable**: Use the following command to revert above changes:
+
+  ```bash
+  oc policy remove-role-from-group -n <project-that-has-the-image> "system:image-puller" "system:serviceaccounts:<project-that-pulls-the-image>"
+  ```
