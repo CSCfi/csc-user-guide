@@ -11,29 +11,30 @@
 <footer class="md-footer">
   <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer.title') }}" {{ hidden }}>
     <div class="csc-footer">
+      {% if config.theme.language == "en" %}
       <div class="csc-footer__column">
-        <div class="csc-footer__heading">Contact Information</div>
+        <div class="csc-footer__heading">Contact information</div>
         <div class="csc-footer__body">
-          <strong>CSC &ndash; IT CENTER FOR SCIENCE LTD.</strong><br>P.O. Box 405 FI-02101 Espoo, Finland
+          <strong>CSC &ndash; IT CENTER FOR SCIENCE LTD.</strong><br>
+	  P.O Box 405, 02101 Espoo
         </div>
         <div class="csc-footer__body">
-          {{ footer_link("+358 9 457 2001 (switchboard)", "tel:+35894572001", icon="phone") }}
+          {{ footer_link("(09) 457 2001 (switchboard)", "tel:+35894572001", icon="phone") }}
         </div>
         <div class="csc-footer__body">
-          {{ footer_link("Additional information at CSC.fi", "https://www.csc.fi/en/about-us/contact-information/") }}
+          {{ footer_link("Detailed contact information at CSC.fi", "https://www.csc.fi/en/about-us/contact-information/") }}
         </div>
       </div>
       <div class="csc-footer__column">
-        <div class="csc-footer__heading">Service Desk</div>
+        <div class="csc-footer__heading">Customer service</div>
         <div class="csc-footer__body">
-          Open Monday to Friday<br>
-          from 8.30 a.m. to 4 p.m.
+          Open weekdays from 8:30 till 16:00
         </div>
         <div class="csc-footer__body">
           <ul>
             <li>{{ footer_link("Contact form", "https://research.csc.fi/support", icon="form-textbox") }}</li>
             <li>{{ footer_link("servicedesk@csc.fi", "mailto:servicedesk@csc.fi", icon="email") }}</li>
-            <li>{{ footer_link("+358 9 4572821", "tel:+35894572821", icon="phone") }}</li>
+            <li>{{ footer_link("(09) 457 2821", "tel:+35894572821", icon="phone") }}</li>
           </ul>
         </div>
       </div>
@@ -47,6 +48,45 @@
           </ul>
         </div>
       </div>
+      {% elif config.theme.language == "fi" %}
+      <div class="csc-footer__column">
+        <div class="csc-footer__heading">Yhteystiedot</div>
+        <div class="csc-footer__body">
+          <strong>CSC &ndash; Tieteen tietotekniikan keskus oy</strong><br>
+          PL 405<br>
+          02101 Espoo
+        </div>
+        <div class="csc-footer__body">
+          {{ footer_link("(09) 457 2001 (vaihde)", "tel:+35894572001", icon="phone") }}
+        </div>
+        <div class="csc-footer__body">
+          {{ footer_link("Tarkemmat yhteystiedot sivustolla CSC.fi", "https://www.csc.fi/en/about-us/contact-information/") }}
+        </div>
+      </div>
+      <div class="csc-footer__column">
+        <div class="csc-footer__heading">Asiakaspalvelu</div>
+        <div class="csc-footer__body">
+          Päivystys ma&ndash;pe klo 8.30&ndash;16
+        </div>
+        <div class="csc-footer__body">
+          <ul>
+            <li>{{ footer_link("Yhteydenottolomake", "https://research.csc.fi/support", icon="form-textbox") }}</li>
+            <li>{{ footer_link("asiakaspalvelu@csc.fi", "mailto:asiakaspalvelu@csc.fi", icon="email") }}</li>
+            <li>{{ footer_link("(09) 457 2821", "tel:+35894572821", icon="phone") }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="csc-footer__column">
+        <div class="csc-footer__heading">Info</div>
+        <div class="csc-footer__body">
+          <ul>
+            <li>{{ footer_link("Huoltokatkot (englanniksi)", "https://research.csc.fi/service-breaks/" ) }}</li>
+            <li>{{ footer_link("Saavutettavuusseloste", page_url("support/accessibility.md"), target="_self") }}</li>
+            <li>{{ footer_link("Käyttäjätiedotearkisto (englanniksi)", page_url("support/contact.md")+"#archives", target="_self") }}</li>
+          </ul>
+        </div>
+      </div>
+    {% endif %}
     </div>
   </nav>
   <div class="md-footer-meta md-typeset">

@@ -6,6 +6,8 @@ repo_name: CSCfi/csc-user-guide
 repo_url: https://github.com/CSCfi/csc-user-guide/
 edit_uri: edit/master/docs/
 
+docs_dir: docs/
+
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
@@ -51,6 +53,13 @@ extra:
       link: https://www.facebook.com/CSCfi/
     - icon: material/youtube
       link: https://www.youtube.com/c/CSCfi
+  alternate:
+    - name: Suomeksi
+      link: /fi/
+      lang: fi
+    - name: In English
+      link: /
+      lang: en
 
 hooks:
   - hooks/catalog.py
@@ -244,7 +253,8 @@ theme:
     # Error admonition type is not in Material for MkDocs,
     # so the following icon is a literal definition in
     # csc-overrides/assets/stylesheets/admonition.css
-    # error: material/close-circle
+      # error: material/close-circle
+    alternate: octicons/globe-16
   palette:
     scheme: csc
     primary: custom
