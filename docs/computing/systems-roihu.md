@@ -10,22 +10,22 @@
 
 ```mermaid
 graph LR;
-    A{{"**September 2025**
+    A{{"<b>September 2025</b>
         Roihu installation
         in progress"}} --> B;
-    B{{"**April 2026**
+    B{{"<b>April 2026</b>
         Pilot phase
         starts"}} --> C;
-    C{{"**May 2026**
+    C{{"<b>May 2026</b>
         Roihu general
         availability (GA)"}} --> D;
-    D{{"**One month after Roihu GA**
-        Puhti *computing
-        services* shut down"}} --> E;
-    E{{"**August 2026**
-        Puhti *storage
-        services* shut down"}} --> F;
-    F{{"**August 2026**
+    D{{"<b>One month after Roihu GA</b>
+        Puhti <i>computing
+        services</i> shut down"}} --> E;
+    E{{"<b>August 2026</b>
+        Puhti <i>storage
+        services</i> shut down"}} --> F;
+    F{{"<b>August 2026</b>
         Mahti
         shut down"}}
     style A fill:#dceeceff;
@@ -143,6 +143,7 @@ interactive access and running graphical user interfaces.
 
 ## More information
 
+* [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
   (updated 2026-02-25)

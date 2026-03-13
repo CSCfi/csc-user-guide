@@ -1,5 +1,12 @@
 # Applications
 
+## Schrödinger Maestro 2026.1, 12.3.2026
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2026.1 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
 ## Geoconda 3.14.3, 5.3.2026
 
 New version of geoconda has been added to Puhti and Mahti. In this version unusually many new Python-libraries have been added, 
