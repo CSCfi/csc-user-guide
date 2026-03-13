@@ -74,7 +74,7 @@ These are common messages, but not an exhaustive list.
 
 #### Checkpoints are happening continously on background
 
-Checkpoints are targetted to happen every five minutes by default;
+Checkpoints are targeted to happen every five minutes by default;
 ```
 2026-01-30T15:02:29.095945203+00:00 stderr F 2026-01-30 15:02:29.095 UTC [10] LOG:  checkpoint starting: time
 2026-01-30T15:05:52.827030448+00:00 stderr F 2026-01-30 15:05:52.826 UTC [10] LOG:  checkpoint complete: wrote 2032 buffers (7.9%); 0 WAL file(s) added, 0 removed, 2 recycled; write=203.582 s, sync=0.036 s, total=203.732 s; sync files=35, longest=0.032 s, average=0.002 s; distance=47453 kB, estimate=47453 kB; lsn=0/E9E57A88, redo lsn=0/E9E579F8
