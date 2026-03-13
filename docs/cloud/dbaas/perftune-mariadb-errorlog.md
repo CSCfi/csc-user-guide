@@ -33,7 +33,7 @@ $ openstack database log list -f value -c Status 0a8b6df2-140d-4932-b477-b3d3a88
 
 ### Web UI
 
-Access the Web UI in [https://pukki.dbaas.csc.fi/project](url), click the `instance name` and go to `logs` tab.
+Access the Web UI in [https://pukki.dbaas.csc.fi/project](https://pukki.dbaas.csc.fi/project), click the `instance name` and go to `logs` tab.
 
 **Note:** If log lines are with same `timestamp` then log lines may be displayd in bit of a mixed order.
 

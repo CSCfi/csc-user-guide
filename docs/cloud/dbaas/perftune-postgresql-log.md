@@ -6,7 +6,7 @@ PostgreSQL server log gives important information from the database's current he
 
 ### Web UI
 
-Access the Web UI in [https://pukki.dbaas.csc.fi/project](url), click the `instance name` and go to `logs` tab.
+Access the Web UI in [https://pukki.dbaas.csc.fi/project](https://pukki.dbaas.csc.fi/project), click the `instance name` and go to `logs` tab.
 
 **Note:** If the log lines are with same `timestamp` then the log lines may be displayd in bit of a mixed order.
 
