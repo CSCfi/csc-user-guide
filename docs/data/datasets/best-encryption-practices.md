@@ -301,8 +301,8 @@ file and directory names are encrypted.
       [https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html](https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html){ target=_blank }
 [^6]: Security Guidance for Critical Areas of Focus in Cloud Computing v4.0  
       [https://cloudsecurityalliance.org/artifacts/security-guidance-v4](https://cloudsecurityalliance.org/artifacts/security-guidance-v4){ target=_blank }
-[^7]: Katakri 2015 — Tietoturvallisuuden auditointityökalu viranomaisille  
-      [https://www.defmin.fi/files/3165/Katakri_2015_Tietoturvallisuuden_auditointityokalu_viranomaisille.pdf)](https://www.defmin.fi/files/3165/Katakri_2015_Tietoturvallisuuden_auditointityokalu_viranomaisille.pdf){ target=_blank }
+[^7]: Katakri — Tietoturvallisuuden auditointityökalu viranomaisille
+      [https://um.fi/katakri-tietoturvallisuuden-auditointityokalu-viranomaisille](https://um.fi/katakri-tietoturvallisuuden-auditointityokalu-viranomaisille){ target=_blank }
 [^8]: NIST Recommendation for Password-Based Key Derivation. Part 1: Storage Applications  
       [https://doi.org/10.6028/NIST.SP.800-132](https://doi.org/10.6028/NIST.SP.800-132){ target=_blank }
 [^9]: 6 Techniques For Creating Strong Passwords  

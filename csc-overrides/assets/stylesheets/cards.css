@@ -1,0 +1,78 @@
+/* Accent card */
+
+.grid.cards li:has(p.csc-grid-card-accent) {
+  background-color: var(--csc-grid-card-accent-background-color);
+  border-color: var(--csc-grid-card-accent-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-accent) hr {
+  border-color: var(--csc-grid-card-accent-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-accent) .twemoji {
+  color: var(--csc-grid-card-accent-foreground-color);
+}
+
+
+/* Info card */
+
+.grid.cards li:has(p.csc-grid-card-info) {
+  background-color: var(--csc-grid-card-info-background-color);
+  border-color: var(--csc-grid-card-info-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-info) hr {
+  border-color: var(--csc-grid-card-info-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-info) .twemoji {
+  color: var(--csc-grid-card-info-foreground-color);
+}
+
+
+/* Success card */
+
+.grid.cards li:has(p.csc-grid-card-success) {
+  background-color: var(--csc-grid-card-success-background-color);
+  border-color: var(--csc-grid-card-success-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-success) hr {
+  border-color: var(--csc-grid-card-success-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-success) .twemoji {
+  color: var(--csc-grid-card-success-foreground-color);
+}
+
+
+/* Warning card */
+
+.grid.cards li:has(p.csc-grid-card-warning) {
+  background-color: var(--csc-grid-card-warning-background-color);
+  border-color: var(--csc-grid-card-warning-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-warning) hr {
+  border-color: var(--csc-grid-card-warning-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-warning) .twemoji {
+  color: var(--csc-grid-card-warning-foreground-color);
+}
+
+
+/* Error card */
+
+.grid.cards li:has(p.csc-grid-card-error) {
+  background-color: var(--csc-grid-card-error-background-color);
+  border-color: var(--csc-grid-card-error-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-error) hr {
+  border-color: var(--csc-grid-card-error-foreground-color);
+}
+
+.grid.cards li:has(p.csc-grid-card-error) .twemoji {
+  color: var(--csc-grid-card-error-foreground-color);
+}

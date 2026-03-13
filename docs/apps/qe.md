@@ -40,7 +40,7 @@ Quantum ESPRESSO is free software, released under the
     Quantum ESPRESSO, please read the
     [official documentation](https://www.quantum-espresso.org/documentation),
     or reach out to the
-    [Quantum ESPRESSO community](https://www.quantum-espresso.org/users-forum).
+    [Quantum ESPRESSO community](https://www.quantum-espresso.org/forum/).
 
 ### Batch script examples
 

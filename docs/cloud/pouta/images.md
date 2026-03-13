@@ -4,7 +4,7 @@
 
 CSC provides a set of standard images that are well suited for cloud
 use. In most cases, you can use these images instead of creating your
-own. The images are created automatically using _diskimage-builder_.
+own. The images are created automatically using _imagebuilder_.
 If you are interested in the details of how
 these images are created, see this [GitHub page]. The images are
 updated at regular intervals so that they contain the latest security
@@ -14,36 +14,28 @@ It is possible that for some use cases the automatically created
 images are not suitable. In this case, it is possible to create your
 own images and use them instead. However, there are some caveats
 to consider when creating your own images that you would not
-need to consider when using the default images. For more information,,
+need to consider when using the default images. For more information,
 see [Advanced images](adding-images.md)
 
 ## The main features of the images provided by CSC
 
 The images provided by CSC are mostly the same as upstream.
-
-* Most of the images come with the pre-configured username `cloud-user`,
-though there are some exceptions to this rule.
-* We make sure that the images are updated before releasing them,
+We make sure that the images are updated before releasing them,
 so that we are sure that they work.
-* The `-Cuda` images come preinstalled with the latest CUDA drivers.
-* We enable automatic updates.
-* We disable password login.
-* We sometimes add some nice-to-have packages such as _vim_ or _ntp_. We try to
-keep the additional packages at a minimum.
 
 ## Images
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
-|CentOS-9-Stream |**cloud-user** |no  |
-|AlmaLinux-8     |**almalinux**  |no  |
-|AlmaLinux-9     |**almalinux**  |no  |
-|Ubuntu-18.04    |**ubuntu**     |no  |
-|Ubuntu-20.04    |**ubuntu**     |no  |
-|Ubuntu-22.04    |**ubuntu**     |no  |
-|Ubuntu-24.04    |**ubuntu**     |no  |
+|CentOS-9-Stream  |**cloud-user** |no  |
+|CentOS-10-Stream |**cloud-user** |no  |
+|AlmaLinux-8      |**almalinux**  |no  |
+|AlmaLinux-9      |**almalinux**  |no  |
+|AlmaLinux-10     |**almalinux**  |no  |
+|Ubuntu-22.04     |**ubuntu**     |no  |
+|Ubuntu-24.04     |**ubuntu**     |no  |
 
-### CentOS-9-Stream
+### CentOS-9-Stream and CentOS-10-Stream
 
 The CentOS community is now actively maintaining CentOS-9-Stream, which is the upstream branch for RHEL.
 Given that updates and changes are first tested in CentOS and only subsequently deployed for Red Hat Enterprise Linux (RHEL), the resulting operating system is possibly less stable compared to its previous version, i.e., when RHEL was the upstream for CentOS.
@@ -54,7 +46,7 @@ Note that this is the upstream version of the image, i.e., we do not perform
 any change to the image before making it available on our services. The default
 username is `cloud-user`.
 
-### AlmaLinux-8 and AlmaLinux-9
+### AlmaLinux-8, AlmaLinux-9 and AlmaLinux-10
 
 AlmaLinux is a linux distribution created in response to the termination
 of CentOS-8 project and the fundamental change of CentOS building process, due
@@ -64,10 +56,9 @@ distribution effectively takes the role that CentOS used to have before the
 switch to the -Stream versions. Note that these are the upstream versions of the
 AlmaLinux images, and their default username is `almalinux` instead of `cloud-user`.
 
-### Ubuntu-24.04, 22.04, 20.04 and 18.04 LTS
-Some like chocolate, some like strawberry. This is the choice for those that
-do not want to use CentOS. Note that these are the upstream versions of the
-Ubuntu images, and their default username is `ubuntu` instead of `cloud-user`.
+### Ubuntu-24.04 and 22.04
+Note that these are the upstream versions of the Ubuntu images, and their default
+username is `ubuntu` instead of `cloud-user`.
 
 ## Snowflake images
 These images you should probably not use without a really good
@@ -84,10 +75,10 @@ VMs, and you should always delete the instance when you are done with
 testing. There is very little reason for end-users using this image, and if
 you are unsure, CentOS and Ubuntu are better choices 99% of the time.
 
-[GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
+[GitHub page]: https://github.com/CSCfi/imagebuilder
 
 ## Image metadata
-Images updated since November of 2025 might have metadata reporting the type and version of
+Images updated since November of 2025 should have metadata reporting the type and version of
 the operating system (os_type, os_distro). That information allow OpenStack to create
 [ephemeral](ephemeral-storage.md) disks with the more appropriate format ext4 instead of vfat. Be
 aware that this might affect your workflow or automations.

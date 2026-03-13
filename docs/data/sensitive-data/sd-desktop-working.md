@@ -29,9 +29,9 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
     - **Encrypted file only**: Only encrypted files are accessible from your virtual desktop. This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt them using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
     
-    - **Controlled file access and export with Data Gateway**: Each project member can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](./sd-desktop-access.md). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
+    - **Controlled file access and export with Data Gateway**: Each project member can import files to the virtual desktop for analysis by using a secure application called [Data Gateway](./sd-desktop-access.md). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
   
-    - **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
+    - **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external volume (you can compare this to an USB stick) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
   
     - **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customise it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please [contact CSC Service Desk](../../support/contact.md) for support (subject: SD Desktop).
   
@@ -63,15 +63,16 @@ The copy-paste function from your computer/laptop to your virtual desktop is lim
 
 ### Step by step
 
-1. Go to virtual desktop and open the Clipboard with a key combination **Ctrl+Alt+Shift** and click *Paste*.
-2. Activate the copy-paste function by selecting input method ***Text input*** (the Clipboard panel will close automatically after the selection).
-3. Now you can copy text normally from your computer (Ctrl+C or mouse right click).
-4. Paste the text inside your virtual desktop (Ctrl+V).
+1. Open the virtual desktop and press **Ctrl + Alt + Shift** to open the **Clipboard panel.** 
+2. Select **Text input** to enable copy-paste. Clipboard panel will close automatically. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste.
+3. You can now copy text from your computer (**Ctrl + C or right-click)** and paste it in the virtual desktop (**Ctrl + V or right click**). 
 
-    Note: Don't close Clipboard panel with **Cntrl+Alt+Shift**, this might disable the copy-paste function. Please note you have to activate the copy-paste function again every time you use your virtual desktop.
+!!! Note
+    You need to enable the copy-paste function each time you start a virtual desktop session.
 
-    ![SD Desktop Clipboard screenshot](images/desktop/SD-Desktop-Clipboard.png)  
-    *Appearance of the Clipboard (Guacamole tools) may vary a bit depending on browser and local operating system.*
+
+![SD Desktop Clipboard screenshot](images/desktop/SD-Desktop-Clipboard.png)  
+*Appearance of the Clipboard (Guacamole tools) may vary a bit depending on browser and local operating system.*
 
 ## Default software available in SD Desktop
 

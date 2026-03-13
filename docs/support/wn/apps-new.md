@@ -1,5 +1,45 @@
 # Applications
 
+## Schrödinger Maestro 2026.1, 12.3.2026
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2026.1 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## Geoconda 3.14.3, 5.3.2026
+
+New version of geoconda has been added to Puhti and Mahti. In this version unusually many new Python-libraries have been added, 
+but also several (unmaintained) libraries have been removed. See [geoconda](..//../apps/geoconda.md) page for all details.
+
+## R 4.5.2 in r-env, 17.2.2026
+
+R version 4.5.2 is now available in [r-env](../../apps/r-env.md) in Puhti and Mahti and is set as the default version.
+
+## PyTorch 2.9.1 available on Puhti and Mahti, 9.1.2026
+
+PyTorch 2.9.1 is now available on Puhti and Mahti, and set as the
+default version. It includes the most recent versions of popular
+packages such as Hugging Face transformers, vLLM and FAISS. Apex was
+removed, since the library has been deprecated for a long time
+already. New libraries include litgpt, ultralytics, sahi and
+torchgeo. See our [PyTorch module documentation for more
+information](../../apps/pytorch.md#available).
+
+## CSC ArcGIS consortium for Finnish universities ends on 31.12.2025
+
+For over 20 years CSC organized an ArcGIS consortium for Finnish universities,
+providing licenses to ArcGIS software, ESRI Virtual Campus, and Finnish street
+and road datasets. The consortium and access to the licensed products ends on
+31.12.2025. From 2026 onwards, universities should buy their ESRI/ArcGIS licenses
+directly from ESRI Finland.
+
+## GROMACS 2025.4, 9.12.2025
+
+[GROMACS](../../apps/gromacs.md) 2025.4 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2025.4/release-notes/2025/2025.4.html)
+for a list of all new features and improvements.
+
 ## AMS 2025 available on Puhti and Mahti, 27.11.2025
 
 [AMS](../../apps/ams.md) has been updated to version 2025.105 on both Mahti and Puhti

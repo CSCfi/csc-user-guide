@@ -13,7 +13,7 @@ in place, the steps are the same for all systems.
     see the instructions about [virtual environments](#optional-installation-in-a-python-virtual-environment).
 
 Installing in Windows is also possible, but it is beyond the scope
-of this guide. Rackspace maintains a guide for [installing the python-novaclient on Windows](https://docs.rackspace.com/support/how-to/install-python-novaclient-on-windows/).
+of this guide. Rackspace maintains a guide for [installing the python-novaclient on Windows](https://docs.rackspace.com/docs/install-python-novaclient-on-windows).
 
 We recommend first familiarizing yourself with the [Pouta web GUI](launch-vm-from-web-gui.md) and the main concepts.
 

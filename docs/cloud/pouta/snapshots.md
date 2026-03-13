@@ -7,6 +7,33 @@ Table of Contents
 This article describes how to use [snapshots](https://docs.openstack.org/arch-design/common/glossary.html#term-snapshot){target="_blank"} to capture and store 
 the file system state of a Pouta virtual machine.
 
+## General considerations
+
+We recommend powering off the instance and detaching volumes
+before taking snapshots. This is the best way to make sure
+the file system is captured in a consistent state.
+
+Please note that snapshots may not always be the optimal method of
+getting an instance into a predefined state. For more robust solution,
+configuration automation tools such as [Ansible](https://github.com/ansible/ansible){target="_blank"}
+and [Puppet](https://github.com/puppetlabs/puppet){target="_blank"} are recommended.
+Instead of using snapshots, these tools are used to create
+the environment from scratch and then restore the content
+of previous environment.
+
+There is no limit to the number of snapshots you can take,
+but as a general courtesy you should keep snapshots to a minimum
+and remove unnecessary ones.
+
+
+!!! info  
+    If your virtual machine is booting from a volume and you take a snapshot of it, the size of the snapshot will 
+    be 0 bytes. This is because the snapshot only captures the state of the root disk, and in this case, the root 
+    disk is a volume.
+
+    If you want to capture the state of the volume, you need to take a volume snapshot instead 
+    of an instance snapshot.
+
 ## Types of snapshots
 
 There are two types of snapshots used in OpenStack: [image](https://docs.openstack.org/arch-design/common/glossary.html#image){target="_blank"} (instance)
@@ -368,20 +395,3 @@ It is not possible to download a volume snapshot directly from OpenStack, not fr
     * Detach the volume from the VM.
     * Remove the volume you created in step 1.
 
-## General considerations
-
-We recommend powering off the instance and detaching volumes
-before taking snapshots. This is the best way to make sure
-the file system is captured in a consistent state.
-
-Please note that snapshots may not always be the optimal method of
-getting an instance into a predefined state. For more robust solution,
-configuration automation tools such as [Ansible](https://github.com/ansible/ansible){target="_blank"}
-and [Puppet](https://github.com/puppetlabs/puppet){target="_blank"} are recommended.
-Instead of using snapshots, these tools are used to create
-the environment from scratch and then restore the content
-of previous environment.
-
-There is no limit to the number of snapshots you can take,
-but as a general courtesy you should keep snapshots to a minimum
-and remove unnecessary ones.

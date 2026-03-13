@@ -2,7 +2,7 @@
 description: Things to include in your CSC servicedesk support request
 ---
 
-# How to write good support requests
+# How to write good support requests[^1]
 
 Writing a good support request will enable us to resolve your issue faster. Below is a list of good practices.
 
@@ -71,4 +71,4 @@ You run a calculation which crashes after running for one week. You are tempted 
 
 Explain the steps and commands you've given before the problem and all output and errors that are produced. If the amount of data is large (more than 1MB) you can use [FUNET FileSender](https://filesender.funet.fi/) or [a-flip](../data/Allas/using_allas/a_commands.md#a-flip) to deliver files. Be specific, see above.
 
-[_"How to" reused by permission from HPC group - UiT The Arctic University of Norway._](https://hpc-uit.readthedocs.io/en/latest/help/writing-support-requests.html)
+[^1]: ["How to" reused by permission from HPC group - UiT The Arctic University of Norway (now part of NRIS)](https://documentation.sigma2.no/getting_help/how_to_write_good_support_requests.html)

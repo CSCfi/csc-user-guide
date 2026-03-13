@@ -17,11 +17,15 @@ The Data Gateway application can no longer be opened on all virtual desktops cre
 
 ### Full process
 
-Step 1. **Connect to your virtual desktop**, right-click and select **Open in Terminal**.
+##### Step 1.
+
+ **Connect to your virtual desktop**, right-click and select **Open in Terminal**.
 
 ![Open in terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-2.png)
 
-Step 2. Test if another project member has already added the fixing tool. Type the following command and press Enter:
+##### Step 2. 
+
+Test if another project member has already added the fixing tool. Type the following command and press Enter:
 
 ```bash
 dg-fix
@@ -29,25 +33,35 @@ dg-fix
 
 ![Type in terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-3.png)
 
-Step 3. If the terminal responds with `command not found`, continue with the steps below. 
+##### Step 3. 
+
+If the terminal responds with `command not found`, continue with the steps below. 
 
 ![Command not found](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-4.png)
 
-Step 4. Type the following command and press Enter:
+##### Step 4. 
+
+Type the following command and press Enter:
 
 ```bash
 gedit dg-fix
 ```
 
-Step 5. This opens the **Gedit text editor**. Make sure the editor view is active by clicking inside it.
+##### Step 5. 
+
+This opens the **Gedit text editor**. Make sure the editor view is active by clicking inside it.
 
 ![Open Gedit text editor](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-5.png)
 
-Step 6. Press **Ctrl + Alt + Shift** to activate the copy-paste function in the virtual desktop. Choose **Text Input**. A new input field will appear at the bottom of the screen.
+##### Step 6. 
+
+Press **Ctrl + Alt + Shift** to activate the copy-paste function in the virtual desktop. Choose **Text Input**. A new input field will appear at the bottom of the screen.
 
 ![Choose text input](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-6.png)
 
-Step 7. Copy and paste the following script into the input field:
+##### Step 7. 
+
+Copy and paste the following script into the input field:
 
 ![Copy and paste into the inout field](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-7.png)
 
@@ -87,15 +101,21 @@ echo "Logout and start a new session to take the updated certificates in use."
 
 
 
-Step 8. The script will appear in the Gedit document.
+##### Step 8. 
 
-Step 9. Click **Save** in the top-right corner of Gedit, then close the editor. A file named `dg-fix` will appear on your desktop.
+The script will appear in the Gedit document.
+
+##### Step 9. 
+
+Click **Save** in the top-right corner of Gedit, then close the editor. A file named `dg-fix` will appear on your desktop.
 
 ![Gedit](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-8.png)
 
 ![dg-fix file](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-9.png)
 
-Step 10. In the terminal, type or copy the following command and press Enter:
+##### Step 10. 
+
+In the terminal, type or copy the following command and press Enter:
 
 ```bash
 chmod a+rwx dg-fix
@@ -104,13 +124,17 @@ chmod a+rwx dg-fix
 
 ![In terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-10.png)
 
-Step 12. *(Optional)* If you have previously used the SD software installer, you can make the tool available to other users of the same virtual desktop by copying this commands in the terminal:
+##### Step 11. 
+
+*(Optional)* If you have previously used the SD software installer, you can make the tool available to other users of the same virtual desktop by copying this commands in the terminal:
 
 ```bash
 cp dg-fix /shared-directory/sd-tools/bin/
 ```
 
-Step 13. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
+##### Step 12. 
+
+**Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
 
 !!! Note
     If you encounter any difficulties with these steps, feel free to contact us at **servicedesk@csc.fi (subject: SD Services)**. We’re happy to assist you via an online meeting.
@@ -119,12 +143,18 @@ Step 13. **Log out** from the virtual desktop. After logging back in, the Data G
 
 If you have been using the SD Software Installer and one of the member of the project has completed the process above, you can simply:
 
-Step 1. **Connect to your virtual desktop**, right-click and select **Open in Terminal**.
+##### Step 1.
 
-Step 2. Type the folloging command and press enter:
+ **Connect to your virtual desktop**, right-click and select **Open in Terminal**.
+
+##### Step 2. 
+
+Type the folloging command and press enter:
 
 ```bash
 dg-fix
 ```
 
-Step 3. **Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
+##### Step 3. 
+
+**Log out** from the virtual desktop. After logging back in, the Data Gateway application will now open and the error will no longer be displayed.
