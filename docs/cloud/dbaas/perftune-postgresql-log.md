@@ -8,7 +8,7 @@ PostgreSQL server log gives important information from the database's current he
 
 Access the Web UI in [https://pukki.dbaas.csc.fi/project](https://pukki.dbaas.csc.fi/project), click the `instance name` and go to `logs` tab.
 
-**Note:** If the log lines are with same `timestamp` then the log lines may be displayd in bit of a mixed order.
+**Note:** If the log lines are with same `timestamp` then the log lines may be displayed in bit of a mixed order.
 
 ### OpenStack CLI
 
@@ -72,7 +72,7 @@ These are common messages, but not an exhaustive list.
 
 **Note:** This is as stub and will be appended later...
 
-#### Checkpoints are happening continously on background
+#### Checkpoints are happening continuously on background
 
 Checkpoints are targeted to happen every five minutes by default;
 ```
@@ -174,4 +174,4 @@ If the database is not ready to accept connections and there is an incoming conn
 2026-02-13T16:32:56.592294678+00:00 stderr F 2026-02-13 16:32:56.591 UTC [60] LOG:  could not receive data from client: Connection reset by peer
 ```
 
-**Note:** Usually these are improperly closed connections, but there is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completelly ignored either.
+**Note:** Usually these are improperly closed connections, but there is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.

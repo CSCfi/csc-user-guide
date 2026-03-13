@@ -35,14 +35,14 @@ $ openstack database log list -f value -c Status 0a8b6df2-140d-4932-b477-b3d3a88
 
 Access the Web UI in [https://pukki.dbaas.csc.fi/project](https://pukki.dbaas.csc.fi/project), click the `instance name` and go to `logs` tab.
 
-**Note:** If log lines are with same `timestamp` then log lines may be displayd in bit of a mixed order.
+**Note:** If log lines are with same `timestamp` then log lines may be displayed in bit of a mixed order.
 
 ## What to look for
 Error log in MariaDB should be quite quiet, having  `note` and some `warning` level messages from statup and from possible shutdown.
 
 What other messages can be usually seen in error log;
 
-* **Aborted connection:** Usually these are connections timing out due to inactivity. There is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completelly ignored either.
+* **Aborted connection:** Usually these are connections timing out due to inactivity. There is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
 * **Access denied:** Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
 Any other message that requires attention (including `note` and `warning` level messages) are usually related to performance of the database.
