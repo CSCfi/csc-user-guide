@@ -174,14 +174,14 @@ usage.
         6. Optional, but **strongly recommended**:
            [Install WinSCP](https://winscp.net/eng/docs/installation) and
            [start the Pageant authentication agent](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant)
-           that comes bundled with
-           [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) to
+           that comes bundled with WinSCP (and
+           [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)) to
            automatically add SSH key and certificate to SSH agent.
             * If you install WinSCP without admin rights, you must add
               `WinSCP.exe` to your Path environment variable. Search for the
               _Edit environment variables for your account_ settings menu.
             * If you intend to connect to Roihu using PowerShell, it is
-              possible to use `ssh-agent` instead of Pageant and WinSCP.
+              possible to also use Windows `ssh-agent`.
               [See the instructions for starting `ssh-agent` in PowerShell](ssh-windows.md#authentication-agent).
 
         7. Open PowerShell and execute:
@@ -207,7 +207,9 @@ usage.
                 If you intend to use PowerShell to connect to Roihu, make sure
                 to provide `csc_cert.py` your OpenSSH public key (`.pub`).
                 Providing a PuTTY `.ppk` key will create a certificate file
-                that is only compatible with PuTTY or MobaXterm.
+                that is only compatible with PuTTY or MobaXterm. Providing a
+                `.pub` file will create both an OpenSSH-compatible `-cert.pub`
+                file, as well as a `-cert.ppk` file (if WinSCP is available).
 
         8.  If you have an earlier certificate which is still valid, the tool 
            prints the expiration time and exits.
