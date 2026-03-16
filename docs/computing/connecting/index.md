@@ -49,11 +49,11 @@ Logging in to CSC supercomputers using an SSH client requires that you have
 
 ```mermaid
 flowchart LR
-    A(**Before first connection:**
+    A(<br>Before first connection:</br>
       <a href='ssh-keys/'>Set up SSH keys</a>)
     A --> B{Connecting
             to Roihu?}
-    B -->|yes| C(**Once every 24 hours:**
+    B -->|yes| C(<br>Once every 24 hours:</br>
                  <a href='ssh-keys/#signing-public-key'>Get a new SSH certificate</a>)
     C --> D(<a href='ssh-unix/'>SSH with Linux/macOS</a>
             or
