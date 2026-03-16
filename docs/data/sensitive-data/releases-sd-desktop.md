@@ -13,10 +13,10 @@ Upcoming, in testing phase.
 
 ## Overview
 
-SD Desktop v3 introduces a completely redesigned interface that is more intuitive, easier to use, and developed in close collaboration with users. This version focuses on improving usability, flexibility in volumes management and authomation. 
+SD Desktop v3 introduces a completely redesigned interface that is more intuitive, easier to use, and developed in close collaboration with users. This version focuses on improving usability, flexibility in volumes management and automation. 
 
 !!! Note
-    More detailed documentation, support materials, guidance and webvinars will be published closer to the official release.
+    More detailed documentation, support materials, guidance and webinars will be published closer to the official release.
 
 
 ## Key features and changes
@@ -25,7 +25,7 @@ SD Desktop v3 introduces a completely redesigned interface that is more intuitiv
 
 - **New feature for volumes**: Users can now attach or detach storage volumes without stopping or restarting the virtual desktop. This allows real‑time adjustments to storage needs and improves workflow continuity. A single virtual desktop can now use multiple volumes simultaneously.
 
-- **New Data Gateway applicationd functions**: Data export formt the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
+- **New Data Gateway applicationd functions**: Data export format the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
 
 - **Backward compatibility**: Existing virtual desktops will continue to work, but import/export may be interrupted. Users can either:
 
