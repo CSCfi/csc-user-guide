@@ -23,17 +23,15 @@ SD Desktop v3 introduces a completely redesigned interface that is more intuitiv
 
 - **Redesigned user interface**: The entire interface has been rebuilt with a more modern and intuitive layout, improving navigation and simplifying common tasks. The redesign is based on extensive user feedback.
 
-- **Attach and detach volumes on running virtual desktops**: Users can now attach or detach storage volumes without stopping or restarting the virtual desktop. This allows real‑time adjustments to storage needs and improves workflow continuity.
+- **New feature for volumes**: Users can now attach or detach storage volumes without stopping or restarting the virtual desktop. This allows real‑time adjustments to storage needs and improves workflow continuity. A single virtual desktop can now use multiple volumes simultaneously.
 
-- **Support for multiple volumes on the same virtual desktop**: A single virtual desktop can now use multiple volumes simultaneously.
-
-- **New Data Gateway functions**: Data export formt the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
+- **New Data Gateway applicationd functions**: Data export formt the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
 
 - **Backward compatibility**: Existing virtual desktops will continue to work, but import/export may be interrupted. Users can either:
 
 - create a new virtual desktop and move the old volume to it, this option enables all new SD Desktop v3 features.
 
-- import the new Data Gateway into the current desktop: import/export works, but attaching new or multiple volumes will not be available.
+- import the new Data Gateway application into the current desktop: import/export works, but attaching new or multiple volumes will not be available.
 
 
 
@@ -43,8 +41,7 @@ SD Desktop v3 introduces a completely redesigned interface that is more intuitiv
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | **Access via MyCSC portal**    | No changes.                               |         Access via <https://my.csc.fi> with CSC account, project, and MFA.                                                                     |
 | **User interface**             | Completely redesigned interface, more intuitive and user‑friendly, built with user feedback.                | Older interface with limited usability and less intuitive workflow.                     |
-| **Virtual machine management** | Attach/detach volumes while the virtual desktop is running; support for multiple volumes; updated workflow. | Volume can only be added during creation pahse; only one volume supported       |
-| **Volume management**          | Multiple volumes supported on a single VM; real‑time attach/detach operations.                              | Single volume per VM                                |
+| **Volume management**          | Multiple volumes supported on a single VM; Attach/detach volumes while the virtual desktop is running.                              | Single volume per VM                                |
 | **Data Gateway application**   | automated encryption during export, no username/password needed, improved performance.                  |  manual credentials required, no automated encryption during export. |
 
 
