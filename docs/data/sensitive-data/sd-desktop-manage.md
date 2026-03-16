@@ -67,7 +67,7 @@ When you want to access the data saved in the detached volume, you can attach it
 
 Virtual desktops should be paused when not actively used for analysis, to reduce the use of CSC computing resources and prevent unnecessary consumption of Cloud Billing Units. Pausing is not intended as a long‑term method for storing data. Volume usage continues to consume Billing Units even while the desktop is paused.
 
-!!! Note
+!!! Note 
     CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
 
 
