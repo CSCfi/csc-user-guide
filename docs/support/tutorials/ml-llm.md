@@ -361,7 +361,7 @@ In some situations there's still a need for an OpenAI-compatible
 server, for example when interfacing with other programs. [Example
 scripts for running vLLM on Puhti, Mahti and LUMI can be found in our
 `ai-inference-examples` repository][14]. There's also an example of
-running on multiple nodes using Ray.
+running on multiple nodes on LUMI (`run-vllm-lumi16.sh`).
 
 
 [1]: https://blog.eleuther.ai/transformer-math/
