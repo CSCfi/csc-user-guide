@@ -1,21 +1,32 @@
 # Resource planning for your CSC Project
 
-Every active CSC project consumes both Billing Units (BUs) and storage quota. When you create a project, CSC grants a default amount of BUs and storage quota immediately. 
+Every active CSC project consumes both Billing Units (BUs) and storage quota. When you create a project, CSC grants a default amount of Billing Units (BUs) and storage quota immediately. 
 
 **Both the CSC project manager and all project members share responsibility for:**
 
 - Monitoring how many [**Billing Units**](#what-are-billing-units) the project has left.
 - Monitoring how much of the [**storage quota**](#what-is-storage-quota) is being used.
-- [**Planning 6 months ahead**](#step-1-estimate-the-appropriate-billing-units-packages-for-your-project) project's resource usage and [**submitting applications**](#step-2-apply-for-billing-units-via-mycsc-portal) for additional BUs twice per year.
+- [**Planning 6 months ahead**](#step-1-estimate-the-appropriate-billing-units-packages-for-your-project) project's resource usage and [**applying for more Billing Units**](#step-2-apply-for-billing-units-via-mycsc-portal) twice per year.
 
 This is important because running out of BUs or exceeding quota affects service availability.
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Restrictions about applying for Billing Units**
+  { .csc-grid-card-warning }
+
+    ---
+
+    After you apply for more Billing Units, there is a two-week period during which you cannot submit another BU request, so it is critical to request resources early. You will receive an email notification when your project’s BUs are running low, giving you time to apply for more before services stop working.
+    
+</div>
+
 
 ## What are Billing Units 
    
 **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
 
 - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created.
-
 
 - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure. The more data you store and the longer you store it, the more Storage BUs are used.
 
@@ -41,7 +52,7 @@ You can monitor Billing Units usage in MyCSC portal.
     - You will not be able to access the virtual desktops content's or unpause them, until you have applied for more Billing Units.
     - Your data will remain unaffected and will not be deleted, even if your total amount of Billing Units reach zero or drop below zero.
     - Each project member will receive a notification via email from the MyCSC portal when the Billing Units for your CSC project are about to end.
-    - If your virtual desktop has been paused because all Billing Units have been already consumed, apply for the Small Package (30,000 BUs). It will be assigned immediately, allowing you to resume work. After two weeks, review your usage to see if additional units are needed.
+ 
 
 
 </div>
@@ -97,6 +108,7 @@ Estimate the Billing Units your project will consume over the next six months fo
     ---
     - Unused Billing Units expire every six months, so request only what you need.
     - The Basic, Small and Medium packages have fixed Billing Unit (BU) allocations, while the Large package is flexible and can be defined by you, up to a maximum of 3,000,000 BUs.
+    - If your virtual desktop has been paused because all Billing Units have been already consumed, apply for the Small Package (30,000 BUs) from my.csc.fi. It will be assigned immediately, allowing you to resume work. After two weeks, review your usage to see if additional units are needed.
     
 </div>
 
@@ -170,7 +182,7 @@ You can apply for more BUs for your CSC project via MyCSC portal.
 
 10. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
-When the Biling Units will be assigned to the CSC Project you will receive an email notification. 
+11.When the Biling Units will be assigned to the CSC Project you will receive an email notification. 
 
 
 ### Log into services
