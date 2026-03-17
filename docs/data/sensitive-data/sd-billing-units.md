@@ -6,7 +6,7 @@ Every active CSC project consumes both Billing Units (BUs) and storage quota. Wh
 
 - Monitoring how many [**Billing Units**](#what-are-billing-units) the project has left.
 - Monitoring how much of the [**storage quota**](#what-is-storage-quota) is being used.
-- [**Planning 6 months ahead**](#step-1-estimate-the-appropriate-billing-units-packages-for-your-project) project's resource usage and [**applying for more Billing Units**](#step-2-apply-for-billing-units-via-mycsc-portal) twice per year.
+- [**Planning 6 months ahead**](#step-1-estimate-the-appropriate-billing-units-packages-for-your-project) project's resource usage and [**applying for more Billing Units**](#step-2-apply-for-billing-units-via-mycsc-portal) 2-3 times per year.
 
 This is important because running out of BUs or exceeding quota affects service availability.
 
@@ -182,7 +182,7 @@ You can apply for more BUs for your CSC project via MyCSC portal.
 
 10. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
-11.When the Biling Units will be assigned to the CSC Project you will receive an email notification. 
+11. When the Biling Units will be assigned to the CSC Project you will receive an email notification. 
 
 
 ### Log into services
