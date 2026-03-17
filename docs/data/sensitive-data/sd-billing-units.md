@@ -17,7 +17,7 @@ This is important because running out of BUs or exceeding quota affects service 
 
     ---
 
-    After you apply for more Billing Units, there is a two-week period during which you cannot submit another BU request, so it is critical to request resources early. You will receive an email notification when your project’s BUs are running low, giving you time to apply for more before services stop working.
+    After you apply for additional Billing Units, there is a two‑week period during which you cannot submit another application. Because of this, it’s important to request additional resources early. You will receive an email notification when your project’s Billing Units are running low, giving you enough time to apply for more before service avaibility is affected.
     
 </div>
 
@@ -155,7 +155,7 @@ You can apply for more BUs for your CSC project via MyCSC portal.
 
     ---
 
-    After you apply for more Billing Units, there is a two-week period during which you cannot submit another BU request, so it is critical to request resources early. You will receive an email notification when your project’s BUs are running low, giving you time to apply for more before services stop working.
+    After you apply for additional Billing Units, there is a two‑week period during which you cannot submit another application. Because of this, it’s important to request additional resources early. You will receive an email notification when your project’s Billing Units are running low, giving you enough time to apply for more before service avaibility is affected.
     
 </div>
 
