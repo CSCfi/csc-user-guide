@@ -6,7 +6,8 @@ Every active CSC project consumes both Billing Units (BUs) and storage quota. Wh
 
 - Monitoring how many [**Billing Units**](#what-are-billing-units) the project has left.
 - Monitoring how much of the [**storage quota**](#what-is-storage-quota) is being used.
-- [**Planning 6 months ahead**](#step-1-estimate-the-appropriate-billing-units-packages-for-your-project) project's resource usage and [**applying for more Billing Units**](#step-2-apply-for-billing-units-via-mycsc-portal) 2-3 times per year.
+- [**Planning 6 months ahead**](#step-1-estimate-the-appropriate-billing-units-packages-for-your-project) project's resource usage.
+- [**Applying for more Billing Units**](#step-2-apply-for-billing-units-via-mycsc-portal) 2-3 times per year.
 
 This is important because running out of BUs or exceeding quota affects service availability.
 
@@ -36,8 +37,9 @@ This is important because running out of BUs or exceeding quota affects service 
 
 You can monitor Billing Units usage in MyCSC portal. 
 
-1. Log in to MyCSC and navigate to your project's view. 
-2. Scroll down to Resources window.
+1. Log in to [MyCSC](https://my.csc.fi).
+2. Navigate to your project's view. 
+3. Scroll down to **Resources** window.
 
 
 <div class="grid cards" markdown>
@@ -73,8 +75,11 @@ Each virtual desktop in SD Desktop can have a volume, where files can be importe
 
 You can monitor Storage Quota in MyCSC portal. 
 
-1. Log in to MyCSC and navigate to your project's view. 
-2. Scroll down to Services window and open Allas.
+1. Log in to [MyCSC](https://my.csc.fi).
+2. Navigate to your project's view. 
+3. Scroll down to **Services** window.
+4. Open **Allas**. You can see storage quota usage from
+
 
 
 
@@ -126,8 +131,6 @@ Here’s a table summarizing the Cloud Billing Units required for using **SD Des
 | Heavy Computation | 65 | 280,800 |  Medium package, 2 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
 | Small GPU Computation | 78 | 341,640 | Medium package, 3 times a year: 300.000 BUs Processed on average within 1-3 days by a Resource Officer |
 | Big Picture project | 195 | 854,100 | Large package, 2 times a year: 900.00 Bus Generally processed every three weeks by the CSC's Resource Allocation Group |
-
-
 
 
 #### SD Connect: Storage Billing Units
