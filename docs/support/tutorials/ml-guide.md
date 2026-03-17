@@ -62,7 +62,7 @@ remain usable.
 
 CSC hosts two national supercomputers: Puhti and Mahti, and the
 European LUMI supercomputer. If you are [unsure which supercomputer to
-choose, read the discussion here](gpu-ml.md#puhti-mahti-or-lumi).
+choose, read the discussion here](gpu-ml.md).
 
 If you are a new user, please read [how to access Puhti and
 Mahti](../../computing/index.md#accessing-puhti-and-mahti), and [how

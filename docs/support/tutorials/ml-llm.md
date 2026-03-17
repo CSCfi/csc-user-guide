@@ -14,8 +14,8 @@ cases you will need to use a GPU.
 In order to use an LLM (or any neural network) with a GPU, the model
 needs to be loaded into the GPU memory (VRAM). LLMs can be very large
 and here the size of the GPU memory becomes critical. You can refer to
-[our table of GPU stats](gpu-ml.md#puhti-mahti-or-lumi) for the full
-details, but our GPUs have VRAM memory as follows:
+[our table of GPU stats](gpu-ml.md) for the full details, but our GPUs
+have VRAM memory as follows:
 
 - 32 GB on Puhti (NVIDIA V100)
 - 40 GB on Mahti (NVIDIA A100)
