@@ -1,6 +1,6 @@
 # Applications
 
-## CSC chemistry software stack on LUMI updated, 22.1.2026
+## CSC chemistry software stack on LUMI updated, 17.3.2026
 
 The chemistry software stack maintained by CSC on LUMI
 (`/appl/local/csc/soft/chem`) has been recompiled following the recent major
@@ -21,6 +21,22 @@ have better performance and less bugs than older releases.
 
 Please contact [CSC Service Desk](../contact.md) if you notice any issues with
 the modules.
+
+## Schrödinger Maestro 2026.1, 12.3.2026
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2026.1 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## Geoconda 3.14.3, 5.3.2026
+
+New version of geoconda has been added to Puhti and Mahti. In this version unusually many new Python-libraries have been added, 
+but also several (unmaintained) libraries have been removed. See [geoconda](..//../apps/geoconda.md) page for all details.
+
+## R 4.5.2 in r-env, 17.2.2026
+
+R version 4.5.2 is now available in [r-env](../../apps/r-env.md) in Puhti and Mahti and is set as the default version.
 
 ## PyTorch 2.9.1 available on Puhti and Mahti, 9.1.2026
 

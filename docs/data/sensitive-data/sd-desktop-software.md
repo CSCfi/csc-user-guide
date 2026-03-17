@@ -12,10 +12,11 @@ The virtual desktop comes pre-installed with a set of basic tools or software th
 Below you can find:
 
 * [Adding software: background information and limitations](sd-desktop-software.md#adding-software-background-information-and-limitations)
-* [Customisation via SD Software Installer](sd-desktop-software.md#customisation-via-sd-software-installer) (no previous experience required)
+* [Customisation via SD Software Installer](sd-desktop-software.md#customisation-via-sd-software-installer) (previous experience is not required)
 * [Customisation via Apptainer and Podman](sd-desktop-software.md#customisation-via-apptainer-and-podman) (advanced; technical expertise required).
 
-Please don't hesitate to [contact CSC Service Desk](../../support/contact.md) (subject: SD Services) if you have any questions about the software selection. We can support you in your desktop customisation.
+!!! Note
+    Please don't hesitate to [contact CSC Service Desk](../../support/contact.md) (subject: SD Services) if you have any questions about the software selection. We can support you in your desktop customisation.
 
 ## Adding software: background information and limitations
 
@@ -53,7 +54,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 |                        | [PRSice 2.0](https://choishingwan.github.io/PRSice/) - Polygenic Risk Score software for calculating, applying, evaluating, and plotting the results of polygenic risk scores (PRS) analyses.|
 |                        | [Regenie 3.3](https://rgcgithub.github.io/regenie/) - Program for whole genome regression modelling of large genome-wide association studies.|
 |                        | [Salmon 1.9.0](https://combine-lab.github.io/salmon/) - Program to produce transcript-level quantification estimates from RNA-seq data. <br> *[Salmon 1.9.0 at CSC servers](../../apps/salmon.md)*|
-| **Miscellaneous**      | **CSC Tools**, includes: <br>[auto-apptainer](./tutorials/auto-apptainer.md) - Tool to add command line applications using the Apptainer container library provided by CSC.<br> [backup tool](./tutorials/backup_sd_desktop.md) - Help tool to automate backup and export in SD Desktop.|
+| **Miscellaneous**      | **CSC Tools**, includes: <br>[auto-apptainer](./tutorials/auto-apptainer.md) - Tool to add command line applications using the Apptainer container library provided by CSC.<br> [Backup tool](./tutorials/backup_sd_desktop.md) - Help tool to automate backup and export in SD Desktop.<br> [chipster-installer.sh](./tutorials/chipster-in-sd-desktop.md) - Tool to install local Chipster server to SD Desktop. |
 |                        | [add-python-lib](./tutorials/sd-pythonlibs.md) - Help tool to add Python libraries.|
 |                        | [ARX](https://arx.deidentifier.org/) - Data anonymization tool|
 |                        | [Etherpad](https://etherpad.org/) - tool for collaborative editing (requires Podman compatible virtual machine) | 
@@ -68,7 +69,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
       * Example Share ID: 71bbe38a3cd398b48b1f2582dc00297p
 * Next, please send an email to [CSC Service Desk](../../support/contact.md) (subject: SD Desktop)  letting  them know you would like access to the Software Installer and including the project  Share ID by pastinng it in the message. Once the Service Desk confirms access, the installer will be available via the SD Desktop service.
 
-    ![ShareID](images/connect/UseCase_ShareID.png)
+![(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
 
 ### Step 2: bring the SD Software Installer on your virtual desktop
 

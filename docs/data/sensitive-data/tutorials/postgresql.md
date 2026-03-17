@@ -1,6 +1,6 @@
 # Running temporary PostgreSQL database in SD Desktop
 
-1. Request access to the tools-for-sd-connect or upload your own PostgreSQL singularity container to SD Connect. Start a SD Desktop Virtual Machine that has data volume that is big enough for your data. Login to your SD Desktop, open Data Gateway connection to SD Connect and open a terminal session.
+1. Request access to the tools-for-sd-desktop from Service Desk or upload your own PostgreSQL singularity container to SD Connect. Start a SD Desktop Virtual Machine that has data volume that is big enough for your data. Login to your SD Desktop, open Data Gateway connection to SD Connect and open a terminal session.
 
 2. In the terminal session, create directory `/media/volume/psql` and move there
 

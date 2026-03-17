@@ -13,7 +13,7 @@ Let's say that you want to use `my-custom-dns-name.replace.this.com` as the cust
 *`route-with-dns.yaml`*:
 
 ```yaml
-apiVersion: v1
+apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
@@ -35,7 +35,7 @@ The TLS certificates and private keys are placed in the `spec.tls` field, for
 example:
 
 ```yaml
-apiVersion: v1
+apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
@@ -176,60 +176,3 @@ This is the recommended option to obtain and renew Let's Encrypt certificates. T
     `Ingress` and `Route` are two ways of solving the same use case. They approach it differently
 
 If all went well, you should have a valid Certificate.
-
-### OpenShift ACME controller
-
-!!! Info "Deprecated"
-    The OpenShift ACME controller has been archived since 2023. This means that while it does still work (at the time of writing this), it may stop working if for example, Let's Encrypt makes any change in their API implementation of ACME.
-
-Routes can automatically obtain a "let's encrypt" certificate using the third-party [openshift-acme controller](https://github.com/tnozicka/openshift-acme). The process is simple:
-
-* Clone the [openshift-acme controller](https://github.com/tnozicka/openshift-acme) repository.
-
-```sh
-git clone https://github.com/tnozicka/openshift-acme.git
-```
-
-* The whole process is documented in the [README.md](https://github.com/tnozicka/openshift-acme/blob/master/README.md) file. We recommend the [Single namespace](https://github.com/tnozicka/openshift-acme/tree/master/deploy#single-namespace) method. It will deploy the controller inside your Rahti project and it will only work for the `Route` you have defined inside said project:
-
-```sh
-cd openshift-acme
-oc apply -f deploy/single-namespace/{role,serviceaccount,issuer-letsencrypt-live,deployment}.yaml
-oc create rolebinding openshift-acme --role=openshift-acme --serviceaccount="$( oc project -q ):openshift-acme" --dry-run -o yaml | oc apply -f -
-```
-
-* Add an annotation to the Route you need the certificate for.
-
-```sh
-oc annotate route <route_name> kubernetes.io/tls-acme='true'
-```
-
-* Wait for few minutes. The controller will see that the annotation has been added, and it will start the process of requesting the certificate, validating the request, issuing the certificate, and finally adding it to the Route. It will also add an annotation to the `Route` with the status:
-
-```yaml
-  annotations:
-    acme.openshift.io/status: |
-      provisioningStatus:
-        earliestAttemptAt: "2021-02-09T10:26:15.006145385Z"
-        orderStatus: valid
-        orderURI: https://acme-v02.api.letsencrypt.org/acme/order/XXXXXXXXX/XXXXXXXXXX
-        startedAt: "2021-02-09T10:26:15.006145385Z"
-    kubernetes.io/tls-acme: 'true'
-```
-
-The certificate is ready. The controller will take care of checking the validity of the certificate, and of renewing it when necessary (every 3 months).
-
-### Troubleshooting
-
-If your certificate hasn't been renewed automatically, you can check its status in the `annotations` section from the `Route`. There is a bug with the date changing from December 31st to January 1st, the year will reset to **0001**. If it's the case, simply delete this section from the annotations (you can find it by browsing **Administrator view** > **Networking** > **Routes** > Select your route > YAML tab):
-
-```yaml
-    acme.openshift.io/status: |
-      provisioningStatus:
-        earliestAttemptAt: "0001-01-01T00:00:01.006145385Z"
-        orderStatus: valid
-        orderURI: https://acme-v02.api.letsencrypt.org/acme/order/XXXXXXXXX/XXXXXXXXXX
-        startedAt: "0001-01-01T00:00:01.006145385Z"
-```
-
-**Save** and reload the configuration. The date should be fixed.
