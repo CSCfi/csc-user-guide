@@ -135,7 +135,9 @@ following instructions illustrate only basic usage.
       Contact your local IT-support if you need assistance.
     - If Python for some reason cannot be installed on your computer, fall
       back to [Option 2](#option-2-mycsc) instead.
-2. <a href="https://github.com/CSCfi/certificate-helper-tool/raw/refs/heads/main/csc_cert.py" download="csc_cert.py">Download the certificate helper tool here</a>, or clone the Git repository:
+2. [Download the certificate helper tool here](https://github.com/CSCfi/certificate-helper-tool/raw/refs/heads/main/csc_cert.py)
+   (_Right click_ :material-arrow-right: _Save Link As_), or clone the Git
+   repository:
 
     ```bash
     git clone https://github.com/CSCfi/certificate-helper-tool.git
