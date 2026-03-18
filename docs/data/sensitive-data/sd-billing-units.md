@@ -67,8 +67,6 @@ You can monitor Billing Units usage in MyCSC portal.
 
 The storage quota defines how much space is available for your project’s data. It represents a capacity limit, not a consumable resource. 
 
-### Quota usage in SD Connect
-
 For CSC projects with SD Connect enabled, the default quota is 10 TB. If needed, this can be increased up to 200 TB by contacting the Service Desk (subject line: Increase Allas quota).
 
 ### How to monitor Storage quota usage
