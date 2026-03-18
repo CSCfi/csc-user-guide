@@ -27,7 +27,7 @@ This is important because running out of BUs or exceeding quota affects service 
    
 **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
 
-- **SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created.
+- **SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created. Each virtual desktop in SD Desktop can have a volume, where files can be imported from SD Connect/SD Apply. The volume appears inside the virtual desktop similarly to how a USB drive appears on a personal computer. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
 
 - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure. The more data you store and the longer you store it, the more Storage BUs are used.
 
@@ -67,12 +67,9 @@ You can monitor Billing Units usage in MyCSC portal.
 
 The storage quota defines how much space is available for your project’s data. It represents a capacity limit, not a consumable resource. 
 
-### Quota usage in SD Connect and SD Desktop
+### Quota usage in SD Connect
 
 For CSC projects with SD Connect enabled, the default quota is 10 TB. If needed, this can be increased up to 200 TB by contacting the Service Desk (subject line: Increase Allas quota).
-
-Each virtual desktop in SD Desktop can have a volume, where files can be imported from SD Connect/SD Apply. The volume appears inside the virtual desktop similarly to how a USB drive appears on a personal computer. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
-
 
 ### How to monitor Storage quota usage
 
@@ -168,7 +165,7 @@ You can apply for more BUs for your CSC project via MyCSC portal.
 2. Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
 3. Choose a project and click to open it.
 4. In the new view, scroll down to **Resources** window and click **Apply for resources**. A new window will appear (this might take up to 8 seconds).
-![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
+![Apply Billing Units in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Apply_BUs.png)
 5. In the new window you will see the services you have active in the project (in gray). Press **Next**.
 ![Continue to billing units.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_MoreBUs_1025.png)
 
