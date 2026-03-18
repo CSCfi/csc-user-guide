@@ -20,7 +20,7 @@ Upcoming, in testing phase.
 ## Overview
 
 Major upgrade required because of a technical change: transition from the Swift protocol to a new based on S3‑compatible technology. CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This SD Connect version improves long term stability but is not fully backward compatible, this might require file conversion. 
-Later on, all data will also need to be migrated to a new storage solution that CSC will deploy by the end of 2026 called Allas 2. 
+
 
 !!! Note
     More detailed documentation, support materials, guidance and webinars will be published closer to the official release.
