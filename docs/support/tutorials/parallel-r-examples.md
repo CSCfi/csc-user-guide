@@ -12,7 +12,7 @@ You may also wish to check the relevant R package manuals and [this page](https:
     By default, R uses a single core. Reserving multiple cores is suitable if you are using an R package that is built to use multiple cores (hidden parallelism) or your R script is written to make use of multiple cores. If you are not sure if your R code can use multiple cores, you can    
     
     - consult the R package documentation  
-    - use the [seff command](../../support/faq/how-much-memory-my-job-needs/#seff-slurm-efficiency) to check CPU use efficiency  
+    - use the [seff command](../../support/faq/how-much-memory-my-job-needs.md#seff-slurm-efficiency) to check CPU use efficiency  
     - carry out test runs with different numbers of cores   
     - check the number of processes while the code is running with tools such as `htop`   
     - contact [CSC Service Desk](../contact.md) for advice   
