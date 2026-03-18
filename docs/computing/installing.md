@@ -37,6 +37,7 @@ compiled before installing. Guidelines on compiling software on CSC supercompute
 be found from the links below. A list of available HPC libraries that may need to be
 linked upon compiling is also provided.
 
+- [Compiling on Roihu](compiling-roihu.md)
 - [Compiling on Puhti](compiling-puhti.md)
 - [Compiling on Mahti](compiling-mahti.md)
 - [Compiling on LUMI](compiling-lumi.md)
