@@ -69,7 +69,7 @@ The operation is entirely automated and can take up to 30 minutes. If you try ac
 
 ## Important considerations
 
-* Your virtual desktop is **accessible to all project members upon creation**. A runnign virtual desktop and a volume **consumes Cloud Billing Units type** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop)
+* Your virtual desktop is **accessible to all project members upon creation**. A running virtual desktop and a volume **consumes Cloud Billing Units type** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop)
 
 * Each CSC project supports up to 6 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
