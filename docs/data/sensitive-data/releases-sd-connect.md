@@ -98,7 +98,7 @@ SD Connect v2.0.0 introduces a significantly improved user experience with a red
 
 - **Command line tool improvements**: the new command line tools, SD Lock/Un-lock, now supports automated key management using temporary tokens, automate encryption and decryption. 
 
-- **Backward compatibility**: files uploaded with the service via user ineterface before 7 Oct 2024 will not be automatically decrypted. Files size may appear incorrect. 
+- **Backward compatibility**: files uploaded with the service via user interface before 7 Oct 2024 will not be automatically decrypted. Files size may appear incorrect. 
 
 ## Feature comparison table
 
