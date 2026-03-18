@@ -13,7 +13,7 @@ Upcoming, in testing phase.
 
 ## Overview
 
-SD Desktop v3 introduces a completely redesigned interface that is more intuitive, easier to use, and developed in close collaboration with users. This version focuses on improving usability, flexibility in volumes management and automation. 
+SD Desktop v3 introduces a completely redesigned user interface that is more intuitive, easier to use, and developed in close collaboration with users. This version focuses on improving usability, flexibility in volumes management and automation. 
 
 !!! Note
     More detailed documentation, support materials, guidance and webinars will be published closer to the official release.
