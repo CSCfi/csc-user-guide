@@ -40,6 +40,9 @@ You can monitor Billing Units usage in MyCSC portal.
 1. Log in to [MyCSC](https://my.csc.fi).
 2. Navigate to your project's view. 
 3. Scroll down to **Resources** window.
+4. You can see **Cloud Billing Units** and **Storage Billing Units** usage under from their respective tabs.
+
+![Billing Units in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Quota.png)
 
 
 <div class="grid cards" markdown>
