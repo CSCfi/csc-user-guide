@@ -31,14 +31,14 @@ You can browse the main topics of this section using the navigation bar on the r
 
 ### Limitations
 
-* The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
+* The project manager or group leader should regularly check project members in MyCSC and verify who can access SD Desktop or SD Connect. Remove members who no longer need access to the data.
 
 * Only open-source software is available.
 
 * We do not provide virtual desktops with GPUs or Windows operating systems. 
 
 !!! Note 
-    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
+    Data under the Secondary Use of Health and Social Data Act can't be processed in the standard SD Desktop service. For processing secondary use health and social data, please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements for accessing datasets provided by the Findata authority or public registers.
 
 
 ## Your next steps in this guide
