@@ -30,12 +30,12 @@ Before starting the work, make sure of the following:
 
 ### 1.1 You have a CSC user account
 
-If you do not have an account, [see instructions](../../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+If you do not have an account, [see account instructions](../../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
 Note that for this exercise you will need to use both your Haka and CSC accounts, so make sure you remember the password for your CSC account.
 
 ### 1.2 You have two-factor authentication (MFA) enabled for your CSC account
 
-* [See instructions](../../../accounts/mfa.md).
+* [See MFA instructions](../../../accounts/mfa.md).
 
 ### 1.3 You are a member in a CSC project that has SD Desktop and SD Connect enabled
 
@@ -54,7 +54,7 @@ Record a short interview with your phone or laptop, asking the person next to yo
 * First name
 * What has been most interesting in this first part of the seminar
 
-The interview can be a video or an audio recording. Do not make it longer than one minute. If possible, name the interview file on your device so that it is easy to identify (do not use spaces or special characters in the name).
+The interview can be a video or an audio recording. Do not make it longer than one minute. Name the interview file on your device so that it is easy to identify (do not use spaces or special characters in the name).
 
 Alternativerly you can download this [example file](https://github.com/eglerean/handsondataprotection/blob/f4e70f010fc762ea88695da785e368dc37d92126/transcribe/JohnChowning041306_part1_1min.ogg)
 
@@ -129,7 +129,7 @@ In this step, you will create a secure connection between your virtual desktop (
 
 If you are following this tutorial as part of a course, you can skip this step and move to the next one. The instructor has already completed the necessary setup for you.
 
-If you are following this tutorial independently, please use the SD Software Installer to install Whisper on your virtual desktop by completing steps 1–4 as described [here](../sd-desktop-software.md)
+If you are following this tutorial independently, please use the SD Software Installer to install Whisper on your virtual desktop by completing steps 1–4 as described [in software installation guide](../sd-desktop-software.md)
 
 ### 4.2 Accessing Whisper (if already installed)
 
@@ -340,14 +340,13 @@ all — all formats
 
 This section explains how to run Whisper using the terminal directly, how to check available commands, and how to inspect the files created during transcription.
 Commands are typed into the terminal window and executed by pressing Return/Enter.
-The basic structure of commands is:
 
 The basic structure of commands is:
 
 ```bash
 command -option argument1 argument2
 ```
-##### 5.3.1 Checking your files in the terminal
+#### 5.3.1 Checking your files in the terminal
 
 Use the commands `ls` and `ls -l` to list the contents of the directory:
 
@@ -356,7 +355,7 @@ ls
 ls -l
 ```
 
-##### 5.3.2 Checking that Whisper is installed
+#### 5.3.2 Checking that Whisper is installed
 
 You can check that the whisper command is available by running:
 
