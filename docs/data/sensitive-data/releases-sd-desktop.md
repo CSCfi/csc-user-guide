@@ -25,7 +25,7 @@ SD Desktop v3 introduces a completely redesigned user interface that is more int
 
 - **New feature for volumes**: Users can now attach or detach storage volumes without stopping or restarting the virtual desktop. This allows real‑time adjustments to storage needs and improves workflow continuity. A single virtual desktop can now use multiple volumes simultaneously.
 
-- **New Data Gateway applicationd functions**: Data export format the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
+- **New Data Gateway applicationd functions**: Data export from the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
 
 - **Backward compatibility**: Existing virtual desktops will continue to work, but import/export may be interrupted. Users can either:
 
