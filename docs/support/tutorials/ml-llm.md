@@ -20,6 +20,7 @@ have VRAM memory as follows:
 - 32 GB on Puhti (NVIDIA V100)
 - 40 GB on Mahti (NVIDIA A100)
 - 64 GB on LUMI (single GCD of an AMD MI250x)
+- 96 GB on Roihu (NVIDIA GH200, available in May 2026)
 
 The model size in memory depends on how the weights are
 stored. Typically a regular floating point value in a computer is
