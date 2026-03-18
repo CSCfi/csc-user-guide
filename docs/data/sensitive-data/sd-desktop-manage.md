@@ -19,16 +19,26 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 ## Detaching a volume 
 
-You can detach a volume from your virtual desktop. You can compare this operation to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. You can attach the volume when creating a new virtual desktop to move data from the old desktop to the new one.
-
-### Before detaching
-
-Before you detach a volume, it is good the set access permissions of files and directories such that all project members have both read and write access to all the data in the volume. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way. 
-
-You can do this permission set-up with linux command `pre-volume-detach` that you can take in use by installing `CSC Tools` with [SD tools installer](./sd-desktop-software.md#customisation-via-sd-software-installer). In addition to fixing the access permissions of the user who is running the command, it checks if there are other users that should run this command too. Further, the command allows you to make a backup copy of your home directory to the volume so that you can import the contents of your home directory to the new virtual machine.
-
+Detaching a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. You can attach the volume when creating a new virtual desktop to move data from the old desktop to the new one.
 
 ### Detach a volume from your virtual desktop
+
+#### Step 1: Set access permissions of the volume to read and write
+
+Before you detach a volume, it is good practise the set access permissions of files and directories such that all project members have both read and write access to all the data in the volume. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way. 
+
+**Use SD Tools Installer:**
+
+1. Install `CSC Tools` with [SD tools installer](./sd-desktop-software.md#customisation-via-sd-software-installer).
+2. Open terminal.
+3. Do permission set-up with linux command `pre-volume-detach`. In addition to fixing the access permissions of the user who is running the command, it checks if there are other users that should run this command too. Further, the command allows you to make a backup copy of your home directory to the volume so that you can import the contents of your home directory to the new virtual machine.
+
+**Set permissions manually:**
+
+
+
+
+#### Step 2: Detach volume 
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
 
