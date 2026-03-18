@@ -2,7 +2,11 @@
 
 ## Minor version database upgrades
 
-Pukki DBaaS provides tools for you to upgrade your database yourself. Before you do an upgrade you need to be aware of the risks and implications. Upgrading the database will cause a short downtime, the length of which depends on the datastore versions involved and the size of the database. It's advisable to create a new database instance from a recent backup to test the upgrade on first.
+Pukki DBaaS provides tools for you to upgrade your database yourself.
+Before you do an upgrade you need to be aware of the risks and implications.
+Upgrading the database will cause a short downtime, the length of which depends
+on the datastore versions involved and the size of the database.
+It's advisable to create a new database instance from a recent backup to test the upgrade on first.
 
 When you do a minor database upgrade,
 
@@ -34,7 +38,8 @@ The commands to use:
 5. Verify with your preferred tool that your database is working as expected.
 
 !!! warning "Certain PostgreSQL upgrades will cause databases to be reindexed"
-    The libraries used by PostgreSQL internally for collation (sorting, comparing, and ordering data) might change between datastore versions.
+    The libraries used by PostgreSQL internally for collation
+    (sorting, comparing, and ordering data) might change between datastore versions.
     When this happens, a full reindex of all databases is required to prevent issues with data consistency.
     This reindexing can take a considerable amount of time, especially with large databases containing complex indexes.
     Currently upgrading from 17.5 or earlier to 17.6 or newer triggers the reindexing. Upgrading between
@@ -43,20 +48,38 @@ The commands to use:
 
 ## Major database upgrades
 
-Major version upgrades are no different from the user's point of view, but there's a bit more happening in the background, which creates more possible points of failure.
+Major version upgrades are no different from the user's point of view,
+but there's a bit more happening in the background, which creates more possible points of failure.
 
-Things that you need to take into account when doing a major database version upgrade:
-1. You have a recent enough backup that you can use if the upgrade fails.
-2. You have tested doing the upgrade on a database instance restored from a backup.
-3. You have reserved plenty of time for the upgrade.
-4. You have considered if you'd benefit from using a larger instance flavor while upgrading.
-5. You have checked that your database instance has enough free disk space before starting the upgrade - we recommend having around twice as much free space as is being used.
+Our recommended procedure for major version upgrades:
 
-We recommend creating a new database instance from a recent backup and upgrading that instance to the desired database version, as you can then switch over to using the new database instance with the new database version at your leisure after making sure no problems cropped up. Drawbacks include having to switch to using a new IP address to connect to the database, though, and any changes made to the original database after the backup was taken will be lost.
+0. Reserve plenty of time for the upgrade process and familiarize yourself with any changes between the database versions
+1. Create a new backup of the database instance (or use the most recent automatic backup)
+2. Restore the freshly created backup into a new database instance
+3. Upgrade the new database instance to your target datastore version (we recommend using the most recent version available)
+4. Test that connections to the new instance work as expected and that your data looks correct
+
+After this, you can either move to use the new instance and delete the original one, or continue with
+upgrading the original instance and deleting the new one.
+Drawbacks with changing to the new instance include having to switch to use the new IP address
+for connections, and any changes made to the original database instance after the backup was taken
+will be lost.
+
+### Information regarding major database version EOLs
+
+Major database versions in Pukki will be made unavailable to create new database instances with
+half a year before their end-of-life date, and beginning on the end-of-life date any database
+instances remaining on the versions affected will be upgraded to a newer version by Pukki admins.
+Reminder emails will be sent to users with instances on the affected versions before this happens,
+and we highly recommend upgrading your database instances yourself in order to have more control
+over the resulting downtime.
+
+For information about PostgreSQL 14 EOL in Pukki, see [this page](postgres-14-eol.md).
 
 ## Deleting a database in your database instance
 
-By default, your database user account does not have permissions to delete databases. If you want to delete a database in your database instance you need to use the web-GUI or the OpenStack CLI:
+By default, your database user account does not have permissions to delete databases.
+If you want to delete a database in your database instance you need to use the web-GUI or the OpenStack CLI:
 
 ```
 openstack database db delete $INSTANCE_UUID $DATABASE_NAME

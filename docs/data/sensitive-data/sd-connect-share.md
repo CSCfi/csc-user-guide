@@ -18,7 +18,7 @@ SD Connects provides you multiple ways to share your files. Please read about pe
 
 1. Ask from recipient for their project Share ID. They find it from their SD Connect. The recipient should select correct CSC project from the top left corner, then click **Copy Share ID** next to the project number) and provide it to you via email. 
 ![(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
-2. Click “**Share**” next to the folder you wish to share.
+2. Click “**Share**” button on the right side of the folder you want to share.
 ![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton.png)
 3. Add the recipient project's **Share ID** to the field.
 ![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID.png)
@@ -27,7 +27,7 @@ SD Connects provides you multiple ways to share your files. Please read about pe
 
 ### Change share permission
 
-1. Click “**Share**” next to the folder you wish to share.
+1. Click “**Share**” button on the right side of the folder.
 2. Scroll down and under "This project is shared to" title select correct Share ID and then change permission from "Permissions" dropdown. 
 ![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ChangePermissions.png)
 

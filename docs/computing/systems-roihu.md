@@ -10,22 +10,22 @@
 
 ```mermaid
 graph LR;
-    A{{"**September 2025**
+    A{{"<b>September 2025</b>
         Roihu installation
         in progress"}} --> B;
-    B{{"**March 2026**
+    B{{"<b>April 2026</b>
         Pilot phase
         starts"}} --> C;
-    C{{"**April 2026**
+    C{{"<b>May 2026</b>
         Roihu general
         availability (GA)"}} --> D;
-    D{{"**One month after Roihu GA**
-        Puhti *computing
-        services* shut down"}} --> E;
-    E{{"**July 2026**
-        Puhti *storage
-        services* shut down"}} --> F;
-    F{{"**August 2026**
+    D{{"<b>One month after Roihu GA</b>
+        Puhti <i>computing
+        services</i> shut down"}} --> E;
+    E{{"<b>August 2026</b>
+        Puhti <i>storage
+        services</i> shut down"}} --> F;
+    F{{"<b>August 2026</b>
         Mahti
         shut down"}}
     style A fill:#dceeceff;
@@ -40,12 +40,12 @@ a break in HPC access.
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
 means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
-however, remain accessible at least until the end of June 2026, after which
-Puhti will be retired completely. Mahti will be closed in August 2026.
+however, remain accessible until August 2026, after which Puhti will be retired
+completely. Mahti will be closed in August 2026.
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during spring 2026, at the very latest in June 2026. CSC will
-publish a detailed Roihu migration guide in early 2026.
+prepared to do it during spring 2026, at the very latest in August 2026. CSC
+will publish a detailed Roihu migration guide in early 2026.
 
 ## Compute
 
@@ -143,8 +143,9 @@ interactive access and running graphical user interfaces.
 
 ## More information
 
-* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation-2025-12-19.pdf)
-  (updated 2025-12-19)
+* [Frequently asked questions](../support/faq/roihu.md)
+* [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
+  (updated 2026-02-25)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!

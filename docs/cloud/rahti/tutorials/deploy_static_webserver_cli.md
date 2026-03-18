@@ -242,7 +242,7 @@ metadata:
     app: serveapp
   name: myservice
   annotations:
-    haproxy.router.openshift.io/ip_whitelist: 192.168.1.0/24 10.0.0.1
+    haproxy.router.openshift.io/ip_allowlist: 192.168.1.0/24 10.0.0.1
 spec:
   host: <myroute>.2.rahtiapp.fi
   to:
@@ -261,7 +261,7 @@ the IP `10.0.0.1`. Security-wise, it is highly encouraged to utilize IP
 whitelisting for services that are not meant to be visible to the entire
 internet.
 
-* In order to be able to connect, you need to add (or replace) your own IP or a subnet mask that contains your IP. A second option is to delete the annotation altogether, this will allow anyone in the world to connect. 
+* In order to be able to connect, you need to add (or replace) your own IP or a subnet mask that contains your IP. You can resolve your IP address e.g. using command `curl ipinfo.io/ip` from your own computer. A second option is to delete the annotation altogether, this will allow anyone in the world to connect. 
 
 You can now go to your browser and type the address you set: `<myservice>.2.rahtiapp.fi`. It should return you the Apache test page:
 
