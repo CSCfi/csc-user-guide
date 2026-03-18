@@ -1,12 +1,13 @@
-# Parallel jobs using R
+# Introduction to parallel jobs using R
+
+This tutorial aims to discuss some of the key concepts and terms behind parallelising an analysis in R, and to offer practical tips for planning parallel R analyses on CSC's supercomputers (Puhti, Mahti and Roihu). Links are also provided for further reading.
+ For example batch job scripts, please see the templates for [parallel R batch jobs](../tutorials/parallel-r-examples.md).
 
 The term *parallelisation* is a broad one and there are many ways to parallelise an analysis. For example, one could:
 
 - Leverage many CPU cores to speed up an R function
 - Submit several concurrently running Slurm jobs
 - Split jobs over many compute nodes
-
-This tutorial aims to discuss some of the key concepts and terms behind parallelising an analysis in R, and to offer practical tips for planning parallel R analyses on CSC's Puhti. Links are also provided for further reading.
 
 ## Using multiple cores
 
