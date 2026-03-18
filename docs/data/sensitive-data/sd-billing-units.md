@@ -78,7 +78,7 @@ You can monitor Storage Quota in MyCSC portal.
 1. Log in to [MyCSC](https://my.csc.fi).
 2. Navigate to your project's view. 
 3. Scroll down to **Services** window.
-4. Open **Allas** window. You can see storage quota usage at the bottom of under **Usage**.
+4. Click **Allas**. You can see storage quota usage under **Usage** at the bottom of the window.
 
 ![Storage Quota in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Quota.png)
 
