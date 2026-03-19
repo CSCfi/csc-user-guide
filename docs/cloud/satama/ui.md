@@ -4,9 +4,7 @@ Web UI is the graphical interface that allows users to manage container images, 
 
 To access Satama web interface, open your browser and navigate to [https://satama.csc.fi/](https://satama.csc.fi/). You will be presented with a login page. 
 
-![Login page](img/login_page.png)
-
-Click on **Satama** button and it will take to login options. Use HAKA/MyCSC/Virtu login page and enter your credentials. Once logged in, you will be taken to your personal dashboard. This page shows a summary of all projects you have access to. 
+Use HAKA/MyCSC/Virtu login page and enter your credentials. Once logged in, you will be taken to your personal dashboard. This page shows a summary of all projects you have access to. 
 
 ![Personal Dashboard](img/personal_dashboard.png)
 
