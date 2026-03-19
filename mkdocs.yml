@@ -253,6 +253,7 @@ theme:
   features:
     - content.action.edit
     - content.code.copy
+    - content.tabs.link
 
 extra_css:
   - assets/stylesheets/extra.css
