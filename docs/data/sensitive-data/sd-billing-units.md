@@ -69,9 +69,9 @@ The storage quota defines how much space is available for your project’s data.
 
 For CSC projects with SD Connect enabled, the default quota is 10 TB. If needed, this can be increased up to 200 TB by contacting the Service Desk (subject line: Increase Allas quota).
 
-### How to monitor Storage quota usage
+### How to monitor storage quota usage
 
-You can monitor Storage Quota in MyCSC portal. 
+You can monitor storage Quota in MyCSC portal. 
 
 1. Log in to [MyCSC](https://my.csc.fi).
 2. Navigate to your project's view. 
