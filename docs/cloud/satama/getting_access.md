@@ -13,19 +13,20 @@ In order to use the Satama container registry with a CSC account, you need:
 
 Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) in case you need assistance.
 
-## Add Individual Members to Project
+## Change Role of Individual Members
 
-If you have project admin role, you can add individual users to an existing project and assign a role to them. Satama enforces role-based access control to ensure that only authorized users can perform specific actions.
+The user must be added to MyCSC project and should login to Satama platform once. This will automatically create a username at Satama. When user login first time, only **library** project will be visible and in 15 min, other CSC projects which have satama enabled, will appear. 
 
-The user must be added to MyCSC project and should login to Satama platform once. This will automatically create a username at Satama. This username can be used to give access to your Satama project. 
+By default, everyone having access to project have **Project admin** role. Members with project admin role, can remove members and change the role of other members in the project. Satama enforces role-based access control to ensure that only authorized users can perform specific actions.
 
-To add user, click on your project and click on **Members** tab
+1. Click on your project 
+2. Click on **Members** tab
+3. Select the member from the list
+4. Click on **Action..**
+5. A list will appear
+6. Remove/change role of that member.
 
-![Add Member](img/add_member.png)
-
-A pop window will open. You can add the username of the member in project and add role of that member.
-
-![Add Role](img/add_role.png)
+![Change Role](img/assign_role.png)
 
 The primary roles are Limited Guest, Guest, Developer, Maintainer, and Project Admin.
 
