@@ -1,5 +1,15 @@
 {% from "partials/commit.html" import commit_link %}
 <div id="disclaimer-container">
+  {% if config.theme.language == "fi" %}
+  <div class="disclaimer translation">
+    <p class="disclaimer-title">Suomenkielinen konekäännös</p>
+    <p class="disclaimer-content">Sisällössä voi esiintyä virheellistä tietoa konekäännöksestä johtuen.</p>
+    <div class="button-row">
+      <a class="close-button">Ymmärrän.</a>
+    </div>
+  </div>
+  {% endif %}
+  {% if config.extra.environment == "preview" %}
   <div class="disclaimer preview">
     <p class="disclaimer-title">You are viewing a development build</p>
     <p class="disclaimer-content">The content on this page has not been approved for release.</p>
@@ -7,10 +17,11 @@
     {{ commit_link(page.git.head, config.repo_url, status=page.git.status) }}
     {% endif %}
     <div class="button-row">
-      <a href="https://docs.csc.fi/">Visit official site</a>
       <a class="close-button">Close</a>
+      <a href="https://docs.csc.fi/">Visit official site</a>
     </div>
   </div>
+  {% endif %}
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -36,7 +47,10 @@
 
     const populateAcknowledgedDisclaimers = () => {
       if (!getAcknowledgedDisclaimers()) {
-        setAcknowledgedDisclaimers({ preview: false })
+        setAcknowledgedDisclaimers({
+          preview: false,
+          translation: false
+        })
       }
     }
 

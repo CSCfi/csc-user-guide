@@ -1,15 +1,29 @@
 {% extends "main.html" %}
 {% block htmltitle %}
+{% if config.theme.language == 'fi' %}
+<title>Sivua ei löydy - Docs CSC</title>
+{% else %}
 <title>Page not found - Docs CSC</title>
+{% endif %}
 {% endblock htmltitle %}
 {% block content %}
 {% block breadcrumbs %}
 <nav class="csc-breadcrumbs">
   <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
+  {% if config.theme.language == 'fi' %}
+  Virhe 404: Sivua ei löydy
+  {% else %}
   Error 404: Page not found
+  {% endif %}
 </nav>
 {% endblock breadcrumbs %}
+{% if config.theme.language == 'fi' %}
+<h1>Virhe 404: Sivua ei löydy</h1>
+<h2>Pahoittelumme, mutta etsimääsi sisältöä ei löytynyt</h2>
+<p>Kokeile etsiä sisältöä hakutoiminnon avulla tai palata takaisin <a href="{{ base_url }}">etusivulle</a>.</p>
+{% else %}
 <h1>Error 404: Page not found</h1>
 <h2>Sorry, we couldn't find what you're looking for</h2>
 <p>Please retry looking for the content using the search function, or return to <a href="{{ base_url }}">the Home page</a>.</p>
+{% endif %}
 {% endblock content %}
