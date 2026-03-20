@@ -10,7 +10,9 @@ catalog:
   available_on:
     - web_interfaces:
         - Puhti
+        - Mahti
     - Puhti
+    - Mahti
 ---
 
 # RStudio IDE
@@ -19,7 +21,10 @@ RStudio is an integrated development environment (IDE) for R. More information o
 
 ## Available
 
-For running R and RStudio on Puhti, please see the user documentation for [`r-env`](r-env.md).
+For running R and RStudio on Puhti and Mahti, please see
+
+- user documentation for the R environment module [`r-env`](r-env.md) 
+- documentation for the [web interface RStudio app](../computing/webinterface/rstudio.md)
 
 ## License
 

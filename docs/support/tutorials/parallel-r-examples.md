@@ -17,10 +17,13 @@ You may also wish to check the relevant R package manuals and [this page](https:
     - check the number of processes while the code is running with tools such as `htop`   
     - contact [CSC Service Desk](../contact.md) for advice   
 
+    **Simply adding more cores does not necessarily guarantee faster computation. 
+    But if your analysis can be made to run in parallel using multiple cores, a supercomputer
+    can really help speed it up.**
 
 ## Array jobs
 
-Array jobs can be used to handle [*embarrassingly parallel*](../../computing/running/array-jobs.md) tasks. The example script below would submit a job involving ten independent subtasks on the `small` partition, with each requiring less than 45 minutes of computing time and less than 1 GB of memory.
+Array jobs can be used to handle [*embarrassingly parallel*](../../computing/running/array-jobs.md) tasks. The example script below would submit a job involving ten independent subtasks on the `small` partition, with each requiring less than 45 minutes of computing time and less than 2 GB of memory.
 
 === "Puhti"
     ```bash
@@ -35,7 +38,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
     #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=1000
+    #SBATCH --mem-per-cpu=2000
     
     # Load r-env
     module load r-env
@@ -45,7 +48,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -74,7 +77,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -116,7 +119,7 @@ The following batch job file shows how to submit a job employing multiple cores 
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -143,7 +146,7 @@ The following batch job file shows how to submit a job employing multiple cores 
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -155,9 +158,9 @@ The following batch job file shows how to submit a job employing multiple cores 
 The `future` [family of packages](https://www.futureverse.org/packages-overview.html) offers versatile ways to parallelize R jobs with minimal setup. The `future` package provides an API for R jobs using futures (see the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details).  Whether futures are resolved sequentially or in parallel is specified using the function `plan()`.
 
 
-For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Note that `plan(multicore)` does not work in RStudio. Using `plan(cluster)` is suitable for work using multiple nodes (see below).
+For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Note that `plan(multicore)` does not work in RStudio. Using `plan(cluster)` is suitable for work using multiple nodes ([see below](#multi-node-r-jobs-with-mpi)).
 
-To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`), a single task (`--ntasks=1`), and the number of cores (`--cpus-per-task=x`; 40 is the maximum on a single node). By default, the number of workers is the number of cores given by `availableCores()`. For guidelines on designing batch job files, see the multi-core batch job example above.
+To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`), a single task (`--ntasks=1`), and the number of cores (`--cpus-per-task=x`). By default, the number of workers is the number of cores given by `availableCores()`. For guidelines on designing batch job files, see the multi-core batch job example above.
 
 The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. 
 
@@ -184,16 +187,13 @@ toc()
 # multicore: 2.212 sec
 ```
 
-For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (see below multi-node R jobs with MPI below) with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
+For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in multi-node R jobs with MPI below) with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
 
 ## Improving performance using threading
 
 `r-env` has been compiled using the Intel® Math Kernel Library (MKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2025-0/improving-performance-with-threading.html). 
 
-By default, `r-env` is single-threaded. While users may set a desired number of threads for a job, the benefits of this in terms of computation times depend on the analysis. Because of this, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
-
-!!! note ""
-    Simply adding more resources does not necessarily guarantee faster computation!
+By default, `r-env` is single-threaded. Certain R packages, including [`data.table`](https://r-datatable.com/), [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) and [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf), offer direct support for multithreading. Jobs using other types of R packages could also benefit from multithreading, depending on the analysis. For example, multithreading can help speed up linear algebra routines. To find out whether multithreading benefits a specific analysis, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
 
 The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Because `r-env` is based on an Apptainer container, when specifying the number of OpenMP threads we need to use the environment variable `APPTAINERENV_OMP_NUM_THREADS`.
 
@@ -221,7 +221,7 @@ An example batch job script can be found below. Here we submit a job using eight
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Match thread and core numbers
@@ -256,7 +256,7 @@ An example batch job script can be found below. Here we submit a job using eight
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Match thread and core numbers
@@ -275,6 +275,7 @@ In a multi-core interactive job, the number of threads can be automatically matc
 start-r-multithread # or
 start-rstudio-server-multithread
 ```
+In the web interface RStudio, a multi-core R session can be set to use multiple threads by checking the `Multithreaded` checkbox.
 
 ## Multi-node R jobs with MPI
 
@@ -288,10 +289,13 @@ must specify one more task than the planned number of workers, as the master nee
 
 For more information, see the [general documentation on MPI jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). 
 
+!!! note ""
+    For jobs employing the `Rmpi` package, please use `snow` (which is built on top of `Rmpi`). Jobs using `Rmpi` alone are unavailable due to compatibility issues.
+
 ### Jobs using `snow`
 
 Whereas most parallel R jobs employing the `r-env` module can be submitted using `srun apptainer_wrapper exec Rscript`, those involving the package `snow` need to be executed using
-a separate command (`RMPISNOW`). Jobs using `snow` must specify one more task than the planned number of `snow` workers, as the master needs its own task. For example, for a job requiring as many workers as possible on two nodes, we could submit a job as follows:
+a separate command `RMPISNOW`. Jobs using `snow` must specify one more task than the planned number of `snow` workers, as the master needs its own task. For example, for a job requiring as many workers as possible on two nodes, we could submit a job as follows:
 
 === "Puhti"
     ```bash
@@ -314,7 +318,7 @@ a separate command (`RMPISNOW`). Jobs using `snow` must specify one more task th
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -341,7 +345,7 @@ a separate command (`RMPISNOW`). Jobs using `snow` must specify one more task th
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -377,13 +381,10 @@ Only the master process runs the R script. The R script must contain the call `g
     
     stopCluster(cl)
     ```
-    
-!!! note ""
-    For jobs employing the `Rmpi` package, please use `snow` (which is built on top of `Rmpi`). Jobs using `Rmpi` alone are unavailable due to compatibility issues.
 
 ### Multi-node jobs with `future`
 
-For multi-node analyses using `plan(cluster)` in `future`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW` and we should specify enough tasks for both the master and worker processes (see 'Jobs using `snow`'). To use `future` with `snow`, the following lines would also need to be included in the R script:
+For multi-node analyses using `plan(cluster)` in `future`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW` and we should specify enough tasks for both the master and worker processes (see [Jobs using `snow`](#jobs-using-snow)). To use `future` with `snow`, the following lines would also need to be included in the R script:
 
 ```r
 library(future)
@@ -400,7 +401,7 @@ stopCluster(cl)
 
 The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops
 on multiple cores using many different adapters, such as `doParallel` for the built-in R package `parallel`and `doFuture` for `future`. Multi-node and MPI jobs with `foreach` can 
-be run with the parallel backend of the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we replace `--cpus-per-task=x` 
+be run with the parallel backend of the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-core job, we replace `--cpus-per-task=x` 
 with `--ntasks-per-node=x` and use `--nodes` to set the number of nodes. Number of workers equals `ntasks-per-node x nodes - 1`. For the example below with 7 workers, we could have 4 tasks per 
 node on 2 nodes. In addition, we could modify the `srun` command at the end of the batch job file:
 
@@ -429,7 +430,7 @@ mpi.quit()
 
 ### Multi-node jobs using `pbdMPI`
 
-In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `srun apptainer_wrapper exec Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
+In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `srun apptainer_wrapper exec Rscript` command. For example, we could submit a job using all the cores of two nodes (with one half of the total tasks allocated to each node):
 
 === "Puhti"
     ```bash
@@ -438,11 +439,11 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
     #SBATCH --error=errors_%j.txt
-    #SBATCH --partition=test
+    #SBATCH --partition=large
     #SBATCH --time=00:05:00
-    #SBATCH --ntasks-per-node=2
+    #SBATCH --ntasks-per-node=40
     #SBATCH --nodes=2
-    #SBATCH --mem-per-cpu=1000
+    #SBATCH --mem-per-cpu=2000
     
     # Load r-env
     module load r-env
@@ -452,7 +453,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -468,7 +469,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
     #SBATCH --error=errors_%j.txt
     #SBATCH --partition=test
     #SBATCH --time=00:05:00
-    #SBATCH --ntasks-per-node=2
+    #SBATCH --ntasks-per-node=128
     #SBATCH --nodes=2
     
     # Load r-env
@@ -479,7 +480,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -509,9 +510,9 @@ Further to [executing multi-threaded R jobs on a single node](../tutorials/paral
 
 - OpenMP threads used for each MPI process (`--cpus-per-task`)
 
-When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to 40 (the maximum number of cores available on a single node on Puhti). For large multi-node jobs, aim to use full nodes, i.e. use all 40 cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
+When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to the maximum number of cores available on a single node. For large multi-node jobs, aim to use full nodes, i.e. use all cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
 
-As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. We also use the same variables for thread affinity control.
+As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, on Puhti the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. We also use the same variables for thread affinity control.
 
 === "Puhti"
     ```bash
@@ -535,7 +536,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
      sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Match thread and core numbers
@@ -558,8 +559,8 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     #SBATCH --partition=test
     #SBATCH --time=00:05:00
     #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=2
-    #SBATCH --cpus-per-task=8
+    #SBATCH --ntasks-per-node=2 
+    #SBATCH --cpus-per-task=64 # ntasks-per-node x cpus-per-task should equal 128
     
     # Load r-env
     module load r-env
@@ -569,7 +570,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
      sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Match thread and core numbers
@@ -614,8 +615,8 @@ To perform our analysis efficiently, we could take advantage of a module includi
     #SBATCH --array=0-9
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
-    #SBATCH --mem-per-cpu=1000
     #SBATCH --cpus-per-task=4
+    #SBATCH --mem-per-cpu=2000
     
     # Load parallel and r-env
     module load parallel
@@ -626,7 +627,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Split runs into arrays and run the R script
@@ -651,7 +652,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
     #SBATCH --array=0-9
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=4
+    #SBATCH --cpus-per-task=4 # Each core gives 1.875 GB of memory
     
     # Load parallel and r-env
     module load parallel
@@ -662,7 +663,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temp folder path
+    # Specify a temporary directory path
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Split runs into arrays and run the R script

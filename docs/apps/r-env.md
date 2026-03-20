@@ -14,7 +14,7 @@ catalog:
 
 # r-env
 
-`r-env` provides R and RStudio server, and several other features to facilitate their use. It runs in an [Apptainer container](../computing/containers/overview.md#running-containers).
+`r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../computing/containers/overview.md#running-containers).
 
 -   R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -25,6 +25,7 @@ catalog:
 
 ??? info "Older news (click to show)"  
     **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
+    
     **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).    
 
 ## Available
@@ -92,19 +93,19 @@ Licensing information within the `r-env` container is available in the file `/us
 
 ## Usage
 
-There are several ways to use R and the `r-env` module:
+There are several ways to use R with the `r-env` module:
 
 **Interactive use**
 
-  -   RStudio Server, which runs in [interactive jobs on a compute node](../computing/running/interactive-usage.md). 
+  -   RStudio Server, which runs in [interactive jobs on a compute node](#interactive-use-on-a-compute-node) 
 
-  -   R console in the command line in an [interactive shell session on a compute node](../computing/running/interactive-usage.md). 
+  -   R console in the command line in an [interactive shell session on a compute node](../computing/running/interactive-usage.md) 
 
   -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
 **Non-interactive use**
 
-  -   Non-interactive [batch jobs](../computing/running/getting-started.md) without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general).
+  -   Non-interactive [batch jobs](../computing/running/getting-started.md) without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general)
 
 !!! info "How should I use R with `r-env`?"
     - **Interactive use** is meant for preparing your code and smaller analyses up to a few hours and may use limited resources.  
@@ -112,7 +113,7 @@ There are several ways to use R and the `r-env` module:
 
 ### Interactive use on a compute node
 
-**1. Using RStudio**
+**1. RStudio**
 
 The`r-env` module can be used to remotely launch RStudio Server on your web browser.
 
@@ -123,14 +124,15 @@ It is also possible to launch RStudio Server via SSH tunnelling. This option req
 !!! note ""
     RStudio is meant for **interactive work that consumes a modest amount of computational resources**. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as non-interactive batch jobs.
 
-**2. Using R console in an interactive shell session**
+**2. R console in an interactive shell session**
 
 To use R interactively from the command line on a compute node, first start an [interactive shell session](https://csc-training.github.io/csc-env-eff/hands-on/batch_jobs/interactive.html).  
 
 ??? info "How to start an interactive shell session (click to show instructions)"    
     **Option 1.** In the [supercomputer web interfaces](../computing/webinterface/index.md), open a shell session with the *Compute node shell* tool. When selecting the resources, make sure to reserve local disk space for temporary files. 
     
-    **Option 2.** When [connecting to the supercomputer with an SSH client on your own workstation](../computing/connecting/index.md#using-an-ssh-client), open a shell session on the `interactive` partition using the [`sinteractive` command](../computing/running/interactive-usage.md). As an example, the command below would launch a session with 4 GB of memory and 8 GB of local disk. Local disk space should always be reserved for temporary files when using R interactively.
+    **Option 2.** When [connecting to the supercomputer with an SSH client on your own workstation](../computing/connecting/index.md#using-an-ssh-client), open a shell session using the [`sinteractive` command](../computing/running/interactive-usage.md). 
+    As an example, the command below would launch a session with 4 GB of memory and 8 GB of local disk. Local disk space should always be reserved for temporary files with the option `--tmp` when using R interactively.
 
     === "Puhti"
         ``` bash
@@ -170,32 +172,36 @@ apptainer_wrapper exec R --no-save
 
 ### Non-interactive batch jobs
 
-Running R scripts non-interactively using batch job files gives access to more resources and emphasizes efficiency over interactivity. Batch jobs are recommended in particular for all long and resource-heavy tasks.   
+Running R scripts non-interactively using batch job files gives access to more resources and emphasizes efficiency over interactivity. Batch jobs are recommended in particular for all long and 
+resource-heavy tasks.   
 
-In addition to the following examples, see the [batch job documentation](../computing/running/getting-started.md) for more information. If you are new to batch jobs, check the materials of the [CSC Computing Environment course on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/) and [this tutorial on running interactive R jobs and R batch jobs](../support/tutorials/cmdline-handson.md)   
+In addition to the following examples, see the [general batch job documentation](../computing/running/getting-started.md) for more information. If you are new to batch jobs, check the materials 
+of the [CSC Computing Environment course on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/) and [this tutorial on running interactive R jobs and R batch jobs](../support/tutorials/cmdline-handson.md).   
 
 #### Basic R batch job script
 
-Below is an example for submitting a serial R batch job that uses one core. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. Actual R batch jobs should in most cases be run in the `small` partition.
+Below is an example for submitting a serial R batch job that uses one core. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. 
+Actual R batch jobs should in most cases be run in the `small` partition.
 
 !!! info "More than one CPU core?"
-    By default, R uses one CPU core. When you are working with an R script or packages that can take advantage of multiple processors and parallel processing, take a look at the examples for [parallel R batch job scripts](../support/tutorials/parallel-r-examples.md).
+    By default, R uses one CPU core. When you are working with an R script or package that can take advantage of multiple cores and parallel processing, take a look 
+    at the examples of [parallel R batch job scripts](../support/tutorials/parallel-r-examples.md).
 
-We define the batch job script to execute the R script using the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
+We define the batch job script to execute the R script (here `myscript.R`) using the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
 
 === "Puhti"
     ``` bash
     #!/bin/bash -l
     #SBATCH --job-name=r_serial     # Job name
-    #SBATCH --account=<project>     # Billing project, has to be defined!
+    #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j will be replaced by job id)
     #SBATCH --error=errors_%j.txt   # File for storing errors
     #SBATCH --partition=test        # Job queue (partition): in general use 'small'
-    #SBATCH --time=00:05:00         # Max. duration of the job
+    #SBATCH --time=00:05:00         # Max. duration of the job (hh:mm:ss)
     #SBATCH --cpus-per-task=1       # Number of cores
-    #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
-    #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
-    #SBATCH --mem-per-cpu=1000      # Memory to reserve per core
+    #SBATCH --ntasks=1              # Number of tasks (only change this for multi-node/MPI jobs)
+    #SBATCH --nodes=1               # Number of nodes (only change this for multi-node/MPI jobs)
+    #SBATCH --mem-per-cpu=2000      # Memory to reserve per core
 
     # Load the r-env module
     module load r-env
@@ -205,7 +211,7 @@ We define the batch job script to execute the R script using the `apptainer_wrap
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
 
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
     # Run the R script
@@ -216,14 +222,14 @@ We define the batch job script to execute the R script using the `apptainer_wrap
     ``` bash
     #!/bin/bash -l
     #SBATCH --job-name=r_serial     # Job name
-    #SBATCH --account=<project>     # Billing project, has to be defined!
+    #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
     #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
     #SBATCH --partition=test        # Job queue (partition), in general use 'small'
-    #SBATCH --time=00:05:00         # Max. duration of the job
+    #SBATCH --time=00:05:00         # Max. duration of the job (hh:mm:ss)
     #SBATCH --cpus-per-task=1       # Number of cores (1.875 GB of memory each)
-    #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
-    #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
+    #SBATCH --ntasks=1              # Number of tasks (only change this for multi-node/MPI jobs)
+    #SBATCH --nodes=1               # Number of nodes (only change this for multi-node/MPI jobs)
 
     # Load the r-env module
     module load r-env
@@ -233,7 +239,7 @@ We define the batch job script to execute the R script using the `apptainer_wrap
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
   
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
   
     # Run the R script
@@ -244,14 +250,14 @@ We define the batch job script to execute the R script using the `apptainer_wrap
     ``` bash
     #!/bin/bash -l
     #SBATCH --job-name=r_serial     # Job name
-    #SBATCH --account=<project>     # Billing project, has to be defined!
+    #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
     #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
     #SBATCH --partition=test        # Job queue (partition), in general use 'small'
-    #SBATCH --time=00:05:00         # Max. duration of the job
+    #SBATCH --time=00:05:00         # Max. duration of the job (hh:mm:ss)
     #SBATCH --cpus-per-task=1       # Number of cores
-    #SBATCH --ntasks=1              # Number of tasks (only change this for multinode/MPI jobs)
-    #SBATCH --nodes=1               # Number of nodes (only change this for multinode/MPI jobs)
+    #SBATCH --ntasks=1              # Number of tasks (only change this for multi-node/MPI jobs)
+    #SBATCH --nodes=1               # Number of nodes (only change this for multi-node/MPI jobs)
   
     # Load the r-env module
     module load r-env
@@ -261,19 +267,22 @@ We define the batch job script to execute the R script using the `apptainer_wrap
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
   
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
   
     # Run the R script
     srun apptainer_wrapper exec Rscript --no-save myscript.R
     ```
 
-In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cpus-per-task=1`), 1 GB of memory (`--mem-per-cpu=1000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
+In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cpus-per-task=1`), 2 GB of memory (`--mem-per-cpu=2000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
 
-The command `module load r-env` loads the latest `r-env` version available. To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/452`.
+The command `module load r-env` loads the latest `r-env` version [available](#available). To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/452`.
 
 !!! warning "Important"
-    In R batch jobs, please make sure to specify a temporary directory path to `/scratch/<project>` as in the examples above or to [the fast local disk](#using-fast-local-storage).
+    In R batch jobs, please make sure to specify a **temporary directory path** to the `scratch` directory of your project `/scratch/<project>` as in the example above. Or, if your job [reads and writes a lot of files](../computing/running/performance-checklist.md/#mind-your-io-it-can-make-a-big-difference), 
+    use instead [the fast local disk](#using-fast-local-storage).  
+    
+    Otherwise temporary files will go to `/tmp`, which has limited space and fills up easily, harming your and other users' jobs.
 
 When ready, the batch job file is **submitted to the batch job system on a login node**:
 
@@ -283,13 +292,15 @@ sbatch batch_job_file.sh
 
 ### Parallel batch jobs
 
-The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. 
+The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based and multi-node jobs. 
 The module comes with several packages that support multi-node communication via MPI:`future`, `snow`, `doMPI` (used with `foreach`), and `pbdMPI`.  
 
 **Please see separate documentation for:**
 
 - [examples of parallel R batch job scripts](../support/tutorials/parallel-r-examples.md) 
 - [an introduction to parallel R jobs](../support/tutorials/parallel-r.md)
+
+For advice on parallel R jobs and how to run them efficiently on CSC's supercomputers, please contact [CSC Service Desk](../support/contact.md).
 
 ### R package installations
 
@@ -306,14 +317,16 @@ installed_packages <- library()$results[,1]
 "packagename" %in% installed_packages
 ```
 
-!!! info "Additional R package installations can be arranged via two routes:"
+!!! info "Additional R packages can be installed via two routes:"
 
-    -   Install a package **yourself for your project** by creating a separate package directory in the `/projappl/<project>` directory (instructions below)
+    -   Install a package **yourself for your project** in a separate package directory in the `/projappl/<project>` directory (instructions below)
     
     -   Ask for **a general installation** (provided to all users as part of the module): please contact [CSC Service Desk](../support/contact.md)
     
     To install a package **yourself for your project:**  
-    First create a new folder inside your project's [`projappl`](../computing/disk.md#projappl-directory) directory. Note that the folder should be specific to the R version you are using (R packages installed using different `r-env` modules are not cross-compatible).
+    
+    First create a new folder inside your project's [`projappl`](../computing/disk.md#projappl-directory) directory. Note that the folder should be specific to the R version you are using. 
+    A different `r-env` and R version require a new installation.
     On the command prompt:
     
     ```r
@@ -328,7 +341,7 @@ installed_packages <- library()$results[,1]
     ```
     To use R packages installed in `/projappl`, add the command above to the beginning of your R script. It modifies your library trees within a given R session only. In other words, you will need to run it each time when launching R.
 
-Package installations should now be directed to the project folder by default. The following command can be used to check that the folder is now visible. It should be first on the list.
+Following the instructions above, package installations should now be directed to the project folder by default. The following command can be used to check that the folder is visible to R. It should be first on the list.
 
 ```r
 .libPaths() 
@@ -361,7 +374,7 @@ echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 
 For jobs that read and write large numbers of files (I/O-intensive analyses), [fast local storage](../computing/running/creating-job-scripts-puhti.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
 
-An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior examples where it was set as `/scratch/<project>`.
+An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior example where it was set as `/scratch/<project>`.
 
 === "Puhti"
     ``` bash
@@ -374,6 +387,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
     #SBATCH --time=00:05:00
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
     #SBATCH --gres=nvme:10
     
@@ -385,7 +399,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify NVMe temp folder path
+    # Specify temporary directory to the fast local storage
     echo "TMPDIR=$TMPDIR" >> ~/.Renviron
     
     # Run the R script
@@ -414,7 +428,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify NVMe temp folder path
+    # Specify temporary directory to the fast local storage
     echo "TMPDIR=$TMPDIR" >> ~/.Renviron
     
     # Run the R script
@@ -433,6 +447,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
     #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=1000
     #SBATCH --gres=nvme:10
     
     # Load the module
@@ -443,7 +458,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify NVMe temp folder path
+    # Specify temporary directory to the fast local storage
     echo "TMPDIR=$TMPDIR" >> ~/.Renviron
     
     # Run the R script
@@ -499,13 +514,10 @@ Note that [within-chain parallelisation with `brms`](https://cran.r-project.org/
 
 ### Profiling tools in R
 
-The most common profiling tools in R are Rprof and profvis ([see here](https://support.posit.co/hc/en-us/articles/218221837-Profiling-R-code-with-the-RStudio-IDE) and [here](https://adv-r.hadley.nz/perf-measure.html) for more information).
+The most common profiling tools in R are [`utils::Rprof()`](https://cran.r-project.org/doc/manuals/r-release/packages/utils/refman/utils.html#Rprof) and [`profvis`](https://cran.r-project.org/web/packages/profvis/index.html) (see [here](https://support.posit.co/hc/en-us/articles/218221837-Profiling-R-code-with-the-RStudio-IDE) and [here](https://adv-r.hadley.nz/perf-measure.html) for more information).
+When trying to speed up an R job, you can use these tools to identify the slowest parts of your script and then modify those. For example, functions from different packages might use different amounts of time for a similar computational task.
 
-When trying to speed up an R job, use these tools to see which parts of your script are the slowest. Look for possibilities to make the slowest parts faster. Also functions from different packages might use different amounts of time for a similar computational task. In addition:   
-
-- Watch out for 'for loops' which grow an object step by step and try to find alternative ways. 
-
-- Make the script run in parallel. See [examples of parallel R batch job scripts](../support/tutorials/parallel-r-examples.md) and [an introduction to parallel R jobs](../support/tutorials/parallel-r.md).
+In practice, usually the best way to speed up an R job on a supercomputer is to modify it to use multiple cores and run in parallel. See [examples of parallel R batch job scripts](../support/tutorials/parallel-r-examples.md) and [an introduction to parallel R jobs](../support/tutorials/parallel-r.md), and contact [CSC Service Desk](../support/contact.md) for advice.
 
 
 ### Working with Allas
@@ -525,42 +537,6 @@ After [starting an interactive session and launching R console](#interactive-use
 library(aws.s3)
 bucketlist(region='')
 ```
-
-### R interface to TensorFlow
-
-The `r-env` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](../apps/tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
-
-To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://tensorflow.rstudio.com/examples/). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
-
-```bash
-#!/bin/bash -l
-#SBATCH --job-name=r_tensorflow
-#SBATCH --account=<project>
-#SBATCH --output=output_%j.txt
-#SBATCH --error=errors_%j.txt
-#SBATCH --partition=gpu
-#SBATCH --time=01:00:00
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10
-#SBATCH --nodes=1
-#SBATCH --gres=gpu:v100:1
-
-# Load the module
-module load r-env
-
-# Clean up .Renviron file in home directory
-if test -f ~/.Renviron; then
-    sed -i '/TMPDIR/d' ~/.Renviron
-fi
-
-# Specify a temp folder path
-echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-
-# Run the R script
-srun apptainer_wrapper exec Rscript --no-save myscript.R
-```
-
-Please note that interactive work using GPU acceleration (e.g. with RStudio) is not supported.
 
 ## Citation {#citation}
 

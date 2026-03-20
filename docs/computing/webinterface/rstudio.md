@@ -1,7 +1,7 @@
 # RStudio
 
 The RStudio application will launch an RStudio session with the specified resources using the
-selected [R environment (r-env) version](../../apps/r-env.md#available)).
+selected [R environment (module `r-env`) version](../../apps/r-env.md#available).
 
 The user is automatically logged in to the RStudio session when pressing the **Connect to RStudio
 Server** button.
