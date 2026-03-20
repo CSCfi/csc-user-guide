@@ -450,6 +450,11 @@ nav:
           - More advanced features: cloud/dbaas/advanced.md
           - Resizing database instance volumes: cloud/dbaas/resize-volume.md
           - Rebuilding database instances: cloud/dbaas/rebuild-database.md
+          - Common performance issues with databases:
+              - MariaDB:
+                  - Error log: cloud/dbaas/perftune-mariadb-errorlog.md
+              - PostgreSQL:
+                  - Importance of PostgresSQL log: cloud/dbaas/perftune-postgresql-log.md
       - Rahti:
           - cloud/rahti/index.md
           - What is Rahti:
