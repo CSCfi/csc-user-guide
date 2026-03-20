@@ -34,7 +34,7 @@ catalog:
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-Current modules and versions supported on Puhti, Mahti and Roihu:
+Current modules and versions supported on Puhti and Mahti:
 
 === "Puhti"
     | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
@@ -54,12 +54,6 @@ Current modules and versions supported on Puhti, Mahti and Roihu:
     | r-env/452 (default)     | Jan 7 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.38.0          |
     | r-env/451               | July 7 2025         | 3.21                 | 2025.05.1-513          | 2025.2.0       | 2.36.0          |
     | r-env/442               | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1       | 2.36.0          |
-
-=== "Roihu"
-    | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
-    |:-----------------------:|:--------------------|:--------------------:|:----------------------:|:--------------:|:---------------:|
-    | r-env/452 (default)     | Jan 7 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.38.0          |
-   
 
 Other software and libraries:
 
@@ -144,12 +138,7 @@ To use R interactively from the command line on a compute node, first start an [
           # On Mahti, each core gives 1.875 GB of memory
           sinteractive --account <project> --cores 2 --tmp 8
           ```
-              
-    === "Roihu"
-        ``` bash
-        sinteractive --account <project> --mem 4000 --tmp 8
-        ```
-
+          
     It is possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)).
 
 Once you have opened an interactive shell session, you can **launch a command line version of R** as follows (note that the command needs to be run on a compute node):
@@ -231,34 +220,6 @@ We define the batch job script to execute the R script (here `myscript.R`) using
     #SBATCH --ntasks=1              # Number of tasks (only change this for multi-node/MPI jobs)
     #SBATCH --nodes=1               # Number of nodes (only change this for multi-node/MPI jobs)
 
-    # Load the r-env module
-    module load r-env
-  
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-  
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-  
-    # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
-    ```
-  
-=== "Roihu"
-    ``` bash
-    #!/bin/bash -l
-    #SBATCH --job-name=r_serial     # Job name
-    #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
-    #SBATCH --output=output_%j.txt  # File for storing output (%j replaced by job id)
-    #SBATCH --error=errors_%j.txt   # File for storing errors (%j replaced by job id)
-    #SBATCH --partition=test        # Job queue (partition), in general use 'small'
-    #SBATCH --time=00:05:00         # Max. duration of the job (hh:mm:ss)
-    #SBATCH --cpus-per-task=1       # Number of cores
-    #SBATCH --ntasks=1              # Number of tasks (only change this for multi-node/MPI jobs)
-    #SBATCH --nodes=1               # Number of nodes (only change this for multi-node/MPI jobs)
-  
     # Load the r-env module
     module load r-env
   
@@ -418,36 +379,6 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
     #SBATCH --cpus-per-task=1 # Each core gives 1.875 GB of memory
-    #SBATCH --gres=nvme:10
-    
-    # Load the module
-    module load r-env
-    
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify temporary directory to the fast local storage
-    echo "TMPDIR=$TMPDIR" >> ~/.Renviron
-    
-    # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
-    ```
-    
-=== "Roihu"
-    ``` bash
-    #!/bin/bash -l
-    #SBATCH --job-name=r_serial_fastlocal
-    #SBATCH --account=<project>
-    #SBATCH --output=output_%j.txt
-    #SBATCH --error=errors_%j.txt
-    #SBATCH --partition=test
-    #SBATCH --time=00:05:00
-    #SBATCH --ntasks=1
-    #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=1000
     #SBATCH --gres=nvme:10
     
     # Load the module
