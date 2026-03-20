@@ -16,7 +16,7 @@
   
 3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
 
-When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
+When you open the connection, a virtual desktop will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel **Getting started**, from which you can, for example, adjust the screen resolution.
 
 ![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
 
@@ -41,7 +41,8 @@ This will close all applications and disconnect the work session. You can access
 
 !!! Note
     Connection limit: each virtual desktop allows a maximum of 10 simultaneous connections. This means that up to 10 CSC project members can be logged in and using the system at the same time. If more than 10 CSC project members attempt to connect to the same virtual desktop, additional users will not be able to access the system until one of the active sessions is disconnected.
-    If a connection remains inactive for two consecutive days, the system will automatically log the user out to free up resources. Please ensure you log out manually when you're finished to avoid this.
+    
+    If a connection remains inactive for two consecutive days, the system will automatically log the user out to free up resources. Please log out manually when you finish to avoid this.
 
 ## Your next steps in this guide
 

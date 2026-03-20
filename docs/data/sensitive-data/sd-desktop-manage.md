@@ -4,11 +4,10 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## SD Desktop management
+With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens on the **SD Desktop management** page.
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens in **SD Desktop management** page.
-
-* [Detaching and attaching a volume](#detaching-and-attaching-a-volume)
+* [Detaching and attaching a volume](#detaching-a-volume)
+* [Attaching a volume](#attach-a-volume-to-a-new-virtual-desktop)
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
@@ -18,10 +17,9 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 ![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
-## Detaching and attaching a volume 
+## Detaching a volume 
 
-
-With the option **Detach volume**, you disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop. Detached volume can be attached into a new SD Desktop VM during the launch process. Thus you can use volumes to transport data from old virtual machine to a new one.
+You can detach a volume from your virtual desktop. You can compare this operation to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. You can attach the volume when creating a new virtual desktop to move data from the old desktop to the new one.
 
 ### Before detaching
 
@@ -59,7 +57,7 @@ When you want to access the data saved in the detached volume, you can attach it
 !!! note
     - A detached volume can not be attached to an existing virtual desktop, only to new virtual desktops during creation phase. 
     - The content of a detached volume can not be accessed or deleted.
-    - To delete or access the volume content, attach it to a desktop with the same operating system during the desktop creation phase. 
+    - If you want to access or delete content on the detached volume, you need to create a new desktop that uses same operating system as the volume and attach volume to it at the creation phase.
     - Volumes can not be moved or transferred between CSC projects for security reasons.
 
 ![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
@@ -67,7 +65,11 @@ When you want to access the data saved in the detached volume, you can attach it
 
 ## Pausing or unpausing a virtual desktop
 
-You can pause a virtual desktop. In this manner, the desktop will stop consuming Cloud Billing Units.
+Virtual desktops should be paused when not actively used for analysis, to reduce the use of CSC computing resources and prevent unnecessary consumption of Cloud Billing Units. Pausing is not intended as a long‑term method for storing data. Volume usage continues to consume Billing Units even while the desktop is paused.
+
+!!! Note 
+    CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
+
 
 ### Pausing a virtual desktop
 
