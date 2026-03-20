@@ -4,7 +4,7 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens on the **SD Desktop management** page.
+With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops and volumes happens via **SD Desktop management** page.
 
 * [Detaching and attaching a volume](#detaching-a-volume)
 * [Attaching a volume](#attach-a-volume-to-a-new-virtual-desktop)
@@ -29,12 +29,18 @@ Before you detach a volume, it is good practise the set access permissions of fi
 
 **Use SD Tools Installer:**
 
-1. Install `CSC Tools` with [SD tools installer](./sd-desktop-software.md#customisation-via-sd-software-installer).
-2. Open terminal.
-3. Do permission set-up with linux command `pre-volume-detach`. In addition to fixing the access permissions of the user who is running the command, it checks if there are other users that should run this command too. Further, the command allows you to make a backup copy of your home directory to the volume so that you can import the contents of your home directory to the new virtual machine.
+1. If you haven't SD Tools installed to your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#customisation-via-sd-software-installer#step-1-send-a-request).
+2. Launch **SD tools installer**. Remember that you've to have Data Gateway application open for it to work.
+3. Install **CSC tools** by clicking corresponding button. Wait for confirmation.
+4. Open terminal from to left side of the desktop.
+5. Type in `pre-volume-detach`. This command fixes the access permissions. 
+6. Next it checks if there are other users that should run this command too. 
+7. Next you are asked if you want to make a backup copy of your home directory to the volume so that you can import the contents of your home directory to the new virtual machine. Type y or n (Yes/No).
+8. The command asks if you want to make a backup copy of you shared directory which contains software installations. Type y or n (Yes/No).
 
 **Set permissions manually:**
 
+You can also set permissions manually. 
 
 
 
