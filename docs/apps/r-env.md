@@ -240,7 +240,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cp
 The command `module load r-env` loads the latest `r-env` version [available](#available). To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/452`.
 
 !!! warning "Important"
-    In R batch jobs, please make sure to specify a **temporary directory path** to the `scratch` directory of your project `/scratch/<project>` as in the example above. Or, if your job [reads and writes a lot of files](../computing/running/performance-checklist.md/#mind-your-io-it-can-make-a-big-difference), 
+    In R batch jobs, please make sure to specify a **temporary directory path** to the `scratch` directory of your project `/scratch/<project>` as in the example above. Or, if your job [reads and writes a lot of files](../computing/running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference), 
     use instead [the fast local disk](#using-fast-local-storage).  
     
     Otherwise temporary files will go to `/tmp`, which has limited space and fills up easily, harming your and other users' jobs.
