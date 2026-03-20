@@ -197,6 +197,7 @@ nav:
                   - PostgreSQL-versioiden erot: cloud/dbaas/postgres-versions.md
                   - Laajennukset ja parametrit: cloud/dbaas/postgres-extensions.md
                   - Käyttöoikeudet: cloud/dbaas/postgres-permissions.md
+                  - PostgreSQL 14 elinkaaren päättyminen: cloud/dbaas/postgres-14-eol.md
               - MariaDB:
                   - cloud/dbaas/mariadb.md
                   - Tietokantaan pääsy: cloud/dbaas/mariadb-accessing.md
@@ -233,7 +234,7 @@ nav:
                   - Pysyvät levyt: cloud/rahti/storage/persistent.md
                   - Objektitallennustila: cloud/rahti/storage/objectstorage.md
                   - Levyn laajentaminen: cloud/rahti/storage/expand-volumes.md
-                  - Levyn tilannekuva: cloud/rahti/storage/volume-snapshot.md
+                  - Levyn tilannevedos: cloud/rahti/storage/volume-snapshot.md
           - Edistynyt käyttö:
               - cloud/rahti/advanced.md
               - Verkko: cloud/rahti/networking.md
@@ -261,7 +262,6 @@ nav:
               - HTTP-uudelleenohjauksen asennus Rahtiin: cloud/rahti/tutorials/http-redirector.md
               - Lyhyt johdatus YAML-formaattiin: cloud/rahti/tutorials/yaml_introduction.md
               - Webhookit: cloud/rahti/tutorials/webhooks.md
-              - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
   - Data:
       - data/index.md
       #    - Aineistot: data/datasets.md
@@ -363,6 +363,9 @@ nav:
               - Vianetsintä: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
           - Ohjeet rekistereille: data/sensitive-data/single-register-submission.md
       - Terminologia: data/sensitive-data/sd-terminology.md
+      - SD Services – Versiohistoria:
+        - SD Connect julkaisut: data/sensitive-data/releases-sd-connect.md
+        - SD Desktop julkaisut: data/sensitive-data/releases-sd-desktop.md
   - Sovellukset:
       - apps/index.md
       - Tieteenaloittain: apps/by_discipline.md
