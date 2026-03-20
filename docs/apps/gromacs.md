@@ -69,6 +69,7 @@ with plenty of analysis scripts.
     |2025.3   |`gromacs/2025.3`<br>`gromacs/2025.3-gpu`|GPU-enabled module available
     |2025.4   |`gromacs/2025.4`<br>`gromacs/2025.4-gpu`<br>`gromacs/2025.4-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
     |2026.0   |`gromacs/2026.0`<br>`gromacs/2026.0-gpu`|GPU-enabled module available
+    |2026.1   |`gromacs/2026.1`<br>`gromacs/2026.1-gpu`<br>`gromacs/2026.1-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the
   recommended latest minor version from each year (replace `<year>`
