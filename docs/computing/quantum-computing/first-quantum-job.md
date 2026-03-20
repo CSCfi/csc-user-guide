@@ -294,7 +294,7 @@ The full python script can be found below.
     # Uncomment the following lines to get more information about your submitted job
     # print("Job ID: ", job.job_id())
 	# print(result.circuits)
-    # exp_result = result._get_experiment({circuit_name})
+    # exp_result = result._get_experiment("circuit_name")
     # print("Calibration Set ID: ", exp_result.calibration_set_id)
     # print(result.parameters.qubit_mapping)
     # print(result.parameters.shots)
@@ -342,7 +342,7 @@ The full python script can be found below.
     # Uncomment the following lines to get more information about your submitted job
     # print("Job ID: ", job.job_id())
 	# print(result.circuits)
-    # exp_result = job.result()._get_experiment({circuit_name})
+    # exp_result = job.result()._get_experiment("circuit_name")
     # print("Calibration Set ID: ", result.parameters.calibration_set_id)
     # print(result.parameters.qubit_mapping)
     # print(result.parameters.shots)
