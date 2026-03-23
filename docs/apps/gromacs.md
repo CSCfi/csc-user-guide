@@ -99,8 +99,13 @@ module load gromacs-env
 
 Use `module spider` to locate other versions. To load these modules, you need
 to first load required dependencies, which are shown with
-`module spider gromacs/<version>`. To access CSC's GROMACS modules on LUMI,
-remember to first run `module use /appl/local/csc/modulefiles`.
+`module spider gromacs/<version>`.
+
+To access CSC's GROMACS modules on LUMI, remember to first run:
+
+```bash
+module use /appl/local/csc/modulefiles
+```
 
 !!! info "Note"
     Please use the `-maxh` flag for `mdrun`. Setting this equal to or slightly
@@ -110,6 +115,11 @@ remember to first run `module use /appl/local/csc/modulefiles`.
     that the job will crash the node(s) it is running on. For general guidance
     on managing long simulations, see the
     [GROMACS manual](https://manual.gromacs.org/current/user-guide/managing-simulations.html).
+
+!!! info "Plumed"
+    All GROMACS version >=2025.0 should support Plumed by default. If you want
+    to run GROMACS simulations using Plumed, remember to also load
+    [any Plumed module](plumed.md).
 
 ### Notes about performance
 

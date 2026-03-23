@@ -41,9 +41,16 @@ module spider plumed
 module load <dependencies reported by the spider command> plumed/<version>
 ```
 
+To access CSC's PLUMED modules on LUMI, remember to first run:
+
+```bash
+module use /appl/local/csc/modulefiles
+```
+
 If you want to run molecular dynamics with PLUMED, either compile your MD engine of
 choice with PLUMED (see [selection e.g. here](https://www.plumed.org/)), or use e.g.
-[GROMACS](gromacs.md), which is available at CSC.
+[GROMACS](gromacs.md), which is available at CSC. GROMACS versions >=2025.0
+include PLUMED by default.
 
 ## References
 
