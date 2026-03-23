@@ -8,7 +8,7 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 * [Detaching a volume](#detaching-a-volume)
 * [Attaching a volume](#attach-a-volume-to-a-new-virtual-desktop)
-* [Pausing or resuming a virtual desktop](#pausing-or-resuming-a-virtual-desktop)
+* [Pausing or resuming a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
 
@@ -119,7 +119,7 @@ When you want to access the data saved in the detached volume, you can attach it
 
 ___
 
-## Pausing or resuming a virtual desktop
+## Pausing or unpausing a virtual desktop
 
 You can pause a virtual desktop. In this manner, the desktop will stop consuming Cloud Billing Units.
 
