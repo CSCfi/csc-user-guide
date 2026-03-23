@@ -25,7 +25,7 @@ The following versions are available:
 
 * Puhti: 7.4.1
 * Mahti: 7.4.1
-* LUMI: 7.4.1-cpu, 7.5-cpu
+* LUMI: 7.4.1-cpu
 
 ## License
 
@@ -95,7 +95,7 @@ Quantum ESPRESSO is free software, released under the
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
     module use /appl/local/csc/modulefiles
-    module load quantum-espresso/7.5-cpu
+    module load quantum-espresso/7.4.1-cpu
 
     srun pw.x < input.in > input.out
     ```
