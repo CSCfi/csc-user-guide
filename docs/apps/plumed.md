@@ -10,6 +10,7 @@ catalog:
   available_on:
     - Puhti
     - Mahti
+    - LUMI
 ---
 
 # PLUMED
