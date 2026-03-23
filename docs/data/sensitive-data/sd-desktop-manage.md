@@ -45,9 +45,9 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
 
     4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
     ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
-    6. Next, you’ll be informed if there are other users who should run this command as well.
+    6. Next, the command tells if there are other project members who should run this command as well. You should inform them if this happens. 
     7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
-    8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No).
+    8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No). 
 
 
 ??? default "Method 2: Set access permissions manually"
