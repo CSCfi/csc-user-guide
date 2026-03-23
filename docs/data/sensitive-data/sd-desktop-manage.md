@@ -75,9 +75,9 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
         ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
 
     5. Close the permission tab (top right corner).
-    6. The orange lock icon will no longer be visible next to folders and files and they can now be edited by all project members.     
+    
+    The orange lock icon will no longer be visible next to folders and files and they can now be edited by all project members.     
         
-
     **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 
