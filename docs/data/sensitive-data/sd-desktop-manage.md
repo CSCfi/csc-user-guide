@@ -54,7 +54,7 @@ When you want to access the data saved in the detached volume, you can attach it
 4. Click on **Create desktop**.
 
 
-!!! note
+!!! Note
     - A detached volume can not be attached to an existing virtual desktop, only to new virtual desktops during creation phase. 
     - The content of a detached volume can not be accessed or deleted.
     - If you want to access or delete content on the detached volume, you need to create a new desktop that uses same operating system as the volume and attach volume to it at the creation phase.
@@ -65,7 +65,11 @@ When you want to access the data saved in the detached volume, you can attach it
 
 ## Pausing or unpausing a virtual desktop
 
-You can pause a virtual desktop. In this manner, the desktop will stop consuming Cloud Billing Units.
+Virtual desktops should be paused when not actively used for analysis, to reduce the use of CSC computing resources and prevent unnecessary consumption of Cloud Billing Units. Pausing is not intended as a long‑term method for storing data. Volume usage continues to consume Billing Units even while the desktop is paused.
+
+!!! Note 
+    CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
+
 
 ### Pausing a virtual desktop
 
