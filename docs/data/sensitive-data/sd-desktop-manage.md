@@ -27,29 +27,58 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
 
 <div class="grid cards" markdown>
 
-- :material-alert:{ .lg .middle } **Warning**
+- :material-alert:{ .lg .middle } **Ensuring full access to data on a volume across desktops**
   { .csc-grid-card-warning }
 
     ---
-    Before you detach a volume, it is good practise the set access permissions of files and directories such that all project members have both read and write access to all the data in the volume. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way. 
+    Before detaching a volume, make sure all files and folders have read and write access for all project members. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way.
 
 </div>
 
 
-#### Use CSC Tools to set permissions
+??? default "Method 1: Use CSC Tools to set access permissions"
 
-1. If you haven't **SD tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
-2. Launch **SD tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
-3. Install **CSC tools** by clicking corresponding button. Wait for confirmation.
-4. Open terminal from to left side of the desktop.
-5. Type in `pre-volume-detach`. This command fixes the access permissions. 
-6. Next, you’ll be informed if there are other users who should run this command as well.
-7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
-8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No).
+    1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
+    2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
+    3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
 
-#### Set permissions manually
+    4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
+    6. Next, you’ll be informed if there are other users who should run this command as well.
+    7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
+    8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No).
 
-You can also set permissions manually. Follow these [instructions](./sd-desktop-access.md#3-set-permissions-for-shared-access).
+
+??? default "Method 2: Set access permissions manually"
+
+    By default, permissions are limited to your access only (orange lock icon).
+
+    1. Right-click the folder and select **Properties**.
+    2. Open the **Permissions** tab.
+    3. Set permissions to **Create and Delete Files**:
+       
+        * Owner -> Access -> Select “Create and delete files”.
+        * Group -> Access -> Select “Create and delete files”.
+        * Others -> Access -> Select “Create and delete files”.
+            
+        ![Set folder permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
+
+    * Next select **Change Permissions for Enclosed Files** button to adjust file permisssions inside the folder.
+    * Set permissions to **Create and Delete files**:
+
+        * Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Click **Change**.
+
+        ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
+
+    5. Close the permission tab (top right corner).
+    6. The orange lock icon will no longer be visible next to folders and files and they can now be edited by all project members.     
+        
+
+    **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 
 ### Step 2: Detach a volume 
