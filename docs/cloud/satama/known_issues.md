@@ -29,6 +29,7 @@ denied: requested access to the resource is denied
 This means your account does not have permission to push images to the specified project.
 
 Possible causes include:
+
 * You are not a member of the project.
 * Your role does not allow pushing images.
 
@@ -41,6 +42,7 @@ During image push or pull operations, you may see errors such as:
 unauthorized
 ```
 This may occur when your session token has expired. To resolve this issue:
+
 1. Log out from the Satama Web UI.
 2. Log in again to refresh your session.
 3. Generate or copy the updated CLI credentials.
@@ -74,6 +76,7 @@ When pulling an image, you may encounter:
 repository does not exist
 ```
 This usually means:
+
 * The repository name is incorrect.
 * The project name is incorrect.
 * The image tag does not exist.

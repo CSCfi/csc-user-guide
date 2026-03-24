@@ -22,6 +22,7 @@ Only users who need to push images should receive **Developer** access. Users wh
 
 Try to use project-scoped robot accounts rather than using personal login. 
 Robot accounts provide several advantages:
+
 * Controlled access permissions
 * Easier credential rotation
 * Reduced risk of exposing personal accounts
@@ -51,6 +52,7 @@ Using explicit version tags improves traceability and ensures reproducible deplo
 Periodically review vulnerability scan reports for images stored in Satama.
 
 If vulnerabilities are detected:
+
 * update the base image
 * update affected packages
 * rebuild the container image
@@ -62,6 +64,7 @@ High-severity vulnerabilities should be addressed before deploying images to pro
 Over time, repositories may accumulate outdated images and unused tags. Removing these unused artifacts helps keep the registry organized.
 
 Cleaning up old images provides several benefits:
+
 * reduces storage usage
 * prevents confusion between image versions
 * improves overall repository management
