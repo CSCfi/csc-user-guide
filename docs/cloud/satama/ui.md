@@ -33,16 +33,16 @@ Each tab in this menu provides access to a different part of the project and all
 
 * **Repositories** tab is where users manage container images. It lists all repositories that belong to the project. Inside each repository, users can see available image tags, check image digests, view vulnerability reports, and obtain the commands needed to pull images to their systems. Most daily interactions with container images happen in this section.
 
-    Project admin can add information to describe the repository. Adding a description to a repository helps users and teams understand the purpose, contents, and usage of the images stored within it.
+    * Project admin can add information to describe the repository. Adding a description to a repository helps users and teams understand the purpose, contents, and usage of the images stored within it.
 
-    Go into the repository and select the Info tab, and click the Edit button. Enter a description—for example, its base image, its intended use, or any relevant deployment notes and click Save to save the description.
+    * Go into the repository and select the Info tab, and click the Edit button. Enter a description—for example, its base image, its intended use, or any relevant deployment notes and click Save to save the description.
 
 * **Members** tab is used to manage access to the project. Project administrators can add users and assign them roles such as Guest, Developer, Maintainer, or Project Admin. These roles determine what actions users are allowed to perform within the project, such as pulling images, pushing new images, or managing project settings.
 
 * **Labels** Labels can be used to categorize and organize repositories an images. it can help in quickly understand the purpose or ownership. You can also filter images by labels. Satama has two types of labels:
 
-   * Global Level Labels: System administrators can create, update and delete the global level labels. These can be used by any image under any project. 
-   * Project Level Labels: Project administrators and system administrators can list, create, update and delete the global level labels. These are mainly managed by project administrators only because of the scope of these labels. 
+    * Global Level Labels: System administrators can create, update and delete the global level labels. These can be used by any image under any project. 
+    * Project Level Labels: Project administrators and system administrators can list, create, update and delete the global level labels. These are mainly managed by project administrators only because of the scope of these labels. 
 
 * **Scanner** tab shows information about the vulnerability scanning service used by the project. Here, we have **Trivy** as the scanner.
 
