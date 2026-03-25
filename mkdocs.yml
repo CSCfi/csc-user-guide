@@ -349,6 +349,7 @@ nav:
               - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
               - MATLAB: computing/webinterface/matlab.md
               - MLflow: computing/webinterface/mlflow.md
+              - R-Jupyter: computing/webinterface/r-jupyter.md
               - RStudio: computing/webinterface/rstudio.md
               - TensorBoard: computing/webinterface/tensorboard.md
               - Visual Studio Code: computing/webinterface/vscode.md
