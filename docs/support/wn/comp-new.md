@@ -1,5 +1,13 @@
 # Computing environment
 
+## Puhti and Mahti web interface updated to release 32 and 16, 25.2.2026
+
+* [Jupyter with an R kernel](../../computing/webinterface/r-jupyter.md) is now available on Mahti.
+* VSCode updated to 1.111.0.
+* Newer MLflow versions are now supported in the MLflow app.
+* The maximum number of cores for the Compute node shell on Mahti has been increased to 12.
+* Open OnDemand updated to 4.0.10.
+
 ## Puhti and Mahti web interface updated to release 31 and 15, 3.12.2025
 
 * The File Deletion Explorer tool now exports correctly when multiple projects are used (Puhti).
