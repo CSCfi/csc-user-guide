@@ -17,7 +17,7 @@ The guide below provides clear instructions to help you get comfortable with bot
 
 - [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
 - [Storage locations in SD Desktop (Important!)](sd-desktop-working.md#storage-locations-in-sd-desktop-important)
-- [Virtualdesktop resolution](sd-desktop-working.md#virtual-desktop-resolution)
+- [Virtual desktop resolution](sd-desktop-working.md#virtual-desktop-resolution)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
@@ -35,14 +35,14 @@ Linux may look a bit different from Windows, but you will still find familiar th
 
 ## Storage locations in SD Desktop (Important!)
 
-When you log in to the virtual desktop (Linux Ubuntu operating system), you will see several icons on the laft navigationbar, this include several storage locations. Each one works differently, so it’s important to know where to save your research data.
+When you log in to the virtual desktop (Linux Ubuntu operating system), you will see several icons on the left navigation bar, this include several storage locations. Each one works differently, so it’s important to know where to save your research data.
 
 - **Files folder/ Home directory**: the file or Home folder is the internal storage of your virtual desktop—similar to the built‑in disk of a laptop. Only you can see and access files stored here. If the virtual desktop is deleted or crashes, everything in Home will be permanently lost. **Avoid saving large files here, as they can fill up the virtual desktop’s disk and make it unusable.**
 
 - **Data Gateway application**: lets you import datasets into the virtual desktop, export results, or access tools to customize the environment.
 For Secondary Use CSC projects, Data Gateway connects to data stored in SD Apply. For CSC Academic projects, it connects to SD Connect. When you copy data through Data Gateway into the virtual desktop, it creates a decrypted working copy. This copy should always be saved inside the external volume (see below).
 
-- **Volume**: the Volume is an external storage space attached to the virtual desktop, similar to a removable drive (like a USB stick). It is shared with all members of your project. Use the Volume to store a copy of wrking copy of datasets you  are analysing, results, scripts and notebooks, any important files you don’t want to lose. If the virtual desktop crashes or runs out of disk space, your data in the volume remains safe. you can easily move the volume to a new virtual desktop afetr a f needed after a sevrice upgrade or if the virtual deskop becomes unusable.
+- **Volume**: the Volume is an external storage space attached to the virtual desktop, similar to a removable drive (like a USB stick). It is shared with all members of your project. Use the Volume to store a copy of working copy of datasets you  are analysing, results, scripts and notebooks, any important files you don’t want to lose. If the virtual desktop crashes or runs out of disk space, your data in the volume remains safe. You can easily move the volume to a new virtual desktop after a service upgrade or if the virtual desktop becomes unusable.
 
 - **Shared directory**: small shared folder visible to all project members. It should be used only for temporary transfers or exchanging small files.
 
@@ -119,9 +119,9 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 You can use the virtual desktop like a regular computer, with access to pre‑installed tools such as office apps, image viewers, media players, and Jupyter Notebooks. A terminal is also available for command‑line work. Below is a selection of the most commonly included tools (the exact list may vary by desktop option).
 
-To install additional software (for example, RStudio) you can use the SD‑Software Installer, a simple application that provides a list of additional software and guides you through the installation process, no technical expertise required.To learn how, please follow the next guide: [Customisation - software & tools](./sd-desktop-software.md) F
+To install additional software (for example, RStudio) you can use the SD‑Software Installer, a simple application that provides a list of additional software and guides you through the installation process, no technical expertise required.To learn how, please follow the next guide: [Customisation - software & tools](./sd-desktop-software.md) 
 
-Users who prefer command‑line installation methodssers can also install software using containerized applications with Aptainer or Podman.
+Users who prefer command‑line installation can also install software using containerized applications with Aptainer or Podman.
 
 
 | **Category**              | **Software**                                                                                                                                                                       |
