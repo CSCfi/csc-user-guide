@@ -19,29 +19,9 @@ The guide below provides clear instructions to help you get comfortable with bot
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
 
-## Security-related features and limitations
 
-SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
-
-!!! Note
-
-    - **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you will not be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
-
-    - **Encrypted file only**: Only encrypted files are accessible from your virtual desktop. This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt them using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
-    
-    - **Controlled file access and export with Data Gateway**: Each project member can import files to the virtual desktop for analysis by using a secure application called [Data Gateway](./sd-desktop-access.md). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
-  
-    - **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external volume (you can compare this to an USB stick) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
-  
-    - **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customise it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please [contact CSC Service Desk](../../support/contact.md) for support (subject: SD Desktop).
-  
-    - **Copy-paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
-  
-    - **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in the virtual desktop, allowing safe collaboration.
 
 ## Introduction to Linux and virtual desktop
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Linux is an open-source operating system, meaning it is free to use, and its code is openly available for people to view and modify. It's commonly used in many research applications due to its stability, security, and flexibility.
 
@@ -50,6 +30,26 @@ Linux is an open-source operating system, meaning it is free to use, and its cod
 - **File structure**: Instead of “My Documents” or drives labeled C: or D:, Linux has a different way of organising files. The main directory starts with /, and you’ll see folders like /home for your personal files.
   
 - **Benefits**: Linux is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
+
+
+## Storage locations in SD Desktop (Important!)
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+When you log in to SD Desktop (Ubuntu), you will see several storage locations or folders on the desktop's navigation bar:
+
+- **Home** or **File folder** is your personal directory inside the virtual desktop and works like the internal disk of a laptop. It is only accessible to you, otehr projectm memebrs cannot access it. It is intended only for temporary files and small working materials, and it will be lost if you updated virtual desktop and storing data there might cause the virtual destop disk to get full and the vrtual desktop to get stuck and no loner accessible.
+
+- **Volume**: 
+
+-   **Data Gateway application**: You can also makage impiort and export from the virtual desltop. it is an application that helps you access the data stored on SD Apply (for Secondary Use proejct type) or SD Connect (CSC Academic porject type). Via this applciation you can copy the dataset insude the virtual desktop voluem for analsysis, the applicaiton will creatde a decryped copy of it. 
+-
+-
+-   , on the other hand, is your project’s encrypted external volume. It is detachable from the virtual machine, automatically mounted when you start SD Desktop, and designed for all long‑term and original research data. This volume is persistent across updates and shared with other members of your project.
+-
+-
+- Shared-directory, is provided for transferring data between SD Desktop and other Sensitive Data services; it is not intended for long‑term storage.
+
 
 Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
 
