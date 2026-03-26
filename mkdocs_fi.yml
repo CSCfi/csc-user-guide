@@ -2,8 +2,6 @@ INHERIT: ./mkdocs.yml
 site_url: !ENV [SITE_URL, "https://docs.csc.fi/fi"]
 site_description: Ohjeet ja käyttöoppaat CSC:n supertietokoneille, pilvipalveluille, tallennusratkaisuille ja ohjelmistoille, mukaan lukien UKK ja tutoriaalit
 
-#edit_uri: edit/master/docs/
-
 extra:
   analytics:
     feedback:
@@ -21,12 +19,14 @@ extra:
             Kiitos! Arvostamme palautettasi.
   short_description: Käyttöoppaat ja tutoriaalit
 
-theme:
-  language: fi
-
 plugins:
   search:
     lang: fi
+  git-revision-date-localized:
+    locale: fi
+
+theme:
+  language: fi
 
 nav:
   - Etusivu: index.md
@@ -107,6 +107,7 @@ nav:
               - Jupyter kursseille: computing/webinterface/jupyter-for-courses.md
               - MATLAB: computing/webinterface/matlab.md
               - MLflow: computing/webinterface/mlflow.md
+              - R-Jupyter: computing/webinterface/r-jupyter.md
               - RStudio: computing/webinterface/rstudio.md
               - TensorBoard: computing/webinterface/tensorboard.md
               - Visual Studio Code: computing/webinterface/vscode.md
@@ -176,6 +177,7 @@ nav:
               - NFS-palvelimen asennus: cloud/pouta/tutorials/nfs-server.md
               - Kuvaputken asennus: cloud/pouta/tutorials/picture-pipeline.md
               - SSH-avainpari: cloud/pouta/tutorials/ssh-key.md
+
       - Pukki:
           - cloud/dbaas/index.md
           - Mikä on DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -311,7 +313,7 @@ nav:
       - Sisällysluettelo: data/sensitive-data/sd-services-toc.md
       - Tutkimusdata - Tallenna ja analysoi:
           - Aloita tästä:
-              - data/sensitive-data/sd-access.md
+              - data/sensitive-data/sd-store-and-analyze-research-data.md
               - Pääsy projektin vetäjänä: data/sensitive-data/sd-use-case-new-user-project-manager.md
               - Pääsy projektin jäsenenä: data/sensitive-data/sd-use-case-new-user-project-member.md
               - Resurssisuunnittelu CSC-projektissa: data/sensitive-data/sd-billing-units.md
@@ -364,13 +366,14 @@ nav:
           - Ohjeet rekistereille: data/sensitive-data/single-register-submission.md
       - Terminologia: data/sensitive-data/sd-terminology.md
       - SD Services – Versiohistoria:
-        - SD Connect julkaisut: data/sensitive-data/releases-sd-connect.md
-        - SD Desktop julkaisut: data/sensitive-data/releases-sd-desktop.md
+          - SD Connect julkaisut: data/sensitive-data/releases-sd-connect.md
+          - SD Desktop julkaisut: data/sensitive-data/releases-sd-desktop.md
   - Sovellukset:
       - apps/index.md
       - Tieteenaloittain: apps/by_discipline.md
       - Saatavuuden mukaan: apps/by_availability.md
       - Lisenssin mukaan: apps/by_license.md
+
   - UKK: support/faq/index.md
   - Tutoriaalit: support/tutorials/index.md
   - Koulutusmateriaalit: support/training-material/index.md
