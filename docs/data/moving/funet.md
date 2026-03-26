@@ -88,7 +88,7 @@ Assuming you are on a Linux server (e.g. Puhti or Mahti):
 1. Download the `filesender.py` Python tool:
 
     ```bash
-    wget https://raw.githubusercontent.com/filesender/filesender/refs/tags/filesender-2.57/scripts/client/filesender.py
+    wget https://raw.githubusercontent.com/filesender/filesender/refs/tags/3.7/scripts/client/filesender.py
     ```
 
 2. Create a new folder `~/.filesender` in your home directory:
