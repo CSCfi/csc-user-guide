@@ -17,6 +17,7 @@ The guide below provides clear instructions to help you get comfortable with bot
 
 - [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
 - [Storage locations in SD Desktop (Important!)](sd-desktop-working.md#storage-locations-in-sd-desktop-important)
+- [Virtualdesktop resolution](sd-desktop-working.md#virtual-desktop-resolution)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
@@ -50,7 +51,17 @@ Below is an image showing the basic functions of a virtual desktop. Click the im
 
 [![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)
 
-## Fix the virtual desktop resolution
+## Virtual desktop resolution
+
+If you switch between different laptops or use external monitors, the virtual desktop may not always display correctly. In those cases, adjusting the screen resolution can quickly restore a usable view.
+
+Open the system menu in the top‑right corner.
+Click the gear icon to open Settings.
+In the left sidebar, select Displays.
+Under Resolution, open the dropdown menu.
+Choose the resolution you prefer.
+Click Apply.
+Select Keep Changes, or simply wait for the system to revert automatically if the setting is not supported.
 
 If you switch between different laptops or use external monitors, the virtual desktop may not always display correctly. In those cases, adjusting the screen resolution can quickly restore a usable view:
 
