@@ -39,7 +39,7 @@ def _estimate_max_tokens(openai_model, input_content):
     return min(estimation, DEFAULTS.openai.max_tokens)
 
 
-def translate_markdown(content, openai_model=DEFAULTS.openai.model):
+def translate_markdown(content, openai_model=DEFAULTS.openai.model, openai_temperature=DEFAULTS.openai.temperature):
     """Translate Markdown content.
     """
     try:
@@ -47,7 +47,8 @@ def translate_markdown(content, openai_model=DEFAULTS.openai.model):
             model=openai_model,
             instructions=prompt,
             input=content,
-            max_output_tokens=DEFAULTS.openai.max_tokens
+            max_output_tokens=DEFAULTS.openai.max_tokens,
+            temperature=openai_temperature
         )
 
         return response.output_text

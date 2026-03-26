@@ -19,6 +19,7 @@ DEFAULTS = SimpleNamespace(
         max_tokens=128000, # https://platform.openai.com/docs/models/gpt-5
         max_tokens_multiplier=1.1,
         timeout=10.0,
-        retries=5
+        retries=5,
+        temperature=0, # default is 1
     ),
 )
