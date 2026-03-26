@@ -32,25 +32,6 @@ Linux may look a bit different from Windows, but you will still find familiar th
 
 ## Storage locations in SD Desktop (Important!)
 
-When you log in to SD Desktop (Ubuntu), you will see several storage locations or folders on the desktop's navigation bar:
-
-- **Home** or **File folder** is your personal directory inside the virtual desktop and works like the internal disk of a laptop. It is only accessible to you, otehr projectm memebrs cannot access it. It is intended only for temporary files and small working materials, and it will be lost if you updated virtual desktop and storing data there might cause the virtual destop disk to get full and the vrtual desktop to get stuck and no loner accessible.
-
-- **Data Gateway application**: You can also makage impiort and export from the virtual desltop. it is an application that helps you access the data stored on SD Apply (for Secondary Use proejct type) or SD Connect (CSC Academic porject type). Via this applciation you can copy the dataset insude the virtual desktop voluem for analsysis, the applicaiton will creatde a decryped copy of it. 
-
-- **Volume**: It is detachable from the virtual machine, automatically mounted when you created a vortual desktop, and designed for all long‑term and original research data. This volume is persistent across updates and shared with other members of your project. Your virtual desktop’s local storage is limited, so it’s recommended to save large data files and collaborative work on the external volume. This volume acts like a USB stick that can be detached and reattached to different desktops, allowing project members to share and edit files stored there. It is visible to all project memebrs, but you need to set correct permsisions rights shen you copy files on it. Here you can store the data you are activaly abalising, restuls and all impottat thigns that you don't want to losse in case the virtual desktop crashes. It is also easy to move the voluem to a new virtual desktop when the sevrce is upgraded. 
-
-
-- **Shared-directory**: it is not intended for long‑term storage, it is visible to all project members. 
-
-
-Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
-
-[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png){ target="_blank" }
-
-
-## Storage locations in SD Desktop (Important!)
-
 When you log in to the virtual desktop (Linux Ubuntu operating system), you will see several icons on the laft navigationbar, this include several storage locations. Each one works differently, so it’s important to know where to save your research data.
 
 - **Files folder/ Home directory**: the file or Home folder is the internal storage of your virtual desktop—similar to the built‑in disk of a laptop. Only you can see and access files stored here. If the virtual desktop is deleted or crashes, everything in Home will be permanently lost. **Avoid saving large files here, as they can fill up the virtual desktop’s disk and make it unusable.**
@@ -62,6 +43,9 @@ For Secondary Use CSC projects, Data Gateway connects to data stored in SD Apply
 
 - **Shared directory**: small shared folder visible to all project members. It should be used only for temporary transfers or exchanging small files.
 
+Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
+
+[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)
 
 
 
