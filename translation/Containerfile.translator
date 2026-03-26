@@ -1,4 +1,4 @@
-ARG base_image=docs-csc/docs-csc-base:latest
+ARG base_image
 FROM ${base_image} as base
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"

@@ -1,4 +1,4 @@
-ARG builder_image=docs-csc/docs-csc-builder:latest
+ARG builder_image
 ARG server_image=ubi8/nginx-124
 FROM ${builder_image} AS builder
 
