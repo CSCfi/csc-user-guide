@@ -92,7 +92,7 @@
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       {% include "partials/copyright.html" %}
-      {% if page and page.git %}
+      {% if page and page.git and config.theme.language == "en" %}
       {{ commit_link(page.git.head, config.repo_url, status=page.git.status) }}
       {% endif %}
       {% if config.extra.social %}

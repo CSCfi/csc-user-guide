@@ -1,9 +1,20 @@
 {% from "partials/commit.html" import commit_link %}
+{%- set chevron -%}
+{%- include ".icons/material/chevron-up.svg" -%}
+{%- endset -%}
 <div id="disclaimer-container">
   {% if config.theme.language == "fi" %}
-  <div class="disclaimer translation">
-    <p class="disclaimer-title">Suomenkielinen konekäännös</p>
-    <p class="disclaimer-content">Sisällössä voi esiintyä virheellistä tietoa konekäännöksestä johtuen.</p>
+  <div class="disclaimer minimizable translation minimized">
+    <p class="disclaimer-title"><span class="disclaimer-title-text">Suomenkielinen tekoälykäännös</span></p>
+    <p class="disclaimer-content">Sisällössä voi esiintyä virheellistä tietoa tekoälykäännöksestä johtuen.</p>
+    <p class="disclaimer-content md-typeset">
+      <a href="{{ base_url ~ '/support/contact/' | url }}">
+        Klikkaa tästä antaaksesi palautetta
+        <span class="twemoji">
+          {% include ".icons/material/arrow-right.svg" %}
+        </span>
+      </a>
+    </p>
     <div class="button-row">
       <a class="close-button">Ymmärrän.</a>
     </div>
@@ -13,7 +24,7 @@
   <div class="disclaimer preview">
     <p class="disclaimer-title">You are viewing a development build</p>
     <p class="disclaimer-content">The content on this page has not been approved for release.</p>
-    {% if page and page.git %}
+    {% if page and page.git and config.theme.language == "en" %}
     {{ commit_link(page.git.head, config.repo_url, status=page.git.status) }}
     {% endif %}
     <div class="button-row">
@@ -27,13 +38,16 @@
   document.addEventListener("DOMContentLoaded", () => {
     const STORAGE_KEY = "acknowledgedDisclaimers"
     const CONTAINER_ID = "disclaimer-container"
+    const MINIMIZED_CLASSNAME = "minimized"
+
+    const isMinimizable = elem => elem.classList.contains("minimizable")
 
     const getAcknowledgedDisclaimers = () => {
       try {
         return JSON.parse(sessionStorage.getItem(STORAGE_KEY))
       } catch (e) {
         console.error(e)
-        return null
+        return {}
       }
     }
 
@@ -42,6 +56,16 @@
         sessionStorage.setItem(STORAGE_KEY, JSON.stringify(disclaimersObject))
       } catch (e) {
         console.error(e)
+      }
+    }
+
+    const updateAcknowledgement = (disclaimerClassName, value) => {
+      const acknowledgedDisclaimers = getAcknowledgedDisclaimers()
+
+      if (acknowledgedDisclaimers) {
+        acknowledgedDisclaimers[disclaimerClassName] = value
+
+        setAcknowledgedDisclaimers(acknowledgedDisclaimers)
       }
     }
 
@@ -57,22 +81,65 @@
     const getDisclaimerElem = className => {
       const containerElem = document.getElementById(CONTAINER_ID)
 
+      // Note: only the first matching element is returned
       return containerElem.querySelector(`.disclaimer.${className}`)
     }
 
-    const hideDisclaimer = disclaimerElem => disclaimerElem.style.scale = 0
-    const showDisclaimer = disclaimerElem => disclaimerElem.style.display = "block"
+    const showDisclaimer = disclaimerElem => {
+      disclaimerElem.style.display = "block"
+      disclaimerElem.classList.remove(MINIMIZED_CLASSNAME)
+    }
+
+    const hideDisclaimer = async disclaimerElem => {
+      const scaleToNothing = [
+        { scale: window.getComputedStyle(disclaimerElem).scale },
+        { scale: 0 },
+      ]
+      const scaleTiming = { duration: 125, fill: "forwards" }
+      const animation = disclaimerElem.animate(scaleToNothing, scaleTiming)
+      animation.oncancel = () => disclaimerElem.style.display = "none"
+
+      await animation.finished
+      animation.commitStyles()
+      animation.cancel()
+    }
+
     const acknowledgeDisclaimer = disclaimerClassName => {
       const disclaimerElem = getDisclaimerElem(disclaimerClassName)
-      const acknowledgedDisclaimers = getAcknowledgedDisclaimers()
 
-      if (acknowledgedDisclaimers) {
-        acknowledgedDisclaimers[disclaimerClassName] = true
-
-        setAcknowledgedDisclaimers(acknowledgedDisclaimers)
+      if (isMinimizable(disclaimerElem)) {
+        disclaimerElem.classList.add(MINIMIZED_CLASSNAME)
+      } else {
+        hideDisclaimer(disclaimerElem)
       }
 
-      hideDisclaimer(disclaimerElem)
+      updateAcknowledgement(disclaimerClassName, true)
+    }
+
+    const initializeDisclaimerControls = className => {
+      const acknowledgedDisclaimers = getAcknowledgedDisclaimers()
+      const disclaimerElem = getDisclaimerElem(className)
+
+      if (disclaimerElem) {
+        const disclaimerCloseButtonElem = disclaimerElem.querySelector(".close-button")
+
+        disclaimerCloseButtonElem.addEventListener("click", event => {
+          event.preventDefault()
+
+          acknowledgeDisclaimer(className)
+        })
+
+        if (isMinimizable(disclaimerElem)) {
+          const disclaimerTitleElem = disclaimerElem.querySelector(".disclaimer-title")
+
+          disclaimerTitleElem.addEventListener("click", event => {
+            event.preventDefault()
+
+            disclaimerElem.classList.remove(MINIMIZED_CLASSNAME)
+            updateAcknowledgement(className, false)
+          })
+        }
+      }
     }
 
     const initializeDisclaimers = () => {
@@ -80,24 +147,15 @@
 
       const acknowledgedDisclaimers = getAcknowledgedDisclaimers()
 
-      if (acknowledgedDisclaimers) {
-        Object.entries(acknowledgedDisclaimers).forEach(([className, acknowledged]) => {
-          const disclaimerElem = getDisclaimerElem(className)
+      Object.entries(acknowledgedDisclaimers).forEach(([className, isAcknowledged]) => {
+        const disclaimerElem = getDisclaimerElem(className)
 
-          if (disclaimerElem && !acknowledged) {
-            const disclaimerCloseButtonElem = disclaimerElem.querySelector(".close-button")
+        initializeDisclaimerControls(className)
 
-            disclaimerCloseButtonElem.addEventListener("click", event => {
-              event.preventDefault()
-
-              hideDisclaimer(disclaimerElem)
-              acknowledgeDisclaimer(className)
-            })
-
-            showDisclaimer(disclaimerElem)
-          }
-        })
-      }
+        if (!isAcknowledged) {
+          showDisclaimer(disclaimerElem)
+        }
+      })
     }
 
     initializeDisclaimers()

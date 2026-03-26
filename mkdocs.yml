@@ -250,10 +250,11 @@ theme:
       info: material/information
       success: material/check-circle
       warning: material/alert
-    # Error admonition type is not in Material for MkDocs,
-    # so the following icon is a literal definition in
-    # csc-overrides/assets/stylesheets/admonition.css
       # error: material/close-circle
+      #
+      # Error admonition type is not in Material for MkDocs,
+      # so the error icon is defined with the template in
+      # csc-overrides/assets/stylesheets/icons.jinja.css
     alternate: octicons/globe-16
   palette:
     scheme: csc
@@ -264,6 +265,8 @@ theme:
     - content.action.edit
     - content.code.copy
     - content.tabs.link
+  static_templates:
+    - assets/stylesheets/icons.jinja.css
 
 extra_css:
   - assets/stylesheets/extra.css
