@@ -45,11 +45,24 @@ For Secondary Use CSC projects, Data Gateway connects to data stored in SD Apply
 
 - **Shared directory**: small shared folder visible to all project members. It should be used only for temporary transfers or exchanging small files.
 
+
 Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
 
 [![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)
 
+## Fix the virtual desktop resolution
 
+If you switch between different laptops or use external monitors, the virtual desktop may not always display correctly. In those cases, adjusting the screen resolution can quickly restore a usable view:
+
+1. Open the system menu in the top‑right corner.
+
+2. Click the gear icon to open Settings.
+
+3. In the left sidebar, select Displays.
+
+4. Under Resolution, open the dropdown menu and choose the resolution you prefer.
+
+5. Click Apply and select Keep Changes, or simply wait for the system to revert automatically if the setting is not supported.
 
 ## Copy-paste from your laptop to virtual desktop
 
@@ -106,15 +119,11 @@ If you want to install software that is not included by default (for example, RS
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Office Tools**          | [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)                                                                                                                         |
 | **Programming**           | [Go](https://go.dev/) <br> [Python 3](./tutorials/sd-pythonlibs.md) including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode |
-| **R & RStudio**           | [R / RStudio Server](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop) <br> - Matching the r-env-singularity/4.0.5 module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12) <br> - 1000+ pre-installed R packages (versions available on Apr 20, 2021) <br> - Intel® oneAPI Math Kernel Library (oneMKL) <br> - GIS software (PROJ, GDAL, SAGA) <br> - CUDA drivers <br> - TensorFlow (used with R TensorFlow back-end) <br> - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)                 |
+
 | **Workflow Engines**      | - [Nextflow](https://www.nextflow.io/) <br> - [Snakemake](https://snakemake.readthedocs.io/en/stable/)                                                                                                                                                |
 | **Software Containers**    | - [Apptainer](https://apptainer.org/) <br> - [Podman](https://podman.io/) (Only in Ubuntu machines)                                                                                                                             |
 | **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)                                                                                                                          |
 | **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.) <br> - [Jupyter](https://jupyter.org/)                                                                                                                         |
-
-## Accessing RStudio from virtual desktop
-
-For a step by step guide, see: [Installing RStudio via SD-Software Installer](r-in-sd-desktop.md) No technical expertise required.
 
 
 ## Your next steps in this guide
