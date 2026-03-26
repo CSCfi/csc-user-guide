@@ -65,15 +65,10 @@ class NewTranslation(PageTranslation):
         """Writes translation result to destination file.
         """
         mkparents(self.__dest_path)
+        self.__dest_path.write_text(translated_content, encoding="utf-8")
+        logger.info("Translation result written to '%s'.", self.path)
+        self.__cache.store(self.path, self.__dest_path)
 
-        try:
-            self.__dest_path.write_text(translated_content, encoding="utf-8")
-            logger.info("Translation result written to '%s'.", self.path)
-            self.__cache.store(self.path, self.__dest_path)
-        except TypeError as e:
-            logger.warning("Failed to write translation to '%s': %s",
-                           self.path,
-                           str(e))
 
 class MovedTranslation(PageTranslation):
     """Subclass for moved pages.
@@ -167,6 +162,12 @@ class Translations:
         return len(list(self.__pending_translation))
 
     @property
+    def is_empty(self):
+        """Predicate for empty collection.
+        """
+        return len(self.__translations) < 1
+
+    @property
     def pending(self):
         """Filtered objects with pending operations other than translation.
         """
@@ -179,14 +180,14 @@ class Translations:
                       self.__translations)
 
     def __is_excluded(self, page_path):
-        try:
-            if any((self.__src_prefix / page_path).samefile(excluded)
-                    for excluded in self.__excluded_files):
-                logger.info("Ignored excluded file '%s'.", page_path)
-                return True
-            return False
-        except FileNotFoundError:
-            return False
+        src_path = self.__src_prefix / page_path
+        result = any(src_path.samefile(excluded)
+                     for excluded in self.__excluded_files
+                     if src_path.exists())
+        if result:
+            logger.info("Ignored excluded file '%s'.", page_path)
+
+        return result
 
     def __is_symlink(self, page_path):
         result = (self.__src_prefix / page_path).is_symlink()
@@ -248,10 +249,10 @@ class Translations:
             if page is not None:
                 self.__add_page(page, replace=isinstance(src, Diff))
 
-    def complete(self):
+    def complete(self, dump_path: str):
         """Signals for completion of the translation.
         """
-        self.__cache.clear()
+        self.__cache.dump(dump_path)
 
 
 class PageContentWrapper:

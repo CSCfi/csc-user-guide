@@ -1,21 +1,12 @@
-ARG python_image=ubi8/python-311
-FROM ${python_image}
+ARG base_image
+FROM ${base_image}
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-ADD requirements.txt mkdocs.yml .
-ADD csc-overrides ./csc-overrides
-ADD hooks ./hooks
-ADD scripts ./scripts
+ADD requirements.txt .
 
-USER 0
+ARG PIP_ROOT_USER_ACTION=ignore
 RUN \
-  mkdir /tmp/src \
+  pip3 install --upgrade pip \
 && \
-  chown -R 1001:0 /tmp/src ./
-USER 1001
-
-RUN \
-  pip install --upgrade pip \
-&& \
-  pip install --requirement=requirements.txt
+  pip3 install --requirement=requirements.txt

@@ -3,7 +3,7 @@
 import enum
 import pathlib
 from abc import ABC, abstractmethod
-from typing import overload, NamedTuple, Callable
+from typing import overload, NamedTuple, Callable, Iterable
 
 from git import Commit, Diff
 
@@ -40,14 +40,6 @@ class CachePath(NamedTuple):
 class TranslationCache(ABC):
     """Store and retrieve translations from a cache.
     """
-    @property
-    @abstractmethod
-    def count(self) -> int:
-        """Returns the number of cache records.
-        
-        Does not necessarily reflect the state of the cache after changes.
-        """
-
     @abstractmethod
     def query(self, docs_src: str) -> FileIs:
         """Check if 'docs_src' is fresh, stale or does not exist in cache.
@@ -68,8 +60,17 @@ class TranslationCache(ABC):
         """
 
     @abstractmethod
-    def clear(self) -> None:
-        """Clear the cache for the currently processed language.
+    def dump(self, path: str) -> None:
+        """Writes a list of cached file paths in JSON format
+        into file at 'path'.
+        """
+
+    @classmethod
+    @abstractmethod
+    def clear_from_file(cls, path: str) -> Iterable:
+        """Delete stored paths read from 'path'.
+
+        Returns an iterable of failed deletions.
         """
 
 

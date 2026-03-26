@@ -1,6 +1,7 @@
 """Keep track of cached translations.
 """
 import os
+import json
 import logging
 import pathlib
 import tempfile
@@ -13,7 +14,6 @@ from types import SimpleNamespace
 from git import Repo
 from swiftclient.service import SwiftService, SwiftError, SwiftUploadObject
 
-from .constants import DEFAULTS
 from .utils import check_environment, mkparents
 from .classes import TranslationCache, CachePath, FileWas, FileIs
 
@@ -37,8 +37,11 @@ try:
                       "OS_APPLICATION_CREDENTIAL_ID",
                       "OS_APPLICATION_CREDENTIAL_SECRET",
                       "CACHE_CONTAINER",
-                      "CACHE_PREFIX")
+                      "CACHE_PREFIX",
+                      "DOCS_DIR")
 
+    LANG_CODE = os.getenv("LANG_CODE")
+    DOCS_DIR = os.getenv("DOCS_DIR")
     SWIFT = SimpleNamespace(
         cache_container=os.getenv("CACHE_CONTAINER"),
         cache_prefix=os.getenv("CACHE_PREFIX"),
@@ -47,7 +50,7 @@ try:
             "os_auth_type": "v3applicationcredential"
         },
         operation_opts={
-            "prefix": f"{os.getenv('CACHE_PREFIX')}/{os.getenv('LANG_CODE')}"
+            "prefix": f"{os.getenv('CACHE_PREFIX')}/{LANG_CODE}"
         }
     )
 
@@ -139,10 +142,34 @@ class SwiftCache(TranslationCache):
         return SwiftUploadObject(str(src_path),
                                  object_name=name)
 
+    @classmethod
+    def clear_from_file(cls, path):
+        input_path = pathlib.Path(path)
+
+        with input_path.open(mode="rt", encoding="utf-8") as input_json:
+            objects = json.load(input_json)
+
+        assert isinstance(objects, list), "Not a list of cached paths"
+
+        if len(objects) > 0:
+            with cls.__service() as swift:
+                try:
+                    failed = cls.__to_reduced(
+                        cls.__operation(swift.delete,
+                                        objects=objects),
+                        cls.__deletion_reducer
+                    )
+                except SwiftError as e:
+                    logger.warning("Failed to clear cache: '%s'", str(e))
+                else:
+                    logger.info("Cached cleared for '%s'.", LANG_CODE)
+                    return failed
+        return iter(())
+
     def __init__(self, repo_path: pathlib.Path):
         self.__repo = Repo(repo_path)
         self.__head_sha = self.__repo.head.commit.hexsha
-        self.__head_tree = self.__repo.head.commit.tree[DEFAULTS.docs_dir]
+        self.__head_tree = self.__repo.head.commit.tree[DOCS_DIR]
         self.__local_path = pathlib.Path(tempfile.mkdtemp())
         self.__cached_paths = tuple(self.__download_cache(self.__local_path))
         self.__added_paths = []
@@ -218,7 +245,7 @@ class SwiftCache(TranslationCache):
         return max(paths, key=lambda p: p.commit.committed_date, default=None)
 
     def __has_changed(self, path: CachePath) -> bool:
-        diff_index = path.commit.tree[DEFAULTS.docs_dir].diff(self.__head_tree)
+        diff_index = path.commit.tree[DOCS_DIR].diff(self.__head_tree)
 
         for diff_obj in diff_index.iter_change_type(FileWas.MODIFIED):
             if diff_obj.b_path == path.docs_src:
@@ -226,26 +253,13 @@ class SwiftCache(TranslationCache):
 
         return False
 
-    def __clear_cache(self) -> Iterable:
-        with self.__service() as swift:
-            try:
-                objects = chain(
-                    map(lambda path: path.remote, self.__cached_paths),
-                    self.__added_paths
-                )
+    def dump(self, path):
+        output_path = pathlib.Path(path)
+        cached = tuple(map(lambda path: path.remote, self.__cached_paths))
+        added = tuple(self.__added_paths)
 
-                return self.__to_reduced(
-                    self.__operation(swift.delete,
-                                     objects=list(objects)),
-                    self.__deletion_reducer
-                )
-            except SwiftError as e:
-                logger.warning("Failed to clear cache: '%s'", str(e))
-                return iter(())
-
-    @property
-    def count(self):
-        return len(self.__cached_paths)
+        with output_path.open(mode="wt", encoding="utf-8") as output_json:
+            json.dump(cached+added, output_json)
 
     def query(self, docs_src):
         latest = self.__get_latest(docs_src)
@@ -271,11 +285,3 @@ class SwiftCache(TranslationCache):
             logger.info("Retrieved '%s' from cache.", docs_src)
         except AttributeError:
             logger.warning("No cache entry for '%s' found.", docs_src)
-
-    def clear(self):
-        failed = list(self.__clear_cache())
-        if len(failed) > 0:
-            for f in failed:
-                logger.warning("Failed to delete cached '%s'.", f)
-        else:
-            logger.info("Cache cleared for %s.", SWIFT.operation_opts['prefix'])

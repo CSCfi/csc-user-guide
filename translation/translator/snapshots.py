@@ -16,14 +16,18 @@ logger = logging.getLogger(__name__)
 
 
 try:
-    check_environment("LANG_CODE")
+    check_environment("LANG_CODE",
+                      "DOCS_DIR")
+
+    DOCS_DIR = os.getenv("DOCS_DIR")
+    LANG_CODE = os.getenv("LANG_CODE")
 except:
     logger.error("Failed to initialize '%s'.", __name__)
     raise
 
 
 def _has_lang_code(snapshot_paths):
-    lang_suffix = f"/{DEFAULTS.docs_dir}/{os.getenv('LANG_CODE')}"
+    lang_suffix = f"/{DOCS_DIR}/{LANG_CODE}"
 
     for path in snapshot_paths:
         if path.endswith(lang_suffix):
