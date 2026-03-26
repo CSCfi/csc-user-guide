@@ -117,13 +117,11 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 ## Default software available in SD Desktop
 
-**You can work with your virtual desktop like with a standard computer**, accessing several pre-installed programs from the applications menu bar (top left corner). Examples include Open Office, image-viewing applications, video and audio players, Jupyter Notebooks etc. You can also open a terminal and use Linux from the command line. 
+You can use the virtual desktop like a regular computer, with access to pre‑installed tools such as office apps, image viewers, media players, and Jupyter Notebooks. A terminal is also available for command‑line work. Below is a selection of the most commonly included tools (the exact list may vary by desktop option).
 
-Below we list some of the most commonly used tools that are by default installed in the virtual desktop. The list is not complete and there are small differences between different desktop options. 
+To install additional software (for example, RStudio) you can use the SD‑Software Installer, a simple application that provides a list of additional software and guides you through the installation process, no technical expertise required.To learn how, please follow the next guide: [Customisation - software & tools](./sd-desktop-software.md) F
 
-
-If you want to install software that is not included by default (for example, RStudio), you can use the SD-Software Installer. This simple application provides a list of additional software and guides you through the installation process, no technical expertise required. To learn how, please follow the next guide: [Customisation - software & tools](./sd-desktop-software.md) For more advanced users, it's also possible to install other tools using containerized applications with Aptainer or Podman.
-
+Users who prefer command‑line installation methodssers can also install software using containerized applications with Aptainer or Podman.
 
 
 | **Category**              | **Software**                                                                                                                                                                       |
