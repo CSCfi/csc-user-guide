@@ -16,7 +16,7 @@ The guide below provides clear instructions to help you get comfortable with bot
 
 
 - [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
-  
+- [Storage locations in SD Desktop (Important!)](sd-desktop-working.md#storage-locations-in-sd-desktop-important)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
