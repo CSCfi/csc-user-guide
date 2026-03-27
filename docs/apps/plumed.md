@@ -10,7 +10,6 @@ catalog:
   available_on:
     - Puhti
     - Mahti
-    - LUMI
 ---
 
 # PLUMED
@@ -25,7 +24,6 @@ in molecular dynamics. It can be used with several MD codes.
 
 -   Puhti: 2.7.4, 2.8.0
 -   Mahti: 2.6.3, 2.7.2
--   LUMI: 2.9.4, 2.10.0
 
 ## License
 
@@ -42,16 +40,9 @@ module spider plumed
 module load <dependencies reported by the spider command> plumed/<version>
 ```
 
-To access CSC's PLUMED modules on LUMI, remember to first run:
-
-```bash
-module use /appl/local/csc/modulefiles
-```
-
 If you want to run molecular dynamics with PLUMED, either compile your MD engine of
 choice with PLUMED (see [selection e.g. here](https://www.plumed.org/)), or use e.g.
-[GROMACS](gromacs.md), which is available at CSC. GROMACS versions >=2025.0
-include PLUMED by default.
+[GROMACS](gromacs.md), which is available at CSC.
 
 ## References
 
