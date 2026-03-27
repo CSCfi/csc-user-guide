@@ -20,7 +20,7 @@ RUN dnf -y install epel-release \
                    git \
                    findutils &&\
     dnf clean all &&\
-    pip3 install --use-pep517 --no-cache-dir -r requirements.txt
+    pip3 install --use-pep517 --no-cache-dir --no-deps -r requirements.txt
 
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
     chmod -R g+rwx ${ROOT_GROUP_DIRS}
@@ -32,7 +32,7 @@ RUN if [ ! -d ".git" ]; then \
     git init && \
     git switch --force $repo_branch; \
     fi && \
-    mkdocs build -d /usr/share/nginx/html
+    properdocs build -d /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx
 

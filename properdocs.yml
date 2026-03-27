@@ -80,7 +80,6 @@ plugins:
         - apps/by_discipline.md
         - apps/by_availability.md
         - apps/by_license.md
-  - section-index
   - redirects:
       redirect_maps:
         # reorganization:
@@ -229,7 +228,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
-  name: material
+  name: materialx
   language: en
   custom_dir: csc-overrides
   logo: assets/images/logo.svg
@@ -254,6 +253,7 @@ theme:
     - content.action.edit
     - content.code.copy
     - content.tabs.link
+    - navigation.indexes
 
 extra_css:
   - assets/stylesheets/extra.css
