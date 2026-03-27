@@ -63,3 +63,25 @@ your database instance.
 
     !!! info "Note"
         No new backups will be taken of the instance before the restart has been done.
+
+## How to access database logs
+
+    !!! info "Note"
+        If the system does not return any log lines in either methods then that means there are no log entries within the 1 month retention period which is common to MariaDBs.
+
+1. Onces you got your OpenStack running, you can list your databases;
+
+    ```
+    openstack database instance list
+    ```
+
+2. Using the ID from above command you can get the database log;
+
+    ```
+    openstack database log list -f value -c Status $ID | sort
+    ```
+
+    In Unix-like systems you can use `tail` command to output only last n lines;
+    ```
+    openstack database log list -f value -c Status $ID | sort | tail -10
+    ```

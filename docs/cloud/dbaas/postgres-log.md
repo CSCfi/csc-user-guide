@@ -1,38 +1,6 @@
-# Importance of PostgreSQL log
-
+# Server log in PostgreSQL
+ 
 PostgreSQL server log gives important information from the database's current health and operation.
-
-## How to access database logs
-
-### Web UI
-
-Access the Web UI in [https://pukki.dbaas.csc.fi/project](https://pukki.dbaas.csc.fi/project), click the `instance name` and go to `logs` tab.
-
-**Note:** If the log lines are with same `timestamp` then the log lines may be displayed in bit of a mixed order.
-
-### OpenStack CLI
-
-Onces you got your OpenStack running, you can list your databases;
-
-```
-$ openstack database instance list
-+--------------------------------------+---------------------------+------------+-------------------+--------+------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+------+------+
-| ID                                   | Name                      | Datastore  | Datastore Version | Status | Operating Status | Public | Addresses                                                                                                                                                | Flavor ID                            | Size | Role |
-+--------------------------------------+---------------------------+------------+-------------------+--------+------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+------+------+
-| f3450bb8-dd52-4f7b-a5fa-262b2963481c | postgresql-10-09-16:25:00 | postgresql | 17.6              | ACTIVE | HEALTHY          | False  | [{'address': '192.168.242.127', 'type': 'private', 'network': '51e07f88-483a-4aaf-a349-2277f6afaabe'}, {'address': '195.148.31.8', 'type': 'public'}]    | d4a2cb9c-99da-4e0f-82d7-3313cca2b2c2 |    1 |      |
-+--------------------------------------+---------------------------+------------+-------------------+--------+------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+------+------+
-```
-
-Using the ID from above command you can get the database log;
-
-```
-$ openstack database log list -f value -c Status f3450bb8-dd52-4f7b-a5fa-262b2963481c | sort
-```
-
-In Unix-like systems you can use `tail` command to output only last n lines;
-```
-$ openstack database log list -f value -c Status f3450bb8-dd52-4f7b-a5fa-262b2963481c | sort | tail -10
-```
 
 ## What to look for
 
@@ -70,7 +38,8 @@ By default only `WARNING` and higher level messages appear in the server log.
 
 These are common messages, but not an exhaustive list.
 
-**Note:** This is as stub and will be appended later...
+    !!! info "Note"
+        This is as stub and will be appended later...
 
 #### Checkpoints are happening continuously on background
 
@@ -89,7 +58,8 @@ If there is too much write load, then checkpoints will happen more requently and
 2026-03-06T15:07:27.231899198+00:00 stderr F 2026-03-06 15:07:27.231 UTC [10] LOG:  checkpoints are occurring too frequently (18 seconds apart)
 ```
 
-**Note:** In Pukki `max_wal_size` is tied to instance's flavor size
+    !!! info "Note"
+        In Pukki `max_wal_size` is tied to instance's flavor size
 
 #### Database shutdown messages
 
@@ -110,7 +80,8 @@ Database shutdown also generates `FATAL` level message if database connection ex
 2026-02-13T16:06:34.949376041+00:00 stderr F 2026-02-13 16:06:34.942 UTC [27] STATEMENT:  select pg_sleep(60);
 ```
 
-**Note:** Only query running will be logged not the whole transaction.
+    !!! info "Note"
+        Only query running will be logged not the whole transaction.
 
 
 #### Database startup messages
@@ -140,7 +111,8 @@ If the database is not ready to accept connections and there is an incoming conn
 2026-02-13T15:36:07.576782919+00:00 stderr F 2026-02-13 15:36:07.576 UTC [80166] FATAL:  password authentication failed for user "user"
 ```
 
-**Note:** Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
+    !!! info "Note"
+        Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
 
 #### User does not exists
@@ -151,7 +123,8 @@ If the database is not ready to accept connections and there is an incoming conn
 2026-02-13T15:49:25.064066471+00:00 stderr F 2026-02-13 15:49:25.063 UTC [80256] FATAL:  password authentication failed for user "test"
 ```
 
-**Note:** Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
+    !!! info "Note"
+        Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
 
 #### Transaction was committed or rollbacked and there was no transaction started in the first place
@@ -174,4 +147,5 @@ If the database is not ready to accept connections and there is an incoming conn
 2026-02-13T16:32:56.592294678+00:00 stderr F 2026-02-13 16:32:56.591 UTC [60] LOG:  could not receive data from client: Connection reset by peer
 ```
 
-**Note:** Usually these are improperly closed connections, but there is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
+    !!! info "Note"
+        Usually these are improperly closed connections, but there is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
