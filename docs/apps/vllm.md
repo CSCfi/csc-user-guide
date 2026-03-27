@@ -17,12 +17,12 @@ A fast and easy-to-use library for LLM inference and serving.
 
 !!! info "News" 
 
-    **7.4..2026** vLLM now available as a separate module on Roihu
+    **7.4.2026** vLLM now available as a separate module on Roihu
 
 
 ## Available
 
-Currently supported PyTorch versions:
+Currently supported vLLM versions:
 
 | Version | Module               |
 |:--------|----------------------|
@@ -31,7 +31,7 @@ Currently supported PyTorch versions:
 Includes [vLLM][], [PyTorch](https://pytorch.org/) and related
 libraries with GPU support via CUDA/ROCm.
 
-!!! note "<span id="roihu-vllm">vLLM on Roihu</span>"
+!!! note "<span id="roihu-vllm">PyTorch vs vLLM</span>"
     If you don't particularly need vLLM, we recommend using the [full PyTorch module](pytorch.md) instead, which includes more packages.
 
 
