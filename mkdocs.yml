@@ -11,9 +11,9 @@ extra:
   announcement_visible: true # Controls the visibility of the announcement bar
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
-    image: roihu.png
-    title: Roihu supercomputer – coming in spring 2026!
-    link: /computing/systems-roihu/
+    image: roihu-new.png
+    title: Roihu supercomputer – get started here!
+    link: support/tutorials/roihu/
     description: |-
       Puhti and Mahti will be decommissioned in August 2026 and replaced by
       Roihu, CSC's next-generation supercomputer offering enhanced performance
