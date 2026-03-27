@@ -1,12 +1,12 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Create virtual desktops
+# Create virtual desktop and volume
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/wb4TwsqNCRE" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/KgdGueesSe4" title="Luo virtuaalinen työpöytä SD Desktop -palvelussa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-With the SD Desktop service, you can create virtual computers for analysing sensitive data. On your virtual desktop, you can analyze sensitive research data through your web browser securely. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to three virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise.
+With the SD Desktop service, you can create virtual computers for analysing sensitive data. On your virtual desktop, you can analyze sensitive research data through your web browser securely. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to six virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise.
 
 ## Step by step
 
@@ -44,7 +44,7 @@ Choosing another option will cause the virtual desktop to stop working. Other op
 
 ### 3. Add an external volume (virtual external hard drive)
 
-Add an external  volume to your virtual desktop, extending default storage (80 GB) up to 200 GB. 
+When creating a desktop, you must also add a volume, where you will import the data for analysis. 
 
 1. Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
 
@@ -69,7 +69,7 @@ The operation is entirely automated and can take up to 30 minutes. If you try ac
 
 ## Important considerations
 
-* Your virtual desktop is **accessible to all project members upon creation** and **consumes Cloud Billing Units type** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop)
+* Your virtual desktop is **accessible to all project members upon creation**. A running virtual desktop and a volume **consumes Cloud Billing Units type** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop)
 
 * Each CSC project supports up to 6 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 

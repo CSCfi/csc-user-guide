@@ -65,14 +65,12 @@ with plenty of analysis scripts.
 === "LUMI"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
-    |2024.2   |`gromacs/2024.2`<br>`gromacs/2024.2-gpu`<br>`gromacs/2024.2-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
-    |2024.3   |`gromacs/2024.3`<br>`gromacs/2024.3-gpu`<br>`gromacs/2024.3-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
-    |2024.4   |`gromacs/2024.4`<br>`gromacs/2024.4-gpu`|GPU-enabled module available
     |2025.1   |`gromacs/2025.1`<br>`gromacs/2025.1-gpu`<br>`gromacs/2025.1-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
     |2025.2   |`gromacs/2025.2`<br>`gromacs/2025.2-gpu`|GPU-enabled module available
     |2025.3   |`gromacs/2025.3`<br>`gromacs/2025.3-gpu`|GPU-enabled module available
     |2025.4   |`gromacs/2025.4`<br>`gromacs/2025.4-gpu`<br>`gromacs/2025.4-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
+    |2026.0   |`gromacs/2026.0`<br>`gromacs/2026.0-gpu`|GPU-enabled module available
+    |2026.1   |`gromacs/2026.1`<br>`gromacs/2026.1-gpu`<br>`gromacs/2026.1-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the
   recommended latest minor version from each year (replace `<year>`
@@ -102,8 +100,13 @@ module load gromacs-env
 
 Use `module spider` to locate other versions. To load these modules, you need
 to first load required dependencies, which are shown with
-`module spider gromacs/<version>`. To access CSC's GROMACS modules on LUMI,
-remember to first run `module use /appl/local/csc/modulefiles`.
+`module spider gromacs/<version>`.
+
+To access CSC's GROMACS modules on LUMI, remember to first run:
+
+```bash
+module use /appl/local/csc/modulefiles
+```
 
 !!! info "Note"
     Please use the `-maxh` flag for `mdrun`. Setting this equal to or slightly
@@ -113,6 +116,11 @@ remember to first run `module use /appl/local/csc/modulefiles`.
     that the job will crash the node(s) it is running on. For general guidance
     on managing long simulations, see the
     [GROMACS manual](https://manual.gromacs.org/current/user-guide/managing-simulations.html).
+
+!!! info "Plumed"
+    All GROMACS version >=2025.0 should support Plumed by default. If you want
+    to run GROMACS simulations using Plumed, remember to also load
+    [any Plumed module](plumed.md).
 
 ### Notes about performance
 
