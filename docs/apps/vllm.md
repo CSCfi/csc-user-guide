@@ -28,7 +28,7 @@ Currently supported PyTorch versions:
 |:--------|----------------------|
 | 0.18.0  | `python-vllm/0.18.0` |
 
-Includes [vLLM](), [PyTorch](https://pytorch.org/) and related
+Includes [vLLM][], [PyTorch](https://pytorch.org/) and related
 libraries with GPU support via CUDA/ROCm.
 
 !!! note "<span id="roihu-vllm">vLLM on Roihu</span>"
