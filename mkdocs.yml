@@ -443,10 +443,12 @@ nav:
                   - Extensions and parameters: cloud/dbaas/postgres-extensions.md
                   - Permissions: cloud/dbaas/postgres-permissions.md
                   - PostgreSQL 14 EOL: cloud/dbaas/postgres-14-eol.md
+                  - PostgreSQL server log explained: cloud/dbaas/postgres-log.md
               - MariaDB:
                   - cloud/dbaas/mariadb.md
                   - Accessing your database: cloud/dbaas/mariadb-accessing.md
                   - Permissions: cloud/dbaas/mariadb-permissions.md
+                  - MariaDB server log explained: cloud/dbaas/mariadb-log.md
 
           - More advanced features: cloud/dbaas/advanced.md
           - Resizing database instance volumes: cloud/dbaas/resize-volume.md
