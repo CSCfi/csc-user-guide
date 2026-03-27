@@ -10,6 +10,7 @@ env:
   global:
     - ENABLED_GIT_REVISION_DATE=false
     - MKDOCS_ENV=test
+    - DISABLE_MKDOCS_2_WARNING=true
 script:
 
   # Checks all files for commonly misspelled English words with client9's misspell
