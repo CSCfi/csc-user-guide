@@ -8,8 +8,8 @@ from .utils import get_dictionary, get_language
 
 _entry_template = string.Template('    - "${src_term}": "${tgt_term}"')
 _dictionary_template = string.Template("""
-Guidelines for translating specific terms:
-6. Use the following dictionary when translating these specific terms:
+6. Translating specific terms:
+- Use the following dictionary when translating these specific terms:
 ${entries}
 """)
 _prompt_template = string.Template("""
@@ -50,8 +50,6 @@ ${dictionary}
 
 def get_prompt(target_lang_code):
     """Returns translation instructions as string.
-
-    Raises AssertionError.
     """
     dictionary_entries = get_dictionary(target_lang_code)
     dictionary_lines = "\n".join(_entry_template.substitute(src_term=s,

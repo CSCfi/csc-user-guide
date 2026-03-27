@@ -3,7 +3,6 @@
 import os
 import logging
 
-import tiktoken
 from openai import OpenAI, OpenAIError, APITimeoutError
 
 from .constants import DEFAULTS
@@ -31,15 +30,8 @@ except:
     raise
 
 
-def _estimate_max_tokens(openai_model, input_content):
-    encoding = tiktoken.encoding_for_model(openai_model)
-    input_tokens = len(encoding.encode(input_content))
-    estimation = int(input_tokens * DEFAULTS.openai.max_tokens_multiplier)
-
-    return min(estimation, DEFAULTS.openai.max_tokens)
-
-
-def translate_markdown(content, openai_model=DEFAULTS.openai.model, openai_temperature=DEFAULTS.openai.temperature):
+def translate_markdown(content, openai_model=DEFAULTS.openai.model,
+                       openai_temperature=DEFAULTS.openai.temperature):
     """Translate Markdown content.
     """
     try:
@@ -47,7 +39,6 @@ def translate_markdown(content, openai_model=DEFAULTS.openai.model, openai_tempe
             model=openai_model,
             instructions=prompt,
             input=content,
-            max_output_tokens=DEFAULTS.openai.max_tokens,
             temperature=openai_temperature
         )
 
@@ -64,8 +55,6 @@ def translate_markdown(content, openai_model=DEFAULTS.openai.model, openai_tempe
 
 def translate_batch(items, translator=translate_markdown):
     """Process multiple Markdown files in one translation request.
-
-    Raises AssertionError.
     """
     target_lang_name = get_language(os.getenv("LANG_CODE"))
     wrapped_content = PageContentWrapper(items)
