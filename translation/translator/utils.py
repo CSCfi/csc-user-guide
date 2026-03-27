@@ -153,8 +153,10 @@ def get_dictionary(lang_code):
                     if all(key in entry for key in (src, tgt,))}
     except FileNotFoundError as e:
         logger.warning("Can't read translation dictionary: '%s'", str(e))
+    except TypeError:
+        pass
 
-        return {}
+    return {}
 
 
 def mkparents(path: pathlib.Path):
