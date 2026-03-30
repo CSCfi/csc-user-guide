@@ -4,11 +4,11 @@ Following these best practices will help you manage container images in Satama e
 
 ### Organize Repositories Clearly
 
-If you are a project admin, create repositories in a way that makes sense to your team For example, repositories can be grouped by:
+If you are a project admin, create repositories in a way that makes sense to your team. For example, repositories can be grouped by:
 
-* application
-* microservice
-* environment (development, staging, production)
+* Application
+* Microservice
+* Environment (development, staging, production)
 
 A clear structure helps others quickly locate and reuse images.
 
@@ -41,9 +41,9 @@ Avoid relying on the latest tag for production images. The latest tag can be ove
 
 Instead, use meaningful and consistent tags such as:
 
-* version numbers (v1.2.0)
-* release identifiers (release-2024-01)
-* commit hashes (git-sha)
+* Version numbers (v1.2.0)
+* Release identifiers (release-2024-01)
+* Commit hashes (git-sha)
 
 Using explicit version tags improves traceability and ensures reproducible deployments.
 
@@ -52,10 +52,16 @@ Using explicit version tags improves traceability and ensures reproducible deplo
 Periodically review vulnerability scan reports for images stored in Satama.
 
 If vulnerabilities are detected:
+<<<<<<< HEAD
 
 * update the base image
 * update affected packages
 * rebuild the container image
+=======
+* Update the base image
+* Update affected packages
+* Rebuild the container image
+>>>>>>> e9e8b387 (Fixs as per the suggestions)
 
 High-severity vulnerabilities should be addressed before deploying images to production environments.
 
@@ -64,9 +70,15 @@ High-severity vulnerabilities should be addressed before deploying images to pro
 Over time, repositories may accumulate outdated images and unused tags. Removing these unused artifacts helps keep the registry organized.
 
 Cleaning up old images provides several benefits:
+<<<<<<< HEAD
 
 * reduces storage usage
 * prevents confusion between image versions
 * improves overall repository management
+=======
+* Reduces storage usage
+* Prevents confusion between image versions
+* Improves overall repository management
+>>>>>>> e9e8b387 (Fixs as per the suggestions)
 
 Administrators can also configure tag retention policies to automatically remove outdated tags while preserving the most recent or important versions.

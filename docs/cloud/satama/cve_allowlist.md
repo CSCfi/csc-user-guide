@@ -13,4 +13,4 @@ You have two options:
 * **System allowlist** Uses the global allowlist defined by Satama administrators 
 * **Project allowlist** uses defined custom CVEs specific to this project.
 
-You can click **ADD** to add CVE IDs manually.Click **COPY FROM SYSTEM** to copy global allowlist entries and set expiration date or choose "Never expires".
+You can click **ADD** to add CVE IDs manually. Click **COPY FROM SYSTEM** to copy global allowlist entries and set expiration date or choose "Never expires".

@@ -16,7 +16,7 @@ Possible solutions:
 * Run the login command again:
 
 ```
-docker login satam.csc.fi
+docker login satama.csc.fi
 ```
 * Verify that your CLI secret or authentication token has not expired.
 
@@ -45,8 +45,7 @@ This may occur when your session token has expired. To resolve this issue:
 
 1. Log out from the Satama Web UI.
 2. Log in again to refresh your session.
-3. Generate or copy the updated CLI credentials.
-4. Authenticate again using the Docker/Podman CLI.
+3. Authenticate again using the Docker/Podman CLI.
 
 ### Image Push Fails Due to Tag Immutability
 

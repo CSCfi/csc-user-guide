@@ -4,9 +4,9 @@ This tutorial walks through the process of building a container image and storin
 
 ## Step 1: Build a Container Image
 
-First build your container image locally.
+First build your container image locally:
 ```
-docker build -t <image_name>:<version>
+docker build -t <image_name>:<version> .
 ```
 And verify that the image exists locally
 

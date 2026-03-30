@@ -8,7 +8,7 @@ To generate your CLI secret, log in to the Satama web interface, click on your u
 
 ![Generate Token](img/generate_token.png)
 
- Within this page, you will see a section labeled **CLI Secret**. If you have not generated one before, click **Generate New Secret**, and Satama will display a unique string of characters. This secret should be copied and stored securely. It acts like a personal API key and can be revoked or regenerated at any time.
+Within this page, you will see a section labeled **CLI Secret**. If you have not generated one before, click **Generate New Secret**, and Satama will display a unique string of characters. This secret should be copied and stored securely. It acts like a personal API key and can be revoked or regenerated at any time.
 
 !!! warning "Known Issue"
 

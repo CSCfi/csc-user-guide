@@ -14,7 +14,7 @@ Click on **New Robot Account**. A pop-up window will open.
 
 ![Add details of robot account](img/Add_basics_of_robo.png)
 
-Enter the details about robot account. Provide a name, add the description about robot account like, purpose of the account and selects an expiration date. You can also select **never** exppire. 
+Enter the details about robot account. Provide a name, add the description about robot account like, purpose of the account and selects an expiration date. You can also select **never** expire. 
 
 After adding all details, click on **Next** button.
 

@@ -15,9 +15,9 @@ Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) in case you need 
 
 ## Change Role of Individual Members
 
-The user must be added to MyCSC project and should login to Satama platform once. This will automatically create a username at Satama. When user login first time, only **library** project will be visible and in 15 min, other CSC projects which have satama enabled, will appear. 
+The user must be added to the MyCSC project and then log in to the Satama platform. This will automatically create a username on Satama. When a user logs in for the first time, only **library** project will be visible. After 15 minutes, other CSC projects with Satama enabled will appear.
 
-By default, everyone having access to project have **Project admin** role. Members with project admin role, can remove members and change the role of other members in the project. Satama enforces role-based access control to ensure that only authorized users can perform specific actions.
+By default, everyone having access to project have **Project admin** role. Members with project admin role, can remove members and change the role of other members in the project. However, please note that these changes are temporary and may be overridden by the periodic synchronization process. Satama enforces role-based access control to ensure that only authorized users can perform specific actions.
 
 1. Click on your project 
 2. Click on **Members** tab

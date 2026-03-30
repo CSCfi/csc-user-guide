@@ -2,19 +2,19 @@
 
 ## Terminology
 
-* Billing Unit(BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
+* Billing Unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
 
 * Storage Billing Unit: Billing Units assigned to usage of storage.
 
-* CSC Project:A placeholder for the user's resources information - including: the number of Cloud BUs and the CSC services which are available for use.
+* CSC Project: A placeholder for the user's resources information - including: the number of Cloud BUs and the CSC services which are available for use.
 
 * Satama Project: A Satama project is one which is created at https://satama.csc.fi after satama service is activated at CSC project.
 
 ## Billing Model
 
-Currently, Satama will bill for storage only. Billing is based on the amount of data stored. The account of use of resources is done in increments of one hour. The rate is 3 Storage BU/TiBh i.e. 1 Tib of data stored at Satama will consume 3 Storage BU per hour and 72 Storage BU in a day.
+Currently, Satama will bill for storage only. Billing is based on the amount of data stored. The account of resource usage is provided in one-hour increments. The rate is 3 Storage BU/TiBh i.e. 1 Tib of data stored at Satama will consume 3 Storage BU per hour and 72 Storage BU in a day.
 
-For example, if 10GB of storage is consumed, BU can be calculated by following formula 
+If 10GB of storage is consumed, BU can be calculated using the following formula 
 ```
 (10/1024) * 3 ~= 0.029 BUs per hour
 ```

@@ -1,6 +1,6 @@
 # Clean Up Old Image Tags
 
-Over time, repositories may accumulate many image tags created during development, testing, or automated builds. Keeping unnecessary tags can make repositories harder to navigate and may increase storage usage. Cleaning up old tags helps keep projects organized and ensures that only relevant image versions remain available.
+Over time, repositories may accumulate many image tags created during development, testing, or automated builds. Keeping unnecessary tags can make repositories harder to navigate and may increase storage usage. Cleaning up old tags helps to keep projects organized and ensures that only the relevant image versions remain available.
 
 This tutorial explains how to remove old image tags using the Satama Web UI.
 
@@ -23,15 +23,15 @@ Each tag represents a different version of the container image.
 
 Review the available tags and identify versions that are no longer needed. These might include:
 
-* old development builds
-* outdated release versions
-* temporary testing images
+* Old development builds
+* Outdated release versions
+* Temporary testing images
 
 You can use the following information to decide which tags to remove:
 
-* tag name
-* push time
-* vulnerability scan results
+* Tag name
+* Push time
+* Vulnerability scan results
 
 ## Step 4: Delete the Tag
 

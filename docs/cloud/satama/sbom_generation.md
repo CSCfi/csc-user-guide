@@ -19,4 +19,4 @@ You can enable automatic SBOM generation of images on push.
 * Locate the **SBOM generation** section.
 * Check box in front of **Automatically generate SBOM on push**
 
-When SBOM generation is enabled, Satama automatically analyzes images after they are pushed to a project, producing a structured list of components that can be viewed directly from the image details page. If disabled, user can maually trigger SBOM generation, click on the repository and select the image. Now you can start scanning by clicking the botton 'generate SBOM'.
+When SBOM generation is enabled, Satama automatically analyzes images after they are pushed to a project, producing a structured list of components that can be viewed directly from the image details page. If disabled, user can manually trigger SBOM generation, click on the repository and select the image. Now you can start scanning by clicking the button 'generate SBOM'.
