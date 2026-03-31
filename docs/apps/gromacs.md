@@ -29,22 +29,22 @@ with plenty of analysis scripts.
 === "Roihu-CPU"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2025.1   |`gromacs/2025.1`|
-    |2025.2   |`gromacs/2025.2`|
-    |2025.3   |`gromacs/2025.3`|
-    |2025.4   |`gromacs/2025.4`|
-    |2026.0   |`gromacs/2026.0`|
-    |2026.1   |`gromacs/2026.1`|
+    |2025.1   |`gromacs/2025.1`|CPU version
+    |2025.2   |`gromacs/2025.2`|CPU version
+    |2025.3   |`gromacs/2025.3`|CPU version
+    |2025.4   |`gromacs/2025.4`|CPU version
+    |2026.0   |`gromacs/2026.0`|CPU version
+    |2026.1   |`gromacs/2026.1`|CPU version
 
 === "Roihu-GPU"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2025.1   |`gromacs/2025.1`|
-    |2025.2   |`gromacs/2025.2`|
-    |2025.3   |`gromacs/2025.3`|
-    |2025.4   |`gromacs/2025.4`|
-    |2026.0   |`gromacs/2026.0`|
-    |2026.1   |`gromacs/2026.1`|
+    |2025.1   |`gromacs/2025.1`|GPU version
+    |2025.2   |`gromacs/2025.2`|GPU version
+    |2025.3   |`gromacs/2025.3`|GPU version
+    |2025.4   |`gromacs/2025.4`|GPU version
+    |2026.0   |`gromacs/2026.0`|GPU version
+    |2026.1   |`gromacs/2026.1`|GPU version
 
 === "LUMI"
     | Version | Available modules | Notes |
