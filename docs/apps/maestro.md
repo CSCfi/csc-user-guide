@@ -54,11 +54,13 @@ Specifically, this means that module versions older than two years will be remov
 This policy is enforced to free up disk space and encourage use of the latest versions
 which tend to be more performant and have less bugs.
 
-!!! warning "Desmond simulations cannot be run on Roihu!"
+!!! warning "Desmond MD simulations cannot be run on Roihu!"
     Schrödinger only ships x86 builds of their software suite. This means that
-    any Schrödinger modules that require GPUs, most notably Desmond, cannot be
-    run on Roihu. Consequently, CSC provides Maestro modules only on Roihu-CPU
-    for Glide etc. workloads that do not require GPUs.
+    **any Schrödinger modules that require GPUs, most notably Desmond, cannot
+    be run on Roihu**.
+
+    CSC provides Maestro modules only on Roihu-CPU for purely CPU-based
+    workloads such as virtual screening (Glide).
 
 !!! info "Maestro versions older than 2023.1 will not work after 13.3.2025!"
     Schrödinger has taken into use a
