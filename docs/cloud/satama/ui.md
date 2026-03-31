@@ -42,7 +42,7 @@ Each tab in this menu provides access to a different part of the project and all
 * **Labels** Labels can be used to categorize and organize repositories and images. it can help in quickly understand the purpose or ownership. You can also filter images by labels. Satama has two types of labels:
 
     * Global Level Labels: System administrators can create, update and delete the global level labels. These can be used by any image under any project. 
-    * Project Level Labels: Project administrators and system administrators can list, create, update and delete the project level labels. These are mainly managed by project administrators only because of the scope of these labels. 
+    * Project Level Labels: Project administrators and system administrators can list, create, update and delete the project level labels. These are mainly managed by project administrators only because of the scope of these labels.
 
 * **Scanner** tab shows information about the vulnerability scanning service used by the project. Here, we have **Trivy** as the scanner.
 

@@ -67,4 +67,4 @@ Cleaning up old images provides several benefits:
 * Prevents confusion between image versions
 * Improves overall repository management
 
-Administrators can also configure tag retention policies to automatically remove outdated tags while preserving the most recent or important versions.
+Administrators can also configure tag retention policies to automatically remove outdated tags while preserving the most recent or important versions. 
