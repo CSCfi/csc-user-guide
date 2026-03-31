@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 0.1
+  exclude: true
 ---
 
 # Reference card

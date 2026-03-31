@@ -1,5 +1,34 @@
 # Applications
 
+## CSC chemistry software stack on LUMI updated, 23.3.2026
+
+The chemistry software stack maintained by CSC on LUMI
+(`/appl/local/csc/soft/chem`) has been recompiled following the recent major
+LUMI upgrade. Modules and instructions for the following software have been
+updated:
+
+* [Amber](../../apps/amber.md)
+* [CP2K](../../apps/cp2k.md)
+* [GROMACS](../../apps/gromacs.md)
+* [LAMMPS](../../apps/lammps.md)
+* [NAMD](../../apps/namd.md)
+* [PLUMED](../../apps/plumed.md)
+* [Quantum ESPRESSO](../../apps/qe.md)
+
+At the same time, certain older module versions have been deprecated. In
+general, we recommend using the most recent software versions as they tend to
+have better performance and less bugs than older releases.
+
+Please contact [CSC Service Desk](../contact.md) if you notice any issues with
+the modules.
+
+## Schrödinger Maestro 2026.1, 12.3.2026
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2026.1 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
 ## Geoconda 3.14.3, 5.3.2026
 
 New version of geoconda has been added to Puhti and Mahti. In this version unusually many new Python-libraries have been added, 

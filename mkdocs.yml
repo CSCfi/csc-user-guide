@@ -253,6 +253,7 @@ theme:
   features:
     - content.action.edit
     - content.code.copy
+    - content.tabs.link
 
 extra_css:
   - assets/stylesheets/extra.css
@@ -349,6 +350,7 @@ nav:
               - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
               - MATLAB: computing/webinterface/matlab.md
               - MLflow: computing/webinterface/mlflow.md
+              - R-Jupyter: computing/webinterface/r-jupyter.md
               - RStudio: computing/webinterface/rstudio.md
               - TensorBoard: computing/webinterface/tensorboard.md
               - Visual Studio Code: computing/webinterface/vscode.md
@@ -597,8 +599,8 @@ nav:
           - Analyse with SD Desktop:
               - data/sensitive-data/sd_desktop.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
-              - Create virtual desktop: data/sensitive-data/sd-desktop-create.md
-              - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
+              - Create virtual desktop and volume: data/sensitive-data/sd-desktop-create.md
+              - Manage virtual desktop and volume: data/sensitive-data/sd-desktop-manage.md
               - Access virtual desktop: data/sensitive-data/sd-desktop-access-vm.md
               - Work with your virtual desktop: data/sensitive-data/sd-desktop-working.md
               - Customisation - software & tools: data/sensitive-data/sd-desktop-software.md
