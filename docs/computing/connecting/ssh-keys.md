@@ -259,7 +259,7 @@ following instructions illustrate only basic usage.
 
 1. **Connect to Roihu following these instructions**:
       1. [Linux/macOS](ssh-unix.md#basic-usage)
-      1. [Windows](ssh-unix.md#basic-usage)
+      1. [Windows](ssh-windows.md#basic-usage)
 
     !!! info "Optional: Check when your SSH certificate will expire"
         Each SSH certificate is valid for 24 hours. The expiration time can be
