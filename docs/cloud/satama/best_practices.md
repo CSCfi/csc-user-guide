@@ -52,16 +52,9 @@ Using explicit version tags improves traceability and ensures reproducible deplo
 Periodically review vulnerability scan reports for images stored in Satama.
 
 If vulnerabilities are detected:
-<<<<<<< HEAD
-
-* update the base image
-* update affected packages
-* rebuild the container image
-=======
 * Update the base image
 * Update affected packages
 * Rebuild the container image
->>>>>>> e9e8b387 (Fixs as per the suggestions)
 
 High-severity vulnerabilities should be addressed before deploying images to production environments.
 
@@ -70,15 +63,8 @@ High-severity vulnerabilities should be addressed before deploying images to pro
 Over time, repositories may accumulate outdated images and unused tags. Removing these unused artifacts helps keep the registry organized.
 
 Cleaning up old images provides several benefits:
-<<<<<<< HEAD
-
-* reduces storage usage
-* prevents confusion between image versions
-* improves overall repository management
-=======
 * Reduces storage usage
 * Prevents confusion between image versions
 * Improves overall repository management
->>>>>>> e9e8b387 (Fixs as per the suggestions)
 
 Administrators can also configure tag retention policies to automatically remove outdated tags while preserving the most recent or important versions.
