@@ -1,5 +1,6 @@
 # Tutorials
 
+* [BeeGFS](beegfs.md)
 * [cPouta and ePouta related videos](pouta-videos.md)
 * [Create a fixed IP for a VM](create-fixed-ip-for-Vm.md)
 * [Create a jumphost in cPouta](create-jumphost.md)
