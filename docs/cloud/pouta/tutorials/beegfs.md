@@ -365,3 +365,58 @@ Key points from the license include:
 - Redistribution and modification are restricted; you cannot redistribute modified versions without explicit permission.
 - The software is provided "as-is," meaning there is no warranty or guarantee for its performance or suitability.
 - The license is designed to protect the intellectual property of the BeeGFS creators while allowing free use for both personal and commercial purposes.
+
+## Migrate the metadata nodes
+
+If you have deployed your metadata on the local disk, you won't be able to extend the volume.
+
+You can easily migrate the metadata for `/` to a mounted volume. The best way to accomplish this is to run `rsync`
+
+Once your volume has been formatted and mounted, you can run these commands (with `root` user):
+
+```sh
+systemctl stop beegfs-meta
+rsync -aHAX --numeric-ids /data/beegfs/beegfs_meta/ /mnt/beegfs_meta/
+systemctl start beegfs-meta
+```
+
+!!! important  
+    **DO NOT** re-register the metadata service with `/opt/beegfs/sbin/beegfs-setup-meta -p /data/beegfs/beegfs_meta -s 2 -m IP_ADDRESS_MGMT_NODE` The management service will be confused because it will generate a new registration token and won't be able to start the service
+
+## [Benchmark](https://doc.beegfs.io/latest/advanced_topics/benchmark.html)
+
+BeeGFS comes with a tool that allows you to benchmark the storage
+
+The commands below are run the `root` user.
+
+The following example starts a write benchmark on all targets of all BeeGFS storage servers with an IO blocksize of 512 KB, using 10 threads (i.e., simulated client streams) per target, each of which will write 200 GB of data to its own file.
+
+```sh
+beegfs benchmark start --block-size=512KiB --size=200GiB --num-tasks=10
+```
+
+To query the benchmark status/result of all targets, execute the command below.
+
+```sh
+beegfs benchmark status
+```
+
+You can use the watch flag for repeating the query in a given interval in seconds, as shown below:
+
+```sh
+beegfs benchmark status --watch=1s
+```
+
+The generated files will not be automatically deleted when a benchmark is complete. You can delete them by using the following command.
+
+```sh
+beegfs benchmark cleanup
+```
+
+More details about the storage benchmark and its options are available in the help of the beegfs tool, as follows.
+
+```sh
+beegfs benchmark --help
+beegfs benchmark start --help
+beegfs benchmark status --help
+```
