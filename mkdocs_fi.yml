@@ -308,7 +308,7 @@ nav:
               - S3cmd: data/Allas/using_allas/s3_client.md
               - Pouta web-käyttöliittymä: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
-  - Arkaluonteinen data:
+  - Sensitiivinen data:
       - data/sensitive-data/index.md
       - Sisällysluettelo: data/sensitive-data/sd-services-toc.md
       - Tutkimusdata - Tallenna ja analysoi:

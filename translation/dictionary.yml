@@ -1,1 +1,137 @@
-# Intentionally blank file
+- en: "sensitive data"
+  fi: "sensitiivinen data"
+
+- en: "Findata permit"
+  fi: "Findatan tietolupa"
+
+- en: "Public register permit"
+  fi: "Julkisen rekisterin tietolupa"
+
+- en: "secondary use"
+  fi: "toisiokäyttö"
+
+- en: "the Act on Secondary Use"
+  fi: "toisiolaki"
+
+- en: "web interface"
+  fi: "selainkäyttöliittymä"
+
+- en: "SSH client"
+  fi: "SSH-asiakasohjelma"
+
+- en: "workflow"
+  fi: "työvuo"
+
+- en: "policies"
+  fi: "ehdot"
+
+- en: "data access application"
+  fi: "käyttölupahakemus"
+
+- en: "data approval"
+  fi: "käyttölupapyyntöjen hyväksyntä"
+
+- en: "published under controlled access"
+  fi: "rajoitetuin käyttöoikeuksin julkaistut"
+
+- en: "FEGA submission"
+  fi: "FEGA-julkaisu"
+
+- en: "FEGA node"
+  fi: "FEGA-noodi"
+
+- en: "bucket"
+  fi: "ämpäri"
+
+- en: "phenotypic data"
+  fi: "fenotyyppiaineisto"
+
+- en: "legal agreement"
+  fi: "sopimus"
+
+- en: "GDPR document"
+  fi: "GDPR-lomake"
+
+- en: "helpdesk"
+  fi: "asiakastuki"
+
+- en: "submission request"
+  fi: "aineiston julkaisupyyntö"
+
+- en: "Central EGA"
+  fi: "keskus-EGA"
+
+- en: "CSC Sensitive Data Services for research"
+  fi: "CSC:n sensitiivisen datan palveluita tutkimukselle"
+
+- en: "command-line interface"
+  fi: "komentorivikäyttöliittymä"
+
+- en: "workaround"
+  fi: "väliaikainen ratkaisu"
+
+- en: "additional legal agreements"
+  fi: "täydentävät sopimukset"
+
+- en: "Finnish Social and Health Data Permit Authority"
+  fi: "Sosiaali- ja terveysalan tietolupaviranomainen"
+
+- en: "to Allas"
+  fi: "Altaaseen"
+
+- en: "in cPouta"
+  fi: "cPoudassa"
+
+- en: "in Puhti"
+  fi: "Puhdissa"
+
+- en: "in Mahti"
+  fi: "Mahdissa"
+
+- en: "to SD Apply"
+  fi: "SD Applyyn"
+
+- en: "option"
+  fi: "optio"
+
+- en: "Virtual Desktop"
+  fi: "virtuaalinen työpöytä"
+
+- en: "installer"
+  fi: "asennustyökalu"
+
+- en: "extra security layers"
+  fi: "lisäsuojaustoimet"
+
+- en: "output format"
+  fi: "tiedostomuoto"
+
+- en: "Data Processing Agreement (DPA)"
+  fi: "Henkilötietojen käsittelysopimus (DPA)"
+
+- en: "full details"
+  fi: "täydet tiedot"
+
+- en: "root disk"
+  fi: "järjestelmälevy"
+
+- en: "quick access"
+  fi: "pikakäyttö"
+
+- en: "volume"
+  fi: "taltio"
+
+- en: "Billing Units"
+  fi: "laskutusyksiköt (BUs)"
+
+- en: "research data management"
+  fi: "tutkimusdatanhallinta"
+
+- en: "Discovery metadata"
+  fi: "löydettävyysmetadata"
+
+- en: "provenance"
+  fi: "alkuperä"
+
+- en: "repository"
+  fi: "repositorio"
