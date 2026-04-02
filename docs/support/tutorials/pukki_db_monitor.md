@@ -39,8 +39,7 @@ The example files can be found in [CSC github](https://github.com/CSCfi/pukki-db
 
 4. Click **Create Application Credential**
 
-5. Use:
-   - Role: `reader`
+5. Use Role: `reader`
 
 6. Create the credential and download the file
 
@@ -97,7 +96,7 @@ For more info about Rahti registry [read here](../../cloud/rahti/images/Using_Ra
 
 Open and update:
 
-``
+```
 [db-monitor-cronjob.yaml](https://github.com/CSCfi/pukki-dbaas-monitor/blob/main/db-monitor-cronjob.yaml)
 ```
 
