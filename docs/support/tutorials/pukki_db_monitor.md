@@ -1,6 +1,6 @@
 !!! error "Advanced level"
     You need to have Docker and Python knowledge.  
-    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../usage/cli.md)
+    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../../cloud/rahti/usage/cli.md)
 
 # Monitor Pukki DBaaS instance sizes from a Rahti CronJob using application credentials
 
