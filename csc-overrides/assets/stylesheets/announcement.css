@@ -19,7 +19,7 @@
 
 .announcement-banner > .announcement-container > p:first-child {
   font-weight: 600;
-  margin-top: 0;
+  margin: 0 0 .5em 0;
 }
 
 .announcement-banner > .announcement-container > div:first-of-type > p:first-child,
