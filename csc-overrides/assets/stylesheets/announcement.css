@@ -8,6 +8,25 @@
   font-size: 1.25em;
 }
 
+.announcement-banner:has(.announcement-container) {
+  height: auto;
+}
+
+.announcement-banner > .announcement-container {
+  max-width: calc(var(--csc-content-width) * 0.5);
+  padding: .5em;
+}
+
+.announcement-banner > .announcement-container > p:first-child {
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.announcement-banner > .announcement-container > div:first-of-type > p:first-child,
+.announcement-banner > .announcement-container > div:first-of-type > p:last-child {
+  margin: 0;
+}
+
 .announcement-banner a {
   text-decoration: underline;
   transition: background-color 125ms;
