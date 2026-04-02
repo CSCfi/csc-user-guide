@@ -1,10 +1,13 @@
+!!! error "Advanced level"
+    You need to have Docker and Python knowledge.  
+    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../usage/cli.md)
+
 # Monitor Pukki DBaaS instance sizes from a Rahti CronJob using application credentials
 
 This tutorial shows how to run a **Rahti CronJob** that uses **Pukki application credentials** to query OpenStack DBaaS instances and send an email alert if any database instance volume exceeds a configured threshold (default: **90%**).
 
 Application credentials are the recommended way to authenticate automated tools and scripts without exposing your personal username and password.
 
----
 
 # Overview
 
@@ -26,33 +29,25 @@ openstack database instance show <instance_name> -f json
 
 The example files can be found in [CSC github](https://github.com/CSCfi/pukki-dbaas-monitor)
 
----
-
 # 1. Create application credentials in Pukki
 
 1. Log in to Pukki
 
 2. Select your project
 
-3. Navigate to:
-
-   ```
-   Identity → Application Credentials
-   ```
+3. Navigate to `Identity → Application Credentials`
 
 4. Click **Create Application Credential**
 
 5. Use:
-   * Role: `reader`
+   - Role: `reader`
 
 6. Create the credential and download the file
 
 !!! note
     Application credentials are linked to the user account that created them. If the user leaves the project or their access is revoked, the credentials will become invalid
 
-Read more about [Application credentials](../../cloud/dbaas/application-credentials.md) 
-
----
+Read more about [Application credentials here](../../cloud/dbaas/application-credentials.md) 
 
 # 2. Configure Credentials in Rahti
 
@@ -75,8 +70,6 @@ Then apply the Secret:
 oc apply -f db-monitor-openstack-secret.yaml
 ```
 
----
-
 # 3. Build and push the container image
 
 Login to the Rahti registry:
@@ -97,7 +90,7 @@ Push the image:
 sudo docker push image-registry.apps.2.rahti.csc.fi/<replace me>/db-monitor:latest
 ```
 
----
+For more info about Rahti registry [read here](../../cloud/rahti/images/Using_Rahti_integrated_registry.md)
 
 # 4. Configure the CronJob
 
@@ -108,20 +101,18 @@ Open:
 Update:
 
 image path:
-- image-registry.apps.2.rahti.csc.fi/<replace me>/db-monitor:latest
+   - image-registry.apps.2.rahti.csc.fi/<replace me>/db-monitor:latest
 email settings:
-- MAIL_FROM: "<replace me>"
-- MAIL_TO: "<replace me>"
+   - MAIL_FROM: "<replace me>"
+   - MAIL_TO: "<replace me>"
 optional threshold:
-- THRESHOLD_PERCENT: "90"
+   - THRESHOLD_PERCENT: "90"
 
 Apply the configuration:
 
 ```sh
 oc apply -f db-monitor-cronjob.yaml
 ```
-
----
 
 # 5. Run a manual test
 
@@ -131,7 +122,6 @@ Before waiting for the scheduled run, test manually:
 oc create job --from=cronjob/openstack-db-monitor db-monitor-test
 oc logs -f job/db-monitor-test
 ```
-Expected output
 
 You should see something like:
 
@@ -142,8 +132,6 @@ db-a: 12.50%
 db-b: 93.00%
 Alert email sent for 1 instance(s)
 ```
-
----
 
 # Conclusion
 
