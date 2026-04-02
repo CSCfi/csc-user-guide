@@ -46,15 +46,20 @@ The example files can be found in [CSC github](https://github.com/CSCfi/pukki-db
 !!! note
     Application credentials are linked to the user account that created them. If the user leaves the project or their access is revoked, the credentials will become invalid
 
-Read more about [Application credentials here](../../cloud/dbaas/application-credentials.md) 
+Read more about [Application credentials here](../../cloud/dbaas/application-credentials.md)
 
-# 2. Configure Credentials in Rahti
+# 2. Clone the example repository
 
-Edit the file:
+Clone the example repository:
 
+```sh
+git clone https://github.com/CSCfi/rahti-openstack-dbaas-monitor.git
 ```
-[db-monitor-openstack-secret.yaml](https://github.com/CSCfi/pukki-dbaas-monitor/blob/main/db-monitor-openstack-secret.yaml)
-```
+
+# 3. Configure Credentials in Rahti
+
+Edit the file `db-monitor-openstack-secret.yaml`
+
 Replace all placeholder values:
 
 ```
@@ -70,7 +75,7 @@ Then apply the Secret:
 oc apply -f db-monitor-openstack-secret.yaml
 ```
 
-# 3. Build and push the container image
+# 4. Build and push the container image
 
 Login to the Rahti registry:
 
@@ -92,13 +97,9 @@ sudo docker push image-registry.apps.2.rahti.csc.fi/<replace me>/db-monitor:late
 
 For more info about Rahti registry [read here](../../cloud/rahti/images/Using_Rahti_integrated_registry.md)
 
-# 4. Configure the CronJob
+# 5. Configure the CronJob
 
-Open and update:
-
-```
-[db-monitor-cronjob.yaml](https://github.com/CSCfi/pukki-dbaas-monitor/blob/main/db-monitor-cronjob.yaml)
-```
+Open `db-monitor-cronjob.yaml` and update
 
 image path:
 ```
@@ -119,7 +120,7 @@ Apply the configuration:
 oc apply -f db-monitor-cronjob.yaml
 ```
 
-# 5. Run a manual test
+# 6. Run a manual test
 
 Before waiting for the scheduled run, test manually:
 
