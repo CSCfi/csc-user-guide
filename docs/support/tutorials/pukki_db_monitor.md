@@ -53,8 +53,9 @@ Read more about [Application credentials here](../../cloud/dbaas/application-cre
 
 Edit the file:
 
-[`db-monitor-openstack-secret.yaml`](https://github.com/CSCfi/pukki-dbaas-monitor/blob/main/db-monitor-openstack-secret.yaml)
-
+```
+[db-monitor-openstack-secret.yaml](https://github.com/CSCfi/pukki-dbaas-monitor/blob/main/db-monitor-openstack-secret.yaml)
+```
 Replace all placeholder values:
 
 ```
@@ -94,20 +95,25 @@ For more info about Rahti registry [read here](../../cloud/rahti/images/Using_Ra
 
 # 4. Configure the CronJob
 
-Open:
+Open and update:
 
-[`db-monitor-cronjob.yaml`](https://github.com/CSCfi/pukki-dbaas-monitor/blob/main/db-monitor-cronjob.yaml)
-
-Update:
+``
+[db-monitor-cronjob.yaml](https://github.com/CSCfi/pukki-dbaas-monitor/blob/main/db-monitor-cronjob.yaml)
+```
 
 image path:
-   - image-registry.apps.2.rahti.csc.fi/<replace me>/db-monitor:latest
+```
+image-registry.apps.2.rahti.csc.fi/<replace me>/db-monitor:latest
+```
 email settings:
-   - MAIL_FROM: "<replace me>"
-   - MAIL_TO: "<replace me>"
+```
+MAIL_FROM: "<replace me>"
+MAIL_TO: "<replace me>"
+```
 optional threshold:
-   - THRESHOLD_PERCENT: "90"
-
+```
+THRESHOLD_PERCENT: "90"
+```
 Apply the configuration:
 
 ```sh
