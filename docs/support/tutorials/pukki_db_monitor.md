@@ -53,7 +53,7 @@ Read more about [Application credentials here](../../cloud/dbaas/application-cre
 Clone the example repository:
 
 ```sh
-git clone https://github.com/CSCfi/rahti-openstack-dbaas-monitor.git
+git clone https://github.com/CSCfi/pukki-dbaas-monitor.git
 ```
 
 # 3. Configure Credentials in Rahti
