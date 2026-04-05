@@ -14,7 +14,7 @@ extra:
     content: |-
       <p>Warning!</p>
       <div>
-        <p>Puhti scratch disk is becoming very full (80+ % ) resulting in performance degradation. Everybody is advised to only keep actively processed data on scratch, all other data should be deleted, transferred to host institute or stored in Lumi-O. No new quota will be granted. <a href="{{ base_url }}/support/tutorials/clean-up-data/">Click here for tips on data management.</a></p>
+        <p>Puhti scratch disk is becoming very full (80+ % ) resulting in performance degradation. Everybody is advised to only keep actively processed data on scratch, all other data should be deleted, transferred to host institute or stored in Lumi-O. No new quota will be granted. <a href="{{ base_url }}/support/tutorials/lue/">Click here for a tool for examining your disk usage.</a></p>
       </div>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
