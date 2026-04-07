@@ -14,14 +14,15 @@ guidelines for using the Slurm partitions on our systems:
    parallel processing.** Reserving multiple cores does not automatically
    speed up your job. Your program must be written in a way that the
    computations can be done in multiple threads or processes. Reserving more
-   cores does nothing by itself, except make you queue for longer.
+   cores does nothing by itself if your code is not parallelized,
+   except making you queue for longer.
 3. **Only use the GPU partitions if you know your program can utilize GPUs.**
    Running your computations using one or more GPUs is a very effective
    parallelization method for certain applications, but your program must be
    configured to use the CUDA platform. If you are unsure whether this is the
    case, it is better to submit it to a CPU partition, since you will be
-   allocated resources sooner. You may also always
-   [consult CSC Service Desk](../../support/contact.md) when in doubt.
+   allocated resources sooner. If unsure, contact
+   [CSC Service Desk](../../support/contact.md).
 
 The following commands can be used to show information about available
 partitions:
@@ -47,7 +48,7 @@ and resource requirements. These are explained in the table below.
 |:---------------:|---------------------------------------------------------------------------|
 | R               | Memory and CPU resources can be changed independently                     |
 | N               | Full node requests only                                                   |
-| C               | Share of memory resources fixed based on requested number of cores        |
+| C               | Share of memory resources fixed based on requested number of CPU cores    |
 | G               | Share of CPU and memory resources fixed based on requested number of GPUs |
 
 ### Roihu CPU partitions
@@ -86,7 +87,7 @@ and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
 ### Roihu pilot partitions
 
 In addition to the regular partitions, the following partitions are also
-available during Roihu pilot phase.
+available during the Roihu pilot phase:
 
 | Partition  | Allocation type | Time limit | Min nodes | Max nodes | [Node types](../systems-roihu.md#nodes) |
 |------------|-----------------|------------|-----------|-----------|-----------------------------------------|
