@@ -24,8 +24,8 @@
 ## Building MPI applications
 
 C/C++ and Fortran applications can be built with
-[GNU](https://gcc.gnu.org) or [AMD](https://developer.amd.com/amd-aocc/)
-compiler suites. The GNU compilers are loaded by default. AMD compilers can be
+the [GNU](https://gcc.gnu.org) or the [AMD](https://developer.amd.com/amd-aocc/)
+compiler suites. GNU compilers are loaded by default. AMD compilers can be
 loaded using the [Modules](modules.md) system with the command:
 ```
 module load aocc
@@ -53,7 +53,7 @@ performance has improved.
 | **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops |
 
 
-A detailed list of options for the GNU and AMD compilers can be found on the _man_
+A detailed list of options for the GNU and AMD compilers can be found in the _man_
 pages (`man gcc/gfortran`)  when the corresponding programming
 environment is loaded, or in the compiler manuals (see the links above).
 
@@ -65,8 +65,8 @@ module spider aocc
 
 ## Building OpenMP and hybrid applications
 
-Additional compiler and linker flags are needed when building OpenMP or
-MPI/OpenMP hybrid applications:
+An additional compiler and linker flag is needed when building an OpenMP or a hybrid
+MPI/OpenMP application:
 
 | Compiler suite | OpenMP flag |
 | :------------- | :---------- |
@@ -74,7 +74,7 @@ MPI/OpenMP hybrid applications:
 
 ## Building serial applications
 
-For building serial applications, one needs to use compiler suite
+For building serial applications, one needs to use a compiler suite
 specific compiler command:
 
 | Compiler suite | C  | C++ | Fortran |
