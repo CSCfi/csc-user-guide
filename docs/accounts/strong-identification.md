@@ -3,9 +3,9 @@
 Using strong identification means that you prove your identity. After you have been authenticated using a strong authentication method, 
 your assurance level is raised from low to medium. Some of CSC's services require a higher level of assurance. 
 
-[Roihu](../computing/systems-roihu.md) and [Sensitive Data](../data/sensitive-data/findata-permit.md) services are two of them.
+Accessing Roihu requires medium-level assurance. CSC's [Sensitive Data](../data/sensitive-data/findata-permit.md) services also require higher levels of authentication.
 
-To raise the assurance level, you need to login to our customer portal MyCSC and download the Candour ID app. 
+To raise the assurance level to high, you need to login to our customer portal MyCSC and download the Candour ID app. 
 
 Please follow our instructions precisely. The identity vetting service provider is [Candour Ltd.](https://candour.fi/)
 
