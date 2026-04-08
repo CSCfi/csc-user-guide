@@ -1,24 +1,23 @@
 # Compiling applications in Roihu
 
 !!! info
-    Roihu has separate CPU and GPU environments:
+    Roihu has separate CPU and GPU partitions with different CPU architectures:
 
-    - The CPU login nodes and CPU compute nodes use AMD x86 processors
-    - The GPU login nodes and GPU compute nodes use NVIDIA Grace (ARM) processors
+    - Roihu-CPU nodes use AMD x86 processors
+    - Roihu-GPU nodes use NVIDIA Grace (ARM) processors
 
-    Because these environments use different CPU architectures, software should generally be compiled on the same side where it will be run:
+    Binaries compiled for one architecture are generally not usable on the other.
+    Accordingly, software should be compiled on the same side where it will be run:
 
-    - Compile for CPU nodes on the CPU login node
-    - Compile for GPU nodes on the GPU login node
+    - Compile for CPU nodes on the Roihu-CPU login node
+    - Compile for GPU nodes on the Roihu-GPU login node
 
-    Binaries compiled on one architecture are not generally usable on the other.
 
 ## General instructions
 
 - Whenever possible, use the [local disk](disk.md#login-nodes) on the login node for compiling software.
     - Compiling on the local disk is much faster and shifts load from the shared file system.
     - The local disk is cleaned frequently, so please move your files elsewhere after compiling.
-
 
 
 ## Building MPI applications
@@ -40,10 +39,10 @@ the `mpicc` (C), `mpicxx` (C++), or `mpif90` (Fortran) wrappers.
 
 The compiler options for different suites are different. The
 recommended basic optimization flags are listed in the table below. It
-is recommended to start from 
+is recommended to start from
 the safe level and then move up to intermediate or even aggressive,
 while making sure the results are  correct and the program's
-performance has improved. 
+performance has improved.
 
 
 | Optimisation level | GNU               | AMD (clang) |
@@ -88,28 +87,36 @@ specific compiler command:
     When compiling for the GPU nodes on Roihu, make sure you use Roihu's GPU login nodes.
 
 CUDA is the recommended programming model for Nvidia GPUs and CSC provides it as
-an environment module. 
+an environment module.
 
 ### CUDA
 
 The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for the target
 GPU device and passing on the rest to a non-CUDA compiler (i.e. `gcc`).
-For example, to load the CUDA 12.9 environment together with the GNU compiler:
+For example, to load the CUDA 13.1 environment together with the GNU compiler:
 
 ```bash
-module load gcc/11.5.0 cuda/12.9.0
+module load gcc/15.2.0 cuda/13.1.1
 ```
 
 To generate code for a given target device, tell the CUDA
 compiler what compute capability the target device supports. On Roihu, the
 GPUs (Hopper 200) support compute capability 9.0. Specify this using
-`-gencode arch=compute_90,code=sm_90`.
+`-gencode arch=compute_90,code=sm_90`. Alternatively, you may use `compute_90a`
+or `sm_90a` to enable Hopper-specific extension features that may produce more
+performant code.
 
 For example, compiling a CUDA kernel (`example.cu`) on Roihu:
 
 ```bash
-nvcc -gencode arch=compute_90,code=sm_90 example.cu
+nvcc -gencode arch=compute_90a,code=sm_90a example.cu
 ```
+
+!!! info
+    Code generated with `arch=compute_90a` or `code=sm_90a` is not backwards or forwards
+    compatible with other GPU architectures. If this is a concern for you, use the
+    more generic `arch=compute_90,code=sm_90` options.
+
 
 ## Building software using Spack
 
