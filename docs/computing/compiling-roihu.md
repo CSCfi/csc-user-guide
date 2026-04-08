@@ -20,7 +20,7 @@
     - The local disk is cleaned frequently, so please move your files elsewhere after compiling.
 
 
-## Building MPI applications
+## Compiling on Roihu-CPU
 
 C/C++ and Fortran applications can be built with
 the [GNU](https://gcc.gnu.org) or the [AMD](https://developer.amd.com/amd-aocc/)
@@ -30,37 +30,74 @@ loaded using the [Modules](modules.md) system with the command:
 module load aocc
 ```
 
-Different applications function better with different suites, so the selection
-needs to be done on a case-by-case basis.
+The compiler executables are as follows:
 
-The MPI environment in Mahti is OpenMPI, and when building MPI
-applications all compiler suites can be used with
-the `mpicc` (C), `mpicxx` (C++), or `mpif90` (Fortran) wrappers.
+| Compiler suite | C  | C++ | Fortran |
+| :------------- | :- | :-- | :------ |
+| GNU            | gcc | g++ | gfortran |
+| AMD            | clang | clang++ | flang |
+
+For applications that depend on MPI, it is recommended to instead use the compiler
+wrappers described in the [MPI section](#building-mpi-applications) below.
 
 The compiler options for different suites are different. The
 recommended basic optimization flags are listed in the table below. It
-is recommended to start from
-the safe level and then move up to intermediate or even aggressive,
-while making sure the results are  correct and the program's
+is recommended to start from the safe level and then move up to intermediate
+or even aggressive, while ensuring the results are correct and the program's
 performance has improved.
 
-
-| Optimisation level | GNU               | AMD (clang) |
+| Optimization level | GNU               | AMD (clang) |
 | :----------------- | :---------------- | :----------- |
-| **Safe**           | -O2 -march=native | -O2 -march=native  |
+| **Safe**           | -O2 -march=native | -O2 -march=native |
 | **Intermediate**   | -O3 -march=native | -O3 -march=native |
 | **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops |
 
+!!! info
+    Because the Roihu-CPU login and compute nodes share the same CPU architecture,
+    compiling for the native architecture (`-march=native`) is optimal even if
+    the compilation is done on login nodes.
+
+Example of compiling a non-MPI C program in GNU environment:
+```bash
+gcc -O3 -march=native example.c -o example
+```
 
 A detailed list of options for the GNU and AMD compilers can be found in the _man_
 pages (`man gcc/gfortran`)  when the corresponding programming
 environment is loaded, or in the compiler manuals (see the links above).
+
+We recommend testing and profiling your application with both compiler suites
+to see which compiler works the best for your use case.
 
 List all available versions of the compiler suites:
 ```
 module spider gcc
 module spider aocc
 ```
+
+
+## Building MPI applications
+
+The MPI environment in Roihu is OpenMPI. You may use one of the MPI compiler wrappers
+`mpicc` (C), `mpicxx` (C++), or `mpif90` (Fortran) when compiling MPI applications.
+These wrappers end up calling the compiler from your currently loaded compiler suite
+(GNU or AMD) and work in both compiler suites.
+
+Example:
+```bash
+mpicc -O3 -march=native example.c -o example
+```
+
+List all available versions of OpenMPI (one is always loaded by default):
+```
+module spider openmpi
+```
+
+TODO:
+
+- `aocc` does currently not have a corresponding MPI module. Revisit this and test once that is available
+- Better links/instructions for finding compiler docs
+
 
 ## Building OpenMP and hybrid applications
 
@@ -71,20 +108,17 @@ MPI/OpenMP application:
 | :------------- | :---------- |
 | GNU and AMD    | -fopenmp    |
 
-## Building serial applications
+Example compilation of a hybrid MPI/OpenMP application:
+```bash
+mpicc -O3 -march=native -fopenmp example.c -o example
+```
 
-For building serial applications, one needs to use a compiler suite
-specific compiler command:
 
-| Compiler suite | C  | C++ | Fortran |
-| :------------- | :- | :-- | :------ |
-| GNU            | gcc | g++ | gfortran |
-| AMD            | clang | clang++ | flang |
-
-## Building GPU applications
+## Compiling on Roihu-GPU
 
 !!! info
     When compiling for the GPU nodes on Roihu, make sure you use Roihu's GPU login nodes.
+    Binaries compiled on Roihu-CPU are not compatible with Roihu-GPU nodes.
 
 CUDA is the recommended programming model for Nvidia GPUs and CSC provides it as
 an environment module.
