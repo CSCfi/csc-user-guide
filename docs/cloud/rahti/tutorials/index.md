@@ -29,6 +29,7 @@
 * 🔴 [CI/CD on Rahti](ci_cd_introduction.md)
 * 🔴 [Kustomize](kustomize.md)
 * 🔴 [Learn cloud computing by developing and deploying a web application](web-app-dev-cloud.md)
+* 🔴 [Nextcloud](nextcloud.md)
 * 🔴 [Reverse proxy authentication using a sidecar container](sidecar_proxy_authentication.md)
 
 We also have an [FAQ](../../../support/faq/index.md#rahti) for Rahti. Take a look at it.
