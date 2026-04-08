@@ -7,7 +7,7 @@ you can start by looking at our general
 checking the
 [CSC Computing Environment self-learning course materials](https://csc-training.github.io/csc-env-eff/).
 
-To access Roihu, you need a CSC user account and project that has Roihu service
+To access Roihu, you need a CSC user account and a project with the Roihu service
 enabled. [Read more here](../../accounts/index.md).
 
 [TOC]
@@ -17,19 +17,18 @@ enabled. [Read more here](../../accounts/index.md).
 Connect to Roihu using either:
 
 * [SSH client](#ssh-client)
-* [Roihu web interface](#roihu-web-interface)
+* [Roihu web interface (available after general availability)](#roihu-web-interface)
 
 ### SSH client
 
-Connecting to Roihu using an SSH client requires that you have:
+Connecting to Roihu using an SSH client requires that you:
 
-1. Set up SSH keys and added your public key to MyCSC (like on Puhti & Mahti).
-2. **New:** _Signed_ your public key and downloaded a _certificate_ that allows
-   authenticating.
+1. Set up SSH keys and add your public key to MyCSC (like on Puhti & Mahti).
+2. **New:** _Sign_ your public key and download a _certificate_ for authentication.
     * Each certificate is valid for 24 hours, after which a new one must be
       generated.
 
-**[Read the detailed instructions for managing SSH keys and certificates here](../../computing/connecting/ssh-keys.md).**
+**[Read detailed instructions for managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).**
 
 Once you have set up SSH keys and obtained a valid SSH certificate, connect
 using an SSH client:
@@ -37,17 +36,16 @@ using an SSH client:
 * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md).
 * [Instructions for Windows](../../computing/connecting/ssh-windows.md).
 
-!!! info "Roihu has separate login nodes for CPU and GPU partitions"
+!!! info "Separate login nodes for CPU and GPU partitions"
     Roihu has
-    [different CPU architectures on the CPU and GPU nodes](../../computing/systems-roihu.md#compute).
+    [different CPU architectures on Roihu-CPU and Roihu-GPU](../../computing/systems-roihu.md#compute).
     Hence, there are separate login nodes for building programs and submitting
-    jobs to the respective nodes:
+    jobs to their respective nodes:
     
     1. **`roihu-cpu.csc.fi`**
     2. **`roihu-gpu.csc.fi`**
     
-    For example, connect to one of the CPU login nodes using a command-line SSH
-    client like this:
+    Connecting example (Roihu-CPU):
 
     ```bash
     # Replace <username> with the name of your CSC user account.
@@ -59,8 +57,7 @@ using an SSH client:
     the CPU nodes, while software built on `roihu-gpu.csc.fi` can only be run
     on the GPU nodes. Importantly, this applies also to Python environments.
 
-    **Note that you may access your files from all login nodes because they all
-    use the same shared file system.**
+    **All login nodes still share the same file system, so your files are accessible from all of them.**
 
 ### Roihu web interface
 
@@ -72,21 +69,51 @@ The simplest way to connect to Roihu is to use the web interface.
 
 ## Migrating research data
 
-If you need to transfer research data from Puhti or Mahti to Roihu, we require
+If you need to transfer data from Puhti or Mahti to Roihu, we require
 that you:
 
-1. Carefully review your data before transferring it – **only move what you
+1. Review your data carefully – **only move what you
    really need and check that you have enough space available on Roihu!**
-   Notably, previous extended disk quotas on Puhti or Mahti will not be
-   automatically moved to Roihu. Quota extensions on Roihu must be separately
-   applied for and properly motivated.
-2. Move your data **directly** from Puhti or Mahti to Roihu.
+   Note that extended disk quotas from Puhti or Mahti are not automatically transferred.
+   Quota extensions on Roihu must be applied for separately.
+2. Transfer data **directly** from Puhti or Mahti to Roihu.
 
 **[Read the detailed instructions in the Roihu data migration guide](roihu-data.md).**
 
 ## Installing software
 
+For instructions on the available compilers and preferred options, see the instructions for compiling software on:
+
+- [Compiling on Roihu-CPU](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/computing/compiling-roihu/)
+- [Compiling on Roihu-GPU](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/computing/compiling-roihu/)
+
 ## Running your first job
+
+### Known issues (pilot phase)
+
+During the pilot phase, you may encounter multiple warnings or errors related to *Argos* when running jobs, for example:
+
+```
+error: argos:slurm_spank_task_init: get_env_var: cannot get SLURM_ARGOS_SPANK_OPT from job(22474) environment (No such environment variable)
+```
+
+These messages are **harmless** and do not affect your job execution.
+Your job will continue normally with Argos disabled.
+
+If your job completes successfully, you can safely ignore these messages.
+
+To suppress most of the Argos related warnings and errors, you can pass the `--argos=no` flag option to srun in the following manner:
+
+```bash
+#!/bin/bash
+#SBATCH --account=project_2001659
+#SBATCH --partition=test
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --time=DD:HH:MM
+
+srun --argos=no <your-executable>
+```
 
 ## More information
 
