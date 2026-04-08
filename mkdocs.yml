@@ -418,6 +418,7 @@ nav:
               #     - Pouta videos: cloud/pouta/pouta-videos.md
           - Tutorials:
               - cloud/pouta/tutorials/index.md
+              - BeeGFS: cloud/pouta/tutorials/beegfs.md
               - cPouta and ePouta related videos: cloud/pouta/tutorials/pouta-videos.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
