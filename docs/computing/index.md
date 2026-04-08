@@ -61,7 +61,7 @@ ssh username@puhti.csc.fi
 ssh username@mahti.csc.fi
 ```
 
-Roihu has separate login nodes for the CPU and GPU partitions:
+Roihu has separate login nodes for the Roihu-CPU and Roihu-GPU partitions:
 
 ```bash
 ssh username@roihu-cpu.csc.fi
@@ -90,7 +90,7 @@ Puhti, Mahti and Roihu can also be accessed via their respective
 [web interfaces](webinterface/index.md) available at
 [www.puhti.csc.fi](https://www.puhti.csc.fi),
 [www.mahti.csc.fi](https://www.mahti.csc.fi) and
-[www.roihu.csc.fi](https://www.mahti.csc.fi).
+[www.roihu.csc.fi](https://www.roihu.csc.fi).
 
 ### Scalability
 
@@ -165,6 +165,7 @@ csc-workspaces
     * [Installing software](installing.md)
     * [Compiling on Puhti](compiling-puhti.md)
     * [Compiling on Mahti](compiling-mahti.md)
+    * [Compiling on Roihu](compiling-roihu.md)
 * [Debugging applications](debugging.md): How to debug your applications
 * [Performance analysis](performance.md): How to understand the performance of
   your applications
