@@ -84,14 +84,16 @@ that you:
 
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/computing/compiling-roihu/)
-- [Compiling on Roihu-GPU](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/computing/compiling-roihu/)
+- [Compiling on Roihu-CPU](../../computing/compiling-roihu/)
+- [Compiling on Roihu-GPU](../../computing/compiling-roihu/)
 
 ## Running your first job
 
+For more examples, see [Roihu example Slurm job scripts](../../computing/example-job-scripts-roihu.md)
+
 ### Known issues (pilot phase)
 
-During the pilot phase, you may encounter multiple warnings or errors related to *Argos* when running jobs, for example:
+During the pilot phase, you may encounter multiple warnings or errors related to *Argos* in your Slurm job output, for example:
 
 ```
 error: argos:slurm_spank_task_init: get_env_var: cannot get SLURM_ARGOS_SPANK_OPT from job(22474) environment (No such environment variable)
