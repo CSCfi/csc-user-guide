@@ -4,12 +4,12 @@ SD Connect has been upgraded to version 3.0 and buckets in your project need to 
 
 <div class="grid cards" markdown>
 
-- :material-alert:{ .lg .middle } **If your project has more than 4 TB of data**
+- :material-alert:{ .lg .middle } **If your project has more than 1 TB of data**
   { .csc-grid-card-warning }
 
     ---
     
-    If your project has more than 4 TB of data, contact **servicedesk@csc.fi** with topic "Sensitive Data". We plan conversion process together with you. 
+    If your project has more than 1 TB of data, contact **servicedesk@csc.fi** with topic "Sensitive Data". We plan conversion process together with you. 
 
 </div>
 
