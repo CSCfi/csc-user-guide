@@ -11,7 +11,7 @@ See the [Billing Unit and price calculator](https://research.csc.fi/billing-unit
 
 **The billing rates for the services are as follows:**
 
-* [Puhti and Mahti billing](../computing/hpc-billing.md)
+* [Roihu, Puhti and Mahti billing](../computing/hpc-billing.md)
 * Allas object storage billing:  1 TiB consumes **1.05** Storage BU per hour. Only actual
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
@@ -31,7 +31,7 @@ See the [Billing Unit and price calculator](https://research.csc.fi/billing-unit
 In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the
 Billing Unit consumption and apply for more Billing Units. There you can easily
 check who consumed the Billing Units, when they were consumed and in which
-service. Note that storage-related Billing Unit consumption (in Puhti/Mahti Scratch folders and in
+service. Note that storage-related Billing Unit consumption (in Roihu/Puhti/Mahti Scratch folders and in
 Allas) is not linked to a specific user account and is reported as "other" or "system".
 
 
@@ -44,7 +44,7 @@ You will be notified before your CSC Project's Billing Units run out. When an ac
 
 Detailed information on how services are currently limiting the use when Billing Units run out:
 
-* [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
+* [Roihu, Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
 * [Sensitive Data Desktop](../data/sensitive-data/sd-billing-units.md#what-happens-if-your-project-runs-out-of-billing-units)
 
 
