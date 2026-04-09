@@ -1,5 +1,7 @@
 # SD Connect Conversion tool
 
+SD Connect has been upgraded to version 3.0 and buckets in your project need to be converted. SD Connect Conversion tool allows you to easily convert your buckets from SD Connect 1.0 and 2.0 to be compatible with SD Connect 3.0.
+
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **If your project has more than 4 TB of data**
