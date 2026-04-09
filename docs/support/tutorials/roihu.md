@@ -32,7 +32,9 @@ To connect via SSH:
 
 1. Set up SSH keys (same as Puhti/Mahti)
 2. **New:** _Sign_ your public key and download a _certificate_
-   - Certificates are valid for **24 hours**
+    * Certificates are valid for **24 hours**
+
+For platform-specific instructions, see:
 
 * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md).
 * [Instructions for Windows](../../computing/connecting/ssh-windows.md).
@@ -78,10 +80,10 @@ that you:
 
 1. Review your data carefully – **only move what you
    really need**
-2. Check your available disk space on Roihu
-   - Use e.g. the `csc-workspaces` command for this
-   - Quota extensions are not transferred automatically
+2. Check your available disk space on Roihu (for example, using the `csc-workspaces` command)
 3. Transfer data **directly** from Puhti or Mahti to Roihu.
+
+Note that previous extended disk quotas on Puhti or Mahti will not be automatically moved to Roihu. Quota extensions on Roihu must be separately applied for and properly motivated.
 
 **[Read the detailed instructions in the Roihu data migration guide](roihu-data.md).**
 
@@ -131,13 +133,13 @@ Roihu uses Slurm, similarly to Puhti and Mahti.
 Basic workflow:
 
 1. Create a job script where you
-   - Define the resources for your job (time, memory, cores)
-   - Load the required modules
-   - Launch your executable
+    * Define the resources for your job (time, memory, cores)
+    * Load the required modules
+    * Launch your executable
 2. Submit your batch job into the queuing system
 3. Wait for the job to finish, and look for its output
 
-See the relevant sections for detailed steps:
+See the relevant documentation below for detailed information:
 
 1. [Available batch job partitions](batch-job-partitions.md)
 2. [Creating a batch job script](creating-job-scripts-roihu.md)
