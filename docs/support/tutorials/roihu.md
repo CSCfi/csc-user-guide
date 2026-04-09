@@ -58,10 +58,10 @@ For platform-specific instructions, see:
     ssh <username>@roihu-cpu.csc.fi
     ```
 
-    **Important:**
-   - Software compiled on Roihu-CPU nodes only works on Roihu-CPU nodes
-   - Software compiled on Roihu-GPU nodes only works on Roihu-GPU nodes
-   - This also applies to Python environments
+    **Importantly:**
+    - Software compiled on Roihu-CPU nodes only works on Roihu-CPU nodes
+    - Software compiled on Roihu-GPU nodes only works on Roihu-GPU nodes
+    - This also applies to Python environments
 
     **All login nodes still share the same file system, so your files are accessible from all of them.**
 
