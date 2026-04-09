@@ -568,6 +568,7 @@ nav:
               - Share: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
+              - Page under construction: data/sensitive-data/sd-connect-conversion.md
           - Analyse with SD Desktop:
               - data/sensitive-data/sd_desktop.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
