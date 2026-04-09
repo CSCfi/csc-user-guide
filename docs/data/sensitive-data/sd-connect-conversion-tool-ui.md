@@ -1,6 +1,6 @@
 # SD Connect Conversion tool
 
-SD Connect has been upgraded to version 3.0 and buckets in your project need to be converted. SD Connect Conversion tool allows you to easily convert your buckets from SD Connect 1.0 and 2.0 to be compatible with SD Connect 3.0.
+SD Connect has been upgraded to a new version. This Conversion tool allows you to easily convert buckets created with previous versions of the service.
 
 <div class="grid cards" markdown>
 
