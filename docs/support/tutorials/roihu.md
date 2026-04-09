@@ -1,16 +1,23 @@
 # Getting started with Roihu
 
-This is a quickstart guide for Roihu users. It is assumed that you have
-previously used CSC supercomputing resources like Puhti, Mahti or LUMI. If not,
-you can start by looking at our general
-[getting started with supercomputing guide](hpc-quick.md). We also recommend
-checking the
-[CSC Computing Environment self-learning course materials](https://csc-training.github.io/csc-env-eff/).
+This guide assumes familiarity with CSC supercomputers such as Puhti, Mahti or LUMI.
+
+If you are new to CSC systems, start with the [getting started with supercomputing guide](hpc-quick.md).
 
 To access Roihu, you need a CSC user account and a project with the Roihu service
-enabled. [Read more here](../../accounts/index.md).
+enabled. [Read more about CSC accounts and projects](../../accounts/index.md).
 
 [TOC]
+
+!!! info "Key differences compared to Puhti and Mahti"
+    Before you begin, note the following important differences:
+
+    - **SSH authentication requires short-lived certificates (24h)**
+    - **Separate login nodes for CPU and GPU environments**
+    - Software built on CPU nodes cannot be used on GPU nodes (and vice versa)
+    - Disk quota extensions are **not automatically transferred** from earlier projects on Puhti/Mahti
+
+    These differences affect most workflows, so read the sections below carefully.
 
 ## Connecting
 
@@ -21,22 +28,18 @@ Connect to Roihu using either:
 
 ### SSH client
 
-Connecting to Roihu using an SSH client requires that you:
+To connect via SSH:
 
-1. Set up SSH keys and add your public key to MyCSC (like on Puhti & Mahti).
-2. **New:** _Sign_ your public key and download a _certificate_ for authentication.
-    * Each certificate is valid for 24 hours, after which a new one must be
-      generated.
-
-**[Read detailed instructions for managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).**
-
-Once you have set up SSH keys and obtained a valid SSH certificate, connect
-using an SSH client:
+1. Set up SSH keys (same as Puhti/Mahti)
+2. **New:** _Sign_ your public key and download a _certificate_
+   - Certificates are valid for **24 hours**
 
 * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md).
 * [Instructions for Windows](../../computing/connecting/ssh-windows.md).
 
-!!! info "Separate login nodes for CPU and GPU partitions"
+**[Read detailed instructions for managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).**
+
+!!! warning "Separate CPU and GPU environments"
     Roihu has
     [different CPU architectures on Roihu-CPU and Roihu-GPU](../../computing/systems-roihu.md#compute).
     Hence, there are separate login nodes for building programs and submitting
@@ -53,13 +56,14 @@ using an SSH client:
     ssh <username>@roihu-cpu.csc.fi
     ```
 
-    Please observe that software built on `roihu-cpu.csc.fi` can only be run on
-    the CPU nodes, while software built on `roihu-gpu.csc.fi` can only be run
-    on the GPU nodes. Importantly, this applies also to Python environments.
+    **Important:**
+   - Software compiled on Roihu-CPU nodes only works on Roihu-CPU nodes
+   - Software compiled on Roihu-GPU nodes only works on Roihu-GPU nodes
+   - This also applies to Python environments
 
     **All login nodes still share the same file system, so your files are accessible from all of them.**
 
-### Roihu web interface
+### Roihu web interface (available after general availability)
 
 The simplest way to connect to Roihu is to use the web interface.
 
@@ -73,23 +77,74 @@ If you need to transfer data from Puhti or Mahti to Roihu, we require
 that you:
 
 1. Review your data carefully – **only move what you
-   really need and check that you have enough space available on Roihu!**
-   Note that extended disk quotas from Puhti or Mahti are not automatically transferred.
-   Quota extensions on Roihu must be applied for separately.
-2. Transfer data **directly** from Puhti or Mahti to Roihu.
+   really need**
+2. Check your available disk space on Roihu
+   - Use e.g. the `csc-workspaces` command for this
+   - Quota extensions are not transferred automatically
+3. Transfer data **directly** from Puhti or Mahti to Roihu.
 
 **[Read the detailed instructions in the Roihu data migration guide](roihu-data.md).**
 
 ## Installing software
 
+Before installing anything:
+
+1. Check if the software is already available:
+   - [List of pre-installed applications](../apps/index.md)
+   - `module spider <module name>`
+
+If not available, choose one of the following approaches depending on your needs:
+
+### Compiling C/C++/Fortran code
+
+HPC software written using programming languages such as C, C++ or Fortran need to be compiled before installing.  
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU](../../computing/compiling-roihu/)
-- [Compiling on Roihu-GPU](../../computing/compiling-roihu/)
+- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#building-mpi-applications)
+- [Compiling on Roihu-GPU](../../computing/compiling-roihu.md#building-gpu-applications)
+
+### Containers
+
+Roihu supports Apptainer/Singularity containers for container installations. 
+In most cases, ready-made Docker containers can be easily converted into an Apptainer image.
+Another option is to build your own container from scratch. 
+
+More details on working with containers in CSC's computing environment can be found from the links below:
+
+- [Overview of containers](containers/overview.md)
+- [Running containers](containers/overview.md#running-containers)
+- [Creating containers](containers/overview.md#building-container-images)
+- [Tykky container wrapper](containers/tykky.md)
+
+### Python/R environments
+
+Best practice guidelines on installing your own Python and R packages can be found in the Python, R and Tykky container wrapper pages below.
+
+- [Installing Python packages and environments](../support/tutorials/python-usage-guide.md)
+- [Containerizing Conda and pip environments with Tykky](containers/tykky.md)
+- [R package installations](../apps/r-env.md#r-package-installations)
 
 ## Running your first job
 
-For more examples, see [Roihu example Slurm job scripts](../../computing/example-job-scripts-roihu.md)
+Roihu uses Slurm, similarly to Puhti and Mahti.
+
+Basic workflow:
+
+1. Create a job script where you
+   - Define the resources for your job (time, memory, cores)
+   - Load the required modules
+   - Launch your executable
+2. Submit your batch job into the queuing system
+3. Wait for the job to finish, and look for its output
+
+See the relevant sections for detailed steps:
+
+1. [Available batch job partitions](batch-job-partitions.md)
+2. [Creating a batch job script](creating-job-scripts-roihu.md)
+3. [Submit a batch job](submitting-jobs.md)
+4. [Performance checklist](performance-checklist.md)
+
+For common Slurm error messages, see our FAQ on [Why does my batch job fail?](../faq/why-does-my-batch-job-fail.md).
 
 ### Known issues (pilot phase)
 
@@ -121,3 +176,4 @@ srun --argos=no <your-executable>
 
 * [Roihu system overview](../../computing/systems-roihu.md)
 * [CSC Computing Environment self-learning materials](https://csc-training.github.io/csc-env-eff/)
+* [Contact our service desk](https://docs.csc.fi/support/contact/)
