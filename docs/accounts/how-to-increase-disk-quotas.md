@@ -15,8 +15,8 @@ You can check the default limits of scratch and projappl areas from the table be
   
 | Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
 |-----------|--------------|--------------|---------------------------|---------------------------|
-| projappl&nbsp;(Roihu)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000&nbsp;(<&nbsp;500&nbsp;000)                 |
-| scratch&nbsp;(Roihu)   |   1 TiB      |  100&nbsp;TiB&nbsp;(<&nbsp;20&nbsp;TiB)    | 1 000 000                 | 10&nbsp;000&nbsp;000 (<&nbsp;5&nbsp;000&nbsp;000)               |
+| projappl&nbsp;(Roihu)  |   15 GiB     |  250&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 150 000                   | 2 500 000&nbsp;(<&nbsp;1&nbsp;000&nbsp;000)                 |
+| scratch&nbsp;(Roihu)   |   250 GiB      |  100&nbsp;TiB&nbsp;(<&nbsp;10&nbsp;TiB)    | 500 000                 | 10&nbsp;000&nbsp;000 (<&nbsp;2&nbsp;500&nbsp;000)               |
 | projappl&nbsp;(Mahti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
 | scratch&nbsp;(Mahti)   |   1 TiB      |  200&nbsp;TiB&nbsp;(<&nbsp;40&nbsp;TiB)    | 1 000 000                 | 20&nbsp;000&nbsp;000&nbsp;(<&nbsp;10&nbsp;000&nbsp;000)               |
 
