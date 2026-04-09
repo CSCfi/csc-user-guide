@@ -1,22 +1,22 @@
 # How to increase disk quotas
 
-## Increasing the storage capacity in Puhti and Mahti
+## Increasing the storage capacity in Roihu and Mahti
 
-The quotas of the [scratch](../computing/disk.md#scratch-directory) and [projappl](../computing/disk.md#projappl-directory) directories of Puhti and Mahti servers can be
+The quotas of the [scratch](../computing/disk.md#scratch-directory) and [projappl](../computing/disk.md#projappl-directory) directories of Roihu and Mahti servers can be
 increased if needed.
 
 You can use MyCSC to manage these quotas.
 
 1. Login to [MyCSC](https://my.csc.fi) and **select the project** you want to
    modify.
-1. In the Services list, click Configuration for **Puhti** or **Mahti** service as needed. This opens a page where the **project manager** can modify the quotas.
+1. In the Services list, click Configuration for **Roihu** or **Mahti** service as needed. This opens a page where the **project manager** can modify the quotas.
 
 You can check the default limits of scratch and projappl areas from the table below. Values in parenthesis indicate automatically approved limits. Applications with higher values will be determined in the resource allocation meetings every three weeks.
   
 | Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
 |-----------|--------------|--------------|---------------------------|---------------------------|
-| projappl&nbsp;(Puhti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000&nbsp;(<&nbsp;500&nbsp;000)                 |
-| scratch&nbsp;(Puhti)   |   1 TiB      |  100&nbsp;TiB&nbsp;(<&nbsp;20&nbsp;TiB)    | 1 000 000                 | 10&nbsp;000&nbsp;000 (<&nbsp;5&nbsp;000&nbsp;000)               |
+| projappl&nbsp;(Roihu)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000&nbsp;(<&nbsp;500&nbsp;000)                 |
+| scratch&nbsp;(Roihu)   |   1 TiB      |  100&nbsp;TiB&nbsp;(<&nbsp;20&nbsp;TiB)    | 1 000 000                 | 10&nbsp;000&nbsp;000 (<&nbsp;5&nbsp;000&nbsp;000)               |
 | projappl&nbsp;(Mahti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
 | scratch&nbsp;(Mahti)   |   1 TiB      |  200&nbsp;TiB&nbsp;(<&nbsp;40&nbsp;TiB)    | 1 000 000                 | 20&nbsp;000&nbsp;000&nbsp;(<&nbsp;10&nbsp;000&nbsp;000)               |
 
