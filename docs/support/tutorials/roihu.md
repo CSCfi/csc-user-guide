@@ -165,7 +165,7 @@ To suppress most of the Argos related warnings and errors, you can pass the `--a
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_2001659
+#SBATCH --account=<project_id>
 #SBATCH --partition=test
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
