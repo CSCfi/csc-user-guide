@@ -24,7 +24,9 @@ reduces unnecessary movement between cores, and leads to more stable and predict
 Many HPC applications benefit from binding OpenMP threads to CPU cores,
 which can be achieved by adding the following line to the batch job script:
 ```bash
-export OMP_PLACES=cores  # Bind threads to individual cores
+# Place and bind threads to single cores
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
 ```
 
 It is also good practice to ensure correct thread affinity by adding the following lines to the batch job script:
