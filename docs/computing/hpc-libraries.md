@@ -26,17 +26,49 @@ module load fftw
 and the directory containing `include`, `lib`, *etc.* are found under
 `FFTW_INSTALL_ROOT` environment variable.
 
-## Libraries in Puhti
 
-Selected libraries available in Puhti:
+## Libraries on Roihu
+
+!!! warning
+    On Roihu-CPU and Roihu-GPU, many of the installed modules do not currently
+    set the `CPATH`, `LIBRARY_PATH` or `LD_LIBRARY_PATH` environment variables.
+    We expect to change this in the near future; until then, you may have to
+    set them manually eg. when compiling an application that depends on a module.
+    You can use `module show <modulename>` to see where the module files are located.
+    Many modules define variable like `modulename_INSTROOT` that points to the
+    installation directory once the module has been loaded. For example, `fftw`
+    headers are in `$FFTW_INSTROOT\include` and the compiled library files are
+    in `$FFTW_INSTROOT\lib`.
+
+
+### Roihu-CPU
+
+Selected libraries available on Roihu-CPU:
+
+- Dense linear algebra: `openblas`
+- Dense distributed linear algebra: `netlib-scalapack`
+- Fast fourier transforms: `fftw`
+
+### Roihu-GPU
+
+Selected libraries available on Roihu-GPU:
+
+- Dense linear algebra: `openblas`, `netlib-lapack`, `cublas`
+- Dense distributed linear algebra: `netlib-scalapack`
+- Fast fourier transforms: `fftw`
+
+
+## Libraries on Puhti
+
+Selected libraries available on Puhti:
 
 - Dense linear algebra: `intel-oneapi-mkl`
 - Dense distributed linear algebra: `intel-oneapi-mkl`, `netlib-scalapack`
 - Fast fourier transforms: `fftw`
 
-## Libraries in Mahti
+## Libraries on Mahti
 
-Selected libraries available in Mahti:
+Selected libraries available on Mahti:
 
 - Dense linear algebra: `openblas`, `amdblis`, `amdlibflame`
 - Dense distributed linear algebra: `netlib-scalapack`, `amdscalapack`
