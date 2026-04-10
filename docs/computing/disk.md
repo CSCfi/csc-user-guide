@@ -23,6 +23,14 @@ is available.
 
 These disk areas have quotas for both the amount of data and total number of files:
 
+=== "Roihu"
+|            |Capacity|Number of files|
+|------------|--------|---------------|
+|**home**    |15 GiB  |150 000 files  |
+|**projappl**|15 GiB  |150 000 files  |
+|**scratch** |250 GiB |2 500 000 files|
+
+=== "Puhti and Mahti"
 |            |Capacity|Number of files|
 |------------|--------|---------------|
 |**home**    |10 GiB  |100 000 files  |
@@ -45,7 +53,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 
 ## Home directory
 
-Each user has a home directory (`$HOME`) that can contain up to 10 GB of data.
+Each user has a home directory (`$HOME`) that can contain up to 15 GB of data on Roihu, and 10 GB on Mahti and Puhti.
 
 The home directory is the default directory where you begin after logging in to CSC supercomputers.
 However, typically you should change to your project's `scratch` directory when working because
@@ -59,7 +67,7 @@ are project-specific. If you are a member of several projects, you also have acc
 
 ## Scratch directory
 
-Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
+Each project on Roihu has by default 250 GB of scratch disk space in the directory `/scratch/<project>`.
 
 This fast parallel scratch space is intended as temporary storage space for the
 data that is used in the supercomputer. The scratch directory is not intended
@@ -76,8 +84,8 @@ manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 
 ## Projappl directory
 
-Each project has also a 50 GB project application disk space in the directory
-`/projappl/<project>`.
+Each project on Roihu has also a 15 GB project application disk space in the directory
+`/projappl/<project>`, or 50 GB on Mahti and Puhti.
 
 It is intended for storing compiled software binaries, source code, libraries, scripts
 and small-scale reference data that are shared within a project. It is not a
@@ -113,17 +121,17 @@ Disk area               Capacity(used/max)  Files(used/max)  Cleanup
 ----------------------------------------------------------------------
 Personal home folder
 
-/users/kkayttaj                 4.4G/10G         24K/100K        n/a
+/users/kkayttaj                 4.4G/15G         24K/150K        n/a
 ----------------------------------------------------------------------
 Project: project_2000123 "Project X"
 
-/projappl/project_2000123        24G/50G         36K/100K        n/a
-/scratch/project_2000123        103G/1.0T       389K/1.0M       180d
+/projappl/project_2000123        24G/15G         36K/150K        n/a
+/scratch/project_2000123        103G/250G       389K/2.5M       180d
 ----------------------------------------------------------------------
 Project: project_2001234 "Project Y"
 
-/projappl/project_2001234        85G/100G       282K/600K        n/a
-/scratch/project_2001234        7.2T/8.0T       2.7M/5.0M        90d
+/projappl/project_2001234        85G/50G       282K/600K        n/a
+/scratch/project_2001234        7.2T/1.0T       2.7M/5.0M        90d
 ----------------------------------------------------------------------
 ```
 
