@@ -24,18 +24,18 @@ is available.
 These disk areas have quotas for both the amount of data and total number of files:
 
 === "Roihu"
-|            |Capacity|Number of files|
-|------------|--------|---------------|
-|**home**    |15 GiB  |150 000 files  |
-|**projappl**|15 GiB  |150 000 files  |
-|**scratch** |250 GiB |2 500 000 files|
+     |            |Capacity|Number of files|
+     |------------|--------|---------------|
+     |**home**    |15 GiB  |150 000 files  |
+     |**projappl**|15 GiB  |150 000 files  |
+     |**scratch** |250 GiB |2 500 000 files|
 
 === "Puhti and Mahti"
-|            |Capacity|Number of files|
-|------------|--------|---------------|
-|**home**    |10 GiB  |100 000 files  |
-|**projappl**|50 GiB  |100 000 files  |
-|**scratch** |1 TiB   |1 000 000 files|
+     |            |Capacity|Number of files|
+     |------------|--------|---------------|
+     |**home**    |10 GiB  |100 000 files  |
+     |**projappl**|50 GiB  |100 000 files  |
+     |**scratch** |1 TiB   |1 000 000 files|
 
 !!! info "LUE"
     To easily check the amount of data and number of files within a given folder on
