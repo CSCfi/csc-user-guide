@@ -28,7 +28,7 @@ These disk areas have quotas for both the amount of data and total number of fil
      |------------|--------|---------------|
      |**home**    |15 GiB  |150 000 files  |
      |**projappl**|15 GiB  |150 000 files  |
-     |**scratch** |250 GiB |2 500 000 files|
+     |**scratch** |250 GiB |500 000 files|
 
 === "Puhti and Mahti"
      |            |Capacity|Number of files|
@@ -126,12 +126,12 @@ Personal home folder
 Project: project_2000123 "Project X"
 
 /projappl/project_2000123        24G/15G         36K/150K        n/a
-/scratch/project_2000123        103G/250G       389K/2.5M       180d
+/scratch/project_2000123        103G/250G       389K/500k        180d
 ----------------------------------------------------------------------
 Project: project_2001234 "Project Y"
 
-/projappl/project_2001234        85G/50G       282K/600K        n/a
-/scratch/project_2001234        7.2T/1.0T       2.7M/5.0M        90d
+/projappl/project_2001234        25G/100G        282K/1.0M        n/a
+/scratch/project_2001234         7.2/10TB        2.1M/2.5M        90d
 ----------------------------------------------------------------------
 ```
 
