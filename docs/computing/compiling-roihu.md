@@ -78,6 +78,12 @@ module spider aocc
 
 ## Building MPI applications
 
+!!! warning
+    The AMD compiler environment does not yet have a supporting MPI module.
+    We expect to set this up shortly; until then, please use the GNU environment
+    for building MPI applications.
+
+
 The MPI environment in Roihu is OpenMPI. You may use one of the MPI compiler wrappers
 `mpicc` (C), `mpicxx` (C++), or `mpif90` (Fortran) when compiling MPI applications.
 These wrappers end up calling the compiler from your currently loaded compiler suite
@@ -92,11 +98,6 @@ List all available versions of OpenMPI (one is always loaded by default):
 ```
 module spider openmpi
 ```
-
-TODO:
-
-- `aocc` does currently not have a corresponding MPI module. Revisit this and test once that is available
-- Better links/instructions for finding compiler docs
 
 
 ## Building OpenMP and hybrid applications
@@ -120,13 +121,40 @@ mpicc -O3 -march=native -fopenmp example.c -o example
     When compiling for the GPU nodes on Roihu, make sure you use Roihu's GPU login nodes.
     Binaries compiled on Roihu-CPU are not compatible with Roihu-GPU nodes.
 
-CUDA is the recommended programming model for Nvidia GPUs and CSC provides it as
-an environment module.
 
-### CUDA
+Roihu-GPU provides two compiler environments for building C/C++ and Fortran applications:
+the [GNU](https://gcc.gnu.org) suite and the [NVIDIA-HPC](https://developer.nvidia.com/hpc-compilers)
+suite. GNU compilers are loaded by default. NVIDIA compilers can be
+loaded using the [Modules](modules.md) system with the command:
+```
+module load nvhpc
+```
 
-The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for the target
-GPU device and passing on the rest to a non-CUDA compiler (i.e. `gcc`).
+The compiler executables are as follows:
+
+| Compiler suite | C  | C++ | Fortran |
+| :------------- | :- | :-- | :------ |
+| GNU            | gcc | g++ | gfortran |
+| NVIDIA         | nvc | nvc++ | nvfortran |
+
+
+In addition, the CUDA [`nvcc`](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html) compiler is available for building GPU kernel code. See the [`nvcc` section below](#cuda).
+
+
+List all available versions of the compiler suites:
+```
+module spider gcc
+module spider nvhpc
+```
+
+
+### Compiling CUDA code
+
+CUDA is the recommended programming model for Nvidia GPUs and is provided as an environment module
+on Roihu-GPU (loaded by default).
+
+The CUDA compiler (`nvcc`) takes care of compiling CUDA kernels code for the target
+GPU device and passes the rest to the currently loaded host compiler like `gcc` or `nvhpc`.
 For example, to load the CUDA 13.1 environment together with the GNU compiler:
 
 ```bash
@@ -152,6 +180,28 @@ nvcc -gencode arch=compute_90a,code=sm_90a example.cu
     more generic `arch=compute_90,code=sm_90` options.
 
 
+### Building MPI applications on Roihu-GPU
+
+In the GNU compiler environment, an OpenMPI module is available that implements
+CUDA-aware MPI. It is loaded by default. You may use one of the MPI compiler wrappers `mpicc` (C),
+`mpicxx` (C++), or `mpif90` (Fortran) when compiling MPI applications. When compiling
+MPI applications with `nvcc`, you will need to explicitly provide MPI include and library
+paths:
+```bash
+nvcc -gencode arch=compute_90a,code=sm_90a example.cu -lmpi -I$OPENMPI_INSTROOT/include -L$OPENMPI_INSTROOT/lib
+```
+
+In the NVIDIA compiler environment, the MPI is bundled by NVIDIA and is directly
+available after loading the compiler suite. There is no separate MPI module to load.
+
+!!! warning
+    We have not yet fully tested the NVHPC environment with MPI and there are
+    likely to be issues with, for example, Slurm integration.
+    For now, we strongly recommend using the GNU compiler suite when building
+    MPI applications.
+
+
+<!--
 ## Building software using Spack
 
 [Spack](https://spack.io) is a flexible package manager that can be
@@ -162,3 +212,4 @@ installed using Spack.
 
 [See here for a short tutorial on how
 to install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md).
+-->
