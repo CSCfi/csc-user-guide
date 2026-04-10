@@ -18,6 +18,7 @@ Example job scripts for running different types of programs:
 #SBATCH --account=<project>
 #SBATCH --partition=small
 #SBATCH --time=00:30:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=2000M
 #SBATCH --hint=nomultithread
@@ -34,6 +35,7 @@ srun myprog <options>
 #SBATCH --account=<project>
 #SBATCH --partition=small
 #SBATCH --time=00:30:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --mem-per-cpu=2000M
 #SBATCH --hint=nomultithread
@@ -50,6 +52,7 @@ srun myprog <options>
 #SBATCH --account=<project>
 #SBATCH --partition=small
 #SBATCH --time=00:30:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=2000M
@@ -75,6 +78,7 @@ srun myprog <options>
 #SBATCH --account=<project>
 #SBATCH --partition=small
 #SBATCH --time=00:30:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=2000M
