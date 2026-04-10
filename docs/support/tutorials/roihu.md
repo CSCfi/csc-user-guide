@@ -33,13 +33,14 @@ To connect via SSH:
 1. Set up SSH keys (same as Puhti/Mahti)
 2. **New:** _Sign_ your public key and download a _certificate_
     * Certificates are valid for **24 hours**
+    * See our instructions for managing certificates: [Signing public SSH keys](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu-quickstart/computing/connecting/ssh-keys/#signing-public-key)
 
 For platform-specific instructions, see:
 
 * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md).
 * [Instructions for Windows](../../computing/connecting/ssh-windows.md).
 
-**[Read detailed instructions for managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).**
+**[Read detailed instructions for creating and managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).**
 
 !!! warning "Separate CPU and GPU environments"
     Roihu has
