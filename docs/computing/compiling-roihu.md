@@ -20,6 +20,9 @@
     - The local disk is cleaned frequently, so please move your files elsewhere after compiling.
 
 
+- Please see [the page on available HPC libraries](hpc-libraries.md#libraries-on-roihu) for using common libraries (BLAS, fftw, ...)
+and linking them to your applications.
+
 ## Compiling on Roihu-CPU
 
 C/C++ and Fortran applications can be built with
