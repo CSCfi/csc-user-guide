@@ -10,19 +10,205 @@ Example job scripts for running different types of programs:
     with the executable (and options) of the program you wish to run as well
     as `<project>` with the name of your project.
 
-## MPI
+## Serial
 
-## Large MPI
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:30:00
+#SBATCH --ntasks=1
+#SBATCH --mem-per-cpu=2000M
+#SBATCH --hint=nomultithread
 
-## MPI + OpenMP
+# Run the program
+srun myprog <options>
+```
 
-## MPI + OpenMP with thread binding
+## Partial node: MPI
 
-## MPI + OpenMP with simultaneous multithreading
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:30:00
+#SBATCH --ntasks=2
+#SBATCH --mem-per-cpu=2000M
+#SBATCH --hint=nomultithread
 
-## MPI with one task per NUMA domain
+# Run the program
+srun myprog <options>
+```
 
-## OpenMP
+## Partial node: OpenMP
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:30:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=2000M
+#SBATCH --hint=nomultithread
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
+
+## Partial node: MPI+OpenMP
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:30:00
+#SBATCH --ntasks=2
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=2000M
+#SBATCH --hint=nomultithread
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
+
+## Partial node: MPI+OpenMP with simultaneous multithreading
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:30:00
+#SBATCH --ntasks=2
+#SBATCH --cpus-per-task=4
+#SBATCH --hint=multithread
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single hardware threads
+# Comment the following lines if binding is not desired
+export OMP_PLACES=threads
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
+
+## Full nodes: MPI
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+##SBATCH --partition=large  # uncomment if using 6 or more nodes
+#SBATCH --time=00:30:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=384 --cpus-per-task=1
+#SBATCH --hint=nomultithread
+
+# Run the program
+srun myprog <options>
+```
+
+## Full nodes: OpenMP
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+##SBATCH --partition=large  # uncomment if using 6 or more nodes
+#SBATCH --time=00:30:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1 --cpus-per-task=384
+#SBATCH --hint=nomultithread
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
+
+## Full nodes: MPI+OpenMP
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+##SBATCH --partition=large  # uncomment if using 6 or more nodes
+#SBATCH --time=00:30:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
+#SBATCH --ntasks-per-node=96  --cpus-per-task=4  # The product should be 384
+#SBATCH --hint=nomultithread
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
+
+## Full nodes: MPI+OpenMP with simultaneous multithreading
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+##SBATCH --partition=large  # uncomment if using 6 or more nodes
+#SBATCH --time=00:30:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=384 --cpus-per-task=2  # The product should be 768
+#SBATCH --ntasks-per-node=192 --cpus-per-task=4  # The product should be 768
+#SBATCH --hint=multithread
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single hardware threads
+# Comment the following lines if binding is not desired
+export OMP_PLACES=threads
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
 
 ## Fast disk (NVMe over Fabric)
 
