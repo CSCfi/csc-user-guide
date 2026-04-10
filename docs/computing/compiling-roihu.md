@@ -198,10 +198,10 @@ In the NVIDIA compiler environment, the MPI is bundled by NVIDIA and is directly
 available after loading the compiler suite. There is no separate MPI module to load.
 
 !!! warning
-    We have not yet fully tested the NVHPC environment with MPI and there are
-    likely to be issues with, for example, Slurm integration.
-    For now, we strongly recommend using the GNU compiler suite when building
-    MPI applications.
+    The NVHPC environment on Roihu is still undergoing configuration.
+    The current version may have issues with, for example, its Slurm integration
+    on Roihu. For now, we strongly recommend using the GNU compiler suite when
+    building MPI applications."
 
 
 <!--
