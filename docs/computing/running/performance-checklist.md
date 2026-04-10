@@ -98,15 +98,29 @@ and the settings in the batch script should be fixed.
 
 The `OMP_*` environment variables are specific to OpenMP and do not work with non-OpenMP applications.
 
-To check the CPU affinities of each Slurm task, include the following lines in the job script:
+The following example job script can be used for checking the CPU affinities of each Slurm task.
+The job script creates a script `print_affinity.<jobid>.sh` that is then executed via `srun`:
 
 ```bash
-srun bash -c '
+#!/bin/bash
+#SBATCH ...
+
+# Create a script for printing affinity
+PRINT_AFFINITY="./print_affinity.$SLURM_JOB_ID.sh"
+cat << 'EOF' > $PRINT_AFFINITY
+#!/bin/bash
 printf "Task %4d running on node %s core %s\n" \
   "$SLURM_PROCID" \
   "$SLURMD_NODENAME" \
   "$(grep Cpus_allowed_list /proc/self/status | cut -f2)"
-'
+EOF
+chmod +x $PRINT_AFFINITY
+
+# Remove script on exit
+trap "rm -f $PRINT_AFFINITY" EXIT
+
+# Run the program
+srun $PRINT_AFFINITY
 ```
 
 Example output for a job running on two nodes with eight task per node and 48 cores per task (`--nodes=2 --ntasks-per-node=8 --cpus-per-task=48 --hint=nomultithread`):
@@ -143,69 +157,51 @@ The number of cores reserved per task is determined by the Slurm option `cpus-pe
 
 If a different placement strategy is needed, the default CPU binding can be disabled by `srun --cpu-bind=none`.
 This removes all CPU affinity restrictions, allowing processes to run on **any allocated core on the node**.
-For example:
+This is **generally undesirable for performance** unless combined with explicit manual binding,
+which can be done using tools such as numactl.
+
+The following job script provides an example for setting CPU binding manually.
+The job script creates two scripts: `print_affinity.<jobid>.sh` and `cpu_bind.<jobid>.sh`.
+The first script is the same script used above for checking affinities and the second script
+uses numactl for binding tasks to CPU cores in the same way as done by default:
+each task is assined a contiguous block of CPU cores based on the task's local ID and
+the number of CPUs per task:
 
 ```bash
-srun --cpu-bind=none bash -c '
+#!/bin/bash
+#SBATCH ...
+
+# Create a script for printing affinity
+PRINT_AFFINITY="./print_affinity.$SLURM_JOB_ID.sh"
+cat << 'EOF' > $PRINT_AFFINITY
+#!/bin/bash
 printf "Task %4d running on node %s core %s\n" \
   "$SLURM_PROCID" \
   "$SLURMD_NODENAME" \
   "$(grep Cpus_allowed_list /proc/self/status | cut -f2)"
-'
-```
+EOF
+chmod +x $PRINT_AFFINITY
 
-This produces output like:
-
-```txt
-Task    4 running on node rc6283 core 0-767
-Task    0 running on node rc6283 core 0-767
-Task    1 running on node rc6283 core 0-767
-Task    2 running on node rc6283 core 0-767
-Task    5 running on node rc6283 core 0-767
-Task    6 running on node rc6283 core 0-767
-Task    7 running on node rc6283 core 0-767
-Task    3 running on node rc6283 core 0-767
-Task    8 running on node rc6284 core 0-767
-Task   10 running on node rc6284 core 0-767
-Task   13 running on node rc6284 core 0-767
-Task    9 running on node rc6284 core 0-767
-Task   11 running on node rc6284 core 0-767
-Task   12 running on node rc6284 core 0-767
-Task   14 running on node rc6284 core 0-767
-Task   15 running on node rc6284 core 0-767
-```
-
-Here, every task on a node is allowed to run on **all CPU cores** (including logical cores),
-which is **generally undesirable for performance** unless combined with explicit manual binding.
-
-Once Slurm's binding is disabled, CPU affinity can be set manually using tools such as numactl.
-The following wrapper script reproduces the default behaviour by assigning each task a contiguous block of CPU cores
-based on the task's local ID and CPUs per task.
-
-```bash
+# Create a script for binding tasks to CPU cores
+BIND_CPU="./bind_cpu.$SLURM_JOB_ID.sh"
+cat << 'EOF' > $BIND_CPU
 #!/bin/bash
-
 cpus_per_task=${SLURM_CPUS_PER_TASK:-1}
 start_core=$((SLURM_LOCALID * cpus_per_task))
 end_core=$((SLURM_LOCALID * cpus_per_task + cpus_per_task - 1))
 numactl --physcpubind ${start_core}-${end_core} "$@"
-```
+EOF
+chmod +x $BIND_CPU
 
-Save the script as `numactl_wrapper.sh` and make it executable (`chmod a+x numactl_wrapper.sh`).
+# Remove scripts on exit
+trap "rm -f $PRINT_AFFINITY $BIND_CPU" EXIT
 
-We can now run the same affinity check using the wrapper:
-
-```bash
-srun --cpu-bind=none ./numactl_wrapper.sh bash -c '
-printf "Task %4d running on node %s core %s\n" \
-  "$SLURM_PROCID" \
-  "$SLURMD_NODENAME" \
-  "$(grep Cpus_allowed_list /proc/self/status | cut -f2)"
-'
+# Run the program with manual binding
+srun --cpu-bind=none $BIND_CPU $PRINT_AFFINITY
 ```
 
 This produces output equivalent to the default CPU binding,
-confirming that the manual placement reproduces the standard behaviour.
+confirming that the manual placement reproduces the standard behaviour:
 
 ```txt
 Task    4 running on node rc6283 core 192-239
@@ -226,7 +222,7 @@ Task   13 running on node rc6284 core 240-287
 Task   14 running on node rc6284 core 288-335
 ```
 
-If needed, the logic in `numactl_wrapper.sh` can be modified to bind CPU cores according to the needs of your application.
+If needed, the logic in the binding script can be modified to bind CPU cores according to the needs of your application.
 
 
 ## Perform a scaling test
