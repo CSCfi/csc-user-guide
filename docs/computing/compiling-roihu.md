@@ -3,7 +3,7 @@
 !!! info
     Roihu has separate CPU and GPU partitions with different CPU architectures:
 
-    - Roihu-CPU nodes use AMD x86 processors
+    - Roihu-CPU nodes use AMD (x86) processors
     - Roihu-GPU nodes use NVIDIA Grace (ARM) processors
 
     Binaries compiled for one architecture are generally not usable on the other.
@@ -20,7 +20,7 @@
     - The local disk is cleaned frequently, so please move your files elsewhere after compiling.
 
 
-- Please see [the page on available HPC libraries](hpc-libraries.md#libraries-on-roihu) for using common libraries (BLAS, fftw, ...)
+- Please see [the page on available HPC libraries](hpc-libraries.md#libraries-on-roihu) for using common libraries (BLAS, FFTW, ...)
 and linking them to your applications.
 
 ## Compiling on Roihu-CPU
@@ -28,7 +28,7 @@ and linking them to your applications.
 C/C++ and Fortran applications can be built with
 the [GNU](https://gcc.gnu.org) or the [AMD](https://developer.amd.com/amd-aocc/)
 compiler suites. GNU compilers are loaded by default. AMD compilers can be
-loaded using the [Modules](modules.md) system with the command:
+loaded using the [Module system](modules.md) with the command:
 ```
 module load aocc
 ```
@@ -128,7 +128,7 @@ mpicc -O3 -march=native -fopenmp example.c -o example
 Roihu-GPU provides two compiler environments for building C/C++ and Fortran applications:
 the [GNU](https://gcc.gnu.org) suite and the [NVIDIA-HPC](https://developer.nvidia.com/hpc-compilers)
 suite. GNU compilers are loaded by default. NVIDIA compilers can be
-loaded using the [Modules](modules.md) system with the command:
+loaded using the [Module system](modules.md) with the command:
 ```
 module load nvhpc
 ```

@@ -49,7 +49,7 @@ Selected libraries available on Mahti:
     set the `CPATH`, `LIBRARY_PATH` or `LD_LIBRARY_PATH` environment variables.
     We expect to change this in the near future; until then, you may have to
     set them manually eg. when compiling an application that depends on a module.
-    You can use `module avail <modulename>` to see where the module files are located.
+    You can use `module show <modulename>` to see where the module files are located.
     Many modules define variable like `modulename_INSTROOT` that points to the
     installation directory once the module has been loaded. For example, `fftw`
     headers are in `$FFTW_INSTROOT\include` and the compiled library files are
