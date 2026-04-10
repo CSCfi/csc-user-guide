@@ -79,7 +79,7 @@ module spider aocc
 ```
 
 
-## Building MPI applications
+### Building MPI applications
 
 !!! warning
     The AMD compiler environment does not yet have a supporting MPI module.
@@ -103,7 +103,7 @@ module spider openmpi
 ```
 
 
-## Building OpenMP and hybrid applications
+### Building OpenMP and hybrid applications
 
 An additional compiler and linker flag is needed when building an OpenMP or a hybrid
 MPI/OpenMP application:
