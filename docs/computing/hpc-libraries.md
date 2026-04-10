@@ -26,21 +26,6 @@ module load fftw
 and the directory containing `include`, `lib`, *etc.* are found under
 `FFTW_INSTALL_ROOT` environment variable.
 
-## Libraries on Puhti
-
-Selected libraries available on Puhti:
-
-- Dense linear algebra: `intel-oneapi-mkl`
-- Dense distributed linear algebra: `intel-oneapi-mkl`, `netlib-scalapack`
-- Fast fourier transforms: `fftw`
-
-## Libraries on Mahti
-
-Selected libraries available on Mahti:
-
-- Dense linear algebra: `openblas`, `amdblis`, `amdlibflame`
-- Dense distributed linear algebra: `netlib-scalapack`, `amdscalapack`
-- Fast fourier transforms: `fftw`
 
 ## Libraries on Roihu
 
@@ -70,4 +55,21 @@ Selected libraries available on Roihu-GPU:
 
 - Dense linear algebra: `openblas`, `netlib-lapack`, `cublas`
 - Dense distributed linear algebra: `netlib-scalapack`
+- Fast fourier transforms: `fftw`
+
+
+## Libraries on Puhti
+
+Selected libraries available on Puhti:
+
+- Dense linear algebra: `intel-oneapi-mkl`
+- Dense distributed linear algebra: `intel-oneapi-mkl`, `netlib-scalapack`
+- Fast fourier transforms: `fftw`
+
+## Libraries on Mahti
+
+Selected libraries available on Mahti:
+
+- Dense linear algebra: `openblas`, `amdblis`, `amdlibflame`
+- Dense distributed linear algebra: `netlib-scalapack`, `amdscalapack`
 - Fast fourier transforms: `fftw`
