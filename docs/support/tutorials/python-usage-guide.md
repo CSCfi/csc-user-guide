@@ -311,7 +311,7 @@ In addition, there are examples of
 on our CSC Training GitHub organization. Of the above four packages, examples are
 provided for `multiprocessing`, `joblib` and `dask`.
 
-The `mpi4py` package is included in our [PyTorch environment](../../apps/python-pytorch.md).
+The `mpi4py` package is included in our [PyTorch environment](../../apps/pytorch.md).
 It is generally the most efficient option for multinode jobs with non-trivial parallelization.
 For a short tutorial on `mpi4py`, along with other approaches for improving the
 performance of Python programs, please see the free
