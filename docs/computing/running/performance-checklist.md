@@ -8,7 +8,7 @@ please contribute to the list!
 ## Check CPU Affinity
 
 CPU affinity describes how a running program is placed on
-the available processor cores of a supercomputer node.
+the available CPU cores of a supercomputer node.
 By default, the operating system is free to move a program (and its processes and threads)
 between CPU cores as it sees fit, which can be detrimental for performance in
 a supercomputing environment.
@@ -35,7 +35,7 @@ export OMP_DISPLAY_AFFINITY=true
 export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.4n/%0.4N on node %H core %A"
 ```
 
-Together, these settings allow to verify thread placement and confirm that affinity is applied as expected,
+Together, these settings allow you to verify thread placement and confirm that affinity is applied as expected,
 which is often a key step when diagnosing or optimizing performance on a supercomputer.
 
 Example output for a job running on one node with two tasks and 8 cpus per task (`--nodes=1 --ntasks-per-node=2 --cpus-per-task=8 --hint=nomultithread`).
