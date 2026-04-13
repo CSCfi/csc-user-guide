@@ -124,7 +124,7 @@ modules listed above).
     self-contained and mutually exclusive environments, so it does not
     make sense to for example load both python-data and python-pytorch
     modules. The module loaded last will be the only active one, and
-    the module load command will warn about this, for example:
+    the module load command will warn about this, for example in Roihu:
 
     ```
     Lmod is automatically replacing "python-data/3.12-31.03" with "python-pytorch/2.10".
