@@ -89,7 +89,7 @@ In other systems:
 | Module name | Purpose |
 |-|-|
 | [biopythontools](biopython.md) | bioinformatics |
-| [geoconda](python-geo.md) | geoinformatics |
+| [geoconda](geoconda.md) | geoinformatics |
 | [jax](jax.md) | JAX ML framework |
 | [python-data](python-data.md) | data analysis and ML utilities |
 | [pytorch](pytorch.md) | PyTorch ML framework |
