@@ -85,7 +85,7 @@ data analytics and machine learning, for example:
 - [Dask](https://dask.org/): Scalable analytics in Python
 - [Gensim](https://radimrehurek.com/gensim/): Topic modelling
 - [Jupyter](https://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/)
-- [Marimo](https://marimo.io)
+- [Marimo](https://marimo.io) (Roihu)
 - [NLTK](https://matplotlib.org/): Natural language toolkit
 - [PyTables](http://www.pytables.org/)
 - [SciPy](https://www.scipy.org/), including [NumPy](https://www.numpy.org/), [Matplotlib](https://matplotlib.org/) and [Pandas](https://pandas.pydata.org/)
@@ -105,8 +105,8 @@ To create a virtual environment use the command `python3 -m venv
 If you think that some important package should be included in the
 module provided by CSC, please [contact our
 servicedesk](../support/contact.md). Note that some machine learning
-frameworks have their own specific modules, for example:
-[python-pytorch](python-pytorch.md), [python-vllm](python-vllm.md), [python-tensorFlow](python-tensorflow.md), [python-JAX](python-jax.md), and [RAPIDS](rapids.md).
+frameworks have their own specific modules, for example in Roihu:
+[python-pytorch](pytorch.md), [python-vllm](vllm.md), [python-tensorflow](tensorflow.md), and [python-jax](jax.md).
 
 !!! info "Note about multi-threading"
 

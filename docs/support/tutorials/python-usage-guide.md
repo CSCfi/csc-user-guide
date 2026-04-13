@@ -86,8 +86,8 @@ in a module provided by CSC, do not hesitate to contact our
     directory under `.local/lib/pythonx.y/site-packages` (where `x.y` is
     the version of Python being used) except in Roihu. In Roihu, the 
     default installation path for additional packages is set accordingly 
-    to the CPU architechture: `.local/cpu-arch/lib/pythonx.y/site-packages`, 
-    where 'cpu-arch' is 'x86_64' for Roihu-CPU and 'aarch64' for Roihu-GPU. 
+    to the CPU architecture: `.local/x86_64/lib/pythonx.y/site-packages` 
+    for Roihu-CPU and `.local/aarch64/lib/pythonx.y/site-packages` for Roihu-GPU.
     **Please note that if you install a lot of
     packages, your home directory can easily run out of space.**
     This can be avoided by changing the installation folder to make

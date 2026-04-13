@@ -71,15 +71,29 @@ Roihu, Puhti and Mahti have several pre-installed
 [environment modules](../computing/modules.md) containing
 Python environments made for different science areas.
 
+In Roihu: 
+
 | Module name | Purpose |
 |-|-|
 | [biopythontools](biopython.md) | bioinformatics |
 | [python-geo](python-geo.md) | geoinformatics |
-| [python-jax](python-jax.md) | JAX ML framework |
+| [python-jax](jax.md) | JAX ML framework |
 | [python-data](python-data.md) | data analysis and ML utilities |
-| [python-pytorch](python-pytorch.md) | PyTorch ML framework |
-| [python-qiskit](python-qiskit.md) | quantum computing |
-| [python-tensorflow](python-tensorflow.md) | TensorFlow ML framework |
+| [python-pytorch](pytorch.md) | PyTorch ML framework |
+| [python-qiskit](qiskit.md) | quantum computing |
+| [python-tensorflow](tensorflow.md) | TensorFlow ML framework |
+
+In other systems:
+
+| Module name | Purpose |
+|-|-|
+| [biopythontools](biopython.md) | bioinformatics |
+| [geoconda](python-geo.md) | geoinformatics |
+| [jax](jax.md) | JAX ML framework |
+| [python-data](python-data.md) | data analysis and ML utilities |
+| [pytorch](pytorch.md) | PyTorch ML framework |
+| [qiskit](qiskit.md) | quantum computing |
+| [tensorflow](tensorflow.md) | TensorFlow ML framework |
 
 To use any of the above environments, simply load the corresponding module
 using the `module load` command.
