@@ -131,7 +131,7 @@ in a module provided by CSC, do not hesitate to contact our
         You can fix this by editing the first line of the executable
         (which in our example is located using `which whatshap`) to point
         to the real Python interpreter (can be found with `which python3`).
-        In our example we would edit the file `~/.local/bin/whatshap` (`~/.local/cpu-arch/bin/whatshap` in Roihu)
+        In our example we would edit the file `~/.local/bin/whatshap` (`~/.local/$(uname -m)/bin/whatshap` in Roihu)
         to have the following as its first line:
 
         ```bash
