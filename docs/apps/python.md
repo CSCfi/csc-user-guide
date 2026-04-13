@@ -8,6 +8,7 @@ catalog:
   disciplines:
     - Mathematics and Statistics
   available_on:
+    - Roihu
     - Puhti
     - Mahti
 ---
@@ -22,6 +23,7 @@ please see our
 
 ## Available
 
+* Roihu: 3.x. versions
 * Puhti: 3.x versions
 * Mahti: 3.x versions
 
@@ -65,19 +67,19 @@ python3.9
 
 ### Pre-installed Python environments
 
-Puhti and Mahti have several pre-installed
+Roihu, Puhti and Mahti have several pre-installed
 [environment modules](../computing/modules.md) containing
 Python environments made for different science areas.
 
 | Module name | Purpose |
 |-|-|
 | [biopythontools](biopython.md) | bioinformatics |
-| [geoconda](geoconda.md) | geoinformatics |
-| [jax](jax.md) | JAX ML framework |
+| [python-geo](python-geo.md) | geoinformatics |
+| [python-jax](python-jax.md) | JAX ML framework |
 | [python-data](python-data.md) | data analysis and ML utilities |
-| [pytorch](pytorch.md) | PyTorch ML framework |
-| [qiskit](qiskit.md) | quantum computing |
-| [tensorflow](tensorflow.md) | TensorFlow ML framework |
+| [python-pytorch](python-pytorch.md) | PyTorch ML framework |
+| [python-qiskit](python-qiskit.md) | quantum computing |
+| [python-tensorflow](python-tensorflow.md) | TensorFlow ML framework |
 
 To use any of the above environments, simply load the corresponding module
 using the `module load` command.
@@ -105,12 +107,12 @@ modules listed above).
 
     Note that most of the pre-installed Python environment modules are
     self-contained and mutually exclusive environments, so it does not
-    make sense to for example load both python-data and pytorch
+    make sense to for example load both python-data and python-pytorch
     modules. The module loaded last will be the only active one, and
     the module load command will warn about this, for example:
 
     ```
-    Lmod is automatically replacing "python-data/3.10-24.04" with "pytorch/2.5".
+    Lmod is automatically replacing "python-data/3.12-31.03" with "python-pytorch/2.10".
     ```
 
 

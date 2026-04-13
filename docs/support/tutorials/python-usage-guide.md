@@ -84,7 +84,11 @@ in a module provided by CSC, do not hesitate to contact our
 
     Packages are by default installed to your home
     directory under `.local/lib/pythonx.y/site-packages` (where `x.y` is
-    the version of Python being used). **Please note that if you install a lot of
+    the version of Python being used) except in Roihu. In Roihu, the 
+    default installation path for additional packages is set accordingly 
+    to the CPU architechture: `.local/cpu-arch/lib/pythonx.y/site-packages`, 
+    where 'cpu-arch' is 'x86_64' for Roihu-CPU and 'aarch64' for Roihu-GPU. 
+    **Please note that if you install a lot of
     packages, your home directory can easily run out of space.**
     This can be avoided by changing the installation folder to make
     a project-wide installation instead of a personal one. This is
@@ -127,11 +131,12 @@ in a module provided by CSC, do not hesitate to contact our
         You can fix this by editing the first line of the executable
         (which in our example is located using `which whatshap`) to point
         to the real Python interpreter (can be found with `which python3`).
-        In our example we would edit the file `~/.local/bin/whatshap`
+        In our example we would edit the file `~/.local/bin/whatshap` (`~/.local/cpu-arch/bin/whatshap` in Roihu)
         to have the following as its first line:
 
         ```bash
-        #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
+        #!/appl/soft/manual/aida/$(uname -m)/python-data/python-data-2026-03/bin/python3  # In Roihu
+        #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3                             # In Puhti and Mahti
         ```
 
     ---
@@ -248,8 +253,8 @@ in a single document.
 The [Jupyter interactive application](../../computing/webinterface/jupyter.md)
 on our web interface allows using Jupyter on CSC supercomputers.
 Many of our Python environments, including
-[`python-data`](../../apps/python-data.md), [`geoconda`](../../apps/geoconda.md)
-as well as deep learning modules like [`pytorch`](../../apps/pytorch.md)
+[`python-data`](../../apps/python-data.md), [`python-geo`](../../apps/python-geo.md)
+as well as deep learning modules like [`python-pytorch`](../../apps/python-pytorch.md)
 include the main Jupyter packages, so they can be used in the application.
 The documentation page for the application includes a
 [list of supported environments](../../computing/webinterface/jupyter.md#currently-supported-python-environments).
@@ -306,7 +311,7 @@ In addition, there are examples of
 on our CSC Training GitHub organization. Of the above four packages, examples are
 provided for `multiprocessing`, `joblib` and `dask`.
 
-The `mpi4py` package is included in our [PyTorch environment](../../apps/pytorch.md).
+The `mpi4py` package is included in our [PyTorch environment](../../apps/python-pytorch.md).
 It is generally the most efficient option for multinode jobs with non-trivial parallelization.
 For a short tutorial on `mpi4py`, along with other approaches for improving the
 performance of Python programs, please see the free
