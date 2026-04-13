@@ -69,6 +69,7 @@ parameters that can be used to select which data is displayed.
 
 ## More information
 
+- [Creating Roihu batch jobs](creating-job-scripts-roihu.md)
 - [Creating Puhti batch jobs](creating-job-scripts-puhti.md)
 - [Creating Mahti batch jobs](creating-job-scripts-mahti.md)
 - [Available batch job partitions](batch-job-partitions.md)
