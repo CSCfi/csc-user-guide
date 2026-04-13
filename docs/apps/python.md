@@ -80,6 +80,7 @@ In Roihu:
 | [python-jax](jax.md) | JAX ML framework |
 | [python-data](python-data.md) | data analysis and ML utilities |
 | [python-pytorch](pytorch.md) | PyTorch ML framework |
+| [python-vllm](vllm.md) | LLM inference |
 | [python-qiskit](qiskit.md) | quantum computing |
 | [python-tensorflow](tensorflow.md) | TensorFlow ML framework |
 
