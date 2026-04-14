@@ -418,6 +418,7 @@ nav:
               #     - Pouta videos: cloud/pouta/pouta-videos.md
           - Tutorials:
               - cloud/pouta/tutorials/index.md
+              - BeeGFS: cloud/pouta/tutorials/beegfs.md
               - cPouta and ePouta related videos: cloud/pouta/tutorials/pouta-videos.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
@@ -576,6 +577,7 @@ nav:
               - Share: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
+              - Page under construction: data/sensitive-data/sd-connect-conversion.md
           - Analyse with SD Desktop:
               - data/sensitive-data/sd_desktop.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
