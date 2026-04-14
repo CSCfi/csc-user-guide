@@ -40,7 +40,7 @@ For platform-specific instructions, see:
 * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md).
 * [Instructions for Windows](../../computing/connecting/ssh-windows.md).
 
-**[Read detailed instructions for creating and managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).**
+**[Read detailed instructions for managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).**
 
 !!! warning "Separate CPU and GPU environments"
     Roihu has
@@ -93,7 +93,7 @@ Note that previous extended disk quotas on Puhti or Mahti will not be automatica
 Before installing anything:
 
 1. Check if the software is already available:
-   - [List of pre-installed applications](../apps/index.md)
+   - [List of pre-installed applications](../../apps/index.md)
    - `module spider <module name>`
 
 If not available, choose one of the following approaches depending on your needs:
@@ -114,18 +114,18 @@ Another option is to build your own container from scratch.
 
 More details on working with containers in CSC's computing environment can be found from the links below:
 
-- [Overview of containers](containers/overview.md)
-- [Running containers](containers/overview.md#running-containers)
-- [Creating containers](containers/overview.md#building-container-images)
-- [Tykky container wrapper](containers/tykky.md)
+- [Overview of containers](../../computing/containers/overview.md)
+- [Running containers](../../computing/containers/overview.md#running-containers)
+- [Creating containers](../../computing/containers/overview.md#building-container-images)
+- [Tykky container wrapper](../../computing/containers/tykky.md)
 
 ### Python/R environments
 
 Best practice guidelines on installing your own Python and R packages can be found in the Python, R and Tykky container wrapper pages below.
 
-- [Installing Python packages and environments](../support/tutorials/python-usage-guide.md)
-- [Containerizing Conda and pip environments with Tykky](containers/tykky.md)
-- [R package installations](../apps/r-env.md#r-package-installations)
+- [Installing Python packages and environments](../tutorials/python-usage-guide.md)
+- [Containerizing Conda and pip environments with Tykky](../../computing/containers/tykky.md)
+- [R package installations](../../apps/r-env.md#r-package-installations)
 
 ## Running your first job
 
@@ -142,10 +142,10 @@ Basic workflow:
 
 See the relevant documentation below for detailed information:
 
-1. [Available batch job partitions](batch-job-partitions.md)
-2. [Creating a batch job script](creating-job-scripts-roihu.md)
-3. [Submit a batch job](submitting-jobs.md)
-4. [Performance checklist](performance-checklist.md)
+1. [Available batch job partitions](../../computing/running/batch-job-partitions.md)
+2. [Creating a batch job script](../../../computing/running/creating-job-scripts-roihu.md)
+3. [Submit a batch job](../../computing/running/submitting-jobs.md)
+4. [Performance checklist](../../computing/running/performance-checklist.md)
 
 For common Slurm error messages, see our FAQ on [Why does my batch job fail?](../faq/why-does-my-batch-job-fail.md).
 
