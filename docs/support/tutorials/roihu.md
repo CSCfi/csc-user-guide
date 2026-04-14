@@ -147,7 +147,7 @@ Basic workflow:
 See the relevant documentation below for detailed information:
 
 1. [Available batch job partitions](../../computing/running/batch-job-partitions.md)
-2. [Creating a batch job script](../../../computing/running/batch-job-partitions.md)
+2. [Creating a batch job script](../../computing/running/batch-job-partitions.md)
 3. [Submit a batch job](../../computing/running/submitting-jobs.md)
 4. [Performance checklist](../../computing/running/performance-checklist.md)
 
