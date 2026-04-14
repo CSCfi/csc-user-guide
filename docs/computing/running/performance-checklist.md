@@ -68,7 +68,7 @@ Process 2808762 level 1 thread 0003/0004 on node rc6224 core 4-7
 ```
 
 This output means that threads of the processes are free to move between the sets of four cores (0-3 or 4-7),
-which might not be optimal for performance.
+which can lead to worse performance due to increased context switching and thread migration during execution, as opposed to a case where threads are bound to single cores.
 
 If the output would show that several processes or threads are bound to the same core on the same node, for example
 ```txt
@@ -125,7 +125,7 @@ trap "rm -f $PRINT_AFFINITY" EXIT
 srun $PRINT_AFFINITY
 ```
 
-Example output for a job running on two nodes with eight task per node and 48 cores per task (`--nodes=2 --ntasks-per-node=8 --cpus-per-task=48 --hint=nomultithread`):
+Example output for a job running on two nodes with eight tasks per node and 48 cores per task (`--nodes=2 --ntasks-per-node=8 --cpus-per-task=48 --hint=nomultithread`):
 
 ```txt
 Task   10 running on node rc6284 core 96-143
@@ -146,7 +146,7 @@ Task    5 running on node rc6283 core 240-287
 Task    0 running on node rc6283 core 0-47
 ```
 
-This output shows that CSC supercomputers are configured so that by default each Slurm task is assigned
+This output shows that CSC supercomputers are configured so that, by default, each Slurm task is assigned
 its own exclusive set of CPU cores from the allocation.
 The number of cores reserved per task is determined by the Slurm option `cpus-per-task`.
 
@@ -155,7 +155,7 @@ The number of cores reserved per task is determined by the Slurm option `cpus-pe
 > Note
 > This section describes **advanced, manual control of CPU affinity**.
 > In practice, this is **rarely needed**, and the default Slurm configuration is best for most workloads.
-> If you believe you need manual CPU binding, **please contact us first** for guidance.
+> If you believe you need manual CPU binding, [**please contact us first**](https://docs.csc.fi/support/contact/) for guidance.
 
 If a different placement strategy is needed, the default CPU binding can be disabled by `srun --cpu-bind=none`.
 This removes all CPU affinity restrictions, allowing processes to run on **any allocated core on the node**.
@@ -202,7 +202,7 @@ trap "rm -f $PRINT_AFFINITY $BIND_CPU" EXIT
 srun --cpu-bind=none $BIND_CPU $PRINT_AFFINITY
 ```
 
-This produces output equivalent to the default CPU binding,
+This produces output equivalent to the default CPU binding seen above,
 confirming that the manual placement reproduces the standard behaviour:
 
 ```txt
