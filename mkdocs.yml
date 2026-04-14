@@ -10,7 +10,14 @@ docs_dir: docs/
 
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
-  announcement_visible: true # Controls the visibility of the announcement bar
+  announcement_visible: true # Show/hide announcement bar (does not affect urgent announcement below)
+  announcement_urgent: # An urgent announcement shown below the regular one; comment/uncomment to toggle
+    color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color
+    content: |-
+      <p>Warning!</p>
+      <div>
+        <p>Puhti scratch disk is becoming very full (80+ % ) resulting in performance degradation. Everybody is advised to only keep actively processed data on scratch, all other data should be deleted, transferred to host institute or stored in Lumi-O. No new quota will be granted. <a href="{{ base_url }}/support/tutorials/lue/">Click here for a tool for examining your disk usage.</a></p>
+      </div>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu.png
@@ -425,6 +432,7 @@ nav:
               #     - Pouta videos: cloud/pouta/pouta-videos.md
           - Tutorials:
               - cloud/pouta/tutorials/index.md
+              - BeeGFS: cloud/pouta/tutorials/beegfs.md
               - cPouta and ePouta related videos: cloud/pouta/tutorials/pouta-videos.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
@@ -583,6 +591,7 @@ nav:
               - Share: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
+              - Page under construction: data/sensitive-data/sd-connect-conversion.md
           - Analyse with SD Desktop:
               - data/sensitive-data/sd_desktop.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
