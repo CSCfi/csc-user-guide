@@ -140,12 +140,12 @@ This output shows that CSC supercomputers are configured so that, by default, ea
 its own exclusive set of CPU cores from the allocation.
 The number of cores reserved per task is determined by the Slurm option `cpus-per-task`.
 
-### Advanced: Controlling CPU Affinity Manually
+## Advanced: Controlling CPU Affinity Manually
 
-> Note
-> This section describes **advanced, manual control of CPU affinity**.
-> In practice, this is **rarely needed**, and the default Slurm configuration is best for most workloads.
-> If you believe you need manual CPU binding, [**please contact us first**](../contact.md) for guidance.
+!!! warning "Advanced topic"
+    This section describes **advanced, manual control of CPU affinity**.
+    In practice, this is **rarely needed**, and the default Slurm configuration is best for most workloads.
+    If you believe you need manual CPU binding, [**please contact us first**](../contact.md) for guidance.
 
 If a different placement strategy is needed, the default CPU binding can be disabled by `srun --cpu-bind=none`.
 This removes all CPU affinity restrictions, allowing processes to run on **any allocated core on the node**.
@@ -158,6 +158,9 @@ The first script is the same script used above for checking affinities and the s
 uses numactl for binding tasks to CPU cores in the same way as done by default:
 each task is assined a contiguous block of CPU cores based on the task's local ID and
 the number of CPUs per task:
+
+!!! warning "Script for full nodes"
+    This script works correctly only on full nodes.
 
 ```bash
 #!/bin/bash
