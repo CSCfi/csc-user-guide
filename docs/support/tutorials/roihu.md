@@ -93,7 +93,7 @@ Note that previous extended disk quotas on Puhti or Mahti will not be automatica
 Before installing anything:
 
 1. Check if the software is already available:
-   - [List of pre-installed applications](../apps/index.md)
+   - [List of pre-installed applications](../../apps/index.md)
    - `module spider <module name>`
 
 If not available, choose one of the following approaches depending on your needs:
@@ -123,7 +123,7 @@ More details on working with containers in CSC's computing environment can be fo
 
 Best practice guidelines on installing your own Python and R packages can be found in the Python, R and Tykky container wrapper pages below.
 
-- [Installing Python packages and environments](../support/tutorials/python-usage-guide.md)
+- [Installing Python packages and environments](../tutorials/python-usage-guide.md)
 - [Containerizing Conda and pip environments with Tykky](../../computing/containers/tykky.md)
 - [R package installations](../../apps/r-env.md#r-package-installations)
 
