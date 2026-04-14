@@ -168,6 +168,7 @@ nav:
               #     - Pouta-videot: cloud/pouta/pouta-videos.md
           - Tutoriaalit:
               - cloud/pouta/tutorials/index.md
+              - BeeGFS: cloud/pouta/tutorials/beegfs.md
               - cPouta- ja ePouta-aiheiset videot: cloud/pouta/tutorials/pouta-videos.md
               - Kiinteän IP-osoitteen luominen virtuaalikoneelle: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
               - Luo hyppykone cPoutaan: cloud/pouta/tutorials/create-jumphost.md
@@ -326,6 +327,7 @@ nav:
               - Jakaminen: data/sensitive-data/sd-connect-share.md
               - Komentorivikäyttöliittymä: data/sensitive-data/sd-connect-command-line-interface.md
               - Vianetsintä: data/sensitive-data/sd-connect-troubleshooting.md
+              - Keskeneräinen sivu: data/sensitive-data/sd-connect-conversion.md
           - Analysoi SD Desktopilla:
               - data/sensitive-data/sd_desktop.md
               - Kirjautuminen SD Desktopiin: data/sensitive-data/sd-desktop-login.md
