@@ -66,7 +66,11 @@ For platform-specific instructions, see:
 
     **All login nodes still share the same file system, so your files are accessible from all of them.**
 
-### Roihu web interface (available after general availability)
+### Roihu web interface
+
+!!! warning "Roihu web interface availability during the pilot period"
+     Roihu web interface will only be vailable after General Availability. Please connect via SSH during the pilot phase.
+     
 
 The simplest way to connect to Roihu is to use the web interface.
 
@@ -103,8 +107,8 @@ If not available, choose one of the following approaches depending on your needs
 HPC software written using programming languages such as C, C++ or Fortran need to be compiled before installing.  
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#building-mpi-applications)
-- [Compiling on Roihu-GPU](../../computing/compiling-roihu.md#building-gpu-applications)
+- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#compiling-on-roihu-cpu)
+- [Compiling on Roihu-GPU](../../computing/compiling-roihu.md#compiling-on-roihu-gpu)
 
 ### Containers
 
@@ -179,4 +183,4 @@ srun --argos=no <your-executable>
 
 * [Roihu system overview](../../computing/systems-roihu.md)
 * [CSC Computing Environment self-learning materials](https://csc-training.github.io/csc-env-eff/)
-* [Contact our service desk](https://docs.csc.fi/support/contact/)
+* [Contact our service desk](../contact.md)
