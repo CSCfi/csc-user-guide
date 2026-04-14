@@ -293,33 +293,27 @@ application. You can find some examples for
 
 ## Additional resources in batch jobs
 
-### Local storage
+### Local temporary storage
 
-Some nodes on Roihu have fast local storage space (NVMe) available for jobs.
+All nodes on Roihu have fast local storage space (NVMe) available for jobs.
 Using local storage is recommended for I/O-intensive applications, i.e. jobs
 that, for example, read and write a lot of small files.
 [See more details](../disk.md#temporary-local-disk-areas).
 
-Local storage is available on:
+Local temporary storage is available for every job without extra billing.
+Quota is set per user, so available space on a node is independent of
+job count or reserved resources:
 
-* TODO
+- Roihu-CPU shared nodes (`small`, `interactive`, and `test` partitions) have 20 GiB quota
+- Roihu-CPU full nodes (`medium` and `large` partitions) have 600 GiB quota
+- Roihu-GPU nodes have 150 GiB quota
 
-Request local storage using the `--gres` flag in the batch script:
-
-```bash
-#SBATCH --gres=nvme:<local_storage_space_per_node_in_GB>
-```
-
-The amount of space is given in GB (check maximum sizes from the list above).
-For example, to request 100 GB of storage, use option `--gres=nvme:100`. The
-local storage reservation is on a per-node basis.
-
-Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to
-access the local storage space on each node. For example, to extract a large
+Use the environment variable `$TMPDIR` in your batch job scripts to
+access the local temporary storage space on each node. For example, to extract a large
 dataset package to the local storage:
 
 ```bash
-tar xf my-large-dataset.tar.gz -C $LOCAL_SCRATCH
+tar xf my-large-dataset.tar.gz -C $TMPDIR
 ```
 
 !!! warning "Remember to recover your data"
@@ -332,8 +326,33 @@ tar xf my-large-dataset.tar.gz -C $LOCAL_SCRATCH
     data back to the directory from where the batch job was submitted:
 
     ```bash
-    mv $LOCAL_SCRATCH/my-important-output.log $SLURM_SUBMIT_DIR
+    mv $TMPDIR/my-important-output.log $SLURM_SUBMIT_DIR
     ```
+
+
+### Fast local scratch storage
+
+As a new feature on Roihu, it is possible to request local disk mounts from a centralized pool of fast storage resources.
+This fast storage capacity is provided over the network and
+appears as local scratch from within a Slurm job.
+
+!!! info "About fast local scratch storage"
+    This section is work in progress.
+
+Request this local storage using the following flag in the batch script:
+
+```bash
+#SBATCH xxx
+```
+
+For example, requesting 100 GiB storage:
+
+```bash
+#SBATCH xxx
+```
+
+Then, this storage is available in path `...` during the job script.
+
 
 ### GPUs
 
