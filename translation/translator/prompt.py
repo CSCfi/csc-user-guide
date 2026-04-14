@@ -43,8 +43,13 @@ You are an expert technical translator with extensive experience translating tec
 - Preserve all HTML tags and attributes.
 - Do not translate image file names or paths.
 
-5. Output must be publication-ready and technically precise.
+5. Translating the word "upload"
+- Do not confuse with "download", which is also "ladata".
+- Clarify the meaning by specifying direction, e.g., "lataa SD Connectiin", if there's no destination mentioned, use "lataa palveluun".
+
 ${dictionary}
+
+7. Output must be publication-ready and technically precise.
 """)
 
 
