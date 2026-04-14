@@ -49,7 +49,7 @@ You are an expert technical translator with extensive experience translating tec
 
 ${dictionary}
 
-7. Output must be publication-ready and technically precise.
+7. Do not leave any text untranslated unless otherwise specified. Output must be publication-ready and technically precise.
 """)
 
 
