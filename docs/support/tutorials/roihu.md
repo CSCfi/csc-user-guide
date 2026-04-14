@@ -33,7 +33,7 @@ To connect via SSH:
 1. Set up SSH keys (same as Puhti/Mahti)
 2. **New:** _Sign_ your public key and download a _certificate_
     * Certificates are valid for **24 hours**
-    * See our instructions for managing certificates: [Signing public SSH keys](../../../computing/connecting/ssh-keys/#signing-public-key)
+    * See our instructions for managing certificates: [Signing public SSH keys](../../computing/connecting/ssh-keys.md#signing-public-key)
 
 For platform-specific instructions, see:
 
@@ -107,8 +107,8 @@ If not available, choose one of the following approaches depending on your needs
 HPC software written using programming languages such as C, C++ or Fortran need to be compiled before installing.  
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU](../../../computing/compiling-roihu/#compiling-on-roihu-cpu)
-- [Compiling on Roihu-GPU](../../../computing/compiling-roihu/#compiling-on-roihu-gpu)
+- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#compiling-on-roihu-gpu)
+- [Compiling on Roihu-GPU](../../computing/compiling-roihu.md#compiling-on-roihu-gpu)
 
 ### Containers
 
