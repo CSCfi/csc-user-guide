@@ -278,9 +278,9 @@ Because Helm will need to edit some templates before applying them. `--post-rend
     runtimeConfig:
       platformCommand:
         - os: linux
-        command: "$HELM_PLUGIN_DIR/kustomize-postrenderer"
+            command: "$HELM_PLUGIN_DIR/kustomize-postrenderer"
         - os: darwin
-        command: "$HELM_PLUGIN_DIR/kustomize-postrenderer"
+            command: "$HELM_PLUGIN_DIR/kustomize-postrenderer"
     ```
 
 4. Install your newly created plugin:
