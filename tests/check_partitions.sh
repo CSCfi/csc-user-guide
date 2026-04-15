@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 part_flags=$(grep -E -n -r --include \*.md "^\s*#SBATCH\s*--partition=" docs)
-res=$(echo "$part_flags" | grep -Ev "#SBATCH\s*--partition=(All|small|large|medium|gc|test|longrun|fmi|hugemem|hugemem_longrun|gputest|gpu|interactive|q_fiqci|standard-g|small-g|dev-g|standard|small|debug|largemem)")
+res=$(echo "$part_flags" | grep -Ev "#SBATCH\s*--partition=(All|small|large|medium|gc|test|longrun|fmi|hugemem|hugemem_longrun|gputest|gpu|interactive|vizinteractive|q_fiqci|standard-g|small-g|dev-g|standard|small|debug|largemem)")
 
 if [ -z "$res" ]; then
     echo "All partition names seem to be valid"
