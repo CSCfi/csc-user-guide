@@ -123,7 +123,7 @@ We will install Nextcloud via Helm. We will use this Helm Chart: [https://github
 1. Add the Helm Repository
 
     ```sh
-    helm repo add nextcloud https://nextcloud.github.io.helm/
+    helm repo add nextcloud https://nextcloud.github.io/helm/
     helm repo update
     ```
 
