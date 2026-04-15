@@ -11,40 +11,37 @@ reduces unnecessary movement between cores, and leads to more stable and predict
 
 ## Inspecting and Controlling CPU Affinity of OpenMP Applications
 
-Many HPC applications benefit from binding OpenMP threads to CPU cores,
-which can be achieved by adding the following line to the batch job script:
+Many HPC applications benefit from binding OpenMP threads to CPU cores.
+This does not happen automatically but need to be enabled with the following lines in the batch job script:
+
 ```bash
 # Place and bind threads to single cores
 export OMP_PLACES=cores
 export OMP_PROC_BIND=spread
 ```
 
-It is also good practice to ensure correct thread affinity by adding the following lines to the batch job script:
+This tutorial illustrates the meaning of these settings.
+
+First, let's check the default behaviour in the case when threads are not bound.
+The following job script exemplifies the use of `OMP_*` for checking the CPU affinities of each process and OpenMP thread:
+
 ```bash
+#!/bin/bash
+#SBATCH ...
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Print thread affinities
 export OMP_DISPLAY_AFFINITY=true
 export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.4n/%0.4N on node %H core %A"
+
+# Run the program
+srun <my_openmp_program>
 ```
 
-Together, these settings allow you to verify thread placement and confirm that affinity is applied as expected,
-which is often a key step when diagnosing or optimizing performance on a supercomputer.
-
-Example output for a job running on one node with two tasks and 8 cpus per task (`--nodes=1 --ntasks-per-node=2 --cpus-per-task=8 --hint=nomultithread`).
-By default, the number of threads is set to match the `cpus-per-task` option:
-
-```txt
-Process 2808761 level 1 thread 0000/0004 on node rc6224 core 0
-Process 2808761 level 1 thread 0001/0004 on node rc6224 core 1
-Process 2808761 level 1 thread 0002/0004 on node rc6224 core 2
-Process 2808761 level 1 thread 0003/0004 on node rc6224 core 3
-Process 2808762 level 1 thread 0000/0004 on node rc6224 core 4
-Process 2808762 level 1 thread 0001/0004 on node rc6224 core 5
-Process 2808762 level 1 thread 0002/0004 on node rc6224 core 6
-Process 2808762 level 1 thread 0003/0004 on node rc6224 core 7
-```
-
-This output means that each thread is bound to its own core.
-
-If we had not set `OMP_PLACES=cores; OMP_PROC_BIND=spread`, then the output would look like this:
+Example output for a job running on one node with two tasks and eight cpus per task
+(`--nodes=1 --ntasks-per-node=2 --cpus-per-task=8 --hint=nomultithread`):
 
 ```txt
 Process 2808761 level 1 thread 0000/0004 on node rc6224 core 0-3
@@ -57,8 +54,49 @@ Process 2808762 level 1 thread 0002/0004 on node rc6224 core 4-7
 Process 2808762 level 1 thread 0003/0004 on node rc6224 core 4-7
 ```
 
-This output means that threads of the processes are free to move between the sets of four cores (0-3 or 4-7),
-which can lead to worse performance due to increased context switching and thread migration during execution, as opposed to a case where threads are bound to single cores.
+This output means that the threads of the processes are free to move between the sets of four cores (0-3 or 4-7),
+which can lead to worse performance due to increased context switching and thread migration during execution,
+as opposed to a case where threads are bound to single cores.
+
+In the following example job script, we have enabled thread binding:
+
+```bash
+#!/bin/bash
+#SBATCH ...
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Print thread affinities
+export OMP_DISPLAY_AFFINITY=true
+export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.4n/%0.4N on node %H core %A"
+
+# Run the program
+srun <my_openmp_program>
+```
+
+Now the output looks like this:
+
+```txt
+Process 2808761 level 1 thread 0000/0004 on node rc6224 core 0
+Process 2808761 level 1 thread 0001/0004 on node rc6224 core 1
+Process 2808761 level 1 thread 0002/0004 on node rc6224 core 2
+Process 2808761 level 1 thread 0003/0004 on node rc6224 core 3
+Process 2808762 level 1 thread 0000/0004 on node rc6224 core 4
+Process 2808762 level 1 thread 0001/0004 on node rc6224 core 5
+Process 2808762 level 1 thread 0002/0004 on node rc6224 core 6
+Process 2808762 level 1 thread 0003/0004 on node rc6224 core 7
+```
+
+This output means that each thread is bound to its own core, which is often desired for best performance.
+
+In general, when starting to use a new application or configuration,
+it is essential to use these settings to verify thread placement and confirm that affinity is applied as expected,
+which is often a key step when diagnosing or optimizing performance on a supercomputer.
 
 If the output would show that several processes or threads are bound to the same core on the same node, for example
 ```txt
@@ -84,6 +122,9 @@ Process 2808762 level 1 thread 0003/0004 on node rc6224 core 0
 ```
 or something similar, then the performance is likely deteriorated
 and the settings in the batch script should be fixed.
+
+Please do not hesitate to [**contact us**](../contact.md) if you need help with ensuring good
+performance for your application.
 
 
 ## Inspecting CPU Affinity in General
