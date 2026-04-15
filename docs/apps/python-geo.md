@@ -122,7 +122,7 @@ If you think that some important GIS package for Python is missing from here, yo
 
 The `python-geo` module is available:
 
-* 3.14.3 (Python 3.14.3, PDAL 2.10.0, GDAL 3.12.2, created April 2026), in Roihu
+* 3.14.3 (Python 3.14.3, PDAL 2.10.0, GDAL 3.12.2, created April 2026), in Roihu-CPU
 
 The version number is the same as the Python version.
 
