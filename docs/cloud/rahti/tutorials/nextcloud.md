@@ -218,7 +218,7 @@ We will install Nextcloud via Helm. We will use this Helm Chart: [https://github
 
 * `nextcloud.objectStore.s3.bucket` - Name of your bucket on Allas (Must be unique across all Allas. [Read more here](https://docs.csc.fi/data/Allas/introduction/#naming-buckets-and-objects)) 
 
-* `externalDatabase.host` - Public IP of your Pukki Database
+* `externalDatabase.host` - Public IP of your Pukki Database (Get started with Pukki [here](https://docs.csc.fi/cloud/dbaas/getting-started/))
 
 * `externalDatabase.user` - Username of your Pukki Database
 
