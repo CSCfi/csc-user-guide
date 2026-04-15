@@ -40,7 +40,6 @@ includes following python packages:
 -   [geodatasets](https://geodatasets.readthedocs.io/) download and cache spatial data example files. 
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [geoparquet-io](https://geoparquet.io/) - fast reader for GeoParquet files. NEW 2026
--   [geoplot](https://residentmario.github.io/geoplot/index.html) - geospatial plotting library. Only in 3.12.10
 -   [geopy](https://geopy.readthedocs.io/) - client for several popular geocoding web services.
 -   [geoviews](https://geoviews.org/) - geographic visualizations for HoloViews. NEW 2026
 -   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication](#google-earth-engine-authentication-set-up). 
