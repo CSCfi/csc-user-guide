@@ -216,7 +216,7 @@ We will install Nextcloud via Helm. We will use this Helm Chart: [https://github
 
 * `nextcloud.objectStore.s3.secretKey` - Secret Key to Allas. See our [FAQ](../../../support/faq/how-to-get-Allas-s3-credentials.md) on how to get Allas S3 credentials
 
-* `nextcloud.objectStore.s3.bucket` - Name of your bucket on Allas
+* `nextcloud.objectStore.s3.bucket` - Name of your bucket on Allas (Must be unique across all Allas. [Read more here](https://docs.csc.fi/data/Allas/introduction/#naming-buckets-and-objects)) 
 
 * `externalDatabase.host` - Public IP of your Pukki Database
 
