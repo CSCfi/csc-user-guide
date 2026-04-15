@@ -173,11 +173,11 @@ The purpose of these projects, and the corresponding disk area, is to provide
 a data sharing area for multiple computational projects to read from.
 Write access to the projdata disk area is limited to a single project.
 
-The intended usage is for data sharing and avtice use, not for storing data
+The intended usage is for data sharing and active use, not for storing data
 or storing primary copies of a dataset.
 
 !!! note
-     Dataset projects are intended for data sharing and active use, not long-term storage.
+     Dataset projects are intended for data sharing and active use, not long-term storage.</br>
      For long term storage, consider using [Allas](../data/Allas/index.md).
 
 ## Moving data between supercomputers
