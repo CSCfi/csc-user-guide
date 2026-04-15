@@ -10,7 +10,7 @@ Example job scripts for running different types of programs:
     with the executable (and options) of the program you wish to run as well
     as `<project>` with the name of your project.
 
-## Serial
+## Serial CPU
 
 ```bash
 #!/bin/bash
@@ -27,7 +27,7 @@ Example job scripts for running different types of programs:
 srun myprog <options>
 ```
 
-## Partial node: MPI
+## Partial CPU node: MPI
 
 ```bash
 #!/bin/bash
@@ -44,7 +44,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## Partial node: OpenMP
+## Partial CPU node: OpenMP
 
 ```bash
 #!/bin/bash
@@ -70,7 +70,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Partial node: MPI+OpenMP
+## Partial CPU node: MPI+OpenMP
 
 ```bash
 #!/bin/bash
@@ -96,7 +96,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Partial node: MPI+OpenMP with simultaneous multithreading
+## Partial CPU node: MPI+OpenMP with simultaneous multithreading
 
 ```bash
 #!/bin/bash
@@ -120,7 +120,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Full nodes: MPI
+## Full CPU nodes: MPI
 
 ```bash
 #!/bin/bash
@@ -137,7 +137,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## Full nodes: OpenMP
+## Full CPU nodes: OpenMP
 
 ```bash
 #!/bin/bash
@@ -162,7 +162,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Full nodes: MPI+OpenMP
+## Full CPU nodes: MPI+OpenMP
 
 ```bash
 #!/bin/bash
@@ -188,7 +188,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Full nodes: MPI+OpenMP with simultaneous multithreading
+## Full CPU nodes: MPI+OpenMP with simultaneous multithreading
 
 ```bash
 #!/bin/bash
@@ -202,12 +202,66 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=192 --cpus-per-task=4  # The product should be 768
 #SBATCH --hint=multithread
 
-# Set the number of threads based on cpus-per-task
+# Set the number of CPU threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 
-# Place and bind threads to single hardware threads
+# Place and bind CPU threads to single CPU cores
 # Comment the following lines if binding is not desired
-export OMP_PLACES=threads
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
+
+## GPU slices
+
+!!! info "Work in progress"
+    This section is work in progress.
+
+
+## Partial GPU nodes
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=gpumedium
+#SBATCH --time=00:30:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1 --cpus-per-task=72  # The product should be 72
+#SBATCH --gres=gpu:gh200:1
+
+# Set the number of CPU threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind CPU threads to single CPU cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
+
+## Full GPU nodes
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=gpumedium
+#SBATCH --time=00:30:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4 --cpus-per-task=72  # The product should be 288
+#SBATCH --gres=gpu:gh200:4
+
+# Set the number of CPU threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind CPU threads to single CPU cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
 export OMP_PROC_BIND=spread
 
 # Run the program
@@ -216,6 +270,5 @@ srun myprog <options>
 
 ## Fast disk (NVMe over Fabric)
 
-## 1-4 GPU job i.e. `gpumedium` partition
-
-## Multi-node GPU job i.e. `gpularge` partition
+!!! info "Work in progress"
+    This section is work in progress.
