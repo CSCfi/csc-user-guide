@@ -228,7 +228,7 @@ if `--cpus-per-task` was not set).
 
 In MPI jobs, each task has its own memory allocation. Thus, the tasks can be
 distributed over multiple nodes.
- 
+
 When running jobs on a partial node (`small` partition), set the number of MPI tasks with:
 
 ``` bash
@@ -274,7 +274,7 @@ the same `#SBATCH` line for clarity:
 The reason is that these options go hand-in-hand in a sense that their product should
 always be 384 in order to use all CPU cores available on the Roihu node.
 You can comment out one of the lines to test the optimal run configuration for
-your application, 
+your application,
 [see Performance checklist](./performance-checklist.md).
 
 The optimal ratio between the number of tasks and cores per tasks varies for each
@@ -290,6 +290,47 @@ application. You can find some examples for
     ```bash
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
     ```
+
+## GPU jobs
+
+Each Roihu-GPU node has four Nvidia GH200 superchips. The GPUs are available in the `gpu*` partitions.
+
+The resource allocation is based on full GH200 GPUs in `gputest`, `gpumedium`, and `gpularge` partitions
+and the GPUs can be requested with:
+
+```bash
+#SBATCH --partition=gpumedium
+#SBATCH --gres=gpu:gh200:<number_of_gpus_per_node>
+```
+
+Note that the `--gres` reservation is on a per-node basis. There are 4 GPUs per GPU node.
+
+!!! info "About `gpuinteractive` partition"
+    The MIGs are not configured yet.
+
+In `gpuinteractive` partition, the GH200 GPUs are sliced into smaller Multi-Instance GPUs (MIG).
+Each MIG here has one XXXth of the compute and memory capacity of a full GH200 GPU.
+For each GPU slice you can reserve at most XXX CPU cores and for each GPU slice the job is allocated XXX GiB of CPU memory.
+Also note that you can reserve at most one GPU slice per job. The GPU slices are available using the options:
+
+```bash
+#SBATCH --partition=gpuinteractive
+#SBATCH --gres=gpu:gh200_xxx:1
+```
+
+## Visualization jobs
+
+Roihu has visualization nodes with Nvidia L40 GPUs. These nodes are available in the `vizinteractive` partition.
+
+These nodes can be requested with:
+
+```bash
+#SBATCH --partition=vizinteractive
+#SBATCH --gres=gpu:l40:<number_of_gpus_per_node>
+```
+
+Note that the `--gres` reservation is on a per-node basis. There are 2 GPUs per GPU node.
+
 
 ## Additional resources in batch jobs
 
@@ -329,7 +370,6 @@ tar xf my-large-dataset.tar.gz -C $TMPDIR
     mv $TMPDIR/my-important-output.log $SLURM_SUBMIT_DIR
     ```
 
-
 ### Fast local scratch storage
 
 As a new feature on Roihu, it is possible to request local disk mounts from a centralized pool of fast storage resources.
@@ -352,41 +392,6 @@ For example, requesting 100 GiB storage:
 ```
 
 Then, this storage is available in path `...` during the job script.
-
-
-### GPUs
-
-Roihu has 528 Nvidia GH200 superchips with GPUs. The GPUs are available in the `gpu*`
-partitions and can be requested with:
-
-```bash
-#SBATCH --gres=gpu:gh200:<number_of_gpus_per_node>
-```
-
-The `--gres` reservation is on a per-node basis. There are 4 GPUs per GPU node.
-
-Multiple resources can be requested with a comma-separated list. To request
-both GPU and local storage:
-
-```bash
-#SBATCH --gres=gpu:gh200:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
-```
-
-For example, to request 1 GPU and 10 GB of NVMe storage the option would be
-`--gres=gpu:gh200:1,nvme:10`.
-
-TODO: sliced GPUs, text below from Mahti:
-
-In Mahti's `gpusmall` partition there are also A100 GPUs that have been sliced into smaller a100_1g.5gb GPUs
-with one seventh of the compute and memory capacity of a full A100 GPU. For each GPU slice you can reserve
-at most 4 CPU cores and for each GPU slice the job is allocated 17.5 GiB of memory. Also note that you can reserve
-at most one GPU slice per job. The GPU slices are available on `gpusmall` using the options:
-
-```bash
-#SBATCH --partition=gpusmall
-#SBATCH --gres=gpu:a100_1g.5gb:1
-```
-
 
 
 ### Simultaneous multithreading (SMT) on Roihu-CPU
@@ -449,7 +454,7 @@ srun myprog -i input -o output
 In many cases, large computing tasks include pre- or post-processing steps that are not able to utilize parallel computing.
 In these cases it is recommended that, if possible, the task is split into several, chained, batch jobs and that the non-parallel
 processing is executed in the small partition of Roihu.
-In the small partition the jobs can reserve just few cores so that the non-parallel tasks can be executed without wasting resources.  
+In the small partition the jobs can reserve just few cores so that the non-parallel tasks can be executed without wasting resources.
 
 For example, say that we would like to post-process an _output_ file of a previous job. The post processing command:
 `python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. Instead of including the post-processing
