@@ -144,10 +144,10 @@ recompiled on Roihu. More information will be included in the migration guide.
 The programming environment of Roihu will otherwise be similar to Mahti,
 including e.g.
 
-* GNU compiler stack
-* AOCC compiler stack
+* The GNU compiler stack
+* The AOCC compiler stack
 * CUDA and Nvidia HPC Software Development Kit (SDK)
-* OpenMPI as main MPI library
+* OpenMPI as the main MPI library
 
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.

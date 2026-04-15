@@ -163,6 +163,23 @@ Any data that should be preserved for a longer time should be copied to the *All
 object storage server. Instructions for backing up files from CSC supercomputers to
 Allas can be found in the [Allas guide](../data/Allas/index.md).
 
+## Projdata directory
+
+Roihu users can apply for separate "dataset projects", on top of the default,
+computational projects. These projects, instead of being assigned scratch and
+projappl working spaces, will be assigned disk space under `/projdata/project_<id>`.
+
+The purpose of these projects, and the corresponding disk area, is to provide
+a data sharing area for multiple computational projects to read from.
+Write access to the projdata disk area is limited to a single project.
+
+The intended usage is for data sharing and avtice use, not for storing data
+or storing primary copies of a dataset.
+
+!!! note
+     Dataset projects are intended for data sharing and active use, not long-term storage.
+     For long term storage, consider using [Allas](../data/Allas/index.md).
+
 ## Moving data between supercomputers
 
 Data can be moved between supercomputers via Allas by first uploading the data in
