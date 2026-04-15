@@ -39,7 +39,7 @@ all possible options, see the
 The general syntax of an `#SBATCH` option is:
 
 ```bash
-#SBATCH --option_name=argument
+#SBATCH --option-name=argument
 ```
 
 The first line in our example, sets the name of the job:
