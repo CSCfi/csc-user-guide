@@ -328,7 +328,7 @@ Because Helm will need to edit some templates before applying them. `--post-rend
 
     ```yaml
     apiVersion: kustomize.config.k8s.io/v1beta1
-    kind: Kustomizations
+    kind: Kustomization
 
     resources:
       - ../base/
