@@ -109,6 +109,10 @@ _Replace YOUR_PROJECT by your Rahti project_
 Once built, [push](../images/Using_Rahti_integrated_registry.md) the image on the Rahti registry:
 
 ```sh
+docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
+```
+
+```sh
 docker push image-registry.apps.2.rahti.csc.fi/<YOUR_PROJECT>/nextcloud:33.0.0-apache
 ```
 
