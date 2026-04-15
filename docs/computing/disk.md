@@ -235,7 +235,7 @@ need to process large amounts (over 100 000) of small files. These directories a
 the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want
 to preserve from these temporary disk areas to `scratch` directory or to Allas.
 
-#### Roihu
+### Roihu
 
 All compute nodes on Roihu offer fast, NVMe, local storage to the user.
 Based on your [job reservation](running/batch-job-partitions.md) type, you will have access to
@@ -252,7 +252,7 @@ the following amount of local disk space:
 The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
 your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
 
-#### Puhti and Mahti
+### Puhti and Mahti
 
 Jobs running in the I/O- and GPU-nodes in Puhti and Mahti have local fast storage
 available. In interactive batch jobs launched with [sinteractive](running/interactive-usage.md),
@@ -267,7 +267,11 @@ local disks in the `small` and `interactive` partitions. The GPU nodes have 3600
 
 For more information see [creating job scripts](running/creating-job-scripts-puhti.md#local-storage).
 
-#### Compute nodes without local SSD (NVMe) disks on Puhti and Mahti
+#### Compute nodes without local SSD (NVMe)
+
+!!! Note
+     All Roihu compute nodes employ local SSD NVMe disks. 
+     The information below is only relevant for Puhti and Mahti.
 
 In Puhti we simply recommend using compute nodes with NVMe disks (`$LOCAL_SCRATCH`) for the
 applications that require temporary local storage.
