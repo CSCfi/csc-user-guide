@@ -278,9 +278,9 @@ Because Helm will need to edit some templates before applying them. `--post-rend
     runtimeConfig:
       platformCommand:
         - os: linux
-            command: "$HELM_PLUGIN_DIR/kustomize-postrenderer"
+          command: "$HELM_PLUGIN_DIR/kustomize-postrenderer"
         - os: darwin
-            command: "$HELM_PLUGIN_DIR/kustomize-postrenderer"
+          command: "$HELM_PLUGIN_DIR/kustomize-postrenderer"
     ```
 
 4. Install your newly created plugin:
@@ -353,6 +353,12 @@ Because Helm will need to edit some templates before applying them. `--post-rend
     This file will be our "kustomization". We need to remove the `securityContext` and we will create an OKD Route.
 
     For the Route, you need to add in `value:` the value defined in `.Values.nextcloud.host`
+
+8. **_OPTIONAL_** Install kustomize
+
+    The Rahti command line tool `oc` has kustomize as a built-in feature.
+
+    If you wish to install `kustomize`, you can find the different binaries on this [page](https://github.com/kubernetes-sigs/kustomize/releases)
 
 ## Deploy
 
