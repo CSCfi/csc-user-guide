@@ -267,7 +267,7 @@ local disks in the `small` and `interactive` partitions. The GPU nodes have 3600
 
 For more information see [creating job scripts](running/creating-job-scripts-puhti.md#local-storage).
 
-#### Compute nodes without local SSD (NVMe)
+#### Compute nodes without local SSD (NVMe) disks
 
 !!! Note
      All Roihu compute nodes employ local SSD NVMe disks. 
