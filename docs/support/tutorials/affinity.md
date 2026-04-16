@@ -292,3 +292,11 @@ and the settings in the batch script should be fixed.
 
 Please do not hesitate to [**contact us**](../contact.md) if you need help with ensuring good
 performance for your application.
+
+
+## More information
+
+* [`numactl` man page](https://man7.org/linux/man-pages/man8/numactl.8.html)
+* [OpenMP API Specification: `OMP_PROC_BIND`](https://www.openmp.org/spec-html/5.0/openmpse52.html)
+* [OpenMP API Specification: `OMP_PLACES`](https://www.openmp.org/spec-html/5.0/openmpse53.html)
+* [OpenMP API Specification: `OMP_AFFINITY_FORMAT`](https://www.openmp.org/spec-html/5.0/openmpse62.html)
