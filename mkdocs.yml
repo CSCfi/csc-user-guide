@@ -522,6 +522,7 @@ nav:
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
               - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
+              - Nextcloud: cloud/rahti/tutorials/nextcloud.md
               - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
               - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
               - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
