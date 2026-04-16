@@ -130,7 +130,7 @@ srun myprog <options>
 ##SBATCH --partition=large  # uncomment if using 6 or more nodes
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=384 --cpus-per-task=1
+#SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
 #SBATCH --hint=nomultithread
 
 # Run the program
@@ -147,7 +147,7 @@ srun myprog <options>
 ##SBATCH --partition=large  # uncomment if using 6 or more nodes
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=1 --cpus-per-task=384
+#SBATCH --ntasks-per-node=1 --cpus-per-task=384  # The product should be 384
 #SBATCH --hint=nomultithread
 
 # Set the number of threads based on cpus-per-task
