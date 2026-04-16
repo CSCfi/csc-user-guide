@@ -232,20 +232,27 @@ distributed over multiple nodes.
 When running jobs on a partial node (`small` partition), set the number of MPI tasks with:
 
 ``` bash
+#SBATCH --partition=small
 #SBATCH --ntasks=<number_of_mpi_tasks>
 ```
 
 When running on full nodes (`medium` and `large` partitions),
 it is recommended to **not** use `--ntasks` option,
-but instead set `--nodes` and `--ntasks-per-node` instead:
+but instead set `--nodes`, `--ntasks-per-node`, and `--cpus-per-task` instead:
 
 ``` bash
+#SBATCH --partition=medium
 #SBATCH --nodes=<number_of_full_nodes>
-#SBATCH --ntasks-per-node=384  # Number of MPI tasks per node = number of CPU cores per node
+#SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
 ```
 
 This ensures predictable distribution and CPU binding of processes within the node,
 [see Performance checklist](./performance-checklist.md).
+
+!!! info "Set both `--ntasks-per-node` and `--cpus-per-task` for full nodes"
+    It is advisable to set both `--ntasks-per-node` and `--cpus-per-task`
+    to keep their product as 384 for best performance.
+    See [notes on undersubscribing full nodes](#undersubscribing-full-nodes-on-roihu-cpu).
 
 !!! info "Running MPI programs"
     - MPI programs **should not** be started with `mpirun` or `mpiexec`. Use
@@ -266,6 +273,7 @@ When running on full nodes, it is recommended to write
 the same `#SBATCH` line for clarity:
 
 ``` bash
+#SBATCH --partition=medium
 #SBATCH --nodes=<number_of_full_nodes>
 #SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
 #SBATCH --ntasks-per-node=96  --cpus-per-task=4  # The product should be 384
@@ -423,7 +431,7 @@ tasks per node as
 
 ```bash
 ...
-#SBATCH --ntasks-per-node=24 --cpus-per-task=16
+#SBATCH --ntasks-per-node=24 --cpus-per-task=16  # The product should be 384
 
 module load myprog/1.2.3
 export OMP_NUM_THREADS=1
@@ -439,7 +447,7 @@ can set
 
 ```bash
 ...
-#SBATCH --ntasks-per-node=8 --cpus-per-task=48
+#SBATCH --ntasks-per-node=8 --cpus-per-task=48  # The product should be 384
 
 export OMP_NUM_THREADS=3
 export OMP_PROC_BIND=spread
