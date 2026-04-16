@@ -2,6 +2,10 @@
 # latest translation, then pages are translated for listed languages. If language
 # list is empty, page is translated for every supported language.
 
+- cc371e6b1e8c24f2f55d11285de3bae849b03ecb:
+    "data/sensitive-data/sd-connect-download.md": [fi]
+    "support/tutorials/ml-guide.md": [fi]
+
 - 66cf3a1148d689958b82a5c48059335cbe8cbe65:
     "accounts/how-to-access-mahti-large-partition.md": [fi]
     "accounts/when-your-project-handles-personal-data.md": [fi]
