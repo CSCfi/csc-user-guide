@@ -220,7 +220,7 @@ srun myprog <options>
     This section is work in progress.
 
 
-## Partial GPU nodes
+## Partial GPU nodes: 1-16 GPUs
 
 ```bash
 #!/bin/bash
@@ -229,8 +229,8 @@ srun myprog <options>
 #SBATCH --partition=gpumedium
 #SBATCH --time=00:30:00
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1 --cpus-per-task=72  # The product should be 72
-#SBATCH --gres=gpu:gh200:1
+#SBATCH --ntasks-per-node=1 --cpus-per-task=72  # The product should be 72 if requesting 1 GPU per node
+#SBATCH --gres=gpu:gh200:1  # Corresponds to 1 GPU per node
 
 # Set the number of CPU threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -244,17 +244,17 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Full GPU nodes
+## Full GPU nodes: 16 or more GPUs
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
-#SBATCH --partition=gpumedium
+#SBATCH --partition=gpularge
 #SBATCH --time=00:30:00
-#SBATCH --nodes=1
+#SBATCH --nodes=4
 #SBATCH --ntasks-per-node=4 --cpus-per-task=72  # The product should be 288
-#SBATCH --gres=gpu:gh200:4
+#SBATCH --gres=gpu:gh200:4  # 4 GPUs per node
 
 # Set the number of CPU threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
