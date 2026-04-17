@@ -60,9 +60,9 @@ For platform-specific instructions, see:
     ```
 
     **Importantly:**
-    - Software compiled on Roihu-CPU nodes only works on Roihu-CPU nodes
-    - Software compiled on Roihu-GPU nodes only works on Roihu-GPU nodes
-    - This also applies to Python environments
+    - Software compiled on Roihu-CPU nodes only works on Roihu-CPU nodes<br>
+    - Software compiled on Roihu-GPU nodes only works on Roihu-GPU nodes<br>
+    - This also applies to Python environments<br>
 
     **All login nodes still share the same file system, so your files are accessible from all of them.**
 
@@ -83,12 +83,12 @@ The simplest way to connect to Roihu is to use the web interface.
 If you need to transfer data from Puhti or Mahti to Roihu, we require
 that you:
 
-1. Review your data carefully – **only move what you
-   really need**
+1. Review your data carefully – **only move what you really need**
 2. Check your available disk space on Roihu (for example, using the `csc-workspaces` command)
 3. Transfer data **directly** from Puhti or Mahti to Roihu.
 
-Note that previous extended disk quotas on Puhti or Mahti will not be automatically moved to Roihu. Quota extensions on Roihu must be separately applied for and properly motivated.
+Note that previous extended disk quotas on Puhti or Mahti will not be automatically moved to Roihu.
+Quota extensions on Roihu must be separately applied for and properly motivated.
 
 **[Read the detailed instructions in the Roihu data migration guide](roihu-data.md).**
 
