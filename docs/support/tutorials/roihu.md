@@ -97,8 +97,8 @@ Quota extensions on Roihu must be separately applied for and properly motivated.
 Before installing anything:
 
 1. Check if the software is already available:
-   - [List of pre-installed applications](../../apps/index.md)
-   - `module spider <module name>`
+     - [List of pre-installed applications](../../apps/index.md)
+     - `module spider <module name>`
 
 If not available, choose one of the following approaches depending on your needs:
 
@@ -107,7 +107,7 @@ If not available, choose one of the following approaches depending on your needs
 HPC software written using programming languages such as C, C++ or Fortran need to be compiled before installing.  
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#compiling-on-roihu-gpu)
+- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#compiling-on-roihu-cpu)
 - [Compiling on Roihu-GPU](../../computing/compiling-roihu.md#compiling-on-roihu-gpu)
 
 ### Containers
