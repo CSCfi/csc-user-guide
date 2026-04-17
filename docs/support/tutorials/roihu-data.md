@@ -54,9 +54,9 @@
     | Disk area | Path                  | Default size | Max. size [^1]      | Default file number limit | Max. file number limit [^1] |
     |-----------|-----------------------|-------------:|--------------------:|--------------------------:|----------------------------:|
     | Home      | `/users/$USER`        | 15 GiB       | 15 GiB              | 150k                      | 150k                        |
-    | ProjAppl  | `/projappl/<project>` | 15 GiB       | 250 GiB (< 100 GiB) | 150k                      | 2.5M (< 1M)                 |
+    | ProjAppl  | `/projappl/<project>` | 15 GiB       | 250 GiB             | 150k                      | 2.5M                        |
     | ProjData  | `/projdata/<project>` | 0 GiB        | case-by-case        | 0                         | case-by-case                |
-    | Scratch   | `/scratch/<project>`  | 1 TiB        | 100 TiB (< 10 TiB)  | 1M                        | 10M (< 5M)                  |
+    | Scratch   | `/scratch/<project>`  | 250 GiB      | 100 TiB             | 500k                      | 10M                         |
 
     [^1]: Values in parentheses indicate automatically approved limits.
 
