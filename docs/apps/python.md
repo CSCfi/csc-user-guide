@@ -73,16 +73,16 @@ Python environments made for different science areas.
 
 In Roihu: 
 
-| Module name | Purpose |
-|-|-|
-| [biopythontools](biopython.md) | bioinformatics |
-| [python-geo](python-geo.md) | geoinformatics |
-| [python-jax](jax.md) | JAX ML framework |
-| [python-data](python-data.md) | data analysis and ML utilities |
-| [python-pytorch](pytorch.md) | PyTorch ML framework |
-| [python-vllm](vllm.md) | LLM inference |
-| [python-qiskit](qiskit.md) | quantum computing |
-| [python-tensorflow](tensorflow.md) | TensorFlow ML framework |
+| Module name | Purpose | Roihu-CPU/Roihu-GPU |
+|-|-|-|
+| [biopythontools](biopython.md) | bioinformatics | |
+| [python-geo](python-geo.md) | geoinformatics | CPU |
+| [python-jax](jax.md) | JAX ML framework | GPU |
+| [python-data](python-data.md) | data analysis and ML utilities | CPU/GPU |
+| [python-pytorch](pytorch.md) | PyTorch ML framework | GPU |
+| [python-vllm](vllm.md) | LLM inference | GPU |
+| [python-qiskit](qiskit.md) | quantum computing |  |
+| [python-tensorflow](tensorflow.md) | TensorFlow ML framework | GPU |
 
 In other systems:
 
