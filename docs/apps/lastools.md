@@ -21,7 +21,7 @@ catalog:
 
 LAStools is included in following modules:
 
-* lastools: 2025 (more exactly 250304), 2023 (230914) and 2022 (220613)
+* lastools: 2026 (more exactly 260326), 2025 (250304), 2023 (230914) and 2022 (220613)
 * geoconda: 3.11.9, 3.10.9 and 3.10.6 (all with older 20171231)
 
 Load one of these modules, for example the newest version (default):
@@ -118,10 +118,10 @@ Citation of the software depends on which license was used:
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
 ## Installation
-**2025 and 2023 versions** were installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipies](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+**2023-2026 2023 versions** were installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipies](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
 
 ```
-#2025
+#2025 and 2026
 wrap-container -w /opt/LAStools/bin lastools_2025.sif --prefix 2025
 
 #2023
