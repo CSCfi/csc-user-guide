@@ -29,8 +29,8 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | MobaXterm, inc SFTP browser |   :ok:|              :ok: |
 | Putty            |              :ok:|              :ok: |
 | PowerShell       |              :ok:|               :ok:|
-| [WinSCP](../../data/moving/graphical_transfer/#winscp-file-transfer-and-more-on-windows)          |              :ok:|         Difficult |
-| [FileZilla](../../data/moving/graphical_transfer/#filezilla-a-general-file-transfer-tool)        | Only with PageAnt |        Difficult |
+| [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)          |              :ok:|         Difficult |
+| [FileZilla](../../data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)        | Only with PageAnt |        Difficult |
 | Cyberduck        |              :ok:|  :ok: with OpenSSH key, difficult with Putty key |
 
 
