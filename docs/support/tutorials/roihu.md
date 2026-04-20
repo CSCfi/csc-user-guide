@@ -59,7 +59,7 @@ For platform-specific instructions, see:
     ssh <username>@roihu-cpu.csc.fi
     ```
 
-    **Importantly:**
+    **Importantly:**<br>
     - Software compiled on Roihu-CPU nodes only works on Roihu-CPU nodes<br>
     - Software compiled on Roihu-GPU nodes only works on Roihu-GPU nodes<br>
     - This also applies to Python environments<br>
@@ -97,7 +97,7 @@ Quota extensions on Roihu must be separately applied for and properly motivated.
 Before installing anything:
 
 1. Check if the software is already available:
-     - [List of pre-installed applications](../../apps/index.md)
+     - [List of pre-installed applications](../../apps/by_availability.md#roihu)
      - `module spider <module name>`
 
 If not available, choose one of the following approaches depending on your needs:
