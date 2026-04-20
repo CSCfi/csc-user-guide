@@ -140,7 +140,13 @@ Base container are built on top of Rockylinux 9.
     apptainer build --fakeroot container.sif container.def
     ```
 
-=== "Roihu GPU base container (~ 16 GB)"
+    Now, you can run commands inside the container with clean environment and environment active as follows:
+
+    ```bash
+    apptainer run --cleanenv run mycmd
+    ```
+
+=== "Roihu GPU base container (~16 GB)"
     ```sh title="container.def"
     Bootstrap: docker
     From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1
@@ -160,6 +166,12 @@ Base container are built on top of Rockylinux 9.
     ```bash
     export APPTAINER_CACHEDIR=$TMPDIR
     apptainer build --fakeroot container.sif container.def
+    ```
+
+    Now, you can run commands inside the container with clean environment and environment active as follows:
+
+    ```bash
+    apptainer run --cleanenv run mycmd
     ```
 
 More details on working with containers in CSC's computing environment can be found from the links below:
