@@ -79,7 +79,6 @@ In Roihu:
 | [python-data](python-data.md) | data analysis and ML utilities | CPU/GPU |
 | [python-pytorch](pytorch.md) | PyTorch ML framework | GPU |
 | [python-vllm](vllm.md) | LLM inference | GPU |
-| [python-qiskit](qiskit.md) | quantum computing |  |
 
 In Puhti and Mahti:
 
