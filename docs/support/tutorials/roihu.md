@@ -115,6 +115,52 @@ For instructions on the available compilers and preferred options, see the instr
 Roihu supports Apptainer/Singularity containers for container installations. 
 In most cases, ready-made Docker containers can be easily converted into an Apptainer image.
 Another option is to build your own container from scratch. 
+You can build containers on top of Roihu base containers which have the same software stack as is available via the module system natively.
+Base container are built on top of Rockylinux 9.
+
+=== "Roihu CPU base container (~4 GB)"
+    ```sh title="container.def"
+    Bootstrap: docker
+    From: satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03
+
+    %post
+        # Activate module environment and load default modules.
+        . /opt/activate.sh
+        # Build your application here:
+
+    %runscript
+        . /opt/activate.sh
+        exec "$@"
+    ```
+
+    When building the containers, set you cache directory to temporary directory to avoid filling you home directory quota.
+
+    ```bash
+    export APPTAINER_CACHEDIR=$TMPDIR
+    apptainer build --fakeroot container.sif container.def
+    ```
+
+=== "Roihu GPU base container (~ 16 GB)"
+    ```sh title="container.def"
+    Bootstrap: docker
+    From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1
+
+    %post
+        # Activate module environment and load default modules.
+        . /opt/activate.sh
+        # Build your application here:
+
+    %runscript
+        . /opt/activate.sh
+        exec "$@"
+    ```
+
+    When building the containers, set you cache directory to temporary directory to avoid filling you home directory quota.
+
+    ```bash
+    export APPTAINER_CACHEDIR=$TMPDIR
+    apptainer build --fakeroot container.sif container.def
+    ```
 
 More details on working with containers in CSC's computing environment can be found from the links below:
 
