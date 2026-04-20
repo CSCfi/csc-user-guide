@@ -406,7 +406,7 @@ Then, this storage is available in path `...` during the job script.
 
 SMT support can be enabled with `--hint=multithread` option.
 When this option is used, it is important to use the `--ntasks-per-node=X` and
-`--cpus-per-task=Y` so that `X * Y = 768`. Failing to do so will leave some of the
+`--cpus-per-task=Y` so that `X * Y = 768` on full nodes. Failing to do so will leave some of the
 actual physical cores unallocated and performance will be suboptimal.
 
 ### Undersubscribing full nodes on Roihu-CPU
@@ -457,7 +457,8 @@ module load myprog/1.2.3
 srun myprog -i input -o output
 ```
 
-### Using small partition for non-parallel pre- or post-processing
+### Using the small partition for non-parallel pre- or post-processing
+``
 
 In many cases, large computing tasks include pre- or post-processing steps that are not able to utilize parallel computing.
 In these cases it is recommended that, if possible, the task is split into several, chained, batch jobs and that the non-parallel
