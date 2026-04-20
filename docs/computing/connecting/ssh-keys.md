@@ -184,7 +184,7 @@ following instructions illustrate only basic usage.
                * If you install WinSCP without admin rights, you must add 
                `WinSCP.exe` to your Path environment variable. Search for the
                _Edit environment variables for your account_ settings menu.
-        8. Optional, but **strongly recommended** start SSH agent to
+        8. Optional, but **strongly recommended** start [SSH agent](ssh-windows.md#authentication-agent) to
            automatically add SSH key and certificate to the SSH agent:
                * Pageant for Putty keys. 
                * Windows `ssh-agent` for OpenSSH keys.
@@ -228,7 +228,7 @@ following instructions illustrate only basic usage.
             - The signed certificate is saved to the same folder as the input key
                as `<key>-cert.pub` for OpenSSH keys and/or
               `<key>-cert.ppk` for Putty keys.
-        13. **[Connect to Roihu following these instructions](ssh-windows.md#basic-usage)**.
+        13. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](data/moving/graphical_transfer.md).
 
 ---
 
@@ -259,14 +259,14 @@ following instructions illustrate only basic usage.
 
 === "Linux & macOS"
 
+	1. Optional, add certificate to [SSH authentication agent](ssh-unix.md#authentication-agent). Mandatory for SSH agent forwarding.
 	1. [Connect from Terminal](ssh-unix.md#basic-usage)
 
 
 === "Windows"
 
-  1. Optional, add certificate to SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for using FileZilla and WinSCP.
-  1. [Connect with MobaXterm, Putty or PowerShell](ssh-windows.md#basic-usage) or move files with [FileZilla](data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)
-or [WinSCP](data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)
+	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla and WinSCP.
+	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](data/moving/graphical_transfer.md).
 
 ---
 
