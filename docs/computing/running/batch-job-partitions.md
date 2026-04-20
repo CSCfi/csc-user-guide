@@ -93,7 +93,7 @@ available during the Roihu pilot phase:
 
 | Partition  | Allocation type | Time limit | Min nodes | Max nodes | [Node types](../systems-roihu.md#nodes) |
 |------------|-----------------|------------|-----------|-----------|-----------------------------------------|
-| `pilotcpu` | N               | 24 hours   | 1         | 200       | M, L                                    |
+| `pilot`    | N               | 24 hours   | 1         | 200       | M                                       |
 | `pilotgpu` | N               | 48 hours   | 1         | 60        | GPU                                     |
 
 
