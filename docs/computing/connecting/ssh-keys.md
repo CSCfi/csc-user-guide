@@ -228,7 +228,7 @@ following instructions illustrate only basic usage.
             - The signed certificate is saved to the same folder as the input key
                as `<key>-cert.pub` for OpenSSH keys and/or
               `<key>-cert.ppk` for Putty keys.
-        13. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](data/moving/graphical_transfer.md).
+        13. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [../../graphical file transfer tools](data/moving/graphical_transfer.md).
 
 ---
 
@@ -266,7 +266,7 @@ following instructions illustrate only basic usage.
 === "Windows"
 
 	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla and WinSCP.
-	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](data/moving/graphical_transfer.md).
+	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
 
 ---
 

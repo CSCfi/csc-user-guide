@@ -29,12 +29,12 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | MobaXterm, inc SFTP browser |   :ok:|              :ok: |
 | Putty            |              :ok:|              :ok: |
 | PowerShell       |              :ok:|               :ok:|
-| [WinSCP](data/moving/graphical_transfer/#winscp-file-transfer-and-more-on-windows)          |              :ok:|         Difficult |
-| [FileZilla](data/moving/graphical_transfer/#filezilla-a-general-file-transfer-tool)        | Only with PageAnt |        Difficult |
+| [WinSCP](../../data/moving/graphical_transfer/#winscp-file-transfer-and-more-on-windows)          |              :ok:|         Difficult |
+| [FileZilla](../../data/moving/graphical_transfer/#filezilla-a-general-file-transfer-tool)        | Only with PageAnt |        Difficult |
 | Cyberduck        |              :ok:|  :ok: with OpenSSH key, difficult with Putty key |
 
 
-For first/little usage, Roihu [web interface](../webinterface.md) might be the easiest optoin with login-node and compute-node shells and file transfer.   
+For first/little usage, Roihu [web interface](../webinterface/index.md) might be the easiest optoin with login-node and compute-node shells and file transfer.   
 
 ## Generating SSH keys
 
