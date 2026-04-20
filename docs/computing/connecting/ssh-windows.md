@@ -13,17 +13,19 @@ In Windows, 2 different key types are widely used:
    * **OpenSSH keys** (the same as for Linux/Mac), used with MobaXterm, PowerShell and Cyberduck.
    * **PuTTY keys** .ppk, used with PuTTY, MobaXterm, WinSCP, FileZilla and Cyberduck. 
       
-## Windows tools for Roihu
+## Windows SSH and SFTP tools for Roihu
 
-**In Roihu, besides SSH keys a SSH certificate is required**. A new SSH certificate must be added to SSH agent every 24 hours. CSC provides two options for this:
+--8<-- "ssh-ca.md"
 
-	* Option 1, the [certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
-	* Option 2, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-2-mycsc)
+CSC provides two options for this:
+
+* Option 1, the [certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
+* Option 2, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-2-mycsc)
 	
 So for Roihu, consider also how different tools support updating the SSH certificate:
 
 | Tool             |  Roihu, option 1 |    Roihu, option 2|        
-|-----------------:|-----------------:|:------------------|
+|:-----------------|-----------------:|------------------:|
 | MobaXterm, inc SFTP browser |   :ok:|              :ok: |
 | Putty            |              :ok:|              :ok: |
 | PowerShell       |              :ok:|               :ok:|
@@ -38,7 +40,7 @@ For first/little usage, Roihu [web interface](../webinterface.md) might be the e
 
 --8<-- "using-ssh-keys.md"
 
-Depending on the tools you plan to use for SSH connection and moving files, generate right type of SSH keys.
+Depending on the tools you plan to use (see above) for SSH connection and moving files, generate right type of SSH keys.
 
 === "PuTTY keys"
 
@@ -95,14 +97,13 @@ Depending on the tools you plan to use for SSH connection and moving files, gene
 
 PuTTYgen or MobaKeyGen can also be used for converting keys from OpenSSH to Putty format and vice versa.
 
-After you have generated an SSH key pair, you need to add the **public key** to
-the MyCSC portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc). To
+After you have generated an SSH key pair, you need to [add the **public key** to
+the MyCSC portal](ssh-keys.md#adding-public-key-in-mycsc). To
 connect to Roihu, you must also
 [sign your public key](ssh-keys.md#signing-public-key) to obtain a time-based
 SSH certificate which is required for authentication.
 
---8<-- "ssh-ca.md"
+
 
 You may also wish to configure [authentication agent](#authentication-agent) to
 make using SSH keys more convenient.
@@ -146,7 +147,7 @@ supercomputer.
     | **Host Name** | `puhti.csc.fi` or `mahti.csc.fi` |
     | **Port** | `22` |
     | **Connection type** | `SSH` |
-	| Connection -> Data -> Auto-login username | <csc_username> |
+	| Connection -> Data -> Auto-login username | `csc_username` |
 
     It is recommended to use [PageAnt](#authentication-agent) for providing your SSH keys. If you do not use PageAnt, add the keys manually: select the private key and
     certificate file (**only if connecting to Roihu**) under
@@ -252,13 +253,13 @@ SSH authentication agents help managing your keys and their passphrases. It can 
 
 Different authentication agents work with different tools:
 
-	* [PageAnt](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant): PuTTY, WinSCP, FileZilla, MobaXterm, Cyberduck
-	* Window ssh-agent: PowerShell, Cyberduck, MobaXterm
-	* MobAgent: MobaXterm
+* [PageAnt](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant): PuTTY, WinSCP, FileZilla, MobaXterm, Cyberduck
+* Window ssh-agent: PowerShell, Cyberduck, MobaXterm
+* MobAgent: MobaXterm
 
 ### Authentication agents with Puhti, Mahti and LUMI
 
-Puhti, Mahti and LUMI do not use SSH certificates, so adding keys to SSH authentication agents is done once and can be used for longer time.
+Puhti, Mahti and LUMI do not use SSH certificates, so adding keys to SSH authentication agents is done once and can be used for longer time. Below are the instructions for adding SSH keys to SSH agent manually.
 
 === "Pageant"
 
@@ -315,8 +316,8 @@ Puhti, Mahti and LUMI do not use SSH certificates, so adding keys to SSH authent
 
 In Roihu, besides SSH keys a SSH certificate is required. If using SSH agent, a new SSH certificate must be added daily. CSC provides two options for this:
 
-	* Option 1, the [certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
-	* Option 2, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-2-mycsc)
+* Option 1, the [certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
+* Option 2, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-2-mycsc)
 
 Option 1 provides the easiest process to sign and download the SSH certificates for connecting to Roihu. 
 Importantly, it also automatically adds your SSH keys and certificate 
@@ -326,43 +327,45 @@ so using Pageant is recommended for MobaXterm-users.
 
 Option 2 requires some extra steps for adding the SSH certificate to the SSH agent.
     
-    === "Pageant & MobAgent"
+=== "Pageant & MobAgent"
 
-        To add your SSH certificate to MobAgent or Pageant, you must first
-        "combine" the certificate and the PuTTY `.ppk` private key.
+	To add your SSH certificate to MobAgent or Pageant, you must first
+	"combine" the certificate and the PuTTY `.ppk` private key.
 
-        1. Open PuTTYgen or MobaKeyGen (_Tools_ tab of MobaXterm).
-        2. Load your private key (`File --> Load private key`).
-        3. Add a valid certificate to the key (`Key --> Add certificate to key`).
-           The validity period can be checked by selecting `Certificate info`.
-        4. Save the private key as `<key>-cert.ppk`, e.g. 
-           `id_ed25519-cert.ppk`. 
-        5. The new private key including the certificate can now be added to
-           Pageant and/or MobAgent following the instructions above. A
-           successfully combined key and certificate will show up as `Ed25519
-           cert` in Pageant/MobAgent.
+	1. Open PuTTYgen or MobaKeyGen (_Tools_ tab of MobaXterm).
+	2. Load your private key (`File --> Load private key`).
+	3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+	   The validity period can be checked by selecting `Certificate info`.
+	4. Save the private key as `<key>-cert.ppk`, e.g. 
+	   `id_ed25519-cert.ppk`. 
+	5. The new private key including the certificate can now be added to
+	   Pageant and/or MobAgent following the instructions above. A
+	   successfully combined key and certificate will show up as `Ed25519
+	   cert` in Pageant/MobAgent.
 
-    === "Windows ssh-agent"
+=== "Windows ssh-agent"
 
-        Users of Windows `ssh-agent` **must** make sure to store their manually
-        downloaded SSH certificate in the same directory as the SSH private key
-        **and** name it as `<private-key-name>-cert.pub` to be able to add it
-        to SSH agent with `ssh-add` command. If successful, `ssh-add` outputs:
+	Users of Windows `ssh-agent` **must** make sure to store their manually
+	downloaded SSH certificate in the same directory as the SSH private key
+	**and** name it as `<private-key-name>-cert.pub` to be able to add it
+	to SSH agent with `ssh-add` command. If successful, `ssh-add` outputs:
 
-        ```bash
-        Certificate added: C:\Users\<username>\.ssh\id_ed25519-cert.pub
-        ```
+	```bash
+	Certificate added: C:\Users\<username>\.ssh\id_ed25519-cert.pub
+	```
 
-        **If the certificate is stored and/or named in any other way, it cannot be
-        added to the authentication agent because OpenSSH uses hard-coded naming
-        conventions.**
+	**If the certificate is stored and/or named in any other way, it cannot be
+	added to the authentication agent because OpenSSH uses hard-coded naming
+	conventions.**
+
+---
 
 **Please note**:
 
 * If you intend to connect to Roihu via a jump host (e.g. when transferring
 data from another CSC server to Roihu), also the SSH certificate **must**
 be added to the SSH agent so that it can be properly forwarded.
-* Alternatively, you may connect to Roihu and **pull** data from servers
+* Alternatively, you may connect to Roihu and **pull data** from servers
 that do not require a SSH certificate (e.g. Puhti or Mahti). In this case
 it is enough to forward only your SSH keys.
 * [Read more about SSH agent forwarding below](#ssh-agent-forwarding).

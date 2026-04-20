@@ -212,3 +212,23 @@ authentication agent have the same fingerprints and are annotated with
 256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519)
 256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519-CERT)
 ```
+
+### Configuring SSH client
+
+You can save yourself some time by adding host-specific options for CSC
+supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
+(e.g. `~/.ssh/config`).
+
+```bash
+Host <host>  # e.g. "roihu-cpu"
+    HostName <host>.csc.fi
+    User <csc-username>
+    IdentityFile <path-to-private-key>
+    CertificateFile <path-to-certificate>  # Required for Roihu only
+```
+
+Now you can connect to the host simply by running:
+
+```bash
+ssh <host>
+```

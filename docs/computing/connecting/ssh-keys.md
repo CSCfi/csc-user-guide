@@ -257,16 +257,16 @@ following instructions illustrate only basic usage.
 
 1. **Connect to Roihu following these instructions**:
 
-    === "Linux & macOS"
+=== "Linux & macOS"
 
-        1. [Connect from Terminal](ssh-unix.md#basic-usage)
+	1. [Connect from Terminal](ssh-unix.md#basic-usage)
 
 
-    === "Windows"
+=== "Windows"
 
-      1. Optional, add certificate to SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for using FileZilla and WinSCP.
-      1. [Connect with MobaXterm, Putty or PowerShell](ssh-windows.md#basic-usage) or move files with [FileZilla](data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)
-   or [WinSCP](data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)
+  1. Optional, add certificate to SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for using FileZilla and WinSCP.
+  1. [Connect with MobaXterm, Putty or PowerShell](ssh-windows.md#basic-usage) or move files with [FileZilla](data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)
+or [WinSCP](data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)
 
 ---
 
@@ -274,30 +274,30 @@ following instructions illustrate only basic usage.
         Each SSH certificate is valid for 24 hours. The expiration time can be
         checked as follows:
 
-        === "Terminal (Linux, macOS, PowerShell, MobaXterm)"
+=== "Terminal (Linux, macOS, PowerShell, MobaXterm)"
 
-            1. Open a terminal client.
-            1. Run command:
+	1. Open a terminal client.
+	1. Run command:
 
-                ```bash
-                # Replace <path-to-certificate> with the path to your OpenSSH
-                # certificate file (.pub)
+		```bash
+		# Replace <path-to-certificate> with the path to your OpenSSH
+		# certificate file (.pub)
 
-                ssh-keygen -L -f <path-to-certificate> | grep "Valid"
-                ```
+		ssh-keygen -L -f <path-to-certificate> | grep "Valid"
+		```
 
-        === "GUI (PuTTY, MobaXterm)"
+=== "GUI (PuTTY, MobaXterm)"
 
-            2. Open PuTTYgen / MobaKeyGen.
-            3. Load your `.ppk` private key:
-                * _File_ :material-arrow-right: _Load private key_
-            4. Add a certificate (`.pub`) to the key (unless already included
-               in the `.ppk` file):
-                * _Key_  :material-arrow-right: _Add certificate to key_
-            5. Select _Certificate info_ to see the validity period among other
-               info.
+	2. Open PuTTYgen / MobaKeyGen.
+	3. Load your `.ppk` private key:
+		* _File_ :material-arrow-right: _Load private key_
+	4. Add a certificate (`.pub`) to the key (unless already included
+	   in the `.ppk` file):
+		* _Key_  :material-arrow-right: _Add certificate to key_
+	5. Select _Certificate info_ to see the validity period among other
+	   info.
 
-    ---
+---
 
 ## More information
 
