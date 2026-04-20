@@ -103,6 +103,7 @@ Local storage on Roihu M, L and GPU nodes is meant for storing temporary files o
 
 High-performance local storage is available on Roihu XL and V nodes. Ideal for I/O intensive jobs.
 
+Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
 
 ## Puhti partitions
 
