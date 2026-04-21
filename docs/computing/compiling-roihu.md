@@ -6,7 +6,7 @@
     - Roihu-CPU nodes use AMD (x86) processors
     - Roihu-GPU nodes use NVIDIA Grace (ARM) processors
 
-    Binaries compiled for one architecture are generally not usable on the other.
+    Binaries compiled for one architecture are not usable on the other.
     Accordingly, software should be compiled on the same side where it will be run:
 
     - Compile for CPU nodes on the Roihu-CPU login node
