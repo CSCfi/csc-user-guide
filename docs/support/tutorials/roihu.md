@@ -222,7 +222,7 @@ Your job will continue normally with Argos disabled.
 
 If your job completes successfully, you can safely ignore these messages.
 
-To suppress most of the Argos related warnings and errors, you can pass the `--argos=no` flag option to srun in the following manner:
+To suppress most of the Argos related warnings and errors, you can pass the `--argos=no` flag option to Slurm in the following manner:
 
 ```bash
 #!/bin/bash
@@ -231,8 +231,9 @@ To suppress most of the Argos related warnings and errors, you can pass the `--a
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --time=DD:HH:MM
+#SBATCH --argos=no
 
-srun --argos=no <your-executable>
+srun <your-executable>
 ```
 
 ## More information
