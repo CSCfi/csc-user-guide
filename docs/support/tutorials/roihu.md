@@ -149,7 +149,7 @@ Base container are built on top of Rockylinux 9.
 === "Roihu GPU base container (~16 GB)"
     ```sh title="container.def"
     Bootstrap: docker
-    From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1
+    From: satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1
 
     %post
         # Activate module environment and load default modules.
