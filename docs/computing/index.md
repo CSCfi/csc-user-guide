@@ -157,7 +157,7 @@ csc-workspaces
   using the web interfaces
 * [Disk areas](disk.md): What places are there for storing data on CSC
   supercomputers
-* [Object storage](allas-in-roihu): Opening connections to Allas and Lumi-O object storage services 
+* [Object storage](allas-in-roihu.md): Opening connections to Allas and Lumi-O object storage services 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
 * [Running jobs](running/getting-started.md): How to run programs on the
