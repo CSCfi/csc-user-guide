@@ -10,12 +10,12 @@ The allas module enables command: **allas-conf** that is used to configure **S3*
 
 In addition this module brings available a set of command line tools that can be used to operate with Allas and Lumi-O object storage services. These tools include:
 
-   * [a-commands](../../data/Allas/using_allas/a_commands.md)
-   * [Rclone](../../data/Allas/using_allas/rclone.md)
-   * [s3cmd](../../data/Allas/using_allas/s3_client.md)
+   * [a-commands](../data/Allas/using_allas/a_commands.md)
+   * [Rclone](../data/Allas/using_allas/rclone.md)
+   * [s3cmd](../data/Allas/using_allas/s3_client.md)
    * [aws s3](https://docs.aws.amazon.com/cli/latest/reference/s3/)
-   * [swift](../../data/Allas/using_allas/swift_client/)
-   * [allas-backup](https://docs.csc.fi/data/Allas/using_allas/a_backup/) and restic
+   * [swift](../data/Allas/using_allas/swift_client/)
+   * [allas-backup](../data/Allas/using_allas/a_backup/) and restic
 
 You can check current object storage connections with command:
 
@@ -57,10 +57,10 @@ Following connections are in use:
 |--------------------------------|----------------|
 | a-commands, aws and s3cmd	     | project_200222 |
 | rclone s3allas:                | project_200222 |
-| rclone a3allas-project200111: | project_200111 |
+| rclone a3allas-project200111:  | project_200111 |
 | rclone a3allas-project_200222: | project_200222 |
 
-And with these settings all the commands below list the Allas buckets of project 200222
+And with these settings all the commands below list the Allas buckets of project 200222.
 
 ```txt
 a-list
