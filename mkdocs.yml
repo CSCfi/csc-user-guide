@@ -309,6 +309,7 @@ nav:
           - SSH client on Windows: computing/connecting/ssh-windows.md
       - Supercomputer storage:
           - computing/disk.md
+          - Roihu disk areas: computing/roihu-disk.md
           - Lustre filesystem: computing/lustre.md
       - Module environment: computing/modules.md
       - Running jobs:

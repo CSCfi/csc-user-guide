@@ -1,5 +1,9 @@
 # Disk areas
 
+!!! warning "Roihu documentation on a separate docs page"
+     This page contains storage information on Puhti and Mahti.
+     For information on Roihu's storage, see: [Roihu storage](roihu-disk.md)
+
 CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**.
 In addition to these disk areas visible to all compute and login nodes, each node has a
 **local temporary disk area** that is visible to the particular compute node during a batch
@@ -23,19 +27,11 @@ is available.
 
 These disk areas have quotas for both the amount of data and total number of files:
 
-=== "Roihu"
-     |            |Capacity|Number of files|
-     |------------|--------|---------------|
-     |**home**    |15 GiB  |150 000 files  |
-     |**projappl**|15 GiB  |150 000 files  |
-     |**scratch** |250 GiB |500 000 files|
-
-=== "Puhti and Mahti"
-     |            |Capacity|Number of files|
-     |------------|--------|---------------|
-     |**home**    |10 GiB  |100 000 files  |
-     |**projappl**|50 GiB  |100 000 files  |
-     |**scratch** |1 TiB   |1 000 000 files|
+|            |Capacity|Number of files|
+|------------|--------|---------------|
+|**home**    |10 GiB  |100 000 files  |
+|**projappl**|50 GiB  |100 000 files  |
+|**scratch** |1 TiB   |1 000 000 files|
 
 !!! info "LUE"
     To easily check the amount of data and number of files within a given folder on
@@ -53,7 +49,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 
 ## Home directory
 
-Each user has a home directory (`$HOME`) that can contain up to 15 GB of data on Roihu, and 10 GB on Mahti and Puhti.
+Each user on Mahti and Puhti has a home directory (`$HOME`) that can contain up to 10 GB of data.
 
 The home directory is the default directory where you begin after logging in to CSC supercomputers.
 However, typically you should change to your project's `scratch` directory when working because
@@ -67,8 +63,8 @@ are project-specific. If you are a member of several projects, you also have acc
 
 ## Scratch directory
 
-Each project on Roihu has, by default, 250 GB of scratch disk space in the directory `/scratch/<project>`,
-or 1 TB on Mahti and Puhti.
+Each project on Mahti and Puhti has, by default, 1 TiB of scratch disk space in the
+directory `/scratch/<project>`.
 
 This fast parallel scratch space is intended as temporary storage space for the
 data that is used in the supercomputer. The scratch directory is not intended
@@ -85,8 +81,8 @@ manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 
 ## Projappl directory
 
-Each project on Roihu has also a 15 GB project application disk space in the directory
-`/projappl/<project>`, or 50 GB on Mahti and Puhti.
+Each project on Mahti and Puhti also has 50 GB project application disk space
+in the directory `/projappl/<project>`.
 
 It is intended for storing compiled software binaries, source code, libraries, scripts
 and small-scale reference data that are shared within a project. It is not a
@@ -163,23 +159,6 @@ Any data that should be preserved for a longer time should be copied to the *All
 object storage server. Instructions for backing up files from CSC supercomputers to
 Allas can be found in the [Allas guide](../data/Allas/index.md).
 
-## Projdata directory
-
-Roihu users can apply for separate "dataset projects", on top of the default,
-computational projects. These projects, instead of being assigned scratch and
-projappl working spaces, will be assigned disk space under `/projdata/project_<id>`.
-
-The purpose of these projects, and the corresponding disk area, is to provide
-a data sharing area for multiple computational projects to read from.
-Write access to the projdata disk area is limited to a single project.
-
-The intended usage is for data sharing and active use, not for storing data
-or storing primary copies of a dataset.
-
-!!! note
-     Dataset projects are intended for data sharing and active use, not long-term storage.</br>
-     For long term storage, consider using [Allas](../data/Allas/index.md).
-
 ## Moving data between supercomputers
 
 Data can be moved between supercomputers via Allas by first uploading the data in
@@ -231,45 +210,18 @@ are only needed within a single login- or compute node.
 
 ### Login nodes
 
-Each of the login nodes on Roihu-CPU and Roihu-GPU have 80 GB of fast local storage available to the user.
-On Mahti and Puhti, there is 2900 GiB of shared fast local storage available on the login nodes.
-The storage is located under `$TMPDIR` and is separate for each login node.
+Each of the login nodes have 2900 GiB of fast local storage. The storage is located under
+`$TMPDIR` and is separate for each login node.
 
-The local storage is intended for compiling applications and performing pre- and post-processing
+The local storage is good for compiling applications and performing pre- and post-processing
 that require heavy I/O operations, for example packing and unpacking archive files.
 
 !!! Note
     The local storage is meant for **temporary** storage and is cleaned frequently.
     Remember to move your data to a shared disk area after completing your task.
 
+
 ### Compute nodes with local SSD (NVMe) disks
-
-All compute nodes in Roihu, and some nodes in Puhti and Mahti offer fast local storage on their
-compute nodes.
-
-These local disk areas are designed to support I/O intensive computing tasks and cases where you
-need to process large amounts (over 100 000) of small files. These directories are cleaned once
-the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want
-to preserve from these temporary disk areas to `scratch` directory or to Allas.
-
-### Roihu
-
-All compute nodes on Roihu offer fast, NVMe, local storage to the user.
-Based on your [job reservation](running/batch-job-partitions.md) type, you will have access to
-the following amount of local disk space:
-
-| Allocation type    | Quota per user |
-|:-------------------|---------------:|
-| R (shared nodes)   | 20 GiB         |
-| N (full nodes)     | 600 GiB        |
-| G (GPU nodes)      | 150 GiB        |
-| Hugemem (XL) nodes | 1,6 TiB        |
-| VIZ nodes          | 6,5 TiB        |
-
-The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
-your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
-
-### Puhti and Mahti
 
 Jobs running in the I/O- and GPU-nodes in Puhti and Mahti have local fast storage
 available. In interactive batch jobs launched with [sinteractive](running/interactive-usage.md),
@@ -282,13 +234,14 @@ disks. In big memory nodes there are 1490 GiB and 5960 GiB disks, and in GPU-nod
 long, it is a good idea to only reserve what you actually need. In Mahti there are 60 CPU nodes with 3500 GiB
 local disks in the `small` and `interactive` partitions. The GPU nodes have 3600 GiB local disks.
 
+These local disk areas are designed to support I/O intensive computing tasks and cases where you
+need to process large amounts (over 100 000) of small files. These directories are cleaned once
+the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want
+to preserve from these temporary disk areas to `scratch` directory or to Allas.
+
 For more information see [creating job scripts](running/creating-job-scripts-puhti.md#local-storage).
 
-#### Compute nodes without local SSD (NVMe) disks
-
-!!! Note
-     All Roihu compute nodes employ local SSD NVMe disks. 
-     The information below is only relevant for Puhti and Mahti.
+### Compute nodes without local SSD (NVMe) disks
 
 In Puhti we simply recommend using compute nodes with NVMe disks (`$LOCAL_SCRATCH`) for the
 applications that require temporary local storage.
