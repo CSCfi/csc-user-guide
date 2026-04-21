@@ -111,6 +111,7 @@ cycle and which to the 180 day `scratch` cleaning cycle.
 For example, if you are a member in two projects, with unix groups `project_2000123`
 and `project_2001234`, then you have access to two `scratch` and `projappl` directories:
 
+
 ```text
 [kkayttaj@puhti-login11 ~]$ csc-workspaces 
 
@@ -118,17 +119,17 @@ Disk area               Capacity(used/max)  Files(used/max)  Cleanup
 ----------------------------------------------------------------------
 Personal home folder
 
-/users/kkayttaj                 4.4G/15G         24K/150K        n/a
+/users/kkayttaj                 4.4G/10G         24K/100K        n/a
 ----------------------------------------------------------------------
 Project: project_2000123 "Project X"
 
-/projappl/project_2000123        24G/15G         36K/150K        n/a
-/scratch/project_2000123        103G/250G       389K/500k        180d
+/projappl/project_2000123        24G/50G         36K/100K        n/a
+/scratch/project_2000123        103G/1.0T       389K/1.0M       180d
 ----------------------------------------------------------------------
 Project: project_2001234 "Project Y"
 
-/projappl/project_2001234        25G/100G        282K/1.0M        n/a
-/scratch/project_2001234         7.2/10TB        2.1M/2.5M        90d
+/projappl/project_2001234        85G/100G       282K/600K        n/a
+/scratch/project_2001234        7.2T/8.0T       2.7M/5.0M        90d
 ----------------------------------------------------------------------
 ```
 
