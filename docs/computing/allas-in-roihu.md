@@ -6,7 +6,7 @@ Object storage related tools are initialized in Roihu with command:
 ```text
 module load allas
 ```
-The allas module enables command: **allas-conf** that is used to configure **S3* connections to [Allas](../../data/Allas/index.md) and [Lumi-O](https://docs.lumi-supercomputer.eu/storage/lumio/) object storage services and *Swift* based connections to Allas. Note that in Roihu _allas-conf: by default configures an S3 based connection to Allas, unlike to Puhti and Mahti where swift is used by default.
+The allas module enables command: **allas-conf** that is used to configure **S3* connections to [Allas](../data/Allas/index.md) and [Lumi-O](https://docs.lumi-supercomputer.eu/storage/lumio/) object storage services and *Swift* based connections to Allas. Note that in Roihu _allas-conf: by default configures an S3 based connection to Allas, unlike to Puhti and Mahti where swift is used by default.
 
 In addition this module brings available a set of command line tools that can be used to operate with Allas and Lumi-O object storage services. These tools include:
 
