@@ -94,11 +94,9 @@ Quota extensions on Roihu must be separately applied for and properly motivated.
 
 ## Installing software
 
-Before installing anything:
-
-1. Check if the software is already available:
+Before installing anything check if the software is already available:
      - [List of pre-installed applications](../../apps/by_availability.md#roihu)
-     - `module spider <module name>`
+     - `module spider <software name>`
 
 If not available, choose one of the following approaches depending on your needs:
 
@@ -116,7 +114,7 @@ Roihu supports Apptainer/Singularity containers for container installations.
 In most cases, ready-made Docker containers can be easily converted into an Apptainer image.
 Another option is to build your own container from scratch. 
 You can build containers on top of Roihu base containers which have the same software stack as is available via the module system natively.
-Base container are built on top of Rockylinux 9.
+Base container are built on top of Rocky Linux 9.
 
 === "Roihu CPU base container (~4 GB)"
     ```sh title="container.def"
@@ -133,7 +131,7 @@ Base container are built on top of Rockylinux 9.
         exec "$@"
     ```
 
-    When building the containers, set you cache directory to temporary directory to avoid filling you home directory quota.
+    When building containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
 
     ```bash
     export APPTAINER_CACHEDIR=$TMPDIR
