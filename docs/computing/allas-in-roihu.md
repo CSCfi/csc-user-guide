@@ -14,8 +14,8 @@ In addition this module brings available a set of command line tools that can be
    * [Rclone](../data/Allas/using_allas/rclone.md)
    * [s3cmd](../data/Allas/using_allas/s3_client.md)
    * [aws s3](https://docs.aws.amazon.com/cli/latest/reference/s3/)
-   * [swift](../data/Allas/using_allas/swift_client/)
-   * [allas-backup](../data/Allas/using_allas/a_backup/) and restic
+   * [swift](../data/Allas/using_allas/swift_client.md)
+   * [allas-backup](../data/Allas/using_allas/a_backup.md) and restic
 
 You can check current object storage connections with command:
 
