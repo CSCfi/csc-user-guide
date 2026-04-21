@@ -1,4 +1,4 @@
-!!! error "Advanced level"
+!!! warning "Middle level"
     You need to familiarize yourself with the kubernetes [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/) API.  
     In this tutorial, we will use the OpenShift CLI tool [oc](../usage/cli.md)
 

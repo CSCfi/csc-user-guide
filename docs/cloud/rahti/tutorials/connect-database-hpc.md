@@ -83,7 +83,7 @@ echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 
     For this example to work, you need to install the mariadb python module. At the time of writing this the command to use is:
     `pip3 install mariadb=1.0.11`
-    This is due to the fact that the current last version of the module is broken for the platforms we tested this with. See the upstream documentation for more information: <https://mariadb.com/docs/connectors/mariadb-connector-python/install>
+    This is due to the fact that the current last version of the module is broken for the platforms we tested this with. See the upstream documentation for more information: <https://mariadb-corporation.github.io/mariadb-connector-python/install.html>
 
 
 ```python

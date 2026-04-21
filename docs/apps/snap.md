@@ -193,7 +193,7 @@ SNAP was installed to Puhti with Singularity using the [SNAP Docker image provid
 
 `wrap-container -w /usr/local/snap/bin,/usr/bin snap9_py.sif --prefix install_dir`
 
-The full [SNAP Singularity definition file](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap/snap9_py.def).
+The full [SNAP Singularity definition file](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap/snap_py.def). 
 
 
 ## References

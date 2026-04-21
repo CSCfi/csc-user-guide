@@ -9,9 +9,9 @@ To raise the assurance level, you need to login to our customer portal MyCSC and
 
 Please follow our instructions precisely. The identity vetting service provider is [Candour Ltd.](https://candour.fi/)
 
-1. Login to [MyCSC](http://my.csc.fi) and make sure you have your passport with you.
+1. Login to [MyCSC](http://my.csc.fi).
 1. Download Candour ID app from App Store or Google Play.
-1. Have your passport with you and check that the passport is NFC enabled.
+1. Make sure you have your passport with you. Make sure your passport is NFC enabled.
 1. Go to MyCSC Profile page.
 1. On the bottom right you'll find a box for **LEVEL OF IDENTITY ASSURANCE**.
 1. Click on the Raise identity assurance level.
@@ -27,6 +27,6 @@ Please follow our instructions precisely. The identity vetting service provider 
 1. The app is guiding you to take a picture of your passport and to read the chip on your passport. Make sure your passport is NFC enabled.
 1. Follow the instructions of the app until it says Success: You can now continue to your web browser that required you to complete this verification.
 1. Your browser is redirected back to MyCSC.
-1. If you are facing problems, follow the tutorial in the Candour app.
+1. If you are facing problems, try to follow the process with the tutorial videos.
 
 You can find our Privacy Notice [here](https://research.csc.fi/privacy-notice-for-remote-identification-service).

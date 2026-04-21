@@ -9,13 +9,6 @@
     {% include "partials/announcement.html" %}
   </div>
 {% endif %}
-{% if config.extra.announcement_urgent is defined %}
-{% set color = config.extra.announcement_urgent.color_scheme %}
-  <div class="announcement-banner announcement-urgent"
-       style="color: var(--c-{{ color }}-900); background-color: var(--c-{{ color }}-200);">
-    {% include "partials/urgent.html" %}
-  </div>
-{% endif %}
 {% endblock hero %}
 {% block content %}
   {% block breadcrumbs %}
