@@ -51,14 +51,13 @@
 * Once you have identified the data you need to transfer, check that it
   fits within the default disk quotas on Roihu:
 
-    | Disk area | Path                  | Default size | Max. size [^1]      | Default file number limit | Max. file number limit [^1] |
+    | Disk area | Path                  | Default size | Max. size      | Default file number limit | Max. file number limit |
     |-----------|-----------------------|-------------:|--------------------:|--------------------------:|----------------------------:|
     | Home      | `/users/$USER`        | 15 GiB       | 15 GiB              | 150k                      | 150k                        |
     | ProjAppl  | `/projappl/<project>` | 15 GiB       | 250 GiB             | 150k                      | 2.5M                        |
     | ProjData  | `/projdata/<project>` | 0 GiB        | case-by-case        | 0                         | case-by-case                |
     | Scratch   | `/scratch/<project>`  | 250 GiB      | 100 TiB             | 500k                      | 10M                         |
 
-    [^1]: Values in parentheses indicate automatically approved limits.
 
 * Please note that existing quota extensions on Puhti/Mahti will not
   automatically carry over to Roihu, so you must separately
