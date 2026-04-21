@@ -17,7 +17,7 @@ A fast and easy-to-use library for LLM inference and serving.
 
 !!! info "News" 
 
-    **7.4.2026** vLLM now available as a separate module on Roihu
+    **7.4.2026** vLLM now available as a separate module on Roihu-GPU
 
 
 ## Available
@@ -56,7 +56,7 @@ vLLM is covered by the [Apache License
 
 ## Usage
 
-To load the default version on Roihu:
+To load the default version on Roihu-GPU:
 
 ```text
 module load python-vllm
