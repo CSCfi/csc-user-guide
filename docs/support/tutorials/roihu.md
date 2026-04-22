@@ -141,7 +141,7 @@ Base container are built on top of Rocky Linux 9.
     Now, you can run commands inside the container with clean environment and environment active as follows:
 
     ```bash
-    apptainer run --cleanenv run mycmd
+    apptainer run run mycmd
     ```
 
 === "Roihu GPU base container (~16 GB)"
@@ -169,7 +169,7 @@ Base container are built on top of Rocky Linux 9.
     Now, you can run commands inside the container with clean environment and environment active as follows:
 
     ```bash
-    apptainer run --cleanenv --nv run mycmd
+    apptainer run --nv run mycmd
     ```
 
 More details on working with containers in CSC's computing environment can be found from the links below:
