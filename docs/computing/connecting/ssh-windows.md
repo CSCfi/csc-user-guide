@@ -1,23 +1,68 @@
 # SSH client on Windows
 
---8<-- "ssh-ca.md"
-
 There are various programs that can be used for creating a remote SSH
 connection on a Windows system. This page provides instructions for three
-popular alternatives: MobaXterm, PuTTY and PowerShell.
+popular alternatives: [MobaXterm](https://mobaxterm.mobatek.net/), [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) and [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/security/remoting/ssh-remoting-in-powershell). PowerShell is included by default to all modern Windows machines. MobaXterm and PuTTY need to be installed.
+
+For file transfer popular options are WinSCP, FileZilla, Cyberduck and MobaXterm SFTP browser.
+
+For using SSH clients **with CSC supercomputers SSH keys are required**. 
+
+In Windows, 2 different key types are widely used:
+
+   * **OpenSSH keys** (the same as for Linux/Mac), used with MobaXterm, PowerShell and Cyberduck.
+   * **PuTTY keys** .ppk, used with PuTTY, MobaXterm, WinSCP, FileZilla and Cyberduck. 
+      
+## Windows SSH and SFTP tools for Roihu
+
+--8<-- "ssh-ca.md"
+
+CSC provides two options for this:
+
+* Option 1, the [certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
+* Option 2, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-2-mycsc)
+	
+So for Roihu, consider also how different tools support updating the SSH certificate:
+
+| Tool             |  Roihu, option 1 |    Roihu, option 2|        
+|:-----------------|-----------------:|------------------:|
+| MobaXterm, inc SFTP browser |   :ok:|              :ok: |
+| Putty            |              :ok:|              :ok: |
+| PowerShell       |              :ok:|               :ok:|
+| [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)          |              :ok:|         Difficult |
+| [FileZilla](../../data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)        | Only with PageAnt |        Difficult |
+| Cyberduck        |              :ok:|  :ok: with OpenSSH key, difficult with Putty key |
+
+
+For first/little usage, Roihu [web interface](../webinterface/index.md) might be the easiest optoin with login-node and compute-node shells and file transfer.   
 
 ## Generating SSH keys
 
 --8<-- "using-ssh-keys.md"
 
-=== "MobaXterm"
+Depending on the tools you plan to use (see above) for SSH connection and moving files, generate right type of SSH keys.
 
-    [MobaXterm](https://mobaxterm.mobatek.net/) is an SSH client with an embedded X
-    server, which means that it can be used to display graphics.
+=== "PuTTY keys"
 
-    You can generate SSH keys using the utility tool MobaKeyGen
-    ([see tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)),
-    or in a local terminal by running:
+    You can generate PuTTY SSH keys using the PuTTYgen or MobaKeyGen tools.
+    Normally, PuTTYgen does not need to be installed separately, as
+    it comes bundled with the PuTTY installation package. MobaKeyGen is included in the MobaXterm installation.
+
+    Launch PuTTYgen or MobaXterm and follow
+    [the tutorial to set up SSH keys](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html#windows).
+    Although the tutorial is formally written for MobaKeyGen, the instructions
+    can easily be adapted for PuTTYgen as the user interface is virtually
+    identical.
+
+    You may also consult the 
+    [PuTTYgen documentation](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter8.html#pubkey)
+    or the relevant
+    [SSH Academy tutorial](https://www.ssh.com/academy/ssh/putty/windows/puttygen).
+
+=== "OpenSSH keys"
+
+
+    To generate SSH keys using MobaXterm or PowerShell, open the terminal and run:
 
     ```bash
     ssh-keygen -a 100 -t ed25519
@@ -48,70 +93,17 @@ popular alternatives: MobaXterm, PuTTY and PowerShell.
     (`Settings --> Configuration --> General`). Note, this is only required if
     you have generated your keys via the terminal, not MobaKeyGen.
 
-=== "PuTTY"
-
-    The [PuTTY SSH client](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
-    is an alternative to using OpenSSH.
-
-    To generate SSH keys for connecting with PuTTY, use the PuTTYgen key
-    generator. Normally, PuTTYgen does not need to be installed separately, as
-    it comes bundled with the PuTTY installation package.
-
-    Launch PuTTYgen and
-    [follow this tutorial to set up SSH keys](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html#windows).
-    Although the tutorial is formally written for MobaKeyGen, the instructions
-    can easily be adapted for PuTTYgen as the user interface is virtually
-    identical.
-
-    You may also consult the
-    [PuTTYgen documentation](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter8.html#pubkey)
-    or the relevant
-    [SSH Academy tutorial](https://www.ssh.com/academy/ssh/putty/windows/puttygen).
-
-=== "PowerShell"
-
-    You can use the
-    [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/security/remoting/ssh-remoting-in-powershell)
-    command-line shell to connect to a CSC supercomputer using the
-    [Win32 OpenSSH client](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse).
-    To install OpenSSH on a Windows device, follow
-    [these installation instructions](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui#install-openssh-for-windows).
-
-    After installing OpenSSH, you can generate SSH keys using PowerShell by
-    running:
-
-    ```bash
-    ssh-keygen -a 100 -t ed25519
-    ```
-
-    If you have not set up SSH keys before, feel free to accept the default
-    name and location by pressing `ENTER` (recommended). However, if using the
-    default file name would overwrite an existing key, you will receive a
-    warning that looks like this:
-
-    ```text
-    C:\Users\<username>/.ssh/id_ed25519 already exists.
-    Overwrite (y/n)?
-    ```
-
-    Generally, you do not want to overwrite existing keys, so enter `n`, run
-    `ssh-keygen` again and enter a different file name when prompted. See also
-    the section on
-    [SSH key files with non-default name or location](#ssh-key-or-certificate-file-with-non-default-name-or-location).
-
-    Next, you will be asked for a passphrase. Please choose a secure
-    passphrase. It should be at least 8 characters long and contain numbers,
-    letters and special characters. **Never leave the passphrase empty when
-    generating an SSH key pair!**
-
 ---
 
-After you have generated an SSH key pair, you need to add the **public key** to
-the MyCSC portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc). To
+PuTTYgen or MobaKeyGen can also be used for converting keys from OpenSSH to Putty format and vice versa.
+
+After you have generated an SSH key pair, you need to [add the **public key** to
+the MyCSC portal](ssh-keys.md#adding-public-key-in-mycsc). To
 connect to Roihu, you must also
 [sign your public key](ssh-keys.md#signing-public-key) to obtain a time-based
 SSH certificate which is required for authentication.
+
+
 
 You may also wish to configure [authentication agent](#authentication-agent) to
 make using SSH keys more convenient.
@@ -123,7 +115,7 @@ SSH certificate (**required for Roihu only**) you can connect to a CSC
 supercomputer.
 
 === "MobaXterm"
-
+	
     To connect using MobaXterm, open the terminal and run:
 
     ```bash
@@ -155,11 +147,13 @@ supercomputer.
     | **Host Name** | `puhti.csc.fi` or `mahti.csc.fi` |
     | **Port** | `22` |
     | **Connection type** | `SSH` |
+	| Connection -> Data -> Auto-login username | `csc_username` |
 
-    When creating a remote connection using PuTTY, select the private key and
+    It is recommended to use [PageAnt](#authentication-agent) for providing your SSH keys. If you do not use PageAnt, add the keys manually: select the private key and
     certificate file (**only if connecting to Roihu**) under
-    `Connection --> SSH --> Auth --> Credentials`. Finally, click `Open` and
-    enter your CSC username and SSH key passphrase.
+    `Connection --> SSH --> Auth --> Credentials`. 
+	
+	Finally, click `Open`. If you do not use PageAnt, your SSH key passphrase is asked.
 
     If you are connecting for the first time, PuTTY will ask if you trust the
     host. Click `Accept`.
@@ -255,43 +249,19 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 
 ## Authentication agent
 
-!!! warning "CSC certificate helper is recommended to simplify working with SSH agent on Windows"
-    [The certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
-    developed by CSC simplifies the process of signing and downloading SSH
-    certificates for connecting to Roihu. Importantly, it also automatically
-    adds your SSH keys and certificate to your OpenSSH and/or Pageant
-    authentication agent.
+SSH authentication agents help managing your keys and their passphrases. It can hold your SSH keys and certificates in memory. 
 
-=== "MobaXterm"
+Different authentication agents work with different tools:
 
-    MobaXterm supports three different SSH agents – Pageant, MobAgent and
-    Windows `ssh-agent`. They can all be used at the same time if you wish. If
-    you use the CSC certificate helper tool for managing SSH certificates for
-    Roihu, **we recommend using Pageant**.
+* [PageAnt](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant): PuTTY, WinSCP, FileZilla, MobaXterm, Cyberduck
+* Window ssh-agent: PowerShell, Cyberduck, MobaXterm
+* MobAgent: MobaXterm
 
-    Authentication agents are enabled in the program settings (`Settings -->
-    Configuration --> SSH --> SSH agents`).
-    
-    1. Toggle the SSH agent(s) you wish to use:
-        1. For **MobAgent**, you need to click the `+` button and select the
-           private key(s) you want to load at startup.
-        2. For **Pageant** (PuTTY agent), you must make sure Pageant is running
-           and holds the keys/certificates you wish to use. See the PuTTY tab
-           for instructions.
-        3. For **`ssh-agent`** (Windows SSH agent), you must make sure
-           `ssh-agent` service is running and holds the keys/certificates you
-           wish to use. See the PowerShell tab for instructions.
-    2. Click `OK` and restart MobaXterm. You'll be prompted to enter your key
-       passphrase.
-    3. You may now connect to CSC supercomputers without having to type your
-       passphrase again.
+### Authentication agents with Puhti, Mahti and LUMI
 
-=== "PuTTY"
+Puhti, Mahti and LUMI do not use SSH certificates, so adding keys to SSH authentication agents is done once and can be used for longer time. Below are the instructions for adding SSH keys to SSH agent manually.
 
-    To avoid having to type your passphrase every time you connect, you can use
-    the
-    [Pageant authentication agent](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant)
-    to store your private keys in memory.
+=== "Pageant"
 
     1. Start Pageant. It will put an icon into the System tray.
     2. Right-click the Pageant icon and select `View Keys` from the menu to
@@ -299,16 +269,16 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
        no keys, so the list box will be empty.
     3. Press the `Add Key` button to add a key to Pageant.
     4. Find your private key file in the `Select Private Key File` dialog, and
-       press `Open`. Pageant will ask you to enter the key passphrase.
-    5. Now start PuTTY and open an SSH session to any CSC supercomputer. PuTTY
+       press `Open`. Pageant will ask you to enter the key passphrase.  
+    5. Now start PuTTY or other Pageant supported tools. PuTTY
        will notice that Pageant is running, retrieve the key automatically from
-       Pageant, and use it to authenticate. You may now open as many PuTTY
+       Pageant, and use it to authenticate. You may now open as many 
        sessions as you like without having to type your passphrase again.
 
-=== "PowerShell"
+=== "Windows ssh-agent"
 
-    `ssh-agent` service is usually stopped or disabled in Windows by default,
-    and starting it requires administrator privileges.
+    [Windows `ssh-agent`](ssh-windows.md#authentication-agent) service is usually stopped or disabled in Windows by default,
+    and starting it requires **administrator privileges**.
 
     Run the following commands in an elevated PowerShell prompt:
 
@@ -330,53 +300,75 @@ ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
     `ssh-agent` service automatically retrieves the local private key (and
     certificate) and passes it to your SSH client.
 
+=== "MobAgent"
+
+    MobaXterm has internal MobAgent, but it supports also Pageant and
+    Windows `ssh-agent`. They can all be used at the same time if you wish. 
+
+    1. Enable MobAgent: `Settings --> Configuration --> SSH --> SSH agents`.
+	1. Add your key file, click the `+` button and select the
+	   private key(s) you want to load at startup.
+    2. Click `OK` and restart MobaXterm. You'll be prompted to enter your key
+       passphrase.
 ---
 
-!!! warning "Important note if you're <u>not</u> using the certificate helper tool"
-    Users downloading SSH certificates
-    [manually from MyCSC](ssh-keys.md#option-2-mycsc) must perform some extra
-    steps to be able to add their certificate to SSH agents.
+### Authentication agents with Roihu
+
+In Roihu, besides SSH keys a SSH certificate is required. If using SSH agent, a new SSH certificate must be added daily. CSC provides two options for this:
+
+* Option 1, the [certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
+* Option 2, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-2-mycsc)
+
+Option 1 provides the easiest process to sign and download the SSH certificates for connecting to Roihu. 
+Importantly, it also automatically adds your SSH keys and certificate 
+to **Windows ssh-agent** and/or **Pageant**. The script does not update MobAgent, 
+so using Pageant is recommended for MobaXterm-users.
+
+
+Option 2 requires some extra steps for adding the SSH certificate to the SSH agent.
     
-    === "MobAgent & Pageant"
+=== "Pageant & MobAgent"
 
-        To add your SSH certificate to MobAgent or PuTTY, you must first
-        "combine" the certificate and the PuTTY `.ppk` private key.
+	To add your SSH certificate to MobAgent or Pageant, you must first
+	"combine" the certificate and the PuTTY `.ppk` private key.
 
-        1. Open MobaKeyGen (_Tools_ tab of MobaXterm) or PuTTYgen.
-        2. Load your private key (`File --> Load private key`).
-        3. Add a valid certificate to the key (`Key --> Add certificate to key`).
-           The validity period can be checked by selecting `Certificate info`.
-        4. Save the private key as `<key>-cert.ppk`, e.g. 
-           `id_ed25519-cert.ppk`.
-        5. The new private key including the certificate can now be added to
-           MobAgent and/or Pageant following the previous instructions. A
-           successfully combined key and certificate will show up as `Ed25519
-           cert` in MobAgent/Pageant.
+	1. Open PuTTYgen or MobaKeyGen (_Tools_ tab of MobaXterm).
+	2. Load your private key (`File --> Load private key`).
+	3. Add a valid certificate to the key (`Key --> Add certificate to key`).
+	   The validity period can be checked by selecting `Certificate info`.
+	4. Save the private key as `<key>-cert.ppk`, e.g. 
+	   `id_ed25519-cert.ppk`. 
+	5. The new private key including the certificate can now be added to
+	   Pageant and/or MobAgent following the instructions above. A
+	   successfully combined key and certificate will show up as `Ed25519
+	   cert` in Pageant/MobAgent.
 
-    === "Windows SSH agent"
+=== "Windows ssh-agent"
 
-        Users of Windows `ssh-agent` **must** make sure to store their manually
-        downloaded SSH certificate in the same directory as the SSH private key
-        **and** name it as `<private-key-name>-cert.pub` to be able to add it
-        to SSH agent with `ssh-add` command. If successful, `ssh-add` outputs:
+	Users of Windows `ssh-agent` **must** make sure to store their manually
+	downloaded SSH certificate in the same directory as the SSH private key
+	**and** name it as `<private-key-name>-cert.pub` to be able to add it
+	to SSH agent with `ssh-add` command. If successful, `ssh-add` outputs:
 
-        ```bash
-        Certificate added: C:\Users\<username>\.ssh\id_ed25519-cert.pub
-        ```
+	```bash
+	Certificate added: C:\Users\<username>\.ssh\id_ed25519-cert.pub
+	```
 
-        **If the certificate is stored and/or named in any other way, it cannot be
-        added to the authentication agent because OpenSSH uses hard-coded naming
-        conventions.**
+	**If the certificate is stored and/or named in any other way, it cannot be
+	added to the authentication agent because OpenSSH uses hard-coded naming
+	conventions.**
 
-    **Please note**:
+---
 
-    * If you intend to connect to Roihu via a jump host (e.g. when transferring
-    data from another CSC server to Roihu), also the SSH certificate **must**
-    be added to the SSH agent so that it can be properly forwarded.
-    * Alternatively, you may connect to Roihu and **pull** data from servers
-    that do not require a SSH certificate (e.g. Puhti or Mahti). In this case
-    it is enough to forward only your SSH keys.
-    * [Read more about SSH agent forwarding below](#ssh-agent-forwarding).
+**Please note**:
+
+* If you intend to connect to Roihu via a jump host (e.g. when transferring
+data from another CSC server to Roihu), also the SSH certificate **must**
+be added to the SSH agent so that it can be properly forwarded.
+* Alternatively, you may connect to Roihu and **pull data** from servers
+that do not require a SSH certificate (e.g. Puhti or Mahti). In this case
+it is enough to forward only your SSH keys.
+* [Read more about SSH agent forwarding below](#ssh-agent-forwarding).
 
 ### SSH agent forwarding
 
