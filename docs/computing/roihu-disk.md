@@ -186,7 +186,7 @@ other projects can be granted read access to this disk area.
 ## Moving data between supercomputers
 
 Data can be moved directly between supercomputers using
-[rsync](../data/moving/rsync/) command.
+[rsync](../data/moving/rsync.md) command.
 
 See our [data migration guide](../support/tutorials/roihu-data.md) for migrating data
 from Puhti/Mahti to Roihu.
