@@ -23,9 +23,9 @@ See [a more technical description of the Lustre filesystem on CSC supercomputers
 |             |Owner   |Environment variable|Path                  |Cleaning             |Automatic backup|
 |-------------|--------|--------------------|----------------------|---------------------|----------------|
 |**home**     |Personal|`${HOME}`           |`/users/<user-name>`  |No                   |No              |
-|**projappl** |Project |Not available       |`/projappl/<project>` |No                   |No              |
-|**scratch**  |Project |Not available       |`/scratch/<project>`  |180 days             |No              |
-|**projdata** |Project |Not available       |`/projdata/<project>` |No                   |No              |
+|**projappl** |Project |Not defined         |`/projappl/<project>` |No                   |No              |
+|**scratch**  |Project |Not defined         |`/scratch/<project>`  |180 days             |No              |
+|**projdata** |Project |Not defined         |`/projdata/<project>` |No                   |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
 
@@ -36,7 +36,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 |**scratch** |250 GiB |500 000 files  |                              |
 |**projdata**|0 GiB   |0 files        |Must be applied for separately|
 
-!!! info "LUE"
+!!! info "LUE (not implemented 2026-04-22)"
     To easily check the amount of data and number of files within a given folder on
     the parallel file system, please consider using the [LUE](../support/tutorials/lue.md)
     tool. This tool is significantly faster than tools like `stat` or `du` and causes
@@ -46,7 +46,7 @@ These disk areas have quotas for both the amount of data and total number of fil
     While it is possible to [apply for increased quotas](#increasing-quotas), we
     recommend that you always first ensure that the data you have stored on the
     shared file system is really needed and in active use. Unused data should be
-    moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
+    deleted or moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
     and cleaning data on Puhti and Mahti disks](../support/tutorials/clean-up-data.md)
     is also available.
 
@@ -148,17 +148,19 @@ necessarily find a `scratch` or `projappl` directory for all your CSC projects.
 !!! Note
     The `scratch` and `projappl` directories are shared by all the members of the
     project. All new files and directories are also fully accessible for other
-    group members (including read, write and execution permissions).
+    group members (including read, write and execution permissions) by default.
 
-If you want to restrict access from your group members, you can reset the permissions
-with the `chmod` command. Setting read-only permissions for your group members for
-the directory `my_directory`:
+If you need to restrict access from your group members, you can reset the permissions
+with the `chmod` command as usual. In general, we recommend that you allow the group
+members the access, but use a subdirectory with your username for your data, for example
 
-```bash
-chmod -R g-w my_directory
+```
+/scratch/project_2000123/$USER
 ```
 
-By default, all project members can read and modify files in shared directories.
+This way the data is accessible to other group members in case of long vacations, etc,
+but the ownership is still clear and organized. Note, some programs change the file permissions
+from the defaults, which may restrict the access from group members.
 
 As mentioned earlier, the `scratch` directory is only intended for processing data.
 Any data that should be preserved for a longer time should be copied to the *Allas*
@@ -183,9 +185,8 @@ other projects can be granted read access to this disk area.
 
 ## Moving data between supercomputers
 
-Data can be moved between supercomputers via Allas by first uploading the data in
-one supercomputer and then downloading in another supercomputer. This is the
-recommended approach if the data should also be preserved for a longer time.
+Data can be moved directly between supercomputers using
+[rsync](../data/moving/rsync/) command.
 
 See our [data migration guide](../support/tutorials/roihu-data.md) for migrating data
 from Puhti/Mahti to Roihu.
@@ -205,7 +206,7 @@ as this can lead to performance issues on the whole filesystem.
 
 !!! info
     To find out how much data/files you have on the disk, please use our [LUE
-    tool](../support/tutorials/lue.md) which is much more performant than standard
+    tool](../support/tutorials/lue.md) (not implemented 2026-04-22) which is much more performant than standard
     tools such as `stat` or `du`.
 
 ## Temporary local disk areas
