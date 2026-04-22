@@ -19,7 +19,7 @@ reduces unnecessary movement between cores, and leads to more stable and predict
 ## Inspecting CPU Affinity in Slurm Jobs
 
 The following example job script can be used for checking the CPU affinities of each Slurm task.
-The job script creates a script `print_affinity.<jobid>.sh` that is then executed via `srun`:
+The job script executes `csc-print-affinity` (available in `csc-tools` module) via `srun`:
 
 ```bash
 #!/bin/bash
@@ -31,22 +31,8 @@ The job script creates a script `print_affinity.<jobid>.sh` that is then execute
 #SBATCH --ntasks-per-node=8 --cpus-per-task=48  # The product should be 384
 #SBATCH --hint=nomultithread
 
-# Create a script for printing affinity
-PRINT_AFFINITY="./print_affinity.$SLURM_JOB_ID.sh"
-cat << 'EOF' > $PRINT_AFFINITY
-#!/bin/bash
-printf "Task %4d running on node %s core %s\n" \
-  "$SLURM_PROCID" \
-  "$SLURMD_NODENAME" \
-  "$(grep Cpus_allowed_list /proc/self/status | cut -f2)"
-EOF
-chmod +x $PRINT_AFFINITY
-
-# Remove script on exit
-trap "rm -f $PRINT_AFFINITY" EXIT
-
 # Run the program
-srun $PRINT_AFFINITY
+srun csc-print-affinity
 ```
 
 Example output for this job:
@@ -88,8 +74,7 @@ This is **generally undesirable for performance** unless combined with explicit 
 which can be done using tools such as numactl.
 
 The following job script provides an example for setting CPU binding manually.
-The job script creates two scripts: `print_affinity.<jobid>.sh` and `cpu_bind.<jobid>.sh`.
-The first script is the same script used above for checking affinities and the second script
+The job script creates the script `cpu_bind.<jobid>.sh` that
 uses numactl for binding tasks to CPU cores in the same way as done by default:
 each task is assined a contiguous block of CPU cores based on the task's local ID and
 the number of CPUs per task:
@@ -107,17 +92,6 @@ the number of CPUs per task:
 #SBATCH --ntasks-per-node=8 --cpus-per-task=48  # The product should be 384
 #SBATCH --hint=nomultithread
 
-# Create a script for printing affinity
-PRINT_AFFINITY="./print_affinity.$SLURM_JOB_ID.sh"
-cat << 'EOF' > $PRINT_AFFINITY
-#!/bin/bash
-printf "Task %4d running on node %s core %s\n" \
-  "$SLURM_PROCID" \
-  "$SLURMD_NODENAME" \
-  "$(grep Cpus_allowed_list /proc/self/status | cut -f2)"
-EOF
-chmod +x $PRINT_AFFINITY
-
 # Create a script for binding tasks to CPU cores
 BIND_CPU="./bind_cpu.$SLURM_JOB_ID.sh"
 cat << 'EOF' > $BIND_CPU
@@ -129,11 +103,11 @@ numactl --physcpubind ${start_core}-${end_core} "$@"
 EOF
 chmod +x $BIND_CPU
 
-# Remove scripts on exit
-trap "rm -f $PRINT_AFFINITY $BIND_CPU" EXIT
+# Remove the script on exit
+trap "rm -f $BIND_CPU" EXIT
 
 # Run the program with manual binding
-srun --cpu-bind=none $BIND_CPU $PRINT_AFFINITY
+srun --cpu-bind=none $BIND_CPU csc-print-affinity
 ```
 
 This produces output equivalent to the default CPU binding seen above,
