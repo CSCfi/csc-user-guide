@@ -28,7 +28,6 @@ extra:
       Roihu, CSC's next-generation supercomputer offering enhanced performance
       and capabilities.
     visible: true
-  breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
     provider: custom
     matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
@@ -75,6 +74,7 @@ hooks:
   - hooks/testing.py
   - hooks/whats-new.py
   - hooks/glossary.py
+  - hooks/breadcrumbs.py
 
 plugins:
   tags: {}

@@ -7,16 +7,6 @@
 {% endif %}
 {% endblock htmltitle %}
 {% block content %}
-{% block breadcrumbs %}
-<nav class="csc-breadcrumbs">
-  <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
-  {% if config.theme.language == 'fi' %}
-  Virhe 404: Sivua ei löydy
-  {% else %}
-  Error 404: Page not found
-  {% endif %}
-</nav>
-{% endblock breadcrumbs %}
 {% if config.theme.language == 'fi' %}
 <h1>Virhe 404: Sivua ei löydy</h1>
 <h2>Pahoittelumme, mutta etsimääsi sisältöä ei löytynyt</h2>
