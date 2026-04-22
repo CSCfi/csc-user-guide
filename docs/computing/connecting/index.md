@@ -42,10 +42,8 @@ Logging in to CSC supercomputers using an SSH client requires that you have
 1. [set up SSH keys](ssh-keys.md),
 2. [added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc),
    and
-3. [signed your public key](ssh-keys.md#signing-public-key) to obtain a
-   time-based SSH certificate.
-    * Step 3. is only required when connecting to Roihu and must be
-      repeated every 24 hours.
+3. Only in Roihu: [sign your public key](ssh-keys.md#signing-public-key) to obtain a
+   time-based SSH certificate, must be repeated every 24 hours.
 
 ```mermaid
 flowchart LR
@@ -194,22 +192,3 @@ If you try to connect to a node where you have no active jobs, you will
 receive the following error message: `Access denied by pam_slurm_adopt: you
 have no active jobs on this node`.
 
-#### Configuring SSH client
-
-You can save yourself some time by adding host-specific options for CSC
-supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
-(e.g. `~/.ssh/config`).
-
-```bash
-Host <host>  # e.g. "roihu-cpu"
-    HostName <host>.csc.fi
-    User <csc-username>
-    IdentityFile <path-to-private-key>
-    CertificateFile <path-to-certificate>  # Required for Roihu only
-```
-
-Now you can connect to the host simply by running:
-
-```bash
-ssh <host>
-```
