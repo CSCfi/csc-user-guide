@@ -200,23 +200,33 @@ nvcc -gencode arch=compute_90a,code=sm_90a example.cu
 
 ### Compiling MPI+CUDA applications
 
-In the GNU compiler environment, an OpenMPI module is available that implements
-CUDA-aware MPI. It is loaded by default. You may use one of the MPI compiler wrappers `mpicc` (C),
-`mpicxx` (C++), or `mpif90` (Fortran) when compiling MPI applications. When compiling
-MPI applications with `nvcc`, you will need to explicitly provide MPI include and library
-paths:
+All the provided GNU and NVIDIA compiler environments provide CUDA-aware MPI library.
+
+If the the structure of the MPI+CUDA application allows, you can build it in parts:
+
+1. Compile CUDA kernels to object files with `nvcc -c`
+2. Compile host code to object files with the MPI compiler wrappers that will call the loaded host compiler (`mpicc -c`, `mpicxx -c`, or `mpif90 -c`)
+3. Link all the object files with the MPI compiler wrapper (`mpicc`, `mpicxx`, or `mpif90`)
+
+It is also possible to compile the whole codebase with `nvcc`, but then
+we need to provide the necessary MPI compile and link options
+to the underlying host compiler called by `nvcc`.
+This can be achieved as follows via `-Xcompiler` and `-Xlinker` flags:
+
 ```bash
-nvcc -gencode arch=compute_90a,code=sm_90a example.cu -lmpi -I$OPENMPI_INSTROOT/include -L$OPENMPI_INSTROOT/lib
+# Parse MPI options for compiler
+Xcompiler="-Xcompiler $(mpicxx --showme | tr ' ' '\n' | sed '/^-Wl,/d;1d' | paste -sd, -)"
+
+# Parse MPI options for linker
+Xlinker="-Xlinker $(mpicxx --showme | tr ' ' '\n' | sed -n 's/^-Wl,//p' | paste -sd, -)"
+
+# Compile MPI code using nvcc
+nvcc -gencode arch=compute_90a,code=sm_90a $Xcompiler $Xlinker mpi_cuda_code.cu
 ```
 
-In the NVIDIA compiler environment, the MPI is bundled by NVIDIA and is directly
-available after loading the compiler suite. There is no separate MPI module to load.
-
 !!! warning
-    The NVHPC environment on Roihu is still undergoing configuration.
-    The current version may have issues with, for example, its Slurm integration
-    on Roihu. For now, we strongly recommend using the GNU compiler suite when
-    building MPI applications."
+    Remember to load the modules used for compiling also when running the application
+    to ensure that the correct MPI library is used during the runtime.
 
 
 ### Compiling application using OpenMP offload, OpenACC, and C++ standard parallelism
