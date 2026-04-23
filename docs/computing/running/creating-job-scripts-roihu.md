@@ -18,7 +18,7 @@ An example of a batch job script using a share of resources on a single node:
 #SBATCH --nodes=1                   # Number of nodes used for the job
 #SBATCH --ntasks=1                  # Number of tasks allocated
 #SBATCH --cpus-per-task=1           # Number of CPU cores allocated per task
-#SBATCH --mem-per-cpu=2000M         # Memory to reserve per CPU core
+#SBATCH --mem-per-cpu=1000M         # Memory to reserve per CPU core
 #SBATCH --output=slurm-%j.out       # Standard output of the job script
 #SBATCH --hint=nomultithread        # Allocate full CPU cores
 ##SBATCH --mail-type=BEGIN          # Uncomment to enable mail
@@ -125,7 +125,7 @@ allocated for the job.
 The amount of memory reserved for each CPU core is set with option `--mem-per-cpu`:
 
 ```bash
-#SBATCH --mem-per-cpu=2000M
+#SBATCH --mem-per-cpu=1000M
 ```
 
 If the program exceeds the reserved amount of memory, the job is terminated.

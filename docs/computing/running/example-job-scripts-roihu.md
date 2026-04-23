@@ -20,7 +20,7 @@ Example job scripts for running different types of programs:
 #SBATCH --time=00:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --mem-per-cpu=2000M
+#SBATCH --mem-per-cpu=1000M
 #SBATCH --hint=nomultithread
 
 # Run the program
@@ -37,7 +37,7 @@ srun myprog <options>
 #SBATCH --time=00:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
-#SBATCH --mem-per-cpu=2000M
+#SBATCH --mem-per-cpu=1000M
 #SBATCH --hint=nomultithread
 
 # Run the program
@@ -55,7 +55,7 @@ srun myprog <options>
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem-per-cpu=2000M
+#SBATCH --mem-per-cpu=1000M
 #SBATCH --hint=nomultithread
 
 # Set the number of threads based on cpus-per-task
@@ -81,7 +81,7 @@ srun myprog <options>
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=4
-#SBATCH --mem-per-cpu=2000M
+#SBATCH --mem-per-cpu=1000M
 #SBATCH --hint=nomultithread
 
 # Set the number of threads based on cpus-per-task
