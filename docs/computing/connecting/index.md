@@ -67,10 +67,10 @@ terminal program called simply *Terminal*. The instructions for using an
 [SSH client on macOS and Linux](ssh-unix.md) show how to connect to a CSC
 supercomputer using the terminal program.
 
-While Windows systems do not have a similar pre-existing solution for connecting
-over SSH, there are multiple programs that can be used for this. The
-instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
-popular options.
+Windows comes with the `Command Prompt` terminal program that typically has the OpenSSH
+ssh client installed. This client works in a similar fashion to the ssh clients on Linux and MacOS. 
+In addition to this client, windows have multiple programs that  can be used for this. 
+The instructions for using an [SSH client on Windows](ssh-windows.md) lists a few popular options.
 
 Once you have set up SSH keys, added your public key to MyCSC, and signed it to
 generate an SSH certificate (only required for Roihu), use a command like below
@@ -84,8 +84,8 @@ ssh <username>@<host>.csc.fi
 ```
 
 !!! note
-    It might take up to one hour for your new key to become active after adding
-    it to MyCSC.
+    It might take up to one hour for your new key to become active on Puhti or Mahti after adding
+    it to MyCSC. Roihu has no such delay since it is based on SSH certificates.
 
 Once the SSH connection to the supercomputer is open, you can interact with it
 by issuing Linux commands using the Bash shell program. An introduction to

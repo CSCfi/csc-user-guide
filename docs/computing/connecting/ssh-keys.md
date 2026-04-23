@@ -123,7 +123,10 @@ expires, a new one must be signed following either of the processes below.
 
 ---
 
-### Option 1: MyCSC (primary method)
+### Option 1: Download from MyCSC 
+
+We recommend trying the MyCSC workflow first, since it should work out-of-the-box on all systems.
+
 
 1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
 1. Select _Profile_ from the left-hand navigation or the dropdown menu in the
@@ -163,8 +166,7 @@ expires, a new one must be signed following either of the processes below.
 
 ### Option 2: Certificate helper tool
 
-We recommend trying the MyCSC workflow first, as it is the simplest and most reliable option.
-If you later find the process repetitive or want to automate it, you can use the helper tool described below.
+To make the process smoother and easier, you can use the helper tool.
 
 The certificate helper is a Python tool developed by CSC to simplify the
 process of signing and downloading an SSH certificate, and adding it to your
@@ -222,12 +224,12 @@ following instructions illustrate only basic usage.
     === "Windows"
 
 
-		6. [Depending on the tool you plan to use](ssh-windows.md), select the OpenSSH or Putty key as input for the script.
-        7. If you are using Putty keys, install [WinSCP](https://winscp.net/eng/docs/installation).
+		6. [Depending on the tool you plan to use](ssh-windows.md), select the OpenSSH or Putty Private Keys (PPK) as input for the script. With OpenSSH keys you can generate certificates for both OpenSSH client and all Windows SSH applications using Putty keys, if you are only using graphical Windows applications you can also use Putty keys as input.  
+        7. If you are using Putty keys, install [WinSCP](https://winscp.net/eng/docs/installation). This tool is used to generate Putty Private Keys (PPK) from the certificate from MyCSC.
                * If you install WinSCP without admin rights, you must add 
                `WinSCP.exe` to your Path environment variable. Search for the
                _Edit environment variables for your account_ settings menu.
-        8. Optional, but **strongly recommended** start [SSH agent](ssh-windows.md#authentication-agent) to
+        8. Optional, but **strongly recommended** start one of the [SSH agents](ssh-windows.md#authentication-agent) to
            automatically add SSH key and certificate to the SSH agent:
                * Pageant for Putty keys. 
                * Windows `ssh-agent` for OpenSSH keys.
@@ -240,7 +242,7 @@ following instructions illustrate only basic usage.
             # <path-to-public-or-ppk-key> with the path to your OpenSSH public key
             # (.pub) or PuTTY key (.ppk)
 
-            python3 csc_cert.py -u <username> <path-to-public-or-ppk-key>
+            python csc_cert.py -u <username> <path-to-public-or-ppk-key>
             ```
             
             * The command above assumes that the path to `csc_cert.py` is in your

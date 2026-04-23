@@ -29,12 +29,12 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | MobaXterm, inc SFTP browser |   :ok:|              :ok: |
 | Putty            |              :ok:|              :ok: |
 | PowerShell       |              :ok:|               :ok:|
-| [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)          |              :ok:|         Difficult |
-| [FileZilla](../../data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)        | Only with PageAnt |        Difficult |
-| Cyberduck        |              :ok:|  :ok: with OpenSSH key, difficult with Putty key |
+| [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)    |   Difficult |               :ok:|        
+| [FileZilla](../../data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)   |   Difficult | Only with PageAnt |      
+| Cyberduck        |    :ok: with OpenSSH key, difficult with Putty key    |       :ok:|
 
 
-For first/little usage, Roihu [web interface](../webinterface/index.md) might be the easiest optoin with login-node and compute-node shells and file transfer.   
+For first/little usage, Roihu [web interface](../webinterface/index.md) might be the easiest option with login-node and compute-node shells and file transfer.   
 
 ## Generating SSH keys
 
@@ -319,8 +319,9 @@ In Roihu, besides SSH keys a SSH certificate is required. If using SSH agent, a 
 * Option 1, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-1-mycsc-primary-method)
 * Option 2, the [certificate helper tool](ssh-keys.md#option-2-certificate-helper-tool)
 
-Start with option 1, as it is the simplest and most reliable to start with.
-Option 2 provides a more streamlined process to sign and download the SSH certificates for connecting to Roihu. 
+Option 1 can be used out-of-the-box, without any additional installations. 
+Option 2 provides an easier and more streamlined process to sign and download the 
+SSH certificates for connecting to Roihu, but requires you to download a script and to have Python and WinSCP installed.
 Importantly, it also automatically adds your SSH keys and certificate 
 to **Windows ssh-agent** and/or **Pageant**. The script does not update MobAgent, 
 so using Pageant is recommended for MobaXterm-users.
