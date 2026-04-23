@@ -29,10 +29,12 @@ partitions:
 
 ```bash
 # Display a summary of available partitions
-$ sinfo --summarize
+sinfo --summarize
+```
 
+```bash
 # Display details about a specific partition:
-$ scontrol show partition <partition_name>
+scontrol show partition <partition_name>
 ```
 
 !!! info "LUMI partitions"
