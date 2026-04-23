@@ -125,45 +125,59 @@ mpicc -O3 -march=native -fopenmp example.c -o example
     Binaries compiled on Roihu-CPU are not compatible with Roihu-GPU nodes.
 
 
-Roihu-GPU provides two compiler environments for building C/C++ and Fortran applications:
-the [GNU](https://gcc.gnu.org) suite and the [NVIDIA-HPC](https://developer.nvidia.com/hpc-compilers)
-suite. GNU compilers are loaded by default. NVIDIA compilers can be
-loaded using the [Module system](modules.md) with the command:
+Roihu-GPU provides [GNU](https://gcc.gnu.org) and [NVIDIA-HPC](https://developer.nvidia.com/hpc-compilers)
+compiler environments for building C/C++ and Fortran applications under the following [modules](modules.md):
+
+| Compiler suite               | Modules                                                  |
+| :--------------------------- | :------------------------------------------------------- |
+| GNU 14.3.0 + CUDA 12.9.1     | `gcc/14.3.0 cuda/12.9.1 openmpi/5.0.8 openblas/0.3.30`   |
+| GNU 15.2.0 + CUDA 13.1.1     | `gcc/15.2.0 cuda/13.1.1 openmpi/5.0.8 openblas/0.3.30`   |
+| NVIDIA HPC 26.3              | `nvhpc/26.3`                                             |
+
+The first compiler suite is loaded by default.
+You can change the environment by loading the listed modules, for example,
+
 ```bash
-module purge
 module load nvhpc/26.3
+```
+
+!!! info "About `nvhpc` module"
+    Note that the `nvhpc` module includes CUDA, MPI, and BLAS implementations,
+    so you don't need to load these modules separately when using the `nvhpc` module.
+    For this reasons, the `module load` might note you about inactive modules.
+
+    To avoid leaving inactive modules, you can purge modules before loading the environment:
+
+    ```bash
+    module purge
+    module load nvhpc/26.3
+    ```
+
+List all available versions of the compiler suites:
+```bash
+module spider gcc
+module spider cuda
+module spider nvhpc
 ```
 
 The compiler executables are as follows:
 
-| Compiler suite | C  | C++ | Fortran |
-| :------------- | :- | :-- | :------ |
-| GNU            | gcc | g++ | gfortran |
-| NVIDIA         | nvc | nvc++ | nvfortran |
+| Compiler suite | C   | C++   | Fortran   |
+| :------------- | :-- | :---- | :-------- |
+| GNU            | gcc | g++   | gfortran  |
+| NVIDIA HPC     | nvc | nvc++ | nvfortran |
 
 
 In addition, the CUDA [`nvcc`](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html) compiler is available for building GPU kernel code. See the [CUDA section below](#compiling-cuda-applications).
 
 
-List all available versions of the compiler suites:
-```
-module spider gcc
-module spider nvhpc
-```
-
-
 ### Compiling CUDA applications
 
-CUDA is the recommended programming model for Nvidia GPUs and is provided as an environment module
-on Roihu-GPU (loaded by default).
+CUDA is the recommended programming model for Nvidia GPUs and it is
+provided in `cuda` and `nvhpc` modules.
 
 The CUDA compiler (`nvcc`) takes care of compiling CUDA kernels code for the target
 GPU device and passes the rest to the currently loaded host compiler like `gcc` or `nvhpc`.
-For example, to load the CUDA 13.1 environment together with the GNU compiler:
-
-```bash
-module load gcc/15.2.0 cuda/13.1.1
-```
 
 To generate code for a given target device, tell the CUDA
 compiler what compute capability the target device supports. On Roihu, the
