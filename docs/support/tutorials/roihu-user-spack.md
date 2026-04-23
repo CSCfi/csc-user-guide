@@ -83,7 +83,10 @@ work efficiently.
 The available environments can be listed for example with
 
 ```console
-$ ls /appl/soft/spack/core/v2026_03/x86_64/
+ls /appl/soft/spack/core/v2026_03/x86_64/
+```
+
+```output
 aocc50_ec  compilers_ce  compilers_ec  gcc152_ec
 ```
 
