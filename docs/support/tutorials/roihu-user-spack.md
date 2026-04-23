@@ -312,7 +312,7 @@ which in this tutorial example is in `environments/mygcc152_ec/.spack-env/view`.
 Command
 
 ```console
-[mygcc152_ec] $ spack env deactivate
+spack env deactivate
 ```
 
 will deactivate the current Spack environment.
