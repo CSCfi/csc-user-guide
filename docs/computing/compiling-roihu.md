@@ -129,8 +129,9 @@ Roihu-GPU provides two compiler environments for building C/C++ and Fortran appl
 the [GNU](https://gcc.gnu.org) suite and the [NVIDIA-HPC](https://developer.nvidia.com/hpc-compilers)
 suite. GNU compilers are loaded by default. NVIDIA compilers can be
 loaded using the [Module system](modules.md) with the command:
-```
-module load nvhpc
+```bash
+module purge
+module load nvhpc/26.3
 ```
 
 The compiler executables are as follows:
@@ -151,7 +152,7 @@ module spider nvhpc
 ```
 
 
-### Compiling CUDA code
+### Compiling CUDA applications
 
 CUDA is the recommended programming model for Nvidia GPUs and is provided as an environment module
 on Roihu-GPU (loaded by default).
@@ -183,7 +184,7 @@ nvcc -gencode arch=compute_90a,code=sm_90a example.cu
     more generic `arch=compute_90,code=sm_90` options.
 
 
-### Building MPI applications on Roihu-GPU
+### Compiling MPI+CUDA applications
 
 In the GNU compiler environment, an OpenMPI module is available that implements
 CUDA-aware MPI. It is loaded by default. You may use one of the MPI compiler wrappers `mpicc` (C),
@@ -202,6 +203,64 @@ available after loading the compiler suite. There is no separate MPI module to l
     The current version may have issues with, for example, its Slurm integration
     on Roihu. For now, we strongly recommend using the GNU compiler suite when
     building MPI applications."
+
+
+### Compiling application using OpenMP offload, OpenACC, and C++ standard parallelism
+
+!!! warning
+    It is recommended to use the NVIDIA HPC compilers for
+    compiling codes using OpenMP offload, OpenACC, and C++ standard parallelism.
+
+Start by loading NVIDIA HPC compilers:
+
+```bash
+module purge
+module load nvhpc/26.3
+```
+
+The compiler options for enabling different GPU programming models are as follows:
+
+| Programming model | Compiler option              |
+| :---------------- | :--------------------------- |
+| OpenMP offload    | `-mp=gpu`                    |
+| OpenACC           | `-acc=gpu`                   |
+| C++ stdpar        | `-stdpar=gpu` (`nvc++` only) |
+
+
+To generate generate efficient code for the GH200 superchips on Roihu,
+specify the target with the following option:
+```raw
+-gpu=cc90
+```
+
+Example compilation commands:
+
+| Programming model | C                                      | C++                                            | Fortran                                        |
+| :---------------- | :------------------------------------- | :--------------------------------------------- | :--------------------------------------------- |
+| OpenMP offload    | `nvc -O3 -mp=gpu  -gpu=cc90 example.c` | `nvc++ -O3 -mp=gpu  -gpu=cc90 example.cpp`     | `nvfortran -O3 -mp=gpu  -gpu=cc90 example.F90` |
+| OpenACC           | `nvc -O3 -acc=gpu -gpu=cc90 example.c` | `nvc++ -O3 -acc=gpu -gpu=cc90 example.cpp`     | `nvfortran -O3 -acc=gpu -gpu=cc90 example.F90` |
+| C++ stdpar        |  N/A                                   | `nvc++ -O3 -stdpar=gpu  -gpu=cc90 example.cpp` |  N/A                                           |
+
+
+The compilers support also codes that contain multiple programming models.
+As an example, compile a C++ code that contains OpenMP offload, OpenACC, and C++ parallel algorithms with:
+```bash
+nvc++ -O3 -mp=gpu -acc=gpu -stdpar=gpu -gpu=cc90 example.cpp
+```
+
+### Compiling MPI application using OpenMP offload, OpenACC, and C++ standard parallelism
+
+The `nvhpc` module is bundled with GPU-aware MPI implementation with
+the usual compiler wrappers, and MPI applications can be compiled
+like above but replacing `nvc`, `nvc++`, and `nvfortran` with
+`mpicc`, `mpicxx`, and `mpif90`, respectively:
+
+| Programming model | C                                        | C++                                             | Fortran                                     |
+| :---------------- | :--------------------------------------- | :---------------------------------------------- | :------------------------------------------ |
+| OpenMP offload    | `mpicc -O3 -mp=gpu  -gpu=cc90 example.c` | `mpicxx -O3 -mp=gpu  -gpu=cc90 example.cpp`     | `mpif90 -O3 -mp=gpu  -gpu=cc90 example.F90` |
+| OpenACC           | `mpicc -O3 -acc=gpu -gpu=cc90 example.c` | `mpicxx -O3 -acc=gpu -gpu=cc90 example.cpp`     | `mpif90 -O3 -acc=gpu -gpu=cc90 example.F90` |
+| C++ stdpar        |  N/A                                     | `mpicxx -O3 -stdpar=gpu  -gpu=cc90 example.cpp` |  N/A                                        |
+
 
 
 <!--
