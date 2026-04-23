@@ -159,7 +159,6 @@ expires, a new one must be signed following either of the processes below.
 	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla and WinSCP.
 	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
 
-
 ---
 
 ### Option 2: Certificate helper tool
@@ -178,7 +177,7 @@ following instructions illustrate only basic usage.
       [Official Python downloads page](https://www.python.org/downloads/).
       Contact your local IT-support if you need assistance.
     - If Python for some reason cannot be installed on your computer, fall
-      back to [Option 2](#option-2-mycsc) instead.
+      back to [Option 1](#option-1-mycsc-primary-method) instead.
 2. [Download the certificate helper tool here](https://github.com/CSCfi/certificate-helper-tool/raw/refs/heads/main/csc_cert.py)
    (_Right click_ :material-arrow-right: _Save Link As_), or clone the Git
    repository:
