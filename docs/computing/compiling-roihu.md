@@ -142,7 +142,7 @@ The compiler executables are as follows:
 | NVIDIA         | nvc | nvc++ | nvfortran |
 
 
-In addition, the CUDA [`nvcc`](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html) compiler is available for building GPU kernel code. See the [CUDA section below](#compiling-cuda-code).
+In addition, the CUDA [`nvcc`](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html) compiler is available for building GPU kernel code. See the [CUDA section below](#compiling-cuda-applications).
 
 
 List all available versions of the compiler suites:
