@@ -184,8 +184,8 @@ srun myprog -i input -o output
 
 Serial and shared memory jobs need to be run within one compute node. Thus, the
 jobs are limited by the hardware specifications available in the nodes.
-On Roihu, each node has two processors with 192 cores each, i.e. 384 cores in total.
-[See more technical details about Roihu](../systems-roihu.md).
+See the available node types and the number of cores available per node
+on [this page](../systems-roihu.md).
 
 The `#SBATCH` option `--cpus-per-task` is used to define the number of
 computing cores that the batch job task uses. The option `--nodes=1` ensures
@@ -280,7 +280,7 @@ the same `#SBATCH` line for clarity:
 ```
 
 The reason is that these options go hand-in-hand in a sense that their product should
-always be 384 in order to use all CPU cores available on the Roihu node.
+always be 384 in order to use all CPU cores available on the node.
 You can comment out one of the lines to test the optimal run configuration for
 your application,
 [see Performance checklist](./performance-checklist.md).
@@ -298,6 +298,28 @@ application. You can find some examples for
     ```bash
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
     ```
+
+## High-memory jobs
+
+Roihu-CPU has high-memory CPU nodes with 6 TiB memory.
+These nodes are available in the `hugemem` and `hugemem_longrun` partitions.
+See the technical details of the nodes on [this page](../systems-roihu.md).
+
+The use of these nodes is similar to other Roihu-CPU nodes, but note that
+these nodes have a different processor.
+In particular, these nodes have 128 CPU cores per node in total.
+This means that **if running on a full node in `hugemem` partitions**,
+the product of `--ntasks-per-node` and `--cpus-per-task` should be 128
+for best performance:
+
+
+``` bash
+#SBATCH --partition=hugemem
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=128 --cpus-per-task=1  # The product should be 128
+#SBATCH --ntasks-per-node=64  --cpus-per-task=2  # The product should be 128
+#SBATCH --ntasks-per-node=32  --cpus-per-task=4  # The product should be 128
+```
 
 ## GPU jobs
 
