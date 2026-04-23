@@ -298,6 +298,7 @@ srun -p small --exclusive --nodes 1 --mem 20G --account project_2001659 --bbf bb
     disk, then the steps must be started with srun. Otherwise, only the compute node that runs the 
     sbatch script will be able to use the storage.
 
-!!! warning "Remember to move your data! 
+
+!!! warning "Remember to move your data!"
     Move any data you need off the flash storage before your job completes, i.e. within
     your sbatch script.
