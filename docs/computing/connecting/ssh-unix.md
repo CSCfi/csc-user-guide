@@ -150,12 +150,12 @@ in memory. The program's behavior depends on your system:
     ```
 
     **This step is done automatically if you use the
-    [CSC certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
+    [CSC certificate helper tool](ssh-keys.md#option-2-certificate-helper-tool)
     to sign and download your SSH certificate!**
 
 !!! warning "Important note if you're <u>not</u> using the certificate helper tool"
     Users downloading SSH certificates
-    [manually from MyCSC](ssh-keys.md#option-2-mycsc) **must** store it in the
+    [manually from MyCSC](ssh-keys.md#option-1-mycsc-primary-method) **must** store it in the
     same directory as the SSH private key **and** name it as
     `<private-key-name>-cert.pub` to be able to add it to SSH agent with
     `ssh-add` command. If successful, `ssh-add` outputs:

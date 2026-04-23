@@ -103,9 +103,6 @@
       transfer process.
         1. **[SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).**
         2. **[SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).**
-    * We **strongly** recommend using the
-      [certificate helper tool](../../computing/connecting/ssh-keys.md#option-1-certificate-helper-tool-recommended)
-      developed by CSC to simplify the process.
 
 ## 2. Recommended data migration methods
 
