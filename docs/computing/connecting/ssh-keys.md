@@ -121,7 +121,51 @@ system by introducing an additional authentication factor for SSH logins.
 **SSH certificates are valid for 24 hours at a time**. Once your certificate
 expires, a new one must be signed following either of the processes below.
 
-### Option 1: Certificate helper tool (recommended)
+---
+
+### Option 1: MyCSC (primary method)
+
+1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
+1. Select _Profile_ from the left-hand navigation or the dropdown menu in the
+   top-right corner.
+1. Locate _SSH PUBLIC KEYS_ section and click the three vertical dots next to
+   the public key you want to sign.
+1. Click _Sign and download SSH certificate_. As a security measure, you may be
+   asked to log in again.
+
+    ![Sign and download SSH certificate](https://a3s.fi/docs-files/sign-download-ssh-cert.png 'Sign and download SSH certificate')
+
+    !!! info "Where to store the SSH certificate?"
+        We **strongly** advice saving the certificate in the default folder for
+        SSH-related files (e.g. `~/.ssh` or `C:\Users\<username>/.ssh`).
+        Specifically, storing the certificate in the same directory as your
+        SSH private key **and** naming it as `<key>-cert.pub` will simplify
+        connecting, working with SSH agent, etc.
+
+        For example, if you've stored your SSH private key in
+        `~/.ssh/id_ed25519`, please save your SSH certificate as
+        `~/.ssh/id_ed25519-cert.pub`.
+
+1. **Connect to Roihu following these instructions**:
+
+=== "Linux & macOS"
+
+	1. Optional, add certificate to [SSH authentication agent](ssh-unix.md#authentication-agent). Mandatory for SSH agent forwarding.
+	1. [Connect from Terminal](ssh-unix.md#basic-usage)
+
+
+=== "Windows"
+
+	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla and WinSCP.
+	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
+
+
+---
+
+### Option 2: Certificate helper tool
+
+We recommend trying the MyCSC workflow first, as it is the simplest and most reliable option.
+If you later find the process repetitive or want to automate it, you can use the helper tool described below.
 
 The certificate helper is a Python tool developed by CSC to simplify the
 process of signing and downloading an SSH certificate, and adding it to your
@@ -131,7 +175,7 @@ following instructions illustrate only basic usage.
 
 1. Ensure that you have Python installed on your computer.
     - Instructions are available in the
-      [Python Beginners Guide](https://wiki.python.org/moin/BeginnersGuide/Download).
+      [Official Python ownloads page](https://www.python.org/downloads/).
       Contact your local IT-support if you need assistance.
     - If Python for some reason cannot be installed on your computer, fall
       back to [Option 2](#option-2-mycsc) instead.
@@ -174,7 +218,7 @@ following instructions illustrate only basic usage.
               your SSH agent.
             - The signed certificate is saved as
               `<key>-cert.pub` (e.g., `~/.ssh/id_ed25519-cert.pub`).
-        6. **[Connect to Roihu following these instructions](ssh-unix.md#basic-usage)**.
+        6. Your now have everything ready to **[Connect to Roihu following these instructions](ssh-unix.md#basic-usage)**.
 
     === "Windows"
 
@@ -229,45 +273,6 @@ following instructions illustrate only basic usage.
                as `<key>-cert.pub` for OpenSSH keys and/or
               `<key>-cert.ppk` for Putty keys.
         13. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
-
----
-
-### Option 2: MyCSC
-
-1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
-1. Select _Profile_ from the left-hand navigation or the dropdown menu in the
-   top-right corner.
-1. Locate _SSH PUBLIC KEYS_ section and click the three vertical dots next to
-   the public key you want to sign.
-1. Click _Sign and download SSH certificate_. As a security measure, you may be
-   asked to log in again.
-
-    ![Sign and download SSH certificate](https://a3s.fi/docs-files/sign-download-ssh-cert.png 'Sign and download SSH certificate')
-
-    !!! info "Where to store the SSH certificate?"
-        We **strongly** advice saving the certificate in the default folder for
-        SSH-related files (e.g. `~/.ssh` or `C:\Users\<username>/.ssh`).
-        Specifically, storing the certificate in the same directory as your
-        SSH private key **and** naming it as `<key>-cert.pub` will simplify
-        connecting, working with SSH agent, etc.
-
-        For example, if you've stored your SSH private key in
-        `~/.ssh/id_ed25519`, please save your SSH certificate as
-        `~/.ssh/id_ed25519-cert.pub`.
-
-1. **Connect to Roihu following these instructions**:
-
-=== "Linux & macOS"
-
-	1. Optional, add certificate to [SSH authentication agent](ssh-unix.md#authentication-agent). Mandatory for SSH agent forwarding.
-	1. [Connect from Terminal](ssh-unix.md#basic-usage)
-
-
-=== "Windows"
-
-	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla and WinSCP.
-	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
-
 ---
 
 ### Check when your SSH certificate will expire
