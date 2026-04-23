@@ -158,7 +158,7 @@ lmm_stripe_offset: 6
 
 ## Differences between Roihu, Puhti and Mahti
 
-Puhti and Mahti have similar storage areas
+Roihu, Puhti, and Mahti have similar storage areas
 [home](disk.md#home-directory), [project](disk.md#projappl-directory)
 and [scratch](disk.md#scratch-directory), however, their the Lustre
 configuration is not the same.
