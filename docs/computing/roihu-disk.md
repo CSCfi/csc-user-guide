@@ -255,3 +255,49 @@ to the following amount of local disk space:
 
 The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
 your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
+
+## Disaggregated storage
+
+It is also possible to request local disk mounts from a centralised pool of fast storage resources. 
+This fast storage capacity is provided over the network and will appear as local scratch from 
+within a Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB, allowing you
+to get larger capacity fast storage for your jobs.
+
+### Requesting storage from slurm
+
+!!! Note 
+    At the present you can only request this storage for jobs that are making use of full nodes, 
+    i.e. that are submitted with the `--exclusive` flag. Support for shared node jobs is coming 
+    at a later date.
+
+To request flash storage to be mounted in an sbatch job you must add the following to the resource 
+request block of your script:
+
+```bash
+
+#BB_LUA SBF storagesize=20GB path=/run/sbb/<user>
+```
+
+Where `storagesize` specifices the amount of storage you need and `path` the location that the 
+storage will be mounted.
+
+You can also request resources directly on the command line with the `--bb` flag:
+
+```bash
+srun -p small --exclusive --nodes 1 --mem 20G --account <project> --bb="#BB_LUA SBF storagesize=10G path=/run/sbb/<user>" --pty bash -i
+```
+
+Alternatively you can pass the request in a file using the `--bbf` flag, for example:
+
+```bash
+srun -p small --exclusive --nodes 1 --mem 20G --account project_2001659 --bbf bb.spec --pty bash -i
+```
+
+!!! warning "Steps must use `srun`!"
+    When running a multinode job with sbatch, if each step is expected to run with the disaggregated
+    disk, then the steps must be started with srun. Otherwise, only the compute node that runs the 
+    sbatch script will be able to use the storage.
+
+!!! warning "Remember to move your data! 
+    Move any data you need off the flash storage before your job completes, i.e. within
+    your sbatch script.
