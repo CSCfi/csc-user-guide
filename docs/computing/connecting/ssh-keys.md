@@ -175,7 +175,7 @@ following instructions illustrate only basic usage.
 
 1. Ensure that you have Python installed on your computer.
     - Instructions are available in the
-      [Official Python ownloads page](https://www.python.org/downloads/).
+      [Official Python downloads page](https://www.python.org/downloads/).
       Contact your local IT-support if you need assistance.
     - If Python for some reason cannot be installed on your computer, fall
       back to [Option 2](#option-2-mycsc) instead.
