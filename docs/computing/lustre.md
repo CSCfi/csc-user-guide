@@ -189,6 +189,9 @@ significant I/O, then you will not achieve 1.5 GB/sec, including also
 that maybe the I/O pattern of an application is not efficient. The
 corresponding performance for Puhti is half of that of Mahti.
 
+Peak performance on Roihu `scratch` is improved over previous systems, boasting 
+peak I/O values of 219 GB/sec for write and 180 GB/sec for read.
+
 ## Best practices
 
 * If possible, avoid using `ls -l` as the information on ownership and
