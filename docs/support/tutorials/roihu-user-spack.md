@@ -96,7 +96,7 @@ The packages in the upstream environment can be listed, for example,
 with command
 
 ```console
-$ spack -c upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir find
+$ spack -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' find
 -- linux-rhel9-x86_64 / %c=gcc@15.2.0 ---------------------------
 knem@1.1.4
 
@@ -164,7 +164,7 @@ actual software install root can be added to environment configuration
 
 ```console
 [mygcc152_ec] $ spack config add 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir'
-[mygcc152_ec] $ spack config add config:install_tree:root:$PWD/mygcc152_ec-install
+[mygcc152_ec] $ spack config add 'config:install_tree:root:$PWD/mygcc152_ec-install'
 ```
 
 Optionally, you can also add other configuration settings, for example
@@ -254,7 +254,7 @@ is openjpeg instead of jasper (fine?).
 Let's update the variant information, and reconcretize (omitting the output):
 
 ```console
-[mygcc152_ec] $ spack change eccodes@2.45.0+aec+fortran~ipo+memfs~netcdf+openmp+png~pthreads+shared+tools
+[mygcc152_ec] $ spack change 'eccodes@2.45.0+aec+fortran~ipo+memfs~netcdf+openmp+png~pthreads+shared+tools'
 [mygcc152_ec] $ spack concretize
 ```
 
