@@ -344,7 +344,7 @@ Note that the `--gres` reservation is on a per-node basis. There are 2 GPUs per 
 
 ### Local temporary storage
 
-All nodes on Roihu have fast local storage space (NVMe) available for jobs.
+All nodes on Roihu have local storage space (NVMe) available for jobs.
 Using local storage is recommended for I/O-intensive applications, i.e. jobs
 that, for example, read and write a lot of small files.
 [See more details](../disk.md#temporary-local-disk-areas).
@@ -385,21 +385,21 @@ This fast storage capacity is provided over the network and
 appears as local scratch from within a Slurm job.
 
 !!! info "About fast local scratch storage"
-    This section is work in progress.
+    These settings are likely to change.
 
 Request this local storage using the following flag in the batch script:
 
 ```bash
-#SBATCH xxx
+#SBATCH --bb="#BB_LUA SBF storagesize=<local_storage_space> path=/run/sbb/<username>"
 ```
 
 For example, requesting 100 GiB storage:
 
 ```bash
-#SBATCH xxx
+#SBATCH --bb="#BB_LUA SBF storagesize=100G path=/run/sbb/<username>"
 ```
 
-Then, this storage is available in path `...` during the job script.
+Then, this storage is available in path `/run/sbb/$USER` during the job script.
 
 
 ### Simultaneous multithreading (SMT) on Roihu-CPU
