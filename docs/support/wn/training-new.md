@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## Finnish translation for Docs CSC, 27.4.2026
+
+Something something [link to page](../translation.md). FIXME
+
 ## New guide on how to organize courses using CSC services published, 2.3.2026
 
 A new guide on how to organize courses using CSC services has been published.
