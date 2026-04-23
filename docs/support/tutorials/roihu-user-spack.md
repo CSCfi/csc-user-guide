@@ -49,10 +49,10 @@ settings from those scopes leak into our setup. See
 for details.
 
 ```console
-$ source /appl/soft/spack/v2026_03/spack/share/spack/setup-env.sh
-$ source /appl/soft/spack/v2026_03/spack/share/spack/bash/spack-completion.bash
-$ export SPACK_USER_CACHE_PATH=$TMPDIR/spack
-$ export SPACK_DISABLE_LOCAL_CONFIG=true
+source /appl/soft/spack/v2026_03/spack/share/spack/setup-env.sh
+source /appl/soft/spack/v2026_03/spack/share/spack/bash/spack-completion.bash
+export SPACK_USER_CACHE_PATH=$TMPDIR/spack
+export SPACK_DISABLE_LOCAL_CONFIG=true
 ```
 
 
@@ -60,9 +60,7 @@ $ export SPACK_DISABLE_LOCAL_CONFIG=true
 
 The different versions of Spack itself are installed in
 `/appl/soft/spack`. At the time of writing this, the latest installed
-Spack version is in
-
-`/appl/soft/spack/v2026_03`
+Spack version is in `/appl/soft/spack/v2026_03`.
 
 The corresponding core environments and the application environments
 (built on top of the core environments) are in directories
@@ -86,6 +84,8 @@ The available environments can be listed for example with
 ls /appl/soft/spack/core/v2026_03/x86_64/
 ```
 
+which (at the time of writing this) gives
+
 ```output
 aocc50_ec  compilers_ce  compilers_ec  gcc152_ec
 ```
@@ -99,7 +99,12 @@ The packages in the upstream environment can be listed, for example,
 with command
 
 ```console
-$ spack -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' find
+spack -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' find
+```
+
+which gives
+
+```output
 -- linux-rhel9-x86_64 / %c=gcc@15.2.0 ---------------------------
 knem@1.1.4
 
@@ -141,8 +146,8 @@ install tree. Multiple environments can use the same install trees.
 The commands
 
 ```console
-$ spack env create environments/mygcc152_ec
-$ spack env activate -p environments/mygcc152_ec
+spack env create environments/mygcc152_ec
+spack env activate -p environments/mygcc152_ec
 ```
 
 create the initial version of the file defining the environment,
@@ -158,7 +163,7 @@ default settings, so that they do not point to default
 system locations (which are not writable by users):
 
 ```console
-[mygcc152_ec] $ spack config add 'config:source_cache:$spack_user_cache/source-cache'
+spack config add 'config:source_cache:$spack_user_cache/source-cache'
 ```
 
 The chosen upstream environment and the location of our custom environment's
@@ -166,8 +171,8 @@ actual software install root can be added to environment configuration
 (`spack.yaml` file) with commands
 
 ```console
-[mygcc152_ec] $ spack config add 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir'
-[mygcc152_ec] $ spack config add 'config:install_tree:root:$PWD/mygcc152_ec-install'
+spack config add 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir'
+spack config add 'config:install_tree:root:$PWD/mygcc152_ec-install'
 ```
 
 Optionally, you can also add other configuration settings, for example
@@ -175,13 +180,13 @@ flatten the default hierarchy in the install tree and use short
 hashes:
 
 ```console
-[mygcc152_ec] $ spack config add 'config:install_tree:projections:all:"{name}-{version}-{hash:7}"'
+spack config add 'config:install_tree:projections:all:"{name}-{version}-{hash:7}"'
 ```
 
 The final step in the custom environment configuration is to define what to install to the environment:
 
 ```console
-[mygcc152_ec] $ spack add eccodes
+spack add eccodes
 ```
 
 In Spack terminology `eccodes` above is a
@@ -194,10 +199,15 @@ quite abstract, yet. Next we will refine it.
 ## Refining the spec and installing
 
 Often the defaults are ok, but it is always best to check the
-concretized spec before installing:
+concretized spec before installing. Command
 
 ```console
-[mygcc152_ec] $ spack concretize
+spack concretize
+```
+
+shows the concretized spec
+
+```output
 ==> Fetching https://ghcr.io/v2/spack/bootstrap-buildcache-v2.2/blobs/sha256:2010a2a50b9620c2bda7c5fa4e9ce137a115dbba35094857fecc819d9a00a789
 ==> Fetching https://ghcr.io/v2/spack/bootstrap-buildcache-v2.2/blobs/sha256:31f1649728e2d58902eb62d1c2e37b1cfc73e007089322a17463b3cb5777cb98
 ==> Installing "clingo-bootstrap@=spack~apps~docs+ipo+optimized+python+static_libstdcpp build_system=cmake build_type=Release commit=2a025667090d71b2c9dce60fe924feb6bde8f667 generator=make patches:=bebb819,ec99431 platform=linux os=centos7 target=x86_64" from a buildcache
@@ -254,14 +264,16 @@ like to include variant `tools`, which builds command line tools with
 the library. The last thing we notice is that the compression library
 is openjpeg instead of jasper (fine?).
 
-Let's update the variant information, and reconcretize (omitting the output):
+Let's update the variant information, and reconcretize (the output of
+the command is omitted as it is similar to the previous output from
+`spack concretize`command):
 
 ```console
-[mygcc152_ec] $ spack change 'eccodes@2.45.0+aec+fortran~ipo+memfs~netcdf+openmp+png~pthreads+shared+tools'
-[mygcc152_ec] $ spack concretize
+spack change 'eccodes@2.45.0+aec+fortran~ipo+memfs~netcdf+openmp+png~pthreads+shared+tools'
+spack concretize
 ```
 
-Now the variant is correct. Next we check that Spack is actually using
+Now the variant is correct. Next, we check that Spack is actually using
 the packages that are already installed in the upstream
 environment. The information is in the first column of the concretized
 spec. Entry ` - ` means that the package will be installed, `[^]`
@@ -270,19 +282,27 @@ tells Spack will use the already existing upstream installation, and
 all looks fine, and we can proceed to installation
 
 ```console
-[mygcc152_ec] $ spack install
+spack install
 ```
 
 ## Using the environment
 
 The actual software installs are in the directory
 `$PWD/mygcc152_ec-install` that we set earlier in the environment
-configuration:
+configuration. Command
 
 ```console
-[mygcc152_ec] $ ls mygcc152_ec-install/
+ls mygcc152_ec-install
+```
+
+shows the install roots:
+
+```output
 bin  eccodes-2.45.0-4fi3e5d  gcc-runtime-15.2.0-szq7ch3  libpng-1.6.55-dhucqwk  openjpeg-2.3.1-szh7ud6
 ```
+
+Different versions (variants, anything different in the concretized spec) of the packages
+are installed with unique hashes.
 
 If the environment was activated with the view, the installed software and libraries
 are also accessible through environment's
