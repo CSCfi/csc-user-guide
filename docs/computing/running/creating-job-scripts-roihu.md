@@ -323,7 +323,8 @@ for best performance:
 
 ## GPU jobs
 
-Each Roihu-GPU node has four Nvidia GH200 superchips. The GPUs are available in the `gpu*` partitions.
+Each Roihu GPU node has four Nvidia GH200 superchips. The GPUs are available in the `gpu*` partitions.
+See the technical details of the nodes on [this page](../systems-roihu.md).
 
 The resource allocation is based on full GH200 GPUs in `gputest`, `gpumedium`, and `gpularge` partitions
 and the GPUs can be requested with:
@@ -348,9 +349,10 @@ Also note that you can reserve at most one GPU slice per job. The GPU slices are
 #SBATCH --gres=gpu:gh200_xxx:1
 ```
 
-## Visualization jobs
+## GPU visualization jobs
 
 Roihu has visualization nodes with Nvidia L40 GPUs. These nodes are available in the `vizinteractive` partition.
+See the technical details of the nodes on [this page](../systems-roihu.md).
 
 These nodes can be requested with:
 
