@@ -95,8 +95,8 @@ Quota extensions on Roihu must be separately applied for and properly motivated.
 ## Installing software
 
 Before installing anything check if the software is already available:
-     - [List of pre-installed applications](../../apps/by_availability.md#roihu)
-     - `module spider <software name>`
+- [List of pre-installed applications](../../apps/by_availability.md#roihu)
+- `module spider <software name>`
 
 If not available, choose one of the following approaches depending on your needs:
 
