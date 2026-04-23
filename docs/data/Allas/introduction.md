@@ -15,7 +15,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * The data can be accessed from anywhere.
  * The data can have different levels of access control.
  * The data can have lifecycle policy set.
- * You can access Allas from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
+ * You can access Allas from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or even your phone.
 
 **Limitations**
 
@@ -77,7 +77,7 @@ Allas has technical limits, that normally can not be increased:
 | Buckets per project | 1 000 |
 | Objects per bucket | 500 000 |
 
-If you need to store lot of objects, please plan on spreading the objects across multiple buckets. Spreading data to multiple buckets will give a better performance whenever writing objects. Alternatively, consider storing data in bigger units, for example as tar or zip arcive files instead of storing each file as a separate object.
+If you need to store lot of objects, please plan on spreading the objects across multiple buckets. Spreading data to multiple buckets will give a better performance whenever writing objects. Alternatively, consider storing data in bigger units, for example as tar or zip archive files instead of storing each file as a separate object.
 
 ## Protocols
 
@@ -87,7 +87,7 @@ The object storage service is provided over two different protocols, **S3** and 
 * The token-based **Swift authentication** used remains valid for **eight hours* at a time. 
 
 
-The permanent connection of S3 is practical in many ways, but it includes a security aspect: if the server where Allas is used is compromised, the object storage space will be compromised as well. Due to this security concern, Swift has been the defult for multiple-user servers such as Allas web interface, Mahti and Puhti. However, due to technical development Allas services are starting to use S3 as the default protocol. For  example in Roihu S3 will be the default Allas protocol.
+The permanent connection of S3 is practical in many ways, but it includes a security aspect: if the server where Allas is used is compromised, the object storage space will be compromised as well. Due to this security concern, Swift has been the default for multiple-user servers such as Allas web interface, Mahti and Puhti. However, due to technical development Allas services are starting to use S3 as the default protocol. For  example in Roihu S3 will be the default Allas protocol.
 
 Thus, for example, the CSC-specific `a-commands`, as well as the `rclone` configuration in Puhti and Mahti, are by default based on Swift. But in Roihu they use S3-
 
@@ -101,8 +101,8 @@ Each bucket has a name that must be unique across all Allas users. If another us
 
 Object URLs can be in the DNS format, e.g. _https://a3s.fi/bucketname/objectname_. Please use a valid DNS name (RFC 1035). **We recommend not using upper case or non-ASCII (&auml;, &ouml; etc.) characters in bucket names**.
 
-Object names, inside the bucket don't charcter restrictions like bucket names. Howerver, some Allas interfaces may have problems with certain characters (e.g. spaces ) in object names. 
-Not also that there is no directory sturcture in side the bucket. You can incluce slash (/) characters in object names, to define [pseodo folders](terms_and_concepts.md#pseudo-folder), which some Allas clients display as folders. However thenically slash caracters are just part of a the object name. 
+Object names, inside the bucket don't character restrictions like bucket names. However, some Allas interfaces may have problems with certain characters (e.g. spaces ) in object names. 
+Not also that there is no directory structure in side the bucket. You can include slash (/) characters in object names, to define [pseudo folders](terms_and_concepts.md#pseudo-folder), which some Allas clients display as folders. However technically slash characters are just part of a the object name.
 
 ## File sizes and packaging
 
@@ -141,6 +141,6 @@ Allas data is spread across various servers, which protects against disk and ser
 4. If moving data from/to your local machine, install the selected tool (not needed if using webinterfaces).
 5. [Configure the connection](using_allas/allas-conf.md) to Allas.
 6. Move data to/from Allas.
-7. If you want to share the data publically or with another project, change access rights for your data.
+7. If you want to share the data publicly or with another project, change access rights for your data.
 
 For last two steps, see tool specific instructions.
