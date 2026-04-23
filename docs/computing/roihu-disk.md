@@ -278,7 +278,7 @@ request block of your script:
 #BB_LUA SBF storagesize=20GB path=/run/sbb/<user>
 ```
 
-Where `storagesize` specifices the amount of storage you need and `path` the location that the 
+Where `storagesize` specifies the amount of storage you need and `path` the location that the 
 storage will be mounted.
 
 You can also request resources directly on the command line with the `--bb` flag:
