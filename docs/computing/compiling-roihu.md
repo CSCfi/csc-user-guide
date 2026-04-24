@@ -125,44 +125,59 @@ mpicc -O3 -march=native -fopenmp example.c -o example
     Binaries compiled on Roihu-CPU are not compatible with Roihu-GPU nodes.
 
 
-Roihu-GPU provides two compiler environments for building C/C++ and Fortran applications:
-the [GNU](https://gcc.gnu.org) suite and the [NVIDIA-HPC](https://developer.nvidia.com/hpc-compilers)
-suite. GNU compilers are loaded by default. NVIDIA compilers can be
-loaded using the [Module system](modules.md) with the command:
+Roihu-GPU provides [GNU](https://gcc.gnu.org) and [NVIDIA-HPC](https://developer.nvidia.com/hpc-compilers)
+compiler environments for building C/C++ and Fortran applications under the following [modules](modules.md):
+
+| Compiler suite               | Modules                                                  |
+| :--------------------------- | :------------------------------------------------------- |
+| GNU 14.3.0 + CUDA 12.9.1     | `gcc/14.3.0 cuda/12.9.1 openmpi/5.0.8 openblas/0.3.30`   |
+| GNU 15.2.0 + CUDA 13.1.1     | `gcc/15.2.0 cuda/13.1.1 openmpi/5.0.8 openblas/0.3.30`   |
+| NVIDIA HPC 26.3              | `nvhpc/26.3`                                             |
+
+The first compiler suite is loaded by default.
+You can change the environment by loading the listed modules, for example,
+
+```bash
+module load nvhpc/26.3
 ```
-module load nvhpc
+
+!!! info "About the `nvhpc` module"
+    Note that the `nvhpc` module includes CUDA, MPI, and BLAS implementations,
+    so you don't need to load these modules separately when using the `nvhpc` module.
+    For this reason, the `module load` might note you about inactive modules.
+
+    To avoid leaving inactive modules, you can purge modules before loading the environment:
+
+    ```bash
+    module purge
+    module load nvhpc/26.3
+    ```
+
+List all available versions of the compiler suites:
+```bash
+module spider gcc
+module spider cuda
+module spider nvhpc
 ```
 
 The compiler executables are as follows:
 
-| Compiler suite | C  | C++ | Fortran |
-| :------------- | :- | :-- | :------ |
-| GNU            | gcc | g++ | gfortran |
-| NVIDIA         | nvc | nvc++ | nvfortran |
+| Compiler suite | C   | C++   | Fortran   |
+| :------------- | :-- | :---- | :-------- |
+| GNU            | gcc | g++   | gfortran  |
+| NVIDIA HPC     | nvc | nvc++ | nvfortran |
 
 
-In addition, the CUDA [`nvcc`](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html) compiler is available for building GPU kernel code. See the [CUDA section below](#compiling-cuda-code).
+In addition, the CUDA [`nvcc`](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html) compiler is available for building GPU kernel code. See the [CUDA section below](#compiling-cuda-applications).
 
 
-List all available versions of the compiler suites:
-```
-module spider gcc
-module spider nvhpc
-```
+### Compiling CUDA applications
 
-
-### Compiling CUDA code
-
-CUDA is the recommended programming model for Nvidia GPUs and is provided as an environment module
-on Roihu-GPU (loaded by default).
+CUDA is the recommended programming model for Nvidia GPUs and it is
+provided in `cuda` and `nvhpc` modules.
 
 The CUDA compiler (`nvcc`) takes care of compiling CUDA kernels code for the target
 GPU device and passes the rest to the currently loaded host compiler like `gcc` or `nvhpc`.
-For example, to load the CUDA 13.1 environment together with the GNU compiler:
-
-```bash
-module load gcc/15.2.0 cuda/13.1.1
-```
 
 To generate code for a given target device, tell the CUDA
 compiler what compute capability the target device supports. On Roihu, the
@@ -183,25 +198,93 @@ nvcc -gencode arch=compute_90a,code=sm_90a example.cu
     more generic `arch=compute_90,code=sm_90` options.
 
 
-### Building MPI applications on Roihu-GPU
+### Compiling MPI+CUDA applications
 
-In the GNU compiler environment, an OpenMPI module is available that implements
-CUDA-aware MPI. It is loaded by default. You may use one of the MPI compiler wrappers `mpicc` (C),
-`mpicxx` (C++), or `mpif90` (Fortran) when compiling MPI applications. When compiling
-MPI applications with `nvcc`, you will need to explicitly provide MPI include and library
-paths:
+All the provided GNU and NVIDIA compiler environments provide a CUDA-aware MPI library.
+
+If the structure of the MPI+CUDA application allows, you can build it in parts:
+
+1. Compile CUDA kernels to object files with `nvcc -c`
+2. Compile host code to object files with the MPI compiler wrappers that will call the loaded host compiler (`mpicc -c`, `mpicxx -c`, or `mpif90 -c`)
+3. Link all the object files with the MPI compiler wrapper (`mpicc`, `mpicxx`, or `mpif90`)
+
+It is also possible to compile the whole codebase with `nvcc`, but then
+we need to provide the necessary MPI compile and link options
+to the underlying host compiler called by `nvcc`.
+This can be achieved as follows via `-Xcompiler` and `-Xlinker` flags:
+
 ```bash
-nvcc -gencode arch=compute_90a,code=sm_90a example.cu -lmpi -I$OPENMPI_INSTROOT/include -L$OPENMPI_INSTROOT/lib
+# Parse MPI options for compiler
+Xcompiler="-Xcompiler $(mpicxx --showme | tr ' ' '\n' | sed '/^-Wl,/d;1d' | paste -sd, -)"
+
+# Parse MPI options for linker
+Xlinker="-Xlinker $(mpicxx --showme | tr ' ' '\n' | sed -n 's/^-Wl,//p' | paste -sd, -)"
+
+# Compile MPI code using nvcc
+nvcc -gencode arch=compute_90a,code=sm_90a $Xcompiler $Xlinker mpi_cuda_code.cu
 ```
 
-In the NVIDIA compiler environment, the MPI is bundled by NVIDIA and is directly
-available after loading the compiler suite. There is no separate MPI module to load.
+!!! warning
+    Remember to load the modules used for compiling also when running the application
+    to ensure that the correct MPI library is used during the runtime.
+
+
+### Compiling application using OpenMP offload, OpenACC, and C++ standard parallelism
 
 !!! warning
-    The NVHPC environment on Roihu is still undergoing configuration.
-    The current version may have issues with, for example, its Slurm integration
-    on Roihu. For now, we strongly recommend using the GNU compiler suite when
-    building MPI applications."
+    It is recommended to use the NVIDIA HPC compilers for
+    compiling codes using OpenMP offload, OpenACC, and C++ standard parallelism.
+
+Start by loading NVIDIA HPC compilers:
+
+```bash
+module purge
+module load nvhpc/26.3
+```
+
+The compiler options for enabling different GPU programming models are as follows:
+
+| Programming model | Compiler option              |
+| :---------------- | :--------------------------- |
+| OpenMP offload    | `-mp=gpu`                    |
+| OpenACC           | `-acc=gpu`                   |
+| C++ stdpar        | `-stdpar=gpu` (`nvc++` only) |
+
+
+To generate efficient code for the GH200 superchips on Roihu,
+specify the target with the following option:
+```raw
+-gpu=cc90
+```
+
+Example compilation commands:
+
+| Programming model | C                                      | C++                                            | Fortran                                        |
+| :---------------- | :------------------------------------- | :--------------------------------------------- | :--------------------------------------------- |
+| OpenMP offload    | `nvc -O3 -mp=gpu  -gpu=cc90 example.c` | `nvc++ -O3 -mp=gpu  -gpu=cc90 example.cpp`     | `nvfortran -O3 -mp=gpu  -gpu=cc90 example.F90` |
+| OpenACC           | `nvc -O3 -acc=gpu -gpu=cc90 example.c` | `nvc++ -O3 -acc=gpu -gpu=cc90 example.cpp`     | `nvfortran -O3 -acc=gpu -gpu=cc90 example.F90` |
+| C++ stdpar        |  N/A                                   | `nvc++ -O3 -stdpar=gpu  -gpu=cc90 example.cpp` |  N/A                                           |
+
+
+The compilers support also codes that contain multiple programming models.
+As an example, compile a C++ code that contains OpenMP offload, OpenACC, and C++ parallel algorithms with:
+```bash
+nvc++ -O3 -mp=gpu -acc=gpu -stdpar=gpu -gpu=cc90 example.cpp
+```
+
+### Compiling MPI application using OpenMP offload, OpenACC, and C++ standard parallelism
+
+The `nvhpc` module is bundled with GPU-aware MPI implementation with
+the usual compiler wrappers, and MPI applications can be compiled
+like above but replacing `nvc`, `nvc++`, and `nvfortran` with
+`mpicc`, `mpicxx`, and `mpif90`, respectively:
+
+| Programming model | C                                        | C++                                             | Fortran                                     |
+| :---------------- | :--------------------------------------- | :---------------------------------------------- | :------------------------------------------ |
+| OpenMP offload    | `mpicc -O3 -mp=gpu  -gpu=cc90 example.c` | `mpicxx -O3 -mp=gpu  -gpu=cc90 example.cpp`     | `mpif90 -O3 -mp=gpu  -gpu=cc90 example.F90` |
+| OpenACC           | `mpicc -O3 -acc=gpu -gpu=cc90 example.c` | `mpicxx -O3 -acc=gpu -gpu=cc90 example.cpp`     | `mpif90 -O3 -acc=gpu -gpu=cc90 example.F90` |
+| C++ stdpar        |  N/A                                     | `mpicxx -O3 -stdpar=gpu  -gpu=cc90 example.cpp` |  N/A                                        |
+
 
 
 <!--
