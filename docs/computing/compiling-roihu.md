@@ -141,10 +141,10 @@ You can change the environment by loading the listed modules, for example,
 module load nvhpc/26.3
 ```
 
-!!! info "About `nvhpc` module"
+!!! info "About the `nvhpc` module"
     Note that the `nvhpc` module includes CUDA, MPI, and BLAS implementations,
     so you don't need to load these modules separately when using the `nvhpc` module.
-    For this reasons, the `module load` might note you about inactive modules.
+    For this reason, the `module load` might note you about inactive modules.
 
     To avoid leaving inactive modules, you can purge modules before loading the environment:
 
@@ -200,9 +200,9 @@ nvcc -gencode arch=compute_90a,code=sm_90a example.cu
 
 ### Compiling MPI+CUDA applications
 
-All the provided GNU and NVIDIA compiler environments provide CUDA-aware MPI library.
+All the provided GNU and NVIDIA compiler environments provide a CUDA-aware MPI library.
 
-If the the structure of the MPI+CUDA application allows, you can build it in parts:
+If the structure of the MPI+CUDA application allows, you can build it in parts:
 
 1. Compile CUDA kernels to object files with `nvcc -c`
 2. Compile host code to object files with the MPI compiler wrappers that will call the loaded host compiler (`mpicc -c`, `mpicxx -c`, or `mpif90 -c`)
@@ -251,7 +251,7 @@ The compiler options for enabling different GPU programming models are as follow
 | C++ stdpar        | `-stdpar=gpu` (`nvc++` only) |
 
 
-To generate generate efficient code for the GH200 superchips on Roihu,
+To generate efficient code for the GH200 superchips on Roihu,
 specify the target with the following option:
 ```raw
 -gpu=cc90
