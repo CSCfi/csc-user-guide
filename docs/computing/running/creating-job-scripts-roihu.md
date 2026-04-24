@@ -20,7 +20,7 @@ An example of a batch job script using a share of resources on a single node:
 #SBATCH --cpus-per-task=1           # Number of CPU cores allocated per task
 #SBATCH --mem-per-cpu=1000M         # Memory to reserve per CPU core
 #SBATCH --output=slurm-%j.out       # Standard output of the job script
-#SBATCH --hint=nomultithread        # Allocate full CPU cores
+#SBATCH --hint=nomultithread        # Allocate physical cores only, avoid simultaneous multithreading
 ##SBATCH --mail-type=BEGIN          # Uncomment to enable mail
 
 module load myprog/1.2.3            # Load required modules
