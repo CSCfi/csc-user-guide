@@ -65,7 +65,7 @@ class NewTranslation(PageTranslation):
         """Writes translation result to destination file.
         """
         mkparents(self.__dest_path)
-        self.__dest_path.write_text(translated_content, encoding="utf-8")
+        self.__dest_path.write_text(translated_content.lstrip(), encoding="utf-8")
         logger.info("Translation result written to '%s'.", self.path)
         self.__cache.store(self.path, self.__dest_path)
 
