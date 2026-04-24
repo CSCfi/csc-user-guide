@@ -204,9 +204,10 @@ Basic workflow:
 See the relevant documentation below for detailed information:
 
 1. [Available batch job partitions](../../computing/running/batch-job-partitions.md)
-2. [Creating a batch job script](../../computing/running/batch-job-partitions.md)
-3. [Submit a batch job](../../computing/running/submitting-jobs.md)
-4. [Performance checklist](../../computing/running/performance-checklist.md)
+1. [Creating a batch job script](../../computing/running/creating-job-scripts-roihu.md)
+1. [Example job scripts](../../computing/running/example-job-scripts-roihu.md)
+1. [Submit a batch job](../../computing/running/submitting-jobs.md)
+1. [Performance checklist](../../computing/running/performance-checklist.md)
 
 For common Slurm error messages, see our FAQ on [Why does my batch job fail?](../faq/why-does-my-batch-job-fail.md).
 
