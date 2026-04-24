@@ -59,13 +59,13 @@ extra:
       link: https://www.facebook.com/CSCfi/
     - icon: material/youtube
       link: https://www.youtube.com/c/CSCfi
-  alternate:
-    - name: Suomeksi
-      link: /fi/
-      lang: fi
-    - name: In English
-      link: /
-      lang: en
+  # alternate:
+  #   - name: Suomeksi
+  #     link: /fi/
+  #     lang: fi
+  #   - name: In English
+  #     link: /
+  #     lang: en
 
 hooks:
   - hooks/catalog.py
