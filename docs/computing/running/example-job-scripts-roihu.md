@@ -17,11 +17,13 @@ These partitions allow you to run larger test cases on both Roihu-CPU (up to 200
 
 See [job time and node limits in the pilot partitions.](batch-job-partitions.md#roihu-pilot-partitions)
 
-Pilot partitions will provide you with full nodes and may experience long queue times during peak use. Normal partitions (see examples below) are still available during the pilot projects, and are recommended to use especially for smaller scale and routine runs. 
+Pilot partitions will provide you with full nodes and may experience long queue times during peak use.
+Normal partitions (see examples below) are still available during the pilot projects, and are
+recommended to use especially for smaller scale and routine runs. 
 
-### Example CPU pilot project job script
+### Example pilot project CPU job script (MPI+OpenMP)
 
-```bash
+```
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -29,13 +31,27 @@ Pilot partitions will provide you with full nodes and may experience long queue 
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
+###SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
+###SBATCH --ntasks-per-node=96 --cpus-per-task=4  # The product should be 384
 #SBATCH --hint=nomultithread
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single hardware threads
+# Comment the following lines if binding is not desired
+export OMP_PLACES=threads
+export OMP_PROC_BIND=spread
 
 # Run the program
 srun myprog <options>
 ```
 
-### Example GPU pilot project job script
+In the above, set the MPI task (`--ntasks`) and OpenMP thread (`--cpus-per-task`) counts to best
+fit your program, while ensuring that the total cpu count is using all 384 cores
+on your nodes.
+
+### Example pilot project GPU job script
 
 ```bash
 #!/bin/bash
@@ -46,6 +62,14 @@ srun myprog <options>
 #SBATCH --nodes=4
 #SBATCH --ntasks-per-node=4 --cpus-per-task=72  # The product should be 288
 #SBATCH --gres=gpu:gh200:4  # 4 GPUs per node
+
+# Set the number of CPU threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind CPU threads to single CPU cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
 
 # Run the program
 srun myprog <options>
