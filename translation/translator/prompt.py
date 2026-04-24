@@ -8,7 +8,7 @@ from .utils import get_dictionary, get_language
 
 _entry_template = string.Template('    - "${src_term}": "${tgt_term}"')
 _dictionary_template = string.Template("""
-6. Translating specific terms:
+5. Translating specific terms:
 - Use the following dictionary when translating these specific terms:
 ${entries}
 """)
