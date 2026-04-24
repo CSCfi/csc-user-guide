@@ -47,7 +47,7 @@ salloc --account <project>
 
 There are two interactive partitions available on Roihu; `interactive` for CPU 
 resources and `gpuinteractive` for GPU resources. See the
-[Roihu `interactive` partition details](batch-job-partitions.md##roihu-partitions)
+[Roihu `interactive` partition details](./batch-job-partitions.md#roihu-partitions)
 for information on the available resources. The Roihu `gpuinteractive` partition 
 features GH200 superchips that are divided into a total of 48 smaller slices that 
 have one-seventh of the compute capacity and one-eighth of the GPU memory capacity 
