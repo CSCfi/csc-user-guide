@@ -19,7 +19,7 @@ In Windows, 2 different key types are widely used:
 
 CSC provides two options for this:
 
-* Option 1, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-1-mycsc)
+* Option 1, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-1-download-from-mycsc)
 * Option 2, the [certificate helper tool](ssh-keys.md#option-2-certificate-helper-tool)
 	
 So for Roihu, consider also how different tools support updating the SSH certificate:
@@ -316,7 +316,7 @@ Puhti, Mahti and LUMI do not use SSH certificates, so adding keys to SSH authent
 
 In Roihu, besides SSH keys a SSH certificate is required. If using SSH agent, a new SSH certificate must be added daily. CSC provides two options for this:
 
-* Option 1, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-1-mycsc)
+* Option 1, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-1-download-from-mycsc)
 * Option 2, the [certificate helper tool](ssh-keys.md#option-2-certificate-helper-tool)
 
 Option 1 can be used out-of-the-box, without any additional installations. 
