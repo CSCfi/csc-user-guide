@@ -1,6 +1,6 @@
 # Interactive usage
 
-!!! warning Roihu documentation on a separate page!
+!!! warning "Roihu documentation on a separate page!"
     This page contains information on interactive usage on Puhti and Mahti. 
     For information on Roihu, see: 
     [Roihu interactive usage](./interactive-usage-roihu.md).

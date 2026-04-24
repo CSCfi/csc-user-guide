@@ -1,6 +1,6 @@
 # Roihu interactive usage
 
-!!! warning Puhit and Mahit documentation on a separate page!
+!!! warning "Puhti and Mahit documentation on a separate page!"
     This page contains information on interactive usage on Roihu. 
     For information on Puhti and Roihu, see: 
     [Roihu interactive usage](./interactive-usage.md).
@@ -20,7 +20,7 @@ the [`salloc` command](#the-salloc-command).
 
 ## The `salloc` command
 
-!!! info `sinteractive` command has been deprecated on Roihu.
+!!! info "`sinteractive` command has been deprecated on Roihu."
 
 On Roihu the `salloc` command starts a new shell program on a compute node
 with the resources specified by the user. Processes can be launched as if you
