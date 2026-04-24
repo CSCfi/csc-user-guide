@@ -23,7 +23,7 @@ recommended to use especially for smaller scale and routine runs.
 
 ### Example pilot project CPU job script (MPI+OpenMP)
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
