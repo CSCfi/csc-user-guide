@@ -18,6 +18,13 @@ extra:
           note: >-
             Kiitos! Arvostamme palautettasi.
   short_description: Käyttöoppaat ja tutoriaalit
+  alternate:
+    - name: Suomeksi
+      link: /fi/
+      lang: fi
+    - name: In English
+      link: /
+      lang: en
 
 plugins:
   search:
