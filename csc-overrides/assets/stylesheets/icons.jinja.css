@@ -1,0 +1,9 @@
+{%- from "partials/icons.css.jinja" import icon_prop -%}
+:root {
+  {{ icon_prop("md-admonition", "material/close-circle", "error") }}
+  {{ icon_prop("md-admonition", "fontawesome/solid/chalkboard-user", "training") }}
+}
+
+#disclaimer-container {
+  {{ icon_prop("csc-disclaimer-chevron", "material/restore") }}
+}

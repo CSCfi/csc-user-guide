@@ -34,7 +34,7 @@ RUN if [ ! -d ".git" ]; then \
     fi && \
     mkdocs build -d /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx
+COPY nginx.tmp.conf /etc/nginx/nginx.conf
 
 EXPOSE 8000
 
