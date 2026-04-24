@@ -179,7 +179,7 @@ following instructions illustrate only basic usage.
       [Official Python downloads page](https://www.python.org/downloads/).
       Contact your local IT-support if you need assistance.
     - If Python for some reason cannot be installed on your computer, fall
-      back to [Option 1](#option-1-mycsc-primary-method) instead.
+      back to [Option 1](#option-1-mycsc) instead.
 2. [Download the certificate helper tool here](https://github.com/CSCfi/certificate-helper-tool/raw/refs/heads/main/csc_cert.py)
    (_Right click_ :material-arrow-right: _Save Link As_), or clone the Git
    repository:

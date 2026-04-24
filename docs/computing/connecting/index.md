@@ -69,7 +69,7 @@ supercomputer using the terminal program.
 
 Windows comes with the `Command Prompt` terminal program that typically has the OpenSSH
 ssh client installed. This client works in a similar fashion to the ssh clients on Linux and MacOS. 
-In addition to this client, windows have multiple programs that  can be used for this. 
+In addition to this client, Windows has multiple programs that can be used for this.
 The instructions for using an [SSH client on Windows](ssh-windows.md) lists a few popular options.
 
 Once you have set up SSH keys, added your public key to MyCSC, and signed it to
