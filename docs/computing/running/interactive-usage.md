@@ -1,5 +1,10 @@
 # Interactive usage
 
+!!! warning Roihu documentation on a separate page!
+    This page contains information on interactive usage on Puhti and Mahti. 
+    For information on Roihu's storage, see: 
+    [Roihu interactive usage](./interactive-usage-roihu.md).
+
 When you log into a CSC supercomputer, you are connected to one of its login
 nodes. Login nodes are shared by all users and are **not** to be used for
 heavy processing. [See our usage policy for details](../usage-policy.md). If
