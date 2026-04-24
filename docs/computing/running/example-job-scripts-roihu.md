@@ -10,6 +10,47 @@ Example job scripts for running different types of programs:
     with the executable (and options) of the program you wish to run as well
     as `<project>` with the name of your project.
 
+## Pilot projects
+
+During the pilot period, pilot users will have access to separate `pilot` and `gpupilot` partitions. 
+These partitions allow you to run larger test cases on both Roihu-CPU (up to 200 nodes) and Roihu-GPU (up to 60 nodes).
+
+See [job time and node limits in the pilot partitions.](batch-job-partitions.md#roihu-pilot-partitions)
+
+Pilot partitions will provide you with full nodes and may experience long queue times during peak use. Normal partitions (see examples below) are still available during the pilot projects, and are recommended to use especially for smaller scale and routine runs. 
+
+### Example CPU pilot project job script
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=pilot
+#SBATCH --time=00:30:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
+#SBATCH --hint=nomultithread
+
+# Run the program
+srun myprog <options>
+```
+
+### Example GPU pilot project job script
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=gpupilot
+#SBATCH --time=00:30:00
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=4 --cpus-per-task=72  # The product should be 288
+#SBATCH --gres=gpu:gh200:4  # 4 GPUs per node
+
+# Run the program
+srun myprog <options>
+```
+
 ## Serial CPU
 
 ```bash
