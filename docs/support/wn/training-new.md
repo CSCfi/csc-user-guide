@@ -2,7 +2,11 @@
 
 ## Finnish translation for Docs CSC, 27.4.2026
 
-Something something [link to page](../translation.md). FIXME
+CSC’s end user guides and tutorials portal Docs CSC is getting an automatic Finnish translation, powered by a large language model. With this requested feature, the goal is to ensure that Finnish-speaking users can access the same information as English-speaking users, with translations kept continuously up to date. The translation will become a part of the existing Docs CSC service component on 27.04.2026. 
+
+Because of the LLM translation, there might be some quality issues with the translation. To account for this, we have an AI disclaimer in place. If you notice issues or want to give feedback, please [contact us](https://docs.csc.fi/contact/). The translation tool will continue to be developed after the initial publication to ensure an even better experience for the Finnish-speaking users. 
+
+[Read more about the translation](https://docs.csc.fi/support/translation) 
 
 ## New guide on how to organize courses using CSC services published, 2.3.2026
 
