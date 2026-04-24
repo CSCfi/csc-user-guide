@@ -11,14 +11,13 @@ DEFAULTS = SimpleNamespace(
     excludes_filename="exclude.txt",
     dictionary_filename="dictionary.yml",
     force_filename="force.yml",
-    batch_size=4,
+    batch_size=4, # not used, batching has issues
     source_lang_code="en",
     source_language="English",
     openai=SimpleNamespace(
-        model="gpt-5",
-        max_tokens=128000, # https://platform.openai.com/docs/models/gpt-5
-        max_tokens_multiplier=1.1,
+        model="gpt-5.4",
         timeout=10.0,
-        retries=5
+        retries=5,
+        temperature=0, # default is 1
     ),
 )

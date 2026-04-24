@@ -27,14 +27,15 @@ so that we are sure that they work.
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
-|CentOS-9-Stream |**cloud-user** |no  |
-|AlmaLinux-8     |**almalinux**  |no  |
-|AlmaLinux-9     |**almalinux**  |no  |
-|Ubuntu-20.04    |**ubuntu**     |no  |
-|Ubuntu-22.04    |**ubuntu**     |no  |
-|Ubuntu-24.04    |**ubuntu**     |no  |
+|CentOS-9-Stream  |**cloud-user** |no  |
+|CentOS-10-Stream |**cloud-user** |no  |
+|AlmaLinux-8      |**almalinux**  |no  |
+|AlmaLinux-9      |**almalinux**  |no  |
+|AlmaLinux-10     |**almalinux**  |no  |
+|Ubuntu-22.04     |**ubuntu**     |no  |
+|Ubuntu-24.04     |**ubuntu**     |no  |
 
-### CentOS-9-Stream
+### CentOS-9-Stream and CentOS-10-Stream
 
 The CentOS community is now actively maintaining CentOS-9-Stream, which is the upstream branch for RHEL.
 Given that updates and changes are first tested in CentOS and only subsequently deployed for Red Hat Enterprise Linux (RHEL), the resulting operating system is possibly less stable compared to its previous version, i.e., when RHEL was the upstream for CentOS.
@@ -45,7 +46,7 @@ Note that this is the upstream version of the image, i.e., we do not perform
 any change to the image before making it available on our services. The default
 username is `cloud-user`.
 
-### AlmaLinux-8 and AlmaLinux-9
+### AlmaLinux-8, AlmaLinux-9 and AlmaLinux-10
 
 AlmaLinux is a linux distribution created in response to the termination
 of CentOS-8 project and the fundamental change of CentOS building process, due
@@ -55,7 +56,7 @@ distribution effectively takes the role that CentOS used to have before the
 switch to the -Stream versions. Note that these are the upstream versions of the
 AlmaLinux images, and their default username is `almalinux` instead of `cloud-user`.
 
-### Ubuntu-24.04, 22.04 and 20.04
+### Ubuntu-24.04 and 22.04
 Note that these are the upstream versions of the Ubuntu images, and their default
 username is `ubuntu` instead of `cloud-user`.
 

@@ -1,8 +1,17 @@
-# Excluded entirely:
+# Excluded pages:
 ref.md
+support/archives/tutkimus-research.md
+support/archives/asiakaskoulutus-customer-training.md
+support/archives/puhti-users.md
+support/archives/mahti-users.md
+support/archives/lumi-users.md
+support/archives/pouta-users.md
+support/archives/rahti-users.md
+support/archives/sd-desktop-users.md
+support/archives/compute-server-announcements.md
 img/csc-quick-reference/README.md
 
-# Excluded from (re-)translation:
+# Manually translated pages:
 apps/index.md
 apps/by_discipline.md
 apps/by_availability.md

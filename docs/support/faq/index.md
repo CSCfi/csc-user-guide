@@ -79,9 +79,11 @@
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
+* [Do you provide Windows Virtual Machines?](do-you-provide-windows-vms.md)
 
 ## Rahti
 
+* [Rahti FAQ – common tasks and UI usage](../../cloud/rahti/rahti_faq.md)
 * [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
 * [Does Rahti support UDP connections?](rahti-udp.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
@@ -95,6 +97,7 @@
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
 * [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
+
 
 ## Applications
 

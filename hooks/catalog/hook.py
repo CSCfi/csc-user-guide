@@ -103,7 +103,8 @@ class CatalogHook(DocsHook):
             return None
 
     def on_post_build(self, config):
-        self.__export.write()
+        if config.theme.get("language") == "en":
+            self.__export.write()
 
         return None
 

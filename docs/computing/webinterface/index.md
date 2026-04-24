@@ -57,6 +57,8 @@ Please note that logging in to Puhti and Mahti web interfaces requires
         - COMSOL
         - ParaView
         - VMD
+- **Apps available in Mahti only:**
+    - R-Jupyter
 
 ### Shell
 

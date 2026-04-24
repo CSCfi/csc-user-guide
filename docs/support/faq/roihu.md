@@ -8,9 +8,9 @@ Installation of new supercomputers is a complex process. Thus, it is hard to
 provide an exact date for when Roihu will be generally available.
 
 However, based on the current progress of the installation, CSC estimates that
-the Roihu pilot phase will be able to start at the end of March 2026.
-Subsequently, the general availability of the system will be at the end of
-April 2026. Please observe that delays are still possible.
+the Roihu pilot phase will be able to start in April 2026. Subsequently, the
+general availability of the system will be in May 2026. Please observe that
+delays are still possible.
 
 [Read more about the tentative schedule here](../../computing/systems-roihu.md#schedule).
 
@@ -44,10 +44,10 @@ including Roihu.
 
 To be able to use Roihu, you will need to
 [add Roihu service access for your project](../../accounts/how-to-add-service-access-for-project.md).
-Additionally, all users of the project should have at least a **medium** level
-of identity assurance (LoA) to be able to access Roihu. You can view your
-current level of identity assurance in [MyCSC](https://my.csc.fi) (select
-_Profile_ and scroll down to _Level of Identity Assurance_).
+Additionally, you should have at least a **medium** level of identity assurance
+(LoA) to be able to access Roihu. You can view your current level of identity
+assurance in [MyCSC](https://my.csc.fi) (select _Profile_ and scroll down to
+_Level of Identity Assurance_).
 
 Users with no or low LoA should read the
 [instructions on how to elevate their assurance level](../../accounts/strong-identification.md).
