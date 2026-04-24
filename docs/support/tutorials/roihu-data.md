@@ -51,14 +51,13 @@
 * Once you have identified the data you need to transfer, check that it
   fits within the default disk quotas on Roihu:
 
-    | Disk area | Path                  | Default size | Max. size [^1]      | Default file number limit | Max. file number limit [^1] |
+    | Disk area | Path                  | Default size | Max. size      | Default file number limit | Max. file number limit |
     |-----------|-----------------------|-------------:|--------------------:|--------------------------:|----------------------------:|
     | Home      | `/users/$USER`        | 15 GiB       | 15 GiB              | 150k                      | 150k                        |
-    | ProjAppl  | `/projappl/<project>` | 15 GiB       | 250 GiB (< 100 GiB) | 150k                      | 2.5M (< 1M)                 |
+    | ProjAppl  | `/projappl/<project>` | 15 GiB       | 250 GiB             | 150k                      | 2.5M                        |
     | ProjData  | `/projdata/<project>` | 0 GiB        | case-by-case        | 0                         | case-by-case                |
-    | Scratch   | `/scratch/<project>`  | 1 TiB        | 100 TiB (< 10 TiB)  | 1M                        | 10M (< 5M)                  |
+    | Scratch   | `/scratch/<project>`  | 250 GiB      | 100 TiB             | 500k                      | 10M                         |
 
-    [^1]: Values in parentheses indicate automatically approved limits.
 
 * Please note that existing quota extensions on Puhti/Mahti will not
   automatically carry over to Roihu, so you must separately
@@ -104,9 +103,6 @@
       transfer process.
         1. **[SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).**
         2. **[SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).**
-    * We **strongly** recommend using the
-      [certificate helper tool](../../computing/connecting/ssh-keys.md#option-1-certificate-helper-tool-recommended)
-      developed by CSC to simplify the process.
 
 ## 2. Recommended data migration methods
 

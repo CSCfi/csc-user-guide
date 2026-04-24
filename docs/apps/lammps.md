@@ -45,7 +45,8 @@ your needs. Please read the instructions below.
 === "LUMI"
     | Release        | Available modules  | Notes |
     |:--------------:|:-------------------|:-----:|
-    | 29 August 2024 | `lammps/29Aug2024-cpu`<br>`lammps/29Aug2024-gpu` | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2)<br>GPU-version ([Kokkos](https://docs.lammps.org/Speed_kokkos.html)) available |
+    | 29 August 2024 | `lammps/29Aug2024-cpu`<br>`lammps/29Aug2024-gpu` | [Stable release, update 4](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update4)<br>GPU-version ([Kokkos](https://docs.lammps.org/Speed_kokkos.html)) available |
+    | 22 July 2025 | `lammps/22Jul2025-cpu`<br>`lammps/22Jul2025-gpu` | [Stable release, update 3](https://github.com/lammps/lammps/releases/tag/stable_22Jul2025_update3)<br>GPU-version ([Kokkos](https://docs.lammps.org/Speed_kokkos.html)) available |
 
     * Instructions for building your own custom versions available at
       `/appl/local/csc/soft/chem/lammps/custom`.
@@ -68,7 +69,7 @@ lmp -help
 On LUMI, you need to first activate CSC's local software stack before you can
 see and load the module. For example:
 
-```bashs
+```bash
 module use /appl/local/csc/modulefiles
 module load lammps/29Aug2024-gpu
 lmp -help

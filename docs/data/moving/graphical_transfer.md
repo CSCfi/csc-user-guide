@@ -43,8 +43,8 @@ if you trust the host, and then prompt you for your SSH key passphrase.
     agent automatically.
 
     [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
-    We recommend using the
-    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-1-certificate-helper-tool-recommended).
+    For streamlining the process down the line, we recommend using the
+    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
 
 Once the connection is opened, FileZilla shows two interactive file listings
 side by side. On the left side you have your local file system and on the right
@@ -101,8 +101,8 @@ _OK_.
     you leave the field empty.
 
     [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
-    We recommend using the
-    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-1-certificate-helper-tool-recommended).
+    For streamlining the process down the line, we recommend using the
+    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
 
 ![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
 

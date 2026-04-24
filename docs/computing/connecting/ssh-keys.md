@@ -114,14 +114,59 @@ same `${USER}.pub` file.
 
 !!! warning "The following is a requirement for connecting to Roihu only"
 
-To connect to Roihu using SSH, you must sign your public key to get a so called
+To connect to Roihu using SSH or SFTP (WinSCP, FileZilla), you must sign your public key to get a so called
 **SSH certificate**. SSH certificates significantly improve the security of the
 system by introducing an additional authentication factor for SSH logins.
 
 **SSH certificates are valid for 24 hours at a time**. Once your certificate
 expires, a new one must be signed following either of the processes below.
 
-### Option 1: Certificate helper tool (recommended)
+---
+
+### Option 1: Download from MyCSC 
+
+We recommend trying the MyCSC workflow first, since it should work out-of-the-box on all systems.
+
+
+1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
+1. Select _Profile_ from the left-hand navigation or the dropdown menu in the
+   top-right corner.
+1. Locate _SSH PUBLIC KEYS_ section and click the three vertical dots next to
+   the public key you want to sign.
+1. Click _Sign and download SSH certificate_. As a security measure, you may be
+   asked to log in again.
+
+    ![Sign and download SSH certificate](https://a3s.fi/docs-files/sign-download-ssh-cert.png 'Sign and download SSH certificate')
+
+    !!! info "Where to store the SSH certificate?"
+        We **strongly** advice saving the certificate in the default folder for
+        SSH-related files (e.g. `~/.ssh` or `C:\Users\<username>/.ssh`).
+        Specifically, storing the certificate in the same directory as your
+        SSH private key **and** naming it as `<key>-cert.pub` will simplify
+        connecting, working with SSH agent, etc.
+
+        For example, if you've stored your SSH private key in
+        `~/.ssh/id_ed25519`, please save your SSH certificate as
+        `~/.ssh/id_ed25519-cert.pub`.
+
+1. **Connect to Roihu following these instructions**:
+
+=== "Linux & macOS"
+
+	1. Optional, add certificate to [SSH authentication agent](ssh-unix.md#authentication-agent). Mandatory for SSH agent forwarding.
+	1. [Connect from Terminal](ssh-unix.md#basic-usage)
+
+
+=== "Windows"
+
+	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla and WinSCP.
+	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
+
+---
+
+### Option 2: Certificate helper tool
+
+To make the process smoother and easier, you can use the helper tool.
 
 The certificate helper is a Python tool developed by CSC to simplify the
 process of signing and downloading an SSH certificate, and adding it to your
@@ -131,10 +176,10 @@ following instructions illustrate only basic usage.
 
 1. Ensure that you have Python installed on your computer.
     - Instructions are available in the
-      [Python Beginners Guide](https://wiki.python.org/moin/BeginnersGuide/Download).
+      [Official Python downloads page](https://www.python.org/downloads/).
       Contact your local IT-support if you need assistance.
     - If Python for some reason cannot be installed on your computer, fall
-      back to [Option 2](#option-2-mycsc) instead.
+      back to [Option 1](#option-1-download-from-mycsc) instead.
 2. [Download the certificate helper tool here](https://github.com/CSCfi/certificate-helper-tool/raw/refs/heads/main/csc_cert.py)
    (_Right click_ :material-arrow-right: _Save Link As_), or clone the Git
    repository:
@@ -174,31 +219,30 @@ following instructions illustrate only basic usage.
               your SSH agent.
             - The signed certificate is saved as
               `<key>-cert.pub` (e.g., `~/.ssh/id_ed25519-cert.pub`).
-        6. **[Connect to Roihu following these instructions](ssh-unix.md#basic-usage)**.
+        6. Your now have everything ready to **[Connect to Roihu following these instructions](ssh-unix.md#basic-usage)**.
 
     === "Windows"
 
-        7. Optional, but **strongly recommended**:
-           [Install WinSCP](https://winscp.net/eng/docs/installation) and
-           [start the Pageant authentication agent](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant)
-           that comes bundled with WinSCP (and
-           [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)) to
-           automatically add SSH key and certificate to SSH agent.
-            * If you install WinSCP without admin rights, you must add
-              `WinSCP.exe` to your Path environment variable. Search for the
-              _Edit environment variables for your account_ settings menu.
-            * If you intend to connect to Roihu using PowerShell, it is
-              possible to also use Windows `ssh-agent`.
-              [See the instructions for starting `ssh-agent` in PowerShell](ssh-windows.md#authentication-agent).
 
-        8. Open PowerShell and execute:
+		6. [Depending on the tool you plan to use](ssh-windows.md), select the OpenSSH or Putty Private Keys (PPK) as input for the script. With OpenSSH keys you can generate certificates for both OpenSSH client and all Windows SSH applications using Putty keys, if you are only using graphical Windows applications you can also use Putty keys as input.  
+        7. If you are using Putty keys, install [WinSCP](https://winscp.net/eng/docs/installation). This tool is used to generate Putty Private Keys (PPK) from the certificate from MyCSC.
+               * If you install WinSCP without admin rights, you must add 
+               `WinSCP.exe` to your Path environment variable. Search for the
+               _Edit environment variables for your account_ settings menu.
+        8. Optional, but **strongly recommended** start one of the [SSH agents](ssh-windows.md#authentication-agent) to
+           automatically add SSH key and certificate to the SSH agent:
+               * Pageant for Putty keys. 
+               * Windows `ssh-agent` for OpenSSH keys.
+
+        9. Open PowerShell and run the script. Depending on what tools you plan to use, provide the helper script the right type of key.
 
             ```bash
-            # Replace <username> with your CSC user name and
-            # <path-to-public-or-ppk-key> with the path to your SSH public key
+            # Replace:
+            # <username> with your CSC user name and
+            # <path-to-public-or-ppk-key> with the path to your OpenSSH public key
             # (.pub) or PuTTY key (.ppk)
 
-            python3 csc_cert.py -u <username> <path-to-public-or-ppk-key>
+            python csc_cert.py -u <username> <path-to-public-or-ppk-key>
             ```
             
             * The command above assumes that the path to `csc_cert.py` is in your
@@ -218,77 +262,48 @@ following instructions illustrate only basic usage.
                 `.pub` file will create both an OpenSSH-compatible `-cert.pub`
                 file, as well as a `-cert.ppk` file (if WinSCP is available).
 
-        9.  If you have an earlier certificate which is still valid, the tool 
+        10.  If you have an earlier certificate which is still valid, the tool 
            prints the expiration time and exits.
-        10. If signing is needed, a login URL is displayed. Follow the link and
+        11. If signing is needed, a login URL is displayed. Follow the link and
            authenticate.
-        11. Copy the displayed 6-digit code into PowerShell and enter your SSH
+        12. Copy the displayed 6-digit code into PowerShell and enter your SSH
            key passphrase.
             - The signed certificate is automatically downloaded and added to
-              your SSH agent (if you have WinSCP installed and Pageant
-              running).
-            - The signed certificate is saved as `<key>-cert.pub` and/or
-              `<key>-cert.ppk` (e.g.,
-              `C:\Users\<username>\.ssh\id_ed25519-cert.ppk`).
-        12. **[Connect to Roihu following these instructions](ssh-windows.md#basic-usage)**.
-
+              your SSH authentication agent if you have it running.
+            - The signed certificate is saved to the same folder as the input key
+               as `<key>-cert.pub` for OpenSSH keys and/or
+              `<key>-cert.ppk` for Putty keys.
+        13. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
 ---
 
-### Option 2: MyCSC
-
-1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
-1. Select _Profile_ from the left-hand navigation or the dropdown menu in the
-   top-right corner.
-1. Locate _SSH PUBLIC KEYS_ section and click the three vertical dots next to
-   the public key you want to sign.
-1. Click _Sign and download SSH certificate_. As a security measure, you may be
-   asked to log in again.
-
-    ![Sign and download SSH certificate](https://a3s.fi/docs-files/sign-download-ssh-cert.png 'Sign and download SSH certificate')
-
-    !!! info "Where to store the SSH certificate?"
-        We **strongly** advice saving the certificate in the default folder for
-        SSH-related files (e.g. `~/.ssh` or `C:\Users\<username>/.ssh`).
-        Specifically, storing the certificate in the same directory as your
-        SSH private key **and** naming it as `<key>-cert.pub` will simplify
-        connecting, working with SSH agent, etc.
-
-        For example, if you've stored your SSH private key in
-        `~/.ssh/id_ed25519`, please save your SSH certificate as
-        `~/.ssh/id_ed25519-cert.pub`.
-
-1. **Connect to Roihu following these instructions**:
-      1. [Linux/macOS](ssh-unix.md#basic-usage)
-      1. [Windows](ssh-unix.md#basic-usage)
-
-    !!! info "Optional: Check when your SSH certificate will expire"
+### Check when your SSH certificate will expire
         Each SSH certificate is valid for 24 hours. The expiration time can be
         checked as follows:
 
-        === "Terminal (Linux, macOS, PowerShell, MobaXterm)"
+=== "Terminal (Linux, macOS, PowerShell, MobaXterm)"
 
-            1. Open a terminal client.
-            1. Run command:
+	1. Open a terminal client.
+	1. Run command:
 
-                ```bash
-                # Replace <path-to-certificate> with the path to your OpenSSH
-                # certificate file (.pub)
+		```bash
+		# Replace <path-to-certificate> with the path to your OpenSSH
+		# certificate file (.pub)
 
-                ssh-keygen -L -f <path-to-certificate> | grep "Valid"
-                ```
+		ssh-keygen -L -f <path-to-certificate> | grep "Valid"
+		```
 
-        === "GUI (PuTTY, MobaXterm)"
+=== "GUI (PuTTY, MobaXterm)"
 
-            2. Open PuTTYgen / MobaKeyGen.
-            3. Load your `.ppk` private key:
-                * _File_ :material-arrow-right: _Load private key_
-            4. Add a certificate (`.pub`) to the key (unless already included
-               in the `.ppk` file):
-                * _Key_  :material-arrow-right: _Add certificate to key_
-            5. Select _Certificate info_ to see the validity period among other
-               info.
+	2. Open PuTTYgen / MobaKeyGen.
+	3. Load your `.ppk` private key:
+		* _File_ :material-arrow-right: _Load private key_
+	4. Add a certificate (`.pub`) to the key (unless already included
+	   in the `.ppk` file):
+		* _Key_  :material-arrow-right: _Add certificate to key_
+	5. Select _Certificate info_ to see the validity period among other
+	   info.
 
-    ---
+---
 
 ## More information
 

@@ -42,10 +42,8 @@ Logging in to CSC supercomputers using an SSH client requires that you have
 1. [set up SSH keys](ssh-keys.md),
 2. [added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc),
    and
-3. [signed your public key](ssh-keys.md#signing-public-key) to obtain a
-   time-based SSH certificate.
-    * Step 3. is only required when connecting to Roihu and must be
-      repeated every 24 hours.
+3. Only in Roihu: [sign your public key](ssh-keys.md#signing-public-key) to obtain a
+   time-based SSH certificate, must be repeated every 24 hours.
 
 ```mermaid
 flowchart LR
@@ -69,10 +67,10 @@ terminal program called simply *Terminal*. The instructions for using an
 [SSH client on macOS and Linux](ssh-unix.md) show how to connect to a CSC
 supercomputer using the terminal program.
 
-While Windows systems do not have a similar pre-existing solution for connecting
-over SSH, there are multiple programs that can be used for this. The
-instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
-popular options.
+Windows comes with the `Command Prompt` terminal program that typically has the OpenSSH
+ssh client installed. This client works in a similar fashion to the ssh clients on Linux and MacOS. 
+In addition to this client, Windows has multiple programs that can be used for this.
+The instructions for using an [SSH client on Windows](ssh-windows.md) lists a few popular options.
 
 Once you have set up SSH keys, added your public key to MyCSC, and signed it to
 generate an SSH certificate (only required for Roihu), use a command like below
@@ -86,8 +84,8 @@ ssh <username>@<host>.csc.fi
 ```
 
 !!! note
-    It might take up to one hour for your new key to become active after adding
-    it to MyCSC.
+    It might take up to one hour for your new key to become active on Puhti or Mahti after adding
+    it to MyCSC. Roihu has no such delay since it is based on SSH certificates.
 
 Once the SSH connection to the supercomputer is open, you can interact with it
 by issuing Linux commands using the Bash shell program. An introduction to
@@ -194,22 +192,3 @@ If you try to connect to a node where you have no active jobs, you will
 receive the following error message: `Access denied by pam_slurm_adopt: you
 have no active jobs on this node`.
 
-#### Configuring SSH client
-
-You can save yourself some time by adding host-specific options for CSC
-supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
-(e.g. `~/.ssh/config`).
-
-```bash
-Host <host>  # e.g. "roihu-cpu"
-    HostName <host>.csc.fi
-    User <csc-username>
-    IdentityFile <path-to-private-key>
-    CertificateFile <path-to-certificate>  # Required for Roihu only
-```
-
-Now you can connect to the host simply by running:
-
-```bash
-ssh <host>
-```

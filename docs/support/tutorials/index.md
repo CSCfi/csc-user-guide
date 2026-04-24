@@ -30,6 +30,7 @@
 ## Performance and high-throughput workflows
 
 * [General high-throughput guidelines](../../computing/running/throughput.md)
+* [Inspecting and controlling CPU affinity](affinity.md)
 * [Optimising parallel I/O](lustre_performance.md)
 * [Dask & parallel Python](dask-python.md)
 * [HyperQueue meta-scheduler](../../apps/hyperqueue.md)

@@ -53,7 +53,7 @@ print(adonis.metadata.nx_graph)
 ## Further Reading
 
 * [Specific instructions for the fiqci partition](fiqci-partition.md)
-* [Qiskit adapter for IQM devices](https://iqm-finland.github.io/qiskit-on-iqm/)
-* [Cirq adapter for IQM devices](https://iqm-finland.github.io/cirq-on-iqm/)
+* [Qiskit adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_qiskit)
+* [Cirq adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_cirq)
 
 
