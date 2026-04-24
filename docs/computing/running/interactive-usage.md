@@ -2,7 +2,7 @@
 
 !!! warning Roihu documentation on a separate page!
     This page contains information on interactive usage on Puhti and Mahti. 
-    For information on Roihu's storage, see: 
+    For information on Roihu, see: 
     [Roihu interactive usage](./interactive-usage-roihu.md).
 
 When you log into a CSC supercomputer, you are connected to one of its login
