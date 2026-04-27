@@ -324,6 +324,7 @@ nav:
           - Submitting a job: computing/running/submitting-jobs.md
           - High throughput: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
+          - Roihu interactive usage: computing/running/interactive-usage-roihu.md
           - Performance checklist: computing/running/performance-checklist.md
       - Installing software:
           - computing/installing.md
