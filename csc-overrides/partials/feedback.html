@@ -20,12 +20,19 @@
       <div class="csc-feedback-note csc-feedback-note--{{ rating.type|lower }}">
         <div style="text-align: center;">{{ rating.note }}</div>
         {% if rating.type == "Negative" %}
-        <div class="csc-feedback-instructions admonition note">
-          <p>Please let us know how we could improve this page by
-          <a href="{{ contact_url }}">contacting us</a> or by
-          <a href="{{ issue_url }}" target="_blank">creating an issue in GitHub</a>. You can also
-          <a href="{{ page.edit_url }}" target="_blank">edit this page yourself</a> and contribute your improvements by creating a pull request.</p>
-        </div>
+          {% if config.theme.language == "en" %}
+          <div class="csc-feedback-instructions admonition note">
+            <p>Please let us know how we could improve this page by
+            <a href="{{ contact_url }}">contacting us</a> or by
+            <a href="{{ issue_url }}" target="_blank">creating an issue in GitHub</a>. You can also
+            <a href="{{ page.edit_url }}" target="_blank">edit this page yourself</a> and contribute your improvements by creating a pull request.</p>
+          </div>
+          {% elif config.theme.language == "fi" %}
+          <div class="csc-feedback-instructions admonition note">
+            <p>Kerro meille miten voisimme parantaa tätä sivua
+            <a href="{{ contact_url }}">ottamalla meihin yhteyttä</a>.</p>
+          </div>
+          {% endif %}
         {% endif %}
       </div>
       {% endfor %}
