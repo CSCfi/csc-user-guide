@@ -67,20 +67,16 @@ is recommended to start from the safe level and then move up to intermediate
 or even aggressive, while ensuring the results are correct and the program's
 performance has improved.
 
-| Optimization level | GNU               | AMD (clang) |
-| :----------------- | :---------------- | :----------- |
-| **Safe**           | -O2 -march=native | -O2 -march=native |
-| **Intermediate**   | -O3 -march=native | -O3 -march=native |
-| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops |
+| Optimization level | GNU                                          | AMD (clang)       |
+| :----------------- | :------------------------------------------- | :---------------- |
+| **Safe**           | -O2 -march=znver5                            | -O2 -march=znver5 |
+| **Intermediate**   | -O3 -march=znver5                            | -O3 -march=znver5 |
+| **Aggressive**     | -O3 -march=znver5 -ffast-math -funroll-loops |                   |
 
-!!! info
-    Because the Roihu-CPU login and compute nodes share the same CPU architecture,
-    compiling for the native architecture (`-march=native`) is optimal even if
-    the compilation is done on login nodes.
 
 Example of compiling a non-MPI C program in GNU environment:
 ```bash
-gcc -O3 -march=native example.c -o example
+gcc -O3 -march=znver5 example.c -o example
 ```
 
 A detailed list of options for the GNU and AMD compilers can be found in the _man_
@@ -102,7 +98,7 @@ These wrappers end up calling the compiler from your currently loaded compiler s
 
 Example:
 ```bash
-mpicc -O3 -march=native example.c -o example
+mpicc -O3 -march=znver5 example.c -o example
 ```
 
 List all available versions of OpenMPI (one is always loaded by default):
@@ -114,15 +110,15 @@ module spider openmpi
 ### Building OpenMP and hybrid applications
 
 An additional compiler and linker flag is needed when building an OpenMP or a hybrid
-MPI/OpenMP application:
+MPI+OpenMP application:
 
 | Compiler suite | OpenMP flag |
 | :------------- | :---------- |
 | GNU and AMD    | -fopenmp    |
 
-Example compilation of a hybrid MPI/OpenMP application:
+Example compilation of a hybrid MPI+OpenMP application:
 ```bash
-mpicc -O3 -march=native -fopenmp example.c -o example
+mpicc -O3 -march=znver5 -fopenmp example.c -o example
 ```
 
 
