@@ -25,20 +25,38 @@ and linking them to your applications.
 
 ## Compiling on Roihu-CPU
 
-C/C++ and Fortran applications can be built with
-the [GNU](https://gcc.gnu.org) or the [AMD](https://developer.amd.com/amd-aocc/)
-compiler suites. GNU compilers are loaded by default. AMD compilers can be
-loaded using the [Module system](modules.md) with the command:
+!!! info
+    When compiling for the CPU nodes on Roihu, make sure you use Roihu's CPU login nodes.
+    Binaries compiled on Roihu-GPU are not compatible with Roihu-CPU nodes.
+
+Roihu-CPU provides [GNU](https://gcc.gnu.org) and [AMD AOCC](https://developer.amd.com/amd-aocc/)
+compiler environments for building C/C++ and Fortran applications.
+These environments are available under the following [modules](modules.md):
+
+| Compiler suite               | Modules                                                  |
+| :--------------------------- | :------------------------------------------------------- |
+| GNU 15.2.0                   | `gcc/15.2.0 openmpi/5.0.10`                              |
+| AMD AOCC 5.0.0               | `aocc/5.0.0 openmpi/5.0.10`                              |
+
+The first compiler suite is loaded by default.
+You can change the environment by loading the listed modules, for example,
+
+```bash
+module load aocc/5.0.0 openmpi/5.0.10
 ```
-module load aocc
+
+List all available versions of the compiler suites:
+```bash
+module spider gcc
+module spider aocc
 ```
 
 The compiler executables are as follows:
 
-| Compiler suite | C  | C++ | Fortran |
-| :------------- | :- | :-- | :------ |
-| GNU            | gcc | g++ | gfortran |
-| AMD            | clang | clang++ | flang |
+| Compiler suite | C     | C++     | Fortran  |
+| :------------- | :---- | :------ | :------- |
+| GNU            | gcc   | g++     | gfortran |
+| AMD            | clang | clang++ | flang    |
 
 For applications that depend on MPI, it is recommended to instead use the compiler
 wrappers described in the [MPI section](#building-mpi-applications) below.
@@ -67,25 +85,15 @@ gcc -O3 -march=native example.c -o example
 
 A detailed list of options for the GNU and AMD compilers can be found in the _man_
 pages (`man gcc/gfortran`)  when the corresponding programming
-environment is loaded, or in the compiler manuals (see the links above).
+environment is loaded, or in the compiler manuals:
+- [GNU](https://gcc.gnu.org)
+- [AMD AOCC](https://developer.amd.com/amd-aocc/)
 
 We recommend testing and profiling your application with both compiler suites
 to see which compiler works the best for your use case.
 
-List all available versions of the compiler suites:
-```
-module spider gcc
-module spider aocc
-```
-
 
 ### Building MPI applications
-
-!!! warning
-    The AMD compiler environment does not yet have a supporting MPI module.
-    We expect to set this up shortly; until then, please use the GNU environment
-    for building MPI applications.
-
 
 The MPI environment in Roihu is OpenMPI. You may use one of the MPI compiler wrappers
 `mpicc` (C), `mpicxx` (C++), or `mpif90` (Fortran) when compiling MPI applications.
