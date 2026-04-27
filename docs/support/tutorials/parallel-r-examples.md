@@ -5,7 +5,7 @@ The `r-env` module can be used for parallel computing in several ways. These inc
 
 This page provides examples on how to run various kinds of parallel R batch jobs. To get started with parallel R and for further tips, please see the [introduction to parallel R jobs](../tutorials/parallel-r.md).  
 
-You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) for examples of parallel computing using the `raster` package.
+You may also wish to check the relevant R package manuals and [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) for further examples of parallel computing using the `raster` package.
 
 
 !!! info "Considerations for reserving multiple cores"
@@ -13,7 +13,7 @@ You may also wish to check the relevant R package manuals and [this page](https:
     
     - consult the R package documentation  
     - use the [seff command](../../support/faq/how-much-memory-my-job-needs.md#seff-slurm-efficiency) to check CPU use efficiency  
-    - carry out test runs with different numbers of cores   
+    - carry out test runs with different numbers of cores and compare the execution times   
     - check the number of processes while the code is running with tools such as `htop`   
     - contact [CSC Service Desk](../contact.md) for advice   
 
@@ -23,7 +23,7 @@ You may also wish to check the relevant R package manuals and [this page](https:
 
 ## Array jobs
 
-Array jobs can be used to handle [*embarrassingly parallel*](../../computing/running/array-jobs.md) tasks. The example script below would submit a job involving ten independent subtasks on the `small` partition, with each requiring less than 45 minutes of computing time and less than 2 GB of memory.
+Array jobs can be used to handle [*embarrassingly parallel*](../../computing/running/array-jobs.md) tasks and to submit several concurrently running Slurm jobs. The example script below would submit a job involving ten independent subtasks on the `small` partition, with each requiring less than 45 minutes of computing time and less than 2 GB of memory.
 
 === "Puhti"
     ```bash
@@ -48,7 +48,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -77,7 +77,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -92,10 +92,15 @@ arrays <- commandArgs(trailingOnly = TRUE)
 arrays <- Sys.getenv("SLURM_ARRAY_TASK_ID")
 ```
 
+The array number `$SLURM_ARRAY_TASK_ID` could be used to specify for example which data set or parameter set should be analysed in each array.  
+
+Array jobs are best suited for cases where each subtask is longer
+than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [large scale array jobs with GNU parallel](#large-scale-array-jobs-with-gnu-parallel)
+
 
 ## Multi-core jobs
 
-The following batch job file shows how to submit a job employing multiple cores on a single node. The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
+The following batch job file shows how to submit a job employing multiple cores on a single [node](https://a3s.fi/CSC_training/02_environment.html#/notes-on-vocabulary). The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
 
 === "Puhti"
     ```bash
@@ -119,7 +124,7 @@ The following batch job file shows how to submit a job employing multiple cores 
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -146,7 +151,7 @@ The following batch job file shows how to submit a job employing multiple cores 
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -155,12 +160,12 @@ The following batch job file shows how to submit a job employing multiple cores 
 
 ### Multi-core jobs using `future`
 
-The `future` [family of packages](https://www.futureverse.org/packages-overview.html) offers versatile ways to parallelize R jobs with minimal setup. The `future` package provides an API for R jobs using futures (see the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details).  Whether futures are resolved sequentially or in parallel is specified using the function `plan()`.
+The [`future` family of packages](https://www.futureverse.org/packages-overview.html) offers versatile ways to parallelise R jobs with minimal setup. The `future` package provides a framework for R jobs using futures (see the [`future` CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details).  Whether futures are resolved sequentially or in parallel is specified using the function `plan()`.
 
 
-For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Note that `plan(multicore)` does not work in RStudio. Using `plan(cluster)` is suitable for work using multiple nodes ([see below](#multi-node-r-jobs-with-mpi)).
+For analyses using multiple cores on a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Note that `plan(multicore)` does not work in RStudio. Using `plan(cluster)` is suitable for work using [multiple nodes (see below)](#multi-node-r-jobs-with-mpi).
 
-To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`), a single task (`--ntasks=1`), and the number of cores (`--cpus-per-task=x`). By default, the number of workers is the number of cores given by `availableCores()`. For guidelines on designing batch job files, see the multi-core batch job example above.
+To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`), a single task (`--ntasks=1`), and the number of cores (`--cpus-per-task=x`). By default, the number of workers is the number of cores given by `parallelly::availableCores()`. For guidelines on designing batch job files, see the [multi-core batch job example above](#multi-core-jobs).
 
 The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. 
 
@@ -187,11 +192,14 @@ toc()
 # multicore: 2.212 sec
 ```
 
-For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in multi-node R jobs with MPI below) with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
+For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in [multi-node R jobs with MPI below](#multi-node-jobs-with-future)) with raster data, see [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
+
+One advantage of `future` is that global variables are automatically exported and available to the parallel processes. When using the packages `parallel` or `snow` to set up parallel processing, one may have to re-load
+packages in the script section that is run in parallel and use `clusterExport` to make objects in the global environment available to the parallel processes.
 
 ## Improving performance using threading
 
-`r-env` has been compiled using the Intel® Math Kernel Library (MKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2025-0/improving-performance-with-threading.html). 
+`r-env` has been compiled using the Intel® oneAPI Math Kernel Library (oneMKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2025-0/improving-performance-with-threading.html). 
 
 By default, `r-env` is single-threaded. Certain R packages, including [`data.table`](https://r-datatable.com/), [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) and [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf), offer direct support for multithreading. Jobs using other types of R packages could also benefit from multithreading, depending on the analysis. For example, multithreading can help speed up linear algebra routines. To find out whether multithreading benefits a specific analysis, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
 
@@ -221,7 +229,7 @@ An example batch job script can be found below. Here we submit a job using eight
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Match thread and core numbers
@@ -256,7 +264,7 @@ An example batch job script can be found below. Here we submit a job using eight
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Match thread and core numbers
@@ -279,23 +287,110 @@ In the web interface RStudio, a multi-core R session can be set to use multiple 
 
 ## Multi-node R jobs with MPI
 
-If a parallel R job can be run using the cores of a single node, it is always recommended to do so. When more cores are needed, the `r-env` module can be used to run parallel R jobs across multiple nodes. 
-Parallel tasks running on multiple nodes (i.e., separate computers) don't share memory and can't communicate. On CSC's supercomputers, communication across nodes is handled by MPI (Message Passing Interface). 
+If a parallel R job can be run using the cores of a single [node](https://a3s.fi/CSC_training/02_environment.html#/notes-on-vocabulary), it is always recommended to do so. When more cores are needed, the `r-env` module can be used to run parallel R jobs across multiple nodes. 
+Parallel tasks running on multiple nodes (i.e., separate computers) don't share memory and require a method to communicate. On CSC's supercomputers, communication across nodes is handled by MPI (Message Passing Interface). 
 Multi-node R jobs must accordingly use **R packages that support multi-node communication via MPI** , such as`future`, `snow`, `doMPI` (used with `foreach`), and `pbdMPI`.
 
-The standard way to launch MPI R jobs on CSC's supercomputers is to use the `snow` package and the command `RMPISNOW`, but below are also examples of MPI jobs where other approaches are used.
+The standard way to launch MPI R jobs on CSC's supercomputers is to use the command `RMPISNOW` from the package `snow` to launch R, instead of `Rscript`. Note though that below are also examples of MPI jobs where other approaches are used.
 Most MPI jobs, including those launched with `snow`, rely on a communication model where a master process is used to control other processes (workers). Because of this, the batch job file 
 must specify one more task than the planned number of workers, as the master needs its own task.
+
+While otherwise the batch job file looks similar to that used for a multi-core job, we replace `--cpus-per-task=x` 
+with `--ntasks-per-node=x` and use `--nodes` to set the number of nodes. Number of workers generally equals `ntasks-per-node x nodes - 1`. In addition, we could modify the `srun` command at the end of the batch job file:
+
+=== "Puhti"
+    ```bash
+    srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
+    ```
+
+=== "Mahti"
+    ```bash
+    srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
+    ```
+
+The `--slave` argument is optional and will prevent different processes from printing out a welcome message, among other things.
 
 For more information, see the [general documentation on MPI jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). 
 
 !!! note ""
     For jobs employing the `Rmpi` package, please use `snow` (which is built on top of `Rmpi`). Jobs using `Rmpi` alone are unavailable due to compatibility issues.
 
-### Jobs using `snow`
+### Multi-node jobs with `future`
 
-Whereas most parallel R jobs employing the `r-env` module can be submitted using `srun apptainer_wrapper exec Rscript`, those involving the package `snow` need to be executed using
-a separate command `RMPISNOW`. Jobs using `snow` must specify one more task than the planned number of `snow` workers, as the master needs its own task. For example, for a job requiring as many workers as possible on two nodes, we could submit a job as follows:
+To run multi-node analyses with `future`, we choose `plan(cluster)` and launch R using the command `RMPISNOW` from `snow`, instead of `Rscript`. We should specify enough tasks for both the master and worker processes.
+For example, for a job requiring as many workers as possible on two nodes, we could submit a `future` job as follows:
+
+=== "Puhti"
+    ```bash
+    #!/bin/bash -l
+    #SBATCH --job-name=r_future
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=large
+    #SBATCH --time=01:00:00
+    #SBATCH --ntasks-per-node=40
+    #SBATCH --nodes=2 # 2 x 40 - 1 = 79 workers
+    #SBATCH --mem-per-cpu=1000
+    
+    # Load r-env
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify a temporary directory path (replace <project> with your project)
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    
+    # Run the R script
+    srun apptainer_wrapper exec RMPISNOW --no-save --slave -f myscript.R
+    ```
+
+=== "Mahti"
+    ```bash
+    #!/bin/bash -l
+    #SBATCH --job-name=r_future
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=medium
+    #SBATCH --time=01:00:00
+    #SBATCH --ntasks-per-node=128 # 2 x 128 - 1 = 255 workers
+    #SBATCH --nodes=2
+    
+    # Load r-env
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify a temporary directory path (replace <project> with your project)
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    
+    # Run the R script
+    srun apptainer_wrapper exec RMPISNOW --no-save --slave -f myscript.R
+    ```
+
+To use `future` with `snow`, the following lines would also need to be included in the R script:
+
+```r
+library(future)
+
+cl <- getMPIcluster()
+plan(cluster, workers = cl)
+
+# Analysis here
+
+stopCluster(cl)
+```
+
+### Multi-node jobs using `snow`
+
+To launch a multi-node R job directly using `snow` that requires as many workers as possible on two nodes, we could submit it as follows. R is launched with `RMPISNOW`, and we must specify one more task than the planned number of `snow` workers, as the master needs its own task.
 
 === "Puhti"
     ```bash
@@ -318,7 +413,7 @@ a separate command `RMPISNOW`. Jobs using `snow` must specify one more task than
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -345,7 +440,7 @@ a separate command `RMPISNOW`. Jobs using `snow` must specify one more task than
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -382,36 +477,13 @@ Only the master process runs the R script. The R script must contain the call `g
     stopCluster(cl)
     ```
 
-### Multi-node jobs with `future`
-
-For multi-node analyses using `plan(cluster)` in `future`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW` and we should specify enough tasks for both the master and worker processes (see [Jobs using `snow`](#jobs-using-snow)). To use `future` with `snow`, the following lines would also need to be included in the R script:
-
-```r
-library(future)
-
-cl <- getMPIcluster()
-plan(cluster, workers = cl)
-
-# Analysis here
-
-stopCluster(cl)
-```
-
 ### Jobs using `doMPI` (with `foreach`)
 
 The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops
 on multiple cores using many different adapters, such as `doParallel` for the built-in R package `parallel`and `doFuture` for `future`. Multi-node and MPI jobs with `foreach` can 
-be run with the parallel backend of the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-core job, we replace `--cpus-per-task=x` 
-with `--ntasks-per-node=x` and use `--nodes` to set the number of nodes. Number of workers equals `ntasks-per-node x nodes - 1`. For the example below with 7 workers, we could have 4 tasks per 
-node on 2 nodes. In addition, we could modify the `srun` command at the end of the batch job file:
+be run with the parallel backend of the `doMPI` package. 
 
-```bash
-srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
-```
-
-The `--slave` argument is optional and will prevent different processes from printing out a welcome message etc.
-
-Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal to the number of reserved tasks that all begin to execute the given R script. It is important to 
+Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal to the number of reserved tasks that all begin to execute the given R script (here eight). It is important to 
 include the `startMPIcluster()` call near the beginning of the R script as anything before it will be executed by all available processes (while only the master process continues 
 after it). Upon completion, the cluster is closed using `closeCluster()`. The `mpi.quit()` function can then be used to terminate the MPI execution environment and to quit R:
 
@@ -453,7 +525,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
@@ -480,14 +552,14 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Run the R script
     srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
     ```
 
-As an example, this batch job file could be used to execute the following "hello world" script (original version available via the `pbdMPI` [GitHub repository](https://github.com/snoweye/pbdMPI)). The `init()` function initializes the MPI communicators while `finalize()` is used to shut them down and to exit R.
+As an example, this batch job file could be used to execute the following "hello world" script (original version available via the [Github repository of the `pbdMPI` package](https://github.com/snoweye/pbdMPI)). The `init()` function initializes the MPI communicators while `finalize()` is used to shut them down and to exit R.
 
 ```r
 library(pbdMPI, quietly = TRUE)
@@ -536,7 +608,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
      sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Match thread and core numbers
@@ -570,7 +642,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
      sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Match thread and core numbers
@@ -627,7 +699,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Split runs into arrays and run the R script
@@ -663,7 +735,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
         sed -i '/TMPDIR/d' ~/.Renviron
     fi
     
-    # Specify a temporary directory path
+    # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
     # Split runs into arrays and run the R script

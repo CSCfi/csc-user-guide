@@ -16,13 +16,15 @@ catalog:
 
 `r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../computing/containers/overview.md#running-containers).
 
--   R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
+-   R is an open-source language and environment for data analytics, statistical computing, and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
--   RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
+-   RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://posit.co/products/open-source/rstudio).
 
 !!! info "News"
+    **29.4.2026** `r-env` documentation has been updated and re-organised. Template scripts for parallel R batch jobs can now be found 
+    on a separate tutorial page [Parallel R batch job examples](../support/tutorials/parallel-r-examples.md).  
     **17.2.2026** R version 4.5.2 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
-
+    
 ??? info "Older news (click to show)"  
     **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
     
@@ -34,7 +36,7 @@ catalog:
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-Current modules and versions supported on Puhti and Mahti:
+Current modules and versions supported on CSC's supercomputers:
 
 === "Puhti"
     | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
@@ -58,7 +60,7 @@ Current modules and versions supported on Puhti and Mahti:
 Other software and libraries:
 
 - Open MPI (with Mellanox OFED™ software) 4.1.7 (r-env/451, r-env/452) , 4.1.2 (from r-env/421 to r-env 442)
-- TensorFlow 2.20.0 (r-env(452), 2.19.0 (r-env/451), 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
+- TensorFlow 2.20.0 (r-env/452), 2.19.0 (r-env/451), 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
 - cget 0.2.0
 
 
@@ -97,6 +99,9 @@ There are several ways to use R with the `r-env` module:
 
   -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
+!!! note ""
+    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Puhti](../computing/running/batch-job-partitions.md#puhti-interactive-partition) and [available resources on Mahti](../computing/running/batch-job-partitions.md##mahti-cpu-partitions-with-core-based-allocation).
+
 **Non-interactive use**
 
   -   Non-interactive [batch jobs](../computing/running/getting-started.md) without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general)
@@ -116,7 +121,7 @@ The`r-env` module can be used to remotely launch RStudio Server on your web brow
 It is also possible to launch RStudio Server via SSH tunnelling. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
 !!! note ""
-    RStudio is meant for **interactive work that consumes a modest amount of computational resources**. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as non-interactive batch jobs.
+    **RStudio is meant for interactive work that consumes a modest amount of computational resources**. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as [non-interactive batch jobs](#non-interactive-batch-jobs).
 
 **2. R console in an interactive shell session**
 
@@ -170,7 +175,7 @@ of the [CSC Computing Environment course on batch jobs](https://csc-training.git
 #### Basic R batch job script
 
 Below is an example for submitting a serial R batch job that uses one core. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. 
-Actual R batch jobs should in most cases be run in the `small` partition.
+Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions [on Puhti](../computing/running/batch-job-partitions.md#puhti-partitions) and [on Mahti](../computing/running/batch-job-partitions.md#mahti-partitions).
 
 !!! info "More than one CPU core?"
     By default, R uses one CPU core. When you are working with an R script or package that can take advantage of multiple cores and parallel processing, take a look 
@@ -253,15 +258,15 @@ sbatch batch_job_file.sh
 
 ### Parallel batch jobs
 
-The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based and multi-node jobs. 
+The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based and multi-[node](https://a3s.fi/CSC_training/02_environment.html#/notes-on-vocabulary) jobs. 
 The module comes with several packages that support multi-node communication via MPI:`future`, `snow`, `doMPI` (used with `foreach`), and `pbdMPI`.  
 
 **Please see separate documentation for:**
 
-- [examples of parallel R batch job scripts](../support/tutorials/parallel-r-examples.md) 
 - [an introduction to parallel R jobs](../support/tutorials/parallel-r.md)
+- [examples of parallel R batch job scripts](../support/tutorials/parallel-r-examples.md) 
 
-For advice on parallel R jobs and how to run them efficiently on CSC's supercomputers, please contact [CSC Service Desk](../support/contact.md).
+For further advice on parallel R jobs and how to run them efficiently on CSC's supercomputers, please contact [CSC Service Desk](../support/contact.md).
 
 ### R package installations
 
@@ -445,28 +450,41 @@ Note that [within-chain parallelisation with `brms`](https://cran.r-project.org/
 
 ### Profiling tools in R
 
-The most common profiling tools in R are [`utils::Rprof()`](https://cran.r-project.org/doc/manuals/r-release/packages/utils/refman/utils.html#Rprof) and [`profvis`](https://cran.r-project.org/web/packages/profvis/index.html) (see [here](https://support.posit.co/hc/en-us/articles/218221837-Profiling-R-code-with-the-RStudio-IDE) and [here](https://adv-r.hadley.nz/perf-measure.html) for more information).
+The most common profiling tools in R are [`utils::Rprof()`](https://cran.r-project.org/doc/manuals/r-release/packages/utils/refman/utils.html#Rprof) and [`profvis`](https://cran.r-project.org/web/packages/profvis/index.html). 
 When trying to speed up an R job, you can use these tools to identify the slowest parts of your script and then modify those. For example, functions from different packages might use different amounts of time for a similar computational task.
+For more information, start by reading about [profiling with profvis in RStudio](https://support.posit.co/hc/en-us/articles/218221837-Profiling-R-code-with-the-RStudio-IDE) and [profiling in R in general](https://adv-r.hadley.nz/perf-measure.html).
 
 In practice, usually the best way to speed up an R job on a supercomputer is to modify it to use multiple cores and run in parallel. See [examples of parallel R batch job scripts](../support/tutorials/parallel-r-examples.md) and [an introduction to parallel R jobs](../support/tutorials/parallel-r.md), and contact [CSC Service Desk](../support/contact.md) for advice.
 
 
 ### Working with Allas
 
-The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data.
+The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See this link for [a practical example involving raster data](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R).
 
-Accessing Allas via the `r-env` module can be done as follows. First configure Allas by running these commands before launching an interactive shell session:
+Accessing Allas via the `r-env` module can be done as follows. First configure Allas by running these commands in a terminal:
 
 ``` bash
 module load allas
 allas-conf --mode s3cmd
 ```
 
-After [starting an interactive session and launching R console](#interactive-use-on-a-compute-node), you can now access your bucket list as follows. Note that, for this to work, you will need to have the `allas` module loaded and the argument `region=''` added to the `bucketlist()` function:
+You can now access your bucket list as follows. Note that, for this to work, you will need to have the argument `region=''` added to the `bucketlist()` function:
 
 ``` r
 library(aws.s3)
 bucketlist(region='')
+```
+
+In some cases, for the `aws.s3` commands to work, Allas has to be further defined as an endpoint in R. If `aws.s3` commands fail, try running this command in R:
+
+```r
+Sys.setenv(AWS_S3_ENDPOINT="a3s.fi")
+```
+
+Alternatively, to do the same in all future R sessions, you can add this line to the `.Renviron` file in your home directory:
+
+```bash
+AWS_S3_ENDPOINT="a3s.fi"
 ```
 
 ## Citation {#citation}
