@@ -22,7 +22,7 @@ details can be found on the [Lmod homepage].
 
 On Roihu the GPU and CPU paritions exist in separare environments due to the
 different base architecture of the CPU and GPU nodes, for more information see
-[Getting started with Roihu](/docs/support/tutorials/roihu.md).
+[Getting started with Roihu](../support/tutorials/roihu.md).
 
 Consequently, software must be built separately for the GPU and CPU node
 architectures, therefore there are independent Lmod environments for the GPU
