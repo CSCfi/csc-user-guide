@@ -248,7 +248,7 @@ launched directly as below:
 
 ```bash
 
-srun --partition interactive --ntasks 1 --mem 6G --account <project> --pty bash -i
+     `srun --partition interactive --ntasks 1 --cpus-per-task 1 --mem-per-cpu 2G --account <project> --pty bash -i`
 ```
 
 ## More information
