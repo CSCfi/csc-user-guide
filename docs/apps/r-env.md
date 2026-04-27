@@ -100,7 +100,7 @@ There are several ways to use R with the `r-env` module:
   -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
 !!! note ""
-    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Puhti](../computing/running/batch-job-partitions.md#puhti-interactive-partition) and [available resources on Mahti](../computing/running/batch-job-partitions.md##mahti-cpu-partitions-with-core-based-allocation).
+    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Puhti](../computing/running/batch-job-partitions.md#puhti-interactive-partition) and [available resources on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation).
 
 **Non-interactive use**
 
