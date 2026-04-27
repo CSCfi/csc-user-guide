@@ -1,21 +1,21 @@
 # High-performance libraries
 
 Various high-performance libraries for dense linear algebra, fast
-fourier transforms *etc.* are available via the module system. Many
-libraries are provided both as single threaded and multithreaded
+Fourier transforms, *etc.* are available via the module system. Many
+libraries are provided both as single-threaded and multithreaded
 versions, multithreaded modules are designated with `omp` in the
 module version. For pure MPI applications and applications calling
-libraries from multiple threads it is recommended to use a single
+libraries from multiple threads it is recommended to use a single-
 threaded library.
 
-Availibility of libraries may depend on the loaded compiler suite and
+Availability of libraries may depend on the loaded compiler suite and
 MPI environment, use `module avail` for finding out available
-libraries. See the documentation of library for
-instructions on how to build against that particular library. Note
+libraries. See the documentation of the library for
+instructions on how to build against it. Note
 that most modules set `LIBRARY_PATH` and `LD_LIBRARY_PATH` environment
-variables so that `-llibrary` linker flag is often enough. Most
+variables so that the `-llibrary` linker flag is often enough. Most
 modules set also `<library>_INSTALL_ROOT` environment variables that
-can be utilized in custom build scripts. As an example, `fftw`
+can be utilized in custom build scripts. As an example, the `fftw`
 library can be used as follows:
 
 ```bash
@@ -23,7 +23,7 @@ module load fftw
 <compiler_command> -o myprog myprog.o -lfftw3
 ```
 
-and the directory containing `include`, `lib`, *etc.* are found under
+and the directory containing `include`, `lib`, *etc.* is found under the
 `FFTW_INSTALL_ROOT` environment variable.
 
 
@@ -33,7 +33,7 @@ Selected libraries available on Roihu-CPU:
 
 - Dense linear algebra: `openblas`, `amdblis`
 - Dense distributed linear algebra: `netlib-scalapack`
-- Fast fourier transforms: `fftw`
+- Fast Fourier transforms: `fftw`
 
 ## Libraries on Roihu-GPU
 
