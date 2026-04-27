@@ -26,7 +26,7 @@ different base architecture of the CPU and GPU nodes, for more information see
 
 Consequently, software must be built separately for the GPU and CPU node
 architectures, therefore there are different, independent software modules
-for the GPU and CPU parititions, accessible from the login nodes;
+for the GPU and CPU parititions, accessible from the corresponding login nodes;
 `roihu-gpu.csc.fi` and `roihu-cpu.csc.fi` respectively.
 
 Both GPU and CPU environments have a collection of modules loaded by default, that
