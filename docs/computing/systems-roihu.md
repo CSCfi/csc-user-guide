@@ -108,8 +108,19 @@ billing model.
 
 Each Roihu CPU and GPU node will have a small 960 GB local disk suitable for
 storing temporary files during jobs. High-performance local storage will be
-available on the high-memory and visualization nodes, each of which will
-include 2 x 7.68 TB fast NVMe disks.
+available on the high-memory (XL) and visualization (VIZ) nodes, where each
+node will include a total of 13 TiB of fast NVMe disks.
+
+The available storage quota that a single user can access in their jobs depends
+on the system [partition](running/batch-job-partitions.md) they use:
+
+| Allocation type    | Quota per user |
+|:-------------------|---------------:|
+| R (shared nodes)   | 20 GiB         |
+| N (full nodes)     | 600 GiB        |
+| G (GPU nodes)      | 150 GiB        |
+| Hugemem (XL) nodes | 1,6 TiB        |
+| VIZ nodes          | 6,5 TiB        |
 
 As a new feature, users will also be able to request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity will be
@@ -133,16 +144,17 @@ recompiled on Roihu. More information will be included in the migration guide.
 The programming environment of Roihu will otherwise be similar to Mahti,
 including e.g.
 
-* GNU compiler stack
-* AOCC compiler stack
+* The GNU compiler stack
+* The AOCC compiler stack
 * CUDA and Nvidia HPC Software Development Kit (SDK)
-* OpenMPI as main MPI library
+* OpenMPI as the main MPI library
 
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
 
 ## More information
 
+* [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
   (updated 2026-02-25)

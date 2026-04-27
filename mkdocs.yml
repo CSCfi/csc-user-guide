@@ -20,9 +20,9 @@ extra:
       </div>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
-    image: roihu.png
-    title: Roihu supercomputer – coming in spring 2026!
-    link: /computing/systems-roihu/
+    image: roihu-new.png
+    title: Roihu supercomputer – get started here!
+    link: support/tutorials/roihu/
     description: |-
       Puhti and Mahti will be decommissioned in August 2026 and replaced by
       Roihu, CSC's next-generation supercomputer offering enhanced performance
@@ -330,11 +330,14 @@ nav:
           - SSH client on Windows: computing/connecting/ssh-windows.md
       - Supercomputer storage:
           - computing/disk.md
+          - Roihu disk areas: computing/roihu-disk.md
           - Lustre filesystem: computing/lustre.md
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
           - Available batch job partitions: computing/running/batch-job-partitions.md
+          - Create Roihu batch jobs: computing/running/creating-job-scripts-roihu.md
+          - Roihu example scripts: computing/running/example-job-scripts-roihu.md
           - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
           - Puhti example scripts: computing/running/example-job-scripts-puhti.md
           - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
@@ -345,6 +348,7 @@ nav:
           - Performance checklist: computing/running/performance-checklist.md
       - Installing software:
           - computing/installing.md
+          - Compiling on Roihu: computing/compiling-roihu.md
           - Compiling on Puhti: computing/compiling-puhti.md
           - Compiling on Mahti: computing/compiling-mahti.md
           - Compiling on LUMI: computing/compiling-lumi.md

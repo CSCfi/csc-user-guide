@@ -13,6 +13,11 @@ running [web interface applications](../webinterface/apps.md) and
 [batch jobs](getting-started.md), but the most convenient way to use it is via
 the [`sinteractive` command](#the-sinteractive-command).
 
+!!! warning "`sinteractive` not yet available on Roihu!"
+     At present the `sinteractive` tool is not yet installed on Roihu,
+     as such interactive jobs must be launched directly:
+     `srun --partition interactive --ntasks 1 --cpus-per-task 1 --mem-per-cpu 2G --account <project> --pty bash -i`
+
 ## The `sinteractive` command
 
 `sinteractive` starts a new shell program on a compute node with the resources
@@ -81,7 +86,7 @@ On Mahti, each user can have up to 8 active sessions on the `interactive`
 partition. See the
 [Mahti `interactive` partition details](batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
 for information on the available resources. It is also possible to request a
-a [GPU slice](./batch-job-partitions.md#gpu-slices) for interactive work by
+a [GPU slice](./batch-job-partitions.md#mahti-gpu-slices) for interactive work by
 using the `-g` flag, which submits the job to the `gpusmall` partition. Note
 that using a GPU slice restricts the amount of CPU cores and memory that is
 available for your job.
