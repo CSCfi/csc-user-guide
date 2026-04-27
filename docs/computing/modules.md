@@ -18,6 +18,48 @@ details can be found on the [Lmod homepage].
 
 [TOC]
 
+## Roihu GPU and CPU specific modules
+
+On Roihu the GPU and CPU paritions exist in separare environments due to the
+different base architecture of the CPU and GPU nodes, for more information see
+[Getting started with Roihu](/docs/support/tutorials/roihu.md).
+
+Consequently, software must be built separately for the GPU and CPU node
+architectures, therefore there are independent Lmod environments for the GPU
+and CPU parititions, accessible from the respective login nodes;
+`roihu-gpu.csc.fi` and `roihu-cpu.csc.fi` respectively.
+
+Both GPU and CPU environments have a collection of modules loaded by default, that
+differ slightly.
+
+### GPU default modules
+
+The default modules in the GPU environment are as follows:
+
+```bash
+module list
+
+Currently Loaded Modules:
+  1) csc-tools/default (S)   2) gcc/14.3.0   3) cuda/12.9.1   4) openmpi/5.0.10   5) openblas/0.3.30   6) StdEnv
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+```
+
+### CPU default modules
+
+The default modules in the CPU environment are as follows:
+
+```bash
+module list
+
+Currently Loaded Modules:
+  1) csc-tools/default (S)   2) gcc/15.2.0   3) ucx/1.20.0   4) openmpi/5.0.10   5) openblas/0.3.30   6) StdEnv
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+```
+
 ## Basic usage
 
 The syntax of the module command:
@@ -33,17 +75,17 @@ module list
 ```
 
 The command `module help` provides general information about a module. For
-example, to get more information about the module `intel-oneapi-compilers`, use:
+example, to get more information about the module `openblas`, use:
 
 ```text
-module help intel-oneapi-compilers
+module help openblas
 ```
 
 Load new modules to your environment with the command `load`. For
-example, to load the `intel-oneapi-mpi` module, use:
+example, to load the `openblas` module, use:
 
 ```text
-module load intel-oneapi-mpi
+module load openblas
 ```
 
 Note that you can only load modules that are compatible with the other
@@ -55,7 +97,7 @@ Modules that are not needed or conflict with other modules
 can be unloaded using `unload`:
 
 ```text
-module unload intel-oneapi-mkl
+module unload openblas
 ```
 
 ### The most commonly used module commands {#module-commands-table}
@@ -99,14 +141,14 @@ module spider
 List modules by name:
 
 ```text
-module spider int
+module spider mpi
 ```
 
-The above command will list all modules with the string _int_ in their name. A more detailed
+The above command will list all modules with the string _mpi_ in their name. A more detailed
 description of a module can be printed using the full module name with a version number:
 
 ```text
-module spider intel-oneapi-mkl/2022.1.0
+module spider openmpi/5.0.10
 ```
 
 ### Solving module dependencies
@@ -115,27 +157,14 @@ Some modules depend on other modules. If a required module is missing, the modul
 prints an error message:
 
 ```text
-$ module load parallel-netcdf
+$ module load boost/1.88.0
 
-Lmod has detected the following error:  These module(s) exist but
-cannot be loaded as requested: "parallel-netcdf"
-Try: "module spider parallel-netcdf" to see how to load the module(s).
-
-$ module spider parallel-netcdf
-
-----------------------------------------------------------------------------
-  parallel-netcdf:
-----------------------------------------------------------------------------
-     Versions:
-        parallel-netcdf/1.12.2
-
-----------------------------------------------------------------------------
-  For detailed information about a specific "parallel-netcdf" module
-  (including how to load the modules) use the module's full name.
-  For example:
-
-$ module spider parallel-netcdf/1.12.2
-----------------------------------------------------------------------------
+Lmod has detected the following error:  These module(s) or extension(s) exist but cannot be loaded as requested:
+"boost/1.88.0"
+   Try: "module spider boost/1.88.0" to see how to load the module(s).
+   Or load any one of these options:
+      module load aocc/5.0.0 boost/1.88.0
+      module load gcc/15.2.0 boost/1.88.0
 ```
 
 In such cases, the `module avail` command excludes the module from the list and the
@@ -143,17 +172,23 @@ In such cases, the `module avail` command excludes the module from the list and 
 is to use the `module spider` command with the version information. For example:
 
 ```text
-$ module spider parallel-netcdf/1.12.2
-------------------------------------------------------------------
- parallel-netcdf: parallel-netcdf/1.12.2
-------------------------------------------------------------------
- You will need to load all module(s) on any one of the lines below before
- the "parallel-netcdf/1.12.2" module is available to load.
+$ module spider boost/1.88.0
 
-  gcc/11.3.0  openmpi/4.1.4
-  gcc/9.4.0  openmpi/4.1.4
-  intel-oneapi-compilers-classic/2021.6.0  intel-oneapi-mpi/2021.6.0
-...
+-----------------------------------------------------------------------------------------------------------------------------------
+  boost: boost/1.88.0
+-----------------------------------------------------------------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the "boost/1.88.0" module is available to load.
+
+      aocc/5.0.0
+      gcc/15.2.0
+
+    Help:
+      Boost provides free peer-reviewed portable C++ source libraries,
+      emphasizing libraries that work well with the C++ Standard Library.
+      Boost libraries are intended to be widely useful, and usable across a
+      broad spectrum of applications. The Boost license encourages both
+      commercial and non-commercial use.
 ```
 
 In this case, you will have to load one of the listed environments before
@@ -177,22 +212,20 @@ correct versions of the loaded modules:
 ```text
 $ module list
 Currently Loaded Modules:
- 1) gcc/11.3.0   2) openmpi/4.1.4   3) parallel-netcdf/1.12.2
+  1) gcc/15.2.0   2) ucx/1.20.0   3) openmpi/5.0.10   4) parallel-netcdf/1.14.1
 
-$ module swap gcc intel-oneapi-compilers-classic
+$ module swap gcc aocc
 
 Inactive Modules:
- 1) parallel-netcdf/1.12.2
-
-Due to MODULEPATH changes the following modules have been reloaded:
- 1) openmpi/4.1.4
+  1) openmpi     2) parallel-netcdf     3) ucx/1.20.0
 
 $ module list
+
 Currently Loaded Modules:
- 1) intel-oneapi-compilers-classic/2021.6.0   2) openmpi/4.1.4
+  1) aocc/5.1.0
 
 Inactive Modules:
- 1) parallel-netcdf/1.12.2
+  1) ucx/1.20.0   2) openmpi   3) parallel-netcdf
 ```
 
 If the correct version is not found, the module system _deactivates_ these
