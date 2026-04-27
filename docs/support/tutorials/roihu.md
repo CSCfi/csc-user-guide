@@ -118,6 +118,12 @@ You can build containers on top of Roihu base containers which have the same sof
 Base container are built on top of Rocky Linux 9.
 
 === "Roihu CPU base container (~4 GB)"
+    Base containers available:
+
+    - `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03`
+
+    Build definition file:
+
     ```sh title="container.def"
     Bootstrap: docker
     From: satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03
@@ -146,9 +152,17 @@ Base container are built on top of Rocky Linux 9.
     ```
 
 === "Roihu GPU base container (~16 GB)"
+    Base containers available:
+
+    - `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03`
+    - `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03`
+    - `satama.csc.fi/r_installation_spack/core-gpu-gcc-13.4.0-cuda-12.6.3:v2026_03`
+
+    Build definition file:
+
     ```sh title="container.def"
     Bootstrap: docker
-    From: satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1
+    From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03
 
     %post
         # Activate module environment and load default modules.
