@@ -5,7 +5,7 @@ manager.  This document describes how regular users can use Spack
 to install additional software, libraries and applications, on top of
 the already installed software.
 
-Throughout this document, we use a package `eccodes` as an example,
+Throughout this document, we use the package `eccodes` as an example,
 and assume that the commands are run in user's custom software install
 root, usually somewhere under `/projappl/<project>/$USER`.
 
@@ -20,12 +20,12 @@ For example, term "environment" in this document specifically refers to
 
 Spack installation is a viable option for "traditional" HPC software,
 parallel applications and the libraries they depend on, especially
-when Spack package recipies already exist. Using Spack is an
+when Spack package recipes already exist. Using Spack is an
 alternative to traditional "manual" installation, loading modules,
-running configure or cmake, and make, for the application and it's
+running configure or cmake, and make, for the application and its
 dependencies.
 
-Usually containers are better approach when the number of files in the
+Usually containers are a better approach when the number of files in the
 installation goes to tens of thousands, which is often the case for
 Python and R environments, for example.
 
@@ -34,15 +34,15 @@ Python and R environments, for example.
 
 The Spack packages can be searched from
 [Spack Packages](https://packages.spack.io) (the latest versions), or
-directly from Roihu directory
+directly from the Roihu directory
 `/appl/soft/spack/v2026_03/spack-packages/repos/spack_repo/builtin/packages`,
 which contains almost 9000 package definitions.
 
 
 ## How to set up Spack
 
-First, let's initialize Spack. In here we set Spack cache directory to
-temporary directory, which is fine for one shot installations, and
+First, let's initialize Spack. In here we set the Spack cache directory to
+temporary directory, which is fine for one-shot installations, and
 isolate Spack from system and user configuration scopes, so that no
 settings from those scopes leak into our setup. See
 [Overriding local configuration](https://spack.readthedocs.io/en/v1.1.1/configuration.html#overriding-local-configuration)
@@ -75,10 +75,10 @@ the processor architecture on the CPU or the GPU nodes, respectively.
 
 In general, the core environments provide a good base, "upstream"
 package environment, to build on. Core environments contain compilers
-and most common libraries, such as MPI libraries, already configured
+and most common libraries, such as MPI libraries, already configured to
 work efficiently.
 
-The available environments can be listed for example with
+The available environments can be listed, for example, with
 
 ```console
 ls /appl/soft/spack/core/v2026_03/x86_64/
@@ -240,7 +240,7 @@ shows the concretized spec
 ==> Updating view at /users/jlento/user-spack/environments/mygcc152_ec/.spack-env/view
 ```
 
-There are some keypoints to check in the concretized spec. First,
+There are some key points to check in the concretized spec. First,
 we need to check that the variant (build options) are what we
 want. In the case of eccodes we can compare the current spec
 
@@ -266,7 +266,7 @@ is openjpeg instead of jasper (fine?).
 
 Let's update the variant information, and reconcretize (the output of
 the command is omitted as it is similar to the previous output from
-`spack concretize`command):
+`spack concretize` command):
 
 ```console
 spack change 'eccodes@2.45.0+aec+fortran~ipo+memfs~netcdf+openmp+png~pthreads+shared+tools'
