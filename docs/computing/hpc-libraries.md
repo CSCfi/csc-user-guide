@@ -1,6 +1,6 @@
-# High performance libraries
+# High-performance libraries
 
-Various high performance libraries for dense linear algebra, fast
+Various high-performance libraries for dense linear algebra, fast
 fourier transforms *etc.* are available via the module system. Many
 libraries are provided both as single threaded and multithreaded
 versions, multithreaded modules are designated with `omp` in the
