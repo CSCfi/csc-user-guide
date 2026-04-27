@@ -227,6 +227,8 @@ For common Slurm error messages, see our FAQ on [Why does my batch job fail?](..
 
 ### Known issues (pilot phase)
 
+#### Argos errors
+
 During the pilot phase, you may encounter multiple warnings or errors related to *Argos* in your Slurm job output, for example:
 
 ```
@@ -252,6 +254,15 @@ srun --argos=no <your-executable>
 ```
 
 The same option can also be passed as an `#SBATCH` input.
+
+#### sinteractive missing
+
+At present the `sinteractive` tool is not yet installed on Roihu, as such interactive jobs must be
+launched directly as below:
+
+```bash
+srun --partition interactive --ntasks 1 --cpus-per-task 1 --mem-per-cpu 2G --account <project> --pty bash -i
+```
 
 ## More information
 
