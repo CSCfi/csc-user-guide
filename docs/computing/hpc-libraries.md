@@ -27,23 +27,25 @@ and the directory containing `include`, `lib`, *etc.* are found under
 `FFTW_INSTALL_ROOT` environment variable.
 
 
-## Libraries on Roihu
-
-### Roihu-CPU
+## Libraries on Roihu-CPU
 
 Selected libraries available on Roihu-CPU:
 
-- Dense linear algebra: `openblas`
+- Dense linear algebra: `openblas`, `amdblis`
 - Dense distributed linear algebra: `netlib-scalapack`
 - Fast fourier transforms: `fftw`
 
-### Roihu-GPU
+## Libraries on Roihu-GPU
 
 Selected libraries available on Roihu-GPU:
 
-- Dense linear algebra: `openblas`, `netlib-lapack`, `cublas`
-- Dense distributed linear algebra: `netlib-scalapack`
-- Fast fourier transforms: `fftw`
+- For Grace CPU:
+  - Dense linear algebra: `nvhpc` (includes NVPL), `openblas`, `netlib-lapack`
+  - Dense distributed linear algebra: `nvhpc` (includes NVPL), `netlib-scalapack`
+  - Fast fourier transforms: `nvhpc` (includes NVPL), `fftw`
+- For Hopper GPU:
+  - CUDA (module `cuda`/`nvhpc`) includes libraries such as
+    cublas, cufft, cusolver, ...
 
 
 ## Libraries on Puhti
