@@ -247,6 +247,7 @@ At present the `sinteractive` tool is not yet installed on Roihu, as such intera
 launched directly as below:
 
 ```bash
+
 srun --partition interactive --ntasks 1 --mem 6G --account <project> --pty bash -i
 ```
 
