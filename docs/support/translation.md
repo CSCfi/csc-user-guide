@@ -1,6 +1,6 @@
 # Finnish translation for Docs CSC
 
-CSC’s end user guides and tutorials portal Docs CSC is getting an automatic Finnish translation, powered by a large language model. With this requested feature, the goal is to ensure that Finnish-speaking users can access the same information as English-speaking users, with translations kept continuously up to date. The translation will become a part of the existing Docs CSC service component on 27.04.2026. 
+CSC’s end user guides and tutorials portal Docs CSC gets an automatic Finnish translation, powered by a large language model. With this requested feature, the goal is to ensure that Finnish-speaking users can access the same information as English-speaking users, with translations kept continuously up to date. The translation becomes a part of the existing Docs CSC service component on 27.04.2026. 
 
 
 ## Background
