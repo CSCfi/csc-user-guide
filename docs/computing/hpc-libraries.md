@@ -29,18 +29,6 @@ and the directory containing `include`, `lib`, *etc.* are found under
 
 ## Libraries on Roihu
 
-!!! warning
-    On Roihu-CPU and Roihu-GPU, many of the installed modules do not currently
-    set the `CPATH`, `LIBRARY_PATH` or `LD_LIBRARY_PATH` environment variables.
-    We expect to change this in the near future; until then, you may have to
-    set them manually eg. when compiling an application that depends on a module.
-    You can use `module show <modulename>` to see where the module files are located.
-    Many modules define variable like `modulename_INSTROOT` that points to the
-    installation directory once the module has been loaded. For example, `fftw`
-    headers are in `$FFTW_INSTROOT\include` and the compiled library files are
-    in `$FFTW_INSTROOT\lib`.
-
-
 ### Roihu-CPU
 
 Selected libraries available on Roihu-CPU:
