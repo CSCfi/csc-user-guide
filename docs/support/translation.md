@@ -12,7 +12,8 @@ At the same time, maintaining the same documentation manually in multiple langua
 
 ## How it works?
 
-The language can be changed from the :octicons-globe-16: icon in the top banner on Docs CSC
+The language can be changed from the :octicons-globe-16: icon in the top banner on Docs CSC.
+
 * The English version is the primary source.
 * Finnish pages are generated automatically based on the English content.
 * Translations are updated daily at midnight. 
@@ -26,7 +27,7 @@ Because of the LLM translation, there might be some quality issues with the tran
 The translation tool will continue to be developed after the initial publication to ensure an even better experience for the Finnish-speaking users.
 
 Some parts of the documentation require additional development, including:
+
 * Navigation links
 * Images and
 * Code snippets among text
-
