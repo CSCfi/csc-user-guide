@@ -13,6 +13,11 @@ running [web interface applications](../webinterface/apps.md) and
 [batch jobs](getting-started.md), but the most convenient way to use it is via
 the [`sinteractive` command](#the-sinteractive-command).
 
+!!! warning "`sinteractive` not yet available on Roihu!"
+     At present the `sinteractive` tool is not yet installed on Roihu,
+     as such interactive jobs must be launched directly:
+     `srun --partition interactive --ntasks 1 --mem 6G --account <project> --pty bash -i`
+
 ## The `sinteractive` command
 
 `sinteractive` starts a new shell program on a compute node with the resources
