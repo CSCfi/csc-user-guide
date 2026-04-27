@@ -20,13 +20,13 @@ details can be found on the [Lmod homepage].
 
 ## Roihu GPU and CPU specific modules
 
-On Roihu the GPU and CPU paritions exist in separare environments due to the
+On Roihu the GPU and CPU paritions exist in separate environments due to the
 different base architecture of the CPU and GPU nodes, for more information see
 [Getting started with Roihu](../support/tutorials/roihu.md).
 
 Consequently, software must be built separately for the GPU and CPU node
-architectures, therefore there are independent Lmod environments for the GPU
-and CPU parititions, accessible from the respective login nodes;
+architectures, therefore there are different, independent software modules
+for the GPU and CPU parititions, accessible from the login nodes;
 `roihu-gpu.csc.fi` and `roihu-cpu.csc.fi` respectively.
 
 Both GPU and CPU environments have a collection of modules loaded by default, that
