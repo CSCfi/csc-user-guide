@@ -16,7 +16,7 @@ the [`sinteractive` command](#the-sinteractive-command).
 !!! warning "`sinteractive` not yet available on Roihu!"
      At present the `sinteractive` tool is not yet installed on Roihu,
      as such interactive jobs must be launched directly:
-     `srun --partition interactive --ntasks 1 --mem 6G --account <project> --pty bash -i`
+     `srun --partition interactive --ntasks 1 --cpus-per-task 1 --mem-per-cpu 2G --account <project> --pty bash -i`
 
 ## The `sinteractive` command
 
