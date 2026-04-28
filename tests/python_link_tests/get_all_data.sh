@@ -31,5 +31,5 @@ get_all_internal_links "docs" > "$link_list"
 get_all_files "docs" > "$file_list"
 get_all_headders "site" > "$headder_list"
 get_all_anchors "site" >> "$headder_list"
-get_all_nav_links "mkdocs.yml" > "$nav_list"
+get_all_nav_links "properdocs.yml" > "$nav_list"
 

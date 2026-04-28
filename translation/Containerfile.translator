@@ -12,9 +12,13 @@ ADD translation/requirements.txt ./
 
 ARG PIP_ROOT_USER_ACTION=ignore
 RUN \
-  pip3 install --upgrade pip \
+  pip3.12 install --upgrade pip \
 && \
-  pip3 install --requirement=requirements.txt
+  pip3.12 install \
+            --use-pep517 \
+            --no-cache-dir \
+            --no-deps \
+            --requirement=requirements.txt
 
 ADD translation/translator/ ./translator/
 ADD translation/refresh_translation.py \
