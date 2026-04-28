@@ -20,7 +20,6 @@ An example of a batch job script using a share of resources on a single node:
 #SBATCH --cpus-per-task=1           # Number of CPU cores allocated per task
 #SBATCH --mem-per-cpu=1000M         # Memory to reserve per CPU core
 #SBATCH --output=slurm-%j.out       # Standard output of the job script
-#SBATCH --hint=nomultithread        # Allocate physical cores only, avoid simultaneous multithreading
 ##SBATCH --mail-type=BEGIN          # Uncomment to enable mail
 
 module load myprog/1.2.3            # Load required modules
@@ -141,17 +140,6 @@ the commands listed in the script were executed in an interactive shell.
 Here `%j` is a replacement symbol for jobid, so the output will go to the file `slurm-<slurm-jobid>.out`.
 By default, this file collects also the standard error, but it is possible
 to specify a different file for standard error with `--error=<filename_pattern>`.
-
-The allocation of CPU cores vs hardware threads is controlled with the option:
-
-```bash
-#SBATCH --hint=nomultithread
-```
-
-Use this option always by default and change it only if you are absolutely sure that it is beneficial.
-
-!!! info "About `--hint=nomultithread`"
-    The default behavior regarding this setting is likely to change.
 
 The user can be notified by email when the job *starts* by using the
 `--mail-type` option
@@ -424,14 +412,6 @@ For example, requesting 100 GiB storage:
 ```
 
 Then, this storage is available in path `/run/sbb/$USER` during the job script.
-
-
-### Simultaneous multithreading (SMT) on Roihu-CPU
-
-SMT support can be enabled with `--hint=multithread` option.
-When this option is used, it is important to use the `--ntasks-per-node=X` and
-`--cpus-per-task=Y` so that `X * Y = 768` on full nodes. Failing to do so will leave some of the
-actual physical cores unallocated and performance will be suboptimal.
 
 ### Undersubscribing full nodes on Roihu-CPU
 
