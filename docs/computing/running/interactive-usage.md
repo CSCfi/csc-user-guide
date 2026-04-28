@@ -58,7 +58,7 @@ have one-seventh of the compute capacity and one-eighth of the GPU memory capaci
 based on your resource request, and will automatically provide you with a GPU if
 run from the GPU login node without additional parameters.
 
-!!! warning "Submit from the correct login node CPU or GPU"
+!!! warning "Submit from the correct login node; CPU or GPU"
      It is imperative that if you are requesting a interactive GPU job that you
      request it from `roihu-gpu.csc.fi`, and likewise a CPU job from `roihu-cpu.csc.fi`.
      Failure to do so will result in modules incompatible with the system architecture
@@ -66,8 +66,15 @@ run from the GPU login node without additional parameters.
      the login node.
 
 !!! info "`gpuinteractive` currently gives full GPUs during pilot"
-     The GPU slicing in the `gpuinteractive` partition is not yet implemented, so 
+     The GPU slicing in the `gpuinteractive` partition is not yet implemented, so
      during the pilot users will be allocated full GPUs.
+
+To see the command options available on Roihu, run the following while
+logged into the system:
+
+```bash
+sinteractive --help
+```
 
 ### `sinteractive` on Puhti
 
@@ -127,7 +134,7 @@ Since the shell that is started in the interactive session is already a job
 step in Slurm, additional job steps cannot be created. This prevents running
 e.g. GROMACS tools in the usual way, since `gmx_mpi` is a parallel program and
 normally requires using `srun`. In this case, `srun` must be replaced with
-`orterun -n 1` in the interactive shell. Orterun does not know of the Slurm
+`prterun -n 1` in the interactive shell. Orterun does not know of the Slurm
 flags, so it needs to be told how many tasks/threads to use. The following
 example will run a [GROMACS](../../apps/gromacs.md) mean square displacement
 analysis for an existing trajectory:
@@ -135,7 +142,7 @@ analysis for an existing trajectory:
 ```bash
 sinteractive --account <project>
 module load gromacs-env
-orterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
+prterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
 ```
 
 To use all requested cores in parallel, you need to add `--oversubscribe`.
@@ -145,8 +152,12 @@ E.g. for 4 cores, a parallel interactive job
 ```bash
 sinteractive --account <project> --cores 4
 module load gromacs-env
-orterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
+prterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
 ```
+
+!!! info
+     The older runner `orterun` is now renamed as `prterun`
+     see: <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>
 
 ## Explicit interactive shell without X11 graphics
 
