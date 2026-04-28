@@ -16,7 +16,7 @@ graph LR;
     B{{"<b>April 2026</b>
         Pilot phase
         starts"}} --> C;
-    C{{"<b>May 2026</b>
+    C{{"<b>June 2026</b>
         Roihu general
         availability (GA)"}} --> D;
     D{{"<b>One month after Roihu GA</b>
