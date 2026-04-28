@@ -145,7 +145,7 @@ interactive access and running graphical user interfaces.
 
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
-  (updated 2026-02-25)
+  (updated 2026-04-28)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
