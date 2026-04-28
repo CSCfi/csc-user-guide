@@ -476,18 +476,6 @@ library(aws.s3)
 bucketlist(region='')
 ```
 
-In some cases, for the `aws.s3` commands to work, Allas has to be further defined as an endpoint in R. If `aws.s3` commands fail, try running this command in R:
-
-```r
-Sys.setenv(AWS_S3_ENDPOINT="a3s.fi")
-```
-
-Alternatively, to do the same in all future R sessions, you can add this line to the `.Renviron` file in your home directory:
-
-```bash
-AWS_S3_ENDPOINT="a3s.fi"
-```
-
 ## Citation {#citation}
 
 For finding out the correct citations for R and different R packages, you can type:
