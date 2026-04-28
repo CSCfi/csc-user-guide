@@ -471,6 +471,7 @@ allas-conf --mode s3cmd
 You can now access your bucket list as follows. Note that, for this to work, you will need to have the argument `region=''` added to the `bucketlist()` function:
 
 ``` r
+Sys.setenv(AWS_S3_ENDPOINT="a3s.fi")
 library(aws.s3)
 bucketlist(region='')
 ```
