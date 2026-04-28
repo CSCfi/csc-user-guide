@@ -11,7 +11,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [My PR did not pass the tests, what to do?](#my-pr-did-not-pass-the-tests-what-to-do)
   - [How can I preview my edits?](#how-can-i-preview-my-edits)
     - [Using the preview feature for active branches hosted on Rahti](#using-the-preview-feature-for-active-branches-hosted-on-rahti)
-    - [Locally using the MkDocs tool](#locally-using-the-mkdocs-tool)
+    - [Locally using the ProperDocs tool](#locally-using-the-properdocs-tool)
       - [Tests](#tests)
   - [How and who should I ask to review my PR?](#how-and-who-should-i-ask-to-review-my-pr)
   - [I was asked to review a PR, what should I do?](#i-was-asked-to-review-a-pr-what-should-i-do)
@@ -31,7 +31,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
 
 ## How to include my new page in the navigation panel?
 
-If you add a new page that you want to appear in the left-hand-side navigation panel, you need to edit the `mkdocs.yml` file in the root of the repository. Items appearing in the navigation panel are listed in this file as key/value pairs under the `nav:` key, for example:
+If you add a new page that you want to appear in the left-hand-side navigation panel, you need to edit the `properdocs.yml` file in the root of the repository. Items appearing in the navigation panel are listed in this file as key/value pairs under the `nav:` key, for example:
 
 ```yaml
 nav:
@@ -43,18 +43,18 @@ nav:
      ...
 ```
 
-To include your page in the navigation, add a new key/value pair corresponding to a title followed by the path to your file, for example `- My title: path/to/my-page.md`. Make sure that you include these under the correct section, i.e. mind the indentation. Also, don't refer to the same page twice in `mkdocs.yml` as this will break things (an exception to this are the [SectionPages](#sectionpage)).
+To include your page in the navigation, add a new key/value pair corresponding to a title followed by the path to your file, for example `- My title: path/to/my-page.md`. Make sure that you include these under the correct section, i.e. mind the indentation. Also, don't refer to the same page twice in `properdocs.yml` as this will break things (an exception to this are the [SectionPages](#sectionpage)).
 
 If you intend to make substantial changes to the navigation menu, please communicate this for example in the RC-channel #docs.csc.fi and/or #research.csc.fi as big changes may break some links used elsewhere.
 
 ### SectionPage
 
 The first item under 'Accounts' above is a so-called SectionPage. It is a hybrid of Section and
-Page introduced by a plugin we use called
-[mkdocs-section-index](https://github.com/oprypin/mkdocs-section-index)
+Page introduced by a feature we use called
+[Section index pages](https://jaywhj.github.io/mkdocs-materialx/setup/setting-up-navigation.html?h=index#section-index-pages) 
 that makes the sections in the navigation sidebar clickable. Every section should have a
 SectionPage that acts as the index for the section. SectionPage for a section
-is defined in [mkdocs.yml](mkdocs.yml):
+is defined in [properdocs.yml](properdocs.yml):
 
 ```yaml
     - Section:                         # Section
@@ -149,9 +149,9 @@ You can preview how the Docs CSC page would look like with your changes included
 * A full preview for ongoing work is available for all branches: https://csc-guide-preview.2.rahtiapp.fi/origin/
     - Select your branch from the list to get a preview of your version of Docs CSC
 
-### Locally using the MkDocs tool
+### Locally using the ProperDocs tool
 
-This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. MkDocs comes with it's own preview server for a quick local preview of your edits. You can install the requirements for running Docs CSC locally (all of the following commands are to be run while in the root directory of the cloned repository) with Pip or Conda (recommended).
+This user guide uses [ProperDocs](https://properdocs.org/) to generate documentation pages. ProperDocs comes with it's own preview server for a quick local preview of your edits. You can install the requirements for running Docs CSC locally (all of the following commands are to be run while in the root directory of the cloned repository) with Pip or Conda (recommended).
 
 Alternatively, see [CONTRIBUTING.md](CONTRIBUTING.md#building-the-website-using-the-included-dockerfile) for instructions for Docker/Podman.
 
@@ -186,7 +186,7 @@ pip install -r requirements.txt
 
 #### Conda
 
-Detailed instructions for installing Conda on Windows are found [here](GETTING_STARTED.md#setting-up-a-development-environment-on-windows), but the gist of it, regardless of the operating system used, is to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/), use it to create a virtual environment to install the requirements in. So, with Miniconda installed, an environment to run MkDocs in can be created by running the command
+Detailed instructions for installing Conda on Windows are found [here](GETTING_STARTED.md#setting-up-a-development-environment-on-windows), but the gist of it, regardless of the operating system used, is to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/), use it to create a virtual environment to install the requirements in. So, with Miniconda installed, an environment to run ProperDocs in can be created by running the command
 
 ```bash
 conda env create -f development/conda-docs-base-latest.yaml
@@ -211,14 +211,14 @@ conda activate docs-env
 You can start a preview web server with the command
 
 ```bash
-mkdocs serve
+properdocs serve
 ```
 
 This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://localhost:8000/](http://localhost:8000/) with your browser to get a preview of the documentation.
-* to speed up the reloading of a page you've changed, you can start the MkDocs server with the `--dirtyreload` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
+* to speed up the reloading of a page you've changed, you can start the ProperDocs server with the `--dirty` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
 
 ```bash
-mkdocs serve --dirtyreload
+properdocs serve --dirtyreload
 ```
 
 #### Tests
@@ -226,10 +226,10 @@ mkdocs serve --dirtyreload
 You can also run the tests locally with
 
 ```bash
-MKDOCS_ENV=test bash tests/run_tests.sh
+PROPERDOCS_ENV=test bash tests/run_tests.sh
 ```
 
-The tests depend on the Conda environment, so remember to activate it before running them, or use `conda run -n docs-env MKDOCS_ENV=test bash tests/run_tests.sh`.
+The tests depend on the Conda environment, so remember to activate it before running them, or use `conda run -n docs-env PROPERDOCS_ENV=test bash tests/run_tests.sh`.
 
 
 ## How and who should I ask to review my PR?
@@ -289,7 +289,7 @@ the tooltip (in this case the definition is correct, so text would have to be co
 acronym you wish to define already exists, please use the following format to add an additional
 definition: `*[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory`. New
 acronym-definition pairs may be added to an existing file, or a new file may be created within the
-same directory. The new file must then be introduced in [mkdocs.yml](mkdocs.yml). An example is
+same directory. The new file must then be introduced in [properdocs.yml](properdocs.yml). An example is
 found in [the reference card](https://docs.csc.fi/ref#glossary).
 
 The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.csc.fi/glossary/).
@@ -299,7 +299,7 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.c
 The content inside the yellow announcement bar below the header is controlled by editing the file
 [csc-overrides/partials/announcement.html](csc-overrides/partials/announcement.html). The bar's
 visibility, in turn, is controlled by changing the value `true|false` of `extra: announcement_visible` in
-[mkdocs.yml](mkdocs.yml). At the moment, the only content confirmed to work are HTML `<p>` and `<a>`.
+[properdocs.yml](properdocs.yml). At the moment, the only content confirmed to work are HTML `<p>` and `<a>`.
 
 Select an icon by uncommenting (change both `#`s to `%`s) one of the lines:
 
@@ -315,7 +315,7 @@ Uncommented:
 
 Make sure to "un-uncomment" every other line, since only a single line may be in an uncommented state at a time.
 
-Documentation for _Material for MkDocs_ has a [search feature](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search) including **previews** for the icon database. The path of the icon file can be determined by examining the shortcode. For example, the path `.icons/material/information.svg` above corresponds to the shortcode `:material-information:` shown in the search.
+Documentation for _MaterialX for MkDocs_ has a [search feature](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search) including **previews** for the icon database. The path of the icon file can be determined by examining the shortcode. For example, the path `.icons/material/information.svg` above corresponds to the shortcode `:material-information:` shown in the search.
 
 ## How do I add a new "Applications" page?
 
@@ -492,7 +492,7 @@ where `doc:` can point either to an external page or a `.md` source file on Docs
 ## How do I add footnotes?
 
 Usage of the footnotes feature is described
-[here](https://squidfunk.github.io/mkdocs-material/reference/footnotes/#usage).
+[here](https://jaywhj.github.io/mkdocs-materialx/setup/extensions/python-markdown.html?h=footn#footnotes).
 
 ## How do I improve search results?
 
@@ -507,7 +507,7 @@ search:
 ...
 ```
 Start with low values.  
-More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#usage)
+More information [here](https://jaywhj.github.io/mkdocs-materialx/setup/setting-up-site-search/#usage)
 
 ## How do I redirect incoming links
 

@@ -75,13 +75,12 @@
             "options": {
                 "env": {
                     // Silence some warnings/errors when Git is not installed or not found in PATH
-                    "GIT_PYTHON_REFRESH": "quiet",
-                    "ENABLED_GIT_REVISION_DATE": "false",
+                    "GIT_PYTHON_REFRESH": "quiet"
                 },
             },
-            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output mkdocs serve ${input:flags}",
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output properdocs serve ${input:flags}",
             "windows": {
-                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; mkdocs serve '${input:flags}'",
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; properdocs serve '${input:flags}'",
             },
         },
         {
@@ -96,7 +95,7 @@
                 "focus": false,
                 "panel": "dedicated",
             },
-            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} MKDOCS_ENV=test bash ${workspaceFolder}/tests/run_tests.sh",
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} PROPERDOCS_ENV=test bash ${workspaceFolder}/tests/run_tests.sh",
             "windows": {
                 "command": "Write-Host \"The Test task is not configured for running on Windows.\"",
             },

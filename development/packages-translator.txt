@@ -2,7 +2,6 @@
 # of Docs, while the file ../translation/requirements.txt contains the
 # frozen environment.
 openai
-tiktoken
 GitPython
 python-swiftclient
 python-keystoneclient

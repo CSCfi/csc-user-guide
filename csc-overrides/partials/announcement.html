@@ -27,11 +27,8 @@ Docs CSC now features an automatic Finnish translation. <a href="{{ base_url ~ '
 {#
   Remember
     - to not use the literal 'docs.csc.fi' for internal links,
-      - use href="{{ base_url ~ '/absolute/path/to/page/' }}" instead
-        (yes, do include both the double and the single quotes)
-      - this is a page template fragment rendered on every page, so
-        relative (or Markdown) links don't work
-    - to set the announcement_visible to true in mkdocs.yml
+      - use href="{{ base_url | url }}/path/to/page/" instead
+    - to set the announcement_visible to true in properdocs.yml
     - that the announcement bar has only been tested with <p> and <a>
     - to include a target="_blank" attribute in external links
     - to not have loose text outside of a <p> (or an <a>)

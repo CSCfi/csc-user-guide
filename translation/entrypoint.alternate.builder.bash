@@ -11,9 +11,8 @@ declare -gr TRANSLATION_MOUNT_PREFIX=/translations \
 declare -gr SOURCE_DIR=${TRANSLATION_MOUNT_PREFIX}/${LANG_CODE:?} \
             TARGET_DIR=${BUILD_MOUNT_PREFIX}/${LANG_CODE:?}
 declare -gra CONFIG_FILES=(
-  mkdocs.yml
-  "mkdocs_${LANG_CODE:?}.yml"
-  .git-revision-date-ignore-revs
+  properdocs.yml
+  "properdocs_${LANG_CODE:?}.yml"
 )
 declare -gra SPARSE_PATTERNS=(
   "/${DOCS_DIR:?}/"
@@ -64,8 +63,8 @@ get_translation() {
 }
 
 build() {
-  mkdocs build --site-dir="${BUILD_WORKDIR}/" \
-               --config-file="mkdocs_${LANG_CODE:?}.yml"
+  properdocs build --site-dir="${BUILD_WORKDIR}/" \
+               --config-file="properdocs_${LANG_CODE:?}.yml"
 }
 
 cleanup_site() {

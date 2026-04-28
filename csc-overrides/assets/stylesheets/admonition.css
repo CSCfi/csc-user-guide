@@ -271,9 +271,9 @@
 }
 
 
-/* Error admonition type is not defined in Material for MkDocs,
+/* Error admonition type is not defined in MaterialX for MkDocs,
    so here's the icon for it. Icons for the other admonitions
-   are defined in mkdocs.yml, under theme.icon.admonition.*
+   are defined in properdocs.yml, under theme.icon.admonition.*
 */
 .md-typeset .admonition.error > .admonition-title::before,
 .md-typeset details.error > summary::before {
