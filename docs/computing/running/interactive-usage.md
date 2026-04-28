@@ -130,6 +130,25 @@ module load gromacs-env
 orterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
 ```
 
+## Connecting to a compute node of a running job
+
+Sometimes (e.g. for debugging purposes) it is useful to login to a compute 
+node where a Slurm job is currently running. This can be achieved with the 
+`srun` command as follows:
+```bash
+srun --overlap --pty --jobid=<jobid> bash
+```
+If a job spans multiple nodes, you will be connected to the master node of 
+your job, which is the first node in your allocation and the one on which 
+your batch script is executed. It is also possible to connect to a specific
+node with the `-w` option:
+```bash
+srun --overlap --pty --jobid=<jobid> -w rcXXXX bash
+```
+where `rcXXXX` is the name of a node as shown e.g. by the `squeue` command.
+(Note that the format of the node names varies between different systems).
+
+
 ## Explicit interactive shell without X11 graphics
 
 If you do not want to use the `sinteractive` wrapper, it is also possible to
