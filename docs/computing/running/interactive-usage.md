@@ -157,7 +157,7 @@ prterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
 
 !!! info
      The older runner `orterun` is now renamed as `prterun`
-     see: <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>
+     See also: <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>
 
 ## Explicit interactive shell without X11 graphics
 
