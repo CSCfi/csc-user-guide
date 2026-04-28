@@ -155,13 +155,24 @@ module load gromacs-env
 prterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
 ```
 
-!!! info
-     The legacy launcher orterun (based on ORTE) has been replaced by prterun
-     (based on PRRTE) starting with OpenMPI 5.0.
+## Connecting to a compute node of a running job
 
-     On Mahti and Puhti, you can either use `orterun` with the default MPI environment,
-     or load a newer OpenMPI module (see `module spider openmpi/5.0.6`) to use `prterun`. See also: 
-     <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>.
+Sometimes (e.g. for debugging purposes) it is useful to login to a compute 
+node where a Slurm job is currently running. This can be achieved with the 
+`srun` command as follows:
+```bash
+srun --overlap --pty --jobid=<jobid> bash
+```
+If a job spans multiple nodes, you will be connected to the master node of 
+your job, which is the first node in your allocation and the one on which 
+your batch script is executed. It is also possible to connect to a specific
+node with the `-w` option:
+```bash
+srun --overlap --pty --jobid=<jobid> -w rcXXXX bash
+```
+where `rcXXXX` is the name of a node as shown e.g. by the `squeue` command.
+(Note that the format of the node names varies between different systems).
+
 
 ## Explicit interactive shell without X11 graphics
 
