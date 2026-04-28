@@ -29,7 +29,6 @@ The job script executes `csc-print-affinity` (available in `csc-tools` module) v
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=8 --cpus-per-task=48  # The product should be 384
-#SBATCH --hint=nomultithread
 
 # Run the program
 srun csc-print-affinity
@@ -90,7 +89,6 @@ the number of CPUs per task:
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=8 --cpus-per-task=48  # The product should be 384
-#SBATCH --hint=nomultithread
 
 # Create a script for binding tasks to CPU cores
 BIND_CPU="./bind_cpu.$SLURM_JOB_ID.sh"
@@ -161,7 +159,6 @@ The following job script exemplifies the use of `OMP_*` for checking the CPU aff
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=1000M
-#SBATCH --hint=nomultithread
 
 # Set the number of threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -203,7 +200,6 @@ In the following example job script, we have enabled thread binding:
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=1000M
-#SBATCH --hint=nomultithread
 
 # Set the number of threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}

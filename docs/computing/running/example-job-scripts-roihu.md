@@ -33,7 +33,6 @@ recommended to use especially for smaller scale and routine runs.
 #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
 ###SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
 ###SBATCH --ntasks-per-node=96 --cpus-per-task=4  # The product should be 384
-#SBATCH --hint=nomultithread
 #SBATCH --mem=744G  # Ensure we use all available memory on the nodes
 
 # Set the number of threads based on cpus-per-task
@@ -87,7 +86,6 @@ srun myprog <options>
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=1000M
-#SBATCH --hint=nomultithread
 
 # Run the program
 srun myprog <options>
@@ -104,7 +102,6 @@ srun myprog <options>
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --mem-per-cpu=1000M
-#SBATCH --hint=nomultithread
 
 # Run the program
 srun myprog <options>
@@ -122,7 +119,6 @@ srun myprog <options>
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=1000M
-#SBATCH --hint=nomultithread
 
 # Set the number of threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -148,7 +144,6 @@ srun myprog <options>
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=1000M
-#SBATCH --hint=nomultithread
 
 # Set the number of threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -156,30 +151,6 @@ export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 # Place and bind threads to single cores
 # Comment the following lines if binding is not desired
 export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
-
-# Run the program
-srun myprog <options>
-```
-
-## Partial CPU node: MPI+OpenMP with simultaneous multithreading
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:30:00
-#SBATCH --ntasks=2
-#SBATCH --cpus-per-task=4
-#SBATCH --hint=multithread
-
-# Set the number of threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
-
-# Place and bind threads to single hardware threads
-# Comment the following lines if binding is not desired
-export OMP_PLACES=threads
 export OMP_PROC_BIND=spread
 
 # Run the program
@@ -197,7 +168,6 @@ srun myprog <options>
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
-#SBATCH --hint=nomultithread
 #SBATCH --mem=744G
 
 # Run the program
@@ -215,7 +185,6 @@ srun myprog <options>
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1 --cpus-per-task=384  # The product should be 384
-#SBATCH --hint=nomultithread
 #SBATCH --mem=744G
 
 # Set the number of threads based on cpus-per-task
@@ -242,40 +211,12 @@ srun myprog <options>
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
 #SBATCH --ntasks-per-node=96  --cpus-per-task=4  # The product should be 384
-#SBATCH --hint=nomultithread
 #SBATCH --mem=744G
 
 # Set the number of threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 
 # Place and bind threads to single cores
-# Comment the following lines if binding is not desired
-export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
-
-# Run the program
-srun myprog <options>
-```
-
-## Full CPU nodes: MPI+OpenMP with simultaneous multithreading
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=medium
-##SBATCH --partition=large  # uncomment if using 6 or more nodes
-#SBATCH --time=00:30:00
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=384 --cpus-per-task=2  # The product should be 768
-#SBATCH --ntasks-per-node=192 --cpus-per-task=4  # The product should be 768
-#SBATCH --hint=multithread
-#SBATCH --mem=744G
-
-# Set the number of CPU threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
-
-# Place and bind CPU threads to single CPU cores
 # Comment the following lines if binding is not desired
 export OMP_PLACES=cores
 export OMP_PROC_BIND=spread
@@ -341,4 +282,39 @@ srun myprog <options>
 ## Fast disk (NVMe over Fabric)
 
 !!! info "Work in progress"
-    This section is work in progress.
+    This section is a work in progress.
+
+On Roihu, it is possible to request local disk mounts from a centralised pool of fast storage resources. 
+This fast storage capacity is provided over the network and will appear as local scratch from 
+within a Slurm job.
+
+Example script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=00:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4 --cpus-per-task=96
+#SBATCH --bb="#BB_LUA SBF storagesize=10G path=/run/sbb/<user>" 
+
+# Set the number of CPU threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind CPU threads to single CPU cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Run the program
+srun myprog <options>
+```
+
+!!! Note 
+    At the present you can only request this storage for jobs that are making use of full nodes, 
+    i.e. that are submitted with the `--exclusive` flag or in exclusive partitions (e.g. medium). 
+    Support for shared node jobs is coming at a later date.
+
+See [detailed usage instructions](../roihu-disk.md#disaggregated-storage).
