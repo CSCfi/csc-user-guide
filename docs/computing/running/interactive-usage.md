@@ -156,10 +156,12 @@ prterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
 ```
 
 !!! info
-The legacy launcher orterun (based on ORTE) has been replaced by prterun (based on PRRTE) starting with OpenMPI 5.0.
+     The legacy launcher orterun (based on ORTE) has been replaced by prterun
+     (based on PRRTE) starting with OpenMPI 5.0.
 
-On Mahti and Puhti, you can either use `orterun` with the default MPI environment, or load a newer OpenMPI module (see `module spider openmpi/5.0.6`) to use `prterun`.
-     See also: <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>
+     On Mahti and Puhti, you can either use `orterun` with the default MPI environment,
+     or load a newer OpenMPI module (see `module spider openmpi/5.0.6`) to use `prterun`. See also: 
+     <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>.
 
 ## Explicit interactive shell without X11 graphics
 
