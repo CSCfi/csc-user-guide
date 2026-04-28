@@ -9,7 +9,7 @@ edit_uri: edit/master/docs/
 docs_dir: docs/
 
 extra:
-  environment: !ENV [MKDOCS_ENV, "preview"]
+  environment: !ENV [PROPERDOCS_ENV, "preview"]
   announcement_visible: true # Show/hide announcement bar (does not affect urgent announcement below)
   announcement_urgent: # An urgent announcement shown below the regular one; comment/uncomment to toggle
     color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color
@@ -83,14 +83,12 @@ plugins:
   tags: {}
   search:
     lang: en
-  git-revision-date-localized:
-    enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
-    fallback_to_build_date: true
-    ignored_commits_file: .git-revision-date-ignore-revs
+  document-dates:
+    position: bottom
     type: date
-    custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
-    locale: en
-    timezone: Europe/Helsinki
+    show_created: false
+    show_updated: true
+    show_author: false
     exclude:
       - index.md
       - support/archives/*.md
@@ -100,7 +98,6 @@ plugins:
       - apps/by_discipline.md
       - apps/by_availability.md
       - apps/by_license.md
-  section-index: {}
   redirects:
     redirect_maps:
       # reorganization:
@@ -253,7 +250,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
-  name: material
+  name: materialx
   language: en
   custom_dir: csc-overrides
   logo: assets/images/logo.svg
@@ -268,7 +265,7 @@ theme:
       warning: material/alert
     # error: material/close-circle
     #
-    # Error admonition type is not in Material for MkDocs,
+    # Error admonition type is not in MaterialX for MkDocs,
     # so the error icon is defined with the template in
     # csc-overrides/assets/stylesheets/icons.jinja.css
   palette:
@@ -280,6 +277,7 @@ theme:
     - content.action.edit
     - content.code.copy
     - content.tabs.link
+    - navigation.indexes
   static_templates:
     - assets/stylesheets/icons.jinja.css
 
@@ -290,7 +288,7 @@ extra_javascript:
   - assets/javascripts/extra.js
   - assets/javascripts/feedback.js
 
-# See https://www.mkdocs.org/user-guide/configuration/#validation
+# See https://properdocs.org/user-guide/configuration/#validation
 validation:
   nav:
     omitted_files: ignore

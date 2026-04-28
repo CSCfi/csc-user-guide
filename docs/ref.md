@@ -7,15 +7,15 @@ search:
 
 !!! default "Documentation"
 
-    Docs CSC is based on [_Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/){ target=_blank }. Note that some features might not be available on Docs CSC ([see below](#available-features)).
+    Docs CSC is based on [_MaterialX for MkDocs_](https://jaywhj.github.io/mkdocs-materialx/){ target=_blank }. Note that some features might not be available on Docs CSC ([see below](#available-features)).
 
 !!! info "Pro tip"
 
-    As the [reference documentation of Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/){ target=_blank } is itself implemented using Material for MkDocs, you can browse it for ideas on how to present your documentation on Docs CSC. To view the Markdown source for a particular page of the documentation, click the "view" icon :material-file-eye-outline: in the top-right corner of a page (the same goes for Docs CSC, except here we currently only have the "edit" icon :material-pencil:). Additionally, you can, for example
+    As the [reference documentation of MaterialX for MkDocs](https://jaywhj.github.io/mkdocs-materialx/reference/){ target=_blank } is itself implemented using MaterialX for MkDocs, you can browse it for ideas on how to present your documentation on Docs CSC. To view the Markdown source for a particular page of the documentation, click the "view" icon :material-file-eye-outline: in the top-right corner of a page (the same goes for Docs CSC, except here we currently only have the "edit" icon :material-pencil:). Additionally, you can, for example
 
-    - [Search for available icons and emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
-    - See how they present the result of using a feature or a piece of configuration. For example, a [tabbed comparison of the result when changing the `align` property for images](https://squidfunk.github.io/mkdocs-material/reference/images/#image-alignment) (click on :material-file-eye-outline: to see the source)
-    - Get an idea whether some feature is available on Docs CSC by comparing the current configuration in [_mkdocs.yml_](https://github.com/CSCfi/csc-user-guide/blob/master/mkdocs.yml) with the [documentation on enabling a feature](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#configuration)
+    - [Search for available icons and emojis](https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis/#search)
+    - See how they present the result of using a feature or a piece of configuration. For example, a [tabbed comparison of the result when changing the `align` property for images](https://jaywhj.github.io/mkdocs-materialx/reference/images/#image-alignment) (click on :material-file-eye-outline: to see the source)
+    - Get an idea whether some feature is available on Docs CSC by comparing the current configuration in [_properdocs.yml_](https://github.com/CSCfi/csc-user-guide/blob/master/properdocs.yml) with the [documentation on enabling a feature](https://jaywhj.github.io/mkdocs-materialx/reference/content-tabs/#configuration)
     { id=available-features }
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
@@ -45,7 +45,7 @@ Then&mdash;as a rule&mdash;a horizontal rule:
 
 ## Banners
 
-The front page can be fitted with a banner to promote a course for example. The banner is controlled via the `extra.landing_banner` mapping in _mkdocs.yml_. The image file named in `extra.landing_banner.image` should be placed in the _docs-files_ Allas bucket, under _banners/_.
+The front page can be fitted with a banner to promote a course for example. The banner is controlled via the `extra.landing_banner` mapping in _properdocs.yml_. The image file named in `extra.landing_banner.image` should be placed in the _docs-files_ Allas bucket, under _banners/_.
 
 - `path:` _Don't touch!_
 - `image:` The image filename in _docs-files/banners/_ Allas bucket.
@@ -54,7 +54,7 @@ The front page can be fitted with a banner to promote a course for example. The 
 - `description:` A short description of the banner rendered as alternative text. Provided mainly for accessibility, i.e. screen readers.
 - `visible:` Set to `true` or `false` to show or hide the banner.
 
-=== "mkdocs.yml"
+=== "properdocs.yml"
 
     ```yaml
     extra:
@@ -108,7 +108,7 @@ markdown file, like so:
     *[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
     ```
 
-=== "mkdocs.yml"
+=== "properdocs.yml"
 
     ```yaml
     markdown_extensions:
@@ -1159,7 +1159,7 @@ The table of contents may also be inserted arbitrarily on the page by simply add
 
 ## Grids
 
-The [Grids feature from _Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/reference/grids/) is available in Docs CSC.
+The [Grids feature from _MaterialX for MkDocs_](https://jaywhj.github.io/mkdocs-materialx/reference/grids/) is available in Docs CSC.
 
 ```html title="Grid"
 <div class="grid cards" markdown>
