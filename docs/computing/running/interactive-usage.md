@@ -59,7 +59,7 @@ based on your resource request, and will automatically provide you with a GPU if
 run from the GPU login node without additional parameters.
 
 !!! warning "Submit from the correct login node; CPU or GPU"
-     It is imperative that if you are requesting a interactive GPU job that you
+     It is imperative that if you are requesting an interactive GPU job that you
      request it from `roihu-gpu.csc.fi`, and likewise a CPU job from `roihu-cpu.csc.fi`.
      Failure to do so will result in modules incompatible with the system architecture
      being loaded and available, as the interactive job inherits the environment from
@@ -134,7 +134,7 @@ Since the shell that is started in the interactive session is already a job
 step in Slurm, additional job steps cannot be created. This prevents running
 e.g. GROMACS tools in the usual way, since `gmx_mpi` is a parallel program and
 normally requires using `srun`. In this case, `srun` must be replaced with
-`prterun -n 1` in the interactive shell. Orterun does not know of the Slurm
+`prterun -n 1` in the interactive shell. Prterun does not know of the Slurm
 flags, so it needs to be told how many tasks/threads to use. The following
 example will run a [GROMACS](../../apps/gromacs.md) mean square displacement
 analysis for an existing trajectory:
