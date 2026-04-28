@@ -270,7 +270,7 @@ to get larger capacity fast storage for your jobs.
     i.e. that are submitted with the `--exclusive` flag. Support for shared node jobs is coming 
     in Q3 2026.
 
-To request flash storage to be mounted in an sbatch job you must add the following to the resource 
+To requested flash storage to be mounted in an sbatch job you must add the following to the resource 
 request block of your script:
 
 ```bash
