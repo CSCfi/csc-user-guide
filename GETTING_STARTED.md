@@ -105,7 +105,7 @@ The Docs repository also comes with some pre-defined _Workspace Settings_ for VS
 
 [YAML at Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
-_Material for MkDocs_ provides a YAML schema for validation and auto-complete in _mkdocs.yml_. This could come in handy if you intend to e.g. edit the Docs CSC left-hand navigation menu. To install the _YAML_ extension,
+_MaterialX for MkDocs_ provides a YAML schema for validation and auto-complete in _properdocs.yml_. This could come in handy if you intend to e.g. edit the Docs CSC left-hand navigation menu. To install the _YAML_ extension,
 
 1. Select _View -> Extensions_ from the menu bar or click on _Extensions_ icon in the activity bar to the left of the side bar.
 1. Search for "yaml".
@@ -127,7 +127,7 @@ If you intend to edit or define some Jinja templates, the extension _Better Jinj
 
 ### Conda
 
-A Python program called _MkDocs_ is used to generate the Docs CSC website from documentation files written in a markup language called _Markdown_. To run a local development server for an instant preview of your work, MkDocs and all the software it depends on&mdash;all the way to Python itself&mdash;needs to be available on your computer. This is conveniently accomplished with a package and environment management system called _Conda_.
+A Python program called _ProperDocs_ is used to generate the Docs CSC website from documentation files written in a markup language called _Markdown_. To run a local development server for an instant preview of your work, ProperDocs and all the software it depends on&mdash;all the way to Python itself&mdash;needs to be available on your computer. This is conveniently accomplished with a package and environment management system called _Conda_.
 
 
 #### Installation
@@ -301,7 +301,7 @@ Many times you'll want to execute a command that is almost the same as a command
 
 ###### Clipboard copy/paste and keyboard shortcuts
 
-If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are (by default) _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example, the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
+If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are (by default) _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example, the ProperDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
 
 You can change the default behaviour by right-clicking on the title bar, selecting _Options..._ and then _Mouse_ in the left pane. There you can, e.g., set "Paste" to occur upon right-clicking on the terminal. Note that selecting any text in the terminal automatically copies it to the clipboard (this behaviour can be changed under _Selection_), so you do not actually need to rely on keyboard shortcuts or the context menu for copying/pasting.
 
@@ -593,25 +593,25 @@ The main point of this tutorial is to be able to work on the files using the too
 Run the development server (with the Conda environment activated):
 
 ```bash
-mkdocs serve
+properdocs serve
 ```
 
 or
 
 ```bash
-mkdocs serve --dirtyreload
+properdocs serve --dirty
 ```
 
 >**Option B &ndash; GUI**: The task **_Docs CSC: Serve_**, for starting the development server, will ask whether you'd like to include e.g. the `--dirtyreload` flag.
 > * See _Using Tasks_ under _[VS Code &ndash; Tasks](#tasks)_
 
-It will take a moment for MkDocs to build and serve the site. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirtyreload` enabled&ndash;simply hit _Ctrl+C_.
+It will take a moment for ProperDocs to build and serve the site. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirty` enabled&ndash;simply hit _Ctrl+C_.
 
 >**Option B &ndash; GUI**: Click on the terminal panel to activate it before hitting _Ctrl+C_. You can also click the trashcan icon with the tooltip "Kill Terminal" to shut the server down.
 
-When MkDocs tells you it is serving on an address, you can point a web browser to the address for a preview. The default is [127.0.0.1:8000](http://127.0.0.1:8000/) AKA [localhost:8000](http://localhost:8000/).
+When ProperDocs tells you it is serving on an address, you can point a web browser to the address for a preview. The default is [127.0.0.1:8000](http://127.0.0.1:8000/) AKA [localhost:8000](http://localhost:8000/).
 
-If you want to leave MkDocs running while continuing to work on the command-line, open a new Git Bash window and again navigate to the cloned folder:
+If you want to leave ProperDocs running while continuing to work on the command-line, open a new Git Bash window and again navigate to the cloned folder:
 
 ```bash
 cd csc-user-guide/

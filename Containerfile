@@ -1,5 +1,5 @@
 ARG builder_image
-ARG server_image=ubi8/nginx-124
+ARG server_image=ubi9/nginx-124
 FROM ${builder_image} AS builder
 
 ARG repo_org=CSCfi
@@ -20,11 +20,10 @@ RUN \
 ADD csc-overrides/ csc-overrides/
 ADD docs/ docs/
 ADD hooks/ hooks/
-ADD .git-revision-date-ignore-revs \
-    mkdocs.yml \
+    properdocs.yml \
     ./
 
-RUN mkdocs build --site-dir=/tmp/site/
+RUN properdocs build --site-dir=/tmp/site/
 
 
 FROM ${server_image}
