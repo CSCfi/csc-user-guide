@@ -44,7 +44,30 @@ When this option is used, the user is prompted for the individual parameters
 of the session (runtime, memory, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
 arguments. Note that the available options and resources are not identical on
-Puhti and Mahti due to differences in hardware.
+Roihu, Puhti and Mahti due to differences in hardware.
+
+### `sinteractive` on Roihu
+
+There are two interactive partitions available on Roihu; `interactive` for CPU 
+resources and `gpuinteractive` for GPU resources. See the
+[Roihu `interactive` partition details](./batch-job-partitions.md#roihu-partitions)
+for information on the available resources. The Roihu `gpuinteractive` partition 
+features GH200 superchips that are divided into a total of 48 smaller slices that 
+have one-seventh of the compute capacity and one-eighth of the GPU memory capacity 
+(12 GiB) of a full GH200 superchip. `sinteractive` will select the correct partition
+based on your resource request, and will automatically provide you with a GPU if
+run from the GPU login node without additional parameters.
+
+!!! warning "Submit from the correct login node CPU or GPU"
+     It is imperative that if you are requesting a interactive GPU job that you
+     request it from `roihu-gpu.csc.fi`, and likewise a CPU job from `roihu-cpu.csc.fi`.
+     Failure to do so will result in modules incompatible with the system architecture
+     being loaded and available, as the interactive job inherits the environment from
+     the login node.
+
+!!! info "`gpuinteractive` currently gives full GPUs during pilot"
+     The GPU slicing in the `gpuinteractive` partition is not yet implemented, so 
+     during the pilot users will be allocated full GPUs.
 
 ### `sinteractive` on Puhti
 
