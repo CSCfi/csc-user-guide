@@ -33,7 +33,6 @@ recommended to use especially for smaller scale and routine runs.
 #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
 ###SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
 ###SBATCH --ntasks-per-node=96 --cpus-per-task=4  # The product should be 384
-#SBATCH --mem=744G  # Ensure we use all available memory on the nodes
 
 # Set the number of threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -168,7 +167,6 @@ srun myprog <options>
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
-#SBATCH --mem=744G
 
 # Run the program
 srun myprog <options>
@@ -185,7 +183,6 @@ srun myprog <options>
 #SBATCH --time=00:30:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1 --cpus-per-task=384  # The product should be 384
-#SBATCH --mem=744G
 
 # Set the number of threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -211,7 +208,6 @@ srun myprog <options>
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
 #SBATCH --ntasks-per-node=96  --cpus-per-task=4  # The product should be 384
-#SBATCH --mem=744G
 
 # Set the number of threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -288,7 +284,7 @@ On Roihu, it is possible to request local disk mounts from a centralised pool of
 This fast storage capacity is provided over the network and will appear as local scratch from 
 within a Slurm job.
 
-Example script:
+Example script reserving 10G of fast NVMe disk space:
 
 ```bash
 #!/bin/bash
