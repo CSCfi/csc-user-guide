@@ -1,7 +1,7 @@
-# Tutorial for using Allas in CSC supercomputers 
+# Tutorial for using Allas in Roihu
 
-CSC supercomputers, Puhti and Mahti, do not provide permanent storage space for
-research data. The supercomputer's own storage has a policy to [delete idle data](../../computing/usage-policy.md#disk-cleaning), so the data must be moved to Allas after computing.
+Roihu does not provide permanent storage space for
+research data. The storage has a policy that defines that [idle data will deleted](../../computing/usage-policy.md#disk-cleaning) automatically.
 
 Data that needs to be stored for a longer time than just a few
 weeks should be copied to Allas object storage service. Allas provides a
@@ -9,30 +9,30 @@ platform that you can use to store your data as long as your CSC project is
 active. In addition to storage, Allas can be used for transporting data between
 different servers and sharing data with other users.
 
-One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start
-working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
+One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
 
 If you have not used Allas before, then start with reading **[Allas general introduction](introduction.md)**, which includes many important things to know.
+
+Note that by default, CSC computing projects do not have access to Allas. The project manager has to additionally apply for Allas service in [MyCSC](https://my.csc.fi/).
+[Allas introduction page](introduction.md#) describes how to do it and also about default quotas and how to apply for more storage space.
 
 Additional information regarding:
 
 * [Using Allas in batch jobs](allas_batchjobs.md)
 * [Using Allas and LUMI-O from LUMI supercomputer](allas_lumi.md)
 
-To upload or download data between Allas and supercomputers there are a lot of different tools. You can use [Puhti or Mahti web interface](accessing_allas.md#web-browser-interfaces), [commandline tools](accessing_allas.md#commandline-tools) or [Python, R or other tools](accessing_allas.md#graphical-tools). In Puhti and Mahti, the Allas commandline tools are installed by CSC and provided through **allas module**.
+In Roihu, several flawors of Allas commandline tools are installed by CSC and provided through **allas module**. Below is some examples how two of these tools, a-commands and rclone, are used in Roihu
 
-By default, CSC computing projects do not have access to Allas. The project manager has to additionally apply for Allas service in [MyCSC](https://my.csc.fi/).
-[Allas introduction page](introduction.md#) describes how to do it and also about default quotas and how to apply for more storage space.
 
 ## Examples
 
-This tutorial provides four examples for using Allas on Puhti and Mahti. The
+This tutorial provides four examples for using Allas in Roihu. The
 examples are based on interactively executed commands, and thus examples 1, 2 and 4 apply only for
 relatively small datasets (max. some hundreds of GBs). The third example suits also for bigger datasets.
 
 1. [The first example](#example-1-using-allas-with-a-commands) uses the
-   *a-commands* (`a-put`, `a-get`) for uploading data from Mahti to Allas, and
-   then downloading the data to Puhti.
+   *a-commands* (`a-put`, `a-get`) for uploading data from Roihu to Allas, and
+   then downloading the data back to Roihu.
 2. [The second example](#example-2-using-allas-with-rclone) transfers the same
    data using *Rclone*.
 3. [The third example](#example-3-uploading-large-files-to-allas) focuses on
@@ -42,22 +42,22 @@ relatively small datasets (max. some hundreds of GBs). The third example suits a
    of files.
 
 The a-commands are better suited for cases where the data is mainly used within
-the CSC computing environment (Puhti, Mahti). The second option, Rclone, is
+the CSC computing environment (Roihu, Lumi). The second option, Rclone, is
 good for cases when the data will be used outside CSC too.
 
 ## Example 1: Using Allas with a-commands
 
-### A. Uploading data from Mahti to Allas
+### A. Uploading data from Roihu to Allas
 
 The a-commands are Allas-specific tools that allow an easy start with Allas.
 The a-commands archive and move data automatically. You can also compress your
 data before storage. For example, for text-formatted data compression reduces
-the storage space needed, but on the other hand makes the transfer process
+the storage space needed, but on the other hand makes the total time of transfer process
 slightly slower. The a-commands are a good option for miscellaneous data that
 is mostly used in the CSC environment.
 
 In this example, we have a subdirectory `genomes/zebrafish` in the scratch
-directory of a project in Mahti (`/scratch/project_2001659`). The `zebrafish`
+directory of a project in Roihu (`/scratch/project_2001659`). The `zebrafish`
 directory contains eight files listed below:
 
 ```bash
