@@ -73,13 +73,13 @@ Roihu features the following partitions for submitting jobs to CPU nodes:
 
 Roihu features the following partitions for submitting jobs to GPU nodes:
 
-| Partition        | Allocation type | Time limit | Min GPUs | Max GPUs | [Node types](../systems-roihu.md#nodes) | Memory per GPU   | Requirements       |
-|------------------|-----------------|------------|----------|----------|-----------------------------------------|------------------|--------------------|
-| `gputest`        | G               | 15 minutes | 1        | 8        | GPU                                     | 116 GiB + 95 GiB |                    |
-| `gpuinteractive` | G               | 12 hours   | 1        | 1        | GPU ([slice](#roihu-gpu-slices))        | TBA              |                    |
-| `gpumedium`      | G               | 36 hours   | 1        | 4        | GPU                                     | 116 GiB + 95 GiB |                    |
-| `gpularge`       | G               | 36 hours   | 4        | 40       | GPU                                     | 116 GiB + 95 GiB | [scalability test] |
-| `vizinteractive` | G               | 12 hours   | 1        | 1        | V                                       | 183 GiB + 44 GiB |                    |
+| Partition        | Allocation type | Time limit | Min GPUs | Max GPUs | Max nodes | [Node types](../systems-roihu.md#nodes) | Memory per GPU   | Requirements       |
+|------------------|-----------------|------------|----------|----------|-----------|-----------------------------------------|------------------|--------------------|
+| `gputest`        | G               | 15 minutes | 1        | 8        | 2         | GPU                                    | 116 GiB + 95 GiB |                    |
+| `gpuinteractive` | G               | 12 hours   | 1        | 1        | 1         | GPU ([slice](#roihu-gpu-slices))       | TBA              |                    |
+| `gpumedium`      | G               | 36 hours   | 1        | 4        | 1         | GPU                                    | 116 GiB + 95 GiB |                    |
+| `gpularge`       | G               | 36 hours   | 4        | 40       | 10        | GPU                                    | 116 GiB + 95 GiB | [scalability test] |
+| `vizinteractive` | G               | 12 hours   | 1        | 1        | 1         | V                                      | 183 GiB + 44 GiB |                    |
 
 
 #### Roihu GPU slices
