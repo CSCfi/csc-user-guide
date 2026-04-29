@@ -123,7 +123,7 @@ Base container are built on top of Rocky Linux 9.
     Satama support on Roihu is expected very soon.
 
 === "Roihu CPU base container (~4 GB)"
-    Base containers available:
+    Base containers are available:
 
     - `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03`
 
@@ -143,21 +143,21 @@ Base container are built on top of Rocky Linux 9.
         exec "$@"
     ```
 
-    When building containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+    When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
 
     ```bash
     export APPTAINER_CACHEDIR=$TMPDIR
     apptainer build --fakeroot container.sif container.def
     ```
 
-    Now, you can run commands inside the container with clean environment and environment active as follows:
+    Now, you can run commands inside the container with the environment active as follows:
 
     ```bash
     apptainer run container.sif mycmd
     ```
 
 === "Roihu GPU base container (~16 GB)"
-    Base containers available:
+    Base containers are available:
 
     - `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03`
     - `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03`
@@ -179,26 +179,25 @@ Base container are built on top of Rocky Linux 9.
         exec "$@"
     ```
 
-    When building the containers, set you cache directory to temporary directory to avoid filling you home directory quota.
+    When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
 
     ```bash
     export APPTAINER_CACHEDIR=$TMPDIR
     apptainer build --fakeroot container.sif container.def
     ```
 
-    Now, you can run commands inside the container with clean environment and environment active as follows:
+    Now, you can run commands inside the container with the environment active as follows:
 
     ```bash
     apptainer run --nv container.sif mycmd
     ```
 
 === "Roihu ML/AI GPU base containers"
-    Base containers for machine learning/AI available.
+    Base containers for machine learning/AI are available.
     
-    Built on Rocky Linux 9.7 with Python 3, MPI and CUDA installed traditionally via RPMs.
-    *This approach gives a container that is not identical to Roihu's host system, but may be easier to extend in some cases than the normal base containers.*
+    These containers are built on Rocky Linux 9.7 with Python 3, MPI and CUDA installed via RPM packages.
+    *This approach produces a container that is not identical to Roihu's host system, but may be easier to extend in some cases than the normal base containers.*
     
-
     - `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda12.9`
     - `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13`
     - `satama.csc.fi/r_installation_aida/pytorch-base:2.10_cuda13_roihu` - `ml-base` image with basic PyTorch 2.10 packages added
@@ -215,7 +214,7 @@ Base container are built on top of Rocky Linux 9.
         # Build your application here:
     ```
 
-    When building the containers, set you cache directory to temporary directory to avoid filling you home directory quota.
+    When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
 
     ```bash
     export APPTAINER_CACHEDIR=$TMPDIR
