@@ -117,11 +117,6 @@ Another option is to build your own container from scratch.
 You can build containers on top of Roihu base containers which have the same software stack as is available via the module system natively.
 Base containers are built on top of Rocky Linux 9.
 
-!!! warning "Work in progress"
-    Satama is not yet available on Roihu, so the container images
-    referenced below cannot currently be accessed.
-    Satama support on Roihu is expected very soon.
-
 === "Roihu CPU base container (~4 GB)"
     Base containers are available:
 
