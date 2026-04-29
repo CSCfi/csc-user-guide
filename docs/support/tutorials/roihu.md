@@ -192,6 +192,42 @@ Base container are built on top of Rocky Linux 9.
     apptainer run --nv container.sif mycmd
     ```
 
+=== "Roihu ML/AI GPU base container (~8 GB)"
+    Base containers for machine learning/AI available.
+    
+    Built on Rocky Linux 9.7 with Python 3, MPI and CUDA installed traditionally via RPMs.
+    *This approach gives a container that is not identical to Roihu's host system, but may be easier to extend in some cases.*
+    
+
+    - `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda12.9`
+    - `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13`
+    - `satama.csc.fi/r_installation_aida/pytorch-base:2.10_cuda13_roihu` - `ml-base` image with basic PyTorch 2.10 packages added
+    - `satama.csc.fi/r_installation_aida/pytorch:2.10_cuda13_roihu` - full PyTorch installation (same as CSC module)
+    - `satama.csc.fi/r_installation_aida/vllm:0.19.1_cuda12.9_roihu` - vLLM container (same as CSC module)
+
+    Build definition file:
+
+    ```sh title="container.def"
+    Bootstrap: docker
+    From: satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13
+
+    %post
+        # Build your application here:
+    ```
+
+    When building the containers, set you cache directory to temporary directory to avoid filling you home directory quota.
+
+    ```bash
+    export APPTAINER_CACHEDIR=$TMPDIR
+    apptainer build --fakeroot container.sif container.def
+    ```
+
+    Now, you can run commands inside the container. For example to launch python3:
+
+    ```bash
+    apptainer exec --nv --bind=$(csc-common-bind) container.sif python3
+    ```
+
 More details on working with containers in CSC's computing environment can be found from the links below:
 
 - [Overview of containers](../../computing/containers/overview.md)
