@@ -54,10 +54,10 @@ Current versions in Roihu are:
   and JupyterLab 4.5.6.
 
 - Roihu-GPU: (default version) `python-data/3.12-20.04`: installed in April 2026,
-  includes for example Cupy 14.0.1 in addition to the Python libraries in Roihu-CPU python-data.
+  includes for example Cupy 14.0.1 in addition to the Python libraries available in Roihu-CPU python-data.
 
 - Roihu-GPU: `python-data/3.10-17.04`: installed in April 2026,
-  includes for example Cupy 13.6.0 in addition to the Python libraries in Roihu-CPU python-data.
+  includes for example Cupy 13.6.0 in addition to the Python libraries available in Roihu-CPU python-data.
 
 Current versions in Puhti and Mahti are:
 
