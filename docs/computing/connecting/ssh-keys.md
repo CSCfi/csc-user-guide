@@ -278,7 +278,12 @@ following instructions illustrate only basic usage.
 
 ### Check when your SSH certificate will expire
 
-Each SSH certificate is valid for 24 hours. The expiration time can be checked as follows:
+Each SSH certificate is valid for 24 hours.
+
+If you have an active certificate, the expiration time is printed when running the
+[`csc_cert.py` tool](#option-2-certificate-helper-tool).
+
+The expiration time can also be checked as follows:
 
 === "Terminal (Linux, macOS, PowerShell, MobaXterm)"
 
