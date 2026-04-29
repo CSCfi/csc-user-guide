@@ -24,9 +24,10 @@ A fast and easy-to-use library for LLM inference and serving.
 
 Currently supported vLLM versions:
 
-| Version | Module               |
-|:--------|----------------------|
-| 0.18.0  | `python-vllm/0.18.0` |
+| Version | Module               | Notes   |
+|:--------|----------------------|---------|
+| 0.19.1  | `python-vllm/0.19.1` | Default |
+| 0.18.0  | `python-vllm/0.18.0` |         |
 
 Includes [vLLM][], [PyTorch](https://pytorch.org/) and related
 libraries with GPU support via CUDA/ROCm.
