@@ -163,6 +163,27 @@ prterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
      or load a newer OpenMPI module (see `module spider openmpi/5.0.6`) to use `prterun`. See also: 
      <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>.
 
+
+## Connecting to a compute node of a running job
+
+Sometimes (e.g. for debugging purposes) it is useful to login to a compute 
+node where a Slurm job is currently running. Bash shell can be started in the master
+node of a job (i.e. the first node in your allocation and the one on which 
+your batch script is executed) as follows:
+```bash
+srun --jobid=<jobid> --overlap --pty bash
+```
+(`--overlap` allows to run multiple job steps at the same time, and `--pty` enables normal
+terminal behaviour).
+For jobs spanning multiple nodes it is also possible to connect to a specific
+node with the `--nodelist=` option:
+```bash
+srun --jobid=<jobid> --overlap --nodelist=rcXXXX --pty bash
+```
+where `rcXXXX` is the name of a node as shown e.g. by the `squeue` command.
+(Note that the format of the node names varies between different systems).
+
+
 ## Explicit interactive shell without X11 graphics
 
 If you do not want to use the `sinteractive` wrapper, it is also possible to
