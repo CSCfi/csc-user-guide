@@ -194,6 +194,14 @@ More details on working with containers in CSC's computing environment can be fo
 - [Creating containers](../../computing/containers/overview.md#building-container-images)
 - [Tykky container wrapper](../../computing/containers/tykky.md)
 
+### Spack
+
+Spack is a flexible package manager that can be used to install software on supercomputers and Linux and macOS systems. The basic module tree including compilers, MPI libraries and many of the available software on CSC supercomputers have been installed using Spack. Spack is similar to the EasyBuild package manager extensively used on LUMI.
+
+CSC provides user Spack modules on Roihu, that can be used to build software on top of the available compilers and libraries. It is also possible to install different customized versions of packages available in the module tree for special use cases.
+
+[See here for a short tutorial on how to install software on Roihu using Spack.](roihu-user-spack.md)
+
 ### Python/R environments
 
 Best practice guidelines on installing your own Python and R packages can be found in the Python, R and Tykky container wrapper pages below.
@@ -254,15 +262,6 @@ srun --argos=no <your-executable>
 ```
 
 The same option can also be passed as an `#SBATCH` input.
-
-#### sinteractive missing
-
-At present the `sinteractive` tool is not yet installed on Roihu, as such interactive jobs must be
-launched directly as below:
-
-```bash
-srun --partition interactive --ntasks 1 --cpus-per-task 1 --mem-per-cpu 2G --account <project> --pty bash -i
-```
 
 ## More information
 

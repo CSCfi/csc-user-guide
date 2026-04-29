@@ -13,11 +13,6 @@ running [web interface applications](../webinterface/apps.md) and
 [batch jobs](getting-started.md), but the most convenient way to use it is via
 the [`sinteractive` command](#the-sinteractive-command).
 
-!!! warning "`sinteractive` not yet available on Roihu!"
-     At present the `sinteractive` tool is not yet installed on Roihu,
-     as such interactive jobs must be launched directly:
-     `srun --partition interactive --ntasks 1 --cpus-per-task 1 --mem-per-cpu 2G --account <project> --pty bash -i`
-
 ## The `sinteractive` command
 
 `sinteractive` starts a new shell program on a compute node with the resources
@@ -49,7 +44,37 @@ When this option is used, the user is prompted for the individual parameters
 of the session (runtime, memory, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
 arguments. Note that the available options and resources are not identical on
-Puhti and Mahti due to differences in hardware.
+Roihu, Puhti and Mahti due to differences in hardware.
+
+### `sinteractive` on Roihu
+
+There are two interactive partitions available on Roihu; `interactive` for CPU 
+resources and `gpuinteractive` for GPU resources. See the
+[Roihu `interactive` partition details](./batch-job-partitions.md#roihu-partitions)
+for information on the available resources. The Roihu `gpuinteractive` partition 
+features GH200 superchips that are divided into a total of 48 smaller slices that 
+have one-seventh of the compute capacity and one-eighth of the GPU memory capacity 
+(12 GiB) of a full GH200 superchip. `sinteractive` will select the correct partition
+based on your resource request, and will automatically provide you with a GPU if
+run from the GPU login node without additional parameters.
+
+!!! warning "Submit from the correct login node; CPU or GPU"
+     It is imperative that if you are requesting an interactive GPU job that you
+     request it from `roihu-gpu.csc.fi`, and likewise a CPU job from `roihu-cpu.csc.fi`.
+     Failure to do so will result in modules incompatible with the system architecture
+     being loaded and available, as the interactive job inherits the environment from
+     the login node.
+
+!!! info "`gpuinteractive` currently gives full GPUs during pilot"
+     The GPU slicing in the `gpuinteractive` partition is not yet implemented, so
+     during the pilot users will be allocated full GPUs.
+
+To see the command options available on Roihu, run the following while
+logged into the system:
+
+```bash
+sinteractive --help
+```
 
 ### `sinteractive` on Puhti
 
@@ -109,7 +134,7 @@ Since the shell that is started in the interactive session is already a job
 step in Slurm, additional job steps cannot be created. This prevents running
 e.g. GROMACS tools in the usual way, since `gmx_mpi` is a parallel program and
 normally requires using `srun`. In this case, `srun` must be replaced with
-`orterun -n 1` in the interactive shell. Orterun does not know of the Slurm
+`prterun -n 1` in the interactive shell. Prterun does not know of the Slurm
 flags, so it needs to be told how many tasks/threads to use. The following
 example will run a [GROMACS](../../apps/gromacs.md) mean square displacement
 analysis for an existing trajectory:
@@ -117,7 +142,7 @@ analysis for an existing trajectory:
 ```bash
 sinteractive --account <project>
 module load gromacs-env
-orterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
+prterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
 ```
 
 To use all requested cores in parallel, you need to add `--oversubscribe`.
@@ -127,8 +152,17 @@ E.g. for 4 cores, a parallel interactive job
 ```bash
 sinteractive --account <project> --cores 4
 module load gromacs-env
-orterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
+prterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
 ```
+
+!!! info
+     The legacy launcher orterun (based on ORTE) has been replaced by prterun
+     (based on PRRTE) starting with OpenMPI 5.0.
+
+     On Mahti and Puhti, you can either use `orterun` with the default MPI environment,
+     or load a newer OpenMPI module (see `module spider openmpi/5.0.6`) to use `prterun`. See also: 
+     <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>.
+
 
 ## Connecting to a compute node of a running job
 
