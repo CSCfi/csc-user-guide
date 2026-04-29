@@ -15,6 +15,10 @@ full
 For example, term "environment" in this document specifically refers to
 [Spack environments](https://spack.readthedocs.io/en/latest/environments.html).
 
+!!! warning "Work in progress"
+    This section is a work in progress. Some steps may be outdated,
+    incomplete, or not fully tested in the current Roihu environment.
+    Use with caution and report any issues you encounter.
 
 ## When to install with Spack
 
