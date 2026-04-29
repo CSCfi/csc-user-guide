@@ -69,7 +69,7 @@ For platform-specific instructions, see:
 ### Roihu web interface
 
 !!! warning "Roihu web interface availability during the pilot period"
-     Roihu web interface will only be vailable after General Availability. Please connect via SSH during the pilot phase.
+     Roihu web interface will only be available after General Availability. Please connect via SSH during the pilot phase.
      
 
 The simplest way to connect to Roihu is to use the web interface.
@@ -94,7 +94,7 @@ Quota extensions on Roihu must be separately applied for and properly motivated.
 
 ## Installing software
 
-Before installing anything check if the software is already available:
+Before installing anything, check if the software is already available:
 
 - [List of pre-installed applications](../../apps/by_availability.md#roihu)
 - `module spider <software name>`
@@ -115,7 +115,7 @@ Roihu supports Apptainer/Singularity containers for container installations.
 In most cases, ready-made Docker containers can be easily converted into an Apptainer image.
 Another option is to build your own container from scratch. 
 You can build containers on top of Roihu base containers which have the same software stack as is available via the module system natively.
-Base container are built on top of Rocky Linux 9.
+Base containers are built on top of Rocky Linux 9.
 
 !!! warning "Work in progress"
     Satama is not yet available on Roihu, so the container images
@@ -260,7 +260,7 @@ Basic workflow:
     * Define the resources for your job (time, memory, cores)
     * Load the required modules
     * Launch your executable
-2. Submit your batch job into the queuing system
+2. Submit your batch job to the queuing system
 3. Wait for the job to finish, and look for its output
 
 See the relevant documentation below for detailed information:
