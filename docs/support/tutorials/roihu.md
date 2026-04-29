@@ -192,11 +192,11 @@ Base container are built on top of Rocky Linux 9.
     apptainer run --nv container.sif mycmd
     ```
 
-=== "Roihu ML/AI GPU base container (~8 GB)"
+=== "Roihu ML/AI GPU base containers"
     Base containers for machine learning/AI available.
     
     Built on Rocky Linux 9.7 with Python 3, MPI and CUDA installed traditionally via RPMs.
-    *This approach gives a container that is not identical to Roihu's host system, but may be easier to extend in some cases.*
+    *This approach gives a container that is not identical to Roihu's host system, but may be easier to extend in some cases than the normal base containers.*
     
 
     - `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda12.9`
