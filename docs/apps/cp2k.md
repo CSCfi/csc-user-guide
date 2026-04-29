@@ -119,7 +119,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --hint=nomultithread
 
     module purge
-    module load gcc/15.2.0 openmpi/5.0.8
+    module load gcc/15.2.0 openmpi/5.0.10
     module load cp2k/2026.1
 
     srun cp2k.psmp H2O-512.inp > H2O-512.out
@@ -139,7 +139,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --hint=nomultithread
 
     module purge
-    module load gcc/13.4.0 openmpi/5.0.8
+    module load gcc/13.4.0 openmpi/5.0.10
     module load cp2k/2026.1
 
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
