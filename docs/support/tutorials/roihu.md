@@ -117,6 +117,8 @@ Another option is to build your own container from scratch.
 You can build containers on top of Roihu base containers which have the same software stack as is available via the module system natively.
 Base containers are built on top of Rocky Linux 9.
 
+---
+
 === "Roihu CPU base container (~4 GB)"
     Base containers are available:
 
@@ -221,6 +223,8 @@ Base containers are built on top of Rocky Linux 9.
     ```bash
     apptainer exec --nv --bind=$(csc-common-bind) container.sif python3
     ```
+
+---
 
 More details on working with containers in CSC's computing environment can be found from the links below:
 
