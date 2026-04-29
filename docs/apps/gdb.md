@@ -10,6 +10,7 @@ catalog:
   available_on:
     - Puhti
     - Mahti
+    - Roihu-CPU
 ---
 
 # gdb: GNU Debugger
@@ -18,6 +19,7 @@ catalog:
 
 - Puhti
 - Mahti
+- Roihu-CPU
 
 ## License
 
@@ -34,18 +36,21 @@ correct the effects of a bug.
 In order to use the debugger the program has to be compiled with `-g` flag to
 enable symbolic debugging.
 
-The debugger can either start a new process or attach to a running process.
+One can either start the application under the debugger, or attach the debugger 
+to a running application.
 
-Example of starting a new process to be debugged:
-
+In order to start the application under the debugger, launch first an
+[interactive session](running/interactive-usage.md) and execute then:
 ```
 gdb --tui ./myexecutable
 ```
 
-Example of attaching to an existing process (with process ID `pid`):
-
+In order to attach to a running application, 
+[connect first to a compute node](running/interactive-usage.md#connecting-to-a-compute-node-of-a-running-job).
+Next, you need to find the process ID `<pid>` e.g. by running the command `ps ux`,
+attach then debugger to that:
 ```
-gdb --tui ./myexecutable pid
+gdb --tui ./myexecutable <pid>
 ```
 
 If additional arguments are needed for the program, one can use the option
