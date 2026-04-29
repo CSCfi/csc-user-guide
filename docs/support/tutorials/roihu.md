@@ -69,7 +69,7 @@ For platform-specific instructions, see:
 ### Roihu web interface
 
 !!! warning "Roihu web interface availability during the pilot period"
-     Roihu web interface will only be vailable after General Availability. Please connect via SSH during the pilot phase.
+     Roihu web interface will only be available after General Availability. Please connect via SSH during the pilot phase.
      
 
 The simplest way to connect to Roihu is to use the web interface.
@@ -94,7 +94,7 @@ Quota extensions on Roihu must be separately applied for and properly motivated.
 
 ## Installing software
 
-Before installing anything check if the software is already available:
+Before installing anything, check if the software is already available:
 
 - [List of pre-installed applications](../../apps/by_availability.md#roihu)
 - `module spider <software name>`
@@ -115,15 +115,12 @@ Roihu supports Apptainer/Singularity containers for container installations.
 In most cases, ready-made Docker containers can be easily converted into an Apptainer image.
 Another option is to build your own container from scratch. 
 You can build containers on top of Roihu base containers which have the same software stack as is available via the module system natively.
-Base container are built on top of Rocky Linux 9.
+Base containers are built on top of Rocky Linux 9.
 
-!!! warning "Work in progress"
-    Satama is not yet available on Roihu, so the container images
-    referenced below cannot currently be accessed.
-    Satama support on Roihu is expected very soon.
+---
 
 === "Roihu CPU base container (~4 GB)"
-    Base containers available:
+    Base containers are available:
 
     - `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03`
 
@@ -143,21 +140,21 @@ Base container are built on top of Rocky Linux 9.
         exec "$@"
     ```
 
-    When building containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+    When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
 
     ```bash
     export APPTAINER_CACHEDIR=$TMPDIR
     apptainer build --fakeroot container.sif container.def
     ```
 
-    Now, you can run commands inside the container with clean environment and environment active as follows:
+    Now, you can run commands inside the container with the environment active as follows:
 
     ```bash
     apptainer run container.sif mycmd
     ```
 
 === "Roihu GPU base container (~16 GB)"
-    Base containers available:
+    Base containers are available:
 
     - `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03`
     - `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03`
@@ -179,18 +176,55 @@ Base container are built on top of Rocky Linux 9.
         exec "$@"
     ```
 
-    When building the containers, set you cache directory to temporary directory to avoid filling you home directory quota.
+    When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
 
     ```bash
     export APPTAINER_CACHEDIR=$TMPDIR
     apptainer build --fakeroot container.sif container.def
     ```
 
-    Now, you can run commands inside the container with clean environment and environment active as follows:
+    Now, you can run commands inside the container with the environment active as follows:
 
     ```bash
     apptainer run --nv container.sif mycmd
     ```
+
+=== "Roihu ML/AI GPU base containers"
+    Base containers for machine learning/AI are available.
+    
+    These containers are built on Rocky Linux 9.7 with Python 3, MPI and CUDA installed via RPM packages.
+    *This approach produces a container that is not identical to Roihu's host system, but may be easier to extend in some cases than the normal base containers.*
+    
+    - `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda12.9`
+    - `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13`
+    - `satama.csc.fi/r_installation_aida/pytorch-base:2.10_cuda13_roihu` - `ml-base` image with basic PyTorch 2.10 packages added
+    - `satama.csc.fi/r_installation_aida/pytorch:2.10_cuda13_roihu` - full PyTorch installation (same as CSC module)
+    - `satama.csc.fi/r_installation_aida/vllm:0.19.1_cuda12.9_roihu` - vLLM container (same as CSC module)
+
+    Build definition file:
+
+    ```sh title="container.def"
+    Bootstrap: docker
+    From: satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13
+
+    %post
+        # Build your application here:
+    ```
+
+    When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+
+    ```bash
+    export APPTAINER_CACHEDIR=$TMPDIR
+    apptainer build --fakeroot container.sif container.def
+    ```
+
+    Now, you can run commands inside the container. For example to launch python3:
+
+    ```bash
+    apptainer exec --nv --bind=$(csc-common-bind) container.sif python3
+    ```
+
+---
 
 More details on working with containers in CSC's computing environment can be found from the links below:
 
@@ -225,7 +259,7 @@ Basic workflow:
     * Define the resources for your job (time, memory, cores)
     * Load the required modules
     * Launch your executable
-2. Submit your batch job into the queuing system
+2. Submit your batch job to the queuing system
 3. Wait for the job to finish, and look for its output
 
 See the relevant documentation below for detailed information:
