@@ -10,6 +10,7 @@ catalog:
   available_on:
     - Puhti
     - Mahti
+    - Roihu-GPU
 ---
 
 # compute-sanitizer: functional correctness checking suite for CUDA programs
@@ -18,6 +19,7 @@ catalog:
 
 - Puhti: 2022.2.0
 - Mahti: 2021.3.0
+- Roihu-GPU
 
 ## License
 
@@ -29,8 +31,9 @@ Usage is possible for both academic and commercial purposes.
 In order to use the tool, the CUDA code has to be compiled with the extra flags
 `-g` and `-G`.
 
-Debugging is started in an [interactive session](../computing/running/interactive-usage.md) 
-by running:
+Running the tool can be done either in an [interactive session](running/interactive-usage.md) or in a 
+[batch job](running/submitting-jobs.md). The application is started as (prepend `compute-sanitizer` by `srun`
+in a batch job): 
 
 ```bash
 compute-sanitizer  --tool <tool> ./cuda_program
@@ -44,3 +47,8 @@ where `<tool>` is one of the several sub-tools for different type of checks:
 * `initcheck`: can report cases where the GPU performs uninitialized accesses to global memory 
 
 * `synccheck`: can report cases where the application is attempting invalid usages of synchronization primitives
+
+!!! info 
+     Sometimes external libraries (e.g. MPI) generate a lot of false positives
+
+
