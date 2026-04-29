@@ -139,7 +139,7 @@ We recommend trying the MyCSC workflow first, since it should work out-of-the-bo
     ![Sign and download SSH certificate](https://a3s.fi/docs-files/sign-download-ssh-cert.png 'Sign and download SSH certificate')
 
     !!! info "Where to store the SSH certificate?"
-        We **strongly** advice saving the certificate in the default folder for
+        We **strongly** advise saving the certificate in the default folder for
         SSH-related files (e.g. `~/.ssh` or `C:\Users\<username>/.ssh`).
         Specifically, storing the certificate in the same directory as your
         SSH private key **and** naming it as `<key>-cert.pub` will simplify
@@ -209,8 +209,8 @@ following instructions illustrate only basic usage.
               directory as the script. If not, make sure to provide the full
               path to `csc_cert.py`.
 
-        3. If you have an earlier certificate which is still valid, the tool 
-           prints the expiration time and exits.
+        3. **If you have an earlier certificate which is still valid, the tool 
+           prints the expiration time and exits.**
         4. If signing is needed, a login URL is displayed. Follow the link and
            authenticate.
         5. Copy the 6-digit code displayed into your terminal and enter your
@@ -219,7 +219,7 @@ following instructions illustrate only basic usage.
               your SSH agent.
             - The signed certificate is saved as
               `<key>-cert.pub` (e.g., `~/.ssh/id_ed25519-cert.pub`).
-        6. Your now have everything ready to **[Connect to Roihu following these instructions](ssh-unix.md#basic-usage)**.
+        6. You now have everything ready to **[connect to Roihu following these instructions](ssh-unix.md#basic-usage)**.
 
     === "Windows"
 
@@ -277,8 +277,13 @@ following instructions illustrate only basic usage.
 ---
 
 ### Check when your SSH certificate will expire
-        Each SSH certificate is valid for 24 hours. The expiration time can be
-        checked as follows:
+
+Each SSH certificate is valid for 24 hours.
+
+If you have an active certificate, the expiration time is printed when running the
+[`csc_cert.py` tool](#option-2-certificate-helper-tool).
+
+The expiration time can also be checked as follows:
 
 === "Terminal (Linux, macOS, PowerShell, MobaXterm)"
 
