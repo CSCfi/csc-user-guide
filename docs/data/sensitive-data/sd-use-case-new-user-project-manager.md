@@ -14,7 +14,7 @@ You need access to SD services for processing research data. Whether you are the
 2. [Create CSC project](#2-create-new-csc-project)
 3. [Data protection](#3-data-protection)
 4. [If you have a research team, add them to be your project members](#4-if-you-have-a-research-team-add-them-to-be-your-project-members)
-5. [Closing your project and data retention](#5-closing-your-project-and-data-retention)
+5. [Project lifetime, Billing Units and Data Retention](#5-project-lifetime-billing-units-and-data-retention)
 6. [Planning for resources consumption and login ](#6-planning-for-resources-consumption-and-login)
 
 ![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
@@ -73,25 +73,6 @@ You need access to SD services for processing research data. Whether you are the
 ---
 
 #### 2.4 Apply Billing Units for your project
-
-
-!!! default "Billing Units"
-
-     **Every active CSC project consumes both Billing Units (BUs) and storage quota.** 
-     
-     **Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
-     
-     - **SD Desktop** consumes **Cloud Billing Units** type, which reflect the use of virtual desktops and compute resources
-     - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure
-     
-     - 30 000 Cloud and Storage BUs is usually enough for initial testing. 
-     
-     **The storage quota** limits the amount of storage space available:
-     
-     - Default quota (or storage space) for each CSC project with for SD Connect enabled is 10 TB, which you can expand up to 200 TB as needed by contacting service desk (subject: Increase Allas quota).
-     - Default volume quota for each virtual desktop is up to 200 GB. This is the storage space used to import files from SD Connect to SD Desktop for the analysis phase. You can expand the volume, before any data has been imported to it, by writing to servicedesk@csc.fi (subject: SD Desktop). 
-
-     [More information about billing units](./sd-billing-units.md)
 
 - Select **S 30 000 BUs** under Cloud Resource Package.
 - Select **S 30 000 BUs** under Storage Resource Package.
@@ -160,18 +141,41 @@ If you need assistance with the above points or support to verify if SD services
 
 ---
 
-### 5. Closing your project and data retention
+### 5. Project Lifetime, Billing Units, and Data Retention
 
-The default lifetime of a CSC project is one year, after which it will be automatically closed and all data deleted. As a project manager, you can either extend the project duration or directly close your project after completing your research.  As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure) via the MyCSC portal.
+#### 5.1 Default project lifetime
 
-- You will receive an email notification from the MyCSC portal when your project is about to expire. Please keep your contact information up to date in MyCSC to ensure you receive this notification.
-- After the project is closed, access to SD Connect and SD Desktop services will be disabled.
-- All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
+The default lifetime of a CSC project is **one year**, after which the project is automatically closed and all data is deleted.
 
-!!! Note
-    Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
+#### 5.2 When your project runs out of Billing Units
 
-![Close project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_CloseProject.png)
+When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
+
+To prevent this, the project manager should:
+
+1. Apply for more [**Billing Units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
+2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+
+When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Please keep your contact details up to date.
+
+#### 5.3 Closing project 
+
+Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC.
+
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **After your project is closed**
+  { .csc-grid-card-error }
+
+    ___
+
+    - Access to SD Connect and SD Desktop services will be disabled.
+    - All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
+    - Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
+
+</div>
+
 
 ---
 
