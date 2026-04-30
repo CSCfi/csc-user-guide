@@ -8,7 +8,7 @@
 
     ___
 
-    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**. [**Read more**](#when-your-project-runs-out-of-billing-units)
+    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**[**Read more**](#when-your-project-runs-out-of-billing-units)
     
 </div>
 
