@@ -10,7 +10,7 @@
 
     When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
     
-    s[**Read more**](#when-your-project-runs-out-of-billing-units)
+    [**Read more**](#when-your-project-runs-out-of-billing-units)
     
 </div>
 
@@ -54,7 +54,7 @@ You can monitor Billing Units usage in MyCSC portal.
 - :material-alert:{ .lg .middle }
   { .csc-grid-card-error }
 
-     When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain balance negative after those 60 days, [the project will be closed and all data is deleted.](sd-use-case-new-user-project-manager.md//#5-project-lifetime-billing-units-and-data-retention)**. You’ll receive email notifications in advance when Billing Units are running low. 
+     When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain balance negative after those 60 days, [the project will be closed and all data is deleted.](sd-use-case-new-user-project-manager.md//#5-project-lifetime-billing-units-and-data-retention)** You’ll receive email notifications in advance when Billing Units are running low. 
 
     To prevent this, the project manager should:
 
@@ -146,7 +146,7 @@ Here’s a table summarizing the Cloud Billing Units required for using **virtua
 
 Here’s a table summarizing the Cloud Billing Units required for using **volumes** over **one year** for various options:
 
-| Volume Option | Cloud Billing Rate (units/TB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
+| Volume Option | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
 | 200 GB | 4.7 | 4 000 |Small package, 2 times a year: 30 000 BUs assigned immediately| 
 | 1 TB | 4.7 | 20 000 |Small package, 2 times a year: 30 000 BUs assigned immediately  |
@@ -206,10 +206,6 @@ You can apply for more BUs for your CSC project via MyCSC portal.
 10. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
 11. When the Biling Units will be assigned to the CSC Project you will receive an email notification. 
-
-
-
-
 
 
 ### Log into services

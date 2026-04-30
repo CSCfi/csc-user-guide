@@ -143,11 +143,11 @@ If you need assistance with the above points or support to verify if SD services
 
 ### 5. Project Lifetime, Billing Units, and Data Retention
 
-#### Default project lifetime
+#### 5.1 Default project lifetime
 
-The default lifetime of a CSC project is one year, after which the project is automatically closed and all data is deleted.
+The default lifetime of a CSC project is **one year**, after which the project is automatically closed and all data is deleted.
 
-#### When your project runs out of Billing Units
+#### 5.2 When your project runs out of Billing Units
 
 When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
 
@@ -156,9 +156,9 @@ To prevent this, the project manager should:
 1. Apply for more [**Billing Units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
 2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
 
-When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Keep your contact details up to date.
+When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Please keep your contact details up to date.
 
-#### Closing project 
+#### 5.3 Closing project 
 
 Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC.
 
