@@ -149,7 +149,7 @@ The default lifetime of a CSC project is one year, after which the project is au
 
 #### When your project runs out of Billing Units
 
-When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**. 
+When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
 
 To prevent this, the project manager should:
 
