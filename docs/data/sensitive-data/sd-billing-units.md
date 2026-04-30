@@ -89,7 +89,7 @@ You can monitor Storage Quota in MyCSC portal.
 
 ![Storage Quota in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Quota.png)
 
-### When your project runs out of quota
+### When your project runs out of Storage Quota
 
 <div class="grid cards" markdown>
 
@@ -104,9 +104,9 @@ You can monitor Storage Quota in MyCSC portal.
 </div>
 
 
-### How to increase quota
+### How to increase Storage Quota
 
-If you have less quota available than is needed, apply for more:
+If you have less Storage Quota available than is needed, apply for more:
 
   - Send email to Service Desk (subject line: Increase Allas quota). It takes few days to process your application.
   - You will receive email when your quota is available.
