@@ -146,7 +146,7 @@ Here’s a table summarizing the Cloud Billing Units required for using **virtua
 
 Here’s a table summarizing the Cloud Billing Units required for using **volumes** over **one year** for various options:
 
-| Volume Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
+| Volume Option | Cloud Billing Rate (units/TB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
 | 200 GB | 4.7 | 4 000 |Small package, 2 times a year: 30 000 BUs assigned immediately| 
 | 1 TB | 4.7 | 20 000 |Small package, 2 times a year: 30 000 BUs assigned immediately  |
