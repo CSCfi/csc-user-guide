@@ -93,10 +93,8 @@ You can monitor Storage Quota in MyCSC portal.
 
 <div class="grid cards" markdown>
 
-- :material-alert:{ .lg .middle } **What happens to your project and services:**
+- :material-alert:{ .lg .middle } 
   { .csc-grid-card-warning }
-
-    ---
 
     - Data upload to SD Connect will no longer be possible.
     - Data import to SD Desktop will no longer be possible.
