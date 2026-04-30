@@ -74,7 +74,6 @@ You need access to SD services for processing research data. Whether you are the
 
 #### 2.4 Apply Billing Units for your project
 
-- Plan your Billing Units usage using [this guide](sd-billing-units.md).
 - Select **S 30 000 BUs** under Cloud Resource Package.
 - Select **S 30 000 BUs** under Storage Resource Package.
 - Click **Next**.
@@ -146,14 +145,21 @@ If you need assistance with the above points or support to verify if SD services
 
 The default lifetime of a CSC project is one year, after which the project is automatically closed and all data is deleted.
 
-#### If project runs out of billing units
+### When your project runs out of Billing Units
 
-If an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. If Billing Units remain negative after this period, **the project will be closed and all data deleted**. 
+When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balaance remain negative after those 60 days, [the project will be closed](sd-use-case-new-user-project-manager.md/#5-closing-your-project-and-data-retention)**. 
 
 To prevent this, the project manager should:
 
-1. Apply for more [Billing Units](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
-2. [Extend](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+1. Apply for more [**Billing Units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
+2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+
+Until you apply for more BUs you will have a **limited access to the SD Desktop**:
+
+- All virtual desktops currently running will automatically be paused in SD Desktop.
+- You will not be able to access the virtual desktops content's or unpause them.
+
+When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Keep your contact details up to date.
 
 #### Closing project 
 
@@ -162,13 +168,12 @@ Once your research is complete, the project manager can [close CSC project](../.
 
 <div class="grid cards" markdown>
 
-- :material-alert:{ .lg .middle } **When your project is low on billing units or is about to expire:**
+- :material-alert:{ .lg .middle } **After your project is closed**
   { .csc-grid-card-error }
 
     ___
 
-    - You will receive an email notification from the MyCSC portal when your project is about to expire or your project is running low on Billing Units. Please keep your contact information up to date in MyCSC to ensure you receive this notification.
-    - After the project is closed, access to SD Connect and SD Desktop services will be disabled.
+    - Access to SD Connect and SD Desktop services will be disabled.
     - All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
     - Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
 

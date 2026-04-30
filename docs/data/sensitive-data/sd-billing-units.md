@@ -61,10 +61,6 @@ Until you apply for more BUs you will have a **limited access to the SD Desktop*
 
    
 
-   
-
-
-
 ## What is Storage Quota 
 
 The storage quota defines how much space is available for your project’s data. It represents a capacity limit, not a consumable resource. 
