@@ -8,7 +8,7 @@
 
     ___
 
-    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain negative after those 60 days, the project will be closed**. [**Read more**](#when-your-project-runs-out-of-billing-units)
+    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain negative after those 60 days, the project will be closed and all data is deleted.**. [**Read more**](#when-your-project-runs-out-of-billing-units)
     
 </div>
 
@@ -47,12 +47,21 @@ You can monitor Billing Units usage in MyCSC portal.
 
 ### When your project runs out of Billing Units
 
-When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain negative after those 60 days, [the project will be closed](sd-use-case-new-user-project-manager.md/#5-closing-your-project-and-data-retention)**. You’ll receive email notifications in advance when Billing Units are running low. 
+<div class="grid cards" markdown>
 
-To prevent this, the project manager should:
+- :material-alert:{ .lg .middle } **What to do when your project is running out of Billing Units**
+  { .csc-grid-card-error }
 
-1. Apply for more [**Billing Units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
-2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+    ___
+
+     You’ll receive email notifications in advance when Billing Units are running low. Project members have **60 days** to apply for more. **If Billing Units remain negative after those 60 days, [the project will be closed and all data is deleted.](sd-use-case-new-user-project-manager.md//#5-project-lifetime-billing-units-and-data-retention)**.
+
+    To prevent this, the project manager should:
+
+    1. Apply for more [**Billing Units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
+    2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+
+</div>
 
 Until you apply for more BUs you will have a **limited access to the SD Desktop**:
 

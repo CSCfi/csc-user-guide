@@ -143,27 +143,24 @@ If you need assistance with the above points or support to verify if SD services
 
 ### 5. Project Lifetime, Billing Units, and Data Retention
 
+#### Default project lifetime
+
 The default lifetime of a CSC project is one year, after which the project is automatically closed and all data is deleted.
 
-### When your project runs out of Billing Units
+#### When your project runs out of Billing Units
 
-When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balaance remain negative after those 60 days, [the project will be closed](sd-use-case-new-user-project-manager.md/#5-closing-your-project-and-data-retention)**. 
+When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**. 
 
 To prevent this, the project manager should:
 
 1. Apply for more [**Billing Units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
 2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
 
-Until you apply for more BUs you will have a **limited access to the SD Desktop**:
-
-- All virtual desktops currently running will automatically be paused in SD Desktop.
-- You will not be able to access the virtual desktops content's or unpause them.
-
 When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Keep your contact details up to date.
 
 #### Closing project 
 
-Once your research is complete, the project manager can [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure).
+Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC.
 
 
 <div class="grid cards" markdown>
