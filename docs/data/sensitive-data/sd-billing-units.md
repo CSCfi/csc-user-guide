@@ -8,7 +8,7 @@
 
     ___
 
-    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain negative after those 60 days, the project will be closed**. You’ll receive email notifications in advance when Billing Units are running low. 
+    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain negative after those 60 days, the project will be closed**. [**Read more**](#when-your-project-runs-out-of-billing-units)
     
 </div>
 
@@ -47,21 +47,23 @@ You can monitor Billing Units usage in MyCSC portal.
 
 ### When your project runs out of Billing Units
 
-<div class="grid cards" markdown>
+When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain negative after those 60 days, [the project will be closed](sd-use-case-new-user-project-manager.md/#5-closing-your-project-and-data-retention)**. You’ll receive email notifications in advance when Billing Units are running low. 
 
-- :material-alert:{ .lg .middle } **What happens to your project and services:**
-  { .csc-grid-card-error }
+To prevent this, the project manager should:
 
-    ___
+1. Apply for more [**Billing Units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
+2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
 
-    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain negative after those 60 days, [the project will be closed](sd-use-case-new-user-project-manager.md/#5-closing-your-project-and-data-retention)**. You’ll receive email notifications in advance when Billing Units are running low. 
+Until you apply for more BUs you will have a **limited access to the SD Desktop**:
 
-    Until you apply for more BUs you will have a **limited access to the SD Desktop**:
+- All virtual desktops currently running will automatically be paused in SD Desktop.
+- You will not be able to access the virtual desktops content's or unpause them.
 
-    - All virtual desktops currently running will automatically be paused in SD Desktop.
-    - You will not be able to access the virtual desktops content's or unpause them.
-    
-</div>
+   
+
+   
+
+
 
 ## What is Storage Quota 
 
