@@ -10,7 +10,7 @@
 
     When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
     
-    [**Read more**](#when-your-project-runs-out-of-billing-units)
+    s[**Read more**](#when-your-project-runs-out-of-billing-units)
     
 </div>
 
@@ -157,9 +157,9 @@ Here’s a table summarizing the Cloud Billing Units required for using **volume
 
 SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.4 Storage BUs per TB per hour**.
 
-Here’s a table summarizing the Storage Billing Units required for storing data in **SD Connect** over **6 months** for various storage sizes:
+Here’s a table summarizing the Storage Billing Units required for storing data in **SD Connect** over **1 year** for various storage sizes:
 
-| Storage Size |  Storage Billing Units (consumed in 6 months) |  Select the correct BU Package in MyCSC and application frequency |
+| Storage Size |  Storage Billing Units (consumed in 1 year) |  Select the correct BU Package in MyCSC and application frequency |
 |------------------|------------------------------|----------------------------|
 | 500 GB (0.5 TB) | 3 000  units | Basic package, 3 times a year: 2 500 BUs assigned immediately |
 | 1 TB | 6 000 units | Small package, 2 times a year: 30 000 BUs assigned immediately |
