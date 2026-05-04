@@ -4,44 +4,52 @@
 
 
 - [Overview](#overview)
-- [Key features](#key-features)
-- [Limitations](#limitations)
+- [Key features and limitations](#key-features-and-limitations)
 - [Your next steps in this guide](#your-next-steps-in-this-guide)
 
 
 ## Overview
 
-Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
+Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (create, use, delete) a virtual computer (here called a virtual desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
 
-[![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
-
-You can browse the main topics of this section using the navigation bar on the right side of this page or the search function.
-
-
-### Key features
-
-* Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
-
-* Only members of the same CSC project can access the virtual desktop. One CSC project can create up to three desktops. 
-
-* Four pre-built computing options (Linux Ubuntu OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customization is possible by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data);
-
-* The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
-
-
-### Limitations
-
-* The project manager or group leader should regularly check project members in MyCSC and verify who can access SD Desktop or SD Connect. Remove members who no longer need access to the data.
-
-* Only open-source software is available.
-
-* We do not provide virtual desktops with GPUs or Windows operating systems. 
+### Multiple ways of accessing data via SD Desktop
+![Multiple ways of accessing data via SD Desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Desktop_overview.png)
 
 !!! Note 
     Data under the Secondary Use of Health and Social Data Act can't be processed in the standard SD Desktop service. For processing secondary use health and social data, please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements for accessing datasets provided by the Findata authority or public registers.
 
+## Key features and limitations
 
-## Your next steps in this guide
+<div class="grid cards" markdown>
+
+- :material-check-circle-outline:{ .lg .middle } **Key features**
+
+    ---
+
+    * Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
+
+    * Only members of the same CSC project can access the virtual desktop. One CSC project can create up to three desktops. 
+
+    * Four pre-built computing options (Linux Ubuntu OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customization is possible by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data);
+
+    * The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
+
+
+- :material-alert-outline:{ .lg .middle } **Limitations**
+
+    ---
+
+    * The project manager or group leader should regularly check project members in MyCSC and verify who can access SD Desktop or SD Connect. Remove members who no longer need access to the data.
+
+    * Only open-source software is available.
+
+    * We do not provide virtual desktops with GPUs or Windows operating systems. 
+
+</div>
+
+
+
+## Your next steps in this guide:
 
 If you have already created a CSC account and are part of a CSC project, you can proceed with the following steps:
 
@@ -56,4 +64,3 @@ If you have already created a CSC account and are part of a CSC project, you can
 * [Export data programmatically](./sd-desktop-export-commandline.md)
 * [Using HPC resources for sensitive data](./tutorials/sdsi.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
-
