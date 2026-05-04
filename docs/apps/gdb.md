@@ -40,13 +40,13 @@ One can either start the application under the debugger, or attach the debugger
 to a running application.
 
 In order to start the application under the debugger, launch first an
-[interactive session](running/interactive-usage.md) and execute then:
+[interactive session](../computing/running/interactive-usage.md) and execute then:
 ```
 gdb --tui ./myexecutable
 ```
 
 In order to attach to a running application, 
-[connect first to a compute node](running/interactive-usage.md#connecting-to-a-compute-node-of-a-running-job).
+[connect first to a compute node](../computing/running/interactive-usage.md#connecting-to-a-compute-node-of-a-running-job).
 Next, you need to find the process ID `<pid>` e.g. by running the command `ps ux`,
 attach then debugger to that:
 ```
