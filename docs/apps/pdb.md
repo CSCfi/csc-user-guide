@@ -33,7 +33,7 @@ Usage is possible for both academic and commercial purposes.
 debugger that supports breakpoints, stepping through the source line by line,
 inspection of stack frames, source code listing, etc.
 
-In order to use the tool, launch first an [interactive session](running/interactive-usage.md)
+In order to use the tool, launch first an [interactive session](../computing/running/interactive-usage.md)
 and start then your Python program under the debugger:
 ```
 python -m pdb myscript.py
