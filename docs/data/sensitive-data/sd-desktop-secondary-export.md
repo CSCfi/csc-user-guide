@@ -14,9 +14,9 @@ Please ensure you reserve enough time for the export process. It may take us a f
 4. Collect all the results into a folder on your Desktop and name it as **Results**;
 5. Place the **Results** folder into the **shared-directory** on your Desktop;
 7. **Send a request to [CSC Service Desk](../../support/contact.md)** to export your results;
-8. All the content in the “Results” folder will be exported. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be added back to the CSC project, if your project is still ongoing;
+8. The content of the “Results” folder will be exported on the agreed time. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be added back to the CSC project, if your project is still ongoing;
 9. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect;
-10. Follow [Findata's instructions](https://findata.fi/palvelut-ja-ohjeet/tulosten-tuominen-ulos-kayttoymparistosta/#Tulosten-tuominen-ulos-muusta-k%C3%A4ytt%C3%B6ymp%C3%A4rist%C3%B6st%C3%A4) after the risk based assesment and deliver the results to Findata for scrutiny, if required.
+10. If required by the risk based assesment, deliver the results to Findata for scrutiny following [Findata's instructions](https://findata.fi/palvelut-ja-ohjeet/tulosten-tuominen-ulos-kayttoymparistosta/#Tulosten-tuominen-ulos-muusta-k%C3%A4ytt%C3%B6ymp%C3%A4rist%C3%B6st%C3%A4).
 
 !!! Note
     When requesting export, remember to agree on the export date with all project members, because the virtual desktops will be unavailable during the export. In addition, remember to save all your work before the export, because software and processes can be interrupted during the export.
