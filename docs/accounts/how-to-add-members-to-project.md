@@ -26,7 +26,7 @@ If you need to remove a member go to Members, find the correct user account and 
 
 This method is useful if you have tens of users to add, because you do not have
 to type in account names. You do not need to know the users' account names.
-They do not even have to be registered yet. 
+But they do need to have CSC user account ready.  
 
 ### Project manager
 
@@ -38,8 +38,7 @@ They do not even have to be registered yet.
 
 ### Member
 
-1. [Register for CSC](how-to-create-new-user-account.md) if you have not
-   already done so.
+1. [Register for CSC](how-to-create-new-user-account.md) if you do not have CSC user account yet.
 1. Login to [MyCSC](http://my.csc.fi).
 1. Click _Apply project membership_.
 
