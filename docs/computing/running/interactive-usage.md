@@ -44,7 +44,37 @@ When this option is used, the user is prompted for the individual parameters
 of the session (runtime, memory, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
 arguments. Note that the available options and resources are not identical on
-Puhti and Mahti due to differences in hardware.
+Roihu, Puhti and Mahti due to differences in hardware.
+
+### `sinteractive` on Roihu
+
+There are two interactive partitions available on Roihu; `interactive` for CPU 
+resources and `gpuinteractive` for GPU resources. See the
+[Roihu `interactive` partition details](./batch-job-partitions.md#roihu-partitions)
+for information on the available resources. The Roihu `gpuinteractive` partition 
+features GH200 superchips that are divided into a total of 48 smaller slices that 
+have one-seventh of the compute capacity and one-eighth of the GPU memory capacity 
+(12 GiB) of a full GH200 superchip. `sinteractive` will select the correct partition
+based on your resource request, and will automatically provide you with a GPU if
+run from the GPU login node without additional parameters.
+
+!!! warning "Submit from the correct login node; CPU or GPU"
+     It is imperative that if you are requesting an interactive GPU job that you
+     request it from `roihu-gpu.csc.fi`, and likewise a CPU job from `roihu-cpu.csc.fi`.
+     Failure to do so will result in modules incompatible with the system architecture
+     being loaded and available, as the interactive job inherits the environment from
+     the login node.
+
+!!! info "`gpuinteractive` currently gives full GPUs during pilot"
+     The GPU slicing in the `gpuinteractive` partition is not yet implemented, so
+     during the pilot users will be allocated full GPUs.
+
+To see the command options available on Roihu, run the following while
+logged into the system:
+
+```bash
+sinteractive --help
+```
 
 ### `sinteractive` on Puhti
 
@@ -81,7 +111,7 @@ On Mahti, each user can have up to 8 active sessions on the `interactive`
 partition. See the
 [Mahti `interactive` partition details](batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
 for information on the available resources. It is also possible to request a
-a [GPU slice](./batch-job-partitions.md#gpu-slices) for interactive work by
+a [GPU slice](./batch-job-partitions.md#mahti-gpu-slices) for interactive work by
 using the `-g` flag, which submits the job to the `gpusmall` partition. Note
 that using a GPU slice restricts the amount of CPU cores and memory that is
 available for your job.
@@ -104,7 +134,7 @@ Since the shell that is started in the interactive session is already a job
 step in Slurm, additional job steps cannot be created. This prevents running
 e.g. GROMACS tools in the usual way, since `gmx_mpi` is a parallel program and
 normally requires using `srun`. In this case, `srun` must be replaced with
-`orterun -n 1` in the interactive shell. Orterun does not know of the Slurm
+`prterun -n 1` in the interactive shell. Prterun does not know of the Slurm
 flags, so it needs to be told how many tasks/threads to use. The following
 example will run a [GROMACS](../../apps/gromacs.md) mean square displacement
 analysis for an existing trajectory:
@@ -112,7 +142,7 @@ analysis for an existing trajectory:
 ```bash
 sinteractive --account <project>
 module load gromacs-env
-orterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
+prterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
 ```
 
 To use all requested cores in parallel, you need to add `--oversubscribe`.
@@ -122,8 +152,37 @@ E.g. for 4 cores, a parallel interactive job
 ```bash
 sinteractive --account <project> --cores 4
 module load gromacs-env
-orterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
+prterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
 ```
+
+!!! info
+     The legacy launcher orterun (based on ORTE) has been replaced by prterun
+     (based on PRRTE) starting with OpenMPI 5.0.
+
+     On Mahti and Puhti, you can either use `orterun` with the default MPI environment,
+     or load a newer OpenMPI module (see `module spider openmpi/5.0.6`) to use `prterun`. See also: 
+     <https://docs.open-mpi.org/en/v5.0.x/launching-apps/index.html#launching-mpi-applications>.
+
+
+## Connecting to a compute node of a running job
+
+Sometimes (e.g. for debugging purposes) it is useful to login to a compute 
+node where a Slurm job is currently running. Bash shell can be started in the master
+node of a job (i.e. the first node in your allocation and the one on which 
+your batch script is executed) as follows:
+```bash
+srun --jobid=<jobid> --overlap --pty bash
+```
+(`--overlap` allows to run multiple job steps at the same time, and `--pty` enables normal
+terminal behaviour).
+For jobs spanning multiple nodes it is also possible to connect to a specific
+node with the `--nodelist=` option:
+```bash
+srun --jobid=<jobid> --overlap --nodelist=rcXXXX --pty bash
+```
+where `rcXXXX` is the name of a node as shown e.g. by the `squeue` command.
+(Note that the format of the node names varies between different systems).
+
 
 ## Explicit interactive shell without X11 graphics
 

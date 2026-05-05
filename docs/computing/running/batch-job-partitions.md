@@ -1,10 +1,10 @@
 # Available batch job partitions
 
 On CSC supercomputers, programs are run by submitting them to partitions,
-which are logical sets of nodes managed by the SLURM workload manager.
-This page lists the available SLURM partitions on the Puhti and Mahti
-supercomputers, as well as explains their intended uses. Below are the general
-guidelines for using the SLURM partitions on our systems:
+which are logical sets of nodes managed by the Slurm workload manager.
+This page lists the available Slurm partitions on the Roihu, Puhti, and Mahti
+supercomputers and explains their intended uses. Below are the general
+guidelines for using the Slurm partitions on our systems:
 
 1. **Use the `test` and `gputest` partitions for testing your code, not production.**
    These partitions provide access to fewer resources than other partitions,
@@ -13,34 +13,103 @@ guidelines for using the SLURM partitions on our systems:
 2. **Only request multiple CPU cores if you know your program supports
    parallel processing.** Reserving multiple cores does not automatically
    speed up your job. Your program must be written in a way that the
-   computations can be done in multiple threads or processes. Reserving more
-   cores does nothing by itself, except make you queue for longer.
+   computations can be performed in multiple threads or processes. Reserving more
+   cores does nothing by itself if your code is not parallelized,
+   except making you queue for longer.
 3. **Only use the GPU partitions if you know your program can utilize GPUs.**
    Running your computations using one or more GPUs is a very effective
    parallelization method for certain applications, but your program must be
    configured to use the CUDA platform. If you are unsure whether this is the
-   case, it is better to submit it to a CPU partition, since you will be
-   allocated resources sooner. You may also always
-   [consult CSC Service Desk](../../support/contact.md) when in doubt.
+   case, it is better to submit your job to a CPU partition, since you will be
+   allocated resources sooner. If unsure, contact the
+   [CSC Service Desk](../../support/contact.md).
 
 The following commands can be used to show information about available
 partitions:
 
 ```bash
 # Display a summary of available partitions
-$ sinfo --summarize
+sinfo --summarize
+```
 
+```bash
 # Display details about a specific partition:
-$ scontrol show partition <partition_name>
+scontrol show partition <partition_name>
 ```
 
 !!! info "LUMI partitions"
     The available LUMI batch job partitions are found in the
     [LUMI documentation].
 
+## Roihu partitions
+
+Roihu partitions use different allocation types that cater to varying use cases
+and resource requirements. These are explained in the table below.
+
+| Allocation type | Resource request                                                          |
+|:---------------:|---------------------------------------------------------------------------|
+| R               | Memory and CPU resources can be changed independently                     |
+| N               | Full node requests only                                                   |
+| C               | Share of memory resources fixed based on requested number of CPU cores    |
+| G               | Share of CPU and memory resources fixed based on requested number of GPUs |
+
+### Roihu CPU partitions
+
+Roihu features the following partitions for submitting jobs to CPU nodes:
+
+| Partition         | Allocation type | Time limit | Min CPU cores | Max CPU cores | Max nodes | [Node types](../systems-roihu.md#nodes) | Max memory       | Requirements       |
+|-------------------|-----------------|------------|---------------|---------------|-----------|-----------------------------------------|------------------|--------------------|
+| `test`            | R               | 15 minutes | 1             | 768           | 2         | M                                       | 744 GiB per job  |                    |
+| `interactive`     | R               | 36 hours   | 1             | 32            | 1         | M                                       | 64 GiB per job   |                    |
+| `longrun`         | R               | 10 days    | 1             | 192           | 1         | M, L                                    | 744 GiB per job  |                    |
+| `small`           | R               | 72 hours   | 1             | 384           | 1         | M, L                                    | 1500 GiB per job |                    |
+| `medium`          | N               | 36 hours   | 384           | 2304          | 6         | M                                       | 744 GiB per node |                    |
+| `large`           | N               | 36 hours   | 2304          | 23040         | 60        | M                                       | 744 GiB per node | [scalability test] |
+| `hugemem`         | C               | 36 hours   | 16            | 128           | 1         | XL                                      | 6037 GiB per job |                    |
+| `hugemem_longrun` | C               | 10 days    | 16            | 128           | 1         | XL                                      | 6037 GiB per job |                    |
+
+
+### Roihu GPU partitions
+
+Roihu features the following partitions for submitting jobs to GPU nodes:
+
+| Partition        | Allocation type | Time limit | Min GPUs | Max GPUs | Max nodes | [Node types](../systems-roihu.md#nodes) | Memory per GPU   | Requirements       |
+|------------------|-----------------|------------|----------|----------|-----------|-----------------------------------------|------------------|--------------------|
+| `gputest`        | G               | 15 minutes | 1        | 8        | 2         | GPU                                     | 116 GiB + 95 GiB |                    |
+| `gpuinteractive` | G               | 12 hours   | 1        | 1        | 1         | GPU ([slice](#roihu-gpu-slices))        | TBA              |                    |
+| `gpumedium`      | G               | 36 hours   | 1        | 4        | 1         | GPU                                     | 116 GiB + 95 GiB |                    |
+| `gpularge`       | G               | 36 hours   | 4        | 40       | 10        | GPU                                     | 116 GiB + 95 GiB | [scalability test] |
+| `vizinteractive` | G               | 12 hours   | 1        | 1        | 1         | V                                       | 183 GiB + 44 GiB |                    |
+
+
+#### Roihu GPU slices
+
+Roihu `gpuinteractive` partition features GH200 superchips that are divided
+into a total of 48 smaller slices that have one-seventh of the compute capacity
+and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
+
+### Roihu pilot partitions
+
+In addition to the regular partitions, the following partitions are also
+available during the Roihu pilot phase:
+
+| Partition  | Allocation type | Time limit | Min nodes | Max nodes | [Node types](../systems-roihu.md#nodes) |
+|------------|-----------------|------------|-----------|-----------|-----------------------------------------|
+| `pilot`    | N               | 24 hours   | 1         | 200       | M                                       |
+| `gpupilot` | N               | 48 hours   | 1         | 60        | GPU                                     |
+
+
+### Local storage on Roihu nodes
+
+Local storage on Roihu M, L and GPU nodes is meant for storing temporary files only, not high-performance I/O.
+
+High-performance local storage is available on Roihu XL and V nodes. Ideal for I/O-intensive jobs.
+
+Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
+
 ## Puhti partitions
 
-The following guidelines apply to the SLURM partitions on Puhti:
+The following guidelines apply to the Slurm partitions on Puhti:
 
 1. **Only request the memory you need.** Memory can easily end up being a
    bottleneck in resource allocation. Even if the desired amount of GPUs
@@ -128,7 +197,7 @@ accessible to
 
 Two CPU partitions on Mahti allow you to reserve cores instead of
 full nodes. These are the `small` partition and the `interactive`
-partition. In these partitions jobs are allocated 1.875 GiB of memory
+partition. In these partitions, jobs are allocated 1.875 GiB of memory
 for each reserved CPU core, and the only way to reserve more memory is
 to reserve more cores. These partitions are also special in that you
 can reserve local storage on the node. It is important that you only
@@ -147,7 +216,7 @@ anything in between.
 The `small` partition is intended for batch processing of small scale
 CPU compute workloads, that do not need a full node. It is also able
 to support applications that need local storage to perform
-optimally. Many workloads that have traditionally used Puhti, may
+optimally. Many workloads that have traditionally used Puhti may
 benefit from this partition.
 
 | Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
@@ -170,7 +239,7 @@ each reserved GPU.
 !!! info "Fair use of GPU nodes on Mahti"
     You should reserve **no more than 32 CPU cores per GPU**.
 
-#### GPU slices
+#### Mahti GPU slices
 
 A subset of the Nvidia A100 GPUs on the Mahti `gpusmall` partition are divided
 into a total of 28 smaller GPU slices, which have one-seventh of the
@@ -184,6 +253,7 @@ To reserve a GPU slice, use `sinteractive` with the `-g` option, or include the
 `--gres=gpu:a100_1g.5gb:1` option together with specifying the `gpusmall`
 partition in your batch script. For more information, see the instructions on
 [creating GPU batch jobs on Mahti](creating-job-scripts-mahti.md#gpu-batch-jobs).
+
 
 <!-- Links -->
 [Grand Challenge project]: https://research.csc.fi/grand-challenge-proposals
