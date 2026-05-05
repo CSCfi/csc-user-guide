@@ -10,7 +10,7 @@ catalog:
   available_on:
     - Puhti
     - Mahti
-    - Roihu-CPU
+    - Roihu
 ---
 
 # gdb: GNU Debugger

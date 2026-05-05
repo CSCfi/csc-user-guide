@@ -10,8 +10,7 @@ catalog:
   available_on:
     - Puhti
     - Mahti
-    - Roihu-CPU
-    - Roihu-GPU
+    - Roihu
 ---
 
 # pdb: Python debugger

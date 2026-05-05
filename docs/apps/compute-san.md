@@ -10,7 +10,7 @@ catalog:
   available_on:
     - Puhti
     - Mahti
-    - Roihu-GPU
+    - Roihu
 ---
 
 # compute-sanitizer: functional correctness checking suite for CUDA programs

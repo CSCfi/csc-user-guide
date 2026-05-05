@@ -10,7 +10,7 @@ catalog:
   available_on:
     - Puhti
     - Mahti
-    - Roihu-GPU
+    - Roihu
 ---
 
 # cuda-gdb: CUDA debugger
