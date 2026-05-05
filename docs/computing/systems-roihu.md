@@ -2,8 +2,8 @@
 
 !!! info "Note"
     This page contains preliminary information about CSC's next national
-    supercomputer Roihu, which is projected to be in researchers' use in spring
-    2026. Please note that the details may evolve over time.
+    supercomputer Roihu, which is projected to be available for researchers
+    in summer 2026. Please note that the details may evolve over time.
     [See tentative schedule below](#schedule).
 
 ## Schedule
@@ -32,20 +32,21 @@ graph LR;
 ```
 
 **Roihu** will be installed in the same datacenter as LUMI, meaning that the
-system will be brought up without disturbing Puhti and Mahti services. There
+system will be brought up without disrupting Puhti and Mahti services. There
 will also be a margin between Roihu general availability and the
 decommissioning of Puhti and Mahti to enable users to migrate to Roihu without
 a break in HPC access.
 
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
-means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
-however, remain accessible until August 2026, after which Puhti will be retired
+means that jobs cannot be submitted on Puhti anymore. However, Puhti's storage will
+remain accessible until August 2026, after which it will be retired
 completely. Mahti will be closed in August 2026.
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during spring 2026, at the very latest in August 2026. CSC
-will publish a detailed Roihu migration guide in early 2026.
+prepared to do it by August 2026 at the very latest.
+See [the Roihu migration guide](../support/tutorials/roihu-data.md) for instructions
+on moving your data from Mahti and Puhti to Roihu.
 
 ## Compute
 
@@ -62,9 +63,9 @@ memory of 1 536 GiB each.
 
 Each GPU node will be equipped with 4 Nvidia GH200 Grace Hopper superchips.
 Each GH200 superchip comprises one Hopper (H100) GPU and one Grace CPU with
-72 ARM CPU cores which are connected with a very fast interface. Each
+72 ARM CPU cores, which are connected via a very fast interface. Each
 GH200 superchip has 120 GiB CPU memory and 96 GiB GPU memory, providing
-a total of 480 GiB CPU memory per node. This gives a total of 528 GPUs and
+a total of 480 GiB CPU memory per node. This results in a total of 528 GPUs and
 38 016 CPU cores in the whole GPU partition.
 
 The system will also provide four visualization nodes with two Nvidia L40 GPUs
@@ -93,9 +94,10 @@ and users' personal Home directories. Separate file systems will ensure
 responsiveness of Home and ProjAppl even under heavy Scratch usage.
 
 The Scratch disk of Roihu will be more than ten times as performant as Puhti
-Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected to
-be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl will
-have read and write bandwidths of 120 GB/s and 100 GB/s, respectively.
+Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected
+to be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl
+disk areas are expected to have read and write bandwidths of 120 GB/s and
+100 GB/s, respectively.
 
 Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
 have not been accessed in the last 180 days to avoid inactive data accumulating
@@ -119,34 +121,36 @@ on the system [partition](running/batch-job-partitions.md) they use:
 | R (shared nodes)   | 20 GiB         |
 | N (full nodes)     | 600 GiB        |
 | G (GPU nodes)      | 150 GiB        |
-| Hugemem (XL) nodes | 1,6 TiB        |
-| VIZ nodes          | 6,5 TiB        |
+| Hugemem (XL) nodes | 1.6 TiB        |
+| VIZ nodes          | 6.5 TiB        |
 
 As a new feature, users will also be able to request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity will be
-provided over the network and will appear as local scratch from within a Slurm
-job. The total capacity of the disaggregated NVMe resource will be 307.2 TB.
+provided over the network and will appear as local scratch storage from within a
+Slurm job. The total capacity of the disaggregated NVMe resource will be 307.2 TB.
 
 ## Network
 
-The network of Roihu is based on Infiniband NDR interconnect. Each CPU node
+The network of Roihu is based on an InfiniBand NDR interconnect. Each CPU node
 will be connected to the network with one 200 Gb/s link, while in the GPU
-partition there will be four 200 Gb/s links per node, one for each GPU.
+partition there will be four 200 Gb/s links per node, one per GPU.
 
 ## Software and programming environment
 
 We intend to provide a comprehensive stack of pre-installed HPC libraries and
-scientific software on Roihu similar to Puhti and Mahti. Some older and less
-used software and software versions may, however, be deprecated. Please also
+scientific software on Roihu, similar to those on Puhti and Mahti. Some older and less
+used software packages and versions may, however, be deprecated. Please also
 note that any software compiled on Puhti and Mahti will most likely need to be
-recompiled on Roihu. More information will be included in the migration guide.
+recompiled on Roihu.
+Instructions for installing applications are provided in
+[the getting started with Roihu tutorial](../support/tutorials/roihu.md#installing-software)
 
 The programming environment of Roihu will otherwise be similar to Mahti,
-including e.g.
+including:
 
 * The GNU compiler stack
 * The AOCC compiler stack
-* CUDA and Nvidia HPC Software Development Kit (SDK)
+* CUDA and NVIDIA HPC Software Development Kit (SDK)
 * OpenMPI as the main MPI library
 
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use

@@ -6,7 +6,7 @@ Object storage related tools are initialized in Roihu with command:
 ```text
 module load allas
 ```
-The allas module enables command: **allas-conf** that is used to configure **S3* connections to [Allas](../data/Allas/index.md) and [Lumi-O](https://docs.lumi-supercomputer.eu/storage/lumio/) object storage services and *Swift* based connections to Allas. Note that in Roihu _allas-conf: by default configures an S3 based connection to Allas, unlike to Puhti and Mahti where swift is used by default.
+The allas module enables command: **allas-conf** that is used to configure **S3* connections to [Allas](../data/Allas/index.md) and [Lumi-O](https://docs.lumi-supercomputer.eu/storage/lumio/) object storage services and *Swift* based connections to Allas. Note that in Roihu _allas-conf_ by default configures an S3 based connection to Allas, unlike to Puhti and Mahti where swift is used by default.
 
 In addition this module brings available a set of command line tools that can be used to operate with Allas and Lumi-O object storage services. These tools include:
 
@@ -17,11 +17,12 @@ In addition this module brings available a set of command line tools that can be
    * [swift](../data/Allas/using_allas/swift_client.md)
    * [allas-backup](../data/Allas/using_allas/a_backup.md) and restic
 
-You can check current object storage connections with command:
+You can check current Allas and Lumi-O connections with command:
 
 ```text
 check-allas-connections
 ```
+
 
 ### S3 connection to Allas
 
@@ -38,7 +39,7 @@ allas-conf
 
 First allas-conf asks you to give your CSC password (Haka-password can't be used here).  After that, if target project is not given as an argument, it lists all available Allas projects and asks user to pick one. ( Note that allas-conf has often problems with passwords that have characters that have special meaning in bash shell.  For example space, *,  ;  and different quotation marks can cause allas-conf to fail).
 
-The project specific access key pair is stored to to the configuration files of *aws*, *s3cmd* a *rclone* in your home directory. Due to this the configuration is not session specific, but applies to all sessions that utilize aws, s3cmd, rclone and a-commands. S3 keys are permanent so you need to run allas-conf command again only when you wish to set a new default S3 connection in use. Thus, in case of S3 based Allas usage, you normally need just to load the Allas module and then start using Allas.  
+The project specific access key pair is stored to the configuration files of *aws*, *s3cmd* a *rclone* in your home directory. Due to this the configuration is not session specific, but applies to all sessions that utilize aws, s3cmd, rclone and a-commands. S3 keys are permanent so you need to run allas-conf command again only when you wish to set a new default S3 connection in use. Thus, in case of S3 based Allas usage, you normally need just to load the Allas module and then start using Allas.  
 
 In case of **aws** and **s3cmd**, only one connection is defined and running allas-conf overwrites the old default connections.  
 
@@ -57,7 +58,7 @@ Following connections are in use:
 |--------------------------------|----------------|
 | a-commands, aws and s3cmd	     | project_200222 |
 | rclone s3allas:                | project_200222 |
-| rclone a3allas-project200111:  | project_200111 |
+| rclone a3allas-project_200111: | project_200111 |
 | rclone a3allas-project_200222: | project_200222 |
 
 And with these settings all the commands below list the Allas buckets of project 200222.
@@ -84,7 +85,7 @@ This connection is session specific and valid only for 8 hours. After the connec
 rclone lsd allas:
 ```
 
-A-commands need extra option `--swift` to use Swift based Allas connection. For example:
+In Roihu, A-commands need extra option `--swift` to use Swift based Allas connection. For example:
 
 ```text
 a-list --swift
@@ -105,7 +106,7 @@ allas-conf --lumi
 
 The configuration process asks you to login to [https://auth.lumidata.eu](https://auth.lumidata.eu)  where you can create an access key pair for your Lumi-project. You can then copy the _project name_, _access key_ and _secret key_ to the configuration process in Roihu.
 
-Lumi-O connections use always S3 protocol and this configuration process changes *aws* and *s3cmd* commands to use the Lumi-O project as the default project.  In case of *a-commands* you can add option `--lumi`  to the command in order to make use Lumi-o. For example:
+Lumi-O connections use always S3 protocol and this configuration process changes *aws* and *s3cmd* commands to use the Lumi-O project as the default project.  In case of *a-commands* you can add option `--lumi` to the command in order to make use Lumi-o. For example:
 
 ```text
 a-list --lumi
