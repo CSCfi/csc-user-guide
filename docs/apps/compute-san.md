@@ -17,9 +17,9 @@ catalog:
 
 ## Available
 
-- Puhti: 2022.2.0
-- Mahti: 2021.3.0
-- Roihu-GPU
+- Puhti: version depends on the CUDA environment
+- Mahti: version depends on the CUDA environment
+- Roihu-GPU: version depends on the CUDA environment
 
 ## License
 
@@ -27,7 +27,7 @@ Usage is possible for both academic and commercial purposes.
 
 ## Usage    
 
-[compute-sanitizer](https://docs.nvidia.com/cuda/compute-sanitizer/index.html) is a functional correctness checking suite included in the CUDA toolkit (starting from version 11). 
+[compute-sanitizer](https://docs.nvidia.com/cuda/compute-sanitizer/index.html) is a functional correctness checking suite included in the CUDA toolkit (`cuda` module needs to be loaded). 
 In order to use the tool, the CUDA code has to be compiled with the extra flags
 `-g` and `-G`.
 
