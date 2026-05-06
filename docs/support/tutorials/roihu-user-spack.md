@@ -54,10 +54,10 @@ settings from those scopes leak into our setup. See
 for details.
 
 ```console
-source /appl/soft/spack/v2026_03/spack/share/spack/setup-env.sh
-source /appl/soft/spack/v2026_03/spack/share/spack/bash/spack-completion.bash
 export SPACK_USER_CACHE_PATH=$TMPDIR/spack
 export SPACK_DISABLE_LOCAL_CONFIG=true
+source /appl/soft/spack/v2026_03/spack/share/spack/setup-env.sh
+source /appl/soft/spack/v2026_03/spack/share/spack/bash/spack-completion.bash
 ```
 
 
