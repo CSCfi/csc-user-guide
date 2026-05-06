@@ -27,7 +27,7 @@ Please ensure you reserve enough time for the export process. It may take us a f
 
 
 
-# End of data access and data deletion policies
+## End of data access and data deletion policies
 
 Access to the data will be denied after the data permit expires. If you want to continue accessing the data after the original validity period ends, you need to send an *amendment application* to the data controller to extend the validity of the permit.
 
