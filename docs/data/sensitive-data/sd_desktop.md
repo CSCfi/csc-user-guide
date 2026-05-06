@@ -7,6 +7,14 @@
 - [Key features and limitations](#key-features-and-limitations)
 - [Your next steps in this guide](#your-next-steps-in-this-guide)
 
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } 
+  { .csc-grid-card-warning }
+
+    Data under the Secondary Use of Health and Social Data Act can't be processed in the standard SD Desktop service. For processing secondary use health and social data, please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements for accessing datasets provided by the Findata authority or public registers.
+
+</div>
 
 ## Overview
 
@@ -15,14 +23,13 @@ Sensitive Data (SD) Desktop allows you to analyze sensitive research data from y
 ### Multiple ways of accessing data via SD Desktop
 ![Multiple ways of accessing data via SD Desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Desktop_overview.png)
 
-!!! Note 
-    Data under the Secondary Use of Health and Social Data Act can't be processed in the standard SD Desktop service. For processing secondary use health and social data, please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements for accessing datasets provided by the Findata authority or public registers.
 
 ## Key features and limitations
 
 <div class="grid cards" markdown>
 
-- :material-check-circle-outline:{ .lg .middle } **Key features**
+- :material-check-circle:{ .lg .middle } **Key features**
+  { .csc-grid-card-success }
 
     ---
 
@@ -35,7 +42,8 @@ Sensitive Data (SD) Desktop allows you to analyze sensitive research data from y
     * The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
 
 
-- :material-alert-outline:{ .lg .middle } **Limitations**
+- :material-alert:{ .lg .middle } **Limitations**
+  { .csc-grid-card-warning }
 
     ---
 
