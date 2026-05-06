@@ -265,11 +265,11 @@ to get larger capacity fast storage for your jobs.
 
 ### Requesting storage from slurm
 
-!!! warning "You must request resources in conjuction with `--exclusive`"
+!!! warning "You must request resources in conjunction with `--exclusive`"
     At the present you can only request this storage for jobs that are making use of full nodes,
     i.e. that are submitted with the `--exclusive` flag. Presently if you do not specify this flag
     your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
-    logs. This should be resovled once support for shared node jobs arrives in Q3 2026.
+    logs. This should be resolved once support for shared node jobs arrives in Q3 2026.
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
 request block of your script:
