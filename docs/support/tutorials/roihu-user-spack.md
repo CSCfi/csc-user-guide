@@ -20,6 +20,7 @@ For example, term "environment" in this document specifically refers to
     incomplete, or not fully tested in the current Roihu environment.
     Use with caution and report any issues you encounter.
 
+
 ## When to install with Spack
 
 Spack installation is a viable option for "traditional" HPC software,
@@ -144,6 +145,7 @@ t4kg5zu kokkos@5.0.2
 ```
 
 The seven character string in front of the package name is a hash that we can use to refer to particular concretized spec or install.
+
 
 ## How to set up a custom environment for the installs
 
@@ -293,6 +295,107 @@ all looks fine, and we can proceed to installation
 ```console
 spack install
 ```
+
+
+## What to do when concretization is not using an upstream dependency
+
+Sometimes there are `-` entries in the concretization for the dependency
+packages that would be available in the upstream. The concretization of
+`eccodes` used packages installed in the upstream, so let's try to install something
+slightly more difficult:
+
+```console
+spack add 'vasp+hdf5+openmp'
+spack concretize
+```
+
+```output
+ -   rfhap2d  vasp@6.5.1~cuda+fftlib+hdf5~libbeef~libxc+openmp+shmem~wannier90 build_system=makefile platform=linux os=rhel9 target=zen5 %c,cxx,fortran=gcc@15.2.0
+[^]  iglv3xy      ^compiler-wrapper@1.0 build_system=generic platform=linux os=rhel9 target=zen5
+ -   bska4tv      ^fftw@3.3.10+mpi+openmp~pfft_patches+shared build_system=autotools patches:=872cff9 precision:=double,float platform=linux os=rhel9 target=zen5 %c,fortran=gcc@15.2.0
+[e]  jzf6h3h      ^gcc@15.2.0+binutils+bootstrap~graphite+libsanitizer~mold~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++,fortran' platform=linux os=rhel9 target=x86_64
+ -   qgv5zle      ^gcc-runtime@15.2.0 build_system=generic platform=linux os=rhel9 target=zen5
+[e]  45if5qv      ^glibc@2.34 build_system=autotools platform=linux os=rhel9 target=x86_64
+[^]  3jmx5cd      ^gmake@4.4.1~guile build_system=generic platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[e]  nsx4vac          ^gcc@15.2.0+binutils+bootstrap~graphite+libsanitizer~mold~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++,fortran,jit' platform=linux os=rhel9 target=x86_64
+[^]  uaq7tuq          ^gcc-runtime@15.2.0 build_system=generic platform=linux os=rhel9 target=zen5
+ -   qlknyrh      ^hdf5@1.14.6~cxx+fortran~hl~ipo~java~map+mpi+shared~subfiling~szip~threadsafe+tools api=default build_system=cmake build_type=Release generator=make platform=linux os=rhel9 target=zen5 %c,fortran=gcc@15.2.0
+[^]  dkj6m2a          ^cmake@3.31.11~doc+ncurses+ownlibs~qtgui build_system=generic build_type=Release platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  5huzpbm              ^curl@8.18.0~gssapi~ldap~libidn2~librtmp~libssh~libssh2+nghttp2 build_system=autotools libs:=shared,static tls:=openssl platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  zj62cb6                  ^nghttp2@1.67.1 build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  ezw6kfg              ^ncurses@6.6~symlinks+termlib abi=none build_system=autotools patches:=7a351bc platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  btxv56s          ^pkgconf@2.5.1 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  siciate          ^zlib-ng@2.3.3+compat+new_strategies+opt+pic+shared build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+ -   yswx35z      ^netlib-scalapack@2.2.2~ipo~pic+shared build_system=cmake build_type=Release generator=make platform=linux os=rhel9 target=zen5 %c,fortran=gcc@15.2.0
+[^]  qskucwe      ^openblas@0.3.30~bignuma~consistent_fpcsr+dynamic_dispatch+fortran~ilp64+locking+pic+shared build_system=makefile symbol_suffix=none threads=openmp platform=linux os=rhel9 target=zen5 %c,cxx,fortran=gcc@15.2.0
+ -   zxmpyf5      ^openmpi@5.0.10+atomics~cuda~debug+fortran~gpfs~internal-hwloc~internal-libevent~internal-pmix~ipv6~java~lustre~memchecker~openshmem~rocm~romio+rsh~static~two_level_namespace+vt+wrapper-rpath build_system=autotools fabrics:=none romio-filesystem:=none schedulers:=none platform=linux os=rhel9 target=zen5 %c,cxx,fortran=gcc@15.2.0
+[^]  5e4345x          ^autoconf@2.72 build_system=autotools platform=linux os=rhel9 target=zen5
+[^]  57nb6no              ^m4@1.4.21+sigsegv build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  72jfleb                  ^diffutils@3.12 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  qurnpw5                  ^libsigsegv@2.15 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  os67qlb          ^automake@1.18.1 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  ctjvy35          ^hwloc@2.4.1~cairo~cuda~gl~level_zero~libudev+libxml2~netloc~nvml~opencl~pci~rocm build_system=autotools libs:=shared,static platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  6mr7zcy              ^libxml2@2.15.1+pic~python+shared build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  vk7ckqw                  ^xz@5.8.2~pic build_system=autotools libs:=shared,static platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  kcjhrtc          ^libevent@2.1.12+openssl build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  dbbnpoy          ^libtool@2.5.4 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  p4i5zpo              ^findutils@4.10.0 build_system=autotools patches:=440b954 platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  sgerwwx                  ^gettext@1.0+bzip2+curses+git~libunistring+libxml2+pic+shared+tar+xz build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  rzwegeu                      ^tar@1.35 build_system=autotools zip=pigz platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  b5e6x6u                          ^pigz@2.8 build_system=makefile platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  zvxjta5          ^numactl@2.0.19 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  n2yix5u          ^openssh@10.2p1+gssapi build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  ro346yy              ^krb5@1.22.2+shared build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  bwi6e4z                  ^bison@3.8.2~color build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  vbo25pf              ^libedit@3.1-20240808 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  ddibcjq              ^libxcrypt@4.5.2~obsolete_api build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  ejivk2i          ^perl@5.42.0+cpanm+opcode+open+shared+threads build_system=generic platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  5jgdak6              ^berkeley-db@18.1.40+cxx~docs+stl build_system=autotools patches:=26090f4,b231fcc platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  an5rzrc              ^bzip2@1.0.8~debug~pic+shared build_system=generic platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  rd2uuxx              ^gdbm@1.26 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  lf5ljls                  ^readline@8.3 build_system=autotools patches:=21f0a03 platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+ -   utr7ymg          ^pmix@6.1.0~munge~python build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+ -   ccotrup          ^prrte@4.1.0 build_system=autotools schedulers:=none platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+ -   syzfpop              ^flex@2.6.3+lex~nls build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+ -   24qltll      ^rsync@3.4.1 build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  gavswuq          ^lz4@1.10.0+pic build_system=makefile libs:=shared,static platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  3a2xrgw          ^openssl@3.6.1~docs+shared build_system=generic certs=system platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+ -   m2nrnpe          ^popt@1.19 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  anayviw              ^libiconv@1.18 build_system=autotools libs:=shared,static platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+ -   fre4ogj          ^xxhash@0.8.3 build_system=makefile platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  pvz4ljc          ^zstd@1.5.7+programs build_system=makefile compression:=none libs:=shared,static platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+```
+
+The above concretization shows that if we would
+proceed to `spack install`, spack would rebuild and install `fftw`, `hdf5` and `openmpi`
+packages, among some others, that should come from the upstream. Usually it is best to start
+fixing from the first such package in the concretization, here `fftw`.
+
+Let's first verify that the upstream package actually is suitable, by comparing
+the spec of the upstream package and the spec in the concretization. A particular upstream
+package spec can printed referring it's hash (note the syntax with `/`):
+
+```console
+spack -E -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' spec /gafrwzb
+```
+
+In this case the specs for the `fftw` packages in the environment concretization and in the upstream look identical,
+so the upstream package should be fine.
+
+Let's update the vasp spec in the environment by specifying which exact `fftw` package to use as a dependency.
+For some reason `spack change` does not work here, but we can update the `spack.yaml` file in the environment
+with two commands (or alternatively edit the `spack.yaml` file directly):
+
+```console
+spack remove vasp
+spack add 'vasp+hdf5+openmp ^*/gafrwzb'
+```
+
+Notice the syntax how to specify the dependency using it's hash.
+
+In this case fixing the first dependency also fixed all the others in the concretized spec, and
+we can proceed to `spack install`.
+
 
 ## Using the environment
 
