@@ -45,7 +45,7 @@ After returning to the main page, you’ll see a list of your desktops. Creating
 
     * Your virtual desktop is **accessible to all project members upon creation** and **consumes billing units** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop)
 
-    * Each CSC project supports multiple virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
+    * Each CSC project supports 5 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
     * All desktops come with a set of pre-installed open-source software managed by CSC. More informations about the list of pre-installed software and customisation is available [here](./sd-desktop-software.md).
 
