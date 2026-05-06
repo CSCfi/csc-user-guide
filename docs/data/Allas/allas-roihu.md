@@ -1,38 +1,30 @@
-# Tutorial for using Allas in CSC supercomputers 
+# Tutorial for using Allas in Roihu supercomputer
 
-CSC supercomputers, Puhti and Mahti, do not provide permanent storage space for
-research data. The supercomputer's own storage has a policy to [delete idle data](../../computing/usage-policy.md#disk-cleaning), so the data must be moved to Allas after computing.
-
-Data that needs to be stored for a longer time than just a few
-weeks should be copied to Allas object storage service. Allas provides a
-platform that you can use to store your data as long as your CSC project is
-active. In addition to storage, Allas can be used for transporting data between
-different servers and sharing data with other users.
-
-One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start
-working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
+One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas.The _sratch disk area_ of Roihu allow you to analyze large datasets. However  scartch disk in not intended for long-term storage fo research data. Data that needs to be stored for a longer time than just a few weeks should be copied to Allas or Lumi-O object storage service instead. Allas provides a platform that you can use to store your data as long as your CSC project is active. In addition to storage, Allas can be used for transporting data between different servers and sharing data with other users.
 
 If you have not used Allas before, then start with reading **[Allas general introduction](introduction.md)**, which includes many important things to know.
+
+Note that CSC computing projects do not have access to Allas automatically. The project manager has to active the Allas service in [MyCSC](https://my.csc.fi/) before project can start using Allas. [Allas introduction page](introduction.md#) describes how to do it and also about default quotas and how to apply for more storage space.
 
 Additional information regarding:
 
 * [Using Allas in batch jobs](allas_batchjobs.md)
 * [Using Allas and LUMI-O from LUMI supercomputer](allas_lumi.md)
 
-To upload or download data between Allas and supercomputers there are a lot of different tools. You can use [Puhti or Mahti web interface](accessing_allas.md#web-browser-interfaces), [commandline tools](accessing_allas.md#commandline-tools) or [Python, R or other tools](accessing_allas.md#graphical-tools). In Puhti and Mahti, the Allas commandline tools are installed by CSC and provided through **allas module**.
+There are several alternative tools to move data between Allas and Roihu. You can use [Puhti or Mahti web interface](accessing_allas.md#web-browser-interfaces), [commandline tools](accessing_allas.md#commandline-tools) or [Python, R or other tools](accessing_allas.md#graphical-tools). In Roihu, the Allas commandline tools are installed by CSC and provided through **allas module**.
 
-By default, CSC computing projects do not have access to Allas. The project manager has to additionally apply for Allas service in [MyCSC](https://my.csc.fi/).
-[Allas introduction page](introduction.md#) describes how to do it and also about default quotas and how to apply for more storage space.
+   * [Allas module in Roihu](../../computing/allas-in-roihu.md)
+
 
 ## Examples
 
-This tutorial provides four examples for using Allas on Puhti and Mahti. The
+This tutorial provides four examples for using Allas in Roihu. The
 examples are based on interactively executed commands, and thus examples 1, 2 and 4 apply only for
 relatively small datasets (max. some hundreds of GBs). The third example suits also for bigger datasets.
 
 1. [The first example](#example-1-using-allas-with-a-commands) uses the
-   *a-commands* (`a-put`, `a-get`) for uploading data from Mahti to Allas, and
-   then downloading the data to Puhti.
+   *a-commands* (`a-put`, `a-get`) for uploading data from Roihu to Allas, and
+   then downloading the data back to Roihu.
 2. [The second example](#example-2-using-allas-with-rclone) transfers the same
    data using *Rclone*.
 3. [The third example](#example-3-uploading-large-files-to-allas) focuses on
@@ -61,7 +53,7 @@ directory of a project in Mahti (`/scratch/project_2001659`). The `zebrafish`
 directory contains eight files listed below:
 
 ```bash
-[kkayttaj@mahti-login11 ~]$ ls /scratch/project_2001659/genomes/zebrafish
+[kkayttaj@roihu-cpu-login2 ~]$ ls /scratch/project_2001659/genomes/zebrafish
 Danio_rerio.GRCz10.91.1.bt2      Danio_rerio.GRCz10.91.2.bt2  
 Danio_rerio.GRCz10.91.3.bt2      Danio_rerio.GRCz10.91.4.bt2  
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2  
@@ -77,11 +69,11 @@ module load allas
 
 Then, we open a connection to Allas using the command `allas-conf`. The command
 asks for the user's CSC password and then lists the Allas projects that are
-accessible. In this case, we select `project_2001659`.
+accessible. In this case, we select `project_2001659`. 
 
 ```bash
 [kkayttaj@mahti-login11 ~]$ allas-conf
-Mode swift
+Mode s3cmd
 Please enter CSC password for account kkayttaj: <password>
 Checking projects available for your account.
 Please wait.
@@ -89,15 +81,23 @@ Please wait.
 Please choose a project by giving an item number from the list above: 2
 Configuration will be done for project: project_2001659
 Protocols:
-  swift
-Connection stays active for eight hours.
+  S3
+s3cmd configuration updated
+
+Remote endpoints configured for rclone
+
+Rclone remote name       Protocol
+--------------------------------------------------------
+s3allas:                 s3    
+s3allas-project_2001659: s3    
+--------------------------------------------------------
+rclone remote s3allas: now provides an S3 based connection to project project_2001659 in Allas
+aws licent and s3cmd use now project_2001659
+a-commands use now project_2001659 when used in S3 mode
 ```
 
-`allas-conf` opens a connection to the specified Allas project for eight hours.
+`allas-conf` stores S3 authentication keys to your home directory-
 If we want to start using another project, we need to run `allas-conf` again.
-However, in a single shell session `allas-conf` enables only one Allas project
-to be active at a time. Note that certain tools, for example `rclone`, can
-nonetheless be set up to use several Allas projects at the same time.
 
 Next, we enter the `zebrafish` directory:
 
@@ -145,24 +145,52 @@ a-put zebrafish/
 At the end of the upload process, the command reports:
 
 ```text
+
+Files or directories to be uploaded: zebrafish/
+Processing: zebrafish/
+Checking total size of zebrafish. Please wait.
+
+zebrafish contains 8 files or directories that take 2585920K of disk space
+Collecting data from directory zebrafish to archive file: zebrafish.tar
+zebrafish/
+zebrafish/Danio_rerio.GRCz10.fa.fai
+zebrafish/Danio_rerio.GRCz10.91.3.bt2
+zebrafish/Danio_rerio.GRCz10.91.4.bt2
+zebrafish/Danio_rerio.GRCz10.fa
+zebrafish/Danio_rerio.GRCz10.91.rev.2.bt2
+zebrafish/Danio_rerio.GRCz10.91.rev.1.bt2
+zebrafish/Danio_rerio.GRCz10.91.2.bt2
+zebrafish/Danio_rerio.GRCz10.91.1.bt2
+Packing successful.
+Uploading data to s3allas.
+Transferred:        3.044 GiB / 3.044 GiB, 100%, 62.753 MiB/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:        46.9s
+Confirming upload...
+
+Adding metadata for uploaded zebrafish
+Transferred:            975 B / 975 B, 100%, 0 B/s, ETA -
+Transferred:            1 / 1, 100%
+Elapsed time:         0.0s
+
 -------------------------------------------------------------------------------
-8 files from zebrafish uploaded to bucket 2001659-mahti-SCRATCH in Allas as one tar file: 
-2001659-mahti-SCRATCH/genomes/zebrafish.tar
+8 files from zebrafish uploaded to bucket 2001659-roihu-scratch in Allas as one tar file: 
+2001659-roihu-scratch/genomes/zebrafish.tar
 -----------------------------------------------------------------
 
 Upload summary:
-              Date                      Name  Files Size(kB)         Location in allas
- 12.10.20 14:10:47                 zebrafish      8  3191656 2001659-mahti-SCRATCH/genomes
+              Date                      Name  Files Size(kB)         Location in Allas
+ 06.05.26 13:05:05                 zebrafish      8  2585920 2001659-roihu-scratch/genomes
 -----------------------------------------------------------------
 OK
 ```
 
-After this, we have another object in the `2001659-mahti-SCRATCH` bucket:
+After this, we have another object in the `2001659-roihu-scratch` bucket:
 
 ```bash
-[kkayttaj@mahti-login11 genomes]$ a-list 2001659-mahti-SCRATCH
-2001659-mahti-SCRATCH/genomes/zebrafish.tar
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
+[kkayttaj@mahti-login11 genomes]$ a-list 2001659-roihu-scratch
+2001659-roihu-scratch/genomes/zebrafish.tar
+2001659-roihu-scratch/genomes/zebrafish/Danio_rerio.GRCz10.fa
 ```
 
 Note that the file `Danio_rerio.GRCz10.fa` is in fact now stored in Allas
