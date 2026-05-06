@@ -5,7 +5,7 @@ manager.  This document describes how regular users can use Spack
 to install additional software, libraries and applications, on top of
 the already installed software.
 
-Throughout this document, we use the package `eccodes` as an example,
+Throughout this document, we use the package `eccodes` as an example if not stated otherwise,
 and assume that the commands are run in user's custom software install
 root, usually somewhere under `/projappl/<project>/$USER`.
 
@@ -103,42 +103,47 @@ The packages in the upstream environment can be listed, for example,
 with command
 
 ```console
-spack -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' find
+spack -E -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' find -l
 ```
 
 which gives
 
 ```output
 -- linux-rhel9-x86_64 / %c=gcc@15.2.0 ---------------------------
-knem@1.1.4
+vshzxn2 knem@1.1.4
 
 -- linux-rhel9-x86_64 / no compilers ----------------------------
-gcc@15.2.0  glibc@2.34  lustre@2.14.0  rdma-core@54.0  slurm@25.05.3
+nsx4vac gcc@15.2.0  45if5qv glibc@2.34  jix3h7v lustre@2.14.0  aeadm2n rdma-core@54.0  fkinzg5 slurm@25.05.3
 
 -- linux-rhel9-zen5 / %c,cxx,fortran=gcc@15.2.0 -----------------
-openblas@0.3.30  openmpi@5.0.10  papi@7.2.0
+2d66cws hdf5@1.14.6  qskucwe openblas@0.3.30  jtu4mle openmpi@5.0.10  ad53otu papi@7.2.0  msn34e2 parallel-netcdf@1.14.1
 
 -- linux-rhel9-zen5 / %c,cxx=gcc@15.2.0 -------------------------
-berkeley-db@18.1.40  c-blosc@1.21.6  eigen@5.0.1  gettext@1.0  krb5@1.22.2   lz4@1.10.0      ncurses@6.6     openssl@3.6.1  ucx@1.20.0
-bison@3.8.2          cmake@3.31.11   expat@2.7.4  hwloc@2.4.1  libaec@1.1.4  m4@1.4.21       nghttp2@1.67.1  python@3.14.3  zlib-ng@2.3.3
-boost@1.88.0         curl@8.18.0     ffmpeg@7.1   icu4c@74.2   libffi@3.5.2  mimalloc@3.2.7  openssh@10.2p1  snappy@1.2.1   zstd@1.5.7
+5jgdak6 berkeley-db@18.1.40  5huzpbm curl@8.18.0  ctjvy35 hwloc@2.4.1   gavswuq lz4@1.10.0      n2yix5u openssh@10.2p1              35almze ucx@1.20.0
+bwi6e4z bison@3.8.2          qjlzhxn eigen@5.0.1  sa7jjuo icu4c@74.2    57nb6no m4@1.4.21       3a2xrgw openssl@3.6.1               siciate zlib-ng@2.3.3
+niyho5a boost@1.88.0         m3d4hr2 expat@2.7.4  ro346yy krb5@1.22.2   b5ymicp mimalloc@3.2.7  be236m7 osu-micro-benchmarks@7.5.2  pvz4ljc zstd@1.5.7
+dhosjnx c-blosc@1.21.6       bkrrw3k ffmpeg@7.1   5ddtnbo libaec@1.1.4  ezw6kfg ncurses@6.6     qvwhx54 python@3.14.3
+dkj6m2a cmake@3.31.11        sgerwwx gettext@1.0  6neer47 libffi@3.5.2  zj62cb6 nghttp2@1.67.1  xjllls2 snappy@1.2.1
 
 -- linux-rhel9-zen5 / %c,fortran=gcc@15.2.0 ---------------------
-fftw@3.3.10  netcdf-fortran@4.6.2  netlib-lapack@3.12.1  netlib-scalapack@2.2.2
+gafrwzb fftw@3.3.10  ilpb6cd netcdf-fortran@4.6.2  lagqyzt netlib-lapack@3.12.1  stnq2qp netlib-scalapack@2.2.2
 
 -- linux-rhel9-zen5 / %c=gcc@15.2.0 -----------------------------
-alsa-lib@1.2.15.3  diffutils@3.12    gmake@4.4.1  libbsd@0.12.2         libiconv@1.18    libtool@2.5.4    nasm@2.16.03    perl@5.42.0    readline@8.3   util-linux-uuid@2.41
-automake@1.18.1    findutils@4.10.0  gsl@2.8      libedit@3.1-20240808  libmd@1.1.0      libxcrypt@4.5.2  netcdf-c@4.9.3  pigz@2.8       sqlite@3.51.2  xz@5.8.2
-bzip2@1.0.8        gdbm@1.26         hdf5@1.14.6  libevent@2.1.12       libsigsegv@2.15  libxml2@2.15.1   numactl@2.0.19  pkgconf@2.5.1  tar@1.35
+w5oytoe alsa-lib@1.2.15.3  rd2uuxx gdbm@1.26             kcjhrtc libevent@2.1.12  ddibcjq libxcrypt@4.5.2  ejivk2i perl@5.42.0    rzwegeu tar@1.35
+os67qlb automake@1.18.1    3jmx5cd gmake@4.4.1           anayviw libiconv@1.18    6mr7zcy libxml2@2.15.1   b5e6x6u pigz@2.8       it55vd4 util-linux-uuid@2.41
+an5rzrc bzip2@1.0.8        lsilpvy gsl@2.8               i3l5zsd libmd@1.1.0      jwkph32 nasm@2.16.03     btxv56s pkgconf@2.5.1  vk7ckqw xz@5.8.2
+72jfleb diffutils@3.12     dl3mtdk libbsd@0.12.2         qurnpw5 libsigsegv@2.15  pcod7dd netcdf-c@4.9.3   lf5ljls readline@8.3
+p4i5zpo findutils@4.10.0   vbo25pf libedit@3.1-20240808  dbbnpoy libtool@2.5.4    zvxjta5 numactl@2.0.19   3m5q6wh sqlite@3.51.2
 
 -- linux-rhel9-zen5 / %cxx=gcc@15.2.0 ---------------------------
-kokkos@5.0.2
+t4kg5zu kokkos@5.0.2
 
 -- linux-rhel9-zen5 / no compilers ------------------------------
-autoconf@2.72  compiler-wrapper@1.0  gcc-runtime@15.2.0
-==> 73 installed packages
+5e4345x autoconf@2.72  iglv3xy compiler-wrapper@1.0  uaq7tuq gcc-runtime@15.2.0
+==> 75 installed packages
 ```
 
+The seven character string in front of the package name is a hash that we can use to refer to particular concretized spec or install.
 
 ## How to set up a custom environment for the installs
 
