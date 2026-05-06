@@ -4,6 +4,8 @@
 
 Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data. All exported results must be reported to the data permit authority Findata for risk assesment and scrutiny.
 
+!!! Note Researchers are obliged to do a risk based assesment on Findata's website before exporting results and inform Findata about all exports.
+
 Please ensure you reserve enough time for the export process. It may take us a few days to respond to your request and arrange an export date.
 
 **In order to export the results at the end of your analysis, you need to:**
