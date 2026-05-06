@@ -61,7 +61,7 @@ Roihu features the following partitions for submitting jobs to CPU nodes:
 |-------------------|-----------------|------------|---------------|---------------|-----------|-----------------------------------------|------------------|--------------------|
 | `test`            | R               | 15 minutes | 1             | 768           | 2         | M                                       | 744 GiB per job  |                    |
 | `interactive`     | R               | 36 hours   | 1             | 32            | 1         | M                                       | 64 GiB per job   |                    |
-| `longrun`         | R               | 10 days    | 1             | 192           | 1         | M, L                                    | 744 GiB per job  |                    |
+| `longrun`         | R               | 10 days    | 1             | 192           | 1         | M, L                                    | 1500 GiB per job |                    |
 | `small`           | R               | 72 hours   | 1             | 384           | 1         | M, L                                    | 1500 GiB per job |                    |
 | `medium`          | N               | 36 hours   | 384           | 2304          | 6         | M                                       | 744 GiB per node |                    |
 | `large`           | N               | 36 hours   | 2304          | 23040         | 60        | M                                       | 744 GiB per node | [scalability test] |
