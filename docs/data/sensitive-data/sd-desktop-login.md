@@ -7,10 +7,20 @@
 
 ## Step by step
 
-1. Go to login page: **[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi){ target="_blank" }**.
-2. Log in with MyCSC-credentials or Haka. Enter your username and password.
-3. You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator)
-4. IF
+1. **Navigate to [SD Desktop](https://sd-desktop.csc.fi)** and click **Log in**.
+2. **Choose your login method**. Select CSC Login, Haka, Virtu or Life Science login.
+3. **Enter your details**. Type in your username and password, then click **Login**.
+4. **Enter MFA code**. Complete two-factor authentication by entering the temporary code from your mobile authenticator app.
+5. If you see an additional identity verification message, click **Continue**.
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } 
+  { .csc-grid-card-warning }
+
+    If you run into any issues, try clearing your browser history and cookies before logging in again. 
+
+</div>
 
 
 ![Authentication](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Login.png)
