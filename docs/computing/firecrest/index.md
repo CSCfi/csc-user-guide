@@ -1,6 +1,6 @@
 # FirecREST HPC API
 
-The FirecREST HPC API provides a standardized RESTful HTTP interface for accessing computing resources on Roihu. It offers APIs for managing jobs through Slurm scheduler, performing file system operations over personal and project data, and for transfering large amounts of data to or from the system.
+The FirecREST HPC API provides a standardized RESTful HTTP interface for accessing computing resources on Roihu. It offers APIs for managing jobs through Slurm scheduler, performing file system operations over personal and project data, and for transferring large amounts of data to or from the system.
 
 It is an ideal solution for building automated access to computing resources, as well as for creating and running personal web-based client applications that consume computing resources.
 
@@ -21,7 +21,7 @@ In order to use the REST API for building more serious integrations, such as CI 
 
 Check out the following documentation to get started with FirecREST HPC API on Roihu:
 
-1. [FirecREST API documentation](https://api.roihu.csc.fi/v1/docs/)
-2. [Connect to FirecREST HPC API](connecting.md)
+1. [Connect to FirecREST HPC API](connecting.md)
+2. [FirecREST API documentation](https://api.roihu.csc.fi/v1/docs/)
 3. [Transfer data with FirecREST](data-transfer-s3.md)
 4. [Set up PyFirecREST](pyfirecrest.md) for use with Python applications

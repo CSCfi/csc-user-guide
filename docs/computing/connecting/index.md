@@ -39,7 +39,7 @@ typically come with a pre-installed SSH client. See the instructions for
 
 ## Using the FirecREST HPC API
 
-The [FirecREST HPC API](../firecrest/index.md) provides a standardized RESTful interface for accessing computing resources from web-based software. It offers APIs for managing jobs through Slurm scheduler, performing file system operations over personal and project data, and for transfering large amounts of data to or from the system.
+The [FirecREST HPC API](../firecrest/index.md) provides a standardized RESTful interface for accessing computing resources from web-based software. It offers APIs for managing jobs through Slurm scheduler, performing file system operations over personal and project data, and for transferring large amounts of data to or from the system.
 
 ## Using an SSH client
 
