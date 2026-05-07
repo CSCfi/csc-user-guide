@@ -147,8 +147,8 @@ To install some additional pip packages, add the `-r <req_file>` argument, e.g.:
 ```bash
 conda-containerize new -r req.txt --prefix <install_dir> env.yml
 ```
-In addition, there exists a '--uv' flag that can be used to install the additional pip
-packages with uv instead of pip, often resulting in faster installation.
+In addition, there exists a '--uv' flag that can be used to install additional pip
+packages with uv instead of pip, resulting in faster installation.
 
 
 ### End-to-end example
