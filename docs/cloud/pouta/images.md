@@ -57,7 +57,7 @@ distribution effectively takes the role that CentOS used to have before the
 switch to the -Stream versions. Note that these are the upstream versions of the
 AlmaLinux images, and their default username is `almalinux` instead of `cloud-user`.
 
-### Ubuntu-24.04 and 22.04
+### Ubuntu-26.04, 24.04 and 22.04
 Note that these are the upstream versions of the Ubuntu images, and their default
 username is `ubuntu` instead of `cloud-user`.
 
