@@ -129,14 +129,6 @@ To use a Tykky installation with [Jupyter](https://jupyter.org/), include correc
 
 The best way to use Jupyter in Puhti or Mahti is with [the web interface](../webinterface/index.md). See [Jupyter application page](../webinterface/jupyter.md#tykky-installations) for details how to use your own Tykky installation with Puhti web interface Jupyter.
 
-### Pip with Conda
-
-To install some additional pip packages, add the `-r <req_file>` argument, e.g.:
-
-```bash
-conda-containerize new -r req.txt --prefix <install_dir> env.yml
-```
-
 ### Mamba
 
 The tool also supports using [Mamba](https://github.com/mamba-org/mamba) for installing
@@ -147,6 +139,17 @@ flag.
 ```bash
 conda-containerize new --mamba --prefix <install_dir> env.yml
 ```
+
+### Pip/uv with Conda
+
+To install some additional pip packages, add the `-r <req_file>` argument, e.g.:
+
+```bash
+conda-containerize new -r req.txt --prefix <install_dir> env.yml
+```
+In addition, there exists a '--uv' flag that can be used to install the additional pip
+packages with uv instead of pip, often resulting in faster installation.
+
 
 ### End-to-end example
 
@@ -213,6 +216,10 @@ modifying a Conda installation apply here as well.
 
 Note that the Python version used by `pip-containerize` is the first Python executable
 found in the path, so it's affected by loaded modules.
+
+Alternatively, pip can be replaced with uv by passing a '--uv' flag. Packages listed in 
+the requirements file will then be installed using 'uv pip install', enabling faster 
+dependency installation.
 
 **Important:** This Python can not be itself container-based as nesting is not possible!
 
