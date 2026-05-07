@@ -62,16 +62,3 @@ Please note:
 * After submitting an application, there is a two‑week period during which you cannot submit another request. For this reason, it is important to apply early.
 
 * During the application process, you will be asked to attach scientific publications. If you do not yet have publications directly related to this work, you may include any relevant past publications from your research group, even if they are not directly linked to the project.
-
-
-
-
-
-
-
-
-
-        
-      You can find step-by-step guidance and common questions in the documentation
-
-If you are unsure whether your virtual desktop has a storage volume, please contact us at service@csc.fi (subject: SD Desktop) and include your CSC project number and virtual desktop name.
