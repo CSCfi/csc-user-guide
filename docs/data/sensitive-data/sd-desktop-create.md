@@ -4,7 +4,6 @@
 
 ![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
-
 SD Desktop lets you create a protected environment for both individual work and collaborative research projects sdirectly through your web browser. All steps are completed through an easy-to-use interface, and no technical expertise is required.
 
 1. [**Create virtual desktop:**](#create-virtual-desktop) Create secure virtual desktops for analysing sensitive research data.
@@ -20,6 +19,14 @@ All desktops come with a set of **pre‑installed open‑source software** manag
 
 Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, ensure you [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
 
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+    
+    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning.
+
+</div>
 
 ### Step by step
 
@@ -53,25 +60,14 @@ After returning to the main page, you’ll see a list of your desktops. Creating
 | **Big Picture project** | Available only upon request. Contact servicedesk@csc.fi (subject: “SD Desktop”) before creation to confirm availability and receive further details. | – | – | – |
 
 
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
-    
-   
-    
-    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning.
-
-    
-
-</div>
-
 
 ## Create volume
 
 You can create **up to five volumes** per project. You need a volume to store your data. A volume works like a virtual USB stick: it can be attached to one virtual desktop at a time or moved between desktops within the same CSC project. The volume also acts as a backup if the virtual desktop becomes unresponsive.
 
-Volumes consume **Cloud Billing Units** from your CSC project while they are running. 
+Volumes consume Clour Billing Units per GB per hour, starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from table below.
+
+A volume can only be extended with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
 
 ### Step by step
 
@@ -84,11 +80,9 @@ Volumes consume **Cloud Billing Units** from your CSC project while they are run
 
 1. Select a name for your volume. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
 
-2. Choose from the available options the one that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
+2. Choose from the available options the one that covers the combined size of your dataset and working files. 
 
-Volumes consume billing units per GB per hour, starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from table below.
-
-If you have a dataset larger than 1000 GB contact [CSC Service Desk](../../support/contact.md).
+If you have a dataset larger than 1000 GB, contact [CSC Service Desk](../../support/contact.md).
 
 | Name   | Size (GB) | Cost (BU/h) |
 |--------|-----------|-------------|
@@ -106,15 +100,6 @@ Back on the main page, you will see a list of your volumes. You can now proceed 
 
 ![Volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Volumes.png)
 
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **Extending volume space**
-  { .csc-grid-card-warning }
-
-    * A volume can only be extended with additional storage before any data or files are saved on it.
-    * To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
-
-</div>
 
 !!! info "Need assistance?"
     If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services".

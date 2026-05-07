@@ -1,27 +1,28 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Managing volumes and virtual desktops
+# Managing virtual desktops and volumes
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops and volumes happens via **SD Desktop management** page.
+With the SD Desktop service, you can easily manage your virtual desktops and volumes. 
 
 * [Detaching a volume](#detaching-a-volume)
 * [Attaching a volume](#attach-a-volume-to-a-new-virtual-desktop)
 * [Pausing or resuming a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
+* [Deleting a volume](#deleting-a-volume)
 
 !!! Note
     These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
 ___
 
 ## Detaching a volume 
 
 Detaching a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. 
+
+* The content of a detached volume can not be accessed or deleted. If you want to access or delete content on the detached volume, you need to attach it to a virtual desktop that uses same operating system as the volume.
+* Volumes can not be moved or transferred between CSC projects for security reasons.
 
 ### Step 1: Set access permissions of the volume to read and write
 
@@ -31,6 +32,7 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
   { .csc-grid-card-warning }
 
     ---
+    
     Before detaching a volume, make sure all files and folders have read and write access for all project members. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way.
 
 </div>
@@ -81,118 +83,154 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
     **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 
-### Step 2: Detach a volume 
+### Step 2: Detach a volume from a virtual desktop
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+You can easily detach a volume from your virtual desktop. You can compare this operation to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created.
+
+1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Access desktop** on the right side of the correct desktop.
 
 2. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
 
-3. On the homepage, click **SD Desktop management**.
+3. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
 
-4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
-Confirm the operation through the notification.
+![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
 
-![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
+#### In Manage volumes window
+
+1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Detach** on the right side of the volume you want to detach from the desktop. 
+2. Close the window when you are ready.
+
+![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DetachVolume.png)
 
 ___
 
-## Attach a volume to a new virtual desktop
+## Attaching a volume 
 
-When you want to access the data saved in the detached volume, you can attach it to a new virtual desktop. You can also attach the volume when creating a new virtual desktop to move data from the old desktop to the new one.
+When you want to save data to the volume or access the data saved in the volume, you can attach it to a virtual desktop. You can compare this operation to connecting a USB stick to your laptop.
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the homepage, click **SD Desktop management**.
+* To access the volume content, attach it to a desktop with the same operating system. 
+* Volumes can not be moved or transferred between CSC projects for security reasons.
 
-2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, operating system etc.). Follow steps 1-2 in these [instructions](./sd-desktop-create.md).
+### Attach a volume from a virtual desktop
 
-3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdown will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
+* [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
 
-4. Click on **Create desktop**.
+![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
 
+#### In Manage volumes window
 
-!!! Note
-    - A detached volume can not be attached to an existing virtual desktop, only to new virtual desktops during creation phase. 
-    - The content of a detached volume can not be accessed or deleted.
-    - If you want to access or delete content on the detached volume, you need to create a new desktop that uses same operating system as the volume and attach volume to it at the creation phase.
-    - Volumes can not be moved or transferred between CSC projects for security reasons.
+1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Attach** on the right side of the volume you want to attach to the desktop. 
+2. Close the window when you are ready.
 
-![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
+![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
 
 ___
 
 ## Pausing or unpausing a virtual desktop
 
-Virtual desktops should be paused when not actively used for analysis, to reduce the use of CSC computing resources and prevent unnecessary consumption of Cloud Billing Units. Pausing is not intended as a long‑term method for storing data. Volume usage continues to consume Billing Units even while the desktop is paused.
+Virtual desktops should be paused when not actively used to reduce the use of CSC computing resources and prevent unnecessary consumption of Cloud Billing Units. 
 
-!!! Note 
-    CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
+Volumes consume Cloud Billing Units even while the virtual desktop is paused.
 
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+
+    ---
+    
+    Pausing is **not intended as a long‑term method for storing data.** CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
+
+</div>
 
 ### Pausing a virtual desktop
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+
+1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop from the homepage.
 
 2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
 
-3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+3. On the SD Desktop homepage, click **Manage desktop**.
 
-4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Pause desktop**. 
+4. Click **Pause**. 
 
 5. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
 
-!!! note
-    You can't access or detach a volume while a desktop is paused.
+![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_PauseDesktop.png)
 
-![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Pause_desktop.png)
+### Unpausing a virtual desktop
 
-### Resuming a paused virtual desktop
+You can unpause a virtual desktop if the CSC project is active and Cloud Billing Units balance is positive.
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
-2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
+2. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
 
-!!! note
-    Resuming a paused desktop is only possible for active CSC projects with available Cloud Billing Units.
+3. Click **Unpause**. 
 
-![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
+4. Confirm the operation via the notification.
+
+![Unpause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_UnpauseDesktop.png)
 
 ___
 
-## Rebooting a virtual desktop
+## Restarting a virtual desktop
 
-If your virtual desktop or software becomes unresponsive, you can reboot it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
+If your virtual desktop or software becomes unresponsive, you can restart it. All files and software saved on the virtual desktop will remain accessible.
 
 !!! Note
-    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to reboot your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
+    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
 
-To reboot a desktop:
+1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop from the homepage.
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
-
-2. Close all programs and ensure you save or close any files to prevent data corruption.
+2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
     
-3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-    
-4. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Reboot**.
-    
-5. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
+3. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
 
-![Reboot desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
+4. Click **Restart**. 
+    
+5. Confirm the operation via the notification. Restarting a desktop may take up to 30 minutes.
+
+![Restart desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_RestartDesktop.png)
 
 ___
 
 
 ## Deleting a virtual desktop
 
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
+At the end of your analysis, you can delete entire virtual desktop, and all files saved to it by you or other project members. 
 
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+!!! Warning
+    You cannot undo this action. Please contact all the project members before deleting a virtual desktop. ´
 
-2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
-!!! Note
-    Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
+2. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
 
-![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Delete_desktop.png)
+3. Click **Delete**. 
+
+4. Confirm the operation via the notification. 
+
+![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
+
+___
+
+## Deleting a volume
+
+At the end of your analysis, you can delete a volume, and all files saved to it by you or other project members. 
+
+!!! Warning
+    You cannot undo this action. Please contact all the project members before deleting a volume. 
+
+1. If the volume is attached to a desktop detach it first. 
+2. On the SD Desktop homepage, click **Volumes** tab.
+3. Click **Delete** on the right side of the correct volume.
+4. Confirm deleting the volume via notification.
+
+![Delete volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteVolume.png)
+
+___
+
 
 
 ## Your next steps in this guide
