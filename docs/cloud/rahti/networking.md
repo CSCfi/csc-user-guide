@@ -266,9 +266,9 @@ spec:
     app: httpd
 ```
 
-### Add firewall IP blocking to a LoadBalancer Service
+### Add firewall IP blocking to a LoadBalancer Service using NetworkPolicy
 
-It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that we can add an allowlist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`) that will be the only ones that will be able to access the service. This added to using secure protocols and safe password practises, can be a good improvement in security.
+It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that you can add an allowlist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`) that will be the only ones that will be able to access the service. This is added to using secure protocols and safe password practises, can be a good improvement in security.
 
 The procedure to achieve this is the following:
 
@@ -328,8 +328,8 @@ The procedure to achieve this is the following:
     The above example of `NetworkPolicy` allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
 
 3. When using `externalTrafficPolicy: Local` in your service, your Pods need to be hosted on nodes that can forward traffic directly to them (ie., locally). 
-To achieve this, you need to add the [ nodes selector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) `rahti.csc.fi/local_load_balancer: ''`
-to your Pods (or deployment if applicable):
+To achieve this, you need to add the [nodes selector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) `rahti.csc.fi/local-load-balancer: ''`
+to your Pods (or Deployment, or Statefulset if applicable):
 
     ```yaml
     apiVersion: v1
@@ -340,7 +340,7 @@ to your Pods (or deployment if applicable):
         env: test
     spec:
       nodeSelector:
-        rahti.csc.fi/local_load_balancer: ''
+        rahti.csc.fi/local-load-balancer: ''
       .....
       .....
     ```
