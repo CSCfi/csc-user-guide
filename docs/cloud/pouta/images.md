@@ -34,6 +34,7 @@ so that we are sure that they work.
 |AlmaLinux-10     |**almalinux**  |no  |
 |Ubuntu-22.04     |**ubuntu**     |no  |
 |Ubuntu-24.04     |**ubuntu**     |no  |
+|Ubuntu-26.04     |**ubuntu**     |no  |
 
 ### CentOS-9-Stream and CentOS-10-Stream
 
