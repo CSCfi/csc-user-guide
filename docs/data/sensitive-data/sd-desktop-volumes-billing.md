@@ -6,9 +6,12 @@ Starting from 1 June 2026, SD Desktop external volumes billing units consption o
 
 If by then your project does not have enough billing units, the CSC project Billing Units balance will go negative, your virtual desktop will be paused, the project will be closed after 60 days, and all data will be permanently deleted 90 days after closure. To avoid disruption, please apply for additional billing units via the MyCSC portal as soon as possible, as processing times may vary.
 
-
+Note!!!
 
 To prepare for this change, please take the following steps and reserve sufficient time, as completing them may require some effort:
+
+If you need support with these steps, are unsure whether your virtual desktop has a storage volume, or are unsure how many billing units to apply for, please contact service@csc.fi (subject: SD Desktop) and include your project number and virtual desktop name.
+
 
 
 ## 1. Step 1: verify how many volumes your project has in usage and thier size
@@ -62,22 +65,10 @@ Please note:
 
 
 
-If you need support with these steps, are unsure whether your virtual desktop has a storage volume, or are unsure how many billing units to apply for, please contact service@csc.fi (subject: SD Desktop) and include your project number and virtual desktop name.
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-I
 
 
         
