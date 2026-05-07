@@ -36,7 +36,7 @@ curl -X GET https://api.roihu.csc.fi/v1/compute/cpu/jobs \
 
 Authorization header must be present in every API request sent to FirecREST. Token validity is verified on server-side for each request. An attempt to use invalid access token will result in a `HTTP 401 Unauthorized` return code, with a specific error message recorded in a JSON document in the response body.
 
-All requests made via FirecREST API are executed on Roihu using the same user account that was used to retrieve the access token. For example, with a personal accesss token, all commands run via FirecREST are executed as you on the target system.
+All requests made via FirecREST API are executed on Roihu using the same user account that was used to retrieve the access token. For example, with a personal access token, all commands run via FirecREST are executed as you on the target system.
 
 ## Connecting with a personal access token
 
