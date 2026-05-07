@@ -1,8 +1,9 @@
 # Cloud services
 
 ## Storage quota model change in cPouta and ePouta, 07.05.2026
-The storage quota model in cPouta and ePouta has been updated from a single total gigabyte limit to per–volume-type quotas. Instead of one shared limit, quotas are now defined separately for each volume type (capacity, standard, and standard.multiattach).
-By default, both capacity and standard volumes have 1000 GB each, and standard.multiattach is available on request. The overall total quota is no longer enforced. If you need more storage, please include the volume type in your request.
+The storage quota model in cPouta and ePouta has been updated from a single total gigabyte limit to per–volume-type quotas. Instead of one shared limit, quotas are now defined separately for each volume type (capacity, standard, and standard.multiattach). By default, both capacity and standard volumes have 1000 GB each, and standard.multiattach is available on request. The overall total quota is no longer enforced.
+
+If you need more storage, please include the volume type in your request.
 
 ## Allas Web UI updates, 26.02.2026
 
