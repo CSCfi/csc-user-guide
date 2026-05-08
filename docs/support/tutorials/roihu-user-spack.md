@@ -174,7 +174,7 @@ default settings, so that they do not point to default
 system locations (which are not writable by users):
 
 ```console
-spack config add 'config:source_cache:$spack_user_cache/source-cache'
+spack config add 'config:source_cache:source-cache'
 ```
 
 The chosen upstream environment and the location of our custom environment's
