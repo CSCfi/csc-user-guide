@@ -140,16 +140,20 @@ flag.
 conda-containerize new --mamba --prefix <install_dir> env.yml
 ```
 
-### Pip/uv with Conda
+### Install additional packages with pip or uv
 
 To install some additional pip packages, add the `-r <req_file>` argument, e.g.:
 
 ```bash
 conda-containerize new -r req.txt --prefix <install_dir> env.yml
 ```
-In addition, there exists a '--uv' flag that can be used to install additional pip
-packages with uv instead of pip, resulting in faster installation.
 
+By default, pip is used to install the dependencies. Additionally, using the '--uv' flag
+together with the '--mamba' flag enables faster installation. The corresponding env.yml file must also include uv.
+
+```bash
+conda-containerize new -r req.txt --mamba --uv --prefix <install_dir> env.yml 
+```
 
 ### End-to-end example
 
