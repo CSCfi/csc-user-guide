@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Starting from 1 June 2026:
+Starting from 3 June 2026:
 
 - SD Desktop external volumes billing units consumption of Cloud-type billing units will be automatically allocated to your CSC project (instead of manually allocated).
   
