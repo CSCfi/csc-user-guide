@@ -2,14 +2,17 @@
 
 ## Intorduction
 
-Starting from 1 June 2026, SD Desktop external volumes billing units consption of Cloud-type billing units will be automatically allocated to your CSC project instead of manually assigned. Volumes usage from January 2026 to 26 May 2026 will also be charged retroactively.
+Starting from 1 June 2026:
 
-If by then your project does not have enough billing units, the CSC project Billing Units balance will go negative, your virtual desktop will be paused, the project will be closed after 60 days, and all data will be permanently deleted 90 days after closure. To avoid disruption, please apply for additional billing units via the MyCSC portal as soon as possible, as processing times may vary.
+- SD Desktop external volumes billing units consumption of Cloud-type billing units will be automatically allocated to your CSC project (instead of manually assigned).
+  
+-  Volumes usage from January 2026 to 26 May 2026 will also be charged retroactively.
+
+If by then your project does not have enough billing units, the CSC project Billing Units balance will go negative, your virtual desktop will be paused, the project will be closed after 60 days, and all data will be permanently deleted 90 days after closure. 
+
+**To avoid disruption, please apply for additional billing units via the MyCSC portal as soon as possible, as processing times may vary. To prepare for this change, please take the following steps and reserve sufficient time, as completing them may require some effort**:
 
 Note!!!
-
-To prepare for this change, please take the following steps and reserve sufficient time, as completing them may require some effort:
-
 If you need support with these steps, are unsure whether your virtual desktop has a storage volume, or are unsure how many billing units to apply for, please contact service@csc.fi (subject: SD Desktop) and include your project number and virtual desktop name.
 
 
@@ -32,7 +35,7 @@ If you need support with these steps, are unsure whether your virtual desktop ha
 Add here image of volume from GitLab
 
 
-## 2. Calculate how many billing units the virtual desktop volume consumes and which package you should apply for
+## 2. Calculate how many billing units the virtual desktop volume consumes and which Billing unites package you should apply for
 
 Volumes consume 4.7 Cllouyd Biulling unites /Tib/ Hour. Here’s a table summarizing the Cloud Billing Units required for using **volumes** over **one year** for various options and correstpiondent Billing Units package you can apply for via the MYCSC portal.
 
