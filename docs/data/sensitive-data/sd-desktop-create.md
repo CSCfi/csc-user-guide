@@ -67,7 +67,7 @@ You can create **up to five volumes** per project. You need a volume to store yo
 
 Volumes consume Clour Billing Units per GB per hour, starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from table below.
 
-A volume can only be extended with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
+A volume **can only be extended** with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
 
 ### Step by step
 
@@ -80,15 +80,7 @@ A volume can only be extended with additional storage before any data or files a
 
 1. Select a name for your volume. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
 
-2. Choose from the available options the one that covers the combined size of your dataset and working files. 
-
-If you have a dataset larger than 1000 GB, contact [CSC Service Desk](../../support/contact.md).
-
-| Name   | Size (GB) | Cost (BU/h) |
-|--------|-----------|-------------|
-| Large  | 1000      | 3.5         |
-| Medium | 500       | 1.75        |
-| Small  | 200       | 0.7         |
+2. Choose from the available options the one that covers the combined size of your dataset and working files. If you have a dataset larger than 1000 GB, contact [CSC Service Desk](../../support/contact.md).
 
 3. Write **optional** description or note about the volume to help your team members understand its purpose and contents.
 
@@ -100,6 +92,13 @@ Back on the main page, you will see a list of your volumes. You can now proceed 
 
 ![Volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Volumes.png)
 
+#### Volume options
+
+| Name   | Size (GB) | Cost (BU/h) |
+|--------|-----------|-------------|
+| Large  | 1000      | 3.5         |
+| Medium | 500       | 1.75        |
+| Small  | 200       | 0.7         |
 
 !!! info "Need assistance?"
     If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services".
