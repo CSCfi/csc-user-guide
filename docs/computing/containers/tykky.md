@@ -218,14 +218,14 @@ pip-containerize new --prefix <install_dir> req.txt
 where `req.txt` is a standard pip requirements file. The notes and options for
 modifying a Conda installation apply here as well.
 
+Alternatively, uv can be used to manage the Python installations by passing a '--uv' flag. Packages listed in 
+the requirements file will then be installed using 'uv pip install', enabling faster 
+dependency installation.
+
 Note that the Python version used by `pip-containerize` is the first Python executable
 found in the path, so it's affected by loaded modules.
 
 **Important:** This Python can not be itself container-based as nesting is not possible!
-
-Alternatively, uv can be used to manage the Python installations by passing a '--uv' flag. Packages listed in 
-the requirements file will then be installed using 'uv pip install', enabling faster 
-dependency installation.
 
 An additional `--slim` flag exists, which will instead use a pre-built minimal Python
 container with a much newer version of Python as a base. Without the `--slim` flag,
