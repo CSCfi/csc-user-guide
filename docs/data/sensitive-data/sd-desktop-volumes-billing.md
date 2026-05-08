@@ -1,10 +1,10 @@
 # Retroactive billing: how to request Billing Units for SD Desktop external volumes 
 
-## Intorduction
+## Introduction
 
 Starting from 1 June 2026:
 
-- SD Desktop external volumes billing units consumption of Cloud-type billing units will be automatically allocated to your CSC project (instead of manually assigned).
+- SD Desktop external volumes billing units consumption of Cloud-type billing units will be automatically allocated to your CSC project (instead of manually allocated).
   
 -  Volumes usage from January 2026 to 26 May 2026 will also be charged retroactively.
 
