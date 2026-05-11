@@ -111,7 +111,7 @@ When you want to save data to the volume or access the data saved in the volume,
 * To access the volume content, attach it to a desktop with the same operating system. 
 * Volumes can not be moved or transferred between CSC projects for security reasons.
 
-### Attach a volume from a virtual desktop
+### Attach a volume to a virtual desktop
 
 * [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
 
