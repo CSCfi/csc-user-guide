@@ -2,8 +2,6 @@
 
 # How to get access to SD Desktop with a single register permit
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_yksittainenRekisteri.pdf){ target="_blank" }**
-
 ## Use case
 
 You need to access SD Desktop. You have a permit from a single register.
