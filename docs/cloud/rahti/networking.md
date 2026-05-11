@@ -268,7 +268,12 @@ spec:
 
 ### Add firewall IP blocking to a LoadBalancer Service using NetworkPolicy
 
-It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that you can add an allowlist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`) that will be the only ones that will be able to access the service. This, combined with secure protocols and safe password practices, can significantly improve security.
+It is possible to add firewall IP blocking to a LoadBalancer Service. This allows you to configure an allowlist of specific IP addresses (for example, 188.184.77.250) and/or IP ranges (for example, 188.184.0.0/16). Only traffic from these permitted addresses will be able to access the service.
+
+
+!!! info "Tip"
+    IP firewalling alone is not sufficient to secure an application running behind a LoadBalancer Service. Always follow security best practices and use IP filtering as part of a layered security approach. **Combine** it with secure communication protocols such as TLS and strong authentication mechanisms, including safe password practices, to properly protect your applications.
+
 
 The procedure to achieve this is the following:
 
