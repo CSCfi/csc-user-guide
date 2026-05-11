@@ -26,7 +26,7 @@ For working with EO data in general, there are three main options:
 
 CSC services do not fit well in this categorization, as they provide some features from all of these. **CSC computing services provide a lot of computing power and storage space, and they are free of charge** for Finnish researchers for academic or educational use. 
 
-At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Roihu](../../../computing/systems-Roihu    .md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/index.md). Roihu    's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Roihu     and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
+At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Roihu](../../../computing/systems-roihu.md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/index.md). Roihu    's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Roihu     and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
 
 Roihu has a lot of [pre-installed applications](#what-applications-are-available-on-roihu), so it is a ready-to-use environment. cPouta virtual machines are similar to commercial cloud services, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
 
