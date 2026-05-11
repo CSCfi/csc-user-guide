@@ -7,7 +7,7 @@
 * [Install GDAL](https://gdal.org/download.html#binaries). If you have installed already QGIS or R/Python GIS packages, then you should have GDAL already. Just find where it is, look for example for OSGeo shell, Anaconda Prompt or gdalinfo file from your disk.
 * Open terminal, OSGeo shell, Anaconda Prompt or Windows Command Prompt.
 * (See the basic command-line help at the end of this page.)
-* [GDAL is available in Puhti](../../../apps/gdal.md).
+* [GDAL is available in CSC supercomputers](../../../apps/gdal.md).
 
 ## Main tools
 
