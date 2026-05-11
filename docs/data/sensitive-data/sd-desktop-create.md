@@ -7,7 +7,7 @@
 SD Desktop lets you create a protected environment for both individual work and collaborative research projects sdirectly through your web browser. All steps are completed through an easy-to-use interface, and no technical expertise is required.
 
 1. [**Create virtual desktop:**](#create-virtual-desktop) Create secure virtual desktops for analysing sensitive research data.
-2. [**Create volume:**](#create-volume) You need a volume to store your data. 
+2. [**Create volume:**](#create-volume) Copy your data to a volume for analysis. 
 3. **Attach volume to desktop:** After creating a volume, simply attach it to your virtual desktop. 
 
 
@@ -17,7 +17,7 @@ You can create **up to three desktops** within a single CSC project, with **up t
 
 All desktops come with a set of **pre‑installed open‑source software** managed by CSC. More information about the available software and customization options is available [here](./sd-desktop-software.md).
 
-Desktops have 80 GB of storage by default. If you save more than 80 GB of data to your desktop, it becomes unresponsive. To avoid this, please create and attach an additional [volume](#create-volume) to your desktop.
+Desktops have **80 GB of storage by default**. If you save more than 80 GB of data to your desktop, it becomes unresponsive. To avoid this, please create and attach an additional [volume](#create-volume) to your desktop.
 
 Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, ensure you [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
 
@@ -65,9 +65,9 @@ After returning to the main page, you’ll see a list of your desktops. Creating
 
 ## Create volume
 
-You can create **up to five volumes** per project. You need a volume to store your data. A volume works like a virtual USB stick: it can be attached to one virtual desktop at a time or moved between desktops within the same CSC project. The volume also acts as a backup if the virtual desktop becomes unresponsive.
+You can create **up to five volumes** per project. Copy your data to a volume for analysis. A volume works like a virtual USB stick: it can be attached to one virtual desktop at a time or moved between desktops within the same CSC project. The volume also acts as a backup if the virtual desktop becomes unresponsive.
 
-Volumes consume Clour Billing Units per GB per hour, starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from table below.
+Volumes consume Cloud Billing Units starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from table below.
 
 A volume **can only be extended** with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
 
