@@ -152,7 +152,7 @@
 
         initializeDisclaimerControls(className)
 
-        if (!isAcknowledged) {
+        if (disclaimerElem && !isAcknowledged) {
           showDisclaimer(disclaimerElem)
         }
       })
