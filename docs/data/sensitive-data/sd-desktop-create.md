@@ -53,13 +53,13 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 
 #### Virtual desktop options
 
-| Use | Description | Technical specifications | Correspondent Pouta flavor | Cloud Billing Units consumption |
-|---|---|---|---|---|
-| **Small computation** | Ideal for simple statistical analysis, watching videos, or listening to audio files. Comparable to a personal laptop. | 6 cores, 15 GB memory, 80 GB root disk | standard.xlarge | About 48 000 Cloud Billing Units/year |
-| **Medium computation** | Ideal for running specific scripts for complex statistical analysis (e.g. genetic data). Comparable to a powerful IT-managed laptop. | 8 cores, 30 GB memory, 80 GB root disk | standard.xxlarge | About 98 000 Cloud Billing Units/year |
-| **Heavy computation** | Ideal for non-interactive programmatic analysis (machine learning) that requires heavy computation. Not recommended for simple analysis due to high resource consumption. | 28 cores, 176 GB memory, 80 GB root disk | hpc.6.28core | About 565 000 Cloud Billing Units/year |
-| **Small GPU computation** | Available only upon request. Contact servicedesk@csc.fi (subject: “SD Desktop”) before creation to confirm availability and receive further details. | – | – | – |
-| **Big Picture project** | Available only upon request. Contact servicedesk@csc.fi (subject: “SD Desktop”) before creation to confirm availability and receive further details. | – | – | – |
+| Use | Description | Technical specifications | Correspondent Pouta flavor | Cloud Billing Units consumption per hour | Cloud Billing Units consumption per year |
+|---|---|---|---|---|---|
+| **Small computation** | Ideal for simple statistical analysis, watching videos, or listening to audio files. Comparable to a personal laptop. | 6 cores, 15 GB memory, 80 GB root disk | standard.xlarge | 5.6 Cloud Billing Units/h |  About 49 000 Cloud Billing Units/year |
+| **Medium computation** | Ideal for running specific scripts for complex statistical analysis (e.g. genetic data). Comparable to a powerful IT-managed laptop. | 8 cores, 30 GB memory, 80 GB root disk | standard.xxlarge | 11.32 Cloud Billing Units/h | About 99 000 Cloud Billing Units/year |
+| **Heavy computation** | Ideal for non-interactive programmatic analysis (machine learning) that requires heavy computation. Not recommended for simple analysis due to high resource consumption. | 28 cores, 176 GB memory, 80 GB root disk | hpc.6.28core | 65.4 Cloud Billing Units/h | About 573 000 Cloud Billing Units/year |
+| **Small GPU computation** | Available only upon request. Contact servicedesk@csc.fi (subject: “SD Desktop”) before creation to confirm availability and receive further details. | – | – | – | – |
+| **Big Picture project** | Available only upon request. Contact servicedesk@csc.fi (subject: “SD Desktop”) before creation to confirm availability and receive further details. | – | – | – | – |
 
 <div class="grid cards" markdown>
 
