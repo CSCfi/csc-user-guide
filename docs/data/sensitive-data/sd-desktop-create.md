@@ -17,6 +17,8 @@ You can create **up to three desktops** within a single CSC project, with **up t
 
 All desktops come with a set of **pre‑installed open‑source software** managed by CSC. More information about the available software and customization options is available [here](./sd-desktop-software.md).
 
+Desktops have 80 GB of storage by default. If you save more than 80 GB of data to your desktop, it becomes unresponsive. To avoid this, please create and attach an additional [volume](#create-volume) to your desktop.
+
 Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, ensure you [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
 
 <div class="grid cards" markdown>
@@ -94,11 +96,13 @@ Back on the main page, you will see a list of your volumes. You can now proceed 
 
 #### Volume options
 
-| Name   | Size (GB) | Cost (BU/h) |
+| Name   | Size (GB) | Cost (BU/TiB/h) |
 |--------|-----------|-------------|
-| Large  | 1000      | 3.5         |
-| Medium | 500       | 1.75        |
-| Small  | 200       | 0.7         |
+| Small  | 200       | 4.7        |
+| Medium | 500       | 4.7        |
+| Large  | 1000      | 4.7        |
+
+
 
 !!! info "Need assistance?"
     If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services".
