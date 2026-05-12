@@ -324,8 +324,8 @@ Limitations and caveats: 
 These instances are also tightly tied to the hardware. You may expect
 downtime of instances during the maintenance of the hardware.
 
-Users also have the possibility to use NVIDIA Volta V100 GPGPUs in the
-batch system [Puhti](../../computing/systems-puhti.md).
+Users also have the possibility to use NVIDIA GH200 GPGPUs in the
+batch system [Roihu](../../computing/systems-roihu.md).
 
 #### cPouta
 

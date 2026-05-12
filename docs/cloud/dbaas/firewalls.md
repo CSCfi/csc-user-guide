@@ -58,7 +58,6 @@ This is done by allowing subnets.
 You can find the IP from the Pouta web interface under Network -> Routers -> The specific router ->
 "External Fixed IPs"
 
-
 ### ePouta
 
 It is important to remember that all traffic from ePouta to Pukki will be going over "the internet"
@@ -77,14 +76,26 @@ which makes it even more important to use a strong username and password for you
 
 More information can be found in [Rahti security guide](../rahti/security-guide.md)
 
-
-
 ### Noppe
+
 If you need to access your Pukki database instance from Noppe then you need to allow this IP
 `193.167.189.137/32` . Note that all other Notebook users will be able to access your database
 instances as well so it is important to use strong passwords for your database user.
 
+
+### Roihu
+
+Accessing your Pukki database from login and compute nodes you can allow this:
+
+```
+86.50.172.0/27
+```
+
 ### Puhti
+
+!!! warning "Puhti step-wise retirement during spring and summer 2026"
+    Puhti will be gradually decommissioned during spring and summer 2026 and
+    replaced by Roihu.
 
 Accessing your Pukki database from login and compute nodes you can allow this:
 
@@ -97,7 +108,10 @@ If one would like to have even strictre rules one could limit it only these
 puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
 -->
 
-### Roihu
+### Mahti
+
+!!! warning "Mahti retirement in August 2026"
+    Mahti will be decommissioned in August 2026 and replaced by Roihu.
 
 Accessing your Pukki database from Roihu from both login nodes and compute node you can allow this:
 
