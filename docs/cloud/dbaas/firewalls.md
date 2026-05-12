@@ -97,9 +97,9 @@ If one would like to have even strictre rules one could limit it only these
 puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
 -->
 
-### Mahti
+### Roihu
 
-Accessing your Pukki database from Mahti from both login nodes and compute node you can allow this:
+Accessing your Pukki database from Roihu from both login nodes and compute node you can allow this:
 
 ```
 86.50.165.192/27
