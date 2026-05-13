@@ -258,7 +258,7 @@ theme:
   icon:
     repo: material/git
     edit: material/pencil
-    alternate: octicons/globe-16
+    alternate: material/web
     admonition:
       info: material/information
       success: material/check-circle
