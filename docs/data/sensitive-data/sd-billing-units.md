@@ -131,13 +131,12 @@ Estimate the Billing Units your project will consume over the next six months fo
 
 #### SD Desktop: Cloud Billing Units
 
-**SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created. To estimate your Billing Unit consumption, you need to calculate:
+**SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created. To estimate your Cloud Billing Unit consumption, you need to calculate:
 
-1. How many virtual desktops you have running and their sizes (how many GBs). You can see this from ???. For example you could have three virtual desktops, one is 15 GB, other, is 30 GB and third is 80 GB. 
-2. How many volumes you have and their sizes (how many GBs). For example you could one 100 GB volume. 
+1. How many virtual desktops you have running and their sizes (how many cores). You can see this from your virtul desktop. 
+2. How many volumes you have and their sizes (how many GBs). For example you could have one 100 GB volume. 
     - Go to SD Desktop Management page.
-    - Scrolls down to Available Desktops window. You see volume sizes in Volumes column.
-3. Calculate virtual desktop sizes togets In our example we would calculate 15 GB + 30 GB + 80 GB = **125 GB**. Loooking at the table below, we would apply for Small package from MyCSC since combined size is less than 200 GB.
+    - Scroll down to Available Desktops window. You see volume sizes in Volumes column.
 
 Here’s a table summarizing the Cloud Billing Units required for using **virtual desktops** over **one year** for various options:
 
@@ -154,9 +153,9 @@ Here’s a table summarizing the Cloud Billing Units required for using **volume
 
 | Volume Option | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
-| 200 GB | 4.7 | 4 000 |Small package, 2 times a year: 30 000 BUs assigned immediately| 
-| 1 TB | 4.7 | 20 000 |Small package, 2 times a year: 30 000 BUs assigned immediately  |
-| 10 TB | 4.7 | 200 000 |  Medium package, 2 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
+| up to 200 GB | 4.7 | 4 000 |Small package, 2 times a year: 30 000 BUs assigned immediately| 
+| up to 1 TB | 4.7 | 20 000 |Small package, 2 times a year: 30 000 BUs assigned immediately  |
+| up to 10 TB | 4.7 | 200 000 |  Medium package, 2 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
 
 
 #### SD Connect: Storage Billing Units
