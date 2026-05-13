@@ -29,9 +29,9 @@ FirecREST HPC API uses JWT bearer tokens as authorization method. Accepted token
 In order to connect to an API endpoint, tokens are sent to FirecREST using standard `Authorization` header, example:
 
 ```
-my_token="<PAT JWT>"
+access_token="<JWT>"
 curl -X GET https://api.roihu.csc.fi/v1/compute/cpu/jobs \
-  -H "Authorization: Bearer ${my_token}"
+  -H "Authorization: Bearer ${access_token}"
 ```
 
 Authorization header must be present in every API request sent to FirecREST. Token validity is verified on server-side for each request. An attempt to use invalid access token will result in a `HTTP 401 Unauthorized` return code, with a specific error message recorded in a JSON document in the response body.
