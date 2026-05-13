@@ -153,9 +153,9 @@ Here’s a table summarizing the Cloud Billing Units required for using **volume
 
 | Volume Option | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
-| up to 200 GB | 4.7 | 4 000 |Small package, 2 times a year: 30 000 BUs assigned immediately| 
-| up to 1 TB | 4.7 | 20 000 |Small package, 2 times a year: 30 000 BUs assigned immediately  |
-| up to 10 TB | 4.7 | 200 000 |  Medium package, 2 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
+| 200 GB | 4.7 | 8 000 | Small package, once a year: 30 000 BUs assigned immediately| 
+| 1 TB | 4.7 | 41 000 | Small package, 2 times a year: 30 000 BUs assigned immediately  |
+| 10 TB | 4.7 | 402 000 | Medium package, 2 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
 
 
 #### SD Connect: Storage Billing Units

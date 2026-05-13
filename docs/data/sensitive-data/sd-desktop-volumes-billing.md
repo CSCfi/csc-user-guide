@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Starting June 3, 2026, **SD Desktop external volumes will consume Cloud Billing Units from your CSC project**. Previously allocated manually to your organization, these units will now be visible directly in your project. 
+Starting June 3, 2026, **SD Desktop external volumes will start consuming Cloud Billing Units from your CSC project**.  
 
-To avoid service disruption, please ensure you have sufficient billing units for the next 5–6 months by following the step-by-step guidance below. If needed, apply for additional Billing Units via the MyCSC portal as soon as possible. Processing times may vary, so please allow sufficient time.
+**Please ensure you have sufficient Billing Units for the next 5–6 months** by following the step-by-step guidance below. If needed, apply for additional Billing Units via the MyCSC portal as soon as possible. Processing times may vary, so please allow sufficient time.
 
 
 <div class="grid cards" markdown>
@@ -21,7 +21,7 @@ To avoid service disruption, please ensure you have sufficient billing units for
 
 
 
-### Step 1: check if your virtual desktop have an external volume
+### Step 1: Check if your virtual desktop has an external volume
 
 
 1. [Login](./sd-desktop-login.md) to SD Desktop. All your virtual desktops are listed at the home page under **All connections**.
@@ -30,7 +30,7 @@ To avoid service disruption, please ensure you have sufficient billing units for
   
 3. Now you can see all virtual desktops that belong to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name. If you encounter a black screen, your virtual desktop is probably paused and needs to be [resumed](sd-desktop-manage.md#resuming-a-paused-virtual-desktop). 
    
-4. On the left navigation bar click on the volume icon and check the volume size.
+4. On the left navigation bar click on the volume icon and **check the volume size (GB)**.
    
 5. Repeat these steps for all the virtual desktops in your CSC projects. 
 
@@ -39,17 +39,19 @@ To avoid service disruption, please ensure you have sufficient billing units for
 ![Volume size](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-VolumeSize.png)
 
 
-### Step 2: Calculate how many billing units the virtual desktop volume consumes and which Billing unites package you should apply for
+### Step 2: Calculate how many Cloud Billing Units volume consumes
 
-Volumes consume 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing the Cloud Billing Units required for using **volumes** over **one year** for various options and correspondent Billing Units package you can apply for via MyCSC.
+Volume consumes 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing the Cloud Billing Units required for using **a volume for one year** for various options and correspondent Billing Units package you can apply for via MyCSC.
 
-| Volume Option | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
+| Volume Size | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
-| up to 1 TB | 4.7 | 1 600 |Small package, 1 times a year: 30 000 BUs assigned immediately  |
-| 10 TB | 4.7 | 17 000 |  Medium package, 1 times a year: 30 000 BUs Processed on average within 1-3 days by a Resource Officer |
+| Up to 500 GB | 4.7 | 20 000 | Small package, once a year: 30 000 BUs assigned immediately| 
+| Up to 1 TB | 4.7 | 41 000 | Small package, 2 times a year: 30 000 BUs assigned immediately  |
+| Up to 10 TB | 4.7 | 402 000 | Medium package, 2 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
 
 
-### Step 3: Verify in MyCSC if your CSC project has enough Billing Units and apply for more if needed
+
+### Step 3: Verify in MyCSC if your CSC project has enough Cloud Billing Units and apply for more if needed
 
 1. Log in to [MyCSC](https://my.csc.fi).
 2. Navigate to your project's view. 
