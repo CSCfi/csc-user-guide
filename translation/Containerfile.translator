@@ -3,8 +3,8 @@ FROM ${base_image} as base
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-ARG restic_version
-COPY --from=ghcr.io/restic/restic:${restic_version} \
+ARG restic_image
+COPY --from=${restic_image} \
      /usr/bin/restic \
      /usr/bin/restic
 
