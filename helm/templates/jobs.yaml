@@ -1,0 +1,14 @@
+{{- range $lang := .Values.translator.languages }}
+---
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: {{ $lang.code | printf "%s-%s-%s-%s" ($ | include "docs-csc.name") "init" "translation" }}
+  labels:
+{{ include "docs-csc.labels" $ | indent 4 }}
+spec:
+  concurrencyPolicy: Forbid
+  podReplacementPolicy: Failed
+  template:
+{{ . | list $ | include "translation.jobSpec" | indent 4 }}
+{{- end -}}

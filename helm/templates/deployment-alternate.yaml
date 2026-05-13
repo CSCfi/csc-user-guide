@@ -1,0 +1,51 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    image.openshift.io/triggers: |-
+      [
+        {
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": {{ printf "%s:%s" (include "docs-csc.altName" .) "latest" | quote }}
+          },
+          "fieldPath": "spec.template.spec.containers[?(@.name==\"{{ include "docs-csc.altContainerName" . }}\")].image"
+        }
+      ]
+  name: {{ include "docs-csc.altName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+spec:
+  selector:
+    matchLabels:
+      deployment: {{ include "docs-csc.altName" . }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        deployment: {{ include "docs-csc.altName" . }}
+{{ include "docs-csc.labels" . | indent 8 }}
+    spec:
+      volumes:
+{{ include "translation.translationsVolume" . | indent 8 }}
+        - name: nginx-location
+          configMap:
+            name: {{ include "docs-csc.altConfigName" . }}
+            defaultMode: 420
+      containers:
+        - name: {{ include "docs-csc.altContainerName" . }}
+          image: ' '
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: nginx-location
+              mountPath: /opt/app-root/etc/nginx.default.d/
+            - name: {{ include "docs-csc.altClaimName" . }}
+              mountPath: /opt/app-root/src/
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%

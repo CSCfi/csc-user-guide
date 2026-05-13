@@ -1,0 +1,14 @@
+{{- range $imagestreamname := list (include "docs-csc.baseName" .)
+                                   (include "docs-csc.origBuilderName" .)
+                                   (include "docs-csc.origName" .)
+                                   (include "docs-csc.translatorName" .)
+                                   (include "docs-csc.altBuilderName" .)
+                                   (include "docs-csc.altName" .) -}}
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: {{ $imagestreamname }}
+  labels:
+{{ $ | include "docs-csc.labels" | indent 4 }}
+{{ end }}
