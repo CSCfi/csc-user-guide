@@ -1,5 +1,5 @@
 ARG builder_image
-ARG server_image=ubi9/nginx-124
+ARG server_image
 FROM ${builder_image} AS builder
 
 ARG repo_org=CSCfi
