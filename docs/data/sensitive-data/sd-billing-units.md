@@ -122,16 +122,22 @@ Estimate the Billing Units your project will consume over the next six months fo
   { .csc-grid-card-info }
 
     ---
-    - Unused Billing Units expire every six months, so request only what you need.
+    - **Unused Billing Units expire every six months**, so request only what you need.
     - The Basic, Small and Medium packages have fixed Billing Unit (BU) allocations, while the Large package is flexible and can be defined by you, up to a maximum of 3,000,000 BUs.
-    - If your virtual desktop has been paused because all Billing Units have been already consumed, apply for the Small Package (30,000 BUs) from my.csc.fi. It will be assigned immediately, allowing you to resume work. After two weeks, review your usage to see if additional units are needed.
+    - If your virtual desktop has been paused because all Billing Units have been already consumed, apply for the Small Package (30,000 BUs) from MyCSC. It will be assigned immediately, allowing you to resume work. After two weeks, review your usage to see if additional units are needed.
     
 </div>
 
 
 #### SD Desktop: Cloud Billing Units
 
-**SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. 
+**SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created. To estimate your Billing Unit consumption, you need to calculate:
+
+1. How many virtual desktops you have running and their sizes (how many GBs). You can see this from ???. For example you could have three virtual desktops, one is 15 GB, other, is 30 GB and third is 80 GB. 
+2. How many volumes you have and their sizes (how many GBs). For example you could one 100 GB volume. 
+    - Go to SD Desktop Management page.
+    - Scrolls down to Available Desktops window. You see volume sizes in Volumes column.
+3. Calculate virtual desktop sizes togets In our example we would calculate 15 GB + 30 GB + 80 GB = **125 GB**. Loooking at the table below, we would apply for Small package from MyCSC since combined size is less than 200 GB.
 
 Here’s a table summarizing the Cloud Billing Units required for using **virtual desktops** over **one year** for various options:
 
