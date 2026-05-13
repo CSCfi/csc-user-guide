@@ -45,9 +45,8 @@ Volumes consume 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing 
 
 | Volume Option | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
-| 200 GB | 4.7 | 4 000 |Small package, 2 times a year: 30 000 BUs assigned immediately| 
-| 1 TB | 4.7 | 20 000 |Small package, 1 times a year: 30 000 BUs assigned immediately  |
-| 10 TB | 4.7 | 200 000 |  Medium package, 1 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
+| up to 1 TB | 4.7 | 1 600 |Small package, 1 times a year: 30 000 BUs assigned immediately  |
+| 10 TB | 4.7 | 17 000 |  Medium package, 1 times a year: 30 000 BUs Processed on average within 1-3 days by a Resource Officer |
 
 
 ### Step 3: Verify in MyCSC if your CSC project has enough Billing Units and apply for more if needed
