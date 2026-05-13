@@ -1,0 +1,66 @@
+git:
+  uri: https://github.com/CSCfi/csc-user-guide.git
+  ref: master
+translator:
+# GitHub repo where Markdown files are fetched for translation.
+# (defaults are defined in /translation/Containerfile.translator):
+  # repo:
+  #   org: CSCfi
+  #   name: csc-user-guide
+  #   branch: master
+  configBranchOverride: null
+  languages:
+    - code: fi
+      # matomoId: 24
+# Allows for a deployment where pages are not translated,
+# but only restored from restic snapshot:
+  restoreOnly: true
+  schedule: 0 0 * * 1-5
+  openAi:
+    apiKey: ""
+  os:
+    authUrl: https://pouta.csc.fi:5001/v3
+    applicationCredentialId: ""
+    applicationCredentialSecret: ""
+  restic:
+    image: ghcr.io/restic/restic
+    tag: 0.18.1
+    repository: swift:docs-restic:/translations
+# This is not the server hostname. Only used as the hostname in restic snapshots:
+    host: docs.csc.fi
+    password: ""
+  cache:
+    container: docs-restic
+    prefix: cache
+  # Defaults to 2Gi if not set:
+  # storageCapacity: 2Gi
+site:
+# GitHub repo where Markdown files are fetched for the English site.
+# (defaults are defined in /Containerfile):
+  # repo:
+  #   org: CSCfi
+  #   name: csc-user-guide
+  #   branch: master
+  configBranchOverride: null
+  # host: docs.csc.fi
+# For renewing the certificate. If not set and host does not end
+# in 'rahtiapp.fi', an attempt is made to lookup the existing certificate.
+# If host is not set or ends in 'rahtiapp.fi', these have no effect:
+  # tls:
+  #   certFile: docs-csc-fi.crt
+  #   keyFile: docs-csc-fi.key
+  #   caCertFile: ca.crt
+  # matomoUrl: https://mwa.2.rahtiapp.fi
+  # matomoId: 1
+# Defaults to 'preview' if not set:
+  # environment: production
+# Defaults to 3 if not set:
+  replicaCount: 3
+base:
+  image: ubi9
+  tag: 9.7-1778044007
+server:
+  image: ubi9/nginx-124
+  tag: 9.7-1778130638
+localRegistry: image-registry.openshift-image-registry.svc:5000
+nameOverride: null

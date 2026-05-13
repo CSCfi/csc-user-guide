@@ -1,0 +1,17 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: {{ include "docs-csc.altName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ "latest" | printf "%s:%s" (include "docs-csc.altName" .) | squote }}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: translation/Containerfile.alternate
+  source:
+{{ include "docs-csc.gitSource" . | indent 4 -}}
