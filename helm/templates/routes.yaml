@@ -1,0 +1,65 @@
+{{- $origname := include "docs-csc.origName" . -}}
+{{- $altname := include "docs-csc.altName" . -}}
+{{- $sitehost := .Values.site.host | default "" -}}
+{{- $redundanthost := include "networking.redundantHost" . -}}
+{{/* Configure a redundant rahtiapp.fi Route if site is served from
+     some other domain. */}}
+{{- $rahtiapphost := ternary $sitehost
+                             $redundanthost
+                             ($sitehost | hasSuffix ".rahtiapp.fi") -}}
+{{- include "networking.route" (list
+                                $
+                                (dict "name" $origname
+                                      "host" $rahtiapphost
+                                      "path" "/"
+                                      "service" $origname)) }}
+{{/* Serve translations from subpaths. */}}
+{{ range .Values.translator.languages -}}
+---
+{{ include "networking.route" (list
+                               $
+                               (dict "name" (.code | printf "%s-%s" $altname)
+                                     "host" $rahtiapphost
+                                     "path" (.code | printf "/%s")
+                                     "service" $altname)) }}
+{{ end -}}
+{{/* Configure a route with custom hostname if one is provided. */}}
+{{- if $sitehost | hasSuffix ".rahtiapp.fi" | not | and $sitehost }}
+{{- $routename := include "networking.productionRouteName" . -}}
+{{/* Attempt to lookup existing certificate if new certificate
+     details are not explicitly given. */}}
+{{- $sitetls := .Values.site.tls | default dict -}}
+{{- $existingtls := $routename
+                     | lookup "route.openshift.io/v1" "Route" $.Release.Namespace
+                     | dig "spec" "tls" dict -}}
+{{- $cert := dict "content" ($sitetls.certFile | default ""
+                                               | .Files.Get | trim
+                                               | default $existingtls.certificate
+                                               | required "Certificate not found!")
+                  "key" ($sitetls.keyFile | default ""
+                                          | .Files.Get | trim
+                                          | default $existingtls.key
+                                          | required "Private key not found!")
+                  "caCert" ($sitetls.caCertFile | default ""
+                                                | .Files.Get | trim
+                                                | default $existingtls.caCertificate
+                                                | required "CA certificate not found!") -}}
+---
+{{- $productionhost := $sitehost -}}
+{{ include "networking.route" (dict "name" $routename
+                                     "host" $productionhost
+                                     "path" "/"
+                                     "service" $origname
+                                     "cert" $cert
+                               | list $) }}
+{{/* Serve translations from subpaths for custom hostname. */}}
+{{ range .Values.translator.languages -}}
+---
+{{ include "networking.route" (dict "name" (.code | printf "%s-%s" $routename)
+                                     "host" $productionhost
+                                     "path" (.code | printf "/%s")
+                                     "service" $altname
+                                     "cert" $cert
+                               | list $) }}
+{{ end -}}
+{{- end -}}

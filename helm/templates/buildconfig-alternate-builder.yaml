@@ -1,0 +1,26 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: {{ include "docs-csc.altBuilderName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+spec:
+  triggers:
+    - type: ImageChange
+      imageChange:
+        from:
+          kind: ImageStreamTag
+          name: {{ "latest" | printf "%s:%s" (include "docs-csc.baseName" .) | squote }}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ "latest" | printf "%s:%s" (include "docs-csc.altBuilderName" .) | squote }}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: translation/Containerfile.alternate.builder
+      buildArgs:
+        - name: builder_image
+          value: {{ include "docs-csc.latestBuilderImage" . | squote }}
+  source:
+{{ include "docs-csc.gitSource" . | indent 4 -}}
