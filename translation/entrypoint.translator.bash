@@ -27,6 +27,11 @@ declare -gra SPARSE_PATTERNS=(
   "${CONFIG_FILES[@]/#//}"
 )
 
+dryrun_disabled() {
+  [[ -z ${RESTORE_ONLY:-} \
+    || ${RESTORE_ONLY,,} =~ ^false$ \
+    || ($RESTORE_ONLY =~ ^[0-9]+$ && $RESTORE_ONLY -eq 0) ]]
+}
 
 get_snapshots() {
   restic --json snapshots --path "${SNAPSHOT_PATH}" \
@@ -113,13 +118,19 @@ post_translation() {
   && \
   copy_translation \
   && \
-  python3 clear_cache.py $CACHED_OBJS_FILEPATH
+  if dryrun_disabled
+  then
+    python3 clear_cache.py $CACHED_OBJS_FILEPATH
+  fi
 }
 
 main() {
   pre_translation \
   && \
-  translate \
+  if dryrun_disabled
+  then
+    translate
+  fi \
   && \
   post_translation
 }
