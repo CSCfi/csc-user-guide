@@ -1,0 +1,39 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    image.openshift.io/triggers: |-
+      [
+        {
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": "{{ include "docs-csc.origName" . }}:latest"
+          },
+          "fieldPath": "spec.template.spec.containers[?(@.name==\"{{ include "docs-csc.origContainerName" . }}\")].image"
+        }
+      ]
+  name: {{ include "docs-csc.origName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+spec:
+  selector:
+    matchLabels:
+      deployment: {{ include "docs-csc.origName" . }}
+  replicas: {{ .Values.site.replicaCount | default 3 }}
+  template:
+    metadata:
+      labels:
+        deployment: {{ include "docs-csc.origName" . }}
+{{ include "docs-csc.labels" . | indent 8 }}
+    spec:
+      containers:
+        - name: {{ include "docs-csc.origContainerName" . }}
+          image: ' '
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%

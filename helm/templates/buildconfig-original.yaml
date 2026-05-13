@@ -1,0 +1,44 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: {{ include "docs-csc.origName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ "latest" | printf "%s:%s" (include "docs-csc.origName" .) | squote }}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Containerfile
+      env:
+        - name: PROPERDOCS_ENV
+          value: {{ include "docs-csc.environment" . | squote }}
+        - name: SITE_URL
+          value: {{ dict "scheme" "https"
+                         "host" (.Values.site.host | default (include "networking.redundantHost" .))
+                         | urlJoin | squote }}
+{{- if .Values.site.matomoId | and .Values.site.matomoUrl }}
+        - name: MATOMO_URL
+          value: {{ .Values.site.matomoUrl | squote }}
+        - name: MATOMO_SITE_ID
+          value: {{ .Values.site.matomoId | squote }}
+{{- end }}
+      buildArgs:
+        - name: builder_image
+          value: {{ include "docs-csc.latestBuilderImage" . | squote -}}
+{{ .Values.site.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
+  triggers:
+    - type: ImageChange
+      imageChange:
+        from:
+          kind: ImageStreamTag
+          name: {{ "latest" | printf "%s:%s" (include "docs-csc.origBuilderName" .) | squote }}
+    - type: GitHub
+      github:
+        secretReference:
+          name: {{ include "docs-csc.origWebHookSecretName" . }}
+  source:
+{{ include "docs-csc.gitSource" . | indent 4 -}}

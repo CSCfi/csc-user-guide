@@ -1,0 +1,18 @@
+{{- range list (include "docs-csc.origName" .)
+               (include "docs-csc.altName" .) }}
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ . }}
+  labels:
+{{ include "docs-csc.labels" $ | indent 4 }}
+spec:
+  selector:
+    deployment: {{ . }}
+  ports:
+    - name: 8000-tcp
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+{{- end -}}

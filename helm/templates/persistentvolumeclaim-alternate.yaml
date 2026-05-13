@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "docs-csc.altClaimName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: {{ .Values.translator.storageCapacity | default "2Gi" }}
