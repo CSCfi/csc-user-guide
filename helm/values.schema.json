@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "gitSource": {
+      "description": "GitBuildSource for BuildConfigs.",
+      "type": "object",
+      "properties": {
+        "uri": { "type": "string", "format": "uri" },
+        "ref": { "type": "string" }
+      },
+      "required": [ "uri" ]
+    },
+    "gitHubRepository": {
+      "description": "GitHub repository for sparse clones.",
+      "type": "object",
+      "properties": {
+        "org": { "type": "string", "default": "CSCfi" },
+        "name": { "type": "string", "default": "csc-user-guide" },
+        "branch": { "type": "string", "default": "master" }
+      }
+    },
+    "containerImage": { "type": "string" },
+    "containerImageTag": { "type": "string" },
+    "imageName": {
+      "type": "object",
+      "properties": {
+        "image": { "$ref": "#/$defs/containerImage" },
+        "tag": { "$ref": "#/$defs/containerImageTag" }
+      },
+      "required": [
+        "image",
+        "tag"
+      ]
+    },
+    "matomoUrl": { "type": ["string", "null"], "format": "uri" },
+    "matomoId": { "type": ["integer", "null"], "minimum": 1 },
+    "lang": {
+      "description": "A target language to translate the site to.",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string", "minLength": 2, "maxLength": 2 },
+        "matomoId": { "$ref": "#/$defs/matomoId" }
+      },
+      "required": [
+        "code"
+      ]
+    },
+    "configBranch": { "type": ["string", "null"] },
+    "openAiConfig": {
+      "type": "object",
+      "properties": {
+        "apiKey": { "type": "string" }
+      },
+      "required": [
+        "apiKey"
+      ]
+    },
+    "openStackSwiftConfig": {
+      "type": "object",
+      "properties": {
+        "authUrl": { "type": "string", "format": "uri" },
+        "applicationCredentialId": { "type": "string" },
+        "applicationCredentialSecret": { "type": "string" }
+      },
+      "required": [
+        "authUrl",
+        "applicationCredentialId",
+        "applicationCredentialSecret"
+      ]
+    },
+    "resticConfig": {
+      "type": "object",
+      "properties": {
+        "image": { "$ref": "#/$defs/containerImage" },
+        "tag": { "$ref": "#/$defs/containerImageTag" },
+        "repository": { "type": "string" },
+        "host": { "type": "string" },
+        "password": { "type": "string" }
+      },
+      "required": [
+        "image",
+        "tag",
+        "repository",
+        "host",
+        "password"
+      ]
+    },
+    "cacheConfig": {
+      "type": "object",
+      "properties": {
+        "container": { "type": "string" },
+        "prefix": { "type": "string" }
+      },
+      "required": [
+        "container",
+        "prefix"
+      ]
+    },
+    "translatorConfig": {
+      "type": "object",
+      "properties": {
+        "repo": { "$ref": "#/$defs/gitHubRepository" },
+        "configBranchOverride": { "$ref": "#/$defs/configBranch" },
+        "languages": {
+          "description": "Configuration for all of the languages the site is to be translated to from English.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/lang"
+          },
+          "minItems": 1
+        },
+        "restoreOnly": { "type": "boolean", "default": false },
+        "schedule": { "type": "string" },
+        "openAi": { "$ref": "#/$defs/openAiConfig" },
+        "os": { "$ref": "#/$defs/openStackSwiftConfig" },
+        "restic": { "$ref": "#/$defs/resticConfig" },
+        "cache": { "$ref": "#/$defs/cacheConfig" },
+        "storageCapacity": { "type": "string", "default": "2Gi" }
+      },
+      "required": [
+        "languages",
+        "schedule",
+        "openAi",
+        "os",
+        "restic",
+        "cache"
+      ]
+    },
+    "certificateFiles": {
+      "type": "object",
+      "properties": {
+        "certFile": { "type": "string", "minLength": 1 },
+        "keyFile": { "type": "string", "minLength": 1 },
+        "caCertFile": { "type": "string", "minLength": 1 }
+      },
+      "required": [
+        "certFile",
+        "keyFile",
+        "caCertFile"
+      ]
+    },
+    "siteConfig": {
+      "type": "object",
+      "properties": {
+        "repo": { "$ref": "#/$defs/gitHubRepository" },
+        "configBranchOverride": { "$ref": "#/$defs/configBranch" },
+        "host": { "type": ["string", "null"], "format": "hostname" },
+        "tls": { "$ref": "#/$defs/certificateFiles" },
+        "matomoUrl": { "$ref": "#/$defs/matomoUrl" },
+        "matomoId": { "$ref": "#/$defs/matomoId" },
+        "environment": { "type": ["string", "null"], "default": "preview" },
+        "replicaCount": { "type": "integer", "minimum": 1, "default": 3 }
+      },
+      "if": {
+        "not": {
+          "anyOf": [
+            { "properties": { "matomoId": { "const": "null" } } },
+            { "properties": { "matomoUrl": { "const": "null" } } }
+          ]
+        }
+      },
+      "then":{
+        "properties": {
+          "matomoUrl": { "type": "string" },
+          "matomoId": { "type": "integer" }
+        },
+        "required": [
+          "matomoUrl",
+          "matomoId"
+        ]
+      }
+    }
+  },
+  "properties": {
+    "git": { "$ref": "#/$defs/gitSource" },
+    "translator": { "$ref": "#/$defs/translatorConfig" },
+    "site": { "$ref": "#/$defs/siteConfig" },
+    "base": { "$ref": "#/$defs/imageName" },
+    "server": { "$ref": "#/$defs/imageName" },
+    "localRegistry": { "type": "string" },
+    "nameOverride": { "type": "string" }
+  },
+  "required": [
+    "git",
+    "translator",
+    "site",
+    "base",
+    "server",
+    "localRegistry"
+  ]
+}

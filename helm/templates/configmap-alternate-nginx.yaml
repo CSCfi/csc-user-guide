@@ -1,0 +1,14 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ include "docs-csc.altConfigName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+data:
+{{- range $lang := .Values.translator.languages }}
+  {{ $lang.code }}.conf: |
+    location /{{ $lang.code }} {
+      alias /opt/app-root/src/{{ $lang.code }};
+      error_page 404 /{{ $lang.code }}/404.html;
+    }
+{{- end }}

@@ -1,0 +1,22 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: {{ include "docs-csc.baseName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ "latest" | printf "%s:%s" (include "docs-csc.baseName" .) | squote }}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Containerfile.base
+      buildArgs:
+        - name: base_image
+{{- with .Values.base }}
+          value: {{ .tag | printf "%s:%s" .image | squote }}
+{{- end }}
+  source:
+{{ include "docs-csc.gitSource" . | indent 4 -}}

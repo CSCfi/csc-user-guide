@@ -1,0 +1,17 @@
+{{- range $lang := .Values.translator.languages -}}
+---
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: {{ $lang.code | printf "%s-%s-%s" ($ | include "docs-csc.name") "translation" }}
+  labels:
+{{ $ | include "docs-csc.labels" | indent 4 }}
+spec:
+  schedule: {{ $.Values.translator.schedule | squote }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      podReplacementPolicy: Failed
+      template:
+{{ . | list $ | include "translation.jobSpec" | indent 8 }}
+{{ end -}}
