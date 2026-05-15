@@ -30,7 +30,7 @@ Choosing another option will cause the virtual desktop to stop working. Other op
 
 #### Virtual desktop options
 
-|  | Use  | Technical specifications | Correspondent Pouta Flavor | Cloud Billing Units consumption |
+|  | Use  | Technical specifications | Corresponding Pouta Flavor | Cloud Billing Units consumption |
 |-|-|-|-|-|
 |  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 Cloud Billing Units/h |
 |  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.92 Cloud Billing Units/h |
