@@ -42,9 +42,9 @@ Overview of Resource Consumption When Using SD Services
 
 | Service      | Resource Type      | What Resources It Consumes                                                                 | What to Consider When Applying for BU                                      | Billing Behavior                                                                 |
 |--------------|-------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| **SD Desktop** | Virtual Desktop (your secure virtual computer)   | **Billing Units (BU):** A running virtual desktop consumes a large amount of computing resources, depending on options choosen during creation. | Estimate how long the desktop is needed and choose the appropriate type.   | Running desktops are the main source of billing. When paused, consumption is significantly reduced, but ~3,200 BU/year are still charged until the virtual desktop is deleted. |
-|              | External Volume (an additional storage that can be attached to the virtual desktop like a USB sitck and can be used to import your files for analsys, as the virtual desktop has limited storage /disk)  | **Billing Units (BU):** Based on the size of the external storage volume selected during creation or extended later. | Estimate required storage size (GB) and duration of use.                   | Volumes consume BU continuously based on size, regardless of desktop status (running/paused/detached). Charges continue until the volume is deleted. |
-| **SD Connect** | Data Storage (yoru secure storage in CSC)     | **Billing Units (BU):** Based on the amount of data stored in the service.   **Quota**: the storage space needed.               | Estimate how much data will be uploaded and how long it will be stored.    | Billing continues as long as data is stored. Charges stop only when the data is deleted. When you reach all the quota available, you can no longer uplaod files. |
+| **SD Desktop** | Virtual Desktop (your secure virtual computer)   | **Billing Units (BU):** A running virtual desktop consumes a large amount of computing resources, depending on options chosen during creation. | Estimate how long the desktop is needed and choose the appropriate type.   | Running desktops are the main source of billing. When paused, consumption is significantly reduced, but ~3,200 BU/year are still charged until the virtual desktop is deleted. |
+|              | External Volume (an additional storage that can be attached to the virtual desktop like a USB stick and can be used to import your files for analysis, as the virtual desktop has limited storage /disk)  | **Billing Units (BU):** Based on the size of the external storage volume selected during creation or extended later. | Estimate required storage size (GB) and duration of use.                   | Volumes consume BU continuously based on size, regardless of desktop status (running/paused/detached). Charges continue until the volume is deleted. |
+| **SD Connect** | Data Storage (your secure storage in CSC)     | **Billing Units (BU):** Based on the amount of data stored in the service.   **Quota**: the storage space needed.               | Estimate how much data will be uploaded and how long it will be stored.    | Billing continues as long as data is stored. Charges stop only when the data is deleted. When you reach all the quota available, you can no longer upload files. |
 
 ### How to monitor Billing Units usage
 
@@ -140,7 +140,7 @@ Estimate the Billing Units your project will consume over the next six months fo
 
 #### SD Desktop: Cloud Billing Units
 
-**SD Desktop** consumes **Cloud Billing Units** type, which reflect the type and number of virtual desktops running and the number of etxernal volumes you've created. To estimate your Cloud Billing Unit consumption, you need to calculate:
+**SD Desktop** consumes **Cloud Billing Units** type, which reflect the type and number of virtual desktops running and the number of external volumes you've created. To estimate your Cloud Billing Unit consumption, you need to calculate:
 
 1. How many virtual desktops you have running in the CSC project and their type (based on the option chosen during virtual desktop creation). Note running desktops are the main source of billing consumption and when a virtual desktop is paused, consumption is significantly reduced. However, approximately 3 200 Billing Units per year are still charged until the desktop is deleted
    
@@ -196,7 +196,7 @@ You can apply for more BUs for your CSC project via MyCSC portal.
 
     ---
 
-    After you apply for additional Billing Units, there is a two‑week period during which you cannot submit another application. Because of this, it’s important to request additional resources early. You will receive an email notification when your project’s Billing Units are running low, giving you enough time to apply for more before service avaibility is affected.
+    After you apply for additional Billing Units, there is a two‑week period during which you cannot submit another application. Because of this, it’s important to request additional resources early. You will receive an email notification when your project’s Billing Units are running low, giving you enough time to apply for more before service availability is affected.
     
 </div>
 
@@ -215,7 +215,7 @@ You can apply for more BUs for your CSC project via MyCSC portal.
     - Storage Billing Units type (for SD Connect)
     - Click **Next**.
 
-7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. **Note: Undestandably, if you don't have publications related to this work yet, you can add here any past publication from your research group, even if the project is not directly related.** Click **Add**.
+7.  In the next view, click **Add publications**. In the new window, you can search or add publications manually. **Note: Understandably, if you don't have publications related to this work yet, you can add here any past publication from your research group, even if the project is not directly related.** Click **Add**.
  
 8. Next, you will be asked to add keywords. These will become tags that will help you search for the project. Add a keyword (e.g. research) and press **Add**.
 
@@ -223,7 +223,7 @@ You can apply for more BUs for your CSC project via MyCSC portal.
 
 10. In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
-11. When the Biling Units will be assigned to the CSC Project you will receive an email notification. 
+11. When the Billing Units will be assigned to the CSC Project you will receive an email notification. 
 
 
 ### Log into services
