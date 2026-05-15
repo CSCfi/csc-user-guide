@@ -4,8 +4,7 @@
 
 With the SD Desktop service, you can easily manage your virtual desktops and volumes. 
 
-* [Detaching a volume](#detaching-a-volume)
-* [Attaching a volume](#attach-a-volume-to-a-new-virtual-desktop)
+* [Detaching or attaching a volume](#detaching-or-attaching-a-volume)
 * [Pausing or resuming a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
@@ -22,14 +21,23 @@ With the SD Desktop service, you can easily manage your virtual desktops and vol
 
 ___
 
-## Detaching a volume 
+## Detaching or attaching a volume 
+
+![Detach and attach volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Move_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
 
 Detaching a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. 
 
-* The content of a detached volume can not be accessed or deleted. If you want to access or delete content on the detached volume, you need to attach it to a virtual desktop that uses same operating system as the volume.
+When you want to save data to the volume or access the data saved in the volume, you need to attach it to a virtual desktop. You can compare this operation to connecting a USB stick to your laptop.
+
+* The content of a detached volume can not be accessed or deleted. 
+* To access or delete content on a volume, you need to attach it to a virtual desktop that uses same operating system as the volume.
 * Volumes can not be moved or transferred between CSC projects for security reasons.
 
-### Step 1: Set access permissions of the volume to read and write
+___
+
+### Detach a volume from a virtual desktop
+
+#### Step 1: Set access permissions of the volume to read and write
 
 <div class="grid cards" markdown>
 
@@ -88,9 +96,7 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
     **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 
-### Step 2: Detach a volume from a virtual desktop
-
-You can easily detach a volume from your virtual desktop. You can compare this operation to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created.
+#### Step 2: Detach a volume from a virtual desktop
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Access desktop** on the right side of the correct desktop.
 
@@ -108,13 +114,6 @@ You can easily detach a volume from your virtual desktop. You can compare this o
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DetachVolume.png)
 
 ___
-
-## Attaching a volume 
-
-When you want to save data to the volume or access the data saved in the volume, you can attach it to a virtual desktop. You can compare this operation to connecting a USB stick to your laptop.
-
-* To access the volume content, attach it to a desktop with the same operating system. 
-* Volumes can not be moved or transferred between CSC projects for security reasons.
 
 ### Attach a volume to a virtual desktop
 

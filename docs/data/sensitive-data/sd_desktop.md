@@ -18,7 +18,7 @@
 
 ## Overview
 
-![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_internet.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
+![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_internet.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
 
 Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely isolated from internet. With this user interface, you can easily manage (create, use, delete) virtual computers (here called a virtual desktop, technically defined as virtual machine) and external volumes. 
