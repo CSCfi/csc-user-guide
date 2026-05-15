@@ -18,10 +18,12 @@
 
 ## Overview
 
-Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (create, use, delete) a virtual computer (here called a virtual desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
+![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_internet.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
 
-### Multiple ways of accessing data via SD Desktop
-![Multiple ways of accessing data via SD Desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Desktop_overview.png)
+
+Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely isolated from internet. With this user interface, you can easily manage (create, use, delete) virtual computers (here called a virtual desktop, technically defined as virtual machine) and external volumes. 
+
+ In addition, SD Desktop provides a secure workspace for collaborative research projects. Once a virtual desktop has been created, all members of your CSC project can access it. Importy and copy your data via Data Gateway application to a volume for analysis and you can start your research.
 
 
 ## Key features and limitations

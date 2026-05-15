@@ -76,7 +76,7 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 
 You can create **up to five volumes** per project. Copy your data to a volume for analysis. A volume works like a virtual USB stick: it can be attached to one virtual desktop at a time or moved between desktops within the same CSC project. The volume also acts as a backup if the virtual desktop becomes unresponsive.
 
-**Volumes consume Cloud Billing Units** starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from table below.
+**Volumes consume Cloud Billing Units** starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from [table](#volume-options) below.
 
 A volume **can only be extended** with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
 
@@ -105,7 +105,7 @@ Back on the main page, you will see a list of your volumes in **Volumes tab**. Y
 - :material-alert:{ .lg .middle } **Note**
   { .csc-grid-card-warning }
     
-    If you have a dataset **larger than 1000 GB**, contact [CSC Service Desk](../../support/contact.md).
+    If you have a dataset **larger than 1 TB**, contact [CSC Service Desk](../../support/contact.md).
 
 </div>
 
