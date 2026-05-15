@@ -24,7 +24,8 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 Choosing another option will cause the virtual desktop to stop working. Other operating systems are only available after contacting the service desk and following specific instructions.
 
 4. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
-5. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options). Note running desktops are the main source of billing consumption and when a virtual desktop is paused, consumption is significantly reduced. However, approximately 3 200 Billing Units per year are still charged until the desktop is deleted.
+5. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options). Please note that running desktops are the main source of Billing Units consumption. When paused, consumption is significantly reduced, but ~3,200 BU per year are still charged until the virtual desktop is deleted.
+
 
 ![Virtual desktop selections.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
 
@@ -44,7 +45,7 @@ Choosing another option will cause the virtual desktop to stop working. Other op
 
 ### 3. Add an external volume (virtual external hard drive)
 
-When creating a desktop, you must also add a volume, where you will import the data for analysis. External volumes always consume Billing Units based on size. This applies even if: the virtual desktop is paused, the volume is detached. Charges continue until the volume is deleted.
+When creating a desktop, you must also add a volume, where you will import the data for analysis. External volumes consume Cloud Billing Units continuously based on their size, regardless of whether they are attached to a desktop or if the associated desktop is paused. Charges continue until the volume is deleted.
 
 1. Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
 
