@@ -6,7 +6,7 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/KgdGueesSe4" title="Luo virtuaalinen työpöytä SD Desktop -palvelussa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-With the SD Desktop service, you can create virtual computers for analysing sensitive data. On your virtual desktop, you can analyze sensitive research data through your web browser securely. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to six virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise.
+With the SD Desktop service, you can create virtual computers for analysing sensitive data via web browser. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to six virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise.
 
 ## Step by step
 
@@ -24,7 +24,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 Choosing another option will cause the virtual desktop to stop working. Other operating systems are only available after contacting the service desk and following specific instructions.
 
 4. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
-5. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
+5. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options). Note running desktops are the main source of billing consumption and when a virtual desktop is paused, consumption is significantly reduced. However, approximately 3 200 Billing Units per year are still charged until the desktop is deleted.
 
 ![Virtual desktop selections.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
 
@@ -32,11 +32,11 @@ Choosing another option will cause the virtual desktop to stop working. Other op
 
 |  | Use  | Technical specifications | Correspondent Pouta Flavor | Cloud Billing Units consumption |
 |-|-|-|-|-|
-|  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 Cloud Billing Units/h|
+|  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 Cloud Billing Units/h |
 |  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.92 Cloud Billing Units/h |
 | **Heavy computation**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 28; Memory 176 GB; Root disk 80 GB  | hpc.6.28 core | 65 Cloud Billing Units/h |
-| **Small GPU computation**| This option is available only upon request. Please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
-| **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
+| **Small GPU computation**| This option is available only upon request. Please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further details | 1 GPU  | 78 Cloud Billing Units/h |  |
+| **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details | 1 GPU | 195 Cloud Billing Units/h |  |
 
 !!! note
     All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. The medium GPU computation option has been deprecated in October 2024. 
@@ -44,7 +44,7 @@ Choosing another option will cause the virtual desktop to stop working. Other op
 
 ### 3. Add an external volume (virtual external hard drive)
 
-When creating a desktop, you must also add a volume, where you will import the data for analysis. 
+When creating a desktop, you must also add a volume, where you will import the data for analysis. External volumes always consume Billing Units based on size. This applies even if: the virtual desktop is paused, the volume is detached. Charges continue until the volume is deleted.
 
 1. Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
 
@@ -53,6 +53,14 @@ When creating a desktop, you must also add a volume, where you will import the d
 * It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive. Please note that after the virtual desktop is set up, the volume can only be extended with additional storage if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*.
 
 * **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a USB stick to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
+
+
+| Volume Option | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
+|----------------|---------------------------|--------------------------|------------------------|
+| 200 GB | 4.7 | 8 000 | Small package, once a year: 30 000 BUs assigned immediately| 
+| 1 TB | 4.7 | 41 000 | Small package, 2 times a year: 30 000 BUs assigned immediately  |
+| 10 TB | 4.7 | 402 000 | Medium package, 2 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
+
 
 ![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
 
