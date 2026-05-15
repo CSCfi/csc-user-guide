@@ -1,6 +1,6 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Resource planning for your CSC Project 11
+# Resource planning for your CSC Project
 
 
 <div class="grid cards" markdown>
