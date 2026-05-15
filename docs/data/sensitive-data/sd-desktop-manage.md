@@ -11,9 +11,14 @@ With the SD Desktop service, you can easily manage your virtual desktops and vol
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
 * [Deleting a volume](#deleting-a-volume)
 
-!!! Note
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+
     These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
+</div>
 
 ___
 
@@ -31,7 +36,7 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
 - :material-alert:{ .lg .middle } **Ensuring full access to data on a volume across desktops**
   { .csc-grid-card-warning }
 
-    ---
+    ___
     
     Before detaching a volume, make sure all files and folders have read and write access for all project members. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way.
 
@@ -178,8 +183,16 @@ ___
 
 If your virtual desktop or software becomes unresponsive, you can restart it. All files and software saved on the virtual desktop will remain accessible.
 
-!!! Note
-    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
+<div class="grid cards" markdown>
+
+- :material-information:{ .lg .middle } **Info**
+  { .csc-grid-card-info }
+    
+    ---
+  
+    **If the Data Gateway application becomes unresponsive** due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
+
+</div>
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop from the homepage.
 
@@ -200,8 +213,14 @@ ___
 
 At the end of your analysis, you can delete entire virtual desktop, and all files saved to it by you or other project members. 
 
-!!! Warning
+<div class="grid cards" markdown>
+
+- :material-close-circle:{ .lg .middle } **Warning**
+  { .csc-grid-card-error }
+    
     You cannot undo this action. Please contact all the project members before deleting a virtual desktop. ´
+    
+</div>
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop.
 
@@ -219,8 +238,14 @@ ___
 
 At the end of your analysis, you can delete a volume, and all files saved to it by you or other project members. 
 
-!!! Warning
+<div class="grid cards" markdown>
+
+- :material-close-circle:{ .lg .middle } **Warning**
+  { .csc-grid-card-error }
+
     You cannot undo this action. Please contact all the project members before deleting a volume. 
+
+</div>
 
 1. If the volume is attached to a desktop detach it first. 
 2. On the SD Desktop homepage, click **Volumes** tab.

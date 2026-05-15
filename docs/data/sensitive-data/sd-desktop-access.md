@@ -2,19 +2,15 @@
 
 # Importing data in your virtual desktop
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/hsUQSrNpaf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
 * [Access virtual desktop](sd-desktop-access-vm.md)
 
-Once a virtual desktop is created, each CSC project member can access it through their browser. The virtual desktop is isolated from the internet, so data access must be done through the Data Gateway application. This application allows you to import data from SD Connect or SD Apply. Imported data is saved on the virtual desktop’s external volume for secure analysis.
+Once a virtual desktop is created, each CSC project member can access it through their web browsers. The virtual desktop is isolated from the internet, so data access must be done through the Data Gateway application. This application allows you to import data from SD Connect or SD Apply. 
 
-## Additional information
+Your virtual desktop’s local storage is limited, so it’s recommended to save imported data files and collaborative work on the external volume for analysis. The volume acts like a USB stick that can be detached and reattached to different desktops, allowing project members to share and edit files stored there. Follow instruction on how to [create and attach volume](sd-desktop-create.md#create-volume) to your desktop.
 
-* **What is an external volume?** Your virtual desktop’s local storage is limited, so it’s recommended to save large data files and collaborative work on the external volume. This volume acts like a USB stick that can be detached and reattached to different desktops, allowing project members to share and edit files stored there.
-* **Adding the external volume:** the external volume can only be added when creating a [new virtual desktop](../sensitive-data/sd-desktop-create.md)
-* **Additional volume space:** if you need additional volume space (more than 200 GB), you can request it by writing to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
+If you need additional volume space (more than 200 GB), you can request it by writing to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
 
 
 ## Step by step
@@ -60,32 +56,49 @@ Keep **Data Gateway** open and click **Open folder**.
 
 After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only (orange lock icon).
 
-1. Right-click the folder copied to **Volume** and select **Properties** to adjust folder permissions.
-    * Open the **Permissions** tab.
-    * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
-        1. Owner -> Access -> Select “Create and delete files”.
-        2. Group -> Access -> Select “Create and delete files”.
-        3. Others -> Access -> Select “Create and delete files”.
-        4. Close the permission tab (top right corner).
-        5. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
+??? default "Method 1: Use CSC Tools to set access permissions"
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
+    1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
+    2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
+    3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
+    4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
+    6. Next, the command tells if there are other project members who should run this command as well. You should inform them if this happens. 
+    7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
+    8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No). 
 
-2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder.
-    * Set permissions to:
-        1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        2. Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        3. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        4. Click **Change**.
-        5. Close the permission tab (top right corner).
-        6. The orange lock icon will no longer be visible next to the files and can now be edited by all project members.     
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
+??? default "Method 2: Set access permissions manually"
 
-!!! Note
-    If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
+    By default, permissions are limited to your access only (orange lock icon).
+
+    1. Right-click the folder and select **Properties**.
+    2. Open the **Permissions** tab.
+    3. Set permissions to **Create and Delete Files**:
+       
+        * Owner -> Access -> Select “Create and delete files”.
+        * Group -> Access -> Select “Create and delete files”.
+        * Others -> Access -> Select “Create and delete files”.
+            
+        ![Set folder permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
+
+    * Next select **Change Permissions for Enclosed Files** button to adjust file permisssions inside the folder.
+    * Set permissions to **Create and Delete files**:
+
+        * Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Click **Change**.
+
+        ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
+
+    5. Close the permission tab (top right corner).
+    
+    The orange lock icon will no longer be visible next to folders and files and they can now be edited by all project members.     
+        
+    **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 ### 4. Close Data Gateway
 
