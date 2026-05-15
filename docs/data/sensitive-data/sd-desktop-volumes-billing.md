@@ -9,9 +9,9 @@ Starting June 3, 2026, **SD Desktop external volumes will start consuming Cloud 
 
 - [Step 1: Check if your virtual desktop has an external volume](#step-1-check-if-your-virtual-desktop-has-an-external-volume)
   
-- [Step 2: Calculate how many Cloud Billing Units volume consumes](#step-2-calculate-how-many-cloud-billing-units-volume-consumes)
+- [Step 2: Calculate how many Cloud Billing Units volumes consume](#step-2-calculate-how-many-cloud-billing-units-volume-consumes)
   
-- [Step 3: Verify in MyCSC if your CSC project has sufficient Cloud Billing Units and apply for more if needed](step-3-verify-in-mycsc-if-your-csc-project-has-sufficiant-cloud-billing-units-and-apply-for-more-if-needed)
+- [Step 3: Verify in MyCSC if your CSC project has sufficient Cloud Billing Units and apply for more if needed](step-3-verify-in-mycsc-if-your-csc-project-has-sufficient-cloud-billing-units-and-apply-for-more-if-needed)
 
 
 
@@ -22,7 +22,7 @@ Starting June 3, 2026, **SD Desktop external volumes will start consuming Cloud 
 
     ___
 
-    Please note that your CSC project must have sufficient Billing Units to remain active. If the Billing Unit balance of your CSC project becomes negative your virtual desktop will be paused, the CSC project will be closed after 60 days and all project data will be permanently deleted 90 days after project closure.
+    Please note that your CSC project must have sufficient Billing Units to remain active. If the Billing Unit balance of your CSC project becomes negative, your virtual desktop will be paused, the CSC project will be closed after 60 days and all project data will be permanently deleted 90 days after project closure.
 
 </div>
 
@@ -32,7 +32,7 @@ Starting June 3, 2026, **SD Desktop external volumes will start consuming Cloud 
 ### Step 1: Check if your virtual desktop has an external volume
 
 
-1. [Login](./sd-desktop-login.md) to SD Desktop. All your virtual desktops are listed at the home page under **All connections**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. All your virtual desktops are listed at the home page under **All connections**.
 
 2. Select project (e.g. `project_NNNNN`) and click **plus icon**.
   
@@ -47,9 +47,9 @@ Starting June 3, 2026, **SD Desktop external volumes will start consuming Cloud 
 ![Volume size](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop-VolumeSize.png)
 
 
-### Step 2: Calculate how many Cloud Billing Units volume consumes
+### Step 2: Calculate how many Cloud Billing Units volumes consume
 
-Volume consumes 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing the Cloud Billing Units required for using **a volume for one year** for various options and correspondent Billing Units package you can apply for via MyCSC.
+Volumes consume 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing the Cloud Billing Units required for using **a volume for one year** for various options and corresponding Billing Units package you can apply for via MyCSC.
 
 | Volume Size | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
@@ -66,8 +66,8 @@ Volume consumes 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing 
 3. Scroll down to **Resources** window.
 4. You can see **Cloud Billing Units** usage under its tab.
 5. If your project doesn't have enough Cloud Billing Units, [**apply for additional units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal).
-6. If you had received email notifications about Billing Units are running low, you need to extend the project’s lifetime via MyCSC. This can be done only be the project manager.
-
+6. If you had received email notifications about Billing Units are running low, you need to extend the project’s lifetime via MyCSC. This action can only be performed by the CSC project manager.
+   
 ![Billing Units in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_BUs.png)
 
 
