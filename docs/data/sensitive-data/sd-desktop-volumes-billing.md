@@ -9,9 +9,9 @@ Starting June 3, 2026, **SD Desktop external volumes will start consuming Cloud 
 
 - [Step 1: Check if your virtual desktop has an external volume](#step-1-check-if-your-virtual-desktop-has-an-external-volume)
   
-- [Step 2: Calculate how many Cloud Billing Units volumes consume](#step-2-calculate-how-many-cloud-billing-units-volume-consumes)
+- [Step 2: Calculate how many Cloud Billing Units volumes consume](#step-2-calculate-how-many-cloud-billing-units-volumes-consume)
   
-- [Step 3: Verify in MyCSC if your CSC project has sufficient Cloud Billing Units and apply for more if needed](step-3-verify-in-mycsc-if-your-csc-project-has-sufficient-cloud-billing-units-and-apply-for-more-if-needed)
+- [Step 3: Verify in MyCSC if your CSC project has sufficient Cloud Billing Units and apply for more if needed](#step-3-verify-in-mycsc-if-your-csc-project-has-sufficient-cloud-billing-units-and-apply-for-more-if-needed)
 
 
 
