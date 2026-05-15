@@ -7,6 +7,14 @@ Starting June 3, 2026, **SD Desktop external volumes will start consuming Cloud 
 **Please ensure you have sufficient Billing Units for the next 5–6 months** by following the step-by-step guidance below. If needed, apply for additional Billing Units via the MyCSC portal as soon as possible. Processing times may vary, so please allow sufficient time.
 
 
+- [Step 1: Check if your virtual desktop has an external volume]
+
+- [Step 2: Calculate how many Cloud Billing Units volume consumes]
+
+- [Step 3: Verify in MyCSC if your CSC project has enough Cloud Billing Units and apply for more if needed]
+
+
+
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **When your project runs out of Billing Units**
@@ -73,6 +81,6 @@ Volume consumes 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing 
     * Any project member can apply for additional Billing Units.
     * Small packages are assigned immediately, while Medium packages may take up to 3 days to be processed.
     * After submitting an application, there is a two‑week period during which you cannot submit another request. For this reason, it is important to apply early.
-    * During the application process, you will be asked to attach scientific publications. If you do not yet have publications directly related to this work, you may include any relevant past publications from your research group, even if they are not directly linked to the project.
+    * During the application process, you will be asked to attach scientific publications. If you do not yet have publications directly related to the current research, you may include any relevant past publications from your research group, even if they are not directly linked to the project.
 
-In addition, Billing Units consumed by external volumes between January 1, 2026 and May 26, 2026 will be charged retroactively. These charges will be applied automatically to your CSC project and will consume your project’s Billing Unit balance.
+
