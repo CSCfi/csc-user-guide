@@ -1,12 +1,12 @@
 # Data management
 
-## Sensitive Data (SD) Desktop service: billing changes and export process update  15.05.2026
+## Sensitive Data (SD) Desktop service: billing changes and export process update, 05.2026
 
 1. ### Billing Units for external volumes: applies to all CSC project types (Academic & Secondary Use) with SD desktop service enabled
 
 Starting June 3, 2026, SD Desktop external volumes will begin consuming Cloud Billing Units from your CSC project. Please ensure you have sufficient Billing Units for the next 5–6 months by following the [step-by-step guidance](../../data/sensitive-data/sd-desktop-volumes-billing.md)
 
-2. ### Changes to data export: apply only to Secondary Use CSC projects type with SD Desktop servcie enabled. 
+2. ### Changes to data export: apply only to Secondary Use CSC projects type with SD Desktop servcie enabled 
 
 The process for exporting results from SD Desktop within Secondary Use projects has changed as of May 1, 2026. Amendments to the Secondary Use Act that took effect on May 1, 2026, have changed Findata’s approach to ensuring the anonymity of exported results. Findata has adopted a risk-based assessment model, and the SD Desktop export process has been updated accordingly.
 
