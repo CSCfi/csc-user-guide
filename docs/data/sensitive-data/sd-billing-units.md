@@ -29,13 +29,13 @@ Every active CSC project consumes both Billing Units (BUs) and storage quota. Wh
 
 ## What are Billing Units 
    
-**Billing Units (BUs)** are used to track how much computing power and processing time your project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
+**Billing Units (BUs)** are used to track how much computing power and processing time your CSC project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
 
-- **SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created. Each virtual desktop in SD Desktop can have a volume, where files can be imported from SD Connect/SD Apply. The volume appears inside the virtual desktop similarly to how a USB drive appears on a personal computer. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
+- **SD Desktop** consumes **Cloud Billing Units** type, which reflect the type and number of virtual desktops running and the number of external volumes you've created. Each virtual desktop in SD Desktop can have a external volume, where files can be imported from SD Connect/SD Apply for analysis. The volume appears inside the virtual desktop similarly to how a USB drive appears on a personal computer. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
 
 - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure. The more data you store and the longer you store it, the more Storage BUs are used.
 
-- When you create a project, **30 000 Cloud and Storage BUs** are usually enough for initial testing. 
+- When you create a CSC project, **30 000 Cloud and Storage BUs** are usually enough for initial testing. 
 
 ### How to monitor Billing Units usage
 
@@ -131,9 +131,9 @@ Estimate the Billing Units your project will consume over the next six months fo
 
 #### SD Desktop: Cloud Billing Units
 
-**SD Desktop** consumes **Cloud Billing Units** type, which reflect the number of virtual desktops running and the number of volumes you've created. To estimate your Cloud Billing Unit consumption, you need to calculate:
+**SD Desktop** consumes **Cloud Billing Units** type, which reflect the type and number of virtual desktops running and the number of etxernal volumes you've created. To estimate your Cloud Billing Unit consumption, you need to calculate:
 
-1. How many virtual desktops you have running and their sizes (how many cores). You can see this from your virtul desktop. 
+1. How many virtual desktops you have running in the CSC project and their sizes (how many cores). You can see this in your virtul desktop.
 2. How many volumes you have and their sizes (how many GBs). For example you could have one 100 GB volume. 
     - Go to SD Desktop Management page.
     - Scroll down to Available Desktops window. You see volume sizes in Volumes column.
