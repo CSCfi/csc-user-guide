@@ -64,14 +64,20 @@ When creating a desktop, you must also add a volume, where you will import the d
 
 ![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
 
-### 4. Create virtual desktop
+### 4. Create virtual desktop and verify if your project has sufficient Billing Units
 
-Finally, click *Create desktop*. 
+4. Finally, click *Create desktop*. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
 
 !!! Note
     After clicking "Create," please be aware that the confirmation notification may take up to 90 seconds to appear at the bottom of the page. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
 
-The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
+4.2 The virtual desktop and external volume will start consuming your CSC project resources (also referred to as Cloud Billing Units, BU). Please ensure that your project has sufficient Billing Units available. If needed, apply for additional BU in advance.
+
+**Important:**
+- If your project’s BU becomes negative, your CSC project will be suspended after 60 days.
+- After approximately 90 days, the project and all its content will be automatically deleted.
+You will receive automated email notifications to keep you informed and provide instructions throughout the process.
+
 
 ![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
 
