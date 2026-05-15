@@ -35,7 +35,16 @@ Every active CSC project consumes both Billing Units (BUs) and storage quota. Wh
 
 - **SD Connect** consumes **Storage Billing Units** type, which reflect the amount of data stored in CSC’s cloud infrastructure. The more data you store and the longer you store it, the more Storage BUs are used.
 
-- When you create a CSC project, **30 000 Cloud and Storage BUs** are usually enough for initial testing. 
+- When you create a CSC project, **30 000 Cloud and Storage BUs** are usually enough for initial testing.
+
+
+Overview of Resource Consumption When Using SD Services
+
+| Service      | Resource Type      | What Resources It Consumes                                                                 | What to Consider When Applying for BU                                      | Billing Behavior                                                                 |
+|--------------|-------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| **SD Desktop** | Virtual Desktop   | **Billing Units (BU):** A running virtual desktop consumes a large amount of computing resources, depending on the selected configuration and options. | Estimate how long the desktop is needed and choose the appropriate type.   | Running desktops are the main source of billing. When paused, consumption is significantly reduced, but ~3,200 BU/year are still charged until deleted. |
+|              | External Volume   | **Billing Units (BU):** Based on the size of the external storage volume selected during creation or extended later. | Estimate required storage size (GB) and duration of use.                   | Volumes consume BU continuously based on size, regardless of desktop status (running/paused/detached). Charges continue until the volume is deleted. |
+| **SD Connect** | Data Storage      | **Billing Units (BU):** Based on the amount of data stored in the service.                 | Estimate how much data will be uploaded and how long it will be stored.    | Billing continues as long as data is stored. Charges stop only when the data is deleted. |
 
 ### How to monitor Billing Units usage
 
@@ -133,10 +142,12 @@ Estimate the Billing Units your project will consume over the next six months fo
 
 **SD Desktop** consumes **Cloud Billing Units** type, which reflect the type and number of virtual desktops running and the number of etxernal volumes you've created. To estimate your Cloud Billing Unit consumption, you need to calculate:
 
-1. How many virtual desktops you have running in the CSC project and their sizes (how many cores). You can see this in your virtul desktop.
-2. How many volumes you have and their sizes (how many GBs). For example you could have one 100 GB volume. 
-    - Go to SD Desktop Management page.
-    - Scroll down to Available Desktops window. You see volume sizes in Volumes column.
+1. How many virtual desktops you have running in the CSC project and their type (based on the option chosen during virtual desktop creation). Note running desktops are the main source of billing consumption and when a virtual desktop is paused, consumption is significantly reduced. However, approximately 3 200 Billing Units per year are still charged until the desktop is deleted
+   
+2. How many external volumes your CSC project has and their sizes (how many GBs). For example you could have one 100 GB volume. Here you can find [step-by-step guidance to check if the virtual desktop has a volume and its size](./sd-desktop-volumes-billing.md#step-1-check-if-your-virtual-desktop-has-an-external-volume). External volumes always consume Billing Units based on size. This applies even if: the virtual desktop is paused, the volume is detached. Charges continue until the volume is deleted.
+
+If you are unsure where to find the information above, please contact us at servicedesk@csc.fi (subject: SD Desktop). Be sure to include your CSC project number and virtual desktop name in your message so we can assist you.
+
 
 Here’s a table summarizing the Cloud Billing Units required for using **virtual desktops** over **one year** for various options:
 
@@ -156,6 +167,8 @@ Here’s a table summarizing the Cloud Billing Units required for using **volume
 | 200 GB | 4.7 | 8 000 | Small package, once a year: 30 000 BUs assigned immediately| 
 | 1 TB | 4.7 | 41 000 | Small package, 2 times a year: 30 000 BUs assigned immediately  |
 | 10 TB | 4.7 | 402 000 | Medium package, 2 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
+
+
 
 
 #### SD Connect: Storage Billing Units
