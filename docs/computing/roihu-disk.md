@@ -211,6 +211,8 @@ as this can lead to performance issues on the whole filesystem.
 
 ## Temporary local disk areas
 
+TBA: Add clear guidelines and instructions for the temporary local disk areas for efficient use.
+
 Roihu compute nodes provide fast local disk storage that can significantly improve 
 performance for I/O-intensive workloads.
 
