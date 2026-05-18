@@ -396,18 +396,24 @@ As a new feature on Roihu, it is possible to request local disk mounts from a ce
 This fast storage capacity is provided over the network and
 appears as local scratch from within a Slurm job.
 
-!!! info "About fast local scratch storage"
-    These settings are likely to change.
+!!! warning "You must request these resources in conjunction with `--exclusive`"
+    At the present you can only request this storage for jobs that are making use of full nodes,
+    i.e. that are submitted with the `--exclusive` flag. Presently if you do not specify this flag
+    your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
+    logs. This should be resolved once support for shared node jobs arrives in Q3 2026.
 
 Request this local storage using the following flag in the batch script:
 
 ```bash
+#SBATCH --exclusive
 #SBATCH --bb="#BB_LUA SBF storagesize=<local_storage_space> path=/run/sbb/<username>"
 ```
 
-For example, requesting 100 GiB storage:
+For example, requesting 100 GiB storage
+(remember to update `<username>` to your username in the sbatch header):
 
 ```bash
+#SBATCH --exclusive
 #SBATCH --bb="#BB_LUA SBF storagesize=100G path=/run/sbb/<username>"
 ```
 
