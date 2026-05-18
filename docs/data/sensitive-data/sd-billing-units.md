@@ -1,5 +1,3 @@
-[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
-
 # Resource planning for your CSC Project
 
 
