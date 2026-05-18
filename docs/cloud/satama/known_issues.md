@@ -35,18 +35,6 @@ Possible causes include:
 
 Contact the project administrator to request the necessary permissions.
 
-### Expired Session Token
-
-During image push or pull operations, you may see errors such as:
-```
-unauthorized
-```
-This may occur when your session token has expired. To resolve this issue:
-
-1. Log out from the Satama Web UI.
-2. Log in again to refresh your session.
-3. Authenticate again using the Docker/Podman CLI.
-
 ### Image Push Fails Due to Tag Immutability
 
 If tag immutability is enabled, attempting to overwrite an existing tag may result in an error. This happens when a repository policy prevents tags from being modified after creation.

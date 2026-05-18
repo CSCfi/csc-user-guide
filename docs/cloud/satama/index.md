@@ -6,7 +6,7 @@ Satama provides more than just image storage. It includes additional features su
 
 By using Satama, teams can ensure that container images are centrally managed, properly versioned, and accessible only to authorized users. This helps maintain reliability, security, and consistency across development, research, and production environments. 
 
-To understand more about Satama and how to use this, please read following topics:-   
+To understand more about Satama and how to use this, please read following topics:  
 
 * [What is Satama?](what_is_satama.md)
 * [Getting Access](getting_access.md)
