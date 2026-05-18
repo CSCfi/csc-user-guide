@@ -4,7 +4,7 @@
 
 With the SD Desktop service, you can easily manage your virtual desktops and volumes. 
 
-* [Detaching or attaching a volume](#detaching-or-attaching-a-volume)
+* [Attaching or detaching a volume](#attaching-or-detaching-a-volume)
 * [Pausing or resuming a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
@@ -21,19 +21,40 @@ With the SD Desktop service, you can easily manage your virtual desktops and vol
 
 ___
 
-## Detaching or attaching a volume 
+## Attaching or detaching a volume 
 
 ![Detach and attach volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Move_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
 
-Detaching a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. 
+When you want to save, access or delete the data in the volume, you need to [attach](#attach-a-volume-to-a-virtual-desktop) it to a virtual desktop that uses same operating system as the volume. You can compare this operation to connecting a USB stick to your laptop.
 
-When you want to save data to the volume or access the data saved in the volume, you need to attach it to a virtual desktop. You can compare this operation to connecting a USB stick to your laptop.
+[Detaching](#detach-a-volume-from-a-virtual-desktop) a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. 
 
-* The content of a detached volume can not be accessed or deleted. 
-* To access or delete content on a volume, you need to attach it to a virtual desktop that uses same operating system as the volume.
-* Volumes can not be moved or transferred between CSC projects for security reasons.
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle }
+  { .csc-grid-card-warning }
+
+    Volumes can not be transferred between CSC projects for security reasons.
+
+</div>
+___
+
+### Attach a volume to a virtual desktop
+
+* [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
+
+![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
+
+#### In Manage volumes window
+
+1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Attach** on the right side of the volume you want to attach to the desktop. 
+2. Close the window when you are ready.
+
+![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
 
 ___
+
 
 ### Detach a volume from a virtual desktop
 
@@ -112,21 +133,6 @@ ___
 2. Close the window when you are ready.
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DetachVolume.png)
-
-___
-
-### Attach a volume to a virtual desktop
-
-* [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
-
-![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
-
-#### In Manage volumes window
-
-1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Attach** on the right side of the volume you want to attach to the desktop. 
-2. Close the window when you are ready.
-
-![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
 
 ___
 
