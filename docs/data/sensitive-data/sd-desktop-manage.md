@@ -23,11 +23,11 @@ ___
 
 ## Attaching or detaching a volume 
 
-![Detach and attach volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Move_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
+![Detach and attach volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Move_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
-When you want to save, access or delete the data in the volume, you need to [attach](#attach-a-volume-to-a-virtual-desktop) it to a virtual desktop that uses same operating system as the volume. You can compare this operation to connecting a USB stick to your laptop.
+When you want to save, access or delete the data in a volume, you need to [attach](#attach-a-volume-to-a-virtual-desktop) it to a virtual desktop that uses same operating system as the volume. This is similar to connecting a USB stick to your laptop.
 
-[Detaching](#detach-a-volume-from-a-virtual-desktop) a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. 
+[Detaching](#detach-a-volume-from-a-virtual-desktop) a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will remain stored in the same CSC project where it was originally created. 
 
 
 <div class="grid cards" markdown>
