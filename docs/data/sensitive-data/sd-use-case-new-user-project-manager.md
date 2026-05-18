@@ -2,8 +2,6 @@
 
 # How to get access to SD Services: Project manager
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**
-
 ## Use case
 
 You need access to SD services for processing research data. Whether you are the manager of a research team or working independently, you can use SD Connect to store, share, and transfer research data. Optionally, your team can also analyse the data stored in SD Connect using SD Desktop.
