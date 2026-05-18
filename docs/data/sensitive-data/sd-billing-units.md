@@ -66,7 +66,7 @@ You can monitor Billing Units usage in MyCSC portal.
 - :material-alert:{ .lg .middle }
   { .csc-grid-card-error }
 
-     When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain balance negative after those 60 days, [the project will be closed and all data is deleted.](sd-use-case-new-user-project-manager.md/#5-project-lifetime-billing-units-and-data-retention)** You’ll receive email notifications in advance when Billing Units are running low. 
+     When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain balance negative after those 60 days, [the project will be closed and all data is deleted](./sd-use-case-new-user-project-manager.md/#5-project-lifetime-billing-units-and-data-retention)** You’ll receive email notifications in advance when Billing Units are running low. 
 
     To prevent this, the project manager should:
 
