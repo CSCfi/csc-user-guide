@@ -89,15 +89,9 @@ You can monitor Storage Quota in MyCSC portal.
 
 ### When your project runs out of Storage Quota
 
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } 
-  { .csc-grid-card-warning }
-
     - Data upload to SD Connect will no longer be possible.
     - Data import to SD Desktop will no longer be possible.
     
-</div>
 
 
 ### How to increase Storage Quota
