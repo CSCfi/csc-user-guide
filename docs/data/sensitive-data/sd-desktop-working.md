@@ -53,16 +53,6 @@ Below is an image showing the basic functions of a virtual desktop. Click the im
 
 ## Virtual desktop resolution
 
-If you switch between different laptops or use external monitors, the virtual desktop may not always display correctly. In those cases, adjusting the screen resolution can quickly restore a usable view.
-
-Open the system menu in the top‑right corner.
-Click the gear icon to open Settings.
-In the left sidebar, select Displays.
-Under Resolution, open the dropdown menu.
-Choose the resolution you prefer.
-Click Apply.
-Select Keep Changes, or simply wait for the system to revert automatically if the setting is not supported.
-
 If you switch between different laptops or use external monitors, the virtual desktop may not always display correctly. In those cases, adjusting the screen resolution can quickly restore a usable view:
 
 1. Open the system menu in the top‑right corner.

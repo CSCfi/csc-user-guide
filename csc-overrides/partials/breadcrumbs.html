@@ -1,53 +1,31 @@
-{%- if page %}
-  {% set parent_url = ("/" + "/".join(page.url.split("/")[:-2]) + "/")
-  | replace("/support/wn/", "/support/whats-new/") %}
-  {# Breadcrumbs are defined literally for pages that don't have ancestors: #}
-  {% set breadcrumbs = {
-    "/support/archives/": [
-      { "url": "/support/contact/#archives", "title": "Archives" }
-    ],
-    "/support/faq/": [
-      { "url": "/support/faq/", "title": "FAQ" }
-    ],
-    "/support/tutorials/": [
-      { "url": "/support/tutorials/", "title": "Tutorials" }
-    ],
-    "/support/training-material/": [
-      { "url": "/support/training-material/", "title": "Training material" }
-    ],
-    "/support/tutorials/env-guide/": [
-      { "url": "/support/tutorials/", "title": "Tutorials" },
-      { "url": "/support/tutorials/env-guide/", "title": "Linux tutorials" }
-    ],
-    "/support/tutorials/gis/": [
-      { "url": "/support/tutorials/", "title": "Tutorials" },
-    ],
-    "/support/whats-new/": [
-      { "url": "/support/whats-new/", "title": "What's new" }
-    ],
-    "/apps/": [
-      { "url": "/apps/", "title": "Applications" }
-    ]
-  } %}
-  <nav class="md-nav csc-breadcrumbs">
-    {% if not page.is_homepage %}
-      <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
-    {% endif %}
-    {%- for ancestor in page.ancestors[::-1] -%}
-      {% if ancestor.is_page %}
-        <a class="csc-breadcrumbs__link" href="/{{ ancestor.url }}">{{ ancestor.title }}</a>
-      {% endif %}
-      {%- endfor -%}
-    {% if not page.ancestors and parent_url in breadcrumbs %}
-      {% for breadcrumb in breadcrumbs[parent_url] %}
-        <a class="csc-breadcrumbs__link" href="{{ breadcrumb['url'] }}">{{ breadcrumb['title'] }}</a>
-      {% endfor %}
-    {% endif %}
-    {% if not page.is_homepage %}
-      {{ page.title }}
-    {% endif %}
-  </nav>
-  {% if config.extra.breadcrumbs_debug %}
-    {% include "partials/breadcrumbs-debug.html" %}
+{% macro breadcrumb(item, title=none) %}
+{% set item_title = title if not title is none else item.title %}
+{%- set item_icon -%}
+<span class="twemoji">
+{%- if item.url is defined -%}
+{%- include ".icons/material/chevron-double-right.svg" -%}
+{%- elif item.title is defined -%}
+{%- include ".icons/material/chevron-right.svg" -%}
+{%- endif -%}
+</span>
+{%- endset -%}
+<li>
+{% if item.url is defined %}
+  <p><a href="{{ item.url | url }}">{{ item_title }}{{ item_icon }}</a></p>
+{% else %}
+  <p>{{ item_title }}{{ item_icon }}</p>
+{% endif %}
+</li>
+{% endmacro %}
+<nav class="md-nav csc-breadcrumbs">
+{% set page_ancestors = page.ancestors or adoptive_ancestors or [] %}
+  <ul>
+    {{ breadcrumb(nav.homepage, title=config.site_name) }}
+  {%- for ancestor in page_ancestors[::-1] -%}
+    {{ breadcrumb(ancestor) }}
+  {%- endfor -%}
+  {% if not page.is_homepage %}
+    {{ breadcrumb(none, title=page.title) }}
   {% endif %}
-{%- endif %}
+  </ul>
+</nav>

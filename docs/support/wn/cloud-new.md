@@ -1,5 +1,13 @@
 # Cloud services
 
+## Storage quota change in cPouta and ePouta, 07.05.2026
+The storage quota in cPouta and ePouta has been updated. Instead of a single total limit, quotas are now defined per volume type.
+
+- Each volume type (capacity, standard, and standard.multiattach) now has its own separate quota.
+- The default quota for both capacity and standard volumes is 1000 GB per type. The standard.multiattach volume type is available upon request.
+
+If you need additional storage, please specify the volume type you would like to increase when submitting your request. For any questions or assistance, please contact CSC [Customer service](../contact.md).
+
 ## Allas Web UI updates, 26.02.2026
 
 The [Allas Web UI](../../data/Allas/using_allas/allas-ui.md) has been updated with the following new features:
