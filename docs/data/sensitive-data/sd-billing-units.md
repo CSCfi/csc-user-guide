@@ -1,11 +1,18 @@
 # Resource planning for your CSC Project
 
 
-When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
-  
-   - [**Read more**](#when-your-project-runs-out-of-billing-units)
-    
+<div class="grid cards" markdown>
 
+- :material-alert:{ .lg .middle } **When your project runs out of Billing Units**
+  { .csc-grid-card-error }
+
+    ___
+
+    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
+  
+    [**Read more**](#when-your-project-runs-out-of-billing-units)
+    
+</div>
 
 Every active CSC project consumes both Billing Units (BUs) and storage quota. When you create a project, CSC grants a default amount of Billing Units (BUs) and storage quota immediately. 
 
@@ -51,12 +58,18 @@ You can monitor Billing Units usage in MyCSC portal.
 
 ### When your project runs out of Billing Units
 
+<div class="grid cards" markdown>
 
- When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain balance negative after those 60 days, [the project will be closed and all data is deleted](./sd-use-case-new-user-project-manager.md#5-project-lifetime-billing-units-and-data-retention)** You’ll receive email notifications in advance when Billing Units are running low. 
+- :material-alert:{ .lg .middle } **When your project runs out of Billing Units**
+  { .csc-grid-card-error }
+
+    ___
+
+    When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units remain balance negative after those 60 days, [the project will be closed and all data is deleted](./sd-use-case-new-user-project-manager.md#5-project-lifetime-billing-units-and-data-retention)** You’ll receive email notifications in advance when Billing Units are running low. 
 
     To prevent this, the project manager should:
 
-    1. Apply for more [**Billing Units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
+    1. Apply for more [**Billing Units**](#step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
     2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
 
 </div>
@@ -87,8 +100,8 @@ You can monitor Storage Quota in MyCSC portal.
 
 ### When your project runs out of Storage Quota
 
-    - Data upload to SD Connect will no longer be possible.
-    - Data import to SD Desktop will no longer be possible.
+- Data upload to SD Connect will no longer be possible.
+- Data import to SD Desktop will no longer be possible.
     
 
 
