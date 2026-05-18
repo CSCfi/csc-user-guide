@@ -32,7 +32,7 @@ When you want to save, access or delete the data in the volume, you need to [att
 
 <div class="grid cards" markdown>
 
-- :material-alert:{ .lg .middle }
+- :material-alert:{ .lg .middle } **Note**
   { .csc-grid-card-warning }
 
     Volumes can not be transferred between CSC projects for security reasons.
@@ -144,12 +144,12 @@ Volumes consume Cloud Billing Units even while the virtual desktop is paused.
 
 <div class="grid cards" markdown>
 
-- :material-alert:{ .lg .middle } **Note**
+- :material-alert:{ .lg .middle } **Pausing is not intended as a long‑term method for storing data**
   { .csc-grid-card-warning }
 
     ---
     
-    Pausing is **not intended as a long‑term method for storing data.** CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
+     CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
 
 </div>
 
