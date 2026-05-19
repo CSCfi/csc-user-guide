@@ -9,7 +9,7 @@ catalog:
     - Mathematics and Statistics
   available_on:
     - LUMI
-    - Puhti
+    - Roihu
     - Mahti
 ---
 
@@ -26,7 +26,7 @@ Julia language is licensed under free and open source [MIT license](https://gith
 
 
 ## Available
-Julia language is available on Puhti, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
+Julia language is available on Roihu, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
 It is also available on the web interface via [Jupyter](../computing/webinterface/julia-on-jupyter.md) and [VSCode](../computing/webinterface/vscode.md#julia-language).
 
 If you find issues in using Julia on the cluster, you should [contact the servicedesk](../support/contact.md).
@@ -36,9 +36,9 @@ If you find issues in using Julia on the cluster, you should [contact the servic
 ### Using the Julia module
 Julia language is available from the `julia` module.
 
-=== "Puhti and Mahti"
+=== "Roihu and Mahti"
 
-    On Puhti and Mahti, we can load the module as follows:
+    On Roihu and Mahti, we can load the module as follows:
 
     ```bash
     module load julia
@@ -79,7 +79,7 @@ The [Pkg documentation](https://pkgdocs.julialang.org/) provides more informatio
 ### Placing the Julia depot directory
 The first directory on the Julia depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
 It is `$HOME/.julia` by default.
-The home directory has a relatively small quota on Puhti, Mahti, and LUMI.
+The home directory has a relatively small quota on Roihu, Mahti, and LUMI.
 If you install large packages, we recommend placing the depot directory under Projappl to avoid running out of quota.
 We can change the depot directory by prepending a new directory to `JULIA_DEPOT_PATH` environment variable.
 
@@ -106,12 +106,12 @@ We recommend reading the [multi-threading](https://docs.julialang.org/en/v1/manu
 #### Distributed and ClusterManagers.jl
 For multiprocessing and distributed computing, Julia provides the `Distributed` standard library.
 We use it for multi-processing on the local node.
-We can extend `Distributed` by installing the `ClusterManagers.jl` package, which allows us to add workers' processes to multiple nodes via Slurm using `SlurmManager`.
+We can extend `Distributed` by installing the `SlurmClusterManager.jl` package, which allows us to add workers' processes to multiple nodes via Slurm using `SlurmManager`.
 We recommend reading the [multi-processing and distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) section in Julia manual for more details.
 
 
 #### MPI.jl
-We can use MPI for distributed computing, especially over multiple nodes, in Julia on Puhti, Mahti, and LUMI using the `MPI.jl` package.
+We can use MPI for distributed computing, especially over multiple nodes, in Julia on Roihu, Mahti, and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
 
 ```julia
@@ -130,7 +130,7 @@ For more information, we recommend reading the [MPI.jl documentation](https://ju
 
 ### GPU programming
 #### CUDA.jl
-The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be programmed using CUDA.
+The GPU nodes on Roihu and Mahti contain NVidia GPUs which can be programmed using CUDA.
 We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
 
 ```julia
@@ -166,7 +166,7 @@ For information, we recommend reading the [AMDGPU.jl documentation](https://amdg
 
 
 ### Running Julia batch jobs on CSC clusters
-[Running Julia batch jobs on CSC clusters](../support/tutorials/julia.md) section explains how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI.
+[Running Julia batch jobs on CSC clusters](../support/tutorials/julia.md) section explains how to run serial, parallel, and GPU batch jobs with Julia on Roihu, Mahti, and LUMI.
 
 
 ### Further reading
