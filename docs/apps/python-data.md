@@ -8,7 +8,9 @@ catalog:
   disciplines:
     - Data Analytics and Machine Learning
   available_on:
+    - Roihu
     - Puhti
+    - Mahti
 ---
 
 # Python Data
@@ -16,6 +18,8 @@ catalog:
 Collection of Python libraries for data analytics and machine learning.
 
 !!! info "News"
+     **31.3.2026** Python-data is now available on Roihu.
+
      **12.9.2025** Installed `python-data/3.12-25.09` with newer packages of popular Python 
      modules.
 
@@ -43,7 +47,19 @@ installation. Typically the module will include the newest versions of
 libraries at installation time, to the extent software dependencies
 allow.
 
-Current versions are:
+Current versions in Roihu are: 
+
+- Roihu-CPU: (default version) `python-data/3.12-31.03`: installed in March 2026,
+  includes for example Scikit-learn 1.8.0, SciPy 1.17.1, Pandas 3.0.2
+  and JupyterLab 4.5.6.
+
+- Roihu-GPU: (default version) `python-data/3.12-20.04`: installed in April 2026,
+  includes for example Cupy 14.0.1 in addition to the Python libraries available in Roihu-CPU python-data.
+
+- Roihu-GPU: `python-data/3.10-17.04`: installed in April 2026,
+  includes for example Cupy 13.6.0 in addition to the Python libraries available in Roihu-CPU python-data.
+
+Current versions in Puhti and Mahti are:
 
 - (default version) `python-data/3.12-25.09`: installed in September 2025,
   includes for example Scikit-learn 1.7.2, SciPy 1.16.1, Pandas 2.3.2
@@ -75,6 +91,7 @@ data analytics and machine learning, for example:
 - [Dask](https://dask.org/): Scalable analytics in Python
 - [Gensim](https://radimrehurek.com/gensim/): Topic modelling
 - [Jupyter](https://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/)
+- [Marimo](https://marimo.io) (Roihu)
 - [NLTK](https://matplotlib.org/): Natural language toolkit
 - [PyTables](http://www.pytables.org/)
 - [SciPy](https://www.scipy.org/), including [NumPy](https://www.numpy.org/), [Matplotlib](https://matplotlib.org/) and [Pandas](https://pandas.pydata.org/)
@@ -94,9 +111,8 @@ To create a virtual environment use the command `python3 -m venv
 If you think that some important package should be included in the
 module provided by CSC, please [contact our
 servicedesk](../support/contact.md). Note that some machine learning
-frameworks have their own specific modules, for example:
-[PyTorch](pytorch.md), [TensorFlow](tensorflow.md), [JAX](jax.md), and
-[RAPIDS](rapids.md).
+frameworks have their own specific modules, for example in Roihu:
+[python-pytorch](pytorch.md), [python-vllm](vllm.md), [python-tensorflow](tensorflow.md), and [python-jax](jax.md).
 
 !!! info "Note about multi-threading"
 
@@ -116,7 +132,7 @@ All packages are licensed under various free and open source licenses (FOSS).
 
 ## Usage
 
-To use this software on Puhti, initialize it with:
+To use this software on Roihu, Puhti or Mahti, initialize it with:
 
 ```text
 module load python-data
@@ -126,13 +142,14 @@ to access the default version, or if you wish to have a specific version ([see
 above for available versions](#available)):
 
 ```text
-module load python-data/3.10-2023.11
+module load python-data/3.12-31.03   # on Roihu
+module load python-data/3.12-25.09   # on other systems
 ```
 
 If you just want the most recent version with a specific Python version, you can also run:
 
 ```text
-module load python-data/3.10
+module load python-data/3.12
 ```
 
 This will show all available versions:

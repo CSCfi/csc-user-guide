@@ -17,6 +17,11 @@
 * [Using Python on CSC supercomputers](python-usage-guide.md)
 * [Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
 
+## Roihu
+
+* [Getting started with Roihu](roihu.md)
+* [Roihu data migration guide](roihu-data.md)
+
 ## Installation of tools on supercomputers
 
 * [Installing software with Spack](user-spack.md)
@@ -25,6 +30,7 @@
 ## Performance and high-throughput workflows
 
 * [General high-throughput guidelines](../../computing/running/throughput.md)
+* [Inspecting and controlling CPU affinity](affinity.md)
 * [Optimising parallel I/O](lustre_performance.md)
 * [Dask & parallel Python](dask-python.md)
 * [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
