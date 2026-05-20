@@ -60,7 +60,7 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
 
-[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Desktop_Overview.png)
+[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Desktop_Overview.png)
 
 
 <div class="grid cards" markdown>
@@ -76,7 +76,7 @@ Below is an image showing the basic functions of a virtual desktop. Click the im
 
     **The virtual desktop is completely isolated from the internet**. You can open a browser, but cannot access websites or online repositories, reducing security risks.
 
-    **The virtual desktop runs on Linux**, a secure and stable system suited for research. No prior experience is required, though the command line may take some learning. 
+    **The virtual desktop runs on Linux**, a secure and stable operating system suited for research. No prior experience is required, though the command line may take some learning. 
 
 
 - :material-alert:{ .lg .middle } **Limitations**
