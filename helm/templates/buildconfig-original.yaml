@@ -30,7 +30,11 @@ spec:
 {{- end }}
       buildArgs:
         - name: builder_image
-          value: {{ include "docs-csc.latestBuilderImage" . | squote -}}
+          value: {{ include "docs-csc.latestBuilderImage" . | squote }}
+        - name: server_image
+{{- with .Values.server }}
+          value: {{ .tag | printf "%s:%s" .image | squote }}
+{{- end -}}
 {{ .Values.site.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
   triggers:
     - type: ImageChange
