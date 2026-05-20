@@ -83,7 +83,7 @@ Each full GPU node has 4 GH200 GPUs. On full GPU nodes, each reserved GPU grants
 95 GiB of HBM3 memory and 116 GiB of LPDDR5 memory.
 
 The memory amounts listed here are the allocatable amounts available to jobs;
-some GPU memory is reserved for system use.
+some memory is reserved for system use.
 
 #### Roihu GPU slices
 
