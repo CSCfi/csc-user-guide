@@ -53,6 +53,11 @@ TODO:
 {{- $secretname := $ | include "docs-csc.translatorSecretName" -}}
 {{- $translator := $.Values.translator -}}
 {{- $host := $.Values.site.host | default ($ | include "networking.redundantHost") -}}
+metadata:
+  labels:
+{{ $ | include "docs-csc.labels" | indent 4 }}
+  annotations:
+{{ $ | include "docs-csc.annotations" | indent 4 }}
 spec:
   restartPolicy: Never
   volumes:

@@ -15,6 +15,8 @@ metadata:
   name: {{ include "docs-csc.altName" . }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
+  annotations:
+{{ include "docs-csc.annotations" . | indent 4 }}
 spec:
   selector:
     matchLabels:
@@ -25,6 +27,8 @@ spec:
       labels:
         deployment: {{ include "docs-csc.altName" . }}
 {{ include "docs-csc.labels" . | indent 8 }}
+      annotations:
+{{ include "docs-csc.annotations" . | indent 8 }}
     spec:
       volumes:
 {{ include "translation.translationsVolume" . | indent 8 }}

@@ -6,7 +6,9 @@ apiVersion: v1
 metadata:
   name: {{ . }}
   labels:
-{{ include "docs-csc.labels" $ | indent 4 }}
+{{ $ | include "docs-csc.labels" | indent 4 }}
+  annotations:
+{{ $ | include "docs-csc.annotations" | indent 4 }}
 spec:
   selector:
     deployment: {{ . }}
