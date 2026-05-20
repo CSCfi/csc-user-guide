@@ -12,7 +12,7 @@ spec:
       imageChange:
         from:
           kind: ImageStreamTag
-          name: {{ "latest" | printf "%s:%s" (include "docs-csc.baseName" .) | squote }}
+          name: {{ "latest" | printf "%s:%s" (include "docs-csc.origBuilderName" .) | squote }}
   output:
     to:
       kind: ImageStreamTag

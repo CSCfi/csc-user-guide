@@ -9,8 +9,6 @@ metadata:
   annotations:
 {{ $ | include "docs-csc.annotations" | indent 4 }}
 spec:
-  concurrencyPolicy: Forbid
-  podReplacementPolicy: Failed
   template:
 {{ . | list $ | include "translation.jobSpec" | indent 4 }}
 {{- end -}}
