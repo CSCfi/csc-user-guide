@@ -77,6 +77,11 @@ app.kubernetes.io/name: {{ include "docs-csc.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{- define "docs-csc.annotations" -}}
+meta.helm.sh/release-name: {{ .Release.Name }}
+meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+{{- end }}
+
 {{/*
 Image names for build_args
 */}}

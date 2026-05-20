@@ -5,7 +5,9 @@ apiVersion: batch/v1
 metadata:
   name: {{ $lang.code | printf "%s-%s-%s-%s" ($ | include "docs-csc.name") "init" "translation" }}
   labels:
-{{ include "docs-csc.labels" $ | indent 4 }}
+{{ $ | include "docs-csc.labels" | indent 4 }}
+  annotations:
+{{ $ | include "docs-csc.annotations" | indent 4 }}
 spec:
   concurrencyPolicy: Forbid
   podReplacementPolicy: Failed
