@@ -10,29 +10,29 @@
 
 ## Access virtual desktop
 
-1. [Login](./sd-desktop-login.md) to SD Desktop. All your virtual desktops are listed at the home page under **All connections**.
+1. [Login](./sd-desktop-login.md) to SD Desktop. Select the correct CSC project in the top left corner. Now you can see all desktops in this project.
 
-2. Select project (e.g. `project_NNNNN`) and click **plus icon**.
+2. Make sure the virtual desktop you want to access is running. If it is paused, you need to [unpause](sd-desktop-manage.md#unpausing-a-virtual-desktop) it before you can access it.
   
-3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
+3. Access virtual desktop by clicking **Access desktop** on right side of the desktop name.
 
-When you open the connection, a virtual desktop will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel **Getting started**, from which you can, for example, adjust the screen resolution.
+When you open the connection, a virtual desktop will open in your browser in a new window. If you are accessing the virtual desktop for the first time, you will see the panel **Getting started**, from which you can, for example, adjust the screen resolution.
 
-![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
+![Access virtual desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM2.png)
 
 
 ## Log out from virtual desktop
 
 1. Click **Power icon** in top right corner of the desktop. 
-2. Select **Power Off/Log out**, then select **Log Ou**t.
-3. Select **Log Out** in the new window.
-4. Select **Home** to return to SD Desktop home page. 
+2. Click **Power icon** in the new window.
+3. Clicking **Log Out** in the new window.
+4. Confirm by clicking **Log Out** in the new window.
+5. You will see a black sreen with two buttons. Click **Home** to return to SD Desktop home page. 
 
-This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to SD Desktop.
 
-![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
+![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Logout.png)
 
-![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
 
 ## Reconnecting to an analysis session
 

@@ -23,11 +23,11 @@ ___
 
 ## Attaching or detaching a volume 
 
-![Detach and attach volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Move_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
+![Detach and attach volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Move_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 35%;" }
 
 When you want to save, access or delete the data in a volume, you need to [attach](#attach-a-volume-to-a-virtual-desktop) it to a virtual desktop that uses same operating system as the volume. This is similar to connecting a USB stick to your laptop.
 
-[Detaching](#detach-a-volume-from-a-virtual-desktop) a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will remain stored in the same CSC project where it was originally created. 
+[Detaching](#detach-a-volume-from-a-virtual-desktop) a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will remain stored in the same CSC project where it was originally created. The content of a detached volume can not be accessed or deleted, you need to attach it to a virtual desktop first.
 
 
 <div class="grid cards" markdown>
@@ -138,9 +138,9 @@ ___
 
 ## Pausing or unpausing a virtual desktop
 
-Virtual desktops should be paused when not actively used to reduce the use of CSC computing resources and prevent unnecessary consumption of Cloud Billing Units. 
+**Desktops consume Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, ensure you [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
 
-Volumes consume Cloud Billing Units even while the virtual desktop is paused.
+**Volumes consume Cloud Billing Units** starting from the moment they are created - whether or not they’re attached to a virtual desktop and whether or not the desktop a volume is attached to is paused.
 
 <div class="grid cards" markdown>
 
