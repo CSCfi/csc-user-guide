@@ -154,9 +154,9 @@ already existing installed packages from the system core environment
 install tree. Multiple environments can use the same install trees.
 
 The basic setup for different custom environments is very similar. I'll set a shell variable
-`${upstream}` to point to selectted upstream core environment, and use
+`${upstream}` to point to selected upstream core environment, and use
 [Spack specific variable](https://spack.readthedocs.io/en/v1.1.1/configuration.html#config-file-variables),
-such as ${target_family}`, which Spack expands when interpreting it's configuration files.
+such as `${target_family}`, which Spack expands when interpreting it's configuration files.
 The quoting in the examples prevents shell from expanding Spack specific variables.
 
 ```console
@@ -194,7 +194,8 @@ spack config add config:source_cache:source-cache
 spack config add 'config:install_tree:projections:all:"{name}-{version}-{hash:7}"'
 ```
 
-All these commands simply change the file `environments/my_gcc152_ec/spack.yaml`.
+When in the active Spack environment, these commands simply change the environment definition file, here
+`environments/my_gcc152_ec/spack.yaml`.
 Alternatively, you can make the changes editing the file directly.
 
 The final step in the custom environment configuration is to define what to install to the environment:
