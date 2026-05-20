@@ -5,3 +5,4 @@ mkdocs-materialx
 mkdocs-redirects
 feedparser
 pyhumps
+GitPython
