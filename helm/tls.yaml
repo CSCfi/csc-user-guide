@@ -1,0 +1,13 @@
+# Fill in actual values when renewing certificate
+certificate: |
+  -----BEGIN CERTIFICATE-----
+  The certificate.
+  -----END CERTIFICATE-----
+key: |
+  -----BEGIN PRIVATE KEY-----
+  The private key.
+  -----END PRIVATE KEY-----
+caCertificate: |
+  -----BEGIN CERTIFICATE-----
+  The CA certificate.
+  -----END CERTIFICATE-----
