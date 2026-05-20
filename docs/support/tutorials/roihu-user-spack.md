@@ -5,9 +5,8 @@ manager.  This document describes how regular users can use Spack
 to install additional software, libraries and applications, on top of
 the already installed software.
 
-Throughout this document, we use the package `eccodes` as an example if not stated otherwise,
-and assume that the commands are run in user's custom software install
-root, usually somewhere under `/projappl/<project>/$USER`.
+Throughout this document, we assume that the commands are run in user's
+custom software install root, usually somewhere under `/projappl/<project>/${USER}`.
 
 In addition to this tutorial style documentation, please refer to the
 full
@@ -71,8 +70,8 @@ The corresponding core environments and the application environments
 (built on top of the core environments) are in directories
 
 ```
-/appl/soft/spack/core/v2026_03/$target_family
-/appl/soft/spack/apps/v2026_03/$target_family
+/appl/soft/spack/core/v2026_03/${target_family}
+/appl/soft/spack/apps/v2026_03/${target_family}
 ```
 
 where `$target_family` is either `x86_64` or `aarch64`, referring to
@@ -154,45 +153,49 @@ already existing installed packages from the system core environment
 (upstream) as possible, and installs the missing ones in a custom
 install tree. Multiple environments can use the same install trees.
 
+The basic setup for different custom environments is very similar. I'll set a shell variable
+`${upstream}` to point to selectted upstream core environment, and use
+[Spack specific variable](https://spack.readthedocs.io/en/v1.1.1/configuration.html#config-file-variables),
+such as ${target_family}`, which Spack expands when interpreting it's configuration files.
+The quoting in the examples prevents shell from expanding Spack specific variables.
+
+```console
+upstream=gcc152_ec
+```
+
 The commands
 
 ```console
-spack env create environments/mygcc152_ec
-spack env activate -p environments/mygcc152_ec
+spack env create environments/my_${upstream}
+spack env activate -p environments/my_${upstream}
 ```
 
 create the initial version of the file defining the environment,
-`environments/mygcc152_ec/spack.yaml`, and make the following spack
+`environments/my_gcc152_ec/spack.yaml`, and make the following spack
 commands to act within the environment. If you plan to install multiple
 versions of the same packages in the environment, consider adding
 option `--without-view` option to
 [spack env activate](https://spack.readthedocs.io/en/v1.1.1/environments.html#activating-an-environment)
 command.
 
-Similar to defining `SPACK_USER_CACHE_PATH`, we need to override some
-default settings, so that they do not point to default
-system locations (which are not writable by users):
+Next, we set up the environment configuration, by defining
+
+- the upstream environment
+- the packages that should be treated specially (configuration taken from the upstream environment)
+- the location of our custom environment's actual software install root
+- the source cache directory (the default one is not writable by regular users)
+- flatten the default hierarchy in the install tree and use short hashes
 
 ```console
-spack config add 'config:source_cache:source-cache'
-```
-
-The chosen upstream environment and the location of our custom environment's
-actual software install root can be added to environment configuration
-(`spack.yaml` file) with commands
-
-```console
-spack config add 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir'
-spack config add 'config:install_tree:root:$PWD/mygcc152_ec-install'
-```
-
-Optionally, you can also add other configuration settings, for example
-flatten the default hierarchy in the install tree and use short
-hashes:
-
-```console
+spack config add upstreams:${upstream}:install_tree:/appl/soft/spack/core/v2026_03/'${target_family}'/${upstream}/install_dir
+spack config add 'include:[/appl/soft/spack/v2026_03/spackconf/config_${target_family}/packages.yaml]'
+spack config add config:install_tree:root:$PWD/my_${upstream}-install
+spack config add config:source_cache:source-cache
 spack config add 'config:install_tree:projections:all:"{name}-{version}-{hash:7}"'
 ```
+
+All these commands simply change the file `environments/my_gcc152_ec/spack.yaml`.
+Alternatively, you can make the changes editing the file directly.
 
 The final step in the custom environment configuration is to define what to install to the environment:
 
