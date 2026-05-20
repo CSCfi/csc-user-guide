@@ -46,26 +46,13 @@
       ]
     },
     "configBranch": { "type": ["string", "null"] },
-    "openAiConfig": {
-      "type": "object",
-      "properties": {
-        "apiKey": { "type": "string" }
-      },
-      "required": [
-        "apiKey"
-      ]
-    },
     "openStackSwiftConfig": {
       "type": "object",
       "properties": {
-        "authUrl": { "type": "string", "format": "uri" },
-        "applicationCredentialId": { "type": "string" },
-        "applicationCredentialSecret": { "type": "string" }
+        "authUrl": { "type": "string", "format": "uri" }
       },
       "required": [
-        "authUrl",
-        "applicationCredentialId",
-        "applicationCredentialSecret"
+        "authUrl"
       ]
     },
     "resticConfig": {
@@ -74,15 +61,13 @@
         "image": { "$ref": "#/$defs/containerImage" },
         "tag": { "$ref": "#/$defs/containerImageTag" },
         "repository": { "type": "string" },
-        "host": { "type": "string" },
-        "password": { "type": "string" }
+        "host": { "type": "string" }
       },
       "required": [
         "image",
         "tag",
         "repository",
-        "host",
-        "password"
+        "host"
       ]
     },
     "cacheConfig": {
@@ -111,32 +96,18 @@
         },
         "restoreOnly": { "type": "boolean", "default": false },
         "schedule": { "type": "string" },
-        "openAi": { "$ref": "#/$defs/openAiConfig" },
         "os": { "$ref": "#/$defs/openStackSwiftConfig" },
         "restic": { "$ref": "#/$defs/resticConfig" },
         "cache": { "$ref": "#/$defs/cacheConfig" },
-        "storageCapacity": { "type": "string", "default": "2Gi" }
+        "storageCapacity": { "type": "string", "default": "2Gi" },
+        "secretsFile": {"type": ["string", "null"] }
       },
       "required": [
         "languages",
         "schedule",
-        "openAi",
         "os",
         "restic",
         "cache"
-      ]
-    },
-    "certificateFiles": {
-      "type": "object",
-      "properties": {
-        "certFile": { "type": "string", "minLength": 1 },
-        "keyFile": { "type": "string", "minLength": 1 },
-        "caCertFile": { "type": "string", "minLength": 1 }
-      },
-      "required": [
-        "certFile",
-        "keyFile",
-        "caCertFile"
       ]
     },
     "siteConfig": {
@@ -145,7 +116,7 @@
         "repo": { "$ref": "#/$defs/gitHubRepository" },
         "configBranchOverride": { "$ref": "#/$defs/configBranch" },
         "host": { "type": ["string", "null"], "format": "hostname" },
-        "tls": { "$ref": "#/$defs/certificateFiles" },
+        "tlsFile": { "type": ["string", "null"] },
         "matomoUrl": { "$ref": "#/$defs/matomoUrl" },
         "matomoId": { "$ref": "#/$defs/matomoId" },
         "environment": { "type": ["string", "null"], "default": "preview" },
@@ -178,7 +149,7 @@
     "base": { "$ref": "#/$defs/imageName" },
     "server": { "$ref": "#/$defs/imageName" },
     "localRegistry": { "type": "string" },
-    "nameOverride": { "type": "string" }
+    "nameOverride": { "type": ["string", "null"] }
   },
   "required": [
     "git",
