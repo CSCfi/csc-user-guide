@@ -54,21 +54,48 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 
 
+
+
 ## Introduction to virtual desktop
-
-![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_internet.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
-
-Once a virtual desktop has been created, all members of your CSC project can access it.
-
-**The virtual desktop runs on Linux**, a secure and stable system suited for research. No prior experience is required, though the command line may take some learning. You’ll still find familiar elements like files, folders, and menus—the main menu is in the bottom-left corner, and instead of drive letters, Linux uses a folder structure starting from /.
-
-**The virtual desktop is completely isolated from the internet**. This means that although you can open a web browser like Firefox, you will not be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
-
-**Only encrypted files are accessible from your virtual desktop.** This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt them using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
 
 Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
 
-[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)
+[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Desktop_Overview.png)
+
+
+<div class="grid cards" markdown>
+
+- :material-check-circle:{ .lg .middle } **Key features**
+  { .csc-grid-card-success }
+
+    ---
+
+    
+    
+    **Shared file access for team members:** All CSC project members can access the virtual desktop. Files saved in the shared directory or external volume are available to others, enabling safe collaboration.
+
+    **The virtual desktop is completely isolated from the internet**. You can open a browser, but cannot access websites or online repositories, reducing security risks.
+
+    **The virtual desktop runs on Linux**, a secure and stable system suited for research. No prior experience is required, though the command line may take some learning. 
+
+
+- :material-alert:{ .lg .middle } **Limitations**
+  { .csc-grid-card-warning }
+
+    ---
+
+    **Controlled file access and export with Data Gateway:** Each project member can import files to the virtual desktop using the Data Gateway application. Files can be imported only via SD Connect (direct upload), while data export is limited to the CSC Project Manager for security.
+
+    **Only encrypted files are accessible.** Only encrypted files are accessible. Unencrypted files will not appear and must first be encrypted using SD Connect. All exported files must also be encrypted, adding extra data protection.
+
+    **Open source software only:** Only open-source software can be installed, as licensed or proprietary software is not supported.
+
+</div>
+
+
+
+
+
 
 
 ## Where to save your data in virtual desktop
