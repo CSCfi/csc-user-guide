@@ -79,15 +79,8 @@ Roihu features the following partitions for submitting jobs to GPU nodes:
 | `gpumedium`      | G               | 36 hours   | 1      | 4 per job     | GPU                                     |                    |
 | `gpularge`       | G               | 36 hours   | 1 - 10 | 4 per node    | GPU                                     | [scalability test] |
 
-Each full GPU node in the partition has 4 GH200 GPUs. Each reserved GPU grants access to up to 72 CPU cores, and 116 GiB of HBM3 memory and 95 GiB of LPDDR5 memory.
-
-### Roihu visualization partition
-
-Additionally, Roihu features the following partition for interactive use and for visualizing data with specialized hardware:
-
-| Partition        | Allocation type | Time limit | Nodes | Max GPUs  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max CPU memory   | Memory per GPU   |
-|------------------|-----------------|------------|-------|-----------|---------------|-----------------------------------------|------------------|------------------|
-| `vizinteractive` | G               | 12 hours   | 1     | 2 per job | 64 per job    | V                                       | 367 GiB per job  | 44 GiB           |
+Each full GPU node has 4 GH200 GPUs. On full GPU nodes, each reserved GPU grants access to up to 72 CPU cores,
+116 GiB of HBM3 memory and 95 GiB of LPDDR5 memory.
 
 #### Roihu GPU slices
 
@@ -95,15 +88,23 @@ Roihu `gpuinteractive` partition features GH200 superchips that are divided
 into a total of 48 smaller slices that have one-seventh of the compute capacity
 and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
 
+### Roihu visualization partition
+
+Additionally, Roihu features the following partition for interactive use and for visualizing data with specialized hardware:
+
+| Partition        | Allocation type | Time limit | Nodes | Max GPUs  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory      | Memory per GPU   |
+|------------------|-----------------|------------|-------|-----------|---------------|-----------------------------------------|-----------------|------------------|
+| `vizinteractive` | G               | 12 hours   | 1     | 2 per job | 64 per job    | V                                       | 367 GiB per job | 44 GiB           |
+
 ### Roihu pilot partitions
 
 In addition to the regular partitions, the following partitions are also
 available during the Roihu pilot phase:
 
-| Partition  | Allocation type | Time limit | Min nodes | Max nodes | CPUs per node | GPUs per node | [Node types](../systems-roihu.md#nodes) |
-|------------|-----------------|------------|-----------|-----------|---------------|---------------|-----------------------------------------|
-| `pilot`    | N               | 24 hours   | 1         | 200       | 384           | 0             | M                                       |
-| `gpupilot` | G               | 48 hours   | 1         | 60        | 288           | 4             | GPU                                     |
+| Partition  | Allocation type | Time limit | Nodes   | Max CPUs      | Max GPUs      | [Node types](../systems-roihu.md#nodes) |
+|------------|-----------------|------------|---------|---------------|---------------|-----------------------------------------|
+| `pilot`    | N               | 24 hours   | 1 - 200 | 384 per node  | 0             | M                                       |
+| `gpupilot` | G               | 48 hours   | 1 - 60  | 288 per node  | 4 per node    | GPU                                     |
 
 
 ### Local storage on Roihu nodes
@@ -111,6 +112,17 @@ available during the Roihu pilot phase:
 Local storage on Roihu M, L and GPU nodes is meant for storing temporary files only, not high-performance I/O.
 
 High-performance local storage is available on Roihu XL and V nodes. Ideal for I/O-intensive jobs.
+
+The available local storage that a single user can access in their jobs depends
+on the system [partition](#roihu-partitions) they use:
+
+| Allocation type    | Quota per user |
+|:-------------------|---------------:|
+| R (shared nodes)   | 20 GiB         |
+| N (full nodes)     | 600 GiB        |
+| G (GPU nodes)      | 150 GiB        |
+| Hugemem (XL) nodes | 1.6 TiB        |
+| VIZ nodes          | 6.5 TiB        |
 
 Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
 
