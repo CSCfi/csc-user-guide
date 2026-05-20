@@ -4,6 +4,8 @@ metadata:
   name: {{ include "docs-csc.translatorName" . }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
+  annotations:
+{{ include "docs-csc.annotations" . | indent 4 }}
 spec:
   triggers:
     - type: ImageChange
