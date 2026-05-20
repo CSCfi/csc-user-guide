@@ -7,7 +7,8 @@
 {{- end -}}
 
 {{/*
-A single route.
+A single route. Attempts to lookup existing TLS certificate
+if hostname does not end in ".rahtiapp.fi".
 
 Expects a list where
 - [0] is the root context
@@ -15,18 +16,22 @@ Expects a list where
     "name": <Name of the this Route object>,
     "host": <Hostname>,
     "path": <Subpath>,
-    "service": <Name of a Service object>,
-    (optional) "cert": {
-      "content": <The certificate>,
-      "key": <The private key>,
-      "caCert": <The CA certificate>
-    }
+    "service": <Name of a Service object>
   }
 
 */}}
 {{- define "networking.route" -}}
 {{- $ := 0 | index . -}}
 {{- $route := 1 | index . -}}
+{{- $existingtls := $route.name | lookup "route.openshift.io/v1"
+                                         "Route"
+                                         $.Release.Namespace
+                                | dig "spec" "tls" dict -}}
+{{- $tlsfilename := $.Values.site.tlsFile | default "" -}}
+{{- $filetls := (empty $tlsfilename | not)
+                | ternary ($.Files.Get $tlsfilename | fromYaml | default dict)
+                          dict
+                | default dict -}}
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
@@ -45,14 +50,17 @@ spec:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
-{{- if hasKey $route "cert" }}
-{{- with $route.cert }}
-    certificate: |-
-{{ .content | indent 6 }}
-    key: |-
-{{ .key | indent 6 }}
-    caCertificate: |-
-{{ .caCert | indent 6 }}
-{{- end -}}
+{{ if $route.host | hasSuffix ".rahtiapp.fi" | not -}}
+{{ range $key := list "certificate"
+                      "key"
+                      "caCertificate" -}}
+{{ $key | printf "%s: |" | indent 4 }}
+{{ $key
+   | get $filetls
+   | default ($key | get $existingtls)
+   | required ($route.name | printf "%s is required for Route %s!" $key)
+   | trim
+   | indent 6 }}
+{{ end -}}
 {{- end -}}
 {{- end -}}
