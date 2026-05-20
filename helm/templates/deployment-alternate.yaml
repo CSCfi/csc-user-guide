@@ -31,7 +31,7 @@ spec:
 {{ include "docs-csc.annotations" . | indent 8 }}
     spec:
       volumes:
-{{ include "translation.translationsVolume" . | indent 8 }}
+{{ include "translation.buildsVolume" . | indent 8 }}
         - name: nginx-location
           configMap:
             name: {{ include "docs-csc.altConfigName" . }}
@@ -46,7 +46,7 @@ spec:
           volumeMounts:
             - name: nginx-location
               mountPath: /opt/app-root/etc/nginx.default.d/
-            - name: {{ include "docs-csc.altClaimName" . }}
+            - name: {{ include "translation.buildsVolumeName" . }}
               mountPath: /opt/app-root/src/
   strategy:
     type: RollingUpdate
