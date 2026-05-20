@@ -20,8 +20,7 @@ RUN \
 ADD csc-overrides/ csc-overrides/
 ADD docs/ docs/
 ADD hooks/ hooks/
-    properdocs.yml \
-    ./
+ADD properdocs.yml ./
 
 RUN properdocs build --site-dir=/tmp/site/
 
