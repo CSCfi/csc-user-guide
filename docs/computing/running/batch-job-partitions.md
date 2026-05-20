@@ -80,7 +80,10 @@ Roihu features the following partitions for submitting jobs to GPU nodes:
 | `gpularge`       | G               | 36 hours   | 1 - 10 | 4 per node    | GPU                                     | [scalability test] |
 
 Each full GPU node has 4 GH200 GPUs. On full GPU nodes, each reserved GPU grants access to up to 72 CPU cores,
-116 GiB of HBM3 memory and 95 GiB of LPDDR5 memory.
+95 GiB of HBM3 memory and 116 GiB of LPDDR5 memory.
+
+The memory amounts listed here are the allocatable amounts available to jobs;
+some GPU memory is reserved for system use.
 
 #### Roihu GPU slices
 
