@@ -92,9 +92,11 @@ and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
 
 Additionally, Roihu features the following partition for interactive use and for visualizing data with specialized hardware:
 
-| Partition        | Allocation type | Time limit | Nodes | Max GPUs  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory      | Memory per GPU   |
-|------------------|-----------------|------------|-------|-----------|---------------|-----------------------------------------|-----------------|------------------|
-| `vizinteractive` | G               | 12 hours   | 1     | 2 per job | 64 per job    | V                                       | 367 GiB per job | 44 GiB           |
+| Partition        | Allocation type | Time limit | Nodes | Max GPUs  | [Node types](../systems-roihu.md#nodes) |
+|------------------|-----------------|------------|-------|-----------|-----------------------------------------|
+| `vizinteractive` | G               | 12 hours   | 1     | 2 per job | V                                       |
+
+Each node in the partition has 2 Nvidia L40 GPUs with 44 GiB of memory. Each reserved GPU grants access to up to 32 CPU cores and 183 GiB of CPU memory.
 
 ### Roihu pilot partitions
 
