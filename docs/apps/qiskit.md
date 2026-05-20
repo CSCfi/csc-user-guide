@@ -342,7 +342,14 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     echo "GPUS PER TASK           : ${SLURM_GPUS_PER_TASK}"
     
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
+  
+    ## LUST optimizations provided by HPE Cray
+    ## Reference: https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20251020/202-Binding/#mpi-network-adapter-binding-with-cray-mpich
+    ## Reference: https://cpe.ext.hpe.com/docs/25.03/mpt/mpich/intro_mpi.html 
     export MPICH_GPU_SUPPORT_ENABLED=1
+    export MPICH_GPU_IPC_CACHE_MAX_SIZE=100
+    export MPICH_GPU_IPC_THRESHOLD=524288
+    export MPICH_OFI_NIC_POLICY=GPU
     
     srun --cpu-bind=$mask $WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog.py
     ```
@@ -372,7 +379,14 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     echo "GPUS PER TASK           : ${SLURM_GPUS_PER_TASK}"
     
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
+    
+    ## LUST optimizations provided by HPE Cray
+    ## Reference: https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20251020/202-Binding/#mpi-network-adapter-binding-with-cray-mpich
+    ## Reference: https://cpe.ext.hpe.com/docs/25.03/mpt/mpich/intro_mpi.html 
     export MPICH_GPU_SUPPORT_ENABLED=1
+    export MPICH_GPU_IPC_CACHE_MAX_SIZE=100
+    export MPICH_GPU_IPC_THRESHOLD=524288
+    export MPICH_OFI_NIC_POLICY=GPU
     
     srun --cpu-bind=$mask $WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog.py
     ```
@@ -535,7 +549,9 @@ Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multipl
 
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
 
-    ## HPE Cray MPI optimizations for multi-node GPU simulations
+    ## LUST optimizations provided by HPE Cray
+    ## Reference: https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20251020/202-Binding/#mpi-network-adapter-binding-with-cray-mpich
+    ## Reference: https://cpe.ext.hpe.com/docs/25.03/mpt/mpich/intro_mpi.html 
     export MPICH_GPU_SUPPORT_ENABLED=1
     export MPICH_GPU_IPC_CACHE_MAX_SIZE=100
     export MPICH_GPU_IPC_THRESHOLD=524288
@@ -565,7 +581,9 @@ Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multipl
 
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
 
-    ## HPE Cray MPI optimizations for multi-node GPU simulations
+    ## LUST optimizations provided by HPE Cray
+    ## Reference: https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20251020/202-Binding/#mpi-network-adapter-binding-with-cray-mpich
+    ## Reference: https://cpe.ext.hpe.com/docs/25.03/mpt/mpich/intro_mpi.html 
     export MPICH_GPU_SUPPORT_ENABLED=1
     export MPICH_GPU_IPC_CACHE_MAX_SIZE=100
     export MPICH_GPU_IPC_THRESHOLD=524288
