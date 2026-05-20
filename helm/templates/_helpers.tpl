@@ -91,6 +91,12 @@ Image names for build_args
 {{- define "docs-csc.latestBuilderImage" -}}
 {{- "latest" | printf "%s/%s/%s:%s" .Values.localRegistry .Release.Namespace (include "docs-csc.origBuilderName" .) }}
 {{- end }}
+{{- define "docs-csc.latestAltBuilderImage" -}}
+{{- "latest" | printf "%s/%s/%s:%s" .Values.localRegistry .Release.Namespace (include "docs-csc.altBuilderName" .) }}
+{{- end }}
+{{- define "docs-csc.latestTranslatorImage" -}}
+{{- "latest" | printf "%s/%s/%s:%s" .Values.localRegistry .Release.Namespace (include "docs-csc.translatorName" .) }}
+{{- end }}
 
 {{/*
 GitBuildSource
