@@ -21,24 +21,24 @@ For information pertaining to running jobs on the physical quantum computers usi
 [Running quantum jobs](../computing/quantum-computing/running-quantum-jobs.md).
 
 !!! info "News"
-     **19.02.2025** Installed `qiskit/1.3.2` in a singularity container on LUMI with all major Qiskit packages and
-     added support for multi-node Native Cray MPI GPU-acceleration allowing for performant multi node simulations. 
-     for up to 44* qubits. Qiskit-aer has also been upgraded to 0.16
+     **19.05.2026** Installed `qiskit/2.3.0` in a singularity container on LUMI with all major Qiskit packages and
+     added support for multi-node Native Cray MPI GPU-acceleration allowing for performant multi-node simulations 
+     for up to 44* qubits. Qiskit-aer has also been upgraded to 0.17.2. Single precision is now supported in qiskit-aer. 
 
 ## Available
 
 Currently supported Qiskit versions:
 
-| Version | Module          | Puhti | Mahti | LUMI  | Notes                            |
-| :------ | :-------------- | :---: | :---: | :---: | -------------------------------- |
-| 1.1.1   | `qiskit/1.1.1`  |   X   |   X   |       |                                  |
-| 1.3.2   |                 |       |       |   X   | Native Cray MPI with GPU support |
+| Version | Module           | Puhti | Mahti | LUMI  | Notes                            |
+| :------ | :--------------- | :---: | :---: | :---: | -------------------------------- |
+| 1.1.1   | `qiskit/1.1.1`   |   X   |   X   |       |                                  |
+| 2.3.0   | `container only` |       |       |   X   | Native Cray MPI with GPU support |
 
-Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.1.1` and `qiskit/1.3.2` packages include the following qiskit plugins:
+Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.1.1` and `qiskit/2.3.0` packages include the following qiskit plugins:
 
 === "Puhti"
     ```bash
-    qiskit=1.1.1
+    qiskit==1.1.1
     qiskit-aer-gpu>=0.14.2
     qiskit-algorithms==0.3.0
     qiskit-dynamics==0.5.1
@@ -52,7 +52,7 @@ Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU accele
     
 === "Mahti"
     ```bash
-    qiskit=1.1.1
+    qiskit==1.1.1
     qiskit-aer-gpu>=0.14.2
     qiskit-algorithms==0.3.0
     qiskit-dynamics==0.5.1
@@ -64,21 +64,185 @@ Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU accele
     qiskit-optimization==0.6.1
     ```
     
-=== "LUMI"
+=== "LUMI qiskit-aer"
     ```bash
-    qiskit==1.3.2
-    qiskit-aer-gpu==0.16.0
-    qiskit-algorithms==0.3.1
+    qiskit-aer-gpu-rocm==0.17.2
     qiskit-dynamics==0.5.1
-    qiskit-experiments==0.8.1
+    qiskit-experiments==0.13.0
     qiskit-finance==0.4.1
-    qiskit-ibm-experiment==0.4.8
-    qiskit-machine-learning==0.8.2
+    qiskit-ibm-runtime==0.46.1
+    qiskit-machine-learning==0.9.0
     qiskit-nature==0.7.2
-    qiskit-optimization==0.6.1
-    qiskit_qasm3_import==0.5.1
+    qiskit-optimization==0.7.0
+    qiskit_qasm3_import==0.6.0
+    qiskit_sphinx_theme==2.0.0
+    asv==0.6.5
+    black==26.3.0
+    click==8.3.2
+    cmake==4.2.3
+    conan==1.66.0
+    cotengra==0.7.5
+    cotengrust==0.2.0
+    cvxpy==1.8.1
+    Cython==0.29.37
+    ddt==1.7.2
+    h5py==3.16.0
+    ipympl==0.10.0
+    ipywidgets==8.1.8
+    isort==8.0.1
+    jsonschema==4.26.0
+    jupyter==1.1.1
+    jupyter-sphinx==0.5.3
+    jupyterlab==4.5.5
+    kahypar==1.3.7
+    line_profiler==5.0.2
+    matplotlib==3.10.8
+    memory_profiler==0.61.0
+    mitiq==1.0.0
+    mpi4py==4.0.3
+    mypy==1.19.1
+    nbconvert==7.17.0
+    nbsphinx==0.9.8
+    ninja==1.13.0
+    numba==0.64.0
+    numpy==2.2.6
+    opt-einsum==3.4.0
+    optuna==3.6.2
+    pandas==2.3.3
+    Pillow==12.2.0
+    pipdeptree==2.31.0
+    plotly==6.6.0
+    psutil==7.2.2
+    pyarrow==23.0.1
+    pybind11==3.0.2
+    pydantic==2.13.1
+    pylatexenc==2.10
+    pylint==4.0.5
+    pymatching==2.3.1
+    pymetis==2025.2.2
+    PySCF==2.12.1
+    pytest==9.0.2
+    pytest-cov==7.0.0
+    QCut==1.1.1
+    qiskit==2.3.0
+    reno==4.1.0
+    rich==15.0.0
+    rustworkx==0.17.1
+    scalene==2.1.4
+    scikit-build==0.19.0
+    scikit-learn==1.8.0
+    scipy==1.17.1
+    seaborn==0.13.2
+    setuptools==68.1.2
+    sparse==0.18.0
+    Sphinx==8.2.3
+    sphinx-design==0.7.0
+    stestr==4.2.1
+    stim==1.15.0
+    sympy==1.14.0
+    tox==4.49.1
+    tqdm==4.67.3
+    zarr==3.1.5
     ```
 
+=== "LUMI qiskit-aer + ML packages (experimental)"
+    ```bash
+    qiskit==2.3.0
+    qiskit-aer-gpu-rocm==0.17.2
+    qiskit-dynamics==0.5.1
+    qiskit-experiments==0.13.0
+    qiskit-finance==0.4.1
+    qiskit-ibm-runtime==0.45.1
+    qiskit-machine-learning==0.9.0
+    qiskit-nature==0.7.2
+    qiskit-optimization==0.7.0
+    qiskit_qasm3_import==0.6.0
+    qiskit_sphinx_theme==2.0.0
+    asv==0.6.5
+    black==26.3.0
+    click==8.3.2
+    cmake==4.2.3
+    conan==1.66.0
+    cotengra==0.7.5
+    cotengrust==0.2.0
+    cvxpy==1.8.1
+    Cython==0.29.37
+    ddt==1.7.2
+    duckdb==1.5.2
+    gymnasium==1.2.3
+    h5py==3.16.0
+    hdbscan==0.8.42
+    ipympl==0.10.0
+    ipywidgets==8.1.8
+    isort==8.0.1
+    jsonschema==4.26.0
+    jupyter==1.1.1
+    jupyter-sphinx==0.5.3
+    jupyterlab==4.5.5
+    kahypar==1.3.7
+    lightgbm==4.6.0
+    line_profiler==5.0.2
+    matplotlib==3.10.8
+    memory_profiler==0.61.0
+    mitiq==1.0.0
+    mpi4py==4.0.3
+    mypy==1.19.1
+    nbconvert==7.17.0
+    nbsphinx==0.9.8
+    ninja==1.13.0
+    numba==0.64.0
+    numpy==2.2.6
+    onnxruntime==1.25.0
+    opt-einsum==3.4.0
+    optuna==3.6.2
+    pandas==2.3.3
+    pennylane==0.44.1
+    pennylane-qiskit==0.44.1
+    Pillow==12.2.0
+    pipdeptree==2.31.0
+    plotly==6.6.0
+    polars==1.40.1
+    psutil==7.2.2
+    pyarrow==23.0.1
+    pybind11==3.0.2
+    pydantic==2.13.1
+    pylatexenc==2.10
+    pylint==4.0.5
+    pymatching==2.3.1
+    pymetis==2025.2.2
+    PySCF==2.12.1
+    pytest==9.0.2
+    pytest-cov==7.0.0
+    QCut==1.1.1
+    reno==4.1.0
+    rich==15.0.0
+    rustworkx==0.17.1
+    scalene==2.1.4
+    scikit-build==0.19.0
+    scikit-learn==1.8.0
+    scipy==1.17.1
+    seaborn==0.13.2
+    setuptools==68.1.2
+    sparse==0.18.0
+    Sphinx==8.2.3
+    sphinx-design==0.7.0
+    stable-baselines3==2.8.0
+    statsmodels==0.14.6
+    stestr==4.2.1
+    stim==1.15.0
+    sympy==1.13.1
+    torch==2.5.1+rocm6.2
+    torch-geometric==2.7.0
+    torchaudio==2.5.1+rocm6.2
+    torchinfo==1.8.0
+    torchvision==0.20.1+rocm6.2
+    tox==4.49.1
+    tqdm==4.67.3
+    umap-learn==0.5.12
+    wandb==0.26.1
+    xgboost==3.2.0
+    zarr==3.1.5
+    ```
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
 Please see our [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules) for
@@ -98,7 +262,7 @@ Qiskit is licensed under
 
 ## Usage
 
-To use the default version of Qiskit, initialize
+To use the default version of Qiskit on Puhti or Mahti, initialize
 it with:
 
 ```text
@@ -153,7 +317,7 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     srun python myprog.py <options>
     ```
 
-=== "LUMI"
+=== "LUMI qiskit-aer"
 
     ```bash
     #!/bin/bash
@@ -168,7 +332,37 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=56
     
-    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.3.2_csc.sif
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_2.3.0_csc.sif
+    export WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity
+    
+    echo "NODES                   : ${SLURM_NNODES}"
+    echo "TASKS PER NODE          : ${SLURM_NTASKS_PER_NODE}"
+    echo "CPUS PER TASK           : ${SLURM_CPUS_PER_TASK}"
+    echo "GPUS PER NODE           : ${SLURM_GPUS_PER_NODE}"
+    echo "GPUS PER TASK           : ${SLURM_GPUS_PER_TASK}"
+    
+    mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
+    export MPICH_GPU_SUPPORT_ENABLED=1
+    
+    srun --cpu-bind=$mask $WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog.py
+    ```
+
+=== "LUMI qiskit-aer + ML packages (experimental)"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=aer_job
+    #SBATCH --output=aer_job.o%j
+    #SBATCH --error=aer_job.e%j
+    #SBATCH --account=<project_id>
+    #SBATCH --time=2:00:00
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=1
+    #SBATCH --gpus-per-node=8
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=56
+    
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_2.3.0_hpcqc-ml-training_csc.sif
     export WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity
     
     echo "NODES                   : ${SLURM_NNODES}"
@@ -244,47 +438,62 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
 === "LUMI"
 
     ```Python
-    from qiskit import QuantumCircuit, transpile
-    from qiskit.transpiler import CouplingMap
+    from qiskit import transpile
     from qiskit_aer import AerSimulator
-    from qiskit.circuit.library import QuantumVolume
-    
+    from qiskit.circuit.library import quantum_volume
+
     ## CHOOSE PARAMETERS
     num_qubits = 34                       # Number of qubits in the circuit
     circuit_depth = 30                    # Layers in quantum volume circuit
     num_shots = 1000                      # How many times we sample the circuit
     sim_method = 'statevector'            # Choosing simulation method
     sim_device = 'GPU'                    # Choose whether simulation is run on CPUs or GPUs
+    sim_precision = 'double'              # 'single' (8 bytes/amplitude) or 'double' (16 bytes/amplitude, default).
+                                          # Single halves memory and can improve GPU performance, at the cost of accuracy.
     use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
-    num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)"
+    num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)".
+                                          # Use 28 with single precision; use 29 with double precision (see notes below).
     use_batched_shots = True              # Distributing shots to multiple processess
     num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
-    
+
     ## INITIALIZE SIMULATOR BACKEND
-    simulator = AerSimulator(method=sim_method, device=sim_device, batched_shots_gpu=use_batched_shots)
-    
+    # fusion_enable combines consecutive gates into single multi-qubit gate operations,
+    # reducing the total number of gate applications.
+    simulator = AerSimulator(
+        method=sim_method,
+        device=sim_device,
+        batched_shots_gpu=use_batched_shots,
+        fusion_enable=True,
+        fusion_max_qubit=5,
+    )
+    simulator.set_options(precision=sim_precision)
+
     ## CREATE QUANTUM VOLUME CIRCUIT
-    circuit = QuantumVolume(num_qubits, circuit_depth, seed=0)
+    # Note: the QuantumVolume class was deprecated in Qiskit 2.x and removed in 3.0.
+    # Use the quantum_volume function instead.
+    circuit = quantum_volume(num_qubits, circuit_depth, seed=0)
     circuit.measure_all()
-    
-    ## TRANSPILE THE CIRCUIT FOR SPECIFIC COUPLING MAP
-    coupling_map = CouplingMap.from_full(num_qubits)
-    transpiled_circuit = transpile(circuit, simulator, coupling_map=coupling_map, optimization_level=0)
-    
+
+    ## TRANSPILE THE CIRCUIT
+    # Note: in Qiskit 2.x, do NOT pass the AerSimulator backend to transpile() — it triggers
+    # coupling map validation that rejects circuits with more than 34 qubits. MPI distribution
+    # and cache blocking are handled at sim.run() time, not at transpile time.
+    transpiled_circuit = transpile(circuit, optimization_level=0)
+
     ## RUN THE SIMULATION
     result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enable=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
-    
+
     ## GATHER THE RESULTS AND SOME ADDITIONAL METADATA
     counts = result_statevec.get_counts()
     result_dict = result_statevec.to_dict()
     metadata = result_dict['metadata']
-    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots , 'Device' : sim_device, 'Simulation Method' : sim_method}
+    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots, 'Device' : sim_device, 'Simulation Method' : sim_method, 'Precision' : sim_precision}
     if (use_cache_blocking):
         num_chunks = 2**(num_qubits - num_blocking_qubits)
         input_data['Blocking Qubits'] = num_blocking_qubits
         input_data['Number of Chunks'] = num_chunks
-    
-    
+
+
     ## PRINT FOR ONE MPI RANK
     if (metadata['mpi_rank'] == 0):
         print()
@@ -292,7 +501,7 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
         print(f"Metadata: {metadata}")
         #print(f"Results: {counts}")
         print(f"-------------------- \n")
-    
+
     ## PRINT ALL MPI PROCESSES
     #print(f"Input data: {input_data}")
     #print(f"Metadata: {metadata}")
@@ -303,13 +512,13 @@ Submit the script with `sbatch <sbatch_script_name>.sh`
 
 ### Example sbatch and python script - Multi-node simulations which leverage Native HPE Cray MPI with GPU acceleration on LUMI
 
-Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multiple LUMI nodes in the standard-g partition using all GPUs and all CPU cores on a node. This is for simulations involving 35 qubits or more (up to a maximum 45* qubits - see table below for recommended resource allocations based on amount of qubits you wish to simulate ):
+Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multiple LUMI nodes in the standard-g partition using all GPUs and all CPU cores on a node. This is for simulations involving 35 qubits or more (up to a maximum 44* qubits - see table below for recommended resource allocations based on amount of qubits you wish to simulate ):
 
-=== "LUMI"
+=== "LUMI qiskit-aer"
 
     ```bash
     #!/bin/bash
-    ## Here is an example sbatch script for a 38 qubit quantum volume simulation (myprog_MPI.py) using 16 nodes 
+    ## Here is an example sbatch script for a 38 qubit quantum volume simulation (myprog_MPI.py) using 16 nodes
     #SBATCH --job-name=aer_job
     #SBATCH --output=aer_job.o%j
     #SBATCH --error=aer_job.e%j
@@ -320,12 +529,47 @@ Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multipl
     #SBATCH --gpus-per-node=8
     #SBATCH --ntasks-per-node=8
     #SBATCH --cpus-per-task=7
-    
-    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.3.2_csc.sif
+
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_2.3.0_csc.sif
     export GPU_WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity-with-gpu-affinity
 
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
-    export MPICH_GPU_SUPPORT_ENABLED=1 
+
+    ## HPE Cray MPI optimizations for multi-node GPU simulations
+    export MPICH_GPU_SUPPORT_ENABLED=1
+    export MPICH_GPU_IPC_CACHE_MAX_SIZE=100
+    export MPICH_GPU_IPC_THRESHOLD=524288
+    export MPICH_OFI_NIC_POLICY=GPU
+
+    srun --cpu-bind=$mask $GPU_WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog_MPI.py
+    ```
+
+=== "LUMI qiskit-aer + ML packages (experimental)"
+
+    ```bash
+    #!/bin/bash
+    ## Here is an example sbatch script for a 38 qubit quantum volume simulation (myprog_MPI.py) using 16 nodes
+    #SBATCH --job-name=aer_job
+    #SBATCH --output=aer_job.o%j
+    #SBATCH --error=aer_job.e%j
+    #SBATCH --account=<project_id>
+    #SBATCH --time=2:00:00
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=16
+    #SBATCH --gpus-per-node=8
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --cpus-per-task=7
+
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_2.3.0_hpcqc-ml-training_csc.sif
+    export GPU_WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity-with-gpu-affinity
+
+    mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
+
+    ## HPE Cray MPI optimizations for multi-node GPU simulations
+    export MPICH_GPU_SUPPORT_ENABLED=1
+    export MPICH_GPU_IPC_CACHE_MAX_SIZE=100
+    export MPICH_GPU_IPC_THRESHOLD=524288
+    export MPICH_OFI_NIC_POLICY=GPU
 
     srun --cpu-bind=$mask $GPU_WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog_MPI.py
     ```
@@ -336,47 +580,62 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
 === "LUMI"
 
     ```Python
-    from qiskit import QuantumCircuit, transpile
-    from qiskit.transpiler import CouplingMap
+    from qiskit import transpile
     from qiskit_aer import AerSimulator
-    from qiskit.circuit.library import QuantumVolume
-    
+    from qiskit.circuit.library import quantum_volume
+
     ## CHOOSE PARAMETERS
     num_qubits = 38                       # Number of qubits in the circuit
     circuit_depth = 30                    # Layers in quantum volume circuit
     num_shots = 1000                      # How many times we sample the circuit
     sim_method = 'statevector'            # Choosing simulation method
     sim_device = 'GPU'                    # Choose whether simulation is run on CPUs or GPUs
+    sim_precision = 'double'              # 'single' (8 bytes/amplitude) or 'double' (16 bytes/amplitude, default).
+                                          # Single halves memory and can improve GPU performance, at the cost of accuracy.
     use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
-    num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)"
+    num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)".
+                                          # Use 28 with single precision; use 29 with double precision (see notes below).
     use_batched_shots = True              # Distributing shots to multiple processess
     num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
-    
+
     ## INITIALIZE SIMULATOR BACKEND
-    simulator = AerSimulator(method=sim_method, device=sim_device, batched_shots_gpu=use_batched_shots)
-    
+    # fusion_enable combines consecutive gates into single multi-qubit gate operations,
+    # reducing the total number of gate applications.
+    simulator = AerSimulator(
+        method=sim_method,
+        device=sim_device,
+        batched_shots_gpu=use_batched_shots,
+        fusion_enable=True,
+        fusion_max_qubit=5,
+    )
+    simulator.set_options(precision=sim_precision)
+
     ## CREATE QUANTUM VOLUME CIRCUIT
-    circuit = QuantumVolume(num_qubits, circuit_depth, seed=0)
+    # Note: the QuantumVolume class was deprecated in Qiskit 2.x and removed in 3.0.
+    # Use the quantum_volume function instead.
+    circuit = quantum_volume(num_qubits, circuit_depth, seed=0)
     circuit.measure_all()
-    
-    ## TRANSPILE THE CIRCUIT FOR SPECIFIC COUPLING MAP
-    coupling_map = CouplingMap.from_full(num_qubits)
-    transpiled_circuit = transpile(circuit, simulator, coupling_map=coupling_map, optimization_level=0)
-    
+
+    ## TRANSPILE THE CIRCUIT
+    # Note: in Qiskit 2.x, do NOT pass the AerSimulator backend to transpile() — it triggers
+    # coupling map validation that rejects circuits with more than 34 qubits. MPI distribution
+    # and cache blocking are handled at sim.run() time, not at transpile time.
+    transpiled_circuit = transpile(circuit, optimization_level=0)
+
     ## RUN THE SIMULATION
     result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enable=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
-    
+
     ## GATHER THE RESULTS AND SOME ADDITIONAL METADATA
     counts = result_statevec.get_counts()
     result_dict = result_statevec.to_dict()
     metadata = result_dict['metadata']
-    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots , 'Device' : sim_device, 'Simulation Method' : sim_method}
+    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots, 'Device' : sim_device, 'Simulation Method' : sim_method, 'Precision' : sim_precision}
     if (use_cache_blocking):
         num_chunks = 2**(num_qubits - num_blocking_qubits)
         input_data['Blocking Qubits'] = num_blocking_qubits
         input_data['Number of Chunks'] = num_chunks
-    
-    
+
+
     ## PRINT FOR ONE MPI RANK
     if (metadata['mpi_rank'] == 0):
         print()
@@ -393,13 +652,13 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
 
 Submit the script with `sbatch <sbatch_MPI_script_name>.sh`
 
-### Guidelines for LUMI resource allocation
+### Memory requirements and example parameters
 
-The required memory for running statevector simulation is doubled for every qubit added. Using 16-byte precision (default for qiskit-aer), LUMI supports statevector simulations up to 34 qubits using a single node, and up to 44* qubits using 1024 nodes with cache blocking technique. Cache blocking utilizes distributed memory spaces of GPU memory to parallelize the simulation. The size of distributed processes is defined by blocking qubits parameters, which cannot be larger than the size of a single cache. In LUMI, the cache should correspond to the memory of a single GPU, and blocking qubits should not be larger than 29.
+The memory required for a statevector simulation **doubles for every qubit added**. With the default 16-byte (double) precision, LUMI supports statevector simulations up to **34 qubits on a single node**, and up to **44* qubits on 1024 nodes** using the cache blocking technique. Cache blocking distributes the quantum state across distributed GPU memory to parallelize the simulation; the chunk size on each MPI rank is set by the `blocking_qubits` parameter, which in good practice should be less than 25% of the VRAM on a single GCD. On LUMI, that means blocking_qubits should not be larger than 29: with double precision, blocking_qubits = 29 produces an 8 GB chunk (16 × 2²⁹ bytes), which is 12.5% of a 64 GB MI250X GCD — comfortably under the 25% threshold.
 
-The table below showcases example parameters for simulating a Quantum Volume circuit of depth 30 with different numbers of qubits on a LUMI standard-g partition. The statevector required memory is calculated for 16-byte precision. The amount of nodes used corresponds to twice the amount of memory required by the statevector, which results in optimal performance by reserving additional memory for cache blocking to handle data exchange between distributed processes. Please take note that these parameters were tested for a specific circuit. Changing the number of nodes or simulating different circuits might require specifying different amounts of blocking qubits.
+The table below shows example parameters for simulating a Quantum Volume circuit with double precision. Statevector memory depends only on qubit count, not on circuit depth, so the memory column is depth-independent. Recommended node counts correspond to roughly **twice the statevector memory**, leaving headroom for cache-blocking data exchange between processes. These values were benchmarked on Quantum Volume circuits at depths of 10, 30, 100, and 300 and held up across all of them — see [LUMI quantum simulations with qiskit-aer](https://fiqci.fi/publications/2025-04-01-LUMI-quantum-simulations-qiskit-aer) for the full results. Other circuit families, or running the same circuit on a different number of nodes, may still require different blocking-qubit values.
 
-### Memory requirements and example parameters for statevector simulation of quantum volume with circuit depth 30 and 16 byte precision
+With single precision, the same resources will run faster; alternatively, you can simulate the same number of qubits with roughly **half the nodes** shown below (and `blocking_qubits = 28` instead of 29).
 
 | # of Qubits | # of Blocking Qubits | Recommended # of nodes | # gpus-per-node | # tasks-per-node | # gpus-per-task | # cpus-per-task | Qubit memory requirements | 
 | :-----------| :------------------: | :--------------------: | --------------- | ---------------- | --------------- | --------------- | ------------------------- |
@@ -471,7 +730,9 @@ It is possible to speed up the execution time for a simulation by increasing the
 
 - [* LUMI Full Machine Runs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/hero-runs)
 - [LUMI Slurm binding options for MPI jobs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#slurm-binding-options)
+- [LUMI quantum simulations with qiskit-aer — benchmarks across multiple QV depths](https://fiqci.fi/publications/2025-04-01-LUMI-quantum-simulations-qiskit-aer)
 - [Qiskit-Aer Running with multiple-GPUs and/or multiple nodes](https://qiskit.github.io/qiskit-aer/howtos/running_gpu.html)
+- [Qiskit-Aer AerSimulator API reference (blocking_qubits memory rule)](https://qiskit.github.io/qiskit-aer/stubs/qiskit_aer.AerSimulator.html)
 - [Cache Blocking Technique to Large Scale Quantum Computing Simulation on Supercomputers](https://arxiv.org/abs/2102.02957)
 - [Qiskit documentation](https://qiskit.org/documentation/getting_started.html)
 - [Qiskit-aer documentation](https://qiskit.org/ecosystem/aer/tutorials/index.html)
