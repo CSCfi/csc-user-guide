@@ -16,8 +16,6 @@ translator:
 # but only restored from restic snapshot:
   restoreOnly: true
   schedule: 0 0 * * 1-5
-  openAi:
-    apiKey: ""
   os:
     authUrl: https://pouta.csc.fi:5001/v3
     applicationCredentialId: ""
@@ -28,12 +26,19 @@ translator:
     repository: swift:docs-restic:/translations
 # This is not the server hostname. Only used as the hostname in restic snapshots:
     host: docs.csc.fi
-    password: ""
   cache:
     container: docs-restic
     prefix: cache
-  # Defaults to 2Gi if not set:
+# Defaults to 2Gi if not set:
   # storageCapacity: 2Gi
+# Used for passing secrets. An attempt is made to lookup existing values.
+# Values defined in this file take precedence.
+#     openAiApiKey: <string>
+#     resticPassword: <string>
+#     osApplicationCredentialId: <string>
+#     osApplicationCredentialSecret: <string>
+# Keys are case-sensitive:
+  secretsFile: secrets.yaml
 site:
 # GitHub repo where Markdown files are fetched for the English site.
 # (defaults are defined in /Containerfile):
@@ -45,11 +50,21 @@ site:
   # host: docs.csc.fi
 # For renewing the certificate. If not set and host does not end
 # in 'rahtiapp.fi', an attempt is made to lookup the existing certificate.
-# If host is not set or ends in 'rahtiapp.fi', these have no effect:
-  # tls:
-  #   certFile: docs-csc-fi.crt
-  #   keyFile: docs-csc-fi.key
-  #   caCertFile: ca.crt
+# Values defined in this file take precedence.
+#    certificate: |
+#      -----BEGIN CERTIFICATE-----
+#      The certificate.
+#      -----END CERTIFICATE-----
+#    key: |
+#      -----BEGIN PRIVATE KEY-----
+#      The private key.
+#      -----END PRIVATE KEY-----
+#    caCertificate: |
+#      -----BEGIN CERTIFICATE-----
+#      The CA certificate.
+#      -----END CERTIFICATE-----
+# Has no effect if host is not set or ends in 'rahtiapp.fi':
+  tlsFile: tls.yaml
   # matomoUrl: https://mwa.2.rahtiapp.fi
   # matomoId: 1
 # Defaults to 'preview' if not set:
