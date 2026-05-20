@@ -57,33 +57,34 @@ and resource requirements. These are explained in the table below.
 
 Roihu features the following partitions for submitting jobs to CPU nodes:
 
-| Partition         | Allocation type | Time limit | Min nodes | Max nodes | CPUs per node | [Node types](../systems-roihu.md#nodes) | Max memory per node   | Requirements       |
+| Partition         | Allocation type | Time limit | Min nodes | Max nodes | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory            | Requirements       |
 |-------------------|-----------------|------------|-----------|-----------|---------------|-----------------------------------------|-----------------------|--------------------|
-| `test`            | R               | 15 minutes | 1         | 2         | 384           | M                                       | 744 GiB               |                    |
-| `interactive`     | R               | 36 hours   | 1         | 1         | 32            | M                                       | 64 GiB                |                    |
-| `small`           | R               | 72 hours   | 1         | 1         | 384           | M, L                                    | 1500 GiB              |                    |
-| `medium`          | N               | 36 hours   | 1         | 6         | 384           | M                                       | 744 GiB               |                    |
-| `large`           | N               | 36 hours   | 6         | 60        | 384           | M                                       | 744 GiB               | [scalability test] |
-| `longrun`         | R               | 10 days    | 1         | 1         | 192           | M, L                                    | 1500 GiB              |                    |
-| `hugemem`         | C               | 36 hours   | 1         | 1         | 128           | XL                                      | 6037 GiB              |                    |
-| `hugemem_longrun` | C               | 10 days    | 1         | 1         | 128           | XL                                      | 6037 GiB              |                    |
+| `test`            | R               | 15 minutes | 1         | 2         | 384 per node  | M                                       | 744 GiB per node      |                    |
+| `interactive`     | R               | 36 hours   | 1         | 1         | 32 per job    | M                                       | 64 GiB per job        |                    |
+| `small`           | R               | 72 hours   | 1         | 1         | 384 per node  | M, L                                    | 1500 GiB per node     |                    |
+| `medium`          | N               | 36 hours   | 1         | 6         | 384 per node  | M                                       | 744 GiB per node      |                    |
+| `large`           | N               | 36 hours   | 6         | 60        | 384 per node  | M                                       | 744 GiB per node      | [scalability test] |
+| `longrun`         | R               | 10 days    | 1         | 1         | 192 per job   | M, L                                    | 1500 GiB per job      |                    |
+| `hugemem`         | C               | 36 hours   | 1         | 1         | 128 per node  | XL                                      | 6037 GiB per node     |                    |
+| `hugemem_longrun` | C               | 10 days    | 1         | 1         | 128 per node  | XL                                      | 6037 GiB per node     |                    |
 
 ### Roihu GPU partitions
 
 Roihu features the following partitions for submitting jobs to GPU nodes:
 
-| Partition        | Allocation type | Time limit | Min nodes | Max nodes | GPUs per node | CPUs per node | [Node types](../systems-roihu.md#nodes) | Memory per GPU   | Requirements       |
+| Partition        | Allocation type | Time limit | Min nodes | Max nodes | GPUs per node | CPUs per GPU  | [Node types](../systems-roihu.md#nodes) | Memory per GPU   | Requirements       |
 |------------------|-----------------|------------|-----------|-----------|---------------|---------------|-----------------------------------------|------------------|--------------------|
-| `gputest`        | G               | 15 minutes | 1         | 2         | 4             | 288           | GPU                                     | 116 GiB + 95 GiB |                    |
+| `gputest`        | G               | 15 minutes | 1         | 2         | 4             | 72            | GPU                                     | 116 GiB + 95 GiB |                    |
 | `gpuinteractive` | G               | 12 hours   | 1         | 1         | 1             | 72            | GPU ([slice](#roihu-gpu-slices))        | TBA              |                    |
-| `gpumedium`      | G               | 36 hours   | 1         | 1         | 4             | 288           | GPU                                     | 116 GiB + 95 GiB |                    |
-| `gpularge`       | G               | 36 hours   | 1         | 10        | 4             | 288           | GPU                                     | 116 GiB + 95 GiB | [scalability test] |
+| `gpumedium`      | G               | 36 hours   | 1         | 1         | 4             | 72            | GPU                                     | 116 GiB + 95 GiB |                    |
+| `gpularge`       | G               | 36 hours   | 1         | 10        | 4             | 72            | GPU                                     | 116 GiB + 95 GiB | [scalability test] |
 
 ### Roihu visualization partition
 
 Additionally, Roihu features the following partition for interactive use and for visualizing data with specialized hardware:
 
 | Partition        | Allocation type | Time limit | Min nodes | Max nodes | GPUs per node | CPUs per node | [Node types](../systems-roihu.md#nodes) | Max CPU memory   | Memory per GPU   |
+|------------------|-----------------|------------|-----------|-----------|---------------|---------------|-----------------------------------------|------------------|------------------|
 | `vizinteractive` | G               | 12 hours   | 1         | 1         | 2             | 64            | V                                       | 367 GiB per node | 44 GiB           |
 
 #### Roihu GPU slices
