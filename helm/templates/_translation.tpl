@@ -64,7 +64,7 @@ spec:
 {{ include "translation.volumes" $ | indent 4 }}
   initContainers:
     - name: {{ $langcode | printf "%s-%s" $translatorname }}
-      image: {{ "latest" | printf "%s:%s" $translatorname | squote }}
+      image: {{ $ | include "docs-csc.latestTranslatorImage" | squote }}
       imagePullPolicy: Always
       volumeMounts:
         - name: {{ $ | include "translation.translationsVolumeName" }}
@@ -112,7 +112,7 @@ spec:
 {{- end }}
   containers:
     - name: {{ $langcode | printf "%s-%s" $buildername }}
-      image: {{ "latest" | printf "%s:%s" $buildername | squote }}
+      image: {{ $ | include "docs-csc.latestAltBuilderImage" | squote }}
       env:
 {{- if $.Values.site.configBranchOverride }}
         - name: CONFIG_BRANCH
