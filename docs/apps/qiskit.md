@@ -66,6 +66,7 @@ Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU accele
     
 === "LUMI qiskit-aer"
     ```bash
+    qiskit==2.3.0
     qiskit-aer-gpu-rocm==0.17.2
     qiskit-dynamics==0.5.1
     qiskit-experiments==0.13.0
@@ -124,7 +125,6 @@ Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU accele
     pytest==9.0.2
     pytest-cov==7.0.0
     QCut==1.1.1
-    qiskit==2.3.0
     reno==4.1.0
     rich==15.0.0
     rustworkx==0.17.1
