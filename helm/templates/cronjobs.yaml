@@ -6,6 +6,8 @@ metadata:
   name: {{ $lang.code | printf "%s-%s-%s" ($ | include "docs-csc.name") "translation" }}
   labels:
 {{ $ | include "docs-csc.labels" | indent 4 }}
+  annotations:
+{{ $ | include "docs-csc.annotations" | indent 4 }}
 spec:
   schedule: {{ $.Values.translator.schedule | squote }}
   concurrencyPolicy: Forbid
