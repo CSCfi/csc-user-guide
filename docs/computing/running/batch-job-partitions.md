@@ -135,19 +135,19 @@ available during the Roihu pilot phase:
 
 ### Local storage on Roihu nodes
 
-Local storage on Roihu M, L and GPU nodes is meant for storing temporary files only, not high-performance I/O.
+Local storage on Roihu M, L, and GPU nodes is meant for storing temporary files only, not high-performance I/O.
 
 High-performance local storage is available on Roihu XL and V nodes, which is ideal for I/O-intensive jobs.
 
 The amount of local storage available to a single user depends on the [partition](#roihu-partitions) used:
 
-| Allocation type    | Quota per user |
-|:-------------------|---------------:|
-| R (shared nodes)   | 20 GiB         |
-| N (full nodes)     | 600 GiB        |
-| G (GPU nodes)      | 150 GiB        |
-| Hugemem (XL) nodes | 1.6 TiB        |
-| VIZ nodes          | 6.5 TiB        |
+| Allocation type    | Quota per user | Read / Write speeds |
+|:-------------------|---------------:|---------------------|
+| R (shared nodes)   | 20 GiB         | 5000 / 1400 MB/s    |
+| N (full nodes)     | 600 GiB        | 5000 / 1400 MB/s    |
+| G (GPU nodes)      | 150 GiB        | 5000 / 1400 MB/s    |
+| Hugemem (XL) nodes | 1.6 TiB        | 6700 / 4000 MB/s    |
+| VIZ nodes          | 6.5 TiB        | 6700 / 4000 MB/s    |
 
 Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
 
