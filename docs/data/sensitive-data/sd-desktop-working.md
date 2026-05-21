@@ -23,14 +23,14 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
     [Read more](#introduction-to-virtual-desktop)
 
-- :material-apps:{ .lg .middle } **Default software**
+- :material-apps:{ .lg .middle } **Software**
   { .csc-grid-card-info }
   
     ---
 
-    Overview of pre-installed tools and applications available in the virtual desktop environment.
+    Learn about applications available in the virtual desktop environment.
 
-    [Read more](#default-software-available-in-sd-desktop)
+    [Read more](#software-available-in-sd-desktop)
 
 - :material-harddisk:{ .lg .middle } **Where to save your data**
   { .csc-grid-card-info }
@@ -60,7 +60,7 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
 
-[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Desktop_Overview.png)
+[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew-Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew-Overview.png)
 
 
 <div class="grid cards" markdown>
@@ -72,11 +72,11 @@ Below is an image showing the basic functions of a virtual desktop. Click the im
 
     
     
-    **Shared file access for team members:** All CSC project members can access the virtual desktop. Files saved in the shared directory or external volume are available to others, enabling safe collaboration.
+    * **Shared file access for team members:** All CSC project members can access the virtual desktop. Files saved in the shared directory or external volume are available to others, enabling safe collaboration.
 
-    **The virtual desktop is completely isolated from the internet**. You can open a browser, but cannot access websites or online repositories, reducing security risks.
+    * **The virtual desktop is completely isolated from the internet**. You can open a browser, but cannot access websites or online repositories, reducing security risks.
 
-    **The virtual desktop runs on Linux**, a secure and stable operating system suited for research. No prior experience is required, though the command line may take some learning. 
+    * **The virtual desktop runs on Linux**, a secure and stable operating system suited for research. No prior experience is required, though the command line may take some learning. 
 
 
 - :material-alert:{ .lg .middle } **Limitations**
@@ -84,11 +84,11 @@ Below is an image showing the basic functions of a virtual desktop. Click the im
 
     ---
 
-    **Controlled file access and export with Data Gateway:** Each project member can import files to the virtual desktop using the Data Gateway application. Files can be imported only via SD Connect (direct upload), while data export is limited to the CSC Project Manager for security.
+    * **Controlled file access and export with Data Gateway:** Each project member can import files to the virtual desktop using the Data Gateway application. Files can be imported only via SD Connect (direct upload), while data export is limited to the CSC Project Manager for security.
 
-    **Only encrypted files are accessible.** Only encrypted files are accessible. Unencrypted files will not appear and must first be encrypted using SD Connect. All exported files must also be encrypted, adding extra data protection.
+    * **Only encrypted files are accessible.** Unencrypted files will not appear and must first be encrypted using SD Connect. Data Gateway encrypts all exported files, adding extra data protection.
 
-    **Open source software only:** Only open-source software can be installed, as licensed or proprietary software is not supported.
+    * **Open source software only:** Only open-source software can be installed, as licensed or proprietary software is not supported.
 
 </div>
 
@@ -105,35 +105,20 @@ When you log in to the virtual desktop, you will see several icons on the left n
 | Name | Usage | Sharing | Data loss risk |
 |------|-------|---------|----------------|
 | **Data Gateway application** | Use this application to access your data via a secure connection. When you copy data through Data Gateway into the virtual desktop, it creates a decrypted working copy. This copy should always be saved inside the external volume (see below). Only the CSC Project Manager can export data. | — | — |
-| **Files folder/ Home directory** | The internal storage of your virtual desktop—similar to the built‑in disk of a laptop. | Only you can see and access files stored here. | **Avoid saving large files here, as they can fill up the virtual desktop’s disk and make it unusable.** If the virtual desktop is deleted or crashes, everything in Home will be permanently lost. |
+| **Files folder/ Home directory** | The internal storage of your virtual desktop—similar to the built‑in disk of a laptop. | Only you can see and access files stored here. | **Do not save large files here. If the system disk becomes full, the operating system will stop working and, in the worst case, the virtual desktop may become permanently unusable.** If the virtual desktop is deleted or crashes, everything in Home directory will be permanently lost. |
 | **Volume** | An external storage space attached to the virtual desktop, similar to a removable drive (like a USB stick). Use a volume to store a copy of working copy of datasets you are analysing, results, scripts and notebooks, any important files you don’t want to lose. | It is shared with all members of your project. | If the virtual desktop crashes or runs out of disk space, your data in the volume remains safe. You can easily move  volume to a new virtual desktop after a service upgrade or if the virtual desktop becomes unusable. |
-| **Shared directory** | Small shared folder visible to all project members. It should be used only for temporary transfers or exchanging small files. Move files quickly to the Volume if they need to be saved. | Visible to all project members | If it becomes full, you may not be able to upload or transfer new files until space is freed. |
+| **Shared directory** | Small shared folder visible to all project members. It should be used only for temporary transfers or exchanging small files. Move files quickly to the Volume if they need to be saved. | Visible to all project members | **Do not save large files here. If the system disk becomes full, the operating system will stop working and, in the worst case, the virtual desktop may become permanently unusable.** If the virtual desktop is deleted or crashes, everything in Shared directory will be permanently lost.  |
 
 
 
 
 
 
-## Default software available in SD Desktop
+## Software available in SD Desktop
 
-Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customise it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please [contact CSC Service Desk](../../support/contact.md) for support (subject: SD Desktop).
+The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately. However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
 
-You can use the virtual desktop like a regular computer, with access to pre‑installed tools such as office apps, image viewers, media players, and Jupyter Notebooks. A terminal is also available for command‑line work. Below is a selection of the most commonly included tools (the exact list may vary by desktop option).
-
-To install additional software (for example, RStudio) you can use the SD‑Software Installer, a simple application that provides a list of additional software and guides you through the installation process, no technical expertise required.To learn how, please follow the next guide: [Customisation - software & tools](./sd-desktop-software.md) 
-
-Users who prefer command‑line installation can also install software using containerized applications with Aptainer or Podman.
-
-
-| **Category**              | **Software**                                                                                                                                                                       |
-|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Office Tools**          | [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)   |
-| **Programming**           | [Go](https://go.dev/) <br> [Python 3](./tutorials/sd-pythonlibs.md) including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode |
-| **Workflow Engines**      | - [Nextflow](https://www.nextflow.io/) <br> - [Snakemake](https://snakemake.readthedocs.io/en/stable/) |
-| **Software Containers**    | - [Apptainer](https://apptainer.org/) <br> - [Podman](https://podman.io/) (Only in Ubuntu machines)        |
-| **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)             |
-| **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.) <br> - [Jupyter](https://jupyter.org/)   |
-
+[Read more about software](sd-desktop-software.md)
 
 
 

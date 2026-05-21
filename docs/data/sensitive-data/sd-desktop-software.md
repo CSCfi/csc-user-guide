@@ -7,25 +7,54 @@
 
 ## Software in virtual desktop
 
-The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately (listed below). However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
+The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately (listed [below](#default-software)). However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
 
 Below you can find:
 
-* [Adding software: background information and limitations](sd-desktop-software.md#adding-software-background-information-and-limitations)
-* [Customisation via SD Software Installer](sd-desktop-software.md#customisation-via-sd-software-installer) (previous experience is not required)
-* [Customisation via Apptainer and Podman](sd-desktop-software.md#customisation-via-apptainer-and-podman) (advanced; technical expertise required).
+* [Default software](#default-software)
+* [Background information and limitations](sd-desktop-software.md#adding-software-background-information-and-limitations)
+* [Install software via SD Software Installer](sd-desktop-software.md#customisation-via-sd-software-installer) (previous experience is not required)
+* [Install software via Apptainer and Podman](sd-desktop-software.md#customisation-via-apptainer-and-podman) (advanced; technical expertise required).
 
-!!! Note
-    Please don't hesitate to [contact CSC Service Desk](../../support/contact.md) (subject: SD Services) if you have any questions about the software selection. We can support you in your desktop customisation.
 
-## Adding software: background information and limitations
+## Background information and limitations
 
 * The virtual desktops (or virtual machines) are intentionally isolated from the internet for security reasons. Consequently, the process of adding supplementary software and libraries is not straightforward.
 * SD Desktop supports only open-source software; licensed software is not supported.
 * The absence of a network connection precludes the use of conventional installation tools such as *git*, *coda*, *cpan* or *pip* in their typical fashion, as these tools rely on external repositories. Furthermore, users on the SD Desktop do not possess the necessary superuser access to execute operations requiring elevated permissions.
 * Adding extra software to SD Desktop is possible, but it involves converting the installation steps into special files. These files are then uploaded to SD Connect and copied to your SD Desktop for installation. For this process, we recommend using Apptainer containers for importing the software you need, but Apptainer is not the only option. You can also import software for example as Appimage files, Ubuntu 22.04 compatible binaries or as source code.
 
-## Customisation via SD Software Installer
+
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Do you need additional software**
+  { .csc-grid-card-warning }
+
+    ---
+    
+    If the software you need is not listed below, please contact CSC Service Desk for support (subject: SD Desktop).
+
+</div>
+
+
+## Default software
+
+
+| **Category**              | **Software**                                                                                                                                                                       |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Office Tools**          | [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)   |
+| **Programming**           | [Go](https://go.dev/) <br> [Python 3](./tutorials/sd-pythonlibs.md) including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode |
+| **Workflow Engines**      | - [Nextflow](https://www.nextflow.io/) <br> - [Snakemake](https://snakemake.readthedocs.io/en/stable/) |
+| **Software Containers**    | - [Apptainer](https://apptainer.org/) <br> - [Podman](https://podman.io/)         |
+| **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)             |
+| **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) <br> - [Jupyter](https://jupyter.org/)   |
+
+
+
+
+
+## Install software via SD Software Installer
 
 SD Software installer provides an easy-to-use tool to add some commonly used software to SD Desktop (Eg. Rstudio 4.5.1, Whisper, VSCode and GATK). SD Software installer is an application provided by CSC. Users can't add their own tools to the SD Software installer, but you can send requests for new tools to be added by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). To access the application, please follow the step-by-step tutorial below.  
 
@@ -61,6 +90,20 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 |                        | [OpenRefine](https://openrefine.org/) - Data pre-prosessing and conversion tool for various data formats.|
 |                        | [VS Code 1.90.2](./tutorials/vscode.md) - Code editor. <br> *After installation, right-click the VS Code desktop icon and select: Allow launching.*|
 |                        | [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html) - Data mining software.|
+
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Do you need additional software**
+  { .csc-grid-card-warning }
+
+    ---
+    
+    If the software you need is not listed below, please contact CSC Service Desk for support (subject: SD Desktop).
+
+</div>
+
+
 
 ### Step 1: send a request
 
