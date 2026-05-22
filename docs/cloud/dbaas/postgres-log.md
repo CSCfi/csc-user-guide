@@ -4,11 +4,9 @@ PostgreSQL server log gives important information from the database's current he
 
 ## How to access database logs
 
-## How to access database logs
-
 [Via CLI](advanced.md#how-to-access-database-logs)
 
-[Via Web UI](web-interface.md)
+[Via Web UI](web-interface.md#how-to-access-database-logs)
 
 ### Web UI
 

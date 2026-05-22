@@ -6,7 +6,7 @@ Server log in MariaDB gives important information from database's current health
 
 [Via CLI](advanced.md#how-to-access-database-logs)
 
-[Via Web UI](web-interface.md)
+[Via Web UI](web-interface.md#how-to-access-database-logs)
 
 ## What to look for
 Error log in MariaDB should be quite quiet, having  `note` and some `warning` level messages from statup and from possible shutdown.
