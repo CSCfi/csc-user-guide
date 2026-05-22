@@ -66,8 +66,8 @@ your database instance.
 
 ## How to access database logs
 
-    !!! info "Note"
-        If the system does not return any log lines in either methods then that means there are no log entries within the 1 month retention period which is common to MariaDBs.
+!!! info "Note"
+    If the system does not return any log lines in either methods then that means there are no log entries within the 1 month retention period which is common to MariaDBs.
 
 1. Onces you got your OpenStack running, you can list your databases;
 

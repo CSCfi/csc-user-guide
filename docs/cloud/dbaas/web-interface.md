@@ -51,5 +51,5 @@ You can add and remove databases from the `Database` tab of the database instanc
 
 Go to `Database`, `Instances`, click the desired database under the `Instance Name` column and go to `Logs` tab.
 
-    !!! info "Note"
-        If log lines are with same `timestamp` then log lines may be displayed in bit of a mixed order.
+!!! info "Note"
+    If log lines are with same `timestamp` then log lines may be displayed in bit of a mixed order.
