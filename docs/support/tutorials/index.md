@@ -12,10 +12,14 @@
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 * [How to run existing containers in Puhti](../../computing/containers/overview.md#running-containers)
-* [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
 * [Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+
+## Data management 
+* [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
+* [Getting disk usage using Lue](lue.md)
+* [Moving large datasets to Allas](data-mover.md)
 
 ## Installation of tools on supercomputers
 
