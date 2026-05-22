@@ -64,7 +64,6 @@ By default only `WARNING` and higher level messages appear in the server log.
 ### Common messages
 
 These are common messages, but not an exhaustive list.
-
 !!! info "Note"
     This is as stub and will be appended later...
 
@@ -84,7 +83,6 @@ If there is too much write load, then checkpoints will happen more requently and
 2026-03-06T15:07:27.231899198+00:00 stderr F 2026-03-06 15:07:27.231 UTC [10] LOG:  checkpoint starting: wal
 2026-03-06T15:07:27.231899198+00:00 stderr F 2026-03-06 15:07:27.231 UTC [10] LOG:  checkpoints are occurring too frequently (18 seconds apart)
 ```
-
 !!! info "Note"
     In Pukki `max_wal_size` is tied to instance's flavor size
 
@@ -106,7 +104,6 @@ Database shutdown also generates `FATAL` level message if database connection ex
 2026-02-13T16:06:34.949376041+00:00 stderr F 2026-02-13 16:06:34.942 UTC [27] FATAL:  terminating connection due to administrator command
 2026-02-13T16:06:34.949376041+00:00 stderr F 2026-02-13 16:06:34.942 UTC [27] STATEMENT:  select pg_sleep(60);
 ```
-
 !!! info "Note"
     Only query running will be logged not the whole transaction.
 
@@ -137,7 +134,6 @@ If the database is not ready to accept connections and there is an incoming conn
 2026-02-13T15:36:07.576782919+00:00 stderr F 2026-02-13 15:36:07.576 UTC [80166] DETAIL:  Connection matched file "/etc/postgresql/pg_hba.conf" line 9: "host all all 0.0.0.0/0 md5"
 2026-02-13T15:36:07.576782919+00:00 stderr F 2026-02-13 15:36:07.576 UTC [80166] FATAL:  password authentication failed for user "user"
 ```
-
 !!! info "Note"
     Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
@@ -149,7 +145,6 @@ If the database is not ready to accept connections and there is an incoming conn
 2026-02-13T15:49:25.064066471+00:00 stderr F 2026-02-13 15:49:25.063 UTC [80256] DETAIL:  Role "test" does not exist.
 2026-02-13T15:49:25.064066471+00:00 stderr F 2026-02-13 15:49:25.063 UTC [80256] FATAL:  password authentication failed for user "test"
 ```
-
 !!! info "Note"
     Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
@@ -173,6 +168,5 @@ If the database is not ready to accept connections and there is an incoming conn
 ```
 2026-02-13T16:32:56.592294678+00:00 stderr F 2026-02-13 16:32:56.591 UTC [60] LOG:  could not receive data from client: Connection reset by peer
 ```
-
 !!! info "Note"
     Usually these are improperly closed connections, but there is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
