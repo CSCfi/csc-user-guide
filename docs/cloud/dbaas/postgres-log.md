@@ -4,26 +4,11 @@ PostgreSQL server log gives important information from the database's current he
 
 ## How to access database logs
 
-### OpenStack CLI
+## How to access database logs
 
-[Prerequisites for CLI use](cli.md)
+[Via CLI](advanced.md#how-to-access-database-logs)
 
-Onces you got your OpenStack running, you can list your databases;
-
-```
-openstack database instance list
-```
-
-Using the (Instance) ID from above command you can get the database log;
-
-```
-openstack database log list -f value -c Status $INSTANCE_ID | sort
-```
-
-In Unix-like systems you can use `tail` command to output only last n lines;
-```
-openstack database log list -f value -c Status $INSTANCE_ID | sort | tail -10
-```
+[Via Web UI](web-interface.md)
 
 ### Web UI
 

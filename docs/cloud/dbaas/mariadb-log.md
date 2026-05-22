@@ -4,30 +4,9 @@ Server log in MariaDB gives important information from database's current health
 
 ## How to access database logs
 
-### OpenStack CLI
+[Via CLI](advanced.md#how-to-access-database-logs)
 
-[Prerequisites for CLI use](cli.md)
-
-Onces you got your OpenStack running, you can list your databases;
-
-```
-openstack database instance list
-```
-
-Using the (Instance) ID from above command you can get the database log;
-
-```
-openstack database log list -f value -c Status $INSTANCE_ID | sort
-```
-
-In Unix-like systems you can use `tail` command to output only last n lines;
-```
-openstack database log list -f value -c Status $INSTANCE_ID | sort | tail -10
-```
-
-### Web UI
-
-See [Web interface](web-interface.md) page.
+[Via Web UI](web-interface.md)
 
 ## What to look for
 Error log in MariaDB should be quite quiet, having  `note` and some `warning` level messages from statup and from possible shutdown.
