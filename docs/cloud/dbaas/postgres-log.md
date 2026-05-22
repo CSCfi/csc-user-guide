@@ -64,6 +64,11 @@ By default only `WARNING` and higher level messages appear in the server log.
 ### Common messages
 
 These are common messages, but not an exhaustive list.
+
+!!! info "Note"
+    The wildcard `*` can, if you like, be changed to your project-id.
+
+
 !!! info "Note"
     This is as stub and will be appended later...
 
