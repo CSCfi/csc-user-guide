@@ -6,7 +6,7 @@ PostgreSQL server log gives important information from the database's current he
 
 ### OpenStack CLI
 
-[Prerequisites for CLI use](cloud/dbaas/cli.md)
+[Prerequisites for CLI use](cli.md)
 
 Onces you got your OpenStack running, you can list your databases;
 
@@ -27,7 +27,7 @@ openstack database log list -f value -c Status $INSTANCE_ID | sort | tail -10
 
 ### Web UI
 
-See [Web interface](cloud/dbaas/web-interface.md) page.
+See [Web interface](web-interface.md) page.
 
 ## What to look for
 
