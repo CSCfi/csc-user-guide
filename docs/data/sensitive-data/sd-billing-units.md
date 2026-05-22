@@ -167,16 +167,16 @@ Here’s a table summarizing the Cloud Billing Units required for using **volume
 
 #### SD Connect: Storage Billing Units
 
-SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.4 Storage BUs per TB per hour**.
+SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.4 Storage BUs per TiB per hour**.
 
 Here’s a table summarizing the Storage Billing Units required for storing data in **SD Connect** over **1 year** for various storage sizes:
 
 | Storage Size |  Storage Billing Units (consumed in 1 year) |  Select the correct BU Package in MyCSC and application frequency |
 |------------------|------------------------------|----------------------------|
-| 500 GB (0.5 TB) | 3 000  units | Basic package, 3 times a year: 2 500 BUs assigned immediately |
-| 1 TB | 6 000 units | Small package, 2 times a year: 30 000 BUs assigned immediately |
-| 10 TB | 60 000 units | Small package, 3 times a year: 30 000 BUs assigned immediately  |
-| 100 TB | 600 000 units | Medium package, 3 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
+| 500 GB (0.5 TB) | 6 000  units | Basic package, 3 times a year: 2 500 BUs assigned immediately |
+| 1 TB | 12 000 units | Small package, 1 times a year: 30 000 BUs assigned immediately |
+| 10 TB | 120 000 units | Small package, 4 times a year: 30 000 BUs assigned immediately  |
+| 100 TB | 1 200 000 units | Large package, 1 time a year: 1 200 000 BUs Processed on average within 1-3 days by a Resource Officer |
 
 
 ### Step 2: Apply for billing units via MyCSC portal
