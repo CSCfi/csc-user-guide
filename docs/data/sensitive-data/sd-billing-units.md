@@ -176,7 +176,7 @@ Here’s a table summarizing the Storage Billing Units required for storing data
 | 500 GB (0.5 TB) | 6 000  units | Basic package, 3 times a year: 2 500 BUs assigned immediately |
 | 1 TB | 12 000 units | Small package, 1 times a year: 30 000 BUs assigned immediately |
 | 10 TB | 120 000 units | Small package, 4 times a year: 30 000 BUs assigned immediately  |
-| 100 TB | 1 200 000 units | Large package, 1 time a year: 1 200 000 BUs Processed on average within 1-3 days by a Resource Officer |
+| 100 TB | 1 200 000 units | Large package, 1 time a year: 1 200 000 BUs Large resource applications are generally processed every three weeks by the CSC's Resource Allocation Group.  |
 
 
 ### Step 2: Apply for billing units via MyCSC portal
