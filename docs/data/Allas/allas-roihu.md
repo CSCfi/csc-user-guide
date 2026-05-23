@@ -438,19 +438,19 @@ individual files. Copying such datasets to Allas takes time and is not always
 straightforward. The most reasonable way to upload this kind of data depends on
 the case. This example introduces a few alternatives.
 
-First, we open a `screen` session on Puhti and set up an Allas connection just
+First, we open a `screen` session on Roihu and set up an Allas connection just
 like in the previous example:
 
 ```bash
 ssh <username>@puhti.csc.fi
 screen
 module load allas
-allas-conf -k
+allas-conf
 ```
 
 Suppose we have a directory structure that contains images from road condition
 cameras from ten locations with an interval of ten minutes from the years
-2014–2018. The data is located in the directory `road_cameras` where each
+2021–2025. The data is located in the directory `road_cameras` where each
 location has its own subdirectory (ten directories). Inside each subdirectory,
 there is another layer of subdirectories, one for each year (five
 subdirectories), each containing subdirectories for every day of the year
@@ -459,7 +459,7 @@ subdirectories), each containing subdirectories for every day of the year
 For example:
 
 ```bash
-road_cameras/site_7/2017/day211/image_654887.jpg
+road_cameras/site_7/2022/day211/image_654887.jpg
 ```
 
 Thus, the total number of files in the `road_cameras` directory is
@@ -478,6 +478,9 @@ rclone copyto road_cameras/site_1 allas:2001659_road_cameras_site_1/
 This way, you would end up creating ten buckets each containing 262 800
 objects. This approach could be the most efficient way for storing and reusing
 the data if you know that you will need to access individual images randomly.
+However, you would then need to use some other tools than rclone or a-commands,
+ase rclone has a bug that makes it fail in cases where one bucket contains huge number
+of object names (typically this starts to affect in cases where the number of objects is over 15 000- 50 000).
 
 As another extreme option, we could use `a-put` and collect all data into a
 single archive object. In order to do that, you must add the option
@@ -519,7 +522,7 @@ takes quite a long time.
 
 Copying millions of files to Allas takes a long time regardless of the method.
 If we have started the `a-put` command inside a `screen` session, we can detach
-from the virtual session by pressing `Ctrl-A D`, log out from Puhti and leave
+from the virtual session by pressing `Ctrl-A D`, log out from Roihu and leave
 the upload process running for days.
 
 Once the `a-put` command is finished, we will run `a-check` command to check if
