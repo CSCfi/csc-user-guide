@@ -27,15 +27,14 @@ relatively small datasets (max. some hundreds of GBs). The third example suits a
    then downloading the data back to Roihu.
 2. [The second example](#example-2-using-allas-with-rclone) transfers the same
    data using *Rclone*.
-3. [The third example](#example-3-uploading-large-files-to-allas) focuses on
-   uploading large files to Allas.
-4. [The fourth example](#example-4-uploading-complex-directory-structures-to-allas)
+4. [The third example](#example-3-uploading-complex-directory-structures-to-allas)
    handles the case in which the dataset to be copied includes a large amount
    of files.
 
 The a-commands are better suited for cases where the data is mainly used within
-the CSC computing environment (Puhti, Mahti). The second option, Rclone, is
-good for cases when the data will be used outside CSC too.
+the CSC computing environment (Roihu, Lumi). The second option, Rclone, is
+good for cases when the data will be used outside CSC too. Note that **s3cmd** and **aws s3** are totally valid alternatives
+for rclone and a-commands, even though they are not used in this tutorial.
 
 ## Example 1: Using Allas with a-commands
 
@@ -333,10 +332,13 @@ allas-conf project_2001659
 
 In the case of the command above the configuration process asks only for the CSC password and then sets up
 the connection to Allas for project 2001659. After configuration you can use the Allas area of the defined
-project using two rclone endpoints: s3allas:, s3allas-project_name. In this example the endpoints are **s3allas:** and **s3allas-project_2001659:**. The short endpoint is nicer to use in command line, but it changes if you run allas-conf yo use another project.
+project using two rclone endpoints: s3allas:, s3allas-project_name. In this example the endpoints are **s3allas:** and **s3allas-project_2001659:**.
 
+After configuration, these two endpoints are in use in all Roihu sessions, including batch jobs. 
+The short endpoint is nicer to use in command line, but it changes if you run allas-conf to use another project.
+Thus the project specific endpoint (s3allas-project_2001659) would be better option for batch jobs and project specific scripts.
 
-Next, we go to the `genomes` directory:
+To start the download, we go to the `genomes` directory:
 
 ```bash
 cd /scratch/project_2001659/genomes
