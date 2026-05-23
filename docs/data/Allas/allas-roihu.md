@@ -53,7 +53,7 @@ directory of a project in Mahti (`/scratch/project_2001659`). The `zebrafish`
 directory contains eight files listed below:
 
 ```bash
-[kkayttaj@roihu-cpu-login2 ~]$ ls /scratch/project_2001659/genomes/zebrafish
+[kkayttaj@roihu-cpu-login1 ~]$ ls /scratch/project_2001659/genomes/zebrafish
 Danio_rerio.GRCz10.91.1.bt2      Danio_rerio.GRCz10.91.2.bt2  
 Danio_rerio.GRCz10.91.3.bt2      Danio_rerio.GRCz10.91.4.bt2  
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2  
@@ -188,7 +188,7 @@ OK
 After this, we have another object in the `2001659-roihu-scratch` bucket:
 
 ```bash
-[kkayttaj@mahti-login11 genomes]$ a-list 2001659-roihu-scratch
+[kkayttaj@roihu-cpu-login1 genomes]$ a-list 2001659-roihu-scratch
 2001659-roihu-scratch/genomes/zebrafish.tar
 2001659-roihu-scratch/genomes/zebrafish/Danio_rerio.GRCz10.fa
 ```
@@ -197,42 +197,41 @@ Note that the file `Danio_rerio.GRCz10.fa` is in fact now stored in Allas
 twice; both as an individual object (`genomes/zebrafish/Danio_rerio.GRCz10.fa`)
 and as part of the `genomes/zebrafish.tar` object.
 
-### B. Downloading to Puhti
+### B. Downloading data to Roihu
 
-Next, we download the same data to Puhti. After connecting to Puhti, we go to
-the scratch directory of project 2001659 and load the `allas` module:
+Next, we download the same data back to Roihu. In this example we assume that zebrafish genome data has been removed from Roihu, either by the user or because of the automatic cleanong process. 
+
+After connecting to Roihu, we go to the scratch directory of project 2001659 and load the `allas` module:
 
 ```bash
 cd /scratch/project_2001659
 module load allas
 ```
 
-In this case, we want to use Allas with the project `project_2001659`, so we
-can give the project name as an argument for the `allas-conf` command:
+From the output of the `module load allas` command you can check of the a-commands use the right Allas, in ths case `project_2001659`. If needed you can take the project in use with allas-conf command:
 
 ```bash
 allas-conf project_2001659
 ```
 
-Now the configuration process asks only for the CSC password and then sets up
-the connection to Allas for project 2001659. As the Puhti scratch directory is
+In the case of the command above the configuration process asks only for the CSC password and then sets up
+the connection to Allas for project 2001659. As the Roihu scratch directory is
 shared by all project members, we create a user-specific subdirectory
 `kkayttaj`:
 
 ```bash
-mkdir -p kkayttaj
+mkdir kkayttaj
 cd kkayttaj/
 ```
 
-With the command `a-list`, we can now see the objects that were just uploaded
-from Mahti to Allas:
+With the command `a-list`, we can now see the objects that were previosly uploaded to Allas:
 
 ```bash
-[kkayttaj@puhti-login12 kkayttaj]$ a-list
-2001659-mahti-SCRATCH
-[kkayttaj@puhti-login12 kkayttaj]$ a-list 2001659-mahti-SCRATCH
-2001659-mahti-SCRATCH/genomes/zebrafish.tar
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ a-list
+2001659-roihu-scratch
+[kkayttaj@roihu-login1 kkayttaj]$ a-list 2001659-roihu-scratch
+2001659-roihu-scratch/genomes/zebrafish.tar
+2001659-roihu-scratch/genomes/zebrafish/Danio_rerio.GRCz10.fa
 ```
 
 Locating data is easy as there are only two objects in the bucket, but as more
@@ -242,13 +241,20 @@ for a specific file using the command `a-find`. In this example, we can check
 if an object contains the file `Danio_rerio.GRCz10.fa`:
 
 ```bash
-[kkayttaj@puhti-login12 kkayttaj]$ a-find -a Danio_rerio.GRCz10.fa
+[kkayttaj@rouhu-cpu-login2 kkayttaj]$ a-find -a Danio_rerio.GRCz10.fa
+Checking bucket: 2001659-roihu-scratch
+
+Matching object names:
+2001659-roihu-scratch/genomes/zebrafish/Danio_rerio.GRCz10.fa
 ----------------------------------------------
-Checking bucket: 2001659-mahti-SCRATCH
-Object: 2001659-mahti-SCRATCH/genomes/zebrafish.tar 
-includes 2 file names that that match query: Danio_rerio.GRCz10.fa
-Object: 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
-includes 1 file names that that match query: Danio_rerio.GRCz10.fa
+a-put generated objects that include matching file name:
+
+ Object: 2001659-roihu-scratch/genomes/zebrafish.tar
+ includes 2 file names that that match query: Danio_rerio.GRCz10.fa
+
+ Object: 2001659-roihu-scratch/genomes/zebrafish/Danio_rerio.GRCz10.fa
+ includes 1 file names that that match query: Danio_rerio.GRCz10.fa
+
 ------------------------------------------------ 
 Query: Danio_rerio.GRCz10.fa
 Total of 3 hits were found in 2 objects
@@ -259,30 +265,31 @@ The `a-find` report above tells, for example, that the object
 `2001659-mahti-SCRATCH/genomes/zebrafish.tar` contains two files whose names
 match `Danio_rerio.GRCz10.fa` (the other file is `Danio_rerio.GRCz10.fa.fai`).
 Note that `a-find` finds matches only among objects that were uploaded with
-`a-put`.
+`a-put`. Further, `a-find` searches objects with object name only. Don't include the bukcet name to the search term.
+Instead use option `-b <bucket-name>` if you wish to serach the object from just one bucket.
 
-Next, we download the data to Puhti using the `a-get` command:
+Next, we download the data to Roihu using the `a-get` command:
 
 ```bash
-[kkayttaj@puhti-login12 kkayttaj]$ a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ a-get 2001659-roihu-scratch/genomes/zebrafish.tar
 Starting to copy data from allas...
 Object:
-  2001659-mahti-SCRATCH/genomes/zebrafish.tar
-copied and uncompressed from allas into:
+  2001659-roihu-scratch/genomes/zebrafish.tar 
+copied and uncompressed from s3allas into:
   zebrafish
 ```
 
-After this, the current working directory in Puhti has a new directory
-`zebrafish` that contains the files that were previously uploaded from Mahti to
+After this, the current working directory in Roihu has a new directory
+`zebrafish` that contains the files that were previously uploaded from Roihu to
 Allas:
 
 ```bash
-[kkayttaj@puhti-login12 kkayttaj]$ ls zebrafish/
-Danio_rerio.GRCz10.91.1.bt2      Danio_rerio.GRCz10.91.3.bt2  
-Danio_rerio.GRCz10.91.2.bt2      Danio_rerio.GRCz10.91.4.bt2
-Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
-Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
-```
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ ls zebrafish/
+Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.rev.1.bt2
+Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
+Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.fa
+Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.fa.fai
+``
 
 ## Example 2: Using Allas with Rclone
 
@@ -297,18 +304,18 @@ must be stored such that each file is a separate object.
     both in Allas and in the local disk environment without notifying or asking
     for confirmation.
 
-    * [Using Allas with Rclone from Puhti and Mahti](./using_allas/rclone.md)
+    * [Using Allas with Rclone from Roihu](./using_allas/rclone.md)
 
 This example uses the same data as the previous case: in the scratch directory
-of Mahti, we have a subdirectory `genomes/zebrafish` that contains the eight
+of Roihu, we have a subdirectory `genomes/zebrafish` that contains the eight
 files listed below:
 
 ```bash
-[kkayttaj@mahti-login11 ~]$ ls /scratch/project_2001659/genomes/zebrafish
-Danio_rerio.GRCz10.91.1.bt2      Danio_rerio.GRCz10.91.2.bt2  
-Danio_rerio.GRCz10.91.3.bt2      Danio_rerio.GRCz10.91.4.bt2  
-Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2  
-Danio_rerio.GRCz10.fa            Danio_rerio.GRCz10.fa.fai
+[kkayttaj@roihu-cpu-login2 ~]$ ls /scratch/project_2001659/genomes/zebrafish
+Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.rev.1.bt2
+Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
+Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.fa
+Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.fa.fai
 ```
 
 To copy the content of this directory to Allas, we first set up the Allas
@@ -318,45 +325,38 @@ environment:
 module load allas
 ```
 
-Then, we open a connection to Allas using the command `allas-conf`. The command
-asks for the user's CSC password and then lists the Allas projects that the
-user can access. In this case, we select `project_2001659`:
+From the output of the `module load allas` command you can check of the a-commands use the right Allas, in ths case `project_2001659`. If needed you can take the project in use with allas-conf command:
 
 ```bash
-[kkayttaj@mahti-login11 ~]$ allas-conf
-Please enter CSC password for account kkayttaj: <password>
-Checking projects available for your account.
-Please wait.
-1) project_2000982     2) project_2001659     3) project_2000136      4) abort allas_conf
-Please choose a project by giving an item number from the list above: 2
-Configuration will be done for project: project_2001659
-Protocols:
-  swift
-Connection stays active for eight hours.
+allas-conf project_2001659
 ```
 
-The `allas-conf` procedure above defines an Allas connection that is valid for
-eight hours. Next, we go to the `genomes` directory:
+In the case of the command above the configuration process asks only for the CSC password and then sets up
+the connection to Allas for project 2001659. After configuration you can use the Allas area of the defined
+project using two rclone endpoints: s3allas:, s3allas-project_name. In this example the endpoints are **s3allas:** and **s3allas-project_2001659:**. The short endpoint is nicer to use in command line, but it changes if you run allas-conf yo use another project.
+
+
+Next, we go to the `genomes` directory:
 
 ```bash
 cd /scratch/project_2001659/genomes
 ```
 
 Instead of `a-put` that was used in the previous example, we use command
-`rclone copyto` to copy all files from the given directory to Allas. In the
+`rclone copy` to copy all files from the given directory to Allas. In the
 case of `rclone`, there is no default bucket. Instead, we have to define a
 bucket. In this example, we use the bucket name `2001659-genomes` and define
 each object name to have the prefix `zebrafish`.
 
 ```text
-rclone copyto zebrafish/ allas:2001659-genomes/zebrafish
+rclone copy -P zebrafish/ s3allas:2001659-genomes/zebrafish
 ```
 
 After copying the files, we can use `rclone ls` to see what has been uploaded
 to Allas:
 
 ```bash
-[kkayttaj@mahti-login11 genomes] rclone ls allas:2001659-genomes/zebrafish
+[kkayttaj@roihu-cpu-login2 genomes] rclone ls s3allas:2001659-genomes/zebrafish
 450646234 Danio_rerio.GRCz10.91.1.bt2
 334651392 Danio_rerio.GRCz10.91.2.bt2
    187325 Danio_rerio.GRCz10.91.3.bt2
@@ -367,9 +367,9 @@ to Allas:
       715 Danio_rerio.GRCz10.fa.fai
 ```
 
-### B. Downloading the data to Puhti
+### B. Downloading the data to Roihu
 
-Next, we download the same data to Puhti. After connecting to Puhti, we go to
+Next, we download the same data back to Roihu. After connecting to Roihu, we go to
 the scratch directory of `project_2001659` and load the `allas` module:
 
 ```bash
@@ -377,20 +377,13 @@ cd /scratch/project_2001659
 module load allas
 ```
 
-In this case, we want to use Allas with the project 2001659, so we can give the
-project name as an argument for the `allas-conf` command:
+If rclone is still configured for project 2001659, there is no need to run `allas-conf`. 
 
-```bash
-allas-conf project_2001659
-```
-
-Now the configuration process asks only for the CSC password and then sets up
-the connection to Allas for project 2001659. As the Puhti scratch directory is
-shared by all project members, we create a user-specific subdirectory
+As the Roihu scratch directory is shared by all project members, we create a user-specific subdirectory
 `kkayttaj` and go there:
 
 ```bash
-mkdir -p kkayttaj
+mkdir kkayttaj
 cd kkayttaj/
 ```
 
@@ -398,9 +391,9 @@ We can now use the command `rclone lsd` to check the available buckets in
 Allas:
 
 ```bash
-[kkayttaj@puhti-login12 kkayttaj]$ rclone lsd allas:
-  3268222761 2020-10-03 10:01:42         8 2001659-genomes
-  2576778428 2020-10-03 10:01:42         4 2001659-mahti-SCRATCH
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ rclone lsd s3allas:
+  3268222761 2026-05-03 10:01:42         8 2001659-genomes
+  2576778428 2026-05-03 10:01:42         4 2001659-roihu-SCRATCH
 ```
 
 Now we see two buckets. `2001659-genomes` is the one that was just created in
@@ -408,7 +401,7 @@ this example, while `2001659-mahti-SCRATCH` originates from the previous
 a-command example. Next, we list the objects in the `2001659-genomes` bucket:
 
 ```bash
-[kkayttaj@puhti-login12 kkayttaj]$ rclone ls allas:2001659-genomes
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ rclone ls s3allas:2001659-genomes
 450646234 zebrafish/Danio_rerio.GRCz10.91.1.bt2
 334651392 zebrafish/Danio_rerio.GRCz10.91.2.bt2
    187325 zebrafish/Danio_rerio.GRCz10.91.3.bt2
@@ -419,136 +412,23 @@ a-command example. Next, we list the objects in the `2001659-genomes` bucket:
       715 zebrafish/Danio_rerio.GRCz10.fa.fa
 ```
 
-Finally, we use the `rclone copyto` command to copy the data from Allas to
-Puhti into a new directory `zebrafish2`: 
+Finally, we use the `rclone copy` command to copy the data from Allas to
+Roihu into a new directory `zebrafish2`: 
 
 ```bash
-[kkayttaj@puhti-login12 kkayttaj]$ rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ rclone -P copy s3allas:2001659-genomes/zebrafish zebrafish2
 Transferred:        3.044 GiB / 3.044 GiB, 100%, 323.600 MBytes/s, ETA 0s
 Transferred:            8 / 8, 100%
 Elapsed time:        9.6s
 
-[kkayttaj@puhti-login12 kkayttaj]$ ls zebrafish2
+[kkayttaj@roihu-cpu-login1 kkayttaj]$ ls zebrafish2
 Danio_rerio.GRCz10.91.1.bt2      Danio_rerio.GRCz10.91.3.bt2  
 Danio_rerio.GRCz10.91.2.bt2      Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 ```
 
-## Example 3: Uploading large files to Allas
-
-In the previous two examples, the actual amount of data was rather moderate,
-only a few gigabytes. If the size of an individual data file is hundreds of
-gigabytes or more, transporting only a few files may take longer than the
-duration of the token-based Allas authentication.
-
-In this example, we use `a-put` to upload a set of large files from Mahti to
-Allas.
-
-The first thing to do is to open a Mahti connection that can remain running for
-a long time. In this example, we use `screen` command to open a session that
-can be left running in the background:
-
-```bash
-ssh <username>@mahti.csc.fi
-screen
-```
-
-The `screen` command starts a virtual session on the login node of Mahti. You
-can leave this virtual `screen` session running in the background and log out
-from Mahti, but you should check which login node (`mahti-login[11,12,14,15]`) 
-your session is running on because you need to log in to the same node to
-reconnect to your `screen` session later on.
-
-In the `screen` session, first load the `allas` module and use `allas-conf` to
-establish a connection to Allas.
-
-```bash
-module load allas
-allas-conf -k
-```
-
-Here, `allas-conf` is used with the option `-k` that saves your CSC password in
-an environment variable (`$OS_PASSWORD`) so that the connection to Allas can
-later be automatically reconfigured without needing to give the password again.
-
-After opening the Allas connection, we move to a directory `my_data` where we
-have three subdirectories (`50`, `90`, `100`). We list the gzip-compressed
-files in these directories:
-
-```bash
-[kkayttaj@mahti-login11 ~] cd /scratch/project_2001659/my_data
-[kkayttaj@mahti-login my_data] ls -lh */*.gz
--rw-rwxr-x 1 kkayttaj csc  45G May  8 12:57 100/uniref100.fasta.gz
--rw-rwxr-x 1 kkayttaj csc  61G Jun  5 13:09 100/uniref100.xml.gz
--rw-rwxr-x 1 kkayttaj csc 589M Jun  5 13:09 50/uniref50.fasta.gz
--rw-rwxr-x 1 kkayttaj csc  17G Jun  5 13:09 50/uniref50.xml.gz
--rw-r-xr-x 1 kkayttaj csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
--rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
-```
-
-Next, we launch the upload process. In this case, we do not use the default
-bucket name, but assign the name to be `2001659-uniref`:
-
-```bash
-a-put -b 2001659-uniref */*.gz
-```
-
-This command uploads the files listed above to Allas. Alternatively, we could
-launch the same upload with `rclone copy`:
-
-```bash
-for f in */*.gz
-do
-    rclone copy $f allas:2001659-uniref
-done
-```
- 
-We can leave the session running in the background by pressing `Ctrl-A D`. Now,
-we can log out from Mahti with the `screen` session remaining active in the
-Mahti login node we used (in this case, `mahti-login11`).
-
-To re-connect to this session, we first connect to the Mahti node where the
-`screen` session is running:
-
-```bash
-ssh <username>@mahti-login11.csc.fi
-```
-
-Then, we reattach the `screen` session:
-
-```bash
-screen -r
-``` 
-
-Once the `a-put` command is finished, we will run `a-check` command to check if
-all the data objects have been created. `a-check` needs to be executed with the
-exact same options that were used with the `a-put` command. So in this case the
-command would be:
-
-```bash
-a-check -b 2001659-uniref */*.gz
-```
-
-The `a-check` command compares the item names to be uploaded to the matching
-objects in Allas. The files or directories that don't have a target object in
-Allas are reported and stored in a file. In this case, if some objects in the
-`a-put` command above would be missing, then `a-check` would list the missing
-files and directories in a file `missing_2001659-uniref_63449` (the number at
-the end is just a random number).
-
-The file of missing items can then be used with `a-put` option `--input-list`
-to continue the failed upload process:
-
-```bash
-a-put -b 2001659-uniref --nc --input-list missing_2001659-uniref_63449
-```
-
-You should note that `a-check` does not check if the actual contents of the
-object is correct. It checks only the object names, which might as well
-originate from some other sources.
-
-## Example 4: Uploading complex directory structures to Allas
+## Example 3: Uploading complex directory structures to Allas
 
 Some workflows and software create complex directory structures to store and
 manage data. You might have directories that have thousands or even millions of
