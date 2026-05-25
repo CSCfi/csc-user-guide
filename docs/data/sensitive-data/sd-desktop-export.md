@@ -8,35 +8,37 @@
 
 ## Only project managers can export data
 
-The virtual desktop is isolated from the internet, so data export must be done through either via the Data Gateway application or programmatically using the Airlock client.  Only the CSC project manager can export data. The results are exported to SD Connect, where they will be available for download.
-
-    - Files larger than 30 GB need to be split into smaller parts before exporting.
-
+The virtual desktop is isolated from the internet, so data export must be done through either via the Data Gateway application or the command-line version. Only the CSC project manager can export data. The results are exported to SD Connect, where they will be available for download.
 
 
 ## Step by step
 
-### Exporting multiple files
-
-Only one file can be exported at a time. To export multiple files, first compress them into a single folder, then encrypt as a single file.
-
-1. Create a new folder. 
-2. Place all files into the folder.
-3. Right-click the folder, select **Compress**. Now your folder is a .zip file.
-
 ### 1. Export files from virtual desktop
 
-??? default "Option A: Export via Data Gateway application"
+#### Option A: Export files to a bucket via Data Gateway application
+
+1. Open Data Gateway application.
+2. Select SD Connect and click **Continue**.
+3. Click on **Export** tab. It is available only to the project manager.
+4. Exported file will go to SD Connect. You can create a new bucket for exported files or select an existing bucket. Limits about naming... 
+5. Select files you want to export, then click Select. Finally click **Export**.
+6. Files have now been encrypted and exported to the bucket you selected in SD Connect. Please note that files can now be downloaded by all project members via SD Connect. 
+
+#### Option B: Export files to a specific folder inside a bucket via Data Gateway application"
+
+??? default "Step by step"
 
     1. Open Data Gateway application.
     2. Select SD Connect and click **Continue**.
     3. Click on **Export** tab. It is available only to the project manager.
-    4. Exported file will go to SD Connect. Choose the destination folder from existing folders in SD Connect. You can also first log in to SD Connect and create a new folder for exported files.
-    5. Select file you want to export and click **Export**.
-    6. Files are now in the folder you selected in SD Connect.
+    4. Exported file will go to SD Connect. You can create a new bucket for exported files or select an existing bucket. Limits about naming... 
+    5. Select files you want to export, then click Select. Finally click **Export**.
+    6. Files have now been encrypted and exported to the bucket you selected in SD Connect. Please note that files can now be downloaded by all project members via SD Connect. 
 
 
-??? default "Option B: Export programmatically via Airlock client"
+#### Option C: Export files programmatically via Data Gateway"
+
+??? default "Step by step"
 
     1. Open the terminal (right-click) and use the following syntax:
 

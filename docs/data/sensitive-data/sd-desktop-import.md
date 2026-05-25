@@ -13,7 +13,7 @@ Your virtual desktop’s local storage is limited, so it’s recommended to save
 
 ## Step by step
 
-### 1. Access data via the Data Gateway application
+### 1.1 Import data to your virtual desktop via the Data Gateway application
 
 * [Access](sd-desktop-access-vm.md) your virtual desktop.
 * Launch **Data Gateway** by clicking icon on the left side of desktop.
@@ -39,7 +39,7 @@ Your virtual desktop’s local storage is limited, so it’s recommended to save
 
 ![Gateway open folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess2.png)
 
-### 2. Import a copy of the files to your virtual desktop's volume
+### 1.2 Import a copy of the files to your virtual desktop's volume
 
 Keep **Data Gateway** open and click **Open folder**.
 
@@ -49,6 +49,9 @@ Keep **Data Gateway** open and click **Open folder**.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess3.png)
 
+### 2. Import data to your virtual desktop programitically
+
+1. 
 
 ### 3. Set permissions for shared access
 
