@@ -720,7 +720,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     module load julia-cuda
     module list
     export UCX_WARN_UNUSED_ENV_VARS=n
-    # Exclude gdr_copy transport due to errors.
+    # Exclude gdr_copy transport due to issues. May impact performance.
     export UCX_TLS=^gdr_copy
     julia --project=. runtests.jl
     ```
