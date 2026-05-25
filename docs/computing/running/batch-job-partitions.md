@@ -74,7 +74,6 @@ Roihu provides the following partitions for submitting jobs to GPU nodes:
 | Partition        | Allocation type | Time limit | Nodes  | Max GPUs      | [Node types](../systems-roihu.md#nodes) | Requirements       |
 |------------------|-----------------|------------|--------|---------------|-----------------------------------------|--------------------|
 | `gputest`        | G               | 15 minutes | 1 - 2  | 4 per node    | GPU                                     |                    |
-| `gpuinteractive` | G               | 12 hours   | 1      | 1 per job     | GPU ([slice](#roihu-gpu-slices))        |                    |
 | `gpumedium`      | G               | 36 hours   | 1      | 4 per job     | GPU                                     |                    |
 | `gpularge`       | G               | 36 hours   | 1 - 10 | 4 per node    | GPU                                     | [scalability test] |
 
@@ -93,23 +92,32 @@ Roihu has several partitions reserved for interactive use and for data visualiza
 The `interactive` partition on Roihu allows running
 [interactive jobs](./interactive-usage.md) on CPU nodes, through the `sinteractive` command.
 
+The `sinteractive` command selects the correct partition based on your resource request
+and automatically provides Roihu-CPU resources when run from a Roihu-CPU login node.
+
 | Partition         | Allocation type | Time limit | Nodes  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory            |
 |-------------------|-----------------|------------|--------|---------------|-----------------------------------------|-----------------------|
 | `interactive`     | R               | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
 
 #### Roihu-GPU interactive use
 
-`sinteractive` selects the correct partition based on your resource request
+The `gpuinteractive` partition on Roihu allows running
+[interactive jobs](./interactive-usage.md) on GPU nodes, through the `sinteractive` command.
+
+The `sinteractive` command selects the correct partition based on your resource request
 and automatically provides a GPU slice when run from a Roihu-GPU login node.
 
-| Partition         | Allocation type | Time limit | Nodes  | Max CPUs      | [Node types](../systems-roihu.md#nodes) |
-|-------------------|-----------------|------------|--------|---------------|-----------------------------------------|
-| `gpuinteractive`  | G               | 12 hours   | 1      | 1 per job     | GPU ([slice](#roihu-gpu-slices))        |
+| Partition         | Allocation type | Time limit | Nodes  | Max CPUs  | Max GPU slices | [Node types](../systems-roihu.md#nodes) |
+|-------------------|-----------------|------------|--------|-----------|----------------|-----------------------------------------|
+| `gpuinteractive`  | G               | 12 hours   | 1      | TBA       | TBA            | GPU (slice)                             |
 
-#### Roihu GPU slices
+!!! info "What is a GPU slice?"
+   The Roihu `gpuinteractive` partition uses GH200 superchips divided into 48 smaller slices.
+   Each slice has one-seventh of the compute capacity and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
 
-The Roihu `gpuinteractive` partition uses GH200 superchips divided into 48 smaller slices.
-Each slice has one-seventh of the compute capacity and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
+!!! note "GPU slices during the pilot"
+   GPU slices are not yet configured on the system, and reserving GPUs through `sinteractive`, or through Slurm on the partition
+   will instead provide full GPUs.
 
 #### Vizinteractive
 
