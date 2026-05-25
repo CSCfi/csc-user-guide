@@ -8,8 +8,8 @@ How to set up a static web server in Rahti.
 
 1. Create a project. [Instructions](../usage/projects_and_quota.md)
 
-2. In the Openshift web console, in left hand side menu, click on `Software Catalog` under `Home` dropdown list. 
-    ![Select-httpd](../../img/select-http.png)
+2. In the Openshift web console, in left hand side menu, click on `Software Catalog` under `Ecosystem` dropdown list. 
+    ![Select-httpd](../../img/rahti-catalog.png)
 
 3. To create an application, search and click _Apache HTTP Server_, since templates are deprecated now, please use builder image only. Now, click on  _create_ on the pop-up window on the right.
     ![Instantiate-template](../../img/click-template.png)
