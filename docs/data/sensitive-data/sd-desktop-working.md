@@ -9,6 +9,8 @@
 
 ## Overview
 
+![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_VM_members.png)
+
 SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
 
