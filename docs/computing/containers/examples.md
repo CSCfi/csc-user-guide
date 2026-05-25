@@ -1,6 +1,78 @@
 # Examples
 
-This section contains examples of building and running containers on Puhti and Mahti.
+This section contains examples of building and running containers on Roihu and Mahti.
+
+## Example: Roihu CPU base container
+
+Base containers are available:
+
+- `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03`
+
+Build definition file:
+
+```sh title="container.def"
+Bootstrap: docker
+From: satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03
+
+%post
+    # Activate module environment and load default modules.
+    . /opt/activate.sh
+    # Build your application here:
+
+%runscript
+    . /opt/activate.sh
+    exec "$@"
+```
+
+When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+
+```bash
+export APPTAINER_CACHEDIR=$TMPDIR
+apptainer build --fakeroot container.sif container.def
+```
+
+Now, you can run commands inside the container with the environment active as follows:
+
+```bash
+apptainer run container.sif mycmd
+```
+
+## Example: Roihu GPU base container
+
+Base containers are available:
+
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03`
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03`
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-13.4.0-cuda-12.6.3:v2026_03`
+
+Build definition file:
+
+```sh title="container.def"
+Bootstrap: docker
+From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03
+
+%post
+    # Activate module environment and load default modules.
+    . /opt/activate.sh
+    # Build your application here:
+
+%runscript
+    . /opt/activate.sh
+    exec "$@"
+```
+
+When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+
+```bash
+export APPTAINER_CACHEDIR=$TMPDIR
+apptainer build --fakeroot container.sif container.def
+```
+
+Now, you can run commands inside the container with the environment active as follows:
+
+```bash
+apptainer run --nv container.sif mycmd
+```
 
 ## Example: Python virtual environment
 
@@ -119,12 +191,12 @@ Application should be executed with the `vglrun_wrapper` script installed in the
 ## Other application containers
 
 CSC has container build recipes for various applications in the [singularity-recipes](https://github.com/CSCfi/singularity-recipes) repository.
-Here are the recipes that can be built with Apptainer using fakeroot on Puhti and Mahti:
+Here are the recipes that can be built with Apptainer using fakeroot on Roihu and Mahti:
 
 - [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
 - [Python with uv package manager](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
 - [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
-- [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/mathworks)
+- [MATLAB](https://github.com/CSCfi/csc-env-matlab/tree/main/mathworks)
 - [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
 - [R environment](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity/4.5.1-fakeroot)
 - [PyTorch](https://github.com/CSCfi/singularity-recipes/tree/main/pytorch-fakeroot/2.6)
