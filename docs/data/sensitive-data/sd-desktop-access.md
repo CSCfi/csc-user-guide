@@ -10,8 +10,6 @@ Once a virtual desktop is created, each CSC project member can access it through
 
 Your virtual desktop’s local storage is limited, so it’s recommended to save imported data files and collaborative work on the external volume for analysis. The volume acts like a USB stick that can be detached and reattached to different desktops, allowing project members to share and edit files stored there. Follow instruction on how to [create and attach volume](sd-desktop-create.md#create-volume) to your desktop.
 
-If you need additional volume space (more than 200 GB), you can request it by writing to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
-
 
 ## Step by step
 

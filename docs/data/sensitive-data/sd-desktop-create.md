@@ -97,7 +97,7 @@ A volume **can only be extended** with additional storage before any data or fil
 
 4. Click **Create**. The window will now close and volume creation will start.
 
-Back on the main page, you will see a list of your volumes in **Volumes tab**. You can now proceed to [attach](sd-desktop-manage.md#attaching-a-volume) it to your desktop.
+Back on the main page, you will see a list of your volumes in **Volumes tab**. You can now proceed to [attach](sd-desktop-manage.md#attaching-or-detaching-a-volume) it to your desktop.
 
 
 <div class="grid cards" markdown>

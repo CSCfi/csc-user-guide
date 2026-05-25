@@ -6,6 +6,12 @@
 * [Access virtual desktop](sd-desktop-access-vm.md)
 
 
+## Overview
+
+
+![SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Installer.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
+
+
 The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately (listed [below](#default-software)). However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
 
 Below you can find:
@@ -13,7 +19,7 @@ Below you can find:
 * [Software in your virtual desktop](#software-in-your-virtual-desktop)
 * [Background information and limitations](#background-information-and-limitations)
 * [Add software via SD Software Installer](#add-software-via-sd-software-installer)
-* [Add software via Apptainer and Podman](#add-software-via-apptainer-and-podman).
+* [Add software via Apptainer and Podman](#add-software-via-apptainer-and-podman)
 
 
 ## Background information and limitations
@@ -85,24 +91,17 @@ Below you can find:
 
 ## Add software via SD Software Installer
 
-![SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Installer.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
+
 
 The SD Software Installer is a CSC‑provided tool that makes it easy to install selected, commonly used software on SD Desktop, such as RStudio 4.5.1, Whisper, VS Code, and GATK.
 
 You can’t add your own software to the installer, but you can request new tools by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). 
 
 To access the application, please follow the step-by-step tutorial below.  
-
-____
-
-### How to install and use SD Software Installer
     
-
-
-
 ??? default "Step by step"
 
-    <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r--dx6Mgtug" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    ___
 
     #### Step 1: Send a request to CSC Service Desk
 
