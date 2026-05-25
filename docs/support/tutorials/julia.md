@@ -659,7 +659,7 @@ using MPI
 mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
 ```
 
-=== "Roihu GPU (Currently not working!)"
+=== "Roihu GPU"
     An example of a `Project.toml` project file.
 
     ```toml
@@ -700,6 +700,29 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     println("recv_mesg on proc $rank: $recv_mesg")
     rank==0 && println("done.")
     MPI.Finalize()
+    ```
+
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=72
+    #SBATCH --gpus-per-node=4
+
+    module purge
+    module load julia
+    module load julia-mpi
+    module load julia-cuda
+    module list
+    export UCX_WARN_UNUSED_ENV_VARS=n
+    # Exclude gdr_copy transport due to errors.
+    export UCX_TLS=^gdr_copy
+    julia --project=. runtests.jl
     ```
 
 === "LUMI"
