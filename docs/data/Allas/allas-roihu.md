@@ -22,12 +22,12 @@ This tutorial provides four examples for using Allas in Roihu. The
 examples are based on interactively executed commands, and thus examples 1, 2 and 4 apply only for
 relatively small datasets (max. some hundreds of GBs). The third example suits also for bigger datasets.
 
-1. [The first example](#example-1-using-allas-with-a-commands) uses the
+1. [The first example](./allas-roihu.md#example-1-using-allas-with-a-commands) uses the
    *a-commands* (`a-put`, `a-get`) for uploading data from Roihu to Allas, and
    then downloading the data back to Roihu.
-2. [The second example](#example-2-using-allas-with-rclone) transfers the same
+2. [The second example](./allas-roihu.md#example-2-using-allas-with-rclone) transfers the same
    data using *Rclone*.
-4. [The third example](#example-3-uploading-complex-directory-structures-to-allas)
+4. [The third example](./allas-roihu.md#example-3-uploading-complex-directory-structures-to-allas)
    handles the case in which the dataset to be copied includes a large amount
    of files.
 
