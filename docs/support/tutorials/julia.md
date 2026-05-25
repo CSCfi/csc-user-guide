@@ -641,7 +641,7 @@ We use the following directory structure and assume it is our working directory.
     ```
 
 
-### Multi GPU with MPI
+### GPU-aware MPI
 We use the following directory structure and assume it is our working directory.
 
 ```text
@@ -658,6 +658,49 @@ An example of a `script.jl` code.
 using MPI
 mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
 ```
+
+=== "Roihu GPU (Currently not working!)"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+    ```
+
+    An example of a `prog.jl` code.
+
+    ```julia
+    using MPI
+    using CUDA
+
+    const gpu_devices = CUDA.devices()
+    const num_devices = length(gpu_devices)
+
+    MPI.Init()
+    comm = MPI.COMM_WORLD
+    rank = MPI.Comm_rank(comm)
+    # select device
+    comm_l = MPI.Comm_split_type(comm, MPI.COMM_TYPE_SHARED, rank)
+    rank_l = MPI.Comm_rank(comm_l)
+    device = CUDA.device!(mod(rank_l, num_devices))
+    gpu_id = CUDA.deviceid(CUDA.device())
+    # select device
+    size = MPI.Comm_size(comm)
+    dst  = mod(rank+1, size)
+    src  = mod(rank-1, size)
+    println("rank=$rank rank_loc=$rank_l (gpu_id=$gpu_id - $device), size=$size, dst=$dst, src=$src")
+    N = 4
+    send_mesg = CuArray{Float64}(undef, N)
+    recv_mesg = CuArray{Float64}(undef, N)
+    fill!(send_mesg, Float64(rank))
+    CUDA.synchronize()
+    rank==0 && println("start sending...")
+    MPI.Sendrecv!(send_mesg, dst, 0, recv_mesg, src, 0, comm)
+    println("recv_mesg on proc $rank: $recv_mesg")
+    rank==0 && println("done.")
+    MPI.Finalize()
+    ```
 
 === "LUMI"
     An example of a `Project.toml` project file.
