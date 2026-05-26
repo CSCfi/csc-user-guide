@@ -188,7 +188,7 @@ Next, we set up the environment configuration, by defining
 
 ```console
 spack config add upstreams:${upstream}:install_tree:/appl/soft/spack/core/v2026_03/'${target_family}'/${upstream}/install_dir
-spack config add 'include:[/appl/soft/spack/v2026_03/spackconf/config_${target_family}/packages.yaml]'
+spack config add 'include: - /appl/soft/spack/v2026_03/spackconf/config_${target_family}/packages.yaml'
 spack config add config:install_tree:root:$PWD/my_${upstream}-install
 spack config add config:source_cache:source-cache
 spack config add 'config:install_tree:projections:all:"{name}-{version}-{hash:7}"'
