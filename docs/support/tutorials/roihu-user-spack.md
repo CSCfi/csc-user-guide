@@ -181,14 +181,12 @@ command.
 Next, we set up the environment configuration, by defining
 
 - the upstream environment
-- the packages that should be treated specially (configuration taken from the upstream environment)
 - the location of our custom environment's actual software install root
 - the source cache directory (the default one is not writable by regular users)
 - flatten the default hierarchy in the install tree and use short hashes
 
 ```console
 spack config add upstreams:${upstream}:install_tree:/appl/soft/spack/core/v2026_03/'${target_family}'/${upstream}/install_dir
-spack config add 'include: - /appl/soft/spack/v2026_03/spackconf/config_${target_family}/packages.yaml'
 spack config add config:install_tree:root:$PWD/my_${upstream}-install
 spack config add config:source_cache:source-cache
 spack config add 'config:install_tree:projections:all:"{name}-{version}-{hash:7}"'
