@@ -252,6 +252,20 @@ Now, we can install software normally:
 dnf -y update
 ```
 
+## Roihu base images
+
+CSC provides dedicated base images for both Roihu CPU and Roihu GPU.
+These base images are built on top of Rocky Linux 9 images.
+Each image contains one of the Spack-built software stacks, along with its dependencies and modulefiles to activate the environment.
+The software versions match those of the system software.
+
+Base images allow you to build containers with a software stack identical to the platform's, such as optimized MPI containers.
+The resulting container images are self-contained and do not require bind-mounting any binaries to run.
+However, these containers are not portable to other machines.
+Container images are available in the OCI format on Satama.
+
+See examples in the [Examples](./examples.md) section.
+
 ## Reading datasets from SquashFS file
 
 We can also avoid I/O bottlenecks with datasets that consist of large amounts of small files by reducing them to a single SquashFS file.
