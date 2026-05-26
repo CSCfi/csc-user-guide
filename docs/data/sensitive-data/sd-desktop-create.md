@@ -2,7 +2,9 @@
 
 # Create virtual desktops and volumes
 
-![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_VM_members.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
+![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
+
+
 
 SD Desktop lets you create a protected environment for both individual work and collaborative research projects directly through your web browser. All steps are completed through an easy-to-use interface, and no technical expertise is required.
 
@@ -13,7 +15,7 @@ SD Desktop lets you create a protected environment for both individual work and 
 
 ## Create virtual desktop
 
-![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
+![Virtual desktop and users](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_VM_members.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
 You can create **up to three desktops** within a single CSC project, with **up to 10 project members** allowed to connect simultaneously to each desktop. Your virtual desktop is accessible to all project members upon creation.
 
