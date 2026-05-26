@@ -8,7 +8,15 @@
 
 Once a virtual desktop is created, each CSC project member can access it through their web browsers. The virtual desktop is isolated from the internet, so data access must be done through the Data Gateway application. This application allows you to import data from SD Connect or SD Apply. 
 
-Your virtual desktop’s local storage is limited, so it’s recommended to save imported data files and collaborative work on the external volume for analysis. The volume acts like a USB stick that can be detached and reattached to different desktops, allowing project members to share and edit files stored there. Follow instruction on how to [create and attach volume](sd-desktop-create.md#create-volume) to your desktop.
+<div class="grid cards" markdown>
+
+- :material-close-circle:{ .lg .middle } **Desktop storage limit**
+  { .csc-grid-card-error }
+    
+    Desktops have 80 GB of storage by default. **If you save more than 80 GB of data to your desktop, it becomes unresponsive and you may lose your data**. To avoid this, please create and attach a [**volume**](sd-desktop-create.md#create-volume) to your desktop and save your data there.
+
+</div>
+
 
 
 ## Step by step

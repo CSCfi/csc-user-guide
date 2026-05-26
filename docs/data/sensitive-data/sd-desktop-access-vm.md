@@ -6,6 +6,7 @@
 * [Access virtual desktop](#access-virtual-desktop)
 * [Log out from virtual desktop](#log-out-from-virtual-desktop)
 * [Reconnecting to an analysis session](#reconnecting-to-an-analysis-session)
+* [Connection limit](#connection-limit)
 
 
 ## Access virtual desktop
@@ -16,7 +17,7 @@
   
 3. Access virtual desktop by clicking **Access desktop** on right side of the desktop name.
 
-When you open the connection, a virtual desktop will open in your browser in a new window. If you are accessing the virtual desktop for the first time, you will see the panel **Getting started**, from which you can, for example, adjust the screen resolution.
+When you open the connection, a virtual desktop will open in your browser in a new window. 
 
 ![Access virtual desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM2.png)
 
@@ -36,13 +37,14 @@ This will close all applications and disconnect the work session. You can access
 
 ## Reconnecting to an analysis session
 
-* **Closing the browser window:** If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-* **Reconnecting to an old session:** You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
+If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
 
-!!! Note
-    Connection limit: each virtual desktop allows a maximum of 10 simultaneous connections. This means that up to 10 CSC project members can be logged in and using the system at the same time. If more than 10 CSC project members attempt to connect to the same virtual desktop, additional users will not be able to access the system until one of the active sessions is disconnected.
+
+## Connection limit
+
+**A maximum of 10** CSC project members can be logged in and use a virtual desktop at the same time. Additional users will not be able to access the desktop until one of the active members has logged out.
     
-    If a connection remains inactive for two consecutive days, the system will automatically log the user out to free up resources. Please log out manually when you finish to avoid this.
+If user's connection to the desktop remains inactive for **two consecutive days**, the system will automatically log the user out to free up resources. Please [**log out**](#log-out-from-virtual-desktop) manually when you finish to avoid this.
 
 ## Your next steps in this guide
 

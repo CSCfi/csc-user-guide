@@ -9,7 +9,6 @@
 
 ## Overview
 
-![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_VM_members.png)
 
 SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
@@ -80,6 +79,8 @@ Below is an image showing the basic functions of a virtual desktop. Click the im
 
     * **The virtual desktop runs on Linux**, a secure and stable operating system suited for research. No prior experience is required, though the command line may take some learning. 
 
+    * **A maximum of 10** CSC project members can be logged in and use a virtual desktop at the same time.
+
 
 - :material-alert:{ .lg .middle } **Limitations**
   { .csc-grid-card-warning }
@@ -138,25 +139,24 @@ If you switch between different laptops or use external monitors, the virtual de
 ### Copy-paste text from your laptop to virtual desktop
 
 For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
+ 
+<div class="grid cards" markdown>
+
+  - :material-alert:{ .lg .middle } 
+    { .csc-grid-card-warning }
+
+      - Copy-paste works only in one direction: **from your computer to virtual desktop**.
+      - You need to **enable the copy-paste function each time** you start a virtual desktop session.
+
+</div>
 
 ??? default "Step by step"
 
-    1. Open the virtual desktop and press **Ctrl + Alt + Shift** to open the **Clipboard panel.** 
-    2. Select **Text input** to enable copy-paste. 
-    
-    "- Clipboard panel will close automatically. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste."
-
-    3. You can now copy text from your computer (**Ctrl + C or right-click)** and paste it in the virtual desktop (**Ctrl + V or right click**). 
-
-    <div class="grid cards" markdown>
-
-    - :material-alert:{ .lg .middle } 
-      { .csc-grid-card-warning }
-
-        - Copy-paste works only in one direction: from your computer to virtual desktop.
-        - You need to enable the copy-paste function each time you start a virtual desktop session.
-
-    </div>
+    1. Access the virtual desktop and press **Ctrl + Alt + Shift** to open the **Clipboard panel.** 
+    2. Select **Text input** to enable copy-paste. Clipboard panel will close automatically. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste.
+    3. There is now a black bar at the bottom of the screen, which indicates that copy-paste is enabled.
+    4. Open or create a document you want to edit. You can now copy text from your computer **(Ctrl + C or right-click)** and paste it in the virtual desktop **(Ctrl + V or right click)**. 
+    5. To disable copy-paste press **Ctrl + Alt + Shift** to open the **Clipboard panel**, then select **None**. 
 
     ![Clipboard panel in virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Clipboard.png)
 

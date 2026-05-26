@@ -12,12 +12,12 @@
 ![SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Installer.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
 
 
-The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately (listed [below](#default-software)). However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
+The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately. However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
 
 Below you can find:
 
-* [Software in your virtual desktop](#software-in-your-virtual-desktop)
 * [Background information and limitations](#background-information-and-limitations)
+* [Software in your virtual desktop](#software-in-your-virtual-desktop)
 * [Add software provided by CSC via SD Software Installer](#add-software-via-sd-software-installer)
 * [Add your software via Apptainer and Podman (advanced)](#add-software-via-apptainer-and-podman)
 
@@ -110,20 +110,21 @@ ___
 
  ____
 
-#### Step 2: Bring the SD Software Installer to your virtual desktop
+### Step 2: Install SD Software Installer to your virtual desktop
 
-* Log in to [SD Desktop service](https://sd-desktop.csc.fi) and access your virtual desktop. Launch Data Gateway, select SD Connect and click Open. Keep Data Gateway open.
-    * If the software installation help tools are enabled for your project, then you should have folder `tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD-Connect/your-project-name`).
- * Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer-centos7.desktop` or `sd-installer-ubuntu22.desktop` to your desktop.
-* Select the version that matches the operating system of your SD Desktop (e.g. Ubuntu).
+1. Log in to [SD Desktop service](https://sd-desktop.csc.fi) and access your virtual desktop. 
+Launch Data Gateway from navigation on the left side of the screen.
+2. Select **SD Connect**.
+3. Click **Continue**. 
+4. In the next view you are asked to coose a folder for accessible files. Click **Continue**. 
+5. In the next view click **Open folder**. This opens file browser and you will see folder **Projects**.
+6. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it.Copy-paste or drag-and-drop file `sd-installer-ubuntu224.desktop` to your desktop.
+7. Right-click on the icon on your virtual desktop.
+8. Select **Allow Launching**.
+9. Now SD Sodtware Installer is open and you can install software you need.
 
-[![Installing-sd-installer](images/desktop/sd-installer1.png)](images/desktop/sd-installer1.png)  
-**Figure 1.** Copying `sd-installer.desktop` file to SD desktop.
 
-* Double-click the copy of the installer tool in your desktop to start the software installation tool. In Ubuntu based virtual desktops you need to right-click the and select *Allow Launching* before you can use the installer.
-
-[![SD Installer](images/desktop/sd-installer2.png)](images/desktop/sd-installer2.png)  
-    **Figure 2.** SD Software installer
+![Installing SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer.png)
 
 ____
 
