@@ -100,29 +100,29 @@ ___
 
 ### Step 1: Send a request to CSC Service Desk
 
-* Log in to the [SD Connect service](https://sd-connect.csc.fi). If this is your first time, upload a small test file to any folder (required due to a current technical issue).
-* On the homepage, click “Copy Share ID” next to the project selection menu to copy your project’s Share ID (a 32‑character code).
+* Log in to the [SD Connect service](https://sd-connect.csc.fi). 
+    * If you are using SD Connect for the first time, [**upload**](sd-connect-upload.md) a small test file to any bucket (required due to a current technical issue).
+* On the homepage, click **Copy Share ID** next to the project selection menu to copy your project’s Share ID (a 32‑character code).
     * Example Share ID: 71bbe38a3cd398b48b1f2582dc00297p
 * Email the CSC Service Desk with the subject “SD Desktop”, requesting access to the Software Installer and including the project Share ID.
 * Once the Service Desk confirms access, the installer will be available via the SD Desktop service.
 
-![(Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
+![(Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareID.png)
 
  ____
 
 ### Step 2: Install SD Software Installer to your virtual desktop
 
 1. Log in to [SD Desktop service](https://sd-desktop.csc.fi) and access your virtual desktop. 
-Launch Data Gateway from navigation on the left side of the screen.
+Launch **Data Gateway **from navigation on the left side of the screen.
 2. Select **SD Connect**.
 3. Click **Continue**. 
-4. In the next view you are asked to coose a folder for accessible files. Click **Continue**. 
+4. In the next view you are asked to choose a folder for accessible files. Click **Continue**. 
 5. In the next view click **Open folder**. This opens file browser and you will see folder **Projects**.
 6. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it.Copy-paste or drag-and-drop file `sd-installer-ubuntu224.desktop` to your desktop.
 7. Right-click on the icon on your virtual desktop.
 8. Select **Allow Launching**.
-9. Now SD Sodtware Installer is open and you can install software you need.
-
+9. Now SD Software Installer is open and you can install software you need.
 
 ![Installing SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer.png)
 
