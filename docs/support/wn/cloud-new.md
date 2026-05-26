@@ -1,5 +1,9 @@
 # Cloud services
 
+## New Ubuntu cloud image Resolute Racoon 26.04, 11.05.2026
+
+The newer LTS (Long-Term Support) Ubuntu cloud image has been added to Pouta.
+
 ## Allas Web UI updates, 26.02.2026
 
 The [Allas Web UI](../../data/Allas/using_allas/allas-ui.md) has been updated with the following new features:
