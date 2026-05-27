@@ -5,8 +5,6 @@
 !!! Note
     As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the permit as soon as possible after receiving access to the disclosed data. A suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on.
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
-
 ## Use case
 
 You need to access SD Desktop. You have a permit from Findata.
@@ -22,6 +20,7 @@ You need to access SD Desktop. You have a permit from Findata.
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
 7. [CSC project is ready](#7-your-csc-project-is-ready)
+8. [Apply for Billing Units](#8-apply-for-billing-units)
 
 
 ### 1. Create a CSC account
@@ -31,8 +30,10 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! info-label
     Team member
 
+Only create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. Alternatively, ask the Team Manager to contact CSC with a list of people who need accounts. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
+
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account with Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu).
 - Fill in your information on the Sign up page.
 - You will receive with instructions how to complete the registration. 
 - Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
@@ -120,3 +121,21 @@ You need to access SD Desktop. You have a permit from Findata.
 
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-secondary-login.md).
+
+### 8. Apply for Billing Units
+
+SD Desktop consumes Cloud Billing Units type (BU). You should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. More information about [Billing Units](sd-billing-units.md).
+
+You can apply (for free) for billing units in the MyCSC portal:
+
+- Log in to MyCSC
+- On the left navigation bar select Projects and in the new view click on your CSC project
+- Scroll down and under Resources, on the right corner, click on Apply for resources
+- In the new window you will see the services you have active in the project (in gray). Press Next.
+- In the second view, click on the Billing Units package you need (e.g. M) for:
+- Cloud Billing Unit type (used by SD Desktop)
+- Click Next.
+- you will be guided to upload or add information about a publication related to your research. If you don't have a publication yet, you can also upload your research plan, or any old publication related to your research group.
+- In the last view, you can review the project description and field of science. Finally, you can click Submit.
+
+Small BU applications (s) are automatically approved.

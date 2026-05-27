@@ -12,10 +12,11 @@ The virtual desktop comes pre-installed with a set of basic tools or software th
 Below you can find:
 
 * [Adding software: background information and limitations](sd-desktop-software.md#adding-software-background-information-and-limitations)
-* [Customisation via SD Software Installer](sd-desktop-software.md#customisation-via-sd-software-installer) (no previous experience required)
+* [Customisation via SD Software Installer](sd-desktop-software.md#customisation-via-sd-software-installer) (previous experience is not required)
 * [Customisation via Apptainer and Podman](sd-desktop-software.md#customisation-via-apptainer-and-podman) (advanced; technical expertise required).
 
-Please don't hesitate to [contact CSC Service Desk](../../support/contact.md) (subject: SD Services) if you have any questions about the software selection. We can support you in your desktop customisation.
+!!! Note
+    Please don't hesitate to [contact CSC Service Desk](../../support/contact.md) (subject: SD Services) if you have any questions about the software selection. We can support you in your desktop customisation.
 
 ## Adding software: background information and limitations
 

@@ -1,5 +1,6 @@
 @import url(./variables.css);
 @import url(./scheme.css);
+@import url(./icons.jinja.css);
 
 @import url(./admonition.css);
 @import url(./announcement.css);

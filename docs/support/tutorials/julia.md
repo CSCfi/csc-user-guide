@@ -530,6 +530,9 @@ We use the following directory structure and assume it is our working directory.
     ```toml
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+
+    [compat]
+    CUDA = "< 5.9"
     ```
 
     An example of a `script.jl` code.
@@ -566,6 +569,9 @@ We use the following directory structure and assume it is our working directory.
     ```toml
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+
+    [compat]
+    CUDA = "< 5.9"
     ```
 
     An example of a `script.jl` code.

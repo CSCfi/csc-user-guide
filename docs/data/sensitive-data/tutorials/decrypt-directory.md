@@ -6,7 +6,7 @@ individual files. However, the encrypted datasets may contain large amounts
 of files and in those cases doing encryption or decryption file-by-file
 can be too laborious.
 
-This document provides simple scripting examples to
+These instructions provide simple scripting examples to
 illustrate how decryption process can be automatized.
 In practice automatized decryption process requires two
 functionalities:

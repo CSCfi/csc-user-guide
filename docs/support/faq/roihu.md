@@ -44,10 +44,10 @@ including Roihu.
 
 To be able to use Roihu, you will need to
 [add Roihu service access for your project](../../accounts/how-to-add-service-access-for-project.md).
-Additionally, all users of the project should have at least a **medium** level
-of identity assurance (LoA) to be able to access Roihu. You can view your
-current level of identity assurance in [MyCSC](https://my.csc.fi) (select
-_Profile_ and scroll down to _Level of Identity Assurance_).
+Additionally, you should have at least a **medium** level of identity assurance
+(LoA) to be able to access Roihu. You can view your current level of identity
+assurance in [MyCSC](https://my.csc.fi) (select _Profile_ and scroll down to
+_Level of Identity Assurance_).
 
 Users with no or low LoA should read the
 [instructions on how to elevate their assurance level](../../accounts/strong-identification.md).

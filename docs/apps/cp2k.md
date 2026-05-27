@@ -50,6 +50,8 @@ parallel quantum chemistry calculations, in particular for AIMD.
     |:-------:|:---------------------------------|:---------------------:|
     |2024.3   |`cp2k/2024.3`<br>`cp2k/2024.3-gpu`| GPU version available |
     |2025.1   |`cp2k/2025.1`<br>`cp2k/2025.1-gpu`| GPU version available |
+    |2025.2   |`cp2k/2025.2`<br>`cp2k/2025.2-gpu`| GPU version available |
+    |2026.1   |`cp2k/2026.1`<br>`cp2k/2026.1-gpu`| GPU version available |
 
 ## License
 
@@ -142,7 +144,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     export OMP_NUM_THREADS=3
 
     module use /appl/local/csc/modulefiles
-    module load cp2k/2025.1-gpu
+    module load cp2k/2026.1-gpu
 
     export MPICH_GPU_SUPPORT_ENABLED=1
 

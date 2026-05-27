@@ -9,7 +9,7 @@ If you are processing research data, you can set up a CSC account and a CSC proj
 
 To access register data under the Act on Secondary Use, contact us at servicedes@csc.fi (subject: Sensitive Data) and provide a Findata permit. Then, we will guide you through the following steps. 
 
-SD Submit and Federated EGA, the services for submitting sensitive data to a national repository for re-use, are in the pilot phase. Contact us at servicedesk@csc.fi (subject: Sensitive Data) for more information.
+Federated EGA, the services for submitting sensitive biomedical data to a national repository for re-use, requires a separate contract. Read the FEGA user guide or contact us at servicedesk@csc.fi (subject: Sensitive Data) for more information.
 
 
 

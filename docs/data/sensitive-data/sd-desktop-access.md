@@ -12,7 +12,7 @@ Once a virtual desktop is created, each CSC project member can access it through
 
 ## Additional information
 
-* **What is an external volume?** Your virtual desktop’s local storage is limited, so it’s recommended to save large data files and collaborative work on the external volume. This volume acts like an external hard drive that can be detached and reattached to different desktops, allowing project members to share and edit files stored there.
+* **What is an external volume?** Your virtual desktop’s local storage is limited, so it’s recommended to save large data files and collaborative work on the external volume. This volume acts like a USB stick that can be detached and reattached to different desktops, allowing project members to share and edit files stored there.
 * **Adding the external volume:** the external volume can only be added when creating a [new virtual desktop](../sensitive-data/sd-desktop-create.md)
 * **Additional volume space:** if you need additional volume space (more than 200 GB), you can request it by writing to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
 
@@ -66,7 +66,7 @@ After copying files to volume, adjust permissions for folders and files to enabl
         1. Owner -> Access -> Select “Create and delete files”.
         2. Group -> Access -> Select “Create and delete files”.
         3. Others -> Access -> Select “Create and delete files”.
-        4. Close the permission tab (top left corner).
+        4. Close the permission tab (top right corner).
         5. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
@@ -79,16 +79,17 @@ After copying files to volume, adjust permissions for folders and files to enabl
         2. Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         3. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         4. Click **Change**.
-        5. Close the permission tab (top left corner).
+        5. Close the permission tab (top right corner).
         6. The orange lock icon will no longer be visible next to the files and can now be edited by all project members.     
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
 
-Note that if you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
+!!! Note
+    If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 ### 4. Close Data Gateway
 
-You can now disconnect the Data Gateway connection if no further data accessor import are needed by clicking **Disconnect and sign out**.
+You can now disconnect the Data Gateway by clicking **Disconnect and sign out** if you no longer need to access to the data or import new data.
 
 !!! Note
     If more than 10 Data Gateway connection are left open, Data Gateway will stop working. In this case, [contact CSC Service Desk](../../support/contact.md) (subject: SD Desktop).

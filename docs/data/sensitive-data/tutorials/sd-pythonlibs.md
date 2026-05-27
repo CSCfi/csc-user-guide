@@ -9,7 +9,7 @@ You can check the full list of installed libraries with command:
 pip list
 ```
 
-As there is huge amount of python libraries available, you quite often would like to use a library that is not available in SD Desktop.
+As there is huge amount of python libraries available, you might quite often want to use a library that is not available in SD Desktop.
 
 In normal computers, the problem can be easily solved by adding the missing library using `pip install` command. However, 
 as SD Desktop virtual machines don't have internet connection, you can't run `pip install` command in the way it is normally used.

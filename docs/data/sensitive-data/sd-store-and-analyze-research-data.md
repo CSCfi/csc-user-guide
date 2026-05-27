@@ -29,7 +29,7 @@ This guide explains how to get started, whether you are a project manager or a p
 
 ### Project Manager
 
-The project manager is the primary owner of the CSC project and acts as the representative of the Data Controller (typically the home organisation of the researchers). According to CSC’s Terms of Use, only group leaders and postdoctoral researchers may serve as CSC project managers. The role can be delegated to other research specialists after project creation by submitting a request to servicedesk@csc.fi.
+The project manager is the primary owner of the CSC project and acts as the representative of the Data Controller (typically the home organisation of the researchers). According to CSC’s Terms of Use, experienced researchers such as group leaders and postdoctoral researchers may serve as CSC project managers. The role can be delegated to other research specialists after project creation by submitting a request to servicedesk@csc.fi.
 
 Responsibilities include:
 

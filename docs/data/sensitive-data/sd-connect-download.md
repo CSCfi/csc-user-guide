@@ -20,43 +20,39 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 ### Downloading folder
 
-1. Find correct folder from All folders tab.
-2. Click **Download** on right side of the folder you want to download.
-3. Accept cookies (if prompted): a pop-up may appear on the top bar of your browser, asking for cookie consent. The download will not start unless cookies are accepted.
-   
-4. Wait for the Download to complete: a progress bar will indicate the download status. Once it finishes, check the download folder on your local computer. Here you may see two files:
+1. Find the correct folder from **All folders** tab.
+2. Click **Download** button on the right side of the folder you want to download.
+3. **Accept cookies** if needed: A pop-up window may appear at the top of your browser asking for cookie consent. The download will not start until cookies have been accepted.
 
-- .tar file: this is the actual file containing your downloaded folder. 
-- .tar.part file: this is a temporary file created while the .tar file is still downloading. 
-- **If both the .tar and .tar.part files are still visible, the download is still in progress. The browser will continue the download in the background.**
 
-- Do not open or extract any of the files until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This indicates that the          download has completed successfully.
-    
-5. Files are decrypted automatically. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
+4. **Wait for the download to complete**: a progress bar will show the download status. Once finished, open your local download folder, where you may see two files:
 
+    * .tar file – This is the actual file containing your downloaded folder.
+    * .tar.part file – This is a temporary file created while the .tar file is still downloading.
+    * If both the .tar and .tar.part files are present, the download is still in progress. Your browser will continue downloading in the background.
+    * **Do not open or extract any files** until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This ensures that the download has completed successfully.
+
+5. Files are decrypted automatically. The downloaded folder has a .tar extension, double-click it to extract the contents into a new folder.
 
 
 ![SD Connect Download folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Download.png)
 
 ### Downloading individual files
 
-1. Find correct folder from All folders tab and click to view files.
+1. Find correct folder from **All folders tab** and open it.
    
-2. Find corrects files.
-   
-3. Click **Download** on right side of each file you want to download.
-   
-4. Accept Cookies (if prompted): A pop-up may appear asking for cookie consent on the top bar of your browser.The download will not start unless cookies are accepted.
-   
-5. Wait for the Download to complete: a progress bar will indicate the download status. Once it finishes, check the download folder on your local computer. Here you may see two files:
+2. Find corrects files. Click **Download** button on the right side of each file you want to download. Note that files are downloaded one-by-one.
 
-- .tar file: this is the actual file containing your downloaded folder. 
-- .tar.part file: this is a temporary file created while the .tar file is still downloading. 
-- **If both the .tar and .tar.part files are still visible, the download is still in progress. The browser will continue the download in the background.**
+3. **Accept cookies** if needed: A pop-up window may appear at the top of your browser asking for cookie consent. The download will not start until cookies have been accepted.
 
-- Do not open or extract any of the files until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This indicates that the          download has completed successfully.
+4. **Wait for the download to complete**: a progress bar will show the download status. Once finished, open your local download folder, where you may see two files:
+
+    * .tar file – This is the actual file containing your downloaded folder.
+    * .tar.part file – This is a temporary file created while the .tar file is still downloading.
+    * If both the .tar and .tar.part files are present, the download is still in progress. Your browser will continue downloading in the background.
+    * **Do not open or extract any files** until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This ensures that the download has completed successfully.
     
-5. Files are decrypted automatically. The downloaded file has a .tar extension, double-click to extract the content in a new folder.
+5. Files are decrypted automatically and are now ready to be used.
 
     
 !!! Warning
@@ -68,7 +64,7 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 ## Download and manual decryption
 
-For files uploaded vis SD Connect user interface before October 2024. These files will remain encrypted after dowlaod, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
+For files uploaded via SD Connect user interface before October 2024. These files will remain encrypted after dowlaod, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
 
 Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, [contact CSC Service Desk](../../support/contact.md).
 

@@ -62,21 +62,22 @@ remain usable.
 
 CSC hosts two national supercomputers: Puhti and Mahti, and the
 European LUMI supercomputer. If you are [unsure which supercomputer to
-choose, read the discussion here](gpu-ml.md#puhti-mahti-or-lumi).
+choose, read the discussion here](gpu-ml.md).
 
 If you are a new user, please read [how to access Puhti and
 Mahti](../../computing/index.md#accessing-puhti-and-mahti), and [how
 to submit computing
 jobs](../../computing/running/getting-started.md). If you have opted
 for LUMI read the [LUMI Get Started
-page](https://docs.lumi-supercomputer.eu/firststeps/).
+page](https://docs.lumi-supercomputer.eu/firststeps/). LUMI users may
+also be interested in the [AI Software Environment provided by the
+LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
-Both [Puhti and Mahti have a web
-interface](../../computing/webinterface/index.md) which can be
-accessed via [www.puhti.csc.fi](https://www.puhti.csc.fi) and
-[www.mahti.csc.fi](https://www.mahti.csc.fi), respectively. Via the
-web interface, one can easily launch for example a Jupyter Notebook
-session with TensorFlow or PyTorch.
+All supercomputers also provide a [web user
+interface](https://docs.csc.fi/computing/webinterface/), through which
+one can easily launch for example a Jupyter Notebook session with
+PyTorch. Note that GPUs access is more restricted for interactive
+sessions.
 
 Also check the subsections related to [efficient GPU
 utilization](gpu-ml.md), [how to work with big data sets](ml-data.md),
@@ -87,9 +88,9 @@ and [multi-GPU and multi-node jobs](ml-multi.md).
 
 ### Pouta
 
-There are some use cases where the supercomputers are not the right solution,
-and you may need a [virtual server on **Pouta**](../../cloud/pouta/index.md).
-Typical examples include:
+There are some use cases where the supercomputers are not the right
+solution, and you may need a [virtual server on
+Pouta](../../cloud/pouta/index.md).  Typical examples include:
 
 - very complex software environment,
 - need for root access,
@@ -115,4 +116,7 @@ access](../../cloud/pouta/index.md).
 * [Dask tutorial](dask-python.md)
 * [High-throughput computing and workflows](../../computing/running/throughput.md)
 
-For LUMI users see also the [LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide) created by LUMI user support.
+For LUMI users see also the [LUMI AI
+Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide) created by
+LUMI user support, and the [AI Software Environment provided by the LUMI
+AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).

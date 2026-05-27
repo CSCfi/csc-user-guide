@@ -14,12 +14,13 @@ cases you will need to use a GPU.
 In order to use an LLM (or any neural network) with a GPU, the model
 needs to be loaded into the GPU memory (VRAM). LLMs can be very large
 and here the size of the GPU memory becomes critical. You can refer to
-[our table of GPU stats](gpu-ml.md#puhti-mahti-or-lumi) for the full
-details, but our GPUs have VRAM memory as follows:
+[our table of GPU stats](gpu-ml.md) for the full details, but our GPUs
+have VRAM memory as follows:
 
 - 32 GB on Puhti (NVIDIA V100)
 - 40 GB on Mahti (NVIDIA A100)
 - 64 GB on LUMI (single GCD of an AMD MI250x)
+- 96 GB on Roihu (NVIDIA GH200, available in May 2026)
 
 The model size in memory depends on how the weights are
 stored. Typically a regular floating point value in a computer is
@@ -361,7 +362,7 @@ In some situations there's still a need for an OpenAI-compatible
 server, for example when interfacing with other programs. [Example
 scripts for running vLLM on Puhti, Mahti and LUMI can be found in our
 `ai-inference-examples` repository][14]. There's also an example of
-running on multiple nodes using Ray.
+running on multiple nodes on LUMI (`run-vllm-lumi16.sh`).
 
 
 [1]: https://blog.eleuther.ai/transformer-math/

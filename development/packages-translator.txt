@@ -1,0 +1,8 @@
+# The packages listed here are what we install for machine translation
+# of Docs, while the file ../translation/requirements.txt contains the
+# frozen environment.
+openai
+tiktoken
+GitPython
+python-swiftclient
+python-keystoneclient
