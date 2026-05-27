@@ -1,17 +1,17 @@
-# Tutorial for using Allas in Roihu supercomputer
+# Tutorial for using Allas in the Roihu supercomputer
 
-One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas.The _sratch disk area_ of Roihu allow you to analyze large datasets. However  scartch disk in not intended for long-term storage fo research data. Data that needs to be stored for a longer time than just a few weeks should be copied to Allas or Lumi-O object storage service instead. Allas provides a platform that you can use to store your data as long as your CSC project is active. In addition to storage, Allas can be used for transporting data between different servers and sharing data with other users.
+One of the main use cases of Allas is to store data while it is not actively used on CSC supercomputers. When you start working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. The _scratch disk area_ of Roihu allows you to analyze large datasets. However, scratch disk is not intended for long-term storage of research data. Data that needs to be stored for a longer time than just a few weeks should be copied to Allas or LUMI-O object storage service instead. Allas provides a platform that you can use to store your data as long as your CSC project is active. In addition to storage, Allas can be used for transporting data between different servers and sharing data with other users.
 
-If you have not used Allas before, then start with reading **[Allas general introduction](introduction.md)**, which includes many important things to know.
+If you have not used Allas before, then start by reading **[Allas general introduction](introduction.md)**, which includes many important things to know.
 
-Note that CSC computing projects do not have access to Allas automatically. The project manager has to active the Allas service in [MyCSC](https://my.csc.fi/) before project can start using Allas. [Allas introduction page](introduction.md#) describes how to do it and also about default quotas and how to apply for more storage space.
+Note that CSC computing projects do not have access to Allas automatically. The project manager has to activate the Allas service in [MyCSC](https://my.csc.fi/) before the project can start using Allas. [Allas introduction page](introduction.md#) describes how to do it and also about default quotas and how to apply for more storage space.
 
 Additional information regarding:
 
 * [Using Allas in batch jobs](allas_batchjobs.md)
 * [Using Allas and LUMI-O from LUMI supercomputer](allas_lumi.md)
 
-There are several alternative tools to move data between Allas and Roihu. You can use [Puhti or Mahti web interface](accessing_allas.md#web-browser-interfaces), [commandline tools](accessing_allas.md#commandline-tools) or [Python, R or other tools](accessing_allas.md#graphical-tools). In Roihu, the Allas commandline tools are installed by CSC and provided through **allas module**.
+There are several alternative tools to move data between Allas and Roihu. You can use [the Roihu web interface](accessing_allas.md#web-browser-interfaces), [commandline tools](accessing_allas.md#commandline-tools) or [Python, R or other tools](accessing_allas.md#graphical-tools). In Roihu, the Allas commandline tools are installed by CSC and provided through the **allas module**.
 
    * [Allas module in Roihu](../../computing/allas-in-roihu.md)
 
@@ -38,7 +38,7 @@ for rclone and a-commands, even though they are not used in this tutorial.
 
 ## Example 1: Using Allas with a-commands
 
-### A. Uploading data from Mahti to Allas
+### A. Uploading data from Roihu to Allas
 
 The a-commands are Allas-specific tools that allow an easy start with Allas.
 The a-commands archive and move data automatically. You can also compress your
@@ -48,7 +48,7 @@ slightly slower. The a-commands are a good option for miscellaneous data that
 is mostly used in the CSC environment.
 
 In this example, we have a subdirectory `genomes/zebrafish` in the scratch
-directory of a project in Mahti (`/scratch/project_2001659`). The `zebrafish`
+directory of a project in Roihu (`/scratch/project_2001659`). The `zebrafish`
 directory contains eight files listed below:
 
 ```bash
@@ -71,7 +71,7 @@ asks for the user's CSC password and then lists the Allas projects that are
 accessible. In this case, we select `project_2001659`. 
 
 ```bash
-[kkayttaj@mahti-login11 ~]$ allas-conf
+[kkayttaj@roihu-cpu-login1 ~]$ allas-conf
 Mode s3cmd
 Please enter CSC password for account kkayttaj: <password>
 Checking projects available for your account.
@@ -91,11 +91,11 @@ s3allas:                 s3
 s3allas-project_2001659: s3    
 --------------------------------------------------------
 rclone remote s3allas: now provides an S3 based connection to project project_2001659 in Allas
-aws licent and s3cmd use now project_2001659
+aws client and s3cmd use now project_2001659
 a-commands use now project_2001659 when used in S3 mode
 ```
 
-`allas-conf` stores S3 authentication keys to your home directory-
+`allas-conf` stores S3 authentication keys to your home directory.
 If we want to start using another project, we need to run `allas-conf` again.
 
 Next, we enter the `zebrafish` directory:
@@ -198,7 +198,7 @@ and as part of the `genomes/zebrafish.tar` object.
 
 ### B. Downloading data to Roihu
 
-Next, we download the same data back to Roihu. In this example we assume that zebrafish genome data has been removed from Roihu, either by the user or because of the automatic cleanong process. 
+Next, we download the same data back to Roihu. In this example, we assume that zebrafish genome data has been removed from Roihu, either by the user or because of the automatic cleaning process. 
 
 After connecting to Roihu, we go to the scratch directory of project 2001659 and load the `allas` module:
 
@@ -207,7 +207,7 @@ cd /scratch/project_2001659
 module load allas
 ```
 
-From the output of the `module load allas` command you can check of the a-commands use the right Allas, in ths case `project_2001659`. If needed you can take the project in use with allas-conf command:
+From the output of the `module load allas` command you can check of the a-commands use the right Allas, in this case `project_2001659`. If needed you can take the project in use with allas-conf command:
 
 ```bash
 allas-conf project_2001659
@@ -223,7 +223,7 @@ mkdir kkayttaj
 cd kkayttaj/
 ```
 
-With the command `a-list`, we can now see the objects that were previosly uploaded to Allas:
+With the command `a-list`, we can now see the objects that were previously uploaded to Allas:
 
 ```bash
 [kkayttaj@roihu-cpu-login2 kkayttaj]$ a-list
@@ -240,7 +240,7 @@ for a specific file using the command `a-find`. In this example, we can check
 if an object contains the file `Danio_rerio.GRCz10.fa`:
 
 ```bash
-[kkayttaj@rouhu-cpu-login2 kkayttaj]$ a-find -a Danio_rerio.GRCz10.fa
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ a-find -a Danio_rerio.GRCz10.fa
 Checking bucket: 2001659-roihu-scratch
 
 Matching object names:
@@ -260,12 +260,12 @@ Total of 3 hits were found in 2 objects
 -------------------------------------------------
 ```
 
-The `a-find` report above tells, for example, that the object
+The `a-find` report above shows, for example, that the object
 `2001659-mahti-SCRATCH/genomes/zebrafish.tar` contains two files whose names
 match `Danio_rerio.GRCz10.fa` (the other file is `Danio_rerio.GRCz10.fa.fai`).
 Note that `a-find` finds matches only among objects that were uploaded with
-`a-put`. Further, `a-find` searches objects with object name only. Don't include the bukcet name to the search term.
-Instead use option `-b <bucket-name>` if you wish to serach the object from just one bucket.
+`a-put`. Further, `a-find` searches objects with object name only. Don't include the bucket name to the search term.
+Instead use option `-b <bucket-name>` if you wish to search the object from just one bucket.
 
 Next, we download the data to Roihu using the `a-get` command:
 
@@ -288,7 +288,7 @@ Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.rev.1.bt2
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.fa.fai
-``
+```
 
 ## Example 2: Using Allas with Rclone
 
@@ -324,21 +324,21 @@ environment:
 module load allas
 ```
 
-From the output of the `module load allas` command you can check of the a-commands use the right Allas, in ths case `project_2001659`. If needed you can take the project in use with allas-conf command:
+From the output of the `module load allas` command you can check whether the a-commands use the right Allas, in ths case `project_2001659`. If needed you can take the project in use with allas-conf command:
 
 ```bash
 allas-conf project_2001659
 ```
 
 In the case of the command above the configuration process asks only for the CSC password and then sets up
-the connection to Allas for project 2001659. After configuration you can use the Allas area of the defined
-project using two rclone endpoints: s3allas:, s3allas-project_name. In this example the endpoints are **s3allas:** and **s3allas-project_2001659:**.
+the connection to Allas for project 2001659. After configuration, you can use the Allas area of the defined
+project using two rclone endpoints: s3allas:, s3allas-project_name. In this example, the endpoints are **s3allas:** and **s3allas-project_2001659:**.
 
 After configuration, these two endpoints are in use in all Roihu sessions, including batch jobs. 
 The short endpoint is nicer to use in command line, but it changes if you run allas-conf to use another project.
-Thus the project specific endpoint (s3allas-project_2001659) would be better option for batch jobs and project specific scripts.
+Thus, the project-specific endpoint (s3allas-project_2001659) would be a better option for batch jobs and project-specific scripts.
 
-To start the download, we go to the `genomes` directory:
+To start the upload, we go to the `genomes` directory:
 
 ```bash
 cd /scratch/project_2001659/genomes
@@ -442,7 +442,7 @@ First, we open a `screen` session on Roihu and set up an Allas connection just
 like in the previous example:
 
 ```bash
-ssh <username>@puhti.csc.fi
+ssh <username>@roihu-cpu.csc.fi
 screen
 module load allas
 allas-conf
@@ -479,7 +479,7 @@ This way, you would end up creating ten buckets each containing 262 800
 objects. This approach could be the most efficient way for storing and reusing
 the data if you know that you will need to access individual images randomly.
 However, you would then need to use some other tools than rclone or a-commands,
-ase rclone has a bug that makes it fail in cases where one bucket contains huge number
+as rclone has a bug that makes it fail in cases where one bucket contains a huge number
 of object names (typically this starts to affect in cases where the number of objects is over 15 000- 50 000).
 
 As another extreme option, we could use `a-put` and collect all data into a
@@ -549,5 +549,5 @@ a-put -b 2001659-uniref --nc --input-list missing_<bucket_name>_<number>
 ```
 
 You should note that `a-check` does not check if the actual contents of the
-object is correct. It checks only the object names, which might as well
+object are correct. It checks only the object names, which might as well
 originate from some other sources.
