@@ -690,14 +690,14 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     dst  = mod(rank+1, size)
     src  = mod(rank-1, size)
     println("rank=$rank rank_loc=$rank_l (gpu_id=$gpu_id - $device), size=$size, dst=$dst, src=$src")
-    N = 4
+    N = 2^16  # Minimum array size for gdrcopy to work.
     send_mesg = CuArray{Float64}(undef, N)
     recv_mesg = CuArray{Float64}(undef, N)
     fill!(send_mesg, Float64(rank))
     CUDA.synchronize()
     rank==0 && println("start sending...")
     MPI.Sendrecv!(send_mesg, dst, 0, recv_mesg, src, 0, comm)
-    println("recv_mesg on proc $rank: $recv_mesg")
+    println("sum(recv_mesg) on proc $rank: $(sum(recv_mesg))")
     rank==0 && println("done.")
     MPI.Finalize()
     ```
@@ -720,8 +720,6 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     module load julia-cuda
     module list
     export UCX_WARN_UNUSED_ENV_VARS=n
-    # Exclude gdr_copy transport due to issues. May impact performance.
-    export UCX_TLS=^gdr_copy
     julia --project=. runtests.jl
     ```
 
