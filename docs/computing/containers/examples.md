@@ -2,78 +2,6 @@
 
 This section contains examples of building and running containers on Roihu and Mahti.
 
-## Example: Roihu CPU base container
-
-Base containers are available:
-
-- `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03`
-
-Build definition file:
-
-```sh title="container.def"
-Bootstrap: docker
-From: satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03
-
-%post
-    # Activate module environment and load default modules.
-    . /opt/activate.sh
-    # Build your application here:
-
-%runscript
-    . /opt/activate.sh
-    exec "$@"
-```
-
-When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
-
-```bash
-export APPTAINER_CACHEDIR=$TMPDIR
-apptainer build --fakeroot container.sif container.def
-```
-
-Now, you can run commands inside the container with the environment active as follows:
-
-```bash
-apptainer run container.sif mycmd
-```
-
-## Example: Roihu GPU base container
-
-Base containers are available:
-
-- `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03`
-- `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03`
-- `satama.csc.fi/r_installation_spack/core-gpu-gcc-13.4.0-cuda-12.6.3:v2026_03`
-
-Build definition file:
-
-```sh title="container.def"
-Bootstrap: docker
-From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03
-
-%post
-    # Activate module environment and load default modules.
-    . /opt/activate.sh
-    # Build your application here:
-
-%runscript
-    . /opt/activate.sh
-    exec "$@"
-```
-
-When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
-
-```bash
-export APPTAINER_CACHEDIR=$TMPDIR
-apptainer build --fakeroot container.sif container.def
-```
-
-Now, you can run commands inside the container with the environment active as follows:
-
-```bash
-apptainer run --nv container.sif mycmd
-```
-
 ## Example: Python virtual environment
 
 Next, we provide an example of a container with system Python and virtual environment with Python packages installed using Pip.
@@ -138,6 +66,110 @@ Let's list the Pip installed packages to see the packages that we added:
 
 ```bash
 apptainer exec python-pip.sif pip --no-cache list
+```
+
+## Example: Roihu CPU base container with OSU micro benchmarks
+
+Base containers are available:
+
+- `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03` (4.54 GB)
+
+Build definition file:
+
+```sh title="container.def"
+Bootstrap: docker
+From: satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03
+
+%arguments
+    NPROCS=10
+
+%post
+    # Activate module environment and load default modules.
+    . /opt/activate.sh
+
+    # Install tools
+    dnf install -y wget file which
+
+    # Build osu benchmarks
+    cd /opt
+    wget -q http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.4.tar.gz
+    tar xf osu-micro-benchmarks-7.4.tar.gz
+    cd osu-micro-benchmarks-7.4
+    ./configure --prefix=/opt/osu-micro-benchmarks CC=mpicc CXX=mpicxx CFLAGS=-O3
+    make -j{{ NPROCS }}
+    make install
+    cd ..
+    rm -rf osu-micro-benchmarks-7.4 osu-micro-benchmarks-7.4.tar.gz
+
+%runscript
+    . /opt/activate.sh
+    exec "$@"
+```
+
+When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+
+```bash
+export APPTAINER_CACHEDIR=$TMPDIR
+apptainer build --fakeroot container.sif container.def
+```
+
+Now, you can run commands inside the container with the environment active as follows:
+
+```bash
+apptainer run container.sif mycmd
+```
+
+## Example: Roihu GPU base container with NCCL tests
+
+Base containers are available:
+
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03` (13.7 GB)
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03` (15.9 GB)
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-13.4.0-cuda-12.6.3:v2026_03` (13.5 GB)
+
+Build definition file:
+
+```sh title="container.def"
+Bootstrap: docker
+From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03
+
+%arguments
+    NPROCS=10
+
+%post
+    # Activate module environment and load default modules.
+    . /opt/activate.sh
+
+    # Install tools
+    dnf install -y wget file which
+
+    # Install NCCL Tests
+    module load nccl
+    cd /opt
+    wget https://github.com/NVIDIA/nccl-tests/archive/refs/tags/v2.18.3.tar.gz
+    tar xf v2.18.3.tar.gz
+    rm v2.18.3.tar.gz
+    cd nccl-tests-2.18.3
+    make -j{{NPROCS}} CUDA_HOME=$CUDA_HOME NCCL_HOME=$NCCL_INSTROOT
+    make -j{{NPROCS}} CUDA_HOME=$CUDA_HOME NCCL_HOME=$NCCL_INSTROOT MPI=1 MPI_HOME=$OPENMPI_INSTROOT NAME_SUFFIX=_mpi
+
+%runscript
+    . /opt/activate.sh
+    module load nccl
+    exec "$@"
+```
+
+When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+
+```bash
+export APPTAINER_CACHEDIR=$TMPDIR
+apptainer build --fakeroot container.sif container.def
+```
+
+Now, you can run commands inside the container with the environment active as follows:
+
+```bash
+apptainer run --nv container.sif mycmd
 ```
 
 ## Example: Using Make to build containers
