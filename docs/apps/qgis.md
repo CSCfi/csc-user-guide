@@ -42,6 +42,12 @@ For using QGIS, open it in Puhti web interface:
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
 3. `Applications` -> `Geosciences` -> `QGIS` or use `QGIS`-shortcut
 
+If you need to adjust some settings (Allas) or want to use some older version of QGIS, then start it from Terminal:
+
+```
+module load qgis
+qgis
+```
 
 ### QGIS in LUMI
 
@@ -73,7 +79,7 @@ module load qgis
 python
 ```
 
-### Puhti QGIS and Allas
+### QGIS and Allas
 
 QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) and then start QGIS from Terminal.
 
