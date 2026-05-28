@@ -115,8 +115,22 @@ apptainer build --fakeroot container.sif container.def
 
 Now, you can run commands inside the container with the environment active as follows:
 
+!!! warning "Slurm environment variables are required for MPI to work!"
+    Slurm environment variables must be propagated to the container environment for MPI to work.
+    Therefore, not not use `--cleanenv`, `--contain` or similar flags.
+
+`batch.sh`
+
 ```bash
-apptainer run container.sif mycmd
+#!/bin/bash
+#SBATCH --account=<project> --partition=medium --mem=2G --nodes=2 --ntasks-per-node=1 --time=00:05:00
+module purge
+srun apptainer run container.sif /opt/osu-micro-benchmarks/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
+srun apptainer run container.sif /opt/osu-micro-benchmarks/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+```
+
+```bash
+sbatch batch.sh
 ```
 
 ## Example: Roihu GPU base container with NCCL tests
@@ -168,8 +182,31 @@ apptainer build --fakeroot container.sif container.def
 
 Now, you can run commands inside the container with the environment active as follows:
 
+`batch_single.sh`
+
 ```bash
-apptainer run --nv container.sif mycmd
+#!/bin/bash
+#SBATCH --account=<project> --partition=gpumedium --mem=2G --nodes=2 --ntasks-per-node=1 --time=00:05:00 --gpus-per-node=1
+module purge
+srun apptainer run --nv nccl-tests-osu.sif /opt/osu-micro-benchmarks/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
+srun apptainer run --nv nccl-tests-osu.sif /opt/osu-micro-benchmarks/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+```
+
+```bash
+sbatch batch_single.sh
+```
+
+`batch_mpi.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project> --partition=gpumedium --nodes=2 --ntasks-per-node=4 --cpus-per-task=72 --gpus-per-node=4 --time=00:15:00
+module purge
+srun apptainer run --nv nccl-tests-osu.sif /opt/nccl-tests-2.18.3/build/all_reduce_perf_mpi -b 8 -e 128M -f 2 -g 1
+```
+
+```bash
+sbatch batch_mpi.sh
 ```
 
 ## Example: Using Make to build containers
