@@ -8,8 +8,7 @@
 
 ## Overview
 
-The virtual desktop comes with a limited selection of pre-installed open-source software for analysis (for example, OpenOffice). However, you can use a simple tool called the SD Software Installer, which helps you install the software you need for your project. This application allows you to add software to your virtual desktop without requiring technical expertise, but simply follow the step-by-step guidance provided below.
-Users with technical expertise can also create customised containers using Apptainer or Podman.
+The virtual desktop comes with a limited selection of pre-installed open-source software for analysis (for example, OpenOffice). However, you can use a simple tool called the SD Software Installer, which helps you install the software you need for your project. This application allows you to add software to your virtual desktop without requiring technical expertise, but simply follow the step-by-step guidance provided below. Users with technical expertise can also create customised containers using Apptainer or Podman.
 
 
 <div class="grid cards" markdown>
@@ -37,9 +36,10 @@ Users with technical expertise can also create customised containers using Appta
 
 Below you can find:
 
-* [Default software available in your virtual desktop](#software-in-your-virtual-desktop) LInk is wrong
-* [Add software provided by CSC via SD Software Installer](#add-software-via-sd-software-installer)
-* [Add your software via Apptainer and Podman (advanced)](#add-software-via-apptainer-and-podman)
+* [Default software available in your virtual desktop](#default-software)
+* [Software available via SD Software Installer](#software-available-via-sd-software-installer)
+* [Add software provided by CSC via SD Software Installer](#add-software-provided-by-csc-via-sd-software-installer)
+* [Add your software via Apptainer and Podman (advanced)](#add-your-software-via-apptainer-and-podman-advanced)
 
 
 
@@ -87,17 +87,6 @@ Below you can find:
     | **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)             |
     | **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) <br> - [Jupyter](https://jupyter.org/)   |
 
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **Do you need additional software**
-  { .csc-grid-card-warning }
-
-    ---
-    
-    If the software you need is not listed above, please contact CSC Service Desk for support (subject: SD Desktop).
-
-</div>
-
 
 ## Add software provided by CSC via SD Software Installer
 
@@ -107,7 +96,7 @@ The SD Software Installer is a CSC‑provided tool that makes it easy to install
 
 You can’t add your own software to the Software Installer, but you can request new tools by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). 
 
-To install the application, please follow the step-by-step tutorial below.  
+To install and use the application, please follow the step-by-step tutorial below.  
     
 ___
 
@@ -123,41 +112,48 @@ ___
 
  ____
 
-### Step 2: Install SD Software Installer to your virtual desktop
+### Step 2: Install and use SD Software Installer 
+
+#### 2.1 Install SD Software Installer
 
 1. Log in to [SD Desktop service](https://sd-desktop.csc.fi) and access your virtual desktop. 
 Launch **Data Gateway **from navigation on the left side of the screen.
 2. Select **SD Connect**.
 3. Click **Continue**. 
-4. In the next view you are asked to choose a folder for accessible files. SD Connect data must be mounted in the **Projects** folder in your home directory. To do this, check that **Projects** folder is selected (this is the default option). Click **Continue**.
-5. In the next view click **Open folder**. This opens file browser and you will see folder **Projects**.
-6. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it. **Copy-paste** or **drag-and-drop** file `sd-installer-ubuntu24.desktop` to your desktop.
-7. **Right-click **on the icon on your virtual desktop.
-8. Select **Allow Launching**.
-9. When you ckicl on it,the applciation will now open on your virtual destop where you can see the softeare available and and click on the srteare you want to isnall. Plese not: Keep the Data agteway conenction orpne for it to be successful. 
+4. In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
+5. Click **Continue**.
+6. In the next view click **Open folder**. This opens file browser and you will see folder **Projects**.
+7. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it. **Copy-paste** or **drag-and-drop** file `sd-installer-ubuntu24.desktop` to your desktop.
+8. **Right-click **on the icon on your virtual desktop.
+9. Select **Allow Launching**.
 
+#### 2.2 Use SD Software Installer
 
+1. Keep the Data Gateway connection open or launch Data Gateway:
+    - Select **SD Connect**.
+    - Click **Continue**. 
+    - In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
+    - Click **Continue**.
+2. **Launch SD Software Installer** by clicking icon on your virtual desktop. The application will open and you can see the software available. 
+3. **Click on the software you want to install.** Keep the Data Gateway connection open for it to be successful. 
 Available software includes graphical and command-line applications. For graphical applications, an icon is added to the desktop. 
-
-For some applications, part of the installation process happens only when the application is started for the first time. Start the application once after the installation to complete the setup. After that the installed software should work even without an active Data Gateway connection.
+4. For some applications, part of the installation process happens only when the application is started for the first time. Start the application once after the installation to complete the setup. After that the installed software should work even without an active Data Gateway connection.
 
 ![Installing SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer.png)
 
-![Using SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Use_Installer.png)
-
 ____
 
-### Step 4: Software installation for all project members
+### Step 3: Software installation for all project members
 
 All software is installed to the directory `/shared-directory/sd-tools/` where the installation files are available for all users of the virtual desktop. However, they don’t automatically appear on each user’s desktop. To make software accessible, project members need to choose between two options:
 
-#### 4.1 Using the Software Installer
+#### 3.1 Using the Software Installer
 
 The project member can follow the [**steps**](#step-2-install-sd-software-installer-to-your-virtual-desktop) shown earlier: open the Data Gateway, copy the Software Installer to the desktop and launch it.
 
 The Software Installer will detect the tool in the shared folder, skip setup, and automatically create a desktop icon and update the terminal.
 
-#### 4.2 Using a terminal command
+#### 3.2 Using a terminal command
 
 In this case the Data Gateway connection is not needed.
 
