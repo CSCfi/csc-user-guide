@@ -195,7 +195,7 @@ To launch the R console on a login node, run the following commands:
 === "Roihu-CPU"
     ``` bash
     module load r-env
-    apptainer exec --bind=$(csc-common-bind) R --no-save
+    R --no-save
     ```
 === "Puhti"
     ``` bash
