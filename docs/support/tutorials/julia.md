@@ -719,7 +719,6 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     module load julia-mpi
     module load julia-cuda
     module list
-    export UCX_WARN_UNUSED_ENV_VARS=n
     julia --project=. runtests.jl
     ```
 
