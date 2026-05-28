@@ -7,8 +7,8 @@ SD Desktop lets you create a protected environment for both individual work and 
 ![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
 1. [**Create virtual desktop:**](#create-virtual-desktop) Create secure virtual desktops for analysing sensitive research data.
-2. [**Create volume:**](#create-volume) You need a volume to keep a copy your data for analysis. 
-3. **Attach volume to desktop:** After creating a volume, simply attach it to your virtual desktop. 
+2. [**Create volume:**](#create-volume) You need a volume to keep a copy of your data for analysis.
+3. **Attach volume to desktop:** After creating a volume, attach it to your virtual desktop.
 
 
 ## Create virtual desktop
@@ -17,9 +17,13 @@ SD Desktop lets you create a protected environment for both individual work and 
 
 You can create **up to three desktops** within a single CSC project, with **up to 10 project members** allowed to connect simultaneously to each desktop. Your virtual desktop is accessible to all project members upon creation.
 
-All desktops come with a set of **pre‑installed open‑source software** managed by CSC. More information about the available software and customization options is available [here](./sd-desktop-software.md).
+All desktops come with **pre‑installed open‑source software** managed by CSC. More information about software and customization options is available [here](./sd-desktop-software.md).
 
-Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, ensure you [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
+Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
+
+
+
+
 
 
 <div class="grid cards" markdown>
@@ -88,11 +92,19 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 
 ![Detach and attach volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Move_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
-You can create **up to five volumes** per project.  A volume works like a virtual USB stick: it can be attached to one virtual desktop at a time or moved between desktops within the same CSC project. The volume also acts as a backup if the virtual desktop becomes unresponsive.
+You can create **up to five volumes** per CSC project. A volume works like a virtual USB stick: it can be attached to one virtual desktop at a time or moved between desktops within the same CSC project. The volume also acts as a backup if a virtual desktop becomes unresponsive.
 
-**Volumes consume Cloud Billing Units** starting from the moment they are created - whether or not they’re attached to a virtual desktop. Check billing unit comsumption from [table](#volume-options) below.
+**Volumes consume Cloud Billing Units** starting from the moment they are created, whether or not they’re attached to a virtual desktop. Check billing unit consumption from the [table](#volume-options) below.
 
-A volume **can only be extended** with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+    
+   
+    A volume **can only be extended** with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
+
+</div>
 
 ### Step by step
 

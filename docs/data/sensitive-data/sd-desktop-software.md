@@ -8,26 +8,38 @@
 
 ## Overview
 
+The virtual desktop comes pre-installed with basic open-source software. Use SD Software Installer to transform the virtual desktop into a versatile research workspace. This application helps you add software to your virtual desktop. Users with technical expertise can create customised containers using Apptainer or Podman.
 
-![SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Installer.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
+
+<div class="grid cards" markdown>
+
+- :material-check-circle:{ .lg .middle } **Key features**
+  { .csc-grid-card-success }
+
+    ---
+    
+    * **Install software via SD Software Installer:** It is a CSC‑provided tool that makes it easy to install selected, commonly used [**software**](#software-available-via-sd-software-installer) on your virtual desktop.
+    * **Apptainer software container tool** can be used to add new software to your SD Desktop environment. You can also import software for example as AppImage files, Ubuntu 22.04 compatible binaries or as source code.
 
 
-The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately. However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
+- :material-alert:{ .lg .middle } **Limitations**
+  { .csc-grid-card-warning }
+
+    ---
+
+    * **Open source software only:** Only open-source software can be installed, as licensed or proprietary software is not supported.
+    * **No superuser access:** Users on the SD Desktop do not have superuser access to execute operations requiring elevated permissions.
+    * **Isolated from the internet:** The virtual desktops (or virtual machines) are isolated from the internet for security reasons. You can't use tools like Git, Conda or pip to install new software there.
+</div>
+
+
 
 Below you can find:
 
-* [Background information and limitations](#background-information-and-limitations)
 * [Software in your virtual desktop](#software-in-your-virtual-desktop)
 * [Add software provided by CSC via SD Software Installer](#add-software-via-sd-software-installer)
 * [Add your software via Apptainer and Podman (advanced)](#add-software-via-apptainer-and-podman)
 
-
-## Background information and limitations
-
-* The virtual desktops (or virtual machines) are intentionally isolated from the internet for security reasons. Consequently, the process of adding supplementary software and libraries is not straightforward.
-* SD Desktop supports only open-source software; licensed software is not supported.
-* The absence of a network connection precludes the use of conventional installation tools such as *git*, *coda*, *cpan* or *pip* in their typical fashion, as these tools rely on external repositories. Furthermore, users on the SD Desktop do not possess the necessary superuser access to execute operations requiring elevated permissions.
-* Adding extra software to SD Desktop is possible, but it involves converting the installation steps into special files. These files are then uploaded to SD Connect and copied to your SD Desktop for installation. For this process, we recommend using Apptainer containers for importing the software you need, but Apptainer is not the only option. You can also import software for example as Appimage files, Ubuntu 22.04 compatible binaries or as source code.
 
 
 ## Software in your virtual desktop
@@ -88,24 +100,23 @@ Below you can find:
 
 ## Add software provided by CSC via SD Software Installer
 
+![SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Installer.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
 
+The SD Software Installer is a CSC‑provided tool that makes it easy to install selected, commonly used [**software**](#software-available-via-sd-software-installer) on SD Desktop, such as RStudio 4.5.1, Whisper, VS Code, and GATK.
 
-The SD Software Installer is a CSC‑provided tool that makes it easy to install selected, commonly used software on SD Desktop, such as RStudio 4.5.1, Whisper, VS Code, and GATK.
+You can’t add your own software to the Software Installer, but you can request new tools by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). 
 
-You can’t add your own software to the installer, but you can request new tools by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). 
-
-To access the application, please follow the step-by-step tutorial below.  
+To install the application, please follow the step-by-step tutorial below.  
     
 ___
 
 ### Step 1: Send a request to CSC Service Desk
 
-* Log in to the [SD Connect service](https://sd-connect.csc.fi). 
+1. Log in to the [SD Connect service](https://sd-connect.csc.fi). 
     * If you are using SD Connect for the first time, [**upload**](sd-connect-upload.md) a small test file to any bucket (required due to a current technical issue).
-* On the homepage, click **Copy Share ID** next to the project selection menu to copy your project’s Share ID (a 32‑character code).
-    * Example Share ID: 71bbe38a3cd398b48b1f2582dc00297p
-* Email the CSC Service Desk with the subject “SD Desktop”, requesting access to the Software Installer and including the project Share ID.
-* Once the Service Desk confirms access, the installer will be available via the SD Desktop service.
+2. On the homepage, click **Copy Share ID** next to the project selection menu to copy your project’s Share ID (a 32‑character code, example: 71bbe38a3cd398b48b1f2582dc00297p).
+3. Email the CSC Service Desk with the subject “SD Desktop”, requesting access to the Software Installer and including the project Share ID.
+4. Once the Service Desk confirms access, move to step 2 below.
 
 ![(Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareID.png)
 
@@ -117,10 +128,10 @@ ___
 Launch **Data Gateway **from navigation on the left side of the screen.
 2. Select **SD Connect**.
 3. Click **Continue**. 
-4. In the next view you are asked to choose a folder for accessible files. Click **Continue**. 
+4. In the next view you are asked to choose a folder for accessible files. SD Connect data must be mounted in the **Projects** folder in your home directory. To do this, check that **Projects** folder is selected (this is the default option). Click **Continue**.
 5. In the next view click **Open folder**. This opens file browser and you will see folder **Projects**.
-6. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it.Copy-paste or drag-and-drop file `sd-installer-ubuntu224.desktop` to your desktop.
-7. Right-click on the icon on your virtual desktop.
+6. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it. **Copy-paste** or **drag-and-drop** file `sd-installer-ubuntu24.desktop` to your desktop.
+7. **Right-click **on the icon on your virtual desktop.
 8. Select **Allow Launching**.
 9. Now SD Software Installer is open and you can install software you need.
 
@@ -128,32 +139,42 @@ Launch **Data Gateway **from navigation on the left side of the screen.
 
 ____
 
-### Step 3: Install new tools
+### Step 3: Install new software
 
-* In order to use the installer, you must have an active Data Gateway connection running and mounting of the SD Connect data should be done through the default location in the file system (*Projects* directory in the users home directory).
-* The installer shows a panel of buttons that allow you to install a software by just clicking the button.
-The available software include graphical and command line applications. For graphical applications, a launching icon is added to the desktop. All software is installed to directory `/shared-directory/sd-tools/` where the installation is available for all the users of the virtual desktop.
-* In case of some applications, part of the installation process occurs only when the application is started for the first time. Thus, you should start the application once after the installation, to make sure that the process is completed. After that the installed software should work also when Data Gateway connection has not been opened.
+To use the SD Software Installer, you must have it [**installed**](#step-2-install-sd-software-installer-to-your-virtual-desktop) and an active **Data Gateway **connection. 
+
+1. Launch **Data Gateway** from navigation on the left side of the screen.
+2. Select **SD Connect**.
+3. Click **Continue**. 
+4. In the next view you are asked to choose a folder for accessible files. SD Connect data must be mounted in the **Projects** folder in your home directory. To do this, check that **Projects** folder is selected (this is the default option). Click **Continue**.
+5. Launch **Software Installer **from the icon on the desktop.
+6. **Software Installer** helps you install software from available options by clicking buttons. Available software includes graphical and command-line applications. For graphical applications, an icon is added to the desktop. 
+
+For some applications, part of the installation process happens only when the application is started for the first time. Start the application once after the installation to complete the setup. After that the installed software should work even without an active Data Gateway connection.
+
+![Using SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Use_Installer.png)
 
 ____
 
-### Step 4: Installation for project members
+### Step 4: Software installation for all project members
 
-All installed tools are stored in the Shared Directory, inside a folder called sd-tools, which is accessible to all project members. However, they don’t automatically appear on each user’s desktop. To make it accessible, project members need to do one quick step — choosing between two options:
+All software is installed to the directory `/shared-directory/sd-tools/` where the installation files are available for all users of the virtual desktop. However, they don’t automatically appear on each user’s desktop. To make software accessible, project members need to choose between two options:
 
 #### 4.1 Using the Software Installer
 
-The project member can follow the steps shown earlier: open the Data Gateway, copy the installer to the desktop, launch it, and select the tool needed. The installer will detect the tool in the shared folder, skip setup, and automatically create a desktop icon and update the  terminal.
+The project member can follow the [**steps**](#step-2-install-sd-software-installer-to-your-virtual-desktop) shown earlier: open the Data Gateway, copy the Software Installer to the desktop and launch it.
+
+The Software Installer will detect the tool in the shared folder, skip setup, and automatically create a desktop icon and update the terminal.
 
 #### 4.2 Using a terminal command
 
 In this case the Data Gateway connection is not needed.
 
-* Right-click on the desktop and select “Open Terminal”
-* Press Ctrl + Alt + Shift to activate copy-paste function
+* Right-click on the desktop and select **Open Terminal**.
+* Press **Ctrl + Alt + Shift** to activate **copy-paste function**.
 * Choose Text Input
-* Copy the command `/shared-directory/sd-dash-tools/bin/use-sd-tools`
-* And paste it into the input bar in the lower part of the screen and press Enter
+* Copy the command `/shared-directory/sd-dash-tools/bin/use-sd-tools` from here.
+* And paste it into the input bar in the lower part of the screen and press Enter.
 
 In this case as well, the icon will be added to the desktop and the terminal environment will be updated.
 
@@ -162,12 +183,12 @@ ____
 
 ## Add your software via Apptainer and Podman (advanced)
 
-If you want to add new software to your virtual machine independently, the most convenient way is to build an Apptainer container outside SD Desktop and then import the container through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
+If you want to add new software to your virtual machine independently, the most convenient way is to build an Apptainer container outside SD Desktop and then import the container through SD Connect to SD Desktop. First convert the installation steps into special files. Then upload them to SD Connect and copy them to your virtual desktop for installation.  The two documents below describe two sample cases on adding software with containers. 
 
    1. [Importing ready-made Apptainer containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
    2. [Creating your own Apptainer container and importing it to SD Desktop](./creating_containers.md)
 
-In Ubuntu22-based virtual machines you can use also Podman container manager. One of the benefits of Podman is that it can utilize Docker containers too.
+In Ubuntu24-based virtual machines you can use also Podman container manager. One of the benefits of Podman is that it can utilize Docker containers too.
 
 * [Using Podman in SD Desktop](./tutorials/podman-in-sd-desktop.md)
 
