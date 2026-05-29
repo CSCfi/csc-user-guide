@@ -30,7 +30,7 @@ The versions including JupyterLab can be used in the Jupyter application in the 
 
 ### Installed plugins
 
-You can install more plugins to your own user directory from the SNAP Graphical user interface. These are store to your home directory.
+You can install more plugins to your own user directory from the SNAP Graphical user interface. These are stored to your home directory.
 
 ## Usage
 
