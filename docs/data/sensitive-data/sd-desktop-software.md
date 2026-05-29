@@ -124,22 +124,26 @@ Launch **Data Gateway **from navigation on the left side of the screen.
 5. Click **Continue**.
 6. In the next view click **Open folder**. This opens file browser and you will see folder **Projects**.
 7. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it. **Copy-paste** or **drag-and-drop** file `sd-installer-ubuntu24.desktop` to your desktop.
-8. **Right-click **on the icon on your virtual desktop.
+8. **Right-click** on the `sd-installer-ubuntu24.desktop` icon on your virtual desktop.
 9. Select **Allow Launching**.
+10. Application is now ready to be used. See [**instructions**](#22-use-sd-software-installer)
+
+![Installing SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer.png)
+
 
 #### 2.2 Use SD Software Installer
 
-1. Keep the Data Gateway connection open or launch Data Gateway:
+1. Keep the **Data Gateway** connection open or launch Data Gateway:
     - Select **SD Connect**.
     - Click **Continue**. 
     - In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
     - Click **Continue**.
-2. **Launch SD Software Installer** by clicking icon on your virtual desktop. The application will open and you can see the software available. 
+2. **Launch SD Software Installer** by clicking the icon on your virtual desktop. The application will open and you can see the software available. 
 3. **Click on the software you want to install.** Keep the Data Gateway connection open for it to be successful. 
-Available software includes graphical and command-line applications. For graphical applications, an icon is added to the desktop. 
-4. For some applications, part of the installation process happens only when the application is started for the first time. Start the application once after the installation to complete the setup. After that the installed software should work even without an active Data Gateway connection.
+Available software includes graphical and command-line applications. For graphical applications, an icon is added to the desktop. For some applications, part of the installation process happens only when the application is started for the first time. Start the application once after the installation to complete the setup. After that the installed software should work even without an active Data Gateway connection.
 
-![Installing SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer.png)
+
+![Using SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Use_Installer.png)
 
 ____
 
