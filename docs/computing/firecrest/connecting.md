@@ -60,14 +60,16 @@ Settings typically required for client credentials configuration:
 |---------|-------|
 | Client ID | Username of your robot account |
 | Client Secret | Password of your robot account |
-| Token URL | https://user-auth.csc.fi/idp/profile/oidc/token |
+| Token URL | `https://user-auth.csc.fi/idp/profile/oidc/token` |
+| Scope | `openid` |
 
 You can, for example, retrieve an access token for a robot account with a simple `curl` call:
 
 ```
 curl -X POST https://user-auth.csc.fi/idp/profile/oidc/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "client_id=${my_robot_username},client_secret=${my_robot_password},grant_type=client_credentials"
+  -H "Accept: application/json"
+  -d "client_id=${my_robot_username}&client_secret=${my_robot_password}&scope=openid&grant_type=client_credentials"
 ```
 
-The [IdP token endpoint](https://user-auth.csc.fi/idp/profile/oidc/token) also supports `client_secret_basic` and `client_secret_jwt` methods, which can be used instead of the `client_secret_post` method demonstrated above.
+A successful call returns a JSON document with the access token and associated metadata (token type, scope and lifetime).
