@@ -8,7 +8,7 @@
 
 ## Overview
 
-The virtual desktop comes with a limited selection of pre-installed open-source software for analysis (for example, OpenOffice). However, you can use a simple tool called the SD Software Installer, which helps you install the software you need for your project. This application allows you to add software to your virtual desktop without requiring technical expertise, but simply follow the step-by-step guidance provided below. Users with technical expertise can also create customised containers using Apptainer or Podman.
+The virtual desktop comes with a limited selection of pre-installed open-source software for analysis (for example, OpenOffice). However, you can use a simple tool called the SD Software Installer, which helps you install the software you need for your project. It doesn't require technical expertise, just follow the step-by-step guidance provided below. Users with technical expertise can also create customised containers using Apptainer or Podman.
 
 
 <div class="grid cards" markdown>
