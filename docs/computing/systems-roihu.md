@@ -158,15 +158,27 @@ interactive access and running graphical user interfaces.
 
 ## Sensitive data services in Roihu
 
-Roihu is being developed to support sensitive and confidential data workflows,
-unlike Puhti, Mahti and LUMI, which are not intended for processing sensitive
-data.
-The sensitive data capability will be introduced after the initial Roihu
-general availability.
+CSC supercomputers, including Roihu, are maintained according to the best practices of HPC
+management: processes are planned and documented, systems are constantly monitored, and
+security patches are applied without delay.
+Further, all users log in using two-factor authentication.
+Thus, these environments are quite secure by default.
+However, CSC can't guarantee that there is no risk of a data breach, as
+new security incidents emerge from time to time.
+
+For use cases that require higher security, Roihu is being developed to support workflows
+that require enhanced controls for handling sensitive and confidential data.
+Roihu will introduce dedicated capabilities for regulated data workflows.
+
+The sensitive data capability will be introduced after Roihu's initial availability.
 Pilot use of the sensitive computing environment is currently estimated to begin in autumn 2026,
-with general availability potentially following in early 2027, depending on the results and experiences from the pilot phase.
+with general availability potentially following in early 2027, depending on the results and
+experiences from the pilot phase.
+
 The user workflow is expected to resemble CSC’s current Sensitive Data Desktop to HPC job submission model,
-where sensitive data jobs are submitted from a secure environment and input/output data are handled through protected data services.
+where sensitive data jobs are submitted from a secure environment (SD Desktop) and input/output data are
+handled through protected data services (SD Connect). The jobs will be executed in job-specific isolated
+environments that will not be able to access the internet or the shared disk areas of Roihu.
 
 Read more about the [sensitive data services at CSC](../data/sensitive-data/).
 
