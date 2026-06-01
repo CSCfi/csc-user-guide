@@ -32,6 +32,7 @@ It enables the collection of a timeline of CUDA-related activities, including ke
 memory set and CUDA API calls and events or metrics for CUDA kernels. The tool is very useful in identifying the high-level bottlenecks, hotspots and for determining which kernels should be targeted for optimization and analysis with the [Nsight Compute](ncu.md) tool.
 
 Profiling is done in two steps:
+
 1. Collect profiling data by running the application under `nsys` command line tool
 2. Analyze the results with `nsys-ui` GUI.
 
@@ -41,7 +42,7 @@ To use `nsys`, one needs to first load the CUDA module:
 module load cuda
 ```
 
-For collecting data, run your application normally via Slurm and prepend your executable with `ncu <profiling options>`:
+For collecting data, run your application normally via Slurm and prepend your executable with `nsys <profiling options>`:
 
 ```bash
 #SBATCH ...
