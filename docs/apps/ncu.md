@@ -32,8 +32,11 @@ The *ncu* profiling and debugging tool collects and views profiling data from th
 command-line. It is a low level CUDA kernel profiling tool. It enables the collection of a timeline of CUDA-related
 activities on both CPU and GPU, including kernel execution, memory transfers,
 memory set and CUDA API calls and events or metrics for CUDA kernels.
-Profiling results are displayed in the console after the profiling data is
-collected, and may also be saved for later viewing by *ncu-ui* tool.
+
+Profiling is done in two steps:
+
+1. Collect profiling data by running the application under `ncu` command line tool
+2. Analyze the results with `ncu-ui` GUI.
 
 To use `ncu`, one needs to first load the CUDA module:
 
@@ -60,7 +63,7 @@ with the `ncu-ui` GUI:
 ncu-ui profile.ncu-rep`
 ```
 
-The `ncu-ui` can be run directly on the CSC supercomputers (**Note: in Roihu GUI does not work at the moemnt), however, for smoother operation of the GUI 
+The `ncu-ui` can be run directly on the CSC supercomputers (**Note**: in Roihu GUI does not work at the moment), however, for smoother operation of the GUI 
 it is recommended to copy the results files to your local workstation and view them using a local 
 installation of Nsight Compute.
 
