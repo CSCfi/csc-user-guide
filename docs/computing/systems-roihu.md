@@ -40,8 +40,8 @@ a break in HPC access.
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
 means that jobs cannot be submitted on Puhti anymore. However, Puhti's storage will
-remain accessible until August 2026, after which it will be retired
-completely. Mahti will be closed in August 2026.
+remain accessible until end of August 2026, after which it will be retired
+completely. Mahti will be closed at the end of August 2026.
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
 prepared to do it by August 2026 at the very latest.
@@ -155,6 +155,20 @@ including:
 
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
+
+## Sensitive data services in Roihu
+
+Roihu is being developed to support sensitive and confidential data workflows,
+unlike Puhti, Mahti and LUMI, which are not intended for processing sensitive
+data.
+The sensitive data capability will be introduced after the initial Roihu
+general availability.
+Pilot use of the sensitive computing environment is currently estimated to begin in autumn 2026,
+with general availability potentially following in early 2027, depending on the results and experiences from the pilot phase.
+The user workflow is expected to resemble CSC’s current Sensitive Data Desktop to HPC job submission model,
+where sensitive data jobs are submitted from a secure environment and input/output data are handled through protected data services.
+
+Read more about the [sensitive data services at CSC](../data/sensitive-data/).
 
 ## More information
 
