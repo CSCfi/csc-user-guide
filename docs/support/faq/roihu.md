@@ -118,6 +118,57 @@ storage resources of Roihu. Like the current web interfaces, the Roihu web
 interface will be particularly aimed at interactive workloads and running
 graphical applications like Jupyter Notebooks, RStudio, etc.
 
-## 12. I did not find an answer to my question here. Who should I contact?
+## 12. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
+
+Roihu will eventually support a secure workflow for sensitive data processing. The technical implementation will include the capability to submit jobs from the SD Desktop to Roihu. However, setting up the workflow specific for secure sensitive data processing service for Roihu will take several months. As a result, this functionality is expected to become available only towards the end of 2026 or the beginning of 2027.
+
+## 13. Will Roihu have a longrun partition? What will be the maximum runtime?
+
+Yes, there will be one. According to the current information, the maximum time in the Roihu longrun partition will be 10 days. The small partion for partial or single nodes has a time limit of 72 hours.
+
+## 14. Will there be a separate application process to add Roihu as service? Do I need to apply for a new project to have access to Roihu?
+
+There's no separate application process, and no need for a new project either. Once Roihu is available, you can add it as a service to your existing project(s) in MyCSC, similarly to Puhti or Mahti.
+The existing billing units can be used on Roihu. Scratch/projappl space will be available there automatically, but data is NOT transferred automatically.
+
+## 15. Do I need to apply for storage allocations for Roihu?
+
+Storage allocations are per system, so you will need to make new applications for Roihu if the defaults are not enough. Same Storage BUs can be used.
+Do note that the default quotas in Roihu are more restrictive than on Mahti and Puhti. Only apply for more quota if you strictly need to.
+
+## 16. How should I migrate my data from Puhti/Mahti?
+
+Migration of data should primarily happen directly from Puhti/Mahti to Roihu, between July and August 2026. Mahti and Puhti storage will be shut down at the end of August 2026.
+See the [data migration guide](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#14-transfer-your-data-directly-from-puhtimahti-to-roihu)
+Short talk: Roihu data migration tips ([Slides](https://kannu.csc.fi/s/2ezpNEC77H4SttC), [recording](https://video.csc.fi/media/t/0_9ylmo5py))
+
+## 17. Do I need to migrate data from Allas to Roihu?
+
+Allas is not affected in this update. You can keep your current data there.
+If you have your data in Allas, you can access that data from Roihu too. That data does not need to be migrated, as Allas service will stay available also after Roihu comes.
+It is not recommended to transfer data to Roihu via Allas or your local workstation. Instead, CSC recommends using command-line based tools such as [`rsync`](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#2-recommended-data-migration-methods) to directly transfer data from Puhti/Mahti/LUMI to Roihu.
+
+## 18. Is it fine to run the rsync on login nodes, or should we use the computation nodes to do the transfer?
+
+It is ok to use rsync. Please read the migration guide carefully, and consider compressing your data before transfer. Only move data that you truly need.
+
+## 19. Will the login to Roihu be different than for Puhti/Mahti?
+
+In addition to SSH keys, a signed SSH certificate is required to connect to Roihu over SSH. [Read the instructions for getting and using SSH certificates here](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/computing/connecting/ssh-keys/#signing-public-key).
+Short talk: SSH authentication changes to Roihu short talk ([Slides](https://a3s.fi/media/SSH_CA_USER_COFFEE-20260422.pdf), [recording](https://video.csc.fi/media/t/0_el9fzv7f))
+
+## 20. Is there a list of pre-installed software/modules available?
+
+The target is to provide the same software as on Puhti and Mahti as far as possible.
+Some commercial software for which the vendor does not provide ARM (aarch64) support will not work on the Roihu GPU side as it uses the NVIDIA Grace ARM CPUs. This includes Desmond and CryoSPARC that we are aware of.
+We're working to provide alternative ways for users to use those software. 
+The goal is to have similar module support as in Puhti and Mahti, but there might be some changes. Some modules will change names, for example pytorch → python-pytorch. 
+
+## 21. Will the Roihu partitions be the same as in Puhti/Mahti in a sense of memory/time limits? 
+
+There will be some changes in the available partition names and the corresponding hardware. You can already see the available partitions and the corresponding limits in the [work in progress documentation for Roihu](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/computing/running/batch-job-partitions/#roihu-partitions).
+
+
+## 22. I did not find an answer to my question here. Who should I contact?
 
 Please send email to [CSC Service Desk](../contact.md). We are happy to help!
