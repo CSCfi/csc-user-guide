@@ -40,12 +40,12 @@ a break in HPC access.
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
 means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
-however, remain accessible until August 2026, after which Puhti will be retired
-completely. Mahti will be closed in August 2026.
+however, remain accessible until end of August 2026, after which Puhti will be retired
+completely. Mahti will be closed end of August 2026.
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
 prepared to do it during spring 2026, at the very latest in August 2026. CSC
-will publish a detailed Roihu migration guide in early 2026.
+will publish a detailed Roihu migration guide after Roihu's general availability.
 
 ## Compute
 
@@ -140,6 +140,32 @@ including e.g.
 
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
+
+## Sensitive data services in Roihu
+
+CSC supercomputers, including Roihu, are maintained according to the best practices of HPC
+management: processes are planned and documented, systems are constantly monitored, and
+security patches are applied without delay.
+Further, all users log in using two-factor authentication.
+Thus, these environments are quite secure by default.
+However, CSC can't guarantee that there is no risk of a data breach, as
+new security incidents emerge from time to time.
+
+For use cases that require higher security, Roihu is being developed to support workflows
+that require enhanced controls for handling sensitive and confidential data.
+Roihu will introduce dedicated capabilities for regulated data workflows.
+
+The sensitive data capability will be introduced after Roihu's initial availability.
+Pilot use of the sensitive computing environment is currently estimated to begin in autumn 2026,
+with general availability potentially following in early 2027, depending on the results and
+experiences from the pilot phase.
+
+The user workflow is expected to resemble CSC’s current Sensitive Data Desktop to HPC job submission model,
+where sensitive data jobs are submitted from a secure environment (SD Desktop) and input/output data are
+handled through protected data services (SD Connect). The jobs will be executed in job-specific isolated
+environments that will not be able to access the internet or the shared disk areas of Roihu.
+
+Read more about the [sensitive data services at CSC](../data/sensitive-data/).
 
 ## More information
 
