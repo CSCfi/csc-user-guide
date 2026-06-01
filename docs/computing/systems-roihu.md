@@ -165,7 +165,7 @@ where sensitive data jobs are submitted from a secure environment (SD Desktop) a
 handled through protected data services (SD Connect). The jobs will be executed in job-specific isolated
 environments that will not be able to access the internet or the shared disk areas of Roihu.
 
-Read more about the [sensitive data services at CSC](../data/sensitive-data/).
+Read more about the [sensitive data services at CSC](../data/sensitive-data/index.md).
 
 ## More information
 
