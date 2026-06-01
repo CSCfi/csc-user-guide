@@ -40,7 +40,7 @@ For large directories, check the data volume before transferring. On CSC superco
 checking disk usage (e.g. LUE) instead of running heavy recursive commands on large directory trees.
 
 ??? info "How to check disk usage on a directory"
-     We recommend using the LUE tool to identify where you have lots of data. Avoid using tools such as du as they may cause a lot of load on the file  system. Simple usage example (run lue -h for other options):
+     We recommend using the LUE tool to identify where you have lots of data. Avoid using tools such as `du` as they may cause a lot of load on the file  system. Simple usage example (run `lue -h` for other options):
      ```
      module load lue
      lue <directory-to-analyze>
