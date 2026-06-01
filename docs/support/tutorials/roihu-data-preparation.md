@@ -185,7 +185,7 @@ Use rclone copy to upload the data from Mahti/Puhti to LUMI-O.
 
 ## Option B: Move data from Puhti or Mahti to LUMI-O
 
-
+TBA
 
 ## Running long transfers safely
 
@@ -291,12 +291,3 @@ or:
 ```bash
 rclone copy README-roihu-transfer.txt lumi-46XXXXXXX-private:roihu-transfer/
 ```
-
-## Summary
-
-1. Clean up the data before transferring.
-2. Choose Allas or LUMI-O based on project access and available quota.
-3. Package large collections of small files when appropriate.
-4. Use `rclone copy` for the initial upload.
-5. Verify the uploaded data before deleting anything from Mahti or Puhti.
-6. Copy the data from object storage to Roihu after Roihu becomes available.
