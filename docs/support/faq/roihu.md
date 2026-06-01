@@ -132,6 +132,8 @@ graphical applications like Jupyter Notebooks, RStudio, etc.
 
 Roihu web interface will become available at [www.roihu.csc.fi](www.roihu.csc.fi), similarly to Mahti, Puhti and LUMI.
 
+See documentation on the [web interface](../../computing/webinterface/index.md).
+
 ## 12. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
 
 Roihu will eventually support a secure workflow for sensitive data processing. The technical implementation will include the capability to submit jobs from the SD Desktop to Roihu. However, setting up the workflow specific for secure sensitive data processing service for Roihu will take several months. As a result, this functionality is expected to become available only towards the end of 2026 or the beginning of 2027.
@@ -155,11 +157,15 @@ Short talk: Roihu data migration tips
 
 Allas is not affected in this update. You can keep your current data there.
 If you have your data in Allas, you can access that data from Roihu too. That data does not need to be migrated, as Allas service will stay available also after Roihu comes.
-It is not recommended to transfer data to Roihu via Allas or your local workstation. Instead, CSC recommends using command-line based tools such as [`rsync`](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#2-recommended-data-migration-methods) to directly transfer data from Puhti/Mahti/LUMI to Roihu.
+
+It is not recommended to transfer data to from Mahti/Puhti to Roihu via Allas or your local workstation. Instead, CSC recommends using command-line based tools such as [`rsync`](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#2-recommended-data-migration-methods)
+to directly transfer data from Puhti/Mahti/LUMI to Roihu.
 
 ## 16. Is it fine to run the rsync on login nodes, or should we use the computation nodes to do the transfer?
 
-It is ok to use rsync. Please read the migration guide carefully, and consider compressing your data before transfer. Only move data that you truly need.
+It is ok to use rsync on the Mahti/Puhti login nodes. Please read the [data migration guide](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#14-transfer-your-data-directly-from-puhtimahti-to-roihu)
+carefully, and consider compressing your data before transferring it, to save time and resources
+used in the migration. Only move data that you truly need.
 
 ## 17. Will logging in to Roihu be different than for Puhti/Mahti?
 
@@ -174,9 +180,13 @@ Roihu will also support a web interface for connecting, similarly to Mahti and P
 ## 18. Is there a list of pre-installed software/modules available?
 
 The target is to provide the same software as on Puhti and Mahti as far as possible.
-Some commercial software for which the vendor does not provide ARM (aarch64) support will not work on the Roihu GPU side as it uses the NVIDIA Grace ARM CPUs. This includes Desmond and CryoSPARC that we are aware of.
+Some commercial software for which the vendor does not provide ARM (aarch64) support will not work on the Roihu GPU side as it uses the NVIDIA Grace ARM CPUs.
+Some examples that we are aware of, and that have been installed on Mahti/Puhti include software like Desmond and CryoSPARC.
 We're working to provide alternative ways for users to use those software. 
-The goal is to have similar module support as in Puhti and Mahti, but there might be some changes. Some modules will change names, for example pytorch → python-pytorch.
+
+The goal is to have similar module support as in Puhti and Mahti, with some necessary changes in e.g.
+version numbers of some supported applications and modules.
+Some modules will change names, for example pytorch → python-pytorch.
 
 A list of installed software is not yet available in the documentation, but will be added at Roihu's general availability.
 
@@ -186,7 +196,8 @@ There will be some changes in the available partition names and the correspondin
 
 ## 20. Will Roihu have a longrun partition? What will be the maximum runtime?
 
-Yes, there will be one. According to the current information, the maximum time in the Roihu longrun partition will be 10 days. The small partion for partial or single nodes has a time limit of 72 hours.
+There will be a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition will be 10 days.
+The small partion for partial or single nodes has a time limit of 72 hours.
 
 ## 21. I did not find an answer to my question here. Who should I contact?
 
