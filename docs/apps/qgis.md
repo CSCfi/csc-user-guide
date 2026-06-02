@@ -11,8 +11,10 @@ catalog:
     - web_interfaces:
         - LUMI
         - Puhti
+        - Roihu
     - LUMI
     - Puhti
+    - Roihu
 ---
 
 # QGIS
