@@ -246,11 +246,11 @@ packages in the script section that is run in parallel and use `clusterExport` t
 
 `r-env` has been compiled using the Intel® oneAPI Math Kernel Library (oneMKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2025-0/improving-performance-with-threading.html). 
 
-By default, `r-env` is single-threaded. Certain R packages, including [`data.table`](https://r-datatable.com/), [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) and [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf), offer direct support for multithreading. Jobs using other types of R packages could also benefit from multithreading, depending on the analysis. For example, multithreading can help speed up linear algebra routines. To find out whether multithreading benefits a specific analysis, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
+By default, `r-env` is single-threaded. Certain R packages, including [`data.table`](https://r-datatable.com/), [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) and [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf), offer direct support for multithreading. Jobs using other types of R packages could also benefit from multithreading, depending on the analysis. For example, multithreading can help speed up linear algebra routines. To find out whether multithreading benefits a specific analysis, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html). 
 
-The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Because `r-env` is based on an Apptainer container, when specifying the number of OpenMP threads we need to use the environment variable `APPTAINERENV_OMP_NUM_THREADS`.
+The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Note that `OMP_NUM_THREADS` should not be used in all multicore R jobs but only in those using packages that support OpenMP threads. By default, `OMP_NUM_THREADS` is set to 1.
 
-An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `APPTAINERENV_OMP_PLACES=cores`, we bind each thread to a single core. Note that [other options](https://theartofhpc.com/pcse/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `OMP_PLACES=cores`, we bind each thread to a single core. Note that [other options](https://theartofhpc.com/pcse/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
 
 === "Roihu-CPU"
     ```bash
@@ -270,12 +270,12 @@ An example batch job script can be found below. Here we submit a job using eight
     module load r-env
     
     # Match thread and core numbers
-    export APPTAINERENV_OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
     
     # Place and bind threads to single cores
     # Comment the following lines if binding is not desired
-    export APPTAINERENV_OMP_PLACES=cores
-    export APPTAINERENV_OMP_PROC_BIND=spread
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=spread
     
     # Run the R script
     srun Rscript --no-save myscript.R
