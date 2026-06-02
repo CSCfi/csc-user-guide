@@ -17,18 +17,19 @@ catalog:
 
 # SNAP
 
-[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all common satellite platforms.
+[SNAP](https://step.esa.int/main/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for ESA satellite data.
 
 ## Available
 
 __SNAP__ is available with following versions:
 
-* 13.0 (wrapped singularity container with Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab) in Roihu
-* 13.0 (wrapped singularity container with Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab) in Puhti
-* 9.0 (module version name `jupyter, wrapped singularity container with Python 3.6.9 including snappy and snapista + JupyterLab) in Puhti
-* 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista) in Puhti
-* 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9) in Puhti
+* SNAP `13.0` + Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab in Roihu
+* SNAP `13.0` + Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab in Puhti
+* SNAP `jupyter` (9.0) + Python 3.6.9 including snappy and snapista + JupyterLab in Puhti
+* SNAP `9.0` + Python 3.6.9 including snappy and snapista in Puhti
+* SNAP `8.0` + Python 3.6.9 including snappy in Puhti
 
+The versions including JupyterLab can be used in the Jupyter application in the Puhti webinterface via the **custom module** option.
 
 ## Usage
 
@@ -118,14 +119,14 @@ It is also possible to access SNAP functionalities from Python.
 
 __SNAP 9.0 and 13.0__
 
-Running snappy/snapista scripts with batch jobs:
+Running Python scripts with batch jobs:
 ```
 python3 <YOUR-PYTHON-SCRIPT>
 ```
 
 See available packages:
 ```
-pip3 list
+pip list
 ```
 
 Installing new packages to your `$HOME` directory:
