@@ -878,7 +878,7 @@ Further to [executing multi-threaded R jobs on a single node](#improving-perform
 
 When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to the maximum number of cores available on a single node. For large multi-node jobs, aim to use full nodes, i.e. use all cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
 
-As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing multiple OpenMP threads (`--cpus-per-task`). Overall, the job would use `--cpus-per-task × --ntasks-per-node × --nodes` cores. As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `APPTAINERENV_OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}`. We also use the same variables for thread affinity control.
+As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing multiple OpenMP threads (`--cpus-per-task`). Overall, the job would use `--cpus-per-task × --ntasks-per-node × --nodes` cores. As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}`. We also use the same variables for thread affinity control.
 
 === "Roihu-CPU"
     ```bash
@@ -898,12 +898,12 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     module load r-env
     
     # Match thread and core numbers
-    export APPTAINERENV_OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
     
     # Place and bind threads to single cores
     # Comment the following lines if binding is not desired
-    export APPTAINERENV_OMP_PLACES=cores
-    export APPTAINERENV_OMP_PROC_BIND=spread
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=spread
     
     # Run the R script
     srun Rscript --no-save myscript.R
