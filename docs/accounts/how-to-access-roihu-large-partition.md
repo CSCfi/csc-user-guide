@@ -49,9 +49,9 @@ performed. Here are some general guidelines for scalability testing.
 * Testing should be done for at least three different node counts up to the
   target in production (for example with 10, 20, 30 and 40 nodes).
    * Choose the smallest node count as the smallest value, where your input
-   data can be stored on the nodes
-   * Input data must be the same for all runs
-* Tests are run on Roihu, through the Slurm batch job system.
+   data can be stored on the nodes.
+   * Input data must be the same for all runs.
+* Tests should be run on Roihu, through the Slurm batch job system.
 * The test runs should reflect real production runs, i.e. the number of atoms,
   number of grid points, disk I/O load etc. should be similar.
 * In scalability testing you are not expected to showcase production runs of your
@@ -93,10 +93,10 @@ export OMP_DISPLAY_AFFINITY=true
 ```
 
 Reporting the results of the test runs or applicable previous scalability data
-is done through [MyCSC portal](https://my.csc.fi) as follows:
+is done through the [MyCSC portal](https://my.csc.fi) as follows:
 
-1. Login to [MyCSC](https://my.csc.fi) and in the _Projects_ menu select the
-   project you want to modify.
+1. Log in to [MyCSC](https://my.csc.fi), and select the
+   project you want to modify in the _Projects_ menu.
 2. In the _Services_ list, click open the settings for **Roihu** service
    (_Configure_). This opens a page where the project manager can modify the
    settings for disk quotas (_Quota settings_) and request access to the large
