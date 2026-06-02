@@ -22,7 +22,7 @@ catalog:
 -   RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://posit.co/products/open-source/rstudio).
 
 !!! info "News"
-    **25.5.2026** `r-env` documentation has been updated with instructions in R use on the upcoming Roihu supercomputer.  
+    **25.5.2026** `r-env` documentation has been updated with instructions in R use on the Roihu supercomputer.  
     **29.4.2026** `r-env` documentation has been updated and re-organised. Template scripts for parallel R batch jobs can now be found 
     on a separate tutorial page [Parallel R batch job examples](../support/tutorials/parallel-r-examples.md).  
     **17.2.2026** R version 4.5.2 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
@@ -34,7 +34,7 @@ catalog:
 
 ## Available
 
-`r-env` includes 1500+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
+`r-env` includes 1700+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
@@ -43,7 +43,7 @@ Current modules and versions supported on CSC's supercomputers:
 === "Roihu-CPU"
     | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
     |:-----------------------:|:--------------------|:--------------------:|:----------------------:|:--------------:|:---------------:|
-    | r-env/452 (default)     | Apr 4 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.38.0          |
+    | r-env/452 (default)     | Apr 4 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.39.0          |
 
 === "Puhti"
     | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
@@ -512,7 +512,7 @@ To use it, one must set the correct path to CmdStan using `cmdstanr`. For exampl
 
 === "Roihu-CPU"
     ```r
-    cmdstanr::set_cmdstan_path("/appl/soft/manual/aida/x86_64/r-env/452-stan/cmdstan-2.38.0")
+    cmdstanr::set_cmdstan_path("/appl/soft/manual/aida/x86_64/r-env/452-stan/cmdstan-2.39.0")
     ```
     If a model fails to compile, try running `module purge` before starting R.
     
@@ -528,14 +528,7 @@ To use it, one must set the correct path to CmdStan using `cmdstanr`. For exampl
 If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 === "Roihu-CPU"
-    ```r
-    # Set R version
-    export RVER=452
-    
-    # Launch R after binding CmdStan
-    SING_FLAGS="$SING_FLAGS -B /appl/soft/manual/aida/x86_64/r-env/${RVER}-stan:/appl/soft/manual/aida/x86_64/r-env/${RVER}-stan"
-    srun Rscript --no-save script.R
-    ```
+    Under construction. Sorry for any inconvenience and please check back later!
 
 === "Puhti"
     ```r
@@ -560,6 +553,8 @@ If you are using CmdStan in an interactive session, the above command will work 
 Other details on using the CmdStan backend are package-specific. As one example, one could use it with the [`brms`](https://paul-buerkner.github.io/brms/) package:
 
 ```r
+# Note: this doesn't currently work in Roihu, but we are trying to find a solution. 
+
 library(brms)
 
 fit_serial <- brm(
