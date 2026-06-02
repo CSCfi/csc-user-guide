@@ -22,7 +22,7 @@ catalog:
 -   RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://posit.co/products/open-source/rstudio).
 
 !!! info "News"
-    **25.5.2026** `r-env` documentation has been updated with instructions in R use on the Roihu supercomputer.  
+    **25.5.2026** `r-env` documentation has been updated with instructions for R use on the Roihu supercomputer.  
     **29.4.2026** `r-env` documentation has been updated and re-organised. Template scripts for parallel R batch jobs can now be found 
     on a separate tutorial page [Parallel R batch job examples](../support/tutorials/parallel-r-examples.md).  
     **17.2.2026** R version 4.5.2 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
