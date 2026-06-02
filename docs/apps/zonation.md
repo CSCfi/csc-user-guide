@@ -10,7 +10,9 @@ catalog:
   available_on:
     - web_interfaces:
         - Puhti
+        - Roihu
     - Puhti
+    - Roihu
 ---
 
 # Zonation
