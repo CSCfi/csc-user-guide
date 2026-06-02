@@ -7,9 +7,16 @@ This may be useful if your research group cannot wait until Roihu is available, 
 The recommended temporary storage options are:
 
 - **A:** Allas, if your CSC project has enough available Allas quota
-- **B:** LUMI-O, if your project has access to LUMI-O and enough available storage quota
+- **B:** LUMI-O, if you have a project that has access to LUMI-O, and enough available storage quota there
 
 After Roihu becomes available, you can copy the data from Allas or LUMI-O to Roihu.
+
+!!! warning "Note"
+     Your primary approach in data migration from Mahti and Puhti to Roihu
+     should be a direct copy from one machine to the other.
+     Only utilize Allas or LUMI-O, if you cannot manage data
+     transfers between Roihu availability and Mahti/Puhti storage
+     shutdown.
 
 ## When should you use this tutorial?
 
@@ -56,7 +63,7 @@ Choose **Allas** if:
 
 Choose **LUMI-O** if:
 
-- your project has LUMI-O access
+- you have a project that has LUMI-O access
 - you need object storage for a larger amount of data (> 10 TB)
 - your group is already using LUMI or can apply for suitable access
 
@@ -175,14 +182,6 @@ rclone copy /scratch/project_2000000/mydata allas:project-2000000-roihu-transfer
   --log-file roihu-transfer-to-allas.log
 ```
 
-LUMI-O can be used as temporary object storage for data that needs to be moved out of Mahti or Puhti before Roihu is generally available.
-
-The approach is:
-
-Create LUMI-O credentials.
-Configure an S3-compatible rclone remote for LUMI-O on Mahti or Puhti.
-Use rclone copy to upload the data from Mahti/Puhti to LUMI-O.
-
 ## Option B: Move data from Puhti or Mahti to LUMI-O
 
 TBA
@@ -213,10 +212,19 @@ tmux attach -t roihu-transfer
 
 After Roihu is available, log in to Roihu and configure access to the object storage service that contains your data, following
 instructions that will be provided in the [tutorial for using Allas in CSC supercomputers](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/data/Allas/allas-hpc/).
+The approach is very similar to Mahti and Puhti
 
 Then copy the data from object storage to the appropriate Roihu disk area.
 
-Example from Allas:
+On Roihu, check which available buckets your project has in Allas with `rclone lsd`:
+
+```bash
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ rclone lsd allas:
+  3268222761 2020-10-03 10:01:42         8 2001659-genomes
+  2576778428 2020-10-03 10:01:42         4 2001659-mahti-SCRATCH
+```
+
+Copy the appropriate data to your directory on Roihu:
 
 ```bash
 rclone copy allas:project-2000000-roihu-transfer/mydata /scratch/project_2000000/mydata
