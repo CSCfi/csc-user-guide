@@ -18,7 +18,7 @@ The virtual desktop comes with a limited selection of pre-installed open-source 
 
     ---
     
-    * **Install software via SD Software Installer:** an easy-to-use tool provided and maintained by CSC that makes it simple to install selected, commonly used software [**software**](#software-available-via-sd-software-installer) on your virtual desktop.
+    * **Install software via SD Software Installer:** an easy-to-use tool provided and maintained by CSC that makes it simple to install selected, commonly used [**software**](#software-available-via-sd-software-installer) on your virtual desktop.
     * **Apptainer software container tool** can be used to add new software to your desktop environment. You can also import software for example as AppImage files, Ubuntu 22.04 compatible binaries or as source code.
 
 
