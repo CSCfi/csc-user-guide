@@ -10,7 +10,9 @@ catalog:
   available_on:
     - web_interfaces:
         - Puhti
+        - Roihu
     - Puhti
+    - Roihu
 ---
 
 # SNAP
@@ -19,21 +21,14 @@ catalog:
 
 ## Available
 
-__SNAP__ is available in Puhti with following versions:
+__SNAP__ is available with following versions:
 
-* 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista)
-* 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
+* 13.0 (wrapped singularity container with Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab) in Roihu
+* 13.0 (wrapped singularity container with Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab) in Puhti
+* 9.0 (module version name `jupyter, wrapped singularity container with Python 3.6.9 including snappy and snapista + JupyterLab) in Puhti
+* 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista) in Puhti
+* 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9) in Puhti
 
-In addition we provide the module `snap/jupyter` which has SNAP 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista) and jupyter installed. You can for example use it in the Jupyter application in the Puhti webinterface via the **custom module** option.
-
-### Installed toolboxes
-
-* Sentinel toolboxes (1,2,3) 
-* SMOS toolbox 
-* Radarsat toolbox 
-* PROBA-V toolbox
-
-You can install more plugins to your own user directory from the SNAP Graphical user interface.
 
 ## Usage
 
@@ -45,18 +40,18 @@ This loads the newest available version. You can load an older version with:
 
 `module load snap/<VERSION>`
 
-### Using SNAP with Graphical User Interface (GUI) in Puhti web interface
+### Using SNAP with Graphical User Interface (GUI) in the Puhti/Roihu web interface
 
-The easiest option for using SNAP is to open it in Puhti web interface.
+The easiest option for using SNAP is to open it in the Puhti/Roihu web interface.
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
+1. Log in to web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi)
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launching the Desktop, double-click SNAP icon OR open `Terminal` (Desktop icon) and start SNAP:
+3. After launching the Desktop, double-click SNAP icon OR open `Terminal Emulator` (Desktop icon) and start SNAP:
 
 ```
 module load snap
 source snap_add_userdir $TMPDIR
-snap -J-xmx10G
+snap -J-Xmx10G
 ```
 
 #### SNAP userdir and Java temp dir configuration 
@@ -67,7 +62,7 @@ After loading the snap module run
 
 `source snap_add_userdir <YOUR-PROJECTS-SCRATCH-FOLDER>`
 
-You could also request a fast [nvme](../computing/running/creating-job-scripts-puhti.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
+In Puhti, you could also request a fast [nvme](../computing/running/creating-job-scripts-puhti.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
 
 `source snap_add_userdir $LOCAL_SCRATCH` with batch jobs
 
@@ -81,11 +76,11 @@ This scripts sets also Java temporary folder, it is set to be snap/temp subfolde
 
 #### Java memory settings
 
-__By default SNAP/8.0 in Puhti uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
+__By default SNAP/8.0 uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-Xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
-The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti partition](../computing/running/batch-job-partitions.md).
+The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [partition](../computing/running/batch-job-partitions.md).
 
 GPT command looks often something like this:
 
@@ -119,9 +114,9 @@ gpt <snap-operator> -h
 
 ### Using SNAP with the Python interfaces
 
-It is also possible to access SNAP functionalities from Python with the __snappy__ and __snapista__ (only SNAP 9) library.
+It is also possible to access SNAP functionalities from Python.
 
-__SNAP 9.0__
+__SNAP 9.0 and 13.0__
 
 Running snappy/snapista scripts with batch jobs:
 ```
@@ -167,9 +162,17 @@ Please see our
 [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
 for instructions.
 
+### Using the Python package with JupyterLab
+
+1. Log in to web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi)
+2. Open [Jupyter app](../computing/webinterface/jupyter.md). 
+3. Select **custom module** and write `snap` as module.
+
+In Jupyter remember to set the temporary direcotries. Follow the [SNAP set up Notebook](https://github.com/csc-training/geocomputing/blob/master/snap/SNAP_set_up.ipynb) to get started.
+
 ## Updating SNAP
 
-SNAP minor and module updates are stored in the `$HOME/.snap` directory. This means that all minor updates need to be installed by the user. You can either do this in SNAP Desktop by following the instructions in the pop-up at start up, or for SNAP 9 by running `source update_snap` after loading the SNAP module in the terminal.
+SNAP minor and module updates are stored in the `$HOME/.snap` directory. This means that all minor updates need to be installed by the user. You can do this in SNAP Desktop by following the instructions in the pop-up at start up.
 
 ## License
 
@@ -189,11 +192,13 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-SNAP was installed to Puhti with Singularity using the [SNAP Docker image provided by mundialis on Dockerhub](https://hub.docker.com/r/mundialis/esa-snap) with some small additions to provide snappy and snapista Python interfaces. The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): 
+SNAP 13.0 was installed with Singularity using installer provided by ESA, with pip was added Jupyter, `esa_snappy` and `pyroSAR`. The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+
+SNAP 9.0 was installed to Puhti with Singularity using the [SNAP Docker image provided by mundialis on Dockerhub](https://hub.docker.com/r/mundialis/esa-snap) with some small additions to provide snappy and snapista Python interfaces. The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
 
 `wrap-container -w /usr/local/snap/bin,/usr/bin snap9_py.sif --prefix install_dir`
 
-The full [SNAP Singularity definition file](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap/snap9_py.def).
+[CSC SNAP Singularity definition files](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap).
 
 
 ## References
