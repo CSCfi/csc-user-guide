@@ -130,7 +130,7 @@ storage resources of Roihu. Like the current web interfaces, the Roihu web
 interface will be particularly aimed at interactive workloads and running
 graphical applications like Jupyter Notebooks, RStudio, etc.
 
-Roihu web interface will become available at [www.roihu.csc.fi](www.roihu.csc.fi), similarly to Mahti, Puhti and LUMI.
+Roihu web interface will become available at [www.roihu.csc.fi](https://www.roihu.csc.fi/){ target=_blank }, similarly to Mahti, Puhti and LUMI.
 
 See documentation on the [web interface](../../computing/webinterface/index.md).
 
@@ -175,7 +175,7 @@ Short talk: SSH authentication changes to Roihu
 * [Slides](https://a3s.fi/media/SSH_CA_USER_COFFEE-20260422.pdf)
 * [Recording](https://video.csc.fi/media/t/0_el9fzv7f)
 
-Roihu will also support a web interface for connecting, similarly to Mahti and Puhti, at [www.roihu.csc.fi](www.roihu.csc.fi).
+Roihu will also support a web interface for connecting, similarly to Mahti and Puhti, at [www.roihu.csc.fi](https://www.roihu.csc.fi/){ target=_blank }.
 
 ## 18. Is there a list of pre-installed software/modules available?
 
