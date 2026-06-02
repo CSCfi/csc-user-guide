@@ -89,7 +89,8 @@ Migration of data should primarily happen directly from Puhti/Mahti to Roihu, be
 
 You can already familiarize yourself with the [data migration guide](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#14-transfer-your-data-directly-from-puhtimahti-to-roihu), before Roihu becomes available.
 
-Short talk: Roihu data migration tips
+Short talk: Roihu data migration tips:
+
 * [Slides](https://kannu.csc.fi/s/2ezpNEC77H4SttC)
 * [Recording](https://video.csc.fi/media/t/0_9ylmo5py)
 
@@ -162,9 +163,12 @@ used in the migration. Only move data that you truly need.
 
 ## 15. Will logging in to Roihu be different than for Puhti/Mahti?
 
-In addition to SSH keys, a signed SSH certificate is required to connect to Roihu over SSH. [Read the instructions for getting and using SSH certificates here](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/computing/connecting/ssh-keys/#signing-public-key).
+In addition to SSH keys, a signed SSH certificate is required to connect to Roihu over SSH.
+
+[Read the instructions for getting and using SSH certificates here](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/computing/connecting/ssh-keys/#signing-public-key).
 
 Short talk: SSH authentication changes to Roihu
+
 * [Slides](https://a3s.fi/media/SSH_CA_USER_COFFEE-20260422.pdf)
 * [Recording](https://video.csc.fi/media/t/0_el9fzv7f)
 
