@@ -472,7 +472,7 @@ can have at most 0.5 million objects. You could, for example, run a separate
 a site-specific bucket. For example:
 
 ```bash
-rclone copyto road_cameras/site_1 allas:2001659_road_cameras_site_1/
+rclone copyto road_cameras/site_1 s3allas:2001659_road_cameras_site_1/
 ```
 
 This way, you would end up creating ten buckets each containing 262 800
