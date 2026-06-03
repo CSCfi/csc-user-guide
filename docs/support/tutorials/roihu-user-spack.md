@@ -5,9 +5,8 @@ manager.  This document describes how regular users can use Spack
 to install additional software, libraries and applications, on top of
 the already installed software.
 
-Throughout this document, we use the package `eccodes` as an example,
-and assume that the commands are run in user's custom software install
-root, usually somewhere under `/projappl/<project>/$USER`.
+Throughout this document, we assume that the commands are run in user's
+custom software install root, usually somewhere under `/projappl/<project>/${USER}`.
 
 In addition to this tutorial style documentation, please refer to the
 full
@@ -19,6 +18,7 @@ For example, term "environment" in this document specifically refers to
     This section is a work in progress. Some steps may be outdated,
     incomplete, or not fully tested in the current Roihu environment.
     Use with caution and report any issues you encounter.
+
 
 ## When to install with Spack
 
@@ -53,10 +53,10 @@ settings from those scopes leak into our setup. See
 for details.
 
 ```console
-source /appl/soft/spack/v2026_03/spack/share/spack/setup-env.sh
-source /appl/soft/spack/v2026_03/spack/share/spack/bash/spack-completion.bash
 export SPACK_USER_CACHE_PATH=$TMPDIR/spack
 export SPACK_DISABLE_LOCAL_CONFIG=true
+source /appl/soft/spack/v2026_03/spack/share/spack/setup-env.sh
+source /appl/soft/spack/v2026_03/spack/share/spack/bash/spack-completion.bash
 ```
 
 
@@ -70,8 +70,8 @@ The corresponding core environments and the application environments
 (built on top of the core environments) are in directories
 
 ```
-/appl/soft/spack/core/v2026_03/$target_family
-/appl/soft/spack/apps/v2026_03/$target_family
+/appl/soft/spack/core/v2026_03/${target_family}
+/appl/soft/spack/apps/v2026_03/${target_family}
 ```
 
 where `$target_family` is either `x86_64` or `aarch64`, referring to
@@ -103,41 +103,47 @@ The packages in the upstream environment can be listed, for example,
 with command
 
 ```console
-spack -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' find
+spack -E -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' find -l
 ```
 
 which gives
 
 ```output
 -- linux-rhel9-x86_64 / %c=gcc@15.2.0 ---------------------------
-knem@1.1.4
+vshzxn2 knem@1.1.4
 
 -- linux-rhel9-x86_64 / no compilers ----------------------------
-gcc@15.2.0  glibc@2.34  lustre@2.14.0  rdma-core@54.0  slurm@25.05.3
+nsx4vac gcc@15.2.0  45if5qv glibc@2.34  jix3h7v lustre@2.14.0  aeadm2n rdma-core@54.0  fkinzg5 slurm@25.05.3
 
 -- linux-rhel9-zen5 / %c,cxx,fortran=gcc@15.2.0 -----------------
-openblas@0.3.30  openmpi@5.0.10  papi@7.2.0
+2d66cws hdf5@1.14.6  qskucwe openblas@0.3.30  jtu4mle openmpi@5.0.10  ad53otu papi@7.2.0  msn34e2 parallel-netcdf@1.14.1
 
 -- linux-rhel9-zen5 / %c,cxx=gcc@15.2.0 -------------------------
-berkeley-db@18.1.40  c-blosc@1.21.6  eigen@5.0.1  gettext@1.0  krb5@1.22.2   lz4@1.10.0      ncurses@6.6     openssl@3.6.1  ucx@1.20.0
-bison@3.8.2          cmake@3.31.11   expat@2.7.4  hwloc@2.4.1  libaec@1.1.4  m4@1.4.21       nghttp2@1.67.1  python@3.14.3  zlib-ng@2.3.3
-boost@1.88.0         curl@8.18.0     ffmpeg@7.1   icu4c@74.2   libffi@3.5.2  mimalloc@3.2.7  openssh@10.2p1  snappy@1.2.1   zstd@1.5.7
+5jgdak6 berkeley-db@18.1.40  5huzpbm curl@8.18.0  ctjvy35 hwloc@2.4.1   gavswuq lz4@1.10.0      n2yix5u openssh@10.2p1              35almze ucx@1.20.0
+bwi6e4z bison@3.8.2          qjlzhxn eigen@5.0.1  sa7jjuo icu4c@74.2    57nb6no m4@1.4.21       3a2xrgw openssl@3.6.1               siciate zlib-ng@2.3.3
+niyho5a boost@1.88.0         m3d4hr2 expat@2.7.4  ro346yy krb5@1.22.2   b5ymicp mimalloc@3.2.7  be236m7 osu-micro-benchmarks@7.5.2  pvz4ljc zstd@1.5.7
+dhosjnx c-blosc@1.21.6       bkrrw3k ffmpeg@7.1   5ddtnbo libaec@1.1.4  ezw6kfg ncurses@6.6     qvwhx54 python@3.14.3
+dkj6m2a cmake@3.31.11        sgerwwx gettext@1.0  6neer47 libffi@3.5.2  zj62cb6 nghttp2@1.67.1  xjllls2 snappy@1.2.1
 
 -- linux-rhel9-zen5 / %c,fortran=gcc@15.2.0 ---------------------
-fftw@3.3.10  netcdf-fortran@4.6.2  netlib-lapack@3.12.1  netlib-scalapack@2.2.2
+gafrwzb fftw@3.3.10  ilpb6cd netcdf-fortran@4.6.2  lagqyzt netlib-lapack@3.12.1  stnq2qp netlib-scalapack@2.2.2
 
 -- linux-rhel9-zen5 / %c=gcc@15.2.0 -----------------------------
-alsa-lib@1.2.15.3  diffutils@3.12    gmake@4.4.1  libbsd@0.12.2         libiconv@1.18    libtool@2.5.4    nasm@2.16.03    perl@5.42.0    readline@8.3   util-linux-uuid@2.41
-automake@1.18.1    findutils@4.10.0  gsl@2.8      libedit@3.1-20240808  libmd@1.1.0      libxcrypt@4.5.2  netcdf-c@4.9.3  pigz@2.8       sqlite@3.51.2  xz@5.8.2
-bzip2@1.0.8        gdbm@1.26         hdf5@1.14.6  libevent@2.1.12       libsigsegv@2.15  libxml2@2.15.1   numactl@2.0.19  pkgconf@2.5.1  tar@1.35
+w5oytoe alsa-lib@1.2.15.3  rd2uuxx gdbm@1.26             kcjhrtc libevent@2.1.12  ddibcjq libxcrypt@4.5.2  ejivk2i perl@5.42.0    rzwegeu tar@1.35
+os67qlb automake@1.18.1    3jmx5cd gmake@4.4.1           anayviw libiconv@1.18    6mr7zcy libxml2@2.15.1   b5e6x6u pigz@2.8       it55vd4 util-linux-uuid@2.41
+an5rzrc bzip2@1.0.8        lsilpvy gsl@2.8               i3l5zsd libmd@1.1.0      jwkph32 nasm@2.16.03     btxv56s pkgconf@2.5.1  vk7ckqw xz@5.8.2
+72jfleb diffutils@3.12     dl3mtdk libbsd@0.12.2         qurnpw5 libsigsegv@2.15  pcod7dd netcdf-c@4.9.3   lf5ljls readline@8.3
+p4i5zpo findutils@4.10.0   vbo25pf libedit@3.1-20240808  dbbnpoy libtool@2.5.4    zvxjta5 numactl@2.0.19   3m5q6wh sqlite@3.51.2
 
 -- linux-rhel9-zen5 / %cxx=gcc@15.2.0 ---------------------------
-kokkos@5.0.2
+t4kg5zu kokkos@5.0.2
 
 -- linux-rhel9-zen5 / no compilers ------------------------------
-autoconf@2.72  compiler-wrapper@1.0  gcc-runtime@15.2.0
-==> 73 installed packages
+5e4345x autoconf@2.72  iglv3xy compiler-wrapper@1.0  uaq7tuq gcc-runtime@15.2.0
+==> 75 installed packages
 ```
+
+The seven character string in front of the package name is a hash that we can use to refer to particular concretized spec or install.
 
 
 ## How to set up a custom environment for the installs
@@ -147,45 +153,48 @@ already existing installed packages from the system core environment
 (upstream) as possible, and installs the missing ones in a custom
 install tree. Multiple environments can use the same install trees.
 
+The basic setup for different custom environments is very similar. I'll set a shell variable
+`${upstream}` to point to selected upstream core environment, and use
+[Spack specific variable](https://spack.readthedocs.io/en/v1.1.1/configuration.html#config-file-variables),
+such as `${target_family}`, which Spack expands when interpreting it's configuration files.
+The quoting in the examples prevents shell from expanding Spack specific variables.
+
+```console
+upstream=gcc152_ec
+```
+
 The commands
 
 ```console
-spack env create environments/mygcc152_ec
-spack env activate -p environments/mygcc152_ec
+spack env create environments/my_${upstream}
+spack env activate -p environments/my_${upstream}
 ```
 
 create the initial version of the file defining the environment,
-`environments/mygcc152_ec/spack.yaml`, and make the following spack
+`environments/my_gcc152_ec/spack.yaml`, and make the following spack
 commands to act within the environment. If you plan to install multiple
 versions of the same packages in the environment, consider adding
 option `--without-view` option to
 [spack env activate](https://spack.readthedocs.io/en/v1.1.1/environments.html#activating-an-environment)
 command.
 
-Similar to defining `SPACK_USER_CACHE_PATH`, we need to override some
-default settings, so that they do not point to default
-system locations (which are not writable by users):
+Next, we set up the environment configuration, by defining
+
+- the upstream environment
+- the location of our custom environment's actual software install root
+- the source cache directory (the default one is not writable by regular users)
+- flatten the default hierarchy in the install tree and use short hashes
 
 ```console
-spack config add 'config:source_cache:$spack_user_cache/source-cache'
-```
-
-The chosen upstream environment and the location of our custom environment's
-actual software install root can be added to environment configuration
-(`spack.yaml` file) with commands
-
-```console
-spack config add 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir'
-spack config add 'config:install_tree:root:$PWD/mygcc152_ec-install'
-```
-
-Optionally, you can also add other configuration settings, for example
-flatten the default hierarchy in the install tree and use short
-hashes:
-
-```console
+spack config add upstreams:${upstream}:install_tree:/appl/soft/spack/core/v2026_03/'${target_family}'/${upstream}/install_dir
+spack config add config:install_tree:root:$PWD/my_${upstream}-install
+spack config add config:source_cache:source-cache
 spack config add 'config:install_tree:projections:all:"{name}-{version}-{hash:7}"'
 ```
+
+When in the active Spack environment, these commands simply change the environment definition file, here
+`environments/my_gcc152_ec/spack.yaml`.
+Alternatively, you can make the changes editing the file directly.
 
 The final step in the custom environment configuration is to define what to install to the environment:
 
@@ -288,6 +297,107 @@ all looks fine, and we can proceed to installation
 ```console
 spack install
 ```
+
+
+## What to do when concretization is not using an upstream dependency
+
+Sometimes there are `-` entries in the concretization for the dependency
+packages that would be available in the upstream. The concretization of
+`eccodes` used packages installed in the upstream, so let's try to install something
+slightly more difficult:
+
+```console
+spack add 'vasp+hdf5+openmp'
+spack concretize
+```
+
+```output
+ -   rfhap2d  vasp@6.5.1~cuda+fftlib+hdf5~libbeef~libxc+openmp+shmem~wannier90 build_system=makefile platform=linux os=rhel9 target=zen5 %c,cxx,fortran=gcc@15.2.0
+[^]  iglv3xy      ^compiler-wrapper@1.0 build_system=generic platform=linux os=rhel9 target=zen5
+ -   bska4tv      ^fftw@3.3.10+mpi+openmp~pfft_patches+shared build_system=autotools patches:=872cff9 precision:=double,float platform=linux os=rhel9 target=zen5 %c,fortran=gcc@15.2.0
+[e]  jzf6h3h      ^gcc@15.2.0+binutils+bootstrap~graphite+libsanitizer~mold~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++,fortran' platform=linux os=rhel9 target=x86_64
+ -   qgv5zle      ^gcc-runtime@15.2.0 build_system=generic platform=linux os=rhel9 target=zen5
+[e]  45if5qv      ^glibc@2.34 build_system=autotools platform=linux os=rhel9 target=x86_64
+[^]  3jmx5cd      ^gmake@4.4.1~guile build_system=generic platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[e]  nsx4vac          ^gcc@15.2.0+binutils+bootstrap~graphite+libsanitizer~mold~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++,fortran,jit' platform=linux os=rhel9 target=x86_64
+[^]  uaq7tuq          ^gcc-runtime@15.2.0 build_system=generic platform=linux os=rhel9 target=zen5
+ -   qlknyrh      ^hdf5@1.14.6~cxx+fortran~hl~ipo~java~map+mpi+shared~subfiling~szip~threadsafe+tools api=default build_system=cmake build_type=Release generator=make platform=linux os=rhel9 target=zen5 %c,fortran=gcc@15.2.0
+[^]  dkj6m2a          ^cmake@3.31.11~doc+ncurses+ownlibs~qtgui build_system=generic build_type=Release platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  5huzpbm              ^curl@8.18.0~gssapi~ldap~libidn2~librtmp~libssh~libssh2+nghttp2 build_system=autotools libs:=shared,static tls:=openssl platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  zj62cb6                  ^nghttp2@1.67.1 build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  ezw6kfg              ^ncurses@6.6~symlinks+termlib abi=none build_system=autotools patches:=7a351bc platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  btxv56s          ^pkgconf@2.5.1 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  siciate          ^zlib-ng@2.3.3+compat+new_strategies+opt+pic+shared build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+ -   yswx35z      ^netlib-scalapack@2.2.2~ipo~pic+shared build_system=cmake build_type=Release generator=make platform=linux os=rhel9 target=zen5 %c,fortran=gcc@15.2.0
+[^]  qskucwe      ^openblas@0.3.30~bignuma~consistent_fpcsr+dynamic_dispatch+fortran~ilp64+locking+pic+shared build_system=makefile symbol_suffix=none threads=openmp platform=linux os=rhel9 target=zen5 %c,cxx,fortran=gcc@15.2.0
+ -   zxmpyf5      ^openmpi@5.0.10+atomics~cuda~debug+fortran~gpfs~internal-hwloc~internal-libevent~internal-pmix~ipv6~java~lustre~memchecker~openshmem~rocm~romio+rsh~static~two_level_namespace+vt+wrapper-rpath build_system=autotools fabrics:=none romio-filesystem:=none schedulers:=none platform=linux os=rhel9 target=zen5 %c,cxx,fortran=gcc@15.2.0
+[^]  5e4345x          ^autoconf@2.72 build_system=autotools platform=linux os=rhel9 target=zen5
+[^]  57nb6no              ^m4@1.4.21+sigsegv build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  72jfleb                  ^diffutils@3.12 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  qurnpw5                  ^libsigsegv@2.15 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  os67qlb          ^automake@1.18.1 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  ctjvy35          ^hwloc@2.4.1~cairo~cuda~gl~level_zero~libudev+libxml2~netloc~nvml~opencl~pci~rocm build_system=autotools libs:=shared,static platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  6mr7zcy              ^libxml2@2.15.1+pic~python+shared build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  vk7ckqw                  ^xz@5.8.2~pic build_system=autotools libs:=shared,static platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  kcjhrtc          ^libevent@2.1.12+openssl build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  dbbnpoy          ^libtool@2.5.4 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  p4i5zpo              ^findutils@4.10.0 build_system=autotools patches:=440b954 platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  sgerwwx                  ^gettext@1.0+bzip2+curses+git~libunistring+libxml2+pic+shared+tar+xz build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  rzwegeu                      ^tar@1.35 build_system=autotools zip=pigz platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  b5e6x6u                          ^pigz@2.8 build_system=makefile platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  zvxjta5          ^numactl@2.0.19 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  n2yix5u          ^openssh@10.2p1+gssapi build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  ro346yy              ^krb5@1.22.2+shared build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  bwi6e4z                  ^bison@3.8.2~color build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  vbo25pf              ^libedit@3.1-20240808 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  ddibcjq              ^libxcrypt@4.5.2~obsolete_api build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  ejivk2i          ^perl@5.42.0+cpanm+opcode+open+shared+threads build_system=generic platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  5jgdak6              ^berkeley-db@18.1.40+cxx~docs+stl build_system=autotools patches:=26090f4,b231fcc platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  an5rzrc              ^bzip2@1.0.8~debug~pic+shared build_system=generic platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  rd2uuxx              ^gdbm@1.26 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  lf5ljls                  ^readline@8.3 build_system=autotools patches:=21f0a03 platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+ -   utr7ymg          ^pmix@6.1.0~munge~python build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+ -   ccotrup          ^prrte@4.1.0 build_system=autotools schedulers:=none platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+ -   syzfpop              ^flex@2.6.3+lex~nls build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+ -   24qltll      ^rsync@3.4.1 build_system=autotools platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  gavswuq          ^lz4@1.10.0+pic build_system=makefile libs:=shared,static platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  3a2xrgw          ^openssl@3.6.1~docs+shared build_system=generic certs=system platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+ -   m2nrnpe          ^popt@1.19 build_system=autotools platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+[^]  anayviw              ^libiconv@1.18 build_system=autotools libs:=shared,static platform=linux os=rhel9 target=zen5 %c=gcc@15.2.0
+ -   fre4ogj          ^xxhash@0.8.3 build_system=makefile platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+[^]  pvz4ljc          ^zstd@1.5.7+programs build_system=makefile compression:=none libs:=shared,static platform=linux os=rhel9 target=zen5 %c,cxx=gcc@15.2.0
+```
+
+The above concretization shows that if we would
+proceed to `spack install`, spack would rebuild and install `fftw`, `hdf5` and `openmpi`
+packages, among some others, that should come from the upstream. Usually it is best to start
+fixing from the first such package in the concretization, here `fftw`.
+
+Let's first verify that the upstream package actually is suitable, by comparing
+the spec of the upstream package and the spec in the concretization. A particular upstream
+package spec can printed referring it's hash (note the syntax with `/`):
+
+```console
+spack -E -c 'upstreams:gcc152_ec:install_tree:/appl/soft/spack/core/v2026_03/x86_64/gcc152_ec/install_dir' spec /gafrwzb
+```
+
+In this case the specs for the `fftw` packages in the environment concretization and in the upstream look identical,
+so the upstream package should be fine.
+
+Let's update the vasp spec in the environment by specifying which exact `fftw` package to use as a dependency.
+For some reason `spack change` does not work here, but we can update the `spack.yaml` file in the environment
+with two commands (or alternatively edit the `spack.yaml` file directly):
+
+```console
+spack remove vasp
+spack add 'vasp+hdf5+openmp ^*/gafrwzb'
+```
+
+Notice the syntax how to specify the dependency using it's hash.
+
+In this case fixing the first dependency also fixed all the others in the concretized spec, and
+we can proceed to `spack install`.
+
 
 ## Using the environment
 

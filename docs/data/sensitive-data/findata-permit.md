@@ -5,8 +5,6 @@
 !!! Note
     As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the permit as soon as possible after receiving access to the disclosed data. A suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on.
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
-
 ## Use case
 
 You need to access SD Desktop. You have a permit from Findata.
@@ -32,8 +30,10 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! info-label
     Team member
 
+Only create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. Alternatively, ask the Team Manager to contact CSC with a list of people who need accounts. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
+
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account with Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu).
 - Fill in your information on the Sign up page.
 - You will receive with instructions how to complete the registration. 
 - Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.

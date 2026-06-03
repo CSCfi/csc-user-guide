@@ -49,61 +49,113 @@ and resource requirements. These are explained in the table below.
 | Allocation type | Resource request                                                          |
 |:---------------:|---------------------------------------------------------------------------|
 | R               | Memory and CPU resources can be changed independently                     |
-| N               | Full node requests only                                                   |
-| C               | Share of memory resources fixed based on requested number of CPU cores    |
-| G               | Share of CPU and memory resources fixed based on requested number of GPUs |
+| N               | Full-node requests only                                                   |
+| C               | Memory allocation is fixed based on the requested number of CPU cores     |
+| G               | CPU and memory allocation is fixed based on the requested number of GPUs  |
 
 ### Roihu CPU partitions
 
-Roihu features the following partitions for submitting jobs to CPU nodes:
+Roihu provides the following partitions for submitting jobs to CPU nodes:
 
-| Partition         | Allocation type | Time limit | Min CPU cores | Max CPU cores | Max nodes | [Node types](../systems-roihu.md#nodes) | Max memory       | Requirements       |
-|-------------------|-----------------|------------|---------------|---------------|-----------|-----------------------------------------|------------------|--------------------|
-| `test`            | R               | 15 minutes | 1             | 768           | 2         | M                                       | 744 GiB per job  |                    |
-| `interactive`     | R               | 36 hours   | 1             | 32            | 1         | M                                       | 64 GiB per job   |                    |
-| `longrun`         | R               | 10 days    | 1             | 192           | 1         | M, L                                    | 744 GiB per job  |                    |
-| `small`           | R               | 72 hours   | 1             | 384           | 1         | M, L                                    | 1500 GiB per job |                    |
-| `medium`          | N               | 36 hours   | 384           | 2304          | 6         | M                                       | 744 GiB per node |                    |
-| `large`           | N               | 36 hours   | 2304          | 23040         | 60        | M                                       | 744 GiB per node | [scalability test] |
-| `hugemem`         | C               | 36 hours   | 16            | 128           | 1         | XL                                      | 6037 GiB per job |                    |
-| `hugemem_longrun` | C               | 10 days    | 16            | 128           | 1         | XL                                      | 6037 GiB per job |                    |
-
+| Partition         | Allocation type | Time limit | Nodes  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory            | Requirements       |
+|-------------------|-----------------|------------|--------|---------------|-----------------------------------------|-----------------------|--------------------|
+| `test`            | R               | 15 minutes | 1 - 2  | 384 per node  | M                                       | 744 GiB per node      |                    |
+| `small`           | R               | 72 hours   | 1      | 384 per job   | M, L                                    | 1500 GiB per job      |                    |
+| `medium`          | N               | 36 hours   | 1 - 6  | 384 per node  | M                                       | 744 GiB per node      |                    |
+| `large`           | N               | 36 hours   | 6 - 60 | 384 per node  | M                                       | 744 GiB per node      | [scalability test] |
+| `longrun`         | R               | 10 days    | 1      | 192 per job   | M, L                                    | 1500 GiB per job      |                    |
+| `hugemem`         | C               | 36 hours   | 1      | 128 per job   | XL                                      | 6037 GiB per job      |                    |
+| `hugemem_longrun` | C               | 10 days    | 1      | 128 per job   | XL                                      | 6037 GiB per job      |                    |
 
 ### Roihu GPU partitions
 
-Roihu features the following partitions for submitting jobs to GPU nodes:
+Roihu provides the following partitions for submitting jobs to GPU nodes:
 
-| Partition        | Allocation type | Time limit | Min GPUs | Max GPUs | Max nodes | [Node types](../systems-roihu.md#nodes) | Memory per GPU   | Requirements       |
-|------------------|-----------------|------------|----------|----------|-----------|-----------------------------------------|------------------|--------------------|
-| `gputest`        | G               | 15 minutes | 1        | 8        | 2         | GPU                                     | 116 GiB + 95 GiB |                    |
-| `gpuinteractive` | G               | 12 hours   | 1        | 1        | 1         | GPU ([slice](#roihu-gpu-slices))        | TBA              |                    |
-| `gpumedium`      | G               | 36 hours   | 1        | 4        | 1         | GPU                                     | 116 GiB + 95 GiB |                    |
-| `gpularge`       | G               | 36 hours   | 4        | 40       | 10        | GPU                                     | 116 GiB + 95 GiB | [scalability test] |
-| `vizinteractive` | G               | 12 hours   | 1        | 1        | 1         | V                                       | 183 GiB + 44 GiB |                    |
+| Partition        | Allocation type | Time limit | Nodes  | Max GPUs      | [Node types](../systems-roihu.md#nodes) | Requirements       |
+|------------------|-----------------|------------|--------|---------------|-----------------------------------------|--------------------|
+| `gputest`        | G               | 15 minutes | 1 - 2  | 4 per node    | GPU                                     |                    |
+| `gpumedium`      | G               | 36 hours   | 1      | 4 per job     | GPU                                     |                    |
+| `gpularge`       | G               | 36 hours   | 1 - 10 | 4 per node    | GPU                                     | [scalability test] |
 
+Each full GPU node has 4 GH200 GPUs. On full GPU nodes, each reserved GPU grants access to up to 72 CPU cores,
+95 GiB of HBM3 memory, and 116 GiB of LPDDR5 memory.
 
-#### Roihu GPU slices
+The memory amounts listed here are the allocatable amounts available to jobs;
+some memory is reserved for system use.
 
-Roihu `gpuinteractive` partition features GH200 superchips that are divided
-into a total of 48 smaller slices that have one-seventh of the compute capacity
-and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
+### Roihu interactive partitions
+
+Roihu has several partitions reserved for interactive use and for data visualization.
+
+#### Roihu-CPU interactive use
+
+The `interactive` partition on Roihu allows running
+[interactive jobs](./interactive-usage.md) on CPU nodes, through the `sinteractive` command.
+
+The `sinteractive` command selects the correct partition based on your resource request
+and automatically provides Roihu-CPU resources when run from a Roihu-CPU login node.
+
+| Partition         | Allocation type | Time limit | Nodes  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory            |
+|-------------------|-----------------|------------|--------|---------------|-----------------------------------------|-----------------------|
+| `interactive`     | R               | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
+
+#### Roihu-GPU interactive use
+
+The `gpuinteractive` partition on Roihu allows running
+[interactive jobs](./interactive-usage.md) on GPU nodes, through the `sinteractive` command.
+
+The `sinteractive` command selects the correct partition based on your resource request
+and automatically provides a GPU slice when run from a Roihu-GPU login node.
+
+| Partition         | Allocation type | Time limit | Nodes  | Max CPUs  | Max GPU slices | [Node types](../systems-roihu.md#nodes) |
+|-------------------|-----------------|------------|--------|-----------|----------------|-----------------------------------------|
+| `gpuinteractive`  | G               | 12 hours   | 1      | TBA       | TBA            | GPU (slice)                             |
+
+!!! info "What is a GPU slice?"
+    The Roihu `gpuinteractive` partition uses GH200 superchips divided into 48 smaller slices.
+    Each slice has one-seventh of the compute capacity and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
+
+!!! note "GPU slices during the pilot"
+    GPU slices are not yet configured on the system, and reserving GPUs through `sinteractive`, or through Slurm on the partition
+    will instead provide full GPUs.
+
+#### Vizinteractive
+
+Roihu also features the following partition for interactive use and data visualization with specialized hardware:
+
+| Partition        | Allocation type | Time limit | Nodes | Max GPUs  | [Node types](../systems-roihu.md#nodes) |
+|------------------|-----------------|------------|-------|-----------|-----------------------------------------|
+| `vizinteractive` | G               | 12 hours   | 1     | 2 per job | V                                       |
+
+Each node in the partition has 2 Nvidia L40 GPUs with 44 GiB of memory and a 64-core AMD EPYC 9335 CPU.
+Each reserved GPU grants access to up to 32 CPU cores and 183 GiB of CPU memory.
 
 ### Roihu pilot partitions
 
-In addition to the regular partitions, the following partitions are also
+In addition to the regular partitions, the following partitions are
 available during the Roihu pilot phase:
 
-| Partition  | Allocation type | Time limit | Min nodes | Max nodes | [Node types](../systems-roihu.md#nodes) |
-|------------|-----------------|------------|-----------|-----------|-----------------------------------------|
-| `pilot`    | N               | 24 hours   | 1         | 200       | M                                       |
-| `gpupilot` | N               | 48 hours   | 1         | 60        | GPU                                     |
+| Partition  | Allocation type | Time limit | Nodes   | Max CPUs      | Max GPUs      | [Node types](../systems-roihu.md#nodes) |
+|------------|-----------------|------------|---------|---------------|---------------|-----------------------------------------|
+| `pilot`    | N               | 24 hours   | 1 - 200 | 384 per node  | 0             | M                                       |
+| `gpupilot` | G               | 48 hours   | 1 - 60  | 288 per node  | 4 per node    | GPU                                     |
 
 
 ### Local storage on Roihu nodes
 
-Local storage on Roihu M, L and GPU nodes is meant for storing temporary files only, not high-performance I/O.
+Local storage on Roihu M, L, and GPU nodes is meant for storing temporary files only, not high-performance I/O.
 
-High-performance local storage is available on Roihu XL and V nodes. Ideal for I/O-intensive jobs.
+High-performance local storage is available on Roihu XL and V nodes, which is ideal for I/O-intensive jobs.
+
+The amount of local storage available to a single user depends on the [partition](#roihu-partitions) used:
+
+| Allocation type    | Quota per user | Read / Write speeds |
+|:-------------------|---------------:|---------------------|
+| R (shared nodes)   | 20 GiB         | 5000 / 1400 MB/s    |
+| N (full nodes)     | 600 GiB        | 5000 / 1400 MB/s    |
+| G (GPU nodes)      | 150 GiB        | 5000 / 1400 MB/s    |
+| Hugemem (XL) nodes | 1.6 TiB        | 6700 / 4000 MB/s    |
+| VIZ nodes          | 6.5 TiB        | 6700 / 4000 MB/s    |
 
 Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
 

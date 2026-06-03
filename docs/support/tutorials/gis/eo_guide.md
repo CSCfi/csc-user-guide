@@ -26,13 +26,13 @@ For working with EO data in general, there are three main options:
 
 CSC services do not fit well in this categorization, as they provide some features from all of these. **CSC computing services provide a lot of computing power and storage space, and they are free of charge** for Finnish researchers for academic or educational use. 
 
-At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Puhti](../../../computing/systems-puhti.md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/index.md). Puhti's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Puhti and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
+At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Roihu](../../../computing/systems-roihu.md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/index.md). Roihu    's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Roihu     and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
 
-Puhti has a lot of [pre-installed applications](#what-applications-are-available-on-puhti), so it is a ready-to-use environment. cPouta virtual machines are similar to commercial cloud services, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
+Roihu has a lot of [pre-installed applications](#what-applications-are-available-on-roihu), so it is a ready-to-use environment. cPouta virtual machines are similar to commercial cloud services, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
 
-At CSC, [some Finnish EO datasets](#eo-data-at-csc) are available for direct use. In many cases, however, downloading EO data from other services (see [list of EO data download services](#eo-data-download-services)) is a required step of the process. Puhti and cPouta provide local storage of ~1-20 Tb. For more storage space, [Allas object storage](../../../data/Allas/index.md) can be used.
+At CSC, [some Finnish EO datasets](#eo-data-at-csc) are available for direct use. In many cases, however, downloading EO data from other services (see [list of EO data download services](#eo-data-download-services)) is a required step of the process. Roihu and cPouta provide local storage of ~1-20 Tb. For more storage space, [Allas object storage](../../../data/Allas/index.md) can be used.
 
-Using CSC computing services requires basic Linux skills and ability to use some scripting language (for example Python, R, Julia) or command-line tools. In addition, supercomputers and virtual machines require you to understand some specific concepts, so it takes a few hours to get started. The [Puhti web interface](https://www.puhti.csc.fi/) makes the start considerably easier, providing a desktop environment in the web browser, which enables the use of tools with Graphical User Interfaces (GUI) and also tools like R Studio and JupyterLab for an easy start with R, Python and Julia.
+Using CSC computing services requires basic Linux skills and ability to use some scripting language (for example Python, R, Julia) or command-line tools. In addition, supercomputers and virtual machines require you to understand some specific concepts, so it takes a few hours to get started. The [Roihu web interface](https://www.Roihu.csc.fi/) makes the start considerably easier, providing a desktop environment in the web browser, which enables the use of tools with Graphical User Interfaces (GUI) and also tools like R Studio and JupyterLab for an easy start with R, Python and Julia.
 
 ## What data do I need?
 
@@ -108,7 +108,6 @@ Commercial datasets are usually available from data provider, while open dataset
 
 Some Finnish EO datasets are available locally at CSC. [Paituli STAC](https://paituli.csc.fi/stac.html) includes all raster data available at CSC.
 
-* **Landsat mosaics** in Puhti. 
 * **Sentinel-2 L2A data**, selection of cloud-free tiles in Allas. 
 * [More information and list of all spatial datasets in CSC computing environment](../../../data/datasets/spatial-data-in-csc-computing-env.md)
 
@@ -186,15 +185,15 @@ There is no single software perfect for every task and taste. The right software
     * Proprietary tools need licenses which may be expensive and/or limiting the use of the tool
     * FOSS (free and open source software) allows the user to inspect the source code and provide high level insights in its functionality
 
-### What applications are available on Puhti?
+### What applications are available on Roihu?
 
-[**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring. All-in-one processing engine with CLI for EO image archives. [FORCE example for Puhti](https://github.com/csc-training/geocomputing/tree/master/force)
+[**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring. All-in-one processing engine with CLI for EO image archives. [FORCE example for Roihu](https://github.com/csc-training/geocomputing/tree/master/force)
 
-[**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library. Collection of command-line tools for accessing and transforming geospatial data. It is relatively fast and requires little computational resources. GDAL supports reading data directly from the Internet or object storage. GDAL is included in many other tools for data reading and writing. [GDAL example for Puhti](https://github.com/csc-training/geocomputing/tree/master/gdal)
+[**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library. Collection of command-line tools for accessing and transforming geospatial data. It is relatively fast and requires little computational resources. GDAL supports reading data directly from the Internet or object storage. GDAL is included in many other tools for data reading and writing. [GDAL example for Roihu](https://github.com/csc-training/geocomputing/tree/master/gdal)
 
-[**Julia**](../../../apps/julia.md) - Puhtis Julia installation does not include any geospatial packages, but they can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of packages for geospatial data.
+[**Julia**](../../../apps/julia.md) - Roihus Julia installation does not include any geospatial packages, but they can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of packages for geospatial data.
 
-[**Matlab**](../../../apps/matlab.md) - you can run Matlab jobs on Puhti conveniently from your own computers Matlab installation.
+[**Matlab**](../../../apps/matlab.md) - you can run Matlab jobs on Roihu conveniently from your own computers Matlab installation.
 
 [**Orfeo Toolbox (OTB)**](../../../apps/otb.md) - offers a wide variety of applications from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more. Orfeo Toolbox is available as CLI, GUI and via Python interface.
 
@@ -205,13 +204,13 @@ There is no single software perfect for every task and taste. The right software
 
 [**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
-[**R**](../../../apps/r-env-for-gis.md) - Puhti R installation includes a lot of geospatial packages, including several useful for EO data processing, such as `terra`, `CAST`, `raster`, `rstac` and `spacetime`.
+[**R**](../../../apps/r-env-for-gis.md) - Roihu R installation includes a lot of geospatial packages, including several useful for EO data processing, such as `terra`, `CAST`, `raster`, `rstac` and `spacetime`.
 
 [**Sen2Cor**](../../../apps/sen2cor.md) - a command-line tool for Sentinel-2 Level 2A product generation and formatting.
 
 [**Sen2mosaic**](../../../apps/sen2cor.md) - a command-line tool to download, preprocess and mosaic Sentinel-2 data.
 
-[**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform. Tool for processing of Sentinel data (+ support for other data sources). GUI, CLI (Graph Processing Tool, GPT) and Python interfaces. [SNAP GPT example for Puhti](https://github.com/csc-training/geocomputing/tree/master/snap).
+[**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform. Tool for processing of Sentinel data (+ support for other data sources). GUI, CLI (Graph Processing Tool, GPT) and Python interfaces. [SNAP GPT example for Roihu](https://github.com/csc-training/geocomputing/tree/master/snap).
 
 [**allas'']](../../../apps/allas.md) - tools for working with S3 storage, inc CSC Allas, CDSE S3 etc: `rclone` and `s3cmd`.
 
@@ -246,7 +245,7 @@ If you are interested in using CSC services for your EO research, please make yo
 * Find information about services and how to use them in [CSC's documentation pages](../../../index.md)
 * For information on geocomputing in CSC environment, checkout the collection of  [CSC's geocomputing learning materials](https://research.csc.fi/gis-learning-materials) and [CSC geocomputing examples on Github](https://github.com/csc-training/geocomputing)
 
-You can find all the ways that you can get help from CSC specialists via [CSC contact page](../../contact.md). We are happy to help with technical problems around our services and are open for suggestions on which software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. Please let us know, if you would like to add a service to this page or find anything unclear.
+You can find all the ways that you can get help from CSC specialists via [CSC contact page](../../contact.md). We are happy to help with technical problems around our services and are open for suggestions on which software should be installed to Roihu, or what kind of courses should be offered or materials/examples should be prepared. Please let us know, if you would like to add a service to this page or find anything unclear.
 
 ## Acknowledgement
 

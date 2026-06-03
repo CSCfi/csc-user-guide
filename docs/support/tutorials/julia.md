@@ -1,12 +1,12 @@
 # Running Julia batch jobs on CSC clusters
-This tutorial contains examples for running various Julia batch jobs on Puhti, Mahti and LUMI clusters.
+This tutorial contains examples for running various Julia batch jobs on Roihu, Mahti and LUMI clusters.
 
 [TOC]
 
 
 ## Examples
 These examples demonstrate the usage of the [Julia environment](../../apps/julia.md) for various batch jobs.
-They are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
+They are adapted from the general instructions of running jobs on [Roihu and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 Note that we do not use `srun` to start processes in the batch script.
 Instead we use Julia for process management or call `srun` inside the Julia code.
 
@@ -14,8 +14,9 @@ Before running the examples, we need to instantiate the Julia project on the log
 That is, run the following command in the directory with your Julia environment where `Project.toml` file is located.
 
 
-=== "Puhti"
+=== "Roihu"
     ```bash
+    module purge
     module load julia
     julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
     ```
@@ -52,7 +53,7 @@ An example of a `script.jl` code.
 println("Hello world!")
 ```
 
-=== "Puhti"
+=== "Roihu"
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -65,6 +66,7 @@ println("Hello world!")
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
+    module purge
     module load julia
     julia --project=. script.jl
     ```
@@ -138,7 +140,7 @@ end
 println(ids)
 ```
 
-=== "Puhti"
+=== "Roihu"
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -151,6 +153,7 @@ println(ids)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
+    module purge
     module load julia
     julia --project=. script.jl
     ```
@@ -247,7 +250,7 @@ println(task())
 println.(outputs)
 ```
 
-=== "Puhti"
+=== "Roihu"
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -260,6 +263,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
+    module purge
     module load julia
     julia --project=. script.jl
     ```
@@ -324,12 +328,9 @@ An example of a `script.jl` code.
 using Distributed
 using SlurmClusterManager
 
-# We set one worker process per core.
-proc_num = parse(Int, ENV["SLURM_NTASKS"])
-
 # Environment variables that we pass to the worker processes.
 # We set the thread count to one since each process uses one core.
-n = Threads.nthreads()
+n = get(ENV, "SLURM_CPUS_PER_TASK", "1")
 proc_env = [
     "JULIA_NUM_THREADS"=>"$n",
     "JULIA_CPU_THREADS"=>"$n",
@@ -337,7 +338,8 @@ proc_env = [
 ]
 
 # We add worker processes to the local node using SlurmManager
-addprocs(SlurmManager())
+manager = SlurmManager(; launch_timeout=300)
+addprocs(manager; env=proc_env, exeflags="--project=.")
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
 # We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
@@ -359,7 +361,7 @@ println(task())
 println.(outputs)
 ```
 
-=== "Puhti"
+=== "Roihu"
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -372,6 +374,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
+    module purge
     module load julia
     julia --project=. script.jl
     ```
@@ -415,7 +418,7 @@ println.(outputs)
 ### MPI program
 We launch the MPI program using Julia's `mpiexec` wrapper function.
 The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
-The command is `srun` in Puhti, Mahti, and LUMI.
+The command is `srun` in Roihu, Mahti, and LUMI.
 The wrapper allows us to write more flexible code, such as mixing MPI and non-MPI code, and more portable code because the command to run MPI programs can vary across platforms.
 We note that for large-scale Julia MPI jobs with thousands of ranks, we have to distribute the [depot directory to local node storage or memory](https://juliahpc.github.io/user_faq/#how_to_cope_with_a_large_number_of_mpi_processes_accessing_the_same_julia_depot) and modify the depot paths accordingly.
 Otherwise, package loading will become extremely slow.
@@ -458,19 +461,20 @@ println("Hello from rank $(rank) out of $(size) from host $(gethostname()) and p
 MPI.Barrier(comm)
 ```
 
-=== "Puhti"
+=== "Roihu"
     An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=large
+    #SBATCH --partition=medium
     #SBATCH --time=00:15:00
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=2
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
+    module purge
     module load julia
     module load julia-mpi
     julia --project=. script.jl
@@ -524,15 +528,12 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
-=== "Puhti"
+=== "Roihu GPU"
     An example of a `Project.toml` project file.
 
     ```toml
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
-
-    [compat]
-    CUDA = "< 5.9"
     ```
 
     An example of a `script.jl` code.
@@ -550,14 +551,14 @@ We use the following directory structure and assume it is our working directory.
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=gpu
+    #SBATCH --partition=gpumedium
     #SBATCH --time=00:15:00
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=10
-    #SBATCH --gres=gpu:v100:1
-    #SBATCH --mem-per-cpu=8000
+    #SBATCH --cpus-per-task=72
+    #SBATCH --gres=gpu:gh200:1
 
+    module purge
     module load julia
     module load julia-cuda
     julia --project=. script.jl
@@ -640,7 +641,7 @@ We use the following directory structure and assume it is our working directory.
     ```
 
 
-### Multi GPU with MPI
+### GPU-aware MPI
 We use the following directory structure and assume it is our working directory.
 
 ```text
@@ -657,6 +658,69 @@ An example of a `script.jl` code.
 using MPI
 mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
 ```
+
+=== "Roihu GPU"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+    ```
+
+    An example of a `prog.jl` code.
+
+    ```julia
+    using MPI
+    using CUDA
+
+    const gpu_devices = CUDA.devices()
+    const num_devices = length(gpu_devices)
+
+    MPI.Init()
+    comm = MPI.COMM_WORLD
+    rank = MPI.Comm_rank(comm)
+    # select device
+    comm_l = MPI.Comm_split_type(comm, MPI.COMM_TYPE_SHARED, rank)
+    rank_l = MPI.Comm_rank(comm_l)
+    device = CUDA.device!(mod(rank_l, num_devices))
+    gpu_id = CUDA.deviceid(CUDA.device())
+    # select device
+    size = MPI.Comm_size(comm)
+    dst  = mod(rank+1, size)
+    src  = mod(rank-1, size)
+    println("rank=$rank rank_loc=$rank_l (gpu_id=$gpu_id - $device), size=$size, dst=$dst, src=$src")
+    N = 2^16  # Minimum array size for gdrcopy to work.
+    send_mesg = CuArray{Float64}(undef, N)
+    recv_mesg = CuArray{Float64}(undef, N)
+    fill!(send_mesg, Float64(rank))
+    CUDA.synchronize()
+    rank==0 && println("start sending...")
+    MPI.Sendrecv!(send_mesg, dst, 0, recv_mesg, src, 0, comm)
+    println("sum(recv_mesg) on proc $rank: $(sum(recv_mesg))")
+    rank==0 && println("done.")
+    MPI.Finalize()
+    ```
+
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=72
+    #SBATCH --gpus-per-node=4
+
+    module purge
+    module load julia
+    module load julia-mpi
+    module load julia-cuda
+    module list
+    julia --project=. runtests.jl
+    ```
 
 === "LUMI"
     An example of a `Project.toml` project file.
@@ -754,20 +818,4 @@ for i in 1:n                   # uses one Julia thread
 end
 ```
 
-Alternatively, we can use the MKL backend via [MKL.jl](https://github.com/JuliaLinearAlgebra/MKL.jl) as a linear algebra backend.
-MKL is often faster than OpenBLAS when using multiple threads on Intel CPUs, such as those on Puhti.
-We can set the MKL thread count as follows.
-
-```bash
-export MKL_NUM_THREADS=$JULIA_CPU_THREADS
-```
-
-If we use MKL, we should load it before other linear algebra libraries.
-
-```julia
-using MKL
-using LinearAlgebra
-# your code ...
-```
-
-There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
+There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS.
