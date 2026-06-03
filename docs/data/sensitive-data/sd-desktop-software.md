@@ -120,15 +120,26 @@ ___
 Launch **Data Gateway **from navigation on the left side of the screen.
 2. Select **SD Connect**.
 3. Click **Continue**. 
+
+    ![Installing SD Software Installer - Login](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer1.png)
+
 4. In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
 5. Click **Continue**.
+
+    ![Installing SD Software Installer - Choose folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer2.png)
+
 6. In the next view click **Open folder**. This opens file browser and you will see folder **Projects**.
-7. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it. **Copy-paste** or **drag-and-drop** file `sd-installer-ubuntu24.desktop` to your desktop.
-8. **Right-click** on the `sd-installer-ubuntu24.desktop` icon on your virtual desktop.
+7. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it. 
+
+    ![Installing SD Software Installer - Open Projects folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer3.png)
+
+
+8. **Copy-paste** or **drag-and-drop** file `sd-installer-ubuntu24.desktop` to your desktop. **Right-click** on the `sd-installer-ubuntu24.desktop` icon on your virtual desktop.
 9. Select **Allow Launching**.
 10. Application is now ready to be used. See [**instructions**](#22-use-sd-software-installer)
 
-![Installing SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer.png)
+    ![Installing SD Software Installer - Install and launch](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer4.png)
+
 
 
 #### 2.2 Use SD Software Installer

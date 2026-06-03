@@ -17,10 +17,20 @@ Once a virtual desktop is created, each CSC project member can access it through
 
 </div>
 
-!!! Note
-    In SD Desktop, **you can access only encrypted files.** Accessing unencrypted data or files encrypted only with your public encryption key will result in an error.
+
 
 ## Step by step
+
+You can import data via Data Gateway application or programmatically.
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+
+    In SD Desktop, **you can access only encrypted files.** Accessing unencrypted data or files encrypted only with your public encryption key will result in an error.
+    
+</div>
 
 ### 1.1 Import data to your virtual desktop via the Data Gateway application
 
@@ -29,30 +39,47 @@ Once a virtual desktop is created, each CSC project member can access it through
     * **SD Connect:** This option is for accessing data you’ve uploaded directly to SD Connect. 
     * **SD Apply:** This option is accessible only if the data controller has granted you permission.
 3. Click **Continue**.
+
+    ![Launch Data Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import1.png)
+
 4. In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
 5. Click **Continue**.
+
+    ![Selet folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import2.png)
+
 6. In the next window click **Open folder**.
 7. Now you  can see all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access. To view them, right-click the file and select the desired application to open it. Locate the buckets/files you want to import.
+
+    ![Open folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import3.png)
+
+
 8. Open **Volume** from left side menu.
-9. Select and copy the files or buckets from the **Projects** folder.
-10. Paste files or folders into **Volume**. Files or folders will automatically decrypt during the copy process and become available for analysis.
-
-![Import data via Data Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import.png)
 
 
+    ![Open volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import4.png)
 
-### 2. Import data to your virtual desktop programitically
+
+9. **Select and copy** the files or buckets from the **Projects** folder.
+10. **Paste** files or folders into **Volume**. Files or folders will automatically decrypt during the copy process and become available for analysis.
+
+    ![Copy and paste files](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import5.png)
+
+
+
+
+### 1.2 Import data to your virtual desktop programmatically
 
 1. 
 
-### 3. Set permissions for shared access
+### 2. Set permissions for shared access
 
 After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only (orange lock icon).
 
 ??? default "Method 1: Use CSC Tools to set access permissions"
 
-    1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
-    2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
+    1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](sd-desktop-software.md#21-install-sd-software-installer).
+    2. Launch **Data Gateway** application.
+    2. Launch **SD Tools installer**. 
     3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
     ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
 
