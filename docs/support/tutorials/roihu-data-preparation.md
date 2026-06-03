@@ -14,9 +14,8 @@ After Roihu becomes available, you can copy the data from Allas or LUMI-O to Roi
 !!! warning "Note"
      Your primary approach in data migration from Mahti and Puhti to Roihu
      should be a direct copy from one machine to the other.
-     Only utilize Allas or LUMI-O, if you cannot manage data
-     transfers between Roihu availability and Mahti/Puhti storage
-     shutdown.
+     Use Allas or LUMI-O only if you cannot complete the data
+     transfer during the period between Roihu availability and the Mahti/Puhti storage shutdown.
 
 ## When should you use this tutorial?
 
@@ -46,7 +45,9 @@ For large directories, check the data volume before transferring. On CSC superco
 checking disk usage (e.g. LUE) instead of running heavy recursive commands on large directory trees.
 
 ??? info "How to check disk usage on a directory"
-     We recommend using the LUE tool to identify where you have lots of data. Avoid using tools such as `du` as they may cause a lot of load on the file  system. Simple usage example (run `lue -h` for other options):
+     We recommend using the LUE tool to identify where you have lots of data.
+     Avoid using tools such as `du` as they may cause a lot of load on the file system.
+     Simple usage example (run `lue -h` for other options):
      ```
      module load lue
      lue <directory-to-analyze>
@@ -76,7 +77,7 @@ It is not suitable for storing full software installations, or working with larg
 If you have many small files, transferring and accessing them in an object storage service one by one can be slow and inefficient.
 Consider creating archive files before upload.
 
-For example:
+For example, to package the `dataset/` directory in `/scratch/project_2000000/mydata`:
 
 ```bash
 cd /scratch/project_2000000/mydata
@@ -85,9 +86,20 @@ tar -czf dataset-2025-08-01.tar.gz dataset/
 
 Then transfer the archive file instead of the full directory tree.
 
+Later after you copy the data back, e.g. onto Roihu, unpack the archive there with:
+
+```bash
+tar -xzf dataset-2025-08-01.tar.gz
+```
+
 Keep the original directory until you have verified that the uploaded archive can be downloaded and unpacked successfully.
 
 ## Option A: Move data from Puhti or Mahti to Allas
+
+Use Allas if you have existing Allas quota in your project.
+
+If your sole purpose is to keep data in Allas for the transfer period to Roihu,
+please delete it without delay from Allas after you have moved the data to Roihu and verified the copy.
 
 ### 1. Log in to Puhti or Mahti
 
@@ -99,42 +111,38 @@ ssh <username>@puhti.csc.fi
 
 ### 2. Configure Allas access
 
-Load the Allas module and configure access:
-
-```bash
-module load allas
-allas-conf
-```
-
-This configures the default Swift-based Allas connection for the selected CSC project. In `rclone` commands, this connection is usually referred to as:
-
-```text
-allas:
-```
-
-If you specifically need S3 access to Allas, configure Allas in S3 mode instead:
+Load the Allas module and configure access, with S3 enabled:
 
 ```bash
 module load allas
 allas-conf --mode S3
 ```
 
-With S3 mode, the `rclone` remote is usually:
+Type in your CSC password when prompted.
+
+The command can take a while to access Allas and process all information, please be patient.
+
+This configures an Allas connection for the selected CSC project.
+With S3 mode enabled, the rclone remote used in this tutorial is:
 
 ```text
 s3allas:
 ```
 
-Avoid mixing Swift and S3 access for the same objects. If you upload data using `allas:`, use `allas:` for later operations on that data as well.
-
 ### 3. Create a bucket
 
-Choose a bucket name that includes your project number or another project-specific identifier. Bucket names must be unique.
+Check existing buckets in the project:
+
+```bash
+rclone lsd s3allas:
+```
+
+To create a new bucket, choose a bucket name that includes your project number or another project-specific identifier. Bucket names must be unique.
 
 Example (replace project-2000000 as your project ID):
 
 ```bash
-rclone mkdir allas:project-2000000-roihu-transfer
+rclone mkdir s3allas:project-2000000-roihu-transfer-${USER}
 ```
 
 ### 4. Copy data to Allas
@@ -142,13 +150,13 @@ rclone mkdir allas:project-2000000-roihu-transfer
 To copy a single file:
 
 ```bash
-rclone copy dataset-2025-08-01.tar.gz allas:project-2000000-roihu-transfer/
+rclone copy -P dataset-2025-08-01.tar.gz s3allas:project-2000000-roihu-transfer-${USER}/
 ```
 
 To copy a directory:
 
 ```bash
-rclone copy /scratch/project_2000000/mydata allas:project-2000000-roihu-transfer/mydata
+rclone copy -P /scratch/project_2000000/mydata s3allas:project-2000000-roihu-transfer-${USER}/mydata
 ```
 
 Use `copy` rather than `move` for the first transfer. This keeps the original data on Mahti or Puhti until you have verified that the upload succeeded.
@@ -158,25 +166,25 @@ Use `copy` rather than `move` for the first transfer. This keeps the original da
 List the bucket contents:
 
 ```bash
-rclone lsf allas:project-2000000-roihu-transfer/
+rclone lsf s3allas:project-2000000-roihu-transfer-${USER}/
 ```
 
 For a more detailed listing:
 
 ```bash
-rclone ls allas:project-2000000-roihu-transfer/
+rclone ls s3allas:project-2000000-roihu-transfer-${USER}/
 ```
 
 You can also compare source and destination:
 
 ```bash
-rclone check /scratch/project_2000000/mydata allas:project-2000000-roihu-transfer/mydata
+rclone check /scratch/project_2000000/mydata s3allas:project-2000000-roihu-transfer-${USER}/mydata
 ```
 
 For large transfers, consider writing the output to a log file:
 
 ```bash
-rclone copy /scratch/project_2000000/mydata allas:project-2000000-roihu-transfer/mydata \
+rclone copy /scratch/project_2000000/mydata s3allas:project-2000000-roihu-transfer-${USER}/mydata \
   --progress \
   --log-file roihu-transfer-to-allas.log
 ```
@@ -192,7 +200,7 @@ Then copy the data from object storage to the appropriate Roihu disk area.
 On Roihu, check which available buckets your project has in Allas with `rclone lsd`:
 
 ```bash
-[kkayttaj@roihu-cpu-login2 kkayttaj]$ rclone lsd allas:
+[kkayttaj@roihu-cpu-login2 kkayttaj]$ rclone lsd s3allas:
   3268222761 2020-10-03 10:01:42         8 2001659-genomes
   2576778428 2020-10-03 10:01:42         4 2001659-mahti-SCRATCH
 ```
@@ -200,13 +208,13 @@ On Roihu, check which available buckets your project has in Allas with `rclone l
 Copy the appropriate data to your directory on Roihu:
 
 ```bash
-rclone copy allas:project-2000000-roihu-transfer/mydata /scratch/project_2000000/mydata
+rclone copy -P s3allas:project-2000000-roihu-transfer-${USER}/mydata /scratch/project_2000000/mydata
 ```
 
 After copying the data to Roihu, verify the transfer:
 
 ```bash
-rclone check allas:project-2000000-roihu-transfer/mydata /scratch/project_2000000/mydata
+rclone check s3allas:project-2000000-roihu-transfer-${USER}/mydata /scratch/project_2000000/mydata
 ```
 
 If you uploaded compressed archive files, unpack them only after confirming that the archive was transferred successfully:
@@ -214,6 +222,36 @@ If you uploaded compressed archive files, unpack them only after confirming that
 ```bash
 tar -tzf dataset-2025-08-01.tar.gz
 tar -xzf dataset-2025-08-01.tar.gz
+```
+
+### 7. Remove data from Allas after migration
+
+After the data has been copied to Roihu and verified, remove the temporary copy from Allas if it is no longer needed.
+
+Be careful: removal commands delete data from Allas. Do not run them before you have confirmed that the data exists in its final location.
+
+To remove one object:
+
+```bash
+rclone deletefile s3allas:project-2000000-roihu-transfer-${USER}/dataset-2025-08-01.tar.gz
+```
+
+To remove all objects under a prefix:
+
+```bash
+rclone delete s3allas:project-2000000-roihu-transfer-${USER}/mydata
+```
+
+Check that the bucket is empty:
+
+```bash
+rclone lsf s3allas:project-2000000-roihu-transfer-${USER}/
+```
+
+Lastly, remove the empty bucket you were using:
+
+```bash
+rclone rmdir s3allas:project-2000000-roihu-transfer-${USER}
 ```
 
 ## Option B: Move data from Puhti or Mahti to LUMI-O
@@ -293,13 +331,13 @@ On Mahti/Puhti:
 
 Copy a single file:
 ```bash
-rclone copy your-dataset-2025-08-01.tar.gz lumi-46500XXXX-private:roihu-transfer-${USER}/
+rclone copy -P your-dataset-2025-08-01.tar.gz lumi-46500XXXX-private:roihu-transfer-${USER}/
 ```
 
 Copy a directory:
 
 ```bash
-rclone copy /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfer-${USER}/mydata
+rclone copy -P /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfer-${USER}/mydata
 ```
 
 For large transfers, run the command inside `tmux` or `screen`, and write a log file:
@@ -315,7 +353,7 @@ rclone copy /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfe
 List the uploaded data:
 
 ```bash
-rclone lsf lumi-46500XXXX-private:roihu-transfer-${USER}/mydata
+rclone lsf lumi-46500XXXX-private:roihu-transfer-${USER}/mydata/
 ```
 
 Compare the source directory and the uploaded copy:
@@ -338,7 +376,7 @@ After Roihu is available, configure LUMI-O access on Roihu and copy the data fro
 Example:
 
 ```bash
-rclone copy lumi-46500XXXX-private:roihu-transfer-${USER}/mydata /scratch/project_2000000/mydata
+rclone copy -P lumi-46500XXXX-private:roihu-transfer-${USER}/mydata /scratch/project_2000000/mydata
 ```
 
 Verify the copied data:
@@ -410,7 +448,7 @@ Keep the original data on Mahti or Puhti until:
 If you use `sync`, first run a dry run:
 
 ```bash
-rclone sync /scratch/project_2000000/mydata allas:project-2000000-roihu-transfer/mydata --dry-run
+rclone sync /scratch/project_2000000/mydata s3allas:project-2000000-roihu-transfer-${USER}/mydata --dry-run
 ```
 
 ### Object storage is not a working directory
@@ -433,7 +471,7 @@ Original location: /scratch/project_2000000/example
 Source system: Puhti
 Uploaded by: <name>
 Upload date: YYYY-MM-DD
-Temporary storage: Allas bucket project-2000000-roihu-transfer
+Temporary storage: Allas bucket project-2000000-roihu-transfer-<my-username>
 Intended destination: Roihu /scratch/project_2000000/example
 Notes:
 ```
@@ -441,7 +479,7 @@ Notes:
 Upload the README:
 
 ```bash
-rclone copy README-roihu-transfer.txt allas:project-2000000-roihu-transfer/
+rclone copy README-roihu-transfer.txt s3allas:project-2000000-roihu-transfer-${USER}/
 ```
 
 or:
