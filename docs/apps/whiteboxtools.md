@@ -13,7 +13,7 @@ catalog:
 
 # WhiteboxTools
 
-[WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html) is an advanced geospatial data analysis platform which includes more than 450 tools. Many tools operate in parallel, taking full advantage of your multi-core processor.
+[WhiteboxTools FIXME](https://www.whiteboxgeo.com/manual/wbt_book/intro.html) is an advanced geospatial data analysis platform which includes more than 450 tools. Many tools operate in parallel, taking full advantage of your multi-core processor.
 
 ## Available
 
@@ -64,7 +64,7 @@ whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.ti
 
 ## License 
 
-The WhiteboxTools open-core platform is distributed under the MIT license. [The full WhiteboxTools license](https://www.whiteboxgeo.com/manual/wbt_book/license.html)
+The WhiteboxTools open-core platform is distributed under the MIT license. [The full WhiteboxTools license FIXME](https://www.whiteboxgeo.com/manual/wbt_book/license.html)
 
 ## Citation
 
