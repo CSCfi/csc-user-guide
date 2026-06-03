@@ -399,7 +399,7 @@ Allas:
 ```
 
 Now we see two buckets. `2001659-genomes` is the one that was just created in
-this example, while `2001659-mahti-SCRATCH` originates from the previous
+this example, while `2001659-roihu-SCRATCH` originates from the previous
 a-command example. Next, we list the objects in the `2001659-genomes` bucket:
 
 ```bash
