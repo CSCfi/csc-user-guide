@@ -65,6 +65,10 @@
 * [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-cpouta.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
+* Export data and images
+    * [How to download an instance snapshot?](../../cloud/pouta/snapshots.md#downloading-an-instance-snapshot)
+    * [How to download a volume snapshot?](../../cloud/pouta/snapshots.md#downloading-a-volume-snapshot)
+    * [How to download a backup or snapshot image file?](../../cloud/pouta/qemu-vm.md#1-downloading-a-backup-or-snapshot)
 * [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
 * [How can I store data on Pouta?](how-to-store-data-in-pouta.md)
 * [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
