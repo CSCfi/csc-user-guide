@@ -30,7 +30,7 @@ Please do the following tasks:
   medium sized data transfers, in particular when you have a large amount of small files.
   These tools make the usage of Allas safer, and can make your data management easier.
   For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md).
-  A tutorial for data transfer is available at [Allas HPC tutorial](../../data/Allas/allas-hpc.md).
+  A tutorial for data transfer is available at [Allas HPC tutorial](../../data/Allas/allas-roihu.md).
 * **Archive files** that should be available longer than the lifetime of compute projects.
   Options for this can be for example your organizations own storage systems, or
   [IDA safe storage for research data](https://www.fairdata.fi/en/).
