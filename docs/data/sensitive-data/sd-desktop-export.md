@@ -11,17 +11,47 @@
 The virtual desktop is isolated from the internet, so data export must be done through either via the Data Gateway application or the command-line version. Only the CSC project manager can export data. The results are exported to SD Connect, where they will be available for download.
 
 
+
 ## Step by step
 
 ### 1. Export files from virtual desktop
 
 #### Option A: Export files to a bucket via Data Gateway application
 
-1. Open Data Gateway application.
-2. Select SD Connect and click **Continue**.
-3. Click on **Export** tab. It is available only to the project manager.
-4. Exported file will go to SD Connect. You can create a new bucket for exported files or select an existing bucket. Limits about naming... 
+1. Collect data you want to export to your volume.
+2. Open Data Gateway application. Select SD Connect and click **Continue**. Click on **Export** tab. **It is available only to the project manager.**
+
+    ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export1.png)
+
+4. Exported file will go to SD Connect. You can create a new bucket for exported files by writing bucket's name to the field. If you want to use an existing bucket, click the field and select it from the dropdown. 
+
+!!! Note
+    Top-level folder (bucket) name can not be modified after their creation with SD Connect. 
+    These rules apply only to top-level folders created in the service, not to subfolders or files uploaded from a local computer. 
+
+**Top-level folder (buckets) names must**:
+
+* start with a lowercase letter or a number.
+* be between 3 and 63 characters long.
+* use Latin alphabets (a-z), numbers (0-9) and dash (-).
+* be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project specific identifiers (e.g., project ID number or acronym) in the folder name.
+    
+**Top-level folder (buckets) names must not contain**:
+
+* Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
+* all folder names are public; please do not include any confidential information.
+* Folder names can't be modified afterwards.
+
+
+    ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export2.png)
+
 5. Select files you want to export, then click Select. Finally click **Export**.
+
+    ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export3.png)
+
+    ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export4.png)
+
+
 6. Files have now been encrypted and exported to the bucket you selected in SD Connect. Please note that files can now be downloaded by all project members via SD Connect. 
 
 #### Option B: Export files to a specific folder inside a bucket via Data Gateway application"
