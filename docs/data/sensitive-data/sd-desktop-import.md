@@ -45,7 +45,7 @@ You can import data via Data Gateway application or programmatically.
 4. In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
 5. Click **Continue**.
 
-    ![Selet folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import2.png)
+    ![Select folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import2.png)
 
 6. In the next window click **Open folder**.
 7. Now you  can see all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access. To view them, right-click the file and select the desired application to open it. Locate the buckets/files you want to import.
