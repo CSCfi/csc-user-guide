@@ -51,7 +51,13 @@ After Roihu becomes available, you can copy the data from Allas or LUMI-O to Roi
      Use Allas or LUMI-O only if you cannot complete the data
      transfer during the period between Roihu availability and the Mahti/Puhti storage shutdown.
 
-See a CSC short talk for **how to use object storage** and **how to apply for a LUMI-O project** for the transfer, if needed:
+!!! warning "Limited capacity in Allas"
+     Allas is running out of capacity. Use Allas only if your project has existing quota there. **Do not apply
+     for new Allas quota in your project** if you need object storage. Instead apply for LUMI-O access.
+
+     See the short talk below for instructions on applying for a LUMI-O project.
+
+See a CSC short talk for **how to use object storage** and **how to apply for a LUMI-O project**, if needed:
 
 - [Slides](https://a3s.fi/kkmattil-2001659-pub/Lumi-O-for-migration.pptx)
 - [Recording](https://video.csc.fi/media/t/0_x4nzfb9z)
@@ -60,7 +66,7 @@ See a CSC short talk for **how to use object storage** and **how to apply for a 
 
 1. **Review and clean up your data now.** Decide what must be preserved, what can be deleted, and what should be rebuilt or regenerated on Roihu.
 2. **Plan where the data should go on Roihu.** Only data that you are actively processing should be moved directly to Roihu's working disk areas.
-3. **Transfer data directly from Mahti or Puhti to Roihu when Roihu is available.** A detailed guide for direct transfers will be published after Roihu is available. Though you can already investigate the [WIP version](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/).
+3. **Transfer data directly from Mahti or Puhti to Roihu when Roihu is available.** A detailed guide for direct transfers will be published after Roihu is available, though you can already investigate the [WIP version of the guide](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/).
 4. **Use Allas or LUMI-O only if direct transfer is not possible in time.** These services can be used as temporary storage if you cannot complete the migration between Roihu general availability and the Mahti/Puhti storage shutdown.
 5. **Verify the copied data before deleting anything.** Keep the original data on Mahti or Puhti until the migration has been fully completed and verified.
 
