@@ -86,6 +86,13 @@
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
 * [Do you provide Windows Virtual Machines?](do-you-provide-windows-vms.md)
 
+## Pukki
+
+* Export data and backup
+    * [How to export a PostgreSQL database?](../tutorials/pukki_data_migration.md#step-2-export-your-current-postgresql-database)
+    * [How to export a MariaDB database?](../../cloud/dbaas/mariadb-accessing.md#export-your-current-mariadb-database)
+    * [How to create a manual backup?](../../cloud/dbaas/backups.md#manual-backups)
+
 ## Rahti
 
 * [Rahti FAQ – common tasks and UI usage](../../cloud/rahti/rahti_faq.md)
