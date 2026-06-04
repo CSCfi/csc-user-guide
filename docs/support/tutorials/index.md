@@ -19,7 +19,7 @@
 
 ## Roihu
 
-* [Preparing for Roihu: object storage options for Mahti and Puhti users](roihu-data-preparation.md)
+* [Preparing for Roihu: Data management and temporary storage options](roihu-data-preparation.md)
 
 ## Installation of tools on supercomputers
 
