@@ -78,7 +78,7 @@ Use the Allas or LUMI-O instructions if:
 - you cannot wait until Roihu is generally available before starting the transfer (end of June 2026), or you cannot complete a direct transfer to Roihu before the Mahti/Puhti storage shutdown
 - you need temporary object storage for the transition period
 
-Do not use this tutorial as a reason to move everything automatically. Before transferring data, **review what you actually need to keep**.
+Do not use the Allas or LUMI-O instructions to automatically move everything to Allas or LUMI-O. Before transferring data, **review what you actually need to keep**.
 
 ## Before you start
 
@@ -532,7 +532,7 @@ rclone sync /scratch/project_2000000/mydata s3allas:project-2000000-roihu-transf
 
 Allas and LUMI-O are suitable for storing, staging, sharing, and transferring data. They are not replacements for scratch or project directories on a supercomputer.
 
-Do not run applications directly against object storage as if it were a normal filesystem.
+Never run applications directly against object storage as if it were a normal filesystem.
 
 ### Protect sensitive data
 
@@ -540,7 +540,7 @@ Do not upload sensitive data unless the storage service and your project’s dat
 
 ### Document what was moved
 
-Create a small README file and upload it with the data. For example:
+To follow best practices, create a small README file and upload it to Allas/LUMI-O with the data. For example:
 
 ```text
 Dataset: Example simulation outputs
