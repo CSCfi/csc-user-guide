@@ -2,7 +2,9 @@
 
 This tutorial explains how to temporarily move data from Mahti or Puhti to object storage before Roihu is generally available.
 
-This may be useful if your research group cannot wait until Roihu is available, for example because key project members will be unavailable during the period between Roihu general availability and the shutdown of Mahti and Puhti storage servers.
+Transferring data in advance to Allas or LUMI-O may be useful if your research group cannot wait until Roihu is available,
+for example because key project members will be unavailable during the period between Roihu general availability and the
+shutdown of Mahti and Puhti storage servers.
 
 Another reason for utilizing Allas or LUMI-O is that Roihu's default storage quotas are smaller than on Mahti and Puhti.
 
@@ -10,9 +12,9 @@ The default disk quotas on Roihu are:
 
 |            |Capacity|Number of files|
 |------------|--------|---------------|
-|**home**    |15 GiB  |150 000 files  |                              |
-|**projappl**|15 GiB  |150 000 files  |                              |
-|**scratch** |250 GiB |500 000 files  |                              |
+|**home**    |15 GiB  |150 000 files  |
+|**projappl**|15 GiB  |150 000 files  |
+|**scratch** |250 GiB |500 000 files  |
 
 The recommended temporary storage options are:
 
@@ -26,6 +28,10 @@ After Roihu becomes available, you can copy the data from Allas or LUMI-O to Roi
      should be a direct copy from one machine to the other.
      Use Allas or LUMI-O only if you cannot complete the data
      transfer during the period between Roihu availability and the Mahti/Puhti storage shutdown.
+
+!!! note "Roihu schedule"
+     The target for Roihu general availability is end of June 2026.
+     Mahti and Puhti storage services will shut down end of August 2026.
 
 ## When should you use this tutorial?
 
@@ -52,7 +58,7 @@ Only move data that you still need. In particular, avoid transferring:
 - software installations and executables that should be rebuilt on Roihu
 
 For large directories, check the data volume before transferring. On CSC supercomputers, prefer tools intended for
-checking disk usage (e.g. [LUE](../../support/tutorials/lue)) instead of running heavy recursive commands on large directory trees.
+checking disk usage (e.g. [LUE](../../support/tutorials/lue.md)) instead of running heavy recursive commands on large directory trees.
 
 ??? info "How to check disk usage on a directory"
      We recommend using the LUE tool to identify where you have lots of data.
@@ -295,7 +301,7 @@ Follow the tutorial here for creating credentials and an access key:
 
 Since you are accessing LUMI-O from a different machine than LUMI, you need to add a LUMI-O rclone configuration on Mahti or Puhti.
 
-1. Go to the [LUMI-O portal](auth.lumidata.eu)
+1. Go to the [LUMI-O portal](www.auth.lumidata.eu)
 2. Select the LUMI project you want to use
 3. Click the valid 'Access key' for your project (or if you don't have one, create a new key first for your project)
 4. Select rclone from the Configuration templates and click 'Generate'
@@ -330,7 +336,7 @@ Use the `private` remote for normal data transfer. Do not use a public remote un
 
 Before copying data to LUMI-O, create a bucket for the transfer.
 
-On Mahti/Puhti:
+In a Mahti/Puhti terminal:
 
 ```bash
 rclone mkdir lumi-46500XXXX-private:roihu-transfer-${USER}
@@ -343,6 +349,16 @@ rclone lsd lumi-46500XXXX-private:
 ```
 
 Replace `46500XXXX` with your actual LUMI project ID.
+
+!!! note "Creating a unique identifier"
+     In the above example, the bucket is created with the name
+     `roihu-transfer-${USER}`. This gives the bucket your username as a suffix, which is a good way
+     to distinguish your own bucket from buckets
+     that other users in the project might create.
+
+     `${USER}` is an environment variable, and you do not need to
+     replace it in the tutorial commands, if you want to use your username
+     as an unique bucket identifier.
 
 ### 4. Copy data to LUMI-O
 
