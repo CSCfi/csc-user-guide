@@ -22,10 +22,10 @@ graph LR;
     D{{"<b>One month after Roihu GA</b>
         Puhti <i>computing
         services</i> shut down"}} --> E;
-    E{{"<b>August 2026</b>
+    E{{"<b>End of August 2026</b>
         Puhti <i>storage
         services</i> shut down"}} --> F;
-    F{{"<b>August 2026</b>
+    F{{"<b>End of August 2026</b>
         Mahti
         shut down"}}
     style A fill:#dceeceff;
@@ -43,11 +43,18 @@ means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
 however, remain accessible until end of August 2026, after which Puhti will be retired
 completely. Mahti will be closed end of August 2026.
 
+### Prepare for data migration from Mahti and Puhti to Roihu
+
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during spring 2026, at the very latest in August 2026. CSC
+prepared to do it during summer 2026, at the very latest in August 2026. CSC
 will publish a detailed Roihu migration guide after Roihu's general availability.
 
-If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August, consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md). 
+If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August,
+consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md).
+
+For any questions and concerns regarding transferring data between the systems,
+feel free to contact the [CSC service desk](https://research.csc.fi/support/),
+or attend [CSC's weekly user support coffee breaks](https://research.csc.fi/training/csc-research-support-coffee-every-wednesday-at-1400-finnish-time/).
 
 ## Compute
 
