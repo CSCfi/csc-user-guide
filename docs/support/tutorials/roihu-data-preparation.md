@@ -4,6 +4,16 @@ This tutorial explains how to temporarily move data from Mahti or Puhti to objec
 
 This may be useful if your research group cannot wait until Roihu is available, for example because key project members will be unavailable during the period between Roihu general availability and the shutdown of Mahti and Puhti storage servers.
 
+Another reason for utilizing Allas or LUMI-O is that Roihu's default storage quotas are smaller than on Mahti and Puhti.
+
+The default disk quotas on Roihu are:
+
+|            |Capacity|Number of files|
+|------------|--------|---------------|
+|**home**    |15 GiB  |150 000 files  |                              |
+|**projappl**|15 GiB  |150 000 files  |                              |
+|**scratch** |250 GiB |500 000 files  |                              |
+
 The recommended temporary storage options are:
 
 - **A:** Allas, if your CSC project has enough available Allas quota
@@ -42,7 +52,7 @@ Only move data that you still need. In particular, avoid transferring:
 - software installations and executables that should be rebuilt on Roihu
 
 For large directories, check the data volume before transferring. On CSC supercomputers, prefer tools intended for
-checking disk usage (e.g. LUE) instead of running heavy recursive commands on large directory trees.
+checking disk usage (e.g. [LUE](../../support/tutorials/lue)) instead of running heavy recursive commands on large directory trees.
 
 ??? info "How to check disk usage on a directory"
      We recommend using the LUE tool to identify where you have lots of data.
@@ -145,6 +155,17 @@ Example (replace project-2000000 as your project ID):
 rclone mkdir s3allas:project-2000000-roihu-transfer-${USER}
 ```
 
+!!! note "Creating a unique identifier"
+     In the above example, the bucket is created with the name
+     `project-2000000-roihu-transfer-${USER}`. This gives the bucket your username as a suffix, which is a good way
+     to distinguish your own bucket from buckets
+     that other users in the project might create.
+
+     `${USER}` is an environment variable, and you do not need to
+     replace it in the tutorial commands, if you want to use your username
+     as an unique bucket identifier.
+
+
 ### 4. Copy data to Allas
 
 To copy a single file:
@@ -201,8 +222,8 @@ On Roihu, check which available buckets your project has in Allas with `rclone l
 
 ```bash
 [kkayttaj@roihu-cpu-login2 kkayttaj]$ rclone lsd s3allas:
-  3268222761 2020-10-03 10:01:42         8 2001659-genomes
-  2576778428 2020-10-03 10:01:42         4 2001659-mahti-SCRATCH
+  3268222761 2020-10-03 10:01:42         8 2000000-genomes
+  2576778428 2020-10-03 10:01:42         4 2000000-mahti-SCRATCH
 ```
 
 Copy the appropriate data to your directory on Roihu:
@@ -228,7 +249,7 @@ tar -xzf dataset-2025-08-01.tar.gz
 
 After the data has been copied to Roihu and verified, remove the temporary copy from Allas if it is no longer needed.
 
-Be careful: removal commands delete data from Allas. Do not run them before you have confirmed that the data exists in its final location.
+**Be careful:** removal commands delete data from Allas. Do not run them before you have confirmed that the data exists in its final location.
 
 To remove one object:
 
@@ -267,14 +288,14 @@ If you only need temporary storage during the transition to Roihu, delete the fi
 First, you need credentials for LUMI-O and an access key to your project.
 
 Follow the tutorial here for creating credentials and an access key:
-https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/
+[Gaining access and creating a key in LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/)
 
 
 ### 2. Create an rclone setup for copying data from Mahti or Puhti directly to LUMI-O
 
 Since you are accessing LUMI-O from a different machine than LUMI, you need to add a LUMI-O rclone configuration on Mahti or Puhti.
 
-1. Go to auth.lumidata.eu
+1. Go to the [LUMI-O portal](auth.lumidata.eu)
 2. Select the LUMI project you want to use
 3. Click the valid 'Access key' for your project (or if you don't have one, create a new key first for your project)
 4. Select rclone from the Configuration templates and click 'Generate'
@@ -430,6 +451,9 @@ Later, reconnect with:
 ```bash
 tmux attach -t roihu-transfer
 ```
+
+If the transfer is interrupted, you can safely run the same `rclone copy` command again.
+`rclone copy` will skip files that already exist at the destination and continue copying missing or changed files.
 
 ## Important notes
 
