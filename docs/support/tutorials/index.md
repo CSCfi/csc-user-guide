@@ -17,6 +17,10 @@
 * [Using Python on CSC supercomputers](python-usage-guide.md)
 * [Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
 
+## Roihu
+
+* [Preparing for Roihu: object storage options for Mahti and Puhti users](roihu-data-preparation.md)
+
 ## Installation of tools on supercomputers
 
 * [Installing software with Spack](user-spack.md)
