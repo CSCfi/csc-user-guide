@@ -301,7 +301,7 @@ Follow the tutorial here for creating credentials and an access key:
 
 Since you are accessing LUMI-O from a different machine than LUMI, you need to add a LUMI-O rclone configuration on Mahti or Puhti.
 
-1. Go to the [LUMI-O portal](www.auth.lumidata.eu)
+1. Go to the [LUMI-O portal](https://auth.lumidata.eu)
 2. Select the LUMI project you want to use
 3. Click the valid 'Access key' for your project (or if you don't have one, create a new key first for your project)
 4. Select rclone from the Configuration templates and click 'Generate'
