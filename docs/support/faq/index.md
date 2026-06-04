@@ -55,6 +55,11 @@
 
 * [How to move data from Puhti to Allas and vice versa?](how-to-move-data-between-puhti-and-allas.md)
 * [Can I have a personal project or bucket in Allas?](can-i-have-a-personal-project-or-bucket-in-allas.md)
+* Export data
+    * [How to download data from Allas with rclone?](../../data/Allas/using_allas/rclone.md#download-objects)
+    * [How to download data from Allas with s3cmd?](../../data/Allas/using_allas/s3_client.md#download-objects-and-buckets)
+    * [How to download data from Allas with Python using S3?](../../data/Allas/using_allas/python_boto3/#download-an-object)
+    * [How to download data from Allas with swift?](../../data/Allas/using_allas/swift_client.md#download-or-delete-projects)
 * [Is it possible to move data in Allas to new project?](is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](is-it-possible-to-make-data-in-allas-read-only.md)
 * [What to do for data in Allas after project ends?](what-to-do-for-data-in-allas-after-project-ends.md)
