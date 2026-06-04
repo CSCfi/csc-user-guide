@@ -3,7 +3,7 @@
 The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-* [OpenShift concepts](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/overview/index)
+* [OpenShift concepts](https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/overview/index)
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 

@@ -16,6 +16,9 @@
 * [Connecting to CSC supercomputers using VS Code fails with out-of-memory error](vscode-out-of-memory.md)
 * [WARNING: connection is not using a post-quantum key exchange algorithm.](ssh-post-quantum.md)
 
+## Roihu
+* [Frequently asked questions about Roihu](roihu.md)
+
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
 * [Why is my job queuing so long?](why-is-my-job-queueing-so-long.md)
