@@ -90,8 +90,7 @@ Run the `mariadb-dump` command to create a SQL dump of your database:
 mariadb-dump -h ${PUBLIC_IP} -u ${USERNAME} -p${PASSWORD} --ssl --ssl-verify-server-cert=OFF ${DATABASE_NAME} > database_backup.sql
 ```
 
-- `-p${PASSWORD}`: Password with no space after `-p`. If you use `-p` alone,
-  the prompt appears but cannot receive input when output is redirected to a file.
+- `-p${PASSWORD}`: Password with no space after `-p`. If you use `-p` alone,`mariadb-dump` prompts for the password interactively.
 - `--ssl`: Enables an encrypted connection. Required for all Pukki MariaDB connections.
 - `--ssl-verify-server-cert=OFF`: This flag keeps the connection encrypted while skipping certificate validation. The `mariadb-dump` is stricter and requires this flag explicitly.
 - `database_backup.sql`: The name of the output file.
