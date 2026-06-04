@@ -47,6 +47,8 @@ If you have any data that you need to migrate from Puhti to Roihu, please be
 prepared to do it during spring 2026, at the very latest in August 2026. CSC
 will publish a detailed Roihu migration guide after Roihu's general availability.
 
+If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August, consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md). 
+
 ## Compute
 
 Roihu will have a total of 486 CPU nodes and 132 GPU nodes. The
