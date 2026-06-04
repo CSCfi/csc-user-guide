@@ -1,5 +1,10 @@
 # Preparing data for Roihu: moving data from Mahti and Puhti to Allas or LUMI-O
 
+!!! note "Roihu schedule"
+     The target for Roihu general availability is end of June 2026.
+
+     Mahti and Puhti storage services will shut down end of August 2026.
+
 This tutorial explains how to temporarily move data from Mahti or Puhti to object storage before Roihu is generally available.
 
 Transferring data in advance to Allas or LUMI-O may be useful if your research group cannot wait until Roihu is available,
@@ -23,15 +28,11 @@ The recommended temporary storage options are:
 
 After Roihu becomes available, you can copy the data from Allas or LUMI-O to Roihu.
 
-!!! warning "Note"
+!!! warning "Only use Allas or LUMI-O if strictly needed"
      Your primary approach in data migration from Mahti and Puhti to Roihu
      should be a direct copy from one machine to the other.
      Use Allas or LUMI-O only if you cannot complete the data
      transfer during the period between Roihu availability and the Mahti/Puhti storage shutdown.
-
-!!! note "Roihu schedule"
-     The target for Roihu general availability is end of June 2026.
-     Mahti and Puhti storage services will shut down end of August 2026.
 
 ## When should you use this tutorial?
 
@@ -169,7 +170,7 @@ rclone mkdir s3allas:project-2000000-roihu-transfer-${USER}
 
      `${USER}` is an environment variable, and you do not need to
      replace it in the tutorial commands, if you want to use your username
-     as an unique bucket identifier.
+     as a unique bucket identifier.
 
 
 ### 4. Copy data to Allas
