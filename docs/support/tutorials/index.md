@@ -21,6 +21,7 @@
 
 * [Getting started with Roihu](roihu.md)
 * [Roihu data migration guide](roihu-data.md)
+* [Preparing for Roihu: Data management and temporary storage options](roihu-data-preparation.md)
 
 ## Installation of tools on supercomputers
 
