@@ -84,6 +84,8 @@ password
 
 To migrate your database, you must first create a backup (or "dump") of your existing MariaDB instance. MariaDB provides the [mariadb-dump](https://mariadb.com/docs/server/clients-and-utilities/backup-restore-and-import-clients/mariadb-dump) utility, which exports a database to a plain SQL file. This format is commonly used for backups, migrations, and data archiving.
 
+Database dumps can be used to migrate data away from Pukki or to keep an independent backup outside CSC services. Maintaining a separate backup is recommended as an additional safeguard against accidental data loss.
+
 Run the `mariadb-dump` command to create a SQL dump of your database:
 
 ```
