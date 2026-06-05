@@ -1,8 +1,42 @@
-# Preparing data for Roihu: moving data from Mahti and Puhti to Allas or LUMI-O
+# Preparing data for Roihu: Data management and temporary storage options
 
-This tutorial explains how to temporarily move data from Mahti or Puhti to object storage before Roihu is generally available.
+!!! note "Roihu schedule"
+     **Roihu is not yet available for use**, and cannot be added as a service yet in MyCSC.
 
-This may be useful if your research group cannot wait until Roihu is available, for example because key project members will be unavailable during the period between Roihu general availability and the shutdown of Mahti and Puhti storage servers.
+     The target for Roihu general availability is end of June 2026.
+
+     Mahti and Puhti storage services will shut down end of August 2026.
+
+This tutorial helps you prepare your data for the transition from Mahti and Puhti to Roihu.
+The main recommendation is to plan the migration in advance, review what data you need to keep,
+and transfer actively used data
+directly from Mahti or Puhti to Roihu after Roihu is available.
+
+!!! info "Direct transfer from Mahti/Puhti to Roihu"
+     Preliminary instructions for direct data transfer from Mahti or Puhti to Roihu are available in the
+     [Roihu data migration guide](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/).
+
+     Use the direct transfer guide as the primary migration instructions **once Roihu is available**.
+
+If your research group cannot wait until Roihu is available,
+you might consider utilizing Allas or LUMI-O as a temporary storage service to host your data.
+
+Using Allas or LUMI-O might be applicable, for example, if key project members will be
+unavailable during the period between Roihu general availability and the shutdown of Mahti and Puhti storage servers.
+
+Another possible reason for utilizing Allas or LUMI-O temporarily is that Roihu's
+default storage quotas are smaller than on Mahti and Puhti.
+If your data does not fit within the default quotas, first review and clean up your data, and then consider whether you need a
+quota increase on Roihu for your project.
+See CSC documentation for [applying for more disk quota](../../accounts/how-to-increase-disk-quotas.md).
+
+The default disk quotas on Roihu are:
+
+|            |Capacity|Number of files|
+|------------|--------|---------------|
+|**home**    |15 GiB  |150 000 files  |
+|**projappl**|15 GiB  |150 000 files  |
+|**scratch** |250 GiB |500 000 files  |
 
 The recommended temporary storage options are:
 
@@ -11,21 +45,40 @@ The recommended temporary storage options are:
 
 After Roihu becomes available, you can copy the data from Allas or LUMI-O to Roihu.
 
-!!! warning "Note"
+!!! warning "Only use Allas or LUMI-O if strictly needed"
      Your primary approach in data migration from Mahti and Puhti to Roihu
      should be a direct copy from one machine to the other.
      Use Allas or LUMI-O only if you cannot complete the data
      transfer during the period between Roihu availability and the Mahti/Puhti storage shutdown.
 
-## When should you use this tutorial?
+!!! warning "Limited capacity in Allas"
+     Allas is running out of capacity. Use Allas only if your project has existing quota there. **Do not apply
+     for new Allas quota in your project** if you need object storage. Instead apply for LUMI-O access.
 
-Use this tutorial if:
+     See the short talk below for instructions on applying for a LUMI-O project.
+
+See a CSC short talk for **how to use object storage** and **how to apply for a LUMI-O project**, if needed:
+
+- [Slides](https://a3s.fi/kkmattil-2001659-pub/Lumi-O-for-migration.pptx)
+- [Recording](https://video.csc.fi/media/t/0_x4nzfb9z)
+
+## Recommended migration plan
+
+1. **Review and clean up your data now.** Decide what must be preserved, what can be deleted, and what should be rebuilt or regenerated on Roihu.
+2. **Plan where the data should go on Roihu.** Only data that you are actively processing should be moved directly to Roihu's working disk areas.
+3. **Transfer data directly from Mahti or Puhti to Roihu when Roihu is available.** A detailed guide for direct transfers will be published after Roihu is available, though you can already investigate the [WIP version of the guide](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/).
+4. **Use Allas or LUMI-O only if direct transfer is not possible in time.** These services can be used as temporary storage if you cannot complete the migration between Roihu general availability and the Mahti/Puhti storage shutdown.
+5. **Verify the copied data before deleting anything.** Keep the original data on Mahti or Puhti until the migration has been fully completed and verified.
+
+## When should you use the Allas or LUMI-O instructions in this tutorial?
+
+Use the Allas or LUMI-O instructions if:
 
 - you have data on Mahti or Puhti that must be preserved before the storage servers are shut down (end of August 2026)
-- you cannot wait until Roihu is generally available before starting the transfer (end of June 2026)
+- you cannot wait until Roihu is generally available before starting the transfer (end of June 2026), or you cannot complete a direct transfer to Roihu before the Mahti/Puhti storage shutdown
 - you need temporary object storage for the transition period
 
-Do not use this tutorial as a reason to move everything automatically. Before transferring data, **review what you actually need to keep**.
+Do not use the Allas or LUMI-O instructions to automatically move everything to Allas or LUMI-O. Before transferring data, **review what you actually need to keep**.
 
 ## Before you start
 
@@ -42,7 +95,7 @@ Only move data that you still need. In particular, avoid transferring:
 - software installations and executables that should be rebuilt on Roihu
 
 For large directories, check the data volume before transferring. On CSC supercomputers, prefer tools intended for
-checking disk usage (e.g. LUE) instead of running heavy recursive commands on large directory trees.
+checking disk usage (e.g. [LUE](../../support/tutorials/lue.md)) instead of running heavy recursive commands on large directory trees.
 
 ??? info "How to check disk usage on a directory"
      We recommend using the LUE tool to identify where you have lots of data.
@@ -58,7 +111,7 @@ checking disk usage (e.g. LUE) instead of running heavy recursive commands on la
 Choose **Allas** if:
 
 - your CSC project already has Allas access
-- the amount of data is moderate (~1 TB)
+- the amount of data is moderate (Few terabytes)
 - your project has enough available Allas quota
 
 Choose **LUMI-O** if:
@@ -145,6 +198,17 @@ Example (replace project-2000000 as your project ID):
 rclone mkdir s3allas:project-2000000-roihu-transfer-${USER}
 ```
 
+!!! note "Creating a unique identifier"
+     In the above example, the bucket is created with the name
+     `project-2000000-roihu-transfer-${USER}`. This gives the bucket your username as a suffix, which is a good way
+     to distinguish your own bucket from buckets
+     that other users in the project might create.
+
+     `${USER}` is an environment variable, and you do not need to
+     replace it in the tutorial commands, if you want to use your username
+     as a unique bucket identifier.
+
+
 ### 4. Copy data to Allas
 
 To copy a single file:
@@ -201,8 +265,8 @@ On Roihu, check which available buckets your project has in Allas with `rclone l
 
 ```bash
 [kkayttaj@roihu-cpu-login2 kkayttaj]$ rclone lsd s3allas:
-  3268222761 2020-10-03 10:01:42         8 2001659-genomes
-  2576778428 2020-10-03 10:01:42         4 2001659-mahti-SCRATCH
+  3268222761 2020-10-03 10:01:42         8 2000000-genomes
+  2576778428 2020-10-03 10:01:42         4 2000000-mahti-SCRATCH
 ```
 
 Copy the appropriate data to your directory on Roihu:
@@ -228,7 +292,7 @@ tar -xzf dataset-2025-08-01.tar.gz
 
 After the data has been copied to Roihu and verified, remove the temporary copy from Allas if it is no longer needed.
 
-Be careful: removal commands delete data from Allas. Do not run them before you have confirmed that the data exists in its final location.
+**Be careful:** removal commands delete data from Allas. Do not run them before you have confirmed that the data exists in its final location.
 
 To remove one object:
 
@@ -262,54 +326,46 @@ The same general rules apply as with Allas. Do not transfer everything blindly t
 Carefully review what you actually need to preserve, and remove unnecessary files before transfer.
 If you only need temporary storage during the transition to Roihu, delete the files from LUMI-O after you have copied and verified them on Roihu.
 
-### 1. Create LUMI-O credentials and an access key
+### 1. Create an rclone setup for copying data from Mahti or Puhti directly to LUMI-O
 
 First, you need credentials for LUMI-O and an access key to your project.
 
-Follow the tutorial here for creating credentials and an access key:
-https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/
-
-
-### 2. Create an rclone setup for copying data from Mahti or Puhti directly to LUMI-O
-
-Since you are accessing LUMI-O from a different machine than LUMI, you need to add a LUMI-O rclone configuration on Mahti or Puhti.
-
-1. Go to auth.lumidata.eu
-2. Select the LUMI project you want to use
-3. Click the valid 'Access key' for your project (or if you don't have one, create a new key first for your project)
-4. Select rclone from the Configuration templates and click 'Generate'
-5. Copy the generated rclone configuration block.
-6. On Mahti or Puhti, paste the generated block into your local rclone configuration file:
-
-   ```bash
-   ~/.config/rclone/rclone.conf
-   ```
-
-   If the file does not exist, create it first:
-
-   ```bash
-   mkdir -p ~/.config/rclone
-   chmod 700 ~/.config/rclone
-   nano ~/.config/rclone/rclone.conf
-   ```
-
-   If you already have an Allas configuration in the file, add the LUMI-O configuration below it.
-
-The generated LUMI-O rclone remote name is typically of the form:
+Object storage related tools are initialized in Puhti and Mahti with the command:
 
 ```text
-lumi-46500XXXX-private:
+module load allas
+```
+Connections to LUMI-O are configured with command:
+
+```text
+allas-conf --lumi
 ```
 
-where `46500XXXX` is your actual LUMI project ID.
+The configuration process asks you to login to [https://auth.lumidata.eu](https://auth.lumidata.eu)  where you can create an access key pair for your LUMI-project ( [instructions for generating keys](https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/) ).
 
-Use the `private` remote for normal data transfer. Do not use a public remote unless the data is intentionally public.
+You can then copy the _project number_, _access key_ and _secret key_ to the configuration process in Puhti or Mahti.
 
-### 3. Create a bucket for your data
+The configuration process creates four new rclone endpoints: 
+
+   * **lumi-o:** and  **lumi-_proj-number_-private:** refer to the non-public area of the LUMI-O project
+   * **lumi-pub:** and  **lumi-_proj-number_-public:** to the public area of the LUMI-O project.
+
+Use the `private` remotes for normal data transfer. Do not use a public remote unless the data is intentionally public.    
+
+In case of *a-commands* you can add option `--lumi` to the command in order to make use LUMI-O. For example:
+
+```text
+a-list --lumi
+```
+Executing LUMI-O configuration to a new project, changes the target project of a-commands, aws, s3cmd as well as lumi-o: and lumi-pub: endpoints but preserves the endpoint names that include the project numbers.
+
+Note that the Lumi-O keys have a validity time, defined in the authentication interface. Thus, you may need to update the connection configuration every now and then.
+
+### 2. Create a bucket for your data
 
 Before copying data to LUMI-O, create a bucket for the transfer.
 
-On Mahti/Puhti:
+In a Mahti/Puhti terminal:
 
 ```bash
 rclone mkdir lumi-46500XXXX-private:roihu-transfer-${USER}
@@ -323,7 +379,17 @@ rclone lsd lumi-46500XXXX-private:
 
 Replace `46500XXXX` with your actual LUMI project ID.
 
-### 4. Copy data to LUMI-O
+!!! note "Creating a unique identifier"
+     In the above example, the bucket is created with the name
+     `roihu-transfer-${USER}`. This gives the bucket your username as a suffix, which is a good way
+     to distinguish your own bucket from buckets
+     that other users in the project might create.
+
+     `${USER}` is an environment variable, and you do not need to
+     replace it in the tutorial commands, if you want to use your username
+     as an unique bucket identifier.
+
+### 3. Copy data to LUMI-O
 
 Now you're ready to transfer data to LUMI-O.
 
@@ -348,7 +414,7 @@ rclone copy /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfe
   --log-file roihu-transfer-to-lumio.log
 ```
 
-### 5. Verify the uploaded data
+### 4. Verify the uploaded data
 
 List the uploaded data:
 
@@ -369,7 +435,7 @@ rclone check /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transf
   --log-file roihu-transfer-lumio-check.log
 ```
 
-### 6. Copy data back from LUMI-O later
+### 5. Copy data back from LUMI-O later
 
 After Roihu is available, configure LUMI-O access on Roihu and copy the data from LUMI-O to the appropriate Roihu disk area.
 
@@ -431,6 +497,9 @@ Later, reconnect with:
 tmux attach -t roihu-transfer
 ```
 
+If the transfer is interrupted, you can safely run the same `rclone copy` command again.
+`rclone copy` will skip files that already exist at the destination and continue copying missing or changed files.
+
 ## Important notes
 
 ### Do not delete the original data too early
@@ -455,7 +524,7 @@ rclone sync /scratch/project_2000000/mydata s3allas:project-2000000-roihu-transf
 
 Allas and LUMI-O are suitable for storing, staging, sharing, and transferring data. They are not replacements for scratch or project directories on a supercomputer.
 
-Do not run applications directly against object storage as if it were a normal filesystem.
+Never run applications directly against object storage as if it were a normal filesystem.
 
 ### Protect sensitive data
 
@@ -463,7 +532,7 @@ Do not upload sensitive data unless the storage service and your project’s dat
 
 ### Document what was moved
 
-Create a small README file and upload it with the data. For example:
+To follow best practices, create a small README file and upload it to Allas/LUMI-O with the data. For example:
 
 ```text
 Dataset: Example simulation outputs
