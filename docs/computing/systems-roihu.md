@@ -46,8 +46,9 @@ completely. Mahti will be closed end of August 2026.
 ### Prepare for data migration from Mahti and Puhti to Roihu
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during summer 2026, at the very latest in August 2026. CSC
-will publish a detailed Roihu migration guide after Roihu's general availability.
+prepared to do it during summer 2026, at the very latest in August 2026.
+See the [Roihu migration guide](../support/tutorials/roihu-data.md) on how you can transfer data
+directly from Mahti and Puhti to Roihu.
 
 If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August,
 consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md).
@@ -81,6 +82,10 @@ each, as well as four high-memory CPU nodes with 6 TiB memory and higher
 single-thread performance.
 
 ### Nodes
+
+!!! note "Node names"
+     The node names below describe the different node types in Roihu. Batch job partitions and allocation types in Slurm may use different names. 
+     See the [Slurm partition documentation](running/batch-job-partitions.md) for how to request these resources in Slurm.
 
 | Name | Number of nodes | Compute        | Cores                          | Memory (GiB) | Local disk (TB) |
 |:-----|----------------:|---------------:|-------------------------------:|-------------:|----------------:|
@@ -124,13 +129,13 @@ node will include a total of 13 TiB of fast NVMe disks.
 The available storage quota that a single user can access in their jobs depends
 on the system [partition](running/batch-job-partitions.md) they use:
 
-| Allocation type    | Quota per user |
-|:-------------------|---------------:|
-| R (shared nodes)   | 20 GiB         |
-| N (full nodes)     | 600 GiB        |
-| G (GPU nodes)      | 150 GiB        |
-| Hugemem (XL) nodes | 1.6 TiB        |
-| VIZ nodes          | 6.5 TiB        |
+| Allocation type         | Quota per user |
+|:------------------------|---------------:|
+| R (shared nodes)        | 20 GiB         |
+| N (full nodes)          | 600 GiB        |
+| G (GPU nodes)           | 150 GiB        |
+| Hugemem (XL) nodes      | 1.6 TiB        |
+| V (visualization nodes) | 6.5 TiB        |
 
 As a new feature, users will also be able to request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity will be
@@ -163,6 +168,9 @@ including:
 
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
+
+A list of currently supported applications on Roihu can be found on the
+[applications page](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/apps/by_availability/#roihu).
 
 ## Sensitive data services in Roihu
 
