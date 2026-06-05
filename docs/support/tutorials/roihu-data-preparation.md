@@ -128,7 +128,7 @@ It is not suitable for storing full software installations, or working with larg
 ### 3. Consider packaging many small files
 
 If you have many small files, transferring and accessing them in an object storage service one by one can be slow and inefficient.
-Consider creating archive files before upload. 
+Consider creating archive files before upload.
 
 For example, to package the `dataset/` directory in `/scratch/project_2000000/mydata`:
 
@@ -330,36 +330,36 @@ If you only need temporary storage during the transition to Roihu, delete the fi
 
 First, you need credentials for LUMI-O and an access key to your project.
 
-Object storage related tools are initialized in Puhti and Mahti with command:
+Object storage related tools are initialized in Puhti and Mahti with the command:
 
 ```text
 module load allas
 ```
-Connections to Lumi-O are configured with command:
+Connections to LUMI-O are configured with command:
 
 ```text
 allas-conf --lumi
 ```
 
-The configuration process asks you to login to [https://auth.lumidata.eu](https://auth.lumidata.eu)  where you can create an access key pair for your Lumi-project ( [instructions for generating keys](https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/) ).
+The configuration process asks you to login to [https://auth.lumidata.eu](https://auth.lumidata.eu)  where you can create an access key pair for your LUMI-project ( [instructions for generating keys](https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/) ).
 
 You can then copy the _project number_, _access key_ and _secret key_ to the configuration process in Puhti or Mahti.
 
-The conifiguration process creates four new rclone endpoints: 
+The configuration process creates four new rclone endpoints: 
 
-   * **lumi-o:** and  **lumi-_proj-number_-private:** refer to the non-public area of the Lumi-O project
-   * **lumi-pub:** and  **lumi-_proj-number_-public:** to the public area of the Lumi-O project.
+   * **lumi-o:** and  **lumi-_proj-number_-private:** refer to the non-public area of the LUMI-O project
+   * **lumi-pub:** and  **lumi-_proj-number_-public:** to the public area of the LUMI-O project.
 
 Use the `private` remotes for normal data transfer. Do not use a public remote unless the data is intentionally public.    
 
-In case of *a-commands* you can add option `--lumi` to the command in order to make use Lumi-O. For example:
+In case of *a-commands* you can add option `--lumi` to the command in order to make use LUMI-O. For example:
 
 ```text
 a-list --lumi
 ```
-Executing Lumi-O configuration to a new project, changes the target project of a-commands, aws, s3cmd as well as lumi-o: and lumi-pub: endpoints but preserves the endpoint names that include the project numbers.
+Executing LUMI-O configuration to a new project, changes the target project of a-commands, aws, s3cmd as well as lumi-o: and lumi-pub: endpoints but preserves the endpoint names that include the project numbers.
 
-Note that the Lumi-O keys have a validity time, defined in the authentication interface. Thus you may need to update the connection configuration every now and then.
+Note that the Lumi-O keys have a validity time, defined in the authentication interface. Thus, you may need to update the connection configuration every now and then.
 
 ### 2. Create a bucket for your data
 
